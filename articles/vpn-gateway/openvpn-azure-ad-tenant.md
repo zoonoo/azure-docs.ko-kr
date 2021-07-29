@@ -1,24 +1,25 @@
 ---
-title: 'VPN Gateway: P2S VPN 연결을 위한 Azure AD 테넌트: Azure AD 인증'
-description: P2S Open VPN 인증을 위해 Azure AD 테넌트를 설정하는 방법을 알아봅니다.
+title: 'P2S VPN 연결을 위한 Azure AD 테넌트 만들기: Azure AD 인증'
+titleSuffix: Azure VPN Gateway
+description: P2S Azure AD 인증 - OpenVPN 프로토콜을 위한 Azure AD 테넌트를 설정하는 방법을 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 05/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: bff1eec0152ab0f57edd212adf6b14f7b588fb51
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34ea18e67752ed28986a08c4132ca10fbedce3c6
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100390167"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652480"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>P2S OpenVPN 프로토콜 연결을 위한 Azure Active Directory 테넌트 만들기
 
-VNet에 연결하는 경우 인증서 기반 인증 또는 RADIUS 인증을 사용할 수 있습니다. 그러나 OpenVPN 프로토콜을 사용하는 경우에는 Azure Active Directory 인증을 사용할 수도 있습니다. 이 문서는 P2S Open VPN 인증을 위해 Azure AD 테넌트를 설정하는 데 도움이 됩니다.
+지점 및 사이트 간을 사용하여 VNet에 연결할 때 사용할 프로토콜을 선택할 수 있습니다. 사용하는 프로토콜에 따라 사용 가능한 인증 옵션이 결정됩니다. Azure Active Directory 인증을 사용하려는 경우 OpenVPN 프로토콜을 사용할 때 이 작업을 수행할 수 있습니다. 이 문서는 Azure AD 테넌트를 설정하는 데 도움이 됩니다. 지점 및 사이트 간의 프로토콜 및 인증에 대한 자세한 내용은 [지점 및 사이트 간의 VPN 정보](point-to-site-about.md)를 참조하세요.
 
-[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
+[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="1-verify-azure-ad-tenant"></a><a name="tenant"></a>1. Azure AD 테넌트 확인
 
@@ -27,11 +28,11 @@ Azure AD 테넌트가 있는지 확인합니다. Azure AD 테넌트가 없는 �
 * 조직 구성 이름
 * 초기 도메인 이름
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/newtenant.png" alt-text="새 Azure AD 테넌트" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/newtenant.png" alt-text="디렉터리 만들기 페이지의 스크린샷" border="false":::
 
 ## <a name="2-create-azure-ad-tenant-users"></a><a name="users"></a>2. Azure AD 테넌트 사용자 만들기
 
-Azure AD 테넌트에는 전역 관리자 계정 및 마스터 사용자 계정이 필요합니다. 마스터 사용자 계정은 마스터 임베딩 계정(서비스 계정)으로 사용됩니다. Azure AD 테넌트 사용자 계정을 만들 때 만들려는 사용자 유형에 대한 디렉터리 역할을 조정합니다.
+Azure AD 테넌트에는 전역 관리자 계정 및 사용자 계정이 필요합니다. 사용자 계정은 임베딩 계정(서비스 계정)으로 사용됩니다. Azure AD 테넌트 사용자 계정을 만들 때 만들려는 사용자 유형에 대한 디렉터리 역할을 조정합니다.
 
 [사용자 추가 또는 삭제 - Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md)의 단계를 사용하여 Azure AD 테넌트에 둘 이상의 사용자를 만듭니다. 계정 유형을 만들려면 **디렉터리 역할** 을 변경해야 합니다.
 
@@ -80,7 +81,7 @@ Azure AD 테넌트에는 전역 관리자 계정 및 마스터 사용자 계정�
 
 1. 메시지가 표시되면 **전역 관리자** 계정을 선택합니다.
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/pick.png" alt-text="계정 선택" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/pick.png" alt-text="계정 선택 페이지가 표시된 스크린샷" border="false":::
 1. 메시지가 표시되면 **수락** 을 선택합니다.
 
    :::image type="content" source="./media/openvpn-create-azure-ad-tenant/accept.jpg" alt-text="사용 권한 요청됨 조직 대신 수락 메시지와 세부 정보 및 수락 옵션을 보여주는 스크린샷." border="false":::
@@ -96,12 +97,18 @@ Azure AD 테넌트에는 전역 관리자 계정 및 마스터 사용자 계정�
 
    * **테넌트:** Azure AD 테넌트의 TenantID ```https://login.microsoftonline.com/{AzureAD TenantID}/```
 
-   * **대상:** "Azure VPN" Azure AD Enterprise App의 ApplicationID ```{AppID of the "Azure VPN" AD Enterprise app}```
+   * **대상 그룹:** "Azure VPN" Azure AD Enterprise 앱의 애플리케이션 ID
+
+       * Azure Public에 41b23e61-6c1e-4545-b367-cd054e0ed4b4 입력
+       * Azure Government에 51bb15d4-3a4f-4ebf-9dca-40096fe32426 입력
+       * Azure 독일에 538ee9e6-310a-468d-afef-ea97365856a9 입력
+       * Azure 중국 21Vianet에 49f817b6-84ae-4cc0-928c-73f27289b3aa 입력
+
 
    * **발급자**: 보안 토큰 서비스의 URL ```https://sts.windows.net/{AzureAD TenantID}/```
 
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="SAzure VPN" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="Azure Active Directory 설정, 터널 유형 및 인증 유형에 대한 설정을 보여주는 스크린샷" border="false":::
 
    > [!NOTE]
    > `AadIssuerUri` 값의 끝에 후행 슬래시를 포함해야 합니다. 그렇지 않으면 연결이 실패할 수 있습니다.
@@ -111,9 +118,9 @@ Azure AD 테넌트에는 전역 관리자 계정 및 마스터 사용자 계정�
 
 1. 다운로드한 zip 파일의 압축을 풉니다.
 
-1. 압축 해제된 "AzureVPN" 폴더로 이동합니다.
+1. 압축 해제된 ‘AzureVPN’ 폴더로 이동합니다.
 
-1. “azurevpnconfig.xml” 파일의 위치를 기록합니다. azurevpnconfig.xml에는 VPN 연결에 대한 설정이 포함되어 있으며 Azure VPN Client 애플리케이션으로 직접 가져올 수 있습니다. 또한 이메일 또는 다른 방법을 통해 연결해야 하는 모든 사용자에게 이 파일을 배포할 수 있습니다. 성공적으로 연결하려면 사용자에게 유효한 Azure AD 자격 증명이 필요합니다.
+1. ‘azurevpnconfig.xml’ 파일의 위치를 기록합니다. azurevpnconfig.xml에는 VPN 연결에 대한 설정이 포함되어 있으며, Azure VPN Client 애플리케이션으로 직접 가져올 수 있습니다. 또한 이메일 또는 다른 방법을 통해 연결해야 하는 모든 사용자에게 이 파일을 배포할 수 있습니다. 성공적으로 연결하려면 사용자에게 유효한 Azure AD 자격 증명이 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

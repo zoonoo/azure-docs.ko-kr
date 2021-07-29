@@ -3,20 +3,20 @@ title: Azure SQL 데이터 동기화는 무엇인가요?
 description: 이 개요에서는 여러 클라우드 및 온-프레미스 데이터베이스 간에 데이터를 동기화할 수 있게 해주는 Azure SQL 데이터 동기화를 소개합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: sql-data-sync
 ms.custom: data sync, sqldbrb=1, fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: MaraSteiu
+ms.author: masteiu
+ms.reviewer: mathoma
 ms.date: 08/20/2019
-ms.openlocfilehash: c38e4681c76fb0dd52d77c7dc1438b87a9571a80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3a2be7a00c6718dd33b573faec4a619cbf5a1bb
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562062"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112074848"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Azure SQL 데이터 동기화는 무엇인가요?
 
@@ -151,6 +151,9 @@ SQL 데이터 동기화는 온-프레미스 및 클라우드 모두의 여러 �
 - 이름이 같지만 스키마가 다른 테이블이 있으면(예: dbo.customers 및 sales.customers) 테이블 중 하나만 동기화에 추가할 수 있습니다.
 - 사용자 정의 데이터 형식이 있는 열은 지원되지 않음
 - 서로 다른 구독 간의 서버 이동은 지원되지 않습니다. 
+- 두 개의 기본 키만 다른 경우(예: Foo 및 foo) 데이터 동기화에서 이 시나리오를 지원하지 않습니다.
+- 테이블 잘림은 데이터 동기화에서 지원되는 작업이 아닙니다(변경 내용은 추적되지 않음).
+- 하이퍼스케일 데이터베이스는 지원되지 않습니다. 
 
 #### <a name="unsupported-data-types"></a>지원되지 않는 데이터 형식
 
@@ -200,7 +203,7 @@ SQL 데이터 동기화는 온-프레미스 및 클라우드 모두의 여러 �
 
 ### <a name="how-much-does-the-sql-data-sync-service-cost"></a>SQL 데이터 동기화 서비스의 요금은 얼마인가요?
 
-SQL 데이터 동기화 서비스 자체에는 요금이 부과되지 않습니다. 단, SQL Database 인스턴스에서 송수신되는 데이터 이동에 대한 데이터 전송 요금은 수집됩니다. 자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
+SQL 데이터 동기화 서비스 자체에는 요금이 부과되지 않습니다. 단, SQL Database 인스턴스에서 송수신되는 데이터 이동에 대한 데이터 전송 요금은 수집됩니다. 자세한 내용은 [데이터 전송 요금](https://azure.microsoft.com/pricing/details/bandwidth/)을 참조하세요.
 
 ### <a name="what-regions-support-data-sync"></a>데이터 동기화를 지원하는 지역은 어디인가요?
 

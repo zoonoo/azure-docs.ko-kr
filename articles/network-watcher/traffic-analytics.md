@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
-ms.custom: references_regions
-ms.openlocfilehash: 87dacd28223fd88866edb90266aa76fd3cdf86cf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: 6588ee515d46f3f300bf3c486f0d528c6f31df98
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101095359"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032090"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -70,40 +70,42 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
       인도 중부  
       미국 중부  
       중국 동부 2  
-      중국 북부 2  
-      동아시아       
+      중국 북부   
+      중국 북부 2       
    :::column-end:::
    :::column span="":::
+      동아시아  
       미국 동부  
       미국 동부 2  
       미국 동부 2 EUAP  
       프랑스 중부  
-      독일 중서부 일본 동부  
+      독일 중서부  
+      일본 동부  
       일본 서부  
       한국 중부  
       한국 남부  
-      미국 중북부  
-      북유럽    
+      미국 중북부    
    :::column-end:::
    :::column span="":::
+      북유럽  
       남아프리카 북부  
       미국 중남부  
       인도 남부  
-      동남 아시아  
+      동남아시아  
       스위스 북부  
       스위스 서부  
       아랍에미리트 북부  
       영국 남부  
-      영국 서부   
-      USGov 애리조나  
-      USGov 텍사스
+      영국 서부     
+      USGov 애리조나
    :::column-end:::
    :::column span="":::
+      USGov 텍사스  
       USGov 버지니아  
       USNat 동부  
-      USNat 서 부  
+      USNat 서부  
       USSec 동부  
-      USSec 서 부  
+      USSec 서부  
       미국 중서부  
       서유럽  
       미국 서부  
@@ -120,41 +122,44 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
       오스트레일리아 동부  
       오스트레일리아 남동부  
       브라질 남부  
+      브라질 남동부  
       캐나다 중부  
       인도 중부  
       미국 중부  
-      중국 동부 2  
+      중국 동부 2      
       동아시아  
-      미국 동부  
    :::column-end:::
    :::column span="":::
+      미국 동부  
       미국 동부 2  
       미국 동부 2 EUAP  
       프랑스 중부  
       독일 중서부  
       일본 동부  
+      일본 서부  
       한국 중부  
       미국 중북부  
       북유럽  
-      남아프리카 북부  
-      미국 중남부  
    :::column-end:::
    :::column span="":::
+      노르웨이 동부  
+      남아프리카 북부  
+      미국 중남부  
       동남아시아  
       스위스 북부  
       스위스 서부  
       아랍에미리트 중부  
       아랍에미리트 북부  
       영국 남부  
-      영국 서부   
-      USGov 애리조나  
-      USGov 버지니아  
-      USNat 동부   
+      영국 서부      
    :::column-end:::
    :::column span="":::
-      USNat 서 부   
+      USGov 애리조나  
+      USGov 버지니아  
+      USNat 동부  
+      USNat 서부   
       USSec 동부  
-      USSec 서 부  
+      USSec 서부  
       미국 중서부  
       서유럽  
       미국 서부  
@@ -162,11 +167,14 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
    :::column-end:::
 :::row-end:::
 
+> [!NOTE]
+> NSG가 지역을 지원하지만 Log Analytics 작업 영역이 위 목록에 따라 트래픽 분석을 위해 해당 지역을 지원하지 않는 경우, 이를 해결하려면 지원되는 다른 지역의 Log Analytics 작업 영역을 사용할 수 있습니다.
+
 ## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="user-access-requirements"></a>사용자 액세스 요구 사항
 
-계정은 다음 [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)중 하나의 구성원 이어야 합니다.
+계정은 다음 [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 중 하나의 구성원이어야 합니다.
 
 |배포 모델   | 역할                   |
 |---------          |---------               |
@@ -189,7 +197,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 - "Microsoft.Network/virtualNetworks/read"
 - "Microsoft.Network/expressRouteCircuits/read"
 
-사용자 액세스 권한을 확인하는 방법에 대한 정보는 [트래픽 분석 FAQ](traffic-analytics-faq.md)를 참조하세요.
+사용자 액세스 권한을 확인하는 방법에 대한 정보는 [트래픽 분석 FAQ](traffic-analytics-faq.yml)를 참조하세요.
 
 ### <a name="enable-network-watcher"></a>Network Watcher 사용
 
@@ -271,7 +279,7 @@ Azure PowerShell에서 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az
 - 차단된 트래픽 통계
     - 호스트가 상당한 양의 무해 트래픽을 차단하는 이유 이 동작을 수행하려면 더 많은 조사와 구성의 최적화가 필요합니다.
 - 허용된/차단된 악성 트래픽 통계
-  - 악의적인 트래픽을 수신 하는 호스트와 악성 소스에서 흐름이 허용 되는 이유는 무엇 인가요? 이 동작을 수행하려면 더 많은 조사와 구성의 최적화가 필요합니다.
+  - 호스트가 악성 트래픽을 수신하는 이유 및 악성 원본의 흐름이 허용되는 이유는 무엇인가요? 이 동작을 수행하려면 더 많은 조사와 구성의 최적화가 필요합니다.
 
     다음 그림과 같이 **호스트** 아래에서 **모두 보기** 를 선택합니다.
 
@@ -386,7 +394,7 @@ Azure PowerShell에서 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az
  - 애플리케이션 게이트웨이 또는 Load Balancer와 대화하는 서브넷을 알고 있음. 예기치 않은 대화가 발견되면 구성을 수정할 수 있습니다.
  - 불량 네트워크가 애플리케이션 게이트웨이 또는 Load Balancer와 대화하는 경우 불량 네트워크를 차단하도록 NSG 규칙을 구성하여 수정할 수 있습니다. 
 
-    ![스크린샷은 흐름과 관련 하 여 응용 프로그램 게이트웨이 서브넷에 트래픽이 분산 된 서브넷 토폴로지를 보여 줍니다.](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
+    ![스크린샷은 흐름과 관련하여 애플리케이션 게이트웨이 서브넷에 트래픽이 분산된 서브넷 토폴로지를 보여줍니다.](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>인터넷에서 트래픽을 수신하는 포트 및 가상 머신 보기
 
@@ -427,7 +435,7 @@ Azure PowerShell에서 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-자주 묻는 질문에 대한 답변은 [트래픽 분석 FAQ](traffic-analytics-faq.md)를 참조하세요.
+자주 묻는 질문에 대한 답변은 [트래픽 분석 FAQ](traffic-analytics-faq.yml)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

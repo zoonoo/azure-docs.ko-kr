@@ -3,12 +3,12 @@ title: MABS를 사용하여 Azure에 SharePoint 팜 백업
 description: Azure Backup Server를 사용하여 SharePoint 데이터를 백업 및 복원합니다. 이 문서에서는 원하는 데이터를 Azure에 저장할 수 있도록 SharePoint 팜을 구성하는 정보를 제공합니다. 디스크 또는 Azure에서 보호된 SharePoint 데이터를 복원할 수 있습니다.
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.openlocfilehash: 837aabf739431eebaa6406770620329fe6345eb7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd0c6ede50151114994152ed2375cf53f708c620
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89375400"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769366"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>MABS를 사용하여 Azure에 SharePoint 팜 백업
 
@@ -80,7 +80,7 @@ SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 ShareP
 
 1. **그룹 멤버 선택** 에서 WFE 역할을 보유하는 서버를 확장합니다. WFE 서버가 두 개 이상 있는 경우 ConfigureSharePoint.exe를 설치한 서버를 선택합니다.
 
-    SharePoint 서버 MABS 쿼리 VSS를 확장하여 MABS에서 보호할 수 있는 데이터를 확인합니다.  SharePoint 데이터베이스가 원격이면 MABS가 해당 데이터베이스에 연결합니다. SharePoint 데이터 원본이 표시되지 않는 경우에는 SharePoint 서버 및 원격 SQL Server에서 VSS 기록기가 실행되고 있는지 확인하고, MABS 에이전트가 SharePoint 서버와 원격 SQL Server 모두에 설치되어 있는지 확인합니다. 또한 SharePoint 데이터베이스가 SQL Server 데이터베이스처럼 다른 위치에서 보호되고 있지 않은지 확인합니다.
+    SharePoint를 실행하는 컴퓨터를 확장하면 MABS는 VSS를 쿼리하여 MABS에서 보호할 수 있는 데이터를 확인합니다. SharePoint 데이터베이스가 원격이면 MABS가 해당 데이터베이스에 연결합니다. SharePoint 데이터 원본이 표시되지 않으면 SharePoint를 실행하는 컴퓨터 및 SQL Server 원격 인스턴스에서 VSS 기록기가 실행 중인지 확인합니다. 그런 다음, SharePoint를 실행하는 컴퓨터와 SQL Server의 원격 인스턴스 모두에 MABS 에이전트가 설치되어 있는지 확인합니다. 또한 SharePoint 데이터베이스가 SQL Server 데이터베이스처럼 다른 위치에서 보호되고 있지 않은지 확인합니다.
 
 1. **데이터 보호 방법 선택** 에서 단기 및 장기\- 백업을 처리하는 방법을 지정합니다. 단기 백업은 항상 디스크에 먼저 기록되고 Azure Backup을 사용하여 디스크에서 Azure 클라우드로 백업하는 옵션\(단기 또는 장기\)이 있습니다.
 

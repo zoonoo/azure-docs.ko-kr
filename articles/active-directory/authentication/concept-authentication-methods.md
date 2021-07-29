@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: ee10aa7c461aca65f385c735f6e9aaa28af7f9e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6071370d510881d06c5b81f8660781169596a72
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103471704"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764420"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Azure Active Directory에서 사용할 수 있는 인증 및 확인 방법은 무엇인가요?
 
@@ -74,7 +74,7 @@ Azure AD MFA(Multi-Factor Authentication)는 사용자가 로그인할 때 암�
 | 음성 통화                     | 예                     | MFA 및 SSPR              |
 | 암호                       | 예                    |                           |
 
-모든 관련 인증 방법은 Azure Portal에서 구성하며 [Microsoft Graph REST API 베타](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta)를 점점 더 많이 사용하여 구성할 수 있습니다.
+모든 관련 인증 방법은 Azure Portal에서 구성하며 [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview)를 점점 더 많이 사용하여 구성할 수 있습니다.
 
 각 인증 방법의 작동 방식에 대한 자세한 내용은 다음의 개별 개념 문서를 참조하세요.
 
@@ -90,6 +90,9 @@ Azure AD MFA(Multi-Factor Authentication)는 사용자가 로그인할 때 암�
 > [!NOTE]
 > Azure AD에서 암호는 대개 기본 인증 방법 중 하나입니다. 암호 인증 방법을 사용하지 않도록 설정할 수는 없습니다. 암호를 기본 인증 요소로 사용하는 경우 Azure AD Multi-Factor Authentication을 사용하여 로그인 이벤트의 보안을 강화합니다.
 
+> [!IMPORTANT]
+> FIDO2는 MFA의 형태로 사용되는 데 필요한 요구 사항을 충족하지만 FIDO2는 암호가 없는 인증 형식으로만 사용할 수 있습니다.
+
 특정 시나리오에서 다음 추가 인증 방법을 사용할 수 있습니다.
 
 * [앱 암호](howto-mfa-app-passwords.md) - 최신 인증을 지원하지 않는 이전 애플리케이션에 사용되며 사용자별 Azure AD Multi-Factor Authentication에 대해 구성할 수 있습니다.
@@ -104,7 +107,7 @@ SSPR 개념에 대한 자세한 내용은 [Azure AD 셀프 서비스 암호 재�
 
 MFA 옵션에 대해 자세히 알아보려면 [Azure AD Multi-Factor Authentication 작동 방법][concept-mfa]을 참조하세요.
 
-[Microsoft Graph REST API 베타](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta)를 사용하는 인증 구성 방법에 대해 자세히 알아보세요.
+[Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview)를 사용하는 인증 구성 방법에 대해 자세히 알아봅니다.
 
 사용 중인 인증 방법을 검토하려면 [PowerShell을 사용한 Azure AD Multi-Factor Authentication 인증 방법 분석](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/)을 참조하세요.
 

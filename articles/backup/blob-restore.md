@@ -1,16 +1,16 @@
 ---
 title: Azure Blob 복원
-description: Azure Blob(미리 보기)을 복원하는 방법에 대해 알아봅니다.
+description: Azure Blob을 복원하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 02/16/2021
-ms.openlocfilehash: 4cbd47ea654115f00095e30f7d5114aec0f2c85a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/05/2021
+ms.openlocfilehash: aaca425e2ea13948fbd52bf60ed30d64c29c27d3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101745517"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767278"
 ---
-# <a name="restore-azure-blobs-in-preview"></a>Azure Blob 복원(미리 보기)
+# <a name="restore-azure-blobs"></a>Azure Blob 복원
 
 운영 백업이 구성된 스토리지 계정의 블록 Blob은 보존 범위 내의 특정 시점으로 복원할 수 있습니다. 또한 복원 범위를 스토리지 계정의 모든 블록 Blob 또는 Blob의 하위 집합으로 지정할 수 있습니다.
 
@@ -19,8 +19,8 @@ ms.locfileid: "101745517"
 - Blob은 같은 스토리지 계정으로 복원됩니다. 따라서 복원하는 시간 이후에 변경된 Blob은 덮어씁니다.
 - 표준 범용 v2 스토리지 계정의 블록 Blob만 복원 작업의 일부로 복원할 수 있습니다. 추가 Blob, 페이지 Blob 및 프리미엄 블록 Blob은 복원되지 않습니다.
 - 복원 작업이 진행 중인 동안에는 스토리지의 Blob을 읽거나 쓸 수 없습니다.
-- 활성 임대가 있는 Blob은 복원할 수 없습니다. 활성 임대가 있는 Blob이 복원할 Blob 범위에 포함된 경우 복원 작업이 자동으로 실패합니다. 복원 작업을 시작하기 전에 활성 임대를 중단합니다.
-- 스냅샷은 복원 작업의 일부로 생성되거나 삭제되지 않습니다. 기본 Blob만 이전 상태로 복원됩니다.
+- 활성 임대가 있는 Blob은 복원할 수 없습니다. 활성 임대가 있는 BLOB이 복원할 BLOB 범위에 포함된 경우 복원 작업이 자동으로 실패합니다. 복원 작업을 시작하기 전에 활성 임대를 중단합니다.
+- 스냅샷은 복원 작업의 일부로 생성되거나 삭제되지 않습니다. 기본 BLOB만 이전 상태로 복원됩니다.
 - **컨테이너 삭제** 작업을 호출하여 스토리지 계정에서 컨테이너를 삭제하면 해당 컨테이너는 복원 작업을 통해 복원할 수 없습니다. 전체 컨테이너를 삭제하는 대신 개별 Blob을 삭제해야 나중에 복원할 수 있습니다. 또한 컨테이너를 실수로 삭제하지 않도록 보호하기 위해 운영 백업 외에 컨테이너에 대해 일시 삭제를 사용하도록 설정하는 것이 좋습니다.
 - 모든 제한 사항 및 지원되는 시나리오는 [지원 매트릭스](blob-backup-support-matrix.md)를 참조하세요.
 
@@ -84,4 +84,4 @@ ms.locfileid: "101745517"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Blob에 대한 운영 백업 개요(미리 보기)](blob-backup-overview.md)
+- [Azure Blob에 대한 운영 백업 개요](blob-backup-overview.md)

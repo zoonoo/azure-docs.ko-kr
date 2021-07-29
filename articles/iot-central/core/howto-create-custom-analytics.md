@@ -1,24 +1,24 @@
 ---
 title: 사용자 지정 분석으로 Azure IoT Central 확장 | Microsoft Docs
 description: 솔루션 개발자는 사용자 지정 분석 및 시각화를 수행하도록 IoT Central 애플리케이션을 구성합니다. 이 솔루션에서는 Azure Databricks를 사용합니다.
-author: TheRealJasonAndrew
-ms.author: v-anjaso
+author: philmea
+ms.author: philmea
 ms.date: 03/15/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 3132ec8fb3cb123653887d92a2f33788f40564c0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3e3ce75adde26d1392bff143ad38ff857e14f6d6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105033826"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108750116"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Azure Databricks를 사용하여 사용자 지정 분석으로 Azure IoT Central 확장
 
-이 방법 가이드에서는 솔루션 개발자로서 사용자 지정 분석 및 시각화를 사용하여 IoT Central 애플리케이션을 확장하는 방법을 보여 줍니다. 이 예제에서는 [Azure Databricks](/azure/azure-databricks/) 작업 영역을 사용하여 IoT Central 원격 분석 스트림을 분석하고 [상자 그림](https://wikipedia.org/wiki/Box_plot) 같은 시각화를 생성합니다.  
+이 방법 가이드에서는 사용자 지정 분석 및 시각화를 사용하여 IoT Central 애플리케이션을 확장하는 방법을 보여줍니다. 이 예제에서는 [Azure Databricks](/azure/azure-databricks/) 작업 영역을 사용하여 IoT Central 원격 분석 스트림을 분석하고 [상자 그림](https://wikipedia.org/wiki/Box_plot) 같은 시각화를 생성합니다.  
 
 이 방법 가이드에서는 [기본 제공 분석 도구](./howto-create-custom-analytics.md)로 이미 수행할 수 있는 작업 이상으로 IoT Central을 확장하는 방법을 보여 줍니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "105033826"
 * *연속 데이터 내보내기* 를 사용하여 IoT Central 애플리케이션에서 원격 분석을 스트림합니다.
 * 디바이스 원격 분석을 분석하고 그리는 Azure Databricks 환경을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
@@ -61,7 +61,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 | 설정 | 값 |
 | ------- | ----- |
-| 이름    | 네임스페이스 이름 선택 |
+| Name    | 네임스페이스 이름 선택 |
 | 가격 책정 계층 | Basic |
 | Subscription | 사용자의 구독 |
 | Resource group | IoTCentralAnalysis |
@@ -84,7 +84,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 :::image type="content" source="media/howto-create-custom-analytics/resource-group.png" alt-text="IoT Central 분석 리소스 그룹의 이미지.":::
 
-## <a name="create-an-event-hub"></a>이벤트 허브 생성
+## <a name="create-an-event-hub"></a>이벤트 허브 만들기
 
 IoT Central 애플리케이션을 구성하여 원격 분석을 이벤트 허브로 내보낼 수 있습니다. 이 섹션에서는 IoT Central 애플리케이션에서 원격 분석을 수신하는 이벤트 허브를 만듭니다. 이벤트 허브는 프로세스를 위해 원격 분석을 Stream Analytics 작업에 전달합니다.
 
@@ -130,7 +130,7 @@ Event Hubs 네임스페이스는 다음 스크린샷과 같습니다.
     | 설정 | 값 |
     | ------- | ----- |
     | 내보내기 이름 | 이벤트 허브 내보내기 |
-    | 사용 | 설정 |
+    | 사용 | 켜기 |
     | 내보낼 데이터 형식 | 원격 분석 |
     | 대상 | **+ 대상** 을 선택한 다음, **원격 분석 이벤트 허브** 를 선택합니다. |
 

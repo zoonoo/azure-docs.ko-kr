@@ -1,26 +1,27 @@
 ---
-title: 가상 네트워크 격리 및 보안 개요
+title: VNet(가상 네트워크)을 사용하여 작업 영역 리소스 보호
 titleSuffix: Azure Machine Learning
-description: 격리된 Azure Virtual Network와 Azure Machine Learning을 함께 사용하여 작업 영역 리소스 및 컴퓨팅 환경을 보호합니다.
+description: 격리된 Azure VNet(Virtual Network)을 사용하여 Azure Machine Learning 작업 영역 리소스 및 컴퓨팅 환경을 보호합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 03/02/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 1c3d9b286a8262efa126ba9c661c50dd88e78b64
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 06/11/2021
+ms.topic: how-to
+ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack
+ms.openlocfilehash: c5e5461163b28ff53e77121a8e48dc478887ea6c
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103573475"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081068"
 ---
-# <a name="virtual-network-isolation-and-privacy-overview"></a>가상 네트워크 격리 및 개인 정보 개요
+<!-- # Virtual network isolation and privacy overview -->
+# <a name="secure-azure-machine-learning-workspace-resources-using-virtual-networks-vnets"></a>VNet(가상 네트워크)을 사용하여 Azure Machine Learning 작업 영역 리소스 보호
 
-이 문서에서는 VNet(가상 네트워크)을 사용하여 Azure Machine Learning에서 네트워크 통신을 보호하는 방법을 알아봅니다. 이 문서에서는 예제 시나리오를 사용하여 전체 가상 네트워크를 구성하는 방법을 보여 줍니다.
+VNet(가상 네트워크)을 사용하여 Azure Machine Learning 작업 영역 리소스 및 컴퓨팅 환경을 보호합니다. 이 문서에서는 예제 시나리오를 사용하여 전체 가상 네트워크를 구성하는 방법을 보여 줍니다.
 
 이 문서는 5부로 구성된 Azure Machine Learning 워크플로 보호 과정을 안내하는 시리즈의 1부입니다. 개념을 먼저 이해하려면 이 개요 문서를 읽어 보는 것이 좋습니다. 
 
@@ -28,10 +29,10 @@ ms.locfileid: "103573475"
 
 **1. VNet 개요** > [2. 작업 영역 보호](how-to-secure-workspace-vnet.md) > [3. 학습 환경 보호](how-to-secure-training-vnet.md) > [4. 추론 환경 보호](how-to-secure-inferencing-vnet.md) > [5. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 사용자가 다음 항목에 익숙하다고 가정합니다.
-+ [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)
++ [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 + [IP 네트워킹](../virtual-network/public-ip-addresses.md)
 + [Azure Private Link](how-to-configure-private-link.md)
 + [NSG(네트워크 보안 그룹)](../virtual-network/network-security-groups-overview.md)
@@ -116,7 +117,7 @@ ms.locfileid: "103573475"
 
 - Azure 컴퓨팅 인스턴스 및 Azure 컴퓨팅 클러스터는 작업 영역 및 연결된 리소스와 동일한 VNet, 지역 및 구독에 있어야 합니다. 
 
-## <a name="secure-the-inferencing-environment"></a>추론 환경 보호
+## <a name="secure-the-inferencing-environment"></a>추론 환경 보안
 
 이 섹션에서는 추론 환경을 보호하는 데 사용할 수 있는 옵션을 알아봅니다. 대규모 프로덕션 배포에는 AKS(Azure Kubernetes Services) 클러스터를 사용하는 것이 좋습니다.
 

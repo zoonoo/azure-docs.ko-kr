@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 05/04/2021
 ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36455b3f6395216bd1ed26c8bd193f0e3ca10b5b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34342111aa0067b4f275820ac0111692c4a590f6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594600"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108762572"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Azure Active Directory를 사용한 사용자 추가 또는 삭제
 
@@ -28,9 +28,12 @@ Azure AD(Azure Active Directory) 조직에서 새 사용자를 추가하거나 �
 
 Azure Active Directory 포털을 사용하여 새 사용자를 만들 수 있습니다.
 
+>[!Note]
+>사용자 이름 및 이메일 주소 속성은 악센트 문자를 포함할 수 없습니다.
+
 새 사용자를 추가하려면 다음 단계를 수행합니다.
 
-1. 조직의 사용자 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. 조직의 사용자 관리자 역할로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. 모든 페이지에서 *Azure Active Directory* 를 검색하고 선택합니다.
 
@@ -42,7 +45,7 @@ Azure Active Directory 포털을 사용하여 새 사용자를 만들 수 있습
 
    - **이름**. 필수 요소. 새 사용자의 이름 및 성입니다. 예를 들어, *Mary Parker* 입니다.
 
-   - **사용자 이름**. 필수 요소. 새 사용자의 사용자 이름입니다. 예들 들어 `mary@contoso.com`입니다.
+   - **사용자 이름**. 필수 요소. 새 사용자의 사용자 이름입니다. 예: `mary@contoso.com`.
 
      사용자 이름의 도메인 이름 부분은 초기 기본 도메인 이름 *\<yourdomainname>.onmicrosoft.com* 이거나 *contoso.com* 과 같은 사용자 지정 도메인 이름을 사용해야 합니다. 사용자 지정 도메인 이름 작성 방법에 대한 자세한 내용은 [Azure Active Directory 포털을 사용하여 사용자 지정 도메인 이름 추가](add-custom-domain.md)을 참조하세요.
 

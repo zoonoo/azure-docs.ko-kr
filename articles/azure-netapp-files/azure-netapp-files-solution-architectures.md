@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 05/27/2021
 ms.author: b-juche
-ms.openlocfilehash: d5ff0f2444aac153116e8e33a6ed2af74c93f057
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: cb53bad331e511ea2daacc2a0fbc9c178a193a2f
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553518"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110655139"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해하는 데 도움이 되는 모범 사례 참조를 제공합니다.  
@@ -41,6 +41,10 @@ ms.locfileid: "106553518"
 
 ### <a name="machine-learning"></a>Machine Learning
 *   [Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
+*   [Azure의 분산 교육: 레인 검색 - 솔루션 설계](https://www.netapp.com/media/32427-tr-4896-design.pdf)
+
+### <a name="education"></a>Education
+* [Azure NetApp Files NFS 스토리지의 Moodle](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630)
 
 ## <a name="windows-apps-and-sql-server-solutions"></a>Windows 앱 및 SQL Server 솔루션
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 215da0e38045a2e66a4a11b54204c26e7720815c
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: fcf222573ac16be54ae98777749306fee0847109
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719064"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749594"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역이란?
 
@@ -132,7 +132,6 @@ Azure Machine Learning을 시작하려면 다음을 참조하세요.
 
 + [Azure Machine Learning 개요](overview-what-is-azure-ml.md)
 + [작업 영역 만들기 및 관리](how-to-manage-workspace.md)
-+ [자습서: 개발 환경에서 Azure Machine Learning 시작](tutorial-1st-experiment-sdk-setup-local.md)
-+ [자습서: 컴퓨팅 인스턴스에서 첫 번째 ML 실험 만들기 시작](tutorial-1st-experiment-sdk-setup.md)
++ [자습서: Azure Machine Learning 시작](quickstart-create-resources.md)
 + [자습서: 자동화된 Machine Learning을 사용하여 처음으로 분류 모델 만들어 보기](tutorial-first-experiment-automated-ml.md) 
 + [자습서: 디자이너를 사용하여 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md)

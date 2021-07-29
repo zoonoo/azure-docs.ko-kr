@@ -6,13 +6,13 @@ ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/12/2021
-ms.openlocfilehash: 5a455def13bbf65d01f2f22972c18d39c2b15f3c
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.date: 05/26/2021
+ms.openlocfilehash: 6ab548c2b12d36e4b1741042a78c68112a93c8f3
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788125"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110580150"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP 테이블에서 데이터 복사
 
@@ -66,7 +66,7 @@ SAP 테이블에서 모든 지원되는 싱크 데이터 저장소로 데이터�
 - Data Factory SAP 테이블 커넥터에서 사용 중인 SAP 사용자는 다음 사용 권한이 있어야 합니다.
 
   - RFC(Remote Function Call) 대상을 사용하기 위한 권한 부여.
-  - S_SDSAUTH 권한 부여 개체 실행 작업에 대한 사용 권한. 과반수 권한 부여 개체에서 SAP Note 40089을 참조하세요. 기본 NCo 커넥터에는 RFC_FUNCTION_SEARCH와 같은 특정 RFC가 필요합니다. 
+  - S_SDSAUTH 권한 부여 개체 실행 작업에 대한 사용 권한. 과반수 권한 부여 개체에서 SAP Note 460089를 참조하세요. 기본 NCo 커넥터에는 RFC_FUNCTION_SEARCH와 같은 특정 RFC가 필요합니다. 
 
 ## <a name="get-started"></a>시작
 
@@ -78,7 +78,7 @@ SAP 테이블에서 모든 지원되는 싱크 데이터 저장소로 데이터�
 
 SAP BW Open Hub 연결된 서비스에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | `type` | 이 옵션을 사용하는 경우 `type` 속성은 `SapTable`로 설정해야 합니다. | 예 |
 | `server` | SAP 인스턴스가 있는 서버의 이름입니다.<br/>SAP 애플리케이션 서버에 연결하는 데 사용합니다. | 예 |
@@ -186,7 +186,7 @@ SAP BW Open Hub 연결된 서비스에서 지원되는 속성은 다음과 같�
 
 SAP BW Open Hub 연결된 서비스 간에 데이터를 복사하려는 경우 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | `type` | 이 옵션을 사용하는 경우 `type` 속성은 `SapTableResource`로 설정해야 합니다. | 예 |
 | `tableName` | 데이터를 복사할 SAP 테이블의 이름입니다. | 예 |
@@ -218,7 +218,7 @@ SAP BW Open Hub 연결된 서비스 간에 데이터를 복사하려는 경우 �
 
 SAP 테이블의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성                         | 설명                                                  | 필수 |
+| 속성                         | Description                                                  | 필수 |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
 | `type`                             | 이 옵션을 사용하는 경우 `type` 속성은 `SapTableSource`로 설정해야 합니다.         | 예      |
 | `rowCount`                         | 검색할 행의 수입니다.                              | 예       |

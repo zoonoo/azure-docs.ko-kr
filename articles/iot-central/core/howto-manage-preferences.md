@@ -8,18 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 83d8c04765bf9aecc9029cdc8d12461231d191f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0290241e8051a221e75e1e72789178c8bfdbb3d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97795958"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772390"
 ---
 # <a name="manage-your-personal-application-preferences"></a>개인 애플리케이션 기본 설정 관리
 
-*이 문서는 운영자, 빌더 및 관리자에게 적용됩니다.*
-
-IoT Central은 애플리케이션을 사용자 요구에 맞게 유연하게 사용자 지정할 수 있도록 합니다. 또한 사용자별로 고유한 보기를 사용자 지정할 수 있도록 합니다. 이 문서에서는 사용자가 자신의 프로필에 적용할 수 있는 다양한 사용자 지정 옵션에 대해 설명합니다.
+IoT Central은 애플리케이션을 사용자 요구에 맞게 유연하게 사용자 지정할 수 있도록 합니다. 또한 IoT Central은 사용자별로 고유한 보기를 사용자 지정할 수 있도록 합니다. 이 문서에서는 사용자가 자신의 프로필에 적용할 수 있는 다양한 사용자 지정 옵션에 대해 설명합니다.
 
 ## <a name="changing-language"></a>언어 변경
 

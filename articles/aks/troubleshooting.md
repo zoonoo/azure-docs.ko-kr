@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 1d3dff19bd75bfa4e7564eb4b188ffe68d605025
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 257f3473da4284080d7977021cb97c6dbce0fbde
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952034"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110535171"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -214,6 +214,10 @@ AKS 엔지니어링 팀은 많은 향상된 기능을 포함하는 1.18.x 이상
 ## <a name="my-watch-is-stale-or-azure-ad-pod-identity-nmi-is-returning-status-500"></a>내 조사식이 유효하지 않거나 Azure AD Pod ID NMI가 상태 500을 반환합니다.
 
 이 [예](limit-egress-traffic.md#restrict-egress-traffic-using-azure-firewall)와 같이 Azure Firewall을 사용하는 경우 현재 Go `keepalives`가 방화벽에서 종료되도록 하는 버그가 있는 애플리케이션 규칙(2021년 1분기 중 해결 예정)을 사용하는 방화벽을 통한 TCP 연결을 오래 사용하면 이 문제가 발생할 수 있습니다. 이 문제가 해결될 때까지 AKS API 서버 IP에 네트워크 규칙(애플리케이션 규칙 대신)을 추가하여 완화할 수 있습니다.
+
+## <a name="when-resuming-my-cluster-after-a-stop-operation-why-is-my-node-count-not-in-the-autoscaler-min-and-max-range"></a>중지 작업 후 클러스터를 다시 시작할 때 노드 수가 자동 크기 조정기의 최소 및 최대 범위에 없는 이유는 무엇인가요?
+
+클러스터 자동 크기 조정기를 사용하는 경우 클러스터 백업을 시작할 때 현재 노드 수가 설정한 최소 및 최대 범위 값 사이에 없을 수 있습니다. 이는 정상적인 동작입니다. 클러스터는 워크로드를 실행하는 데 필요한 노드 수로 시작하며, 자동 크기 조정기 설정의 영향을 받지 않습니다. 클러스터가 조정 작업을 수행할 때 최소값 및 최대값은 현재 노드 수에 영향을 주며, 클러스터는 클러스터를 중지할 때까지 원하는 범위에 진입하여 유지됩니다.
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Azure Storage 및 AKS 문제 해결
 
@@ -439,7 +443,7 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>접두사가 kubernetes.io인 노드 레이블을 사용하는 경우 Kubernetes 1.16로 업그레이드가 실패하는 이유
 
-Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/)를 기준으로 [kubernetes.io 접두사로 정의된 레이블의 하위 집합만](https://v1-18.docs.kubernetes.io/docs/concepts/overview/working-with-objects/labels/) 노드에 적용할 수 있습니다. AKS는 영향을 받는 워크로드에 가동 중지 시간이 발생할 수 있으므로 동의 없이 사용자를 대신하여 활성 레이블을 제거할 수 없습니다.
+Kubernetes 1.16부터 [kubernetes.io 접두사로 정의된 레이블의 하위 집합만](https://v1-18.docs.kubernetes.io/docs/concepts/overview/working-with-objects/labels/) kubelet에서 노드에 적용할 수 있습니다. AKS는 영향을 받는 워크로드에 가동 중지 시간이 발생할 수 있으므로 동의 없이 사용자를 대신하여 활성 레이블을 제거할 수 없습니다.
 
 따라서 이 문제를 완화하기 위해 다음 작업을 수행할 수 있습니다.
 

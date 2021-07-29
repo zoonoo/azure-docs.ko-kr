@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/29/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d01a750948f8e3c264b9bcffdaad3ae72fa40ac0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70cc20b51587a70e8a124b6f3b5d047ff827db83
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579113"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112034592"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: 권한 부여
 
@@ -74,7 +74,7 @@ Microsoft Intune을 배포한 조직은 디바이스에서 반환된 정보를 �
 
 이 권한 부여 컨트롤을 활용하려면 조건부 액세스는 디바이스가 Azure Active Directory에 등록되어 있을 것을 요구합니다. 이렇게 하려면 Broker 앱을 사용해야 합니다. iOS의 Microsoft Authenticator, 또는 Android 디바이스용 Microsoft Authenticator 또는 Microsoft 회사 포털 중 하나를 Broker 앱으로 사용할 수 있습니다. 사용자가 인증을 시도할 때 Broker 앱이 디바이스에 설치되어 있지 않은 경우, 사용자는 필요한 Broker 앱 설치를 위한 적절한 앱 스토어로 리디렉션됩니다.
 
-이 설정은 다음 iOS 및 Android 앱에 적용됩니다.
+다음은 해당 설정을 지원하는 것으로 확인된 클라이언트 앱입니다.
 
 - Microsoft Azure Information Protection
 - Microsoft Bookings
@@ -86,6 +86,7 @@ Microsoft Intune을 배포한 조직은 디바이스에서 반환된 정보를 �
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
+- Microsoft 목록
 - Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote
@@ -130,6 +131,7 @@ Microsoft Intune을 배포한 조직은 디바이스에서 반환된 정보를 �
 - Microsoft Cortana
 - Microsoft Edge
 - Microsoft Excel
+- Microsoft 목록(iOS)
 - Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote

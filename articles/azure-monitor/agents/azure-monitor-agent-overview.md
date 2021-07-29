@@ -6,15 +6,15 @@ author: bwren
 ms.author: bwren
 ms.date: 03/16/2021
 ms.custom: references_regions
-ms.openlocfilehash: f1f1ea787406d900c8035c0462ef903b848d7e81
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 248f070c37e32cb0d90c3e31eebddc6245446828
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104608217"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765668"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Azure Monitor 에이전트 개요(미리 보기)
-AMA(Azure Monitor 에이전트)는 가상 머신의 게스트 운영 체제에서 모니터링 데이터를 수집하여 이를 Azure Monitor에 전달합니다. 이 문서에서는 Azure Monitor 에이전트를 설치하는 방법과 데이터 수집을 구성하는 방법을 비롯하여 Azure Monitor 에이전트에 대한 개요를 제공합니다.
+AMA(Azure Monitor 에이전트)는 Azure 가상 머신의 게스트 운영 체제에서 모니터링 데이터를 수집하여 이를 Azure Monitor에 전달합니다. 이 문서에서는 Azure Monitor 에이전트를 설치하는 방법과 데이터 수집을 구성하는 방법을 비롯하여 Azure Monitor 에이전트에 대한 개요를 제공합니다.
 
 ## <a name="relationship-to-other-agents"></a>다른 에이전트와의 관계
 Azure Monitor 에이전트는 현재 Azure Monitor에서 사용하는 다음 에이전트를 대체하여 가상 머신에서 게스트 데이터를 수집합니다.

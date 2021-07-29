@@ -9,14 +9,13 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: peterlu
 ms.date: 01/14/2020
-ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: b1cb14e07f6c0e402510abad6f1cb160f5215c63
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+ms.openlocfilehash: 5a107bd8548b313ad2ac0bf2fa86c9f5b7527e26
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102518384"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764804"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 대규모 PyTorch 모델 학습
 
@@ -28,11 +27,11 @@ ms.locfileid: "102518384"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 문서의 코드는 다음 환경 중 하나에서 실행합니다.
+다음 환경 중 하나에서 이 코드를 실행합니다.
 
 - Azure Machine Learning 컴퓨팅 인스턴스 - 다운로드 또는 설치 필요 없음
 
-    - 이 자습서를 시작하기 전에 [자습서: SDK 및 샘플 리포지토리로 미리 로드된 전용 Notebook 서버를 만들기 위한 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md)을 설정합니다.
+    - [빠른 시작: Azure Machine Learning 시작하기](quickstart-create-resources.md)를 완료하여 SDK 및 샘플 리포지토리가 미리 로드된 전용 Notebook 서버를 만듭니다.
     - Notebook 서버의 딥 러닝 샘플 디렉터리에서 **how-to-use-azureml > ml-frameworks > pytorch > train-hyperparameter-tune-deploy-with-pytorch** 폴더로 차례로 이동하여 완성된 확장 Notebook을 찾습니다. 
  
  - 사용자 고유의 Jupyter Notebook 서버
@@ -40,7 +39,7 @@ ms.locfileid: "102518384"
     - [작업 영역 구성 파일을 만듭니다](how-to-configure-environment.md#workspace).
     - [샘플 스크립트 파일(`pytorch_train.py`)을 다운로드](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch)합니다.
      
-    GitHub 샘플 페이지에서 이 가이드의 완성된 [Jupyter Notebook 버전](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb)을 찾을 수도 있습니다. Notebook에는 인텔리전트 하이퍼 매개 변수 튜닝, 모델 배포 및 Notebook 위젯을 다루는 확장된 섹션이 포함되어 있습니다.
+    GitHub 샘플 페이지에서 이 가이드의 완성된 [Jupyter Notebook 버전](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb)을 찾을 수도 있습니다. Notebook에는 지능형 하이퍼 매개 변수 튜닝, 모델 배포 및 Notebook 위젯을 다루는 확장 섹션이 포함되어 있습니다.
 
 ## <a name="set-up-the-experiment"></a>실험 설정
 
@@ -160,9 +159,9 @@ dependencies:
   - pillow
 ```
 
-이 conda 환경 사양에서 Azure ML 환경을 만듭니다. 환경은 런타임에 Docker 컨테이너로 패키지됩니다.
+이 conda 환경 사양에서 Azure ML 환경을 만듭니다. 환경은 런타임에 Docker 컨테이너로 패키지화됩니다.
 
-기본 이미지가 지정되지 않은 경우 Azure ML에서 `azureml.core.environment.DEFAULT_CPU_IMAGE`기본적으로 CPU 이미지를 기본 이미지로 사용합니다. 다음 예제에서는 GPU 클러스터에서 학습을 실행하므로 필요한 GPU 드라이버 및 종속성이 있는 GPU 기본 이미지를 지정해야 합니다. Azure ML은 사용할 수 있는 MCR(Microsoft Container Registry)에 게시된 기본 이미지 세트를 유지 관리합니다. 자세한 내용은 [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub 리포지토리를 참조하세요.
+기본 이미지가 지정되지 않은 경우에는 Azure ML은 기본적으로 CPU 이미지 `azureml.core.environment.DEFAULT_CPU_IMAGE`를 기본 이미지로 사용합니다. 다음 예제에서는 GPU 클러스터에서 학습을 실행하므로 필요한 GPU 드라이버 및 종속성이 있는 GPU 기본 이미지를 지정해야 합니다. Azure ML은 사용할 수 있는 MCR(Microsoft Container Registry)에 게시된 기본 이미지 세트를 유지 관리합니다. 자세한 내용은 [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub 리포지토리를 참조하세요.
 
 ```python
 pytorch_env = Environment.from_conda_specification(name='pytorch-1.6-gpu', file_path='./conda_dependencies.yml')
@@ -194,12 +193,12 @@ src = ScriptRunConfig(source_directory=project_folder,
 ```
 
 > [!WARNING]
-> Azure Machine Learning는 전체 원본 디렉터리를 복사하여 학습 스크립트를 실행합니다. 업로드를 원하지 않는 중요한 데이터가 있는 경우 [.ignore 파일](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots)을 사용하거나 데이터를 원본 디렉터리에 포함하지 마세요. 대신 Azure ML [데이터 세트](how-to-train-with-datasets.md)를 사용하여 데이터에 액세스합니다.
+> Azure Machine Learning는 전체 원본 디렉터리를 복사하여 학습 스크립트를 실행합니다. 업로드하지 않으려는 중요한 데이터가 있는 경우 [.ignore 파일](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots)을 사용하거나 데이터를 원본 디렉터리에 포함하지 마세요. 대신 Azure ML [데이터 세트](how-to-train-with-datasets.md)를 사용하여 데이터에 액세스합니다.
 
 ScriptRunConfig를 사용하여 작업을 구성하는 방법에 대한 자세한 내용은 [학습 실행 구성 및 제출](how-to-set-up-training-targets.md)을 참조하세요.
 
 > [!WARNING]
-> 이전에 PyTorch 예측 도구를 사용하여 PyTorch 학습 작업을 구성한 경우 이 예측 도구는 1.19.0 SDK 릴리스에서 더 이상 사용되지 않습니다. Azure ML SDK 1.15.0 이상을 사용하는 경우 ScriptRunConfig는 딥 러닝 프레임워크를 사용하는 작업을 포함하여 학습 작업을 구성하는 데 권장되는 방법입니다. 일반적인 마이그레이션 질문은 [예측 도구에서 ScriptRunConfig로 마이그레이션 가이드](how-to-migrate-from-estimators-to-scriptrunconfig.md)를 참조하세요.
+> 이전에 PyTorch 예측 도구를 사용하여 PyTorch 학습 작업을 구성한 경우 이 예측 도구는 1.19.0 SDK 릴리스에서 더 이상 사용되지 않습니다. Azure ML SDK 1.15.0 이상을 사용하는 경우 ScriptRunConfig는 딥 러닝 프레임워크를 사용하는 작업을 포함하여 학습 작업을 구성하는 데 권장되는 방법입니다. 마이그레이션에 대한 일반적인 질문은 [예측 도구에서 ScriptRunConfig로 마이그레이션 가이드](how-to-migrate-from-estimators-to-scriptrunconfig.md)를 참조하세요.
 
 ## <a name="submit-your-run"></a>실행 제출
 
@@ -210,14 +209,14 @@ run = Experiment(ws, name='Tutorial-pytorch-birds').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
-### <a name="what-happens-during-run-execution"></a>실행을 실행하는 중에 수행되는 작업
-실행이 실행되면 다음 단계를 거칩니다.
+### <a name="what-happens-during-run-execution"></a>Run을 실행하는 중에 수행되는 작업
+Run이 실행되면 다음 단계를 거칩니다.
 
-- **준비**: 정의된 환경에 따라 docker 이미지가 만들어집니다. 이미지는 작업 영역의 컨테이너 레지스트리에 업로드되고 나중에 실행할 수 있도록 캐시됩니다. 또한 로그는 실행 기록으로 스트림되며 진행 상황을 모니터링할 수 있도록 표시됩니다. 큐레이팅된 환경이 대신 지정되면 해당 큐레이팅된 환경을 지원하는 캐시된 이미지가 사용됩니다.
+- **준비**: 정의된 환경에 따라 Docker 이미지가 생성됩니다. 이미지는 작업 영역의 컨테이너 레지스트리에 업로드되고 나중에 실행될 수 있도록 캐시됩니다. 또한 로그는 실행 기록으로 스트리밍되며 진행 상황을 모니터링할 수 있도록 표시됩니다. 큐레이팅된 환경이 대신 지정되면 해당 큐레이팅된 환경을 지원하는 캐시된 이미지가 사용됩니다.
 
-- **스케일링**: Batch AI 클러스터에서 실행을 실행하는 데 현재 사용 가능한 노드보다 더 많은 노드가 필요한 경우 클러스터에서 스케일 업을 시도합니다.
+- **스케일링**: Batch AI 클러스터에서 Run을 실행하는 데 현재 사용할 수 있는 노드보다 더 많은 노드가 필요한 경우 클러스터에서 스케일 업을 시도합니다.
 
-- **실행**: 스크립트 폴더의 모든 스크립트가 컴퓨팅 대상에 업로드되고, 데이터 저장소가 탑재되거나 복사되며, `script`가 실행됩니다. stdout 및 **./logs** 폴더의 출력은 실행 기록으로 스트림되며, 실행을 모니터링하는 데 사용할 수 있습니다.
+- **실행**: 스크립트 폴더의 모든 스크립트가 컴퓨팅 대상으로 업로드되고, 데이터 저장소가 탑재되거나 복사되며, `script`가 실행됩니다. stdout 및 **./logs** 폴더의 출력은 실행 기록으로 스트리밍되며 Run을 모니터링하는 데 사용될 수 있습니다.
 
 - **후 처리**: 실행의 **./outputs** 폴더가 실행 기록에 복사됩니다.
 
@@ -383,7 +382,7 @@ Azure ML에서 분산 PyTorch를 실행하는 방법에 대한 전체 자습서�
 이 문서에서는 Azure Machine Learning에서 PyTorch를 사용하여 딥 러닝 신경망을 학습시키고 등록했습니다. 모델을 배포하는 방법을 알아보려면 모델 배포 문서로 계속 진행하세요.
 
 * [모델을 배포하는 방법 및 위치](how-to-deploy-and-where.md)
-* [학습 중에 실행 메트릭 추적](how-to-track-experiments.md)
+* [학습 중에 실행 메트릭 추적](how-to-log-view-metrics.md)
 * [하이퍼 매개 변수 조정](how-to-tune-hyperparameters.md)
 * [학습된 모델 배포](how-to-deploy-and-where.md)
-* [Azure의 분산 딥 러닝 학습에 대한 참조 아키텍처](/azure/architecture/reference-architectures/ai/training-deep-learning)
+* [Azure에서 분산 딥 러닝 학습의 참조 아키텍처](/azure/architecture/reference-architectures/ai/training-deep-learning)

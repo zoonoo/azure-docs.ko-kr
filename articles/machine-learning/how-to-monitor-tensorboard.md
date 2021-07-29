@@ -8,14 +8,13 @@ ms.subservice: core
 author: minxia
 ms.author: minxia
 ms.date: 02/27/2020
-ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: f8986ef895c5766d363261ef263851ee96d9c0da
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+ms.openlocfilehash: a8e1c85bf2284eb2dd5a2bc87c2a60b89478e928
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727674"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760610"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>TensorBoard 및 Azure Machine Learning을 사용한 실험 실행 및 메트릭 시각화
 
@@ -37,7 +36,7 @@ Azure Machine Learning 실험을 통한 TensorBoard 시작 방법은 실험 유�
 * TensorBoard를 시작하여 실험 실행 기록을 보려면 실험에서 이전에 로깅을 사용하도록 설정하여 해당 메트릭과 성능을 추적했어야 합니다.  
 * 이 문서의 코드는 다음 환경 중 하나에서 실행할 수 있습니다. 
     * Azure Machine Learning 컴퓨팅 인스턴스 - 다운로드 또는 설치 필요 없음
-        * 이 자습서를 시작하기 전에 [자습서: SDK 및 샘플 리포지토리로 미리 로드된 전용 Notebook 서버를 만들기 위한 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md)을 설정합니다.
+        * [빠른 시작: Azure Machine Learning 시작하기](quickstart-create-resources.md)를 완료하여 SDK 및 샘플 리포지토리가 미리 로드된 전용 Notebook 서버를 만듭니다.
         * Notebook 서버의 샘플 폴더에서 다음 디렉터리로 이동하여 두 개의 완료 및 확장된 Notebook을 찾습니다.
             * **how-to-use-azureml > track-and-monitor-experiments > tensorboard > export-run-history-to-tensorboard > export-run-history-to-tensorboard.ipynb**
             * **how-to-use-azureml > track-and-monitor-experiments > tensorboard > tensorboard > tensorboard.ipynb**

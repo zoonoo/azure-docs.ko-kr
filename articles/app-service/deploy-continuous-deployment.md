@@ -6,19 +6,19 @@ ms.topic: article
 ms.date: 03/12/2021
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 633d62fc69c516b482d5749a07052337dc71f567
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: aa058f0de74941a8ac9fe711c7b6de59240680bb
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789486"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536676"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure App Service에 지속적인 배포
 
 [Azure App Service](overview.md)는 최신 업데이트를 끌어옴으로써 [GitHub](https://help.github.com/articles/create-a-repo), [BitBucket](https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html) 및 [Azure Repos](/azure/devops/repos/git/creatingrepo) 리포지토리에서 지속적인 배포를 가능하게 합니다.
 
 > [!NOTE]
-> 이전 배포 환경인 Azure Portal의 **개발 센터(클래식)** 페이지는 2021년 3월부터 더 이상 사용되지 않습니다. 이 변경 내용은 앱의 기존 배포 설정에 영향을 주지 않으며, **배포 센터** 페이지에서 계속해서 앱 배포를 관리할 수 있습니다.
+> 배포 환경의 이전 버전인 Azure Portal의 **개발 센터(클래식)** 페이지는 2021년 3월부터 더 이상 사용되지 않습니다. 이 변경 내용은 앱의 기존 배포 설정에 영향을 주지 않으며, 포털에서 **배포 센터** 페이지에서 계속해서 앱 배포를 관리할 수 있습니다.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -43,7 +43,7 @@ ms.locfileid: "107789486"
 
 1. 처음으로 GitHub에서 배포하는 경우 **권한 부여** 를 클릭하고 권한 부여 프롬프트를 따릅니다. 다른 사용자의 리포지토리에서 배포하려면 **계정 변경** 을 클릭합니다.
 
-1. Azure 계정에 GitHub에 대한 권한을 부여한 후에는 **조직**, **리포지토리** 및 **분기** 를 선택하여 관련 CI/CD를 구성합니다.
+1. Azure 계정에 GitHub에 대한 권한을 부여한 후에는 **조직**, **리포지토리** 및 **분기** 를 선택하여 관련 CI/CD를 구성합니다. 조직 또는 리포지토리를 찾을 수 없는 경우 GitHub에 대한 추가 권한을 사용하도록 설정해야 할 수 있습니다. 자세한 내용은 [조직의 리포지토리에 대한 액세스 관리](https://docs.github.com/organizations/managing-access-to-your-organizations-repositories)를 참조하세요.
 
 1. 빌드 공급자로 GitHub Actions를 선택한 경우 **런타임 스택** 및 **버전** 드롭다운을 사용하여 원하는 워크플로 파일을 선택할 수 있습니다. Azure는 선택한 GitHub 리포지토리에 이 워크플로 파일을 커밋하여 빌드 및 배포 작업을 처리합니다. 변경 내용을 저장하기 전에 파일을 보려면 **파일 미리 보기** 를 클릭합니다.
 

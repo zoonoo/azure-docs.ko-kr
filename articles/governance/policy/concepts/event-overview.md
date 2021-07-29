@@ -3,16 +3,16 @@ title: Azure Policy 상태 변경 이벤트에 대응
 description: Azure Event Grid를 사용하여 앱 정책 이벤트를 구독하면 복잡한 코드 없이 애플리케이션이 상태 변경에 대응할 수 있습니다.
 ms.date: 03/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: c100d5038a8c2506f5339ea0962012a8c32e22cf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 197dfbe410874541c38334b169c526bac63a614e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105735100"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752906"
 ---
 # <a name="reacting-to-azure-policy-state-change-events"></a>Azure Policy 상태 변경 이벤트에 대응
 
-Azure Policy 이벤트를 사용하면 애플리케이션이 상태 변경에 대응할 수 있습니다. 이 통합은 복잡한 코드나 비용이 많이 들고 비효율적인 폴링 서비스가 없어도 가능합니다. 대신 이벤트는 [Azure Event Grid](../../../event-grid/index.yml)를 통해 [Azure Functions](../../../azure-functions/index.yml), [Azure Logic Apps](../../../logic-apps/index.yml)와 같은 구독자 또는 사용자 지정 HTTP 수신기로도 푸시됩니다.
+Azure Policy 이벤트를 사용하면 애플리케이션이 상태 변경에 대응할 수 있습니다. 이 통합은 복잡한 코드나 비용이 많이 들고 비효율적인 폴링 서비스가 없어도 가능합니다. 대신, 이벤트는 [Azure Event Grid](../../../event-grid/index.yml)를 통해 [Azure Functions](../../../azure-functions/index.yml), [Azure Logic Apps](../../../logic-apps/index.yml)와 같은 구독자 또는 자체 사용자 지정 HTTP 수신기로도 푸시됩니다.
 중요한 것은 사용한 양만큼만 요금을 지불한다는 것입니다.
 
 Azure Policy 이벤트는 다양한 다시 시도 정책 및 배달 못한 편지를 통해 애플리케이션에 신뢰할 수 있는 배달 서비스를 제공하는 Azure Event Grid 서비스에 전송됩니다. 자세한 내용은 [Event Grid 메시지 배달 및 다시 시도](../../../event-grid/delivery-and-retry.md)를 참조하세요.
@@ -39,10 +39,9 @@ Event Grid는 [이벤트 구독](../../../event-grid/concepts.md#event-subscript
 ## <a name="event-schema"></a>이벤트 스키마
 
 Azure Policy 이벤트에는 데이터 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. `eventType` 속성이 “Microsoft.PolicyInsights”로 시작되면 Azure Policy 이벤트를 식별할 수 있습니다.
-Event Grid 이벤트 속성의 사용에 관한 추가 정보는  
-[Event Grid 이벤트 스키마](../../../event-grid/event-schema.md)에 설명되어 있습니다.
+Event Grid 이벤트 속성 사용에 대한 추가 정보는 [Event Grid 이벤트 스키마](../../../event-grid/event-schema.md)에 설명되어 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `id` | 문자열 | 이벤트에 대한 고유 식별자입니다. |
 | `topic` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |

@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 7592935afadc88c4b9e0e5f3c5f9c83d42c63209
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e73c0e1796aee132e97c2510964bfa699a080ffc
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768744"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110535670"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-or-external-partner"></a>이벤트 허브 또는 외부 파트너로 Azure 모니터링 데이터 스트리밍
 
@@ -50,9 +50,9 @@ Azure Monitor를 사용하여 모니터링 데이터를 이벤트 허브로 라�
 | 도구 | Azure에서 호스트 | Description |
 |:---|:---| :---|
 |  IBM QRadar | No | Microsoft Azure DSM 및 Microsoft Azure 이벤트 허브 프로토콜은 [IBM 지원 웹 사이트](https://www.ibm.com/support)에서 다운로드할 수 있습니다. Azure와의 통합에 대한 자세한 내용은 [QRadar DSM configuration](https://www.ibm.com/docs/en/dsm?topic=options-configuring-microsoft-azure-event-hubs-communicate-qradar)(QRadar DSM 구성)을 참조하세요. |
-| Splunk | No | [Splunk용 Microsoft Azure 추가 기능](https://splunkbase.splunk.com/app/3757/)은 Splunkbase에서 사용할 수 있는 오픈 소스 프로젝트입니다. <br><br> Splunk 인스턴스에 추가 기능을 설치할 수 없는 경우, 예를 들어 프록시를 사용 중이거나 Splunk 클라우드에서 실행 중인 경우 이벤트 허브의 새 메시지로 트리거되는 [Splunk용 Azure 함수](https://github.com/Microsoft/AzureFunctionforSplunkVS)를 사용하여 이러한 이벤트를 Splunk HTTP 이벤트 수집기에 전달할 수 있습니다. |
+| Splunk | No | [Microsoft 클라우드 서비스용 Splunk 추가 기능](https://splunkbase.splunk.com/app/3110/)은 Splunkbase에서 사용할 수 있는 오픈 소스 프로젝트입니다. <br><br> Splunk 인스턴스에 추가 기능을 설치할 수 없는 경우, 예를 들어 프록시를 사용 중이거나 Splunk 클라우드에서 실행 중인 경우 이벤트 허브의 새 메시지로 트리거되는 [Splunk용 Azure 함수](https://github.com/Microsoft/AzureFunctionforSplunkVS)를 사용하여 이러한 이벤트를 Splunk HTTP 이벤트 수집기에 전달할 수 있습니다. |
 | sumologic | No | 이벤트 허브에서 데이터를 사용하도록 SumoLogic을 설정하기 위한 지침은 [Collect Logs for the Azure Audit App from Event Hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)(이벤트 허브에서 Azure Audit App의 로그 수집)에서 사용할 수 있습니다. |
-| ArcSight | No | ArcSight Azure Event Hub 스마트 커넥터는 [ArcSight 스마트 커넥터 컬렉션](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)의 일부로 제공됩니다. |
+| ArcSight | No | ArcSight Azure Event Hub 스마트 커넥터는 [ArcSight 스마트 커넥터 컬렉션](https://community.microfocus.com/cyberres/arcsight/f/arcsight-product-announcements/163662/announcing-general-availability-of-arcsight-smart-connectors-7-10-0-8114-0)의 일부로 제공됩니다. |
 | Syslog 서버 | No | Azure Monitor 데이터를 syslog 서버로 직접 스트리밍하려면 [Azure 함수 기반의 솔루션](https://github.com/miguelangelopereira/azuremonitor2syslog/)을 사용할 수 있습니다.
 | LogRhythm | No| 이벤트 허브에서 로그를 수집하도록 LogRhythm을 설정하기 위한 지침은 [여기](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/)에서 확인할 수 있습니다. 
 |Logz.io | 예 | 자세한 내용은 [Azure에서 실행되는 Java 앱용 Logz.io를 사용하여 모니터링 및 로깅 시작](/azure/developer/java/fundamentals/java-get-started-with-logzio)을 참조하세요.

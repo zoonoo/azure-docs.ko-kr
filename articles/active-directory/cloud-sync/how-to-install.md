@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 742b9fc79489feba8192b6e62a6431bb37f55ad4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d83b617f08c143ee09251667c4f9bee89577a23
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98613750"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758864"
 ---
 # <a name="install-the-azure-ad-connect-provisioning-agent"></a>Azure AD Connect 프로비저닝 에이전트 설치
 이 문서에서는 Azure AD(Azure Active Directory) Connect 프로비저닝 에이전트의 설치 프로세스와 Azure Portal에 이를 처음으로 구성하는 방법을 안내합니다.
@@ -30,6 +30,8 @@ Azure AD Connect 클라우드 동기화을 설치하고 구성하는 작업은 �
 - [에이전트 설치](#install-the-agent)
 - [에이전트 설치 확인](#verify-agent-installation)
 
+>[!NOTE]
+>이 문서에서는 마법사를 사용하여 프로비저닝 에이전트를 설치하는 방법을 다룹니다.  CLI(명령줄 인터페이스)를 사용하여 Azure AD Connect 프로비저닝 에이전트를 설치하는 방법에 대한 자세한 내용은 [CLI(명령줄 인터페이스) 및 powershell을 사용하여 Azure AD Connect 프로비저닝 에이전트 설치](how-to-install-pshell.md)를 참조하세요.
 
 ## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
 그룹 관리 서비스 계정은 자동 암호 관리, 간소화된 SPN(서비스 사용자 이름) 관리, 다른 관리자에게 관리를 위임하는 기능 및 여러 서버에서 이 기능을 확장하는 관리되는 도메인 계정입니다.  Azure AD Connect 클라우드 동기화는 에이전트를 실행하는 그룹 관리 서비스 계정 사용을 지원하고 권장합니다.  gMSA에 대한 자세한 내용은 [그룹 관리 서비스 계정](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)을 참조하세요. 
@@ -37,6 +39,8 @@ Azure AD Connect 클라우드 동기화을 설치하고 구성하는 작업은 �
 
 ### <a name="upgrading-an-existing-agent-to-use-the-gmsa-account"></a>gMSA 계정을 사용하도록 기존 에이전트 업그레이드
 설치 중 만든 gMSA 계정을 사용하도록 기존 에이전트를 업그레이드하려면, AADConnectProvisioningAgent.msi를 실행하여 에이전트 서비스를 최신 버전으로 업데이트하면 됩니다.  그러면 서비스가 최신 버전으로 업그레이드됩니다.  이제 설치 마법사를 다시 실행하고, 메시지가 표시되면 계정을 만들 수 있는 자격 증명을 제공합니다.
+
+
 
 
 

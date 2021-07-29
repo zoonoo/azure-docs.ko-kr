@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 8562d63bf227fff665c70674c7fe66922bce9992
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67ddcf5fd7d3ef3c1def12a325eb19980176a8ba
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98882283"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756218"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Azure 파일 동기화로 StorSimple 1200 마이그레이션
 
@@ -23,7 +23,7 @@ StorSimple 1200 시리즈는 2022년 12월에 [지원 종료](https://support.mi
 ## <a name="azure-file-sync"></a>Azure 파일 동기화
 
 > [!IMPORTANT]
-> Microsoft는 마이그레이션하는 고객을 위한 지원을 약속드리겠습니다. 맞춤형 마이그레이션 계획 및 마이그레이션 중 지원을 받으려면 AzureFilesMigration@microsoft.com으로 이메일을 보내세요.
+> Microsoft는 마이그레이션하는 고객을 위한 지원을 약속드리겠습니다. 맞춤형 마이그레이션 계획 또는 마이그레이션 중 지원을 받으려면 AzureFilesMigration@microsoft.com으로 이메일을 보내세요.
 
 Azure 파일 동기화는 두 가지 주요 구성 요소를 기반으로 하는 Microsoft Cloud Service)입니다.
 
@@ -32,12 +32,12 @@ Azure 파일 동기화는 두 가지 주요 구성 요소를 기반으로 하는
 
 이 문서에서는 마이그레이션 단계에 초점을 두고 설명합니다. 마이그레이션하기 전에 Azure 파일 동기화에 대해 자세히 알아보려면 다음 문서를 참조하는 것이 좋습니다.
 
-* [Azure 파일 동기화 - 개요](./storage-sync-files-planning.md "개요")
-* [Azure 파일 동기화 - 배포 가이드](storage-sync-files-deployment-guide.md)
+* [Azure 파일 동기화 - 개요](../file-sync/file-sync-planning.md "개요")
+* [Azure 파일 동기화 - 배포 가이드](../file-sync/file-sync-deployment-guide.md)
 
 ## <a name="migration-goals"></a>마이그레이션 목표
 
-목표는 생산 데이터 무결성을 보장하고 가용성을 보장하는 것입니다. 후자는 가동 중지 시간을 최소로 유지하여 정기적인 유지 보수 기간에 맞추거나 약간 초과할 수 있습니다.
+목표는 생산 데이터 무결성을 보장하고 가용성을 보장하는 것입니다. 후자는 가동 중지 시간이 정기적인 유지 관리 기간에 맞거나 약간 초과할 수 있도록 가동 중지 시간을 최소로 유지해야 합니다.
 
 ## <a name="storsimple-1200-migration-path-to-azure-file-sync"></a>Azure 파일 동기화로의 StorSimple 1200 마이그레이션 경로
 
@@ -51,7 +51,7 @@ Azure 파일 동기화 에이전트를 실행하려면 로컬 Windows 서버가 
 
 ### <a name="step-1-provision-your-on-premises-windows-server-and-storage"></a>1단계: 온-프레미스 Windows 서버 및 스토리지 프로비저닝
 
-1. Windows 서버 2019(2012R2 이상)를 가상 머신 또는 물리적 서버로 만듭니다. Windows 서버 장애 조치(failover) 클러스터도 지원됩니다.
+1. 가상 머신 또는 물리적 서버로 Windows Server 2019(최소 2012R2 이상)를 만듭니다. Windows Server 장애 조치(failover) 클러스터도 지원됩니다.
 2. DAS(Direct Attached Storage, 지원되지 않는 NAS와 비교)를 프로비저닝하거나 추가합니다. Windows 서버 스토리지 크기는 가상 StorSimple 1200 어플라이언스의 사용 가능한 용량 크기보다 크거나 같아야 합니다.
 
 ### <a name="step-2-configure-your-windows-server-storage"></a>2단계: Windows 서버 스토리지 구성
@@ -77,6 +77,15 @@ Azure 파일 동기화를 구성한 후 파일 및 폴더 구조를 변경하는
 ### <a name="step-5-provision-azure-file-shares"></a>5단계: Azure 파일 공유 프로비저닝
 
 [!INCLUDE [storage-files-migration-provision-azfs](../../../includes/storage-files-migration-provision-azure-file-share.md)]
+
+#### <a name="storage-account-settings"></a>스토리지 계정 설정
+
+스토리지 계정에는 다양한 구성을 수행할 수 있습니다. 스토리지 계정 구성에서는 다음 체크리스트를 고려해야 합니다. 마이그레이션이 완료된 후에는 네트워킹 구성의 인스턴스를 변경할 수 있습니다. 
+
+> [!div class="checklist"]
+> * 대량 파일 공유: 사용 - 대량 파일 공유를 사용하면 성능을 높이고 한 공유에 최대 100TiB를 저장할 수 있습니다.
+> * 방화벽 및 가상 네트워크: 사용 안 함 - IP 제한이나 특정 VNET에 대한 스토리지 계정 액세스 제한을 구성하지 않습니다. 스토리지 계정의 퍼블릭 엔드포인트를 마이그레이션 중에 사용합니다. Azure VM의 모든 IP 주소가 허용되어야 합니다. 마이그레이션 후 스토리지 계정에 대한 방화벽 규칙을 구성하는 것이 좋습니다.
+> * 프라이빗 엔드포인트 지원 - 프라이빗 엔드포인트를 사용할 수는 있으나 퍼블릭 엔드포인트를 마이그레이션에 사용하고, 사용 가능한 상태로 유지해야 합니다.
 
 ### <a name="step-6-configure-windows-server-target-folders"></a>6단계: Windows 서버 대상 폴더 구성
 
@@ -104,84 +113,15 @@ Azure 파일 동기화를 구성한 후 파일 및 폴더 구조를 변경하는
 
 기본 마이그레이션 방식은 StorSimple 가상 어플라이언스에서 Windows Server로 RoboCopy 및 Azure 파일 공유로 Azure 파일 동기화입니다.
 
-Windows Server 대상 폴더에 첫 번째 로컬 복사를 실행합니다.
+Windows Server 대상 폴더로 첫 번째 로컬 복사본을 실행합니다.
 
 * 가상 StorSimple 어플라이언스의 첫 번째 위치를 식별합니다.
-* Azure 파일 동기화가 이미 구성되어 있는 Windows Server에서 일치하는 폴더를 식별합니다.
-* RoboCopy를 사용하여 복사를 시작합니다.
+* 이미 Azure 파일 동기화가 구성된 Windows Server에서 일치하는 폴더를 식별합니다.
+* RoboCopy를 사용하여 복사 시작
 
-다음 RoboCopy 명령은 StorSimple Azure Storage에서 로컬 StorSimple로 파일을 회수한 다음 Windows Server 대상 폴더로 이동합니다. Windows Server를 Azure 파일 공유와 동기화합니다. 로컬 Windows Server 볼륨이 가득 차면 클라우드 계층화가 시작되고 이미 동기화된 파일이 계층화됩니다. 클라우드 계층화는 StorSimple 클라우드 어플라이언스에서 복사를 계속하기에 충분한 공간을 생성합니다. 클라우드 계층화는 한 시간에 한 번씩 확인하여 무엇이 동기화되었는지 확인하고 99%의 볼륨 여유 공간에 도달할 수 있도록 디스크 공간을 확보합니다.
+다음 RoboCopy 명령은 StorSimple Azure Storage에서 로컬 StorSimple로 파일을 회수한 다음 Windows Server 대상 폴더로 이동합니다. Windows Server가 이를 Azure 파일 공유로 동기화합니다. 로컬 Windows Server 볼륨이 가득 차면 클라우드 계층화가 시작되고 이미 동기화된 파일을 계층화합니다. 클라우드 계층화는 StorSimple 클라우드 어플라이언스에서 복사를 계속하기에 충분한 공간을 생성합니다. 클라우드 계층화는 한 시간에 한 번씩 동기화 내용 및 99%의 볼륨 여유 공간에 도달할 수 있도록 디스크 공간 확보를 확인합니다.
 
-```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
-```
-
-배경:
-
-:::row:::
-   :::column span="1":::
-      /MT
-   :::column-end:::
-   :::column span="1":::
-      RoboCopy가 다중 스레드를 실행할 수 있도록 허용합니다. 기본값은 8이고 최댓값은 128입니다.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /UNILOG:<file name>
-   :::column-end:::
-   :::column span="1":::
-      상태를 LOG 파일에 UNICODE로 출력합니다(기존 로그 덮어쓰기).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /TEE
-   :::column-end:::
-   :::column span="1":::
-      콘솔 창에 출력합니다. 로그 파일에 대한 출력과 함께 사용됩니다.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /B
-   :::column-end:::
-   :::column span="1":::
-      백업 애플리케이션과 동일한 모드에서 RoboCopy를 실행합니다. 이를 통해 RoboCopy가 현재 사용자에게 권한이 없는 파일을 이동할 수 있습니다.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /MIR
-   :::column-end:::
-   :::column span="1":::
-      이 RoboCopy 명령을 동일한 대상에서 순차적으로 여러 번 실행할 수 있습니다. 이전에 복사된 항목을 식별하고 생략합니다. 마지막 실행 이후 발생한 변경, 추가 및 "*삭제*"만 처리됩니다. 이전에 명령을 실행하지 않은 경우에는 아무 것도 생략되지 않습니다. 이는 계속해서 적극적으로 사용되고 변경되는 원본 위치에 대한 가장 효과적인 옵션입니다.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      파일 복사의 충실도(기본값은 /COPY:DAT), 복사 플래그: D=데이터, A=특성, T=타임스탬프, S=보안=NTFS ACL, O=소유자 정보, U=감사 정보입니다.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      / COPYALL
-   :::column-end:::
-   :::column span="1":::
-      모든 파일 정보를 복사합니다(/COPY:DATSOU와 동일).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /DCOPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      디렉터리 복사본의 충실도(기본값은 /DCOPY:DA), 복사 플래그: D=데이터, A=특성, T=타임스탬프입니다.
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 RoboCopy 명령을 처음 실행하는 경우 사용자와 애플리케이션은 계속해서 StorSimple 파일 및 폴더에 액세스하며 변경할 수도 있습니다. RoboCopy가 디렉터리를 처리하고 다음으로 이동한 후 원본 위치(StorSimple)의 사용자가 파일을 추가, 변경 또는 삭제할 수 있으며, 이것은 현재 RoboCopy 실행에서는 처리되지 않습니다. 괜찮습니다.
 
@@ -192,7 +132,7 @@ RoboCopy 명령을 처음 실행하는 경우 사용자와 애플리케이션은
 * 업로드 대역폭
 * 각 서비스에서 처리해야 하는 항목(파일 및 폴더) 수
 
-초기 실행이 완료되면 이 명령을 다시 실행합니다.
+초기 실행이 완료되면 명령을 다시 실행합니다.
 
 마지막 실행 후에 발생한 변경 내용만 전송하면 되기 때문에 두 번째 실행은 더 빨리 완료됩니다. 이러한 변경 사항은 최근이기 때문에 이미 StorSimple에 로컬일 가능성이 있습니다. 이렇게 하면 클라우드에서 회수할 필요가 감소하기 때문에 시간이 더 줄어듭니다. 두 번째 실행 중에도 새 변경 내용이 누적될 수 있습니다.
 
@@ -200,14 +140,14 @@ RoboCopy 명령을 처음 실행하는 경우 사용자와 애플리케이션은
 
 허용할 수 있는 가동 중지 시간을 고려하여 StorSimple 위치를 오프라인 상태로 전환할 준비가 되면 이제는 이 작업을 수행합니다. 예를 들어, 사용자가 폴더에 액세스하거나 StorSimple의 이 폴더에서 콘텐츠를 변경하지 못하게 하는 다른 적절한 단계를 수행할 수 없도록 SMB 공유를 제거합니다.
 
-RoboCopy를 마지막으로 한 번 실행합니다. 그러면 놓쳤을 수도 있는 변경 내용이 복사됩니다.
-마지막 단계에 걸리는 시간은 RoboCopy 검사 속도에 따라 달라집니다. 이 시간(가동 중지 시간과 동일)은 이전 실행에 걸린 시간을 측정하여 예상할 수 있습니다.
+마지막 RoboCopy 라운드를 한 번 실행합니다. 그러면 놓쳤을 수도 있는 변경 내용이 복사됩니다.
+이 마지막 단계에 드는 시간은 RoboCopy 검색 속도에 따라 달라집니다. 이전 실행에 걸린 시간을 측정하여 시간(가동 중지 시간)을 예상할 수 있습니다.
 
-Windows Server 폴더에 공유를 만들고 이를 가리키도록 DFS-N 배포를 조정할 수 있습니다. StorSimple SMB 공유와 동일한 공유 수준의 권한을 설정해야 합니다.
+Windows Server 폴더에 공유를 만들고 DFS-N 배포를 조정하여 이를 가리키도록 할 수 있습니다. StorSimple SMB 공유와 동일한 공유 수준의 권한을 설정해야 합니다.
 
-공유 / 공유 그룹을 공통 루트 또는 볼륨으로 마이그레이션하는 작업을 마쳤습니다. (동일한 Azure 파일 공유로 이동하기 위해 매핑하여 결정한 항목에 따라 다릅니다.)
+공유/공유 그룹을 공통 루트 또는 볼륨으로 마이그레이션했습니다. (동일한 Azure 파일 공유로 이동하기 위해 매핑하여 결정한 항목에 따라 다릅니다.)
 
-이러한 복사본 중 몇 개를 병렬로 실행할 수 있습니다. 하나의 Azure 파일 공유 범위를 한 번에 처리하는 것이 좋습니다.
+해당 복사본 중 일부를 병렬로 실행할 수 있습니다. 한 번에 하나의 Azure 파일 공유 범위를 처리하는 것이 좋습니다.
 
 > [!WARNING]
 > 모든 데이터를 StorSimple에서 Windows Server로 이동하고 마이그레이션이 완료되고 나면 Azure Portal의 ***모든*** 동기화 그룹으로 돌아가서 클라우드 계층화 볼륨의 사용 가능한 공간(%) 값을 캐시 사용률에 더 적합한 값(예: 20%)으로 조정합니다. 
@@ -216,14 +156,16 @@ Windows Server 폴더에 공유를 만들고 이를 가리키도록 DFS-N 배포
 
 ## <a name="troubleshoot"></a>문제 해결
 
-발생할 가능성이 높은 문제는 RoboCopy 명령이 Windows Server의 *"볼륨 가득 참"* 으로 인해 실패하는 것입니다. 이 경우 다운로드 속도가 업로드 속도보다 더 좋을 수 있습니다. 클라우드 계층화는 동기화된 로컬 Windows Server 디스크에서 콘텐츠를 비우기 위해 매시간 한 번씩 작동합니다.
+발생할 가능성이 높은 문제는 RoboCopy 명령이 Windows Server의 “볼륨 가득 참”으로 인해 실패하는 것입니다. 이 경우 다운로드 속도가 업로드 속도보다 더 좋을 수 있습니다. 클라우드 계층화는 동기화된 로컬 Windows Server 디스크에서 콘텐츠를 비우기 위해 매시간 한 번씩 작동합니다.
 
-동기화를 진행하고 클라우드 계층화를 통해 디스크 공간을 확보하도록 합니다. Windows Server의 파일 탐색기에서 이를 확인할 수 있습니다.
+동기화 진행 및 클라우드 계층화를 통해 디스크 공간을 확보합니다. Windows 서버의 파일 탐색기에서 이를 확인할 수 있습니다.
 
-Windows Server에 사용 가능한 용량이 충분한 경우에는 명령을 다시 실행하면 문제가 해결됩니다. 이런 상황이 발생해도 큰 문제는 없으며 계속 작업을 진행해도 됩니다. 다만, 명령을 다시 실행해야 한다는 불편함이 있습니다.
+Windows 서버가 사용 가능한 충분한 용량을 갖춘 경우 명령을 다시 실행하면 문제를 해결합니다. 이와 같은 상황이 발생하더라도 아무 문제가 없으며 자신감을 가지고 작업을 진행하세요. 불편한 점이라고는 명령을 다시 실행하는 것뿐입니다.
 
 다른 Azure 파일 동기화 문제를 실행할 수도 있습니다.
 가능성이 희박하지만 발생한 경우 **LINK Azure 파일 동기화 문제 해결 가이드** 를 참조하세요.
+
+[!INCLUDE [storage-files-migration-robocopy-optimize](../../../includes/storage-files-migration-robocopy-optimize.md)]
 
 ## <a name="relevant-links"></a>관련 링크
 
@@ -233,6 +175,6 @@ Windows Server에 사용 가능한 용량이 충분한 경우에는 명령을 �
 
 Azure 파일 동기화 콘텐츠:
 
-* [AFS 개요](./storage-sync-files-planning.md)
-* [AFS 배포 가이드](./storage-how-to-create-file-share.md)
-* [AFS 문제 해결](storage-sync-files-troubleshoot.md)
+* [Azure 파일 동기화 개요](../file-sync/file-sync-planning.md)
+* [Azure 파일 동기화 배포](../file-sync/file-sync-deployment-guide.md)
+* [Azure 파일 동기화 문제 해결 가이드](../file-sync/file-sync-troubleshoot.md)

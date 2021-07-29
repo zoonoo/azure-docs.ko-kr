@@ -11,12 +11,12 @@ ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0277d4ce263610576178e3844a0665ab6506fbfa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cd2d660a0591506b59aaa1b11526175582d2785b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579164"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758774"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Azure AD Connect 클라우드 동기화에 대한 필수 구성 요소
 이 문서에서는 ID 솔루션으로 Azure AD(Azure Active Directory) Connect 클라우드 동기화를 선택하고 사용하는 방법에 대한 지침을 제공합니다.
@@ -116,7 +116,7 @@ TLS 1.2를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
 ### <a name="delta-synchronization"></a>델타 동기화
 
-- 델타 동기화에 대한 그룹 범위 필터링은 1,500개 이상의 멤버를 지원하지 않습니다.
+- 델타 동기화에 대한 그룹 범위 필터링은 50,000명 넘는 멤버를 지원하지 않습니다.
 - 그룹 범위 지정 필터의 일부로 사용되는 그룹을 삭제하는 경우 그룹의 멤버인 사용자는 삭제되지 않습니다. 
 - 범위에 있는 OU 또는 그룹의 이름을 바꾸면 델타 동기화에서 사용자가 제거되지 않습니다.
 
@@ -125,6 +125,11 @@ TLS 1.2를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
 ### <a name="group-re-naming-or-ou-re-naming"></a>그룹 이름 바꾸기 또는 OU 이름 바꾸기
 - 지정된 구성의 범위에 속하는 AD의 그룹 또는 OU의 이름을 바꾸는 경우 클라우드 동기화 작업에서 AD의 이름 변경을 인식할 수 없습니다. 작업은 격리되지 않으며 정상 상태로 유지됩니다.
+
+### <a name="scoping-filter"></a>범위 지정 필터
+OU 범위 지정 필터를 사용하는 경우
+- 지정된 구성에 대해 최대 59개의 개별 OU만 동기화할 수 있습니다. 
+- 중첩 OU가 지원됩니다(즉, 130개의 중첩된 OU가 있는 OU를 **동기화할 수 있지** 만 동일한 구성에서 60개의 개별 OU를 동기화할 수는 **없음**). 
 
 
 ## <a name="next-steps"></a>다음 단계 

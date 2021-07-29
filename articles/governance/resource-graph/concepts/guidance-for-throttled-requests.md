@@ -4,12 +4,12 @@ description: Azure 리소스 그래프에 의해 제한되는 요청을 방지�
 ms.date: 04/09/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 891d5951670dd6022b66ae2936ee855f73f8b33a
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 87d94da5ae247f80d1d7eb26e7aea3d9f582b370
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107283544"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751970"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Azure Resource Graph의 제한된 요청에 대한 지침
 
@@ -31,7 +31,7 @@ Azure Resource Graph는 시간 범위를 기준으로 각 사용자에 대한 �
 - `x-ms-user-quota-remaining`(int): 사용자의 나머지 리소스 할당량입니다. 이 값은 쿼리 수에 매핑됩니다.
 - `x-ms-user-quota-resets-after`(hh:mm:ss): 사용자의 할당량 소비가 재설정될 때까지 남은 기간
 
-보안 주체가 테넌트 또는 관리 그룹 [쿼리 범위](./query-language.md#query-scope) 내에서 5000개를 초과하는 구독에 액세스할 수 있는 경우 응답은 처음 5000개 구독으로 제한되고 `x-ms-tenant-subscription-limit-hit` 헤더는 `true`로 반환됩니다.
+보안 주체가 테넌트 또는 관리 그룹 [쿼리 범위](./query-language.md#query-scope) 내에서 5,000개를 초과하는 구독에 액세스할 수 있는 경우 응답은 처음 5,000개 구독으로 제한되고 `x-ms-tenant-subscription-limit-hit` 헤더는 `true`로 반환됩니다.
 
 헤더의 작동 방식을 설명하기 위해 `x-ms-user-quota-remaining: 10` 및 `x-ms-user-quota-resets-after: 00:00:03`의 헤더와 값이 있는 쿼리 응답을 살펴보겠습니다.
 
@@ -174,7 +174,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
         var azureOperationResponse = await this.resourceGraphClient
             .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
             .ConfigureAwait(false);
-        
+
         var responseHeaders = azureOperationResponse.response.Headers;
         int remainingQuota = /* read and parse x-ms-user-quota-remaining from responseHeaders */
         TimeSpan resetAfter = /* read and parse x-ms-user-quota-resets-after from responseHeaders */
@@ -190,7 +190,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 
 ## <a name="pagination"></a>페이지 매김
 
-Azure Resource Graph가 단일 쿼리 응답에서 최대 1000개 항목을 반환하므로 찾고 있는 완전한 데이터 세트를 가져오려면 [쿼리](./work-with-data.md#paging-results)에 페이지를 매겨야 할 것입니다. 그러나 일부 Azure Resouce Graph 클라이언트는 페이지 매김을 다른 방식으로 처리합니다.
+Azure Resource Graph가 단일 쿼리 응답에서 최대 1,000개 항목을 반환하므로 찾고 있는 완전한 데이터 세트를 가져오려면 쿼리에 [페이지를 매겨](./work-with-data.md#paging-results)야 할 수 있습니다. 그러나 일부 Azure Resouce Graph 클라이언트는 페이지 매김을 다른 방식으로 처리합니다.
 
 - C# SDK
 
@@ -219,7 +219,7 @@ Azure Resource Graph가 단일 쿼리 응답에서 최대 1000개 항목을 반�
 
 - Azure CLI / Azure PowerShell
 
-  Azure CLI 또는 Azure PowerShell을 사용하는 경우 Azure Resource Graph에 대한 쿼리는 최대 5000개 항목에서 자동으로 페이지가 매겨집니다. 쿼리 결과는 페이지가 매겨진 모든 호출에서 항목의 결합된 목록을 반환합니다. 이 경우 쿼리 결과의 항목 수에 따라 페이지가 매겨진 단일 쿼리에서 둘 이상의 쿼리 할당량을 사용할 수 있습니다. 예를 들어 다음 예제에서는 쿼리를 한 번 실행하면 최대 5개의 쿼리 할당량을 사용할 수 있습니다.
+  Azure CLI 또는 Azure PowerShell을 사용하는 경우 Azure Resource Graph에 대한 쿼리는 최대 5,000개 항목에서 자동으로 페이지가 매겨집니다. 쿼리 결과는 페이지가 매겨진 모든 호출에서 항목의 결합된 목록을 반환합니다. 이 경우 쿼리 결과의 항목 수에 따라 페이지가 매겨진 단일 쿼리에서 둘 이상의 쿼리 할당량을 사용할 수 있습니다. 예를 들어 다음 예제에서는 쿼리를 한 번 실행하면 최대 5개의 쿼리 할당량을 사용할 수 있습니다.
 
   ```azurecli-interactive
   az graph query -q 'Resources | project id, name, type' --first 5000

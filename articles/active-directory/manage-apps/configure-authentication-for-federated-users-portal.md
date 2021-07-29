@@ -2,25 +2,22 @@
 title: 홈 영역 검색을 사용하여 로그인 자동 가속 구성
 description: 자동 가속 및 도메인 힌트를 비롯하여 페더레이션된 사용자의 Azure Active Directory 인증을 위한 홈 영역 검색 정책을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: ''
-author: kenwith
-manager: daveba
+author: mtillman
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.author: kenwith
+ms.author: mtillman
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ed101282a69120162d6e3b526693c0a83df45b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2729ec3ca445fa53503a1968e1fee639bd990f6b
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104607112"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081500"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성
 
@@ -42,7 +39,7 @@ HRD(홈 영역 검색)는 Azure AD(Azure Active Directory)에서 로그인 시 �
 
 ## <a name="auto-acceleration"></a>자동 가속
 
-일부 조직에서는 사용자 인증을 위해 AD FS와 같은 다른 IdP와 페더레이션되도록 Azure Active Directory 테넌트의 도메인을 구성합니다.  
+일부 조직에서는 사용자 인증을 위해 AD FS와 같은 다른 IdP와 페더레이션되도록 Azure Active Directory 테넌트의 도메인을 구성합니다.
 
 사용자가 애플리케이션에 로그인하면 먼저 Azure AD 로그인 페이지가 표시됩니다. UPN을 입력한 후 페더레이션된 도메인에 있으면 해당 도메인의 서비스를 제공하는 IdP의 로그인 페이지로 이동합니다. 특정 상황에서 관리자는 사용자들이 특정 애플리케이션에 로그인할 때 로그인 페이지로 안내하고자 할 수도 있습니다.
 
@@ -50,8 +47,8 @@ HRD(홈 영역 검색)는 Azure AD(Azure Active Directory)에서 로그인 시 �
 
 로그인에 대한 다른 IdP로 테넌트가 페더레이션되는 경우 자동 가속을 사용하면 사용자 로그인이 더 간소화됩니다.  개별 애플리케이션에 대해 자동 가속을 구성할 수 있습니다.
 
->[!NOTE]
->자동 가속화를 사용하도록 애플리케이션을 구성하는 경우 사용자는 관리형 자격 증명(예: FIDO)을 사용할 수 없고 게스트 사용자가 로그인할 수 없습니다. 인증을 위해 페더레이션된 IdP로 사용자를 바로 보내는 경우 Azure Active Directory 로그인 페이지로 다시 돌아갈 방법이 없습니다. 다른 테넌트 또는 Microsoft 계정과 같은 외부 IdP로 이동해야 할 수도 있는 게스트 사용자는 홈 영역 검색 단계가 생략되므로 해당 애플리케이션에 로그인할 수 없습니다.  
+> [!NOTE]
+> 자동 가속화를 사용하도록 애플리케이션을 구성하는 경우 사용자는 관리형 자격 증명(예: FIDO)을 사용할 수 없고 게스트 사용자가 로그인할 수 없습니다. 인증을 위해 페더레이션된 IdP로 사용자를 바로 보내는 경우 Azure Active Directory 로그인 페이지로 다시 돌아갈 방법이 없습니다. 다른 테넌트 또는 Microsoft 계정과 같은 외부 IdP로 이동해야 할 수도 있는 게스트 사용자는 홈 영역 검색 단계가 생략되므로 해당 애플리케이션에 로그인할 수 없습니다.
 
 페더레이션된 IdP로의 자동 가속 기능을 제어하는 방법에는 다음 세 가지가 있습니다.
 
@@ -61,7 +58,7 @@ HRD(홈 영역 검색)는 Azure AD(Azure Active Directory)에서 로그인 시 �
 
 ### <a name="domain-hints"></a>도메인 힌트
 
-도메인 힌트는 애플리케이션의 인증 요청에 포함되는 지시문입니다. 페더레이션된 IdP 로그인 페이지로 사용자를 빠르게 보내는 데 사용할 수 있습니다. 또는 다중 테넌트 애플리케이션에서 테넌트에 대한 브랜딩 Azure AD 로그인 페이지로 사용자를 바로 보내는 데 사용될 수 있습니다.  
+도메인 힌트는 애플리케이션의 인증 요청에 포함되는 지시문입니다. 페더레이션된 IdP 로그인 페이지로 사용자를 빠르게 보내는 데 사용할 수 있습니다. 또는 다중 테넌트 애플리케이션에서 테넌트에 대한 브랜딩 Azure AD 로그인 페이지로 사용자를 바로 보내는 데 사용될 수 있습니다.
 
 예를 들어, 애플리케이션 “largeapp.com”은 고객이 사용자 지정 URL “contoso.largeapp.com”에서 애플리케이션에 액세스할 수 있도록 합니다. 또한 앱은 인증 요청의 contoso.com에 도메인 힌트를 포함할 수 있습니다.
 
@@ -82,16 +79,16 @@ HRD(홈 영역 검색)는 Azure AD(Azure Active Directory)에서 로그인 시 �
 
 Azure Active Directory에서 지원하는 도메인 힌트를 사용한 자동 가속 기능에 대한 자세한 내용은 [Enterprise Mobility + Security 블로그](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/)를 참조하세요.
 
->[!NOTE]
->도메인 힌트가 인증 요청에 포함되어 있고 [반드시 적용되어야 하는 경우](#home-realm-discovery-policy-to-prevent-auto-acceleration) HRD 정책에서 애플리케이션에 대해 설정된 자동 가속을 재정의합니다.
+> [!NOTE]
+> 도메인 힌트가 인증 요청에 포함되어 있고 [반드시 적용되어야 하는 경우](#home-realm-discovery-policy-to-prevent-auto-acceleration) HRD 정책에서 애플리케이션에 대해 설정된 자동 가속을 재정의합니다.
 
 ### <a name="home-realm-discovery-policy-for-auto-acceleration"></a>자동 가속에 대한 홈 영역 검색 정책
 
-일부 애플리케이션은 인증 요청을 구성하는 방법을 제공하지 않습니다. 이 경우 도메인 힌트를 사용하여 자동 가속을 제어할 수는 없습니다. 동일한 동작을 얻기 위해 홈 영역 검색 정책을 통해 자동 가속을 구성할 수 있습니다.  
+일부 애플리케이션은 인증 요청을 구성하는 방법을 제공하지 않습니다. 이 경우 도메인 힌트를 사용하여 자동 가속을 제어할 수는 없습니다. 동일한 동작을 얻기 위해 홈 영역 검색 정책을 통해 자동 가속을 구성할 수 있습니다.
 
 ### <a name="home-realm-discovery-policy-to-prevent-auto-acceleration"></a>자동 가속을 방지하는 홈 영역 검색 정책
 
-일부 Microsoft 및 SaaS 애플리케이션은 domain_hints를 자동으로 포함하므로(예: `https://outlook.com/contoso.com`에 로그인 요청 시 `&domain_hint=contoso.com`이 붙음) FIDO와 같은 관리형 자격 증명을 배포하지 못할 수 있습니다.  [홈 영역 검색 정책](/graph/api/resources/homeRealmDiscoveryPolicy)을 사용하면 특정 앱 또는 특정 도메인의 도메인 힌트를 관리형 자격 증명을 배포하는 동안 무시할 수 있습니다.  
+일부 Microsoft 및 SaaS 애플리케이션은 domain_hints를 자동으로 포함하므로(예: `https://outlook.com/contoso.com`에 로그인 요청 시 `&domain_hint=contoso.com`이 붙음) FIDO와 같은 관리형 자격 증명을 배포하지 못할 수 있습니다.  [홈 영역 검색 정책](/graph/api/resources/homeRealmDiscoveryPolicy)을 사용하면 특정 앱 또는 특정 도메인의 도메인 힌트를 관리형 자격 증명을 배포하는 동안 무시할 수 있습니다.
 
 ## <a name="enable-direct-ropc-authentication-of-federated-users-for-legacy-applications"></a>레거시 애플리케이션에 페더레이션된 사용자의 직접 ROPC 인증 사용
 
@@ -112,21 +109,21 @@ Azure Active Directory에서 지원하는 도메인 힌트를 사용한 자동 �
 
 정책은 서비스 주체에 연결된 특정 애플리케이션에만 적용됩니다.
 
-한 번에 하나의 HRD 정책만 서비스 주체에서 활성화할 수 있습니다.  
+한 번에 하나의 HRD 정책만 서비스 주체에서 활성화할 수 있습니다.
 
 Azure Active Directory PowerShell cmdlet을 사용하여 HRD 정책을 만들고 관리할 수 있습니다.
 
 다음은 HRD 정책 정의의 예제입니다.
 
- ```JSON
-   {  
-    "HomeRealmDiscoveryPolicy":
-    {  
+```json
+{  
+  "HomeRealmDiscoveryPolicy":
+  {  
     "AccelerateToFederatedDomain":true,
     "PreferredDomain":"federated.example.edu",
     "AllowCloudPasswordValidation":false,    
-    }
-   }
+  }
+}
 ```
 
 정책 형식은 “[HomeRealmDiscoveryPolicy](/graph/api/resources/homeRealmDiscoveryPolicy)”입니다.
@@ -177,13 +174,13 @@ Azure AD PowerShell cmdlet을 사용하여 다음을 포함한 몇 가지 시나
 
 2. Azure AD PowerShell Cmdlet을 다운로드한 후에는 Connect 명령을 실행하여 관리자 계정으로 Azure AD에 로그인합니다.
 
-    ``` powershell
+    ```powershell
     Connect-AzureAD -Confirm
     ```
 
 3. 다음 명령을 실행하여 조직의 모든 정책을 확인합니다.
 
-    ``` powershell
+    ```powershell
     Get-AzureADPolicy
     ```
 
@@ -201,25 +198,25 @@ Azure AD PowerShell cmdlet을 사용하여 다음을 포함한 몇 가지 시나
 
 테넌트에 단일 도메인이 있는 경우 다음 정책은 애플리케이션에 로그인할 때 사용자를 AD FS 로그인 화면으로 자동 가속합니다.
 
-``` powershell
+```powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 테넌트에 페더레이션된 도메인이 둘 이상 있는 경우 다음 정책은 사용자를 AD FS 로그인 화면으로 자동 가속합니다. 애플리케이션에 대한 사용자를 인증하는 페더레이션된 도메인이 둘 이상 있는 경우 자동 가속할 도메인을 지정해야 합니다.
 
-``` powershell
+```powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, `"PreferredDomain`":`"federated.example.edu`"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 페더레이션 사용자에 대한 사용자 이름/암호 인증을 Azure Active Directory를 통해 직접 사용하도록 설정하는 특정 애플리케이션에 대한 정책을 만들려면 다음 명령을 실행합니다.
 
-``` powershell
+```powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuthPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 새 정책을 확인하고 해당 **ObjectID** 를 가져오려면 다음 명령을 실행합니다.
 
-``` powershell
+```powershell
 Get-AzureADPolicy
 ```
 
@@ -229,11 +226,11 @@ HRD 정책을 만든 후에 적용하려면 여러 애플리케이션 서비스 
 
 정책을 할당할 서비스 주체의 **ObjectID** 가 필요합니다. 여러 가지 방법으로 서비스 주체의 **ObjectID** 를 찾을 수 있습니다.
 
-포털을 사용하거나 [Microsoft Graph](/graph/api/resources/serviceprincipal?view=graph-rest-beta)를 쿼리할 수 있습니다. [Graph 탐색기 도구](https://developer.microsoft.com/graph/graph-explorer)로 이동하고 Azure AD 계정에 로그인하여 조직의 모든 서비스 주체를 확인할 수 있습니다.
+포털을 사용하거나 [Microsoft Graph](/graph/api/resources/serviceprincipal)를 쿼리할 수 있습니다. [Graph 탐색기 도구](https://developer.microsoft.com/graph/graph-explorer)로 이동하고 Azure AD 계정에 로그인하여 조직의 모든 서비스 주체를 확인할 수 있습니다.
 
 PowerShell을 사용하기 때문에 다음 cmdlet을 사용하여 서비스 주체 및 해당 ID를 나열할 수 있습니다.
 
-``` powershell
+```powershell
 Get-AzureADServicePrincipal
 ```
 
@@ -241,7 +238,7 @@ Get-AzureADServicePrincipal
 
 자동 가속을 구성하려는 애플리케이션의 서비스 주체 **ObjectID** 를 찾은 후 다음 명령을 실행합니다. 이 명령은 1단계에서 만든 HRD 정책을 2단계에서 찾은 서비스 주체에 연결합니다.
 
-``` powershell
+```powershell
 Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
 ```
 
@@ -253,7 +250,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefOb
 
 HRD 정책이 구성되어 있는 애플리케이션을 확인하려면 **Get-AzureADPolicyAppliedObject** cmdlet을 사용합니다. 확인하려는 정책의 **ObjectID** 를 전달합니다.
 
-``` powershell
+```powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
@@ -265,15 +262,15 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 
 #### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>1단계: 조직에서 생성된 모든 정책 나열
 
-``` powershell
+```powershell
 Get-AzureADPolicy
 ```
 
 할당을 나열하려는 정책의 **ObjectID** 를 적어둡니다.
 
-#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>2단계: 정책이 할당된 서비스 주체 나열  
+#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>2단계: 정책이 할당된 서비스 주체 나열
 
-``` powershell
+```powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
@@ -283,15 +280,15 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 
 앞의 예제를 사용하여 제거하려는 애플리케이션 서비스 주체의 정책 **ObjectID** 를 가져옵니다.
 
-#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>2단계: 애플리케이션 서비스 주체에서 정책 할당 제거  
+#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>2단계: 애플리케이션 서비스 주체에서 정책 할당 제거
 
-``` powershell
+```powershell
 Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
 #### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>3단계: 정책이 할당된 서비스 주체를 나열하여 제거 확인
 
-``` powershell
+```powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 

@@ -4,17 +4,17 @@ description: Linux용 Azure Policy 게스트 구성 정책을 만드는 방법�
 ms.date: 03/31/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d356960987ecfe9a1e1858a28b93060dbf4aa634
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: b28d7f0ccd2f4b8cca7bdb5015dce6e8ee8f2f17
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096566"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108762986"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Linux용 게스트 구성 정책을 만드는 방법
 
 사용자 지정 정책을 만들기 전에 [Azure Policy 게스트 구성](../concepts/guest-configuration.md)에서 개요 정보를 읽어 보세요.
- 
+
 Windows용 게스트 구성 정책을 만드는 방법에 대한 자세한 내용은 [Windows용 게스트 구성 정책을 만드는 방법](./guest-configuration-create.md) 페이지를 참조하세요.
 
 Linux를 감사할 때 게스트 구성은 [Chef InSpec](https://www.inspec.io/)를 사용합니다. InSpec 프로필은 컴퓨터가 충족해야 하는 조건을 정의합니다. 구성을 평가하지 못한 경우 **auditIfNotExists** 정책 효과가 트리거되고 컴퓨터를 **미준수** 로 간주합니다.
@@ -24,10 +24,10 @@ Linux를 감사할 때 게스트 구성은 [Chef InSpec](https://www.inspec.io/)
 다음 작업을 사용하여 Azure 또는 비 Azure 컴퓨터 상태의 유효성을 검사하는 고유한 구성을 만듭니다.
 
 > [!IMPORTANT]
-> Azure Government 및 Azure 중국 환경에서 게스트 구성을 사용하는 사용자 지정 정책 정의는 미리 보기 기능입니다.
+> Azure Government 및 Azure 중국 21Vianet 환경에서 게스트 구성을 사용하는 사용자 지정 정책 정의는 미리 보기 기능입니다.
 >
 > 게스트 구성 확장은 Azure Virtual Machines에서 감사를 수행하는 데 필요합니다. 모든 Linux 컴퓨터에서 확장을 대규모로 배포하려면 정책 정의(`Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`)를 할당합니다.
-> 
+>
 > 사용자 지정 콘텐츠 패키지에서 비밀 또는 기밀 정보를 사용하지 마세요.
 
 ## <a name="install-the-powershell-module"></a>PowerShell 모듈 설치
@@ -94,11 +94,11 @@ PowerShell cmdlet은 패키지를 만드는 데 도움이 됩니다. 루트 수�
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Linux에서 사용자 지정 게스트 구성
 
-Linux에서 게스트 구성 시 `ChefInSpecResource` 리소스를 사용하여 엔진에 [InSpec 프로필](https://www.inspec.io/docs/reference/profiles/)의 이름을 제공합니다. **이름** 은 유일하게 필요한 리소스 속성입니다. 아래에 설명된 바와 같이 YaML 파일과 Ruby 스크립트 파일을 만듭니다.
+Linux에서 게스트 구성 시 `ChefInSpecResource` 리소스를 사용하여 엔진에 [InSpec 프로필](https://www.inspec.io/docs/reference/profiles/)의 이름을 제공합니다. **이름** 은 유일하게 필요한 리소스 속성입니다. 아래에 설명된 바와 같이 YAML 파일과 Ruby 스크립트 파일을 만듭니다.
 
-먼저, InSpec에서 사용하는 YaML 파일을 만듭니다. 이 파일은 환경에 대한 기본 정보를 제공합니다. 예를 들면 다음과 같습니다.
+먼저, InSpec에서 사용하는 YAML 파일을 만듭니다. 이 파일은 환경에 대한 기본 정보를 제공합니다. 예를 들면 다음과 같습니다.
 
-```YaML
+```yaml
 name: linux-path
 title: Linux path
 maintainer: Test
@@ -113,7 +113,7 @@ supports:
 
 그런 다음, 컴퓨터를 감사하는 데 사용되는 InSpec 언어 추상화를 사용하여 Ruby 파일을 만듭니다.
 
-```Ruby
+```ruby
 describe file('/tmp') do
     it { should exist }
 end
@@ -145,9 +145,9 @@ Configuration AuditFilePathExists
 AuditFilePathExists -out ./Config
 ```
 
-프로젝트 폴더에 이름이 `config.ps1`인 이 파일을 저장합니다. 터미널에서 `./config.ps1`을 실행하여 PowerShell에서 실행합니다. 새 mof 파일이 만들어집니다.
+프로젝트 폴더에 이름이 `config.ps1`인 이 파일을 저장합니다. 터미널에서 `./config.ps1`을 실행하여 PowerShell에서 실행합니다. 새 MOF 파일이 생성됩니다.
 
-`Node AuditFilePathExists` 명령은 기술적으로 필요하지 않지만, 기본값 `localhost.mof`가 아닌 `AuditFilePathExists.mof`라는 파일을 생성합니다. .mof 파일 이름을 구성에 따라 지정하면 대규모 작업을 수행할 때 많은 파일을 쉽게 구성할 수 있습니다.
+`Node AuditFilePathExists` 명령은 기술적으로 필요하지 않지만, 기본값 `localhost.mof`가 아닌 `AuditFilePathExists.mof`라는 파일을 생성합니다. .MOF 파일 이름을 구성에 따라 지정하면 대규모 작업을 수행할 때 많은 파일을 쉽게 구성할 수 있습니다.
 
 이제 프로젝트 구조가 다음과 같이 표시됩니다.
 
@@ -158,7 +158,7 @@ AuditFilePathExists -out ./Config
     / linux-path
         inspec.yml
         / controls
-            linux-path.rb 
+            linux-path.rb
 ```
 
 지원 파일은 한 패키지에 포함되어야 합니다. 완료된 패키지는 게스트 구성에서 Azure Policy 정의를 만드는 데 사용됩니다.
@@ -212,7 +212,7 @@ New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/
 - **StorageContainerName**: (기본값: _guestconfiguration_) 스토리지 계정의 스토리지 컨테이너 이름
 - **Force**: 스토리지 계정에서 이름이 같은 기존 패키지를 덮어씁니다.
 
-아래 예제에서는 패키지를 스토리지 컨테이너 이름 ' guestconfiguration'에 게시합니다.
+다음 예제에서는 패키지를 스토리지 컨테이너 이름 'guestconfiguration'에 게시합니다.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditFilePathExists/AuditFilePathExists.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
@@ -222,7 +222,7 @@ Publish-GuestConfigurationPackage -Path ./AuditFilePathExists/AuditFilePathExist
 
 `New-GuestConfigurationPolicy` cmdlet의 매개 변수는 다음과 같습니다.
 
-- **ContentUri**: 게스트 구성 콘텐츠 패키지의 공용 http(s) uri입니다.
+- **ContentUri**: 게스트 구성 콘텐츠 패키지의 공용 HTTP(s) URI입니다.
 - **DisplayName**: 정책 표시 이름입니다.
 - **설명**: 정책 설명입니다.
 - **Parameter**: hashtable 형식으로 제공되는 정책 매개 변수입니다.
@@ -260,16 +260,16 @@ Publish-GuestConfigurationPolicy `
   -Path './policies'
 ```
 
- `Publish-GuestConfigurationPolicy` cmdlet은 PowerShell 파이프라인의 경로를 허용합니다. 이 기능은 정책 파일을 만들어 단일 파이프 명령 집합에 게시할 수 있음을 의미합니다.
+`Publish-GuestConfigurationPolicy` cmdlet은 PowerShell 파이프라인의 경로를 허용합니다. 이 기능은 정책 파일을 만들어 단일 파이프 명령 집합에 게시할 수 있음을 의미합니다.
 
- ```azurepowershell-interactive
- New-GuestConfigurationPolicy `
+```azurepowershell-interactive
+New-GuestConfigurationPolicy `
   -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditFilePathExists.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
   -DisplayName 'Audit Linux file path.' `
   -Description 'Audit that a file path exists on a Linux machine.' `
   -Path './policies' `
- | Publish-GuestConfigurationPolicy
- ```
+| Publish-GuestConfigurationPolicy
+```
 
 Azure에서 만든 정책을 사용하는 마지막 단계는 정의를 할당하는 과정입니다. [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md) 및 [Azure PowerShell](../assign-policy-powershell.md)을 사용하여 정의를 할당하는 방법을 참조하세요.
 
@@ -281,7 +281,7 @@ InSpec을 사용하는 매개 변수는 일반적으로 런타임 시 입력으�
 
 컴퓨터에서 감사할 항목을 스크립팅하는 Ruby 파일에 대한 입력을 정의합니다. 예를 들면 다음과 같습니다.
 
-```Ruby
+```ruby
 attr_path = attribute('path', description: 'The file path to validate.')
 
 describe file(attr_path) do
@@ -289,8 +289,8 @@ describe file(attr_path) do
 end
 ```
 
-임의의 문자열을 값으로 하여 구성의 **AttributesYmlContent** 속성을 추가합니다.
-게스트 구성 에이전트는 InSpec에서 특성을 저장하는 데 사용되는 YAML 파일을 자동으로 만듭니다. 아래 예제를 참조하세요.
+임의의 문자열을 값으로 하여 구성의 **AttributesYmlContent** 속성을 추가합니다. 게스트 구성 에이전트는 InSpec에서 특성을 저장하는 데 사용되는 YAML 파일을 자동으로 만듭니다.
+다음 예제를 참조하세요.
 
 ```powershell
 Configuration AuditFilePathExists
@@ -340,7 +340,6 @@ New-GuestConfigurationPolicy -ContentUri $uri `
     -Version 1.0.0
 ```
 
-
 ## <a name="policy-lifecycle"></a>정책 수명 주기
 
 정책 업데이트를 릴리스하려면 게스트 구성 패키지와 Azure Policy 정의 세부 정보를 모두 변경합니다.
@@ -350,7 +349,7 @@ New-GuestConfigurationPolicy -ContentUri $uri `
 
 먼저, `New-GuestConfigurationPackage`를 실행할 때, 이전 버전과는 차별되는 고유한 패키지의 이름을 지정합니다. 이름에 버전 번호를 포함할 수 있습니다(예: `PackageName_1.0.0`). 이 예의 숫자는 패키지를 고유하게 만드는 데만 사용되며 패키지를 다른 패키지보다 최신 버전 또는 이전 버전으로 간주하도록 지정하기 위한 것은 아닙니다.
 
-그런 다음 아래 설명에 따라 `New-GuestConfigurationPolicy` cmdlet에 사용된 매개 변수를 업데이트합니다.
+둘째, 다음 각 설명에 따라 `New-GuestConfigurationPolicy` cmdlet에 사용된 매개 변수를 업데이트합니다.
 
 - **버전**: `New-GuestConfigurationPolicy` cmdlet을 실행할 때 현재 게시된 것보다 큰 버전 번호를 지정해야 합니다.
 - **contentUri**: `New-GuestConfigurationPolicy` cmdlet을 실행할 때 패키지의 위치에 대한 URI를 지정해야 합니다. 패키지 버전을 파일 이름에 포함하면 각 릴리스에서 속성의 값이 변경됩니다.
@@ -410,5 +409,5 @@ Key Vault 액세스 정책은 배포하는 동안 Compute 리소스 공급자가
 ## <a name="next-steps"></a>다음 단계
 
 - [게스트 구성](../concepts/guest-configuration.md)을 사용하여 VM을 감사하는 방법을 알아봅니다.
-- [프로그래밍 방식으로 정책을 만드는](./programmatically-create.md) 방법을 이해합니다.
+- [프로그래밍 방식으로 정책을 생성](./programmatically-create.md)하는 방법을 이해합니다.
 - [규정 준수 데이터를 가져오는](./get-compliance-data.md) 방법을 알아봅니다.

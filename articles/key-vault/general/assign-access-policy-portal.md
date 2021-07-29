@@ -3,19 +3,18 @@ title: Azure Key Vault 액세스 정책 할당(Portal)
 description: Azure Portal을 사용하여 보안 주체 또는 애플리케이션 ID에 Key Vault 액세스 정책을 할당하는 방법입니다.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a64a91e6f41f3fba7584630380ffb878979b4389
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 09e7d954261b5bfb680486e06ed298e11974847d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968767"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749732"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Azure Portal을 사용하여 Key Vault 액세스 정책 할당
 
@@ -41,7 +40,7 @@ Azure Portal을 통해 Azure Active Directory 그룹을 만드는 방법에 대�
 
     ![액세스 정책에 대한 보안 주체 선택](../media/authentication/assign-policy-portal-03.png)
 
-    앱에 관리되는 ID를 사용하는 경우 앱 자체의 이름을 검색하여 선택합니다. (관리 ID 및 서비스 사용자에 대한 자세한 내용은 [Key Vault 인증 - 앱 ID 및 서비스 사용자](authentication.md#app-identity-and-security-principals)를 참조하세요.)
+    앱에 관리되는 ID를 사용하는 경우 앱 자체의 이름을 검색하여 선택합니다. (보안 주체에 대한 자세한 내용은 [Key Vault 인증](authentication.md)을 참조하세요.
  
 1.  **액세스 정책 추가** 창으로 돌아가서 **추가** 를 선택하여 액세스 정책을 저장합니다.
 
@@ -54,6 +53,5 @@ Azure Portal을 통해 Azure Active Directory 그룹을 만드는 방법에 대�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Key Vault 보안: ID 및 액세스 관리](security-overview.md#identity-management)
-- [키 자격 증명 모음 보안](secure-your-key-vault.md)
+- [Azure Key Vault 보안: ID 및 액세스 관리](security-features.md#identity-management)
 - [Azure Key Vault 개발자 가이드](developers-guide.md)

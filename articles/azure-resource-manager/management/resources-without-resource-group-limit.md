@@ -2,19 +2,25 @@
 title: 800개 개수 제한이 없는 리소스
 description: 리소스 그룹에 800개가 넘는 인스턴스를 포함할 수 있는 Azure 리소스 종류를 나열합니다.
 ms.topic: conceptual
-ms.date: 01/08/2021
-ms.openlocfilehash: 6736118f0713a27a91618173e06423530e6f10cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: f77bd964003638ca33e1f30e352b1f35a866ac6a
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563116"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060249"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>리소스 그룹당 인스턴스가 800개로 제한되지 않는 리소스
 
 기본적으로 각 리소스 그룹에 리소스 종류의 인스턴스를 최대 800개까지 배포할 수 있습니다. 하지만 일부 리소스 종류는 800개 인스턴스 제한에서 제외됩니다. 이 문서에서는 리소스 그룹에 800개가 넘는 인스턴스를 포함할 수 있는 Azure 리소스 종류를 나열합니다. 다른 모든 리소스 종류는 인스턴스가 800개로 제한됩니다.
 
 일부 리소스 종류의 경우 800개 인스턴스 제한을 제거하려면 고객 지원팀에 문의해야 합니다. 해당 리소스 종류는 이 문서에 나와 있습니다.
+
+
+## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
+
+* resourceHealthAlertRules
+* smartDetectorAlertRules
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -75,6 +81,7 @@ ms.locfileid: "103563116"
 
 * flexibleServers
 * serverGroups
+* serverGroupsv2
 * servers
 * serversv2
 
@@ -107,11 +114,12 @@ ms.locfileid: "103563116"
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
 * 머신 - 최대 5,000개의 인스턴스 지원
-* 확장 - VM 확장 인스턴스를 무제한으로 지원
+* 컴퓨터/확장 - VM 확장 인스턴스를 무제한으로 지원합니다.
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
 * metricalerts
+* scheduledQueryRules
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
@@ -129,6 +137,7 @@ ms.locfileid: "103563116"
 * netAppAccounts/capacityPools/volumes
 * netAppAccounts/capacityPools/volumes/mountTargets
 * netAppAccounts/capacityPools/volumes/snapshots
+* netAppAccounts/volumeGroups
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -179,6 +188,7 @@ ms.locfileid: "103563116"
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
+* autoScaleVCores - 기본적으로 800개 인스턴스로 제한됩니다. 고객 지원팀에 문의하여 한도를 늘릴 수 있습니다.
 * 용량 - 기본적으로 인스턴스가 800개로 제한됩니다. 고객 지원팀에 문의하여 한도를 늘릴 수 있습니다.
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay

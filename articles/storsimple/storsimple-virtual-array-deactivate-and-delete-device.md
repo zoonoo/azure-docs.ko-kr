@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 04/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 84fd1a2d3d0dc4ce6960469ea3212b8ca1d4d07c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9480bc7ddb03ba537ea7f13057492aa05ed66bae
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96023026"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770230"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>StorSimple 가상 배열 비활성화 및 삭제
 
@@ -27,7 +27,7 @@ ms.locfileid: "96023026"
 
 StorSimple 가상 배열을 비활성화하면 디바이스 및 해당 StorSimple 디바이스 관리자 서비스 간의 연결이 끊깁니다. 이 자습서에서는 다음을 수행하는 방법을 설명합니다.
 
-* 디바이스 비활성화 
+* 디바이스 비활성화
 * 비활성화된 디바이스 삭제
 
 이 문서의 정보는 StorSimple 가상 배열에만 적용됩니다. 8000 시리즈에 대한 내용은 [디바이스를 비활성화 또는 삭제](./storsimple-8000-deactivate-and-delete-device.md)하는 방법을 참조하세요.
@@ -42,11 +42,11 @@ StorSimple 가상 배열을 비활성화하면 디바이스 및 해당 StorSimpl
 
 ## <a name="deactivate-a-device"></a>디바이스 비활성화
 
-디바이스를 비활성화하려면 다음 단계를 수행합니다.
+디바이스를 비활성화하려면 다음 단계를 수행합니다. 비활성화하려면 디바이스가 온라인 상태여야 합니다.
 
 #### <a name="to-deactivate-the-device"></a>디바이스를 비활성화하려면
 
-1. 서비스에서 **관리 &gt; 디바이스** 로 이동합니다. **디바이스** 블레이드에서 비활성화하려는 디바이스를 클릭하고 선택합니다.
+1. 서비스에서 **관리 &gt; 디바이스** 로 이동합니다. **디바이스** 블레이드에서 비활성화하려는 디바이스를 클릭하고 선택합니다. 디바이스 상태는 **온라인** 이어야 합니다.
    
     ![비활성화할 디바이스 선택](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete7.png)
 2. **디바이스 대시보드** 블레이드의 목록에서 **... 추가** 를 클릭하고 **비활성화** 를 선택합니다.
@@ -59,6 +59,7 @@ StorSimple 가상 배열을 비활성화하면 디바이스 및 해당 StorSimpl
     비활성화 프로세스가 시작되고 완료하는 데 몇 분이 소요됩니다.
    
     ![진행 중인 비활성화](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete2.png)
+
 4. 비활성화한 후에 디바이스 목록이 새로 고쳐집니다.
    
     ![비활성화 완료](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete3.png)

@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 908c9f1d05c83eaa58f77b79a32d956898c35076
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 6e0bb7949e6f528925eb66c1148662720b144e06
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93348256"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060357"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>VNet 및 방화벽 뒤의 스토리지 계정에 대한 감사 작성
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "93348256"
 
 [Azure SQL Database](sql-database-paas-overview.md) 및 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 대한 감사는 가상 네트워크 및 방화벽 뒤의 [Azure Storage 계정](../../storage/common/storage-account-overview.md)에 데이터베이스 이벤트를 쓰도록 지원합니다.
 
-이 문서에서는이 옵션에 대 한 Azure SQL Database 및 Azure storage 계정을 구성 하는 두 가지 방법을 설명 합니다. 첫 번째 방법은 Azure Portal을 사용하고, 두 번째 방법은 REST를 사용합니다.
+이 문서에서는 이 옵션에 대해 Azure SQL Database 및 Azure Storage 계정을 구성하는 두 가지 방법을 설명합니다. 첫 번째 방법은 Azure Portal을 사용하고, 두 번째 방법은 REST를 사용합니다.
 
 ## <a name="background"></a>배경
 
@@ -40,13 +40,13 @@ VNet 또는 방화벽 뒤의 스토리지 계정에 쓰도록 하는 감사의 �
 > [!div class="checklist"]
 >
 > * 범용 v2 스토리지 계정. 범용 v1 또는 Blob Storage 계정이 있는 경우 [범용 v2 스토리지 계정으로 업그레이드](../../storage/common/storage-account-upgrade.md)합니다. 자세한 정보는 [스토리지 계정 유형](../../storage/common/storage-account-overview.md#types-of-storage-accounts)을 참조하세요.
-> * 저장소 계정은 [논리적 SQL Server](logical-servers.md)동일한 구독 및 동일한 위치에 있어야 합니다.
+> * 스토리지 계정은 [논리적 SQL Server](logical-servers.md)와 동일한 구독 및 동일한 위치에 있어야 합니다.
 > * Azure Storage 계정을 사용하려면 `Allow trusted Microsoft services to access this storage account`해야 합니다. 스토리지 계정의 **방화벽 및 가상 네트워크** 아래에서 이 설정을 수행합니다.
 > * 선택한 스토리지 계정에 대한 `Microsoft.Authorization/roleAssignments/write` 권한이 있어야 합니다. 자세한 정보는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
 ## <a name="configure-in-azure-portal"></a>Azure Portal에서 구성
 
-사용자의 구독으로 [Azure Portal](https://portal.azure.com)에 연결합니다. 리소스 그룹 및 서버로 이동 합니다.
+사용자의 구독으로 [Azure Portal](https://portal.azure.com)에 연결합니다. 리소스 그룹 및 서버로 이동합니다.
 
 1. 보안 제목 아래에서 **감사** 를 클릭합니다. **켜기** 를 선택합니다.
 
@@ -83,7 +83,7 @@ Azure Portal을 사용하는 대신 REST 명령을 사용하여 VNet 및 방화�
 
 VNet 또는 방화벽 뒤의 스토리지 계정에 이벤트를 쓰도록 SQL 감사를 구성하려면
 
-1. Azure Active Directory (Azure AD)에 서버를 등록 합니다. PowerShell 또는 REST API 중 하나를 사용합니다.
+1. Azure AD(Azure Active Directory)에 서버를 등록합니다. PowerShell 또는 REST API 중 하나를 사용합니다.
 
    **PowerShell**
 
@@ -118,12 +118,12 @@ VNet 또는 방화벽 뒤의 스토리지 계정에 이벤트를 쓰도록 SQL �
    }
    ```
 
-2. [Azure Portal](https://portal.azure.com)을 엽니다. 스토리지 계정으로 이동합니다. **액세스 제어(IAM)** 를 찾은 후, **역할 할당 추가** 를 클릭합니다. 이전 단계에서와 같이 Azure Active Directory (Azure AD)에 등록 한 데이터베이스를 호스트 하는 서버에 **저장소 Blob 데이터 참가자** Azure 역할을 할당 합니다.
+2. [Azure Portal](https://portal.azure.com)을 엽니다. 스토리지 계정으로 이동합니다. **액세스 제어(IAM)** 를 찾은 후, **역할 할당 추가** 를 클릭합니다. 이전 단계처럼 Azure AD(Azure Active Directory)에 등록한 데이터베이스를 호스트하는 서버에 **Storage Blob 데이터 기여자** Azure 역할을 할당합니다.
 
    > [!NOTE]
-   > 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. 다양 한 Azure 기본 제공 역할에 대 한 자세한 내용은 [azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
+   > 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. 다양한 Azure 기본 제공 역할에 관해서는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
-3. *Storageaccountaccesskey* 를 지정 하지 않고 [서버의 blob 감사 정책을](/rest/api/sql/server%20auditing%20settings/createorupdate)구성 합니다.
+3. *storageAccountAccessKey* 를 지정하지 않고 [서버의 Blob 감사 정책](/rest/api/sql/server%20auditing%20settings/createorupdate)을 구성합니다.
 
    샘플 요청
 
@@ -149,18 +149,18 @@ VNet 또는 방화벽 뒤의 스토리지 계정에 이벤트를 쓰도록 SQL �
 
 ## <a name="using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
 
-다음 예제와 같이 [Azure Resource Manager](../../azure-resource-manager/management/overview.md) 템플릿을 사용 하 여 가상 네트워크 및 방화벽 뒤에 있는 저장소 계정에서 데이터베이스 이벤트를 쓰도록 감사를 구성할 수 있습니다.
+다음 예제와 같이 [Azure Resource Manager](../../azure-resource-manager/management/overview.md) 템플릿을 사용하여 가상 네트워크 및 방화벽으로 보호되는 스토리지 계정에 데이터베이스 이벤트를 쓰도록 감사를 구성할 수 있습니다.
 
 > [!IMPORTANT]
-> 가상 네트워크 및 방화벽 뒤의 저장소 계정을 사용 하려면 **isStorageBehindVnet** 매개 변수를 true로 설정 해야 합니다.
+> 가상 네트워크 및 방화벽으로 보호되는 스토리지 계정을 사용하려면 **isStorageBehindVnet** 매개 변수를 true로 설정해야 합니다.
 
-- [감사 로그를 blob 저장소에 쓸 수 있는 감사를 사용 하 여 Azure SQL Server 배포](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
+- [감사가 사용하도록 설정된 Azure SQL Server를 배포하여 Blob Storage에 감사 로그 쓰기](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-blob-storage/)
 
 > [!NOTE]
-> 연결 된 샘플은 외부 공용 리포지토리에 있으며 보증 없이 ' 있는 그대로 ' 제공 되며 Microsoft 지원 프로그램/서비스에서 지원 되지 않습니다.
+> 연결된 샘플은 외부 퍼블릭 리포지토리에 있고 보증 없이 ‘있는 그대로’ 제공되며, Microsoft 지원 프로그램/서비스에서 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [PowerShell을 사용하여 가상 네트워크 서비스 엔드포인트를 만든 다음, Azure SQL Database에 대한 가상 네트워크 규칙 만들기](scripts/vnet-service-endpoint-rule-powershell-create.md)
 * [Virtual Network 규칙: REST API에서 작업](/rest/api/sql/virtualnetworkrules)
-* [서버에 대 한 가상 네트워크 서비스 끝점 및 규칙 사용](vnet-service-endpoint-rule-overview.md)
+* [서버에 대한 가상 네트워크 서비스 엔드포인트 및 규칙 사용](vnet-service-endpoint-rule-overview.md)

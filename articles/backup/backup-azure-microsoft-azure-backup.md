@@ -2,13 +2,13 @@
 title: Azure Backup Server를 사용하여 워크로드 백업
 description: 이 문서에서는 MABS(Microsoft Azure Backup Server)를 사용하여 워크로드를 보호 및 백업하기 위한 환경을 준비하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.openlocfilehash: d476c228a619f03f798c1a2cd6854a8d603c3637
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/14/2021
+ms.openlocfilehash: adc87847900167299c9a2473079237e069782b48
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98987025"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769510"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 
@@ -41,8 +41,8 @@ Azure Backup 서버는 DPM(Data Protection Manager)에서 대부분의 워크로
 
 Azure Backup 서버를 작동하고 실행하는 첫 번째 단계는 Windows Server를 설정하는 것입니다. 서버는 Azure 또는 온-프레미스에 있을 수 있습니다.
 
-* 온-프레미스 워크로드를 보호하려면 MABS 서버가 온-프레미스에 있어야 합니다.
-* Azure VM에서 실행되는 워크로드를 보호하려면 Azure VM으로 실행되는 MABS 서버가 Azure에 있어야 합니다.
+* 온-프레미스 워크로드를 보호하려면 MABS 서버가 온-프레미스에 있고 도메인에 연결되어 있어야 합니다.
+* Azure VM에서 실행되는 워크로드를 보호하려면 Azure VM으로 실행되는 MABS 서버가 Azure에 있고 도메인에 연결되어 있어야 합니다.
 
 ### <a name="using-a-server-in-azure"></a>Azure에서 서버 사용
 
@@ -72,7 +72,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 >
 > Windows Server Core 또는 Microsoft Hyper-V Server에서는 Azure Backup Server 설치가 지원되지 않습니다.
 
-항상 Azure Backup Server를 도메인에 가입시킵니다. 서버를 다른 도메인으로 옮기려는 경우 Azure Backup Server를 먼저 설치한 다음, 서버를 새 도메인에 가입합니다. 배포 후 기존 Azure Backup 서버 컴퓨터를 새 도메인으로 이동하는 것은 *지원되지 않습니다*.
+항상 Azure Backup Server를 도메인에 가입시킵니다. 배포 후 기존 Azure Backup 서버 컴퓨터를 새 도메인으로 이동하는 것은 *지원되지 않습니다*.
 
 백업 데이터를 Azure에 전송하거나 로컬로 유지하는 경우 Azure Backup Server를 Recovery Services 자격 증명 모음에 등록해야 합니다.
 
@@ -87,7 +87,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 1. **Recovery Services 자격 증명 모음** 창에서 새 자격 증명 모음을 선택합니다. **설정** 섹션에서 **속성** 을 선택합니다.
 2. **속성** 의 **백업 구성** 에서 **업데이트** 를 선택합니다.
 
-3. 스토리지 복제 유형을 선택하고 **저장** 을 선택합니다.
+3. 스토리지 복제 형식을 선택하고 **저장** 을 선택합니다.
 
      ![새 자격 증명 모음의 스토리지 구성 설정](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
 
@@ -276,7 +276,7 @@ MABS에서는 System Center Data Protection Manager 보호 에이전트를 사�
 7. 1단계에서 가져온 DPMDB를 복원합니다.
 8. 스토리지를 원래 백업 서버에서 새 서버로 연결합니다.
 9. SQL에서 DPMDB를 복원합니다.
-10. 새 서버에서 관리자 권한으로 CMD를 실행합니다. Microsoft Azure Backup 설치 위치 및 bin 폴더로 이동
+10. 새 서버에서 관리자 권한으로 CMD를 실행합니다. Microsoft Azure Backup 설치 위치 및 bin 폴더로 이동합니다.
 
     경로 예제: `C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"`
 
@@ -366,7 +366,8 @@ Azure 구독을 *만료됨* 또는 *프로비전 해제됨* 상태에서 *활성
 ## <a name="troubleshooting"></a>문제 해결
 
 설치(또는 백업 또는 복원) 단계에서 Microsoft Azure Backup Server가 오류로 실패하는 경우에 대한 자세한 내용은 [오류 코드 문서](https://support.microsoft.com/kb/3041338)를 참조합니다.
-[Azure Backup 관련 FAQ](backup-azure-backup-faq.md)
+
+[Azure Backup 관련 FAQ](backup-azure-backup-faq.yml)를 참조할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -375,5 +376,5 @@ Azure 구독을 *만료됨* 또는 *프로비전 해제됨* 상태에서 *활성
 Microsoft Azure Backup 서버를 사용하여 워크로드 보호를 더 깊이 이해하려면 다음 문서를 사용할 수 있습니다.
 
 * [SQL Server 백업](backup-azure-backup-sql.md)
-* [SharePoint 서버 백업](backup-azure-backup-sharepoint.md)
+* [SharePoint Server 백업](backup-azure-backup-sharepoint.md)
 * [대체 서버 백업](backup-azure-alternate-dpm-server.md)

@@ -7,6 +7,7 @@ author: dplessMSFT
 editor: ''
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: performance
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: ebceb120f71c64634d005e6ca120f91ca0b1b8c5
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 84164e95d5b961392787f4011abbe553b2cb5595
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126510"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079880"
 ---
 # <a name="vm-size-performance-best-practices-for-sql-server-on-azure-vms"></a>VM 크기: Azure VM의 SQL Server에 대한 성능 모범 사례
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,6 +28,8 @@ ms.locfileid: "108126510"
 이 문서에서는 Azure VMs(Virtual Machines)에서 SQL Server의 성능을 최적화하기 위한 일련의 VM 크기 지침 및 모범 사례를 제공합니다.
 
 일반적으로 비용에 대한 최적화와 성능에 대한 최적화 간의 절충이 있습니다. 이 성능 모범 사례 시리즈는 Azure Virtual Machines에서 SQL Server에 대한 *최상의* 성능을 얻는 데 중점을 두었습니다. 워크로드가 적은 경우 모든 권장 최적화 사항이 필요하지 않을 수 있습니다. 이러한 권장 사항을 평가할 때 성능 요구 사항, 비용 및 작업 패턴을 고려하세요.
+
+자세한 내용은 이 시리즈의 다른 문서([검사 목록](performance-guidelines-best-practices-checklist.md), [스토리지](performance-guidelines-best-practices-storage.md), [보안](security-considerations-best-practices.md), [HADR 구성](hadr-cluster-best-practices.md), [기준 수집](performance-guidelines-best-practices-collect-baseline.md))를 참조하세요. 
 
 
 ## <a name="checklist"></a>검사 목록
@@ -190,8 +193,10 @@ vCPU 수를 원래 VM 크기의 절반이나 1/4로 제한할 수 있습니다. 
 자세히 알아보려면 다음 시리즈의 다른 문서를 참조하세요.
 - [빠른 검사 목록](performance-guidelines-best-practices-checklist.md)
 - [스토리지](performance-guidelines-best-practices-storage.md)
+- [보안](security-considerations-best-practices.md)
+- [HADR 설정](hadr-cluster-best-practices.md)
 - [기준 수집](performance-guidelines-best-practices-collect-baseline.md)
 
 보안 모범 사례는 [Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항](security-considerations-best-practices.md)을 참조하세요.
 
-[Azure Virtual Machines의 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)에서 다른 SQL Server 가상 머신 문서를 검토하세요. SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](frequently-asked-questions-faq.md)을 참조하세요.
+[Azure Virtual Machines의 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)에서 다른 SQL Server 가상 머신 문서를 검토하세요. SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](frequently-asked-questions-faq.yml)을 참조하세요.

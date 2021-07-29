@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 3370389027805cfb5a68b5b0551d14dc31154804
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cd87d2261ab89b521829d1049a0c17db125a14f3
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611840"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112063417"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure Dedicated HSM 네트워킹
 
@@ -41,10 +41,9 @@ Azure 서비스를 가상 네트워크에 통합하는 방법 및 제공되는 �
 
 서브넷은 가상 네트워크를 서브넷에 배치하는 Azure 리소스가 사용할 수 있는 개별 주소 공간으로 구분합니다. 전용 HSM은 가상 네트워크의 서브넷에 배포됩니다. 고객의 서브넷에 배포되는 각 전용 HSM 디바이스는 이 서브넷에서 개인 IP 주소를 수신합니다. HSM 디바이스를 배포하는 서브넷은 명시적으로 서비스(Microsoft.HardwareSecurityModules/dedicatedHSMs)에 위임되어야 합니다. 그러면 서브넷에 배포를 위해 HSM 서비스에 특정 권한이 부여됩니다. 전용 HSM에 위임하면 서브넷에 특정 정책 제한을 적용합니다. NSG(네트워크 보안 그룹) 및 UDR(사용자 정의 경로)은 현재 위임된 서브넷에서 지원되지 않습니다. 결과적으로 전용 HSM에 위임되는 서브넷은 HSM 리소스를 배포하는 데만 사용될 수 있습니다. 따라서 다른 고객의 모든 리소스를 서브넷에 배포하지 못합니다.
 
-
 ### <a name="expressroute-gateway"></a>ExpressRoute 게이트웨이
 
-현재 아키텍처의 요구 사항은 HSM 디바이스를 Azure에 통합할 수 있도록 해당 HSM 디바이스를 배치해야 하는 고객 서브넷에서 ER 게이트웨이를 구성하는 것입니다. 이 ER 게이트웨이는 온-프레미스 위치를 Azure의 고객 HSM 디바이스에 연결하는 데 활용할 수 없습니다.
+현재 아키텍처의 요구 사항은 HSM 디바이스를 Azure에 통합할 수 있도록 해당 HSM 디바이스를 배치해야 하는 고객 서브넷에서 [ExpressRoute 게이트웨이](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)를 구성하는 것입니다. 이 [ExpressRoute 게이트웨이](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)는 온-프레미스 위치를 Azure의 고객 HSM 디바이스에 연결하는 데 활용할 수 없습니다.
 
 ## <a name="connecting-your-on-premises-it-to-azure"></a>온-프레미스 IT를 Azure에 연결
 
@@ -105,7 +104,7 @@ NVA(네트워크 가상 어플라이언스) 프록시 솔루션을 추가하면 
 
 NVA 프록시 솔루션을 추가하면 전송/DMZ 허브의 NVA 방화벽을 HSM NIC 앞에 논리적으로 배치할 수 있으므로 필요한 기본 거부 정책을 제공합니다. 이 예제에서는 이 목적으로 Azure Firewall을 사용하며 다음 요소가 필요합니다.
 1. DMZ 허브 VNet의 "AzureFirewallSubnet" 서브넷에 배포된 Azure Firewall
-2. Azure ILB 프라이빗 엔드포인트로 가는 트래픽을 Azure Firewall로 전달하는 UDR을 포함하는 라우팅 테이블입니다. 이 라우팅 테이블은 고객 ExpressRoute 가상 게이트웨이가 있는 GatewaySubnet에 적용됩니다.
+2. Azure ILB 프라이빗 엔드포인트로 가는 트래픽을 Azure Firewall로 전달하는 UDR을 포함하는 라우팅 테이블입니다. 이 라우팅 테이블은 고객 [ExpressRoute 가상 게이트웨이](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)가 있는 GatewaySubnet에 적용됩니다.
 3. TCP 포트 1792에서 수신 대기하는 Azure IBL 프라이빗 엔드포인트와 신뢰할 수 있는 원본 범위 간의 전달을 허용하는 Azure Firewall 내의 네트워크 보안 규칙. 이 보안 로직은 Dedicated HSM 서비스에 대해 필요한 "기본 거부" 정책을 추가합니다. 즉, 신뢰할 수 있는 원본 IP 범위만 Dedicated HSM 서비스에 허용됩니다. 다른 모든 범위는 삭제됩니다.  
 4. 트래픽을 온-프레미스에서 Azure Firewall로 전달하는 UDR을 포함하는 라우팅 테이블입니다. 이 라우팅 테이블은 NVA 프록시 서브넷에 적용됩니다. 
 5. Azure Firewall의 서브넷 범위만 원본으로 신뢰하고 TCP 포트 1792를 통해 HSM NIC IP 주소에만 전달하도록 허용하기 위해 프록시 NVA 서브넷에 적용된 NSG입니다. 
@@ -133,7 +132,7 @@ Command Result : 0 (Success)
 
 ### <a name="alternative-to-using-global-vnet-peering"></a>글로벌 VNet 피어링 사용의 대안
 글로벌 VNet 피어링의 대안으로 사용할 수 있는 몇 가지 아키텍처가 있습니다.
-1.  [Vnet 간 VPN 게이트웨이 연결](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) 사용 
+1.  [Vnet 간 VPN 게이트웨이 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) 사용 
 2.  ER 회로를 사용하여 다른 VNET과 HSM VNET을 연결합니다. 이는 직접 온-프레미스 경로가 필수 또는 VPN VNET인 경우에 가장 잘 작동합니다. 
 
 #### <a name="hsm-with-direct-express-route-connectivity"></a>직접 Express Route 연결을 사용한 HSM
@@ -141,7 +140,7 @@ Command Result : 0 (Success)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자주 묻는 질문](faq.md)
+- [자주 묻는 질문](faq.yml)
 - [지원 가능성](supportability.md)
 - [고가용성](high-availability.md)
 - [물리적 보안](physical-security.md)

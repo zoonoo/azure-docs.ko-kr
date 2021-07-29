@@ -1,18 +1,18 @@
 ---
 title: SSH를 통해 Azure Percept DK에 연결
 description: PuTTY를 사용하여 SSH를 통해 Azure Percept DK에 연결하는 방법을 알아봅니다.
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 39ee1c1cc5b52dc62e3199536234c1f7d9381436
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ee194e6d501d967d37453763c9cd4b25d1bedbe
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104721480"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754202"
 ---
 # <a name="connect-to-your-azure-percept-dk-over-ssh"></a>SSH를 통해 Azure Percept DK에 연결
 
@@ -23,7 +23,7 @@ ms.locfileid: "104721480"
 - Wi-Fi 기능을 지원하는 Windows, Linux 또는 OS X 기반 호스트 컴퓨터
 - SSH 클라이언트(설치 참고 자료는 다음 섹션 참조)
 - Azure Percept DK(개발 키트)
-- [Azure Percept DK 설치 환경](./quickstart-percept-dk-set-up.md) 중에 만든 SSH 로그인
+- [Azure Percept DK 설치 환경](./quickstart-percept-dk-set-up.md) 중에 만든 SSH 계정
 
 ## <a name="install-your-preferred-ssh-client"></a>기본 SSH 클라이언트 설치
 
@@ -33,7 +33,7 @@ ms.locfileid: "104721480"
 
 ### <a name="openssh"></a>OpenSSH
 
-Windows 10에는 명령 프롬프트 내의 간단한 명령을 사용하여 실행할 수 있는 OpenSSH라는 기본 제공 SSH 클라이언트가 포함되어 있습니다. OpenSSH를 사용할 수 있는 경우 Azure Percept와 함께 이를 사용하는 것이 좋습니다. Windows 컴퓨터에 OpenSSH가 설치되어 있는지 확인하려면 다음 단계를 수행합니다.
+Windows 10에는 명령 프롬프트에서 간단한 명령을 사용하여 실행할 수 있는 OpenSSH라는 기본 제공 SSH 클라이언트가 포함되어 있습니다. OpenSSH를 사용할 수 있는 경우 Azure Percept와 함께 이를 사용하는 것이 좋습니다. Windows 컴퓨터에 OpenSSH가 설치되어 있는지 확인하려면 다음 단계를 수행합니다.
 
 1. **시작** -> **설정** 으로 이동합니다.
 
@@ -41,11 +41,11 @@ Windows 10에는 명령 프롬프트 내의 간단한 명령을 사용하여 실
 
 1. **앱 및 기능** 에서 **선택적 기능** 을 선택합니다.
 
-1. **설치된 기능** 검색 표시줄에 **OpenSSH Client** 를 입력합니다. OpenSSH이 표시되는 경우 클라이언트가 이미 설치되어 있다는 뜻이며, 다음 섹션으로 이동할 수 있습니다. OpenSSH가 표시되지 않는 경우 **기능 추가** 를 클릭합니다.
+1. **설치된 기능** 검색 표시줄에 **OpenSSH Client** 를 입력합니다. OpenSSH이 표시되는 경우 클라이언트가 이미 설치되어 있다는 뜻이며, 다음 섹션으로 이동할 수 있습니다. OpenSSH가 표시되지 않는 경우 **기능 추가** 를 선택합니다.
 
     :::image type="content" source="./media/how-to-ssh-into-percept-dk/open-ssh-install.png" alt-text="OpenSSH 설치 상태를 보여 주는 설정의 스크린샷.":::
 
-1. **OpenSSH 클라이언트** 를 선택하고 **설치** 를 클릭합니다. 이제 다음 섹션으로 이동할 수 있습니다. 컴퓨터에 OpenSSH를 설치할 수 없는 경우 아래 단계를 따라 타사 SSH 클라이언트인 PuTTY를 설치합니다.
+1. **OpenSSH 클라이언트** 를 선택하고 **설치** 를 선택합니다. 이제 다음 섹션으로 이동할 수 있습니다. 컴퓨터에 OpenSSH를 설치할 수 없는 경우 아래 단계를 따라 타사 SSH 클라이언트인 PuTTY를 설치합니다.
 
 ### <a name="putty"></a>PuTTY
 
@@ -53,9 +53,9 @@ Windows 컴퓨터에 OpenSSH가 포함되어 있지 않은 경우 [PuTTY](https:
 
 1. [PuTTY 다운로드 페이지](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)로 이동합니다.
 
-1. **패키지 파일** 에서 32비트 또는 64비트 .msi 파일을 클릭하여 설치 프로그램을 다운로드합니다. 어떤 버전을 선택해야 하는지 모르는 경우 [FAQ](https://www.chiark.greenend.org.uk/~sgtatham/putty/faq.html#faq-32bit-64bit)를 확인하세요.
+1. **패키지 파일** 에서 32비트 또는 64비트 .msi 파일을 선택하여 설치 프로그램을 다운로드합니다. 어떤 버전을 선택해야 하는지 모르는 경우 [FAQ](https://www.chiark.greenend.org.uk/~sgtatham/putty/faq.html#faq-32bit-64bit)를 확인하세요.
 
-1. 설치 프로그램을 클릭하여 설치 과정을 시작합니다. 필요에 따라 프롬프트를 따릅니다.
+1. 설치 프로그램을 선택하여 설치 과정을 시작합니다. 필요에 따라 프롬프트를 따릅니다.
 
 1. 축하합니다! PuTTY SSH 클라이언트를 성공적으로 설치했습니다.
 
@@ -63,7 +63,7 @@ Windows 컴퓨터에 OpenSSH가 포함되어 있지 않은 경우 [PuTTY](https:
 
 1. Azure Percept DK를 켜도록 하겠습니다.
 
-1. 개발 키트가 이더넷 또는 Wi-Fi를 통해 네트워크에 이미 연결되어 있는 경우 다음 단계로 건너뜁니다. 연결되어 있지 않은 경우 호스트 컴퓨터를 개발 키트의 Wi-Fi 액세스 지점에 직접 연결합니다. 다른 Wi-Fi 네트워크에 연결할 때와 마찬가지로 컴퓨터에서 네트워크 및 인터넷 설정을 열고, 다음 네트워크를 클릭하고, 네트워크 암호를 입력하라는 메시지가 표시되면 입력합니다.
+1. 개발 키트가 이더넷 또는 Wi-Fi를 통해 네트워크에 이미 연결되어 있는 경우 다음 단계로 건너뜁니다. 연결되어 있지 않은 경우 호스트 컴퓨터를 개발 키트의 Wi-Fi 액세스 지점에 직접 연결합니다. 다른 Wi-Fi 네트워크에 연결할 때와 마찬가지로 컴퓨터에서 네트워크 및 인터넷 설정을 열고, 다음 네트워크를 선택하고, 네트워크 암호를 입력하라는 메시지가 표시되면 입력합니다.
 
     - **네트워크 이름**: 개발 키트의 운영 체제 버전에 따라 Wi-Fi 액세스 지점의 이름은 **scz-xxxx** 또는 **apd-xxxx**(여기서 "xxxx"는 개발 키트 MAC 주소의 마지막 네 자리)입니다.
     - **암호**: 개발 키트와 함께 제공된 시작 카드에서 찾을 수 있습니다.
@@ -98,7 +98,7 @@ Windows 컴퓨터에 OpenSSH가 포함되어 있지 않은 경우 [PuTTY](https:
 
 ### <a name="using-putty"></a>PuTTY 사용
 
-1. PuTTY를 엽니다. **PuTTY 구성** 창에 다음을 입력하고 **열기** 를 클릭하여 개발 키트에 SSH를 연결합니다.
+1. PuTTY를 엽니다. **PuTTY 구성** 창에 다음을 입력하고 **열기** 를 선택하여 개발 키트에 SSH를 연결합니다.
 
     1. 호스트 이름: [IP 주소]
     1. 포트: 22

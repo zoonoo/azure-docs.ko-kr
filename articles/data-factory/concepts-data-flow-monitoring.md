@@ -3,17 +3,16 @@ title: 매핑 데이터 흐름 모니터링
 description: Azure Data Factory에서 매핑 데이터 흐름을 시각적으로 모니터링하는 방법
 author: kromerm
 ms.author: makromer
-ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/22/2020
-ms.openlocfilehash: 9ca5ea5cdebe297af5081ae6e219935c56ba942e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: 18481a24bb9e8d5624cb52c9b02833204d4f403d
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96004880"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076607"
 ---
 # <a name="monitor-data-flows"></a>데이터 흐름 모니터링
 
@@ -23,7 +22,7 @@ ms.locfileid: "96004880"
 
 파이프라인을 실행할 때 Data Flow 작업을 비롯하여 파이프라인에 포함된 모든 작업과 파이프라인을 모니터링할 수 있습니다. 왼쪽 Azure Data Factory UI 패널에서 모니터 아이콘을 클릭합니다. 아래와 비슷한 화면이 표시됩니다. 강조 표시된 아이콘을 사용하면 Data Flow 작업을 비롯한 파이프라인의 작업을 드릴할 수 있습니다.
 
-![스크린샷은 자세한 정보를 위해 파이프라인을 선택할 수 있는 아이콘을 보여 줍니다.](media/data-flow/mon001.png "Data Flow 모니터링")
+![스크린샷은 자세한 정보를 위해 파이프라인을 선택할 수 있는 아이콘을 보여 줍니다.](media/data-flow/monitor-new-001.png "Data Flow 모니터링")
 
 실행 시간 및 상태를 포함하여 이 수준에서 통계를 볼 수 있습니다. 작업 수준의 실행 ID는 파이프라인 수준의 실행 ID와 다릅니다. 이전 수준의 실행 ID는 파이프라인의 실행 ID입니다. 안경 아이콘을 선택하면 데이터 흐름 실행에 대한 심층 정보가 제공됩니다.
 
@@ -33,15 +32,11 @@ ms.locfileid: "96004880"
 
 ![스크린샷은 그래프의 보기 전용 버전을 보여 줍니다.](media/data-flow/mon003.png "Data Flow 모니터링")
 
-ADF 모니터링 화면에서 데이터 흐름의 성능 모니터링에 대한 비디오 개요는 다음과 같습니다.
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4u4mH]
-
 ## <a name="view-data-flow-execution-plans"></a>데이터 흐름 실행 플랜 보기
 
-Data Flow가 Spark에서 실행되는 경우 Azure Data Factory는 전체 데이터 흐름에 따라 최적 코드 경로를 결정합니다. 또한 실행 경로는 여러 스케일 아웃 노드 및 데이터 파티션에서 발생할 수 있습니다. 따라서 모니터링 그래프는 변환의 실행 경로를 고려하여 흐름의 디자인을 나타냅니다. 개별 노드를 선택하면 클러스터에서 함께 실행된 코드를 나타내는 “그룹화”를 볼 수 있습니다. 표시되는 타이밍 및 개수는 디자인의 개별 단계와는 반대로 해당 그룹을 나타냅니다.
+Data Flow가 Spark에서 실행되는 경우 Azure Data Factory는 전체 데이터 흐름에 따라 최적 코드 경로를 결정합니다. 또한 실행 경로는 여러 스케일 아웃 노드 및 데이터 파티션에서 발생할 수 있습니다. 따라서 모니터링 그래프는 변환의 실행 경로를 고려하여 흐름의 디자인을 나타냅니다. 개별 노드를 선택하면 클러스터에서 함께 실행된 코드를 나타내는 “스테이지”를 볼 수 있습니다. 표시되는 타이밍 및 개수는 디자인의 개별 스테이지와는 반대로 해당 그룹 또는 단계를 나타냅니다.
 
-![스크린샷은 데이터 흐름에 대한 페이지를 보여 줍니다.](media/data-flow/mon004.png "Data Flow 모니터링")
+![스크린샷은 데이터 흐름에 대한 페이지를 보여 줍니다.](media/data-flow/monitor-new-005.png "Data Flow 모니터링")
 
 * 모니터링 창에서 열린 공간을 선택하면 맨 아래 창의 통계에 변환 계보에 대한 싱크 데이터가 발생한 변환과 각 싱크의 타이밍 및 행 개수가 표시됩니다.
 
@@ -77,9 +72,17 @@ ADF 파이프라인 모니터링 보기에서 데이터 흐름 작업의 JSON �
 }
 ```
 
-### <a name="post-processing-time"></a>게시 처리 시간
+### <a name="sink-processing-time"></a>싱크 처리 시간
 
 맵에서 싱크 변환 아이콘을 선택하면 오른쪽의 슬라이드인 패널 하단에 "사후 처리 시간"이라는 추가 데이터 포인트가 표시됩니다. 데이터가 로드, 변환 및 기록된 *후* Spark 클러스터에서 작업을 실행하는 데 소요된 시간입니다. 이 시간에는 연결 풀 닫기, 드라이버 종료, 파일 삭제, 파일 병합 등이 포함될 수 있습니다. 흐름에서 "파일 이동" 및 "단일 파일로 출력"과 같은 작업을 수행하면 사후 처리 시간 값이 늘어날 수 있습니다.
+
+* 쓰기 스테이지 기간: Synapse SQL의 스테이징 위치에 데이터를 쓰는 시간
+* 테이블 작업 SQL 기간: 임시 테이블에서 대상 테이블로 데이터를 이동하는 데 소요된 시간
+* 사전 SQL 기간 및 사후 SQL 기간: 사전/사후 SQL 명령을 실행하는 데 소요된 시간
+* 사전 명령 기간 및 사후 명령 기간: 파일 기반 원본/싱크에 대한 사전/사후 작업을 실행하는 데 소요된 시간 예를 들어 처리 후 파일을 이동하거나 삭제합니다.
+* 병합 기간: 파일 병합에 소요된 시간, 병합 파일은 단일 파일에 쓰거나 "열 데이터로 파일 이름"을 사용할 때 파일 기반 싱크에 사용됩니다. 이 메트릭에 상당한 시간이 소요되는 경우 이러한 옵션을 사용하지 않아야 합니다.
+* 스테이지 시간: Spark 내부에서 작업을 스테이지로 완료하는 데 소요된 총 시간
+* 임시 스테이징 테이블: 데이터베이스의 데이터를 스테이징하기 위해 데이터 흐름에서 사용하는 임시 테이블의 이름
   
 ## <a name="error-rows"></a>오류 행
 

@@ -3,14 +3,14 @@ title: Azure Application Gateway를 사용하여 Azure VMware Solution에서 웹
 description: Azure VMware Solution에서 실행되는 웹앱을 안전하게 노출하도록 Azure Application Gateway를 구성합니다.
 ms.topic: how-to
 ms.date: 02/10/2021
-ms.openlocfilehash: f92027ee46fdaae275939acaea10e144b6bde101
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d31eb24f1cb4ec1e2ead789174189dc99d5310f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601919"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771688"
 ---
-# <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Azure Application Gateway를 사용하여 Azure VMware Solution에서 웹앱 보호
+# <a name="protect-web-apps-on-azure-vmware-solution-with-azure-application-gateway"></a>Azure Application Gateway를 사용하여 Azure VMware Solution에서 웹앱 보호
 
 [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/)는 웹 애플리케이션에 대한 트래픽을 관리할 수 있게 해주는 레이어 7 웹 트래픽 부하 분산 장치입니다. Azure VMware Solution v1.0 및 v2.0 모두에서 제공됩니다. 두 버전 모두 Azure VMware Solution에서 실행되는 웹앱으로 테스트되었습니다.
 

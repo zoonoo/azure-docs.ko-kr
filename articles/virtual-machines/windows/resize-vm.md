@@ -1,21 +1,20 @@
 ---
-title: Azure의 Windows VM 크기 조정
+title: Azure Portal 또는 PowerShell을 사용하여 가상 머신 크기 조정
 description: Azure 가상 머신에 사용되는 VM 크기를 변경합니다.
 author: cynthn
 ms.service: virtual-machines
-ms.collection: windows
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: f7f41c0fb2bf949dd47491761fde8025a2d35155
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3bd921d8c17f89d4f9adbc7d0409d48c00cba7a1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560653"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768124"
 ---
-# <a name="resize-a-windows-vm"></a>Windows VM 크기 조정
+# <a name="resize-a-virtual-machine-using-the-azure-portal-or-powershell"></a>Azure Portal 또는 PowerShell을 사용하여 가상 머신 크기 조정
 
 이 문서에서는 VM을 다른 [VM 크기](../sizes.md)로 전환하는 방법을 보여 줍니다.
 
@@ -119,4 +118,4 @@ $virtualMachines | Start-AzVM
 
 ## <a name="next-steps"></a>다음 단계
 
-스케일링 성능을 높이려면 여러 VM 인스턴스를 실행하고 스케일 아웃하세요. 자세한 내용은 [Virtual Machine Scale Set에서 자동으로 Windows 머신 스케일링](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)을 참조하세요.
+스케일링 성능을 높이려면 여러 VM 인스턴스를 실행하고 스케일 아웃하세요. 자세한 내용은 [Virtual Machine Scale Set에서 자동으로 머신 스케일링](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)을 참조하세요.

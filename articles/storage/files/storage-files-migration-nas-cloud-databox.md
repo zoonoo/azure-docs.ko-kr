@@ -4,36 +4,36 @@ description: Azure DataBox를 사용하여 파일을 온-프레미스 NAS(네트
 author: fauhse
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 04/02/2021
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: a8420d23c8bda29290722975ada2acca6733f0e7
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: eb3327ad84310e5dae55103171f7677d5b2c06d1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491685"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756164"
 ---
 # <a name="use-databox-to-migrate-from-network-attached-storage-nas-to-azure-file-shares"></a>DataBox를 사용하여 NAS(네트워크 연결 스토리지)에서 Azure 파일 공유로 마이그레이션
 
 이 마이그레이션 문서는 NAS 및 Azure DataBox라는 키워드와 관련된 여러 문서 중 하나입니다. 이 문서가 다음 시나리오에 적용되는지 확인합니다.
 
 > [!div class="checklist"]
-> * 데이터 원본: NAS(네트워크 연결 스토리지)
+> * 데이터 원본: NAS(Network Attached Storage)
 > * 마이그레이션 경로: NAS &rArr; DataBox &rArr; Azure 파일 공유
 > * 온-프레미스에서 파일 캐싱: 아니요, 최종 목표는 Azure 파일 공유를 클라우드에서 직접 사용하는 것입니다. Azure 파일 동기화를 사용할 계획이 없습니다.
 
-시나리오가 다른 경우 [마이그레이션 가이드 표](storage-files-migration-overview.md#migration-guides)를 살펴보세요.
+다른 시나리오의 경우 [마이그레이션 가이드 표](storage-files-migration-overview.md#migration-guides)를 참조하세요.
 
 이 문서에서는 NAS 어플라이언스에서 작동하는 Azure 파일 공유로 마이그레이션하는 데 필요한 계획, 배포 및 네트워킹 구성을 통해 엔드투엔드 방식으로 안내합니다. 이 가이드에서는 Azure DataBox를 대량 데이터 전송(오프라인 데이터 전송)에 사용합니다.
 
 ## <a name="migration-goals"></a>마이그레이션 목표
 
-목표는 NAS 어플라이언스의 공유를 Azure로 이동하여 Windows Server가 없어도 사용할 수 있는 기본 Azure 파일 공유가 되도록 하는 것입니다. 이 마이그레이션은 마이그레이션하는 동안 프로덕션 데이터의 무결성과 가용성을 보장하는 방식으로 수행해야 합니다. 후자는 정기적인 유지 관리 기간에 맞추거나 약간만 초과할 수 있도록 가동 중지 시간을 최소로 유지해야 합니다.
+목표는 NAS 어플라이언스의 공유를 Azure로 이동하여 기본 Azure 파일 공유가 되도록 하는 것입니다. Windows Server 없이도 네이티브 Azure 파일 공유를 사용할 수 있습니다. 이 마이그레이션은 마이그레이션하는 동안 프로덕션 데이터의 무결성과 가용성을 보장하는 방식으로 수행해야 합니다. 후자는 가동 중지 시간이 정기적인 유지 관리 기간에 맞거나 약간 초과할 수 있도록 가동 중지 시간을 최소로 유지해야 합니다.
 
 ## <a name="migration-overview"></a>마이그레이션 개요
 
-마이그레이션 프로세스는 몇 가지 단계로 구성됩니다. Azure 스토리지 계정 및 파일 공유를 배포하고, 네트워킹을 구성하고, Azure DataBox를 사용하여 마이그레이션하고, RoboCopy를 통해 변경 내용을 가져오고, 마지막으로 사용자를 새로 만든 Azure 파일 공유로 전환해야 합니다. 다음 섹션에서는 마이그레이션 프로세스의 단계에 대해 자세히 설명합니다.
+마이그레이션 프로세스는 몇 가지 단계로 구성됩니다. Azure 스토리지 계정 및 파일 공유를 배포하고 네트워킹을 구성해야 합니다. 그런 다음, Azure DataBox 및 RoboCopy를 사용해 파일을 마이그레이션하여 변경 내용을 파악합니다. 마지막으로, 사용자와 앱을 새로 만든 Azure 파일 공유로 잘라냅니다. 다음 섹션에서는 마이그레이션 프로세스의 단계에 대해 자세히 설명합니다.
 
 > [!TIP]
 > 이 문서로 돌아가는 경우 오른쪽의 탐색 영역을 사용하여 중단한 마이그레이션 단계로 건너뛰세요.
@@ -44,7 +44,7 @@ ms.locfileid: "106491685"
 
 ## <a name="phase-2-deploy-azure-storage-resources"></a>2단계: Azure 스토리지 리소스 배포
 
-이 단계에서는 1단계의 매핑 테이블을 참조하고, 이를 사용하여 정확한 수의 Azure 스토리지 계정과 해당 계정 내의 파일 공유를 프로비전합니다.
+이 단계에서는 1단계의 매핑 테이블을 참조하여 정확한 수의 Azure Storage 계정과 해당 계정 내의 파일 공유를 프로비저닝합니다.
 
 [!INCLUDE [storage-files-migration-provision-azfs](../../../includes/storage-files-migration-provision-azure-file-share.md)]
 
@@ -110,7 +110,7 @@ RoboCopy 작업이 작동하는 속도는 주로 다음과 같은 요인에 따�
 * [Windows P2S VPN을 구성하는 방법](storage-files-configure-p2s-vpn-windows.md)
 * [Linux P2S VPN을 구성하는 방법](storage-files-configure-p2s-vpn-linux.md)
 * [DNS 전달을 구성하는 방법](storage-files-networking-dns.md)
-* [DFS-N 구성](/windows-server/storage/dfs-namespaces/dfs-overview)
+* [DFS-N 구성](files-manage-namespaces.md)
    :::column-end:::
 :::row-end:::
 
@@ -154,9 +154,9 @@ DataBox 복사가 시작된 이후 NAS의 데이터가 변경되었을 수 있�
 이 단계에서는 RoboCopy 작업을 실행하여 공유를 DataBox에 포크한 이후 클라우드 공유를 NAS의 최신 변경 내용으로 가져옵니다.
 이 RoboCopy 가져오기는 NAS 공유에서 발생한 변동의 양에 따라 빠르게 완료되거나 다소 시간이 걸릴 수 있습니다.
 
-Windows 서버 대상 폴더에 대한 첫 번째 로컬 복사본을 실행합니다.
+Windows Server 대상 폴더로 첫 번째 로컬 복사본을 실행합니다.
 
-1. NAS 어플라이언스에서 첫 번째 위치를 식별합니다.
+1. NAS 어플라이언스의 첫 번째 위치를 식별합니다.
 1. 일치하는 Azure 파일 공유를 식별합니다.
 1. Azure 파일 공유를 로컬 네트워크 드라이브로 임시 Windows Server에 탑재합니다.
 1. 설명한 대로 RoboCopy를 사용하여 복사를 시작합니다.
@@ -181,7 +181,7 @@ RoboCopy를 사용하려면 먼저 SMB를 통해 Azure 파일 공유에 액세�
 
 ### <a name="user-cut-over"></a>사용자 전환
 
-RoboCopy 명령을 처음 실행하는 경우에도 사용자와 애플리케이션에서 여전히 NAS의 파일에 액세스하고 있으며, 이러한 파일을 잠재적으로 변경할 수 있습니다. RoboCopy에서 디렉터리를 처리하고, 다음으로 이동한 후 원본 위치(NAS)의 사용자가 현재 RoboCopy 실행에서 처리되지 않을 파일을 추가, 변경 또는 삭제할 수 있습니다. 이는 정상적인 동작입니다.
+RoboCopy 명령을 처음 실행하는 경우 사용자와 애플리케이션은 계속해서 NAS의 파일에 액세스하며 해당 파일을 변경할 수도 있습니다. RoboCopy가 디렉터리를 처리하고 다음으로 이동하여 원본 위치(NAS)의 사용자가 현재 RoboCopy 실행에서 처리되지 않을 파일을 추가, 변경 또는 삭제할 수 있습니다. 이는 정상적인 동작입니다.
 
 첫 번째 실행은 대량의 변동 데이터를 Azure 파일 공유로 이동하는 것입니다. 이 첫 번째 복사에는 시간이 걸릴 수 있습니다. RoboCopy 속도에 영향을 줄 수 있는 항목에 대한 자세한 내용은 [문제 해결 섹션](#troubleshoot)을 확인하세요.
 
@@ -189,16 +189,16 @@ RoboCopy 명령을 처음 실행하는 경우에도 사용자와 애플리케이
 
 동일한 공유에 대해 RoboCopy를 두 번째로 실행하면 더 빨리 완료됩니다. 이는 마지막 실행 이후에 발생한 변경 내용만 전송하면 되기 때문입니다. 동일한 공유에 대해 반복되는 작업을 실행할 수 있습니다.
 
-가동 중지 시간을 허용할 수 있다고 생각하면 NAS 기반 공유에 대한 사용자 액세스를 제거해야 합니다. 이를 위해 사용자가 파일 및 폴더 구조와 콘텐츠를 변경하지 못하도록 하는 단계를 수행할 수 있습니다. 예를 들어 DFS 네임스페이스가 없는 위치를 가리키거나 공유에서 루트 ACL을 변경하는 것입니다.
+가동 중지 시간이 허용하는 범위 내에 있는 경우 NAS 기반 공유에 대한 사용자 액세스 권한을 제거해야 합니다. 사용자가 파일 및 폴더 구조와 콘텐츠를 변경하지 못하도록 하는 단계를 수행합니다. 예를 들어 DFS-네임스페이스가 존재하지 않는 위치를 가리키도록 하거나 공유에서 루트 ACL을 변경합니다.
 
-마지막 RoboCopy 라운드를 한 번 실행합니다. 그러면 누락되었을 수도 있는 변경 내용을 선택합니다.
-이 마지막 단계에 걸리는 시간은 RoboCopy 검사 속도에 따라 달라집니다. 이전 실행에 걸린 시간을 측정하여 시간(가동 중지 시간과 동일)을 예측할 수 있습니다.
+마지막 RoboCopy 라운드를 한 번 실행합니다. 누락되었을 수 있는 모든 변경 내용을 찾아냅니다.
+이 마지막 단계에 드는 시간은 RoboCopy 검색 속도에 따라 달라집니다. 이전 실행에 걸린 시간을 측정하여 시간(가동 중지 시간)을 예상할 수 있습니다.
 
-공유를 Windows Server 폴더에 만들고, 이를 가리키도록 DFS-N 배포를 조정할 수 있습니다. NAS SMB 공유에서와 동일한 공유 수준의 권한을 설정해야 합니다. 엔터프라이즈급 도메인 조인 NAS가 있는 경우 사용자가 Active Directory에 있고 RoboCopy에서 파일과 메타데이터를 있는 그대로 복사하므로 사용자 SID가 자동으로 일치합니다. NAS에서 로컬 사용자를 사용한 경우 해당 사용자를 Windows Server 로컬 사용자로 다시 만들고, RoboCopy에서 Windows Server로 이동한 기존 SID를 새 Windows Server 로컬 사용자의 SID에 매핑해야 합니다.
+Windows Server 폴더에 공유를 만들고 DFS-N 배포를 조정하여 이를 가리키도록 할 수 있습니다. NAS SMB 공유와 동일한 공유 수준의 사용 권한을 설정해야 합니다. 엔터프라이즈급 도메인 조인 NAS가 있는 경우 Active Directory에 있는 사용자와 사용자 SID가 자동으로 일치하고 RoboCopy는 파일과 메타데이터를 전체 충실도로 복사합니다. NAS에서 로컬 사용자를 사용한 경우 해당 사용자를 Windows Server 로컬 사용자로 다시 만들고 Windows Server로 이동하는 기존 SID RoboCopy를 새로운 Windows Server 로컬 사용자의 SID로 매핑해야 합니다.
 
-공유/공유 그룹을 공통 루트 또는 볼륨으로 마이그레이션하는 작업이 완료되었습니다. (1단계의 매핑에 따라 다름)
+공유/공유 그룹을 공통 루트 또는 볼륨으로 마이그레이션했습니다. (1단계의 매핑에 따라)
 
-이러한 복사본 중 일부를 병렬로 실행할 수 있습니다. 한 번에 하나의 Azure 파일 공유 범위를 처리하는 것이 좋습니다.
+해당 복사본 중 일부를 병렬로 실행할 수 있습니다. 한 번에 하나의 Azure 파일 공유 범위를 처리하는 것이 좋습니다.
 
 ## <a name="troubleshoot"></a>문제 해결
 
@@ -206,7 +206,7 @@ RoboCopy 명령을 처음 실행하는 경우에도 사용자와 애플리케이
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 파일 공유에 대해 더 자세히 검색할 수 있습니다. 다음 문서는 고급 옵션, 모범 사례를 이해하는 데 도움이 되며, 문제 해결 도움말도 포함되어 있습니다. 이러한 문서는 적절한 경우 [Azure 파일 공유 설명서](storage-files-introduction.md)에 연결됩니다.
+Azure 파일 공유에 대해 더 자세히 검색할 수 있습니다. 다음 문서는 고급 옵션, 모범 사례를 이해하는 데 도움이 되며, 문제 해결 도움말도 포함되어 있습니다. 해당 문서는 필요에 따라 [Azure 파일 공유 설명서](storage-files-introduction.md)로 연결됩니다.
 
 * [마이그레이션 개요](storage-files-migration-overview.md)
 * [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](../common/storage-monitoring-diagnosing-troubleshooting.md)

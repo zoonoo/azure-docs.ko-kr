@@ -1,16 +1,16 @@
 ---
 title: Azure Blob에 대한 운영 백업 개요
-description: Azure Blob에 대한 운영 백업에 대해 알아봅니다(미리 보기).
+description: Azure Blob에 대한 운영 백업에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 02/16/2021
-ms.openlocfilehash: 1f6bc98b92a2af4b05cae766a2186f2970b7133c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/05/2021
+ms.openlocfilehash: 5d6113108a41430e9d864ff05095be4d440989ee
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558757"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767242"
 ---
-# <a name="overview-of-operational-backup-for-azure-blobs-in-preview"></a>Azure Blob에 대한 운영 백업 개요(미리 보기 상태)
+# <a name="overview-of-operational-backup-for-azure-blobs"></a>Azure Blob에 대한 운영 백업 개요
 
 Blob에 대한 운영 백업은 손상, Blob 삭제 및 실수로 인한 스토리지 계정 삭제와 같은 다양한 데이터 손실 시나리오에서 블록 Blob을 보호할 수 있는 관리형 로컬 데이터 보호 솔루션입니다. 데이터는 원본 스토리지 계정에 로컬로 저장되며 필요할 때마다 선택한 시점으로 복구할 수 있습니다. 따라서 Blob을 보호하는 간단하고 안전하며 비용 효과적인 방법을 제공합니다.
 

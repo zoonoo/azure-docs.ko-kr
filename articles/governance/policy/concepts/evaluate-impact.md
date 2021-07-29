@@ -3,12 +3,12 @@ title: 새 Azure Policy 정의의 영향 평가
 description: Azure 환경에 새 정책 정의를 도입할 때 따라야 하는 프로세스를 이해합니다.
 ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: 187a64ce3581c4aaa893e2a805ce787a0bfd6c79
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 56fa5aa0467bed94625b2233ee8b582d4d61ff63
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106091721"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752924"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>새 Azure Policy 정의의 영향 평가
 
@@ -42,7 +42,7 @@ Azure Policy는 비즈니스 표준과 규정 준수 요구 사항에 맞게 Azu
 
 ## <a name="audit-new-or-updated-resources"></a>신규 또는 업데이트된 리소스 감사
 
-새 정책 정의가 기존 리소스에서 올바르게 보고되는지 확인한 후에는 리소스가 생성되거나 업데이트될 때 정책의 영향을 확인할 수 있습니다. 정책 정의에서 효과 매개 변수화를 지원하는 경우 [감사](./effects.md#audit)를 사용합니다. 이 구성을 사용하면 리소스의 생성 및 업데이트를 모니터링하여 새 정책 정의가 기존 작업 또는 요청에 영향을 주지 않고 미준수 리소스에 대한 Azure 활동 로그 항목을 트리거할 수 있는지 확인할 수 있습니다.
+새 정책 정의가 기존 리소스에서 올바르게 보고되는지 확인한 후에는 리소스가 생성되거나 업데이트될 때 정책의 영향을 확인할 수 있습니다. 정책 정의에서 효과 매개 변수화를 지원하는 경우 [감사](./effects.md#audit)를 사용합니다. 이 구성을 사용하면 리소스의 생성 및 업데이트를 모니터링하여 새 정책 정의가 기존 작업 또는 요청에 영향을 주지 않고 비규격 리소스에 대한 Azure 활동 로그 항목을 트리거하는지 확인할 수 있습니다.
 
 정책 정의와 일치하는 리소스를 새로 만들고 업데이트하여 _감사_ 효과가 예상대로 트리거되는지 확인하는 것이 좋습니다. _감사_ 효과를 트리거하는 새 정책 정의의 영향을 받지 않아야 하는 리소스 요청이 있는지 면밀히 살펴보세요.
 이러한 영향을 받는 리소스는 _가양성_ 의 또 다른 예이며 전체 구현 전에 정책 정의에서 수정해야 합니다.
