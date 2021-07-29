@@ -1,20 +1,20 @@
 ---
 title: Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자
-description: Azure Active Directory 테넌트, 사용자 및 역할의 개념과 Azure Lighthouse 시나리오에서 이러한 항목을 사용하는 방법을 알아봅니다.
-ms.date: 01/14/2021
+description: Azure Lighthouse 시나리오에서 Azure Active Directory 테넌트, 사용자 및 역할을 사용하는 방법을 알아봅니다.
+ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: d78828cc739030f8e456c64885d77ddf59dd13fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bcb3c250d0973174e7356bd489b84938238af6e7
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98233919"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112074830"
 ---
 # <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자
 
 [Azure Lighthouse](../overview.md)를 위해 고객을 온보딩하기 전에 Azure AD(Azure Active Directory) 테넌트, 사용자 및 역할이 작동하는 방식과 Azure Lighthouse 시나리오에서 이러한 항목을 사용할 수 있는 방법을 이해하는 것이 중요합니다.
 
-*테넌트* 는 Azure AD의 신뢰할 수 있는 전용 인스턴스입니다. 일반적으로 하나의 Azure 테넌트는 단일 조직을 나타냅니다. [Azure 위임 리소스 관리](azure-delegated-resource-management.md)를 통해 한 테넌트에서 다른 테넌트로 리소스를 논리적으로 프로젝션할 수 있습니다. 이렇게 하면 관리 테넌트의 사용자(예: 서비스 공급자에 속하는 사용자)는 고객 테넌트의 위임된 리소스에 액세스할 수 있고, [여러 테넌트가 있는 엔터프라이즈에서 관리 작업을 중앙에서 수행](enterprise.md)할 수 있습니다.
+*테넌트* 는 Azure AD의 신뢰할 수 있는 전용 인스턴스입니다. 일반적으로 하나의 Azure 테넌트는 단일 조직을 나타냅니다. Azure Lighthouse를 통해 한 테넌트에서 다른 테넌트로 리소스를 [논리적으로 프로젝션](architecture.md#logical-projection)할 수 있습니다. 이렇게 하면 관리 테넌트의 사용자(예: 서비스 공급자에 속하는 사용자)는 고객 테넌트의 위임된 리소스에 액세스할 수 있고, [여러 테넌트가 있는 엔터프라이즈에서 관리 작업을 중앙에서 수행](enterprise.md)할 수 있습니다.
 
 이러한 논리적 프로젝션을 수행하려면 고객 테넌트의 구독(또는 구독 내의 하나 이상의 리소스 그룹)을 Azure Lighthouse로 *온보딩* 해야 합니다. 이 온보딩 프로세스는 [Azure Resource Manager 템플릿을 통해](../how-to/onboard-customer.md) 수행하거나 [Azure Marketplace에 퍼블릭 또는 프라이빗 제품을 게시](../how-to/publish-managed-services-offers.md)하여 수행할 수 있습니다.
 

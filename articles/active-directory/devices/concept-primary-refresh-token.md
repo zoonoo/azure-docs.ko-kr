@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46cc8ef1158c02190f905cbe8eb1d12ea7be50a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c2a687dc1165b2eca52213811721b35e998a6d9
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644938"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033287"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>주 새로 고침 토큰이란?
 
@@ -122,7 +122,7 @@ PRT는 특정 시나리오에서 MFA(다단계 인증) 클레임을 가져올 �
 * **WAM 대화형 로그인 중에 MFA**: WAM을 통해 토큰을 요청하는 동안 사용자가 MFA를 수행하여 앱에 액세스해야 하는 경우 이 상호 작용 중에 갱신된 PRT는 MFA 클레임으로 임프린트됩니다.
    * 이 경우 MFA 클레임은 지속적으로 업데이트되지 않으므로 MFA 기간은 디렉터리에 설정된 수명에 따라 결정됩니다.
    * 이전의 기존 PRT 및 RT를 앱에 액세스하는 데 사용하는 경우 PRT 및 RT는 첫 번째 인증 증명으로 간주됩니다. 두 번째 증명 및 임프린트된 MFA 클레임에는 새 AT가 필요합니다. 이 AT는 새 PRT 및 RT도 발급합니다.
-* **디바이스 등록 중 MFA**: 관리자가 [MFA에 디바이스 등록을 요구](device-management-azure-portal.md#configure-device-settings)하도록 Azure AD에서 디바이스 설정을 구성한 경우 사용자는 MFA를 수행하여 등록을 완료해야 합니다. 이 프로세스 동안 사용자에게 발급된 PRT에는 등록 중에 가져온 MFA 클레임이 있습니다. 이 기능은 조인 작업을 수행한 사용자에게만 적용되며 해당 디바이스에 로그인하는 다른 사용자에게는 적용되지 않습니다.
+* **디바이스 등록 중 MFA**: 관리자가 [MFA에 디바이스 등록을 요구](device-management-azure-portal.md#configure-device-settings)하도록 Azure AD에서 디바이스 설정을 구성한 경우 사용자는 MFA를 수행하여 등록을 완료해야 합니다. 이 프로세스 동안 사용자에게 발급된 PRT에는 등록 중에 가져온 MFA 클레임이 있습니다. 이 기능은 해당 디바이스에 로그인한 다른 사용자가 아닌 디바이스의 등록된 소유자에게만 적용됩니다.
    * WAM 대화형 로그인과 마찬가지로 MFA 클레임은 지속적으로 업데이트되지 않으므로 MFA 기간은 디렉터리에 설정된 수명에 따라 결정됩니다.
 
 Windows 10은 각 자격 증명에 대해 분할된 PRT 목록을 유지 관리합니다. 따라서 비즈니스용 Windows Hello, 암호 또는 스마트 카드 각각에 대한 PRT가 있습니다. 이 분할은 사용된 자격 증명에 따라 MFA 클레임이 격리되도록 하고 토큰 요청 중에 혼합되지 않도록 합니다.

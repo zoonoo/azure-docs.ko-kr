@@ -8,6 +8,7 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
+ms.subservice: performance
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -15,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b1909d5fd5e3c02f104c73acb515740cb6ff65f6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 46dff70c8d1064f05d89af9340b5b07e7adc747e
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105572448"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079898"
 ---
 # <a name="collect-baseline-performance-best-practices-for-sql-server-on-azure-vm"></a>기준 수집: Azure VM의 SQL Server에 대한 성능 모범 사례
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -63,7 +64,7 @@ VMs마다 IOPS 및 처리량에 대한 스케일링 제한이 다르므로 워�
 SQL Server에서 내부적으로 사용하는 메모리뿐만 아니라 OS에서 사용하는 외부 메모리를 모두 추적합니다. 두 구성 요소에 대한 압력을 식별하면 Virtual Machines의 크기를 조정하고 튜닝할 기회를 파악하는 데 도움이 됩니다. 
 
 다음 PerfMon 카운터는 SQL Server 가상 머신의 메모리 상태에 대한 유효성을 검사하는 데 도움이 될 수 있습니다. 
-* [\Memory\사용 가능한 MB](/azure/monitoring/infrastructure-health/vmhealth-windows/winserver-memory-availmbytes)
+* \Memory\사용 가능한 MB
 * [\SQLServer:Memory Manager\Target Server Memory (KB)](/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
 * [\SQLServer:Memory Manager\Total Server Memory (KB)](/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
 * [\SQLServer:Buffer Manager\Lazy writes/sec](/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
@@ -91,8 +92,10 @@ Azure에서는 Virtual Machines 리소스를 최대한 활용하려고 하므로
 - [빠른 검사 목록](performance-guidelines-best-practices-checklist.md)
 - [VM 크기](performance-guidelines-best-practices-vm-size.md)
 - [스토리지](performance-guidelines-best-practices-storage.md)
+- [보안](security-considerations-best-practices.md)
+- [HADR 설정](hadr-cluster-best-practices.md)
 
 
 보안 모범 사례는 [Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항](security-considerations-best-practices.md)을 참조하세요.
 
-[Azure Virtual Machines의 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)에서 다른 SQL Server 가상 머신 문서를 검토하세요. SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](frequently-asked-questions-faq.md)을 참조하세요.
+[Azure Virtual Machines의 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)에서 다른 SQL Server 가상 머신 문서를 검토하세요. SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](frequently-asked-questions-faq.yml)을 참조하세요.
