@@ -1,22 +1,22 @@
 ---
-title: SCIM, Microsoft Graph 및 Azure AD를 사용하여 사용자를 프로비전하고 데이터를 사용하여 앱 보강
-description: SCIM과 Microsoft Graph를 함께 사용하여 사용자를 프로비전하고 필요한 데이터를 사용하여 애플리케이션을 보강합니다.
+title: SCIM, Microsoft Graph 및 Azure Active Directory를 사용하여 사용자를 프로비전하고 데이터를 사용하여 앱 보강
+description: SCIM과 Microsoft Graph를 함께 사용하여 사용자를 프로비전하고 Azure Active Directory에서 필요한 데이터를 사용하여 애플리케이션을 보강합니다.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/26/2020
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: arvinh, celested
-ms.openlocfilehash: 0a5d84585f28f6d13cbceb1fec41d6cdabf6d08c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: arvinh
+ms.openlocfilehash: 3e3b8670aebb52c1b1bf36d9ce933113b17b7714
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99255630"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784902"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>SCIM과 Microsoft Graph를 함께 사용하여 사용자를 프로비전하고 필요한 데이터를 사용하여 애플리케이션을 보강합니다.
 
@@ -117,5 +117,5 @@ Teams와 Outlook 메시지에 대한 변경 내용을 추적하고 실시간으�
 
 ## <a name="related-articles"></a>관련된 문서
 
-- [동기화 Microsoft Graph 설명서 검토](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [동기화 Microsoft Graph 설명서 검토](/graph/api/resources/synchronization-overview)
 - [사용자 지정 SCIM 앱을 Azure AD와 통합](use-scim-to-provision-users-and-groups.md)

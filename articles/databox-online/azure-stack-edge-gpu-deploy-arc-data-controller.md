@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 53058d27e94c9fdf18d726369f6a1b75a9f34db9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ebccfdad883242411b4f45b717553ebd25ee69a9
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567545"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633522"
 ---
 # <a name="deploy-azure-data-services-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스에 Azure Data Services 배포
 
@@ -21,7 +21,7 @@ ms.locfileid: "105567545"
 
 이 문서에서는 Azure Arc 데이터 컨트롤러를 만든 다음 Azure Stack Edge Pro GPU 디바이스에 Azure Data Services를 배포하는 프로세스를 설명합니다. 
 
-Azure Arc 데이터 컨트롤러는 고객 관리 환경에서 Azure Data Services를 사용하는 로컬 컨트롤 플레인입니다. Azure Stack Edge Pro 디바이스에서 실행되는 Kubernetes 클러스터에서 Azure Arc 데이터 컨트롤러를 만든 후에는 해당 데이터 컨트롤러에 SQL Managed Instance(미리 보기)와 같은 Azure Data Services를 배포할 수 있습니다.
+Azure Arc 데이터 컨트롤러는 고객 관리 환경에서 Azure Data Services를 사용하는 로컬 컨트롤 플레인입니다. Azure Stack Edge Pro GPU 디바이스에서 실행되는 Kubernetes 클러스터에서 Azure Arc 데이터 컨트롤러를 만든 후에는 해당 데이터 컨트롤러에 SQL Managed Instance와 같은 Azure Data Services를 배포할 수 있습니다.
 
 데이터 컨트롤러를 만든 다음 SQL Managed Instance를 배포하는 절차에는 PowerShell 및 `kubectl`(디바이스의 Kubernetes 클러스터에 대한 명령줄 액세스를 제공하는 기본 도구)이 포함됩니다.
 
@@ -30,9 +30,9 @@ Azure Arc 데이터 컨트롤러는 고객 관리 환경에서 Azure Data Servic
 
 시작하기 전에 다음 사항을 확인합니다.
 
-1. Azure Stack Edge Pro 디바이스에 대한 액세스 권한이 있고 [Azure Stack Edge Pro 활성화](azure-stack-edge-gpu-deploy-activate.md)에 설명된 대로 디바이스를 활성화했습니다.
+1. Azure Stack Edge Pro GPU 디바이스에 대한 액세스 권한이 있고 [Azure Stack Edge Pro 활성화](azure-stack-edge-gpu-deploy-activate.md)에 설명된 대로 디바이스를 활성화했습니다.
 
-1. 디바이스에서 컴퓨팅 역할을 사용하도록 설정했습니다. [Azure Stack Edge Pro 디바이스에서 컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)의 지침에 따라 디바이스에서 컴퓨팅을 구성할 때 디바이스에 Kubernetes 클러스터도 만들었습니다.
+1. 디바이스에서 컴퓨팅 역할을 사용하도록 설정했습니다. [Azure Stack Edge Pro GPU 디바이스에서 컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)의 지침에 따라 디바이스에서 컴퓨팅을 구성할 때 디바이스에 Kubernetes 클러스터도 만들었습니다.
 
 1. 로컬 웹 UI의 **디바이스** 페이지에 Kubernetes API 엔드포인트가 있습니다. 자세한 내용은 [Kubernetes API 엔드포인트 가져오기](azure-stack-edge-gpu-deploy-configure-compute.md#get-kubernetes-endpoints)의 지침을 참조하세요.
 
@@ -140,7 +140,7 @@ Azure Arc 데이터 컨트롤러는 고객 관리 환경에서 Azure Data Servic
 
 ### <a name="create-data-controller"></a>데이터 컨트롤러 만들기
 
-데이터 컨트롤러는 API, 컨트롤러 서비스, 부트스트래퍼, 모니터링 데이터베이스 및 대시보드를 제공하기 위해 Kubernetes 클러스터에 배치되는 Pod의 컬렉션입니다. 다음 단계에 따라 이전에 만든 네임스페이스의 Azure Stack Edge 디바이스에 있는 Kubernetes 클러스터에 데이터 컨트롤러를 만듭니다.   
+데이터 컨트롤러는 API, 컨트롤러 서비스, 부트스트래퍼, 모니터링 데이터베이스, 대시보드를 제공하기 위해 Kubernetes 클러스터에 배포되는 Pod의 컬렉션입니다. 다음 단계에 따라 이전에 만든 네임스페이스의 Azure Stack Edge 디바이스에 있는 Kubernetes 클러스터에 데이터 컨트롤러를 만듭니다.   
 
 1. 데이터 컨트롤러를 만드는 데 필요한 다음 정보를 수집합니다.
 
@@ -151,9 +151,9 @@ Azure Arc 데이터 컨트롤러는 고객 관리 환경에서 Azure Data Servic
     |데이터 컨트롤러 사용자 이름     |데이터 컨트롤러 관리자의 사용자 이름입니다. 데이터 컨트롤러 사용자 이름과 암호는 관리 함수를 수행하기 위해 데이터 컨트롤러 API를 인증하는 데 사용됩니다.          |
     |데이터 컨트롤러 암호     |데이터 컨트롤러 관리자의 암호입니다. 보안 암호를 선택하고 클러스터 관리자 권한이 필요한 암호를 사용하여 공유합니다.         |
     |Kubernetes 네임스페이스 이름     |데이터 컨트롤러를 만들려는 Kubernetes 네임스페이스의 이름입니다.         |
-    |Azure 구독 ID     |Azure에서 데이터 컨트롤러 리소스를 만들려는 위치에 대한 Azure 구독 GUID입니다.         |
+    |Azure 구독 ID입니다.     |Azure에서 데이터 컨트롤러 리소스를 만들려는 위치에 대한 Azure 구독 GUID입니다.         |
     |Azure 리소스 그룹 이름     |Azure에서 데이터 컨트롤러 리소스를 만들려는 리소스 그룹의 이름입니다.         |
-    |Azure 위치     |데이터 컨트롤러 리소스 메타데이터가 Azure에 저장될 Azure 위치입니다. 사용 가능한 지역 목록은 Azure 글로벌 인프라 / 지역별 제품을 참조하세요.|
+    |Azure 위치     |데이터 컨트롤러 리소스 메타데이터가 Azure에 저장될 Azure 위치입니다. 사용 가능한 지역 목록은 Azure 글로벌 인프라/지역별 제품을 참조하세요.|
 
 
 1. PowerShell 인터페이스에 연결하세요. 데이터 컨트롤러를 만들려면 다음을 입력합니다. 
@@ -171,7 +171,7 @@ Azure Arc 데이터 컨트롤러는 고객 관리 환경에서 Azure Data Servic
     배포를 완료하는 데 약 5분이 걸릴 수 있습니다.
 
     > [!NOTE]
-    > Azure Stack Edge Pro 디바이스의 Kubernetes 클러스터에서 만들어진 데이터 컨트롤러는 현재 릴리스의 연결 해제 모드에서만 작동합니다.
+    > Azure Stack Edge Pro GPU 디바이스의 Kubernetes 클러스터에서 만들어진 데이터 컨트롤러는 현재 릴리스의 연결 해제 모드에서만 작동합니다. 이 연결 해제 모드는 디바이스가 아닌 데이터 컨트롤러용입니다.
 
 ### <a name="monitor-data-creation-status"></a>데이터 만들기 상태 모니터링
 
@@ -264,7 +264,7 @@ spec:
 
 데이터 컨트롤러 사용자 이름과 암호는 관리 함수를 수행하기 위해 데이터 컨트롤러 API를 인증하는 데 사용됩니다. 배포 템플릿의 데이터 컨트롤러 사용자 이름 및 암호에 대한 Kubernetes 비밀은 base64로 인코딩된 문자열입니다. 
 
-온라인 도구를 사용하여 원하는 사용자 이름과 암호를 base64로 인코딩하거나 플랫폼에 따라 기본 제공 CLI 도구를 사용할 수 있습니다. 온라인 Base64 인코딩 도구를 사용할 때 도구에 사용자 이름과 암호 문자열(데이터 컨트롤러를 만드는 동안 입력됨)을 제공하면 도구가 해당 base64로 인코딩된 문자열을 만듭니다.
+원하는 사용자 이름과 암호를 Base64로 인코딩하기 위하여 온라인 도구를 사용하거나, 플랫폼에 따라 기본 제공되는 CLI 도구를 사용할 수 있습니다. 온라인 Base64 인코딩 도구를 사용할 때 도구에 사용자 이름과 암호 문자열(데이터 컨트롤러를 만드는 동안 입력됨)을 제공하면 도구가 해당 base64로 인코딩된 문자열을 만듭니다.
     
 #### <a name="service-type"></a>서비스 유형
 

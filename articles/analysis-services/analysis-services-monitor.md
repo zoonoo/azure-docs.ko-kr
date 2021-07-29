@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1cc517ac3c903930eddb95a4813a8146cae2ec2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3991eb421f42ec6645e3321d3a624e226fd12c67
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100582675"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314255"
 ---
 # <a name="monitor-server-metrics"></a>서버 메트릭 모니터링
 
@@ -37,7 +37,7 @@ Analysis Services는 포털에서 이용 가능한 도구인 Azure 메트릭 탐
 
 모니터링 시나리오에 가장 적합한 메트릭을 확인하기 위해 이 테이블을 사용합니다. 동일한 단위의 메트릭만이 같은 차트에 표시될 수 있습니다.
 
-|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|Description|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|명령 풀의 작업 큐 길이|개수|평균|명령 스레드 풀의 큐에 있는 작업 수입니다.|
 |CurrentConnections|연결: 현재 연결|개수|평균|현재 설정된 클라이언트 연결 수입니다.|

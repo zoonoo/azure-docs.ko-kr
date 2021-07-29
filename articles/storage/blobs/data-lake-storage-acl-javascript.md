@@ -1,5 +1,5 @@
 ---
-title: JavaScript(Node.js)를 사용하여 Azure Data Lake Storage Gen2에서 ACL 설정
+title: JavaScript(Node.js)를 사용하여 Azure Data Lake Storage Gen2에서 ACL 관리
 description: JavaScript용 Azure Storage Data Lake 클라이언트 라이브러리를 사용하여 HNS(계층 구조 네임스페이스)를 사용하도록 설정된 스토리지 계정에서 ACL(액세스 제어 목록)을 관리합니다.
 author: normesta
 ms.service: storage
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-js
-ms.openlocfilehash: 21b4977102a484d8a3a680450a9cb6f77c7e3fbd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98656f6751ec7ed8d18c4cd4c25715df5d59d011
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104722755"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633630"
 ---
 # <a name="use-javascript-sdk-in-nodejs-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Node.js에서 JavaScript SDK를 사용하여 Azure Data Lake Storage Gen2에서 ACL 관리
 
@@ -32,9 +32,9 @@ ms.locfileid: "104722755"
 
 - 다음 보안 권한 중 하나입니다.
 
-  - 프로비저닝된 Azure AD(Active Directory) [보안 주체](../../role-based-access-control/overview.md#security-principal)이자 대상 컨테이너, 부모 리소스 그룹 또는 구독 범위에서 [Storage Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할.  
+  - 대상 컨테이너, 부모 리소스 그룹 또는 구독의 범위에서 [스토리지 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할이 할당된 프로비저닝된 Azure AD(Active Directory) [보안 주체](../../role-based-access-control/overview.md#security-principal).  
 
-  - ACL 설정을 적용하려는 대상 컨테이너 또는 디렉터리를 소유하는 담당 사용자. ACL을 재귀적으로 설정하기 위해 대상 컨테이너 또는 디렉터리의 모든 자식 항목을 포함합니다.
+  - ACL 설정을 적용하려는 대상 컨테이너 또는 디렉터리를 소유한 사용자. ACL을 재귀적으로 설정하기 위해 대상 컨테이너 또는 디렉터리의 모든 자식 항목을 포함합니다.
   
   - 스토리지 계정 키.
 
@@ -63,15 +63,15 @@ StorageSharedKeyCredential
 ### <a name="connect-by-using-azure-active-directory-ad"></a>Azure AD(Active Directory)를 사용하여 연결
 
 > [!NOTE]
-> Azure AD(Azure Active Directory)를 사용하여 액세스 권한을 부여하는 경우 보안 주체가 [Storage Blob 데이터 소유자 역할](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)에 할당되었는지 확인합니다. ACL 권한이 적용되는 방식과 권한 변경의 영향에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어 모델](./data-lake-storage-access-control-model.md)을 참조하세요.
+> Azure AD(Azure Active Directory)를 사용하여 액세스에 권한을 부여하는 경우 보안 주체가 [스토리지 Blob 데이터 소유자 역할](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)에 할당되었는지 확인합니다. ACL 권한이 적용되는 방식과 권한 변경의 영향에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어 모델](./data-lake-storage-access-control-model.md)을 참조하세요.
 
 Azure AD를 사용하여 애플리케이션을 인증하는 데 [JS용 Azure ID 클라이언트 라이브러리](https://www.npmjs.com/package/@azure/identity)를 사용할 수 있습니다.
 
-클라이언트 ID, 클라이언트 암호 및 테넌트 ID를 가져옵니다. 이렇게 하려면 [클라이언트 애플리케이션의 요청에 대한 권한 부여를 위해 Azure AD에서 토큰 가져오기](../common/storage-auth-aad-app.md)를 참조하세요. 해당 프로세스의 일부로 다음 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 역할 중 하나를 보안 주체에 할당해야 합니다. 
+클라이언트 ID, 클라이언트 암호 및 테넌트 ID를 가져옵니다. 이 과정을 수행하려면 [클라이언트 애플리케이션의 요청에 대한 권한 부여를 위해 Azure AD에서 토큰 가져오기](../common/storage-auth-aad-app.md)를 참조하세요. 해당 프로세스의 일부로 다음 [Azure RBAC](../../role-based-access-control/overview.md)(Azure 역할 기반 액세스 제어) 역할 중 하나를 보안 주체에 할당해야 합니다. 
 
 |역할|ACL 설정 기능|
 |--|--|
-|[Storage Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|계정에 있는 모든 디렉터리 및 파일입니다.|
+|[Storage Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|계정에 있는 모든 디렉터리 및 파일.|
 |[Storage Blob 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|보안 주체가 소유하는 디렉터리와 파일만 해당.|
 
 이 예에서는 클라이언트 ID, 클라이언트 암호 및 테넌트 ID를 사용하여 **DataLakeServiceClient** 인스턴스를 만듭니다.  
@@ -231,4 +231,4 @@ await fileClient.setAccessControl(acl);
 - [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)
 - [피드백 제공](https://github.com/Azure/azure-sdk-for-java/issues)
 - [Azure Data Lake Storage Gen2의 액세스 제어 모델](data-lake-storage-access-control.md)
-- [Azure Data Lake Storage Gen2의 ACL(액세스 제어 목록)](data-lake-storage-access-control.md)
+- [Azure Data Lake Storage Gen2의 ACL](data-lake-storage-access-control.md)(액세스 제어 목록)

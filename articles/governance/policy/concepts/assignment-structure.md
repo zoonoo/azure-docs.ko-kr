@@ -1,14 +1,14 @@
 ---
 title: 정책 할당 구조 세부 정보
 description: Azure Policy에서 평가를 위해 정책 정의 및 매개 변수를 리소스에 연결하는 데 사용하는 정책 할당 정의를 설명합니다.
-ms.date: 03/17/2021
+ms.date: 04/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 909c1c361e092c512a73854a40e22a67efe5f2f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9de210b17264330e79ab5978a449e7a494054be2
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104604868"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535876"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure Policy 할당 구조
 
@@ -61,13 +61,37 @@ JSON을 사용하여 정책 할당을 만듭니다. 정책 할당에는 다음 �
 
 **displayName** 및 **description** 을 사용하여 정책 할당을 식별하고 특정 리소스 집합과 함께 사용하기 위한 컨텍스트를 제공합니다. **displayName** 은 최대 길이가 _128_ 자이고 **description** 은 최대 길이가 _512_ 자입니다.
 
+## <a name="metadata"></a>메타데이터
+
+선택적 `metadata` 속성은 정책 할당에 대한 정보를 저장합니다. 고객은 `metadata`에서 조직에 유용한 모든 속성 및 값을 정의할 수 있습니다. 그러나 Azure Policy에서 사용되는 몇 가지 _공통_ 속성이 있습니다. 각 `metadata` 속성의 제한은 1024자입니다.
+
+### <a name="common-metadata-properties"></a>공통 메타데이터 속성
+
+- `assignedBy`(문자열): 할당을 만든 보안 주체의 이름입니다.
+- `createdBy`(문자열): 할당을 만든 보안 주체의 GUID 입니다.
+- `createdOn`(문자열): 할당 생성 시간의 유니버설 ISO 8601날짜/시간 형식입니다.
+- `parameterScopes`(개체): 키는 [strongType](./definition-structure.md#strongtype)으로 구성된 매개 변수 이름과 일치하며 값은 Portal에서 사용되는 리소스 그룹을 정의하여, _strongType_ 일치를 통해 사용 가능한 리소스 목록을 제공하는 키-값 쌍의 컬렉션입니다. 범위가 할당 범위와 다른 경우 Portal에서 이 값을 설정합니다. 설정된 경우 Portal에서 정책 할당을 편집하면 매개 변수의 범위가 자동으로 이 값으로 설정됩니다. 그러나 범위는 값으로 잠기지 않으며 다른 범위로 변경할 수 있습니다.
+
+  다음 `parameterScopes` 예제는 이름이 **backupPolicyId** 인 _strongType_ 매개 변수에 대한 것으로, Portal에서 할당이 편집될 때 리소스 선택에 대한 범위를 설정합니다.
+
+  ```json
+  "metadata": {
+      "parameterScopes": {
+          "backupPolicyId": "/subscriptions/{SubscriptionID}/resourcegroups/{ResourceGroupName}"
+      }
+  }
+  ```
+
+- `updatedBy`(문자열): 해당하는 경우 할당을 업데이트한 보안 주체의 이름입니다.
+- `updatedOn`(문자열): 해당하는 경우 할당 업데이트 시간의 유니버설 ISO 8601날짜/시간 형식입니다.
+
 ## <a name="enforcement-mode"></a>적용 모드
 
 **enforcementMode** 속성은 [Azure 활동 로그](../../../azure-monitor/essentials/platform-logs-overview.md)에서 정책 효과를 시작하거나 항목을 트리거하지 않고 기존 리소스에 대한 정책 결과를 테스트하는 기능을 고객에게 제공합니다. 해당 시나리오를 일반적으로 “What If”라고 하며 안전 배포 방법에 부합합니다. **enforcementMode** 는 [사용 안 함](./effects.md#disabled) 효과와 다릅니다. 해당 효과는 리소스 평가가 전혀 일어나지 않도록 합니다.
 
 해당 속성 값은 다음과 같습니다.
 
-|Mode |JSON 값 |유형 |수동으로 수정 |활동 로그 항목 |Description |
+|모드 |JSON 값 |Type |수동으로 수정 |활동 로그 항목 |Description |
 |-|-|-|-|-|-|
 |사용 |기본값 |문자열 |예 |예 |리소스를 만들거나 업데이트하는 동안 정책 효과가 적용됩니다. |
 |사용 안 함 |DoNotEnforce |문자열 |예 |예 | 리소스를 만들거나 업데이트하는 동안 정책 효과가 적용되지 않습니다. |
