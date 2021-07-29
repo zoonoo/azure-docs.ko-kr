@@ -1,25 +1,25 @@
 ---
 title: 'P2S VPN 및 인증서 인증을 사용하여 VNet에 연결: 포털'
 titleSuffix: Azure VPN Gateway
-description: P2S 및 자체 서명 또는 CA 발급 인증서를 사용하여 Windows, macOS 및 Linux 클라이언트를 Azure 가상 네트워크에 안전하게 연결합니다. 이 문서에서는 Azure Portal을 사용합니다.
+description: VPN Gateway 지점 및 사이트 간 연결과 자체 서명 또는 CA 발급 인증서를 사용하여 Windows, macOS 및 Linux 클라이언트를 VNet에 안전하게 연결하는 방법을 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 1c6dad28ada14151b9a1cca0da490e38972ad54d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb296d12d03bf05ffe628bd435ae15cfbb7b79e5
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100379168"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204948"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>네이티브 Azure 인증서 인증을 사용하여 VNet에 지점-사이트 간 VPN 연결 구성: Azure Portal
 
 이 문서는 Windows, Linux 또는 macOS를 실행하는 개별 클라이언트를 Azure VNet에 안전하게 연결하는 데 도움이 됩니다. 지점 및 사이트 간 VPN 연결은 집 또는 회의에서 원격 통신하는 경우와 같이 원격 위치에서 VNet에 연결하려는 경우에 유용합니다. 또한 VNet에 연결해야 하는 몇 가지 클라이언트만 있는 경우 사이트 간 VPN 대신 P2S를 사용할 수도 있습니다. P2S 연결을 작동하는 데는 VPN 디바이스 또는 공용 IP 주소가 필요하지 않습니다. P2S는 SSTP(Secure Socket Tunneling Protocol) 또는 IKEv2를 통한 VPN 연결을 만듭니다. 지점 및 사이트 간 VPN에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](point-to-site-about.md)를 참조하세요.
 
-:::image type="content" source="./media\vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-diagram.png" alt-text="컴퓨터에서 Azure VNet-지점-사이트 간 연결로의 연결을 보여 주는 다이어그램":::
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-diagram.png" alt-text="컴퓨터에서 Azure VNet-지점-사이트 간 연결로의 연결을 보여 주는 다이어그램":::
 
 지점-사이트 간 VPN에 대한 자세한 내용은 [지점-사이트 간 VPN 정보](point-to-site-about.md)를 참조하세요. Azure PowerShell을 사용하여 해당 구성을 만들려면 [Azure PowerShell을 사용하여 지점-사이트 간 VPN 구성](vpn-gateway-howto-point-to-site-rm-ps.md)을 참조하세요.
 

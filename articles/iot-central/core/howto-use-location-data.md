@@ -7,18 +7,18 @@ ms.date: 01/08/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: c909fd1438488e3625f3674dd26f959cf6fad79f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e93da2bec3753ba6efda2b4eb16d6ef78b42234b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98128023"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747218"
 ---
 # <a name="use-location-data-in-an-azure-iot-central-solution"></a>Azure IoT Central 솔루션에서 위치 데이터 사용
 
 이 문서에서는 IoT Central 애플리케이션에서 위치 데이터를 사용하는 방법을 보여 줍니다. IoT Central에 연결된 디바이스는 원격 분석 스트림으로 위치 데이터를 전송하거나 디바이스 속성을 사용하여 위치 데이터를 보고할 수 있습니다.
 
-솔루션 작성기는 위치 데이터를 사용하여 다음을 수행할 수 있습니다.
+위치 데이터를 사용하여 다음을 수행할 수 있습니다.
 
 * 지도에 보고된 위치를 플롯합니다.
 * 지도에 원격 분석 위치 기록을 플롯합니다.

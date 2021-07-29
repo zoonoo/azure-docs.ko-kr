@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Maps의 Weather Services(미리 보기) 개념
-description: Microsoft Azure Maps Weather Services(미리 보기)에 적용되는 개념에 대해 알아봅니다.
+title: Microsoft Azure Maps의 Weather Service 개념
+description: Microsoft Azure Maps Weather Service에 적용되는 개념에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,18 +8,14 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 657cb6a86122d267b86e82b6f02eb58e968cddd3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d1dbac6df2e4cc4f872cece3f519dbd7d65e2af4
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96904740"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440037"
 ---
-# <a name="weather-services-preview-in-azure-maps"></a>Azure Maps의 Weather Services(미리 보기)
-
-> [!IMPORTANT]
-> Azure Maps Weather Services는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="weather-services-in-azure-maps"></a>Azure Maps의 Weather Service
 
 이 문서에서는 Azure Maps [Weather Services](/rest/api/maps/weather)에 적용되는 개념을 소개합니다. 날씨 API를 시작하기 전에 이 문서를 진행하는 것이 좋습니다.
 
@@ -52,7 +48,7 @@ ms.locfileid: "96904740"
 |20      |percent             |
 |21      |float               |
 |22      |정수             |
-
+|31      |MicrogramsPerCubicMeterOfAir             |
 
 ## <a name="weather-icons"></a>날씨 아이콘
 

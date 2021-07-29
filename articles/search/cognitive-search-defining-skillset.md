@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 39a7c92ca6c83684658cf767722698806ed994ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2ec7f9a874bff6eaa0e23f5fb926bf031f2b059d
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88935452"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555974"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Azure Cognitive Search에서 AI 보강 파이프라인에 기술 세트를 만드는 방법 
 
@@ -84,7 +84,7 @@ Content-Type: application/json
       "outputs": [
         {
           "name": "organizations",
-          "targetName": "organizations"
+          "targetName": "orgs"
         }
       ]
     },
@@ -110,11 +110,11 @@ Content-Type: application/json
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/organizations/*",
+      "context": "/document/orgs/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/organizations/*"
+          "source": "/document/orgs/*"
         }
       ],
       "outputs": [
@@ -144,11 +144,11 @@ Content-Type: application/json
 
 ## <a name="add-built-in-skills"></a>기본 제공 기술 추가
 
-첫 번째 기술인 기본 제공 [엔터티 인식 기술](cognitive-search-skill-entity-recognition.md)을 살펴보겠습니다.
+첫 번째 기술인 기본 제공 [엔터티 인식 기술](cognitive-search-skill-entity-recognition-v3.md)을 살펴보겠습니다.
 
 ```json
     {
-      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -161,7 +161,7 @@ Content-Type: application/json
       "outputs": [
         {
           "name": "organizations",
-          "targetName": "organizations"
+          "targetName": "orgs"
         }
       ]
     }
@@ -169,19 +169,21 @@ Content-Type: application/json
 
 * 모든 기본 제공 기술에는 `odata.type`, `input` 및 `output` 속성이 있습니다. 기술 관련 속성은 해당 기술에 적용 가능한 추가 정보를 제공합니다. 엔터티 인식의 경우 `categories`은 미리 학습된 모델이 인식할 수 있는 엔터티 형식의 고정 집합 중 한 엔터티입니다.
 
-* 각 기술에는 ```"context"```이 있어야 합니다. 컨텍스트는 작업을 수행할 수준을 나타냅니다. 위의 기술에서 컨텍스트는 전체 문서로서 엔터티 인식 기술이 문서당 한 번씩 호출된다는 의미입니다. 출력은 또한 해당 수준에서 생성됩니다. 보다 구체적으로, ```"organizations"```은 ```"/document"```의 구성원으로 생성됩니다. 다운스트림 기술에서 새로 만든 이 정보를 ```"/document/organizations"```로 언급할 수 있습니다.  ```"context"``` 필드가 명시적으로 설정되지 않은 경우 기본 컨텍스트는 문서입니다.
+* 각 기술에는 ```"context"```이 있어야 합니다. 컨텍스트는 작업을 수행할 수준을 나타냅니다. 위의 기술에서 컨텍스트는 전체 문서로서 엔터티 인식 기술이 문서당 한 번씩 호출된다는 의미입니다. 출력은 또한 해당 수준에서 생성됩니다. 이 기술은 ```orgs```로 캡처되는 ```organizations```라는 속성을 반환합니다. 자세히 설명하자면 이제 ```"orgs"```가 ```"/document"```의 멤버로 추가됩니다. 다운스트림 기술에서 새로 만든 이 보강을 ```"/document/orgs"```로 참조할 수 있습니다.  ```"context"``` 필드가 명시적으로 설정되지 않은 경우 기본 컨텍스트는 문서입니다.
 
-* 기술에는 원본 입력이 ```"/document/content"```로 설정된 "텍스트"라는 하나의 입력이 있습니다. (엔터티 인식) 기술은 Azure BLOB 인덱서에서 만든 표준 필드인 각 문서의 *콘텐츠* 필드에서 작동합니다. 
+* 한 기술의 출력이 다른 기술의 출력과 충돌할 수 있습니다. ```result``` 속성을 반환하는 기술이 여러 개 있는 경우 기술 출력의 ```targetName``` 속성을 사용하여 기술에서 다른 속성으로 명명된 JSON 출력을 캡처할 수 있습니다.
 
-* 기술에는 ```"organizations"```이라는 하나의 출력이 있습니다. 출력은 처리 동안만 존재합니다. 이 출력을 다운스트림 기술의 입력에 연결하려면 출력을 ```"/document/organizations"```로 참조합니다.
+* 기술에는 원본 입력이 ```"/document/content"```로 설정된 "텍스트"라는 하나의 입력이 있습니다. 기술(엔티티 인식)은 Azure Blob 인덱서에서 만든 표준 필드인 각 문서의 *콘텐츠* 필드에서 작동합니다. 
 
-* 특정 문서의 경우 ```"/document/organizations"```의 값은 텍스트에서 추출된 조직의 배열입니다. 예를 들면 다음과 같습니다.
+* 기술에는 ```orgs``` 속성에서 캡처된 ```"organizations"```라는 출력이 하나 있습니다. 출력은 처리 동안만 존재합니다. 이 출력을 다운스트림 기술의 입력에 연결하려면 출력을 ```"/document/orgs"```로 참조합니다.
+
+* 특정 문서의 경우 ```"/document/orgs"```의 값은 텍스트에서 추출된 조직의 배열입니다. 예를 들면 다음과 같습니다.
 
   ```json
   ["Microsoft", "LinkedIn"]
   ```
 
-일부 상황에서는 별도로 배열의 각 요소를 참조하기 위해 호출합니다. 예를 들어 ```"/document/organizations"```의 각 요소를 별도로 다른 기술(예: 사용자 지정 Bing Entity Search 보강자)에 전달하려 한다고 가정합니다. 경로에 별표를 추가하여 배열의 각 요소를 참조할 수 있습니다. ```"/document/organizations/*"``` 
+일부 상황에서는 별도로 배열의 각 요소를 참조하기 위해 호출합니다. 예를 들어 ```"/document/orgs"```의 각 요소를 별도로 다른 기술(예: 사용자 지정 Bing Entity Search 보강자)에 전달하려 한다고 가정합니다. 경로에 별표를 추가하여 배열의 각 요소를 참조할 수 있습니다. ```"/document/orgs/*"``` 
 
 감정 추출을 위한 두 번째 기술은 첫 번째 보강자와 동일한 패턴을 따릅니다. ```"/document/content"```을 입력으로 사용하고 각 콘텐츠 인스턴스에 대해 감정 점수를 반환합니다. ```"context"``` 필드를 명시적으로 설정하지 않았으므로 출력(mySentiment)은 ```"/document"```의 자식입니다.
 
@@ -215,11 +217,11 @@ Content-Type: application/json
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/organizations/*",
+      "context": "/document/orgs/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/organizations/*"
+          "source": "/document/orgs/*"
         }
       ],
       "outputs": [
@@ -233,9 +235,9 @@ Content-Type: application/json
 
 이 정의는 보강 절차의 일부로 웹 API를 호출하는 [사용자 지정 기술](cognitive-search-custom-skill-web-api.md)입니다. 엔터티 인식에서 식별한 각 조직의 경우 이 기술은 웹 API가 해당 조직에 대한 설명을 찾도록 호출합니다. 웹 API를 호출할 때 및 받은 정보를 이동하는 방법의 오케스트레이션은 보강 엔진에서 내부적으로 처리합니다. 그러나 이 사용자 지정 API를 호출하는 데 필요한 초기화는 JSON(예: uri, httpHeaders 및 예상 입력)에서 제공되어야 합니다. 보강 파이프라인에 대한 사용자 지정 웹 API를 만드는 지침은 [사용자 지정 인터페이스를 정의하는 방법](cognitive-search-custom-skill-interface.md)을 참조합니다.
 
-별표를 사용하여 "컨텍스트" 필드가 ```"/document/organizations/*"```로 설정되는 것은 보강 단계가 ```"/document/organizations"```에서 *각 조직에 대해* 호출된다는 의미입니다. 
+별표를 사용하여 "컨텍스트" 필드가 ```"/document/orgs/*"```로 설정되는 것은 보강 단계가 ```"/document/orgs"```에서 *각 조직에 대해* 호출된다는 의미입니다. 
 
-회사 설명의 경우 출력은 식별된 각 조직에 대해 생성됩니다. 다운스트림 단계에서 설명을 언급할 때(예: 핵심 구문 추출) 그렇게 하려면 경로 ```"/document/organizations/*/description"```을 사용합니다. 
+회사 설명의 경우 출력은 식별된 각 조직에 대해 생성됩니다. 다운스트림 단계에서 설명을 언급할 때(예: 핵심 구문 추출) 그렇게 하려면 경로 ```"/document/orgs/*/description"```을 사용합니다. 
 
 ## <a name="add-structure"></a>구조 추가
 

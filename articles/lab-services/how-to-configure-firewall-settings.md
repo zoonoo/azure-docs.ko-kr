@@ -5,12 +5,12 @@ author: emaher
 ms.author: enewman
 ms.date: 06/26/2020
 ms.topic: article
-ms.openlocfilehash: 067a2c9672b87974557f650cef07b0394e7d5a63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b37d94249c136d2ec90a955e71e61e8eef0aeb6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85445851"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772300"
 ---
 # <a name="firewall-settings-for-azure-lab-services"></a>Azure Lab Services에 대한 방화벽 설정
 
@@ -20,6 +20,9 @@ ms.locfileid: "85445851"
 
 >[!IMPORTANT]
 >각 랩에는 서로 다른 공용 IP 주소가 있습니다.
+
+> [!NOTE]
+> 학교에서 [CIPA(Children's Internet Protection Act)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act) 준수와 같은 콘텐츠 필터링을 수행해야 하는 경우 타사 소프트웨어를 사용해야 합니다.  자세한 내용은 [Lab Services를 통해 콘텐츠 필터링](./administrator-guide.md#content-filtering)에 대한 지침을 참조하세요.
 
 ## <a name="find-public-ip-for-a-lab"></a>랩에 대한 공용 IP 찾기
 

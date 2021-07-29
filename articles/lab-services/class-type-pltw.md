@@ -3,12 +3,12 @@ title: Azure Lab Services를 사용하여 Project Lead the Way 랩 설정
 description: Project Lead The Way 수업을 진행하도록 랩을 설정하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 10/28/2020
-ms.openlocfilehash: ca4fdae2372895c17c4a98dd3959935108846744
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aaaddcb2c2111ccfbf0edfc79bbefafb711b19dc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95024622"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768538"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>Project Lead The Way 수업을 위한 랩 설정
 
@@ -48,7 +48,7 @@ ms.locfileid: "95024622"
 
 - **컴퓨터 과학 A**
 
-    학생들은 모바일 앱 개발을 학습하여 이 수업에서 프로그래밍 역량을 강화합니다.  이 수업에서는 [Microsoft Visual Studio Code 개발 환경](https://code.visualstudio.com/)을 사용하여 [Java](https://www.java.com/)를 학습합니다.  또한 학생들은 모바일 앱 코드를 실행하고 테스트할 수 있는 에뮬레이터를 사용합니다.  Azure Lab Services에서 에뮬레이터를 설정하는 방법에 대한 내용은 [Azure Lab Services에 문의하세요](mailto:AzLabsCOVIDSupport@microsoft.com).
+    학생들은 모바일 앱 개발을 학습하여 이 수업에서 프로그래밍 역량을 강화합니다.  이 수업에서는 [Microsoft Visual Studio Code 개발 환경](https://code.visualstudio.com/)을 사용하여 [Java](https://www.java.com/)를 학습합니다.  또한 학생들은 모바일 앱 코드를 실행하고 테스트할 수 있는 에뮬레이터를 사용합니다.  Azure Lab Services에서 에뮬레이터를 설정하는 방법에 대한 자세한 내용은 [Azure Lab Services 포럼](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices)을 통해 문의하세요.
 
 전체 수업 소프트웨어 목록은 각 수업에 대한 [PLTW 사이트](https://www.pltw.org/pltw-software)로 이동합니다.
 
@@ -75,15 +75,15 @@ PLTW 수업에 사용하도록 권장되는 VM(가상 머신)의 크기는 학�
 
 | 랩 설정 | 값 및 설명 | 수업 권장 사항 |
 | ------------ | ------------------ | --- |
-| Virtual Machine 크기 | **소형 GPU(시각화)**<br>OpenGL 및 DirectX와 같은 프레임워크를 사용하는 원격 시각화, 스트리밍, 게임 및 인코딩에 가장 적합합니다. | 이 크기는 토목 공학과 설계, 디지털 전자 제품, 컴퓨터 통합 제조, 엔지니어링 디자인 및 개발 등의 PLTW 수업에 사용하는 것이 좋습니다.
-| Virtual Machine 크기 | **대**<br>더 빠른 CPU, 향상된 로컬 디스크 성능, 대형 데이터베이스, 큰 메모리 캐시가 필요한 애플리케이션에 가장 적합합니다. | 이 크기는 엔지니어링 디자인 소개, 엔지니어링 원칙, 컴퓨터 과학 기본 사항, 컴퓨터 과학 원리 및 컴퓨터 과학 A 등의 PLTW 수업에 사용하는 것이 좋습니다. |
+| Virtual Machine 크기 | **소형 GPU(시각화)**<br>OpenGL 및 DirectX와 같은 프레임워크를 사용하는 원격 시각화, 스트리밍, 게임 및 인코딩에 가장 적합합니다. | 이 크기는 토목 공학과 설계, 디지털 전자 제품, 컴퓨터 통합 제조, 엔지니어링 디자인 및 개발, 엔지니어링 디자인 소개 등의 PLTW 수업에 사용하는 것이 좋습니다.
+| Virtual Machine 크기 | **대형**<br>더 빠른 CPU, 향상된 로컬 디스크 성능, 대형 데이터베이스, 큰 메모리 캐시가 필요한 애플리케이션에 가장 적합합니다. | 이 크기는 엔지니어링 원칙, 컴퓨터 과학 기본 사항, 컴퓨터 과학 원리 및 컴퓨터 과학 A 등의 PLTW 수업에 사용하는 것이 좋습니다. |
 
 <br>
 
 ### <a name="license-server"></a>라이선스 서버
 이전에 언급한 PLTW 수업에서 사용되는 대부분의 소프트웨어에는 라이선스 서버에 대한 액세스 권한이 필요하지 *않습니다*.  그러나 다음 소프트웨어에 대해 Autodesk 네트워크 라이선스 모델을 사용하려는 경우 라이선스 서버에 액세스해야 합니다.
 -   Revit
--   Inventor
+-   Inventor CAD
 -   Inventor CAM
 
 Autodesk 소프트웨어에서 네트워크 라이선스를 사용하도록 하기 위해 라이선스 서버에 Autodesk Network License Manager를 설치하는 [구체적인 단계를 PLTW에서 제공](https://www.pltw.org/pltw-software)합니다.  이 라이선스 서버는 일반적으로 온-프레미스 네트워크에 있거나 Azure 가상 네트워크 내에 있는 Azure VM(가상 머신)에서 호스트됩니다.
@@ -123,6 +123,9 @@ PLTW에 필요한 설치 파일 중 일부는 클 수 있습니다. 랩 템플�
 
 1.  마지막으로 템플릿 VM을 게시하여 학생의 VM을 만듭니다.
 
+> [!NOTE]
+> 학교에서 [CIPA(Children's Internet Protection Act)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act) 준수와 같은 콘텐츠 필터링을 수행해야 하는 경우 타사 소프트웨어를 사용해야 합니다.  자세한 내용은 [Lab Services를 통해 콘텐츠 필터링](./administrator-guide.md#content-filtering)에 대한 지침을 참조하세요.
+
 ## <a name="student-devices"></a>학생 디바이스
 학생들은 Windows 컴퓨터, Mac 및 Chromebook에서 랩 VM에 연결할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
@@ -130,7 +133,7 @@ PLTW에 필요한 설치 파일 중 일부는 클 수 있습니다. 랩 템플�
 - [Mac에서 연결](./connect-virtual-machine-mac-remote-desktop.md)
 - [Chromebook에서 연결](./connect-virtual-machine-chromebook-remote-desktop.md)
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>비용
 PLTW 수업에 대한 예제 비용 예상치를 살펴보겠습니다.  이러한 예상치는 라이선스 서버를 실행하거나 공유 이미지 갤러리를 사용하는 비용을 포함하지 않습니다. 25명의 학생이 수업에 참여하고 각 학생을 위해 20시간의 수업 시간이 예약됩니다.  각 학생에게는 예약된 수업 시간 외에도 과제를 위해 추가 10시간이 할당됩니다.  예상 비용은 다음과 같습니다.
 
 - **대형 VM**

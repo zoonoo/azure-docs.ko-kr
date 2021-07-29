@@ -8,14 +8,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
-ms.reviewer: mathoma
+ms.reviewer: chadam
 ms.date: 11/06/2020
-ms.openlocfilehash: 2702451aa3645b2702f8f38c37574a6601249dac
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f330fb4886a04a1bc861b63e5dd70e3ba1286351
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641406"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110794894"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>마이그레이션 개요: SQL Server에서 Azure VM의 SQL Server로
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ SQL Server를 Azure VMs(Virtual Machines)의 SQL Server로 마이그레이션하
 - AWS RDS(Amazon Relational Database Service) 
 - 컴퓨팅 엔진(Google Cloud Platform - GCP)
 
-다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](https://docs.microsoft.com/data-migration)을 참조하세요. 
+다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](/data-migration)을 참조하세요. 
 
 ## <a name="overview"></a>개요
 
@@ -40,7 +40,7 @@ OS 제어와 함께 익숙한 SQL Server 환경을 사용하고 기본 제공 VM
 
 ## <a name="choose-appropriate-target"></a>적절한 대상 선택
 
-Azure Virtual Machines는 Azure의 여러 지역에서 실행되며 다양한 [머신 크기](../../../virtual-machines/sizes.md) 및 [스토리지 옵션](../../../virtual-machines/disks-types.md)도 제공합니다. SQL Server 워크로드에 올바른 VM 및 스토리지 크기를 결정할 때 [Azure Virtual Machines의 SQL Server에 대한 성능 지침](../../virtual-machines/windows/performance-guidelines-best-practices.md#vm-size-guidance)을 참조하세요. 워크로드에 맞는 VM 크기 및 스토리지 요구 사항을 확인합니다. 성능 기반 [Azure Migrate 평가](../../../migrate/concepts-assessment-calculation.md#types-of-assessments)를 통해 크기를 조정하는 것이 좋습니다. 이 옵션을 사용할 수 없는 경우 [성능을 위한 고유 기준](https://azure.microsoft.com/services/virtual-machines/sql-server/)을 만드는 방법에 관한 다음 문서를 참조하세요.
+Azure Virtual Machines는 Azure의 여러 지역에서 실행되며 다양한 [머신 크기](../../../virtual-machines/sizes.md) 및 [스토리지 옵션](../../../virtual-machines/disks-types.md)도 제공합니다. SQL Server 워크로드에 올바른 VM 및 스토리지 크기를 결정할 때 [Azure Virtual Machines의 SQL Server에 대한 성능 지침](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md#vm-size)을 참조하세요. 워크로드에 맞는 VM 크기 및 스토리지 요구 사항을 확인합니다. 성능 기반 [Azure Migrate 평가](../../../migrate/concepts-assessment-calculation.md#types-of-assessments)를 통해 크기를 조정하는 것이 좋습니다. 이 옵션을 사용할 수 없는 경우 [성능을 위한 고유 기준](https://azure.microsoft.com/services/virtual-machines/sql-server/)을 만드는 방법에 관한 다음 문서를 참조하세요.
 
 VM에서 SQL Server를 올바르게 설치하고 구성하는 것도 고려해야 합니다. [Azure SQL 가상 머신 이미지 갤러리](../../virtual-machines/windows/create-sql-vm-portal.md)를 사용하면 적합한 버전, 에디션 및 운영 체제로 SQL Server VM을 만들 수 있기 때문에 해당 갤러리를 사용하는 것이 좋습니다. 그러면 자동화된 백업 및 자동화된 패치와 같은 기능을 사용할 수 있도록 SQL Server [리소스 공급자](../../virtual-machines/windows/create-sql-vm-portal.md)에 자동으로 Azure VM도 등록합니다.
 
@@ -77,6 +77,9 @@ VM에서 SQL Server를 올바르게 설치하고 구성하는 것도 고려해�
 | --- | --- | --- | --- | --- |
 | [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Azure VM 스토리지 제한](../../../index.yml) |  기존 SQL Server를 현재 상태 그대로 Azure VM의 SQL Server 인스턴스로 이동합니다. 최대 35,000개 VM의 마이그레이션 워크로드를 스케일링할 수 있습니다. <br /><br /> 원본 서버는 서버 데이터를 동기화하는 중에 온라인 상태를 유지하고 요청을 처리하므로, 가동 중지 시간을 최소화합니다. <br /><br /> **자동화 및 스크립팅**: [Azure Site Recovery 스크립트](../../../migrate/how-to-migrate-at-scale.md) 및 [Azure의 스케일링된 마이그레이션 및 계획 예제](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
 
+> [!NOTE]
+> 이제 Azure Migrate를 사용하여 [장애 조치(failover) 클러스터 인스턴스](sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) 및 [가용성 그룹](sql-server-availability-group-to-sql-on-azure-vm.md) 솔루션을 모두 Azure VM의 SQL Server로 리프트 앤 시프트할 수 있습니다. 
+
 ## <a name="migrate"></a>마이그레이션  
 
 설치가 쉽기 때문에 권장되는 마이그레이션 접근 방식은 원시 SQL Server [백업](/sql/t-sql/statements/backup-transact-sql)을 로컬로 가져온 다음, 파일을 Azure에 복사하는 것입니다. 이 방법은 2008부터 모든 버전의 SQL Server에 대해 더 큰 데이터베이스(1TB 초과)와 더 큰 데이터베이스 백업(1TB 초과)을 지원합니다. 그러나 SQL Server 2014부터 시작하고 1TB 미만이며 Azure에 대한 연결이 안정된 데이터베이스의 경우 [URL에 SQL Server 백업](/sql/relational-databases/backup-restore/sql-server-backup-to-url)이 더 나은 접근 방식입니다. 
@@ -99,8 +102,8 @@ SQL Server 데이터베이스를 Azure VM의 SQL Server 인스턴스로 마이�
 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
  
 > [!TIP]
-> 네트워크 옵션이 제한되거나 없는 대용량 데이터 전송의 경우 [연결이 제한된 대용량 데이터 전송](../../../storage/common/storage-solution-large-dataset-low-network.md)을 참조하세요.
-> 
+> - 네트워크 옵션이 제한되거나 없는 대용량 데이터 전송의 경우 [연결이 제한된 대용량 데이터 전송](../../../storage/common/storage-solution-large-dataset-low-network.md)을 참조하세요.
+> - 이제 Azure Migrate를 사용하여 [장애 조치(failover) 클러스터 인스턴스](sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) 및 [가용성 그룹](sql-server-availability-group-to-sql-on-azure-vm.md) 솔루션을 모두 Azure VM의 SQL Server로 리프트 앤 시프트할 수 있습니다. 
 
 ### <a name="considerations"></a>고려 사항
 
@@ -119,8 +122,8 @@ SQL Server 데이터베이스를 Azure VM의 SQL Server 인스턴스로 마이�
 
 이러한 서비스에는 다음이 포함됩니다.
 
-- [**SSIS(SQL Server Integration Services)** ](/sql/integration-services/install-windows/upgrade-integration-services)
-- [**SSRS(SQL Server Reporting Services)** ](/sql/reporting-services/install-windows/upgrade-and-migrate-reporting-services)
+- [**SSIS(SQL Server Integration Services)**](/sql/integration-services/install-windows/upgrade-integration-services)
+- [**SSRS(SQL Server Reporting Services)**](/sql/reporting-services/install-windows/upgrade-and-migrate-reporting-services)
 - [**SSAS(SQL Server Analysis Services)**](/sql/database-engine/install-windows/upgrade-analysis-services)
 
 ## <a name="supported-versions"></a>지원되는 버전
@@ -140,7 +143,7 @@ Azure VM에서 SQL Server 데이터베이스를 SQL Server로 마이그레이션
 |[Multiple-SQL-VM-VNet-ILB](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/ARM%20Templates/Multiple-SQL-VM-VNet-ILB)|이 백서에서는 SQL Server Always On 가용성 그룹 구성에서 여러 Azure 가상 머신을 설정하는 단계를 간략하게 설명합니다.|
 |[지역별 울트라 SSD를 지원하는 Azure VM(가상 머신)](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Find%20Azure%20VMs%20supporting%20Ultra%20SSD)|이 PowerShell 스크립트에서는 울트라 SSD를 지원하는 Azure 가상 머신을 지원하는 지역 목록을 검색하는 프로그래매틱 옵션을 제공합니다.|
 
-데이터 SQL 엔지니어링 팀이 해당 리소스를 개발했습니다. 이 팀의 핵심 선언은 Microsoft의 Azure 데이터 플랫폼으로의 데이터 플랫폼 마이그레이션 프로젝트에 대한 복잡한 현대화의 장애물을 제거하고 속도를 높이는 것입니다.
+데이터 SQL 엔지니어링 팀이 이러한 리소스를 개발했습니다. 이 팀의 핵심 선언은 Microsoft의 Azure 데이터 플랫폼으로의 데이터 플랫폼 마이그레이션 프로젝트에 대한 복잡한 현대화의 장애물을 제거하고 속도를 높이는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -154,7 +157,7 @@ SQL Server 데이터베이스를 Azure VM의 SQL Server로 마이그레이션하
    - [Azure 총 소유 비용 계산기](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
-- 클라우드 마이그레이션의 프레임워크 및 채택 주기에 관해 자세히 알아보려면 다음을 참조하세요.
+- 클라우드 마이그레이션의 프레임워크 및 채택 주기에 대해 자세히 알아보려면 다음을 참조하세요.
    -  [Azure용 클라우드 채택 프레임워크](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Azure로 마이그레이션된 워크로드의 비용 계산 및 크기 조정 모범 사례](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 

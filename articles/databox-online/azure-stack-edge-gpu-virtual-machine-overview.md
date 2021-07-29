@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 7e225f3f58e6e24d21c3100fd182934f9caae40b
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 775cb6f7cfc19b0009fc92cc5afbd3ac383b3ea3
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108210223"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663862"
 ---
 # <a name="virtual-machines-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스의 가상 머신
 
@@ -78,7 +78,7 @@ VM이 프로비저닝될 때 스크립트를 실행하여 워크로드를 구성
 
 자세한 내용은 [디바이스에서 실행되는 VM에 사용자 지정 스크립트 확장 배포](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md)를 참조하세요.
 
-GPU VM이 프로비저닝될 때 GPU 드라이버를 설치하려는 경우에도 VM에 대한 GPU 확장을 사용할 수 있습니다. 자세한 내용은 [GPU VM 만들기](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms) 및 [GPU 확장 설치](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#install-gpu-extension)를 참조하세요.
+GPU VM이 프로비저닝될 때 GPU 드라이버를 설치하려는 경우에도 VM에 대한 GPU 확장을 사용할 수 있습니다. 자세한 내용은 [GPU VM 만들기](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms) 및 [GPU 확장 설치](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md)를 참조하세요.
 
 ## <a name="create-a-vm"></a>VM 만들기
 

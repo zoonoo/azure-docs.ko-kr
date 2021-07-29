@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 06/07/2021
 ms.author: duau
-ms.openlocfilehash: c4c36013f100d2fc5265024432cc01a6622a4024
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 848134fec184febcdc5cde722fbec8e55d149d14
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932372"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747998"
 ---
 # <a name="azure-route-server-preview-faq"></a>Azure Route Server(미리 보기) FAQ
 
@@ -29,24 +29,33 @@ Azure Route Server는 NVA(네트워크 가상 어플라이언스)와 가상 네�
 
 아니요. Azure Route Server는 고가용성을 사용하여 설계된 서비스입니다. [가용성 영역](../availability-zones/az-overview.md)을 지원하는 Azure 지역에 배포된 경우 영역 수준 중복성이 있습니다.
 
+### <a name="how-many-route-servers-can-i-create-in-a-virtual-network"></a>가상 네트워크에서 몇 대의 경로 서버를 만들 수 있나요?
+
+VNet에서는 하나의 경로 서버만 만들 수 있습니다. *RouteServerSubnet* 이라는 지정된 서브넷에 배포해야 합니다.
+
+### <a name="does-azure-route-server-support-vnet-peering"></a>Azure Route Server에서 VNet 피어링을 지원하나요?
+
+예. Azure Route Server를 호스트하는 VNet을 다른 VNet에 피어링하고 후자의 VNet에서 원격 게이트웨이 사용을 사용하도록 설정하면, Azure Route Server는 해당 VNet의 주소 공간을 학습하고 피어링된 모든 NLA로 보냅니다. 또한 NVA에서 피어링된 VNet에 있는 VM의 라우팅 테이블로 경로를 프로그래밍합니다. 
+
+
 ### <a name="what-routing-protocols-does-azure-route-server-support"></a><a name = "protocol"></a>Azure Route Server에서 지원하는 라우팅 프로토콜은 무엇인가요?
 
 Azure Route Server는 BGP(Border Gateway Protocol)만 지원합니다. 가상 네트워크의 전용 서브넷에 Azure Route Server를 배포해야 하므로 NVA는 다중 홉 외부 BGP를 지원해야 합니다. 선택한 [ASN](https://en.wikipedia.org/wiki/Autonomous_system_(Internet))은 NVA에서 BGP를 구성할 때 Azure Route Server에서 사용하는 것과 달라야 합니다.
 
 ### <a name="does-azure-route-server-route-data-traffic-between-my-nva-and-my-vms"></a>Azure Route Server에서 내 NVA와 내 VM 간에 데이터 트래픽을 라우팅하나요?
 
-아니요. Azure Route Server는 NVA와 BGP 경로만 교환합니다. 데이터 트래픽은 NVA에서 선택한 VM으로 직접 이동하고 VM에서 NVA로 직접 이동합니다.
+아니요. Azure Route Server는 NVA와 BGP 경로만 교환합니다. 데이터 트래픽은 NVA에서 선택한 대상 VM으로 직접 이동하고 VM에서 NVA로 직접 이동합니다.
 
 ### <a name="does-azure-route-server-store-customer-data"></a>Azure Route Server에서 고객 데이터를 저장하나요?
 아니요. Azure Route Server는 NVA와 BGP 경로만 교환한 다음, 가상 네트워크로 전파합니다.
 
-### <a name="if-azure-route-server-receives-the-same-route-from-more-than-one-nva-will-it-program-all-copies-of-the-route-but-each-with-a-different-next-hop-to-the-vms-in-the-virtual-network"></a>Azure Route Server가 두 개 이상의 NVA에서 같은 경로를 수신하는 경우 가상 네트워크의 VM에 대한 모든 경로 복사본(그러나 홉이 서로 다름)을 프로그래밍하나요?
+### <a name="if-azure-route-server-receives-the-same-route-from-more-than-one-nva-how-does-it-handle-them"></a>Azure Route Server가 둘 이상의 NVA에서 동일한 경로를 수신하는 경우 어떻게 처리하나요?
 
-예, 경로의 AS 경로 길이가 같은 경우에만 가능합니다. VM이 이 경로의 대상으로 트래픽을 보낼 때 VM 호스트는 ECMP(등가 다중 경로) 라우팅을 수행합니다. 그러나 한 NVA가 다른 NVA보다 짧은 AS 경로 길이로 경로를 보내는 경우. Azure Route Server는 다음 홉이 가상 네트워크의 VM에 대한 이 NVA로 설정된 경로만 프로그래밍합니다.
+경로의 AS 경로 길이가 동일한 경우 Azure Route Server는 가상 네트워크의 VM에 대해 각각 다른 다음 홉이 있는 경로의 여러 복사본을 프로그래밍합니다. VM이 이 경로의 대상으로 트래픽을 보낼 때 VM 호스트는 ECMP(등가 다중 경로) 라우팅을 수행합니다. 그러나 한 NVA가 다른 NVA보다 짧은 AS 경로 길이로 경로를 보내는 경우 Azure Route Server는 다음 홉이 이 NVA로 설정된 경로만 가상 네트워크의 VM으로 프로그래밍합니다.
 
-### <a name="does-azure-route-server-support-vnet-peering"></a>Azure Route Server에서 VNet 피어링을 지원하나요?
+### <a name="does-azure-route-server-preserve-the-bgp-communities-of-the-route-it-receives"></a>Azure Route Server는 수신하는 경로의 BGP 커뮤니티를 유지하나요?
 
-예. Azure Route Server를 호스팅하는 VNet을 다른 VNet에 피어링하고 해당 VNet에서 원격 게이트웨이 사용을 사용으로 설정한 경우. Azure Route Server는 VNet의 주소 공간을 알아보고 모든 피어링 NVA에 보냅니다.
+예. Azure Route Server는 BGP 커뮤니티를 있는 그대로 사용하여 경로를 전파합니다.
 
 ### <a name="what-autonomous-system-numbers-asns-can-i-use"></a>어떤 ASN(자율 시스템 번호)을 사용할 수 있나요?
 
@@ -63,6 +72,12 @@ Azure Route Server는 BGP(Border Gateway Protocol)만 지원합니다. 가상 �
 
 아니요, Azure Route Server는 16비트(2바이트) ASN만 지원합니다.
 
+### <a name="can-i-peer-two-route-servers-in-two-peered-virtual-networks-and-enable-the-nvas-connected-to-the-route-servers-to-talk-to-each-other"></a>피어링된 두 개의 가상 네트워크에서 두 개의 경로 서버를 피어링하고, 경로 서버에 연결된 NVA가 서로 통신하도록 할 수 있나요? 
+
+***토폴로지: NVA1 -> RouteServer1 -> (VNet 피어링을 통해) -> RouteServer2 -> NVA2***
+
+아니요. Azure Route Server는 데이터 트래픽을 전달하지 않습니다. NVA를 통한 전송 연결을 사용하도록 설정하려면 NVA 간에 직접 연결(예: IPsec 터널)을 설정하고 동적 경로 전파를 위해 경로 서버를 활용합니다. 
+
 ## <a name="route-server-limits"></a><a name = "limitations"></a>Route Server 한도
 
 Azure Route Server에는 배포당 다음과 같은 한도가 있습니다.
@@ -72,6 +87,7 @@ Azure Route Server에는 배포당 다음과 같은 한도가 있습니다.
 | 지원되는 BGP 피어 수 | 8 |
 | 각 BGP 피어가 Azure Route Server에 보급할 수 있는 경로 수 | 200 |
 | Azure Route Server가 ExpressRoute 또는 VPN 게이트웨이에 보급할 수 있는 경로 수 | 200 |
+| Azure Route Server에서 지원할 수 있는 가상 네트워크(피어링된 VNet 포함)의 VM 수 | 6000 |
 
 NVA가 한도보다 많은 경로를 보급하면 BGP 세션이 끊깁니다. 게이트웨이와 Azure Route Server에서 발생하면 온-프레미스 네트워크에서 Azure로의 연결이 끊깁니다. 자세한 내용은 [Azure 가상 머신 라우팅 문제 진단](../virtual-network/diagnose-network-routing-problem.md)을 참조하세요.
 

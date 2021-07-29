@@ -4,15 +4,15 @@ description: Azure Data Factory의 커넥터 문제를 해결하는 방법을 �
 author: jianleishen
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 04/13/2021
+ms.date: 06/07/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref
-ms.openlocfilehash: c08456b08b6b11745cced97fd92417f07af23dda
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 7407a28c442ce2ddc7fe9df3fdd71c5af4c488bc
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484832"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971900"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Azure Data Factory 커넥터 문제 해결
 
@@ -499,7 +499,7 @@ ms.locfileid: "109484832"
   | 원본이 폴더인 경우 지정된 폴더에 있는 파일의 스키마가 다를 수 있습니다. | 지정된 폴더의 파일이 동일한 스키마를 갖는지 확인합니다. |
 
 
-## <a name="dynamics-365-common-data-service-and-dynamics-crm"></a>Dynamics 365, Common Data Service 및 Dynamics CRM
+## <a name="dynamics-365-dataverse-common-data-service-and-dynamics-crm"></a>Dynamics 365, Dataverse(Common Data Service) 및 Dynamics CRM
 
 ### <a name="error-code-dynamicscreateserviceclienterror"></a>오류 코드: DynamicsCreateServiceClientError
 
@@ -557,10 +557,21 @@ ms.locfileid: "109484832"
 - **권장 사항**: 자세한 내용을 알아보려면 네트워크 연결을 확인하거나 Dynamics 서버 로그를 확인합니다. 추가 도움이 필요한 경우 Dynamics 지원으로 문의하세요.
 
 
-### <a name="error-code--dynamicsfailedtoconnect"></a>오류 코드:  DynamicsFailedToConnect 
+### <a name="error-code-dynamicsfailedtoconnect"></a>오류 코드: DynamicsFailedToConnect 
  
  - **메시지**: `Failed to connect to Dynamics: %message;` 
  
+ - **원인**: 사용 사례가 다음 세 가지 조건을 **모두** 충족하는 경우 `ERROR REQUESTING ORGS FROM THE DISCOVERY SERVERFCB 'EnableRegionalDisco' is disabled.` 또는 `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'`이 표시됩니다.
+    - Dynamics 365, Common Data Service 또는 Dynamics CRM에 연결하고 있습니다.
+    - Office365 인증을 사용하고 있습니다.
+    - 테넌트 및 사용자가 [조건부 액세스](../active-directory/conditional-access/overview.md) 및/또는 다단계 인증을 위해 Azure Active Directory에 구성되어 있습니다(Dataverse 문서는 이 [링크](/powerapps/developer/data-platform/authenticate-office365-deprecation) 참조).
+    
+    이러한 상황에서는 연결이 2021년 6월 8일 이전에 성공했습니다.
+    2021년 6월 9일부터 지역 검색 서비스의 사용 중단으로 인해 연결이 실패하기 시작합니다(이 [링크](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated)참조).
+ 
+ -  **권장 사항**:  
+    테넌트 및 사용자가 [조건부 액세스](../active-directory/conditional-access/overview.md) 및/또는 Multi-Factor Authentication이 필요한 Azure Active Directory에 구성된 경우, 2021년 6월 8일 이후에 인증하려면 'Azure AD 서비스 사용자'를 사용해야 합니다. 자세한 단계는 이 [링를](./connector-dynamics-crm-office-365.md#prerequisites)를 참조하세요.
+
 
  - **원인**: 오류 메시지에 `Office 365 auth with OAuth failed`라고 표시된다면 서버에 OAuth와 호환되지 않는 구성이 있는 것임을 의미합니다. 
  
@@ -603,7 +614,7 @@ ms.locfileid: "109484832"
  - **권장 사항**: [XrmToolBox](https://www.xrmtoolbox.com/)를 사용하여 연결을 설정합니다. 오류가 지속되면 Dynamics 지원 팀으로 문의하여 도움을 받으세요. 
  
  
-### <a name="error-code--dynamicsoperationfailed"></a>오류 코드: DynamicsOperationFailed 
+### <a name="error-code-dynamicsoperationfailed"></a>오류 코드: DynamicsOperationFailed 
  
 - **메시지**: `Dynamics operation failed with error code: %code;, error message: %message;.` 
 
@@ -612,7 +623,7 @@ ms.locfileid: "109484832"
 - **권장 사항**: 오류 메시지 `Dynamics operation failed with error code: {code}`에서 Dynamics 작업의 오류 코드를 확인하고 [웹 서비스 오류 코드](/powerapps/developer/data-platform/org-service/web-service-error-codes) 문서에서 자세한 정보를 참조합니다. 필요한 경우 Dynamics 지원 팀으로 문의하세요. 
  
  
-### <a name="error-code--dynamicsinvalidfetchxml"></a>오류 코드:  DynamicsInvalidFetchXml 
+### <a name="error-code-dynamicsinvalidfetchxml"></a>오류 코드: DynamicsInvalidFetchXml 
   
 - **메시지**: `The Fetch Xml query specified is invalid.` 
 
@@ -621,7 +632,7 @@ ms.locfileid: "109484832"
 - **권장 사항**: 페치 XML에서 오류를 수정합니다. 
  
  
-### <a name="error-code--dynamicsmissingkeycolumns"></a>오류 코드:  DynamicsMissingKeyColumns 
+### <a name="error-code-dynamicsmissingkeycolumns"></a>오류 코드: DynamicsMissingKeyColumns 
  
 - **메시지**: `Input DataSet must contain keycolumn(s) in Upsert/Update scenario. Missing key column(s): %column;`
  
@@ -630,7 +641,7 @@ ms.locfileid: "109484832"
 - **권장 사항**: 원본 데이터에 키 열이 있는지 확인하거나 싱크 엔터티에서 원본 열을 키 열에 매핑합니다. 
  
  
-### <a name="error-code--dynamicsprimarykeymustbeguid"></a>오류 코드:  DynamicsPrimaryKeyMustBeGuid 
+### <a name="error-code-dynamicsprimarykeymustbeguid"></a>오류 코드: DynamicsPrimaryKeyMustBeGuid 
  
 - **메시지**: `The primary key attribute '%attribute;' must be of type guid.` 
  
@@ -639,7 +650,7 @@ ms.locfileid: "109484832"
 - **권장 사항**: 원본 데이터의 기본 키 열이 ‘Guid’ 형식인지 확인합니다. 
  
 
-### <a name="error-code--dynamicsalternatekeynotfound"></a>오류 코드:  DynamicsAlternateKeyNotFound 
+### <a name="error-code-dynamicsalternatekeynotfound"></a>오류 코드: DynamicsAlternateKeyNotFound 
  
 - **메시지**: `Cannot retrieve key information of alternate key '%key;' for entity '%entity;'.` 
  
@@ -650,7 +661,7 @@ ms.locfileid: "109484832"
     1. 엔터티에 대한 충분한 권한이 있는지 확인합니다. 
  
  
-### <a name="error-code--dynamicsinvalidschemadefinition"></a>오류 코드: DynamicsInvalidSchemaDefinition 
+### <a name="error-code-dynamicsinvalidschemadefinition"></a>오류 코드: DynamicsInvalidSchemaDefinition 
  
 - **메시지**: `The valid structure information (column name and type) are required for Dynamics source.` 
  
@@ -1003,8 +1014,8 @@ ms.locfileid: "109484832"
 
     낮은 처리량을 올리려면 SFTP 관리자에게 동시 연결 개수 제한을 늘려 달라고 요청하거나 다음 중 하나를 수행합니다.
 
-    * 자체 호스팅 IR을 사용하는 경우 허용 목록에 자체 호스팅 IR 머신의 IP를 추가합니다.
-    * Azure IR을 사용하는 경우 [Azure Integration Runtime IP 주소](./azure-integration-runtime-ip-addresses.md)를 추가합니다. SFTP 서버 허용 목록에 IP 범위를 추가하지 않으려면 대신 자체 호스팅 IR을 사용합니다.
+    * 자체 호스팅 IR을 사용하는 경우 허용 목록에 자체 호스팅 IR 컴퓨터의 IP를 추가합니다.
+    * Azure IR을 사용하는 경우 [Azure Integration Runtime IP 주소](./azure-integration-runtime-ip-addresses.md)를 추가합니다. SFTP 서버 허용 목록에 IP 범위를 추가하지 않으려면 자체 호스팅 IR을 대신 사용합니다.
 
 ## <a name="sharepoint-online-list"></a>SharePoint Online 목록
 

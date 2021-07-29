@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 263397aa2cd09ba24fa750131b76047801869a65
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b0295c994a736e26d7b581bd13b6167819833360
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104798938"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748712"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>웹 API를 호출하는 데스크톱 앱: 앱 등록
 
@@ -43,9 +43,10 @@ ms.locfileid: "104798938"
 Azure Portal의 **앱 등록** 에서 앱에 대한 [플랫폼 설정을 구성](quickstart-register-app.md#add-a-redirect-uri)하여 앱에 대한 리디렉션 URI를 지정합니다.
 
 - 대화형 인증을 사용하는 앱의 경우:
-  - 포함된 브라우저를 사용하는 앱: `https://login.microsoftonline.com/common/oauth2/nativeclient`
-  - 시스템 브라우저를 사용하는 앱: `http://localhost`
 
+  - 포함된 브라우저를 사용하는 앱: `https://login.microsoftonline.com/common/oauth2/nativeclient`(참고: 앱이 일반적으로 주소 표시줄을 포함하지 않는 창을 팝업하는 경우 "포함된 브라우저"를 사용합니다.)
+  - 시스템 브라우저를 사용하는 앱: `http://localhost`(참고: 앱이 Microsoft 로그인 포털을 방문하도록 시스템의 기본 브라우저(예: Edge, Chrome, Firefox 등)를 가져오는 경우 "시스템 브라우저"를 사용합니다.)
+  
   > [!IMPORTANT]
   > 보안 모범 사례에 따라 `https://login.microsoftonline.com/common/oauth2/nativeclient` 또는 `http://localhost`을(를) 리디렉션 URI로 명시적으로 설정하는 것이 좋습니다. MSAL.NET와 같은 일부 인증 라이브러리는 다른 리디렉션 URI가 지정되지 않은 경우 기본값 `urn:ietf:wg:oauth:2.0:oob`을(를) 사용하고, 이는 권장되지 않습니다. 이 기본값은 다음 주요 릴리스의 호환성이 손상되는 변경으로 업데이트됩니다.
 

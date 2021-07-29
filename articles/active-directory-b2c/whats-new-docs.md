@@ -1,7 +1,7 @@
 ---
-title: B2C (b2b) Azure Active Directory의 새로운 기능
-description: Azure Active Directory b2b (B2C)에 대 한 새롭고 업데이트 된 설명서입니다.
-ms.date: 03/08/2021
+title: Azure Active Directory B2C(Business-to-Customer)의 새로운 기능
+description: Azure Active Directory B2C(Business-to-Customer)에 대한 새롭게 업데이트된 설명서입니다.
+ms.date: 06/04/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,116 +9,75 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: 3fcc4f01d926f5c624adabd51e6215e0106af1fa
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
-ms.translationtype: MT
+ms.openlocfilehash: ee4e371a17a717bbb3a520301478b92e65deecc2
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105557873"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108802255"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C: 새로운 기능
 
-Azure Active Directory B2C 설명서의 새로운 기능을 시작 합니다. 이 문서에서는 지난 3 달 동안 추가 된 새 문서와 중요 한 업데이트가 있는 문서를 나열 합니다. B2C 서비스의 새로운 기능에 대 한 자세한 내용은 [Azure Active Directory의 새로운 기능](../active-directory/fundamentals/whats-new.md)을 참조 하세요.
+Azure Active Directory B2C 설명서의 새로운 기능을 시작합니다. 이 문서에서는 지난 3달 동안 추가된 새 문서와 중요한 업데이트가 있는 문서를 나열합니다. B2C 서비스의 새로운 기능에 대해 알아보려면 [Azure Active Directory의 새로운 기능](../active-directory/fundamentals/whats-new.md)을 참조하세요.
+
+## <a name="april-2021"></a>2021년 4월
+
+### <a name="new-articles"></a>새 문서
+
+- [Azure Active Directory B2C를 사용하여 eBay 계정으로 등록 및 로그인 설정](identity-provider-ebay.md)
+- [리소스 정리 및 테넌트 삭제](tutorial-delete-tenant.md)
+- [Azure Active Directory B2C의 사용자 지정 정책에서 조건부 액세스 기술 프로필 정의](conditional-access-technical-profile.md)
+- [Azure Active Directory B2C 테넌트 관리](tenant-management.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [Azure Active Directory B2C에 대한 개발자 정보](custom-policy-developer-notes.md)
+- [등록 사용자 흐름에 API 커넥터 추가](add-api-connector.md)
+- [연습: Azure Active Directory B2C에서 REST API 클레임 교환을 사용자 지정 정책에 추가](custom-policy-rest-api-claims-exchange.md)
+- [API 커넥터 보호](secure-rest-api.md)
+- [API 커넥터를 사용하여 등록 사용자 흐름 사용자 지정 및 확장](api-connectors-overview.md)
+- [Azure Active Directory B2C의 기술 및 기능 개요](technical-overview.md)
+- [Azure Active Directory B2C의 정책 키 개요](policy-keys-overview.md)
+- [Mailjet을 사용한 사용자 지정 메일 확인](custom-email-mailjet.md)
+- [SendGrid를 사용한 사용자 지정 메일 확인](custom-email-sendgrid.md)
+- [자습서: Azure Active Directory B2C에서 사용자 흐름 만들기](tutorial-create-user-flows.md)
+- [Azure AD B2C 사용자 지정 정책 개요](custom-policy-overview.md)
+- [사용자 흐름 및 사용자 지정 정책 비교](user-flow-overview.md)
+- [자습서: 단일 페이지 애플리케이션에서 Azure AD B2C를 사용하여 인증 설정](tutorial-single-page-app.md)
+- [사용자 흐름에 대해 전화 등록 및 로그인 설정](phone-authentication-user-flows.md)
+- [Azure Active Directory B2C에서 다단계 인증 사용 | Microsoft Docs](multi-factor-authentication.md)
+- [Azure Active Directory B2C의 사용자 흐름 버전](user-flow-versions.md)
+
+
+## <a name="march-2021"></a>2021년 3월
+
+### <a name="new-articles"></a>새 문서
+
+- [Azure Active Directory B2C에 사용자 지정 도메인 사용](custom-domain.md)
+- [Azure AD B2C에서 ID 보호로 위험 조사](identity-protection-investigate-risk.md)
+- [Azure Active Directory B2C를 사용하여 Apple ID로 등록 설정 및 로그인(미리 보기)](identity-provider-apple-id.md)
+- [Azure Active Directory B2C에서 암호 강제 재설정 흐름 설정](force-password-reset.md)
+- [포함된 로그인 환경](embedded-login.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [Azure Active Directory B2C를 사용하여 Amazon 계정으로 등록 설정 및 로그인](identity-provider-amazon.md)
+- [Azure Active Directory B2C에서 SAML 프로토콜을 사용하여 Salesforce SAML 공급자로 로그인을 설정합니다.](identity-provider-salesforce-saml.md)
+- [OWIN 기반 웹 API를 b2clogin.com 또는 사용자 지정 도메인으로 마이그레이션](multiple-token-endpoints.md)
+- [기술 프로필](technicalprofiles.md)
+- [Azure Active Directory B2C에서 사용자 흐름에 조건부 액세스 추가](conditional-access-user-flow.md)
+- [Azure Active Directory B2C에서 암호 재설정 흐름 설정](add-password-reset-policy.md)
+- [RelyingParty](relyingparty.md)
+
 
 ## <a name="february-2021"></a>2021년 2월
 
 ### <a name="new-articles"></a>새 문서
 
-- [전화 기반 MFA (multi-factor authentication) 보안](phone-based-mfa.md)
+- [전화 기반 MFA(다단계 인증) 보안](phone-based-mfa.md)
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
 - [Azure Active Directory B2C 코드 샘플](code-samples.md)
-- [Application Insights를 사용 하 여 Azure AD B2C에서 사용자 동작 추적](analytics-with-application-insights.md)
+- [Application Insights를 사용하여 Azure AD B2C에서 사용자 동작 추적](analytics-with-application-insights.md)
 - [Azure Active Directory B2C에서 세션 동작 구성](session-behavior.md)
-
-## <a name="january-2021"></a>2021년 1월
-
-### <a name="new-articles"></a>새 문서
-
-- [Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정](customize-ui.md)
-- [Azure Active Directory B2C 서비스 제한 및 제한 사항](service-limits.md)
-- [다른 Azure AD B2C 테 넌 트에서 Azure AD B2C 계정으로 등록 및 로그인 설정](identity-provider-azure-ad-b2c.md)
-- [로컬 계정 id 공급자 설정](identity-provider-local.md)
-- [Azure Active Directory B2C에서 로그인 흐름 설정](add-sign-in-policy.md)
-
-### <a name="updated-articles"></a>업데이트된 문서
-
-- [Application Insights를 사용하여 Azure Active Directory B2C에서 사용자 동작 추적](analytics-with-application-insights.md)
-- [TechnicalProfiles](technicalprofiles.md)
-- [Azure Active Directory B2C에서 HTML 템플릿으로 사용자 인터페이스 사용자 지정](customize-ui-with-html.md)
-- [Microsoft Graph를 사용 하 여 Azure AD B2C 관리](microsoft-graph-operations.md)
-- [Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 SAML id 공급자로 AD FS 추가](identity-provider-adfs.md)
-- [Azure Active Directory B2C에서 SAML 프로토콜을 사용 하 여 Salesforce SAML 공급자로 로그인 설정](identity-provider-salesforce-saml.md)
-- [자습서: Azure Active Directory B2C에서 웹 애플리케이션 등록](tutorial-register-applications.md)
-- [Azure Active Directory B2C를 사용하여 Amazon 계정으로 등록 설정 및 로그인](identity-provider-amazon.md)
-- [다른 Azure AD B2C 테 넌 트에서 Azure AD B2C 계정으로 등록 및 로그인 설정](identity-provider-azure-ad-b2c.md)
-- [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 다중 테넌트 Azure Active Directory에 대한 로그인 설정](identity-provider-azure-ad-multi-tenant.md)
-- [Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대 한 로그인을 설정 합니다.](identity-provider-azure-ad-single-tenant.md)
-- [Azure Active Directory B2C를 사용하여 Facebook 계정으로 등록 설정 및 로그인](identity-provider-facebook.md)
-- [Azure Active Directory B2C를 사용하여 GitHub 계정으로 등록 설정 및 로그인](identity-provider-github.md)
-- [Azure Active Directory B2C를 사용하여 Google 계정으로 등록 설정 및 로그인](identity-provider-google.md)
-- [Azure Active Directory B2C를 사용 하 여 ID.me 계정으로 등록 및 로그인 설정](identity-provider-id-me.md)
-- [Azure Active Directory B2C를 사용하여 LinkedIn 계정으로 등록 설정 및 로그인](identity-provider-linkedin.md)
-- [Azure Active Directory B2C를 사용하여 Microsoft 계정으로 등록 설정 및 로그인](identity-provider-microsoft-account.md)
-- [Azure Active Directory B2C를 사용하여 QQ 계정으로 등록 설정 및 로그인](identity-provider-qq.md)
-- [Azure Active Directory B2C를 사용 하 여 Salesforce 계정으로 등록 및 로그인 설정](identity-provider-salesforce.md)
-- [Azure Active Directory B2C를 사용하여 Twitter 계정으로 등록 설정 및 로그인](identity-provider-twitter.md)
-- [Azure Active Directory B2C를 사용하여 WeChat 계정으로 등록 설정 및 로그인](identity-provider-wechat.md)
-- [Azure Active Directory B2C를 사용하여 Weibo 계정으로 등록 설정 및 로그인](identity-provider-weibo.md)
-- [Azure AD B2C 사용자 지정 정책 개요](custom-policy-trust-frameworks.md)
-
-
-## <a name="december-2020"></a>2020년 12월
-
-### <a name="new-articles"></a>새 문서
-
-- [Azure Active Directory B2C에서 사용자 흐름 만들기](add-sign-up-and-sign-in-policy.md)
-- [사용자 흐름에 대 한 전화 등록 및 로그인 설정 (미리 보기)](phone-authentication-user-flows.md)
-
-### <a name="updated-articles"></a>업데이트된 문서
-
-- [자습서: Azure Active Directory B2C 테넌트 만들기](tutorial-create-tenant.md)
-- [Azure Active Directory B2C 코드 샘플](code-samples.md)
-- [페이지 레이아웃 버전](page-layout.md)
-
-## <a name="november-2020"></a>2020년 11월
-
-### <a name="updated-articles"></a>업데이트된 문서
-- [Azure Monitor를 사용 하 여 Azure AD B2C 모니터링](azure-monitor.md)
-- [자습서: 단일 페이지 애플리케이션에서 Azure AD B2C를 사용하여 인증 설정](tutorial-single-page-app.md)
-
-
-## <a name="october-2020"></a>2020년 10월
-
-### <a name="new-articles"></a>새 문서
-- [등록 사용자 흐름에 API 커넥터 추가 (미리 보기)](add-api-connector.md)
-- [자습서: Azure Active Directory B2C에서 SPA(단일 페이지 애플리케이션) 등록](tutorial-register-spa.md)
-- [API 커넥터를 사용 하 여 등록 사용자 흐름 사용자 지정 및 확장](api-connectors-overview.md)
-- [SubJourneys](subjourneys.md)
-
-### <a name="updated-articles"></a>업데이트된 문서
-- [Azure Active Directory B2C 사용자 지정 정책에서 SAML id 공급자 기술 프로필 정의](saml-identity-provider-technical-profile.md)
-- [등록 사용자 흐름에 API 커넥터 추가 (미리 보기)](add-api-connector.md)
-- [Azure Active Directory B2C 코드 샘플](code-samples.md)
-- [Active Directory B2C에서 사용할 수 있는 응용 프로그램 유형](application-types.md)
-- [Azure Active Directory B2C의 OAuth 2.0 인증 코드 흐름](authorization-code-flow.md)
-- [자습서: Azure Active Directory B2C에서 웹 애플리케이션 등록](tutorial-register-applications.md)
-
-## <a name="september-2020"></a>2020년 9월
-
-### <a name="new-articles"></a>새 문서
-- [Azure Active Directory B2C의 정책 키 개요](policy-keys-overview.md)
-
-
-### <a name="updated-articles"></a>업데이트된 문서
-- [Azure Active Directory B2C의 리디렉션 URL을 b2clogin.com으로 설정](b2clogin.md)
-- [Azure Active Directory B2C 사용자 지정 정책에 Openid connect Connect 기술 프로필 정의](openid-connect-technical-profile.md)
-- [Azure AD B2C에서 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인 설정](phone-authentication-user-flows.md)
-
-
-## <a name="august-2020"></a>2020년 8월
-
-### <a name="updated-articles"></a>업데이트된 문서
-- [페이지 레이아웃 버전](page-layout.md)
-- [Azure Active Directory B2C에 대 한 청구 모델](billing.md)

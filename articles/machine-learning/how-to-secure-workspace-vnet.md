@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 03/17/2021
+ms.date: 06/10/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 32893a29b0fa6a22ca0b9d9a64281f6fb5df1cae
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 668584c7c254c1d1f200050154256621ba220b5a
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888623"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111981803"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>가상 네트워크를 사용하여 Azure Machine Learning 작업 영역 보호
 
@@ -52,12 +52,12 @@ ms.locfileid: "107888623"
 
 ## <a name="secure-the-workspace-with-private-endpoint"></a>프라이빗 엔드포인트로 작업 영역 보호
 
-Azure Private Link를 사용하면 프라이빗 엔드포인트를 사용하여 작업 영역에 연결할 수 있습니다. 프라이빗 엔드포인트는 가상 네트워크 내에 있는 일련의 개인 IP 주소입니다. 그런 다음 작업 영역에 대한 액세스를 개인 IP 주소를 통해서만 발생하도록 제한할 수 있습니다. 개인 링크를 사용하면 데이터 반출의 위험을 줄일 수 있습니다.
+Azure Private Link를 사용하면 프라이빗 엔드포인트를 사용하여 작업 영역에 연결할 수 있습니다. 프라이빗 엔드포인트는 가상 네트워크 내에 있는 일련의 개인 IP 주소입니다. 그런 다음, 작업 영역에 대한 액세스를 개인 IP 주소를 통해서만 발생하도록 제한할 수 있습니다. 개인 링크를 사용하면 데이터 반출의 위험을 줄일 수 있습니다.
 
 개인 링크 작업 영역을 설정하는 방법에 대한 자세한 내용은 [Private Link 구성 방법](how-to-configure-private-link.md)을 참조하세요.
 
-> [!Warning]
-> 프라이빗 엔드포인트를 사용하여 작업 영역을 보호해도 완전한 보안이 보장되지는 않습니다. 이 문서의 나머지 부분에 있는 단계와 VNet 시리즈를 수행하여 솔루션의 개별 구성요소를 보호해야 합니다.
+> [!WARNING]
+> 프라이빗 엔드포인트를 사용하여 작업 영역을 보호해도 완전한 보안이 보장되지는 않습니다. 이 문서의 나머지 부분에 있는 단계와 VNet 시리즈를 수행하여 솔루션의 개별 구성요소를 보호해야 합니다. 예를 들어 작업 영역에 프라이빗 엔드포인트를 사용하지만 Azure Storage 계정이 VNet으로 보호되지 않는 경우, 작업 영역과 스토리지 간 트래픽은 보안을 위해 VNet을 사용하지 않습니다.
 
 ## <a name="secure-azure-storage-accounts-with-service-endpoints"></a>서비스 엔드포인트가 있는 보안 Azure Storage 계정
 
@@ -94,6 +94,9 @@ Azure Machine Learning은 서비스 엔드포인트나 프라이빗 엔드포인
 
    [![Azure Portal의 "방화벽 및 가상 네트워크" 창](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
+> [!TIP]
+> 서비스 엔드포인트를 사용하는 경우 퍼블릭 액세스를 사용하지 않도록 설정할 수도 있습니다. 자세한 내용은 [퍼블릭 읽기 권한 허용 안 함](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account)을 참조하세요.
+
 ## <a name="secure-azure-storage-accounts-with-private-endpoints"></a>프라이빗 엔드포인트가 있는 보안 Azure Storage 계정
 
 Azure Machine Learning은 서비스 엔드포인트나 프라이빗 엔드포인트 중 하나를 사용하도록 구성된 스토리지 계정을 지원합니다. 스토리지 계정에서 프라이빗 엔드포인트를 사용하는 경우 기본 스토리지 계정에 대해 두 개의 개인 엔드포인트를 구성해야 합니다.
@@ -106,6 +109,8 @@ Azure Machine Learning은 서비스 엔드포인트나 프라이빗 엔드포인
 
 자세한 내용은 [Azure Storage에 프라이빗 엔드포인트 사용](../storage/common/storage-private-endpoints.md)을 참조하세요.
 
+> [!TIP]
+> 프라이빗 엔드포인트를 사용하는 경우 퍼블릭 액세스를 사용하지 않도록 설정할 수도 있습니다. 자세한 내용은 [퍼블릭 읽기 권한 허용 안 함](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account)을 참조하세요.
 ## <a name="secure-datastores-and-datasets"></a>데이터 저장소 및 데이터 세트 보안
 
 이 섹션에서는 가상 네트워크를 사용하여 SDK 환경에서 데이터 저장소 및 데이터 세트를 사용하는 방법에 대해 알아봅니다. 스튜디오 환경에 대한 자세한 내용은 [가상 네트워크에서 Azure Machine Learning 스튜디오 사용](how-to-enable-studio-virtual-network.md)을 참조하세요.
@@ -238,6 +243,8 @@ Azure Machine Learning는 연결된 키 자격 증명 모음 인스턴스를 사
     
     자세한 내용은 [update ()](/python/api/azureml-core/azureml.core.workspace.workspace#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) 메서드 참조를 확인하세요.
 
+> [!TIP]
+> VNet으로 보호되는 ACR에 대한 [퍼블릭 액세스를 사용하지 않도록 설정](../container-registry/container-registry-access-selected-networks.md#disable-public-network-access)할 수도 있습니다.
 ## <a name="next-steps"></a>다음 단계
 
 이 문서는 5부로 구성된 가상 네트워크 시리즈의 2부입니다. 가상 네트워크를 보호하는 방법을 알아보려면 시리즈의 나머지 문서를 참조하세요.

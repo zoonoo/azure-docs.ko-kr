@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대한 규칙을 설정하는 방법을 설명합니다.
 ms.date: 05/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 594dbfe3dda919e4d8dcbf3047fac78bad600127
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 926ee1d44d0f0ce523e883c36203fb278023e6c4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326204"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753068"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -76,7 +76,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 > [!NOTE]
 > 정책 정의를 만들거나 업데이트하는 동안 **id**, **type**, **name** 이 JSON 외부의 속성으로 정의되며 JSON 파일에는 필요하지 않습니다. SDK를 통해 정책 정의를 가져오면 **id**, **type**, **name** 속성이 JSON의 일부로 반환되지만 각각은 정책 정의와 관련된 읽기 전용 정보입니다.
 
-## <a name="type"></a>형식
+## <a name="type"></a>Type
 
 **유형** 속성은 설정할 수 없지만 SDK에서 반환되고 포털에 표시되는 세 가지 값이 있습니다.
 
@@ -150,7 +150,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
   - `assignPermissions`: (선택 사항) 정책 할당 중에 Azure Portal에서 역할 할당을 만들도록 하려면 _true_ 로 설정합니다. 이 속성은 할당 범위 외부에서 사용 권한을 할당하려는 경우에 유용합니다. 정책 내 역할 정의마다(또는 이니셔티브의 모든 정책에서 역할 정의마다) 하나의 역할 할당이 있습니다. 매개 변수 값은 유효한 리소스 또는 범위여야 합니다.
 - `defaultValue`: (선택 사항) 값이 지정되지 않은 경우 할당에서 매개 변수의 값을 설정합니다.
   할당된 기존 정책 정의를 업데이트할 때 필요합니다.
-- `allowedValues`: (선택 사항) 할당 중에 매개 변수가 허용하는 값의 배열을 제공합니다. 허용되는 값 비교는 대/소문자를 구분합니다. 
+- `allowedValues`: (선택 사항) 할당 중에 매개 변수가 허용하는 값의 배열을 제공합니다. 허용되는 값 비교는 대/소문자를 구분합니다.
 
 예를 들어 리소스를 배포할 수 있는 위치를 제한하는 정책 정의를 정의할 수 있습니다. 해당 정책 정의의 매개 변수는 **allowedLocations** 일 수 있습니다. 이 매개 변수는 정책 정의의 각 할당에서 허용되는 값을 제한하는 데 사용됩니다. **strongType** 을 사용하면 포털을 통해 할당을 완료할 때 경험이 개선됩니다.
 
@@ -188,7 +188,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 ### <a name="strongtype"></a>strongType
 
-`metadata` 속성 안에 **strongType** 을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType** 은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. 리소스 유형이 **strongType** 에 유효한지 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다. _리소스 종류_ **strongType** 의 형식은 `<Resource Provider>/<Resource Type>`입니다. 예들 들어 `Microsoft.Network/virtualNetworks/subnets`입니다.
+`metadata` 속성 안에 **strongType** 을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType** 은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. _리소스 유형_ 이 **strongType** 에 유효한지 여부를 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다. _리소스 종류_ **strongType** 의 형식은 `<Resource Provider>/<Resource Type>`입니다. 예: `Microsoft.Network/virtualNetworks/subnets`.
 
 **Get-AzResourceProvider** 에서 반환하지 않는 일부 리소스 유형이 지원됩니다. 이러한 형식은 다음과 같습니다.
 
@@ -501,16 +501,16 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 **값 개수 사용량**
 
-- `current(<index name defined in count.name>)`. 예를 들면 `current('arrayMember')`와 같습니다.
+- `current(<index name defined in count.name>)`. 예: `current('arrayMember')`
 - `current()`. **값 개수** 식이 다른 **count** 식의 자식이 아닌 경우에만 허용됩니다. 위와 동일한 값을 반환합니다.
 
-호출에서 반환된 값이 개체이면 속성 접근자가 지원됩니다. 예를 들면 `current('objectArrayMember').property`와 같습니다.
+호출에서 반환된 값이 개체이면 속성 접근자가 지원됩니다. 예: `current('objectArrayMember').property`
 
 **필드 수 사용량**
 
-- `current(<the array alias defined in count.field>)`. 예들 들어 `current('Microsoft.Test/resource/enumeratedArray[*]')`입니다.
+- `current(<the array alias defined in count.field>)`. 예: `current('Microsoft.Test/resource/enumeratedArray[*]')`.
 - `current()`. **field count** 식이 다른 **count** 식의 자식이 아닌 경우에만 허용됩니다. 위와 동일한 값을 반환합니다.
-- `current(<alias of a property of the array member>)`. 예들 들어 `current('Microsoft.Test/resource/enumeratedArray[*].property')`입니다.
+- `current(<alias of a property of the array member>)`. 예: `current('Microsoft.Test/resource/enumeratedArray[*].property')`.
 
 #### <a name="field-count-examples"></a>필드 수 예제
 
@@ -720,6 +720,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 ```
 
 정책:
+
 ```json
 {
     "count": {
@@ -811,7 +812,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
 
 - `policy()`
   - 평가 중인 정책에 대한 다음 정보를 반환합니다. 반환된 개체(예: `[policy().assignmentId]`)에서 속성에 액세스할 수 있습니다.
-  
+
     ```json
     {
       "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
@@ -930,7 +931,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
 - [이니셔티브 정의 구조](./initiative-definition-structure.md)를 참조합니다.
 - [Azure Policy 샘플](../samples/index.md)에서 예제를 검토합니다.
 - [정책 효과 이해](effects.md)를 검토합니다.
-- [프로그래밍 방식으로 정책을 만드는](../how-to/programmatically-create.md) 방법을 이해합니다.
+- [프로그래밍 방식으로 정책을 생성](../how-to/programmatically-create.md)하는 방법을 이해합니다.
 - [규정 준수 데이터를 가져오는](../how-to/get-compliance-data.md) 방법을 알아봅니다.
 - [규정 비준수 리소스를 수정](../how-to/remediate-resources.md)하는 방법을 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

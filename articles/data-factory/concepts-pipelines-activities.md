@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 870c812a68f765f987cfd3d1b953e0afeb3e9055
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c910264a01967b62ebae80f63ac3f40e98ab48a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100364531"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773284"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업
 
@@ -37,7 +37,7 @@ Data Factory는 [데이터 이동 작업](copy-activity-overview.md), [데이터
 
 데이터 팩터리의 복사 활동은 원본 데이터 저장소의 데이터를 싱크 데이터 저장소로 복사합니다. Data Factory는 이 섹션의 테이블에 나열한 데이터 소스를 지원합니다. 모든 소스의 데이터를 모든 싱크에 쓸 수 있습니다. 데이터 저장소를 클릭하면 해당 저장소에서/저장소로 데이터를 복사하는 방법을 확인할 수 있습니다.
 
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
+[!INCLUDE [data-factory-v2-supported-data-stores](includes/data-factory-v2-supported-data-stores.md)]
 
 자세한 내용은 [작업 복사 - 개요](copy-activity-overview.md)를 참조하세요.
 
@@ -75,7 +75,7 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 [메타데이터 가져오기](control-flow-get-metadata-activity.md) | GetMetadata 작업을 사용하면 Azure Data Factory에 있는 모든 데이터의 메타데이터를 검색할 수 있습니다.
 [If 조건 작업](control-flow-if-condition-activity.md) | If 조건을 사용하여 True 또는 False로 평가되는 조건을 기반으로 분기할 수 있습니다. If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 조건이 `true`로 평가되면 작업 집합을 평가하고, 조건이 `false.`로 평가되면 다른 작업 집합을 평가합니다.
 [조회 작업](control-flow-lookup-activity.md) | 조회 작업을 사용하면 모든 외부 소스에서 레코드/테이블 이름/값을 읽거나 조회할 수 있습니다. 이 출력을 다음 작업에서 추가로 참조할 수 있습니다.
-[Set Variable](control-flow-set-variable-activity.md) | 기존 변수의 값을 설정합니다.
+[변수 설정](control-flow-set-variable-activity.md) | 기존 변수의 값을 설정합니다.
 [Until 작업](control-flow-until-activity.md) | 프로그래밍 언어의 Do-Until 루핑 구조와 유사한 Do-Until 루프를 구현합니다. 작업과 관련된 조건이 참으로 평가될 때까지 일단의 반복 작업을 실행합니다. Data Factory에서 until 작업의 시간 제한 값을 지정할 수 있습니다.
 [유효성 검사 작업](control-flow-validation-activity.md) | 참조 데이터 세트가 존재하거나 지정된 조건을 충족하거나 시간 제한에 도달하는 경우에만 파이프라인이 실행을 계속하도록 합니다.
 [Wait 작업](control-flow-wait-activity.md) | 파이프라인에서 대기 작업을 사용하는 경우 파이프라인은 후속 작업을 계속 실행하기 전에 지정된 시간 동안 대기합니다.
@@ -106,10 +106,10 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 태그 | 설명 | Type | 필수
 --- | ----------- | ---- | --------
 name | 파이프라인의 이름입니다. 파이프라인이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 140개</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>사용할 수 없는 문자: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" </li></ul> | String | 예
-description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | String | No
+description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | String | 예
 작업 | **활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. JSON 작업 요소에 대한 자세한 내용은 [JSON 작업](#activity-json) 섹션을 참조하세요. | Array | 예
 매개 변수 | **매개 변수** 섹션은 파이프라인 내에 정의된 매개 변수 한 개 이상을 포함할 수 있으므로 파이프라인을 유연하게 다시 사용할 수 있습니다. | 목록 | 예
-동시성 | 파이프라인에 포함할 수 있는 최대 동시 실행 수입니다. 기본적으로 최댓값이 없습니다. 동시성 한도에 도달하면 추가 파이프라인 실행은 이전 실행이 완료될 때까지 큐에서 대기합니다. | 숫자 | 예 
+동시성 | 파이프라인에 포함할 수 있는 최대 동시 실행 수입니다. 기본적으로 최댓값이 없습니다. 동시성 한도에 도달하면 추가 파이프라인 실행은 이전 실행이 완료될 때까지 큐에서 대기합니다. | 숫자 | No 
 주석 | 파이프라인과 연결된 태그 목록입니다. | Array | 예
 
 ## <a name="activity-json"></a>활동 JSON

@@ -6,13 +6,13 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/26/2020
-ms.openlocfilehash: 1a99fbd3d3163808a364e8b26e770563a901dc18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/03/2021
+ms.openlocfilehash: 54c96aced03853b8a3f78ff0f348eeb6459afccc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100371331"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760302"
 ---
 # <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 
@@ -130,10 +130,11 @@ Salesforce는 모든 파일, 첨부 파일 및 사용자 정의 필드의 암호
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임에서 연결된 서비스를 암호화하는 동안 사용되는 포트
 
-기본적으로 PowerShell은 보안 통신을 위해 자체 호스팅 통합 런타임을 사용하는 컴퓨터에 대해 8060 포트를 사용합니다. 필요한 경우 이 포트를 변경할 수 있습니다.  
+기본적으로 인트라넷에서 원격 액세스를 사용하도록 설정하면 PowerShell은 보안 통신을 위해 자체 호스팅 통합 런타임을 사용하는 머신에 대해 8060 포트를 사용합니다. 필요한 경우 설정 탭의 Integration Runtime Configuration Manager에서 이 포트를 변경할 수 있습니다.
 
-![게이트웨이용 HTTPS 포트](media/data-movement-security-considerations/https-port-for-gateway.png)
+:::image type="content" source="media/data-movement-security-considerations/integration-runtime-configuration-manager-settings.png" alt-text="Integration Runtime Configuration Manager의 설정 탭":::
 
+:::image type="content" source="media/data-movement-security-considerations/https-port-for-gateway.png" alt-text="게이트웨이용 HTTPS 포트":::
 
 ### <a name="encryption-in-transit"></a>전송 중 암호화
 
@@ -175,7 +176,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 다음 표는 아웃바운드 포트 및 회사 방화벽에 대한 도메인 요구 사항을 제공합니다.
 
-[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
+[!INCLUDE [domain-and-outbound-port-requirements](includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE]
 > 각 데이터 원본에서 요구하는 대로 기업용 방화벽 수준에서 도메인 허용 목록을 설정해야 할 수도 있습니다. 이 테이블에서는 Azure SQL Database, Azure Synapse Analytics 및 Azure Data Lake Store만을 예제로 사용합니다.   

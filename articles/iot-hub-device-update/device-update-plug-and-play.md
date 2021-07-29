@@ -6,22 +6,26 @@ ms.author: valls
 ms.date: 2/14/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0283a84650abaadd454b4f5bca83d1473e443fb8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 768e751f28f9725cab47f100188c318d6b35d667
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561817"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969139"
 ---
 # <a name="device-update-for-iot-hub-and-iot-plug-and-play"></a>IoT Hub 및 IoT 플러그 앤 플레이에 대한 디바이스 업데이트
 
 IoT Hub용 디바이스 업데이트는 [IoT 플러그 앤 플레이](../iot-pnp/index.yml)를 사용하여 OTA(Over The Air) 업데이트를 지원하는 디바이스를 검색하고 관리합니다. 디바이스 업데이트 서비스는 PnP 인터페이스를 사용하여 디바이스에서 속성과 메시지를 보내고 받습니다. IoT Hub에 대한 디바이스 업데이트에는 아래에 설명된 대로 IoT 디바이스에서 다음과 같은 인터페이스와 모델 ID를 구현해야 합니다.
 
+개념: 
+* [IoT 플러그 앤 플레이 디바이스 클라이언트](../iot-pnp/concepts-developer-guide-device.md?pivots=programming-language-csharp#implement-telemetry-properties-and-commands)를 이해합니다. 
+* [Device Update 에이전트를 구현](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md)하는 방법을 확인합니다.
+
 ## <a name="adu-core-interface"></a>ADU Core 인터페이스
 
 'ADUCoreInterface' 인터페이스는 업데이트 작업 및 메타데이터를 디바이스로 보내고 디바이스에서 업데이트 상태를 수신하는 데 사용됩니다. 'ADU Core' 인터페이스는 두 개의 개체 속성으로 분할됩니다.
 
-모델에 필요한 구성 요소 이름은 이 인터페이스를 구현할 때 **"Azuredeviceupdateagent"** 입니다. [Azure IoT PnP 구성 요소에 대한 자세한 정보](../iot-pnp/concepts-components.md)
+모델에 필요한 구성 요소 이름은 이 인터페이스를 구현할 때 **"Azuredeviceupdateagent"** 입니다. [Azure IoT PnP 구성 요소에 대한 자세한 정보](../iot-pnp/concepts-modeling-guide.md)
 
 ### <a name="agent-metadata"></a>에이전트 메타데이터
 
@@ -32,7 +36,7 @@ IoT Hub용 디바이스 업데이트는 [IoT 플러그 앤 플레이](../iot-pnp
 |resultCode|정수|디바이스-클라우드|마지막 업데이트 작업 결과에 대한 정보를 포함하는 코드입니다. 성공 또는 실패에 대해 작성할 수 있으며 [http 상태 코드 사양](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)을 따라야 합니다.|500|
 |extendedResultCode|정수|디바이스-클라우드|결과에 대한 추가 정보를 포함하는 코드입니다. 성공 또는 실패에 대해 작성할 수 있습니다.|0x80004005|
 |state|정수|디바이스-클라우드|디바이스 업데이트 에이전트의 현재 상태를 나타내는 정수입니다. 자세한 내용은 다음을 참조하세요. |유휴 상태|
-|installedUpdateId|문자열|디바이스-클라우드|현재 설치된 업데이트의 ID입니다(디바이스 업데이트를 통해). 디바이스 업데이트를 통해 업데이트를 수행하지 않은 디바이스에 대해서는 이 값이 null이 됩니다.|Null|
+|installedUpdateId|문자열|디바이스-클라우드|현재 설치된 업데이트의 ID입니다(디바이스 업데이트를 통해). 이 값은 Device Update를 통해 업데이트를 수행한 적이 없는 디바이스에 대해 업데이트 ID JSON 또는 null을 캡처하는 문자열입니다.|“{\"provider\":\"contoso\",\"name\":\"image-update\",\"version\":\"1.0.0\"}”|
 |`deviceProperties`|맵|디바이스-클라우드|제조업체 및 모델을 포함하는 속성 집합입니다.|자세한 내용은 다음을 참조하세요.
 
 #### <a name="state"></a>시스템 상태
@@ -52,10 +56,31 @@ IoT Hub용 디바이스 업데이트는 [IoT 플러그 앤 플레이](../iot-pnp
 
 |이름|스키마|Direction|설명|
 |----|------|---------|-----------|
-|제조업체|문자열|디바이스-클라우드|`deviceProperties`를 통해 보고된 디바이스의 디바이스 제조업체입니다. 이 속성은 두 위치 중 하나에서 읽습니다. 'AzureDeviceUpdateCore' 인터페이스는 먼저 [구성 파일](device-update-configuration-file.md) 파일에서 ' aduc_manufacturer ' 값을 읽으려고 시도합니다.  구성 파일에 값이 작성되지 않은 경우, 기본값으로 ADUC_DEVICEPROPERTIES_MANUFACTURER에 대한 컴파일 시간 정의를 보고합니다. 이 속성은 부팅 시에만 보고됩니다.|
-|model|문자열|디바이스-클라우드|`deviceProperties`를 통해 보고된 디바이스의 디바이스 모델입니다. 이 속성은 두 위치 중 하나에서 읽습니다. AzureDeviceUpdateCore 인터페이스는 먼저 [구성 파일](device-update-configuration-file.md) 파일에서 'aduc_model' 값을 읽으려고 시도합니다.  구성 파일에 값이 채워지지 않은 경우, 기본적으로 ADUC_DEVICEPROPERTIES_MODEL에 대한 컴파일 시간 정의를 보고합니다. 이 속성은 부팅 시에만 보고됩니다.|
+|제조업체|문자열|디바이스-클라우드|`deviceProperties`를 통해 보고된 디바이스의 디바이스 제조업체입니다. 이 속성은 두 위치 중 하나에서 읽습니다. 'AzureDeviceUpdateCore' 인터페이스는 먼저 [구성 파일](device-update-configuration-file.md) 파일에서 ' aduc_manufacturer ' 값을 읽으려고 시도합니다.  구성 파일에 값이 작성되지 않은 경우, 기본값으로 ADUC_DEVICEPROPERTIES_MANUFACTURER에 대한 컴파일 시간 정의를 보고합니다. 이 속성은 부팅 시에만 보고됩니다. 기본값 ‘Contoso’|
+|model|문자열|디바이스-클라우드|`deviceProperties`를 통해 보고된 디바이스의 디바이스 모델입니다. 이 속성은 두 위치 중 하나에서 읽습니다. AzureDeviceUpdateCore 인터페이스는 먼저 [구성 파일](device-update-configuration-file.md) 파일에서 'aduc_model' 값을 읽으려고 시도합니다.  구성 파일에 값이 채워지지 않은 경우, 기본적으로 ADUC_DEVICEPROPERTIES_MODEL에 대한 컴파일 시간 정의를 보고합니다. 이 속성은 부팅 시에만 보고됩니다. 기본값 ‘Video’|
 |aduVer|문자열|디바이스-클라우드|디바이스에서 실행되는 디바이스 업데이트 에이전트의 버전입니다. 이 값은 컴파일 시간 동안 ENABLE_ADU_TELEMETRY_REPORTING이 1(true)로 설정된 경우에만 빌드에서 읽습니다. 고객은 값을 0(false)으로 설정하여 버전 보고를 사용하지 않도록 선택할 수 있습니다. [디바이스 업데이트 에이전트 속성을 사용자 지정하는 방법](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md)|
 |doVer|문자열|디바이스-클라우드|디바이스에서 실행되는 전송 최적화 에이전트의 버전입니다. 컴파일 시간 동안 ENABLE_ADU_TELEMETRY_REPORTING이 1(true)로 설정된 경우에만 빌드에서 값을 읽습니다. 고객은 값을 0(false)으로 설정하여 버전 보고를 중단하도록 선택할 수 있습니다. [전송 최적화 에이전트 속성을 사용자 지정하는 방법](https://github.com/microsoft/do-client/blob/main/README.md#building-do-client-components)|
+
+IoT Hub 디바이스 쌍 샘플
+```json
+ "azureDeviceUpdateAgent": {
+                           "__t": "c",
+                           "client": {
+                                     "state": 0,
+                                     "resultCode": 200,
+                                     "extendedResultCode": 0,
+                                     "deviceProperties": {
+                                                         "manufacturer": "Contoso",
+                                                         "model": "Video",
+                                                         "aduVer": "DU;agent/0.6.0",
+                                                         "doVer": "DU;lib/v0.4.0,DU;agent/v0.4.0,DU;plugin-apt/v0.2.0"
+                                                         },
+                                     "installedUpdateId": "{\"provider\":\"Contoso\",\"name\":\"SampleUpdate1\",\"version\":\"1.0.4\"}"
+                                     },
+                            }
+```
+
+참고: 디바이스 또는 모듈은 요소가 구성 요소를 참조함을 표시하기 위해 {"__t": "c"} 마커를 추가해야 합니다. [여기](../iot-pnp/concepts-convention.md#sample-multiple-components-writable-property)에서 자세히 알아보세요.
 
 ### <a name="service-metadata"></a>서비스 메타데이터
 
@@ -64,7 +89,7 @@ IoT Hub용 디바이스 업데이트는 [IoT 플러그 앤 플레이](../iot-pnp
 |이름|스키마|Direction|설명|
 |----|------|---------|-----------|
 |action|정수|클라우드-디바이스|에이전트에서 수행해야 하는 작업에 해당하는 정수입니다. 값은 다음과 같습니다.|
-|updateManifest|문자열|클라우드-디바이스|업데이트 콘텐츠를 설명하는 데 사용됩니다. [가져오기 매니페스트](import-update.md#create-device-update-import-manifest)에서 생성됨|
+|updateManifest|문자열|클라우드-디바이스|업데이트 콘텐츠를 설명하는 데 사용됩니다. [가져오기 매니페스트](import-update.md#create-a-device-update-import-manifest)에서 생성됨|
 |updateManifestSignature|JSON 개체|클라우드-디바이스|원본 확인에 사용되는 JSON 웹 키가 있는 JWS(JSON 웹 서명)입니다.|
 |fileUrls|맵|클라우드-디바이스|`DownloadUri`로의 `FileHash` 매핑입니다. 다운로드할 파일과 파일이 올바르게 다운로드되었는지 확인하는 데 사용할 해시를 에이전트에 알려줍니다.|
 
@@ -83,7 +108,7 @@ IoT Hub용 디바이스 업데이트는 [IoT 플러그 앤 플레이](../iot-pnp
 
 디바이스 정보 인터페이스는 [IoT 플러그 앤 플레이 아키텍처](../iot-pnp/overview-iot-plug-and-play.md) 내에서 사용되는 개념입니다. 디바이스의 하드웨어 및 운영 체제에 대한 정보를 제공하는 디바이스-클라우드 속성을 포함합니다. IoT Hub의 디바이스 업데이트는 원격 분석과 진단에 DeviceInformation.manufacturer 및 DeviceInformation.model 속성을 사용합니다. 디바이스 정보 인터페이스에 대한 자세한 내용은 이 [예제](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json)를 참조하세요.
 
-모델에 필요한 구성 요소 이름은 이 인터페이스를 구현할 때 **Deviceinformation** 입니다. [Azure IoT PnP 구성 요소에 대한 자세한 정보](../iot-pnp/concepts-components.md)
+모델에 필요한 구성 요소 이름은 이 인터페이스를 구현할 때 **Deviceinformation** 입니다. [Azure IoT PnP 구성 요소에 대한 자세한 정보](../iot-pnp/concepts-modeling-guide.md)
 
 |이름|유형|스키마|Direction|설명|예제|
 |----|----|------|---------|-----------|-----------|

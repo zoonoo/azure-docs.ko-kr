@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 5e36465c307443c8e6f135c5937bddbbb079b60e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 95400d75442ba0d61b0d24aef6e67bbea397a240
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783164"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790457"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 계산 집약적 워크로드에 GPU 사용
 
@@ -400,6 +400,12 @@ Apache Spark 작업을 실행하려면 [AKS에서 Apache Spark 작업 실행][ak
 
 Kubernetes에서 ML(머신 러닝) 워크로드를 실행하는 방법에 대한 자세한 내용은 [Kubeflow 랩][kubeflow-labs]을 참조하세요.
 
+Azure Machine Learning과 함께 Azure Kubernetes Service를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+* [Azure Kubernetes Service에 모델 배포][azureml-aks]
+* [GPU를 사용하여 유추를 위한 딥 러닝 모델 배포][azureml-gpu]
+* [Triton Inference Server를 사용한 고성능 서비스 제공][azureml-triton].
+
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
@@ -419,3 +425,6 @@ Kubernetes에서 ML(머신 러닝) 워크로드를 실행하는 방법에 대한
 [aks-spark]: spark-job.md
 [gpu-skus]: ../virtual-machines/sizes-gpu.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[azureml-aks]: ../machine-learning/how-to-deploy-azure-kubernetes-service.md
+[azureml-gpu]: ../machine-learning/how-to-deploy-inferencing-gpus.md
+[azureml-triton]: ../machine-learning/how-to-deploy-with-triton.md

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 332be773bca07acf178bd0754d3dad12f4879f51
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 3d7ba65e6965ff488ead6094376bea7142eb5ec9
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371139"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590597"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -27,6 +27,28 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
 ### <a name="announcing-the-20-cli-preview-for-azure-machine-learning"></a>Azure Machine Learning용 2.0 CLI(미리 보기) 발표
 
 Azure CLI에 대한 `ml` 확장은 Azure Machine Learning을 위한 차세대 인터페이스입니다. 이를 통해 모델 수명 주기를 추적하는 동안 데이터 과학 확장을 가속화하는 기능을 사용하여 명령줄에서 모델을 학습하고 배포할 수 있습니다. [설치 및 시작](how-to-configure-cli.md)합니다.
+
+## <a name="2021-06-07"></a>2021-06-07
+
+### <a name="azure-machine-learning-sdk-for-python-v1300"></a>Python용 Azure Machine Learning SDK v1.30.0
++ **버그 수정 및 개선 사항**
+  + **azureml-core**
+    + 0\.17.5에서 호환성이 손상되는 변경이 릴리스됨에 따라 종속성 `ruamel-yaml`을 0.17.5 미만으로 고정합니다.
+    + `aml_k8s_config` 속성이 `KubernetesCompute` 첨부에 대한 `namespace`, `default_instance_type` 및 `instance_types` 매개 변수로 대체됩니다.
+    + 작업 영역 동기화 키가 장기 실행 작업으로 변경되었습니다.
+  + **azureml-automl-runtime**
+    + `Elements of y_test cannot be NaN`으로 빅 데이터 실행이 실패할 수 있는 문제가 수정되었습니다.
+  + **azureml.mlflow**
+    + 서명이 없는 모델에 대한 MLFlow 배포 플러그 인 버그 수정입니다.
+  + **azureml-pipeline-steps**
+    + ParallelRunConfig: process_count_per_node에 대한 문서를 업데이트합니다.
+  + **azureml-train-automl-runtime**
+    + MM 유추 중 정의된 분위수의 사용자 지정 지원
+    + 일괄 처리 유추 중 forecast_quantiles를 지원합니다.
+  + **azureml-contrib-automl-pipeline-steps**
+    + MM 유추 중 정의된 분위수의 사용자 지정 지원
+    + 일괄 처리 유추 중 forecast_quantiles를 지원합니다.
+
 
 ### <a name="azure-machine-learning-sdk-for-python-v1290"></a>Python용 Azure Machine Learning SDK v1.29.0
 + **버그 수정 및 개선 사항**

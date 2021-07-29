@@ -1,18 +1,19 @@
 ---
 title: VPN 게이트웨이 또는 연결을 초기화하여 IPsec 터널 재설정
 titleSuffix: Azure VPN Gateway
-description: IPsec 터널을 재설정하려면 연결 또는 VPN 게이트웨이를 초기화합니다.
+description: 게이트웨이 또는 게이트웨이 연결을 초기화하여 IPsec 터널을 다시 설정하는 방법을 알아봅니다.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: adc2ffd63d73baaddce00324787df61061ea69dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a3df054e026e09ec826e78affffd1114f4705346
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726645"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110662056"
 ---
 # <a name="reset-a-vpn-gateway-or-a-connection"></a>VPN 게이트웨이 또는 연결 초기화
 

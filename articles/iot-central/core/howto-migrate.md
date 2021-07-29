@@ -1,22 +1,20 @@
 ---
 title: V2 Azure IoT Central 애플리케이션을 V3에 마이그레이션하기 | Microsoft Docs
-description: 관리자는 V2 Azure IoT Central 애플리케이션을 V3에 마이그레이션하는 방법을 알아봅니다.
+description: V2 Azure IoT Central 애플리케이션을 V3에 마이그레이션하는 방법 알아보기
 author: troyhopwood
 ms.author: troyhop
 ms.date: 01/18/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 735ad7ad9ded6baded59ab3f08e239d1c8376b74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0868720668f5db09748e6976327f1500bc8a4781
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101702728"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733358"
 ---
 # <a name="migrate-your-v2-iot-central-application-to-v3"></a>V2 IoT Central 애플리케이션을 V3에 마이그레이션하기
-
-*관리자에게 적용되는 문서입니다.*
 
 현재, IoT Central 애플리케이션을 새로 만드는 경우, V3 애플리케이션이 됩니다. 이전에 애플리케이션을 만들었다면 그 시기에 따라 V2일 수 있습니다. 본 문서에서는 IoT Central의 최신 기능을 사용하도록 V2 애플리케이션을 V3 애플리케이션으로 마이그레이션하는 방법을 설명합니다.
 

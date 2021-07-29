@@ -1,5 +1,6 @@
 ---
-title: 'Azure VPN Gateway: 지점 및 사이트 간 연결 문제 해결: Mac OS X 클라이언트'
+title: '지점 및 사이트 간 연결 문제 해결: Mac OS X 클라이언트'
+titleSuffix: Azure VPN Gateway
 description: 기본 VPN 클라이언트와 IKEv2를 사용하여 Mac OS X에서 지점 및 사이트 간 연결 문제를 해결하는 방법을 알아봅니다.
 services: vpn-gateway
 author: anzaman
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 02/10/2021
 ms.author: alzam
-ms.openlocfilehash: 4c8657f8a40084a726280efe471c0791931294f7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0b8cb4b75bfa162c392549b21f4d09743c37f8e
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100366639"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229543"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Mac OS X VPN 클라이언트에서 지점 및 사이트 간 VPN 연결 문제 해결
 

@@ -4,13 +4,13 @@ description: Azure Monitor 메트릭 경고 및 가능한 솔루션에서 발생
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 03/15/2021
-ms.openlocfilehash: f14142632f6ded9f598d6e94fd1e91ec17f6d0a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/03/2021
+ms.openlocfilehash: cbbecb49acf556dc7a8ce6285d4b1b3581c39b3d
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466500"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412903"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 
@@ -62,7 +62,10 @@ Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견�
     - 선택한 메트릭 차트의 **집계** 가 경고 규칙의 **집계 유형** 과 동일합니다.
     - 선택한 **시간 세분성** 이 자동이 아니라 경고 규칙의 **집계 세분성(기간)** 과 동일합니다.
 
-5. 동일한 기준을 모니터링하는 경고가 이미 발생했으며 해결되지 않았는데도 경고가 발생하는 경우 *autoMitigate* 속성을 **false** 로 설정하여 경고 규칙을 구성했는지 확인합니다(이 속성은 REST/PowerShell/CLI를 통해서만 구성할 수 있으므로 경고 규칙을 배포하는 데 스크립트가 사용되었는지 확인하세요). 이 경우 경고 규칙은 발생된 경고를 자동으로 해결하지 않으며 다시 발생하기 전에 발생한 경고를 해결할 필요가 없습니다.
+5. 이미 발생한 경고가 동일한 기준(해결되지 않은)을 모니터링하는 동안 다시 발생한 경우 경고 규칙이 경고를 자동으로 해결하지 않도록 구성되었는지 확인합니다. 이러한 구성으로 인해 경고 규칙이 상태 비저장이 됩니다. 즉, 경고 규칙은 발생된 경고를 자동으로 해결하지 않으며 동일한 시계열에서 다시 발생하기 전에 발생한 경고를 해결할 필요가 없습니다.
+    다음 방법 중 하나를 선택하여 경고 규칙을 자동으로 해결하지 않도록 구성되었는지 확인할 수 있습니다.
+    - Azure Portal에서 경고 규칙을 편집하고 '경고 자동 해결' 확인란이 선택 취소되어 있는지 확인합니다('경고 규칙 세부 정보' 섹션에서 사용 가능).
+    - 경고 규칙을 배포하는 데 사용된 스크립트를 검토하거나 경고 규칙 정의를 검색하고 *autoMitigate* 속성이 **false** 로 설정되어 있는지 확인합니다.
 
 
 ## <a name="cant-find-the-metric-to-alert-on---virtual-machines-guest-metrics"></a>가상 머신 게스트 메트릭에 대해 경고하는 메트릭을 찾을 수 없음
@@ -91,9 +94,10 @@ Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견�
 [메트릭의 특정 차원 값](./alerts-metric-overview.md#using-dimensions)에 대한 경고가 표시되지만 이러한 값을 찾을 수 없는 경우 다음을 참조하세요.
 
 1. **차원 값** 목록에 차원 값이 표시되는 데 몇 분 정도 걸릴 수 있습니다.
-1. 표시되는 차원 값은 과거에 수집된 메트릭 데이터를 기반으로 합니다.
-1. 차원 값이 아직 내보내지 않았거나 표시되지 않는 경우 '사용자 지정 값 추가' 옵션을 사용하여 사용자 지정 차원 값을 추가할 수 있습니다.
-1. 미래 값을 포함하여 한 차원의 가능한 모든 값에 대해 경고하려면 ‘모든 현재 및 미래 값 선택’ 옵션을 선택합니다.
+2. 표시되는 차원 값은 과거에 수집된 메트릭 데이터를 기반으로 합니다.
+3. 차원 값이 아직 내보내지 않았거나 표시되지 않는 경우 '사용자 지정 값 추가' 옵션을 사용하여 사용자 지정 차원 값을 추가할 수 있습니다.
+4. 미래 값을 포함하여 한 차원의 가능한 모든 값에 대해 경고하려면 ‘모든 현재 및 미래 값 선택’ 옵션을 선택합니다.
+5. Application Insights 리소스의 사용자 지정 메트릭 차원은 기본적으로 꺼져 있습니다. 이러한 사용자 지정 메트릭에 대한 차원 모음을 사용하려면 [여기](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)를 참조하세요.
 
 ## <a name="metric-alert-rules-still-defined-on-a-deleted-resource"></a>삭제된 리소스에 대한 메트릭 경고 규칙이 여전히 정의되어 있음 
 
@@ -106,7 +110,9 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 
 ## <a name="make-metric-alerts-occur-every-time-my-condition-is-met"></a>조건이 충족될 때마다 메트릭 경고가 발생하도록 설정
 
-메트릭 경고는 기본적으로 상태 저장이므로 지정된 시계열에 이미 경고가 발생했다면 추가 경고가 발생하지 않습니다. 특정 메트릭 경고 규칙을 상태 비저장으로 만들고 경고 조건이 충족되는 모든 평가에 대해 경고를 발생시키려면 경고 규칙을 프로그래밍 방식으로 만들고(예: [Resource Manager](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/), [REST](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert)를 통해) *autoMitigate* 속성을 'False'로 설정합니다.
+메트릭 경고는 기본적으로 상태 저장이므로 지정된 시계열에 이미 경고가 발생했다면 추가 경고가 발생하지 않습니다. 특정 메트릭 경고 규칙 상태 비저장을 만들고 경고 조건이 충족되는 모든 평가에 대한 경고를 받으려면 다음 옵션 중 하나를 수행합니다.
+- 프로그래밍 방식으로 경고 규칙을 만드는 경우(예: [Resource Manager](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/), [REST](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert) 사용) *autoMitigate* 속성을 'False'로 변경합니다.
+- Azure Portal을 통해 경고 규칙을 만드는 경우 '경고 자동 해결' 옵션을 선택 취소합니다('경고 규칙 세부 정보' 섹션에서 사용 가능).
 
 > [!NOTE] 
 > 메트릭 경고 규칙을 상태 비저장으로 설정하면 발생한 경고가 해결되지 않습니다. 따라서 조건이 더 이상 충족되지 않는 경우에도 발생한 경고는 30일의 보존 기간이 끝날 때까지 발생함 상태로 유지됩니다.
@@ -174,7 +180,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 
 - PowerShell - [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2)
 - REST API - [구독별 목록](/rest/api/monitor/metricalerts/listbysubscription)
-- Azure CLI - [az monitor metrics alert list](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-list)
+- Azure CLI - [az monitor metrics alert list](/cli/azure/monitor/metrics/alert#az_monitor_metrics_alert_list)
 
 ## <a name="managing-alert-rules-using-resource-manager-templates-rest-api-powershell-or-azure-cli"></a>Resource Manager 템플릿, REST API, PowerShell 또는 Azure CLI를 사용하여 경고 규칙 관리
 
@@ -238,6 +244,7 @@ Resource Manager 템플릿, REST API, PowerShell 또는 Azure CLI(명령줄 인�
 - 메트릭 경고 규칙 이름은 각 리소스 그룹 내에서 고유해야 합니다.
 - 메트릭 경고 규칙 이름에는 * # & + : < > ? 문자를 포함할 수 없습니다. @ % { } \ / 
 - 메트릭 경고 규칙 이름은 공백 또는 마침표로 끝날 수 없습니다.
+- 결합된 리소스 그룹 이름과 경고 규칙 이름은 252자를 초과할 수 없습니다.
 
 > [!NOTE] 
 > 경고 규칙 이름에 영문자 또는 숫자가 아닌 문자가 포함된 경우(예: 공백, 문장 부호 또는 기호) 해당 문자는 특정 클라이언트에서 검색할 때 URL로 인코딩될 가능성이 있습니다.

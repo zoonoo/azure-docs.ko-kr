@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8f376fb383e50a39f0f12d45cf9b5ae47ad6fcbb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fc5210ad64d534f8be015d324a454b513b7fccc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86186506"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758342"
 ---
 # <a name="create-configurations-from-existing-servers"></a>기존 서버에서 구성 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "86186506"
 
 [ReverseDSC](https://github.com/microsoft/reversedsc)라는 커뮤니티 유지 관리 솔루션은 SharePoint를 시작하는 이 영역에서 작동하도록 만들어졌습니다.
 
-이 솔루션은 [SharePointDSC 리소스](https://github.com/powershell/sharepointdsc)를 기반으로 하며 기존 SharePoint 서버에서 [정보 수집](https://github.com/Microsoft/sharepointDSC.reverse#how-to-use)을 오케스트레이션하도록 확장됩니다.
+이 솔루션은 [SharePointDSC 리소스](https://github.com/powershell/sharepointdsc)를 기반으로 하며 SharePoint를 실행하는 기존 서버에서 [정보 수집](https://github.com/Microsoft/sharepointDSC.reverse#how-to-use)을 오케스트레이션하도록 확장됩니다.
 최신 버전에는 포함할 정보 수준을 결정하는 여러 [추출 모드](https://github.com/Microsoft/SharePointDSC.Reverse/wiki/Extraction-Modes)가 있습니다.
 
 솔루션을 사용한 결과로 SharePointDSC 구성 스크립트와 함께 사용할 [구성 데이터](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data)가 생성됩니다.

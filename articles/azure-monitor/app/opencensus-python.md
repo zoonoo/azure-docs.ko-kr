@@ -5,24 +5,36 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: 69472da4f774a1dfae86e1891255907ad711175a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+author: lzchen
+ms.author: lechen
+ms.openlocfilehash: 4f3ef03e3561cf054102b5f5c15ff571c3d4d28d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047425"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742628"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Python 애플리케이션용 Azure Monitor 설정
 
-Azure Monitor는 [OpenCensus](https://opencensus.io)와의 통합을 통해 분산 추적, 메트릭 컬렉션 및 Python 애플리케이션의 로깅을 지원합니다. 이 문서에서는 Python용 OpenCensus를 설정하고 Azure Monitor로 모니터링 데이터를 전송하는 프로세스를 단계별로 안내합니다.
+Azure Monitor는 분산 추적, 메트릭 컬렉션 및 Python 애플리케이션의 로깅을 지원합니다.
+
+Python 애플리케이션에 대한 데이터를 추적하고 내보내기 위해 Microsoft에서 지원하는 솔루션은 [Azure Monitor 내보내기](#instrument-with-opencensus-python-sdk-with-azure-monitor-exporters)를 통한 [Opencensus Python SDK](#introducing-opencensus-python-sdk)입니다.
+
+Python용 다른 원격 분석 SDK는 지원되지 않으며 원격 분석 솔루션으로 사용하는 것을 Microsoft에서 권장하지 않습니다.
+
+OpenCensus가 [OpenTelemetry](https://opentelemetry.io/)로 통합되고 있음을 인지했을 수도 있습니다. 그러나 OpenTelemetry가 점진적으로 완성되는 동안 OpenCensus가 계속 권장됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-- Python 설치. 다른 버전의 경우 약간 변경되어 작동할 가능성이 있으므로 이 문서에서는 [Python 3.7.0](https://www.python.org/downloads/release/python-370/)을 사용합니다. SDK는 Python 버전 2.7 및 3.6 이상만을 지원합니다.
+- Python 설치. 다른 버전의 경우 약간 변경되어 작동할 가능성이 있으므로 이 문서에서는 [Python 3.7.0](https://www.python.org/downloads/release/python-370/)을 사용합니다. Opencensus Python SDK는 Python v2.7 및 v3.4-v3.7만 지원합니다.
 - Application Insights [리소스](./create-new-resource.md)를 만듭니다. 리소스에 대한 자체 계측 키(ikey)가 할당됩니다.
 
-## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Azure Monitor용 OpenCensus Python SDK를 사용한 계측
+## <a name="introducing-opencensus-python-sdk"></a>Opencensus Python SDK 소개
+
+[OpenCensus](https://opencensus.io)는 분산 추적, 메트릭 및 로깅 원격 분석을 수집할 수 있는 오픈 소스 라이브러리 집합입니다. [Azure Monitor 내보내기](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)를 사용하여 수집된 원격 분석을 Application Insights에 보낼 수 있습니다. 이 문서에서는 Python에 대해 OpenCensus 및 Azure Monitor 내보내기를 설정하고 Azure Monitor로 모니터링 데이터를 전송하는 프로세스를 단계별로 안내합니다.
+
+## <a name="instrument-with-opencensus-python-sdk-with-azure-monitor-exporters"></a>Azure Monitor 내보내기용 OpenCensus Python SDK를 사용한 계측
 
 OpenCensus Azure Monitor 내보내기를 설치합니다.
 
@@ -331,6 +343,54 @@ OpenCensus.stats는 4가지 집계 메서드를 지원하지만 Azure Monitor에
 
 1. 내보내기는 고정된 간격으로 메트릭 데이터를 Azure Monitor로 전송합니다. 기본값은 15초 간격입니다. 단일 메트릭을 추적하므로 어떤 값과 타임스탬프가 포함되는지와 무관하게 이 메트릭 데이터는 간격마다 전송됩니다. 값은 누적되며, 증가만 할 수 있고 다시 시작할 때 0으로 다시 설정됩니다. `customMetrics`에서 데이터를 찾을 수 있지만 `customMetrics` 속성 valueCount, valueSum, valueMin, valueMax, and valueStdDev는 효과적으로 사용되지 않습니다.
 
+### <a name="setting-custom-dimensions-in-metrics"></a>메트릭에서 사용자 지정 차원 설정
+
+Opencensus Python SDK에서는 기본적으로 키/값 쌍의 사전인 `tags`를 사용하여 메트릭 원격 분석에 사용자 지정 차원을 추가할 수 있습니다. 
+
+1. 사용할 태그를 태그 맵에 삽입합니다. 태그 맵은 사용할 수 있는 모든 사용 가능한 태그에 대한 일종의 "풀" 역할을 합니다.
+
+```python
+...
+tmap = tag_map_module.TagMap()
+tmap.insert("url", "http://example.com")
+...
+```
+
+1. 특정 `View`의 경우 태그 키를 통해 해당 뷰로 메트릭을 기록할 때 사용할 태그를 지정합니다.
+
+```python
+...
+prompt_view = view_module.View("prompt view",
+                               "number of prompts",
+                               ["url"], # <-- A sequence of tag keys used to specify which tag key/value to use from the tag map
+                               prompt_measure,
+                               aggregation_module.CountAggregation())
+...
+```
+
+1. 측정 맵에 기록할 때 태그 맵을 사용해야 합니다. `View`에 지정된 태그 키는 기록에 사용되는 태그 맵에 있어야 합니다.
+
+```python
+...
+mmap = stats_recorder.new_measurement_map()
+mmap.measure_int_put(prompt_measure, 1)
+mmap.record(tmap) # <-- pass the tag map in here
+...
+```
+
+1. `customMetrics` 테이블에서 `prompt_view`를 사용하여 내보낸 모든 메트릭 레코드에는 사용자 지정 차원 `{"url":"http://example.com"}`이 있습니다.
+
+1. 동일한 키를 사용하여 다른 값으로 태그를 생성하려면 해당 항목에 대한 새 태그 맵을 만듭니다.
+
+```python
+...
+tmap = tag_map_module.TagMap()
+tmap2 = tag_map_module.TagMap()
+tmap.insert("url", "http://example.com")
+tmap2.insert("url", "https://www.wikipedia.org/wiki/")
+...
+```
+
 #### <a name="performance-counters"></a>성능 카운터
 
 기본적으로 메트릭 내보내기 도구는 Azure Monitor로 성능 카운터 집합을 전송합니다. 메트릭 내보내기의 생성자에서 `enable_standard_metrics` 플래그를 `False`로 설정하여 이를 사용하지 않도록 설정할 수 있습니다.
@@ -489,4 +549,3 @@ Azure Monitor로 전송되기 전에 추적된 원격 분석을 수정하는 방
 * [가용성 테스트](./monitor-web-app-availability.md): 테스트를 만들어 사이트가 웹에 표시되는지 확인합니다.
 * [스마트 진단](./proactive-diagnostics.md): 이 테스트는 자동으로 실행되므로 아무것도 설정할 필요가 없습니다. 앱이 실패한 요청으로 비정상적인 속도를 보일 경우 알려줍니다.
 * [메트릭 경고](../alerts/alerts-log.md): 메트릭이 임계값을 초과할 경우 경고 메시지를 표시하도록 설정합니다. 앱에 코딩하는 사용자 지정 메트릭에 이러한 경고를 설정할 수 있습니다.
-
