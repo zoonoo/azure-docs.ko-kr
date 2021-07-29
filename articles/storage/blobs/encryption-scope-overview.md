@@ -4,17 +4,17 @@ description: 암호화 범위에서는 개별 Blob 또는 컨테이너 수준에
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/26/2021
+ms.date: 06/01/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 16a600d7caf65f880ffb5c2a2abfe5a9774a7795
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d089ef587e209810fe0400871aba9a55cb9c0ed3
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640462"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372660"
 ---
 # <a name="encryption-scopes-for-blob-storage"></a>Blob Storage의 암호화 범위
 
@@ -36,7 +36,17 @@ ms.locfileid: "105640462"
 
 고객 관리형 키로 암호화 범위를 정의하는 경우 키 버전을 자동 또는 수동으로 업데이트하도록 선택할 수 있습니다. 키 버전을 자동으로 업데이트하도록 선택하면 Azure Storage는 매일 키 자격 증명 모음 또는 관리형 HSM에서 새 버전의 고객 관리형 키를 확인하고 키를 최신 버전으로 자동 업데이트합니다. 고객 관리형 키의 키 버전 업데이트에 관한 자세한 내용은 [키 버전 업데이트](../common/customer-managed-keys-overview.md#update-the-key-version)를 참조하세요.
 
+Azure Policy는 암호화 범위에서 고객 관리 키를 사용하도록 요구하는 기본 제공 정책을 제공합니다. 자세한 내용은 [기본 제공 정책 정의](../../governance/policy/samples/built-in-policies.md#storage)의 **저장소** 섹션을 참조하세요.
+
 스토리지 계정에는 키 버전이 자동으로 업데이트되는 고객 관리형 키로 보호되는 암호화 범위가 최대 10,000개일 수 있습니다. 스토리지 계정에 자동으로 업데이트되는 고객 관리형 키로 보호되는 암호화 범위가 이미 10,000개 있는 경우 고객 관리형 키로 보호되는 추가 암호화 범위에 대해 키 버전을 수동으로 업데이트해야 합니다.  
+
+### <a name="infrastructure-encryption"></a>인프라 암호화
+
+Azure Storage의 인프라 암호화를 사 하면 데이터를 이중으로 암호화할 수 있습니다. 인프라 암호화를 사용하면 데이터가 다른 암호화 알고리즘 2개와 다른 키 2개를 사용하여 두 번(&mdash;서비스 수준에서 한 번, 인프라 수준에서 한 번&mdash;) 암호화됩니다.
+
+인프라 암호화는 저장소 계정 수준 뿐만 아니라 암호화 범위에도 지원됩니다. 계정에 인프라 암호화를 사용하도록 설정하면 해당 계정에서 만든 암호화 범위가 인프라 암호화를 자동으로 사용합니다. 계정 수준에서 인프라 암호화를 사용하도록 설정하지 않은 경우에는 범위를 만들 때 암호화 범위에 대해 사용하도록 설정할 수 있는 옵션이 있습니다. 범위를 만든 후에는 암호화 범위에 대한 인프라 암호화 설정을 변경할 수 없습니다.
+
+인프라 암호화에 대한 자세한 내용은 [데이터의 이중 암호화를 위한 인프라 암호화 사용](../common/infrastructure-encryption-enable.md)을 참조하세요.
 
 ### <a name="encryption-scopes-for-containers-and-blobs"></a>컨테이너와 Blob의 암호화 범위
 
@@ -71,6 +81,8 @@ ms.locfileid: "105640462"
 
 > [!IMPORTANT]
 > 암호화 범위를 삭제할 수 없습니다.
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

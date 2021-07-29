@@ -2,14 +2,14 @@
 title: 템플릿이 있는 Key Vault 비밀
 description: 배포하는 동안 키 자격 증명 모음의 비밀을 매개 변수로 전달하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 04/23/2021
+ms.date: 05/17/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f91c45792843ab62361bf47628a45529758b4029
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 1cf3b1f3433b47d029876e9676b85c5de776d455
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754194"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110795706"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달
 
@@ -67,7 +67,7 @@ $secret = Set-AzKeyVaultSecret -VaultName ExampleVault -Name 'ExamplePassword' -
 
 ---
 
-키 자격 증명 모음의 소유자에게는 비밀을 만들 수 있는 액세스 권한이 자동으로 부여됩니다. 비밀을 사용하는 사용자가 키 자격 증명 모음의 소유자가 아닌 경우 다음을 사용하여 액세스 권한을 부여합니다.
+키 자격 증명 모음의 소유자에게는 비밀을 만들 수 있는 액세스 권한이 자동으로 부여됩니다. 다른 사용자가 비밀을 만들어야 하는 경우 다음을 사용합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -91,6 +91,8 @@ Set-AzKeyVaultAccessPolicy `
 
 ---
 
+사용자가 비밀을 검색하는 템플릿을 배포하는 경우 액세스 정책이 필요하지 않습니다. 사용자가 비밀을 직접 사용해야 하는 경우에만 액세스 정책에 사용자를 추가합니다. 배포 권한은 다음 섹션에 정의되어 있습니다.
+
 키 자격 증명 모음을 만들고 비밀을 추가하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 - [CLI를 사용하여 비밀 설정 및 검색](../../key-vault/secrets/quick-create-cli.md)
@@ -99,11 +101,13 @@ Set-AzKeyVaultAccessPolicy `
 - [.NET을 사용하여 비밀 설정 및 검색](../../key-vault/secrets/quick-create-net.md)
 - [Node.js를 사용하여 비밀 설정 및 검색](../../key-vault/secrets/quick-create-node.md)
 
-## <a name="grant-access-to-the-secrets"></a>비밀 액세스 권한 부여
+## <a name="grant-deployment-access-to-the-secrets"></a>비밀에 대한 배포 액세스 권한 부여
 
-템플릿을 배포하는 사용자에게는 `Microsoft.KeyVault/vaults/deploy/action` 리소스 그룹 및 키 자격 증명 모음의 범위에 대한 권한이 있어야 합니다. [소유자](../../role-based-access-control/built-in-roles.md#owner) 및 [참여자](../../role-based-access-control/built-in-roles.md#contributor) 역할 모두 이 액세스 권한을 부여합니다. 키 자격 증명 모음을 만들면 소유자가 되며 권한을 갖게 됩니다.
+템플릿을 배포하는 사용자에게는 `Microsoft.KeyVault/vaults/deploy/action` 리소스 그룹 및 키 자격 증명 모음의 범위에 대한 권한이 있어야 합니다. 이 액세스를 확인하면 Azure Resource Manager는 승인되지 않은 사용자가 키 자격 증명 모음에 대한 리소스 ID를 전달하여 비밀에 액세스할 수 없도록 방지합니다. 비밀에 대한 쓰기 권한을 부여하지 않고 사용자에게 배포 액세스 권한을 부여할 수 있습니다.
 
-다음 절차는 최소의 권한을 가진 역할을 만드는 방법과 해당 역할 사용자에게 할당하는 방법을 보여 줍니다.
+[소유자](../../role-based-access-control/built-in-roles.md#owner) 및 [참여자](../../role-based-access-control/built-in-roles.md#contributor) 역할 모두 이 액세스 권한을 부여합니다. 키 자격 증명 모음을 만들면 소유자가 되며 권한을 갖게 됩니다.
+
+다른 사용자의 경우 `Microsoft.KeyVault/vaults/deploy/action` 권한을 부여합니다. 다음 절차는 최소의 권한을 가진 역할을 만드는 방법과 해당 역할을 사용자에게 할당하는 방법을 보여 줍니다.
 
 1. 사용자 지정 역할 정의 JSON 파일 만들기
 
@@ -164,8 +168,6 @@ Set-AzKeyVaultAccessPolicy `
 
 예를 들어 다음 템플릿은 관리자 암호를 포함하는 SQL 서버를 배포합니다. 암호 매개 변수는 보안 문자열로 설정됩니다. 하지만 이 템플릿은 해당 값이 제공되는 위치를 지정하지는 않습니다.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -199,29 +201,6 @@ Set-AzKeyVaultAccessPolicy `
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param adminLogin string
-
-@secure()
-param adminPassword string
-
-param sqlServerName string
-
-resource sqlServer 'Microsoft.Sql/servers@2020-11-01-preview' = {
-  name: sqlServerName
-  location: resourceGroup().location
-  properties: {
-    administratorLogin: adminLogin
-    administratorLoginPassword: adminPassword
-    version: '12.0'
-  }
-}
-```
-
----
 
 이제 위 템플릿용으로 매개 변수 파일을 만들어야 합니다. 매개 변수 파일에서 템플릿의 매개 변수 이름과 일치하는 매개 변수를 지정합니다. 매개 변수 값으로는 Key Vault의 비밀을 참조합니다. Key Vault의 리소스 식별자와 비밀의 이름을 전달하여 비밀을 참조합니다.
 
@@ -400,9 +379,6 @@ New-AzResourceGroupDeployment `
   }
 }
 ```
-
-> [!NOTE]
-> Bicep 버전 0.3.255부터는 `reference` 키워드가 지원되지 않으므로 키 자격 증명 모음 비밀을 검색하려면 매개 변수 파일이 필요합니다. 지원을 추가하는 작업이 진행 중입니다. 자세한 내용은 [GitHub 이슈 1028](https://github.com/Azure/bicep/issues/1028)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

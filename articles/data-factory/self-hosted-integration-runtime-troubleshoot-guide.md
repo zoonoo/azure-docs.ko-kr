@@ -4,14 +4,14 @@ description: Azure Data Factory에서 자체 호스팅 Integration Runtime 문�
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/25/2021
+ms.date: 05/31/2021
 ms.author: lle
-ms.openlocfilehash: 2cb0e0870b32270340e37d54dc54a43b22ee014a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7abdd532e20a2514fcf96d97973a8fbfdd87d0df
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100376465"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796275"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -289,6 +289,61 @@ GAC에 대한 자세한 내용은 [전역 어셈블리 캐시](/dotnet/framework
     ```
     certutil -importpfx FILENAME.pfx AT_KEYEXCHANGE
     ```
+
+### <a name="self-hosted-integration-runtime-nodes-out-of-the-sync-issue"></a>동기화 이외의 자체 호스팅 통합 런타임 노드 문제
+
+#### <a name="symptoms"></a>증상
+
+자체 호스팅 통합 런타임 노드는 노드 간에 자격 증명을 동기화하려고 하지만 프로세스에서 중단되고 잠시 후 아래 오류 메시지가 발생합니다.
+
+"통합 런타임(자체 호스팅) 노드가 노드 간에 자격 증명을 동기화하려고 합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다."
+
+>[!Note]
+>이 오류가 10분 넘게 표시되면 디스패처 노드와의 연결을 확인하세요.
+
+#### <a name="cause"></a>원인
+
+그 이유는 작업자 노드가 프라이빗 키에 액세스할 수 없기 때문입니다. 이는 아래 자체 호스팅 통합 런타임 로그에서 확인할 수 있습니다.
+
+`[14]0460.3404::05/07/21-00:23:32.2107988 [System] A fatal error occurred when attempting to access the TLS server credential private key. The error code returned from the cryptographic module is 0x8009030D. The internal error state is 10001.`
+
+ADF 연결된 서비스에서 서비스 주체 인증을 사용하는 경우에는 동기화 프로세스에 문제가 없습니다. 그러나 인증 유형을 계정 키로 전환하면 동기화 문제가 시작됩니다. 자체 호스팅 통합 런타임 서비스가 서비스 계정(NT SERVICE\DIAHostService)에서 실행되고 프라이빗 키 권한에 추가되어야 하기 때문입니다.
+ 
+
+#### <a name="resolution"></a>해결 방법
+
+이 문제를 해결하려면 프라이빗 키 권한에 자체 호스팅 통합 런타임 서비스 계정(NT SERVICE\DIAHostService)을 추가해야 합니다. 다음 단계를 적용할 수 있습니다.
+
+1. MMC(Microsoft Management Console) 실행 명령을 엽니다.
+
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/management-console-run-command.png" alt-text="MMC 실행 명령을 보여 주는 스크린샷":::
+
+1. MMC 창에서 다음 단계를 적용합니다.
+
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-1.png" alt-text="프라이빗 키 권한에 자체 호스팅 IR 서비스 계정을 추가하는 두 번째 단계를 보여 주는 스크린샷" lightbox="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-1-expanded.png":::
+
+    1. **파일** 을 선택합니다.
+    1. 드롭다운 메뉴에서 **스냅인 추가/제거** 를 선택합니다.
+    1. "사용 가능한 스냅인" 창에서 **인증서** 를 선택합니다.
+    1. **추가** 를 선택합니다.
+    1. "인증서 스냅인" 팝업 창에서 **컴퓨터 계정** 을 선택합니다.
+    1. **다음** 을 선택합니다.
+    1. "컴퓨터 선택" 창에서 **로컬 컴퓨터: 이 콘솔이 실행되고 있는 컴퓨터** 를 선택합니다.
+    1. **마침** 을 선택합니다.
+    1. "스냅인 추가 또는 제거" 창에서 **확인** 을 선택합니다.
+
+1. MMC 창에서 다음 단계를 진행합니다.
+
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-2.png" alt-text="프라이빗 키 권한에 자체 호스팅 IR 서비스 계정을 추가하는 세 번째 단계를 보여 주는 스크린샷" lightbox="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-2-expanded.png":::
+
+    1. 왼쪽 폴더 목록에서 **콘솔 루트 -> 인증서(로컬 컴퓨터) -> 개인 -> 인증서** 를 선택합니다.
+    1. **Microsoft Intune Beta MDM** 을 마우스 오른쪽 단추로 클릭합니다.
+    1. 드롭다운 목록에서 **모든 작업** 을 선택합니다.
+    1. **프라이빗 키 관리** 를 선택합니다.
+    1. "그룹 또는 사용자 이름"에서 **추가** 를 선택합니다.
+    1. **NT SERVICE\DIAHostService** 를 선택하여 이 인증서에 대한 모든 제어 액세스 권한을 부여하고 적용하여 안전하게 합니다. 
+    1. **이름 확인** 을 선택한 다음, **확인** 을 선택합니다.
+    1. "권한" 창에서 **적용** 을 선택한 다음 **확인** 을 선택합니다.
 
 ## <a name="self-hosted-ir-setup"></a>자체 호스팅 IR 설정
 
@@ -779,21 +834,9 @@ DigiCert에서 서명된 새 SSL 인증서를 출시했습니다. DigiCert Globa
 신뢰할 수 있는 루트 CA에 없으면 [여기에서 다운로드](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt )합니다. 
 
 
-## <a name="self-hosted-ir-sharing"></a>자체 호스팅 IR 공유
-
-### <a name="sharing-a-self-hosted-ir-from-a-different-tenant-is-not-supported"></a>다른 테넌트의 자체 호스팅 IR 공유는 지원되지 않습니다. 
-
-#### <a name="symptoms"></a>증상
-
-Azure Data Factory UI에서 자체 호스팅 IR을 공유하려고 할 때 (다른 테넌트에 있는) 다른 데이터 팩터리를 확인할 수 있지만 다른 테넌트에 있는 데이터 팩터리와 공유할 수는 없습니다.
-
-#### <a name="cause"></a>원인
-
-자체 호스팅 IR은 테넌트 간에 공유할 수 없습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
-문제 해결에 도움이 필요한 경우 다음 리소스를 참조하세요.
+문제 해결에 대한 도움이 필요한 경우 다음 리소스를 참조하세요.
 
 *  [Data Factory 블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)

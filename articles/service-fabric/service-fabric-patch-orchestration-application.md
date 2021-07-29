@@ -1,89 +1,17 @@
 ---
-title: Service Fabric 클러스터에서 Windows 운영 체제 패치
-description: 이 문서에서는 Service Fabric 클러스터에서 패치 오케스트레이션 애플리케이션을 사용하여 운영 체제 패치를 자동화하는 방법을 설명합니다.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
+title: 패치 오케스트레이션 애플리케이션 사용
+description: 패치 오케스트레이션 애플리케이션을 사용하여 비 Azure 호스트 Service Fabric 클러스터에서 운영 체제 패치를 자동화합니다.
+ms.topic: how-to
 ms.date: 2/01/2019
-ms.author: atsenthi
-ms.openlocfilehash: e94b809513bda8edc7a51baf79ec05a2c9c77489
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3d51cfeaa13bd2556e1d32ffc39232b514f8a7b4
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448557"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663690"
 ---
-# <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
-
-## <a name="automatic-os-image-upgrades"></a>자동 OS 이미지 업그레이드
-
-Azure에서 운영 체제를 최신 패치로 유지하는 모범 사례는 [Virtual Machine Scale Sets에서 자동 OS 이미지 업그레이드](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)를 구현하는 것입니다. Virtual Machine Scale Sets 기반 자동 OS 이미지 업그레이드를 사용하려면 확장 집합에서 Silver 이상의 내구성이 필요합니다.
-
-Virtual Machine Scale Sets에서 자동 OS 이미지 업그레이드를 사용하기 위한 요구 사항
--   Service Fabric [내구성 수준](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)은 Bronze가 아니라 Silver 또는 Gold입니다.
--   확장 집합 모델 정의의 Service Fabric 확장은 TypeHandlerVersion 1.1 이상이어야 합니다.
--   내구성 수준은 확장 집합 모델 정의의 Service Fabric 클러스터와 Service Fabric 확장에서 동일해야 합니다.
-- Virtual Machine Scale Sets에 대한 추가 상태 프로브 또는 애플리케이션 상태 확장을 사용할 필요는 없습니다.
-
-Service Fabric 클러스터와 Service Fabric 확장의 내구성 설정이 일치해야 합니다. 그렇지 않으면 불일치로 인해 업그레이드 오류가 발생합니다. 내구성 수준은 [이 페이지](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels)에 설명된 지침에 따라 수정할 수 있습니다.
-
-내구성 수준이 Bronze이면 자동 OS 이미지 업그레이드를 사용할 수 없습니다. Silver 이상의 내구성 수준에는 [패치 오케스트레이션 애플리케이션](#patch-orchestration-application )(Azure가 아닌 호스트 클러스터에만 사용)이 *권장되지 않지만*, Service Fabric 업그레이드 도메인과 관련하여 Windows 업데이트를 자동화하는 유일한 옵션입니다.
-
-> [!IMPORTANT]
-> OS 디스크를 바꾸지 않고 "Windows 업데이트"에서 운영 체제 패치를 적용하는 VM 내 업그레이드는 Azure Service Fabric에서 지원되지 않습니다.
-
-운영 체제에서 Windows 업데이트 기능을 사용하지 않고 이 기능을 올바르게 사용하려면 두 가지 단계를 수행해야 합니다.
-
-1. 자동 OS 이미지 업그레이드를 사용하도록 설정하고 Windows 업데이트 ARM을 사용하지 않도록 설정합니다. 
-    ```json
-    "virtualMachineProfile": { 
-        "properties": {
-          "upgradePolicy": {
-            "automaticOSUpgradePolicy": {
-              "enableAutomaticOSUpgrade":  true
-            }
-          }
-        }
-      }
-    ```
-    
-    ```json
-    "virtualMachineProfile": { 
-        "osProfile": { 
-            "windowsConfiguration": { 
-                "enableAutomaticUpdates": false 
-            }
-        }
-    }
-    ```
-
-    Azure PowerShell
-    ```azurepowershell-interactive
-    Update-AzVmss -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -AutomaticOSUpgrade $true -EnableAutomaticUpdate $false
-    ``` 
-    
-1. 확장 집합 모델을 업데이트합니다. 이 구성이 변경되면 모든 머신을 이미지로 다시 설치하여 확장 집합 모델을 업데이트해야 합니다. 그래야만 변경 내용이 적용됩니다.
-    
-    Azure PowerShell
-    ```azurepowershell-interactive
-    $scaleSet = Get-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName
-    $instances = foreach($vm in $scaleSet)
-    {
-        Set-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -InstanceId $vm.InstanceID -Reimage
-    }
-    ``` 
-    
-추가 지침은 [Virtual Machine Scale Sets를 사용하여 자동 OS 이미지 업그레이드](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)를 참조하세요.
-
-## <a name="patch-orchestration-application"></a>패치 오케스트레이션 애플리케이션
+# <a name="use-patch-orchestration-application"></a>패치 오케스트레이션 애플리케이션 사용
 
 > [!IMPORTANT]
 > 2019년 4월 30일부터 패치 오케스트레이션 애플리케이션 1.2.* 버전이 더 이상 지원되지 않습니다. 최신 버전으로 업그레이드해야 합니다.

@@ -3,13 +3,13 @@ title: Azure VM의 백업 오류 문제 해결
 description: 이 문서에서는 Azure 가상 머신의 백업 및 복원에서 발생하는 오류를 해결하는 방법에 대해 알아봅니다.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 08/30/2019
-ms.openlocfilehash: 2d09081533cdb2de5ee97cb000e9844b41a85ac3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 06/02/2021
+ms.openlocfilehash: b604b98410d61d61bdb8a24e81872cb2c1caf1b4
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559369"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410309"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -33,6 +33,8 @@ ms.locfileid: "105559369"
   * Azure Backup이 작동하는 경우 다른 백업 솔루션에 문제가 있을 수 있습니다.
   * 다음은 Azure Backup이 정상적으로 작동하지만 "Windows Server Backup"이 실패한 이벤트 뷰어 오류 517의 예제입니다. ![Windows Server Backup failing](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * Azure Backup에 실패하면 이 문서의 일반적인 VM 백업 오류 섹션에서 해당 오류 코드를 찾습니다.
+  * Azure VM에서 Azure Backup 옵션이 회색으로 표시되면 비활성화된 메뉴 위로 마우스를 가져가 이유를 찾습니다. 이유는 "EphemeralDisk에서 사용할 수 없음" 또는 "Ultra Disk에서 사용할 수 없음"일 수 있습니다.
+   ![Azure Backup 옵션을 사용하지 않도록 설정하는 이유](media/backup-azure-vms-troubleshoot/azure-backup-disable-reasons.png)
 
 ## <a name="common-issues"></a>일반적인 문제
 
@@ -50,7 +52,7 @@ ms.locfileid: "105559369"
 
 ### <a name="copyingvhdsfrombackupvaulttakinglongtime---copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime - 자격 증명 모음에서 백업 데이터를 복사하는 작업이 시간 초과되었습니다.
 
-오류 코드: CopyingVHDsFromBackUpVaultTakingLongTime <br/>
+오류 코드: CopyingVHDsFromBackUpVaultTakingLongTime <br/>
 오류 메시지: 자격 증명 모음에서 백업 데이터를 복사하는 작업이 시간 초과되었습니다.
 
 일시적인 스토리지 오류 또는 백업 서비스가 시간 제한 기간 내에 자격 증명 모음으로 데이터를 전송할 수 있는 스토리지 계정 IOPS 부족으로 인해 발생할 수 있습니다. 이러한 [모범 사례](backup-azure-vms-introduction.md#best-practices)를 사용하여 VM 백업을 구성하고 백업 작업을 다시 시도합니다.
@@ -74,7 +76,7 @@ VM이 실패 상태여서 백업 작업이 실패했습니다. 백업이 성공�
 * **fsck** 명령을 사용하여 이러한 디바이스에서 파일 시스템 일관성 검사를 실행합니다.
 * 디바이스를 다시 탑재하고 백업 작업을 다시 시도합니다.</ol>
 
-디바이스의 탑재를 해제할 수 없는 경우 VM 백업 구성을 업데이트하여 특정 탑재 지점이 무시되도록 할 수 있습니다. 예를 들어 '/mnt/resource' 탑재 지점을 탑재 해제할 수 없어서 VM 백업 오류가 발생하는 경우, 다음과 같이 ```MountsToSkip``` 속성을 사용하여 VM 백업 구성 파일을 업데이트할 수 있습니다.
+디바이스의 탑재를 해제할 수 없는 경우 VM 백업 구성을 업데이트하여 특정 탑재 지점이 무시되도록 할 수 있습니다. 예를 들어 '/mnt/resource' 탑재 지점을 탑재 해제할 수 없어서 VM 백업 오류가 발생하는 경우, 다음과 같이 `MountsToSkip` 속성을 사용하여 VM 백업 구성 파일을 업데이트할 수 있습니다.
 
 ```bash
 cat /var/lib/waagent/Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.9170.0/main/tempPlugin/vmbackup.conf[SnapshotThread]
@@ -82,7 +84,6 @@ fsfreeze: True
 MountsToSkip = /mnt/resource
 SafeFreezeWaitInSeconds=600
 ```
-
 
 ### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - COM+ 오류로 인해 확장 설치/작업이 실패했습니다.
 
@@ -116,12 +117,12 @@ Windows 서비스 **COM+ System** 애플리케이션 문제로 인해 Backup 작
 
 1단계: 잘못된 상태의 VSS 기록기를 다시 시작합니다.
 
-* 관리자 권한의 명령 프롬프트에서 ```vssadmin list writers```를 실행합니다.
+* 관리자 권한의 명령 프롬프트에서 `vssadmin list writers`를 실행합니다.
 * 출력에는 모든 VSS 기록기와 해당 상태가 포함됩니다. 상태가 **[1] Stable** 이 아닌 모든 VSS 기록기에 대해 해당 VSS 기록기의 서비스를 다시 시작합니다.
 * 서비스를 다시 시작하려면 관리자 권한 명령 프롬프트에서  명령을 실행합니다.
 
- ```net stop serviceName``` <br>
- ```net start serviceName```
+  `net stop serviceName` <br>
+  `net start serviceName`
 
 > [!NOTE]
 > 일부 서비스를 다시 시작하면 프로덕션 환경에 영향을 줄 수 있습니다. 승인 프로세스가 수행되는지 예약된 가동 중지 시간에 서비스가 다시 시작되는지 확인합니다.
@@ -156,8 +157,8 @@ VSS(볼륨 섀도 복사본) 서비스를 다시 시작합니다.
 (또는)<br>
 * 이렇게 하려면 관리자 권한 명령 프롬프트에서 다음 명령을 사용합니다.
 
- ```net stop VSS``` <br>
- ```net start VSS```
+  `net stop VSS` <br>
+  `net start VSS`
 
 문제가 계속되면 예약된 가동 중지 시간에 VM을 다시 시작합니다.
 
@@ -178,7 +179,7 @@ Azure Backup은 Azure Marketplace에서 사용할 수 있는 VM의 백업 및 �
 * 이 문제를 해결하려면 복원 작업 중에 [디스크 복원](./backup-azure-arm-restore-vms.md#restore-disks) 옵션을 사용한 다음 [PowerShell](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) 또는 [Azure CLI](./tutorial-restore-disk.md) cmdlet을 사용하여 VM에 해당하는 최신 마켓플레이스 정보로 VM을 만듭니다.
 * 게시자에 Marketplace 정보가 없는 경우 데이터 디스크를 사용하여 데이터를 검색하고 이를 기존 VM에 연결할 수 있습니다.
 
-### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - 백업 확장에 대한 구성을 구문 분석하지 못했습니다.
+### <a name="extensionconfigparsingfailure---failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - 백업 확장에 대한 구성을 구문 분석하지 못했습니다.
 
 오류 코드: ExtensionConfigParsingFailure<br/>
 오류 메시지: 백업 확장에 대한 구성을 구문 분석하지 못했습니다.
@@ -211,7 +212,7 @@ Azure Backup은 Azure Marketplace에서 사용할 수 있는 VM의 백업 및 �
 
 ### <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState - 확장 상태가 백업 작업을 지원하지 않습니다.
 
-오류 코드: ExtensionStuckInDeletionState <br/>
+오류 코드: ExtensionStuckInDeletionState <br/>
 오류 메시지: 확장 상태가 백업 작업을 지원하지 않습니다.
 
 백업 확장 상태가 일관적이지 않아 Backup 작업이 실패했습니다. 이 문제를 해결하려면 다음 단계를 따릅니다.
@@ -224,7 +225,7 @@ Azure Backup은 Azure Marketplace에서 사용할 수 있는 VM의 백업 및 �
 
 ### <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensionFailedSnapshotLimitReachedError - 연결된 일부 디스크의 스냅샷 제한을 초과했으므로 스냅샷 작업이 실패했습니다.
 
-오류 코드: ExtensionFailedSnapshotLimitReachedError  <br/>
+오류 코드: ExtensionFailedSnapshotLimitReachedError   <br/>
 오류 메시지: 연결된 일부 디스크의 스냅샷 제한을 초과하여 스냅샷 작업이 실패했습니다.
 
 연결된 일부 디스크의 스냅샷 제한을 초과하여 스냅샷 작업이 실패했습니다. 다음 문제 해결 단계를 완료한 후, 작업을 다시 시도하세요.
@@ -331,7 +332,7 @@ VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결되�
 
 복원 후 디스크가 오프라인 상태인 것을 확인한 후 다음을 수행합니다.
 
-* 스크립트가 실행되는 머신이 OS 요구 사항을 충족하는지 확인합니다. [자세히 알아보기](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).  
+* 스크립트가 실행되는 머신이 OS 요구 사항을 충족하는지 확인합니다. [자세히 알아보기](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).
 * 동일한 원본으로 복원하고 있지는 않은지 확인하고 [자세히 알아보세요](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>UserErrorInstantRpNotFound - VM의 스냅샷을 찾을 수 없어서 복원에 실패했습니다.
@@ -343,7 +344,8 @@ VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결되�
 <br>
 이 문제를 해결하려면 다른 복원 지점에서 VM을 복원하세요.<br>
 
-#### <a name="common-errors"></a>일반 오류 
+#### <a name="common-errors"></a>일반 오류
+
 | 오류 세부 정보 | 해결 방법 |
 | --- | --- |
 | 클라우드 내부 오류로 인해 복원이 실패했습니다. |<ol><li>복원하려는 클라우드 서비스가 DNS 설정을 사용하여 구성되었습니다. 다음을 확인할 수 있습니다. <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings**.<br>**주소** 가 구성된 경우 DNS 설정이 구성되었습니다.<br> <li>복원하려는 클라우드 서비스가 **ReservedIP** 를 사용하여 구성되고, 클라우드 서비스의 기존 VM이 중단된 상태에 있습니다. 다음 PowerShell cmdlet: **$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName** 을 사용하여 클라우드 서비스가 IP를 예약했는지 확인합니다. <br><li>동일한 클라우드 서비스에 다음과 같이 특수한 네트워크 구성을 사용하여 가상 머신을 복원하려고 시도하고 있습니다. <ul><li>부하 분산 장치 구성의 가상 머신, 내부 및 외부<li>여러 개의 예약된 IP를 사용하는 가상 머신 <li>여러 NIC가 있는 가상 머신 </ul><li>특수한 네트워크 구성을 가진 VM의 경우 [복원 고려 사항](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations)을 참조하거나 UI에서 새 클라우드 서비스를 선택하세요</ol> |

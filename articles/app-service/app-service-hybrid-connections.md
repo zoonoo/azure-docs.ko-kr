@@ -4,15 +4,15 @@ description: Azure App Service에서 하이브리드 연결을 만들고 사용�
 author: ccompy
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 02/05/2020
+ms.date: 05/05/2021
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 1b3fc4a254c1157f2c2336e6360ba7621f31364d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c8b0377207dc811358db14285a7e287cd7c72525
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99594234"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412604"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service 하이브리드 연결
 
@@ -21,9 +21,9 @@ ms.locfileid: "99594234"
 App Service 내에서 하이브리드 연결을 사용하여 포트 443을 통해 Azure로 아웃바운드 호출을 수행할 수 있는 네트워크의 애플리케이션 리소스에 액세스할 수 있습니다. 하이브리드 연결은 앱에서 TCP 엔드포인트로의 액세스를 제공하고 앱에 액세스할 새로운 방법을 사용하지 않습니다. App Service에서 사용되는 것처럼 각 하이브리드 연결은 단일 TCP 호스트 및 포트 조합에 상호 연결됩니다. 이렇게 하면 앱이 TCP 엔드포인트인 경우 모든 OS의 리소스에 액세스할 수 있습니다. 하이브리드 연결 기능은 애플리케이션 프로토콜이 무엇인지 또는 사용자가 무엇에 액세스하고 있는지 인식하거나 상관하지 않습니다. 네트워크 액세스만 제공합니다.  
 
 ## <a name="how-it-works"></a>작동 방법 ##
-하이브리드 연결에는 원하는 엔드포인트와 Azure에 연결할 수 있는 릴레이 에이전트가 배포되어야 합니다. 릴레이 에이전트인 하이브리드 연결 관리자(HCM)는 포트 443을 통해 Azure Relay를 호출합니다. 웹앱 사이트에서 App Service 인프라는 애플리케이션을 대신하여 Azure Relay에도 연결합니다. 조인된 연결을 통해 앱은 원하는 엔드포인트에 액세스할 수 있습니다. 연결은 인증 및 권한 부여를 위한 보안 및 SAS(공유 액세스 서명) 키에 TLS 1.2를 사용합니다.    
+하이브리드 연결에는 원하는 엔드포인트와 Azure에 연결할 수 있는 릴레이 에이전트가 배포되어야 합니다. 릴레이 에이전트인 하이브리드 연결 관리자(HCM)는 포트 443을 통해 Azure Relay를 호출합니다. 웹앱 사이트에서 App Service 인프라는 애플리케이션을 대신하여 Azure Relay에도 연결합니다. 조인된 연결을 통해 앱은 원하는 엔드포인트에 액세스할 수 있습니다. 연결은 인증 및 권한 부여를 위한 보안 및 SAS(공유 액세스 서명) 키에 TLS 1.2를 사용합니다.
 
-![하이브리드 연결 대략적인 흐름의 다이어그램][1]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-connectiondiagram.png" alt-text="하이브리드 연결 대략적인 흐름의 다이어그램":::
 
 앱이 구성된 하이브리드 연결 엔드포인트와 일치하는 DNS 요청을 실행하면 아웃바운드 TCP 트래픽이 하이브리드 연결을 통해 리디렉션됩니다.  
 
@@ -58,11 +58,11 @@ App Service 내에서 하이브리드 연결을 사용하여 포트 443을 통�
 
 하이브리드 연결을 만들려면 [Azure Portal][portal]로 이동하고 해당 앱을 선택합니다. **네트워킹** > **하이브리드 연결 엔드포인트 구성** 을 선택합니다. 여기에서 앱에 구성된 하이브리드 연결을 볼 수 있습니다.  
 
-![하이브리드 연결 목록 스크린샷][2]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-portal.png" alt-text="하이브리드 연결 목록 스크린샷":::
 
-새 하이브리드 연결을 추가하려면 **[+]하이브리드 연결 추가** 를 선택합니다.  이미 만든 하이브리드 연결 목록이 표시됩니다. 앱에 하나 이상을 추가하려면 원하는 항목을 선택한 다음 **선택한 하이브리드 연결 추가** 를 선택합니다.  
+새 하이브리드 연결을 추가하려면 **[+]하이브리드 연결 추가** 를 선택합니다.  이미 만든 하이브리드 연결 목록이 표시됩니다. 앱에 하나 이상을 추가하려면 원하는 항목을 선택한 다음 **선택한 하이브리드 연결 추가** 를 선택합니다.
 
-![하이브리드 연결 포털 스크린샷][3]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-addhc.png" alt-text="하이브리드 연결 포털 스크린샷":::
 
 새 하이브리드 연결을 만들려면 **새 하이브리드 연결 만들기** 를 선택합니다. 다음을 지정합니다. 
 
@@ -71,7 +71,7 @@ App Service 내에서 하이브리드 연결을 사용하여 포트 443을 통�
 - 엔드포인트 포트
 - 사용할 Service Bus 네임스페이스
 
-![새 하이브리드 연결 만들기 대화 상자 스크린샷][4]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-createhc.png" alt-text="새 하이브리드 연결 만들기 대화 상자 스크린샷":::
 
 모든 하이브리드 연결은 Service Bus 네임스페이스에 연결되고 각 Service Bus 네임스페이스는 Azure 지역에 있습니다. 네트워크로 인한 대기 시간을 피하려면 앱과 같은 지역에서 Service Bus 네임스페이스 사용을 시도하는 것이 중요합니다.
 
@@ -79,7 +79,7 @@ App Service 내에서 하이브리드 연결을 사용하여 포트 443을 통�
 
 하이브리드 연결이 앱에 추가되면 간단히 해당 항목을 선택하여 세부 정보를 볼 수 있습니다. 
 
-![하이브리드 연결 세부 정보 스크린샷][5]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-properties.png" alt-text="하이브리드 연결 세부 정보 스크린샷":::
 
 ### <a name="create-a-hybrid-connection-in-the-azure-relay-portal"></a>Azure Relay 포털에서 하이브리드 연결 만들기 ###
 
@@ -96,12 +96,12 @@ App Service 하이브리드 연결은 기본, 표준, 프리미엄 및 격리 �
 |----|----|
 | Basic | 플랜당 5개 |
 | Standard | 플랜당 25개 |
-| PremiumV2 | 앱당 200개 |
-| 격리 | 앱당 200개 |
+| Premium(v1-v3) | 앱당 220개 |
+| 격리됨(v1-v2) | 앱당 220개 |
 
-App Service 계획 UI는 어떤 앱에서 얼마나 많은 하이브리드 연결을 사용하고 있는지 보여줍니다.  
+App Service 계획 UI는 어떤 앱에서 얼마나 많은 하이브리드 연결을 사용하고 있는지 보여줍니다.
 
-![App Service 계획 속성 스크린샷][6]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-aspproperties.png" alt-text="App Service 계획 속성 스크린샷":::
 
 세부 정보를 확인할 하이브리드 연결을 선택합니다. 앱 보기에서 확인한 모든 정보를 볼 수 있습니다. 동일한 계획에서 해당 하이브리드 연결을 사용하고 있는 다른 앱의 수도 확인할 수 있습니다.
 
@@ -117,28 +117,28 @@ App Service 계획 SKU 요구 사항을 충족해야 할 뿐만 아니라 하이
 
 이 도구는 Windows Server 2012 이상에서 실행됩니다. HCM은 서비스로 실행되며, 포트 443에서 Azure Relay에 아웃바운드로 연결됩니다.  
 
-HCM을 설치한 후 HybridConnectionManagerUi.exe를 실행하여 도구의 UI를 사용할 수 있습니다. 이 파일은 하이브리드 연결 관리자 설치 디렉터리에 있습니다. Windows 10에서는 검색 상자에서 *하이브리드 연결 관리자 UI* 를 검색할 수도 있습니다.  
+HCM을 설치한 후 HybridConnectionManagerUi.exe를 실행하여 도구의 UI를 사용할 수 있습니다. 이 파일은 하이브리드 연결 관리자 설치 디렉터리에 있습니다. Windows 10에서는 검색 상자에서 *하이브리드 연결 관리자 UI* 를 검색할 수도 있습니다.
 
-![하이브리드 연결 관리자 스크린샷][7]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-hcm.png" alt-text="하이브리드 연결 관리자 스크린샷":::
 
 HCM UI를 시작하면 가장 먼저 이 HCM 인스턴스로 구성된 하이브리드 연결을 모두 나열한 테이블이 표시됩니다. 변경하려는 경우 먼저 Azure로 인증합니다. 
 
 HCM에 하나 이상의 하이브리드 연결을 추가하려면 다음을 수행합니다.
 
 1. HCM UI를 시작합니다.
-2. **Configure another Hybrid Connection**(다른 하이브리드 연결 구성)을 클릭합니다.
-![새 하이브리드 연결 구성 스크린샷][8]
+2. **새 하이브리드 연결 추가** 를 선택합니다.
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-hcmadd.png" alt-text="새 하이브리드 연결 구성 스크린샷":::
 
 1. Azure 계정으로 로그인하여 구독에 제공되는 하이브리드 연결을 가져옵니다. HCM은 이후에도 Azure 계정을 사용하지 않습니다. 
 1. 구독을 선택합니다.
 1. HCM이 릴레이할 하이브리드 연결을 선택합니다.
-![하이브리드 연결 스크린샷][9]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-hcmadded.png" alt-text="하이브리드 연결 스크린샷":::
 
 1. **저장** 을 선택합니다.
 
 이제 추가한 하이브리드 연결을 볼 수 있습니다. 구성된 하이브리드 연결을 선택하여 세부 정보를 볼 수도 있습니다.
 
-![하이브리드 연결 세부 정보 스크린샷][10]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-hcmdetails.png" alt-text="하이브리드 연결 세부 정보 스크린샷":::
 
 구성된 하이브리드 연결을 지원하려면 HCM에 다음이 필요합니다.
 
@@ -158,7 +158,7 @@ HCM에 하나 이상의 하이브리드 연결을 추가하려면 다음을 수�
 
 구독 외부에서 사용자가 특정 하이브리드 연결에 대한 HCM 인스턴스를 호스트할 수 있도록 하려면 해당 하이브리드 연결에 대한 게이트웨이 연결 문자열을 공유합니다. [Azure Portal][portal]의 하이브리드 연결 속성에서 게이트웨이 연결 문자열을 볼 수 있습니다. 이 문자열을 사용하려면 HCM에서 **수동으로 입력** 을 선택하고 게이트웨이 연결 문자열에 붙여넣습니다.
 
-![수동으로 하이브리드 연결 추가][11]
+:::image type="content" source="media/app-service-hybrid-connections/hybridconn-manual.png" alt-text="수동으로 하이브리드 연결 추가":::
 
 ### <a name="upgrade"></a>업그레이드 ###
 
@@ -206,6 +206,8 @@ Commands:
 * 호스트가 443 포트에서 Azure에 대한 아웃바운드 액세스를 보유합니까? PowerShell 명령 *Test-NetConnection Destination -P Port* 를 사용하여 HCM 호스트에서 테스트할 수 있습니다 
 * HCM이 잘못된 상태에 있을 수 있습니까? ‘Azure 하이브리드 연결 관리자 서비스" 로컬 서비스를 다시 시작해 보세요.
 
+* 충돌하는 소프트웨어가 설치되어 있나요? 하이브리드 연결 관리자는 Biztalk 하이브리드 연결 관리자 또는 Windows Server용 Service Bus와 함께 사용할 수 없습니다. 따라서 HCM을 설치할 때 이러한 패키지의 모든 버전을 먼저 제거해야 합니다.
+
 상태가 **연결됨** 이지만 앱에서 엔드포인트에 도달할 수 없는 경우 다음을 수행합니다.
 
 * 하이브리드 연결에서 DNS 이름을 사용하고 있는지 확인합니다. IP 주소를 사용하는 경우 필요한 클라이언트 DNS 조회가 발생하지 않을 수 있습니다. 웹앱에서 실행되는 클라이언트가 DNS 조회를 수행하지 않으면 하이브리드 연결이 작동하지 않습니다.
@@ -216,20 +218,6 @@ App Service에서 **tcpping** 명령줄 도구는 고급 도구(Kudu) 콘솔에�
 
 엔드포인트에 대한 명령줄 클라이언트가 있는 경우 앱 콘솔에서 연결을 테스트할 수 있습니다. 예를 들어, curl을 사용하여 웹 서버 엔드포인트에 대한 액세스를 테스트할 수 있습니다.
 
-
-<!--Image references-->
-[1]: ./media/app-service-hybrid-connections/hybridconn-connectiondiagram.png
-[2]: ./media/app-service-hybrid-connections/hybridconn-portal.png
-[3]: ./media/app-service-hybrid-connections/hybridconn-addhc.png
-[4]: ./media/app-service-hybrid-connections/hybridconn-createhc.png
-[5]: ./media/app-service-hybrid-connections/hybridconn-properties.png
-[6]: ./media/app-service-hybrid-connections/hybridconn-aspproperties.png
-[7]: ./media/app-service-hybrid-connections/hybridconn-hcm.png
-[8]: ./media/app-service-hybrid-connections/hybridconn-hcmadd.png
-[9]: ./media/app-service-hybrid-connections/hybridconn-hcmadded.png
-[10]: ./media/app-service-hybrid-connections/hybridconn-hcmdetails.png
-[11]: ./media/app-service-hybrid-connections/hybridconn-manual.png
-[12]: ./media/app-service-hybrid-connections/hybridconn-bt.png
 
 <!--Links-->
 [HCService]: /azure/service-bus-relay/relay-hybrid-connections-protocol/

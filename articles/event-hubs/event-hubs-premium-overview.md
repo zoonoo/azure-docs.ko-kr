@@ -3,12 +3,12 @@ title: Event Hubs 프리미엄(미리 보기) 개요
 description: 이 문서에서는 고급 스트리밍 요구 사항에 대해 Event Hubs 다중 테넌트 배포를 제공하는 Azure Event Hubs 프리미엄을 간략히 설명합니다.
 ms.topic: article
 ms.date: 5/25/2021
-ms.openlocfilehash: 5b55816d3e75fcbd8af070f07735b8d8ed081c4f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7ae58a46484f6f83fdd737ac32e559a5dd90c627
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387717"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409958"
 ---
 # <a name="overview-of-event-hubs-premium-preview"></a>Event Hubs 프리미엄(미리 보기) 개요
 
@@ -24,6 +24,8 @@ Event Hubs 프리미엄 미리 보기에는 내구성 훼손 없이 훨씬 더 �
 프리미엄 서비스의 요금은 기본 인프라에서 격리된 리소스(CPU, 메모리 및 스토리지)의 공유에 해당하는 [PU(처리 단위)](event-hubs-scalability.md#processing-units)를 기준으로 청구됩니다. 
 
 Dedicated 제품과 달리, Event Hubs 프리미엄은 리소스를 신속하게 이동할 수 있는 대규모 다중 테넌트 환경 내에서 격리를 제공하기 때문에 훨씬 더 탄력적이고 빠르게 확장할 수 있으며 PU를 동적으로 조정할 수 있습니다. 따라서 Event Hubs 프리미엄은 Event Hubs Dedicated와 비교 시 특히 하루 또는 한 주 동안 부하가 변화하는 경우에 중간 범위(<120MB/초) 처리량 요구 사항보다 더 비용 효율적일 때가 많은 옵션입니다. 
+> [!NOTE]
+> Event Hubs Premium은 TLS 1.2 이상만 지원합니다. 
 
 가용성 영역 지원을 통한 추가적인 성능 강화를 위해 Event Hubs Dedicated 최소 배포 규모는 8CU(용량 단위)이지만, 모든 AZ 지역의 첫 번째 PU부터 Event Hubs 프리미엄에서 가용성 영역 지원이 제공됩니다. 
 
@@ -69,5 +71,5 @@ Event Hubs 프리미엄은 다중 테넌트 서비스이므로 보다 유연하�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Portal](https://aka.ms/eventhubsclusterquickstart)을 통해 Event Hubs 프리미엄(미리 보기)을 사용할 수 있습니다. 가격 책정 및 [Event Hubs FAQ](event-hubs-faq.yml)에 대한 자세한 내용은 [Event Hubs 프리미엄 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)에서 Event Hubs에 대한 몇 가지 질문과 대답을 참조하세요. 
+[Azure Portal](https://portal.azure.com/#create/Microsoft.EventHub)을 통해 Event Hubs 프리미엄(미리 보기)을 사용할 수 있습니다. 가격 책정 및 [Event Hubs FAQ](event-hubs-faq.yml)에 대한 자세한 내용은 [Event Hubs 프리미엄 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)에서 Event Hubs에 대한 몇 가지 질문과 대답을 참조하세요. 
 

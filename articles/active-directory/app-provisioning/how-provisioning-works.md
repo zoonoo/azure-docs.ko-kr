@@ -1,25 +1,24 @@
 ---
-title: Azure AD 프로비저닝 작동 방법의 이해 | Microsoft Docs
-description: Azure AD 프로비저닝 작동 방법의 이해
+title: Azure Active Directory에서 애플리케이션을 프로비저닝하는 방법 이해
+description: Azure Active Directory에서 애플리케이션 프로비저닝이 작동하는 방식을 이해합니다.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: 19ec3ec95fbbccbaa5c646c8de16999b86349626
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e95359d24cda6b0d23084010d8ab19566dd2197c
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579453"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409382"
 ---
-# <a name="how-provisioning-works"></a>프로비저닝 작동 방법
+# <a name="how-application-provisioning-works-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션 프로비저닝이 작동하는 방식
 
 자동 프로비저닝은 사용자가 액세스해야 하는 클라우드 애플리케이션에서 사용자 ID와 역할을 만드는 것을 가리킵니다. 자동 프로비저닝에는 사용자 ID를 생성하는 것 외에도 상태 또는 역할이 변경될 때 사용자 ID의 유지 관리 및 제거가 포함됩니다. 배포를 시작하기 전에 이 문서를 참고하여 Azure AD 프로비저닝의 작동 방법을 살펴보고 구성 권장 사항을 확인하세요. 
 
