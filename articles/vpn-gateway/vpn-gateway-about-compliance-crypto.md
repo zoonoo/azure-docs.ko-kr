@@ -1,18 +1,19 @@
 ---
-title: 'Azure VPN Gateway: 암호화 요구 사항'
-description: 크로스-프레미스 S2S VPN 터널 및 Azure VNet 간 연결 모두에 대한 암호화 요구 사항을 충족하도록 Azure VPN Gateway를 구성하는 방법을 알아봅니다.
+title: VPN 게이트웨이에 대한 암호화 요구 사항
+titleSuffix: Azure VPN Gateway
+description: 프레미스 간 S2S VPN 터널 및 Azure VNet 간 연결 모두에 대한 암호화 요구 사항을 충족하도록 Azure VPN 게이트웨이를 구성하는 방법을 알아봅니다.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 47d14c5ee7f6c4816bf15351e9cb28a2aaa72b4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2a657d041ddf46664bdb4e923fd7accb970bd32e
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96546848"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292183"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>암호화 요구 사항 및 Azure VPN Gateway 정보
 

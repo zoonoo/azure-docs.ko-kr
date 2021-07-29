@@ -4,13 +4,14 @@ description: 이 문서에서는 Azure Automation에 대한 질문과 대답을 
 services: automation
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: 2b40cc3d4cea4476ffde8bee8cec694975eb5083
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/04/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9e9168f7ef3cf49f4c13fdc67807061f23b6b402
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97724275"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984017"
 ---
 # <a name="azure-automation-frequently-asked-questions"></a>Azure Automation 질문과 대답
 
@@ -32,7 +33,7 @@ Linux 컴퓨터에 업데이트를 배포할 때 업데이트 분류를 선택�
 
 업데이트 관리는 클라우드에서 업데이트 적용을 수행하므로, 로컬 머신에 해당 정보가 없더라도 업데이트 관리의 일부 업데이트에 보안에 영향을 주는 것으로 플래그를 지정할 수 있습니다. Linux 시스템에 중요 업데이트를 적용하면 해당 머신의 보안에 영향을 주는 것으로 표시되지 않은 일부 업데이트가 있으므로 업데이트가 적용되지 않습니다. 그러나 업데이트 관리는 관련 업데이트에 대한 추가 정보가 있으므로 해당 머신을 호환되지 않는 것으로 보고할 수 있습니다.
 
-업데이트 분류에 따라 업데이트를 배포하는 것은 RTM 버전의 CentOS에서 작동하지 않습니다. CentOS에 대한 업데이트를 제대로 배포하려면 업데이트를 적용할 수 있도록 모든 분류를 선택합니다. SUSE의 경우 분류로 **기타 업데이트** 만 선택하면 zypper(패키지 관리자)와 관련이 있거나 해당 종속성이 먼저 필요한 경우 다른 보안 업데이트를 설치할 수 있습니다. 이 동작은 zypper의 제한 사항입니다. 경우에 따라 업데이트 배포를 다시 실행한 후 업데이트 로그를 통해 배포를 확인해야 할 수도 있습니다.
+업데이트 분류에 따라 업데이트를 배포하는 것은 RTM 버전의 CentOS에서 작동하지 않습니다. CentOS에 대한 업데이트를 제대로 배포하려면 업데이트를 적용할 수 있도록 모든 분류를 선택합니다. SUSE의 경우 분류로 **기타 업데이트** 만 선택하면 zypper(패키지 관리자)와 관련이 있거나 해당 종속성이 먼저 필요한 경우 일부 다른 보안 업데이트를 설치할 수 있습니다. 이 동작은 zypper의 제한 사항입니다. 경우에 따라 업데이트 배포를 다시 실행한 후 업데이트 로그를 통해 배포를 확인해야 할 수도 있습니다.
 
 ### <a name="can-i-deploy-updates-across-azure-tenants"></a>Azure 테넌트에 업데이트를 배포할 수 있나요?
 
@@ -56,9 +57,9 @@ New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationA
 
 Windows Hybrid Runbook Worker의 하이브리드 작업의 경우 사용하려는 모든 3.x 버전을 설치하도록 선택할 수 있습니다. Linux Hybrid Runbook Workers의 하이브리드 작업의 경우 머신에 설치된 Python 3 버전에 따라 DSC OMSConfig 및 Linux Hybrid Worker를 실행합니다. 버전 3.6을 설치할 것을 권장하지만 Python 3 버전 간에 호환성이 손상되는 메서드 서명 또는 계약 변경이 없다면 다른 버전도 사용할 수 있습니다.
 
-### <a name="can-python-2-and-python-3-runbooks-run-in-same-automation-account"></a>Python 2 및 Python 3 Runbook을 동일한 자동화 계정에서 실행할 수 있나요?
+### <a name="can-python-2-and-python-3-runbooks-run-in-same-automation-account"></a>Python 2 및 Python 3 Runbook을 동일한 Automation 계정에서 실행할 수 있나요?
 
-예, 동일한 자동화 계정에서 Python 2 및 Python 3 Runbook을 사용하는 데에는 제한이 없습니다.  
+예. 동일한 Automation 계정에서 Python 2 및 Python 3 Runbook을 사용하는 데에는 제한이 없습니다.  
 
 ### <a name="what-is-the-plan-for-migrating-existing-python-2-runbooks-and-packages-to-python-3"></a>기존 Python 2 Runbook 및 패키지를 Python 3으로 마이그레이션하기 위한 계획은 무엇인가요?
 
@@ -68,13 +69,49 @@ Azure Automation은 Python 2 Runbook 및 패키지를 Python 3으로 마이그�
 
 Azure 패키지 4.0.0은 기본적으로 Python 3 Automation 환경에 설치됩니다. 더 높은 버전의 Azure 패키지를 수동으로 가져와서 기본 버전을 재정의할 수 있습니다.
 
-### <a name="what-if-i-run-a-python-3-runbook-that-references-a-python-2-package-or-vice-versa"></a>Python 2 패키지를 참조하는 Python 3 Runbook을 실행하거나 그 반대로 실행하는 경우 어떻게 되나요?
+### <a name="what-if-i-run-a-python-3-runbook-that-references-a-python-2-package-or-the-other-way-around"></a>Python 2 패키지를 참조하는 Python 3 Runbook을 실행하거나 그 반대로 실행하는 경우 어떻게 되나요?
 
 Python 2와 Python 3에는 서로 다른 실행 환경이 있습니다. Python 2 Runbook을 실행하는 동안 Python 2 패키지만 가져올 수 있으며 Python 3의 경우도 이와 유사합니다.
 
 ### <a name="how-do-i-differentiate-between-python-2-and-python-3-runbooks-and-packages"></a>Python 2와 Python 3 Runbook 및 패키지를 어떻게 구분하나요?
 
 Python 3은 Python 2와 Python 3 Runbook을 구분하는 새로운 Runbook 정의입니다. 마찬가지로 Python 3 패키지에 다른 패키지 종류가 도입되었습니다.
+
+### <a name="how-does-a-hybrid-runbook-worker-know-which-version-of-python-to-run-when-both-python2-and-python3-are-installed"></a>Hybrid Runbook Worker는 Python 2 및 Python 3이 둘 다 설치된 경우 실행할 Python 버전을 어떻게 알 수 있나요?
+
+Windows Runbook Worker의 경우 Python 2 Runbook을 실행할 때 먼저 환경 변수 `PYTHON_2_PATH`를 찾고 유효한 실행 파일을 가리키는지 유효성을 검사합니다. 예를 들어, 설치 폴더가 `C:\Python2`이면 `C:\Python2\python.exe`가 유효한 경로인지 확인합니다. 해당 환경 변수가 없으면 `PATH` 환경 변수를 찾아서 비슷한 확인을 수행합니다.
+
+Python 3의 경우 먼저 `PYTHON_3_PATH` 환경 변수를 찾은 다음, `PATH` 환경 변수로 대체합니다.
+
+Python 버전을 하나만 사용하는 경우 `PATH` 변수에 설치 경로를 추가할 수 있습니다. Runbook Worker에서 두 버전을 모두 사용하려면 `PYTHON_2_PATH` 및 `PYTHON_3_PATH`를 해당 버전의 모듈 위치로 설정합니다.
+
+### <a name="how-does-a-hybrid-runbook-worker-locate-the-python-interpreter"></a>Hybrid Runbook Worker는 Python 인터프리터를 어떻게 찾나요?
+
+Python 모듈 찾기는 앞에서 설명한 대로 환경 변수를 통해 제어합니다.
+
+### <a name="is-python-3-supported-in-source-control"></a>원본 제어에서 Python 3이 지원되나요?
+
+아니요. 원본 제어는 현재 Python 3에서 지원되지 않습니다. 기본적으로 Python Runbook은 Python 2 Runbook으로 동기화됩니다.
+
+### <a name="how-can-a-runbook-author-know-what-python-packages-are-available-in-an-azure-sandbox"></a>Runbook 작성자는 Azure 샌드박스에서 사용할 수 있는 Python 패키지를 어떻게 알 수 있나요?
+
+다음 코드를 사용하여 기본 설치된 모듈을 나열합니다.
+
+```python
+#!/usr/bin/env python3
+
+import pkg_resources
+installed_packages = pkg_resources.working_set
+installed_packages_list = sorted(["%s==%s" % (i.key, i.version)
+   for i in installed_packages])
+
+for package in installed_packages_list:
+    print(package)
+```
+
+### <a name="how-can-a-runbook-author-set-which-version-of-a-package-module-to-be-used-if-there-are-multiple-modules"></a>Runbook 작성자는 여러 모듈이 있는 경우 사용할 패키지 모듈의 버전을 어떻게 설정할 수 있나요?
+
+Automation 계정에서 Python 패키지를 가져와 기본 버전을 재정의할 수 있습니다. Automation 계정에서 가져온 버전에 대한 기본 설정이 제공됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

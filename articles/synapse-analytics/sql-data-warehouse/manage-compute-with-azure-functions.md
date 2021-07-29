@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Functions을 사용 하 여 계산 관리'
-description: Azure Functions를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)의 계산을 관리 하는 방법입니다.
+title: '자습서: Azure Functions로 컴퓨팅 관리'
+description: Azure Functions를 사용하여 Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW)의 컴퓨팅을 관리하는 방법입니다.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f0731f0deaf46ec419cfe43037804e10f2b73fd4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 9d471991be570cd5242b5e163409e319e5af4094
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96448379"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790346"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-for-your-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Functions를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)에 대 한 계산 리소스를 관리 합니다.
+# <a name="use-azure-functions-to-manage-compute-resources-for-your-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Functions를 사용하여 Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW)의 컴퓨팅 리소스 관리
 
-이 자습서에서는 Azure Functions를 사용 하 여 Azure Synapse Analytics의 전용 SQL 풀 (이전의 SQL DW)에 대 한 계산 리소스를 관리 합니다.
+이 자습서에서는 Azure Functions를 사용하여 Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW)의 컴퓨팅 리소스를 관리합니다.
 
-전용 SQL 풀 (이전의 SQL DW)에서 Azure 함수 앱를 사용 하려면 [서비스 사용자 계정을](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)만들어야 합니다. 서비스 사용자 계정에는 전용 SQL 풀 (이전의 SQL DW) 인스턴스와 동일한 구독에서 참가자 액세스 권한이 필요 합니다.
+전용 SQL 풀(이전의 SQL DW)에서 Azure Function 앱을 사용하려면 [서비스 주체 계정](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 만들어야 합니다. 서비스 주체 계정에는 전용 SQL 풀(이전의 SQL DW) 인스턴스와 동일한 구독에 있는 기여자 액세스 권한이 필요합니다.
 
 ## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 타이머 기반 크기 조정 배포
 
 템플릿을 배포하려면 다음 정보가 필요합니다.
 
-- 전용 SQL 풀 (이전의 SQL DW) 인스턴스가 있는 리소스 그룹의 이름입니다.
-- 전용 SQL 풀 (이전의 SQL DW) 인스턴스가 있는 서버의 이름
-- 전용 SQL 풀 (이전의 SQL DW) 인스턴스의 이름입니다.
+- 전용 SQL 풀(이전의 SQL DW) 인스턴스가 있는 리소스 그룹의 이름
+- 전용 SQL 풀(이전의 SQL DW) 인스턴스가 있는 서버의 이름
+- 전용 SQL 풀(이전의 SQL DW) 인스턴스의 이름
 - Azure Active Directory의 테넌트 ID(디렉터리 ID)
 - 구독 ID
 - 서비스 사용자 애플리케이션 ID
@@ -42,19 +42,20 @@ ms.locfileid: "96448379"
 
 템플릿이 배포되었으면 새로운 세 가지 리소스인 무료 Azure App Service 계획, 사용량 기준 함수 앱 계획, 로깅 및 작업 큐를 처리하는 스토리지 계정을 찾아야 합니다. 다른 섹션을 계속 읽고 배포된 기능을 요구 사항에 맞게 수정하는 방법을 알아보세요.
 
-## <a name="change-the-compute-level"></a>컴퓨팅 수준 변경
+## <a name="change-the-time-of-the-scale-operation"></a>크기 조정 작업의 시간 변경
+
 
 1. 함수 앱 서비스로 이동합니다. 템플릿을 기본값으로 배포한 경우 이 서비스의 이름은 *DWOperations* 입니다. 함수 앱을 열면 함수 앱 서비스에 5개 함수가 배포되었을 것입니다.
 
    ![템플릿을 사용하여 배포되는 함수](./media/manage-compute-with-azure-functions/five-functions.png)
 
-2. *DWScaleDownTrigger* 또는 *DWScaleUpTrigger* 중 하나를 선택 하 여 확장 하거나 축소 합니다. 드롭다운 메뉴에서 [통합]을 선택합니다.
+2. *DWScaleDownTrigger* 또는 *DWScaleUpTrigger* 를 사용하여 스케일 업 또는 스케일 다운합니다. 드롭다운 메뉴에서 [통합]을 선택합니다.
 
    ![함수에 대해 통합 선택](./media/manage-compute-with-azure-functions/select-integrate.png)
 
 3. 현재 표시되는 값이 *%ScaleDownTime%* 또는 *%ScaleUpTime%* 여야 합니다. 이러한 값은 일정이 [애플리케이션 설정](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)에 정의된 값을 따른다는 의미입니다. 지금은 이 값을 무시하고 다음 단계에 따라 일정을 원하는 시간으로 변경할 수 있습니다.
 
-4. 일정 영역에서 Azure Synapse Analytics를 확장할 빈도를 반영 하려는 CRON 식을 추가 합니다.
+4. 일정 영역에서 Azure Synapse Analytics 스케일업 주기를 반영하려는 CRON 식을 추가합니다.
 
    ![함수 일정 변경](./media/manage-compute-with-azure-functions/change-schedule.png)
 
@@ -66,15 +67,15 @@ ms.locfileid: "96448379"
 
    예를 들어 *"0 30 9 * * 1-5"* 는 평일 오전 9시 30분에 트리거를 반영합니다. 자세한 내용은 Azure Functions [일정 예](../../azure-functions/functions-bindings-timer.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#example)를 방문하세요.
 
-## <a name="change-the-time-of-the-scale-operation"></a>크기 조정 작업의 시간 변경
+## <a name="change-the-compute-level"></a>컴퓨팅 수준 변경
 
 1. 함수 앱 서비스로 이동합니다. 템플릿을 기본값으로 배포한 경우 이 서비스의 이름은 *DWOperations* 입니다. 함수 앱을 열면 함수 앱 서비스에 5개 함수가 배포되었을 것입니다.
 
-2. *DWScaleDownTrigger* 또는 *DWScaleUpTrigger* 중 하나를 선택 하 여 계산 값을 확장 하거나 축소 합니다. 함수를 선택하는 즉시 창에 *index.js* 파일이 표시됩니다.
+2. *DWScaleDownTrigger* 또는 *DWScaleUpTrigger* 를 선택하여 컴퓨팅 값을 스케일 업 또는 스케일 다운합니다. 함수를 선택하는 즉시 창에 *index.js* 파일이 표시됩니다.
 
    ![함수 트리거 컴퓨팅 수준 변경](././media/manage-compute-with-azure-functions/index-js.png)
 
-3. *ServiceLevelObjective* 의 값을 원하는 수준으로 변경 하 고 저장을 선택 합니다. *ServiceLevelObjective* 는 통합 섹션에 정의 된 일정에 따라 데이터 웨어하우스 인스턴스가 확장 될 계산 수준입니다.
+3. *ServiceLevelObjective* 값을 원하는 수준으로 변경하고 저장을 선택합니다. *ServiceLevelObjective* 는 통합 섹션에 정의된 일정에 따라 데이터 웨어하우스 인스턴스의 크기가 조정되는 컴퓨팅 수준입니다.
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>확장 대신 일시 중지 또는 다시 시작 사용
 
@@ -84,7 +85,7 @@ ms.locfileid: "96448379"
 
    ![Functions 창](./media/manage-compute-with-azure-functions/functions-pane.png)
 
-2. 설정 하려는 해당 트리거에 대해 슬라이딩 전환에서 선택 합니다.
+2. 사용하도록 설정할 트리거의 슬라이딩 토글을 선택합니다.
 
 3. 각 트리거의 *통합* 탭으로 이동하여 일정을 변경합니다.
 
@@ -95,11 +96,11 @@ ms.locfileid: "96448379"
 
 현재는 템플릿에 크기 조정 함수가 두 개밖에 없습니다. 이러한 함수를 사용하면 강화 및 규모 축소를 각각 하루에 한 번만 수행할 수 있습니다. 하루에 여러 번 규모를 축소하거나 주말에 다른 크기 조정 동작을 수행하는 등 더 세밀한 제어가 필요한 경우 또 다른 트리거를 추가해야 합니다.
 
-1. 빈 함수를 만듭니다. 함수 *+* 위치 근처의 단추를 선택 하 여 함수 템플릿 창을 표시 합니다.
+1. 빈 함수를 만듭니다. Functions 위치 근처에 있는 *+* 단추를 선택하여 함수 템플릿 창을 표시합니다.
 
-   !["함수" 옆의 "더하기" 아이콘이 선택 된 "함수 앱" 메뉴를 보여 주는 스크린샷](./media/manage-compute-with-azure-functions/create-new-function.png)
+   !["함수" 옆에 "더하기" 아이콘이 선택된 "함수 앱" 메뉴를 보여 주는 스크린샷입니다.](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. 언어에서 *JavaScript* 를 선택한 다음, *타이머 트리거* 를 선택 합니다.
+2. 언어에서 *JavaScript* 를 선택한 후 *TimerTrigger* 를 선택합니다.
 
    ![새 함수 만들기](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -137,7 +138,7 @@ ms.locfileid: "96448379"
 
 ### <a name="example-1"></a>예 1
 
-매일 오전 8 시에서 DW600c까지 규모를 확장 하 고 오후 8 시에서 DW200c로 축소 합니다.
+매일 오전 8시에 DW600c로 스케일 업하고 오후 8시에 DW200c로 스케일 다운합니다.
 
 | 함수  | 예약     | 작업                                |
 | :-------- | :----------- | :--------------------------------------- |
@@ -146,7 +147,7 @@ ms.locfileid: "96448379"
 
 ### <a name="example-2"></a>예제 2
 
-매일 오전 8 시에서 DW1000c까지 규모를 확장 하 고, 4pm에서 W 600으로 축소 하 고, 오후 10 시에 DW200c로 축소 합니다.
+매일 오전 8시에 DW1000c로 스케일 업하고, 오후 4시에 규모를 DW600으로 한 번 스케일 다운하고, 오후 10시에 DW200c로 스케일 다운합니다.
 
 | 함수  | 예약     | 작업                                |
 | :-------- | :----------- | :--------------------------------------- |
@@ -156,7 +157,7 @@ ms.locfileid: "96448379"
 
 ### <a name="example-3"></a>예제 3
 
-오전 8 시에서 DW1000c까지 규모를 확장 하 고 평일에 4pm에서 DW600c로 축소 합니다. 금요일 오후 11시에 일시 중지하고 월요일 오전 7시에 다시 시작합니다.
+평일 오전 8시에 DW1000c로 스케일 업하고, 오후 4시에 DW600c로 스케일 다운합니다. 금요일 오후 11시에 일시 중지하고 월요일 오전 7시에 다시 시작합니다.
 
 | 함수  | 예약       | 작업                                |
 | :-------- | :------------- | :--------------------------------------- |
@@ -167,6 +168,6 @@ ms.locfileid: "96448379"
 
 ## <a name="next-steps"></a>다음 단계
 
-[타이머 트리거](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Azure Functions에 대해 자세히 알아보세요.
+[타이머 트리거](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Azure Functions에 대해 자세히 알아봅니다.
 
-전용 SQL 풀 (이전의 SQL DW) [샘플 리포지토리](https://github.com/Microsoft/sql-data-warehouse-samples)를 참조 하세요.
+전용 SQL 풀(이전의 SQL DW) [샘플 리포지토리](https://github.com/Microsoft/sql-data-warehouse-samples)를 참조하세요.

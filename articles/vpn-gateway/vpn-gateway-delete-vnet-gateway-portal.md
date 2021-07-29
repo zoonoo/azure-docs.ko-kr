@@ -1,18 +1,19 @@
 ---
-title: 'Azure VPN Gateway: 게이트웨이 삭제: 포털'
-description: Azure Portal을 사용하여 가상 네트워크 게이트웨이 삭제
+title: '가상 네트워크 게이트웨이 삭제: 포털'
+titleSuffix: Azure VPN Gateway
+description: Azure Portal을 사용하여 가상 네트워크 게이트웨이를 삭제하는 방법을 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.date: 02/10/2021
 ms.author: cherylmc
 ms.topic: how-to
-ms.openlocfilehash: 413fd8c7f03ef44abe4bece39ca717c533dea66b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0510292b27d61c9142edd710e903ebad74b3d244
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100376390"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228931"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>포털을 사용하여 가상 네트워크 게이트웨이 삭제
 

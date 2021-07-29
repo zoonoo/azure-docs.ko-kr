@@ -12,12 +12,12 @@ metadata:
   ms.date: 04/27/2021
   ms.author: kenwith
   ms.reviewer: japere
-  ms.openlocfilehash: 74ef399240307823ae5291f3c7bd073d2c0e8db0
-  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+  ms.openlocfilehash: 711a72a689238e22d83109c9ea4f16501ff4c205
+  ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111964822"
+  ms.lasthandoff: 07/14/2021
+  ms.locfileid: "113727785"
 title: Azure AD(Active Directory) 애플리케이션 프록시 질문과 대답
 summary: 이 페이지는 Azure AD(Azure Active Directory) 애플리케이션 프록시에 대한 질문과 대답을 제공합니다.
 sections:
@@ -29,7 +29,7 @@ sections:
   - question: >
       Azure AD 애플리케이션 프록시를 사용하는 데 필요한 라이선스는 무엇인가요?
     answer: >
-      Azure AD 애플리케이션 프록시를 사용하려면 Azure AD Premium P1 또는 P2 라이선스가 있어야 합니다. 라이선스에 대한 자세한 내용은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.
+      Azure AD 애플리케이션 프록시를 사용하려면 Azure AD Premium P1 또는 P2 라이선스가 있어야 합니다. 라이선스에 대한 자세한 내용은 [Azure Active Directory 가격 책정](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)을 참조하세요.
   - question: >
       내 라이선스가 만료된 경우 내 테넌트의 Azure AD 애플리케이션 프록시는 어떻게 되나요?
     answer: >

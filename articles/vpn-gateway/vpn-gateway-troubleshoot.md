@@ -1,18 +1,19 @@
 ---
-title: 'Azure VPN Gateway: 문제 해결 구성 및 연결'
+title: 문제 해결 구성 및 연결
+titleSuffix: Azure VPN Gateway
 description: 이 문서에서는 VPN Gateway 구성, 연결 문제를 해결하고 처리량이 유효한지 검사하기 위한 문서로 연결할 수 있게 도와줍니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 01/31/2018
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: a74109594eec87dddf637542f6d85091ed49231b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19edbd41617a01e54cd14ff7f2991763b2da9bba
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104720256"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204498"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>VPN Gateway 문제 해결
 

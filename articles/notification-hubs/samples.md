@@ -13,15 +13,15 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/28/2019
 ms.openlocfilehash: be6845075c5f3fe5e5fd74e643550c61c6c85e43
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87901796"
 ---
 # <a name="azure-notification-hubs-samples"></a>Azure Notification Hubs 샘플
 
-이 문서에서는 Azure Notification Hubs의 주요 기능을 보여 주는 샘플에 대 한 링크를 제공 합니다.
+이 문서에서는 Azure Notification Hubs의 주요 기능을 보여 주는 샘플의 링크를 제공합니다.
 
 ## <a name="samples"></a>샘플
 
@@ -33,4 +33,4 @@ ms.locfileid: "87901796"
 
 ## <a name="next-steps"></a>다음 단계
 
-목차의 **자습서** 섹션에서 자습서를 참조 하십시오.
+목차의 **자습서** 섹션에서 자습서를 참조하세요.

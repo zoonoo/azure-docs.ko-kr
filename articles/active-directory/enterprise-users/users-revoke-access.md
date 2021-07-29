@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 03/29/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75547b50289f9fa73b6fc2a28fe7ec53b5c5367a
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 727b5997045694a1a9242b30d865ec6229fbd3bf
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137980"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963624"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Azure Active Directory에서 사용자의 액세스 권한 취소
 
@@ -54,19 +54,20 @@ ms.locfileid: "108137980"
 
 ## <a name="revoke-access-for-a-user-in-the-hybrid-environment"></a>하이브리드 환경에서 사용자의 액세스 권한 취소
 
-Azure Active Directory와 동기화되는 온-프레미스 Active Directory가 있는 하이브리드 환경에서는 IT 관리자가 다음 작업을 수행하는 것이 좋습니다.  
+Azure Active Directory와 동기화되는 온-프레미스 Active Directory가 있는 하이브리드 환경에서는 IT 관리자가 다음 작업을 수행하는 것이 좋습니다. **Azure AD 전용 환경** 을 사용하는 경우 [Azure Active Directory 환경](#azure-active-directory-environment) 섹션으로 건너뜁니다.
+
 
 ### <a name="on-premises-active-directory-environment"></a>온-프레미스 Active Directory 환경
 
 Active Directory의 관리자 권한으로 온-프레미스 네트워크에 연결하여 PowerShell을 열고, 다음 작업을 수행합니다.
 
-1. Active Directory에서 사용자를 비활성화합니다. [Disable-ADAccount](/powershell/module/activedirectory/disable-adaccount?view=win10-ps)를 참조하세요.
+1. Active Directory에서 사용자를 비활성화합니다. [Disable-ADAccount](/powershell/module/activedirectory/disable-adaccount)를 참조하세요.
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-2. Active Directory에서 사용자의 암호를 두 번 재설정합니다. [Set-ADAccountPassword](/powershell/module/activedirectory/set-adaccountpassword?view=win10-ps)를 참조하세요.
+2. Active Directory에서 사용자 암호를 두 번 재설정합니다. [Set-ADAccountPassword](/powershell/module/activedirectory/set-adaccountpassword)를 참조하세요.
 
     > [!NOTE]
     > 사용자 암호를 두 번 변경하는 이유는 특히 온-프레미스 암호 복제가 지연될 때 Pass-the-Hash 위험을 완화하기 위한 것입니다. 이 계정이 훼손되지 않았다고 안전하게 가정할 수 있는 경우에는 암호를 한 번만 재설정해도 됩니다.
@@ -83,19 +84,19 @@ Active Directory의 관리자 권한으로 온-프레미스 네트워크에 연�
 
 Azure Active Directory의 관리자 권한으로 PowerShell을 열고, ``Connect-AzureAD``를 실행한 후 다음 작업을 수행합니다.
 
-1. Azure AD에서 사용자를 비활성화합니다. [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0)를 참조하세요.
+1. Azure AD에서 사용자를 비활성화합니다. [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser)를 참조하세요.
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
 
-2. 사용자의 Azure AD 새로 고침 토큰을 취소합니다. [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0)을 참조하세요.
+2. 사용자의 Azure AD 새로 고침 토큰을 철회합니다. [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)을 참조하세요.
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-3. 사용자의 디바이스를 사용하지 않도록 설정합니다. [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0)를 참조하세요.
+3. 사용자의 디바이스를 사용하지 않도록 설정합니다. [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice)를 참조하세요.
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false
@@ -106,15 +107,15 @@ Azure Active Directory의 관리자 권한으로 PowerShell을 열고, ``Connect
 
 - **액세스 토큰을 사용하는 애플리케이션** 의 경우 액세스 토큰이 만료되면 사용자가 액세스 권한을 잃게 됩니다.
 
-- **세션 토큰을 사용하는 애플리케이션** 의 경우 토큰이 만료되는 즉시 기존 세션이 종료됩니다. 사용자의 비활성화 상태가 애플리케이션에 동기화되면 애플리케이션은 그렇게 구성되어 있다면 사용자의 기존 세션을 자동으로 취소할 수 있습니다.  이때 걸리는 시간은 애플리케이션과 Azure AD 간의 동기화 빈도에 따라 달라집니다.
+- **세션 토큰을 사용하는 애플리케이션** 의 경우 토큰이 만료되는 즉시 기존 세션이 종료됩니다. 사용자의 사용 안 함 상태가 애플리케이션에 동기화되면 애플리케이션은 구성되어 있는 경우 사용자의 기존 세션을 자동으로 철회할 수 있습니다.  이때 걸리는 시간은 애플리케이션과 Azure AD 간의 동기화 빈도에 따라 달라집니다.
 
 ## <a name="best-practices"></a>모범 사례
 
-- 자동화된 프로비저닝 및 프로비저닝 해제 솔루션을 배포합니다. 애플리케이션에서 사용자를 프로비전을 해제하면 특히 세션 토큰을 사용하는 애플리케이션의 경우 액세스 권한을 효과적으로 취소할 수 있습니다. 자동 프로비저닝 및 프로비저닝 해제를 지원하지 않는 앱에 대한 사용자 프로비저닝을 해제하는 프로세스를 개발합니다. 애플리케이션이 자체 세션 토큰을 취소하고 여전히 유효한 경우라도 Azure AD 액세스 토큰 수락을 중지하도록 합니다.
+- 자동화된 프로비저닝 및 프로비저닝 해제 솔루션을 배포합니다. 애플리케이션에서 사용자를 프로비전을 해제하면 특히 세션 토큰을 사용하는 애플리케이션의 경우 액세스 권한을 효과적으로 취소할 수 있습니다. 자동 프로비저닝 및 프로비전 해제를 지원하지 않는 앱에 대한 사용자 프로비전을 해제하는 프로세스를 개발합니다. 애플리케이션이 자체 세션 토큰을 철회하고 여전히 유효한 경우라도 Azure AD 액세스 토큰 수락을 중지하도록 합니다.
 
   - [Azure AD SaaS 앱 프로비전](../app-provisioning/user-provisioning.md)을 사용합니다. Azure AD SaaS 앱 프로비전은 일반적으로 20~40분마다 자동으로 실행됩니다. 애플리케이션에서 비활성화된 사용자 프로비전을 해제하거나 비활성화하도록 [Azure AD 프로비전을 구성](../saas-apps/tutorial-list.md)합니다.
   
-  - Azure AD SaaS 앱 프로비전을 사용하지 않는 애플리케이션의 경우 [MIM(Identity Manager)](/microsoft-identity-manager/mim-how-provision-users-adds) 또는 타사 솔루션을 사용하여 사용자 프로비전 해제를 자동화합니다.  
+  - Azure AD SaaS 앱 프로비저닝을 사용하지 않는 애플리케이션의 경우 [MIM(Identity Manager)](/microsoft-identity-manager/mim-how-provision-users-adds) 또는 타사 솔루션을 사용하여 사용자의 프로비전 해제를 자동화합니다.  
   - 수동 프로비전 해제가 필요한 애플리케이션을 위한 프로세스를 파악하고 개발합니다. 관리자가 필요한 수동 작업을 신속하게 실행하여 필요할 때 이러한 앱에서 사용자의 프로비전을 해제할 수 있도록 합니다.
   
 - [Microsoft Intune으로 디바이스 및 애플리케이션을 관리합니다](/mem/intune/remote-actions/device-management). Intune 관리형 [디바이스를 초기 설정으로 재설정할 수 있습니다](/mem/intune/remote-actions/devices-wipe). 디바이스가 관리형이 아니라면 [관리형 앱에서 회사 데이터를 지울](/mem/intune/apps/apps-selective-wipe) 수 있습니다. 이 프로세스는 최종 사용자의 디바이스에서 잠재적으로 중요한 데이터를 제거하는 데 효과적입니다. 그러나 두 프로세스 중 하나를 트리거하려면 디바이스가 인터넷에 연결되어 있어야 합니다. 디바이스가 오프라인 상태인 경우에도 디바이스는 로컬에 저장된 데이터에 계속 액세스할 수 있습니다.
@@ -130,3 +131,4 @@ Azure Active Directory의 관리자 권한으로 PowerShell을 열고, ``Connect
 
 - [Azure AD 관리자를 위한 보안 액세스 사례](../roles/security-planning.md)
 - [사용자 프로필 정보 추가 또는 업데이트](../fundamentals/active-directory-users-profile-azure-portal.md)
+- [이전 직원 제거 또는 삭제](/microsoft-365/admin/add-users/remove-former-employee)

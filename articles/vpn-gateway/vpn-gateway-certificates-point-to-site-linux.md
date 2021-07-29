@@ -1,6 +1,6 @@
 ---
 title: '지점 및 사이트 간 인증서 생성 및 내보내기: Linux: CLI'
-description: Linux(strongSwan) CLI를 사용하여 자체 서명된 루트 인증서를 만들고, 공개 키를 내보내고, 클라이언트 인증서를 생성합니다.
+description: Linux(strongSwan) CLI를 사용하여 자체 서명된 루트 인증서를 만들고, 공개 키를 내보내고, 클라이언트 인증서를 생성하는 방법을 알아봅니다.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: alzam
-ms.openlocfilehash: 0be5bb042649b0fe425077b5b3feb3cea728218c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e26c73aba047c5dfb1c1169ec2d100519c87f45f
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89394009"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291247"
 ---
 # <a name="generate-and-export-certificates"></a>인증서 생성 및 내보내기
 

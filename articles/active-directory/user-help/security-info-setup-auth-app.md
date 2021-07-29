@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 02/13/2019
+ms.date: 06/10/2021
 ms.author: curtand
-ms.openlocfilehash: c947bee0b702797a86d1e038f74c6c10e2b23eb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e03fe3ca7a66dc361988151b558fef0c4b4f390
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103197486"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982577"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>확인 방법으로 Microsoft Authenticator 앱 설정
 
@@ -129,6 +129,9 @@ ms.locfileid: "103197486"
 ## <a name="change-your-default-security-info-method"></a>기본 보안 인증 방식 변경
 
 2단계 인증을 사용하거나 암호 재설정을 요청하기 위해 회사 또는 학교 계정에 로그인할 때 사용되는 기본 메서드로 인증 앱을 사용하려면 **보안 정보** 페이지에서 설정하면 됩니다.
+
+>[!NOTE]
+>기본 로그인 방법이 전화번호에 대한 문자 또는 통화인 경우에는 다단계 인증 중에 SMS 코드 또는 음성 통화가 자동으로 전송됩니다. 2021년 6월 현재, 일부 앱은 사용자에게 먼저 **문자** 또는 **통화** 를 선택하도록 요청합니다. 이 옵션은 다른 앱에 대해 너무 많은 보안 코드를 보내지 못하도록 합니다. 기본 로그인 방법이 Microsoft Authenticator 앱([매우 권장](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752))인 경우 앱 알림이 자동으로 전송됩니다.
 
 ### <a name="to-change-your-default-security-info-method"></a>기본 보안 정보 방법을 변경하려면 다음을 수행합니다.
 

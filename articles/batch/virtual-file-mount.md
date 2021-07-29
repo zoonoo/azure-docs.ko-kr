@@ -4,12 +4,12 @@ description: Batch 풀에서 가상 파일 시스템을 탑재하는 방법을 �
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 03/26/2021
-ms.openlocfilehash: dc5fbdf9ca0df8362a8999856c3f7163dd5e59b9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 460501e30b5afd2eb7a1f67b1162b9820830454a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626030"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968150"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Batch 풀에서 가상 파일 시스템 탑재
 
@@ -53,7 +53,7 @@ Azure Batch에서는 Windows 또는 Linux 컴퓨팅 노드의 Batch 풀에서 �
 
 ### <a name="azure-files-share"></a>Azure Files 공유
 
-Azure Files는 표준 Azure 클라우드 파일 시스템 제품입니다. 탑재 구성 코드 샘플에서 매개 변수를 가져오는 방법을 자세히 알아보려면 [Azure Files 공유 사용](../storage/files/storage-how-to-use-files-windows.md)을 참조하세요.
+Azure Files는 표준 Azure 클라우드 파일 시스템 제품입니다. 탑재 구성 코드 샘플에서 매개 변수를 가져오는 방법에 대한 자세한 내용은 [Azure Files 공유 사용 - SMB](../storage/files/storage-how-to-use-files-windows.md) 또는 [Azure Files 공유 사용 - NFS](../storage/files/storage-files-how-to-create-nfs-shares.md)를 참조하세요.
 
 ```csharp
 new PoolAddParameter
@@ -76,7 +76,7 @@ new PoolAddParameter
 }
 ```
 
-### <a name="azure-blob-file-system"></a>Azure Blob 파일 시스템
+### <a name="azure-blob-container"></a>Azure Blob 컨테이너
 
 또 다른 옵션은 [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md)를 통해 Azure Blob 스토리지를 사용하는 것입니다. Blob 파일 시스템 탑재를 위해서는 해당 스토리지 계정에 대한 `AccountKey` 또는 `SasKey`가 필요합니다. 이러한 키를 가져오는 방법에 대한 자세한 내용은 [스토리지 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md) 또는 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 제한된 액세스 권한 부여](../storage/common/storage-sas-overview.md)를 참조하세요. blobfuse 사용에 대한 자세한 정보와 팁은 blobfuse를 참조하세요.
 
@@ -97,7 +97,7 @@ new PoolAddParameter
                 AccountName = "StorageAccountName",
                 ContainerName = "containerName",
                 AccountKey = "StorageAccountKey",
-                SasKey = "",
+                SasKey = "SasKey",
                 RelativeMountPath = "RelativeMountPath",
                 BlobfuseOptions = "-o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 "
             },
@@ -108,7 +108,7 @@ new PoolAddParameter
 
 ### <a name="network-file-system"></a>네트워크 파일 시스템
 
-NFS(네트워크 파일 시스템)는 풀 노드에 탑재될 수 있으며, Azure Batch가 기존 파일 시스템에 액세스할 수 있도록 해 줍니다. 이것은 클라우드에 배포되는 단일 NFS 서버이거나 가상 네트워크를 통해 액세스되는 온-프레미스 NFS 서버일 수 있습니다. 또는 데이터 집약적 HPC(고성능 컴퓨팅) 작업용 [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) 분산 메모리 내 캐시 솔루션을 사용할 수 있습니다.
+NFS(네트워크 파일 시스템)는 풀 노드에 탑재될 수 있으며, Azure Batch가 기존 파일 시스템에 액세스할 수 있도록 해 줍니다. 이것은 클라우드에 배포되는 단일 NFS 서버이거나 가상 네트워크를 통해 액세스되는 온-프레미스 NFS 서버일 수 있습니다. NFS 탑재는 데이터 집약적인 HPC(고성능 컴퓨팅) 작업을 위한 [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md)로 분산된 메모리 캐시 솔루션뿐만 아니라 [Azure Blob용 NFS](../storage/blobs/network-file-system-protocol-support.md) 및 [Azure Files용 NFS](../storage/files/storage-files-how-to-mount-nfs-shares.md)와 같은 기타 표준 NFS 호환 인터페이스를 지원합니다.
 
 ```csharp
 new PoolAddParameter
@@ -122,7 +122,7 @@ new PoolAddParameter
             {
                 Source = "source",
                 RelativeMountPath = "RelativeMountPath",
-                MountOptions = "options ver=1.0"
+                MountOptions = "options ver=3.0"
             },
         }
     }
@@ -131,7 +131,7 @@ new PoolAddParameter
 
 ### <a name="common-internet-file-system"></a>Common Internet File System
 
-[CIFS(Common Internet File system)](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview)를 풀 노드에 탑재하는 것은 기존 파일 시스템에 대한 액세스 권한을 제공하는 또 다른 방법입니다. CIFS는 네트워크 서버 파일 및 서비스를 요청하기 위해 개방형의 플랫폼 범용 메커니즘을 제공하는 파일 공유 프로토콜입니다. CIFS는 인터넷/인트라넷 파일 공유용 [SMB(서버 메시지 블록)](/windows-server/storage/file-server/file-server-smb-overview) 프로토콜의 고급 버전을 기반으로 하며, Windows 노드에 외부 파일 시스템을 탑재하는 데 사용될 수 있습니다.
+[CIFS(Common Internet File system)](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview)를 풀 노드에 탑재하는 것은 기존 파일 시스템에 대한 액세스 권한을 제공하는 또 다른 방법입니다. CIFS는 네트워크 서버 파일 및 서비스를 요청하기 위해 개방형의 플랫폼 범용 메커니즘을 제공하는 파일 공유 프로토콜입니다. CIFS는 인터넷 및 인트라넷 파일 공유를 위한 [SMB(서버 메시지 블록)](/windows-server/storage/file-server/file-server-smb-overview) 프로토콜의 향상된 버전을 기반으로 합니다.
 
 ```csharp
 new PoolAddParameter
@@ -160,36 +160,28 @@ new PoolAddParameter
 
 디버그를 위해 로그 파일을 가져오려면 [OutputFiles](batch-task-output-files.md)를 사용하여 `*.log` 파일을 업로드합니다. `*.log` 파일에는 `AZ_BATCH_NODE_MOUNTS_DIR` 위치에 있는 파일 시스템 탑재에 대한 정보가 포함됩니다. 탑재 로그 파일에는 각 탑재에 대해 `<type>-<mountDirOrDrive>.log` 형식이 사용됩니다. 예를 들어 `test`라는 탑재 디렉터리에서 `cifs` 탑재에는 `cifs-test.log`라는 탑재 로그 파일이 사용됩니다.
 
-## <a name="supported-skus"></a>지원되는 SKU
+## <a name="support-matrix"></a>지원 매트릭스
 
-| 게시자 | 제안 | SKU | Azure Files 공유 | Blobfuse | NFS 탑재 | CIFS 탑재 |
-|---|---|---|---|---|---|---|
-| 일괄 처리 | rendering-centos73 | 렌더링 | :heavy_check_mark: <br>참고: CentOS 7.7과 호환 가능</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Canonical | UbuntuServer | 16.04-LTS, 18.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Credativ | Debian | 8| :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
-| Credativ | Debian | 9 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>참고: CentOS 7.4와 호환 가능 </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | centos-container | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | centos-container-rdma | 7.4 | :heavy_check_mark: <br>참고: A_8 또는 9 스토리지 지원</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | ubuntu-server-container | 16.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-dsvm | linux-data-science-vm-ubuntu | linuxdsvmubuntu | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| OpenLogic | CentOS | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| OpenLogic | CentOS-HPC | 7.4, 7.3, 7.1 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Oracle | Oracle-Linux | 7.6 | :x: | :x: | :x: | :x: |
-| Windows | WindowsServer | 2012, 2016, 2019 | :heavy_check_mark: | :x: | :x: | :x: |
+Azure Batch는 각 게시자 및 제품에 대해 생성된 노드 에이전트에 대해 다음과 같은 가상 파일 시스템 형식을 지원합니다.
+
+| OS 유형 | Azure Files 공유 | Azure Blob 컨테이너 | NFS 탑재 | CIFS 탑재 |
+|---|---|---|---|---|
+| Linux | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Windows | :heavy_check_mark: | :x: | :x: | :x: |
 
 ## <a name="networking-requirements"></a>네트워킹 요구 사항
 
 [가상 네트워크에서 Azure Batch 풀](batch-virtual-network.md)과 함께 가상 파일 탑재를 사용하는 경우 다음 요구 사항을 염두에 두고 필요한 트래픽이 차단되지 않도록 해야 합니다.
 
-- **Azure 파일**:
+- **Azure 파일 공유**:
   - "스토리지" 서비스 태그와 주고받는 트래픽에 대한 TCP 포트 445가 열려 있어야 합니다. 자세한 내용은 [Windows에서 Azure 파일 공유 사용](../storage/files/storage-how-to-use-files-windows.md#prerequisites)을 참조하세요.
-- **blobfuse**:
+- **Azure Blob 컨테이너**:
   - "스토리지" 서비스 태그와 주고받는 트래픽에 대한 TCP 포트 443이 열려 있어야 합니다.
   - VM에서 blobfuse 및 gpg 패키지를 다운로드하려면 https://packages.microsoft.com 에 대한 액세스 권한이 있어야 합니다. 구성에 따라 추가 패키지를 다운로드하려면 다른 URL에 액세스해야 할 수도 있습니다.
 - **NFS(네트워크 파일 시스템)** :
   - 포트 2049에 대한 액세스 권한이 필요합니다 (기본적으로 구성에 다른 요구 사항이 있을 수도 있음).
   - nfs-common(Debian이나 Ubuntu) 또는 nfs-utils(CentOS) 패키지를 다운로드하려면 VM이 적절한 패키지 관리자에 대한 액세스 권한을 갖추고 있어야 합니다. 이 URL은 OS 버전에 따라 달라질 수 있습니다. 구성에 따라 추가 패키지를 다운로드하려면 다른 URL에 액세스해야 할 수도 있습니다.
+  - NFS를 통해 Azure Blob 또는 Azure Files를 탑재하려면 스토리지 계정과 동일한 가상 네트워크의 지정된 서브넷을 공유하는 컴퓨팅 노드와 같은 추가 네트워킹 요구 사항이 필요할 수 있습니다.
 - **CIFS(Common Internet File System)** :
   - TCP 포트 445에 대한 액세스 권한이 필요합니다.
   - cifs-utils 패키지를 다운로드하려면 VM이 적절한 패키지 관리자에 대한 액세스 권한을 갖추고 있어야 합니다. 이 URL은 OS 버전에 따라 달라질 수 있습니다.

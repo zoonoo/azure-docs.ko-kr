@@ -8,20 +8,20 @@ author: amjads1
 ms.author: amjads
 ms.collection: windows
 ms.date: 05/31/2017
-ms.openlocfilehash: 6d365c7e927c11f52b97fbb0cc01a7aa37ad5afd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 50693e25b01d175c24931c5e2b298a00339fff33
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560058"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962496"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Windows VM 및 Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 사용
-Azure Diagnostics Extension은 Windows 기반 Azure 가상 머신에 모니터링 및 진단 기능을 제공합니다. 확장을 Azure Resource Manager 템플릿에 속하도록 포함시켜서 가상 머신에서 이러한 기능을 사용하도록 설정할 수 있습니다. 가상 머신 템플릿의 일부로 확장을 포함시키는 것과 관련된 자세한 내용은 [VM 확장을 사용하여 Azure 리소스 관리자 템플릿 작성](../windows/template-description.md#extensions) 을 참조하세요. 이 문서는 Azure Diagnostics 확장을 Windows 가상 머신 템플릿에 추가하는 방법을 설명합니다.  
+Azure Diagnostics Extension은 Windows 기반 Azure 가상 머신에 모니터링 및 진단 기능을 제공합니다. 확장을 Azure Resource Manager 템플릿에 속하도록 포함시켜서 가상 머신에서 이러한 기능을 사용하도록 설정할 수 있습니다. 가상 머신 템플릿의 일부로 확장을 포함시키는 것과 관련된 자세한 내용은 [VM 확장을 사용하여 Azure 리소스 관리자 템플릿 작성](../windows/template-description.md#extensions) 을 참조하세요. 이 문서는 Azure Diagnostics 확장을 Windows 가상 머신 템플릿에 추가하는 방법을 설명합니다.
 
 ## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>Azure Diagnostics 확장을 VM 리소스 정의에 추가
 Windows 가상 머신에서 진단 확장을 사용하도록 설정하려면 진단 확장을 Resource Manager 템플릿에 VM 리소스로 추가해야 합니다.
 
-간단한 리소스 관리자를 기반으로 하는 Virtual Machine의 경우 확장 구성을 가상 머신에 대한 *resources* 배열로 추가합니다. 
+간단한 리소스 관리자를 기반으로 하는 Virtual Machine의 경우 확장 구성을 가상 머신에 대한 *resources* 배열로 추가합니다.
 
 ```json
 "resources": [
@@ -55,7 +55,7 @@ Windows 가상 머신에서 진단 확장을 사용하도록 설정하려면 진
 ]
 ```
 
-가상 머신의 리소스 노드 아래에 확장을 구성하는 대신 템플릿의 루트 리소스 노드에 확장 구성을 추가하는 것도 일반적인 방법입니다. 이런 방식의 경우 *name* 및 *type* 값을 통해 확장과 가상 머신 간의 계층적인 관계를 명시적으로 지정해야 합니다. 예를 들면 다음과 같습니다. 
+가상 머신의 리소스 노드 아래에 확장을 구성하는 대신 템플릿의 루트 리소스 노드에 확장 구성을 추가하는 것도 일반적인 방법입니다. 이런 방식의 경우 *name* 및 *type* 값을 통해 확장과 가상 머신 간의 계층적인 관계를 명시적으로 지정해야 합니다. 예를 들면 다음과 같습니다.
 
 ```json
 "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",
@@ -70,14 +70,14 @@ Virtual Machine Scale Sets 확장 구성은 *VirtualMachineProfile* 의 *extensi
 
 *name* 속성의 값은 리소스 그룹에서 확장을 참조하는 데 사용될 수 있습니다. 이 값을 구체적으로 **Microsoft.Insights.VMDiagnosticsSettings** 로 설정하면 Azure Portal에서 해당 속성을 쉽게 식별하여 모니터링 차트를 올바르게 표시할 수 있습니다.
 
-*typeHandlerVersion* 은 사용할 확장의 버전을 지정합니다. *autoUpgradeMinorVersion* 부 버전을 **true** 로 설정하면 사용 가능한 최신 부 버전 확장이 제공됩니다. 새로운 기능과 버그 수정을 모두 포함하는 최신의 진단 확장을 사용하려면 항상 *autoUpgradeMinorVersion* 을 **true** 로 설정하는 것이 좋습니다. 
+*typeHandlerVersion* 은 사용할 확장의 버전을 지정합니다. *autoUpgradeMinorVersion* 부 버전을 **true** 로 설정하면 사용 가능한 최신 부 버전 확장이 제공됩니다. 새로운 기능과 버그 수정을 모두 포함하는 최신의 진단 확장을 사용하려면 항상 *autoUpgradeMinorVersion* 을 **true** 로 설정하는 것이 좋습니다.
 
-*settings* 요소는 설정하고 확장에서 다시 읽어올 수 있는(공용 구성으로 참조되기도 하는) 확장에 대한 구성 속성을 포함합니다. *xmlcfg* 속성은 진단 에이전트에 의해 수집되는 진단 로그, 성능 카운터 등에 대한 XML 기반 구성을 포함합니다. XML 스키마 자체에 대한 자세한 내용은 [진단 구성 스키마](../../azure-monitor/agents/diagnostics-extension-schema-windows.md) 를 참조하세요. 실제 XML 구성은 Azure 리소스 관리자 템플릿에 변수로 저장한 후 연결하여 base64로 인코딩하여 *xmlcfg* 에 대한 값을 설정하는 것이 일반적인 방식입니다. 변수에 xml을 저장하는 방법에 대한 자세한 내용은 [진단 구성 변수](#diagnostics-configuration-variables) 섹션을 참조하세요. *storageAccount* 속성은 진단 데이터가 전송되는 스토리지 계정의 이름을 지정합니다. 
+*settings* 요소는 설정하고 확장에서 다시 읽어올 수 있는(공용 구성으로 참조되기도 하는) 확장에 대한 구성 속성을 포함합니다. *xmlcfg* 속성은 진단 에이전트에 의해 수집되는 진단 로그, 성능 카운터 등에 대한 XML 기반 구성을 포함합니다. XML 스키마 자체에 대한 자세한 내용은 [진단 구성 스키마](../../azure-monitor/agents/diagnostics-extension-schema-windows.md) 를 참조하세요. 실제 XML 구성은 Azure 리소스 관리자 템플릿에 변수로 저장한 후 연결하여 base64로 인코딩하여 *xmlcfg* 에 대한 값을 설정하는 것이 일반적인 방식입니다. 변수에 xml을 저장하는 방법에 대한 자세한 내용은 [진단 구성 변수](#diagnostics-configuration-variables) 섹션을 참조하세요. *storageAccount* 속성은 진단 데이터가 전송되는 스토리지 계정의 이름을 지정합니다.
 
-*protectedSettings* 의 속성은(프라이빗 구성으로 참조되기도 하는) 설정할 수 있지만 설정된 후에는 다시 읽어올 수 없습니다. *protectedSettings* 는 쓰기 전용이므로 진단 데이터를 기록하는 스토리지 계정 키와 같은 중요한 비밀을 저장하는 데 유용합니다.    
+*protectedSettings* 의 속성은(프라이빗 구성으로 참조되기도 하는) 설정할 수 있지만 설정된 후에는 다시 읽어올 수 없습니다. *protectedSettings* 는 쓰기 전용이므로 진단 데이터를 기록하는 스토리지 계정 키와 같은 중요한 비밀을 저장하는 데 유용합니다.
 
 ## <a name="specifying-diagnostics-storage-account-as-parameters"></a>진단 스토리지 계정을 매개 변수로 지정
-위의 진단 스토리지 JSON 코드 조각은 *existingdiagnosticsStorageAccountName* 및 *existingdiagnosticsStorageResourceGroup* 이라는 두 가지 매개 변수를 사용하여 진단 데이터가 저장되는 진단 스토리지 계정을 지정합니다. 진단 스토리지 계정을 매개 변수로 지정하면 다양한 환경에서 진단 스토리지 계정을 간편하게 변경할 수 있습니다. 예를 들어, 테스트와 프로덕션 배포에 서로 다른 진단 스토리지 계정을 사용할 수 있습니다.  
+위의 진단 스토리지 JSON 코드 조각은 *existingdiagnosticsStorageAccountName* 및 *existingdiagnosticsStorageResourceGroup* 이라는 두 가지 매개 변수를 사용하여 진단 데이터가 저장되는 진단 스토리지 계정을 지정합니다. 진단 스토리지 계정을 매개 변수로 지정하면 다양한 환경에서 진단 스토리지 계정을 간편하게 변경할 수 있습니다. 예를 들어, 테스트와 프로덕션 배포에 서로 다른 진단 스토리지 계정을 사용할 수 있습니다.
 
 ```json
 "existingdiagnosticsStorageAccountName": {
@@ -97,12 +97,12 @@ Virtual Machine Scale Sets 확장 구성은 *VirtualMachineProfile* 의 *extensi
 가상 머신에 대한 리소스 그룹에 진단 스토리지 계정을 지정하는 것보다는 리소스 그룹별로 진단 스토리지 계정을 지정하는 것이 가장 바람직합니다. 리소스 그룹은 자체적인 수명을 갖는 배포 단위라고 간주할 수 있으며, 가상 머신은 배포되었다가 구성 업데이트가 새로 생성되면 다시 배포될 수 있지만, 이렇게 가상 머신이 배포되더라도 동일한 스토리지 계정에 진단 데이터를 계속 저장하기를 바라는 경우가 일반적입니다. 다른 리소스에 스토리지 계정을 지정해 두면, 스토리지 계정은 다양한 가상 머신 배포로부터 데이터를 받아들이기 때문에 다양한 버전에서 손쉽게 문제를 해결하는 것이 가능해집니다.
 
 > [!NOTE]
-> Visual Studio에서 Windows 가상 머신 템플릿을 만드는 경우 기본 스토리지 계정이 가상 머신 VHD가 업로드되는 동일한 스토리지 계정을 사용하도록 설정할 수 있습니다. 이것은 VM 초기 설정을 간소화하기 위한 것입니다. 매개 변수로 전달될 수 있는 다른 스토리지 계정을 사용하려면 템플릿을 리팩터링합니다. 
-> 
-> 
+> Visual Studio에서 Windows 가상 머신 템플릿을 만드는 경우 기본 스토리지 계정이 가상 머신 VHD가 업로드되는 동일한 스토리지 계정을 사용하도록 설정할 수 있습니다. 이것은 VM 초기 설정을 간소화하기 위한 것입니다. 매개 변수로 전달될 수 있는 다른 스토리지 계정을 사용하려면 템플릿을 리팩터링합니다.
+>
+>
 
 ## <a name="diagnostics-configuration-variables"></a>진단 구성 변수
-앞의 진단 확장 JSON 코드 조각은 진단 스토리지에 대한 스토리지 계정 키 생성을 간소화하기 위해서 *accountid* 변수를 정의합니다.   
+앞의 진단 확장 JSON 코드 조각은 진단 스토리지에 대한 스토리지 계정 키 생성을 간소화하기 위해서 *accountid* 변수를 정의합니다.
 
 ```json
 "accountid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',parameters('existingdiagnosticsStorageResourceGroup'), '/providers/','Microsoft.Storage/storageAccounts/', parameters('existingdiagnosticsStorageAccountName'))]"
@@ -121,14 +121,14 @@ Virtual Machine Scale Sets 확장 구성은 *VirtualMachineProfile* 의 *extensi
 "wadcfgxend": "\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>"
 ```
 
-위의 구성에서 Metrics 정의 XML 노드는 앞서 XML에서 *PerformanceCounter* 노드에 정의한 성능 카운터가 집계되고 저장되는 방식을 정의하기 때문에 중요한 구성 요소입니다. 
+위의 구성에서 Metrics 정의 XML 노드는 앞서 XML에서 *PerformanceCounter* 노드에 정의한 성능 카운터가 집계되고 저장되는 방식을 정의하기 때문에 중요한 구성 요소입니다.
 
 > [!IMPORTANT]
-> 이러한 메트릭은 Azure 포털에서 모니터링 차트 및 경고를 실행합니다.  Azure 포털의 VM 모니터링 데이터를 확인하려는 경우 VM에 대한 진단 구성에 *resourceID* 및 **MetricAggregation** 이 있는 **메트릭** 노드가 포함되어 있어야 합니다. 
-> 
-> 
+> 이러한 메트릭은 Azure 포털에서 모니터링 차트 및 경고를 실행합니다.  Azure 포털의 VM 모니터링 데이터를 확인하려는 경우 VM에 대한 진단 구성에 *resourceID* 및 **MetricAggregation** 이 있는 **메트릭** 노드가 포함되어 있어야 합니다.
+>
+>
 
-다음 예제에서는 메트릭 정의에 대한 XML을 보여줍니다. 
+다음 예제에서는 메트릭 정의에 대한 XML을 보여줍니다.
 
 ```xml
 <Metrics resourceId="/subscriptions/subscription().subscriptionId/resourceGroups/resourceGroup().name/providers/Microsoft.Compute/virtualMachines/vmName">
@@ -139,10 +139,10 @@ Virtual Machine Scale Sets 확장 구성은 *VirtualMachineProfile* 의 *extensi
 
 *resourceID* 속성은 구독 내의 가상 머신을 고유하게 식별합니다. 구독 및 배포하는 리소스 그룹을 기반으로 템플릿에서 자동으로 값을 업데이트할 수 있도록 subscription() 및 resourceGroup() 함수를 사용해야 합니다.
 
-루프에서 여러 가상 머신을 만드는 경우에는 개별 VM을 정확하게 구분할 수 있도록 copyIndex() 함수로 *resourceID* 값을 채워야 합니다. 다음과 같이 *xmlCfg* 값을 업데이트하여 이것을 지원할 수 있습니다.  
+루프에서 여러 가상 머신을 만드는 경우에는 개별 VM을 정확하게 구분할 수 있도록 copyIndex() 함수로 *resourceID* 값을 채워야 합니다. 다음과 같이 *xmlCfg* 값을 업데이트하여 이것을 지원할 수 있습니다.
 
 ```json
-"xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
+"xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]",
 ```
 
 MetricAggregation의 *PT1M* 및 *PT1H* 값은 각각 1분간의 집계와 1시간의 집계를 나타냅니다.
@@ -156,11 +156,11 @@ MetricAggregation의 *PT1M* 및 *PT1H* 값은 각각 1분간의 집계와 1시�
 * **V2S**: 문자열 상수입니다.
 * **yyyymmdd**: 테이블이 데이터 수집을 시작한 날짜입니다.
 
-예제: *WADMetricsPT1HP10DV2S20151108* 은 2015년 11월 11일부터 10일간 1시간 넘게 수집한 메트릭 데이터를 포함합니다.    
+예제: *WADMetricsPT1HP10DV2S20151108* 은 2015년 11월 11일부터 10일간 1시간 넘게 수집한 메트릭 데이터를 포함합니다.
 
 각각의 WADMetrics 테이블은 다음 열을 포함합니다.
 
-* **PartitionKey**: 파티션 키는 VM 리소스를 고유하게 식별하기 위해 *resourceID* 값을 기준으로 생성됩니다. 예: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
+* **PartitionKey**: 파티션 키는 VM 리소스를 고유하게 식별하기 위해 *resourceID* 값을 기준으로 생성됩니다. 예: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`
 * **RowKey**: `<Descending time tick>:<Performance Counter Name>` 형식을 따릅니다. 감소하는 시간 틱 계산식은 최대 시간 틱 빼기 집계 기간이 시작된 시간입니다. 예를 들어 샘플 기간이 2015년 11월 10일 00:00시(UTC)에 시작되는 경우의 계산식은 `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`입니다. memory available bytes 성능 카운터의 행 키는 `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`입니다.
 * **CounterName**: 성능 카운터의 이름입니다. 이것은 XML config에 정의된 *counterSpecifier* 와 일치합니다.
 * **Maximum**: 집계 기간 동안 성능 카운터의 최댓값입니다.
@@ -170,6 +170,6 @@ MetricAggregation의 *PT1M* 및 *PT1H* 값은 각각 1분간의 집계와 1시�
 * **Average**: 집계 기간 동안 성능 카운터의 평균(합계/개수) 값입니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 진단 확장을 포함하는 Windows 가상 머신의 전체 샘플 템플릿은 [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)을 참조하세요.   
+* 진단 확장을 포함하는 Windows 가상 머신의 전체 샘플 템플릿은 [vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-monitoring-diagnostics-extension)을 참조하세요.
 * [Azure PowerShell](../windows/ps-template.md) 또는 [Azure 명령줄](../linux/create-ssh-secured-vm-from-template.md)을 사용하여 Azure Resource Manager 템플릿 배포
-* [Azure 리소스 관리자 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)
+* [Azure 리소스 관리자 템플릿 작성](../../azure-resource-manager/templates/syntax.md)

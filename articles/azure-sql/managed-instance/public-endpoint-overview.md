@@ -10,17 +10,17 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 05/08/2019
-ms.openlocfilehash: d9c1828732b9a4e0e85c3af2263f097edd54437d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c949579d23e3acfbecde3111534209151ed61ac
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91332851"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108314556"
 ---
 # <a name="use-azure-sql-managed-instance-securely-with-public-endpoints"></a>퍼블릭 엔드포인트로 안전하게 Azure SQL Managed Instance 사용
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Azure SQL Managed Instance는 [퍼블릭 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md)를 통해 사용자 연결을 제공할 수 있습니다. 이 문서에서는 이 구성을 더 안전하게 보호하는 방법을 설명합니다.
+Azure SQL Managed Instance는 [퍼블릭 엔드포인트](public-endpoint-configure.md)를 통해 사용자 연결을 제공할 수 있습니다. 이 문서에서는 이 구성을 더 안전하게 보호하는 방법을 설명합니다.
 
 ## <a name="scenarios"></a>시나리오
 
@@ -44,7 +44,7 @@ Azure SQL Managed Instance는 가상 네트워크 내부에서 연결할 수 있
 
 ![인바운드 및 아웃바운드 연결을 잠그기 위한 보안 구성](./media/public-endpoint-overview/managed-instance-vnet.png)
 
-관리형 인스턴스에는 [전용 퍼블릭 엔드포인트 주소](management-endpoint-find-ip-address.md)가 있습니다. 클라이언트 쪽 아웃바운드 방화벽과 네트워크 보안 그룹 규칙에서 이 퍼블릭 엔드포인트 IP 주소를 설정하여 아웃바운드 연결을 제한합니다.
+관리되는 인스턴스에는 고객 전용의 퍼블릭 엔드포인트 주소가 있습니다. 이 엔드포인트는 [관리 엔드포인트](management-endpoint-find-ip-address.md)와 IP를 공유하지만 다른 포트를 사용합니다. 클라이언트 쪽 아웃바운드 방화벽과 네트워크 보안 그룹 규칙에서 이 퍼블릭 엔드포인트 IP 주소를 설정하여 아웃바운드 연결을 제한합니다.
 
 관리형 인스턴스에 대한 트래픽이 신뢰할 수 있는 원본에서 들어오는지 확인하려면 잘 알려진 IP 주소를 가진 원본에서 연결하는 것이 좋습니다. 네트워크 보안 그룹을 사용하여 포트 3342에서 관리형 인스턴스 퍼블릭 엔드포인트에 대한 액세스를 제한합니다.
 

@@ -1,19 +1,19 @@
 ---
-title: 'Azure VPN Gateway: 게이트웨이 연결 확인'
-description: 이 문서에서는 가상 네트워크 VPN Gateway 연결을 확인하는 방법을 보여 줍니다.
+title: 게이트웨이 연결 확인
+titleSuffix: Azure VPN Gateway
+description: 가상 네트워크 VPN Gateway 연결을 확인하는 방법을 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: b59294d07ef64875cb6fbd3e3a49dec61d8b8135
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 3616c425f191c9ff7788cb5f4333fa69d65e5728
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94659406"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204606"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>VPN Gateway 연결 확인
 

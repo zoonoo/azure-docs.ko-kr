@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 2ecc5df9db51bb6c923b9e0f47163e492bd76cfa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 402618872c5a3ee8dd01c35021656312f1fe3371
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101695750"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228445"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Power BI 테넌트 등록 및 검사(미리 보기)
 
@@ -70,15 +70,9 @@ ms.locfileid: "101695750"
 
 이제 Purview 관리 ID 권한이 Power BI 테넌트의 관리자 API에 대한 연결 권한을 확보한 상태이므로, Azure Purview Studio에서 검사를 설정할 수 있습니다.
 
-우선, Purview URL에 특수 기능 플래그를 추가합니다. 
+1. 왼쪽 탐색 영역에서 **원본** 을 선택합니다.
 
-1. **관리 센터** 아이콘을 선택합니다.
-
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/management-center.png" alt-text="관리 센터 아이콘":::
-
-1. 그런 다음, **데이터 소스** 에서 **+ 새로 만들기** 를 선택합니다.
-
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/data-sources.png" alt-text="새 데이터 소스 단추 이미지":::
+1. 그런 다음, **등록** 을 선택합니다.
 
     데이터 소스로 **Power BI** 를 선택합니다.
 
@@ -105,6 +99,7 @@ ms.locfileid: "101695750"
     > [!Note]
     > * 검사가 개인 작업 영역 포함 여부에 대한 구성을 전환하면 PowerBI 소스에 대한 전체 검사가 트리거됩니다.
     > * 검사 이름은 3~63자 길이 내의 문자, 숫자, 밑줄, 하이픈으로만 작성되어야 합니다. 공백이 없어야 합니다.
+    > * 스키마 탭에서는 스키마를 사용할 수 없습니다.
 
 5. 검사 트리거를 설정합니다. 옵션으로는 **1회**, **매 7일마다**, **매 30일마다** 가 있습니다.
 

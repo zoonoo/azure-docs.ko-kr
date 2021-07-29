@@ -1,27 +1,28 @@
 ---
 title: 범위 지정 배포의 템플릿 함수
-description: 범위 지정 배포에서 템플릿 함수를 확인 하는 방법을 설명 합니다. 범위는 테 넌 트, 관리 그룹, 구독 및 리소스 그룹 일 수 있습니다.
+description: 범위 지정 배포에서 템플릿 함수를 확인하는 방법을 설명합니다. 범위는 테넌트, 관리 그룹, 구독 및 리소스 그룹일 수 있습니다.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: f128448380612bc9b8d9114226e8a3036feeead8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: db2099c6c2405928a33f33bbba579c2280ad4877
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99492096"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959989"
 ---
 # <a name="arm-template-functions-in-deployment-scopes"></a>배포 범위의 ARM 템플릿 함수
 
-Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 리소스 그룹, 구독, 관리 그룹 또는 테 넌 트에 배포할 수 있습니다. 일반적으로 [ARM 템플릿 함수](template-functions.md) 는 모든 범위에 대해 동일 하 게 작동 합니다. 이 문서에서는 범위에 따라 일부 함수에 존재 하는 차이점을 설명 합니다.
+ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 리소스 그룹, 구독, 관리 그룹 또는 테넌트에 배포할 수 있습니다. 일반적으로 [ARM 템플릿 함수](template-functions.md)는 모든 범위에서 동일하게 작동합니다. 이 문서에서는 범위에 따라 일부 함수에 존재하는 차이를 설명합니다.
 
 ## <a name="supported-functions"></a>지원되는 함수
 
-다른 범위에 배포할 때는 다음과 같은 몇 가지 중요 한 사항을 고려해 야 합니다.
+다른 범위에 배포할 때는 다음과 같은 몇 가지 중요한 사항을 고려해야 합니다.
 
-* [ResourceGroup ()](template-functions-resource.md#resourcegroup) 함수는 리소스 그룹 배포에 대해 **지원** 됩니다.
-* [Subscription ()](template-functions-resource.md#subscription) 함수는 리소스 그룹 및 구독 배포에 대해 **지원** 됩니다.
-* [Reference ()](template-functions-resource.md#reference) 및 [list ()](template-functions-resource.md#list) 함수는 모든 범위에 대해 **지원** 됩니다.
-* [ResourceId ()](template-functions-resource.md#resourceid) 를 사용 하 여 리소스 그룹에 배포 된 리소스에 대 한 ID를 가져옵니다.
+* [resourceGroup()](template-functions-resource.md#resourcegroup) 함수는 리소스 그룹 배포를 위해 **지원** 됩니다.
+* [subscription()](template-functions-resource.md#subscription) 함수는 리소스 그룹 및 구독 배포를 위해 **지원** 됩니다.
+* [reference()](template-functions-resource.md#reference) 및 [list()](template-functions-resource.md#list) 함수는 모든 범위에 대해 **지원** 됩니다.
+* [resourceId()](template-functions-resource.md#resourceid)를 사용하여 리소스 그룹에 배포된 리소스의 ID를 가져옵니다.
 
   ```json
   "subnet": {
@@ -29,25 +30,25 @@ Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 리소스 그
   }
   ```
 
-* [Subscriptionresourceid ()](template-functions-resource.md#subscriptionresourceid) 함수를 사용 하 여 구독에 배포 된 리소스에 대 한 ID를 가져옵니다.
+* [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) 함수를 사용하여 구독에 배포된 리소스의 ID를 가져옵니다.
 
-  예를 들어 구독에 배포 되는 정책 정의에 대 한 리소스 ID를 가져오려면 다음을 사용 합니다.
+  예를 들어 구독에 배포되는 정책 정의에 대한 리소스 ID를 가져오려면 다음을 사용합니다.
 
   ```json
   "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
   ```
 
-* 관리 그룹의 확장으로 구현 된 리소스에는 [Extensionresourceid ()](template-functions-resource.md#extensionresourceid) 함수를 사용 합니다. 관리 그룹에 배포 되는 사용자 지정 정책 정의는 관리 그룹의 확장입니다.
+* 관리 그룹의 확장으로 구현된 자원에 대해 [extensionResourceId()](template-functions-resource.md#extensionresourceid) 함수를 사용합니다. 관리 그룹에 배포되는 사용자 지정 정책 정의는 관리 그룹의 확장입니다.
 
-  관리 그룹 수준에서 사용자 지정 정책 정의에 대 한 리소스 ID를 가져오려면 다음을 사용 합니다.
+  관리 그룹 수준에서 사용자 지정 정책 정의에 대한 리소스 ID를 가져오려면 다음을 사용합니다.
 
   ```json
   "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
 
-* [Tenantresourceid ()](template-functions-resource.md#tenantresourceid) 함수를 사용 하 여 테 넌 트에 배포 된 리소스에 대 한 ID를 가져옵니다. 기본 제공 정책 정의는 테 넌 트 수준 리소스입니다. 관리 그룹 수준에서 기본 제공 정책을 할당할 때 tenantResourceId 함수를 사용 합니다.
+* [tenantResourceId()](template-functions-resource.md#tenantresourceid) 함수를 사용하여 테넌트에 배포된 리소스의 ID를 가져옵니다. 기본 제공 정책 정의는 테넌트 수준 리소스입니다. 관리 그룹 수준에서 기본 제공 정책을 할당할 때 tenantResourceId 함수를 사용합니다.
 
-  기본 제공 정책 정의에 대 한 리소스 ID를 가져오려면 다음을 사용 합니다.
+  기본 제공 정책 정의에 대한 리소스 ID를 얻으려면 다음을 사용합니다.
 
   ```json
   "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
@@ -55,7 +56,7 @@ Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 리소스 그
 
 ## <a name="function-resolution-in-scopes"></a>범위에서 함수 해결
 
-둘 이상의 범위에 배포 하는 경우 [resourceGroup ()](template-functions-resource.md#resourcegroup) 및 [subscription ()](template-functions-resource.md#subscription) 함수는 템플릿을 지정 하는 방법에 따라 다르게 확인 됩니다. 외부 템플릿에 연결하는 경우 함수는 항상 해당 템플릿에 대한 범위로 확인됩니다. 부모 템플릿 내에서 템플릿을 중첩하는 경우 `expressionEvaluationOptions` 속성을 사용하여 함수에서 부모 템플릿 또는 중첩된 템플릿에 대한 리소스 그룹 및 구독을 확인할지 여부를 지정합니다. 속성을 `inner`로 설정하여 중첩된 템플릿의 범위를 확인합니다. 속성을 `outer`로 설정하여 부모 템플릿의 범위를 확인합니다.
+둘 이상의 범위에 배포하는 경우 [resourceGroup()](template-functions-resource.md#resourcegroup) 및 [subscription()](template-functions-resource.md#subscription) 함수는 템플릿 지정 방법에 따라 다르게 처리됩니다. 외부 템플릿에 연결하는 경우 함수는 항상 해당 템플릿에 대한 범위로 확인됩니다. 부모 템플릿 내에서 템플릿을 중첩하는 경우 `expressionEvaluationOptions` 속성을 사용하여 함수에서 부모 템플릿 또는 중첩된 템플릿에 대한 리소스 그룹 및 구독을 확인할지 여부를 지정합니다. 속성을 `inner`로 설정하여 중첩된 템플릿의 범위를 확인합니다. 속성을 `outer`로 설정하여 부모 템플릿의 범위를 확인합니다.
 
 다음 표에서는 함수가 부모 또는 포함 리소스 그룹 및 구독을 확인하는지 여부를 보여줍니다.
 
@@ -138,6 +139,6 @@ az deployment group create \
 
 ## <a name="next-steps"></a>다음 단계
 
-* 템플릿에서 매개 변수를 정의 하는 방법을 이해 하려면 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* 템플릿에서 매개 변수를 정의하는 방식을 이해하려면 [ARM 템플릿의 구조 및 구문 이해](./syntax.md)를 참조하세요.
 * 일반적인 배포 오류를 해결하는 방법은 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](common-deployment-errors.md)을 참조하세요.
-* SAS 토큰이 필요한 템플릿을 배포 하는 방법에 대 한 자세한 내용은 [sas 토큰을 사용 하 여 개인 ARM 템플릿 배포](secure-template-with-sas-token.md)를 참조 하세요.
+* SAS 토큰이 필요한 템플릿을 배포하는 방법에 관한 자세한 내용은 [SAS 토큰으로 프라이빗 ARM 템플릿 배포](secure-template-with-sas-token.md)를 참조하세요.

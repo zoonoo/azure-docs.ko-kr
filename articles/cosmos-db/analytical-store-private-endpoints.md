@@ -6,17 +6,20 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: anithaa
-ms.openlocfilehash: fd0b3ada5fec283562cee9727e3f805a7d34c532
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 09b4e6ebe14f5650be5bc92302acc51b1c6e99a5
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479052"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985763"
 ---
 # <a name="configure-azure-private-link-for-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소에 대한 Azure Private Link 구성
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 이 문서에서는 Azure Cosmos DB 분석 저장소에 대한 관리형 프라이빗 엔드포인트를 설정하는 방법을 설명합니다. 트랜잭션 저장소를 사용하는 경우 [트랜잭션 저장소에 대한 프라이빗 엔드포인트](how-to-configure-private-endpoints.md) 문서를 참조하세요. [관리형 프라이빗 엔드포인트](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md)를 사용하면 Azure Cosmos DB 분석 저장소에 대한 네트워크 액세스를 Azure Synapse 작업 영역과 연결된 관리형 가상 네트워크로 제한할 수 있습니다. 관리형 프라이빗 엔드포인트는 분석 저장소에 대한 프라이빗 링크를 설정합니다.
+
+> [!NOTE]
+> Cosmos DB에 프라이빗 DNS 영역을 사용 중이고 분석 저장소 하위 리소스에 대한 Synapse 관리형 프라이빗 엔드포인트를 만들려면 먼저 Cosmos DB 가상 네트워크에 연결된 분석 저장소(`privatelink.analytics.cosmos.azure.com`)의 DNS 영역을 만들어야 합니다.
 
 ## <a name="enable-a-private-endpoint-for-the-analytical-store"></a>분석 저장소에 대한 프라이빗 엔드포인트 사용
 

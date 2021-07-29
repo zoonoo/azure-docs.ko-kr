@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 06/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 68cf157a512e9b1f6caee4734869c5bb4b836e2f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5bcd23c9a515155b9dc7cfdc04a3fafe122474ae
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104962693"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111986357"
 ---
 # <a name="connect-to-a-virtual-machine-console-on-an-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스에서 가상 머신 콘솔 연결하기
 
@@ -132,4 +132,5 @@ Id                     : 81462e0a-decb-4cd4-96e9-057094040063
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Portal에서 [Azure Stack Edge Pro](azure-stack-edge-gpu-troubleshoot.md)의 문제를 해결합니다.
+- Azure Portal에서 [VM 배포](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md) 문제를 해결합니다.
+<!--Make "VM guest logs" first link when article is available.-->

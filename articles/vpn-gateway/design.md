@@ -1,18 +1,18 @@
 ---
-title: Azure VPN Gateway 디자인 정보
-description: Azure 가상 네트워크에 연결하기 위해 VPN Gateway 토폴로지를 디자인하는 방법에 대해 알아봅니다.
+title: Azure VPN Gateway 토폴로지 및 디자인
+description: 가상 네트워크에 온-프레미스 위치를 연결하는 VPN Gateway 토폴로지 및 디자인에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 99b8cdbb1528caefd30fb11c9702dff1e817c0ab
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 49969f4f404670961cf0ba35765c149fee134d62
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061811"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108802669"
 ---
 # <a name="vpn-gateway-design"></a>VPN Gateway 디자인
 
@@ -80,7 +80,7 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연�
 
 ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 ExpressRoute 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 
-ExpressRoute 연결은 필수 구성의 일부분으로 가상 네트워크 게이트웨이를 사용합니다. ExpressRoute 연결에서 가상 네트워크 게이트웨이는 'Vpn'이 아닌 'ExpressRoute' 게이트웨이 유형으로 구성됩니다. ExpressRoute 회로를 통해 전송되는 트래픽은 기본적으로 암호화되지 않으므로, ExpressRoute 회로를 통해 암호화된 트래픽을 보낼 수 있는 솔루션을 만듭니다. ExpressRoute에 대한 자세한 내용은 [ExpressRoute 기술 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
+ExpressRoute 연결은 필수 구성의 일부분으로 가상 네트워크 게이트웨이를 사용합니다. ExpressRoute 연결에서 가상 네트워크 게이트웨이는 'Vpn'이 아닌 'ExpressRoute' 게이트웨이 유형으로 구성됩니다. ExpressRoute 회로를 통해 전송되는 트래픽은 기본적으로 암호화되지 않지만 ExpressRoute 회로를 통해 암호화된 트래픽을 보낼 수 있는 솔루션을 만들 수 있습니다. ExpressRoute에 대한 자세한 내용은 [ExpressRoute 기술 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
 
 ## <a name="site-to-site-and-expressroute-coexisting-connections"></a><a name="coexisting"></a>사이트 간 및 ExpressRoute 공존 연결
 
@@ -108,4 +108,4 @@ ExpressRoute는 공용 인터넷을 사용하지 않는 WAN에서 Azure를 비�
 
 * [구독 및 서비스 한도](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)를 참조하세요.
 
-* Azure의 몇 가지 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.
+* Azure의 몇 가지 다른 주요 [네트워킹 기능](../networking/fundamentals/networking-overview.md)을 알아봅니다.
