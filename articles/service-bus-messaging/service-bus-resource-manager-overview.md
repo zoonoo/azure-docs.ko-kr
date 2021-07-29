@@ -8,18 +8,18 @@ ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: df8a7fde9114f03521f0e57e072f81a867efcf39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e2311f3cf2a9418ba3ffef25fc1a8f3b22a3faa5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89075259"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961169"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Service Bus 리소스 만들기
 
 이 문서에서는 Azure Resource Manager 템플릿, PowerShell 및 Service Bus 리소스 공급자를 사용하여 Service Bus 리소스를 만들어 배포하는 방법을 설명합니다.
 
-Azure Resource Manager 템플릿을 통해 솔루션에 사용할 리소스를 정의하고, 여러 환경의 값을 입력하는 데 사용할 수 있는 변수 및 매개 변수를 지정합니다. 템플릿은 JSON에 작성되고 배포에 대한 값을 생성하는 데 사용할 수 있는 식으로 구성됩니다. Azure Resource Manager 템플릿 작성에 대한 자세한 내용과 템플릿 형식에 대한 논의는 [Azure Resource Manager 템플릿의 구조 및 구문](../azure-resource-manager/templates/template-syntax.md)을 참조하세요.
+Azure Resource Manager 템플릿을 통해 솔루션에 사용할 리소스를 정의하고, 여러 환경의 값을 입력하는 데 사용할 수 있는 변수 및 매개 변수를 지정합니다. 템플릿은 JSON에 작성되고 배포에 대한 값을 생성하는 데 사용할 수 있는 식으로 구성됩니다. Azure Resource Manager 템플릿 작성에 대한 자세한 내용과 템플릿 형식에 대한 논의는 [Azure Resource Manager 템플릿의 구조 및 구문](../azure-resource-manager/templates/syntax.md)을 참조하세요.
 
 > [!NOTE]
 > 이 문서의 예제에서는 Azure Resource Manager를 사용하여 Service Bus 네임스페이스와 메시징 엔터티(큐)를 만드는 방법을 보여 줍니다. 다른 템플릿 예제는 [Azure 퀵 스타트 템플릿 갤러리][Azure Quickstart Templates gallery]를 방문하여 **Service Bus** 를 검색하세요.
@@ -38,7 +38,7 @@ Azure Resource Manager 템플릿을 통해 솔루션에 사용할 리소스를 �
 
 ## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
-다음 절차에서는 표준 계층 Service Bus 네임스페이스와, 네임스페이스 안의 큐를 만드는 Azure Resource Manager 템플릿을 PowerShell을 사용하여 배포하는 방법을 설명합니다. 이 예제는 [큐가 있는 Service Bus 네임스페이스 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) 템플릿을 기초로 합니다. 대략적인 워크플로 다음과 같습니다.
+다음 절차에서는 표준 계층 Service Bus 네임스페이스와, 네임스페이스 안의 큐를 만드는 Azure Resource Manager 템플릿을 PowerShell을 사용하여 배포하는 방법을 설명합니다. 이 예제는 [큐가 있는 Service Bus 네임스페이스 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.json) 템플릿을 기초로 합니다. 대략적인 워크플로 다음과 같습니다.
 
 1. PowerShell을 설치합니다.
 2. 템플릿 및 매개 변수 파일(옵션)을 만듭니다.
@@ -56,7 +56,7 @@ Azure Resource Manager 배포 템플릿에 대한 모든 내용은 [Azure Resour
 
 ### <a name="create-a-template"></a>템플릿 생성
 
-리포지토리를 복제하거나 GitHub에서 [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) 템플릿을 복사합니다.
+리포지토리를 복제하거나 GitHub에서 [servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.json) 템플릿을 복사합니다.
 
 ```json
 {
@@ -131,7 +131,7 @@ Azure Resource Manager 배포 템플릿에 대한 모든 내용은 [Azure Resour
 
 ### <a name="create-a-parameters-file-optional"></a>매개 변수 파일 만들기(옵션)
 
-옵션인 매개 변수 파일을 사용하려면 [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) 파일을 복사합니다. `serviceBusNamespaceName` 값을 이 배포에 만들려는 Service Bus 네임스페이스의 이름으로 바꾸고, `serviceBusQueueName` 값을 만들려는 큐의 이름으로 바꿉니다.
+선택적 매개 변수 파일을 사용하려면 [servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.parameters.json) 파일을 복사합니다. `serviceBusNamespaceName` 값을 이 배포에 만들려는 Service Bus 네임스페이스의 이름으로 바꾸고, `serviceBusQueueName` 값을 만들려는 큐의 이름으로 바꿉니다.
 
 ```json
 {
@@ -251,7 +251,7 @@ Parameters        :
 
 * [Azure Resource Manager 개요][Azure Resource Manager overview]
 * [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포][Deploy resources with Azure Resource Manager templates]
-* [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/templates/template-syntax.md)
+* [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/templates/syntax.md)
 * [Microsoft.ServiceBus 리소스 종류](/azure/templates/microsoft.servicebus/allversions)
 
 [Azure Resource Manager overview]: ../azure-resource-manager/management/overview.md

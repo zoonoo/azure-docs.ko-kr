@@ -2,13 +2,13 @@
 title: Azure Batch의 작업 및 태스크
 description: 작업 및 태스크에 대해 살펴보고 개발 관점에서 Azure Batch 워크플로에서 이들을 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 11/23/2020
-ms.openlocfilehash: e1ca721ec7527d9d042c129c22cf0266e57c32e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: faedb912b0c21acdec977fe7651f0a5daddb2c6f
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95808585"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004172"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Azure Batch의 작업 및 태스크
 
@@ -24,7 +24,7 @@ Azure Batch에서 *태스크* 는 계산 단위를 나타냅니다. *작업* 은
 
 사용자가 만드는 작업에 선택적 작업 우선 순위를 할당할 수 있습니다. Batch 서비스는 작업의 우선 순위 값을 사용하여 각 풀에서(작업 내의 모든 작업에 대해) 예약 순서를 결정합니다.
 
-작업의 우선 순위를 업데이트하려면, [작업 속성 업데이트](/rest/api/batchservice/job/update) 작업(Batch REST)을 사용하거나 [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob)(Batch .NET)을 수정합니다. 우선 순위 값의 범위는 -1000(가장 낮은 우선 순위)에서 1000(가장 높은 우선 순위)까지입니다.
+작업의 우선 순위를 업데이트하려면, [작업 속성 업데이트](/rest/api/batchservice/job/update) 작업(Batch REST)을 사용하거나 [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob.priority)(Batch .NET)을 수정합니다. 우선 순위 값의 범위는 -1000(가장 낮은 우선 순위)에서 1000(가장 높은 우선 순위)까지입니다.
 
 동일한 풀 내에서 우선 순위가 높은 작업은 우선 순위가 낮은 작업보다 먼저 예약됩니다. 이미 실행 중인 우선 순위가 낮은 작업은 우선 순위가 높은 작업에 의해 선점되지 않습니다. 우선 순위 수준이 동일한 작업은 예약될 가능성이 동일하며 작업 실행 순서는 정의되지 않습니다.
 
@@ -91,7 +91,7 @@ Batch 서비스는 태스크가 *없는* 작업을 모든 태스크를 완료한
 
 그러나 시작 태스크는 컴퓨팅 노드에서 실행되는 모든 태스크에서 사용될 참조 데이터를 포함할 수도 있습니다. 예를 들어, 시작 태스크의 명령줄은 `robocopy` 작업을 수행하여 애플리케이션 파일(리소스 파일로 지정되고 노드에 다운로드됨)을 시작 태스크의 [작업 중인 디렉터리](files-and-directories.md)에서 **공유** 폴더로 복사한 다음, MSI 또는 `setup.exe`를 실행할 할 수 있습니다.
 
-일반적으로 Batch 서비스에서 시작 태스크가 완료되기를 기다린 후 노드에 태스크를 할당할 준비가 되었다고 간주하는 것이 좋지만 이를 구성할 수 있습니다.
+일반적으로 Batch 서비스에서 시작 작업이 완료될 때까지 기다린 후 노드에 작업을 할당할 준비가 되었다고 간주하려고 합니다. 그러나 필요에 따라 이를 다르게 구성할 수 있습니다.
 
 컴퓨팅 노드에서 시작 태스크가 실패하면 노드 상태가 실패를 반영하여 업데이트되고 노드에 태스크가 할당되지 않습니다. 스토리지에서 해당 리소스 파일을 복사하는 동안 문제가 발생하거나 해당 명령줄에서 실행된 프로세스에서 0이 아닌 종료 코드를 반환하면 시작 태스크가 실패할 수 있습니다.
 
@@ -155,13 +155,13 @@ Batch .NET 라이브러리를 사용하여 일괄 처리에서 MPI 작업 실행
 
 ### <a name="environment-settings-for-tasks"></a>태스크에 대한 환경 설정
 
-Batch 서비스에 의해 실행되는 각 태스크는 컴퓨팅 노드에 설정된 환경 변수에 액세스할 수 있습니다. 여기에는 Batch 서비스에 의해 정의된([서비스 정의](./batch-compute-node-environment-variables.md)) 환경 변수와 태스크에 대해 정의할 수 있는 사용자 지정 환경 변수가 포함됩니다. 태스크가 실행하는 애플리케이션 및 스크립트는 실행 중에 이러한 환경 변수에 액세스할 수 있습니다.
+Batch 서비스에 의해 실행되는 각 태스크는 컴퓨팅 노드에 설정된 환경 변수에 액세스할 수 있습니다. 여기에는 [Batch 서비스에 의해 정의된 환경 변수](./batch-compute-node-environment-variables.md)와 작업에 대해 정의할 수 있는 사용자 지정 환경 변수가 포함됩니다. 작업이 실행하는 애플리케이션 및 스크립트는 실행 중에 해당 환경 변수에 액세스할 수 있습니다.
 
-이러한 엔터티에 대한 *환경 설정* 속성을 채워서 태스크 또는 작업 수준에서 사용자 지정 환경 변수를 설정할 수 있습니다. 자세한 내용은 [작업에 태스크 추가](/rest/api/batchservice/task/add?)] 작업(Batch REST API) 또는 Batch .NET의 [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask) 및 [CloudJob.CommonEnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudjob) 속성을 참조하세요.
+이러한 엔터티에 대한 *환경 설정* 속성을 채워서 태스크 또는 작업 수준에서 사용자 지정 환경 변수를 설정할 수 있습니다. 자세한 내용은 [작업에 작업 추가](/rest/api/batchservice/task/add?) 작업(Batch REST) 또는 Batch .NET의 [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask.environmentsettings) 및 [CloudJob.CommonEnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudjob.commonenvironmentsettings) 속성을 참조하세요.
 
-클라이언트 애플리케이션 또는 서비스는 [태스크에 대한 정보 가져오기](/rest/api/batchservice/task/get) 작업(Batch REST)을 사용하거나 [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask) 속성(Batch .NET)에 액세스하여 태스크의 환경 변수(시스템 정의 및 사용자 정의)를 가져올 수 있습니다. 컴퓨팅 노드에서 실행되는 프로세스는 친숙한 `%VARIABLE_NAME%`(Windows) 또는 `$VARIABLE_NAME`(Linux) 구문을 사용하여 노드의 다음 환경 변수 및 기타 환경 변수에 액세스할 수 있습니다.
+클라이언트 애플리케이션 또는 서비스는 [태스크에 대한 정보 가져오기](/rest/api/batchservice/task/get) 작업(Batch REST)을 사용하거나 [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask.environmentsettings) 속성(Batch .NET)에 액세스하여 태스크의 환경 변수(시스템 정의 및 사용자 정의)를 가져올 수 있습니다. 컴퓨팅 노드에서 실행되는 프로세스는 친숙한 `%VARIABLE_NAME%`(Windows) 또는 `$VARIABLE_NAME`(Linux) 구문을 사용하여 노드의 다음 환경 변수 및 기타 환경 변수에 액세스할 수 있습니다.
 
-[컴퓨팅 노드 환경 변수](batch-compute-node-environment-variables.md)에서 모든 서비스 정의 환경 변수의 전체 목록을 찾을 수 있습니다.
+[컴퓨팅 노드 환경 변수](batch-compute-node-environment-variables.md)에서 모든 서비스 정의 환경 변수의 목록을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

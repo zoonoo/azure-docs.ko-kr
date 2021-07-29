@@ -8,14 +8,14 @@ ms.subservice: core
 ms.author: laobri
 author: lobrien
 ms.date: 03/04/2021
-ms.topic: conceptual
-ms.custom: how-to, synapse-azureml
-ms.openlocfilehash: b03915608c6143a9e205ba1a1e08e411b8aa9093
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+ms.custom: synapse-azureml
+ms.openlocfilehash: 046a38da67db86592e91f103f3139b425e59f6a0
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104868650"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578901"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>기계 학습 파이프라인에서 Apache Spark(Azure Synapse Analytics에서 제공)를 사용하는 방법(미리 보기)
 
@@ -35,21 +35,23 @@ ms.locfileid: "104868650"
 
 Azure Synapse Analytics 작업 영역에서 Apache Spark 풀을 만들고 관리합니다. Apache Spark 풀을 Azure Machine Learning 작업 영역과 통합하려면 [Azure Synapse Analytics 작업 영역에 연결](how-to-link-synapse-ml-workspaces.md)해야 합니다. 
 
-**연결된 서비스** 페이지를 사용하여 Azure Machine Learning 스튜디오 UI를 통해 Apache Spark 풀을 연결할 수 있습니다. **계산 연결** 옵션을 사용하여 **계산** 페이지를 통해 이 작업을 수행할 수도 있습니다.
-
-SDK(아래 설명)를 통해 또는 ARM 템플릿(이 [예제 ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json) 참조)을 통해 Apache Spark 풀을 연결할 수도 있습니다. 
-
-명령줄을 사용하여 ARM 템플릿을 따르고, 연결된 서비스를 추가하고, 다음 코드를 사용하여 Apache Spark 풀을 연결할 수 있습니다.
-
-```bash
-az deployment group create --name --resource-group <rg_name> --template-file "azuredeploy.json" --parameters @"azuredeploy.parameters.json"
-```
+Azure Machine Learning 작업 영역과 Azure Synapse Analytics 작업 영역이 연결되면 다음을 통해 Apache Spark 풀을 연결할 수 있습니다. 
+* [Azure Machine Learning Studio](how-to-link-synapse-ml-workspaces.md#attach-a-pool-via-the-studio)
+* Python SDK([아래에 자세히 설명](#attach-your-apache-spark-pool-as-a-compute-target-for-azure-machine-learning))
+* ARM(Azure Resource Manager) 템플릿(이 [ARM 템플릿 예제](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json) 참조) 
+    * 명령줄을 사용하여 ARM 템플릿을 따르고, 연결된 서비스를 추가하고, 다음 코드를 사용하여 Apache Spark 풀을 연결할 수 있습니다.
+    ```azurecli
+    az deployment group create --name --resource-group <rg_name> --template-file "azuredeploy.json" --parameters @"azuredeploy.parameters.json"
+    ```
 
 > [!Important]
 > Azure Synapse Analytics 작업 영역에 성공적으로 연결하려면 Azure Synapse Analytics 작업 영역 리소스에 소유자 역할이 있어야 합니다. Azure Portal에서 액세스를 확인합니다.
-> 연결된 서비스는 SAI(System Assigned Identity)를 생성하면 SAI(System Assigned Identity)를 가져옵니다. Spark 작업을 제출할 수 있도록 이 연결 서비스 SAI를 Synapse Studio의 "Synapse Apache Spark 관리자" 역할에 할당해야 합니다([Synapse Studio에서 Synapse RBAC 역할 할당을 관리하는 방법](../synapse-analytics/security/how-to-manage-synapse-rbac-role-assignments.md) 참조). 또한 Azure Machine Learning 작업 영역의 사용자에 게 리소스 관리의 Azure Portal에서 "Contributor" 역할을 부여해야 합니다.
+>
+> 연결된 서비스는 만들 때 SAI(System Assigned Identity)를 가져옵니다. Spark 작업을 제출할 수 있도록 이 연결 서비스 SAI를 Synapse Studio의 "Synapse Apache Spark 관리자" 역할에 할당해야 합니다([Synapse Studio에서 Synapse RBAC 역할 할당을 관리하는 방법](../synapse-analytics/security/how-to-manage-synapse-rbac-role-assignments.md) 참조). 
+> 
+> 또한 Azure Machine Learning 작업 영역의 사용자에게 리소스 관리의 Azure Portal에서 "Contributor" 역할을 부여해야 합니다.
 
-## <a name="create-or-retrieve-the-link-between-your-azure-synapse-analytics-workspace-and-your-azure-machine-learning-workspace"></a>Azure Synapse Analytics 작업 영역과 Azure Machine Learning 작업 영역 간의 링크를 만들거나 검색합니다.
+## <a name="retrieve-the-link-between-your-azure-synapse-analytics-workspace-and-your-azure-machine-learning-workspace"></a>Azure Synapse Analytics 작업 영역과 Azure Machine Learning 작업 영역 간의 링크를 검색합니다.
 
 다음과 같은 코드를 사용하여 작업 영역에서 연결된 서비스를 검색할 수 있습니다.
 
@@ -65,7 +67,7 @@ for service in LinkedService.list(ws) :
 linked_service = LinkedService.get(ws, 'synapselink1')
 ```
 
-먼저 `Workspace.from_config()`가 `config.json`의 구성을 사용하여 Azure Machine Learning 작업 영역에 액세스합니다([자습서: 개발 환경에서 Azure Machine Learning 시작](tutorial-1st-experiment-sdk-setup-local.md) 참조). 그런 다음, 코드는 작업 영역에서 사용할 수 있는 모든 연결된 서비스를 인쇄합니다. 마지막으로 `LinkedService.get()`이 `'synapselink1'`이라는 연결된 서비스를 검색합니다. 
+먼저 `Workspace.from_config()`는 `config.json`에서 구성을 사용하여 Azure Machine Learning 작업 영역에 액세스합니다([작업 영역 구성 파일 만들기](how-to-configure-environment.md#workspace) 참조). 그런 다음, 코드는 작업 영역에서 사용할 수 있는 모든 연결된 서비스를 인쇄합니다. 마지막으로 `LinkedService.get()`이 `'synapselink1'`이라는 연결된 서비스를 검색합니다. 
 
 ## <a name="attach-your-apache-spark-pool-as-a-compute-target-for-azure-machine-learning"></a>Azure Machine Learning에 대한 컴퓨팅 대상으로 Apache Spark 풀 연결
 
@@ -199,7 +201,7 @@ sdf.coalesce(1).write\
 
 ## <a name="use-the-synapsesparkstep-in-a-pipeline"></a>파이프라인에서 `SynapseSparkStep` 사용
 
-파이프라인의 다른 단계는 자신의 고유한 환경을 포함하고 현재 작업에 적합한 서로 다른 컴퓨팅 리소스에서 실행됩니다. 샘플 노트북은 작은 CPU 클러스터에서 "학습 단계"를 실행합니다.
+다음 예제에서는 [이전 섹션](#create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool)에서 만든 `SynapseSparkStep`의 출력을 사용합니다. 파이프라인의 다른 단계는 자신의 고유한 환경을 포함하고 현재 작업에 적합한 서로 다른 컴퓨팅 리소스에서 실행됩니다. 샘플 노트북은 작은 CPU 클러스터에서 "학습 단계"를 실행합니다.
 
 ```python
 from azureml.core.compute import AmlCompute

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 297c0a53fb2ab4ee0b2c5291cabf5a63c8841664
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d8a4b97ef095f5860ddf99751186ca04926e1698
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604705"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761744"
 ---
 # <a name="securing-service-principals"></a>서비스 주체 보안
 
@@ -37,7 +37,7 @@ Azure Active Directory(Azure AD) [서비스 주체](../develop/app-objects-and-s
 > 인증 관련 작업의 맥락에서 엄밀하지 않은 애플리케이션을 나타낼 때 애플리케이션과 서비스 주체라는 용어를 같은 의미로 사용한다는 것을 알 수 있습니다. 그러나 Azure AD에서는 애플리케이션을 나타내는 두 가지 표현이 있습니다.
  
 
-ApplicationID는 전역 애플리케이션을 나타내며, 테넌트의 모든 애플리케이션 인스턴스에 대해 동일합니다. ObjectID는 애플리케이션 개체의 고유한 값이며 서비스 주체를 나타냅니다. 사용자, 그룹 및 기타 리소스와 마찬가지로 ObjectID는 Azure AD에서 애플리케이션 인스턴스를 고유하게 식별하는 데 도움이 됩니다.
+ApplicationID는 전역 애플리케이션을 나타내며, 테넌트의 모든 애플리케이션 인스턴스에 대해 동일합니다. ObjectID는 애플리케이션 개체에 대한 고유한 값입니다. 사용자, 그룹 및 기타 리소스와 마찬가지로 ObjectID는 Azure AD에서 애플리케이션 인스턴스를 고유하게 식별하는 데 도움이 됩니다.
 
 이 토픽에 대한 자세한 내용은 [애플리케이션 및 서비스 주체 관계](../develop/app-objects-and-service-principals.md)를 참조하세요.
 
@@ -116,7 +116,7 @@ Microsoft Graph를 사용하는 경우 [이 예제](/powershell/azure/create-azu
 
 [서비스 주체 만들기](../develop/howto-create-service-principal-portal.md)
 
- [서비스 주체 로그인 모니터링](../reports-monitoring/concept-sign-ins.md#sign-ins-report)
+ [서비스 주체 로그인 모니터링](../reports-monitoring/concept-sign-ins.md)
 
 **서비스 계정을 보호하는 방법에 대한 자세한 내용은 다음을 확인하세요.**
 

@@ -4,12 +4,12 @@ description: Linux에서 런타임 및 SDK를 설치하고 로컬 개발 클러�
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 14b8a278605a908b4182c724831b2e42de54a753
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a06e649fbbe3e7ea1036d9511a87169a5b0a655a
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93086893"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288259"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -26,17 +26,13 @@ Azure Service Fabric CLI(명령줄 인터페이스)를 사용하여 클라우드
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-개발을 위해 이러한 운영 체제 버전이 지원됩니다.
+- 지원되는 [Linux 버전](service-fabric-versions.md#supported-linux-versions-and-support-end-date)을 사용하고 있는지 확인합니다.
 
-* Ubuntu 16.04 (`Xenial Xerus`), 18.04 (`Bionic Beaver`)
-
-    `apt-transport-https` 패키지가 설치됐는지 확인합니다.
+- `apt-transport-https` 패키지를 설치합니다.
          
     ```bash
     sudo apt-get install apt-transport-https
     ```
-* Red Hat Enterprise Linux 7.4(Service Fabric 미리 보기 지원)
-
 
 ## <a name="installation-methods"></a>설치 방법
 
@@ -261,7 +257,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
 
 ## <a name="set-up-net-core-31-development"></a>.NET Core 3.1 개발 설정
 
-[Ubuntu용 .NET Core 3.1 SDK](https://www.microsoft.com/net/core#linuxubuntu)를 설치하여 [C# Service Fabric 애플리케이션을 만들기](service-fabric-create-your-first-linux-application-with-csharp.md)를 시작합니다. .NET Core Service Fabric 애플리케이션의 패키지는 NuGet.org에서 호스트됩니다.
+[Ubuntu용 .NET Core 3.1 SDK](/dotnet/core/install/linux-ubuntu)를 설치하여 [C# Service Fabric 애플리케이션을 만들기](service-fabric-create-your-first-linux-application-with-csharp.md)를 시작합니다. .NET Core Service Fabric 애플리케이션의 패키지는 NuGet.org에서 호스트됩니다.
 
 ## <a name="set-up-java-development"></a>Java 개발 설정
 

@@ -1,24 +1,24 @@
 ---
-title: 클라우드 서비스 (클래식) 배포 문제 해결 | Microsoft Docs
+title: 클라우드 서비스(클래식) 배포 문제 해결 | Microsoft Docs
 description: Azure에 클라우드 서비스를 배포할 때 발생할 수 있는 몇 가지 일반적인 문제가 있습니다. 이 문서에서는 그 중 일부에 대한 솔루션을 제공합니다.
-ms.topic: article
+ms.topic: troubleshooting
 ms.service: cloud-services
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 7b3d7a9a674aab3976da9399f71ff4d8df08eb62
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 39c69d69012345cd636964ca813ac93186946cb9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98741080"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771598"
 ---
-# <a name="troubleshoot-azure-cloud-services-classic-deployment-problems"></a>Azure Cloud Services (클래식) 배포 문제 해결
+# <a name="troubleshoot-azure-cloud-services-classic-deployment-problems"></a>Azure Cloud Services(클래식) 배포 문제 해결
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(확장 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품에 대한 새로운 Azure Resource Manager 기반 배포 모델입니다.해당 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌고 모든 새로운 배포는 [Cloud Services(확장된 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 Azure에 클라우드 서비스 애플리케이션 패키지를 배포할 때 Azure portal의 **속성** 창에서 배포에 대한 정보를 얻을 수 있습니다. 클라우드 서비스에 발생한 문제를 해결하기 위해 이 창에서 세부 정보를 사용할 수 있고 새로운 지원 요청을 할 때 Azure 지원 센터에 이 정보를 제공할 수 있습니다.
 

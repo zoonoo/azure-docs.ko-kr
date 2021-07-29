@@ -2,13 +2,13 @@
 title: Azure 리소스 로그 지원 서비스 및 스키마
 description: Azure 리소스 로그에 대해 지원되는 서비스 및 이벤트 스키마에 대해 알아봅니다.
 ms.topic: reference
-ms.date: 04/07/2020
-ms.openlocfilehash: d219153f9d1dfbcd05cbe28a5ac0609a156c68a9
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 05/10/2021
+ms.openlocfilehash: 5d9ae1cd9ca1d5f71d4ad2baff95159bf0e2e7f8
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142570"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112026438"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Azure 리소스 로그에 대한 공통 및 서비스별 스키마
 
@@ -47,7 +47,7 @@ ms.locfileid: "108142570"
 
 | 서비스 | 스키마 및 문서 |
 | --- | --- |
-| Azure Active Directory | [개요](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [감사 로그 스키마](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) 및 [로그인 스키마](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [개요](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [감사 로그 스키마](../../active-directory/reports-monitoring/overview-reports.md) 및 [로그인 스키마](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | [Azure Analysis Services - 진단 로깅 설정](../../analysis-services/analysis-services-logging.md) |
 | API Management | [API Management 리소스 로그](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | App Service | [App Service 로그](../../app-service/troubleshoot-diagnostic-logs.md)
@@ -55,6 +55,7 @@ ms.locfileid: "108142570"
 | Azure Automation |[Azure Automation에 대한 Log Analytics](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 로깅](../../batch/batch-diagnostics.md) |
 | Cognitive Services | [Azure Cognitive Services에 대한 로깅](../../cognitive-services/diagnostic-logging.md) |
+| Container Instances | [Azure Container Instances에 대한 로깅](../../container-instances/container-instances-log-analytics.md#log-schema) |
 | Container Registry | [Azure Container Registry에 대한 로깅](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Content Delivery Network | [CDN에 대한 Azure 로그](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB 로깅](../../cosmos-db/monitor-cosmos-db.md) |
@@ -76,6 +77,7 @@ ms.locfileid: "108142570"
 | Kubernetes Service |[Azure Kubernetes 로깅](../../aks/view-control-plane-logs.md#log-event-schema) |
 | Load Balancer |[Azure Load Balancer에 대한 Log analytics](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B 사용자 지정 추적 스키마](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| Media Services | [미디어 서비스 모니터링 스키마](../../media-services/latest/monitoring/monitor-media-services-data-reference.md#schemas) |
 | 네트워크 보안 그룹 |[NSG(네트워크 보안 그룹)에 대한 로그 분석](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | Power BI 전용 | [Azure의 Power BI Embedded에 대한 로깅](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Azure Backup용 데이터 모델](../../backup/backup-azure-reports-data-model.md)|
@@ -83,7 +85,7 @@ ms.locfileid: "108142570"
 | Service Bus |[Azure Service Bus 로그](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database 로깅](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[작업 로그](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| Storage | [Blob](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [파일](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [큐](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview), [테이블](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |
+| 스토리지 | [Blob](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [파일](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [큐](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview), [테이블](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |
 | Traffic Manager | [Traffic Manager 로그 스키마](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | 가상 네트워크 | 스키마를 사용할 수 없음 |
 | Virtual Network 게이트웨이 | 스키마를 사용할 수 없음 |

@@ -3,12 +3,12 @@ title: 이니셔티브 정의 구조의 세부 정보
 description: 조직의 Azure 리소스에 배포하기 위한 정책 정의를 그룹화하는 데 정책 이니셔티브 정의를 사용하는 방법을 설명합니다.
 ms.date: 03/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: edd3f25dd528d1a718c9287c9f30988b87fb73e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7efe34c76df46bb4499def5b92521eedecaee22d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104587222"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108744950"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Azure Policy 이니셔티브 정의 구조
 
@@ -196,7 +196,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 ### <a name="strongtype"></a>strongType
 
-`metadata` 속성 안에 **strongType** 을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType** 은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. 리소스 유형이 **strongType** 에 유효한지 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다.
+`metadata` 속성 안에 **strongType** 을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType** 은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. _리소스 유형_ 이 **strongType** 에 유효한지 여부를 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다.
 
 Get-AzResourceProvider에서 반환하지 않는 일부 리소스 유형이 지원됩니다. 해당 리소스 종류는 다음과 같습니다.
 
@@ -323,7 +323,7 @@ Microsoft에서 만든 규정 준수 기본 제공에는 각 컨트롤에 대한
 - [정의 구조](./definition-structure.md) 참조
 - [Azure Policy 샘플](../samples/index.md)에서 예제를 검토합니다.
 - [정책 효과 이해](effects.md)를 검토합니다.
-- [프로그래밍 방식으로 정책을 만드는](../how-to/programmatically-create.md) 방법을 이해합니다.
+- [프로그래밍 방식으로 정책을 생성](../how-to/programmatically-create.md)하는 방법을 이해합니다.
 - [규정 준수 데이터를 가져오는](../how-to/get-compliance-data.md) 방법을 알아봅니다.
 - [규정 비준수 리소스를 수정](../how-to/remediate-resources.md)하는 방법을 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

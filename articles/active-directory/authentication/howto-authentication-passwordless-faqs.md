@@ -11,21 +11,21 @@ author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca4943293f9474d4089267d05460d6d8766b79e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d146be642050c169dabf009352a34ad595fab84
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646387"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746426"
 ---
 # <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad"></a>Azure AD에서 하이브리드 FIDO2 보안 키에 대한 배포 FAQ(질문과 대답) 
 
-이 문서는 하이브리드 Azure AD 조인 디바이스에 대한 배포 FAQ(질문과 대답) 및 온-프레미스 리소스에 대한 암호 없는 로그인에 대해 다룹니다. 이 암호 없는 기능을 사용하면 FIDO2 보안 키를 사용하여 하이브리드 Azure AD 조인 디바이스에 대해 Windows 10 디바이스에서 Azure AD 인증을 사용하도록 설정할 수 있습니다. 사용자는 FIDO2 키와 같은 최신 자격 증명을 사용하여 디바이스에서 Windows에 로그인하고, 온-프레미스 리소스에 대해 원활한 SSO(Single Sign-On) 환경을 사용하여 기존 AD DS(Active Directory Domain Services) 기반 리소스에 액세스할 수 있습니다.
+이 문서는 하이브리드 Azure AD 조인 디바이스에 대한 배포 FAQ(질문과 대답) 및 온-프레미스 리소스에 대한 암호 없는 로그인에 대해 다룹니다. 이 암호 없는 기능을 사용하면 FIDO2 보안 키를 사용하여 하이브리드 Azure AD 조인 디바이스에 대해 Windows 10 디바이스에서 Azure AD 인증을 사용하도록 설정할 수 있습니다. 사용자는 FIDO2 키와 같은 최신 자격 증명을 사용하여 디바이스에서 Windows에 로그인하고, 온-프레미스 리소스에 대해 원활한 SSO(Single Sign-On) 환경을 사용하여 기존 Active Directory Domain Services(AD DS) 기반 리소스에 액세스할 수 있습니다.
 
 하이브리드 환경의 사용자를 위해 다음 시나리오가 지원됩니다.
 
 * FIDO2 보안 키를 사용하여 하이브리드 Azure AD 조인 디바이스에 로그인하고 온-프레미스 리소스에 대한 SSO 액세스를 가져옵니다.
-* FIDO2 보안 키를 사용하여 하이브리드 Azure AD 조인 디바이스에 로그인하고 온-프레미스 리소스에 대한 SSO 액세스를 가져옵니다.
+* FIDO2 보안 키를 사용하여 Azure AD 조인 디바이스에 로그인하고 온-프레미스 리소스에 대한 SSO 액세스를 가져옵니다.
 
 FIDO2 보안 키 및 온-프레미스 리소스에 대한 하이브리드 액세스를 시작하려면 다음 문서를 참조하세요.
 
@@ -66,7 +66,11 @@ FIDO2 보안 키를 등록하고 사용하는 방법에 대한 자세한 내용�
 
 아니요, 현재로는 안 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+### <a name="why-i-am-getting-notallowederror-in-the-browser-when-registering-fido2-keys"></a>FIDO2 키를 등록할 때 브라우저에 "NotAllowedError"가 표시되는 이유는 무엇인가요?
+
+fido2 키 등록 페이지에서 "NotAllowedError"를 받게 됩니다. 이 문제는 일반적으로 사용자가 프라이빗(Incognito) 창에 있거나 FIDO2 프라이빗 키 액세스를 사용할 수 없는 원격 데스크톱을 사용하는 경우에 발생합니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [인터넷에 연결되지 않은 경우 이 기능이 작동하나요?](#does-this-feature-work-if-theres-no-internet-connectivity)
 * [Azure AD에서 열려 있어야 하는 특정 엔드포인트는 무엇인가요?](#what-are-the-specific-end-points-that-are-required-to-be-open-to-azure-ad)
@@ -225,13 +229,13 @@ Azure AD Connect는 Azure AD에서 AD DS로 정보를 다시 쓰지 않습니다
 
 HTTP 요청은 표준 PRT(기본 새로 고침 토큰) 요청입니다. 이 PRT 요청은 Kerberos TGT(Ticket Granting Ticket)가 필요함을 나타내는 클레임을 포함합니다.
 
-| 클레임 | 값 | 설명                             |
+| 클레임 | 값 | Description                             |
 |-------|-------|-----------------------------------------|
 | tgt   | true  | 클레임은 클라이언트에 TGT가 필요함을 나타냅니다. |
 
 Azure AD는 암호화된 클라이언트 키와 메시지 버퍼를 PRT 응답에 추가 속성으로 결합합니다. 페이로드는 Azure AD 디바이스 세션 키를 사용하여 암호화됩니다.
 
-| 필드              | Type   | 설명  |
+| 필드              | Type   | Description  |
 |--------------------|--------|--------------|
 | tgt_client_key     | 문자열 | Base64 인코딩된 클라이언트 키(비밀)입니다. 이 키는 TGT를 보호하는 데 사용되는 클라이언트 암호입니다. 이 암호 없는 시나리오에서 클라이언트 암호는 각 TGT 요청의 일부로 서버에서 생성된 다음, 응답에서 클라이언트로 반환됩니다. |
 | tgt_key_type       | int    | 클라이언트 키와 KERB_MESSAGE_BUFFER에 포함된 Kerberos 세션 키 모두에 사용되는 온-프레미스 AD DS 키 유형입니다. |

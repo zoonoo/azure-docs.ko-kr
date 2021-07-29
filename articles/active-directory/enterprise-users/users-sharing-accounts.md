@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb088d56879ebdf5d439c913ac47a701db5c4a60
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 6993357241e646e1e8b70c65a9aa45ba0e20f477
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96576250"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963594"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Azure AD와 계정 공유
 
@@ -29,7 +29,7 @@ ms.locfileid: "96576250"
 경우에 따라 조직에서는 여러 사용자에 단일 사용자 이름 및 암호를 사용해야 합니다. 보통은 다음 두 경우입니다.
 
 * 온-프레미스 앱이나 소비자 클라우드 서비스 등, 각 사용자에 대한 고유의 로그인과 암호가 필요한 애플리케이션을 액세스할 때(예: 기업 소셜 미디어 계정)
-* 다중 사용자 환경을 만들 때. 상승된 권한이 있고 핵심 설정, 관리 및 복구 작업에 사용되는 단일 로컬 계정을 가지고 있습니다. 예를 들어 Microsoft 365에 대 한 로컬 "전역 관리자" 계정 또는 Salesforce의 루트 계정입니다.
+* 다중 사용자 환경을 만들 때. 상승된 권한이 있고 핵심 설정, 관리 및 복구 작업에 사용되는 단일 로컬 계정을 가지고 있습니다. Salesforce의 루트 계정이나 Microsoft 365에 대한 로컬 "전역 관리자" 계정을 예로 들 수 있습니다.
 
 일반적으로 이러한 계정은 자격 증명(사용자 이름/암호)을 적합한 개인에게 배포하거나 신뢰할 수 있는 여러 에이전트가 액세스할 수 있는 공유 위치에 저장하여 공유합니다.
 
@@ -61,7 +61,7 @@ Azure AD는 모든 유형의 암호 Single Sign-on 애플리케이션 전체에�
 * 사용자 지정 암호 앱
 * [앱 사용 대시보드/보고서](../authentication/howto-sspr-reporting.md)
 * 최종 사용자 액세스 포털
-* [앱 프록시](../manage-apps/application-proxy.md)
+* [앱 프록시](../app-proxy/application-proxy.md)
 * [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory)
 
 ## <a name="sharing-an-account"></a>계정 공유

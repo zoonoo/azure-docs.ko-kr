@@ -2,17 +2,18 @@
 title: DNS 영역 및 레코드 보호 - Azure DNS
 description: 이 학습 경로에서 Microsoft Azure DNS의 DNS 영역과 레코드 집합 보호를 시작합니다.
 services: dns
-author: asudbring
+author: duongau
 ms.service: dns
 ms.topic: how-to
-ms.date: 2/20/2020
-ms.author: allensu
-ms.openlocfilehash: 85aaf40237b6b6687c54d4b036f280805c98e7b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/05/2021
+ms.author: duau
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2da488eaf020f38e164b0dc3102ef589e2ee5f85
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102618970"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110697014"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>DNS 영역 및 레코드를 보호하는 방법
 
@@ -34,13 +35,13 @@ DNS 영역 기여자 역할은 프라이빗 DNS 리소스를 관리하기 위해
 
 Azure RBAC 권한을 할당하는 가장 간단한 방법은 [Azure Portal을 사용](../role-based-access-control/role-assignments-portal.md)하는 것입니다.  
 
-리소스 그룹에 대한 **Access control(IAM)** 을 열고 **추가** 를 선택한 다음, **DNS 영역 기여자** 역할을 선택합니다. 필요한 사용자 또는 그룹을 선택하여 권한을 부여합니다.
+리소스 그룹에 대한 **Access control(IAM)** 을 열고 **+ 추가** 를 선택한 다음, **DNS 영역 기여자** 역할을 선택합니다. 필요한 사용자 또는 그룹을 선택하여 권한을 부여합니다.
 
-![Azure Portal을 통한 리소스 그룹 수준 Azure RBAC](./media/dns-protect-zones-recordsets/rbac1.png)
+:::image type="content" source="./media/dns-protect-zones-recordsets/resource-group-rbac.png" alt-text="리소스 그룹에 대한 액세스 제어 페이지의 스크린샷":::
 
 권한은 [Azure PowerShell을 사용하여 부여](../role-based-access-control/role-assignments-powershell.md)할 수도 있습니다.
 
-```azurepowershell
+```azurepowershell-interactive
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
 
 $usr = "<user email address>"
@@ -52,7 +53,7 @@ New-AzRoleAssignment -SignInName $usr -RoleDefinitionName $rol -ResourceGroupNam
 
 동일한 명령을 [Azure CLI를 통해 사용](../role-based-access-control/role-assignments-cli.md)할 수도 있습니다.
 
-```azurecli
+```azurecli-interactive
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
 
 az role assignment create \
@@ -67,13 +68,13 @@ az role assignment create \
 
 예를 들어 리소스 그룹 *myResourceGroup* 에는 *contoso.com* 영역과 *customers.contoso.com* 하위 영역이 포함됩니다. CNAME 레코드는 각 고객 계정에 대해 생성됩니다. CNAME 레코드를 관리하는 데 사용되는 관리자 계정에는 *customers.contoso.com* 영역에 레코드를 만들 수 있는 권한이 할당됩니다. 이 계정은 *customers.contoso.com* 만 관리할 수 있습니다.
 
-영역 수준 Azure RBAC 권한은 Azure Portal을 통해 부여할 수 있습니다.  해당 영역의 **Access Control(IAM)** 을 열고, **추가** 를 선택한 다음, **DNS 영역 기여자** 역할을 선택하고 권한을 부여할 사용자 또는 그룹을 선택합니다.
+영역 수준 Azure RBAC 권한은 Azure Portal을 통해 부여할 수 있습니다.  해당 영역의 **Access Control(IAM)** 을 열고, **+ 추가** 를 선택한 다음, **DNS 영역 기여자** 역할을 선택하고 권한을 부여할 사용자 또는 그룹을 선택합니다.
 
-![Azure Portal을 통한 DNS 영역 수준 Azure RBAC](./media/dns-protect-zones-recordsets/rbac2.png)
+:::image type="content" source="./media/dns-protect-zones-recordsets/zone-rbac.png" alt-text="DNS 영역에 대한 액세스 제어 페이지의 스크린샷":::
 
 권한은 [Azure PowerShell을 사용하여 부여](../role-based-access-control/role-assignments-powershell.md)할 수도 있습니다.
 
-```azurepowershell
+```azurepowershell-interactive
 # Grant 'DNS Zone Contributor' permissions to a specific zone
 
 $usr = "<user email address>"
@@ -87,7 +88,7 @@ New-AzRoleAssignment -SignInName $usr -RoleDefinitionName $rol -ResourceGroupNam
 
 동일한 명령을 [Azure CLI를 통해 사용](../role-based-access-control/role-assignments-cli.md)할 수도 있습니다.
 
-```azurecli
+```azurecli-interactive
 # Grant 'DNS Zone Contributor' permissions to a specific zone
 
 az role assignment create \
@@ -100,13 +101,13 @@ az role assignment create \
 
 권한은 레코드 집합 수준에서 적용됩니다.  사용자에게 필요한 항목에 대한 제어 권한이 부여되고 다른 사항은 변경할 수 없습니다.
 
-레코드 집합 수준 Azure RBAC 권한은 Azure Portal을 이용하여 레코드 집합 페이지에서 **Access Control(IAM)** 단추를 사용하여 구성할 수 있습니다.
+Azure Portal에서 레코드 집합 페이지의 **사용자** 단추를 사용하여 레코드 집합 수준 Azure RBAC 권한을 구성할 수 있습니다.
 
-![Azure Portal을 통한 레코드 집합 수준 Azure RBAC](./media/dns-protect-zones-recordsets/rbac3.png)
+:::image type="content" source="./media/dns-protect-zones-recordsets/record-set-rbac-1.png" alt-text="레코드 집합에 있는 사용자 단추의 스크린샷":::
 
 레코드 집합 수준 Azure RBAC 권한은 [Azure PowerShell을 사용하여 부여](../role-based-access-control/role-assignments-powershell.md)할 수도 있습니다.
 
-```azurepowershell
+```azurepowershell-interactive
 # Grant permissions to a specific record set
 
 $usr = "<user email address>"
@@ -119,7 +120,7 @@ New-AzRoleAssignment -SignInName $usr -RoleDefinitionName $rol -Scope $sco
 
 동일한 명령을 [Azure CLI를 통해 사용](../role-based-access-control/role-assignments-cli.md)할 수도 있습니다.
 
-```azurecli
+```azurecli-interactive
 # Grant permissions to a specific record set
 
 az role assignment create \
@@ -172,14 +173,14 @@ CNAME을 관리하는 데 사용되는 계정에는 CNAME 레코드만 관리할
 
 사용자 지정 역할 정의는 현재 Azure Portal을 통해 정의할 수 없습니다. 이 역할 정의를 기준으로 하는 사용자 지정 역할은 Azure PowerShell을 사용하여 만들 수 있습니다.
 
-```azurepowershell
+```azurepowershell-interactive
 # Create new role definition based on input file
 New-AzRoleDefinition -InputFile <file path>
 ```
 
 Azure CLI를 통해 만들 수도 있습니다.
 
-```azurecli
+```azurecli-interactive
 # Create new role definition based on input file
 az role create -inputfile <file path>
 ```
@@ -198,13 +199,13 @@ Azure Resource Manager는 리소스 잠금 기능과 같은 다른 유형의 보
 
 변경을 방지하려면 해당 영역에 ReadOnly 잠금을 적용합니다. 잠금 기능을 적용하면 새 레코드 집합의 생성을 방지하고 기존 레코드 집합의 수정이나 삭제를 방지합니다.
 
-Azure Portal을 통해 영역 수준의 리소스 잠금을 만들 수 있습니다.  DNS 영역 페이지에서 **잠금** 을 선택한 다음, **+추가** 를 선택합니다.
+Azure Portal을 통해 영역 수준의 리소스 잠금을 만들 수 있습니다. DNS 영역 페이지에서 **잠금** 을 선택한 다음, **+ 추가** 를 선택합니다.
 
-![Azure Portal을 통한 영역 수준 리소스 잠금](./media/dns-protect-zones-recordsets/locks1.png)
+:::image type="content" source="./media/dns-protect-zones-recordsets/zone-locks.png" alt-text="영역 수준 리소스 잠금의 스크린샷":::
 
 또한 [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock)을 통해 영역 수준 리소스 잠금이 가능합니다.
 
-```azurepowershell
+```azurepowershell-interactive
 # Lock a DNS zone
 
 $lvl = "<lock level>"
@@ -216,9 +217,9 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-동일한 명령을 [Azure CLI를 통해 사용](/cli/azure/lock#az-lock-create)할 수도 있습니다.
+동일한 명령을 [Azure CLI를 통해 사용](/cli/azure/lock#az_lock_create)할 수도 있습니다.
 
-```azurecli
+```azurecli-interactive
 # Lock a DNS zone
 
 az lock create \
@@ -239,7 +240,7 @@ az lock create \
 
 레코드 집합 수준 리소스 잠금은 현재 Azure PowerShell을 사용해야 구성할 수 있으며  Azure Portal 또는 Azure CLI에서 지원되지 않습니다.
 
-```azurepowershell
+```azurepowershell-interactive
 # Lock a DNS record set
 
 $lvl = "<lock level>"
@@ -261,7 +262,7 @@ Azure DNS에서 영역이 삭제되면 해당 영역에 있는 모든 레코드 
 
 다음 PowerShell 명령은 지정된 영역의 SOA 레코드에 대해 CanNotDelete 잠금을 만듭니다.
 
-```azurepowershell
+```azurepowershell-interactive
 # Protect against zone delete with CanNotDelete lock on the record set
 
 $lvl = "CanNotDelete"

@@ -1,18 +1,19 @@
 ---
-title: 'Azure VPN Gateway: P2S VPN 클라이언트 프로필 정보'
-description: 이 문서를 사용하여 VPN 클라이언트 프로필에 필요한 정보를 찾을 수 있습니다.
+title: 지점 및 사이트 간 VPN 클라이언트 프로필 정보
+titleSuffix: Azure VPN Gateway
+description: P2S VPN 클라이언트 프로필 파일에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/08/2021
 ms.author: cherylmc
-ms.openlocfilehash: 9bb66363d525648df08f32451842402ad1d0d93b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d26f65dfa8419b3c07825774423dec4bd5557a05
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99979076"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227815"
 ---
 # <a name="working-with-p2s-vpn-client-profile-files"></a>P2S VPN 클라이언트 프로필 파일 사용
 

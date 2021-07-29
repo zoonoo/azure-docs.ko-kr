@@ -1,6 +1,6 @@
 ---
 title: '가상 네트워크 게이트웨이 삭제: Azure 클래식'
-description: 클래식 배포 모델에서 PowerShell을 사용하여 가상 네트워크 게이트웨이를 삭제합니다.
+description: 클래식 배포 모델에서 PowerShell을 사용하여 가상 네트워크 게이트웨이를 삭제하는 방법을 알아봅니다.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 39585a68c5cddc50cd04e82caca71209270f7b68
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e26c317295081531f295042efa812f091f06814a
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91874121"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291085"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>PowerShell(클래식)을 사용하여 가상 네트워크 삭제
 
@@ -88,7 +88,7 @@ Status : Successful
  </Gateway>
 ```
 
-예:
+예제:
 
 ```
 <Gateway>
@@ -144,7 +144,7 @@ P2S를 VNet에 연결한 경우 **VPNClientAddressPool** 이 있습니다. 삭�
  </Gateway>
 ```
 
-예:
+예제:
 
 ```
 <Gateway>
@@ -167,7 +167,7 @@ VNet에 해당하는 **GatewaySubnet** 을 삭제합니다.
  </Subnets>
 ```
 
-예:
+예제:
 
 ```
 <Subnets>

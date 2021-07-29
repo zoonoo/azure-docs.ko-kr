@@ -8,14 +8,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: MashaMSFT
+ms.reviewer: cawrites
 ms.date: 11/06/2020
-ms.openlocfilehash: f515725ea0f306546039b92d953254a093b15b8b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 06da7175456125cfb65c6007f283da2eb6b93622
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065177"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786808"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-database"></a>마이그레이션 개요: SQL Server를 Azure SQL Database로
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션하기 
 - GCP(Google Cloud Platform)의 컴퓨팅 엔진  
 - GCP의 SQL Server용 Cloud SQL 
 
-다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](https://docs.microsoft.com/data-migration)을 참조하세요. 
+다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](/data-migration)을 참조하세요. 
 
 ## <a name="overview"></a>개요
 
@@ -41,6 +41,8 @@ SQL Database는 다양한 유형의 애플리케이션 또는 워크로드에 �
 SQL Database로 마이그레이션할 때 주요 이점 중 하나는 PaaS 기능을 사용하여 애플리케이션을 현대화할 수 있다는 것입니다. 그러면 SQL 에이전트 작업과 같이 인스턴스 수준에서 범위가 지정된 기술 구성 요소에 대한 종속성을 제거할 수 있습니다.
 
 SQL Server에 대한 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 이용하여 SQL Server 온-프레미스 라이선스를 Azure SQL Database로 마이그레이션하면 비용을 절감할 수도 있습니다. 이 옵션은 [vCore 기반 구매 모델](../../database/service-tiers-vcore.md)을 선택한 경우에 사용할 수 있습니다.
+
+[Azure SQL Database에서 사용할](../../database/features-comparison.md) 수 있는 SQL Server 데이터베이스 엔진 기능을 검토하여 마이그레이션 대상의 지원 가능성을 확인해야 합니다.  
 
 ## <a name="considerations"></a>고려 사항 
 
@@ -95,7 +97,7 @@ Azure SQL Database의 올바른 배포 모델 및 서비스 계층을 선택하�
 
 다음 마이그레이션 도구를 권장합니다. 
 
-|기술 | 설명|
+|기술 | Description|
 |---------|---------|
 | [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | 이 Azure 서비스는 VMware에서 대규모 SQL 데이터 자산을 검색하고 평가하는 데 도움이 됩니다. Azure SQL 배포 권장 사항, 대상 크기 조정 및 월간 예상 비용을 제공합니다. | 
 |[데이터 Migration Assistant](/sql/dma/dma-migrateonpremsqltosqldb)|Microsoft의 이 데스크톱 도구는 SQL Server 및 Azure SQL Database로의 단일 데이터베이스 마이그레이션(스키마 및 데이터 모두)에 대한 원활한 평가를 제공합니다. </br></br>이 도구는 온-프레미스 서버 또는 원본 데이터베이스에 연결된 로컬 컴퓨터에 설치할 수 있습니다. 마이그레이션 프로세스는 원본 및 대상 데이터베이스의 개체 간의 논리적 데이터 이동입니다.|
@@ -105,7 +107,7 @@ Azure SQL Database의 올바른 배포 모델 및 서비스 계층을 선택하�
 
 다음 표에는 대체 마이그레이션 도구가 나와 있습니다. 
 
-|기술 |설명  |
+|기술 |Description  |
 |---------|---------|
 |[트랜잭션 복제](../../database/replication-to-sql-database.md)|트랜잭션 일관성을 유지하면서 게시자-구독자 유형 마이그레이션 옵션을 제공하여 원본 SQL Server 데이터베이스 테이블에서 Azure SQL Database로 데이터를 복제합니다. 증분 데이터 변경 사항은 게시자에서 발생하면 구독자에게 전파됩니다.|
 |[가져오기 내보내기 서비스/BACPAC](../../database/database-import.md)|[BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac)는 데이터베이스의 스키마와 데이터를 캡슐화하는 확장명이 .bacpac인 Windows 파일입니다. BACPAC를 사용하여 SQL Server 원본에서 데이터를 내보내고 Azure SQL Database로 데이터를 가져올 수 있습니다. BACPAC 파일은 Azure Portal을 통해 새 SQL 데이터베이스로 가져올 수 있습니다. </br></br> 데이터베이스 크기가 크거나 데이터베이스 수가 많은 경우 규모와 성능을 얻으려면 [SqlPackage](../../database/database-import.md#using-sqlpackage) 명령줄 도구를 사용하여 데이터베이스를 내보내고 가져오는 것이 좋습니다.|
@@ -153,17 +155,12 @@ Always On 장애 조치(failover) 클러스터 인스턴스 및 Always On 가용
 
 Azure SQL Database에 포함된 고가용성 아키텍처 외에도 [자동 장애 조치(failover) 그룹](../../database/auto-failover-group-overview.md) 기능을 사용하면 관리형 인스턴스에서 다른 지역으로의 데이터베이스 복제 및 장애 조치(failover)를 관리할 수 있습니다. 
 
+### <a name="logins-and-groups"></a>로그인 및 그룹
+
+Azure SQL Database에서는 Windows 로그인이 지원되지 않습니다. 대신 Azure Active Directory 로그인을 생성합니다. SQL 로그인을 수동으로 다시 생성합니다. 
+
 ### <a name="sql-agent-jobs"></a>SQL 에이전트 작업
 SQL 에이전트 작업은 Azure SQL Database에서 직접 지원되지 않으며 [탄력적 데이터베이스 작업(미리 보기)](../../database/job-automation-overview.md)에 배포해야 합니다.
-
-### <a name="logins-and-groups"></a>로그인 및 그룹
-오프라인 모드에서 Database Migration Service를 사용하여 SQL 로그인을 SQL Server 원본에서 Azure SQL Database로 이동합니다. 마이그레이션 마법사에서 **선택한 로그인** 창을 사용하여 대상 SQL 데이터베이스로 로그인을 마이그레이션합니다. 
-
-Database Migration Service **구성** 페이지에서 해당 토글을 사용하여 Database Migration Service를 통해 Windows 사용자 및 그룹을 마이그레이션할 수도 있습니다. 
-
-또는 Microsoft 데이터 마이그레이션 설계자가 특별히 설계한 [PowerShell 유틸리티](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins)를 사용할 수 있습니다. 이 유틸리티는 PowerShell을 사용해 T-SQL(Transact-SQL) 스크립트를 만들어 로그인을 다시 만들고 원본에서 대상으로 데이터베이스 사용자를 선택합니다. 
-
-PowerShell 유틸리티는 Windows Server Active Directory 계정을 Azure AD(Azure Active Directory) 계정에 자동으로 매핑하고, 원본 Active Directory 인스턴스의 각 로그인에 대해 UPN 조회를 수행할 수 있습니다. 유틸리티는 역할 멤버 자격 및 사용자 권한과 함께 사용자 지정 서버 및 데이터베이스 역할을 스크립팅합니다. 포함된 데이터베이스는 아직 지원되지 않으며 가능한 SQL Server 권한의 하위 집합만 스크립팅됩니다. 
 
 ### <a name="system-databases"></a>시스템 데이터베이스
 Azure SQL Database의 경우 해당 시스템 데이터베이스만 [master](/sql/relational-databases/databases/master-database) 및 tempdb입니다. 자세히 알아보려면 [Azure SQL Database의 Tempdb](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database)를 참조하세요.

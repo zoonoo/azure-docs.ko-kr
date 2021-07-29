@@ -1,14 +1,14 @@
 ---
 title: 정책 준수 데이터 가져오기
 description: Azure Policy 평가 및 효과는 준수를 결정합니다. Azure 리소스의 규정 준수 세부 정보를 가져오는 방법을 알아봅니다.
-ms.date: 03/16/2021
+ms.date: 04/19/2021
 ms.topic: how-to
-ms.openlocfilehash: cdd23d685750fb8a5d3803f4b6030e7e67bbddce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fcc82e2f86746f68000e9cfcafedf2d7b8b3105d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104598544"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733574"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 규정 준수 데이터 가져오기
 
@@ -36,6 +36,8 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 
 - 리소스는 Azure Resource Manager, REST API 또는 지원되는 SDK를 통해 할당된 범위 내에 배포되거나 업데이트됩니다. 이 시나리오에서 효과 이벤트(추가, 감사, 거부, 배포) 및 개별 리소스에 대한 호환 상태 정보는 약 15분 후에 포털 및 SDK에서 사용할 수 있습니다. 이 이벤트는 다른 리소스에 대한 평가로 이어지지 않습니다.
 
+- 구독(리소스 종류 `Microsoft.Resource/subscriptions`)은 구독 리소스 종류를 대상으로 하는 할당된 정책 정의를 사용하여 [관리 그룹 계층 구조](../../management-groups/overview.md) 내에서 만들어지거나 이동됩니다. 구독 지원 효과(감사, auditIfNotExist, deployIfNotExists, 수정), 로깅 및 모든 수정 작업의 평가에는 약 30분이 소요됩니다.
+
 - [정책 예외](../concepts/exemption-structure.md)가 생성, 업데이트 또는 삭제됩니다. 이 시나리오에서는 정의된 예외 범위에 대해 해당 할당이 평가됩니다.
 
 - 표준 준수 평가 주기입니다. 24시간마다 한 번씩 할당은 자동으로 다시 계산됩니다. 많은 리소스에 대해 대규모 정책 또는 이니셔티브를 평가하는 데는 시간이 걸릴 수 있습니다. 따라서 평가 주기 완료 시점을 미리 예측할 수 없습니다. 작업이 완료되면 업데이트된 준수 결과는 포털 및 SDK에서 지원됩니다.
@@ -53,22 +55,21 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 
 [Azure Policy 규정 준수 검사 작업](https://github.com/marketplace/actions/azure-policy-compliance-scan)을 사용하면 하나 또는 여러 리소스, 리소스 그룹 또는 구독의 [GitHub 워크플로](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows)에서 주문형 평가 검사를 트리거하고, 리소스의 규정 준수 상태에 따라 워크플로 경로를 제어할 수 있습니다. 또한 예정된 시간에 실행되어 편리한 시간에 최신 규정 준수 상태를 가져오도록 워크플로를 구성할 수 있습니다. 필요에 따라 이 GitHub 작업은 추가 분석 또는 보관을 위해 검사한 리소스의 규정 준수 상태에 대한 보고서를 생성할 수도 있습니다.
 
-다음 예제에서는 구독의 규정 준수 검사를 실행합니다. 
+다음 예제에서는 구독의 규정 준수 검사를 실행합니다.
 
 ```yaml
 on:
-  schedule:    
+  schedule:
     - cron:  '0 8 * * *'  # runs every morning 8am
 jobs:
-  assess-policy-compliance:    
+  assess-policy-compliance:
     runs-on: ubuntu-latest
-    steps:         
+    steps:
     - name: Login to Azure
       uses: azure/login@v1
       with:
-        creds: ${{secrets.AZURE_CREDENTIALS}} 
+        creds: ${{secrets.AZURE_CREDENTIALS}}
 
-    
     - name: Check for resource compliance
       uses: azure/policy-compliance-scan@v0
       with:
@@ -113,9 +114,9 @@ $job = Start-AzPolicyComplianceScan -AsJob
 ```azurepowershell-interactive
 $job
 
-Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
---     ----            -------------   -----         -----------     --------             -------
-2      Long Running O… AzureLongRunni… Running       True            localhost            Start-AzPolicyCompliance…
+Id     Name              PSJobTypeName     State         HasMoreData     Location             Command
+--     ----              -------------     -----         -----------     --------             -------
+2      Long Running O... AzureLongRunni... Running       True            localhost            Start-AzPolicyCompliance...
 ```
 
 규정 준수 검사가 완료되면 **상태** 속성이 _완료_ 로 변경됩니다.
@@ -179,7 +180,7 @@ Visual Studio code에 대한 Azure Policy 확장은 특정 리소스에 대한 �
 예를 들어, 공용 네트워크에 노출되는 일부 스토리지 계정(빨간색으로 강조 표시됨)이 있는 리소스 그룹이 ContosoRG라고 가정해 보겠습니다.
 
 :::image type="complex" source="../media/getting-compliance-data/resource-group01.png" alt-text="Contoso R G 리소스 그룹의 공용 네트워크에 노출된 스토리지 계정의 다이어그램." border="false":::
-   Contoso R G 리소스 그룹의 5개 스토리지 계정에 대한 이미지를 보여 주는 다이어그램.  스토리지 계정 1과 3은 파란색이고 스토리지 계정은 2, 4, 5는 빨간색입니다.
+   Contoso R G 리소스 그룹의 5개 스토리지 계정에 대한 이미지를 보여 주는 다이어그램. 스토리지 계정 1과 3은 파란색이고 스토리지 계정은 2, 4, 5는 빨간색입니다.
 :::image-end:::
 
 이 예에서는 보안 위험에 주의해야 합니다. 정책 할당을 만들었으므로 이제 ContosoRG 리소스 그룹의 포함 및 비예외 스토리지 계정에 대해 모두 평가합니다. 이 정책 할당은 비준수 스토리지 계정 3개를 감사하여 해당 상태를 **비준수** 로 변경합니다.
@@ -195,7 +196,7 @@ Visual Studio code에 대한 Azure Policy 확장은 특정 리소스에 대한 �
 - **시작되지 않음**: 정책이나 리소스에 대한 평가 주기가 시작되지 않았습니다.
 - **등록되지 않음**: Azure Policy Resource Provider가 등록되지 않았거나 로그인한 계정에 규정 준수 데이터를 읽을 권한이 없습니다.
 
-Azure Policy는 정의의 **type**, **name** 또는 **kind** 필드를 사용하여 리소스가 정의와 일치하는지 확인합니다. 리소스가 일치하는 경우 적용 가능하며 **준수**, **비준수** 또는 **예외** 상태로 간주됩니다. 정의의 속성이 **type** 또는 **name** 또는 **kind** 뿐이면 포함된 모든 비예외 리소스는 정책을 적용할 수 있는 리소스로 간주되어 평가됩니다.
+Azure Policy는 정의의 **type**, **name** 또는 **kind** 필드를 사용하여 리소스가 일치하는지 확인합니다. 리소스가 일치하는 경우 적용 가능하며 **준수**, **비준수** 또는 **예외** 상태로 간주됩니다. 정의의 속성이 **type** 또는 **name** 또는 **kind** 뿐이면 포함된 모든 비예외 리소스는 정책을 적용할 수 있는 리소스로 간주되어 평가됩니다.
 
 **준수** 및 **예외** 상태의 리소스를 ‘총 리소스 수’로 나누는 방법을 통해 규정 준수 비율이 결정됩니다. ‘총 리소스 수’는 **준수**, **비준수**, **예외**, **충돌** 상태의 리소스 수를 합한 값으로 정의됩니다. 전체 규정 준수 리소스 수는 **준수** 또는 **예외** 상태인 고유 리소스의 합을 모든 고유 리소스의 합으로 나눈 결과입니다. 아래 그림의 경우 정책을 적용할 수 있는 고유 리소스 20개 중 **비준수** 리소스는 1개뿐입니다.
 전체 리소스 규정 준수 비율은 95%(20개 중 19)입니다.
@@ -227,7 +228,7 @@ Azure Portal에서는 환경에서 준수 상태를 시각화하고 이해하는
 
 :::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="리소스 공급자 모드 할당에 대한 구성 요소 규정 준수 탭 및 규정 준수 세부 정보의 스크린샷." border="false":::
 
-자세한 세부 정보를 수집하려는 이벤트의 행을 마우스 오른쪽 단추로 클릭하고 **활동 로그 표시** 를 선택합니다. 활동 로그 페이지가 열리고 할당 및 이벤트에 대한 세부 정보를 보여주는 검색에 대해 미리 필터링됩니다. 활동 로그는 해당 이벤트에 대한 추가 컨텍스트 및 정보를 제공합니다.
+리소스 규정 준수 페이지로 돌아가 자세한 세부 정보를 수집하려는 이벤트의 행을 길게 선택(또는 마우스 오른쪽 단추로 클릭)하고 **활동 로그 표시** 를 선택합니다. 활동 로그 페이지가 열리고 할당 및 이벤트에 대한 세부 정보를 보여주는 검색에 대해 미리 필터링됩니다. 활동 로그는 해당 이벤트에 대한 추가 컨텍스트 및 정보를 제공합니다.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Azure Policy 작업 및 평가에 대한 활동 로그의 스크린샷." border="false":::
 

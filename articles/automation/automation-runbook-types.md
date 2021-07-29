@@ -3,15 +3,15 @@ title: Azure Automation Runbook 형식
 description: 이 문서에서는 Azure Automation에서 사용할 수 있는 Runbook의 유형 및 사용할 형식을 결정하기 위한 고려 사항을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/17/2021
+ms.date: 06/10/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9528443e7e89ecb91db70736d2051f813b130cce
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c64a712cc916cad0f6f6fec77f33fcb422f834fb
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073183"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982973"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook 형식
 
@@ -122,11 +122,14 @@ Python 3 Runbook은 다음과 같은 Azure 글로벌 인프라에서 지원됩�
 * Python 스크립팅에 대해 잘 알아야 합니다.
 * 타사 라이브러리를 사용하려면 Automation 계정으로 [패키지를 가져와야](python-packages.md) 합니다.
 * PowerShell/PowerShell Workflow에서 **Start-AutomationRunbook** cmdlet을 사용하여 Python 3 Runbook(미리 보기)을 시작할 수 없습니다. 이 제한 사항을 해결하려면 Az.Automation 모듈의  **Start-AzAutomationRunbook** cmdlet 또는 AzureRm.Automation 모듈의  **Start-AzureRmAutomationRunbook** cmdlet을 사용하면 됩니다.  
-* Azure Automation은  **sys.stderr** 를 지원하지 않습니다.
+* Azure Automation은  **sys.stderr** 을 지원하지 않습니다.
 
 ### <a name="known-issues"></a>알려진 문제
 
-Python 3 작업이 *잘못된 인터프리터 실행 가능 경로* 예외 메시지와 함께 실패하는 경우가 있습니다. 작업이 지연되거나 시작에 10분 이상 걸리거나 **Start-AutomationRunbook** 을 사용하여 Python 3 Runbook을 시작하는 경우 이 예외가 표시될 수 있습니다. 작업이 지연되는 경우 Runbook을 다시 시작하는 것으로 충분합니다.
+클라우드 작업의 경우 Python 3 작업이 예외 메시지 `invalid interpreter executable path`로 실패하는 경우가 있습니다. 작업이 지연되거나 10분 이상 시작되거나 **Start-AutomationRunbook** 을 사용하여 Python 3 Runbook을 시작하는 경우 이 예외가 표시될 수 있습니다. 작업이 지연되는 경우 Runbook을 다시 시작하는 것으로 충분합니다. 다음 단계를 사용하는 경우 하이브리드 작업은 문제 없이 작동해야 합니다.
+
+1. `PYTHON_3_PATH`라는 새 환경 변수를 만들고 설치 폴더를 지정합니다. 예를 들어 설치 폴더가 `C:\Python3`인 경우 이 경로를 변수에 추가해야 합니다.
+1. 환경 변수를 설정하면 컴퓨터를 다시 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

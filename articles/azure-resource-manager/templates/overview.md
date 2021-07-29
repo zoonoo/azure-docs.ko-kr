@@ -3,12 +3,12 @@ title: 템플릿 개요
 description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 리소스 배포를 수행하는 경우의 이점에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 14bcbbd7a7ae7315dbb8e9d3e7e44ce0ffe0a4b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 62d25d2bd87f9335ac6442a7038f9326b04b36b0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419986"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960356"
 ---
 # <a name="what-are-arm-templates"></a>ARM 템플릿이란?
 
@@ -18,7 +18,7 @@ ms.locfileid: "103419986"
 
 Azure 솔루션의 코드형 인프라를 구현하려면 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하세요. 해당 템플릿은 프로젝트에 대한 인프라 및 구성을 정의하는 JSON(JavaScript Object Notation) 파일입니다. 이 템플릿은 대상을 만들기 위한 프로그래밍 명령 시퀀스를 작성하지 않고도 배포하려는 대상을 설명할 수 있는 선언적 구문입니다. 배포할 리소스와 해당 리소스의 속성을 템플릿에서 지정합니다.
 
-ARM 템플릿 개발을 위해 새로운 언어를 도입되었습니다. Bicep이라는 이름의 언어로 현재 미리 보기 상태입니다. Bicep과 JSON 템플릿은 동일한 기능을 제공합니다. 두 언어 간에 템플릿을 변환할 수 있습니다. Bicep은 템플릿을 만들 때 보다 간편하게 사용할 수 있는 구문을 제공합니다. 자세한 내용은 [Bicep(미리 보기)란?](bicep-overview.md)을 참조하세요.
+ARM 템플릿 JSON을 개발하는 데 사용되는 Bicep이라는 새 언어를 도입했습니다. Bicep 파일과 JSON 템플릿은 동일한 기능을 제공합니다. 두 언어 간에 템플릿을 변환할 수 있습니다. Bicep은 템플릿을 만들 때 보다 간편하게 사용할 수 있는 구문을 제공합니다. 자세한 내용은 [Bicep이란 무엇인가요?](../bicep/overview.md)를 참조하세요.
 
 ARM 템플릿을 사용하는 방법에 대한 자세한 내용은 다음 비디오를 참조하세요.
 
@@ -44,7 +44,7 @@ ARM 템플릿과 다른 코드형 인프라 서비스 중 무엇을 사용할지
 
 * **테스트**: ARM 템플릿 도구 키트(arm-ttk)로 템플릿을 테스트하여 권장 지침을 따르는지 확인할 수 있습니다. 이 테스트 키트는 [GitHub](https://github.com/Azure/arm-ttk)에서 다운로드할 수 있는 PowerShell 스크립트입니다. 도구 키트를 사용하면 템플릿 언어를 사용하여 보다 쉽게 전문성을 계발할 수 있습니다.
 
-* **변경 내용 미리 보기**: [가상 작업](template-deploy-what-if.md)을 사용하여 템플릿을 배포하기 전에 변경 내용 미리 보기를 가져올 수 있습니다. 가상 작업으로 어떤 리소스가 생성되고, 업데이트되고, 삭제될 것인지 확인하고, 변경될 모든 리소스 속성을 볼 수 있습니다. 가상 작업은 사용자 환경의 현재 상태를 확인하고 상태를 관리할 필요가 없도록 해 줍니다.
+* **변경 내용 미리 보기**: [가상 작업](./deploy-what-if.md)을 사용하여 템플릿을 배포하기 전에 변경 내용 미리 보기를 가져올 수 있습니다. 가상 작업으로 어떤 리소스가 생성되고, 업데이트되고, 삭제될 것인지 확인하고, 변경될 모든 리소스 속성을 볼 수 있습니다. 가상 작업은 사용자 환경의 현재 상태를 확인하고 상태를 관리할 필요가 없도록 해 줍니다.
 
 * **기본 제공 유효성 검사**: 템플릿이 배포되려면 먼저 유효성 검사를 통과해야 합니다. 또한 Resource Manager는 배포의 성공 여부를 확인하기 위해 배포를 시작하기 전에 템플릿을 확인합니다. 배포가 반 정도 완료된 상태에서는 중단될 가능성이 낮습니다.
 
@@ -68,15 +68,15 @@ ARM 템플릿과 다른 코드형 인프라 서비스 중 무엇을 사용할지
 
 템플릿은 다음과 같은 섹션으로 구성됩니다.
 
-* [매개 변수](template-parameters.md) - 배포 중에 다양한 환경에서 동일한 템플릿을 사용할 수 있도록 허용하는 값을 제공합니다.
+* [매개 변수](./parameters.md) - 배포 중에 다양한 환경에서 동일한 템플릿을 사용할 수 있도록 허용하는 값을 제공합니다.
 
-* [변수](template-variables.md) - 템플릿에서 재사용되는 값을 정의합니다. 변수는 매개 변수 값에서 생성될 수 있습니다.
+* [변수](./variables.md) - 템플릿에서 재사용되는 값을 정의합니다. 변수는 매개 변수 값에서 생성될 수 있습니다.
 
-* [사용자 정의 함수](template-user-defined-functions.md) - 템플릿을 간소화하는 사용자 지정 함수를 만듭니다.
+* [사용자 정의 함수](./user-defined-functions.md) - 템플릿을 간소화하는 사용자 지정 함수를 만듭니다.
 
 * [리소스](resource-declaration.md) - 배포할 리소스를 지정합니다.
 
-* [출력](template-outputs.md) - 배포된 리소스의 값을 반환합니다.
+* [출력](./outputs.md) - 배포된 리소스의 값을 반환합니다.
 
 ## <a name="template-deployment-process"></a>템플릿 배포 프로세스
 
@@ -151,6 +151,6 @@ REQUEST BODY
 
 * 템플릿 만들기 프로세스를 안내하는 단계별 자습서는 [자습서: 첫 번째 ARM 템플릿 만들기 및 배포](template-tutorial-create-first-template.md)를 참조하세요.
 * Microsoft Learn의 단계별 모듈 세트를 통한 ARM 템플릿에 대한 자세한 내용은 [ARM 템플릿을 사용하여 Azure에서 리소스 배포 및 관리](/learn/paths/deploy-manage-resource-manager-templates/)를 참조하세요.
-* 템플릿 파일의 속성에 대한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.
+* 템플릿 파일의 속성에 대한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](./syntax.md)를 참조하세요.
 * 템플릿 내보내기에 대한 자세한 내용은 [빠른 시작: Azure Portal을 사용하여 ARM 템플릿 만들기 및 배포](quickstart-create-templates-use-the-portal.md)를 참조하세요.
 * 일반적인 문의 사항에 대한 답변은 [ARM 템플릿에 대해 자주 묻는 질문](frequently-asked-questions.md)을 참조하세요.

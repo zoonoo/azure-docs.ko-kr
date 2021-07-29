@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 4/27/2021
+ms.date: 05/28/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60473d034820627605616c0bc280f1f105f4b3e5
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: cdd4fe2f749f36fe0016e0cba71093cd6083dda8
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124112"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110783788"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대한 액세스 검토 만들기
 
@@ -32,15 +32,15 @@ ms.locfileid: "108124112"
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] PIM의 라이선스에 대한 자세한 내용은 [Privileged Identity Management를 사용하기 위한 라이선스 요구 사항](subscription-requirements.md)을 참조하세요.
 
 > [!Note]
->  현재 테넌트에서 활성화된 Azure Active Directory Premium P2 버전을 사용하여 Azure AD 및 Azure 리소스 역할(미리 보기)에 액세스할 수 있는 서비스 주체에 대한 액세스 검토의 범위를 지정할 수 있습니다. 서비스 주체에 대한 라이선스 모델은 이 기능의 일반 공급용으로 최종 결정되며 추가 라이선스가 필요할 수 있습니다.
+> 현재 테넌트에서 활성화된 Azure Active Directory Premium P2 버전을 사용하여 Azure AD 및 Azure 리소스 역할(미리 보기)에 액세스할 수 있는 서비스 주체에 대한 액세스 검토의 범위를 지정할 수 있습니다. 서비스 주체에 대한 라이선스 모델은 이 기능의 일반 공급용으로 최종 결정되며 추가 라이선스가 필요할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-[권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator)
+전역 관리자
 
 ## <a name="open-access-reviews"></a>액세스 검토 열기
 
-1. 권한 있는 역할 관리자 역할의 구성원인 사용자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. 전역 관리자 역할이 할당된 사용자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. **ID 거버넌스** 를 선택합니다.
  
@@ -73,16 +73,16 @@ ms.locfileid: "108124112"
 12. **역할 멤버 자격 검토** 에서 검토할 권한 있는 Azure AD 역할을 선택합니다. 
 
     > [!NOTE]
-    > - 여기에서 선택한 역할에는 [영구적 역할 및 적격 역할](../privileged-identity-management/pim-how-to-add-role-to-user.md)이 모두 포함됩니다.
     > - 둘 이상의 역할을 선택하면 여러 액세스 검토가 생성됩니다. 예를 들어 5개의 역할을 선택하면 별도의 액세스 검토가 5개 생성됩니다.
     > - 그룹이 할당된 역할의 경우 검토 중인 역할과 연결된 각 그룹의 액세스는 액세스 검토의 일부로 검토됩니다.
     **Azure AD 역할** 의 액세스 검토를 만드는 경우 다음은 멤버 자격 검토 목록 예제를 보여 줍니다.
 
-    ![선택할 수 있는 Azure AD 역할을 나열하는 멤버 자격 검토 창](./media/pim-how-to-start-security-review/review-membership.png)
+    > [!NOTE]
+    > 둘 이상의 역할을 선택하면 여러 액세스 검토가 생성됩니다. 예를 들어 5개의 역할을 선택하면 별도의 액세스 검토가 5개 생성됩니다.
 
-    **Azure 리소스 역할** 의 액세스 검토를 만드는 경우 다음 이미지는 멤버 자격 검토 목록 예제를 보여 줍니다.
+1. **할당 유형** 에서 주체가 역할에 할당된 방식에 따라 검토 범위를 지정합니다. **(미리 보기) 적격 할당만** 을 선택하여 검토 생성시 활성화 상태에 관계없이 적격 할당을 검토하거나 **(미리 보기) 활성 할당만** 을 선택하여 활성 할당을 검토합니다. 유형에 관계없이 모든 할당을 검토하려면 **모든 활성 및 적격 할당** 을 선택합니다.
 
-    ![선택할 수 있는 Azure 리소스 역할을 나열하는 멤버 자격 검토 창](./media/pim-how-to-start-security-review/review-membership-azure-resource-roles.png)
+     ![검토자 할당 유형 목록](./media/pim-how-to-start-security-review/assignment-type-select.png)
 
 13. **검토자** 섹션에서 모든 사용자를 검토할 한 명 이상의 사용자를 선택합니다. 또는 구성원이 자신의 액세스 권한을 검토하도록 할 수도 있습니다.
 

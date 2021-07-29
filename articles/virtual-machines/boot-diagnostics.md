@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 030f19d61e19349de7e2d3416a3aee1385fd03c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fbd3d9c3607a0326e7ad9403c8e69d20dafc952a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104607525"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108740306"
 ---
 # <a name="azure-boot-diagnostics"></a>Azure 부팅 진단
 
@@ -102,7 +102,7 @@ API 버전 2020-06-01 이후의 모든 항목은 관리형 부팅 진단을 지�
 ```
 
 ## <a name="limitations"></a>제한 사항
-- 부팅 진단은 Azure Resource Manager VM에만 사용할 수 있습니다.
+- 관리형 부팅 진단은 Azure Resource Manager VM에만 사용할 수 있습니다. 
 - 관리형 부팅 진단은 비관리형 OS 디스크를 사용하는 VM을 지원하지 않습니다.
 - 부팅 진단은 Premium Storage 계정을 지원하지 않습니다. Premium Storage 계정이 부팅 진단에 사용되면 사용자가 VM을 시작할 때 `StorageAccountTypeNotSupported` 오류가 발생합니다. 
 - 관리형 스토리지 계정은 Resource Manager API 버전 "2020-06-01" 이상에서 지원됩니다.

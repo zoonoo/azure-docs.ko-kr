@@ -10,13 +10,14 @@ ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 01/15/2021
-ms.openlocfilehash: a51aa15e1338380d4b4179e7fb8899273750c374
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.date: 05/01/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0e2e6bc57a830b5257d246a4229e174cf8612d3c
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107183"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110662525"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Azure SQL 논리 서버의 Azure Attestation 구성
 
@@ -31,18 +32,10 @@ Azure SQL Database에서 [보안 enclave를 사용한 Always Encrypted](/sql/rel
 
 1. [증명 공급자](../../attestation/basic-concepts.md#attestation-provider)를 만들고 권장 증명 정책으로 구성합니다.
 
-2. Azure SQL 논리 서버에 증명 공급자에 대한 액세스 권한을 부여합니다.
+2. 증명 URL을 확인하고 애플리케이션 프로그램 관리자와 공유합니다.
 
 > [!NOTE]
 > 증명을 구성하는 것은 증명 관리자의 책임입니다. [SGX enclave 및 증명을 구성할 때의 역할 및 책임](always-encrypted-enclaves-plan.md#roles-and-responsibilities-when-configuring-sgx-enclaves-and-attestation)을 참조하세요.
-
-## <a name="requirements"></a>요구 사항
-
-Azure SQL 논리 서버와 증명 공급자는 동일한 Azure Active Directory 테넌트에 속해야 합니다. 테넌트 간 상호 작용은 지원되지 않습니다. 
-
-Azure SQL 논리 서버에 Azure AD ID가 할당되어 있어야 합니다. 증명 관리자는 해당 서버의 Azure SQL Database 관리자로부터 서버의 Azure AD ID를 얻어야 합니다. ID를 사용하여 증명 공급자에 대한 서버 액세스 권한을 부여합니다. 
-
-PowerShell 및 Azure CLI를 사용하여 ID가 있는 서버를 만들거나 기존 서버에 ID를 할당하는 방법에 대한 자세한 내용은 [서버에 Azure AD ID 할당](transparent-data-encryption-byok-configure.md#assign-an-azure-active-directory-azure-ad-identity-to-your-server)을 참조하세요.
 
 ## <a name="create-and-configure-an-attestation-provider"></a>증명 공급자 만들기 및 구성
 
@@ -92,62 +85,21 @@ authorizationrules
 
 ## <a name="determine-the-attestation-url-for-your-attestation-policy"></a>증명 정책의 증명 URL 확인
 
-증명 정책을 구성한 후에는 Azure SQL Database의 보안 enclave를 사용하여 Always Encrypted를 사용하는 애플리케이션의 관리자를 참조하는 증명 URL을 공유해야 합니다. 애플리케이션 관리자 또는/및 애플리케이션 사용자는 보안 enclave를 사용하는 문을 실행할 수 있도록 증명 URL을 사용하여 앱을 구성해야 합니다.
-
-### <a name="use-powershell-to-determine-the-attestation-url"></a>PowerShell을 사용하여 증명 URL 확인
-
-다음 스크립트를 사용하여 증명 URL을 확인합니다.
-
-```powershell
-$attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName 
-$attestationUrl = $attestationProvider.AttestUri + "/attest/SgxEnclave"
-Write-Host "Your attestation URL is: " $attestationUrl 
-```
+증명 정책을 구성한 후에는 Azure SQL Database의 보안 엔클레이브로 Always Encrypted를 사용하는 애플리케이션의 관리자와 증명 URL을 공유해야 합니다. 증명 URL은 증명 정책을 포함하는 증명 공급자의 `Attest URI`이며 `https://MyAttestationProvider.wus.attest.azure.net`과 같습니다.
 
 ### <a name="use-azure-portal-to-determine-the-attestation-url"></a>Azure Portal을 사용하여 증명 URL 확인
 
-1. 증명 공급자의 개요 창에서 증명 URI 속성의 값을 클립보드에 복사합니다. 증명 URI는 다음과 같이 표시됩니다. `https://MyAttestationProvider.us.attest.azure.net`.
+증명 공급자의 개요 창에서 `Attest URI` 속성의 값을 클립보드에 복사합니다. 
 
-2. 증명 URI에 다음을 추가합니다. `/attest/SgxEnclave`. 
+### <a name="use-powershell-to-determine-the-attestation-url"></a>PowerShell을 사용하여 증명 URL 확인
 
-결과 증명 URL은 다음과 같습니다. `https://MyAttestationProvider.us.attest.azure.net/attest/SgxEnclave`
-
-## <a name="grant-your-azure-sql-logical-server-access-to-your-attestation-provider"></a>Azure SQL 논리 서버에 증명 공급자에 대한 액세스 권한 부여
-
-증명 워크플로 중에 데이터베이스를 포함하는 Azure SQL 논리 서버는 증명 공급자를 호출하여 증명 요청을 제출합니다. Azure SQL 논리 서버가 증명 요청을 제출할 수 있도록 하려면 서버에 증명 공급자의 `Microsoft.Attestation/attestationProviders/attestation/read` 작업에 대한 권한이 있어야 합니다. 권한을 부여하는 권장 방법은 증명 공급자의 관리자가 서버의 Azure AD ID를 증명 공급자 또는 해당 리소스 그룹의 증명 판독기 역할에 할당하는 것입니다.
-
-### <a name="use-azure-portal-to-assign-permission"></a>Azure Portal을 사용하여 권한 할당
-
-증명 공급자의 증명 판독기 역할에 Azure SQL 서버의 ID를 할당하려면 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)의 일반 지침을 수행합니다. **역할 할당 추가** 창에 있는 경우:
-
-1. **역할** 드롭다운에서 **증명 판독기** 역할을 선택합니다.
-1. **선택** 필드에 검색할 Azure SQL 서버의 이름을 입력합니다.
-
-예제를 보려면 아래 스크린샷을 참조하세요.
-
-![증명 판독기 역할 할당](./media/always-encrypted-enclaves/attestation-provider-role-assigment.png)
-
-> [!NOTE]
-> **역할 할당 추가** 창에 서버를 표시하려면 서버에 Azure AD ID가 할당되어 있어야 합니다. [요구 사항](#requirements)을 참조하세요.
-
-### <a name="use-powershell-to-assign-permission"></a>PowerShell을 사용하여 권한 할당
-
-1. Azure SQL 논리 서버를 찾습니다.
+`Get-AzAttestation` Cmdlet을 사용하여 AttestURI를 포함하는 증명 공급자 속성을 검색합니다.
 
 ```powershell
-$serverResourceGroupName = "<server resource group name>"
-$serverName = "<server name>" 
-$server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
-```
- 
-2. 증명 공급자를 포함하는 리소스 그룹의 증명 판독기 역할에 서버를 할당합니다.
-
-```powershell
-$attestationResourceGroupName = "<attestation provider resource group name>"
-New-AzRoleAssignment -ObjectId $server.Identity.PrincipalId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName
+Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName
 ```
 
-자세한 내용은 [Azure PowerShell을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-powershell.md#assign-role-examples)을 참조하세요.
+자세한 내용은 [증명 공급자 만들기 및 관리](../../attestation/quickstart-powershell.md#create-and-manage-an-attestation-provider)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

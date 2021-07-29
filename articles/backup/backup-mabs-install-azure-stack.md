@@ -3,12 +3,12 @@ title: Azure Stack에 Azure Backup Server 설치
 description: 이 문서에서는 Azure Backup Server를 사용하여 Azure Stack에서 워크로드를 보호하거나 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 12dfd15c2bd43816dd361fdf45995bcbcd6fba56
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c133645f1d813380ba4bd6095afb6af5bdc94379
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98987008"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767764"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
 
@@ -361,7 +361,7 @@ Azure 구독을 *만료됨* 또는 *프로비전 해제됨* 상태에서 *활성
 ## <a name="troubleshooting"></a>문제 해결
 
 설치(또는 백업 또는 복원) 단계에서 오류와 함께 Microsoft Azure Backup 서버가 실패하는 경우 [오류 코드 문서](https://support.microsoft.com/kb/3041338)를 참조하세요.
-[Azure Backup 관련 FAQ](backup-azure-backup-faq.md)
+[Azure Backup 관련 FAQ](backup-azure-backup-faq.yml)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -370,5 +370,5 @@ Azure 구독을 *만료됨* 또는 *프로비전 해제됨* 상태에서 *활성
 다음 문서를 통해 Microsoft Azure Backup Server를 사용한 워크로드 보호에 대해 좀 더 자세히 알아볼 수 있습니다.
 
 - [SQL Server 백업](./backup-mabs-sql-azure-stack.md)
-- [SharePoint 서버 백업](./backup-mabs-sharepoint-azure-stack.md)
+- [SharePoint Server 백업](./backup-mabs-sharepoint-azure-stack.md)
 - [대체 서버 백업](backup-azure-alternate-dpm-server.md)

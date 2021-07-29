@@ -3,20 +3,20 @@ title: Azure Monitor의 경고 스키마 정의
 description: Azure Monitor에 대한 일반 경고 스키마 정의 이해
 author: ofirmanor
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 02092f5a241824d2a9aef242b544f8900af7ebec
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.date: 04/12/2021
+ms.openlocfilehash: a026fa846901d4db7cb56196de50508f077e4fc6
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045397"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018262"
 ---
 # <a name="common-alert-schema-definitions"></a>일반 경고 스키마 정의
 
 이 문서에서는 웹후크, Azure Logic Apps, Azure Functions 및 Azure Automation Runbook을 포함하여 Azure Monitor에 대한 [일반 경고 스키마 정의](./alerts-common-schema.md)에 대해 설명합니다. 
 
 모든 경고 인스턴스는 영향을 받은 리소스 및 경고의 원인을 설명합니다. 이러한 인스턴스는 다음 섹션의 공통 스키마에 설명되어 있습니다.
-* **Essentials**: 모든 경고 유형에 공통인 표준화된 필드 세트로, 경고가 발생하는 리소스를 설명하고 추가 공통 경고 메타데이터(예: 심각도 또는 설명)를 설명합니다. 
+* **Essentials**: 모든 경고 유형에 공통인 표준화된 필드 세트로, 경고가 발생하는 리소스를 설명하고 추가 공통 경고 메타데이터(예: 심각도 또는 설명)를 설명합니다. 심각도 정의는 [경고 개요](alerts-overview.md#overview)에서 찾을 수 있습니다. 
 * **경고 컨텍스트**: 경고 유형에 따라 달라지는 필드를 사용하여 경고의 원인을 설명하는 필드 세트입니다. 예를 들어 메트릭 경고에는 경고 컨텍스트에 메트릭 이름 및 메트릭 값과 같은 필드가 포함되는 반면, 활동 로그 경고에는 경고를 생성한 이벤트에 대한 정보가 있습니다. 
 
 **샘플 경고 페이로드**
@@ -72,7 +72,7 @@ ms.locfileid: "102045397"
 
 | 필드 | Description|
 |:---|:---|
-| alertId | 경고 인스턴스를 고유하게 식별하는 GUID입니다. |
+| alertId | 경고 인스턴스를 식별하는 고유 리소스 ID입니다. |
 | alertRule | 경고 인스턴스를 생성한 경고 규칙의 이름입니다. |
 | 심각도 | 경고 심각도입니다. 가능한 값은 다음과 같습니다. Sev0, Sev1, Sev2, Sev3 또는 Sev4. |
 | signalType | 경고 규칙이 정의된 신호를 식별합니다. 가능한 값은 다음과 같습니다. 메트릭, 로그 또는 활동 로그. |
@@ -110,7 +110,7 @@ ms.locfileid: "102045397"
 
 ## <a name="alert-context"></a>경고 컨텍스트
 
-### <a name="metric-alerts"></a>메트릭 경고
+### <a name="metric-alerts-excluding-availability-tests"></a>메트릭 경고(가용성 테스트 제외)
 
 #### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
 
@@ -145,10 +145,41 @@ ms.locfileid: "102045397"
 }
 ```
 
+### <a name="metric-alerts-availability-tests"></a>메트릭 경고(가용성 테스트)
+
+#### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
+
+**샘플 값**
+```json
+{
+  "alertContext": {
+      "properties": null,
+      "conditionType": "WebtestLocationAvailabilityCriteria",
+      "condition": {
+        "windowSize": "PT5M",
+        "allOf": [
+          {
+            "metricName": "Failed Location",
+            "metricNamespace": null,
+            "operator": "GreaterThan",
+            "threshold": "2",
+            "timeAggregation": "Sum",
+            "dimensions": [],
+            "metricValue": 5,
+            "webTestName": "myAvailabilityTest-myApplication"
+          }
+        ],
+        "windowStartTime": "2019-03-22T13:40:03.064Z",
+        "windowEndTime": "2019-03-22T13:45:03.064Z"
+      }
+    }
+}
+```
+
 ### <a name="log-alerts"></a>로그 경고
 
 > [!NOTE]
-> 사용자 지정 이메일 제목 및/또는 JSON 페이로드가 정의된 로그 경고의 경우 공통 스키마를 사용하도록 설정하면 이메일 제목 및/또는 페이로드 스키마가 다음과 같이 설정된 것으로 되돌아갑니다. 공통 스키마가 활성화된 경고는 경고당 256KB로 제한됩니다. 검색 결과는 경고 크기가 이 임계값을 초과하게 되면 로그 경고 페이로드에 포함되지 않습니다. `IncludeSearchResults` 플래그를 선택하여 이를 확인할 수 있습니다. 검색 결과가 포함 되지 않은 경우 또는를 사용 하 여 `LinkToFilteredSearchResultsAPI` `LinkToSearchResultsAPI` [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get)로 쿼리 결과에 액세스 해야 합니다.
+> 사용자 지정 이메일 제목 및/또는 JSON 페이로드가 정의된 로그 경고의 경우 공통 스키마를 사용하도록 설정하면 이메일 제목 및/또는 페이로드 스키마가 다음과 같이 설정된 것으로 되돌아갑니다. 즉, 사용자 지정 JSON 페이로드를 정의하려는 경우 웹후크에서 일반 경고 스키마를 사용할 수 없습니다. 공통 스키마가 활성화된 경고는 경고당 256KB로 제한됩니다. 검색 결과는 경고 크기가 이 임계값을 초과하게 되면 로그 경고 페이로드에 포함되지 않습니다. `IncludeSearchResults` 플래그를 선택하여 이를 확인할 수 있습니다. 검색 결과가 포함되지 않은 경우 `LinkToFilteredSearchResultsAPI` 또는 `LinkToSearchResultsAPI`를 사용하여 [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get)를 통해 쿼리 결과에 액세스해야 합니다.
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
