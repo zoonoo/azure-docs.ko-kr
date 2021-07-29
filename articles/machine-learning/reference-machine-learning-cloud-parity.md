@@ -1,7 +1,7 @@
 ---
-title: 공용 지역과 소버린 지역 간 패리티
+title: 클라우드 지역 간 기능 가용성
 titleSuffix: Azure Machine Learning
-description: 이 문서는 퍼블릭 클라우드와 Azure Government, Azure 독일 및 Azure 중국 21Vianet 지역 간의 기능 패리티를 나열합니다.
+description: 이 문서는 퍼블릭 클라우드와 Azure Government, Azure 독일 및 Azure 중국 21Vianet 지역 간의 기능 가용성 차이점을 나열합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,34 +9,30 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 12/21/2020
+ms.date: 06/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: b0a720b1b51c2f1bafa581e75cb8ab00b15a4b2d
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 0e8c63827ba6e2e022e0d7876952b0a159c1e569
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750432"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984629"
 ---
-# <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning 소버린 클라우드 패리티
+# <a name="azure-machine-learning-feature-availability-across-clouds-regions"></a>Azure Machine Learning 클라우드 지역 간 기능 가용성
 
-소버린 클라우드 지역에서 사용할 수 있는 Azure Machine Learning 기능에 대해 알아봅니다. 
+Azure Government, Azure 독일 및 Azure 중국 21Vianet 지역에서 사용할 수 있는 Azure Machine Learning 기능에 대해 알아봅니다. 
 
-글로벌 Azure 지역 목록에는 특정 시장에 서비스를 제공하는 몇 가지 '소버린' 지역이 있습니다. 예를 들어 Azure Government 및 Azure 중국 21Vianet 지역이 있습니다. 현재 Azure Machine Learning은 다음 소버린 클라우드 지역에 배포됩니다.
+글로벌 Azure 지역 목록에는 퍼블릭 클라우드 지역 외에도 특정 시장에 서비스를 제공하는 여러 지역이 있습니다. 예를 들어 Azure Government 및 Azure 중국 21Vianet 지역이 있습니다. Azure Machine Learning은 퍼블릭 클라우드 지역 외에도 다음 지역에 배포됩니다.
 
 * Azure Government 지역 **미국 애리조나** 및 **미국 버지니아**
 * Azure 중국 21Vianet 지역 **중국 동부 2**
 
-> [!TIP]
-> 소버린과 비 소버린 지역 간에 구분하기 위해 이 문서에서는 __퍼블릭 클라우드__ 라는 용어를 사용하여 비 소버린 지역을 참조합니다.
-
-퍼블릭 클라우드와 소버린 지역 간에 최대 패리티를 제공하는 것을 목표로 합니다. 퍼블릭 클라우드에서 **GA(일반 공급)의 30일** 이내에 이러한 지역에서 모든 Azure Machine Learning 기능을 사용할 수 있습니다. 또한 이러한 지역에서 선택한 수의 미리 보기 기능도 사용할 수 있습니다. 아래에는 소버린과 퍼블릭 클라우드 간의 현재 패리티 차이가 표시됩니다.
-
+이 문서의 나머지 부분에서는 이러한 지역에서 사용할 수 있는 Azure Machine Learning 기능에 대한 정보와 함께 이러한 기능 사용에 대한 지역별 정보를 제공합니다.
 ## <a name="azure-government"></a>Azure Government 
 
 | 기능 | 퍼블릭 클라우드 상태  | 미국 버지니아 | 미국 애리조나| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
-| **자동화된 기계 학습** | | | |
+| **[자동화된 기계 학습](concept-automated-ml.md)** | | | |
 | Notebook에서 실험 만들기 및 실행                                    | GA                   | YES                | YES         |
 | 스튜디오 웹 환경에서 실험 만들기 및 실행                        | 공개 미리 보기       | YES                | YES         |
 | 업계 최고의 예측 기능                                  | GA                   | YES                | YES         |
@@ -44,7 +40,7 @@ ms.locfileid: "109750432"
 | 대량 데이터 지원(최대 100GB)                                          | 공개 미리 보기       | YES                | YES         |
 | Azure Databricks 통합                                              | GA                   | 아니요                 | 아니요          |
 | SQL, CosmosDB 및 HDInsight 통합                                   | GA                   | YES                | YES         |
-| **Machine Learning 파이프라인** |   |  | | 
+| **[Machine Learning 파이프라인](concept-ml-pipelines.md)** |   |  | | 
 | Azure ML SDK를 사용하여 파이프라인 만들기, 실행 및 게시                   | GA                   | YES                | YES         |
 | Azure ML SDK를 사용하여 파이프라인 엔드포인트 만들기                           | GA                   | YES                | YES         |
 | Azure ML SDK를 사용하여 예약된 파이프라인의 실행 만들기, 편집 및 삭제 | GA                   | 예*               | 예*        |
@@ -52,62 +48,62 @@ ms.locfileid: "109750432"
 | Azure ML 디자이너에서 파이프라인 만들기, 실행, 시각화 및 게시          | GA      | YES                | YES         |
 | ML 파이프라인과 Azure Databricks 통합                             | GA                   | 아니요                 | 아니요          |
 | Azure ML 디자이너에서 파이프라인 엔드포인트 만들기                             | GA      | YES                | YES         |
-| **통합 Notebook** |   |  | | 
+| **[통합 Notebook](how-to-run-jupyter-notebooks.md)** |   |  | | 
 | 작업 영역 Notebook 및 파일 공유                                        | GA                   | YES                | YES         |
 | R 및 Python 지원                                                       | GA                   | YES                | YES         |
 | Virtual Network 지원                                                    | 공개 미리 보기       | 아니요                 | 아니요          |
-| **컴퓨팅 인스턴스** |   |  | | 
+| **[컴퓨팅 인스턴스](concept-compute-instance.md)** |   |  | | 
 | 통합 Notebook에 대한 관리되는 컴퓨팅 인스턴스                         | GA                   | YES                | YES         |
 | Jupyter, JupyterLab 통합                                            | GA                   | YES                | YES         |
 | 가상 네트워크(VNet) 지원                                             | 공개 미리 보기       | YES                | YES         |
 | **SDK 지원** |  |  | | 
-| R SDK 지원                                                              | 공개 미리 보기       | YES                | YES         |
-| Python SDK 지원                                                         | GA                   | YES                | YES         |
-| **보안** |   | | | 
+| [R SDK 지원](https://azure.github.io/azureml-sdk-for-r/reference/index.html)                                                              | 공개 미리 보기       | YES                | YES         |
+| [Python SDK 지원](/python/api/overview/azure/ml/)                                                         | GA                   | YES                | YES         |
+| **[보안](concept-enterprise-security.md)** |   | | | 
 | 학습을 위한 VNet(Virtual Network) 지원                                | GA                   | YES                | YES         |
 | 유추를 위한 VNet(Virtual Network) 지원                               | GA                   | YES                | YES         |
 | 엔드포인트 인증 점수 매기기                                            | 공개 미리 보기       | YES                | YES         |
-| 작업 공간 프라이빗 링크                                                     | 공개 미리 보기       | 아니요                 | 아니요          |
+| 작업 영역 프라이빗 엔드포인트                                                 | 공개 미리 보기       | 아니요                 | 아니요          |
 | VNet 뒤에 있는 ACI                                                            | 공개 미리 보기       | 아니요                 | 아니요          |
 | VNet 뒤에 있는 ACR                                                            | 공개 미리 보기       | 아니요                 | 아니요          |
 | AKS 클러스터의 개인 IP                                                  | 공개 미리 보기       | 아니요                 | 아니요          |
 | **컴퓨팅** |   | | |
-| 작업 영역에서 할당량 관리                                         | GA                   | YES                | YES         |
-| **기계 학습에 대한 데이터** |   | | |
+| [작업 영역에서 할당량 관리](how-to-manage-quotas.md)                                         | GA                   | YES                | YES         |
+| **[기계 학습에 대한 데이터](concept-data.md)** |   | | |
 | SDK에서 데이터 세트 및 데이터 저장소 만들기, 보기 또는 편집                  | GA                   | YES                | YES         |
 | UI에서 데이터 세트 및 데이터 저장소 만들기, 보기 또는 편집                   | GA                   | YES                | YES         |
 | SDK에서 데이터 세트 드리프트 모니터 보기, 편집 또는 삭제                   | 공개 미리 보기       | YES                | YES         |
 | UI에서 데이터 세트 드리프트 모니터 보기, 편집 또는 삭제                    | 공개 미리 보기       | YES                | YES         |
 | **기계 학습 수명 주기** |   | | |
-| 모델 프로파일링                                                            | GA                   | YES                | PARTIAL     |
-| Machine Learning 및 Azure ML CLI에 대한 Azure DevOps 확장         | GA                   | YES                | YES         |
-| FPGA 기반 하드웨어 가속 모델                                     | GA                   | 아니요                 | 아니요          |
-| Visual Studio Code 통합                                             | 공개 미리 보기       | 아니요                 | 아니요          |
-| Event Grid 통합                                                     | 공개 미리 보기       | 아니요                 | 아니요          |
-| Azure Machine Learning과 Azure Stream Analytics 통합               | 공개 미리 보기       | 아니요                 | 아니요          |
-| **레이블 지정** |   | | |
+| [모델 프로파일링](how-to-deploy-profile-model.md)                                                            | GA                   | YES                | PARTIAL     |
+| [Azure ML CLI 1.0](reference-azure-machine-learning-cli.md)     | GA                   | YES                | YES         |
+| [FPGA 기반 하드웨어 가속 모델](how-to-deploy-fpga-web-service.md)                                     | GA                   | 아니요                 | 아니요          |
+| [Visual Studio Code 통합](how-to-setup-vs-code.md)                                             | 공개 미리 보기       | 아니요                 | 아니요          |
+| [Event Grid 통합](how-to-use-event-grid.md)                                                     | 공개 미리 보기       | 아니요                 | 아니요          |
+| [Azure Machine Learning과 Azure Stream Analytics 통합](../stream-analytics/machine-learning-udf.md)               | 공개 미리 보기       | 아니요                 | 아니요          |
+| **[레이블 지정](how-to-create-labeling-projects.md)** |   | | |
 | 프로젝트 관리 포털 레이블 지정                                        | GA                   | YES                | YES         |
 | 레이블 지정자 포털                                                            | GA                   | YES                | YES         |
 | 개인 인력을 사용하여 레이블 지정                                          | GA                   | YES                | YES         |
 | ML 지원 레이블 지정(이미지 분류 및 개체 감지)           | 공개 미리 보기       | YES                | YES         |
-| **Responsible ML** |   | | |
+| **[Responsible ML](concept-responsible-ml.md)** |   | | |
 | UI의 설명                                                       | 공개 미리 보기       | 아니요                 | 아니요          |
 | 차등 개인 정보 SmartNoise 도구 키트                                    | OSS                  | 아니요                 | 아니요          |
 | 데이터 시트를 구현하는 Azure Machine Learning의 사용자 지정 태그              | GA                   | 아니요                 | 아니요          |
 | 공정성 AzureML 통합                                               | 공개 미리 보기       | 아니요                 | 아니요          |
 | 해석력 SDK                                                      | GA                   | YES                | YES         |
 | **학습** |   | | |
-| 실험 로그 스트리밍                                              | GA                   | YES                | YES         |
-| 보충 학습                                                     | 공개 미리 보기       | 아니요                 | 아니요          |
-| 실험 UI                                                         | GA                   | YES                | YES         |
-| .NET 통합 ML.NET 1.0                                                | GA                   | YES                | YES         |
+| [실험 로그 스트리밍](how-to-track-monitor-analyze-runs.md)                                              | GA                   | YES                | YES         |
+| [보충 학습](how-to-use-reinforcement-learning.md)                                                     | 공개 미리 보기       | 아니요                 | 아니요          |
+| [실험 UI](how-to-track-monitor-analyze-runs.md)                                                         | 공개 미리 보기                   | YES                | YES         |
+| [.NET 통합 ML.NET 1.0](/dotnet/machine-learning/tutorials/object-detection-model-builder)                                                | GA                   | YES                | YES         |
 | **유추** |   | | |
-| 일괄 처리 추론                                                          | GA                   | YES                | YES         |
-| FPGA를 사용하여 Data Box Edge                                                    | 공개 미리 보기       | 아니요                 | 아니요          |
+| [일괄 처리 추론](tutorial-pipeline-batch-scoring-classification.md)                                                          | GA                   | YES                | YES         |
+| [FPGA를 사용하여 Data Box Edge](how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)                                                    | 공개 미리 보기       | 아니요                 | 아니요          |
 | **기타** |   | | |
-| Open Datasets                                                              | 공개 미리 보기       | YES                | YES         |
-| 사용자 지정 Cognitive Search                                                    | 공개 미리 보기       | YES                | YES         |
-| 많은 모델                                                                | 공개 미리 보기       | 아니요                 | 아니요          |
+| [Open Datasets](/azure/open-datasets/samples)                                                              | 공개 미리 보기       | YES                | YES         |
+| [사용자 지정 Cognitive Search](how-to-deploy-model-cognitive-search.md)                                                    | 공개 미리 보기       | YES                | YES         |
+| [많은 모델 솔루션 가속기](https://github.com/microsoft/solution-accelerator-many-models)                                                                | 공개 미리 보기       | 아니요                 | 아니요          |
 
 
 ### <a name="azure-government-scenarios"></a>Azure Government 시나리오
@@ -131,21 +127,21 @@ ms.locfileid: "109750432"
 
 
 
-### <a name="additional-azure-government-limitations"></a>추가 Azure Government 제한 사항
+### <a name="other-azure-government-limitations"></a>기타 Azure Government 제한 사항
 
 * Azure Machine Learning 컴퓨팅 인스턴스의 경우 24시간 이상 지속되는 토큰을 새로 고치는 기능은 Azure Government에서 사용할 수 없습니다.
 * 모델 프로파일링은 US 애리조나 지역에서 4개의 CPU를 지원하지 않습니다.   
 * 샘플 Notebook은 공용 데이터에 액세스해야 하는 경우 Azure Government에서 작동하지 않을 수 있습니다.
 * IP 주소: [VNet 및 강제 터널링](how-to-secure-training-vnet.md#forced-tunneling) 명령에 사용된 CLI 명령은 IP 범위를 반환하지 않습니다. 대신 [Azure Government에 대한 Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=57063)를 사용합니다.
 * 또한 예약된 파이프라인의 경우 Blob 기반 트리거 메커니즘도 제공합니다. CMK 작업 영역에 대해서는 이 메커니즘이 지원되지 않습니다. CMK 작업 영역에 대한 Blob 기반 트리거를 사용하도록 설정하려면 추가 설치를 수행해야 합니다. 자세한 내용은 [논리 앱에서 기계 학습 파이프라인 실행 트리거](how-to-trigger-published-pipeline.md)를 참조하세요.
-* 방화벽: Azure Government 영역을 사용하는 경우 방화벽 설정에 다음과 같은 추가 호스트를 추가합니다.
+* 방화벽: Azure Government 영역을 사용하는 경우 방화벽 설정에 다음과 같은 호스트를 추가합니다.
 
     * 애리조나의 경우 `usgovarizona.api.ml.azure.us` 사용
     * 버지니아의 경우 `usgovvirginia.api.ml.azure.us` 사용
     * 둘 모두의 경우: `graph.windows.net` 
 
 
-## <a name="azure-china-21vianet"></a>Azure China 21Vianet 
+## <a name="azure-china-21vianet"></a>Azure 중국 21Vianet 
 
 | 기능                                       | 퍼블릭 클라우드 상태 | CH-East-2 | CH-North-3 |
 |----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
@@ -224,7 +220,7 @@ ms.locfileid: "109750432"
 
 
 
-### <a name="additional-azure-china-limitations"></a>추가 Azure 중국 제한 사항
+### <a name="other-azure-china-limitations"></a>기타 Azure 중국 제한 사항
 
 * Azure 중국에는 특히 GPU SKU에 대한 VM SKU가 제한되어 있습니다. NCv3 제품군(V100)만 있습니다.
 * REST API 엔드포인트는 글로벌 Azure와 다릅니다. 다음 표를 사용하여 Azure 중국 지역에 대한 REST API 엔드포인트를 찾습니다.

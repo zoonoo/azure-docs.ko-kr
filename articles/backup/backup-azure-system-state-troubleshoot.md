@@ -4,12 +4,12 @@ description: 이 문서에서는 온-프레미스 Windows 서버에 대한 시�
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 7c8e68da1c5da7b25d1385a82bf7dcc2f876306d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 54425496428c3534c4c7ae47d10bc3a68256a656
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89376284"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163970"
 ---
 # <a name="troubleshoot-system-state-backup"></a>시스템 상태 백업 문제 해결
 
@@ -22,7 +22,7 @@ ms.locfileid: "89376284"
 - [MARS(Microsoft Azure Recovery Services) 에이전트가 최신 상태인지 확인](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [MARS 에이전트와 Azure 간에 네트워크 연결이 있는지 확인](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Microsoft Azure Recovery Services가 실행 중인지 확인(서비스 콘솔에서) 필요한 경우 다시 시작하고 작업을 다시 시도
-- [스크래치 폴더 위치에서 5~10% 볼륨 여유 공간을 사용할 수 있는지 확인](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
+- [스크래치 폴더 위치에서 5~10% 볼륨 여유 공간을 사용할 수 있는지 확인](./backup-azure-file-folder-backup-faq.yml#what-s-the-minimum-size-requirement-for-the-cache-folder-)
 - [다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup을 방해하는지 확인](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
 - [예약 백업은 실패하지만 수동 백업은 작동](./backup-azure-mars-troubleshoot.md#backups-dont-run-according-to-schedule)
 - OS에 최신 업데이트가 설치되었는지 확인
@@ -40,17 +40,17 @@ ms.locfileid: "89376284"
 - Microsoft에서는 시스템 상태 복구를 사용하여 다른 하드웨어로 복구하는 방법을 권장하지 않습니다.
 - 시스템 상태 백업은 현재 "온-프레미스" Windows 서버를 지원합니다. Azure VM에는 이 기능을 사용할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-Azure Backup를 사용하여 시스템 상태 백업 문제를 해결하기 전에 다음 사전 요구 사항을 수행합니다.  
+Azure Backup를 사용하여 시스템 상태 백업 문제를 해결하기 전에 다음 사전 요구 사항을 수행합니다.
 
 ### <a name="verify-windows-server-backup-is-installed"></a>Windows Server 백업이 설치되었는지 확인
 
 Windows Server 백업이 서버에 설치되어 있고 사용하도록 설정되어 있는지 확인합니다. 설치 상태를 확인하려면 다음 PowerShell 명령을 실행합니다.
 
- ```powershell
+```powershell
 Get-WindowsFeature Windows-Server-Backup
- ```
+```
 
 출력에 **설치 상태** 가 **사용 가능** 으로 표시되는 경우 Windows Server 백업 기능을 설치할 수 있지만 서버에 설치된 것은 아니라는 의미입니다. 그러나 Windows Server 백업이 설치되지 않으면 아래 방법 중 하나를 사용하여 설치합니다.
 
@@ -118,7 +118,7 @@ Windows Server 백업 상태 유효성을 검사하려면 다음 단계를 수�
       `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
       > [!NOTE]
-      >X를 시스템 상태 백업 이미지를 저장하려는 볼륨의 드라이브 문자로 바꿉니다.
+      > X를 시스템 상태 백업 이미지를 저장하려는 볼륨의 드라이브 문자로 바꿉니다.
 
     - 관리자 권한 PowerShell에서 `Get-WBJob` 명령을 실행하여 작업의 상태를 주기적으로 확인합니다.
     - 백업 작업이 완료된 후 `Get-WBJob -Previous 1` 명령을 실행하여 작업의 최종 상태를 확인합니다.
@@ -131,19 +131,19 @@ Windows Server 백업 상태 유효성을 검사하려면 다음 단계를 수�
 
 | 증상 | 원인 | 해결 방법
 | -- | -- | --
-| - 다음 오류 메시지와 함께 MARS 에이전트가 실패합니다. "WSB 작업이 VSS 오류로 인해 실패했습니다." 오류를 해결하려면 VSS 이벤트 로그를 확인하세요.”<br/><br/> - 다음 오류 로그는 VSS 애플리케이션 이벤트 로그에 표시됩니다. "VSS 기록기가 0x800423f2 오류 이벤트를 거부했습니다. 기록기의 시간 제한이 동결 및 재개 이벤트 사이에 만료되었습니다."| 컴퓨터의 CPU 및 메모리 리소스가 부족하여 VSS 기록기를 시간 내에 완료할 수 없습니다. <br/><br/> 다른 백업 소프트웨어에서 이미 VSS 기록기를 사용하고 있으므로 이 백업에 대한 결과 스냅샷 작업을 완료할 수 없습니다. | 시스템에서 CPU/메모리가 확보될 때까지 기다리거나 메모리/CPU를 너무 많이 차지하는 프로세스를 중단하고 작업을 다시 시도하십시오. <br/><br/>  진행 중인 백업이 완료될 때까지 기다린 후 나중에 컴퓨터에서 실행 중인 백업이 없을 때 작업을 시도합니다.
+| - 다음 오류 메시지와 함께 MARS 에이전트가 실패합니다. "WSB 작업이 VSS 오류로 인해 실패했습니다. 오류를 해결하려면 VSS 이벤트 로그를 확인하세요."<br/><br/> - 다음 오류 로그는 VSS 애플리케이션 이벤트 로그에 표시됩니다. "VSS 기록기가 0x800423f2 오류 이벤트를 거부했습니다. 기록기의 시간 제한이 동결 및 재개 이벤트 사이에 만료되었습니다."| 컴퓨터의 CPU 및 메모리 리소스가 부족하여 VSS 기록기를 시간 내에 완료할 수 없습니다. <br/><br/> 다른 백업 소프트웨어에서 이미 VSS 기록기를 사용하고 있으므로 이 백업에 대한 결과 스냅샷 작업을 완료할 수 없습니다. | 시스템에서 CPU/메모리가 확보될 때까지 기다리거나 메모리/CPU를 너무 많이 차지하는 프로세스를 중단하고 작업을 다시 시도하십시오. <br/><br/>  진행 중인 백업이 완료될 때까지 기다린 후 나중에 컴퓨터에서 실행 중인 백업이 없을 때 작업을 시도합니다.
 
 ### <a name="insufficient-disk-space-to-grow-shadow-copies"></a>디스크 공간이 부족하여 섀도 복사본을 확장할 수 없습니다.
 
-| 증상 | 해결 방법
+| 증상 | 해상도
 | -- | --
-| - MARS 에이전트가 다음 오류와 함께 실패합니다. 시스템 파일이 포함된 볼륨의 디스크 공간이 부족하여 섀도 복사본 볼륨을 확장할 수 없어서 백업에 실패했습니다. <br/><br/> - 다음 오류/경고 로그는 volsnap 시스템 이벤트 로그에 표시됩니다. "볼륨 C:에 디스크 공간이 부족하여 C:의 섀도 복사본에 대한 섀도 복사본 스토리지 크기를 확장할 수 없습니다. 이 오류로 인해 볼륨 C: 모든 섀도 복사본이 삭제될 위험이 있습니다. | - 백업이 진행되는 동안 섀도 복사본을 확장할 공간이 충분하도록 이벤트 로그에서 강조 표시된 볼륨의 공간을 확보하십시오. <br/><br/> - 섀도 복사본 공간을 구성하는 동안 섀도 복사본에 사용되는 공간 크기를 제한할 수 있습니다. 자세한 내용은 관련 [문서](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)를 참조하세요.
+| - MARS 에이전트가 다음 오류와 함께 실패합니다. 시스템 파일이 포함된 볼륨의 디스크 공간이 부족하여 섀도 복사본 볼륨을 확장할 수 없어서 백업에 실패했습니다. <br/><br/> - 다음 오류/경고 로그는 volsnap 시스템 이벤트 로그에 표시됩니다. "볼륨 C:에 디스크 공간이 부족하여 C:의 섀도 복사본에 대한 섀도 복사본 스토리지 크기를 확장할 수 없습니다. 이 오류로 인해 볼륨 C: 모든 섀도 복사본이 삭제될 위험이 있습니다." | - 백업이 진행되는 동안 섀도 복사본을 확장할 공간이 충분하도록 이벤트 로그에서 강조 표시된 볼륨의 공간을 확보하십시오. <br/><br/> - 섀도 복사본 공간을 구성하는 동안 섀도 복사본에 사용되는 공간 크기를 제한할 수 있습니다. 자세한 내용은 관련 [문서](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)를 참조하세요.
 
 ### <a name="efi-partition-locked"></a>EFI 파티션 잠김
 
-| 증상 | 해결 방법
+| 증상 | 해상도
 | -- | --
-| MARS 에이전트가 다음 오류 메시지와 함께 실패합니다. "EFI 시스템 파티션이 잠겨 있어서 시스템 상태 백업에 실패했습니다. 이는 타사 보안 또는 백업 소프트웨어에서 시스템 파티션에 액세스하기 때문일 수 있습니다. " | - 타사 보안 소프트웨어로 인한 문제인 경우 MARS 에이전트를 허용할 수 있도록 바이러스 백신 공급업체에 문의해야 합니다. <br/><br/> - 타사 백업 소프트웨어가 실행 중인 경우 완료될 때까지 기다렸다가 백업을 다시 시도하십시오.
+| MARS 에이전트가 다음 오류 메시지와 함께 실패합니다. "EFI 시스템 파티션이 잠겨 있어서 시스템 상태 백업에 실패했습니다. 이는 타사 보안 또는 백업 소프트웨어에서 시스템 파티션에 액세스하기 때문일 수 있습니다." | - 타사 보안 소프트웨어로 인한 문제인 경우 MARS 에이전트를 허용할 수 있도록 바이러스 백신 공급업체에 문의해야 합니다. <br/><br/> - 타사 백업 소프트웨어가 실행 중인 경우 완료될 때까지 기다렸다가 백업을 다시 시도하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

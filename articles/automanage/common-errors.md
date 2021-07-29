@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: 3c9f1b76bb707a296da00ac503482efe6a22385b
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 1625c4a73252f202a45dbdefba1576776ea843a0
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278340"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209549"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>일반적인 Automanage 온보딩 오류 문제 해결
 Automanage에서 컴퓨터를 서비스에 온보딩하지 못할 수 있습니다. 이 문서에서는 배포 실패 문제를 해결하는 방법, 배포가 실패할 수 있는 몇 가지 일반적인 이유, 잠재적인 완화 단계를 설명합니다.
@@ -34,18 +34,17 @@ Automanage에 컴퓨터를 온보딩하면 Azure Resource Manager 배포가 생�
 
 ## <a name="common-deployment-errors"></a>일반적인 배포 오류
 
-오류 |  완화 방법
+Error |  완화 방법
 :-----|:-------------|
 Automanage 계정 권한 부족 오류 | 이 오류는 최근에 새 Automanage 계정을 포함한 구독을 새 테넌트로 이동한 경우에 발생할 수 있습니다. 이 오류를 해결하는 단계는 [여기](./repair-automanage-account.md)에 있습니다.
 지역 매핑 요구 사항이 일치하지 않는 작업 영역 | 컴퓨터가 현재 연결되어 있는 Log Analytics 작업 영역이 지원되는 Automation 지역에 매핑되어 있지 않으므로 Automanage에서 컴퓨터를 온보딩할 수 없습니다. 기존 Log Analytics 작업 영역 및 Automation 계정이 [지원되는 지역 매핑](../automation/how-to/region-mappings.md)에 있는지 확인합니다.
-“‘관리되는 애플리케이션에서 만든 시스템 거부 할당’ 이름이 포함된 거부 할당으로 인해 액세스가 거부됨” | 리소스에 [denyAssignment](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments)가 만들어져 Automanage에서 리소스에 액세스하지 못했습니다. 이 denyAssignment는 [청사진](https://docs.microsoft.com/azure/governance/blueprints/concepts/resource-locking) 또는 [관리되는 애플리케이션](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/overview)에서 만들었을 수 있습니다.
-"OS Information: Name='(null)', ver='(null)', agent status='Not Ready'." | [지원되는 최소 에이전트 버전](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version)을 실행 중이고, 에이전트가 실행 중이며([Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/linux-azure-guest-agent) 및 [Windows](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/windows-azure-guest-agent)), 에이전트 최신 상태([Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) 및 [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows))인지 확인합니다.
-"VM OS 이름: , 버전 에 대한 OS를 확인할 수 없습니다. VM 에이전트가 실행 중이며 현재 상태가 준비 상태인지 확인하세요." | [지원되는 최소 에이전트 버전](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version)을 실행 중이고, 에이전트가 실행 중이며([Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/linux-azure-guest-agent) 및 [Windows](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/windows-azure-guest-agent)), 에이전트 최신 상태([Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) 및 [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows))인지 확인합니다.
-
-"VM에서 'IaaSAntimalware' 확장을 처리할 때 실패를 보고했습니다" | VM에 다른 맬웨어 방지/바이러스 백신 제품이 아직 설치되어 있지 않은지 확인합니다. 실패한 경우 고객 지원팀에 문의하세요.
+“‘관리되는 애플리케이션에서 만든 시스템 거부 할당’ 이름이 포함된 거부 할당으로 인해 액세스가 거부됨” | 리소스에 [denyAssignment](../role-based-access-control/deny-assignments.md)가 만들어져 Automanage에서 리소스에 액세스하지 못했습니다. 이 denyAssignment는 [청사진](../governance/blueprints/concepts/resource-locking.md) 또는 [관리되는 애플리케이션](../azure-resource-manager/managed-applications/overview.md)에서 만들었을 수 있습니다.
+"OS Information: Name='(null)', ver='(null)', agent status='Not Ready'." | [지원되는 최소 에이전트 버전](/troubleshoot/azure/virtual-machines/support-extensions-agent-version)을 실행 중이고, 에이전트가 실행 중이며([Linux](/troubleshoot/azure/virtual-machines/linux-azure-guest-agent) 및 [Windows](/troubleshoot/azure/virtual-machines/windows-azure-guest-agent)), 에이전트 최신 상태([Linux](../virtual-machines/extensions/update-linux-agent.md) 및 [Windows](../virtual-machines/extensions/agent-windows.md))인지 확인합니다.
+"VM OS 이름: , 버전 에 대한 OS를 확인할 수 없습니다. VM 에이전트가 실행 중이며 현재 상태가 준비 상태인지 확인하세요." | [지원되는 최소 에이전트 버전](/troubleshoot/azure/virtual-machines/support-extensions-agent-version)을 실행 중이고, 에이전트가 실행 중이며([Linux](/troubleshoot/azure/virtual-machines/linux-azure-guest-agent) 및 [Windows](/troubleshoot/azure/virtual-machines/windows-azure-guest-agent)), 에이전트 최신 상태([Linux](../virtual-machines/extensions/update-linux-agent.md) 및 [Windows](../virtual-machines/extensions/agent-windows.md))인지 확인합니다.
+"확장 'IaaSAntimalware'를 처리하는 동안 VM이 오류를 보고했습니다." | 다른 맬웨어 방지/바이러스 백신 제품이 VM에 이미 설치되어 있지 않은지 확인합니다. 실패한 경우 고객 지원팀에 문의하세요.
 ASC 작업 영역: Automanage에서 현재 _위치_ 에서 Log Analytics 서비스를 지원하지 않습니다. | VM이 [지원되는 지역](./automanage-virtual-machines.md#supported-regions)에 있는지 확인합니다.
-정책 위반으로 인해 템플릿을 배포하지 못했습니다. 자세한 내용은 세부 정보를 참조하세요. | Automanage의 VM 등록을 방지하는 정책이 있습니다. Automanage에 온보딩하려는 VM을 포함하는 구독 또는 리소스 그룹에 적용된 정책을 확인합니다.
-"할당에 실패했습니다. 제공되는 추가 정보가 없습니다."| Microsoft Azure 지원에 사례를 여세요.
+정책 위반으로 인해 템플릿을 배포하지 못했습니다. 자세한 내용은 세부 정보를 참조하세요. | Automanage가 VM을 등록하지 못하도록 하는 정책이 있습니다. Automanage에 온보딩하려는 VM을 포함하는 구독 또는 리소스 그룹에 적용된 정책을 확인합니다.
+"할당하지 못했습니다. 사용할 수 있는 추가 정보가 없습니다." | Microsoft Azure 지원을 통해 사례를 여세요.
 
 ## <a name="next-steps"></a>다음 단계
 

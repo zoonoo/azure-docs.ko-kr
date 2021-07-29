@@ -7,14 +7,14 @@ manager: carmonm
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/20/2021
+ms.date: 04/27/2021
 ms.author: bwren
-ms.openlocfilehash: 3c99002a4f8613ff40a116eeceded4b3bada1c15
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5c8256e453763d9cd2fdc18687df3064552dcf2b
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936158"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289537"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Azure Monitor 메트릭 개요
 Azure Monitor 메트릭은 [모니터링된 리소스](../monitor-reference.md)에서 시계열 데이터베이스로 숫자 데이터를 수집하는 Azure Monitor의 기능입니다. 메트릭은 정기적으로 수집되며 특정 시간에 시스템의 일부 측면을 설명하는 수치 값입니다. Azure Monitor의 메트릭은 경량이며 거의 실시간으로 시나리오를 지원할 수 특히 경고 및 빠른 문제 감지에 유용합니다. 메트릭 탐색기를 사용하여 대화형으로 분석하거나, 값이 임계값을 초과할 때 경고를 통해 사전에 알림을 받거나, 통합 문서나 대시보드에서 시각화할 수 있습니다.
@@ -27,7 +27,7 @@ Azure Monitor 메트릭은 [모니터링된 리소스](../monitor-reference.md)�
 ## <a name="what-can-you-do-with-azure-monitor-metrics"></a>Azure Monitor 메트릭으로 무엇을 할 수 있나요?
 다음 테이블에는 Azure Monitor에서 메트릭을 사용할 수 있는 여러 방법이 나와 있습니다.
 
-|  | 설명 |
+|  | Description |
 |:---|:---|
 | **분석** | [메트릭 탐색기](metrics-charts.md)를 사용 하 여 차트에서 수집된 메트릭을 분석하고 여러 리소스의 메트릭을 비교할 수 있습니다. |
 | **경고** | 메트릭 값이 임계값을 초과하면 알림을 보내거나 [자동화된 작업](../alerts/action-groups.md)을 수행하는 [메트릭 경고 규칙](../alerts/alerts-metric.md)을 구성합니다. |
@@ -100,16 +100,34 @@ Azure Monitor 메트릭에서 수집한 데이터는 타임 스탬프 데이터 
 
 이 메트릭은 "각 IP 주소에 대한 네트워크 처리량은 무엇이었나요?", "전송된 데이터 및 수신된 데이터의 양은 얼마인가요?"와 같은 질문에 대답할 수 있습니다. 다차원 메트릭은 비차원 메트릭에 대해 추가 분석 및 진단 값을 가집니다.
 
+### <a name="view-multi-dimensional-performance-counter-metrics-in-metrics-explorer"></a>메트릭 탐색기에서 다차원 성능 카운터 메트릭 보기 
+별표(\*)가 포함된 성능 카운터 메트릭을 클래식 게스트 메트릭 API를 통해 Azure Monitor에 보낼 수 없습니다. 이 API는 클래식 메트릭에서 지원하지 않는 다차원 메트릭이기 때문에 별표를 포함하는 메트릭을 표시할 수 없습니다.
+다음은 다차원 성능 카운터 메트릭을 구성하고 보는 방법에 대한 지침입니다.
+1.  가상 머신에 대한 진단 설정 페이지로 이동
+2.  "성능 카운터" 탭을 선택합니다. 
+3.  "사용자 지정"을 클릭하여 수집하려는 성능 카운터를 구성합니다.
+![진단 설정 페이지의 성능 카운터 섹션 스크린샷](media/data-platform-metrics/azure-monitor-perf-counter.png)
+
+4.  성능 카운터를 구성한 후 "싱크"를 클릭합니다. 그런 다음, 사용을 선택하여 데이터를 Azure Monitor에 보냅니다.
+![진단 설정 페이지의 싱크 섹션 스크린샷](media/data-platform-metrics/azure-monitor-sink.png)
+
+5.  Azure Monitor에서 메트릭을 보려면 메트릭 네임스페이스 드롭다운에서 "가상 머신 게스트"를 선택합니다.
+![메트릭 네임스페이스의 스크린샷](media/data-platform-metrics/vm-guest-namespace.png)
+
+6.  메트릭을 인스턴스별로 분할하여, 구성에서 "\*"로 표시되는 가능한 각각의 값으로 세분하여 메트릭을 확인합니다.  이 예제에서 "\*"는 다른 논리 디스크 볼륨과 합계를 나타냅니다.
+![인스턴스별 메트릭 분할 스크린샷](media/data-platform-metrics/split-by-instance.png)
+
+
+
 ## <a name="retention-of-metrics"></a>메트릭 보존
-Azure의 대다수 리소스의 경우 메트릭은 93일 동안 저장됩니다. 다음과 같은 몇 가지 예외 사항이 있습니다.
+대부분의 Azure 리소스에서 플랫폼 메트릭은 93일간 보관됩니다. 다음과 같은 몇 가지 예외 사항이 있습니다.
 
 **게스트 OS 메트릭**
--   **클래식 게스트 OS 메트릭** 이러한 메트릭은 [WAD(Windows Diagnostic Extension)](../agents/diagnostics-extension-overview.md) 또는 [LAD(Linux Diagnostic Extension)](../../virtual-machines/extensions/diagnostics-linux.md)에 의해 수집되어 Azure Storage 계정으로 라우팅되는 성능 카운터입니다. 스토리지 계정에 실제 만료 날짜가 기록되지 않지만, 해당 메트릭은 최소 14일 동안 보존되도록 보장됩니다. 성능상의 이유로 포털은 볼륨에 따라 표시되는 데이터의 양을 제한합니다. 따라서 기록되는 데이터의 양이 그다지 크지 않은 경우 포털에서 검색하는 실제 기간(일)은 14일보다 길 수 있습니다.  
--   **Azure Monitor 메트릭** 으로 전송된 게스트 OS 메트릭 이러한 메트릭은 [WAD(Windows Diagnostic Extension)](../agents/diagnostics-extension-overview.md)에 의해 수집되어 [Azure Monitor 데이터 싱크](../agents/diagnostics-extension-overview.md#data-destinations)로 전송되거나, Linux 컴퓨터의 [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/)를 통해 전송되는 성능 카운터입니다. 이러한 메트릭의 보존 기간은 93일입니다.
--   **Log Analytics 에이전트에서 수집한 게스트 OS 메트릭** 이러한 메트릭은 Log Analytics 에이전트에 의해 수집되어 Log Analytics 작업 영역으로 전송되는 성능 카운터입니다. 이 메트릭의 보존 기간은 31일이며 2년까지 연장할 수 있습니다.
+-   **클래식 게스트 OS 메트릭** - 14일 및 종종 그 이상. 이러한 메트릭은 [WAD(Windows Diagnostic Extension)](../agents/diagnostics-extension-overview.md) 또는 [LAD(Linux Diagnostic Extension)](../../virtual-machines/extensions/diagnostics-linux.md)에 의해 수집되어 Azure Storage 계정으로 라우팅되는 성능 카운터입니다. 스토리지 계정에 실제 만료 날짜가 기록되지 않지만, 해당 메트릭은 최소 14일 동안 보존되도록 보장됩니다. 성능상의 이유로 포털은 볼륨에 따라 표시되는 데이터의 양을 제한합니다. 따라서 기록되는 데이터의 양이 그다지 크지 않은 경우 포털에서 검색하는 실제 기간(일)은 14일보다 길 수 있습니다.  
+-   **Azure Monitor 메트릭으로 전송된 게스트 OS 메트릭** - 93일. [WAD(Windows Diagnostic Extension)](../agents/diagnostics-extension-overview.md)에 의해 수집되어 [Azure Monitor 데이터 싱크](../agents/diagnostics-extension-overview.md#data-destinations)로 전송되거나, Linux 컴퓨터의 [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/) 또는 데이터 수집 규칙에 따라 최신 [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md)(AMA)에 전송되는 성능 카운터입니다. 이러한 메트릭의 보존 기간은 93일입니다.
+-   **Log Analytics 에이전트에서 수집한 게스트 OS 메트릭** - 31일에서 2년. 이러한 메트릭은 Log Analytics 에이전트에 의해 수집되어 Log Analytics 작업 영역으로 전송되는 성능 카운터입니다. 이 메트릭의 보존 기간은 31일이며 2년까지 연장할 수 있습니다.
 
-**Application Insights 로그 기반 메트릭** 
-- 백그라운드에서 [로그 기반 메트릭](../app/pre-aggregated-metrics-log-metrics.md)을 로그 쿼리로 변환합니다. 해당 보존 기간은 기본 로그의 이벤트 보존 기간과 같습니다. Application Insights 리소스의 경우 로그는 90일 동안 저장됩니다.
+**Application Insights 로그 기반 메트릭** 다릅니다. - 백그라운드에서 [로그 기반 메트릭](../app/pre-aggregated-metrics-log-metrics.md)을 로그 쿼리로 변환합니다. 해당 보존 기간은 기본 로그의 이벤트 보존 기간과 같습니다(31일에서 2년). Application Insights 리소스의 경우 로그는 90일 동안 저장됩니다.
 
 
 > [!NOTE]

@@ -1,32 +1,32 @@
 ---
 title: 규정 비준수 리소스 수정
 description: 이 지침에서는 Azure Policy에서 정책을 준수하지 않는 리소스를 수정하는 과정을 안내합니다.
-ms.date: 02/17/2021
+ms.date: 05/01/2021
 ms.topic: how-to
-ms.openlocfilehash: e567bedf48393a36215c1ac3f3d11f467ae7badd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 886087a22712e316f4ecd50674f48594d6953dab
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742231"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747470"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정
 
-**deployIfNotExists** 또는 **수정** 정책을 준수하지 않는 리소스는 **수정** 을 통해 준수 상태로 설정할 수 있습니다. 업데이트는 관리 그룹, 구독, 리소스 그룹 또는 개별 리소스에 대 한 할당 인지 여부에 관계 없이 기존 리소스 및 구독에 대 한 할당 된 정책의 **수정 작업** 또는 **Deployifnotexists** 효과를 실행 하도록 Azure Policy 지시 하 여 수행 됩니다. 이 문서에서는 Azure Policy를 통한 수정을 이해하고 수행하는 데 필요한 단계를 보여 줍니다.
+**deployIfNotExists** 또는 **수정** 정책을 준수하지 않는 리소스는 **수정** 을 통해 준수 상태로 설정할 수 있습니다. 수정은 Azure Policy에서 **deployIfNotExists** 효과 또는 기존 리소스 및 구독에 할당된 정책(관리 그룹, 구독, 리소스 그룹 또는 개별 리소스에 대한 할당인지 여부와 무관)의 할당된 정책의 **수정 작업** 을 실행하도록 지시하여 수행할 수 있습니다. 이 문서에서는 Azure Policy를 통한 수정을 이해하고 수행하는 데 필요한 단계를 보여 줍니다.
 
 ## <a name="how-remediation-security-works"></a>수정 보안의 작동 방식
 
 Azure Policy는 **deployIfNotExists** 정책 정의의 템플릿을 실행할 때 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md)를 사용합니다.
-Azure Policy는 각 할당용 관리 ID를 만듭니다. 단, 관리 ID를 부여할 역할 관련 세부 정보가 있어야 합니다. 관리 id에 역할이 없는 경우 정책이 나 이니셔티브를 할당 하는 동안 오류가 표시 됩니다. 포털 사용 시 Azure Policy는 할당이 시작되면 나열된 역할을 관리 ID에 자동으로 부여합니다. SDK를 사용 하는 경우 관리 id에 수동으로 역할을 부여 해야 합니다. 관리 id의 _위치_ 는 Azure Policy 작업에 영향을 주지 않습니다.
+Azure Policy는 각 할당용 관리 ID를 만듭니다. 단, 관리 ID를 부여할 역할 관련 세부 정보가 있어야 합니다. 관리 ID에서 역할이 누락된 경우 정책 또는 이니셔티브 할당 중에 오류가 표시됩니다. 포털 사용 시 Azure Policy는 할당이 시작되면 나열된 역할을 관리 ID에 자동으로 부여합니다. SDK를 사용하는 경우 관리 ID에 수동으로 역할을 부여해야 합니다. 관리 ID의 _위치_ 는 Azure Policy 작업에 영향을 주지 않습니다.
 
-:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="관리 id에 대해 정의 된 사용 권한이 없는 deployIfNotExists 정책의 스크린샷" border="false":::
+:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="관리 ID에 대해 정의된 사용 권한이 누락된 deployIfNotExists 정책의 스크린샷" border="false":::
 
 > [!IMPORTANT]
-> 다음 시나리오에서는 할당의 관리 되는 id를 [수동으로 부여](#manually-configure-the-managed-identity) 해야 하며, 그렇지 않으면 재구성 배포가 실패 합니다.
+> 다음 시나리오에서는 할당의 관리 ID에 [수동으로 액세스 권한을 부여](#manually-configure-the-managed-identity)해야 합니다. 그렇지 않으면 수정 배포가 실패합니다.
 >
 > - SDK를 통해 할당을 만든 경우
-> - **Deployifnotexists** 또는 **modify** 로 수정 된 리소스가 정책 할당 범위를 벗어난 경우
-> - 템플릿이 정책 할당 범위를 벗어난 리소스의 속성에 액세스 하는 경우
+> - **deployIfNotExists** 또는 **modify** 로 수정된 리소스가 정책 할당 범위를 벗어난 경우
+> - 템플릿이 정책 할당 범위를 벗어난 리소스의 속성에 액세스하는 경우
 
 ## <a name="configure-policy-definition"></a>정책 정의 구성
 
@@ -94,7 +94,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ### <a name="grant-defined-roles-through-portal"></a>포털을 통해 정의된 역할 부여
 
-**액세스 제어 (IAM)** 를 사용 하거나 정책 또는 이니셔티브 할당을 편집 하 고 **저장** 을 선택 하 여 할당 된 역할에 정의 된 역할을 부여 하는 두 가지 방법이 있습니다.
+포털을 사용하여 할당의 관리 ID에 정의된 역할을 할당하는 방법에는 두 가지가 있습니다. 하나는 **액세스 제어(IAM)** 를 사용하는 것이고, 다른 하나는 정책 또는 이니셔티브 할당을 편집한 후에 **저장** 을 선택하는 것입니다.
 
 할당의 관리 ID에 역할을 추가하려면 다음 단계를 수행합니다.
 
@@ -102,7 +102,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
 1. Azure Policy 페이지의 왼쪽에서 **할당** 을 선택합니다.
 
-1. 관리 id가 있는 할당을 찾아 이름을 선택 합니다.
+1. 관리 ID가 있는 할당을 찾아 이름을 선택합니다.
 
 1. 편집 페이지에서 **할당 ID** 속성을 찾습니다. 할당 ID는 다음과 같이 표시됩니다.
 
@@ -114,16 +114,16 @@ if ($roleDefinitionIds.Count -gt 0)
 
 1. 역할 정의를 수동으로 추가해야 하는 리소스 또는 리소스 상위 컨테이너(리소스 그룹, 구독, 관리 그룹)로 이동합니다.
 
-1. 리소스 페이지에서 **access control (IAM)** 링크를 선택한 다음, 액세스 제어 페이지의 맨 위에 있는 **+ 역할 할당 추가** 를 선택 합니다.
+1. 리소스 페이지에서 **액세스 제어(IAM)** 링크를 선택한 다음 액세스 제어 페이지 위쪽의 **+ 역할 할당 추가** 를 선택합니다.
 
 1. 정책 정의에서 **roleDefinitionIds** 와 일치하는 적절한 역할을 선택합니다.
-   **다음에 대한 액세스 할당:** 은 기본값인 ‘Azure AD 사용자, 그룹 또는 애플리케이션’으로 설정해 둡니다. **선택** 상자에 앞에서 찾은 할당 리소스 ID 부분을 붙여넣거나 입력합니다. 검색이 완료 되 면 같은 이름의 개체를 선택 하 여 ID를 선택 하 고 **저장** 을 선택 합니다.
+   **다음에 대한 액세스 할당:** 은 기본값인 ‘Azure AD 사용자, 그룹 또는 애플리케이션’으로 설정해 둡니다. **선택** 상자에 앞에서 찾은 할당 리소스 ID 부분을 붙여넣거나 입력합니다. 검색이 완료되면 이름이 같은 개체를 클릭하여 ID를 선택하고 **저장** 을 클릭합니다.
 
 ## <a name="create-a-remediation-task"></a>수정 작업 만들기
 
 ### <a name="create-a-remediation-task-through-portal"></a>포털을 통해 수정 작업 만들기
 
-평가 하는 동안 **Deployifnotexists** 또는 **modify** effects를 사용 하는 정책 할당은 비준수 리소스 또는 구독이 있는지 여부를 확인 합니다. 비준수 리소스 또는 구독을 찾을 때 세부 정보는 **재구성** 페이지에 제공 됩니다. 호환 되지 않는 리소스 또는 구독이 있는 정책 목록과 함께 **수정 작업** 을 트리거하는 옵션이 있습니다.
+평가 중에는 **deployIfNotExists** 또는 **modify** 효과가 포함된 정책 할당이 비준수 리소스 또는 구독이 있는지 확인합니다. 비준수 리소스 또는 구독이 있으면 **수정** 페이지에서 세부 정보가 제공됩니다. 비준수 리소스 또는 구독이 있는 정책 목록을 통해 **수정 작업** 을 트리거하는 옵션입니다.
 이 옵션을 선택하면 **deployIfNotExists** 템플릿 또는 **수정** 작업에서 배포가 작성됩니다.
 
 **수정 작업** 을 만들려면 다음 작업을 수행합니다.
@@ -134,26 +134,26 @@ if ($roleDefinitionIds.Count -gt 0)
 
 1. Azure Policy 페이지의 왼쪽에서 **수정** 을 선택합니다.
 
-   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="정책 페이지의 재구성 노드 스크린샷" border="false":::
+   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="정책 페이지의 수정 노드 스크린샷" border="false":::
 
-1. 비준수 리소스가 있는 모든 **deployIfNotExists** 및 **수정** 정책 할당이 **수정할 정책** 탭과 데이터 테이블에 포함됩니다. 비규격 리소스가 있는 정책에서을 선택 합니다. **새 수정 작업** 페이지가 열립니다.
+1. 비준수 리소스가 있는 모든 **deployIfNotExists** 및 **수정** 정책 할당이 **수정할 정책** 탭과 데이터 테이블에 포함됩니다. 비준수 리소스가 있는 정책을 선택합니다. **새 수정 작업** 페이지가 열립니다.
 
    > [!NOTE]
-   > **업데이트 관리 작업** 페이지를 여는 다른 방법은 **준수** 페이지에서 정책을 찾아 선택한 다음 **재구성 작업 만들기** 단추를 선택 하는 것입니다.
+   > **규정 준수** 페이지에서 정책을 찾아서 선택한 다음 **수정 작업 만들기** 단추를 클릭하여 **수정 작업** 페이지를 열 수도 있습니다.
 
-1. **새 수정 작업** 페이지에서 **범위** 줄임표를 사용해 수정할 리소스를 필터링하여 정책이 할당된 하위 리소스를 선택합니다. 개별 리소스 개체까지 포함하여 선택해야 합니다. 또한 **위치** 드롭다운을 사용하여 리소스를 추가로 필터링합니다. 테이블에 나열된 리소스만 수정됩니다.
+1. **새 수정 작업** 페이지에서 **범위** 줄임표를 사용해 수정할 리소스를 필터링하여 정책이 할당된 하위 리소스를 선택합니다. 개별 리소스 개체까지 포함하여 선택해야 합니다. 또한 **위치** 드롭다운 목록을 사용하여 리소스를 추가로 필터링합니다. 테이블에 나열된 리소스만 수정됩니다.
 
-   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="재구성 노드 및 수정할 리소스의 그리드 스크린샷" border="false":::
+   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="수정 노드 및 수정할 리소스의 그리드 스크린샷" border="false":::
 
-1. **재구성** 을 선택 하 여 리소스를 필터링 한 후에 수정 작업을 시작 합니다. 정책 준수 페이지에서 **수정 작업** 탭이 열리고 작업 진행 상태가 표시됩니다. 수정 작업으로 만든 배포가 바로 시작됩니다.
+1. **수정** 을 선택하여 리소스를 필터링한 후에 수정 작업을 시작합니다. 정책 준수 페이지에서 **수정 작업** 탭이 열리고 작업 진행 상태가 표시됩니다. 수정 작업으로 만든 배포가 바로 시작됩니다.
 
    :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="수정 작업 탭의 스크린샷 및 기존 수정 작업의 진행률입니다." border="false":::
 
-1. 정책 준수 페이지에서 **수정 작업** 을 선택 하 여 진행률에 대 한 세부 정보를 가져옵니다. 작업에 사용된 필터링과 수정 중인 리소스 목록이 표시됩니다.
+1. 정책 준수 페이지에서 **수정 작업** 을 선택하여 진행 상황 관련 세부 정보를 확인합니다. 작업에 사용된 필터링과 수정 중인 리소스 목록이 표시됩니다.
 
-1. **수정** 작업 페이지에서 리소스를 마우스 오른쪽 단추로 클릭 하 여 수정 작업의 배포 또는 리소스를 볼 수 있습니다. 행의 끝에서 **관련 이벤트** 를 선택 하 여 오류 메시지와 같은 세부 정보를 확인 합니다.
+1. **수정 작업** 페이지에서 리소스를 선택한 상태로 유지하거나 마우스 오른쪽 단추를 클릭하여 수정 작업의 배포 또는 리소스를 봅니다. 행 끝부분의 **관련 이벤트** 를 선택하여 오류 메시지와 같은 세부 정보를 확인합니다.
 
-   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="작업 재구성 탭에서 리소스에 대 한 상황에 맞는 메뉴의 스크린샷" border="false":::
+   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="작업 수정 탭에서 리소스에 대한 컨텍스트 메뉴의 스크린샷" border="false":::
 
 **수정 작업** 을 통해 배포한 리소스는 정책 준수 페이지의 **배포된 리소스** 탭에 추가됩니다.
 
@@ -185,13 +185,13 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 
 ### <a name="create-a-remediation-task-during-policy-assignment-in-the-azure-portal"></a>Azure Portal에서 정책 할당 중에 수정 작업 만들기
 
-수정 작업을 만드는 간소화된 방법은 정책 할당 중에 Azure Portal에서 수행하는 것입니다. 할당할 정책 정의가 **Deployifnotexists** 또는 수정 효과 인 경우 수정 **탭의** 마법사는 **수정** _작업 만들기_ 옵션을 제공 합니다. 이 옵션을 선택 하면 정책 할당과 동시에 수정 작업이 생성 됩니다.
+수정 작업을 만드는 간소화된 방법은 정책 할당 중에 Azure Portal에서 수행하는 것입니다. 할당할 정책 정의가 **deployIfNotExists** 또는 **수정** 효과인 경우 **modify** 탭의 마법사에서 _수정 작업 만들기_ 옵션을 제공합니다. 이 옵션을 선택하면 정책 할당과 동시에 수정 작업이 생성됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Policy 샘플](../samples/index.md)에서 예제를 검토합니다.
 - [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.
-- [프로그래밍 방식으로 정책을 만드는](programmatically-create.md) 방법을 이해합니다.
+- [프로그래밍 방식으로 정책을 생성](programmatically-create.md)하는 방법을 이해합니다.
 - [규정 준수 데이터를 가져오는](get-compliance-data.md) 방법을 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

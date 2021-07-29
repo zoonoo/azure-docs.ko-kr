@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b69daf9e9fbbb3f6d6597a8e8349dc8bec61fbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5513aff9bed85293978061f8989c1389e9e7a9c4
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103008777"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954960"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>조직의 Azure Active Directory 로그인 페이지에 브랜딩 추가
 조직의 로고 및 사용자 지정 색 구성표를 사용하여 Azure AD(Azure Active Directory) 로그인 페이지에 일관된 모양과 느낌을 제공합니다. 사용자가 Microsoft 365와 같은 조직의 웹 기반 앱에 로그인할 때 로그인 페이지가 나타납니다. 여기서는 Azure AD를 ID 공급자로 사용합니다.
@@ -66,13 +66,16 @@ ms.locfileid: "103008777"
 
            입력한 로그인 페이지 텍스트를 사용자 지정할 수 있습니다. 새 단락을 시작하려면 Enter 키를 두 번 사용합니다. 굵게, 기울임꼴, 밑줄 또는 클릭 가능한 링크를 포함하도록 텍스트 서식을 변경할 수도 있습니다. 다음 구문을 사용하여 텍스트에 서식을 추가합니다. 
 
-          > 하이퍼링크: ```[text](link)``` 
+          > 하이퍼링크: `[text](link)` 
           
-          > 굵게: ``` **text** ``` 또는 ``` __text__ ``` 
+          > 굵게: `**text**` 또는 `__text__` 
           
-          > 기울임꼴: ``` *text* ``` 또는 ``` _text_ ``` 
+          > 기울임꼴: `*text*` 또는 `_text_` 
           
-          > 밑줄: ``` ++text++ ``` 
+          > 밑줄: `++text++` 
+         
+          > [!IMPORTANT]
+          > 로그인 페이지 텍스트로 추가된 하이퍼링크는 데스크톱 및 모바일 애플리케이션과 같은 네이티브 환경에서 텍스트로 렌더링됩니다.
 
     - **고급 설정**
             

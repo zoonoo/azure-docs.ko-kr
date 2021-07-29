@@ -6,17 +6,17 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/04/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: f6f1ed1a3e09397a720dfd4d842b79cd88aa738d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 457b21a0d84202cc712d5b1b719f5239de0e3391
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878556"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324674"
 ---
 # <a name="application-insights-java-in-process-agent-in-azure-spring-cloud-preview"></a>Azure Spring Cloud의 Application Insights Java In-Process 에이전트(미리 보기)
 
-이 문서는 Azure Spring Cloud의 Application Insights Java 에이전트를 사용하여 앱 및 마이크로 서비스를 모니터링하는 방법을 설명합니다. 
+이 글에서는 Azure Spring Cloud의 Application Insights Java 에이전트를 사용하여 앱 및 마이크로서비스를 모니터링하는 방법을 설명합니다. 
 
 이 기능을 사용하면 다음을 수행할 수 있습니다.
 
@@ -88,6 +88,7 @@ Application Insights는 다음을 포함하여 관찰 가능한 여러 큐브 �
   [ ![IPA 9](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
 
 ## <a name="arm-template"></a>ARM 템플릿
+
 Azure Resource Manager 템플릿을 사용하려면 다음 콘텐츠를 `azuredeploy.json`에 복사합니다.
 
 ```json
@@ -121,26 +122,49 @@ Azure Resource Manager 템플릿을 사용하려면 다음 콘텐츠를 `azurede
 ```
 
 ## <a name="cli"></a>CLI
+
 CLI 명령을 사용하여 ARM 템플릿을 적용합니다.
 
 * 기존 Azure Spring Cloud 인스턴스의 경우:
 
 ```azurecli
-az spring-cloud app-insights update [--app-insights/--app-insights-key] "assignedName" [--sampling-rate] "samplingRate" –name "assignedName" –resource-group "resourceGroupName"
+az spring-cloud app-insights update [--app-insights/--app-insights-key] "assignedName" [--sampling-rate] "samplingRate" â€“name "assignedName" â€“resource-group "resourceGroupName"
 ```
 * 새로 만든 Azure Spring Cloud 인스턴스의 경우:
 
 ```azurecli
-az spring-cloud create/update [--app-insights]/[--app-insights-key] "assignedName" --disable-app-insights false --enable-java-agent true --name "assignedName" –resource-group "resourceGroupName"
+az spring-cloud create/update [--app-insights]/[--app-insights-key] "assignedName" --disable-app-insights false --enable-java-agent true --name "assignedName" â€“resource-group "resourceGroupName"
 ```
 * 앱 인사이트를 사용하지 않도록 설정하려면:
 
 ```azurecli
-az spring-cloud app-insights update --disable –name "assignedName" –resource-group "resourceGroupName"
+az spring-cloud app-insights update --disable â€“name "assignedName" â€“resource-group "resourceGroupName"
 
 ```
 
+## <a name="java-agent-updateupgrade"></a>Java 에이전트 업데이트/업그레이드
+
+Java 에이전트는 JDK를 통해 정기적으로 업데이트/업그레이드되므로 다음 시나리오에 영향을 줄 수 있습니다.
+
+> [!Note]
+> JDK 버전은 매년 분기별로 업데이트/업그레이드됩니다.
+
+* 업데이트/업그레이드 전 Java 에이전트를 사용하는 기존 애플리케이션은 영향을 받지 않습니다.
+* 업데이트/업그레이드 후에 만든 애플리케이션은 새 버전의 Java 에이전트를 활용합니다.
+* 이전에 Java 에이전트를 사용하지 않은 기존 애플리케이션은 새 버전의 Java 에이전트를 활용하려면 다시 시작하거나 다시 배포해야 합니다.
+
+## <a name="java-agent-configuration-hot-loading"></a>Java 에이전트 구성 핫 로드
+
+Azure Spring Cloud 핫 로드 메커니즘을 사용하면 애플리케이션을 다시 시작하지 않고 에이전트 구성의 설정을 조정할 수 있습니다.
+
+> [!Note]
+> 핫 로드 메커니즘에는 몇 분 정도 지연이 있습니다.
+
+* 이전에 Java 에이전트를 사용하도록 설정한 경우 Application Insights 인스턴스 및/또는 SamplingRate를 변경해도 애플리케이션을 다시 시작할 필요가 없습니다.
+* Java 에이전트를 사용할 경우 애플리케이션을 다시 시작해야 합니다.
+* Java 에이전트를 사용하지 않을 때는 애플리케이션이 지연 시간(분) 후에 모든 모니터링 데이터 전송을 중지합니다. 애플리케이션을 다시 시작하여 Java 런타임 환경에서 에이전트를 제거할 수 있습니다.
+
 ## <a name="see-also"></a>참고 항목
-* [Azure Spring Cloud에서 분산 추적 사용](spring-cloud-howto-distributed-tracing.md)
+* [Azure Spring Cloud에서 분산 추적 사용](./how-to-distributed-tracing.md)
 * [로그 및 메트릭 분석](diagnostic-services.md)
-* [실시간으로 로그 스트리밍](spring-cloud-howto-log-streaming.md)
+* [실시간으로 로그 스트리밍](./how-to-log-streaming.md)

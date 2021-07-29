@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2021
-ms.openlocfilehash: 4ad362b983f81e2cdc10cdbccafd8dda951482d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: a0d28be0bc9754ab678792f2dca294b4fb185bf0
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98539545"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112018642"
 ---
 # <a name="how-to-estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Azure Cognitive Search 서비스의 비용 예측 및 관리 방법
 
@@ -64,7 +64,7 @@ Azure Cognitional Search를 기반으로 구축된 솔루션으로 다음과 같
 
 최소한으로, 복제본 및 파티션을 서로 독립적으로 추가할 수 있습니다. 복제본 및 파티션을 통해 용량이 증가하면 **(복제본 x 파티션 x 청구 비율)** 공식에 따라 청구 요금이 증가합니다. 여기서 청구 비율은 선택한 가격 책정 계층에 따라 달라집니다.
 
-검색 솔루션의 비용을 예측할 때는 가격 책정 및 용량이 선형적이지 않다는 것을 유념하세요(두 배의 용량은 두 배의 비용 이상). 수식 작동 방식에 대한 예는 [복제본 및 파티션 할당 방법](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)을 참조하세요.
+검색 솔루션의 비용을 예측하는 경우 가격과 용량은 선형적이지 않다는 점을 염두에 두세요(용량을 두 배로 늘리면 동일한 계층에서 비용이 두 배 이상 증가함). 또한 어느 시점에서 더 높은 계층으로 전환하면 거의 동일한 가격대에서 신속하고 더 나은 성능을 제공할 수 있습니다. 자세한 내용 및 예제는 [표준 S2 계층으로 업그레이드](search-performance-tips.md#tip-upgrade-to-a-standard-s2-tier)를 참조하세요.
 
 ### <a name="bandwidth-charges"></a>대역폭 요금
 
@@ -111,7 +111,7 @@ Azure 데이터 원본이 Azure Cognitive Search과 다른 지역에 있는 경�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 구독에서 비용을 모니터링하고 관리하는 방법에 대해 알아보세요.
+클라우드 비용을 최적화하여 비용을 절감하고 싶습니까?
 
 > [!div class="nextstepaction"]
-> [Azure Cost Management 및 청구 설명서](../cost-management-billing/cost-management-billing-overview.md)
+> [Cost Management를 통한 비용 분석 시작](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

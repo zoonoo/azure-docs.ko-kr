@@ -3,15 +3,15 @@ title: Azure Automation에서 Runbook 시작
 description: 이 문서에서는 Azure Automation에서 Runbook을 시작하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/16/2018
+ms.date: 04/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 01b6e060fcab9c7dab4934aad3d1ab6047ec5236
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 4b178ff8b667c5c1db508d8062b4cd5b53955047
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829857"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277231"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Azure Automation에서 Runbook 시작
 
@@ -138,11 +138,11 @@ jsmith
 
 ## <a name="start-a-runbook-with-the-azure-portal"></a>Azure Portal을 사용하여 Runbook 시작
 
-1. Azure Portal에서 **Automation** 을 선택한 다음, 자동화 계정의 이름을 클릭합니다.
-2. 허브 메뉴에서 **Runbook** 을 선택합니다.
-3. Runbook 페이지에서 Runbook을 선택한 다음, **시작** 을 클릭합니다.
+1. Azure Portal에서 **Automation** 을 선택한 다음 Automation 계정의 이름을 선택합니다.
+2. 왼쪽 창에서 **Runbook** 을 선택합니다.
+3. **Runbook** 창에서 Runbook을 선택하고 **시작** 을 클릭합니다.
 4. Runbook에 매개 변수가 있는 경우 각 매개 변수에 대한 텍스트 상자와 함께 값을 제공하라는 메시지가 표시됩니다. 매개 변수에 대한 자세한 내용은 [Runbook 매개 변수](#work-with-runbook-parameters)를 참조하세요.
-5. [작업] 창에서 Runbook 작업의 상태를 볼 수 있습니다.
+5. **작업** 창에서 Runbook 작업의 상태를 볼 수 있습니다.
 
 ## <a name="start-a-runbook-with-powershell"></a>PowerShell을 사용하여 Runbook 시작
 

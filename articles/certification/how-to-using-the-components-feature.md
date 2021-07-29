@@ -5,14 +5,14 @@ author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 05/04/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 220a6c2107063734201064115898611c20cab650
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0041299031934bd76e4ef0700d2e75e2d61516cd
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304463"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745473"
 ---
 # <a name="add-components-on-the-portal"></a>포털에서 구성 요소 추가
 
@@ -26,9 +26,9 @@ ms.locfileid: "107304463"
 
 인증을 위해 제출된 모든 프로젝트에는 하나의 **고객 준비 제품** 구성 요소가 포함됩니다(대부분의 경우 전체적인 제품 자체를 나타냄). 고객 준비 제품 구성 요소 유형의 차이점을 더 잘 이해하려면 [인증 용어집](./resources-glossary.md)을 참조하세요. 디바이스를 정확하게 캡처하기 위해 포함할 추가 구성 요소는 모두 사용자의 판단에 따라 결정됩니다.
 
-1. 제품 세부 정보 탭에서 `Add a component`를 선택합니다.
+1. 하드웨어 탭에서 `Add a component`를 선택합니다.
 
-    ![구성 요소 링크 추가](./media/images/add-a-component-link.png)
+    ![구성 요소 링크 추가](./media/images/add-component-new.png)
 
 1. 구성 요소에 대한 관련 양식 필드를 완료합니다.
 
@@ -112,4 +112,3 @@ ms.locfileid: "107304463"
 
 - [자습서: 디바이스 세부 정보 추가](tutorial-02-adding-device-details.md)
 - [게시된 디바이스 편집](how-to-edit-published-device.md)
-

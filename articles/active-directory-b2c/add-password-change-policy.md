@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 05/03/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: cd63144074577d4ff3564da41e672dd1ca226dcb
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: f359595a136a356938194f2df728935c80059008
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257163"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742880"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 변경 구성
 
@@ -160,7 +160,7 @@ Azure AD B2C(Azure Active Directory B2C)에서는 로컬 계정으로 로그인�
 
 1. 변경한 정책을 엽니다. 예를 들면, *B2C_1A_profile_edit_password_change* 입니다.
 2. **애플리케이션** 은 이전에 등록한 애플리케이션을 선택합니다. 토큰을 보려면 **회신 URL** 에 `https://jwt.ms`가 표시되어야 합니다.
-3. **지금 실행** 을 클릭합니다. 이전에 만든 계정으로 로그인합니다. 이제 암호를 변경할 수 있습니다.
+3. **지금 실행** 을 클릭합니다. 열려 있는 새 탭의 URL에서 "&prompt=login"을 제거하고 탭을 새로 고칩니다. 그런 다음, 이전에 만든 계정으로 로그인합니다. 이제 암호를 변경할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

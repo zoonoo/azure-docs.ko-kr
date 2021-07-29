@@ -1,56 +1,56 @@
 ---
-title: Azure Arc 사용 SQL 관리 되는 인스턴스 구성
-description: Azure Arc 사용 SQL 관리 되는 인스턴스 구성
+title: Azure Arc 지원 SQL 관리되는 인스턴스 구성
+description: Azure Arc 지원 SQL 관리되는 인스턴스 구성
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: vin-yu
-ms.author: vinsonyu
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 6e2443014f6788504a11784945078187a5a72de4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 27851ab9722b8ca9de066187cb8e90a87e3c6151
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98985872"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110496066"
 ---
-# <a name="configure-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 사용 SQL 관리 되는 인스턴스 구성
+# <a name="configure-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL 관리되는 인스턴스 구성
 
-이 문서에서는 Azure Arc 사용 SQL 관리 되는 인스턴스를 구성 하는 방법을 설명 합니다.
+이 문서에서는 Azure Arc 지원 SQL Managed Instance를 구성하는 방법을 설명합니다.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="configure-resources"></a>리소스 구성
 
-### <a name="configure-using-azure-data-cli-azdata"></a>구성 사용 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
+### <a name="configure-using-azure-data-cli-azdata"></a>[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]를 사용하여 구성
 
-을 사용 하 여 Azure Arc 사용 SQL 관리 되는 인스턴스의 구성을 편집할 수 있습니다 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] . 구성 옵션을 보려면 다음 명령을 실행 합니다. 
+[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]를 사용하여 Azure Arc 지원 SQL Managed Instances의 구성을 편집할 수 있습니다. 구성 옵션을 보려면 다음 명령을 실행합니다. 
 
 ```
 azdata arc sql mi edit --help
 ```
 
-다음 예에서는 cpu 코어 및 메모리 요청 및 제한을 설정 합니다.
+다음 예에서는 CPU 코어, 메모리 요청 및 제한을 설정합니다.
 
 ```
 azdata arc sql mi edit --cores-limit 4 --cores-request 2 --memory-limit 4Gi --memory-request 2Gi -n <NAME_OF_SQL_MI>
 ```
 
-SQL 관리 되는 인스턴스에 대 한 변경 내용을 보려면 다음 명령을 사용 하 여 구성 yaml 파일을 볼 수 있습니다.
+SQL Managed Instance에 대한 변경 내용을 보려면 다음 명령을 사용하여 구성 yaml 파일을 볼 수 있습니다.
 
 ```
 azdata arc sql mi show -n <NAME_OF_SQL_MI>
 ```
 
-## <a name="configure-server-options"></a>서버 옵션 구성
+## <a name="configure-server-options"></a>서버 구성 옵션
 
-만든 시간 이후에 Azure Arc 사용 SQL 관리 되는 인스턴스의 서버 구성 설정을 구성할 수 있습니다. 이 문서에서는 mssql Agent를 사용 하거나 사용 하지 않도록 설정 하는 등의 설정을 구성 하는 방법을 설명 하 고, 문제 해결 시나리오에 특정 추적 플래그
+만든 시간 이후에 Azure Arc 지원 SQL Managed Instance의 서버 구성 설정을 구성할 수 있습니다. 이 문서에서는 mssql 에이전트 사용 여부 설정 구성, 문제 해결 시나리오에 특정 추적 플래그를 사용하도록 설정하는 방법을 설명합니다.
 
 이러한 설정을 변경하려면 다음 단계를 수행합니다.
 
-1. 대상 설정을 포함하는 사용자 지정 `mssql-custom.conf` 파일을 만듭니다. 다음 예에서는 SQL 에이전트를 사용 하도록 설정 하 고 추적 플래그 1204을 사용 하도록 설정 합니다.
+1. 대상 설정을 포함하는 사용자 지정 `mssql-custom.conf` 파일을 만듭니다. 다음 예에서는 SQL 에이전트를 사용하고 추적 플래그 1204를 사용하도록 설정합니다.
 
    ```
    [sqlagent]
@@ -77,4 +77,4 @@ azdata arc sql mi show -n <NAME_OF_SQL_MI>
 
 **알려진 제한 사항**
 - 위의 단계를 수행하려면 Kubernetes cluster 관리자 권한이 필요합니다.
-- 미리 보기 전체에서 변경 될 수 있습니다.
+- 이는 미리 보기 전체에서 변경될 수 있습니다.

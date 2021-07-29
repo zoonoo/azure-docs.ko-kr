@@ -12,24 +12,24 @@ manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94fd488ceb7ddb3724dd576c97c9070481e95147
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddb2a002969b031f25dae2511d679cc520928ff6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100365636"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737786"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Azure Active Directory B2B 모범 사례
 이 문서에는 Azure AD(Azure Active Directory)에서 B2B(Business to Business) 공동 작업을 위한 권장 사항 및 모범 사례가 포함되어 있습니다.
 
    > [!IMPORTANT]
-   > **2021년 10월부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는("바이럴" 또는 "just-in-time") Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 이때 모든 기존 테넌트에 대해 이메일 일회용 암호 기능이 설정되고 새 테넌트에 대해 기본적으로 사용하도록 설정됩니다. 게스트 사용자에게 원활한 대체 인증 방법을 제공하는 이메일 일회용 암호 기능을 사용하고 있습니다. 그러나 이 기능을 사용하지 않도록 선택하는 경우 이 기능을 사용하지 않도록 설정하는 옵션이 있습니다. 자세한 내용은 [이메일 일회용 암호 인증](one-time-passcode.md)을 참조하세요.
+   > **2021년 10월부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는("바이럴" 또는 "just-in-time") Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 이때 모든 기존 테넌트에 대해 이메일 일회용 암호 기능이 설정되고 새 테넌트에 대해 기본적으로 사용하도록 설정됩니다. 게스트 사용자에게 원활한 대체 인증 방법을 제공하므로 이메일 일회용 암호 기능을 사용하고 있습니다. 그러나 이 기능을 사용하지 않으려면 사용하지 않도록 설정하는 옵션이 있습니다. 자세한 내용은 [이메일 일회용 암호 인증](one-time-passcode.md)을 참조하세요.
 
 
 ## <a name="b2b-recommendations"></a>B2B 권장 사항
 | 권장 | 주석 |
 | --- | --- |
-| 최적의 로그인 환경을 위해 ID 공급자와 페더레이션 | 가능하다면 언제나 ID 공급자와 직접 페더레이션하여 초대된 사용자가 MSA(Microsoft 계정) 또는 Azure AD 계정을 만들 필요 없이 공유 앱 및 리소스에 로그인하도록 허용할 수 있습니다. [Google 페더레이션 기능](google-federation.md)을 사용하여 B2B 게스트 사용자가 Google 계정으로 로그인할 수 있습니다. 또한 [직접 페더레이션(미리보기) 기능](direct-federation.md)을 사용하여 IdP(ID 공급자)가 SAML 2.0 또는 WS-Fed 프로토콜을 지원하는 모든 조직과의 직접 페더레이션을 설정할 수 있습니다. |
+| 최적의 로그인 환경을 위해 ID 공급자와 페더레이션 | 가능하다면 언제나 ID 공급자와 직접 페더레이션하여 초대된 사용자가 MSA(Microsoft 계정) 또는 Azure AD 계정을 만들 필요 없이 공유 앱 및 리소스에 로그인하도록 허용할 수 있습니다. [Google 페더레이션 기능](google-federation.md)을 사용하여 B2B 게스트 사용자가 Google 계정으로 로그인할 수 있습니다. 또는 [SAML/WS-Fed ID 공급자(미리 보기) 기능](direct-federation.md)을 사용하여 IdP(ID 공급자)가 SAML 2.0 또는 WS-Fed 프로토콜을 지원하는 모든 조직과의 페더레이션을 설정할 수 있습니다. |
 | 다른 방법으로 인증할 수 없는 B2B 게스트에 대해 이메일 일회용 암호 기능 사용 | [이메일 일회용 암호](one-time-passcode.md) 기능은 B2B 게스트 사용자가 Azure AD, MSA(Microsoft 계정) 또는 Google 페더레이션과 같은 다른 수단을 통해 인증할 수 없을 때 해당 사용자를 인증합니다. 게스트 사용자는 초대를 사용하거나 공유 리소스에 액세스할 때 메일 주소로 전송되는 임시 코드를 요청할 수 있습니다. 그런 다음, 이 코드를 입력하여 로그인을 계속합니다. |
 | 로그인 페이지에 회사 브랜딩 추가 | B2B 게스트 사용자를 위해 보다 직관적인 로그인 페이지를 사용자 지정할 수 있습니다. [로그인 및 액세스 패널 페이지에 회사 브랜딩을 추가](../fundamentals/customize-branding.md)하는 방법을 참조하세요. |
 | B2B 게스트 사용자 상환 환경에 개인 정보 취급 방침 추가 | 초대된 사용자가 계속하려면 개인 정보 취급 방침에 동의해야만 하도록 조직의 개인 정보 취급 방침에 대한 URL을 첫 초대 상환 프로세스에 추가할 수 있습니다. [방법: Azure Active Directory에 조직의 개인 정보 추가](../fundamentals/active-directory-properties-area.md)를 참조하세요. |

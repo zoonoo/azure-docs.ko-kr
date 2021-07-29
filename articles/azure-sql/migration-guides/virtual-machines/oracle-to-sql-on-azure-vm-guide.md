@@ -8,21 +8,21 @@ ms.devlang: ''
 ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: MashaMSFT
+ms.reviewer: cawrites
 ms.date: 11/06/2020
-ms.openlocfilehash: d4fb33e8e904d12e242f7eeaf9c2dc50a02eff4d
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: d7c315694b5b25597abdacce74813b3578682f89
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961254"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111972056"
 ---
 # <a name="migration-guide-oracle-to-sql-server-on-azure-virtual-machines"></a>마이그레이션 가이드: Oracle에서 Azure Virtual Machines의 SQL Server로
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
 이 가이드에서는 Oracle용 SQL Server Migration Assistant를 사용하여 Oracle 스키마를 Azure Virtual Machines의 SQL Server로 마이그레이션하는 방법을 설명합니다. 
 
-다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](https://docs.microsoft.com/data-migration)을 참조하세요. 
+다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](/data-migration)을 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건 
 
@@ -220,7 +220,7 @@ MAP 도구 키트를 사용하여 인벤토리 스캔을 수행하려면 다음 
    ![SSMA의 SQL Server 인스턴스를 보여 주는 스크린샷.](./media/oracle-to-sql-on-azure-vm-guide/validate-in-ssms.png)
 
 SSMA를 사용하는 대신, SSIS(SQL Server Integration Services)를 사용하여 데이터를 마이그레이션할 수 있습니다. 자세한 내용은 다음을 참조하세요. 
-- [SQL Server Integration Services](https://docs.microsoft.com//sql/integration-services/sql-server-integration-services) 문서.
+- [SQL Server Integration Services](//sql/integration-services/sql-server-integration-services) 문서.
 - [Azure용 SSIS 및 하이브리드 데이터 이동](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx) 백서.
 
 
@@ -265,6 +265,7 @@ SSMA를 사용하는 대신, SSIS(SQL Server Integration Services)를 사용하�
 | [Automate SSMA Oracle Assessment Collection & Consolidation](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Automate%20SSMA%20Oracle%20Assessment%20Collection%20%26%20Consolidation)(SSMA Oracle 평가 컬렉션 및 통합 자동화)                                             | 이 리소스 집합은 .csv 파일(프로젝트 폴더의 sources.csv)을 항목으로 사용하여 콘솔 모드에서 SSMA 평가를 실행하는 데 필요한 XML 파일을 생성합니다. 기존 Oracle 인스턴스의 인벤토리를 가져와 source.csv 파일을 제공합니다. 출력 파일은 AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml 및 VariableValueFile.xml입니다.|
 | [Oracle 데이터베이스 마이그레이션 시 SSMA 문제와 가능한 해결 방법](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | Oracle을 사용하면 WHERE 절에서 스칼라가 아닌 조건을 할당할 수 있습니다. SQL Server에서는 해당 형식의 조건을 지원하지 않습니다. 따라서 Oracle용 SSMA는 WHERE절에 스칼라가 아닌 조건이 있는 쿼리를 변환하지 않습니다. 대신 O2SS0001 오류를 생성합니다. 이 백서에서는 이 문제에 관한 자세한 정보와 해결 방법을 제공합니다.          |
 | [Oracle to SQL Server Migration Handbook](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)(Oracle에서 SQL Server로 마이그레이션 안내서)                | 이 문서에서는 Oracle 스키마를 최신 버전의 SQL Server로 마이그레이션하는 것과 관련된 작업을 집중적으로 설명합니다. 마이그레이션에서 기능을 변경해야 하면 각 변경 사항이 데이터베이스를 사용하는 애플리케이션에 미칠 수 있는 영향을 신중하게 고려해야 합니다.                                                     |
+|[Oracle-SQL Server - 데이터베이스 비교 유틸리티](https://www.microsoft.com/download/details.aspx?id=103016)|Oracle 테스터용 SSMA는 데이터베이스 개체 변환 및 데이터 마이그레이션의 유효성을 자동으로 검사하는 권장 도구이며 데이터베이스 비교 기능의 상위 집합입니다.<br /><br />대체 데이터 유효성 검사 옵션을 원하는 경우 데이터베이스 비교 유틸리티를 사용하여 모든 또는 선택한 테이블, 행, 열의 행 또는 열 수준까지 데이터를 비교할 수 있습니다.|
 
 
 데이터 SQL 엔지니어링 팀이 이러한 리소스를 개발했습니다. 이 팀의 핵심 선언은 Microsoft의 Azure 데이터 플랫폼으로의 데이터 플랫폼 마이그레이션 프로젝트에 대한 복잡한 현대화의 장애물을 제거하고 속도를 높이는 것입니다.
@@ -292,5 +293,3 @@ SSMA를 사용하는 대신, SSIS(SQL Server Integration Services)를 사용하�
 
 - 애플리케이션 액세스 레이어를 평가하려면 [Data Access Migration Toolkit 미리 보기](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)를 사용하세요.
 - 데이터 액세스 계층 A/B 테스트를 수행하는 방법에 관한 자세한 내용은 [데이터베이스 실험 도우미 개요](/sql/dea/database-experimentation-assistant-overview)를 참조하세요.
-
-

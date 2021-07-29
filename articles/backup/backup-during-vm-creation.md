@@ -2,13 +2,13 @@
 title: Azure VM을 만들 때 백업 사용
 description: Azure Backup를 사용하여 Azure VM을 만들 때 백업을 사용하도록 스냅샷 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 06/13/2019
-ms.openlocfilehash: ad81300545686d61f42cdd8684e502c937b4fd43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/03/2021
+ms.openlocfilehash: 48798dc276c10276e0effd458bd15e9cfbab32dd
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89377338"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006062"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Azure VM을 만들 때 백업 사용
 
@@ -57,16 +57,20 @@ Azure Backup 서비스를 사용하여 Azure VM(가상 머신)을 백업할 수 
 
 주의할 사항:
 
-1. RG의 기본 이름을 사용하거나, 이를 회사 요구 사항에 따라 편집할 수 있습니다.
-2. VM 백업 정책을 만드는 동안 RG 이름 패턴을 입력으로 제공합니다. RG 이름은 `<alpha-numeric string>* n <alpha-numeric string>` 형식이어야 합니다. 'n'은 1부터 시작 하는 정수로 바뀌고, 첫 번째 RG가 가득 찬 경우 크기를 확장하는 데 사용됩니다. 하나의 RG는 현재 최대 600의 RPC를 사용할 수 있습니다.
+1. RG의 기본 이름을 사용하거나, 이를 회사 요구 사항에 따라 편집할 수 있습니다.<br>RG를 만들지 않은 경우 restorepointcollection에 대한 RG를 지정하려면 다음 단계를 수행합니다.
+   1. restorepointcollection에 대한 RG를 만듭니다. 예: "rpcrg".
+   1. VM 백업 정책에서 RG의 이름을 언급합니다.
+   >[!NOTE]
+   >그러면 숫자가 추가된 RG가 생성되고 restorepointcollection에 사용됩니다.
+1. VM 백업 정책을 만드는 동안 RG 이름 패턴을 입력으로 제공합니다. RG 이름은 `<alpha-numeric string>* n <alpha-numeric string>` 형식이어야 합니다. 'n'은 1부터 시작 하는 정수로 바뀌고, 첫 번째 RG가 가득 찬 경우 크기를 확장하는 데 사용됩니다. 하나의 RG는 현재 최대 600의 RPC를 사용할 수 있습니다.
               ![정책을 만들 때 이름 선택](./media/backup-during-vm-creation/create-policy.png)
-3. 패턴은 아래의 RG 명명 규칙을 따라야 하며, 총 길이는 최대 허용 RG 이름 길이를 초과해서는 안 됩니다.
+1. 패턴은 아래의 RG 명명 규칙을 따라야 하며, 총 길이는 최대 허용 RG 이름 길이를 초과해서는 안 됩니다.
     1. 리소스 그룹 이름에는 영숫자, 마침표, 밑줄, 하이픈, 괄호만 허용됩니다. 마침표로 끝날 수 없습니다.
     2. 리소스 그룹 이름은 RG 이름과 접미사를 포함하여 최대 74자까지 포함할 수 있습니다.
-4. 첫 번째 `<alpha-numeric-string>`은 필수 항목이며, 'n' 뒤의 두 번째는 선택 사항입니다. 이는 사용자 지정된 이름을 사용하는 경우에만 적용됩니다. 텍스트 상자 중 하나에 아무것도 입력하지 않으면, 기본 이름이 사용됩니다.
-5. 필요한 경우 정책을 수정하여 RG 이름을 편집할 수 있습니다. 이름 패턴이 변경되면, 새 RG에 새 RP가 만들어집니다. 그러나 RP 컬렉션은 리소스 이동을 지원하지 않으므로, 이전 RP는 여전히 이전 RG에 상주하고 이동하지 않습니다. 결과적으로, 해당 지점이 만료되면 RP가 가비지 수집을 실행합니다.
+1. 첫 번째 `<alpha-numeric-string>`은 필수 항목이며, 'n' 뒤의 두 번째는 선택 사항입니다. 이는 사용자 지정된 이름을 사용하는 경우에만 적용됩니다. 텍스트 상자 중 하나에 아무것도 입력하지 않으면, 기본 이름이 사용됩니다.
+1. 필요한 경우 정책을 수정하여 RG 이름을 편집할 수 있습니다. 이름 패턴이 변경되면, 새 RG에 새 RP가 만들어집니다. 그러나 RP 컬렉션은 리소스 이동을 지원하지 않으므로, 이전 RP는 여전히 이전 RG에 상주하고 이동하지 않습니다. 결과적으로, 해당 지점이 만료되면 RP가 가비지 수집을 실행합니다.
 ![정책을 수정할 때 이름 변경](./media/backup-during-vm-creation/modify-policy.png)
-6. 백업 서비스에서 사용하기 위해 생성된 리소스 그룹을 잠그지 않는 것이 좋습니다.
+1. 백업 서비스에서 사용하기 위해 생성된 리소스 그룹을 잠그지 않는 것이 좋습니다.
 
 PowerShell을 사용하여 가상 머신에 Azure Backup 리소스 그룹을 구성하려면 [스냅샷 보존 중 Azure Backup 리소스 그룹 만들기](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention)를 참조하세요.
 
@@ -83,7 +87,7 @@ VM을 만든 후 다음을 수행합니다.
 
 ## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Resource Manager 템플릿을 사용하여 보호된 VM 배포
 
-이전 단계에서는 Azure Portal을 사용하여 가상 머신을 만들고 Recovery Services 자격 증명 모음에서 이를 보호하는 방법을 설명했습니다. 하나 이상의 VM을 신속하게 배포하고 Recovery Services 자격 증명 모음에서 이를 보호하려면, [Windows VM 배포 및 백업 사용](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/) 템플릿을 참조하세요.
+이전 단계에서는 Azure Portal을 사용하여 가상 머신을 만들고 Recovery Services 자격 증명 모음에서 이를 보호하는 방법을 설명했습니다. 하나 이상의 VM을 신속하게 배포하고 Recovery Services 자격 증명 모음에서 이를 보호하려면, [Windows VM 배포 및 백업 사용](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/) 템플릿을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

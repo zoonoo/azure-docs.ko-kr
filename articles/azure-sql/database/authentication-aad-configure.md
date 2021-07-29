@@ -5,19 +5,19 @@ description: Azure AD를 구성한 후 Azure Active Directory 인증을 사용�
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: azure-synapse, has-adal-ref, sqldbrb=2, devx-track-azurecli
+ms.custom: azure-synapse, has-adal-ref, sqldbrb=2, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
-ms.date: 08/17/2020
-ms.openlocfilehash: 9e7b337d4358f9685d683c308d6df9110607207a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/11/2021
+ms.openlocfilehash: 4d06ec600f71e682c9faadf3760ee76bb41c40b2
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643417"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112021000"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Azure SQL에서 Azure AD 인증 구성 및 관리
 
@@ -48,7 +48,13 @@ Azure AD 하이브리드 ID, 설정 및 동기화에 대한 자세한 내용은 
 
 Azure AD 인스턴스를 만들고 사용자 및 그룹으로 채웁니다. Azure AD는 초기 Azure AD 관리되는 도메인일 수 있습니다. Azure AD는 Azure AD와 페더레이션된 온-프레미스 Active Directory Domain Services일 수도 있습니다.
 
-자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](../../active-directory/hybrid/whatis-hybrid-identity.md), [Azure AD에 고유한 도메인 이름 추가](../../active-directory/fundamentals/add-custom-domain.md), [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD 디렉터리 관리](../../active-directory/fundamentals/active-directory-whatis.md), [Windows PowerShell을 사용한 Azure AD 관리](/powershell/azure/) 및 [포트 및 프로토콜이 필요한 하이브리드 ID](../../active-directory/hybrid/reference-connect-ports.md)를 참조하세요.
+자세한 내용은 다음을 참조하세요.
+- [Azure Active Directory와 온-프레미스 ID 통합](../../active-directory/hybrid/whatis-hybrid-identity.md)
+- [Azure AD에 고유한 도메인 이름 추가](../../active-directory/fundamentals/add-custom-domain.md)
+- [Microsoft Azure는 이제 Windows Server Active Directory를 통한 페더레이션 지원](https://azure.microsoft.com/blog/windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [Azure Active Directory란?](../../active-directory/fundamentals/active-directory-whatis.md)
+- [Windows PowerShell을 사용하여 Azure AD 관리](/powershell/module/azuread)
+- [포트 및 프로토콜이 필요한 하이브리드 ID](../../active-directory/hybrid/reference-connect-ports.md)
 
 ## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Azure Active Directory에 Azure 구독 연결 또는 추가
 
@@ -77,7 +83,7 @@ Azure Active Directory와 함께 지역에서 복제를 사용할 때 Azure Acti
 
 SQL Managed Instance에는 보안 그룹 멤버 자격을 통한 사용자 인증 또는 새 사용자 만들기와 같은 작업을 성공적으로 수행하기 위해 Azure AD를 읽을 수 있는 권한이 필요합니다. 이를 위해 Azure AD를 읽을 수 있는 SQL Managed Instance 권한을 부여해야 합니다. 이 작업은 Azure Portal 또는 PowerShell을 사용하여 수행할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal을 사용하여 SQL Managed Instance Azure AD 읽기 권한을 부여하려면 Azure AD에서 전역 관리자 권한으로 로그인하고 다음 단계를 수행합니다.
 
@@ -218,12 +224,12 @@ Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGro
 
 다음 CLI 명령을 호출하여 SQL Managed Instance에 대한 Azure AD 관리자를 프로비전할 수도 있습니다.
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
-|[az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) | SQL Managed Instance에 대한 Azure Active Directory 관리자를 프로비전합니다(현재 구독에 있어야 함). |
-|[az sql mi ad-admin delete](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-delete) | SQL Managed Instance에 대한 Azure Active Directory 관리자를 제거합니다. |
-|[az sql mi ad-admin list](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-list) | 현재 SQL Managed Instance에 대해 구성된 Azure Active Directory 관리자에 대한 정보를 반환합니다. |
-|[az sql mi ad-admin update](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-update) | SQL Managed Instance에 대한 Active Directory 관리자를 업데이트합니다. |
+|[az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_create) | SQL Managed Instance에 대한 Azure Active Directory 관리자를 프로비전합니다(현재 구독에 있어야 함). |
+|[az sql mi ad-admin delete](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_delete) | SQL Managed Instance에 대한 Azure Active Directory 관리자를 제거합니다. |
+|[az sql mi ad-admin list](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_list) | 현재 SQL Managed Instance에 대해 구성된 Azure Active Directory 관리자에 대한 정보를 반환합니다. |
+|[az sql mi ad-admin update](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_update) | SQL Managed Instance에 대한 Active Directory 관리자를 업데이트합니다. |
 
 CLI 명령에 대한 자세한 내용은 [az sql mi](/cli/azure/sql/mi)를 참조하세요.
 
@@ -236,7 +242,7 @@ CLI 명령에 대한 자세한 내용은 [az sql mi](/cli/azure/sql/mi)를 참�
 
 다음 두 절차에서는 Azure Portal 및 PowerShell을 사용하여 서버에 대한 Azure Active Directory 관리자를 프로비전하는 방법을 보여 줍니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 1. [Azure Portal](https://portal.azure.com/)의 상단 오른쪽 끝에서 해당 연결을 선택하여 가능한 Active Directory 목록을 드롭다운합니다. 정확한 Active Directory를 기본 Azure AD로 선택합니다. 이 단계에서는 구독에 연결된 Active Directory를 서버와 연결하여 동일한 구독이 두 Azure AD 및 서버 모두에 사용되도록 합니다.
 
@@ -293,7 +299,7 @@ get-help PowerShell 명령을 이러한 각 명령에 대한 자세한 정보를
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-**DisplayName** 입력 매개 변수에는 Azure AD 표시 이름이나 사용자 계정 이름이 허용됩니다. 예를 들어 ``DisplayName="John Smith"`` 또는 ``DisplayName="johns@contoso.com"``입니다. Azure AD 그룹에는 Azure AD 표시 이름만 지원됩니다.
+**DisplayName** 입력 매개 변수에는 Azure AD 표시 이름이나 사용자 계정 이름이 허용됩니다. 예를 들어 ``DisplayName="John Smith"`` 및 ``DisplayName="johns@contoso.com"``를 지정합니다. Azure AD 그룹에는 Azure AD 표시 이름만 지원됩니다.
 
 > [!NOTE]
 > Azure PowerShell 명령 ```Set-AzSqlServerActiveDirectoryAdministrator```는 지원되지 않는 사용자에 대한 Azure AD 관리자 프로비전을 차단하지 않습니다. 지원되지 않는 사용자를 프로비전할 수는 있지만 데이터베이스에 연결할 수는 없습니다.
@@ -324,12 +330,12 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 
 다음 CLI 명령을 호출하여 Azure AD 관리자를 프로비전할 수 있습니다.
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
-|[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | SQL Database 또는 Azure Synapse를 호스팅하는 서버에 대한 Azure Active Directory 관리자를 프로비전합니다. (현재 구독에 있어야 함) |
-|[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | SQL Database 또는 Azure Synapse를 호스팅하는 서버에 대한 Azure Active Directory 관리자를 제거합니다. |
-|[az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) | SQL Database 또는 Azure Synapse를 호스팅하는 서버에 대해 현재 구성된 Azure Active Directory 관리자에 대한 정보를 반환합니다. |
-|[az sql server ad-admin update](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) | SQL Database 또는 Azure Synapse를 호스팅하는 서버에 대한 Active Directory 관리자를 업데이트합니다. |
+|[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) | SQL Database 또는 Azure Synapse를 호스팅하는 서버에 대한 Azure Active Directory 관리자를 프로비전합니다. (현재 구독에 있어야 함) |
+|[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_delete) | SQL Database 또는 Azure Synapse를 호스팅하는 서버에 대한 Azure Active Directory 관리자를 제거합니다. |
+|[az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) | SQL Database 또는 Azure Synapse를 호스팅하는 서버에 대해 현재 구성된 Azure Active Directory 관리자에 대한 정보를 반환합니다. |
+|[az sql server ad-admin update](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_update) | SQL Database 또는 Azure Synapse를 호스팅하는 서버에 대한 Active Directory 관리자를 업데이트합니다. |
 
 CLI 명령에 대한 자세한 내용은 [az sql server](/cli/azure/sql/server)를 참조하세요.
 
@@ -337,6 +343,19 @@ CLI 명령에 대한 자세한 내용은 [az sql server](/cli/azure/sql/server)�
 
 > [!NOTE]
 > REST API를 사용하여 Azure Active Directory 관리자를 프로비전할 수도 있습니다. 자세한 내용은 [서비스 관리 REST API 참조 및 Azure SQL Database에 대한 작업](/rest/api/sql/)을 참조하세요.
+
+## <a name="set-or-unset-the-azure-ad-admin-using-service-principals"></a>서비스 주체를 사용하여 Azure AD 관리자 설정 또는 설정 해제
+
+서비스 주체가 Azure SQL에 대해 Azure AD 관리자를 설정하거나 설정 해제하게 하려면 추가 API 권한이 필요합니다. [Directory.Read.All](/graph/permissions-reference#application-permissions-18) 애플리케이션 API 권한을 Azure AD의 애플리케이션에 추가해야 합니다.
+
+> [!NOTE]
+> Azure AD 서비스 주체로 Azure Portal을 사용할 수 없으므로 Azure AD 관리자 설정에 관한 이 섹션은 PowerShell 또는 CLI 명령을 사용하는 경우에만 적용됩니다.
+
+:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Azure AD의 Directory.Reader.All 권한":::
+
+또한 서비스 주체에는 SQL Database에 대한 [**SQL Server Contributor**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) 역할 또는 SQL Managed Instance에 대한 [**SQL Managed Instance Contributor**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) 역할이 필요합니다.
+
+자세한 내용은 [서비스 주체(Azure AD 애플리케이션)](authentication-aad-service-principal.md)를 참조하세요.
 
 ## <a name="configure-your-client-computers"></a>클라이언트 컴퓨터 구성
 
@@ -420,7 +439,7 @@ Azure AD 관리자가 제대로 설정되었는지 확인하려면 Azure AD 관�
 Azure AD 기반의 포함된 데이터베이스 사용자(데이터베이스를 소유한 서버 관리자 아님)를 프로비전하려면 해당 데이터베이스에 대한 액세스가 있는 Azure AD ID로 데이터베이스에 연결합니다.
 
 > [!IMPORTANT]
-> Azure Active Directory 인증에 대한 지원은 [SQL Server 2016 Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 및 Visual Studio 2015의 [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt)에서 사용 가능합니다. SSMS의 2016년 8월 릴리스에는 관리자가 전화 통화, 문자 메시지, PIN이 있는 스마트 카드 또는 모바일 앱 알림을 사용하여 Multi-Factor Authentication을 요구할 수 있도록 하는 Active Directory 유니버설 인증도 포함되어 있습니다.
+> Azure Active Directory 인증에 대한 지원은 2016부터 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) 및 2015부터 [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt)에서 사용 가능합니다. SSMS의 2016년 8월 릴리스에는 관리자가 전화 통화, 문자 메시지, PIN이 있는 스마트 카드 또는 모바일 앱 알림을 사용하여 Multi-Factor Authentication을 요구할 수 있도록 하는 Active Directory 유니버설 인증도 포함되어 있습니다.
 
 ## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>SSMS 또는 SSDT를 사용하여 연결하는 데 Azure AD ID 사용
 

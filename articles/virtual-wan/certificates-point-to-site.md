@@ -1,18 +1,18 @@
 ---
 title: 사용자 VPN 연결에 대한 인증서 생성 및 내보내기 | Azure Virtual WAN
-description: Windows 10 또는 Windows Server 2016의 PowerShell을 사용하여 사용자 VPN 연결에 대해 자체 서명된 루트 인증서를 만들고, 공개 키를 내보내고, 클라이언트 인증서를 생성합니다.
+description: PowerShell을 사용하여 자체 서명된 루트 인증서를 만들고, 공개 키를 내보내고, Virtual WAN 사용자 VPN(지점 및 사이트 간) 연결을 위한 클라이언트 인증서를 생성하는 방법에 대해 알아봅니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: 2205f170ee846d4db94db7f524a1c424cfbc8f7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d126f68ed1eebae9dda7ad957748cb3258b5ad89
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91328041"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165302"
 ---
 # <a name="generate-and-export-certificates-for-user-vpn-connections"></a>사용자 VPN 연결에 대한 인증서 생성 및 내보내기
 

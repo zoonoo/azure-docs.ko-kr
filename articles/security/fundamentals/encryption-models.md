@@ -4,7 +4,6 @@ description: 이 문서에서는 Microsoft Azure의 데이터 암호화 모델�
 services: security
 documentationcenter: na
 author: msmbaldwin
-manager: rkarlin
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
+ms.date: 04/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: f76b2811531b49c9312a02a581e876f9ef569a2a
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 8e39864e2246e175bb9f699f01b78646782d84eb
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750971"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315348"
 ---
 # <a name="data-encryption-models"></a>데이터 암호화 모델
 
@@ -60,7 +59,7 @@ Azure에서 지원되는 암호화 모델은 앞에서 언급한 대로 두 가�
 
 클라이언트 쪽 암호화 모델은 서비스 또는 호출 애플리케이션이 리소스 공급자 또는 Azure 외부에서 수행되는 암호화를 나타냅니다. 이 암호화는 Azure의 서비스 애플리케이션이나 고객 데이터 센터에서 실행되는 애플리케이션에서 수행할 수 있습니다. 두 경우 모두 Azure 리소스 공급자에서 이 암호화 모델을 활용할 때 어떤 방식으로든 데이터의 암호를 해독할 수 없거나 암호화 키에 대한 액세스 권한이 없는 데이터의 암호화된 Blob을 받습니다. 이 모델에서는 키 관리가 호출 서비스/애플리케이션에서 수행되며 Azure 서비스에 대해 불투명합니다.
 
-![클라이언트](./media/encryption-models/azure-security-encryption-atrest-fig2.png)
+![Client](./media/encryption-models/azure-security-encryption-atrest-fig2.png)
 
 ## <a name="server-side-encryption-using-service-managed-keys"></a>서비스 관리 키를 사용하여 서버 쪽 암호화
 
@@ -91,7 +90,7 @@ Microsoft 관리 키를 사용하는 서버 쪽 암호화는 이 서비스에 �
 
 미사용 데이터를 암호화하고 암호화 키를 제어해야 하는 요구 사항이 있는 시나리오의 경우 고객은 Key Vault에서 고객 관리 키를 사용하여 서버 쪽 암호화를 사용할 수 있습니다. 일부 서비스는 Azure Key Vault에 루트 키 암호화 키만 저장하고, 데이터에 가까운 내부 위치에는 암호화된 데이터 암호화 키를 저장할 수 있습니다. 이 시나리오에서는 고객이 자신의 키를 Key Vault(BYOK(Bring Your Own Key))로 가져오거나 새 키를 생성하여 원하는 리소스를 암호화하는 데 사용할 수 있습니다. 리소스 공급자는 암호화 및 암호 해독 작업을 수행할 때 구성된 키 암호화 키를 모든 암호화 작업의 루트 키로 사용합니다.
 
-따라서 키 암호화 키가 손실되면 데이터가 손실됩니다. 이러한 이유로 키를 삭제하면 안 됩니다. 키를 만들거나 회전할 때마다 백업해야 합니다. 키 암호화 키를 저장하는 모든 자격 증명 모음에서 [일시 삭제](../../key-vault/general/soft-delete-overview.md)를 사용하도록 설정해야 합니다. 키를 삭제하는 대신 enabled를 false로 설정하거나 만료 날짜를 설정합니다.
+따라서 키 암호화 키가 손실되면 데이터가 손실됩니다. 이러한 이유로 키를 삭제하면 안 됩니다. 키를 만들거나 회전할 때마다 백업해야 합니다. 실수로 또는 악의적인 암호화 삭제로부터 보호하려면 키 암호화 키를 저장하는 모든 자격 증명 모음에서 [일시 삭제 및 제거 보호](../../key-vault/general/soft-delete-overview.md)를 사용하도록 설정해야 합니다. 키를 삭제하는 대신 키 암호화 키에서 enabled를 false로 설정하는 것이 좋습니다.
 
 ### <a name="key-access"></a>키 액세스
 
@@ -102,7 +101,7 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 미사용 데이터를 암호화하거나 암호 해독하는 데 사용할 키를 얻으려면, 리소스 관리자 서비스 인스턴스가 실행될 서비스 ID에 UnwrapKey(암호 해독 키를 가져옴) 및 WrapKey(새 키를 만들 때 키 자격 증명 모음에 키를 삽입함)가 있어야 합니다.
 
 >[!NOTE]
->Key Vault 권한 부여에 대한 자세한 내용은 [Azure Key Vault 설명서](../../key-vault/general/security-overview.md)의 키 자격 증명 모음 보호 페이지를 참조하세요.
+>Key Vault 권한 부여에 대한 자세한 내용은 [Azure Key Vault 설명서](../../key-vault/general/security-features.md)의 키 자격 증명 모음 보호 페이지를 참조하세요.
 
 **장점**
 
@@ -149,7 +148,7 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 | Azure Cognitive Search           | 예                | 예                | -                  |
 | Azure Cognitive Services         | 예                | 예                | -                  |
 | Azure Machine Learning           | 예                | 예                | -                  |
-| Azure Machine Learning Studio(클래식) | 예         | 미리 보기, RSA 2048비트 | -               |
+| Azure Machine Learning Studio(클래식) | Yes         | 미리 보기, RSA 2048비트 | -               |
 | Content Moderator                | 예                | 예                | -                  |
 | Face                             | 예                | 예                | -                  |
 | Language Understanding           | 예                | 예                | -                  |
@@ -159,12 +158,12 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 | Translator Text                  | 예                | 예                | -                  |
 | Power BI                         | 예                | 예, RSA 4096비트  | -                  |
 | **분석**                    |                    |                    |                    |
-| Azure Stream Analytics           | 예                | 예\*\*            | -                  |
+| Azure Stream Analytics           | Yes                | 예\*\*            | -                  |
 | Event Hubs                       | 예                | 예                | -                  |
 | Functions                        | 예                | 예                | -                  |
 | Azure Analysis Services          | 예                | -                  | -                  |
-| Azure Data Catalog               | 예                | -                  | -                  |
-| Azure HDInsight                  | 예                | 모두                | -                  |
+| Azure Data Catalog               | Yes                | -                  | -                  |
+| Azure HDInsight                  | Yes                | 모두                | -                  |
 | Azure Monitor Application Insights | 예                | 예                | -                  |
 | Azure Monitor Log Analytics      | 예                | 예                | -                  |
 | Azure Data Explorer              | 예                | 예                | -                  |
@@ -181,28 +180,25 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 | App Service                      | 예                | 예\*\*            | -                  |
 | Automation                       | 예                | 예\*\*            | -                  |
 | Azure 기능                  | 예                | 예\*\*            | -                  |
-| Azure Portal                     | 예                | 예\*\*            | -                  |
+| Azure Portal                     | Yes                | 예\*\*            | -                  |
 | Logic Apps                       | 예                | 예                | -                  |
-| Azure Managed Applications       | 예                | 예\*\*            | -                  |
+| Azure Managed Applications       | Yes                | 예\*\*            | -                  |
 | Service Bus                      | 예                | 예                | -                  |
 | Site Recovery                    | 예                | 예                | -                  |
 | **데이터베이스**                    |                    |                    |                    |
 | Virtual Machines의 SQL Server   | 예                | 예                | 예                |
-| Azure SQL Database               | 예                | 예, RSA 3072비트  | 예                |
-| Azure SQL Database for MariaDB   | 예                | -                  | -                  |
+| Azure SQL Database               | 예                | 예, RSA 3072비트  | Yes                |
+| Azure SQL Database for MariaDB   | Yes                | -                  | -                  |
 | Azure SQL Database for MySQL     | 예                | 예                | -                  |
 | Azure SQL Database for PostgreSQL | 예               | 예                | -                  |
 | Azure Synapse Analytics          | 예                | 예, RSA 3072비트  | -                  |
-| SQL Server Stretch Database      | 예                | 예, RSA 3072비트  | 예                |
+| SQL Server Stretch Database      | 예                | 예, RSA 3072비트  | Yes                |
 | Table Storage                    | 예                | 예                | 예                |
 | Azure Cosmos DB                  | 예                | 예                | -                  |
 | Azure Databricks                 | 예                | 예                | -                  |
-| Azure Database Migration Service | 예                | 해당 없음\*              | -                  |
-| **DevOps**                       |                    |                    |                    |
-| Azure DevOps Services            | 예                | -                  | -                  |
-| Azure Repos                      | 예                | -                  | -                  |
+| Azure Database Migration Service | Yes                | 해당 없음\*              | -                  |
 | **ID**                     |                    |                    |                    |
-| Azure Active Directory           | 예                | -                  | -                  |
+| Azure Active Directory           | Yes                | -                  | -                  |
 | Azure Active Directory Domain Services | 예          | 예                | -                  |
 | **통합**                  |                    |                    |                    |
 | Service Bus                      | 예                | 예                | 예                |
@@ -212,7 +208,7 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 | IoT Hub                          | 예                | 예                | 예                |
 | IoT Hub Device Provisioning      | 예                | 예                | -                  |
 | **관리 및 거버넌스**    |                    |                    |                    |
-| Azure Site Recovery              | 예                | -                  | -                  |
+| Azure Site Recovery              | Yes                | -                  | -                  |
 | Azure Migrate                    | 예                | 예                | -                  |
 | **미디어**                        |                    |                    |                    |
 | Media Services                   | 예                | 예                | 예                |
@@ -229,8 +225,8 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 | File Premium Storage             | 예                | 예                | -                  |
 | 파일 동기화                        | 예                | 예                | -                  |
 | Queue storage                    | 예                | 예                | 예                |
-| Avere vFXT                       | 예                | -                  | -                  |
-| Azure Cache for Redis            | 예                | 해당 없음\*              | -                  |
+| Avere vFXT                       | Yes                | -                  | -                  |
+| Azure Cache for Redis            | Yes                | 해당 없음\*              | -                  |
 | Azure NetApp Files               | 예                | 예                | -                  |
 | Archive Storage                  | 예                | 예                | -                  |
 | StorSimple                       | 예                | 예                | 예                |

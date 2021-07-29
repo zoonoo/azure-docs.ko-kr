@@ -1,23 +1,24 @@
 ---
-title: 'P2S를 사용한 원격 작업: Azure VPN Gateway'
-description: 이 페이지에서는 COVID-19 팬데믹으로 인해 원격으로 작업할 수 있도록 VPN Gateway를 활용하는 방법을 설명합니다.
+title: 원격 작업과 지점 및 사이트 간 VPN 게이트웨이
+titleSuffix: Azure VPN Gateway
+description: 코로나19 전염병으로 인해 VPN Gateway 지점 및 사이트 간 연결을 사용하여 원격으로 작업하는 방법에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 04/29/2021
 ms.author: alzam
-ms.openlocfilehash: eb0291b18952efc643de18e111154ebe58f041af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57328748f21dda9efe3b2208aeb4854360a76e38
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880087"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288685"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>지점 및 사이트 간 Azure VPN Gateway를 사용한 원격 작업
 
 >[!NOTE]
->이 문서에서는 Azure VPN Gateway, Azure, Microsoft 네트워크 및 Azure 파트너 에코시스템을 활용하여 원격으로 작업하고 COVID-19 위기로 인해 직면한 네트워크 문제를 완화하는 방법을 설명합니다.
+>이 문서에서는 Azure VPN Gateway, Azure, Microsoft 네트워크 및 Azure 파트너 에코시스템을 활용하여 원격으로 작업하고 코로나19 위기로 인해 직면한 네트워크 문제를 완화하는 방법을 설명합니다.
 >
 
 이 문서에서는 조직에서 사용자를 위한 원격 액세스를 설정하거나 COVID-19 유행 동안 추가 용량으로 기존 솔루션을 보완하는 데 사용할 수 있는 옵션에 대해 설명합니다.

@@ -5,24 +5,29 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/25/2021
+ms.date: 04/28/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: d8c3a2d961cc5b6fd719b77dae07b6e46c3d8b65
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7f9a10aca24203b69ff38ff5fab7960681145af5
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604841"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227833"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>H 시리즈 및 N 시리즈 VM의 알려진 문제
 
 이 문서에서는 [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) HPC 및 GPU VM을 사용할 때 최근 발생한 일반적인 문제 및 해당 솔루션을 제공하고자 합니다.
 
+## <a name="cache-topology-on-standard_hb120rs_v3"></a>Standard_HB120rs_v3의 캐시 토폴로지
+`lstopo`는 Standard_HB120rs_v3 VM 크기에 잘못된 캐시 토폴로지를 표시합니다. NUMA당 32MB L3만 표시 가능하기 때문일 수 있습니다. 그러나 실제로는 전체 VM에 동일한 480MB의 L3을 다른 제한된 코어 HBv3 VM 크기와 함께 사용할 수 있기 때문에 실제로 NUMA당 120MB L3이 예상대로 존재합니다. 올바른 값을 표시하지 못하는 외관상의 오류로, 워크로드에는 영향이 없습니다.
+
+## <a name="qp0-access-restriction"></a>qp0 액세스 제한
+보안 취약성을 유발할 수 있는 낮은 수준의 하드웨어 액세스를 방지하기 위해 큐 쌍 0은 게스트 VM에 액세스할 수 없습니다. 이는 일반적으로 ConnectX InfiniBand NIC의 관리와 관련된 작업에만 영향을 주며 ibdiagnet과 같은 일부 InfiniBand 진단을 실행하지만 최종 사용자 애플리케이션은 실행하지 않습니다.
+
 ## <a name="mofed-installation-on-ubuntu"></a>Ubuntu에 설치하는 MOFED
-Ubuntu-18.04에서 Mellanox OFED는 커널 버전 `5.4.0-1039-azure #42`와 최신 버전이 호환되지 않아서 VM 부팅 시간이 약 30분으로 증가하였음을 보여주었습니다. 이 문제는 Mellanox OFED 버전 5.2-1.0.4.0과 5.2-2.2.0.0 모두 보고되었습니다.
-임시 솔루션은 **Canonical:UbuntuServer:18_04-lts-gen2:18.04.202101290** 마켓플레이스 이미지를 사용하고 커널을 업데이트하지 않는 것입니다.
-이 문제는 최신 MOFED(TBD)로 해결될 예정입니다.
+커널 버전 `5.4.0-1039-azure #42` 이상의 Ubuntu-18.04 기반 Marketplace VM 이미지에서 일부 이전 Mellanox OFED가 호환되지 않아 VM 부팅 시간이 최대 30분까지 증가하는 경우가 있습니다. 이 문제는 Mellanox OFED 버전 5.2-1.0.4.0과 5.2-2.2.0.0 모두 보고되었습니다. 이 문제는 Mellanox OFED 5.3-1.0.0.1에서 해결되었습니다.
+호환되지 않는 OFED를 사용해야 하는 경우 솔루션은 **Canonical:UbuntuServer:18_04-lts-gen2:18.04.202101290** Marketplace VM 이미지 또는 이전 버전을 사용하고 커널을 업데이트하지 않는 것입니다.
 
 ## <a name="mpi-qp-creation-errors"></a>MPI QP 생성 오류
 MPI 워크로드를 실행 중인 경우 아래와 같은 InfiniBand QP 생성 오류가 발생하면 VM을 다시 부팅하고 워크로드를 다시 시도하는 것이 좋습니다. 이 문제는 향후 수정될 예정입니다.
@@ -72,10 +77,6 @@ Ubuntu VM 이미지에서 IB 인터페이스를 표시하려고 할 때 Cloud-In
       version: 2
     EOF
     ```
-
-## <a name="qp0-access-restriction"></a>qp0 액세스 제한
-
-보안 취약성을 유발할 수 있는 낮은 수준의 하드웨어 액세스를 방지하기 위해 큐 쌍 0은 게스트 VM에 액세스할 수 없습니다. 이는 일반적으로 ConnectX-5 NIC의 관리와 관련된 작업에만 영향을 주며 ibdiagnet과 같은 일부 InfiniBand 진단을 실행하지만 최종 사용자 애플리케이션 자체는 실행하지 않습니다.
 
 ## <a name="dram-on-hb-series-vms"></a>HB 시리즈 VM의 DRAM
 

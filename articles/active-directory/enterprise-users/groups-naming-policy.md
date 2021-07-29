@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 06/11/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00291907ddea75ba4507779d1226502dc8343aea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fc67b0b038abda37c591162caad9b3b94e6c440
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100365704"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027482"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft 365 그룹에 대한 명명 정책 적용
 
@@ -70,14 +70,14 @@ ms.locfileid: "100365704"
 ### <a name="roles-and-permissions"></a>역할 및 권한
 
 명명 정책을 구성하려면 다음 역할 중 하나가 필요합니다.
-- 글로벌 관리자
+
+- 전역 관리자
 - 그룹 관리자
-- 디렉터리 기록기
+- 디렉터리 작성자
 
+일부 관리자 역할은 모든 그룹 워크로드 및 엔드포인트에서 이러한 정책으로부터 제외되므로 차단된 단어를 사용하고 고유한 명명 규칙을 사용하여 그룹을 만들 수 있습니다. 다음 관리자 역할은 그룹 이름 지정 정책에서 제외됩니다.
 
-선택한 관리자는 모든 그룹 워크로드와 엔드포인트에서 이러한 정책으로부터 제외될 수 있어 차단된 단어와 고유한 명명 규칙을 사용하여 그룹을 생성할 수 있습니다. 다음은 그룹 명명 정책이 적용되지 않는 관리자 역할 목록입니다.
-
-- 글로벌 관리자
+- 전역 관리자
 - 사용자 관리자
 
 ## <a name="configure-naming-policy-in-azure-portal"></a>Azure Portal에서 명명 정책 구성

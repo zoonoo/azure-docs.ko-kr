@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/29/2021
 ms.author: tamram
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 30c73849d07c1495251c17510ea71f29c674c618
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 7c4e0fed78eb85e0e5326cbee6c6823466811c16
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967492"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321875"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>범용 v2 스토리지 계정으로 업그레이드
 
@@ -38,12 +38,12 @@ ms.locfileid: "105967492"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 스토리지 계정으로 이동합니다.
-3. **설정** 섹션에서 **구성** 을 클릭합니다.
-4. **계정 종류** 아래에서 **업그레이드** 를 클릭합니다.
+3. **설정** 섹션에서 **구성** 을 선택합니다.
+4. **계정 종류** 에서 **업그레이드** 를 선택합니다.
 5. **업그레이드 확인** 에서 계정 이름을 입력합니다.
-6. 블레이드 하단에서 **업그레이드** 를 클릭합니다.
+6. 블레이드 하단에서 **업그레이드** 를 선택합니다.
 
-    ![계정 종류 업그레이드](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
+    :::image type="content" source="../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png" alt-text="구성 블레이드의 스크린샷, 업그레이드 계정 종류가 강조 표시됩니다." lightbox="../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

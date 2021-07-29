@@ -5,14 +5,15 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 04/15/2021
 ms.author: jgao
-ms.openlocfilehash: fb5fc0b6b673f8a754d0d6bb6ff962697cd5f38b
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3ac1afe3658db60297735e897d69caa463358a4c
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967339"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318390"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>ARM 템플릿에서 배포 스크립트 사용
 
@@ -136,11 +137,11 @@ ARM 템플릿(Azure Resource 템플릿)에서 배포 스크립트를 사용하�
 
 속성 값 세부 정보:
 
-- `identity`: 배포 스크립트 API 버전 2020-10-01 이상에서는 스크립트에서 Azure 관련 작업을 수행해야 하는 경우가 아니라면 사용자 할당 관리 ID가 선택 사항입니다.  API 버전 2019-10-01-preview의 경우 배포 스크립트 서비스가 스크립트를 실행하는 데 사용하므로 관리 ID가 필요합니다. 현재 사용자가 할당한 관리 ID만 지원됩니다.
+- `identity`: 배포 스크립트 API 버전 2020-10-01 이상에서는 스크립트에서 Azure 관련 작업을 수행해야 하는 경우가 아니라면 사용자 할당 관리 ID가 선택 사항입니다.  API 버전 2019-10-01-preview의 경우 배포 스크립트 서비스가 스크립트를 실행하는 데 사용하므로 관리 ID가 필요합니다. ID 속성이 지정된 경우 스크립트 서비스는 사용자 스크립트를 호출하기 전에 `Connect-AzAccount -Identity`를 호출합니다. 현재 사용자가 할당한 관리 ID만 지원됩니다. 다른 ID로 로그인하려면 스크립트에서 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)를 호출하면 됩니다.
 - `kind`: 스크립트 유형을 지정합니다. 현재는 Azure PowerShell 및 Azure CLI 스크립트가 지원됩니다. 값은 **AzurePowerShell** 및 **AzureCLI** 입니다.
 - `forceUpdateTag`: 템플릿 배포 간에 이 값을 변경하면 배포 스크립트가 강제로 다시 실행됩니다. `newGuid()` 또는 `utcNow()` 함수를 사용하는 경우 두 함수는 모두 매개 변수의 기본값에서만 사용할 수 있습니다. 자세한 내용은 [스크립트를 두 번 이상 실행](#run-script-more-than-once)을 참조하세요.
 - `containerSettings`: Azure Container Instance를 사용자 지정하려면 설정을 지정합니다. 배포 스크립트에는 새 Azure Container Instance가 필요합니다. 기존 Azure Container Instance는 지정할 수 없습니다. 그러나 `containerGroupName`을 사용하여 컨테이너 그룹 이름을 사용자 지정할 수 있습니다. 지정하지 않으면 그룹 이름이 자동으로 생성됩니다.
-- `storageAccountSettings`: 기존 스토리지 계정을 사용하려면 설정을 지정합니다. `containerGroupName`을 지정하지 않으면 스토리지 계정이 자동으로 만들어집니다. [기존 스토리지 계정 사용](#use-existing-storage-account)을 참조하세요.
+- `storageAccountSettings`: 기존 스토리지 계정을 사용하려면 설정을 지정합니다. `storageAccountName`을 지정하지 않으면 스토리지 계정이 자동으로 만들어집니다. [기존 스토리지 계정 사용](#use-existing-storage-account)을 참조하세요.
 - `azPowerShellVersion`/`azCliVersion`: 사용할 모듈 버전을 지정합니다. [지원되는 Azure PowerShell 버전](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list) 목록을 참조하세요. [지원되는 Azure CLI 버전](https://mcr.microsoft.com/v2/azure-cli/tags/list) 목록을 참조하세요.
 
   >[!IMPORTANT]
@@ -245,12 +246,12 @@ Write-Host "Press [ENTER] to continue ..."
 첫 번째 리소스에서는 `$DeploymentScriptOutputs`라는 변수를 정의하고 이 변수를 사용하여 출력 값을 저장합니다. 템플릿 내의 다른 리소스에서 출력 값에 액세스하려면 다음을 사용합니다.
 
 ```json
-reference('<ResourceName>').output.text
+reference('<ResourceName>').outputs.text
 ```
 
 ## <a name="work-with-outputs-from-cli-script"></a>CLI 스크립트에서 출력 작업
 
-PowerShell 배포 스크립트와는 달리 CLI/Bash 지원은 스크립트 출력을 저장하는 공통 변수를 노출하지 않으며, 대신 스크립트 출력 파일이 있는 위치를 저장하는 `AZ_SCRIPTS_OUTPUT_PATH`라는 환경 변수가 있습니다. Resource Manager 템플릿에서 배포 스크립트를 실행하는 경우 이 환경 변수는 Bash 셸에서 자동으로 설정됩니다.
+PowerShell 배포 스크립트와는 달리 CLI/Bash 지원은 스크립트 출력을 저장하는 공통 변수를 노출하지 않으며, 대신 스크립트 출력 파일이 있는 위치를 저장하는 `AZ_SCRIPTS_OUTPUT_PATH`라는 환경 변수가 있습니다. Resource Manager 템플릿에서 배포 스크립트를 실행하는 경우 이 환경 변수는 Bash 셸에서 자동으로 설정됩니다. `AZ_SCRIPTS_OUTPUT_PATH`의 값은 */mnt/azscripts/azscriptoutput/scriptoutputs.json* 입니다.
 
 배포 스크립트 출력은 `AZ_SCRIPTS_OUTPUT_PATH` 위치에 저장해야 하며 출력은 유효한 JSON 문자열 개체여야 합니다. 파일의 내용은 키-값 쌍으로 저장해야 합니다. 예를 들어 문자열의 배열은 `{ "MyResult": [ "foo", "bar"] }`로 저장됩니다.  배열 결과만 저장하는 것은 유효하지 않습니다(예: `[ "foo", "bar" ]`).
 
@@ -310,6 +311,26 @@ PowerShell 배포 스크립트와는 달리 CLI/Bash 지원은 스크립트 출�
 배포 스크립트에서 `$ErrorActionPreference` 변수를 사용하여 PowerShell이 종료되지 않는 오류에 대응하는 방식을 제어할 수 있습니다. 배포 스크립트에 변수가 설정되어 있지 않으면 스크립트 서비스에서 기본값인 **Continue** 를 사용합니다.
 
 스크립트 서비스는 `$ErrorActionPreference` 설정에도 불구하고 스크립트에 오류가 발생하면 리소스 프로비저닝 상태를 **실패** 로 설정합니다.
+
+### <a name="use-environment-variables"></a>환경 변수 사용
+
+배포 스크립트는 다음과 같은 환경 변수를 사용합니다.
+
+|환경 변수|기본값|시스템이 예약됨|
+|--------------------|-------------|---------------|
+|AZ_SCRIPTS_AZURE_ENVIRONMENT|AzureCloud|N|
+|AZ_SCRIPTS_CLEANUP_PREFERENCE|OnExpiration|N|
+|AZ_SCRIPTS_OUTPUT_PATH|<AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY>/<AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME>|Y|
+|AZ_SCRIPTS_PATH_INPUT_DIRECTORY|/mnt/azscripts/azscriptinput|Y|
+|AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY|/mnt/azscripts/azscriptoutput|Y|
+|AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME|Azure PowerShell: userscript.ps1; Azure CLI: userscript.sh|Y|
+|AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME|primaryscripturi.config|Y|
+|AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME|supportingscripturi.config|Y|
+|AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME|scriptoutputs.json|Y|
+|AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME|executionresult.json|Y|
+|AZ_SCRIPTS_USER_ASSIGNED_IDENTITY|/subscriptions/|N|
+
+`AZ_SCRIPTS_OUTPUT_PATH` 사용에 대한 자세한 내용은 [CLI 스크립트에서 출력 작업](#work-with-outputs-from-cli-script)을 참조하세요.
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>배포 스크립트에 보안 문자열 전달
 
@@ -377,10 +398,10 @@ Timeout             : PT1H
 
 Azure CLI를 사용하여 구독 또는 리소스 그룹 범위에서 배포 스크립트를 관리할 수 있습니다.
 
-- [az deployment-scripts delete](/cli/azure/deployment-scripts#az-deployment-scripts-delete): 배포 스크립트를 삭제합니다.
-- [az deployment-scripts list](/cli/azure/deployment-scripts#az-deployment-scripts-list): 모든 배포 스크립트를 나열합니다.
-- [az deployment-scripts show](/cli/azure/deployment-scripts#az-deployment-scripts-show): 배포 스크립트를 검색합니다.
-- [az deployment-scripts show-log](/cli/azure/deployment-scripts#az-deployment-scripts-show-log): 배포 스크립트 로그를 표시합니다.
+- [az deployment-scripts delete](/cli/azure/deployment-scripts#az_deployment_scripts_delete): 배포 스크립트를 삭제합니다.
+- [az deployment-scripts list](/cli/azure/deployment-scripts#az_deployment_scripts_list): 모든 배포 스크립트를 나열합니다.
+- [az deployment-scripts show](/cli/azure/deployment-scripts#az_deployment_scripts_show): 배포 스크립트를 검색합니다.
+- [az deployment-scripts show-log](/cli/azure/deployment-scripts#az_deployment_scripts_show_log): 배포 스크립트 로그를 표시합니다.
 
 List 명령 출력은 다음과 유사합니다.
 

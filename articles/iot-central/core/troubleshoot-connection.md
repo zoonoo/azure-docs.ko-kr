@@ -8,16 +8,16 @@ ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
-ms.openlocfilehash: ae40571b958897b5f06c4ae72a9049a585561872
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: fb9b2a13f277c326cdda722398a915941b8c52b3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064718"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108740972"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>디바이스의 데이터가 Azure IoT Central에 표시되지 않는 문제 해결 
 
-이 문서를 통해 디바이스 개발자는 디바이스가 IoT Central로 보내는 데이터가 애플리케이션에 표시되지 않는 이유를 알 수 있습니다.
+이 문서를 통해 디바이스가 IoT Central로 보내는 데이터가 애플리케이션에 표시되지 않는 이유를 알 수 있습니다.
 
 조사해야 할 두 가지 주요 영역은 다음과 같습니다.
 
@@ -130,7 +130,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 }
 ```
 
-| 디바이스 프로비저닝 상태 | 설명 | 가능한 완화 방법 |
+| 디바이스 프로비저닝 상태 | Description | 가능한 완화 방법 |
 | - | - | - |
 | 프로비전됨 | 즉시 인식할 수 있는 문제가 없습니다. | 해당 없음 |
 | 등록됨 | 디바이스가 아직 IoT Central에 연결되지 않았습니다. | 디바이스 로그에 연결 문제가 있는지 확인합니다. |
@@ -158,6 +158,14 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | 412 | 요청의 `ETag`가 RFC7232에 따라 기존 리소스의 `ETag`와 일치하지 않습니다. | [고객 지원팀을 통해 티켓을 제출](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)합니다. |
 | 429 | 서비스로 인해 작업이 제한되고 있습니다. 특정 서비스 제한은 [IoT Hub Device Provisioning Service 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits)을 참조하세요. | 메시지 빈도를 줄이고 더 많은 디바이스로 책임을 분담합니다. |
 | 500 | 내부 오류가 발생했습니다. | [고객 지원팀을 통해 티켓을 제출](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)하여 더 유용하게 사용할 수 있는지 확인할 수 있습니다. |
+
+### <a name="file-upload-error-codes"></a>파일 업로드 오류 코드
+
+다음은 디바이스가 클라우드에 파일을 업로드하려고 할 때 표시될 수 있는 일반적인 오류 코드 목록입니다. 디바이스에서 파일을 업로드하려면 먼저 애플리케이션에서 [디바이스 파일 업로드](howto-configure-file-uploads.md)를 구성해야 합니다.
+
+| 오류 코드 | Description | 가능한 완화 방법 |
+| - | - | - |
+| 403006  | 동시 파일 업로드 작업 수를 초과했습니다. 각 디바이스 클라이언트는 동시 파일 업로드 10개로 제한됩니다. | 디바이스가 파일 업로드 작업이 완료되었음을 IoT Central에 즉시 알리는지 확인합니다. 이 방법으로 문제가 해결되지 않으면 요청 시간 초과를 줄여 보세요. |
 
 ## <a name="payload-shape-issues"></a>페이로드 셰이프 문제
 

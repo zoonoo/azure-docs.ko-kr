@@ -1,36 +1,32 @@
 ---
-title: Azure Maps Weather Services(미리 보기)를 사용하여 실시간 및 예측 날씨 데이터 요청
-description: Microsoft Azure Maps Weather Services(미리 보기)를 사용하여 실시간(현재) 및 예측(분, 시간별, 일별) 날씨 데이터를 요청하는 방법 알아보기
+title: Azure Maps Weather Services를 사용하여 실시간 및 예측 날씨 데이터 요청
+description: Microsoft Azure Maps Weather Services를 사용하여 실시간(현재) 및 예측(분, 시간별, 일별) 날씨 데이터를 요청하는 방법 알아보기
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 04/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: fe1b337fe3e1dcf499f9a7428f66543108d0c050
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77bc1b435e92861cdabce7b0ce0ac7e9b4212138
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97680414"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326708"
 ---
-# <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services-preview"></a>Azure Maps Weather Services(미리 보기)를 사용하여 실시간 및 예측 날씨 데이터 요청 
-
-> [!IMPORTANT]
-> Azure Maps Weather Services는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Azure Maps Weather Services를 사용하여 실시간 및 예측 날씨 데이터 요청
 
 Azure Maps [Weather Services](/rest/api/maps/weather)는 개발자가 매우 동적인 기록, 실시간 및 예측 날씨 데이터와 시각화를 솔루션에 통합할 수 있도록 하는 RESTful API 집합입니다. 이 문서에서는 실시간 및 예측 날씨 데이터를 요청하는 방법을 보여줍니다.
 
 이 문서에서는 다음에 대해 알아봅니다:
 
-* [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditionspreview)를 사용하여 실시간(현재) 날씨 데이터를 요청합니다.
-* [Get Severe Weather Alerts API](/rest/api/maps/weather/getsevereweatheralertspreview)를 사용하여 심각한 날씨 경보를 요청합니다.
-* [Get Daily Forecast API](/rest/api/maps/weather/getdailyforecastpreview)를 사용하여 일별 예측을 요청합니다.
-* [Get Hourly Forecast API](/rest/api/maps/weather/gethourlyforecastpreview)를 사용하여 시간별 예측을 요청합니다.
-* [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecastpreview)를 사용하여 분 단위 예측을 요청합니다.
+* [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditions)를 사용하여 실시간(현재) 날씨 데이터를 요청합니다.
+* [Get Severe Weather Alerts API](/rest/api/maps/weather/getsevereweatheralerts)를 사용하여 심각한 날씨 경보를 요청합니다.
+* [Get Daily Forecast API](/rest/api/maps/weather/getdailyforecast)를 사용하여 일별 예측을 요청합니다.
+* [Get Hourly Forecast API](/rest/api/maps/weather/gethourlyforecast)를 사용하여 시간별 예측을 요청합니다.
+* [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecast)를 사용하여 분 단위 예측을 요청합니다.
 
 이 비디오는 Azure Maps Weather Services에 대한 REST 호출 예제를 제공합니다.
 
@@ -44,15 +40,15 @@ Azure Maps [Weather Services](/rest/api/maps/weather)는 개발자가 매우 동
 2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account). Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
 
     >[!IMPORTANT]
-    >[Get Minute Forecast API](/rest/api/maps/weather/getminuteforecastpreview)에는 S1 가격 책정 계층 키가 필요합니다. 다른 모든 API에는 S0 가격 책정 계층 키가 필요합니다.
+    >[Get Minute Forecast API](/rest/api/maps/weather/getminuteforecast)에는 Gen 1(S1) 또는 Gen 2 가격 책정 계층이 필요합니다.  다른 모든 API에는 S0 가격 책정 계층 키가 필요합니다.
 
 이 자습서에서는 [Postman](https://www.postman.com/) 애플리케이션을 사용하지만 다른 API 개발 환경을 선택할 수도 있습니다.
 
 ## <a name="request-real-time-weather-data"></a>실시간 날씨 데이터 요청
 
-[Get Current Conditions API](/rest/api/maps/weather/getcurrentconditionspreview)는 특정 좌표 위치에 대한 강수량, 온도 및 바람과 같은 자세한 날씨 상황을 반환합니다. 또한 특정 위치에 대해 지난 6 시간 또는 24 시간 동안의 관측 값을 검색할 수 있습니다. 이 응답에는 관측 날짜 및 시간, 날씨 상황에 대한 간단한 설명, 날씨 아이콘, 강수량, 강수량 표시기 플래그 및 온도와 같은 세부 정보가 포함됩니다. RealFeel™ 온도 및 자외선(UV) 지수도 반환됩니다.
+[Get Current Conditions API](/rest/api/maps/weather/getcurrentconditions)는 특정 좌표 위치에 대한 강수량, 온도 및 바람과 같은 자세한 날씨 상황을 반환합니다. 또한 특정 위치에 대해 지난 6 시간 또는 24 시간 동안의 관측 값을 검색할 수 있습니다. 이 응답에는 관측 날짜 및 시간, 날씨 상황에 대한 간단한 설명, 날씨 아이콘, 강수량, 강수량 표시기 플래그 및 온도와 같은 세부 정보가 포함됩니다. RealFeel™ 온도 및 자외선(UV) 지수도 반환됩니다.
 
-이 예제에서는 [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditionspreview)를 사용하여 워싱턴주 시애틀에 위치한 좌표에서 현재 날씨 상황을 검색합니다.
+이 예제에서는 [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditions)를 사용하여 워싱턴주 시애틀에 위치한 좌표에서 현재 날씨 상황을 검색합니다.
 
 1. Postman 앱을 엽니다. Postman 앱의 위쪽 근처에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **컬렉션** 을 선택합니다.  컬렉션 이름을 지정하고, **만들기** 단추를 선택합니다. 이 문서의 나머지 예제에서는 이 컬렉션을 사용합니다.
 
@@ -239,9 +235,9 @@ Azure Maps [Weather Services](/rest/api/maps/weather)는 개발자가 매우 동
 
 ## <a name="request-severe-weather-alerts"></a>심각한 날씨 경보 요청
 
-[Azure Maps Get Severe Weather Alerts API](/rest/api/maps/weather/getsevereweatheralertspreview)는 정부 공식 기상청과 주요 전 세계 기상 경보 공급자 모두에서 전 세계적으로 사용할 수 있는 심각한 날씨 경보를 반환합니다. 이 서비스는 경보 유형, 범주, 수준 및 허리케인, 뇌우, 번개, 폭염 또는 산불과 같이 요청된 위치에 대한 활성 심각 경보에 대한 세부 정보를 반환할 수 있습니다. 예를 들어 물류 관리자는 사업장 위치 및 계획된 경로와 함께 심각한 날씨 상황을 지도에 시각화하고 운전자 및 현지 근로자와 더욱 긴밀하게 조정할 수 있습니다.
+[Azure Maps Get Severe Weather Alerts API](/rest/api/maps/weather/getsevereweatheralerts)는 정부 공식 기상청과 주요 전 세계 기상 경보 공급자 모두에서 전 세계적으로 사용할 수 있는 심각한 날씨 경보를 반환합니다. 이 서비스는 경보 유형, 범주, 수준 및 허리케인, 뇌우, 번개, 폭염 또는 산불과 같이 요청된 위치에 대한 활성 심각 경보에 대한 세부 정보를 반환할 수 있습니다. 예를 들어 물류 관리자는 사업장 위치 및 계획된 경로와 함께 심각한 날씨 상황을 지도에 시각화하고 운전자 및 현지 근로자와 더욱 긴밀하게 조정할 수 있습니다.
 
-이 예제에서는 [Get Severe Weather Alerts API](/rest/api/maps/weather/getsevereweatheralertspreview)를 사용하여 와이오밍주 샤이엔에 위치한 좌표에서 현재 날씨 상황을 검색합니다.
+이 예제에서는 [Get Severe Weather Alerts API](/rest/api/maps/weather/getsevereweatheralerts)를 사용하여 와이오밍주 샤이엔에 위치한 좌표에서 현재 날씨 상황을 검색합니다.
 
 >[!NOTE]
 >이 예제에서는 작성 시의 심각한 날씨 경보를 검색합니다. 요청된 위치에 더 이상 심각한 날씨 경보가 없을 수 있습니다. 이 예제를 실행할 때 실제 심각한 경보 데이터를 검색하려면 다른 좌표 위치에서 데이터를 검색해야 합니다.
@@ -291,12 +287,12 @@ Azure Maps [Weather Services](/rest/api/maps/weather)는 개발자가 매우 동
 
 ## <a name="request-daily-weather-forecast-data"></a>일별 일기예보 데이터 요청
 
-[Get Daily Forecast API](/rest/api/maps/weather/getdailyforecastpreview)는 온도 및 바람과 같은 상세한 일별 일기예보를 반환합니다. 요청은 지정된 좌표 위치에 대해 1일, 5일, 10일, 15일, 25일 또는 45일 중 반환할 날 수를 지정할 수 있습니다. 응답에는 온도, 바람, 강수량, 대기 질 및 UV 지수와 같은 세부 정보가 포함됩니다.  이 예제에서는 `duration=5`를 설정하여 5일 동안 요청합니다.
+[Get Daily Forecast API](/rest/api/maps/weather/getdailyforecast)는 온도 및 바람과 같은 상세한 일별 일기예보를 반환합니다. 요청은 지정된 좌표 위치에 대해 1일, 5일, 10일, 15일, 25일 또는 45일 중 반환할 날 수를 지정할 수 있습니다. 응답에는 온도, 바람, 강수량, 대기 질 및 UV 지수와 같은 세부 정보가 포함됩니다.  이 예제에서는 `duration=5`를 설정하여 5일 동안 요청합니다.
 
 >[!IMPORTANT]
->S0 가격 책정 계층에서는 다음 1일, 5일, 10일 및 15일에 대한 일일 예보를 요청할 수 있습니다. S1 가격 책정 계층에서는 다음 25일 및 45일에 대한 일일 예보를 요청할 수도 있습니다.
+>S0 가격 책정 계층에서는 다음 1일, 5일, 10일 및 15일에 대한 일일 예보를 요청할 수 있습니다. Gen 1(S1) 또는 Gen 2 가격 책정 계층에서 다음 25일 및 45일에 대한 일일 예보를 요청할 수 있습니다.
 
-이 예제에서는 [Get Daily Forecast API](/rest/api/maps/weather/getdailyforecastpreview)를 사용하여 워싱턴주 시애틀에 위치한 좌표에 대한 5일간의 일기예보를 검색합니다.
+이 예제에서는 [Get Daily Forecast API](/rest/api/maps/weather/getdailyforecast)를 사용하여 워싱턴주 시애틀에 위치한 좌표에 대한 5일간의 일기예보를 검색합니다.
 
 1. Postman 앱을 열고 **새로 만들기** 를 클릭한 다음 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 섹션에서 만든 컬렉션을 선택하거나 새 컬렉션을 만든 다음 **저장** 을 선택합니다.
 
@@ -539,12 +535,12 @@ Azure Maps [Weather Services](/rest/api/maps/weather)는 개발자가 매우 동
 
 ## <a name="request-hourly-weather-forecast-data"></a>시간별 일기예보 데이터 요청
 
-[Get Hourly Forecast API](/rest/api/maps/weather/gethourlyforecastpreview)는 지정된 좌표 위치에 대해 다음 1시간, 12시간, 24시간(1일), 72시간(3일), 120시간(5일) 및 240시간(10일)에 대한 시간별 자세한 일기예보를 반환합니다. API는 온도, 습도, 바람, 강수량 및 UV 지수와 같은 세부 정보를 반환합니다.
+[Get Hourly Forecast API](/rest/api/maps/weather/gethourlyforecast)는 지정된 좌표 위치에 대해 다음 1시간, 12시간, 24시간(1일), 72시간(3일), 120시간(5일) 및 240시간(10일)에 대한 시간별 자세한 일기예보를 반환합니다. API는 온도, 습도, 바람, 강수량 및 UV 지수와 같은 세부 정보를 반환합니다.
 
 >[!IMPORTANT]
->S0 가격 책정 계층에서는 다음 1시간, 12시간, 24시간(1일), 72시간(3일)에 대한 시간별 예보를 요청할 수 있습니다. S1 가격 책정 계층에서는 다음 120시간(5일) 및 240시간(10일)에 대한 시간별 예보를 요청할 수 있습니다.
+>S0 가격 책정 계층에서는 다음 1시간, 12시간, 24시간(1일), 72시간(3일)에 대한 시간별 예보를 요청할 수 있습니다. Gen 1(S1) 또는 Gen 2 가격 책정 계층에서 다음 120시간(5일) 및 240시간(10일)에 대한 시간별 예보를 요청할 수 있습니다.
 
-이 예제에서는 [Get Hourly Forecast API](/rest/api/maps/weather/gethourlyforecastpreview)를 사용하여 워싱턴주 시애틀에 위치한 좌표에 대한 향후 12시간 동안의 시간별 일기예보를 검색합니다.
+이 예제에서는 [Get Hourly Forecast API](/rest/api/maps/weather/gethourlyforecast)를 사용하여 워싱턴주 시애틀에 위치한 좌표에 대한 향후 12시간 동안의 시간별 일기예보를 검색합니다.
 
 1. Postman 앱을 열고 **새로 만들기** 를 클릭한 다음 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 섹션에서 만든 컬렉션을 선택하거나 새 컬렉션을 만든 다음 **저장** 을 선택합니다.
 
@@ -649,9 +645,9 @@ Azure Maps [Weather Services](/rest/api/maps/weather)는 개발자가 매우 동
     ```
 ## <a name="request-minute-by-minute-weather-forecast-data"></a>분 단위 일기예보 데이터 요청
 
- [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecastpreview)는 다음 120분 동안 지정된 위치에 대한 분 단위 예측을 반환합니다. 사용자는 1분, 5분, 15분 간격으로 일기예보를 요청할 수 있습니다. 응답에는 강수 유형(비, 눈 또는 둘 다 포함), 시작 시각 및 강수 강도 값 (dBZ)과 같은 세부 정보가 포함됩니다.
+ [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecast)는 다음 120분 동안 지정된 위치에 대한 분 단위 예측을 반환합니다. 사용자는 1분, 5분, 15분 간격으로 일기예보를 요청할 수 있습니다. 응답에는 강수 유형(비, 눈 또는 둘 다 포함), 시작 시각 및 강수 강도 값 (dBZ)과 같은 세부 정보가 포함됩니다.
 
-이 예제에서는 [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecastpreview)를 사용하여 워싱턴주 시애틀에 위치한 좌표에 대한 분 단위 일기예보를 검색합니다. 다음 120분 동안 일기예보가 제공됩니다. 쿼리는 15분 간격으로 예측이 제공되도록 요청하지만 매개 변수를 1분 또는 5분으로 조정할 수 있습니다.
+이 예제에서는 [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecast)를 사용하여 워싱턴주 시애틀에 위치한 좌표에 대한 분 단위 일기예보를 검색합니다. 다음 120분 동안 일기예보가 제공됩니다. 쿼리는 15분 간격으로 예측이 제공되도록 요청하지만 매개 변수를 1분 또는 5분으로 조정할 수 있습니다.
 
 1. Postman 앱을 열고 **새로 만들기** 를 클릭한 다음 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 섹션에서 만든 컬렉션을 선택하거나 새 컬렉션을 만든 다음 **저장** 을 선택합니다.
 
@@ -755,7 +751,7 @@ Azure Maps [Weather Services](/rest/api/maps/weather)는 개발자가 매우 동
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure Maps Weather Services(미리 보기) 개념](./weather-services-concepts.md)
+> [Azure Maps Weather Services 개념](./weather-services-concepts.md)
 
 > [!div class="nextstepaction"]
-> [Azure Maps Weather Services(미리 보기) REST API](/rest/api/maps/weather)
+> [Azure Maps Weather Services REST API](/rest/api/maps/weather)

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5ab7bac635a0b670087800212727b0d2e2b96934
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ee51288e3c0ced3d12ed7f4e7ba63692d650591
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103472200"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279085"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 데이터 처리 최적화
 
@@ -86,6 +86,9 @@ RAM 사양은 [Dv2-Dsv2](../virtual-machines/dv2-dsv2-series-memory.md) 시리�
 `Spark`를 선호하는 경우 | `PySpark`
 1GB 미만의 데이터 | `Pandas` 로컬 **또는** 원격 Azure Machine Learning 컴퓨팅 인스턴스
 10GB보다 큰 데이터| `Ray`, `Dask` 또는 `Spark`를 사용하여 클러스터로 이동
+
+> [!TIP]
+> 대규모 데이터 처리를 위해 [to_dask_dataframe()](/python/api/azureml-core/azureml.data.tabulardataset#to-dask-dataframe-sample-size-10000--dtypes-none--on-error--null---out-of-range-datetime--null--) 메서드를 사용하여 데이터 세트를 데이터 프레임에 로드합니다. 이 메서드는 [실험적인](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제든지 변경할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

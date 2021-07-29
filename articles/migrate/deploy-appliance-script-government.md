@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: c4ca8d8ac24ac174158957e44b5eabe4a89a5340
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: edc74f0379a15c9119d2e3ed4f207832c367866b
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775207"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108804037"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Azure Government에서 어플라이언스 설정 
 
@@ -26,7 +26,7 @@ ms.locfileid: "104775207"
 
 이 스크립트는 기존 물리적 서버 또는 가상화된 서버에 Azure Migrate 어플라이언스를 설정합니다.
 
-- 어플라이언스 역할을 하는 서버는 Windows Server 2016, 32GB 메모리, 8개의 vCPU, 80GB의 디스크 스토리지 및 외부 가상 스위치를 실행해야 합니다. 고정 또는 동적 IP 주소이 필요하며 인터넷에 액세스할 수 있어야 합니다.
+- 어플라이언스 역할을 하는 서버는 Windows Server 2016, 32GB 메모리, 8개의 vCPU, 80GB의 디스크 스토리지 및 외부 가상 스위치를 실행해야 합니다. 고정 또는 동적 IP 주소가 필요합니다. 
 - 어플라이언스를 배포하기 전에 [VMware](migrate-appliance.md#appliance---vmware) 또는 [Hyper-V](migrate-appliance.md#appliance---hyper-v) 및 [물리적 서버](migrate-appliance.md#appliance---physical)에 대한 자세한 어플라이언스 요구 사항을 검토합니다.
 - 기존 Azure Migrate 어플라이언스에서 스크립트를 실행하지 않아야 합니다.
 
@@ -62,7 +62,7 @@ VMware에 대한 어플라이언스를 설정하려면 Azure Portal에서 zip �
 
 - 에이전트 및 웹 애플리케이션을 설치합니다.
 - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
-- IIS 재작성 모듈을 다운로드하여 설치합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
+- IIS 재작성 모듈을 다운로드하여 설치합니다.
 - Azure Migrate에 대한 영구적인 설정을 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
 - 다음과 같이 로그 및 구성 파일을 만듭니다.
     - **구성 파일**: %ProgramData%\Microsoft Azure\Config
@@ -117,7 +117,7 @@ Hyper-V에 대한 어플라이언스를 설정하려면 Azure Portal에서 zip �
 
 - 에이전트 및 웹 애플리케이션을 설치합니다.
 - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
-- IIS 재작성 모듈을 다운로드하여 설치합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
+- IIS 재작성 모듈을 다운로드하여 설치합니다.
 - Azure Migrate에 대한 영구적인 설정을 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
 - 다음과 같이 로그 및 구성 파일을 만듭니다.
     - **구성 파일**: %ProgramData%\Microsoft Azure\Config
@@ -170,7 +170,7 @@ VMware에 대한 어플라이언스를 설정하려면 Azure Portal에서 zip �
 
 - 에이전트 및 웹 애플리케이션을 설치합니다.
 - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
-- IIS 재작성 모듈을 다운로드하여 설치합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
+- IIS 재작성 모듈을 다운로드하여 설치합니다.
 - Azure Migrate에 대한 영구적인 설정을 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
 - 다음과 같이 로그 및 구성 파일을 만듭니다.
     - **구성 파일**: %ProgramData%\Microsoft Azure\Config

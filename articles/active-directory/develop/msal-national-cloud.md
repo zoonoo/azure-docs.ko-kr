@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 09c4dadd7a6560bd5163d623dd8a7f247b57860e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1ecf807d566fd6603f12ebc820c176edf96ec14
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100102498"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071848"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>국가별 클라우드 환경에서 MSAL 사용
 
@@ -34,7 +34,7 @@ Microsoft의 전 세계 클라우드 외에도 MSAL(Microsoft 인증 라이브�
 
 이 가이드에서는 [Azure Government 클라우드](https://azure.microsoft.com/global-infrastructure/government/) 환경에서 회사 및 학교 계정에 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 해당 필수 구성 요소를 충족하는지 확인합니다.
 
@@ -68,75 +68,59 @@ MSAL.NET를 사용하여 로그인하고, 토큰을 획득하고, 국가별 클�
 
 소버린 클라우드에 대해 MSAL.js 애플리케이션을 사용하도록 설정하려면 다음을 수행합니다.
 
-### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
+- 클라우드에 따라 특정 포털에 애플리케이션을 등록합니다. 포털을 선택하는 방법에 대한 자세한 내용은 [앱 등록 엔드포인트](authentication-national-cloud.md#app-registration-endpoints)를 참조하세요.
+- 다음에 설명된 클라우드에 따라 구성에 대한 몇 가지 변경 내용이 포함된 리포지토리의 [샘플](https://github.com/Azure-Samples/ms-identity-javascript-tutorial)을 사용합니다.
+- 애플리케이션을 등록한 클라우드에 따라 특정 권한을 사용합니다. 다른 클라우드의 인증 기관에 대한 자세한 내용은 [Azure AD 인증 엔드포인트](authentication-national-cloud.md#azure-ad-authentication-endpoints)를 참조하세요.
+- Microsoft Graph API를 호출하려면 사용 중인 클라우드와 관련된 엔드포인트 URL이 필요합니다. 모든 국가별 클라우드의 Microsoft Graph 엔드포인트를 찾으려면 [Microsoft Graph 및 Graph 탐색기 서비스 루트 엔드포인트](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)를 참조하세요.
 
-1. <a href="https://portal.azure.us/" target="_blank">Azure Portal</a>에 로그인합니다.
+다음은 인증 기관의 예입니다.
 
-   다른 국가별 클라우드의 Azure Portal 엔드포인트를 찾으려면 [앱 등록 엔드포인트](authentication-national-cloud.md#app-registration-endpoints)를 참조하세요.
+```json
+"authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
+```
 
-1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
-1. **Azure Active Directory** 를 검색하고 선택합니다.
-1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
-1. 애플리케이션의 **이름** 을 입력합니다. 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
-1. **지원되는 계정 유형** 에서 **모든 조직 디렉터리의 계정** 을 선택합니다.
-1. **리디렉션 URI** 섹션에서 **웹** 플랫폼을 선택한 다음 사용하는 웹 서버에 맞게 애플리케이션의 URL로 값을 설정합니다. Visual Studio 및 Node에서 리디렉션 URL을 설정하고 가져오는 방법에 대한 지침은 다음 섹션을 참조하세요.
-1. **등록** 을 선택합니다.
-1. 나중에 사용할 수 있도록 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
-    이 자습서에서는 [암시적 허용 흐름](v2-oauth2-implicit-grant-flow.md)을 사용하도록 설정해야 합니다. 
-1. **관리** 에서 **인증** 을 선택합니다.
-1. **암시적 허용 및 하이브리드 흐름** 아래에서 **ID 토큰** 및 **액세스 토큰** 을 선택합니다. 이 앱을 사용하려면 로그인하고 API를 호출해야 하므로 ID 토큰 및 액세스 토큰이 필요합니다.
-1. **저장** 을 선택합니다.
+다음은 범위가 있는 Microsoft Graph 엔드포인트의 예입니다.
 
-### <a name="step-2--set-up-your-web-server-or-project"></a>2단계: 웹 서버 또는 프로젝트 설정
+```json
+"endpoint" : "https://graph.microsoft.us/v1.0/me"
+"scope": "User.Read"
+```
 
-- 로컬 웹 서버(예: Node)용 [프로젝트 파일을 다운로드](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)합니다.
-
-  또는
-
-- [Visual Studio 프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)합니다.
-
-그런 다음 코드 샘플을 실행하기 전에 구성하도록 [JavaScript SPA 구성](#step-4-configure-your-javascript-spa)으로 건너뜁니다.
-
-### <a name="step-3-use-the-microsoft-authentication-library-to-sign-in-the-user"></a>3단계: 사용자 로그인에 Microsoft 인증 라이브러리 사용
-
-[JavaScript 자습서](tutorial-v2-javascript-spa.md#create-your-project)의 단계를 수행하여 프로젝트를 만들고 사용자가 로그인할 수 있도록 MSAL과 통합합니다.
-
-### <a name="step-4-configure-your-javascript-spa"></a>4단계: JavaScript SPA 구성
-
-프로젝트 설정 중에 생성된 `index.html` 파일에서 애플리케이션 등록 정보를 추가합니다. 맨 위에 있는 다음 코드를 `index.html` 파일 본문의 `<script></script>` 태그 내에 추가합니다.
+소버린 클라우드로 사용자를 인증하고 Microsoft Graph를 호출하기 위한 최소 코드는 다음과 같습니다.
 
 ```javascript
 const msalConfig = {
-    auth:{
-        clientId: "Enter_the_Application_Id_here",
+    auth: {
+        clientId: "Enter_the_Application_Id_Here",
         authority: "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here",
-        }
+        redirectUri: "/",
+    }
+};
+
+// Initialize MSAL
+const msalObj = new PublicClientApplication(msalConfig);
+
+// Get token using popup experience
+try {
+    const graphToken = await msalObj.acquireTokenPopup({
+        scopes: ["User.Read"]
+    });
+} catch(error) {
+    console.log(error)
 }
 
-const graphConfig = {
-        graphEndpoint: "https://graph.microsoft.us",
-        graphScopes: ["user.read"],
-}
+// Call the Graph API
+const headers = new Headers();
+const bearer = `Bearer ${graphToken}`;
 
-// create UserAgentApplication instance
-const myMSALObj = new UserAgentApplication(msalConfig);
+headers.append("Authorization", bearer);
+
+fetch("https://graph.microsoft.us/v1.0/me", {
+    method: "GET",
+    headers: headers
+})
 ```
 
-이 코드의 경우 다음과 같습니다.
-
-- `Enter_the_Application_Id_here`은 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 값입니다.
-- `Enter_the_Tenant_Info_Here` 는 다음 옵션 중 하나로 설정됩니다.
-    - 애플리케이션이 **해당 조직 디렉터리의 계정** 을 지원하는 경우, 해당 값을 테넌트 ID 또는 테넌트 이름(예: contoso.microsoft.com)으로 바꿉니다.
-    - 애플리케이션에서 **모든 조직 디렉터리의 계정** 을 지원하는 경우 이 값을 `organizations`로 바꿉니다.
-
-    모든 국가별 클라우드의 인증 엔드포인트를 찾으려면 [Azure AD 인증 엔드포인트](./authentication-national-cloud.md#azure-ad-authentication-endpoints)를 참조하세요.
-
-    > [!NOTE]
-    > 개인 Microsoft 계정은 국가별 클라우드에서 지원되지 않습니다.
-
-- `graphEndpoint`는 Microsoft Cloud for US Government를 위한 Microsoft Graph 엔드포인트입니다.
-
-   모든 국가별 클라우드의 Microsoft Graph 엔드포인트를 찾으려면 [국가별 클라우드의 Microsoft Graph 엔드포인트](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)를 참조하세요.
 
 ## <a name="python"></a>[Python](#tab/python)
 

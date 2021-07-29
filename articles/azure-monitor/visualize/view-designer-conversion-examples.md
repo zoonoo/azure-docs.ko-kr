@@ -1,24 +1,24 @@
 ---
-title: Azure Monitor 뷰 디자이너에서 통합 문서 변환 예제
-description: 보기에서 Azure Monitor 통합 문서로 전환 하는 예입니다.
-author: austonli
-ms.author: aul
+title: Azure Monitor 뷰 디자이너에서 통합 문서로 변환 예제
+description: Azure Monitor에서 뷰를 통합 문서로 전환하기 위한 예제입니다.
+author: shijatsu
+ms.author: shijain
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: bd57838dd3cceae308b55dd2d7fdbb55cec79ec4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: a984fa1b94f64566ef5ea057c78e68e1d962bace
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102043357"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318174"
 ---
 # <a name="view-designer-conversion-examples"></a>뷰 디자이너 변환 예제
 
-뷰 디자이너 탭 통합 문서를 복제 하려면 다음 코드를 복사 하 여 고급 편집기에 붙여 넣습니다 .이 편집기는 도구 모음의 </> 기호로 표시 됩니다.
+뷰 디자이너 탭 통합 문서를 복제하려면 도구 모음의 </> 기호로 표시된 다음 코드를 복사하여 고급 편집기에 붙여넣습니다.
 
 ![고급 편집기 도구 모음](media/view-designer-conversion-examples/toolbar.png)
 
-사용자는 자신의 액세스 가능한 리소스에 대 한 쿼리 설정 및 구독을 업데이트 해야 할 수 있습니다.
+사용자는 자신의 액세스 가능한 리소스에 대한 쿼리 설정 및 구독을 업데이트해야 할 수 있습니다.
 
 ## <a name="vertical"></a>Vertical
 
@@ -336,7 +336,7 @@ ms.locfileid: "102043357"
 }
 ```
 
-## <a name="tabbed"></a>탭 
+## <a name="tabbed"></a>탭 지정 
 
 ```Json
 {

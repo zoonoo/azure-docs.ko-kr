@@ -9,20 +9,24 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 9dcb5b84faa47b7307ce8441003e8591d7c2757b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4d96d116bc4350a3326722c87f65e887d5a54791
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604790"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326546"
 ---
 # <a name="set-map-style-android-sdk"></a>지도 스타일 설정(Android SDK)
 
 이 문서에서는 Azure Maps Android SDK를 사용하여 지도 스타일을 설정하는 두 가지 방법을 보여 줍니다. Azure Maps에서는 여섯 가지 다른 지도 스타일 중에서 선택할 수 있습니다. 지원되는 지도 스타일에 대한 자세한 내용은 [Azure Maps에서 지원되는 지도 스타일](supported-map-styles.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료해야 합니다.
+
+>[!important]
+>이 섹션의 절차에는 Gen 1 또는 Gen 2 가격 책정 계층의 Azure Maps 계정이 필요합니다. 가격 책정 계층에 대한 자세한 내용은 [Azure Maps에서 적절한 가격 책정 계층 선택](choose-pricing-tier.md)을 참조하세요.
+
 
 ## <a name="set-map-style-in-the-layout"></a>레이아웃에서 지도 스타일 설정
 

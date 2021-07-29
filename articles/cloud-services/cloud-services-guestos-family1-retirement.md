@@ -2,6 +2,7 @@
 title: 게스트 OS 제품군 1 사용 중지 알림 | Microsoft Docs
 description: Azure 게스트 OS 제품군 1 사용 중지가 발생한 시기 및 적용되는 지를 확인하는 방법에 대한 정보를 제공합니다.
 services: cloud-services
+ms.subservice: auto-os-updates
 documentationcenter: na
 author: raiye
 manager: timlt
@@ -9,12 +10,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: 7f6d3feee95d4cce654b2cc1547b8bd7f4eb45d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4ba01ddeb0f0fe7392abc0eec2d947ec387a99e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743018"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736160"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>게스트 OS 제품군 1 사용 중지 확인
 
@@ -27,6 +28,7 @@ OS 제품군 1의 사용 중지가 2013 년 6월 1일에 처음 발표되었습�
 추가 질문이 있는 경우 [Cloud Services에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-cloud-services.html)를 방문하거나 [Azure 지원에 문의](https://azure.microsoft.com/support/options/)하세요.
 
 ## <a name="are-you-affected"></a>영향을 받나요?
+
 다음 중 하나에 적용되는 경우 Cloud Services에 영향을 받습니다.
 
 1. 클라우드 서비스에 대한 ServiceConfiguration.cscfg 파일에 명시적으로 지정된 "osFamily ="1"의 값이 있습니다.
@@ -35,7 +37,7 @@ OS 제품군 1의 사용 중지가 2013 년 6월 1일에 처음 발표되었습�
 
 어떤 클라우드 서비스가 어떤 OS 제품군을 실행 중인지 알기 위해, Azure PowerShell에서 다음 스크립트를 실행할 수 있지만 먼저 [Azure PowerShell을 설정해야](/powershell/azure/) 합니다. 스크립트에 대한 자세한 내용은 [Azure 게스트 OS 제품군 1 만료: 2014년 6월](/archive/blogs/ryberry/azure-guest-os-family-1-end-of-life-june-2014)을 참조하세요.
 
-```Powershell
+```powershell
 foreach($subscription in Get-AzureSubscription) {
     Select-AzureSubscription -SubscriptionName $subscription.SubscriptionName
 
@@ -48,12 +50,13 @@ foreach($subscription in Get-AzureSubscription) {
 스크립트 출력의 osFamily 열이 비어 있거나 "1"을 포함하는 경우 클라우드 서비스는 OS 제품군 1 사용 중지의 영향을 받습니다.
 
 ## <a name="recommendations-if-you-are-affected"></a>영향을 받는 경우 권장 사항
+
 지원되는 게스트 OS 제품군 중 하나에 클라우드 서비스 역할을 마이그레이션하는 것이 좋습니다.
 
 **게스트 OS 제품군 4.x** -Windows Server 2012 R2 *(권장)*
 
 1. 애플리케이션이.NET framework 4.0, 4.5 또는 4.5.1과 함께 SDK 2.1 이상을 사용 중이어야 합니다.
-2. ServiceConfiguration.cscfg 파일에서 osFamily 특성을 "4"으로 설정하고 클라우드 서비스를 다시 배포합니다.
+2. ServiceConfiguration.cscfg 파일에서 osFamily 특성을 "4"로 설정하고 클라우드 서비스를 다시 배포합니다.
 
 **게스트 OS 제품군 3.x** -Windows Server 2012
 
@@ -66,7 +69,9 @@ foreach($subscription in Get-AzureSubscription) {
 2. ServiceConfiguration.cscfg 파일에서 osFamily 특성을 "2"로 설정하고 클라우드 서비스를 다시 배포합니다.
 
 ## <a name="extended-support-for-guest-os-family-1-ended-nov-3-2014"></a>게스트 OS 제품군 1에 대한 연장된 지원이 2014년 11월 3일에 종료되었습니다.
-게스트 OS 제품군 1에서 클라우드 서비스는 더 이상 지원 되지 않습니다. 서비스 중단을 방지하려면 가능한 빨리 제품군 1을 마이그레이션 해제하세요.  
+
+게스트 OS 제품군 1에서 클라우드 서비스는 더 이상 지원 되지 않습니다. 서비스 중단을 방지하려면 가능한 빨리 제품군 1을 마이그레이션 해제하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 최신 [게스트 OS 릴리스](cloud-services-guestos-update-matrix.md)를 검토합니다.

@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ecfd277f2cc86102d59b201e7b43fa8519bdd3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4434b59044aed8c9814431864e5c3c9b7d98254c
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98937607"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575720"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>Azure AD Connect 동기화 V2 엔드포인트 API 
 Microsoft는 Azure AD Connect에 대한 새 엔드포인트(API)를 배포하여 Azure Active Directory에 대한 동기화 서비스 작업의 성능을 향상시켰습니다. 새 V2 엔드포인트를 활용하면 Azure AD로 내보내기 및 가져오기에 대한 성능이 크게 향상됩니다. 이 새 엔드포인트는 다음을 지원합니다.
@@ -27,6 +27,12 @@ Microsoft는 Azure AD Connect에 대한 새 엔드포인트(API)를 배포하여
  
 > [!NOTE]
 > 현재 새 엔드포인트에는 다시 작성되는 Microsoft 365 그룹에 대한 그룹 크기 제한이 구성되어 있지 않습니다. 이는 Active Directory 및 동기화 주기 대기 시간에 영향을 미칠 수 있습니다. 그룹 크기를 점진적으로 늘리는 것이 좋습니다.  
+
+>[!NOTE]
+> Azure AD Connect 동기화 V2 엔드포인트 API는 현재 다음 Azure 환경에서만 사용할 수 있습니다.
+> - Azure Commercial
+> - Azure 중국 클라우드
+> - Azure 미국 정부 클라우드는 Azure 독일 클라우드에서 사용할 수 없습니다
 
 ## <a name="prerequisites"></a>사전 요구 사항  
 새 V2 엔드포인트를 사용하려면 [Azure AD Connect 버전 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) 이상을 사용하고 아래 제공되는 배포 단계에 따라 Azure AD Connect 서버에 대해 V2 엔드포인트를 사용하도록 설정해야 합니다.   

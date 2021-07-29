@@ -1,19 +1,19 @@
 ---
 title: 데이터 흐름 매핑을 사용한 데이터 변환
 description: 이 지침서에서는 Azure Data Factory를 통해 데이터 흐름을 매핑하여 데이터를 변환하기 위한 단계별 지침을 제공합니다.
-author: dcstwh
-ms.author: weetok
+author: kromerm
+ms.author: makromer
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/11/2021
-ms.openlocfilehash: 2363afc4c84ee7606410ceecd6819c12d0333dbb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/16/2021
+ms.openlocfilehash: 2e732cf11627c9bf9be2610d32dc324f548b82ed
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563296"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111986411"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>데이터 흐름 매핑을 사용하여 데이터 변환
 
@@ -35,7 +35,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 > * 파이프라인 실행 테스트
 > * 데이터 흐름 모니터링 작업
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Storage 계정**. ADLS 스토리지를 *원본* 및 *싱크* 데이터 저장소로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
 
@@ -78,15 +78,15 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
    ![파이프라인 만들기](./media/doc-common-process/get-started-page.png)
 
 1. 파이프라인의 **일반** 탭에서 파이프라인의 **이름** 으로 **TransformMovies** 를 입력합니다.
-1. 팩터리의 위쪽 막대에서 **데이터 흐름 디버그** 슬라이더를 밉니다. 디버그 모드에서는 라이브 Spark 클러스터에 대한 변환 논리의 대화형 테스트를 수행할 수 있습니다. 데이터 흐름 클러스터는 준비하는 데 5~7분 정도 걸리며, 데이터 흐름 개발을 수행할 계획이라면 우선 디버그를 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조하세요.
-
-    ![데이터 흐름 작업](media/tutorial-data-flow/dataflow1.png)
 1. **작업** 창에서 **이동 및 변환** 아코디언을 확장합니다. **데이터 흐름** 작업을 창에서 파이프라인 캔버스로 끌어다 놓습니다.
 
     ![데이터 흐름 작업을 드롭할 수 있는 파이프라인 캔버스를 보여주는 스크린샷.](media/tutorial-data-flow/activity1.png)
 1. **데이터 흐름 추가** 팝업에서 **새 데이터 흐름 만들기** 를 선택하고 데이터 흐름의 이름을 **TransformMovies** 로 설정합니다. 완료되었으면 마침을 클릭합니다.
 
     ![새 데이터 흐름을 만들 때 데이터 흐름의 이름을 붙이는 위치를 보여주는 스크린샷](media/tutorial-data-flow/activity2.png)
+1. 파이프라인 캔버스의 상단 막대에서 **데이터 흐름 디버그** 슬라이더를 밉니다. 디버그 모드에서는 라이브 Spark 클러스터에 대한 변환 논리의 대화형 테스트를 수행할 수 있습니다. 데이터 흐름 클러스터는 준비하는 데 5~7분 정도 걸리며, 데이터 흐름 개발을 수행할 계획이라면 우선 디버그를 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조하세요.
+
+    ![데이터 흐름 작업](media/tutorial-data-flow/dataflow1.png)
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>데이터 흐름 캔버스에서 변환 논리 빌드
 
@@ -100,7 +100,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
     ![원본 이름을 변경한 후 새로 만들기를 선택하는 위치를 보여주는 스크린샷](media/tutorial-data-flow/dataflow3.png)
 1. **Azure Data Lake Storage Gen2** 를 선택합니다. 계속을 클릭합니다.
 
-    ![Azure Data Lake Storage Gen2 tile을 보여 주는 스크린샷](media/tutorial-data-flow/dataset1.png)
+    ![Azure Data Lake Storage Gen2 타일의 위치를 보여 주는 스크린샷](media/tutorial-data-flow/dataset1.png)
 1. **DelimitedText** 를 선택합니다. 계속을 클릭합니다.
 
     ![DelimitedText tile을 보여 주는 스크린샷](media/tutorial-data-flow/dataset2.png)
@@ -124,7 +124,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
     ![식 상자의 필터를 보여주는 스크린샷.](media/tutorial-data-flow/filter1.png)
 1. 데이터 흐름 식 작성기를 사용하면 다양한 변환에 사용할 식을 대화형으로 빌드할 수 있습니다. 식에는 기본 제공 함수, 입력 스키마의 열 및 사용자 정의 매개 변수가 포함될 수 있습니다. 식 빌드 방법에 대한 자세한 내용은 [데이터 흐름 식 작성기](concepts-data-flow-expression-builder.md)를 참조하세요.
 
-    이 지침서에서는 1910년과 2000년 사이에 개봉된 코미디 장르 영화를 필터링하려고 합니다. 연도는 현재 문자열이므로 ```toInteger()``` 함수를 사용하여 정수로 변환해야 합니다. 크거나 같음(>=) 및 작거나 같음(<=) 연산자를 사용하여 리터럴 연도 값 1910 및 200-을 비교합니다. 이 식을 and(&&) 연산자로 결합합니다. 식은 다음과 같이 됩니다.
+    이 지침서에서는 1910년과 2000년 사이에 개봉된 코미디 장르 영화를 필터링하려고 합니다. 연도는 현재 문자열이므로 ```toInteger()``` 함수를 사용하여 정수로 변환해야 합니다. 크거나 같음(>=) 및 작거나 같음(<=) 연산자를 사용하여 리터럴 연도 값 1910 및 2000을 비교합니다. 이 식을 and(&&) 연산자로 결합합니다. 식은 다음과 같이 됩니다.
 
     ```toInteger(year) >= 1910 && toInteger(year) <= 2000```
 

@@ -3,16 +3,16 @@ title: Azure IoT Hub Device Provisioning Service - 디바이스 개념
 description: Azure IoT Hub DPS(Device Provisioning Service)와 관련된 디바이스 재프로비저닝 개념에 대해 설명합니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 04/16/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 9653a584382584d982c55008a6e8547de28691b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fbc83ec62c10fae00e371cd9ad95cf2860495fad
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91842855"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575771"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>IoT Hub 디바이스 다시 프로비전 개념
 
@@ -61,6 +61,9 @@ Device Provisioning Service 인스턴스를 사용하여 디바이스를 처음 
     ![등록 항목과 연결된 디바이스가 새 프로비저닝 요청을 제출할 때 정책이 적용됨을 보여 주는 다이어그램](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
 * **다시 프로비전하지 않음**: 디바이스가 다른 허브에 다시 할당되지 않습니다. 이 정책은 이전 버전과 호환성을 관리하기 위한 용도로 제공됩니다.
+
+> [!NOTE]
+> DPS는 디바이스에 대한 새 [ReturnData](how-to-send-additional-data.md)가 있는 경우 재프로비저닝 정책에 관계 없이 항상 사용자 지정 할당 웹후크를 호출합니다. 재프로비저닝 정책이 **재프로비저닝되지 않음** 으로 설정된 경우 웹후크가 호출되지만 디바이스는 할당된 허브를 변경하지 않습니다.
 
 ### <a name="managing-backwards-compatibility"></a>이전 버전과의 호환성 관리
 

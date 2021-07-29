@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 776cc002304ea96cbf81d6cf08e5a54c19f86f4b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 71408513e18dc506f2c596d4e05db4fcc98ccea2
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135332"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004154"
 ---
 # <a name="bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩 
 
@@ -28,11 +28,7 @@ Azure Spring Cloud를 사용하면 Spring Boot 애플리케이션을 수동으�
 
 Azure Spring Cloud 인스턴스를 아직 배포하지 않은 경우 [빠른 시작: Azure Portal을 사용하여 Azure Spring Cloud 애플리케이션 시작](./quickstart.md)의 지침에 따라 첫 번째 Spring Cloud 앱을 배포합니다.
 
-## <a name="bind-your-app-to-your-azure-database-for-mysql-instance"></a>Azure Database for MySQL 인스턴스에 앱 바인딩
-
-1. Azure Database for MySQL 계정의 관리 사용자 이름 및 암호를 기록해 둡니다. 
-
-1. 서버에 연결하고, MySQL 클라이언트에서 **testdb** 라는 데이터베이스를 만든 다음, 관리자가 아닌 새 계정을 만듭니다.
+## <a name="prepare-your-java-project"></a>Java 프로젝트 준비
 
 1. 프로젝트의 *pom.xml* 파일에서 다음 종속성을 추가합니다.
 
@@ -44,7 +40,14 @@ Azure Spring Cloud 인스턴스를 아직 배포하지 않은 경우 [빠른 시
     ```
 1. *application.properties* 파일에서 `spring.datasource.*` 속성을 제거합니다.
 
-1. `az spring-cloud app update` 명령을 실행하여 현재 배포를 업데이트하거나, `az spring-cloud app deployment create` 명령을 실행하여 이 변경 사항에 대한 새 배포를 만듭니다.  두 명령은 애플리케이션을 새 종속성으로 업데이트하거나 새 종속성이 있는 애플리케이션을 만듭니다.
+1. `az spring-cloud app deploy`를 실행하여 현재 앱을 업데이트하거나, `az spring-cloud app deployment create`를 실행하여 이 변경 사항에 대한 새 배포를 만듭니다.
+
+## <a name="bind-your-app-to-the-azure-database-for-mysql-instance"></a>Azure Database for MySQL 인스턴스에 앱 바인딩
+
+#### <a name="service-binding"></a>[서비스 바인딩](#tab/Service-Binding)
+1. Azure Database for MySQL 계정의 관리 사용자 이름 및 암호를 기록해 둡니다. 
+
+1. 서버에 연결하고, MySQL 클라이언트에서 **testdb** 라는 데이터베이스를 만든 다음, 관리자가 아닌 새 계정을 만듭니다.
 
 1. Azure Portal의 **Azure Spring Cloud** 서비스 페이지에서 **애플리케이션 대시보드** 를 찾은 다음, Azure Database for MySQL 인스턴스에 바인딩할 애플리케이션을 선택합니다.  이 애플리케이션은 이전 단계에서 업데이트하거나 배포한 것과 동일한 애플리케이션입니다. 
 
@@ -61,6 +64,113 @@ Azure Spring Cloud 인스턴스를 아직 배포하지 않은 경우 [빠른 시
     spring.datasource.password=abc******
     spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
     ```
+
+#### <a name="terraform"></a>[Terraform](#tab/Terraform)
+
+다음 Terraform 스크립트는 Azure Database for MySQL을 사용하여 Azure Spring Cloud 앱을 설정하는 방법을 보여 줍니다.
+
+```terraform
+provider "azurerm" {
+  features {}
+}
+
+variable "application_name" {
+  type        = string
+  description = "The name of your application"
+  default     = "demo-abc"
+}
+
+variable "administrator_login" {
+  type        = string
+  description = "The MySQL administrator login"
+  default     = "myadmin"
+}
+
+resource "azurerm_resource_group" "example" {
+  name     = "example-resources"
+  location = "West Europe"
+}
+
+resource "random_password" "password" {
+  length           = 32
+  special          = true
+  override_special = "_%@"
+}
+
+resource "azurerm_mysql_server" "database" {
+  name                = "mysql-${var.application_name}-001"
+  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.example.location
+
+  administrator_login          = var.administrator_login
+  administrator_login_password = random_password.password.result
+
+  sku_name                          = "B_Gen5_1"
+  storage_mb                        = 5120
+  version                           = "5.7"
+  auto_grow_enabled                 = true
+  backup_retention_days             = 7
+  geo_redundant_backup_enabled      = false
+  infrastructure_encryption_enabled = false
+  public_network_access_enabled     = true
+  ssl_enforcement_enabled           = true
+  ssl_minimal_tls_version_enforced  = "TLS1_2"
+}
+
+resource "azurerm_mysql_database" "database" {
+  name                = "mysqldb-${var.application_name}-001"
+  resource_group_name = azurerm_resource_group.example.name
+  server_name         = azurerm_mysql_server.database.name
+  charset             = "utf8"
+  collation           = "utf8_unicode_ci"
+}
+
+# This rule is to enable the 'Allow access to Azure services' checkbox
+resource "azurerm_mysql_firewall_rule" "database" {
+  name                = "mysqlfw-${var.application_name}-001"
+  resource_group_name = azurerm_resource_group.example.name
+  server_name         = azurerm_mysql_server.database.name
+  start_ip_address    = "0.0.0.0"
+  end_ip_address      = "0.0.0.0"
+}
+
+resource "azurerm_spring_cloud_service" "example" {
+  name                = "example-springcloud"
+  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.example.location
+}
+
+resource "azurerm_spring_cloud_app" "example" {
+  name                = "example-springcloudapp"
+  resource_group_name = azurerm_resource_group.example.name
+  service_name        = azurerm_spring_cloud_service.example.name
+  is_public           = true
+  https_only          = true
+}
+
+resource "azurerm_spring_cloud_java_deployment" "example" {
+  name                = "default"
+  spring_cloud_app_id = azurerm_spring_cloud_app.example.id
+  cpu                 = 2
+  memory_in_gb        = 4
+  instance_count      = 2
+  jvm_options         = "-XX:+PrintGC"
+  runtime_version     = "Java_11"
+
+  environment_variables = {
+    "spring.datasource.url" : "jdbc:mysql://${azurerm_mysql_server.database.fqdn}:3306/${azurerm_mysql_database.database.name}?useSSL=true&requireSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC"
+    "spring.datasource.username" : "${var.administrator_login}@${azurerm_mysql_server.database.name}"
+    "spring.datasource.password" : random_password.password.result
+    "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect"
+  }
+}
+
+resource "azurerm_spring_cloud_active_deployment" "example" {
+  spring_cloud_app_id = azurerm_spring_cloud_app.example.id
+  deployment_name     = azurerm_spring_cloud_java_deployment.example.name
+}
+```
+---
 
 ## <a name="next-steps"></a>다음 단계
 

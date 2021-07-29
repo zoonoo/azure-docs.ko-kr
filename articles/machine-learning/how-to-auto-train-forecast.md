@@ -1,7 +1,7 @@
 ---
-title: 시계열 예측 모델 자동 학습
+title: 시계열 예측을 위한 AutoML 설정
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning을 사용하여 자동화된 기계 학습으로 시계열 예측 회귀 모델을 학습하는 방법을 알아봅니다.
+description: Azure Machine Learning Python SDK를 사용하여 시계열 예측 모델을 학습하도록 Azure Machine Learning 자동화된 ML을 설정합니다.
 services: machine-learning
 author: nibaccam
 ms.author: nibaccam
@@ -9,18 +9,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: contperf-fy21q1, automl
-ms.date: 08/20/2020
-ms.openlocfilehash: ed4047b7ac4187138f29bc3f53b5bc5995132296
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.date: 06/11/2021
+ms.openlocfilehash: d2c4f759f6b2f7ef769148c99dfcbfb738b19f5e
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107898138"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030867"
 ---
-# <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
+# <a name="set-up-automl-to-train-a-time-series-forecasting-model-with-python"></a>Python으로 시계열 예측 모델을 학습시키도록 AutoML 설정
 
-
-이 문서에서는 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/)에서 자동화된 Machine Learning, 즉 AutoML을 사용하여 시계열 예측 회귀 모델을 구성하고 학습시키는 방법을 알아봅니다. 
+이 문서에서는 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/)에서 Azure Machine Learning 자동화 ML을 사용하여 시계열 예측 모델에 AutoML 학습을 설정하는 방법을 알아봅니다.
 
 이렇게 하려면 다음을 수행합니다. 
 
@@ -29,7 +28,7 @@ ms.locfileid: "107898138"
 > * [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 개체에서 특정 시계열 매개 변수를 구성합니다.
 > * 시계열 데이터를 사용하여 예측을 실행합니다.
 
-최소한의 코드를 사용하는 환경의 경우 [자습서: 자동화된 기계 학습으로 수요 예측](tutorial-automated-ml-forecast.md)을 통해 [Azure Machine Learning Studio](https://ml.azure.com/)에서 자동화된 기계 학습을 사용하는 시계열 예측 예제를 참조하세요.
+하위 코드 환경의 경우 [Azure Machine Learning Studio](https://ml.azure.com/)에서 자동화된 ML을 사용하는 시계열 예측 예제를 알아보려면 [자습서: 자동화된 Machine Learning으로 수요 예측](tutorial-automated-ml-forecast.md)을 참조하세요.
 
 고전적인 시계열 방법과 달리, 자동화된 ML에서는 이전 시계열 값이 "피벗"되어 다른 예측 변수와 함께 회귀 변수의 추가 차원이 됩니다. 이 방법은 학습 중에 여러 컨텍스트 변수와 각 변수 간 관계를 통합합니다. 여러 요인이 예측에 영향을 줄 수 있으므로 이 방법은 실제 예측 시나리오에 적합합니다. 예를 들어 판매를 예측하는 경우 판매 결과에 과거 기록 추세의 상호 작용, 환율 및 가격이 모두 함께 영향을 미칩니다. 
 
@@ -43,7 +42,7 @@ ms.locfileid: "107898138"
 
 ## <a name="preparing-data"></a>데이터 준비
 
-AutoML 내에서 예측 회귀 작업 유형과 회귀 작업 유형 간의 가장 중요한 차이점은 유효한 시계열을 나타내는 기능을 데이터에 포함하는 것입니다. 정규 시계열에는 잘 정의되고 일관된 빈도가 있으며 연속 시간 범위의 모든 샘플 요소에 값이 있습니다. 
+자동화 ML에서 예측 회귀 작업 유형과 회귀 작업 유형 간의 가장 중요한 차이점은 유효한 시계열을 나타내는 기능을 데이터에 포함하는 것입니다. 정규 시계열에는 잘 정의되고 일관된 빈도가 있으며 연속 시간 범위의 모든 샘플 요소에 값이 있습니다. 
 
 `sample.csv` 파일의 다음 스냅샷을 살펴보세요.
 이 데이터 세트는 두 개의 다른 상점 A와 B가 있는 회사의 일일 판매 데이터입니다. 
@@ -286,7 +285,7 @@ featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": 
 ### <a name="enable-deep-learning"></a>딥 러닝 사용
 
 > [!NOTE]
-> 자동화된 Machine Learning에서 예측을 위한 DNN 지원은 **미리 보기** 로 제공되며 로컬 실행은 지원되지 않습니다.
+> 자동화된 Machine Learning의 예측에 대한 DNN 지원은 **미리 보기** 로 제공되며, 로컬 실행 또는 Databricks에서 시작된 실행에는 지원되지 않습니다.
 
 심층 신경망, 즉 DNN을 사용한 딥 러닝을 적용하여 모델의 점수를 개선할 수도 있습니다. 자동화된 ML의 딥 러닝을 사용하여 단변량 및 다변량 시계열 데이터를 예측할 수 있습니다.
 
@@ -418,4 +417,4 @@ day_datetime,store,week_of_year
 * [모델 배포 방법 및 위치](how-to-deploy-and-where.md)에 대해 자세히 알아봅니다.
 * [해석력: 자동화된 Machine Learning의 모델 설명(미리 보기)](how-to-machine-learning-interpretability-automl.md)에 대해 알아봅니다. 
 * [많은 모델 솔루션 가속기](https://aka.ms/many-models)에서 AutoML을 사용하여 여러 모델을 학습시키는 방법을 알아봅니다.
-* 자동화된 Machine Learning으로 실험을 만드는 엔드투엔드 예제는 [자습서](tutorial-auto-train-models.md)를 따릅니다.
+* 자동화된 Machine Learning으로 실험을 만드는 종단 간 예제는 [자습서: 학습 회귀 모델](tutorial-auto-train-models.md)를 참조하세요.

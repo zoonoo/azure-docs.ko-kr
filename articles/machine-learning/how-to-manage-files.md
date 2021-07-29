@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 02/05/2021
-ms.openlocfilehash: 7879db0e059358a2df550a8c82f3b692597de8f6
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: e1868794f7e47ccce3efa36b7954a1a2a704e8d6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889001"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739028"
 ---
 # <a name="how-to-create-and-manage-files-in-your-workspace"></a>작업 영역에 파일을 만들고 관리하는 방법
 
 Azure Machine Learning 작업 영역에 파일을 만들고 관리하는 방법을 알아봅니다.  이러한 파일은 기본 작업 영역 스토리지에 저장됩니다. 파일과 폴더를 작업 영역에 대한 읽기 액세스 권한이 있는 모든 사람과 공유하고 작업 영역의 컴퓨팅 인스턴스에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
 * Machine Learning 작업 영역. [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
@@ -58,7 +58,7 @@ Notebook 및 대부분의 텍스트 파일 형식은 미리 보기 섹션에 표
 
 작업 영역에는 SDK를 탐색하고 사용자 고유의 기계 학습 프로젝트 예제로 제공하도록 설계된 Notebook이 포함된 **샘플 Notebook** 폴더가 있습니다.   Notebook을 사용자 고유의 폴더에 복제하여 실행 및 편집합니다.  
 
-예제를 보려면 [ 자습서: 첫 번째 ML 실험 만들기](tutorial-1st-experiment-sdk-setup.md#azure)를 참조하세요.
+예제를 보려면 [ 자습서: 첫 번째 ML 실험 만들기](tutorial-train-models-with-aml.md#azure)를 참조하세요.
 
 ## <a name="share-files"></a>파일 공유
 

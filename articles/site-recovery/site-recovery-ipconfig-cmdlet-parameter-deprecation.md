@@ -8,18 +8,20 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/30/2021
 ms.author: rishjai
-ms.openlocfilehash: 569687a6efca34e631b096b448d988c18b21a6c9
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 138dd9d576638cda52ca62e45cdb353920e9b00b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326931"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968548"
 ---
 # <a name="deprecation-of-ip-config-parameters-for-the-cmdlet-new-azrecoveryservicesasrvmnicconfig"></a>Cmdlet New-AzRecoveryServicesAsrVMNicConfig의 IP 구성 매개 변수 사용 중단
 
 이 문서는 다음 시나리오의 고객에 사용할 수 있는 사용 중단, 사용 중단으로 인한 영향 및 대체 옵션을 설명합니다.
 
-장애 조치(Failover) 또는 테스트 장애 조치(failover)를 위한 기본 IP 구성 설정 구성 이 cmdlet은 AzRecoveryServicesAsrVMNicConfig cmdlet을 사용하여 Azure DR 시나리오에 대한 모든 Azure 고객에게 영향을 줍니다.
+장애 조치(Failover) 또는 테스트 장애 조치(failover)를 위한 기본 IP 구성 설정 구성 
+
+이 cmdlet은 버전 _Az PowerShell 5.9.0 이상_ 에서 New-AzRecoveryServicesAsrVMNicConfig cmdlet을 사용하여 Azure DR 시나리오에 대한 Azure의 모든 고객에게 영향을 줍니다.
 
 > [!IMPORTANT]
 > 고객은 최대한 빨리 수정 단계를 수행하여 해당 환경에서 중단을 방지하는 것이 좋습니다. 
@@ -44,7 +46,7 @@ New-AzRecoveryServicesAsrVMNicConfig는 다음 매개 변수를 사용하여 FO/
  
 ## <a name="alternatives"></a>대안 
 
-대안으로 IP 구성의 FO/TFO 설정 구성에 대한 새로운 [AzRecoveryServicesAsrVMNicIPConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/new-azrecoveryservicesasrvmnicipconfig) cmdlet이 도입되었습니다. 
+대안으로 IP 구성의 FO/TFO 설정 구성에 대한 새로운 [AzRecoveryServicesAsrVMNicIPConfig](/powershell/module/az.recoveryservices/new-azrecoveryservicesasrvmnicipconfig) cmdlet이 도입되었습니다. 
 
 
 ## <a name="remediation-steps"></a>수정 단계

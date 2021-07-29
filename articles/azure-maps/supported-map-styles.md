@@ -3,21 +3,24 @@ title: 지원되는 기본 제공 Azure Maps 지도 스타일
 description: 도로, blank_accessible, 위성, satellite_road_labels, road_shaded_relief, 야간 등 Azure Maps에서 지원하는 기본 제공 지도 스타일에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/24/2020
+ms.date: 04/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b3404c02dc159309ed1e9fcd6f9f6bb593fc7552
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aae17a1071949ea935d7094539d31e85a354da08
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92896942"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326600"
 ---
 # <a name="azure-maps-supported-built-in-map-styles"></a>Azure Maps에서 지원하는 기본 제공 지도 스타일
 
 Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타일을 지원합니다.
+
+>[!important]
+>이 섹션의 절차에는 Gen 1 또는 Gen 2 가격 책정 계층의 Azure Maps 계정이 필요합니다. 가격 책정 계층에 대한 자세한 내용은 [Azure Maps에서 적절한 가격 책정 계층 선택](choose-pricing-tier.md)을 참조하세요.
 
 ## <a name="road"></a>도로
 

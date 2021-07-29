@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/26/2020
+ms.date: 04/26/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 329e09221467c2602355e091876c95f305db3578
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c76ffbbaf6bbbb2afb5d84e92b6fe9ce04dc4a30
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101673743"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128706"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>SAP 워크로드에 대한 Azure Storage 형식
 Azure는 용량, 처리량, 대기 시간, 가격이 다양한 수많은 스토리지 유형을 제공합니다. 일부 스토리지 형식은 또는 SAP 시나리오에 사용할 수 없거나 제한적으로 사용할 수 있습니다. 반면, 몇 가지 Azure Storage 유형은 특정 SAP 워크로드 시나리오에 적합하거나 최적화되어 있습니다. 특히 SAP HANA의 경우 일부 Azure Storage 유형은 SAP HANA 사용에 대해 인증을 받았습니다. 이 문서에서는 다양한 유형의 스토리지를 살펴보고 SAP 워크로드 및 SAP 구성 요소를 통해 기능 및 유용성에 대해 설명합니다.
@@ -35,6 +35,7 @@ Azure는 용량, 처리량, 대기 시간, 가격이 다양한 수많은 스토�
 중복 메서드에는 몇 가지가 더 있으며, 이 내용은 Azure가 제공하는 다양한 스토리지 유형 중 일부에 적용되는 [Azure Storage 복제](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) 문서에 설명되어 있습니다. 
 
 또한 다양한 Azure Storage 유형이 [Virtual Machines에 대한 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines)에서 릴리스된 단일 VM 가용성 SLA에 영향을 줍니다.
+
 
 ### <a name="azure-managed-disks"></a>Azure Managed Disks
 
@@ -69,6 +70,10 @@ S/4HANA의 SAP NetWeaver/애플리케이션 계층용 Azure Storage 유형에 �
 
 다양한 Azure Storage 유형을 설명하는 섹션에는 SAP 지원 스토리지를 사용하는 가능성 및 제한 사항에 대해 자세한 배경 정보가 제공됩니다. 
 
+### <a name="storage-choices-when-using-dbms-replication"></a>DBMS 복제를 사용하는 경우의 스토리지 선택
+참조 아키텍처에서는 SQL Server Always On, HANA System Replication, Db2 HADR 또는 Oracle Data Guard와 같은 DBMS 기능을 사용한다고 예상합니다. 둘 또는 여러 Azure 가상 머신 간에 이 기술을 사용하는 경우 각 VM에 대해 선택한 스토리지 유형이 동일해야 합니다. 즉, DBMS 시스템의 다시 실행 로그 볼륨에 대한 스토리지 선택이 한 VM에서 Azure Premium Storage라면, 해당 볼륨은 같은 고가용성 동기화 구성에 있는 다른 모든 VM에서 Azure Premium Storage를 기반으로 해야 합니다. 데이터베이스 파일에 사용되는 데이터 볼륨의 경우에도 마찬가지입니다.
+  
+
 ## <a name="storage-recommendations-for-sap-storage-scenarios"></a>SAP 스토리지 시나리오에 대한 스토리지 권장 사항
 세부 정보를 살펴보기 전에 이미 문서의 시작 부분에 요약 및 권장 사항이 제공되어 있습니다. 특정 유형의 Azure Storage에 대한 세부 정보는 문서의 이 섹션 다음에 나와 있습니다. SAP 스토리지 시나리오에 대한 스토리지 권장 사항을 표에 요약하면 다음과 같습니다.
 
@@ -81,9 +86,9 @@ S/4HANA의 SAP NetWeaver/애플리케이션 계층용 Azure Storage 유형에 �
 | DBMS 로그 볼륨 SAP HANA M/Mv2 VM 제품군 | 지원되지 않음 | 지원되지 않음 | 권장<sup>1</sup> | 권장 | 권장<sup>2</sup> | 
 | DBMS 데이터 볼륨 SAP HANA Esv3/Edsv4 VM 제품군 | 지원되지 않음 | 지원되지 않음 | 권장 | 권장 | 권장<sup>2</sup> |
 | DBMS 로그 볼륨 SAP HANA Esv3/Edsv4 VM 제품군 | 지원되지 않음 | 지원되지 않음 | 지원되지 않음 | 권장 | 권장<sup>2</sup> | 
-| DBMS 데이터 볼륨 비 HANA | 지원되지 않음 | 제한적 적합(비프로덕션) | 권장 | 권장 | 지원되지 않음 |
-| DBMS 로그 볼륨 비 HANA M/Mv2 VM 제품군 | 지원되지 않음 | 제한적 적합(비프로덕션) | 권장<sup>1</sup> | 권장 | 지원되지 않음 |
-| DBMS 로그 볼륨 비 HANA 비 M/Mv2 VM 제품군 | 지원되지 않음 | 제한적 적합(비프로덕션) | 중간 규모 워크로드까지 적합 | 권장 | 지원되지 않음 |
+| DBMS 데이터 볼륨 비 HANA | 지원되지 않음 | 제한적 적합(비프로덕션) | 권장 | 권장 | Oracle Linux의 특정 Oracle 릴리스에만 해당 |
+| DBMS 로그 볼륨 비 HANA M/Mv2 VM 제품군 | 지원되지 않음 | 제한적 적합(비프로덕션) | 권장<sup>1</sup> | 권장 | Oracle Linux의 특정 Oracle 릴리스에만 해당 |
+| DBMS 로그 볼륨 비 HANA 비 M/Mv2 VM 제품군 | 지원되지 않음 | 제한적 적합(비프로덕션) | 중간 규모 워크로드까지 적합 | 권장 | Oracle Linux의 특정 Oracle 릴리스에만 해당 |
 
 
 <sup>1</sup> 로그/다시 실행 로그 볼륨에 대해 M/Mv2 VM 제품군에 [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) 사용 <sup>2</sup> ANF를 사용하려면 /hana/data는 물론 /hana/log가 ANF에 있어야 함 
@@ -236,6 +241,7 @@ ANF 스토리지는 현재 다음과 같은 몇 가지 SAP 워크로드 시나�
     - [SAP 애플리케이션용 Azure NetApp Files를 사용하여 SUSE Linux Enterprise Server에서 Azure VM의 SAP NetWeaver 고가용성 실현](./high-availability-guide-suse-netapp-files.md)
     - [SAP 애플리케이션용 Azure NetApp Files를 사용하는 Red Hat Enterprise Linux의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성](./high-availability-guide-rhel-netapp-files.md)
 - /hana/shared 볼륨에 NFS v4.1 또는 NFS v3 및/또는 /hana/data 및 /hana/log 볼륨에 NFS v4.1 공유를 사용하는 SAP HANA 배포(자세한 내용은 [SAP HANA Azure 가상 머신 스토리지 구성](./hana-vm-operations-storage.md) 문서 참조)
+- Oracle 데이터 및 다시 실행 로그 볼륨에 대해 [dNFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA)를 사용하는 Oracle Linux 게스트 OS에서의 Oracle 배포 자세한 내용은 [SAP 워크로드에 대한 Azure Virtual Machines ORACLE DBMS 배포](./dbms_guide_oracle.md) 문서에서 확인할 수 있습니다.
 
 > [!NOTE]
 > Azure NetApp Files 기반 NFS 또는 SMB 공유에는 다른 DBMS 워크로드가 지원되지 않습니다. 이것이 변경될 경우 업데이트 및 변경 내용이 제공됩니다.

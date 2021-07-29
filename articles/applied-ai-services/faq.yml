@@ -1,0 +1,39 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Applied AI Services 질문과 대답
+  description: Azure Applied AI Services에 대한 일반적인 질문에 대한 답변
+  author: mrbullwinkle
+  ms.author: mbullwin
+  manager: nitinme
+  ms.topic: conceptual
+  ms.service: applied-ai-services
+  ms.date: 05/28/2021
+  ms.openlocfilehash: e424501e4b5ce6f6731f093394a6536c332b3cbc
+  ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/02/2021
+  ms.locfileid: "111907769"
+title: Azure Applied AI Services에 대한 질문과 대답
+summary: >
+  Azure Applied AI Services 사용에 대한 일반적인 질문에 대한 답변은 다음과 같습니다.
+sections:
+- name: 단일 섹션 - 무시됨
+  questions:
+  - question: Azure Applied AI Services는 미사용 데이터 및 CMK(고객 관리형 키)의 암호화를 지원하나요?
+    answer: >
+      예, Applied AI Services용 Azure Key Vault에서 고객 관리형 키를 사용하도록 설정하는 프로세스는 제품마다 다릅니다. 다음 링크를 사용하여 서비스별 지침을 따르세요.
+
+      - [미사용 데이터의 Cognitive Search 암호화](../search/search-security-manage-encryption-keys.md)
+
+      - [미사용 데이터의 Form Recognizer 암호화](../cognitive-services/form-recognizer/encrypt-data-at-rest.md)
+
+      - [미사용 데이터의 Metrics Advisor 암호화](../cognitive-services/metrics-advisor/encryption.md#customer-managed-keys-with-azure-key-vault)
+
+      - [미사용 데이터의 Video Analyzer 암호화](../azure-video-analyzer/video-analyzer-docs/customer-managed-keys.md)
+additionalContent: >-
+  ## <a name="next-steps"></a>다음 단계
+
+  - [Azure Key Vault란](../key-vault/general/overview.md)?
+
+  - [Applied AI Services 고객 관리형 키 요청 양식](https://aka.ms/cogsvc-cmk)

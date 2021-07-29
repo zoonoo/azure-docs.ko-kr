@@ -3,13 +3,13 @@ title: Azure Monitoring REST API 연습
 description: 요청을 인증하고 Azure Monitor REST API를 사용하여 사용 가능한 메트릭 정의 및 메트릭 값을 검색하는 방법입니다.
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.custom: has-adal-ref
-ms.openlocfilehash: a7cd6ff7c0c3b5d4bee859ef288f16673ebe0835
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.custom: has-adal-ref, devx-track-azurepowershell
+ms.openlocfilehash: 8c7e40ced81ae71bd9f8688130944144314ec1ab
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033081"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108320082"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API 연습
 
@@ -84,7 +84,7 @@ $authHeader = @{
 2. 메트릭 값 검색
 
 > [!NOTE]
-> Azure REST API을 사용 하 여 인증 하는 방법에 대 한 자세한 내용은 [azure REST API 참조](/rest/api/azure/)를 참조 하세요.
+> Azure REST API를 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure REST API 참조](/rest/api/azure/)를 참조하세요.
 >
 >
 
@@ -94,7 +94,7 @@ $authHeader = @{
 
 **메서드**: GET
 
-**요청 URI**: https: \/ \/ management.azure.com/subscriptions/*{subscriptionId}*/wsourceg/*{resourceGroupName}*/providers/*{resourceprovidernamespace}* / *{resourceType}* / *{context.resourcename}*/providers/microsoft.insights/metricdefinitions? api-version? api-version =*{apiVersion}*
+**요청 URI**: https:\/\/management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/microsoft.insights/metricDefinitions?api-version= *{apiVersion}*
 
 예를 들어 Azure Storage 계정의 메트릭 정의를 검색하기 위해 요청이 다음과 같이 표시됩니다.
 
@@ -238,7 +238,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**: https \: //management.azure.com/subscriptions/*{subscription-id}*/stgg/*{*/providers/} {resource-name} /  / /providers/microsoft.insights/metrics? metricnames =*{metric}*&timespan = {*starttime/endtime}*&$filter = {*filter}*&resultType = 메타 데이터&api-version =*{apiVersion}*
+**요청 URI**: https\://management.azure.com/subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resource-provider-namespace}* / *{resource-type}* / *{resource-name}* /providers/microsoft.insights/metrics?metricnames= *{metric}* &timespan= *{starttime/endtime}* &$filter= *{filter}* &resultType=metadata&api-version= *{apiVersion}*
 
 예를 들어 지정된 시간 범위 동안 GeoType dimension = 'Primary'인 'API Name dimension'에 대해 내보내진 차원의 값 목록을 검색하기 위해 요청은 다음과 같을 수 있습니다.
 
@@ -311,7 +311,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**: https: \/ /management.azure.com/subscriptions/*{subscription-id}*/stgg/*{/providers/}*{resource-*namespace}*{resource- / *type}*{resource- / *name*}/providers/microsoft.insights/metrics? metricnames =*{metric}*&timespan =*{starttime/endtime}*&$filter =*{filter}*&interval =*{timeGrain}*&집계 = {*aggreation}*&api-version =*{apiVersion}*
+**요청 URI**: https:\//management.azure.com/subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resource-provider-namespace}* / *{resource-type}* / *{resource-name}* /providers/microsoft.insights/metrics?metricnames= *{metric}* &timespan= *{starttime/endtime}* &$filter= *{filter}* &interval= *{timeGrain}* &aggregation= *{aggreation}* &api-version= *{apiVersion}*
 
 예를 들어 GeotType이 'Primary'였던 5분 범위 동안 'Transactions' 수에 의한 내림차순 값에서 상위 3개의 API를 검색하기 위해 요청은 다음과 같습니다.
 
@@ -390,7 +390,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**: https: \/ \/ management.azure.com/subscriptions/*{subscriptionId}*/wsourceg/*{resourceGroupName}*/providers/*{resourceprovidernamespace}* / *{resourceType}* / *{context.resourcename}*/providers/microsoft.insights/metricdefinitions? api-version? api-version =*{apiVersion}*
+**요청 URI**: https:\/\/management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/microsoft.insights/metricDefinitions?api-version= *{apiVersion}*
 
 예를 들어 Azure Logic App의 메트릭 정의를 검색하기 위해 요청이 다음과 같이 표시됩니다.
 
@@ -617,7 +617,7 @@ Azure Resource Explorer 등, 다른 방법으로 리소스 ID를 검색하고 Az
 
 ![Alt "Azure Resource Explorer"](./media/rest-api-walkthrough/azure_resource_explorer.png)
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure 포털에서 리소스 ID를 가져올 수도 있습니다. 이렇게 하려면 원하는 리소스로 이동한 다음 속성을 선택합니다. 리소스 ID는 다음 스크린샷에 표시된 것처럼 속성 섹션에 표시됩니다.
 
@@ -653,7 +653,7 @@ Version        : 08586982649483762729
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI를 사용 하 여 Azure Storage 계정에 대 한 리소스 ID를 검색 하려면 `az storage account show` 다음 예제와 같이 명령을 실행 합니다.
+Azure CLI를 사용하여 Azure Storage 계정의 리소스 ID를 검색하려면 다음 예제와 같이 `az storage account show` 명령을 실행합니다.
 
 ```azurecli
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
@@ -704,7 +704,7 @@ az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
 
 ## <a name="retrieve-activity-log-data"></a>활동 로그 데이터 검색
 
-또한 Azure Monitor REST API를 사용하여 메트릭 정의 및 관련 값 외에도 Azure 리소스와 관련한 다른 흥미로운 정보를 검색할 수 있습니다. 예를 들어, [활동 로그](/rest/api/monitor/activitylogs) 데이터를 쿼리할 수 있습니다. 다음 샘플 요청에서는 Azure Monitor REST API를 사용 하 여 활동 로그를 쿼리 합니다.
+또한 Azure Monitor REST API를 사용하여 메트릭 정의 및 관련 값 외에도 Azure 리소스와 관련한 다른 흥미로운 정보를 검색할 수 있습니다. 예를 들어, [활동 로그](/rest/api/monitor/activitylogs) 데이터를 쿼리할 수 있습니다. 다음 샘플 요청에서는 Azure Monitor REST API를 사용하여 활동 로그를 쿼리합니다.
 
 필터를 사용하여 활동 로그를 가져옵니다.
 

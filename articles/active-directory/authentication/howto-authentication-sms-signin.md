@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e9052502eba71f025bb6724278b7001173c5217
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 25ee91482ac17ac5e91715f5dfe6191c6ed4007a
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103491620"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982707"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Azure Active Directory를 사용한 SMS 기반 인증 구성 및 사용자 활성화 
 
@@ -38,14 +38,15 @@ ms.locfileid: "103491620"
     * [EMS(Enterprise Mobility + Security) E3 또는 E5][ems-licensing] 또는 [M365(Microsoft 365) E3 또는 E5][m365-licensing]
     * [Office 365 F3][o365-f3]
 
-## <a name="limitations"></a>제한 사항
+## <a name="known-issues"></a>알려진 문제
 
-SMS 기반 인증에는 다음과 같은 제한 사항이 적용됩니다.
+몇 가지 알려진 문제는 다음과 같습니다.
 
 * SMS 기반 인증은 현재 Azure AD Multi-Factor Authentication과 호환되지 않습니다.
 * Teams를 제외한 SMS 기반 인증은 기본 Office 애플리케이션과 호환되지 않습니다.
 * B2B 계정에는 SMS 기반 인증을 사용하지 않는 것이 좋습니다.
 * 페더레이션 사용자는 홈 테넌트에서 인증되지 않습니다. 클라우드에서만 인증됩니다.
+* 사용자의 기본 로그인 방법이 전화번호에 대한 문자 또는 통화인 경우에는 다단계 인증 중에 SMS 코드 또는 음성 통화가 자동으로 전송됩니다. 2021년 6월 현재, 일부 앱은 사용자에게 먼저 **문자** 또는 **통화** 를 선택하도록 요청합니다. 이 옵션은 다른 앱에 대해 너무 많은 보안 코드를 보내지 못하도록 합니다. 기본 로그인 방법이 Microsoft Authenticator 앱([매우 권장](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752))인 경우 앱 알림이 자동으로 전송됩니다.
 
 ## <a name="enable-the-sms-based-authentication-method"></a>SMS 기반 인증 방법 사용
 
@@ -149,7 +150,7 @@ Azure Portal에서 사용자 계정에 전화 번호를 설정하려고 할 때 
 
 암호 없이 Azure AD에 로그인하는 다른 방법(예: Microsoft Authenticator App 또는 FIDO2 보안 키)은 [암호 없는 인증 옵션][concepts-passwordless]을 참조하세요.
 
-Microsoft Graph REST API 베타를 사용하여 SMS 기반 로그인을 [사용][rest-enable]하거나 [사용하지 않을][rest-disable] 수도 있습니다.
+Microsoft Graph REST API를 사용하여 SMS 기반 로그인을 [사용][rest-enable]하거나 [사용하지 않을][rest-disable] 수도 있습니다.
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../fundamentals/sign-up-organization.md
@@ -157,8 +158,8 @@ Microsoft Graph REST API 베타를 사용하여 SMS 기반 로그인을 [사용]
 [concepts-passwordless]: concept-authentication-passwordless.md
 [tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
 [tutorial-sspr]: tutorial-enable-sspr.md
-[rest-enable]: /graph/api/phoneauthenticationmethod-enablesmssignin?view=graph-rest-beta&tabs=http
-[rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin?view=graph-rest-beta&tabs=http
+[rest-enable]: /graph/api/phoneauthenticationmethod-enablesmssignin?tabs=http
+[rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin?tabs=http
 
 <!-- EXTERNAL LINKS -->
 [azure-portal]: https://portal.azure.com

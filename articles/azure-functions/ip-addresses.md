@@ -3,12 +3,12 @@ title: Azure Functions의 IP 주소
 description: 함수 앱의 인바운드 및 아웃바운드 IP 주소를 찾는 방법과 변경되는 원인을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 2c248756899459e17082bcab863a4e857b594909
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30b45394ea620d05a89c3b2fd747573f1ea8017d
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104608234"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205002"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure Functions의 IP 주소
 
@@ -92,14 +92,24 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 ## <a name="outbound-ip-address-changes"></a>아웃바운드 IP 주소 변경
 
-함수 앱의 사용 가능한 아웃바운드 IP 주소 집합이 변경될 수 있는 경우는 다음과 같습니다.
+아웃바운드 IP 주소의 상대 안정성은 호스팅 계획에 따라 다릅니다.  
+
+### <a name="consumption-and-premium-plans"></a>소비 및 프리미엄 계획
+
+자동 크기 조정 동작으로 인해 [소비 계획](consumption-plan.md) 또는 [프리미엄 계획](functions-premium-plan.md)에서 실행될 때의 아웃바운드 IP는 언제든 변경될 수 있습니다. 
+
+허용 목록에 추가가 필요한 경우 등, 함수 앱의 아웃바운드 IP 주소를 제어해야 할 때는 프리미엄 계획에서 [가상 네트워크 NAT 게이트웨이](#virtual-network-nat-gateway-for-outbound-static-ip)를 구현하는 것이 좋습니다.
+
+### <a name="dedicated-plans"></a>전용 계획
+
+전용(App Service) 계획에서 실행할 경우 다음 상황에서 함수 앱에 사용 가능한 아웃바운드 IP 주소 집합은 변경될 수 있습니다.
 
 * 인바운드 IP 주소를 변경할 수 있는 작업을 수행합니다.
-* App Service 계획의 가격 책정 계층을 변경합니다. 모든 가격 책정 계층에 대해 앱에서 사용할 수 있는 모든 가능한 아웃바운드 IP 주소 목록은 `possibleOutboundIPAddresses` 속성에 있습니다. [아웃바운드 IP 찾기](#find-outbound-ip-addresses)를 참조하세요.
+* 전용(App Service) 계획의 가격 책정 계층을 변경합니다. 모든 가격 책정 계층에 대해 앱에서 사용할 수 있는 모든 가능한 아웃바운드 IP 주소 목록은 `possibleOutboundIPAddresses` 속성에 있습니다. [아웃바운드 IP 찾기](#find-outbound-ip-addresses)를 참조하세요.
 
-함수 앱이 [소비 계획](consumption-plan.md) 또는 [프리미엄 계획](functions-premium-plan.md)에서 실행되는 경우 아웃바운드 IP 주소는 [위에서 나열](#inbound-ip-address-changes)한 것과 같은 작업을 수행하지 않은 경우에도 변경될 수 있습니다.
+#### <a name="forcing-an-outbound-ip-address-change"></a>아웃바운드 IP 주소 변경 강제 적용
 
-다음 절차를 사용하여 아웃바운드 IP 주소 변경을 의도적으로 강제 적용합니다.
+다음 절차를 사용하여 전용(App Service) 계획에서 아웃바운드 IP 주소 변경을 의도적으로 강제 적용합니다.
 
 1. 표준 및 프리미엄 v2 가격 책정 계층 사이에서 App Service 계획의 크기를 위 또는 아래로 조정합니다.
 

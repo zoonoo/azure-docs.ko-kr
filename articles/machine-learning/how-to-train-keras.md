@@ -10,12 +10,12 @@ author: mx-iao
 ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: how-to
-ms.openlocfilehash: 5a641f349b070f3b4cb285b3d0007baa54219683
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 543b99013d31f5a80150bb7daa52d9a9e2992811
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884429"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747006"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 대규모 Keras 모델 학습
 
@@ -30,13 +30,13 @@ Azure Machine Learning에서는 Keras 모델을 처음부터 개발하든 또는
 > [!NOTE]
 > 독립 실행형 Keras 패키지가 아닌 TensorFlow에 기본 제공되는 Keras API **tf.keras** 를 사용하는 경우 [TensorFlow 모델 학습](how-to-train-tensorflow.md)을 대신 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 다음 환경 중 하나에서 이 코드를 실행합니다.
 
 - Azure Machine Learning 컴퓨팅 인스턴스 - 다운로드 또는 설치 필요 없음
 
-     - 이 자습서를 시작하기 전에 [자습서: SDK 및 샘플 리포지토리로 미리 로드된 전용 Notebook 서버를 만들기 위한 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md)을 설정합니다.
+     - [빠른 시작: Azure Machine Learning 시작하기](quickstart-create-resources.md)를 완료하여 SDK 및 샘플 리포지토리가 미리 로드된 전용 Notebook 서버를 만듭니다.
     - Notebook 서버의 샘플 폴더에서 **how-to-use-azureml > ml-frameworks > keras > train-hyperparameter-tune-deploy-with-keras** 폴더로 이동하여 완성된 확장 Notebook을 찾습니다.
 
  - 사용자 고유의 Jupyter Notebook 서버

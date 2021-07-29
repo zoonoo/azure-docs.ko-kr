@@ -1,17 +1,17 @@
 ---
-title: ARM 템플릿 | Microsoft Azure 맵을 사용하여 Azure Maps 계정 만들기
-description: ARM(Azure Resource Manager) 템플릿을 사용하여 Azure Maps 계정을 만드는 방법을 알아봅니다.
+title: Azure Maps에서 Azure Resource Manager 템플릿을 사용하여 Azure Maps 계정 만들기
+description: Azure Resource Manager 템플릿을 사용하여 Azure Maps 계정을 만드는 방법을 알아봅니다.
 author: philmea
 ms.author: philmea
-ms.date: 10/20/2020
+ms.date: 04/27/2021
 ms.topic: how-to
 ms.service: azure-maps
-ms.openlocfilehash: c715c0639e962f76f669515c1d2c826c8cf6cc9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb030eb74523d72035fd093f7766e55a2e668867
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92525120"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985349"
 ---
 # <a name="create-your-azure-maps-account-using-an-arm-template"></a>ARM 템플릿을 사용gk여 Azure Maps 계정 만들기
 
@@ -21,7 +21,7 @@ ARM(Azure Resource Manager) 템플릿을 사용하여 Azure Maps 계정을 만�
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-maps-create%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.maps%2Fmaps-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -31,9 +31,9 @@ ARM(Azure Resource Manager) 템플릿을 사용하여 Azure Maps 계정을 만�
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-maps-create/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/maps-create/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-maps-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.maps/maps-create/azuredeploy.json":::
 
 이 템플릿에 정의된 Azure Maps 계정 리소스는 다음과 같습니다.
 
@@ -43,7 +43,7 @@ ARM(Azure Resource Manager) 템플릿을 사용하여 Azure Maps 계정을 만�
 
 1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿은 Azure Maps 계정을 만듭니다.
 
-    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-maps-create%2Fazuredeploy.json)
+    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.maps%2Fmaps-create%2Fazuredeploy.json)
 
 2. 다음 값을 선택하거나 입력합니다.
 
@@ -57,7 +57,7 @@ ARM(Azure Resource Manager) 템플릿을 사용하여 Azure Maps 계정을 만�
     * **계정 이름**: Azure Maps 계정에 대한 이름을 입력하며, 해당 이름은 전역적으로 고유해야 합니다.
     * **가격 책정 계층**: 적절한 가격 책정 계층을 선택합니다. 템플릿의 기본값은 S0입니다.
 
-3. **검토 + 만들기** 를 선택합니다. 
+3. **검토 + 만들기** 를 선택합니다.
 4. 검토 페이지에서 설정을 확인하고 **만들기** 를 클릭합니다. Azure Maps가 성공적으로 배포되면 다음과 같이 알림을 받게 됩니다.
 
     ![ARM 템플릿 배포 포털 알림](./media/how-to-create-template/resource-manager-template-portal-deployment-notification.png)

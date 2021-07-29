@@ -1,18 +1,19 @@
 ---
-title: 'Azure VPN Gateway: 여러 온-프레미스 정책 기반 VPN 디바이스에 게이트웨이 연결'
-description: Azure Resource Manager 및 PowerShell을 사용하여 여러 정책 기반 VPN 디바이스에 대해 Azure 경로 기반 VPN 게이트웨이를 구성합니다.
+title: 여러 온-프레미스 정책 기반 VPN 디바이스에 VPN 게이트웨이 연결
+titleSuffix: Azure VPN Gateway
+description: PowerShell을 사용하여 여러 정책 기반 VPN 디바이스에 대해 Azure 경로 기반 VPN 게이트웨이를 구성하는 방법을 알아봅니다.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 2a85204fef026940394a19934bef1c631a8e2d21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a0d42dbeb3713202ef0b2c5c05f08d51bd8a6db
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89418883"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291175"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>PowerShell을 사용하여 여러 온-프레미스 정책 기반 VPN 디바이스에 Azure VPN Gateway 연결
 
@@ -36,7 +37,7 @@ ms.locfileid: "89418883"
 ### <a name="azure-support-for-policy-based-vpn"></a>정책 기반 VPN에 대한 Azure 지원
 현재 Azure에서는 VPN Gateway의 두 가지 모드(경로 기반 VPN Gateway 및 정책 기반 VPN Gateway)를 모두 지원합니다. 이러한 게이트웨이는 서로 다른 플랫폼에 구축되므로 사양이 서로 다릅니다.
 
-| 범주 | PolicyBased VPN Gateway | RouteBased VPN Gateway | RouteBased VPN Gateway |
+| Category | PolicyBased VPN Gateway | RouteBased VPN Gateway | RouteBased VPN Gateway |
 | -------- | ----------------------- | ---------------------- | ---------------------- |---                                                 |
 | **Azure Gateway SKU**    | 기본                       | 기본                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
 | **IKE 버전**          | IKEv1                       | IKEv2                            | IKEv1, IKEv2                         |
@@ -112,7 +113,7 @@ ms.locfileid: "89418883"
 
 #### <a name="create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>가상 네트워크, VPN Gateway 및 로컬 네트워크 게이트웨이 만들기
 
-1. 리소스 그룹을 생성합니다.
+1. 리소스 그룹을 만듭니다.
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG1 -Location $Location1

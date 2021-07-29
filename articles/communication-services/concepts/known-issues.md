@@ -8,18 +8,18 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: troubleshooting
 ms.service: azure-communication-services
-ms.openlocfilehash: b9ed71a8fc9346ecd454eba98dcbb3b13186eba2
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 5fe3760d5baeae4b532e0af7e28b090d170e0945
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276045"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331307"
 ---
 # <a name="known-issues-azure-communication-services-calling-sdks"></a>알려진 문제: Azure Communication Services Calling SDK
 이 문서에서는 Azure Communication Services Calling SDK와 관련된 제한 사항 및 알려진 문제에 대한 정보를 제공합니다.
 
 > [!IMPORTANT]
-> 통화 환경의 품질에 영향을 줄 수 있는 여러 요인이 있습니다. Communication Services 네트워크 구성 및 테스트 모범 사례에 대한 자세한 내용은 **[네트워크 요구 사항](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements)** 설명서를 참조하세요.
+> 통화 환경의 품질에 영향을 줄 수 있는 여러 요인이 있습니다. Communication Services 네트워크 구성 및 테스트 모범 사례에 대한 자세한 내용은 **[네트워크 요구 사항](./voice-video-calling/network-requirements.md)** 설명서를 참조하세요.
 
 
 ## <a name="javascript-sdk"></a>JavaScript SDK
@@ -38,7 +38,7 @@ ms.locfileid: "106276045"
 
 
 ### <a name="its-not-possible-to-render-multiple-previews-from-multiple-devices-on-web"></a>웹의 여러 디바이스에서 여러 미리 보기를 렌더링하는 것은 불가능합니다.
-이 문제는 알려진 제한 사항입니다. 자세한 내용은 [통화 SDK 개요](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features)를 참조하세요.
+이 문제는 알려진 제한 사항입니다. 자세한 내용은 [통화 SDK 개요](./voice-video-calling/calling-sdk-features.md)를 참조하세요.
 
 ### <a name="enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados"></a>애플리케이션이 iOS 또는 iPadOS에서 실행되는 경우 Safari에서 디바이스를 열거할 수 없습니다.
 
@@ -110,4 +110,16 @@ Communication Services 사용자가 JavaScript 통화 SDK를 사용하여 통화
 <br/>운영 체제: iOS
 
 ###  <a name="sometimes-it-takes-a-long-time-to-render-remote-participant-videos"></a>원격 참가자 비디오를 렌더링하는 데 시간이 오래 걸리는 경우가 있습니다.
-진행 중인 그룹 통화 동안 _사용자 A_ 가 비디오를 보낸 다음, _사용자 B_ 가 통화에 조인합니다. 사용자 B에게 사용자 A의 비디오가 표시되지 않거나 사용자 A의 비디오가 긴 지연 후 렌더링을 시작하는 경우가 있습니다. 이 문제는 추가 구성이 필요한 네트워크 환경에 의해 발생할 수 있습니다. 네트워크 구성 지침은 [네트워크 요구 사항](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements) 설명서를 참조하세요.
+진행 중인 그룹 통화 동안 _사용자 A_ 가 비디오를 보낸 다음, _사용자 B_ 가 통화에 조인합니다. 사용자 B에게 사용자 A의 비디오가 표시되지 않거나 사용자 A의 비디오가 긴 지연 후 렌더링을 시작하는 경우가 있습니다. 이 문제는 추가 구성이 필요한 네트워크 환경에 의해 발생할 수 있습니다. 네트워크 구성 지침은 [네트워크 요구 사항](./voice-video-calling/network-requirements.md) 설명서를 참조하세요.
+
+### <a name="using-3rd-party-libraries-to-access-gum-during-the-call-may-result-in-audio-loss"></a>통화 중에 타사 라이브러리를 사용하여 GUM에 액세스하면 오디오 손실이 발생할 수 있습니다.
+애플리케이션 내에서 getUserMedia를 별도로 사용하면 타사 라이브러리가 ACS 라이브러리의 디바이스 액세스를 인수하므로 오디오 스트림이 손실됩니다.
+개발자는 다음을 수행하는 것이 좋습니다.
+1. 통화 중에 내부적으로 GetUserMedia API를 사용하는 타사 라이브러리를 사용하지 마세요.
+2. 타사 라이브러리를 계속 사용해야 하는 경우 복구할 수 있는 유일한 방법은 선택한 디바이스를 변경하거나(사용자에게 두 개 이상의 디바이스가 있는 경우), 통화를 다시 시작하는 것입니다.
+
+<br/>브라우저: Safari
+<br/>운영 체제: iOS
+
+#### <a name="possible-causes"></a>가능한 원인
+일부 브라우저(예: Safari)에서는 동일한 디바이스에서 사용자 고유의 스트림을 가져오면 경합 상태를 실행하는 부작용이 발생합니다. 다른 디바이스에서 스트림을 가져오면 USB/IO 대역폭이 부족해질 수 있으며 sourceUnavailableError 비율이 급증할 수 있습니다.  

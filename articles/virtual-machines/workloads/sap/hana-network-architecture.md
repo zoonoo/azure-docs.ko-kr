@@ -13,16 +13,16 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 92cfa5b2e399811754b57bda64569753ccfa6be8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9baf6dc372b9ce5d85a935502cdaf710e8d0b43
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668761"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749144"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>SAP HANA(대규모 인스턴스) 네트워크 아키텍처
 
-Azure 네트워크 서비스의 아키텍처는 SAP 애플리케이션을 HANA 대규모 인스턴스에 성공적으로 배포하는 핵심 구성 요소입니다. 일반적으로 Azure(큰 인스턴스)에서 SAP HANA 배포에는 다양한 데이터베이스 크기, CPU 리소스 사용량 및 메모리 사용률이 있는 서로 다른 여러 SAP 솔루션을 갖춘 더 큰 SAP 환경이 포함됩니다. 일부 IT 시스템이 아직 Azure에 없을 가능성이 있습니다. NetWeaver, S/4 및 HANA 및 SAP HANA와 기타 DBMS을 혼합하여 DBMS 및 SAP 애플리케이션 관점에서 SAP 환경을 하이브리드 방식으로 구성하는 경우가 많습니다. Azure는 다양한 DBMS, NetWeaver 및 S/4HANA 시스템을 Azure에서 실행할 수 있도록 다양한 서비스를 제공합니다. Azure를 온-프레미스 소프트웨어 배포에 대한 가상 데이터 센터처럼 보이도록 하는 네트워크 기술도 제공합니다.
+Azure 네트워크 서비스의 아키텍처는 SAP 애플리케이션을 HANA 대규모 인스턴스에 성공적으로 배포하는 핵심 구성 요소입니다. 일반적으로 Azure(큰 인스턴스)에서 SAP HANA 배포에는 다양한 데이터베이스 크기, CPU 리소스 사용량 및 메모리 사용률이 있는 서로 다른 여러 SAP 솔루션을 갖춘 더 큰 SAP 환경이 포함됩니다. 일부 IT 시스템이 아직 Azure에 없을 가능성이 있습니다. NetWeaver, S/4 및 HANA 및 SAP HANA와 기타 DBMS을 혼합하여 DBMS 및 SAP 애플리케이션 관점에서 SAP 환경을 하이브리드 방식으로 구성하는 경우가 많습니다. Azure는 다양한 DBMS, NetWeaver 및 S/4HANA 시스템을 실행할 수 있는 다양한 서비스를 제공합니다. Azure는 온-프레미스 소프트웨어 배포 시 Azure를 가상 데이터 센터처럼 보이게 하는 네트워크 기술도 제공합니다.
 
 전체 IT 시스템이 Azure에서 호스팅되지 않는 경우 Azure 네트워킹 기능은 온-프레미스 환경을 Azure 자산과 연결하여 Azure를 가상 데이터 센터처럼 보이게 하는 데 사용됩니다. 사용되는 Azure 네트워크 기능은 다음과 같습니다. 
 
@@ -48,7 +48,7 @@ Azure 데이터 센터 네트워크 패브릭에 HANA 대규모 인스턴스를 
 
 가상 네트워크를 ExpressRoute에 연결하려면 Azure ExpressRoute 게이트웨이를 생성해야 합니다. 자세한 내용은 [ExpressRoute에 대한 가상 네트워크 게이트웨이 정보](../../../expressroute/expressroute-about-virtual-network-gateways.md)를 참조하세요. 
 
-Azure ExpressRoute 게이트웨이는 ExpressRoute와 함께 Azure 외부 인프라 또는 Azure(대규모 인스턴스) 스탬프에 대해 사용됩니다. Azure Express 경로 게이트웨이가 서로 다른 Microsoft 엔터프라이즈에 에지 라우터에서 제공되는 경우 최대 4 개의 다른 ExpressRoute 회로에 연결할 수 있습니다. 자세한 내용은 [SAP HANA on Azure(대규모 인스턴스) 인프라 및 연결](hana-overview-infrastructure-connectivity.md)을 참조하세요. 
+Azure 외부의 인프라 또는 Azure 대규모 인스턴스 스탬프에 ExpressRoute와 함께 사용되는 Azure ExpressRoute 게이트웨이. Azure Express 경로 게이트웨이가 서로 다른 Microsoft 엔터프라이즈에 에지 라우터에서 제공되는 경우 최대 4 개의 다른 ExpressRoute 회로에 연결할 수 있습니다. 자세한 내용은 [SAP HANA on Azure(대규모 인스턴스) 인프라 및 연결](hana-overview-infrastructure-connectivity.md)을 참조하세요. 
 
 > [!NOTE] 
 > Express 경로 게이트웨이를 사용하여 달성할 수 있는 최대 처리량은 ExpressRoute 연결을 사용할 경우 10gbps입니다. 가상 네트워크에 있는 VM과 온-프레미스 시스템 간에 파일을 복사하는 경우(단일 복사 스트림으로), 다양한 게이트웨이 SKU의 전체 처리량을 달성할 수 없습니다. ExpressRoute 게이트웨이의 전체 대역폭을 활용하려면 여러 스트림을 사용하세요. 또는 단일 파일의 병렬 스트림에서 다른 파일을 복사해야 합니다.
@@ -59,7 +59,7 @@ HANA 대규모 인스턴스에 대한 네트워킹 아키텍처는 다음 네 �
 
 - Azure에 대한 온-프레미스 네트워킹 및 ExpressRoute 연결. 이 부분은 고객의 도메인이며 ExpressRoute 통해 Azure에 연결됩니다. 이 ExpressRoute 회로는 고객이 모든 비용을 지불합니다. 대역폭은 온-프레미스 자산과 연결 중인 Azure 지역 간의 네트워크 트래픽을 처리할 수 있을 만큼 커야 합니다. 다음 그림의 오른쪽 아래 부분을 참조하세요.
 - 앞서 설명한 것처럼 가상 네트워크를 사용하는 Azure 네트워크 서비스는 ExpressRoute 게이트웨이를 다시 추가해야 합니다. 이 부분은 애플리케이션 요구 사항, 보안 및 규정 준수 요구 사항에 적합한 디자인을 찾아야 하는 영역입니다. HANA 대규모 인스턴스를 사용하는지 여부는 선택할 가상 네트워크와 Azure 게이트웨이 SKU의 수 측면에서 고려해야 할 또 다른 요소입니다. 그림의 오른쪽 위 부분을 참조하세요.
-- Azure에 ExpressRoute 기술을 통해 HANA 대규모 인스턴스 연결. 이 부분은 Microsoft에서 배포하고 처리합니다. HANA 대규모 인스턴스에 자산을 배포한 후 ExpressRoute 회로를 가상 네트워크에 연결하기 위한 일부 IP 주소 범위를 제공하기만 하면 됩니다. 자세한 내용은 [SAP HANA on Azure(대규모 인스턴스) 인프라 및 연결](hana-overview-infrastructure-connectivity.md)을 참조하세요. Azure 데이터 센터 네트워크 패브릭 및 HANA(대규모 인스턴스) 장치 간 연결에 대해 고객이 추가로 지불할 요금은 없습니다.
+- Azure에 ExpressRoute 기술을 통해 HANA 대규모 인스턴스 연결. 이 부분은 Microsoft에서 배포하고 처리합니다. HANA 대규모 인스턴스에 자산을 배포한 후 ExpressRoute 회로를 가상 네트워크에 연결하기 위한 일부 IP 주소 범위를 제공하기만 하면 됩니다. 자세한 내용은 [SAP HANA on Azure(대규모 인스턴스) 인프라 및 연결](hana-overview-infrastructure-connectivity.md)을 참조하세요. Azure 데이터 센터 네트워크 패브릭 및 HANA 대규모 인스턴스 장치 간 연결에 대해 고객이 지불해야 할 추가 요금은 없습니다.
 - HANA(대규모 인스턴스) 스탬프 내 네트워킹. 대부분 사용자에게 투명합니다.
 
 ![SAP HANA on Azure(대규모 인스턴스) 및 온-프레미스에 연결된 가상 네트워크](./media/hana-overview-architecture/image1-architecture.png)
@@ -68,31 +68,31 @@ HANA 대규모 인스턴스를 사용하기 때문에 온-프레미스 자산에
 
 Azure에서 SAP 배포의 차이점은 다음과 같습니다.
 
-- 고객 테넌트의 HANA 대규모 인스턴스 장치는 또 다른 ExpressRoute 회로 통해 가상 네트워크에 연결됩니다. 로드 조건을 분리하기 위해 Azure 가상 네트워크 ExpressRoute 회로에 대한 온-프레미스와 Azure 가상 네트워크 및 HANA(대규모 인스턴스) 간 회로는 동일한 라우터를 공유하지 않습니다.
+- 고객 테넌트의 HANA 대규모 인스턴스 장치는 또 다른 ExpressRoute 회로 통해 가상 네트워크에 연결됩니다. 부하 조건을 분리하기 위해 온-프레미스에서 Azure 가상 네트워크로의 ExpressRoute 회로 및 Azure 가상 네트워크와 HANA 대규모 인스턴스 간의 회로는 동일한 라우터를 공유하지 않습니다.
 - SAP 애플리케이션 계층과 HANA 대규모 인스턴스 간의 워크로드 프로필은 SAP HANA에서 애플리케이션 계층으로의 데이터 전송(결과 집합)과 같이 많은 작은 요청과 버스트와는 다른 특성을 가지고 있습니다.
 - SAP 애플리케이션 아키텍처는 온-프레미스와 Azure 간에 데이터가 교환되는 일반적인 시나리오보다 네트워크 대기 시간에 더 민감합니다.
-- Azure ExpressRoute 게이트웨이에는 적어도 두 개의 ExpressRoute 연결이 있습니다. 온-프레미스에서 연결된 회로 및 HANA 대규모 인스턴스에서 연결된 회로 그러므로 다른 MSEE의 회로는 두 개만 더 ExpressRoute 게이트웨이에 연결할 수 있습니다. 이 제한은 ExpressRoute Fast Path의 사용과는 무관합니다. 모든 연결된 회로는 ExpressRoute 게이트웨이의 수신 데이터에 대해 최대 대역폭을 공유합니다.
+- Azure ExpressRoute 게이트웨이에는 적어도 두 개의 ExpressRoute 연결이 있습니다. 온-프레미스에서 연결된 회로 및 HANA 대규모 인스턴스에서 연결된 회로 따라서 서로 다른 MSEE의 다른 두 개의 회로가 ExpressRoute 게이트웨이에 연결될 수 있는 공간만 남게 됩니다. 이 제한은 ExpressRoute FastPath의 사용과는 무관합니다. 연결된 모든 회로는 ExpressRoute 게이트웨이의 수신 데이터에 대한 최대 대역폭을 공유합니다.
 
-HANA 대규모 인스턴스 수정 버전 3을 통해 VM과 HANA 대규모 인스턴스 장치 간에 발생하는 네트워크 지연 시간이 일반적인 VM 간 네트워크 왕복 지연 시간보다 길어질 수 있습니다. Azure 지역에 따라 측정값은 [SAP Note #1100926 - FAQ: 네트워크 성능](https://launchpad.support.sap.com/#/notes/1100926/E)에서 평균 미만으로 분류된 0.7ms 왕복 대기 시간을 초과할 수 있습니다. Azure VM 및 HANA 대규모 인스턴스 단위 간의 네트워크 왕복 대기 시간을 측정하는 Azure 지역 및 도구에 따라 측정된 대기 시간은 최대 약 2밀리초일 수 있습니다. 그럼에도 불구하고 고객은 SAP HANA 기반 프로덕션 SAP 애플리케이션을 SAP HANA 대규모 인스턴스에 성공적으로 배포합니다. Azure HANA 대규모 인스턴스에서 자신의 비즈니스 프로세스를 철저하게 테스트해야 합니다. Express Route Fast Path라는 새로운 기능을 통해 Azure의 HANA 대규모 인스턴스 및 애플리케이션 계층 VM 간의 네트워크 대기 시간을 크게 줄일 수 있습니다(아래 참조). 
+HANA 대규모 인스턴스 수정 버전 3을 통해 VM과 HANA 대규모 인스턴스 장치 간에 발생하는 네트워크 지연 시간이 일반적인 VM 간 네트워크 왕복 지연 시간보다 길어질 수 있습니다. Azure 지역에 따라 측정값은 [SAP Note #1100926 - FAQ: 네트워크 성능](https://launchpad.support.sap.com/#/notes/1100926/E)에서 평균 미만으로 분류된 0.7ms 왕복 대기 시간을 초과할 수 있습니다. Azure VM 및 HANA 대규모 인스턴스 단위 간의 네트워크 왕복 대기 시간을 측정하는 Azure 지역 및 도구에 따라 측정된 대기 시간은 최대 약 2밀리초일 수 있습니다. 그럼에도 불구하고 고객은 SAP HANA 기반 프로덕션 SAP 애플리케이션을 SAP HANA 대규모 인스턴스에 성공적으로 배포합니다. Azure HANA 대규모 인스턴스에서 자신의 비즈니스 프로세스를 철저하게 테스트해야 합니다. Express Route FastPath라는 새로운 기능을 통해 Azure의 HANA 대규모 인스턴스 및 애플리케이션 계층 VM 간의 네트워크 대기 시간을 크게 줄일 수 있습니다(아래 참조). 
 
-HANA 대규모 인스턴스 스탬프의 수정 버전 4를 통해 [SAP Note #1100926-FAQ:](https://launchpad.support.sap.com/#/notes/1100926/E) Azure Express ExpressRoute Fast Path가 구성된 경우 네트워크 성능(아래 참조)에 설명된 대로 평균 또는 평균 이상의 분류를 충족하도록 경험됩니다 HANA 대규모 인스턴스 장치 수정 버전 4에 근접하게 Azure VM을 배포하려면 [Azure 근접 배치 그룹](../../co-location.md)을 활용해야 합니다. 근접 배치 그룹이 HANA 대규모 인스턴스 장치에 호스트된 수정 버전 4와 동일한 Azure 데이터센터에서 SAP 애플리케이션 계층을 찾는 데 사용되는 방법은 [SAP 애플리케이션을 통한 네트워크 대기 시간 최적화를 위한 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md) 에 설명되어 있습니다.
+HANA 대규모 인스턴스 스탬프의 수정 버전 4를 통해 [SAP Note #1100926-FAQ:](https://launchpad.support.sap.com/#/notes/1100926/E) Azure Express ExpressRoute FastPath가 구성된 경우 네트워크 성능(아래 참조)에 설명된 대로 평균 또는 평균 이상의 분류를 충족하도록 경험됩니다 HANA 대규모 인스턴스 장치 수정 버전 4에 근접하게 Azure VM을 배포하려면 [Azure 근접 배치 그룹](../../co-location.md)을 활용해야 합니다. 근접 배치 그룹이 HANA 대규모 인스턴스 장치에 호스트된 수정 버전 4와 동일한 Azure 데이터센터에서 SAP 애플리케이션 계층을 찾는 데 사용되는 방법은 [SAP 애플리케이션을 통한 네트워크 대기 시간 최적화를 위한 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md) 에 설명되어 있습니다.
 
-VM과 HANA(대규모 인스턴스) 간에 결정적 네트워크 대기 시간을 제공하려면 ExpressRoute 게이트웨이 SKU를 선택해야 합니다. 온-프레미스와 VM 간의 트래픽 패턴과는 달리, VM과 HANA 대규모 인스턴스 간의 트래픽 패턴은 작지만 높은 버스트의 요청 및 데이터 볼륨을 전송하도록 개발할 수 있습니다. 이러한 버스트를 잘 처리하려면 UltraPerformance 게이트웨이 SKU를 사용하는 것이 좋습니다. HANA Large Instance Sku의 Type II 클래스의 경우 UltraPerformance 게이트웨이 SKU를 ExpressRoute 게이트웨이로 사용해야 합니다.
-
-> [!IMPORTANT] 
-> SAP 애플리케이션과 데이터베이스 계층 간의 전체 네트워크 트래픽을 고려할 때, SAP HANA on Azure(대규모 인스턴스) 연결에는 가상 네트워크용 HighPerformance 또는 UltraPerformance 게이트웨이 SKU만 지원됩니다. HANA Large Instance Type II SKU의 경우 Ultra Performance 게이트웨이 SKU만 ExpressRoute 게이트웨이로 지원됩니다. ExpressRoute Fast Path를 사용하는 경우 예외가 적용됩니다(아래 참조).
-
-### <a name="expressroute-fast-path"></a>ExpressRoute Fast Path
-지연 시간을 줄이기 위해, ExpressRoute Fast Path는 SAP 애플리케이션 VM을 호스팅하는 Azure 가상 네트워크에 대한 HANA Large Instance의 특정 연결을 위해 2019년 5월에 도입 및 릴리스되었습니다. 지금까지 롤아웃된 솔루션의 주요 차이점은 VM과 HANA Large Instance 간의 데이터 흐름이 더 이상 ExpressRoute 게이트웨이를 통해 라우팅되지 않는다는 점입니다. 대신, Azure 가상 네트워크의 서브넷에 할당된 VM이 전용 엔터프라이즈 에지 라우터와 직접 통신합니다. 
+VM과 HANA 대규모 인스턴스 간에 결정적인 네트워크 대기 시간을 제공하려면 ExpressRoute 게이트웨이 SKU 선택이 중요합니다. 온-프레미스와 VM 간의 트래픽 패턴과는 달리, VM과 HANA 대규모 인스턴스 간의 트래픽 패턴은 작지만 높은 버스트의 요청 및 데이터 볼륨을 전송하도록 개발할 수 있습니다. 이러한 버스트를 잘 처리하려면 UltraPerformance 게이트웨이 SKU를 사용하는 것이 좋습니다. HANA Large Instance Sku의 Type II 클래스의 경우 UltraPerformance 게이트웨이 SKU를 ExpressRoute 게이트웨이로 사용해야 합니다.
 
 > [!IMPORTANT] 
-> ExpressRoute 빠른 경로 기능을 사용하려면 SAP 애플리케이션 VM을 실행하는 서브넷이 HANA 대규모 인스턴스에 연결된 동일한 Azure 가상 네트워크에 있어야 합니다. HANA 대규모 인스턴스 장치에 직접 연결된 Azure 가상 네트워크와 피어링된 Azure 가상 네트워크에 위치한 VM은 ExpressRoute 빠른 경로 기능을 사용할 수 없습니다. 따라서 ExpressRoute 회로가 허브 가상 네트워크에 연결되어 있고 SAP 애플리케이션 계층(스포크)이 포함된 가상 네트워크에 연결되어 있는 경우 ExpressRoute FastPath에 의한 최적화는 작동하지 않습니다. 또한 ExpressRoute Fast Path는 현재 UDR(사용자 정의 라우팅 규칙)을 지원하지 않습니다. 자세한 내용은 [ExpressRoute 가상 네트워크 게이트웨이 및 FastPath](../../../expressroute/expressroute-about-virtual-network-gateways.md)를 참조하세요. 
+> SAP 애플리케이션과 데이터베이스 계층 간의 전체 네트워크 트래픽을 고려할 때, SAP HANA on Azure(대규모 인스턴스) 연결에는 가상 네트워크용 HighPerformance 또는 UltraPerformance 게이트웨이 SKU만 지원됩니다. HANA Large Instance Type II SKU의 경우 Ultra Performance 게이트웨이 SKU만 ExpressRoute 게이트웨이로 지원됩니다. ExpressRoute FastPath를 사용하는 경우 예외가 적용됩니다(아래 참조).
+
+### <a name="expressroute-fastpath"></a>ExpressRoute FastPath
+지연 시간을 줄이기 위해, ExpressRoute FastPath는 SAP 애플리케이션 VM을 호스팅하는 Azure 가상 네트워크에 대한 HANA Large Instance의 특정 연결을 위해 2019년 5월에 도입 및 릴리스되었습니다. 지금까지 롤아웃된 솔루션의 주요 차이점은 VM과 HANA Large Instance 간의 데이터 흐름이 더 이상 ExpressRoute 게이트웨이를 통해 라우팅되지 않는다는 점입니다. 대신, Azure 가상 네트워크의 서브넷에 할당된 VM이 전용 엔터프라이즈 에지 라우터와 직접 통신합니다. 
+
+> [!IMPORTANT] 
+> ExpressRoute FastPath 기능을 사용하려면 SAP 애플리케이션 VM을 실행하는 서브넷이 HANA 대규모 인스턴스에 연결된 동일한 Azure 가상 네트워크에 있어야 합니다. HANA 대규모 인스턴스 장치에 직접 연결된 Azure 가상 네트워크와 피어링된 Azure 가상 네트워크에 위치한 VM은 ExpressRoute FastPath 기능을 사용할 수 없습니다. 따라서 ExpressRoute 회로가 허브 가상 네트워크에 연결되어 있고 SAP 애플리케이션 계층(스포크)이 포함된 가상 네트워크에 연결되어 있는 경우 ExpressRoute FastPath에 의한 최적화는 작동하지 않습니다. 또한 ExpressRoute FastPath는 현재 UDR(사용자 정의 회람 규칙)을 지원하지 않습니다. 자세한 내용은 [ExpressRoute 가상 네트워크 게이트웨이 및 FastPath](../../../expressroute/expressroute-about-virtual-network-gateways.md)를 참조하세요. 
 
 
-ExpressRoute Fast Path를 구성하는 방법에 대한 자세한 내용은 [가상 네트워크를 HANA 대규모 인스턴스 연결](./hana-connect-vnet-express-route.md)문서를 참조하세요.    
+ExpressRoute FastPath를 구성하는 방법에 대한 자세한 내용은 [가상 네트워크를 HANA 대규모 인스턴스 연결](./hana-connect-vnet-express-route.md)문서를 참조하세요.    
 
 > [!NOTE]
-> Express Fast Path가 작동하려면 UltraPerformance ExpressRoute 게이트웨이가 필요합니다.
+> ExpressRoute FastPath가 작동하려면 UltraPerformance ExpressRoute 게이트웨이가 필요합니다.
 
 
 ## <a name="single-sap-system"></a>단일 SAP 시스템
@@ -102,7 +102,7 @@ ExpressRoute Fast Path를 구성하는 방법에 대한 자세한 내용은 [가
 > [!NOTE] 
 > Azure에서 SAP 자산을 실행하려면 SAP 자산에서 Azure 지역과 가장 가까운 엔터프라이즈 에지 라우터에 연결합니다. Azure 대규모 인스턴스 스탬프는 전용 엔터프라이즈 에지 라우터 디바이스를 통해 연결되어 Azure IaaS 및 HANA 대규모 인스턴스 스탬프에서 VM 간의 네트워크 대기 시간을 최소화합니다.
 
-SAP 애플리케이션 인스턴스를 호스팅하는 VM 용 ExpressRoute 게이트웨이는 온-프레미스 네트워크에 연결되는 하나의 ExpressRoute 회로에 연결됩니다. 동일한 가상 네트워크는 대규모 인스턴스 스탬프에 전용으로 연결하기 위해 별도의 엔터프라이즈 에지 라우터에 연결됩니다. ExpressRoute Fast Path를 사용하면 HANA Large Instance에서 SAP 애플리케이션 계층 VM으로 전송되는 데이터 흐름이 더 이상 ExpressRoute 게이트웨이를 통해 라우팅되지 않으므로 네트워크 왕복 지연 시간이 줄어듭니다.
+SAP 애플리케이션 인스턴스를 호스팅하는 VM 용 ExpressRoute 게이트웨이는 온-프레미스 네트워크에 연결되는 하나의 ExpressRoute 회로에 연결됩니다. 동일한 가상 네트워크는 대규모 인스턴스 스탬프에 전용으로 연결하기 위해 별도의 엔터프라이즈 에지 라우터에 연결됩니다. ExpressRoute FastPath를 사용하면 HANA Large Instance에서 SAP 애플리케이션 계층 VM으로 전송되는 데이터 흐름이 더 이상 ExpressRoute 게이트웨이를 통해 라우팅되지 않으므로 네트워크 왕복 지연 시간이 줄어듭니다.
 
 이 시스템은 단일 SAP 시스템의 간단한 예입니다. SAP 애플리케이션 계층은 Azure에서 호스팅됩니다. SAP HANA 데이터베이스는 SAP HANA on Azure(대규모 인스턴스)에서 실행됩니다. 2Gbps 또는 10Gbps 처리량의 ExpressRoute 게이트웨이 대역폭에서는 병목 현상이 나타나지 않는다고 가정합니다.
 
@@ -186,7 +186,7 @@ HANA 대규모 인스턴스 및 VM 간에 전송되는 데이터는 암호화되
 
 ## <a name="use-hana-large-instance-units-in-multiple-regions"></a>여러 지역에서 HANA 대규모 인스턴스 장치 사용
 
-재해 복구 설정을 실현하려면 여러 Azure 지역에 SHANA Large Instance 장치가 있어야 합니다. Azure[Global Vnet Peering]을 사용하더라도 기본적으로 전이 라우팅은 서로 다른 두 영역에 있는 HANA Large Instance 테넌트 간에 작동하지 않습니다. 그러나 Global Reach는 두 개의 서로 다른 지역에서 프로비전한 HANA Large Instance 장치 간의 통신 경로를 엽니다. ExpressRoute Global Reach의 이 사용 시나리오는 다음을 가능하게 합니다.
+재해 복구 설정을 실현하려면 여러 Azure 지역에 HANA Large Instance 장치가 있어야 합니다. Azure[Global Vnet Peering]을 사용하더라도 기본적으로 전이 라우팅은 서로 다른 두 영역에 있는 HANA Large Instance 테넌트 간에 작동하지 않습니다. 그러나 Global Reach는 두 개의 서로 다른 지역에서 프로비전한 HANA Large Instance 장치 간의 통신 경로를 엽니다. ExpressRoute Global Reach의 이 사용 시나리오는 다음을 가능하게 합니다.
 
  - 추가 프록시 또는 방화벽이 없는 HANA 시스템 복제
  - 서로 다른 두 지역의 HANA Large Instance 장치 간에 백업을 복사하여 시스템 복사본 또는 시스템 새로 고침 수행

@@ -3,19 +3,18 @@ title: 인증서 생성 방법
 description: Azure Key Vault의 Key Vault 인증서를 만들거나 가져오는 여러 옵션에 대해 알아봅니다. Key Vault 인증서를 만드는 방법에는 여러 가지가 있습니다.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a9545c040809331a5556b11f6cc7536931e2d421
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20f11983a76b4ea703981e257b088c13cf577935
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93289583"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123396"
 ---
 # <a name="certificate-creation-methods"></a>인증서 생성 방법
 
@@ -50,7 +49,7 @@ ms.locfileid: "93289583"
 ## <a name="asynchronous-process"></a>비동기 처리
 KV 인증서 만들기는 비동기 프로세스입니다. 이 작업은 KV 인증서 요청을 만들고 http 상태 코드 202(수락)를 반환합니다. 이 작업에서 생성한 보류 중인 개체를 폴링하여 요청 상태를 추적할 수 있습니다. 보류 중인 개체의 전체 URI이 위치 헤더에서 반환됩니다.  
 
-KV 인증서 만들기 요청이 완료되면 보류 중인 개체의 상태가 "진행"에서 "완료"로 변경되고 KV 인증서의 새 버전이 생성됩니다. 이는 현재 버전이 됩니다.  
+KV 인증서 만들기 요청이 완료되면 보류 중인 개체의 상태가 "진행 중"에서 "완료됨"으로 변경되고 KV 인증서의 새 버전이 생성됩니다. 이는 현재 버전이 됩니다.  
 
 ## <a name="first-creation"></a>첫 번째 만들기
  KV 인증서가 처음으로 만들어지면 주소 지정 가능한 키 및 비밀도 인증서와 동일한 이름으로 생성됩니다. 이름이 이미 사용 중이면 http 상태 코드 409(충돌)로 인해 작업이 실패하게 됩니다.
@@ -93,4 +92,5 @@ KV 인증서 만들기 요청이 완료되면 보류 중인 개체의 상태가 
 
 ## <a name="see-also"></a>참고 항목
 
+ - [포털](./quick-create-portal.md), [Azure CLI](./quick-create-cli.md), [Azure PowerShell](./quick-create-powershell.md)을 사용하여 Key Vault에서 인증서를 만드는 방법 가이드
  - [인증서 생성 모니터링 및 관리](create-certificate-scenarios.md)

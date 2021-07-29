@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: a48e761c4fb74802c6b1db63884ee192446720a4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: afa5294fe045bed48f318df47f209ed7ebf53381
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103016273"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065550"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>DRM 하위 시스템의 하이브리드 디자인
 
@@ -95,7 +95,7 @@ DRM/CENC 하위 시스템 설계 및 구현에 대한 자세한 내용은 [다�
 
 ## <a name="scenarios-and-samples"></a>시나리오 및 샘플
 
-이전 섹션의 설명에 따라 다음과 같은 5 가지 하이브리드 시나리오에서는 각 **콘텐츠 키** - **자산 배달 정책** 구성 조합을 사용 합니다 (마지막 열에 언급 된 샘플은 테이블을 따름).
+이전 섹션의 설명에 따라 다음 5가지 하이브리드 시나리오에서는 각각의 **콘텐츠 키**-**자산 배정 정책** 구성 조합을 사용합니다(마지막 열에 언급된 샘플은 표에 나와 있음).
 
 |**콘텐츠 호스팅 및 원본**|**DRM 암호화**|**DRM 라이선스 배달**|**콘텐츠 키 구성**|**자산 배달 정책 구성**|**샘플**|
 |---|---|---|---|---|---|
@@ -116,7 +116,7 @@ DRM/CENC 하위 시스템 설계 및 구현에 대한 자세한 내용은 [다�
 
 ### <a name="sample-2"></a>샘플 2
 
-* 원본(기본) URL: https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
+* 원본(기본) URL: `https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest` 
 * PlayReady LA_URL(DASH 및 부드러운 스트리밍): `http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx` 
 
 ### <a name="sample-3"></a>샘플 3

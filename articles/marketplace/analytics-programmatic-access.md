@@ -7,12 +7,12 @@ ms.topic: article
 author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 8e0b94a46e96dd8ba16040e16b421520eb67de19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 907b3020091de1be9a037d149de737c14de125ad
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102584090"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108207342"
 ---
 # <a name="programmatic-access-paradigm"></a>프로그래밍 방식 액세스 페러다임
 
@@ -52,19 +52,19 @@ ms.locfileid: "102584090"
 
 *요청 헤더*
 
-| 헤더 | 형식 | Description |
+| 헤더 | 유형 | Description |
 | ------------- | ------------- | ------------- |
-| 권한 부여 | 문자열 | 필수 요소. Azure AD(Azure Active Directory) 액세스 토큰입니다. 형식은 `Bearer <token>`입니다. |
+| 권한 부여 | 문자열 | 필수 사항입니다. Azure AD(Azure Active Directory) 액세스 토큰입니다. 형식은 `Bearer <token>`입니다. |
 | 콘텐츠 형식 | `string` | `application/JSON` |
 ||||
 
 *경로 매개 변수*
 
-없음
+None
 
 *쿼리 매개 변수*
 
-없음
+None
 
 *요청 페이로드 예제*
 
@@ -82,9 +82,9 @@ ms.locfileid: "102584090"
 
 | 매개 변수 | 필수 | Description | 허용되는 값 |
 | ------------ | ------------- | ------------- | ------------- |
-| `Name` | 예 | 쿼리의 식별 이름 | 문자열 |
+| `Name` | Yes | 쿼리의 식별 이름 | 문자열 |
 | `Description` | No | 쿼리가 반환하는 내용에 대한 설명 | 문자열 |
-| `Query` | 예 | 보고서 쿼리 문자열 | 데이터 형식: 문자열<br>비즈니스 요구 사항에 따른 [사용자 지정 쿼리](analytics-sample-queries.md) |
+| `Query` | Yes | 보고서 쿼리 문자열 | 데이터 형식: 문자열<br>비즈니스 요구 사항에 따른 [사용자 지정 쿼리](analytics-sample-queries.md) |
 |||||
 
 > [!NOTE]
@@ -121,7 +121,7 @@ ms.locfileid: "102584090"
 
 이 표에는 응답에 있는 요소의 주요 정의가 나와 있습니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | ------------ | ------------- |
 | `QueryId` | 만든 쿼리의 UUID(범용 고유 식별자) |
 | `Name` | 요청 페이로드의 쿼리에 지정된 식별 이름 |
@@ -148,19 +148,19 @@ ms.locfileid: "102584090"
 
 *요청 헤더*
 
-| 헤더 | 형식 | Description |
+| 헤더 | 유형 | Description |
 | ------ | ---- | ----------- |
-| 권한 부여 | 문자열 | 필수 요소. Azure AD(Azure Active Directory) 액세스 토큰입니다. 형식은 `Bearer <token>`입니다. |
+| 권한 부여 | 문자열 | 필수 사항입니다. Azure AD(Azure Active Directory) 액세스 토큰입니다. 형식은 `Bearer <token>`입니다. |
 | 콘텐츠 유형 | 문자열 | `application/JSON` |
 ||||
 
 *경로 매개 변수*
 
-없음
+None
 
 *쿼리 매개 변수*
 
-없음
+None
 
 *요청 페이로드 예제*
 
@@ -183,11 +183,11 @@ ms.locfileid: "102584090"
 
 | 매개 변수 | 필수 | Description | 허용되는 값 |
 | ------------ | ------------- | ------------- | ------------- |
-| `ReportName` | 예 | 보고서에 할당된 이름 | 문자열 |
+| `ReportName` | Yes | 보고서에 할당된 이름 | 문자열 |
 | `Description` | No | 생성된 보고서에 대한 설명 | 문자열 |
-| `QueryId` | 예 | 보고서 쿼리 ID | 문자열 |
-| `StartTime` | 예 | 보고서 생성이 시작되는 UTC 타임스탬프입니다.<br>yyyy-MM-ddTHH:mm:ssZ 형식이어야 합니다. | 문자열 |
-| `RecurrenceInterval` | 예 | 보고서가 생성되어야 하는 빈도(시간)입니다.<br>최솟값은 4이고 최댓값은 90입니다. | 정수 |
+| `QueryId` | Yes | 보고서 쿼리 ID | 문자열 |
+| `StartTime` | Yes | 보고서 생성이 시작되는 UTC 타임스탬프입니다.<br>yyyy-MM-ddTHH:mm:ssZ 형식이어야 합니다. | 문자열 |
+| `RecurrenceInterval` | Yes | 보고서가 생성되어야 하는 빈도(시간)입니다.<br>최솟값은 4이고 최댓값은 90입니다. | 정수 |
 | `RecurrenceCount` | 아니요 | 생성할 보고서 수입니다. | 정수 |
 | `Format` | 아니요 | 내보낸 파일의 파일 형식입니다.<br>기본 형식은 .CSV입니다. | CSV/TSV |
 | `CallbackUrl` | 아니요 | 필요에 따라 콜백 대상으로 구성할 수 있는 공개적으로 연결할 수 있는 URL입니다. | 문자열(http URL) |
@@ -234,7 +234,7 @@ ms.locfileid: "102584090"
 
 이 표에는 응답에 있는 요소의 주요 정의가 나와 있습니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | ------------ | ------------- |
 | `ReportId` | 만든 보고서의 UUID(범용 고유 식별자) |
 | `ReportName` | 요청 페이로드의 보고서에 지정된 이름 |
@@ -271,19 +271,19 @@ ms.locfileid: "102584090"
 
 *요청 헤더*
 
-| 헤더 | 형식 | Description |
+| 헤더 | 유형 | Description |
 | ------ | ------ | ------ |
-| 권한 부여 | 문자열 | 필수 요소. Azure AD(Azure Active Directory) 액세스 토큰입니다. 형식은 `Bearer <token>`입니다. |
+| 권한 부여 | 문자열 | 필수 사항입니다. Azure AD(Azure Active Directory) 액세스 토큰입니다. 형식은 `Bearer <token>`입니다. |
 | 내용 유형 | 문자열 | `application/json` |
 ||||
 
 *경로 매개 변수*
 
-없음
+None
 
 *쿼리 매개 변수*
 
-| 매개 변수 이름 | 필수 | Type | 설명 |
+| 매개 변수 이름 | 필수 | Type | Description |
 | ------------ | ------------- | ------------- | ------------- |
 | `reportId` | 예 | 문자열 | 이 인수에 `reportId`가 지정된 보고서의 실행 세부 정보만 가져오도록 필터링합니다. 여러 개의 `reportIds`는 세미콜론 ";"으로 구분하여 지정할 수 있습니다. |
 | `executionId` | 예 | 문자열 | 이 인수에 `executionId`가 지정된 보고서의 세부 정보만 가져오도록 필터링합니다. 여러 개의 `executionIds`는 세미콜론 ";"으로 구분하여 지정할 수 있습니다. |
@@ -293,7 +293,7 @@ ms.locfileid: "102584090"
 
 *요청 페이로드*
 
-없음
+None
 
 *샘플 응답*
 
@@ -331,7 +331,7 @@ ms.locfileid: "102584090"
 
 응답에 있는 요소의 주요 정의입니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | ------------ | ------------- |
 | `ExecutionId` | 실행 인스턴스의 UUID(범용 고유 식별자) |
 | `ReportId` | 실행 인스턴스와 연결된 보고서 ID |
@@ -350,4 +350,4 @@ ms.locfileid: "102584090"
 
 ## <a name="next-steps"></a>다음 단계
 - [Swagger API URL](https://api.partnercenter.microsoft.com/insights/v1/cmp/swagger/index.html)을 통해 API를 사용해 볼 수 있음
-- 분석 데이터에 대한 프로그래매틱 액세스 시작
+- [분석 데이터에 대한 프로그래매틱 액세스 시작](analytics-get-started.md)

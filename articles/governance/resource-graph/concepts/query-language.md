@@ -1,14 +1,14 @@
 ---
 title: 쿼리 언어 이해
 description: Resource Graph 테이블과 Azure Resource Graph와 함께 사용 가능한 Kusto 데이터 형식, 연산자 및 함수를 설명합니다.
-ms.date: 03/10/2021
+ms.date: 06/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5e600439d54a89dd9bd2510b2e47b71b60ee93a7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f9a9d6b937256787d0457f150d5f3dfaca81d9cd
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557686"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112020244"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure Resource Graph 쿼리 언어 이해
 
@@ -38,10 +38,10 @@ Resource Graph는 Azure Resource Manager 리소스 종류 및 해당 속성에 �
 |MaintenanceResources |부분적으로 예, _에_ 만 조인. (미리 보기) |`Microsoft.Maintenance` _관련_ 리소스를 포함합니다. |
 |PatchAssessmentResources|예 |Azure Virtual Machines 패치 평가와 _관련된_ 리소스를 포함합니다. |
 |PatchInstallationResources|예 |Azure Virtual Machines 패치 설치와 _관련된_ 리소스를 포함합니다. |
-|PolicyResources |예 |`Microsoft.PolicyInsights` _관련_ 리소스를 포함합니다. (**미리 보기**)|
+|PolicyResources |예 |`Microsoft.PolicyInsights` _관련_ 리소스를 포함합니다. (**미리 보기**) |
 |RecoveryServicesResources |부분적으로 예, _에_ 만 조인. (미리 보기) |`Microsoft.DataProtection` 및 `Microsoft.RecoveryServices` _관련_ 리소스를 포함합니다. |
-|SecurityResources |부분적으로 예, _에_ 만 조인. (미리 보기) |`Microsoft.Security` _관련_ 리소스를 포함합니다. |
-|ServiceHealthResources |예 |`Microsoft.ResourceHealth` _관련_ 리소스를 포함합니다. |
+|SecurityResources |예(미리 보기) |`Microsoft.Security` _관련_ 리소스를 포함합니다. |
+|ServiceHealthResources |아니요(미리 보기) |`Microsoft.ResourceHealth` _관련_ 리소스를 포함합니다. |
 |WorkloadMonitorResources |예 |`Microsoft.WorkloadMonitor` _관련_ 리소스를 포함합니다. |
 
 리소스 종류를 비롯한 전체 목록은 [참조: 지원되는 테이블 및 리소스 종류](../reference/supported-tables-resources.md)를 참조하세요.
@@ -155,7 +155,7 @@ Resource Graph에서 지원하는 KQL 테이블 형식 연산자와 특정 샘�
 쿼리가 반환하는 리소스의 구독 범위는 Resource Graph에 액세스하는 방법에 따라 달라집니다. Azure CLI 및 Azure PowerShell은 권한 있는 사용자의 컨텍스트를 기반으로 요청에 포함할 구독 목록을 채웁니다. **subscriptions** 및 **Subscription** 매개 변수를 사용하여 각각에 대해 구독 목록을 수동으로 정의할 수 있습니다.
 REST API 및 기타 모든 SDK에서 리소스를 포함하는 구독 목록은 요청의 일부로 명시적으로 정의되어야 합니다.
 
-**미리 보기** 로 REST API 버전 `2020-04-01-preview`는 [관리 그룹](../../management-groups/overview.md)에 대한 쿼리 범위를 관리하는 속성을 추가합니다. 또한 이 미리보기 API를 사용하면 구독 속성을 선택할 수 있습니다. 관리 그룹 또는 구독 목록을 정의하지 않으면 쿼리 범위는 인증된 사용자가 액세스할 수 있는 [Azure Lighthouse](../../../lighthouse/concepts/azure-delegated-resource-management.md) 위임 리소스를 포함하는 모든 리소스입니다. 새 `managementGroupId` 속성은 관리 그룹의 이름과 다른 관리 그룹 ID를 사용합니다. `managementGroupId`를 지정하면 지정된 관리 그룹 계층 내 또는 아래에 있는 처음 5000개 구독의 리소스가 포함됩니다. `managementGroupId`는 `subscriptions`와 동시에 사용할 수 없습니다.
+**미리 보기** 로 REST API 버전 `2020-04-01-preview`는 [관리 그룹](../../management-groups/overview.md)에 대한 쿼리 범위를 관리하는 속성을 추가합니다. 또한 이 미리보기 API를 사용하면 구독 속성을 선택할 수 있습니다. 관리 그룹 또는 구독 목록을 정의하지 않으면 쿼리 범위는 인증된 사용자가 액세스할 수 있는 [Azure Lighthouse](../../../lighthouse/overview.md) 위임 리소스를 포함하는 모든 리소스입니다. 새 `managementGroupId` 속성은 관리 그룹의 이름과 다른 관리 그룹 ID를 사용합니다. `managementGroupId`가 지정되면 지정된 관리 그룹 계층 구조 내 또는 아래에 있는 처음 5,000개 구독의 리소스가 포함됩니다. `managementGroupId`는 `subscriptions`와 동시에 사용할 수 없습니다.
 
 예: ID가 'myMG'인 'My Management Group'이라는 관리 그룹의 계층 내에 있는 모든 리소스를 쿼리합니다.
 
@@ -179,7 +179,7 @@ REST API 및 기타 모든 SDK에서 리소스를 포함하는 구독 목록은 
 `.` 또는 `$`를 포함하는 일부 속성 이름은 쿼리에서 래핑하거나 이스케이프해야 합니다. 그렇지 않으면 속성 이름이 올바르게 해석되고 올바른 결과를 제공하지 않습니다.
 
 - `.` - `['propertyname.withaperiod']`처럼 속성 이름을 래핑합니다.
-  
+
   _odata.type_ 속성을 래핑하는 예제 쿼리:
 
   ```kusto

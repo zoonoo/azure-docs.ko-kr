@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 04/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: 3dbdfb461bc2ae79439f39df3efbc2c564782110
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 13587862f079c028a9848e36afcff74a9c725547
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102548396"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108207504"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>P2S OpenVPN 프로토콜 연결을 위한 VPN 클라이언트 구성: Azure AD 인증
 
@@ -24,30 +24,30 @@ ms.locfileid: "102548396"
 
 ## <a name="working-with-client-profiles"></a><a name="profile"></a>클라이언트 프로필 사용
 
-연결하려면 Azure VPN 클라이언트를 다운로드하고 VNet에 연결하려는 모든 컴퓨터에 VPN 클라이언트를 구성해야 합니다. 컴퓨터에서 클라이언트 프로필을 만들어 내보내기 한 후 다른 컴퓨터에 가져오기 할 수 있습니다.
+VPN 클라이언트를 통해 VNet에 연결하려는 모든 컴퓨터에 대해 컴퓨터용 Azure VPN 클라이언트를 다운로드하고 VPN 클라이언트 프로필도 구성해야 합니다. 여러 컴퓨터를 구성하려는 경우 한 컴퓨터에서 클라이언트 프로필을 만들고 내보낸 다음, 다른 컴퓨터로 가져올 수 있습니다.
 
-### <a name="to-download-the-azure-vpn-client"></a>Azure VPN 클라이언트를 다운로드하려면,
+### <a name="to-download-the-azure-vpn-client"></a>Azure VPN Client를 다운로드하려면 다음을 수행합니다.
 
-이 [링크](https://go.microsoft.com/fwlink/?linkid=2117554)를 사용하여 Azure VPN Client를 다운로드합니다. Azure VPN 클라이언트에 백그라운드에서 실행할 수 있는 권한이 있는지 확인하세요. 권한을 확인/활성화하려면 다음 단계를 수행합니다.
+1. 컴퓨터에 [Azure VPN Client](https://go.microsoft.com/fwlink/?linkid=2117554)를 다운로드합니다.
+1. Azure VPN Client에 백그라운드에서 실행할 수 있는 권한이 있는지 확인합니다. 사용 권한을 확인하고 사용하도록 설정하려면 **시작 -> 설정 -> 개인 정보 -> 백그라운드 앱** 으로 이동합니다.
 
-1. 시작으로 이동한 다음, 설정 > 개인 정보 > 백그라운드 앱을 선택합니다.
-2. 백그라운드 앱에서 **백그라운드에서 앱 실행하기** 가 설정되었는지 확인합니다.
-3. 백그라운드에서 실행할 수 있는 앱 선택하기에서 Azure VPN 클라이언트의 설정을 **켜기** 로 설정합니다.
+   * **백그라운드 앱** 에서 **백그라운드에서 앱 실행하기** 가 **설정** 되었는지 확인합니다.
+   * **백그라운드에서 실행할 수 있는 앱 선택** 에서 **Azure VPN Client** 의 설정을 **켜기** 로 설정합니다.
 
-  ![사용 권한(permission)](./media/openvpn-azure-ad-client/backgroundpermission.png)
+     ![백그라운드 앱을 보여주는 스크린샷.](./media/openvpn-azure-ad-client/backgroundpermission.png)
 
 ### <a name="to-create-a-certificate-based-client-profile"></a><a name="cert"></a>인증서 기반 클라이언트 프로필 만들기
 
 인증서 기반 프로필을 사용하는 경우 적절한 인증서가 클라이언트 컴퓨터에 설치되어 있는지 확인합니다. 인증서에 대한 자세한 내용은 [클라이언트 인증서 설치](certificates-point-to-site.md)를 참조하세요.
 
-  ![cert](./media/openvpn-azure-ad-client/create/create-cert1.jpg)
+![인증서 인증을 보여주는 스크린샷.](./media/openvpn-azure-ad-client/create/create-cert1.jpg)
 
 ### <a name="to-create-a-radius-client-profile"></a><a name="radius"></a>RADIUS 클라이언트 프로필 만들기
 
-  ![radius](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
+![스크린샷은 RADIUS 연결 클라이언트 정보를 보여줍니다.](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
   
 > [!NOTE]
-> P2S VPN 클라이언트 프로필에서 서버 비밀을 내보낼 수 있습니다.  클라이언트 프로필 내보내기 방법은 [여기](about-vpn-profile-download.md)에서 확인할 수 있습니다.
+> P2S VPN 클라이언트 프로필에서 서버 비밀을 내보낼 수 있습니다. 클라이언트 프로필을 내보내려면 [사용자 VPN 클라이언트 프로필](about-vpn-profile-download.md)을 참조하세요.
 >
 
 ### <a name="to-export-and-distribute-a-client-profile"></a><a name="export"></a>클라이언트 프로필 내보내기 및 배포하기
@@ -212,7 +212,8 @@ ms.locfileid: "102548396"
 </clientconfig>
 </azvpnprofile>
 ```
-### <a name="how-do-i-direct-all-traffic-to-the-vpn-tunnel-force-tunnel"></a>모든 트래픽을 VPN 터널(강제 터널)로 보내려면 어떻게 해야 하나요?
+
+### <a name="how-do-i-direct-all-traffic-to-the-vpn-tunnel-force-tunnel"></a><a name="force-tunneling"></a>모든 트래픽을 VPN 터널(강제 터널)로 보내려면 어떻게 해야 하나요?
 
 다운로드한 프로필 XML 파일을 수정하고 **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** 태그를 추가합니다.
 
@@ -250,6 +251,7 @@ ms.locfileid: "102548396"
 </clientconfig>
 </azvpnprofile>
 ```
+
 ### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>명령줄 프롬프트에서 프로필을 가져올 수 있나요?
 
 다운로드한 **azurevpnconfig.xml** 파일을 **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** 폴더에 배치하고 다음 명령어를 수행하여 명령줄 프롬프트에서 프로필을 가져올 수 있습니다.
@@ -257,7 +259,7 @@ ms.locfileid: "102548396"
 ```
 azurevpn -i azurevpnconfig.xml 
 ```
-가져오기를 강제로 수행하려면 **-f** 스위치도 사용합니다.
+가져오기를 강제로 수행하려면 **-f** 스위치를 사용합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

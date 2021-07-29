@@ -5,22 +5,20 @@ description: 컴퓨팅 인스턴스를 사용하여 Azure Machine Learning 모�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, deploy
-ms.author: mnark
-author: MrudulaN
+ms.topic: how-to
+ms.custom: deploy
+ms.author: gopalv
+author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 03/05/2020
-ms.openlocfilehash: d8b1c2a5384e479e39d169d368554f16c300a33e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/22/2021
+ms.openlocfilehash: f9c52307e4d743e32f8771998e2dfaacc6643a35
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98954549"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739010"
 ---
-# <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Azure Machine Learning 컴퓨팅 인스턴스에 모델 배포
-
-
+# <a name="deploy-a-model-locally"></a>모델을 로컬로 배포
 
 Azure Machine Learning을 사용하여 모델을 Azure Machine Learning 컴퓨팅 인스턴스에 웹 서비스로 배포하는 방법에 대해 알아봅니다. 다음 조건 중 하나에 해당하는 경우 컴퓨팅 인스턴스를 사용합니다.
 
@@ -30,9 +28,9 @@ Azure Machine Learning을 사용하여 모델을 Azure Machine Learning 컴퓨�
 > [!TIP]
 > 컴퓨팅 인스턴스의 Jupyter Notebook에서 동일한 VM의 웹 서비스로 모델을 배포하는 것은 _로컬 배포_ 입니다. 이 경우 '로컬' 컴퓨터는 컴퓨팅 인스턴스입니다. 배포에 대한 자세한 내용은 [Azure Machine Learning을 사용한 모델 배포](how-to-deploy-and-where.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-- 컴퓨팅 인스턴스가 실행되는 Azure Machine Learning 작업 영역. 자세한 내용은 [사용자 및 작업 영역 설정](tutorial-1st-experiment-sdk-setup.md)을 참조하세요.
+- 컴퓨팅 인스턴스가 실행되는 Azure Machine Learning 작업 영역. 자세한 내용은 [빠른 시작: Azure Machine Learning 시작](quickstart-create-resources.md)을 참조하세요.
 
 ## <a name="deploy-to-the-compute-instances"></a>컴퓨팅 인스턴스에 배포
 
@@ -45,7 +43,7 @@ Azure Machine Learning을 사용하여 모델을 Azure Machine Learning 컴퓨�
     ![노트북에서 실행 중인 로컬 서비스의 스크린샷](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
 
-1. 노트북에는 서비스가 실행되는 URL 및 포트를 표시합니다. 예들 들어 `https://localhost:6789`입니다. `print('Local service port: {}'.format(local_service.port))`이 포함된 셀을 실행하여 포트를 표시할 수도 있습니다.
+1. 노트북에는 서비스가 실행되는 URL 및 포트를 표시합니다. 예: `https://localhost:6789`. `print('Local service port: {}'.format(local_service.port))`이 포함된 셀을 실행하여 포트를 표시할 수도 있습니다.
 
     ![실행 중인 로컬 서비스 포트의 스크린샷](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service-port.png)
 

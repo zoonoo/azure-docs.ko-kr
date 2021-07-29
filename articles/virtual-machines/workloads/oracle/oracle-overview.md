@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/05/2020
 ms.author: kegorman
-ms.openlocfilehash: 971f7c919595f915451faf9266ee3bb18b35087e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 666990d59fe92935150c2ae78712830a186723a8
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101677175"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205326"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Azure의 Oracle 애플리케이션 및 솔루션 개요
 
@@ -28,9 +28,9 @@ ms.locfileid: "101677175"
 
 Azure Marketplace에 제공된 Oracle Linux 기반 Oracle Database 이미지를 사용하여 Azure 인프라에서 Oracle 데이터베이스를 실행합니다.
 
-* Oracle Database 12.1, 12.2 및 18.3 Enterprise Edition 
+* Oracle Database 12.2 및 18.3 Enterprise Edition 
 
-* Oracle Database 12.1, 12.2 및 18.3 Standard Edition
+* Oracle Database 12.2 및 18.3 Standard Edition
 
 * Oracle Database 19.3
 

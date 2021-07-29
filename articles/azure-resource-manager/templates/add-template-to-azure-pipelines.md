@@ -3,12 +3,12 @@ title: Azure Pipelines 및 템플릿을 사용한 CI/CD
 description: Azure Resource Manager 템플릿을 사용하여 Azure Pipelines에서 연속 통합을 구성하는 방법을 설명합니다. PowerShell 스크립트를 사용하거나 파일을 스테이징 위치에 복사하여 배포하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.openlocfilehash: 4a2f1f15de0abd802f3dce138b2cea33e52e3dfc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8264fd53bde168972cdddd9bdf15fccc8d536651
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561945"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984467"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>ARM 템플릿을 Azure Pipelines와 통합
 

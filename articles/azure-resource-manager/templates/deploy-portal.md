@@ -2,13 +2,13 @@
 title: Azure Portal을 사용하여 리소스 배포
 description: Azure Portal 및 Azure Resource Manage를 사용하여 구독의 리소스 그룹에 리소스를 배포합니다.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: d8467bb4e51fc4e6ba89a84f1260a8d2743758d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/05/2021
+ms.openlocfilehash: 718d8be4e51bf41467bea398440b24f98ac1f6e9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98028678"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957906"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>ARM 템플릿 및 Azure Portal을 사용하여 리소스 배포
 
@@ -75,7 +75,7 @@ Azure Portal 사용하여 Azure 리소스를 배포하려면 일반적으로 다
 
 ## <a name="deploy-resources-from-custom-template"></a>사용자 지정 템플릿에서 배포
 
-배포를 실행하려고 하지만 Marketplace에서 템플릿 중 하나를 사용하지 않으려는 경우 솔루션에 대한 인프라를 정의하는 사용자 지정된 템플릿을 만들 수 있습니다. 템플릿을 만드는 방법에 대한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.
+배포를 실행하려고 하지만 Marketplace에서 템플릿 중 하나를 사용하지 않으려는 경우 솔루션에 대한 인프라를 정의하는 사용자 지정된 템플릿을 만들 수 있습니다. 템플릿을 만드는 방법에 대한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](./syntax.md)를 참조하세요.
 
 > [!NOTE]
 > 포털 인터페이스는 [Key Vault에서 비밀](key-vault-parameter.md) 참조를 지원하지 않습니다. 대신 [PowerShell](deploy-powershell.md) 또는 [Azure CLI](deploy-cli.md)를 사용하여 외부 URI에서 또는 로컬로 템플릿을 배포합니다.
@@ -95,7 +95,7 @@ Azure Portal 사용하여 Azure 리소스를 배포하려면 일반적으로 다
 
     이 자습서에서는 빠른 시작 템플릿을 로드하기 위한 지침을 제공합니다.
 
-1. **GitHub 빠른 시작 템플릿 로드** 에서 **101-storage-account-create** 를 입력하거나 선택합니다.
+1. **GitHub 빠른 시작 템플릿 로드** 에서 **storage-account-create** 를 입력하거나 선택합니다.
 
     다음 두 가지 옵션을 사용할 수 있습니다.
 
@@ -118,7 +118,7 @@ Azure Portal 사용하여 Azure 리소스를 배포하려면 일반적으로 다
     - **구독**: Azure 구독을 선택합니다.
     - **리소스 그룹**: **새로 만들기** 를 선택하고 리소스 그룹에 이름을 지정합니다.
     - **위치**: Azure 위치를 선택합니다.
-    - **스토리지 계정 형식**: 기본값을 사용합니다.
+    - **스토리지 계정 형식**: 기본값을 사용합니다. 템플릿에 정의된 카멜식 대/소문자 매개 변수 이름 *storageAccountType* 은 포털에 표시될 때 공백으로 구분된 문자열로 바뀝니다.
     - **위치**: 기본값을 사용합니다.
     - **위에 명시된 사용 약관에 동의함**: (선택)
 
@@ -129,4 +129,3 @@ Azure Portal 사용하여 Azure 리소스를 배포하려면 일반적으로 다
 - 감사 로그를 보려면 [Resource Manager로 작업 감사](../management/view-activity-logs.md)를 참조하세요.
 - 배포 오류를 해결하려면 [배포 작업 보기](deployment-history.md)를 참조하세요.
 - 배포 또는 리소스 그룹에서 템플릿을 내보내려면 [ARM 템플릿 내보내기](export-template-portal.md)를 참조하세요.
-- 여러 지역에서 서비스를 안전하게 출시하려면 [Azure 배포 관리자](deployment-manager-overview.md)를 참조하세요.

@@ -1,22 +1,22 @@
 ---
 title: Visual Studio Code용 Azure Policy 확장
 description: Visual Studio Code용 Azure Policy 확장을 사용하여 Azure Resource Manager 별칭을 조회하는 방법에 대해 알아봅니다.
-ms.date: 01/11/2021
+ms.date: 04/25/2021
 ms.topic: how-to
-ms.openlocfilehash: 4c4ba0eeb0506179ff92ead0ee86f048600d157e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fe0d22aeb307f82034d697e8564f8fccab61a81
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98107942"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133838"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Visual Studio Code용 Azure Policy 확장 사용
 
-> Azure Policy 확장 버전 **0.1.1** 이상에 적용됩니다.
+> Azure Policy 확장 버전 **0.1.2** 이상에 적용됩니다.
 
-Visual Studio Code용 Azure Policy 확장을 사용하여 [별칭](../concepts/definition-structure.md#aliases)을 조회하고, 리소스 및 정책을 검토하며, 개체를 내보내고, 정책 정의를 평가하는 방법을 알아봅니다. 먼저 Visual Studio Code에서 Azure Policy 확장을 설치하는 방법을 설명합니다. 그런 다음 별칭을 조회하는 방법을 안내합니다.
+Visual Studio Code용 Azure Policy 확장을 사용하여 [별칭](../concepts/definition-structure.md#aliases)을 조회하고, 리소스 및 정책 정의를 검토하며, 개체를 내보내고, 정책 정의를 평가하는 방법을 알아봅니다. 먼저 Visual Studio Code에서 Azure Policy 확장을 설치하는 방법을 설명합니다. 그런 다음 별칭을 조회하는 방법을 안내합니다.
 
-Visual Studio Code용 Azure Policy 확장은 Windows에 설치할 수 있습니다.
+Visual Studio Code용 Azure Policy 확장은 Linux, Mac 및 Windows에 설치할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -46,7 +46,7 @@ Visual Studio Code용 Azure Policy 확장은 Windows에 설치할 수 있습니�
 ## <a name="using-the-policy-extension"></a>Policy 확장 사용
 
 > [!NOTE]
-> Visual Studio Code용 Azure Policy 확장에 표시된 정책에서 로컬로 변경한 내용은 Azure와 동기화되지 않습니다.
+> Visual Studio Code용 Azure Policy 확장에 표시된 정책 정의에서 로컬로 변경한 내용은 Azure와 동기화되지 않습니다.
 
 ### <a name="connect-to-an-azure-account"></a>Azure 계정에 연결
 
@@ -70,7 +70,7 @@ Visual Studio Code용 Azure Policy 확장은 Windows에 설치할 수 있습니�
 
 ### <a name="select-subscriptions"></a>구독 선택
 
-처음 로그인하면 Azure Policy 확장에 의해 기본 구독 리소스 및 정책만 로드됩니다. 리소스 및 정책 표시에서 구독을 추가하거나 제거하려면 다음 단계를 수행합니다.
+처음 로그인하면 Azure Policy 확장에 의해 기본 구독 리소스 및 정책 정의만 로드됩니다. 리소스 및 정책 정의 표시에서 구독을 추가하거나 제거하려면 다음 단계를 수행합니다.
 
 1. 명령 팔레트 또는 창 바닥글에서 구독 명령을 시작합니다.
 
@@ -105,7 +105,7 @@ Azure Policy 확장에는 리소스 공급자 및 리소스 그룹에서 선택�
 
    - 명령 팔레트:
 
-     메뉴 모음에서 **보기** > **명령 팔레트** 로 이동하고, **리소스: 리소스 검색** 을 입력합니다.
+     메뉴 모음에서 **보기** > **명령 팔레트** 로 이동하고, **Azure Policy: 리소스 검색** 을 입력합니다.
 
 1. 표시하기 위해 둘 이상의 구독을 선택하는 경우, 필터를 사용하여 검색할 구독을 선택합니다.
 
@@ -124,9 +124,9 @@ Azure Policy 확장에는 리소스 공급자 및 리소스 그룹에서 선택�
 > [!NOTE]
 > VS Code 확장은 Resource Manager 모드 속성의 평가만 지원합니다. 이 모드에 대한 자세한 내용은 [모드 정의](../concepts/definition-structure.md#mode)를 참조하세요.
 
-### <a name="search-for-and-view-policies-and-assignments"></a>정책 및 할당 검색 및 보기
+### <a name="search-for-and-view-policy-definitions-and-assignments"></a>정책 정의와 할당 검색 및 보기
 
-Azure Policy 확장에는 **정책** 창에 표시하기 위해 선택한 구독에 대한 트리뷰로 정책 형식 및 정책 할당이 나열됩니다. 단일 구독에서 수백 또는 수천 개의 정책이나 할당을 사용하는 고객은 해당 정책 또는 할당을 찾기 위해 검색 가능한 방법을 선호할 수 있습니다. Azure Policy 확장을 사용하면 다음 단계를 통해 특정 정책 또는 할당을 검색할 수 있습니다.
+Azure Policy 확장에는 **정책** 창에 표시하기 위해 선택한 구독에 대한 트리뷰로 정책 형식 및 정책 할당이 나열됩니다. 단일 구독에서 수백 또는 수천 개의 정책 정의나 할당을 사용하는 고객은 해당 정책 정의 또는 할당을 찾기 위해 검색 가능한 방법을 선호할 수 있습니다. Azure Policy 확장을 사용하면 다음 단계를 통해 특정 정책 또는 할당을 검색할 수 있습니다.
 
 1. Azure Policy 확장 또는 명령 팔레트에서 검색 인터페이스를 시작합니다.
 
@@ -136,7 +136,7 @@ Azure Policy 확장에는 **정책** 창에 표시하기 위해 선택한 구독
 
    - 명령 팔레트:
 
-     메뉴 모음에서 **보기** > **명령 팔레트** 로 이동하고, **정책: 정책 검색** 을 입력합니다.
+     메뉴 모음에서 **보기** > **명령 팔레트** 로 이동하고, **Azure Policy: 정책 검색** 을 입력합니다.
 
 1. 표시하기 위해 둘 이상의 구독을 선택하는 경우, 필터를 사용하여 검색할 구독을 선택합니다.
 
@@ -170,7 +170,7 @@ Azure Policy 확장에는 **정책** 창에 표시하기 위해 선택한 구독
 1. **평가** 창 상단에서 실행 평가 아이콘을 선택합니다. 평가 결과 세부 정보가 JSON 형식으로 Visual Studio Code 새 창에서 열립니다.
 
 > [!NOTE]
-> [AuditIfNotExists](../concepts/effects.md#auditifnotexists) 또는 [Deployifnotexists](../concepts/effects.md#deployifnotexists) 정책 정의의 경우, **평가** 창의 더하기 아이콘을 사용하여 존재 확인을 위한 _관련_ 리소스를 선택합니다.
+> [AuditIfNotExists](../concepts/effects.md#auditifnotexists) 또는 [DeployIfNotExists](../concepts/effects.md#deployifnotexists) 정책 정의의 경우, **평가 창** 의 더하기 아이콘이나 명령 팔레트에서 **Azure Policy: 존재 확인을 위한 리소스 선택(없는 정책에 대해서만 사용)** 을 통해 존재 검사를 위한 _관련_ 리소스를 선택합니다.
 
 평가 결과에는 정책 정의 및 정책 할당에 대한 정보와 함께 **policyEvaluations.evaluationResult** 속성도 제공됩니다. 출력은 다음 예제와 같이 표시됩니다.
 
@@ -205,6 +205,6 @@ Azure Policy 확장에는 **정책** 창에 표시하기 위해 선택한 구독
 - [Azure Policy 샘플](../samples/index.md)에서 예제를 검토합니다.
 - [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.
-- [프로그래밍 방식으로 정책을 생성](programmatically-create.md)하는 방법을 이해합니다.
+- [프로그래밍 방식으로 정책 정의를 만드는](programmatically-create.md) 방법을 이해합니다.
 - [규정 비준수 리소스를 수정](remediate-resources.md)하는 방법을 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

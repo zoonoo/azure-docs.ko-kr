@@ -12,33 +12,60 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 04/30/2021
 ms.author: b-juche
-ms.openlocfilehash: 869f46207b940521ee0b66b5afa9c6e2718ab04f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b57997408112466c45d6ce1364e1ac0a2c358cd1
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594481"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321036"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>용량 풀 또는 볼륨 크기 조정
-필요에 따라 용량 풀 또는 볼륨의 크기를 변경할 수 있습니다. 
+볼륨 또는 용량 풀이 가득 찰 때와 같이, 필요에 따라 용량 풀 또는 볼륨의 크기를 변경할 수 있습니다. 
 
-## <a name="resize-the-capacity-pool"></a>용량 풀 크기 조정 
+볼륨의 용량을 모니터링하는 방법에 대한 자세한 내용은 [볼륨의 용량 모니터링](monitor-volume-capacity.md)을 참조하세요.
+
+## <a name="resize-the-capacity-pool-using-the-azure-portal"></a>Azure Portal을 사용하여 용량 풀 크기 조정 
 
 1-TiB 증분 또는 감소로 용량 풀 크기를 변경할 수 있습니다. 그러나 용량 풀 크기는 4TiB 미만일 수 없습니다. 용량 풀 크기를 조정하면 구매한 Azure NetApp Files 용량을 변경합니다.
 
-1. NetApp 계정 관리 블레이드에서 크기를 조정하려는 용량 풀을 클릭합니다. 
-2. 상황에 맞는 메뉴를 표시하려면 용량 풀 이름을 마우스 오른쪽 단추로 클릭하거나, 용량 풀의 행의 끝에 있는 "..." 아이콘을 클릭합니다. 
-3. 상황에 맞는 메뉴 옵션을 사용하여 용량 풀을 크기 조정하거나 삭제합니다.
+1. NetApp 계정 보기에서 **용량 풀** 로 이동하고, 크기를 조정할 용량 풀을 클릭합니다.
+2. 바로 가기 메뉴를 표시하려면 용량 풀 이름을 마우스 오른쪽 단추를 클릭하거나, 용량 풀의 행의 끝에 있는 "…" 아이콘을 클릭합니다. **크기 조정** 을 클릭합니다. 
 
-## <a name="resize-a-volume"></a>볼륨 크기 조정
+    ![풀 바로 가기 메뉴를 보여 주는 스크린샷입니다.](../media/azure-netapp-files/resize-pool-context-menu.png)  
+
+3. 풀 크기 조정 창에서 풀 크기를 지정합니다.  **확인** 을 클릭합니다.
+
+    ![풀 크기 조정 창을 보여 주는 스크린샷입니다.](../media/azure-netapp-files/resize-pool-window.png) 
+
+## <a name="resize-a-volume-using-the-azure-portal"></a>Azure Portal을 사용하여 볼륨 크기 조정
 
 필요에 따라 볼륨의 크기를 변경할 수 있습니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다.
 
-1. NetApp 계정 관리 블레이드에서 **볼륨** 을 클릭합니다. 
-2. 상황에 맞는 메뉴를 표시하려면 크기를 조정하려는 볼륨 이름을 마우스 오른쪽 단추로 클릭하거나 볼륨의 행의 끝에 있는 "..." 아이콘을 클릭합니다.
-3. 상황에 맞는 메뉴 옵션을 사용하여 볼륨을 크기 조정하거나 삭제합니다.
+1. NetApp 계정 보기에서 **볼륨** 으로 이동하고 크기를 조정할 볼륨을 클릭합니다.
+2. 볼륨 이름을 마우스 오른쪽 단추로 클릭하거나 볼륨의 행의 끝에 있는"…" 아이콘을 클릭하여 바로 가기 메뉴를 표시합니다. **크기 조정** 을 클릭합니다.
+
+    ![바로 가기 메뉴를 보여 주는 스크린샷입니다.](../media/azure-netapp-files/resize-volume-context-menu.png) 
+    
+3. 볼륨 할당량 업데이트 창에서 볼륨의 할당량을 지정합니다. **확인** 을 클릭합니다.   
+
+    ![볼륨 할당량 업데이트 창을 보여 주는 스크린샷입니다.](../media/azure-netapp-files/resize-volume-quota-window.png) 
+
+## <a name="resizing-the-capacity-pool-or-a-volume-using-azure-cli"></a>Azure CLI를 사용하여 용량 풀 또는 볼륨 크기 조정  
+
+[Azure CLI(명령줄) 도구](azure-netapp-files-sdk-cli.md)의 다음 명령을 사용하여 용량 풀 또는 볼륨의 크기를 조정할 수 있습니다.
+
+* [`az netappfiles pool`](/cli/azure/netappfiles/pool?preserve-view=true&view=azure-cli-latest)
+* [`az netappfiles volume`](/cli/azure/netappfiles/volume?preserve-view=true&view=azure-cli-latest)
+
+## <a name="resizing-the-capacity-pool-or-a-volume-using-rest-api"></a>REST API를 사용하여 용량 풀 또는 볼륨 크기 조정
+
+자동화를 빌드하여 용량 풀 및 볼륨 크기 변경을 처리할 수 있습니다.   
+
+[Azure NetApp Files용 REST API](azure-netapp-files-develop-with-rest-api.md) 및 [Azure NetApp Files용 PowerShell을 사용한 REST API](develop-rest-api-powershell.md)를 참조하세요. 
+
+Azure NetApp Files에 대한 REST API 사양과 예제 코드는 [resource-manager GitHub 디렉터리](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager/Microsoft.NetApp/stable)를 통해 사용할 수 있습니다. 
 
 ## <a name="resize-a-cross-region-replication-destination-volume"></a>지역 간 복제 대상 볼륨 크기 조정 
 
@@ -60,3 +87,6 @@ ms.locfileid: "104594481"
 - [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)
 - [수동 QoS 용량 풀 관리](manage-manual-qos-capacity-pool.md)
 - [볼륨의 서비스 수준을 동적으로 변경](dynamic-change-volume-service-level.md) 
+- [볼륨 할당량 이해](volume-quota-introduction.md)
+- [볼륨 용량 모니터링](monitor-volume-capacity.md)
+- [용량 관리 FAQ](azure-netapp-files-faqs.md#capacity-management-faqs)

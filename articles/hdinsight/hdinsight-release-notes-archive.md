@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/08/2021
-ms.openlocfilehash: 108dfb48f602f776ae50290c1b45ceecd8569421
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5903534bb9e336b2458f3d2e0e8b0bb2dcb84560
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607306"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004982"
 ---
 # <a name="archived-release-notes"></a>보관된 릴리스 정보
 
@@ -18,16 +18,93 @@ ms.locfileid: "105607306"
 
 Azure HDInsight는 Azure에서 오픈 소스 Apache Hadoop 및 Apache Spark 분석을 위해 기업 고객들 사이에서 가장 인기 있는 서비스 중 하나입니다.
 
+## <a name="price-correction-for-hdinsight-dv2-virtual-machines"></a>HDInsight Dv2 Virtual Machines에 대한 가격 수정
+
+2021년 4월 25일에 HDInsight의 Dv2 VM 시리즈에 대한 가격 책정 오류가 수정되었습니다. 가격 책정 오류로 인해 4월 25일 이전 일부 고객의 청구서에서 요금이 적게 청구되었으며, 수정을 통해 가격은 이제 HDInsight 가격 책정 페이지 및 HDInsight 가격 계산기에 게시된 가격과 일치합니다. 가격 책정 오류는 Dv2 VM을 사용한 다음 지역의 고객에게 영향을 주었습니다.
+
+- 캐나다 중부
+- 캐나다 동부
+- 동아시아
+- 남아프리카 북부
+- 동남아시아
+- 아랍에미리트 중부
+
+2021년 4월 25일부터 Dv2 VM의 수정된 금액이 계정에 표시됩니다. 변경 전에 구독 소유자에게 고객 알림이 전송되었습니다. Azure Portal에서 가격 계산기, HDInsight 가격 책정 페이지 또는 HDInsight 클러스터 만들기 블레이드를 사용하여 해당 지역 Dv2 VM의 수정된 비용을 확인할 수 있습니다.
+
+다른 작업은 필요하지 않습니다. 가격 수정은 지정된 지역에서 2021년 4월 25일 또는 그 이후 사용량에만 적용되며 이 날짜 이전 사용량에는 적용되지 않습니다. 가장 성능이 뛰어나고 비용 효율적인 솔루션을 사용하려면 Dv2 클러스터의 가격 책정, VCPU 및 RAM을 검토하고 Dv2 사양을 Ev3 VM과 비교하여 솔루션이 최신 VM 시리즈 중 하나를 유용하게 활용하는지 확인하는 것이 좋습니다.
+
+## <a name="release-date-03242021"></a>릴리스 날짜: 2021/03/24
+
+### <a name="new-features"></a>새로운 기능
+#### <a name="spark-30-preview"></a>Spark 3.0 미리 보기
+HDInsight는 HDInsight 4.0에 [Spark 3.0.0](https://spark.apache.org/docs/3.0.0/) 지원을 미리 보기 기능으로 추가했습니다. 
+
+#### <a name="kafka-24-preview"></a>Kafka 2.4 미리 보기
+HDInsight는 HDInsight 4.0에 [Kafka 2.4.1](http://kafka.apache.org/24/documentation.html) 지원을 미리 보기 기능으로 추가했습니다.
+
+#### <a name="eav4-series-support"></a>Eav4 시리즈 지원
+HDInsight는 이 릴리스에서 Eav4 시리즈 지원 기능을 추가했습니다. 
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
+이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 이 서비스는 [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md)로 점진적으로 마이그레이션됩니다. 전체 프로세스에는 몇 개월이 걸릴 수 있습니다. 지역 및 구독이 마이그레이션된 후에는 새로 생성된 HDInsight 클러스터가 고객의 작업 없이도 Virtual Machine Scale Sets에서 실행됩니다. 호환성이 손상되는 변경 사항은 없을 것으로 예상됩니다.
+
+### <a name="deprecation"></a>사용 중단
+이 릴리스에서는 사용 중단되지 않습니다.
+
+### <a name="behavior-changes"></a>동작 변경
+#### <a name="default-cluster-version-is-changed-to-40"></a>기본 클러스터 버전이 4.0으로 변경됨
+HDInsight 클러스터의 기본 버전이 3.6에서 4.0으로 변경되었습니다. 사용 가능한 버전에 대한 자세한 내용은 [사용 가능한 버전](./hdinsight-component-versioning.md)을 참조하세요. [HDInsight 4.0](./hdinsight-version-release.md)의 새로운 기능에 대한 자세한 정보를 알아봅니다.
+
+#### <a name="default-cluster-vm-sizes-are-changed-to-ev3-series"></a>기본 클러스터 VM 크기가 Ev3 시리즈로 변경됨 
+기본 클러스터 VM 크기가 D 시리즈에서 Ev3 시리즈로 변경됩니다. 이 변경 내용은 헤드 노드와 작업자 노드에 적용됩니다. 이러한 변경 내용이 테스트된 워크플로에 영향을 주지 않도록 하려면 ARM 템플릿에서 사용할 VM 크기를 지정합니다.
+
+#### <a name="network-interface-resource-not-visible-for-clusters-running-on-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets에서 실행되는 클러스터에 대한 네트워크 인터페이스 리소스가 표시되지 않음
+HDInsight는 Azure Virtual Machine Scale Sets로 점진적으로 마이그레이션되고 있습니다. 가상 머신의 네트워크 인터페이스는 Azure Virtual Machine Scale Sets를 사용하는 클러스터의 고객에게는 더 이상 표시되지 않습니다.
+
+### <a name="upcoming-changes"></a>예정된 변경
+이후 릴리스에서는 다음과 같은 변경이 수행됩니다.
+
+#### <a name="hdinsight-interactive-query-only-supports-schedule-based-autoscale"></a>HDInsight Interactive Query는 일정 기반 자동 스케일링만 지원합니다.
+
+고객 시나리오가 점점 더 확장되고 다양해짐에 따라 Interactive Query(LLAP) 부하 기반 자동 스케일링에 대한 몇 가지 제한 사항을 확인했습니다. 이 제한 사항은 LLAP 쿼리 역학의 특징, 향후 부하 예측 정확도 문제 및 LLAP 스케줄러의 작업 재배포 문제 때문에 발생합니다. 이 제한 사항으로 인해 사용자는 자동 스케일링이 사용되는 경우 LLAP 클러스터에서 쿼리 실행 속도가 느려지는 것을 알 수 있습니다. 성능에 미치는 영향이 자동 스케일링의 비용 이점보다 클 수 있습니다.
+
+2021년 7월부터, HDInsight의 Interactive Query 워크로드는 일정 기반 자동 스케일링만 지원합니다. 새 Interactive Query 클러스터에서는 더 이상 자동 스케일링을 사용하도록 설정할 수 없습니다. 기존에 실행 중인 클러스터는 위에서 설명된 알려진 제한 사항을 적용하여 계속 실행할 수 있습니다. 
+
+LLAP를 위해 일정 기반 자동 스케일링으로 이동하는 것이 좋습니다.  Grafana Hive 대시보드를 통해 클러스터의 현재 사용 패턴을 분석할 수 있습니다. 자세한 내용은 [Azure HDInsight 클러스터 자동 크기 조정](hdinsight-autoscale-clusters.md)을 참조하세요. 
+
+#### <a name="os-version-upgrade"></a>OS 버전 업그레이드
+HDInsight 클러스터는 현재 Ubuntu 16.04 LTS에서 실행되고 있습니다. [Ubuntu의 릴리스 주기](https://ubuntu.com/about/release-cycle)에서 언급된 대로 Ubuntu 16.04 커널은 2021년 4월에 EOL(수명 종료)에 도달합니다. 2021년 5월에 Ubuntu 18.04에서 실행되는 새 HDInsight 4.0 클러스터 이미지 출시를 시작합니다. 새로 만든 HDInsight 4.0 클러스터는 제공된 후 기본적으로 Ubuntu 18.04에서 실행됩니다. Ubuntu 16.04의 기존 클러스터는 완벽한 지원과 함께 있는 그대로 실행됩니다.
+
+HDInsight 3.6은 Ubuntu 16.04에서 계속 실행됩니다. 2021년 6월 30일까지 표준 지원이 종료되고 2021년 7월 1일부터 기본 지원으로 변경됩니다. 날짜 및 지원 옵션에 관한 자세한 내용은 [Azure HDInsight 버전](./hdinsight-component-versioning.md#supported-hdinsight-versions)을 참조하세요. HDInsight 3.6에서는 Ubuntu 18.04가 지원되지 않습니다. Ubuntu 18.04를 사용하려면 클러스터를 HDInsight 4.0으로 마이그레이션해야 합니다. 
+
+기존 클러스터를 Ubuntu 18.04로 이동하려면 클러스터를 삭제하고 다시 만들어야 합니다. Ubuntu 18.04 지원이 제공된 후 클러스터를 만들거나 다시 만들 계획을 세우세요. 새 이미지가 모든 지역에서 사용할 수 있게 되면 또 다른 알림을 보냅니다.
+
+Ubuntu 18.04 VM(가상 머신)의 에지 노드에 배포된 스크립트 작업 및 사용자 지정 애플리케이션을 미리 테스트하는 것이 좋습니다. [18.04-LTS에서 간단한 Ubuntu Linux VM을 만든](https://azure.microsoft.com/resources/templates/vm-simple-linux/) 다음, VM에서 [SSH(Secure Shell) 키 쌍을](../virtual-machines/linux/mac-create-ssh-keys.md#ssh-into-your-vm) 만들고 사용하여 에지 노드에 배포된 스크립트 작업 및 사용자 지정 애플리케이션을 실행하고 테스트할 수 있습니다.
+
+#### <a name="disable-stardard_a5-vm-size-as-head-node-for-hdinsgiht-40"></a>HDInsgiht 4.0의 헤드 노드로 Stardard_A5 VM 크기 사용 안 함
+HDInsight 클러스터 헤드 노드는 클러스터 초기화 및 관리를 처리합니다. Standard_A5 VM 크기는 HDInsight 4.0의 헤드 노드로서 안정성 문제가 있습니다. 2021년 5월의 다음 릴리스부터, 고객은 Standard_A5 VM 크기를 헤드 노드로 사용하여 새 클러스터를 만들 수 없습니다. E2_v3 또는 E2s_v3 같은 다른 2코어 VM을 사용할 수 있습니다. 기존 클러스터는 계속 운영됩니다. 프로덕션 HDInsight 클러스터의 고가용성 및 안정성을 보장하기 위해 헤드 노드에는 4코어 VM을 사용하는 것이 좋습니다.
+
+#### <a name="basic-support-for-hdinsight-36-starting-july-1-2021"></a>2021년 7월 1일부터 HDInsight 3.6 기본 지원
+2021년 7월 1일부터 Microsoft는 특정 HDInsight 3.6 클러스터 유형에 관한 [기본 지원](hdinsight-component-versioning.md#support-options-for-hdinsight-versions)을 제공합니다. 기본 지원 플랜은 2022년 4월 3일까지 이용할 수 있습니다. 2021년 7월 1일부터 기본 지원에 자동으로 등록됩니다. 옵트인하기 위해 수행할 작업은 없습니다. 기본 지원 아래에 클러스터 유형이 포함된 [설명서](hdinsight-36-component-versioning.md)를 참조하세요. 
+
+기존 3.6 환경에 관한 변경 내용을 중지하고 HDInsight 3.6에 새로운 솔루션을 빌드하지 않는 것이 좋습니다. [클러스터를 HDInsight 4.0으로 마이그레이션](hdinsight-version-release.md#how-to-upgrade-to-hdinsight-40)하는 것이 좋습니다. [HDInsight 4.0의 새로운 기능](hdinsight-version-release.md#whats-new-in-hdinsight-40)에 관해 자세히 알아보세요.
+
+### <a name="bug-fixes"></a>버그 수정
+HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다. 
+
+### <a name="component-version-change"></a>구성 요소 버전 변경
+Spark 3.0.0 및 Kafka 2.4.1에 대한 지원이 미리 보기로 추가되었습니다. [이 문서](./hdinsight-component-versioning.md)에서 HDInsight 4.0 및 HDInsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.
+
 ## <a name="release-date-02052021"></a>릴리스 날짜: 02/05/2021
 
 이 릴리스는 HDInsight 3.6 및 4.0 모두에 적용됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래의 변경 내용이 표시되지 않으면 며칠 후에 해당 지역에서 릴리스가 라이브될 때까지 기다려주세요.
 
 ### <a name="new-features"></a>새로운 기능
 #### <a name="dav4-series-support"></a>Dav4 시리즈 지원
-HDInsight는 이 릴리스에서 Dav4 시리즈 지원 기능을 추가했습니다. Dav4 시리즈에 대한 자세한 정보는 [여기](/azure/virtual-machines/dav4-dasv4-series)에서 알아봅니다.
+HDInsight는 이 릴리스에서 Dav4 시리즈 지원 기능을 추가했습니다. Dav4 시리즈에 대한 자세한 정보는 [여기](../virtual-machines/dav4-dasv4-series.md)에서 알아봅니다.
 
 #### <a name="kafka-rest-proxy-ga"></a>Kafka REST 프록시 GA 
-Kafka REST 프록시를 사용하면 HTTPS를 통한 REST API를 통해 Kafka 클러스터와 상호 작용할 수 있습니다. 이번 릴리스부터는 kafka REST 프록시가 일반적으로 사용 가능합니다. [Kafka REST 프록시에 대한 자세한 정보는 여기](/azure/hdinsight/kafka/rest-proxy)에서 자세히 알아봅니다.
+Kafka REST 프록시를 사용하면 HTTPS를 통한 REST API를 통해 Kafka 클러스터와 상호 작용할 수 있습니다. 이번 릴리스부터는 kafka REST 프록시가 일반적으로 사용 가능합니다. [Kafka REST 프록시에 대한 자세한 정보는 여기](./kafka/rest-proxy.md)에서 자세히 알아봅니다.
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
 이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 이 서비스는 [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md)로 점진적으로 마이그레이션됩니다. 전체 프로세스에는 몇 개월이 걸릴 수 있습니다. 지역 및 구독이 마이그레이션된 후에는 새로 생성된 HDInsight 클러스터가 고객의 작업 없이도 Virtual Machine Scale Sets에서 실행됩니다. 호환성이 손상되는 변경 사항은 없을 것으로 예상됩니다.
@@ -44,7 +121,7 @@ Kafka REST 프록시를 사용하면 HTTPS를 통한 REST API를 통해 Kafka �
 HDInsight는 Azure Virtual Machine Scale Sets로 점진적으로 마이그레이션되고 있습니다. 가상 머신의 네트워크 인터페이스는 Azure Virtual Machine Scale Sets를 사용하는 클러스터의 고객에게는 더 이상 표시되지 않습니다.
 
 #### <a name="breaking-change-for-net-for-apache-spark-100"></a>Apache Spark 1.0.0의 .NET에 대한 호환성이 손상되는 변경 내용
-최신 릴리스를 사용하는 경우 HDInsight는 [“.NET for Apache Spark”](https://github.com/dotnet/spark) 라이브러리의 첫 공식 버전 v1.0.0을 소개합니다. [다른 기능](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md)의 호스트와 함께 Spark 2.4.x 및 Spark 3.0.x에 대한 DataFrame API 완전성을 제공합니다. 이 주 버전에 대한 호환성이 손상되는 변경 내용이 있습니다. [Apache Spark용 .NET 마이그레이션 가이드](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10)를 참조하여 코드와 파이프라인을 업데이트하는 데 필요한 단계를 알아보세요. 자세한 내용은 [Azure HDInsight에서 Apache Spark v1.0에 대한 .NET 가이드](/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight)를 참조하세요.
+최신 릴리스를 사용하는 경우 HDInsight는 [“.NET for Apache Spark”](https://github.com/dotnet/spark) 라이브러리의 첫 공식 버전 v1.0.0을 소개합니다. [다른 기능](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md)의 호스트와 함께 Spark 2.4.x 및 Spark 3.0.x에 대한 DataFrame API 완전성을 제공합니다. 이 주 버전에 대한 호환성이 손상되는 변경 내용이 있습니다. [Apache Spark용 .NET 마이그레이션 가이드](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10)를 참조하여 코드와 파이프라인을 업데이트하는 데 필요한 단계를 알아보세요. 자세한 내용은 [Azure HDInsight에서 Apache Spark v1.0에 대한 .NET 가이드](./spark/spark-dotnet-version-update.md#using-net-for-apache-spark-v10-in-hdinsight)를 참조하세요.
 
 ### <a name="upcoming-changes"></a>예정된 변경
 이후 릴리스에서는 다음과 같은 변경이 수행됩니다.
@@ -423,7 +500,7 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 ### <a name="new-features"></a>새로운 기능
 
 #### <a name="service-tags"></a>서비스 태그
-서비스 태그는 Azure 서비스에 대한 네트워크 액세스를 쉽게 제한하도록 하여 Azure 가상 머신 및 Azure 가상 네트워크에 대한 보안을 간소화합니다. NSG(네트워크 보안 그룹) 규칙에서 서비스 태그를 사용하여 전역적으로 또는 Azure 지역에 따라 특정 Azure 서비스에 대한 트래픽을 허용하거나 거부할 수 있습니다. Azure는 각 태그를 기반으로 하는 IP 주소의 유지 관리를 제공합니다. NSG(네트워크 보안 그룹)의 HDInsight 서비스 태그는 상태 및 관리 서비스에 대한 IP 주소 그룹입니다. 이러한 그룹은 보안 규칙 만들기의 복잡성을 최소화하는 데 유용합니다. HDInsight 고객은 Azure Portal, PowerShell 및 REST API를 통해 서비스 태그를 사용할 수 있습니다. 자세한 내용은 [Azure HDInsight용 NSG(네트워크 보안 그룹) 서비스 태그](./hdinsight-service-tags.md)를 참조하세요.
+서비스 태그는 Azure 서비스에 대한 네트워크 액세스를 쉽게 제한하도록 하여 Azure 가상 머신 및 Azure 가상 네트워크에 대한 보안을 간소화합니다. NSG(네트워크 보안 그룹) 규칙에서 서비스 태그를 사용하여 전역적으로 또는 Azure 지역에 따라 특정 Azure 서비스에 대한 트래픽을 허용하거나 거부할 수 있습니다. Azure는 각 태그를 기반으로 하는 IP 주소의 유지 관리를 제공합니다. NSG(네트워크 보안 그룹)의 HDInsight 서비스 태그는 상태 및 관리 서비스에 대한 IP 주소 그룹입니다. 이러한 그룹은 보안 규칙 만들기의 복잡성을 최소화하는 데 유용합니다. HDInsight 고객은 Azure Portal, PowerShell, REST API를 통해 서비스 태그를 사용할 수 있습니다. 자세한 내용은 [Azure HDInsight용 NSG(네트워크 보안 그룹) 서비스 태그](./hdinsight-service-tags.md)를 참조하세요.
 
 #### <a name="custom-ambari-db"></a>사용자 지정 Ambari DB
 이제 HDInsight를 사용하여 Apache Ambari에 고유 SQL DB를 사용할 수 있습니다. 이 사용자 지정 Ambari DB는 Azure Portal 또는 Resource Manager 템플릿을 통해 구성할 수 있습니다.  이 기능을 사용하여 처리 및 용량 요구 사항에 적합한 SQL DB를 선택할 수 있습니다. 비즈니스 성장 요구 사항에 맞게 간단히 업그레이드할 수도 있습니다. 자세한 내용은 [사용자 지정 Ambari DB를 사용하여 HDInsight 클러스터 설정](hdinsight-custom-ambari-db.md)을 참조하세요.
@@ -608,7 +685,7 @@ HDInsight 4.0의 경우 다음 단계를 수행합니다.
 1. 다음 명령을 입력하여 스크립트를 실행합니다.
 
     ```
-    sudo bash hdi_enable_replication.sh -m <hn0> -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
+    sudo bash hdi_enable_replication.sh -m <hn*> -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
     ```
 HDInsight 3.6의 경우 다음 단계를 수행합니다.
 

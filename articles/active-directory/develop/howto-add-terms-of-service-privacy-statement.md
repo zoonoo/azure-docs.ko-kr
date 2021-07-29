@@ -12,26 +12,26 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 311dfd976610c392909a0ec3d91fecaa4d733539
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ca10c54cff14bd9301e06a891bcb1f7013959f9
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100104198"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108176471"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>방법: 앱 서비스 약관 및 개인정보처리방침 구성
 
-Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌드하고 관리하는 개발자는 앱의 서비스 약관 및 개인정보처리방침에 대한 링크를 포함해야 합니다. 서비스 약관 및 개인정보처리방침은 사용자 동의 환경을 통해 사용자에게 표시됩니다. 서비스 약관 및 개인정보처리방침은 사용자가 앱을 믿고 사용할 수 있게 도와줍니다. 서비스 약관 및 개인정보처리방침은 여러 디렉터리에서 사용되거나 모든 Microsoft 계정에 제공되는 사용자용 다중 테넌트 앱에서 특히 중요합니다.
+Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 다중 테넌트 앱을 빌드하고 관리하는 개발자는 앱의 서비스 약관 및 개인정보처리방침에 대한 링크를 포함해야 합니다. 서비스 약관 및 개인정보처리방침은 사용자 동의 환경을 통해 사용자에게 표시됩니다. 서비스 약관 및 개인정보처리방침은 사용자가 앱을 믿고 사용할 수 있게 도와줍니다. 서비스 약관 및 개인정보처리방침은 여러 디렉터리에서 사용되거나 모든 Microsoft 계정에 제공되는 사용자용 다중 테넌트 앱에서 특히 중요합니다.
 
 개발자는 앱의 서비스 약관 및 개인정보처리방침 문서를 만들고 이러한 문서에 대한 URL을 제공할 책임이 있습니다. 다중 테넌트 앱에서 이러한 링크를 제공하지 않는 경우 앱의 사용자 동의 환경에 사용자의 앱 사용 동의를 말리는 경고가 표시됩니다.
 
 > [!NOTE]
-> * 단일 테넌트 앱에는 경고가 표시되지 않습니다.
+> * 서비스 약관 및 개인정보처리방침 링크는 단일 테넌트 앱에는 적용되지 않습니다.
 > * 두 링크 중 하나 또는 둘 다 없으면 앱에서 경고를 표시합니다.
 
 ## <a name="user-consent-experience"></a>사용자 동의 경험
 
-다음 예제에서는 서비스 약관 및 개인정보처리방침을 구성하고 링크를 구성하지 않을 때의 사용자 동의 환경을 보여줍니다.
+다음 예제에서는 서비스 약관 및 개인정보처리방침이 구성되고, 해당 링크가 구성되지 않은 경우 다중 테넌트 앱에 대한 사용자 동의 환경을 보여줍니다.
 
 ![개인정보처리방침 및 서비스 약관이 제공된 스크린샷과 제공되지 않은 스크린샷](./media/howto-add-terms-of-service-privacy-statement/user-consent-exp-privacy-statement-terms-service.png)
 

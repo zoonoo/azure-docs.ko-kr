@@ -4,14 +4,15 @@ description: Active Directory 통합(Azure RBAC)을 사용하여 Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 05/27/2021
 ms.author: mjbrown
-ms.openlocfilehash: a1247af8d626620975001f6274c7bec1ffcb27fb
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a305dc7b6f40883231ebf243624e5d4e0fcfa607
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140824"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964196"
 ---
 # <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Azure Cosmos DB의 Azure 역할 기반 액세스 제어
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -34,7 +35,7 @@ Azure Cosmos DB에서 지원하는 기본 제공 역할은 다음과 같습니�
 |[Cosmos DB 운영자](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Azure Cosmos 계정, 데이터베이스 및 컨테이너를 프로비저닝할 수 있습니다. 데이터에 액세스하거나 데이터 탐색기를 사용할 수 없습니다.|
 
 > [!IMPORTANT]
-> Azure Cosmos DB의 Azure RBAC 지원은 컨트롤 플레인 작업에만 적용됩니다. 데이터 평면 작업은 기본 키 또는 리소스 토큰을 사용하여 보호됩니다. 자세한 내용은 [Azure Cosmos DB에서 데이터 액세스 보호](secure-access-to-data.md)를 참조하세요.
+> Azure Cosmos DB의 Azure RBAC 지원은 컨트롤 플레인 작업에만 적용됩니다. 데이터 영역 작업은 기본 키, 리소스 토큰 또는 Cosmos DB RBAC를 사용하여 보호됩니다. 자세한 내용은 [Azure Cosmos DB에서 데이터 액세스 보호](secure-access-to-data.md)를 참조하세요.
 
 ## <a name="identity-and-access-management-iam"></a>IAM(ID 및 액세스 관리)
 
@@ -72,7 +73,7 @@ Azure Portal의 **액세스 제어(IAM)** 창은 Azure Cosmos 리소스에 대�
 
 - 저장 프로시저, 트리거 또는 사용자 정의 함수 수정
 
-애플리케이션(또는 Azure Portal을 통한 사용자)이 이러한 작업을 수행하는 경우 [ARM 템플릿](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), REST 또는 [Azure Management Library](https://github.com/Azure-Samples/cosmos-management-net)를 통해 실행하도록 마이그레이션해야 합니다. Azure Management는 [여러 언어](/azure/index?product=developer-tools#languages-and-tools)로 제공됩니다.
+애플리케이션(또는 Azure Portal을 통한 사용자)이 이러한 작업을 수행하는 경우 [ARM 템플릿](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), REST 또는 [Azure Management Library](https://github.com/Azure-Samples/cosmos-management-net)를 통해 실행하도록 마이그레이션해야 합니다. Azure Management는 [여러 언어](/azure/index.yml?product=developer-tools#languages-and-tools)로 제공됩니다.
 
 ### <a name="set-via-arm-template"></a>ARM 템플릿을 통해 설정
 

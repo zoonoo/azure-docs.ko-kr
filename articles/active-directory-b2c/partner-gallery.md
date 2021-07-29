@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0629606f602b975b399855a681570ecdac9ec832
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 9703ef0caa5df967033001cbeb241d1649eb2a11
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256823"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930278"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Azure Active Directory B2C ISV 파트너
 
@@ -61,17 +61,34 @@ Microsoft는 역할 기반 액세스 제어를 위해 다음 ISV와 협력 합�
 | ![N8identity 로고의 스크린샷](./media/partner-gallery/n8identity-logo.png) | [N8Identity](./partner-n8identity.md)는 Microsoft Azure에서 실행되는 CSR(고객 서비스 요청) 및 고객 계정 마이그레이션 관련 솔루션을 제공하는 서비스 제공 서비스 관리 IDaaS(Identity as a Service) 거버넌스 플랫폼입니다. |
 | ![Saviynt 로고의 스크린샷](./media/partner-gallery/saviynt-logo.png) | [Saviynt](./partner-Saviynt.md) 클라우드 네이티브 플랫폼은 지능적인 분석 및 IT 현대화를 간소화하기 위한 애플리케이션 간 통합을 통해 더 나은 보안, 규정 준수 및 거버넌스를 촉진합니다. |
 
-## <a name="security"></a>보안
+## <a name="secure-hybrid-access-to-on-premises-application"></a>온-프레미스 애플리케이션에 대한 안전한 하이브리드 액세스
 
-Microsoft는 보안을 위해 다음 ISV와 협력합니다.
+Microsoft는 온-프레미스 애플리케이션에 대한 안전한 하이브리드 액세스를 제공하기 위해 다음 ISV와 협력합니다. 
+
+| ISV 파트너 | 설명 및 통합 연습 |
+|:-------------------------|:--------------|
+| ![Ping 로고의 스크린샷](./media/partner-gallery/ping-logo.png) | [Ping ID](./partner-ping-identity.md)는 여러 클라우드에서 온-프레미스 레거시 애플리케이션에 대한 안전한 하이브리드 액세스를 가능하게 합니다. |
+| ![Strata 로고의 스크린샷](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md)는 일관된 액세스 정책을 적용하고 ID를 동기화된 상태로 유지하고 레거시 ID 시스템에서 Azure AD B2C에 의해 제공되는 표준 기반 인증 및 액세스 제어로 애플리케이션을 간단하게 전환할 수 있도록 하여 온-프레미스 애플리케이션에 대한 안전한 하이브리드 액세스를 제공합니다. |
+| ![Zscaler 로고의 스크린샷](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md)는 VPN의 비용, 번거로움 또는 보안 위험 없이 프라이빗 애플리케이션 및 자산에 대한 정책 기반 보안 액세스를 제공합니다. |
+
+## <a name="fraud-protection"></a>사기 보호
+
+Microsoft는 사기 행위 감지 및 방지를 위해 다음 ISV와 협력합니다. 
 
 | ISV 파트너 | 설명 및 통합 연습 |
 |:-------------------------|:--------------|
 | ![Arkose lab 로고의 스크린샷](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md)는 조직이 봇 공격, 계정 인수 공격 및 사기성 계정 입구를 방지하는 데 도움이 되는 사기 행위 방지 솔루션 공급자입니다. |
+| ![BioCatch 로고의 스크린샷](./media/partner-gallery/biocatch-logo.png) | [BioCatch](./partner-biocatch.md)는 사용자의 물리적 및 인지적 디지털 동작을 분석하여 합법적인 고객과 사이버 범죄자를 구분하는 인사이트를 생성하는 사기 행위 방지 솔루션 공급자입니다. |
 | ![Microsoft Dynamics 365 로고의 스크린샷](./media/partner-gallery/microsoft-dynamics365-logo.png) | [Microsoft Dynamics 365 Fraud Protection](./partner-dynamics-365-fraud-protection.md)는 조직에서 디바이스 핑거프린팅을 통해 사기성 계정 입구를 보호하는 데 도움이 되는 솔루션입니다. |
-| ![Ping 로고의 스크린샷](./media/partner-gallery/ping-logo.png) | [Ping ID](./partner-ping-identity.md)는 여러 클라우드에서 온-프레미스 레거시 애플리케이션에 대한 안전한 하이브리드 액세스를 가능하게 합니다. |
-| ![Strata 로고의 스크린샷](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md)는 일관된 액세스 정책을 적용하고 ID를 동기화된 상태로 유지하고 레거시 ID 시스템에서 Azure AD B2C에 의해 제공되는 표준 기반 인증 및 액세스 제어로 애플리케이션을 간단하게 전환할 수 있도록 하여 온-프레미스 애플리케이션에 대한 안전한 하이브리드 액세스를 제공합니다. |
-| ![Zscaler 로고의 스크린샷](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md)는 VPN의 비용, 번거로움 또는 보안 위험 없이 프라이빗 애플리케이션 및 자산에 대한 정책 기반 보안 액세스를 제공합니다. |
+
+## <a name="web-application-firewall"></a>웹 애플리케이션 방화벽 
+
+Microsoft는 WAF(Web Application Firewall)를 위해 다음 ISV와 협력합니다. 
+
+| ISV 파트너 | 설명 및 통합 연습 |
+|:-------------------------|:--------------|
+| ![Cloudflare 로고의 스크린샷](./media/partner-gallery/cloudflare-logo.png) | [Cloudflare](./partner-cloudflare.md)는 조직을 SQLi 및 XSS와 같은 취약점을 악용하려는 악의적인 공격으로부터 보호할 수 있도록 지원하는 WAF 공급자입니다. |
+
 
 ## <a name="additional-information"></a>추가 정보
 

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: a58e141c6232db08b125b265e3d4ad74c784ba24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3fe95c00c95898be1ddd6967fb9ab8ba1e3f0ddb
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92152182"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484646"
 ---
 # <a name="reference---iot-hub-endpoints"></a>참조 - IoT Hub 엔드포인트
 
@@ -36,7 +36,7 @@ Azure IoT Hub는 다중 테넌트 서비스이며 다양한 행위자에게 기�
 
 다음 목록에서는 엔드포인트를 설명합니다.
 
-* **리소스 공급자**. IoT Hub 리소스 공급자는 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 인터페이스를 노출합니다. 이 인터페이스를 통해 Azure 구독 소유자는 IoT Hub를 생성 및 삭제하고 IoT Hub 속성을 업데이트할 수 있습니다. IoT Hub 속성은 디바이스 수준 액세스 제어와는 달리 [허브 수준 보안 정책](iot-hub-devguide-security.md#access-control-and-permissions)과 클라우드-디바이스 및 디바이스-클라우드 메시징을 위한 기능 옵션을 관리합니다. 또한 IoT Hub 리소스 공급자는 사용자가 [디바이스 ID를 내보낼](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) 수 있도록 합니다.
+* **리소스 공급자**. IoT Hub 리소스 공급자는 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 인터페이스를 노출합니다. 이 인터페이스를 통해 Azure 구독 소유자는 IoT Hub를 생성 및 삭제하고 IoT Hub 속성을 업데이트할 수 있습니다. IoT Hub 속성은 디바이스 수준 액세스 제어와는 달리 [허브 수준 보안 정책](iot-hub-dev-guide-sas.md#access-control-and-permissions)과 클라우드-디바이스 및 디바이스-클라우드 메시징을 위한 기능 옵션을 관리합니다. 또한 IoT Hub 리소스 공급자는 사용자가 [디바이스 ID를 내보낼](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) 수 있도록 합니다.
 
 * **디바이스 ID 관리**. 각 IoT Hub는 HTTPS REST 엔드포인트 집합을 노출하여 디바이스 ID를 관리합니다(만들기, 검색, 업데이트 및 삭제). [디바이스 ID](iot-hub-devguide-identity-registry.md)는 디바이스 인증 및 액세스 제어에 사용됩니다.
 
@@ -76,7 +76,7 @@ Azure IoT Hub는 다중 테넌트 서비스이며 다양한 행위자에게 기�
 
 ## <a name="custom-endpoints"></a>사용자 지정 엔드포인트
 
-구독의 기존 Azure 서비스를 IoT Hub에 연결하여 메시지 라우팅을 위한 엔드포인트 역할을 할 수 있습니다. 이러한 엔드포인트는 서비스 엔드포인트 역할을 하며 메시지 경로에 대한 싱크로 사용됩니다. 디바이스는 추가 엔드포인트에 직접 쓸 수 없습니다. [메시지 라우팅](../iot-hub/iot-hub-devguide-messages-d2c.md)에 대해 알아봅니다.
+Azure 구독의 기존 Azure 서비스를 IoT 허브에 연결하여 메시지 라우팅을 위한 엔드포인트 역할을 할 수 있습니다. 이러한 엔드포인트는 서비스 엔드포인트 역할을 하며 메시지 경로에 대한 싱크로 사용됩니다. 디바이스는 추가 엔드포인트에 직접 쓸 수 없습니다. [메시지 라우팅](../iot-hub/iot-hub-devguide-messages-d2c.md)에 대해 알아봅니다.
 
 IoT Hub는 현재 추가 엔드포인트로 다음과 같은 Azure 서비스를 지원합니다.
 

@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: be76b2b6398048925ce308b421fcd776a7b7acbb
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: d9076962cdab1494b26f794b0f370b8a5677eb10
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306401"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108744500"
 ---
 # <a name="ncv3-series"></a>NCv3 시리즈
 
@@ -25,7 +25,7 @@ NCv3 시리즈 VM은 NVIDIA Tesla V100 GPU로 구동됩니다. 이러한 GPU는 
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원되지 않음<br>
-[임시 OS 디스크](ephemeral-os-disks.md): 지원됨 <br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨([미리 보기](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
 NVIDIA NVLink Interconnect: 지원되지 않음<br>
 
 > [!IMPORTANT]
@@ -51,7 +51,7 @@ Azure N 시리즈 VM의 GPU 기능을 최대한 활용하려면 NVIDIA GPU 드�
 
 [NVIDIA GPU 드라이버 확장](./extensions/hpccompute-gpu-windows.md)은 N 시리즈 VM에 적절한 NVIDIA CUDA 또는 GRID 드라이버를 설치합니다. Azure PowerShell 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. 지원되는 운영 체제 및 배포 단계는 [NVIDIA GPU 드라이버 확장 설명서](./extensions/hpccompute-gpu-windows.md)를 참조하세요. VM 확장에 대한 일반적인 내용은 [Azure 가상 머신 확장 및 기능](./extensions/overview.md)을 참조하세요.
 
-NVIDIA GPU 드라이버를 수동으로 설치하려는 경우, 지원되는 운영 체제, 드라이버, 설치 및 인증 단계에 대해 [Windows용 N 시리즈 GPU 드라이버 설정](./windows/n-series-driver-setup.md) 또는 [Linux용 N 시리즈 GPU 드라이버 설정](./linux/n-series-driver-setup.md)을 참조하세요.
+NVIDIA GPU 드라이버를 수동으로 설치하려면 지원되는 운영 체제, 드라이버, 설치, 확인 단계에 대한 [Windows용 N 시리즈 GPU 드라이버 설치](./windows/n-series-driver-setup.md) 또는 [Linux용 N 시리즈 GPU 드라이버 설치](./linux/n-series-driver-setup.md)를 참조하세요.
 
 ## <a name="other-sizes"></a>기타 크기
 

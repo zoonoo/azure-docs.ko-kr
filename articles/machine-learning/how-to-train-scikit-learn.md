@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 09/28/2020
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 3337607c8e4dd9dca230456cdf268ec3fbfb2f12
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 16f436c4b81aac60075be8cb3bf34a9706f739ab
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884411"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746786"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 대규모 scikit-learn 모델 학습
 
@@ -25,12 +25,12 @@ ms.locfileid: "107884411"
 
 처음부터 기계 학습 scikit-learn 모델을 학습시키는지 또는 기존 모델을 클라우드로 가져오는지에 관계없이 Azure Machine Learning을 사용하여 탄력적 클라우드 컴퓨팅 리소스를 사용해 오픈 소스 학습 작업을 스케일 아웃할 수 있습니다. Azure Machine Learning을 사용하여 프로덕션 등급 모델을 빌드, 배포, 버전 관리 및 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 다음 환경 중 하나에서 이 코드를 실행합니다.
  - Azure Machine Learning 컴퓨팅 인스턴스 - 다운로드 또는 설치 필요 없음
 
-    - [자습서: 환경 및 작업 영역 설정](tutorial-1st-experiment-sdk-setup.md)을 완료하여 SDK와 샘플 리포지토리로 사전 로드된 전용 Notebook 서버를 만듭니다.
+    - [빠른 시작: Azure Machine Learning 시작하기](quickstart-create-resources.md)를 완료하여 SDK 및 샘플 리포지토리가 미리 로드된 전용 Notebook 서버를 만듭니다.
     - Notebook 서버의 학습 샘플 디렉터리에서 **how-to-use-azureml > ml-frameworks > scikit-learn > train-hyperparameter-tune-deploy-with-sklearn** 폴더로 이동하여 완성된 확장 Notebook을 찾습니다.
 
  - 사용자 고유의 Jupyter Notebook 서버
@@ -58,7 +58,7 @@ ws = Workspace.from_config()
 
 이 자습서에서 학습 스크립트 **train_iris.py** 는 이미 [여기](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train_iris.py)에서 자동으로 제공됩니다. 실제로 사용자 지정 학습 스크립트를 있는 그대로 사용하여 코드를 수정하지 않고도 Azure ML에서 실행할 수 있어야 합니다.
 
-참고:
+메모:
 - 제공된 학습 스크립트에서는 스크립트 내 `Run` 개체를 사용하여 일부 메트릭을 Azure ML 실행에 로깅하는 방법을 보여줍니다.
 - 제공된 학습 스크립트에서는 `iris = datasets.load_iris()` 함수의 예제 데이터를 사용합니다.  고유한 데이터를 사용하고 액세스하려면 [데이터 세트를 사용하여 학습하는 방법](how-to-train-with-datasets.md)을 참조하여 데이터를 학습 중에 사용 가능하도록 만듭니다.
 
@@ -137,12 +137,12 @@ run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
-> Azure Machine Learning은 전체 소스 디렉터리를 복사하여 학습 스크립트를 실행합니다. 업로드하지 않으려는 중요한 데이터가 있는 경우 [.ignore 파일](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots)을 사용하거나 데이터를 원본 디렉터리에 포함하지 마세요. 대신 Azure ML [데이터 세트](how-to-train-with-datasets.md)를 사용하여 데이터에 액세스합니다.
+> Azure Machine Learning는 전체 원본 디렉터리를 복사하여 학습 스크립트를 실행합니다. 업로드하지 않으려는 중요한 데이터가 있는 경우 [.ignore 파일](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots)을 사용하거나 데이터를 원본 디렉터리에 포함하지 마세요. 대신 Azure ML [데이터 세트](how-to-train-with-datasets.md)를 사용하여 데이터에 액세스합니다.
 
 ### <a name="what-happens-during-run-execution"></a>Run을 실행하는 중에 수행되는 작업
 Run이 실행되면 다음 단계를 거칩니다.
 
-- **준비**: 정의된 환경에 따라 docker 이미지가 생성됩니다. 이미지는 작업 영역의 컨테이너 레지스트리에 업로드되고 나중에 실행될 수 있도록 캐시됩니다. 또한 로그는 실행 기록으로 스트리밍되며 진행 상황을 모니터링할 수 있도록 표시됩니다. 큐레이팅된 환경이 대신 지정되면 해당 큐레이팅된 환경을 지원하는 캐시된 이미지가 사용됩니다.
+- **준비**: 정의된 환경에 따라 Docker 이미지가 생성됩니다. 이미지는 작업 영역의 컨테이너 레지스트리에 업로드되고 나중에 실행될 수 있도록 캐시됩니다. 또한 로그는 실행 기록으로 스트리밍되며 진행 상황을 모니터링할 수 있도록 표시됩니다. 큐레이팅된 환경이 대신 지정되면 해당 큐레이팅된 환경을 지원하는 캐시된 이미지가 사용됩니다.
 
 - **스케일링**: Batch AI 클러스터에서 Run을 실행하는 데 현재 사용할 수 있는 노드보다 더 많은 노드가 필요한 경우 클러스터에서 스케일 업을 시도합니다.
 

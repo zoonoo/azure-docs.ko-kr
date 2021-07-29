@@ -3,12 +3,12 @@ title: 프로그래밍 방식으로 정책 만들기
 description: 이 문서에서는 Azure CLI, Azure PowerShell 및 REST API를 사용하여 Azure Policy에 대해 프로그래밍 방식으로 정책을 만들고 관리하는 방법을 설명합니다.
 ms.date: 03/16/2021
 ms.topic: how-to
-ms.openlocfilehash: b4f15241799469da2e479cb758f648ec3131a149
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 04b2e1a2c84320c61d1c1aba7404af47bc03150e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104598493"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747488"
 ---
 # <a name="programmatically-create-policies"></a>프로그래밍 방식으로 정책 만들기
 
@@ -141,7 +141,7 @@ Resource Manager PowerShell 모듈을 사용하여 리소스 정책을 관리하
 
    이전 {subscriptionId}를 구독의 ID로 또는 {managementGroupId}를 [관리 그룹](../../management-groups/overview.md)의 ID로 바꿉니다.
 
-   쿼리 구조에 대한 자세한 내용은 [Azure Policy 정의 - 만들기 또는 업데이트](/rest/api/resources/policydefinitions/createorupdate) 및 [정책 정의 - 관리 그룹에서 만들기 또는 업데이트](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)를 참조하세요.
+   쿼리 구조에 대한 자세한 내용은 [Azure Policy 정의 - 만들기 또는 업데이트](/rest/api/policy/policydefinitions/createorupdate) 및 [정책 정의 - 관리 그룹에서 만들기 또는 업데이트](/rest/api/policy/policydefinitions/createorupdateatmanagementgroup)를 참조하세요.
 
 다음 절차를 사용하여 정책 할당을 만들고 리소스 그룹 수준에서 정책 정의를 할당합니다.
 

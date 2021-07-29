@@ -1,6 +1,6 @@
 ---
 title: Socket.io를 사용하는 Node.js 애플리케이션 - Azure
-description: 이 자습서를 사용하여 socket.IO 기반 채팅 애플리케이션을 Azure에 호스트하는 방법을 알아봅니다. Socket.IO는 node.js 서버 및 클라이언트에 대한 실시간 통신을 제공합니다.
+description: 이 자습서를 사용하여 socket.IO 기반 채팅 애플리케이션을 Azure에 호스트하는 방법을 알아봅니다. Socket.IO는 Node.js 서버 및 클라이언트에 대한 실시간 통신을 제공합니다.
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
@@ -8,19 +8,19 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: abc02769d7d978e14975d90ae0f98547bdc4faf7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3f6d331c6579d6317ab226d6d2d1e4f8682ac3b
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743324"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803839"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service-classic"></a>Azure Cloud Service(클래식)에서 Socket.IO를 사용하여 Node.js 채팅 애플리케이션 빌드
 
 > [!IMPORTANT]
-> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 AzureCloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다. 이러한 변경으로 AzureService Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌었으며 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 AzureCloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.해당 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌고 모든 새로운 배포는 [Cloud Services(확장된 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
-Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공합니다. 이 자습서는 Azure에서 채팅 애플리케이션을 기반으로 하는 socket.IO 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 [socket.io](https://socket.io)를 참조하세요.
+Socket.IO는 Node.js 서버와 클라이언트 간에 실시간 통신을 제공합니다. 이 자습서는 Azure에서 채팅 애플리케이션을 기반으로 하는 socket.IO 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 [socket.io](https://socket.io)를 참조하세요.
 
 아래에는 완성된 애플리케이션의 스크린샷이 표시되어 있습니다.
 

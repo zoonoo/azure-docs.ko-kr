@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: d65b074385311e74444929ef74901e402e29ec03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e217dcaeafd553803f5c9699ab6d7779ed755b67
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93241738"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818292"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버의 영역 중복 고가용성 관리(미리 보기)
 
@@ -62,6 +62,27 @@ ms.locfileid: "93241738"
 5.  **HA 사용 안 함** 단추를 클릭하여 고가용성을 사용하지 않도록 설정합니다.
 
 6.  고가용성 배포의 서비스 해제가 진행 중으로 표시되는 알림이 표시됩니다.
+
+
+## <a name="forced-failover"></a>강제 장애 조치(failover)
+
+주 서버에서 유연한 대기 서버로의 강제 장애 조치(failover)를 수행하려면 다음 단계를 수행합니다.
+
+1.  [Azure Portal](https://portal.azure.com/)에서 고가용성 기능이 활성화된 기존 Azure Database for MySQL 유연한 서버를 선택합니다.
+
+2.  유연한 서버 페이지의 전면 패널에서 **고가용성** 을 클릭하여 고가용성 페이지를 엽니다.
+
+3.  **주 가용성 영역** 및 **대기 가용성 영역** 확인
+
+4.  수동 장애 조치(failover) 절차를 시작하려면 **강제 장애 조치(failover)** 를 클릭합니다. 팝업에 기본 검사점 및 최근 검사점에 대한 현재 워크로드에 따라 장애 조치(failover) 예상 시간이 표시되면 메시지를 읽고 확인을 클릭합니다.
+ 
+5. 장애 조치(failover)가 진행 중임을 나타내는 알림이 표시됩니다.
+
+6. 대기 서버로의 장애 조치(failover)가 완료되면 알림이 팝업됩니다.
+
+7. 새로운 **주 가용성 영역** 및 **대기 가용성 영역** 을 확인합니다.
+
+![강제 장애 조치(failover) 방법](media/how-to-configure-high-availability/how-to-forced-failover.png) 
 
 ## <a name="next-steps"></a>다음 단계
 

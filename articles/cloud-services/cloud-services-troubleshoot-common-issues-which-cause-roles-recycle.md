@@ -1,24 +1,24 @@
 ---
-title: 클라우드 서비스 (클래식) 역할 재활용의 일반적인 원인 | Microsoft Docs
+title: Cloud Service(클래식) 역할 재활용의 일반적인 원인 | Microsoft Docs
 description: 재활용이 중요한 가동 중지 시간을 갑작스럽게 발생시킬 수 있는 클라우드 서비스 역할입니다. 역할이 재활용되도록 하는 일반적인 문제는 다음과 같으며 이는 가동 중지를 줄이는 데 도움이 될 수 있습니다.
-ms.topic: article
+ms.topic: troubleshooting
 ms.service: cloud-services
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 9610b32207f8367b9415c0881e49b54e24c49ad7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: daf8bdb0e6729d5e95fdf0e6186f6511c39690f8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98741165"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108735896"
 ---
-# <a name="common-issues-that-cause-azure-cloud-service-classic-roles-to-recycle"></a>Azure Cloud Service (클래식) 역할을 재활용 하는 일반적인 문제
+# <a name="common-issues-that-cause-azure-cloud-service-classic-roles-to-recycle"></a>Azure Cloud Service(클래식) 역할이 재활용되는 일반적인 문제
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(확장 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품에 대한 새로운 Azure Resource Manager 기반 배포 모델입니다.해당 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌고 모든 새로운 배포는 [Cloud Services(확장된 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 이 문서에서는 배포 문제의 일반적인 몇 가지 원인을 설명하고 이러한 문제를 해결하기 위한 문제 해결 팁을 제공합니다. 애플리케이션에 문제가 있다는 것을 역할 인스턴스가 시작에 실패하거나 초기화, 사용 중, 및 중지 상태를 반복할 경우에 알 수 있습니다.
 
@@ -49,7 +49,7 @@ Azure에 애플리케이션 패키지를 배포하기 전에 `DiagnosticsConnect
 
 * `DiagnosticsConnectionString` 설정이 Azure의 유효한 스토리지 계정을 가리킵니다.  
   기본적으로 이 설정은 에뮬레이트된 스토리지 계정을 가리키므로 애플리케이션 패키지를 배포하기 전에 이 설정을 명시적으로 변경해야 합니다. 이 설정을 변경하지 않는 경우 역할 인스턴스가 진단 모니터링을 시작하려고 할 때 예외가 throw됩니다. 역할 인스턴스가 무기한 재활용되게 할 수 있습니다.
-* 연결 문자열은 다음과 같은 [형식](../storage/common/storage-configure-connection-string.md)으로 지정해야 합니다. (프로토콜은 HTTPS로 지정 해야 합니다.) *Myaccountname* 을 저장소 계정의 이름으로 바꾸고, *MyAccountKey* 을 액세스 키로 바꿉니다.    
+* 연결 문자열은 다음과 같은 [형식](../storage/common/storage-configure-connection-string.md)으로 지정해야 합니다. (프로토콜은 HTTPS로 지정해야 합니다.) *MyAccountName* 을 스토리지 계정의 이름으로 바꾸고 *MyAccountKey* 를 액세스 키로 바꿉니다.    
 
 ```console
 DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
@@ -58,7 +58,7 @@ DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
   Microsoft Visual Studio용 Azure Tools를 사용하여 애플리케이션을 개발하는 경우 속성 페이지를 사용하여 이 값을 설정할 수 있습니다.
 
 ## <a name="exported-certificate-does-not-include-private-key"></a>내보낸 인증서는 프라이빗 키를 포함하지 않습니다.
-TLS에서 웹 역할을 실행 하려면 내보낸 관리 인증서에 개인 키가 포함 되어 있는지 확인 해야 합니다. *Windows 인증서 관리자* 를 사용하여 인증서를 내보내는 경우 **프라이빗 키 내보내기** 옵션에 대해 **예** 를 선택해야 합니다. 인증서는 현재 지원되는 유일한 형식인 PFX 형식으로 내보내야 합니다.
+TLS에서 웹 역할을 실행하려면 내보낸 관리 인증서가 프라이빗 키를 포함해야 합니다. *Windows 인증서 관리자* 를 사용하여 인증서를 내보내는 경우 **프라이빗 키 내보내기** 옵션에 대해 **예** 를 선택해야 합니다. 인증서는 현재 지원되는 유일한 형식인 PFX 형식으로 내보내야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 클라우드 서비스에 대한 [문제해결 문서](../index.yml?product=cloud-services&tag=top-support-issue) 를 더 봅니다.
@@ -68,4 +68,4 @@ TLS에서 웹 역할을 실행 하려면 내보낸 관리 인증서에 개인 �
 [RoleEntryPoint]: /previous-versions/azure/reference/ee758619(v=azure.100)
 [OnStart]: /previous-versions/azure/reference/ee772851(v=azure.100)
 [OnStop]: /previous-versions/azure/reference/ee772844(v=azure.100)
-[실행]: /previous-versions/azure/reference/ee772746(v=azure.100)
+[Run]: /previous-versions/azure/reference/ee772746(v=azure.100)

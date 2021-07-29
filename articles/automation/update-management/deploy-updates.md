@@ -3,14 +3,14 @@ title: Azure Automation 업데이트 관리에 대한 업데이트 배포를 만
 description: 이 문서에서는 업데이트 배포를 예약하고 해당 상태를 검토하는 방법을 설명합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 03/19/2021
+ms.date: 04/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6d35d6b49ab72d8aa7b25506011147ab624273fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c190af2532f28bd183a92b37b814210cb794501d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104669681"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748496"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>업데이트를 배포하고 결과를 검토하는 방법
 
@@ -62,6 +62,9 @@ ms.locfileid: "104669681"
     > [!NOTE]
     > Azure VM 또는 Arc 사용 서버를 선택한 경우에는 이 옵션을 사용할 수 없습니다. 예약된 배포에 대한 컴퓨터의 대상이 자동으로 지정됩니다.
 
+   > [!IMPORTANT]
+   > Azure VM의 동적 그룹을 빌드할 때 업데이트 관리는 그룹의 범위에서 구독 또는 리소스 그룹을 결합하는 최대 500개의 쿼리만 지원합니다.
+
 6. **업데이트할 머신** 영역에서 저장된 검색, 가져온 그룹을 선택하거나 드롭다운 메뉴에서 **머신** 을 선택하고 개별 머신을 선택합니다. 이 옵션을 사용하여 각 머신의 Log Analytics 에이전트 준비 상태를 확인할 수 있습니다. Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../../azure-monitor/logs/computer-groups.md)을 참조하세요. 예약된 업데이트 배포에는 최대 1,000대의 컴퓨터를 포함할 수 있습니다.
 
     > [!NOTE]
@@ -69,15 +72,30 @@ ms.locfileid: "104669681"
 
 7. **업데이트 분류** 영역을 사용하여 제품의 [업데이트 분류](view-update-assessments.md#work-with-update-classifications)를 지정합니다. 업데이트 배포에 포함할 업데이트를 제외하고 각 제품에 대해 지원되는 모든 업데이트 분류를 선택 취소합니다.
 
+   :::image type="content" source="./media/deploy-updates/update-classifications-example.png" alt-text="특정 업데이트 분류의 선택을 보여주는 예제입니다.":::
+
     배포에서 선택된 업데이트 집합만 적용하려면 다음 단계에 설명된 대로 **업데이트 포함/제외** 옵션을 구성할 때 미리 선택된 모든 업데이트 분류를 선택 취소해야 합니다. 이렇게 하면 이 배포에 *포함* 하도록 지정한 업데이트만 대상 컴퓨터에 설치됩니다.
 
+   >[!NOTE]
+   > 업데이트 분류에 따라 업데이트를 배포하는 것은 RTM 버전의 CentOS에서 작동하지 않습니다. CentOS에 대한 업데이트를 제대로 배포하려면 업데이트를 적용할 수 있도록 모든 분류를 선택합니다. 현재는 CentOS에서 네이티브 분류 데이터 가용성을 지원하는 메서드가 없습니다. [업데이트 분류](overview.md#update-classifications)에 대한 자세한 정보는 다음을 참조하세요.
+
 8. **업데이트 포함/제외** 영역을 사용하여 배포에서 선택한 업데이트를 추가하거나 제외합니다. **포함/제외** 페이지에서 Windows 업데이트에 포함하거나 제외할 KB 문서의 ID 번호를 입력합니다. 지원되는 Linux 배포판의 경우 패키지 이름을 지정합니다.
+
+   :::image type="content" source="./media/deploy-updates/include-specific-updates-example.png" alt-text="특정 업데이트를 포함하는 방법을 보여 주는 예제입니다.":::
 
    > [!IMPORTANT]
    > 제외 항목은 포함 항목을 재정의한다는 사실을 기억하세요. 예를 들어 `*`의 제외 규칙을 정의하면 업데이트 관리가 모든 패치 또는 패키지를 설치 대상에서 제외합니다. 제외된 패치는 여전히 머신에서 누락된 것으로 표시됩니다. Linux 머신의 경우 제외된 종속 패키지가 들어 있는 패키지를 포함할 경우 업데이트 관리에서 주 패키지를 설치하지 않습니다.
 
    > [!NOTE]
    > 업데이트 배포에 포함하기 위해 대체된 업데이트를 지정할 수 없습니다.
+
+   다음은 업데이트 배포에서 포함/제외 및 업데이트 분류를 동시에 사용하는 방법을 이해하는 데 도움이 되는 몇 가지 예제 시나리오입니다.
+
+   * 특정 업데이트 목록만 설치하려는 경우 **업데이트 분류** 를 선택하지 않고, **포함** 옵션을 사용하여 적용할 업데이트 목록을 제공하지 않습니다.
+
+   * 하나 이상의 선택적 드라이버 업데이트와 함께 보안 및 중요 업데이트만 설치하려면 **업데이트 분류** 에서 **보안** 및 **중요** 를 선택해야 합니다. 그런 다음, **포함** 옵션에 드라이버 업데이트를 지정합니다.
+
+   * 레거시 애플리케이션이 깨지지 않도록, 보안 및 중요 업데이트만 설치하고 하나 이상의 Python 업데이트는 건너뛰려면 **업데이트 분류** 에서 **보안** 및 **중요** 를 선택해야 합니다. 그런 다음, **제외** 옵션을 사용하여 건너뛸 Python 패키지를 추가합니다.
 
 9. **일정 설정** 을 선택합니다. 기본 시작 시간은 현재 시간으로부터 30분 후입니다. 앞으로 10분 이후부터 언제든지 시작 시간을 설정할 수 있습니다.
 

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8cae19bd07e1cc87a0aaa25e47cf5f431d566ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9f344b0f4dd93b921abc0c1c95c18c54e4486716
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653816"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951888"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>온-프레미스 Azure Active Directory 암호 보호 계획 및 배포
 
@@ -88,7 +88,7 @@ Azure AD 암호 보호 DC 에이전트 소프트웨어의 설계는 고가용성
 * Windows Server 2012 이상 버전을 실행하는 도메인의 모든 도메인 컨트롤러에서 키 배포 서비스를 사용하도록 설정해야 합니다. 기본적으로 해당 서비스는 수동 트리거 시작을 통해 사용하도록 설정됩니다.
 
 * 각 도메인에 있는 하나 이상의 도메인 컨트롤러와 Azure AD 암호 보호를 위해 프록시 서비스를 호스트하는 하나 이상의 서버 간에 네트워크 연결이 설정되어 있어야 합니다. 해당 연결을 통해 도메인 컨트롤러가 프록시 서비스의 RPC 엔드포인트 매퍼 포트 135 및 RPC 서버 포트에 액세스할 수 있어야 합니다.
-    * 기본적으로 RPC 서버 포트는 동적 RPC 포트이지만 [정적 포트를 사용](#static)하도록 구성할 수 있습니다.
+    * 기본적으로 RPC 서버 포트는 범위(49152 - 65535)에서 동적 RPC 포트이지만 [정적 포트를 사용](#static)하도록 구성할 수 있습니다.
 * Azure AD 암호 보호 프록시 서비스를 설치할 모든 컴퓨터에는 다음 엔드포인트에 대한 네트워크 액세스 권한이 있어야 합니다.
 
     |**엔드포인트**|**용도**|
@@ -127,15 +127,15 @@ Azure AD 암호 보호 DC 에이전트 소프트웨어의 설계는 고가용성
     * .NET 4.7.2가 아직 설치되지 않은 경우 [Windows용 .NET Framework 4.7.2 오프라인 설치 관리자](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2)에 있는 설치 관리자를 다운로드하여 실행합니다.
 * Azure AD 암호 보호 프록시 서비스를 호스트하는 모든 머신은 프록시 서비스에 로그온하는 기능을 도메인 컨트롤러에 부여하도록 구성해야 합니다. 해당 기능은 “네트워크에서 이 컴퓨터 액세스“ 권한 할당을 통해 제어됩니다.
 * Azure AD 암호 보호 프록시 서비스를 호스트하는 모든 머신은 아웃바운드 TLS 1.2 HTTP 트래픽을 허용하도록 구성해야 합니다.
-* Azure AD 암호 보호 프록시 서비스 및 포리스트를 Azure AD에 등록하기 위한 *전역 관리자* 또는 *보안 관리자* 계정.
-* [애플리케이션 프록시 환경 설정 절차](../manage-apps/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment)에 지정된 포트 및 URL 세트에 대해 네트워크 액세스를 사용하도록 설정해야 합니다.
+* 지정된 테넌트에서 처음으로 Azure AD 암호 보호 프록시 서비스를 등록하려면 *전역 관리자* 계정이 필요합니다. Azure AD를 사용한 후속 프록시 및 포리스트 등록은 *전역 관리자* 또는 *보안 관리자* 자격 증명이 있는 계정을 사용할 수 있습니다.
+* [애플리케이션 프록시 환경 설정 절차](../app-proxy/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment)에 지정된 포트 및 URL 세트에 대해 네트워크 액세스를 사용하도록 설정해야 합니다. 위에서 설명한 두 개의 엔드포인트에 추가됩니다.
 
 ### <a name="microsoft-azure-ad-connect-agent-updater-prerequisites"></a>Microsoft Azure AD Connect 에이전트 업데이트 프로그램 필수 구성 요소
 
 Microsoft Azure AD Connect 에이전트 업데이트 프로그램 서비스는 Azure AD 암호 보호 프록시 서비스와 나란히 설치됩니다. Microsoft Azure AD Connect 에이전트 업데이트 프로그램 서비스가 작동하려면 추가 구성이 필요합니다.
 
-* 환경에서 HTTP 프록시 서버를 사용하는 경우 [기존 온-프레미스 프록시 서버 작업](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)에 지정된 지침을 따릅니다.
-* Microsoft Azure AD Connect 에이전트 업데이트 프로그램 서비스에도 [TLS 요구 사항](../manage-apps/application-proxy-add-on-premises-application.md#tls-requirements)에 지정된 TLS 1.2 단계가 필요합니다.
+* 환경에서 HTTP 프록시 서버를 사용하는 경우 [기존 온-프레미스 프록시 서버 작업](../app-proxy/application-proxy-configure-connectors-with-proxy-servers.md)에 지정된 지침을 따릅니다.
+* Microsoft Azure AD Connect 에이전트 업데이트 프로그램 서비스에도 [TLS 요구 사항](../app-proxy/application-proxy-add-on-premises-application.md#tls-requirements)에 지정된 TLS 1.2 단계가 필요합니다.
 
 > [!WARNING]
 > Azure AD 암호 보호 프록시와 Azure AD 애플리케이션 프록시는 서로 다른 버전의 Microsoft Azure AD Connect 에이전트 업데이트 서비스를 설치하기 때문에 지침은 애플리케이션 프록시 콘텐츠를 참조합니다. 이러한 서로 다른 버전은 나란히 설치하는 경우 호환되지 않습니다. 이렇게 하면 에이전트 업데이트 서비스에서 소프트웨어 업데이트를 위해 Azure에 연결하지 못하므로, Azure AD 암호 보호 프록시 및 애플리케이션 프록시를 동일한 컴퓨터에 설치하면 안 됩니다.
@@ -199,7 +199,7 @@ Azure AD 암호 보호 프록시 서비스를 설치하려면 다음 단계를 �
 
 1. 프록시 서비스가 컴퓨터에서 실행되고 있지만 Azure AD와 통신할 수 있는 자격 증명이 없습니다. `Register-AzureADPasswordProtectionProxy` cmdlet을 사용하여 Azure AD 암호 보호 프록시 서버를 Azure AD에 등록합니다.
 
-    이 cmdlet에는 Azure 테넌트에 대한 *전역 관리자* 또는 *보안 관리자* 자격 증명이 필요합니다. 또한 이 cmdlet은 로컬 관리자 권한이 있는 계정을 사용하여 실행해야 합니다.
+    이 cmdlet에는 지정된 테넌트에 대해 프록시가 처음 등록될 때 *전역 관리자* 자격 증명이 필요합니다. 동일하거나 다른 프록시에 대해 해당 테넌트의 후속 프록시 등록은 *전역 관리자* 또는 *보안 관리자* 자격 증명을 사용할 수 있습니다.
 
     이 명령이 한 번 성공하면 추가 호출도 성공하지만 필요하지 않습니다.
 
@@ -338,7 +338,7 @@ HTTP 프록시가 권한 부여 정책을 사용하도록 구성된 경우 암�
 
 ### <a name="configure-the-proxy-service-to-listen-on-a-specific-port"></a>특정 포트에서 수신 대기하도록 프록시 서비스 구성
 
-Azure AD 암호 보호 DC 에이전트 소프트웨어는 RPC over TCP를 사용하여 프록시 서비스와 통신합니다. 기본적으로 Azure AD 암호 보호 프록시 서비스는 사용 가능한 모든 동적 RPC 엔드포인트에서 수신 대기합니다. 사용자 환경의 네트워킹 토폴로지 또는 방화벽 요구 사항에 따라 필요한 경우 특정 TCP 포트에서 수신 대기하도록 서비스를 구성할 수 있습니다.
+Azure AD 암호 보호 DC 에이전트 소프트웨어는 RPC over TCP를 사용하여 프록시 서비스와 통신합니다. 기본적으로 Azure AD 암호 보호 프록시 서비스는 사용 가능한 모든 동적 RPC 엔드포인트에서 수신 대기합니다. 사용자 환경의 네트워킹 토폴로지 또는 방화벽 요구 사항에 따라 필요한 경우 특정 TCP 포트에서 수신 대기하도록 서비스를 구성할 수 있습니다. 정적 포트를 구성하는 경우 포트 135 및 선택한 정적 포트를 열어야 합니다.
 
 <a id="static" /></a>정적 포트에서 실행되도록 서비스를 구성하려면 다음과 같이 `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet을 사용합니다.
 

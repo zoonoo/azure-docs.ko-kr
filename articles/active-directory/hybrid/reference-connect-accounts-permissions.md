@@ -6,23 +6,22 @@ documentationcenter: ''
 author: billmath
 manager: daveba
 editor: ''
-ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/04/2021
+ms.date: 06/02/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f7466931537745fb188a3bdb05646bff19912e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b24375cd3c5566a1da4d4e1876844d6984c7985
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466255"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965864"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
 
@@ -81,6 +80,8 @@ DirSync에서 업그레이드하는 경우 AD DS Enterprise 관리자 자격 증
 
 ### <a name="azure-ad-global-admin-credentials"></a>Azure AD 전역 관리자 자격 증명
 이러한 자격 증명은 설치 중에 사용되고 설치가 완료된 후에 사용되지 않습니다. Azure AD에 대한 변경 내용을 동기화하기 위해 사용된 Azure AD Connect 계정을 만드는 데 사용됩니다. 또한 계정을 사용하면 Azure AD에서 기능으로 동기화할 수 있습니다.
+
+전역 관리자 계정에 대한 자세한 내용은 [전역 관리자](../../active-directory/roles/permissions-reference.md#global-administrator)를 참조하세요.
 
 ### <a name="ad-ds-connector-account-required-permissions-for-express-settings"></a>기본 설정에 대한 AD DS Connect 계정 필수 권한
 AD DS Connector 계정은 Windows Server AD에서 읽고 쓰기 위해 만들어지며, 기본 설정에 의해 생성될 경우 다음과 같은 사용 권한을 갖습니다.
@@ -197,8 +198,8 @@ Connect의 2017년 3월 이전 빌드를 사용하는 경우에는 서비스 계
 - 굵지 않은 글꼴 - 지원되는 옵션
 - 로컬 계정 - 서버의 로컬 사용자 계정
 - 도메인 계정 - 도메인 사용자 계정
-- sMSA - [독립 실행형 관리 서비스 계정](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
-- gMSA - [그룹 관리 서비스 계정](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))
+- sMSA - [독립 실행형 관리 서비스 계정](../../active-directory/fundamentals/service-accounts-on-premises.md)
+- gMSA - [그룹 관리 서비스 계정](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>사용자 지정 | 원격 SQL</br>사용자 지정 |
 | --- | --- | --- | --- |
@@ -215,11 +216,11 @@ VSA는 동기화 엔진과 SQL이 동일한 서버에 있는 시나리오에서 
 이 기능을 사용하려면 Windows Server 2008 R2 이상이 필요합니다. Windows Server 2008에 Azure AD Connect를 설치하는 경우에는 설치가 [사용자 계정](#user-account)을 대신 사용하도록 대체됩니다.
 
 #### <a name="group-managed-service-account"></a>그룹 관리 서비스 계정
-원격 SQL Server를 사용하는 경우에는 **그룹 관리 서비스 계정** 을 사용하는 것이 좋습니다. 그룹 관리 서비스 계정에 대해 Active Directory를 준비하는 방법에 대한 자세한 내용은 [그룹 관리 서비스 계정 개요](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))를 참조하세요.
+원격 SQL Server를 사용하는 경우에는 **그룹 관리 서비스 계정** 을 사용하는 것이 좋습니다. 그룹 관리 서비스 계정에 대해 Active Directory를 준비하는 방법에 대한 자세한 내용은 [그룹 관리 서비스 계정 개요](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)를 참조하세요.
 
 이 옵션을 사용하려면 [필수 구성 요소 설치](how-to-connect-install-custom.md#install-required-components) 페이지에서 **기존 서비스 계정 사용** 을 선택하고 **관리 서비스 계정** 을 선택합니다.  
 ![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  
-[독립 실행형 관리 서비스 계정](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))을 사용하는 것도 지원됩니다. 하지만 이 계정은 로컬 컴퓨터에서만 사용할 수 있기 때문에 기본 가상 서비스 계정 대신 이 계정을 사용할만한 장점이 없습니다.
+[독립 실행형 관리 서비스 계정](../../active-directory/fundamentals/service-accounts-on-premises.md)을 사용하는 것도 지원됩니다. 하지만 이 계정은 로컬 컴퓨터에서만 사용할 수 있기 때문에 기본 가상 서비스 계정 대신 이 계정을 사용할만한 장점이 없습니다.
 
 이 기능을 사용하려면 Windows Server 2012 이상이 필요합니다. 이전 운영 체제를 사용해야 하고 원격 SQL을 사용하는 경우에는 [사용자 계정](#user-account)을 사용해야 합니다.
 

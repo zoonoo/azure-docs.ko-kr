@@ -1,31 +1,30 @@
 ---
-title: AutoML을 사용하여 모델 만들기 및 배포
+title: Studio UI를 사용하여 AutoML 설정
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 스튜디오를 사용하여 자동화된 Machine Learning 모델을 만들고, 검토하고, 배포합니다.
+description: Azure Machine Learning 스튜디오에서 Azure Machine Learning 자동화 ML을 사용하여 코드 줄 없이도 AutoML 학습 실행을 설정하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: nibaccam
-author: aniththa
+author: cartacioS
 ms.reviewer: nibaccam
-ms.date: 12/20/2020
-ms.topic: conceptual
-ms.custom: how-to, automl
-ms.openlocfilehash: 2e06375441d6540d6630cfe9d4d8c3beec558879
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 06/11/2021
+ms.topic: how-to
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: 3bf83c31c10245cb64a047c9d856489a4e0ce71a
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562725"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030758"
 ---
-# <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 자동화된 Machine Learning 모델 만들기, 검토 및 배포
+# <a name="set-up-no-code-automl-training-with-the-studio-ui"></a>스튜디오 UI를 사용하여 코드 없는 AutoML 학습 설정 
 
+이 문서에서는 [Azure Machine Learning 스튜디오](overview-what-is-machine-learning-studio.md)에서 Azure Machine Learning 자동화 ML을 사용하여 코드 줄 없이도 AutoML 학습 실행을 설정하는 방법을 알아봅니다.
 
-이 문서에서는 Azure Machine Learning 스튜디오에서 코드를 한 줄도 쓰지 않고 자동화된 Machine Learning 모델을 만들고, 검색하고, 배포하는 방법에 대해 알아봅니다.
-
-자동화된 Machine Learning은 특정 데이터에 사용할 가장 적합한 기계 학습 알고리즘을 선택하는 프로세스입니다. 이 프로세스를 통해 기계 학습 모델을 빠르게 생성할 수 있습니다. [자동화된 Machine Learning에 대해 자세히 알아보세요](concept-automated-ml.md).
+AutoML(자동화된 Machine Learning)은 특정 데이터에 사용할 가장 적합한 기계 학습 알고리즘을 선택하는 프로세스입니다. 이 프로세스를 통해 기계 학습 모델을 빠르게 생성할 수 있습니다. [Azure Machine Learning이 자동화된 Machine Learning을 구현하는 방법을 자세히 알아보세요](concept-automated-ml.md).
  
-엔드투엔드 예제의 경우 [Azure Machine Learning의 자동화된 ML 인터페이스를 사용하여 분류 모델을 만드는 자습서](tutorial-first-experiment-automated-ml.md)를 사용해 보세요. 
+종단 간 예제를 보려면 [자습서: AutoML-코드 없이 분류 모델 학습](tutorial-first-experiment-automated-ml.md)을 사용해보세요. 
 
 Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여 [자동화된 Machine Learning 실험을 구성](how-to-configure-auto-train.md)하세요.
 
@@ -47,7 +46,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
  실험을 처음 수행하는 경우 자동화된 빈 목록과 설명서에 대한 링크가 표시됩니다. 
 
-그렇지 않으면 SDK를 사용하여 만든 실험을 포함하여 최근에 자동화된 Machine Learning 실험의 목록이 표시됩니다. 
+그렇지 않으면 SDK로 생성된 실험을 포함하여 최근에 자동화된 ML 실험 목록이 표시됩니다. 
 
 ## <a name="create-and-run-experiment"></a>실험 만들기 및 실행
 
@@ -180,15 +179,23 @@ Included | 학습에 포함할 열을 지정합니다.
 
 [![반복 세부 정보](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
-## <a name="model-explanations"></a>모델 설명
 
-모델을 더 잘 이해하려면 모델 설명 대시보드를 사용하여 모델의 예측에 영향을 주는 데이터 기능(원시 또는 엔지니어링)을 참조하세요. 
+데이터 변환 탭에서 이 모델을 생성하기 위해 적용된 데이터 전처리, 기능 엔지니어링, 크기 조정 기술 및 기계 학습 알고리즘에 대한 다이어그램을 볼 수 있습니다.
 
-모델 설명 대시보드는 예측 및 설명과 함께 학습된 모델의 전체적인 분석을 제공합니다. 또한 개별 데이터 포인트와 개별 기능 중요도를 자세히 살펴볼 수 있습니다. [설명 대시보드 시각화 및 특정 플롯에 대해 자세히 알아보세요](how-to-machine-learning-interpretability-aml.md#visualizations).
+>[!IMPORTANT]
+> 데이터 변환 탭은 미리 보기로 제공됩니다. 이 기능은 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental)으로 간주되어야 하며 언제든지 변경할 수 있습니다.
+
+![데이터 변환](./media/how-to-use-automated-ml-for-ml-models/data-transformation.png)
+
+## <a name="model-explanations-preview"></a>모델 설명(미리 보기)
+
+모델을 더 잘 이해하려면 모델 설명 대시보드를 사용하여 모델의 예측에 영향을 주는 데이터 기능(원시 또는 엔지니어링)을 확인할 수 있습니다. 
+
+모델 설명 대시보드는 예측 및 설명과 함께 학습된 모델의 전체적인 분석을 제공합니다. 또한 개별 데이터 포인트와 개별 기능 중요도를 자세히 살펴볼 수 있습니다. [설명 대시보드 시각화에 대해 자세히 알아보세요](how-to-machine-learning-interpretability-aml.md#visualizations).
 
 특정 모델에 대한 설명을 보려면 다음을 수행합니다. 
 
-1. **모델** 탭에서 사용하려는 모델을 선택합니다. 
+1. **모델** 탭에서 살펴볼 모델을 선택합니다. 
 1. **모델 설명** 단추를 선택하고 설명을 생성하는 데 사용할 수 있는 컴퓨팅을 제공합니다.
 1. **자식 실행** 탭에서 상태를 확인합니다. 
 1. 완료되면 설명 대시보드가 포함된 **설명(미리 보기)** 탭으로 이동합니다. 

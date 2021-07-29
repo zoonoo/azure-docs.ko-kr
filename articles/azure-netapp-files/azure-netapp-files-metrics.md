@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 05/06/2021
 ms.author: b-juche
-ms.openlocfilehash: b581470a886ff73739edfee7f45c64295eeeb1f0
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: e16e95bbb65bde6c4c0b38b9c68c0f7287b8b9b3
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388614"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795585"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Azure NetApp Files에 대한 메트릭
 
@@ -60,6 +60,9 @@ Azure NetApp Files는 할당된 스토리지, 실제 스토리지 사용량, 볼
 
 ## <a name="performance-metrics-for-volumes"></a>볼륨에 대한 성능 메트릭
 
+> [!NOTE] 
+> *평균 읽기 대기 시간* 및 *평균 쓰기 대기 시간* 에 대한 볼륨 대기 시간은 스토리지 서비스 내에서 측정되며 네트워크 대기 시간을 포함하지 않습니다.
+
 - ‘평균 읽기 대기 시간’   
     볼륨에서 읽기의 평균 시간(밀리초)입니다.
 - ‘평균 쓰기 대기 시간’   
@@ -68,24 +71,6 @@ Azure NetApp Files는 할당된 스토리지, 실제 스토리지 사용량, 볼
     볼륨에 대한 초당 읽기 수입니다.
 - ‘쓰기 IOPS’   
     초당 볼륨에 대한 쓰기 수입니다.
-<!-- These two metrics are not yet available, until ~ 2020.09
-- *Read MiB/s*   
-    Read throughput in bytes per second.
-- *Write MiB/s*   
-    Write throughput in bytes per second.
---> 
-<!-- ANF-4128; 2020.07
-- *Pool Provisioned Throughput*   
-    The total throughput a capacity pool can provide to its volumes based on "Pool Provisioned Size" and "Service Level".
-- *Pool Allocated to Volume Throughput*   
-    The total throughput allocated to volumes in a given capacity pool (that is, the total of the volumes' allocated throughput in the capacity pool).
--->
-
-<!-- ANF-6443; 2020.11
-- *Pool Consumed Throughput*    
-    The total throughput being consumed by volumes in a given capacity pool.
--->
-
 
 ## <a name="volume-replication-metrics"></a><a name="replication"></a>볼륨 복제 메트릭
 
@@ -113,6 +98,32 @@ Azure NetApp Files는 할당된 스토리지, 실제 스토리지 사용량, 볼
 
 - ‘볼륨 복제 총 전송’   
     관계에 대해 전송된 누적 바이트 수입니다. 
+
+## <a name="throughput-metrics-for-capacity-pools"></a>용량 풀에 대한 처리량 메트릭   
+
+* *볼륨 처리량에 할당된 풀*    
+    지정된 용량 풀의 볼륨에 할당된 총 처리량입니다. 즉, 용량 풀에서 볼륨에 할당된 처리량의 합계입니다.   
+
+* *풀 사용 처리량*   
+    지정된 용량 풀의 볼륨에서 소비하는 총 처리량입니다.   
+
+* *볼륨에 할당된 풀 처리량 비율*   
+    볼륨에 할당된 용량 풀 프로비전 처리량의 백분율입니다.   
+
+* *풀 사용 처리량 비율*    
+    볼륨에서 소비한 용량 풀 프로비전 처리량의 백분율입니다.
+
+## <a name="throughput-metrics-for-volumes"></a>볼륨에 대한 처리량 메트릭   
+
+*  *볼륨 할당 처리량*    
+    볼륨에 할당된 부모 용량 풀 처리량(MiB/s)입니다. 볼륨에서 소비할 수 있는 최대 처리량입니다.
+
+* *볼륨 소비 처리량*    
+    볼륨이 활용하는 실제 처리량(MiB/s)입니다.
+
+* *볼륨 소비 처리량 비율*   
+    볼륨이 소비하는 할당된 처리량의 백분율입니다. 즉, *볼륨 소비 처리량* 을 *볼륨 할당 처리량* 의 백분율로 나타낸 것입니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 84338f81f5f75665c0aa874a0da16786887b4422
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 84fbea3d7d38e16a2069c40a459d5f86e7412a09
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897436"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739046"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Azure Machine Learning을 사용하는 보충 학습(미리 보기)
 
@@ -42,7 +42,7 @@ ms.locfileid: "107897436"
 
  - Azure Machine Learning 컴퓨팅 인스턴스
 
-     - [자습서: 환경 및 작업 영역 설정](tutorial-1st-experiment-sdk-setup.md)에서 Notebook 샘플을 복제하는 방법을 알아봅니다.
+     - [자습서: 환경 및 작업 영역 설정](tutorial-train-models-with-aml.md)에서 Notebook 샘플을 복제하는 방법을 알아봅니다.
          - **tutorials** 대신 **how-to-use-azureml** 폴더를 복제합니다.
      - `/how-to-use-azureml/reinforcement-learning/setup/devenv_setup.ipynb`에 있는 가상 네트워크 설치 Notebook을 실행하여 분산된 보충 학습에 사용되는 네트워크 포트를 엽니다.
      - `/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb` Notebook 샘플을 실행합니다.
@@ -432,7 +432,7 @@ run.wait_for_completion()
 
 자식 실행 로그를 찾아보면 driver_log.txt 파일에 기록된 평가 결과를 확인할 수 있습니다. 실행 페이지에서 이러한 메트릭을 사용할 수 있을 때까지 몇 분 정도 기다려야 할 수 있습니다.
 
-간단한 작업에서 컴퓨터를 상대로 하여 Pong을 매우 효율적으로 플레이할 수 있도록 보충 학습 에이전트를 학습시키기 위해 여러 컴퓨팅 리소스를 구성하는 방법을 알아보았습니다.
+간단한 작업에서 컴퓨터를 상대로 하여 Pong을 매우 효율적으로 플레이할 수 있도록 강화 학습 에이전트를 학습시키기 위해 여러 컴퓨팅 리소스를 구성하는 방법을 알아보았습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
