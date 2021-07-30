@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 06/01/2020
 ms.author: kegorman
-ms.openlocfilehash: b27db94775e2ba8275dbdab4bf5bd61cc0fdf5c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04a3fb9e4e7dd1d498714cd3b2ebd4c5f6b55bec
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666878"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210349"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Microsoft Azure와 Oracle 클라우드 인프라를 통합하는 Oracle 애플리케이션 솔루션
 
@@ -50,6 +50,8 @@ Oracle 솔루션을 완전히 Azure 인프라에 배포하는 데 관심이 있�
 * Azure 서유럽(WestEurope) 및 OCI 암스테르담(네덜란드 북서부)
 * Azure 일본 동부(JapanEast) 및 OCI 도쿄(일본 동부)
 * Azure 미국 서부(WestUS) 및 OCI 산호세(미국 서부)
+* 독일 중서부(프랑크푸르트) 및 OCI 독일 중부(프랑크푸르트)
+
 
 ## <a name="networking"></a>네트워킹
 

@@ -1,18 +1,52 @@
 ---
 title: Azure Arc 지원 서버 에이전트 연결 이슈 해결
 description: 이 문서에서는 서비스에 연결할 때 Azure Arc 지원 서버에서 발생하는 Connected Machine 에이전트 관련 이슈를 해결하는 방법을 설명합니다.
-ms.date: 09/02/2020
+ms.date: 04/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: 36feb6a65ec52d99dfd664ae54cb099ea6a7e239
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae26b599a72129b5ed7f47d76d10353be5c0e8ac
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90900676"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107498002"
 ---
-# <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Connected Machine 에이전트 연결 이슈 해결
+# <a name="troubleshoot-azure-arc-enabled-servers-agent-connection-issues"></a>Azure Arc 지원 서버 에이전트 연결 이슈 해결
 
 이 문서에서는 Windows 또는 Linux용 Azure Arc 지원 서버 Connected Machine 에이전트를 구성하는 동안 발생할 수 있는 이슈를 해결하는 방법에 대한 정보를 제공합니다. 서비스 연결을 구성하는 경우의 대화형 및 대규모 설치 방법이 모두 포함되어 있습니다. 일반적인 내용은 [Arc 지원 서버 개요](./overview.md)를 참조하세요.
+
+## <a name="agent-error-codes"></a>에이전트 오류 코드
+
+Azure Arc 사용 서버 에이전트를 구성할 때 오류가 발생하는 경우 다음 표는 문제를 해결하기 위해 가능한 원인과 제안된 단계를 확인하는 데 도움이 될 수 있습니다. 계속하려면 콘솔 또는 스크립트 출력에 출력된 `AZCM0000`("0000"은 4자리 숫자일 수 있음) 오류 코드가 필요합니다.
+
+| 오류 코드 | 가능한 원인: | 제안된 수정 사항 |
+|------------|----------------|-----------------------|
+| AZCM0000 | 작업이 성공적으로 완료되었습니다. | 해당 없음 |
+| AZCM0001 | 알 수 없는 오류가 발생했습니다. | 추가 지원이 필요하면 Microsoft 지원에 문의합니다. |
+| AZCM0011 | 사용자가 작업을 취소했습니다(CTRL+C). | 이전 명령을 다시 시도합니다. |
+| AZCM0012 | 제공된 액세스 토큰이 잘못되었습니다. | 새 액세스 토큰을 얻고 다시 시도합니다. |
+| AZCM0013 | 제공된 태그가 잘못되었습니다. | 태그를 쉼표로 구분하여 큰따옴표로 묶고, 공백이 있는 이름 또는 값을 작은따옴표로 묶었는지 확인합니다(`--tags "SingleName='Value with spaces',Location=Redmond"`).
+| AZCM0014 | 클라우드가 잘못되었습니다. | 지원되는 클라우드(`AzureCloud` 또는 `AzureUSGovernment`)를 지정합니다. |
+| AZCM0015 | 지정된 상관 관계 ID가 올바른 GUID가 아닙니다. | 올바른 GUID를 `--correlation-id`에 제공합니다. |
+| AZCM0016 | 필수 매개 변수가 없습니다. | 출력을 검토하여 누락된 매개 변수를 확인합니다. |
+| AZCM0017 | 리소스 이름이 잘못되었습니다. | 영숫자, 하이픈 및/또는 밑줄만 사용하는 이름을 지정합니다. 이름은 하이픈 또는 밑줄로 끝날 수 없습니다. |
+| AZCM0018 | 명령이 관리자 권한을 사용하지 않고 실행되었습니다. | 관리자 권한 명령 프롬프트 또는 콘솔 세션에서 관리자 또는 루트 권한으로 명령을 다시 시도합니다. |
+| AZCM0041 | 제공된 자격 증명이 잘못되었습니다. | 디바이스 로그인의 경우 서버 리소스가 만들어질 테넌트 및 구독에 대한 액세스 권한이 지정된 사용자 계정에 있는지 확인합니다. 서비스 주체 로그인의 경우 클라이언트 ID와 비밀이 정확한지 확인하고, 비밀 만료 날짜를 확인하고, 서버 리소스를 만들 동일한 테넌트에서 서비스 주체가 제공되었는지 확인합니다. |
+| AZCM0042 | Arc 사용 서버 리소스를 만들지 못했습니다. | 지정된 리소스 그룹에서 Arc 사용 서버 리소스를 만들 수 있는 액세스 권한이 지정된 사용자/서비스 주체에 있는지 확인합니다. |
+| AZCM0043 | Arc 사용 서버 리소스를 삭제하지 못했습니다. | 지정된 리소스 그룹에서 Arc 사용 서버 리소스를 삭제할 수 있는 액세스 권한이 지정된 사용자/서비스 주체에 있는지 확인합니다. 리소스가 더 이상 Azure에 없으면 `--force-local-only` 플래그를 사용하여 계속 진행합니다. |
+| AZCM0044 | 이름이 같은 리소스가 이미 있습니다. | 다른 이름을 `--resource-name` 매개 변수에 지정하거나 Azure에서 기존 Arc 사용 서버를 삭제하고 다시 시도합니다. |
+| AZCM0061 | 에이전트 서비스에 연결할 수 없습니다. | 관리자 권한 사용자 컨텍스트(관리자/루트)에서 명령을 실행하고 HIMDS 서비스가 서버에서 실행되는지 확인합니다. |
+| AZCM0062 | 서버를 연결하는 동안 오류가 발생했습니다. | 출력에서 다른 오류 코드를 검토하여 더 구체적인 정보를 확인합니다. Azure 리소스를 만든 후에 오류가 발생한 경우 먼저 리소스 그룹에서 Arc 서버를 삭제한 후에 다시 시도해야 합니다. |
+| AZCM0063 | 서버 연결을 끊는 동안 오류가 발생했습니다. | 출력에서 다른 오류 코드를 검토하여 더 구체적인 정보를 확인합니다. 이 오류가 계속 발생하면 Azure에서 리소스를 삭제한 다음, 서버에서 `azcmagent disconnect --force-local-only`를 실행하여 에이전트의 연결을 끊을 수 있습니다. |
+| AZCM0064 | 에이전트 서비스에서 응답하지 않습니다. | `himds` 서비스의 상태를 확인하여 서비스가 실행되고 있는지 확인합니다. 실행되고 있지 않으면 서비스를 시작합니다. 실행되고 있으면 잠시 기다린 후 다시 시도합니다. |
+| AZCM0065 | 내부 에이전트 통신 오류가 발생했습니다. | 지원이 필요하면 Microsoft 지원에 문의합니다. |
+| AZCM0066 | 에이전트 웹 서비스가 응답하지 않거나 사용할 수 없습니다. | 지원이 필요하면 Microsoft 지원에 문의합니다. |
+| AZCM0067 | 에이전트가 이미 Azure에 연결되어 있습니다. | 먼저 [에이전트 연결 끊기](manage-agent.md#unregister-machine)의 단계를 수행한 다음, 다시 시도합니다. |
+| AZCM0068 | Azure에서 서버 연결을 끊는 동안 내부 오류가 발생했습니다. | 지원이 필요하면 Microsoft 지원에 문의합니다. |
+| AZCM0081 | Azure Active Directory 관리 ID 인증서를 다운로드하는 동안 오류가 발생했습니다. | 서버를 Azure에 연결하려고 시도하는 동안 이 메시지가 표시되면 에이전트에서 Azure Arc 서비스와 통신할 수 없습니다. Azure에서 리소스를 삭제하고 연결을 다시 시도합니다. |
+| AZCM0101 | 명령이 구문 분석되지 않았습니다. | `azcmagent <command> --help`를 실행하여 올바른 명령 구문을 검토합니다. |
+| AZCM0102 | 컴퓨터 호스트 이름을 검색할 수 없습니다. | `hostname`을 실행하여 시스템 수준 오류 메시지를 확인한 다음, Microsoft 지원에 문의합니다. |
+| AZCM0103 | RSA 키를 생성하는 동안 오류가 발생했습니다. | 지원이 필요하면 Microsoft 지원에 문의합니다. |
+| AZCM0104 | 시스템 정보를 읽지 못했습니다. | 시스템에 대한 관리자/루트 권한이 `azcmagent`를 실행하는 데 사용되는 ID에 있는지 확인하고 다시 시도합니다. |
 
 ## <a name="agent-verbose-log"></a>에이전트 자세한 정보 로그
 
@@ -67,7 +101,7 @@ azcmagent connect \
 
 다음 표에는 몇 가지 알려진 오류 및 문제 해결 방법에 대한 제안 사항이 나와 있습니다.
 
-|메시지 |Error |가능한 원인: |솔루션 |
+|메시지 |오류 |가능한 원인: |해결 방법 |
 |--------|------|---------------|---------|
 |권한 부여 토큰 디바이스 흐름을 가져오지 못함 |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is unreachable.` |`login.windows.net` 엔드포인트에 연결할 수 없음 | 엔드포인트 연결을 확인합니다. |
 |권한 부여 토큰 디바이스 흐름을 가져오지 못함 |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is Forbidden`. |프록시 또는 방화벽에서 `login.windows.net` 엔드포인트에 대한 액세스를 차단하고 있습니다. | 엔드포인트 연결을 확인하고 방화벽 또는 프록시 서버에서 차단되지 않았는지 확인합니다. |

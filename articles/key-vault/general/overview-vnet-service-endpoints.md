@@ -4,17 +4,16 @@ description: 사용 시나리오를 포함하여 Azure Key Vault의 가상 네�
 services: key-vault
 author: amitbapat
 ms.author: ambapat
-manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: ae22f07a70f3317b62776e5024b7a3d1084516a1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1bb2b8bc7e55dde7c6fa9098640109f85bebce23
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643487"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065424"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault의 가상 네트워크 서비스 엔드포인트
 
@@ -27,7 +26,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 기본적으로 모든 네트워크(인터넷 트래픽 포함)의 트래픽에 대한 액세스를 거부하도록 [Key Vault 방화벽 및 가상 네트워크](network-security.md)를 구성할 수 있습니다. 특정 Azure 가상 네트워크 및 공용 인터넷 IP 주소 범위의 트래픽에 대한 액세스 권한을 부여하여 애플리케이션에 대한 보안 네트워크 경계를 빌드하도록 할 수 있습니다.
 
 > [!NOTE]
-> Key Vault 방화벽 및 가상 네트워크 규칙은 Key Vault의 [데이터 평면](secure-your-key-vault.md#data-plane-access-control)에만 적용됩니다. Key Vault 제어 평면 작업(예: 작업 만들기, 삭제 및 수정, 액세스 정책 설정, 방화벽 및 가상 네트워크 규칙 설정, ARM 템플릿을 통한 비밀 또는 키 배포)은 방화벽 및 가상 네트워크 규칙의 영향을 받지 않습니다.
+> Key Vault 방화벽 및 가상 네트워크 규칙은 Key Vault의 [데이터 평면](security-features.md#privileged-access)에만 적용됩니다. Key Vault 제어 평면 작업(예: 작업 만들기, 삭제 및 수정, 액세스 정책 설정, 방화벽 및 가상 네트워크 규칙 설정, ARM 템플릿을 통한 비밀 또는 키 배포)은 방화벽 및 가상 네트워크 규칙의 영향을 받지 않습니다.
 
 서비스 엔드포인트를 사용할 수 있는 방법의 몇 가지 예는 다음과 같습니다.
 
@@ -54,12 +53,13 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 |Azure Synapse Analytics|[Azure Key Vault에서 고객 관리형 키를 사용하여 데이터 암호화](../../synapse-analytics/security/workspaces-encryption.md)|
 |Azure Databricks|[빠르고 쉬우며 공동 작업이 가능한 Apache Spark 기반 분석 서비스](/azure/databricks/scenarios/what-is-azure-databricks)|
 |Azure API Management|[MSI를 사용하여 Key Vault에서 사용자 지정 도메인에 대한 인증서 배포](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
-|Azure 데이터 팩터리|[Data Factory에서 Key Vault의 데이터 저장소 자격 증명 페치](https://go.microsoft.com/fwlink/?linkid=2109491)|
+|Azure Data Factory|[Data Factory에서 Key Vault의 데이터 저장소 자격 증명 페치](https://go.microsoft.com/fwlink/?linkid=2109491)|
 |Azure Event Hubs|[고객 관리형 키 시나리오에 대한 키 자격 증명 모음에 액세스 허용](../../event-hubs/configure-customer-managed-key.md)|
 |Azure Service Bus|[고객 관리형 키 시나리오에 대한 키 자격 증명 모음에 액세스 허용](../../service-bus-messaging/configure-customer-managed-key.md)|
 |Azure Import/Export| [Azure Key Vault에서 Import/Export 서비스에 고객 관리형 키 사용](../../import-export/storage-import-export-encryption-key-portal.md)
 |Azure Container Registry|[고객 관리형 키를 사용한 레지스트리 암호화](../../container-registry/container-registry-customer-managed-keys.md)
 |Azure Application Gateway |[HTTPS 사용 수신기에 Key Vault 인증서 사용](../../application-gateway/key-vault-certs.md)
+|Azure Front Door|[HTTPS용 Key Vault 인증서 사용](../../frontdoor/front-door-custom-domain-https.md#prepare-your-azure-key-vault-account-and-certificate)
 
 > [!NOTE]
 > 해당 서비스가 Key Vault에 액세스할 수 있도록 하려면 관련 Key Vault 액세스 정책을 설정해야 합니다.
@@ -67,4 +67,4 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 ## <a name="next-steps"></a>다음 단계
 
 - 단계별 지침은 [Key Vault 방화벽 및 가상 네트워크 구성](network-security.md)을 참조하세요.
-- [Azure Key Vault 보안 개요](security-overview.md)를 참조하세요.
+- [Azure Key Vault 보안 개요](security-features.md)를 참조하세요.

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: anfeldma
-ms.openlocfilehash: b1f2efa887fb56d555f354c6d0a3262a7f178e29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f35e0fcf369616e5e95ce41554370e2bb7b604d
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577141"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109632640"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,7 +30,8 @@ ms.locfileid: "104577141"
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark 커넥터](sql-api-sdk-java-spark.md)
+> * [Spark 3 OLTP 커넥터](sql-api-sdk-java-spark-v3.md)
+> * [Spark 2 OLTP 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api
 > * [REST 리소스 공급자](/rest/api
@@ -43,7 +44,7 @@ ms.locfileid: "104577141"
 |**SDK 다운로드**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**API 설명서**|[피드 프로세서 라이브러리 API 참조 문서 변경](/dotnet/api/microsoft.azure.documents.changefeedprocessor)|
 |**시작**|[변경 피드 프로세서 .NET SDK 시작](change-feed.md)|
-|**현재 지원되는 프레임워크**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
+|**현재 지원되는 프레임워크**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://dotnet.microsoft.com/download) |
 
 > [!NOTE]
 > 변경 피드 프로세서를 사용하는 경우 SDK에 변경 피드가 기본으로 제공되는 [.NET SDK](change-feed-processor.md)의 최신 3.x 버전을 참조하세요. 
@@ -51,6 +52,10 @@ ms.locfileid: "104577141"
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="v2-builds"></a>v2 빌드
+
+### <a name="240"></a><a id="2.4.0"></a>2.4.0
+* /partitionKey로 정의된 파티션 키로 분할할 수 있는 임대 컬렉션에 대한 지원이 추가되었습니다. 이 변경 전에 임대 컬렉션의 파티션 키는 /id로 정의되어야 합니다.
+* 이 릴리스에서는 Gremlin 컬렉션에 /id로 정의된 파티션 키를 사용할 수 없으므로 Gremlin API에서 임대 컬렉션을 사용할 수 있습니다.
 
 ### <a name="232"></a><a id="2.3.2"></a>2.3.2
 * 핫 마이그레이션 경로를 사용하는 [V3 SDK]와 임대 저장소 호환성을 추가했습니다. 애플리케이션은 V3 SDK로 마이그레이션하고 상태 손실 없이 변경 피드 프로세서 라이브러리로 다시 마이그레이션할 수 있습니다.
@@ -198,6 +203,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.4.0](#2.4.0) |2021년 5월 6일 |--- |
 | [2.3.2](#2.3.2) |2020년 8월 11일 |--- |
 | [2.3.1](#2.3.1) |2020년 7월 30일 |--- |
 | [2.3.0](#2.3.0) |2020년 4월 2일 |--- |

@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 보안
 description: Azure Service Fabric 클러스터에 대한 보안 시나리오 및 이를 구현하는 데 사용할 수 있는 다양한 기술에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/14/2018
-ms.openlocfilehash: 6f7bb785184938fe5c1e20e3c915b0112c7723ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: feeb6bf0844dc9f0d835d934b148484010979441
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96573071"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112034052"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>서비스 패브릭 클러스터 보안 시나리오
 
@@ -30,9 +30,9 @@ Azure에서 실행되는 클러스터 또는 Windows에서 실행되는 독립 �
 
 ### <a name="node-to-node-certificate-security"></a>노드 간 인증서 보안
 
-Service Fabric은 클러스터를 만들 때 노드 유형 구성의 일부로 지정하는 X.509 서버 인증서를 사용합니다. 이 문서의 끝에서 인증서 정보 및 인증서 획득 또는 생성 방법에 대한 간략한 개요를 확인할 수 있습니다.
+Service Fabric은 클러스터를 만들 때 노드 유형 구성의 일부로 지정하는 X.509 서버 인증서를 사용합니다. Azure Portal에서 Azure Resource Manager 템플릿을 사용하거나 독립 실행형 JSON 템플릿을 사용하여 인증서 보안을 설정할 수 있습니다. 이 문서의 끝에서 인증서 정보 및 인증서 획득 또는 생성 방법에 대한 간략한 개요를 확인할 수 있습니다.
 
-Azure Portal에서 Azure Resource Manager 템플릿을 사용하거나 독립 실행형 JSON 템플릿을 사용하여 클러스터를 만들 때 인증서 보안을 설정합니다. Service Fabric SDK의 기본 동작은 향후 만료 날짜에서 가장 멀리 있는 인증서를 배포 및 설치하는 것입니다. 기본 동작은 수동으로 초기화된 롤오버를 허용하도록 기본 및 보조 인증서의 정의를 허용했으며, 새로운 기능에 대해 사용하는 것은 권장되지 않습니다. 사용될 기본 인증서에는 향후 만료 날짜에서 가장 멀리 있는 인증서가 있으며, [클라이언트-노드 보안](#client-to-node-security)에 대해 설정한 관리 클라이언트 및 읽기 전용 클라이언트 인증서와 달라야 합니다.
+Service Fabric SDK의 기본 동작은 향후 만료 날짜에서 가장 먼 인증서를 배포 및 설치하는 것입니다. 기본 인증서는 [클라이언트-노드 보안](#client-to-node-security)에 대해 설정한 관리 클라이언트 및 읽기 전용 클라이언트 인증서와 달라야 합니다. SDK의 클래식 동작은 기본 및 보조 인증서 정의를 허용하여 수동으로 시작된 롤오버를 허용했습니다. 새로운 기능에서는 사용하지 않는 것이 좋습니다. 
 
 Azure의 클러스터에서 인증서 보안을 설정하는 방법을 알아보려면 [Azure Resource Manager 템플릿을 사용하여 클러스터 설정](service-fabric-cluster-creation-via-arm.md)을 참조하세요.
 
@@ -67,11 +67,9 @@ Azure의 클러스터에서 인증서 보안을 설정하는 방법을 알아보
 
 ### <a name="client-to-node-azure-active-directory-security-on-azure"></a>Azure에서 클라이언트-노드 Azure Active Directory 보안
 
-조직(테넌트)에서는 Azure AD를 사용하여 애플리케이션에 대한 사용자 액세스를 관리할 수 있습니다. 애플리케이션은 웹 기반 로그인 UI를 갖는 항목과 네이티브 클라이언트 환경을 갖는 항목으로 나뉩니다. 테넌트를 아직 만들지 않은 경우 [Azure Active Directory 테넌트를 얻는 방법][active-directory-howto-tenant]을 참조하세요.
+조직(테넌트)에서는 Azure AD(Azure Active Directory)를 사용하여 애플리케이션에 대한 사용자 액세스를 관리할 수 있습니다. 애플리케이션은 웹 기반 로그인 UI를 갖는 항목과 네이티브 클라이언트 환경을 갖는 항목으로 나뉩니다. 테넌트를 아직 만들지 않은 경우 [Azure Active Directory 테넌트를 얻는 방법][active-directory-howto-tenant]을 참조하세요.
 
-Service Fabric 클러스터는 웹 기반 [Service Fabric Explorer][service-fabric-visualizing-your-cluster] 및 [Visual Studio][service-fabric-manage-application-in-visual-studio]를 포함하여 관리 기능에 대한 몇 가지 진입점을 제공합니다. 결과적으로 두 개의 Azure AD 애플리케이션(웹 애플리케이션과 네이티브 애플리케이션)을 만들어 클러스터에 대한 액세스를 제어합니다.
-
-Azure에서 실행 중인 클라이언트의 경우 Azure AD(Azure Active Directory)를 사용하여 관리 엔드포인트에 대한 액세스를 보호할 수 있습니다. 필요한 Azure AD 아티팩트를 만드는 방법 및 클러스터를 만들 때 채우는 방법을 알아보려면 [클라이언트를 인증하도록 Azure AD 설정](service-fabric-cluster-creation-setup-aad.md)을 참조하세요.
+Azure에서 실행되는 클러스터의 경우 Azure AD를 사용하여 관리 엔드포인트에 대한 액세스를 보호할 수도 있습니다. Service Fabric 클러스터는 웹 기반 [Service Fabric Explorer][service-fabric-visualizing-your-cluster] 및 [Visual Studio][service-fabric-manage-application-in-visual-studio]를 포함하여 관리 기능에 대한 몇 가지 진입점을 제공합니다. 결과적으로 클러스터에 대한 액세스를 제어하려면 두 개의 Azure AD 애플리케이션(웹 애플리케이션과 네이티브 애플리케이션)을 만듭니다. 필요한 Azure AD 아티팩트를 만드는 방법 및 클러스터를 만들 때 채우는 방법을 알아보려면 [클라이언트를 인증하도록 Azure AD 설정](service-fabric-cluster-creation-setup-aad.md)을 참조하세요.
 
 ## <a name="security-recommendations"></a>보안 권장 사항
 

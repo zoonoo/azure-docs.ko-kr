@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 2/26/2021
-ms.openlocfilehash: f3503dd986f037310b2b24dec535cc05b9d4c4a4
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 05/08/2021
+ms.openlocfilehash: ce78b36a07a0648e869a2a382554fdc41b408f96
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127500"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656329"
 ---
 # <a name="register-and-scan-multiple-sources-in-azure-purview"></a>Azure Purview에서 여러 원본 등록 및 검사
 
@@ -73,7 +73,7 @@ Azure에서는 다음 두 가지 방법으로 여러 원본에 대한 인증을 
 
       :::image type="content" source="media/register-scan-azure-multiple-sources/azure-multiple-source-setup.png" alt-text="구독 및 리소스 그룹을 선택하는 상자를 보여주는 스크린샷.":::
    1. **컬렉션 선택** 상자에서 컬렉션을 선택하거나 새 컬렉션을 만듭니다(선택 사항).
-   1. 그런 다음, **마침** 을 선택하여 데이터 원본을 등록합니다.
+   1. **등록** 을 선택하여 데이터 원본을 등록합니다.
 
 
 ## <a name="create-and-run-a-scan"></a>검사 만들기 및 실행
@@ -135,7 +135,7 @@ Azure에서는 다음 두 가지 방법으로 여러 원본에 대한 인증을 
 
 1. 관리 센터로 이동합니다.
 1. **원본 및 검사** 섹션에서 **데이터 원본** 을 선택한 다음, 원하는 데이터 원본을 선택합니다.
-1. 관리할 검사를 선택합니다. 그런 다음: 
+1. 관리할 검사를 선택합니다. 그렇다면 
 
    - **편집** 을 선택하여 검사를 편집할 수 있습니다.
    - **삭제** 를 선택하여 검사를 삭제할 수 있습니다.

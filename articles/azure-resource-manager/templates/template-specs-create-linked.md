@@ -2,15 +2,16 @@
 title: 연결된 템플릿을 사용하여 템플릿 사양 만들기
 description: 연결된 템플릿을 사용하여 템플릿 사양을 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 01/05/2021
-ms.openlocfilehash: 31764b9adb1d0fc28a170fa2e6b5073812533083
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/04/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c4bcefadab5e9fcf19c06e3469ad077764355dad
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889844"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110696351"
 ---
-# <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>자습서: 연결된 템플릿을 사용하여 템플릿 사양 만들기(미리 보기)
+# <a name="tutorial-create-a-template-spec-with-linked-templates"></a>자습서: 연결된 템플릿을 사용하여 템플릿 사양 만들기.
 
 기본 템플릿과 [연결된 템플릿](linked-templates.md#linked-template)을 사용하여 [템플릿 사양](template-specs.md)을 만드는 방법에 대해 알아봅니다. 템플릿 사양을 사용하여 조직 내 다른 사용자와 ARM 템플릿을 공유합니다. 이 문서에서는 [배포 리소스](/azure/templates/microsoft.resources/deployments)의 `relativePath` 속성을 사용하여 기본 템플릿 및 연결된 템플릿을 패키징하는 템플릿 사양을 만드는 방법을 보여 줍니다.
 
@@ -19,7 +20,7 @@ ms.locfileid: "104889844"
 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> 템플릿 사양은 현재 미리 보기 상태입니다. Azure PowerShell에서 사용하려면 [버전 5.0.0 이상](/powershell/azure/install-az-ps)을 설치해야 합니다. Azure CLI에서 사용하려면 [버전 2.14.2 이상](/cli/azure/install-azure-cli)을 사용합니다.
+> Azure PowerShell에서 템플릿 사양을 사용하려면 [버전 5.0.0 이상](/powershell/azure/install-az-ps)을 설치해야 합니다. Azure CLI에서 사용하려면 [버전 2.14.2 이상](/cli/azure/install-azure-cli)을 사용합니다.
 
 ## <a name="create-linked-templates"></a>연결된 템플릿 만들기
 

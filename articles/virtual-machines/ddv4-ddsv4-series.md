@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: feabdcef9298c93f0cba93d3eeb9ebb0a32d6ef2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 974bff2502fd93527653b7e1fb5890f2c916521c
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560347"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683428"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Ddv4 및 Ddsv4 시리즈
 
@@ -48,7 +48,7 @@ Ddv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake)에�
 | Standard_D48d_v4 | 48 | 192 | 1800 | 32 | 462000/2904 | 8|24000 |
 | Standard_D64d_v4 | 64 | 256 | 2400 | 32 | 615000/3872 | 8|30000 |
 
-<sup>**</sup>해당 IOP 값은 [2세대 VM](generation-2.md)을 사용하여 보장할 수 있습니다.
+<sup>**</sup> 해당 IOP 값은 [Gen2 VM](generation-2.md)을 사용하여 얻을 수 있습니다.
 
 ## <a name="ddsv4-series"></a>Ddsv4 시리즈
 
@@ -79,7 +79,7 @@ Ddsv4 시리즈는 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake)에서 실�
 | Standard_D48ds_v4 | 48 | 192 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 8|24000 |
 | Standard_D64ds_v4 | 64 | 256 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8|30000 |
 
-<sup>**</sup>해당 IOP 값은 [2세대 VM](generation-2.md)을 사용하여 보장할 수 있습니다.
+<sup>**</sup> 해당 IOP 값은 [Gen2 VM](generation-2.md)을 사용하여 얻을 수 있습니다.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

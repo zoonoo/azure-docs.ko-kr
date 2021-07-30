@@ -10,38 +10,36 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/05/2020
+ms.date: 04/21/2021
 ms.author: alkohli
-ms.openlocfilehash: 5b9958f3dd497aa612a92947b8d968439ef9d0e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 289ffbbd3dc23be0060ee5dbe488bf80323214e2
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91575965"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897220"
 ---
 # <a name="install-update-51-on-your-storsimple-device"></a>StorSimple 디바이스에 업데이트 5.1 설치
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 Azure Portal을 통해 이전 소프트웨어 버전을 실행하는 StorSimple 디바이스에 업데이트 5.1을 설치하는 방법을 설명합니다. <!--The hotfix method is used when you are trying to install Update 5.1 on a device running pre-Update 3 versions. The hotfix method is also used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.-->
+이 자습서에서는 Azure Portal 또는 핫픽스 방법을 통해 이전 소프트웨어 버전을 실행하는 StorSimple 디바이스에 업데이트 5.1을 설치하는 방법을 설명합니다.
 
-업데이트 5.1에는 무중단 보안 업데이트가 포함되어 있습니다. Azure Portal을 통해 무중단 또는 정기 업데이트를 적용할 수 있습니다. <!--or by the hotfix method-->.
+업데이트 5.1에는 Azure Portal 또는 핫픽스 방법을 통해 적용될 수 있는 무중단 보안 업데이트가 포함되어 있습니다.
+
+Azure Portal에서 업데이트 5.1을 적용하는 경우 하드웨어 상태 및 네트워크 연결 측면에서 디바이스 상태를 확인하기 위해 수동 및 자동 사전 검사가 수행됩니다. 이러한 사전 검사는 Azure Portal에서 업데이트를 적용할 때만 발생합니다.
+
+핫픽스 방법을 사용할 경우에는 [StorSimple 디바이스에 업데이트 5 설치](storsimple-8000-install-update-5.md) 안내에 따라 업데이트 5를 먼저 설치하는 것이 좋습니다. 그런 다음, 아래에서 [핫픽스로 업데이트 5.1 설치](#install-update-51-as-a-hotfix)의 단계에 따라 업데이트 5.1을 설치합니다.
+
+업데이트 5.1의 보안 업데이트는 설치하는 데 약 30분 정도 걸립니다.
 
 > [!IMPORTANT]
->
 > * 업데이트 5.1은 필수 업데이트로, 즉시 설치해야 합니다. 자세한 내용은 [업데이트 5.1 릴리스 정보](storsimple-update51-release-notes.md)를 참조하세요.
-> * 설치하기 전에 일련의 수동 및 자동 전 검사를 수행하며 하드웨어 상태와 네트워크 연결 측면에서 디바이스 상태를 확인합니다. 사전 검사는 Azure Portal에서 업데이트를 적용하는 경우에만 수행됩니다.
-> * 핫픽스 방법을 사용하여 설치하려면 [Microsoft 지원](mailto:support@microsoft.com)에 문의하세요.
+> * 업데이트 5는 지원되는 최소 버전입니다.
 
-<!--
-> * We strongly recommend that when updating a device running versions prior to Update 3, you install the updates using hotfix method. If you encounter any issues, [log a support ticket](storsimple-8000-contact-microsoft-support.md). 
-
-
-> * We recommend that you install the software and other regular updates via the Azure portal. You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. Depending upon the version you are updating from, the updates may take 4 hours (or greater) to install. The maintenance mode updates must be installed through the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these result in a down time for your device.
-
-
-> * If running the optional StorSimple Snapshot Manager, ensure that you have upgraded your Snapshot Manager version to Update 5.1 prior to updating the device.
--->
+> [!NOTE]
+> * Azure Portal을 통해 소프트웨어 및 기타 정기적인 업데이트를 설치하는 것이 좋습니다. <!--You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. Depending upon the version you are updating from, the updates may take 4 hours (or greater) to install. The maintenance mode updates must be installed through the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these result in a down time for your device. - N/A FOR 5.1? No maintenance mode updates, and the security updates go quickly.-->
+> * 핫픽스 방법을 사용하여 설치하려는 경우 설치를 시작하기 전에 [Microsoft 지원](mailto:support@microsoft.com)에 연락해야 합니다.
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
@@ -78,13 +76,13 @@ ms.locfileid: "91575965"
 
      모든 검사가 성공적으로 완료된 경우에만 업데이트가 다운로드되어 설치됩니다. 검사가 진행 중인 경우 알림이 표시됩니다. 사전 검사가 실패하면 실패한 이유가 표시됩니다. 이러한 문제를 해결한 다음 작업을 다시 시도합니다. 혼자서 이러한 문제를 해결할 수 없는 경우 Microsoft 지원에 문의해야 할 수 있습니다.
 
-7. 사전 검사를 성공적으로 완료한 후 업데이트 작업이 생성됩니다. 업데이트 작업이 성공적으로 만들어지면 알림이 표시됩니다.
+6. 사전 검사를 성공적으로 완료한 후 업데이트 작업이 생성됩니다. 업데이트 작업이 성공적으로 만들어지면 알림이 표시됩니다.
    
     ![“소프트웨어 업데이트 작업 시작”이라는 알림 스크린샷](./media/storsimple-8000-install-update-51/update6.png)
    
     그런 다음 업데이트가 디바이스에 적용됩니다.
 
-9. 업데이트를 완료하는 데 몇 시간이 걸립니다. 업데이트 작업을 선택하고 **세부 정보** 를 클릭하여 언제든지 작업의 세부 정보를 봅니다.
+7. 업데이트를 완료하는 데 몇 시간이 걸립니다. 업데이트 작업을 선택하고 **세부 정보** 를 클릭하여 언제든지 작업의 세부 정보를 봅니다.
 
     ![소프트웨어 업데이트의 다운로드 및 설치가 진행 중입니다. 옵션이 설명선으로 표시된 디바이스 업데이트 블레이드 스크린샷](./media/storsimple-8000-install-update-51/update8.png)
 
@@ -92,79 +90,66 @@ ms.locfileid: "91575965"
 
      ![작업이 설명선으로 표시된 설정 블레이드 및 업데이트 진행률이 표시된 작업 블레이드 스크린샷](./media/storsimple-8000-install-update-51/update7.png)
 
-10. 작업이 완료되면 **디바이스 설정 &gt; 디바이스 업데이트** 로 이동합니다. 이제 소프트웨어 버전이 업데이트됩니다.
+8. 작업이 완료되면 **디바이스 설정 &gt; 디바이스 업데이트** 로 이동합니다. 이제 소프트웨어 버전이 업데이트됩니다.
 
+   디바이스에서 **StorSimple 8000 시리즈 업데이트 5.1(6.3.9600.17885)** 을 실행 중이고 **마지막 업데이트 날짜** 가 오늘 날짜인지 확인합니다.
 
-디바이스에서 **StorSimple 8000 시리즈 업데이트 5.1(6.3.9600.17885)** 를 실행하고 있는지 확인합니다. **마지막 업데이트 날짜** 를 수정해야 합니다.
-<!-- 5.1 - KB 4542887-->
+## <a name="install-update-51-as-a-hotfix"></a>핫픽스로 업데이트 5.1 설치
 
-<!--You will now see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates). The steps to install maintenance mode update are detailed in the next section.
+업데이트 5.1을 핫픽스로 설치하려면 설치를 시작하기 전에 다음 단계를 수행합니다.
 
-[!INCLUDE [storsimple-8000-install-maintenance-mode-updates](../../includes/storsimple-8000-install-maintenance-mode-updates.md)]
+* 업데이트 5.1을 설치하기 전에 업데이트 5를 설치합니다. 자세한 내용은 [StorSimple 디바이스에 업데이트 5 설치](storsimple-8000-install-update-5.md)를 참조하세요.
+* 핫픽스 설치를 시작하기 전에 [Microsoft 지원](mailto:support@microsoft.com)에 연락하세요.
 
-## Install Update 5.1 as a hotfix
+핫픽스 메서드에는 다음 단계가 포함됩니다.
 
-The software versions that can be upgraded using the hotfix method are:
+1. Microsoft Update 카탈로그에서 핫픽스를 다운로드합니다.
+2. 일반 모드 핫픽스를 설치 및 확인합니다.
+3. 유지 관리 모드 핫픽스를 설치 및 확인합니다.
 
-* Update 0.1, 0.2, 0.3
-* Update 1, 1.1, 1.2
-* Update 2, 2.1, 2.2
-* Update 3, 3.1
-* Update 4
-* Update 5
+#### <a name="download-updates-for-your-device"></a>디바이스에 대한 업데이트 다운로드
 
-> [!NOTE]
-> The recommended method to install Update 5.1 is through the Azure portal when trying to update from Update 3 and later version. When updating a device running versions prior to Update 3, use this procedure. You can also use this procedure if you fail the gateway check when trying to install the updates through the Azure portal. The check fails when you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version earlier than Update 1.
+다음 핫픽스를 기술된 순서에 따라 제안된 폴더에 다운로드하고 설치해야 합니다.
 
-The hotfix method involves the following three steps:
+| 주문 | KB       | 설명 | 업데이트 유형 | 설치 시간 |폴더에 설치|
+|-------|----------|------------ |-------------|--------------|----- |
+|1.     |KB4542887|소프트웨어 업데이트<br>_HcsSoftwareUpdate.exe_ 및 _CisMSDAgent.exe_ 를 둘 다 다운로드 |Regular <br></br>중단 없음 |~ 25분 |FirstOrderUpdate|
+|3.<sup>1, 2</sup>     |KB4037263|디스크 펌웨어|유지 관리 <br></br>중단|~ 30분|ThirdOrderUpdate|
 
-1. Download the hotfixes from the Microsoft Update Catalog.
-2. Install and verify the regular mode hotfixes.
-3. Install and verify the maintenance mode hotfix.
+<sup>1</sup> 업데이트 5.1에서는 두 번째 순서 업데이트가 없습니다.
 
-#### Download updates for your device
+<sup>2</sup> 업데이트 5의 핫픽스 업데이트 위에 디스크 펌웨어 업데이트를 설치하지 않은 경우 세 번째 순서 업데이트를 설치합니다.
 
-You must download and install the following hotfixes in the prescribed order and the suggested folders:
+다음 단계에 따라 핫픽스를 다운로드하고 설치합니다.
 
-| Order | KB | Description | Update type | Install time |Install in folder|
-| --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Software update<br> Download both _HcsSoftwareUpdate.exe_ and _CisMSDAgent.exe_ |Regular <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
+#### <a name="download-hotfixes"></a>핫픽스 다운로드
 
-If updating from a device running Update 4, you only need to install the OS cumulative updates as second order updates.
+핫픽스를 다운로드하려면 [핫픽스 다운로드](storsimple-8000-install-update-5.md#to-download-hotfixes)를 참조하세요.
 
-| Order | KB | Description | Update type | Install time |Install in folder|
-| --- | --- | --- | --- | --- | --- |
-| 2A. |KB4025336 |OS cumulative updates package <br> Download Windows Server 2012 R2 version |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
+#### <a name="install-and-verify-device-updates"></a>디바이스 업데이트 설치 및 확인
 
-If installing from a device running Update 3 or earlier, install the following in addition to the cumulative updates.
-
-| Order | KB | Description | Update type | Install time |Install in folder|
-| --- | --- | --- | --- | --- | --- |
-| 2B. |KB4011841 <br> KB4011842 |LSI driver and firmware updates <br> USM firmware update (version 3.38) |Regular <br></br>Non-disruptive |~ 3 hrs <br> (includes 2A. + 2B. + 2C.)|SecondOrderUpdate|
-| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS security updates package <br> Download Windows Server 2012 R2 version |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
-| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |OS updates package <br> Download Windows Server 2012 R2 version |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
-
-
-
-You may also need to install disk firmware updates on top of all the updates shown in the preceding tables. You can verify whether you need the disk firmware updates by running the `Get-HcsFirmwareVersion` cmdlet. If you are running these firmware versions: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, then you do not need to install these updates.
-
-| Order | KB | Description | Update type | Install time | Install in folder|
-| --- | --- | --- | --- | --- | --- |
-| 3. |KB4037263 |Disk firmware |Maintenance <br></br>Disruptive |~ 30 mins | ThirdOrderUpdate |
-
-<br></br>
+**StorSimple 디바이스에 업데이트 5 설치** 에서 [일반 모드 핫픽스 설치 및 확인](storsimple-8000-install-update-5.md#to-install-and-verify-regular-mode-hotfixes)의 단계에 따라 KB4542887의 디바이스 업데이트를 설치합니다.
 
 > [!IMPORTANT]
-> * If updating from Update 4, the total install time is close to 4 hours.
-> * Before using this procedure to apply the update, make sure that both the device controllers are online and all the hardware components are healthy.
+> 아직 [Microsoft 지원](mailto:support@microsoft.com)에 연락하지 않았으면 핫픽스를 설치하기 전 지금 연락해야 합니다.
 
-Perform the following steps to download and install the hotfixes.
+단계에 따라 첫 번째 순서 업데이트를 설치합니다. 업데이트 5.1에는 두 번째 순서 업데이트가 없습니다.
 
-[!INCLUDE [storsimple-install-update5-hotfix](../../includes/storsimple-install-update5-hotfix.md)]
--->
-<!--
-[!INCLUDE [storsimple-8000-install-troubleshooting](../../includes/storsimple-8000-install-troubleshooting.md)]
--->
+업데이트 5.1의 경우 설치 후 다음 소프트웨어 버전을 확인합니다.
+
+ * FriendlySoftwareVersion: StorSimple 8000 시리즈 업데이트 5.1
+ * HcsSoftwareVersion: 6.3.9600.17885
+ * CisAgentVersion: 1.0.9777.0
+ * MdsAgentVersion: 35.2.2.0
+ * Lsisas2Version: 2.0.78.00
+
+#### <a name="install-and-verify-disk-firmware-updates"></a>디스크 펌웨어 업데이트 설치 및 확인
+
+업데이트 5를 설치할 때 디스크 펌웨어 업데이트를 설치하지 않았으면 **StorSimple 디바이스에 업데이트 5 설치** 에서 [일반 모드 핫픽스 설치 및 확인](storsimple-8000-install-update-5.md#to-install-and-verify-maintenance-mode-hotfixes)의 단계에 따라 KB4037263의 디스크 펌웨어 업데이트를 설치합니다.
+
+`XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107` 펌웨어 버전을 실행하는 경우 디스크 펌웨어 업데이트를 설치할 필요가 없습니다.
+
+디스크 펌웨어 업데이트가 필요한지 확인하려면 `Get-HcsFirmwareVersion` cmdlet을 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

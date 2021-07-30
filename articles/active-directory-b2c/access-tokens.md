@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 05/26/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a633a7656a287c0b8df050b6d14afb73c27a7460
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: df14f8fef3c5f71d5d80756eb629fc3ce5f16a74
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106382144"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110534568"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 액세스 토큰 요청
 
@@ -25,7 +25,7 @@ ms.locfileid: "106382144"
 이 문서에서는 웹 애플리케이션 및 Web API에 대한 액세스 토큰을 요청하는 방법을 보여 줍니다. Azure AD B2C의 토큰에 대한 자세한 내용은 [Azure Active Directory B2C의 토큰 개요](tokens-overview.md)를 참조하세요.
 
 > [!NOTE]
-> **Azure AD B2C에서는 Web API 체인(On-Behalf-Of)을 지원하지 않습니다.** - 많은 아키텍처에는 다른 다운스트림 웹 API를 호출해야 하는 Web API가 포함되어 있으며 둘 다 Azure AD B2C로 보안됩니다. 이 시나리오는 다른 서비스를 호출하는 Web API 백 엔드가 있는 클라이언트에서 일반적입니다. On-Behalf-Of 흐름이라고도 하는 OAuth 2.0 JWT 전달자 자격 증명 권한 부여를 사용하여 이 연결된 웹 API 시나리오를 지원할 수 있습니다. 그러나 On-Behalf-Of 흐름은 현재 Azure AD B2C에 구현되어 있지 않습니다.
+> **Azure AD B2C에서는 Web API 체인(On-Behalf-Of)을 지원하지 않습니다.** - 많은 아키텍처에는 다른 다운스트림 웹 API를 호출해야 하는 Web API가 포함되어 있으며 둘 다 Azure AD B2C로 보안됩니다. 이 시나리오는 다른 서비스를 호출하는 Web API 백 엔드가 있는 클라이언트에서 일반적입니다. On-Behalf-Of 흐름이라고도 하는 OAuth 2.0 JWT 전달자 자격 증명 권한 부여를 사용하여 이 연결된 웹 API 시나리오를 지원할 수 있습니다. 그러나 On-Behalf-Of 흐름은 현재 Azure AD B2C에 구현되어 있지 않습니다. On-Behalf-Of는 Azure AD에 등록된 애플리케이션에서 작동하지만 토큰을 발급하는 테넌트(Azure AD 또는 Azure AD B2C)에 관계없이 Azure AD B2C 등록된 애플리케이션에는 작동하지 않습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: rohinkoul
   ms.author: rohink
-  ms.date: 09/20/2019
-  ms.openlocfilehash: 7276b26944b7eeca90bdc74fa40507688d591c05
-  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+  ms.date: 07/07/2021
+  ms.openlocfilehash: 46aca1ee3209265c7a5749b91516feba9e354e44
+  ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/06/2021
-  ms.locfileid: "108765277"
+  ms.lasthandoff: 07/10/2021
+  ms.locfileid: "113595996"
 landingContent:
 - title: Azure DNS 알아보기
   linkLists:
@@ -23,6 +23,10 @@ landingContent:
     links:
     - text: Azure DNS란?
       url: dns-overview.md
+  - linkListType: learn
+    links:
+    - text: Azure DNS에서 도메인을 호스트하나요?
+      url: /learn/modules/host-domain-azure-dns/
 - title: Azure DNS 영역 및 레코드 만들기
   linkLists:
   - linkListType: quickstart

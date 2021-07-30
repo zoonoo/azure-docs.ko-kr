@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: aaa690a4205951bd251a5230721e34fcb960a3b1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 193213c55a56f745c45eec829dfbe1e81ee0f363
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104782744"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107886985"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Azure Data Factory의 연결된 서비스
 
@@ -93,7 +93,7 @@ connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runt
 
 연결된 서비스는 [관리 허브](author-management-hub.md) 및 이를 참조하는 모든 활동, 데이터 세트 또는 데이터 흐름을 사용하여 Azure Data Factory UX에서 만들 수 있습니다.
 
-[.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager 템플릿 및 Azure Portal 등의 도구 또는 SDK 중 하나를 사용하여 연결된 서비스를 만들 수 있습니다.
+[.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), [Azure Resource Manager 템플릿](quickstart-create-data-factory-resource-manager-template.md) 및 [Azure Portal](quickstart-create-data-factory-portal.md) 등의 도구 또는 SDK 중 하나를 사용하여 연결된 서비스를 만들 수 있습니다.
 
 
 ## <a name="data-store-linked-services"></a>데이터 저장소 연결된 서비스

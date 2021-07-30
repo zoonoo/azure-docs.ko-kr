@@ -5,12 +5,12 @@ author: rboucher
 ms.author: robb
 ms.topic: conceptual
 ms.date: 04/14/2021
-ms.openlocfilehash: d449f660fa97af8b5c24542258029834a964b3f2
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 004f99f585ca10d6ef9985b001333b2a301df740
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751619"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537039"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
@@ -101,8 +101,6 @@ Azure를 통해 고객은 여러 파트너 솔루션과 함께 클라우드에�
 -   Datadog SSO(Single Sign-On)를 간소화할 수 있습니다. Datadog 포털을 통한 별도의 로그온이 더 이상 필요하지 않습니다. 
 -   Azure 구독 청구를 통해 Datadog 서비스의 통합 청구를 받을 수 있습니다.
 
-새로운 Azure와 Datadog 통합의 [퍼블릭 미리 보기](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4z3T2aGXUZPslUNJ3YpcapURFBHSUJIMVJTWDM5VUFPMVkyTVhMVlYzMS4u)에 가입하세요.  퍼블릭 미리 보기는 2020년 10월부터 Azure Marketplace를 통해 제공됩니다.
-
 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)에서 제공되는 “Azure와 Datadog 통합”의 미리 보기를 구독하세요.
 
 이전의 수동으로 구성된 통합을 계속 사용하는 경우 [DataDog 웹 사이트의 설명서](https://docs.datadoghq.com/integrations/azure/)를 참조하세요.
@@ -111,7 +109,16 @@ Azure를 통해 고객은 여러 파트너 솔루션과 함께 클라우드에�
 
 ![DynaTrace 로고](./media/partners/dynatrace.png)
 
-Dynatrace OneAgent는 Azure 확장 메커니즘을 통해 Azure VM 및 App Services와 통합됩니다. 이러한 방식으로 Dynatrace OneAgent는 호스트, 네트워크 및 서비스에 대한 성능 메트릭을 수집할 수 있습니다. Dynatrace는 메트릭을 단순히 표시하는 것 외에도 엔드투엔드 환경을 시각화합니다. 클라이언트 쪽에서 데이터베이스 계층으로의 트랜잭션을 보여 줍니다. Dynatrace는 문제와 완전 통합된 근본 원인 분석의 AI 기반 상관 관계를 제공하여 코드 및 데이터베이스에 대한 메서드 수준의 정보를 제시합니다. 이 정보를 통해 문제 해결과 성능 최적화가 훨씬 쉬워집니다.
+Dynatrace는 클라우드 복잡성을 단순화하고 클라우드 플랫폼에 대한 단일 정보 소스이므로 전체 Azure 애플리케이션 및 인프라의 상태를 모니터링할 수 있습니다.  Dynatrace는 클라우드 인프라, 부하 분산 장치, API Management 서비스 등에 대한 추가 메트릭을 통해 데이터를 강화하고 관찰성을 플랫폼으로 확장하여 Azure Monitor/App Insights와 통합됩니다. Dynatrace는 애플리케이션 및 마이크로서비스 워크로드와 인프라 관련 서비스를 포괄하는 80개 이상의 Azure Monitor 서비스를 지원합니다. 
+
+Azure 환경에서 자동화된 AI 지원 가시성을 얻으세요.
+
+- 메트릭, 로그 및 추적을 포함하여 컨텍스트의 모든 항목인 전체 스택 가시성(분)입니다.
+- 자동 검색, 지속적인 종속성 매핑 및 즉각적인 답변을 통해 App Service, 데이터베이스 성능, AKS, HDInsight 등을 비롯한 Azure 클라우드 서비스의 모니터링을 자동화할 수 있습니다.
+- Dynatrace의 AI인 Davis는 수십억 개의 의존도를 지속적으로 분석하여 정확한 근본 원인을 제공합니다.
+- 팀이 어디에 있든 협업하고 혁신할 수 있는 단일 정보 소스입니다.
+- Azure 클라우드 마이그레이션을 가속화합니다.
+
 
 [Dynatrace documentation](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/microsoft-azure-services/)(Dynatrace 설명서)
 
@@ -160,7 +167,7 @@ NextGen SIEM의 리더인 LogRhythm은 6대륙의 조직이 사이버 위협을 
 
 Microfocus **ArcSight** 에는 Azure Monitor 이벤트 허브용 스마트 커넥터가 있습니다.
 
-[See the ArcSight documentation](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)(ArcSight 설명서 참조)
+[See the ArcSight documentation](https://community.microfocus.com/cyberres/arcsight/f/arcsight-product-announcements/163662/announcing-general-availability-of-arcsight-smart-connectors-7-10-0-8114-0)(ArcSight 설명서 참조)
 
 Microfocus **Operations Bridge** 는 디바이스, 운영 체제, 데이터베이스, 애플리케이션, 서비스 등 모든 하이브리드 IT 리소스를 실행되는 위치와 관계없이 자동으로 모니터링하고 이벤트, 메트릭, 로그, 종속성 등 모든 데이터 형식에 AIOps를 적용합니다. 심층 애플리케이션 상태 분석과 함께 서비스 품질 모니터링을 고유하게 조합하여 제공하며 Microsoft Azure 서비스의 포괄적인 성능 및 가용성 모니터링을 포함합니다. Operations Bridge를 통해 고객은 비즈니스 및 IT 관련자가 모두 이해할 수 있는 단일 창을 어느 디바이스에서나 브라우저로 제공할 수 있습니다.
 
@@ -348,7 +355,7 @@ Azure Monitor를 사용하여 모니터링 데이터를 Azure Event Hub로 라�
 |  IBM QRadar | No | Microsoft Azure DSM 및 Microsoft Azure 이벤트 허브 프로토콜은 [IBM 지원 웹 사이트](https://www.ibm.com/support)에서 다운로드할 수 있습니다. Azure와의 통합에 대한 자세한 내용은 [QRadar DSM configuration](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0)(QRadar DSM 구성)을 참조하세요. |
 | Splunk | No | [Splunk용 Microsoft Azure 추가 기능](https://splunkbase.splunk.com/app/3757/)은 Splunkbase에서 사용할 수 있는 오픈 소스 프로젝트입니다. <br><br> Splunk 인스턴스에 추가 기능을 설치할 수 없는 경우, 예를 들어 프록시를 사용 중이거나 Splunk 클라우드에서 실행 중인 경우 이벤트 허브의 새 메시지로 트리거되는 [Splunk용 Azure 함수](https://github.com/Microsoft/AzureFunctionforSplunkVS)를 사용하여 이러한 이벤트를 Splunk HTTP 이벤트 수집기에 전달할 수 있습니다. |
 | sumologic | No | 이벤트 허브에서 데이터를 사용하도록 SumoLogic을 설정하기 위한 지침은 [Collect Logs for the Azure Audit App from Event Hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)(이벤트 허브에서 Azure Audit App의 로그 수집)에서 사용할 수 있습니다. |
-| ArcSight | No | ArcSight Azure Event Hub 스마트 커넥터는 [ArcSight 스마트 커넥터 컬렉션](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)의 일부로 제공됩니다. |
+| ArcSight | No | ArcSight Azure Event Hub 스마트 커넥터는 [ArcSight 스마트 커넥터 컬렉션](https://community.microfocus.com/cyberres/arcsight/f/arcsight-product-announcements/163662/announcing-general-availability-of-arcsight-smart-connectors-7-10-0-8114-0)의 일부로 제공됩니다. |
 | Syslog 서버 | No | Azure Monitor 데이터를 syslog 서버로 직접 스트리밍하려면 [Azure 함수 기반의 솔루션](https://github.com/miguelangelopereira/azuremonitor2syslog/)을 사용할 수 있습니다.
 | LogRhythm | No| 이벤트 허브에서 로그를 수집하도록 LogRhythm을 설정하기 위한 지침은 [여기](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/)에서 확인할 수 있습니다. 
 |Logz.io | 예 | 자세한 내용은 [Azure에서 실행되는 Java 앱용 Logz.io를 사용하여 모니터링 및 로깅 시작](/azure/developer/java/fundamentals/java-get-started-with-logzio)을 참조하세요.

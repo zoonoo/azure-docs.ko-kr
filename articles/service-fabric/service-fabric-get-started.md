@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: 5d73c02b7fd5e40f3cc23f5b0eba1945cf3c8a40
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 28827a8ea666e9cd0fdda8914228c0d0bf1d5076
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258438"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795207"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 
@@ -25,20 +25,7 @@ Windows 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션][1]을 �
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-### <a name="supported-operating-system-versions"></a>지원되는 운영 체제 버전
-
-개발을 위해 다음 운영 체제 버전이 지원됩니다.
-
-* Windows 7
-* Windows 8/Windows 8.1
-* Windows Server 2012 R2
-* Windows Server 2016
-* Windows 10
-
-> [!NOTE]
-> Windows 7 지원:
-> - Windows 7은 기본적으로 Windows PowerShell 2.0만을 포함합니다. 서비스 패브릭 PowerShell cmdlet에는 PowerShell 3.0 이상이 필요합니다. Microsoft 다운로드 센터에서 [Windows PowerShell 5.1을 다운로드][powershell5-download]할 수 있습니다.
-> - Service Fabric 역방향 프록시는 Windows 7에서 사용할 수 없습니다.
+지원되는 [Windows 버전](service-fabric-versions.md#supported-windows-versions-and-support-end-date)을 사용하고 있는지 확인합니다.
 
 ## <a name="install-the-sdk-and-tools"></a>SDK 및 도구 설치
 
@@ -49,7 +36,7 @@ SDK와 도구를 설치하려면 WebPI(웹 플랫폼 설치 관리자)를 사용
 
 ### <a name="to-use-visual-studio-2017-or-2019"></a>Visual Studio 2017 또는 2019를 사용하려면
 
-Service Fabric 도구는 Visual Studio 2017 및 2019의 Azure 개발 워크로드의 일부입니다. 이 워크로드를 Visual Studio 설치의 일부로 사용하도록 설정해야 합니다.
+Service Fabric 도구는 Visual Studio 2019 및 2017의 Azure 개발 워크로드의 일부입니다. 이 워크로드를 Visual Studio 설치의 일부로 사용하도록 설정해야 합니다.
 또한 웹 플랫폼 설치 관리자를 사용하여 Microsoft Azure Service Fabric SDK 및 런타임을 설치해야 합니다.
 
 * [Microsoft Azure Service Fabric SDK 설치][core-sdk]
@@ -62,8 +49,8 @@ SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
 
 현재 버전은 다음과 같습니다.
 
-* Service Fabric SDK 및 도구 5.0.514
-* Service Fabric 런타임 8.0.514
+* Service Fabric SDK 및 Tools 5.0.516
+* Service Fabric 런타임 8.0.516
 
 지원되는 버전 목록은 [Service Fabric 버전](service-fabric-versions.md)을 참조하세요.
 

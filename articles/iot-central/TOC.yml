@@ -8,6 +8,8 @@
       href: core/overview-iot-central-tour.md
     - name: 최근 업데이트
       items:
+        - name: 2021년 5월 새로운 기능 및 업데이트된 기능
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-may-2021/'
         - name: 2021년 4월 새로운 기능 및 업데이트된 기능
           href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-april-2021/'
         - name: 2021년 3월 새로운 기능 및 업데이트된 기능
@@ -45,12 +47,10 @@
   items:
     - name: 1. 새 애플리케이션 만들기
       href: core/quick-deploy-iot-central.md
-    - name: 2. 시뮬레이트된 디바이스 추가
-      href: core/quick-create-simulated-device.md
-    - name: 3. 규칙 및 작업 구성
+    - name: 2. 규칙 및 작업 구성
       href: core/quick-configure-rules.md
-    - name: 4. 디바이스 모니터링
-      href: core/quick-monitor-devices.md
+    - name: 3. 데이터 내보내기
+      href: core/quick-export-data.md
 - name: 자습서
   items:
     - name: 디바이스 개발 및 연결
@@ -60,7 +60,7 @@
         - name: 게이트웨이 디바이스 템플릿 만들기
           href: core/tutorial-define-gateway-device-type.md
         - name: IoT Edge 디바이스 연결
-          href: core/tutorial-add-edge-as-leaf-device.md
+          href: /learn/modules/connect-iot-edge-device-to-iot-central
     - name: 통합 솔루션 빌드
       items:
         - name: 디바이스 그룹 만들기
@@ -197,10 +197,10 @@
       href: core/concepts-best-practices.md
 - name: 방법 가이드
   items:
+    - name: 애플리케이션 만들기
+      href: core/howto-create-iot-central-application.md
     - name: 디바이스 개발 및 연결
       items:
-        - name: 애플리케이션 만들기
-          href: core/howto-create-iot-central-application.md
         - name: 디바이스 템플릿 설정
           href: core/howto-set-up-template.md
         - name: 디바이스 템플릿 편집
@@ -216,21 +216,19 @@
         - name: IoT Edge 투명 게이트웨이를 통해 디바이스 연결
           href: core/how-to-connect-iot-edge-transparent-gateway.md
         - name: Azure Sphere DevKit 준비 및 연결
-          href: core/howto-connect-sphere.md
+          href: /azure-sphere/app-development/setup-iot-central
         - name: RuuviTag 디바이스 준비 및 연결
           href: core/howto-connect-ruuvi.md
         - name: Rigado Cascade 500 준비 및 연결
           href: core/howto-connect-rigado-cascade-500.md
     - name: 통합 솔루션 빌드
       items:
-        - name: 대시보드에 타일 추가
-          href: core/howto-add-tiles-to-your-dashboard.md
+        - name: 대시보드 만들기
+          href: core/howto-manage-dashboards.md
+        - name: 위치 데이터 사용
+          href: core/howto-use-location-data.md
         - name: 규칙 구성
           href: core/howto-configure-rules.md
-        - name: 규칙에서 웹후크 만들기
-          href: core/howto-create-webhooks.md
-        - name: 규칙에서 Azure Monitor 작업 그룹 연결
-          href: core/howto-use-action-groups.md
         - name: 디바이스 데이터 분석
           href: core/howto-create-analytics.md
         - name: 클라우드 대상으로 데이터 내보내기
@@ -259,60 +257,42 @@
           href: core/howto-manage-users-roles-with-rest-api.md
         - name: 디바이스 제어
           href: core/howto-control-devices-with-rest-api.md
+        - name: 작업 관리
+          href: core/howto-manage-jobs-with-rest-api.md
     - name: 디바이스 관리
       items:
-        - name: 디바이스 추가 및 제거
-          href: core/howto-manage-devices.md
-        - name: 작업 실행
-          href: core/howto-run-a-job.md
-        - name: IoT Hub에서 디바이스 이동
-          href: core/how-to-move-device-to-iot.md
+        - name: 개별적으로 디바이스 관리
+          href: core/howto-manage-devices-individually.md
+        - name: 대량으로 디바이스 관리
+          href: core/howto-manage-devices-in-bulk.md
     - name: 솔루션 관리
       items:
         - name: 애플리케이션 설정 변경
           href: core/howto-administer.md
         - name: 사용자 및 역할 관리
           href: core/howto-manage-users-roles.md
-        - name: 청구 관리
-          href: core/howto-view-bill.md
         - name: 애플리케이션 UI 사용자 지정
           href: core/howto-customize-ui.md
-        - name: 애플리케이션 내보내기
-          href: core/howto-use-app-templates.md
         - name: V2를 V3 애플리케이션으로 마이그레이션
           href: core/howto-migrate.md
-        - name: 애플리케이션 상태 모니터링
-          href: core/howto-monitor-application-health.md
-        - name: 애플리케이션 정보
-          href: core/howto-get-app-info.md
         - name: 파일 업로드 구성 및 사용
           href: core/howto-configure-file-uploads.md
-        - name: Roll X.509 인증서
-          href: core/how-to-roll-x509-certificates.md
-        - name: Azure Portal에서 관리
+        - name: Azure Portal에서 관리 및 모니터링
           href: core/howto-manage-iot-central-from-portal.md
-        - name: Azure CLI에서 관리
+        - name: 명령줄에서 관리
           href: core/howto-manage-iot-central-from-cli.md
-        - name: Azure PowerShell에서 관리
-          href: core/howto-manage-iot-central-from-powershell.md
-        - name: 프로그래밍 방식 관리
-          href: core/howto-manage-iot-central-programmatically.md
         - name: CSP 포털에서 관리
           href: core/howto-create-and-manage-applications-csp.md
-    - name: 솔루션 개인 설정
-      items:
-        - name: 개인 대시보드 만들기
-          href: core/howto-create-personal-dashboards.md
-        - name: 개인 기본 설정 관리
-          href: core/howto-manage-preferences.md
-        - name: 라이브 채팅 토글
-          href: core/howto-show-hide-chat.md
     - name: 문제 해결
       items:
         - name: 디바이스 연결
           href: core/troubleshoot-connection.md
     - name: FAQ
       href: core/howto-faq.md
+    - name: 개인 기본 설정 관리
+      href: core/howto-manage-preferences.md
+    - name: 라이브 채팅 토글
+      href: core/howto-show-hide-chat.md
 - name: 참조
   items:
     - name: Azure CLI

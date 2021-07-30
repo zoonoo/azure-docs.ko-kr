@@ -1,6 +1,6 @@
 ---
-title: Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 만들기
-description: Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 만들기
+title: CLI에서 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 만들기
+description: CLI에서 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 만들기
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 046f9d80c034e1ac1f2e7ffe144b4f389861b043
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ebc8405a2afe9a6e2d802b68c59142f6fbf01de5
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101687943"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288115"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 만들기
 
@@ -163,7 +163,7 @@ PostgreSQL 서버 그룹의 엔드포인트를 보려면 다음 명령을 실행
 ```console
 azdata arc postgres endpoint list -n <server group name>
 ```
-예를 들어:
+예를 들면 다음과 같습니다.
 ```console
 [
   {
@@ -234,6 +234,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
 ## <a name="next-steps"></a>다음 단계
 
+- Azure Arc 지원 PostgreSQL 하이퍼스케일에 연결: [연결 엔드포인트 및 연결 문자열 가져오기](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)를 읽습니다.
 - Azure Database for PostgreSQL 하이퍼스케일의 개념 및 방법 가이드를 읽고 여러 PostgreSQL 하이퍼스케일 노드에 데이터를 배포하고 잠재적으로 더 나은 성능을 활용할 수 있습니다.
     * [노드 및 테이블](../../postgresql/concepts-hyperscale-nodes.md)
     * [애플리케이션 유형 확인](../../postgresql/concepts-hyperscale-app-type.md)

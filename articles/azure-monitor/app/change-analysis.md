@@ -5,12 +5,13 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 43ece2cb0f5cb9428d8d73f769018e9fe2408ab8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9366b268ca394228a63ecfd18ac6c2f4576ba21a
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104655815"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315690"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 애플리케이션 변경 분석 사용(미리 보기)
 
@@ -59,14 +60,19 @@ IP 구성 규칙, TLS 설정, 확장 버전 등의 설정은 Azure Resource Grap
 !["지금 변경 사항 검색" 단추 스크린샷](./media/change-analysis/scan-changes.png)
 
 현재 다음 확장을 포함하는 사이트 루트 **wwwroot** 아래의 모든 텍스트 기반 파일이 지원됩니다.
-- *.config
-- *.xml
 - *.json
-- *.gem
-- *.yml
-- *.txt
+- *.xml
 - *.ini
-- *.env
+- *.yml
+- *.config
+- *.properties
+- *.html
+- *.cshtml
+- *.js
+- requirements.txt
+- Gemfile
+- Gemfile.lock
+- config.gemspec
 
 ### <a name="dependency-changes"></a>종속성 변경 사항
 

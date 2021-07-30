@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d31f3d1c510ffe6c3f0a739a4e41313c8c6e7cf0
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: c8b1297d69de920e29cba4dba14b3d5f79c01427
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364824"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110535582"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core(SQL) API: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -56,7 +56,7 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 | 콘텐츠 | 링크 |
 |---|---|
 |**SDK 다운로드**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
-|**API 설명서** | [Java API 참조 설명서](/java/api/overview/azure/cosmosdb/client) |
+|**API 설명서** | [Java API 참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/latest/index.html) |
 |**SDK에 참여** | [GitHub의 Java용 Azure SDK 중앙 리포지토리](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos) | 
 |**시작** | [빠른 시작: Azure Cosmos DB SQL API 데이터를 관리하는 Java 앱 빌드](./create-sql-api-java.md) <br> [빠른 시작 코드가 포함된 GitHub 리포지토리](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
 |**기본 코드 샘플** | [Azure Cosmos DB: SQL API에 대한 Java 예제](sql-api-java-sdk-samples.md) <br> [샘플 코드가 포함된 GitHub 리포지토리](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|
@@ -67,6 +67,10 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 | **이전 SDK에서 v4로 마이그레이션** | [Java V4 SDK로 마이그레이션](migrate-java-v4-sdk.md) |
 | **지원되는 최소 런타임**|[JDK 8](/java/azure/jdk/) | 
 | **Azure Cosmos DB 워크샵 및 랩** |[Cosmos DB 워크샵 홈페이지](https://aka.ms/cosmosworkshop)
+
+> [!IMPORTANT]
+> * 4\.13.0 릴리스는 `reactor-core` 및 `reactor-netty` 주 버전을 `2020.0.4 (Europium)` 릴리스 트레인으로 업데이트합니다.
+> * 4\.7.0 릴리스 - 버전 4.7.0 이상을 사용하는 것이 좋습니다.
 
 [!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-cosmos/CHANGELOG.md)]
 

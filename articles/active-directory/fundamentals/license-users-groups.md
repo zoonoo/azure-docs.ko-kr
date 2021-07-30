@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6900647acf7182529f34c8cc065dbb039de38be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1e8ea30ddfcaeff1a177a14a0b1d911d14b76b4
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97504409"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111526091"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털에서 라이선스 할당 또는 제거
 
@@ -49,8 +49,6 @@ ms.locfileid: "97504409"
 
 1. **Azure Active Directory** 를 선택한 다음, **라이선스** 를 선택합니다.
 
-    :::image type="content" source="media/license-users-groups/license-details-blade.png" alt-text="구입한 서비스 및 할당된 라이선스 수를 보여주는 라이선스 페이지":::
-
 1. **모든 제품** 을 선택하여 모든 제품 페이지를 보고 라이선스 계획에 대한 **합계**, **할당됨**, **사용 가능** 및 **곧 만료됨** 수를 확인합니다.
 
     :::image type="content" source="media/license-users-groups/license-products-blade-with-products.png" alt-text="서비스 라이선스 계획 관련 라이선스 정보를 보여주는 서비스 페이지":::
@@ -72,11 +70,9 @@ ms.locfileid: "97504409"
 
 1. **제품** 페이지에서 사용자에게 할당하려는 라이선스 계획의 이름을 선택합니다.
 
-    ![서비스 라이선스 계획이 강조 표시된 서비스 페이지](media/license-users-groups/license-products-blade-with-product-highlight.png)
+1. 라이선스 계획을 선택한 후 **할당** 을 선택합니다.
 
-1. 라이선스 계획 개요 페이지에서 **할당** 을 선택합니다.
-
-    ![할당 옵션이 강조 표시된 서비스 페이지](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
+    ![라이선스 계획 선택 및 할당 옵션이 강조 표시된 서비스 페이지](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
 1. **할당** 페이지에서 **사용자 및 그룹** 을 선택한 다음, 라이선스를 할당하려는 사용자를 검색하여 선택합니다.
 

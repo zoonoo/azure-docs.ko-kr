@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: b3e097f1c41f3047dc4e9d6cae2a05a6b19dea9d
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 5a48dd8158ed08aee3da459b4373fb0e4b36fb52
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554787"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113364806"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>지원되는 운영 체제 및 드라이버
 
@@ -41,12 +41,12 @@ Nvidia K80 GPU가 설치된 NC 시리즈는 GRID/그래픽 애플리케이션을
 Nvidia 확장은 항상 최신 드라이버를 설치합니다. 이전 버전을 사용하는 고객을 위해 여기에서 이전 버전에 대한 링크를 제공합니다.
 
 Windows Server 2019, Windows Server 2016 1607, 1709 및 Windows 10(최대 빌드 20H2)의 경우:
-- [GRID 12.1(461.33)](https://go.microsoft.com/fwlink/?linkid=874181)(.exe)
-- [GRID 12.0(461.09)](https://download.microsoft.com/download/4/8/d/48d2d45b-bebc-44ad-9c58-e0b79a9d4ff2/461.09_grid_win10_server2016_server2019_64bit_azure_swl.exe)(.exe) 
+- [GRID 12.2(462.31)](https://go.microsoft.com/fwlink/?linkid=874181)(.exe)
+- [GRID 12.1(461.33)](https://download.microsoft.com/download/9/7/e/97e1be73-d24b-410b-9c08-cc98c7becfa3/461.33_grid_win10_server2016_server2019_64bit_azure_swl.exe)(.exe) 
 
 Windows Server 2012 R2의 경우: 
-- [GRID 12.1(461.33)](https://download.microsoft.com/download/9/9/c/99caf5c6-af9f-48b2-bcb0-af5ec64b8592/461.33_grid_server2012R2_64bit_azure_swl.exe)(.exe)
-- [GRID 12.0(461.09)](https://download.microsoft.com/download/c/5/e/c5e7df99-364d-45f5-bff7-c253d59121f1/461.09_grid_server2012R2_64bit_azure_swl.exe)(.exe) 
+- [GRID 12.2(462.31)](https://download.microsoft.com/download/1/2/0/120551f5-cc05-4911-bd29-88fb2747213c/462.31_grid_server2012R2_64bit_azure_swl.exe)(.exe)
+- [GRID 12.1(461.33)](https://download.microsoft.com/download/9/9/c/99caf5c6-af9f-48b2-bcb0-af5ec64b8592/461.33_grid_server2012R2_64bit_azure_swl.exe)(.exe) 
 
 
 모든 이전 Nvidia GRID 드라이버 링크의 전체 목록을 보려면 [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json)를 방문하세요.

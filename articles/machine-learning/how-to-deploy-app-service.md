@@ -1,5 +1,5 @@
 ---
-title: Azure App Service에 ml 모델 배포(미리 보기)
+title: Azure App Service에 ML 모델 배포(미리 보기)
 titleSuffix: Azure Machine Learning
 description: Azure App Service를 사용하여 학습된 ML 모델을 웹앱에 배포하기 위해 Azure Machine Learning을 사용하는 방법을 알아봅니다.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 3b1b416f3fec9e40261a82c88260c041918c1424
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: devx-track-python, deploy, devx-track-azurecli
+ms.openlocfilehash: 23c0c58fbf7748421444e723c455b4b8828c07a8
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102522005"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107889703"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Azure App Service에 기계 학습 모델 배포(미리 보기)
 

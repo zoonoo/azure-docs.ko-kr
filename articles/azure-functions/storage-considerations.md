@@ -3,12 +3,12 @@ title: Azure Functions의 스토리지 고려 사항
 description: Azure Functions의 스토리지 요구 사항 및 저장된 데이터 암호화에 관해 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 8c7f5ef6e1e9c354806994e5116e40523d660e9e
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.openlocfilehash: 41e78acf37f2f5b9cc0346384fc4964187945386
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109627711"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112026456"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Azure Functions의 스토리지 고려 사항
 
@@ -18,7 +18,7 @@ ms.locfileid: "109627711"
 |스토리지 서비스  | Functions 사용  |
 |---------|---------|
 | [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)     | 바인딩 상태 및 함수 키를 유지 관리합니다.  <br/>[Durable Functions의 작업 허브](durable/durable-functions-task-hubs.md)에서도 사용됩니다. |
-| [Azure 파일](../storage/files/storage-files-introduction.md)  | [사용 플랜](consumption-plan.md) 및 [프리미엄 플랜](functions-premium-plan.md)에서 함수 앱 코드를 저장 및 실행하는 데 사용되는 파일 공유입니다. |
+| [Azure 파일](../storage/files/storage-files-introduction.md)  | [사용 플랜](consumption-plan.md) 및 [프리미엄 플랜](functions-premium-plan.md)에서 함수 앱 코드를 저장 및 실행하는 데 사용되는 파일 공유입니다. <br/>Azure Files는 기본적으로 설정되지만 특정 조건에서 [Azure Files 없이 앱을 만들 수 있습니다](#create-an-app-without-azure-files). |
 | [Azure Queue Storage](../storage/queues/storage-queues-introduction.md)     | [Durable Functions의 작업 허브](durable/durable-functions-task-hubs.md)에서 사용됩니다.   |
 | [Azure Table Storage](../storage/tables/table-storage-overview.md)  |  [Durable Functions의 작업 허브](durable/durable-functions-task-hubs.md)에서 사용됩니다.       |
 
@@ -66,6 +66,19 @@ ms.locfileid: "109627711"
 모든 고객 데이터가 단일 지역 내에 유지되어야 하는 경우 함수 앱과 연결된 스토리지 계정은 [지역 중복](../storage/common/storage-redundancy.md)을 사용하는 것이어야 합니다. 또한 지역 중복 스토리지 계정은 [Azure Durable Functions](./durable/durable-functions-perf-and-scale.md#storage-account-selection)에서 사용해야 합니다.
 
 다른 플랫폼 관리형 고객 데이터는 내부적으로 부하가 분산된 ASE(App Service Environment)에서 호스팅할 때만 지역에 저장됩니다. 자세한 내용은 [ASE 지역 중복성](../app-service/environment/zone-redundancy.md#in-region-data-residency)을 참조하세요.
+
+## <a name="create-an-app-without-azure-files"></a>Azure Files 없이 앱 만들기
+
+Azure Files는 확장성이 높은 시나리오에서 공유 파일 시스템으로 사용할 수 있도록 프리미엄 및 Linux가 아닌 소비 계획에 대해 기본적으로 설정되어 있습니다. 파일 시스템은 로그 스트리밍 등의 일부 기능을 위해 플랫폼에서 사용되지만 주로 배포된 함수 페이로드의 일관성을 보장합니다. 앱이 [외부 패키지 URL을 사용하여 배포](./run-functions-from-deployment-package.md)되면 앱 콘텐츠가 별도의 읽기 전용 파일 시스템에서 제공되므로 원하는 경우 Azure Files를 생략할 수 있습니다. 이러한 경우 쓰기 가능 파일 시스템이 제공되지만 모든 함수 앱 인스턴스와 공유되지 않을 수도 있습니다.
+
+Azure Files를 사용하지 않는 경우 다음을 고려해야 합니다.
+
+* 외부 패키지 URL에서 배포해야 합니다.
+* 앱은 공유 쓰기 가능 파일 시스템에 의존할 수 없습니다.
+* 앱은 함수 런타임 v1을 사용할 수 없습니다.
+* Azure Portal과 같은 클라이언트의 로그 스트리밍 환경은 기본적으로 파일 시스템 로그입니다. Application Insights 로그를 대신 사용해야 합니다.
+
+위의 내용이 적절하게 고려되는 경우 Azure Files 없이 앱을 만들 수 있습니다. `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 및 `WEBSITE_CONTENTSHARE` 애플리케이션 설정을 지정하지 않고 함수 앱을 만듭니다.
 
 ## <a name="mount-file-shares"></a>파일 공유 탑재
 

@@ -199,7 +199,7 @@
           items:
             - name: 개요
               displayName: 'GPU, sizes, size, accelerated compute, compute, nvidia'
-              href: sizes-gpu.md?context=/azure/virtual-machines/context/context
+              href: sizes-gpu.md
             - name: NC 시리즈
               href: nc-series.md
             - name: NCv2 시리즈
@@ -235,7 +235,7 @@
           items:
             - name: 개요
               displayName: 'FPGA, accelerated compute, compute, accelerated, gpu'
-              href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
+              href: sizes-field-programmable-gate-arrays.md
             - name: NP 시리즈
               href: np-series.md
             - name: FPGA 증명 서비스
@@ -266,7 +266,7 @@
               displayName: 'vCPU, quota, limit'
               href: ./windows/quotas.md
         - name: 임시 디스크가 없는 Azure VM
-          href: azure-vms-no-temp-disk.md
+          href: azure-vms-no-temp-disk.yml
         - name: Azure VM 크기 명명 규칙
           href: vm-naming-conventions.md
         - name: 이전 세대
@@ -278,14 +278,14 @@
         - name: ACU(Azure 컴퓨팅 단위)
           href: acu.md
         - name: 벤치마크 점수
+          displayName: 'benchmark, coremark'
           items:
             - name: Linux
-              displayName: 'Benchmark scores, score, acu'
               href: ./linux/compute-benchmark-scores.md
             - name: Windows
-              displayName: 'Benchmark scores, score, acu'
               href: ./windows/compute-benchmark-scores.md
     - name: 전용 호스트
+      displayName: 'sole-tenant, sole tenant, isolated, isolation'
       items:
         - name: 개요
           displayName: 'Dedicated hosts, ADH'
@@ -599,7 +599,7 @@
           href: migration-classic-resource-manager-community-tools.md
         - name: FAQ
           displayName: 'classic, migration, classic to ARM, CSES, Cloud Services'
-          href: migration-classic-resource-manager-faq.md
+          href: migration-classic-resource-manager-faq.yml
 - name: 이미지
   items:
     - name: Azure Marketplace 이미지 찾기
@@ -640,9 +640,6 @@
             - name: FreeBSD
               displayName: 'Linux distribution specific requirements, FreeBSD'
               href: ./linux/freebsd-intro-on-azure.md
-            - name: FreeBSD 패킷 필터
-              displayName: 'Linux distribution specific requirements, FreeBSD'
-              href: ./linux/freebsd-pf-nat.md
             - name: Oracle Linux
               displayName: 'Linux distribution specific requirements, Oracle'
               href: ./linux/oracle-create-upload-vhd.md
@@ -694,6 +691,8 @@
         - name: 업로드할 VHD 준비
           displayName: 'Windows custom images, images, windows, upload, prepare, VHD'
           href: ./windows/prepare-for-upload-vhd-image.md
+        - name: VM 일반화
+          href: generalize.md
         - name: VHD 업로드 및 관리형 이미지 만들기
           displayName: 'Windows custom images, images, windows, upload, prepare, VHD, managed'
           href: ./windows/upload-generalized-managed.md
@@ -791,6 +790,8 @@
                 - name: Windows
                   displayName: 'Shared Image Gallery, SIG, sig, gallery, image, create'
                   href: ./windows/shared-images-portal.md
+            - name: 포털에서 VM 캡처
+              href: capture-image-portal.md
         - name: Resource Manager 템플릿
           items:
             - name: Shared Image Gallery 만들기
@@ -1301,19 +1302,91 @@
   items:
     - name: 개요
       displayName: Networking Overview
-      href: network-overview.md
+      href: network-overview.md?context=/azure/virtual-machines/context/context
+    - name: 네트워크 처리량 최적화
+      href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
+    - name: 모범 사례
+      href: /azure/virtual-network/concepts-and-best-practices
     - name: 가상 네트워크 만들기
       href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
+    - name: 네트워크 트래픽 필터링
+      items:
+        - name: Azure portal
+          href: ../virtual-network/tutorial-filter-network-traffic.md?context=/azure/virtual-machines/context/context
+        - name: Azure PowerShell
+          href: ../virtual-network/tutorial-filter-network-traffic-powershell.md?context=/azure/virtual-machines/context/context
+        - name: Azure CLI
+          href: ../virtual-network/tutorial-filter-network-traffic-cli.md?context=/azure/virtual-machines/context/context
+    - name: VM 만들기 - 고정 공용 IP
+      items:
+        - name: Azure portal
+          href: ../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?context=/azure/virtual-machines/context/context
+        - name: Azure PowerShell
+          href: ../virtual-network/virtual-network-deploy-static-pip-arm-ps.md?context=/azure/virtual-machines/context/context
+        - name: Azure CLI
+          href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
+        - name: 기존 VM에 공용 IP 주소 추가
+          href: ../virtual-network/associate-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
+        - name: VM에서 공용 IP 주소 분리
+          href: ../virtual-network/remove-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
+    - name: VM 만들기 - 고정 개인 IP
+      items:
+        - name: Azure portal
+          href: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md?context=/azure/virtual-machines/context/context
+        - name: Azure PowerShell
+          href: ../virtual-network/virtual-networks-static-private-ip-arm-ps.md?context=/azure/virtual-machines/context/context
+        - name: Azure CLI
+          href: ../virtual-network/virtual-networks-static-private-ip-arm-cli.md?context=/azure/virtual-machines/context/context
+    - name: VM 만들기 - 여러 IP
+      items:
+        - name: Azure portal
+          href: ../virtual-network/virtual-network-multiple-ip-addresses-portal.md?context=/azure/virtual-machines/context/context
+        - name: Azure PowerShell
+          href: ../virtual-network/virtual-network-multiple-ip-addresses-powershell.md?context=/azure/virtual-machines/context/context
+        - name: Azure CLI
+          href: ../virtual-network/virtual-network-multiple-ip-addresses-cli.md?context=/azure/virtual-machines/context/context
+        - name: 네트워크 인터페이스 추가 또는 제거
+          href: ../virtual-network/virtual-network-network-interface-vm.md?context=/azure/virtual-machines/context/context
+        - name: VM 만들기 - 여러 NIC
+          items:
+            - name: Azure PowerShell
+              href: ./windows/multiple-nics.md
+            - name: Azure CLI
+              href: ./linux/multiple-nics.md
+    - name: VM 만들기 - 가속 네트워킹
+      items:
+        - name: Azure PowerShell
+          href: ../virtual-network/create-vm-accelerated-networking-powershell.md?context=/azure/virtual-machines/context/context
+        - name: Azure CLI
+          href: ../virtual-network/create-vm-accelerated-networking-cli.md?context=/azure/virtual-machines/context/context
+          items:
+            - name: DPDK 설정
+              href: ../virtual-network/setup-dpdk.md?context=/azure/virtual-machines/context/context
+    - name: Azure VM의 TCP/IP 성능 튜닝
+      href: ../virtual-network/virtual-network-tcpip-performance-tuning.md?context=/azure/virtual-machines/context/context
+    - name: 가상 컴퓨터 네트워크 처리량
+      href: ../virtual-network/virtual-machine-network-throughput.md?context=/azure/virtual-machines/context/context
+    - name: DDOS 보호 계획 만들기
+      items:
+        - name: 포털
+          href: ../ddos-protection/manage-ddos-protection.md?context=/azure/virtual-machines/context/context
+        - name: PowerShell
+          href: ../ddos-protection/manage-ddos-protection-powershell.md?context=/azure/virtual-machines/context/context
+        - name: CLI
+          href: ../ddos-protection/manage-ddos-protection-cli.md?context=/azure/virtual-machines/context/context
+        - name: ARM 템플릿
+          displayName: Resource Manager
+          href: ../ddos-protection/manage-ddos-protection-template.md?context=/azure/virtual-machines/context/context
     - name: VM에 대한 포트 열기
       items:
         - name: CLI
-          displayName: Open ports to a VM
+          displayName: port nsg network security group
           href: ./linux/nsg-quickstart.md
         - name: PowerShell
-          displayName: Open ports to a VM
+          displayName: nsg network security group
           href: ./windows/nsg-quickstart-powershell.md
         - name: 포털
-          displayName: Open ports to a VM
+          displayName: port nsg network security group
           href: ./windows/nsg-quickstart-portal.md
     - name: 공용 IP 주소 할당
       href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
@@ -1327,12 +1400,12 @@
         - name: PowerShell을 사용하는 Windows
           displayName: Use multipe NICs
           href: ./windows/multiple-nics.md
-    - name: 가속 네트워킹 사용
-      href: ../virtual-network/create-vm-accelerated-networking-cli.md?context=/azure/virtual-machines/context/context
-    - name: 공용 DNS 이름 할당
-      href: create-fqdn.md
     - name: 연결되지 않은 NIC 찾기 및 삭제
       href: ./linux/find-unattached-nics.md
+    - name: 공용 DNS 이름 할당
+      href: create-fqdn.md
+    - name: 공용 DNS 이름 할당
+      href: create-fqdn.md
     - name: DNS 확인
       href: ./linux/azure-dns.md
     - name: 내부 DNS 사용
@@ -1448,11 +1521,17 @@
           displayName: Configured managed identies
           href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?context=/azure/virtual-machines/context/context
     - name: Linux Active Directory 로그인
-      href: ./linux/login-using-aad.md
+      displayName: aad
+      items:
+        - name: Azure Active Directory로 SSH
+          href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md
+          items:
+            - name: 이전 버전은 2021년 8월 15일에 더 이상 사용되지 않음
+              href: ./linux/login-using-aad.md
 - name: 업데이트 및 유지 관리
   items:
     - name: 개요
-      displayName: Updates and maintenance
+      displayName: 'maintenance, updates, live-migration'
       href: updates-maintenance-overview.md
     - name: 자동 OS 이미지 업그레이드
       items:
@@ -1541,16 +1620,25 @@
       href: ../azure-monitor/vm/monitor-vm-azure.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: VM 모니터링
       items:
-        - name: Windows
-          displayName: Monitoring VMs
-          href: ./windows/tutorial-monitor.md
+        - name: 개요
+          href: ../azure-monitor/vm/monitor-virtual-machine.md?context=/azure/virtual-machines/context/context
+        - name: 모니터링 구성
+          href: ../azure-monitor/vm/monitor-virtual-machine-configure.md?context=/azure/virtual-machines/context/context
+        - name: 데이터 분석
+          href: ../azure-monitor/vm/monitor-virtual-machine-analyze.md?context=/azure/virtual-machines/context/context
+        - name: 보안 모니터링
+          href: ../azure-monitor/vm/monitor-virtual-machine-security.md?context=/azure/virtual-machines/context/context
+        - name: 경고 만들기
+          href: ../azure-monitor/vm/monitor-virtual-machine-alerts.md?context=/azure/virtual-machines/context/context
+        - name: 워크로드 모니터링
+          href: ../azure-monitor/vm/monitor-virtual-machine-workloads.md?context=/azure/virtual-machines/context/context
     - name: 에이전트
       items:
         - name: 에이전트 개요
           href: ../azure-monitor/agents/agents-overview.md?context=/azure/virtual-machines/context/context
         - name: FAQ
           displayName: Agents
-          href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context#agents
+          href: /azure/azure-monitor/faq#agents
         - name: Azure Diagnostics 확장
           items:
             - name: 개요
@@ -1620,10 +1708,10 @@
               href: ../azure-monitor/vm/vminsights-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: 상용 서비스 관련 FAQ
               displayName: Azure monitor for VMs
-              href: ../azure-monitor/vm/vminsights-ga-release-faq.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+              href: ../azure-monitor/vm/vminsights-ga-release-faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: FAQ
               displayName: Azure monitor for VMs
-              href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context
+              href: /azure/azure-monitor/faq?context=/azure/virtual-machines/context/context
             - name: 모니터링 사용
               items:
                 - name: 모니터링 사용 개요

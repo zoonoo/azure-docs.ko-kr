@@ -10,12 +10,12 @@ metadata:
   author: Ajayan1008
   ms.author: v-hborys
   ms.date: 04/14/2021
-  ms.openlocfilehash: 4074e3002913bd3ea114611daf08f635deb6ec99
-  ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+  ms.openlocfilehash: 5304146a0cf427003e971f794f7a68690c524085
+  ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/07/2021
-  ms.locfileid: "109518363"
+  ms.lasthandoff: 07/02/2021
+  ms.locfileid: "113225429"
 landingContent:
 - title: BareMetal Infrastructure 정보
   linkLists:
@@ -111,7 +111,7 @@ landingContent:
       url: ../virtual-machines/workloads/sap/hana-example-installation.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
   - linkListType: reference
     links:
-    - text: 옵션 및 고려 사항
+    - text: 고가용성 및 재해 복구
       url: ../virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
     - text: 백업 및 복원
       url: ../virtual-machines/workloads/sap/hana-backup-restore.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
@@ -123,6 +123,14 @@ landingContent:
       url: ../virtual-machines/workloads/sap/troubleshooting-monitoring.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
     - text: HANA 쪽에서 모니터링 및 문제 해결
       url: ../virtual-machines/workloads/sap/hana-monitor-troubleshoot.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: SAP 솔루션을 위한 Azure Monitor 개요
+      url: ../virtual-machines/workloads/sap/azure-monitor-overview.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: SAP 솔루션을 위한 Azure Monitor 공급자
+      url: ../virtual-machines/workloads/sap/azure-monitor-providers.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: SAP 솔루션을 위한 Azure Monitor 배포 - Azure Portal
+      url: ../virtual-machines/workloads/sap/azure-monitor-sap-quickstart.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - text: SAP 솔루션을 위한 Azure Monitor 배포 - Azure PowerShell
+      url: ../virtual-machines/workloads/sap/azure-monitor-sap-quickstart-powershell.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
   - linkListType: how-to-guide
     links:
     - text: STONITH로 HA 설치

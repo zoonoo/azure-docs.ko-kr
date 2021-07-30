@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: shortpatti
   ms.author: v-patsho
-  ms.date: 05/11/2021
-  ms.openlocfilehash: 28f73f52b98edba523fd36203d6fef863c4e9d1a
-  ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+  ms.date: 07/02/2021
+  ms.openlocfilehash: 6e221829fae0423ccf9f13970cc6b71136bb10c2
+  ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/11/2021
-  ms.locfileid: "112021486"
+  ms.lasthandoff: 07/06/2021
+  ms.locfileid: "113301891"
 landingContent:
 - title: Azure VMware Solution 정보
   linkLists:
@@ -47,23 +47,23 @@ landingContent:
     - text: 일반
       url: ./faq.yml
     - text: 고객 커뮤니케이션
-      url: /azure/azure-vmware/faq.yml#customer-communication
+      url: /azure/azure-vmware/faq#customer-communication
     - text: 구성 및 설정
-      url: /azure/azure-vmware/faq.yml#configuration-and-setup
+      url: /azure/azure-vmware/faq#configuration-and-setup
     - text: VMware 소프트웨어
-      url: /azure/azure-vmware/faq.yml#vmware-software
+      url: /azure/azure-vmware/faq#vmware-software
     - text: 컴퓨팅
-      url: /azure/azure-vmware/faq.yml#compute
+      url: /azure/azure-vmware/faq#compute
     - text: 네트워킹 및 상호 연결
-      url: /azure/azure-vmware/faq.yml#networking-and-interconnectivity
+      url: /azure/azure-vmware/faq#networking-and-interconnectivity
     - text: 스토리지
-      url: /azure/azure-vmware/faq.yml#storage
+      url: /azure/azure-vmware/faq#storage
     - text: 호스트, 클러스터 및 프라이빗 클라우드
-      url: /azure/azure-vmware/faq.yml#hosts,-clusters,-and-private-clouds
+      url: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
     - text: ID 관리
-      url: /azure/azure-vmware/faq.yml#identity-management
+      url: /azure/azure-vmware/faq#identity-management
     - text: 청구 및 지원
-      url: /azure/azure-vmware/faq.yml#billing-and-support
+      url: /azure/azure-vmware/faq#billing-and-support
 - title: 시작
   linkLists:
   - linkListType: deploy
@@ -128,6 +128,8 @@ landingContent:
       url: configure-site-to-site-vpn-gateway.md
     - text: Windows Server 장애 조치(Failover) 클러스터 구성
       url: configure-windows-server-failover-cluster.md
+    - text: 동일한 지역에 여러 프라이빗 클라우드 연결
+      url: connect-multiple-private-clouds-same-region.md
 - title: Azure 네이티브 통합
   linkLists:
   - linkListType: how-to-guide
@@ -144,16 +146,14 @@ landingContent:
       url: deploy-traffic-manager-balance-workloads.md
     - text: 경고 구성 및 메트릭 작업
       url: configure-alerts-for-azure-vmware-solution.md
-- title: Azure Backup Server로 백업 및 복원
+- title: Azure Backup Server를 사용하여 백업
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: VMware VM 백업
-      url: ../backup/backup-azure-backup-server-vmware.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-    - text: VMware VM 복원
-      url: ../backup/restore-azure-backup-server-vmware.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-    - text: Azure Backup 워크로드 모니터링
-      url: ../backup/backup-azure-monitoring-built-in-monitor.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+    - text: Backup 서버 설정
+      url: set-up-backup-server-for-azure-vmware-solution.md
+    - text: Backup 서버를 사용하여 프라이빗 클라우드 VM 백업
+      url: backup-azure-vmware-solution-virtual-machines.md
 - title: VMware 솔루션
   linkLists:
   - linkListType: how-to-guide
@@ -166,6 +166,8 @@ landingContent:
       url: deploy-vm-content-library.md
     - text: VMware HCX를 사용하여 재해 복구 배포
       url: deploy-disaster-recovery-using-vmware-hcx.md
+    - text: VMware HCX 어플라이언스 업그레이드
+      url: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html
 - title: VMware 에코시스템
   linkLists:
   - linkListType: reference
