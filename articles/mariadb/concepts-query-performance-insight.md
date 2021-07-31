@@ -1,16 +1,16 @@
 ---
-title: Query Performance Insight-Azure Database for MariaDB
-description: 이 문서에서는의 Query Performance Insight 기능에 대해 설명 Azure Database for MariaDB
+title: Query Performance Insight - Azure Database for MariaDB
+description: 이 문서에서는 Azure Database for MariaDB의 Query Performance Insight 기능을 설명합니다.
 author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: b643ba3305736480e06d7c10d594b2271839038f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98664234"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 Query Performance Insight
@@ -43,7 +43,7 @@ Query Performance Insight가 작동하려면 [쿼리 저장소](concepts-query-s
 
 Azure Portal의 [Query Performance Insight](concepts-query-performance-insight.md) 보기에는 쿼리 저장소의 핵심 정보가 시각화되어 표시됩니다.
 
-Azure Database for MariaDB 서버의 포털 페이지에서 메뉴 모음의 **지능형 성능** 섹션 아래에 있는 **Query Performance Insight** 를 선택 합니다.
+Azure Database for MariaDB 서버의 포털 페이지에서 **Query Performance Insight** 를 선택합니다. 메뉴 바의 **지능형 성능** 섹션 아래에 있습니다.
 
 ### <a name="long-running-queries"></a>장기 실행 쿼리
 
@@ -56,7 +56,7 @@ Azure Database for MariaDB 서버의 포털 페이지에서 메뉴 모음의 **�
 ### <a name="wait-statistics"></a>대기 통계 
 
 > [!NOTE]
-> 대기 통계는 쿼리 성능 문제를 해결하기 위한 것입니다. 문제 해결 목적을 위해서만 켜지도록 하는 것이 좋습니다. <br>Azure Portal "에 오류 메시지가 표시 되 면"*DBforMariaDB "에 대 한 문제가 발생 한 것입니다. 에서 요청을 수행할 수 없습니다. 이 문제가 계속 되거나 예기치 않은 경우 지원 서비스에 문의 하세요.*" 받은 경우 더 작은 기간을 사용하세요.
+> 대기 통계는 쿼리 성능 문제를 해결하기 위한 것입니다. 문제 해결 목적을 위해서만 켜지도록 하는 것이 좋습니다. <br>대기 통계를 볼 때 Azure Portal에서 오류 메시지 “ *'Microsoft.DBforMariaDB'에 문제가 발생하여 요청을 수행할 수 없습니다. 이 문제가 계속되거나 예기치 않은 문제인 경우 이 정보로 지원 부서에 문의하세요.* ”를 받은 경우 더 작은 기간을 사용하세요.
 
 대기 통계는 특정 쿼리를 실행하는 동안 발생하는 대기 이벤트에 대한 보기를 제공합니다. [MySQL 엔진 설명서](https://go.microsoft.com/fwlink/?linkid=2098206)에서 대기 이벤트 유형에 대해 자세히 알아보세요.
 

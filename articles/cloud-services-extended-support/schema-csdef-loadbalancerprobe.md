@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Services (확장 지원) LoadBalancerProbe 스키마 | Microsoft Docs
-description: Cloud Services에 대 한 부하 분산 장치 프로브 스키마와 관련 된 정보 (확장 지원)
+title: Azure Cloud Services(추가 지원) Def. LoadBalancerProbe 스키마 | Microsoft Docs
+description: Cloud Services(추가 지원) 부하 분산 장치 프로브 스키마와 관련된 정보
 ms.topic: article
 ms.service: cloud-services-extended-support
 ms.date: 10/14/2020
@@ -9,24 +9,24 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 10e42e502a1f435d06d52d22d5c1e1924a46e575
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98744554"
 ---
-# <a name="azure-cloud-services-extended-support-definition-loadbalancerprobe-schema"></a>Azure Cloud Services (확장 지원) 정의 LoadBalancerProbe 스키마
+# <a name="azure-cloud-services-extended-support-definition-loadbalancerprobe-schema"></a>Azure Cloud Services(추가 지원) 정의 LoadBalancerProbe 스키마
 
 부하 분산 장치 프로브는 UDP 엔드포인트와 역할 인스턴스의 엔드포인트에서 고객이 정의한 상태 프로브입니다. `LoadBalancerProbe`는 독립 실행형 요소가 아닙니다. 서비스 정의 파일의 웹 역할 또는 작업자 역할과 결합됩니다. `LoadBalancerProbe`는 하나 이상의 역할에서 사용할 수 있습니다.
 
-서비스 정의 파일의 기본 확장명은 .csdef입니다.
+서비스 정의 파일의 기본 확장명은 csdef입니다.
 
 ## <a name="the-function-of-a-load-balancer-probe"></a>부하 분산 장치 프로브 함수
-Azure Load Balancer는 들어오는 트래픽을 역할 인스턴스로 라우팅합니다. 부하 분산 장치는 해당 인스턴스의 상태를 판단하기 위해 각 인스턴스를 정기적으로 검색함으로써 트래픽을 수신할 수 있는 인스턴스를 결정합니다. 부하 분산 장치는 분당 여러 번 모든 인스턴스를 검색합니다. 부하 분산 장치에 인스턴스 상태를 제공 하는 두 가지 옵션이 있습니다. 기본 부하 분산 장치 프로브 또는 .csdef 파일의 LoadBalancerProbe를 정의 하 여 구현 되는 사용자 지정 부하 분산 장치 프로브입니다.
+Azure Load Balancer는 들어오는 트래픽을 역할 인스턴스로 라우팅합니다. 부하 분산 장치는 해당 인스턴스의 상태를 판단하기 위해 각 인스턴스를 정기적으로 검색함으로써 트래픽을 수신할 수 있는 인스턴스를 결정합니다. 부하 분산 장치는 분당 여러 번 모든 인스턴스를 검색합니다. 부하 분산 장치에 인스턴스 상태를 제공하기 위한 옵션에는 기본 부하 분산 장치 프로브와 .csdef 파일에서 LoadBalancerProbe를 정의하여 구현하는 사용자 지정 부하 분산 장치 프로브, 이렇게 두 가지가 있습니다.
 
 기본 부하 분산 장치 프로브는 수신 대기하여 인스턴스가 Ready 상태인 경우(즉, 인스턴스가 Busy, Recycling, Stopping 등의 상태가 아닌 경우)에만 HTTP 200 OK 응답으로 응답하는 가상 머신 내의 게스트 에이전트를 활용합니다. 게스트 에이전트가 HTTP 200 OK로 응답하지 않으면 Azure Load Balancer에서 인스턴스를 응답하지 않는 것으로 표시하고 해당 인스턴스로 트래픽 전송을 중지합니다. Azure Load Balancer는 인스턴스를 계속 ping하고, 게스트 에이전트가 HTTP 200에 응답하는 경우 Azure Load Balancer가 해당 인스턴스로 다시 트래픽을 보냅니다. 웹 역할을 사용할 때 웹 사이트 코드는 일반적으로 w3wp.exe에서 실행되는데, 이는 Azure 패브릭 또는 게스트 에이전트에서 모니터링되지 않습니다. 즉, w3wp.exe에서 발생한 오류(예: HTTP 500 반응)는 게스트 에이전트로 보고되지 않으며 부하 분산 장치는 해당 인스턴스를 순환에서 제거할 수 없습니다.
 
-사용자 지정 부하 분산 장치 프로브는 기본 게스트 에이전트 프로브를 재정의하고, 사용자가 역할 인스턴스의 상태를 판단할 수 있도록 고유의 사용자 지정 논리를 만들 수 있습니다. 부하 분산 장치는 정기적으로 엔드포인트를 검색(기본적으로 15초 간격)하고, 인스턴스는 시간 제한 기간(기본값은 31초) 내 TCP ACK 또는 HTTP 200으로 응답하는 경우에 순환에 있는 것으로 간주됩니다. 이는 인스턴스가 90% CPU 이상일 경우 200이 아닌 상태를 반환하는 것과 같이 부하 분산 장치 회전에서 인스턴스를 제거하는 사용자 고유의 논리를 구현하는 데 유용할 수 있습니다. w3wp.exe를 사용하는 웹 역할의 경우 웹 사이트 코드에 오류가 있으면 부하 분산 장치 프로브에 200이 아닌 상태가 반환되므로 웹 사이트의 자동 모니터링도 사용할 수 있습니다. .Csdef 파일에 LoadBalancerProbe를 정의 하지 않으면 기본 부하 분산 장치 동작 (앞에서 설명한 대로)이 사용 됩니다.
+사용자 지정 부하 분산 장치 프로브는 기본 게스트 에이전트 프로브를 재정의하고, 사용자가 역할 인스턴스의 상태를 판단할 수 있도록 고유의 사용자 지정 논리를 만들 수 있습니다. 부하 분산 장치는 정기적으로 엔드포인트를 검색(기본적으로 15초 간격)하고, 인스턴스는 시간 제한 기간(기본값은 31초) 내 TCP ACK 또는 HTTP 200으로 응답하는 경우에 순환에 있는 것으로 간주됩니다. 이는 인스턴스가 90% CPU 이상일 경우 200이 아닌 상태를 반환하는 것과 같이 부하 분산 장치 회전에서 인스턴스를 제거하는 사용자 고유의 논리를 구현하는 데 유용할 수 있습니다. w3wp.exe를 사용하는 웹 역할의 경우 웹 사이트 코드에 오류가 있으면 부하 분산 장치 프로브에 200이 아닌 상태가 반환되므로 웹 사이트의 자동 모니터링도 사용할 수 있습니다. .csdef 파일에서 LoadBalancerProbe를 정의하지 않는 경우 기본 부하 분산 장치 동작(앞에서 설명한)이 사용됩니다.
 
 사용자 지정 부하 분산 장치 프로브를 사용하는 경우 사용자의 논리가 RoleEnvironment.OnStop 메서드를 이용하도록 해야 합니다. 기본 부하 분산 장치 프로브를 사용할 때는 인스턴스가 OnStop 호출에 앞서 순환에서 제거되지만, 사용자 지정 부하 분산 장치 프로브는 OnStop 이벤트를 사용하는 동안 계속해서 200 OK를 반환할 수 있습니다. OnStop 이벤트를 사용하여 캐시를 정리하고 서비스를 중지하거나, 서비스의 런타임 동작에 영향을 미칠 수 있는 변경을 수행한 경우, 사용자 지정 부하 분산 장치 프로브 논리가 인스턴스를 회전에서 제거하도록 해야 합니다.
 
@@ -65,4 +65,4 @@ Azure Load Balancer는 들어오는 트래픽을 역할 인스턴스로 라우�
 | `timeoutInSeconds`  | `integer` | 선택 사항입니다. 시간 제한 기간(초)은 응답이 없으면 엔드포인트에 향후 트래픽을 전달하지 않는 프로브에 적용됩니다. 이 값을 사용하면 엔드포인트를 Azure에서 사용되는 일반적인 시간에 비해 더 빠르거나 더 느리게 순환에서 제거할 수 있습니다.<br /><br /> 기본값은 31, 최소 값은 11입니다.|
 
 ## <a name="see-also"></a>참고 항목
-[클라우드 서비스 (확장 지원) 정의 스키마](schema-csdef-file.md).
+[클라우드 서비스(추가 지원) 정의 스키마](schema-csdef-file.md).

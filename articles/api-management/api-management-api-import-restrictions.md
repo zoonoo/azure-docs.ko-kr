@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
-ms.openlocfilehash: 6a53cc2b2ec6d46b4bde54af58b4e5542ff6cf79
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3205d4c4c6d8d7d821cb65400a4c1f19d6484005
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91932637"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226537"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 가져오기 제한 사항 및 알려진 문제
 
@@ -58,7 +58,7 @@ OpenAPI 문서를 가져올 때 오류가 표시되면 해당 문서의 유효�
 
 ### <a name="general"></a><a name="open-import-export-general"> </a>일반
 
--   API Management 서비스에서 내보낸 API 정의는 주로 API Management 서비스에서 호스트된 API를 호출해야 하는 API Management 서비스 외부 애플리케이션을 위한 것입니다. 내보낸 API 정의는 동일하거나 다른 API Management 서비스로 다시 가져올 수 없습니다. 다양한 서비스/환경의 API 정의 구성 관리에 대한 자세한 내용은 Git에서 API Management 서비스를 사용하는 방법 설명서를 참조하세요. 
+-   API Management 서비스에서 내보낸 API 정의는 주로 API Management 서비스에서 호스트된 API를 호출해야 하는 API Management 서비스 외부 애플리케이션을 위한 것입니다. 내보낸 API 정의는 동일하거나 다른 API Management 서비스로 다시 가져올 수 없습니다. 다양한 서비스/환경 간의 API 정의 구성 관리는 Git에서 API Management 서비스 사용에 관한 설명서를 참조하세요. 
 
 ### <a name="add-new-api-via-openapi-import"></a>OpenAPI 가져오기를 통해 새 API 추가
 

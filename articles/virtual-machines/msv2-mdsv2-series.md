@@ -1,5 +1,5 @@
 ---
-title: Msv2 시리즈(미리 보기) - Azure Virtual Machines
+title: Msv2/Mdsv2 중간 메모리 시리즈 - Azure Virtual Machines
 description: Msv2 시리즈 VM의 사양입니다.
 author: ayshakeen
 ms.service: virtual-machines
@@ -7,30 +7,19 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: a7f4757467523837423d52998eb6b8204090e627
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 696125f75e41d39b4f9aaa1ff852b03eff589fb0
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562574"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204246"
 ---
-# <a name="msv2-and-mdsv2-series-medium-memory-preview"></a>Msv2 및 Mdsv2 시리즈 중간 메모리(미리 보기)
-
-
-> [!IMPORTANT]
-> **https://aka.ms/Mv2MedMemoryPreview** 에서 양식을 작성하여 미리 보기에 조인합니다.  
+# <a name="msv2-and-mdsv2-series-medium-memory"></a>Msv2 및 Mdsv2 시리즈 중간 메모리
 
 Msv2 및 Mdsv2 Medium Memory VM 시리즈는 2.7GHz 및 4.0GHz 단일 코어 터보 주파수의 모든 코어 기본 주파수를 가진 Intel® Xeon® Platinum 8280(Cascade Lake) 프로세서가 탑재되어 있습니다. 이러한 VM을 통해 고객은 로컬 디스크 및 디스크 없는 옵션을 사용하여 유연성을 높일 수 있습니다. 또한 고객은 4TiB 메모리가 장착된 vCPU가 192개까지 증가하는 더 많은 CPU와 메모리를 사용하여 새로이 격리된 VM 크기 세트에 액세스할 수 있습니다. 
 
-
-Msv2 및 Mdsv2 시리즈 VM은 2세대 전용으로, 2세대에서 지원하는 이미지의 하위 집합을 지원합니다. Msv2 및 Mdsv2 시리즈에 대해 지원되는 이미지의 전체 목록은 아래를 참조하세요.  
-
-- Windows Server 2019 이상
-- SUSE Linux Enterprise Server 12 SP4 이상 또는 SUSE Linux Enterprise Server 15 SP1 이상
-- Red Hat Enterprise Linux 7.6, 7.7, 8.1 이상 
-- Oracle Enterprise Linux 7.7 이상
-
-2세대 가상 머신에 대한 자세한 내용은 [Azure에서 2세대 VM 지원](./generation-2.md)을 참조하세요.
+> [!NOTE]
+> Msv2 및 Mdsv2 중간 메모리 VM은 2세대 전용입니다. 2세대 가상 머신에 대한 자세한 내용은 [Azure에서 2세대 VM 지원](./generation-2.md)을 참조하세요.
 
 
 

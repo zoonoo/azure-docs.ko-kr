@@ -1,38 +1,38 @@
 ---
-title: 응용 프로그램에서 관리 id 사용
-description: Azure Service Fabric 응용 프로그램 코드에서 관리 되는 id를 사용 하 여 Azure 서비스에 액세스 하는 방법입니다.
+title: 응용 프로그램에서 관리 ID 사용
+description: Azure Service Fabric 응용 프로그램 코드에서 관리 ID를 사용하여 Azure 서비스에 액세스하는 방법입니다.
 ms.topic: article
 ms.date: 10/09/2019
 ms.openlocfilehash: e26a29020f26583f7e4aa16434c7e8647ba9a5a3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98871064"
 ---
-# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Service Fabric 응용 프로그램의 관리 되는 id를 활용 하 여 Azure 서비스에 액세스 하는 방법
+# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Service Fabric 응용 프로그램의 관리 ID를 활용하여 Azure 서비스에 액세스하는 방법
 
-Service Fabric 응용 프로그램은 관리 되는 id를 활용 하 여 Azure Active Directory 기반 인증을 지 원하는 다른 Azure 리소스에 액세스할 수 있습니다. 응용 프로그램은 시스템 할당 또는 사용자 할당 일 수 있는 id를 나타내는 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token) 을 가져올 수 있으며,이 토큰을 ' 전달자 ' 토큰으로 사용 하 여 다른 서비스 ( [보호 된 리소스 서버](../active-directory/develop/developer-glossary.md#resource-server)라고도 함)에 인증할 수 있습니다. 토큰은 Service Fabric 응용 프로그램에 할당 된 id를 나타내며, 해당 id를 공유 하는 Azure 리소스 (SF 응용 프로그램 포함)에만 발급 됩니다. 관리 되는 id에 대 한 자세한 설명 및 시스템 할당 id와 사용자 할당 id를 구분 하는 방법은 [관리 id 개요](../active-directory/managed-identities-azure-resources/overview.md) 설명서를 참조 하세요. 이 문서 전체에서 관리 되는 id 사용 Service Fabric 응용 프로그램을 [클라이언트 응용 프로그램](../active-directory/develop/developer-glossary.md#client-application) 으로 참조 합니다.
+Service Fabric 응용 프로그램은 관리 ID를 활용하여 Azure Active Directory 기반 인증을 지원하는 다른 Azure 리소스에 액세스할 수 있습니다. 응용 프로그램은 시스템 할당 또는 사용자 할당일 수 있는 ID를 나타내는 [액세스 토큰을](../active-directory/develop/developer-glossary.md#access-token) 가져오고 이를 'bearer' 토큰으로 사용하여 [보호된 리소스 서버라](../active-directory/develop/developer-glossary.md#resource-server)고도 하는 다른 서비스에 인증할 수 있습니다. 토큰은 Service Fabric 응용 프로그램에 할당된 ID를 나타내며 해당 ID를 공유하는 Azure 리소스(SF 응용 프로그램 포함)에만 발급됩니다. 관리 ID에 대한 자세한 설명과 시스템이 할당한 ID와 사용자 할당 ID의 차이점은 [관리 ID 개요](../active-directory/managed-identities-azure-resources/overview.md) 문서를 참조하세요. 이 문서에서는 관리 ID 사용 Service Fabric 응용 프로그램을 [클라이언트 응용 프로그램이라고](../active-directory/develop/developer-glossary.md#client-application) 합니다.
 
-Reliable Services 및 컨테이너에서 시스템 할당 및 사용자 할당 [Service Fabric 응용 프로그램 관리 id](https://github.com/Azure-Samples/service-fabric-managed-identity) 를 사용 하는 방법을 보여 주는 도우미 샘플 응용 프로그램을 참조 하십시오.
-
-> [!IMPORTANT]
-> 관리 id는 리소스를 포함 하는 구독과 연결 된 해당 Azure AD 테 넌 트의 Azure 리소스와 서비스 주체 간의 연결을 나타냅니다. 따라서 Service Fabric 컨텍스트에서 관리 id는 Azure 리소스로 배포 된 응용 프로그램에 대해서만 지원 됩니다. 
+Reliable Services 및 컨테이너와 함께 시스템 할당 및 사용자 할당 [Service Fabric 응용 프로그램 관리 ID를](https://github.com/Azure-Samples/service-fabric-managed-identity) 사방법을 보여주는 도우미 응용 프로그램 예제를 참조하세요.
 
 > [!IMPORTANT]
-> Service Fabric 응용 프로그램의 관리 되는 id를 사용 하기 전에 클라이언트 응용 프로그램에 보호 된 리소스에 대 한 액세스 권한을 부여 해야 합니다. [AZURE AD 인증을 지 원하는 azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) 목록을 참조 하 여 지원 여부를 확인 한 다음 특정 단계에 대 한 특정 단계에 대 한 자세한 내용을 확인 하 여 관심 있는 리소스에 대 한 id 액세스 권한을 부여 하세요. 
+> 관리 ID는 리소스를 포함하는 구독과 연결된 해당 Azure AD 테넌트에서 Azure 리소스와 서비스 주체 간의 연결을 나타냅니다. 따라서 Service Fabric 컨텍스트에서 관리 ID는 Azure 리소스로 배포된 응용 프로그램에 대해서만 지원됩니다. 
+
+> [!IMPORTANT]
+> Service Fabric 응용 프로그램의 관리 ID를 사용하기 전에 클라이언트 응용 프로그램에 보호된 리소스에 대한 액세스 권한을 부여해야 합니다. 지원을 확인하려면 [Azure AD 인증을 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) 목록을 참조한 다음, 관심 있는 리소스에 대한 ID 액세스 권한을 부여하는 특정 단계에 대한 해당 서비스의 설명서를 참조하세요. 
  
 
-## <a name="leverage-a-managed-identity-using-azureidentity"></a>Azure. Identity를 사용 하 여 관리 되는 id 활용
+## <a name="leverage-a-managed-identity-using-azureidentity"></a>Azure.Identity를 사용하여 관리 ID 활용
 
-Azure Id SDK는 이제 Service Fabric를 지원 합니다. Azure. Identity를 사용 하면 토큰 가져오기, 토큰 캐싱 및 서버 인증을 처리 하기 때문에 Service Fabric app 관리 id를 사용 하는 코드를 보다 쉽게 작성할 수 있습니다. 대부분의 Azure 리소스에 액세스 하는 동안 토큰의 개념은 숨겨집니다.
+Azure ID SDK는 이제 Service Fabric을 지원합니다. Azure.Identity를 사용하면 토큰 가져오기, 토큰 캐싱 및 서버 인증을 처리 하기 때문에 Service Fabric 앱 관리 ID를 사용하는 코드를 보다 쉽게 작성할 수 있습니다. 대부분의 Azure 리소스에 액세스하는 동안 토큰의 개념은 숨겨집니다.
 
-이러한 언어에 대 한 Service Fabric 지원은 다음 버전에서 제공 됩니다. 
-- [버전 1.3.0의 c #](https://www.nuget.org/packages/Azure.Identity) [C # 샘플](https://github.com/Azure-Samples/service-fabric-managed-identity)을 참조 하세요.
-- [1.5.0 버전의 Python](https://pypi.org/project/azure-identity/) [Python 샘플](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/tests/managed-identity-live/service-fabric/service_fabric.md)을 참조 하세요.
-- [1.2.0 버전의 Java](/java/api/overview/azure/identity-readme)
+이러한 언어에 대한 Service Fabric 지원은 다음 버전에서 제공됩니다. 
+- [C# 버전 1.3.0](https://www.nuget.org/packages/Azure.Identity). [C# 샘플](https://github.com/Azure-Samples/service-fabric-managed-identity)을 참조하세요.
+- [Python 버전 1.5.0](https://pypi.org/project/azure-identity/). [Python 샘플](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/tests/managed-identity-live/service-fabric/service_fabric.md)을 참조 하세요.
+- [Java 버전 1.2.0](/java/api/overview/azure/identity-readme).
 
-자격 증명을 초기화 하 고 자격 증명을 사용 하 여 Azure Key Vault에서 비밀을 가져오는 c # 샘플:
+자격 증명을 초기화하고 자격 증명을 사용하여 Azure Key Vault에서 비밀을 가져오는 C# 샘플:
 
 ```csharp
 using Azure.Identity;
@@ -73,27 +73,27 @@ namespace MyMIService
 
 ```
 
-## <a name="acquiring-an-access-token-using-rest-api"></a>REST API를 사용 하 여 액세스 토큰 가져오기
-관리 id에 대해 사용 하도록 설정 된 클러스터에서 Service Fabric 런타임은 응용 프로그램이 액세스 토큰을 가져오는 데 사용할 수 있는 localhost 끝점을 노출 합니다. 끝점은 클러스터의 모든 노드에서 사용할 수 있으며 해당 노드의 모든 엔터티에 액세스할 수 있습니다. 권한 있는 호출자는이 끝점을 호출 하 고 인증 코드를 제공 하 여 액세스 토큰을 가져올 수 있습니다. 코드는 각각의 개별 서비스 코드 패키지 활성화에 대해 Service Fabric 런타임에 의해 생성 되며 해당 서비스 코드 패키지를 호스팅하는 프로세스의 수명에 바인딩됩니다.
+## <a name="acquiring-an-access-token-using-rest-api"></a>REST API를 사용하여 액세스 토큰 획득
+관리 ID를 사용하도록 설정된 클러스터에서 Service Fabric 런타임은 응용 프로그램이 액세스 토큰을 가져오는 데 사용할 수 있는 localhost 엔드포인트를 노출합니다. 엔드포인트는 클러스터의 모든 노드에서 사용할 수 있으며 해당 노드의 모든 엔터티에 액세스할 수 있습니다. 권한 있는 호출자는 이 엔드포인트를 호출하고 인증 코드를 입력하여 액세스 토큰을 가져올 수 있습니다. 코드는 각각의 개별 서비스 코드 패키지 활성화에 대해 Service Fabric 런타임에 의해 생성되며 해당 서비스 코드 패키지를 호스팅하는 프로세스의 수명에 바인딩됩니다.
 
-특히 관리 되는 id 사용 Service Fabric 서비스 환경은 다음 변수로 시드 됩니다.
-- ' IDENTITY_ENDPOINT ': 서비스의 관리 id에 해당 하는 localhost 끝점입니다.
-- ' IDENTITY_HEADER ': 현재 노드의 서비스를 나타내는 고유 인증 코드입니다.
-- ' IDENTITY_SERVER_THUMBPRINT ': service fabric 관리 id 서버 지문
+특히 관리 ID 사용 Service Fabric 서비스 환경은 다음 변수로 시드됩니다.
+- 'IDENTITY_ENDPOINT: 서비스의 관리 ID에 해당하는 localhost 엔드포인트입니다
+- 'IDENTITY_HEADER': 현재 노드의 서비스를 나타내는 고유 인증 코드입니다
+- 'IDENTITY_SERVER_THUMBPRINT': Service Fabric 관리 ID의 서버 지문
 
 > [!IMPORTANT]
-> 응용 프로그램 코드는 ' IDENTITY_HEADER ' 환경 변수의 값을 중요 한 데이터로 간주 해야 합니다 .이는 로깅되지 않으며 그렇지 않은 경우에는 disseminated 합니다. 인증 코드에는 로컬 노드 외부의 값이 없지만 서비스를 호스팅하는 프로세스는 종료 된 후에는 Service Fabric 서비스의 id를 나타내므로 액세스 토큰 자체와 동일한 예방 조치를 사용 하 여 처리 해야 합니다.
+> 응용 프로그램 코드는 'IDENTITY_HEADER' 환경 변수의 값을 중요한 데이터로 간주해야 합니다. 이는 로깅되지 않으며 그렇지 않은 경우에는 전파됩니다. 인증 코드는 로컬 노드 외부에서나 서비스를 호스팅하는 프로세스가 종료된 후에는 값이 없지만 Service Fabric 서비스의 ID를 나타내므로 액세스 토큰 자체와 동일한 예방 조치로 처리해야 합니다.
 
-클라이언트는 토큰을 가져오기 위해 다음 단계를 수행 합니다.
-- 관리 되는 id 끝점 (IDENTITY_ENDPOINT 값)을 API 버전 및 토큰에 필요한 리소스 (대상 사용자)와 연결 하 여 URI를 형성 합니다.
-- 지정 된 URI에 대 한 GET http (s) 요청을 만듭니다.
-- 적절 한 서버 인증서 유효성 검사 논리를 추가 합니다.
-- 요청에 인증 코드 (IDENTITY_HEADER 값)를 헤더로 추가 합니다.
-- 요청을 제출 합니다.
+토큰을 얻기 위해 클라이언트는 다음 단계를 수행합니다.
+- 관리 ID 엔드포인트(IDENTITY_ENDPOINT 값)를 API 버전 및 토큰에 필요한 리소스(대상 그룹)와 결합하여 URI를 형성합니다
+- 지정된 URI에 대한 GET http 요청을 만듭니다
+- 적절한 서버 인증서 유효성 검사 논리를 추가합니다
+- 인증 코드(IDENTITY_HEADER 값)를 요청에 헤더로 추가합니다
+- 요청을 제출합니다
 
-성공적인 응답에는 결과 액세스 토큰을 나타내는 JSON 페이로드 뿐만 아니라이를 설명 하는 메타 데이터가 포함 됩니다. 실패 한 응답에도 오류에 대 한 설명이 포함 됩니다. 오류 처리에 대 한 자세한 내용은 아래를 참조 하세요.
+성공적인 응답에는 결과 액세스 토큰을 나타내는 JSON 페이로드와 이를 설명하는 메타데이터가 포함됩니다. 실패한 응답에는 실패에 대한 설명도 포함됩니다. 오류 처리에 대한 자세한 내용은 아래를 참조하세요.
 
-액세스 토큰은 다양 한 수준 (노드, 클러스터, 리소스 공급자 서비스)에서 Service Fabric에 의해 캐시 되므로 성공적인 응답은 토큰이 사용자 응용 프로그램의 요청에 대 한 응답으로 직접 발급 되었음을 암시 하는 것은 아닙니다. 토큰은 수명 미만으로 캐시 되므로 응용 프로그램은 유효한 토큰을 수신 하도록 보장 됩니다. 응용 프로그램 코드는 자신이 획득 한 액세스 토큰을 캐시 하는 것이 좋습니다. 캐싱 키에는 대상 그룹의 파생이 포함 되어야 합니다. 
+액세스 토큰은 다양한 수준(노드, 클러스터, 리소스 공급자 서비스)에서 Service Fabric으로 캐시되므로 성공적인 응답이 반드시 사용자 응용 프로그램의 요청에 대한 응답으로 토큰이 직접 발급되었음을 의미하지는 않습니다. 토큰은 수명보다 적게 캐시되므로 응용 프로그램이 유효한 토큰을 받도록 보장됩니다. 응용 프로그램 코드는 자신이 획득한 액세스 토큰을 자체 캐시하는 것이 좋습니다. 캐싱 키는 대상 그룹(의 파생)을 포함해야 합니다. 
 
 샘플 요청:
 ```http
@@ -101,13 +101,13 @@ GET 'https://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-0
 ```
 여기서
 
-| 요소 | 설명 |
+| 요소 | Description |
 | ------- | ----------- |
 | `GET` | HTTP 동사는 엔드포인트에서 데이터를 검색한다는 것을 나타냅니다. 이 경우에는 OAuth 액세스 토큰입니다. | 
-| `https://localhost:2377/metadata/identity/oauth2/token` | IDENTITY_ENDPOINT 환경 변수를 통해 제공 되는 Service Fabric 응용 프로그램에 대 한 관리 id 끝점입니다. |
-| `api-version` | 관리 되는 Id 토큰 서비스의 API 버전을 지정 하는 쿼리 문자열 매개 변수 현재 유일 하 게 허용 되는 값은 이며 `2019-07-01-preview` 변경 될 수 있습니다. |
-| `resource` | 쿼리 문자열 매개 변수는 대상 리소스의 앱 ID URI를 나타냅니다. `aud`발급 된 토큰의 (대상) 클레임으로 반영 됩니다. 이 예제에서는 앱 ID URI가 https:/vault.azure.net/인 Azure Key Vault에 액세스 하는 토큰을 요청 \/ 합니다. |
-| `Secret` | Service Fabric 서비스가 호출자를 인증 하기 위해 관리 되는 Service Fabric Id 토큰 서비스에서 요구 하는 HTTP 요청 헤더 필드입니다. 이 값은 IDENTITY_HEADER 환경 변수를 통해 SF 런타임에서 제공 됩니다. |
+| `https://localhost:2377/metadata/identity/oauth2/token` | IDENTITY_ENDPOINT 환경 변수를 통해 제공되는 Service Fabric 응용 프로그램의 관리 ID 엔드포인트입니다. |
+| `api-version` | 관리 ID 토큰 서비스의 API 버전을 지정하는 쿼리 문자열 매개 변수입니다. 현재 허용되는 값은 `2019-07-01-preview`이며 변경될 수 있습니다. |
+| `resource` | 쿼리 문자열 매개 변수는 대상 리소스의 앱 ID URI를 나타냅니다. 이는 발급된 토큰의 `aud`(대상 그룹) 클레임으로 반영됩니다. 이 예제에서는 앱 ID URI가 https:\//vault.azure.net/인 Azure Key Vault에 액세스하기 위한 토큰을 요청합니다. |
+| `Secret` | Service Fabric 서비스가 호출자를 인증하기 위해 Service Fabric 관리 ID 토큰 서비스에서 요구하는 HTTP 요청 헤더 필드입니다. 이 값은 IDENTITY_HEADER 환경 변수를 통해 SF 런타임에서 제공됩니다. |
 
 
 샘플 응답:
@@ -123,16 +123,16 @@ Content-Type: application/json
 ```
 여기서
 
-| 요소 | 설명 |
+| 요소 | Description |
 | ------- | ----------- |
-| `token_type` | 토큰 형식입니다. 이 경우이 토큰의 프레 젠 터 (' 전달자 ')가 토큰의 의도 한 주체 임을 의미 하는 "전달자" 액세스 토큰입니다. |
+| `token_type` | 토큰 형식입니다. 이 경우 이 토큰의 프레젠터('전달자')가 토큰이 의도한 주체임을 의미 하는 "전달자" 액세스 토큰입니다. |
 | `access_token` | 요청된 액세스 토큰입니다. 보안이 설정된 REST API를 호출할 때 토큰은 호출자를 인증하는 API를 허용하는 "전달자" 토큰으로 `Authorization` 요청 헤더 필드에 포함됩니다. | 
-| `expires_on` | 액세스 토큰이 만료 되는 타임 스탬프입니다. "1970-01-01T0:0: 0Z UTC"의 초 수로 표시 되 고 토큰의 클레임에 해당 `exp` 합니다. 이 경우, 토큰은 2019-08-08T06:10:11 + 00:00 (RFC 3339)에 만료 됩니다.|
-| `resource` | 요청에 대 한 쿼리 문자열 매개 변수를 통해 지정 된 액세스 토큰을 발급 한 리소스 이며, `resource` 토큰의 ' aud ' 클레임에 해당 합니다. |
+| `expires_on` | 액세스 토큰이 만료되는 타임스탬프입니다. "1970-01-01T0:0:0Z UTC"의 초수로 표시되고 토큰의 `exp` 클레임에 해당합니다. 이 경우, 토큰은 2019-08-08T06:10:11+00:00(RFC 3339)에 만료됩니다|
+| `resource` | 요청에 대한 `resource` 쿼리 문자열 매개 변수를 통해 지정된 액세스 토큰을 발급한 리소스이며, 토큰의 'aud' 클레임에 해당합니다. |
 
 
-## <a name="acquiring-an-access-token-using-c"></a>C를 사용 하 여 액세스 토큰 가져오기 #
-위의 내용은 c #에서로 바뀝니다.
+## <a name="acquiring-an-access-token-using-c"></a>C#를 사용하여 액세스 토큰 획득
+위의 내용은 C#에서 다음으로 바뀝니다.
 
 ```C#
 namespace Azure.ServiceFabric.ManagedIdentity.Samples
@@ -225,8 +225,8 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
     } // class AccessTokenAcquirer
 } // namespace Azure.ServiceFabric.ManagedIdentity.Samples
 ```
-## <a name="accessing-key-vault-from-a-service-fabric-application-using-managed-identity"></a>관리 Id를 사용 하 여 Service Fabric 응용 프로그램에서 Key Vault 액세스
-이 샘플은 위의를 기반으로 하 여 관리 id를 사용 하 여 Key Vault에 저장 된 비밀에 액세스 하는 방법을 보여 줍니다.
+## <a name="accessing-key-vault-from-a-service-fabric-application-using-managed-identity"></a>관리 ID를 사용하여 Service Fabric 응용 프로그램에서 키 자격 증명 모음 액세스
+이 샘플은 위의 내용을 기반으로 하여 관리 ID를 사용하여 키 자격 증명 모음에 저장된 비밀에 액세스하는 방법을 설명합니다.
 
 ```C#
         /// <summary>
@@ -374,60 +374,60 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
 ```
 
 ## <a name="error-handling"></a>오류 처리
-HTTP 응답 헤더의 ' 상태 코드 ' 필드는 요청의 성공 상태를 나타냅니다. ' 200 OK ' 상태는 성공을 나타내고 응답은 위에서 설명한 대로 액세스 토큰을 포함 합니다. 다음은 가능한 오류 응답을 간단히 열거 한 것입니다.
+HTTP 응답 헤더의 '상태 코드' 필드는 요청의 성공 상태를 나타냅니다. '200 OK' 상태는 성공을 나타내고 응답은 위에서 설명한 대로 액세스 토큰을 포함합니다. 다음은 가능한 오류 응답을 간단히 열거한 목록입니다.
 
 | 상태 코드 | 오류 원인 | 처리 방법 |
 | ----------- | ------------ | ------------- |
-| 404 찾을 수 없습니다. | 알 수 없는 인증 코드 이거나 응용 프로그램에 관리 되는 id가 할당 되지 않았습니다. | 응용 프로그램 설정 또는 토큰 취득 코드를 수정 합니다. |
-| 429 요청이 너무 많음. |  제한에 도달 하 여 AAD 또는 SF에 의해 적용 됩니다. | 지수 백오프를 통해 다시 시도. 아래 지침을 참조하세요. |
+| 404 찾을 수 없습니다. | 알 수 없는 인증 코드이거나 응용 프로그램에 관리 ID가 할당되지 않았습니다. | 응용 프로그램 설정 또는 토큰 취득 코드를 수정합니다. |
+| 429 요청이 너무 많음. |  제한에 도달하여 AAD 또는 SF에 의해 적용됩니다. | 지수 백오프를 통해 다시 시도. 아래 지침을 참조하세요. |
 | 요청의 4xx 오류입니다. | 요청 매개 변수 중 하나 이상이 올바르지 않습니다. | 다시 시도하지 마세요.  자세한 내용은 오류 세부 정보를 확인하세요.  4xx 오류는 디자인 타임 오류입니다.|
-| 서비스에서 5xx 오류가 발생 했습니다. | 관리 id 하위 시스템 또는 Azure Active Directory에서 일시적인 오류를 반환 했습니다. | 잠시 후에 다시 시도 하는 것이 안전 합니다. 다시 시도 하면 조정 상태 (429)가 발생할 수 있습니다.|
+| 서비스에서 5xx 오류가 발생했습니다. | 관리 ID 하위 시스템 또는 Azure Active Directory에서 일시적 오류를 반환했습니다. | 잠시 후에 다시 시도하는 것이 안전합니다. 다시 시도하면 제한 상태(429)가 발생할 수 있습니다.|
 
-오류가 발생 하는 경우 해당 HTTP 응답 본문에는 오류 세부 정보를 포함 하는 JSON 개체가 포함 됩니다.
+오류가 발생하면 해당하는 HTTP 응답 본문에는 다음과 같은 오류 세부 정보와 함께 JSON 개체가 포함됩니다.
 
 | 요소 | 설명 |
 | ------- | ----------- |
 | code | 오류 코드 |
 | correlationId | 디버깅에 사용할 수 있는 상관 관계 ID입니다. |
-| message | 오류의 자세한 설명입니다. **오류 설명은 언제 든 지 변경 될 수 있습니다. 오류 메시지 자체에 의존 하지 않습니다.**|
+| message | 오류의 자세한 설명입니다. **오류 설명은 언제든지 변경될 수 있습니다. 오류 메시지 자체에 의존하지 마십시오.**|
 
 샘플 오류:
 ```json
 {"error":{"correlationId":"7f30f4d3-0f3a-41e0-a417-527f21b3848f","code":"SecretHeaderNotFound","message":"Secret is not found in the request headers."}}
 ```
 
-다음은 관리 되는 id와 관련 된 일반적인 Service Fabric 오류 목록입니다.
+다음은 관리 ID와 관련된 일반적인 Service Fabric 오류 목록입니다.
 
 | 코드 | 메시지 | Description | 
 | ----------- | ----- | ----------------- |
-| SecretHeaderNotFound | 요청 헤더에서 비밀을 찾을 수 없습니다. | 인증 코드를 요청과 함께 제공 하지 않았습니다. | 
-| ManagedIdentityNotFound | 지정 된 응용 프로그램 호스트에 대 한 관리 id를 찾을 수 없습니다. | 응용 프로그램에 id가 없거나 인증 코드를 알 수 없습니다. |
-| ArgumentNullOrEmpty | ' Resource ' 매개 변수는 null 또는 빈 문자열일 수 없습니다. | 요청에 리소스 (대상 그룹)가 제공 되지 않았습니다. |
-| InvalidApiVersion | Api-version ' '은 지원 되지 않습니다. 지원 되는 버전은 ' 2019-07-01-preview '입니다. | 요청 URI에 지정 된 API 버전이 없거나 지원 되지 않습니다. |
-| InternalServerError | 오류가 발생했습니다. | Service Fabric 스택의 외부에서 관리 되는 id 하위 시스템에 오류가 발생 했습니다. 리소스에 대해 잘못 된 값이 지정 된 것 같습니다 (후행 '/' 확인). | 
+| SecretHeaderNotFound | 요청 헤더에서 비밀을 찾을 수 없습니다. | 인증 코드가 요청과 함께 제공되지 않았습니다. | 
+| ManagedIdentityNotFound | 지정된 응용 프로그램 호스트에 대한 관리 ID를 찾을 수 없습니다. | 응용 프로그램에 ID가 없거나 인증 코드를 알 수 없습니다. |
+| ArgumentNullOrEmpty | 'resource' 매개 변수는 null 또는 빈 문자열이 아니어야 합니다. | 리소스(대상 그룹)가 요청에 제공되지 않았습니다. |
+| InvalidApiVersion | api-version ''은 지원되지 않습니다. 지원되는 버전은 '2019-07-01-preview'입니다. | 요청 URI에 지정된 API 버전이 없거나 지원되지 않습니다. |
+| InternalServerError | 오류가 발생했습니다. | Service Fabric 스택 외부의 관리 ID 하위 시스템에서 오류가 발생했습니다. 가장 가능성이 높은 원인은 리소스에 대해 잘못된 값이 지정되어 있기 때문일 수 있습니다(후행 '/'?에 대한 확인) | 
 
 ## <a name="retry-guidance"></a>다시 시도 지침 
 
-일반적으로 다시 시도할 수 있는 오류 코드는 429 (너무 많은 요청)입니다. 내부 서버 오류/5xx 오류 코드는 다시 시도할 수 있지만 원인은 영구적 일 수 있습니다. 
+일반적으로 다시 시도할 수 있는 유일한 오류 코드는 429(너무 많은 요청)입니다. 내부 서버 오류/5xx 오류 코드는 영구적일 수 있지만 다시 시도할 수 있습니다. 
 
-제한 제한은 관리 id 하위 시스템에 대 한 호출 수 (특히 ' 업스트림 ' 종속성 (관리 Id Azure 서비스 또는 보안 토큰 서비스)에 적용 됩니다. Service Fabric는 파이프라인의 다양 한 수준에서 토큰을 캐시 하지만 관련 된 구성 요소의 분산 특성을 제공 하는 경우 호출자는 일관성 없는 제한 응답을 경험할 수 있습니다 (즉, 응용 프로그램의 한 노드/인스턴스는 제한 되지만 동일한 id에 대 한 토큰을 요청 하는 동안 다른 노드에서는 제한 됨). 조정 조건이 설정 되 면 조건을 지울 때까지 동일한 응용 프로그램의 후속 요청이 HTTP 상태 코드 429 (너무 많은 요청)로 실패할 수 있습니다.  
+대역폭 제한의 제한은 관리 ID 하위 시스템, 특히 '업스트림' 종속성(관리 ID Azure 서비스 또는 보안 토큰 서비스)에 대한 호출 수에 적용됩니다. Service Fabric 파이프라인의 다양한 수준에서 토큰을 캐시하지만 관련 구성 요소의 분산 특성을 고려할 때 호출자는 일관되지 않은 제한 응답을 경험할 수 있습니다(응용 프로그램의 한 노드/인스턴스에서 제한되지만 동일한 ID에 대한 토큰을 요청하는 동안 다른 노드에서는 제한되지 않음). 제한 조건이 설정되면 조건이 지워질 때까지 동일한 응용 프로그램의 후속 요청이 HTTP 상태 코드 429(너무 많은 요청)로 실패할 수 있습니다.  
 
-다음과 같이 지 수 백오프를 사용 하 여 제한으로 인해 실패 한 요청을 다시 시도 하는 것이 좋습니다. 
+제한으로 인해 실패한 요청은 다음과 같이 지수 백오프를 사용하여 다시 시도하기를 권합니다. 
 
-| 호출 인덱스 | 429 수신에 대 한 작업 | 
+| 호출 인덱스 | 429 수신에 대한 작업 | 
 | --- | --- | 
-| 1 | 1 초 대기 후 다시 시도 |
-| 2 | 2 초 대기 후 다시 시도 |
-| 3 | 4 초 후 다시 시도 |
-| 4 | 8 초 대기 후 다시 시도 |
-| 4 | 8 초 대기 후 다시 시도 |
-| 5 | 16 초 대기 후 다시 시도 |
+| 1 | 1초 대기 후 다시 시도 |
+| 2 | 2초 대기 후 다시 시도 |
+| 3 | 4초 대기 후 다시 시도 |
+| 4 | 8초 대기 후 다시 시도 |
+| 4 | 8초 대기 후 다시 시도 |
+| 5 | 16초 대기 후 다시 시도 |
 
 ## <a name="resource-ids-for-azure-services"></a>Azure 서비스의 리소스 ID
-Azure AD를 지 원하는 리소스 목록 및 해당 리소스 Id에 대해 [AZURE ad 인증을 지 원하는 azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) 를 참조 하세요.
+Azure AD 및 해당하는 리소스 ID를 지원하는 서비스의 목록은 [Azure AD 인증을 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) 를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [시스템 할당 관리 id를 사용 하 여 Azure Service Fabric 응용 프로그램 배포](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [사용자 할당 관리 id를 사용 하 여 Azure Service Fabric 응용 프로그램 배포](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-* [Azure Service Fabric 응용 프로그램에 다른 Azure 리소스에 대 한 액세스 권한 부여](./how-to-grant-access-other-resources.md)
-* [Service Fabric 관리 Id를 사용 하 여 샘플 응용 프로그램 탐색](https://github.com/Azure-Samples/service-fabric-managed-identity)
+* [시스템 할당 관리 ID를 사용하여 Azure Service Fabric 응용 프로그램 배포](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [사용자 할당 관리 ID를 사용하여 Azure Service Fabric 응용 프로그램 배포](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Azure Service Fabric 응용 프로그램에 다른 Azure 리소스에 대한 액세스 권한 부여](./how-to-grant-access-other-resources.md)
+* [Service Fabric 관리 ID를 사용하여 응용 프로그램 예제 탐색](https://github.com/Azure-Samples/service-fabric-managed-identity)

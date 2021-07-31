@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1c1cd4e7d65897634b5a8a8fa8be46275bbd4b88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 364953de1c56bcf41efb1a3ac9481b17603f3dec
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676875"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227797"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>SAP HANA on Azure(대규모 인스턴스)란?
 
@@ -57,7 +57,7 @@ HANA 대규모 인스턴스 지침의 다른 문서는 다음 영역을 다룹�
 - [SAP HANA on Azure(대규모 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)
 - [SAP HANA on Azure(대규모 인스턴스) 문제 해결 및 모니터링](troubleshooting-monitoring.md)
 - [STONITH를 사용하여 SUSE에서 고가용성 설정](./ha-setup-with-stonith.md)
-- [수정 버전 3 스탬프의 유형 II SKU에 대한 OS 백업 및 복원](./os-backup-type-ii-skus.md)
+- [OS 백업](./large-instance-os-backup.md)
 - [Azure 예약을 사용하여 SAP HANA(대규모 인스턴스) 비용 절감](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
 
 **다음 단계**

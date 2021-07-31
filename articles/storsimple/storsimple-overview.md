@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/02/2021
 ms.author: timlt
-ms.openlocfilehash: e8fb6985da5046d0a1bad171cbc9742a15baf1af
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 439522011734a31f818494956bd51f079b1f6113
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643444"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743258"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 시리즈: 하이브리드 클라우드 스토리지 솔루션
 
@@ -146,7 +146,7 @@ Backup은 스냅샷으로 캡처되며, 마지막 스냅샷 백업 이후 변경
 자세한 내용은 [StorSimple 스냅샷 관리자란?](storsimple-what-is-snapshot-manager.md)
 
 ## <a name="storsimple-adapter-for-sharepoint"></a>SharePoint용 StorSimple 어댑터
-Microsoft Azure StorSimple은 StorSimple 스토리지 및 데이터 보호 기능을 SharePoint 서버 팜으로 투명하게 확장하는 선택적 구성 요소인, SharePoint용 StorSimple 어댑터를 포함합니다. 어댑터는 Blob를 Microsoft Azure StorSimple 시스템에서 백업한 서버로 이동할 수 있도록 원격 Blob Storage(RBS) 공급자 및 SQL Server RBS 기능과 함께 작동합니다. Microsoft Azure StorSimple은 사용량에 따라 BLOB 데이터를 로컬 또는 클라우드에 저장합니다.
+Microsoft Azure StorSimple은 StorSimple 스토리지 및 데이터 보호 기능을 SharePoint Server 팜으로 투명하게 확장하는 선택적 구성 요소인 SharePoint용 StorSimple 어댑터를 포함합니다. 어댑터는 Blob를 Microsoft Azure StorSimple 시스템에서 백업한 서버로 이동할 수 있도록 원격 Blob Storage(RBS) 공급자 및 SQL Server RBS 기능과 함께 작동합니다. Microsoft Azure StorSimple은 사용량에 따라 BLOB 데이터를 로컬 또는 클라우드에 저장합니다.
 
 SharePoint용 StorSimple 어댑터는 SharePoint 중앙 관리 포털 내에서 관리됩니다. 따라서 SharePoint 관리가 중앙 집중화된 상태로 유지되며 모든 스토리지는 SharePoint 팜에 있는 것으로 나타납니다.
 
@@ -304,7 +304,7 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 | Small Computer System Interface(SCSI) |컴퓨터를 물리적으로 연결하고 컴퓨터 간에 데이터를 전달하기 위한 표준 집합입니다. |
 | 반도체 드라이브(SSD) |움직이는 부분이 없는 디스크(예: 플래시 드라이브)입니다. |
 | 스토리지 계정 만들기 |지정된 클라우드 서비스 공급자에 대해 스토리지 계정에 연결된 액세스 자격 증명 집합입니다. |
-| SharePoint용 StorSimple 어댑터 |StorSimple 스토리지 및 데이터 보호 기능을 SharePoint 서버 팜으로 투명하게 확장하는 Microsoft Azure StorSimple 구성 요소입니다. |
+| SharePoint용 StorSimple 어댑터 |StorSimple 스토리지 및 데이터 보호 기능을 SharePoint Server 팜으로 투명하게 확장하는 Microsoft Azure StorSimple 구성 요소입니다. |
 | StorSimple 디바이스 관리자 서비스 |Azure Portal의 확장은 StorSimple 온-프레미스 및 가상 디바이스를 관리할 수 있게 해줍니다. |
 | StorSimple Snapshot Manager |Microsoft Azure StorSimple에서 백업 및 복원 작업을 관리하기 위한 MMC(Microsoft Management Console) 스냅인입니다. |
 | 백업 수행 |사용자가 대화형으로 볼륨을 백업할 수 있게 해주는 기능입니다. 정의된 정책을 통해 자동화된 백업을 수행하는 대신 볼륨의 수동 백업을 수행하는 대체 방법입니다. |

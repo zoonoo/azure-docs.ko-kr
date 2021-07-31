@@ -6,18 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 05/08/2021
+ms.date: 07/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 75e5737f8ad7b0f40e8480c17e150669220007ff
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: cafea36f45dcc063fadc1562428735ee0ac9fe20
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109753690"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652823"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Azure Portal에서 Azure Data Box용 자체 관리형 배송 사용
 
 이 문서에서는 Azure Data Box 디바이스를 주문, 픽업 및 반납하기 위한 자체 관리형 배송 태스크에 대해 설명합니다. Azure Portal에서 Data Box 디바이스를 관리할 수 있습니다.
+
+> [!NOTE]
+> Data Box 주문 및 배송에 대한 질문과 대답은 [Data Box FAQ](data-box-faq.yml)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -68,8 +71,8 @@ Data Box를 주문할 때 자체 관리형 배송 옵션을 선택할 수 있습
    - Order name
    - Company name
    - Company legal name (if different) 
-   - Tax ID 
-   - Address 
+   - CNPJ (Business Tax ID, format: 00.000.000/0000-00) or CPF (Individual Tax ID, format: 000.000.000-00)
+   - Address
    - Country 
    - Phone number 
    - Contact name of the person who will pick up the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.)   

@@ -1,25 +1,25 @@
 ---
-title: '사용자 지정 공급자 c # RESTful 끝점 참조'
-description: 'Azure 사용자 지정 공급자 c # RESTful 끝점에 대 한 기본 참조를 제공 합니다. 끝점은 Azure 함수 앱을 통해 제공 됩니다.'
+title: 사용자 지정 공급자 C# RESTful 엔드포인트 참조
+description: Azure 사용자 지정 공급자 C# RESTful 엔드포인트에 대한 기본 참조를 제공합니다. 엔드포인트는 Azure 함수 앱을 통해 제공됩니다.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.author: jobreen
 author: jjbfour
 ms.date: 01/14/2021
-ms.openlocfilehash: 3b951cd0878bda4a3f65f9208f6997419a10d537
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 4fc06d7178442c22032795bf2d6ceacdbd6199a5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98200263"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745850"
 ---
-# <a name="custom-provider-c-restful-endpoint-reference"></a>사용자 지정 공급자 c # RESTful 끝점 참조
+# <a name="custom-provider-c-restful-endpoint-reference"></a>사용자 지정 공급자 C# RESTful 엔드포인트 참조
 
-이 문서는 사용자 지정 공급자 c # RESTful 끝점에 대 한 기본 참조입니다. Azure 사용자 지정 공급자에 익숙하지 않은 경우 [사용자 지정 리소스 공급자에 대한 개요](overview.md)를 참조하세요.
+이 문서는 사용자 지정 공급자 C# RESTful 엔드포인트에 대한 기본 참조입니다. Azure 사용자 지정 공급자에 익숙하지 않은 경우 [사용자 지정 리소스 공급자에 대한 개요](overview.md)를 참조하세요.
 
-## <a name="azure-function-app-restful-endpoint"></a>Azure 함수 앱 RESTful 끝점
+## <a name="azure-functions-restful-endpoint"></a>Azure Functions RESTful 엔드포인트
 
-다음 코드는 Azure 함수 앱과 함께 작동 합니다. Azure 사용자 지정 공급자를 사용 하도록 Azure 함수 앱을 설정 하는 방법을 알아보려면 [Azure 사용자 지정 공급자에 대 한 Azure Functions 설정에 대 한 자습서](./tutorial-custom-providers-function-setup.md)를 참조 하세요.
+다음 코드는 Azure의 함수 앱에서 작동합니다. Azure 사용자 지정 공급자와 함께 작동하도록 함수 앱을 설정하는 방법을 알아보려면 [Azure 사용자 지정 공급자를 위한 Azure Functions 설정에 대한 자습서](./tutorial-custom-providers-function-setup.md)를 참조하세요.
 
 ```csharp
 #r "Newtonsoft.Json"

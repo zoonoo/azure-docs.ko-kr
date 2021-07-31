@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/19/2021
-ms.openlocfilehash: 90755aef66fa51084d83d036722187b61449a6fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82821b29669139f378d4dd24e4a96ab66f3d56e1
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104656909"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321936"
 ---
 # <a name="export-data-module"></a>데이터 내보내기 모듈
 
@@ -60,6 +60,10 @@ ms.locfileid: "104656909"
 1. **파일 형식** 에 대해 데이터를 저장할 형식을 선택합니다.
  
 1. 파이프라인을 제출합니다.
+
+## <a name="limitations"></a>제한 사항
+
+데이터 저장소 액세스 제한으로 인해 유추 파이프라인에 **데이터 내보내기** 모듈이 포함되어 있으면 실시간 엔드포인트에 배포할 때 자동으로 제거됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

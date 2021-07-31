@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
 ms.openlocfilehash: 8dabfec18cb904fa72518428220991b817b53529
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98928913"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에 대한 Apache Storm 토폴로지 및 구성 요소 예제
@@ -37,7 +37,7 @@ HDInsight에서 [Apache Storm](https://storm.apache.org/)과 함께 사용하기
 
 ## <a name="python-only"></a>Python만
 
-Flux 토폴로지를 사용 하는 Python 구성 요소 예제는 [HDInsight에서 Apache Storm와 함께 Python 사용](apache-storm-develop-python-topology.md) 을 참조 하세요.
+Flux 토폴로지를 사용하는 Python 구성 요소 예제는 [HDInsight에서 Apache Storm와 함께 Python 사용](apache-storm-develop-python-topology.md) 을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: Java에서 Azure Notification Hubs를 사용 하는 방법
+title: Java에서 Azure Notification Hubs를 사용하는 방법
 description: Java 백 엔드에서 Azure Notification Hubs를 사용하는 방법에 대해 알아봅니다.
 services: notification-hubs
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: 09553f587916e8204541b36f259a450d72c1b270
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87322944"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Java에서 Notification Hubs를 사용하는 방법
@@ -42,7 +42,7 @@ ms.locfileid: "87322944"
 * 일반 보내기
 * 예약된 보내기
 * Java NIO를 통한 비동기 작업
-* 지원 되는 플랫폼: APNS (iOS), FCM (Android), WNS (Windows 스토어 앱), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Google 서비스 없이 Android)
+* 지원되는 플랫폼: APNS(iOS), FCM(Android), WNS(Windows 스토어 앱), MPNS(Windows Phone), ADM(Amazon Kindle Fire), Baidu(Google 서비스가 포함되지 않은 Android)
 
 ## <a name="sdk-usage"></a>SDK 사용
 
@@ -74,7 +74,7 @@ hub.setWindowsCredential(new WindowsCredential("sid","key"));
 hub = namespaceManager.createNotificationHub(hub);
 ```
 
- 또는
+ OR
 
 ```java
 hub = new NotificationHub("connection string", "hubname");
@@ -135,7 +135,7 @@ reg.getHeaders().put("X-WNS-Type", "wns/toast");
 hub.createRegistration(reg);
 ```
 
-**Create registration ID + upsert 패턴을 사용 하 여 등록을 만듭니다.**
+**등록 ID + upsert 만들기 패턴을 사용하여 등록 만들기:**
 
 디바이스에 등록 ID를 저장하는 경우 응답 손실로 인한 중복 항목을 제거합니다.
 
