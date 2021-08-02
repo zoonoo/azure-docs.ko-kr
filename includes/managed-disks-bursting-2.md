@@ -5,21 +5,19 @@ services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/04/2021
+ms.date: 06/02/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 3035b5d2803ff91e84bc6b47a99963185f9195d3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c0c170fefe85393fb3c8b443a96aaddbb98eb65e
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102623592"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111528326"
 ---
-## <a name="disk-level-bursting"></a>디스크 수준 버스팅
-
 ### <a name="on-demand-bursting-preview"></a>주문형 버스팅(미리 보기)
 
-디스크 버스팅의 주문형 버스팅 모델을 사용하는 디스크는 워크로드에서 필요한 만큼 자주 원래의 프로비전된 목표를 초과하여 최대 버스트 목표까지 버스트할 수 있습니다. 예를 들어 1TiB P30 디스크에서 프로비전된 IOPS는 5,000 IOPS입니다. 이 디스크에서 디스크 버스팅이 사용하도록 설정되면 워크로드에서 이 디스크에 대한 IO를 30,000 IOPS 및 1,000MBps의 최대 버스트 성능까지 실행할 수 있습니다.
+디스크 버스팅의 주문형 버스팅 모델을 사용하는 프리미엄 SSD는 워크로드에서 필요한 만큼 자주 원래의 프로비저닝된 목표를 초과하여 최대 버스트 목표까지 버스트할 수 있습니다. 예를 들어 1TiB P30 디스크에서 프로비전된 IOPS는 5,000 IOPS입니다. 이 디스크에서 디스크 버스팅이 사용하도록 설정되면 워크로드에서 이 디스크에 대한 IO를 30,000 IOPS 및 1,000MBps의 최대 버스트 성능까지 실행할 수 있습니다.
 
 워크로드가 프로비전된 성능 목표를 초과하여 자주 실행될 필요가 있는 경우 디스크 버스팅은 비용 효율적이지 않습니다. 이 경우 더 나은 기준 성능을 위해 디스크의 성능 계층을 [더 높은 계층](../articles/virtual-machines/disks-performance-tiers.md)으로 변경하는 것이 좋습니다. 청구 세부 정보를 검토하고 워크로드의 트래픽 패턴과 비교하여 평가합니다.
 
@@ -33,7 +31,7 @@ ms.locfileid: "102623592"
 
 #### <a name="billing"></a>결제
 
-주문형 버스팅 모델을 사용하는 디스크에는 시간당 버스트 사용 정액 요금이 부과되며, 프로비전된 목표를 초과하는 모든 버스트 트랜잭션에는 트랜잭션 비용이 적용됩니다. 트랜잭션 비용은 프로비전된 목표를 초과하는 읽기 및 쓰기를 모두 포함하여 캐시되지 않은 디스크 IO를 기반으로 하는 종량제 모델을 사용하여 청구됩니다. 청구 시간에 대한 디스크 트래픽 패턴의 예는 다음과 같습니다.
+주문형 버스팅 모델을 사용하는 프리미엄 SSD에는 시간당 버스트 사용 정액 요금이 부과되며, 프로비저닝된 목표를 초과하는 모든 버스트 트랜잭션에는 트랜잭션 비용이 적용됩니다. 트랜잭션 비용은 프로비전된 목표를 초과하는 읽기 및 쓰기를 모두 포함하여 캐시되지 않은 디스크 IO를 기반으로 하는 종량제 모델을 사용하여 청구됩니다. 청구 시간에 대한 디스크 트래픽 패턴의 예는 다음과 같습니다.
 
 디스크 구성: 프리미엄 SSD – 1TiB(P30), 디스크 버스팅 사용
 
@@ -59,9 +57,12 @@ ms.locfileid: "102623592"
 
 가격 책정에 대한 자세한 내용은 [Managed Disks 가격 페이지](https://azure.microsoft.com/pricing/details/managed-disks/)를 참조하고, [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=storage)를 사용하여 워크로드를 평가할 수 있습니다. 
 
+
+주문형 버스트를 사용하도록 설정하려면 [주문형 버스트 사용](../articles/virtual-machines/disks-enable-bursting.md)을 참조하세요.
+
 ### <a name="credit-based-bursting"></a>크레딧 기반 버스팅
 
-크레딧 기반 버스팅은 Azure 퍼블릭, Government 및 중국 클라우드의 모든 지역에서 P20 이하의 디스크 크기에 사용할 수 있습니다. 디스크 버스팅은 기본적으로 지원되는 디스크 크기의 모든 새 배포와 기존 배포에서 사용하도록 설정됩니다. VM 수준 버스팅은 크레딧 기반 버스팅만 사용합니다.
+프리미엄 SSD의 경우, 크레딧 기반 버스팅은 디스크 크기 P20 이하에서 사용할 수 있습니다. 표준 SSD의 경우, 크레딧 기반 버스팅은 디스크 크기 E30 이하에서 사용할 수 있습니다. 표준 및 프리미엄 SSD의 경우, 크레딧 기반 버스팅은 Azure 퍼블릭, Government, 중국 클라우드의 모든 지역에서 사용할 수 있습니다. 디스크 버스팅은 기본적으로 지원되는 디스크 크기의 모든 새 배포와 기존 배포에서 사용하도록 설정됩니다. VM 수준 버스팅은 크레딧 기반 버스팅만 사용합니다.
 
 ## <a name="virtual-machine-level-bursting"></a>가상 머신 수준 버스팅
 

@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: how-to
 ms.date: 05/25/2021
 tags: connectors
-ms.openlocfilehash: 45c6945818016618252e69554c62391691d2fb6a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 10c946010fa3caba14130c3c7055c711323ad93c
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368859"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110498295"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 또는 HTTPS를 통해 서비스 엔드포인트 호출
 
@@ -122,6 +122,82 @@ HTTP 트리거 또는 작업의 출력에 대한 자세한 내용은 다음과 �
 | 500 | 내부 서버 오류. 알 수 없는 오류 발생. |
 |||
 
+<a name="single-tenant-authentication"></a>
+
+## <a name="authentication-for-single-tenant-environment"></a>단일 테넌트 환경에 대한 인증
+
+단일 테넌트 Azure Logic Apps에 **Logic App(표준)** 리소스가 있고 다음 인증 유형과 함께 HTTP 작업을 사용하려는 경우 해당 인증 유형에 대한 추가 설정 단계를 완료해야 합니다. 그러지 않으면 호출이 실패합니다.
+
+* [TSL/SSL 인증서](#tsl-ssl-certificate-authentication): 앱 설정(`WEBSITE_LOAD_ROOT_CERTIFICATES`)을 추가하고 TSL/SSL 인증서의 지문을 제공합니다.
+
+* ["인증서" 자격 증명 유형이 있는 클라이언트 인증서 또는 Azure AD OAuth(Azure Active Directory Open Authentication)](#client-certificate-authentication): 앱 설정(`WEBSITE_LOAD_USER_PROFILE`)을 추가하고 값을 `1`로 설정합니다.
+
+<a name="tsl-ssl-certificate-authentication"></a>
+
+### <a name="tslssl-certificate-authentication"></a>TSL/SSL 인증서 인증
+
+1. 논리 앱 리소스의 앱 설정에서 [앱 설정을 추가 또는 업데이트](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)(`WEBSITE_LOAD_ROOT_CERTIFICATES`)합니다.
+
+1. 설정 값의 경우 신뢰할 수 있는 루트 인증서로 TSL/SSL 인증서에 대한 지문을 제공합니다.
+
+   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>"`
+
+예를 들어 Visual Studio Code 작업하는 경우 다음 단계를 수행합니다.
+
+1. 논리 앱 프로젝트의 **local.settings.json** 파일을 엽니다.
+
+1. `Values`JSON 개체에서 설정을 추가하거나 업데이트`WEBSITE_LOAD_ROOT_CERTIFICATES`합니다.
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         <...>
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>",
+         <...>
+      }
+   }
+   ```
+
+자세한 내용은 다음 설명서를 검토하세요.
+
+* [단일 테넌트 Azure Logic Apps에서 논리 앱에 대한 호스트 및 앱 설정 편집](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
+* [비공개 클라이언트 인증서 - Azure App Service](../app-service/environment/certificates.md#private-client-certificate)
+
+<a name="client-certificate-authentication"></a>
+
+### <a name="client-certificate-or-azure-ad-oauth-with-certificate-credential-type-authentication"></a>클라이언트 인증서 또는 "인증서" 자격 증명 유형 인증을 사용하는 Azure AD OAuth
+
+1. 논리 앱 리소스의 앱 설정에서 [앱 설정을 추가 또는 업데이트](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)(`WEBSITE_LOAD_USER_PROFILE`)합니다.
+
+1. 설정 값에 대해 `1`을 지정합니다.
+
+   `"WEBSITE_LOAD_USER_PROFILE": "1"`
+
+예를 들어 Visual Studio Code 작업하는 경우 다음 단계를 수행합니다.
+
+1. 논리 앱 프로젝트의 **local.settings.json** 파일을 엽니다.
+
+1. `Values`JSON 개체에서 설정을 추가하거나 업데이트`WEBSITE_LOAD_USER_PROFILE`합니다.
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         <...>
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "WEBSITE_LOAD_USER_PROFILE": "1",
+         <...>
+      }
+   }
+   ```
+
+자세한 내용은 다음 설명서를 검토하세요.
+
+* [단일 테넌트 Azure Logic Apps에서 논리 앱에 대한 호스트 및 앱 설정 편집](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
+* [비공개 클라이언트 인증서 - Azure App Service](../app-service/environment/certificates.md#private-client-certificate)
+
 ## <a name="content-with-multipartform-data-type"></a>multipart/form-data 형식의 콘텐츠
 
 HTTP 요청에 `multipart/form-data` 유형이 포함된 콘텐츠를 처리하려면 다음 형식을 사용하여 `$content-type` 및 `$multipart` 특성이 포함된 JSON 객체를 HTTP 요청의 본문에 추가할 수 있습니다.
@@ -193,41 +269,6 @@ HTTP 요청에 대해 form-urlencoded 데이터를 본문에 제공하려면 `ap
      !["비동기 패턴" 설정](./media/connectors-native-http/asynchronous-pattern-setting.png)
 
 * HTTP 작업의 기본 JSON(JavaScript Object Notation) 정의는 암시적으로 비동기 작업 패턴을 따릅니다.
-
-<a name="tsl-ssl-certificate-authentication"></a>
-
-## <a name="tslssl-certificate-authentication"></a>TSL/SSL 인증서 인증
-
-단일 테넌트 Azure Logic Apps에 **Logic App(표준)** 리소스가 있고 인증을 위해 HTTP 작업 및 TSL/SSL 인증서를 사용하여 워크플로에서 HTTPS 엔드포인트를 호출하려고 하는 경우 다음 단계도 완료하지 않으면 호출이 실패합니다.
-
-1. 논리 앱 리소스의 앱 설정에서 [앱 설정을 추가 또는 업데이트](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)(`WEBSITE_LOAD_ROOT_CERTIFICATES`)합니다.
-
-1. 설정 값의 경우 신뢰할 수 있는 루트 인증서로 TSL/SSL 인증서에 대한 지문을 제공합니다.
-
-   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>"`
-
-예를 들어 Visual Studio Code 작업하는 경우 다음 단계를 수행합니다.
-
-1. 논리 앱 프로젝트의 **local.settings.json** 파일을 엽니다.
-
-1. `Values`JSON 개체에서 설정을 추가하거나 업데이트`WEBSITE_LOAD_ROOT_CERTIFICATES`합니다.
-
-   ```json
-   {
-      "IsEncrypted": false,
-      "Values": {
-         <...>
-         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>",
-         <...>
-      }
-   }
-   ```
-
-자세한 내용은 다음 설명서를 검토하세요.
-
-* [단일 테넌트 Azure Logic Apps에서 논리 앱에 대한 호스트 및 앱 설정 편집](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
-* [비공개 클라이언트 인증서 - Azure App Service](../app-service/environment/certificates.md#private-client-certificate)
 
 <a name="disable-asynchronous-operations"></a>
 

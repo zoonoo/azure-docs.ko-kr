@@ -1,21 +1,22 @@
 ---
-title: Windows Virtual Desktop FAQ - Azure
-description: Windows Virtual Desktop에 대한 질문과 대답 및 모범 사례입니다.
+title: Azure Virtual Desktop FAQ - Azure
+description: Azure Virtual Desktop에 대한 자주 묻는 질문 및 모범 사례입니다.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 1f5e4cb0d2db30c6b07370be137506f3fe26837f
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 604f7ac3d06ceb9ea981deb6aba4e9f208f06e20
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505300"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757718"
 ---
-# <a name="windows-virtual-desktop-faq"></a>Windows Virtual Desktop FAQ
+# <a name="azure-virtual-desktop-faq"></a>Azure Virtual Desktop FAQ
 
-이 문서에서는 Windows Virtual Desktop에 대해 자주 묻는 질문에 답하고 모범 사례에 대해 설명합니다.
+이 문서에서는 Azure Virtual Desktop에 대해 자주 묻는 질문에 답하고 모범 사례에 대해 설명합니다.
 
 ## <a name="what-are-the-minimum-admin-permissions-i-need-to-manage-objects"></a>개체 관리에 필요한 최소 관리자 권한은 무엇인가요?
 
@@ -40,7 +41,7 @@ ms.locfileid: "106505300"
 }
 ```
 
-## <a name="does-windows-virtual-desktop-support-split-azure-active-directory-models"></a>Windows Virtual Desktop이 분할된 Azure Active Directory 모델을 지원하나요?
+## <a name="does-azure-virtual-desktop-support-split-azure-active-directory-models"></a>Azure Virtual Desktop이 분할된 Azure Active Directory 모델을 지원하나요?
 
 사용자가 앱 그룹에 할당되면 서비스가 간단한 Azure 역할 할당을 수행합니다. 따라서 사용자의 Azure AD(Active Directory)와 앱 그룹의 Azure AD가 동일한 위치에 있어야 합니다. 호스트 풀, 앱 그룹 및 작업 영역과 같은 모든 서비스 개체도 사용자와 동일한 Azure AD에 있어야 합니다.
 
@@ -84,23 +85,23 @@ Get-AzWvdHostPool -Name demohp -ResourceGroupName 0414rg |fl CustomRdpProperty
 CustomRdpProperty : audiocapturemode:i:0;audiomode:i:0;drivestoredirect:s:;redirectclipboard:i:1;redirectcomports:i:0;redirectprinters:i:1;redirectsmartcards:i:1;screen modeid:i:2;
 ```
 
-## <a name="does-windows-virtual-desktop-support-guest-users"></a>Windows Virtual Desktop에서 게스트 사용자를 지원하나요?
+## <a name="does-azure-virtual-desktop-support-guest-users"></a>Azure Virtual Desktop에서 게스트 사용자를 지원하나요?
 
-Windows Virtual Desktop은 Azure AD 게스트 사용자 계정을 지원하지 않습니다. 본인의 회사에서는 Microsoft 365 E3 사용자별 라이선스, Windows E3 사용자별 라이선스 또는 WIN VDA 라이선스를 가지고 있으나 다른 회사의 Azure AD에서는 게스트 사용자인 게스트 사용자 그룹을 예로 들어 보겠습니다. 다른 회사는 Azure AD와 Active Directory 모두에서 게스트 사용자의 사용자 개체를 로컬 계정처럼 관리합니다.
+Azure Virtual Desktop은 Azure AD 게스트 사용자 계정을 지원하지 않습니다. 본인의 회사에서는 Microsoft 365 E3 사용자별 라이선스, Windows E3 사용자별 라이선스 또는 WIN VDA 라이선스를 가지고 있으나 다른 회사의 Azure AD에서는 게스트 사용자인 게스트 사용자 그룹을 예로 들어 보겠습니다. 다른 회사는 Azure AD와 Active Directory 모두에서 게스트 사용자의 사용자 개체를 로컬 계정처럼 관리합니다.
 
-타사의 혜택을 위해 사용자 고유의 라이선스를 사용할 수 없습니다. 또한 Windows Virtual Desktop은 현재 MSA(Microsoft 계정)을 지원하지 않습니다.
+타사의 혜택을 위해 사용자 고유의 라이선스를 사용할 수 없습니다. 또한 Azure Virtual Desktop은 현재 MSA(Microsoft 계정)를 지원하지 않습니다.
 
 ## <a name="why-dont-i-see-the-client-ip-address-in-the-wvdconnections-table"></a>WVDConnections 테이블에 클라이언트 IP 주소가 표시되지 않는 이유는 무엇인가요?
 
 현재 웹 클라이언트의 IP 주소를 수집할 수 있는 안정적인 방법이 없기 때문에, 테이블에 값을 포함하지 않았습니다.
 
-## <a name="how-does-windows-virtual-desktop-handle-backups"></a>Windows Virtual Desktop은 백업을 어떻게 처리하나요?
+## <a name="how-does-azure-virtual-desktop-handle-backups"></a>Azure Virtual Desktop은 백업을 어떻게 처리하나요?
 
 Azure에는 백업 처리를 위한 여러 옵션이 있습니다. Azure Backup, Site Recovery 및 스냅샷을 사용할 수 있습니다.
 
-## <a name="does-windows-virtual-desktop-support-third-party-collaboration-apps"></a>Windows Virtual Desktop은 타사 협업 앱을 지원하나요?
+## <a name="does-azure-virtual-desktop-support-third-party-collaboration-apps"></a>Azure Virtual Desktop은 타사 협업 앱을 지원하나요?
 
-Windows Virtual Desktop은 현재 Teams에 최적화되어 있습니다. Microsoft는 현재 Zoom 등의 타사 협업 앱을 지원하지 않습니다. 고객에게 호환성 지침을 제공하는 것은 타사 조직의 책임입니다. Windows Virtual Desktop은 Skype for Business도 지원하지 않습니다.
+Azure Virtual Desktop은 현재 Teams에 최적화되어 있습니다. Microsoft는 현재 Zoom 등의 타사 협업 앱을 지원하지 않습니다. 고객에게 호환성 지침을 제공하는 것은 타사 조직의 책임입니다. Azure Virtual Desktop은 비즈니스용 Skype도 지원하지 않습니다.
 
 ## <a name="can-i-change-from-pooled-to-personal-host-pools"></a>풀링된 호스트 풀에서 개인 호스트 풀로 변경할 수 있나요?
 
@@ -129,21 +130,21 @@ FSLogix의 제한 또는 할당량은 사용자 프로필 VHD(X) 파일을 저�
 
 - VM 접두사 이름과 VM 수는 15자 미만입니다. 자세한 정보는 [Azure 리소스에 대한 명명 규칙 및 제한 사항](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute)을 참조하세요.
 
-## <a name="can-i-manage-windows-virtual-desktop-environments-with-azure-lighthouse"></a>Azure Lighthouse를 사용하여 Windows Virtual Desktop 환경을 관리할 수 있나요?
+## <a name="can-i-manage-azure-virtual-desktop-environments-with-azure-lighthouse"></a>Azure Lighthouse를 사용하여 Azure Virtual Desktop 환경을 관리할 수 있나요?
 
-Azure Lighthouse는 Windows Virtual Desktop 환경 관리를 완벽하게 지원하지는 않습니다. Lighthouse는 현재 Azure AD 간 테넌트 사용자 관리를 지원하지 않기 때문에, Lighthouse 고객은 사용자를 관리하기 위해 고객이 사용하는 Azure AD에 로그인해야 합니다.
+Azure Lighthouse는 Azure Virtual Desktop 환경 관리를 완벽하게 지원하지는 않습니다. Lighthouse는 현재 Azure AD 간 테넌트 사용자 관리를 지원하지 않기 때문에, Lighthouse 고객은 사용자를 관리하기 위해 고객이 사용하는 Azure AD에 로그인해야 합니다.
 
-Windows Virtual Desktop 서비스에 CSP 샌드박스 구독도 사용할 수 없습니다. 자세한 정보는 [통합 샌드박스 계정](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account)을 참조하세요.
+Azure Virtual Desktop 서비스에 CSP 샌드박스 구독도 사용할 수 없습니다. 자세한 정보는 [통합 샌드박스 계정](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account)을 참조하세요.
 
 마지막으로, CSP 소유자 계정에서 리소스 공급자를 사용하도록 설정한 경우 CSP 고객 계정은 리소스 공급자를 수정할 수 없습니다.
 
 ## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>등록 문제를 방지하기 위해 얼마나 자주 VM을 켜야 하나요?
 
-Windows Virtual Desktop 서비스 안에서 호스트 풀에 VM을 등록한 후에는 VM이 활성 상태일 때마다 에이전트가 정기적으로 VM 토큰을 새로 고칩니다. 등록 토큰에 대한 인증서는 90일 동안 유효합니다. 이 90일 제한 때문에, 컴퓨터가 토큰을 새로 고치고 에이전트와 병렬 스택 구성 요소를 업데이트할 수 있게 90일마다 20분씩 VM을 온라인 상태로 유지하는 것이 좋습니다. 이 시간 제한 안에 VM을 켜면 등록 토큰이 만료 또는 무효화되는 것을 방지할 수 있습니다. 90일 이후에 VM을 시작해서 등록 문제가 발생한 경우 [Windows Virtual Desktop 에이전트 문제 해결 가이드](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved)의 지침에 따라 호스트 풀에서 VM을 제거하고, 에이전트를 다시 설치한 다음, 풀에 다시 등록합니다.
+Azure Virtual Desktop 서비스 안에서 호스트 풀에 VM을 등록한 후에는 VM이 활성 상태일 때마다 에이전트가 정기적으로 VM 토큰을 새로 고칩니다. 등록 토큰에 대한 인증서는 90일 동안 유효합니다. 이 90일 제한 때문에, 컴퓨터가 토큰을 새로 고치고 에이전트와 병렬 스택 구성 요소를 업데이트할 수 있게 90일마다 20분씩 VM을 온라인 상태로 유지하는 것이 좋습니다. 이 시간 제한 안에 VM을 켜면 등록 토큰이 만료 또는 무효화되는 것을 방지할 수 있습니다. 90일 이후에 VM을 시작해서 등록 문제가 발생한 경우 [Azure Virtual Desktop 에이전트 문제 해결 가이드](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved)의 지침에 따라 호스트 풀에서 VM을 제거하고, 에이전트를 다시 설치한 다음, 풀에 다시 등록합니다.
 
 ## <a name="can-i-set-availability-options-when-creating-host-pools"></a>호스트 풀을 만들 때 가용성 옵션을 설정할 수 있나요?
 
-예. Windows Virtual Desktop 호스트 풀에는 VM을 만들 때 가용성 집합 또는 가용성 영역을 선택하는 옵션이 있습니다. 이 가용성 옵션은 Azure Compute에서 사용하는 것과 동일합니다. 호스트 풀에서 만든 VM에 대해 영역을 선택하면, 해당 영역에서 만든 모든 VM에 자동으로 설정이 적용됩니다. 여러 영역에 호스트 풀 VM을 분산하려는 경우 [Azure Portal에 가상 머신 추가](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal)의 지침을 따라 만든 각각의 새 VM에 대해 새 영역을 수동으로 선택해야 합니다.
+예. Azure Virtual Desktop 호스트 풀에는 VM을 만들 때 가용성 집합 또는 가용성 영역을 선택하는 옵션이 있습니다. 이 가용성 옵션은 Azure Compute에서 사용하는 것과 동일합니다. 호스트 풀에서 만든 VM에 대해 영역을 선택하면, 해당 영역에서 만든 모든 VM에 자동으로 설정이 적용됩니다. 여러 영역에 호스트 풀 VM을 분산하려는 경우 [Azure Portal에 가상 머신 추가](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal)의 지침을 따라 만든 각각의 새 VM에 대해 새 영역을 수동으로 선택해야 합니다.
 
 ## <a name="which-availability-option-is-best-for-me"></a>내게 적합한 가용성 옵션은 무엇인가요?
 

@@ -1,22 +1,23 @@
 ---
 title: 'Azure VPN Gateway: VPN 클라이언트 구성 파일 만들기 및 설치 - P2S RADIUS 연결'
-description: RADIUS 인증을 사용하는 Windows, OS X, Linux VPN 클라이언트 구성 파일을 만듭니다.
+description: RADIUS 인증을 사용하는 Windows, macOS, Linux VPN 클라이언트 구성 파일을 만듭니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: e6d811e19bb19c8c8bf96764cfcca2b1294f4a85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 87cef7347de102244446e69049349543c77e1f60
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91440064"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558911"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>P2S RADIUS 인증용 VPN 클라이언트 구성 파일 만들기 및 설치
 
-P2S(지점 및 사이트 간) 연결을 통해 가상 네트워크에 연결하려면 연결할 클라이언트 디바이스를 구성해야 합니다. Windows, OS X, Linux 클라이언트 디바이스에서 P2S VPN 연결을 만들 수 있습니다. 
+P2S(지점 및 사이트 간) 연결을 통해 가상 네트워크에 연결하려면 연결할 클라이언트 디바이스를 구성해야 합니다. Windows, macOS 및 Linux 클라이언트 디바이스에서 P2S VPN 연결을 만들 수 있습니다. 
 
 RADIUS 인증을 사용할 경우 사용자 이름/암호 인증, 인증서 인증 및 기타 인증 유형과 같은 여러 인증 옵션이 있습니다. VPN 클라이언트 구성은 각 인증 유형마다 다릅니다. VPN 클라이언트를 구성하려면 필요한 설정을 포함하는 클라이언트 구성 파일을 사용합니다. 이 아티클에서는 사용하려는 RADIUS 인증 유형에 대한 VPN 클라이언트 구성을 만들고 설치하는 데 도움이 됩니다.
 
@@ -36,7 +37,7 @@ P2S RADIUS 인증에 대한 구성 워크플로는 다음과 같습니다.
 >
 >
 
-이 아티클의 섹션을 사용하려면 먼저 사용자 이름/암호, 인증서 또는 다른 인증 유형 중에서 사용하려는 인증 유형을 결정하세요. 각 섹션에는 Windows, OS X, Linux에 대한 단계가 있습니다(현재는 제한된 단계 제공).
+이 아티클의 섹션을 사용하려면 먼저 사용자 이름/암호, 인증서 또는 다른 인증 유형 중에서 사용하려는 인증 유형을 결정하세요. 각 섹션에는 Windows, macOS 및 Linux에 대한 단계가 있습니다(현재는 제한된 단계 제공).
 
 
 ## <a name="usernamepassword-authentication"></a><a name="adeap"></a>사용자 이름/암호 인증
@@ -85,7 +86,7 @@ Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 다음 VPN 클라이언트를 구성할 수 있습니다.
 
 * [Windows](#adwincli)
-* [Mac(OS X)](#admaccli)
+* [Mac(macOS)](#admaccli)
 * [strongSwan을 사용하는 Linux](#adlinuxcli)
  
 #### <a name="windows-vpn-client-setup"></a><a name="adwincli"></a>Windows VPN 클라이언트 설정
@@ -98,7 +99,7 @@ Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 2. 패키지를 설치하려면 두 번 클릭합니다. SmartScreen 팝업이 표시되면 **자세한 정보** > **실행** 을 선택합니다.
 3. 클라이언트 컴퓨터에서 **네트워크 설정** 으로 이동하고 **VPN** 을 선택합니다. VPN 연결에서 연결되는 가상 네트워크의 이름을 표시합니다. 
 
-#### <a name="mac-os-x-vpn-client-setup"></a><a name="admaccli"></a>Mac(OS X) VPN 클라이언트 설정
+#### <a name="mac-macos-vpn-client-setup"></a><a name="admaccli"></a>Mac(macOS) VPN 클라이언트 설정
 
 1. **VpnClientSetup mobileconfig** 파일을 선택하고 각 사용자에게 보냅니다. 이메일 또는 다른 방법을 사용할 수 있습니다.
 
@@ -216,7 +217,7 @@ Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 다음 VPN 클라이언트를 구성할 수 있습니다.
 
 * [Windows](#certwincli)
-* [Mac(OS X)](#certmaccli)
+* [Mac(macOS)](#certmaccli)
 * Linux(지원됨, 아직 아티클 단계 없음)
 
 #### <a name="windows-vpn-client-setup"></a><a name="certwincli"></a>Windows VPN 클라이언트 설정
@@ -225,7 +226,7 @@ Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 2. 인증을 위해 각 클라이언트에 클라이언트 인증서가 필요합니다. 클라이언트 인증서를 설치합니다. 클라이언트 인증서에 대한 자세한 내용은 [지점 및 사이트 간 연결을 위한 클라이언트 인증서](vpn-gateway-certificates-point-to-site.md)를 참조하세요. 생성된 인증서를 설치하려면 [Windows 클라이언트에 인증서 설치](point-to-site-how-to-vpn-client-install-azure-cert.md)를 참조하세요.
 3. 클라이언트 컴퓨터에서 **네트워크 설정** 으로 이동하고 **VPN** 을 선택합니다. VPN 연결에서 연결되는 가상 네트워크의 이름을 표시합니다.
 
-#### <a name="mac-os-x-vpn-client-setup"></a><a name="certmaccli"></a>Mac(OS X) VPN 클라이언트 설정
+#### <a name="mac-macos-vpn-client-setup"></a><a name="certmaccli"></a>Mac(macOS) VPN 클라이언트 설정
 
 Azure 가상 네트워크에 연결하는 모든 Mac 디바이스에 별도의 프로파일을 만들어야 합니다. 이러한 디바이스를 프로필에 지정하려면 인증을 위한 사용자 인증서가 필요하기 때문입니다. **Generic** 폴더에는 프로필을 만드는 데 필요한 모든 정보가 들어 있습니다.
 

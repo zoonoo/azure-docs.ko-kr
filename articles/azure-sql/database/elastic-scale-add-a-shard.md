@@ -1,5 +1,5 @@
 ---
-title: 탄력적 데이터베이스 도구를 사용 하 여 분할 된 데이터베이스 추가
+title: Elastic Database 도구를 사용하여 분할된 데이터베이스 추가
 description: 이 문서에서는 탄력적인 확장 API를 사용하여 새 분할된 데이터베이스를 분할된 데이터베이스 집합에 추가하는 방법을 설명합니다.
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: scoriani
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 01/03/2019
-ms.openlocfilehash: efab0234d428a8283845946289cdd1e8a17ded26
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: c8574b80280623358fb2f85dc2ce05d5865ae5f0
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92792058"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706185"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Elastic Database 도구를 사용하여 분할된 데이터베이스 추가하기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -79,6 +79,6 @@ upd.Shard = shard2;
 sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd));
 ```
 
-**중요**: 업데이트 된 매핑의 범위가 비어 있는 것이 확실 한 경우에만이 기술을 사용 합니다.  이전 방법에서는 이동하는 범위에서 데이터를 확인하지 않으므로 코드에 검사를 포함하는 것이 가장 좋습니다.  이동하는 범위에 행이 있으면 실제 데이터 분포가 업데이트된 분할된 데이터베이스 맵과 일치하지 않게 됩니다. 이 경우 대신 [분할-합병 도구](elastic-scale-overview-split-and-merge.md) 를 사용하여 작업을 수행합니다.  
+**중요**: 업데이트되는 매핑의 범위가 비어 있는 것이 확실한 경우에만 이 기술을 사용하세요.  이전 방법에서는 이동하는 범위에서 데이터를 확인하지 않으므로 코드에 검사를 포함하는 것이 가장 좋습니다.  이동하는 범위에 행이 있으면 실제 데이터 분포가 업데이트된 분할된 데이터베이스 맵과 일치하지 않게 됩니다. 이 경우 대신 [분할-합병 도구](elastic-scale-overview-split-and-merge.md) 를 사용하여 작업을 수행합니다.  
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]

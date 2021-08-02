@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/25/2021
-ms.openlocfilehash: 146a1dba3e13ac594e3b4d9edc358d46b0d54201
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 26858ca04af7a96896229c44757fa963ae362f1c
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378494"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110534175"
 ---
 # <a name="azure-cosmos-db-serverless"></a>Azure Cosmos DB 서버리스
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -41,12 +41,12 @@ Azure Cosmos DB 서버리스의 경우 유휴 시간이 길며 **일시적이고
 
 ## <a name="using-serverless-resources"></a>서버리스 리소스 사용
 
-서버리스는 새 Azure Cosmos 계정 유형입니다. 즉, 새 계정을 만들 때 **프로비저닝된 처리량** 과 **서버리스** 중에서 선택해야 합니다. 서버리스 상태로 시작하려면 새 서버리스 계정을 만들어야 합니다. 미리 보기 릴리스 중에는 [Azure Portal을 사용](create-cosmosdb-resources-portal.md)하여 새 서버리스 계정을 만드는 방법만 지원됩니다. 서버리스 모드로의 또는 서버리스 모드에서의 기존 계정 마이그레이션은 현재 지원되지 않습니다.
+서버리스는 새 Azure Cosmos 계정 유형입니다. 즉, 새 계정을 만들 때 **프로비저닝된 처리량** 과 **서버리스** 중에서 선택해야 합니다. 서버리스 상태로 시작하려면 새 서버리스 계정을 만들어야 합니다. 서버리스 모드로의 또는 서버리스 모드에서의 기존 계정 마이그레이션은 현재 지원되지 않습니다.
 
 서버리스 계정에서 만든 컨테이너는 서버리스 컨테이너입니다. 서버리스 컨테이너는 프로비저닝된 처리량 모드로 만든 컨테이너와 동일한 기능을 제공하므로 정확히 동일한 방법으로 데이터를 읽고 쓰고 쿼리합니다. 그러나 서버리스 계정 및 컨테이너에는 다음과 같은 특정 특성도 있습니다.
 
 - 서버리스 계정은 단일 Azure 지역에서만 실행할 수 있습니다. 계정을 만든 후에는 서버리스 계정에 Azure 영역을 더 추가할 수 없습니다.
-- 서버리스 계정에서 [Synapse Link 미리 보기 기능](synapse-link.md)을 사용하도록 설정할 수 없습니다.
+- 서버리스 계정에서는 [Synapse Link 기능](synapse-link.md)을 사용하도록 설정할 수 없습니다.
 - 서버리스 컨테이너에는 프로비저닝 처리량이 필요하지 않으므로 다음 문이 적용됩니다.
     - 서버리스 컨테이너를 만들 때 처리량을 전달할 수 없으며 그렇게 하면 오류가 반환됩니다.
     - 서버리스 컨테이너에서는 처리량을 읽거나 업데이트할 수 없으며 그렇게 하면 오류가 반환됩니다.

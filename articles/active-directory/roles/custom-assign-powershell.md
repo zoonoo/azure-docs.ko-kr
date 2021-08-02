@@ -8,46 +8,31 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f0fb81a4daa57b473e8b2b4b937426eafbf903d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60517714e0aa19a2cf465c22c6511b0c89648942
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103014539"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792446"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Azure Active Directory에서 PowerShell을 사용하여 리소스 범위에서 사용자 지정 역할 할당
 
 이 문서에서는 Azure AD(Azure Active Directory)에서 조직 전체 범위에 역할 할당을 만드는 방법을 설명합니다. 조직 전체의 범위에서 역할을 할당하면 Azure AD 조직 전체에 액세스 권한이 부여됩니다. 단일 Azure AD 리소스 범위를 사용하여 역할 할당을 만들려면 [사용자 지정 역할을 만들고 리소스 범위에 할당하는 방법](custom-create.md)을 참조하세요. 이 문서에서는 [Azure Active Directory PowerShell 버전 2](/powershell/module/azuread/#directory_roles) 모듈을 사용합니다.
 
-Azure AD 관리자 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](permissions-reference.md)을 참조하세요.
+Azure AD 역할에 대한 자세한 내용은 [Azure AD 기본 제공 역할](permissions-reference.md)을 참조하세요.
 
-## <a name="required-permissions"></a>필요한 사용 권한
+## <a name="prerequisites"></a>필수 조건
 
-전역 관리자 계정을 통해 Azure AD 조직에 연결하여 역할을 할당하거나 제거합니다.
+- Azure AD Premium P1 또는 P2 라이선스
+- 권한 있는 역할 관리자 또는 전역 관리자
+- PowerShell 사용 시 AzureADPreview 모듈
 
-## <a name="prepare-powershell"></a>PowerShell 준비
-
-[PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureADPreview)에서 Azure AD PowerShell 모듈을 설치합니다. 그런 다음, 다음 명령을 사용하여 Azure AD PowerShell 미리 보기 모듈을 가져옵니다.
-
-``` PowerShell
-Import-Module -Name AzureADPreview
-```
-
-모듈을 사용할 준비가 되었는지 확인하려면 다음 명령에서 반환된 버전을 여기에 나열된 버전과 일치시킵니다.
-
-``` PowerShell
-Get-Module -Name AzureADPreview
-  ModuleType Version      Name                         ExportedCommands
-  ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    AzureADPreview               {Add-AzureADMSAdministrati...}
-```
-
-이제 모듈에서 cmdlet 사용을 시작할 수 있습니다. Azure AD 모듈의 cmdlet에 대한 자세한 내용은 [Azure AD 미리 보기 모듈](https://www.powershellgallery.com/packages/AzureADPreview) 온라인 참조 문서를 참조하세요.
+자세한 내용은 [PowerShell 또는 Graph Explorer를 사용하기 위한 필수 조건](prerequisites.md)을 참조하세요.
 
 ## <a name="assign-a-directory-role-to-a-user-or-service-principal-with-resource-scope"></a>리소스 범위를 사용하여 사용자 또는 서비스 주체에게 디렉터리 역할 할당
 

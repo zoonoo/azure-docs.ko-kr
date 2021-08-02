@@ -6,12 +6,13 @@ ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
 ms.date: 02/10/2021
-ms.openlocfilehash: 3e61b6a0f17d2d21aaaebc5ff42b0221cf851a4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 92e7f2af175182886dbc5904c5a50b485ca87d64
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100389509"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681212"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 
@@ -44,15 +45,13 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 
 ![데이터 흐름에 대한 대략적인 개요](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
-1. 데이터 개발자가 Azure Portal 또는 PowerShell cmdlet을 사용하여 Azure 데이터 팩터리 내에서 자체 호스팅 통합 런타임을 만듭니다.
+1. 데이터 개발자는 먼저 Azure Portal 또는 PowerShell cmdlet을 사용하여 Azure Data Factory 내에서 자체 호스팅 통합 런타임을 만듭니다.  그런 다음, 데이터 개발자는 온-프레미스 데이터 저장소에 대한 연결된 서비스를 만들어 서비스가 데이터 저장소에 연결하는 데 사용해야 하는 자체 호스팅 통합 런타임 인스턴스를 지정합니다.
 
-2. 데이터 개발자는 온-프레미스 데이터 저장소에 대한 연결된 서비스를 만듭니다. 개발자는 서비스에서 데이터 저장소에 연결하는 데 사용해야 하는 자체 호스팅 통합 런타임 인스턴스를 지정하여 이를 수행합니다.
+2. 자체 호스팅 통합 런타임 노드가 Windows DPAPI(데이터 보호 응용 프로그래밍 인터페이스)를 사용하여 자격 증명을 암호화하고 로컬에 저장합니다. 고가용성을 위해 여러 노드가 설정된 경우 자격 증명이 다른 노드 간에 동기화됩니다. 각 노드는 DPAPI를 사용하여 자격 증명을 암호화하고 로컬에 저장합니다. 자격 증명 동기화는 데이터 개발자에게는 표시되지 않으며, 자체 호스팅 IR에서 처리됩니다.
 
-3. 자체 호스팅 통합 런타임 노드가 Windows DPAPI(데이터 보호 응용 프로그래밍 인터페이스)를 사용하여 자격 증명을 암호화하고 로컬에 저장합니다. 고가용성을 위해 여러 노드가 설정된 경우 자격 증명이 다른 노드 간에 동기화됩니다. 각 노드는 DPAPI를 사용하여 자격 증명을 암호화하고 로컬에 저장합니다. 자격 증명 동기화는 데이터 개발자에게는 표시되지 않으며, 자체 호스팅 IR에서 처리됩니다.
+3. Azure Data Factory는 자체 호스팅 통합 런타임과 통신하여 작업을 예약하고 관리합니다. 통신은 공유된 [Azure Relay](../azure-relay/relay-what-is-it.md#wcf-relay) 연결을 사용하는 컨트롤 채널을 통해 전달됩니다. 작업이 실행되어야 할 경우 Data Factory는 자격 증명 정보와 함께 요청을 큐에 보관합니다. 이는 자격 증명이 자체 호스팅 통합 런타임에 아직 저장되지 않은 경우에 발생합니다. 자체 호스팅 통합 런타임은 큐를 폴링한 후 작업을 시작합니다.
 
-4. Azure Data Factory는 자체 호스팅 통합 런타임과 통신하여 작업을 예약하고 관리합니다. 통신은 공유된 [Azure Relay](../azure-relay/relay-what-is-it.md#wcf-relay) 연결을 사용하는 컨트롤 채널을 통해 전달됩니다. 작업이 실행되어야 할 경우 Data Factory는 자격 증명 정보와 함께 요청을 큐에 보관합니다. 이는 자격 증명이 자체 호스팅 통합 런타임에 아직 저장되지 않은 경우에 발생합니다. 자체 호스팅 통합 런타임은 큐를 폴링한 후 작업을 시작합니다.
-
-5. 자체 호스팅 통합 런타임은 온-프레미스 저장소와 클라우드 스토리지 간에 데이터를 복사합니다. 복사 방향은 데이터 파이프라인에서 복사 작업을 구성하는 방법에 따라 달라집니다. 이 단계에서 자체 호스팅 통합 런타임은 안전한 HTTPS 채널을 통해 Azure Blob Storage 등의 클라우드 기반 스토리지 서비스와 직접 통신합니다.
+4. 자체 호스팅 통합 런타임은 온-프레미스 저장소와 클라우드 스토리지 간에 데이터를 복사합니다. 복사 방향은 데이터 파이프라인에서 복사 작업을 구성하는 방법에 따라 달라집니다. 이 단계에서 자체 호스팅 통합 런타임은 안전한 HTTPS 채널을 통해 Azure Blob Storage 등의 클라우드 기반 스토리지 서비스와 직접 통신합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -193,6 +192,9 @@ dmgcmd ACTION args...
     2. 필요에 따라 **인증 키 표시** 를 선택하여 키 텍스트를 확인합니다.
 
     3. **등록** 을 선택합니다.
+
+> [!NOTE]
+> 릴리스 정보는 동일한 [Microsoft Integration Runtime 다운로드 페이지](https://www.microsoft.com/download/details.aspx?id=39717)에서 사용할 수 있습니다.
 
 ## <a name="service-account-for-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 서비스 계정
 

@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 82e9901c4bea8de7e5fee37ff4f2b7374f67e0ca
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: a01566341a1c5aa1700b68938410ee0c08c17ddd
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467240"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747548"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft ID 플랫폼 및 OpenID Connect 프로토콜
 
@@ -126,7 +126,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `nonce` | 필수 | 앱에서 생성한 요청에 포함되는 값이며, 결과 id_token 값에 클레임으로 포함됩니다. 앱은 이 값을 확인하여 토큰 재생 공격을 완화할 수 있습니다. 이 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. |
 | `response_mode` | 권장 | 결과 권한 부여 코드를 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다. `form_post` 또는 `fragment`일 수 있습니다. 웹 애플리케이션의 경우 애플리케이션에 대한 가장 안전한 토큰 전송을 보장하기 위해 `response_mode=form_post`를 사용하는 것이 좋습니다. |
 | `state` | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 또한 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |
-| `prompt` | 옵션 | 필요한 사용자 상호 작용 유형을 나타냅니다. 이 경우 유효한 값은 `login`, `none` 및 `consent`뿐입니다. `prompt=login` 클레임은 사용자가 해당 요청에 자격 증명을 입력하도록 하여 Single-Sign On을 무효화합니다. `prompt=none` 클레임은 반대입니다. 이 클레임은 사용자에게 어떤 대화형 메시지도 표시되지 않도록 합니다. Single Sign-On을 통해 요청이 자동으로 완료될 수 없는 경우에 Microsoft ID 플랫폼은 오류를 반환합니다. `prompt=consent` 클레임은 사용자가 로그인 한 후 OAuth 동의 대화 상자를 트리거합니다. 이 대화 상자에서는 앱에 권한을 부여하도록 사용자에게 요청합니다. |
+| `prompt` | 옵션 | 필요한 사용자 상호 작용 유형을 나타냅니다. 이 경우 유효한 값은 `login`, `none`, `consent`, `select_account`뿐입니다. `prompt=login` 클레임은 사용자가 해당 요청에 자격 증명을 입력하도록 하여 Single-Sign On을 무효화합니다. `prompt=none` 매개 변수는 반대이며 로그인해야 하는 사용자를 나타내기 위해 `login_hint`와 쌍을 이루어야 합니다. 이러한 매개 변수는 사용자에게 어떤 대화형 메시지도 표시하지 않습니다. Single Sign-On을 통해 요청을 자동으로 완료할 수 없는 경우(사용자가 로그인하지 않았거나, 힌트가 지정된 사용자가 로그인하지 않았거나, 로그인한 사용자가 여러 명 있거나, 제공된 힌트가 없음) Microsoft ID 플랫폼에서 오류를 반환합니다. `prompt=consent` 클레임은 사용자가 로그인 한 후 OAuth 동의 대화 상자를 트리거합니다. 이 대화 상자에서는 앱에 권한을 부여하도록 사용자에게 요청합니다. 마지막으로 `select_account`는 사용자에게 계정 선택기를 표시하고 자동 SSO를 무효화하지만 사용자가 자격 증명을 입력하지 않고도 로그인할 계정을 선택할 수 있도록 합니다. `login_hint` 및 `select_account`는 함께 사용할 수 없습니다.|
 | `login_hint` | 옵션 | 사용자 이름을 미리 알고 있는 경우 이 매개 변수를 사용하여 사용자를 위해 로그인 페이지의 사용자 이름 및 전자 메일 주소 필드를 미리 채울 수 있습니다. 앱에서는 종종 `preferred_username` 클레임을 사용하여 이전 로그인에서 사용자 이름을 이미 추출한 후 재인증 과정에서 이 매개 변수를 사용합니다. |
 | `domain_hint` | 옵션 | 페더레이션된 디렉터리에 있는 사용자의 영역입니다.  사용자 경험을 보다 간소화하기 위해 로그인 페이지에서 사용자가 거치는 메일 기반 검색 프로세스를 건너뜁니다. AD FS와 같은 온-프레미스 디렉터리를 통해 페더레이션된 테넌트의 경우, 기존 로그인 세션으로 인해 원활한 로그인이 이루어지는 경우가 많습니다. |
 

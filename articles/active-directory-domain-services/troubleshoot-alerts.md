@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/09/2020
+ms.date: 06/07/2021
 ms.author: justinha
-ms.openlocfilehash: 4caf804a274956556d6e9ca396c8f08594b11a87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d8ed66f1c6a7b52015778239e1d8afc2af2f6d06
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092882"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744758"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>알려진 문제: Azure Active Directory Domain Services의 일반적 경고 및 해결 방법
 
@@ -138,7 +138,8 @@ Azure AD DS는 제대로 작동하기 위해 공용 IP 주소, 가상 네트워�
 1. 상태 창에서 ID가 *AADDS109* 인 경고를 선택합니다.
 1. 이 경고에는 처음 발견된 시간의 타임스탬프가 있습니다. 4시간이 지나지 않은 타임스탬프인 경우 Azure 플랫폼이 자동으로 리소스를 다시 만들고 경고를 자체적으로 해결할 수도 있습니다.
 
-    경고가 4시간을 초과하면 관리되는 도메인은 복구할 수 없는 상태입니다. [관리되는 도메인을 삭제](delete-aadds.md)한 다음 [관리되는 대체 도메인을 만듭니다](tutorial-create-instance.md).
+    여러 가지 이유로 경고가 4시간 보다 오래되었을 수 있습니다. 이 경우 [관리되는 도메인을 삭제](delete-aadds.md)한 다음, 즉시 수정하기 위해 [대체 관리형 도메인을 만들](tutorial-create-instance.md)거나 지원 요청을 열어 인스턴스를 수정할 수 있습니다. 문제의 특성에 따라 백업에서 복원해야 할 수도 있습니다.
+
 
 ## <a name="aadds110-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS110: 관리되는 도메인에 연결된 서브넷이 꽉 찼음
 

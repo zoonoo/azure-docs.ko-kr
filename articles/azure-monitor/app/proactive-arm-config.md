@@ -6,16 +6,22 @@ author: harelbr
 ms.author: harelbr
 ms.date: 02/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: e3a7b71cd8975957754ba014ecc700484c27a6d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f13bc07ce5ae6a11b59b6d18a609ca2ee259964
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726124"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949398"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Application Insights 스마트 검색 규칙 관리
 
-[Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)을 사용하여 Application Insights의 스마트 검색 규칙을 관리하고 구성할 수 있습니다.
+>[!NOTE]
+>Application Insight 리소스를 경고 기반 스마트 검색(미리 보기)으로 마이그레이션할 수 있습니다. 마이그레이션은 여러 스마트 검색 모듈에 대한 경고 규칙을 만듭니다. 이러한 규칙을 만든 후에는 다른 Azure Monitor 경고 규칙과 동일하게 관리하고 구성할 수 있습니다. 이러한 규칙에 대한 작업 그룹을 구성할 수도 있습니다. 따라서 새 검색에 대해 작업을 수행하거나 알림을 트리거하는 여러 가지 방법을 사용할 수 있습니다.
+>
+> 마이그레이션 프로세스 및 마이그레이션 후 스마트 검색 동작에 대한 자세한 내용은 [스마트 검색 경고 마이그레이션](../alerts/alerts-smart-detections-migration.md)을 참조하세요.
+> 
+
+[Azure Resource Manager 템플릿](../../azure-resource-manager/templates/syntax.md)을 사용하여 Application Insights의 스마트 검색 규칙을 관리하고 구성할 수 있습니다.
 이 방법은 Azure Resource Manager 자동화를 사용하여 새 Application Insights 리소스를 배포하거나 기존 리소스의 설정을 수정할 때 사용할 수 있습니다.
 
 ## <a name="smart-detection-rule-configuration"></a>스마트 검색 규칙 구성
@@ -195,4 +201,3 @@ Azure Resource Manager를 통해 규칙 설정을 구성할 수 있도록, 이�
 - [오류 잘못된 부분](./proactive-failure-diagnostics.md)
 - [메모리 누수](./proactive-potential-memory-leak.md)
 - [성능 이상](./proactive-performance-diagnostics.md)
-

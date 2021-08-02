@@ -2,23 +2,119 @@
 title: Data Science Virtual Machine의 새로운 기능
 titleSuffix: Azure Data Science Virtual Machine
 description: Azure Data Science Virtual Machine의 릴리스 정보
-author: lobrien
+author: timoklimmer
 ms.service: data-science-vm
-ms.author: laobri
-ms.date: 02/24/2020
+ms.author: tklimmer
+ms.date: 05/25/2021
 ms.topic: reference
-ms.openlocfilehash: 7a5675ce0358092610766d1441e433ff5d96bae4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a3bb8f3c7174fe301a8c81396bb46b6762e70796
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101655703"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409850"
 ---
 # <a name="azure-data-science-virtual-machine-release-notes"></a>Azure Data Science Virtual Machine 릴리스 정보
 
 본 문서에서는 Azure Data Science Virtual Machine 릴리스에 대해 알아봅니다. 버전 번호와 함께 포함된 도구 전체 목록은 [관련 페이지](./tools-included.md)를 확인하세요.
 
 알려진 버그 및 해결 방법에 대해 알아보려면 [알려진 문제 목록](reference-known-issues.md)을 참조하세요.
+
+## <a name="2021-06-01"></a>2021-06-01
+
+[Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview)용 새로운 이미지입니다.
+
+버전: 21.06.01
+
+주요 변경 사항은 다음과 같습니다.
+
+- Docker는 기본적으로 사용됩니다.
+- JupyterHub는 기본적으로 JupyterLab을 사용합니다.
+- [CVE-2020-15523](https://nvd.nist.gov/vuln/detail/CVE-2020-15523)을 수정하기 위해 Python 버전이 업데이트되었습니다.
+- [CVE-2021-25758](https://nvd.nist.gov/vuln/detail/CVE-2021-25758)을 수정하기 위해 IntelliJ IDEA가 버전 2021.1로 업데이트되었습니다.
+- PyCharm Community가 2021.1로 업데이트되었습니다.
+- TensorFlow가 버전 2.5.0으로 업데이트되었습니다.
+
+<br/>
+바탕 화면에서 여러 아이콘이 제거되었습니다.
+
+## <a name="2021-05-22"></a>2021-05-22
+
+[Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)용 새로운 이미지입니다.
+
+선택한 버전 업데이트는 다음과 같습니다.
+
+버전: 21.05.22
+
+선택한 버전 업데이트는 다음과 같습니다.
+- CUDA 11.1
+- Python 3.8
+- PyTorch 1.8.1
+- TensorFlow 2.5.0
+- Spark 3.1.1
+- Java 11
+- R 4.1.0
+- Julia 1.0.5
+- NodeJS 16.2.0
+- Visual Studio Code 1.56.2(Azure ML 확장 포함)
+- PyCharm Community Edition 2021.1.1
+- Jupyter Lab 2.2.6
+- RStudio 1.4.1106
+- Visual Studio Community Edition 2019(버전 16.9.6)
+- Azure CLI 2.23.0
+- Storage Explorer 1.19.1
+- AzCopy 10.10.0
+- Power BI Desktop 2.93.641.0 64비트(2021년 5월)
+- Azure Data Studio 1.28.0
+- Microsoft Edge 브라우저
+
+<br/>
+Firefox, Apache Drill, Microsoft Integration Runtime이 제거되었습니다.
+
+<br/>
+다크 모드, 바탕 화면의 아이콘, 배경 화면이 변경되었습니다.
+
+<br/>
+Gen2 가상 머신에서 사용할 이미지를 사용하도록 설정했습니다.
+
+## <a name="2021-05-12"></a>2021-05-12
+
+[Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview)용 새로운 이미지입니다.
+
+선택한 버전 업데이트는 다음과 같습니다.
+- CUDA 11.3, cuDNN 8, NCCL2
+- Python 3.8
+- R 4.0.5
+- Spark 3.1(mmlspark, Blob Storage 커넥터, Data Lake, CosmosDB 포함)
+- Java 11(OpenJDK)
+- Jupyter Lab 3.0.14
+- PyTorch 1.8.1(torchaudio torchtext torchvision, torch-tb-profiler 포함)
+- TensorFlow 2.4.1(TensorBoard 포함)
+- dask 2021.01.0
+- VS.Code 1.56
+- Azure Data Studio 1.22.1
+- Azure CLI 2.23.0
+- Azure Storage Explorer 1.19.1
+- azcopy 10.10
+- Microsoft Edge 브라우저(베타)
+
+<br/>
+Docker가 추가되었습니다. 리소스를 저장하기 위해 Docker 서비스는 기본적으로 시작되지 않습니다. Docker 서비스를 시작하려면 다음 명령줄 명령을 실행합니다.
+
+```
+sudo systemctl start docker
+```
+
+> [!NOTE]
+> 머신에 GPU가 있는 경우 Docker 명령에 `--gpus` 매개 변수를 추가하여 컨테이너 내에서 GPU를 사용할 수 있습니다.
+>
+> 예를 들어 를 실행하면
+>
+> `sudo docker run --gpus all -it --rm -v local_dir:container_dir nvcr.io/nvidia/pytorch:18.04-py3`
+>
+> PyTorch가 미리 설치되고 모든 GPU가 사용하도록 설정된 Ubuntu 18.04 컨테이너가 실행됩니다. 또한 *container_dir* 의 컨테이너에서 *local_dir* 로컬 폴더를 사용할 수 있습니다.
+>
+
 
 ## <a name="2020-02-24"></a>2020-02-24
 

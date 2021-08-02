@@ -3,26 +3,27 @@ title: Azure(큰 인스턴스)의 SAP HANA에 대한 재해 복구 원칙 및 �
 description: Azure(큰 인스턴스)의 SAP HANA에 대한 재해 복구 원칙 및 준비
 services: virtual-machines-linux
 documentationcenter: ''
-author: saghorpa
+author: Ajayan1008
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
-ms.author: saghorpa
+ms.date: 05/10/2021
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: babd7c1dcae9d83af1f6c41e756b663d92d6d486
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a7127477be68d931efa2b0de69961f314b88879
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101677121"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110580184"
 ---
 # <a name="disaster-recovery-principles"></a>재해 복구 원칙
 
-HANA 대규모 인스턴스는 서로 다른 Azure 지역의 HANA 대규모 인스턴스 스탬프 간에 재해 복구 기능을 제공합니다. Azure의 미국 서부 지역에서 HANA 대규모 인스턴스 단위를 배포하는 경우 미국 동부 지역의 HANA 대규모 인스턴스 단위를 재해 복구 단위로 활용할 수 있습니다. 앞서 언급한 것처럼 재해 복구는 자동으로 구성되지 않습니다. DR 지역의 다른 HANA 큰 인스턴스 단위에 대한 비용이 부과되기 때문입니다. 재해 복구 설치의 경우 강화 및 규모 확장이 둘 다 가능합니다. 
+HANA 대규모 인스턴스는 서로 다른 Azure 지역의 HANA 대규모 인스턴스 스탬프 간에 재해 복구 기능을 제공합니다. Azure의 미국 서부 지역에서 HANA 대규모 인스턴스 단위를 배포하는 경우 미국 동부 지역의 HANA 대규모 인스턴스 단위를 재해 복구 단위로 활용할 수 있습니다. 앞서 언급한 것처럼 재해 복구는 자동으로 구성되지 않습니다. DR 지역의 다른 HANA(대규모 인스턴스) 단위에 대한 비용이 부과되기 때문입니다. 재해 복구 설치는 강화는 물론 스케일 아웃 설치가 둘 다 가능합니다. 
 
 지금까지 배포된 시나리오에서는 고객이 설치된 HANA 인스턴스를 사용하는 비프로덕션 시스템을 실행하기 위해 DR 지역의 단위를 사용했습니다. 이 HANA 큰 인스턴스 단위는 프로덕션 용도로 사용되는 SKU와 동일한 SKU여야 합니다. 다음 이미지에서는 Azure 프로덕션 지역의 서버 단위와 재해 복구 지역 간의 디스크 구성을 보여줍니다.
 
@@ -34,15 +35,15 @@ HANA 대규모 인스턴스는 서로 다른 Azure 지역의 HANA 대규모 인�
 - /hana/logbackups 
 - /hana/shared (/usr/sap 포함)
 
-/hana/log 볼륨은 복제되지 않습니다. 해당 볼륨에서 복원하는 방식으로 SAP HANA 트랜잭션 로그가 필요하지 않기 때문입니다. 
+/hana/log 볼륨은 해당 볼륨에서 복원할 때 SAP HANA 트랜잭션 로그가 필요하지 않기 때문에 복제되지 않습니다. 
 
-제공되는 재해 복구 기능 중 기본 기능은 HANA 대규모 인스턴스 인프라에서 제공하는 스토리지 복제 기능입니다. 스토리지 쪽에서 사용되는 기능은 스토리지 볼륨에 변경 사항이 발생하면 비동기 방식으로 복제되는 지속적인 변경 흐름이 아닙니다. 대신, 이러한 볼륨의 스냅샷이 정기적으로 생성된다는 사실에 의존하는 메커니즘입니다. 이미 복제된 스냅샷과 아직 복제되지 않은 새 스냅샷 간의 델타는 재해 복구 사이트를 거쳐 대상 디스크 볼륨으로 전송됩니다.  이러한 스냅샷은 볼륨에 저장되며, 재해 복구 장애 조치(failover)가 있는 경우 해당 볼륨에서 복원되어야 합니다.  
+제공되는 재해 복구 중 기본 기능은 HANA(대규모 인스턴스) 인프라에서 제공하는 스토리지 복제 기능입니다. 스토리지 측에서 사용되는 기능은 스토리지 볼륨에 변경 사항이 발생할 때 비동기 방식으로 복제되는 지속적인 변경 스트리밍이 아닙니다. 대신 정기적으로 생성되는 이러한 볼륨의 스냅샷에 의존하는 메커니즘입니다. 이미 복제된 스냅샷과 아직 복제되지 않은 새 스냅샷 간의 델타는 재해 복구 사이트를 거쳐 대상 디스크 볼륨으로 전송됩니다.  이러한 스냅샷은 볼륨에 저장되며, 재해 복구 장애 조치(failover)가 있는 경우 해당 볼륨에서 복원되어야 합니다.  
 
 볼륨의 전체 데이터를 처음 전송하는 것은 데이터 양이 스냅샷 간의 델타보다 작아지기 전이어야 합니다. 결과적으로 DR 사이트의 볼륨에는 프로덕션 사이트에서 수행되는 모든 볼륨 스냅샷이 포함됩니다. 결과적으로 프로덕션 시스템으로 롤백하지 않고도 손실된 데이터를 복구하기 위해 해당 DR 시스템을 사용하여 이전 상태로 돌아갈 수 있습니다.
 
-하나의 HANA 큰 인스턴스 단위에 여러 개의 독립된 SAP HANA 인스턴스가 있는 MCOD 배포의 경우 모든 SAP HANA 인스턴스에서 스토리지가 DR 쪽으로 복제될 것으로 예상됩니다.
+하나의 HANA(대규모 인스턴스) 단위에 여러 개의 독립된 SAP HANA 인스턴스가 있는 MCOD 배포의 경우 모든 SAP HANA 인스턴스에서 스토리지가 DR 쪽으로 복제될 것으로 예상됩니다.
 
-프로덕션 사이트에서 HANA 시스템 복제를 고가용성 기능으로 사용하고 DR 사이트에 스토리지 기반 복제를 사용하는 경우, 기본 사이트에서 DR 인스턴스로 두 노드의 볼륨이 모두 복제됩니다. 주 및 보조 사이트 모두에서 DR에 대한 복제를 수용하려면 DR 사이트에서 추가 스토리지(주 노드와 동일한 크기)를 구입해야 합니다. 
+프로덕션 사이트에서 HANA 시스템 복제를 고가용성 기능으로 사용하고 DR 사이트에 스토리지 기반 복제를 사용하는 경우, 기본 사이트에서 DR 인스턴스로 두 노드의 볼륨이 모두 복제됩니다. 기본 및 보조에서 DR로의 복제를 수용하려면 DR 사이트에서 추가 스토리지(기본 노드와 동일한 크기)를 구매해야 합니다. 
 
 
 
@@ -56,7 +57,7 @@ HANA 대규모 인스턴스는 서로 다른 Azure 지역의 HANA 대규모 인�
 
 ![DR 설치 시작](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start1.PNG)
 
-서버 인스턴스가 추가 스토리지 볼륨 세트와 함께 아직 주문되지 않은 경우 Azure의 SAP HANA Service Management는 TST HANA 인스턴스를 실행하는 HANA 대규모 인스턴스 단위에 프로덕션 복제본의 대상으로 추가 볼륨 집합을 연결합니다. 이를 위해 프로덕션 HANA 인스턴스의 SID를 제공해야 합니다. Azure Service Management의 SAP HANA가 해당 볼륨의 연결을 확인하면 해당 볼륨을 HANA 큰 인스턴스 단위에 탑재해야 합니다.
+서버 인스턴스가 추가 스토리지 볼륨 세트와 함께 아직 주문되지 않은 경우 Azure의 SAP HANA Service Management는 TST HANA 인스턴스를 실행하는 HANA(대규모 인스턴스) 단위에 프로덕션 복제본의 대상으로 추가 볼륨 집합을 연결합니다. 이를 위해 프로덕션 HANA 인스턴스의 SID를 제공해야 합니다. Azure Service Management의 SAP HANA가 해당 볼륨의 연결을 확인하면 해당 볼륨을 HANA 큰 인스턴스 단위에 탑재해야 합니다.
 
 ![DR 설치 다음 단계](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start2.PNG)
 

@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: lagayhar
-ms.openlocfilehash: 114245030ba2356861b83a580f103d3b84c0eae3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b30c98bbaf7f7806feecdbccd2c8736d431943c
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100615614"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854345"
 ---
 # <a name="grid-visualizations"></a>그리드 시각화
 
@@ -137,7 +137,7 @@ requests
 
 ![사용자 지정 열 너비 필드가 빨간색 상자로 표시된 열 설정의 스크린샷](./media/workbooks-grid-visualizations/custom-column-width-setting.png)
 
-필드를 빈 칸 그대로 두면 열 내 문자 수와 표시되는 열 수를 기준으로 너비가 자동으로 결정됩니다. 기본 단위는 'ch'(문자)입니다.
+필드를 빈 칸 그대로 두면 열에 있는 문자 수와 표시되는 열 수를 기준으로 너비가 자동으로 결정됩니다. 기본 단위는 'ch'(문자)입니다.
 
 레이블에서 파란색 **(현재 너비)** 단추를 선택하면 선택한 열의 현재 너비로 텍스트 필드가 채워집니다. 측정 단위가 없는 사용자 지정 너비 필드에 값이 있으면 기본값이 사용됩니다.
 

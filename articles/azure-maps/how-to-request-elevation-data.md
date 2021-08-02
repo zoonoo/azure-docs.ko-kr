@@ -1,60 +1,73 @@
 ---
-title: Azure Maps 상승 서비스를 통한 Elevation 데이터 요청 (미리 보기)
-description: Azure Maps 상승 서비스(미리 보기)를 통해 권한 상승 데이터 요청 방법을 알아보세요.
+title: Azure Maps Elevation Service를 사용한 상승 데이터 요청
+description: Azure Maps Elevation Service를 사용하여 상승 데이터를 요청하는 방법을 알아보세요.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 05/18/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d14eda84144105bf2e04f1238284bc58a91c4c03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b775f4ad9169dd97f7df152ec7514d10ce9866a4
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98684058"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110462908"
 ---
-# <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Azure Maps 상승 서비스를 통한 Elevation 데이터 요청 (미리 보기)
+# <a name="request-elevation-data-using-the-azure-maps-elevation-service"></a>Azure Maps Elevation Service를 사용한 상승 데이터 요청
 
-> [!IMPORTANT]
-> Azure Maps Elevation 서비스는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+Azure Maps [Elevation Service](/rest/api/maps/elevation)는 지구 표면의 모든 상승 데이터를 쿼리하는 API를 제공합니다. 정의된 경계 상자 또는 특정 좌표에서 경로를 따라 샘플링된 상승 데이터를 요청할 수 있습니다. 또한 [Render V2 - Get Map Tile API](/rest/api/maps/renderv2)를 사용하여 타일 형태의 상승 데이터를 검색할 수 있습니다. 타일은 GeoTIFF 래스터 형식으로 제공됩니다. 이 문서는 Azure Maps Elevation Service 및 Get Map Tile API를 사용하여 상승 데이터 요청 방법을 알려줍니다. 상승 데이터는 GeoJSON 및 GeoTiff 형식으로 요청할 수 있습니다.
 
-Azure Maps [Elevation 서비스](/rest/api/maps/elevation)는 지구 표면의 모든 상승 데이터를 쿼리하는 API를 제공합니다. 정의된 경계 상자 또는 특정 좌표에서 경로를 따라 샘플링된 상승 데이터를 요청할 수 있습니다. 또한 [Render V2 - Get Map Tile API](/rest/api/maps/renderv2)를 사용하여 타일 형태의 상승 데이터를 검색할 수 있습니다. 타일은 GeoTIFF 래스터 형식으로 제공됩니다. 이 문서는 Azure Maps Elevation 서비스 및 Get Map Tile API를 사용하여 상승 데이터 요청 방법을 보여줍니다. 상승 데이터는 GeoJSON 및 GeoTiff 형식으로 요청할 수 있습니다.
+## <a name="prerequisites"></a>사전 요구 사항
 
-## <a name="prerequisites"></a>필수 구성 요소
-
-1. [S1 가격 책정 계층에서 Azure Maps 계정 생성](quick-demo-map-app.md#create-an-azure-maps-account)
+1. [Gen 1(S1) 또는 Gen 2 가격 책정 계층에서 Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
 2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
-Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
+Azure Maps의 인증에 대한 자세한 정보는 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
 
 이 문서에서는 [Postman](https://www.postman.com/) 애플리케이션을 사용하지만 다른 API 개발 환경을 선택할 수도 있습니다.
 
-## <a name="request-elevation-data-in-raster-tiled-format"></a>래스터 타일 형식의 상승 데이터 요청
+## <a name="request-elevation-data-in-raster-tile-format"></a>래스터 타일 형식의 상승 데이터 요청
 
-래스터 타일 형식의 상승 데이터를 요청하려면 [Render V2 - Get Map Tile API](/rest/api/maps/renderv2)를 사용하세요. 타일을 찾을 수 있는 경우 API는 타일을 GeoTIFF로 반환합니다. 그렇지 않은 경우 API는 0을 반환합니다. 모든 래스터 DEM 타일은 지오이드 (해상 수준) 지구 모드를 사용합니다. 이 예에서는 산의 상승 데이터를 요청합니다. 에베레스트.
+래스터 타일 형식의 상승 데이터를 요청하려면 [Render V2 - Get Map Tile API](/rest/api/maps/renderv2)를 사용하세요. 타일을 찾을 수 있는 경우 API는 타일을 GeoTIFF로 반환합니다. 그렇지 않은 경우 API는 0을 반환합니다. 모든 래스터 DEM 타일은 지오이드(해상 수준) 지구 모드를 사용합니다. 이 예에서는 산의 상승 데이터를 요청합니다. 에베레스트.
 
 >[!TIP]
->세계 지도의 특정 영역에서 타일을 검색하려면 적절한 확대/축소 수준에서 올바른 타일을 찾아야 합니다. 또한 WorldDEM은 전체 대륙에 적용되지만 바다에는 적용되지 않습니다.  자세한 내용은 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md)를 참조하세요.
+>세계 지도의 특정 영역에서 타일을 검색하려면 적절한 확대/축소 수준에서 올바른 타일을 찾아야 합니다. 또한 WorldDEM은 전체 대륙에 적용되지만 바다에는 적용되지 않는다는 점에 유의하십시오.  자세한 내용은 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md)를 참조하세요.
 
-1. Postman 앱을 엽니다. Postman 앱의 위쪽 근처에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **컬렉션** 을 선택합니다.  컬렉션 이름을 지정하고, **만들기** 단추를 선택합니다.
+Postman 앱을 사용하여 래스터 타일 형식의 권한 상승 데이터를 요청하려면 다음을 수행합니다.
 
-2. 요청을 만들려면 **새로 만들기** 를 다시 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 단계에서 만든 컬렉션을 선택한 다음, **저장** 을 선택합니다.
+1. Postman 앱에서 **새로 만들기** 를 선택합니다.
 
-3. 작성기 탭에서 **GET** HTTP 메서드를 선택하고, 다음 URL을 입력하여 래스터 타일을 요청합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
+2. **새로 만들기** 창에서 **컬렉션** 을 선택합니다.  
+
+3. 컬렉션의 이름을 바꾸려면 컬렉션을 마우스 오른쪽 단추로 클릭하고 **이름 바꾸기** 를 선택합니다.
+
+4. 다시 **새로 만들기** 를 선택합니다.
+
+5. **새로 만들기** 창에서 **요청** 을 선택합니다.
+
+6. 요청에 대한 **요청 이름** 을 입력합니다.
+
+7. 사용자가 만든 리소스를 선택한 다음, **저장** 을 선택합니다.
+
+8. **작성기** 탭에서 **GET** HTTP 메서드를 선택하고, 다음 URL을 입력하여 래스터 타일을 요청합니다.
 
     ```http
     https://atlas.microsoft.com/map/tile?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&tilesetId=microsoft.dem&zoom=13&x=6074&y=3432
     ```
 
-4. **보내기** 단추를 클릭합니다. 상승 데이터가 포함된 래스터 타일을 GeoTIFF 형식으로 수신해야 합니다. 래스터 타일 원시 데이터 내의 각 픽셀은 `float` 유형입니다. 각 픽셀 값은 상승 높이(미터)를 나타냅니다.
+    >[!Important]
+    >이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
+
+9. **보내기** 단추를 선택합니다.
+
+    상승 데이터가 포함된 래스터 타일을 GeoTIFF 형식으로 수신해야 합니다. 래스터 타일 원시 데이터 내의 각 픽셀은 `float` 유형입니다. 각 픽셀 값은 상승 높이(미터)를 나타냅니다.
 
 ## <a name="request-elevation-data-in-geojson-format"></a>GeoJSON 형식의 상승 데이터 요청
 
-Elevation 서비스 (미리 보기) API를 사용하여 GeoJSON 형식의 상승 데이터를 요청합니다. 이 섹션에서는 다음 세 가지 API를 각각 보여줍니다.
+Elevation service API를 사용하여 GeoJSON 형식의 상승 데이터를 요청합니다. 이 섹션에서는 이러한 각 API에 대해 설명합니다.
 
 * [포인트 데이터 가져오기](/rest/api/maps/elevation/getdataforpoints)
 * [포인트 데이터 게시](/rest/api/maps/elevation/postdataforpoints)
@@ -63,24 +76,32 @@ Elevation 서비스 (미리 보기) API를 사용하여 GeoJSON 형식의 상승
 * [경계 상자 데이터 가져오기](/rest/api/maps/elevation/getdataforboundingbox)
 
 >[!IMPORTANT]
-> 데이터를 반환할 수 없는 경우 모든 API는 `0`을 반환합니다.
+> 데이터를 반환할 수 없는 경우 모든 API는 **0** 을 반환합니다.
 
 ### <a name="request-elevation-data-for-points"></a>포인트에 대한 상승 데이터 요청
 
 이 예에서는 [포인트 데이터 가져오기 API](/rest/api/maps/elevation/getdataforpoints)를 사용하여 산의 상승 데이터를 요청합니다. 에베레스트 및 참랑 그런 다음, [포인트 데이터 게시 API](/rest/api/maps/elevation/postdataforpoints)를 사용하여 동일한 두 개의 포인트를 사용하는 상승 데이터를 요청합니다. URL의 위도 및 경도는 WGS84(World Geodetic System)의 십진수이어야 합니다.
 
  >[!IMPORTANT]
- >URL 문자 길이 제한이 2048 이므로 URL GET 요청에서 100개 이상의 좌표를 파이프라인으로 구분된 문자열로 전달할 수 없습니다. 100개 이상의 좌표를 파이프라인으로 구분된 문자열로 전달하려는 경우 POST Data For Points를 사용하세요.
+ >URL 문자 길이가 2048자로 제한되므로 URL GET 요청에서 100개 이상의 좌표를 파이프라인으로 구분된 문자열로 전달하는 것은 불가능합니다. 100개 이상의 좌표를 파이프라인으로 구분된 문자열로 전달하려는 경우 Points API용 Post Data를 사용하세요.
 
-1. 요청을 만들려면 **새로 만들기** 를 다시 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 단계에서 만든 컬렉션을 선택한 다음, **저장** 을 선택합니다.
+요청을 만들려면 다음을 수행합니다.
 
-2. 작성기 탭에서 **가져오기** HTTP 매서드를 선택하고 다음 URL을 입력하세요. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
+1. Postman 앱에서 **새로 만들기** 를 다시 선택합니다.
+
+2. **새로 만들기** 창에서 **요청** 을 선택합니다.
+
+3. 요청에 대한 **요청 이름** 을 입력합니다.
+
+4. 이전 단계에서 만든 컬렉션을 선택한 다음, **저장** 을 선택합니다.
+
+5. **작성기** 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다(키 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 대체).
 
     ```http
     https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&points=-73.998672,40.714728|150.644,-34.397
     ```
 
-3. **보내기** 단추를 클릭합니다.  다음과 같은 JSON 응답이 표시됩니다.
+6. **보내기** 단추를 선택합니다.  다음과 같은 JSON 응답이 표시됩니다.
 
     ```json
     {
@@ -103,13 +124,15 @@ Elevation 서비스 (미리 보기) API를 사용하여 GeoJSON 형식의 상승
     }
     ```
 
-4. 이제 [포인트 데이터 게시 API](/rest/api/maps/elevation/postdataforpoints)를 호출하여 동일한 두 포인트의 상승 데이터를 가져옵니다. 작성기 탭에서 **게시** HTTP 메서드를 선택하고, 다음 URL을 입력하세요. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
+7. 이제 [포인트 데이터 게시 API](/rest/api/maps/elevation/postdataforpoints)를 호출하여 동일한 두 포인트의 상승 데이터를 가져옵니다. **작성기** 탭에서 **POST** HTTP 메서드를 선택하고 다음의 URL을 입력합니다(키 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 대체).
 
     ```http
     https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-5. **POST** 요청의 **헤더** 에서 `Content-Type`을 `application/json`으로 설정합니다. **본문** 에서 아래 좌표 포인트 정보를 제공하세요. 완료되면 **보내기** 를 클릭합니다.
+8. **POST** 요청의 **헤더** 필드에서 `Content-Type`을 `application/json`으로 설정합니다. 
+
+1. **본문** 필드에서 다음의 좌표 포인트 정보를 작성하세요.
 
      ```json
     [
@@ -124,29 +147,38 @@ Elevation 서비스 (미리 보기) API를 사용하여 GeoJSON 형식의 상승
     ]
     ```
 
+9. **보내기** 를 선택합니다.
+
 ### <a name="request-elevation-data-samples-along-a-polyline"></a>폴리라인을 따라 상승 데이터 샘플 요청
 
-이 예에서는 [폴리라인 데이터 가져오기](/rest/api/maps/elevation/getdataforpolyline)를 사용하여 산의 좌표 사이 직선을 따라 동일한 간격의 상승 데이터 샘플 5개를 요청합니다. 에베레스트 및 참랑 두 좌표는 모두 Long/Lat 형식으로 정의되어야 합니다. `samples`매개 변수 값을 지정하지 않는 경우 샘플 수는 기본적으로 10개로 설정됩니다. 최대 샘플 수는 2,000개입니다.
+이 예에서는 [폴리라인 API로 데이터 가져오기](/rest/api/maps/elevation/getdataforpolyline)를 사용하여 산의 좌표 사이 직선을 따라 동일한 간격의 상승 데이터 샘플 5개를 요청합니다. 에베레스트 및 참랑 두 좌표는 모두 경도/위도 형식으로 정의되어야 합니다. `samples`매개 변수 값을 지정하지 않는 경우 샘플 수는 기본적으로 10개로 설정됩니다. 최대 샘플 수는 2,000개입니다.
 
-그런 다음, 폴리라인 데이터 가져오기를 통해 경로를 따라 
-상승 데이터에 대한 동일한 간격의 샘플 3개를 요청합니다.  3 개의 Long/Lat 좌표 쌍을 전달하여 샘플의 정확한 위치를 정의합니다.
+그 후 폴리라인 API 데이터 가져오기를 통해 경로를 따라 동일한 간격의 상승 데이터 샘플 3개를 요청합니다. 3개의 경도/위도 좌표 쌍을 전달하여 샘플의 정확한 위치를 정의합니다.
 
 마지막으로, [폴리라인 데이터 게시 API](/rest/api/maps/elevation/postdataforpolyline)를 사용하여 똑같이 동일한 간격의 샘플 3개에서 상승 데이터를 요청합니다.
 
 URL의 위도 및 경도는 WGS84(World Geodetic System)의 십진수이어야 합니다.
 
  >[!IMPORTANT]
- >URL 문자 길이 제한이 2048 이므로 URL GET 요청에서 100개 이상의 좌표를 파이프라인으로 구분된 문자열로 전달할 수 없습니다. 100개 이상의 좌표를 파이프라인으로 구분된 문자열로 전달하려는 경우 POST Data For Points를 사용하세요.
+ >URL 문자 길이가 2048자로 제한되므로 URL GET 요청에서 100개 이상의 좌표를 파이프라인으로 구분된 문자열로 전달하는 것은 불가능합니다. 100개 이상의 좌표를 파이프라인으로 구분된 문자열로 전달하려는 경우 Points API용 Post Data를 사용하세요.
 
-1. **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. **요청 이름** 입력하고 컬렉션을 선택합니다. **저장** 을 클릭합니다.
+요청을 만들려면 다음을 수행합니다.
 
-2. 작성기 탭에서 **가져오기** HTTP 매서드를 선택하고 다음 URL을 입력하세요. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
+1. Postman 앱에서 **새로 만들기** 를 선택합니다.
+
+2. **새로 만들기** 창에서 **요청** 을 선택합니다.
+
+3. **요청 이름** 을 입력하고 컬렉션을 선택합니다.
+
+4. **저장** 을 선택합니다.
+
+5. **작성기** 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다(키 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 대체).
 
    ```http
     https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&lines=-73.998672,40.714728|150.644,-34.397&samples=5
     ```
 
-3. **보내기** 단추를 클릭합니다.  다음과 같은 JSON 응답이 표시됩니다.
+6. **보내기** 단추를 선택합니다.  다음과 같은 JSON 응답이 표시됩니다.
 
     ```JSON
     {
@@ -190,17 +222,17 @@ URL의 위도 및 경도는 WGS84(World Geodetic System)의 십진수이어야 �
     }
     ```
 
-4. 이제 에베레스트, 참랑, 자누 산의 좌표 간 경로를 따라 상승 데이터 샘플 3개를 요청합니다. **Params** 섹션에서 `lines` 쿼리 키 값에 대한 다음 좌표 배열을 복사합니다.
+7. 이제 에베레스트, 참랑, 자누 산의 좌표 간 경로를 따라 상승 데이터 샘플 3개를 요청합니다. **Params** 필드에서 `lines` 쿼리 키 값에 대한 다음 좌표 배열을 입력합니다.
 
     ```html
         86.9797222, 27.775|86.9252778, 27.9880556 | 88.0444444, 27.6822222
     ```
 
-5. `samples` 쿼리 키 값을 `3`로 변경합니다.  아래 이미지는 새로운 값을 보여줍니다.
+8. `samples` 쿼리 키 값을 `3`로 변경합니다.  아래 이미지는 새로운 값을 보여줍니다.
 
      :::image type="content" source="./media/how-to-request-elevation-data/get-elevation-samples.png" alt-text="3개의 상승 데이터 샘플을 검색하세요.":::
 
-6. 파란색 **보내기** 버튼을 클릭하세요. 다음과 같은 JSON 응답이 표시됩니다.
+9. **보내기** 를 선택합니다. 다음과 같은 JSON 응답이 표시됩니다.
 
     ```json
     {
@@ -230,13 +262,15 @@ URL의 위도 및 경도는 WGS84(World Geodetic System)의 십진수이어야 �
     }
     ```
 
-7. 이제 [폴리라인 데이터 게시 API](/rest/api/maps/elevation/postdataforpolyline)를 호출하여 동일한 3개의 포인트에 대한 상승 데이터를 가져옵니다. 작성기 탭에서 **게시** HTTP 메서드를 선택하고, 다음 URL을 입력하세요. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
+10. 이제 [폴리라인 데이터 게시 API](/rest/api/maps/elevation/postdataforpolyline)를 호출하여 동일한 3개의 포인트에 대한 상승 데이터를 가져옵니다.  **작성기** 탭에서 **POST** HTTP 메서드를 선택하고 다음 URL을 입력합니다(기본 구독 키로 `{Azure-Maps-Primary-Subscription-key}` 대체).
 
     ```http
     https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&samples=5
     ```
 
-8. **POST** 요청의 **헤더** 에서 `Content-Type`을 `application/json`으로 설정합니다. **본문** 에서 아래 좌표 포인트 정보를 제공하세요. 완료되면 **보내기** 를 클릭합니다.
+11. **POST** 요청의 **헤더** 필드에서 `Content-Type`을 `application/json`으로 설정합니다. 
+
+1. **본문** 필드에서 다음 좌표 포인트 정보를 작성하세요.
 
      ```json
     [
@@ -255,23 +289,33 @@ URL의 위도 및 경도는 WGS84(World Geodetic System)의 십진수이어야 �
     ]
     ```
 
+12. **보내기** 를 선택합니다.
+
 ### <a name="request-elevation-data-by-bounding-box"></a>경계 상자별 상승 데이터 요청
 
-이제 [경계 상자 데이터 가져오기](/rest/api/maps/elevation/getdataforboundingbox)를 사용하여 산 근처의 상승 데이터를 요청합니다. Rainier, WA. 상승 데이터는 경계 상자 내 동일한 간격의 위치에 반환됩니다. (2) lat/long 좌표 집합에 의해 정의된 경계 영역(남위, 서경 | 북위, 동경)은 행과 열로 구분됩니다. 경계 상자의 에지는 두 개의 행과 두 개의 열을 설명합니다. 행과 열 교차점에 생성된 그리드 꼭짓점에 상승이 반환됩니다. 단일 요청으로 최대 2000개의 상승이 반환될 수 있습니다.
+이제 [경계 상자 데이터 가져오기](/rest/api/maps/elevation/getdataforboundingbox)를 사용하여 산 근처의 상승 데이터를 요청합니다. 워싱턴 주 Rainier 상승 데이터는 경계 상자 내 동일한 간격의 위치에 반환됩니다. 경계 영역은 두 개의 경도/위도 좌표 세트(남위, 서경|북위, 동경)에 의해 정의되고 행과 열로 구분됩니다. 경계 상자의 가장자리는 두 개의 행과 두 개의 열을 차지합니다. 행과 열 교차점에 생성된 그리드 꼭짓점에 상승이 반환됩니다. 단일 요청으로 최대 2000개의 상승이 반환될 수 있습니다.
 
-이 예에서는 rows=3 및 columns=6을 지정합니다. 18 개의 상승 값이 응답에 반환됩니다. 다음 다이어그램에서 상승 값은 남서쪽 모퉁이에서 시작하여 서쪽에서 동쪽으로, 남쪽에서 북쪽으로 정렬됩니다.  상승 포인트는 반환되는 순서에 따라 번호가 매겨집니다.
+이 예에서는 rows=3 및 columns=6을 지정합니다. 응답은 18개의 상승값을 반환합니다. 다음 다이어그램에서 상승 값은 남서쪽 모퉁이에서 시작하여 서쪽에서 동쪽으로, 남쪽에서 북쪽으로 정렬됩니다.  상승 포인트는 반환되는 순서에 따라 번호가 매겨집니다.
 
 :::image type="content" source="./media/how-to-request-elevation-data/bounding-box.png" border="false" alt-text="NE 및 SE 모퉁이의 경계 상자 좌표.":::
 
-1. **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. **요청 이름** 입력하고 컬렉션을 선택합니다. **저장** 을 클릭합니다.
+요청을 만들려면 다음을 수행합니다.
 
-2. 작성기 탭에서 **가져오기** HTTP 매서드를 선택하고 다음 URL을 입력하세요. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
+1. Postman 앱에서 **새로 만들기** 를 선택합니다. 
+
+2. **새로 만들기** 창에서 **요청** 을 선택합니다. 
+
+3. **요청 이름** 을 입력하고 컬렉션을 선택합니다. 
+
+4. **저장** 을 선택합니다.
+
+5. **작성기** 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다(키 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 대체).
 
     ```http
     https://atlas.microsoft.com/elevation/lattice/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&bounds=-121.66853362143818, 46.84646479863713,-121.65853362143818, 46.85646479863713&rows=2&columns=3
     ```
 
-3. 파란색 **보내기** 버튼을 클릭하세요. 18개의 상승 데이터 샘플이 그리드의 각 꼭짓점에 하나씩 응답에 반환됩니다.
+6. **보내기** 를 선택합니다.  응답은 18개의 상승 데이터 샘플을 그리드의 각 꼭짓점에 하나씩 반환합니다.
 
     ```json
     {
@@ -448,11 +492,11 @@ URL의 위도 및 경도는 WGS84(World Geodetic System)의 십진수이어야 �
     }
     ```
 
-## <a name="samples-use-elevation-service-preview-apis-in-azure-maps-control"></a>샘플: Azure Maps Control에서 상승 서비스(미리 보기) API 사용
+## <a name="samples-use-elevation-service-apis-in-azure-maps-control"></a>샘플: Azure Maps Control에서 Elevation service API 사용
 
 ### <a name="get-elevation-data-by-coordinate-position"></a>좌표 위치별 상승 데이터 가져오기
 
-다음 샘플 웹 페이지에서 지도 컨트롤을 사용하여 좌표 포인트에 상승 데이터를 표시하는 방법을 확인할 수 있습니다. 사용자가 마커를 드래그하면 상승 데이터가 지도에서 팝업으로 표시됩니다.
+다음 샘플 웹 페이지에서 지도 컨트롤을 사용하여 좌표 포인트에 상승 데이터를 표시하는 방법을 확인할 수 있습니다. 사용자가 마커를 끌어오면 상승 데이터가 지도에서 팝업 창에 표시됩니다.
 
 <br/>
 
@@ -462,7 +506,7 @@ URL의 위도 및 경도는 WGS84(World Geodetic System)의 십진수이어야 �
 
 ### <a name="get-elevation-data-by-bounding-box"></a>경계 상자별 상승 데이터 요청
 
-다음 샘플 웹 페이지에서 지도 컨트롤을 사용하여 경계 상자에 포함된 상승 데이터를 표시하는 방법을 확인할 수 있습니다. 사용자는 왼쪽 상단 모서리의 `square` 아이콘을 클릭하고 지도에 사각형을 그려서 경계 상자를 정의합니다. 그런 다음 지도 컨트롤이 오른쪽 위 모서리에 있는 키에 지정된 색상으로 상승 데이터를 렌더링합니다.
+다음 샘플 웹 페이지에는 지도 컨트롤을 사용하여 경계 상자에 포함된 상승 데이터를 표시하는 방법이 나와있습니다. 사용자는 왼쪽 위 모서리의 `square` 아이콘을 선택한 후 지도에 사각형을 그려 경계 상자를 정의합니다. 그런 다음 지도 컨트롤이 오른쪽 위 모서리에 있는 키에 지정된 색상에 따라 상승 데이터를 렌더링합니다.
 
 <br/>
 
@@ -472,7 +516,7 @@ URL의 위도 및 경도는 WGS84(World Geodetic System)의 십진수이어야 �
 
 ### <a name="get-elevation-data-by-polyline-path"></a>폴리라인 경로별 상승 데이터 가져오기
 
-다음 샘플 웹 페이지에서 지도 컨트롤을 사용하여 경로를 따라 상승 데이터를 표시하는 방법을 확인할 수 있습니다. 사용자는 왼쪽 상단 모서리의 `Polyline` 아이콘을 클릭하고 지도에 폴리라인을 그려서 경계 상자를 정의합니다. 그런 다음 지도 컨트롤이 오른쪽 위 모서리에 있는 키에 지정된 색상으로 상승 데이터를 렌더링합니다.
+다음 샘플 웹 페이지에는 지도 컨트롤을 사용하여 경로를 따라 상승 데이터를 표시하는 방법이 나와있습니다. 사용자는 왼쪽 위 모서리의 `Polyline` 아이콘을 선택한 후 지도에 폴리라인을 그려서 경계 상자를 정의합니다. 그런 다음 지도 컨트롤이 오른쪽 위 모서리에 있는 키에 지정된 색상으로 상승 데이터를 렌더링합니다.
 
 <br/>
 

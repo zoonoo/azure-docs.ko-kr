@@ -1,20 +1,20 @@
 ---
 title: Azure Blob Storage 액세스 계층을 자동화하여 비용 최적화
 description: 핫, 쿨 및 보관 계층 간에 데이터를 이동하기 위한 자동화된 규칙을 만듭니다.
-author: twooley
-ms.author: twooley
-ms.date: 10/29/2020
+author: tamram
+ms.author: tamram
+ms.date: 04/23/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: e0b9f3b5728e4604d7c51c1d49196cfcf1161aef
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 19a828621f298759b87d8b0d4ca627d3ab7d27c3
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278034"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071284"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Azure Blob Storage 액세스 계층을 자동화하여 비용 최적화
 
@@ -22,7 +22,7 @@ ms.locfileid: "106278034"
 
 수명 주기 관리 정책을 사용하여 다음을 수행할 수 있습니다.
 
-- 성능 최적화를 위해 액세스하는 경우 쿨에서 핫으로 즉시 Blob 전환 
+- 성능 최적화를 위해 액세스하는 경우 쿨에서 핫으로 즉시 Blob 전환
 - 비용 최적화를 위해 일정 기간 동안 액세스하거나 수정하지 않은 경우 Blob, Blob 버전 및 Blob 스냅샷을 더 높은 수준의 쿨 스토리지 계층(핫에서 쿨, 핫에서 보관 또는 쿨에서 보관)으로 전환
 - 수명 주기 종료 시 Blob, Blob 버전 및 Blob 스냅샷 삭제
 - 스토리지 계정 수준에서 하루에 한 번 실행할 규칙 정의
@@ -37,7 +37,7 @@ ms.locfileid: "106278034"
 
 ## <a name="availability-and-pricing"></a>가용성 및 가격 책정
 
-수명 주기 관리 기능은 모든 Azure 지역에서 GPv2(범용 v2) 계정, Blob Storage 계정, 프리미엄 블록 Blob Storage 계정 및 Azure Data Lake Storage Gen2 계정에 사용할 수 있습니다. Azure Portal에서 기존 범용(GPv1) 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+GPv2(범용 v2) 계정, Blob Storage 계정, 프리미엄 블록 Blob Storage 계정 및 Azure Data Lake Storage Gen2 계정에 대한 수명 주기 관리 기능은 모든 Azure 지역에서 사용할 수 있습니다. Azure Portal에서 기존 범용(GPv1) 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 수명 주기 관리 기능은 무료로 제공됩니다. [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) API 호출에 대한 일반 작업 비용이 고객에게 청구됩니다. 삭제 작업은 무료입니다. 가격 책정에 대한 자세한 내용은 [블록 Blob 가격](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
 
@@ -45,12 +45,17 @@ ms.locfileid: "106278034"
 
 다음 방법 중 하나를 사용하여 정책을 추가, 편집 또는 제거할 수 있습니다.
 
-* [Azure Portal](https://portal.azure.com)
-* [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
-* [Azure CLI](/cli/azure/install-azure-cli)
-* [REST API](/rest/api/storagerp/managementpolicies)
+- Azure 포털
+- Azure PowerShell
+   - [Add-AzStorageAccountManagementPolicyAction](/powershell/module/az.storage/add-azstorageaccountmanagementpolicyaction)
+   - [New-AzStorageAccountManagementPolicyFilter](/powershell/module/az.storage/new-azstorageaccountmanagementpolicyfilter)
+   - [New-AzStorageAccountManagementPolicyRule](/powershell/module/az.storage/new-azstorageaccountmanagementpolicyrule)
+   - [Set-AzStorageAccountManagementPolicy](/powershell/module/az.storage/set-azstorageaccountmanagementpolicy)
+   - [Remove-AzStorageAccountManagementPolicy](/powershell/module/az.storage/remove-azstorageaccountmanagementpolicy)
+- [Azure CLI](/cli/azure/storage/account/management-policy)
+- [REST API](/rest/api/storagerp/managementpolicies)
 
-정책은 전체를 읽거나 쓸 수 있습니다. 부분 업데이트는 지원되지 않습니다. 
+정책은 전체를 읽거나 쓸 수 있습니다. 부분 업데이트는 지원되지 않습니다.
 
 > [!NOTE]
 > 스토리지 계정에 방화벽 규칙을 사용하도록 설정하면 수명 주기 관리 요청이 차단될 수 있습니다. 신뢰할 수 있는 Microsoft 서비스에 대한 예외를 제공하여 이러한 요청의 차단을 해제할 수 있습니다. 자세한 내용은 [방화벽 및 가상 네트워크 구성](../common/storage-network-security.md#exceptions)의 예외 섹션을 참조하세요.
@@ -59,18 +64,18 @@ ms.locfileid: "106278034"
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-Azure Portal를 통해 정책을 추가하는 방법에는 두 가지가 있습니다. 
+Azure Portal를 통해 정책을 추가하는 방법에는 두 가지가 있습니다.
 
-* [Azure Portal 목록 보기](#azure-portal-list-view)
-* [Azure Portal 코드 보기](#azure-portal-code-view)
+- [Azure Portal 목록 보기](#azure-portal-list-view)
+- [Azure Portal 코드 보기](#azure-portal-code-view)
 
 #### <a name="azure-portal-list-view"></a>Azure Portal 목록 보기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. Azure Portal에서 스토리지 계정을 검색하여 선택합니다. 
+1. Azure Portal에서 스토리지 계정을 검색하여 선택합니다.
 
-1. **Blob service** 에서 **수명 주기 관리** 를 선택하여 규칙을 보거나 변경합니다.
+1. **데이터 관리** 에서 **수명 주기 관리** 를 선택하여 규칙을 보거나 변경합니다.
 
 1. **목록 보기** 탭을 선택합니다.
 
@@ -81,12 +86,6 @@ Azure Portal를 통해 정책을 추가하는 방법에는 두 가지가 있습�
 1. **기본 Blob** 을 선택하여 규칙에 대한 조건을 설정합니다. 다음 예에서는 30일 동안 수정되지 않은 Blob이 쿨 스토리지로 이동됩니다.
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Azure Portal의 수명 주기 관리 기본 Blob 페이지":::
-
-   **마지막으로 액세스한 날짜** 옵션은 다음 지역에서 미리 보기로 제공됩니다.
-
-    - 프랑스 중부
-    - 캐나다 동부
-    - 캐나다 중부
 
    > [!IMPORTANT]
    > 마지막 액세스 시간 추적 미리 보기는 비프로덕션 전용입니다. 현재 프로덕션 SLA(서비스 수준 계약)는 사용할 수 없습니다.
@@ -322,7 +321,7 @@ Azure Resource Manager 템플릿을 사용하여 수명 주기 관리를 정의�
 | blobIndexMatch | 일치시킬 Blob 인덱스 태그 키 및 값 조건으로 구성된 사전 값의 배열입니다. 각 규칙은 최대 10개의 Blob 인덱스 태그 조건을 정의할 수 있습니다. 예를 들어 규칙의 `https://myaccount.blob.core.windows.net/`에서 모든 Blob을 `Project = Contoso`와 일치시키려는 경우 blobIndexMatch는 `{"name": "Project","op": "==","value": "Contoso"}`입니다. | blobIndexMatch를 정의하지 않으면 규칙은 스토리지 계정 내의 모든 Blob에 적용됩니다. | 아니요 |
 
 > [!NOTE]
-> Blob 인덱스는 공개 미리 보기로 제공되며 **캐나다 중부**, **캐나다 동부**, **프랑스 중부** 및 **프랑스 남부** 지역에서 사용할 수 있습니다. 알려진 문제 및 제한과 함께 이 기능에 대한 자세한 내용은 [Blob 인덱스(미리 보기)를 사용하여 Azure Blob 스토리지에서 데이터 관리 및 찾기](storage-manage-find-blobs.md)를 참조하세요.
+> Blob 인덱스는 공개 미리 보기로 제공됩니다.  알려진 문제 및 제한과 함께 이 기능에 대한 자세한 내용은 [Blob 인덱스(미리 보기)를 사용하여 Azure Blob 스토리지에서 데이터 관리 및 찾기](storage-manage-find-blobs.md)를 참조하세요.
 
 ### <a name="rule-actions"></a>규칙 작업
 

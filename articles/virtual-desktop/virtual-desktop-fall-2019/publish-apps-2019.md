@@ -1,24 +1,24 @@
 ---
-title: Windows Virtual Desktop(클래식)에서 기본 제공 앱 게시 - Azure
-description: Windows Virtual Desktop(클래식)에서 기본 제공 앱을 게시하는 방법.
+title: Azure Virtual Desktop(클래식)에서 기본 제공 앱 게시 - Azure
+description: Azure Virtual Desktop(클래식)에서 기본 제공 앱을 게시하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f9cde1c31140a04d00f62350a056c5558d806531
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 0a375f61098a1000b101be74d137fabd023cf4d5
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444380"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751778"
 ---
-# <a name="publish-built-in-apps-in-windows-virtual-desktop-classic"></a>Windows Virtual Desktop(클래식)에서 기본 제공 앱 게시
+# <a name="publish-built-in-apps-in-azure-virtual-desktop-classic"></a>Azure Virtual Desktop(클래식)에서 기본 제공 앱 게시
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../publish-apps.md)를 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Azure Virtual Desktop 개체를 관리하려는 경우 [이 문서](../publish-apps.md)를 참조하세요.
 
-이 문서에서는 Windows Virtual Desktop 환경에서 앱을 게시하는 방법을 설명합니다.
+이 문서에서는 Azure Virtual Desktop 환경에서 앱을 게시하는 방법을 설명합니다.
 
 ## <a name="publish-built-in-apps"></a>기본 제공 앱 게시
 
@@ -33,7 +33,7 @@ ms.locfileid: "106444380"
    ```
 
 >[!NOTE]
-> Windows Virtual Desktop은 `C:\Program Files\Windows Apps`로 시작하는 설치 위치가 있는 앱 게시만 지원합니다.
+> Azure Virtual Desktop은 `C:\Program Files\Windows Apps`로 시작하는 설치 위치가 있는 앱 게시만 지원합니다.
 
 ## <a name="update-app-icons"></a>앱 아이콘 업데이트
 
@@ -49,6 +49,6 @@ New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Windows Virtual Desktop 사용자를 위한 피드 사용자 지정](customize-feed-virtual-desktop-users-2019.md)에서 사용자에 대해 앱이 표시되는 방식을 구성하도록 피드를 구성하는 방법에 대해 알아봅니다.
+- [Azure Virtual Desktop 사용자를 위한 피드 사용자 지정](customize-feed-virtual-desktop-users-2019.md)에서 사용자에 대해 앱이 표시되는 방식을 구성하도록 피드를 구성하는 방법을 알아봅니다.
 - [MSIX 앱 연결 설정](../app-attach.md)에서 MSIX 앱 연결 기능에 대해 알아봅니다.
 

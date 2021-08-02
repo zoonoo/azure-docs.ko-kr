@@ -6,12 +6,12 @@ ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 740930a342706eeaf3adc3b0e8ad1e01e4c70932
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 838084204ed2c1979f618bb2bfe644d1f88cd51e
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386629"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536502"
 ---
 # <a name="event-handlers-destinations-in-event-grid-on-kubernetes"></a>Kubernetes의 Event Grid의 이벤트 처리기 대상
 이벤트 처리기는 엔드포인트를 노출하는 시스템으로, Event Grid에서 이벤트를 보내는 대상입니다. 이벤트를 수신하는 이벤트 처리기는 이에 따라 작동하고 이벤트 페이로드를 사용하여 일부 논리를 실행하므로 새 이벤트가 발생할 수 있습니다.
@@ -79,18 +79,18 @@ WebHook 엔드포인트에 게시하려면 `endpointType`을 `WebHook`으로 설
 
 Azure Event Grid 클라우드 엔드포인트에 게시하려면 `endpointType`을 `WebHook`로 설정하고 다음을 입력합니다.
 
-* **endpointUrl**: 클라우드의 이벤트 그리드 토픽 URL
+* **endpointUrl**: API 버전 매개 변수가 **2018-01-01** 로 설정되고 `aeg-sas-key`가 URL 인코딩 SAS 키로 설정된 클라우드의 Azure Event Grid 토픽 URL입니다. 
 
    ```json
-        {
-          "properties": {
+    {
+        "properties": {
             "destination": {
-              "endpointType": "WebHook",
-              "properties": {
-                 "endpointUrl": "<your-event-grid-cloud-topic-endpoint-url>?api-version=2018-01-01",
-              }
+                "endpointType": "WebHook",
+                "properties": {
+                    "endpointUrl": "<your-event-grid-cloud-topic-endpoint-url>?api-version=2018-01-01&aeg-sas-key=urlencoded(sas-key-value)"
+                }
             }
-          }
+        }
     }
    ```
 

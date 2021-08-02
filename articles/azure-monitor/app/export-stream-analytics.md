@@ -3,21 +3,25 @@ title: Azure Application Insights에서 Stream Analytics를 사용하여 내보�
 description: Stream Analytics를 사용하면 Application Insights에서 내보내는 데이터를 지속적으로 변환, 필터링 및 라우팅할 수 있습니다.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: a517bddd8981554b7fb5044d33b6c6777df51e36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b54b6045c1def9d87636f4facfe65f8abd056cd
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719800"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753920"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Stream Analytics를 사용하여 Application Insights에서 내보낸 데이터 처리
 
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)는 [Application Insights에서 내보낸](export-telemetry.md) 데이터를 처리하는 위한 이상적인 도구입니다. Stream Analytics는 다양한 원본의 데이터를 가져와서 변환하고 필터링한 다음 다양한 싱크로 라우팅할 수 있습니다.
 
-이 예제에서는 Application Insights에서 데이터를 가져오고, 필드 중 일부에 대해 이름을 바꾸고 처리하며, Power BI로 파이프하는 어댑터를 만듭니다.
+이 예제에서는 연속 내보내기를 사용하여 Application Insights에서 데이터를 가져오고, 필드 중 일부에 대해 이름을 바꾸고 처리하며, Power BI로 파이프하는 어댑터를 만듭니다.
 
 > [!WARNING]
 > [Power BI에서 Application Insights 데이터를 표시하는 데 권장되는 방법](./export-power-bi.md)이 있으며, 이 방법들은 훨씬 더 효율적이며 간편합니다. 여기서 설명하는 경로는 내보낸 데이터를 처리하는 방법을 보여 주기 위한 예로 사용했을 뿐입니다.
+
+> [!IMPORTANT]
+> 연속 내보내기는 더 이상 사용되지 않으며 클래식 Application Insights 리소스에 대해서만 지원됩니다. [작업 영역 기반 Application Insights 리소스로 마이그레이션하여](convert-classic-resource.md) 원격 분석 내보내기에 대한 [진단 설정을](export-telemetry.md#diagnostic-settings-based-export) 사용합니다.
+
 
 ![SA를 통해 PBI로 내보내기에 대한 블록 다이어그램](./media/export-stream-analytics/020.png)
 
@@ -38,7 +42,7 @@ ms.locfileid: "101719800"
 
 ## <a name="start-continuous-export-to-azure-storage"></a>Azure Storage로 연속 내보내기 시작
 
-[연속 내보내기](export-telemetry.md)는 Application Insights에서 Azure Storage로 데이터를 이동합니다.
+[연속 내보내기](export-telemetry.md)는 Application Insights에서 Azure Storage로 데이터를 이동합니다. 
 
 1. Azure 포털에서 애플리케이션에 대해 만든 Application Insights 리소스를 찾습니다.
    

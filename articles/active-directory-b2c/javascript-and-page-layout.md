@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 06/07/2021
 ms.custom: project-no-code, devx-track-js
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d234e57f7c11b0d9f2cd212bde93a8b8e478ef41
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 652551635b84c18020bf928194923d0e6ca86149
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781367"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565281"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>JavaScript 및 Azure Active Directory B2C의 페이지 레이아웃 버전
 
@@ -63,7 +63,7 @@ JavaScript 클라이언트 쪽 코드를 사용하도록 설정하려는 경우 
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
 1. 정책(예: "B2C_1_SignupSignin")을 선택하여 엽니다.
-1. **페이지 레이아웃** 을 선택합니다. **레이아웃 이름을** 선택하고 **페이지 레이아웃 버전(미리 보기)** 을 선택합니다.
+1. **페이지 레이아웃** 을 선택합니다. **레이아웃 이름** 을 선택한 후 **페이지 레이아웃 버전** 을 선택합니다.
 
 여러 페이지 레이아웃 버전에 대한 자세한 내용은 [페이지 레이아웃 버전 변경 로그](page-layout.md)를 참조하세요.
 

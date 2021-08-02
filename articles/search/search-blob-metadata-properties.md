@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/22/2021
-ms.openlocfilehash: cbb35f596a1d32816d1a73b462bf590d9dde0d52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d77a0b53d14705d73b83d25ffe3355925355fdf1
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668421"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556625"
 ---
 # <a name="content-metadata-properties-used-in-azure-cognitive-search"></a>Azure Cognitive Search에서 사용하는 콘텐츠 메타데이터 속성
 
@@ -31,8 +31,8 @@ Cognitive Search는 다음 문서 형식에 대해 Blob 인덱싱과 SharePoint 
 
 | 문서 형식/콘텐츠 형식 | 추출한 메타데이터 | 처리 세부 정보 |
 | --- | --- | --- |
-| HTML(text/html) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |HTML 태그를 제거하고 텍스트 추출 |
-| PDF(application/pdf) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |포함된 문서를 비롯한 텍스트 추출(이미지 제외) |
+| HTML(text/html 또는 application/xhtml+xml) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |HTML 태그를 제거하고 텍스트 추출 |
+| PDF(application/pdf) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title`<br/>`metadata_creation_date` |포함된 문서를 비롯한 텍스트 추출(이미지 제외) |
 | DOCX(application/vnd.openxmlformats-officedocument.wordprocessingml.document) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |포함된 문서를 비롯한 텍스트 추출 |
 | DOC(application/msword) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |포함된 문서를 비롯한 텍스트 추출 |
 | DOCM(application/vnd.ms-word.document.macroenabled.12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |포함된 문서를 비롯한 텍스트 추출 |
@@ -47,15 +47,17 @@ Cognitive Search는 다음 문서 형식에 대해 Blob 인덱싱과 SharePoint 
 | MSG(application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_from_email`<br/>`metadata_message_to`<br/>`metadata_message_to_email`<br/>`metadata_message_cc`<br/>`metadata_message_cc_email`<br/>`metadata_message_bcc`<br/>`metadata_message_bcc_email`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |첨부 파일에서 추출한 텍스트를 포함해 텍스트를 추출합니다. `metadata_message_to_email`, `metadata_message_cc_email`, `metadata_message_bcc_email`은 문자열 컬렉션이며 나머지 필드는 문자열입니다.|
 | ODT(application/vnd.oasis.opendocument.text) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |포함된 문서를 비롯한 텍스트 추출 |
 | ODS(application/vnd.oasis.opendocument.spreadsheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |포함된 문서를 비롯한 텍스트 추출 |
-| ODP(application/vnd.oasis.opendocument.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`title` |포함된 문서를 비롯한 텍스트 추출 |
+| ODP(application/vnd.oasis.opendocument.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_title` |포함된 문서를 비롯한 텍스트 추출 |
 | ZIP(application/zip) |`metadata_content_type` |보관 파일의 모든 문서에서 텍스트 추출 |
 | GZ(application/gzip) |`metadata_content_type` |보관 파일의 모든 문서에서 텍스트 추출 |
 | EPUB(application/epub+zip) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_title`<br/>`metadata_description`<br/>`metadata_language`<br/>`metadata_keywords`<br/>`metadata_identifier`<br/>`metadata_publisher` |보관 파일의 모든 문서에서 텍스트 추출 |
-| XML(application/xml) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> |XML 태그를 제거하고 텍스트 추출 |
+| XML(application/xml) |`metadata_content_type`<br/>`metadata_content_encoding`<br/>`metadata_language`<br/> |XML 태그를 제거하고 텍스트 추출 |
+| KML(application/vnd.google-earth.kml+xml) |`metadata_content_type`<br/>`metadata_content_encoding`<br/>`metadata_language`<br/> |XML 태그를 제거하고 텍스트 추출 |
 | JSON(application/json) |`metadata_content_type`<br/>`metadata_content_encoding` |텍스트 추출<br/>참고: JSON BLOB에서 여러 문서 필드를 추출해야 하는 경우 자세한 내용은 [JSON BLOB 인덱싱](search-howto-index-json-blobs.md)을 참조하세요. |
 | EML(메시지/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |첨부 파일을 비롯한 텍스트 추출 |
-| RTF(application/rtf) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_page_count`<br/>`metadata_word_count`<br/> | 텍스트 추출|
-| 일반 텍스트(text/plain) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | 텍스트 추출|
+| RTF(application/rtf) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count`<br/> | 텍스트 추출|
+| 일반 텍스트(text/plain) |`metadata_content_type`<br/>`metadata_content_encoding`<br/>`metadata_language`<br/> | 텍스트 추출|
+| CSV(text/csv) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | 텍스트 추출<br/>참고: CSV blob에서 여러 문서 필드를 추출해야 하는 경우 자세한 내용은 [CSV blob 인덱싱](search-howto-index-csv-blobs.md)을 참조하세요. |
 
 ## <a name="see-also"></a>참고 항목
 

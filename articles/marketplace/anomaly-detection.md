@@ -4,15 +4,15 @@ description: 요금제 청구에 대한 자동 변칙 검색을 통해 상업용
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 2/18/2021
+ms.date: 5/03/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 1ff6262a75261c575082f3fc48d588c868ad0b51
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4576cad94cd26f0b2892dca5aeddd8861c5abf09
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092526"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540132"
 ---
 # <a name="manage-metered-billing-anomalies-in-partner-center"></a>파트너 센터에서 요금제 청구 변칙 관리
 
@@ -32,12 +32,12 @@ Microsoft는 파트너가 보고하는 고객의 SaaS 또는 Azure 관리형 애
 1. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **분석** 을 선택합니다.
 1. **요금제 사용량 변칙** 탭을 선택합니다.
 
-    [![사용량 페이지의 요금제 사용량 변칙 탭을 보여 줍니다.](./media/anomaly-detection/metered-usage-anomalies.png)](./media/anomaly-detection/metered-usage-anomalies.png#lightbox)
+    [![사용량 페이지의 요금제 사용량 변칙 탭을 보여 줍니다.](./media/anomaly-detection/metered-usage-anomalies.png)](./media/anomaly-detection/metered-usage-anomalies.png#lightbox)<br>
     ***그림 1: 요금제 사용량 변칙 탭***
 
 1. 요금제 청구에 대해 사용량 변칙이 검색된 경우 파트너는 게시자로서 해당 변칙이 정상인지 여부를 조사하고 확인해야 합니다. 진단을 확인하려면 **변칙으로 표시** 를 선택합니다.
 
-     [![변칙으로 표시 대화 상자를 보여 줍니다.](./media/anomaly-detection/mark-as-anomaly.png)](./media/anomaly-detection/mark-as-anomaly.png#lightbox)
+     [![변칙으로 표시 대화 상자를 보여 줍니다.](./media/anomaly-detection/mark-as-anomaly.png)](./media/anomaly-detection/mark-as-anomaly.png#lightbox)<br>
     ***그림 2: 변칙으로 표시 대화 상자***
 
 1. 검색된 초과 사용 변칙이 정상이 아닌 것으로 판단되는 경우 파트너 센터 플래그가 변칙으로 표시한 특정 초과 사용에 대해 **변칙 아님** 을 선택하여 해당 피드백을 제공할 수 있습니다.
@@ -47,18 +47,22 @@ Microsoft는 파트너가 보고하는 고객의 SaaS 또는 Azure 관리형 애
 
 1. 페이지 아래쪽으로 스크롤하여 확인되지 않은 변칙의 인벤토리 목록을 볼 수 있습니다. 이 목록에는 파트너가 확인하지 않은 변칙의 인벤토리가 제공됩니다. 파트너 센터 플래그가 지정된 변칙을 정상 또는 오류로 표시할 수 있습니다.
 
-   [![사용량 페이지의 파트너 센터에 의해 확인되지 않은 변칙 목록을 보여 줍니다.](./media/anomaly-detection/unacknowledged-anomalies.png)](./media/anomaly-detection/unacknowledged-anomalies.png#lightbox)
+   [![사용량 페이지의 파트너 센터에 의해 확인되지 않은 변칙 목록을 보여 줍니다.](./media/anomaly-detection/unacknowledged-anomalies.png)](./media/anomaly-detection/unacknowledged-anomalies.png#lightbox)<br>
     ***그림 4: 파트너 센터 에 의해 확인되지 않은 변칙 목록***
+
+    기본적으로 예상 재무 영향이 100달러(미화)를 초과하는 플래그가 지정된 변칙은 파트너 센터에 표시됩니다. 그러나 **변칙의 예상 재무 영향** 목록에서 **모두** 를 선택하여 플래그가 지정된 모든 변칙을 확인할 수 있습니다.
+
+    :::image type="content" source="./media/anomaly-detection/all-anomalies.png" alt-text="선택한 제품에 대한 모든 요금제 사용량 변칙의 스크린샷.":::
 
 1. 초과 사용에 대해 조치한 작업을 보여 주는 변칙 작업 로그도 표시됩니다. 작업 로그에서 사실 또는 오류로 표시된 초과 사용 이벤트를 확인할 수 있습니다.
 
-   [![ 사용량 페이지의 변칙 작업 로그를 보여 줍니다.](./media/anomaly-detection/anomaly-action-log.png)](./media/anomaly-detection/anomaly-action-log.png#lightbox)
+   [![사용량 페이지의 변칙 작업 로그를 보여줍니다.](./media/anomaly-detection/anomaly-action-log.png)](./media/anomaly-detection/anomaly-action-log.png#lightbox)<br>
    ***그림 5: 변칙 작업 로그***
 
 1. 파트너 센터 분석은 보고서 내보내기에서 초과 사용 이벤트 수정을 지원하지 않습니다. 파트너 센터에서는 변칙에 대해 수정된 초과 사용을 입력할 수 있으며, 자세한 내용은 조사를 위해 Microsoft 팀에 전달됩니다. 조사 결과에 따라 Microsoft는 초과 청구된 고객에게 적절히 환불 크레딧을 발급합니다. 플래그가 지정된 변칙 중 하나를 선택하는 경우 **변칙으로 표시** 를 선택하여 초과 사용 변칙을 정상으로 표시할 수 있습니다.
 
-   [![변칙으로 표시 대화 상자를 보여 줍니다.](./media/anomaly-detection/new-reported-usage.png)](./media/anomaly-detection/new-reported-usage.png#lightbox)
-   ***그림: 6 변칙으로 표시 대화 상자***
+   [![변칙으로 표시 대화 상자를 보여줍니다.](./media/anomaly-detection/new-reported-usage.png)](./media/anomaly-detection/new-reported-usage.png#lightbox)<br>
+   ***그림 6: 변칙으로 표시 대화 상자***
 
 처음에 파트너 센터에서 초과 사용이 불규칙으로 플래그 지정되는 경우 해당 인스턴스에서 변칙을 정상 또는 오류로 표시하도록 30일의 기간이 부여됩니다. 30일 후에는 변칙에 대한 작업을 수행할 수 없습니다.
 
@@ -79,5 +83,5 @@ Microsoft는 파트너가 보고하는 고객의 SaaS 또는 Azure 관리형 애
 
 ## <a name="see-also"></a>참고 항목
 - [상업용 Marketplace 계량 서비스를 사용하여 SaaS 요금제 청구](./partner-center-portal/saas-metered-billing.md)
-- [관리형 애플리케이션 요금제 청구](./partner-center-portal/azure-app-metered-billing.md)
+- [관리형 애플리케이션 요금제 청구](marketplace-metering-service-apis.md)
 - [요금제 청구를 위한 변칙 검색 서비스](./partner-center-portal/anomaly-detection-service-for-metered-billing.md)

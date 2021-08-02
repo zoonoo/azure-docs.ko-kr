@@ -1,26 +1,26 @@
 ---
-title: Windows Virtual Desktop 호스트 풀 부하 분산 - Azure
-description: Windows Virtual Desktop 환경에 대한 호스트 풀 부하 분산 메서드에 대해 알아봅니다.
+title: Azure Virtual Desktop 호스트 풀 부하 분산 - Azure
+description: Azure Virtual Desktop 환경에 대한 호스트 풀 부하 분산 메서드에 대해 알아봅니다.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: ed0cf568ca8d011beb7150f23c0187bbe262d5f0
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 54cbd03283814fd21a95dfe7578173f3481c4cd8
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446777"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757610"
 ---
 # <a name="host-pool-load-balancing-methods"></a>호스트 풀 부하 분산 메서드
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/host-pool-load-balancing-2019.md)를 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 통해 Azure Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Azure Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/host-pool-load-balancing-2019.md)를 참조하세요.
 
-Windows Virtual Desktop은 두 가지 부하 분산 메서드를 지원합니다. 각 메서드는 호스트 풀의 리소스에 연결할 때 사용자 세션을 호스트할 세션 호스트를 결정합니다.
+Azure Virtual Desktop은 두 가지 부하 분산 메서드를 지원합니다. 각 메서드는 호스트 풀의 리소스에 연결할 때 사용자 세션을 호스트할 세션 호스트를 결정합니다.
 
-Windows Virtual Desktop에서 다음과 같은 부하 분산 메서드를 사용할 수 있습니다.
+Azure Virtual Desktop에서 다음과 같은 부하 분산 메서드를 사용할 수 있습니다.
 
 - 폭 우선 부하 분산을 사용하면 호스트 풀의 세션 호스트 전체에 사용자 세션을 균등하게 분산할 수 있습니다.
 - 깊이 우선 부하 분산을 사용하면 호스트 풀의 사용자 세션을 통해 세션 호스트의 포화 상태를 지정할 수 있습니다. 첫 번째 세션이 해당 세션 제한 임계값에 도달하면 부하 분산 장치는 해당 제한에 도달할 때까지 사용자 연결을 호스트 풀의 다음 세션 호스트로 보냅니다.

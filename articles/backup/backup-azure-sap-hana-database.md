@@ -2,13 +2,13 @@
 title: Azure Backup을 사용하여 Azure에 SAP HANA 데이터베이스 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure 가상 머신에 SAP HANA 데이터베이스를 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: e7735c4240529cc6fc9bb6470934dd335d22aa77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/28/2021
+ms.openlocfilehash: 9267a3a27823249116e74c6aba9321cfdfd0e338
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719613"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681351"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -84,7 +84,7 @@ Azure Firewall을 사용하는 경우 *AzureBackup* [Azure Firewall FQDN 태그]
 | 서비스    | 액세스할 도메인 이름                             |
 | -------------- | ------------------------------------------------------------ |
 | Azure Backup  | `*.backup.windowsazure.com`                             |
-| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
+| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` |
 | Azure AD      | [이 문서](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online)에 따라 섹션 56 및 59에서 FQDN에 대한 액세스 허용 |
 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>HTTP 프록시 서버를 사용하여 트래픽 라우팅
@@ -191,7 +191,7 @@ Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 V
 1. 백업 정책 정의가 완료되면 **확인** 을 선택합니다.
 
 > [!NOTE]
-> 각 로그 백업은 이전의 전체 백업에 연결되어 복구 체인을 형성합니다. 이 전체 백업은 마지막 로그 백업의 보존 기간이 만료될 때까지 유지됩니다. 따라서 모든 로그가 복구될 수 있도록 전체 백업이 추가 기간 동안 보존될 수 있습니다. 사용자에게 주별 전체 백업, 일별 차등 및 2시간 로그가 있다고 가정해 보겠습니다. 모든 항목은 30일 동안 유지됩니다. 하지만 다음 전체 백업이 실행된 후(즉, 30 + 7일 후)에만 주별 전체 백업을 완전히 정리/삭제할 수 있습니다. 예를 들어 주별 전체 백업이 11월 16일에 실행되고 보존 정책에 따라 12월 16일까지 유지된다고 가정하겠습니다. 이 전체 백업에 대한 마지막 로그 백업은 예약된 다음 전체 백업일(11월 22일) 이전에 실행됩니다. 이 로그는 12월 22일까지 사용할 수 있으며, 11월 16일 전체 백업본은 그때까지 삭제할 수 없습니다. 따라서 11월 16일 전체 백업본은 12월 22일까지 유지됩니다.
+> 각 로그 백업은 이전의 전체 백업에 연결되어 복구 체인을 형성합니다. 이 전체 백업은 마지막 로그 백업의 보존 기간이 만료될 때까지 유지됩니다. 따라서 모든 로그가 복구될 수 있도록 전체 백업이 추가 기간 동안 보존될 수 있습니다. 사용자에게 주별 전체 백업, 일별 차등 및 2시간 로그가 있다고 가정해 보겠습니다. 모든 항목은 30일 동안 유지됩니다. 그러나 매주 전체 백업은 실제로 다음 전체 백업을 사용할 수 있는 경우, 즉, 30 + 7일 후에만 완전히 정리/삭제할 수 있습니다. 예를 들어 매주 전체 백업이 11월 16일에 수행됩니다. 보존 정책에 따라 이 백업은 12월 16일까지 유지해야 합니다. 이 전체 백업에 대한 마지막 로그 백업은 예약된 다음 전체 백업일(11월 22일) 이전에 실행됩니다. 이 로그는 12월 22일까지 사용할 수 있으며, 11월 16일 전체 백업본은 그때까지 삭제할 수 없습니다. 따라서 11월 16일 전체 백업본은 12월 22일까지 유지됩니다.
 
 ## <a name="run-an-on-demand-backup"></a>주문형 백업 실행
 
@@ -199,7 +199,7 @@ Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 V
 
 1. 자격 증명 모음 메뉴에서 **백업 항목** 을 선택합니다.
 2. **백업 항목** 에서 SAP HANA 데이터베이스를 실행하는 VM을 선택하고 **지금 백업** 을 선택합니다.
-3. **지금 백업** 에서 수행할 백업 유형을 선택합니다. 그런 다음, **확인** 을 선택합니다. 이 백업은 이 백업 항목과 연결된 정책에 따라 보존됩니다.
+3. **지금 백업** 에서 수행할 백업 유형을 선택합니다. 그런 다음, **확인** 을 선택합니다. 이 백업은 45일 동안 보존됩니다.
 4. 포털 알림을 모니터링합니다. 자격 증명 모음 대시보드 > **백업 작업** > **진행 중** 에서 작업 진행률을 모니터링할 수 있습니다. 데이터베이스의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
 
 기본적으로 요청 시 백업의 보존은 45일입니다.

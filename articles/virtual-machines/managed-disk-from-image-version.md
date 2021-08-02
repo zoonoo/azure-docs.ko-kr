@@ -9,21 +9,22 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
-ms.openlocfilehash: 359816bbf3fb93a4ec2bfa3092adbb2236ae2f07
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: bb09c3332f41f5b4fe8f02e2e38940f4085b08fd
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102562557"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110672822"
 ---
 # <a name="create-a-managed-disk-from-an-image-version"></a>이미지 버전에서 관리 디스크 만들기
 
-필요한 경우 공유 이미지 갤러리에 저장 된 이미지 버전에서 이미지 버전의 OS 또는 단일 데이터 디스크를 관리 디스크로 내보낼 수 있습니다.
+필요한 경우 공유 이미지 갤러리에 저장된 이미지 버전에서 이미지 버전의 OS 또는 단일 데이터 디스크를 관리 디스크로서 내보낼 수 있습니다.
 
 
 ## <a name="cli"></a>CLI
 
-[Az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list)를 사용 하 여 갤러리의 이미지 버전을 나열 합니다. 이 예제에서는 *Mygallery* 이미지 갤러리에서 *myimagedefinition* 이미지 정의의 일부인 모든 이미지 버전을 찾습니다.
+[az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list)를 사용하여 갤러리의 이미지 버전을 나열합니다. 이 예제에서는 *myGallery* 이미지 갤러리에서 *myImageDefinition* 이미지 정의에 속하는 모든 이미지 버전을 찾습니다.
 
 ```azurecli-interactive
 az sig image-version list \
@@ -33,9 +34,9 @@ az sig image-version list \
    -o table
 ```
 
-변수를 `source` 이미지 버전의 ID로 설정한 다음 [az disk create](/cli/azure/disk#az_disk_create) 를 사용 하 여 관리 디스크를 만듭니다. 
+`source` 변수를 이미지 버전의 ID로 설정한 다음 [az disk create](/cli/azure/disk#az_disk_create)를 사용하여 관리 디스크를 만듭니다. 
 
-이 예제에서는 이미지 버전의 OS 디스크를 내보내 *Myresourcegroup* 이라는 리소스 그룹에 있는 *myManagedOSDisk* 라는 관리 되는 디스크를 *eastus* 지역에 만듭니다. 
+이 예제에서는 이미지 버전의 OS 디스크를 내보내 *myResourceGroup* 이라는 리소스 그룹의 *EastUS* 지역에 *myManagedOSDisk* 라는 이름의 관리 디스크를 만듭니다. 
 
 ```azurecli-interactive
 source="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<galleryImageDefinition>/versions/<imageVersion>"
@@ -45,9 +46,9 @@ az disk create --resource-group myResourceGroup --location EastUS --name myManag
 
 
 
-이미지 버전에서 데이터 디스크를 내보내려는 경우를 추가 `--gallery-image-reference-lun` 하 여 내보낼 데이터 디스크의 LUN 위치를 지정 합니다. 
+이미지 버전에서 데이터 디스크를 내보내려는 경우를 `--gallery-image-reference-lun`을 추가하여 내보낼 데이터 디스크의 LUN 위치를 지정합니다. 
 
-이 예제에서는 이미지 버전의 LUN 0에 있는 데이터 디스크를 내보내 *Myresourcegroup* 이라는 리소스 그룹의 *Mymanageddatadisk* 라는 관리 되는 디스크를 *eastus* 영역에 만듭니다. 
+이 예제에서는 이미지 버전의 LUN 0에 위치한 데이터 디스크를 내보내 *myResourceGroup* 이라는 리소스 그룹의 *EastUS* 지역에 *myManagedDataDisk* 라는 이름의 관리 디스크를 만듭니다. 
 
 ```azurecli-interactive
 source="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<galleryImageDefinition>/versions/<imageVersion>"
@@ -57,7 +58,7 @@ az disk create --resource-group myResourceGroup --location EastUS --name myManag
 
 ## <a name="powershell"></a>PowerShell
 
-[AzResource](/powershell/module/az.resources/get-azresource)를 사용 하 여 갤러리의 이미지 버전을 나열 합니다. 
+[Get-AzResource](/powershell/module/az.resources/get-azresource)를 사용하여 갤러리의 이미지 버전을 나열합니다. 
 
 ```azurepowershell-interactive
 Get-AzResource `
@@ -65,7 +66,7 @@ Get-AzResource `
    Format-Table -Property Name,ResourceId,ResourceGroupName
 ```
 
-필요한 모든 정보가 있는 경우 [AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion) 를 사용 하 여 사용 하려는 원본 이미지 버전을 가져와 변수에 할당할 수 있습니다. 이 예제에서는 `1.0.0` `myImageDefinition` `myGallery` 리소스 그룹의 원본 갤러리에서 정의의 이미지 버전을 가져옵니다 `myResourceGroup` .
+필요한 정보가 모두 준비된 경우 [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion)을 사용하여 사용할 원본 이미지 버전을 가져와 변수에 할당할 수 있습니다. 이 예제에서는 `myResourceGroup` 리소스 그룹에 있는 `myGallery` 원본 갤러리에서 `myImageDefinition` 정의의 `1.0.0` 이미지 버전을 가져옵니다.
 
 ```azurepowershell-interactive
 $sourceImgVer = Get-AzGalleryImageVersion `
@@ -75,9 +76,9 @@ $sourceImgVer = Get-AzGalleryImageVersion `
    -Name 1.0.0
 ```
 
-`source`변수를 이미지 버전의 ID로 설정한 후에는 [AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) 를 사용 하 여 디스크 구성을 만들고 [AzDisk](/powershell/module/az.compute/new-azdisk) 를 사용 하 여 디스크를 만듭니다. 
+`source` 변수를 이미지 버전의 ID로 설정한 후에는 [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig)를 사용하여 디스크 구성을 만들고 [New-AzDisk](/powershell/module/az.compute/new-azdisk)를 사용하여 디스크를 만듭니다. 
 
-이 예제에서는 이미지 버전의 OS 디스크를 내보내 *Myresourcegroup* 이라는 리소스 그룹에 있는 *myManagedOSDisk* 라는 관리 되는 디스크를 *eastus* 지역에 만듭니다. 
+이 예제에서는 이미지 버전의 OS 디스크를 내보내 *myResourceGroup* 이라는 리소스 그룹의 *EastUS* 지역에 *myManagedOSDisk* 라는 이름의 관리 디스크를 만듭니다. 
 
 디스크 구성을 만듭니다.
 ```azurepowershell-interactive
@@ -95,9 +96,9 @@ New-AzDisk -Disk $diskConfig `
    -DiskName myManagedOSDisk
 ```
 
-이미지 버전의 데이터 디스크를 내보내려는 경우 디스크 구성에 LUN ID를 추가 하 여 내보낼 데이터 디스크의 LUN 위치를 지정 합니다. 
+이미지 버전의 데이터 디스크를 내보내려는 경우 디스크 구성에 LUN ID를 추가하여 내보낼 데이터 디스크의 LUN 위치를 지정합니다. 
 
-이 예제에서는 이미지 버전의 LUN 0에 있는 데이터 디스크를 내보내 *Myresourcegroup* 이라는 리소스 그룹의 *Mymanageddatadisk* 라는 관리 되는 디스크를 *eastus* 영역에 만듭니다. 
+이 예제에서는 이미지 버전의 LUN 0에 위치한 데이터 디스크를 내보내 *myResourceGroup* 이라는 리소스 그룹의 *EastUS* 지역에 *myManagedDataDisk* 라는 이름의 관리 디스크를 만듭니다. 
 
 디스크 구성을 만듭니다.
 ```azurepowershell-interactive
@@ -117,6 +118,6 @@ New-AzDisk -Disk $diskConfig `
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure CLI](image-version-managed-image-cli.md) 또는 [PowerShell](image-version-managed-image-powershell.md)을 사용 하 여 관리 디스크에서 이미지 버전을 만들 수도 있습니다.
+[Azure CLI](image-version-managed-image-cli.md) 또는 [PowerShell](image-version-managed-image-powershell.md)을 사용하여 관리 디스크에서 이미지 버전을 만들 수도 있습니다.
 
 

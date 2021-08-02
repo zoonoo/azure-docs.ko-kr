@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 115ff1b59ecbe3f4fdb089c2bd61da955fba3984
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f346995e47c0156f546722031ebaa8734239549c
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92104549"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536711"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Azure Functions의 Azure Event Grid 바인딩
 
@@ -36,7 +36,7 @@ Event Grid는 *게시자* 에서 발생하는 이벤트를 알리기 위해 HTTP
 
 트리거 및 바인딩을 사용하려면 적절한 패키지를 참조해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용되는 반면 확장 번들은 다른 모든 애플리케이션 형식에 사용됩니다.
 
-| 언어                                        | 추가 방법                                   | 설명 
+| 언어                                        | 추가 방법...                                   | 설명 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | [NuGet 패키지] 버전 2.x 설치 | |
 | C# 스크립트, Java, JavaScript, Python, PowerShell | [확장 번들] 등록          | [Azure Tools 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)은 Visual Studio Code와 함께 사용하는 것이 좋습니다. |
@@ -45,6 +45,19 @@ Event Grid는 *게시자* 에서 발생하는 이벤트를 알리기 위해 HTTP
 [core tools]: ./functions-run-local.md
 [확장 번들]: ./functions-bindings-register.md#extension-bundles
 [NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid
+[확장 업데이트]: ./functions-bindings-register.md
+[Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+
+#### <a name="event-grid-extension-3x-and-higher"></a>Event Grid 확장 3.x 이상
+
+새 버전의 Event Grid 바인딩 확장은 [미리 보기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/3.0.0-beta.2)로 제공됩니다. .NET 애플리케이션의 경우 사용자가 바인딩할 수 있는 형식이 변경되어, `Microsoft.Azure.EventGrid.Models`의 형식이 [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid)의 최신 형식으로 바뀝니다. [클라우드 이벤트](/dotnet/api/azure.messaging.cloudevent)는 새로운 Event Grid 확장 프로그램에서도 지원됩니다.
+
+> [!NOTE]
+> 미리 보기 패키지는 확장 번들에 포함되지 않으며 수동으로 설치해야 합니다. .NET 앱의 경우 패키지에 대한 참조를 추가합니다. 다른 모든 앱 유형에 대해서는 [확장 업데이트]를 참조하세요.
+
+[core tools]: ./functions-run-local.md
+[확장 번들]: ./functions-bindings-register.md#extension-bundles
+[NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
 [확장 업데이트]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 

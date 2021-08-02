@@ -9,12 +9,12 @@ ms.date: 03/24/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ff20b8bd0aab94cadadddbb7a4b7b32b1db1ee85
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9dbcb4aba8b1c25aa7f00850d71872c9f58b94a9
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046945"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110462035"
 ---
 # <a name="list-blobs-with-azure-storage-client-libraries"></a>Azure Storage 클라이언트 라이브러리를 사용하여 BLOB 나열
 
@@ -24,14 +24,14 @@ ms.locfileid: "105046945"
 
 스토리지 계정의 Blob을 나열하려면 다음 메서드 중 하나를 호출합니다.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 - [BlobContainerClient.GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs)
 - [BlobContainerClient.GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync)
 - [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy)
 - [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync)
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 - [CloudBlobClient.ListBlobs](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobs)
 - [CloudBlobClient.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmented)
@@ -43,7 +43,7 @@ ms.locfileid: "105046945"
 - [CloudBlobContainer.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented)
 - [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync)
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[Python v12 SDK](#tab/python)
 
 - [ContainerClient.list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-)
 
@@ -61,15 +61,15 @@ BLOB 목록을 필터링하려면 `prefix` 매개 변수에 대한 문자열을 
 
 결과를 사용하여 BLOB 메타데이터를 반환할 수 있습니다.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits) 열거형에 대한 **메타데이터** 값을 지정합니다.
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) 열거형에 대한 **메타데이터** 값을 지정합니다. Azure Storage에는 반환된 각 Blob이 있는 메타데이터가 포함되어 있으므로 Blob 메타데이터를 검색하기 위해 이 컨텍스트에서 **FetchAttributes** 메서드 중 하나를 호출할 필요가 없습니다.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[Python v12 SDK](#tab/python)
 
 [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-) 호출 시 `include=` 매개 변수에 대한 `metadata`를 지정합니다.
 
@@ -97,11 +97,11 @@ Blob을 가상 디렉터리로 구성하려면 Blob 이름에 구분 기호 문�
 
 계정에서 계층 구조 네임스페이스 기능을 사용한 경우 디렉터리는 가상이 아닌 구체적이고 독립적인 개체입니다. 따라서 디렉터리는 길이가 0인 BLOB으로 목록에 표시됩니다.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 목록 작업에서 5,000개가 넘는 BLOB을 반환하거나 사용할 수 있는 BLOB 수가 지정한 수를 초과하는 경우 Azure Storage는 BLOB 목록과 함께 ‘연속 토큰’을 반환합니다. 연속 토큰은 Azure Storage에서 다음 결과 세트를 검색하는 데 사용할 수 있는 불투명 값입니다.
 
@@ -147,7 +147,7 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 }
 ```
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[Python v12 SDK](#tab/python)
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_ListBlobs":::
 
@@ -171,7 +171,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 목록 작업을 계층형으로 호출하는 경우 Azure Storage는 계층의 첫 번째 수준에서 가상 디렉터리 및 Blob을 반환합니다.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 BLOB을 계층형으로 나열하려면 [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy) 또는 [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync) 메서드를 호출합니다.
 
@@ -179,7 +179,7 @@ BLOB을 계층형으로 나열하려면 [BlobContainerClient.GetBlobsByHierarchy
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 다음 디렉터리를 검색하기 위해 재귀 호출에 접두사를 전달할 수 있도록 각 가상 디렉터리의 [Prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) 속성이 설정됩니다.
 
@@ -240,7 +240,7 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
 }
 ```
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[Python v12 SDK](#tab/python)
 
 BLOB을 계층형으로 나열하려면 [walk_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#walk-blobs-name-starts-with-none--include-none--delimiter--------kwargs-) 메서드를 호출합니다.
 

@@ -1,14 +1,14 @@
 ---
 title: 관리 그룹을 사용하는 방법 - Azure 거버넌스
 description: 관리 그룹 계층 구조를 살펴보고, 유지 관리하고, 업데이트하고, 삭제하는 방법을 알아봅니다.
-ms.date: 05/01/2021
+ms.date: 06/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7e0e4a2a58802895ac579015ac116373c03f0ead
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: a42800bb40f0c94de9b852eb77b3b87b698bdb09
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326402"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112020946"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 
@@ -19,7 +19,7 @@ ms.locfileid: "108326402"
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 > [!IMPORTANT]
-> Azure Resource Manager 사용자 토큰 및 관리 그룹 캐시는 30분 동안 지속된 후 강제로 새로 고쳐집니다. 관리 그룹 또는 구독 이동과 같은 작업을 수행한 후에는 표시하는 데 최대 30분이 걸릴 수 있습니다. 업데이트를 더 빨리 보려면 브라우저를 새로 고치거나, 로그인하고 로그아웃하거나, 새 토큰을 요청하여 토큰을 업데이트해야 합니다.  
+> Azure Resource Manager 사용자 토큰 및 관리 그룹 캐시는 30분 동안 지속된 후 강제로 새로 고쳐집니다. 관리 그룹 또는 구독 이동과 같은 작업을 수행한 후에는 표시하는 데 최대 30분이 걸릴 수 있습니다. 업데이트를 더 빨리 보려면 브라우저를 새로 고치거나, 로그인하고 로그아웃하거나, 새 토큰을 요청하여 토큰을 업데이트해야 합니다.
 
 ## <a name="change-the-name-of-a-management-group"></a>관리 그룹의 이름 변경
 
@@ -67,8 +67,7 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 1. 관리 그룹 아래에 자식 관리 그룹 또는 구독이 없습니다. 구독 또는 관리 그룹을 다른 관리 그룹으로 이동하려면 [계층 구조에서 관리 그룹 및 구독 이동](#moving-management-groups-and-subscriptions)을 참조하세요.
 
-1. 관리 그룹(“소유자”, “참가자” 또는 “관리 그룹 참가자”)에 대한 쓰기 권한이 필요합니다. 보유하고 있는 사용 권한을 보려면 관리 그룹을 선택하고 **IAM** 을 선택합니다. Azure 역할에 대한 자세한 내용은 다음을 참조하세요.  
-   [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md).
+1. 관리 그룹(“소유자”, “참가자” 또는 “관리 그룹 참가자”)에 대한 쓰기 권한이 필요합니다. 보유하고 있는 사용 권한을 보려면 관리 그룹을 선택하고 **IAM** 을 선택합니다. Azure 역할에 대해 자세히 알아보려면 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 참조하세요.
 
 ### <a name="delete-in-the-portal"></a>포털에서 삭제
 
@@ -111,7 +110,7 @@ az account management-group delete --name 'Contoso'
 
 ## <a name="view-management-groups"></a>관리 그룹 보기
 
-직접 또는 상속된 Azure 역할이 있는 모든 관리 그룹을 볼 수 있습니다.  
+직접 또는 상속된 Azure 역할이 있는 모든 관리 그룹을 볼 수 있습니다.
 
 ### <a name="view-in-the-portal"></a>포털에서 보기
 
@@ -127,7 +126,7 @@ az account management-group delete --name 'Contoso'
 
 ### <a name="view-in-powershell"></a>PowerShell에서 보기
 
-모든 그룹을 검색하려면 Get-AzManagementGroup 명령을 사용합니다. 관리 그룹 GET PowerShell 명령의 전체 목록은 [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) 모듈을 참조하세요.  
+모든 그룹을 검색하려면 Get-AzManagementGroup 명령을 사용합니다. 관리 그룹 GET PowerShell 명령의 전체 목록은 [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) 모듈을 참조하세요.
 
 ```azurepowershell-interactive
 Get-AzManagementGroup
@@ -139,7 +138,7 @@ Get-AzManagementGroup
 Get-AzManagementGroup -GroupName 'Contoso'
 ```
 
-특정 관리 그룹 및 그 아래에 있는 계층 구조의 모든 수준을 반환하려면 **-Expand** 및 **-Recurse** 매개 변수를 사용합니다.  
+특정 관리 그룹 및 그 아래에 있는 계층 구조의 모든 수준을 반환하려면 **-Expand** 및 **-Recurse** 매개 변수를 사용합니다.
 
 ```azurepowershell-interactive
 PS C:\> $response = Get-AzManagementGroup -GroupName TestGroupParent -Expand -Recurse
@@ -176,7 +175,7 @@ Children    :
 
 ### <a name="view-in-azure-cli"></a>Azure CLI에서 보기
 
-모든 그룹을 검색하려면 list 명령을 사용합니다.  
+모든 그룹을 검색하려면 list 명령을 사용합니다.
 
 ```azurecli-interactive
 az account management-group list
@@ -194,20 +193,22 @@ az account management-group show --name 'Contoso'
 az account management-group show --name 'Contoso' -e -r
 ```
 
-## <a name="moving-management-groups-and-subscriptions"></a>관리 그룹 및 구독 이동   
+## <a name="moving-management-groups-and-subscriptions"></a>관리 그룹 및 구독 이동
 
 관리 그룹을 만드는 한 가지 이유는 구독을 번들로 묶는 것입니다. 관리 그룹 및 구독만 다른 관리 그룹의 자식으로 만들 수 있습니다. 관리 그룹으로 이동되는 구독은 부모 관리 그룹에서 모든 사용자 액세스 및 정책을 상속합니다.
 
 다른 관리 그룹의 자식이 되도록 관리 그룹 또는 구독을 이동하는 경우 세 가지 규칙이 true로 평가되어야 합니다.
 
-이동 작업을 수행하는 경우 다음이 필요합니다. 
+이동 작업을 수행하는 경우 다음 각 계층에 대한 권한이 필요합니다.
 
-- 자식 구독 또는 관리 그룹에 대한 관리 그룹 쓰기 및 역할 할당 쓰기 권한.
-  - 기본 제공 역할 예제 **소유자**
-- 대상 부모 관리 그룹에 대한 관리 그룹 쓰기 액세스 권한.
-  - 기본 제공 역할 예제: **소유자**, **기여자**, **관리 그룹 기여자**
-- 기존 부모 관리 그룹에 대한 관리 그룹 쓰기 액세스 권한.
-  - 기본 제공 역할 예제: **소유자**, **기여자**, **관리 그룹 기여자**
+- 자식 구독/관리 그룹
+  - `Microsoft.management/managementgroups/write`
+  - `Microsoft.management/managementgroups/subscription/write`(구독에만 해당)
+  - `Microsoft.Authorization/roleassignment/write`
+- 대상 부모 관리 그룹
+  - `Microsoft.management/managementgroups/write`
+- 현재 부모 관리 그룹
+  - `Microsoft.management/managementgroups/write`
 
 **예외**: 대상 또는 기존 부모 관리 그룹이 루트 관리 그룹인 경우 권한 요구 사항이 적용되지 않습니다. 루트 관리 그룹은 모든 새 관리 그룹 및 구독의 기본 랜딩 스팟이므로 루트 관리 그룹에 대한 권한이 없어도 항목을 이동할 수 있습니다.
 
@@ -215,7 +216,7 @@ az account management-group show --name 'Contoso' -e -r
 
 Azure Portal에서 보유하고 있는 권한을 보려면 관리 그룹을 선택하고 **IAM** 을 선택합니다. Azure 역할에 대해 자세히 알아보려면 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 참조하세요.
 
-## <a name="move-subscriptions"></a>구독 이동 
+## <a name="move-subscriptions"></a>구독 이동
 
 ### <a name="add-an-existing-subscription-to-a-management-group-in-the-portal"></a>포털에서 관리 그룹에 기존 구독 추가
 
@@ -239,7 +240,7 @@ Azure Portal에서 보유하고 있는 권한을 보려면 관리 그룹을 선�
 
 1. **모든 서비스** > **관리 그룹** 을 선택합니다.
 
-1. 현재 부모로 지정할 관리 그룹을 선택합니다.  
+1. 현재 부모로 지정할 관리 그룹을 선택합니다.
 
 1. 이동하려는 목록의 구독에 대해 행 끝에 있는 줄임표를 선택합니다.
 
@@ -255,7 +256,7 @@ Azure Portal에서 보유하고 있는 권한을 보려면 관리 그룹을 선�
 
 ### <a name="move-subscriptions-in-powershell"></a>PowerShell에서 구독 이동
 
-PowerShell에서 구독을 이동하려면 New-AzManagementGroupSubscription 명령을 사용합니다.  
+PowerShell에서 구독을 이동하려면 New-AzManagementGroupSubscription 명령을 사용합니다.
 
 ```azurepowershell-interactive
 New-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
@@ -275,7 +276,7 @@ CLI에서 구독을 이동하려면 add 명령을 사용합니다.
 az account management-group subscription add --name 'Contoso' --subscription '12345678-1234-1234-1234-123456789012'
 ```
 
-관리 그룹에서 구독을 제거하려면 구독 제거 명령을 사용합니다.  
+관리 그룹에서 구독을 제거하려면 구독 제거 명령을 사용합니다.
 
 ```azurecli-interactive
 az account management-group subscription remove --name 'Contoso' --subscription '12345678-1234-1234-1234-123456789012'
@@ -283,7 +284,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ### <a name="move-subscriptions-in-arm-template"></a>ARM 템플릿에서 구독 이동
 
-ARM 템플릿(Azure Resource Manager 템플릿)에서 구독을 이동하려면 다음 템플릿을 사용합니다.
+ARM 템플릿(Azure Resource Manager 템플릿)에서 구독을 이동하려면 다음 템플릿을 사용하고 [테넌트 수준](../../azure-resource-manager/templates/deploy-to-tenant.md)에 배포합니다.
 
 ```json
 {
@@ -305,7 +306,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 구독을 이동하려면 
     },
     "resources": [
         {
-            "scope": "/", 
+            "scope": "/",
             "type": "Microsoft.Management/managementGroups/subscriptions",
             "apiVersion": "2020-05-01",
             "name": "[concat(parameters('targetMgId'), '/', parameters('subscriptionId'))]",
@@ -317,7 +318,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 구독을 이동하려면 
 }
 ```
 
-## <a name="move-management-groups"></a>관리 그룹 이동 
+## <a name="move-management-groups"></a>관리 그룹 이동
 
 ### <a name="move-management-groups-in-the-portal"></a>포털에서 관리 그룹 이동
 
@@ -332,7 +333,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 구독을 이동하려면 
 1. 열리는 메뉴에서 새 관리 그룹을 만들지 또는 기존 관리 그룹을 사용할지를 선택합니다.
 
    - 새 관리 그룹을 선택하면 새 관리 그룹이 생성됩니다.
-   - 기존 관리 그룹을 선택하면 이 관리 그룹으로 이동할 수 있는 모든 관리 그룹의 드롭다운이 표시됩니다.  
+   - 기존 관리 그룹을 선택하면 이 관리 그룹으로 이동할 수 있는 모든 관리 그룹의 드롭다운 목록이 표시됩니다.
 
    :::image type="content" source="./media/add_context_MG.png" alt-text="새 관리 그룹을 만들기 위한 '관리 그룹 추가' 옵션 스크린샷" border="false":::
 
@@ -345,7 +346,7 @@ PowerShell에서 Update-AzManagementGroup 명령을 사용하여 관리 그룹�
 ```azurepowershell-interactive
 $parentGroup = Get-AzManagementGroup -GroupName ContosoIT
 Update-AzManagementGroup -GroupName 'Contoso' -ParentId $parentGroup.id
-```  
+```
 
 ### <a name="move-management-groups-in-azure-cli"></a>Azure CLI에서 관리 그룹 이동
 
@@ -365,7 +366,7 @@ Azure Portal 외부에서 관리 그룹의 쿼리를 살펴보면 관리 그룹�
 
 ## <a name="referencing-management-groups-from-other-resource-providers"></a>다른 리소스 공급자의 관리 그룹 참조
 
-다른 리소스 공급자 작업의 관리 그룹을 참조할 때 다음 경로를 범위로 사용합니다. 이 경로는 PowerShell, Azure CLI 및 REST API를 사용할 때 사용됩니다.  
+다른 리소스 공급자 작업의 관리 그룹을 참조할 때 다음 경로를 범위로 사용합니다. 이 경로는 PowerShell, Azure CLI 및 REST API를 사용할 때 사용됩니다.
 
 `/providers/Microsoft.Management/managementGroups/{yourMgID}`
 

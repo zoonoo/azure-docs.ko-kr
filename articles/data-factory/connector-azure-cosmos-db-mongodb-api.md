@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
-ms.openlocfilehash: 965103c090c86311db1c2c5f796445f2b68c1671
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 4a40ed7f9b5fd2b39e617ef40becf5f979a22eea
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481232"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072175"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB용 Azure Cosmos DB API에서/API로 데이터 복사
 
@@ -43,7 +43,7 @@ MongoDB용 Azure Cosmos DB API 커넥터를 사용하여 다음을 수행할 수
 
 MongoDB용 Azure Cosmos DB API 연결된 서비스에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **type** 속성을 **CosmosDbMongoDbApi** 로 설정해야 합니다. | 예 |
 | connectionString |MongoDB용 Azure Cosmos DB API의 연결 문자열을 지정합니다. Azure Portal -> Cosmos DB 블레이드 -> `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb` 패턴의 기본 또는 보조 연결 문자열에서 찾을 수 있습니다. <br/><br />Azure Key Vault에 암호를 넣고 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 [Azure Key Vault의 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요.|예 |
@@ -73,7 +73,7 @@ MongoDB용 Azure Cosmos DB API 연결된 서비스에서 지원되는 속성은 
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)를 참조하세요. MongoDB용 Azure Cosmos DB API 데이터 세트에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **CosmosDbMongoDbApiCollection** 으로 설정해야 합니다. |예 |
 | collectionName |Azure Cosmos DB 컬렉션의 이름입니다. |예 |
@@ -107,7 +107,7 @@ MongoDB용 Azure Cosmos DB API 연결된 서비스에서 지원되는 속성은 
 
 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성을 **CosmosDbMongoDbApiSource** 로 설정해야 합니다. |예 |
 | filter | 쿼리 연산자를 사용하여 선택 영역 필터를 지정합니다. 컬렉션의 모든 문서를 반환하려면 이 매개 변수를 생략하거나 빈 문서({})를 전달합니다. | 예 |
@@ -162,7 +162,7 @@ MongoDB용 Azure Cosmos DB API 연결된 서비스에서 지원되는 속성은 
 
 복사 작업 **sink** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 **type** 속성은 **CosmosDbMongoDbApiSink** 로 설정해야 합니다. |예 |
 | writeBehavior |Azure Cosmos DB에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert** 입니다.<br/><br/>**upsert** 동작은 동일한 `_id`의 문서가 이미 존재하는 경우 문서를 바꾸는 것으로, 존재하지 않는 경우 문서를 삽입하는 것입니다.<br /><br />**참고**: `_id`가 원래 문서 또는 열 매핑에 지정되지 않은 경우 Data Factory는 문서에 대한 `_id`를 자동으로 생성합니다. 즉, **upsert** 가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |예<br />(기본값: **insert**) |

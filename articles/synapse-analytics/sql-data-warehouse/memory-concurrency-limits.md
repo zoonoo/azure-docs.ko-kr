@@ -1,26 +1,29 @@
 ---
 title: 메모리 및 동시성 제한
-description: Azure Synapse Analytics에서 전용 SQL 풀에 대 한 다양 한 성능 수준 및 리소스 클래스에 할당 된 메모리 및 동시성 제한을 확인 합니다.
+description: Azure Synapse Analytics에서 전용 SQL에 대한 다양한 성능 수준과 리소스 클래스에 할당된 메모리 및 동시성 제한을 살펴봅니다.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2020
+ms.date: 04/04/2021
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: fb0ad93fb4a1269b4cca02b114c0427f0c44a31b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 8fd628c649d379e60ddf8ec772e1cf708f3e50d1
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96455346"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540284"
 ---
-# <a name="memory-and-concurrency-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대 한 메모리 및 동시성 제한
+# <a name="memory-and-concurrency-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대한 메모리 및 동시성 제한
 
 Azure Synapse Analytics에서 다양한 성능 수준과 리소스 클래스에 할당된 메모리 및 동시성 제한을 살펴봅니다.  
+
+> [!NOTE]
+> 워크로드 관리 작업 그룹은 동적 또는 정적 리소스 클래스보다 요청당 리소스 및 동시성당 리소스를 구성하는 데 더 많은 유연성을 제공합니다.  자세한 내용은 [작업 그룹](sql-data-warehouse-workload-isolation.md) 및 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql) 구문을 참조하세요.
 
 ## <a name="data-warehouse-capacity-settings"></a>데이터 웨어하우스 용량 제한
 
@@ -125,11 +128,13 @@ Azure Synapse Analytics에서 다양한 성능 수준과 리소스 클래스에 
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-쿼리 실행을 시작할 수 있는 동시성 슬롯이 충분하지 않은 경우 쿼리는 중요도에 따라 큐에 대기되고 실행됩니다.  중요도가 동일한 경우 쿼리는 선입 선출 방식으로 실행됩니다.  쿼리가 완료 되 고 쿼리 및 슬롯의 수가 한도 미만으로 떨어지면 Azure Synapse Analytics는 대기 중인 쿼리를 해제 합니다.
+쿼리 실행을 시작할 수 있는 동시성 슬롯이 충분하지 않은 경우 쿼리는 중요도에 따라 큐에 대기되고 실행됩니다.  중요도가 동일한 경우 쿼리는 선입 선출 방식으로 실행됩니다.  쿼리가 완료되고 쿼리 및 슬롯의 수가 한도 밑으로 떨어지면 Azure Synapse Analytics는 큐에 저장된 쿼리를 릴리스합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 리소스 클래스를 활용하여 워크로드를 추가로 최적화하는 방법에 대한 자세한 내용은 다음 문서를 검토하세요.
 
+* [워크로드 관리 작업 그룹](sql-data-warehouse-workload-isolation.md)
+* [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql)
 * [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)
 * [워크로드 분석](analyze-your-workload.md)

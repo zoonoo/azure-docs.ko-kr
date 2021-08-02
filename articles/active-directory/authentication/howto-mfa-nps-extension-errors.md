@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: fa3a2366f007ff1481e7c84f049e606586392037
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b95286169df2960d8e7297a493354b8f01e2f667
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96742955"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112029696"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication용 NPS 확장의 오류 메시지 해결
 
-Azure AD Multi-Factor Authentication용 NPS 확장에서 오류가 발생하는 경우 이 문서를 사용하여 해결 방법을 더 빠르게 찾을 수 있습니다. NPS 확장 로그는 NPS 확장이 설치되어 있는 서버의 **사용자 지정 보기** > **서버 역할** > **네트워크 정책 및 액세스 서비스** 아래에 있는 이벤트 뷰어에 위치합니다.
+Azure AD Multi-Factor Authentication용 NPS 확장에서 오류가 발생하는 경우 이 문서를 사용하여 해결 방법을 더 빠르게 찾을 수 있습니다. NPS 확장 로그는 NPS 확장이 설치되어 있는 서버의 **애플리케이션 및 서비스 로그** > **Microsoft** > **AzureMfa** > **AuthN** > **AuthZ** 아래에 있는 이벤트 뷰어에서 찾을 수 있습니다.
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>일반적인 오류에 대한 문제 해결 단계
 

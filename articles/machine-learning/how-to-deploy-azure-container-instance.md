@@ -10,20 +10,20 @@ ms.custom: deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/12/2020
-ms.openlocfilehash: 667174fbf36b7113d49ea5c5d700e2e3a7f41949
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 05/20/2021
+ms.openlocfilehash: 60978d2be1fdad5acf8ec00535ab844e6afd52b0
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110367223"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111557165"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Azure Container Instances에 모델 배포
 
-Azure Machine Learning을 사용하여 ACI(Azure Container Instances)에서 모델을 웹 서비스로 배포하는 방법을 알아봅니다. 다음 조건 중 하나에 해당하는 경우 Azure Container Instances를 사용합니다.
+Azure Machine Learning을 사용하여 ACI(Azure Container Instances)에서 모델을 웹 서비스로 배포하는 방법을 알아봅니다. 다음과 같은 경우 Azure Container Instances를 사용합니다.
 
-- 모델을 빠르게 배포하고 유효성을 검사해야 합니다. ACI 컨테이너를 미리 만들 필요는 없습니다. 배포 프로세스의 일부로 생성됩니다.
-- 개발 중인 모델을 테스트합니다. 
+- 자체 Kubernetes 클러스터를 관리하지 않는 것을 선호하는 경우
+- 가동 시간에 영향을 줄 수 있는 서비스 복제본이 하나만 있어도 괜찮은 경우
 
 ACI에 대한 할당량 및 지역 가용성에 대한 정보는 [Azure Container Instances에 대한 할당량 및 지역 가용성](../container-instances/container-instances-quotas.md) 문서를 참조하세요.
 
@@ -89,7 +89,7 @@ print(service.state)
 CLI를 사용하여 배포하려면 다음 명령을 사용합니다. `mymodel:1`은 등록된 모델의 이름과 버전으로 바꿉니다. `myservice`는 이 서비스를 제공할 이름으로 바꿉니다.
 
 ```azurecli-interactive
-az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
+az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
 ```
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aci-deploy-config.md)]

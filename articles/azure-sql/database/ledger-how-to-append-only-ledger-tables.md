@@ -1,6 +1,6 @@
 ---
 title: 추가 전용 원장 테이블 만들기 및 사용
-description: Azure SQL Database에서 추가 전용 원장 테이블을 만들고 사용하는 방법
+description: Azure SQL Database에서 추가 전용 원장 테이블을 만들고 사용하는 방법을 알아봅니다.
 ms.custom: ''
 ms.date: 05/25/2021
 ms.service: sql-database
@@ -9,43 +9,43 @@ ms.reviewer: vanto
 ms.topic: how-to
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: 8b2007b473432a941d617f83cd3cc0a3bd2ce099
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f433e56140a199cdb872bc733343a8cf88c818cb
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388309"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076405"
 ---
 # <a name="create-and-use-append-only-ledger-tables"></a>추가 전용 원장 테이블 만들기 및 사용
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database 원장은 현재 **공개 미리 보기** 로 제공됩니다.
+> Azure SQL Database 원장은 현재 공개 미리 보기로 제공되며 미국 중서부에서 사용할 수 있습니다.
 
-이 문서에서는 Azure SQL Database에서 [추가 전용 원장 테이블](ledger-append-only-ledger-tables.md)을 만들고, 추가 전용 원장 테이블에 값을 삽입하고, 데이터에 대한 업데이트를 시도하고, 원장 뷰를 사용하여 결과를 보는 방법을 보여 줍니다. 추가 전용 시스템 패턴인 시설의 카드 키 액세스 시스템의 예를 사용합니다. 이 예에서는 추가 전용 원장 테이블과 해당 원장 뷰 간의 관계를 실용적인 방법으로 보여 줍니다.
+이 문서에서는 Azure SQL Database에서 [추가 전용 원장 테이블](ledger-append-only-ledger-tables.md)을 만드는 방법을 보여줍니다. 다음으로, 추가 전용 원장 테이블에 값을 삽입한 다음, 데이터를 업데이트하려고 합니다. 마지막으로 원장 보기를 사용하여 결과를 확인합니다. 추가 전용 시스템 패턴인 시설에 대한 카드 키 액세스 시스템의 예를 사용합니다. 이 예에서는 추가 전용 원장 테이블과 해당 원장 뷰 간의 관계를 실용적인 방법으로 보여 줍니다.
 
 자세한 내용은 [추가 전용 원장 테이블](ledger-append-only-ledger-tables.md)을 참조하세요.
 
-## <a name="prerequisite"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- 원장을 사용하는 기존 Azure SQL Database가 있어야 합니다. Azure SQL Database를 아직 만들지 않은 경우 [빠른 시작: 원장을 사용하는 Azure SQL 데이터베이스 만들기](ledger-create-a-single-database-with-ledger-enabled.md)를 참조하세요.
-- [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) 또는 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
+- 원장이 활성화된 Azure SQL Database. Azure SQL Database에서 데이터베이스를 아직 만들지 않은 경우 [빠른 시작: 원장이 활성화된 Azure SQL Database에서 데이터베이스 만들기](ledger-create-a-single-database-with-ledger-enabled.md)를 참조하세요.
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 또는 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 
-## <a name="creating-an-append-only-ledger-table"></a>추가 전용 원장 테이블 만들기
+## <a name="create-an-append-only-ledger-table"></a>추가 전용 원장 테이블 만들기
 
-다음 스키마로 `KeyCardEvents` 테이블을 만듭니다.  
+다음 스키마로 `KeyCardEvents` 테이블을 만듭니다.
 
 | 열 이름 | 데이터 형식 | Description |
 |--|--|--|
-| EmployeeID | int | 건물에 액세스하는 직원의 고유 ID입니다. |
-| AccessOperationDescription | nvarchar(MAX) | 직원의 액세스 작업입니다. |
+| EmployeeID | int | 건물에 액세스하는 직원의 고유 ID |
+| AccessOperationDescription | nvarchar(MAX) | 직원의 액세스 작업 |
 | 타임스탬프 | datetime2 | 직원이 건물에 액세스한 날짜 및 시간입니다. |
 
 > [!IMPORTANT]
 > 추가 전용 원장 테이블을 만들려면 **ENABLE LEDGER** 권한이 필요합니다. 원장 테이블과 관련된 권한에 대한 자세한 내용은 [권한](/sql/relational-databases/security/permissions-database-engine#asdbpermissions)을 참조하세요. 
 
-1. [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) 또는 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)를 사용하여 `[AccessControl].[KeyCardEvents]`라는 새 스키마와 테이블을 만듭니다.
+1. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 또는 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)를 사용하여 `[AccessControl].[KeyCardEvents]`라는 새 스키마와 테이블을 만듭니다.
 
    ```sql
    CREATE SCHEMA [AccessControl] 
@@ -69,7 +69,7 @@ ms.locfileid: "110388309"
    VALUES ('43869', 'Building42', '2020-05-02T19:58:47.1234567')
    ```
 
-1. [추가 전용 원장 테이블](ledger-append-only-ledger-tables.md)에 추가된 [GENERATED ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) 열을 지정하여 KeyCardEvents 테이블의 컨텐츠를 확인합니다.
+1. KeyCardEvents 테이블의 콘텐츠를 보고 [추가 전용 원장 테이블](ledger-append-only-ledger-tables.md)에 추가된 [GENERATED ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) 열을 지정합니다.
 
    ```sql
    SELECT *
@@ -78,7 +78,7 @@ ms.locfileid: "110388309"
    FROM [AccessControl].[KeyCardEvents]
    ```
 
-   :::image type="content" source="media/ledger/append-only-how-to-keycardevent-table.png" alt-text="KeyCardEvents 테이블 쿼리 결과":::
+   :::image type="content" source="media/ledger/append-only-how-to-keycardevent-table.png" alt-text="KeyCardEvents 테이블을 쿼리한 결과를 보여주는 스크린샷.":::
 
 1. `EmployeeID`를 `43869`에서 `34184.`로 변경하여 `KeyCardEvents` 테이블을 업데이트합니다.
 
@@ -88,7 +88,7 @@ ms.locfileid: "110388309"
 
    추가 전용 원장 테이블에 대한 업데이트가 허용되지 않는다는 오류 메시지가 표시됩니다.
 
-   :::image type="content" source="media/ledger/append-only-how-to-1.png" alt-text="오류 메시지만 추가":::
+   :::image type="content" source="media/ledger/append-only-how-to-1.png" alt-text="추가 전용 오류 메시지를 보여주는 스크린샷.":::
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -97,5 +97,5 @@ ms.locfileid: "110388309"
 - [추가 전용 원장 테이블](ledger-append-only-ledger-tables.md) 
 - [업데이트 가능한 원장 테이블](ledger-updatable-ledger-tables.md)
 - [업데이트할 수 있는 원장 테이블 만들기 및 사용](ledger-how-to-updatable-ledger-tables.md)
-- [ACL(Azure Confidential Ledger)에 저장된 다이제스트에 액세스하는 방법](ledger-how-to-access-acl-digest.md)
-- [원장 테이블을 확인하여 변조를 감지하는 방법](ledger-verify-database.md)
+- [ACL(Azure Confidential Ledger)에 저장된 다이제스트에 액세스](ledger-how-to-access-acl-digest.md)
+- [원장 테이블을 확인하여 변조 감지](ledger-verify-database.md)

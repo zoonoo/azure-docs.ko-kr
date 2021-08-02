@@ -3,19 +3,19 @@ title: 유지 관리 기간
 description: Azure SQL Database 및 Managed Instance 유지 관리 기간을 구성하는 방법을 이해합니다.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 03/23/2021
-ms.openlocfilehash: 9d7ab0498673ad7006087b66575eea9371b96d11
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/02/2021
+ms.openlocfilehash: 765c6c79bf28ad01ab0253e85affd5d4cd95ed78
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565904"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031910"
 ---
 # <a name="maintenance-window-preview"></a>유지 관리 기간(미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "105565904"
 유지 관리 기간 기능을 사용하여 [Azure SQL Database](sql-database-paas-overview.md) 및 [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) 리소스에 대한 유지 관리 일정을 구성하여 중대한 유지 관리 이벤트를 미리 예측하고 워크로드 중단을 줄일 수 있습니다. 
 
 > [!Note]
-> 유지 관리 기간 기능은 하드웨어 오류와 같은 계획되지 않은 이벤트로부터 보호하지 않으므로 짧은 연결 중단이 발생할 수 있습니다.
+> 유지 관리 기간 기능은 업그레이드 또는 예약된 유지 관리에 따른 예정된 영향으로부터만 보호합니다. 모든 장애 조치 원인으로부터 보호하지는 않습니다. 유지 관리 기간 외에 짧은 연결 중단이 발생할 수 있는 예외에는 데이터베이스 서비스 수준 목표 변경과 같은 이벤트로 인한 하드웨어 오류, 클러스터 부하 분산 및 데이터베이스 재구성이 포함됩니다. 
 
 ## <a name="overview"></a>개요
 
@@ -45,7 +45,7 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 * 평일 기간, 월요일 - 목요일 현지 시간으로 오후 10시 ~ 오전 6시
 * 주말 기간, 금요일 - 일요일 현지 시간으로 오후 10시 ~ 오전 6시
 
-유지 관리 기간을 선택하고 서비스 구성이 완료되면 선택한 기간 동안에만 계획된 유지 관리가 수행됩니다.   
+유지 관리 기간을 선택하고 서비스 구성이 완료되면 선택한 기간 동안에만 계획된 유지 관리가 수행됩니다. 유지 관리 이벤트는 일반적으로 단일 기간 내에 완료되지만, 일부는 둘 이상의 인접한 기간에 걸쳐 있을 수 있습니다.   
 
 > [!Important]
 > 중요 보안 패치를 적용하는 것과 같이 작업을 연기할 경우 심각한 영향을 야기할 수 있는 드문 경우에는 구성된 유지 관리 기간이 일시적으로 재정의될 수 있습니다. 
@@ -84,12 +84,14 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 - 미국 동부
 - 미국 동부2
 - 동아시아
+- 독일 중서부
 - 일본 동부
 - 미국 중북부
 - 북유럽
 - 미국 중남부
 - 동남아시아
 - 영국 남부
+- 영국 서부
 - 서유럽
 - 미국 서부
 - 미국 서부2
@@ -108,7 +110,7 @@ Azure SQL Managed Instance의 클라이언트 연결 정책에 대한 자세한 
 
 ## <a name="considerations-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대한 고려 사항
 
-Azure SQL Managed Instance는 고객의 가상 네트워크 서브넷 내에서 실행되는 격리된 전용 가상 머신 세트에서 호스트되는 서비스 구성 요소로 이루어집니다. 이러한 가상 머신은 여러 관리되는 인스턴스를 호스트할 수 있는 [가상 클러스터](../managed-instance/connectivity-architecture-overview.md#high-level-connectivity-architecture)를 형성합니다. 한 서브넷의 인스턴스에 구성된 유지 관리 기간은 가상 클러스터 간의 인스턴스 배포 및 서브넷 내의 가상 클러스터 수에 영향을 줄 수 있습니다. 몇 가지 결과를 고려해야 할 수 있습니다.
+Azure SQL Managed Instance는 고객의 가상 네트워크 서브넷 내에서 실행되는 격리된 전용 가상 머신 세트에서 호스트되는 서비스 구성 요소로 이루어집니다. 이러한 가상 머신은 여러 관리되는 인스턴스를 호스트할 수 있는 [가상 클러스터](../managed-instance/connectivity-architecture-overview.md#high-level-connectivity-architecture)를 형성합니다. 한 서브넷의 인스턴스에 구성된 유지 관리 기간은 서브넷 내의 가상 클러스터 수, 가상 클러스터 간의 인스턴스 배포 및 가상 클러스터 관리 작업에 영향을 줄 수 있습니다. 몇 가지 결과를 고려해야 할 수 있습니다.
 
 ### <a name="maintenance-window-configuration-is-long-running-operation"></a>유지 관리 기간 구성은 장기 실행 작업입니다. 
 가상 클러스터에서 호스트되는 모든 인스턴스는 유지 관리 기간을 공유합니다. 기본적으로 모든 관리되는 인스턴스는 기본 유지 관리 기간을 사용하여 가상 클러스터에서 호스트됩니다. 관리되는 인스턴스를 만드는 동안 또는 그 이후에 관리되는 인스턴스에 대해 다른 유지 관리 기간을 지정하는 것은 해당 유지 관리 기간의 가상 클러스터에 배치해야 되는 것을 의미합니다. 서브넷에 이러한 가상 클러스터가 없는 경우 인스턴스를 수용하기 위해 먼저 새 가상 클러스터를 만들어야 합니다. 기존 가상 클러스터에서 추가 인스턴스를 수용하려면 클러스터 크기 조정이 필요할 수 있습니다. 두 작업 모두 관리되는 인스턴스에 대해 유지 관리 기간을 구성하는 기간에 영향을 줍니다.
@@ -125,6 +127,10 @@ Azure SQL Managed Instance는 고객의 가상 네트워크 서브넷 내에서 
 
 > [!Important]
 >  IP 주소 변경 후에 NSG 및 방화벽 규칙이 데이터 트래픽을 차단하지 않는지 확인합니다. 
+
+### <a name="serialization-of-virtual-cluster-management-operations"></a>가상 클러스터 관리 작업의 직렬화
+서비스 업그레이드 및 가상 클러스터 크기 조정과 같이 가상 클러스터에 영향을 주는 작업(새 컴퓨팅 노드를 추가하거나 불필요한 컴퓨팅 노드 제거)은 직렬화됩니다. 즉, 새 가상 클러스터 관리 작업은 이전 작업이 완료될 때까지 시작할 수 없습니다. 지속적인 서비스 업그레이드 또는 유지 관리 작업이 완료되기 전에 유지 관리 기간이 닫히면 그 동안 제출된 다른 가상 클러스터 관리 작업은 다음 유지 관리 기간이 열리고 서비스 업그레이드 또는 유지 관리 작업이 완료될 때까지 보류됩니다. 유지 관리 작업이 가상 클러스터당 단일 기간보다 오래 걸리는 것은 일반적이지 않지만 매우 복잡한 유지 관리 작업의 경우 이러한 상황이 발생할 수 있습니다.
+가상 클러스터 관리 작업의 직렬화는 기본 유지 관리 정책에도 적용되는 일반적인 동작입니다. 유지 관리 기간 일정을 구성하면 인접한 두 기간 사이의 기간은 며칠일 수 있습니다. 유지 관리 작업이 두 개의 기간에 걸쳐 있는 경우 제출된 작업이 며칠 동안 보류될 수도 있습니다. 매우 드문 경우지만 이 기간 동안 새 인스턴스 만들기 또는 기존 인스턴스 크기 조정(추가 컴퓨팅 노드가 필요한 경우)이 차단될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

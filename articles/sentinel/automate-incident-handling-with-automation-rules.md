@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2021
 ms.author: yelevin
-ms.openlocfilehash: 1ff9fbbb6cd4b8827555a6cb1b222ed4eb0a5299
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 869693765463589c3e94aef9a1cee17867117c5d
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104609811"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072681"
 ---
 # <a name="automate-incident-handling-in-azure-sentinel-with-automation-rules"></a>자동화 규칙을 사용하여 Azure Sentinel에서 인시던트 처리 자동화
 
@@ -42,7 +42,7 @@ ms.locfileid: "104609811"
 
 인시던트를 만들면 자동화 규칙이 트리거됩니다. 
 
-검토를 위해 네 가지 유형의 분석 규칙에 따라 경고에서 인시던트가 생성됩니다. 이러한 규칙은 [Azure Sentinel에서 기본 제공 분석 규칙을 사용하여 위협 감지](tutorial-detect-threats-built-in.md) 자습서에 설명되어 있습니다.
+검토를 위해 여러 유형의 분석 규칙에 따라 경고에서 인시던트가 생성됩니다. 이러한 규칙은 [Azure Sentinel에서 기본 제공 분석 규칙을 사용하여 위협 감지](tutorial-detect-threats-built-in.md) 자습서에 설명되어 있습니다.
 
 ### <a name="conditions"></a>조건
 
@@ -54,7 +54,7 @@ ms.locfileid: "104609811"
 
 - 인시던트 상태를 변경하여 워크플로를 최신 상태로 유지합니다.
 
-  - "종료됨"으로 변경할 때 [종료 이유](tutorial-investigate-cases.md#closing-an-incident)를 지정하고 주석을 추가합니다. 이렇게 하면 성능 및 효율성을 추적하고 미세 조정하여 가양성을 줄일 수 있습니다.
+  - "종료됨"으로 변경할 때 [종료 이유](tutorial-investigate-cases.md#closing-an-incident)를 지정하고 주석을 추가합니다. 이렇게 하면 성능 및 효율성을 추적하고 미세 조정하여 [가양성](false-positives.md)을 줄일 수 있습니다.
 
 - 인시던트의 심각도 변경 – 인시던트에 포함된 엔터티의 존재, 부재, 값 또는 특성에 따라 다시 평가하고 우선 순위를 다시 지정할 수 있습니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "104609811"
 
 - 인시던트에 태그 추가 – 주체, 공격자 또는 기타 공통 분모로 인시던트를 분류하는 데 유용합니다.
 
-또한 외부 시스템과 관련된 작업을 포함하여 더욱 복잡한 대응 조치를 수행하기 위해 [플레이북](tutorial-respond-threats-playbook.md)을 실행하는 작업을 정의할 수 있습니다. [인시던트 트리거](automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts)에 의해 활성화된 플레이북만 자동화 규칙에서 사용할 수 있습니다. 여러 플레이북, 플레이북과 다른 작업의 조합 및 작업이 실행되는 순서를 포함하는 작업을 정의할 수 있습니다.
+또한 외부 시스템과 관련된 작업을 포함하여 더욱 복잡한 대응 조치를 수행하기 위해 [**플레이북을 실행**](tutorial-respond-threats-playbook.md)하는 작업을 정의할 수 있습니다. [**인시던트 트리거**](automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts)에 의해 활성화된 플레이북 **만** 자동화 규칙에서 사용할 수 있습니다. 여러 플레이북, 플레이북과 다른 작업의 조합 및 작업이 실행되는 순서를 포함하는 작업을 정의할 수 있습니다.
 
 ### <a name="expiration-date"></a>만료 날짜
 
@@ -132,12 +132,27 @@ Azure Sentinel 자동화 규칙이 플레이북을 실행하는 경우 이 작�
 
 자동화 규칙을 구성하고 **플레이북 실행** 작업을 추가하는 경우 플레이북 드롭다운 목록이 표시됩니다. Azure Sentinel에 권한이 없는 플레이북은 사용할 수 없는 것으로 표시됩니다("회색으로 표시됨"). **플레이북 권한 관리** 링크를 선택하면 플레이북의 리소스 그룹에 Azure Sentinel 권한을 즉시 부여할 수 있습니다.
 
-> [!NOTE]
-> **다중 테넌트 아키텍처의 사용 권한**
->
-> 자동화 규칙은 작업 영역 간 배포 및 다중 테넌트 배포를 완벽하게 지원합니다(다중 테넌트의 경우 [Azure Lighthouse](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse) 사용).
->
-> 따라서 Azure Sentinel 배포에서 다중 테넌트 아키텍처를 사용하는 경우(예: MSSP를 사용하는 경우) 한 테넌트의 자동화 규칙이 다른 테넌트에 있는 플레이북을 실행할 수 있지만, Sentinel에서 플레이북을 실행하는 권한은 자동화 규칙이 정의된 테넌트가 아닌 플레이북이 있는 테넌트에서 정의해야 합니다.
+#### <a name="permissions-in-a-multi-tenant-architecture"></a>다중 테넌트 아키텍처의 사용 권한
+
+자동화 규칙은 작업 영역 간 배포 및 [다중 테넌트 배포](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse)를 완벽하게 지원합니다(다중 테넌트의 경우 [Azure Lighthouse](../lighthouse/index.yml) 사용).
+
+따라서 Azure Sentinel 배포에서 다중 테넌트 아키텍처를 사용하는 경우 한 테넌트의 자동화 규칙이 다른 테넌트에 있는 플레이북을 실행할 수 있지만, Sentinel에서 플레이북을 실행하는 권한은 자동화 규칙이 정의된 테넌트가 아닌 플레이북이 있는 테넌트에서 정의해야 합니다.
+
+서비스 공급자 테넌트가 고객 테넌트의 Azure Sentinel 작업 영역을 관리하는 MSSP(관리형 보안 서비스 공급자)의 특정 경우에는 주의를 기울여야 하는 두 가지 특정 시나리오가 있습니다.
+
+- **고객 테넌트에서 만들어진 자동화 규칙은 서비스 공급자 테넌트에 있는 플레이북을 실행하도록 구성됩니다.** 
+
+    이 접근 방식은 일반적으로 플레이북의 지적 재산권을 보호하는 데 사용됩니다. 이 시나리오가 작동하는 데 특별한 사항은 없습니다. 자동화 규칙에서 플레이북 작업을 정의하고 플레이북이 있는 관련 리소스 그룹에 대해 Azure Sentinel 권한을 부여하는 단계에 도달하면(**플레이북 권한 관리** 패널 사용) 선택할 수 있는 그룹 중에서 서비스 공급자 테넌트에 속하는 리소스 그룹을 확인합니다. [여기에 설명된 전체 프로세스를 참조하세요](tutorial-respond-threats-playbook.md#respond-to-incidents).
+
+- **고객 작업 영역에서 만들어진 자동화 규칙(서비스 공급자 테넌트에 로그인한 동안)은 고객 테넌트에 있는 플레이북을 실행하도록 구성됩니다**.
+
+    이 구성은 지적 재산권을 보호할 필요가 없을 때 사용됩니다. 이 시나리오가 작동하려면 ***두 테넌트** _의 Azure Sentinel에 플레이북을 실행할 수 있는 권한을 부여해야 합니다. 고객 테넌트의 경우 위 시나리오와 같이 _ *플레이북 권한 관리** 패널에서 권한을 부여합니다. 서비스 공급자 테넌트에서 관련 권한을 부여하려면 플레이북이 있는 리소스 그룹에서 **Azure Sentinel Automation 기여자** 역할을 사용하여 **Azure Security Insights** 앱에 대한 액세스 권한을 부여하는 추가 Azure Lighthouse 위임을 추가해야 합니다.
+
+    시나리오는 다음과 같습니다.
+
+    :::image type="content" source="./media/automate-incident-handling-with-automation-rules/automation-rule-multi-tenant.png" alt-text="다중 테넌트 자동화 규칙 아키텍처":::
+
+    이를 설정하는 방법은 [지침](tutorial-respond-threats-playbook.md#permissions-to-run-playbooks)을 참조하세요.
 
 ## <a name="creating-and-managing-automation-rules"></a>자동화 규칙 만들기 및 관리
 

@@ -9,12 +9,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: ebf04531f29e18f9d120ca2efa17244c4282084c
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 910d6196228315fa8bcb86ef2be113e542a2bf8e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503272"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478726"
 ---
 # <a name="azcopy-load-clfs"></a>azcopy load clfs
 
@@ -36,7 +36,7 @@ load 명령을 사용하면 Azure Blob Storage 컨테이너에 데이터를 복�
 대상은 빈 Azure Storage 컨테이너입니다. 전송이 완료되면 Azure HPC Cache instance 또는 Avere vFXT for Azure 클러스터에서 대상 컨테이너를 사용할 수 있습니다.
 
 > [!NOTE] 
-> 이는 load 명령의 미리 보기 릴리스입니다. 문제가 있을 시 AzCopy Github 리포지토리에 보고하십시오.
+> 이는 load 명령의 미리 보기 릴리스입니다. 문제가 있을 시 AzCopy GitHub 리포지토리에 보고하세요.
 
 ```
 azcopy load clfs [local dir] [container URL] [flags]
@@ -74,12 +74,12 @@ azcopy load clfs "/path/to/dir" "https://[account].blob.core.windows.net/[contai
 
 ## <a name="options-inherited-from-parent-commands"></a>부모 명령에서 상속된 옵션
 
-|옵션|설명|
+|옵션|Description|
 |---|---|
-|--cap-mbps float|전송 속도(Mbps)의 한도를 지정합니다. 시간 경과별 처리량은 한도와 약간 다를 수 있습니다. 이 옵션이 0으로 설정되거나 생략되는 경우 처리량이 제한되지 않습니다.|
-|--output-type string|명령 출력의 형식을 지정합니다. text, json을 선택할 수 있습니다. 기본값은 “text”입니다.|
-|--trusted-microsoft-suffixes string   | Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 ‘ *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net’입니다. 여기에 나열된 항목은 모두 기본값에 추가됩니다. 보안을 위해 여기에는 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분합니다.|
+|--cap-mbps float|전송 속도(Mbps)의 한도를 지정합니다. 순간 처리량은 거의 한도에 가까울 수 있습니다. 이 옵션을 0으로 설정하거나 생략하면 처리량이 제한되지 않습니다.|
+|--output-type string|명령 출력의 형식을 지정합니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 “text”입니다.|
+|--trusted-microsoft-suffixes string   | Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 ‘ *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net’입니다. 여기에 나열된 모든 항목은 기본값에 추가됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분합니다.|
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [azcopy](storage-ref-azcopy.md)

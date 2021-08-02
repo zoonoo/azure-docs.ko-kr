@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure Video Analyzer를 사용하여 비디�
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 05/12/2021
-ms.openlocfilehash: 38d47ec6f27984eb7cc204b8421cec9016d2db65
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 89aef5db89110ee7e12a313820f8f62d0b010faf
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387837"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755173"
 ---
 # <a name="tutorial-record-and-stream-inference-metadata-with-video"></a>자습서: 비디오를 사용하여 추론 메타데이터 녹화 및 스트리밍
   
@@ -132,7 +132,7 @@ src/edge/deployment.yolov3.template.json 파일을 엽니다. **모듈** 섹션 
 1. 다음으로, **livePipelineSet** 및 **pipelineTopologyDelete** 노드에서 **topologyName** 값이 이전 파이프라인 토폴로지의 **name** 속성 값과 일치하는지 확인합니다.
 
     `"pipelineTopologyName" : "CVRHttpExtensionObjectTracking"`
-1. 브라우저에서 [파이프라인 토폴로지](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-objTracking/topology.json)를 열고 videoName을 살펴봅니다. `sample-cvr-inferencing`으로 하드 코딩되었습니다. 자습서에서 이를 허용할 수 있습니다. 프로덕션 환경에서는 고유한 각 RTSP 카메라를 고유한 이름을 가진 비디오 리소스에 녹화하도록 주의해야 합니다.  
+1. 브라우저에서 [파이프라인 토폴로지](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-objTracking/topology.json)를 열고 videoName을 살펴봅니다. `sample-cvr-with-inference-metadata`로 하드 코딩되었습니다. 자습서에서 이를 허용할 수 있습니다. 프로덕션 환경에서는 고유한 각 RTSP 카메라를 고유한 이름을 가진 비디오 리소스에 녹화하도록 주의해야 합니다.  
 
 1. HTTP 확장 노드의 설정을 검사합니다.
 
@@ -300,7 +300,7 @@ HTTP 확장 프로세서 노드는 0번째, 15번째, 30번째, …번째 프레
 {
   "body": {
     "outputType": "videoName",
-    "outputLocation&quot;: &quot;sample-cvr-inferencing"
+    "outputLocation&quot;: &quot;sample-cvr-with-inference-metadata"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}",
@@ -325,7 +325,7 @@ body 섹션에는 출력 위치에 대한 정보가 포함됩니다. 여기서�
 {
   "body": {
     "outputType": "videoName",
-    "outputLocation&quot;: &quot;sample-cvr-inferencing"
+    "outputLocation&quot;: &quot;sample-cvr-with-inference-metadata"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}",
@@ -352,7 +352,7 @@ body 섹션에는 출력 위치에 대한 정보가 포함됩니다. 여기서�
 {
   "body": {
     "outputType": "videoName",
-    "outputLocation&quot;: &quot;sample-cvr-inferencing"
+    "outputLocation&quot;: &quot;sample-cvr-with-inference-metadata"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}",
@@ -377,16 +377,12 @@ Azure Portal에 로그인하여 비디오를 살펴보면 라이브 파이프라
 1. 웹 브라우저를 열고 [Azure Portal](https://portal.azure.com/)로 이동합니다. 자격 증명을 입력하여 포털에 로그인합니다. 기본 보기는 서비스 대시보드입니다.
 1. 구독에 있는 리소스 중에서 Video Analyzer 계정을 찾아 계정 창을 엽니다.
 1. **비디오 분석기** 목록에서 **비디오** 를 선택합니다.
-1. 이름이 `sample-cvr-inferencing`인 비디오가 나열됩니다. 이 이름은 파이프라인 토폴로지 파일에서 선택한 이름입니다.
+1. 이름이 `sample-cvr-with-inference-metadata`인 비디오가 나열됩니다. 이 이름은 파이프라인 토폴로지 파일에서 선택한 이름입니다.
 1. 비디오를 선택합니다.
 1. 비디오 세부 정보 페이지에서 **재생** 아이콘을 클릭합니다.
-
+1. 추론 메타데이터를 비디오에서 경계 상자로 보려면 **경계 상자** 아이콘(빨간색 원)을 클릭합니다.
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/record-stream-inference-data-with-video/video-playback.png" alt-text="비디오 재생 스크린샷":::
-   
-1. 추론 메타데이터를 비디오에서 경계 상자로 보려면 **경계 상자** 아이콘을 클릭합니다.
-   > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/record-stream-inference-data-with-video/bounding-box.png" alt-text="경계 상자 아이콘":::
 
 > [!NOTE]
 > 비디오 원본은 카메라 피드를 시뮬레이션하는 컨테이너이므로 비디오의 타임스탬프는 라이브 파이프라인을 활성화한 시간 및 비활성화한 시간과 관련이 있습니다.

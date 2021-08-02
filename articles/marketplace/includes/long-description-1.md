@@ -7,14 +7,14 @@ ms.topic: include
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 05/19/2020
-ms.openlocfilehash: d562ae234d251a568bd6dafc293d5a431cc9aea7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db7c869d6c2c203b9e1c4a0b2cb3a7472beeecb2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92284341"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472073"
 ---
-제품에 대한 더 긴 설명(최대 3,000자)을 제공합니다. 고객은 Marketplace 목록 개요에서 이 설명을 확인할 수 있습니다.
+제안과 관련한 자세한 **설명** 을 3,000자 이하로 입력합니다. 고객은 Marketplace 목록 개요에서 이 설명을 확인할 수 있습니다.
 
 설명에 다음 항목 중 하나 이상을 포함합니다.
 

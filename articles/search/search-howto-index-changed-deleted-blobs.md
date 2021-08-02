@@ -8,16 +8,16 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 79d5583f8c9e562a0d21a91c210aa6259472661d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d06a63c91c25f97e9d1a10b6b72a33b2fc7d859d
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100383537"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558965"
 ---
 # <a name="change-and-deletion-detection-in-blob-indexing-azure-cognitive-search"></a>Blob 인덱싱에서 변경 및 삭제 검색(Azure Cognitive Search)
 
-초기 검색 인덱스를 만든 후에는 후속 인덱서 작업에서 새 문서와 변경된 문서만 선택하기를 원할 수 있습니다. Azure Blob Storage에서 발생하는 검색 콘텐츠의 경우 일정을 사용하여 인덱싱을 트리거하면 변경 검색이 자동으로 실행됩니다. 기본적으로 이 서비스는 Blob의 `LastModified` 타임스탬프에 따라 결정된 대로 변경된 Blob만 다시 인덱싱합니다. 검색 인덱서에서 지원하는 다른 데이터 원본과 달리 Blob에는 항상 타임스탬프가 있으므로 변경 검색 정책을 수동으로 설정하지 않아도 됩니다.
+초기 검색 인덱스를 만든 후에는 후속 인덱서 작업에서 새 문서와 변경된 문서만 선택하기를 원할 수 있습니다. Azure Blob Storage 또는 Azure Data Lake Storage Gen2에서 발생하는 검색 콘텐츠의 경우 일정을 사용하여 인덱싱을 트리거하면 변경 검색이 자동으로 실행됩니다. 기본적으로 이 서비스는 Blob의 `LastModified` 타임스탬프에 따라 결정된 대로 변경된 Blob만 다시 인덱싱합니다. 검색 인덱서에서 지원하는 다른 데이터 원본과 달리 Blob에는 항상 타임스탬프가 있으므로 변경 검색 정책을 수동으로 설정하지 않아도 됩니다.
 
 변경 검색은 기본 제공되지만, 삭제 검색은 그렇지 않습니다. 삭제된 문서를 검색하려면 '일시 삭제' 방법을 사용해야 합니다. Blob을 완전히 삭제해도 해당 문서는 검색 인덱스에서 제거되지 않습니다.
 
@@ -25,6 +25,9 @@ ms.locfileid: "100383537"
 
 + 네이티브 Blob 일시 삭제(다음 섹션에서 설명)
 + [사용자 지정 메타데이터를 사용하여 일시 삭제](#soft-delete-using-custom-metadata)
+
+> [!NOTE] 
+> Azure Data Lake Storage Gen2에서는 디렉터리의 이름을 바꿀 수 있습니다. 디렉터리의 이름을 바꾸면 해당 디렉터리의 Blob에 대한 타임스탬프가 업데이트되지 않습니다. 결과적으로 인덱서는 이러한 Blob을 다시 인덱싱하지 않습니다. 디렉터리 이름 바꾸기 후에 디렉터리의 Blob이 새 URL을 포함하여 인덱싱해야 하는 경우 나중에 실행되는 동안 인덱서가 다시 인덱싱하도록 디렉터리의 모든 Blob에 대한 `LastModified` 타임스탬프를 업데이트해야 합니다. Azure Blob Storage의 가상 디렉터리는 변경할 수 없으므로 이 문제가 없습니다.
 
 ## <a name="native-blob-soft-delete-preview"></a>네이티브 Blob 일시 삭제(미리 보기)
 

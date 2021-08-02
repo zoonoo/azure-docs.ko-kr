@@ -1,23 +1,23 @@
 ---
-title: 원격 데스크톱 프로토콜 대역폭 요구 사항 Windows Virtual Desktop - Azure
+title: 원격 데스크톱 프로토콜 대역폭 요구 사항 Azure Virtual Desktop - Azure
 titleSuffix: Azure
-description: Windows Virtual Desktop에 대한 RDP 대역폭 요구 사항 이해
+description: Azure Virtual Desktop에 대한 RDP 대역폭 요구 사항 이해
 author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 6fe12c985f5d9a519380d1d9b5a7d6c2820630c6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1b43a76e417505d4894396503ca93fc87f508d4c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932338"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753164"
 ---
 # <a name="remote-desktop-protocol-rdp-bandwidth-requirements"></a>RDP(원격 데스크톱 프로토콜) 대역폭 요구 사항
 
 RDP(원격 데스크톱 프로토콜)는 다양한 기술을 사용하여 클라이언트 디바이스에 대한 서버의 원격 그래픽 제공을 완벽하게 지원하는 정교한 기술입니다. RDP는 사용 사례, 컴퓨팅 리소스의 가용성 및 네트워크 대역폭에 따라 최적의 사용자 환경을 제공하기 위해 다양한 매개 변수를 동적으로 조정합니다.
 
-원격 데스크톱 프로토콜은 여러 DVC(동적 가상 채널)를 여러 네트워크 전송을 통해 전송되는 단일 데이터 채널로 멀티플렉싱합니다. 원격 그래픽, 입력, 디바이스 리디렉션, 인쇄 등을 위한 별도의 DVC가 있습니다. Windows Virtual Desktop 파트너는 DVC 인터페이스를 사용하는 확장도 사용할 수 있습니다.
+원격 데스크톱 프로토콜은 여러 DVC(동적 가상 채널)를 여러 네트워크 전송을 통해 전송되는 단일 데이터 채널로 멀티플렉싱합니다. 원격 그래픽, 입력, 디바이스 리디렉션, 인쇄 등을 위한 별도의 DVC가 있습니다. Azure Virtual Desktop 파트너는 DVC 인터페이스를 사용하는 확장도 사용할 수 있습니다.
 
 RDP를 통해 전송되는 데이터의 양은 사용자 활동에 따라 달라집니다. 예를 들어, 사용자는 대부분의 세션에 대해 기본 텍스트 내용으로 작업하고 최소 대역폭을 사용할 수 있지만 200페이지 문서의 인쇄물을 로컬 프린터로 생성할 수 있습니다. 이 인쇄 작업에는 상당한 양의 네트워크 대역폭이 사용됩니다.
 
@@ -147,6 +147,6 @@ New-NetQosPolicy -Name "RDP Shortpath" -AppPathNameMatchCondition "svchost.exe" 
 
 ## <a name="next-steps"></a>다음 단계
 
-* Windows Virtual Desktop의 대역폭 요구 사항에 대한 자세한 내용은 [Windows Virtual Desktop에 대한 RDP(원격 데스크톱 프로토콜) 대역폭 요구 사항 이해](rdp-bandwidth.md)를 참조하세요.
-* Windows Virtual Desktop 네트워크 연결에 대한 자세한 정보는 [Windows Virtual Desktop 네트워크 연결 이해](network-connectivity.md)를 참조하세요.
-* Windows Virtual Desktop의 QoS(서비스 품질)를 시작하려면 [Windows Virtual Desktop용 QoS(서비스 품질) 구현](rdp-quality-of-service-qos.md)을 참조하세요.
+* Azure Virtual Desktop의 대역폭 요구 사항에 대해 알아보려면 [Azure Virtual Desktop에 대한 RDP(원격 데스크톱 프로토콜) 대역폭 요구 사항 이해](rdp-bandwidth.md)를 참조하세요.
+* Azure Virtual Desktop 네트워크 연결에 대한 자세한 내용은 [Azure Virtual Desktop 네트워크 연결 이해](network-connectivity.md)를 참조하세요.
+* Azure Virtual Desktop용 QoS(서비스 품질)를 시작하려면 [Azure Virtual Desktop용 QoS(서비스 품질) 구현](rdp-quality-of-service-qos.md)을 참조하세요.

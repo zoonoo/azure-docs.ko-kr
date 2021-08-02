@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0033b6985313de351ffdaf7028d2c1e9bd76ba72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47898b1708ebecc43ace9888dfd237fa72079c6b
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97963522"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590363"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication의 재인증 프롬프트를 최적화하고 세션 수명 이해하기
 
@@ -41,7 +41,7 @@ IT 정책을 위반하면 세션이 해지되긴 하지만, 사용자가 다시 
     * *로그인 유지* 옵션을 계속 사용하도록 설정하고, 사용자에게 동의하도록 안내합니다.
 * 모바일 디바이스 시나리오의 경우, 사용자가 Microsoft Authenticator 앱을 사용하는지 확인합니다. 이 앱은 다른 Azure AD 페더레이션된 앱에 대한 브로커로 사용 되며, 디바이스에서 인증 프롬프트가 줄어듭니다.
 
-당사의 연구 결과는 이러한 설정이 대부분의 테넌트에 적합하다는 것을 보여 줍니다. *MFA 기억하기*, *로그인 유지* 등의 이러한 설정의 일부 조합은 사용자가 너무 자주 인증 하도록 메시지를 표시할 수 있습니다. 일반 재인증 프롬프트는 사용자 생산성에 좋지 않으며, 공격에 더 취약해질 수 있습니다.
+당사의 연구 결과는 이러한 설정이 대부분의 테넌트에 적합하다는 것을 보여 줍니다. *MFA 기억하기*, *로그인 유지* 등의 일부 설정 조합으로 인해 지나치게 자주 인증하라는 메시지가 사용자에게 표시될 수 있습니다. 일반 재인증 프롬프트는 사용자 생산성에 좋지 않으며, 공격에 더 취약해질 수 있습니다.
 
 ## <a name="azure-ad-session-lifetime-configuration-settings"></a>Azure AD 세션 수명 구성 설정
 

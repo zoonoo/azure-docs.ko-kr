@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: df58be32123f662ae2a2782d6ebb7f19bd5c339c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b87f3221e62db6999dd67f475055f699a74c4c2a
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134937"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110495163"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>실시간으로 Azure Spring Cloud 앱 로그 스트림
 
@@ -20,7 +20,7 @@ ms.locfileid: "108134937"
 
 Azure 스프링 클라우드를 사용하면 Azure CLI의 로그 스트리밍을 통해 문제 해결을 위한 실시간 애플리케이션 콘솔 로그를 가져올 수 있습니다. 또한 [진단 설정을 사용하여 로그 및 메트릭 분석](./diagnostic-services.md)을 할 수도 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 최소 버전 0.2.0의 Spring Cloud [Azure CLI 확장](/cli/azure/install-azure-cli)을 설치합니다.
 * 애플리케이션(예: [Spring Cloud 앱](./quickstart.md))을 실행하는 **Azure Spring Cloud** 의 인스턴스입니다.
@@ -79,7 +79,7 @@ az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-p
 Azure Portal에서 앱 인스턴스의 세부 정보를 가져올 수도 있습니다.  Azure 스프링 클라우드 서비스의 왼쪽 탐색 창에서 **앱** 을 선택한 후 **앱 인스턴스** 를 선택합니다.
 
 ### <a name="continuously-stream-new-logs"></a>계속해서 새 로그 스트림
-기본적으로 `az spring-cloud ap log tail`은 앱 콘솔로 스트리밍되는 기존 로그만 인쇄한 후 종료됩니다. 새 로그를 스트리밍하려면 -f (--follow)를 추가합니다.  
+기본적으로 `az spring-cloud app logs`은 앱 콘솔로 스트리밍되는 기존 로그만 인쇄한 후 종료됩니다. 새 로그를 스트리밍하려면 -f (--follow)를 추가합니다.  
 
 ```azurecli
 az spring-cloud app logs -n auth-service -f
@@ -88,6 +88,39 @@ az spring-cloud app logs -n auth-service -f
 ```azurecli
 az spring-cloud app logs -h 
 ```
+
+### <a name="format-json-structured-logs"></a>JSON 구조화 로그 형식화
+
+> [!NOTE]
+> 스프링 클라우드 확장 버전 2.4.0 이상이 필요합니다.
+
+앱에 [구조화 애플리케이션 로그](./structured-app-log.md)가 사용하도록 설정되면 로그가 JSON 형식으로 인쇄됩니다. 그러면 읽기가 어려워집니다. 이 경우 `--format-json` 인수를 사용하여 JSON 로그를 사용자가 읽을 수 있는 형식으로 형식화할 수 있습니다.
+
+```shell
+# Raw JSON log
+$ az spring-cloud app logs -n auth-service
+{"timestamp":"2021-05-26T03:35:27.533Z","logger":"com.netflix.discovery.DiscoveryClient","level":"INFO","thread":"main","mdc":{},"message":"Disable delta property : false"}
+{"timestamp":"2021-05-26T03:35:27.533Z","logger":"com.netflix.discovery.DiscoveryClient","level":"INFO","thread":"main","mdc":{},"message":"Single vip registry refresh property : null"}
+
+# Formatted JSON log
+$ az spring-cloud app logs -n auth-service --format-json
+2021-05-26T03:35:27.533Z  INFO [           main] com.netflix.discovery.DiscoveryClient   : Disable delta property : false
+2021-05-26T03:35:27.533Z  INFO [           main] com.netflix.discovery.DiscoveryClient   : Single vip registry refresh property : null
+```
+
+또한 `--format-json` 인수는 키워드 인수 [형식 문자열 구문](https://docs.python.org/3/library/string.html#format-string-syntax)을 사용하여 선택적으로 사용자 지정 형식을 적용합니다.
+
+```shell
+# Custom format
+$ az spring-cloud app logs -n auth-service --format-json="{message}{n}"
+Disable delta property : false
+Single vip registry refresh property : null
+```
+
+> 사용되는 기본 형식은 다음과 같습니다.
+> ```
+> {timestamp} {level:>5} [{thread:>15.15}] {logger{39}:<40.40}: {message}{n}{stackTrace}
+> ```
 
 ## <a name="next-steps"></a>다음 단계
 * [빠른 시작: 로그, 메트릭 및 추적을 사용하여 Azure Spring Cloud 앱 모니터링](./quickstart-logs-metrics-tracing.md)

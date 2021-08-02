@@ -2,19 +2,19 @@
 title: 스케일링 성능 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 파티션 및 처리량 단위를 사용하여 Azure Event Hubs 스케일링 방법에 대한 정보를 제공합니다.
 ms.topic: article
-ms.date: 03/16/2021
-ms.openlocfilehash: acfc300ff7e6bd77c570c68bda50a731df10409c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 05/26/2021
+ms.openlocfilehash: ef894e0f14c140691b43da121a1983017ab03150
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110367095"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616465"
 ---
 # <a name="scaling-with-event-hubs"></a>Event Hubs 스케일링
 
 Event Hubs 스케일링에 영향을 주는 두 가지 요인이 있습니다.
-*   처리량 단위
-*   파티션
+* 처리량 단위(표준 계층) 또는 처리 단위(프리미엄 계층) 
+* 파티션
 
 ## <a name="throughput-units"></a>처리량 단위
 
@@ -42,7 +42,10 @@ ServerBusy 오류로 인한 요청 실패 없이 부하가 최소 임계값을 �
 
 처리 단위로 수집하고 스트림할 수 있는 양은 생산자, 소비자, 수집 및 처리 속도 등과 같은 다양한 요인에 따라 달라집니다. 하나의 처리 단위는 스토리지가 제한 요소가 되지 않도록 충분한 파티션이 있는 경우 약 5~10MB/s 수신 및 10-20MB/s 송신의 코어 용량을 제공할 수 있습니다.  
 
+프리미엄 계층 네임스페이스에 대한 CPU를 구성하는 방법에 대한 자세한 내용은 [처리 단위 구성](configure-processing-units-premium-namespace.md)을 참조하세요.
 
+> [!NOTE]
+> 할당량 및 제한에 대한 자세한 내용은 [Azure Event Hubs - 할당량 및 제한](event-hubs-quotas.md)을 참조하세요.
 
 ## <a name="partitions"></a>파티션
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
@@ -53,5 +56,5 @@ ServerBusy 오류로 인한 요청 실패 없이 부하가 최소 임계값을 �
 ## <a name="next-steps"></a>다음 단계
 Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-- [처리량 단위 규모를 자동으로 조정](event-hubs-auto-inflate.md)
-- [Event Hubs 서비스 개요](./event-hubs-about.md)
+- [표준 계층 네임스페이스에 대한 처리량 단위 자동 크기 조정](event-hubs-auto-inflate.md)
+- [프리미엄 계층 네임스페이스에 대한 처리 단위 구성](configure-processing-units-premium-namespace.md)

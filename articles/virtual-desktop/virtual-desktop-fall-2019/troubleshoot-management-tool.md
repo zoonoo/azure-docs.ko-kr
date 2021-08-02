@@ -1,24 +1,24 @@
 ---
-title: Windows Virtual Desktop(클래식) 관리 도구 - Azure
-description: Windows Virtual Desktop(클래식) 관리 도구와 관련된 문제를 해결하는 방법입니다.
+title: Azure Virtual Desktop(클래식) 관리 도구 - Azure
+description: Azure Virtual Desktop(클래식) 관리 도구와 관련된 문제를 해결하는 방법입니다.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 430ab72a3eb0cd41d707ff0eb5d10d8b97162d53
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: f567a42d5363f24178594a5e98678e6794eb224e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444244"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753992"
 ---
-# <a name="troubleshoot-the-windows-virtual-desktop-classic-management-tool"></a>Windows Virtual Desktop(클래식) 관리 도구 문제 해결
+# <a name="troubleshoot-the-azure-virtual-desktop-classic-management-tool"></a>Azure Virtual Desktop(클래식) 관리 도구 문제 해결
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다.
 
-이 문서에서는 Windows Virtual Desktop 관리 도구를 배포하는 동안 발생할 수 있는 문제와 이러한 문제를 해결하는 방법을 설명합니다.
+이 문서에서는 Azure Virtual Desktop 관리 도구를 배포하는 동안 발생할 수 있는 문제와 이러한 문제를 해결하는 방법을 설명합니다.
 
 ## <a name="error-management-tool-services-configured-but-automated-setup-fails"></a>오류: 관리 도구 서비스가 구성되었지만 자동 설치에 실패함
 
@@ -37,7 +37,7 @@ ms.locfileid: "106444244"
 
 1. Azure Active Directory 사용자 계정 이름에 대해 만든 사용자에게 "기여자" 구독 수준이 있는지 확인합니다.
 2. UPN 계정으로 <portal.azure.com>에 로그인하여 계정 설정을 확인하고 다단계 인증이 설정되어 있지 않은지 확인합니다. 설정되어 있는 경우 해제합니다.
-3. Windows Virtual Desktop 동의 페이지를 방문하여 서버 및 클라이언트 앱이 동의했는지 확인합니다.
+3. Azure Virtual Desktop 동의 페이지를 방문하여 서버 및 클라이언트 앱이 동의했는지 확인합니다.
 4. 문제가 계속되면 [관리 도구 배포](manage-resources-using-ui.md) 자습서를 검토하고 도구를 다시 배포합니다.
 
 ## <a name="error-job-with-specified-id-already-exists"></a>오류: 지정한 ID를 가진 작업이 이미 있습니다.
@@ -59,5 +59,5 @@ ms.locfileid: "106444244"
 ## <a name="next-steps"></a>다음 단계
 
 - [문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview-2019.md)에서 에스컬레이션 트랙에 대해 알아봅니다.
-- [원격 데스크톱 서비스용 ARM 템플릿](https://github.com/Azure/RDS-Templates/blob/master/README.md)에서 Windows Virtual Desktop 도구와 관련된 문제를 보고하는 방법에 대해 알아봅니다.
+- [원격 데스크톱 서비스용 ARM 템플릿](https://github.com/Azure/RDS-Templates/blob/master/README.md)에서 Azure Virtual Desktop 도구와 관련된 문제를 보고하는 방법에 대해 알아봅니다.
 - 관리 도구를 배포하는 방법에 대해 알아보려면 [관리 도구 배포](manage-resources-using-ui.md)를 참조하세요.

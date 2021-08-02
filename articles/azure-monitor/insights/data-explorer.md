@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: a8aae2dc03ba87e9782cdf3952be1bfc4a1aae75
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 274d907c4fd8d09e444b938447365a4df64af3e4
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767044"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061635"
 ---
 # <a name="azure-data-explorer-insights-preview"></a>Azure Data Explorer 인사이트(미리 보기)
 
@@ -114,7 +114,7 @@ Azure Data Explorer 인사이트는 로그와 메트릭을 결합하여 글로�
 
 **테이블** 탭에서는 클러스터에 있는 테이블의 최신 및 기록 속성을 표시합니다. 가장 많은 공간을 사용하는 테이블을 확인하고, 테이블 크기, 핫 데이터 및 행 수를 기준으로 시간이 지남에 따른 증가 기록을 추적할 수 있습니다.
 
-사용자는 **캐시** 탭을 사용하여 실제 쿼리의 조회 패턴을 분석하고 각 테이블에 대해 구성된 캐시 정책과 비교할 수 있습니다. 쿼리되지 않은 대부분의 쿼리 및 테이블에서 사용하는 테이블을 식별하고 이에 따라 캐시 정책을 적용할 수 있습니다. 지난 30일 동안의 실제 쿼리 조회 기록과 최소 95% 쿼리에 대한 최적화되지 않은 캐시 정책을 기반으로 하여 Azure Advisor의 특정 테이블에 대한 특정 캐시 정책 권장 사항을 확인할 수 있습니다. 현재는 [기본 Azure Advisor 대시보드](/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)에서만 캐시 권장 사항을 사용할 수 있습니다. Azure Advisor의 캐시 감소 권장 사항은 "데이터에 제한된" 클러스터에 사용할 수 있습니다. 이는 클러스터의 CPU와 수집 사용률이 낮다는 것을 의미하며, 데이터 용량이 높기 때문에 클러스터가 스케일 인하거나 스케일 다운할 수 없습니다.
+사용자는 **캐시** 탭을 통해 실제 쿼리의 조회 기간 패턴을 분석하고 각 테이블에 대해 구성된 캐시 정책과 비교할 수 있습니다. 쿼리되지 않은 대부분의 쿼리 및 테이블에서 사용하는 테이블을 식별하고 이에 따라 캐시 정책을 적용할 수 있습니다. 지난 30일 동안의 실제 쿼리 조회 기간과 최소 95% 쿼리에 대한 최적화되지 않은 캐시 정책을 기반으로 하여 Azure Advisor의 특정 테이블에 대한 특정 캐시 정책 권장 사항을 확인할 수 있습니다. 현재는 [기본 Azure Advisor 대시보드](https://docs.microsoft.com/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)에서만 캐시 권장 사항을 사용할 수 있습니다. Azure Advisor의 캐시 감소 권장 사항은 "데이터에 제한된" 클러스터에 사용할 수 있습니다. 이는 클러스터의 CPU와 수집 사용률이 낮다는 것을 의미하며, 데이터 용량이 높기 때문에 클러스터가 스케일 인하거나 스케일 다운할 수 없습니다.
 
 [![캐시 세부 정보의 스크린샷](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
 

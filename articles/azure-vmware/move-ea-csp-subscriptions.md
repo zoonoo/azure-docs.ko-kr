@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure VMware Solution 구독을 다른 구독�
 ms.custom: subject-moving-resources
 ms.topic: how-to
 ms.date: 04/26/2021
-ms.openlocfilehash: 0cd06eb72f8ed93cc5a491070baded76f9dc9f6f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 02f35efe90d4670c4ab38155f129ec0d61c1b03d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145567"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966706"
 ---
 # <a name="move-azure-vmware-solution-subscription-to-another-subscription"></a>Azure VMware Solution 구독을 다른 구독으로 이동
 
@@ -64,9 +64,7 @@ ms.locfileid: "108145567"
 ## <a name="next-steps"></a>다음 단계
 다음에 대해 자세히 알아봅니다.
 
-- [네트워킹 리소스 이동 지침](/azure/azure-resource-manager/management/move-limitations/networking-move-limitations)
-- [가상 머신 이동 지침](/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations)
-- [App Service 리소스 이동 지침](/azure/azure-resource-manager/management/move-limitations/app-service-move-limitations)
-
-
-
+- [지역간 Azure VMware Solution 이동](move-azure-vmware-solution-across-regions.md)
+- [네트워킹 리소스 이동 지침](../azure-resource-manager/management/move-limitations/networking-move-limitations.md)
+- [가상 머신 이동 지침](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md)
+- [App Service 리소스 이동 지침](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)

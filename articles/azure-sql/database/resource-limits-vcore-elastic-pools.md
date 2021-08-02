@@ -1,62 +1,73 @@
 ---
 title: 탄력적 풀 vCore 리소스 제한
-description: 이 페이지에서는 Azure SQL Database의 탄력적 풀에 대 한 몇 가지 일반적인 vCore 리소스 제한을 설명 합니다.
+description: 이 페이지에서는 Azure SQL Database의 탄력적 풀에 대한 몇 가지 일반적인 vCore 리소스 제한을 설명합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, references_regions
 ms.devlang: ''
 ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 03/23/2021
-ms.openlocfilehash: fa21acc09858f4468e53788428e4928dc381a94e
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
-ms.translationtype: MT
+ms.date: 04/16/2021
+ms.openlocfilehash: 1d51e39993dca11ee92225d365e60ad9e94ecbb8
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107859"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472703"
 ---
-# <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>VCore 구매 모델을 사용 하 여 탄력적 풀에 대 한 리소스 제한
+# <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>vCore 구매 모델을 사용하여 탄력적 풀에 대한 리소스 제한
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-이 문서에서는 vCore 구매 모델을 사용 하 여 Azure SQL Database 탄력적 풀 및 풀링된 데이터베이스에 대 한 자세한 리소스 제한을 제공 합니다.
+이 문서에서는 vCore 구매 모델을 사용하여 풀링된 데이터베이스 및 Azure SQL Database 탄력적 풀에 대한 리소스 제한을 자세히 제공합니다.
 
-DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄력적 풀](resource-limits-dtu-elastic-pools.md)을 참조 하세요.
-
-> [!IMPORTANT]
-> 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database에서 파일 공간 관리](file-space-manage.md)를 참조 하세요.
-
-[Azure Portal](elastic-pool-manage.md#azure-portal), [PowerShell](elastic-pool-manage.md#powershell), [Azure CLI](elastic-pool-manage.md#azure-cli)또는 [REST API](elastic-pool-manage.md#rest-api)를 사용 하 여 서비스 계층, 계산 크기 (서비스 목표) 및 저장소 용량을 설정할 수 있습니다.
+* 서버에 있는 단일 데이터베이스의 DTU 구매 모델 한도에 관해서는 [서버의 리소스 한도 개요](resource-limits-logical-server.md)를 참조하세요.
+* Azure SQL Database의 DTU 구매 모델 리소스 한도에 관해서는 [DTU 리소스 한도 - 단일 데이터베이스](resource-limits-dtu-single-databases.md) 및 [DTU 리소스 한도 - 탄력적 풀](resource-limits-dtu-elastic-pools.md)을 참조하세요.
+* vCore 리소스 한도에 관해서는 [vCore 리소스 한도 - Azure SQL Database](resource-limits-vcore-single-databases.md) 및 [vCore 리소스 한도 - 탄력적 풀](resource-limits-vcore-elastic-pools.md)을 참조하세요.
+* 다양한 구매 모델에 관한 자세한 내용은 [구매 모델 및 서버 계층](purchasing-models.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 크기 조정 지침 및 고려 사항은 [탄력적 풀 크기 조정](elastic-pool-scale.md)을 참조 하세요.
+> 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](file-space-manage.md)를 참조하세요.
 
-## <a name="general-purpose---provisioned-compute---gen4"></a>범용 프로 비전 된 계산-Gen4
+각 읽기 전용 복제본에는 vCore, 메모리, 데이터 IOPS, TempDB, 작업자, 세션과 같은 자체 리소스가 있습니다. 각 읽기 전용 복제본에는 이 문서의 뒷부분에서 설명하는 리소스 한도가 적용됩니다.
+
+다음을 사용하여 서비스 계층, 컴퓨팅 크기(서비스 개체), 스토리지 용량을 설정할 수 있습니다.
+
+* [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)를 통해 [Transact-SQL](elastic-pool-scale.md)
+* [Azure Portal](elastic-pool-manage.md#azure-portal)
+* [PowerShell](elastic-pool-manage.md#powershell)
+* [Azure CLI](elastic-pool-manage.md#azure-cli)
+* [REST API](elastic-pool-manage.md#rest-api)
 
 > [!IMPORTANT]
-> 새 Gen4 데이터베이스는 오스트레일리아 동부 또는 브라질 남부 지역에서 더 이상 지원 되지 않습니다.
+> 스케일링 지침 및 고려 사항은 [탄력적 풀 스케일링](elastic-pool-scale.md)을 참조하세요.
 
-### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>범용 서비스 계층: 4 세대 계산 플랫폼 (1 부)
+## <a name="general-purpose---provisioned-compute---gen4"></a>범용 - 프로비저닝된 컴퓨팅 - Gen4
+
+> [!IMPORTANT]
+> 새 Gen4 데이터베이스는 오스트레일리아 동부 또는 브라질 남부 지역에서 더 이상 지원되지 않습니다.
+
+### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>범용 서비스 계층: 4세대 컴퓨팅 플랫폼(1부)
 
 |컴퓨팅 크기(서비스 목표)|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
 |컴퓨팅 세대|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCore 수|1|2|3|4|5|6|
 |메모리(GB)|7|14|21|28|35|42|
-|풀 당 최대 Db 수 <sup>1</sup>|100|200|500|500|500|500|
+|풀당 최대 DB 수 <sup>1</sup>|100|200|500|500|500|500|
 |Columnstore 지원 여부|예|예|예|예|예|예|
 |메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(GB)|512|756|1536|1536|1536|2048|
 |최대 로그 크기|154|227|461|461|461|614|
-|TempDB 최대 데이터 크기 (GB)|32|64|96|128|160|192|
+|TempDB 최대 데이터 크기(GB)|32|64|96|128|160|192|
 |스토리지 유형|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
-|풀 당 최대 데이터 IOPS <sup>2</sup> |400|800|1200|1600|2000|2400|
-|풀 당 최대 로그 전송률 (MBps)|6|12|18|24|30|36|
-|풀 당 최대 동시 작업자 수 (요청) <sup>3</sup> |210|420|630|840|1050|1260|
-|풀 당 최대 동시 로그인 <sup>3</sup> |210|420|630|840|1050|1260|
+|풀당 최대 데이터 IOPS <sup>2</sup> |400|800|1200|1600|2000|2400|
+|풀당 최대 로그 속도(MBps)|6|12|18|24|30|36|
+|풀당 최대 동시 작업자(요청) <sup>3</sup> |210|420|630|840|1050|1260|
+|풀당 최대 동시 로그인 수 <sup>3</sup> |210|420|630|840|1050|1260|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|
 |데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |복제본 수|1|1|1|1|1|1|
@@ -64,31 +75,31 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
+<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md)를 참조하세요.
 
-<sup>2</sup> 8kb에서 64 kb 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
+<sup>2</sup> 최대 IO 크기 값은 8KB~64KB입니다. 실제 IOPS는 워크로드에 따라 달라집니다. 자세한 내용은 [데이터 IO 거버넌스](resource-limits-logical-server.md#resource-governance)를 참조하세요.
 
-<sup>3</sup> 개별 데이터베이스에 대 한 최대 동시 작업자 (요청)의 경우 [단일 데이터베이스 리소스 제한](resource-limits-vcore-single-databases.md)을 참조 하세요. 예를 들어 탄력적 풀이 Gen5를 사용 하 고 데이터베이스당 최대 vCore가 2로 설정 된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정 된 경우 최대 동시 작업자 값은 vCore 당 최대 100 동시 작업자 수는 Gen5 이므로 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
+<sup>3</sup> 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 한도](resource-limits-vcore-single-databases.md)를 참조하세요. 예를 들어, 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore가 2로 설정된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정된 경우 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 값은 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
-### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>범용 서비스 계층: 4 세대 계산 플랫폼 (2 부)
+### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>범용 서비스 계층: 4세대 컴퓨팅 플랫폼(2부)
 
 |컴퓨팅 크기(서비스 목표)|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |컴퓨팅 세대|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCore 수|7|8|9|10|16|24|
 |메모리(GB)|49|56|63|70|112|159.5|
-|풀 당 최대 Db 수 <sup>1</sup>|500|500|500|500|500|500|
+|풀당 최대 DB 수 <sup>1</sup>|500|500|500|500|500|500|
 |Columnstore 지원 여부|예|예|예|예|예|예|
 |메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(GB)|2048|2048|2048|2048|3584|4096|
 |최대 로그 크기(GB)|614|614|614|614|1075|1,229|
-|TempDB 최대 데이터 크기 (GB)|224|256|288|320|512|768|
+|TempDB 최대 데이터 크기(GB)|224|256|288|320|512|768|
 |스토리지 유형|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
-|풀 당 최대 데이터 IOPS <sup>2</sup>|2800|3200|3600|4000|6400|9600|
-|풀 당 최대 로그 전송률 (MBps)|42|48|54|60|62.5|62.5|
-|풀 당 최대 동시 작업자 수 (요청) <sup>3</sup>|1470|1,680|1890|2100|3,360|5040|
-|최대 동시 로그인 풀 (요청) <sup>3</sup>|1470|1,680|1890|2100|3,360|5040|
+|풀당 최대 데이터 IOPS <sup>2</sup>|2800|3200|3600|4000|6400|9600|
+|풀당 최대 로그 속도(MBps)|42|48|54|60|62.5|62.5|
+|풀당 최대 동시 작업자(요청) <sup>3</sup>|1470|1,680|1890|2100|3,360|5040|
+|최대 동시 로그인 풀(요청) <sup>3</sup>|1470|1,680|1890|2100|3,360|5040|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|
 |데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |복제본 수|1|1|1|1|1|1|
@@ -96,99 +107,99 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
+<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md)를 참조하세요.
 
-<sup>2</sup> 8kb에서 64 kb 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.    
+<sup>2</sup> 최대 IO 크기 값은 8KB~64KB입니다. 실제 IOPS는 워크로드에 따라 달라집니다. 자세한 내용은 [데이터 IO 거버넌스](resource-limits-logical-server.md#resource-governance)를 참조하세요.    
 
-<sup>3</sup> 개별 데이터베이스에 대 한 최대 동시 작업자 (요청)의 경우 [단일 데이터베이스 리소스 제한](resource-limits-vcore-single-databases.md)을 참조 하세요. 예를 들어 탄력적 풀이 Gen5를 사용 하 고 데이터베이스당 최대 vCore가 2로 설정 된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정 된 경우 최대 동시 작업자 값은 vCore 당 최대 100 동시 작업자 수는 Gen5 이므로 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
+<sup>3</sup> 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 한도](resource-limits-vcore-single-databases.md)를 참조하세요. 예를 들어, 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore가 2로 설정된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정된 경우 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 값은 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
-## <a name="general-purpose---provisioned-compute---gen5"></a>범용 프로 비전 된 계산-Gen5
+## <a name="general-purpose---provisioned-compute---gen5"></a>범용 - 프로비저닝된 컴퓨팅 - Gen5
 
-### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>범용 서비스 계층: 5 세대 계산 플랫폼 (1 부)
+### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>범용 서비스 계층: 5세대 컴퓨팅 플랫폼(1부)
 
 |컴퓨팅 크기(서비스 목표)|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |컴퓨팅 세대|5세대|5세대|5세대|5세대|5세대|5세대|5세대|
 |vCore 수|2|4|6|8|10|12|14|
 |메모리(GB)|10.4|20.8|31.1|41.5|51.9|62.3|72.7|
-|풀 당 최대 Db 수 <sup>1</sup>|100|200|500|500|500|500|500|
+|풀당 최대 DB 수 <sup>1</sup>|100|200|500|500|500|500|500|
 |Columnstore 지원 여부|예|예|예|예|예|예|예|
 |메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(GB)|512|756|1536|1536|1536|2048|2048|
 |최대 로그 크기(GB)|154|227|461|461|461|614|614|
-|TempDB 최대 데이터 크기 (GB)|64|128|192|256|320|384|448|
+|TempDB 최대 데이터 크기(GB)|64|128|192|256|320|384|448|
 |스토리지 유형|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
-|풀 당 최대 데이터 IOPS <sup>2</sup>|800|1600|2400|3200|4000|4800|5600|
-|풀 당 최대 로그 전송률 (MBps)|12|24|36|48|60|62.5|62.5|
-|풀 당 최대 동시 작업자 수 (요청) <sup>3</sup>|210|420|630|840|1050|1260|1470|
-|풀 당 최대 동시 로그인 수 (요청) <sup>3</sup>|210|420|630|840|1050|1260|1470|
+|풀당 최대 데이터 IOPS <sup>2</sup>|800|1600|2400|3200|4000|4800|5600|
+|풀당 최대 로그 속도(MBps)|12|24|36|48|60|62.5|62.5|
+|풀당 최대 동시 작업자(요청) <sup>3</sup>|210|420|630|840|1050|1260|1470|
+|풀당 최대 동시 로그인(요청) 수 <sup>3</sup>|210|420|630|840|1050|1260|1470|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |복제본 수|1|1|1|1|1|1|1|
-|다중 AZ|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
+|다중 AZ|[미리 보기로 제공](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기로 제공](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기로 제공](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기로 제공](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기로 제공](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기로 제공](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기로 제공](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
+<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md)를 참조하세요.
 
-<sup>2</sup> 8kb에서 64 kb 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
+<sup>2</sup> 최대 IO 크기 값은 8KB~64KB입니다. 실제 IOPS는 워크로드에 따라 달라집니다. 자세한 내용은 [데이터 IO 거버넌스](resource-limits-logical-server.md#resource-governance)를 참조하세요.
 
-<sup>3</sup> 개별 데이터베이스에 대 한 최대 동시 작업자 (요청)의 경우 [단일 데이터베이스 리소스 제한](resource-limits-vcore-single-databases.md)을 참조 하세요. 예를 들어 탄력적 풀이 Gen5를 사용 하 고 데이터베이스당 최대 vCore가 2로 설정 된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정 된 경우 최대 동시 작업자 값은 vCore 당 최대 100 동시 작업자 수는 Gen5 이므로 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
+<sup>3</sup> 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 한도](resource-limits-vcore-single-databases.md)를 참조하세요. 예를 들어, 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore가 2로 설정된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정된 경우 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 값은 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
-### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>범용 서비스 계층: 5 세대 계산 플랫폼 (2 부)
+### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>범용 서비스 계층: 5세대 컴퓨팅 플랫폼(2부)
 
 |컴퓨팅 크기(서비스 목표)|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |컴퓨팅 세대|5세대|5세대|5세대|5세대|5세대|5세대|5세대|
 |vCore 수|16|18|20|24|32|40|80|
 |메모리(GB)|83|93.4|103.8|124.6|166.1|207.6|415.2|
-|풀 당 최대 Db 수 <sup>1</sup>|500|500|500|500|500|500|500|
+|풀당 최대 DB 수 <sup>1</sup>|500|500|500|500|500|500|500|
 |Columnstore 지원 여부|예|예|예|예|예|예|예|
 |메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(GB)|2048|3072|3072|3072|4096|4096|4096|
 |최대 로그 크기(GB)|614|922|922|922|1,229|1,229|1,229|
-|TempDB 최대 데이터 크기 (GB)|512|576|640|768|1024|1280|2560|
+|TempDB 최대 데이터 크기(GB)|512|576|640|768|1024|1280|2560|
 |스토리지 유형|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
-|풀 당 최대 데이터 IOPS <sup>2</sup> |6,400|7,200|8,000|9,600|12,800|16,000|16,000|
-|풀 당 최대 로그 전송률 (MBps)|62.5|62.5|62.5|62.5|62.5|62.5|62.5|
-|풀 당 최대 동시 작업자 수 (요청) <sup>3</sup>|1,680|1890|2100|2520|3,360|4200|8400|
-|풀 당 최대 동시 로그인 수 (요청) <sup>3</sup>|1,680|1890|2100|2520|3,360|4200|8400|
+|풀당 최대 데이터 IOPS <sup>2</sup> |6,400|7,200|8,000|9,600|12,800|16,000|16,000|
+|풀당 최대 로그 속도(MBps)|62.5|62.5|62.5|62.5|62.5|62.5|62.5|
+|풀당 최대 동시 작업자(요청) <sup>3</sup>|1,680|1890|2100|2520|3,360|4200|8400|
+|풀당 최대 동시 로그인(요청) 수 <sup>3</sup>|1,680|1890|2100|2520|3,360|4200|8400|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |복제본 수|1|1|1|1|1|1|1|
-|다중 AZ|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
+|다중 AZ|[미리 보기로 제공](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기로 제공](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기로 제공](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기로 제공](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기로 제공](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기로 제공](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기로 제공](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
+<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md)를 참조하세요.
 
-<sup>2</sup> 8kb에서 64 kb 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
+<sup>2</sup> 최대 IO 크기 값은 8KB~64KB입니다. 실제 IOPS는 워크로드에 따라 달라집니다. 자세한 내용은 [데이터 IO 거버넌스](resource-limits-logical-server.md#resource-governance)를 참조하세요.
 
-<sup>3</sup> 개별 데이터베이스에 대 한 최대 동시 작업자 (요청)의 경우 [단일 데이터베이스 리소스 제한](resource-limits-vcore-single-databases.md)을 참조 하세요. 예를 들어 탄력적 풀이 Gen5를 사용 하 고 데이터베이스당 최대 vCore가 2로 설정 된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정 된 경우 최대 동시 작업자 값은 vCore 당 최대 100 동시 작업자 수는 Gen5 이므로 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
+<sup>3</sup> 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 한도](resource-limits-vcore-single-databases.md)를 참조하세요. 예를 들어, 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore가 2로 설정된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정된 경우 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 값은 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
-## <a name="general-purpose---provisioned-compute---fsv2-series"></a>범용 프로 비전 된 계산-Fsv2 시리즈
+## <a name="general-purpose---provisioned-compute---fsv2-series"></a>범용 - 프로비저닝된 컴퓨팅 - Fsv2 시리즈
 
-### <a name="fsv2-series-compute-generation-part-1"></a>Fsv2 시리즈 계산 생성 (1 부)
+### <a name="fsv2-series-compute-generation-part-1"></a>Fsv2 시리즈 컴퓨팅 세대(1부)
 
 |컴퓨팅 크기(서비스 목표)|GP_Fsv2_8|GP_Fsv2_10|GP_Fsv2_12|GP_Fsv2_14| GP_Fsv2_16|
 |:---| ---:|---:|---:|---:|---:|
 |컴퓨팅 세대|Fsv2 시리즈|Fsv2 시리즈|Fsv2 시리즈|Fsv2 시리즈|Fsv2 시리즈|
 |vCore 수|8|10|12|14|16|
 |메모리(GB)|15.1|18.9|22.7|26.5|30.2|
-|풀 당 최대 Db 수 <sup>1</sup>|500|500|500|500|500|
+|풀당 최대 DB 수 <sup>1</sup>|500|500|500|500|500|
 |Columnstore 지원 여부|예|예|예|예|예|
 |메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(GB)|1024|1024|1024|1024|1536|
 |최대 로그 크기(GB)|336|336|336|336|512|
-|TempDB 최대 데이터 크기 (GB)|37|46|56|65|74|
+|TempDB 최대 데이터 크기(GB)|37|46|56|65|74|
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
-|풀 당 최대 데이터 IOPS <sup>2</sup>|2560|3200|3840|4480|5120|
-|풀 당 최대 로그 전송률 (MBps)|48|60|62.5|62.5|62.5|
-|풀 당 최대 동시 작업자 수 (요청) <sup>3</sup>|400|500|600|700|800|
-|풀 당 최대 동시 로그인 수 (요청) <sup>3</sup>|800|1000|1200|1400|1600|
+|풀당 최대 데이터 IOPS <sup>2</sup>|2560|3200|3840|4480|5120|
+|풀당 최대 로그 속도(MBps)|48|60|62.5|62.5|62.5|
+|풀당 최대 동시 작업자(요청) <sup>3</sup>|400|500|600|700|800|
+|풀당 최대 동시 로그인(요청) 수 <sup>3</sup>|800|1000|1200|1400|1600|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|
 |데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0-8|0-10|0-12|0-14|0-16|
 |복제본 수|1|1|1|1|1|
@@ -196,31 +207,31 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
+<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md)를 참조하세요.
 
-<sup>2</sup> 8kb에서 64 kb 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
+<sup>2</sup> 최대 IO 크기 값은 8KB~64KB입니다. 실제 IOPS는 워크로드에 따라 달라집니다. 자세한 내용은 [데이터 IO 거버넌스](resource-limits-logical-server.md#resource-governance)를 참조하세요.
 
-<sup>3</sup> 개별 데이터베이스에 대 한 최대 동시 작업자 (요청)의 경우 [단일 데이터베이스 리소스 제한](resource-limits-vcore-single-databases.md)을 참조 하세요. 예를 들어 탄력적 풀이 Gen5를 사용 하 고 데이터베이스당 최대 vCore가 2로 설정 된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정 된 경우 최대 동시 작업자 값은 vCore 당 최대 100 동시 작업자 수는 Gen5 이므로 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
+<sup>3</sup> 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 한도](resource-limits-vcore-single-databases.md)를 참조하세요. 예를 들어, 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore가 2로 설정된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정된 경우 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 값은 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
-### <a name="fsv2-series-compute-generation-part-2"></a>Fsv2 시리즈 계산 생성 (2 부)
+### <a name="fsv2-series-compute-generation-part-2"></a>Fsv2 시리즈 컴퓨팅 세대(2부)
 
 |컴퓨팅 크기(서비스 목표)|GP_Fsv2_18|GP_Fsv2_20|GP_Fsv2_24|GP_Fsv2_32| GP_Fsv2_36|GP_Fsv2_72|
 |:---| ---:|---:|---:|---:|---:|---:|
 |컴퓨팅 세대|Fsv2 시리즈|Fsv2 시리즈|Fsv2 시리즈|Fsv2 시리즈|Fsv2 시리즈|Fsv2 시리즈|
 |vCore 수|18|20|24|32|36|72|
 |메모리(GB)|34.0|37.8|45.4|60.5|68.0|136.0|
-|풀 당 최대 Db 수 <sup>1</sup>|500|500|500|500|500|
+|풀당 최대 DB 수 <sup>1</sup>|500|500|500|500|500|
 |Columnstore 지원 여부|예|예|예|예|예|예|
 |메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(GB)|1536|1536|1536|3072|3072|4096|
 |최대 로그 크기(GB)|512|512|512|1024|1024|1024|
-|TempDB 최대 데이터 크기 (GB)|83|93|111|148|167|333|
+|TempDB 최대 데이터 크기(GB)|83|93|111|148|167|333|
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
-|풀 당 최대 데이터 IOPS <sup>2</sup>|5760|6400|7680|10240|11520|12800|
-|풀 당 최대 로그 전송률 (MBps)|62.5|62.5|62.5|62.5|62.5|62.5|
-|풀 당 최대 동시 작업자 수 (요청) <sup>3</sup>|900|1000|1200|1600|1800|3600|
-|풀 당 최대 동시 로그인 수 (요청) <sup>3</sup>|1800|2000|2400|3200|3600|7200|
+|풀당 최대 데이터 IOPS <sup>2</sup>|5760|6400|7680|10240|11520|12800|
+|풀당 최대 로그 속도(MBps)|62.5|62.5|62.5|62.5|62.5|62.5|
+|풀당 최대 동시 작업자(요청) <sup>3</sup>|900|1000|1200|1600|1800|3600|
+|풀당 최대 동시 로그인(요청) 수 <sup>3</sup>|1800|2000|2400|3200|3600|7200|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|
 |데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0-18|0-20|0-24|0-32|0-36|0-72|
 |복제본 수|1|1|1|1|1|1|
@@ -228,68 +239,69 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
+<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md)를 참조하세요.
 
-<sup>2</sup> 8kb에서 64 kb 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
+<sup>2</sup> 최대 IO 크기 값은 8KB~64KB입니다. 실제 IOPS는 워크로드에 따라 달라집니다. 자세한 내용은 [데이터 IO 거버넌스](resource-limits-logical-server.md#resource-governance)를 참조하세요.
 
-<sup>3</sup> 개별 데이터베이스에 대 한 최대 동시 작업자 (요청)의 경우 [단일 데이터베이스 리소스 제한](resource-limits-vcore-single-databases.md)을 참조 하세요. 예를 들어 탄력적 풀이 Gen5를 사용 하 고 데이터베이스당 최대 vCore가 2로 설정 된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정 된 경우 최대 동시 작업자 값은 vCore 당 최대 100 동시 작업자 수는 Gen5 이므로 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
+<sup>3</sup> 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 한도](resource-limits-vcore-single-databases.md)를 참조하세요. 예를 들어, 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore가 2로 설정된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정된 경우 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 값은 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
-## <a name="general-purpose---provisioned-compute---dc-series"></a>범용 프로 비전 된 계산-DC 시리즈
+## <a name="general-purpose---provisioned-compute---dc-series"></a>범용 - 프로비저닝된 컴퓨팅 - DC 시리즈
 
 |컴퓨팅 크기(서비스 목표)|GP_DC_2|GP_DC_4|GP_DC_6|GP_DC_8|
 |:--- | --: |--: |--: |--: |
 |컴퓨팅 세대|DC|DC|DC|DC|
 |vCore 수|2|4|6|8|
 |메모리(GB)|9|18|27|36|
-|풀 당 최대 Db 수 <sup>1</sup>|100|400|400|400|
+|풀당 최대 DB 수 <sup>1</sup>|100|400|400|400|
 |Columnstore 지원 여부|예|예|예|예|
 |메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(GB)|756|1536|2048|2048|
 |최대 로그 크기(GB)|227|461|614|614|
-|TempDB 최대 데이터 크기 (GB)|64|128|192|256|
+|TempDB 최대 데이터 크기(GB)|64|128|192|256|
 |스토리지 유형|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|프리미엄(원격) 스토리지|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
-|풀 당 최대 데이터 IOPS <sup>2</sup>|800|1600|2400|3200|
-|풀 당 최대 로그 전송률 (MBps)|12|24|36|48|
-|풀 당 최대 동시 작업자 수 (요청) <sup>3</sup>|168|336|504|672|
-|풀 당 최대 동시 로그인 수 (요청) <sup>3</sup>|168|336|504|672|
+|풀당 최대 데이터 IOPS <sup>2</sup>|800|1600|2400|3200|
+|풀당 최대 로그 속도(MBps)|12|24|36|48|
+|풀당 최대 동시 작업자(요청) <sup>3</sup>|168|336|504|672|
+|풀당 최대 동시 로그인(요청) 수 <sup>3</sup>|168|336|504|672|
 |최대 동시 세션|30,000|30,000|30,000|30,000|
-|데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|2|2 ... 4|2 ... 6|2 ... 8|
+|데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|2|2...4|2...6|2...8|
 |복제본 수|1|1|1|1|
 |다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|
 |읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
+<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md)를 참조하세요.
 
-<sup>2</sup> 8kb에서 64 kb 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
+<sup>2</sup> 최대 IO 크기 값은 8KB~64KB입니다. 실제 IOPS는 워크로드에 따라 달라집니다. 자세한 내용은 [데이터 IO 거버넌스](resource-limits-logical-server.md#resource-governance)를 참조하세요.
 
-<sup>3</sup> 개별 데이터베이스에 대 한 최대 동시 작업자 (요청)의 경우 [단일 데이터베이스 리소스 제한](resource-limits-vcore-single-databases.md)을 참조 하세요. 예를 들어 탄력적 풀이 Gen5를 사용 하 고 데이터베이스당 최대 vCore가 2로 설정 된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정 된 경우 최대 동시 작업자 값은 vCore 당 최대 100 동시 작업자 수는 Gen5 이므로 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
+<sup>3</sup> 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 한도](resource-limits-vcore-single-databases.md)를 참조하세요. 예를 들어, 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore가 2로 설정된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정된 경우 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 값은 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
-## <a name="business-critical---provisioned-compute---gen4"></a>중요 비즈니스용 프로 비전 된 계산-Gen4
+## <a name="business-critical---provisioned-compute---gen4"></a>중요 비즈니스용 - 프로비저닝된 컴퓨팅 - Gen4
 
 > [!IMPORTANT]
-> 새 Gen4 데이터베이스는 오스트레일리아 동부 또는 브라질 남부 지역에서 더 이상 지원 되지 않습니다.
+> 새 Gen4 데이터베이스는 오스트레일리아 동부 또는 브라질 남부 지역에서 더 이상 지원되지 않습니다.
 
-### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>중요 비즈니스용 서비스 계층: 4 세대 계산 플랫폼 (1 부)
+### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>중요 비즈니스용 서비스 계층: 4세대 컴퓨팅 플랫폼(1부)
 
 |컴퓨팅 크기(서비스 목표)|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
 |컴퓨팅 세대|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCore 수|2|3|4|5|6|
 |메모리(GB)|14|21|28|35|42|
-|풀 당 최대 Db 수 <sup>1</sup>|50|100|100|100|100|
+|풀당 최대 DB 수 <sup>1</sup>|50|100|100|100|100|
 |Columnstore 지원 여부|예|예|예|예|예|
 |메모리 내 OLTP 스토리지(GB)|2|3|4|5|6|
 |스토리지 유형|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|
 |최대 데이터 크기(GB)|1024|1024|1024|1024|1024|
 |최대 로그 크기(GB)|307|307|307|307|307|
-|TempDB 최대 데이터 크기 (GB)|64|96|128|160|192|
+|TempDB 최대 데이터 크기(GB)|64|96|128|160|192|
+|[최대 로컬 스토리지 크기](resource-limits-logical-server.md#storage-space-governance)(GB)|1356|1356|1356|1356|1356|
 |IO 대기 시간(근사치)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|
-|풀 당 최대 데이터 IOPS <sup>2</sup>|9,000|13,500|18,000|22500|27000|
-|풀 당 최대 로그 전송률 (MBps)|20|30|40|50|60|
-|풀 당 최대 동시 작업자 수 (요청) <sup>3</sup>|420|630|840|1050|1260|
-|풀 당 최대 동시 로그인 수 (요청) <sup>3</sup>|420|630|840|1050|1260|
+|풀당 최대 데이터 IOPS <sup>2</sup>|9,000|13,500|18,000|22,500|27,000|
+|풀당 최대 로그 속도(MBps)|20|30|40|50|60|
+|풀당 최대 동시 작업자(요청) <sup>3</sup>|420|630|840|1050|1260|
+|풀당 최대 동시 로그인(요청) 수 <sup>3</sup>|420|630|840|1050|1260|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|
 |데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |복제본 수|4|4|4|4|4|
@@ -297,31 +309,32 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |읽기 확장|예|예|예|예|예|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
+<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md)를 참조하세요.
 
-<sup>2</sup> 8kb에서 64 kb 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
+<sup>2</sup> 최대 IO 크기 값은 8KB~64KB입니다. 실제 IOPS는 워크로드에 따라 달라집니다. 자세한 내용은 [데이터 IO 거버넌스](resource-limits-logical-server.md#resource-governance)를 참조하세요.
 
-<sup>3</sup> 개별 데이터베이스에 대 한 최대 동시 작업자 (요청)의 경우 [단일 데이터베이스 리소스 제한](resource-limits-vcore-single-databases.md)을 참조 하세요. 예를 들어 탄력적 풀이 Gen5를 사용 하 고 데이터베이스당 최대 vCore가 2로 설정 된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정 된 경우 최대 동시 작업자 값은 vCore 당 최대 100 동시 작업자 수는 Gen5 이므로 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
+<sup>3</sup> 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 한도](resource-limits-vcore-single-databases.md)를 참조하세요. 예를 들어, 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore가 2로 설정된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정된 경우 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 값은 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
-### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>중요 비즈니스용 서비스 계층: 4 세대 계산 플랫폼 (2 부)
+### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>중요 비즈니스용 서비스 계층: 4세대 컴퓨팅 플랫폼(2부)
 
 |컴퓨팅 크기(서비스 목표)|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |컴퓨팅 세대|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCore 수|7|8|9|10|16|24|
 |메모리(GB)|49|56|63|70|112|159.5|
-|풀 당 최대 Db 수 <sup>1</sup>|100|100|100|100|100|100|
+|풀당 최대 DB 수 <sup>1</sup>|100|100|100|100|100|100|
 |Columnstore 지원 여부|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |메모리 내 OLTP 스토리지(GB)|7|8|9.5|11|20|36|
 |스토리지 유형|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|
 |최대 데이터 크기(GB)|1024|1024|1024|1024|1024|1024|
 |최대 로그 크기(GB)|307|307|307|307|307|307|
-|TempDB 최대 데이터 크기 (GB)|224|256|288|320|512|768|
+|TempDB 최대 데이터 크기(GB)|224|256|288|320|512|768|
+|[최대 로컬 스토리지 크기](resource-limits-logical-server.md#storage-space-governance)(GB)|1356|1356|1356|1356|1356|1356|
 |IO 대기 시간(근사치)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|
-|풀 당 최대 데이터 IOPS <sup>2</sup>|31500|36000|40500|45,000|72000|96000|
-|풀 당 최대 로그 전송률 (MBps)|70|80|80|80|80|80|
-|풀 당 최대 동시 작업자 수 (요청) <sup>3</sup>|1470|1,680|1890|2100|3,360|5040|
-|풀 당 최대 동시 로그인 수 (요청) <sup>3</sup>|1470|1,680|1890|2100|3,360|5040|
+|풀당 최대 데이터 IOPS <sup>2</sup>|31,500|36,000|40,500|45,000|72,000|96,000|
+|풀당 최대 로그 속도(MBps)|70|80|80|80|80|80|
+|풀당 최대 동시 작업자(요청) <sup>3</sup>|1470|1,680|1890|2100|3,360|5040|
+|풀당 최대 동시 로그인(요청) 수 <sup>3</sup>|1470|1,680|1890|2100|3,360|5040|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|
 |데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |복제본 수|4|4|4|4|4|4|
@@ -329,33 +342,34 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |읽기 확장|예|예|예|예|예|예|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
+<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md)를 참조하세요.
 
-<sup>2</sup> 8kb에서 64 kb 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
+<sup>2</sup> 최대 IO 크기 값은 8KB~64KB입니다. 실제 IOPS는 워크로드에 따라 달라집니다. 자세한 내용은 [데이터 IO 거버넌스](resource-limits-logical-server.md#resource-governance)를 참조하세요.
 
-<sup>3</sup> 개별 데이터베이스에 대 한 최대 동시 작업자 (요청)의 경우 [단일 데이터베이스 리소스 제한](resource-limits-vcore-single-databases.md)을 참조 하세요. 예를 들어 탄력적 풀이 Gen5를 사용 하 고 데이터베이스당 최대 vCore가 2로 설정 된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정 된 경우 최대 동시 작업자 값은 vCore 당 최대 100 동시 작업자 수는 Gen5 이므로 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
+<sup>3</sup> 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 한도](resource-limits-vcore-single-databases.md)를 참조하세요. 예를 들어, 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore가 2로 설정된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정된 경우 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 값은 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
-## <a name="business-critical---provisioned-compute---gen5"></a>중요 비즈니스용 프로 비전 된 계산-Gen5
+## <a name="business-critical---provisioned-compute---gen5"></a>중요 비즈니스용 - 프로비저닝된 컴퓨팅 - Gen5
 
-### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>중요 비즈니스용 서비스 계층: 5 세대 계산 플랫폼 (1 부)
+### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>중요 비즈니스용 서비스 계층: 5세대 컴퓨팅 플랫폼(1부)
 
 |컴퓨팅 크기(서비스 목표)|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |컴퓨팅 세대|5세대|5세대|5세대|5세대|5세대|5세대|
 |vCore 수|4|6|8|10|12|14|
 |메모리(GB)|20.8|31.1|41.5|51.9|62.3|72.7|
-|풀 당 최대 Db 수 <sup>1</sup>|50|100|100|100|100|100|
+|풀당 최대 DB 수 <sup>1</sup>|50|100|100|100|100|100|
 |Columnstore 지원 여부|예|예|예|예|예|예|
 |메모리 내 OLTP 스토리지(GB)|3.14|4.71|6.28|8.65|11.02|13.39|
 |최대 데이터 크기(GB)|1024|1536|1536|1536|3072|3072|
 |최대 로그 크기(GB)|307|307|461|461|922|922|
-|TempDB 최대 데이터 크기 (GB)|128|192|256|320|384|448|
+|TempDB 최대 데이터 크기(GB)|128|192|256|320|384|448|
+|[최대 로컬 스토리지 크기](resource-limits-logical-server.md#storage-space-governance)(GB)|4829|4829|4829|4829|4829|4829|
 |스토리지 유형|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|
 |IO 대기 시간(근사치)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|
-|풀 당 최대 데이터 IOPS <sup>2</sup>|18,000|27000|36000|45,000|54,000|63000|
-|풀 당 최대 로그 전송률 (MBps)|60|90|120|120|120|120|
-|풀 당 최대 동시 작업자 수 (요청) <sup>3</sup>|420|630|840|1050|1260|1470|
-|풀 당 최대 동시 로그인 수 (요청) <sup>3</sup>|420|630|840|1050|1260|1470|
+|풀당 최대 데이터 IOPS <sup>2</sup>|18,000|27,000|36,000|45,000|54,000|63,000|
+|풀당 최대 로그 속도(MBps)|60|90|120|120|120|120|
+|풀당 최대 동시 작업자(요청) <sup>3</sup>|420|630|840|1050|1260|1470|
+|풀당 최대 동시 로그인(요청) 수 <sup>3</sup>|420|630|840|1050|1260|1470|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|
 |데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |복제본 수|4|4|4|4|4|4|
@@ -363,31 +377,32 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |읽기 확장|예|예|예|예|예|예|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
+<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md)를 참조하세요.
 
-<sup>2</sup> 8kb에서 64 kb 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
+<sup>2</sup> 최대 IO 크기 값은 8KB~64KB입니다. 실제 IOPS는 워크로드에 따라 달라집니다. 자세한 내용은 [데이터 IO 거버넌스](resource-limits-logical-server.md#resource-governance)를 참조하세요.
 
-<sup>3</sup> 개별 데이터베이스에 대 한 최대 동시 작업자 (요청)의 경우 [단일 데이터베이스 리소스 제한](resource-limits-vcore-single-databases.md)을 참조 하세요. 예를 들어 탄력적 풀이 Gen5를 사용 하 고 데이터베이스당 최대 vCore가 2로 설정 된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정 된 경우 최대 동시 작업자 값은 vCore 당 최대 100 동시 작업자 수는 Gen5 이므로 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
+<sup>3</sup> 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 한도](resource-limits-vcore-single-databases.md)를 참조하세요. 예를 들어, 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore가 2로 설정된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정된 경우 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 값은 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
-### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>중요 비즈니스용 서비스 계층: 5 세대 계산 플랫폼 (2 부)
+### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>중요 비즈니스용 서비스 계층: 5세대 컴퓨팅 플랫폼(2부)
 
 |컴퓨팅 크기(서비스 목표)|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |컴퓨팅 세대|5세대|5세대|5세대|5세대|5세대|5세대|5세대|
 |vCore 수|16|18|20|24|32|40|80|
 |메모리(GB)|83|93.4|103.8|124.6|166.1|207.6|415.2|
-|풀 당 최대 Db 수 <sup>1</sup>|100|100|100|100|100|100|100|
+|풀당 최대 DB 수 <sup>1</sup>|100|100|100|100|100|100|100|
 |Columnstore 지원 여부|예|예|예|예|예|예|예|
 |메모리 내 OLTP 스토리지(GB)|15.77|18.14|20.51|25.25|37.94|52.23|131.68|
 |최대 데이터 크기(GB)|3072|3072|3072|4096|4096|4096|4096|
 |최대 로그 크기(GB)|922|922|922|1,229|1,229|1,229|1,229|
-|TempDB 최대 데이터 크기 (GB)|512|576|640|768|1024|1280|2560|
+|TempDB 최대 데이터 크기(GB)|512|576|640|768|1024|1280|2560|
+|[최대 로컬 스토리지 크기](resource-limits-logical-server.md#storage-space-governance)(GB)|4829|4829|4829|4829|4829|4829|4829|
 |스토리지 유형|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|
 |IO 대기 시간(근사치)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|
-|풀 당 최대 데이터 IOPS <sup>2</sup>|72000|81000|90,000|108000|144000|180,000|256000|
-|풀 당 최대 로그 전송률 (MBps)|120|120|120|120|120|120|120|
-|풀 당 최대 동시 작업자 수 (요청) <sup>3</sup>|1,680|1890|2100|2520|3,360|4200|8400|
-|풀 당 최대 동시 로그인 수 (요청) <sup>3</sup>|1,680|1890|2100|2520|3,360|4200|8400|
+|풀당 최대 데이터 IOPS <sup>2</sup>|72,000|81,000|90,000|108,000|144,000|180,000|256,000|
+|풀당 최대 로그 속도(MBps)|120|120|120|120|120|120|120|
+|풀당 최대 동시 작업자(요청) <sup>3</sup>|1,680|1890|2100|2520|3,360|4200|8400|
+|풀당 최대 동시 로그인(요청) 수 <sup>3</sup>|1,680|1890|2100|2520|3,360|4200|8400|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...20, 24, 32, 40|0, 0.25, 0.5, 1...20, 24, 32, 40, 80|
 |복제본 수|4|4|4|4|4|4|4|
@@ -395,121 +410,124 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 |읽기 확장|예|예|예|예|예|예|예|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
+<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md)를 참조하세요.
 
-<sup>2</sup> 8kb에서 64 kb 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
+<sup>2</sup> 최대 IO 크기 값은 8KB~64KB입니다. 실제 IOPS는 워크로드에 따라 달라집니다. 자세한 내용은 [데이터 IO 거버넌스](resource-limits-logical-server.md#resource-governance)를 참조하세요.
 
-<sup>3</sup> 개별 데이터베이스에 대 한 최대 동시 작업자 (요청)의 경우 [단일 데이터베이스 리소스 제한](resource-limits-vcore-single-databases.md)을 참조 하세요. 예를 들어 탄력적 풀이 Gen5를 사용 하 고 데이터베이스당 최대 vCore가 2로 설정 된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정 된 경우 최대 동시 작업자 값은 vCore 당 최대 100 동시 작업자 수는 Gen5 이므로 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
+<sup>3</sup> 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 한도](resource-limits-vcore-single-databases.md)를 참조하세요. 예를 들어, 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore가 2로 설정된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정된 경우 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 값은 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
-## <a name="business-critical---provisioned-compute---m-series"></a>중요 비즈니스용 프로 비전 된 계산-M 시리즈
+## <a name="business-critical---provisioned-compute---m-series"></a>중요 비즈니스용 - 프로비저닝된 컴퓨팅 - M 시리즈
 
-### <a name="m-series-compute-generation-part-1"></a>M 시리즈 계산 생성 (1 부)
+### <a name="m-series-compute-generation-part-1"></a>M 시리즈 컴퓨팅 세대(1부)
 
 |컴퓨팅 크기(서비스 목표)|BC_M_8|BC_M_10|BC_M_12|BC_M_14|BC_M_16|BC_M_18|
 |:---| ---:|---:|---:|---:|---:|---:|
 |컴퓨팅 세대|M 시리즈|M 시리즈|M 시리즈|M 시리즈|M 시리즈|M 시리즈|
 |vCore 수|8|10|12|14|16|18|
 |메모리(GB)|235.4|294.3|353.2|412.0|470.9|529.7|
-|풀 당 최대 Db 수 <sup>1</sup>|100|100|100|100|100|100|
+|풀당 최대 DB 수 <sup>1</sup>|100|100|100|100|100|100|
 |Columnstore 지원 여부|예|예|예|예|예|예|
 |메모리 내 OLTP 스토리지(GB)|64|80|96|112|128|150|
-|최대 데이터 크기(GB)|512|640|768|896|1024|1152|
+|최대 데이터 크기(GB)|512|640|768|896|1024|1,152|
 |최대 로그 크기(GB)|171|213|256|299|341|384|
-|TempDB 최대 데이터 크기 (GB)|256|320|384|448|512|576|
+|TempDB 최대 데이터 크기(GB)|256|320|384|448|512|576|
+|[최대 로컬 스토리지 크기](resource-limits-logical-server.md#storage-space-governance)(GB)|13836|13836|13836|13836|13836|13836|
 |스토리지 유형|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|
 |IO 대기 시간(근사치)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|
-|풀 당 최대 데이터 IOPS <sup>2</sup>|12499|15624|18748|21873|24998|28123|
-|풀 당 최대 로그 전송률 (MBps)|48|60|72|84|96|108|
-|풀 당 최대 동시 작업자 수 (요청) <sup>3</sup>|800|1,000|1,200|1,400|1,600|1,800|
-|풀 당 최대 동시 로그인 수 (요청) <sup>3</sup>|800|1,000|1,200|1,400|1,600|1,800|
+|풀당 최대 데이터 IOPS <sup>2</sup>|12,499|15,624|18,748|21,873|24,998|28,123|
+|풀당 최대 로그 속도(MBps)|48|60|72|84|96|108|
+|풀당 최대 동시 작업자(요청) <sup>3</sup>|800|1,000|1,200|1,400|1,600|1,800|
+|풀당 최대 동시 로그인(요청) 수 <sup>3</sup>|800|1,000|1,200|1,400|1,600|1,800|
 |최대 동시 세션|30000|30000|30000|30000|30000|30000|
 |데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0-8|0-10|0-12|0-14|0-16|0-18|
 |복제본 수|4|4|4|4|4|4|
-|다중 AZ|예|예|예|예|예|예|
+|다중 AZ|예|아니요|아니요|아니요|아니요|예|
 |읽기 확장|예|예|예|예|예|예|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
+<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md)를 참조하세요.
 
-<sup>2</sup> 8kb에서 64 kb 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
+<sup>2</sup> 최대 IO 크기 값은 8KB~64KB입니다. 실제 IOPS는 워크로드에 따라 달라집니다. 자세한 내용은 [데이터 IO 거버넌스](resource-limits-logical-server.md#resource-governance)를 참조하세요.
 
-<sup>3</sup> 개별 데이터베이스에 대 한 최대 동시 작업자 (요청)의 경우 [단일 데이터베이스 리소스 제한](resource-limits-vcore-single-databases.md)을 참조 하세요. 예를 들어 탄력적 풀이 Gen5를 사용 하 고 데이터베이스당 최대 vCore가 2로 설정 된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정 된 경우 최대 동시 작업자 값은 vCore 당 최대 100 동시 작업자 수는 Gen5 이므로 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
+<sup>3</sup> 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 한도](resource-limits-vcore-single-databases.md)를 참조하세요. 예를 들어, 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore가 2로 설정된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정된 경우 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 값은 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
-탄력적 풀의 모든 vCore가 사용 중인 경우 풀의 각 데이터베이스는 동일한 양의 컴퓨팅 리소스를 받아서 쿼리를 처리합니다. Azure SQL Database는 동일한 계산 시간 조각을 보장 하 여 데이터베이스 간에 리소스 공유를 제공 합니다. 데이터베이스당 최소 vCore 수가 0이 아닌 값으로 설정되면, 탄력적 풀 리소스 공유 공정성이 각 데이터베이스에 대해 보장된 리소스의 양에 추가됩니다.
+탄력적 풀의 모든 vCore가 사용 중인 경우 풀의 각 데이터베이스는 동일한 양의 컴퓨팅 리소스를 받아서 쿼리를 처리합니다. Azure SQL Database는 같은 분량의 컴퓨팅 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 데이터베이스당 최소 vCore 수가 0이 아닌 값으로 설정되면, 탄력적 풀 리소스 공유 공정성이 각 데이터베이스에 대해 보장된 리소스의 양에 추가됩니다.
 
-### <a name="m-series-compute-generation-part-2"></a>M 시리즈 계산 생성 (2 부)
+### <a name="m-series-compute-generation-part-2"></a>M 시리즈 컴퓨팅 세대(2부)
 
 |컴퓨팅 크기(서비스 목표)|BC_M_20|BC_M_24|BC_M_32|BC_M_64|BC_M_128|
 |:---| ---:|---:|---:|---:|---:|
 |컴퓨팅 세대|M 시리즈|M 시리즈|M 시리즈|M 시리즈|M 시리즈|
 |vCore 수|20|24|32|64|128|
 |메모리(GB)|588.6|706.3|941.8|1883.5|3767.0|
-|풀 당 최대 Db 수 <sup>1</sup>|100|100|100|100|100|
+|풀당 최대 DB 수 <sup>1</sup>|100|100|100|100|100|
 |Columnstore 지원 여부|예|예|예|예|예|
 |메모리 내 OLTP 스토리지(GB)|172|216|304|704|1768|
 |최대 데이터 크기(GB)|1280|1536|2048|4096|4096|
 |최대 로그 크기(GB)|427|512|683|1024|1024|
-|TempDB 최대 데이터 크기 (GB)|640|768|1024|2048|4096|
+|TempDB 최대 데이터 크기(GB)|640|768|1024|2048|4096|
+|[최대 로컬 스토리지 크기](resource-limits-logical-server.md#storage-space-governance)(GB)|13836|13836|13836|13836|13836|
 |스토리지 유형|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|
 |IO 대기 시간(근사치)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|
-|풀 당 최대 데이터 IOPS <sup>2</sup>|31248|37497|49996|99993|160,000|
-|풀 당 최대 로그 전송률 (MBps)|120|144|192|264|264|
-|풀 당 최대 동시 작업자 수 (요청) <sup>3</sup>|2,000|2,400|3,200|6,400|12,800|
-|풀 당 최대 동시 로그인 수 (요청) <sup>3</sup>|2,000|2,400|3,200|6,400|12,800|
+|풀당 최대 데이터 IOPS <sup>2</sup>|31,248|37,497|49,996|99,993|160,000|
+|풀당 최대 로그 속도(MBps)|120|144|192|264|264|
+|풀당 최대 동시 작업자(요청) <sup>3</sup>|2,000|2,400|3,200|6,400|12,800|
+|풀당 최대 동시 로그인(요청) 수 <sup>3</sup>|2,000|2,400|3,200|6,400|12,800|
 |최대 동시 세션|30000|30000|30000|30000|30000|
 |복제본 수|4|4|4|4|4|
-|다중 AZ|예|예|예|예|예|
+|다중 AZ|예|아니요|아니요|아니요|예|
 |읽기 확장|예|예|예|예|예|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
+<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md)를 참조하세요.
 
-<sup>2</sup> 8kb에서 64 kb 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
+<sup>2</sup> 최대 IO 크기 값은 8KB~64KB입니다. 실제 IOPS는 워크로드에 따라 달라집니다. 자세한 내용은 [데이터 IO 거버넌스](resource-limits-logical-server.md#resource-governance)를 참조하세요.
 
-<sup>3</sup> 개별 데이터베이스에 대 한 최대 동시 작업자 (요청)의 경우 [단일 데이터베이스 리소스 제한](resource-limits-vcore-single-databases.md)을 참조 하세요. 예를 들어 탄력적 풀이 Gen5를 사용 하 고 데이터베이스당 최대 vCore가 2로 설정 된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정 된 경우 최대 동시 작업자 값은 vCore 당 최대 100 동시 작업자 수는 Gen5 이므로 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
+<sup>3</sup> 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 한도](resource-limits-vcore-single-databases.md)를 참조하세요. 예를 들어, 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore가 2로 설정된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정된 경우 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 값은 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
-탄력적 풀의 모든 vCore가 사용 중인 경우 풀의 각 데이터베이스는 동일한 양의 컴퓨팅 리소스를 받아서 쿼리를 처리합니다. Azure SQL Database는 동일한 계산 시간 조각을 보장 하 여 데이터베이스 간에 리소스 공유를 제공 합니다. 데이터베이스당 최소 vCore 수가 0이 아닌 값으로 설정되면, 탄력적 풀 리소스 공유 공정성이 각 데이터베이스에 대해 보장된 리소스의 양에 추가됩니다.
+탄력적 풀의 모든 vCore가 사용 중인 경우 풀의 각 데이터베이스는 동일한 양의 컴퓨팅 리소스를 받아서 쿼리를 처리합니다. Azure SQL Database는 같은 분량의 컴퓨팅 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 데이터베이스당 최소 vCore 수가 0이 아닌 값으로 설정되면, 탄력적 풀 리소스 공유 공정성이 각 데이터베이스에 대해 보장된 리소스의 양에 추가됩니다.
 
-## <a name="business-critical---provisioned-compute---dc-series"></a>업무상 중요-프로 비전 된 계산-DC 시리즈
+## <a name="business-critical---provisioned-compute---dc-series"></a>중요 비즈니스용 - 프로비저닝된 컴퓨팅 - DC 시리즈
 
 |컴퓨팅 크기(서비스 목표)|BC_DC_2|BC_DC_4|BC_DC_6|BC_DC_8|
 |:--- | --: |--: |--: |--: |
 |컴퓨팅 세대|DC|DC|DC|DC|
 |vCore 수|2|4|6|8|
 |메모리(GB)|9|18|27|36|
-|풀 당 최대 Db 수 <sup>1</sup>|50|100|100|100|
+|풀당 최대 DB 수 <sup>1</sup>|50|100|100|100|
 |Columnstore 지원 여부|예|예|예|예|
 |메모리 내 OLTP 스토리지(GB)|1.7|3.7|5.9|8.2|
 |최대 데이터 크기(GB)|768|768|768|768|
 |최대 로그 크기(GB)|230|230|230|230|
-|TempDB 최대 데이터 크기 (GB)|64|128|192|256|
+|TempDB 최대 데이터 크기(GB)|64|128|192|256|
+|[최대 로컬 스토리지 크기](resource-limits-logical-server.md#storage-space-governance)(GB)|1406|1406|1406|1406|
 |스토리지 유형|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|
 |IO 대기 시간(근사치)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|
-|풀 당 최대 데이터 IOPS <sup>2</sup>|15750|31500|47250|56000|
-|풀 당 최대 로그 전송률 (MBps)|20|60|90|120|
-|풀 당 최대 동시 작업자 수 (요청) <sup>3</sup>|168|336|504|672|
-|풀 당 최대 동시 로그인 수 (요청) <sup>3</sup>|168|336|504|672|
+|풀당 최대 데이터 IOPS <sup>2</sup>|15750|31500|47250|56000|
+|풀당 최대 로그 속도(MBps)|20|60|90|120|
+|풀당 최대 동시 작업자(요청) <sup>3</sup>|168|336|504|672|
+|풀당 최대 동시 로그인(요청) 수 <sup>3</sup>|168|336|504|672|
 |최대 동시 세션|30,000|30,000|30,000|30,000|
-|데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|2|2 ... 4|2 ... 6|2 ... 8|
+|데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|2|2...4|2...6|2...8|
 |복제본 수|4|4|4|4|
-|다중 AZ|예|예|예|예|
+|다중 AZ|예|아니요|아니요|예|
 |읽기 확장|예|예|예|예|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md) 를 참조 하세요.
+<sup>1</sup> 추가 고려 사항은 [조밀한 탄력적 풀의 리소스 관리](elastic-pool-resource-management.md)를 참조하세요.
 
-<sup>2</sup> 8kb에서 64 kb 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
+<sup>2</sup> 최대 IO 크기 값은 8KB~64KB입니다. 실제 IOPS는 워크로드에 따라 달라집니다. 자세한 내용은 [데이터 IO 거버넌스](resource-limits-logical-server.md#resource-governance)를 참조하세요.
 
-<sup>3</sup> 개별 데이터베이스에 대 한 최대 동시 작업자 (요청)의 경우 [단일 데이터베이스 리소스 제한](resource-limits-vcore-single-databases.md)을 참조 하세요. 예를 들어 탄력적 풀이 Gen5를 사용 하 고 데이터베이스당 최대 vCore가 2로 설정 된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정 된 경우 최대 동시 작업자 값은 vCore 당 최대 100 동시 작업자 수는 Gen5 이므로 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
+<sup>3</sup> 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 한도](resource-limits-vcore-single-databases.md)를 참조하세요. 예를 들어, 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore가 2로 설정된 경우 최대 동시 작업자 값은 200입니다.  데이터베이스당 최대 vCore가 0.5로 설정된 경우 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 값은 50입니다. vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
 ## <a name="database-properties-for-pooled-databases"></a>풀링된 데이터베이스에 대한 데이터베이스 속성
 
 다음 표에서 풀링된 데이터베이스에 대한 속성을 설명합니다.
 
 > [!NOTE]
-> 탄력적 풀의 개별 데이터베이스에 대 한 리소스 제한은 일반적으로 동일한 계산 크기 (서비스 목표)를 갖는 풀 외부의 단일 데이터베이스와 동일 합니다. 예를 들어 GP_Gen4_1 데이터베이스에 대한 최대 동시 작업자 수는 200명입니다. 따라서 GP_Gen4_1 풀의 데이터베이스에 대한 최대 동시 작업자 수도 200명입니다. GP_Gen4_1 풀에 대한 총 동시 작업자 수는 210명입니다.
+> 탄력적 풀의 개별 데이터베이스에 대한 리소스 제한은 일반적으로 컴퓨팅 크기가 동일한 풀 외부의 단일 데이터베이스에 대한 리소스 제한과 동일합니다(서비스 목표). 예를 들어 GP_Gen4_1 데이터베이스에 대한 최대 동시 작업자 수는 200명입니다. 따라서 GP_Gen4_1 풀의 데이터베이스에 대한 최대 동시 작업자 수도 200명입니다. GP_Gen4_1 풀에 대한 총 동시 작업자 수는 210명입니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 데이터베이스당 최대 vCore 수 |풀의 다른 데이터베이스에서 사용량에 따라 사용할 수 있는 경우 풀의 모든 데이터베이스에서 사용할 수 있는 최대 vCore 수입니다. 데이터베이스당 최대 vCore 수는 데이터베이스에 대한 리소스를 보장하지 않습니다. 풀에 있는 모든 데이터베이스에 적용되는 전역 설정입니다. 데이터베이스당 최대 vCore 수는 데이터베이스 사용량의 최고값을 처리할 수 있을 만큼 충분히 높게 설정합니다. 풀은 일반적으로 모든 데이터베이스가 동시에 최대로 사용되지 않을 경우 데이터베이스에 대해 핫 및 콜드 사용률 패턴을 가정하므로 일정 수준의 오버커밋이 예상됩니다.|
 | 데이터베이스당 최소 vCore 수 |풀의 데이터베이스가 보장되는 최소 vCore 수입니다. 풀에 있는 모든 데이터베이스에 적용되는 전역 설정입니다. 데이터베이스당 최소 vCore 수를 0으로 설정할 수 있으며 기본값이기도 합니다. 이 속성은 0과 데이터베이스당 평균 vCore 사용량 사이의 값으로 설정됩니다. 풀의 데이터베이스 수와 데이터베이스당 최소 vCore 수를 곱한 값은 풀당 vCore 수를 초과할 수 없습니다.|
@@ -518,9 +536,9 @@ DTU 구매 모델 제한에 대해서는 [SQL DATABASE dtu 리소스 제한-탄�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 단일 데이터베이스에 대 한 vCore 리소스 제한은 [vcore 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한](resource-limits-vcore-single-databases.md) 을 참조 하세요.
-- 단일 데이터베이스에 대 한 DTU 리소스 제한의 경우 [dtu 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한](resource-limits-dtu-single-databases.md) 을 참조 하세요.
-- 탄력적 풀에 대 한 DTU 리소스 제한의 경우 [dtu 구매 모델을 사용 하 여 탄력적 풀에 대 한 리소스 제한](resource-limits-dtu-elastic-pools.md) 을 참조 하세요.
+- 단일 데이터베이스의 vCore 리소스 한도는 [vCore 구매 모델을 사용한 단일 데이터베이스의 리소스 한도](resource-limits-vcore-single-databases.md)를 참조하세요.
+- 단일 데이터베이스의 DTU 리소스 한도는 [DTU 구매 모델을 사용한 단일 데이터베이스의 리소스 한도](resource-limits-dtu-single-databases.md)를 참조하세요.
+- 탄력적 풀의 DTU 리소스 한도에 대해서는 [DTU 구매 모델을 사용하는 탄력적 풀의 리소스 한도](resource-limits-dtu-elastic-pools.md)를 참조하세요.
 - 관리되는 인스턴스에 대한 리소스 제한의 경우 [관리되는 인스턴스 리소스 제한](../managed-instance/resource-limits.md)을 참조하세요.
 - 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조하세요.
-- 논리 SQL server의 리소스 제한에 대 한 자세한 내용은 서버 및 구독 수준 제한에 대 한 자세한 내용은 [논리 sql server의 리소스 제한 개요](resource-limits-logical-server.md) 를 참조 하세요.
+- 논리 SQL Server의 리소스 한도에 대한 자세한 내용은 [논리 SQL 서버의 리소스 한도 개요](resource-limits-logical-server.md)를 참조하여 서버 및 구독 수준 한도에 대해 알아보세요.

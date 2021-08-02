@@ -10,13 +10,13 @@ ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
-ms.date: 11/14/2019
-ms.openlocfilehash: 0dcffe6731c177d1d45c569361fcb200f23af86c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/26/2021
+ms.openlocfilehash: b1748de761ad5180e2ddb670f31874620e4c5ae8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99095361"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111972000"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Azure SQL Database에서 서버에 대한 Virtual Network 서비스 엔드포인트 및 규칙 사용
 
@@ -182,7 +182,7 @@ PolyBase 및 COPY 문은 일반적으로 높은 처리량의 데이터 수집을
 
 ### <a name="sql-database-blob-auditing"></a>SQL Database Blob 감사
 
-Blob 감사는 사용자 고유의 스토리지 계정에 감사 로그를 푸시합니다. 이 스토리지 계정에서 가상 네트워크 서비스 엔드포인트 기능을 사용하는 경우 SQL Database에서 스토리지 계정으로의 연결이 끊어집니다.
+Azure SQL 감사는 고유한 스토리지 계정에 SQL 감사 로그를 쓸 수 있습니다. 이 스토리지 계정에서 가상 네트워크 서비스 엔드포인트 기능을 사용하는 경우 [VNet 및 방화벽 뒤에 있는 스토리지 계정에 감사를 작성](./audit-write-storage-account-behind-vnet-firewall.md)하는 방법을 참조하세요.
 
 ## <a name="add-a-virtual-network-firewall-rule-to-your-server"></a>서버에 가상 네트워크 방화벽 규칙 추가
 
@@ -225,7 +225,7 @@ PowerShell을 사용하여 **IgnoreMissingVNetServiceEndpoint** 플래그를 설
 
 ## <a name="powershell-alternative"></a>PowerShell 대체
 
-또한 스크립트는 PowerShell cmdlet **New-AzSqlServerVirtualNetworkRule** 또는 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용하여 가상 네트워크 규칙을 만들 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 SQL Database에 대한 가상 네트워크 서비스 엔드포인트 및 규칙 만들기][sql-db-vnet-service-endpoint-rule-powershell-md-52d]를 참조하세요.
+또한 스크립트는 PowerShell cmdlet **New-AzSqlServerVirtualNetworkRule** 또는 [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)를 사용하여 가상 네트워크 규칙을 만들 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 SQL Database에 대한 가상 네트워크 서비스 엔드포인트 및 규칙 만들기][sql-db-vnet-service-endpoint-rule-powershell-md-52d]를 참조하세요.
 
 ## <a name="rest-api-alternative"></a>REST API 대체
 

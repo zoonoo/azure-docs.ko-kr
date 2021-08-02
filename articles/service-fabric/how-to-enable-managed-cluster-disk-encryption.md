@@ -1,16 +1,17 @@
 ---
-title: Service Fabric 관리 클러스터(미리 보기) 노드에 디스크 암호화 사용
+title: Service Fabric 관리형 클러스터 노드에 디스크 암호화 사용
 description: ARM 템플릿을 사용하여 Windows에서 Azure Service Fabric 관리 클러스터 노드에 디스크 암호화를 사용하도록 설정하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 02/15/2021
-ms.openlocfilehash: aa6388d9d165cd149faae3c19b81320198fd0b02
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 5/10/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 800ebb11c1d191ca68222b1fa473cebbca0e8912
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127284"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671326"
 ---
-# <a name="enable-disk-encryption-for-service-fabric-managed-cluster-preview-nodes"></a>Service Fabric 관리 클러스터(미리 보기) 노드에 디스크 암호화 사용
+# <a name="enable-disk-encryption-for-service-fabric-managed-cluster-nodes"></a>Service Fabric 관리형 클러스터 노드에 디스크 암호화 사용
 
 이 가이드에서는 ARM(Azure Resource Manager) 템플릿을 통해 [가상 머신 확장 집합](../virtual-machine-scale-sets/disk-encryption-azure-resource-manager.md)에 대한 [Azure Disk Encryption](../virtual-machines/windows/disk-encryption-overview.md) 기능을 사용하여 Windows에서 Service Fabric 관리 클러스터 노드에 디스크 암호화를 사용하도록 설정하는 방법을 알아봅니다.
 
@@ -36,7 +37,7 @@ Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화
 
 ### <a name="create-key-vault-with-disk-encryption-enabled"></a>디스크 암호화가 설정된 키 자격 증명 모음 만들기
 
-다음 명령을 실행하여 디스크 암호화를 위한 새 키 자격 증명 모음을 만듭니다. 키 자격 증명 모음의 지역이 [Service Fabric 관리 클러스터에 대해 지원](faq-managed-cluster.md#what-regions-are-supported-in-the-preview)되는지, 클러스터와 동일한 지역인지 확인합니다.
+다음 명령을 실행하여 디스크 암호화를 위한 새 키 자격 증명 모음을 만듭니다. 키 자격 증명 모음의 지역이 [Service Fabric 관리 클러스터에 대해 지원](faq-managed-cluster.md#what-regions-are-supported)되는지, 클러스터와 동일한 지역인지 확인합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

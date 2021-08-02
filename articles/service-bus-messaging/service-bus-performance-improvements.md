@@ -4,18 +4,73 @@ description: broker 저장 메시지를 교환할 때 Azure Service Bus를 사�
 ms.topic: article
 ms.date: 03/09/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d4093d93da11e992ed9e6558a5386eb88f417ef9
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 2171ccd6657bcda2df25e76f48cee23d0f8a48a7
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967764"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111886685"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus 메시징을 사용한 성능 향상의 모범 사례
 
 이 문서에서는 조정된 메시지를 교환할 때 Azure Service Bus를 사용하여 성능을 최적화하는 방법에 대해 설명합니다. 이 문서의 첫 번째 부분에서는 성능 향상을 위한 다양한 메커니즘에 대해 설명합니다. 두 번째 부분은 특정 시나리오에서 최고의 성능을 제공하는 방식으로 Service Bus를 사용하는 지침을 제공합니다.
 
 이 문서 전반적으로 “클라이언트”라는 용어는 Service Bus에 액세스하는 모든 엔터티를 가리킵니다. 클라이언트는 발신기 또는 수신기의 역할을 수행할 수 있습니다. "발신기"라는 용어는 Service Bus 큐 클라이언트 또는 Service Bus 큐나 항목에 메시지를 보내는 항목 클라이언트에 사용됩니다. "수신기"라는 용어는 Service Bus 큐 또는 구독에서 메시지를 받는 Service Bus 큐 클라이언트 또는 구독 클라이언트를 나타냅니다.
+
+## <a name="resource-planning-and-considerations"></a>리소스 계획 및 고려 사항
+
+다른 기술 리소싱과 마찬가지로, Azure Service Bus가 애플리케이션에서 기대하는 성능을 제공하도록 하는 데 있어서 가장 중요한 요인은 신중한 계획 과정입니다. Service Bus 네임스페이스에 적합한 구성 또는 토폴로지는 사용 중인 애플리케이션 아키텍처 및 각 Service Bus 기능이 사용되는 방식과 관련된 다양한 요소에 따라 달라집니다.
+
+### <a name="pricing-tier"></a>가격 책정 계층
+
+Service Bus는 다양한 가격 책정 계층을 제공합니다. 애플리케이션 요구 사항에 적합한 계층을 선택하는 것이 좋습니다.
+
+   * **표준 계층** - 개발자/테스트 환경이나 애플리케이션이 제한의 **영향을 받지 않는** 낮은 처리량 시나리오에 적합합니다.
+
+   * **프리미엄 계층** - 예측 가능한 대기 시간 및 처리량이 요구되는 다양한 처리량 요구 사항이 있는 프로덕션 환경에 적합합니다. 또한 프리미엄 네임스페이스를 [자동으로 스케일링](automate-update-messaging-units.md)할 수 있는 Service Bus를 처리량 급증을 수용하도록 설정할 수 있습니다.
+
+> [!NOTE]
+> 올바른 계층을 선택하지 않으면 [제한](service-bus-throttling.md)될 수 있는 Service Bus 네임스페이스가 과도하게 발생할 위험이 있습니다.
+>
+> 제한으로 인해 데이터가 손실되지는 않습니다. Service Bus SDK를 활용하는 애플리케이션은 기본 재시도 정책을 사용하여 데이터가 Service Bus에서 최종적으로 수용되도록 할 수 있습니다.
+>
+
+### <a name="calculating-throughput-for-premium"></a>프리미엄 처리량 계산
+
+Service Bus로 전송되는 데이터는 이진으로 직렬화된 다음, 수신자가 받았을 때 역직렬화됩니다. 따라서 애플리케이션은 **메시지** 를 작업의 원자성 단위로 생각하는 반면, Service Bus는 바이트(또는 메가바이트)를 기준으로 처리량을 측정합니다.
+
+처리량 요구 사항을 계산할 때 Service Bus(수신)로 전송되는 데이터 및 Service Bus(송신)에서 수신되는 데이터를 고려합니다.
+
+예상대로, 함께 일괄로 처리할 수 있는 더 작은 메시지 페이로드의 경우 처리량이 더 높습니다.
+
+#### <a name="benchmarks"></a>벤치마크
+
+다음은 SB 네임스페이스에 대해 수신되는 예상 처리량을 확인하기 위해 실행할 수 있는 [GitHub 샘플](https://github.com/Azure-Samples/service-bus-dotnet-messaging-performance)입니다. 이 [벤치마크 테스트](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722)에서는 수신 및 송신의 MU(메시징 단위)당 약 4MB/초가 확인되었습니다.
+
+벤치마킹 샘플에서는 고급 기능을 사용하지 않으므로 애플리케이션에서 확인되는 처리량은 시나리오에 따라 달라집니다.
+
+#### <a name="compute-considerations"></a>컴퓨팅 고려 사항
+
+특정 Service Bus 기능을 사용하려면 예상 처리량을 줄일 수 있는 컴퓨팅 사용률이 필요합니다. 이러한 기능 중 일부는 다음과 같습니다.
+
+1. 세션
+2. 단일 항목에 대해 여러 구독으로 팬아웃
+3. 단일 구독에서 많은 필터 실행
+4. 예약된 메시지
+5. 지연된 메시지
+6. 트랜잭션
+7. 중복 제거 및 과거 기간
+8. 전달(한 엔터티에서 다른 엔터티로 전달)
+
+애플리케이션에서 위의 기능을 활용하며, 사용자가 예상된 처리량을 받지 못하는 경우 **CPU 사용** 메트릭을 검토하고 Service Bus 프리미엄 네임스페이스를 스케일 업하는 것을 고려할 수 있습니다.
+
+Azure Monitor를 활용하여 [Service Bus 네임스페이스를 자동으로 스케일링](automate-update-messaging-units.md)할 수도 있습니다.
+
+### <a name="sharding-across-namespaces"></a>네임스페이스 간 분할
+
+네임스페이스에 할당된 컴퓨팅(메시징 단위)을 스케일 업하는 것이 더 쉬운 방법이지만 처리량이 선형을 증가하지 **않을 수 있습니다**. 이것은 처리량을 제한할 수 있는 Service Bus 내부 요인(스토리지, 네트워크 등) 때문입니다.
+
+이 경우 해결 방법은 여러 Service Bus 프리미엄 네임스페이스에서 엔터티(큐 및 토픽)를 분할하는 것입니다. 서로 다른 Azure 지역에 있는 여러 네임스페이스에서 분할하는 것을 고려할 수도 있습니다.
 
 ## <a name="protocols"></a>프로토콜
 Service Bus를 사용하면 클라이언트에서 세 가지 프로토콜 중 하나를 통해 메시지를 보내고 받을 수 있습니다.
@@ -164,7 +219,7 @@ await processor.StartProcessingAsync();
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
-전체 <a href="https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues" target="_blank">소스 코드 예제<span class="docon docon-navigate-external x-hidden-focus"></span></a>는 GitHub 리포지토리를 참조하세요.
+전체 소스 코드 예제는 [GitHub 리포지토리](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues)를 참조하세요. 
 
 ```csharp
 var receiver = new MessageReceiver(connectionString, queueName, ReceiveMode.PeekLock);
@@ -192,7 +247,7 @@ receiver.RegisterMessageHandler(
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
-전체 <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/SendersReceiversWithQueues" target="_blank">소스 코드 예제<span class="docon docon-navigate-external x-hidden-focus"></span></a>는 GitHub 리포지토리를 참조하세요.
+전체 소스 코드 예제는 [GitHub 리포지토리](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/SendersReceiversWithQueues)를 참조하세요.
 
 ```csharp
 var factory = MessagingFactory.CreateFromConnectionString(connectionString);
@@ -307,9 +362,9 @@ var queue = await managementClient.CreateQueueAsync(queueDescription);
 ```
 
 자세한 내용은 다음 문서를 참조하세요.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.queuedescription.enablebatchedoperations" target="_blank">`Microsoft.Azure.ServiceBus.Management.QueueDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.subscriptiondescription.enablebatchedoperations" target="_blank">`Microsoft.Azure.ServiceBus.Management.SubscriptionDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.topicdescription.enablebatchedoperations" target="_blank">`Microsoft.Azure.ServiceBus.Management.TopicDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+- [QueueDescription.EnableBatchedOperations property](/dotnet/api/microsoft.azure.servicebus.management.queuedescription.enablebatchedoperations)
+- [SubscriptionDescription.EnabledBatchedOperations property](/dotnet/api/microsoft.azure.servicebus.management.subscriptiondescription.enablebatchedoperations)
+* [TopicDescription.EnableBatchedOperations](/dotnet/api/microsoft.azure.servicebus.management.topicdescription.enablebatchedoperations)
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
@@ -324,9 +379,9 @@ var queue = namespaceManager.CreateQueue(queueDescription);
 ```
 
 자세한 내용은 다음 문서를 참조하세요.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations" target="_blank">`Microsoft.ServiceBus.Messaging.QueueDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.enablebatchedoperations" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription.enablebatchedoperations" target="_blank">`Microsoft.ServiceBus.Messaging.TopicDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* [`Microsoft.ServiceBus.Messaging.QueueDescription.EnableBatchedOperations`](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations)
+* [`Microsoft.ServiceBus.Messaging.SubscriptionDescription.EnableBatchedOperations`](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.enablebatchedoperations)
+* [`Microsoft.ServiceBus.Messaging.TopicDescription.EnableBatchedOperations`](/dotnet/api/microsoft.servicebus.messaging.topicdescription.enablebatchedoperations).
 
 ---
 
@@ -358,15 +413,15 @@ var queue = namespaceManager.CreateQueue(queueDescription);
 
 자세한 내용은 다음 `PrefetchCount` 속성을 참조하세요.
 
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount" target="_blank">`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount" target="_blank">`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* [`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount`](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount)
+* [`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount`](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount)
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
 자세한 내용은 다음 `PrefetchCount` 속성을 참조하세요.
 
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount" target="_blank">`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* [`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount`](/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount)
+* [`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount`](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount)
 
 ---
 

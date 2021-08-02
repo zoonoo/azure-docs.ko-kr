@@ -1,14 +1,15 @@
 ---
 title: Azure Lighthouse에 고객 온보딩
-description: 고객을 Azure Lighthouse에 온보딩하고, Azure 위임 리소스 관리를 사용하여 고유한 테넌트를 통해 해당 리소스를 액세스하고 관리하는 방법을 알아봅니다.
+description: 고객을 Azure Lighthouse에 온보딩하여 테넌트의 사용자가 리소스에 액세스하고 관리할 수 있도록 하는 방법을 알아봅니다.
 ms.date: 05/25/2021
 ms.topic: how-to
-ms.openlocfilehash: 7b64a189fdf6b33fada1750b667260989d2827e8
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: de0520f7ed8be24ac19b4738828890877456f734
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376224"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078962"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Azure Lighthouse에 고객 온보딩
 

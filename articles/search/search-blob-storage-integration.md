@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: f61bf635cc61a2153a7bb016ef4b4711d7ba7391
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/14/2021
+ms.openlocfilehash: 6646a2e5a074219df13f3bf373edfc53310c8104
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91355298"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556607"
 ---
 # <a name="search-over-azure-blob-storage-content"></a>Azure Blob Storage 콘텐츠 검색
 
@@ -51,6 +51,10 @@ Azure Storage의 Blob은 [Azure Cognitive Search Blob Storage 인덱서](search-
 인덱서는 “문서 크래킹”을 수행하여 콘텐츠를 검사하는 Blob을 엽니다. 이 작업은 데이터 원본에 연결한 후 파이프라인에서 첫 번째 단계입니다. Blob 데이터의 경우에는 PDF, Office 문서 및 기타 콘텐츠 형식이 검색되는 단계입니다. 텍스트 추출을 사용한 문서 크래킹은 무료로 제공됩니다. Blob에 이미지 콘텐츠가 포함되어 있는 경우 [AI 보강 추가](search-blob-ai-integration.md)를 하지 않으면 이미지가 무시됩니다. 표준 인덱싱은 텍스트 콘텐츠에만 적용됩니다.
 
 Blob 인덱서는 구성 매개 변수와 함께 제공되며 기본 데이터가 충분한 정보를 제공하는 경우 변경 내용 추적을 지원합니다. [Azure Cognitive Search Blob Storage 인덱서](search-howto-indexing-azure-blob-storage.md)의 핵심 기능에 대해 자세히 알아볼 수 있습니다.
+
+### <a name="supported-access-tiers"></a>지원되는 액세스 계층
+
+Blob Storage [액세스 계층](../storage/blobs/storage-blob-storage-tiers.md)에는 핫, 쿨 및 보관이 포함됩니다. 인덱서는 핫 및 쿨만 액세스할 수 있습니다. 
 
 ### <a name="supported-content-types"></a>지원하는 콘텐츠 유형
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 05/27/2021
 ms.author: alkohli
-ms.openlocfilehash: ac5ed0e5941c6251d632d029fe4c9f80bbcf12df
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5fd8dad44aa085530426168961280c4a84162ecb
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612554"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617676"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU 업데이트 
 
@@ -24,17 +24,17 @@ ms.locfileid: "105612554"
 이 문서에서 설명하는 절차는 다른 버전의 소프트웨어를 사용하여 수행되었지만 현재 소프트웨어 버전에도 동일한 프로세스가 적용됩니다.
 
 > [!IMPORTANT]
-> - 업데이트 **2103** 이 현재 업데이트이며 다음에 해당합니다.
->   - 디바이스 소프트웨어 버전 - **2.2.1540.2890**
->   - Kubernetes 서버 버전 - **v1.17.3**
->   - IoT Edge 버전: **0.1.0-beta13**
+> - 업데이트 **2105** 가 현재 업데이트이며 다음에 해당합니다.
+>   - 디바이스 소프트웨어 버전 - **2.2.1606.3320**
+>   - Kubernetes 서버 버전 - **v1.20.2**
+>   - IoT Edge 버전: **0.1.0-beta14**
 >   - GPU 드라이버 버전: **460.32.03**
 >   - CUDA 버전: **11.2**
 >    
->    이 업데이트의 새로운 기능에 대한 자세한 내용을 보려면 [릴리스 정보](azure-stack-edge-gpu-2103-release-notes.md)로 이동합니다.
-> - 2103 업데이트를 적용하려면 디바이스에서 2010을 실행 중이어야 합니다. 지원되는 최소 버전을 실행하고 있지 않은 경우에는 *해당 종속성을 충족하지 않으므로 업데이트 패키지를 설치할 수 없습니다* 라는 오류가 표시됩니다.
+>    이 업데이트의 새로운 기능에 대한 자세한 내용을 보려면 [릴리스 정보](azure-stack-edge-gpu-2105-release-notes.md)로 이동합니다.
+> - 2105 업데이트를 적용하려면 디바이스에서 2010을 실행 중이어야 합니다. 지원되는 최소 버전을 실행하고 있지 않은 경우에는 *해당 종속성을 충족하지 않으므로 업데이트 패키지를 설치할 수 없습니다* 라는 오류가 표시됩니다.
 > - 이 업데이트를 사용하려면 두 개의 업데이트를 순차적으로 적용해야 합니다. 먼저 디바이스 소프트웨어 업데이트를 적용한 다음, Kubernetes 업데이트를 적용합니다.
-> - 업데이트 또는 핫픽스를 설치하면 디바이스가 다시 시작됩니다. 이 업데이트에는 디바이스 소프트웨어 업데이트와 Kubernetes 업데이트가 포함되어 있습니다. Azure Stack Edge Pro가 단일 노드 디바이스인 경우 진행 중인 모든 I/O가 중단되고 업데이트에 대해 최대 1.5시간의 가동 중지 시간이 발생합니다.
+> - 업데이트 또는 핫픽스를 설치하면 디바이스가 다시 시작됩니다. 이 업데이트에는 디바이스 소프트웨어 업데이트와 Kubernetes 업데이트가 포함되어 있습니다. Azure Stack Edge Pro GPU가 단일 노드 디바이스인 경우 진행 중인 모든 I/O가 중단되고 업데이트에 대해 최대 1.5시간의 가동 중지 시간이 발생합니다.
 
 디바이스에 업데이트를 설치하려면 먼저 업데이트 서버의 위치를 구성해야 합니다. 업데이트 서버를 구성한 후 Azure Portal UI 또는 로컬 웹 UI를 통해 업데이트를 적용할 수 있습니다.
 
@@ -155,13 +155,13 @@ Microsoft 업데이트 카탈로그에서 업데이트를 다운로드하려면 
 
     ![카탈로그 검색](./media/azure-stack-edge-gpu-install-update/download-update-1.png)
 
-2. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드하려는 핫픽스의 KB(기술 자료) 번호 또는 업데이트의 단어를 입력합니다. 예를 들어 **Azure Stack Edge Pro** 를 입력 한 다음, **검색** 을 클릭합니다.
+2. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드하려는 핫픽스의 KB(기술 자료) 번호 또는 업데이트의 단어를 입력합니다. 예를 들어 **Azure Stack Edge** 를 입력한 다음, **검색** 을 클릭합니다.
    
-    업데이트 목록은 **Azure Stack Edge 업데이트 2103** 으로 표시됩니다.
+    업데이트 목록은 **Azure Stack Edge 업데이트 2105** 로 표시됩니다.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2-b.png)-->
 
-4. **다운로드** 를 선택합니다. 디바이스 소프트웨어 업데이트(*SoftwareUpdatePackage.exe*) 및 Kubernetes 업데이트(*Kubernetes_Package.exe*)에 각각 해당하는 KB 4613486 및 KB 46134867이라는 두 개의 패키지를 다운로드할 수 있습니다. 로컬 시스템의 폴더에 패키지를 다운로드합니다. 디바이스에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
+4. **다운로드** 를 선택합니다. 다운로드할 두 개의 패키지가 있습니다. <!--KB 4616970 and KB 4616971--> 하나는 디바이스 소프트웨어 업데이트(*SoftwareUpdatePackage.exe*)를 위한 것이고 다른 하나는 Kubernetes 업데이트(*Kubernetes_Package.exe*)를 위한 것입니다. 로컬 시스템의 폴더에 패키지를 다운로드합니다. 디바이스에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
 
 ### <a name="install-the-update-or-the-hotfix"></a>업데이트 또는 핫픽스 설치
 
@@ -192,7 +192,7 @@ Microsoft 업데이트 카탈로그에서 업데이트를 다운로드하려면 
 
 5. 업데이트가 시작됩니다. 디바이스가 성공적으로 업데이트된 후 다시 시작됩니다. 이 시간 동안 로컬 UI에 액세스할 수 없습니다.
    
-6. 다시 시작이 완료된 후 **로그인** 페이지가 열립니다. 로컬 웹 UI에서 디바이스 소프트웨어가 업데이트되었는지 확인하려면 **유지 관리** > **소프트웨어 업데이트** 로 이동합니다. 현재 릴리스의 경우 소프트웨어 버전이 **Azure Stack Edge 2103** 으로 표시되어야 합니다. 
+6. 다시 시작이 완료된 후 **로그인** 페이지가 열립니다. 로컬 웹 UI에서 디바이스 소프트웨어가 업데이트되었는지 확인하려면 **유지 관리** > **소프트웨어 업데이트** 로 이동합니다. 현재 릴리스의 경우 소프트웨어 버전이 **Azure Stack Edge 2105** 로 표시되어야 합니다. 
 
    <!--![update device 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)-->
 

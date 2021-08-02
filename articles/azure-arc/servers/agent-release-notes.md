@@ -2,13 +2,13 @@
 title: Azure Arc 지원 서버 에이전트의 새로운 기능
 description: 이 문서에는 Azure Arc 지원 서버 에이전트 릴리스 정보가 있습니다. 요약된 문제 중 다수에 추가 세부 정보로 연결되는 링크가 있습니다.
 ms.topic: conceptual
-ms.date: 04/27/2021
-ms.openlocfilehash: c223b5dd75ac82706a2b35268813391899170f73
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.date: 05/24/2021
+ms.openlocfilehash: 35822fb47add5c355ad9461b09e8e910f0a5a1fd
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071544"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480377"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Azure Arc 지원 서버 에이전트의 새로운 기능
 
@@ -17,6 +17,19 @@ Azure Arc 지원 서버 Connected Machine Agent에는 지속적으로 향상된 
 - 최신 릴리스
 - 알려진 문제
 - 버그 수정
+
+## <a name="may-2021"></a>2021년 5월
+
+버전 1.6
+
+### <a name="new-features"></a>새로운 기능
+
+- SUSE Enterprise Linux 12에 대한 지원이 추가되었습니다
+- 게스트 구성 에이전트가 다음을 포함하도록 버전 1.26.12.0으로 업데이트되었습니다.
+
+   - 정책이 별도의 프로세스로 실행됩니다.
+   - 확장 유효성 검사에 대한 V2 서명 지원이 추가되었습니다.
+   - 데이터 로깅에 대한 사소한 업데이트입니다.
 
 ## <a name="april-2021"></a>2021년 4월
 
@@ -49,7 +62,7 @@ Azure Arc 지원 서버 Connected Machine Agent에는 지속적으로 향상된 
 
 ### <a name="new-feature"></a>새로운 기능
 
-Windows Server 2008 R2에 대한 지원이 추가되었습니다.
+Windows Server 2008 R2 SP1에 대한 지원이 추가되었습니다.
 
 ### <a name="fixed"></a>고정
 

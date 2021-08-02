@@ -1,29 +1,29 @@
 ---
-title: FSLogix 프로필 컨테이너 NetApp Windows Virtual Desktop - Azure
-description: Windows Virtual Desktop에서 Azure NetApp Files를 사용하여 FSLogix 프로필 컨테이너를 만드는 방법.
+title: FSLogix 프로필 컨테이너 NetApp Azure Virtual Desktop - Azure
+description: Azure Virtual Desktop에서 Azure NetApp Files를 사용하여 FSLogix 프로필 컨테이너를 만드는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 180d49f52eeb4f9e25a682fbf8f52a0bc307c7ed
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: ed2267ebb4467331a4859f2b3f6507edd39dc03b
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447967"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750338"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Azure NetApp Files 및 AD DS를 사용하여 프로필 컨테이너 만들기
 
-[Windows Virtual Desktop 서비스](overview.md)에 대한 사용자 프로필 솔루션으로 FSLogix 프로필 컨테이너를 사용하는 것이 좋습니다. FSLogix 프로필 컨테이너는 전체 사용자 프로필을 단일 컨테이너에 저장하고 Windows Virtual Desktop과 같은 비영구적 원격 컴퓨팅 환경에서 프로필을 로밍하도록 설계되었습니다. 로그인하면 컨테이너가 로컬에서 지원되는 VHD(가상 하드 디스크) 및 VHDX(Hyper-V 가상 하드 디스크)를 사용하여 컴퓨팅 환경에 동적으로 연결됩니다. 이러한 고급 필터 드라이버 기술을 사용하면 사용자 프로필을 즉시 사용할 수 있고 로컬 사용자 프로필과 똑같이 시스템에 표시할 수 있습니다. FSLogix 프로필 컨테이너에 대한 자세한 내용은 [FSLogix 프로필 컨테이너 및 Azure 파일](fslogix-containers-azure-files.md)을 참조하세요.
+[Azure Virtual Desktop 서비스](overview.md)에 대한 사용자 프로필 솔루션으로 FSLogix 프로필 컨테이너를 사용하는 것이 좋습니다. FSLogix 프로필 컨테이너는 전체 사용자 프로필을 단일 컨테이너에 저장하고 Azure Virtual Desktop과 같은 비영구적 원격 컴퓨팅 환경에서 프로필을 로밍하도록 설계되었습니다. 로그인하면 컨테이너가 로컬에서 지원되는 VHD(가상 하드 디스크) 및 VHDX(Hyper-V 가상 하드 디스크)를 사용하여 컴퓨팅 환경에 동적으로 연결됩니다. 이러한 고급 필터 드라이버 기술을 사용하면 사용자 프로필을 즉시 사용할 수 있고 로컬 사용자 프로필과 똑같이 시스템에 표시할 수 있습니다. FSLogix 프로필 컨테이너에 대한 자세한 내용은 [FSLogix 프로필 컨테이너 및 Azure 파일](fslogix-containers-azure-files.md)을 참조하세요.
 
-고객이 Windows Virtual Desktop 환경을 위한 엔터프라이즈급 SMB 볼륨을 빠르고 안정적으로 프로비저닝하는 데 도움이 되는 사용하기 쉬운 Azure 네이티브 플랫폼 서비스인 [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)를 사용하여 FSLogix 프로필 컨테이너를 만들 수 있습니다. Azure NetApp Files에 대한 자세한 내용은 [Azure NetApp Files란?](../azure-netapp-files/azure-netapp-files-introduction.md)을 참조하세요.
+고객이 Azure Virtual Desktop 환경을 위한 엔터프라이즈급 SMB 볼륨을 빠르고 안정적으로 프로비전하는 데 도움이 되는 사용하기 쉬운 Azure 네이티브 플랫폼 서비스인 [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)를 사용하여 FSLogix 프로필 컨테이너를 만들 수 있습니다. Azure NetApp Files에 대한 자세한 내용은 [Azure NetApp Files란?](../azure-netapp-files/azure-netapp-files-introduction.md)을 참조하세요.
 
-이 가이드는 Windows Virtual Desktop에서 Azure NetApp Files 계정을 설정하고 FSLogix 프로필 컨테이너를 만드는 방법을 보여줍니다.
+이 가이드는 Azure Virtual Desktop에서 Azure NetApp Files 계정을 설정하고 FSLogix 프로필 컨테이너를 만드는 방법을 보여줍니다.
 
-이 문서에서는 Windows Virtual Desktop 환경에서 이미 [호스트 풀](create-host-pools-azure-marketplace.md)을 설정하고 하나 이상의 테넌트로 그룹화했다고 가정합니다. 테넌트를 설정하는 방법을 알아보려면 [Windows Virtual Desktop에서 테넌트 만들기](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) 및 [기술 커뮤니티 블로그 게시물](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054)을 참조하세요.
+이 문서에서는 Azure Virtual Desktop 환경에서 이미 [호스트 풀](create-host-pools-azure-marketplace.md)을 설정하고 하나 이상의 테넌트로 그룹화했다고 가정합니다. 테넌트를 설정하는 방법을 알아보려면 [ Virtual Desktop에서 테넌트 만들기](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) 및 [기술 커뮤니티 블로그 게시물](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054)을 참조하세요.
 
-이 가이드의 지침은 특히 Windows Virtual Desktop 사용자를 위한 것입니다. Windows Virtual Desktop 외부에서 Azure NetApp Files를 설정하고 FSLogix 프로필 컨테이너를 만드는 방법에 대한 일반적인 지침을 찾고 있다면 [Azure NetApp 파일 설정 및 NFS 볼륨 만들기 빠른 시작](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md)을 참조하세요.
+이 가이드의 지침은 특히 Azure Virtual Desktop 사용자를 위한 것입니다. Azure Virtual Desktop 외부에서 Azure NetApp Files를 설정하고 FSLogix 프로필 컨테이너를 만드는 방법에 대한 일반적인 지침을 찾고 있다면 [Azure NetApp 파일 설정 및 NFS 볼륨 만들기 빠른 시작](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md)을 참조하세요.
 
 >[!NOTE]
 >이 문서에서는 Azure NetApp Files 공유에 대한 액세스 보안을 위한 모범 사례를 다루지 않습니다.
@@ -35,8 +35,8 @@ ms.locfileid: "106447967"
 
 호스트 풀에 대한 FSLogix 프로필 컨테이너를 만들려면 먼저 다음을 수행해야 합니다.
 
-- Windows Virtual Desktop 설정 및 구성
-- Windows Virtual Desktop 호스트 풀 프로비저닝
+- Azure Virtual Desktop 설정 및 구성
+- Azure Virtual Desktop 호스트 풀 프로비전
 - [Azure NetApp Files 구독 사용](../azure-netapp-files/azure-netapp-files-register.md)
 
 ## <a name="set-up-your-azure-netapp-files-account"></a>Azure NetApp Files 계정 설정
@@ -49,7 +49,7 @@ ms.locfileid: "106447967"
 
 3. Azure Cloud Shell이 열리면 **PowerShell** 을 선택합니다.
 
-4. Azure Cloud Shell을 처음 사용하는 경우 Azure NetApp Files 및 Windows Virtual Desktop을 유지하는 동일한 구독에서 스토리지 계정을 만듭니다.
+4. Azure Cloud Shell을 처음 사용하는 경우 Azure NetApp Files 및 Azure Virtual Desktop을 유지하는 동일한 구독에서 스토리지 계정을 만듭니다.
 
    > [!div class="mx-imgBorder"]
    > ![창 아래쪽에 스토리지 만들기 단추가 있는 스토리지 계정 창이 빨간색으로 강조 표시됩니다.](media/create-storage-button.png)
@@ -187,7 +187,7 @@ ms.locfileid: "106447967"
 
 ## <a name="assign-users-to-session-host"></a>세션 호스트에 사용자 할당
 
-1. 관리자로 **PowerShell ISE** 를 열고 Windows Virtual Desktop에 로그인합니다.
+1. 관리자로 **PowerShell ISE** 를 열고 Azure Virtual Desktop에 로그인합니다.
 
 2. 다음 cmdlet을 실행합니다.
 
@@ -198,7 +198,7 @@ ms.locfileid: "106447967"
    Add-RdsAccount -DeploymentUrl $brokerurl
    ```
 
-3. 자격 증명을 입력하라는 메시지가 표시되면 Windows Virtual Desktop 테넌트에서 테넌트 작성자 또는 RDS 소유자/RDS 기여자 역할이 있는 사용자의 자격 증명을 입력합니다.
+3. 자격 증명을 입력하라는 메시지가 표시되면 Azure Virtual Desktop 테넌트에서 테넌트 작성자 또는 RDS 소유자/RDS 기여자 역할이 있는 사용자의 자격 증명을 입력합니다.
 
 4. 다음 cmdlet을 실행하여 사용자를 원격 데스크톱 그룹에 할당합니다.
 

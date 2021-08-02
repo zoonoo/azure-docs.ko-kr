@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b32f16d170df9963960862bc82aef1a4baf13896
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b0daecadd3af5f1322afc97f91706098aade768
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92104447"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110080491"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -32,9 +32,9 @@ Azure Functions는 [트리거 및 바인딩](./functions-triggers-bindings.md)�
 
 트리거 및 바인딩을 사용하려면 적절한 패키지를 참조해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용되는 반면 확장 번들은 다른 모든 애플리케이션 형식에 사용됩니다.
 
-| 언어                                        | 추가 방법                                   | 설명 
+| 언어                                        | 추가 방법...                                   | 설명 
 |-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | [NuGet 패키지] 버전 4.x 설치 | |
+| C#                                              | [NuGet 패키지], 버전 4.x 설치 | |
 | C# Script, Java, JavaScript, Python, PowerShell | [확장 번들] 등록          | [Azure Tools 확장]은 Visual Studio Code와 함께 사용하는 것이 좋습니다. |
 | C# 스크립트(Azure Portal에서 온라인으로만 사용)         | 바인딩 추가                            | 함수 앱을 다시 게시하지 않고 기존 바인딩 확장을 업데이트하려면 [확장 업데이트]를 참조하세요. |
 
@@ -44,9 +44,120 @@ Azure Functions는 [트리거 및 바인딩](./functions-triggers-bindings.md)�
 [확장 업데이트]: ./functions-bindings-register.md
 [Azure Tools 확장]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
+#### <a name="service-bus-extension-5x-and-higher"></a>Service Bus 확장 5.x 이상
+
+새 버전의 Service Bus 바인딩 확장은 [미리 보기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/5.0.0-beta.2)로 제공됩니다. 이 미리 보기에서는 [비밀 대신 ID를 사용하여 연결](./functions-reference.md#configure-an-identity-based-connection)하는 기능이 도입되었습니다. .NET 애플리케이션의 경우 `Microsoft.ServiceBus.Messaging` 및 `Microsoft.Azure.ServiceBus`의 형식이 [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus)의 최신 형식으로 바뀌어 사용자가 바인딩할 수 있는 형식도 변경됩니다.
+
+> [!NOTE]
+> 미리 보기 패키지는 확장 번들에 포함되지 않으며 수동으로 설치해야 합니다. .NET 앱의 경우 패키지에 대한 참조를 추가합니다. 다른 모든 앱 유형에 대해서는 [확장 업데이트]를 참조하세요.
+
+[core tools]: ./functions-run-local.md
+[확장 번들]: ./functions-bindings-register.md#extension-bundles
+[NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
+[확장 업데이트]: ./functions-bindings-register.md
+[Azure Tools 확장]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+
 ### <a name="functions-1x"></a>Functions 1.x
 
 Functions 1.x 앱은 [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지 버전 2.x에 대한 참조를 자동으로 포함합니다.
+
+
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>host.json 설정
+
+이 섹션에서는 버전 2.x 이상에서 이 바인딩에 사용할 수 있는 전역 구성 설정을 설명합니다. 아래 예제 host.json 파일에는 이 바인딩을 위한 설정만 포함되어 있습니다. 전역 구성 설정에 대한 자세한 내용은 [Azure Functions 버전의 host.json 참조](functions-host-json.md)를 확인하세요.
+
+> [!NOTE]
+> Functions 1.x에서 host.json의 참조는 [Azure Functions 1.x에 대한 host.json 참조](functions-host-json-v1.md)를 참조하세요.
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "serviceBus": {
+            "prefetchCount": 100,
+            "messageHandlerOptions": {
+                "autoComplete": true,
+                "maxConcurrentCalls": 32,
+                "maxAutoRenewDuration": "00:05:00"
+            },
+            "sessionHandlerOptions": {
+                "autoComplete": false,
+                "messageWaitTimeout": "00:00:30",
+                "maxAutoRenewDuration": "00:55:00",
+                "maxConcurrentSessions": 16
+            }
+        }
+    }
+}
+```
+
+`isSessionsEnabled`을 `true`로 설정하면 `sessionHandlerOptions`가 적용됩니다.  `isSessionsEnabled`을 `false`로 설정하면 `messageHandlerOptions`가 적용됩니다.
+
+|속성  |기본값 | Description |
+|---------|---------|---------|
+|prefetchCount|0|메시지 수신자가 동시에 요청할 수 있는 메시지 수를 가져오거나 설정합니다.|
+|maxAutoRenewDuration|00:05:00|메시지 잠금이 자동으로 갱신되는 최대 기간입니다.|
+|autoComplete|true|트리거가 처리 후 자동으로 complete를 호출해야 하는지, 아니면 함수 코드가 수동으로 complete를 호출하는지 여부입니다.<br><br>`false`로 설정하는 것은 C#에서만 지원됩니다.<br><br>`true`로 설정한 경우 함수 실행이 성공적으로 완료되면 트리거가 자동으로 메시지를 완료하고 그렇지 않으면 메시지가 중단됩니다.<br><br>`false`로 설정한 경우 [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) 메서드를 호출하여 메시지를 완료하거나, 중단시키거나, 배달하지 않아야 합니다. 예외가 발생하고 `MessageReceiver` 메서드가 호출되지 않으면 잠금이 유지됩니다. 잠금이 만료되면 `DeliveryCount`이 증가하여 메시지가 다시 대기열에 추가되고 잠금이 자동으로 갱신됩니다.<br><br>C#이 아닌 함수에서 함수의 예외로 인해 백그라운드에서 런타임 호출 `abandonAsync`가 발생합니다. 예외가 발생하지 않으면 `completeAsync`가 백그라운드에서 호출됩니다. |
+|maxConcurrentCalls|16|메시지 펌프가 크기 조정된 인스턴스별로 시작해야 하는 콜백에 대한 최대 동시 호출 수입니다. 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다.|
+|maxConcurrentSessions|2000|크기 조정된 인스턴스당 동시에 처리할 수 있는 최대 세션 수입니다.|
+
+### <a name="additional-settings-for-version-5x"></a>버전 5.x 이상에 대한 추가 설정
+
+아래 host.json 파일의 예에는 Service Bus 확장 버전 5.0.0 이상에 대한 설정만 포함되어 있습니다.
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "serviceBus": {
+            "serviceBusOptions": {
+                "retryOptions":{
+                    "mode": "exponential",
+                    "tryTimeout": "00:00:10",
+                    "delay": "00:00:00.80",
+                    "maxDelay": "00:01:00",
+                    "maxRetries": 4
+                },
+                "prefetchCount": 100,
+                "autoCompleteMessages": true,
+                "maxAutoLockRenewalDuration": "00:05:00",
+                "maxConcurrentCalls": 32,
+                "maxConcurrentSessions": 10,
+                "maxMessages": 2000,
+                "sessionIdleTimeout": "00:01:00"
+            }
+        }
+    }
+}
+```
+
+Service Bus 확장 버전 5.x 이상을 사용하는 경우 `ServiceBusOptions`의 2.x 설정 외에 다음 글로벌 구성 설정이 지원됩니다.
+
+|속성  |기본값 | Description |
+|---------|---------|---------|
+|prefetchCount|0|메시지 수신자가 동시에 요청할 수 있는 메시지 수를 가져오거나 설정합니다.|
+|autoCompleteMessages|true|함수를 성공적으로 실행한 후 메시지를 자동으로 완료할지 여부를 결정하며 `autoComplete` 구성 설정 대신 사용해야 합니다.|
+|maxAutoLockRenewalDuration|00:05:00|`maxAutoRenewDuration` 대신 사용해야 합니다.|
+|maxConcurrentCalls|16|메시지 펌프가 크기 조정된 인스턴스별로 시작해야 하는 콜백에 대한 최대 동시 호출 수입니다. 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다.|
+|maxConcurrentSessions|8|크기 조정된 인스턴스당 동시에 처리할 수 있는 최대 세션 수입니다.|
+|maxMessages|1000|각 함수 호출에 전달될 최대 메시지 수입니다. 메시지 일괄 처리를 수신하는 함수에만 적용됩니다.|
+|sessionIdleTimeout|해당 없음|현재 활성 세션에 대한 메시지가 수신될 때까지 대기하는 최대 시간입니다. 이 시간이 경과되면 프로세서에서 세션을 닫고 다른 세션을 처리하려고 합니다.|
+
+### <a name="retry-settings"></a>다시 시도 설정
+
+버전 5.x 이상의 Service Bus 확장을 사용할 때 위의 구성 특성 외에도 `ServiceBusOptions` 내에서 `RetryOptions`를 구성할 수도 있습니다. 이러한 설정은 실패한 작업을 다시 시도해야 하는지 여부를 결정하고, 그럴 경우 다시 시도 간의 대기 시간을 결정합니다. 이 옵션은 또한 Service Bus 서비스와의 메시지 수신 및 기타 상호 작용에 허용되는 시간을 제어합니다.
+
+|속성  |기본값 | 설명 |
+|---------|---------|---------|
+|mode|지수|다시 시도 지연을 계산하는 데 사용하는 방법입니다. 기본 지수 모드는 다시 시도하기 전에 대기하는 기간을 증가시키는 백오프 전략에 따라 지연 시간으로 다시 시도합니다. `Fixed` 모드는 각 지연 시간이 일관된 고정 간격으로 다시 시도합니다.|
+|tryTimeout|00:00:10|시도당 작업을 대기하는 최대 기간입니다.|
+|delay|00:00:00.80|다시 시도 사이에 적용할 지연 또는 백오프 요소입니다.|
+|maxDelay|00:01:00|다시 시도 사이에 허용되는 최대 지연|
+|maxRetries|3|연결된 작업이 실패한 것으로 간주하기 전 최대 다시 시도 횟수입니다.|
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

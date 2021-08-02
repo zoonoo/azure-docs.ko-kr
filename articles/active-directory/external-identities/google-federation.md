@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 06/08/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cb3b3fd2010bf4ad1288b767d62d3d76f7b37e3
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: c21e03870a53858fe877410a7cd75fdc7e82a83b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550968"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963512"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가
 
@@ -28,10 +28,10 @@ Google을 사용하여 페더레이션을 설정하면 초대된 사용자가 Mi
 ![Google 사용자를 위한 로그인 옵션](media/google-federation/sign-in-with-google-overview.png)
 
 > [!NOTE]
-> Google 페더레이션은 Gmail 사용자를 위해 특별히 설계되었습니다. G Suite 도메인과 페더레이션하려면 [직접 페더레이션](direct-federation.md)을 사용합니다.
+> Google 페더레이션은 Gmail 사용자를 위해 특별히 설계되었습니다. G Suite 도메인과 페더레이션하려면 [SAML/WS-Fed ID 공급자 페더레이션](direct-federation.md)을 사용합니다.
 
 > [!IMPORTANT]
-> **2021년 1월 4일부터** Google은 [WebView 로그인 지원을 중단](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail에서 Google 페더레이션 또는 셀프 서비스 등록을 사용하는 경우 [기간 업무 네이티브 애플리케이션의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
+> **2021년 하반기부터** Google은 [웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. B2B 초대 또는 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md)에 Google 페더레이션을 사용하거나 Gmail에서 셀프 서비스 등록을 사용하는 경우, 앱에서 포함된 웹 보기를 사용하여 사용자를 인증하면 Google Gmail 사용자는 로그인할 수 없습니다. [자세한 정보를 알아보세요](#deprecation-of-web-view-sign-in-support).
 
 ## <a name="what-is-the-experience-for-the-google-user"></a>Google 사용자를 위한 환경이란?
 
@@ -56,34 +56,45 @@ Google 게스트 사용자는 테넌트 정보가 포함된 애플리케이션 �
 
 테넌트 정보(예: `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`)를 포함하여 Google 게스트 사용자에게 애플리케이션 또는 리소스에 대한 직접 링크를 제공할 수도 있습니다.
 
-## <a name="deprecation-of-webview-sign-in-support"></a>WebView 로그인 지원 중단
+## <a name="deprecation-of-web-view-sign-in-support"></a>웹 보기 로그인 지원 중단
 
-2021년 1월 4일부터 Google은 [포함된 WebView 로그인 지원을 중단합니다](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Google 페더레이션 또는 [Gmail로 셀프 서비스 등록](identity-providers.md)을 사용하는 경우 기간 업무 네이티브 애플리케이션의 호환성을 테스트해야 합니다. 앱이 인증을 요구하는 웹 보기 콘텐츠를 포함하는 경우 Google Gmail 사용자는 인증할 수 없습니다. Gmail 사용자에게 영향을 주는 알려진 시나리오는 다음과 같습니다.
+2021년 하반기부터 Google은 [포함된 웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. B2B 또는 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md)에 Google 페더레이션을 사용하거나 [Gmail에서 셀프 서비스 등록](identity-providers.md)을 사용하는 경우, 앱에서 포함된 웹 보기를 사용한 사용자 인증 시 Google Gmail 사용자는 인증할 수 없습니다.
 
-- 이전 버전의 Windows에서 포함된 웹 보기 또는 WebAccountManager(WAM)를 사용하는 Windows 앱
-- 인증을 위해 포함된 브라우저 프레임워크를 사용하도록 개발된 다른 네이티브 앱
+Gmail 사용자에게 영향을 주는 알려진 시나리오는 다음과 같습니다.
+- 인증에 [WebView](/windows/communitytoolkit/controls/wpf-winforms/webview) 컨트롤, [WebView2](/microsoft-edge/webview2/) 또는 이전 WebBrowser 컨트롤을 사용하는 Windows 앱. 해당 앱은 WAM(웹 계정 관리자) 흐름을 사용하여 마이그레이션해야 합니다.
+- WebView UI 요소를 사용하는 Android 애플리케이션 
+- UIWebView/WKWebview를 사용하는 iOS 애플리케이션 
+- ADAL을 사용하는 앱
 
 해당 변경 내용은 다음에는 적용되지 않습니다.
 
-- 최신 버전의 Windows에서 포함된 웹 보기 또는 WebAccountManager(WAM)를 사용하는 Windows 앱
-- Microsoft iOS 앱
-- G Suite ID(예: G Suite와 SAML 기반 [직접 페더레이션](direct-federation.md)을 사용하는 경우)
+- Windows용 Microsoft 앱
+- 웹앱
+- 인증에 시스템 웹 보기를 사용하는 모바일 앱(iOS의 경우 [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller), Android의 경우 [Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/overview/)).  
+- G Suite ID(예: G Suite와 [SAML 기반 페더레이션](direct-federation.md)을 사용하는 경우)
+
+이 변경 내용이 다음에 영향을 주는지 여부를 Google을 통해 확인하고 있습니다.
+- WAM(웹 계정 관리자) 또는 WAB(웹 인증 브로커)를 사용하는 Windows 앱.  
 
 다양한 플랫폼과 시나리오를 계속해서 테스트하고 있으며, 이에 따라 이 문서를 업데이트합니다.
-### <a name="to-test-your-apps-for-compatibility"></a>앱의 호환성을 테스트하려면
+### <a name="action-needed-for-embedded-web-views"></a>포함된 웹 보기에 필요한 작업
+로그인에 시스템 브라우저를 사용하도록 앱을 수정합니다. 자세한 내용은 MSAL.NET 설명서의 [포함된 UI와 시스템 웹 UI 비교](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui)를 참조하세요. 모든 MSAL SDK는 기본적으로 시스템 웹 보기를 사용합니다.
+### <a name="what-to-expect"></a>필요한 항목
+Google이 해당 변경 내용을 2021년 하반기에 적용하기 전에 Microsoft에서는 여전히 포함된 웹 보기를 사용하는 앱에 대한 해결 방법을 배포하여 인증이 차단되지 않도록 할 예정입니다.
 
-1. [Google의 지침](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)에 따라 앱이 영향을 받는지 확인합니다.
-2. Fiddler 또는 다른 테스트 도구를 사용하여 로그인하는 동안 헤더를 삽입하고 Google 외부 ID를 사용하여 로그인을 테스트합니다.
+인증 가능한 웹 보기로 마이그레이션되는 애플리케이션은 영향을 받지 않으며, 사용자는 평소처럼 Google을 통해 인증할 수 있습니다.
 
-   1. accounts.google.com에 요청을 보낼 때 Google-Accounts-Check-OAuth-Login:true를 HTTP 요청 헤더에 추가합니다.
-   1. accounts.google.com 로그인 페이지에서 Gmail 주소를 입력하여 앱에 로그인해 봅니다.
-   1. 로그인이 실패하고 “이 브라우저 또는 앱이 안전 하지 않을 수 있습니다”와 같은 오류가 표시되면 Google 외부 ID가 로그인 하지 못하도록 차단됩니다.
+애플리케이션이 인증 가능한 웹 보기로 마이그레이션되지 않은 경우 영향을 받는 Gmail 사용자에게는 다음 화면이 표시됩니다.
 
-3. 다음 중 하나를 수행하여 문제를 해결합니다.
+![앱이 시스템 브라우저로 마이그레이션되지 않은 경우 Google 로그인 오류 발생](media/google-federation/google-sign-in-error-ewv.png)
 
-   - Windows 앱에서 이전 버전의 Windows에 포함된 웹 보기 또는 WebAccountManager(WAM)를 사용하는 경우 최신 버전의 Windows로 업데이트하세요.
-   - 로그인에 시스템 브라우저를 사용하도록 앱을 수정합니다. 자세한 내용은 MSAL.NET 설명서의 [포함된 UI와 시스템 웹 UI 비교](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui)를 참조하세요.  
+Google에서 날짜 및 추가 세부 정보 공유 시 이 문서를 업데이트할 예정입니다.
 
+### <a name="distinguishing-between-cefelectron-and-embedded-web-views"></a>CEF/Electron과 포함된 웹 보기 구분
+[포함된 웹 보기 및 프레임워크 로그인 지원 중단](#deprecation-of-web-view-sign-in-support) 외에도 Google은 [CEF(Chromium Embedded Framework) 기반 Gmail 인증도 중단](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)할 예정입니다. Electron 앱과 같이 CEF를 기반으로 하는 애플리케이션의 경우 Google은 2021년 6월 30일부터 인증을 지원하지 않습니다. 영향을 받는 애플리케이션은 Google로부터 직접 알림을 받았으므로 이 설명서에서는 다루지 않습니다.  이 문서는 위에서 설명한 포함된 웹 보기와 관련이 있으며, 이에 대해 Google은 2021년 하반기, 별도의 일정을 두고 제한할 예정입니다.
+
+### <a name="action-needed-for-embedded-frameworks"></a>포함된 프레임워크에 필요한 작업
+[Google의 지침](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)에 따라 앱이 영향을 받는지 확인합니다.
 
 ## <a name="step-1-configure-a-google-developer-project"></a>1단계: Google 개발자 프로젝트 구성
 먼저 Google 개발자 콘솔에서 새 프로젝트를 만들어 나중에 Azure AD(Azure Active Directory)에 추가할 수 있는 클라이언트 ID 및 클라이언트 암호를 가져옵니다. 

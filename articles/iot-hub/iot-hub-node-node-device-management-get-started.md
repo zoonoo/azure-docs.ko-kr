@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: mqtt, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 774a8fa05dd5044a07450deb675a6761de9869a3
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 8d551de4e467d602c40fc40889bfc36e5cf69a1d
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890639"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075604"
 ---
 # <a name="get-started-with-device-management-nodejs"></a>디바이스 관리 시작(Node.js)
 
@@ -54,11 +54,11 @@ ms.locfileid: "107890639"
 
 이 섹션에서는 다음을 수행합니다.
 
-* 클라우드에서 호출하는 직접 메서드에 응답하는 Node.js 콘솔 앱 만들기
+* 클라우드에서 호출하는 직접 메서드에 응답하는 Node.js 콘솔 앱을 만듭니다.
 
-* 시뮬레이션된 디바이스 재부팅 트리거
+* 시뮬레이션된 디바이스 재부팅을 트리거합니다.
 
-* reported 속성을 사용하여 디바이스 및 해당 디바이스가 마지막으로 재부팅한 시간을 확인하는 디바이스 쌍 쿼리를 사용하도록 설정
+* reported 속성을 사용하여 디바이스 및 해당 디바이스가 마지막으로 재부팅한 시간을 확인하는 디바이스 쌍 쿼리를 사용하도록 설정합니다.
 
 1. **manageddevice** 라는 빈 폴더를 만듭니다.  **manageddevice** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다.  모든 기본값을 수락합니다.
 

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: memildin
-ms.openlocfilehash: 9e2dcace673a1c7215634434f9e89ddc6b953a63
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: f8d0871f07168e0d7a2fbda90df4209ab7e5a28e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834626"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111748502"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응형 애플리케이션 제어를 통해 컴퓨터의 공격 표면 축소
 
@@ -72,7 +72,7 @@ Security Center가 구독에서 유사한 애플리케이션 세트를 일관되
     - **권장됨** - 동일한 애플리케이션을 일관되게 실행하고 허용 목록이 구성되지 않은 컴퓨터 그룹입니다. 이 그룹에는 적응형 애플리케이션 제어를 사용하도록 설정하는 것이 좋습니다.
     
       > [!TIP]
-      > 접두사가 "REVIEWGROUP"인 그룹 이름이 표시되는 경우 부분적으로 일관된 애플리케이션 목록이 있는 컴퓨터가 포함되어 있는 것입니다. Security Center에서 패턴을 보지는 못합니다. 하지만 _직접_ 이 그룹을 검토하여[그룹의 적응형 애플리케이션 제어 규칙 편집](#edit-a-groups-adaptive-application-controls-rule)에 설명된 대로 일부 적응형 애플리케이션 제어 규칙을 수동으로 정의할 수 있는지 여부를 확인하는 것이 좋습니다.
+      > 접두사가 "REVIEWGROUP"인 그룹 이름이 표시되는 경우 부분적으로 일관된 애플리케이션 목록이 있는 컴퓨터가 포함되어 있는 것입니다. Security Center에서 패턴을 보지는 못합니다. 하지만 _직접_ 이 그룹을 검토하여 [그룹의 적응형 애플리케이션 제어 규칙 편집](#edit-a-groups-adaptive-application-controls-rule)에 설명된 대로 일부 적응형 애플리케이션 제어 규칙을 수동으로 정의할 수 있는지 여부를 확인하는 것이 좋습니다.
       >
       > [한 그룹에서 다른 그룹으로 컴퓨터 이동](#move-a-machine-from-one-group-to-another)에 설명된 대로 이 그룹에서 다른 그룹으로 컴퓨터를 이동할 수도 있습니다.
 
@@ -217,7 +217,7 @@ Security Center가 구독에서 유사한 애플리케이션 세트를 일관되
 
 ## <a name="manage-application-controls-via-the-rest-api"></a>REST API를 통해 애플리케이션 제어 관리 
 
-적응형 애플리케이션 제어를 프로그래매틱 방식으로 관리하려면 REST API를 사용합니다. 
+적응형 애플리케이션 제어를 프로그래밍 방식으로 관리하려면 REST API를 사용합니다. 
 
 관련 API 설명서는 [Security Center API 문서의 적응형 애플리케이션 제어 섹션](/rest/api/securitycenter/adaptiveapplicationcontrols)에 제공됩니다.
 

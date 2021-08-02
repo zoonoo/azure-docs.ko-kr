@@ -1,6 +1,6 @@
 ---
 title: SQL Server 버전의 현재 위치 변경
-description: Azure에서 SQL Server 가상 머신의 버전을 다운 그레이드로 변경 하 여 비용을 줄이거나 업그레이드 하 여 더 많은 기능을 사용할 수 있도록 하는 방법에 대해 알아봅니다.
+description: Azure에서 SQL Server 가상 머신 에디션을 다운그레이드로 변경하여 비용을 줄이거나 업그레이드로 변경하여 더 많은 기능을 사용하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -14,12 +14,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b6ea6f947b2cd8d7d9c38a0e5e440ce5fd273bb7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: d4e965d14c6dab3fd2bd8333b9e04dfa52a3346b
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97358829"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078908"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Azure VM에서 SQL Server 버전의 현재 위치 변경
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +35,7 @@ SQL Server 버전이 SQL Server VM 내부적으로 변경된 후에는 청구를
 SQL Server 버전의 현재 위치 변경을 수행하려면 다음이 필요합니다. 
 
 - [Azure 구독](https://azure.microsoft.com/free/).
-- [SQL IaaS 에이전트 확장](sql-agent-extension-manually-register-single-vm.md)을 사용 하 여 등록 된 [Windows의 SQL Server VM](./create-sql-vm-portal.md) 입니다.
+- [SQL IaaS 에이전트 확장](sql-agent-extension-manually-register-single-vm.md)에 등록된 [Windows의 SQL Server VM](./create-sql-vm-portal.md)
 - **원하는 버전** 의 SQL Server를 포함하는 설치 미디어. [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default)가 있는 고객은 [볼륨 라이선싱 센터](https://www.microsoft.com/Licensing/servicecenter/default.aspx)에서 설치 미디어를 구할 수 있습니다. Software Assurance가 없는 고객은 Azure Marketplace SQL Server VM 이미지에서 원하는 버전을 포함하는 설치 미디어를 사용할 수 있습니다(일반적으로 `C:\SQLServerFull`에 있음). 
 
 
@@ -76,7 +76,7 @@ SQL Server 버전을 다운그레이드한 후 Azure Portal에서 SQL Server 가
 
 ## <a name="change-edition-in-portal"></a>포털에서 버전 변경 
 
-설치 미디어를 사용 하 여 SQL Server 버전을 변경 하 고 [SQL IaaS 에이전트 확장](sql-agent-extension-manually-register-single-vm.md)을 사용 하 여 SQL Server VM을 등록 한 후에는 Azure Portal를 사용 하 여 청구를 위해 SQL Server VM의 버전 속성을 수정할 수 있습니다. 이렇게 하려면 다음 단계를 따르십시오. 
+설치 미디어를 사용하여 SQL Server 에디션을 변경하고 [SQL IaaS 에이전트 확장](sql-agent-extension-manually-register-single-vm.md)에 SQL Server VM을 등록한 후에는 Azure Portal을 사용하여 청구를 위해 SQL Server VM의 에디션 속성을 수정할 수 있습니다. 이렇게 하려면 다음 단계를 따르십시오. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 1. SQL Server 가상 머신 리소스로 이동합니다. 
@@ -92,7 +92,7 @@ SQL Server 버전을 다운그레이드한 후 Azure Portal에서 SQL Server 가
 
 - SQL Server VM에 대한 버전 속성은 종량제 및 사용자 라이선스 필요 라이선스 유형을 포함하여 모든 SQL Server 가상 머신에 설치된 SQL Server 인스턴스의 버전과 일치해야 합니다.
 - SQL Server VM 리소스를 삭제하면 이미지의 하드 코드된 버전 설정으로 돌아갑니다.
-- 버전을 변경 하는 기능은 SQL IaaS 에이전트 확장의 기능입니다. Azure Portal를 통해 Azure Marketplace 이미지를 배포 하면 SQL IaaS 에이전트 확장을 사용 하 여 SQL Server VM 자동으로 등록 됩니다. 그러나 SQL Server를 자체 설치하는 고객은 수동으로 [SQL Server VM을 등록](sql-agent-extension-manually-register-single-vm.md)해야 합니다.
+- 에디션 변경 기능은 SQL IaaS 에이전트 확장의 기능입니다. Azure Portal을 통해 Azure Marketplace 이미지를 배포하면 SQL Server VM이 자동으로 SQL IaaS 에이전트 확장에 등록됩니다. 그러나 SQL Server를 자체 설치하는 고객은 수동으로 [SQL Server VM을 등록](sql-agent-extension-manually-register-single-vm.md)해야 합니다.
 - 가용성 집합에 SQL Server VM을 추가하려면 VM을 다시 만들어야 합니다. 가용성 집합에 추가된 VM은 모두 기본 버전으로 돌아가며 버전을 다시 수정해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -100,6 +100,6 @@ SQL Server 버전을 다운그레이드한 후 Azure Portal에서 SQL Server 가
 자세한 내용은 다음 문서를 참조하세요. 
 
 * [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Windows VM의 SQL Server FAQ](frequently-asked-questions-faq.md)
+* [Windows VM의 SQL Server FAQ](frequently-asked-questions-faq.yml)
 * [Windows VM의 SQL Server 가격 책정 가이드](pricing-guidance.md)
 * [Windows VM의 SQL Server 릴리스 정보](doc-changes-updates-release-notes.md)

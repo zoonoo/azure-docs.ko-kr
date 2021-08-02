@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: fc3662d8198e6ab6ab215ac1e9e8eac585f4250b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 06/08/2021
+ms.openlocfilehash: c7cc9ba4cddb21dd68af4a4e3253361e1e3e62fd
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104801590"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754892"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 Lucene 쿼리 구문
 
@@ -122,14 +122,22 @@ URL에서 안전하지 않은 문자 및 예약된 문자를 모두 인코딩하
 
 ##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a> 와일드카드 검색
 
-일반적으로 다중(`*`) 또는 단일(`?`) 문자 와일드카드 검색에 인식된 구문을 사용할 수 있습니다. 예를 들어 `search=alpha*`의 쿼리 식은 “영숫자” 또는 “사전순”을 반환합니다. Lucene 쿼리 커서는 구가 아닌 단일 용어에 이러한 기호의 사용을 지원합니다.
+일반적으로 다중(`*`) 또는 단일(`?`) 문자 와일드카드 검색에 인식된 구문을 사용할 수 있습니다. Full Lucene 구문은 접두사, 중위 및 접미사 일치를 지원합니다. 
 
-Full Lucene 구문은 접두사, 중위 및 접미사 일치를 지원합니다. 그러나 접두사 일치가 필요한 경우 간단한 구문을 사용할 수 있습니다(접두사 일치는 양쪽에서 지원됨).
+Lucene 쿼리 커서는 구가 아닌 단일 용어에 이러한 기호의 사용을 지원합니다.
 
-`*` 혹은 `?`가 문자열보다 선행하는(`search=/.*numeric./`에서와 같이) 접미사 일치나 중위 일치에는 전체 Lucene 구문과 정규식 슬래시 `/` 구분 기호가 필요합니다. 검색의 첫 문자로 * 또는 ? 단어의 첫 번째 문자 또는 용어 내의 기호(`/` 제외)입니다. 
+| 접미사 형식 | 설명 및 예제 |
+|------------|--------------------------|
+| 접두사 | 용어 조각은 `*` 또는 `?` 앞에 옵니다.  예를 들어 `search=alpha*`의 쿼리 식은 “영숫자” 또는 “사전순”을 반환합니다. 접두사 일치는 단순 구문 및 전체 구문 모두에서 지원됩니다. |
+| suffix | 용어 조각은 구성을 구분하기 위해 슬래시가 포함된 `*` 또는 `?` 뒤에 옵니다. 예를 들어 `search=/.*numeric./`은 "영숫자"를 반환합니다. |
+| 중위  | 용어 조각은 `*` 또는 `?`를 묶습니다.  예를 들어 `search=/.non*al./`은 "nonnumerical" 및 "nonsensical"을 반환합니다. |
+
+하나의 식에서 연산자를 결합할 수 있습니다. 예를 들어 `980?2*`는 "98072-1222" 및 "98052-1234"와 일치합니다. 여기서 `?`는 단일(필수) 문자와 일치하고 `*`는 뒤에 오는 임의 길이의 문자와 일치합니다.
+
+접미사 및 중위 일치에는 정규식 슬래시 `/` 구분 기호가 필요합니다. 일반적으로 코드를 작성할 때는 * 또는 ?를 사용할 수 없습니다. 단어의 첫 번째 문자 또는 용어 내의 기호(`/` 제외)입니다. Postman 또는 Azure Portal과 같은 특정 도구에서는 이스케이프가 기본 제공되며 구분 기호 없이 쿼리를 실행할 수 있는 경우가 많습니다.
 
 > [!NOTE]  
-> 규칙으로서 패턴 일치는 속도가 느리므로 용어에서 문자 시퀀스에 대한 토큰을 만드는 edge n-gram 토큰화와 같은 대체 메서드를 탐색하는 것이 좋습니다. 인덱스는 더 크지만 인덱싱 중인 문자열의 패턴 생성 및 길이에 따라 쿼리가 더 빠르게 실행될 수 있습니다.
+> 규칙으로서 패턴 일치는 속도가 느리므로 용어에서 문자 시퀀스에 대한 토큰을 만드는 edge n-gram 토큰화와 같은 대체 메서드를 탐색하는 것이 좋습니다. n-gram 토큰화를 사용하면 인덱스가 더 커지지만 인덱싱 중인 문자열의 길이와 패턴 구성에 따라 쿼리가 더 빠르게 실행될 수 있습니다.
 >
 
 ### <a name="impact-of-an-analyzer-on-wildcard-queries"></a>분석기가 와일드카드 쿼리에 끼치는 영향

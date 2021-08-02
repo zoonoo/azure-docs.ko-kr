@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53a0da5b5db21c9a543d39d1b252b0b4c64e2a56
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c71ae3378c1d5d6304b506f2d5a4dbaa9b15e8e
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91306364"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111855029"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Azure AD로 페더레이션에 대한 여러 도메인 지원
 다음 설명서에서는 Microsoft 365 또는 Azure AD 도메인으로 페더레이션하는 경우 여러 최상위 도메인 및 하위 도메인을 사용하는 방법에 대한 지침을 제공합니다.
@@ -69,7 +69,7 @@ bmfabrikam.com 도메인의 설정을 보면 다음을 확인할 수 있습니�
 
 따라서 Azure AD 또는 Microsoft 365에 인증하는 동안 사용자 토큰의 IssuerUri 요소는 Azure AD에서 도메인을 찾는 데 사용됩니다. 일치하는 항목이 없는 경우 인증이 실패합니다.
 
-예를 들어 사용자의 UPN이 bsimon@bmcontoso.com인 경우 토큰 AD FS 이슈의 IssuerUri 요소는 `http://bmcontoso.com/adfs/services/trust`로 설정됩니다. 이 요소는 Azure AD 구성에 일치하며 인증이 성공합니다.
+예를 들어 사용자의 UPN이 bsimon@bmcontoso.com인 경우 토큰의 IssuerUri 요소인 AD FS 발급자는 `http://bmcontoso.com/adfs/services/trust`로 설정됩니다. 이 요소는 Azure AD 구성에 일치하며 인증이 성공합니다.
 
 다음은 이 논리를 구현하는 사용자 지정된 클레임 규칙입니다.
 

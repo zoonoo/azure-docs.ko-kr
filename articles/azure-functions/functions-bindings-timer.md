@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f99f9d240a0a9220d3b7f57cddd0a4f8ba6b6101
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47d8acd26d1cfa9c41c2cc8770f7c7f81a3e2930
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104595994"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592109"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거
 
@@ -322,7 +322,7 @@ Azure Functions는 [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러
 | `0 30 9 * Jan Mon` | 1월 매주 월요일 오전 9:30 |
 
 > [!NOTE]
-> NCRONTAB 식에는 **6개의 필드** 형식이 필요합니다. 여섯 번째 필드 위치는 식의 시작 부분에 있는 초의 값입니다. Azure에서는 5개의 필드 cron 식이 지원되지 않습니다.
+> NCRONTAB 식은 **5개 필드** 와 **6개 필드** 형식을 모두 지원합니다. 여섯 번째 필드 위치는 식의 시작 부분에 있는 초의 값입니다.
 
 ### <a name="ncrontab-time-zones"></a>NCRONTAB 시간대
 

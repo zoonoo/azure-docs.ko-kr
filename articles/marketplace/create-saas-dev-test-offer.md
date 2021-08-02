@@ -1,6 +1,6 @@
 ---
-title: 테스트 상품 만들기
-description: Microsoft 파트너 센터의 상업용 Marketplace 프로그램에서 프로덕션 제품을 테스트하기 위한 별도의 개발 제품을 만드는 방법입니다.
+title: 테스트 SaaS 제품 만들기
+description: Azure Marketplace에서 프로덕션 제품 테스트를 위한 별도의 개발 제품을 만듭니다.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 04/20/2021
-ms.openlocfilehash: 318eebcca3053be2164a1fc52905f36f26b11a6d
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 3c71dc08f58c73cf1fe35d4c2b42d30b30867a1e
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331127"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559037"
 ---
-# <a name="create-a-test-offer"></a>테스트 상품 만들기
+# <a name="create-a-test-saas-offer"></a>테스트 SaaS 제품 만들기
 
 프로덕션 제품의 별도 환경에서 개발하려면 별도의 테스트/개발(DEV) 제품 및 프로덕션(PROD) 제품을 만듭니다. 별도의 DEV 제품을 사용하는 이점에 대한 자세한 내용은 [SaaS 제품 계획](plan-saas-offer.md#test-offer)을 참조하세요.
 

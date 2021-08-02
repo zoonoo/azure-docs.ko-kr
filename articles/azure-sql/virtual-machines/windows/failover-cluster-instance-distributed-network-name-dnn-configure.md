@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8549592ace00e712929ebc76045a32531b9db659
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d27223906727af3b45617c7162f5c5da5133d2e3
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97358319"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569521"
 ---
 # <a name="configure-a-dnn-for-failover-cluster-instance"></a>장애 조치(failover) 클러스터 인스턴스에 대한 DNN 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,6 +47,7 @@ FCI 배포의 경우 VNN은 여전히 존재하지만 클라이언트는 VNN 이
 - 분산 네트워크 이름이 [HADR 솔루션에 대한 연결 옵션](hadr-cluster-best-practices.md#connectivity)으로 적절하다고 결정했습니다.
 - [장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)를 구성했습니다. 
 - 최신 버전의 [PowerShell](/powershell/azure/install-az-ps)을 설치했습니다. 
+- DNN 수신기에 연결하는 클라이언트는 연결 문자열에서 `MultiSubnetFailover=True` 매개 변수를 지원해야 합니다. 
 
 ## <a name="create-dnn-resource"></a>DNN 리소스 생성 
 
@@ -203,6 +204,10 @@ Get-ClusterResource "virtual IP address" | Set-ClusterParameter
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure의 SQL Server HADR 기능에 대한 자세한 내용은 [가용성 그룹](availability-group-overview.md) 및 [장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)를 참조하세요. 또한 고가용성 및 재해 복구를 위한 환경 구성에 필요한 [모범 사례](hadr-cluster-best-practices.md)를 배울 수 있습니다. 
+자세한 내용은 다음을 참조하세요.
 
+- [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
+- [Azure VM에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)
+- [장애 조치(failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Azure VM의 SQL Server에 대한 HADR 설정](hadr-cluster-best-practices.md)
 

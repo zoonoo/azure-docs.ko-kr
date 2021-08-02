@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 05/30/2019
-ms.openlocfilehash: c4433572f503ca086b88e6e42600fff623f34a11
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 06/08/2021
+ms.openlocfilehash: d40bce42d687f546b5944a845ce8f7963e1c1258
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133208"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111981994"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>회사 계정 및 파트너 센터
 
@@ -23,6 +23,7 @@ ms.locfileid: "108133208"
 회사가 Azure, Microsoft Intune 또는 Microsoft 365와 같은 Microsoft 클라우드 서비스를 구독한 경우 파트너 센터에서 사용할 수 있는 회사 이메일 계정 도메인(Azure Active Directory 테넌트라고도 함)이 이미 있는 것입니다.
 
 다음 단계를 따라 확인합니다.
+
 1. Azure 관리 포털(https://portal.azure.com )에 로그인합니다.
 2. 왼쪽 탐색 메뉴에서 **Azure Active Directory** 를 선택한 다음 **사용자 지정 도메인 이름** 을 선택합니다.
 3. 이미 회사 계정이 있는 경우 도메인 이름이 나열됩니다.
@@ -38,11 +39,11 @@ ms.locfileid: "108133208"
 회사의 새 회사 계정을 만들려면 아래의 단계를 따릅니다. 회사의 Microsoft Azure 계정에 대한 관리자 권한이 있는 사용자에게 도움을 요청해야 할 수 있습니다.
 
 1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 탐색 메뉴에서 **Azure Active Directory** -> **사용자** 를 선택합니다.
-3. **새 사용자** 를 선택하고 이름과 이메일 주소를 입력하여 Azure 회사 계정을 새로 만듭니다. **디렉터리 역할** 이 **사용자** 로 설정되어 있는지 확인하고 맨 아래에 있는 **암호 표시** 확인란을 선택하여 자동 생성된 암호를 확인하고 기록해 둡니다.
-4. **만들기** 를 선택하여 새 사용자를 저장합니다.
+2. 왼쪽 탐색 메뉴에서 **Azure Active Directory** > **사용자** 를 선택합니다.
+3. **새 사용자** 를 선택하고 이름과 회사 메일 주소를 입력하여 Azure 회사 계정을 새로 만듭니다. 사용자 요구 사항에 따라 **디렉터리 역할** 이 설정되었는지 확인하고 하단의 **암호 표시** 확인란을 선택하여 자동 생성된 암호를 보고 기록해 둡니다.
+4. 다른 필수 필드를 입력하고 **만들기** 를 선택하여 새 사용자를 저장합니다. 
 
-사용자 계정에 대한 이메일 주소는 디렉터리의 확인된 도메인 이름이어야 합니다. 왼쪽 탐색 메뉴에서 **Azure Active Directory** -> **사용자 지정 도메인 이름** 을 선택하여 디렉터리의 확인된 도메인을 모두 나열할 수 있습니다.
+사용자 계정에 대한 이메일 주소는 디렉터리의 확인된 도메인 이름이어야 합니다. 왼쪽 탐색 메뉴에서 **Azure Active Directory** > **사용자 지정 도메인 이름** 을 선택하여 디렉터리의 확인된 도메인을 모두 나열할 수 있습니다.
 
 Azure Active Directory에 사용자 지정 도메인 추가에 대해 자세히 알아보려면 [Azure AD에 도메인 추가 또는 연결](../active-directory/fundamentals/add-custom-domain.md)을 참조하세요.
 
@@ -50,7 +51,7 @@ Azure Active Directory에 사용자 지정 도메인 추가에 대해 자세히 
 
 회사 계정(Azure AD 테넌트라고도 함)에 로그인하는 데 문제가 있는 경우 아래의 다이어그램에서 해당 상황에 가장 일치하는 시나리오를 찾아 권장되는 단계를 따릅니다.
 
-![회사 계정 로그인 문제 해결을 위한 다이어그램](./media/manage-accounts/onboarding-aad-flow.png)
+[![회사 계정 로그인 문제 해결을 위한 다이어그램](media/manage-accounts/onboarding-aad-flow.png)](media/manage-accounts/onboarding-aad-flow.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 

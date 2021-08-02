@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fe31e1bf095d15cfdd7945288486cb866ace8246
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c3197a8eb9f6734cdd04d609ea0f59465ffa86d
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94840613"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110535514"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 OAuth 2.0 암시적 흐름을 사용하여 단일 페이지 로그인
 
@@ -245,12 +245,4 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 ## <a name="next-steps"></a>다음 단계
 
-### <a name="code-sample-azure-ad-b2c-with-microsoft-authentication-library-for-javascript"></a>코드 샘플: JavaScript용 Microsoft 인증 라이브러리를 사용하는 Azure AD B2C
-
-[Azure AD B2C용 msal.js를 사용하여 빌드한 단일 페이지 애플리케이션][github-msal-js-example](GitHub)
-
-GitHub의 이 샘플은 [msal.js][github-msal-js] 및 팝업 스타일 인증을 사용하여 빌드된 간단한 웹 애플리케이션에서 Azure AD B2C를 시작하는 데 도움을 주기 위한 것입니다.
-
-<!-- Links - EXTERNAL -->
-[github-msal-js-example]: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp
-[github-msal-js]: https://github.com/AzureAD/microsoft-authentication-library-for-js
+[JavaScript 단일 페이지 애플리케이션에서 Azure AD B2C를 사용하여 로그인](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-core-samples/VanillaJSTestApp/app/b2c) 코드 샘플을 참조하세요.

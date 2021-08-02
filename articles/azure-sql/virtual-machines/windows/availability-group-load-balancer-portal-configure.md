@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6e53a6a4875b3dde55d1822daa342d6cde536d1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c914b2b6db65e6956db830e16351f13144ab5aa
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100096432"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572206"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server Always On 가용성 그룹에 대한 부하 분산 장치 구성
 
@@ -320,4 +320,9 @@ Azure Portal을 사용하여 부하 분산 장치에 IP 주소를 추가하려�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [다른 지역의 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹 구성](availability-group-manually-configure-multiple-regions.md)
+자세한 내용은 다음을 참조하세요.
+
+- [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
+- [Azure VM에서 SQL Server를 사용하는 Always On 가용성 그룹](availability-group-overview.md)
+- [Always On 가용성 그룹 개요](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Azure VM의 SQL Server에 대한 HADR 설정](hadr-cluster-best-practices.md)

@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 9bdc4b2fed40817c7173468180e34de1ed0506fb
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: d915577cd6729ead60a00250e186fb2df444b3b1
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105962682"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112029174"
 ---
 # <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀의 용량 한도
 
@@ -28,7 +28,7 @@ Azure Synapse Analytics에서 전용 SQL 풀의 다양한 구성 요소에 허�
 |:--- |:--- |:--- |
 | [DWU(데이터 웨어하우스 단위)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |단일 전용 SQL 풀의 최대 DWU  | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [DWU(데이터 웨어하우스 단위)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |서버당 기본 DTU |54,000<br></br>기본적으로 각 SQL Server(예: myserver.database.windows.net)에는 DTU 할당량인 54,000이 있으며 최대 DW6000c가 허용됩니다. 이 할당량은 안전을 위한 제한일 뿐입니다. [지원 티켓을 만들고](sql-data-warehouse-get-started-create-support-ticket.md)*할당량* 을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다.  DTU 요구 사항을 계산하려면 7.5를 필요한 총 DWU로 곱하거나 9를 필요한 총 cDWU로 곱합니다. 예를 들면 다음과 같습니다.<br></br>DW6000 x 7.5 = 45,000DTU<br></br>DW7500c x 9 = 67,500DTU.<br></br>포털의 SQL Server 옵션에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다. |
-| 데이터베이스 연결 |열린 최대 동시 세션 수 |1024<br/><br/>동시에 열린 세션 수는 선택한 DWU에 따라 달라집니다. DWU600c 이상에서는 최대 1024개의 열린 세션을 지원합니다. DWU500c 이하에서는 최대 512개의 동시에 열린 세션 한도를 지원합니다. 동시에 실행할 수 있는 쿼리 수에 제한이 있습니다. 동시성 제한을 초과하는 경우 요청이 처리될 때까지 대기하는 내부 큐로 이동합니다. |
+| 데이터베이스 연결 |열린 최대 동시 세션 수 |1024<br/><br/>동시에 열린 세션 수는 선택한 DWU에 따라 달라집니다. DWU1000c 이상에서는 최대 1024개의 열린 세션을 지원합니다. DWU500c 이하에서는 최대 512개의 동시에 열린 세션 한도를 지원합니다. 동시에 실행할 수 있는 쿼리 수에 제한이 있습니다. 동시성 제한을 초과하는 경우 요청이 처리될 때까지 대기하는 내부 큐로 이동합니다. |
 | 데이터베이스 연결 |준비된 문에 대한 최대 메모리 |20MB |
 | [워크로드 관리](resource-classes-for-workload-management.md) |최대 동시 쿼리 수 |128<br/><br/>  최대 128개의 동시 쿼리가 실행되고 남은 쿼리가 큐에 대기됩니다.<br/><br/>사용자에게 더 높은 수의 리소스 클래스가 할당되거나 [데이터 웨어하우스 단위](memory-concurrency-limits.md) 설정이 낮아지면 동시 쿼리 수가 감소될 수 있습니다. DMV 쿼리와 같은 일부 쿼리는 항상 실행하도록 허용돼도 동시 쿼리 제한에 영향을 주지 않습니다. 동시 쿼리 실행에 관한 자세한 내용은 [동시성 최대값](memory-concurrency-limits.md) 문서를 참조합니다. |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |최대 GB |DW100c당 399GB. DWU1000c에서 tempdb의 크기는 3.99TB로 조정됩니다. |

@@ -3,16 +3,16 @@ title: Azure Arc의 App Service
 description: Azure 운영자를 위한 Azure Arc App Service 통합 소개입니다.
 ms.topic: article
 ms.date: 05/03/2021
-ms.openlocfilehash: 8119d983a891ac6a671920c745d6395f4418ce24
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: bbdb7fb1426a5c63e579929806caa1b2008f11eb
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386421"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590093"
 ---
 # <a name="app-service-functions-and-logic-apps-on-azure-arc-preview"></a>Azure Arc의 App Service, Functions 및 Logic Arc(미리 보기)
 
-Azure Arc 지원 Kubernetes 클러스터에서 App Service, Functions 및 Logic Apps를 실행할 수 있습니다. Kubernetes 클러스터는 온-프레미스이거나 타사 클라우드에서 호스트될 수 있습니다. 이 방법을 통해 앱 개발자는 App Service 기능을 활용할 수 있습니다. 이와 동시에 IT 관리자는 내부 인프라에서 App Service 앱을 호스트하여 회사 규정 준수를 유지할 수 있습니다. 또한 다른 IT 운영자는 기존 Kubernetes 클러스터에서 App Service를 실행하여 이전에 투자한 다른 클라우드 공급자를 보호할 수 있습니다.
+Azure Arc 지원 Kubernetes 클러스터에서 App Service, Functions, Logic Apps를 실행할 수 있습니다. Kubernetes 클러스터는 온-프레미스이거나 타사 클라우드에서 호스트될 수 있습니다. 이 방법을 통해 앱 개발자는 App Service 기능을 활용할 수 있습니다. 이와 동시에 IT 관리자는 내부 인프라에서 App Service 앱을 호스트하여 회사 규정 준수를 유지할 수 있습니다. 또한 다른 IT 운영자는 기존 Kubernetes 클러스터에서 App Service를 실행하여 이전에 투자한 다른 클라우드 공급자를 보호할 수 있습니다.
 
 > [!NOTE]
 > App Service, Functions 및 Logic Apps에 대해 Kubernetes 클러스터를 설정하는 방법을 알아보려면 [App Service Kubernetes 환경 만들기(미리 보기)](manage-create-arc-environment.md)를 참조하세요.
@@ -26,19 +26,19 @@ Azure Arc 지원 Kubernetes 클러스터에서 App Service, Functions 및 Logic 
 
 ## <a name="public-preview-limitations"></a>공용 미리 보기 제한 사항
 
-App Service Kubernetes 환경에는 다음과 같은 공개 미리 보기 제한 사항이 적용됩니다. 추가 배포의 유효성이 검사되고 더 많은 지역이 지원될 때 업데이트됩니다.
+App Service Kubernetes 환경에는 다음과 같은 공개 미리 보기 제한 사항이 적용됩니다. 변경 내용이 사용 가능해지면 업데이트됩니다.
 
-| 제한 사항                                              | 세부 정보                                                                          |
-|---------------------------------------------------------|----------------------------------------------------------------------------------|
-| 지원되는 Azure 지역                                 | 미국 동부, 서부 유럽                                                             |
-| 유효한 Kubernetes 배포                      | Azure Kubernetes Service                                                         |
-| 기능: 네트워킹                                     | [사용할 수 없음(클러스터 네트워킹에 따라 다름)](#are-networking-features-supported) |
-| 기능: 관리되는 ID                             | [사용할 수 없음](#are-managed-identities-supported)                               |
-| 기능: Key Vault 참조                           | 사용할 수 없음(관리되는 ID에 따라 다름)                                    |
-| 기능: 관리되는 ID를 사용하여 ACR에서 이미지 끌어오기     | 사용할 수 없음(관리되는 ID에 따라 다름)                                    |
-| 기능: Functions 및 Logic Apps에 대한 포털 내 편집 | 사용할 수 없음                                                                    |
-| 기능: FTP 게시                                 | 사용할 수 없음                                                                    |
-| 로그                                                    | Log Analytics는 클러스터 확장으로 구성해야 합니다. 사이트별로 구성하지 않습니다.            |
+| 제한 사항                                              | 세부 정보                                                                               |
+|---------------------------------------------------------|---------------------------------------------------------------------------------------|
+| 지원되는 Azure 지역                                 | 미국 동부, 서부 유럽                                                                  |
+| 클러스터 네트워킹 요구 사항                          | `LoadBalancer` 서비스 유형을 지원하고 공개적으로 주소를 지정할 수 있는 고정 IP를 제공해야 합니다. |
+| 기능: 네트워킹                                     | [사용할 수 없음(클러스터 네트워킹에 따라 다름)](#are-networking-features-supported)      |
+| 기능: 관리되는 ID                             | [사용할 수 없음](#are-managed-identities-supported)                                    |
+| 기능: Key Vault 참조                           | 사용할 수 없음(관리되는 ID에 따라 다름)                                         |
+| 기능: 관리되는 ID를 사용하여 ACR에서 이미지 끌어오기     | 사용할 수 없음(관리되는 ID에 따라 다름)                                         |
+| 기능: Functions 및 Logic Apps에 대한 포털 내 편집 | 사용할 수 없음                                                                         |
+| 기능: FTP 게시                                 | 사용할 수 없음                                                                         |
+| 로그                                                    | Log Analytics는 클러스터 확장으로 구성해야 합니다. 사이트별로 구성하지 않습니다.                 |
 
 ## <a name="pods-created-by-the-app-service-extension"></a>App Service 확장에 의해 만들어진 Pod
 
@@ -74,6 +74,7 @@ App Service 확장을 Arc 지원 Kubernetes 클러스터에 설치하면 지정�
 - [네트워킹 기능을 지원하나요?](#are-networking-features-supported)
 - [관리 ID가 지원되나요?](#are-managed-identities-supported)
 - [어떤 로그가 수집되나요?](#what-logs-are-collected)
+- [공급자 등록 오류가 표시되는 경우 어떻게 해야 하나요?](#what-do-i-do-if-i-see-a-provider-registration-error)
 
 ### <a name="how-much-does-it-cost"></a>가격은 얼마인가요?
 
@@ -108,6 +109,10 @@ FTP 배포는 지원되지 않습니다. 현재 `az webapp up`도 지원되지 �
 시스템 구성 요소와 애플리케이션 모두에 대한 로그는 표준 출력에 기록됩니다. 두 로그 유형 모두를 표준 Kubernetes 도구를 사용하여 분석을 위해 수집할 수 있습니다. 또한 [Log Analytics 작업 영역](../azure-monitor/logs/log-analytics-overview.md)을 사용하여 App Service 클러스터 확장을 구성할 수도 있으며 모든 로그를 해당 작업 영역으로 보냅니다.
 
 기본적으로 시스템 구성 요소의 로그는 Azure 팀으로 전송됩니다. 애플리케이션 로그는 전송되지 않습니다. `logProcessor.enabled=false`를 확장 구성 설정으로 설정하여 이러한 로그가 전송되지 않도록 방지할 수 있습니다. 이렇게 하면 Log Analytics 작업 영역에도 애플리케이션이 전달되지 않습니다. 로그 프로세서를 사용하지 않도록 하면 지원 사례에 필요한 시간에 영향을 줄 수 있으며 표준 출력에서 다른 방법을 통해 로그를 수집하라는 메시지가 표시됩니다.
+
+### <a name="what-do-i-do-if-i-see-a-provider-registration-error"></a>공급자 등록 오류가 표시되는 경우 어떻게 해야 하나요?
+
+Kubernetes 환경 리소스를 만들 때 일부 구독에 “등록된 리소스 공급자를 찾을 수 없음” 오류가 표시될 수 있습니다. 오류 세부 정보에는 유효한 것으로 간주되는 위치 및 API 버전 세트가 포함될 수 있습니다. 이 경우 Microsoft.Web 공급자에 대해 구독을 다시 등록해야 할 수 있습니다. 이 작업은 기존 애플리케이션 또는 API에 영향을 주지 않습니다. 다시 등록하려면 Azure CLI를 사용하여 `az provider register --namespace Microsoft.Web --wait`를 실행합니다. 그런 다음, Kubernetes 환경 명령을 다시 시도합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,12 +5,12 @@ ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: contperf-fy21q3, devx-track-azurecli
-ms.openlocfilehash: 69f8518482830f143776dc9d11480a1c818f2fc6
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 76c18d7b11a4ac48a7ebaa77f0ae683b8de9ca44
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107886206"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111422213"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Azure Kubernetes Service에 Hyperledger Fabric 컨소시엄 배포
 
@@ -20,6 +20,11 @@ AKS(Azure Kubernetes Service) 템플릿의 Hyperledger Fabric을 사용하여 Az
 
 - Hyperledger Fabric 블록체인 네트워크의 블록을 구성하는 Hyperledger Fabric과 구성 요소에 대한 실무 지식을 얻습니다.
 - 프로덕션 시나리오를 위한 Azure Kubernetes Service에 Hyperledger Fabric 컨소시엄 네트워크를 배포하고 구성하는 방법을 배웁니다.
+
+>[!IMPORTANT] 
+>
+>템플릿은 Azure Kubernetes 서비스 버전 1.18 이하만 지원합니다. docker에서 "containerd"로의 런타임 환경에서 최근 [Kubernetes의 업데이트](https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/)로 인해 chaincode 컨테이너가 작동하지 않으며, 고객은 HLF 2.2에서만 가능한 서비스로 외부 chaincode를 실행해야 합니다. AKS v1.18.x가 Azure에서 지원될 때까지 [여기](https://github.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service)에 있는 단계에 따라 이 템플릿을 배포할 수 있습니다.
+
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
@@ -80,7 +85,7 @@ Hyperledger Fabric 네트워크 구성 요소의 배포를 시작하려면 [Azur
     - **관리 디스크**: 원장 및 피어 노드의 월드 스테이트 데이터베이스에 대한 영구 저장소를 제공하는 Azure Managed Disks 서비스의 인스턴스입니다.
     - **공용 IP**: 클러스터와의 통신을 위해 배포된 AKS 클러스터의 엔드포인트입니다.
 
-    다음 세부 정보를 입력합니다. 
+    다음 세부 정보를 입력합니다.
 
     ![AKS 클러스터 설정 탭을 보여주는 스크린샷](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
@@ -113,7 +118,7 @@ Hyperledger Fabric 네트워크 구성 요소의 배포를 시작하려면 [Azur
 > 이 스크립트는 데모, 개발 및 테스트 시나리오를 돕기 위해서만 제공됩니다. 이 스크립트에 생성되는 채널과 컨소시엄에는 데모, 개발 및 테스트 시나리오를 간소화하는 기본 Hyperledger Fabric 정책이 포함됩니다. 프로덕션 설정의 경우, 기본 Hyperledger Fabric API를 사용하여 조직의 규정 준수 요구 사항에 따라 채널/컨소시엄 Hyperledger Fabric 정책을 업데이트하는 것이 좋습니다.
 
 
-Azure Hyperledger Fabric 스크립트를 실행하는 모든 명령은 Azure Bash CLI(명령줄 인터페이스)를 통해 실행할 수 있습니다. Azure Portal의 오른쪽 위에 있는 ![Azure Kubernetes Service 템플릿의 Hyperledger Fabric](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) 옵션을 통해 Azure Cloud Shell에 로그인할 수 있습니다. 명령 프롬프트에서 `bash`를 입력하고 Enter 키를 선택하여 Bash CLI로 전환하거나 Cloud Shell 도구 모음에서 **Bash** 를 선택합니다.
+Azure Hyperledger Fabric 스크립트를 실행하는 모든 명령은 Azure Bash CLI(명령줄 인터페이스)를 통해 실행할 수 있습니다. Azure Portal의 오른쪽 상단에 있는 ![Azure Kubernetes Service 템플릿의 Hyperledger Fabric](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) 옵션을 통해 Azure Cloud Shell에 로그인할 수 있습니다. 명령 프롬프트에서 `bash`를 입력하고 Enter 키를 선택하여 Bash CLI로 전환하거나 Cloud Shell 도구 모음에서 **Bash** 를 선택합니다.
 
 자세한 내용은 [Azure Cloud Shell](../../cloud-shell/overview.md)를 참조하세요.
 
@@ -124,7 +129,7 @@ Azure Hyperledger Fabric 스크립트를 실행하는 모든 명령은 Azure Bas
 
 ![컨소시엄을 빌드하는 프로세스의 다이어그램입니다.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
 
-초기 설정을 완료한 후 클라이언트 응용 프로그램을 사용하여 다음 작업을 수행합니다.
+초기 설정을 완료한 후 클라이언트 애플리케이션을 사용하여 다음 작업을 수행합니다.
 
 - 채널 관리
 - 컨소시엄 관리
@@ -149,7 +154,7 @@ npm run setup
 
 #### <a name="set-environment-variables-for-the-orderer-organizations-client"></a>orderer 조직의 클라이언트에 대한 환경 변수 설정
 
-```bash
+```azurecli
 ORDERER_ORG_SUBSCRIPTION=<ordererOrgSubscription>
 ORDERER_ORG_RESOURCE_GROUP=<ordererOrgResourceGroup>
 ORDERER_ORG_NAME=<ordererOrgName>
@@ -159,7 +164,7 @@ CHANNEL_NAME=<channelName>
 
 #### <a name="set-environment-variables-for-the-peer-organizations-client"></a>피어 조직의 클라이언트에 대한 환경 변수 설정
 
-```bash
+```azurecli
 PEER_ORG_SUBSCRIPTION=<peerOrgSubscritpion>
 PEER_ORG_RESOURCE_GROUP=<peerOrgResourceGroup>
 PEER_ORG_NAME=<peerOrgName>
@@ -171,7 +176,7 @@ CHANNEL_NAME=<channelName>
 
 #### <a name="set-environment-variables-for-an-azure-storage-account"></a>Azure Storage 계정 환경 변수 설정
 
-```bash
+```azurecli
 STORAGE_SUBSCRIPTION=<subscriptionId>
 STORAGE_RESOURCE_GROUP=<azureFileShareResourceGroup>
 STORAGE_ACCOUNT=<azureStorageAccountName>
@@ -181,7 +186,7 @@ STORAGE_FILE_SHARE=<azureFileShareName>
 
 다음 명령을 실행하여 Azure Storage 계정을 만듭니다. 이미 Azure storage 계정이 있는 경우 이 단계를 건너뜁니다.
 
-```bash
+```azurecli
 az account set --subscription $STORAGE_SUBSCRIPTION
 az group create -l $STORAGE_LOCATION -n $STORAGE_RESOURCE_GROUP
 az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $STORAGE_LOCATION --sku Standard_LRS
@@ -189,14 +194,14 @@ az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $ST
 
 다음 명령을 사용하여 Azure storage 계정에서 파일 공유를 만듭니다. 파일 공유가 이미 있는 경우 이 단계를 건너뜁니다.
 
-```bash
+```azurecli
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 az storage share create  --account-name $STORAGE_ACCOUNT  --account-key $STORAGE_KEY  --name $STORAGE_FILE_SHARE
 ```
 
 다음 명령을 사용하여 Azure 파일 공유에 대한 연결 문자열을 생성합니다.
 
-```bash
+```azurecli
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 SAS_TOKEN=$(az storage account generate-sas --account-key $STORAGE_KEY --account-name $STORAGE_ACCOUNT --expiry `date -u -d "1 day" '+%Y-%m-%dT%H:%MZ'` --https-only --permissions lruwd --resource-types sco --services f | tr -d '"')
 AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STORAGE_FILE_SHARE?$SAS_TOKEN
@@ -209,15 +214,15 @@ AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STO
 
 orderer 조직의 경우:
 
-```bash
+```azurecli
 ./azhlf adminProfile import fromAzure -o $ORDERER_ORG_NAME -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION
-./azhlf connectionProfile import fromAzure -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION -o $ORDERER_ORG_NAME   
+./azhlf connectionProfile import fromAzure -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION -o $ORDERER_ORG_NAME
 ./azhlf msp import fromAzure -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION -o $ORDERER_ORG_NAME
 ```
 
 피어 조직의 경우:
 
-```bash
+```azurecli
 ./azhlf adminProfile import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
 ./azhlf connectionProfile import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
 ./azhlf msp import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
@@ -225,41 +230,41 @@ orderer 조직의 경우:
 
 ### <a name="create-a-channel"></a>채널 만들기
 
-orderer 조직의 클라이언트에서 다음 명령을 사용하여 orderer 조직을 포함하는 채널을 만듭니다.  
+orderer 조직의 클라이언트에서 다음 명령을 사용하여 orderer 조직을 포함하는 채널을 만듭니다.
 
-```bash
+```azurecli
 ./azhlf channel create -c $CHANNEL_NAME -u $ORDERER_ADMIN_IDENTITY -o $ORDERER_ORG_NAME
 ```
 
 ### <a name="add-a-peer-organization-for-consortium-management"></a>컨소시엄 관리를 위한 피어 조직 추가
 
 >[!NOTE]
-> 컨소시엄 작업을 시작하기 전에 클라이언트 애플리케이션의 초기 설정을 완료했는지 확인합니다.  
+> 컨소시엄 작업을 시작하기 전에 클라이언트 애플리케이션의 초기 설정을 완료했는지 확인합니다.
 
-채널 및 컨소시엄에서 피어 조직을 추가하려면 지정된 순서로 다음 명령을 실행합니다. 
+채널 및 컨소시엄에서 피어 조직을 추가하려면 지정된 순서로 다음 명령을 실행합니다.
 
-1.  피어 조직의 클라이언트에서 Azure Storage에 대한 피어 조직의 MSP를 업로드합니다.
+1.    피어 조직의 클라이언트에서 Azure Storage에 대한 피어 조직의 MSP를 업로드합니다.
 
-      ```bash
+      ```azurecli
       ./azhlf msp export toAzureStorage -f  $AZURE_FILE_CONNECTION_STRING -o $PEER_ORG_NAME
       ```
-2.  orderer 조직의 클라이언트에서 Azure Storage에 대한 피어 조직의 MSP를 업로드합니다. 그런 다음 명령을 실행하여 채널 및 컨소시엄에서 피어 조직을 추가합니다.
+2.    orderer 조직의 클라이언트에서 Azure Storage에 대한 피어 조직의 MSP를 업로드합니다. 그런 다음 명령을 실행하여 채널 및 컨소시엄에서 피어 조직을 추가합니다.
 
-      ```bash
+      ```azurecli
       ./azhlf msp import fromAzureStorage -o $PEER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ./azhlf channel join -c  $CHANNEL_NAME -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
       ./azhlf consortium join -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
       ```
 
-3.  orderer 조직의 클라이언트에서 이 연결 프로필을 사용하여 피어 조직이 orderer 노드에 연결할 수 있도록 Azure Storage에 orderer의 연결 프로필을 업로드합니다.
+3.    orderer 조직의 클라이언트에서 이 연결 프로필을 사용하여 피어 조직이 orderer 노드에 연결할 수 있도록 Azure Storage에 orderer의 연결 프로필을 업로드합니다.
 
-      ```bash
+      ```azurecli
       ./azhlf connectionProfile  export toAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ```
 
-4.  피어 조직의 클라이언트에서 Azure Storage의 orderer 연결 프로필을 다운로드합니다. 그런 다음 명령을 실행하여 채널에서 피어 노드를 추가합니다.
+4.    피어 조직의 클라이언트에서 Azure Storage의 orderer 연결 프로필을 다운로드합니다. 그런 다음 명령을 실행하여 채널에서 피어 노드를 추가합니다.
 
-      ```bash
+      ```azurecli
       ./azhlf connectionProfile  import fromAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ./azhlf channel joinPeerNodes -o $PEER_ORG_NAME  -u $PEER_ADMIN_IDENTITY -c $CHANNEL_NAME --ordererOrg $ORDERER_ORG_NAME
       ```
@@ -273,11 +278,11 @@ orderer 조직의 클라이언트에서 다음 명령을 사용하여 orderer �
 >[!NOTE]
 > 이 명령을 실행하기 전에 컨소시엄 관리 명령을 사용하여 채널에 피어 조직을 추가해야 합니다.
 
-```bash
+```azurecli
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
 ```
 
-`<anchorPeersList>`는 앵커 피어로 설정할 피어 노드의 공백으로 구분된 목록입니다. 예를 들어:
+`<anchorPeersList>`는 앵커 피어로 설정할 피어 노드의 공백으로 구분된 목록입니다. 예를 들면 다음과 같습니다.
 
   - peer1 노드만 앵커 피어로 설정하려는 경우 `<anchorPeersList>`를 `"peer1"`으로 설정합니다.
   - peer1과 peer3 노드 모두를 앵커 피어로 설정하려는 경우 `<anchorPeersList>`를 `"peer1" "peer3"`로 설정합니다.
@@ -285,48 +290,48 @@ orderer 조직의 클라이언트에서 다음 명령을 사용하여 orderer �
 ## <a name="chaincode-management-commands"></a>chaincode 관리 명령
 
 >[!NOTE]
-> chaincode 작업을 시작하기 전에 클라이언트 응용 프로그램의 초기 설정을 완료했는지 확인합니다.  
+> chaincode 작업을 시작하기 전에 클라이언트 응용 프로그램의 초기 설정을 완료했는지 확인합니다.
 
 ### <a name="set-the-chaincode-specific-environment-variables"></a>chaincode 환경 변수 설정
 
-```bash
+```azurecli
 # Peer organization name where the chaincode operation will be performed
 ORGNAME=<PeerOrgName>
-USER_IDENTITY="admin.$ORGNAME"  
-# If you are using chaincode_example02 then set CC_NAME=â€œchaincode_example02â€
-CC_NAME=<chaincodeName>  
-# If you are using chaincode_example02 then set CC_VERSION=â€œ1â€ for validation
+USER_IDENTITY="admin.$ORGNAME"
+# If you are using chaincode_example02 then set CC_NAME="chaincode_example02"
+CC_NAME=<chaincodeName>
+# If you are using chaincode_example02 then set CC_VERSION="1" for validation
 CC_VERSION=<chaincodeVersion>
-# Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'  
-# Default value is 'golang'  
-CC_LANG=<chaincodeLanguage>  
+# Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'
+# Default value is 'golang'
+CC_LANG=<chaincodeLanguage>
 # CC_PATH contains the path where your chaincode is placed. This is the absolute path to the chaincode project root directory.
-# If you are using chaincode_example02 to validate then CC_PATH=â€œ/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/goâ€
-CC_PATH=<chaincodePath>  
-# Channel on which chaincode will be instantiated/invoked/queried  
-CHANNEL_NAME=<channelName>  
+# If you are using chaincode_example02 to validate then CC_PATH="/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go"
+CC_PATH=<chaincodePath>
+# Channel on which chaincode will be instantiated/invoked/queried
+CHANNEL_NAME=<channelName>
 ```
 
-### <a name="install-chaincode"></a>chaincode 설치  
+### <a name="install-chaincode"></a>chaincode 설치
 
-다음 명령을 실행하여 피어 조직에 chaincode를 설치합니다.  
+다음 명령을 실행하여 피어 조직에 chaincode를 설치합니다.
 
-```bash
-./azhlf chaincode install -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -l $CC_LANG -v $CC_VERSION  
+```azurecli
+./azhlf chaincode install -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -l $CC_LANG -v $CC_VERSION
 
 ```
-이 명령은 `ORGNAME` 환경 변수에 설정된 피어 조직의 모든 피어 노드에 chaincode를 설치합니다. 채널에 두 개 이상의 피어 조직이 있고 모든 조직에 chaincode를 설치하려면 각 피어 조직에 대해 이 명령을 별도로 실행합니다.  
+이 명령은 `ORGNAME` 환경 변수에 설정된 피어 조직의 모든 피어 노드에 chaincode를 설치합니다. 채널에 두 개 이상의 피어 조직이 있고 모든 조직에 chaincode를 설치하려면 각 피어 조직에 대해 이 명령을 별도로 실행합니다.
 
-다음 단계를 수행합니다.  
+다음 단계를 수행합니다.
 
-1.  `ORGNAME`과 `USER_IDENTITY`를 `peerOrg1`에 따라 설정하고 `./azhlf chaincode install` 명령을 실행합니다.  
-2.  `ORGNAME`과 `USER_IDENTITY`를 `peerOrg2`에 따라 설정하고 `./azhlf chaincode install` 명령을 실행합니다.  
+1.    `ORGNAME`과 `USER_IDENTITY`를 `peerOrg1`에 따라 설정하고 `./azhlf chaincode install` 명령을 실행합니다.
+2.    `ORGNAME`과 `USER_IDENTITY`를 `peerOrg2`에 따라 설정하고 `./azhlf chaincode install` 명령을 실행합니다.
 
-### <a name="instantiate-chaincode"></a>chaincode 인스턴스화  
+### <a name="instantiate-chaincode"></a>chaincode 인스턴스화
 
-피어 클라이언트 애플리케이션에서 다음 명령을 실행하여 채널에서 chaincode를 인스턴스화합니다.  
+피어 클라이언트 애플리케이션에서 다음 명령을 실행하여 채널에서 chaincode를 인스턴스화합니다.
 
-```bash
+```azurecli
 ./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>
 ```
 
@@ -334,45 +339,45 @@ CHANNEL_NAME=<channelName>
 
 `--collections-config` 플래그를 사용하여 컬렉션의 구성 JSON 파일을 전달할 수도 있습니다. 또는 전용 트랜잭션에 사용되는 chaincode를 인스턴스화하는 동안 `-t` 플래그를 사용하여 임시 인수를 설정합니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
-```bash
+```azurecli
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath> -t <transientArgs>
 ```
 
 `<collectionConfigJSONFilePath>`파트는 프라이빗 데이터 chaincode의 인스턴스화에 대해 정의된 컬렉션을 포함하는 JSON 파일 경로입니다. 다음 경로에서 *azhlfTool* 디렉터리에 관한 샘플 컬렉션의 구성 JSON 파일을 찾을 수 있습니다. `./samples/chaincode/src/private_marbles/collections_config.json`
-문자열 형식에서 유효한 JSON 파일로 `<transientArgs>`를 전달합니다. 특수 문자를 피합니다. 예: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
+문자열 형식에서 유효한 JSON 파일로 `<transientArgs>`를 전달합니다. 특수 문자를 피합니다. `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
-> 채널의 아무 피어 조직에서 명령을 한 번 실행합니다. 트랜잭션이 성공적으로 orderer에 전송된 후 orderer는 이 트랜잭션을 채널의 모든 피어 조직에 배포합니다. 그런 다음 chaincode는 채널에 있는 모든 피어 조직의 모든 피어 노드에서 인스턴스화됩니다.  
+> 채널의 아무 피어 조직에서 명령을 한 번 실행합니다. 트랜잭션이 성공적으로 orderer에 전송된 후 orderer는 이 트랜잭션을 채널의 모든 피어 조직에 배포합니다. 그런 다음 chaincode는 채널에 있는 모든 피어 조직의 모든 피어 노드에서 인스턴스화됩니다.
 
-### <a name="invoke-chaincode"></a>chaincode 호출  
+### <a name="invoke-chaincode"></a>chaincode 호출
 
-피어 조직의 클라이언트에서 다음 명령을 실행하여 chaincode 함수를 호출합니다.  
+피어 조직의 클라이언트에서 다음 명령을 실행하여 chaincode 함수를 호출합니다.
 
-```bash
-./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>  
+```azurecli
+./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>
 ```
 
-각각 `<invokeFunction>`과 `<invokeFuncArgs>`에서 호출 함수 이름과 공백으로 구분된 인수 목록을 전달합니다. 호출 작업을 수행하는 Chaincode_example02.go Chaincode 예제를 계속 진행하여, `<invokeFunction>`을 `invoke`로, `<invokeFuncArgs>`를 `"a" "b" "10"`로 설정합니다.  
+`<invokeFunction>` 및 `<invokeFuncArgs>`에서 각각 호출 함수 이름과 공백으로 구분된 인수 목록을 전달합니다. chaincode_example02.go chaincode 예제를 계속 진행하여 호출 작업을 수행하려면 `<invokeFunction>`을 `invoke`로, `<invokeFuncArgs>`를 `"a" "b" "10"`으로 설정합니다.
 
 >[!NOTE]
-> 채널의 아무 피어 조직에서 명령을 한 번 실행합니다. 트랜잭션이 성공적으로 orderer에 전송된 후 orderer는 이 트랜잭션을 채널의 모든 피어 조직에 배포합니다. 그러면 월드 스테이트가 채널에 있는 모든 피어 조직의 모든 피어 노드에서 업데이트됩니다.  
+> 채널의 아무 피어 조직에서 명령을 한 번 실행합니다. 트랜잭션이 성공적으로 orderer에 전송된 후 orderer는 이 트랜잭션을 채널의 모든 피어 조직에 배포합니다. 그러면 월드 스테이트가 채널에 있는 모든 피어 조직의 모든 피어 노드에서 업데이트됩니다.
 
 
-### <a name="query-chaincode"></a>chaincode 쿼리  
+### <a name="query-chaincode"></a>chaincode 쿼리
 
-다음 명령을 실행하여 chaincode를 쿼리합니다.  
+다음 명령을 실행하여 chaincode를 쿼리합니다.
 
-```bash
-./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
+```azurecli
+./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>
 ```
 보증 피어는 chaincode가 설치되고 트랜잭션을 실행하기 위해 호출되는 피어입니다. 현재 피어 조직에서 피어 노드 이름을 포함하도록 `<endorsingPeers>`를 설정해야 합니다. 지정된 chaincode 및 채널 조합에 대한 보증 피어를 공백으로 구분하여 나열합니다. 예를 들면 `-p "peer1" "peer3"`와 같습니다.
 
-*AzhlfTool* 를 사용하여 chaincode를 설치하는 경우 피어 노드 이름을 보증 피어 인수에 값으로 전달합니다. chaincode는 해당 조직의 모든 피어 노드에 설치됩니다. 
+*AzhlfTool* 를 사용하여 chaincode를 설치하는 경우 피어 노드 이름을 보증 피어 인수에 값으로 전달합니다. chaincode는 해당 조직의 모든 피어 노드에 설치됩니다.
 
-각각 `<queryFunction>`과 `<queryFuncArgs>`에서 쿼리 함수 이름과 공백으로 구분된 인수 목록을 전달합니다. chaincode_example02.go chaincode를 참조하여 월드 스테이트의 “a”값을 쿼리하기 위해 `<queryFunction>`를 `query`로, `<queryArgs>`를 `"a"`로 설정합니다.  
+`<queryFunction>` 및 `<queryFuncArgs>`에서 각각 쿼리 함수 이름과 공백으로 구분된 인수 목록을 전달합니다. 다시 chaincode_example02 chaincode를 참조로 사용하여 월드 스테이트에서 "a" 값을 쿼리하려면 `<queryFunction>`을 `query`로, `<queryArgs>`를 "a"로 설정합니다.
 
 ## <a name="troubleshoot"></a>문제 해결
 
@@ -380,7 +385,7 @@ CHANNEL_NAME=<channelName>
 
 다음 명령을 실행하여 템플릿 배포 버전을 찾습니다. 템플릿이 배포된 리소스 그룹에 따라 환경 변수를 설정합니다.
 
-```bash
+```azurecli
 SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER_SUBSCRIPTION
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
 ```
@@ -417,8 +422,8 @@ Azure Blockchain 뉴스의 경우 [Azure Blockchain 블로그](https://azure.mic
 
 Microsoft 엔지니어 및 Azure Blockchain 커뮤니티 전문가와 소통하세요.
 
-- [Microsoft Q&A 페이지](/answers/topics/azure-blockchain-workbench.html) 
-   
+- [Microsoft Q&A 페이지](/answers/topics/azure-blockchain-workbench.html)
+
   Azure Blockchain Workbench에 대한 엔지니어링 지원은 배포 문제로 제한됩니다.
 - [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 - [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

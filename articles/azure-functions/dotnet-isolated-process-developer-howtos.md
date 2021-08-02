@@ -1,15 +1,16 @@
 ---
 title: Azure Functions를 사용하여 .NET 5 함수 개발 및 게시
 description: .NET 5.0을 사용하여 C# 함수를 만들고 디버그한 다음 Azure Functions에서 서버리스 호스트에 로컬 프로젝트를 배포하는 방법을 알아봅니다.
-ms.date: 03/03/2021
+ms.date: 05/03/2021
 ms.topic: how-to
+recommendations: false
 zone_pivot_groups: development-environment-functions
-ms.openlocfilehash: 6403e5d898b76d459a9712f7847e81e5442deeda
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 6521c02686da55142d9a9d9f1faf569d584ef593
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075352"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "111590007"
 ---
 # <a name="develop-and-publish-net-5-functions-using-azure-functions"></a>Azure Functions를 사용하여 .NET 5 함수 개발 및 게시 
 
@@ -17,40 +18,31 @@ ms.locfileid: "106075352"
 
 .NET 5.0을 지원하거나 Out of Process 함수를 실행하지 않아도 되는 경우 대신 [C# 클래스 라이브러리 함수를 만들](functions-create-your-first-function-visual-studio.md) 수 있습니다.
 
->[!NOTE]
->현재 Azure Portal에서 .NET 격리 프로세스 함수를 개발하는 것은 지원되지 않습니다. Azure CLI 또는 Visual Studio Code 게시를 사용하여 Azure에서 Out of Process .NET 5.0 앱의 실행을 지원하는 함수 앱을 만들어야 합니다.   
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 + 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [.NET SDK 5.0](https://www.microsoft.com/net/download)
+::: zone pivot="development-environment-vscode,development-environment-cli"  
++ [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
 
 + [Azure Functions Core Tools](functions-run-local.md#v2) 버전 3.0.3381 이상.
 
 + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.20 이상.  
-::: zone pivot="development-environment-vscode"
+::: zone-end  
+::: zone pivot="development-environment-vscode"  
 + [지원되는 플랫폼](https://code.visualstudio.com/docs/supporting/requirements#_platforms) 중 하나인 [Visual Studio Code](https://code.visualstudio.com/).  
 
 + Visual Studio Code용 [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).  
 
 + Visual Studio Code 버전 1.3.0 이상용 [Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
-::: zone-end
-::: zone pivot="development-environment-vs"
-+ [Visual Studio 2019](https://azure.microsoft.com/downloads/)(**Azure 개발** 워크로드 포함).  
-.NET 격리 함수 프로젝트 템플릿 및 게시는 현재 Visual Studio에서 사용할 수 없습니다.
-::: zone-end
+::: zone-end  
+::: zone pivot="development-environment-vs"  
++ [Visual Studio 2019](https://azure.microsoft.com/downloads/) 버전 16.10 이상. 설치에는 **Azure 개발** 또는 **ASP.NET 및 웹 개발** 워크로드가 포함되어야 합니다.  
+::: zone-end  
 
 ## <a name="create-a-local-function-project"></a>로컬 함수 프로젝트 만들기
 
 Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답하는 하나 이상의 개별 함수에 대한 컨테이너입니다. 프로젝트의 모든 함수는 동일한 로컬 및 호스팅 구성을 공유합니다. 이 섹션에서는 단일 함수가 포함된 함수 프로젝트를 만듭니다.
-
-::: zone pivot="development-environment-vs"
-
->[!NOTE]  
-> 현재는 .NET 격리 함수 프로젝트 생성을 지원하는 Visual Studio 프로젝트 템플릿이 없습니다. 이 문서에서는 Core Tools를 사용하여 C# 프로젝트를 생성하는 방법을 보여 줍니다. 그러면 Visual Studio에서 로컬로 실행하고 디버그할 수 있습니다.  
-
-::: zone-end
 
 ::: zone pivot="development-environment-vscode"  
 1. 작업 막대에서 Azure 아이콘을 선택한 다음, **Azure: Functions** 영역에서 **새 프로젝트 만들기...** 아이콘을 선택합니다.
@@ -80,7 +72,7 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
 
 1. Visual Studio Code는 이 정보를 사용하여 HTTP 트리거를 통해 Azure Functions 프로젝트를 생성합니다. 탐색기에서 로컬 프로젝트 파일을 볼 수 있습니다. 생성된 파일에 대한 자세한 내용은 [생성된 프로젝트 파일](functions-develop-vs-code.md#generated-project-files)을 참조하세요.
 ::: zone-end  
-::: zone pivot="development-environment-cli,development-environment-vs"  
+::: zone pivot="development-environment-cli"  
 
 1. 다음과 같이 `func init` 명령을 실행하여 *LocalFunctionProj* 폴더에 함수 프로젝트를 만듭니다.  
 
@@ -108,6 +100,62 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
     `func new`는 HttpExample.cs 코드 파일을 만듭니다.
 ::: zone-end  
 
+::: zone pivot="development-environment-vs"
+
+1. Visual Studio 메뉴에서 **파일** > **새로 만들기** > **프로젝트** 를 차례로 선택합니다.
+
+1. **새 프로젝트 만들기** 에서 검색 상자에 *함수* 를 입력하고, **Azure Functions** 템플릿을 선택한 다음, **다음** 을 선택합니다.
+
+1. **새 프로젝트 구성** 에서 프로젝트에 대한 **프로젝트 이름** 을 입력한 다음, **만들기** 를 선택합니다. 함수 앱 이름은 C# 네임스페이스로 유효해야 하므로 밑줄, 하이픈 또는 기타 영숫자가 아닌 문자는 사용하지 마세요.
+
+1. **새 Azure Functions 애플리케이션 만들기** 설정에 대해서는 다음 표의 값을 사용합니다.
+
+    | 설정      | 값  | 설명                      |
+    | ------------ |  ------- |----------------------------------------- |
+    | **.NET 버전** | **.NET 5(격리)** | 이 값은 격리된 프로세스의 .NET 5.0에서 실행되는 함수 프로젝트를 만듭니다.   |
+    | **함수 템플릿** | **HTTP 트리거** | 이 값은 HTTP 요청에 의해 트리거되는 함수를 만듭니다. |
+    | **스토리지 계정(AzureWebJobsStorage)**  | **스토리지 에뮬레이터** | Azure의 함수 앱에는 스토리지 계정이 필요하기 때문에 Azure에 프로젝트를 게시할 때 할당되거나 생성됩니다. HTTP 트리거는 Azure Storage 계정 연결 문자열을 사용하지 않습니다. 다른 모든 트리거 형식에는 유효한 Azure Storage 계정 연결 문자열이 필요합니다.  |
+    | **권한 부여 수준** | **익명** | 만들어진 함수를 모든 클라이언트에서 키를 제공하지 않고 트리거할 수 있습니다. 이 권한 부여 설정을 통해 새 함수를 쉽게 테스트할 수 있습니다. 키 및 권한 부여에 대한 자세한 내용은 [권한 부여 키](functions-bindings-http-webhook-trigger.md#authorization-keys) 및 [HTTP 및 웹후크 바인딩](functions-bindings-http-webhook.md)을 참조하세요. |
+    
+    
+    ![Azure Functions 프로젝트 설정](./media/dotnet-isolated-process-developer-howtos/functions-project-settings.png)
+
+    **권한 부여 수준** 을 **익명** 으로 설정했는지 확인합니다. 기본 수준인 **함수** 를 선택하면 함수 엔드포인트에 액세스하도록 요구하는 요청에 [함수 키](functions-bindings-http-webhook-trigger.md#authorization-keys)를 제공해야 합니다.
+
+1. **만들기** 를 선택하여 함수 프로젝트 및 HTTP 트리거 함수를 만듭니다.
+
+Visual Studio는 HTTP 트리거 함수 형식에 대한 상용구 코드가 포함된 프로젝트와 클래스를 만듭니다. 상용구 코드는 "Azure Functions 시작!"을 보냅니다. HTTP 응답. `HttpTrigger` 특성은 HTTP 요청에서 함수를 트리거하도록 지정합니다. 
+
+## <a name="rename-the-function"></a>함수 이름 바꾸기
+
+`FunctionName` 메서드 특성은 함수 이름을 설정하며, 생성되는 기본값은 `Function1`입니다. 프로젝트를 만들 때 도구를 사용하여 기본 함수 이름을 재정의할 수 없으므로 함수 클래스, 파일 및 메타데이터에 따라 더욱 적절한 이름을 생성해야 합니다.
+
+1. **파일 탐색기** 에서 Function1.cs 파일을 마우스 오른쪽 단추로 클릭하고 이름을 `HttpExample.cs`로 바꿉니다.
+
+1. 코드에서 Function1 클래스의 이름을 `HttpExample`로 바꿉니다.
+
+1. `Run`이라는 `HttpTrigger` 메서드에서 `FunctionName` 메서드 특성의 이름을 `HttpExample`로 바꾸고 값을 `GetLogger` 메서드에 전달합니다.
+
+함수 정의는 이제 다음 코드와 같이 표시됩니다.
+
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="9-15":::
+ 
+이제 함수의 이름을 바꾸었으므로 로컬 컴퓨터에서 이를 테스트할 수 있습니다.
+
+## <a name="run-the-function-locally"></a>로컬에서 함수 실행
+
+Visual Studio는 Azure Functions Core Tools와 통합되므로 Azure Functions 런타임 전체를 사용하여 함수를 로컬로 테스트할 수 있습니다.  
+
+1. 함수를 실행하려면 Visual Studio에서 <kbd>F5</kbd>를 누릅니다. 도구에서 HTTP 요청을 처리할 수 있도록 방화벽 예외를 사용하도록 설정해야 할 수도 있습니다. 함수를 로컬로 실행하는 경우 권한 부여 수준이 적용되지 않습니다.
+
+1. Azure Functions 런타임 출력에서 함수의 URL을 복사하고 요청을 실행합니다. 함수가 성공적으로 실행되고 로그가 런타임 출력에 기록되면 함수 시작 메시지가 표시됩니다. 
+
+1. 디버깅을 중지하려면 Visual Studio에서 <kbd>Shift</kbd>+<kbd>F5</kbd>를 누릅니다.
+
+함수가 로컬 컴퓨터에서 제대로 실행되는지 확인한 후에 해당 프로젝트를 Azure에 게시해야 합니다.
+
+::: zone-end
+
 ::: zone pivot="development-environment-vscode"  
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
@@ -117,62 +165,6 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
 
 [!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
 
-::: zone-end
-
-::: zone pivot="development-environment-vs"
-
-## <a name="run-the-function-locally"></a>로컬에서 함수 실행
-
-이 시점에서 프로젝트 폴더의 루트에 있는 `func start` 명령을 실행하여 C# 격리 함수 프로젝트를 컴파일하고 실행할 수 있습니다. 현재 Visual Studio에서 Out of Process 함수 코드를 디버그하려면 다음 단계를 수행하여 실행 중인 Functions 런타임 프로세스에 디버거를 수동으로 연결해야 합니다.  
-
-1. Visual Studio에서 프로젝트 파일(.csproj)을 엽니다. 프로젝트 코드를 검토 및 수정하고 코드에서 원하는 중단점을 설정할 수 있습니다. 
-
-1. 루트 프로젝트 폴더에서 터미널 또는 명령 프롬프트의 다음 명령을 사용하여 런타임 호스트를 시작합니다.
-
-    ```console
-    func start --dotnet-isolated-debug
-    ```
-
-    `--dotnet-isolated-debug` 옵션은 프로세스를 계속하기 전에 디버거가 연결될 때까지 기다리도록 지시합니다. 출력 끝부분에 다음과 같은 내용이 표시되어야 합니다. 
-    
-    <pre>
-    ...
-    
-    Functions:
-
-        HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
-
-    For detailed output, run func with --verbose flag.
-    [2021-03-09T08:41:41.904Z] Azure Functions .NET Worker (PID: 81720) initialized in debug mode. Waiting for debugger to attach...
-    ...
-    
-    </pre> 
-
-    `PID: XXXXXX`는 실행 중인 Functions 호스트인 dotnet.exe 프로세스의 PID(프로세스 ID)를 나타냅니다.
- 
-1. Azure Functions 런타임 출력에서 디버거를 연결할 호스트 프로세스의 프로세스 ID를 기록해 둡니다. 또한 로컬 함수의 URL을 기록해 둡니다.
-
-1. Visual Studio의 **디버그** 메뉴에서 **프로세스에 연결...** 을 선택하고 프로세스 ID와 일치하는 프로세스를 찾은 다음 **연결** 을 선택합니다. 
-    
-    :::image type="content" source="media/dotnet-isolated-process-developer-howtos/attach-to-process.png" alt-text="Functions 호스트 프로세스에 디버거 연결":::    
-
-    디버거가 연결된 상태에서 함수 코드를 정상적으로 디버그할 수 있습니다.
-
-1. 브라우저의 주소 표시줄에 다음과 같은 형식의 로컬 함수 URL을 입력하고 요청을 실행합니다. 
-
-    `http://localhost:7071/api/HttpExample`
-
-    실행 중인 터미널에 기록된 요청의 추적 출력을 확인해야 합니다. 함수 코드에 설정한 모든 중단점에서 코드 실행이 중지됩니다.
-
-1. 완료 후 터미널로 이동하고 Ctrl + C를 눌러 호스트 프로세스를 중지합니다.
- 
-함수가 로컬 컴퓨터에서 제대로 실행되는지 확인한 후에 해당 프로젝트를 Azure에 게시해야 합니다.
-
-> [!NOTE]  
-> 현재 Visual Studio 게시는 .NET 격리 프로세스 앱에 사용할 수 없습니다. Visual Studio에서 프로젝트 개발을 마친 후에는 Azure CLI를 사용하여 원격 Azure 리소스를 만들어야 합니다. 그런 다음 명령줄에서 Azure Functions Core Tools를 다시 사용하여 Azure에 프로젝트를 게시할 수 있습니다.
-::: zone-end
-
-::: zone pivot="development-environment-cli,development-environment-vs" 
 ## <a name="create-supporting-azure-resources-for-your-function"></a>함수를 지원하는 Azure 리소스 만들기
 
 함수 코드를 Azure에 배포하기 전에 다음 세 가지 리소스를 만들어야 합니다.
@@ -224,6 +216,28 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
 ::: zone-end
+
+:::zone pivot="development-environment-vs"
+
+## <a name="publish-the-project-to-azure"></a>Azure에 프로젝트 게시
+
+프로젝트를 게시하려면 먼저 Azure 구독에 함수 앱이 있어야 합니다. 프로젝트를 처음 게시할 때 Visual Studio 게시에서 함수 앱을 만듭니다.
+
+[!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
+
+## <a name="verify-your-function-in-azure"></a>Azure에서 함수 확인
+
+1. 클라우드 탐색기에서 새 함수 앱을 선택해야 합니다. 그렇지 않은 경우 구독 > **App Services** 를 확장하고 새 함수 앱을 선택합니다.
+
+1. 마우스 오른쪽 단추로 함수 앱을 클릭하고 **브라우저에서 열기** 를 선택합니다. 그러면 기본 웹 브라우저에서 함수 앱의 루트가 열리고 함수 앱이 실행 중임을 나타내는 페이지가 표시됩니다. 
+
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/function-app-running-azure.png" alt-text="함수 앱 실행 중":::
+
+1. 브라우저의 주소 표시줄에서 경로 `/api/HttpExample`을 기준 URL에 추가하고 요청을 실행합니다.
+
+1. 이 URL로 이동하면 로컬에서 실행할 때와 동일한 응답이 브라우저에 표시됩니다.
+
+:::zone-end
 
 ::: zone pivot="development-environment-vscode"
 
@@ -299,19 +313,7 @@ az group delete --name AzureFunctionsQuickstart-rg
 [!INCLUDE [functions-cleanup-resources-vs-code-inner.md](../../includes/functions-cleanup-resources-vs-code-inner.md)]  
 ::: zone-end  
 ::: zone pivot="development-environment-vs"   
-어떠한 추가 비용도 발생하지 않도록 다음 단계를 수행하여 함수 앱 및 관련 리소스를 삭제합니다.
-
-1. 클라우드 탐색기에서 구독 > **App Services** 를 확장하고 함수 앱을 마우스 오른쪽 단추로 클릭한 다음, **포털에서 열기** 를 선택합니다. 
-
-1. 함수 앱 페이지에서 **개요** 탭을 선택한 다음, **리소스 그룹** 아래의 링크를 선택합니다.
-
-   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="함수 앱 페이지에서 삭제할 리소스 그룹 선택":::
-
-2. **리소스 그룹** 페이지에서 포함된 리소스 목록을 검토하고 삭제하려는 항목인지 확인합니다.
- 
-3. **리소스 그룹 삭제** 를 선택하고 지시를 따릅니다.
-
-   삭제는 몇 분 정도 소요됩니다. 완료되면 알림이 잠시 표시됩니다. 페이지 위쪽의 종 모양 아이콘을 선택해도 알림을 확인할 수 있습니다.
+[!INCLUDE [functions-vstools-cleanup](../../includes/functions-vstools-cleanup.md)]
 ::: zone-end
 
 ## <a name="next-steps"></a>다음 단계

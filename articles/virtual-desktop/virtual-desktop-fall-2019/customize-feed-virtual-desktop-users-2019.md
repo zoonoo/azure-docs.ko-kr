@@ -1,26 +1,26 @@
 ---
-title: Windows Virtual Desktop(클래식) 사용자용 피드 사용자 지정 - Azure
-description: PowerShell cmdlet을 사용하여 Windows Virtual Desktop(클래식) 사용자에 대한 피드를 사용자 지정하는 방법.
+title: Azure Virtual Desktop(클래식) 사용자용 피드 사용자 지정 - Azure
+description: PowerShell cmdlet을 사용하여 Azure Virtual Desktop(클래식) 사용자에 대한 피드를 사용자 지정하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 5653ba4b1bcaab9e7b82dae3fe0842cbc7fb86b9
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 7a28185d16f0bc7787eccc76a9f4a0a98d5c6a38
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445111"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754154"
 ---
-# <a name="customize-feed-for-windows-virtual-desktop-classic-users"></a>Windows Virtual Desktop(클래식) 사용자용 피드 사용자 지정
+# <a name="customize-feed-for-azure-virtual-desktop-classic-users"></a>Azure Virtual Desktop(클래식) 사용자용 피드 사용자 지정 - Azure
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../customize-feed-for-virtual-desktop-users.md)를 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Azure Virtual Desktop 개체를 관리하려는 경우 [이 문서](../customize-feed-for-virtual-desktop-users.md)를 참조하세요.
 
 사용자가 인식 가능한 방식으로 RemoteApp 및 원격 데스크톱 리소스를 표시하도록 피드를 사용자 지정할 수 있습니다.
 
-먼저 PowerShell 세션에서 사용할 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](/powershell/windows-virtual-desktop/overview/)(아직 다운로드하고 가져오지 않은 경우). 그런 후, 다음 cmdlet을 실행하여 계정에 로그인합니다.
+먼저, 아직 수행하지 않은 경우 PowerShell 세션에서 사용할 [Azure Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](/powershell/windows-virtual-desktop/overview/). 그런 후, 다음 cmdlet을 실행하여 계정에 로그인합니다.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -72,7 +72,7 @@ Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppG
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 사용자에 대한 피드를 사용자 지정했으므로 Windows Virtual Desktop 클라이언트에 로그인하여 테스트할 수 있습니다. 이렇게 하려면 Windows Virtual Desktop에 연결 방법을 계속 진행합니다.
+이제 사용자에 대한 피드를 사용자 지정했으므로 Azure Virtual Desktop 클라이언트에 로그인하여 테스트할 수 있습니다. 이렇게 하려면 Azure Virtual Desktop에 연결 방법을 계속 진행합니다.
 
  * [Windows 10 또는 Windows 7에서 연결](connect-windows-7-10-2019.md)
  * [웹 브라우저에서 연결](connect-web-2019.md)

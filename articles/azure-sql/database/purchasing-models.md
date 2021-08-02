@@ -1,23 +1,23 @@
 ---
 title: 구매 모델
-titleSuffix: Azure SQL Database & Azure SQL Managed Instance
+titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Azure SQL Database와 Azure SQL Managed Instance에 사용할 수 있는 구매 모델에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: 8883263d6ddb2fb8ddc809f464288fcd282531bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a0c499ad15618d874a99be65f6d3af8d11fd88ec
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92788828"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408950"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>vCore와 DTU 구매 모델 중 선택 - Azure SQL Database 및 SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -156,7 +156,7 @@ DTU 기반 구매 모델에서 고객은 해당 데이터베이스에 사용되�
 
 예를 들어, Gen5에서 가속화된 네트워킹을 사용하기 때문에 네트워크 대기 시간에 민감한 애플리케이션은 Gen4 하드웨어에 비해 Gen5 하드웨어에서 성능이 개선될 수 있지만, Gen4에서 코어당 메모리 비율이 더 높기 때문에 집약적 읽기 IO를 사용하는 애플리케이션은 Gen5 하드웨어에 비해 Gen4 하드웨어에서 더 높은 성능을 발휘할 수 있습니다.
 
-하드웨어 변경에 민감한 워크로드가 있는 고객 또는 데이터베이스의 하드웨어 세대를 선택하고자 하는 고객은 [vCore](service-tiers-vcore.md) 모델을 사용하면 데이터베이스를 만들고 스케일링하는 동안 선호하는 하드웨어 세대를 선택할 수 있습니다. VCore 모델에서는 [단일 데이터베이스](resource-limits-vcore-single-databases.md)와 [탄력적 풀](resource-limits-vcore-elastic-pools.md) 둘 다에 대해 각 하드웨어 세대의 각 서비스 목표에 대한 리소스 제한이 문서화되어 있습니다. VCore 모델의 하드웨어 세대에 대한 자세한 내용은 [하드웨어 세대](./service-tiers-vcore.md#hardware-generations)를 참조하세요.
+하드웨어 변경에 민감한 워크로드가 있는 고객 또는 데이터베이스의 하드웨어 세대를 선택하고자 하는 고객은 [vCore](service-tiers-vcore.md) 모델을 사용하면 데이터베이스를 만들고 스케일링하는 동안 선호하는 하드웨어 세대를 선택할 수 있습니다. VCore 모델에서는 [단일 데이터베이스](resource-limits-vcore-single-databases.md)와 [탄력적 풀](resource-limits-vcore-elastic-pools.md) 둘 다에 대해 각 하드웨어 세대의 각 서비스 목표에 대한 리소스 제한이 문서화되어 있습니다. vCore 모델의 하드웨어 세대에 대한 자세한 내용은 [SQL Database용 하드웨어 세대](./service-tiers-sql-database-vcore.md#hardware-generations) 또는 [SQL Managed Instance용 하드웨어 세대](../managed-instance/service-tiers-managed-instance-vcore.md#hardware-generations)를 참조하세요.
 
 ## <a name="frequently-asked-questions-faqs"></a>FAQ(질문과 대답)
 

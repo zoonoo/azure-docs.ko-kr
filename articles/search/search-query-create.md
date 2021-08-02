@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: 4f5cc0d5eefd5969566040e4148ca7358d348736
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53428a0185b003e22fd0ad68001b2b1588f994b1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104951507"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750752"
 ---
 # <a name="creating-queries-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리 만들기
 
@@ -23,9 +23,9 @@ ms.locfileid: "104951507"
 
 쿼리는 단일 검색 인덱스의 docs 컬렉션에 대한 읽기 전용 요청입니다. 'search' 매개 변수에 용어, 인용 부호로 묶인 구 및 연산자로 구성된 쿼리 식이 포함되도록 지정합니다.
 
-추가 매개 변수에서는 쿼리 및 응답에 대한 추가 정의를 제공합니다. 예를 들어 'searchFields'는 쿼리 실행 범위를 특정 필드로 지정하고, 'select'는 결과에서 반환되는 필드를 지정하며, 'count'는 인덱스에서 찾은 일치 항목 수를 반환합니다.
+요청의 추가 매개 변수에서는 쿼리 및 응답에 대한 추가 정의를 제공합니다. 예를 들어 'searchFields'는 쿼리 실행 범위를 특정 필드로 지정하고, 'select'는 결과에서 반환되는 필드를 지정하며, 'count'는 인덱스에서 찾은 일치 항목 수를 반환합니다.
 
-다음 예에서는 사용 가능한 매개 변수의 하위 집합을 표시하여 쿼리 요청에 대한 일반적인 개념을 제공합니다. 쿼리 컴퍼지션에 대한 자세한 내용은 [쿼리 유형 및 컴퍼지션](search-query-overview.md)과 [문서 검색(REST)](/rest/api/searchservice/search-documents)을 참조하세요.
+다음 예에서는 사용 가능한 일부 매개 변수를 표시하여 쿼리 요청에 대한 일반적인 개념을 제공합니다. 쿼리 컴퍼지션에 대한 자세한 내용은 [쿼리 유형 및 컴퍼지션](search-query-overview.md)과 [문서 검색(REST)](/rest/api/searchservice/search-documents)을 참조하세요.
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -45,7 +45,7 @@ Azure Portal 또는 Postman과 같은 도구 또는 API를 사용하여 쿼리 �
 
 ### <a name="permissions"></a>사용 권한
 
-쿼리 요청을 비롯한 모든 작업은 [관리 API 키](search-security-api-keys.md)로 작동하지만 쿼리 요청은 선택적으로 [쿼리 API 키](search-security-api-keys.md#create-query-keys)를 사용할 수 있습니다. 쿼리 API 키를 적극 권장합니다. 서비스 당 최대 50개를 만들고 다른 애플리케이션에 다른 키를 할당할 수 있습니다.
+쿼리 요청에는 읽기 권한이 필요하며 이 권한은 헤더에 전달된 API 키를 통해 부여됩니다. 쿼리 요청을 비롯한 모든 작업은 [관리 API 키](search-security-api-keys.md)로 작동하지만 쿼리 요청은 선택적으로 [쿼리 API 키](search-security-api-keys.md#create-query-keys)를 사용할 수 있습니다. 쿼리 API 키를 적극 권장합니다. 서비스 당 최대 50개를 만들고 다른 애플리케이션에 다른 키를 할당할 수 있습니다.
 
 Azure Portal에서는 도구, 마법사, 개체에 액세스하려면 서비스에서 참가자 역할 이상의 멤버 자격이 필요합니다. 
 

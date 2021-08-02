@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 1d5bcf9c04ad02eaf297f8971aa0f4ff599888c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c11a28fafc633879f22f0133b544fe99a8c4a72
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943004"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191762"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>HDInsight에서 Apache HBase 및 Apache Phoenix에 대한 백업 및 복제 설정
 
@@ -111,13 +111,13 @@ hbase org.apache.hadoop.hbase.mapreduce.CopyTable --new.name=<destTableName> --p
 
 `<destinationAddress> = <ZooKeeperQuorum>:<Port>:<ZnodeParent>`
 
-* `<ZooKeeperQuorum>`은 쉼표로 구분된 Apache ZooKeeper 노드 목록입니다. 예를 들어 다음과 같습니다.
+* `<ZooKeeperQuorum>`은 쉼표로 구분된 Apache ZooKeeper 노드 FQDN 이름 목록입니다. 예를 들어 다음과 같습니다.
 
-    zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net
+    \<zookeepername1>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,\<zookeepername2>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,\<zookeepername3>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net
 
 * HDInsight에 대한 `<Port>`는 기본적으로 2181로 설정되고 `<ZnodeParent>`는 `/hbase-unsecure`이므로 전체 `<destinationAddress>`는 다음과 같습니다.
 
-    zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net:2181:/hbase-unsecure
+    \<zookeepername1>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,\<zookeepername2>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,\<zookeepername3>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net:2181:/hbase-unsecure
 
 HDInsight 클러스터에 대해 이러한 값을 검색하는 방법에 대한 자세한 내용은 이 문서의 [수동으로 Apache ZooKeeper 쿼럼 목록 수집](#manually-collect-the-apache-zookeeper-quorum-list)을 참조하세요.
 
@@ -145,7 +145,7 @@ curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterNam
 curl 명령은 HBase 구성 정보를 사용하여 JSON 문서를 검색하고, grep 명령은 "hbase.zookeeper.quorum" 항목만 반환합니다. 예를 들어 다음과 같습니다.
 
 ```output
-"hbase.zookeeper.quorum" : "zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net"
+"hbase.zookeeper.quorum" : "<zookeepername1>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,<zookeepername2>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,<zookeepername3>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net"
 ```
 
 쿼럼 호스트 이름 값은 콜론 오른쪽에 있는 전체 문자열입니다.
@@ -156,7 +156,7 @@ curl 명령은 HBase 구성 정보를 사용하여 JSON 문서를 검색하고, 
 curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterName>.azurehdinsight.net/api/v1/clusters/<clusterName>/hosts/<zookeeperHostFullName>" | grep "ip"
 ```
 
-이 curl 명령에서 `<zookeeperHostFullName>`은 ZooKeeper 호스트의 전체 DNS 이름입니다(예: `zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net`). 명령의 출력에는 지정된 호스트에 대한 IP 주소가 포함되어 있습니다. 예를 들어 다음과 같습니다.
+이 curl 명령에서 `<zookeeperHostFullName>`은 ZooKeeper 호스트의 전체 DNS 이름입니다(예: `<zookeepername1>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net`). 명령의 출력에는 지정된 호스트에 대한 IP 주소가 포함되어 있습니다. 예를 들어 다음과 같습니다.
 
 `100    "ip" : "10.0.0.9",`
 

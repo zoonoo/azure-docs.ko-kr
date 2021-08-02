@@ -3,20 +3,20 @@ title: Azure Lab Services에서 공유 이미지 갤러리 연결 또는 분리 
 description: 이 문서에서는 Azure Lab Services의 클래스룸 랩에 공유 이미지 갤러리를 연결하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 09/11/2020
-ms.openlocfilehash: 99b944ad85e311cd66b0a1cec4e585de37f83500
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 2a460e25d59d2c5fcde341212e7912882f5fe111
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98786404"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190700"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Azure Lab Services에서 공유 이미지 갤러리 연결 또는 분리
 이 문서에서는 공유 이미지 갤러리를 랩 계정에 연결하거나 분리하는 방법을 보여줍니다. 
 
 > [!NOTE]
-> Azure Lab Services [랩의 템플릿 이미지](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) 를 공유 이미지 갤러리에 저장 하면 이미지가 갤러리에 특수 이미지로 업로드 됩니다. [특수 이미지](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) 는 컴퓨터 관련 정보와 사용자 프로필을 유지 합니다. Azure Lab Services 외부의 갤러리에 일반화 된 이미지를 직접 직접 업로드할 수 있습니다. 
+> Azure Lab Services에서 [랩의 템플릿 이미지](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery)를 공유 이미지 갤러리에 저장하면 이미지가 갤러리에 특수 이미지로 업로드됩니다. [특수 이미지](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images)는 머신 관련 정보와 사용자 프로필을 유지합니다. Azure Lab Services 외부의 갤러리에 일반 이미지를 직접 업로드할 수 있습니다. 
 >
-> 랩 작성자는 Azure Lab Services에서 일반화 된 이미지와 특수 이미지를 기반으로 템플릿 VM을 만들 수 있습니다. 
+> 랩 작성자는 Azure Lab Services에서 일반화된 이미지와 특수 이미지를 기반으로 템플릿 VM을 만들 수 있습니다. 
 
 ## <a name="scenarios"></a>시나리오
 이 기능이 지원하는 몇 가지 시나리오는 다음과 같습니다. 
@@ -27,7 +27,7 @@ ms.locfileid: "98786404"
     이미지가 공유 이미지 갤러리에 저장되는 경우 Azure Lab Services는 저장된 이미지를 동일한 [지리](https://azure.microsoft.com/global-infrastructure/geographies/)에서 사용할 수 있는 다른 지역에 복제합니다. 그러면 해당 이미지를 동일한 지리의 다른 지역에서 만든 랩에서 사용할 수 있습니다. 공유 이미지 갤러리에 이미지를 저장하면 복제된 모든 이미지에 대한 비용을 포함하는 추가 비용이 발생합니다. 이 비용은 Azure Lab Services 사용 비용과는 별개입니다. Shared Image Gallery 가격 책정에 대한 자세한 내용은 [Shared Image Gallery – 청구](../virtual-machines/shared-image-galleries.md#billing)를 참조하세요.
 
 > [!IMPORTANT]
-> 공유 이미지 갤러리를 사용 하는 동안 Azure Lab Services는 128 GB 미만의 OS 디스크 공간이 있는 이미지만 지원 합니다. 128 GB 이상의 디스크 공간이 있는 이미지 또는 여러 디스크는 랩 생성 중 가상 머신 이미지 목록에 표시 되지 않습니다.
+> 공유 이미지 갤러리를 사용하는 동안 Azure Lab Services는 128GB 미만의 OS 디스크 공간이 있는 이미지만 지원합니다. 128GB 이상의 디스크 공간이 있거나 여러 디스크가 있는 이미지는 랩 생성 동안 가상 머신 이미지 목록에 표시되지 않습니다.
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>랩 계정 생성 시 구성
 랩 계정을 만들 때 공유 이미지 갤러리를 랩 계정에 연결할 수 있습니다. 기존 공유 이미지 갤러리를 드롭다운 목록에서 선택하거나 공유 이미지 갤러리를 새로 만들 수 있습니다. 공유 이미지 갤러리를 만들어서 랩 계정에 연결하려면 **새로 만들기** 를 선택하고 갤러리 이름을 입력한 다음, **확인** 을 입력합니다. 
@@ -88,5 +88,7 @@ ms.locfileid: "98786404"
 
 ## <a name="next-steps"></a>다음 단계
 랩 이미지를 공유 이미지 갤러리에 저장하거나 공유 이미지 갤러리의 이미지를 사용하여 VM을 만드는 방법을 알아보려면, [공유 이미지 갤러리를 사용하는 방법](how-to-use-shared-image-gallery.md)을 참조하세요.
+
+랩 컨텍스트 외부의 공유 이미지 갤러리로 Windows 사용자 지정 이미지를 가져오려면 [공유 이미지 갤러리로 사용자 지정 이미지 가져오기](upload-custom-image-shared-image-gallery.md)를 참조하세요.
 
 일반적인 공유 이미지 갤러리에 대한 자세한 내용은 [공유 이미지 갤러리](../virtual-machines/shared-image-galleries.md)를 참조하세요.

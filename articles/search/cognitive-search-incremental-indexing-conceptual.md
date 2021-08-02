@@ -8,18 +8,18 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: 2448609b1184c8e91947bffbd13cfea8e3fe5d52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3d9d9481821902246721c5c27ed99451f323ba3
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100390864"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111539823"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Azure Cognitive Search의 증분 보강 및 캐싱
 
 > [!IMPORTANT] 
 > 증분 보강은 현재 공개 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 
-> [REST API 미리 보기 버전](search-api-preview.md)은 이 기능을 제공합니다. 지금은 포털 또는 .NET SDK 지원이 없습니다.
+> [REST API 미리 보기 버전](search-api-preview.md)에서 이 기능을 제공합니다. 지금은 포털 또는 .NET SDK 지원이 없습니다.
 
 증분 보강은 [기술 세트](cognitive-search-working-with-skillsets.md)를 대상으로 하는 기능입니다. Azure Storage 활용하여 보강 파이프라인에서 내보낸 처리 출력을 이후 인덱서 실행에서 재사용할 수 있도록 저장합니다. 인덱서는 가능할 경우 여전히 유효한 캐시된 출력을 모두 재사용합니다. 
 
@@ -40,6 +40,9 @@ ms.locfileid: "100390864"
 증분 보강은 보강 파이프라인에 캐시를 추가합니다. 인덱서는 문서 크래킹의 결과와 모든 문서에 대한 각 기술의 출력을 캐시합니다. 기술 세트가 업데이트되면 변경된 기술 또는 다운스트림 기술만 다시 실행됩니다. 업데이트된 결과는 캐시에 기록되고, 문서는 검색 인덱스 또는 지식 저장소에서 업데이트됩니다.
 
 실제로 캐시는 Azure Storage 계정의 Blob 컨테이너에 저장됩니다. 또한 캐시는 업데이트 처리에 대한 내부 기록에도 테이블 스토리지를 사용합니다. 검색 서비스 내의 모든 인덱스는 인덱서 캐시에 대해 동일한 스토리지 계정을 공유할 수 있습니다. 각 인덱서에는 사용 중인 컨테이너에 대해 고유하고 변경할 수 없는 캐시 식별자가 할당됩니다.
+
+> [!NOTE]
+> 인덱서 캐시에는 범용 저장소 계정이 필요합니다. 자세한 내용은 [다양한 유형의 저장소 계정](/storage/common/storage-account-overview#types-of-storage-accounts)을 참조하세요.
 
 ## <a name="cache-configuration"></a>캐시 구성
 
@@ -115,6 +118,30 @@ PUT https://[search service].search.windows.net/datasources/[data source name]?a
 ### <a name="reset-documents"></a>문서 다시 설정
 
 [인덱서를 다시 설정](/rest/api/searchservice/reset-indexer)하면 검색 모음의 모든 문서가 다시 처리됩니다. 몇 개의 문서만 다시 처리해야 하고 데이터 원본은 업데이트할 수 없는 시나리오에서는 [문서 다시 설정(미리 보기)](/rest/api/searchservice/preview-api/reset-documents)을 사용하여 특정 문서를 강제로 다시 처리합니다. 문서를 다시 설정하면 인덱서는 해당 문서에 대한 캐시를 무효화하고 문서는 데이터 원본에서 읽어 다시 처리됩니다. 자세한 내용은 [인덱서, 기술 및 문서 실행 또는 다시 설정](search-howto-run-reset-indexers.md)을 참조하세요.
+
+특정 문서를 다시 설정하기 위해 요청 페이로드에는 인덱스에서 읽은 문서 키 목록이 포함됩니다. API를 호출하는 방법에 따라 요청은 키 목록을 추가하거나 덮어쓰거나 큐에 추가합니다.
+
++ 각각의 키로 API를 여러 번 호출하면 새로운 키가 문서 키 다시 설정 목록에 추가됩니다. 
+
++ true로 설정된 `overwrite` 쿼리 문자열 매개 변수로 API를 호출하면 해당 요청의 페이로드로 다시 설정하도록 현재 문서 키 목록을 덮어씁니다.
+
++ API를 호출하면 인덱서가 수행하는 큐에 문서 키만 추가됩니다. 인덱서는 다음에 호출될 때(예약된 대로 또는 요청 시) 데이터 원본에서 다른 변경 내용이 있기 전에 재설정 문서 키를 처리하는 데 우선 순위를 지정합니다.
+
+다음 예제에서는 문서 재설정 요청을 보여 줍니다.
+
+```http
+POST https://[search service name].search.windows.net/indexers/[indexer name]/resetdocs?api-version=2020-06-30-Preview
+Content-Type: application/json
+api-key: [admin key]
+
+{
+    "documentKeys" : [
+        "key1",
+        "key2",
+        "key3"
+    ]
+}
+```
 
 ## <a name="change-detection"></a>변경 내용 검색
 

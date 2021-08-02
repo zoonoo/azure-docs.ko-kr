@@ -1,26 +1,24 @@
 ---
 title: Edge Secured-Core 인증 요구 사항
-description: Edge Secured-Core 인증 프로그램 요구 사항
+description: Edge Secured-Core 인증 요구 사항
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Edge Secured-core Certification Requirements
 ms.service: certification
-ms.openlocfilehash: c52a1fe215223d8aceca19f2f382a999f8b470de
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 6a4e969c592e844164d2f031914740e24fdc8f99
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108131714"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540256"
 ---
-# <a name="azure-certified-device---edge-secured-core-preview"></a>Azure Certified Device - Edge Secured-핵심(미리 보기) #
-
-## <a name="edge-secured-core-certification-requirements"></a>Edge Secured-Core 인증 요구 사항 ##
+# <a name="edge-secured-core-certification-requirements-preview"></a>Edge Secured-Core 인증 요구 사항(미리 보기) #
 
 이 문서에서는 인증을 완료하고 Edge Secured-Core 레이블이 있는 Azure IoT 디바이스 카탈로그에 디바이스를 나열하기 위해 충족될 디바이스별 기능 및 요구 사항을 설명합니다.
 
-### <a name="program-purpose"></a>프로그램 용도 ###
+## <a name="program-purpose"></a>프로그램 용도 ##
 Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제를 실행하는 IoT 디바이스에 대한 Azure Certified Device 프로그램의 증분 인증입니다. 이 프로그램을 통해 디바이스 파트너는 추가 보안 조건 집합을 충족하여 디바이스를 구분할 수 있습니다. 이 기준을 충족하는 디바이스는 다음을 보장합니다.
 1. 하드웨어 기반 디바이스 ID 
 2. 시스템 무결성 적용 가능 
@@ -28,10 +26,10 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 4. 저장 데이터 보호 기능 제공
 5. 전송 중 데이터 보호 기능 제공
 6. 기본 제공 보안 에이전트 및 강화
-### <a name="requirements"></a>요구 사항 ###
+## <a name="requirements"></a>요구 사항 ##
 
 ---
-|Name|SecuredCore.Built-in.Security|
+|이름|SecuredCore.Built-in.Security|
 |:---|:---|
 |상태|필수|
 |Description|테스트의 목적은 디바이스에서 IoT용 Azure Defender로 데이터를 전송하여 보안 정보 및 이벤트를 보고할 수 있는지 확인하는 것입니다.|
@@ -43,7 +41,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 |리소스|[IoT용 Azure Docs IoT Defender](../defender-for-iot/how-to-configure-agent-based-solution.md)|
 
 ---
-|Name|SecuredCore.Encryption.Storage|
+|이름|SecuredCore.Encryption.Storage|
 |:---|:---|
 |상태|필수|
 |Description|테스트의 목적은 중요한 데이터를 비휘발성 스토리지에서 암호화할 수 있는지 유효성을 검사하기 위한 것입니다.|
@@ -55,7 +53,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 |리소스||
 
 ---
-|Name|SecuredCore.Hardware.SecureEnclave|
+|이름|SecuredCore.Hardware.SecureEnclave|
 |:---|:---|
 |상태|옵션|
 |Description|테스트의 목적은 보안 인클레이브가 있는지 확인하고 인클레이브가 보안 에이전트에서 액세스할 수 있는지 확인하기 위한 것입니다.|
@@ -67,7 +65,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 |리소스|https://github.com/openenclave/openenclave/blob/master/samples/BuildSamplesLinux.md|
 
 ---
-|Name|SecuredCore.Hardware.Identity|
+|이름|SecuredCore.Hardware.Identity|
 |:---|:---|
 |상태|필수|
 |Description|테스트의 목적은 디바이스 식별이 하드웨어에 루팅되었는지 확인하는 것입니다.|
@@ -79,7 +77,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 |리소스|[DPS를 사용하여 자동 프로비전 설정](../iot-dps/quick-setup-auto-provision.md)|
 
 ---
-|Name|SecuredCore.Update|
+|이름|SecuredCore.Update|
 |:---|:---|
 |상태|필수|
 |Description|테스트의 목적은 디바이스에서 펌웨어 및 소프트웨어를 받고 업데이트할 수 있는지 확인하는 것입니다.|
@@ -91,7 +89,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 |리소스|[IoT Hub용 디바이스 업데이트 문서](../iot-hub-device-update/index.yml)|
 
 ---
-|Name|SecuredCore.Manageability.Configuration|
+|이름|SecuredCore.Manageability.Configuration|
 |:---|:---|
 |상태|필수|
 |Description|테스트의 목적은 디바이스가 원격 보안 관리를 지원하는지 유효성을 검사하는 것입니다.|
@@ -103,7 +101,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 |리소스||
 
 ---
-|Name|SecuredCore.Manageability.Reset|
+|이름|SecuredCore.Manageability.Reset|
 |:---|:---|
 |상태|필수|
 |Description|이 테스트의 목적은 다음의 두 가지 사용 사례에 대해 디바이스의 유효성을 검사하는 것입니다. a) 재설정(사용자 데이터 제거, 사용자 구성 제거)을 수행하는 기능, b) 문제를 초래하는 업데이트의 경우 마지막으로 알려진 양호한 상태로 디바이스 복원|
@@ -115,7 +113,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 |리소스||
 
 ---
-|Name|SecuredCore.Updates.Duration|
+|이름|SecuredCore.Updates.Duration|
 |:---|:---|
 |상태|필수|
 |Description|이 정책의 목적은 디바이스를 안전한 상태로 유지하는 것입니다.|
@@ -127,7 +125,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 |리소스||
 
 ---
-|Name|SecuredCore.Policy.Vuln.Disclosure|
+|이름|SecuredCore.Policy.Vuln.Disclosure|
 |:---|:---|
 |상태|필수|
 |Description|이 정책의 목적은 제품의 취약점에 대한 보고서를 수집하고 배포하기 위한 메커니즘이 있는지 확인하는 것입니다.|
@@ -139,7 +137,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 |리소스||
 
 ---
-|Name|SecuredCore.Policy.Vuln.Fixes|
+|이름|SecuredCore.Policy.Vuln.Fixes|
 |:---|:---|
 |상태|필수|
 |Description|이 정책의 목적은 높은/중요한(CVSS 3.0 사용) 취약점이 수정된 후 180 일 이내에 해결되도록 하는 것입니다.|
@@ -152,7 +150,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 
 
 ---
-|Name|SecuredCore.Encryption.TLS|
+|이름|SecuredCore.Encryption.TLS|
 |:---|:---|
 |상태|필수|
 |Description|테스트의 목적은 필수 TLS 버전 및 암호 그룹에 대 한 지원의 유효성을 검사하는 것입니다.|
@@ -164,7 +162,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 |리소스| [IoT Hub의 TLS 지원](../iot-hub/iot-hub-tls-support.md) <br /> [Windows 10의 TLS 암호 그룹](/windows/win32/secauthn/tls-cipher-suites-in-windows-10-v1903) |
 
 ---
-|Name|SecuredCore.Protection.SignedUpdates|
+|이름|SecuredCore.Protection.SignedUpdates|
 |:---|:---|
 |상태|필수|
 |Description|테스트의 목적은 업데이트에 서명해야 하는지에 대한 유효성을 검사하는 것입니다.|
@@ -176,7 +174,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 |리소스||
 
 ---
-|Name|SecuredCore.Firmware.SecureBoot|
+|이름|SecuredCore.Firmware.SecureBoot|
 |:---|:---|
 |상태|필수|
 |Description|테스트의 목적은 디바이스의 부팅 무결성에 대한 유효성을 검사하는 것입니다.|
@@ -188,7 +186,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 |리소스||
 
 ---
-|Name|SecuredCore.Protection.CodeIntegrity|
+|이름|SecuredCore.Protection.CodeIntegrity|
 |:---|:---|
 |상태|필수|
 |Description|이 테스트의 목적은 이 디바이스에서 코드 무결성을 사용할 수 있는지 유효성을 검사하는 것입니다.|
@@ -200,7 +198,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 |리소스||
 
 ---
-|Name|SecuredCore.Protection.NetworkServices|
+|이름|SecuredCore.Protection.NetworkServices|
 |:---|:---|
 |상태|필수|
 |Description|테스트의 목적은 네트워크에서 입력을 받는 애플리케이션이 상승된 권한으로 실행되고 있지 않은지 유효성을 검사하는 것입니다.|
@@ -212,7 +210,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 |리소스||
 
 ---
-|Name|SecuredCore.Protection.Baselines|
+|이름|SecuredCore.Protection.Baselines|
 |:---|:---|
 |상태|필수|
 |Description|테스트의 목적은 시스템이 기준 보안 구성을 준수하는지 유효성을 검사하는 것입니다.|
@@ -224,7 +222,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 |리소스| https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines <br> https://www.cisecurity.org/cis-benchmarks/ |
 
 ---
-|Name|SecuredCore.Firmware.Protection|
+|이름|SecuredCore.Firmware.Protection|
 |:---|:---|
 |상태|필수|
 |Description|테스트의 목적은 디바이스가 펌웨어 보안 위협으로부터 적절한 완화 기능을 가지고 있는지 확인하는 것입니다.|
@@ -236,7 +234,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 |리소스| https://trustedcomputinggroup.org/ |
 
 ---
-|Name|SecuredCore.Firmware.Attestation|
+|이름|SecuredCore.Firmware.Attestation|
 |:---|:---|
 |상태|필수|
 |Description|테스트의 목적은 디바이스가 Microsoft Azure 증명 서비스를 원격으로 증명할 수 있는지 확인하는 것입니다.|
@@ -248,7 +246,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 |리소스| [Microsoft Azure Attestation](../attestation/index.yml) |
 
 ---
-|Name|SecuredCore.Hardware.MemoryProtection|
+|이름|SecuredCore.Hardware.MemoryProtection|
 |:---|:---|
 |상태|필수|
 |Description|테스트의 목적은 외부에서 액세스할 수 있는 포트에서 DMA가 사용하지 않도록 설정되어 있는지 유효성을 검사하는 것입니다.|
@@ -260,7 +258,7 @@ Edge Secured-Core는 Linux 또는 Windows 10 IoT와 같은 전체 운영 체제�
 |리소스||
 
 ---
-|Name|SecuredCore.Protection.Debug|
+|이름|SecuredCore.Protection.Debug|
 |:---|:---|
 |상태|필수|
 |Description|테스트의 목적은 디바이스의 디버그 기능이 사용하지 않도록 설정되었는지 확인하는 것입니다.|
