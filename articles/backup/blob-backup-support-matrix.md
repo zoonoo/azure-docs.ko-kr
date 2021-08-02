@@ -1,23 +1,23 @@
 ---
 title: Azure Blob 백업의 지원 매트릭스
-description: Azure Blob을 백업할 때 지원 설정 및 제한 사항에 대한 요약을 미리 보기로 제공합니다.
+description: Azure Blob을 백업할 경우의 지원 설정 및 제한 사항에 대한 요약입니다.
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 05/20/2021
 ms.custom: references_regions
-ms.openlocfilehash: 12d289fdc3f84e7cbb3489a3ece283179e51772c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 06e6d193ec929961dd4eeb192045a217aefa4ab2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561902"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475104"
 ---
-# <a name="support-matrix-for-azure-blobs-backup-in-preview"></a>Azure Blob 백업에 대한 지원 매트릭스(미리 보기)
+# <a name="support-matrix-for-azure-blobs-backup"></a>Azure Blob 백업의 지원 매트릭스
 
 이 문서에서는 지역 가용성, 지원되는 시나리오 및 BLOB의 운영 백업에 대한 제한 사항을 요약합니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Blob에 대한 운영 백업은 현재 오스트레일리아 중부, 오스트레일리아 동부, 브라질 남부, 캐나다 중부, 인도 중부, 미국 중부, 동아시아, 미국 동부, 미국 동부 2, 독일 서중부, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 북유럽, 미국 중남부, 동남 아시아, 스위스 북부, 아랍에미리트 북부, 영국 남부, 영국 서부, 미국 서중부, 서유럽, 미국 서부, 미국 서부 2에서 제공됩니다.
+Blob에 대한 운영 백업은 현재 다음 지역에서 사용할 수 있습니다. 오스트레일리아 중부, 오스트레일리아 중부 2, 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 브라질 남동부, 캐나다 중부, 캐나다 동부, 인도 중부, 미국 중부, 동아시아, 미국 동부, 미국 동부 2, 프랑스 중부, 독일 북부, 독일 중서부, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 미국 중북부, 북유럽 , 노르웨이 동부, 노르웨이 서부, 남아프리카 공화국 북부, 미국 중남부, 동남 아시아, 인도 남부, 스위스 북부, 스위스 서부, 아랍에미리트 중부, 아랍에미리트 북부, 영국 남부 영국 서부, 미국 중서부, 서유럽, 인도 서부, 미국 서부, 미국 서부 2.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -35,4 +35,4 @@ Blob의 운영 백업은 Blob 특정 시점 복원, Blob 버전 관리, Blob에 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Blob에 대한 운영 백업 개요(미리 보기)](blob-backup-overview.md)
+[Azure Blob에 대한 운영 백업 개요](blob-backup-overview.md)

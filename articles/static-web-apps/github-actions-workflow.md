@@ -5,20 +5,23 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: d561c72bb1c6e6e67de7698d7b21901fcf8d1f7c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f47ad3d63ca99ffbe095498d2db7646e8a4a3ae7
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544420"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072481"
 ---
-# <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 GitHub Actions 워크플로 미리 보기
+# <a name="github-actions-workflows-for-azure-static-web-apps"></a>Azure Static Web Apps에 대한 GitHub Actions 워크플로
 
 새 Azure Static Web App 리소스를 만들 때 Azure는 GitHub Actions 워크플로를 생성하여 앱의 지속적인 배포를 제어합니다. 워크플로는 YAML 파일에 의해 결정됩니다. 이 문서에서는 워크플로 파일의 구조와 옵션에 대해 자세히 설명합니다.
 
 배포는 개별 [단계](#steps)에서 정의되는 [작업](#jobs)을 실행하는 [트리거](#triggers)에 의해 시작됩니다.
+
+> [!NOTE]
+> Azure Static Web Apps도 Azure DevOps를 지원합니다. 파이프라인 설정에 대한 정보는 [Azure DevOps로 게시](publish-devops.md)를 참조하세요.
 
 ## <a name="file-location"></a>파일 위치
 
@@ -38,11 +41,11 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-    - main
+      - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - main
+      - main
 
 jobs:
   build_and_deploy_job:
@@ -50,33 +53,33 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: true
-    - name: Build And Deploy
-      id: builddeploy
-      uses: Azure/static-web-apps-deploy@v0.0.1-preview
-      with:
-        azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
-        repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
-        action: 'upload'
-        ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
-        app_location: '/' # App source code path
-        api_location: 'api' # Api source code path - optional
-        output_location: 'dist' # Built app content directory - optional
-        ###### End of Repository/Build Configurations ######
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
+          action: 'upload'
+          ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+          app_location: '/' # App source code path
+          api_location: 'api' # Api source code path - optional
+          output_location: 'dist' # Built app content directory - optional
+          ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
     name: Close Pull Request Job
     steps:
-    - name: Close Pull Request
-      id: closepullrequest
-      uses: Azure/static-web-apps-deploy@v0.0.1-preview
-      with:
-        azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
-        action: 'close'
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
+          action: 'close'
 ```
 
 ## <a name="triggers"></a>트리거
@@ -87,11 +90,11 @@ GitHub Actions [트리거](https://help.github.com/actions/reference/events-that
 on:
   push:
     branches:
-    - main
+      - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - main
+      - main
 ```
 
 `on` 속성과 연결된 설정을 통해 작업을 트리거하는 분기를 정의하고, 여러 끌어오기 요청 상태에 대해 발생하는 트리거를 설정할 수 있습니다.
@@ -104,10 +107,10 @@ on:
 
 Static Web Apps 워크플로 파일에는 두 개의 사용 가능한 작업이 있습니다.
 
-| 속성  | Description |
-|---------|---------|
-|`build_and_deploy_job` | 커밋을 푸시하거나 `on` 속성에 나열된 분기에 대해 끌어오기 요청을 열 때 실행됩니다. |
-|`close_pull_request_job` | 끌어오기 요청을 닫을 때만 실행되며 끌어오기 요청에서 만든 스테이징 환경을 제거합니다. |
+| 속성                     | Description                                                                                                    |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| `build_and_deploy_job`   | 커밋을 푸시하거나 `on` 속성에 나열된 분기에 대해 끌어오기 요청을 열 때 실행됩니다.          |
+| `close_pull_request_job` | 끌어오기 요청을 닫을 때만 실행되며 끌어오기 요청에서 만든 스테이징 환경을 제거합니다. |
 
 ## <a name="steps"></a>단계
 
@@ -115,10 +118,10 @@ Static Web Apps 워크플로 파일에는 두 개의 사용 가능한 작업이 
 
 워크플로 파일은 다음 단계를 정의합니다.
 
-| 작업  | 단계  |
-|---------|---------|
-| `build_and_deploy_job` |<ol><li>작업 환경에서 리포지토리를 체크 아웃합니다.<li>리포지토리를 빌드하여 Azure Static Web Apps에 배포합니다.</ol>|
-| `close_pull_request_job` | <ol><li>끌어오기 요청이 닫혔음을 Azure Static Web Apps에 알립니다.</ol>|
+| 작업                      | 단계                                                                                                                              |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `build_and_deploy_job`   | <ol><li>작업 환경에서 리포지토리를 체크 아웃합니다.<li>리포지토리를 빌드하여 Azure Static Web Apps에 배포합니다.</ol> |
+| `close_pull_request_job` | <ol><li>끌어오기 요청이 닫혔음을 Azure Static Web Apps에 알립니다.</ol>                                                        |
 
 ## <a name="build-and-deploy"></a>빌드 및 배포
 
@@ -126,14 +129,14 @@ Static Web Apps 워크플로 파일에는 두 개의 사용 가능한 작업이 
 
 ```yml
 with:
-    azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
-    repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
-    action: 'upload'
-    ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
-    app_location: '/' # App source code path
-    api_location: 'api' # Api source code path - optional
-    output_location: 'dist' # Built app content directory - optional
-    ###### End of Repository/Build Configurations ######
+  azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
+  repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
+  action: 'upload'
+  ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+  app_location: '/' # App source code path
+  api_location: 'api' # Api source code path - optional
+  output_location: 'dist' # Built app content directory - optional
+  ###### End of Repository/Build Configurations ######
 ```
 
 [!INCLUDE [static-web-apps-folder-structure](../../includes/static-web-apps-folder-structure.md)]
@@ -146,20 +149,36 @@ Azure Static Web Apps에서 설정된 `repo_token`, `action` 및 `azure_static_w
 
 배포는 항상 사용자 지정 명령 앞에 `npm install`을 호출합니다.
 
-| 명령            | Description |
-|---------------------|-------------|
-| `app_build_command` | 정적 콘텐츠 애플리케이션을 배포하는 동안 실행할 사용자 지정 명령을 정의합니다.<br><br>예를 들어 Angular 애플리케이션에 대한 프로덕션 빌드를 구성하려면 `build-prod`라는 이름의 npm 스크립트를 만들어 `ng build --prod`를 실행하고 `npm run build-prod`를 사용자 지정 명령으로 입력합니다. 이를 비워 두면 워크플로에서 `npm run build` 또는 `npm run build:azure` 명령을 실행하려고 시도합니다.  |
-| `api_build_command` | Azure Functions API 애플리케이션을 배포하는 동안 실행할 사용자 지정 명령을 정의합니다. |
+| 명령             | Description                                                                                                                                                                                                                                                                                                                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `app_build_command` | 정적 콘텐츠 애플리케이션을 배포하는 동안 실행할 사용자 지정 명령을 정의합니다.<br><br>예를 들어 Angular 애플리케이션에 대한 프로덕션 빌드를 구성하려면 `build-prod`라는 이름의 npm 스크립트를 만들어 `ng build --prod`를 실행하고 `npm run build-prod`를 사용자 지정 명령으로 입력합니다. 이를 비워 두면 워크플로에서 `npm run build` 또는 `npm run build:azure` 명령을 실행하려고 시도합니다. |
+| `api_build_command` | Azure Functions API 애플리케이션을 배포하는 동안 실행할 사용자 지정 명령을 정의합니다.                                                                                                                                                                                                                                                                                                  |
 
-## <a name="route-file-location"></a>경로 파일 위치
+## <a name="skip-app-build"></a>앱 빌드 건너뛰기
 
-리포지토리의 폴더에서 [routes.json](routes.md)을 찾도록 워크플로를 사용자 지정할 수 있습니다. 다음 속성은 작업의 `with` 섹션에서 정의할 수 있습니다.
+프런트 엔드 애플리케이션을 빌드하는 방법을 완전히 제어해야 하는 경우 워크플로에 사용자 지정 빌드 단계를 추가할 수 있습니다. 그런 다음 자동 빌드 프로세스를 무시하고 이전 단계에서 빌드된 앱을 배포하도록 고정 웹앱 작업을 구성할 수 있습니다.
 
-| 속성            | Description |
-|---------------------|-------------|
-| `routes_location` | _routes.json_ 파일이 있는 디렉터리 위치를 정의합니다. 이 위치는 리포지토리의 루트를 기준으로 합니다. |
+앱 빌드를 건너뛰려면 `skip_app_build`를 `true`로 설정하고 `app_location`을 배포할 폴더의 위치로 설정합니다.
 
- _routes.json_ 파일의 위치에 대해 명시하는 것은 프런트 엔드 프레임워크 빌드 단계에서 기본적으로 이 파일을 `output_location`으로 이동하지 않는 경우에 특히 중요합니다.
+```yml
+with:
+  azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
+  repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
+  action: 'upload'
+  ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+  app_location: 'dist' # Application build output generated by a previous step
+  api_location: 'api' # Api source code path - optional
+  output_location: '' # Leave this empty
+  skip_app_build: true
+  ###### End of Repository/Build Configurations ######
+```
+
+| 속성         | 설명                                                 |
+| ---------------- | ----------------------------------------------------------- |
+| `skip_app_build` | 프런트 엔드 앱 빌드를 건너뛰려면 값을 `true`로 설정합니다. |
+
+> [!NOTE]
+> 프런트 엔드 앱에 대한 빌드만 건너뛸 수 있습니다. 앱에 API가 있는 경우 고정 웹앱 GitHub 작업을 통해 빌드됩니다.
 
 ## <a name="environment-variables"></a>환경 변수
 
@@ -177,15 +196,15 @@ jobs:
           submodules: true
       - name: Build And Deploy
         id: builddeploy
-        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          action: "upload"
+          action: 'upload'
           ###### Repository/Build Configurations
-          app_location: "/"
-          api_location: "api"
-          output_location: "public"
+          app_location: '/'
+          api_location: 'api'
+          output_location: 'public'
           ###### End of Repository/Build Configurations ######
         env: # Add environment variables here
           HUGO_VERSION: 0.58.0
@@ -193,7 +212,7 @@ jobs:
 
 ## <a name="monorepo-support"></a>monorepo 지원
 
-monorepo는 둘 이상의 애플리케이션에 대한 코드를 포함하는 리포지토리입니다. 기본적으로 Static Web Apps 워크플로 파일은 리포지토리의 모든 파일을 추적하지만 단일 앱을 대상으로 조정할 수 있습니다. 따라서 monorepos의 경우 각 정적 앱에는 저장소의 *.github/workflows* 폴더에 나란히 있는 자체 구성 파일이 있습니다.
+monorepo는 둘 이상의 애플리케이션에 대한 코드를 포함하는 리포지토리입니다. 기본적으로 Static Web Apps 워크플로 파일은 리포지토리의 모든 파일을 추적하지만 단일 앱을 대상으로 조정할 수 있습니다. 따라서 monorepos의 경우 각 정적 앱에는 저장소의 _.github/workflows_ 폴더에 나란히 있는 자체 구성 파일이 있습니다.
 
 ```files
 ├── .github
@@ -235,9 +254,9 @@ on:
 
 이 인스턴스에서 다음 파일에 대한 변경 내용만 새 빌드를 트리거합니다.
 
-- *app1* 폴더 내의 모든 파일
-- *api1* 폴더 내의 모든 파일
-- 앱의 *azure-static-web-apps-purple-pond.yml* 워크플로 파일에 대한 변경 내용
+- _app1_ 폴더 내의 모든 파일
+- _api1_ 폴더 내의 모든 파일
+- 앱의 _azure-static-web-apps-purple-pond.yml_ 워크플로 파일에 대한 변경 내용
 
 ## <a name="next-steps"></a>다음 단계
 

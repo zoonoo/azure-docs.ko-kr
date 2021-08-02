@@ -14,12 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 4772fdae06f23430d829fa411068b7af7a85b3dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 9eca2fe92109bcd91fe5943e53d1e18734401984
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668710"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111814362"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Azure용 SAP LaMa 커넥터
 
@@ -91,34 +92,19 @@ Azure 커넥터는 서비스 주체를 사용하여 Microsoft Azure에 대해 �
 1. 값을 기록해 둡니다. 서비스 주체의 암호로 사용됩니다.
 1. 애플리케이션 ID를 적어둡니다. 서비스 주체의 사용자 이름으로 사용됩니다.
 
-서비스 주체에는 기본적으로 Azure 리소스에 액세스할 권한이 없습니다. 액세스하려면 서비스 주체에 권한을 부여해야 합니다.
+서비스 주체에는 기본적으로 Azure 리소스에 액세스할 권한이 없습니다.
+SAP LaMa에서 관리해야 하는 SAP 시스템이 포함된 모든 리소스 그룹의 리소스 그룹 범위에서 서비스 주체에게 기여자 역할을 할당합니다.
 
-1. https://portal.azure.com 로 이동
-1. 리소스 그룹 블레이드를 엽니다.
-1. 사용하려는 리소스 그룹을 선택합니다.
-1. 액세스 제어(IAM) 클릭
-1. [역할 할당 추가]를 클릭합니다.
-1. 기여자 역할을 선택합니다.
-1. 위에서 만든 애플리케이션의 이름 입력
-1. 저장을 클릭합니다.
-1. SAP LaMa에서 사용하려는 모든 리소스 그룹에 대해 3~8 단계를 반복합니다.
+세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 ### <a name="use-a-managed-identity-to-get-access-to-the-azure-api"></a><a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>관리 ID를 사용하여 Azure API에 대한 액세스 권한 얻기
 
 관리 ID를 사용하려면 SAP LaMa 인스턴스가 시스템 또는 사용자가 할당한 ID가 있는 Azure VM에서 실행되어야 합니다. 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../../../active-directory/managed-identities-azure-resources/overview.md) 및 [Azure Portal을 사용하여 VM에서 Azure 리소스에 대한 관리 ID 구성](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)을 참조하세요.
 
-관리 ID에는 기본적으로 Azure 리소스에 액세스할 권한이 없습니다. 관리 ID에 액세스 권한을 부여해야 합니다.
+관리 ID에는 기본적으로 Azure 리소스에 액세스할 권한이 없습니다.
+SAP LaMa에서 관리해야 하는 SAP 시스템이 포함된 모든 리소스 그룹의 리소스 그룹 범위에서 가상 머신 ID에 기여자 역할을 할당합니다.
 
-1. https://portal.azure.com 로 이동
-1. 리소스 그룹 블레이드를 엽니다.
-1. 사용하려는 리소스 그룹을 선택합니다.
-1. 액세스 제어(IAM) 클릭
-1. 추가 -> 역할 할당 추가를 클릭합니다.
-1. 기여자 역할을 선택합니다.
-1. '액세스 할당 대상'에 '가상 머신'을 선택합니다.
-1. SAP LaMa 인스턴스가 실행되고 있는 가상 머신을 선택합니다.
-1. 저장을 클릭합니다.
-1. SAP LaMa에서 사용하려는 모든 리소스 그룹에 대해 위 단계를 반복합니다.
+세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 SAP LaMa Azure 커넥터 구성에서 '관리 ID 사용'을 선택하여 관리 ID를 사용하도록 설정합니다. 시스템 할당 ID를 사용하려면 사용자 이름 필드를 비워 두어야 합니다. 사용자 할당 ID를 사용하려면 사용자 이름 필드에 사용자 할당 ID를 입력합니다.
 

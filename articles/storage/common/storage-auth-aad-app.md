@@ -10,12 +10,12 @@ ms.date: 12/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c2de1dc71579e6915a54e3815edd2858532ba263
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: ee77fd8ee7f9b209fa1639c787295e380e8dce0b
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075936"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902000"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>클라이언트 애플리케이션의 요청에 대한 승인을 위해 Azure AD에서 토큰 가져오기
 
@@ -31,7 +31,7 @@ OAuth 2.0 코드 권한 부여 흐름의 개요는 [OAuth 2.0 코드 권한 부�
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Azure AD 보안 주체에 역할 할당
 
-Azure Storage 애플리케이션에서 보안 주체를 인증하려면 먼저 해당 보안 주체에 대해 Azure RBAC(Azure 역할 기반 액세스 제어) 설정을 구성합니다. Azure Storage에서는 컨테이너 및 큐에 대한 사용 권한을 포함하는 기본 제공 역할을 정의합니다. Azure 역할이 보안 주체에게 할당되면 해당 보안 주체는 해당 리소스에 대한 액세스 권한이 부여됩니다. 자세한 내용은 [Azure RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 관리](./storage-auth-aad-rbac-portal.md)를 참조하세요.
+Azure Storage 애플리케이션에서 보안 주체를 인증하려면 먼저 해당 보안 주체에 대해 Azure RBAC(Azure 역할 기반 액세스 제어) 설정을 구성합니다. Azure Storage에서는 컨테이너 및 큐에 대한 사용 권한을 포함하는 기본 제공 역할을 정의합니다. Azure 역할이 보안 주체에게 할당되면 해당 보안 주체는 해당 리소스에 대한 액세스 권한이 부여됩니다. 자세한 내용은 [Blob 데이터에 액세스하기 위한 Azure 역할 할당](../blobs/assign-azure-role-data-access.md)을 참조하세요.
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Azure AD 테넌트에 애플리케이션 등록
 
@@ -127,10 +127,10 @@ Microsoft 퍼블릭 클라우드의 경우 기본 Azure AD 권한은 다음과 �
 
 코드 샘플을 실행하려면 Azure Active Directory와 동일한 구독 내에 스토리지 계정을 만듭니다. 그런 다음 해당 스토리지 계정 내에 컨테이너를 만듭니다. 샘플 코드는 이 컨테이너에 블록 Blob을 만듭니다.
 
-그런 다음, 샘플 코드를 실행할 사용자 계정에 **Storage Blob 데이터 기여자** 역할을 명시적으로 할당합니다. Azure Portal에서 이 역할을 할당하는 방법에 대한 지침은 [Azure Portal을 사용하여 Blob 및 큐 데이터에 액세스하기 위한 Azure 역할 할당](storage-auth-aad-rbac-portal.md)을 참조하세요.
+그런 다음, 샘플 코드를 실행할 사용자 계정에 **Storage Blob 데이터 기여자** 역할을 명시적으로 할당합니다. Azure Portal에서 이 역할을 할당하는 방법은 [Blob 데이터에 액세스하기 위한 Azure 역할 할당](../blobs/assign-azure-role-data-access.md)을 참조하세요.
 
 > [!NOTE]
-> Azure Storage 계정을 만들어도 Azure AD를 통해 데이터에 액세스할 수 있는 권한이 자동으로 할당되지는 않습니다. Azure Storage에 Azure 역할을 자신에게 명시적으로 할당해야 합니다. 구독, 리소스 그룹, 스토리지 계정 또는 컨테이너나 큐 수준으로 지정할 수 있습니다.
+> Azure Storage 계정을 만들면 Azure AD를 통해 데이터에 액세스할 수 있는 권한이 자동으로 할당되지 않습니다. Azure Storage에 Azure 역할을 직접 명시적으로 할당해야 합니다. 구독, 리소스 그룹, 스토리지 계정 또는 컨테이너나 큐 수준으로 지정할 수 있습니다.
 >
 > Azure Portal에서 데이터 액세스를 위한 계정 키를 사용할 수도 있으므로 사용자가 데이터 액세스 역할을 자신에게 할당하기 전에 Azure Portal을 통해 스토리지 계정의 데이터에 액세스할 수 있습니다. 자세한 내용은 [Azure Portal에서 Blob 데이터에 대한 액세스 권한을 부여하는 방법 선택](../blobs/authorize-data-operations-portal.md)을 참조하세요.
 
@@ -293,5 +293,5 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 ## <a name="next-steps"></a>다음 단계
 
 - [Microsoft ID 플랫폼](../../active-directory/develop/index.yml)
-- [Azure RBAC를 사용하여 스토리지 데이터에 대한 액세스 권한 관리](./storage-auth-aad-rbac-portal.md)
+- [Blob 데이터에 액세스하기 위한 Azure 역할 할당](../blobs/assign-azure-role-data-access.md)
 - [Azure 리소스의 Azure Active Directory 및 관리 ID를 사용하여 Blob 및 큐에 대한 액세스 인증](storage-auth-aad-msi.md)

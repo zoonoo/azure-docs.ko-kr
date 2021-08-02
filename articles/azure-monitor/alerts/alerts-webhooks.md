@@ -5,20 +5,20 @@ author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
 ms.date: 02/14/2021
-ms.openlocfilehash: 7ab719560320882a3a6569bff5df7d2e2cf0b747
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 43cec44d2ff995d6bb96eb4bfb984bebe09195b0
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037560"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110797771"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Azure Monitor에서 클래식 메트릭 경고를 사용하여 웹후크 호출
 
 > [!WARNING]
-> 이 문서에서는 이전 클래식 메트릭 경고를 사용 하는 방법을 설명 합니다. Azure Monitor는 이제 새로운 [거의 실시간 메트릭 경고 및 새로운 경고 환경을](./alerts-overview.md)지원 합니다. 클래식 경고는 공용 클라우드 사용자에 게 사용이 [중지](./monitoring-classic-retirement.md) 되지만 31 년 5 **월 2021** 일까 지 계속 사용 됩니다. Azure Government 클라우드 및 Azure 중국 21Vianet에 대 한 클래식 경고는 **2024 년 2 월 29 일** 에 사용 중지 됩니다.
+> 이 문서에서는 기존 클래식 메트릭 경고를 사용하는 방법을 설명합니다. 이제 Azure Monitor는 [최신 근 실시간 메트릭 경고 및 새 경고 환경](./alerts-overview.md)을 지원합니다. 클래식 경고는 퍼블릭 클라우드 사용자에 대해 [사용 중지](./monitoring-classic-retirement.md)되었지만 **2021년 5월 31일** 까지는 제한적으로 사용할 수 있습니다. Azure Government 클라우드 및 Azure 중국 21Vianet에 대한 클래식 경고는 **2024년 2월 29일** 에 사용 중지됩니다.
 >
 
-웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다. SMS 메시지 보내기, 버그 기록, 채팅/메시징 서비스를 통한 팀 알림 또는 다양한 다른 작업 수행 등을 처리하는 서비스에 라우팅하도록 웹후크를 경고에 사용할 수 있습니다. 
+웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다. SMS 메시지 보내기, 버그 기록, 채팅/메시징 서비스를 통한 팀 알림 또는 다양한 다른 작업 수행 등을 처리하는 서비스에 라우팅하도록 웹후크를 경고에 사용할 수 있습니다.
 
 이 아티클에서는 Azure 메트릭 경고에 웹후크를 설정하는 방법을 설명합니다. 웹후크에 대한 HTTP POST의 페이로드 형태도 보여 줍니다. Azure 활동 로그 경고(이벤트에 대한 경고)에 대한 설정과 스키마에 대한 자세한 내용은 [Azure 활동 로그 경고에서 웹후크 호출](../alerts/alerts-log-webhook.md)을 참조하세요.
 
@@ -105,6 +105,6 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 ## <a name="next-steps"></a>다음 단계
 * [Azure 경고와 PagerDuty의 통합](https://go.microsoft.com/fwlink/?LinkId=627080) 비디오에서 Azure 경고와 웹후크에 대해 자세히 알아봅니다.
 * [Azure 경고에 대한 Azure Automation 스크립트(Runbook) 실행](https://go.microsoft.com/fwlink/?LinkId=627081) 방법을 알아봅니다.
-* [논리 앱을 사용하여 Azure 경고에서 Twilio를 통해 SMS 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app) 방법을 알아봅니다.
-* [논리 앱을 사용하여 Azure 경고에서 Slack 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app) 방법을 알아봅니다.
-* [논리 앱을 사용하여 Azure 경고에서 Azure 큐에 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app) 방법을 알아봅니다.
+* [논리 앱을 사용하여 Azure 경고에서 Twilio를 통해 SMS 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-text-message-with-logic-app) 방법을 알아봅니다.
+* [논리 앱을 사용하여 Azure 경고에서 Slack 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-slack-with-logic-app) 방법을 알아봅니다.
+* [논리 앱을 사용하여 Azure 경고에서 Azure 큐에 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-queue-with-logic-app) 방법을 알아봅니다.

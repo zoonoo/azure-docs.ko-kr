@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 994ed74750d159dfdb83259e9fe921f870ec2241
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21c5fd8832805c5e733f19d5fbf71a4e5512478e
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99509370"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540515"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Azure Cognitive Search의 서비스 제한
 
@@ -107,8 +107,8 @@ ms.locfileid: "99509370"
 
 | 리소스 | 무료 | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 프라이빗 엔드포인트 인덱서 지원 | 예 | 예 | 예 | 예 | 예 | 예 | 예 | 예 |
-| 기술 세트가 있는 인덱서를 위한 프라이빗 엔드포인트 지원 <sup>1</sup> | 예 | 예 | 예 | 예 | 예 | 예 | 예 | 예 |
+| 프라이빗 엔드포인트 인덱서 지원 | 예 | 예 | 예 | 예 | 예 | 아니요 | 예 | 예 |
+| 기술 세트가 있는 인덱서를 위한 프라이빗 엔드포인트 지원 <sup>1</sup> | 예 | 아니요 | 아니요 | 예 | 예 | 아니요 | 예 | 예 |
 | 최대 프라이빗 엔드포인트 | 해당 없음 | 10 또는 30 | 100 | 400 | 400 | 해당 없음 | 20 | 20 |
 | 최대 고유 리소스 유형<sup>2</sup> | 해당 없음 | 4 | 7 | 15 | 15 | 해당 없음 | 4 | 4 |
 
@@ -127,7 +127,7 @@ ms.locfileid: "99509370"
 
 ## <a name="data-limits-ai-enrichment"></a>데이터 제한(AI 보강)
 
-[엔터티 인식](cognitive-search-skill-entity-recognition.md), [핵심 구 추출](cognitive-search-skill-keyphrases.md), [감정 분석](cognitive-search-skill-sentiment.md), [언어 감지](cognitive-search-skill-language-detection.md) 및 [개인 정보 검색](cognitive-search-skill-pii-detection.md)에 대한 Text Analytics 리소스로 호출을 만드는 [AI 보강 파이프라인](cognitive-search-concept-intro.md)은 데이터가 제한될 수 있습니다. 레코드의 최대 크기는 [`String.Length`](/dotnet/api/system.string.length)에 의해 측정된 대로 50,000자여야 합니다. 감성 분석기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 사용합니다.
+[엔터티 인식](cognitive-search-skill-entity-recognition-v3.md), [엔터티 링크](cognitive-search-skill-entity-linking-v3.md), [핵심 구 추출](cognitive-search-skill-keyphrases.md), [감정 분석](cognitive-search-skill-sentiment-v3.md), [언어 감지](cognitive-search-skill-language-detection.md) 및 [개인 정보 검색](cognitive-search-skill-pii-detection.md)에 대한 Text Analytics 리소스로 호출을 만드는 [AI 보강 파이프라인](cognitive-search-concept-intro.md)은 데이터가 제한될 수 있습니다. 레코드의 최대 크기는 [`String.Length`](/dotnet/api/system.string.length)에 의해 측정된 대로 50,000자여야 합니다. 감성 분석기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 사용합니다.
 
 ## <a name="throttling-limits"></a>스로틀 제한
 

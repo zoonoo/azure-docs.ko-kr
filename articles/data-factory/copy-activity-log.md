@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
-ms.openlocfilehash: 7cb00d62556babbd8e43e2fac2faa815a63943ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cbd2ef972753abfc9f18fed4a15c6ed0357daae0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100385271"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095665"
 ---
 #  <a name="session-log-in-copy-activity"></a>복사 활동의 세션 로그
 
@@ -20,6 +20,11 @@ ms.locfileid: "100385271"
 복사 작업에서 복사한 파일 이름을 로그할 수 있습니다. 그렇게 되면 복사 작업 세션 로그에서 복사된 파일을 검토하여 데이터를 원본 저장소에서 대상 저장소로 복사할뿐 아니라 원본 및 대상 저장소 간에 일관성을 유지할 수 있습니다.  
 
 복사 작업에서 잘못된 데이터를 건너뛰는 내결함성 설정을 사용하면 건너뛴 파일 및 건너뛴 행도 로그할 수 있습니다.  [복사 작업의 내결함성](copy-activity-fault-tolerance.md)을 통해 세부 정보를 얻을 수 있습니다. 
+
+세션 로그를 사용하도록 설정하여 ADF 복사 작업에서 복사한 모든 파일 이름을 가져올 수 있는 경우 다음과 같은 시나리오에서 유용합니다.
+-   ADF 복사 작업을 사용하여 파일을 한 스토리지에서 다른 스토리지로 복사한 후 대상 저장소에 표시되지 않아야 하는 일부 파일이 표시됩니다. 복사 작업 세션 로그를 검사하여 실제로 해당 파일을 복사한 복사 작업과 해당 파일을 복사할 시기를 확인할 수 있습니다. 이를 통해 쉽게 근본 원인을 찾고 ADF에서 구성을 수정할 수 있습니다.   
+-   ADF 복사 작업을 사용하여 파일을 한 스토리지에서 다른 스토리지로 복사한 후에는 대상에 복사된 파일이 원본 저장소의 파일의 파일과 동일하지 않을 수 있습니다. ADF 복사 작업이 원본 저장소에서 파일을 읽을 때 복사 작업 세션 로그를 검사하여 복사 작업의 타임스탬프와 파일의 메타데이터를 가져올 수 있습니다.  이를 통해 ADF에서 복사한 후 원본 저장소의 다른 애플리케이션에서 해당 파일을 업데이트했는지 알 수 있습니다.  
+
 
 ## <a name="configuration"></a>구성
 다음 예제에서는 복사 활동에서 세션 로그를 사용하기 위한 JSON 정의를 제공합니다. 
@@ -77,7 +82,7 @@ linkedServiceName | 세션 로그 파일을 저장할 [Azure Blob Storage](conne
 ## <a name="monitoring"></a>모니터링
 
 ### <a name="output-from-copy-activity"></a>복사 활동의 출력
-복사 활동 실행이 완료된 후 각 복사 활동 실행을 출력하면서 로그 파일 경로를 확인할 수 있습니다. 로그 파일은 경로에서 찾을 수 있습니다 `https://[your-blob-account].blob.core.windows.net/[logFilePath]/copyactivity-logs/[copy-activity-name]/[copy-activity-run-id]/[auto-generated-GUID].csv`.  로그 파일은 csv 파일입니다. 
+복사 활동 실행이 완료된 후 각 복사 활동 실행을 출력하면서 로그 파일 경로를 확인할 수 있습니다. 로그 파일은 경로에서 찾을 수 있습니다 `https://[your-blob-account].blob.core.windows.net/[logFilePath]/copyactivity-logs/[copy-activity-name]/[copy-activity-run-id]/[auto-generated-GUID].txt`.  생성되는 로그 파일의 확장명은 .txt이며 해당 데이터는 CSV 형식입니다.
 
 ```json
 "output": {

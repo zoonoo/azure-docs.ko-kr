@@ -1,5 +1,5 @@
 ---
-title: Azure Static Web Apps 미리 보기를 사용하여 프런트 엔드 프레임워크 구성
+title: Azure Static Web Apps를 사용하여 프런트 엔드 프레임워크 구성
 description: Azure Static Web Apps에 필요한 널리 사용되는 프런트 엔드 프레임워크 설정
 services: static-web-apps
 author: craigshoemaker
@@ -7,14 +7,14 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 9f02c9ad10e2b03bddc7c3ca2cfb54932464b69a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 767b20600c8edb2752a87a10c788ee446a8f15b3
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731754"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109813977"
 ---
-# <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기를 사용하여 프런트 엔드 프레임워크와 라이브러리 구성
+# <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps"></a>Azure Static Web Apps를 사용하여 프런트 엔드 프레임워크와 라이브러리 구성
 
 Azure Static Web Apps를 사용하려면 프런트 엔드 프레임워크 또는 라이브러리의 [빌드 구성 파일](github-actions-workflow.md)에 적절한 구성 값이 있어야 합니다.
 

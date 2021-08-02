@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 06/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 3a3cdb93ee4cbf4a2e15540b9daf78b6c231d393
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e0af2e682799d4286a0d00daa2ce7e3805cf4ac
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579742"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565251"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 세션 동작 구성
 
@@ -123,7 +123,7 @@ Azure AD B2C 디렉터리에 로컬 계정이 있는 웹 및 네이티브 애플
 
 KMSI는 개별 사용자 흐름 수준에서 구성할 수 있습니다. 사용자 흐름에 대해 KMSI를 사용하도록 설정하기 전에 다음 사항을 고려합니다.
 
-- KMSI는 **권장** 되는 버전의 가입 및 로그인(SUSI), 로그인 및 프로필 편집 사용자 흐름에 대해서만 지원됩니다. 현재 이러한 사용자 흐름의 **Standard** 또는 **Legacy preview - V2** 버전이 있고 KMSI를 사용하도록 설정하려는 경우 이러한 사용자 흐름의 새로운 **권장** 버전을 만들어야 합니다.
+- KMSI는 **권장** 되는 버전의 가입 및 로그인(SUSI), 로그인 및 프로필 편집 사용자 흐름에 대해서만 지원됩니다. 현재 이러한 사용자 흐름의 **표준(레거시)** 또는 **레거시 미리 보기 - v2** 버전이 있고 KMSI를 사용하도록 설정하려는 경우 이러한 사용자 흐름의 새로운 **권장** 버전을 만들어야 합니다.
 - KMSI는 암호 재설정 또는 가입 사용자 흐름에서 지원되지 않습니다.
 - 테넌트의 모든 애플리케이션에 대해 KMSI를 사용하도록 설정하려면 테넌트의 모든 사용자 흐름에 대해 KMSI를 사용하도록 설정하는 것이 좋습니다. 세션 중에 사용자에게 여러 정책이 표시될 수 있기 때문에 KMSI를 사용하도록 설정하지 않은 정책을 찾을 수 있습니다. 이 경우 세션에서 KMSI 쿠키가 제거됩니다.
 - 퍼블릭 컴퓨터에서는 KMSI를 사용하도록 설정하면 안 됩니다.
@@ -154,7 +154,7 @@ KMSI는 개별 사용자 흐름 수준에서 구성할 수 있습니다. 사용�
 
 KMSI를 사용하도록 설정하려면 콘텐츠 정의 `DataUri` 요소를 [페이지 식별자](contentdefinitions.md#datauri) `unifiedssp` 및 [페이지 버전](page-layout.md) *1.1.0* 이상으로 설정합니다.
 
-1. 정책의 확장 파일을 엽니다. 예를 들어 <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>입니다. 이 확장 파일은 사용자 지정 정책 시작 팩에 포함된 정책 파일 중 하나로, 필수 구성 요소인 [사용자 지정 정책 시작](custom-policy-get-started.md)에서 가져와야 합니다.
+1. 정책의 확장 파일을 엽니다. 예를 들어 <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>입니다. 이 확장 파일은 사용자 지정 정책 시작 팩에 포함된 정책 파일 중 하나로, 필수 구성 요소인 [사용자 지정 정책 시작](tutorial-create-user-flows.md?pivots=b2c-custom-policy)에서 가져와야 합니다.
 1. **BuildingBlocks** 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
 1. 정책의 **BuildingBlocks** 요소에 **contentdefinitions** 요소를 추가합니다.
 
@@ -243,16 +243,18 @@ KeepAliveInDays의 값을 아래 예제에 표시된 것과 같이 비교적 오
 
 로그아웃 요청 시 Azure AD B2C는 다음을 수행합니다.
 
-1. Azure AD B2C 쿠키 기반 세션을 무효화합니다.
 ::: zone pivot="b2c-user-flow"
-2. 페더레이션된 ID 공급자에서 로그아웃하려고 합니다.
+1. Azure AD B2C 쿠키 기반 세션을 무효화합니다.
+1. 페더레이션된 ID 공급자에서 로그아웃하려고 합니다.
 ::: zone-end
+
 ::: zone pivot="b2c-custom-policy"
-3. 페더레이션된 ID 공급자에서 로그아웃하려고 합니다.
+1. Azure AD B2C 쿠키 기반 세션을 무효화합니다.
+1. 페더레이션된 ID 공급자에서 로그아웃하려고 합니다.
    - OpenId Connect - ID 공급자의 잘 알려진 구성 엔드포인트가 `end_session_endpoint` 위치를 지정하는 경우입니다. 로그아웃 요청은 `id_token_hint` 매개 변수를 전달하지 않습니다. 페더레이션된 ID 공급자에 이 매개 변수가 필요한 경우에는 로그아웃 요청이 실패합니다.
    - OAuth2 - [ID 공급자 메타데이터](oauth2-technical-profile.md#metadata)에 `end_session_endpoint` 위치가 포함된 경우입니다.
    - SAML - [ID 공급자 메타데이터](identity-provider-generic-saml.md)에 `SingleLogoutService` 위치가 포함된 경우입니다.
-4. 필요에 따라 다른 애플리케이션에서 로그아웃합니다. 자세한 내용은 [단일 로그아웃](#single-sign-out) 섹션을 참조하세요.
+1. 필요에 따라 다른 애플리케이션에서 로그아웃합니다. 자세한 내용은 [단일 로그아웃](#single-sign-out) 섹션을 참조하세요.
 
 > [!NOTE]
 > ID 공급자 기술 프로필 메타데이터 `SingleLogoutEnabled`를 `false`로 설정하여 페더레이션 ID 공급자에서 로그아웃을 사용하지 않도록 설정할 수 있습니다.

@@ -1,44 +1,44 @@
 ---
-title: 원호의 사용 PostgreSQL Hyperscale 서버 그룹에 대 한 연결 끝점 및 폼 연결 문자열 가져오기
+title: Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 연결 엔드포인트 가져오기 및 연결 문자열 구성하기
 titleSuffix: Azure Arc enabled data services
-description: 원호의 사용 PostgreSQL Hyperscale 서버 그룹에 대 한 연결 끝점 및 폼 연결 문자열 가져오기
+description: Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 연결 엔드포인트 가져오기 및 연결 문자열 구성하기
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: de7d23689ae984ea0abece5edb03cf8a0c3a9be1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 3477c8f1dbffb9f2c42c72c1b0bfc03c662ed24c
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670344"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412298"
 ---
-# <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>원호의 사용 PostgreSQL Hyperscale 서버 그룹에 대 한 연결 끝점 및 폼 연결 문자열 가져오기
+# <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 연결 엔드포인트 가져오기 및 연결 문자열 구성하기
 
-이 문서에서는 서버 그룹에 대 한 연결 끝점을 검색 하는 방법 및 응용 프로그램 및/또는 도구에서 사용 하는 연결 문자열을 구성 하는 방법을 설명 합니다.
+이 문서에서는 서버 그룹에 대한 연결 엔드포인트를 검색하는 방법과 애플리케이션 및/또는 도구에서 사용할 연결 문자열을 구성하는 방법을 설명합니다.
 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="get-connection-end-points"></a>연결 끝점 가져오기:
+## <a name="get-connection-end-points"></a>연결 엔드포인트를 가져옵니다.
 
-### <a name="from-cli-with-azdata"></a>CLI에서 azdata 사용
-#### <a name="1-connect-to-your-arc-data-controller"></a>1. Arc 데이터 컨트롤러에 연결 합니다.
-- Arc 데이터 컨트롤러의 호스트에서 세션이 이미 열려 있는 경우 다음 명령을 실행 합니다.
+### <a name="from-cli-with-azdata"></a>azdata를 사용하는 CLI에서
+#### <a name="1-connect-to-your-arc-data-controller"></a>1. Arc 데이터 컨트롤러에 연결
+- Arc 데이터 컨트롤러의 호스트에 세션이 이미 열려 있는 경우 다음 명령을 실행합니다.
 ```console
 azdata login
 ```
 
-- Arc 데이터 컨트롤러의 호스트에서 세션을 열지 않은 경우 다음 명령을 실행 합니다. 
+- Arc 데이터 컨트롤러의 호스트에 세션이 열려 있지 않은 다음 명령을 실행합니다. 
 ```console
 azdata login --endpoint https://<external IP address of host/data controller>:30080
 ```
 
-#### <a name="2-show-the-connection-endpoints"></a>2. 연결 끝점 표시
+#### <a name="2-show-the-connection-endpoints"></a>2. 연결 엔드포인트 표시
 다음 명령을 실행합니다.
 ```console
 azdata arc postgres endpoint list -n <server group name>
@@ -48,7 +48,7 @@ azdata arc postgres endpoint list -n <server group name>
 azdata arc postgres endpoint list -n postgres01
 ```
 
-응용 프로그램을 연결 하 고 log analytics 및 모니터링을 위해 데이터베이스, Kibana 및 Grafana 끝점을 사용 하는 PostgreSQL 끝점의 목록이 표시 됩니다. 예를 들면 다음과 같습니다. 
+애플리케이션을 연결하고 데이터베이스를 사용하기 위해 사용하는 PostgreSQL 엔드포인트, 로그 분석 및 모니터링을 위한 Kibana 및 Grafana 엔드포인트 등 엔드포인트 목록이 표시됩니다. 예를 들면 다음과 같습니다. 
 ```console
 Arc
  ===================================================================================================================
@@ -61,11 +61,11 @@ Arc
  Metrics Dashboard     https://89.345.712.81:30777/grafana/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01
 
 ```
-이러한 끝점을 사용 하 여 다음을 수행 합니다.
-- 연결 문자열을 구성 하 고 클라이언트 도구나 응용 프로그램에 연결 합니다.
+엔드포인트를 사용하여 다음을 수행합니다.
+- 연결 문자열을 구성하고 클라이언트 도구 또는 애플리케이션에 연결합니다.
 - 브라우저에서 Grafana 및 Kibana 대시보드 액세스합니다.
 
-예를 들어 _PostgreSQL Instance_ 라는 끝점을 사용 하 여 psql을 서버 그룹에 연결할 수 있습니다. 예를 들면 다음과 같습니다.
+예를 들어 ‘PostgreSQL 인스턴스’라는 엔드포인트를 사용하여 psql을 통해 서버 그룹에 연결할 수 있습니다. 예를 들면 다음과 같습니다.
 ```console
 psql postgresql://postgres:MyPassworkd@12.345.567.89:5432
 psql (10.14 (Ubuntu 10.14-0ubuntu0.18.04.1), server 12.4 (Ubuntu 12.4-1.pgdg16.04+1))
@@ -78,31 +78,26 @@ postgres=#
 ```
 > [!NOTE]
 >
-> - "_PostgreSQL Instance_" 라는 끝점에 지정 된 _postgres_ 사용자의 암호는 서버 그룹을 배포할 때 선택한 암호입니다.
-> - Azdata 정보: 연결에 연결 된 임대는 약 10 시간 동안 지속 됩니다. 그런 다음 다시 연결 해야 합니다. 임대가 만료 된 경우 azdata (azdata login 제외)를 사용 하 여 명령을 실행 하려고 하면 다음과 같은 오류 메시지가 표시 됩니다. _오류: (401)_ 
->  _이유: 권한이 없는_ 
->  _HTTP 응답 헤더: HTTPHeaderDict ({' Date ': ' Sun, 06 년 9 월 2020 16:58:38 GMT ', ' content-length ': ' 0 ', ' WWW-인증 ': '_ 
->  _기본 영역 = "로그인_ 자격 증명 필요", 전달자 오류 = "invalid_token", error_description = "토큰이 만료 됨" '}) _이 경우 위에 설명 된 대로 azdata에 다시 연결 해야 합니다.
+> - ‘PostgreSQL 인스턴스’라는 엔드포인트에 표시된 _postgres_ 사용자의 암호는 서버 그룹을 배포할 때 선택한 암호입니다.
+> - azdata 정보: 연결과 관련된 임대는 약 10시간 동안 지속됩니다. 이후 다시 연결해야 합니다. 임대가 만료된 경우 azdata(azdata 로그인 제외)로 명령을 실행하려고 하면 다음 오류 메시지가 표시됩니다. _ERROR: (401)_ 
+> _Reason: Unauthorized_
+> _HTTP response headers: HTTPHeaderDict({'Date': 'Sun, 06 Sep 2020 16:58:38 GMT', 'Content-Length': '0', 'WWW-Authenticate': '_ 
+> _Basic realm="Login_ credentials required", Bearer error="invalid_token", error_description="The token is expired"'})_ 이 경우 위에서 설명한 대로 azdata에 다시 연결해야 합니다.
 
-## <a name="from-cli-with-kubectl"></a>CLI에서 kubectl 사용
-- 서버 그룹이 Postgres version 12 (기본값) 인 경우 다음 명령을 수행 합니다.
+## <a name="from-cli-with-kubectl"></a>kubectl을 사용하는 CLI에서
 ```console
-kubectl get postgresql-12/<server group name> -n <namespace name>
-```
-- 서버 그룹이 Postgres 버전 11 인 경우 다음 명령을 수행 합니다.
-```console
-kubectl get postgresql-11/<server group name> -n <namespace name>
+kubectl get postgresqls/<server group name> -n <namespace name>
 ```
 
-이러한 명령은 아래와 같은 출력을 생성 합니다. 이 정보를 사용 하 여 연결 문자열을 구성할 수 있습니다.
+이러한 명령은 아래와 같은 출력을 생성합니다. 해당 정보를 사용하여 연결 문자열을 구성할 수 있습니다.
 ```console
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   3/3          123.456.789.4:31066      5d20h
 ``` 
 
 
-## <a name="form-connection-strings"></a>양식 연결 문자열:
-서버 그룹에 대 한 연결 문자열의 템플릿 아래 표를 사용 합니다. 그런 다음 필요에 따라 복사/붙여넣고 사용자 지정할 수 있습니다.
+## <a name="form-connection-strings"></a>연결 문자열을 구성합니다.
+서버 그룹에 대한 연결 문자열에 아래 템플릿 표를 사용합니다. 그런 다음, 필요에 따라 복사/붙여넣고 사용자 지정할 수 있습니다.
 
 ### <a name="adonet"></a>ADO.NET
 
@@ -110,7 +105,7 @@ postgres01   Ready   3/3          123.456.789.4:31066      5d20h
 Server=192.168.1.121;Database=postgres;Port=24276;User Id=postgres;Password={your_password_here};Ssl Mode=Require;`
 ```
 
-### <a name="c-libpq"></a>C + + (libpq)
+### <a name="c-libpq"></a>C++ (libpq)
 
 ```cpp
 host=192.168.1.121 port=24276 dbname=postgres user=postgres password={your_password_here} sslmode=require
@@ -153,7 +148,7 @@ host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} 
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- 서버 그룹에 대 한 [규모 확장 (작업자 노드 추가)을](scale-out-postgresql-hyperscale-server-group.md) 참조 하세요.
-- 서버 그룹 [확장 또는 축소 (메모리/vcores 늘리기/줄이기)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) 를 참조 하세요.
+- 서버 그룹 [스케일링 아웃(작업자 노드 추가)](scale-out-in-postgresql-hyperscale-server-group.md)에 관해 읽어보기
+- 서버 그룹 [스케일링 아웃 또는 스케일링 다운(메모리/vCore 늘리기/줄이기)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md)에 관해 읽어보기
 
 

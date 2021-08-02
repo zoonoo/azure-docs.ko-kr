@@ -4,12 +4,12 @@ description: 디바이스 또는 데스크톱 앱, 웹 페이지, 서비스에 �
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8e866dc30d83f1b1f080a1be385026dcfbc77320
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 75576056162bf869c20706bed22c31785a8ea2a0
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106122104"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060303"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -40,9 +40,9 @@ Application Insights SDK에 대한 참조가 아직 없는 경우:
 
   * [ASP.NET 프로젝트](./asp-net.md)
   * [ASP.NET Core 프로젝트](./asp-net-core.md)
-  * [Java 프로젝트](./java-get-started.md)
+  * [Java 프로젝트](./java-in-process-agent.md)
   * [Node.js 프로젝트](./nodejs.md)
-  * [각 웹 페이지의 JavaScript](./javascript.md) 
+  * [각 웹 페이지의 JavaScript](./javascript.md)
 * 디바이스 또는 웹 서버 코드에 다음을 포함합니다.
 
     *C#:* `using Microsoft.ApplicationInsights;`
@@ -59,13 +59,14 @@ Application Insights SDK에 대한 참조가 아직 없는 경우:
 
 [ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) 앱과 [.Net/.Net Core에 대한 비 HTTP/Worker](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) 앱의 경우, 해당 각 설명서에 설명된 대로 종속성 주입 컨테이너에서 `TelemetryClient`의 인스턴스를 가져오는 것이 좋습니다.
 
-AzureFunctions v2+ 또는 Azure WebJobs v3+를 사용하는 경우, 다음 문서를 참조하세요. https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
+AzureFunctions v2+ 또는 Azure WebJobs v3+를 사용하는 경우 [이 문서](../../azure-functions/functions-monitoring.md)를 따릅니다.
 
 *C#*
 
 ```csharp
 private TelemetryClient telemetry = new TelemetryClient();
 ```
+
 이 방법은 사용되지 않는 메시지이므로, 자세한 내용은 [microsoft/ApplicationInsights-dotnet#1152](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1152)를 참조하세요.
 
 *Visual Basic*
@@ -78,7 +79,7 @@ Private Dim telemetry As New TelemetryClient
 
 ```java
 private TelemetryClient telemetry = new TelemetryClient();
-``` 
+```
 
 *Node.JS*
 
@@ -148,8 +149,6 @@ telemetry.trackEvent({name: "WinGame"});
 
 원격 분석은 `customEvents` [Application Insights Logs 탭](../logs/log-query-overview.md) 또는 [Usage Experience](usage-overview.md)의 테이블에서 이용할 수 있습니다. 이벤트가 `trackEvent(..)` 또는 [분석 자동 컬렉션 플러그 인 클릭](javascript-click-analytics-plugin.md)에서 발생할 수 있습니다.
 
- 
-
 [샘플링](./sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackEvent()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 따라서 정확한 사용자 지정 이벤트 수를 가져오려면 `customEvents | summarize sum(itemCount)`와 같은 코드를 사용해야 합니다.
 
 ## <a name="getmetric"></a>GetMetric
@@ -177,15 +176,15 @@ Application Insights로 메트릭을 보내려면 `TrackMetric(..)` API를 사�
 
 *JavaScript*
 
- ```javascript
+```javascript
 appInsights.trackMetric("queueLength", 42.0);
- ```
+```
 
 *C#*
 
 ```csharp
 var sample = new MetricTelemetry();
-sample.Name = "metric name";
+sample.Name = "queueLength";
 sample.Value = 42.3;
 telemetryClient.TrackMetric(sample);
 ```
@@ -198,9 +197,9 @@ telemetry.trackMetric("queueLength", 42.0);
 
 *Node.JS*
 
- ```javascript
+```javascript
 telemetry.trackMetric({name: "queueLength", value: 42.0});
- ```
+```
 
 ### <a name="custom-metrics-in-analytics"></a>분석의 사용자 지정 메트릭
 
@@ -398,7 +397,7 @@ try
 }
 catch (ex)
 {
-    appInsights.trackException(ex);
+    appInsights.trackException({exception: ex});
 }
 ```
 
@@ -418,7 +417,7 @@ catch (ex)
 SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackException을 명시적으로 호출할 필요는 없습니다.
 
 * ASP.NET: [예외를 catch하는 코드 작성](./asp-net-exceptions.md).
-* Java EE: [예외가 자동으로 catch됨](./java-get-started.md#exceptions-and-request-failures).
+* Java EE: [예외가 자동으로 catch됨](./java-in-process-agent.md).
 * JavaScript: 예외가 자동으로 catch됨. 자동 수집을 사용하지 않도록 설정하려면 웹 페이지에 삽입하는 코드 조각에 다음 한 줄을 추가합니다.
 
 ```javascript
@@ -459,7 +458,7 @@ exceptions
 
 .NET에서 [로그 어댑터](./asp-net-trace-logs.md)는 이 API를 사용하여 포털에 타사 로그를 보냅니다.
 
-[Log4J, Logback 같은 표준 로거](./java-trace-logs.md)용 Java에서 Application Insights Log4j 또는 Logback Appenders를 사용하여 타사 로그를 포털로 전송합니다.
+Java에서 [Application Insights Java 에이전트 ](java-in-process-agent.md)는 로그를 자동으로 수집하여 포털에 보냅니다.
 
 *C#*
 
@@ -495,7 +494,7 @@ trackTrace({
 
 메서드 출입 같은 진단 이벤트를 기록합니다.
 
- 매개 변수 | 설명
+ 매개 변수 | Description
 ---|---
 `message` | 진단 데이터입니다. 이름보다 훨씬 길어질 수 있습니다.
 `properties` | 문자열을 문자열로 매핑: 포털에서 [예외를 필터링](#properties)하는 데 사용되는 추가 데이터입니다. 기본적으로 비어 있습니다.
@@ -504,7 +503,7 @@ trackTrace({
 메시지 내용을 검색할 수 있지만 속성 값과는 달리 필터링할 수는 없습니다.
 
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다.
-TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.  
+TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.
 
 또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
@@ -601,13 +600,13 @@ finally
 }
 ```
 
-서버 SDK는 특정 종속성 호출(예: 데이터베이스 및 REST API)을 자동으로 검색하고 추적하는 [종속성 모듈](./asp-net-dependencies.md)을 포함합니다. 모듈 작업을 만들기 위해 서버에 에이전트를 설치해야 합니다. 
+서버 SDK는 특정 종속성 호출(예: 데이터베이스 및 REST API)을 자동으로 검색하고 추적하는 [종속성 모듈](./asp-net-dependencies.md)을 포함합니다. 모듈 작업을 만들기 위해 서버에 에이전트를 설치해야 합니다.
 
-Java에서 특정 종속성 호출은 [Java 에이전트](./java-agent.md)를 사용하여 자동으로 추적할 수 있습니다.
+Java에서는 [Application Insights Java 에이전트](java-in-process-agent.md)를 사용하여 많은 종속성 호출을 자동으로 추적할 수 있습니다.
 
-자동화된 추적에서 포착하지 않는 호출을 추적하려는 경우 또는 에이전트를 설치하지 않으려는 경우, 이 호출을 사용합니다.
+자동화된 추적에서 포착하지 못하는 호출을 추적하려면 이 호출을 사용합니다.
 
-C#에서 표준 종속성 추적 모듈을 해제하려면 [ApplicationInsights.config](./configuration-with-applicationinsights-config.md)를 편집하고 `DependencyCollector.DependencyTrackingTelemetryModule`에 대한 참조를 삭제합니다. 표준 종속성을 자동으로 수집하지 않으려는 경우 Java에서 Java 에이전트를 설치하지 마십시오.
+C#에서 표준 종속성 추적 모듈을 해제하려면 [ApplicationInsights.config](./configuration-with-applicationinsights-config.md)를 편집하고 `DependencyCollector.DependencyTrackingTelemetryModule`에 대한 참조를 삭제합니다. Java의 경우 [자동 수집된 특정 원격 분석 표시 안 함](./java-standalone-config.md#suppressing-specific-auto-collected-telemetry)을 참조하세요.
 
 ### <a name="dependencies-in-analytics"></a>분석의 종속성
 
@@ -633,7 +632,7 @@ dependencies
 
 *C#*
 
- ```csharp
+```csharp
 telemetry.Flush();
 // Allow some time for flushing before shutdown.
 System.Threading.Thread.Sleep(5000);
@@ -798,8 +797,6 @@ telemetry.trackEvent("WinGame", properties, metrics);
 
 > [!NOTE]
 > 속성에 개인 식별이 가능한 정보를 기록하지 않도록 주의해야 합니다.
->
->
 
 ### <a name="alternative-way-to-set-properties-and-metrics"></a>속성 및 메트릭을 설정하는 또 다른 방법
 
@@ -820,8 +817,6 @@ telemetry.TrackEvent(event);
 
 > [!WARNING]
 > Track*()을 여러 번 호출하기 위해 같은 원격 분석 항목 인스턴스(이 예에서 `event`)를 다시 사용하지 않습니다. 그러면 원격 분석을 잘못된 구성과 함께 보낼 수 있습니다.
->
->
 
 ### <a name="custom-measurements-and-properties-in-analytics"></a>분석의 사용자 지정 측정 및 속성
 
@@ -912,7 +907,6 @@ gameTelemetry.TrackEvent("WinGame")
 import com.microsoft.applicationinsights.TelemetryClient;
 import com.microsoft.applicationinsights.TelemetryContext;
 ...
-
 
 TelemetryClient gameTelemetry = new TelemetryClient();
 TelemetryContext context = gameTelemetry.getContext();

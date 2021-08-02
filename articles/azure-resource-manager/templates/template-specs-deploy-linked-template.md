@@ -2,15 +2,16 @@
 title: 템플릿 사양을 연결된 템플릿으로 배포
 description: 연결된 배포에 기존 템플릿 사양을 배포하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: 8d4ccd77c8b37a696fab7494a8d3f8052fc89b35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/04/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d80442a2ee03bcf85d7173517661d42389542e82
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889266"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110696246"
 ---
-# <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>자습서: 템플릿 사양을 연결된 템플릿으로 배포(미리 보기)
+# <a name="tutorial-deploy-a-template-spec-as-a-linked-template"></a>자습서: 템플릿 사양을 연결된 템플릿으로 배포
 
 [연결된 배포](linked-templates.md#linked-template)를 사용하여 기존 [템플릿 사양](template-specs.md)을 배포하는 방법에 대해 알아봅니다. 템플릿 사양을 사용하여 조직 내 다른 사용자와 ARM 템플릿을 공유합니다. 템플릿 사양을 만든 후 Azure PowerShell 또는 Azure CLI를 사용하여 템플릿 사양을 배포할 수 있습니다. 연결된 템플릿을 사용하여 솔루션의 일부로 템플릿 사양을 배포할 수도 있습니다.
 
@@ -19,7 +20,7 @@ ms.locfileid: "104889266"
 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> 템플릿 사양은 현재 미리 보기 상태입니다. Azure PowerShell에서 사용하려면 [버전 5.0.0 이상](/powershell/azure/install-az-ps)을 설치해야 합니다. Azure CLI에서 사용하려면 [버전 2.14.2 이상](/cli/azure/install-azure-cli)을 사용합니다.
+> Azure PowerShell에서 템플릿 사양을 사용하려면 [버전 5.0.0 이상](/powershell/azure/install-az-ps)을 설치해야 합니다. Azure CLI에서 사용하려면 [버전 2.14.2 이상](/cli/azure/install-azure-cli)을 사용합니다.
 
 ## <a name="create-a-template-spec"></a>템플릿 사양 만들기
 

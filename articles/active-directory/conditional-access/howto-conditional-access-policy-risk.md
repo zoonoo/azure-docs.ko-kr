@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 07/02/2020
+ms.date: 05/04/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a09c4513206bea3462577ecba49b5d77b655b0e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99d8fbf65cdfd4a56f4e7bec197131a1274b0beb
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91628267"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110612804"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>조건부 액세스: 로그인 위험 기반 조건부 액세스
 
@@ -24,7 +24,7 @@ ms.locfileid: "91628267"
 
 로그인 위험은 ID 소유자가 지정된 인증 요청에 권한을 부여하지 않았을 가능성을 나타냅니다. Azure AD Premium P2 라이선스가 있는 조직은 [Azure AD ID 보호 로그인 위험 검색](../identity-protection/concept-identity-protection-risks.md#sign-in-risk)을 통합하여 조건부 액세스 정책을 만들 수 있습니다.
 
-이 정책을 할당할 수 있는 두 위치가 있습니다. 보안 암호 변경이 필요한 로그인 위험 기반 조건부 액세스 정책을 사용하도록 설정하려면 조직에서 다음 옵션 중 하나를 선택해야 합니다.
+이 정책을 구성할 수 있는 위치에는 조건부 액세스 및 ID 보호의 두 가지가 있습니다. 조건부 액세스 정책을 사용하는 구성은 향상된 진단 데이터, 보고서 전용 모드 통합, 그래프 API 지원 및 정책에서 다른 조건부 액세스 속성을 활용하는 기능을 포함하여 더 많은 컨텍스트를 제공하는 기본 방법입니다.
 
 ## <a name="enable-with-conditional-access-policy"></a>조건부 액세스 정책을 통해 사용
 

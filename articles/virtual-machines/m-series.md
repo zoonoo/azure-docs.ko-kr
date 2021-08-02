@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 91c29864367380a303a006d4aac823a22a966a2b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83bb3b8e2f6704c595b6398a15f620be6927f3d5
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563095"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109846629"
 ---
 # <a name="m-series"></a>M 시리즈
 
@@ -33,16 +33,16 @@ M 시리즈 VM의 기능은 Intel&reg; Hyper-Threading 기술입니다.
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭(Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_M8ms                    | 8   | 218.75 | 256   | 8  | 10000/100(793)     | 5000/125   | 4|2000  |
-| Standard_M16ms                   | 16  | 437.5  | 512   | 16 | 20000/200(1587)    | 10000/250  | 8|4000  |
+| Standard_M8ms <sup>3</sup>       | 8   | 218.75 | 256   | 8  | 10000/100(793)     | 5000/125   | 4|2000  |
+| Standard_M16ms <sup>3</sup>      | 16  | 437.5  | 512   | 16 | 20000/200(1587)    | 10000/250  | 8|4000  |
 | Standard_M32ts                   | 32  | 192    | 1024  | 32 | 40000/400(3174)    | 20000/500  | 8|8000  |
 | Standard_M32ls                   | 32  | 256    | 1024  | 32 | 40000/400(3174)    | 20000/500  | 8|8000  |
-| Standard_M32ms                   | 32  | 875    | 1024  | 32 | 40000/400(3174)    | 20000/500  | 8|8000  |
+| Standard_M32ms <sup>3</sup>      | 32  | 875    | 1024  | 32 | 40000/400(3174)    | 20000/500  | 8|8000  |
 | Standard_M64s <sup>1</sup>       | 64  | 1024   | 2048  | 64 | 80000/800(6348)    | 40000/1000 | 8|16000 |
 | Standard_M64ls <sup>1</sup>      | 64  | 512    | 2048  | 64 | 80000/800(6348)    | 40000/1000 | 8|16000 |
-| Standard_M64ms <sup>1</sup>      | 64  | 1792   | 2048  | 64 | 80000/800(6348)    | 40000/1000 | 8|16000 |
+| Standard_M64ms <sup>1,3</sup>    | 64  | 1792   | 2048  | 64 | 80000/800(6348)    | 40000/1000 | 8|16000 |
 | Standard_M128s <sup>1</sup>    | 128 | 2048   | 4096  | 64 | 160000/1600(12696) | 80000/2000 | 8|30000 |
-| Standard_M128ms <sup>1,2</sup>   | 128 | 3892   | 4096  | 64 | 160000/1600(12696) | 80000/2000 | 8|30000 |
+| Standard_M128ms <sup>1,2,3</sup> | 128 | 3892   | 4096  | 64 | 160000/1600(12696) | 80000/2000 | 8|30000 |
 | Standard_M64 <sup>1</sup>        | 64  | 1024   | 7168  | 64 | 80000/800(1228)    | 40000/1000 | 8|16000 |
 | Standard_M64m <sup>1</sup>       | 64  | 1792   | 7168  | 64 | 80000/800(1228)    | 40000/1000 | 8|16000 |
 | Standard_M128 <sup>1</sup>     | 128 | 2048   | 14336 | 64 | 250000/1600(2456)  | 80000/2000 | 8|32000 |
@@ -51,6 +51,8 @@ M 시리즈 VM의 기능은 Intel&reg; Hyper-Threading 기술입니다.
 <sup>1</sup> 64개를 초과하는 vCPU에는 지원되는 게스트 버전인 Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 및 Red Hat Enterprise Linux, LIS 4.2.1을 사용하는 CentOS 7.3 또는 Oracle Linux 7.3 중 하나가 필요합니다.
 
 <sup>2</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
+
+<sup>3</sup> [사용 가능한 코어 크기 제한](./constrained-vcpu.md).
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

@@ -1,25 +1,26 @@
 ---
-title: 'Azure VPN Gateway: 게이트웨이 삭제: PowerShell'
-description: Resource Manager 배포 모델에서 PowerShell을 사용하여 가상 네트워크 게이트웨이를 삭제합니다.
+title: '가상 네트워크 게이트웨이 삭제: PowerShell'
+titleSuffix: Azure VPN Gateway
+description: PowerShell을 사용하여 가상 네트워크 게이트웨이를 삭제하는 방법을 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.date: 09/03/2020
+ms.date: 04/29/2021
 ms.author: cherylmc
 ms.topic: how-to
-ms.openlocfilehash: 48e0998719ea19c0b360b50d8c9171d2b448ad19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 259d5776e6f9a2ce431743fe8dd3d9160b9f657d
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89440765"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671894"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>PowerShell을 사용하여 가상 네트워크 삭제
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell(클래식)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
->
 >
 
 VPN 게이트웨이 구성에 대한 가상 네트워크 게이트웨이 삭제하려는 경우에 몇 가지 다른 접근 방법을 사용할 수 있습니다.

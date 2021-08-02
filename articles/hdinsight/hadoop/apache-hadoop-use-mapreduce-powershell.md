@@ -3,14 +3,14 @@ title: Apache Hadoop으로 MapReduce 및 PowerShell 사용 - Azure HDInsight
 description: PowerShell을 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업을 원격으로 실행하는 방법을 알아봅니다.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurepowershell
 ms.date: 01/08/2020
-ms.openlocfilehash: 16c6c5e317591b70c3a1300453093fc715e213fb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 77f14449678d06e297a334e60e96482c9c9d37b4
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98939670"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110688627"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>PowerShell을 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업 실행
 
@@ -30,7 +30,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
 다음 cmdlet은 원격 HDInsight 클러스터에서 MapReduce 작업을 실행할 때 사용됩니다.
 
-|Cmdlet | 설명 |
+|Cmdlet | Description |
 |---|---|
 |연결 AzAccount|Azure 구독에 대해 Azure PowerShell을 인증합니다.|
 |New-AzHDInsightMapReduceJobDefinition|지정한 MapReduce 정보를 사용하여 새 *작업 정의* 를 만듭니다.|
@@ -40,7 +40,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
 다음 단계는 HDInsight 클러스터에서 작업을 실행하기 위해 이러한 cmdlet을 사용하는 방법에 대해 설명합니다.
 
-1. 편집기를 사용 하 여 **mapreducejob.ps1** 으로 다음 코드를 저장 합니다.
+1. 편집기를 사용하여 다음 코드를 **mapreducejob.ps1** 로 저장합니다.
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
@@ -50,7 +50,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
     .\mapreducejob.ps1
     ```
 
-    스크립트를 실행할 때 HDInsight 클러스터의 이름과 클러스터 로그인을 입력 하 라는 메시지가 표시 됩니다. Azure 구독에서 인증을 받으라는 메시지도 표시될 수 있습니다.
+    스크립트를 실행하는 경우 HDInsight 클러스터의 이름 및 클러스터 로그인을 묻는 메시지가 나타납니다. Azure 구독에서 인증을 받으라는 메시지도 표시될 수 있습니다.
 
 3. 작업이 완료되면 다음 텍스트와 유사한 출력이 나타납니다.
 
@@ -82,7 +82,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
 ## <a name="troubleshooting"></a>문제 해결
 
-작업이 완료될 때 정보가 반환되지 않으면 작업에 대한 오류를 봅니다. 이 작업에 대 한 오류 정보를 보려면 다음 명령을 **mapreducejob.ps1** 파일의 끝에 추가 합니다. 그런 다음 파일을 저장 하 고 스크립트를 다시 실행 합니다.
+작업이 완료될 때 정보가 반환되지 않으면 작업에 대한 오류를 봅니다. 이 작업에 대한 오류 정보를 보려면 **mapreducejob.ps1** 파일의 끝에 다음 명령을 추가합니다. 그런 다음, 파일을 저장하고 스크립트를 다시 실행합니다.
 
 ```powershell
 # Print the output of the WordCount job.

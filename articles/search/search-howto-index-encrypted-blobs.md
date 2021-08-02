@@ -9,18 +9,18 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
-ms.openlocfilehash: 4bab8def514df21d948d67f3cfba846c43917be2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e70361b747cac10b602efcf590963b707c7d5da7
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96530938"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559001"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Azure Cognitive Search에서 BLOB 인덱서 및 기술 세트를 사용하여 암호화된 BLOB을 인덱싱하는 방법
 
 이 문서에서는 [Azure Cognitive Search](search-what-is-azure-search.md)를 통해 [Azure Key Vault](../key-vault/general/overview.md)를 사용하는 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) 내에서 이전에 암호화된 문서를 인덱싱하는 방법을 보여 줍니다. 일반적으로 인덱서는 암호화 키에 대한 액세스 권한이 없기 때문에 암호화된 파일에서 콘텐츠를 추출할 수 없습니다. 그러나 [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) 사용자 지정 기술에 이어 [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)을 활용하면 키에 대한 제어된 액세스를 제공하여 파일의 암호를 해독한 다음 해당 파일에서 콘텐츠를 추출할 수 있습니다. 이렇게 하면 저장된 문서의 암호화 상태를 손상시키지 않고 이러한 문서를 인덱싱하는 기능이 해제됩니다.
 
-Azure Blob Storage에서 PDF, HTML, DOCX 및 PPTX와 같은 이전에 암호화된 전체 문서(구조화되지 않은 텍스트)부터 이 안내선은 Postman 및 Search REST API를 사용하여 다음 작업을 수행합니다.
+Azure Blob Storage에서 PDF, HTML, DOCX 및 PPTX와 같은 이전에 암호화된 전체 문서(구조화되지 않은 텍스트)부터 이 가이드는 Postman 및 Search REST API를 사용하여 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
 > * 문서의 암호를 해독하고 텍스트를 추출하는 파이프라인을 정의합니다.

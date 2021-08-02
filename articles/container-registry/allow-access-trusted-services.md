@@ -3,12 +3,12 @@ title: 신뢰할 수 있는 Azure 서비스를 사용하여 네트워크 제한 
 description: 신뢰할 수 있는 Azure 서비스 인스턴스가 네트워크 제한 컨테이너 레지스트리에 안전하게 액세스하여 이미지를 끌어오거나 푸시할 수 있도록 합니다.
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 4b0d7feb223bcfcec4e8b2c786b211f4e3c3c3eb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 77ea904e73df1b423c99e6039c4e0756fcade34e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785873"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474989"
 ---
 # <a name="allow-trusted-services-to-securely-access-a-network-restricted-container-registry-preview"></a>신뢰할 수 있는 서비스에서 네트워크 제한 컨테이너 레지스트리에 안전하게 액세스하도록 허용(미리 보기)
 
@@ -45,7 +45,7 @@ Azure Container Registry에는 다음을 포함하여 레지스트리에 대한 
 |Azure Container Registry | [다른 Azure Container Registry에서 이미지 가져오기](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | 
 
 > [!NOTE]
-> 현재, 신뢰할 수 있는 서비스 허용 설정을 사용해도 App Service, Azure Container Instances 및 Azure Security Center를 비롯한 다른 관리되는 Azure 서비스의 인스턴스가 네트워크 제한 컨테이너 레지스트리에 대한 액세스를 허용하지 않습니다.
+> 현재, 신뢰할 수 있는 서비스 허용 설정을 사용해도 App Service, Azure Container Instances 및 Azure Security Center를 비롯한 기타 관리형 Azure 서비스의 인스턴스가 네트워크 제한 컨테이너 레지스트리 액세스를 허용하지 않습니다.
 
 ## <a name="allow-trusted-services---cli"></a>신뢰할 수 있는 서비스 허용 - CLI
 

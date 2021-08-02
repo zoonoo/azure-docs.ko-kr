@@ -3,18 +3,18 @@ title: Azure Resource Health 개요
 description: Azure Resource Health를 통해 Azure 리소스에 영향을 주는 서비스 문제를 진단하고 지원을 받는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 25425eadfaf54ba56cde3b377a44cd85c2b68959
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 903a86d216e118f783411b38ef7ad75ad004df7f
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90967879"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786259"
 ---
 # <a name="resource-health-overview"></a>Resource Health 개요
  
 Azure Resource Health를 통해 Azure 리소스에 영향을 주는 서비스 문제를 진단하고 지원을 받을 수 있습니다. Azure Resource Health는 리소스의 현재 및 과거 상태를 보고합니다.
 
-[Azure 상태](https://status.azure.com)는 광범위한 Azure 고객 집합에 영향을 주는 서비스 문제를 보고합니다. Resource Health는 맞춤형 리소스 상태 대시보드를 제공합니다. Resource Health는 Azure 서비스 문제로 인해 리소스를 사용할 수 없었던 모든 시간을 표시합니다. 이 데이터를 통해 SLA 위반 여부를 쉽게 확인할 수 있습니다.
+[Azure 상태](https://status.azure.com)는 광범위한 Azure 고객 집합에 영향을 주는 서비스 문제를 보고합니다. Resource Health는 맞춤형 리소스 상태 대시보드를 제공합니다. Resource Health는 Azure 서비스 문제로 인해 리소스를 사용할 수 없었던 모든 시간을 보여 줍니다. 이 데이터를 통해 SLA 위반 여부를 쉽게 확인할 수 있습니다.
 
 ## <a name="resource-definition-and-health-assessment"></a>리소스 정의 및 상태 평가
 
@@ -52,7 +52,7 @@ Resource Health는 이벤트 및 복구 프로세스에 대한 추가 세부 정
 
 ### <a name="unknown"></a>알 수 없음
 
-‘알 수 없음’은 Resource Health가 리소스 관련 정보를 10분 넘게 받지 못했음을 의미합니다. 이 상태는 리소스 상태를 명확하게 표시하지는 않지만 문제 해결 시 중요한 데이터 요소입니다.
+‘알 수 없음’은 Resource Health가 리소스 관련 정보를 10분 넘게 받지 못했음을 의미합니다. 이는 일반적으로 가상 머신이 할당 해제된 경우에 발생합니다. 이 상태는 리소스 상태를 명확하게 표시하지는 않지만 문제 해결 시 중요한 데이터 요소입니다.
 
 리소스가 예상한 대로 실행 중이면 몇 분 후 리소스 상태가 *사용 가능* 으로 변경됩니다.
 
@@ -68,17 +68,15 @@ Resource Health는 이벤트 및 복구 프로세스에 대한 추가 세부 정
 
 ![가상 머신의 *저하됨* 상태](./media/resource-health-overview/degraded.png)
 
-## <a name="reporting-an-incorrect-status"></a>잘못된 상태 보고
-
-현재 상태가 잘못되었다는 생각이 들면 **잘못된 성능 상태 보고** 를 선택하여 알려 주시기 바랍니다. Azure 문제의 영향을 받는 경우 Resource Health 지원에 문의하는 것이 좋습니다.
-
-![잘못된 상태에 대한 정보를 제출하는 양식](./media/resource-health-overview/incorrect-status.png)
-
 ## <a name="history-information"></a>기록 정보
 
 Resource Health의 **상태 기록** 섹션에서 최대 30일 동안의 기록에 액세스할 수 있습니다.
 
 ![지난 2주 동안의 Resource Health 이벤트 목록](./media/resource-health-overview/history-blade.png)
+
+## <a name="root-cause-information"></a>근본 원인 정보
+
+Azure에 플랫폼에서 시작된 사용 불가의 근본 원인에 대한 추가 정보가 있는 경우 해당 정보는 최초 사용 불가 후 최대 72시간까지 리소스 상태에 게시될 수 있습니다. 이 정보는 현재 가상 머신에서만 사용할 수 있습니다. 
 
 ## <a name="get-started"></a>시작
 

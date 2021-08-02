@@ -3,27 +3,28 @@ title: STONITH를 사용하여 Azure(대규모 인스턴스)의 SAP HANA에 대�
 description: STONITH를 사용하여 SUSE에서 Azure(대규머 인스턴스)의 SAP HANA에 대한 고가용성 설정
 services: virtual-machines-linux
 documentationcenter: ''
-author: saghorpa
+author: Ajayan1008
 manager: juergent
 editor: ''
 ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/21/2017
-ms.author: saghorpa
+ms.date: 05/10/2021
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3dd2a618f22036fd0826a99207d83a3add390c7d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 471d2cf7f7a1dc5f7809b4391928206cbfa037eb
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645320"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110577843"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>STONITH를 사용하여 SUSE에서 고가용성 설정
-이 문서는 STONITH 디바이스를 사용하여 SUSE 운영 체제에서 고가용성을 설정하는 자세한 단계별 지침을 제공합니다.
+이 문서는 STONITH 디바이스를 사용하여 SUSE 운영 체제에서 고가용성을 설정하기 위한 자세한 단계별 지침을 제공합니다.
 
-**부인:** *이 가이드는 성공적으로 작동하는 Microsoft HANA Large Instances 환경에서 설정을 테스트하여 파생되었습니다. HANA Large Instances에 대한 Microsoft 서비스 관리 팀에서는 운영 체제를 지원하지 않으므로 운영 체제 계층에 대한 추가 문제 해결 또는 확인이 필요한 경우 SUSE에 문의해야 할 수 있습니다. Microsoft 서비스 관리 팀은 STONITH 디바이스를 설정하고 STONITH 디바이스 문제를 완벽하게 지원하며 문제 해결에 참여할 수 있습니다.*
+**부인:** *이 가이드는 Microsoft HANA(대규모 인스턴스) 환경에서 설정을 성공적으로 테스트하여 파생되었습니다. HANA(대규모 인스턴스)에 대한 Microsoft 서비스 관리 팀에서는 운영 체제를 지원하지 않으므로 운영 체제 계층에 대한 추가 문제 해결 또는 확인이 필요한 경우 SUSE에 문의해야 할 수 있습니다. Microsoft 서비스 관리 팀은 STONITH 디바이스를 설정하고 STONITH 디바이스 문제를 완벽하게 지원하며 문제 해결에 참여할 수 있습니다.*
 ## <a name="overview"></a>개요
 SUSE 클러스터링을 사용하여 고가용성을 설정하려면 다음 필수 구성 요소를 충족해야 합니다.
 ### <a name="pre-requisites"></a>필수 구성 요소
@@ -37,13 +38,13 @@ SUSE 클러스터링을 사용하여 고가용성을 설정하려면 다음 필�
 ### <a name="setup-details"></a>설정 정보
 이 가이드에서 사용하는 설정은 다음과 같습니다.
 - 운영 체제: SAP용 SLES 12 SP1
-- HANA 대규모 인스턴스: 2xS192(4개 소켓, 2TB)
+- HANA(대규모 인스턴스): 2xS192(소켓 4개, TB 2개)
 - HANA 버전: HANA 2.0 SP1
 - 서버 이름: sapprdhdb95(노드 1) 및 sapprdhdb96(노드 2)
 - STONITH 디바이스: iSCSI 기반 STONITH 디바이스
 - HANA 대규모 인스턴스 노드 중 하나에서 NTP 설정
 
-HSR을 사용하여 HANA 대규모 인스턴스를 설정하는 경우 Microsoft 서비스 관리 팀에 STONITH 설정을 요청해야 합니다. 이미 HANA 대규모 인스턴스를 프로비전한 기존 고객으로서 기존 블레이드에 대한 STONITH 디바이스 설정이 필요한 경우 서비스 요청 양식(SRF)에 다음 정보를 작성하여 Microsoft 서비스 관리 팀에 제공해야 합니다. 기술 계정 관리자 또는 Microsoft의 HANA 대규모 인스턴스 온보딩 담당자를 통해 SRF 양식을 요청할 수 있습니다. 새 고객은 프로비전 시 STONITH 디바이스를 요청할 수 있습니다. 입력은 프로비전 요청 양식에서 사용할 수 있습니다.
+HSR을 사용하여 HANA 대규모 인스턴스를 설정하는 경우 Microsoft 서비스 관리 팀에 STONITH 설정을 요청해야 합니다. 이미 HANA(대규모 인스턴스)를 프로비저닝한 기존 고객으로서 기존 블레이드에 대한 STONITH 디바이스 설정이 필요한 경우 SRF(서비스 요청 양식)에 다음 정보를 작성하여 Microsoft 서비스 관리 팀에 제공해야 합니다. 기술 계정 관리자 또는 Microsoft의 HANA 대규모 인스턴스 온보딩 담당자를 통해 SRF 양식을 요청할 수 있습니다. 새 고객은 프로비전 시 STONITH 디바이스를 요청할 수 있습니다. 입력은 프로비전 요청 양식에서 사용할 수 있습니다.
 
 - 서버 이름 및 서버 IP 주소(예: myhanaserver1, 10.35.0.1)
 - 위치(예: 미국 동부)
@@ -52,16 +53,16 @@ HSR을 사용하여 HANA 대규모 인스턴스를 설정하는 경우 Microsoft
 
 STONITH 디바이스가 구성되면 Microsoft 서비스 관리 팀에서 STONITH 설정을 구성하는 데 사용할 수 있는 iSCSI 스토리지의 SBD 디바이스 이름과 IP 주소를 제공합니다. 
 
-STONITH를 사용하여 종단 간 HA를 설정하려면 다음 단계를 따라야 합니다.
+STONITH를 사용하여 엔드투엔드 HA를 설정하려면 다음 단계를 따라야 합니다.
 
-1.  SBD 디바이스 식별
-2.  SBD 디바이스 초기화
-3.  클러스터 구성
-4.  Softdog Watchdog 설정
-5.  클러스터에 노드 조인
-6.  클러스터 유효성 검사
-7.  클러스터에 대한 리소스 구성
-8.  장애 조치(failover) 프로세스 테스트
+1.  SBD 디바이스를 식별합니다.
+2.  SBD 디바이스를 초기화합니다.
+3.  클러스터를 구성합니다.
+4.  Softdog Watchdog을 설정합니다.
+5.  클러스터에 노드를 조인합니다.
+6.  클러스터 유효성을 검사합니다.
+7.  클러스터에 대한 리소스를 구성합니다.
+8.  장애 조치(failover) 프로세스를 테스트합니다.
 
 ## <a name="1---identify-the-sbd-device"></a>1. SBD 디바이스 식별
 이 섹션에서는 Microsoft 서비스 관리 팀이 STONITH를 구성한 후 설정에 맞는 SBD 디바이스를 결정하는 방법을 설명합니다. **이 섹션은 기존 고객에게만 적용됩니다**. 새 고객의 경우 Microsoft 서비스 관리 팀이 SBD 디바이스 이름을 제공하며 따라서 이 섹션을 건너뛸 수 있습니다.
@@ -125,7 +126,7 @@ sbd -d <SBD Device Name> dump
 ## <a name="3---configuring-the-cluster"></a>3. 클러스터 구성
 이 섹션에서는 SUSE HA 클러스터를 설정하는 단계를 설명합니다.
 ### <a name="31-package-installation"></a>3.1 패키지 설치
-3.1.1 ha_sles 및 SAPHanaSR-doc 패턴이 설치되었는지 확인하십시오. 설치되지 않은 경우 설치합니다. 이 패키지는 두 노드에서 **모두** 실행합니다.
+3.1.1 ha_sles 및 SAPHanaSR-doc 패턴이 설치되었는지 확인하세요. 설치되지 않은 경우 설치합니다. **두** 노드 모두에 설치합니다.
 ```
 zypper in -t pattern ha_sles
 zypper in SAPHanaSR SAPHanaSR-doc
@@ -139,34 +140,39 @@ zypper in SAPHanaSR SAPHanaSR-doc
 yast2> 고가용성 > 클러스터로 이동![스크린샷에 고가용성 및 클러스터가 선택된 YaST 제어 센터가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 ![스크린샷에 설치 및 취소 옵션이 있는 대화 상자가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
 
-halk2 패키지가 이미 설치되었으므로 **취소** 를 클릭합니다.
+halk2 패키지가 이미 설치되어 있으므로 **취소** 를 선택합니다.
 
 ![스크린샷에는 취소 옵션에 대한 메시지가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
 
-**계속** 을 클릭합니다.
+**계속** 을 선택합니다.
 
-예상 값=배포된 노드 수(이 경우 2) ![스크린샷에는 보안 인증 사용 확인란이 포함된 클러스터 보안이 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png)
-**다음** 클릭
+예상 값=배포된 노드 수(이 경우 2)
+
+![스크린샷에는 보안 인증 사용 확인란이 있는 클러스터 보안이 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png)
+
+**다음** 을 선택합니다.
+
 ![스크린샷에는 호스트 동기화 및 파일 목록 동기화가 포함된 클러스터 구성 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png)
-노드 이름을 추가하고 "제안된 파일 추가"를 클릭합니다.
 
-“csync2 켜기”를 클릭합니다.
+노드 이름을 추가한 다음 제안된 파일 추가를 선택합니다.
 
-“미리 공유한 키”를 클릭하여 아래 팝업을 표시합니다.
+**csync2 켜기** 를 선택합니다.
+
+**사전 공유 키 생성** 을 선택합니다. 아래 팝업이 표시됩니다.
 
 ![스크린샷에는 키가 생성되었다는 메시지가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
 
-**확인** 을 클릭합니다.
+**확인** 을 선택합니다.
 
 IP 주소 및 Csync2의 미리 공유한 키를 사용하여 인증을 수행합니다. csync2 -k /etc/csync2/key_hagroup을 사용하여 키 파일을 생성합니다. key_hagroup 파일을 생성한 후 클러스터의 모든 멤버에 수동으로 복사해야 합니다. **반드시 노드 1에서 노드 2로 파일을 복사해야 합니다**.
 
 ![스크린샷에는 클러스터의 모든 구성원에 키를 복사하는 데 필요한 옵션이 있는 클러스터 구성 대화 상자가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
 
-**다음** 클릭
-![스크린샷에는 클러스터 서비스 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
+**다음**
+![클러스터 서비스 창을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)을 선택합니다.
 
 기본 옵션(부팅 꺼짐)에서 부팅할 때 Pacemaker가 시작되도록 “켜기”로 변경해야 합니다. 설정 요구 사항에 따라 선택할 수 있습니다.
-**다음** 을 클릭하면 클러스터 구성이 완료됩니다.
+**다음** 을 선택하면 클러스터 구성이 완료됩니다.
 
 ## <a name="4---setting-up-the-softdog-watchdog"></a>4. Softdog Watchdog 설정
 이 섹션에서는 Watchdog(softdog) 구성을 설명합니다.
@@ -177,7 +183,7 @@ modprobe softdog
 ```
 ![스크린샷에는 softdog 줄이 추가된 부팅 파일이 표시됩니다.](media/HowToHLI/HASetupWithStonith/modprobe-softdog.png)
 
-4.2 아래와 같이 두 노드에서 **모두***/etc/sysconfig/sbd* 를 업데이트합니다.
+4.2 다음과 같이 **두** 노드 모두에서 */etc/sysconfig/sbd* 파일을 업데이트합니다.
 ```
 SBD_DEVICE="<SBD Device Name>"
 ```
@@ -260,7 +266,7 @@ systemctl start pacemaker
 crm_mon
 ```
 ![스크린샷에는 c r m_mon의 결과가 포함된 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/crm-mon.png)
-hawk에 로그인하여 *https://\<node IP>:7630* 클러스터 상태를 확인할 수도 있습니다. 기본 사용자는 hacluster이며 암호는 linux입니다. 필요한 경우 *passwd* 명령을 사용하여 암호를 변경할 수 있습니다.
+hawk에 로그인하여 클러스터 상태 *https://\<node IP>:7630* 을 확인할 수도 있습니다. 기본 사용자는 hacluster이며 암호는 linux입니다. 필요한 경우 *passwd* 명령을 사용하여 암호를 변경할 수 있습니다.
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. 클러스터 속성 및 리소스 구성 
 이 섹션에서는 클러스터 리소스를 구성하는 단계를 설명합니다.
@@ -348,14 +354,14 @@ Service pacemaker stop
 이 섹션에서는 설치 중에 발생할 수 있는 몇 가지 실패 시나리오를 설명합니다. 이 문제가 발생하지 않을 수도 있습니다.
 
 ### <a name="scenario-1-cluster-node-not-online"></a>시나리오 1: 클러스터 노드가 온라인이 아닌 경우
-노드 중 하나 이상이 클러스터 관리자에 온라인으로 표시되지 않는 경우 다음을 실행하여 온라인으로 만들어 볼 수 있습니다.
+노드 중 하나라도 클러스터 관리자에서 온라인으로 표시되지 않으면 다음을 시도하여 온라인으로 전환할 수 있습니다.
 
 iSCSI 서비스 시작
 ```
 service iscsid start
 ```
 
-그리고 이제는 해당 iSCSI 노드에 로그인할 수 있을 것입니다.
+이제 해당 iSCSI 노드에 로그인할 수 있어야 합니다.
 ```
 iscsiadm -m node -l
 ```
@@ -400,11 +406,11 @@ yast2가 그래픽 창과 함께 열리지 않는 경우 다음 단계를 수행
 
 패키지 설치 진행 ![스크린샷에는 설치 진행률이 표시된 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-performing-installation.png)
 
-다음을 클릭합니다.
+다음을 선택합니다.
 
 ![스크린샷에는 성공 메시지가 포함된 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-installation-report.png)
 
-마침을 클릭합니다.
+마침을 선택합니다.
 
 libqt4 및 libyui-qt 패키지도 설치해야 합니다.
 ```
@@ -420,7 +426,7 @@ Yast2는 여기에 표시된 대로 그래픽 보기를 열 수 있어야 합니
 ![스크린샷에 소프트웨어 및 온라인 업데이트가 선택된 YaST 제어 센터가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast2-control-center.png)
 
 ### <a name="scenario-3-yast2-does-not-high-availability-option"></a>시나리오 3: yast2에 고가용성 옵션이 표시되지 않는 경우
-고가용성 옵션을 yast2 제어 센터에서 볼 수 있도록 하려면 추가 패키지를 설치해야 합니다.
+고가용성 옵션이 yast2 제어 센터에 표시되도록 하려면 다른 패키지를 설치해야 합니다.
 
 Yast2>소프트웨어>소프트웨어 관리>를 사용하여 다음 패턴을 선택합니다.
 
@@ -440,15 +446,15 @@ yast2 > 소프트웨어 > 소프트웨어 관리 사용
 ![스크린샷에는 C/C++ 컴파일러 및 도구 항목의 첫 번째 패턴을 선택하는 방법이 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-pattern1.png)
 ![스크린샷에는 C/C++ 컴파일러 및 도구 항목에서 두 번째 패턴을 선택하는 방법이 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-pattern2.png)
 
-**동의** 를 클릭합니다.
+**수락** 을 선택합니다.
 
 ![스크린샷에는 종속성을 확인하도록 변경된 패키지가 있는 변경된 패키지 대화 상자가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-changed-packages.png)
 
-**계속** 을 클릭합니다.
+**계속** 을 선택합니다.
 
 ![스크린샷에는 설치 수행 상태 페이지가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast2-performing-installation.png)
 
-설치가 완료되면 **다음** 을 클릭합니다.
+설치가 완료되면 **다음** 을 선택합니다.
 
 ![스크린샷에는 설치 보고서가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast2-installation-report.png)
 

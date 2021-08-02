@@ -4,18 +4,18 @@ description: Microsoft Azure에서 스토리지에 진단 및 사용량 데이�
 ms.topic: conceptual
 ms.date: 02/19/2021
 ms.custom: references_regions
-ms.openlocfilehash: e7831123834df9186310453106c50261373160ec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 8a302717ed962971069ee56a07d78747d82b00df
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101737038"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110455050"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 스토리지로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.  
 
 > [!IMPORTANT]
-> 연속 내보내기는 더 이상 사용 되지 않습니다. [작업 영역 기반 Application Insights 리소스로 마이그레이션하여](convert-classic-resource.md) 원격 분석 내보내기에 대 한 [진단 설정을](#diagnostic-settings-based-export) 사용 합니다.
+> 연속 내보내기는 더 이상 사용되지 않습니다. [작업 영역 기반 Application Insights 리소스로 마이그레이션하여](convert-classic-resource.md) 원격 분석 내보내기에 대한 [진단 설정](#diagnostic-settings-based-export)을 사용합니다.
 
 > [!NOTE]
 > 연속 내보내기는 클래식 Application Insights 리소스에 대해서만 지원됩니다. [작업 영역 기반 Application Insights 리소스](./create-workspace-resource.md)는 [진단 설정](./create-workspace-resource.md#export-telemetry)을 사용해야 합니다.
@@ -28,15 +28,15 @@ ms.locfileid: "101737038"
 * [분석](../logs/log-query-overview.md)은 원격 분석을 위한 강력한 쿼리 언어를 제공합니다. 결과를 내보낼 수도 있습니다.
 * [Power BI에서 데이터를 탐색](./export-power-bi.md)하려는 경우 연속 내보내기를 사용하지 않고 탐색할 수 있습니다.
 * [데이터 액세스 REST API](https://dev.applicationinsights.io/)를 사용하여 원격 분석에 프로그래밍 방식으로 액세스할 수 있습니다.
-* [PowerShell을 통해 연속 내보내기](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport)설정에 액세스할 수도 있습니다.
+* 또한 [PowerShell을 통해 연속 내보내기](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport) 설정에 액세스할 수도 있습니다.
 
 연속 내보내기를 통해 스토리지에 데이터를 복사한 후에도(원하는 기간 동안 스토리지에 유지할 수 있음) 일반적인 [보존 기간](./data-retention-privacy.md) 동안 Application Insights를 계속 사용할 수 있습니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-연속 내보내기는 다음 지역에서 지원 됩니다.
+연속 내보내기는 다음 지역에서 지원됩니다.
 
-* 동남 아시아
+* 동남아시아
 * 캐나다 중부
 * 인도 중부
 * 북유럽
@@ -61,14 +61,14 @@ ms.locfileid: "101737038"
 * 스위스 서부
 * 오스트레일리아 중부 2
 * 아랍에미리트 중부
-* 브라질 남동쪽
+* 브라질 남동부
 * 오스트레일리아 중부
 * 아랍에미리트 북부
 * 노르웨이 동부
 * 일본 서부
 
 > [!NOTE]
-> 이미 **유럽 서부** 및 **미국 동부** 에서 구성 된 응용 프로그램은 지원 되지만 해당 지역에 새 응용 프로그램을 온 보 딩은 지원 되지 않습니다.
+> 내보내기가 2021년 2월 23일 이전에 구성된 경우, 연속 내보내기는 **미국 동부** 및 **서유럽** 의 애플리케이션에서 계속 작동합니다. 애플리케이션을 만든 시기에 관계 없이 **미국 동부** 또는 **서유럽** 의 애플리케이션에서는 새 연속 내보내기 규칙을 구성할 수 없습니다.
 
 ## <a name="continuous-export-advanced-storage-configuration"></a>연속 내보내기 고급 스토리지 구성
 
@@ -81,7 +81,7 @@ ms.locfileid: "101737038"
 ## <a name="create-a-continuous-export"></a><a name="setup"></a> 연속 내보내기 만들기
 
 > [!NOTE]
-> 응용 프로그램은 하루에 3TB 이상의 데이터를 내보낼 수 없습니다. 하루에 최대 3TB를 내보내면 내보내기가 사용 하지 않도록 설정 됩니다. 제한 없이 내보내려면 [진단 설정 기반 내보내기](#diagnostic-settings-based-export)를 사용 합니다.
+> 애플리케이션은 하루에 3TB 이상의 데이터를 내보낼 수 없습니다. 하루에 3TB를 초과해서 내보내면 내보내기가 비활성화됩니다. 제한 없이 내보내려면 [진단 설정 기반 내보내기](#diagnostic-settings-based-export)를 사용합니다.
 
 1. 왼쪽에서 구성 중인 앱에 대한 Application Insights 리소스에서 연속 내보내기를 열고 **추가** 를 선택합니다.
 
@@ -97,7 +97,7 @@ ms.locfileid: "101737038"
 4. 스토리지에서 컨테이너를 만들거나 선택합니다.
 
 > [!NOTE]
-> 내보내기를 만들면 새로 수집 데이터가 Azure Blob storage로 전달 되기 시작 합니다. 연속 내보내기는 연속 내보내기가 활성화 된 후 생성/수집 새 원격 분석만 전송 합니다. 연속 내보내기를 사용하도록 설정하기 전에 있던 데이터는 내보내지 않으며, 연속 내보내기를 사용하여 이전에 만든 데이터를 소급하여 내보낼 수 있는 방법은 지원되지 않습니다.
+> 내보내기를 만들면 새로 수집된 데이터가 Azure Blob Storage로 이동하기 시작합니다. 연속 내보내기는 연속 내보내기가 활성화된 후 생성/수집된 새 원격 분석만 전송 합니다. 연속 내보내기를 사용하도록 설정하기 전에 있던 데이터는 내보내지 않으며, 연속 내보내기를 사용하여 이전에 만든 데이터를 소급하여 내보낼 수 있는 방법은 지원되지 않습니다.
 
 데이터가 스토리지에 표시되려면 1시간 정도 지연될 수 있습니다.
 
@@ -165,7 +165,7 @@ Where
 ## <a name="data-format"></a><a name="format"></a> 데이터 형식
 * 각 blob은 다중 '\n'-separated 행을 포함하는 텍스트 파일입니다. 여기에는 약 30초 동안 처리된 원격 분석 데이터가 있습니다.
 * 각 행은 요청 또는 페이지 보기와 같은 원격 분석 데이터 요소를 나타냅니다.
-* 각 행은 서식이 지정되지 않은 JSON 파일입니다. 행을 보려면 Visual Studio에서 blob을 열고   >  **고급**  >  **서식 파일** 편집을 선택 합니다.
+* 각 행은 서식이 지정되지 않은 JSON 파일입니다. 행을 보려면 Visual Studio에서 Blob을 열고 **편집** > **고급** > **서식 파일** 을 선택합니다.
 
    ![적합한 도구를 사용하여 원격 분석 보기](./media/export-telemetry/06-json.png)
 
@@ -255,16 +255,16 @@ private IEnumerable<T> DeserializeMany<T>(string folderName)
 
 ## <a name="diagnostic-settings-based-export"></a>진단 설정 기반 내보내기
 
-진단 설정 기반 내보내기는 연속 내보내기와는 다른 스키마를 사용 합니다. 또한 연속 내보내기가 다음과 같은 기능을 지원 하지 않습니다.
+진단 설정 기반 내보내기는 연속 내보내기와는 다른 스키마를 사용합니다. 또한 연속 내보내기와는 다른 기능을 지원합니다.
 
-* Vnet, 방화벽 및 개인 링크를 사용 하는 Azure storage 계정
-* 이벤트 허브로 내보냅니다.
+* Vnet, 방화벽 및 프라이빗 링크를 사용하는 Azure Storage 계정
+* 이벤트 허브로 내보내기
 
-진단 설정 기반 내보내기로 마이그레이션하려면:
+진단 설정 기반 내보내기로 마이그레이션하려면 다음을 수행합니다.
 
-1. 현재 연속 내보내기를 사용 하지 않도록 설정 합니다.
-2. [작업 영역 기반으로 응용 프로그램을 마이그레이션합니다](convert-classic-resource.md).
-3. [진단 설정 내보내기를 사용 하도록 설정](create-workspace-resource.md#export-telemetry)합니다. 진단 설정 > 선택 하 여 Application Insights 리소스 내에서 **진단 설정 추가** 를 선택 합니다.
+1. 현재 연속 내보내기를 사용하지 않도록 설정합니다.
+2. [작업 영역 기반으로 애플리케이션을 마이그레이션합니다](convert-classic-resource.md).
+3. [진단 설정 내보내기를 사용하도록 설정합니다](create-workspace-resource.md#export-telemetry). Application Insights 리소스 내에서 **진단 설정 > 진단 설정 추가** 를 선택합니다.
 
 <!--Link references-->
 

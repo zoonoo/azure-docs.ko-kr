@@ -1,18 +1,18 @@
 ---
 title: '가상 허브 유효 경로 보기: Azure Virtual WAN | Microsoft Docs'
-description: Azure Virtual WAN에서 가상 허브에 대한 유효 경로를 보는 방법입니다.
+description: Azure Virtual WAN에서 가상 허브에 대한 유효 경로를 보는 방법을 알아봅니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 05/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: ad487aa7492abcf02988c78ccfa2ba7cd4798249
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 955bf9fb9881fcf5fb37b75352c25d2d639bfb3c
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90983645"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579841"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>가상 허브 유효 경로 보기
 
@@ -51,7 +51,7 @@ Azure Portal에서 Virtual WAN 허브의 모든 경로를 볼 수 있습니다. 
 
 * VM NIC에서 유효 경로를 볼 때 다음 홉이 '가상 네트워크 게이트웨이'로 표시되면 VM이 Virtual WAN 허브에 연결된 스포크에 있는 경우 가상 허브 라우터를 의미합니다.
 
-* 가상 허브 경로 테이블에 대한 유효 경로 보기는 하나 이상의 연결 형식(VPN/ER/VNET)이 가상 허브에 연결된 경우에만 채워집니다.
+* 가상 허브 경로 테이블에 대한 **유효 경로 보기** 는 하나 이상의 연결 형식(VPN/ER/VNET)이 가상 허브에 연결된 경우에만 채워집니다.
 
 ## <a name="next-steps"></a>다음 단계
 

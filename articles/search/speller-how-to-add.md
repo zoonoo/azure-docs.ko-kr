@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.date: 05/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: 52ac3ee4ea2f71e285d21c7b6d082e84fa090da1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 28dc63729a946e7b14b950f5082752d78c5992f4
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625911"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110452687"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Cognitive Search에서 쿼리에 대한 맞춤법 검사 추가
 
@@ -25,18 +25,16 @@ ms.locfileid: "105625911"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-+ 영어 콘텐츠를 포함하는 기존 검색 인덱스입니다. 현재 맞춤법 수정 기능이 [동의어](search-synonyms.md)를 사용하여 작동하지는 않습니다. 모든 필드 정의에서 동의어 맵을 지정하는 인덱스에는 사용하지 마세요.
++ [지원되는 언어](#supported-languages)로 된 콘텐츠가 있는 기존 검색 인덱스 현재 맞춤법 수정 기능이 [동의어](search-synonyms.md)를 사용하여 작동하지는 않습니다. 모든 필드 정의에서 동의어 맵을 지정하는 인덱스에는 사용하지 마세요.
 
 + 쿼리를 보내기 위한 검색 클라이언트
 
   검색 클라이언트는 쿼리 요청에 대한 미리 보기 REST API를 지원해야 합니다. 미리 보기 API에 대한 REST 호출을 수행하도록 수정한 [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md)또는 코드를 사용할 수 있습니다.
 
-+ 맞춤법 수정 기능을 사용하는 [쿼리 요청](/rest/api/searchservice/preview-api/search-documents)에는 "api-version=2020-06-30-Preview", "speller=lexicon", "queryLanguage=en-us"가 있습니다.
-
-  맞춤법 검사기에는 queryLanguage가 필요하며, 현재 "en-us"만 유효한 값입니다.
++ 맞춤법 교정을 호출하는 [쿼리 요청](/rest/api/searchservice/preview-api/search-documents)에는 "api-version = 2020-06 -30-Preview", "speller=lexicon" 및 "queryLanguage"가 [지원되는 언어](#supported-languages)로 설정되어 있어야 합니다.
 
 > [!Note]
-> 맞춤법 검사기 매개 변수는 의미 체계 검색을 제공하는 동일한 지역의 모든 계층에서 사용할 수 있습니다. 이 미리 보기 기능에 대한 액세스 권한을 등록할 필요는 없습니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조하세요.
+> 맞춤법 검사기 매개 변수는 의미 체계 검색을 제공하는 동일한 지역의 모든 계층에서 사용할 수 있습니다. 등록이 필수지만 무료이며 계층 제한은 없습니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조하세요.
 
 ## <a name="spell-correction-with-simple-search"></a>단순 검색으로 맞춤법 수정
 
@@ -92,26 +90,37 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 }
 ```
 
+## <a name="supported-languages"></a>지원되는 언어
+
+queryLanguage용 Spell Check에 유효한 값은 다음 표에 나와 있습니다. 이 목록은 [지원되는 언어(REST API 참조)](/rest/api/searchservice/preview-api/search-documents#queryLanguage)의 하위 집합입니다. Spell Check 없이 의미 체계 캡션과 답변을 사용하는 경우 더 많은 언어 및 변형 목록에서 선택할 수 있습니다.
+
+| 언어 | queryLanguage |
+|----------|---------------|
+| 영어[EN] | EN, EN-US(기본값) |
+| 스페인어[ES] | ES, ES-ES(기본값)|
+| 프랑스어[FR] | FR, FR-FR(기본값) |
+| 독일어[DE] | DE, DE-DE(기본값) |
+
 ## <a name="language-considerations"></a>언어 관련 고려 사항
 
-맞춤법 검사기에 필요한 queryLanguage 매개 변수는 인덱스 스키마의 필드 정의에 할당된 [언어 분석기](index-add-language-analyzers.md)와 일치해야 합니다. 
+맞춤법 검사기에 필요한 queryLanguage 매개 변수는 인덱스 스키마의 필드 정의에 할당된 [언어 분석기](index-add-language-analyzers.md)와 일치해야 합니다. 예를 들어 "fr.microsoft" 언어 분석기를 사용해 필드의 콘텐츠를 인덱싱하고 나면 쿼리, spell check, 의미 체계 캡션 및 의미 체계 답변이 모든 형식의 프랑스어 언어 라이브러리를 사용해야 합니다.
 
-+ queryLanguage는 맞춤법 검사에 사용되는 lexicons를 결정합니다. 또한 "queryType=semantic"을 사용하는 경우 [의미 체계 순위 알고리즘](semantic-answers.md)에 대한 입력 정보로 사용됩니다.
+Cognitive Search에서 언어 라이브러리를 사용하는 방법을 요약하면 다음과 같습니다.
 
-+ 언어 분석기는 인덱싱 및 쿼리 실행 중에 검색 인덱스에서 일치하는 문서를 찾는 데 사용됩니다. 언어 분석기를 사용하는 필드 정의의 예제로는 `"name": "Description", "type": "Edm.String", "analyzer": "en.microsoft"`이(가) 있습니다.
++ 언어 분석기는 인덱싱 및 쿼리 실행 중에 호출될 수 있으며 전체 Lucene (예: "de.lucene") 또는 Microsoft ("de.microsoft)일 수 있습니다.
 
-맞춤법 검사기를 사용할 때 최상의 결과를 얻으려면 queryLanguage가 "en-us"인 경우 언어 분석기도 영어 변형("en.microsoft" 또는 "en.lucene")이어야 합니다.
++ Spell Check 중에 호출되는 언어 어휘집은 상단의 표에 있는 언어 코드 중 하나를 사용하여 지정됩니다.
+
+쿼리 요청에서는 queryLanguage가 맞춤법 검사기, [답변](semantic-answers.md), 캡션에 동일하게 적용됩니다. 의미 체계 응답의 개별 파트에 대한 재정의는 없습니다. 
 
 > [!NOTE]
-> 언어와 관계없는 분석기(예: 키워드, 단순, 표준, 중지, 공백 또는 `standardasciifolding.lucene`)는 queryLanguage 설정과 충돌하지 않습니다.
-
-쿼리 요청에서 설정하는 queryLanguage는 맞춤법 검사기, 답변 및 캡션에 동일하게 적용됩니다. 개별 파트에 대해 재정의하지 않습니다.
+> 언어 분석기를 사용하는 경우 다양한 속성 값의 언어 일관성은 매우 중요합니다. 언어와 관련 없는 분석기(키워드, 단순, 표준, 중지, 공백 또는 `standardasciifolding.lucene` 등)를 사용하는 경우 queryLanguage 값을 원하는 대로 지정할 수 있습니다.
 
 검색 인덱스의 콘텐츠는 여러 언어로 구성될 수 있지만, 쿼리 입력은 한 가지 언어로 작성될 가능성이 높습니다. 검색 엔진에서는 queryLanguage, 언어 분석기 및 콘텐츠가 구성된 언어의 호환성을 확인하지 않으므로 잘못된 결과가 생성되지 않도록 적절히 쿼리 범위를 지정해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [의미 체계 쿼리 만들기](semantic-how-to-query-request.md)
++ [의미론적 순위 지정 및 캡션 호출](semantic-how-to-query-request.md)
 + [기본 쿼리 만들기](search-query-create.md)
 + [전체 Lucene 쿼리 구문 사용](query-Lucene-syntax.md)
 + [단순 쿼리 구문 사용](query-simple-syntax.md)

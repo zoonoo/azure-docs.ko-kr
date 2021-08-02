@@ -7,12 +7,13 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: alzam
-ms.openlocfilehash: f16a7675805fa2665c25b5d4a9c3847b710ec71b
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 59b93327aae8a400b4d1ab6c9ea3f67e5bd9dd03
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164204"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110703369"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>사용자 VPN에 대한 Azure Active Directory 인증 구성
 
@@ -92,27 +93,28 @@ ms.locfileid: "108164204"
 
    ![사용자 VPN 구성 만들기 링크를 보여 주는 스크린샷.](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
 
-3. 정보를 입력하고 **만들기** 를 클릭합니다.
-
+3. **기본** 에서 다음 매개 변수를 지정합니다.
    * **구성 이름** - 사용자 VPN 구성을 호출하려는 이름을 입력합니다.
-   * **터널 유형** - OpenVPN을 선택합니다.
+    * **터널 유형** 의 드롭다운에서 OpenVPN을 선택합니다.
+4. **Azure Active Directory** 로 이동합니다. **Azure Active Directory** 를 ‘예’로 전환하고 테넌트 세부 정보를 기반으로 다음 값을 입력합니다. 
    * **인증 방법**: Azure Active Directory를 선택합니다.
    * **대상** - Azure AD 테넌트에 등록된 [Azure VPN](openvpn-azure-ad-tenant.md) 엔터프라이즈 애플리케이션의 애플리케이션 ID를 입력합니다. 
    * **발급자** - `https://sts.windows.net/<your Directory ID>/`
    * **AAD 테넌트** - `https://login.microsoftonline.com/<your Directory ID>`
   
-   ![값을 입력할 수 있는 새 사용자 만들기 VPN 구성 창을 보여 주는 스크린샷.](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
+   ![값을 입력할 수 있는 새 사용자 만들기 VPN 구성 창을 보여 주는 스크린샷.](media/virtual-wan-point-to-site-azure-ad/configure-aad-profile.png)
 
 ## <a name="edit-hub-assignment"></a><a name="hub"></a>허브 할당 편집
 
 1. 가상 WAN 아래의 **허브** 블레이드로 이동합니다.
 2. vpn 서버 구성을 연결할 허브를 선택하고, 줄임표(...)를 클릭합니다.
 
-   ![메뉴에서 선택한 가상 허브 편집을 보여 주는 스크린샷.](media/virtual-wan-point-to-site-azure-ad/p2s4.jpg)
+   ![메뉴에서 선택한 가상 허브 편집을 보여 주는 스크린샷.](media/virtual-wan-point-to-site-azure-ad/select-hub.png)
 3. **가상 허브 편집** 을 클릭합니다.
 4. **지점 및 사이트 간 게이트웨이 포함** 확인란을 선택하고 원하는 **게이트웨이 배율 단위** 를 선택합니다.
 
-   ![게이트웨이 확장 단위를 선택할 수 있는 가상 허브 편집 대화 상자를 보여 주는 스크린샷.](media/virtual-wan-point-to-site-azure-ad/p2s2.jpg)
+   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/edit-virtual-hub.png" alt-text="게이트웨이 확장 단위를 선택할 수 있는 가상 허브 편집 대화 상자를 보여 주는 스크린샷."lightbox="./media/virtual-wan-point-to-site-azure-ad/edit-virtual-hub.png":::
+
 5. VPN 클라이언트에 IP 주소를 할당할 **주소 풀** 를 입력합니다.
 6. **확인** 을 클릭합니다.
 7. 작업이 완료될 때까지 최대 30분이 걸릴 수 있습니다.

@@ -4,12 +4,12 @@ description: 프로그래밍 언어 및 바인딩에 관계 없이 Azure에서 �
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: a526edfccda1e4e0e60646989a59d23ad19501ab
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 4e5d239416a14d2d769020283f43f2dbcf150e64
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227113"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111539794"
 ---
 # <a name="azure-functions-developer-guide"></a>Azure Functions 개발자 가이드
 Azure Functions에서 특정 함수는 사용하는 언어나 바인딩에 관계없이 몇 가지 핵심적 기술 개념과 구성 요소를 공유합니다. 특정 언어나 바인딩에 해당하는 세부 정보를 학습하기 전에, 모든 항목에 해당하는 이 개요를 꼼꼼히 읽어 보시기 바랍니다.
@@ -111,20 +111,37 @@ Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리�
 
 Azure Functions의 일부 연결은 비밀 대신 ID를 사용하도록 구성됩니다. 지원은 연결을 사용하는 확장에 따라 다릅니다. 경우에 따라 연결하는 서비스에서 ID 기반 연결을 지원하는 경우에도 Functions에서 연결 문자열이 필요할 수 있습니다.
 
-> [!IMPORTANT]
-> 바인딩 확장에서 ID 기반 연결을 지원하는 경우에도 해당 구성은 아직 사용 플랜에서 지원되지 않을 수 있습니다. 아래 지원 표를 참조하세요.
-
-ID 기반 연결은 다음 트리거 및 바인딩 확장에서 지원됩니다.
-
-| 확장 이름 | 확장 버전                                                                                     | 사용 플랜에서 지원됨 |
-|----------------|-------------------------------------------------------------------------------------------------------|---------------------------------------|
-| Azure Blob     | [버전 5.0.0-beta1 이상](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | 아니요                                    |
-| Azure Queue    | [버전 5.0.0-beta1 이상](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | 아니요                                    |
-| Azure Event Hubs    | [버전 5.0.0-beta1 이상](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | 아니요                                    |
-| Azure Service Bus    | [버전 5.0.0-beta2 이상](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) | 아니요                                    |
+ID 기반 연결은 모든 플랜의 다음 트리거 및 바인딩 확장에서 지원됩니다.
 
 > [!NOTE]
-> 핵심 동작에 대한 Functions 런타임에 의해 사용되는 스토리지 연결에는 아직 ID 기반 연결 지원이 제공되지 않습니다. `AzureWebJobsStorage` 설정이 연결 문자열이어야 합니다.
+> ID 기반 연결은 Durable Functions에서 지원되지 않습니다.
+
+| 확장 이름 | 확장 버전                                                                                     |
+|----------------|-------------------------------------------------------------------------------------------------------|
+| Azure Blob     | [버전 5.0.0-beta1 이상](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  |
+| Azure Queue    | [버전 5.0.0-beta1 이상](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) |
+| Azure Event Hubs    | [버전 5.0.0-beta1 이상](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) |
+| Azure Service Bus    | [버전 5.0.0-beta2 이상](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) |
+
+
+Functions 런타임(`AzureWebJobsStorage`)에서 사용하는 저장소 연결은 ID 기반 연결을 사용하여 구성할 수도 있습니다. 아래의 [ID로 호스트 저장소에 연결](#connecting-to-host-storage-with-an-identity)을 참조하세요.
+
+Azure Functions 서비스에서 호스트되는 경우 ID 기반 연결에 [관리 ID](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json)가 사용됩니다. 시스템 할당 ID가 기본적으로 사용됩니다. 로컬 개발과 같은 다른 컨텍스트에서 실행하는 경우 대체 연결 매개 변수를 사용하여 사용자 지정할 수는 있지만 개발자 ID가 대신 사용됩니다.
+
+#### <a name="grant-permission-to-the-identity"></a>ID에 권한 부여
+
+사용되는 모든 ID에는 의도한 작업을 수행할 수 있는 권한이 있어야 합니다. 일반적으로 이 작업은 연결하는 서비스에 따라 Azure RBAC에서 역할을 할당하거나 액세스 정책에 ID를 지정하여 이루어집니다. 필요한 권한 및 설정 방법은 각 확장의 설명서를 참조하세요.
+
+> [!IMPORTANT]
+> 일부 사용 권한은 모든 컨텍스트에 필요하지 않은 대상 서비스에 의해 노출될 수 있습니다. 가능한 경우 **최소 권한 원칙** 을 준수하여 ID에 필요한 권한만 부여하세요. 예를 들어 앱이 Blob에서 읽기만 수행해야 하는 [Storage Blob 데이터 읽기 권한자](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)를 사용합니다. [Storage Blob 데이터 소유자](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)에는 읽기 작업에 과도한 권한이 포함되어 있기 때문입니다.
+다음 역할은 일반 작업에서 각 확장에 필요한 기본 사용 권한을 포함합니다.
+
+| 서비스     | 기본 제공 역할 예 |
+|-------------|------------------------|
+| Azure Blob  | [Storage Blob 데이터 읽기 권한자](../role-based-access-control/built-in-roles.md#storage-blob-data-reader), [Storage Blob 데이터 소유자](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)                 |
+| Azure 큐 | [Storage 큐 데이터 읽기 권한자](../role-based-access-control/built-in-roles.md#storage-queue-data-reader), [Storage 큐 데이터 메시지 처리자](../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor), [Storage 큐 데이터 메시지 보내는 사람](../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender), [Storage 큐 데이터 기여자](../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)             |
+| Event Hubs   |    [Azure Event Hubs 데이터 받는 사람](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver), [Azure Event Hubs 데이터 보내는 사람](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender), [Azure Event Hubs 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner)              |
+| Service Bus | [Azure Service Bus 데이터 받는 사람](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver), [Azure Service Bus 데이터 보내는 사람](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender), [Azure Service Bus 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) |
 
 #### <a name="connection-properties"></a>연결 속성
 
@@ -132,12 +149,12 @@ Azure 서비스에 대한 ID 기반 연결은 다음 속성을 허용합니다.
 
 | 속성    | 확장에 필요함 | 환경 변수 | Description |
 |---|---|---|---|
-| 서비스 URI | Azure Blob, Azure Queue | `<CONNECTION_NAME_PREFIX>__serviceUri` |  연결 중인 서비스의 데이터 평면 URI입니다. |
+| 서비스 URI | Azure Blob<sup>1</sup>, Azure Queue | `<CONNECTION_NAME_PREFIX>__serviceUri` | 연결 중인 서비스의 데이터 평면 URI입니다. |
 | 정규화된 네임스페이스 | Event Hubs, Service Bus | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | 정규화된 Event Hubs 및 Service Bus 네임스페이스입니다. |
 
-지정된 연결 유형에 대해 추가 옵션이 지원될 수 있습니다. 연결을 구성하는 구성 요소에 대한 설명서를 참조하세요.
+<sup>1</sup> Azure Blob에는 Blob 및 큐 서비스 URI가 모두 필요합니다.
 
-Azure Functions 서비스에서 호스트되는 경우 ID 기반 연결에 [관리 ID](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json)가 사용됩니다. 시스템 할당 ID가 기본적으로 사용됩니다. 로컬 개발과 같은 다른 컨텍스트에서 실행하는 경우 대체 연결 매개 변수를 사용하여 사용자 지정할 수는 있지만 개발자 ID가 대신 사용됩니다.
+지정된 연결 유형에 대해 추가 옵션이 지원될 수 있습니다. 연결을 구성하는 구성 요소에 대한 설명서를 참조하세요.
 
 ##### <a name="local-development"></a>로컬 개발
 
@@ -164,6 +181,7 @@ Azure Functions 서비스에서 호스트되는 경우 ID 기반 연결에 [관�
 | 클라이언트 암호 | `<CONNECTION_NAME_PREFIX>__clientSecret` | 앱 등록을 위해 생성된 클라이언트 암호. |
 
 Azure Blob를 사용하는 ID 기반 연결에 필요한 `local.settings.json` 속성의 예: 
+
 ```json
 {
   "IsEncrypted": false,
@@ -176,22 +194,18 @@ Azure Blob를 사용하는 ID 기반 연결에 필요한 `local.settings.json` �
 }
 ```
 
-#### <a name="grant-permission-to-the-identity"></a>ID에 권한 부여
+#### <a name="connecting-to-host-storage-with-an-identity"></a>ID로 호스트 저장소에 연결
 
-사용되는 모든 ID에는 의도한 작업을 수행할 수 있는 권한이 있어야 합니다. 일반적으로 이 작업은 연결하는 서비스에 따라 Azure RBAC에서 역할을 할당하거나 액세스 정책에 ID를 지정하여 이루어집니다. 필요한 권한 및 설정 방법은 각 서비스의 설명서를 참조하세요.
+기본적으로 Azure Functions는 `AzureWebJobsStorage` 타이머 트리거의 단일 실행 및 기본 앱 키 저장소를 조정하는 등의 핵심 동작에 대한 연결을 사용합니다. ID도 사용하도록 구성할 수 있습니다.
 
-다음 역할은 일반 작업에서 각 확장에 필요한 기본 사용 권한을 포함합니다.
+> [!CAUTION]
+> 일부 앱은 트리거, 바인딩 및/또는 함수 코드의 저장소 연결에 `AzureWebJobsStorage`를 다시 사용합니다. 연결 문자열에서 이 연결을 변경하기 전에 모든 `AzureWebJobsStorage` 사용이 ID 기반 연결 형식을 사용할 수 있는지 확인합니다.
 
-| 서비스     | 기본 제공 역할 예 |
-|-------------|------------------------|
-| Azure Blob  | [Storage Blob 데이터 읽기 권한자](../role-based-access-control/built-in-roles.md#storage-blob-data-reader), [Storage Blob 데이터 소유자](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)                 |
-| Azure 큐 | [Storage 큐 데이터 읽기 권한자](../role-based-access-control/built-in-roles.md#storage-queue-data-reader), [Storage 큐 데이터 메시지 처리자](../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor), [Storage 큐 데이터 메시지 보내는 사람](../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender), [Storage 큐 데이터 기여자](../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)             |
-| Event Hubs   |    [Azure Event Hubs 데이터 받는 사람](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver), [Azure Event Hubs 데이터 보내는 사람](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender), [Azure Event Hubs 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner)              |
-| Service Bus | [Azure Service Bus 데이터 받는 사람](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver), [Azure Service Bus 데이터 보내는 사람](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender), [Azure Service Bus 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) |
+이 방식으로 연결을 구성하려면 핵심 호스트 기능을 지원하기 위해 앱의 ID에 [저장소 Blob 데이터 소유자](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할이 있는지 확인하세요. 다른 용도로 "AzureWebJobsStorage"를 사용하는 경우 추가 권한이 필요할 수 있습니다.
 
-> [!IMPORTANT]
-> 일부 사용 권한은 모든 컨텍스트에 필요하지 않은 서비스에 의해 노출될 수 있습니다. 가능한 경우 **최소 권한 원칙** 을 준수하여 ID에 필요한 권한만 부여하세요. 예를 들어 앱이 Blob에서 읽기만 수행해야 하는 [Storage Blob 데이터 읽기 권한자](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)를 사용합니다. [Storage Blob 데이터 소유자](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)에는 읽기 작업에 과도한 권한이 포함되어 있기 때문입니다.
+전역 Azure에 대해 기본 DNS 접미사 및 서비스 이름을 사용하는 저장소 계정을 사용하는 경우 `https://<accountName>.blob/queue/file/table.core.windows.net` 형식에 따라 `AzureWebJobsStorage__accountName`를 저장소 계정의 이름으로 설정할 수 있습니다. 
 
+대신 소버린 클라우드 또는 사용자 지정 DNS에서 저장소 계정을 사용하는 경우 `AzureWebJobsStorage__serviceUri`를 Blob 서비스의 URI로 설정합니다. "AzureWebJobsStorage"가 다른 서비스에 사용되는 경우 대신 `AzureWebJobsStorage__blobServiceUri`, `AzureWebJobsStorage__queueServiceUri` 및 `AzureWebJobsStorage__tableServiceUri`를 별도로 지정할 수 있습니다.
 
 ## <a name="reporting-issues"></a>문제 보고
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

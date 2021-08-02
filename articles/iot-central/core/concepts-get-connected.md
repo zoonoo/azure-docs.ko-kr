@@ -12,16 +12,14 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: c365f367a090f1697b71c51f24679b9ea09561d0
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: fb9c9f460b46f8dec741f4c22460cbe9d44c6a0e
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490015"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110791114"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
-
-*이 문서는 운영자 및 디바이스 개발자에게 적용됩니다.*
 
 이 문서에서는 디바이스에서 Azure IoT Central 애플리케이션에 연결하는 방법에 대해 설명합니다. 디바이스에서 데이터를 IoT Central과 교환하려면 먼저 다음을 수행해야 합니다.
 
@@ -184,7 +182,7 @@ IoT Central 애플리케이션은 디바이스에서 보낸 모델 ID를 사용�
 1. 디바이스 템플릿이 IoT Central 애플리케이션에 아직 게시되지 않은 경우 IoT Central에서 [퍼블릭 모델 리포지토리](https://github.com/Azure/iot-plugandplay-models)에 있는 디바이스 모델을 찾습니다. IoT Central에서 모델을 찾으면 이를 사용하여 기본 디바이스 템플릿을 생성합니다.
 1. IoT Central에서 퍼블릭 모델 리포지토리에 있는 모델을 찾을 수 없는 경우 디바이스가 **연결 안 됨** 으로 표시됩니다. 운영자는 디바이스에 대한 디바이스 템플릿을 만든 다음, 연결되지 않은 디바이스를 새 디바이스 템플릿으로 마이그레이션할 수 있습니다.
 
-다음 스크린샷에서는 IoT Central에서 디바이스 템플릿의 모델 ID를 표시하는 방법을 보여 줍니다. 디바이스 템플릿에서 구성 요소를 선택한 다음, **ID 보기** 를 선택합니다.
+다음 스크린샷에서는 IoT Central에서 디바이스 템플릿의 모델 ID를 표시하는 방법을 보여 줍니다. 디바이스 템플릿에서 구성 요소를 선택한 다음, **ID 편집** 을 선택합니다.
 
 :::image type="content" source="media/concepts-get-connected/model-id.png" alt-text="자동 온도 조절기 디바이스 템플릿의 모델 ID를 보여 주는 스크린샷":::
 
@@ -213,7 +211,16 @@ IoT Central 애플리케이션은 디바이스에서 보낸 모델 ID를 사용�
     - 디바이스 템플릿을 지정하지 않고 **디바이스** 페이지에서 **가져오기** 를 사용하여 디바이스 세트가 추가됩니다.
     - 디바이스 템플릿을 지정하지 않고 **디바이스** 페이지에서 디바이스가 수동으로 등록되었습니다. 그런 다음, 디바이스가 유효한 자격 증명을 사용하여 연결되었습니다.  
 
-    운영자는 **마이그레이션** 단추를 사용하여 **디바이스** 페이지에서 디바이스를 디바이스 템플릿에 연결할 수 있습니다.
+    운영자는 **마이그레이션** 단추를 사용하여 **디바이스** 페이지에서 디바이스 템플릿에 디바이스를 연결할 수 있습니다.
+
+## <a name="device-connection-status"></a>디바이스 연결 상태
+디바이스 또는 에지 디바이스가 MQTT 프로토콜을 사용하여 연결되면 디바이스에 대한 _연결_ 및 _연결 끊김_ 이벤트가 표시됩니다. 이러한 이벤트는 디바이스에서 보내는 것이 아니라 IoT Central에서 내부적으로 생성됩니다.
+
+다음 다이어그램은 디바이스가 연결될 때 기간 끝에 연결이 등록되는 방법을 보여 줍니다. 여러 연결 및 연결 끊김 이벤트가 발생하는 경우 IoT Central은 기간 끝에 가장 가까운 이벤트를 등록합니다. 예를 들어 디바이스가 기간 내에 연결을 끊었다가 다시 연결하는 경우 IoT Central은 연결 이벤트를 등록합니다. 현재 기간은 약 1분..
+
+:::image type="content" source="media/concepts-get-connected/device-connectivity-diagram.png" alt-text="연결 이벤트 및 연결 끊김 이벤트에 대한 이벤트 창을 보여 주는 다이어그램." border="false":::
+
+[IoT Central에서 내보내기](howto-export-data.md#set-up-data-export)에 연결 및 연결 끊김 이벤트를 포함할 수 있습니다. 자세한 내용은 [IoT Hub 이벤트에 반응 > 디바이스 연결 및 디바이스 연결 끊김 이벤트에 대한 제한 사항](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
 
 ## <a name="sdk-support"></a>SDK 지원
 
@@ -261,7 +268,7 @@ IoT Hub와의 모든 디바이스 통신에 다음 IoT Hub 연결 옵션이 사�
 
 ## <a name="next-steps"></a>다음 단계
 
-디바이스 개발자라면 다음과 같은 몇 가지 단계를 살펴보세요.
+몇 가지 제안된 다음 단계는 다음과 같습니다.
 
 - 디바이스 개발에 대한 [모범 사례](concepts-best-practices.md)를 검토합니다.
 - [자습서: 클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결](tutorial-connect-device.md)에서 SAS 토큰을 사용하는 방법을 보여 주는 샘플 코드를 검토합니다.

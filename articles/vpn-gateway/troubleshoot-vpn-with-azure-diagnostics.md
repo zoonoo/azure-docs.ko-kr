@@ -1,18 +1,18 @@
 ---
 title: 진단 로그를 사용하여 Azure VPN Gateway 문제 해결
-description: 진단 로그를 사용하여 Azure VPN Gateway 문제 해결
+description: 진단 로그를 사용하여 Azure VPN Gateway 문제를 해결하는 방법을 알아봅니다.
 services: vpn-gateway
 author: stegag
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: stegag
-ms.openlocfilehash: 232e084e44696c6aa88a9dd33092c48a96e35f85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc4165a2636169c34b14795a8c2298a0f9917916
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772005"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652138"
 ---
 # <a name="troubleshoot-azure-vpn-gateway-using-diagnostic-logs"></a>진단 로그를 사용하여 Azure VPN Gateway 문제 해결
 
@@ -34,7 +34,7 @@ Azure에서 사용할 수 있는 로그는 다음과 같습니다.
 
 ## <a name="set-up-logging"></a><a name="setup"></a>로깅 설정
 
-Azure Log Analytics를 사용하여 Azure VPN Gateway에서 진단 로그 이벤트를 설정하는 방법을 알아보려면 [VPN Gateway에서 진단 로그 이벤트에 대한 경고 설정](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log)을 참조하세요.
+Azure Log Analytics를 사용하여 Azure VPN Gateway에서 진단 로그 이벤트를 설정하는 방법을 알아보려면 [VPN Gateway에서 진단 로그 이벤트에 대한 경고 설정](./vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md)을 참조하세요.
 
 ## <a name="gatewaydiagnosticlog"></a><a name="GatewayDiagnosticLog"></a>GatewayDiagnosticLog
 
@@ -100,8 +100,8 @@ AzureDiagnostics
 
 
 아래에는 몇 가지 문제 해결 팁이 나와 있습니다.
-- 한 게이트웨이 인스턴스에서 연결 끊김 이벤트가 발생하고 몇 초 후에 **다른** 게이트웨이 인스턴스에서 연결 이벤트가 발생한다면 게이트웨이 장애 조치(failover)입니다. 이는 게이트웨이 인스턴스에 대한 유지 관리로 인해 일반적으로 예상되는 동작입니다. 이 동작에 대해 자세히 알아보려면 [Azure VPN gateway 중복도 정보](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#about-azure-vpn-gateway-redundancy)를 참조하세요.
-- Azure 쪽에서 의도적으로 게이트웨이 재설정을 실행하여 활성 게이트웨이 인스턴스를 다시 부팅하는 경우에도 동일한 동작이 관찰됩니다. 이 동작에 대해 자세히 알아보려면 [VPN Gateway 다시 설정](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-resetgw-classic)을 참조하세요.
+- 한 게이트웨이 인스턴스에서 연결 끊김 이벤트가 발생하고 몇 초 후에 **다른** 게이트웨이 인스턴스에서 연결 이벤트가 발생한다면 게이트웨이 장애 조치(failover)입니다. 이는 게이트웨이 인스턴스에 대한 유지 관리로 인해 일반적으로 예상되는 동작입니다. 이 동작에 대해 자세히 알아보려면 [Azure VPN gateway 중복도 정보](./vpn-gateway-highlyavailable.md#activestandby)를 참조하세요.
+- Azure 쪽에서 의도적으로 게이트웨이 재설정을 실행하여 활성 게이트웨이 인스턴스를 다시 부팅하는 경우에도 동일한 동작이 관찰됩니다. 이 동작에 대해 자세히 알아보려면 [VPN Gateway 다시 설정](./reset-gateway.md)을 참조하세요.
 - 한 게이트웨이 인스턴스에서 연결 끊김 이벤트가 발생하고 몇 초 후에 **동일한** 게이트웨이 인스턴스에서 연결 이벤트가 발생한다면 DPD 시간 초과를 유발하는 네트워크 결함이거나 온-프레미스 디바이스가 잘못 전송한 연결 끊김입니다.
 
 ## <a name="routediagnosticlog"></a><a name="RouteDiagnosticLog"></a>RouteDiagnosticLog
@@ -168,7 +168,7 @@ RemoteIP, LocalIP, Event 열은 AzureDiagnostics 데이터베이스의 원래 �
 - IPsec 터널을 설정하지 못하면 Azure는 몇 초마다 재시도를 계속합니다. 따라서 IKEdiagnosticLog에서 ‘VPN 다운’ 문제를 해결하는 것이 매우 편리합니다. 문제를 재현하기 위해 특정 시간 동안 기다릴 필요가 없기 때문입니다. 또한 시도할 때마다 실패는 이론적으로 항상 동일하기 때문에 언제든지 하나의 ‘샘플’ 협상 실패만 살펴보면 됩니다.
 
 - SA\_INIT에는 피어가 이 IPsec 협상에 사용하려는 IPsec 매개 변수가 포함됩니다. 공식 문서   
-[기본 IPsec/IKE 매개 변수](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec)는 기본 설정으로 Azure 게이트웨이에서 지원하는 IPsec 매개 변수를 나열합니다.
+[기본 IPsec/IKE 매개 변수](./vpn-gateway-about-vpn-devices.md#ipsec)는 기본 설정으로 Azure 게이트웨이에서 지원하는 IPsec 매개 변수를 나열합니다.
 
 
 ## <a name="p2sdiagnosticlog"></a><a name="P2SDiagnosticLog"></a>P2SDiagnosticLog
@@ -202,4 +202,3 @@ AzureDiagnostics
 ## <a name="next-steps"></a>다음 단계
 
 터널 리소스 로그에 대한 경고를 구성하려면 [VPN Gateway 리소스 로그에 대한 경고 설정](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md)을 참조하세요.
-

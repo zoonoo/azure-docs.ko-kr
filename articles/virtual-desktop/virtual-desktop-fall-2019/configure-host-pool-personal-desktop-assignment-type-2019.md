@@ -1,38 +1,38 @@
 ---
-title: Windows Virtual Desktop(클래식) 개인 데스크톱 할당 유형 - Azure
-description: Windows Virtual Desktop(클래식) 개인 데스크톱 호스트 풀의 할당 유형을 구성하는 방법입니다.
+title: Azure Virtual Desktop(클래식) 개인 데스크톱 할당 유형 - Azure
+description: Azure Virtual Desktop(클래식) 개인 데스크톱 호스트 풀의 할당 유형을 구성하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 5710fc8be66f2126f6bf665ad1808aa11e4db2c4
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 20123cb66bfd5fdd2b77c1a7c1afbae28a93f45e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445315"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750123"
 ---
-# <a name="configure-the-personal-desktop-host-pool-assignment-type-for-windows-virtual-desktop-classic"></a>Windows Virtual Desktop(클래식)에 대한 개인 데스크톱 호스트 풀 할당 유형 구성
+# <a name="configure-the-personal-desktop-host-pool-assignment-type-for-azure-virtual-desktop-classic"></a>Azure Virtual Desktop(클래식)에 대한 개인 데스크톱 호스트 풀 할당 유형 구성
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../configure-host-pool-personal-desktop-assignment-type.md)를 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Azure Virtual Desktop 개체를 관리하려는 경우 [이 문서](../configure-host-pool-personal-desktop-assignment-type.md)를 참조하세요.
 
-사용자의 요구에 맞게 Windows Virtual Desktop 환경을 조정하도록 개인 데스크톱 호스트 풀의 할당 유형을 구성할 수 있습니다. 이 항목에서는 사용자에 대한 자동 또는 직접 할당을 구성하는 방법을 보여 줍니다.
+사용자의 요구에 맞게 Azure Virtual Desktop 환경을 조정하도록 개인 데스크톱 호스트 풀의 할당 유형을 구성할 수 있습니다. 이 항목에서는 사용자에 대한 자동 또는 직접 할당을 구성하는 방법을 보여 줍니다.
 
 >[!NOTE]
 > 이 문서의 지침은 풀링된 호스트 풀이 아닌 개인 데스크톱 호스트 풀에만 적용됩니다. 풀링된 호스트 풀의 사용자는 특정 세션 호스트에 할당되지 않기 때문입니다.
 
 ## <a name="configure-automatic-assignment"></a>자동 할당 구성
 
-자동 할당은 Windows Virtual Desktop 환경에서 만든 새 개인 데스크톱 호스트 풀의 기본 할당 유형입니다. 사용자를 자동으로 할당하는 데는 특정 세션 호스트가 필요하지 않습니다.
+자동 할당은 Azure Virtual Desktop 환경에서 만든 새 개인 데스크톱 호스트 풀의 기본 할당 유형입니다. 사용자를 자동으로 할당하는 데는 특정 세션 호스트가 필요하지 않습니다.
 
 사용자를 자동으로 할당하려면 먼저 사용자가 피드에서 바탕 화면을 볼 수 있도록 개인 데스크톱 호스트 풀에 해당 사용자를 할당합니다. 할당된 사용자가 피드에서 바탕 화면을 시작하면 호스트 풀에 아직 연결되지 않은 경우 사용 가능한 세션 호스트를 클레임하게 됩니다. 그러면 할당 프로세스가 완료됩니다.
 
-시작하기 전에 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](/powershell/windows-virtual-desktop/overview/)(아직 없는 경우).
+시작하기 전에 [Azure Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](/powershell/windows-virtual-desktop/overview/)(아직 없는 경우).
 
 > [!NOTE]
-> 다음 지침을 수행하기 전에 Windows Virtual Desktop PowerShell 모듈 버전 1.0.1534.2001 이상을 설치했는지 확인합니다.
+> 다음 지침을 수행하기 전에 Azure Virtual Desktop PowerShell 모듈 버전 1.0.1534.2001 이상을 설치했는지 확인합니다.
 
 그런 후, 다음 cmdlet을 실행하여 계정에 로그인합니다.
 
@@ -84,11 +84,11 @@ Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -Assigned
 Remove-RdsSessionHost
 ```
 
-세션 호스트를 개인 데스크톱 호스트 풀에 다시 추가해야 하는 경우 해당 머신에서 Windows Virtual Desktop을 제거한 후 [PowerShell을 사용하여 호스트 풀 만들기](create-host-pools-powershell-2019.md)의 단계를 수행하여 세션 호스트를 다시 등록합니다.
+세션 호스트를 개인 데스크톱 호스트 풀에 다시 추가해야 하는 경우 해당 머신에서 Azure Virtual Desktop을 제거한 후 [PowerShell을 사용하여 호스트 풀 만들기](create-host-pools-powershell-2019.md)의 단계를 수행하여 세션 호스트를 다시 등록합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-개인 데스크톱 할당 유형을 구성했으므로 이제 Windows Virtual Desktop 클라이언트에 로그인하여 사용자 세션의 일부로 테스트할 수 있습니다. 다음 두 방법 문서는 선택한 클라이언트를 사용하여 세션에 연결하는 방법을 보여 줍니다.
+개인 데스크톱 할당 유형을 구성했으므로 이제 Azure Virtual Desktop 클라이언트에 로그인하여 사용자 세션의 일부로 테스트할 수 있습니다. 다음 두 방법 문서는 선택한 클라이언트를 사용하여 세션에 연결하는 방법을 보여 줍니다.
 
 - [Windows Desktop 클라이언트를 사용하여 연결](connect-windows-7-10-2019.md)
 - [웹 클라이언트를 사용하여 연결](connect-web-2019.md)

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 03/25/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 53c6431f6f2d5ac6f5e7a6c28cb843d386c5206d
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 39f1245883c7d296de5b2bad77f1558be9b49910
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203076"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111887423"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)로 마이그레이션
 
@@ -52,7 +52,7 @@ ms.locfileid: "108203076"
 
 Azure Migrate는 온-프레미스 서버, 인프라, 애플리케이션 및 데이터를 평가하고 Azure로 마이그레이션할 수 있는 통합 플랫폼을 제공합니다. AKS의 경우 다음과 같은 작업에 Azure Migrate를 사용할 수 있습니다.
 
-* [ASP.NET 애플리케이션 컨테이너화 및 AKS로 마이그레이션](/azure/aks/tutorial-app-containerization-aspnet-kubernetes)
+* [ASP.NET 애플리케이션 컨테이너화 및 AKS로 마이그레이션](../migrate/tutorial-app-containerization-aspnet-kubernetes.md)
 * [Java 웹 애플리케이션 컨테이너화 및 AKS로 마이그레이션](../migrate/tutorial-containerize-java-kubernetes.md)
 
 ## <a name="aks-with-standard-load-balancer-and-virtual-machine-scale-sets"></a>Azure 표준 Load Balancer AKS 및 Virtual Machine Scale Sets
@@ -119,7 +119,7 @@ az aks create \
 
 [Azure Traffic Manager](../traffic-manager/index.yml)는 고객에게 원하는 Kubernetes 클러스터 및 애플리케이션 인스턴스로 보낼 수 있습니다. Traffic Manager는 네트워크 트래픽을 여러 지역에 분산할 수 있는 DNS 기반 트래픽 부하 분산 디바이스입니다. 최상의 성능 및 중복도를 위해 AKS 클러스터로 보내기 전에 Traffic Manager를 통해 모든 애플리케이션 트래픽을 전달합니다. 
 
-다중 클러스터 배포에서는 고객이 각 AKS 클러스터의 서비스를 가리키는 Traffic Manager DNS 이름에 연결해야 합니다. 이러한 서비스는 Traffic Manager 엔드포인트를 사용하여 정의합니다. 각 엔드포인트는 *서비스 부하 분산 디바이스 IP* 입니다. 이 구성을 사용하여 한 지역의 Traffic Manager 엔드포인트에서 다른 지역의 엔드포인트로 네트워크 트래픽을 보낼 수 있습니다.
+다중 클러스터 배포에서는 고객이 각 AKS 클러스터의 서비스를 가리키는 Traffic Manager DNS 이름에 연결해야 합니다. 이러한 서비스는 Traffic Manager 엔드포인트를 사용하여 정의합니다. 각 엔드포인트는 *서비스 부하 분산 장치 IP* 입니다. 이 구성을 사용하여 한 지역의 Traffic Manager 엔드포인트에서 다른 지역의 엔드포인트로 네트워크 트래픽을 보낼 수 있습니다.
 
 ![Traffic Manager와 ASK](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
 
@@ -192,7 +192,7 @@ kubectl get deployment -o=yaml --export > deployments.yaml
 
 AKS 클러스터를 [AKS가 지원하는 다른 지역][region-availability]으로 이동할 수도 있습니다. 다른 지역에 새 클러스터를 만든 다음, 리소스 및 애플리케이션을 새 클러스터에 배포하는 것이 좋습니다. 
 
-또한 AKS 클러스터에서 실행 중인 [Azure Dev Spaces][azure-dev-spaces]와 같은 서비스가 있는 경우 해당 서비스를 새 지역의 클러스터에 설치하고 구성해야 합니다.
+또한 AKS 클러스터에서 실행 중인 서비스가 있는 경우 해당 서비스를 새 지역의 클러스터에 설치하고 구성해야 합니다.
 
 
 이 문서에서는 다음에 대한 마이그레이션 세부 정보를 요약합니다.
@@ -208,4 +208,3 @@ AKS 클러스터를 [AKS가 지원하는 다른 지역][region-availability]으�
 
 
 [region-availability]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
-[azure-dev-spaces]: ../dev-spaces/index.yml

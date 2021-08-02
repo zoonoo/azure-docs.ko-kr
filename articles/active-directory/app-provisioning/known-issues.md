@@ -1,24 +1,24 @@
 ---
-title: Azure AD에서 애플리케이션 프로비저닝에 대한 알려진 문제
-description: Azure AD에서 자동화된 애플리케이션 프로비저닝을 사용할 때 알려진 문제에 대해 알아봅니다.
+title: Azure Active Directory에서의 애플리케이션 프로비저닝에 대해 알려진 문제
+description: Azure Active Directory에서 자동화된 애플리케이션 프로비저닝을 사용할 때 알려진 문제에 대해 알아봅니다.
 author: kenwith
 ms.author: kenwith
-manager: daveba
+manager: mtillman
 services: active-directory
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 01/05/2021
+ms.date: 05/28/2021
 ms.reviewer: arvinh
-ms.openlocfilehash: 9eba671f6c824c8c88388f2b9d61512dfb1d122f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1674e3aae978c16b8ef736dc6605bd30e7201e10
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99256646"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962026"
 ---
-# <a name="known-issues-application-provisioning"></a>알려진 문제: 애플리케이션 프로비저닝
+# <a name="known-issues-for-application-provisioning-in-azure-active-directory"></a>Azure Active Directory에서의 애플리케이션 프로비저닝에 대해 알려진 문제
 앱 프로비저닝 작업 시 알아야 할 알려진 문제 UserVoice에서 애플리케이션 프로비저닝 서비스에 대한 피드백을 제공할 수 있습니다. [Azure AD 애플리케이션 프로비저닝 UserVoice](https://aka.ms/appprovisioningfeaturerequest)를 참조하세요. Microsoft에서는 서비스를 개선할 수 있도록 UserVoice를 면밀하게 모니터링하고 있습니다. 
 
 > [!NOTE]
@@ -98,6 +98,40 @@ Azure AD는 현재 Null 특성을 프로비저닝할 수 없습니다. 사용자
 **관리자가 프로비저닝되지 않음**
 
 사용자 및 해당 관리자가 둘 다 프로비저닝 범위에 있는 경우 서비스에서 사용자를 프로비저닝한 다음 관리자를 업데이트합니다. 그러나 사용자가 범위 내에 있고 관리자가 범위를 벗어난 경우 관리자 참조 없이 사용자를 프로비저닝합니다. 관리자가 범위 내에 들어오면 프로비저닝을 다시 시작하고 서비스가 모든 사용자를 다시 평가할 때까지 관리자 참조가 업데이트되지 않습니다. 
+
+## <a name="on-premises-application-provisioning"></a>온-프레미스 애플리케이션 프로비저닝
+다음 정보는 Azure AD ECMA 커넥터 호스트 및 온-프레임 애플리케이션 프로비저닝의 알려진 제한 사항의 최근 목록입니다.
+
+### <a name="application-and-directories"></a>애플리케이션 및 디렉터리
+다음 애플리케이션 및 디렉터리는 아직 지원되지 않습니다.
+
+**AD DS - (온-프레미스 프로비저닝 미리 보기를 사용하여 Azure AD에서 사용자/그룹 쓰기 저장)**
+   - Azure AD Connect가 사용자를 관리하는 경우 권한 원본은 온-프레미스 Active Directory입니다. 따라서 Azure AD에서는 사용자 특성을 변경할 수 없습니다. 이 미리 보기는 Azure AD Connect에서 관리하는 사용자의 권한 원본을 변경하지 않습니다.
+   - Azure AD Connect 및 온-프레미스 프로비저닝을 사용하여 그룹/사용자를 AD DS로 프로비저닝하려고 시도하면 루프가 생성되어 Azure AD Connect가 클라우드의 프로비저닝 서비스에서 변경한 사항을 덮어쓸 수 있습니다. Microsoft는 그룹/사용자 쓰기 저장을 위한 전용 기능을 개발하고 있습니다.  [여기](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/16887037-enable-user-writeback-to-on-premise-ad-from-azure)에서 UserVoice 피드백에 찬성하여 미리 보기의 상태를 추적합니다. 또는 Azure AD에서 AD로의 사용자/그룹 쓰기 저장에 [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016)를 사용할 수 있습니다.
+
+**SQL 이외의 커넥터**
+   - Azure AD ECMA 커넥터 호스트는 제네릭 SQL(GSQL) 커넥터에 대해 공식적으로 지원됩니다. 웹 서비스 커넥터 또는 사용자 지정 ECMA 커넥터와 같은 다른 커넥터를 사용할 수 있지만 **아직은 지원되지 않습니다**.
+
+**Azure Active Directory**
+   - 온-프레미스 프로비저닝을 사용하면 이미 Azure AD에 있는 사용자를 타사 애플리케이션으로 프로비저닝할 수 있습니다. **타사 애플리케이션에서 사용자를 디렉터리로 가져올 수 없습니다.** 고객은 네이티브 HR 통합, Azure AD Connect, MIM 또는 Microsoft Graph를 사용하여 사용자를 디렉터리로 가져와야 합니다.
+
+### <a name="attributes-and-objects"></a>특성 및 개체 
+다음 특성 및 개체는 지원되지 않습니다.
+   - 다중값 특성
+   - 참조 특성(예: 관리자)
+   - 그룹
+   - 복합 앵커(예: ObjectTypeName+UserName)
+   - 온-프레미스 애플리케이션이 Azure AD와 페더레이션되지 않는 경우도 있으며 로컬 암호가 필요합니다. 온-프레미스 프로비저닝 미리 보기는 Azure AD와 타사 애플리케이션 간의 **일회성 암호 프로비저닝 또는 암호 동기화** 를 지원하지 않습니다.
+   - export_password 가상 특성, SetPassword, ChangePassword 작업은 지원되지 않습니다.
+
+#### <a name="ssl-certificates"></a>SSL 인증서
+   - Azure AD ECMA 커넥터 호스트의 경우 현재 SSL 인증서가 Azure의 신뢰를 받거나 프로비저닝 에이전트가 사용되어야 합니다. 인증서 주체는 Azure AD ECMA 커넥터 호스트가 설치된 호스트 이름과 일치해야 합니다.
+
+#### <a name="anchor-attributes"></a>앵커 특성
+   - Azure AD ECMA 커넥터 호스트는 현재 앵커 특성 변경(이름 바꾸기) 또는 대상 시스템을 지원하지 않으므로 여러 특성이 앵커 하나를 구성해야 합니다. 
+
+#### <a name="attribute-discovery-and-mapping"></a>특성 검색 및 매핑
+   - 대상 애플리케이션에서 지원하는 특성은 Azure Portal의 특성 매핑에서 검색 및 표시됩니다. 새로 추가된 특성은 계속해서 검색됩니다. 그러나 특성 유형이 변경되고(예: 문자열에서 부울로) 특성이 매핑의 일부인 경우 Azure Portal에서는 유형이 자동으로 변경되지 않습니다. 고객이 매핑의 고급 설정으로 이동하여 특성 유형을 수동으로 업데이트해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [프로비저닝 작동 방법](how-provisioning-works.md)

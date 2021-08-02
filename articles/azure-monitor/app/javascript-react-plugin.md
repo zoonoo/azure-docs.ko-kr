@@ -1,38 +1,39 @@
 ---
-title: Application Insights JavaScript SDK 용 플러그 인 반응
-description: JavaScript SDK Application Insights에 대 한 응답 플러그 인을 설치 하 고 사용 하는 방법입니다.
+title: Application Insights JavaScript SDK에 대한 React 플러그 인
+description: Application Insights JavaScript SDK에 대한 React 플러그 인을 설치하고 사용하는 방법입니다.
 services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 44554434eee51c11e7f89007c532f1a142fc998c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: b703d8bc5253d8f5daeded8211e36dc119188b08
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199342"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027788"
 ---
-# <a name="react-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK 용 플러그 인 반응
+# <a name="react-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK에 대한 React 플러그 인
 
-Application Insights JavaScript SDK에 대 한 플러그 인에 대응 하 여 다음을 사용 합니다.
+Application Insights JavaScript SDK에 대한 React 플러그 인은 다음을 지원합니다.
 
-- 경로 변경 내용 추적
-- 구성 요소 사용 통계에 반응
+- 라우터 변경 추적
+- React 구성 요소 사용 통계
 
 ## <a name="getting-started"></a>시작
 
-Npm 패키지를 설치 합니다.
+npm 패키지 설치:
 
 ```bash
 
 npm install @microsoft/applicationinsights-react-js
+npm install @microsoft/applicationinsights-web
 
 ```
 
 ## <a name="basic-usage"></a>기본적인 사용 방법
 
-Application Insights에 대 한 연결을 초기화 합니다.
+Application Insights에 대한 연결을 초기화합니다.
 
 ```javascript
 // AppInsights.js
@@ -55,7 +56,7 @@ appInsights.loadAppInsights();
 export { reactPlugin, appInsights };
 ```
 
-상위 구성 요소 함수로 구성 요소를 래핑하여 Application Insights를 사용 하도록 설정 합니다.
+구성 요소를 고차 구성 요소 함수로 래핑하여 Application Insights를 사용하도록 설정합니다.
 
 ```javascript
 import React from 'react';
@@ -79,32 +80,32 @@ export default withAITracking(reactPlugin, MyComponent);
 
 | 속성    | 기본값 | Description                                                                                                    |
 |---------|---------|----------------------------------------------------------------------------------------------------------------|
-| history | null    | 라우터 기록에 반응 합니다. 자세한 내용은 [라우터 패키지 응답 설명서](https://reactrouter.com/web/api/history)를 참조 하세요. 구성 요소 외부에서 기록 개체에 액세스 하는 방법을 알아보려면 [라우터 응답 FAQ](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components) 를 참조 하세요.    |
+| history | null    | React 라우터 기록입니다. 자세한 내용은 [react-router 패키지 설명서](https://reactrouter.com/web/api/history)를 참조하세요. 구성 요소 외부에서 기록 개체에 액세스하는 방법을 알아보려면 [React-router FAQ](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components)를 참조하세요.    |
 
-### <a name="react-components-usage-tracking"></a>구성 요소 사용 추적에 대응
+### <a name="react-components-usage-tracking"></a>React 구성 요소 사용 추적
 
-다양 한 반응 구성 요소 사용 추적을 계측 하려면 `withAITracking` 고차 구성 요소 기능을 적용 합니다.
+다양한 React 구성 요소 사용 추적을 계측하려면 고차 구성 요소 함수인 `withAITracking`을 적용합니다.
 
-이벤트를 통해 이벤트에서 시간을 측정 합니다 `ComponentDidMount` `ComponentWillUnmount` . 그러나이를 보다 정확 하 게 하기 위해 사용자가 유휴 상태 였던 시간을 빼는 것 `React Component Engaged Time = ComponentWillUnmount timestamp - ComponentDidMount timestamp - idle time` 입니다.
+`ComponentDidMount` 이벤트부터 `ComponentWillUnmount` 이벤트까지의 시간을 측정합니다. 그러나 이를 보다 정확하게 측정하기 위해 사용자가 유휴 상태였던 시간을 뺍니다. `React Component Engaged Time = ComponentWillUnmount timestamp - ComponentDidMount timestamp - idle time`
 
-Azure Portal에서 Application Insights 리소스로 이동 해야 하는이 메트릭을 확인 하려면 "메트릭" 탭을 선택 하 고 "메트릭" 탭을 선택 하 여 빈 차트를 구성 하 고, 사용자 지정 메트릭 이름 "구성 요소에 반응 하는 시간 (초)"을 표시 하 고, 메트릭의 집계 (합계, 평균 등)를 선택 하 고, 분할을 "Component Name"으로 적용
+Azure Portal에서 이 메트릭을 보려면 Application Insights 리소스로 이동한 후 "메트릭" 탭을 선택하고 사용자 지정 메트릭 이름 "React 구성 요소 작동 시간(초)"을 표시하도록 빈 차트를 구성하고 메트릭의 집계(합계, 평균 등)를 선택한 다음, "구성 요소 이름"별 분할을 적용합니다.
 
-!["구성 요소 참여 시간 (초)" "구성 요소 이름으로 분할"의 사용자 지정 메트릭을 표시 하는 차트의 스크린샷](./media/javascript-react-plugin/chart.png)
+!["구성 요소 이름"별로 분할된 사용자 지정 메트릭 "React 구성 요소 작동 시간(초)"을 표시하는 차트 스크린샷](./media/javascript-react-plugin/chart.png)
 
-사용자 지정 쿼리를 실행 하 여 요구 사항에 따라 보고서 및 시각화를 생성 하 Application Insights 데이터를 분할할 수도 있습니다. Azure Portal에서 Application Insights 리소스로 이동 하 여 개요 탭의 상단 메뉴에서 "분석"을 선택 하 고 쿼리를 실행 합니다.
+사용자 지정 쿼리를 통해 Application Insights 데이터를 구분하여 요구 사항에 따라 보고서 및 시각화를 생성할 수도 있습니다. Azure Portal에서 Application Insights 리소스로 이동한 후 개요 탭의 위쪽 메뉴에서 "분석"을 선택하고 쿼리를 실행합니다.
 
-![사용자 지정 메트릭 쿼리 결과의 스크린샷](./media/javascript-react-plugin/query.png)
+![사용자 지정 메트릭 쿼리 결과 스크린샷](./media/javascript-react-plugin/query.png)
 
 > [!NOTE]
-> 새 사용자 지정 메트릭이 Azure Portal에 표시 되는 데 최대 10 분이 걸릴 수 있습니다.
+> 새 사용자 지정 메트릭이 Azure Portal에 표시되는 데 최대 10분이 걸릴 수 있습니다.
 
-## <a name="using-react-hooks"></a>반응 후크 사용
+## <a name="using-react-hooks"></a>React Hooks 사용
 
-[후크 후크](https://reactjs.org/docs/hooks-reference.html) 는 클래스 기반 반응 구성 요소에 의존 하지 않고 반응 응용 프로그램의 상태 및 수명 주기 관리에 대 한 접근 방식입니다. Application Insights에 반응 하는 플러그 인은 더 높은 순서 구성 요소 방법과 유사한 방식으로 작동 하는 여러 후크 통합을 제공 합니다.
+[React Hooks](https://reactjs.org/docs/hooks-reference.html)는 클래스 기반 React 구성 요소에 의존하지 않는 React 애플리케이션의 상태 및 수명 주기 관리 접근 방식입니다. Application Insights React 플러그 인은 고차 구성 요소 접근 방식과 비슷한 방식으로 작동하는 여러 Hooks 통합을 제공합니다.
 
-### <a name="using-react-context"></a>반응 컨텍스트 사용
+### <a name="using-react-context"></a>React Context 사용
 
-Application Insights에 대 한 반응 후크는이를 포함 하는 측면으로 [반응 컨텍스트](https://reactjs.org/docs/context.html) 를 사용 하도록 설계 되었습니다. 컨텍스트를 사용 하려면 위와 같이 Application Insights를 초기화 하 고 컨텍스트 개체를 가져옵니다.
+Application Insights용 React Hooks는 [React Context](https://reactjs.org/docs/context.html)를 포함하는 측면으로 사용하도록 설계되었습니다. Context를 사용하려면 위와 같이 Application Insights를 초기화한 다음, Context 개체를 가져옵니다.
 
 ```javascript
 import React from "react";
@@ -120,7 +121,7 @@ const App = () => {
 };
 ```
 
-이 컨텍스트 공급자는 Application Insights `useContext` 모든 자식 구성 요소 내에서 후크에 사용할 수 있도록 합니다.
+이 Context Provider는 Application Insights를 모든 자식 구성 요소 내에서 `useContext` Hook로 사용할 수 있도록 합니다.
 
 ```javascript
 import React from "react";
@@ -140,7 +141,7 @@ export default MyComponent;
 
 ### `useTrackMetric`
 
-후크는 구성 요소 `useTrackMetric` `withAITracking` 구조에 추가 구성 요소를 추가 하지 않고 고차 구성 요소의 기능을 복제 합니다. 후크는 두 개의 인수를 사용 합니다. 즉, 후크에서 가져올 수 있는 Application Insights 인스턴스는 `useAppInsightsContext` 추적을 위한 구성 요소 (예: 이름)의 식별자입니다.
+`useTrackMetric` Hook는 구성 요소 구조에 구성 요소를 더 추가하지 않고도 `withAITracking` 고차 구성 요소의 기능을 복제합니다. Hook는 두 개의 인수를 사용합니다. 첫 번째는 Application Insights 인스턴스(`useAppInsightsContext` Hook에서 가져올 수 있음)이고, 다른 하나는 추적을 위한 구성 요소의 식별자(예: 이름)입니다.
 
 ```javascript
 import React from "react";
@@ -157,26 +158,25 @@ const MyComponent = () => {
 export default MyComponent;
 ```
 
-이는 상위 구성 요소 처럼 작동 하지만 구성 요소 수명 주기 대신 후크 수명 주기 이벤트에 응답 합니다. 특정 상호 작용에서 실행 해야 하는 경우 사용자 이벤트에 후크를 명시적으로 제공 해야 합니다.
+고차 구성 요소처럼 작동하지만 구성 요소 수명 주기가 아닌 Hook 수명 주기 이벤트에 응답합니다. 특정 상호 작용에서 실행해야 하는 경우 사용자 이벤트에 Hook를 명시적으로 제공해야 합니다.
 
 ### `useTrackEvent`
 
-`useTrackEvent`후크는 응용 프로그램이 추적 해야 할 수 있는 사용자 지정 이벤트 (예: 단추 클릭 또는 기타 API 호출)를 추적 하는 데 사용 됩니다. 다음 네 가지 인수를 사용 합니다.
--   Application Insights 인스턴스 (후크에 가져올 수 있음 `useAppInsightsContext` )
--   이벤트의 이름입니다.
--   추적 해야 하는 변경 내용을 캡슐화 하는 이벤트 데이터 개체입니다.
--   skipFirstRun (선택 사항) `trackEvent` 초기화에 대 한 호출 호출을 건너뛰는 플래그입니다. 기본값은 `true`로 설정됩니다.
+`useTrackEvent` Hook는 단추 클릭 또는 기타 API 호출과 같이 애플리케이션에서 추적해야 할 수 있는 사용자 지정 이벤트를 추적하는 데 사용됩니다. 다음 4개의 인수를 사용합니다.
+-   Application Insights 인스턴스(`useAppInsightsContext` Hook에서 가져올 수 있음)
+-   이벤트의 이름
+-   추적해야 하는 변경 내용을 캡슐화하는 이벤트 데이터 개체
+-   초기화 시 `trackEvent` 호출을 건너뛰기 위한 skipFirstRun(선택 사항) 플래그. 기본값은 `true`로 설정됩니다.
 
 ```javascript
 import React, { useState, useEffect } from "react";
 import { useAppInsightsContext, useTrackEvent } from "@microsoft/applicationinsights-react-js";
 
-const ProductCart = () => {
+const MyComponent = () => {
     const appInsights = useAppInsightsContext();
-    const trackCheckout = useTrackEvent(appInsights, "Checkout");
-    const trackCartUpdate = useTrackEvent(appInsights, "Cart Updated");
     const [cart, setCart] = useState([]);
-    
+    const trackCheckout = useTrackEvent(appInsights, "Checkout", cart);
+    const trackCartUpdate = useTrackEvent(appInsights, "Cart Updated", cart);
     useEffect(() => {
         trackCartUpdate({ cartCount: cart.length });
     }, [cart]);
@@ -189,23 +189,24 @@ const ProductCart = () => {
     return (
         <div>
             <ul>
-                <li>Product 1 <button onClick={() => setCart([...cart, "Product 1"])}>Add to Cart</button>
-                <li>Product 2 <button onClick={() => setCart([...cart, "Product 2"])}>Add to Cart</button>
-                <li>Product 3 <button onClick={() => setCart([...cart, "Product 3"])}>Add to Cart</button>
-                <li>Product 4 <button onClick={() => setCart([...cart, "Product 4"])}>Add to Cart</button>
+                <li>Product 1 <button onClick={() => setCart([...cart, "Product 1"])}>Add to Cart</button></li>
+                <li>Product 2 <button onClick={() => setCart([...cart, "Product 2"])}>Add to Cart</button></li>
+                <li>Product 3 <button onClick={() => setCart([...cart, "Product 3"])}>Add to Cart</button></li>
+                <li>Product 4 <button onClick={() => setCart([...cart, "Product 4"])}>Add to Cart</button></li>
             </ul>
             <button onClick={performCheckout}>Checkout</button>
         </div>
     );
 }
+
 export default MyComponent;
 ```
 
-후크를 사용 하는 경우 데이터 페이로드를 제공 하 여 Application Insights에 저장 될 때 이벤트에 추가 데이터를 추가할 수 있습니다.
+Hook를 사용하면 데이터 페이로드를 제공하여 Application Insights에 저장될 때 이벤트에 데이터를 더 추가할 수 있습니다.
 
-## <a name="react-error-boundaries"></a>오류 경계 반응
+## <a name="react-error-boundaries"></a>React 오류 경계
 
-[오류 경계](https://reactjs.org/docs/error-boundaries.html) 는 반응 응용 프로그램 내에서 발생 하는 경우 예외를 정상적으로 처리 하는 방법을 제공 하며, 이러한 오류가 발생 하면 예외를 기록해 야 할 가능성이 있습니다. Application Insights에 대 한 응답 플러그 인은 오류가 발생할 때 자동으로 기록 하는 오류 경계 구성 요소를 제공 합니다.
+[오류 경계](https://reactjs.org/docs/error-boundaries.html)는 React 애플리케이션 내에서 발생하는 예외를 정상적으로 처리하는 방법을 제공하며, 이러한 오류가 발생하면 예외를 기록해야 할 수 있습니다. Application Insights용 React 플러그 인은 발생하는 오류를 자동으로 기록하는 오류 경계 구성 요소를 제공합니다.
 
 ```javascript
 import React from "react";
@@ -221,13 +222,13 @@ const App = () => {
 };
 ```
 
-에는 `AppInsightsErrorBoundary` 두 개의 props를 전달 해야 하며, `ReactPlugin` 응용 프로그램에 대해 생성 된 인스턴스와 오류가 발생할 때 렌더링할 구성 요소가 필요 합니다. 처리 되지 않은 오류가 발생 하면 `trackException` 오류 경계에 제공 된 정보를 사용 하 여이 호출 되 고 `onError` 구성 요소가 표시 됩니다.
+`AppInsightsErrorBoundary`에는 두 개의 속성, 즉 애플리케이션용으로 만들어진 `ReactPlugin` 인스턴스와 오류가 발생할 때 렌더링할 구성 요소를 전달해야 합니다. 처리되지 않은 오류가 발생하면 오류 경계에 제공된 정보를 사용하여 `trackException`이 호출되고 `onError` 구성 요소가 표시됩니다.
 
 ## <a name="sample-app"></a>샘플 앱
 
-[Application Insights에 반응](https://github.com/Azure-Samples/application-insights-react-demo)하는 데모를 확인 하세요.
+[Application Insights React 데모](https://github.com/Azure-Samples/application-insights-react-demo)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- JavaScript SDK에 대해 자세히 알아보려면 [Application Insights JAVASCRIPT sdk 설명서](javascript.md)를 참조 하세요.
-- Kusto 쿼리 언어에 대해 알아보고 Log Analytics에서 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [로그 쿼리 개요](../../azure-monitor/logs/log-query-overview.md)를 참조 하세요.
+- JavaScript SDK에 대한 보다 자세한 정보는 [Application Insights JavaScript SDK 설명서](javascript.md)를 참조하세요.
+- Kusto 쿼리 언어 및 Log Analytics에서 데이터를 쿼리하는 방법에 대한 자세한 내용은 [로그 쿼리 개요](../../azure-monitor/logs/log-query-overview.md)를 참조하세요.

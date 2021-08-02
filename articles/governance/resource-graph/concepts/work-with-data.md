@@ -1,15 +1,15 @@
 ---
 title: 대규모 데이터 세트로 작업
 description: Azure Resource Graph를 사용하는 동안 큰 데이터 세트의 레코드를 가져오고, 서식을 지정하고, 페이징하고, 건너뛰는 방법을 파악합니다.
-ms.date: 01/27/2021
+ms.date: 05/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1eaabfdd78712966f3b21d869259a312db31b7bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d860ea4af08c8982e2205bb98c82b5475734d35c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98917693"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110099175"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>큰 Azure 리소스 데이터 세트 작업
 
@@ -67,9 +67,9 @@ Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 처리를 위해 결과 집합을 작은 레코드 집합으로 나누어야 하는 경우 또는 결과 집합이 허용된 최댓값인 _1000_ 을 초과하기 때문에 페이징을 사용합니다. [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)
 **QueryResponse** 는 결과 집합이 분할되었음을 나타내는 값(**resultTruncated** 및 **$skipToken**)을 제공합니다. **resultTruncated** 는 응답에 반환되지 않은 추가 레코드가 있는지 여부를 소비자에게 알리는 부울 값입니다. **count** 속성이 **totalRecords** 속성보다 작은 경우에도 이 조건을 식별할 수 있습니다. **totalRecords** 는 쿼리와 일치하는 레코드 수를 정의합니다.
 
- 쿼리가 요청하는 것보다 사용 가능한 리소스가 적을 경우 `id` 열이 없어서 페이징이 비활성화되거나 사용 불가능해지면 **resultTruncated** 가 **true** 입니다. **resultTruncated** 가 **true** 이면 **$skipToken** 속성이 설정되지 않습니다.
+쿼리가 요청하는 것보다 사용 가능한 리소스가 적을 경우 `id` 열이 없어서 페이징이 비활성화되거나 사용 불가능해지면 **resultTruncated** 가 **true** 입니다. **resultTruncated** 가 **true** 이면 **$skipToken** 속성이 설정되지 않습니다.
 
-다음 예에서는 Azure CLI 및 Azure PowerShell을 사용하여 처음 3000개 레코드를 **건너뛰고** 이러한 레코드를 건너뛴 후 **처음** 1000개 레코드를 반환하는 방법을 보여 줍니다.
+다음 예에서는 Azure CLI 및 Azure PowerShell을 사용하여 처음 3,000개 레코드를 **건너뛰고** 이러한 레코드를 건너뛴 후 **처음** 1,000개 레코드를 반환하는 방법을 보여 줍니다.
 
 ```azurecli-interactive
 az graph query -q "Resources | project id, name | order by id asc" --first 1000 --skip 3000
@@ -88,7 +88,7 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 
 Resource Graph 쿼리의 결과는 _Table_ 및 _ObjectArray_ 라는 두 가지 형식으로 제공됩니다. 형식은 요청 옵션의 일부로 **resultFormat** 매개 변수를 사용하여 구성됩니다. _Table_ 형식은 **resultFormat** 의 기본값입니다.
 
-Azure CLI의 결과는 기본적으로 JSON 형식으로 제공됩니다. Azure PowerShell 결과는 기본적으로 **PSCustomObject** 이지만 `ConvertTo-Json` cmdlet을 사용하여 JSON으로 신속하게 변환할 수 있습니다. 다른 SDK의 경우 _ObjectArray_ 형식을 출력하도록 쿼리 결과를 구성할 수 있습니다.
+Azure CLI의 결과는 기본적으로 JSON 형식으로 제공됩니다. Azure PowerShell의 결과는 **PSResourceGraphResponse** 개체이지만 **Data** 속성의 `ConvertTo-Json` cmdlet을 사용하여 신속하게 JSON으로 변환할 수 있습니다. 다른 SDK의 경우 _ObjectArray_ 형식을 출력하도록 쿼리 결과를 구성할 수 있습니다.
 
 ### <a name="format---table"></a>형식 - Table
 

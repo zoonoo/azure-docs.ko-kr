@@ -1,91 +1,81 @@
 ---
-title: Azure 관리 되는 id를 사용 하 여 DevTest Labs에서 환경 만들기 | Microsoft Docs
-description: Azure에서 관리 되는 id를 사용 하 여 Azure DevTest Labs 랩에서 환경을 배포 하는 방법에 대해 알아봅니다.
+title: DevTest Labs에서 Azure 관리 ID를 사용하여 환경 만들기 | Microsoft Docs
+description: Azure에서 관리 ID를 사용하여 Azure DevTest Labs의 랩에 환경을 배포하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0f3e4b4d7030eb26c25b291e03caaa430d1979c4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 4a8afd74014cb940be17d9a84168e8bfe7daff67
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98185787"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854687"
 ---
-# <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Azure 관리 되는 id를 사용 하 여 랩 환경 배포 
+# <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Azure 관리 ID를 사용하여 랩에 환경 배포 
 
-랩 소유자는 관리 되는 id를 사용 하 여 랩에 환경을 배포할 수 있습니다. 이 기능은 환경에 키 자격 증명 모음, 공유 이미지 갤러리 및 환경의 리소스 그룹 외부에 있는 네트워크와 같은 Azure 리소스에 대 한 참조를 포함 하거나 포함 하는 시나리오에서 유용 합니다. 이를 통해 해당 환경의 리소스 그룹으로 제한 되지 않는 샌드박스 환경을 만들 수 있습니다.
+랩 소유자는 관리 ID를 사용하여 랩에 환경을 배포할 수 있습니다. 이 기능은 환경이 Key Vault, 공유 이미지 갤러리 및 환경의 리소스 그룹 외부에 있는 네트워크와 같은 Azure 리소스를 포함하거나 이러한 리소스를 참조하는 시나리오에서 유용합니다. 이를 통해 해당 환경의 리소스 그룹으로 제한되지 않는 샌드박스 환경을 만들 수 있습니다. 
+
+기본적으로 환경을 만들 때 랩은 ARM 템플릿(Azure Resource Manager 템플릿)을 배포하는 동안 랩 사용자를 대신하여 Azure 리소스 및 서비스에 액세스하는 시스템 할당 ID를 만듭니다. [랩에서 시스템 할당 ID를 만드는 이유](configure-lab-identity.md#scenarios-for-using-labs-system-assigned-identity)에 대해 자세히 알아봅니다. 신규 및 기존 랩에서 랩 환경을 처음 만들 때 시스템 할당 ID가 기본적으로 만들어집니다.  
+
+랩 소유자는 랩 외부의 Azure 리소스에 액세스하기 위해 랩의 시스템 할당 ID 권한을 부여하도록 선택하거나 시나리오에 자체 사용자 할당 ID를 사용할 수 있습니다. 랩의 시스템 할당 ID는 랩의 수명 동안만 유효합니다. 랩을 삭제하면 시스템 할당 식별자도 삭제됩니다. ID를 사용해야 하는 여러 랩에 환경이 있는 경우 사용자 할당 ID를 사용하는 것이 좋습니다.  
 
 > [!NOTE]
-> 현재 랩 마다 단일 사용자 할당 id가 지원 됩니다. 
+> 현재 랩별로 단일 사용자 할당 ID가 지원됩니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-- [Azure Portal를 사용 하 여 사용자 할당 관리 id에 대 한 역할을 만들거나 나열, 삭제 또는 할당](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)합니다. 
+- [Azure Portal을 사용하여 사용자 할당 관리 ID를 생성, 나열, 삭제 또는 할당](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
     
-    관리 id가 랩과 동일한 지역 및 구독에서 생성 되었는지 확인 합니다. 관리 id는 동일한 리소스 그룹에 있을 필요가 없습니다.
+    관리 ID가 랩과 동일한 지역 및 구독에 만들어졌는지 확인합니다. 관리 ID는 동일한 리소스 그룹에 있을 필요가 없습니다.
 
 ## <a name="use-azure-portal"></a>Azure Portal 사용
 
-이 섹션에서는 랩 소유자로 Azure Portal를 사용 하 여 랩에 사용자 관리 id를 추가 합니다. 
+이 섹션에서 랩 소유자는 Azure Portal을 사용하여 랩에 사용자 관리 ID를 추가합니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **DevTest Labs** 를 검색 합니다.
-1. 랩 목록에서 원하는 랩을 선택 합니다.
-1. **구성 및 정책**  ->  **id (미리 보기)** 를 선택 합니다. 
-1. 사용자 할당 id를 추가 하려면 **사용자 할당 됨** 탭을 선택 합니다.
+1. **DevTest Labs** 를 검색합니다.
+1. 랩 목록에서 원하는 랩을 선택합니다.
+1. **구성 및 정책** -> **ID(미리 보기)** 를 선택합니다. 
+1. 사용자 할당 ID를 추가하려면 **사용자 할당** 탭을 선택합니다.
 1. **추가** 를 누릅니다.
-1. 만든 기존 사용자를 선택 하거나 드롭다운에서 액세스할 수 있습니다.
+1. 만든 기존 사용자를 선택하거나 드롭다운에서 액세스할 수 있습니다.
  
-    ![사용자 관리 id 추가](./media/use-managed-identities-environments/add-user-managed-identity.png)
-1. 페이지 맨 위에 있는 **저장** 을 누릅니다.
+    ![사용자 관리 ID 추가](./media/use-managed-identities-environments/add-user-managed-identity.png)
+1. 페이지 위쪽에서 **저장** 을 누릅니다.
 
-    저장 되 면 랩은 모든 랩 환경을 배포 하는 동안이 id를 사용 합니다. 목록에서 id를 선택 하 여 Azure의 id 리소스에 액세스할 수도 있습니다. 
+    저장되면 랩은 모든 랩 환경을 배포하는 동안 이 ID를 사용합니다. 목록에서 ID를 선택하여 Azure에서 ID 리소스에 액세스할 수도 있습니다. 
 
-랩에 추가 된 id에는 환경에서 액세스 해야 하는 외부 리소스에 대 한 권한이 있는 한 환경을 배포 하는 동안 랩 소유자는 특별 한 작업을 수행할 필요가 없습니다. 
+랩 소유자는 랩에 추가된 ID에 환경이 액세스해야 하는 외부 리소스에 대한 권한이 있기만 하면 환경을 배포하는 동안 특별한 작업을 수행할 필요가 없습니다. 
 
-랩에 할당 된 사용자 관리 id를 변경 하려면 먼저 랩에 연결 된 id를 제거 하 고 랩에 다른 id를 추가 합니다. 랩에 연결 된 id를 제거 **하려면 ...를 선택 합니다. (줄임표)** 를 클릭 하 고 **제거** 를 클릭 합니다. 
+랩에 할당된 사용자 관리 ID를 변경하려면 먼저 랩에 연결된 ID를 제거한 다음, 랩에 다른 ID를 추가합니다. 랩에 연결된 ID를 제거하려면 **...(줄임표)** 를 클릭하고 **제거** 를 클릭합니다. 
 
 ## <a name="use-api"></a>API 사용
 
-1. Id를 만든 후에는이 id의 리소스 ID를 확인 합니다. 다음 샘플과 같습니다. 
+1. ID를 만든 후에는 이 ID의 리소스 ID를 확인합니다. 다음 샘플과 유사해야 합니다. 
 
-    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
-1. PUT Https 메서드를 수행 하 여 `ServiceRunner` 다음 예제와 비슷한 랩에 새 리소스를 추가 합니다. Service runner 리소스는 DevTest Labs에서 관리 되는 id를 관리 하 고 제어 하는 프록시 리소스입니다. Service runner 이름은 유효한 이름일 수 있지만 관리 되는 id 리소스의 이름을 사용 하는 것이 좋습니다. 
+    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}`.
+
+1. 랩 리소스에서 PUT HTTPS 메서드를 수행하여 사용자 할당 ID를 추가하거나 랩에 시스템 할당 ID를 사용하도록 설정합니다.
+
+   > [!NOTE]
+   > 사용자 할당 ID를 만들지 여부에 관계없이 랩 환경이 처음 만들어질 때 랩에서 시스템 할당 ID를 자동으로 만듭니다. 그러나 사용자 할당 ID가 랩에 대해 이미 구성된 경우 DevTest Lab 서비스는 해당 ID를 계속 사용하여 랩 환경을 배포합니다. 
  
     ```json
-    PUT https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Devtestlab/labs/{yourlabname}/serviceRunners/{serviceRunnerName}
+    
+    PUT https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Devtestlab/labs/{labname}
 
     {
         "location": "{location}",
+        "properties": {
+          **lab properties**
+         } 
         "identity":{
-            "type": "userAssigned",
+            "type": "SystemAssigned,UserAssigned",
             "userAssignedIdentities":{
-                "[userAssignedIdentityResourceId]":{}
+                "/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}":{}
             }
-        }
-        "properties":{
-            "identityUsageType":"Environment"
-                     }
-          
+        } 
     }
+    
     ```
  
-    예를 들면 다음과 같습니다. 
-
-    ```json
-    PUT https://management.azure.com/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/exampleRG/providers/Microsoft.Devtestlab/labs/mylab/serviceRunners/sampleuseridentity
-
-    {
-        "location": "eastus",
-        "identity":{
-            "type": "userAssigned",
-            "userAssignedIdentities":{
-                "/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sampleuseridentity":{}
-            }
-        }
-        "properties":{
-            "identityUsageType":"Environment"
-                     }
-    }
-    ```
- 
-사용자 할당 id가 랩에 추가 되 면 Azure Resource Manager 환경을 배포 하는 동안 Azure DevTest Labs 서비스에서 사용 됩니다. 예를 들어 리소스 관리자 템플릿이 외부 공유 이미지 갤러리 이미지에 액세스 하는 데 필요한 경우 랩에 추가한 id에 공유 이미지 갤러리 리소스에 대 한 최소 필수 권한이 있는지 확인 합니다. 
+사용자 할당 ID가 랩에 추가되면 Azure DevTest Labs 서비스는 Azure Resource Manager 환경을 배포하는 동안 이 ID를 사용합니다. 예를 들어, 외부 공유 이미지 갤러리 이미지에 액세스하기 위해 Resource Manager 템플릿이 필요한 경우 랩에 추가한 ID에 공유 이미지 갤러리 리소스에 필요한 최소 권한이 있는지 확인합니다. 

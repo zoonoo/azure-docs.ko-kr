@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: a1b317b651b0e17c07eb17dbdb8a7c6657d39564
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8164a6ee56a332528cdce8e81cd85460af0c1db
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90971618"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752390"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search에서 증분 보강을 위해 캐싱을 구성하는 방법
 
@@ -74,6 +74,9 @@ api-key: [YOUR-ADMIN-KEY]
 }
 ```
 
+> [!NOTE]
+> 인덱서 캐시에는 범용 v2 스토리지 계정이 필요합니다. 자세한 내용은 [다양한 유형의 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)을 참조하세요.
+
 ### <a name="step-3-reset-the-indexer"></a>3단계: 인덱서 다시 설정
 
 모든 문서를 일관된 상태로 유지하려면 기존 인덱서에 대해 증분 보강을 설정할 때 인덱서를 다시 설정해야 합니다. 이 작업을 위해 포털 또는 API 클라이언트와 [인덱서 다시 설정 REST API](/rest/api/searchservice/reset-indexer)를 사용할 수 있습니다.
@@ -124,7 +127,7 @@ Content-Type: application/json
 api-key: [YOUR-ADMIN-KEY]
 ```
 
-인덱서를 실행한 후에는 Azure Blob 스토리지에서 캐시를 찾을 수 있습니다. 컨테이너 이름의 형식은 `ms-az-search-indexercache-<YOUR-CACHE-ID>`입니다.
+인덱서를 실행한 후에는 Azure Blob Storage에서 캐시를 찾을 수 있습니다. 컨테이너 이름의 형식은 `ms-az-search-indexercache-<YOUR-CACHE-ID>`입니다.
 
 > [!NOTE]
 > 인덱서를 다시 설정한 후 다시 실행하면 콘텐츠를 캐시할 수 있도록 인덱서 전체가 다시 빌드됩니다. 모든 문서에서 모든 인식 보강이 다시 실행됩니다.

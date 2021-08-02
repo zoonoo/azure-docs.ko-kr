@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: conceptual
 ms.date: 03/24/2021
-ms.openlocfilehash: 49da5d7f045ed06ba16696ebd16ad212b9d140d8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 490750fecf1634f8d0bbcd92bd71cdf3cb531c71
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763312"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111888593"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
@@ -170,7 +170,7 @@ Azure 구독에 연결된 모든 API 연결을 찾으려면:
 
 * Azure 계정이 단일 [Azure AD 테넌트 또는 디렉터리](../active-directory/fundamentals/active-directory-whatis.md#terminology)에만 속하지 않습니다. 게이트웨이 설치 중에 사용한 것과 동일한 Azure AD 테넌트 또는 디렉터리를 사용하고 있는지 확인하세요.
 
-* 게이트웨이 리소스와 게이트웨이 설치가 동일한 지역에 존재하지 않습니다. 단, 논리 앱 위치가 게이트웨이 리소스 위치와 다를 수 있습니다.
+* 게이트웨이 리소스와 게이트웨이 설치가 동일한 지역에 존재하지 않습니다. 게이트웨이 설치가 Azure에서 게이트웨이 리소스를 만들 동일한 지역을 사용하는지 확인합니다. 단, 논리 앱 위치가 게이트웨이 리소스 위치와 다를 수 있습니다.
 
 * 게이트웨이 설치가 이미 다른 게이트웨이 리소스와 연결되어 있습니다. 각 게이트웨이 리소스는 하나의 게이트웨이 설치에만 연결할 수 있으며, 하나의 Azure 계정 및 구독에만 연결할 수 있습니다. 따라서, 다른 게이트웨이 리소스와 이미 연결되어 있는 게이트웨이 설치는 선택할 수 없습니다. 이러한 설치는 **설치 이름** 목록에 나타나지 않습니다.
 

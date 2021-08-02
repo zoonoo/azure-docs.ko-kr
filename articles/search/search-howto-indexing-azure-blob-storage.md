@@ -7,20 +7,24 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 05/14/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 6f70ae726cf41395e46760dc5cf7da5b4d61478a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 848ffc1d4352d464a9afb1c65a0a8c60eb3cffa3
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104802899"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558893"
 ---
 # <a name="how-to-configure-blob-indexing-in-cognitive-search"></a>Cognitive Search에서 Blob 인덱싱을 구성하는 방법
 
-Blob 인덱서는 Azure Blob 스토리지에서 Cognitive Search 인덱스로 콘텐츠를 수집하는 데 사용됩니다. Blob 인덱서는 [AI 보강](cognitive-search-concept-intro.md)에서 자주 사용됩니다. AI 보강에서 연결된 [기술 세트](cognitive-search-working-with-skillsets.md)는 이미지 및 자연어 처리를 추가하여 검색 가능한 콘텐츠를 만듭니다. 그러나 AI 보강 없이 Blob 인덱서를 사용하여 PDF, Microsoft Office 문서 및 파일 형식과 같은 텍스트 기반 문서에서 콘텐츠를 수집할 수도 있습니다.
+Blob 인덱서는 Azure Blob Storage에서 Cognitive Search 인덱스로 콘텐츠를 수집하는 데 사용됩니다. Blob 인덱서는 [AI 보강](cognitive-search-concept-intro.md)에서 자주 사용됩니다. AI 보강에서 연결된 [기술 세트](cognitive-search-working-with-skillsets.md)는 이미지 및 자연어 처리를 추가하여 검색 가능한 콘텐츠를 만듭니다. 그러나 AI 보강 없이 Blob 인덱서를 사용하여 PDF, Microsoft Office 문서 및 파일 형식과 같은 텍스트 기반 문서에서 콘텐츠를 수집할 수도 있습니다.
 
 이 문서에서는 두 시나리오 모두에 대해 Blob 인덱서를 구성하는 방법을 보여 줍니다. 인덱서 개념을 잘 모르는 경우 Blob 인덱싱을 자세히 알아보기 전에 [Azure Cognitive Search의 인덱서](search-indexer-overview.md) 및 [검색 인덱서 만들기](search-howto-create-indexers.md)부터 살펴봅니다.
+
+## <a name="supported-access-tiers"></a>지원되는 액세스 계층
+
+Blob Storage [액세스 계층](../storage/blobs/storage-blob-storage-tiers.md)에는 핫, 쿨 및 보관이 포함됩니다. 인덱서는 핫 및 쿨만 액세스할 수 있습니다. 
 
 <a name="SupportedFormats"></a>
 
@@ -113,6 +117,7 @@ api-key: [admin key]
 > [!IMPORTANT]
 > 인덱스의 키 필드에 대한 명시적인 매핑이 없는 경우 Azure Cognitive Search에서 자동으로 `metadata_storage_path`를 키로 사용하고 키 값을 base-64로 인코딩합니다(위 두 번째 옵션).
 >
+> 사용자 지정 메타데이터 속성을 키로 사용하는 경우 해당 속성을 변경하지 마세요. 키 속성이 변경되면 인덱서는 동일한 Blob에 대해 중복 문서를 추가합니다.
 
 #### <a name="example"></a>예제
 

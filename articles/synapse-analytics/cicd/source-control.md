@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 4ece05601efb515b3eab0f884aeff3d8add1bed0
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 7371bc023cc13278c0d1382ac1ac60ee42a39f0b
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128904"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809143"
 ---
-# <a name="source-control-in-azure-synapse-studio"></a>Azure Synapse Studio에서 원본 제어
+# <a name="source-control-in-synapse-studio"></a>Synapse Studio에서 원본 제어
 
-기본적으로 Azure Synapse Studio는 Synapse 서비스에 대해 직접 작성합니다. 원본 제어에 Git을 사용하여 공동 작업해야 하는 경우 Synapse Studio를 사용하여 작업 영역을 Git 리포지토리, Azure DevOps 또는 GitHub와 연결할 수 있습니다. 
+기본적으로 Synapse Studio는 Synapse 서비스에 대해 직접 작성합니다. 원본 제어에 Git을 사용하여 공동 작업해야 하는 경우 Synapse Studio를 사용하여 작업 영역을 Git 리포지토리, Azure DevOps 또는 GitHub와 연결할 수 있습니다. 
 
 이 문서에서는 git 리포지토리를 사용하도록 설정한 상태에서 Synapse 작업 영역을 구성하고 작업하는 방법을 설명합니다. 또한 몇 가지 모범 사례 및 문제 해결 가이드가 강조되어 있습니다.
 
 > [!NOTE]
-> Azure Government 클라우드에서는 Azure Synapse Studio git 통합을 사용할 수 없습니다.
+> Azure Government 클라우드에서는 Synapse Studio git 통합을 사용할 수 없습니다.
 
 ## <a name="configure-git-repository-in-synapse-studio"></a>Synapse Studio에서 Git 리포지토리 구성 
 
@@ -134,7 +134,7 @@ GitHub 조직에 연결하려면 조직이 Synapse Studio에 권한을 부여해
 
 이러한 단계에 따라 작업 영역에서 조직 내 공용 및 프라이빗 리포지토리에 연결할 수 있습니다. 연결할 수 없는 경우 브라우저 캐시를 지우고 다시 시도하세요.
 
-#### <a name="already-connected-to-github-using-a-personal-account"></a>개인 계정을 사용하여 GitHub에 이미 연결되었습니다.
+#### <a name="already-connected-to-github-using-a-personal-account"></a>개인 계정을 사용하여 GitHub에 이미 연결됨
 
 이미 GitHub에 연결하고 개인 계정에 대한 액세스 권한만 부여한 경우 아래 단계에 따라 조직에 권한을 부여합니다.
 
@@ -176,7 +176,7 @@ Synapse Studio와 연결된 각 Git 리포지토리에는 공동 작업 분기�
 }
 ```
 
-Azure Synapse Studio에는 한 번에 하나의 게시 분기만 있을 수 있습니다. 새 게시 분기를 지정하면 이전 게시 분기가 삭제되지 않습니다. 이전 게시 분기를 제거하려는 경우에는 수동으로 해당 분기를 삭제합니다.
+Synapse Studio에는 한 번에 하나의 게시 분기만 있을 수 있습니다. 새 게시 분기를 지정하면 이전 게시 분기가 삭제되지 않습니다. 이전 게시 분기를 제거하려는 경우에는 수동으로 해당 분기를 삭제합니다.
 
 
 ### <a name="publish-code-changes"></a>코드 변경 내용 게시

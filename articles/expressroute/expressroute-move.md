@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 06/02/2021
 ms.author: duau
-ms.openlocfilehash: dcba2e9de2b37e8c432f94781b3c4c369ad52395
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5395204f75a0637daedabba6b933036b7144dae1
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97807944"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111571351"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동
 이 문서에서는 Azure ExpressRoute 회로를 클래식에서 Azure Resource Manager 배포 모델로 이동할 때 발생하는 상황에 대해 간략히 설명합니다.

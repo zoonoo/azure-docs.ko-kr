@@ -11,14 +11,14 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: dcaa0f964b2a3c047826bb82ae8d1121e38f1796
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f541985b7e8210084ae11a9f48e18f735e6e4335
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378859"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479874"
 ---
-# <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning을 사용하여 Azure Databricks ML 실험 추적(미리 보기)
+# <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning"></a>MLflow 및 Azure Machine Learning을 사용하여 Azure Databricks ML 실험 추적
 
 이 문서에서는 MLflow의 추적 URI 및 로깅 API(총칭하여 [MLflow 추적](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api))를 사용하여 ADB(Azure Databricks) 실험, MLflow 및 Azure Machine Learning에 연결하는 방법을 알아봅니다.
 
@@ -27,9 +27,6 @@ ms.locfileid: "110378859"
 추가 MLflow 및 Azure Machine Learning 기능 통합에 대해 [MLflow 및 Azure Machine Learning을 사용하여 실험 실행 추적](how-to-use-mlflow.md)을 참조하세요.
 
 Azure Machine Learning을 통해 학습할 MLflow 프로젝트가 있는 경우 [MLflow 프로젝트 및 Azure Machine Learning을 사용하여 ML 모델 학습(미리 보기)](how-to-train-mlflow-projects.md)을 참조하세요.
-
->[!NOTE]
-> 오픈 소스 라이브러리로 MLflow는 자주 변경됩니다. 따라서 Azure Machine Learning 및 MLflow 통합을 통해 제공되는 기능은 미리 보기로 간주해야 하며 Microsoft에서 완벽하게 지원되지 않습니다.
 
 > [!TIP]
 > 이 문서의 정보는 주로 모델 학습 프로세스를 모니터링하려는 데이터 과학자와 개발자를 위한 것입니다. 할당량, 완료된 학습 실행 또는 완료된 모델 배포와 같이 Azure Machine Learning의 리소스 사용과 이벤트를 모니터링하는 데 관심이 있는 관리자는 [Azure Machine Learning 모니터링](monitor-azure-machine-learning.md)을 참조하세요.

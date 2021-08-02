@@ -6,18 +6,21 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 3fe3131263d3cf1984eae1692854d8d6bcd2746a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1c3bcfea0e703de28c79048380f8389fa93014b3
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109491"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110585343"
 ---
 # <a name="configure-active-geo-replication-for-enterprise-azure-cache-for-redis-instances-preview"></a>Enterprise Azure Cache for Redis 인스턴스에 대해 활성 지역 복제 구성(미리 보기)
 
 이 문서에서는 Azure Portal을 사용하여 활성 지역 복제 Azure Cache를 구성하는 방법에 대해 설명합니다.
 
-활성 지역 복제는 둘 이상의 Enterprise Azure Cache for Redis 인스턴스를 Azure 지역 전체를 포괄하는 단일 캐시로 그룹화합니다. 모든 인스턴스는 로컬 기본 인스턴스 역할을 합니다. 애플리케이션은 읽기 및 쓰기 요청에 사용할 인스턴스를 결정합니다.
+활성 지역 복제는 두 개의 Enterprise Azure Cache for Redis 인스턴스를 Azure 지역 전체를 포괄하는 단일 캐시로 그룹화합니다. 두 인스턴스는 모두 로컬 기본 인스턴스 역할을 합니다. 애플리케이션은 읽기 및 쓰기 요청에 사용할 인스턴스를 결정합니다.
+
+> [!NOTE]
+> Azure 지역 간 데이터 전송은 표준 [대역폭 요금](https://azure.microsoft.com/pricing/details/bandwidth/)으로 청구됩니다.
 
 ## <a name="create-or-join-an-active-geo-replication-group"></a>활성 지역 복제 그룹 만들기 또는 조인하기
 

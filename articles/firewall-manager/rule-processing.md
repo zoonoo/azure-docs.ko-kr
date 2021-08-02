@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 9184bf7baa85420e067edb4c0aafccb7e6711225
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6cda31ad3bd830112d7be2dbf3370e4130473228
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86512183"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474421"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Azure Firewall 규칙 처리 논리
 
@@ -21,6 +21,15 @@ Azure Firewall에는 NAT 규칙, 네트워크 규칙 및 애플리케이션 규�
 ## <a name="network-rules-and-applications-rules"></a>네트워크 규칙 및 애플리케이션 규칙
 
 네트워크 규칙이 가장 먼저 적용되고, 다음으로 애플리케이션 규칙이 적용됩니다. 규칙은 종료됩니다. 따라서 네트워크 규칙에서 일치 항목이 발견된 경우 애플리케이션 규칙이 처리되지 않습니다.  네트워크 규칙이 일치하지 않고 패킷 프로토콜이 HTTP/HTTPS이면 애플리케이션 규칙에 따라 패킷이 평가됩니다. 여전히 일치하는 항목이 없으면 인프라 규칙 컬렉션과 비교하여 패킷이 평가됩니다. 여전히 일치하는 항목이 없으면 패킷이 기본값으로 거부됩니다.
+
+![일반 규칙 처리 논리](media/rule-processing/rule-logic-processing.png)
+
+### <a name="example-of-processing-logic"></a>처리 논리 예시
+예시 시나리오: 세 개의 규칙 컬렉션 그룹이 Azure Firewall 정책에 있습니다.  각 규칙 컬렉션 그룹에는 일련의 애플리케이션 및 네트워크 규칙이 있습니다.
+
+![규칙 실행 순서](media/rule-processing/rule-execution-order.png)
+
+다이어그램에서 네트워크 규칙이 먼저 실행된 다음, Azure Firewall 규칙 처리 논리로 인해 네트워크 규칙이 애플리케이션 규칙 전에 항상 실행 우선 순위를 갖도록 하는 애플리케이션 규칙이 실행됩니다.
 
 ## <a name="nat-rules"></a>NAT 규칙
 

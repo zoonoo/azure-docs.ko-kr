@@ -2,26 +2,26 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/21/2021
+ms.date: 06/14/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 5fc36e327a9530105182f0a23b3ef22ab324e01c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7433dd53346141147f8d7f0c7bdb1b3b076d152
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104803213"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112083580"
 ---
+- [필요한 경우 사용] Azure Cosmos DB 계정은 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 합니다.
+- [필요한 경우 사용] Azure Machine Learning 작업 영역은 CMK(고객 관리형 키)를 사용하여 암호화해야 합니다.
+- [필요한 경우 사용] Cognitive Services 계정은 CMK(고객 관리형 키)를 사용하여 데이터 암호화를 사용하도록 설정해야 합니다.
+- [필요한 경우 사용] 컨테이너 레지스트리는 CMK(고객 관리형 키)를 사용하여 암호화해야 합니다.
 - 방화벽 및 가상 네트워크 구성을 사용하여 스토리지 계정 액세스를 제한해야 함
 - 자동화 계정 변수를 암호화해야 합니다.
 - Azure Cache for Redis는 가상 네트워크 내에 있어야 함
-- Azure Cosmos DB 계정은 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함
-- Azure Machine Learning 작업 영역은 CMK(고객 관리형 키)를 사용하여 암호화해야 함
 - Azure Spring Cloud는 네트워크 주입을 사용해야 함
-- Cognitive Services 계정은 CMK(고객 관리형 키)로 데이터 암호화를 사용하도록 설정해야 함
 - 컨테이너 CPU 및 메모리 한도를 적용해야 함
 - 신뢰할 수 있는 레지스트리의 컨테이너 이미지만 배포해야 함
-- 컨테이너 레지스트리는 CMK(고객 관리형 키)로 암호화해야 함
 - 권한 상승을 포함하는 컨테이너를 사용하지 않아야 함
 - 중요한 호스트 네임스페이스를 공유하는 컨테이너를 사용하지 않아야 함
 - 컨테이너는 허용되는 포트에서만 수신 대기해야 함

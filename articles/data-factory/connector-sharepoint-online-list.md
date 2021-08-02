@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory를 사용하여 SharePoint Online 목록에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 SharePoint Online 목록에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.author: jingwang
-ms.openlocfilehash: f8074b69b97a6ef96837e73a1082d2deb67084d9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.author: jianleishen
+ms.openlocfilehash: c6ce2d796bbe679f73804fef91079db2ca44c28b
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102177864"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111748880"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SharePoint Online 목록에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -66,7 +66,7 @@ SharePoint Online 목록 커넥터는 서비스 주체 인증을 사용하여 Sh
 
 ## <a name="get-started"></a>시작하기
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 SharePoint Online 목록 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -107,7 +107,7 @@ SharePoint Online 목록에 연결된 서비스에 다음 속성이 지원됩니
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)를 참조하세요. 이 섹션에서는 SAP 테이블 데이터 세트에서 지원되는 속성의 목록을 제공합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **SharePointOnlineLResource** 로 설정해야 합니다. | 예 |
 | listName | SharePoint Online 목록의 이름입니다. | 예 |
@@ -140,7 +140,7 @@ SharePoint Online 목록에 연결된 서비스에 다음 속성이 지원됩니
 
 SharePoint Online 목록에서 데이터를 복사하기 위해 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **SharePointOnlineListSource** 로 설정해야 합니다. | 예 |
 | Query | 데이터 필터링을 위한 사용자 지정 OData 쿼리 옵션입니다. 예: `"$top=10&$select=Title,Number"`. | 예 |
@@ -179,7 +179,7 @@ SharePoint Online 목록에서 데이터를 복사하기 위해 복사 작업 **
 ```
 
 > [!NOTE]
-> Azure Data Factory에서는 SharePoint Online 목록 원본에 대해 둘 이상의 *선택* 데이터 형식을 선택할 수 없습니다.
+> Azure Data Factory에서 SharePoint Online 목록 원본에 대해 두 개 이상의 선택 데이터 형식을 선택할 수 없습니다.
 
 ## <a name="data-type-mapping-for-sharepoint-online-list"></a>SharePoint Online 목록에 대한 데이터 형식 매핑
 
@@ -191,7 +191,7 @@ SharePoint Online 목록에서 데이터를 복사하는 경우 SharePoint Onlin
 | 여러 줄 텍스트                          | Edm.String                                           | String                                   |
 | 선택(선택할 메뉴)                    | Edm.String                                           | String                                   |
 | 숫자(1, 1.0, 100)                            | Edm.Double                                           | Double                                   |
-| 통화 ($, ¥, &euro; )                              | Edm.Double                                           | Double                                   |
+| 통화($, ¥, &euro;)                              | Edm.Double                                           | Double                                   |
 | 날짜 및 시간                                   | Edm.DateTime                                         | DateTime                                 |
 | 조회(이 사이트에 이미 있는 정보)       | Edm.Int32                                            | Int32                                    |
 | 예/아니요(확인란)                              | Edm.Boolean                                          | 부울                                  |
@@ -217,7 +217,7 @@ SharePoint Online 목록에서 데이터를 복사하는 경우 SharePoint Onlin
     - **메서드**: POST
     - **헤더**:
         - Content-Type: application/x-www-form-urlencoded
-    - **본문**:  `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]`. 클라이언트 ID, 클라이언트 암호, 테넌트 ID 및 테넌트 이름을 바꿉니다.
+    - **본문**:  `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]`. 클라이언트 ID(애플리케이션 ID), 클라이언트 암호(애플리케이션 키), 테넌트 ID 및 테넌트 이름(SharePoint 테넌트)을 대체합니다.
 
     > [!CAUTION]
     > 웹 작업에서 보안 출력 옵션을 true로 설정하여 토큰 값이 일반 텍스트로 기록되지 않게 합니다. 이 값을 사용하는 추가 작업의 경우 보안 입력 옵션을 true로 설정해야 합니다.
@@ -234,7 +234,7 @@ SharePoint Online 목록에서 데이터를 복사하는 경우 SharePoint Onlin
     - 보통처럼 복사 작업 싱크를 구성합니다.
 
 > [!NOTE]
-> Azure AD 응용 프로그램에 `FullControl` SharePoint Online에 대 한 권한이 있는 경우에도 IRM을 사용 하도록 설정 된 문서 라이브러리에서 파일을 복사할 수 없습니다.
+> Azure AD 애플리케이션에 SharePoint Online에 대한 `FullControl` 권한이 있더라도 IRM을 사용하도록 설정한 문서 라이브러리에서 파일을 복사할 수 없습니다.
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 

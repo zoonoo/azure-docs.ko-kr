@@ -3,12 +3,12 @@ title: 리소스 종류별 이동 작업 지원
 description: 새 리소스 그룹, 구독 또는 지역으로 이동할 수 있는 Azure 리소스 종류를 소개합니다.
 ms.topic: conceptual
 ms.date: 04/23/2021
-ms.openlocfilehash: 5a347a9041423c7e466499cdd65fe27e6623ab98
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3a43ea09dd4986d1f2d0e2679e81f5b25b590f7e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737408"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968321"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 
@@ -911,7 +911,7 @@ ms.locfileid: "108737408"
 > | 리소스 유형 | Resource group | Subscription | 지역 이동 |
 > | ------------- | ----------- | ---------- | ----------- |
 > | controllers | 예 | 예 | 아니요 |
-> | AKS 클러스터 | **보류 중** | **보류 중** | 아니요<br/><br/> 다른 지역으로 이동에 대해 [자세히 알아보세요.](../../dev-spaces/faq.md#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region)
+> | AKS 클러스터 | **보류 중** | **보류 중** | 아니요<br/><br/> 다른 지역으로 이동에 대해 [자세히 알아보세요.](../../dev-spaces/index.yml)
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
@@ -1448,7 +1448,7 @@ ms.locfileid: "108737408"
 > | privateendpointredirectmaps | 아니요 | 아니요 | 아니요 |
 > | privateendpoints | 아니요 | 아니요 | 아니요 |
 > | privatelinkservices | 아니요 | 아니요 | 아니요 |
-> | publicipaddresses | 예 - 기본 SKU<br>예 - 표준 SKU | 예 - 기본 SKU<br>아니요 - 표준 SKU | 예<br/><br/> [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md)를 사용하여 공용 IP 주소를 이동합니다. |
+> | publicipaddresses | 예 - 기본 SKU<br>예 - 표준 SKU | 예 - 기본 SKU<br>아니요 - 표준 SKU | 예<br/><br/> [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md)를 사용하여 공용 IP 주소 구성을 이동합니다(IP 주소가 보존되지 않음). |
 > | publicipprefixes | 예 | 예 | 아니요 |
 > | routefilters | 아니요 | 아니요 | 아니요 |
 > | routetables | 예 | 예 | 아니요 |

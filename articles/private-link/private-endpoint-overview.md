@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 79d21549e7234e4ee342776466f8d3d8ced5f08c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7359dc8199c01bae7f7463b83079193397e40519
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508812"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072895"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 프라이빗 엔드포인트란?
 
@@ -22,7 +22,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
  프라이빗 엔드포인트는 다음 속성을 지정합니다. 
 
 
-|속성  |Description |
+|속성  |설명 |
 |---------|---------|
 |속성    |    리소스 그룹의 고유한 이름입니다.      |
 |서브넷    |  가상 네트워크에서 프라이빗 IP 주소를 배포하고 할당하는 서브넷입니다. 서브넷 요구 사항은 이 문서의 제한 사항 섹션을 참조하세요.         |
@@ -39,7 +39,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 
 - 프라이빗 엔드포인트를 만들 때 리소스 수명 주기 동안 읽기 전용 네트워크 인터페이스도 생성됩니다. 이 인터페이스에는 프라이빗 링크 리소스에 매핑되는 서브넷의 동적 프라이빗 IP 주소가 할당됩니다. 프라이빗 IP 주소의 값은 프라이빗 엔드포인트의 전체 수명 주기 동안 변경되지 않고 유지됩니다.
  
-- 프라이빗 엔드포인트는 가상 네트워크와 동일한 지역에 배포되어야 합니다. 
+- 프라이빗 엔드포인트는 가상 네트워크와 동일한 지역 및 구독에 배포되어야 합니다. 
  
 - 프라이빗 링크 리소스는 가상 네트워크 및 프라이빗 엔드포인트가 아닌 다른 지역에 배포할 수 있습니다.
  
@@ -78,6 +78,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 |**Azure Event Grid** | Microsoft.EventGrid/topics    | 토픽 |
 |**Azure Event Grid** | Microsoft.EventGrid/domains    | 도메인 |
 |**Azure App Service** | Microsoft.Web/sites    | sites |
+|**Azure App Service 슬롯** | Microsoft.Web/sites    | sites-`<slot name>` |
 |**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | amlworkspace |
 |**SignalR** | Microsoft.SignalRService/SignalR    | signalR |
 |**Azure Monitor** | Microsoft.Insights/privateLinkScopes    | azuremonitor |
@@ -109,8 +110,14 @@ Azure 서비스에 대한 프라이빗 엔드포인트를 사용하는 경우 �
 > [!NOTE]
 > 승인된 상태의 프라이빗 엔드포인트만 지정된 프라이빗 링크 리소스에 트래픽을 보낼 수 있습니다. 
 
+### <a name="rbac-permissions"></a>RBAC 권한
+
+다음은 사용자가 프라이빗 엔드포인트를 만들 수 있어야 하는 특정 RBAC 권한입니다. 사용자 지정 역할에 대한 자세한 내용은 [사용자 지정 역할을 만드는 단계](/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role)를 참조하세요.
+
+Microsoft.Resources/deployments/* Microsoft.Resources/subscriptions/resourcegroups/resources/read Microsoft.Network/virtualNetworks/read Microsoft.Network/virtualNetworks/subnets/read Microsoft.Network/virtualNetworks/subnets/write Microsoft.Network/virtualNetworks/subnets/join/action Microsoft.Network/privateEndpoints/read Microsoft.Network/privateEndpoints/write Microsoft.Network/locations/availablePrivateEndpointTypes/read
+
 ### <a name="connecting-using-alias"></a>별칭을 사용하여 연결
-별칭은 서비스 소유자가 표준 부하 분산 장치 뒤에 프라이빗 링크 서비스를 만들 때 생성되는 고유한 모니커입니다. 서비스 소유자는 이 별칭을 소비자와 오프라인으로 공유할 수 있습니다. 소비자는 리소스 URI 또는 별칭을 사용하여 프라이빗 링크 서비스에 대한 연결을 요청할 수 있습니다. 별칭을 사용하여 연결하려면 수동 연결 승인 방법을 사용하여 프라이빗 엔드포인트를 만들어야 합니다. 수동 연결 승인 방법을 사용하려면 프라이빗 엔드포인트 만들기 흐름에서 수동 요청 매개 변수를 true로 설정합니다. 자세한 내용은 [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) 및 [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create)를 참조하세요. 
+별칭은 서비스 소유자가 표준 부하 분산 장치 뒤에 프라이빗 링크 서비스를 만들 때 생성되는 고유한 모니커입니다. 서비스 소유자는 이 별칭을 소비자와 오프라인으로 공유할 수 있습니다. 소비자는 리소스 URI 또는 별칭을 사용하여 프라이빗 링크 서비스에 대한 연결을 요청할 수 있습니다. 별칭을 사용하여 연결하려면 수동 연결 승인 방법을 사용하여 프라이빗 엔드포인트를 만들어야 합니다. 수동 연결 승인 방법을 사용하려면 프라이빗 엔드포인트 만들기 흐름에서 수동 요청 매개 변수를 true로 설정합니다. 자세한 내용은 [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) 및 [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create)를 참조하세요. 
 
 ## <a name="dns-configuration"></a>DNS 구성 
 연결 문자열의 일부로 FQDN(정규화된 도메인 이름)을 사용하여 프라이빗 링크 리소스에 연결하는 경우 할당된 프라이빗 IP 주소를 확인하도록 DNS 설정을 올바르게 구성하는 것이 중요합니다. 기존 Azure 서비스에는 공용 엔드포인트를 통해 연결할 때 사용할 DNS 구성이 이미 있을 수 있습니다. 프라이빗 엔드포인트를 사용하여 연결하도록 재정의해야 합니다. 
@@ -127,15 +134,15 @@ Azure 서비스에 대한 프라이빗 엔드포인트를 사용하는 경우 �
 다음 표에서는 프라이빗 엔드포인트를 사용하는 경우의 알려진 제한 사항 목록을 제공합니다. 
 
 
-|제한 사항 |Description |완화 방법  |
+|제한 사항 |설명 |완화 방법  |
 |---------|---------|---------|
 |NSG(네트워크 보안 그룹) 규칙 및 사용자 정의 경로는 프라이빗 엔드포인트에 적용되지 않습니다.    |NSG는 프라이빗 엔드포인트에서 지원되지 않습니다. 프라이빗 엔드포인트를 포함하는 서브넷에 NSG가 연결되어 있을 수 있지만 규칙은 프라이빗 엔드포인트에서 처리하는 트래픽에 적용되지 않습니다. 서브넷에 프라이빗 엔드포인트를 배포하려면 [네트워크 정책 적용을 사용하지 않도록 설정](disable-private-endpoint-network-policy.md)해야 합니다. NSG는 동일한 서브넷에서 호스트되는 다른 워크로드에도 적용됩니다. 모든 클라이언트 서브넷의 경로는 /32 접두사를 사용하고 기본 라우팅 동작을 변경하려면 비슷한 UDR이 필요합니다.  | 원본 클라이언트의 아웃바운드 트래픽에 대한 NSG 규칙을 사용하여 트래픽을 제어합니다. /32 접두사가 있는 개별 경로를 배포하여 프라이빗 엔드포인트 경로를 재정의합니다. 아웃바운드 연결에 대한 NSG 흐름 로그 및 모니터링 정보는 계속 지원되며 사용 가능합니다.        |
 
 
 ## <a name="next-steps"></a>다음 단계
-- [포털을 사용하여 SQL Database용 프라이빗 엔드포인트 만들기](create-private-endpoint-portal.md)
-- [PowerShell을 사용하여 SQL Database용 프라이빗 엔드포인트 만들기](create-private-endpoint-powershell.md)
-- [CLI를 사용하여 SQL Database용 프라이빗 엔드포인트 만들기](create-private-endpoint-cli.md)
+- [포털을 사용하여 Azure Web Apps용 프라이빗 엔드포인트 만들기](create-private-endpoint-portal.md)
+- [PowerShell을 사용하여 Azure Web Apps용 프라이빗 엔드포인트 만들기](create-private-endpoint-powershell.md)
+- [CLI를 사용하여 Azure Web Apps용 프라이빗 엔드포인트 만들기](create-private-endpoint-cli.md)
 - [포털을 사용하여 스토리지 계정용 프라이빗 엔드포인트 만들기](./tutorial-private-endpoint-storage-portal.md)
 - [포털을 사용하여 Azure Cosmos 계정용 프라이빗 엔드포인트 만들기](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Azure PowerShell를 사용하여 고유의 Private Link 서비스 만들기](create-private-link-service-powershell.md)

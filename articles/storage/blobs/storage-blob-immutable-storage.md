@@ -5,20 +5,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 05/17/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: d1d77e508e627520878dcc27b5a643473d11dd1d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1495fa3751a77d5dfd26192ded4f35403ed932ef
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800723"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110098311"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>비즈니스에 중요한 BLOB 데이터를 변경이 불가능한 스토리지에 저장
 
-Azure Blob Storage에 대한 변경 불가능한 스토리지를 사용하면 사용자가 중요 비즈니스용 데이터 개체를 WORM(Write Once, Read Many) 상태로 저장할 수 있습니다. 이 상태는 사용자가 지정한 간격 동안 데이터를 지울 수 없고 수정할 수 없게 만듭니다. 데이터 보존 기간 동안 Blob을 만들고 읽을 수 있지만 수정하거나 삭제할 수는 없습니다. 변경이 불가능한 스토리지는 모든 Azure 지역의 범용 v1, 범용 v2, BlobStorage 및 BlockBlobStorage 계정에 사용할 수 있습니다.
+Azure Blob Storage에 대한 변경 불가능한 스토리지를 사용하면 사용자가 중요 비즈니스용 데이터 개체를 WORM(Write Once, Read Many) 상태로 저장할 수 있습니다. 이 상태는 사용자가 지정한 간격 동안 데이터를 지울 수 없고 수정할 수 없게 만듭니다. 데이터 보존 기간 동안 Blob을 만들고 읽을 수 있지만 수정하거나 삭제할 수는 없습니다. 변경이 불가능한 스토리지는 모든 Azure 지역의 범용 v1, 범용 v2, 프리미엄 블록 Blob 및 레거시 Blob 계정에 사용할 수 있습니다.
 
 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 법적 보존을 설정하고 지우거나 시간 기반 보존 정책을 만드는 방법에 대한 자세한 내용은 [Blob Storage에 대한 불변성 정책 설정 및 관리](storage-blob-immutability-policies-manage.md)를 참조하세요.
 
@@ -140,7 +140,7 @@ Azure Blob Storage용 변경 불가능한 스토리지는 두 가지 유형의 W
 
 **이 기능을 사용하려면 새 스토리지 계정을 만들어야 하나요?**
 
-아니요, 기존 또는 새로 만든 범용 v1, 범용 v2, BlobStorage 또는 BlockBlobStorage 계정으로 변경이 불가능한 스토리지를 사용할 수 있습니다. 범용 v1 스토리지 계정도 지원되지만 더 많은 기능을 활용할 수 있도록 범용 v2로 업그레이드하는 것이 좋습니다. 기존 범용 v1 스토리지 계정 업그레이드에 대한 자세한 내용은 [스토리지 계정 업그레이드](../common/storage-account-upgrade.md)를 참조하세요.
+아니요, 기존 또는 새로 생성된 범용 v1, 범용 v2, 프리미엄 블록 Blob 및 레거시 Blob 계정에서 변경 불가능한 스토리지를 사용할 수 있습니다. 범용 v1 스토리지 계정도 지원되지만 더 많은 기능을 활용할 수 있도록 범용 v2로 업그레이드하는 것이 좋습니다. 기존 범용 v1 스토리지 계정 업그레이드에 대한 자세한 내용은 [스토리지 계정 업그레이드](../common/storage-account-upgrade.md)를 참조하세요.
 
 **법적 보존 및 시간 기반 보존 정책을 모두 적용할 수 있나요?**
 

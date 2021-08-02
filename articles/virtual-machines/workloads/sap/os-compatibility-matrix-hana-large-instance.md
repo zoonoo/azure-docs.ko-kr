@@ -3,22 +3,23 @@ title: SAP HANA(대규모 인스턴스)에 대한 운영 체제 호환성 매트
 description: 호환성 매트릭스는 다양한 하드웨어 유형(대규모 인스턴스)을 사용하는 여러 운영 체제 버전의 호환성을 나타냅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: sasarava
+author: Ajayan1008
 manager: hrushib
 editor: ''
 ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/21/2020
-ms.author: sasarava
+ms.date: 05/18/2021
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccfdffc4e488de7f3cecb150305596743b3a9e44
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad1eb1428493d8488e803560e0dc421765aab465
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675409"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579449"
 ---
 # <a name="compatible-operating-systems-for-hana-large-instances"></a>HANA 대규모 인스턴스에 대해 호환되는 운영 체제
 
@@ -34,6 +35,7 @@ ms.locfileid: "101675409"
 
   
 ### <a name="persistent-memory-skus"></a>영구 메모리 SKU
+
   | 운영 체제 | 가용성 | SKU                             |
   |------------------|--------------|----------------------------------|
   | SLES 12 SP4      | 사용 가능    | S224oo, S224om, S224ooo, S224oom |
@@ -48,11 +50,11 @@ ms.locfileid: "101675409"
   | SLES 15 SP1             | 사용 가능           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
   | RHEL 7.6                | 사용 가능           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
 
-## <a name="related-documents"></a>관련 문서
+## <a name="next-steps"></a>다음 단계
 
-- [사용 가능한 SKU](hana-available-skus.md)에 대해 자세히 알아보려면
-- [운영 체제 업그레이드](os-upgrade-hana-large-instance.md)에 대해 알아보려면
-  
+다음에 대해 자세히 알아봅니다.
 
-  
+- [사용 가능한 SKU](hana-available-skus.md)
+- [운영 체제 업그레이드](os-upgrade-hana-large-instance.md)
+- [HANA 큰 인스턴스의 지원되는 시나리오](hana-supported-scenario.md)
   

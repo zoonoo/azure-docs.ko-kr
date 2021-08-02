@@ -1,23 +1,23 @@
 ---
-title: 'SQL Server를 Azure SQL 관리 인스턴스: 성능 분석'
+title: 'SQL Server에서 Azure SQL Managed Instance: 성능 기준'
 description: SQL Server 데이터베이스를 Azure SQL Managed Instance로 마이그레이션할 때 성능 기준선을 만들고 비교하는 방법에 대해 알아봅니다.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: mokabiru
+ms.topic: how-to
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: a97dabe36efb252b04c1b5c8fa741d33a6c92703
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee51e3ee0fd9f0084e8dddf03a9e181b38bc2fb4
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023676"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110689400"
 ---
-# <a name="migration-performance-sql-server-to--azure-sql-managed-instance-performance-analysis"></a>마이그레이션 성능: SQL Server에서 Azure SQL Managed Instance 성능 분석
+# <a name="migration-performance-sql-server-to--azure-sql-managed-instance-performance-baseline"></a>마이그레이션 성능: SQL Server에서 Azure SQL Managed Instance 성능 기준
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
 SQL Managed Instance의 워크로드 성능을 SQL Server에서 실행 중인 원래 워크로드와 비교해야 하는 경우 비교에 사용할 성능 기준선을 만들어야 합니다. 

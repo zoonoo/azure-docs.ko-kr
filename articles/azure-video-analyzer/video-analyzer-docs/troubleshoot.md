@@ -3,12 +3,12 @@ title: Azure Video Analyzer 문제 해결 - Azure
 description: 이 문서에서는 Azure Video Analyzer에 대한 문제 해결 단계를 다룹니다.
 ms.topic: how-to
 ms.date: 05/04/2021
-ms.openlocfilehash: f43d959d1f289b76d4a0b8071aba49c01abe3481
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: cd54386702c24065cccad4f7ede43c313a44886c
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388133"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613667"
 ---
 # <a name="troubleshoot-azure-video-analyzer"></a>Azure Video Analyzer 문제 해결
 
@@ -26,6 +26,10 @@ Video Analyzer 배포의 일부로 IoT Hub 및 IoT Edge 디바이스와 같은 A
 1. [IoT Edge 허브를 통과하는 메시지를 확인합니다](../../iot-edge/troubleshoot.md#view-the-messages-going-through-the-iot-edge-hub).
 1. [컨테이너를 다시 시작합니다](../../iot-edge/troubleshoot.md#restart-containers).
 1. [방화벽 및 포트 구성 규칙을 확인합니다](../../iot-edge/troubleshoot.md#check-your-firewall-and-port-configuration-rules).
+
+### <a name="issues-when-using-arm-template"></a>ARM 템플릿 사용 시 발생하는 문제
+
+ARM 템플릿(Azure에 배포 단추)을 사용할 때 문제가 발생하는 경우 이 [빠른 시작](get-started-detect-motion-emit-events-portal.md)의 단계를 따라 필요한 리소스를 수동으로 배포합니다. 
 
 ### <a name="pre-deployment-issues"></a>배포 전 문제
 

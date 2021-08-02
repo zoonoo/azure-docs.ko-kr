@@ -1,25 +1,26 @@
 ---
 title: 세션 호스트 가상 머신에 Windows 라이선스 적용 - Azure
-description: Windows Virtual Desktop VM에 Windows 라이선스를 적용하는 방법을 설명합니다.
-author: ChristianMontoya
+description: Azure Virtual Desktop VM에 Windows 라이선스를 적용하는 방법을 설명합니다.
+author: Heidilohr
 ms.topic: how-to
 ms.date: 08/14/2019
-ms.author: chrimo
-ms.openlocfilehash: 5f3749be36f5f035e49fcb862f92180e4902101f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: helohr
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: eaf8bd06493fb105207024b3b78c584ad58d4149
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88010143"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745406"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>세션 호스트 가상 머신에 Windows 라이선스 적용
 
-Windows Virtual Desktop 워크로드를 실행하는 데 적합한 라이선스가 있는 고객은 세션 호스트 가상 머신에 Windows 라이선스를 적용하여 추가 라이선스 비용을 지불하지 않고도 해당 가상 머신을 실행할 수 있습니다. 자세한 내용은 [Windows Virtual Desktop 가격](https://azure.microsoft.com/pricing/details/virtual-desktop/)을 참조하세요.
+Azure Virtual Desktop 워크로드를 실행하는 데 적합한 라이선스가 있는 고객은 세션 호스트 가상 머신에 Windows 라이선스를 적용하여 추가 라이선스 비용을 지불하지 않고도 해당 가상 머신을 실행할 수 있습니다. 자세한 내용은 [Azure Virtual Desktop 가격](https://azure.microsoft.com/pricing/details/virtual-desktop/)을 참조하세요.
 
-## <a name="ways-to-use-your-windows-virtual-desktop-license"></a>Windows Virtual Desktop 라이선스를 사용하는 방법
-Windows Virtual Desktop 라이선스를 사용하면 호스트 풀에 세션 호스트로 등록되어 있는 모든 Windows 또는 Windows Server 가상 머신에 라이선스를 적용하고 사용자 연결을 수신할 수 있습니다. 이 라이선스는 파일 공유 서버, 도메인 컨트롤러 등으로 실행되는 가상 머신에는 적용되지 않습니다.
+## <a name="ways-to-use-your-azure-virtual-desktop-license"></a>Azure Virtual Desktop 라이선스를 사용하는 방법
+Azure Virtual Desktop 라이선스를 사용하면 호스트 풀에 세션 호스트로 등록되어 있는 모든 Windows 또는 Windows Server 가상 머신에 라이선스를 적용하고 사용자 연결을 수신할 수 있습니다. 이 라이선스는 파일 공유 서버, 도메인 컨트롤러 등으로 실행되는 가상 머신에는 적용되지 않습니다.
 
-Windows Virtual Desktop 라이선스를 사용하는 몇 가지 방법이 있습니다.
+Azure Virtual Desktop 라이선스를 사용하는 몇 가지 방법이 있습니다.
 - [Azure Marketplace 제공 사항](./create-host-pools-azure-marketplace.md)을 사용하여 호스트 풀과 해당 세션 호스트 가상 머신을 만들 수 있습니다. 이 방법으로 만든 가상 머신에는 자동으로 라이선스가 적용됩니다.
 - [GitHub Azure Resource Manager 템플릿](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)을 사용하여 호스트 풀과 해당 세션 호스트 가상 머신을 만들 수 있습니다. 이 방법으로 만든 가상 머신에는 자동으로 라이선스가 적용됩니다.
 - 기존 세션 호스트 가상 머신에 라이선스를 적용할 수 있습니다. 이렇게 하려면 먼저 [PowerShell을 사용하여 호스트 풀 만들기](./create-host-pools-powershell.md)의 지침에 따라 호스트 풀 및 연결된 VM을 만든 다음 이 문서로 돌아와서 라이선스 적용 방법을 알아보세요.
@@ -61,3 +62,7 @@ LicenseType              :
 $vms = Get-AzVM
 $vms | Where-Object {$_.LicenseType -like "Windows_Client"} | Select-Object ResourceGroupName, Name, LicenseType
 ```
+
+## <a name="requirements-for-deploying-windows-server-remote-desktop-services"></a>Windows Server 원격 데스크톱 서비스 배포 요구 사항
+
+Windows Server 2019, 2016 또는 2012 R2를 배포의 Azure Virtual Desktop 호스트로 배포하는 경우 해당 가상 머신에서 원격 데스크톱 서비스 라이선스 서버에 액세스할 수 있어야 합니다. 원격 데스크톱 서비스 라이선스 서버는 온-프레미스 또는 Azure에 있을 수 있습니다. 자세한 내용은 [원격 데스크톱 서비스 라이선스 서버 활성화](/windows-server/remote/remote-desktop-services/rds-activate-license-server)를 참조하세요.

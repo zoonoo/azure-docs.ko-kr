@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28847ece3c08e93d14d381b35fc93fb16dad95a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de370b133e5938d3838f1968691b475e8d6fdd40
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95973901"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478774"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Azure Active Directory 포털을 사용하여 사용자 지정 도메인 이름 추가
 
@@ -98,7 +98,9 @@ Azure AD에 사용자 지정 도메인 이름을 추가한 후에 해당 도메�
 
 Azure AD에서 사용자 지정 도메인 이름을 확인할 수 없는 경우 다음 제한 사항을 시도하세요.
 
-- **1시간 이상 기다렸다가 다시 시도하세요**. Azure AD가 도메인을 확인할 수 있기 전에 DNS 레코드를 전파해야 합니다. 이 프로세스는 한 시간 이상 걸릴 수 있습니다.
+- **1시간 이상 기다렸다가 다시 시도하세요.** Azure AD가 도메인을 확인할 수 있기 전에 DNS 레코드를 전파해야 합니다. 이 프로세스는 한 시간 이상 걸릴 수 있습니다.
+ 
+- **자식 도메인을 확인하려는 경우, 먼저 부모 도메인을 확인합니다.** 자식 도메인을 확인하기 전에 먼저 부모 도메인이 생성되고 검증되었는지 확인합니다.
 
 - **DNS 레코드가 올바른지 확인합니다.** 도메인 이름 등록 사이트로 돌아갑니다. 항목이 있고 Azure AD에서 제공하는 DNS 항목 정보와 일치하는지 확인합니다.
 

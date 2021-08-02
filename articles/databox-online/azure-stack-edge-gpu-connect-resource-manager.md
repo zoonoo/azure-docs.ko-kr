@@ -6,14 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/01/2021
+ms.date: 06/08/2021
 ms.author: alkohli
-ms.openlocfilehash: e244c93fbe809c52eff1c42c284ce2e8389bbcc4
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a7400ad48382c88fb1025c03c576daef32543bf6
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553586"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111983891"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 디바이스의 Azure Resource Manager에 연결
 
@@ -373,7 +374,7 @@ Azure Resource Manager 환경을 설정하고 디바이스와 클라이언트 �
             PS C:\Users\Administrator>
             ```
 
-
+Azure Resource Manager 연결에 문제가 있는 경우 지침은 [Azure Resource Manager 문제 해결](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md)을 참조하세요. 
 
 > [!IMPORTANT]
 > Azure Resource Manager에 대한 연결은 1.5시간마다 또는 Azure Stack Edge Pro 디바이스를 다시 시작하는 경우에 만료됩니다. 이런 경우 실행 하는 모든 cmdlet은 Azure에 더 이상 연결되지 않는다는 오류 메시지를 반환합니다. 다시 로그인해야 합니다.
@@ -460,4 +461,5 @@ ExtendedProperties : {}
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Stack Edge Pro 디바이스에 VM을 배포](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)합니다.
+- [Azure Resource Manager 문제를 해결](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md)합니다.
+- [Azure Stack Edge Pro 디바이스에 VM을 배포](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)합니다.

@@ -3,15 +3,15 @@ title: Datadog 리소스 관리 - Azure 파트너 솔루션
 description: 이 문서에서는 Azure Portal의 Datadog 리소스 관리에 대해 설명합니다. Single Sign-On을 설정하고, Confluent 조직을 삭제하고, 지원을 받는 방법을 알아봅니다.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 05/28/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 04aef540bc134e5ec307be6a232ce47f0923e528
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e964fd436795e19cc77a25efa95de5f6fcac87ca
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046354"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652451"
 ---
 # <a name="manage-the-datadog-resource"></a>Datadog 리소스 관리
 
@@ -130,6 +130,16 @@ Portal이 Azure Active Directory에서 적절한 Datadog 애플리케이션을 �
  
 :::image type="content" source="media/manage/reconfigure-single-sign-on.png" alt-text="Single Sign-On 애플리케이션을 다시 구성합니다." border="true":::
  
+## <a name="change-plan"></a>변경 계획
+
+Datadog 청구 플랜을 변경하려면 **개요** 로 이동하여 **플랜 변경** 을 선택합니다.
+
+:::image type="content" source="media/manage/datadog-select-change-plan.png" alt-text="Datadog 청구 플랜을 선택합니다." border="true":::
+
+포털은 테넌트에 대해 사용 가능한 모든 Datadog 플랜을 검색합니다. 적절한 플랜을 선택하고 **플랜 변경** 을 클릭합니다.
+
+:::image type="content" source="media/manage/datadog-change-plan.png" alt-text="변경할 Datadog 청구 플랜을 선택합니다." border="true":::
+  
 ## <a name="disable-or-enable-integration"></a>통합 사용 또는 사용 안 함
 
 Azure에서 Datadog로 로그 및 메트릭을 전송하는 것을 중지할 수 있습니다. 메트릭 및 로그 모니터링과 관련되지 않은 다른 Datadog 서비스에 대한 요금이 계속 청구됩니다.
@@ -151,12 +161,6 @@ Datadog와의 Azure 통합을 사용하도록 설정하려면 **개요** 로 이
 Datadog 조직에 Datadog 리소스를 하나만 매핑하면 로그와 메트릭이 더 이상 Datadog로 전송되지 않습니다. Azure Marketplace을 통한 모든 Datadog 관련 청구가 중지됩니다.
 
 둘 이상의 Datadog 리소스가 Datadog 조직에 매핑되는 경우 Datadog 리소스를 삭제하면 해당 Datadog 리소스에 대한 로그 및 메트릭 전송만 중지됩니다. Datadog 조직이 다른 Azure 리소스에 연결되어 있으므로 Azure Marketplace를 통해 계속 청구됩니다.
-
-## <a name="getting-support"></a>지원 받기
-
-Azure Datadog 통합에 대해 고객 지원팀에 문의하려면 왼쪽 창에서 **새 지원 요청** 을 선택합니다. Datadog 포털 링크를 선택합니다.
-
-:::image type="content" source="media/manage/support-request.png" alt-text="새 Datadog 지원 요청 만들기" border="true":::
 
 ## <a name="next-steps"></a>다음 단계
 

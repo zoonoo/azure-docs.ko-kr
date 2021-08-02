@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 52cd7817594c5c2a1d4e3a4ca9c56891df594cd6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc580bd1e7b33507f25fdb0ebec3ba38904db8bb
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201102"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111541862"
 ---
 # <a name="communicate-with-edgeagent-using-built-in-direct-methods"></a>기본 제공 직접 메서드를 사용하여 여 edgeAgent와 통신
 
@@ -44,7 +44,10 @@ Azure Portal에서 메서드 이름이 `ping`이며 빈 JSON 페이로드(`{}`)�
 
 **RestartModule** 메서드는 IoT Edge 디바이스에서 실행되는 모듈의 원격 관리를 허용합니다. 모듈이 실패 상태 또는 기타 비정상 동작을 보고하는 경우 IoT 모듈을 다시 시작하도록 IoT Edge 에이전트를 트리거할 수 있습니다. 성공적으로 다시 시작하는 명령은 빈 페이로드 및 **“status”: 200** 을 반환합니다.
 
-RestartModule 메서드는 IoT Edge 버전 1.0.9 이상에서 사용할 수 있습니다. 
+RestartModule 메서드는 IoT Edge 버전 1.0.9 이상에서 사용할 수 있습니다.
+
+>[!TIP]
+>Azure Portal의 IoT Edge 문제 해결 페이지에서는 모듈을 다시 시작하기 위한 간소화된 환경을 제공합니다. 자세한 내용은 [Azure Portal에서 IoT Edge 디바이스 모니터링 및 문제 해결](troubleshoot-in-portal.md)을 참조하세요.
 
 edgeAgent 모듈 자체를 포함하여 IoT Edge 디바이스에서 실행되는 모든 모듈에서 RestartModule 직접 메서드를 사용할 수 있습니다. 단, 이 직접 메서드를 사용하여 edgeAgent를 종료하는 경우 모듈을 다시 시작하는 동안 연결이 중단되므로 성공 결과를 수신할 수 없습니다.
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 4be063342a6c46d73c86f2d9dff1da5395328389
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b82fb574b134065f3c0f1a7dc5a4742258914ff6
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102584021"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112017418"
 ---
 # <a name="custom-query-specification"></a>사용자 지정 쿼리 사양
 
@@ -60,10 +60,10 @@ ms.locfileid: "102584021"
 
 | 쿼리 | Description |
 | ------------ | ------------- |
-| **SELECT** MarketplaceSubscriptionId,CustomerId **FROM** ISVUsage **TIMESPAN LAST_MONTH** | 이 쿼리는 지난 한 달 동안의 고유한 `MarketplaceSubscriptionId` 및 그에 해당하는 `CustomerId`를 모두 가져옵니다. |
+| **SELECT** MarketplaceSubscriptionId,CustomerId **FROM** ISVUsage **TIMESPAN LAST_MONTH** | 이 쿼리는 지난 한 달 동안의 `MarketplaceSubscriptionId` 및 그에 해당하는 `CustomerId`를 모두 가져옵니다. |
 | **SELECT** MarketplaceSubscriptionId, EstimatedExtendedChargeCC **FROM** ISVUsage **ORDER BY** EstimatedExtendedChargeCC **LIMIT** 10 | 이 쿼리는 각 구독에서 판매된 라이선스의 수를 내림차순으로 정렬하여 상위 10개의 구독을 가져옵니다. |
-| **SELECT** CustomerId, NormalizedUsage, RawUsage **FROM** ISVUsage **ORDER BY** NormalizedUsage **WHERE** NormalizedUsage > 100000 **ORDER BY** NormalizedUsage **TIMESPAN** LAST_6_MONTHS | 이 쿼리는 NormalizedUsage가 10만 보다 큰 모든 고객의 NormalizedUsage와 RawUsage를 가져옵니다. |
-| **SELECT** MarketplaceSubscriptionId, MonthStartDate, NormalizedUsage **FROM** ISVUsage **WHERE** CustomerId IN (‘2a31c234-1f4e-4c60-909e-76d234f93161’, ‘80780748-3f9a-11eb-b378-0242ac130002’) | 이 쿼리는 두 개의 `CustomerId` 값, 즉 `2a31c234-1f4e-4c60-909e-76d234f93161` 및 `80780748-3f9a-11eb-b378-0242ac130002`를 기준으로 매월 생성되는 `MarketplaceSubscriptionId`와 수익을 가져옵니다. |
+| **SELECT** CustomerId, NormalizedUsage, RawUsage **FROM** ISVUsage **WHERE** NormalizedUsage > 100000 **ORDER BY** NormalizedUsage **TIMESPAN** LAST_6_MONTHS | 이 쿼리는 NormalizedUsage가 10만 보다 큰 모든 고객의 NormalizedUsage와 RawUsage를 가져옵니다. |
+| **SELECT** MarketplaceSubscriptionId, MonthStartDate, NormalizedUsage **FROM** ISVUsage **WHERE** CustomerId IN (‘2a31c234-1f4e-4c60-909e-76d234f93161’, ‘80780748-3f9a-11eb-b378-0242ac130002’) | 이 쿼리는 두 개의 `CustomerId` 값(`2a31c234-1f4e-4c60-909e-76d234f93161` 및 `80780748-3f9a-11eb-b378-0242ac130002`)으로 `MarketplaceSubscriptionId` 및 매월 정규화된 사용량을 가져옵니다. |
 |||
 
 ## <a name="query-specification"></a>쿼리 사양
@@ -118,10 +118,17 @@ ms.locfileid: "102584021"
 
 #### <a name="select"></a>SELECT
 
-쿼리의 이 부분은 내보낼 열을 지정합니다. 선택할 수 있는 열은 데이터 세트의 `selectableColumns` 및 `availableMetrics` 섹션에 나열된 필드입니다. 내보낸 마지막 행은 선택한 열에 항상 고유한 값이 포함됩니다. 예를 들어 내보낸 파일에는 중복 행이 없습니다. 선택한 열의 모든 고유 조합에 대해 메트릭이 계산됩니다.
+쿼리의 이 부분은 내보낼 열을 지정합니다. 선택할 수 있는 열은 데이터 세트의 `selectableColumns` 및 `availableMetrics` 섹션에 나열된 필드입니다. 선택한 필드 목록에 메트릭 열이 포함된 경우 비메트릭 열의 모든 고유한 조합에 대해 메트릭이 계산됩니다. 
 
 **예제**:
 - **SELECT** `OfferName`, `NormalizedUsage`
+
+#### <a name="distinct"></a>DISTINCT
+
+SELECT 다음에 DISTINCT 키워드를 추가하면 최종 내보낸 데이터에 중복 행이 없습니다. DISTINCT 키워드는 메트릭 열의 선택 여부에 관계없이 작동합니다.
+
+**예제**:
+- **SELECT DISTINCT** `MarketplaceSubscriptionId, OfferType`
 
 #### <a name="from"></a>FROM
 

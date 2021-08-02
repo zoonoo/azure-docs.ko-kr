@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5755e14e53d359fd8b322939bf1325d21536d593
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b962282ee4e488d026b6475c63fc32e6a77cee74
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89020187"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591533"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>예제: Bing Entity Search API를 사용하여 사용자 지정 기술 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "89020187"
 
 + 사용자 지정 기술을 통해 구현해야 하는 입출력 인터페이스를 잘 모르겠으면 [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md) 문서를 참조하세요.
 
-+ [!INCLUDE [cognitive-services-bing-entity-search-signup-requirements](../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
++ Azure Portal을 통해 [Bing Search v7 리소스](https://ms.portal.azure.com/#create/Microsoft.BingSearch)를 만듭니다. 이 예제에 무료 계층이 제공되며 사용하기에 충분합니다.
 
 + Azure 개발 워크로드를 포함하여 [Visual Studio 2019](https://www.visualstudio.com/vs/) 이상을 설치합니다.
 
@@ -36,15 +36,13 @@ ms.locfileid: "89020187"
 
 1. Visual Studio의 파일 메뉴에서 **새로 만들기** > **프로젝트** 를 선택합니다.
 
-1. 새 프로젝트 대화 상자에서 **설치됨** 을 선택하고, **Visual C#** > **클라우드** 를 확장하고, **Azure Functions** 를 선택하고, 프로젝트의 이름을 입력한 다음, **확인** 을 선택합니다. 함수 앱 이름은 C# 네임스페이스로 유효해야 하므로 밑줄, 하이픈 또는 영숫자가 아닌 다른 문자는 사용할 수 없습니다.
-
-1. **Azure Functions v2(.NET Core)** 를 선택합니다. 버전 1에서도 수행할 수 있지만 아래에 작성된 코드는 v2 템플릿을 기반으로 합니다.
+1. 새 프로젝트 대화 상자에서 템플릿으로 **Azure Functions** 를 선택하고 **다음** 을 선택합니다. 프로젝트 이름을 입력하고 **만들기** 를 선택합니다. 함수 앱 이름은 C# 네임스페이스로 유효해야 하므로 밑줄, 하이픈 또는 영숫자가 아닌 다른 문자는 사용할 수 없습니다.
 
 1. 형식을 **HTTP 트리거** 로 선택합니다.
 
 1. 스토리지 계정의 경우, 이 함수에 대한 스토리지가 필요하지 않으므로 **없음** 을 선택할 수 있습니다.
 
-1. **확인** 을 선택하여 함수 프로젝트 및 HTTP 트리거 함수를 만듭니다.
+1. **만들기** 를 선택하여 함수 프로젝트 및 HTTP 트리거 함수를 만듭니다.
 
 ### <a name="modify-the-code-to-call-the-bing-entity-search-service"></a>Bing Entity Search 서비스를 호출하도록 코드 수정
 
@@ -76,7 +74,7 @@ namespace SampleSkills
     {
         #region Credentials
         // IMPORTANT: Make sure to enter your credential and to verify the API endpoint matches yours.
-        static readonly string bingApiEndpoint = "https://api.cognitive.microsoft.com/bing/v7.0/entities/";
+        static readonly string bingApiEndpoint = "https://api.bing.microsoft.com/v7.0/entities";
         static readonly string key = "<enter your api key here>";  
         #endregion
 
@@ -447,11 +445,11 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 }
 ```
 
-여기서는 기술 세트에 포함되고 조직 목록으로 문서를 보강한 기본 제공 [엔터티 인식 기술](cognitive-search-skill-entity-recognition.md)을 사용합니다. 참고로, 필요한 데이터를 생성하는 데 충분한 엔터티 추출 기술 구성은 다음과 같습니다.
+여기서는 기술 세트에 포함되고 조직 목록으로 문서를 보강한 기본 제공 [엔터티 인식 기술](cognitive-search-skill-entity-recognition-v3.md)을 사용합니다. 참고로, 필요한 데이터를 생성하는 데 충분한 엔터티 추출 기술 구성은 다음과 같습니다.
 
 ```json
 {
-    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
     "name": "#1",
     "description": "Organization name extraction",
     "context": "/document/merged_content",

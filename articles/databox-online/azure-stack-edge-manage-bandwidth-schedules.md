@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro 대역폭 일정 관리 | Microsoft Docs
-description: Azure Portal을 사용하여 Azure Stack Edge Pro에서 대역폭 일정을 관리하는 방법을 설명합니다.
+title: Azure Stack Edge Pro FPGA 대역폭 일정 관리
+description: Azure Portal을 사용하여 Azure Stack Edge Pro FPGA에서 대역폭 일정을 관리하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: e73a02c93807072e30c8ce2a1a7feb30e9d3c8c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a89b5359b48b1ad7d0e0a3c32f0e637ba5b2264
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91978971"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460809"
 ---
-# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro"></a>Azure Portal을 사용하여 Azure Stack Edge Pro에서 대역폭 일정 관리  
+# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-fpga"></a>Azure Portal을 사용하여 Azure Stack Edge Pro FPGA에서 대역폭 일정 관리  
 
-이 문서에서는 Azure Stack Edge Pro에서 사용자를 관리하는 방법을 설명합니다. 대역폭 일정을 사용하면 여러 시간대의 일정에 대해 네트워크 대역폭 사용량을 구성할 수 있습니다. 이러한 일정은 디바이스에서 클라우드로 업로드 및 다운로드 작업에 적용할 수 있습니다.
+이 문서에서는 Azure Stack Edge Pro FPGA에서 사용자를 관리하는 방법을 설명합니다. 대역폭 일정을 사용하면 여러 시간대의 일정에 대해 네트워크 대역폭 사용량을 구성할 수 있습니다. 이러한 일정은 디바이스에서 클라우드로 업로드 및 다운로드 작업에 적용할 수 있습니다.
 
-Azure Portal을 통해 Azure Stack Edge Pro의 대역폭 일정을 추가, 수정 또는 삭제할 수 있습니다.
+Azure Portal을 통해 Azure Stack Edge Pro FPGA의 대역폭 일정을 추가, 수정 또는 삭제할 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -71,7 +71,7 @@ Azure Portal을 통해 Azure Stack Edge Pro의 대역폭 일정을 추가, 수�
 
 ## <a name="delete-a-schedule"></a>일정 삭제
 
-Azure Stack Edge Pro 디바이스와 연결된 대역폭 일정을 삭제하려면 다음 단계를 수행합니다.
+Azure Stack Edge Pro FPGA 디바이스와 연결된 대역폭 일정을 삭제하려면 다음 단계를 수행합니다.
 
 1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음 **대역폭** 으로 이동합니다.  
 

@@ -6,15 +6,15 @@ ms.service: storage
 ms.topic: how-to
 ms.author: jukullam
 ms.reviewer: dineshm
-ms.date: 01/11/2021
+ms.date: 05/05/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 3ae0904eda2608026ad09ba8b8993008380725f4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 88ad67b03b3362b3430daefd81a4d1b0475b0980
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788532"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854651"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트를 배포하는 GitHub Actions 워크플로 설정
 
@@ -117,7 +117,7 @@ Azure 구독 및 GitHub 계정
               creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
-1. Azure CLI 작업을 사용하여 Blob Storage에 코드를 업로드하고 CDN 엔드포인트를 제거합니다. `az storage blob upload-batch`의 경우 자리 표시자를 스토리지 계정 이름으로 바꿉니다. 스크립트는 `$web` 컨테이너에 업로드됩니다. `az cdn endpoint purge`의 경우 자리 표시자를 CDN 프로필 이름, CDN 엔드포인트 이름 및 리소스 그룹으로 바꿉니다.
+1. Azure CLI 작업을 사용하여 Blob Storage에 코드를 업로드하고 CDN 엔드포인트를 제거합니다. `az storage blob upload-batch`의 경우 자리 표시자를 스토리지 계정 이름으로 바꿉니다. 스크립트는 `$web` 컨테이너에 업로드됩니다. `az cdn endpoint purge`의 경우 자리 표시자를 CDN 프로필 이름, CDN 엔드포인트 이름 및 리소스 그룹으로 바꿉니다. CDN 제거 속도를 높이려면 `--no-wait` 옵션을 `az cdn endpoint purge`에 추가할 수 있습니다.
 
     ```yaml
         - name: Upload to blob storage
@@ -171,6 +171,7 @@ Azure 구독 및 GitHub 계정
         - name: logout
           run: |
                 az logout
+          if: always()
     ```
 
 ## <a name="review-your-deployment"></a>배포 검토

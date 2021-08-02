@@ -5,14 +5,14 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 05/17/2021
 ms.author: qixwang
-ms.openlocfilehash: 94c22ffd423c32ba5f489298267464ca36abaecd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b25f56b238c7f0c42a1ba589f7da2d68344c915
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101099536"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110464394"
 ---
 # <a name="configure-an-azure-front-door-standardpremium-route"></a>Azure Front Door 표준/프리미엄 경로 구성
 
@@ -52,7 +52,7 @@ Azure Front Door 경로를 구성하기 전에 현재 엔드포인트 내에서 
 
     :::image type="content" source="../media/how-to-configure-route/add-route-page.png" alt-text="경로 추가 페이지의 스크린샷." lightbox="../media/how-to-configure-route/add-route-page-expanded.png"::: 
 
-    | 설정 | 값 |
+    | 설정 | Description |
     | --- | --- |
     | 이름 | 새 경로의 고유한 이름을 입력합니다. |   
     | 도메인| 유효성이 검사되고 다른 경로에 연결되지 않은 도메인을 하나 이상 선택합니다. |
@@ -60,7 +60,7 @@ Azure Front Door 경로를 구성하기 전에 현재 엔드포인트 내에서 
     | 허용되는 프로토콜 | 클라이언트가 요청할 때 Azure Front Door가 허용할 프로토콜을 지정합니다. |
     | 리디렉션 | HTTP 요청을 사용하여 들어오는 요청에 HTTPS를 적용할지 여부를 지정합니다. |
     | 원본 그룹 | 원본으로 돌아가기 요청이 발생할 때 전달할 원본 그룹을 선택합니다. |
-    | 원본 경로 | 캐시하려는 리소스의 경로를 입력합니다. 도메인에서 어떤 리소스도 캐시할 수 있도록 허용하려면 이 설정을 비워 둡니다. |
+    | 원본 경로 | 이 경로는 원본에 전달된 요청을 생성할 때 Azure Front Door가 사용할 URL을 다시 작성하는데 사용됩니다. 기본값으로 이 경로는 제공되지 않습니다. 따라서 Azure Front Door는 원본에 대한 요청의 수신 URL 경로를 사용합니다. 수신 경로의 일치하는 부분을 원본에 대한 요청 경로로 복사하는 와일드카드 경로를 지정할 수도 있습니다. </br></br>일치시킬 패턴: `/foo/*`</br>원본 경로: `/fwd/`</br></br>수신 URL 경로: `/foo/a/b/c/`</br>Azure Front Door에서 원본으로 가는 URL: `fwd/a/b/c`. |
     | 전달 프로토콜 | 전달 요청에 사용되는 프로토콜을 선택합니다. |
     | 캐싱 | Azure Front Door에 정적 콘텐츠 캐싱을 사용하도록 설정하려면 이 옵션을 선택합니다. |
     | 규칙 | 이 경로에 적용될 규칙 집합을 선택합니다. 규칙을 구성하는 방법에 대한 자세한 내용은 [Azure Front Door 규칙 집합 구성](how-to-configure-rule-set.md)을 참조하세요. | 

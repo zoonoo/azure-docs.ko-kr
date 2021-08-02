@@ -3,12 +3,12 @@ title: Azure Backup Server를 사용하여 VMware VM 백업
 description: 이 문서에서는 Azure Backup Server를 사용하여 VMware vCenter/ESXi 서버에서 실행 중인 VMware VM을 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12374393d0f94c567a68f1e28b6479e0747f3d40
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96002956"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084595"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
 
@@ -403,17 +403,17 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 >[!NOTE]
 > 이 기능은 MABS V3 UR1에 적용됩니다.
 
-이전 버전의 MABS에서는 보호 그룹 간에만 병렬 백업이 수행되었습니다. MABS V3 UR1을 사용하면 단일 보호 그룹 내의 모든 VMWare VM 백업이 병렬화되어 VM 백업 속도가 빨라집니다. 모든 VMWare 델타 복제 작업이 병렬로 실행됩니다. 기본적으로 병렬로 실행할 작업 수는 8로 설정됩니다.
+이전 버전의 MABS에서는 보호 그룹 간에만 병렬 백업이 수행되었습니다. MABS V3 UR1을 사용하면 단일 보호 그룹 내의 모든 VMware VM 백업이 병렬화되어 VM 백업 속도가 빨라집니다. 모든 VMware 델타 복제 작업이 병렬로 실행됩니다. 기본적으로 병렬로 실행할 작업 수는 8로 설정됩니다.
 
 아래 표시된 대로 레지스트리 키를 사용하여 작업 수를 수정할 수 있습니다(기본적으로 표시되지 않으며 추가해야 함).
 
-**키 경로**: `Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMWare`<BR>
+**키 경로**: `Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMware`<BR>
 **키 형식**: DWORD (32비트) 값.
 
 > [!NOTE]
-> 작업 수를 더 높은 값으로 수정할 수 있습니다. 작업 수를 1로 설정하면 복제 작업이 순차적으로 실행됩니다. 더 높은 값으로 설정하려면 VMWare 성능을 고려해야 합니다. 사용 중인 리소스의 수와 VMWare vSphere 서버에 필요한 추가 사용을 고려하여 병렬로 실행할 델타 복제 작업 수를 확인합니다. 또한, 변경된 내용은 새로 생성된 보호 그룹에만 적용됩니다. 기존 보호 그룹의 경우 보호 그룹에 다른 VM을 일시적으로 추가해야 합니다. 보호 그룹 구성을 적절하게 업데이트해야 합니다. 절차를 완료한 후 보호 그룹에서 VM을 제거할 수 있습니다.
+> 작업 수를 더 높은 값으로 수정할 수 있습니다. 작업 수를 1로 설정하면 복제 작업이 순차적으로 실행됩니다. 더 높은 값으로 설정하려면 VMware 성능을 고려해야 합니다. 사용 중인 리소스의 수와 VMWare vSphere 서버에 필요한 추가 사용을 고려하여 병렬로 실행할 델타 복제 작업 수를 확인합니다. 또한, 변경된 내용은 새로 생성된 보호 그룹에만 적용됩니다. 기존 보호 그룹의 경우 보호 그룹에 다른 VM을 일시적으로 추가해야 합니다. 보호 그룹 구성을 적절하게 업데이트해야 합니다. 절차를 완료한 후 보호 그룹에서 VM을 제거할 수 있습니다.
 
-## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
+## <a name="vmware-vsphere-67"></a>VMware vSphere 6.7
 
 vSphere 6.7을 백업하려면 다음을 수행합니다.
 
@@ -453,7 +453,7 @@ MABS V3 UR1을 사용하여 VMware VM 백업에서 특정 디스크를 제외할
 
 디스크 제외를 구성하려면 다음 단계를 수행합니다.
 
-### <a name="identify-the-vmware-vm-and-disk-details-to-be-excluded"></a>제외할 VMWare VM 및 디스크 세부 정보 식별
+### <a name="identify-the-vmware-vm-and-disk-details-to-be-excluded"></a>제외할 VMware VM 및 디스크 세부 정보 식별
 
   1. VMware 콘솔에서 디스크를 제외하려는 VM 설정으로 이동합니다.
   2. 제외하려는 디스크를 선택하 고 해당 디스크에 대한 경로를 확인합니다.

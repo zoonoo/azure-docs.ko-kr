@@ -1,54 +1,45 @@
 ---
-title: Azure Image Builder(미리 보기)에 대해 알아보기
+title: Azure Image Builder에 대해 알아보기
 description: Azure의 가상 머신에 대한 Azure Image Builder에 대해 자세히 알아보세요.
-author: danielsollondon
-ms.author: danis
-ms.date: 03/05/2021
+author: kof-f
+ms.author: kofiforson
+ms.date: 05/24/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions
 ms.reviewer: cynthn
-ms.openlocfilehash: 20bb6925f859d497046eb42bbafb5264826b77b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7289d9d814385f31a71cbd598889e564958a0140
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104604069"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111441819"
 ---
-# <a name="preview-azure-image-builder-overview"></a>미리 보기: Azure Image Builder 개요
+# <a name="azure-image-builder-overview"></a>Azure 이미지 작성기 개요
 
 조직에서는 표준화된 VM(가상 머신) 이미지를 사용하여 클라우드로 마이그레이션하고 배포의 일관성을 유지할 수 있습니다. 이미지에는 일반적으로 미리 정의된 보안 및 구성 설정과 필수 소프트웨어가 포함되어 있습니다. 사용자 고유의 이미징 파이프라인을 설정하려면 시간, 인프라 및 설정이 필요하지만, Azure VM Image Builder를 사용하면 이미지를 설명하는 구성을 제공하고, 서비스에 제출하고, 이미지를 빌드하고 배포하기만 하면 됩니다.
  
 Azure VM Image Builder(Azure Image Builder)를 사용하여 Windows 또는 Linux 기반 Azure Marketplace 이미지, 기존 사용자 지정 이미지로 시작하고 사용자 지정 항목을 추가할 수 있습니다. Image Builder는 [HashiCorp Packer](https://packer.io/)를 기반으로 하기 때문에 일부 유사성을 발견할 수 있지만 관리되는 서비스의 혜택을 누릴 수 있습니다. [Azure Shared Image Gallery](shared-image-galleries.md)에서 이미지를 호스트하는 위치를 관리형 이미지 또는 VHD로 지정할 수도 있습니다.
 
-> [!IMPORTANT]
-> Azure Image Builder는 현재 퍼블릭 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="preview-features"></a>미리 보기 기능
+## <a name="features"></a>기능
 
-미리 보기에서는 다음 기능이 지원됩니다.
+Azure Image Builder는 다음과 같은 기능을 지원합니다.
 
 - 기준 이미지를 만들기: 최소 보안 및 회사 구성을 포함하는 이러한 이미지를 만들 수 있으므로 부서에서 추가로 사용자 지정할 수 있습니다.
 - 핵심 애플리케이션을 통합하여 VM이 생성된 후 작업을 수행하거나 구성을 추가하여 Windows Virtual Desktop 이미지를 지원할 수 있습니다.
 - 기존 이미지 패치: Image Builder에서 기존 사용자 지정 이미지를 지속적으로 패치할 수 있습니다.
 - Image Builder를 기존 가상 네트워크에 연결: 기존 구성 서버(DSC, Chef, Puppet 등), 파일 공유 또는 라우팅할 수 있는 다른 서버/서비스에 연결할 수 있습니다.
 - Azure Shared Image Gallery와 통합: 이미지를 전역적으로 배포하고, 버전을 관리하고, 크기를 조정할 수 있으며 이미지 관리 시스템을 사용할 수 있습니다.
-- 기존 이미지 빌드 파이프라인과 통합: 파이프라인에서 Image Builder를 호출하거나 간단한 Preview Image Builder Azure DevOps 태스크를 사용합니다.
+- 기존 이미지 빌드 파이프라인과 통합: 파이프라인에서 Image Builder를 호출하거나 간단한 Image Builder Azure DevOps 작업을 사용합니다.
 - 기존 이미지 사용자 지정 파이프라인을 Azure로 마이그레이션 기존 스크립트, 명령 및 프로세스를 사용하여 이미지 사용자 지정
 - VHD 형식의 이미지를 만들어 Azure Stack 지원
  
 
 ## <a name="regions"></a>영역
-이러한 지역에서는 Azure Image Builder 서비스를 미리 보기로 사용할 수 있습니다. 이러한 영역 외부로 이미지를 배포할 수 있습니다.
-- 미국 동부
-- 미국 동부 2
-- 미국 중서부
-- 미국 서부
-- 미국 서부 2
-- 북유럽
-- 서유럽
+
+Azure Image Builder 서비스는 [이러한](./linux/image-builder-json.md#location) 지역에서 사용할 수 있습니다. 이러한 영역 외부로 이미지를 배포할 수 있습니다.
 
 ## <a name="os-support"></a>OS 지원
 AIB는 다음과 같은 Azure Marketplace 기본 OS 이미지를 지원합니다.

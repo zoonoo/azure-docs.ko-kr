@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 2d6ac02402414f096a46fec0340c3074d8e1784a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d440940d98b33ae5906fe5a4a112939682196e57
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104586644"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467415"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark용 Python 라이브러리 관리
 
@@ -76,15 +76,16 @@ dependencies:
   - matplotlib
   - koalas==1.7.0
 ```
-이 environment.yml 파일에서 환경을 만드는 방법에 대한 자세한 내용은 [environment.yml 파일에서 환경 만들기](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually)를 참조하세요.
+이 environment.yml 파일에서 환경을 만드는 방법에 대한 자세한 내용은 [environment.yml 파일에서 환경 만들기](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment
+)를 참조하세요.
 
 #### <a name="update-python-packages"></a>Python 패키지 업데이트
-Spark 풀에 설치하려는 환경 사양 파일이나 라이브러리 집합을 식별한 후에는 Azure Synapse Studio 또는 Azure Portal로 이동하여 Spark 풀 라이브러리를 업데이트할 수 있습니다. 여기서 환경 사양을 제공하고 설치할 작업 영역 라이브러리를 선택할 수 있습니다. 
+Spark 풀에 설치하려는 환경 사양 파일이나 라이브러리 집합을 식별했다면, Synapse Studio 또는 Azure Portal로 이동하여 Spark 풀 라이브러리를 업데이트할 수 있습니다. 여기서 환경 사양을 제공하고 설치할 작업 영역 라이브러리를 선택할 수 있습니다. 
 
 변경 내용이 저장되면 Spark 작업은 설치를 실행하고 나중에 다시 사용할 수 있도록 결과 환경을 캐시합니다. 작업이 완료되면 새 Spark 작업 또는 Notebook 세션에서 업데이트된 풀 라이브러리를 사용합니다. 
 
-##### <a name="manage-packages-from-azure-synapse-studio-or-azure-portal"></a>Azure Synapse Studio 또는 Azure Portal에서 패키지 관리
-Spark 풀 라이브러리는 Azure Synapse Studio 또는 Azure Portal에서 관리할 수 있습니다. 
+##### <a name="manage-packages-from-synapse-studio-or-azure-portal"></a>Synapse Studio 또는 Azure Portal에서 패키지 관리
+Spark 풀 라이브러리는 Synapse Studio 또는 Azure Portal에서 관리할 수 있습니다. 
 
 Spark 풀에 라이브러리를 업데이트하거나 추가하려면:
 1. Azure Portal에서 Azure Synapse Analytics 작업 영역으로 이동합니다.
@@ -119,10 +120,10 @@ Spark 풀에 라이브러리를 업데이트하거나 추가하려면:
 
 또한 사용자는 설치 로그를 검사하여 종속성 충돌을 식별하거나 풀 업데이트 중에 설치된 라이브러리를 확인할 수도 있습니다.
 
-이러한 로그를 보려면 다음을 수행합니다.
-1. **모니터링** 탭에서 Spark 애플리케이션 목록으로 이동합니다. 
-2. 풀 업데이트에 해당하는 시스템 Spark 애플리케이션 작업을 선택합니다. 이러한 시스템 작업은 *SystemReservedJob-LibraryManagement* 제목으로 실행됩니다.
-   ![시스템 예약 라이브러리 작업을 강조하는 스크린샷.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job.png "시스템 라이브러리 작업 보기")
+이 로그를 보려면:
+1. **모니터** 탭에서 Spark 애플리케이션 목록으로 이동합니다. 
+2. 풀 업데이트에 해당하는 시스템 Spark 애플리케이션 작업을 선택합니다. 이 시스템 작업은 *SystemReservedJob-LibraryManagement* 제목으로 실행됩니다.
+   ![시스템 예약 라이브러리 작업을 강조 표시하는 스크린샷](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job.png "시스템 라이브러리 작업 보기")
 3. 보기를 전환하여 **드라이버** 및 **stdout** 로그를 봅니다. 
 4. 결과 내에서 종속성 설치와 관련된 로그가 표시됩니다.
     ![시스템 예약 라이브러리 작업 결과를 강조하는 스크린샷.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-results.png "시스템 라이브러리 작업 진행률 보기")
@@ -155,7 +156,8 @@ abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<wo
 ```
 
 >[!WARNING]
-> 아직 존재하지 않는 경우 위의 구조체를 기반으로 파일 경로를 만들어야 하는 경우도 있습니다. 예를 들어 폴더가 아직 없는 경우 ```python``` 폴더를 ```libraries``` 폴더 안에 추가해야 할 수 있습니다.
+> - 아직 존재하지 않는 경우 위의 구조체를 기반으로 파일 경로를 만들어야 하는 경우도 있습니다. 예를 들어 폴더가 아직 없는 경우 ```python``` 폴더를 ```libraries``` 폴더 안에 추가해야 할 수 있습니다.
+> - 사용자 지정 휠 파일을 관리하는 이 메서드는 Apache Spark 3.0용 Azure Synapse 런타임에서 지원되지 않습니다. 사용자 지정 휠 파일을 관리하려면 작업 영역 패키지 기능을 참조하세요.
 
 > [!IMPORTANT]
 > Azure DataLake 스토리지 메서드를 사용하여 사용자 지정 라이브러리를 설치하려면 Azure Synapse Analytics 작업 영역에 연결된 기본 Gen2 스토리지 계정에 대한 **Storage Blob 데이터 참가자** 또는 **Storage Blob 데이터 소유자** 권한이 있어야 합니다.

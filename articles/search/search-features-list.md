@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 65ee741ee928a4883def68a5c0b6d20beee441c7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fca6e59d3aa5b95db0b9ad28f652226ae2eb30ba
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105609210"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556532"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Azure Cognitive Search의 기능
 
@@ -32,8 +32,8 @@ Azure Cognitive Search는 전체 텍스트 검색 엔진, 검색 인덱스의 �
 | 범주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 기능 |
 |-------------------|----------|
 |인덱싱 중 AI 처리 | 이미지 및 텍스트 분석을 위한 [**AI 보강**](cognitive-search-concept-intro.md)은 인덱싱 파이프라인에 적용하여 원시 콘텐츠에서 텍스트 정보를 추출할 수 있습니다. [기본 제공 기술](cognitive-search-predefined-skills.md)의 몇 가지 예제에는 광학 문자 인식(스캔된 JPEG를 검색 가능하게 만듬), 엔터티 인식(조직, 이름 또는 위치 식별) 및 키 구문 인식이 포함됩니다. [사용자 정의 기술을 코딩](cognitive-search-create-custom-skill-example.md)하여 파이프라인에 연결수도 있습니다. [Azure Machine Learning 제작 기술을 통합](./cognitive-search-tutorial-aml-custom-skill.md)할 수도 있습니다. |
-| 비검색 시나리오에서 분석하고 사용할 수 있도록 보강된 콘텐츠 저장 | [**지식 저장소**](knowledge-store-concept-intro.md)는 인덱싱 파이프라인의 대체 출력입니다. 인덱스에 토큰화된 용어를 전송하는 대신, 구성에 따라 인덱싱 파이프라인에서 만든 보강 문서를 Azure Blob 스토리지 또는 테이블 스토리지에 있는 지식 저장소로 보낼 수 있습니다. 지식 저장소는 AI 기반 인덱싱(기술 세트)에서 생성됩니다. 지식 저장소의 목적은 다운스트림 분석 또는 처리를 지원하는 것입니다. 지식 저장소의 새 정보 및 구조를 사용하여 기계 학습 프로세스에 연결하거나 Power BI에서 연결하여 데이터를 탐색할 수 있습니다.<br/><br/> |
-| 캐시된 콘텐츠 | [**증분 보강(미리 보기)** ](cognitive-search-incremental-indexing-conceptual.md)은 캐시된 콘텐츠를 변경되지 않는 파이프라인 부분에 사용하여 특정 편집으로 변경되는 문서로만 처리하도록 제한합니다. |
+| 비검색 시나리오에서 분석하고 사용할 수 있도록 보강된 콘텐츠 저장 | [**지식 저장소**](knowledge-store-concept-intro.md)는 인덱싱 파이프라인의 대체 출력입니다. 인덱스에 토큰화된 용어를 전송하는 대신, 구성에 따라 인덱싱 파이프라인에서 만든 보강 문서를 Azure Blob Storage 또는 테이블 Table Storage에 있는 지식 저장소로 보낼 수 있습니다. 지식 저장소는 AI 기반 인덱싱(기술 세트)에서 생성됩니다. 지식 저장소의 목적은 다운스트림 분석 또는 처리를 지원하는 것입니다. 지식 저장소의 새 정보 및 구조를 사용하여 기계 학습 프로세스에 연결하거나 Power BI에서 연결하여 데이터를 탐색할 수 있습니다.<br/><br/> |
+| 캐시된 콘텐츠 | [**증분 보강(미리 보기)**](cognitive-search-incremental-indexing-conceptual.md)은 캐시된 콘텐츠를 변경되지 않는 파이프라인 부분에 사용하여 특정 편집으로 변경되는 문서로만 처리하도록 제한합니다. |
 
 ## <a name="query-and-user-experience"></a>쿼리 및 사용자 환경
 

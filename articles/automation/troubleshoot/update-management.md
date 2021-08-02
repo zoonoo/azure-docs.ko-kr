@@ -3,21 +3,70 @@ title: Azure Automation 업데이트 관리 문제 해결
 description: 이 문서에서는 Azure Automation 업데이트 관리와 관련된 문제를 해결하는 방법을 설명합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 01/13/2021
+ms.date: 06/10/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: c16b032502401b633532ab0fcf9518aa85a1b8d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0f773bdedcbcb014e15436732e489f9b15900f58
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579744"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951754"
 ---
 # <a name="troubleshoot-update-management-issues"></a>업데이트 관리 문제 해결
 
-이 문서에서는 머신에 업데이트 관리 기능을 배포할 때 발생할 수 있는 문제에 대해 설명합니다. 기본 문제를 확인하기 위한 Hybrid Runbook Worker 에이전트용 에이전트 문제 해결사가 제공됩니다. 문제 해결사에 대해 자세히 알아보려면 [Windows 업데이트 에이전트 문제 해결](update-agent-issues.md) 및 [Linux 업데이트 에이전트 문제 해결](update-agent-issues-linux.md)을 참조하세요. 다른 기능 배포 문제는 [기능 배포 문제 해결](onboarding.md)을 참조하세요.
+이 문서에서는 머신에서 업데이트 관리 기능을 사용하여 업데이트를 평가하고 관리할 때 발생할 수 있는 문제에 대해 설명합니다. 기본 문제를 확인하기 위한 Hybrid Runbook Worker 에이전트용 에이전트 문제 해결사가 제공됩니다. 문제 해결사에 대해 자세히 알아보려면 [Windows 업데이트 에이전트 문제 해결](update-agent-issues.md) 및 [Linux 업데이트 에이전트 문제 해결](update-agent-issues-linux.md)을 참조하세요. 다른 기능 배포 문제는 [기능 배포 문제 해결](onboarding.md)을 참조하세요.
 
 >[!NOTE]
 >Windows 머신에 업데이트 관리를 배포할 때 문제가 발생하는 경우 로컬 머신에서 Windows 이벤트 뷰어를 열고 **애플리케이션 및 서비스 로그** 에서 **Operations Manager** 이벤트 로그를 확인합니다. 이벤트 ID가 4502인 이벤트 및 `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`를 포함하는 이벤트 정보를 찾아봅니다.
+
+## <a name="scenario-windows-defender-update-always-show-as-missing"></a><a name="windows-defender-update-missing-status"></a>시나리오: Windows Defender 업데이트가 항상 누락된 것으로 표시됨
+
+### <a name="issue"></a>문제
+
+Windows Defender(**KB2267602**)에 대한 정의 업데이트가 설치 시 실행되는 평가에서 항상 누락된 것으로 표시되고 Windows 업데이트 기록을 확인하면 최신 상태로 표시됩니다.
+
+### <a name="cause"></a>원인
+
+정의 업데이트는 하루에 여러 번 게시됩니다. 그 결과 하루에 게시되는 KB2267602 릴리스가 여러 개로 표시되지만 각각 업데이트 ID와 버전이 다릅니다.
+
+업데이트 관리 평가는 11시간 후에 한 번 실행됩니다. 이 예제에서는 오전 10시에 평가가 실행되었고 당시 설치 가능한 버전으로 1.237.316.0이 있었습니다. Log Analytics 작업 영역에서 **Update** 테이블을 검색하면 정의 업데이트 1.237.316.0이 **Needed** 라는 **UpdateState** 와 함께 표시됩니다. 예약된 배포가 몇 시간 후에(예를 들어 오후 1시) 실행되고 이때 여전히 버전 1.237.316.0이 있거나 최신 버전이 있는 경우 최신 버전이 설치되고 이는 **UpdateRunProgress** 테이블에 기록되는 레코드에 반영됩니다. 그러나 **Update** 테이블에는 다음 평가가 실행될 때까지 버전 1.237.316.0이 계속 **Needed** 로 표시됩니다. 평가가 다시 실행될 때 최신 정의 업데이트가 없을 수 있으므로 **Update** 테이블에 정의 업데이트 버전 1.237.316.0이 누락된 것으로 표시되거나 최신 버전이 필요한 것으로 표시되지 않습니다. 정의 업데이트의 빈도로 인해 로그 검색에 여러 버전이 반환될 수 있습니다. 
+
+### <a name="resolution"></a>해상도
+
+다음 로그 쿼리를 실행하면 설치된 정의 업데이트가 제대로 보고되고 있는지 확인할 수 있습니다. 이 쿼리는 **Updates** 테이블에 있는 KB2267602의 생성 시간, 버전, 업데이트 ID를 반환합니다. *Computer* 의 값을 해당 머신의 정규화된 이름으로 바꿉니다.
+
+```kusto
+Update
+| where TimeGenerated > ago(14h) and OSType != "Linux" and (Optional == false or Classification has "Critical" or Classification has "Security") and SourceComputerId in ((
+    Heartbeat
+    | where TimeGenerated > ago(12h) and OSType =~ "Windows" and notempty(Computer)
+    | summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
+    | where Solutions has "updates"
+    | distinct SourceComputerId))
+| summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by Computer, SourceComputerId, UpdateID
+| where UpdateState =~ "Needed" and Approved != false and Computer == "<computerName>"
+| render table
+```
+
+쿼리를 실행하면 다음과 유사한 결과가 반환되어야 합니다.
+
+:::image type="content" source="./media/update-management/example-query-updates-table.png" alt-text="로그 쿼리로 Updates 테이블에서 가져온 결과를 보여 주는 예.":::
+
+다음 로그 쿼리를 실행하면 **UpdatesRunProgress** 테이블에 있는 KB2267602의 생성 시간, 버전 및 업데이트 ID를 가져올 수 있습니다. 이 쿼리는 해당 업데이트가 업데이트 관리에서 설치된 것인지 아니면 Microsoft 업데이트에서 머신으로 자동으로 설치된 것인지 파악하는 데 도움을 줍니다. *CorrelationId* 의 값을 해당 업데이트의 Runbook 작업 GUID(즉, **Patch-MicrosoftOMSComputer** Runbook 작업의 **MasterJOBID** 속성 값)로 바꾸고 *SourceComputerId* 를 머신의 GUID로 바꿔야 합니다.
+
+```kusto
+UpdateRunProgress
+| where OSType!="Linux" and CorrelationId=="<master job id>" and SourceComputerId=="<source computer id>"
+| summarize arg_max(TimeGenerated, Title, InstallationStatus) by UpdateId
+| project TimeGenerated, id=UpdateId, displayName=Title, InstallationStatus
+```
+
+쿼리를 실행하면 다음과 유사한 결과가 반환되어야 합니다.
+
+:::image type="content" source="./media/update-management/example-query-updaterunprogress-table.png" alt-text="로그 쿼리로 UpdatesRunProgress 테이블에서 가져온 결과를 보여 주는 예.":::
+
+**Updates** 테이블에서 가져온 로그 쿼리 결과의 **TimeGenerated** 값이 머신에서 업데이트가 설치된 때의 타임스탬프(즉, **TimeGenerated** 의 값) 또는 **UpdateRunProgress** 테이블에서 가져온 로그 쿼리 결과의 값보다 이른 시간인 경우 다음 평가를 기다립니다. 그런 다음 **Updates** 테이블에 대해 로그 쿼리를 다시 실행합니다. KB2267602에 대해 업데이트가 표시되지 않거나 최신 버전으로 표시됩니다. 그러나 최근에 평가가 실행된 후에도 **Updates** 테이블에서 동일한 버전이 **Needed** 로 표시되지만 이미 설치된 경우 Azure 지원 인시던트를 열어야 합니다.
 
 ## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a><a name="updates-linux-installed-different"></a>시나리오: Linux 업데이트가 보류 중으로 표시되고 설치된 Linux 업데이트가 서로 다름
 
@@ -188,11 +237,13 @@ Automation 리소스 공급자를 등록하려면 Azure Portal에서 다음 단�
 
 5. 나열되지 않은 경우 [리소스 공급자 등록 오류 해결](../../azure-resource-manager/templates/error-register-resource-provider.md)의 단계를 수행하여 Microsoft.Automation 공급자를 등록합니다.
 
-## <a name="scenario-scheduled-update-with-a-dynamic-schedule-missed-some-machines"></a><a name="scheduled-update-missed-machines"></a>시나리오: 동적 일정에 따라 예약된 업데이트에서 일부 머신이 누락됨
+## <a name="scenario-scheduled-update-did-not-patch-some-machines"></a><a name="scheduled-update-missed-machines"></a>시나리오: 예약된 업데이트가 일부 머신을 패치하지 않음
 
 ### <a name="issue"></a>문제
 
-업데이트 미리 보기에 포함된 머신 중 일부가 예약된 실행 동안 패치된 머신 목록에 표시되지 않습니다.
+업데이트 미리 보기에 포함된 머신 중 일부가 예약된 실행 중에 패치된 머신 목록에 표시되지 않거나 동적 그룹에서 선택된 범위의 VM이 포털의 업데이트 미리 보기 목록에 표시되지 않습니다.
+
+업데이트 미리 보기 목록은 선택한 범위에 대해 [Azure Resource Graph](../../governance/resource-graph/overview.md) 쿼리를 실행하여 검색된 모든 머신으로 구성됩니다. 시스템 Hybrid Runbook Worker가 설치되어 있고 사용자에게 액세스 권한이 있는 머신에 대해 범위가 필터링됩니다.
 
 ### <a name="cause"></a>원인
 
@@ -201,6 +252,12 @@ Automation 리소스 공급자를 등록하려면 Azure Portal에서 다음 단�
 * 동적 쿼리의 범위에서 정의된 구독은 등록된 Automation 리소스 공급자에 대해 구성되지 않습니다.
 
 * 일정이 실행될 때 머신을 사용할 수 없거나 머신에 적절한 태그가 없습니다.
+
+* 선택한 범위에 대한 올바른 액세스 권한이 없습니다.
+
+* Azure Resource Graph 쿼리가 예상대로 머신을 검색하지 않습니다.
+
+* 시스템 Hybrid Runbook Worker가 머신에 설치되어 있지 않습니다.
 
 ### <a name="resolution"></a>해결 방법
 
@@ -238,31 +295,15 @@ Automation 리소스 공급자에 대해 구독이 구성되지 않은 경우 �
 
 7. 지정된 동적 그룹이 있는 배포에 모든 머신이 포함되도록 업데이트 일정을 다시 실행합니다.
 
-## <a name="scenario-expected-machines-dont-appear-in-preview-for-dynamic-group"></a><a name="machines-not-in-preview"></a>시나리오: 예상 머신이 동적 그룹에 대한 미리 보기에 표시되지 않음
-
-### <a name="issue"></a>문제
-
-동적 그룹의 선택한 범위에 대한 VM이 Azure Portal 미리 보기 목록에 표시되지 않습니다. 이 목록은 선택한 범위에 대한 ARG 쿼리로 검색된 모든 머신으로 구성됩니다. Hybrid Runbook Worker가 설치되어 있고 사용자에게 액세스 권한이 있는 머신에 대해 범위가 필터링됩니다.
-
-### <a name="cause"></a>원인
-
-이 이슈의 잠재적 원인은 다음과 같습니다.
-
-* 선택한 범위에 대한 올바른 액세스 권한이 없습니다.
-* ARG 쿼리가 필요한 머신을 검색하지 않습니다.
-* Hybrid Runbook Worker가 머신에 설치되어 있지 않습니다.
-
-### <a name="resolution"></a>해결 방법 
-
 #### <a name="incorrect-access-on-selected-scopes"></a>선택한 범위에 대한 잘못된 액세스
 
 Azure Portal에는 지정된 범위에서 쓰기 권한이 있는 머신만 표시됩니다. 범위에 대한 올바른 액세스 권한이 없는 경우 [자습서: Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여](../../role-based-access-control/quickstart-assign-role-user-portal.md)를 참조하세요.
 
-#### <a name="arg-query-doesnt-return-expected-machines"></a>ARG 쿼리가 예상 머신을 반환하지 않음
+#### <a name="resource-graph-query-doesnt-return-expected-machines"></a>Resource Graph 쿼리가 예상대로 머신을 반환하지 않음
 
 아래 단계에 따라 쿼리가 제대로 작동하고 있는지 확인합니다.
 
-1. Azure Portal의 Resource Graph 탐색기 블레이드에서 아래와 같이 형식이 지정된 ARG 쿼리를 실행합니다. 이 쿼리는 업데이트 관리에서 동적 그룹을 만들 때 선택한 필터를 모방합니다. [업데이트 관리에서 동적 그룹 사용](../update-management/configure-groups.md)을 참조하세요.
+1. Azure Portal의 Resource Graph 탐색기 블레이드에서 아래와 같이 형식이 지정된 Azure Resource Graph 쿼리를 실행합니다. Azure Resource Graph를 처음 사용하는 경우 [빠른 시작](../../governance/resource-graph/first-query-portal.md)에서 Resource Graph 탐색기를 사용하는 방법을 알아보세요. 이 쿼리는 업데이트 관리에서 동적 그룹을 만들 때 선택한 필터를 모방합니다. [업데이트 관리에서 동적 그룹 사용](../update-management/configure-groups.md)을 참조하세요.
 
     ```kusto
     where (subscriptionId in~ ("<subscriptionId1>", "<subscriptionId2>") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "<Windows/Linux>" and resourceGroup in~ ("<resourceGroupName1>","<resourceGroupName2>") and location in~ ("<location1>","<location2>") )
@@ -287,7 +328,7 @@ Azure Portal에는 지정된 범위에서 쓰기 권한이 있는 머신만 표�
 
 #### <a name="hybrid-runbook-worker-not-installed-on-machines"></a>Hybrid Runbook Worker가 머신에 설치되지 않음
 
-머신이 ARG 쿼리 결과에 표시되지만 여전히 동적 그룹 미리 보기에는 표시되지 않습니다. 이 경우 머신이 Hybrid Worker로 지정되지 않을 수 있으므로 Azure Automation 및 업데이트 관리 작업을 실행할 수 없습니다. 표시하려는 머신이 Hybrid Runbook Worker로 설정되었는지 확인하려면
+머신이 Azure Resource Graph 쿼리 결과에 표시되지만 여전히 동적 그룹 미리 보기에는 표시되지 않습니다. 이 경우 머신이 시스템 Hybrid Runbook Worker로 지정되지 않을 수 있으므로 Azure Automation 및 업데이트 관리 작업을 실행할 수 없습니다. 표시하려는 머신이 시스템 Hybrid Runbook Worker로 설정되었는지 확인하는 방법은 다음과 같습니다.
 
 1. Azure Portal에서 올바르게 표시되지 않는 머신에 대한 Automation 계정으로 이동합니다.
 
@@ -297,11 +338,19 @@ Azure Portal에는 지정된 범위에서 쓰기 권한이 있는 머신만 표�
 
 4. 해당 머신에 대한 Hybrid Worker가 있는지 확인합니다.
 
-5. 머신이 Hybrid Worker로 설정되어 있지 않은 경우에는[Hybrid Runbook Worker를 사용하여 데이터 센터 또는 클라우드의 리소스 자동화](../automation-hybrid-runbook-worker.md)의 지침을 사용하여 조정합니다.
+5. 머신이 시스템 Hybrid Runbook Worker로 설정되지 않은 경우 다음 중 한 가지 방법을 검토하여 이를 사용하도록 설정합니다.
 
-6. Hybrid Runbook Worker 그룹에 머신을 가입합니다.
+   - Arc 사용 서버를 포함하여 하나 이상의 Azure 및 비 Azure 머신에 대한 [Automation 계정](../update-management/enable-from-automation-account.md).
 
-7. 미리 보기에 표시되지 않은 모든 머신에 대해 위 단계를 반복합니다.
+   - **Enable-AutomationSolution** [Runbook](../update-management/enable-from-runbook.md)을 사용하여 Azure VM 온보딩을 자동화합니다.
+
+   - Azure Portal의 **가상 머신** 페이지에서 [선택한 Azure VM](../update-management/enable-from-vm.md)의 경우. 이 시나리오는 Linux VM과 Windows VM에서 지원됩니다.
+
+   - [여러 Azure VM](../update-management/enable-from-portal.md)의 경우 Azure Portal의 **가상 머신** 페이지에서 해당 VM을 선택합니다.
+
+   사용하도록 설정하는 방법은 해당 머신이 실행 중인 환경에 따라 다릅니다.
+
+6. 미리 보기에 표시되지 않은 모든 머신에 대해 위 단계를 반복합니다.
 
 ## <a name="scenario-update-management-components-enabled-while-vm-continues-to-show-as-being-configured"></a><a name="components-enabled-not-working"></a>시나리오: 업데이트 관리 구성 요소가 사용하도록 설정되었으나 VM이 계속 구성 중으로 표시됨
 
@@ -335,7 +384,7 @@ Update
 
 #### <a name="communication-with-automation-account-blocked"></a>Automation 계정에 대한 통신이 차단됨
 
-[네트워크 계획](../update-management/overview.md#ports)으로 이동하여 업데이트 관리가 작동하려면 어떤 주소 및 포트를 허용해야 하는지 알아보세요.
+[네트워크 계획](../update-management/plan-deployment.md#ports)으로 이동하여 업데이트 관리가 작동하려면 어떤 주소 및 포트를 허용해야 하는지 알아보세요.
 
 #### <a name="duplicate-computer-name"></a>중복 컴퓨터 이름
 
@@ -403,10 +452,10 @@ Windows 업데이트는 여러 레지스트리 키로 수정할 수 있으며, �
 
 ### <a name="issue"></a>문제
 
-머신이 `Failed to start` 상태를 표시합니다. 머신에 대한 특정 세부 정보를 볼 때 다음과 같은 오류가 표시됩니다.
+머신이 `Failed to start` 또는 `Failed` 상태를 표시합니다. 머신에 대한 특정 세부 정보를 볼 때 다음과 같은 오류가 표시됩니다.
 
 ```error
-Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
+For one or more machines in schedule, UM job run resulted in either Failed or Failed to start state. Guide available at https://aka.ms/UMSucrFailed.
 ```
 
 ### <a name="cause"></a>원인
@@ -421,9 +470,11 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 
 ### <a name="resolution"></a>해결 방법
 
+REST API를 사용하여 프로그래밍 방식으로 세부 정보를 검색할 수 있습니다. ID를 기준으로 업데이트 구성 머신 실행 목록 또는 단일 소프트웨어 구성 머신 실행을 검색하는 방법에 대한 자세한 내용은 [소프트웨어 업데이트 구성 머신 실행](/rest/api/automation/softwareupdateconfigurationmachineruns)을 참조하세요.
+
 해당하는 경우 업데이트 배포에 [동적 그룹](../update-management/configure-groups.md)을 사용합니다. 또한 다음 단계를 수행할 수 있습니다.
 
-1. 머신 또는 서버가 [요구 사항](../update-management/overview.md#system-requirements)을 충족하는지 확인합니다.
+1. 머신 또는 서버가 [요구 사항](../update-management/operating-system-requirements.md)을 충족하는지 확인합니다.
 2. Hybrid Runbook Worker 에이전트 문제 해결사를 사용하여 Hybrid Runbook Worker에 대한 연결을 확인합니다. 이 문제 해결사에 대한 자세한 내용은 [업데이트 에이전트 문제 해결](update-agent-issues.md)을 참조하세요.
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>시나리오: 배포 없이 업데이트가 설치됨
@@ -515,11 +566,13 @@ Hybrid Runbook Worker가 자체 서명 인증서를 생성할 수 없습니다.
 
 ### <a name="issue"></a>문제
 
-업데이트를 위한 기본 유지 관리 기간은 120분입니다. 유지 관리 기간을 최대 6시간 또는 360분으로 늘릴 수 있습니다.
+업데이트를 위한 기본 유지 관리 기간은 120분입니다. 유지 관리 기간을 최대 6시간 또는 360분으로 늘릴 수 있습니다. 다음 오류 메시지가 나타날 수 있습니다. `For one or more machines in schedule, UM job run resulted in Maintenance Window Exceeded state. Guide available at https://aka.ms/UMSucrMwExceeded.`
 
 ### <a name="resolution"></a>해결 방법
 
 업데이트가 제대로 시작된 후 실행 중에 실패하는 일이 발생하는 이유를 이해하려면 실행 중에 영향을 받는 머신의 [작업 출력을 확인합니다](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment). 머신에서 특정 오류 메시지를 찾아 조치를 취할 수 있습니다.  
+
+REST API를 사용하여 프로그래밍 방식으로 세부 정보를 검색할 수 있습니다. ID를 기준으로 업데이트 구성 머신 실행 목록 또는 단일 소프트웨어 구성 머신 실행을 검색하는 방법에 대한 자세한 내용은 [소프트웨어 업데이트 구성 머신 실행](/rest/api/automation/softwareupdateconfigurationmachineruns)을 참조하세요.
 
 모든 실패한 예약 업데이트 배포를 편집하고 유지 관리 기간을 늘립니다.
 
@@ -554,7 +607,7 @@ HRESULT가 표시되는 경우 전체 예외 메시지를 보려면 빨간색으
 |예외  |해결 방법 또는 작업  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | [Windows 업데이트 오류 코드 목록](https://support.microsoft.com/help/938205/windows-update-error-code-list)에서 관련 오류 코드를 검색하여 예외의 원인에 대한 추가 세부 정보를 찾을 수 있습니다.        |
-|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | 네트워크 연결 이슈를 나타냅니다. 머신이 네트워크를 통해 업데이트 관리에 연결되어 있는지 확인합니다. 필요한 포트 및 주소 목록은 [네트워크 계획](../update-management/overview.md#ports) 섹션을 참조하세요.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | 네트워크 연결 이슈를 나타냅니다. 머신이 네트워크를 통해 업데이트 관리에 연결되어 있는지 확인합니다. 필요한 포트 및 주소 목록은 [네트워크 계획](../update-management/plan-deployment.md#ports) 섹션을 참조하세요.        |
 |`0x8024001E`| 서비스 또는 시스템이 종료 중이어서 업데이트 작업이 완료되지 않았습니다.|
 |`0x8024002E`| Windows 업데이트 서비스를 사용할 수 없습니다.|
 |`0x8024402C`     | WSUS 서버를 사용하는 경우 레지스트리 키 `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` 아래에 있는 `WUServer` 및 `WUStatusServer`의 레지스트리 값에 올바른 WSUS 서버를 지정합니다.        |
@@ -620,7 +673,7 @@ HRESULT가 표시되는 경우 전체 예외 메시지를 보려면 빨간색으
 
 ### <a name="installing-updates-by-classification-on-linux"></a>Linux에서 분류를 기준으로 업데이트 설치
 
-분류("중요 업데이트 및 보안 업데이트")를 기준으로 Linux에 업데이트를 배포할 때, 특히 CentOS와 관련하여 중요한 주의 사항이 있습니다. 이러한 제한 사항은 [업데이트 관리 개요 페이지](../update-management/overview.md#linux)에 설명되어 있습니다.
+분류("중요 업데이트 및 보안 업데이트")를 기준으로 Linux에 업데이트를 배포할 때, 특히 CentOS와 관련하여 중요한 주의 사항이 있습니다. 이러한 제한 사항은 [업데이트 관리 개요 페이지](../update-management/overview.md#update-classifications)에 설명되어 있습니다.
 
 ### <a name="kb2267602-is-consistently-missing"></a>KB2267602가 지속적으로 누락됨
 

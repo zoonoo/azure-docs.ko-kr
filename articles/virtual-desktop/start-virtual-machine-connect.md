@@ -3,43 +3,43 @@ title: 가상 머신 연결 시작 - Azure
 description: 연결 시 가상 머신 시작 기능을 구성하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 05/21/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: af95cf5d3e4112c717d653062f186797d48fb515
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 7e4ca9a6cfc87844bf74131b145c19aecd964554
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389811"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752138"
 ---
 # <a name="start-virtual-machine-on-connect-preview"></a>연결 시 가상 머신 시작(미리 보기)
 
 > [!IMPORTANT]
-> 연결 시 VM 시작 기능은 현재 퍼블릭 미리 보기로 제공됩니다.
+> 연결 시 VM 시작 기능은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-연결 시 VM(가상 머신) 시작(미리 보기) 기능을 사용하면 VM을 사용하지 않을 때 할당을 취소하여 비용을 절감할 수 있습니다. VM을 다시 사용해야 하는 경우에는 VM을 다시 켜기만 하면 됩니다.
+연결 시 VM(가상 머신) 시작(미리 보기) 기능을 사용하면 최종 사용자가 필요할 때만 VM을 켤 수 있으므로 비용을 절감할 수 있습니다. 그런 다음 필요하지 않을 때 VM을 끌 수 있습니다.
 
 >[!NOTE]
->Windows Virtual Desktop(클래식)은 이 기능을 지원하지 않습니다.
+>Azure Virtual Desktop(클래식)은 이 기능을 지원하지 않습니다.
 
 ## <a name="requirements-and-limitations"></a>요구 사항 및 제한 사항:
 
-개인 호스트 풀에 대해서만 연결 시 VM 시작 기능을 사용하도록 설정할 수 있습니다. 개인 호스트 풀에 대해 자세히 알아보려면 [Windows Virtual Desktop 환경](environment-setup.md#host-pools)을 참조하세요.
+PowerShell 및 Azure Portal을 사용하여 개인 또는 풀링된 호스트 풀에 대해 연결 시 VM 시작 기능을 사용하도록 설정할 수 있습니다.
 
 다음 원격 데스크톱 클라이언트는 연결 시 VM 시작 기능을 지원합니다.
 
 - [웹 클라이언트](connect-web.md)
 - [Windows 클라이언트(버전 1.2748 이상)](connect-windows-7-10.md)
+- [Android 클라이언트(버전 10.0.10 이상)](connect-android.md)
+- [macOS 클라이언트(버전 10.6.4 이상)](connect-macos.md)
 
 [기술 커뮤니티 포럼](https://aka.ms/wvdtc)에서 업데이트 및 클라이언트 지원에 대한 공지를 확인할 수 있습니다.
 
-Azure Government 클라우드는 현재 연결 시 VM 시작을 지원하지 않습니다.
-
 ## <a name="create-a-custom-role-for-start-vm-on-connect"></a>연결 시 VM 시작에 대한 사용자 지정 역할 만들기
 
-연결 시 VM 시작 기능을 구성하려면 먼저 VM에 사용자 지정 RBAC(역할 기반 액세스 제어) 역할을 할당해야 합니다. 이 역할을 통해 Windows Virtual Desktop에서 구독의 VM을 관리할 수 있습니다. 또한 이 역할을 사용하여 VM을 켜고, 상태를 확인하고, 진단 정보를 보고할 수 있습니다. 각 역할의 기능에 대해 자세히 알아보려면 [Azure 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조하세요.
+연결 시 VM 시작 기능을 구성하려면 먼저 VM에 사용자 지정 RBAC(역할 기반 액세스 제어) 역할을 할당해야 합니다. 이 역할을 통해 Azure Virtual Desktop에서 구독의 VM을 관리할 수 있습니다. 또한 이 역할을 사용하여 VM을 켜고, 상태를 확인하고, 진단 정보를 보고할 수 있습니다. 각 역할의 기능에 대해 자세히 알아보려면 [Azure 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조하세요.
 
 ### <a name="use-the-azure-portal"></a>Azure Portal 사용
 
@@ -61,7 +61,7 @@ Azure Portal을 사용하여 연결 시 VM 시작에 대한 사용자 지정 역
 
 5. 작업을 마쳤으면 **확인** 을 선택합니다.
 
-그런 다음, 역할을 할당하여 Windows Virtual Desktop에 대한 액세스 권한을 부여해야 합니다.
+그런 다음, 역할을 할당하여 Azure Virtual Desktop에 대한 액세스 권한을 부여해야 합니다.
 
 사용자 지정 역할을 할당하려면 다음을 수행합니다.
 
@@ -69,13 +69,13 @@ Azure Portal을 사용하여 연결 시 VM 시작에 대한 사용자 지정 역
 
 2. 방금 만든 역할을 선택합니다.
 
-3. 검색 창에서 **Windows Virtual Desktop** 을 입력하고 선택합니다.
+3. 검색 창에서 **Azure Virtual Desktop** 을 입력하고 선택합니다.
 
       >[!NOTE]
-      >Windows Virtual Desktop(클래식)을 배포한 경우 두 개의 앱이 표시될 수 있습니다. 표시되는 두 앱에 역할을 할당합니다.
+      >Azure Virtual Desktop(클래식)을 배포한 경우 두 개의 앱이 표시될 수 있습니다. 표시되는 두 앱에 역할을 할당합니다.
       >
       > [!div class="mx-imgBorder"]
-      > ![액세스 제어(IAM) 탭의 스크린샷. 검색 창에서 Windows Virtual Desktop과 Windows Virtual Desktop(클래식)이 둘 다 빨간색으로 강조 표시되어 있음](media/add-role-assignment.png)
+      > ![액세스 제어(IAM) 탭의 스크린샷. 검색 창에서 Azure Virtual Desktop과 Azure Virtual Desktop(클래식)이 둘 다 빨간색으로 강조 표시되어 있음](media/add-role-assignment.png)
 
 ### <a name="create-a-custom-role-with-a-json-file-template"></a>JSON 파일 템플릿을 사용하여 사용자 지정 역할 만들기
 
@@ -112,6 +112,8 @@ JSON 파일을 사용하여 사용자 지정 역할을 만드는 경우 다음 �
 
 연결 시 VM 시작은 호스트 풀 설정입니다. 이 기능을 사용할 사용자 그룹을 선택하려는 경우 추가하려는 사용자에게 필요한 역할만 할당해야 합니다.
 
+개인 데스크톱의 경우 이 기능은 서비스가 이미 할당했거나 사용자에게 할당할 기존 VM만 켭니다. 풀링된 호스트 풀 시나리오에서 서비스는 VM이 켜져 있지 않을 때만 VM을 켭니다. 이 기능은 첫 번째 VM이 세션 제한에 도달할 때만 추가 VM을 켭니다.
+
 >[!IMPORTANT]
 > 이 기능은 기존 호스트 풀에서만 구성할 수 있습니다. 새 호스트 풀을 만들 때는 이 기능을 사용할 수 없습니다.
 
@@ -121,12 +123,9 @@ Azure Portal을 사용하여 연결 시 VM 시작을 구성하려면 다음을 �
 
 1. 브라우저를 열고 [Azure Portal](https://portal.azure.com)로 이동합니다.
 
-2. Azure Portal에서 **Windows Virtual Desktop** 으로 이동합니다.
+2. Azure Portal에서 **Azure Virtual Desktop** 으로 이동합니다.
 
-3. **호스트 풀** 을 선택한 다음, 역할을 할당한 개인 데스크톱이 포함된 호스트 풀을 찾습니다.
-
-   >[!NOTE]
-   > 이 기능을 구성하는 호스트 풀에는 직접 역할을 할당하는 개인 데스크톱이 있어야 합니다. 호스트 풀의 데스크톱이 올바르게 구성되지 않은 경우 구성 프로세스가 작동하지 않습니다.
+3. **호스트 풀** 을 선택한 다음 설정을 사용하도록 설정할 호스트 풀로 이동합니다.
 
 4. 호스트 풀에서 **속성** 을 선택합니다. **연결 시 VM 시작** 에서 **예** 를 선택한 다음, **저장** 을 선택하여 설정을 즉시 적용합니다.
 
@@ -159,9 +158,11 @@ PowerShell을 사용하여 연결 시 VM 시작을 구성하려면 다음을 수
 
 ## <a name="troubleshooting"></a>문제 해결
 
-기능에서 문제가 발생하면 Windows Virtual Desktop [진단 기능](diagnostics-log-analytics.md)을 사용하여 문제를 확인하는 것이 좋습니다. 오류 메시지가 표시되면 메시지 내용을 자세히 확인하고 오류 이름을 참조용으로 다른 위치에 복사해 두어야 합니다.
+기능에서 문제가 발생하면 Azure Virtual Desktop [진단 기능](diagnostics-log-analytics.md)을 사용하여 문제를 확인하는 것이 좋습니다. 오류 메시지가 표시되면 메시지 내용을 자세히 확인하고 오류 이름을 참조용으로 다른 위치에 복사해 두어야 합니다.
 
-[Azure Monitor for Windows Virtual Desktop](azure-monitor.md)을 사용하여 문제 해결 방법에 대한 제안을 받을 수도 있습니다.
+[Azure Monitor for Azure Virtual Desktop](azure-monitor.md)을 사용하여 문제 해결 방법에 대한 제안을 받을 수도 있습니다.
+
+VM이 켜지지 않으면 다른 작업을 수행하기 전에 켜려고 했던 VM의 상태를 확인해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

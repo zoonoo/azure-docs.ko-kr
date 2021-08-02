@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 3/31/2021
-ms.openlocfilehash: 230894b8e474c8d230322fb1e240f0317512d036
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.date: 06/11/2021
+ms.openlocfilehash: 20ad72a1c0e464c8d34442dd2d7056d3f7b4eea7
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031324"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060951"
 ---
 # <a name="register-and-scan-azure-synapse-workspaces"></a>Azure Synapse 작업 영역 등록 및 검사
 
@@ -28,93 +28,12 @@ Azure Synapse 작업 영역 검사는 작업 영역 내에서 전용 및 서버�
 - Azure Purview 데이터 원본 관리자여야 합니다.
 - 아래 섹션에 설명된 대로 인증 설정
 
-### <a name="setting-up-authentication-for-enumerating-dedicated-sql-database-resources-under-a-synapse-workspace"></a>Synapse 작업 영역에서 전용 SQL 데이터베이스 리소스를 열거하기 위한 인증 설정
-
-1. Azure Portal에서 Synapse 작업 영역이 있는 **리소스 그룹** 또는 **구독** 으로 이동합니다.  
-1. 왼쪽 탐색 메뉴에서  **액세스 제어(IAM)**  를 선택합니다. 
-1. 리소스 그룹 또는 구독과 관련된 역할을 추가하려면 소유자 또는 사용자 액세스 관리자여야 합니다. ‘+추가’ 단추를 선택합니다. 
-1. **읽기 권한자** 역할을 설정하고 입력 선택 상자 아래에 Azure Purview 계정 이름(해당 MSI를 나타냄)을 입력합니다. ‘저장’을 클릭하여 역할 할당을 완료합니다.
-1. 위의 2~4단계를 수행하여 Synapse 작업 영역이 있는 리소스 그룹 또는 구독에서 Azure Purview MSI의 **Storage Blob 데이터 읽기 권한자** 역할을 추가합니다.
-
-### <a name="setting-up-authentication-for-enumerating-serverless-sql-database-resources-under-a-synapse-workspace"></a>Synapse 작업 영역에서 서버리스 SQL 데이터베이스 리소스를 열거하기 위한 인증 설정
+## <a name="steps-to-register-and-scan-a-synapse-workspace"></a>Synapse 작업 영역 등록 및 검사 단계
 
 > [!NOTE]
-> 이 명령을 실행하려면 작업 영역에서 **Synapse 관리자** 여야 합니다. [여기](../synapse-analytics/security/how-to-set-up-access-control.md)에서 Synapse 권한에 관해 자세히 알아봅니다.
+> 작업 영역을 성공적으로 검사하려면 해당하는 각 단계에 지정된 정확한 권한을 적용하는 것과 함께 지정된 정확한 순서로 이러한 단계를 **반드시** 따라야 합니다.
 
-1. Synapse 작업 영역으로 이동합니다.
-1. **데이터** 섹션으로 이동하고 서버리스 SQL 데이터베이스 중 하나로 이동합니다.
-1. 줄임표 아이콘을 클릭하고 새 SQL 스크립트를 시작합니다.
-1. SQL 스크립트에서 아래 명령을 실행하여 서버리스 SQL 데이터베이스에서 **sysadmin** 으로 Azure Purview 계정 MSI(계정 이름으로 표시됨)를 추가합니다.
-    ```sql
-    CREATE LOGIN [PurviewAccountName] FROM EXTERNAL PROVIDER;
-    ALTER SERVER ROLE sysadmin ADD MEMBER [PurviewAccountName];
-    ```
-
-### <a name="setting-up-authentication-to-scan-resources-under-a-synapse-workspace"></a>Synapse 작업 영역에서 리소스를 검사하기 위한 인증 설정
-
-Azure Synapse 원본의 인증을 설정하는 방법에는 세 가지가 있습니다.
-
-- 관리 ID
-- 서비스 주체
- 
-#### <a name="using-managed-identity-for-dedicated-sql-databases"></a>전용 SQL 데이터베이스에 관리 ID 사용
-
-1. **Synapse 작업 영역** 으로 이동합니다.
-1. **데이터** 섹션으로 이동하고 서버리스 SQL 데이터베이스 중 하나로 이동합니다.
-1. 줄임표 아이콘을 클릭하고 새 SQL 스크립트를 시작합니다.
-1. SQL 스크립트에서 아래 명령을 실행하여 전용 SQL 데이터베이스에서 **db_owner** 로 Azure Purview 계정 MSI(계정 이름으로 표시됨)를 추가합니다.
-
-    ```sql
-    CREATE USER [PurviewAccountName] FROM EXTERNAL PROVIDER
-    GO
-    
-    EXEC sp_addrolemember 'db_owner', [PurviewAccountName]
-    GO
-    ```
-#### <a name="using-managed-identity-for-serverless-sql-databases"></a>서버리스 SQL 데이터베이스에 관리 ID 사용
-
-1. **Synapse 작업 영역** 으로 이동합니다.
-1. **데이터** 섹션으로 이동하고 서버리스 SQL 데이터베이스 중 하나로 이동합니다.
-1. 줄임표 아이콘을 클릭하고 새 SQL 스크립트를 시작합니다.
-1. SQL 스크립트에서 아래 명령을 실행하여 서버리스 SQL 데이터베이스에서 **sysadmin** 으로 Azure Purview 계정 MSI(계정 이름으로 표시됨)를 추가합니다.
-    ```sql
-    CREATE LOGIN [PurviewAccountName] FROM EXTERNAL PROVIDER;
-    ALTER SERVER ROLE sysadmin ADD MEMBER [PurviewAccountName];
-    ```
-
-#### <a name="using-service-principal-for-dedicated-sql-databases"></a>전용 SQL 데이터베이스에 서비스 주체 사용
-
-> [!NOTE]
-> 먼저 [여기](manage-credentials.md)에 있는 지침에 따라 서비스 주체 유형의 새 **자격 증명** 을 설정해야 합니다.
-
-1. **Synapse 작업 영역** 으로 이동합니다.
-1. **데이터** 섹션으로 이동하고 서버리스 SQL 데이터베이스 중 하나로 이동합니다.
-1. 줄임표 아이콘을 클릭하고 새 SQL 스크립트를 시작합니다.
-1. SQL 스크립트에서 아래 명령을 실행하여 전용 SQL 데이터베이스에서 **db_owner** 로 **서비스 주체 ID** 를 추가합니다.
-
-    ```sql
-    CREATE USER [ServicePrincipalID] FROM EXTERNAL PROVIDER
-    GO
-    
-    EXEC sp_addrolemember 'db_owner', [ServicePrincipalID]
-    GO
-    ```
-
-#### <a name="using-service-principal-for-serverless-sql-databases"></a>서버리스 SQL 데이터베이스에 서비스 주체 사용
-
-1. **Synapse 작업 영역** 으로 이동합니다.
-1. **데이터** 섹션으로 이동하고 서버리스 SQL 데이터베이스 중 하나로 이동합니다.
-1. 줄임표 아이콘을 클릭하고 새 SQL 스크립트를 시작합니다.
-1. SQL 스크립트에서 아래 명령을 실행하여 서버리스 SQL 데이터베이스에서 **sysadmin** 으로 Azure Purview 계정 MSI(계정 이름으로 표시됨)를 추가합니다.
-    ```sql
-    CREATE LOGIN [ServicePrincipalID] FROM EXTERNAL PROVIDER;
-    ALTER SERVER ROLE sysadmin ADD MEMBER [ServicePrincipalID];
-    ```
-
-> [!NOTE]
-> 등록하고 검사하려는 Synapse 작업 영역 내 각 전용 SQL 데이터베이스에서 인증을 설정해야 합니다. 서버리스 SQL 데이터베이스의 위에서 언급한 권한은 작업 영역 내 모든 항목에 적용됩니다. 즉, 한 번만 실행해야 합니다.
-    
-## <a name="register-an-azure-synapse-source"></a>Azure Synapse 원본 등록
+### <a name="step-1-register-your-source-a-user-with-at-least-reader-role-on-the-synapse-workspace-who-is-also-a-data-source-admin-in-purview-can-carry-out-this-step"></a>**1단계**: 원본 등록(Purview의 데이터 원본 관리자이기도 한 Synapse 작업 영역에서 최소한 읽기 권한자 역할을 가진 사용자가 이 단계를 수행할 수 있음)
 
 새 Azure Synapse 원본을 데이터 카탈로그에 등록하려면 다음을 수행합니다.
 
@@ -136,7 +55,128 @@ Azure Synapse 원본의 인증을 설정하는 방법에는 세 가지가 있습
 
     :::image type="content" source="media/register-scan-synapse-workspace/register-synapse-source-details.png" alt-text="Azure Synapse 원본의 세부 정보 채우기":::
 
-## <a name="creating-and-running-a-scan"></a>검사 만들기 및 실행
+
+### <a name="step-2-applying-permissions-to-enumerate-the-contents-of-the-workspace"></a>**2단계**: 작업 영역의 콘텐츠를 열거하기 위한 권한 적용
+
+#### <a name="setting-up-authentication-for-enumerating-dedicated-sql-database-resources-under-a-synapse-workspace"></a>Synapse 작업 영역에서 전용 SQL 데이터베이스 리소스를 열거하기 위한 인증 설정
+
+1. Azure Portal에서 Azure Synapse 작업 영역 리소스로 이동합니다.  
+1. 왼쪽 탐색 메뉴에서  **액세스 제어(IAM)**  를 선택합니다. 
+1. 리소스와 관련된 역할을 추가하려면 소유자 또는 사용자 액세스 관리자여야 합니다. ‘+추가’ 단추를 선택합니다. 
+1. **읽기 권한자** 역할을 설정하고 입력 선택 상자 아래에 Azure Purview 계정 이름(해당 MSI를 나타냄)을 입력합니다. ‘저장’을 클릭하여 역할 할당을 완료합니다.
+
+> [!NOTE]
+> Azure Purview 계정에서 여러 Azure Synapse 작업 영역을 등록하고 검사하려는 경우 **리소스 그룹** 또는 **구독** 과 같은 상위 수준에서 역할을 할당할 수도 있습니다. 
+
+#### <a name="setting-up-authentication-for-enumerating-serverless-sql-database-resources-under-a-synapse-workspace"></a>Synapse 작업 영역에서 서버리스 SQL 데이터베이스 리소스를 열거하기 위한 인증 설정
+
+> [!NOTE]
+> 이 명령을 실행하려면 작업 영역에서 **Synapse 관리자** 여야 합니다. [여기](../synapse-analytics/security/how-to-set-up-access-control.md)에서 Synapse 권한에 관해 자세히 알아봅니다.
+
+1. Synapse 작업 영역으로 이동합니다.
+1. **데이터** 섹션으로 이동하고 서버리스 SQL 데이터베이스 중 하나로 이동합니다.
+1. 줄임표 아이콘을 클릭하고 새 SQL 스크립트를 시작합니다.
+1. SQL 스크립트에서 아래 명령을 실행하여 서버리스 SQL 데이터베이스에서 **db_datareader** 로 Azure Purview 계정 MSI(계정 이름으로 표시됨)를 추가합니다.
+    ```sql
+    CREATE LOGIN [PurviewAccountName] FROM EXTERNAL PROVIDER;
+    CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
+    ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
+    ```
+> [!NOTE]
+> Synapse 작업 영역의 모든 서버리스 SQL 데이터베이스에 대해 이전 단계를 반복합니다. 
+
+
+1. Azure Portal에서 Synapse 작업 영역이 있는 **리소스 그룹** 또는 **구독** 으로 이동합니다.
+1. 왼쪽 탐색 메뉴에서  **액세스 제어(IAM)**  를 선택합니다. 
+1. 리소스 그룹 또는 구독과 관련된 역할을 추가하려면 **소유자** 또는 **사용자 액세스 관리자** 여야 합니다. ‘+추가’ 단추를 선택합니다. 
+1. **Storage Blob 데이터 읽기 권한자** 역할을 설정하고 입력 선택 상자 아래에 Azure Purview 계정 이름(해당 MSI를 나타냄)을 입력합니다. ‘저장’을 클릭하여 역할 할당을 완료합니다.
+
+### <a name="step-3-applying-permissions-to-scan-the-contents-of-the-workspace"></a>**3단계**: 작업 영역 콘텐츠 검사하기 위한 권한 적용
+
+Azure Synapse 원본의 인증을 설정하는 방법에는 두 가지가 있습니다.
+
+- 관리 ID
+- 서비스 주체
+
+> [!NOTE]
+> 등록하고 검사하려는 Synapse 작업 영역 내 각 전용 SQL 데이터베이스에서 인증을 설정해야 합니다. 서버리스 SQL 데이터베이스의 아래에서 언급한 권한은 작업 영역 내 모든 항목에 적용됩니다. 즉, 한 번만 실행해야 합니다.
+
+#### <a name="using-managed-identity-for-dedicated-sql-databases"></a>전용 SQL 데이터베이스에 관리 ID 사용
+
+1. **Synapse 작업 영역** 으로 이동합니다.
+1. **데이터** 섹션으로 이동하고 전용 SQL 데이터베이스 중 하나로 이동합니다.
+1. 줄임표 아이콘을 클릭하고 새 SQL 스크립트를 시작합니다.
+1. SQL 스크립트에서 아래 명령을 실행하여 Azure Purview 계정 MSI(계정 이름으로 표시)를 전용 SQL 데이터베이스에 **db_datareader** 로 추가합니다.
+
+    ```sql
+    CREATE USER [PurviewAccountName] FROM EXTERNAL PROVIDER
+    GO
+    
+    EXEC sp_addrolemember 'db_datareader', [PurviewAccountName]
+    GO
+    ```
+> [!NOTE]
+> Synapse 작업 영역의 모든 전용 SQL 데이터베이스에 대해 이전 단계를 반복합니다. 
+
+#### <a name="using-managed-identity-for-serverless-sql-databases"></a>서버리스 SQL 데이터베이스에 관리 ID 사용
+
+1. **Synapse 작업 영역** 으로 이동합니다.
+1. **데이터** 섹션으로 이동하고 서버리스 SQL 데이터베이스 중 하나로 이동합니다.
+1. 줄임표 아이콘을 클릭하고 새 SQL 스크립트를 시작합니다.
+1. SQL 스크립트에서 아래 명령을 실행하여 서버리스 SQL 데이터베이스에서 **db_datareader** 로 Azure Purview 계정 MSI(계정 이름으로 표시됨)를 추가합니다.
+    ```sql
+    CREATE LOGIN [PurviewAccountName] FROM EXTERNAL PROVIDER;
+    CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
+    ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
+    ```
+> [!NOTE]
+> Synapse 작업 영역의 모든 서버리스 SQL 데이터베이스에 대해 이전 단계를 반복합니다. 
+
+#### <a name="using-service-principal-for-dedicated-sql-databases"></a>전용 SQL 데이터베이스에 서비스 주체 사용
+
+> [!NOTE]
+> 먼저 [여기](manage-credentials.md)에 있는 지침에 따라 서비스 주체 유형의 새 **자격 증명** 을 설정해야 합니다.
+
+1. **Synapse 작업 영역** 으로 이동합니다.
+1. **데이터** 섹션으로 이동하고 전용 SQL 데이터베이스 중 하나로 이동합니다.
+1. 줄임표 아이콘을 클릭하고 새 SQL 스크립트를 시작합니다.
+1. SQL 스크립트에서 아래 명령을 실행하여 전용 SQL 데이터베이스에 **서비스 사용자 ID** 를 **db_datareader** 로 추가합니다.
+
+    ```sql
+    CREATE USER [ServicePrincipalID] FROM EXTERNAL PROVIDER
+    GO
+    
+    EXEC sp_addrolemember 'db_datareader', [ServicePrincipalID]
+    GO
+    ```
+> [!NOTE]
+> Synapse 작업 영역의 모든 전용 SQL 데이터베이스에 대해 이전 단계를 반복합니다. 
+
+#### <a name="using-service-principal-for-serverless-sql-databases"></a>서버리스 SQL 데이터베이스에 서비스 주체 사용
+
+1. **Synapse 작업 영역** 으로 이동합니다.
+1. **데이터** 섹션으로 이동하고 서버리스 SQL 데이터베이스 중 하나로 이동합니다.
+1. 줄임표 아이콘을 클릭하고 새 SQL 스크립트를 시작합니다.
+1. SQL 스크립트에서 아래 명령을 실행하여 서버리스 SQL 데이터베이스에서 **db_datareader** 로 Azure Purview 계정 MSI(계정 이름으로 표시됨)를 추가합니다.
+    ```sql
+    CREATE LOGIN [PurviewAccountName] FROM EXTERNAL PROVIDER;
+    CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
+    ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
+    ```
+> [!NOTE]
+> Synapse 작업 영역의 모든 서버리스 SQL 데이터베이스에 대해 이전 단계를 반복합니다. 
+
+### <a name="step-4-setting-up-synapse-workspace-firewall-access"></a>**4단계**: Synapse 작업 영역 방화벽 액세스 설정
+
+1. Azure Portal에서 Synapse 작업 영역으로 이동합니다. 
+
+3. 왼쪽 탐색에서 방화벽을 선택합니다.
+
+4. **Azure 서비스 및 리소스가 이 작업 영역에 액세스할 수 있도록 허용** 하려면 **켜기** 를 클릭합니다.
+
+5. 저장을 클릭합니다.
+
+### <a name="step-5-setting-up-a-scan-on-the-workspace"></a>**5단계**: 작업 영역에서 검사 설정
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
@@ -161,7 +201,7 @@ Azure Synapse 원본의 인증을 설정하는 방법에는 세 가지가 있습
 
 1. 검사를 검토하고 저장을 선택하여 설치를 완료합니다.   
 
-## <a name="viewing-your-scans-and-scan-runs"></a>검사 및 검사 실행 보기
+#### <a name="viewing-your-scans-and-scan-runs"></a>검사 및 검사 실행 보기
 
 1. 원본 섹션 아래 타일에서 **세부 정보 보기** 를 클릭하여 원본 세부 정보를 봅니다. 
 
@@ -176,7 +216,7 @@ Azure Synapse 원본의 인증을 설정하는 방법에는 세 가지가 있습
 
 1. 원본 세부 정보 페이지의 아래쪽에서 최근 실패한 검사 실행의 요약을 봅니다. 이 실행과 관련된 더 세분화된 세부 정보를 클릭하여 볼 수도 있습니다.
 
-## <a name="manage-your-scans---edit-delete-or-cancel"></a>검사 관리 - 편집, 삭제 또는 취소
+#### <a name="manage-your-scans---edit-delete-or-cancel"></a>검사 관리 - 편집, 삭제 또는 취소
 검사를 관리하거나 삭제하려면 다음을 수행합니다.
 
 - 관리 센터로 이동합니다. 원본 및 검사 섹션에서 데이터 원본을 선택한 다음, 원하는 데이터 원본을 선택합니다.

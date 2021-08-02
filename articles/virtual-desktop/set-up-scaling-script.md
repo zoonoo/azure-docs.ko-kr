@@ -1,23 +1,23 @@
 ---
 title: 세션 호스트 Azure Automation 크기 조정 - Azure
-description: Azure Automation을 사용하여 Windows Virtual Desktop 세션 호스트 크기를 자동으로 조정하는 방법입니다.
+description: Azure Automation을 사용하여 Azure Virtual Desktop 세션 호스트 크기를 자동으로 조정하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 80bcf647ee63242bfe60b63ed400b8d3b3dc1d9e
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: b3ac4074dd4c49933924e39e20d7dbf703525324
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445672"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755990"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Azure Automation을 사용하여 세션 호스트 크기 조정
 
-VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비용을 줄일 수 있습니다. VM을 크기 조정한다는 것은 사용량이 적은 시간에는 세션 호스트 VM을 종료 및 할당 취소하고 사용량이 많은 시간에는 다시 켜서 할당하는 것을 의미합니다.
+VM(가상 머신)을 크기 조정하여 총 Azure Virtual Desktop 배포 비용을 줄일 수 있습니다. VM을 크기 조정한다는 것은 사용량이 적은 시간에는 세션 호스트 VM을 종료 및 할당 취소하고 사용량이 많은 시간에는 다시 켜서 할당하는 것을 의미합니다.
 
-이 문서에서는 Azure Automation 계정을 사용하여 빌드된 크기 조정 도구와 Windows Virtual Desktop 환경에서 세션 호스트 VM을 자동으로 크기 조정하는 Azure Logic App에 대해 알아봅니다. 크기 조정 도구를 사용하는 방법을 알아보려면 [사전 요구 사항](#prerequisites)으로 건너뛰세요.
+이 문서에서는 Azure Automation 계정을 사용하여 빌드된 크기 조정 도구와 Azure Virtual Desktop 환경에서 세션 호스트 VM을 자동으로 크기 조정하는 Azure Logic App에 대해 알아봅니다. 크기 조정 도구를 사용하는 방법을 알아보려면 [사전 요구 사항](#prerequisites)으로 건너뛰세요.
 
 ## <a name="how-the-scaling-tool-works"></a>크기 조정 도구의 작동 방식
 
@@ -45,7 +45,7 @@ VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비�
 
 언제든지 작업은 호스트 풀의 *MaxSessionLimit* 을 고려하여 현재 세션 수가 최대 용량 중 90%를 초과하는지 확인합니다. 초과하는 경우 작업에서 추가 세션 호스트 VM을 시작합니다.
 
-작업은 설정된 되풀이 간격에 따라 주기적으로 실행됩니다. Windows Virtual Desktop 환경의 크기에 따라 이 간격을 변경할 수 있지만, VM을 시작하고 종료하는 데 다소 시간이 걸릴 수 있으므로 지연 시간을 고려해야 합니다. 되풀이 간격은 15분으로 설정하는 것이 좋습니다.
+작업은 설정된 되풀이 간격에 따라 주기적으로 실행됩니다. Azure Virtual Desktop 환경의 크기에 따라 이 간격을 변경할 수 있지만, VM을 시작하고 종료하는 데 다소 시간이 걸릴 수 있으므로 지연 시간을 고려해야 합니다. 되풀이 간격은 15분으로 설정하는 것이 좋습니다.
 
 단, 이 도구에는 다음과 같은 제한 사항도 있습니다.
 
@@ -63,8 +63,8 @@ VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비�
 
 크기 조정 도구를 설정하기 전에 먼저 다음을 준비해야 합니다.
 
-- [Windows Virtual Desktop 호스트 풀](create-host-pools-azure-marketplace.md)
-- Windows Virtual Desktop 서비스를 사용하여 구성 및 등록된 세션 호스트 풀 VM
+- [Azure Virtual Desktop 호스트 풀](create-host-pools-azure-marketplace.md)
+- Azure Virtual Desktop 서비스를 사용하여 구성 및 등록된 세션 호스트 풀 VM
 - Azure 구독에 대한 [기여자 액세스](../role-based-access-control/role-assignments-portal.md)를 갖는 사용자
 
 도구를 배포하는 데 사용할 머신에는 다음이 필요합니다.

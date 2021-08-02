@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: yuajia
-ms.openlocfilehash: e4698a1c1576d15042dd050e0123b83dba39a3e3
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 98f09b35bb51f4f93c7bf326683a333e79845de2
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064794"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810763"
 ---
 # <a name="azure-front-door-standardpremium-preview-rule-set-actions"></a>Azure Front Door 표준/프리미엄(미리 보기) 규칙 집합 작업
 
@@ -290,7 +290,7 @@ Azure Front Door 표준/프리미엄 [규칙 집합](concept-rule-set.md)은 일
 
 | 속성 | 지원되는 값 |
 |----------|------------------|
-| 원본 패턴 | 대체할 URL 경로에서 원본 패턴을 정의합니다. 현재 원본 패턴은 접두사 기반 일치를 사용합니다. 모든 URL 경로를 일치시키려면 원본 패턴 값으로 슬래시(`/`)를 사용합니다. |
+| 원본 패턴 | 바꿀 URL 경로에 원본 패턴을 정의합니다. 현재 원본 패턴은 접두사 기반 일치를 사용합니다. 모든 URL 경로를 일치시키려면 원본 패턴 값으로 슬래시(`/`)를 사용합니다. |
 | 대상 | 다시 쓰기에 사용할 대상 경로를 정의합니다. 대상 경로는 원본 패턴을 덮어씁니다. |
 | 불일치한 경로 유지 | _예_ 로 설정된 경우 원본 패턴 뒤의 나머지 경로가 새 대상 경로에 추가됩니다. |
 
@@ -326,6 +326,54 @@ Azure Front Door 표준/프리미엄 [규칙 집합](concept-rule-set.md)은 일
     destination: '/redirection'
     preserveUnmatchedPath: false
     '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRewriteActionParameters'
+  }
+}
+```
+
+---
+
+## <a name="origin-group-override"></a><a name="OriginGroupOverride"></a> 원본 그룹 재정의
+
+**원본 그룹 재정의** 작업을 사용하여 요청이 라우팅되어야 하는 원본 그룹을 변경합니다.
+
+### <a name="properties"></a>속성
+
+| 속성 | 지원되는 값 |
+|----------|------------------|
+| 원본 그룹 | 요청을 라우팅해야 하는 원본 그룹입니다. 그러면 Front Door 엔드포인트 경로에 지정된 구성이 재정의됩니다. |
+
+### <a name="example"></a>예제
+
+이 예에서는 Front Door 엔드포인트 경로의 구성에 관계없이 일치하는 모든 요청을 `SecondOriginGroup`이라는 원본 그룹으로 라우팅합니다.
+
+# <a name="portal"></a>[포털](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-actions/origin-group-override.png" alt-text="원본 그룹 재정의 작업을 보여 주는 포털 스크린샷":::
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+{
+  "name": "OriginGroupOverride",
+  "parameters": {
+    "originGroup": {
+      "id": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/SecondOriginGroup"
+    },
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleOriginGroupOverrideActionParameters"
+  }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'OriginGroupOverride'
+  parameters: {
+    originGroup: {
+      id: '/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/SecondOriginGroup'
+    }
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleOriginGroupOverrideActionParameters'
   }
 }
 ```

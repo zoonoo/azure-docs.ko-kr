@@ -1,28 +1,28 @@
 ---
 title: Azure Resource Manager 템플릿을 사용하여 관리 도구 배포 - Azure
-description: Windows Virtual Desktop(클래식) 리소스를 관리하기 위해 Azure Resource Manager 템플릿을 사용하여 사용자 인터페이스 도구 설치 방법을 설명합니다.
+description: Azure Virtual Desktop(클래식) 리소스를 관리하기 위해 Azure Resource Manager 템플릿을 사용하여 사용자 인터페이스 도구를 설치하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 1d562c483b340bee5f1c1aa5f63c068de6f54e42
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 2270f514f20d4bbe0fbd4382925b485cdc236a67
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444397"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751940"
 ---
-# <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Windows Virtual Desktop(클래식) 관리 도구 배포
+# <a name="deploy-a-azure-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Virtual Desktop(클래식) 관리 도구 배포
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다.
 
 이 문서의 지침은 Azure Resource Manager 템플릿을 사용하여 UI를 배포하는 방법을 설명합니다.
 
 ## <a name="important-considerations"></a>중요 고려 사항
 
-앱을 사용하려면 Windows Virtual Desktop과 상호 작용하도록 동의가 필요하므로 이 도구는 B2B 시나리오를 지원하지 않습니다. AAD(Azure Active Directory) 테넌트의 구독마다 별도의 관리 도구를 배포해야 합니다.
+앱을 사용하려면 Azure Virtual Desktop과 상호 작용하도록 동의가 필요하므로 이 도구는 B2B 시나리오를 지원하지 않습니다. AAD(Azure Active Directory) 테넌트의 구독마다 별도의 관리 도구를 배포해야 합니다.
 
 이 관리 도구는 샘플입니다. Microsoft에서 중요한 보안 및 품질 업데이트를 제공할 것입니다. [소스 코드는 GitHub에서 받을 수 있습니다](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). 고객과 파트너는 각자 비즈니스 요구 사항에 맞게 도구를 사용자 지정할 수 있습니다.
 
@@ -40,11 +40,11 @@ ms.locfileid: "106444397"
 - Azure 구독에서 리소스를 만드는 데 필요한 권한 보유
 - Azure AD 애플리케이션을 만드는 데 필요한 권한 보유 [필요한 권한](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)의 지침에 따라 사용자에게 필요한 권한이 있는지 확인하려면 다음 단계를 수행합니다.
 
-관리 도구를 배포하고 구성한 후에는 사용자에게 관리 UI를 시작하여 모든 기능이 작동하는지 확인하도록 요청하는 것이 좋습니다. 관리 UI를 시작하는 사용자에게는 Windows Virtual Desktop 테넌트를 보거나 편집할 수 있는 역할 할당이 있어야 합니다.
+관리 도구를 배포하고 구성한 후에는 사용자에게 관리 UI를 시작하여 모든 기능이 작동하는지 확인하도록 요청하는 것이 좋습니다. 관리 UI를 시작하는 사용자에게는 Azure Virtual Desktop 테넌트를 보거나 편집할 수 있는 역할 할당이 있어야 합니다.
 
 ## <a name="deploy-the-management-tool"></a>관리 도구 배포
 
-시작하기 전에, 표시된 AAD(Azure Active Directory)의 [Windows Virtual Desktop 동의 페이지](https://rdweb.wvd.microsoft.com)를 방문하여 서버 및 클라이언트 앱에서 동의를 받았는지 확인합니다.
+시작하기 전에, 표시된 AAD(Azure Active Directory)의 [ Virtual Desktop 동의 페이지](https://rdweb.wvd.microsoft.com)를 방문하여 서버 및 클라이언트 앱에서 동의를 받았는지 확인합니다.
 
 다음 지침에 따라 Azure Resource Manager 템플릿을 배포합니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "106444397"
 
 GitHub Azure Resource Manager 템플릿을 완료하면 두 개의 앱 서비스가 들어 있는 리소스 그룹 하나와 Azure Portal의 앱 서비스 플랜 하나가 보일 것입니다.
 
-로그인하여 관리 도구를 사용하려면 관리 도구와 연결된 새 Azure AD 애플리케이션의 사용 조건에 동의해야 합니다. 동의하면 관리 도구가 현재 도구에 로그인한 사용자를 대신하여 Windows Virtual Desktop 관리를 호출할 수 있습니다.
+로그인하여 관리 도구를 사용하려면 관리 도구와 연결된 새 Azure AD 애플리케이션의 사용 조건에 동의해야 합니다. 동의하면 관리 도구가 현재 도구에 로그인한 사용자를 대신하여 Azure Virtual Desktop 관리를 호출할 수 있습니다.
 
 > [!div class="mx-imgBorder"]
 > ![UI 관리 도구에 동의할 때 제공되는 권한을 보여주는 스크린샷.](../media/management-ui-delegated-permissions.png)
@@ -99,7 +99,7 @@ GitHub Azure Resource Manager 템플릿을 완료하면 두 개의 앱 서비스
 다음 지침에 따라 도구를 시작합니다.
 
 1. 템플릿에서 제공한 이름을 가진(예: Apr3UX) Azure App Services 리소스를 선택하고, 해당 리소스와 연결된 URL(예: `https://rdmimgmtweb-210520190304.azurewebsites.net`)로 이동합니다.
-2. Windows Virtual Desktop 자격 증명을 사용하여 로그인합니다.
+2. Azure Virtual Desktop 자격 증명을 사용하여 로그인합니다.
 3. 테넌트 그룹을 선택하라는 메시지가 표시되면 드롭다운 목록에서 **기본 테넌트 그룹** 을 선택합니다.
 4. **기본 테넌트 그룹** 을 선택하면 창의 왼쪽에 메뉴가 나타납니다. 이 메뉴에서 테넌트 그룹의 이름을 찾아서 선택합니다.
 
@@ -108,7 +108,7 @@ GitHub Azure Resource Manager 템플릿을 완료하면 두 개의 앱 서비스
 
 ## <a name="report-issues"></a>문제 보고
 
-관리 도구 또는 기타 Windows Virtual Desktop 도구에 문제가 발생하는 경우 [Remote Desktop Services용 Azure Resource Manager 템플릿](https://github.com/Azure/RDS-Templates/blob/master/README.md)의 지침에 따라 GitHub에 보고합니다.
+관리 도구 또는 기타 Azure Virtual Desktop 도구에 문제가 발생하는 경우 [Remote Desktop Services용 Azure Resource Manager 템플릿](https://github.com/Azure/RDS-Templates/blob/master/README.md)의 지침에 따라 GitHub에 보고합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

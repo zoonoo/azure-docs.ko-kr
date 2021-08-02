@@ -1,28 +1,28 @@
 ---
-title: PowerShell Windows Virtual Desktop(클래식)을 사용하여 RDP 속성 사용자 지정 - Azure
-description: PowerShell cmdlet을 사용하여 Windows Virtual Desktop(클래식)의 RDP 속성을 사용자 지정하는 방법.
+title: PowerShell Azure Virtual Desktop(클래식)을 사용하여 RDP 속성 사용자 지정 - Azure
+description: PowerShell cmdlet을 사용하여 Azure Virtual Desktop(클래식)의 RDP 속성을 사용자 지정하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: db7d44cfdcb0f91a3633373c12f00c6eb8c94d52
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 9a9d5461be3a3e8954593d8230ea3d58f0c7ef6c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445077"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752084"
 ---
-# <a name="customize-remote-desktop-protocol-properties-for-a--windows-virtual-desktop-classic-host-pool"></a>Windows Virtual Desktop(클래식) 호스트 풀의 원격 데스크톱 프로토콜 속성 사용자 지정
+# <a name="customize-remote-desktop-protocol-properties-for-a--azure-virtual-desktop-classic-host-pool"></a>Azure Virtual Desktop(클래식) 호스트 풀의 원격 데스크톱 프로토콜 속성 사용자 지정
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../customize-rdp-properties.md)를 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Azure Virtual Desktop 개체를 관리하려는 경우 [이 문서](../customize-rdp-properties.md)를 참조하세요.
 
-다중 모니터 환경 및 오디오 리디렉션과 같은 호스트 풀의 RDP(원격 데스크톱 프로토콜) 속성을 사용자 지정하면 사용자의 요구에 따라 최적의 환경을 제공할 수 있습니다. **Set-RdsHostPool** cmdlet의 **-CustomRdpProperty** 매개 변수를 사용하여 Windows Virtual Desktop에서 RDP 속성을 사용자 지정할 수 있습니다.
+다중 모니터 환경 및 오디오 리디렉션과 같은 호스트 풀의 RDP(원격 데스크톱 프로토콜) 속성을 사용자 지정하면 사용자의 요구에 따라 최적의 환경을 제공할 수 있습니다. **Set-RdsHostPool** cmdlet의 **-CustomRdpProperty** 매개 변수를 사용하여 Azure Virtual Desktop에서 RDP 속성을 사용자 지정할 수 있습니다.
 
 지원되는 속성 및 해당 기본값의 전체 목록은 [지원되는 RDP 파일 설정](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext)을 참조하세요.
 
-먼저 PowerShell 세션에서 사용할 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](/powershell/windows-virtual-desktop/overview/)(아직 다운로드하고 가져오지 않은 경우). 그런 후, 다음 cmdlet을 실행하여 계정에 로그인합니다.
+먼저, 아직 수행하지 않은 경우 PowerShell 세션에서 사용할 [Azure Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](/powershell/windows-virtual-desktop/overview/). 그런 후, 다음 cmdlet을 실행하여 계정에 로그인합니다.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -76,7 +76,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 지정된 호스트 풀에 대한 RDP 속성을 사용자 지정했으므로 Windows Virtual Desktop 클라이언트에 로그인하여 사용자 세션의 일부로 테스트할 수 있습니다. 다음 두 방법 문서는 선택한 클라이언트를 사용하여 세션에 연결하는 방법을 보여 줍니다.
+이제 지정된 호스트 풀에 대한 RDP 속성을 사용자 지정했으므로 Azure Virtual Desktop 클라이언트에 로그인하여 사용자 세션의 일부로 테스트할 수 있습니다. 다음 두 방법 문서는 선택한 클라이언트를 사용하여 세션에 연결하는 방법을 보여 줍니다.
 
 - [Windows Desktop 클라이언트를 사용하여 연결](connect-windows-7-10-2019.md)
 - [웹 클라이언트를 사용하여 연결](connect-web-2019.md)

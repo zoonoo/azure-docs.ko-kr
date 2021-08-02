@@ -4,13 +4,13 @@ description: 지원 요청을 보고, 메시지를 보내고, 요청 심각도 �
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
-ms.date: 12/14/2020
-ms.openlocfilehash: 4d0c03e0035f6b71a23891ac1691f5421c1bdb76
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/25/2021
+ms.openlocfilehash: bc9edecd918668e76c36308a660c47d3a8fd9e8b
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102502521"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110496524"
 ---
 # <a name="manage-an-azure-support-request"></a>Azure 지원 요청 관리
 
@@ -56,17 +56,17 @@ ms.locfileid: "102502521"
 
 ## <a name="share-diagnostic-information-with-azure-support"></a>Azure 지원과 진단 정보 공유
 
-지원 요청을 만들 때 기본적으로 **진단 정보 공유** 옵션이 선택되어 있습니다. 이 옵션을 사용하면 Azure 지원이 사용자의 Azure 리소스에서 [진단 정보](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/)를 수집할 수 있습니다.
+지원 요청을 만들 때 기본적으로 **진단 정보 공유** 옵션이 선택되어 있습니다. 이 옵션을 사용하면 Azure 지원에서 잠재적으로 문제를 해결하는 데 도움이 될 수 있는 Azure 리소스의 [진단 정보](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/)를 수집할 수 있습니다.
 
-* 요청을 만든 후에는 이 옵션을 지울 수 없습니다.
+요청이 생성된 후 **공유 진단 정보** 선택을 변경하려면 다음을 수행합니다.
 
-* 요청을 만드는 동안 이 옵션을 지운 경우 요청이 만들어진 후 이 옵션을 선택할 수 있습니다.
-
-    1. **모든 지원 요청** 페이지에서 지원 요청을 선택합니다.
+1. **모든 지원 요청** 페이지에서 지원 요청을 선택합니다.
     
-    1. **지원 요청** 페이지에서 **권한 부여** 를 선택하고 **예**, **확인** 을 차례로 선택합니다.
+1. **지원 요청** 페이지에서 **진단 정보 공유** 를 찾은 다음, **변경** 을 선택합니다.
     
-        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="진단 정보에 대한 권한 부여":::
+1.  **예** 또는 **아니요** 를 선택한 후 **확인** 을 선택하여 확인합니다.
+    
+    :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="진단 정보에 대한 권한 부여":::
 
 ## <a name="upload-files"></a>파일 업로드
 

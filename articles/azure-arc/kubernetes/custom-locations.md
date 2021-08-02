@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 ms.custom: references_regions, devx-track-azurecli
 description: 사용자 지정 위치를 사용하여 Azure Arc 지원 Kubernetes 클러스터에 Azure PaaS 서비스 배포
-ms.openlocfilehash: 15309599b12b10344b59d46c47c11dfa243726db
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 5f25260041fe7d5998d7f1716c9d20e288168e9d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110367189"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951667"
 ---
 # <a name="create-and-manage-custom-locations-on-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes의 사용자 지정 위치 만들기 및 관리
 
@@ -77,16 +77,29 @@ Azure 위치와 마찬가지로 사용자 지정 위치에 대한 액세스 권�
 
 ## <a name="enable-custom-locations-on-cluster"></a>클러스터에서 사용자 지정 위치 사용
 
-클러스터에서 이 기능을 사용하도록 설정하려면 다음 명령을 실행합니다.
+Azure AD 사용자 권한으로 Azure CLI에 로그인한 경우 클러스터에서 이 기능을 사용하도록 설정하려면 다음 명령을 실행합니다.
 
 ```console
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
 ```
 
+서비스 주체를 사용하여 Azure CLI에 로그인한 경우 클러스터에서 이 기능을 사용하도록 설정하려면 다음 단계를 실행합니다.
+
+1. Azure Arc 서비스에서 사용하는 Azure AD 애플리케이션의 개체 ID를 가져옵니다.
+
+    ```console
+    az ad sp show --id 'bc313c14-388c-4e7d-a58e-70017303ee3b' --query objectId -o tsv
+    ```
+
+1. 위 단계의 `<objectId>` 값을 사용하여 클러스터에서 사용자 지정 위치 기능을 사용하도록 설정합니다.
+
+    ```console
+    az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
+    ```
+
 > [!NOTE]
 > 1. 사용자 지정 위치 기능은 클러스터 연결 기능에 따라 달라집니다. 따라서 사용자 지정 위치가 작동하려면 두 기능을 모두 사용하도록 설정해야 합니다.
 > 2. `kubeconfig` 파일이 기능을 활성화할 클러스터를 가리키는 머신에서 `az connectedk8s enable-features`를 실행해야 합니다.
-> 3. 서비스 주체를 사용하여 Azure CLI에 로그인한 경우 사용자 지정 위치 기능을 사용하도록 설정하기 전에 서비스 주체에 [추가 권한](troubleshooting.md#enable-custom-locations-using-service-principal)을 부여해야 합니다.
 
 ## <a name="create-custom-location"></a>사용자 지정 위치 만들기
 
@@ -107,7 +120,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
         az k8s-extension create --name <extensionInstanceName> --extension-type 'Microsoft.Web.Appservice' --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace appservice-ns --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" --configuration-settings "appsNamespace=appservice-ns" 
         ```
 
-    * [Kubernetes의 Event Grid](/azure/event-grid/kubernetes/overview)
+    * [Kubernetes의 Event Grid](../../event-grid/kubernetes/overview.md)
 
         ```azurecli
           az k8s-extension create --name <extensionInstanceName> --extension-type Microsoft.EventGrid --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace eventgrid-ext --configuration-protected-settings-file protected-settings-extension.json --configuration-settings-file settings-extension.json
@@ -135,6 +148,5 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 - [클러스터 연결](cluster-connect.md)을 사용하여 클러스터에 안전하게 연결
 - 확장 설치, 사용자 지정 위치 만들기 및 App Service Kubernetes 환경 만들기에 대한 엔드투엔드 지침은 [Azure Arc의 Azure App Service](../../app-service/overview-arc-integration.md)를 계속 참조하세요. 
-- [Kubernetes의 Event Grid](/azure/event-grid/kubernetes/overview)에 대한 Event Grid 토픽 및 이벤트 구독을 만듭니다.
+- [Kubernetes의 Event Grid](../../event-grid/kubernetes/overview.md)에 대한 Event Grid 토픽 및 이벤트 구독을 만듭니다.
 - 현재 사용 가능한 [Azure Arc 지원 Kubernetes 확장](extensions.md#currently-available-extensions)에 대해 자세히 알아봅니다.
-

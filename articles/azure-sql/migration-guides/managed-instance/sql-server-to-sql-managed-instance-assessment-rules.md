@@ -6,16 +6,16 @@ ms.subservice: migration-guide
 ms.custom: ''
 ms.devlang: ''
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: MashaMSFT
+author: rajeshsetlem
+ms.author: rsetlem
+ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
-ms.openlocfilehash: fc8959d44fbacd90916a045d23db4bee872c4670
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 489ba57063244d399c9dd0255641568f2db5c6de
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026039"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112034574"
 ---
 # <a name="assessment-rules-for-sql-server-to--azure-sql-managed-instance-migration"></a>SQL Server에서 Azure SQL Managed Instance로의 마이그레이션에 대한 평가 규칙
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -56,14 +56,13 @@ Azure Migrate의 영향을 받은 개체 섹션을 검토하여 Analysis Service
 ## <a name="assembly-from-file"></a>파일의 어셈블리<a id="AssemblyFromFile"></a>
 
 **제목: 파일 매개 변수가 있는 'CREATE ASSEMBLY' 및 'ALTER ASSEMBLY'는 Azure SQL Managed Instance에서 지원되지 않습니다.**    
-**범주**: 경고   
+**범주**: 이슈   
 
 **설명**   
-Azure SQL Managed Instance는 파일 공유 또는 Windows 폴더에 액세스할 수 없습니다. Azure Blob을 참조하지 않는 BULK INSERT 문의 구체적 사용에 대해서는 ‘영향을 받는 개체’ 섹션을 참조하세요. 원본이 Azure Blob Storage가 아닌 'BULK INSERT'가 포함된 개체는 Azure SQL Managed Instance로 마이그레이션한 후에 작동하지 않습니다.
-
+Azure SQL Managed Instance는 파일 매개 변수와 함께 'CREATE ASSEMBLY' 또는 'ALTER ASSEMBLY'를 지원하지 않습니다. 이진 매개 변수는 지원됩니다. 파일 매개 변수가 사용되는 특정 개체의 경우 영향을 받은 개체 섹션을 참조하세요.
 
 **권장 사항**   
-Azure SQL Managed Instance로 마이그레이션하는 경우 대신 Azure Blob Storage의 파일을 사용하도록 로컬 파일 또는 파일 공유를 사용하는 BULK INSERT 문을 변환해야 합니다. 또는 Azure 가상 머신의 SQL Server로 마이그레이션합니다. 
+파일 매개 변수와 함께 'CREATE ASSEMBLY' 또는 'ALTER ASSEMBLY'를 사용하여 개체를 검토합니다. 이러한 개체가 필요한 경우 파일 매개 변수를 이진 매개 변수로 변환합니다. 또는 Azure 가상 머신의 SQL Server로 마이그레이션합니다. 
 
 추가 정보: [Azure SQL Managed Instance의 CLR 차이 ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#clr)
 
@@ -386,10 +385,8 @@ ANSI 조인 구문을 사용합니다.
 **설명**   
 OPENROWSET은 파일의 데이터를 읽어서 행 세트로 반환할 수 있는 기본 제공 BULK 공급자를 통해 대량 작업을 지원합니다. 비 Azure Blob Storage 데이터 원본이 있는 OPENROWSET는 Azure SQL Managed Instance에서 지원되지 않습니다. 
 
-
-
 **권장 사항**   
-OPENROWSET 함수는 SQL Server 인스턴스(관리되는 인스턴스, 온-프레미스 인스턴스 또는 가상 머신 중 하나)에서만 쿼리를 실행하는 데 사용할 수 있습니다. SQLNCLI, SQLNCLI11 및 SQLOLEDB 값만 공급자로 지원됩니다. 따라서 권장 작업은 원격 비 SQL Server에서 종속 데이터베이스를 식별하고 이를 마이그레이션하는 데이터베이스로 이동하는 것입니다. 또는 Azure 가상 머신의 SQL Server로 마이그레이션합니다.
+Azure SQL Managed Instance는 파일 공유 및 Windows 폴더에 액세스할 수 없으므로 Azure Blob Storage에서 파일을 가져와야 합니다. 따라서 OPENROWSET 함수에서는 Blob 유형 DATASOURCE만 지원됩니다. 또는 Azure 가상 머신의 SQL Server로 마이그레이션합니다.
 
 추가 정보: [Azure SQL Managed Instance의 Bulk Insert 및 OPENROWSET 차이 ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#bulk-insert--openrowset)
 

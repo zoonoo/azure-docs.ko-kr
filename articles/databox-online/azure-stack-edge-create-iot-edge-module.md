@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro용 C# IoT Edge 모듈 | Microsoft Docs
-description: Azure Stack Edge Pro에 배포될 수 있는 C# IoT Edge 모듈을 개발하는 방법을 알아봅니다.
+title: Azure Stack Edge Pro FPGA C# IoT Edge 모듈
+description: Azure Stack Edge Pro FPGA용 C# IoT Edge 모듈을 개발하는 방법을 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,36 +9,36 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96a6692524eca3a2845d648ab3df2932d00ce823
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc7b71d644fa26c0262f2304b380827b36b6c193
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91951148"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461330"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro"></a>Azure Stack Edge Pro로 파일을 이동하는 C# IoT Edge 모듈 개발
+# <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro-fpga"></a>Azure Stack Edge Pro FPGA를 사용하여 파일을 이동하는 C# IoT Edge 모듈 개발
 
-이 문서에서는 Azure Stack Edge Pro 디바이스를 사용하여 배포용 IoT Edge 모듈을 만드는 방법을 단계별로 안내합니다. Azure Stack Edge Pro는 데이터를 처리하고 네트워크를 통해 Azure에 보낼 수 있는 스토리지 솔루션입니다.
+이 문서에서는 Azure Stack Edge Pro FPGA 디바이스를 사용하여 배포할 IoT Edge 모듈을 만드는 방법을 안내합니다. Azure Stack Edge Pro FPGA는 데이터를 처리하고 네트워크를 통해 Azure로 보낼 수 있는 스토리지 솔루션입니다.
 
-Azure Stack Edge Pro에서 Azure IoT Edge 모듈을 사용하여 데이터를 Azure로 이동할 수 있습니다. 이 문서에서 사용되는 모듈은 로컬 공유에서 Azure Stack Edge Pro 디바이스의 클라우드 공유로 파일을 복사하는 논리를 구현합니다.
+Azure Stack Edge Pro FPGA와 함께 Azure IoT Edge 모듈을 사용하여 Azure로 이동할 때 데이터를 변환할 수 있습니다. 이 문서에서 사용되는 모듈은 로컬 공유에서 Azure Stack Edge Pro FPGA 디바이스의 클라우드 공유로 파일을 복사하는 논리를 구현합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 >
 > * 모듈을 저장하고 관리하는 컨테이너 레지스트리를 만듭니다(Docker 이미지).
-> * Azure Stack Edge Pro 디바이스에 배포하는 IoT Edge 모듈을 만듭니다. 
+> * Azure Stack Edge Pro FPGA 디바이스에 배포할 IoT Edge 모듈을 만듭니다. 
 
 
 ## <a name="about-the-iot-edge-module"></a>IoT Edge 모듈 정보
 
-Azure Stack Edge Pro 디바이스는 IoT Edge 모듈을 배포 및 실행할 수 있습니다. Edge 모듈은 기본적으로 디바이스에서 메시지를 수집하고, 메시지를 변환하거나 IoT Hub에 메시지를 전송하는 등의 특정 작업을 수행하는 Docker 컨테이너입니다. 이 문서에서는 로컬 공유에서 Azure Stack Edge Pro 디바이스의 클라우드 공유로 파일을 복사하는 모듈을 만듭니다.
+Azure Stack Edge Pro FPGA 디바이스는 IoT Edge 모듈을 배포하고 실행할 수 있습니다. Edge 모듈은 기본적으로 디바이스에서 메시지를 수집하고, 메시지를 변환하거나 IoT Hub에 메시지를 전송하는 등의 특정 작업을 수행하는 Docker 컨테이너입니다. 이 문서에서는 Azure Stack Edge Pro FPGA 디바이스의 로컬 공유에서 클라우드 공유로 파일을 복사하는 모듈을 만듭니다.
 
-1. 파일은 Azure Stack Edge Pro 디바이스의 로컬 공유에 기록됩니다.
+1. 파일은 Azure Stack Edge Pro FPGA 디바이스의 로컬 공유에 기록됩니다.
 2. 파일 이벤트 생성기는 로컬 공유에 작성된 각 파일에 대한 파일 이벤트를 만듭니다. 파일 이벤트는 파일이 수정될 때도 생성됩니다. 그런 다음, 파일 이벤트는 IoT Edge 허브에 전송됩니다(IoT Edge 런타임).
 3. IoT Edge 사용자 지정 모듈은 파일에 대한 상대 경로를 포함하는 파일 이벤트 개체를 만들도록 파일 이벤트를 처리합니다. 모듈은 상대 파일 경로를 사용하여 절대 경로를 생성하고 로컬 공유에서 클라우드 공유로 파일을 복사합니다. 그런 다음, 모듈은 로컬 공유에서 파일을 삭제합니다.
 
-![Azure Stack Edge Pro에서 Azure IoT Edge 모듈이 작동하는 방식](./media/azure-stack-edge-create-iot-edge-module/how-module-works-1.png)
+![Azure Stack Edge Pro FPGA에서 Azure IoT Edge 모듈이 작동하는 방식](./media/azure-stack-edge-create-iot-edge-module/how-module-works-1.png)
 
 파일이 클라우드 공유에 있으면 Azure Storage 계정으로 자동으로 업로드됩니다.
 
@@ -46,18 +46,18 @@ Azure Stack Edge Pro 디바이스는 IoT Edge 모듈을 배포 및 실행할 수
 
 시작하기 전에 다음을 확인합니다.
 
-- 실행 중인 Azure Stack Edge Pro 디바이스입니다.
+- 실행 중인 Azure Stack Edge Pro FPGA 디바이스.
 
     - 디바이스에는 연결된 IoT Hub 리소스가 있습니다.
     - 디바이스에 Edge 컴퓨팅 역할이 구성되어 있습니다.
-    자세한 내용은 Azure Stack Edge Pro의 [컴퓨팅 구성](azure-stack-edge-deploy-configure-compute.md#configure-compute)을 참조하세요.
+    자세한 내용은 Azure Stack Edge Pro FPGA에 대한 [컴퓨팅 구성](azure-stack-edge-deploy-configure-compute.md#configure-compute)을 참조하세요.
 
 - 다음 개발 리소스:
 
     - [Visual Studio Code](https://code.visualstudio.com/)
     - [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
     - [Visual Studio Code용 Azure IoT Edge 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
-    - [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
+    - [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
     - [Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows). 소프트웨어를 다운로드 및 설치할 계정을 만들어야 할 수 있습니다.
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
@@ -278,4 +278,4 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Stack Edge Pro에서 이 모듈을 배포하고 실행하려면 [모듈 추가](azure-stack-edge-deploy-configure-compute.md#add-a-module) 단계를 참조하세요.
+Azure Stack Edge Pro FPGA에서 이 모듈을 배포하고 실행하려면 [모듈 추가](azure-stack-edge-deploy-configure-compute.md#add-a-module) 단계를 참조하세요.

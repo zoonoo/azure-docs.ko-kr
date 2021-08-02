@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 06/14/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94077a1c6329aa1fecf9593f2df41fa77afc8a44
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a46d77b088d854bdd6ee8781b545d1236f357853
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765920"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071482"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방식: Azure AD SSPR(셀프 서비스 암호 재설정)
 
-Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사용하면 관리자 또는 지원 센터에서 개입하지 않고도 사용자가 암호를 변경하거나 다시 설정할 수 있습니다. 사용자 계정이 잠겨 있거나 암호를 잊어버린 경우 프롬프트에 따라 자신을 차단 해제하여 작업을 다시 수행할 수 있습니다. 사용자가 디바이스 또는 애플리케이션에 로그인할 수 없는 경우 이 기능을 통해 지원 센터 호출 및 생산성 저하를 줄일 수 있습니다.
+Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사용하면 관리자 또는 지원 센터에서 개입하지 않고도 사용자가 암호를 변경하거나 다시 설정할 수 있습니다. 사용자 계정이 잠겨 있거나 암호를 잊어버린 경우 프롬프트에 따라 자신을 차단 해제하여 작업을 다시 수행할 수 있습니다. 사용자가 디바이스 또는 애플리케이션에 로그인할 수 없는 경우 이 기능을 통해 지원 센터 호출 및 생산성 저하를 줄일 수 있습니다. [Azure AD에서 SSPR을 사용하도록 설정하고 구성하는 방법](https://www.youtube.com/watch?v=rA8TvhNcCvQ)에 대해 이 비디오를 권장합니다.
 
 > [!IMPORTANT]
 > 이 개념 문서에서는 관리자에게 셀프 서비스 암호 재설정이 작동하는 방법을 설명합니다. 셀프 서비스 암호 재설정에 이미 등록된 최종 사용자가 계정으로 다시 이동해야 하는 경우 [https://aka.ms/sspr](https://aka.ms/sspr)로 이동합니다.
@@ -105,7 +105,7 @@ SSPR에는 다음과 같은 인증 방법을 사용할 수 있습니다.
 * 모바일 앱 코드
 * Email
 * 휴대폰
-* 사무실 전화
+* 사무실 전화(유료 구독이 있는 테넌트에서만 사용 가능)
 * 본인 확인 질문
 
 사용자는 관리자가 사용하도록 설정한 인증 방법을 등록한 경우에만 암호를 재설정할 수 있습니다.

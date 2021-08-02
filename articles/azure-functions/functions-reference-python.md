@@ -4,12 +4,12 @@ description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 0c87be334847974627299f8e21109fe201675f0c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1560e4a0a5c413ca225ffde0ab6d24e2958c8e75
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762176"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985404"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -18,7 +18,7 @@ ms.locfileid: "107762176"
 Python 개발자라면 다음 문서 중 하나에 관심이 있을 수도 있습니다.
 
 | 시작 | 개념| 시나리오/샘플 |
-| -- | -- | -- | 
+|--|--|--|
 | <ul><li>[Visual Studio Code를 사용하는 Python 함수](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[터미널/명령 프롬프트를 사용하는 Python 함수](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[성능&nbsp;고려 사항](functions-best-practices.md)</li></ul> | <ul><li>[PyTorch를 사용한 이미지 분류](machine-learning-pytorch.md)</li><li>[Azure 자동화 샘플](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[TensorFlow를 사용한 기계 학습](functions-machine-learning-tensorflow.md)</li><li>[Python 샘플 찾아보기](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 > [!NOTE]
@@ -140,7 +140,7 @@ from ..shared_code import my_first_helper_function #(deprecated beyond top-level
 
 ## <a name="triggers-and-inputs"></a>트리거 및 입력
 
-입력은 Azure Functions에서 트리거 입력과 추가 입력의 두 가지 범주로 나뉩니다. `function.json`에서는 둘이 서로 다르지만, Python 코드에서는 사용법이 동일합니다.  트리거 및 입력 소스의 연결 문자열 또는 비밀은 로컬로 실행할 때에는 `local.settings.json` 파일의 값에 매핑되고, Azure에서 실행할 때에는 애플리케이션 설정에 매핑됩니다.
+입력은 Azure Functions에서 트리거 입력과 기타 입력의 두 가지 범주로 나뉩니다. `function.json` 파일에서는 두 입력이 서로 다르지만, Python 코드에서 사용법은 동일합니다.  트리거 및 입력 소스의 연결 문자열 또는 비밀은 로컬로 실행할 때에는 `local.settings.json` 파일의 값에 매핑되고, Azure에서 실행할 때에는 애플리케이션 설정에 매핑됩니다.
 
 예를 들어 다음 코드는 둘 사이의 차이점을 보여줍니다.
 
@@ -241,7 +241,7 @@ def main(req: func.HttpRequest,
 
 ## <a name="logging"></a>로깅
 
-함수 앱의 루트 [`logging`](https://docs.python.org/3/library/logging.html#module-logging) 처리기를 통해 Azure Functions 런타임 로거에 액세스할 수 있습니다. 이 로거는 Application Insights에 연결되어 있으며, 함수를 실행하는 동안 발생하는 경고 및 오류에 플래그를 지정할 수 있도록 합니다.
+함수 앱의 루트 [`logging`](https://docs.python.org/3/library/logging.html#module-logging) 처리기를 통해 Azure Functions 런타임 로거에 액세스할 수 있습니다. 이 로거는 Application Insights에 연결되며, 함수를 실행하는 동안 발생하는 경고 및 오류에 플래그를 지정할 수 있도록 합니다.
 
 다음 예제는 HTTP 트리거를 통해 함수가 호출될 때 정보 메시지를 기록합니다.
 
@@ -255,7 +255,7 @@ def main(req):
 
 다양한 추적 수준에서 콘솔에 쓸 수 있는 추가 로깅 메서드가 제공됩니다.
 
-| 방법                 | Description                                |
+| 메서드                 | Description                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | 루트 로거에 위험 수준의 메시지를 기록합니다.  |
 | **`error(_message_)`**   | 루트 로거에 오류 수준의 메시지를 기록합니다.    |
@@ -302,7 +302,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ## <a name="scaling-and-performance"></a>크기 조정 및 성능
 
-Python 함수 앱의 크기 조정 및 성능 모범 사례는 [Python 크기 조정 및 성능 문서](python-scale-performance-reference.md)를 참조하세요.
+Python 함수 앱의 스케일링과 성능 모범 사례는 [Python 스케일링 및 성능 문서](python-scale-performance-reference.md)를 참조하세요.
 
 ## <a name="context"></a>Context
 
@@ -406,7 +406,7 @@ Python 프로젝트를 Azure에 게시하는 데 지원되는 세 가지 빌드 
 
 원격 빌드를 사용하는 경우 서버에서 복원된 종속성과 기본 종속성은 프로덕션 환경과 일치합니다. 따라서 업로드할 배포 패키지가 작아질 수 있습니다. Windows에서 Python 앱을 개발할 때 원격 빌드를 사용합니다. 프로젝트에 사용자 지정 종속성이 있는 경우 [추가 인덱스 URL로 원격 빌드를 사용](#remote-build-with-extra-index-url)할 수 있습니다.
 
-requirements.txt 파일의 내용에 따라 원격으로 종속성을 가져옵니다. [원격 빌드](functions-deployment-technologies.md#remote-build)는 권장 빌드 방법입니다. 기본적으로 Azure Functions Core Tools는 다음과 같은 [func azure functionapp publish](functions-run-local.md#publish) 명령을 사용하여 Python 프로젝트를 Azure에 게시할 때 원격 빌드가 필요합니다.
+requirements.txt 파일의 내용에 따라 원격으로 종속성을 가져옵니다. [원격 빌드](functions-deployment-technologies.md#remote-build)는 권장 빌드 방법입니다. 기본적으로 Azure Functions Core Tools는 다음과 같은 [`func azure functionapp publish`](functions-run-local.md#publish) 명령을 사용하여 Python 프로젝트를 Azure에 게시할 때 원격 빌드를 요청합니다.
 
 ```bash
 func azure functionapp publish <APP_NAME>
@@ -418,7 +418,7 @@ func azure functionapp publish <APP_NAME>
 
 ### <a name="local-build"></a>로컬 빌드
 
-requirements.txt 파일의 내용에 따라 로컬로 종속성을 가져옵니다. 다음 [func azure functionapp publish](functions-run-local.md#publish) 명령을 사용하여 로컬 빌드로 게시하면 원격 빌드를 차단할 수 있습니다.
+requirements.txt 파일의 내용에 따라 로컬로 종속성을 가져옵니다. 다음 [`func azure functionapp publish`](functions-run-local.md#publish) 명령을 사용하여 로컬 빌드로 게시하면 원격 빌드를 방지할 수 있습니다.
 
 ```command
 func azure functionapp publish <APP_NAME> --build local
@@ -552,7 +552,7 @@ class TestFunction(unittest.TestCase):
         )
 ```
 
-`.venv` Python 가상 환경 내에서 즐겨 사용하는 Python 테스트 프레임워크(예: `pip install pytest`)를 설치합니다. 간단히 `pytest tests`를 실행하여 테스트 결과를 확인합니다.
+`.venv` Python 가상 환경 내에서 즐겨 사용하는 Python 테스트 프레임워크(예: `pip install pytest`)를 설치합니다. 그런 다음, `pytest tests`를 실행하여 테스트 결과를 확인합니다.
 
 ## <a name="temporary-files"></a>임시 파일
 
@@ -586,7 +586,7 @@ Python Functions 런타임에는 몇 가지 라이브러리가 함께 제공됩�
 
 Python 표준 라이브러리에는 각 Python 배포와 함께 제공되는 기본 제공 Python 모듈 목록이 포함되어 있습니다. 이러한 라이브러리는 대부분 파일 I/O와 같은 시스템 기능에 액세스하는 데 유용합니다. Windows 시스템에서 이러한 라이브러리는 Python과 함께 설치됩니다. Unix 기반 시스템에서는 패키지 컬렉션으로 제공됩니다.
 
-이러한 라이브러리 목록의 전체 세부 정보를 보려면 아래 링크를 확인하세요.
+라이브러리 목록의 전체 세부 정보를 보려면 아래 링크를 참조하세요.
 
 * [Python 3.6 표준 라이브러리](https://docs.python.org/3.6/library/)
 * [Python 3.7 표준 라이브러리](https://docs.python.org/3.7/library/)
@@ -599,6 +599,9 @@ Functions Python 작업자에는 특정 라이브러리 집합이 필요합니�
 
 > [!NOTE]
 > 함수 앱의 requirements.txt에 `azure-functions-worker` 항목이 포함되어 있는 경우 해당 항목을 제거합니다. Functions 작업자는 Azure Functions 플랫폼에서 자동으로 관리되며, 새로운 기능 및 버그 수정에 대해 정기적으로 업데이트합니다. requirements.txt에서 이전 버전의 작업자를 수동으로 설치하면 예기치 않은 문제가 발생할 수 있습니다.
+
+> [!NOTE]
+>  패키지에 작업자의 종속성과 충돌할 수 있는 특정 라이브러리(예: protobuf, tensorflow, grpcio)가 포함된 경우 애플리케이션이 작업자의 종속성을 참조하지 않도록 앱 설정에서 `PYTHON_ISOLATE_WORKER_DEPENDENCIES`를 `1`로 구성합니다.
 
 ### <a name="azure-functions-python-library"></a>Azure Functions Python 라이브러리
 
@@ -614,12 +617,112 @@ getattr(azure.functions, '__version__', '< 1.2.1')
 
 ### <a name="runtime-system-libraries"></a>런타임 시스템 라이브러리
 
-Python 작업자 Docker 이미지에 사전 설치된 시스템 라이브러리 목록을 보려면 아래 링크를 확인하세요.
+Python 작업자 Docker 이미지에 사전 설치된 시스템 라이브러리 목록을 보려면 아래 링크를 참조하세요.
 
 |  함수 런타임  | Debian 버전 | Python 버전 |
 |------------|------------|------------|
 | 버전 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
 | 버전 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3.9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
+
+## <a name="python-worker-extensions"></a>Python 작업자 확장  
+
+Azure Functions에서 실행되는 Python 작업자 프로세스를 통해 타사 라이브러리를 함수 앱에 통합할 수 있습니다. 이 확장 라이브러리는 함수 실행 수명 주기 동안 특정 작업을 삽입할 수 있는 미들웨어 역할을 합니다. 
+
+표준 Python 라이브러리 모듈과 마찬가지로 함수 코드에서 확장을 가져옵니다. 확장은 다음 범위에 따라 실행됩니다. 
+
+| 범위 | Description |
+| --- | --- |
+| **애플리케이션 수준** | 함수 트리거로 가져온 확장은 앱의 모든 함수 실행에 적용됩니다. |
+| **함수 수준** | 확장을 가져온 특정 함수 트리거로만 실행이 제한됩니다. |
+
+지정된 확장에 대한 정보를 검토하여 확장이 실행되는 범위에 대해 자세히 알아봅니다. 
+
+확장은 Python 작업자 프로세스에서 함수 실행 수명 주기 동안 확장 코드를 호출할 수 있게 해주는 Python 작업자 확장 인터페이스를 구현합니다. 자세한 내용은 [확장 만들기](#creating-extensions)를 참조하세요.
+
+### <a name="using-extensions"></a>확장 사용 
+
+Python 함수에서 다음과 같은 기본 단계를 수행하여 Python 작업자 확장 라이브러리를 사용할 수 있습니다.
+
+1. 프로젝트의 requirements.txt 파일에 확장 패키지를 추가합니다.
+1. 앱에 라이브러리를 설치합니다.
+1. 애플리케이션 설정인 `PYTHON_ENABLE_WORKER_EXTENSIONS`를 추가합니다.
+    + 로컬: [local.settings.json 파일](functions-run-local.md?tabs=python#local-settings-file)의 `Values` 섹션에 `"PYTHON_ENABLE_WORKER_EXTENSIONS": "1"`을 추가합니다.
+    + Azure: [앱 설정](functions-how-to-use-azure-function-app-settings.md#settings)에 `PYTHON_ENABLE_WORKER_EXTENSIONS=1`을 추가합니다.
+1. 확장 모듈을 함수 트리거로 가져옵니다. 
+1. 필요한 경우 확장 인스턴스를 구성합니다. 확장 설명서에서 구성 요구 사항을 설명해야 합니다. 
+
+> [!IMPORTANT]
+> 타사 Python 작업자 확장 라이브러리는 Microsoft에서 지원하거나 보증하지 않습니다. 함수 앱에서 사용하는 확장을 신뢰할 수 있는지 확인해야 하며, 악의적이거나 잘못 작성된 확장을 사용할 경우의 위험에 대한 모든 책임은 사용자에게 있습니다. 
+
+타사는 함수 앱에서 특정 확장을 설치하고 사용하는 방법에 대한 특정 설명서를 제공해야 합니다. 확장을 사용하는 방법의 기본 예제는 [확장 사용](develop-python-worker-extensions.md#consume-your-extension-locally)을 참조하세요. 
+
+함수 앱에서 확장을 사용하는 방법의 예제는 범위별로 다음과 같습니다.
+
+# <a name="application-level"></a>[애플리케이션 수준](#tab/application-level)
+
+```python
+# <project_root>/requirements.txt
+application-level-extension==1.0.0
+```
+
+```python
+# <project_root>/Trigger/__init__.py
+
+from application_level_extension import AppExtension
+AppExtension.configure(key=value)
+
+def main(req, context):
+  # Use context.app_ext_attributes here
+```
+# <a name="function-level"></a>[함수 수준](#tab/function-level)
+```python
+# <project_root>/requirements.txt
+function-level-extension==1.0.0
+```
+
+```python
+# <project_root>/Trigger/__init__.py
+
+from function_level_extension import FuncExtension
+func_ext_instance = FuncExtension(__file__)
+
+def main(req, context):
+  # Use func_ext_instance.attributes here
+```
+---
+
+### <a name="creating-extensions"></a>확장 만들기 
+
+확장은 Azure Functions에 통합할 수 있는 기능을 만든 타사 라이브러리 개발자가 만듭니다.  확장 개발자는 함수 실행 컨텍스트에서 실행되도록 특별히 설계된 사용자 지정 논리를 포함하는 Python 패키지를 설계, 구현, 릴리스합니다. PyPI 레지스트리 또는 GitHub 리포지토리에 확장을 게시할 수 있습니다.
+
+Python 작업자 확장 패키지를 생성, 패키지, 게시, 사용하는 방법을 알아보려면 [Azure Functions용 Python 작업자 확장 개발](develop-python-worker-extensions.md)을 참조하세요.
+
+#### <a name="application-level-extensions"></a>애플리케이션 수준 확장
+
+[`AppExtensionBase`](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/app_extension_base.py)에서 상속된 확장은 _애플리케이션_ 범위에서 실행됩니다. 
+
+`AppExtensionBase`는 구현할 수 있도록 다음과 같은 추상 클래스 메서드를 노출합니다.
+
+| 메서드 | Description |
+| --- | --- |
+| **`init`** | 확장을 가져온 후에 호출됩니다. |
+| **`configure`** | 확장을 구성하는 데 필요한 경우 함수 코드에서 호출됩니다. |
+| **`post_function_load_app_level`** | 함수가 로드된 후에 바로 호출됩니다. 함수 이름과 함수 디렉터리가 확장에 전달됩니다. 함수 디렉터리는 읽기 전용이므로 이 디렉터리의 로컬 파일에 쓰려고 하면 실패합니다. |
+| **`pre_invocation_app_level`** | 함수가 트리거되기 직전에 호출됩니다. 함수 컨텍스트와 함수 호출 인수가 확장에 전달됩니다. 일반적으로 함수 코드에서 사용하기 위해 컨텍스트 개체의 다른 특성을 전달할 수 있습니다. |
+| **`post_invocation_app_level`** | 함수 실행이 완료된 후에 바로 호출됩니다. 함수 컨텍스트, 함수 호출 인수, 호출 반환 개체가 확장에 전달됩니다. 이 구현은 수명 주기 후크 실행에 성공했는지 여부를 확인하는 데 적합한 장소입니다. |
+
+#### <a name="function-level-extensions"></a>함수 수준 확장
+
+[FuncExtensionBase](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/func_extension_base.py)에서 상속된 확장은 특정 함수 트리거에서 실행됩니다. 
+
+`FuncExtensionBase`는 구현할 수 있도록 다음과 같은 추상 클래스 메서드를 노출합니다.
+
+| 메서드 | Description |
+| --- | --- |
+| **`__init__`** | 이 메서드는 확장의 생성자입니다. 특정 함수에서 확장 인스턴스를 초기화할 때 호출됩니다. 이 추상 메서드를 구현하는 경우 `filename` 매개 변수를 허용하고, 적절한 확장 등록을 위해 부모의 `super().__init__(filename)` 메서드에 전달하는 것이 좋습니다. |
+| **`post_function_load`** | 함수가 로드된 후에 바로 호출됩니다. 함수 이름과 함수 디렉터리가 확장에 전달됩니다. 함수 디렉터리는 읽기 전용이므로 이 디렉터리의 로컬 파일에 쓰려고 하면 실패합니다. |
+| **`pre_invocation`** | 함수가 트리거되기 직전에 호출됩니다. 함수 컨텍스트와 함수 호출 인수가 확장에 전달됩니다. 일반적으로 함수 코드에서 사용하기 위해 컨텍스트 개체의 다른 특성을 전달할 수 있습니다. |
+| **`post_invocation`** | 함수 실행이 완료된 후에 바로 호출됩니다. 함수 컨텍스트, 함수 호출 인수, 호출 반환 개체가 확장에 전달됩니다. 이 구현은 수명 주기 후크 실행에 성공했는지 여부를 확인하는 데 적합한 장소입니다. |
 
 ## <a name="cross-origin-resource-sharing"></a>크로스-원본 자원 공유
 

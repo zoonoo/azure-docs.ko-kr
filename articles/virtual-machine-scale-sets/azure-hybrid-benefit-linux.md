@@ -6,27 +6,28 @@ documentationcenter: ''
 author: mathapli
 manager: rochakm
 ms.service: virtual-machine-scale-sets
+ms.subservice: azure-hybrid-benefit
 ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/20/2021
 ms.author: mathapli
-ms.openlocfilehash: a714434c39a0c40c2e908f2d0c424f02851921a6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 71d585d16f4026ac605e7a61e64af89df806fed8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933681"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950026"
 ---
-# <a name="azure-hybrid-benefit-for-linux-virtual-machine-scale-set-public-preview"></a>Linux 가상 머신 확장 집합에 대한 Azure 하이브리드 혜택(퍼블릭 미리 보기)
+# <a name="azure-hybrid-benefit-for-linux-virtual-machine-scale-set"></a>Linux 가상 머신 확장 집합에 대한 Azure 하이브리드 혜택
 
-**Linux 가상 머신 확장 집합에 대한 Azure 하이브리드 혜택은 현재 퍼블릭 미리 보기 상태입니다**. AHB 혜택은 RHEL 및 SLES [가상 머신 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) 실행 비용을 줄이는 데 도움이 될 수 있습니다.
+**Linux 가상 머신 확장 집합에 대한 Azure 하이브리드 혜택이 현재 GA 상태입니다**. AHB 혜택은 RHEL 및 SLES [가상 머신 확장 집합](./overview.md) 실행 비용을 줄이는 데 도움이 될 수 있습니다.
 
 이 혜택을 사용하면 확장 집합의 인프라 비용만 지불하면 됩니다. 이 혜택은 모든 RHEL 및 SLES Marketplace PAYG(종량제) 이미지에 제공됩니다.
 
 
 >[!NOTE]
-> 이 문서에서는 Linux VMSS에 대한 Azure 하이브리드 혜택을 설명합니다. [여기에서 사용할 수 있는 개별 문서, [Linux VM용 AHB](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux)가 있으며, 2020년 11월부터 Azure 고객이 이미 사용할 수 있습니다.
+> 이 문서에서는 Linux VMSS에 대한 Azure 하이브리드 혜택을 설명합니다. [여기에서 사용할 수 있는 개별 문서, [Linux VM용 AHB](../virtual-machines/linux/azure-hybrid-benefit-linux.md)가 있으며, 2020년 11월부터 Azure 고객이 이미 사용할 수 있습니다.
 
 ## <a name="benefit-description"></a>혜택 설명
 Azure 하이브리드를 사용하면 Red Hat이나 SUSE의 기존 클라우드 액세스 라이선스를 사용하고 가상 머신 확장 집합 인스턴스를 BYOS(Bring-Your-Own-Subscription) 청구로 유연하게 변환할 수 있습니다. 
@@ -71,7 +72,23 @@ SUSE에 대한 혜택을 사용하려면 다음을 수행합니다.
 
 
 ## <a name="enable-and-disable-the-benefit-on-azure-portal"></a>Azure Portal에서 혜택 사용 및 사용 안 함 설정 
-가상 머신 확장 집합에서 AHB를 사용하거나 사용하지 않도록 설정하는 포털 환경은 **현재 사용할 수 없습니다**.
+### <a name="azure-portal-example-to-enable-the-benefit-during-creation"></a>만드는 동안 Azure Portal에서 혜택을 사용하도록 설정하는 예제:
+1. [Microsoft Azure Portal](https://portal.azure.com/)을 방문합니다.
+1. 포털에서 '가상 머신 확장 집합 만들기' 페이지로 이동합니다.
+ ![VMSS를 만드는 동안의 AHB](./media/azure-hybrid-benefit-linux/create-vmss-ahb.png)
+1. AHB 변환을 사용하도록 설정하고 Cloud Access 라이선스를 사용하려면 확인란을 클릭합니다.
+ ![VMSS 확인란을 만드는 동안의 AHB](./media/azure-hybrid-benefit-linux/create-vmss-ahb-checkbox.png)
+1. 다음과 같은 일련의 지침에 따라 가상 머신 확장 집합을 만듭니다.
+1. **구성** 블레이드를 확인하면 사용하도록 설정된 옵션이 보입니다. 
+![만든 후 AHB OS 블레이드](./media/azure-hybrid-benefit-linux/create-vmss-ahb-os-blade.png)
+
+### <a name="azure-portal-example-to-enable-the-benefit-for-an-existing-virtual-machine-scale-set"></a>Azure Portal에서 기존 가상 머신 확장 집합에 대한 혜택을 사용하도록 설정하는 예제:
+1. [Microsoft Azure Portal](https://portal.azure.com/)을 방문합니다.
+1. 변환을 적용하려는 '가상 머신 확장 집합' 페이지를 엽니다.
+1. 왼쪽의 **운영 체제** 옵션으로 이동합니다. 라이선스 섹션이 표시됩니다. AHB 변환을 사용하도록 설정하려면 ‘예’ 라디오 단추를 선택하고 확인란을 선택합니다.
+![생성 후 AHB 구성 블레이드](./media/azure-hybrid-benefit-linux/create-vmss-ahb-os-blade.png)
+
+
 
 ## <a name="enable-and-disable-the-benefit-using-azure-cli"></a>Azure CLI를 사용하여 혜택 사용 및 사용 안 함 설정
 
@@ -94,7 +111,7 @@ az vmss update -g myResourceGroup -n myVmName --license-type None
 ```
 
 >[!NOTE]
-> 확장 집합에는 VM이 최신 확장 집합 모델로 최신 상태를 유지하는 방법을 결정하는 [“업그레이드 정책”](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)이 있습니다. 따라서 VMSS에 ‘자동’ 업그레이드 정책이 있으면 VM 인스턴스가 업데이트될 때 AHB 혜택이 자동으로 적용됩니다. VMSS에 ‘롤링’ 업그레이드 정책이 있으면 예약된 업데이트에 따라 AHB가 적용됩니다.
+> 확장 집합에는 VM이 최신 확장 집합 모델로 최신 상태를 유지하는 방법을 결정하는 [“업그레이드 정책”](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)이 있습니다. 따라서 VMSS에 ‘자동’ 업그레이드 정책이 있으면 VM 인스턴스가 업데이트될 때 AHB 혜택이 자동으로 적용됩니다. VMSS에 ‘롤링’ 업그레이드 정책이 있으면 예약된 업데이트에 따라 AHB가 적용됩니다.
 ‘수동’ 업그레이드 정책의 경우 기존 VM마다 “수동 업그레이드”를 수행해야 합니다.  
 
 ### <a name="cli-example-to-upgrade-virtual-machine-scale-set-instances-in-case-of-manual-upgrade-policy"></a>“수동 업그레이드” 정책의 경우 가상 머신 확장 집합 인스턴스를 업그레이드하는 CLI 예제 

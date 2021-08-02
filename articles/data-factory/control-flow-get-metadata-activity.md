@@ -1,36 +1,38 @@
 ---
-title: Azure Data Factory에서 메타 데이터 가져오기 작업
-description: Data Factory 파이프라인에서 메타 데이터 가져오기 작업을 사용 하는 방법에 대해 알아봅니다.
-author: linda33wj
+title: Azure Data Factory에서 메타데이터 가져오기 작업
+description: Data Factory 파이프라인에서 메타데이터 가져오기 작업을 사용하는 방법을 알아봅니다.
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/25/2021
-ms.author: jingwang
-ms.openlocfilehash: bd8fc3383d6d9a0afb7733cb94643623e6879d23
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.author: jianleishen
+ms.openlocfilehash: 6c375143217379b7ec795778f8947d88b70aa4bc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102178544"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062815"
 ---
-# <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory에서 메타 데이터 가져오기 작업
+# <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory에서 메타데이터 가져오기 작업
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-메타 데이터 가져오기 작업을 사용 하 여 Azure Data Factory에 있는 모든 데이터의 메타 데이터를 검색할 수 있습니다. 조건 식에서 메타 데이터 가져오기 작업의 출력을 사용 하 여 유효성 검사를 수행 하거나 후속 작업에서 메타 데이터를 사용할 수 있습니다.
+메타데이터 가져오기 작업을 사용하여 Azure Data Factory에서 데이터의 메타데이터를 검색할 수 있습니다. 조건식에서 메타데이터 가져오기 작업의 출력을 사용하여 유효성 검사를 수행하거나 후속 작업에서 메타데이터를 사용할 수 있습니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-메타 데이터 가져오기 작업은 데이터 집합을 입력으로 사용 하 고 메타 데이터 정보를 출력으로 반환 합니다. 현재 다음 커넥터와 해당 하는 검색할 수 있는 메타 데이터가 지원 됩니다. 반환 되는 메타 데이터의 최대 크기는 **4mb** 입니다.
+메타데이터 가져오기 작업은 데이터 세트를 입력으로 사용하여 메타데이터 정보를 출력으로 반환합니다. 현재 다음 커넥터와 해당 검색 가능한 메타데이터가 지원됩니다. 반환되는 메타데이터의 최대 크기는 **4MB** 입니다.
 
 ### <a name="supported-connectors"></a>지원되는 커넥터
 
 **File Storage**
 
-| 커넥터/메타데이터 | itemName<br>(파일/폴더) | itemType<br>(파일/폴더) | 크기<br>(파일) | created<br>(파일/폴더) | lastModified<sup>1</sup><br>(파일/폴더) |childItems<br>(폴더) |contentMD5<br>(파일) | 구조<sup>2</sup><br/>(파일) | columnCount<sup>2</sup><br>(파일) | exists<sup>3</sup><br>(파일/폴더) |
+| 커넥터/메타데이터 | itemName<br>(파일/폴더) | itemType<br>(파일/폴더) | 크기<br>(파일) | created<br>(파일/폴더) | lastModified<sup>1</sup><br>(파일/폴더) |childItems<br>(폴더) |contentMD5<br>(파일) | structure<sup>2</sup><br/>(파일) | columnCount<sup>2</sup><br>(파일) | exists<sup>3</sup><br>(파일/폴더) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Amazon S3 호환 스토리지](connector-amazon-s3-compatible-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Oracle Cloud Storage](connector-oracle-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Blob Storage](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
@@ -39,23 +41,23 @@ ms.locfileid: "102178544"
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
-<sup>1</sup> 메타 데이터 `lastModified` :
-- Amazon S3 및 Google Cloud Storage의 경우는 `lastModified` 버킷 및 키에 적용 되 고 가상 폴더에는 적용 되지 않으며, `exists` 버킷 및 키에 적용 되 고 접두사 또는 가상 폴더에는 적용 되지 않습니다. 
-- Azure Blob storage의 경우 `lastModified` 컨테이너와 Blob에는 적용 되지만 가상 폴더에는 적용 되지 않습니다.
+<sup>1</sup> 메타데이터 `lastModified`:
+- Amazon S3, Amazon S3 Compatible Storage, Google Cloud Storage 및 Oracle Cloud Storage의 경우 `lastModified`는 버킷과 키에 적용되지만 가상 폴더에는 적용되지 않고 `exists`는 버킷과 키에 적용되지만 접두사 또는 가상 폴더에는 적용되지 않습니다. 
+- Azure Blob Storage의 경우 `lastModified`는 컨테이너와 Blob에 적용되지만 가상 폴더에는 적용되지 않습니다.
 
-<sup>2</sup> 메타 데이터 `structure` 및 `columnCount` 는 이진 파일, JSON 또는 XML 파일에서 메타 데이터를 가져올 때 지원 되지 않습니다.
+<sup>2</sup> 이진 파일, JSON 또는 XML 파일에서 메타데이터를 가져올 때 메타데이터 `structure` 및 `columnCount`는 지원되지 않습니다.
 
-<sup>3</sup> 메타 데이터 `exists` : Amazon S3 및 Google Cloud Storage의 경우 `exists` 버킷 및 키에 적용 되 고 접두사 또는 가상 폴더에는 적용 되지 않습니다.
+<sup>3</sup> 메타데이터 `exists`: Amazon S3, Amazon S3 Compatible Storage, Google Cloud Storage 및 Oracle Cloud Storage의 경우 `exists`가 버킷과 키에 적용되지만 접두사 또는 가상 폴더에는 적용되지 않습니다.
 
 다음 사항에 유의하세요.
 
-- 폴더에 대해 메타 데이터 가져오기 작업을 사용 하는 경우 지정 된 폴더에 대 한 목록/실행 권한이 있는지 확인 합니다.
-- 폴더/파일에 대 한 와일드 카드 필터는 메타 데이터 가져오기 작업에 대해 지원 되지 않습니다.
-- `modifiedDatetimeStart``modifiedDatetimeEnd`커넥터에 설정 되는 필터:
+- 폴더에 대해 메타데이터 가져오기 작업을 사용하는 경우 지정된 폴더에 대한 LIST/EXECUTE 권한이 있는지 확인합니다.
+- 폴더/파일에 대한 와일드카드 필터는 메타데이터 가져오기 작업에 지원되지 않습니다.
+- 커넥터에 설정된 `modifiedDatetimeStart` 및 `modifiedDatetimeEnd` 필터:
 
-    - 이러한 두 속성은 폴더에서 메타 데이터를 가져올 때 자식 항목을 필터링 하는 데 사용 됩니다. 파일에서 메타 데이터를 가져올 때에는 적용 되지 않습니다.
-    - 이러한 필터를 사용 하는 경우 `childItems` 출력에는 지정 된 범위 내에서 수정 된 파일만 포함 되 고 폴더는 포함 되지 않습니다.
-    - 이러한 필터를 적용 하기 위해 GetMetadata 작업은 지정 된 폴더의 모든 파일을 열거 하 고 수정 된 시간을 확인 합니다. 예상 되는 정규화 된 파일 수가 작은 경우에도 파일 수가 많은 폴더를 가리키지 않도록 합니다. 
+    - 이러한 두 속성은 폴더에서 메타데이터를 가져올 때 자식 항목을 필터링하는 데 사용됩니다. 파일에서 메타데이터를 가져올 때는 적용되지 않습니다.
+    - 이러한 필터를 사용하면 출력의 `childItems`에는 지정된 범위 내에서 수정된 파일만 포함되고 폴더는 포함되지 않습니다.
+    - 이러한 필터를 적용하기 위해 GetMetadata 작업은 지정된 폴더의 모든 파일을 열거하고 수정된 시간을 확인합니다. 예상되는 정규화된 파일 수가 적더라도 많은 수의 파일이 있는 폴더를 가리키지 마세요. 
 
 **관계형 데이터베이스**
 
@@ -68,33 +70,33 @@ ms.locfileid: "102178544"
 
 ### <a name="metadata-options"></a>메타데이터 옵션
 
-메타 데이터 가져오기 작업 필드 목록에서 다음 메타 데이터 형식을 지정 하 여 해당 정보를 검색할 수 있습니다.
+메타데이터 가져오기 작업 필드 목록에서 다음 메타데이터 형식을 지정하여 해당 정보를 검색할 수 있습니다.
 
 | 메타데이터 유형 | 설명 |
 |:--- |:--- |
 | itemName | 파일 또는 폴더의 이름입니다. |
-| itemType | 파일 또는 폴더의 형식입니다. 반환 된 값은 `File` 또는 `Folder` 입니다. |
-| 크기 | 파일의 크기 (바이트)입니다. 파일에만 적용 됩니다. |
+| itemType | 파일 또는 폴더의 형식입니다. 반환된 값은 `File` 또는 `Folder`입니다. |
+| 크기 | 파일 크기(바이트)입니다. 파일에만 적용됩니다. |
 | created | 파일 또는 폴더를 만든 날짜/시간입니다. |
 | lastModified | 파일 또는 폴더를 마지막으로 수정한 날짜/시간입니다. |
-| childItems | 지정 된 폴더의 하위 폴더 및 파일 목록입니다. 폴더에만 적용 됩니다. 반환 된 값은 각 자식 항목의 이름과 형식 목록입니다. |
-| contentMD5 | 파일의 MD5입니다. 파일에만 적용 됩니다. |
+| childItems | 지정된 폴더의 하위 폴더 및 파일 목록입니다. 폴더에만 적용됩니다. 반환된 값은 각 자식 항목의 이름과 유형 목록입니다. |
+| contentMD5 | 파일의 MD5입니다. 파일에만 적용됩니다. |
 | structure | 파일 또는 관계형 데이터베이스 테이블의 데이터 구조입니다. 반환 값은 열 이름과 열 형식의 목록입니다. |
-| columnCount | 파일이 나 관계형 테이블의 열 수입니다. |
-| exists| 파일, 폴더 또는 테이블이 있는지 여부입니다. `exists`메타 데이터 가져오기 필드 목록에가 지정 된 경우에는 파일, 폴더 또는 테이블이 없어도 작업이 실패 합니다. 대신 `exists: false` 가 출력에서 반환 됩니다. |
+| columnCount | 파일 또는 관계형 테이블의 열 수입니다. |
+| exists| 파일, 폴더 또는 테이블이 있는지 여부입니다. 메타데이터 가져오기 필드 목록에 `exists`가 지정되면 파일, 폴더 또는 테이블이 존재하지 않아도 작업이 실패하지 않습니다. 대신 `exists: false`가 출력에 반환됩니다. |
 
 > [!TIP]
-> 파일, 폴더 또는 테이블이 있는지 확인 하려면 `exists` 메타 데이터 가져오기 작업 필드 목록에서를 지정 합니다. 그런 다음 `exists: true/false` 활동 출력의 결과를 확인할 수 있습니다. `exists`필드 목록에을 지정 하지 않으면 개체를 찾을 수 없는 경우 메타 데이터 가져오기 작업이 실패 합니다.
+> 파일, 폴더 또는 테이블이 있는지 유효성을 검증하려면 메타데이터 가져오기 작업 필드 목록에 `exists`를 지정합니다. 그런 다음 작업 출력에서 `exists: true/false` 결과를 확인할 수 있습니다. `exists`가 필드 목록에 지정되지 않은 경우 개체를 찾을 수 없으면 메타데이터 가져오기 작업이 실패합니다.
 
 > [!NOTE]
-> 파일 저장소에서 메타 데이터를 가져오고 또는를 구성 하면 지정 된 `modifiedDatetimeStart` `modifiedDatetimeEnd` `childItems` 범위 내에서 마지막으로 수정 된 시간을 포함 하는 지정 된 경로의 파일만 출력의에 포함 됩니다. 하위 폴더의 항목은 포함 되지 않습니다.
+> 파일 저장소에서 메타데이터를 가져오고 `modifiedDatetimeStart` 또는 `modifiedDatetimeEnd`를 구성하면 출력의 `childItems`에는 지정된 범위 내에서 마지막으로 수정된 시간이 있는 지정된 경로의 파일만 포함됩니다. 하위 폴더의 항목은 포함되지 않습니다.
 
 > [!NOTE]
-> **구조** 필드 목록에서 구분 된 텍스트 및 Excel 형식 데이터 집합에 대 한 실제 데이터 구조를 제공 하려면 `First Row as Header` 이러한 데이터 원본에 대해서만 지원 되는 속성을 활성화 해야 합니다.
+> 구분된 텍스트 및 Excel 형식 데이터 세트에 대한 실제 데이터 구조를 제공하는 **구조** 필드 목록의 경우 이러한 데이터 원본에 대해서만 지원되는 `First Row as Header` 속성을 사용하도록 설정해야 합니다.
 
 ## <a name="syntax"></a>구문
 
-**메타 데이터 가져오기 작업**
+**메타데이터 가져오기 작업**
 
 ```json
 {
@@ -161,18 +163,18 @@ ms.locfileid: "102178544"
 
 ## <a name="type-properties"></a>형식 속성
 
-현재, 메타 데이터 가져오기 작업은 다음과 같은 유형의 메타 데이터 정보를 반환할 수 있습니다.
+현재, 메타데이터 가져오기 작업은 다음과 같은 유형의 메타데이터 정보를 반환할 수 있습니다.
 
 속성 | 설명 | 필수
 -------- | ----------- | --------
-fieldList | 필요한 메타 데이터 정보의 형식입니다. 지원 되는 메타 데이터에 대 한 자세한 내용은이 문서의 [메타 데이터 옵션](#metadata-options) 섹션을 참조 하세요. | 예 
-데이터 세트 | 메타 데이터 가져오기 작업에서 메타 데이터를 검색할 참조 데이터 집합입니다. 지원 되는 커넥터에 대 한 자세한 내용은 [기능](#supported-capabilities) 섹션을 참조 하세요. 데이터 집합 구문에 대 한 자세한 내용은 특정 커넥터 항목을 참조 하세요. | 예
-formatSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아니요
-나이 설정 | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아니요
+fieldList | 필요한 메타데이터 정보의 유형입니다. 지원되는 메타데이터에 대한 자세한 내용은 이 문서의 [메타데이터 옵션](#metadata-options) 섹션을 참조하세요. | 예 
+데이터 세트 | GetMetadata 작업 시 메타데이터를 검색할 참조 데이터 세트입니다. 지원되는 커넥터에 대한 정보는 [기능](#supported-capabilities) 섹션을 참조하세요. 데이터 세트 구문 세부 정보는 특정 커넥터 항목을 참조하세요. | 예
+formatSettings | 형식 유형 데이터 세트를 사용할 때 적용합니다. | 예
+storeSettings | 형식 유형 데이터 세트를 사용할 때 적용합니다. | 아니요
 
 ## <a name="sample-output"></a>샘플 출력
 
-메타 데이터 가져오기 결과는 활동 출력에 표시 됩니다. 다음은 광범위 한 메타 데이터 옵션을 보여 주는 두 샘플입니다. 후속 작업에서 결과를 사용 하려면 다음 패턴을 사용 합니다. `@{activity('MyGetMetadataActivity').output.itemName}`
+메타데이터 가져오기 결과가 작업 출력에 표시됩니다. 다음은 광범위한 메타데이터 옵션을 보여 주는 두 가지 샘플입니다. 후속 작업에서 결과를 사용하려면 `@{activity('MyGetMetadataActivity').output.itemName}` 패턴을 사용합니다.
 
 ### <a name="get-a-files-metadata"></a>파일의 메타데이터 가져오기
 
@@ -222,7 +224,7 @@ formatSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 �
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Data Factory에서 지 원하는 다른 제어 흐름 작업에 대해 알아봅니다.
+Data Factory에서 지원하는 다른 제어 흐름에 대해 알아봅니다.
 
 - [파이프라인 실행 작업](control-flow-execute-pipeline-activity.md)
 - [ForEach 작업](control-flow-for-each-activity.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2021
 ms.author: xpouyat
-ms.openlocfilehash: f2c66b08d399ddf53686074079665e36be9aace7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5a0dd1c0e19d008d729b2c68d8fcae8ac17223e5
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104870472"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749210"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Microsoft&reg; 부드러운 스트리밍 클라이언트 이식 키트 라이선스
 
@@ -81,63 +81,48 @@ SSPK 배포 포털 은 등록된 중간 정식 사용자가 액세스할 수 있
 중간 및 최종 SSPK 정식 사용자는 [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com)를 클릭하세요.
 
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Microsoft 부드러운 스트리밍 클라이언트 중간 제품 계약 정식 사용자
-
-* Adroit Business Solutions, Inc
-* Advanced Digital Broadcast SA
-* AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
-* Albis Technologies Ltd.
-* Alticast Corporation
-* Amazon Digital Services, Inc.
-* Arion Technology, Inc.
-* AVC Multimedia Software Co., Ltd.
-* Cavium, Inc.
-* EchoStar Purchasing Corporation
 * Enseo, Inc.
 * Fluendo S.A.
+* Guangzhou Dimai Digital Limited Co.
 * Guangzhou Shikun Electronics., Ltd.
-* HANDAN BroadInfoCom Co., Ltd.
-* Infomir GMBH
-* Irdeto USA Inc.
-* Liberty Global Services BV
+* Hisilicon Technologies Co., Ltd.
+* LG Electronics, Inc.
 * MediaTek Inc.
-* MStar Co, Ltd
-* Nintendo Co., Ltd.
-* OpenTV, Inc.
-* Saffron Digital Limited
-* Sichuan Changhong Electric Co., Ltd
-* SoftAtHome
-* Sony Corporation
+* Montage LZ Technologies Hong Kong Limited
+* Panasonic Corporation
+* Synamedia Limited
 * Tatung Technology Inc.
 * Top Victory Investments, Ltd.
-* Vestel Elektronik Sanayi ve Ticaret A.S.
-* VisualOn, Inc.
 * ZTE Corporation
 
 ## <a name="microsoft-smooth-streaming-client-final-product-agreement-licensees"></a>Microsoft 부드러운 스트리밍 클라이언트 최종 제품 계약 정식 사용자
-* Advanced Digital Broadcast SA
-* AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
 * AmTRAN Technology Co., Ltd 
 * Arcadyan Technology Corporation
 * Arcelik A.S
 * Compal Electronics, Inc.
+* Enseo, LLC
 * EXPRESS LUCK TECHNOLOGY LIMITED
 * Fluendo S.A.
 * FUNAI ELECTRIC CO., LTD
+* Hisense Broadband Multimedia Technologies Co.,Ltd.
 * Hisense International Co., Ltd.
 * Hisense Visual Technology Co., Ltd
 * HKC Corporation Limited
 * Hong Kong Konka Ltd
 * Innolux Corporation
 * Jinpin Electrical Company Ltd.Zhuhai.S.E.Z
-* K-Tronics (Suzhou) Technology Co., Ltd. 
-* Kaonmedia Co., Ltd.
+* KAONMEDIA CO., Ltd.
 * KDDI Corporation
+* K-Tronics (Suzhou) Technology Co., Ltd.
+* LG Electronics, Inc.
 * Mega Fame Electronics Co. Limited
+* MINGCAI NEW CENTURY (HK) CO., LIMITED
 * MIRC Electronics Limited
 * MOKA INTERNATIONAL LIMITED
 * ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
 * Panasonic Corporation
 * Qingdao Haier Optronics Co., Ltd.
+* Sharp Consumer Electronics Poland Sp. z o.o.
 * Shenzhen ATEKO PHOTO Electricity Co.,Ltd.
 * Shenzhen Chuangwei-RGB Electronics Co.,Ltd.
 * Shenzhen Jiuzhou Electric Co., Ltd
@@ -146,16 +131,14 @@ SSPK 배포 포털 은 등록된 중간 정식 사용자가 액세스할 수 있
 * Shenzhen MTC Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
-* Skardin Industrial Corp.
+* SKARDIN INDUSTRIAL CORP
 * Sky CP Ltd
 * SMARDTV GLOBAL SAS
 * SoftAtHome
-* Sony Corporation
 * Technicolor Delivery Technologies, SAS
 * Top Victory Investments, Ltd.
-* UMC Poland sp. z .o.o.
 * Vizio, Inc.
-* ZTE Corporation
+* ZTE CORPORATION
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

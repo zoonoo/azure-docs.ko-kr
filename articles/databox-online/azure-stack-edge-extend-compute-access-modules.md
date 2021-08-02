@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro에서 모듈에 액세스할 컴퓨팅 네트워크 관리 | Microsoft Docs
-description: 외부 IP를 통해 모듈에 액세스하도록 Azure Stack Edge Pro에서 컴퓨팅 네트워크를 확장하는 방법을 설명합니다.
+title: Azure Stack Edge Pro FPGA 컴퓨팅 네트워크 관리를 사용하여 모듈에 액세스
+description: 외부 IP를 통해 모듈에 액세스하도록 Azure Stack Edge Pro FPGA에서 컴퓨팅 네트워크를 확장하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 19c92deb58ac51aa882e7123b9a90aa3eae627d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dbbd43d07bbb07e13f2e0301e15d73ee727a86fd
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90894112"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461242"
 ---
 # <a name="enable-compute-network-on-your-azure-stack-edge-pro"></a>Azure Stack Edge Pro에서 컴퓨팅 네트워크 사용
 

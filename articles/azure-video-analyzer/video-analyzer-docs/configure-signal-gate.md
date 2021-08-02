@@ -3,16 +3,19 @@ title: 이벤트 기반 비디오 녹화를 위한 신호 게이트 구성 - Azu
 description: 이 문서에서는 파이프라인에서 신호 게이트를 구성하는 방법에 대한 지침을 제공합니다.
 ms.topic: how-to
 ms.date: 4/12/2021
-ms.openlocfilehash: e7871f017d416e164a6160336646d8285c3792a7
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: e03524e7e12a0081172918159e9f2d2ed2e4a7d6
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387570"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413432"
 ---
 # <a name="configuring-a-signal-gate-for-event-based-video-recording"></a>이벤트 기반 비디오 녹화를 위한 신호 게이트 구성
 
 파이프라인 내에서 [신호 게이트 프로세서 노드](pipeline.md#signal-gate-processor)를 사용하면 이벤트에 의해 게이트가 트리거될 때 한 노드에서 다른 노드로 미디어를 전달할 수 있습니다. 게이트가 트리거되면 게이트가 열리고 지정된 기간 동안 미디어가 흐를 수 있습니다. 게이트를 트리거하는 이벤트가 없는 경우 게이트가 닫히고 미디어 흐름이 중지됩니다. 이벤트 기반 비디오 녹화에 신호 게이트 프로세서를 사용할 수 있습니다.
+
+> [!NOTE]
+> 신호 게이트 프로세서 노드 바로 뒤에 비디오 싱크 또는 파일 싱크가 있어야 합니다.
 
 이 문서에서는 신호 게이트 프로세서를 구성하는 방법을 알아봅니다.
 
@@ -71,8 +74,8 @@ ms.locfileid: "110387570"
 
 * **activationEvaluationWindow**: 0~10초
 * **activationSignalOffset**: -1~1분
-* **minimumActivationTime**: 1초~1시간
-* **maximumActivationTime**: 1초~1시간
+* **minimumActivationTime**: 10초~1시간
+* **maximumActivationTime**: 10초~1시간
 
 사용 사례에서 다음과 같이 매개 변수를 설정합니다.
 

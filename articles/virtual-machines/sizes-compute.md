@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 01eba7bff571a8db25591b8bfa5c5e712511588f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 91143496014d015e1565b8871ee39e90c34f172b
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557695"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072562"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>컴퓨팅 최적화 가상 머신 크기
 
 컴퓨팅 최적화 VM 크기는 CPU 대 메모리 비율이 높습니다. 해당 크기는 트래픽이 중간 정도인 웹 서버, 네트워크 어플라이언스, 일괄 처리 프로세스, 애플리케이션 서버에 적합합니다. 이 문서에서는 vCPU, 데이터 디스크, NIC의 개수에 대한 정보를 제공합니다. 또한 이 그룹의 각 크기에 대한 스토리지 처리량 및 네트워크 대역폭에 대한 정보도 제공합니다.
 
-[Fsv2 시리즈](fsv2-series.md)는 2세대 Intel® Xeon® 플래티넘 8272CL(Cascade Lake) 프로세서 및 Intel® Xeon® 플래티넘 8168(Skylake) 프로세서에서 실행됩니다. 모든 코어 터보 클럭 속도가 3.4GHz이고 최대 싱글 코어 터보 주파수는 3.7GHz입니다. Intel® AVX-512 지침은 Intel Scalable Processor에 새로 있습니다. 지침은 단일 및 이중 정밀 부동 소수점 작업에서 워크로드를 벡터 처리할 때의 성능을 최대 2배로 끌어 올립니다. 즉, 계산 워크로드를 빠르게 처리합니다.
+- [Fsv2 시리즈](fsv2-series.md)는 2세대 Intel® Xeon® 플래티넘 8272CL(Cascade Lake) 프로세서 및 Intel® Xeon® 플래티넘 8168(Skylake) 프로세서에서 실행됩니다. 모든 코어 터보 클럭 속도가 3.4GHz이고 최대 싱글 코어 터보 주파수는 3.7GHz입니다. Intel® AVX-512 지침은 Intel Scalable Processor에 새로 있습니다. 지침은 단일 및 이중 정밀 부동 소수점 작업에서 워크로드를 벡터 처리할 때의 성능을 최대 2배로 끌어올립니다. 즉, 계산 워크로드를 빠르게 처리합니다. 시간당 가격이 더 낮은 Fsv2 시리즈는 vCPU당 ACU(Azure 컴퓨팅 단위)를 기준으로 하는 Azure 포트폴리오에서 가격 대비 성능이 가장 좋습니다.
 
-시간당 가격이 더 낮은 Fsv2 시리즈는 vCPU당 ACU(Azure 컴퓨팅 단위)를 기준으로 하는 Azure 포트폴리오에서 가격 대비 성능이 가장 좋습니다.
+- [FX 시리즈](fx-series.md)는 Intel® Xeon® Gold 6246R(Cascade Lake) 프로세서에서 실행됩니다. 4\.0GHz의 올코어 터보 주파수, vCPU당 21GB RAM, 최대 1TB의 총 RAM 및 로컬 임시 저장소를 제공합니다. FX 시리즈는 높은 CPU 클록 속도와 높은 메모리 대 CPU 비율이 필요한 워크로드, 코어당 라이선스 비용이 높은 워크로드 및 높은 단일 코어 성능이 필요한 애플리케이션에 유용합니다. FX 시리즈의 일반적인 사용 사례는 EDA(전자 디자인 자동화) 워크로드입니다.
 
 ## <a name="other-sizes"></a>기타 크기
 

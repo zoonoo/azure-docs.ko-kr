@@ -1,48 +1,40 @@
 ---
-title: Windows 가상 데스크톱 MSIX 앱 연결 PowerShell 스크립트 구성-Azure
-description: Windows 가상 데스크톱에 대 한 MSIX 앱 연결을 위한 PowerShell 스크립트를 만드는 방법입니다.
+title: Azure Virtual Desktop MSIX 앱 연결 PowerShell 스크립트 구성 - Azure
+description: Azure Virtual Desktop에 대한 MSIX 앱 연결을 위한 PowerShell 스크립트를 만드는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 5e45c51735e0b7ab4b263d3f3047b5848c82439d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+manager: femila
+ms.openlocfilehash: 1ff5ea8c4bb0af326b37d0e4ff2185be22393f16
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98185770"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745442"
 ---
-# <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>MSIX 앱 연결을 위한 PowerShell 스크립트 만들기 (미리 보기)
+# <a name="create-powershell-scripts-for-msix-app-attach"></a>MSIX 앱 연결용 PowerShell 스크립트 만들기
 
-> [!IMPORTANT]
-> MSIX 앱 연결은 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-이 항목에서는 MSIX 앱 연결에 대 한 PowerShell 스크립트를 설정 하는 방법을 안내 합니다.
-
->[!IMPORTANT]
->시작 하기 전에 구독에서 MSIX 앱 연결을 사용할 수 있도록 [이 양식을](https://aka.ms/enablemsixappattach) 작성 하 고 제출 해야 합니다. 승인 된 요청이 없으면 MSIX 앱 연결이 작동 하지 않습니다. 요청 승인은 업무 시간 동안 최대 24 시간이 걸릴 수 있습니다. 요청이 수락 되 고 완료 되 면 전자 메일을 받게 됩니다.
+이 항목에서는 MSIX 앱 연결을 위한 PowerShell 스크립트를 설정하는 방법을 안내합니다.
 
 ## <a name="install-certificates"></a>인증서 설치
 
-MSIX 앱 연결 패키지에서 ap를 호스트 하는 호스트 풀의 모든 세션 호스트에 인증서를 설치 해야 합니다.
+MSIX 앱 연결 패키지에서 앱을 호스팅하는 호스트 풀의 모든 세션 호스트에 인증서를 설치해야 합니다.
 
 앱에 공개적으로 신뢰되지 않았거나 자체 서명된 인증서가 사용되는 경우 설치 방법은 다음과 같습니다.
 
 1. 패키지를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다.
-2. 창이 나타나면 **디지털 서명** 탭을 선택합니다. 다음 이미지와 같이, 탭의 목록에는 항목이 하나만 있어야 합니다. 해당 항목을 선택하여 항목을 강조 표시한 다음, **세부 정보** 를 선택합니다.
-3. 디지털 서명 정보 창이 표시 되 면 **일반** 탭을 선택한 다음 **인증서 보기** 를 선택 하 고 **인증서 설치** 를 선택 합니다.
+2. 표시되는 창에서 **디지털 서명** 탭을 선택합니다. 탭의 목록에는 항목이 하나만 있어야 합니다. 해당 항목을 선택하여 항목을 강조 표시한 다음 **세부 정보** 를 선택합니다.
+3. 디지털 서명 정보 창이 나타나면 **일반** 탭을 선택한 다음, **인증서 보기** 와 **인증서 설치** 를 차례로 선택합니다.
 4. 설치 관리자가 열리면 **로컬 머신** 을 스토리지 위치로 선택하고 **다음** 을 선택합니다.
 5. 설치 관리자에 앱이 디바이스를 변경하도록 허용할지 묻는 메시지가 표시되면 **예** 를 선택합니다.
 6. **모든 인증서를 다음 저장소에 저장** 을 선택한 다음, **찾아보기** 를 선택합니다.
 7. 인증서 저장소 선택 창이 나타나면 **신뢰할 수 있는 사용자** 를 선택한 후 **확인** 을 선택합니다.
-8. **다음** 을 선택 하 고 **마침** 을 선택 합니다.
+8. **다음** 및 **마침** 을 선택합니다.
 
 ## <a name="enable-microsoft-hyper-v"></a>Microsoft Hyper-V 사용
 
-명령을 준비 하는 데 필요 하 고 디 스테이지를 사용 해야 하기 때문에 Microsoft Hyper-V를 사용 하도록 설정 해야 합니다 `Mount-VHD` `Dismount-VHD` .
+`Mount-VHD` 명령은 스테이징에 필요하고 `Dismount-VHD`는 디스테이지에 필요하므로 Microsoft Hyper-V를 사용하도록 설정해야 합니다.
 
 ```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
@@ -62,7 +54,7 @@ MSIX app attach에는 다음 순서로 수행해야 하는 네 가지 단계가 
 
 각 단계는 PowerShell 스크립트를 만듭니다. 각 단계에 대한 샘플 스크립트는 [여기](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach)에 있습니다.
 
-### <a name="stage-powershell-script"></a>스테이지 PowerShell 스크립트
+### <a name="stage-powershell-script"></a>PowerShell 스크립트 스테이징
 
 PowerShell 스크립트를 업데이트하기 전에 VHD에 볼륨의 볼륨 GUID가 있는지 확인해야 합니다. 볼륨 GUID를 가져오려면 다음을 수행합니다.
 
@@ -143,7 +135,7 @@ PowerShell 스크립트를 업데이트하기 전에 VHD에 볼륨의 볼륨 GUI
     $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where { $_.ToString() -eq 'System.Threading.Tasks.Task`1[TResult] AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress`2[TResult,TProgress])'})[0]
     $asTaskAsyncOperation = $asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult], [Windows.Management.Deployment.DeploymentProgress])
     $packageManager = [Windows.Management.Deployment.PackageManager]::new()
-    $path = $msixJunction + $parentFolder + $packageName # needed if we do the pbisigned.vhd
+    $path = $msixJunction + $parentFolder + $packageName 
     $path = ([System.Uri]$path).AbsoluteUri
     $asyncOperation = $packageManager.StagePackageAsync($path, $null, "StageInPlace")
     $task = $asTaskAsyncOperation.Invoke($null, @($asyncOperation))
@@ -186,7 +178,7 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 
 ### <a name="destage-powershell-script"></a>PowerShell 스크립트 스테이징 취소
 
-이 스크립트의 경우 **$packageName** 의 자리 표시자를 테스트 중인 패키지의 이름으로 바꿉니다. 프로덕션 배포에서는 종료 시이를 실행 하는 것이 가장 좋습니다.
+이 스크립트의 경우 **$packageName** 의 자리 표시자를 테스트 중인 패키지의 이름으로 바꿉니다. 프로덕션 배포에서는 종료 시 이 작업을 실행하는 것이 가장 좋습니다.
 
 ```powershell
 #MSIX app attach de staging sample
@@ -269,6 +261,6 @@ catch [Exception]
 
 ## <a name="next-steps"></a>다음 단계
 
-이 기능은 현재 지원되지 않지만 [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)에서 커뮤니티에 질문할 수 있습니다.
+이 기능은 현재 지원되지 않지만 [Azure Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)에서 커뮤니티에 질문할 수 있습니다.
 
-[Windows Virtual Desktop 피드백 허브](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)에서 Windows Virtual Desktop에 대한 피드백을 남길 수도 있습니다.
+[Azure Virtual Desktop 피드백 허브](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)에서 Azure Virtual Desktop에 대한 피드백을 남길 수도 있습니다.

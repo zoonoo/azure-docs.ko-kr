@@ -2,24 +2,24 @@
 title: Azure Storage 인벤토리를 사용하여 Blob 데이터 관리(미리 보기)
 description: Azure Storage 인벤토리는 스토리지 계정 내의 모든 Blob 데이터에 대한 개요를 가져오는 데 도움이 되는 도구입니다.
 services: storage
-author: twooley
+author: normesta
 ms.service: storage
 ms.date: 04/01/2021
 ms.topic: conceptual
-ms.author: twooley
+ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 33d50d1a6b5e84d178b522851795bcc42f5fc169
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 14092e4d6ea63c96b653aaf09160e69a8ad30299
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277269"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753776"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Azure Storage Blob 인벤토리를 사용하여 Blob 데이터 관리(미리 보기)
 
-Azure Storage Blob 인벤토리 기능은 스토리지 계정 내의 Blob 데이터에 대한 개요를 제공합니다. 인벤토리 보고서를 사용하여 총 데이터 크기, 사용 기간, 암호화 상태 등을 파악합니다. 이 보고서는 비즈니스 및 규정 준수 요구 사항에 대한 데이터 개요를 제공합니다. 일단 사용하도록 설정되면 인벤토리 보고서가 매일 자동으로 만들어집니다.
+Azure Storage Blob 인벤토리 기능은 스토리지 계정 내의 Blob 데이터에 대한 개요를 제공합니다. 인벤토리 보고서를 사용하여 총 데이터 크기, 사용 기간, 액세스 계층, 암호화 상태 등을 파악합니다. 이 보고서는 비즈니스 및 규정 준수 요구 사항에 대한 데이터 개요를 제공합니다. 일단 사용하도록 설정되면 인벤토리 보고서가 매일 자동으로 만들어집니다.
 
 ## <a name="availability"></a>가용성
 
@@ -30,14 +30,7 @@ Blob 인벤토리는 GPv2(범용 버전 2) 및 프리미엄 블록 Blob 스토�
 
 ### <a name="preview-regions"></a>미리 보기 지역
 
-Blob 인벤토리 미리 보기는 다음 지역의 스토리지 계정에서 사용할 수 있습니다.
-
-- 프랑스 중부
-- 캐나다 중부
-- 캐나다 동부
-- 미국 동부
-- 미국 동부2
-- 서유럽
+Blob 인벤토리 미리 보기는 미국 서부를 제외한 모든 공용 지역의 스토리지 계정에서 사용할 수 있습니다.
 
 ### <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 

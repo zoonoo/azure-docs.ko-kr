@@ -1,10 +1,10 @@
 ---
-title: Azure Active Directory 포털의 로그인 작업 보고서 | Microsoft Docs
-description: Azure Active Directory 포털의 로그인 작업 보고서 소개
+title: Azure Active Directory의 로그인 로그 | Microsoft Docs
+description: Azure Active Directory의 로그인 로그 개요
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -13,63 +13,75 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/24/2020
+ms.date: 05/06/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d61962667953b20f4b542874e902411bb579b9c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85c6d8520938ffc859a7116d1dc9e61cb26534e4
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93122846"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030560"
 ---
-# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
+# <a name="sign-in-logs-in-azure-active-directory"></a>Azure Active Directory 로그인 로그
 
-Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
+IT 관리자가 IT 환경의 운영 상태를 파악하려고 합니다. 시스템 상태 정보를 사용하여 잠재적 문제에 대응해야 하는지 여부와 방법을 평가할 수 있습니다. 
 
-- **활동** 
-    - **로그인** – 관리되는 애플리케이션 및 사용자 로그인 활동의 사용량에 대한 정보입니다.
-    - **감사 로그** - [감사 로그](concept-audit-logs.md)는 사용자 및 그룹 관리, 관리되는 애플리케이션 및 디렉터리 활동에 대한 시스템 활동 정보를 제공합니다.
-    - **로그 프로비저닝** - [로그 프로비저닝](./concept-provisioning-logs.md)을 통해 고객은 ServiceNow에서 그룹을 만들거나 Workday에서 가져온 사용자와 같은 프로비저닝 서비스에서 작업을 모니터링할 수 있습니다. 
-- **보안** 
-    - **위험한 로그인** - [위험한 로그인](../identity-protection/overview-identity-protection.md)은 사용자 계정의 정당한 소유자가 아닌 사용자에 의해 수행된 로그인 시도에 대한 지표입니다.
-    - **위험 플래그가 지정된 사용자** - [위험한 사용자](../identity-protection/overview-identity-protection.md)는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
+이 목표를 지원하기 위해 Azure Active Directory 포털은 다음 세 가지 활동 로그에 대한 액세스를 제공합니다.
+
+- **[로그인](concept-sign-ins.md)** – 로그인 및 사용자가 리소스를 사용하는 방법에 대한 정보입니다.
+- **[감사](concept-audit-logs.md)** – 사용자 및 그룹 관리 또는 테넌트 리소스에 적용된 업데이트와 같이 테넌트에 적용된 변경 내용에 대한 정보입니다.
+- **[프로비저닝](concept-provisioning-logs.md)** – ServiceNow의 그룹 생성 또는 Workday에서 가져온 사용자와 같이 프로비저닝 서비스에서 수행하는 활동입니다.
 
 이 항목에서는 로그인 보고서에 대한 개요를 제공합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
 
-### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
+## <a name="what-can-you-do-with-it"></a>로그인 보고서로 무엇을 할 수 있나요?
 
-* 보안 관리자, 보안 읽기 권한 보유자, 전역 읽기 권한 보유자, 보고서 읽기 권한 보유자
-* 글로벌 관리자
-* 모든 사용자(비관리자)가 자신의 로그인에 액세스할 수 있습니다. 
+로그인 로그를 사용하여 다음과 같은 질문의 답변을 찾을 수 있습니다.
 
-### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>로그인 작업에 액세스하는 데 필요한 Azure AD 라이선스는 무엇인가요?
+- 사용자의 로그인 패턴이란?
+
+- 한 주 동안 얼마나 많은 사용자가 로그인했나요?
+
+- 이러한 로그인의 상태란?
+
+
+## <a name="who-can-access-it"></a>액세스할 수 있는 사용자는 누구인가요?
+
+언제든지 다음 링크를 사용하여 사용자 고유의 로그인 기록에 액세스할 수 있습니다. [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
+
+로그인 로그에 액세스하려면 다음에 해당해야 합니다.
+
+- 전역 관리자
+
+- 다음 역할 중 하나가 지정된 사용자:
+    - 보안 관리자
+
+    - 보안 판독기
+
+    - 전역 독자
+
+    - 보고서 읽기 권한자
+
+
+
+## <a name="what-azure-ad-license-do-you-need"></a>필요한 Azure AD 라이선스는 무엇인가요?
 
 로그인 활동 보고서는 [모든 버전의 Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)에서 사용할 수 있으며 Microsoft Graph API를 통해 액세스할 수도 있습니다.
 
-## <a name="sign-ins-report"></a>로그인 보고서
 
-사용자 로그인 보고서는 다음과 같은 질문에 대한 답변을 제공합니다.
+## <a name="where-can-you-find-it-in-the-azure-portal"></a>Azure Portal에서 로그를 찾을 수 있는 위치는 어디인가요?
 
-* 사용자의 로그인 패턴이란?
-* 한 주 동안 얼마나 많은 사용자가 로그인했나요?
-* 이러한 로그인의 상태란?
+Azure Portal은 로그에 액세스하는 몇 가지 옵션을 제공합니다. 예를 들어 Azure Active Directory 메뉴의 **모니터링** 섹션에서 로그를 열 수 있습니다.  
 
-[Azure Portal](https://portal.azure.com) 메뉴에서 **Azure Active Directory** 를 선택하거나 임의 페이지에서 **Azure Active Directory** 를 검색한 후 선택합니다.
+![로그인 로그 열기](./media/concept-sign-ins/sign-ins-logs-menu.png)
 
-![Azure Active Directory 선택](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+다음 링크를 사용하여 로그인 로그에 직접 액세스할 수도 있습니다. [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
 
-**모니터링** 에서 **로그인** 을 선택하여 [로그인 보고서](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)를 엽니다.
 
-![모니터링 메뉴에서 선택한 로그인을 보여주는 스크린샷](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "로그인 작업")
-
-일부 로그인 레코드가 포털에 표시되는 데 최대 2시간이 걸릴 수 있습니다.
-
-> [!IMPORTANT]
-> 로그인 보고서에는 **대화형** 로그인, 즉 사용자 이름과 암호를 사용하는 수동 로그인만 표시됩니다. 비대화형 로그인(서비스 간 인증)은 로그인 보고서에 표시되지 않습니다. 
+## <a name="what-is-the-default-view"></a>기본 보기는 무엇인가요?
 
 로그인 로그에는 다음 항목을 보여주는 기본 목록 보기가 있습니다.
 
@@ -94,17 +106,26 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 ![자세한 정보 보기를 보여주는 스크린샷.](./media/concept-sign-ins/basic-sign-in.png "로그인 작업")
 
-> [!NOTE]
-> 이제 고객은 모든 로그인 보고서를 통해 조건부 액세스 정책의 문제를 해결할 수 있습니다. 고객은 로그인 레코드에 대한 **조건부 액세스** 탭을 클릭하여 조건부 액세스 상태를 검토하고 로그인에 적용된 정책의 세부 정보와 각 정책의 결과를 자세히 알아볼 수 있습니다.
-> 자세한 내용은 [모든 로그인의 CA 정보에 대한 질문과 대답](reports-faq.md#conditional-access)을 참조하세요.
+
+
+## <a name="sign-in-error-code"></a>로그인 오류 코드
+
+로그인에 실패한 경우 관련 로그 항목의 **기본 정보** 섹션에서 이유에 대한 자세한 정보를 얻을 수 있습니다. 
+
+![로그인 오류 코드](./media/concept-all-sign-ins/error-code.png)
+ 
+로그 항목에서 실패 이유를 제공하지만 [로그인 오류 조회 도구](https://login.microsoftonline.com/error)를 사용하여 자세한 정보를 얻을 수 있는 경우가 있습니다. 예를 들어 이 도구는 사용 가능한 경우 수정 단계를 제공합니다.  
+
+![오류 코드 조회 도구](./media/concept-all-sign-ins/error-code-lookup-tool.png)
 
 
 
-## <a name="filter-sign-in-activities"></a>로그인 활동 필터링
+## <a name="filter-sign-in-activities&quot;></a>로그인 활동 필터링
 
-먼저, 보고된 데이터의 범위를 자신에게 맞는 수준으로 좁힙니다. 둘째, 날짜 필드를 기본 필터로 사용하여 로그인 데이터를 필터링합니다. Azure AD는 설정할 수 있는 광범위한 추가 필터를 제공합니다.
 
-![필터 추가 옵션을 보여주는 스크린샷.](./media/concept-sign-ins/04.png "로그인 작업")
+로그의 데이터를 필터링하여 사용자에게 적합한 수준까지 범위를 좁힐 수 있습니다.
+
+![필터 추가 옵션을 보여주는 스크린샷.](./media/concept-sign-ins/04.png &quot;로그인 작업")
 
 **요청 ID** - 관심 있는 요청의 ID입니다.
 
@@ -193,7 +214,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 ## <a name="download-sign-in-activities"></a>로그인 활동 다운로드
 
-**다운로드** 옵션을 클릭하여 가장 최근 25만 레코드의 CSV 또는 JSON 파일을 생성합니다. Azure Portal 외부에서 작업하려는 경우 [로그인 데이터 다운로드](quickstart-download-sign-in-report.md)로 시작합니다.  
+**다운로드** 옵션을 클릭하여 가장 최근 25만 레코드의 CSV 또는 JSON 파일을 생성합니다. Azure Portal 외부에서 작업하려는 경우 [로그인 데이터 다운로드](./howto-download-logs.md)로 시작합니다.  
 
 ![다운로드](./media/concept-sign-ins/71.png "다운로드")
 
@@ -240,13 +261,42 @@ Azure AD와 Azure Portal은 모두 로그인 데이터를 위한 추가 진입�
 - 로그인 상태
 
 > [!NOTE]
-> IP 주소는 IP 주소와 해당 주소가 실제로 연결된 컴퓨터 간에 확실한 연결이 없는 경우와 같은 방법으로 발급됩니다. IP 주소 매핑은 클라이언트 디바이스가 실제로 사용되는 위치에서 종종 매우 먼 중앙 풀에서 모바일 공급자 또는 VPN이 IP 주소를 발급한다는 사실로 인해 복잡해집니다. 현재로서는 Azure AD 보고서에서 IP 주소를 실제 위치로 변환하는 것은 추적, 레지스트리 데이터, 역방향 조회 및 기타 정보를 바탕으로 하는 최상의 노력입니다.
+> IP 주소는 IP 주소와 해당 주소가 실제로 연결된 컴퓨터 간에 확실한 연결이 없는 경우와 같은 방법으로 발급됩니다. IP 주소 매핑은 클라이언트 디바이스가 실제로 사용되는 위치에서 종종 매우 먼 중앙 풀에서 모바일 공급자 또는 VPN이 IP 주소를 발급한다는 사실로 인해 복잡해집니다. 현재 IP 주소를 실제 위치로 변환하는 작업은 추적, 레지스트리 데이터, 역방향 조회, 기타 정보를 기반으로 한 최선의 노력입니다.
 
 **사용자** 페이지에서 **활동** 섹션의 **로그인** 을 클릭하면 모든 사용자 로그인에 대한 전체 개요가 표시됩니다.
 
 ![로그인을 선택할 수 있는 활동 섹션을 보여주는 스크린샷.](./media/concept-sign-ins/08.png "로그인 작업")
 
-## <a name="usage-of-managed-applications"></a>관리되는 애플리케이션의 사용량
+## <a name="authentication-details"></a>인증 세부 정보
+
+로그인 보고서에 있는 **인증 세부 정보** 탭에서는 각 인증 시도에 대한 다음 정보를 제공합니다.
+
+- 적용된 인증 정책 목록(예: 조건부 액세스, 사용자별 MFA, 보안 기본값)
+- 로그인에 사용되는 인증 방법 시퀀스
+- 인증 시도 성공 여부
+- 인증 시도 성공 또는 실패 이유에 대한 세부 정보
+
+관리자는 이 정보를 사용하여 사용자 로그인의 각 단계와 관련된 문제를 해결하고 다음을 추적할 수 있습니다.
+
+- 다단계 인증으로 보호된 로그인 볼륨 
+- 각 인증 방법의 사용량 및 성공률 
+- 암호 없는 인증 방법(예: 암호 없는 휴대폰 로그인, FIDO2, 비즈니스용 Windows Hello) 사용량 
+- 토큰 클레임이 인증 요구 사항을 충족하는 빈도(사용자에게 암호, SMS OTP 등을 입력하라는 메시지를 대화형으로 표시하지 않는 경우)
+
+로그인 보고서를 보는 동안 **인증 세부 정보** 탭을 선택합니다. 
+
+![인증 세부 정보 탭 스크린샷](media/concept-sign-ins/auth-details-tab.png)
+
+>[!NOTE]
+>**OATH 확인 코드** 가 OATH 하드웨어 및 소프트웨어 토큰 둘 다의 인증 방법으로 로그됩니다(예: Microsoft Authenticator 앱).
+
+>[!IMPORTANT]
+>로그 정보가 완전히 집계될 때까지 처음에는 **인증 세부 정보** 탭에 불완전하거나 부정확한 데이터가 표시될 수 있습니다. 알려진 예는 다음과 같습니다. 
+>- 로그인 이벤트가 처음 로그될 때 **토큰 클레임으로 충족** 메시지가 잘못 표시됩니다. 
+>- 처음에는 **기본 인증** 행이 로그되지 않습니다. 
+
+
+## <a name="usage-of-managed-applications&quot;></a>관리되는 애플리케이션의 사용량
 
 로그인 데이터의 애플리케이션 중심 보기를 사용하여 다음과 같은 질문에 대답할 수 있습니다.
 
@@ -256,7 +306,7 @@ Azure AD와 Azure Portal은 모두 로그인 데이터를 위한 추가 진입�
 
 이 데이터에 대한 진입점은 조직에서 상위 3개의 애플리케이션입니다. 데이터는 **엔터프라이즈 애플리케이션** 의 **개요** 섹션에 있는 지난 30일간의 보고서에 포함되어 있습니다.
 
-![개요를 선택할 수 있는 곳을 보여주는 스크린샷.](./media/concept-sign-ins/10.png "로그인 작업")
+![개요를 선택할 수 있는 곳을 보여주는 스크린샷.](./media/concept-sign-ins/10.png &quot;로그인 작업")
 
 앱 사용 그래프에는 지정된 기간 동안 상위 3개 애플리케이션에 대한 로그인의 주간 집계가 있습니다. 시간에 대한 기본값은 30일입니다.
 
@@ -278,6 +328,6 @@ Azure AD와 Azure Portal은 모두 로그인 데이터를 위한 추가 진입�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [로그인 활동 보고서 오류 코드](reference-sign-ins-error-codes.md)
 * [Azure AD 데이터 보존 정책](reference-reports-data-retention.md)
 * [Azure AD 보고서 대기 시간](reference-reports-latencies.md)
+* [로그인 보고서의 자사 Microsoft 애플리케이션](/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-for-commonly-used-microsoft-applications)

@@ -8,12 +8,13 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/16/2016
 ms.author: mimckitt
-ms.openlocfilehash: eb2bf1badb699060a0c1576956db395d612433c2
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 958edc8a5e9874efd8add4b74a3dc56a54651e11
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325749"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110667618"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 Virtual Machines에 대한 WinRM 액세스 설정
 
@@ -25,7 +26,7 @@ ms.locfileid: "108325749"
 4. 주요 자격 증명 모음에 자체 서명된 인증서에 대한 URL 가져오기
 5. VM을 만드는 동안 자체 서명된 인증서 URL 참조
 
- 
+
 
 ## <a name="step-1-create-a-key-vault"></a>1단계: 주요 자격 증명 모음 만들기
 아래 명령을 사용하여 주요 자격 증명 모음을 만들 수 있습니다.
@@ -127,9 +128,9 @@ $secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name
     },
 ```
 
-위 항목에 대한 샘플 템플릿은 [201-vm-winrm-keyvault-windows](https://azure.microsoft.com/documentation/templates/201-vm-winrm-keyvault-windows)
+위 항목에 대한 샘플 템플릿은 [vm-winrm-keyvault-windows](https://azure.microsoft.com/resources/templates/vm-winrm-keyvault-windows/)에서 찾을 수 있습니다.
 
-이 템플릿의 소스 코드는 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
+이 템플릿의 소스 코드는 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows)
 
 #### <a name="powershell"></a>PowerShell
 ```azurepowershell
@@ -151,8 +152,8 @@ Enable-PSRemoting -Force
 
 > [!NOTE]
 > 위 작업이 제대로 수행되지 않으면 WinRM 서비스가 실행되고 있는지 확인해야 합니다. 이 작업은 `Get-Service WinRM`
-> 
-> 
+>
+>
 
 설정이 끝나면 아래 명령을 사용하여 VM에 연결할 수 있습니다.
 

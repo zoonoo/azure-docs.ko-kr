@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: 이 문서에서는 Azure SQL Database와 Azure SQL Managed Instance의 데이터베이스 엔진 기능을 비교합니다.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: bonova, sstein, danil
-ms.date: 03/08/2021
-ms.openlocfilehash: 8c98ce661e7bb753d4e62d1eaf98702de91c5106
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: bonova, mathoma, danil
+ms.date: 05/18/2021
+ms.openlocfilehash: 1f645b8d62bc3e0acdbdd12a21b335deea3cd53e
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102489772"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690018"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>기능 비교: Azure SQL Database와 Azure SQL Managed Instance
 
@@ -35,6 +35,7 @@ Azure는 데이터베이스를 관리하고 데이터베이스의 고가용성�
 차이점에 대한 자세한 내용이 필요한 경우 별도의 페이지에서 찾을 수 있습니다.
 - [Azure SQL Database와 SQL Server 차이점 비교](transact-sql-tsql-differences-sql-server.md)
 - [Azure SQL Managed Instance와 SQL Server 차이점 비교](../managed-instance/transact-sql-tsql-differences-sql-server.md)
+
 
 ## <a name="features-of-sql-database-and-sql-managed-instance"></a>SQL Database와 SQL Managed Instance의 기능
 
@@ -68,7 +69,7 @@ Azure는 데이터베이스를 관리하고 데이터베이스의 고가용성�
 | [분산된 트랜잭션 - MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | 아니요 - [탄력적 트랜잭션](elastic-transactions-overview.md) 참조 |  아니요 - [연결된 서버 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) 참조 마이그레이션 중 여러 분산 SQL Server 인스턴스의 데이터베이스를 하나의 SQL Managed Instance로 통합해봅니다. |
 | [DML 트리거](/sql/relational-databases/triggers/create-dml-triggers) | 대부분 - 개별 문 참조 |  예 |
 | [DMV](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | 대부분 - 개별 DMV 참조 |  예 - [T-SQL 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md) 참조 |
-| [탄력적 쿼리](elastic-query-overview.md)(공개 미리 보기) | 예, 필수 RDBMS 형식 사용 | 예, 필수 RDBMS 형식 사용 |
+| [탄력적 쿼리](elastic-query-overview.md)(공개 미리 보기) | 예, 필수 RDBMS 형식 사용 | 아니요 |
 | [이벤트 알림](/sql/relational-databases/service-broker/event-notifications) | 아니요 - [경고](alerts-insights-configure-portal.md) 참조 | 예 |
 | [식](/sql/t-sql/language-elements/expressions-transact-sql) |예 | 예 |
 | [확장 이벤트(XEvent)](/sql/relational-databases/extended-events/extended-events) | 일부 - [SQL Database의 확장 이벤트](xevent-db-diff-from-svr.md) 참조 | 예 - [확장 이벤트 차이](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) 참조 |
@@ -153,6 +154,7 @@ Azure 플랫폼은 표준 데이터베이스 기능에 추가 값으로 추가�
 | [VNet](../../virtual-network/virtual-networks-overview.md) | 부분적, [VNet 엔드포인트](vnet-service-endpoint-rule-overview.md)를 사용하여 제한된 액세스 사용. | 예, SQL Managed Instance는 고객의 VNet에 삽입됨. [서브넷](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) 및 [VNet](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) 참조 |
 | VNet 서비스 엔드포인트 | [예](vnet-service-endpoint-rule-overview.md) | 예 |
 | VNet 글로벌 피어링 | 예, [개인 IP 및 서비스 엔드포인트](vnet-service-endpoint-rule-overview.md) 사용 | 예, [가상 네트워크 피어링](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913) 사용. |
+| [프라이빗 연결](../../private-link/private-link-overview.md) | 예. [프라이빗 링크](/database/private-endpoint-overview.md)를 사용합니다. | 예. VNet을 사용합니다. | 
 
 ## <a name="tools"></a>도구
 
@@ -173,7 +175,7 @@ Azure SQL Database와 Azure SQL Managed Instance는 데이터 관리를 위한 �
 | [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) | 예 | 예 [버전 18.0 이상](/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](/sql/relational-databases/scripting/sql-server-powershell) | 예 | 예 |
 | [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | 아니요 - [확장 이벤트](xevent-db-diff-from-svr.md) 참조 | 예 |
-| [SCOM(System Center Operations Manager)](/system-center/scom/welcome) | [예](https://www.microsoft.com/download/details.aspx?id=38829) | [예](https://www.microsoft.com/en-us/download/details.aspx?id=101203) |
+| [System Center Operations Manager](/system-center/scom/welcome) | [예](https://www.microsoft.com/download/details.aspx?id=38829) | [예](https://www.microsoft.com/en-us/download/details.aspx?id=101203) |
 
 ## <a name="migration-methods"></a>마이그레이션 방법
 
@@ -181,7 +183,7 @@ Azure SQL Database와 Azure SQL Managed Instance는 데이터 관리를 위한 �
 
 | **원본** | **Azure SQL Database** | **Azure SQL Managed Instance** |
 | --- | --- | --- |
-| SQL Server(온-프레미스, AzureVM, Amazon RDS) | **온라인:** [DMS(Data Migration Service)](/sql/dma/dma-overview), [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) <br/> **오프라인:** [BACPAC 파일(가져오기)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **온라인:** [DMS(Data Migration Service)](/sql/dma/dma-overview), [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) <br/> **오프라인:** 네이티브 백업/복원, [BACPAC 파일(가져오기)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [스냅샷 복제](../managed-instance/replication-transactional-overview.md) |
+| SQL Server(온-프레미스, AzureVM, Amazon RDS) | **온라인:**  [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) <br/> **오프라인:** [DMS(Data Migration Service)](/sql/dma/dma-overview), [BACPAC 파일(가져오기)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **온라인:** [DMS(Data Migration Service)](/sql/dma/dma-overview), [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) <br/> **오프라인:** 네이티브 백업/복원, [BACPAC 파일(가져오기)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [스냅샷 복제](../managed-instance/replication-transactional-overview.md) |
 | 단일 데이터베이스 | **오프라인:** [BACPAC 파일(가져오기)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **오프라인:** [BACPAC 파일(가져오기)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP |
 | SQL Managed Instance | **온라인:** [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) <br/> **오프라인:** [BACPAC 파일(가져오기)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [스냅샷 복제](../managed-instance/replication-transactional-overview.md) | **온라인:** [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) <br/> **오프라인:** 인스턴스 간 특정 시점 복원([Azure PowerShell](/powershell/module/az.sql/restore-azsqlinstancedatabase#examples) 또는 [Azure CLI](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Cross-instance-point-in-time-restore-in-Azure-SQL-Database/ba-p/386208)), [네이티브 백업/복원](../managed-instance/restore-sample-database-quickstart.md), [BACPAC 파일(가져오기)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [스냅샷 복제](../managed-instance/replication-transactional-overview.md) |
 

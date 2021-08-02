@@ -1,6 +1,6 @@
 ---
 title: '온-프레미스 네트워크를 가상 네트워크에 연결: 사이트 간 VPN: CLI'
-description: CLI를 사용하여 공용 인터넷을 통해 온-프레미스 네트워크에서 Azure 가상 네트워크에 IPsec 사이트 간 VPN Gateway 연결을 만듭니다.
+description: CLI를 사용하여 퍼블릭 인터넷을 통해 온-프레미스 네트워크에서 Azure 가상 네트워크에 IPsec 사이트 간 VPN Gateway 연결을 만드는 방법을 알아봅니다.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/23/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2c59c67eb7b5ae5b26ac5517afba433fe8c028fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53242402d8de9e7e552a4aabdaaf23c0261329f0
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "104611749"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111813211"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>CLI를 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
 
@@ -197,5 +197,5 @@ az network vpn-connection create --name VNet1toSite2 --resource-group TestRG1 --
 * 강제 터널링에 대한 내용은 [강제 터널링 정보](vpn-gateway-forced-tunneling-rm.md)를 참조하세요.
 * 항상 사용 가능한 활성/활성 연결에 대한 정보는 [항상 사용 가능한 크로스-프레미스 및 VNet 간 연결](vpn-gateway-highlyavailable.md)을 참조하세요.
 * 네트워킹 Azure CLI 명령 목록은 [Azure CLI](/cli/azure/network)를 참조하세요.
-* Azure Resource Manager 템플릿을 사용하여 사이트 간 VPN 연결을 만드는 방법은 [사이트 간 VPN 연결 만들기](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/)를 참조하세요.
-* Azure Resource Manager 템플릿을 사용하여 VNet 간 VPN 연결을 만드는 방법은 [HBase 지역 복제 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/)를 참조하세요.
+* Azure Resource Manager 템플릿을 사용하여 사이트 간 VPN 연결을 만드는 방법은 [사이트 간 VPN 연결 만들기](https://azure.microsoft.com/resources/templates/site-to-site-vpn-create/)를 참조하세요.
+* Azure Resource Manager 템플릿을 사용하여 VNet 간 VPN 연결을 만드는 방법은 [HBase 지역 복제 배포](https://azure.microsoft.com/resources/templates/hdinsight-hbase-replication-geo/)를 참조하세요.

@@ -3,12 +3,12 @@ title: Azure Service Bus - 메시지 만료
 description: 이 문서에서는 Azure Service Bus 메시지의 만료 및 TTL(Time to live)에 대해 설명합니다. 해당 최종 기한 이후에는 메시지가 더 이상 전달되지 않습니다.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 5d60d84bdc0d437d97c369296a414d55beda4167
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d41cb7a5e04753989c0e65e8afb8d74a11cd1af2
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952323"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110614884"
 ---
 # <a name="message-expiration-time-to-live"></a>메시지 만료(TTL(Time To Live))
 메시지의 페이로드 또는 메시지가 수신기에 전달하는 명령이나 조회는 거의 항상 특정 형식의 애플리케이션 수준 만료 기한을 따릅니다. 이러한 기간 후에는 콘텐츠가 더 이상 배달되지 않거나 요청된 작업이 더 이상 실행되지 않습니다.

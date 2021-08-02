@@ -1,7 +1,7 @@
 ---
-title: 포털에서 작업 영역 만들기
+title: 포털 또는 Python SDK에서 작업 영역 관리
 titleSuffix: Azure Machine Learning
-description: Azure Portal에서 또는 Python용 SDK를 사용하여 Azure Machine Learning 작업 영역을 만들고, 확인하고, 삭제하는 방법을 알아봅니다.
+description: Azure Portal에서 또는 Python용 SDK를 사용하여 Azure Machine Learning 작업 영역을 관리하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,18 +10,18 @@ author: sdgilley
 ms.date: 04/22/2021
 ms.topic: how-to
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8583229104d29f48784c7790e505852ac4b08dfd
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: e84f0d45666e158805a9290d2e446672a6867fb2
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376292"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030848"
 ---
-# <a name="create-and-manage-azure-machine-learning-workspaces"></a>Azure Machine Learning 작업 영역 만들기 및 관리 
+# <a name="manage-azure-machine-learning-workspaces-in-the-portal-or-with-the-python-sdk"></a>Azure Portal에서 또는 Python SDK를 사용하여 Azure Machine Learning 작업 영역 관리
 
-이 문서에서는 Azure Portal이나 [Python용 SDK](/python/api/overview/azure/ml/)를 사용하여 [Azure Machine Learning](overview-what-is-azure-ml.md)에 대한 [**Azure Machine Learning 작업 영역**](concept-workspace.md)을 만들고, 확인하고, 삭제할 것입니다.
+이 문서에서는 Azure Portal이나 [Python용 SDK](/python/api/overview/azure/ml/)를 사용하여 [Azure Machine Learning](overview-what-is-azure-ml.md)에 대한 [**Azure Machine Learning 작업 영역**](concept-workspace.md)을 만들고, 확인하고, 삭제합니다.
 
-변경이 필요하거나 자동화 요구 사항이 증가하면 [CLI를 사용](reference-azure-machine-learning-cli.md)하거나 [VS Code 확장을 통해](how-to-setup-vs-code.md) 작업 영역을 만들고 삭제할 수도 있습니다.
+변경이 필요하거나 자동화 요구 사항이 증가하면 [CLI를 사용](reference-azure-machine-learning-cli.md)하거나 [VS Code 확장을 통해](how-to-setup-vs-code.md) 작업 영역을 관리할 수도 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

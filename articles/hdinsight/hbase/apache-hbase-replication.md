@@ -1,16 +1,16 @@
 ---
-title: 가상 네트워크의 HBase 클러스터 복제-Azure HDInsight
+title: 가상 네트워크에서 HBase 클러스터 복제 - Azure HDInsight
 description: 부하 분산, 고가용성, 무중단 마이그레이션/업데이트 및 재해 복구를 위해 한 HDInsight 버전에서 다른 HDInsight 버전으로 HBase 복제를 설정하는 방법을 알아봅니다.
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: cfcb3a5a601afadb9f3fcd71c24e18a9d7f27b9e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 69c1acff7c03ce44ff70b4feb99105a7fbd8ee30
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946410"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190250"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure Virtual Network에서 Apache HBase 클러스터 복제 설정
 
@@ -18,7 +18,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
 클러스터 복제에서는 원본-푸시 방법을 사용합니다. HBase 클러스터는 원본 또는 대상이 될 수도 있고, 한 번에 두 가지 역할을 모두 수행할 수도 있습니다. 복제는 비동기적이며, 그 목표는 결과적으로 일관성에 맞춰져 있습니다. 복제를 사용하도록 설정된 경우 원본에서 열 패밀리에 대한 편집 내용을 받으면 해당 편집 내용이 모든 대상 클러스터로 전파됩니다. 한 클러스터에서 다른 클러스터로 데이터를 복제하는 경우 복제 루프를 방지하기 위해 데이터를 이미 사용한 원본 클러스터 및 모든 클러스터가 추적됩니다.
 
-이 문서에서는 원본-대상 복제를 설정 합니다. 다른 클러스터 토폴로지는 [Apache HBase 참조 가이드(영문)](https://hbase.apache.org/book.html#_cluster_replication)를 참조하세요.
+이 문서에서는 원본-대상 복제를 설정합니다. 다른 클러스터 토폴로지는 [Apache HBase 참조 가이드(영문)](https://hbase.apache.org/book.html#_cluster_replication)를 참조하세요.
 
 단일 가상 네트워크에 대한 HBase 복제 사용 사례는 다음과 같습니다.
 
@@ -36,7 +36,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication)에 있는 [스크립트 동작](../hdinsight-hadoop-customize-cluster-linux.md) 스크립트를 사용하여 클러스터를 복제할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
-이 문서를 시작 하기 전에 Azure 구독이 있어야 합니다. [Azure 평가판 받기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
+이 문서를 시작하기 전에 Azure 구독이 있어야 합니다. [Azure 평가판 받기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
 
 ## <a name="set-up-the-environments"></a>환경 설정
 
@@ -132,7 +132,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
     sudo apt-get install bind9 -y
     ```
 
-3. 온-프레미스 DNS 서버에 이름 확인 요청을 전달 하도록 바인딩을 구성 합니다. 이를 수행하려면 다음 텍스트를 `/etc/bind/named.conf.options` 파일의 콘텐츠로 사용합니다.
+3. 온-프레미스 DNS 서버로 이름 확인 요청을 전달하는 바인딩을 구성합니다. 이를 수행하려면 다음 텍스트를 `/etc/bind/named.conf.options` 파일의 콘텐츠로 사용합니다.
 
     ```
     acl goodclients {
@@ -275,7 +275,7 @@ sudo service bind9 status
 [Contacts](apache-hbase-tutorial-get-started-linux.md) 테이블을 만들고 이 테이블에 일부 데이터를 삽입하려면 **Apache HBase 자습서: HDInsight에서 Apache HBase 사용 시작** 의 지침을 따르세요.
 
 > [!NOTE]
-> 사용자 지정 네임 스페이스에서 테이블을 복제 하려면 대상 클러스터에도 적절 한 사용자 지정 네임 스페이스가 정의 되어 있는지 확인 해야 합니다.
+> 사용자 지정 네임스페이스에서 테이블을 복제하려면 대상 클러스터에도 적절한 사용자 지정 네임스페이스가 정의되어 있는지 확인해야 합니다.
 >
 
 ## <a name="enable-replication"></a>복제 사용
@@ -300,13 +300,13 @@ sudo service bind9 status
       > [!NOTE]
       > 원본 및 대상 클러스터 DNS 이름에 대한 FQDN 대신 호스트 이름을 사용합니다.
       >
-      > 이 연습에서는 h n 1을 활성 헤드 노드로 가정 합니다. 활성 헤드 노드를 식별 하려면 클러스터를 확인 하세요.
+      > 이 연습에서는 hn1을 활성 헤드 노드로 가정합니다. 클러스터를 확인하여 활성 헤드 노드를 확인하세요.
 
 6. **만들기** 를 선택합니다. 특히 **-copydata** 인수를 사용하는 경우 스크립트를 실행하는 데 약간의 시간이 걸릴 수 있습니다.
 
 필수 인수:
 
-|Name|설명|
+|이름|설명|
 |----|-----------|
 |-s, --src-cluster | HBase 원본 클러스터의 DNS 이름을 지정합니다. 예: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | HBase 대상(복제본) 클러스터의 DNS 이름을 지정합니다. 예: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -315,12 +315,12 @@ sudo service bind9 status
 
 선택적 인수:
 
-|Name|설명|
+|이름|설명|
 |----|-----------|
 |-su, --src-ambari-user | HBase 원본 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin** 입니다. |
 |-du, --dst-ambari-user | HBase 대상 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin** 입니다. |
 |-t, --table-list | 복제할 테이블을 지정합니다. 예: --table-list="table1;table2;table3". 테이블을 지정하지 않으면 기존의 모든 HBase 테이블을 복제합니다.|
-|-m, --machine | 스크립트 동작이 실행되는 헤드 노드를 지정합니다. 활성 헤드 노드를 기준으로 값을 선택 해야 합니다. HDInsight 포털 또는 Azure PowerShell에서 $0 스크립트를 스크립트 동작으로 실행하는 경우 이 옵션을 사용합니다.|
+|-m, --machine | 스크립트 동작이 실행되는 헤드 노드를 지정합니다. 활성 헤드 노드를 기준으로 값을 선택해야 합니다. HDInsight 포털 또는 Azure PowerShell에서 $0 스크립트를 스크립트 동작으로 실행하는 경우 이 옵션을 사용합니다.|
 |-cp, -copydata | 복제가 사용되는 테이블에서 기존 데이터의 마이그레이션을 사용하도록 설정합니다. |
 |-rpm, -replicate-phoenix-meta | Phoenix 시스템 테이블에서 복제를 사용하도록 설정합니다. <br><br>*이 옵션은 주의해서 사용해야 합니다.* 이 스크립트를 사용하기 전에 복제본 클러스터에서 Phoenix 테이블을 다시 만드는 것이 좋습니다. |
 |-h, --help | 사용 정보를 표시합니다. |
@@ -341,7 +341,7 @@ sudo service bind9 status
 
   `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"`
 
-- **특정 테이블에서 복제를 사용 하도록 설정 하 고 기존 데이터를 복사** 합니다. table1, table2 및 table3에서 복제를 사용하도록 설정하려면 다음 매개 변수를 사용합니다.
+- **특정 테이블에서 복제를 사용하도록 설정하고 기존 데이터 복사** - table1, table2 및 table3에서 복제를 사용하도록 설정하려면 다음 매개 변수를 사용합니다.
 
   `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata`
 
@@ -367,15 +367,15 @@ sudo service bind9 status
 
 - **지금(현재 타임스탬프)까지 편집된 모든 행에 대한 특정 테이블(test1, test2 및 test3) 복사**:
 
-  `-m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
+  `-m hn1 -t "test1::;test2::;test3::" -p "<zookeepername1>;<zookeepername2>;<zookeepername3>:2181:/hbase-unsecure" -everythingTillNow`
 
   또는
 
-  `-m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
+  `-m hn1 -t "test1::;test2::;test3::" --replication-peer="<zookeepername1>;<zookeepername2>;<zookeepername3>:2181:/hbase-unsecure" -everythingTillNow`
 
 - **지정된 시간 범위의 특정 테이블 복사**:
 
-  `-m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure"`
+  `-m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "<zookeepername1>;<zookeepername2>;<zookeepername3>:2181:/hbase-unsecure"`
 
 ## <a name="disable-replication"></a>복제 사용 안 함
 
@@ -400,12 +400,12 @@ sudo service bind9 status
   `-m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"`
 
 > [!NOTE]
-> 대상 클러스터를 삭제 하려는 경우 원본 클러스터의 피어 목록에서 제거 해야 합니다. 원본 클러스터의 hbase 셸에서 ' 1 ' remove_peer 명령을 실행 하 여이 작업을 수행할 수 있습니다. 이 문제가 발생 하면 원본 클러스터가 제대로 작동 하지 않을 수 있습니다.
+> 대상 클러스터를 삭제하려면 원본 클러스터의 피어 목록에서 제거해야 합니다. 이 작업은 원본 클러스터의 hbase 셸에서 remove_peer '1' 명령을 실행하여 수행할 수 있습니다. 이 실패로 인해 원본 클러스터가 제대로 작동하지 않을 수 있습니다.
 >
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 가상 네트워크 내에서 또는 두 가상 네트워크 간에 Apache HBase 복제를 설정 하는 방법을 알아보았습니다. HDInsight 및 Apache HBase에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 한 가상 네트워크 내에 또는 두 가상 네트워크 간에 Apache HBase 복제를 설정하는 방법을 알아보았습니다. HDInsight 및 Apache HBase에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight에서 Apache HBase 시작](./apache-hbase-tutorial-get-started-linux.md)
 * [HDInsight Apache HBase 개요](./apache-hbase-overview.md)

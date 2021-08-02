@@ -1,21 +1,21 @@
 ---
-title: Windows Virtual Desktop FSLogix 프로필 컨테이너 파일 - Azure
-description: 이 문서에서는 Windows Virtual Desktop 및 Azure 파일 내의 FSLogix 프로필 컨테이너에 대해 설명합니다.
+title: Azure Virtual Desktop FSLogix 프로필 컨테이너 파일 - Azure
+description: 이 문서에서는 Azure Virtual Desktop 및 Azure 파일 내의 FSLogix 프로필 컨테이너에 대해 설명합니다.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 945bf806a813943d02fb4db1245dfb74eb7fb1f9
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: c7b8b400d2f927fa4b5d6f713b29dbda34eec959
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446896"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757682"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 프로필 컨테이너 및 Azure Files
 
-Windows Virtual Desktop 서비스는 사용자 프로필 솔루션으로 FSLogix 프로필 컨테이너를 권장합니다. FSLogix는 Windows Virtual Desktop과 같은 원격 컴퓨팅 환경에서 프로필을 로밍하도록 설계되었습니다. 단일 컨테이너에 전체 사용자 프로필을 저장합니다. 로그인 시 이 컨테이너가 기본적으로 지원되는 VHD(가상 하드 디스크) 및 VHDX(Hyper-V 가상 하드 디스크)를 사용하여 컴퓨팅 환경에 동적으로 연결됩니다. 사용자 프로필은 즉시 제공되어 시스템에서 네이티브 사용자 프로필과 똑같이 표시됩니다. 이 문서에서는 Windows Virtual Desktop에서 Azure Files 함수를 사용하여 FSLogix 프로필 컨테이너를 사용하는 방법을 설명합니다.
+Azure Virtual Desktop 서비스는 사용자 프로필 솔루션으로 FSLogix 프로필 컨테이너를 권장합니다. FSLogix는 Azure Virtual Desktop과 같은 원격 컴퓨팅 환경에서 프로필을 로밍하도록 설계되었습니다. 단일 컨테이너에 전체 사용자 프로필을 저장합니다. 로그인 시 이 컨테이너가 기본적으로 지원되는 VHD(가상 하드 디스크) 및 VHDX(Hyper-V 가상 하드 디스크)를 사용하여 컴퓨팅 환경에 동적으로 연결됩니다. 사용자 프로필은 즉시 제공되어 시스템에서 네이티브 사용자 프로필과 똑같이 표시됩니다. 이 문서에서는 Azure Virtual Desktop에서 Azure Files 함수를 사용하여 FSLogix 프로필 컨테이너를 사용하는 방법을 설명합니다.
 
 >[!NOTE]
 >Azure의 다양한 FSLogix 프로필 컨테이너 스토리지 옵션에 대한 비교 자료를 찾고 있다면 [FSLogix 프로필 컨테이너의 스토리지 옵션](store-fslogix-profile.md)을 참조하세요.
@@ -77,13 +77,13 @@ S2D 클러스터에는 보안 상태에서 패치, 업데이트 및 유지 관�
 
 ## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Azure Active Directory 도메인 서비스와 Azure Files 통합
 
-FSLogix 프로필 컨테이너의 성능 및 기능은 클라우드를 활용합니다. 2019년 8월 7일에 Microsoft Azure Files는 [AD DS(Azure Active Directory 도메인 서비스)를 사용하여 Azure Files 인증](../storage/files/storage-files-active-directory-overview.md)의 일반 공급을 발표했습니다. 비용 및 관리 오버헤드를 모두 해결함으로써 Azure AD DS 인증을 사용하는 Azure Files는 Windows Virtual Desktop 서비스의 사용자 프로필에 대한 프리미엄 솔루션입니다.
+FSLogix 프로필 컨테이너의 성능 및 기능은 클라우드를 활용합니다. 2019년 8월 7일에 Microsoft Azure Files는 [AD DS(Azure Active Directory 도메인 서비스)를 사용하여 Azure Files 인증](../storage/files/storage-files-active-directory-overview.md)의 일반 공급을 발표했습니다. 비용 및 관리 오버헤드를 모두 해결함으로써 Azure AD DS 인증을 사용하는 Azure Files는 Azure Virtual Desktop 서비스의 사용자 프로필에 대한 프리미엄 솔루션입니다.
 
-## <a name="best-practices-for-windows-virtual-desktop"></a>Windows Virtual Desktop에 대한 모범 사례
+## <a name="best-practices-for-azure-virtual-desktop"></a>Azure Virtual Desktop에 대한 모범 사례
 
-Windows Virtual Desktop은 고객이 사용 중인 VM의 크기, 유형 및 수에 대한 모든 권한을 제공합니다. 자세한 내용은 [Windows Virtual Desktop이란?](overview.md)을 참조하세요.
+Azure Virtual Desktop은 고객이 사용 중인 VM의 크기, 유형 및 수에 대한 모든 권한을 제공합니다. 자세한 내용은 [이란?](overview.md)을 참조하세요.
 
-Windows Virtual Desktop 환경이 모범 사례를 따르는지 확인하려면:
+Azure Virtual Desktop 환경이 모범 사례를 따르는지 확인하려면 다음을 수행합니다.
 
 - Azure Files 스토리지 계정은 세션 호스트 VM과 동일한 지역에 있어야 합니다.
 - Azure Files 권한은 [요구 사항 - 프로필 컨테이너](/fslogix/fslogix-storage-config-ht)에 설명된 권한과 일치해야 합니다.
@@ -94,11 +94,11 @@ Windows Virtual Desktop 환경이 모범 사례를 따르는지 확인하려면:
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 가이드를 사용하여 Windows Virtual Desktop 환경을 설정합니다.
+다음 가이드를 사용하여 Azure Virtual Desktop 환경을 설정합니다.
 
-- 데스크톱 가상화 솔루션 빌드를 시작하려면 [Windows Virtual Desktop에서 테넌트 만들기](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)를 참조하세요.
-- Windows Virtual Desktop 테넌트 내에서 호스트 풀을 만들려면 [Azure Marketplace를 사용하여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)를 참조하세요.
+- 데스크톱 가상화 솔루션 빌드를 시작하려면 [ Virtual Desktop에서 테넌트 만들기](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)를 참조하세요.
+- Azure Virtual Desktop 테넌트 내에서 호스트 풀을 만들려면 [Azure Marketplace를 사용하여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)를 참조하세요.
 - 클라우드에서 완전 관리형 파일 공유를 설정하려면 [Azure Files 공유 설정](/azure/storage/files/storage-files-active-directory-enable/)을 참조하세요.
 - FSLogix 프로필 컨테이너를 구성하려면 [파일 공유를 사용하여 호스트 풀에 대한 프로필 컨테이너 만들기](create-host-pools-user-profile.md)를 참조하세요.
-- 호스트 풀에 사용자를 할당하려면 [Windows Virtual Desktop에 대한 앱 그룹 관리](manage-app-groups.md)를 참조하세요.
-- 웹 브라우저에서 Windows Virtual Desktop 리소스에 액세스하려면 [Windows Virtual Desktop에 연결](connect-web.md)을 참조하세요.
+- 호스트 풀에 사용자를 할당하려면 [ Virtual Desktop에 대한 앱 그룹 관리](manage-app-groups.md)를 참조하세요.
+- 웹 브라우저에서 Azure Virtual Desktop 리소스에 액세스하려면 [ Virtual Desktop에 연결](connect-web.md)을 참조하세요.

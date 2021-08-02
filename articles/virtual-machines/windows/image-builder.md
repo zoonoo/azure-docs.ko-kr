@@ -1,21 +1,21 @@
 ---
-title: Azure Image Builder로 Windows VM 만들기(미리 보기)
+title: Azure 이미지 작성기로 Windows VM 만들기
 description: Azure Image Builder로 Windows VM을 만듭니다.
-author: cynthn
-ms.author: cynthn
-ms.date: 03/02/2020
+author: kof-f
+ms.author: kofiforson
+ms.date: 04/23/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
-ms.openlocfilehash: 918cee723bfde69d08532aee6fe4f395dbddb4ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6eaa59521a864b3d93d4c79706ca8ec7ff100d70
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101695450"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030974"
 ---
-# <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>미리 보기:Azure Image Builder로 Windows VM 만들기
+# <a name="create-a-windows-vm-with-azure-image-builder"></a>Azure 이미지 작성기로 Windows VM 만들기
 
 본 문서에서는 Azure VM Image Builder를 사용하여 사용자 지정된 Windows 이미지를 만드는 방법을 보여 줍니다. 본 문서의 예제는 이미지 사용자 지정에 [사용자 지정자](../linux/image-builder-json.md#properties-customize)를 사용합니다.
 - PowerShell(ScriptUri) - [PowerShell 스크립트](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1)를 다운로드하여 실행합니다.
@@ -33,24 +33,14 @@ ms.locfileid: "101695450"
 이미지를 구성하는 데 샘플 .json 템플릿을 사용합니다. 사용할 .json 파일은 [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json)입니다. 
 
 
-> [!IMPORTANT]
-> Azure Image Builder는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+> [!NOTE]
+> Windows 사용자의 경우 아래 Azure CLI 예는 Bash를 사용하여 [Azure Cloud Shell](https://shell.azure.com)에서 실행할 수 있습니다.
 
 
 ## <a name="register-the-features"></a>기능 등록
 
-미리 보기 중에 Azure Image Builder를 사용하려면 이 새 기능을 등록해야 합니다.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-기능 등록 상태를 확인합니다.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
-```
+Azure Image Builder를 사용하려면 해당 기능을 등록해야 합니다.
 
 등록을 확인합니다.
 
@@ -105,7 +95,7 @@ az group create -n $imageResourceGroup -l $location
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>사용자 할당 ID 만들기 및 리소스 그룹에 대한 사용 권한 설정
-Image Builder는 이미지를 해당 리소스 그룹에 삽입하기 위하여 제공된 [사용자 ID](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity)를 사용합니다. 본 예제에서는 이미지 배포를 실행할 세분화된 작업이 있는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
+Image Builder는 이미지를 해당 리소스 그룹에 삽입하기 위하여 제공된 [사용자 ID](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity)를 사용합니다. 본 예제에서는 이미지 배포를 위하여 세분화된 작업을 갖춘 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
 
 ## <a name="create-user-assigned-managed-identity-and-grant-permissions"></a>사용자 할당 관리 ID 만들고 사용 권한 부여하기 
 ```bash
@@ -199,7 +189,7 @@ az resource delete \
 ```
 
 ## <a name="start-the-image-build"></a>이미지 빌드 시작하기
-[az 리소스 호출 작업](/cli/azure/resource#az-resource-invoke-action)을 사용하여 이미지 빌드 프로세스를 시작합니다.
+[az 리소스 호출 작업](/cli/azure/resource#az_resource_invoke_action)을 사용하여 이미지 빌드 프로세스를 시작합니다.
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -274,4 +264,4 @@ az group delete -n $imageResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-본 문서에서 사용한 .json 파일 구성 요소에 대한 자세한 내용은 [Image Builder 템플릿 참조](../linux/image-builder-json.md)를 확인하세요.
+이 문서에서 사용한 .json 파일 구성 요소에 대한 자세한 내용은 [Image Builder 템플릿 참조](../linux/image-builder-json.md)를 확인하세요.

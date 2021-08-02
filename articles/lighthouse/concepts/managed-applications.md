@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse 및 Azure 관리형 애플리케이션
 description: Azure Lighthouse 및 Azure 관리형 애플리케이션을 함께 사용할 수 있는 방법에 대해 알아봅니다.
-ms.date: 12/18/2020
+ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5c30c3234a57e25ceaa521ad485f58d4d663ebe9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09e07aca77fc53cb9eab2ba0c980b6c838ef6726
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97693962"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962630"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse 및 Azure 관리형 애플리케이션
 
@@ -33,9 +33,9 @@ Azure 관리형 애플리케이션 및 Azure Lighthouse는 서비스 공급자�
 
 [Azure Lighthouse](../overview.md)를 사용하여 서비스 공급자는 고객의 구독(또는 리소스 그룹)에서 직접 폭넓은 관리 작업을 수행할 수 있습니다. 이 액세스는 논리 프로젝션을 통해 수행되어, 서비스 공급자가 자신의 테넌트에 로그인하여 고객의 테넌트에 속한 리소스에 액세스할 수 있습니다. 고객은 서비스 공급자에 게 위임할 구독 또는 리소스 그룹을 결정할 수 있으며, 고객은 해당 리소스에 대한 모든 액세스 권한을 보유합니다. 또한 언제든지 서비스 공급자의 액세스 권한을 제거할 수 있습니다.
 
-Azure Lighthouse를 사용려면, 고객은 [ARM 템플릿을 배포](../how-to/onboard-customer.md)하거나 [Azure Marketplace의 관리형 서비스 제품](managed-services-offers.md)을 통해 [Azure에서 위임한 리소스 관리](azure-delegated-resource-management.md)에 온보딩됩니다. [파트너 ID를 링크](../how-to/partner-earned-credit.md)하여 고객 참여에 미치는 영향을 추적할 수 있습니다.
+Azure Lighthouse를 사용하기 위해 고객은 [ARM 템플릿을 배포](../how-to/onboard-customer.md)하거나 [Azure Marketplace의 관리형 서비스 제품](managed-services-offers.md)을 통해 온보딩됩니다. [파트너 ID를 링크](../how-to/partner-earned-credit.md)하여 고객 참여에 미치는 영향을 추적할 수 있습니다.
 
-Azure Lighthouse는 서비스 공급자가 지속적으로 고객에 대한 관리 작업을 수행하는 경우에 일반적으로 사용됩니다.
+Azure Lighthouse는 서비스 공급자가 지속적으로 고객에 대한 관리 작업을 수행하는 경우에 일반적으로 사용됩니다. 기술 수준에서 Azure Lighthouse가 작동하는 방식에 대한 자세한 내용은 [Azure Lighthouse 아키텍처](architecture.md)를 참조하세요.
 
 ### <a name="azure-managed-applications"></a>Azure 관리되는 애플리케이션
 
@@ -45,7 +45,7 @@ Azure Lighthouse는 서비스 공급자가 지속적으로 고객에 대한 관�
 
 관리형 애플리케이션은 [사용자 지정 Azure Portal 환경](../../azure-resource-manager/managed-applications/concepts-view-definition.md) 및 [사용자 지정 공급자와의 통합](../../azure-resource-manager/managed-applications/tutorial-create-managed-app-with-custom-provider.md)을 지원합니다. 이러한 옵션을 사용하면 더 많은 사용자 지정 및 통합된 환경을 제공하여, 고객이 일부 관리 작업을 직접 쉽게 수행할 수 있습니다.
 
-관리형 애플리케이션은 특정 고객 사용을 위한 개인 제품 또는 여러 고객이 구매할 수 있는 공개 제품으로 [Azure Marketplace에 게시](../../marketplace/create-new-azure-apps-offer.md)할 수 있습니다. [관리형 애플리케이션을 서비스 카탈로그에 게시](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md)하여, 이것들을 조직 내 사용자에게 제공할 수도 있습니다. ARM 템플릿을 사용하여 서비스 카탈로그와 Marketplace 인스턴스를 모두 배포할 수 있습니다. 여기에는 상업용 마켓플레이스 파트너의 고유한 식별자를 포함하여 [고객 사용량 특성](../../marketplace/azure-partner-customer-usage-attribution.md)을 추적할 수 있습니다.
+관리형 애플리케이션은 특정 고객 사용을 위한 개인 제품 또는 여러 고객이 구매할 수 있는 공개 제품으로 [Azure Marketplace에 게시](../../marketplace/azure-app-offer-setup.md)할 수 있습니다. [관리형 애플리케이션을 서비스 카탈로그에 게시](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md)하여, 이것들을 조직 내 사용자에게 제공할 수도 있습니다. ARM 템플릿을 사용하여 서비스 카탈로그와 Marketplace 인스턴스를 모두 배포할 수 있습니다. 여기에는 상업용 마켓플레이스 파트너의 고유한 식별자를 포함하여 [고객 사용량 특성](../../marketplace/azure-partner-customer-usage-attribution.md)을 추적할 수 있습니다.
 
 Azure 관리형 애플리케이션은 일반적으로 서비스 공급자에 의해 완전히 관리되는 턴키 솔루션을 통해 달성할 수 있는 특정 고객 요구에 사용됩니다.
 

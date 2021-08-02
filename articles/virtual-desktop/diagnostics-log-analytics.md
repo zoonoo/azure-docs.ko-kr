@@ -1,27 +1,27 @@
 ---
-title: Windows Virtual Desktop 진단 로그 분석 - Azure
-description: Windows Virtual Desktop 진단 기능에 로그 분석을 사용하는 방법을 설명합니다.
+title: Azure Virtual Desktop 진단 로그 분석 - Azure
+description: Azure Virtual Desktop 진단 기능에 로그 분석을 사용하는 방법을 설명합니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 98f9ffdfa7addd8689b01332b88261311a525c81
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: caaaded204fbc433a77d7f5a9ccf6a356195e5b9
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469332"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757916"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>진단 기능에 Log Analytics 사용
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md)를 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체가 있는 Azure Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Azure Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md)를 참조하세요.
 
-Windows Virtual Desktop은 다른 많은 Azure 서비스와 마찬가지로 모니터링 및 경고를 위해 [Azure Monitor](../azure-monitor/overview.md)를 사용합니다. 이를 통해 관리자는 단일 인터페이스에서 문제를 파악할 수 있습니다. 이 서비스는 사용자 및 관리 작업 모두에 대한 활동 로그를 만듭니다. 각 활동 로그는 다음 범주에 속합니다.
+Azure Virtual Desktop은 다른 많은 Azure 서비스와 마찬가지로 모니터링 및 경고를 위해 [Azure Monitor](../azure-monitor/overview.md)를 사용합니다. 이를 통해 관리자는 단일 인터페이스에서 문제를 파악할 수 있습니다. 이 서비스는 사용자 및 관리 작업 모두에 대한 활동 로그를 만듭니다. 각 활동 로그는 다음 범주에 속합니다.
 
 - 관리 작업:
-    - API 또는 PowerShell을 사용하여 Windows Virtual Desktop 개체를 변경하려는 시도가 성공했는지 여부를 추적합니다. 예를 들어 PowerShell을 사용하여 호스트 풀을 성공적으로 만들 수 있나요?
+    - API 또는 PowerShell을 사용하여 Azure Virtual Desktop 개체를 변경하려는 시도가 성공했는지 여부를 추적합니다. 예를 들어 PowerShell을 사용하여 호스트 풀을 성공적으로 만들 수 있나요?
 - 피드:
     - 사용자가 작업 영역을 성공적으로 구독할 수 있나요?
     - 사용자가 원격 데스크톱 클라이언트에 게시된 모든 리소스를 볼 수 있나요?
@@ -34,9 +34,9 @@ Windows Virtual Desktop은 다른 많은 Azure 서비스와 마찬가지로 모�
 - 검사점:
     - 연결된 활동의 수명의 특정 단계입니다. 예를 들어 세션 중 사용자가 특정 호스트로 부하 분산된 다음 연결 중에 사용자가 로그온된 경우 등입니다.
 
-진단 역할 서비스 자체가 Windows Virtual Desktop의 일부이므로 Windows Virtual Desktop에 도달하지 않는 연결은 진단 결과에 표시되지 않습니다. Windows Virtual Desktop 연결 문제는 사용자가 네트워크 연결 문제를 경험할 때 발생할 수 있습니다.
+진단 역할 서비스 자체가 Azure Virtual Desktop의 일부이기 때문에 Azure Virtual Desktop에 도달하지 않는 연결은 진단 결과에 표시되지 않습니다. Azure Virtual Desktop 연결 문제는 사용자에게 네트워크 연결 문제가 발생할 때 나타날 수 있습니다.
 
-Azure Monitor를 사용하면 동일한 도구 내에서 Windows Virtual Desktop 데이터를 분석하고 VM(가상 머신) 성능 카운터를 검토할 수 있습니다. 이 문서에서는 Windows Virtual Desktop 환경에 대해 진단을 사용하도록 설정하는 방법을 보여줍니다.
+Azure Monitor를 사용하면 동일한 도구 내에서 Azure Virtual Desktop 데이터를 분석하고 VM(가상 머신) 성능 카운터를 검토할 수 있습니다. 이 문서에서는 Azure Virtual Desktop 환경에 대해 진단을 사용하도록 설정하는 방법을 보여줍니다.
 
 >[!NOTE]
 >Azure에서 VM을 모니터하는 방법은 [Azure Monitor로 Azure 가상 머신 모니터링](../azure-monitor/vm/monitor-vm-azure.md)을 참조하세요. 또한 세션 호스트에서의 사용자 환경을 더 잘 이해하기 위해 [성능 카운터 임계값을 검토](../virtual-desktop/virtual-desktop-fall-2019/deploy-diagnostics.md#windows-performance-counter-thresholds)하세요.
@@ -55,15 +55,15 @@ Log Analytics를 사용하려면 먼저 작업 영역을 만들어야 합니다.
 
 이 정보는 나중에 설정 프로세스에서 필요합니다.
 
-Azure Monitor의 권한 관리를 검토하여 Windows Virtual Desktop 환경을 모니터 및 유지 관리하는 사용자에 대해 데이터 액세스 권한을 사용합니다. 자세한 내용은 [Azure Monitor로 역할, 권한 및 보안 시작하기](../azure-monitor/roles-permissions-security.md)를 참조하세요.
+Azure Monitor의 권한 관리를 검토하여 Azure Virtual Desktop 환경을 모니터 및 유지 관리하는 사용자에 대해 데이터 액세스 권한을 사용합니다. 자세한 내용은 [Azure Monitor로 역할, 권한 및 보안 시작하기](../azure-monitor/roles-permissions-security.md)를 참조하세요.
 
 ## <a name="push-diagnostics-data-to-your-workspace"></a>작업 영역에 진단 데이터 푸시
 
-Windows Virtual Desktop 개체에서 작업 영역의 Log Analytics로 진단 데이터를 푸시할 수 있습니다. 개체를 처음 만들 때 이 기능을 즉시 설정할 수 있습니다.
+Azure Virtual Desktop 개체에서 작업 영역의 Log Analytics로 진단 데이터를 푸시할 수 있습니다. 개체를 처음 만들 때 이 기능을 즉시 설정할 수 있습니다.
 
 새 개체에 대해 Log Analytics를 설정하려면 다음을 수행합니다.
 
-1. Azure Portal에 로그인하고 **Windows Virtual Desktop** 으로 이동합니다.
+1. Azure Portal에 로그인하고  **Virtual Desktop** 으로 이동합니다.
 
 2. 로그 및 이벤트를 캡처하려는 개체(예: 호스트 풀, 앱 그룹 또는 작업 영역)로 이동합니다.
 
@@ -97,7 +97,7 @@ Azure Portal 또는 Azure Monitor에서 Log Analytics 작업 영역에 액세스
 
 3. 서비스에서 **Log Analytics 작업 영역** 을 선택합니다.
 
-4. 목록에서 Windows Virtual Desktop 개체에 구성한 작업 영역을 선택합니다.
+4. 목록에서 Azure Virtual Desktop 개체에 구성한 작업 영역을 선택합니다.
 
 5. 작업 영역에서 **로그** 를 선택합니다. **검색** 기능을 사용하여 메뉴 목록을 필터링할 수 있습니다.
 
@@ -114,7 +114,7 @@ Azure Portal 또는 Azure Monitor에서 Log Analytics 작업 영역에 액세스
 5. 진단을 쿼리할 준비가 되었습니다. 모든 진단 테이블에는 "WVD" 접두사가 포함됩니다.
 
 >[!NOTE]
->Azure Monitor 로그에 저장된 테이블에 대한 자세한 내용은 [Azure Monitor 데이터 참조](/azure/azure-monitor/reference/)를 확인하세요. Windows Virtual Desktop과 관련된 테이블에는 모두 "WVD" 레이블이 지정됩니다.
+>Azure Monitor 로그에 저장된 테이블에 대한 자세한 내용은 [Azure Monitor 데이터 참조](/azure/azure-monitor/reference/)를 확인하세요. Azure Virtual Desktop과 관련된 테이블에는 모두 "WVD" 레이블이 지정됩니다.
 
 ## <a name="cadence-for-sending-diagnostic-events"></a>진단 이벤트 전송 주기
 
@@ -131,7 +131,7 @@ Log Analytics는 연결 활동에 대해 이러한 중간 상태만 보고합니
 Azure Monitor Log Analytics UI를 통해 예시 쿼리에 액세스합니다.
 1. Log Analytics 작업 영역으로 이동한 후 **로그** 를 선택합니다. 예제 쿼리 UI가 자동으로 표시됩니다.
 1. 필터를 **범주** 로 변경합니다.
-1. **Windows Virtual Desktop** 을 선택하여 사용 가능한 쿼리를 검토합니다.
+1. **Virtual Desktop** 을 선택하여 사용 가능한 쿼리를 검토합니다.
 1. **실행** 을 선택하여 선택한 쿼리를 실행합니다.
 
 [Azure Monitor Log Analytics에 저장된 쿼리](../azure-monitor/logs/queries.md)에서 샘플 쿼리 인터페이스에 대해 자세히 알아보세요.

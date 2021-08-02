@@ -1,6 +1,6 @@
 ---
 title: Azure Backup용 VM 스냅샷 Linux 확장
-description: VM snapshot Linux 확장을 사용 하 여 Azure Backup에서 가상 머신에 대 한 응용 프로그램 일치 백업을 수행 합니다.
+description: VM 스냅샷 Linux 확장을 사용하여 Azure Backup에서 가상 머신의 애플리케이션 일치 백업을 수행합니다.
 services: backup, virtual-machines
 documentationcenter: ''
 author: trinadhkotturu
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: ea984fdc4abeb08f4b080e913a0c34b99c59d93c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.openlocfilehash: 9d7ad92e864e3da7860d08e8e3f569dd8ca14399
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102561112"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789563"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Azure Backup용 VM 스냅샷 Linux 확장
 
@@ -24,7 +24,7 @@ ms.locfileid: "102561112"
 
 Azure Backup은 워크로드를 온-프레미스에서 클라우드에 백업하고, 클라우드 리소스를 Recovery Services 자격 증명 모음에 백업하도록 지원합니다. Azure Backup은 VM 스냅샷 확장을 사용하여 VM을 종료하지 않고도 Azure 가상 머신의 애플리케이션 일치 백업을 수행합니다. Microsoft는 Azure Backup 서비스의 일부로 VM 스냅샷 Linux 확장을 게시하고 지원합니다. Azure Backup은 백업을 활성화한 후 트리거되는 첫 번째 예약된 백업의 일부로 확장을 설치합니다. 이 문서에서는 VM 스냅샷 확장에 지원되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명합니다.
 
-VMSnapshot 확장은 관리 되지 않는 Vm에 대해서만 Azure Portal에 나타납니다.
+VMSnapshot 확장은 관리형이 아닌 VM의 경우에만 Azure Portal에 나타납니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -63,7 +63,7 @@ VMSnapshot 확장은 관리 되지 않는 Vm에 대해서만 Azure Portal에 나
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 | 데이터 형식 |
+| 속성 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | 문자열 |
@@ -90,6 +90,16 @@ az backup protection enable-for-vm \
     --vault-name myRecoveryServicesVault \
     --vm myVM \
     --policy-name DefaultPolicy
+```
+
+## <a name="azure-powershell-deployment"></a>Azure Powershell 배포
+
+Azure Powershell을 사용하여 가상 머신에서 백업을 사용하도록 설정할 수 있습니다. 백업이 구성되면 첫 번째 예약된 백업 작업이 VM 스냅샷 확장을 VM에 설치합니다.
+
+```azurepowershell
+$targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "myResourceGroup" -Name "myRecoveryServicesVault"
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy Name DefaultPolicy -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "myVM" -ResourceGroupName "myVMResourceGroup" -VaultId $targetVault.ID
 ```
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원

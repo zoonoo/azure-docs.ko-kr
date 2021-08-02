@@ -7,13 +7,13 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 3/04/2021
-ms.openlocfilehash: 3455cc5b7ce5e1ddb7db3c3a9de4aedefcedc4b5
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 05/18/2021
+ms.openlocfilehash: d4eb677b0f55a8ccd2cda33e6026e01238deb9b3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133406"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971527"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>공동 판매 솔루션을 OCP GTM에서 상업용 Marketplace로 마이그레이션
 
@@ -25,7 +25,7 @@ Microsoft는 게시 환경을 바꾸고 있습니다. [상업용 Marketplace](ov
 - 제품이 제품의 기능에 부합하는 수백만 명의 클라우드 고객에게 도달하기 위해 올바른 온라인 매장([Microsoft AppSource](https://appsource.microsoft.com) 또는 [Azure Marketplace](https://azure.microsoft.com))에 있는지 확인하세요.
 - 비즈니스 목표와 일치하는 제품을 공동 판매하기 위한 자체 게시 환경을 운용하세요.
 - 이미 Microsoft와 계약을 맺어 공동 판매 기회를 관리하고 있는 파트너 센터에서 제품 게시를 맞춰보세요.
-- [Marketplace Rewards](partner-center-portal/marketplace-rewards.md)의 잠금을 해제합니다.
+- [Marketplace Rewards](marketplace-rewards.md)의 잠금을 해제합니다.
 
 ## <a name="prerequisites-to-continue-co-selling-with-microsoft"></a>Microsoft와 공동 판매를 지속하기 위한 필수 구성 요소
 
@@ -36,12 +36,12 @@ Microsoft는 게시 환경을 바꾸고 있습니다. [상업용 Marketplace](ov
 
 ## <a name="publishing-updates-for-attaining-co-sell-ready-status"></a>공동 판매를 바로 수행할 수 있는 상태를 실현하기 위한 업데이트 게시
 
-솔루션이 Microsoft 판매자와 파트너에 노출되려면 [공동 판매 준비 요구 사항](./co-sell-overview.md)을 충족해야 합니다. Microsoft 판매자가 인센티브를 받으려면 [인센티브 자격 요구 사항](./co-sell-overview.md)을 충족해야 합니다. 파트너 센터의 공동 판매 탭에서 요구 사항을 충족하세요(이 문서 뒷부분의 [이 이미지](#cosell-tab) 참조).
+솔루션이 Microsoft 판매자와 파트너에 노출되려면 [공동 판매 준비 요구 사항](./co-sell-overview.md)을 충족해야 합니다. Microsoft 판매자가 인센티브를 받으려면 [인센티브 자격 요구 사항](./co-sell-overview.md)을 충족해야 합니다. 파트너 센터의 공동 판매 탭에서 요구 사항을 충족하세요(이 문서 뒷부분의 [이 이미지](#action-2-merge) 참조).
 
 > [!NOTE]
 > 상업용 Marketplace에서 솔루션은 게시 환경 전체에서 “제품”으로 간주됩니다.
 
-상업용 Marketplace에 등록한 후에는 OCP GTM에서 솔루션 마이그레이션을 준비합니다.
+상업용 Marketplace에 등록한 후에는 OCP GTM에서 솔루션 마이그레이션을 준비합니다. Microsoft는 조직에 OCP GTM 솔루션의 단일 뷰를 제공하는 디지털 마이그레이션 인터페이스를 만들었습니다. 이 인터페이스에서 상용 마켓플레이스에 이미 게시되고 라이브된 유사한 제품에 솔루션을 병합하거나 삭제하는 작업을 수행할 수 있습니다.
 
 OCP GTM에서 솔루션을 가져오기 전에 다음 단계를 수행합니다.
 
@@ -49,16 +49,27 @@ OCP GTM에서 솔루션을 가져오기 전에 다음 단계를 수행합니다.
 2. 해당 역할들로만 솔루션을 편집 및 게시할 수 있으므로 나열된 연락처 중 하나를 통해 *관리자* 또는 *개발자* 로서 상업용 Marketplace에 [사용자를 추가](https://partner.microsoft.com/dashboard/account/usermanagement)하도록 요청합니다.
 3. 개발자와 협력하여 OCP GTM 계정에서 상업용 Marketplace로 솔루션을 이동합니다.
 4. 수행할 작업을 결정합니다.
-    1. 이 솔루션을 상업용 Marketplace에 있는 유사한 제품과 병합합니다.
-    1. 이 솔루션을 OCP GTM에서 상업용 Marketplace로 마이그레이션합니다.
-    1. 이 솔루션을 삭제합니다.
+    1. OCP GTM에 파트너 센터로 마이그레이션할 솔루션이 있는 경우 조회 파이프라인, 참고 자료, 공동 판매 상태 및 성과급을 유지하려면 다음 두 가지 시나리오 중에서 선택할 수 있습니다.
+        - 상용 마켓플레이스에 비슷한 제품이 없는 경우
+            - 1단계. [제품 만들기](#step-1-similar-offer-does-not-exist-in-commercial-marketplace-please-follow-these-steps)
+            - 2단계. [상용 마켓플레이스에 게시](#scenario-2-similar-offer-exists-in-commercial-marketplace-please-follow-these-steps)
+            - 3단계. [OCP GTM의 솔루션을 새로 게시된 마켓플레이스 제품에 병합하도록 요청](#begin-the-migration-of-your-solutions-from-ocp-gtm)
+        - 상용 마켓플레이스에 이미 유사한 제품이 있는 경우
+            - 1단계. [OCP GTM의 솔루션을 게시된 마켓플레이스 제품에 병합하도록 요청](#begin-the-migration-of-your-solutions-from-ocp-gtm)
+    1. OCP GTM에 더 이상 관련이 없는 솔루션이 있는 경우 이 솔루션을 삭제합니다.
 
-## <a name="migrate-your-solutions-from-ocp-gtm"></a>OCP GTM에서 공동 판매 솔루션 마이그레이션
+> [!IMPORTANT]
+> 2021년 5월 17일에 아래 마이그레이션 옵션이 제거되었습니다.  이전에 마이그레이션 옵션을 사용했고 상용 마켓플레이스에 초안 제품으로 마이그레이션한 제품이 있는 경우 상용 마켓플레이스에서 게시 프로세스를 완료하는 것이 중요합니다.  
+> - [제품을 검토하고 Microsoft 상용 마켓플레이스에 게시하는 방법 | Microsoft Docs](./review-publish-offer.md)에 대해 자세히 알아보기
+> - [상용 마켓플레이스 교육 데크 게시](https://assetsprod.microsoft.com/mpn/en-us/guidance-and-permissions-needed-to-publish-an-offer-and-co-sell-with-ms.pptm)
+:::image type="content" source="media/co-sell-migrate/ready-to-migrate.png" alt-text="이 솔루션을 상용 마켓플레이스로 마이그레이션":::
+
+## <a name="begin-the-migration-of-your-solutions-from-ocp-gtm"></a>OCP GTM에서 솔루션 마이그레이션 시작
 
 1. [여기](https://partner.microsoft.com/solutions/migration#)에서 마이그레이션을 시작합니다.
 2. **개요** 페이지를 선택하고 **여기를 클릭하여 시작하세요**.
 
-    :::image type="content" source="media/co-sell-migrate/migration-overview.png" alt-text="파트너 센터 개요 페이지, 개요 탭.":::
+    :::image type="content" source="media/co-sell-migrate/welcome-overveiw.png" alt-text="개요 페이지 표시":::
 
 3. 마이그레이션을 시작하려면 MPN ID와 연결된 모든 솔루션을 표시하는 **솔루션** 탭을 선택합니다.
 
@@ -73,38 +84,75 @@ OCP GTM에서 솔루션을 가져오기 전에 다음 단계를 수행합니다.
 
     :::image type="content" source="media/co-sell-migrate/migration-options.png" alt-text="마이그레이션에 대한 세 가지 옵션.":::
 
-### <a name="merge-solution-with-a-similar-offer"></a>유사한 제품과 솔루션 병합
+### <a name="merge-solution"></a>솔루션 병합
 
-솔루션이 이미 상업용 Marketplace에 게시되어 있고 둘을 단일 제품으로 병합해야 하는 경우 이 옵션을 선택합니다. 이렇게 하면 중복 제품이 생성되지 않습니다.
+상용 마켓플레이스에서 기존에 게시된 라이브 제품에 OCP GTM 솔루션을 병합할 경우 어떤 가치를 얻을 수 있나요?
+
+- 현재 OCP GTM의 제품과 공동 판매 중인 파트너는 솔루션을 상용 마켓플레이스로 마이그레이션하여 기능을 활용하고 게시 환경을 단순화하는 것이 좋습니다.
+
+OCP GTM에 파트너 센터로 마이그레이션하려는 솔루션이 있는 경우 두 가지 시나리오를 선택할 수 있습니다. 이 병합 프로세스가 끝난 후에도 제품은 조회 파이프라인, 참고 자료, 공동 판매 상태 및 성과급을 유지합니다.
+
+#### <a name="step-1-similar-offer-does-not-exist-in-commercial-marketplace-please-follow-these-steps"></a>1단계: 상용 마켓플레이스에 유사한 제품이 없습니다. 다음 단계를 수행하세요.
+
+OCP GTM의 솔루션을 병합할 제품이 상용 마켓플레이스에 아직 없는 경우 먼저 상용 마켓플레이스에서 제품을 만든 후 게시해야 합니다(공동 판매 상태, 성과급 및 조회 파이프라인이 유지됨).
+
+1. 상용 마켓플레이스에서 초안 제품 만들기
+
+   1. **+ 새 제품** 선택
+
+        :::image type="content" source="media/co-sell-migrate/new-offer.png" alt-text="새 제품 표시":::
+
+   2. 각 탭에서 필요한 정보를 입력합니다. • **자세한 정보** 링크 및 도구 설명은 요구 사항 및 세부 정보를 안내합니다.
+         • 필요하다면 **CSP를 통해 재판매** 페이지(왼쪽 탐색 메뉴)를 완료해서 CSP(클라우드 솔루션 공급자) 프로그램을 통해 재판매합니다.
+
+        :::image type="content" source="media/co-sell-migrate/offer-setup-nav.png" alt-text="개요 옵션이 강조 표시된 제품 설치 페이지 표시":::
+   3. **초안 저장** 을 선택합니다.
+        - 제품을 게시하기 전에 입력해야 하는 정보에 대한 자세한 지침은 적절한 [게시 가이드](./publisher-guide-by-offer-type.md)를 참조하세요.
+        - 제품 선택 및 구성을 완료하려면 제품 유형에 대한 해당 문서의 자격 요구 사항을 검토합니다.
+        - 솔루션이 제품 유형 및 구성에 매핑되는 방법에 대한 예는 각 온라인 스토어별 게시 패턴을 검토하세요.
+        - [목록에 제품 추가 모범 사례 - Microsoft 상용 마켓플레이스 | Microsoft Docs](./gtm-offer-listing-best-practices.md)
+
+    > [!TIP]
+    > **Microsoft와 공동 판매** 탭에서는 데이터를 *입력하지 않는 것* 이 좋습니다. 시간을 절약하기 위해 병합 프로세스 중에 OCP GTM에 기존 참고 자료와 함께 이 데이터가 자동으로 채워집니다.
+
+    병합이 완료되면 Microsoft와 공동 판매 탭으로 돌아가서 필요에 따라 업데이트할 수 있습니다. 자세한 내용은 [상업용 Marketplace 제품에 대한 공동 판매 구성](./co-sell-configure.md)을 참조하세요.
+1. 완료되면 **검토 및 게시** 를 선택합니다.
+
+     :::image type="content" source="media/co-sell-migrate/co-sell-with-ms.png" alt-text="옵션이 강조 표시되어 Microsoft와 공동 판매가 표시됨":::
+1. 제출된 모든 정보를 검토한 후 **게시** 를 선택하여 인증 검토를 위한 제품 초안을 제출합니다. [인증 단계에 대해 자세히 알아보세요](./review-publish-offer.md). :::image type="content" source="media/co-sell-migrate/review-and-publish.png" alt-text="검토 및 게시 페이지를 표시합니다.":::
+1. 개요 탭에서 제출 상태를 추적합니다.
+
+    :::image type="content" source="media/co-sell-migrate/offer-overview-tab.png" alt-text="개요 탭 표시":::
+1. 인증 검토가 완료되면 사용자에게 알려드립니다. 실행 가능한 피드백을 제공받았다면 이를 해결하고 **게시** 를 선택해 재인증을 시작합니다.
+
+1. 제품이 인증을 통과하면 제공된 링크를 사용하여 제품을 미리 보고 원하는 대로 최종 조정을 할 수 있습니다. 준비가 되면 **실시간 전송**(위 단추 참조)을 선택하여 제품을 관련 상업용 Marketplace 상점에 게시합니다.
+
+1. **아래의 시나리오 2를 계속 진행하여 병합 프로세스를 완료합니다.**
+
+#### <a name="scenario-2-similar-offer-exists-in-commercial-marketplace-please-follow-these-steps"></a>시나리오 2: 상용 마켓플레이스에 유사한 제품이 있습니다. 다음 단계를 수행하세요.
+
+솔루션이 이미 게시되어 상용 마켓플레이스에 있고, OCP GTM의 솔루션과 상용 마켓플레이스의 제품이 단일 제품으로 병합되는 경우 이 옵션을 선택합니다. 이렇게 하면 중복 제품이 생성되지 않습니다.
 
 1. 기존 제품을 식별합니다.
-    1. **이 솔루션을 상업용 Marketplace의 유사한 제품으로 병합합니다** 를 선택합니다([위의](#beginmigration) **작업 필요** 이미지 참조).
-    1. **작업 1** 탭은 OCP GTM 솔루션을 연결할 수 있는 라이브 상업용 Marketplace 제품을 보여 줍니다. 제품이 있다면 목록에서 라이브인 제품을 선택합니다. 선택할 제품 목록이 없는 경우 Microsoft AppSource 또는 Azure Marketplace에서 고객 연결 주소(URL)를 입력합니다.
+   1. **상용 마켓플레이스의 기존 제품과 유사** 를 선택합니다([위의](#beginmigration) **마이그레이션 시작** 이미지 참조).
+   1. **작업 1** 탭은 OCP GTM 솔루션을 연결할 수 있는 라이브 상업용 Marketplace 제품을 보여 줍니다. 제품이 있다면 목록에서 라이브인 제품을 선택합니다. 선택할 제품 목록이 없는 경우 Microsoft AppSource 또는 Azure Marketplace에서 고객 연결 주소(URL)를 입력합니다.
+   1. **계속** 을 선택합니다.
         [![병합 프로세스의 작업 1 탭입니다.](media/co-sell-migrate/action-1-merge.png)](media/co-sell-migrate/action-1-merge.png#lightbox)
-    1. **계속** 을 선택합니다.
 1. 병합을 요청합니다.
-    1. **작업 2** 탭에서는 식별한 것과 함께 OCP GTM 솔루션을 병합하도록 요청하는 지침을 보여 줍니다. 병합을 요청하려면 **저장 및 기술 지원 서비스에 문의** 를 선택하세요. 브라우저에서 파트너 지원 페이지가 열립니다.
-    1. **문제 세부 정보 제공** 을 선택하고       [![ 병합 프로세스의 작업 2 탭](media/co-sell-migrate/action-2-merge.png)](media/co-sell-migrate/action-2-merge.png#lightbox)을 입력합니다.
+    1. **작업 2** 탭에서는 식별한 것과 함께 OCP GTM 솔루션을 병합하도록 요청하는 지침을 보여 줍니다. 병합을 요청하려면 **저장 및 기술 지원 서비스에 문의** 를 선택하세요. 브라우저에서 파트너 지원 페이지가 열립니다. 
+    <a id="action-2-merge"></a>
+        [![병합 프로세스의 작업 2 탭](media/co-sell-migrate/action-2-merge.png)](media/co-sell-migrate/action-2-merge.png#lightbox)
+    1. **문제 세부 정보 제공** 을 선택하고 다음을 입력합니다.
+        1. 제품 유형
+        1. Offer name
+        1. OCP 솔루션 ID
+        1. 기존 목록의 URL
     1. **제출** 을 선택합니다. 파트너 지원 팀은 영업일 2일 이내에 사용자에게 답변을 드립니다.
     1. 파트너 지원은 성공적인 병합을 보장하고 라이브 제품으로 게시되도록 사용자와 협력합니다.
 
-### <a name="migrate-this-solution-from-ocp-gtm"></a>OCP GTM에서 이 솔루션을 마이그레이션
-
-아직 상업용 Marketplace에 해당 제품이 게시되지 않았을 때 OCP GTM 솔루션을 사용할 경우 이 옵션을 선택합니다. Microsoft와 공동 판매를 지속하기 위해 이 솔루션을 상업용 Marketplace에 게시하고, 이 솔루션을 마이그레이션하면 OCP GTM의 정보와 제품 구성 정보를 보존해서 시간을 절약할 수 있습니다. 이 옵션을 사용하려면 제품 유형을 선택해야 합니다.
-
-1. **이 솔루션을 OCP GTM에서 상업용 Marketplace로 마이그레이션합니다**( [위의](#beginmigration) **작업 필수** 이미지 참조)를 선택하고 **계속** 합니다.
-1. **작업 1** 탭에서 [제품 유형](publisher-guide-by-offer-type.md)을 선택하고 **계속** 합니다.
-
-    [![마이그레이션 프로세스의 작업 1 탭.](media/co-sell-migrate/action-1-migrate.png)](media/co-sell-migrate/action-1-migrate.png#lightbox)
-
-1. **작업 2** 탭의 목록에서 [게시자 프로필](create-account.md)을 선택합니다. 게시자 계정이 없으면 [파트너 센터](https://partner.microsoft.com/solutions/migration)에서 게시자 계정을 만든 다음 여기에서 선택합니다.
-
-    [![마이그레이션 프로세스의 작업 2 탭.](media/co-sell-migrate/action-2-migrate.png)](media/co-sell-migrate/action-2-migrate.png#lightbox)
-
-1. **제품 초안 만들기** 를 선택하여 솔루션을 초안 상태로 상업용 Marketplace에 마이그레이션합니다. 아직 라이브가 되지 않습니다.
-1. 파트너 센터의 게시 프로세스를 계속 진행합니다. 파트너 센터 게시에 대한 도움이 필요한 경우 아래 [상업용 Marketplace에서 제품을 라이브 상태로 만들기](#make-your-offer-live-in-the-marketplace)를 참조하세요.
-
 ### <a name="discard-this-solution"></a>이 솔루션을 삭제합니다
+
+고객의 요구를 충족하는 고품질 제품으로 상용 마켓플레이스에서의 현재 존재감 및 검색 가능성을 최적화하기 위해 솔루션의 실행 가능성 및 관련성을 평가하는 것이 좋습니다.
 
 OCP GTM 솔루션의 솔루션이 더 이상 상관이 없는 경우 이 옵션을 선택합니다. 삭제를 확인하라는 메시지가 표시되며 나중에 삭제를 취소할 수도 있습니다.
 
@@ -117,40 +165,11 @@ OCP GTM 솔루션의 솔루션이 더 이상 상관이 없는 경우 이 옵션�
 
     :::image type="content" source="media/co-sell-migrate/migration-discard-undo.png" alt-text="삭제 취소 링크입니다.":::
 
-4. 추가적인 도움이 필요하다면 **도움말 보기** 탭을 선택하여 파트너 지원 팀에 문의하세요.
+### <a name="additional-help"></a>추가 도움말
 
-    :::image type="content" source="media/co-sell-migrate/get-support-link.png" alt-text="도움말 보기 탭의 지원 링크.":::
+ 추가적인 도움이 필요하다면 **도움말 보기** 탭을 선택하여 파트너 지원 팀에 문의하세요.
 
-## <a name="make-your-offer-live-in-the-marketplace"></a>마켓플레이스에서 제품을 라이브로 전환
-
-제품을 상업용 Marketplace로 마이그레이션하도록 선택했다면 초안 상태로 도착합니다. 상업용 Marketplace에서 라이브 상태로 만들려면 제품을 게시해야 합니다. 게시하면 공동 판매 상태, 인센티브 및 참조 파이프라인이 보존됩니다.
-
-제품을 게시하기 전에 입력해야 하는 정보에 대한 자세한 지침은 적절한 [게시 가이드](publisher-guide-by-offer-type.md)를 참조하세요. 아래는 요약 정보입니다.
-
-1. 파트너 센터의 **개요** 페이지에서 제품 초안 이름을 선택합니다.
-
-    :::image type="content" source="media/co-sell-migrate/offer-overview.png" alt-text="파트너 센터의 제품 개요 페이지.":::
-
-<a name="cosell-tab"></a>
-
-2. 각 탭에서 필요한 정보를 입력합니다. 필요하다면 **CSP를 통해 재판매** 페이지(왼쪽 탐색 메뉴)를 완료해서 CSP(클라우드 솔루션 공급자) 프로그램을 통해 재판매합니다. **자세한 내용** 링크 및 도구 설명에서는 요구 사항 및 세부 정보를 안내합니다.
-
-    :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="파트너 센터의 제품 개요 설정 탭.":::
-
-3. Microsoft 판매자 대상 세부 정보 중 일부는 OCP GTM 솔루션에서 복사됩니다. **Microsoft와 공동 판매** 탭에서 나머지 필수 정보를 작성하여 제품을 공동 판매하도록 준비합니다. 완료되면 **검토 및 게시** 를 선택합니다. 자세한 내용은 [상업용 Marketplace 제품에 대한 공동 판매 구성](./co-sell-configure.md)을 참조하세요.
-
-    :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="파트너 센터의 제품 공동 판매 탭입니다.":::
-
-4. 제출된 모든 정보를 검토한 후 **게시** 를 선택하여 인증 검토를 위한 제품 초안을 제출합니다.
-
-    :::image type="content" source="media/co-sell-migrate/co-sell-review-publish.png" alt-text="파트너 센터의 제품 검토 탭 및 게시 단추.":::
-
-5. **개요** 탭에서 제출 상태를 추적합니다.
-
-    :::image type="content" source="media/publish-status-publisher-signoff.png" alt-text="파트너 센터의 개요 탭에 있는 제품 게시 상태 표시줄.":::
-
-6. 인증 검토가 완료되면 사용자에게 알려드립니다. 실행 가능한 피드백을 제공받았다면 이를 해결하고 **게시** 를 선택해 재인증을 시작합니다.
-7. 제품이 인증을 통과하면 제공된 링크를 사용하여 제품을 미리 보고 원하는 대로 최종 조정을 할 수 있습니다. 준비가 되면 **실시간 전송**(위 단추 참조)을 선택하여 제품을 관련 상업용 Marketplace 상점에 게시합니다. 일단 라이브 상태가 되면 제품은 원래 OCP GTM 솔루션에서의 공동 판매 상태를 유지합니다.
+:::image type="content" source="media/co-sell-migrate/get-support-link.png" alt-text="도움말 보기 탭의 지원 링크.":::
 
 ## <a name="next-steps"></a>다음 단계
 

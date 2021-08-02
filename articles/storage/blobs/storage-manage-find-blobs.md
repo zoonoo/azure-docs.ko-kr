@@ -1,20 +1,20 @@
 ---
 title: Blob 인덱스 태그를 사용하여 Azure Blob 데이터 관리 및 찾기(미리 보기)
 description: Blob 인덱스 태그를 사용하여 Blob 개체를 분류, 관리 및 쿼리하는 방법에 대해 알아봅니다.
-author: twooley
-ms.author: twooley
-ms.date: 03/18/2021
+author: normesta
+ms.author: normesta
+ms.date: 05/17/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.custom: references_regions
-ms.openlocfilehash: 2188aaea0cf5a4616291d3fdad839aefb2dbc413
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: bd1738c0a5d63ad9eacaa1500a6ce10268a93b04
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280703"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110664882"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Blob 인덱스 태그를 사용하여 Azure Blob 데이터 관리 및 찾기(미리 보기)
 
@@ -114,10 +114,11 @@ Blob 인덱스 필터링에는 다음 기준이 적용됩니다.
 - 필터는 문자열에 사전식 정렬을 사용하여 적용됩니다.
 - 동일한 키에 대한 동일 방향 범위 연산은 유효하지 않습니다(예: `"Rank" > '10' AND "Rank" >= '15'`).
 - REST를 사용하여 필터 식을 만들 때 문자는 URI로 인코딩해야 합니다.
+- 태그 쿼리는 단일 태그(예: StoreID = "100")를 사용하는 같음 일치에 대해 최적화됩니다.  >, >=, <, <=을 비롯한 단일 태그를 사용하는 범위 쿼리도 효율적입니다. 둘 이상의 태그와 함께 AND를 사용하는 쿼리는 효율적이지 않습니다.  예를 들어 Cost > "01" AND Cost <= "100"은 효율적입니다. Cost > "01 AND StoreID = "2"는 효율적이지 않습니다.
 
 다음 표에는 `Find Blobs by Tags`에 유효한 모든 연산자가 나와 있습니다.
 
-|  연산자  |  설명  | 예제 |
+|  연산자  |  Description  | 예제 |
 |------------|---------------|---------|
 |     =      |     같음     | `"Status" = 'In Progress'` |
 |     >      |  보다 큼 | `"Date" > '2018-06-18'` |
@@ -142,7 +143,7 @@ REST 버전 2019-10-10 이상에서는 대부분의 [Blob service API](/rest/api
 
 아래 표는 조건부 연산에 유효한 연산자를 보여줍니다.
 
-|  연산자  |  설명  | 예제 |
+|  연산자  |  Description  | 예제 |
 |------------|---------------|---------|
 |     =      |     같음     | `"Status" = 'In Progress'` |
 |     <>     |   같지 않음   | `"Status" <> 'Done'` |
@@ -281,11 +282,11 @@ Blob 인덱스 태그와 메타데이터 모두 Blob 리소스와 함께 임의�
 
 ## <a name="pricing"></a>가격 책정
 
-Blob 인덱스 가격 책정은 공개 미리 보기 상태이며 일반 공급을 위해 변경될 수 있습니다. 스토리지 계정 내 월 평균 인덱스 태그 수에 대한 요금이 청구됩니다. 인덱싱 엔진에 대한 비용은 없습니다. `Set Blob Tags`, `Get Blob Tags`, `Find Blobs by Tags`에 대한 요청은 해당 작업 유형 각각에 따라 요금이 청구됩니다. [자세한 내용은 블록 Blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
+Blob 인덱스 가격 책정은 공개 미리 보기 상태이며 일반 공급을 위해 변경될 수 있습니다. 스토리지 계정 내 월 평균 인덱스 태그 수에 대한 요금이 청구됩니다. 인덱싱 엔진에 대한 비용은 없습니다. 블로그 태그 설정, Blob 태그 얻기, Blob 태그 찾기에 대한 요청은 현재 해당 트랜잭션 요율로 청구됩니다. 태그로 Blob 찾기 트랜잭션을 수행하는 경우 사용하는 목록 트랜잭션 수는 요청의 절 수와 같습니다. 예를 들어 (StoreID = 100) 쿼리는 하나의 목록 트랜잭션입니다.  (StoreID = 100 AND SKU = 10010) 쿼리는 두 개의 목록 트랜잭션입니다. [자세한 내용은 블록 Blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
 
 ## <a name="regional-availability-and-storage-account-support"></a>지역 가용성 및 스토리지 계정 지원
 
-Blob 인덱스 태그는 HNS(계층 구조 네임스페이스)를 사용하지 않는 GPv2(범용 v2) 계정에서만 사용할 수 있습니다. GPV1(범용) 계정은 지원되지 않지만 GPv1 계정을 GPv2 계정으로 업그레이드할 수 있습니다.
+Blob 인덱스 태그는 HNS(계층 구조 네임스페이스)를 사용하지 않는 범용 v2 계정에서만 사용할 수 있습니다. 범용 v1 계정은 지원되지 않지만 범용 v1 계정을 범용 v2 계정으로 업그레이드할 수 있습니다.
 
 프리미엄 스토리지 계정에서는 인덱스 태그가 지원되지 않습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
@@ -319,7 +320,7 @@ az provider register --namespace 'Microsoft.Storage'
 이 섹션에서는 Blob 인덱스 태그 공개 미리 보기의 알려진 문제 및 조건에 대해 설명합니다. 이 기능은 동작이 변경될 수 있으므로 GA(일반 공급)에 도달할 때까지 프로덕션 워크로드에 사용해서는 안 됩니다.
 
 - 미리 보기의 경우 먼저 구독을 등록해야 미리 보기 지역에서 스토리지 계정에 Blob 인덱스를 사용할 수 있습니다.
-- 미리 보기에서는 GPv2 계정만 지원됩니다. Blob, BlockBlobStorage 및 HNS 사용 DataLake Gen2 계정은 지원되지 않습니다. GPv1 계정은 지원되지 않습니다.
+- 범용 v2 계정만 미리 보기에서 지원됩니다. 프리미엄 블록 Blob, 레거시 Blob, 계층 구조 네임스페이스가 사용되는 계정은 지원되지 않습니다. 범용 v1 계정은 지원되지 않습니다.
 - 인덱스 태그가 있는 페이지 Blob을 업로드하면 태그가 유지되지 않습니다. 페이지 Blob을 업로드한 후 태그를 설정하세요.
 - 필터링 범위가 단일 컨테이너로 지정되면 필터 식의 모든 인덱스 태그가 같음 검사(키= 값)인 경우에만 `@container`를 전달할 수 있습니다.
 - `AND` 조건과 함께 범위 연산자를 사용하는 경우에는 동일한 인덱스 태그 키 이름만 지정할 수 있습니다(`"Age" > '013' AND "Age" < '100'`).

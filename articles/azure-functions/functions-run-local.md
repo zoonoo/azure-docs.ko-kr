@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 3ddd84f2f73546b42a3925802b3357df16485488
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ed1bb0a91504c871cd82777f1759d6dca95f1ab
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100521444"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111903368"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -31,13 +31,15 @@ Core Tools를 사용하여 로컬 컴퓨터에서 함수를 개발하고 Azure�
 
 ## <a name="core-tools-versions"></a>Core Tools 버전
 
-Azure Functions Core Tools에는 세 가지 버전이 있습니다. 사용 중인 버전은 로컬 개발 환경, [선택한 언어](supported-languages.md) 및 필요한 지원 수준에 따라 달라집니다.
+Azure Functions Core Tools에는 세 가지 버전이 있습니다.<sup>*</sup> 사용하는 버전은 로컬 개발 환경, [선택 언어](supported-languages.md), 필요한 지원 수준에 따라 달라집니다.
 
 + [**버전 3.x/2.x**](#v2): [Azure Functions 런타임의 버전 3.x 또는 2.x](functions-versions.md)을 지원합니다. 해당 버전은 [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2), [Linux](?tabs=linux#v2)를 지원하며, 플랫폼별 패키지 관리자 또는 npm을 사용하여 설치합니다.
 
 + **버전 1.x**: Azure Functions 런타임의 버전 1.x를 지원합니다. 이 버전의 도구는 Windows 컴퓨터에서만 지원되며 [npm 패키지](https://www.npmjs.com/package/azure-functions-core-tools)에서 설치됩니다.
 
 지정된 컴퓨터에는 Core Tools의 한 버전만 설치할 수 있습니다. 별도로 언급하지 않는 한 이 문서의 예제는 3.x 버전용입니다.
+
+<sup>*</sup> .NET 6.0 미리 보기에서 C# 함수를 실행할 수 있는 Azure Functions의 실험 버전을 사용할 수 있습니다. 자세한 내용은 [Azure Functions v4 초기 미리 보기](https://aka.ms/functions-dotnet6earlypreview-wiki) 페이지를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -336,7 +338,7 @@ Functions 프로젝트를 실행하려면 Functions 호스트를 실행합니다
 # <a name="c"></a>[C\#](#tab/csharp)
 
 ```
-func start --build
+func start
 ```
 
 # <a name="java"></a>[Java](#tab/java)
@@ -369,11 +371,7 @@ npm start
 ---
 
 >[!NOTE]  
-> Functions 런타임의 버전 1.x는 다음 예제와 같이 `host` 명령이 필요합니다.
->
-> ```
-> func host start
-> ```
+> Functions 런타임 버전 1.x에는 대신 `func host start`가 필요합니다. 
 
 `func start`은 다음 옵션을 지원합니다.
 

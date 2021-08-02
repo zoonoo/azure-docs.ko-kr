@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 989bcbb7e509b9b7692f067af2989fcad94b6ad1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 5825f170a1bd14fc577284b8a512ff40aa614546
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107796277"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677150"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -88,7 +89,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
     터미널에 표시된 단계에 따라 인증 프로세스를 완료합니다.
 
-1. [az filesync](/cli/azure/ext/storagesync/storagesync) Azure CLI 확장을 설치합니다.
+1. [az filesync](/cli/azure/storagesync) Azure CLI 확장을 설치합니다.
 
    ```azurecli
    az extension add --name storagesync
@@ -380,7 +381,7 @@ New-AzStorageSyncCloudEndpoint `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[az storagesync sync-group](/cli/azure/ext/storagesync/storagesync/sync-group#ext-storagesync-az-storagesync-sync-group-create) 명령을 사용하여 새 동기화 그룹을 만듭니다.  리소스 그룹을 모든 CLI 명령에 대해 기본값으로 설정하려면 [az configure](/cli/azure/reference-index#az_configure)를 사용합니다.
+[az storagesync sync-group](/cli/azure/storagesync/sync-group#az_storagesync_sync_group_create) 명령을 사용하여 새 동기화 그룹을 만듭니다.  리소스 그룹을 모든 CLI 명령에 대해 기본값으로 설정하려면 [az configure](/cli/azure/reference-index#az_configure)를 사용합니다.
 
 ```azurecli
 az storagesync sync-group create --resource-group myResourceGroupName \
@@ -388,7 +389,7 @@ az storagesync sync-group create --resource-group myResourceGroupName \
                                  --storage-sync-service myStorageSyncServiceName \
 ```
 
-[az storagesync sync-group cloud-endpoint](/cli/azure/ext/storagesync/storagesync/sync-group/cloud-endpoint#ext-storagesync-az-storagesync-sync-group-cloud-endpoint-create) 명령을 사용하여 새 클라우드 엔드포인트를 만듭니다.
+[az storagesync sync-group cloud-endpoint](/cli/azure/storagesync/sync-group/cloud-endpoint#az_storagesync_sync_group_cloud_endpoint_create) 명령을 사용하여 새 클라우드 엔드포인트를 만듭니다.
 
 ```azurecli
 az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup \
@@ -402,10 +403,12 @@ az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup
 ---
 
 ## <a name="create-a-server-endpoint"></a>서버 엔드포인트 만들기
-서버 엔드포인트는 서버 볼륨의 폴더와 같이 등록된 서버의 특정 위치를 나타냅니다. 서버 엔드포인트는 등록된 서버(탑재된 공유가 아닌)의 경로여야 하며, 클라우드 계층화를 사용하려면 이 경로가 비 시스템 볼륨에 있어야 합니다. NAS(Network Attached Storage)는 지원되지 않습니다.
+서버 엔드포인트는 서버 볼륨의 폴더와 같이 등록된 서버의 특정 위치를 나타냅니다. 서버 엔드포인트에는 다음 조건이 적용됩니다.
 
-> [!NOTE]
-> 볼륨에 서버 엔드포인트를 설정한 후 경로 또는 드라이브 문자를 변경하는 것은 지원되지 않습니다. 등록된 서버에서 최종 경로를 사용하고 있는지 확인합니다.
+- 서버 엔드포인트는 탑재된 공유가 아닌 등록된 서버의 경로여야 합니다. NAS(Network Attached Storage)는 지원되지 않습니다.
+- 서버 엔드포인트는 시스템 볼륨에 있을 수 있지만 시스템 볼륨의 서버 엔드포인트는 클라우드 계층을 사용하지 않을 수 있습니다.
+- 볼륨에 서버 엔드포인트를 설정한 후 경로 또는 드라이브 문자를 변경하는 것은 지원되지 않습니다. 등록된 서버에서 최종 경로를 사용하고 있는지 확인합니다.
+- 등록된 서버는 여러 서버 엔드포인트를 지원할 수 있지만 동기화 그룹은 지정된 시간에 등록된 서버당 하나의 서버 엔드포인트만 가질 수 있습니다. 동기화 그룹 내의 다른 서버 엔드포인트는 서로 다른 등록된 서버에 있어야 합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 서버 엔드포인트를 추가하려면 새로 만든 동기화 그룹으로 이동한 후 **서버 엔드포인트 추가** 를 클릭합니다.
@@ -462,7 +465,7 @@ if ($cloudTieringDesired) {
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[az storagesync sync-group server-endpoint](/cli/azure/ext/storagesync/storagesync/sync-group/server-endpoint#ext-storagesync-az-storagesync-sync-group-server-endpoint-create) 명령을 사용하여 새 서버 엔드포인트를 만듭니다.
+[az storagesync sync-group server-endpoint](/cli/azure/storagesync/sync-group/server-endpoint#az_storagesync_sync_group_server_endpoint_create) 명령을 사용하여 새 서버 엔드포인트를 만듭니다.
 
 ```azurecli
 # Create a new sync group server endpoint 
@@ -583,7 +586,7 @@ Get-StorageSyncSelfServiceRestore [[-Driveletter] <string>]
 
 ### <a name="scenario"></a>시나리오
 
-회사는 전 세계에 분산되어 미국과 인도에 지사를 두고 있습니다. 정보 근로자는 오전(미국 시간)에 새로운 프로젝트를 위해 새 폴더와 새 파일을 만들고 하루 종일 작업합니다. Azure 파일 동기화는 폴더 및 파일을 Azure 파일 공유(클라우드 엔드포인트)와 동기화합니다. 인도의 정보 근로자는 자신의 시간대에 따라 프로젝트 작업을 계속할 것입니다. 아침에 도착했을 때 인도의 로컬 Azure 파일 동기화 사용 서버는 인도 팀이 로컬 캐시에서 효율적으로 작업할 수 있도록 이러한 새 파일을 로컬에서 사용할 수 있어야 합니다. 이 모드를 사용하도록 설정하면 요청 시 회수로 인해 초기 파일 액세스 속도가 느려지는 것을 방지하고 Azure 파일 공유에서 파일이 변경되거나 생성되는 즉시 서버가 파일을 사전에 회수할 수 있습니다.
+회사는 전 세계에 분산되어 미국과 인도에 지사를 두고 있습니다. 정보 근로자는 오전(미국 시간)에 새로운 프로젝트를 위해 새 폴더와 새 파일을 만들고 하루 종일 작업합니다. Azure 파일 동기화는 폴더 및 파일을 Azure 파일 공유(클라우드 엔드포인트)와 동기화합니다. 인도의 정보 근로자는 자신의 시간대에 따라 프로젝트 작업을 계속합니다. 아침에 도착하면 인도 팀이 로컬 캐시에서 효율적으로 작업할 수 있도록 로컬 Azure 파일 동기화가 사용하도록 설정된 인도의 서버가 이러한 새 파일을 로컬에서 사용할 수 있어야 합니다. 이 모드를 사용하도록 설정하면 요청 시 회수로 인해 초기 파일 액세스 속도가 느려지는 것을 방지하고 Azure 파일 공유에서 파일이 변경되거나 생성되는 즉시 서버가 파일을 사전에 회수할 수 있습니다.
 
 > [!IMPORTANT]
 > 서버에서 긴밀하게 Azure 파일 공유의 변경 내용을 추적할 경우 송신 트래픽과 Azure의 청구액이 증가할 수 있음을 알아야 합니다. 서버로 회수된 파일이 실제로 로컬에서 필요하지 않은 경우 서버에 대한 불필요한 회수는 부정적인 결과를 초래할 수 있습니다. 클라우드의 최근 변경 사항으로 서버의 캐시를 미리 채울 경우 해당 서버의 파일을 사용하는 사용자 또는 애플리케이션에 긍정적인 영향을 미친다면 이 모드를 사용하세요.

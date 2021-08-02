@@ -4,12 +4,12 @@ description: C#을 사용하여 Azure Functions 런타임과 함께 In Process�
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: c7d14599ec1ebbcb94e0c0f3985a3b857f9353dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60afc79c332385958d9f73ad1e224cab90293e1c
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563883"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111903134"
 ---
 # <a name="develop-c-class-library-functions-using-azure-functions"></a>Azure Functions를 사용하여 C# 클래스 라이브러리 함수 개발
 
@@ -28,22 +28,7 @@ C# 개발자라면 다음과 같은 문서를 참조할 수도 있습니다.
 
 Azure Functions는 C# 및 C# 스크립트 프로그래밍 언어를 지원합니다. [Azure Portal에서 C#을 사용하는 방법](functions-create-function-app-portal.md)에 대한 지침은 [C# 스크립트(.csx) 개발자 참조](functions-reference-csharp.md)를 참조하세요.
 
-## <a name="supported-versions"></a>지원되는 버전
-
-Functions 런타임 버전은 .NET의 특정 버전과 호환됩니다. Functions 버전에 대해 자세히 알아보려면 [Azure Functions 런타임 버전 개요](functions-versions.md)를 참조하세요.
-
-다음 표에서는 특정 버전의 Functions에서 사용할 수 있는 가장 높은 수준의 .NET Core 또는 .NET Framework를 보여 줍니다. 
-
-| Functions 런타임 버전 | 최대 .NET 버전 |
-| ---- | ---- |
-| Functions 3.x | .NET Core 3.1<br/>.NET 5.0<sup>1</sup> |
-| Functions 2.x | .NET Core 2.2<sup>2</sup> |
-| Functions 1.x | .NET Framework 4.7 |
-
-<sup>1</sup> [Out Of Process](dotnet-isolated-process-guide.md)를 실행해야 합니다.  
-<sup>2</sup> 자세한 내용은 [Functions v2.x 고려 사항](#functions-v2x-considerations)을 참조하세요.   
-
-특정한 이전 부 버전의 삭제를 비롯하여 Azure Functions 릴리스에 대한 최신 소식을 보려면 [Azure App Service 공지](https://github.com/Azure/app-service-announcements/issues)를 주기적으로 확인하세요.
+[!INCLUDE [functions-dotnet-supported-versions](../../includes/functions-dotnet-supported-versions.md)]
 
 ### <a name="functions-v2x-considerations"></a>Functions v2.x 고려 사항
 
@@ -100,7 +85,7 @@ public static class SimpleExample
 } 
 ```
 
-`FunctionName` 특성은 메서드를 함수 진입점으로 표시합니다. 이름은 프로젝트 내에서 고유해야 하고, 문자로 시작해야 하고, 문자, 숫자, `_`, `-`만 포함해야 하며 허용되는 최대 길이는 127자입니다. 프로젝트 템플릿에서 `Run` 메서드를 자주 만들지만, 유효한 C# 이름은 모두 메서드 이름이 될 수 있습니다.
+`FunctionName` 특성은 메서드를 함수 진입점으로 표시합니다. 이름은 프로젝트 내에서 고유해야 하고, 문자로 시작해야 하고, 문자, 숫자, `_` 및 `-`만 포함해야 하며 허용되는 최대 길이는 127자입니다. 프로젝트 템플릿에서 `Run` 메서드를 자주 만들지만, 유효한 C# 이름은 모두 메서드 이름이 될 수 있습니다.
 
 트리거 특성은 트리거 유형을 지정하고, 입력 데이터를 메서드 매개 변수에 바인딩합니다. 예제 함수는 큐 메시지에 의해 트리거되며, 큐 메시지는 `myQueueItem` 매개 변수의 메서드에 전달됩니다.
 
@@ -221,11 +206,11 @@ public static class BindingExpressionsExample
 
 `Microsoft.NET.Sdk.Functions`의 소스 코드는 [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk) GitHub 리포지토리에서 사용할 수 있습니다.
 
-## <a name="runtime-version"></a>런타임 버전
+## <a name="local-runtime-version"></a>로컬 런타임 버전
 
-Visual Studio는 [Azure Functions 핵심 도구](functions-run-local.md#install-the-azure-functions-core-tools)를 사용하여 Functions 프로젝트를 실행합니다. 핵심 도구는 Function 런타임에 대한 명령줄 인터페이스입니다.
+Visual Studio는 [Azure Functions 핵심 도구](functions-run-local.md#install-the-azure-functions-core-tools)를 사용하여 로컬 컴퓨터에서 Functions 프로젝트를 실행합니다. 핵심 도구는 Function 런타임에 대한 명령줄 인터페이스입니다.
 
-npm을 사용하여 핵심 도구를 설치하는 경우 Visual Studio에서 사용되는 핵심 도구 버전에 영향을 주지 않습니다. Functions 런타임 버전 1.x의 경우, Visual Studio는 *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* 에 핵심 도구 버전을 저장하고 해당 위치에 저장된 최신 버전을 사용합니다. Functions 2.x의 경우, 핵심 도구는 **Azure Functions 및 Web Jobs Tools** 확장에 포함되어 있습니다. 1.x 및 2.x 둘 다, Functions 프로젝트를 실행할 때 콘솔 출력에 사용되는 버전을 확인할 수 있습니다.
+Windows 설치 프로그램(MSI) 패키지를 사용하거나 npm을 사용하여 핵심 도구를 설치하는 경우 Visual Studio에서 사용하는 핵심 도구 버전에는 영향을 미치지 않습니다. Functions 런타임 버전 1.x의 경우, Visual Studio는 *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* 에 핵심 도구 버전을 저장하고 해당 위치에 저장된 최신 버전을 사용합니다. Functions 2.x의 경우, 핵심 도구는 **Azure Functions 및 Web Jobs Tools** 확장에 포함되어 있습니다. 1.x 및 2.x 둘 다, Functions 프로젝트를 실행할 때 콘솔 출력에 사용되는 버전을 확인할 수 있습니다.
 
 ```terminal
 [3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)

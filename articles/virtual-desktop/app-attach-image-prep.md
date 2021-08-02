@@ -1,19 +1,19 @@
 ---
-title: Windows Virtual Desktop에서 MSIX 앱 연결 이미지 준비 - Azure
-description: Windows Virtual Desktop 호스트 풀에 대한 MSIX 앱 연결 이미지를 만드는 방법입니다.
+title: Azure Virtual Desktop에서 MSIX 앱 연결 이미지 준비 - Azure
+description: Azure Virtual Desktop 호스트 풀에 대한 MSIX 앱 연결 이미지를 만드는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 443f117907381862639564dfbf9752562f4a3564
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: f80d123a96a24ef9e9402cc2b142e94448468ea1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363668"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745640"
 ---
-# <a name="prepare-an-msix-image-for-windows-virtual-desktop"></a>Windows Virtual Desktop에 대한 MSIX 이미지 준비
+# <a name="prepare-an-msix-image-for-azure-virtual-desktop"></a>Azure Virtual Desktop용 MSIX 이미지 준비
 
 MSIX 앱 연결은 MSIX 패키지의 앱을 사용자 세션에 동적으로 연결하는 데 사용할 수 있는 애플리케이션 계층화 솔루션입니다. MSIX 패키지 시스템은 운영 체제에서 앱을 분리하여 가상 머신에 대한 이미지를 더 쉽게 빌드할 수 있습니다. 또한 MSIX 패키지를 사용하면 사용자가 가상 머신에서 액세스할 수 있는 앱을 보다 세부적으로 제어할 수 있습니다. 마스터 이미지에서 앱을 분리하여 나중에 사용자에게 제공할 수도 있습니다.
 
@@ -99,11 +99,11 @@ MSIX 패키지를 만든 후에는 결과 VHD, VHDX 또는 CIM 파일을 업로�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)에서 이 기능에 대해 질문합니다.
+[Azure Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)에서 이 기능에 대해 커뮤니티에 질문합니다.
 
-[Windows Virtual Desktop 피드백 허브](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)에서 Windows Virtual Desktop에 대한 피드백을 남길 수도 있습니다.
+[Azure Virtual Desktop 피드백 허브](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)에서 Azure Virtual Desktop에 대한 피드백을 남길 수도 있습니다.
 
 다음은 도움이 될 수 있는 다른 문서입니다.
 
-- [MSIX 앱 연결 용어집](app-attach-glossary.md)
+- [MSIX 앱 연결 용어](app-attach-glossary.md)
 - [MSIX 앱 연결 FAQ](app-attach-faq.md)

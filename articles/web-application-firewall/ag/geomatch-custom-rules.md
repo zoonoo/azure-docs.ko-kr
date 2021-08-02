@@ -7,18 +7,18 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 01/31/2020
 ms.author: victorh
-ms.openlocfilehash: bdb115cf6d0f0aa2c55f6143015a323df6faa114
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b92b7ff4839bf2bf51c281942ed6d15d2dc1f86c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83744294"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110455509"
 ---
 # <a name="geomatch-custom-rules-preview"></a>Geomatch 사용자 지정 규칙(미리 보기)
 
 사용자 지정 규칙을 사용하면 애플리케이션 및 보안 정책의 정확한 요구에 맞게 맞춤형 규칙을 만들 수 있습니다. 이제 국가/지역별로 웹 애플리케이션에 대한 액세스를 제한할 수 있습니다. 모든 사용자 지정 규칙과 마찬가지로 이 논리는 애플리케이션의 요구 사항에 맞게 다른 규칙과 결합될 수 있습니다.
 
-지역 필터링 사용자 지정 규칙을 만들려면 *지역 위치* 를 일치 유형으로 선택한 다음, 애플리케이션에서 허용/차단할 국가/지역을 선택합니다. 자세한 내용은 [Powershell에서 사용자 지정 규칙을 만드는 방법](configure-waf-custom-rules.md) 및 추가 사용자 지정 규칙 예제(create-custom-waf-rules.md)를 참조하세요.
+Azure Portal에서 지역 필터링 사용자 지정 규칙을 만들려면 *지리적 위치* 를 일치 유형으로 선택한 다음, 애플리케이션에서 허용/차단할 국가/지역을 선택합니다. Azure PowerShell 또는 Azure Resource Manager를 사용하여 지역 일치 규칙을 만들 경우 일치 변수 `RemoteAddr` 및 연산자 `Geomatch`를 사용합니다. 자세한 정보는 [PowerShell에서 사용자 지정 규칙을 만드는 방법](configure-waf-custom-rules.md) 및 추가 [사용자 지정 규칙 예제](create-custom-waf-rules.md)를 참조하세요.
 
 > [!IMPORTANT]
 > 이 공개 미리 보기는 Service Level Agreement(서비스 수준 약정)없이 제공되므로 프로덕션 워크로드에 사용하지 말아야 합니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.

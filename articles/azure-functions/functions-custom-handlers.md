@@ -5,23 +5,23 @@ author: anthonychu
 ms.author: antchu
 ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: dd112c74ea9f013a0e14bddd735060ddbf73c14e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82166ca69db6dc2dc1b7562e23078609b01cb2ed
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100578527"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756026"
 ---
 # <a name="azure-functions-custom-handlers"></a>Azure Functions 사용자 지정 처리기
 
-모든 Functions 앱은 언어별 처리기를 통해 실행됩니다. Azure Functions는 기본적으로 다양한 [언어 처리기](./supported-languages.md)를 지원하지만, 다른 언어 또는 런타임을 사용하려는 경우가 있습니다.
+모든 Functions 앱은 언어별 처리기를 통해 실행됩니다. Azure Functions에는 기본적으로 다양한 [언어 처리기](./supported-languages.md)가 있지만 다른 언어 또는 런타임을 사용하려는 경우가 있습니다.
 
 사용자 지정 처리기는 Functions 호스트에서 이벤트를 받는 간단한 웹 서버입니다. HTTP 기본 형식을 지원하는 모든 언어는 사용자 지정 처리기를 구현할 수 있습니다.
 
 사용자 지정 처리기는 다음과 같은 상황에 가장 적합합니다.
 
-- 함수 앱을 현재 지원되지 않는 언어(예: Go 또는 Rust)로 구현합니다.
-- 함수 앱을 현재 지원되지 않는 런타임(예: Deno)에 구현합니다.
+- 함수 앱을 현재 즉시 제공하지 않는 언어(예: Go 또는 Rust)로 구현합니다.
+- 함수 앱을 현재 제공하지 않는 런타임(예: Deno)에 구현합니다.
 
 사용자 지정 처리기를 사용하면 [확장 번들](./functions-bindings-register.md)을 통해 [트리거와 입력 및 출력 바인딩](./functions-triggers-bindings.md)을 사용할 수 있습니다.
 

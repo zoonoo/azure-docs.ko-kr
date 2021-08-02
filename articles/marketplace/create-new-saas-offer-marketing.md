@@ -1,6 +1,6 @@
 ---
-title: Microsoft 파트너 센터에서 SaaS 제품을 판매하는 방법
-description: Microsoft 상업용 마켓플레이스에서 SaaS 제품의 CSP(클라우드 솔루션 공급자) 프로그램 옵션을 통해 Microsoft와 공동 판매 및 재판매하는 방법에 대해 알아봅니다.
+title: Azure Marketplace에서 SaaS 제품 판매
+description: Azure Marketplace에서 SaaS 제품의 CSP(클라우드 솔루션 공급자) 프로그램 옵션을 통해 Microsoft와 공동 판매 및 재판매하는 방법을 알아봅니다.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: fa207ca38c46f09e3660ea03e70d20e45c620845
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 632c2aaed5b9c0ffbfb6c47c4194276fd6a1869c
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127446"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110703449"
 ---
-# <a name="how-to-sell-your-saas-offer"></a>SaaS 제품을 판매하는 방법
+# <a name="sell-a-saas-offer-through-microsoft"></a>Microsoft를 통해 SaaS 제품 판매
 
 이 문서에서는 Microsoft를 통해 SaaS 제품을 판매하는 경우 선택할 수 있는 추가 옵션을 설명합니다. Microsoft와 제품을 공동 판매하거나, [CSP(클라우드 솔루션 공급자) 프로그램](cloud-solution-providers.md)을 통해 재판매하거나, 둘 다 수행할 수 있습니다.
 
@@ -32,4 +32,4 @@ CSP(클라우드 솔루션 공급자) 프로그램에서 제품을 판매하기�
 ## <a name="next-steps"></a>다음 단계
 
 - [SaaS 제품 테스트 및 게시](test-publish-saas-offer.md)
-- [활성 마켓플레이스 보상](partner-center-portal/marketplace-rewards.md)
+- [활성 마켓플레이스 보상](marketplace-rewards.md)

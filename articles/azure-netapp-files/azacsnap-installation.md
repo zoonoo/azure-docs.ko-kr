@@ -12,18 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 05/19/2021
 ms.author: phjensen
-ms.openlocfilehash: 458f4d3f29cb08a94095167ed45133f5cd70f5f4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0eae929d60ce852e7a98f12430de796aa664d86f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869194"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481453"
 ---
-# <a name="install-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일치 스냅샷 도구 설치(미리 보기)
+# <a name="install-azure-application-consistent-snapshot-tool"></a>Azure 애플리케이션 일치 스냅샷 도구 설치
 
-이 문서에서는 Azure NetApp Files에서 사용할 수 있는 Azure 애플리케이션 일치 스냅샷 도구 설치에 대한 안내를 제공합니다.
+이 문서에서는 Azure NetApp Files 또는 Azure 대규모 인스턴스에서 사용할 수 있는 Azure 애플리케이션 일치 스냅샷 도구를 설치하는 방법에 대한 지침을 제공합니다.
+
+> [!IMPORTANT]
+> 분산 설치는 개인 네트워크에 배포되는 **Azure 대규모 인스턴스** 시스템에 사용 가능한 유일한 옵션입니다.  따라서 연결을 보장하려면 각 시스템에서 AzAcSnap 설치를 수행해야 합니다.
 
 ## <a name="introduction"></a>소개
 
@@ -39,6 +42,12 @@ ms.locfileid: "104869194"
 1. **HANA 설치됨** : [HANA 데이터베이스에 SAP NetWeaver 설치](/archive/blogs/saponsqlserver/sap-netweaver-installation-on-hana-database)에서 HANA 설치 지침을 참조하세요.
 1. **[스토리지와의 통신 사용](#enable-communication-with-storage)** (자세한 내용은 별도의 섹션 참조): 고객은 프라이빗/공개 키 쌍으로 SSH를 설정하고 스토리지 백 엔드에서 설정을 위해 실행할 예정인 스냅샷 도구가 있는 각 노드의 공개 키를 Microsoft Operations에 제공해야 합니다.
    1. **Azure NetApp Files(자세한 내용은 별도의 섹션 참조)** : 고객은 서비스 주체 인증 파일을 생성해야 합니다.
+      
+      > [!IMPORTANT]
+      > Azure NetApp Files와의 통신 유효성을 검사하는 경우 통신이 실패하거나 시간이 초과될 수 있습니다. 방화벽 규칙이 AzAcSnap을 실행하는 시스템에서 다음 주소 및 TCP/IP 포트로의 아웃바운드 트래픽을 차단하지 않는지 확인합니다.
+      > - (https://)management.azure.com:443
+      > - (https://)login.microsoftonline.com:443
+      
    1. **Azure 대규모 인스턴스(자세한 내용은 별도의 섹션 참조)** : 고객은 프라이빗/공개 키 쌍으로 SSH를 설정하고 스토리지 백 엔드에서 설정을 위해 실행할 예정인 스냅샷 도구가 있는 각 노드의 공개 키를 Microsoft Operations에 제공해야 합니다.
 
       SSH를 사용하여 노드 중 하나에 연결하여 이를 테스트합니다(예: `ssh -l <Storage UserName> <Storage IP Address>`).

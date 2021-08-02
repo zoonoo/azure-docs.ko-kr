@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 3b6104bcf68c720fa727d16e408a25adcba805aa
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: d8e8daba3806ad651f66324f362eb2573111dd80
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259577"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112070906"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 볼륨 만들기
 
@@ -102,11 +102,12 @@ Azure NetApp Files에서는 NFS(NFSv3 및 NFSv4.1), SMB3 또는 이중 프로토
 
 3. **프로토콜** 을 클릭한 후, 다음 작업을 완료합니다.  
     * **NFS** 를 볼륨에 대한 프로토콜 유형으로 선택합니다.   
-    * 새 볼륨에 대한 내보내기 경로를 만드는 데 사용할 **파일 경로** 를 지정합니다. 내보내기 경로는 볼륨을 탑재하고 액세스하는 데 사용됩니다.
 
-        파일 경로 이름에는 문자, 숫자 및 하이픈("-")만 포함할 수 있습니다. 이름은 16자~40자여야 합니다. 
-
-        파일 경로는 각 구독 및 각 지역 내에서 고유해야 합니다. 
+    * 볼륨의 고유 **파일 경로** 를 지정합니다. 이 경로는 탑재 대상을 만들 때 사용됩니다. 경로 요구 사항은 다음과 같습니다.   
+        - 해당 지역의 각 서브넷 내에서 고유해야 합니다. 
+        - 영문자로 시작해야 합니다.
+        - 문자, 숫자 또는 대시(`-`)만 사용할 수 있습니다. 
+        - 길이가 80자를 초과해서는 안 됩니다.
 
     * 볼륨의 NFS 버전(**NFSv3** 또는 **NFSv4.1**)을 선택합니다.  
 
@@ -126,11 +127,11 @@ Azure NetApp Files에서는 NFS(NFSv3 및 NFSv4.1), SMB3 또는 이중 프로토
  
     볼륨은 해당 용량 풀에서 구독, 리소스 그룹, 위치 특성을 상속합니다. 볼륨 배포 상태를 모니터링하려면 알림 탭을 사용할 수 있습니다.
 
-
 ## <a name="next-steps"></a>다음 단계  
 
 * [Azure NetApp Files에 대한 NFSv4.1 기본 도메인 구성](azure-netapp-files-configure-nfsv41-domain.md)
 * [NFSv4.1 Kerberos 암호화 구성](configure-kerberos-encryption.md)
+* [Azure NetApp Files용 TLS를 통한 ADDS LDAP 구성](configure-ldap-over-tls.md)
 * [NFS 볼륨 액세스에 대한 확장 그룹을 사용하여 ADDS LDAP 구성](configure-ldap-extended-groups.md)
 * [Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [NFS 볼륨에 대한 내보내기 정책 구성](azure-netapp-files-configure-export-policy.md)

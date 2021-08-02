@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: e0bbc9fc1e6259b70e1f1d46b545300a568601d2
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: ca4210465039044587e61d5df92db1385f1be052
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109801"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469838"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Azure Cognitive Search의 미리 보기 기능
 
@@ -23,6 +23,8 @@ ms.locfileid: "106109801"
 
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
 |---------|------------------|-------------|---------------|
+|  [**파워 쿼리 커넥터**](search-how-to-index-power-query-data-sources.md) | 인덱서 데이터 원본 | 이제 인덱서는 다른 클라우드 플랫폼에서 인덱싱할 수 있습니다. 인덱서를 사용하여 인덱싱할 외부 데이터 원본을 크롤링하는 경우 이제 파워 쿼리 커넥터를 사용하여 Amazon Redshift, Elasticsearch, PostgreSQL, Salesforce Objects, Salesforce Reports, Smartsheet, Snowflake에 연결할 수 있습니다. | 백 엔드에서 구독을 지원하도록 설정하려면 [등록](https://aka.ms/azure-cognitive-search/indexer-preview)을 해야 합니다. [데이터 원본 만들기(REST)](/rest/api/searchservice/create-data-source)와 api-version=2020-06-30-Preview 또는 Azure Portal을 사용하여 이 데이터 원본에 액세스합니다.|
+|  [**MySQL 인덱서 데이터 원본**](search-howto-index-mysql.md) | 인덱서 데이터 원본 | 콘텐츠 및 메타데이터를 Auzre MySQL 데이터 원본에서 인덱싱합니다.| 백 엔드에서 구독을 지원하도록 설정하려면 [등록](https://aka.ms/azure-cognitive-search/indexer-preview)을 해야 합니다. [데이터 원본 만들기(REST)](/rest/api/searchservice/create-data-source)와 api-version=2020-06-30-Preview, [.NET SDK 11.2.1](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype.mysql), Azure Portal을 사용하여 이 데이터 원본에 액세스합니다. |
 | [**의미 체계 검색**](semantic-search-overview.md) | 관련성(채점) | 결과, 캡션 및 답변의 의미 체계 순위입니다. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/preview-api/search-documents)와 검색 탐색기(포털)입니다. |
 | [**맞춤법 검사기**](cognitive-search-aml-skill.md) | 쿼리 | 단순, 전체 및 의미 체계 쿼리를 위한 쿼리 용어 입력의 선택적 맞춤법 수정입니다. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/preview-api/search-documents) |
 | [**SharePoint 온라인 인덱서**](search-howto-index-sharepoint-online.md) | 인덱서 데이터 원본 | SharePoint 콘텐츠의 인덱서 기반 인덱싱을 위한 새 데이터 원본입니다. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/preview-api/create-indexer) |
@@ -33,7 +35,6 @@ ms.locfileid: "106109801"
 | [**PII 검색 기술**](cognitive-search-skill-pii-detection.md) | AI 보강(기술 세트) | 인덱싱 중에 사용되는 인식 기술로서, 입력 텍스트에서 개인 정보를 추출하여 다양한 방법으로 해당 텍스트에서 마스킹할 수 있는 옵션을 제공합니다. | 포털의 기술 세트 편집기로 이 미리 보기 기술을 참조하거나 api-version=2020-06-30-Preview 또는 api-version=2019-05-06-Preview로 [기술 세트(REST)를 만드세요](/rest/api/searchservice/create-skillset). |
 | [**증분 보강**](cognitive-search-incremental-indexing-conceptual.md) | 인덱서 구성| 보강 파이프라인에 캐싱을 추가하여 기술 세트 또는 다른 개체 업데이트와 같은 대상 수정이 콘텐츠를 변경하지 않는 경우 기존 출력을 다시 사용할 수 있도록 합니다. 캐싱은 기술 세트에 의해 생성된 보강 문서에만 적용 됩니다.| [인덱서 만들기(REST)](/rest/api/searchservice/create-indexer)와 api-version=2020-06-30-Preview 또는 api-version=2019-05-06-Preview를 사용하여 이 구성 설정을 추가합니다. |
 | [**Cosmos DB 인덱서: MongoDB API, Gremlin API, Cassandra API**](search-howto-index-cosmosdb.md) | 인덱서 데이터 원본 | Cosmos DB의 경우 SQL API는 일반적으로 사용할 수 있지만 MongoDB, Gremlin 및 Cassandra API는 미리 보기 상태입니다. | Gremlin 및 Cassandra의 경우 [먼저 등록](https://aka.ms/azure-cognitive-search/indexer-preview)하여 백 엔드에서 구독을 지원할 수 있도록 합니다. MongoDB 데이터 원본은 포털에서 구성할 수 있습니다. 그렇지 않으면 세 가지 모든 API의 데이터 원본 구성은 [데이터 원본 만들기(REST)](/rest/api/searchservice/create-data-source)와 api-version=2020-06-30-Preview 또는 api-version=2019-05-06-Preview를 사용하여 지원됩니다. |
-|  [**Azure Data Lake Storage Gen2 인덱서**](search-howto-index-azure-data-lake-storage.md) | 인덱서 데이터 원본 | Data Lake Storage Gen2에서 콘텐츠와 메타데이터를 인덱싱합니다.| 백 엔드에서 구독을 지원하도록 설정하려면 [등록](https://aka.ms/azure-cognitive-search/indexer-preview)을 해야 합니다. [데이터 원본 만들기(REST)](/rest/api/searchservice/create-data-source)와 api-version=2020-06-30-Preview 또는 api-version=2019-05-06-Preview를 사용하여 이 데이터 원본에 액세스합니다. |
 | [**moreLikeThis**](search-more-like-this.md) | 쿼리 | 특정 문서와 관련된 문서를 찾습니다. 이 기능은 이전 미리 보기에 있었습니다. | [문서 검색(REST)](/rest/api/searchservice/search-documents) 호출과 api-version=2020-06-30-Preview, 2019-05-06-Preview, 2016-09-01-Preview, 또는 2017-11-11-Preview를 사용하여 이 쿼리 매개 변수를 추가합니다. |
 
 ## <a name="how-to-call-a-preview-rest-api"></a>미리 보기 REST API를 호출하는 방법
@@ -44,9 +45,9 @@ Azure Cognitive Search는 항상 REST API를 통해 실험 기능을 미리 공�
 
 포털 및 .NET SDK에서 일부 미리 보기 기능을 사용할 수 있지만 REST API에는 항상 미리 보기 기능이 있습니다.
 
-+ 검색 작업의 경우 [ **`2020-06-30-Preview`** ](/rest/api/searchservice/index-preview)는 현재 미리 보기 버전입니다.
++ 검색 작업의 경우 [ **`2020-06-30-Preview`**](/rest/api/searchservice/index-preview)는 현재 미리 보기 버전입니다.
 
-+ 관리 작업의 경우 [ **`2019-10-01-Preview`** ](/rest/api/searchmanagement/index-2019-10-01-preview)는 현재 미리 보기 버전입니다.
++ 관리 작업의 경우 [ **`2019-10-01-Preview`**](/rest/api/searchmanagement/index-2019-10-01-preview)는 현재 미리 보기 버전입니다.
 
 이전 미리 보기가 여전히 작동하지만 시간이 지남에 따라 부실해집니다. 코드에서 `api-version=2019-05-06-Preview`, `api-version=2016-09-01-Preview` 또는 `api-version=2017-11-11-Preview`를 호출하는 경우 해당 호출은 여전히 유효합니다. 그러나 최신 미리 보기 버전만 향상된 기능으로 새로 고쳐집니다.
 

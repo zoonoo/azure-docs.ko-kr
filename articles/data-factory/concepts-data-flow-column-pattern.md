@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: 68c211608cfceedaa9d13a595be6d1e5de17f1d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/21/2021
+ms.openlocfilehash: aca49982cf6e25e95002c1fab40b46ef05c842e2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94845009"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454946"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>매핑 데이터 흐름의 열 패턴 사용
 
@@ -33,7 +33,6 @@ ms.locfileid: "94845009"
 
 [식 작성기](concepts-data-flow-expression-builder.md)를 사용하여 일치 조건을 입력합니다. 해당 열의 `name`, `type`, `stream`, `origin`, 및 `position`을 기준으로 하는 열들과 일치하는 부울 식을 만듭니다. 이 패턴은 조건이 true를 반환하는 경우 드리프트되거나 정의되는 열에 영향을 줍니다.
 
-일치 조건 아래 2개의 식 상자는 영향을 받는 열의 새 이름과 값을 지정합니다. `$$`를 사용하여 일치하는 필드의 기존 값을 참조합니다. 왼쪽 식 상자는 이름을 정의하고, 오른쪽 식 상자는 값을 정의합니다.
 
 ![스크린샷은 파생 열의 설정 탭을 보여 줍니다.](media/data-flow/edit-column-pattern.png "열 패턴")
 
@@ -85,7 +84,7 @@ ms.locfileid: "94845009"
 
 * `$$`은 런타임에 각 일치 항목의 이름이나 값으로 변환합니다. `this`와 동등한 것으로 `$$`을 간주합니다.
 * `name`은 들어오는 각 열의 이름을 나타냅니다.
-* `type`은 들어오는 각 열의 데이터 형식을 나타냅니다.
+* `type`은 수신되는 각 열의 데이터 형식을 나타냅니다. 데이터 흐름 형식 시스템의 데이터 형식 목록은 [여기](concepts-data-flow-overview.md#data-flow-data-types)에서 찾을 수 있습니다.
 * `stream`은 각 스트림 또는 흐름의 변환과 관련된 이름을 나타냅니다.
 * `position`은 데이터 흐름에서 열의 서수 위치입니다.
 * `origin`은 열이 시작 되거나 마지막으로 업데이트된 변환입니다.

@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: a2e2cfb71999bd5ab83591448342d4bac1dabdd5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c39417697dd88d3faa64ce47493ab5e7c08faa0d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103496340"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481350"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 렌더링 기능
 
@@ -29,7 +29,7 @@ ms.locfileid: "103496340"
 ## <a name="batch-pools-using-rendering-vm-images"></a>렌더링 VM 이미지를 사용하는 Batch 풀
 
 > [!IMPORTANT]
-> 렌더링 VM 이미지 및 사용 요금 청구 라이선스는 [더 이상 사용되지 않으며 2024년 2월 29일에 지원이 종료](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/)됩니다. 렌더링에 Batch를 사용하려면 [사용자 지정 VM 이미지와 표준 애플리케이션 라이선싱을 사용해야 합니다.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
+> 렌더링 VM 이미지 및 사용 당 지불 라이선싱은 [더 이상 사용되지 않으며 2024년 2월 29일부터 사용 중지됩니다](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). 렌더링에 Batch를 사용하려면 [사용자 지정 VM 이미지와 표준 애플리케이션 라이선싱을 사용해야 합니다.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 ### <a name="rendering-application-installation"></a>애플리케이션 설치 렌더링
 
@@ -37,7 +37,7 @@ ms.locfileid: "103496340"
 
 Windows 이미지 및 CentOS 이미지가 있습니다.  [Azure Marketplace](https://azuremarketplace.microsoft.com)에서 'batch rendering'(일괄 렌더링)를 검색하여 VM 이미지를 찾을 수 있습니다.
 
-풀 구성 예제는 [Azure CLI 렌더링 자습서](./tutorial-rendering-cli.md)를 참조하세요.  Azure Portal 및 Batch Explorer는 풀을 만들 때 렌더링 VM 이미지를 선택하기 위한 GUI 도구를 제공합니다.  Batch API를 사용하는 경우 풀을 만들 때 [ImageReference](/rest/api/batchservice/pool/add#imagereference)에 대한 다음 속성 값을 지정합니다.
+Azure Portal 및 Batch Explorer는 풀을 만들 때 렌더링 VM 이미지를 선택하기 위한 GUI 도구를 제공합니다.  Batch API를 사용하는 경우 풀을 만들 때 [ImageReference](/rest/api/batchservice/pool/add#imagereference)에 대한 다음 속성 값을 지정합니다.
 
 | 게시자 | 제안 | SKU | 버전 |
 |---------|---------|---------|--------|
@@ -98,7 +98,5 @@ Azure Marketplace VM 이미지를 사용하는 경우의 모범 사례는 환경
 
 ## <a name="next-steps"></a>다음 단계
 
-Batch 렌더링 예제는 다음 두 자습서를 사용해 보세요.
-
-* [Azure CLI를 사용한 렌더링](./tutorial-rendering-cli.md)
-* [Batch ExplorerI를 사용한 렌더링](./tutorial-rendering-batchexplorer-blender.md)
+* [Batch를 이용해 렌더링 애플리케이션을 사용](batch-rendering-applications.md)하는 방법에 대해 알아봅니다.
+* [자산 및 출력 파일을 렌더링하기 위한 스토리지 및 데이터 이동 옵션](batch-rendering-storage-data-movement.md)에 대해 자세히 알아봅니다.

@@ -9,34 +9,34 @@ ms.reviewer: vanto
 ms.topic: conceptual
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: 53783152a7968fff5375be82c9b72f0881c349c4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: bb8c1c933bda5a972209133fea301c1d87f6bd06
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388405"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080204"
 ---
 # <a name="azure-sql-database-append-only-ledger-tables"></a>Azure SQL Database 추가 전용 원장 테이블
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database 원장은 현재 **공개 미리 보기** 로 제공됩니다.
+> Azure SQL Database 원장은 현재 퍼블릭 미리 보기로 제공되며 미국 중서부에서 사용할 수 있습니다.
 
-추가 전용 원장 테이블은 테이블 `INSERT` 작업만을 허용하여 데이터베이스 관리자(DBA)와 같은 권한 있는 사용자가 기존 [데이터 조작 언어(DML)](/sql/t-sql/queries/queries)를 통해 데이터를 변조할 수 없도록 합니다. 추가 전용 원장 테이블은 보안 정보 이벤트 및 관리(SIEM) 시스템 또는 블록체인에서 데이터베이스로 데이터를 복제해야 하는 블록체인 시스템과 같이 레코드를 업데이트하거나 삭제하지 않는 시스템에 적합합니다.  추가 전용 테이블에 `UPDATE` 또는 `DELETE` 작업이 없기 때문에, [업데이트 가능한 원장 테이블](ledger-updatable-ledger-tables.md)이 있으므로 해당하는 기록 테이블이 필요하지 않습니다.
+추가 전용 원장 테이블은 테이블 `INSERT` 작업만을 허용하여 데이터베이스 관리자와 같은 권한 있는 사용자가 기존 [데이터 조작 언어](/sql/t-sql/queries/queries)를 통해 데이터를 변조할 수 없도록 합니다. 추가 전용 원장 테이블은 보안 정보 이벤트 및 관리 시스템 또는 블록체인에서 데이터베이스로 데이터를 복제해야 하는 블록체인 시스템과 같이 레코드를 업데이트하거나 삭제하지 않는 시스템에 적합합니다. 추가 전용 테이블에 `UPDATE` 또는 `DELETE` 작업이 없기 때문에, [업데이트 가능한 원장 테이블](ledger-updatable-ledger-tables.md)이 있으므로 해당하는 기록 테이블이 필요하지 않습니다.
 
-:::image type="content" source="media/ledger/ledger-table-architecture-append-only.png" alt-text="원장 테이블의 아키텍처":::
+:::image type="content" source="media/ledger/ledger-table-architecture-append-only.png" alt-text="원장 테이블의 아키텍처를 보여 주는 다이어그램":::
 
-추가 전용 원장 테이블 만들기는 [CREATE TABLE(Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql) 문에서 `LEDGER = ON` 인수를 지정하고 `APPEND_ONLY = ON` 옵션을 지정하여 수행할 수 있습니다.
+[CREATE TABLE(Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql) 문에서 `LEDGER = ON` 인수를 지정하고 `APPEND_ONLY = ON` 옵션을 지정하여 추가 전용 원장 테이블을 만들 수 있습니다.
 
 > [!IMPORTANT]
-> 테이블을 원장 테이블로 만든 후에는 원장 기능이 없는 테이블로 되돌릴 수 없습니다. 이는 공격자가 일시적으로 원장 기능을 제거하고 테이블을 변경한 다음 원장 기능을 다시 사용하도록 설정하지 못하도록 하기 위함입니다.
+> 테이블을 원장 테이블로 만든 후에는 원장 기능이 없는 테이블로 되돌릴 수 없습니다. 결과적으로 공격자가 일시적으로 원장 기능을 제거하고 테이블을 변경한 다음, 원장 기능을 다시 사용하도록 설정하지 못하게 됩니다.
 
 ### <a name="append-only-ledger-table-schema"></a>추가 전용 원장 테이블 스키마
 
 추가 전용 테이블에는 테이블을 변경한 트랜잭션과 트랜잭션에 의해 행이 업데이트된 작업의 순서를 알려주는 메타데이터가 포함된 [GENERATED ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) 열이 있어야 합니다. 추가 전용 원장 테이블을 만들 때 `GENERATED ALWAYS` 열이 원장 테이블에 생성됩니다. 이 데이터는 시간이 지남에 따라 데이터가 삽입되는 방식을 이해하는 포렌식 용도에 유용합니다.
 
-[CREATE TABLE](/sql/t-sql/statements/create-table-transact-sql) 문에서 `GENERATED ALWAYS` 열의 정의를 지정하지 않은 경우 시스템에서 이를 자동으로 추가하고 아래의 기본 이름을 사용합니다.
+[CREATE TABLE](/sql/t-sql/statements/create-table-transact-sql) 문에서 `GENERATED ALWAYS` 열의 정의를 지정하지 않은 경우 시스템에서 이를 자동으로 추가하고 다음 기본 이름을 사용합니다.
 
 | 기본 열 이름 | 데이터 형식 | Description |
 |--|--|--|
@@ -57,9 +57,9 @@ ms.locfileid: "110388405"
 | ledger_transaction_id | bigint | 행 버전을 만들거나 삭제한 트랜잭션의 ID입니다. |
 | ledger_sequence_number | bigint | 테이블의 트랜잭션 내에서 행 수준 작업의 시퀀스 번호입니다. |
 | ledger_operation_type_id | tinyint | `0`(**INSERT**) 또는 `1`(**DELETE**)을 포함합니다. 원장 테이블에 행을 삽입하면 이 열에 `0`을 포함하는 원장 보기에 새 행이 생성됩니다. 원장 테이블에서 행을 삭제하면 이 열에 `1`을 포함하는 원장 보기에 새 행이 생성됩니다. 원장 테이블에서 행을 업데이트하면 원장 보기에 2개의 새 행이 생성됩니다. 이 열에서 한 행에는 `1`(**DELETE**)이 포함되고 다른 행에는 `1`(**INSERT**)이 포함됩니다. 추가 전용 원장 테이블에서 DELETE가 발생하면 안 됩니다. |
-| ledger_operation_type_desc | nvarchar(128) | `INSERT` 또는 `DELETE`를 포함합니다. 자세한 내용은 위를 참조하세요. |
+| ledger_operation_type_desc | nvarchar(128) | `INSERT` 또는 `DELETE`를 포함합니다. 자세한 내용은 이전 행을 참조하세요. |
 
 ## <a name="next-steps"></a>다음 단계
-  
+
 - [추가 전용 원장 테이블 만들기 및 사용](ledger-how-to-append-only-ledger-tables.md)
 - [업데이트 가능한 원장 테이블 만들기 및 사용](ledger-how-to-updatable-ledger-tables.md)

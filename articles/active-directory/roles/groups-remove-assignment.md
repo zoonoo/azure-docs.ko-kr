@@ -8,25 +8,34 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 11/05/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78ed23f563fce9760768a99e5bbf58f68500d665
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c56c6597e7ff2553089b62cabb84b24168b7cabf
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103012023"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085729"
 ---
 # <a name="remove-role-assignments-from-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹의 역할 할당 제거
 
 이 문서에서는 IT 관리자가 그룹에 할당된 Azure AD 역할을 제거하는 방법을 설명합니다. Azure Portal에서 사용자에 대한 직접 및 간접 역할 할당을 모두 제거할 수 있습니다. 사용자에게 그룹 구성원 자격에 의해 역할이 할당된 경우 그룹에서 사용자를 제거하여 역할 할당을 제거합니다.
 
-## <a name="using-azure-admin-center"></a>Azure 관리 센터 사용
+## <a name="prerequisites"></a>필수 구성 요소
 
-1. Azure AD 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [Azure AD 관리 센터](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)에 로그인합니다.
+- Azure AD Premium P1 또는 P2 라이선스
+- 권한 있는 역할 관리자 또는 전역 관리자
+- PowerShell 사용 시 AzureADPreview 모듈
+- Microsoft Graph API용 Graph 탐색기 사용 시 관리자 동의
+
+자세한 내용은 [PowerShell 또는 Graph 탐색기를 사용하기 위한 필수 구성 요소](prerequisites.md)를 참조하세요.
+
+## <a name="azure-portal"></a>Azure portal
+
+1. [Azure AD 관리 센터](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)에 로그인합니다.
 
 1. **역할 및 관리자** > **_역할 이름_** 을 선택합니다.
 
@@ -36,7 +45,7 @@ ms.locfileid: "103012023"
 
 1. 제거를 확인하는 메시지가 표시되면 **예** 를 선택합니다.
 
-## <a name="using-powershell"></a>PowerShell 사용
+## <a name="powershell"></a>PowerShell
 
 ### <a name="create-a-group-that-can-be-assigned-to-role"></a>역할에 할당 가능한 그룹 만들기
 
@@ -62,7 +71,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope '/' -RoleDefinition
 Remove-AzureAdMSRoleAssignment -Id $roleAssignment.Id 
 ```
 
-## <a name="using-microsoft-graph-api"></a>Microsoft Graph API 사용
+## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 ### <a name="create-a-group-that-can-be-assigned-an-azure-ad-role"></a>Azure AD 역할 할당이 가능한 그룹 만들기
 

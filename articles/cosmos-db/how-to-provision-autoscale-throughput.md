@@ -6,14 +6,14 @@ ms.author: dech
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 05/18/2021
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 2f47e86b89244cdc2ac41d72203a51b0d91effdb
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: ce17b54905861759c437c2df735dd5515991b507
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227473"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456620"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Azure Cosmos DB - SQL API에서 데이터베이스 또는 컨테이너의 자동 크기 조정 처리량 프로비전
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "108227473"
 
 1. Azure Cosmos DB 계정으로 이동하여 **데이터 탐색기** 탭을 엽니다.
 
-1. **새 컨테이너** 를 선택합니다. 데이터베이스, 컨테이너 및 파티션 키의 이름을 입력합니다. **처리량** 에서 **자동 크기 조정** 옵션을 선택하고 데이터베이스 또는 컨테이너의 크기를 조정하려는 [최대 처리량(RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works)을 설정합니다.
+1. **새 컨테이너** 를 선택합니다. 데이터베이스, 컨테이너 및 파티션 키의 이름을 입력합니다. 데이터베이스 또는 컨테이너 처리량을 고려하여 **자동 크기 조정** 옵션을 선택하고 데이터베이스나 컨테이너를 확장하고 싶은 만큼 [최대 처리량(RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works)을 설정합니다.
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="컨테이너 만들기 및 자동 크기 조정 프로비전된 처리량 구성":::
 
@@ -39,9 +39,6 @@ ms.locfileid: "108227473"
 공유 처리량 데이터베이스에 자동 크기 조정을 프로비전하려면 새 데이터베이스를 만들 때 **데이터베이스 처리량 프로비전** 옵션을 선택합니다. 
 
 ### <a name="enable-autoscale-on-existing-database-or-container"></a>기존 데이터베이스 또는 컨테이너에서 자동 크기 조정 사용
-
-> [!IMPORTANT]
-> 현재 릴리스에서 Azure Portal은 자동 크기 조정 및 표준(수동) 프로비전된 처리량 간에 마이그레이션하는 유일한 방법입니다. 
 
 1. [Azure Portal](https://portal.azure.com) 또는 [Azure Cosmos DB 탐색기](https://cosmos.azure.com/)에 로그인합니다.
 
@@ -54,14 +51,14 @@ ms.locfileid: "108227473"
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="기존 컨테이너에서 자동 크기 조정 사용":::
 
 > [!NOTE]
-> 기존 데이터베이스 또는 컨테이너에서 자동 크기 조정을 사용하도록 설정하면 현재의 수동 프로비전된 처리량 설정 및 스토리지에 따라 최대 RU/s의 시작 값이 시스템에 의해 결정됩니다. 작업이 완료된 후 필요하면 최대 RU/s를 변경할 수 있습니다. [자세한 정보](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
+> 기존 데이터베이스 또는 컨테이너에서 자동 크기 조정을 사용하도록 설정하면 현재의 수동 프로비전된 처리량 설정 및 스토리지에 따라 최대 RU/s의 시작 값이 시스템에 의해 결정됩니다. 작업이 완료된 후 필요하면 최대 RU/s를 변경할 수 있습니다. [자세한 정보](autoscale-faq.yml#how-does-the-migration-between-autoscale-and-standard--manual--provisioned-throughput-work-) 
 
 ## <a name="azure-cosmos-db-net-v3-sdk"></a>Azure Cosmos DB .NET V3 SDK
 
 SQL API용 Azure Cosmos DB .NET SDK의 [버전 3.9 이상](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)을 사용하여 자동 크기 조정 리소스를 관리합니다. 
 
 > [!IMPORTANT]
-> .NET SDK를 사용하여 새 자동 크기 조정 리소스를 만들 수 있습니다. 이 SDK는 자동 크기 조정 처리량과 표준(수동) 처리량 간의 마이그레이션을 지원하지 않습니다. 마이그레이션 시나리오는 현재 Azure Portal에서만 지원됩니다. 
+> .NET SDK를 사용하여 새 자동 크기 조정 리소스를 만들 수 있습니다. 이 SDK는 자동 크기 조정 처리량과 표준(수동) 처리량 간의 마이그레이션을 지원하지 않습니다. 마이그레이션 시나리오는 현재 [Azure Portal](#enable-autoscale-on-existing-database-or-container), [CLI](#azure-cli), [PowerShell](#azure-powershell)에서만 지원됩니다.
 
 ### <a name="create-database-with-shared-throughput"></a>공유 처리량을 사용하여 데이터베이스 만들기
 
@@ -118,8 +115,7 @@ await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThrou
 SQL API용 Azure Cosmos DB Java SDK의 [버전 4.0 이상](https://mvnrepository.com/artifact/com.azure/azure-cosmos)을 사용하여 자동 크기 조정 리소스를 관리할 수 있습니다.
 
 > [!IMPORTANT]
-> Java SDK를 사용하여 새 자동 크기 조정 리소스를 만들 수 있습니다. 이 SDK는 자동 크기 조정 처리량과 표준(수동) 처리량 간의 마이그레이션을 지원하지 않습니다. 마이그레이션 시나리오는 현재 Azure Portal에서만 지원됩니다.
-
+> Java SDK를 사용하여 새 자동 크기 조정 리소스를 만들 수 있습니다. 이 SDK는 자동 크기 조정 처리량과 표준(수동) 처리량 간의 마이그레이션을 지원하지 않습니다. 마이그레이션 시나리오는 현재 [Azure Portal](#enable-autoscale-on-existing-database-or-container), [CLI](#azure-cli), [PowerShell](#azure-powershell)에서만 지원됩니다.
 ### <a name="create-database-with-shared-throughput"></a>공유 처리량을 사용하여 데이터베이스 만들기
 
 # <a name="async"></a>[비동기](#tab/api-async)
@@ -249,18 +245,18 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 ## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 
-Azure Resource Manager 템플릿은 데이터베이스에서 자동 크기 조정 처리량을 프로비저닝하거나 모든 Azure Cosmos DB API에 대해 컨테이너 수준 리소스를 프로비저닝하는 데 사용될 수 있습니다. [Azure Cosmos DB용 Azure Resource Manager 템플릿](./templates-samples-sql.md)에서 샘플을 확인하십시오.
+Azure Resource Manager 템플릿은 모든 Azure Cosmos DB API의 새로운 데이터베이스 또는 컨테이너 수준 리소스에서 자동 크기 조정 처리량을 프로비저닝하는 데 사용될 수 있습니다. [Azure Cosmos DB용 Azure Resource Manager 템플릿](./templates-samples-sql.md)에서 샘플을 확인하십시오. 디자인적으로, Azure Resource Manager 템플릿은 기존 리소스에서 프로비저닝된 처리량과 자동 크기 조정 처리량 사이에서 마이그레이션하는 데 사용할 수 없습니다. 
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Azure CLI는 데이터베이스에서 자동 크기 조정 처리량을 프로비저닝하거나 모든 Azure Cosmos DB API에 대해 컨테이너 수준 리소스를 프로비저닝하는 데 사용될 수 있습니다. [Azure Cosmos DB에 대한 Azure CLI 샘플](cli-samples.md)에서 샘플을 확인하십시오.
+Azure CLI는 새로운 데이터베이스 또는 모든 Azure Cosmos DB API용 컨테이너 수준 리소스에서 자동 크기 조정 처리량을 프로비전하거나 기존 리소스에서 자동 크기 조정 하기 위해 사용할 수 있습니다. [Azure Cosmos DB에 대한 Azure CLI 샘플](cli-samples.md)에서 샘플을 확인하십시오.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell은 데이터베이스에서 자동 크기 조정 처리량을 프로비저닝하거나 모든 Azure Cosmos DB API에 대해 컨테이너 수준 리소스를 프로비저닝하는 데 사용될 수 있습니다. [Azure Cosmos DB에 대한 Azure PowerShell 샘플](powershell-samples.md)에서 샘플을 확인하십시오.
+Azure PowerShell은 새로운 데이터베이스 또는 모든 Azure Cosmos DB API용 컨테이너 수준 리소스에서 자동 크기 조정 처리량을 프로비전하거나 기존 리소스에서 자동 크기 조정 하기 위해 사용할 수 있습니다. [Azure Cosmos DB에 대한 Azure PowerShell 샘플](powershell-samples.md)에서 샘플을 확인하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [자동 크기 조정을 사용하는 프로비전된 처리량의 이점](provision-throughput-autoscale.md#benefits-of-autoscale)에 대해 알아봅니다.
 * [수동 및 자동 크기 조정 처리량 중 선택하는 방법](how-to-choose-offer.md)을 알아봅니다.
-* [자동 크기 조정 FAQ](autoscale-faq.md)를 검토합니다.
+* [자동 크기 조정 FAQ](autoscale-faq.yml)를 검토합니다.

@@ -3,12 +3,12 @@ title: Azure Lab Services - 관리자 가이드 | Microsoft Docs
 description: 이 가이드는 Azure Lab Services를 사용하여 랩 계정을 만들고 관리하는 관리자를 지원합니다.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 3ad3ee38a6c08a6af85822d76012cc6dfc34ff4e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0dd7cb9f23d820cc8a4001d430e8ef446ecc5460
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96462476"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958842"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - 관리자 가이드
 대학 클라우드 리소스를 관리하는 IT(정보 기술) 관리자는 일반적으로 학교의 랩 계정을 설정합니다. 랩 계정을 설정하고 나면 관리자 또는 교육자가 해당 계정 내에 포함된 랩을 만듭니다. 이 문서에서는 관련 Azure 리소스에 대한 대략적인 개요 및 해당 리소스를 만들기 위한 지침을 제공합니다.
@@ -89,23 +89,23 @@ ms.locfileid: "96462476"
 
 ## <a name="shared-image-gallery"></a>공유 이미지 갤러리
 
-공유 이미지 갤러리는 랩 계정에 연결되며 이미지를 저장하기 위한 중앙 리포지토리로 사용됩니다. 교육자가 랩의 템플릿 VM에서 이미지 내보내기를 선택하면 해당 이미지가 갤러리에 저장됩니다. 교육자가 템플릿 VM을 변경하고 내보낼 때마다 이전 버전은 유지되고 새 버전의 이미지가 저장됩니다.
+공유 이미지 갤러리는 랩 계정에 연결되며 이미지를 저장하기 위한 중앙 리포지토리로 사용됩니다. 교육자가 랩의 템플릿 VM에서 이미지 내보내기를 선택하면 해당 이미지가 갤러리에 저장됩니다. 교육자가 템플릿 VM을 변경하고 내보낼 때마다 갤러리에 새 이미지 정의 및/또는 버전이 만들어집니다.  
 
-강사는 새로운 랩을 만들 때 Shared Image Gallery에 있는 이미지 버전을 게시할 수 있습니다. 갤러리에는 여러 버전의 이미지가 저장되어 있지만 교육자는 랩 생성 중에 최신 버전만 선택할 수 있습니다.
+강사는 새로운 랩을 만들 때 Shared Image Gallery에 있는 이미지 버전을 게시할 수 있습니다. 갤러리에는 여러 버전의 이미지가 저장되어 있지만 교육자는 랩 생성 중에 최신 버전만 선택할 수 있습니다.  최신 버전은 MajorVersion, MinorVersion, Patch의 순서로 가장 큰 값을 기준으로 선택됩니다.  버전 관리에 대한 자세한 내용은 [이미지 버전](../virtual-machines/shared-image-galleries.md#image-versions)을 참조하세요.
 
-Shared Image Gallery 서비스는 몇 개의 랩만으로 시작하는 경우 당장 필요하지 않을 수 있는 선택적 리소스입니다. 그러나 Shared Image Gallery는 추가 랩으로 확장할 때 유용한 여러 이점을 제공합니다.
+공유 이미지 갤러리 서비스는 몇 개의 랩만으로 시작하는 경우 당장 필요하지 않을 수 있는 선택적 리소스입니다. 그러나 공유 이미지 갤러리는 추가 랩으로 스케일 업할 때 유용한 여러 이점을 제공합니다.
 
 - **템플릿 VM 이미지의 버전 저장 및 관리**
 
-    사용자 지정 이미지를 만들거나 공용 Azure Marketplace 갤러리의 이미지를 변경(소프트웨어, 구성 등)할 때 유용합니다.  예를 들어 일반적으로 교육자는 서로 다른 소프트웨어 또는 도구를 설치해야 합니다. 학생들에게 이러한 필수 구성 요소를 직접 설치하도록 요청할 필요 없이 여러 버전의 템플릿 VM 이미지를 Shared Image Gallery로 내보낼 수 있습니다. 그런 다음 새 랩을 만들 때 이러한 이미지 버전을 사용할 수 있습니다.
+    사용자 지정 이미지를 만들거나 Azure Marketplace 갤러리의 이미지를 변경(소프트웨어, 구성 등)할 때 유용합니다.  예를 들어 일반적으로 교육자는 서로 다른 소프트웨어 또는 도구를 설치해야 합니다. 학생들에게 이러한 필수 구성 요소를 직접 설치하도록 요청할 필요 없이 여러 버전의 템플릿 VM 이미지를 Shared Image Gallery로 내보낼 수 있습니다. 그런 다음 새 랩을 만들 때 이러한 이미지 버전을 사용할 수 있습니다.
 
 - **여러 랩에서 템플릿 VM 이미지 공유 및 다시 사용**
 
     새 랩을 만들 때마다 이미지를 처음부터 구성할 필요 없이 이미지를 저장하고 다시 사용할 수 있습니다. 예를 들어 여러 클래스가 동일한 이미지를 사용해야 하는 경우 이미지를 한 번만 만들어 Shared Image Gallery로 내보내면 여러 랩에서 공유할 수 있습니다.
 
-- **자동 복제를 통해 이미지 가용성 보장**
+- **랩 외부의 다른 환경에서 자체 사용자 지정 이미지 업로드**
 
-    랩에 있는 이미지를 Shared Image Gallery에 저장하면 이미지가 [동일한 지리 내의 다른 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 자동으로 복제됩니다. 지역에 대한 서비스가 중단된 경우 다른 지역의 이미지 복제본을 사용할 수 있으므로 문제없이 랩에 이미지를 게시할 수 있습니다.  여러 복제본에서 VM을 게시하면 성능에 도움이 될 수 있습니다.
+    [랩 컨텍스트 외부의 다른 환경에서 사용자 지정 이미지를 업로드](how-to-attach-detach-shared-image-gallery.md)할 수 있습니다.  예를 들어 자체 물리적 랩 환경 또는 Azure VM에서 공유 이미지 갤러리로 이미지를 업로드할 수 있습니다.  이미지를 갤러리로 가져오면 이미지를 사용하여 랩을 만들 수 있습니다.
 
 공유 이미지를 논리적으로 그룹화하려면 다음 중 하나를 수행할 수 있습니다.
 
@@ -137,7 +137,7 @@ Azure Lab Services 리소스를 설정하는 경우 리소스를 호스트할 �
 
 랩 계정의 위치는 이 리소스가 있는 지역을 나타냅니다.  
 
-### <a name="lab"></a>랩
+### <a name="lab"></a>랩    
 
 랩이 있는 위치는 다음과 같은 요인에 따라 달라집니다.
 
@@ -163,18 +163,21 @@ Azure Lab Services 리소스를 설정하는 경우 리소스를 호스트할 �
 
 ## <a name="vm-sizing"></a>VM 크기 조정
 
-관리자 또는 랩 작성자가 랩을 만들 때 클래스룸 요구에 따라 다음과 같은 다양한 VM 크기 중에서 선택할 수 있습니다. 컴퓨팅 크기 가용성은 랩 계정이 있는 지역에 따라 다릅니다.
+관리자 또는 랩 작성자가 랩을 만들 때 클래스룸 요구에 따라 다음과 같은 다양한 VM 크기 중에서 선택할 수 있습니다. 사용 가능한 크기는 랩 계정이 있는 지역에 따라 다릅니다.
 
-| 크기 | 사양 | 계열 | 권장 사용 |
+다음 표에서는 다양한 VM 크기가 두 개 이상의 VM 시리즈에 매핑됩니다.  사용 가능한 용량에 따라 VM 크기별로 나열된 VM 시리즈 중 일부를 Lab Services에서 사용할 수 있습니다.  예를 들어 ‘작은’ VM 크기는 [Standard_A2_v2](../virtual-machines/av2-series.md) 또는 [Standard_A2](../virtual-machines/sizes-previous-gen.md#a-series) VM 시리즈를 사용하여 매핑합니다.  랩용으로 ‘작은’ VM 크기를 선택하면 Lab Services는 먼저 *Standard_A2_v2* 시리즈를 사용하려고 시도합니다.  그러나 사용 가능한 용량이 충분하지 않은 경우 Lab Services는 *Standard_A2* 시리즈를 대신 사용합니다.  가격은 VM 크기에 따라 결정되므로 Lab Services가 해당 크기에 사용하는 VM 시리즈와 관계없이 동일합니다. VM 크기별 가격 책정에 대한 자세한 내용은 [Lab Services 가격 책정 가이드](https://azure.microsoft.com/pricing/details/lab-services/)를 참조하세요.
+
+
+| 크기 | 최소 사양 | 계열 | 권장 사용 |
 | ---- | ----- | ------ | ------------- |
-| 작음| <ul><li>2&nbsp;코어</li><li>3.5GB(기가바이트) RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 명령줄, 웹 브라우저 열기, 낮은 트래픽 웹 서버, 중소규모 데이터베이스에 가장 적합합니다. |
-| 중간 | <ul><li>4&nbsp;코어</li><li>7GB&nbsp;&nbsp;RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 관계형 데이터베이스, 메모리 내 캐시 및 분석에 가장 적합합니다. |
-| 중간(중첩된 가상화) | <ul><li>4&nbsp;코어</li><li>16GB&nbsp;&nbsp; RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | 관계형 데이터베이스, 메모리 내 캐시 및 분석에 가장 적합합니다.
-| 대 | <ul><li>8&nbsp;코어</li><li>16GB&nbsp;&nbsp; RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) | 더 빠른 CPU, 향상된 로컬 디스크 성능, 대형 데이터베이스, 큰 메모리 캐시가 필요한 애플리케이션에 가장 적합합니다.  이 크기는 중첩된 가상화도 지원합니다. |
-| 대형(중첩된 가상화) | <ul><li>8&nbsp;코어</li><li>32GB&nbsp;&nbsp; RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | 더 빠른 CPU, 향상된 로컬 디스크 성능, 대형 데이터베이스, 큰 메모리 캐시가 필요한 애플리케이션에 가장 적합합니다. |
+| 작음| <ul><li>2&nbsp;코어</li><li>3.5GB(기가바이트) RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md), [Standard_A2](../virtual-machines/sizes-previous-gen.md#a-series) | 명령줄, 웹 브라우저 열기, 낮은 트래픽 웹 서버, 중소규모 데이터베이스에 가장 적합합니다. |
+| 중간 | <ul><li>4&nbsp;코어</li><li>7GB&nbsp;&nbsp;RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md), [Standard_A3](../virtual-machines/sizes-previous-gen.md#a-series) | 관계형 데이터베이스, 메모리 내 캐시 및 분석에 가장 적합합니다. |
+| 중간(중첩된 가상화) | <ul><li>4&nbsp;코어</li><li>16GB&nbsp;&nbsp; RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) | 관계형 데이터베이스, 메모리 내 캐시 및 분석에 가장 적합합니다.  이 크기는 중첩된 가상화도 지원합니다.
+| 대 | <ul><li>8&nbsp;코어</li><li>16GB&nbsp;&nbsp; RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md), [Standard_A7](../virtual-machines/sizes-previous-gen.md#a-series) | 더 빠른 CPU, 향상된 로컬 디스크 성능, 대형 데이터베이스, 큰 메모리 캐시가 필요한 애플리케이션에 가장 적합합니다. |
+| 대형(중첩된 가상화) | <ul><li>8&nbsp;코어</li><li>32GB&nbsp;&nbsp; RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) | 더 빠른 CPU, 향상된 로컬 디스크 성능, 대형 데이터베이스, 큰 메모리 캐시가 필요한 애플리케이션에 가장 적합합니다.  이 크기는 중첩된 가상화도 지원합니다. |
 | 소형 GPU(시각화) | <ul><li>6&nbsp;코어</li><li>56GB&nbsp;&nbsp; RAM</li>  | [Standard_NV6](../virtual-machines/nv-series.md) | OpenGL 및 DirectX와 같은 프레임워크를 사용하는 원격 시각화, 스트리밍, 게임 및 인코딩에 가장 적합합니다. |
-| 소형 GPU(컴퓨팅) | <ul><li>6&nbsp;코어</li><li>56GB&nbsp;&nbsp; RAM</li></ul>  | [Standard_NC6](../virtual-machines/nc-series.md) |AI 및 심층 학습 등 컴퓨터를 많이 사용하는 애플리케이션에 가장 적합합니다. |
-| 중간 GPU(시각화) | <ul><li>12&nbsp;코어</li><li>112GB&nbsp;&nbsp; RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | OpenGL 및 DirectX와 같은 프레임워크를 사용하는 원격 시각화, 스트리밍, 게임 및 인코딩에 가장 적합합니다. |
+| 소형 GPU(컴퓨팅) | <ul><li>6&nbsp;코어</li><li>56GB&nbsp;&nbsp; RAM</li></ul>  | [Standard_NC6](../virtual-machines/nc-series.md), [Standard_NC6s_v3](../virtual-machines/ncv3-series.md) |AI 및 심층 학습 등 컴퓨터를 많이 사용하는 애플리케이션에 가장 적합합니다. |
+| 중간 GPU(시각화) | <ul><li>12&nbsp;코어</li><li>112GB&nbsp;&nbsp; RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md), [Standard_NV12s_v3](../virtual-machines/nvv3-series.md), [Standard_NV12s_v2](../virtual-machines/sizes-previous-gen.md#nvv2-series)  | OpenGL 및 DirectX와 같은 프레임워크를 사용하는 원격 시각화, 스트리밍, 게임 및 인코딩에 가장 적합합니다. |
 
 ## <a name="manage-identity"></a>ID 관리
 
@@ -216,12 +219,37 @@ Azure Lab Services 리소스를 설정하는 경우 리소스를 호스트할 �
    - 교육자에게 새로운 랩을 만들고 해당 랩을 관리할 수 있는 권한을 주려면 랩 작성자 역할만 할당하면 됩니다.
    - 교육자에게 특정 랩을 관리할 수 있는 권한만 주고 새 랩을 만들 수 있는 권한은 주지 *않으려면*, 해당 교육자가 관리할 각 랩에 대해 소유자 또는 참가자 역할 중 하나를 할당합니다. 예를 들어 교수 및 보조 교사가 랩을 공동 소유하도록 허용할 수 있습니다. 자세한 내용은 [랩에 소유자 추가](./how-to-add-user-lab-owner.md)를 참조하세요.
 
+## <a name="content-filtering"></a>콘텐츠 필터링
+
+학교에서는 학생들이 부적절한 웹 사이트에 액세스하지 못하도록 콘텐츠 필터링을 수행해야 할 수 있습니다.  예를 들어 [CIPA(Children’s Internet Protection Act)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act)를 준수하는 것입니다.  Lab Services는 콘텐츠 필터링을 기본 제공으로 지원하지 않습니다.
+
+학교에서 일반적으로 콘텐츠 필터링에 대해 고려하는 두 가지 방법이 있습니다.
+- 네트워크 수준에서 콘텐츠를 필터링하도록 방화벽을 구성합니다.
+- 콘텐츠 필터링을 수행하는 컴퓨터마다 직접 타사 소프트웨어를 설치합니다.
+
+첫 번째 방법은 현재 Lab Services에서 지원되지 않습니다.  Lab Services는 Microsoft 관리형 Azure 구독 내에서 각 랩의 가상 네트워크를 호스트합니다.  따라서 네트워크 수준에서 콘텐츠 필터링을 수행하는 데 필요한 기본 가상 네트워크에 액세스할 수 없습니다.  Lab Services의 아키텍처에 대한 자세한 내용은 [아키텍처 기본 사항](./classroom-labs-fundamentals.md)문서를 읽어보세요.
+
+그 대신 각 랩의 템플릿 VM에 타사 소프트웨어를 설치하는 두 번째 방법을 사용하는 것이 좋습니다.  이 솔루션의 일환으로 중점적으로 살펴볼 몇 가지 요점은 다음과 같습니다.
+- [자동 종료 설정](./cost-management-guide.md#automatic-shutdown-settings-for-cost-control)을 사용하려는 경우 타사 소프트웨어에서 사용하는 여러 Azure 호스트 이름을 차단 해제해야 합니다.  자동 종료 설정은 진단 확장을 사용하여 Lab Services와 다시 통신할 수 있어야 합니다.  그러지 않으면 랩에서 자동 종료 설정을 사용할 수 없습니다.
+- 또한 각 학생이 콘텐츠 필터링 소프트웨어를 제거할 수 없도록 VM에서 관리자가 아닌 계정을 사용하도록 할 수도 있습니다.  기본적으로 Lab Services는 각 학생이 VM에 로그인하는 데 사용하는 관리자 계정을 만듭니다.  특수 이미지를 사용하여 관리자가 아닌 계정을 추가할 수 있지만 몇 가지 알려진 제한 사항이 있습니다.
+
+학교에서 콘텐츠 필터링을 수행해야 하는 경우 자세한 내용은 [Azure Lab Services 포럼](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices)을 통해 문의하세요.
+
+## <a name="endpoint-management"></a>엔드포인트 관리
+
+[Microsoft Endpoint Manager](https://techcommunity.microsoft.com/t5/azure-lab-services/configuration-manager-azure-lab-services/ba-p/1754407)와 같은 많은 엔드포인트 관리 도구의 경우 Windows VM에 고유한 머신 SID(보안 식별자)가 있어야 합니다.  일반적으로 SysPrep을 사용하여 ‘일반화된’ 이미지를 만들면 VM이 이미지에서 부팅될 때 각 Windows 머신에 고유한 새 머신 SID가 생성됩니다.
+
+Lab Services를 사용하면 ‘일반화된’ 이미지를 사용하여 랩을 만드는 경우에도 템플릿 VM과 학생 VM에서는 모두 동일한 머신 SID를 사용하게 됩니다.  학생 VM을 만들기 위해 템플릿 VM을 게시하는 경우 템플릿 VM의 이미지는 ‘특수한’ 상태이므로 VM에서는 동일한 SID를 사용하게 됩니다.
+
+예를 들어 Azure Marketplace 이미지가 일반화됩니다.  Win 10 마켓플레이스 이미지로부터 랩을 만들고 템플릿 VM을 게시하는 경우 랩 내의 모든 학생 VM에는 템플릿 VM과 동일한 머신 SID가 있습니다.  머신 SID는 [PsGetSid](/sysinternals/downloads/psgetsid)와 같은 도구를 사용하여 확인할 수 있습니다.
+
+엔드포인트 관리 도구 또는 유사한 소프트웨어를 사용하려면 랩 VM에서 테스트하여 머신 SID가 동일한 경우에도 제대로 작동하는지 확인하는 것이 좋습니다.  
+
 ## <a name="pricing"></a>가격 책정
 
 ### <a name="azure-lab-services"></a>Azure Lab Services
 
 가격 책정에 대해 알아보려면 [Azure Lab Services 가격 책정](https://azure.microsoft.com/pricing/details/lab-services/)을 참조하세요.
-
 
 ### <a name="shared-image-gallery"></a>공유 이미지 갤러리
 
@@ -231,7 +259,7 @@ Shared Image Gallery를 사용하여 이미지 버전을 저장하고 관리하�
 
 #### <a name="storage-charges"></a>스토리지 요금
 
-Shared Image Gallery는 표준 HDD(하드 디스크 드라이브) 관리 디스크를 사용하여 이미지 버전을 저장합니다. 사용되는 HDD 관리 디스크의 크기는 저장되는 이미지 버전의 크기에 따라 달라집니다. 가격 책정에 대해 알아보려면 [관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요.
+공유 이미지 갤러리는 기본적으로 표준 HDD(하드 디스크 드라이브) 관리 디스크를 사용하여 이미지 버전을 저장합니다.  Lab Services에서 공유 이미지 갤러리를 사용하는 경우 HDD 관리 디스크를 사용하는 것이 좋습니다.  사용되는 HDD 관리 디스크의 크기는 저장되는 이미지 버전의 크기에 따라 달라집니다.  Lab Services는 최대 128GB의 이미지 및 디스크 크기를 지원합니다.  가격 책정에 대해 알아보려면 [관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요.
 
 #### <a name="replication-and-network-egress-charges"></a>복제 및 네트워크 송신 요금
 

@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/15/2020
+ms.date: 06/14/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5f78b70599d6d0ae8825accf4cc55cdc1c01d9ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9d5f47b6f1552c769a7827eeebfb46dc79d8a75
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96861241"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077805"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-ad-multi-factor-authentication-events"></a>로그인 보고서를 사용하여 Azure AD Multi-Factor Authentication 이벤트 검토하기
 
@@ -31,6 +31,7 @@ Azure AD Multi-Factor Authentication 이벤트를 검토하고 이해하려면 A
 
 - 로그인에 MFA가 요구되었나요?
 - 사용자가 MFA를 어떻게 완료했나요?
+- 로그인하는 동안 사용된 인증 방법은 무엇인가요?
 - 사용자가 MFA를 완료할 수 없었던 이유는 무엇인가요?
 - MFA에 어려움을 겪은 사용자가 얼마나 되나요?
 - MFA 챌린지를 완료할 수 없었던 사용자가 얼마나 되나요?
@@ -43,13 +44,39 @@ Azure AD Multi-Factor Authentication 이벤트를 검토하고 이해하려면 A
 1. 왼쪽의 메뉴에 있는 *활동* 에서 **로그인** 을 선택합니다.
 1. 로그인 이벤트 목록이 표시됩니다(상태 포함). 이벤트를 선택하여 자세한 정보를 볼 수 있습니다.
 
-    이벤트 세부 정보의 *인증 세부 정보* 또는 *조건부 액세스* 탭에는 MFA 프롬프트를 트리거한 상태 코드 또는 정책이 표시됩니다.
+    이벤트 세부 정보의 **인증 세부 정보** 또는 **조건부 액세스** 탭에는 MFA 프롬프트를 트리거한 상태 코드 또는 정책이 표시됩니다.
 
     [![Azure Portal의 Azure Active Directory 로그인 보고서 예제 스크린샷](media/howto-mfa-reporting/sign-in-report-cropped.png)](media/howto-mfa-reporting/sign-in-report.png#lightbox)
 
 사용할 수 있는 경우 문자 메시지, Microsoft Authenticator 앱 알림 또는 전화 통화와 같은 인증이 표시됩니다.
 
-로그인 이벤트의 *인증 세부 정보* 창에 MFA 요청이 충족 또는 거부되었는지 보여 주는 다음 세부 정보가 표시됩니다.
+**인증 세부 정보** 탭은 각 인증 시도에 대해 다음 정보를 제공합니다.
+
+- 적용된 인증 정책 목록(예: 조건부 액세스, 사용자별 MFA, 보안 기본값)
+- 로그인에 사용되는 인증 방법 시퀀스
+- 인증 시도 성공 여부
+- 인증 시도 성공 또는 실패 이유에 대한 세부 정보
+
+관리자는 이 정보를 사용하여 사용자 로그인의 각 단계와 관련된 문제를 해결하고 다음을 추적할 수 있습니다.
+
+- 다단계 인증으로 보호되는 로그인 볼륨 
+- 각 인증 방법에 대한 사용 및 성공률 
+- 암호 없는 인증 방법(예: 암호 없는 휴대폰 로그인, FIDO2, 비즈니스용 Windows Hello) 사용 
+- 토큰 클레임이 인증 요구 사항을 충족하는 빈도(사용자에게 암호, SMS OTP 등을 입력하라는 메시지를 대화형으로 표시하지 않는 경우)
+
+로그인 보고서를 보는 동안 **인증 세부 정보** 탭을 선택합니다. 
+
+![인증 세부 정보 탭의 스크린샷](media/howto-mfa-reporting/auth-details-tab.png)
+
+>[!NOTE]
+>**OATH 확인 코드** 는 OATH 하드웨어 및 소프트웨어 둘 다의 인증 방법으로 로그됩니다(예: Microsoft Authenticator 앱).
+
+>[!IMPORTANT]
+>**인증 정보** 탭에는 로그 정보가 완전히 집계될 때까지 불완전하거나 부정확한 데이터가 처음에 표시될 수 있습니다. 알려진 예는 다음과 같습니다. 
+>- 로그인 이벤트가 처음 로그될 때 **토큰의 클레임으로 충족** 메시지가 잘못 표시됩니다. 
+>- 처음에는 **기본 인증** 행이 로그되지 않습니다. 
+
+로그인 이벤트의 **인증 세부 정보** 창에 MFA 요청이 충족 또는 거부되었는지 보여 주는 다음 세부 정보가 표시됩니다.
 
 * MFA가 충족되면 MFA가 어떻게 충족되었는지에 대한 자세한 정보가 이 열에 제공합니다.
    * 클라우드에서 완료
@@ -108,11 +135,7 @@ Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0 -an
 등록된 사용자 및 출력 메서드를 식별합니다.
 
 ```powershell
-Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},
-
-@{N='MFA Status';E={if ($_.StrongAuthenticationRequirements.State){$_.StrongAuthenticationRequirements.State} else {"Disabled"}}},
-
-@{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
+Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},@{N='MFA Status';E={if ($_.StrongAuthenticationRequirements.State){$_.StrongAuthenticationRequirements.State} else {"Disabled"}}},@{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
 ```
 
 ## <a name="downloaded-activity-reports-result-codes"></a>다운로드한 활동 보고서 결과 코드
@@ -167,6 +190,7 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 | FAILED_AUTH_RESULT_TIMEOUT | 인증 결과 제한 시간 초과 | 사용자가 Multi-Factor Authentication 시도를 완료하는 데 너무 오래 걸렸습니다. |
 | FAILED_AUTHENTICATION_THROTTLED | 인증이 제한됨 | 서비스에서 Multi-Factor Authentication 시도를 제한했습니다. |
 
+
 ## <a name="additional-mfa-reports"></a>추가 MFA 보고서
 
 MFA 이벤트에 대한 다음과 같은 추가 정보 및 보고서를 볼 수 있습니다(MFA 서버에 대한 추가 정보 및 보고서 포함).
@@ -177,6 +201,7 @@ MFA 이벤트에 대한 다음과 같은 추가 정보 및 보고서를 볼 수 
 | 온-프레미스 구성 요소의 사용량 | Azure AD > 보안 > MFA > 활동 보고서 | NPS 확장, ADFS 및 MFA 서버를 통해 MFA 서버의 전체 사용량에 대한 정보를 제공합니다. |
 | 무시된 사용자 기록 | Azure AD > 보안 > MFA > 일회성 바이패스 | 사용자에 대한 MFA를 바이패스하는 MFA 서버 요청 기록을 제공합니다. |
 | 서버 상태 | Azure AD > 보안 > MFA > 서버 상태 | 계정에 연결된 MFA 서버의 상태가 표시됩니다. |
+
 
 ## <a name="next-steps"></a>다음 단계
 

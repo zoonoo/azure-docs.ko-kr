@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 05/11/2021
 ms.author: yelevin
-ms.openlocfilehash: bf7a17d96d31fd4214d5465a5739acc9ce9a9d53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a706704365731d5f5ba157837269a90dbcb12e18
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102455504"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810303"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure Sentinel에서 UEBA(사용자 및 엔터티 동작 분석)를 사용하여 고급 위협 식별
 
 > [!IMPORTANT]
 >
 > - UEBA 및 엔터티 페이지 기능은 이제 **_모든_** Azure Sentinel 지역에서 **일반 공급** 됩니다.
+>
+> - **IP 주소 엔터티** 는 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>UEBA(사용자 및 엔터티 동작 분석)란?
-
-### <a name="the-concept"></a>개념
 
 조직 내부의 위협 및 위협의 잠재적 영향(손상된 엔터티 또는 악의적인 내부자)을 식별하는 것은 항상 시간과 인력이 많이 소모되는 프로세스입니다. 경고를 검토하고 내용을 이해하며 적극적인 헌팅하는 과정에서 낮은 성과와 단순히 검색을 회피하는 정교한 위협으로 인해 막대한 시간과 노력이 소비됩니다. 특히 탐지가 어려운 제로 데이, 대상이 지정된 위협, 지능형 지속 위협은 조직에 매우 큰 위험을 초래할 수 있기 때문에 반드시 탐지해야 합니다.
 
@@ -37,7 +37,7 @@ Azure Sentinel의 UEBA 기능은 분석가들의 워크로드에서 오는 힘�
 
 Azure Sentinel은 연결된 모든 데이터 원본에서 로그 및 경고를 수집하고 해당 로그 및 경고를 분석하여 조직의 엔터티(예: 사용자, 호스트, IP 주소 및 애플리케이션)의 기준 동작 프로필을 시간 및 피어 그룹을 기준선으로 하여 빌드합니다. Azure Sentinel은 다양한 기술 및 기계 학습 기능을 사용하여 비정상적인 활동을 식별하여 자산의 손상 여부를 확인하는 데 활용됩니다. 그뿐만 아니라 특정 자산의 상대적인 민감도를 파악하고 자산의 피어 그룹을 식별하며 손상된 특정 자산의 잠재적 영향(‘blast radius’)을 평가할 수도 있습니다. 해당 정보를 사용하여 조사 및 침해 인시던트 처리의 우선 순위를 효과적으로 지정할 수 있습니다. 
 
-### <a name="architecture-overview"></a>아키텍처 개요
+### <a name="ueba-analytics-architecture"></a>UEBA 분석 아키텍처
 
 :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/entity-behavior-analytics-architecture.png" alt-text="엔터티 동작 분석 아키텍처":::
 
@@ -72,14 +72,17 @@ Azure Sentinel은 보안 분석가가 컨텍스트의 비정상적인 활동을 
 
 [Azure Sentinel의 엔터티](entities-in-azure-sentinel.md)에 대해 자세히 알아보고 [지원되는 엔터티 및 식별자](entities-reference.md)의 전체 목록을 확인하세요.
 
-검색, 경고 또는 조사에서 엔터티(현재 사용자 및 호스트로 제한됨)가 발생하면 엔터티를 선택하고 엔터티 **페이지로** 이동하여 해당 엔터티에 대한 유용한 정보를 모두 볼 수 있습니다. 해당 페이지에서 찾을 수 있는 정보 유형에는 엔터티에 대한 기본 팩트, 해당 엔터티와 관련된 주목할 만한 이벤트의 타임라인 및 엔터티 동작에 대한 인사이트가 포함됩니다.
+엔터티 검색, 경고 또는 조사에서 사용자 또는 호스트 엔터티(IP 주소 엔터티가 미리 보기로 제공됨)를 확인하면 엔터티를 선택하여 **엔터티 페이지**(해당 엔터티에 대한 유용한 정보가 포함된 데이터시트)로 이동할 수 있습니다. 해당 페이지에서 찾을 수 있는 정보 유형에는 엔터티에 대한 기본 팩트, 해당 엔터티와 관련된 주목할 만한 이벤트의 타임라인 및 엔터티 동작에 대한 인사이트가 포함됩니다.
  
 엔터티 페이지는 다음 세 부분으로 구성됩니다.
-- 왼쪽 패널에는 Azure Active Directory, Azure Monitor, Azure Security Center, Microsoft Defender와 같은 데이터 원본에서 수집된 엔터티의 식별 정보가 포함되어 있습니다.
+- 왼쪽 패널에는 Azure Active Directory, Azure Monitor, Azure Defender, CEF/Syslog 및 Microsoft 365 Defender와 같은 데이터 원본에서 수집된 엔터티의 식별 정보가 포함되어 있습니다.
 
-- 가운데 패널에는 경고 북마크 및 활동과 같이 엔터티와 관련된 주목할 만한 이벤트의 그래픽 및 텍스트 타임라인이 표시됩니다. 활동은 Log Analytics에서 주목할 만한 이벤트의 집계입니다. 활동을 검색하는 쿼리는 Microsoft 보안 연구 팀에서 개발합니다.
+- 가운데 패널에는 경고 북마크 및 활동과 같이 엔터티와 관련된 주목할 만한 이벤트의 그래픽 및 텍스트 타임라인이 표시됩니다. 활동은 Log Analytics에서 주목할 만한 이벤트의 집계입니다. 이러한 활동을 검색하는 쿼리는 Microsoft 보안 연구팀에서 개발했으며 이제 [사용자 지정 쿼리를 추가하여 선택한 활동을 검색](customize-entity-activities.md)할 수 있습니다. 
 
 - 오른쪽 패널은 엔터티에 대한 동작 인사이트를 제공합니다. 해당 인사이트는 변칙 및 보안 위협을 빠르게 식별하는 데 도움이 됩니다. 해당 인사이트는 Microsoft 보안 연구 팀에서 개발되었으며 변칙 탐지 모델을 기반으로 합니다.
+
+> [!NOTE]
+> **IP 주소 엔터티 페이지**(현재 미리 보기로 제공됨)에는 **Microsoft 위협 인텔리전스 서비스** 에서 제공하는 **지리적 위치 데이터** 가 포함되어 있습니다. 이 서비스는 Microsoft 솔루션과 타사 공급업체 및 파트너의 지리적 위치 데이터를 결합합니다. 그런 다음 데이터를 보안 인시던트 컨텍스트에서 분석 및 조사할 수 있습니다.
 
 ### <a name="the-timeline"></a>타임라인
 
@@ -95,8 +98,8 @@ Azure Sentinel은 보안 분석가가 컨텍스트의 비정상적인 활동을 
 
 - 북마크 - 페이지에 표시된 특정 엔터티를 포함하는 책갈피입니다.
 
-- 활동 - 엔터티와 관련된 주목할 만한 이벤트의 집계입니다. 
- 
+- 활동 - 엔터티와 관련된 주목할 만한 이벤트의 집계입니다. 광범위한 활동이 자동으로 수집되며 이제 자체적으로 선택한 [활동을 추가하여 이 섹션을 사용자 지정](customize-entity-activities.md)할 수 있습니다.
+
 ### <a name="entity-insights"></a>엔터티 인사이트
  
 엔터티 인사이트는 분석가가 더 효율적이고 효과적으로 조사하는 데 도움이 되도록 Microsoft 보안 연구원에 의해 정의된 쿼리입니다. 해당 인사이트는 엔터티 페이지의 일부로 제공되며 호스트와 사용자에 대한 중요 보안 정보를 테이블 형식 데이터 및 차트 형식으로 제공합니다. 여기에 인사이트가 있다는 것은 Log Analytics로 우회할 필요가 없다는 것을 의미합니다. 해당 인사이트에는 로그인, 그룹 추가, 비정상 이벤트 등에 대한 데이터가 포함되며 비정상적인 동작을 탐지하는 고급 ML 알고리즘이 포함되어 있습니다. 
@@ -110,6 +113,7 @@ Azure Sentinel은 보안 분석가가 컨텍스트의 비정상적인 활동을 
 - BehaviorAnalytics(Azure Sentinel UEBA)
 - 하트비트(Azure Monitor 에이전트)
 - CommonSecurityLog(Azure Sentinel)
+- ThreatIntelligenceIndicators(Azure Sentinel)
 
 ### <a name="how-to-use-entity-pages"></a>엔터티 페이지를 사용하는 방법
 
@@ -117,36 +121,9 @@ Azure Sentinel은 보안 분석가가 컨텍스트의 비정상적인 활동을 
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="엔터티 페이지 사용 사례":::
 
-## <a name="data-schema"></a>데이터 스키마
+엔터티 페이지 정보는 [Azure Sentinel UEBA 보강 참조](ueba-enrichments.md)에 자세히 설명된 **BehaviorAnalytics** 테이블에 저장됩니다.
 
-### <a name="behavior-analytics-table"></a>동작 분석 테이블
-
-| 필드                     | 설명                                                         |
-|---------------------------|---------------------------------------------------------------------|
-| TenantId                  | 테넌트의 고유한 ID 번호                                      |
-| SourceRecordId            | EBA 이벤트의 고유한 ID 번호                                   |
-| TimeGenerated             | 활동 발생의 타임스탬프                              |
-| TimeProcessed             | EBA 엔진에서 활동을 처리하는 타임스탬프            |
-| ActivityType              | 활동의 상위 수준 범주                                 |
-| ActionType                | 활동의 정규화된 이름                                     |
-| UserName                  | 활동을 시작한 사용자의 사용자 이름                    |
-| UserPrincipalName         | 활동을 시작한 사용자의 전체 사용자 이름               |
-| EventSource               | 원래 이벤트를 제공한 데이터 원본                        |
-| SourceIPAddress           | 활동이 시작된 IP 주소                        |
-| SourceIPLocation          | 활동이 시작된 국가이며, IP 주소에서 보강됨 |
-| SourceDevice              | 활동을 시작한 디바이스의 호스트 이름                  |
-| DestinationIPAddress      | 활동 대상의 IP 주소                            |
-| DestinationIPLocation     | 활동 대상의 국가이며, IP 주소에서 보강됨     |
-| DestinationDevice         | 대상 디바이스의 이름                                           |
-| **UsersInsights**         | 참여하는 사용자의 상황별 보강                            |
-| **DevicesInsights**       | 참여하는 디바이스의 상황별 보강                          |
-| **ActivityInsights**      | 프로파일링을 기반으로 하는 활동의 상황별 분석              |
-| **InvestigationPriority** | 변칙 점수, 0-10 사이(0=무해, 10=매우 비정상)         |
-|
-
-[UEBA 보강 참조 문서](ueba-enrichments.md)의 **UsersInsights**, **DevicesInsights** 및 **ActivityInsights** 에서 참조되는 전체 상황별 보강 집합을 볼 수 있습니다.
-
-### <a name="querying-behavior-analytics-data"></a>동작 분석 데이터 쿼리
+## <a name="querying-behavior-analytics-data"></a>동작 분석 데이터 쿼리
 
 [KQL](/azure/data-explorer/kusto/query/)을 사용하여 동작 분석 테이블을 쿼리할 수 있습니다.
 
@@ -173,7 +150,7 @@ Azure Sentinel GitHub 리포지토리에 제공된 [Jupyter Notebook](https://gi
 
 권한 분석은 공격자의 조직 자산의 손상으로 인한 잠재적 영향을 확인하는 데 도움이 됩니다. 이러한 영향을 자산의 "폭발 반지름"이라고도 합니다. 보안 분석가는 이 정보를 사용하여 조사 및 인시던트 처리의 우선 순위를 지정할 수 있습니다.
 
-Azure Sentinel은 사용자가 직접 또는 그룹 또는 서비스 주체를 통해 액세스할 수 있는 Azure 구독을 평가하여 지정된 사용자가 Azure 리소스에 대해 보유한 직접 및 전이적 액세스 권한을 결정합니다. 이 정보는 물론 사용자의 Azure AD 보안 그룹 멤버 자격에 대한 전체 목록이 **UserAccessAnalytics** 테이블에 저장됩니다. 아래 스크린샷은 사용자 Alex Johnson에 대한 UserAccessAnalytics 테이블의 예제 행을 보여 줍니다. **원본 엔터티** 는 사용자 또는 서비스 주체 계정이고, **대상 엔터티** 는 원본 엔터티가 액세스할 수 있는 리소스입니다. **액세스 수준** 및 **액세스 형식** 의 값은 대상 엔터티의 액세스 제어 모델에 따라 달라집니다. Alex에 Azure 구독 *Contoso Hotels Tenant* 에 대한 기여자 액세스 권한이 있는 것을 볼 수 있습니다. 구독의 액세스 제어 모델은 Azure RBAC입니다.   
+Azure Sentinel은 사용자가 직접 또는 그룹 또는 서비스 주체를 통해 액세스할 수 있는 Azure 구독을 평가하여 지정된 사용자가 Azure 리소스에 대해 보유한 직접 및 전이적 액세스 권한을 결정합니다. 이 정보는 물론 사용자의 Azure AD 보안 그룹 멤버 자격에 대한 전체 목록이 **UserAccessAnalytics** 테이블에 저장됩니다. 아래 스크린샷은 사용자 Alex Johnson에 대한 UserAccessAnalytics 테이블의 예제 행을 보여 줍니다. **원본 엔터티** 는 사용자 또는 서비스 주체 계정이고, **대상 엔터티** 는 원본 엔터티가 액세스할 수 있는 리소스입니다. **액세스 수준** 및 **액세스 형식** 의 값은 대상 엔터티의 액세스 제어 모델에 따라 달라집니다. Alex에 Azure 구독 *Contoso Hotels Tenant* 에 대한 기여자 액세스 권한이 있는 것을 볼 수 있습니다. 구독의 액세스 제어 모델은 Azure RBAC입니다.
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="사용자 액세스 분석 테이블의 스크린샷":::
 
@@ -181,12 +158,21 @@ Azure Sentinel GitHub 리포지토리에서 [Jupyter Notebook](https://github.co
 
 ### <a name="hunting-queries-and-exploration-queries"></a>헌팅 쿼리 및 탐색 쿼리
 
-Azure Sentinel은 BehaviorAnalytics 테이블을 기반으로 하는 기본 제공 헌팅 집합 쿼리, 탐색 쿼리 및 통합 문서를 제공합니다. 이러한 도구는 비정상적인 동작을 나타내는 특정 사용 사례에 초점을 맞춘 보강된 데이터를 제공합니다. 
+Azure Sentinel은 **BehaviorAnalytics** 테이블을 기반으로 하는 헌팅 쿼리, 탐색 쿼리 및 **사용자 및 엔터티 동작 분석** 통합 문서 세트를 기본 제공합니다. 이러한 도구는 비정상적인 동작을 나타내는 특정 사용 사례에 초점을 맞춘 보강된 데이터를 제공합니다.
 
-Azure Sentinel의 [헌팅 및 조사 그래프](./hunting.md)에 대해 자세히 알아보세요.
+자세한 내용은 다음을 참조하세요.
+
+- [Azure Sentinel을 사용하여 위협 헌팅](hunting.md)
+- [데이터 시각화 및 모니터링](tutorial-monitor-your-data.md)
+
+레거시 방어 도구가 더 이상 사용되지 않게 됨에 따라 조직에는 환경에서 발생할 수 있는 위험 및 상태에 대한 포괄적인 계획을 수립하는 것이 관리할 수 없을 정도로 방대하고 다공성인 디지털 자산이 있을 수 있습니다. 분석 및 규칙과 같은 사후 대응 노력에 크게 의존함으로써 악의적인 행위자는 이러한 노력을 회피하는 방법을 배울 수 있습니다. 실제로 무슨 일이 일어나고 있는지 파악하기 위해 위험 점수 매기기 방법론과 알고리즘을 제공함으로써 UEBA가 작동하게 하는 곳입니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Sentinel의 엔터티 동작 분석 기능에 대해 알아보았습니다. 구현에 대한 유용한 지침을 알아보고 얻은 인사이트를 사용하려면 다음 문서를 참조하세요.
 
 - Azure Sentinel에서 [엔터티 동작 분석 사용](./enable-entity-behavior-analytics.md)
+- [UEBA 데이터로 인시던트 조사](investigate-with-ueba.md).
 - [보안 위협에 대한 헌팅](./hunting.md)
+
+자세한 내용은 [Azure Sentinel UEBA 보강 참조](ueba-enrichments.md)도 참조하세요.

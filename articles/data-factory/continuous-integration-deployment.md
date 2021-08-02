@@ -2,17 +2,18 @@
 title: Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 description: 지속적인 통합 및 지속적인 업데이트를 사용하여 환경(개발, 테스트, 프로덕션) 간에 Data Factory 파이프라인을 이동하는 방법을 알아봅니다.
 ms.service: data-factory
-author: dcstwh
-ms.author: weetok
+author: nabhishek
+ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 04/01/2021
-ms.openlocfilehash: 7ffcb93493ada36df59c0a8305e941176e8320b8
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.date: 05/12/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1b8502363d7868b32bf2576742ca443b673c5123
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121475"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971975"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -72,7 +73,7 @@ Azure Data Factory에서 CI/CD(지속적인 통합 및 지속적인 업데이트
 
     ![파이프라인, 릴리스 선택](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-1.  **새 파이프라인** 을 선택하거나, 기존 파이프라인이 있는 경우에는 **새로 생성** 를 선택한 다음 **새 릴리스 파이프라인** 을 선택합니다.
+1.  **새 파이프라인** 을 선택하거나, 기존 파이프라인이 있는 경우에는 **새로 만들기** 를 선택한 다음 **새 릴리스 파이프라인** 을 선택합니다.
 
 1.  **빈 작업** 템플릿을 선택합니다.
 
@@ -90,11 +91,11 @@ Azure Data Factory에서 CI/CD(지속적인 통합 및 지속적인 업데이트
 
     ![단계 보기](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  새 작업을 생성합니다. **ARM 템플릿 배포** 를 검색한 후 **추가** 를 선택합니다.
+    b.  새 작업을 만듭니다. **ARM 템플릿 배포** 를 검색한 후 **추가** 를 선택합니다.
 
     다.  배포 작업에서 대상 Data Factory에 대한 구독, 리소스 그룹 및 위치를 선택합니다. 필요한 경우 자격 증명을 제공합니다.
 
-    d.  **작업** 목록에서 **리소스 그룹 생성 또는 업데이트** 를 선택합니다.
+    d.  **작업** 목록에서 **리소스 그룹 만들기 또는 업데이트** 를 선택합니다.
 
     e.  **템플릿** 상자 옆에 있는 줄임표 단추( **...** )를 선택합니다. 구성된 Git 리포지토리의 게시 분기에 생성된 Azure Resource Manager 템플릿을 찾습니다. adf_publish 분기의 <FactoryName> 폴더에서 `ARMTemplateForFactory.json` 파일을 찾습니다.
 
@@ -161,9 +162,15 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
 
 ### <a name="updating-active-triggers"></a>활성 트리거 업데이트
 
+[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-Az-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
+
+>[!WARNING]
+>최신 버전의 PowerShell 및 Data Factory 모듈을 사용하지 않는 경우 명령을 실행하는 동안 역직렬화 오류가 발생할 수 있습니다. 
+>
+
 활성 트리거를 업데이트하려고 하면 배포에 실패할 수 있습니다. 활성 트리거를 업데이트하려면 수동으로 중단하고 배포 후에 시작해야 합니다. Azure PowerShell 작업을 사용하여 이 작업을 수행할 수 있습니다.
 
-1.  릴리스의 **작업** 탭에서 **Azure PowerShell** 작업을 추가합니다. 작업 버전 4.*를 선택합니다. 
+1.  릴리스의 **작업** 탭에서 **Azure PowerShell** 작업을 추가합니다. 최신 Azure PowerShell 버전의 작업 버전을 선택합니다. 
 
 1.  팩터리가 있는 구독을 선택합니다.
 
@@ -181,9 +188,9 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
 
 ## <a name="manually-promote-a-resource-manager-template-for-each-environment"></a>각 환경에 Resource Manager 템플릿을 수동으로 승격합니다.
 
-1. **ARM 템플릿** 목록에서 **ARM 템플릿 내보내기** 를 선택하여 개발 환경에서 Data Factory에 Resource Manager 템플릿을 내보냅니다.
+1. 데이터 팩터리의 **관리** 허브로 이동하고 “원본 제어” 섹션에서 **ARM 템플릿** 을 선택합니다. **ARM 템플릿** 섹션에서 **ARM 템플릿 내보내기** 를 선택하여 개발 환경에서 데이터 팩터리의 Resource Manager 템플릿을 내보냅니다.
 
-   ![Resource Manager 템플릿 내보내기](media/continuous-integration-deployment/continuous-integration-image1.png)
+   ![Resource Manager 템플릿 내보내기](media/continuous-integration-deployment/continuous-integration-image-1.png)
 
 1. 테스트 및 프로덕션 Data Factory에서 **ARM 템플릿 가져오기** 를 선택합니다. 이 작업을 통해 Azure Portal로 이동합니다. 여기서 내보낸 템플릿을 가져올 수 있습니다. **편집기에서 사용자 고유의 템플릿 빌드** 를 선택하여 Resource Manager 템플릿 편집기를 엽니다.
 
@@ -618,6 +625,8 @@ Git를 구성한 경우에는 연결된 템플릿이 생성되어 linkedTemplate
 
 Git가 구성되지 않은 경우 **ARM 템플릿** 목록에서 **ARM 템플릿 내보내기** 를 통해 연결된 템플릿에 액세스할 수 있습니다.
 
+리소스를 배포할 때 배포를 증분 업데이트 또는 전체 업데이트할지 지정합니다. 이러한 두 모드 간 차이점은 Resource Manager가 템플릿에 없는 리소스 그룹에서 기존 리소스를 처리하는 방식입니다. [배포 모드](../azure-resource-manager/templates/deployment-modes.md)를 검토하세요.
+
 ## <a name="hotfix-production-environment"></a>핫픽스 프로덕션 환경
 
 팩터리를 프로덕션에 배포하고 즉시 해결해야 하는 버그가 있지만 현재의 협업 분기를 배포할 수 없는 경우 핫픽스를 배포해야 할 수 있습니다. 이 접근 방식을 QFE(Quick-Fix Engineering)라고 합니다.
@@ -687,7 +696,14 @@ Data Factory를 통해 Git 통합을 사용할 때 개발에서 테스트, 프�
 
 ## <a name="sample-pre--and-post-deployment-script"></a><a name="script"></a> 샘플 배포 전 및 배포 후 스크립트
 
-다음 샘플 스크립트를 사용하여 배포 전에 트리거를 중지하고 나중에 다시 시작할 수 있습니다. 스크립트에는 제거된 리소스를 삭제하는 코드도 포함됩니다. 스크립트를 Azure DevOps Git 리포지토리에 저장하고 버전 4.*를 사용하여 Azure PowerShell 작업을 통해 해당 스크립트를 참조합니다.
+[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-Az-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
+
+>[!WARNING]
+>최신 버전의 PowerShell 및 Data Factory 모듈을 사용하지 않는 경우 명령을 실행하는 동안 역직렬화 오류가 발생할 수 있습니다. 
+>
+
+다음 샘플 스크립트를 사용하여 배포 전에 트리거를 중지하고 나중에 다시 시작할 수 있습니다. 스크립트에는 제거된 리소스를 삭제하는 코드도 포함됩니다. 스크립트를 Azure DevOps Git 리포지토리에 저장하고 최신 Azure PowerShell 버전의 Azure PowerShell 작업을 통해 해당 스크립트를 참조합니다.
+
 
 배포 전 스크립트를 실행하는 경우 **스크립트 인수** 필드에서 다음 매개 변수의 변형을 지정해야 합니다.
 

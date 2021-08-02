@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6c761edec571f404a538025c868750bc5712eced
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 356c4b1049f6c9558954de457c7e79abbd87d7b8
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107796455"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475382"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Azure 파일 동기화 네트워킹 고려 사항
 다음 두 가지 방법으로 Azure 파일 공유에 연결할 수 있습니다.
@@ -23,6 +23,9 @@ ms.locfileid: "107796455"
 이 문서에서는 사용 사례가 SMB를 통해 Azure 파일 공유를 직접 탑재하지 않고 온-프레미스에서 파일을 캐시하는 데 Azure 파일 동기화를 사용하는 경우에 대한 네트워킹을 구성하는 방법을 중점적으로 설명합니다. Azure Files 배포에 대한 네트워킹 고려 사항에 대한 자세한 내용은 [Azure Files 네트워킹 고려 사항](../files/storage-files-networking-overview.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json)을 참조하세요.
 
 Azure 파일 동기화에 대한 네트워킹 구성은 스토리지 동기화 서비스와 Azure 스토리지 계정이라는 두 가지 Azure 개체를 포괄합니다. 스토리지 계정은 여러 파일 공유뿐만 아니라 다른 스토리지 리소스(예: Blob 컨테이너 또는 큐)도 배포할 수 있는 공유 스토리지 풀을 나타내는 관리 구조입니다. 스토리지 동기화 서비스는 등록된 서버를 나타내는 관리 구문입니다. 그리고 등록된 서버는 Azure 파일 동기화와 설정된 신뢰 관계를 갖고 있는 Windows 파일 서버와 동기화 관계의 토폴로지를 정의하는 동기화 그룹으로 구성되어 있습니다. 
+
+> [!Important]  
+> Azure 파일 동기화는 인터넷 라우팅을 지원하지 않습니다. 기본 네트워크 라우팅 옵션인 Microsoft 라우팅은 Azure 파일 동기화에서 지원됩니다.
 
 ## <a name="connecting-windows-file-server-to-azure-with-azure-file-sync"></a>Azure 파일 동기화를 사용하여 Windows 파일 서버를 Azure에 연결 
 온-프레미스 Windows 파일 서버를 사용하여 Azure Files 및 Azure 파일 동기화를 설정 및 사용하려면 기본 인터넷 연결을 통해 Azure에 대한 특별한 네트워킹이 필요 지 않습니다. Azure 파일 동기화를 배포하려면 Azure와 동기화하려는 Windows 파일 서버에 Azure 파일 동기화 에이전트를 설치합니다. Azure 파일 동기화 에이전트는 다음 두 채널을 통해 Azure 파일 공유와 동기화합니다.

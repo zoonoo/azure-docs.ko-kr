@@ -1,26 +1,26 @@
 ---
-title: Windows Virtual Desktop에서 위임된 액세스(클래식) - Azure
-description: 예제를 포함하여 Windows Virtual Desktop(클래식) 배포에서 관리 기능을 위임하는 방법.
+title: Azure Virtual Desktop(클래식)의 위임된 액세스 - Azure
+description: 예제를 포함하여 Azure Virtual Desktop(클래식) 배포에서 관리 기능을 위임하는 방법.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d683548c32baa37f9657541d90d7a58561a1d723
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 9db8ad454ad38f24f32e05bf2f72d67ef7db1971
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445026"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752048"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop-classic"></a>Windows Virtual Desktop(클래식)에서 위임된 액세스
+# <a name="delegated-access-in-azure-virtual-desktop-classic"></a>Azure Virtual Desktop(클래식)의 위임된 액세스
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../delegated-access-virtual-desktop.md)를 참조하세요.
+>이 내용은 Azure Resource Manager의 Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager의 Azure Virtual Desktop 개체를 관리하려는 경우 [이 문서](../delegated-access-virtual-desktop.md)를 참조하세요.
 
-Windows Virtual Desktop에는 특정 사용자에게 역할을 할당하여 허용되는 액세스 양을 정의할 수 있는 위임된 액세스 모델이 있습니다. 역할 할당에는 보안 주체, 역할 정의, 범위의 세 가지 구성 요소가 있습니다. Windows Virtual Desktop 위임 액세스 모델은 Azure RBAC 모델을 기반으로 합니다. 특정 역할 할당 및 해당 구성 요소에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어 개요](../../role-based-access-control/built-in-roles.md)를 참조하세요.
+Azure Virtual Desktop에는 특정 사용자에게 역할을 할당하여 허용되는 액세스 양을 정의할 수 있는 위임된 액세스 모델이 있습니다. 역할 할당에는 보안 주체, 역할 정의, 범위의 세 가지 구성 요소가 있습니다. Azure Virtual Desktop 위임된 액세스 모델은 Azure RBAC 모델을 기반으로 합니다. 특정 역할 할당 및 해당 구성 요소에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어 개요](../../role-based-access-control/built-in-roles.md)를 참조하세요.
 
-Windows Virtual Desktop 위임 액세스는 역할 할당의 각 요소에 대해 다음 값을 지원합니다.
+Azure Virtual Desktop 위임된 액세스는 역할 할당의 각 요소에 대해 다음 값을 지원합니다.
 
 * 보안 주체
     * 사용자
@@ -35,7 +35,7 @@ Windows Virtual Desktop 위임 액세스는 역할 할당의 각 요소에 대�
 
 ## <a name="built-in-roles"></a>기본 제공 역할
 
-Windows Virtual Desktop의 위임된 액세스에는 사용자 및 서비스 주체에 할당할 수 있는 몇 가지 기본 제공 역할 정의가 있습니다.
+Azure Virtual Desktop의 위임된 액세스에는 사용자 및 서비스 주체에 할당할 수 있는 몇 가지 기본 제공 역할 정의가 있습니다.
 
 * RDS 소유자는 리소스에 대한 액세스를 포함하여 모든 항목을 관리할 수 있습니다.
 * RDS 기여자는 모든 항목을 관리할 수 있지만 리소스에는 액세스할 수 없습니다.
@@ -68,4 +68,4 @@ Windows Virtual Desktop의 위임된 액세스에는 사용자 및 서비스 주
 
 각 역할이 사용할 수 있는 PowerShell cmdlet의 전체 목록은 [PowerShell 참조](/powershell/windows-virtual-desktop/overview)를 참조하세요.
 
-Windows Virtual Desktop 환경을 설정하는 방법에 대한 지침은 [Windows Virtual Desktop 환경](environment-setup-2019.md)을 참조하세요.
+Azure Virtual Desktop 환경을 설정하는 방법에 대한 지침은 [Azure Virtual Desktop 환경](environment-setup-2019.md)을 참조하세요.

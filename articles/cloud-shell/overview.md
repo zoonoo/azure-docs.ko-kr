@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 06/4/2021
 ms.author: damaerte
-ms.openlocfilehash: f824bddf833a1e2c01a3b779abc2c5252d8e0547
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 250e4bc171950bb643a75bdc9d80bdb2941cb97a
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89468660"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111539293"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 개요
 
@@ -27,13 +27,13 @@ Azure Cloud Shell은 Azure 리소스를 관리하기 위해 브라우저에서 �
 
 다음 세 가지 방법으로 Cloud Shell에 액세스할 수 있습니다.
 
-- **직접 링크**: 브라우저를 엽니다 [https://shell.azure.com](https://shell.azure.com) .
+- **직접 링크**: [https://shell.azure.com](https://shell.azure.com)으로 브라우저를 엽니다.
 
-- **Azure Portal**: [Azure Portal](https://portal.azure.com)에서 Cloud Shell 아이콘을 선택 합니다.
+- **Azure Portal**: [Azure Portal](https://portal.azure.com)에서 Cloud Shell 아이콘을 선택합니다.
 
-    ![Azure Portal에서 Cloud Shell를 시작 하는 아이콘](media/overview/portal-launch-icon.png)
+    ![Azure Portal에서 Cloud Shell을 시작하는 아이콘](media/overview/portal-launch-icon.png)
 
-- **코드 조각**: [Docs.microsoft.com]() 및 [Microsoft Learn](/learn/)에서 Azure CLI 및 Azure PowerShell 코드 조각과 함께 표시 되는 **사용해 보기** 단추를 선택 합니다.
+- **코드 조각**: [docs.microsoft.com]() 및 [Microsoft Learn](/learn/)에서 Azure CLI 및 Azure PowerShell 코드 조각과 함께 표시되는 **사용해 보기** 단추를 선택합니다.
 
     ```azurecli-interactive
     az account show
@@ -43,9 +43,9 @@ Azure Cloud Shell은 Azure 리소스를 관리하기 위해 브라우저에서 �
     Get-AzSubscription
     ```
 
-    **사용해 보기** 단추를 클릭 하면 Bash (Azure CLI 코드 조각) 또는 PowerShell (Azure PowerShell 코드 조각)을 사용 하 여 설명서와 함께 Cloud Shell 열립니다.
+    **사용해 보기** 단추는 Bash(Azure CLI 코드 조각의 경우) 또는 PowerShell(Azure PowerShell 코드 조각의 경우)을 사용하여 설명서와 함께 Cloud Shell을 직접 엽니다.
 
-    명령을 실행 하려면 코드 조각에서 **복사** 를 사용 하 고, **Ctrl** + **Shift** + **v** (Windows/Linux) 또는 **Cmd** + **shift** + **v** (macos)를 사용 하 여 명령을 붙여넣은 다음 **enter** 키를 누릅니다.
+    명령을 실행하려면 코드 조각에서 **복사** 를 사용하고 **Ctrl**+**Shift**+**V**(Windows/Linux) 또는 **Cmd**+**Shift**+**V**(macOS)를 사용하여 명령을 붙여넣은 다음, **Enter** 키를 누릅니다.
 
 ## <a name="features"></a>기능
 
@@ -55,19 +55,19 @@ Cloud Shell은 Azure 관리 작업을 사용하여 빌드된 브라우저 기반
 
 ### <a name="choice-of-preferred-shell-experience"></a>기본 설정된 셸 환경 선택
 
-사용자는 Bash 또는 PowerShell 중에서 선택할 수 있습니다.
+사용자는 Bash 또는 PowerShell 중 하나를 선택할 수 있습니다.
 
-1. **Cloud Shell** 를 선택 합니다.
+1. **Cloud Shell** 을 선택합니다.
 
     ![Cloud Shell 아이콘](media/overview/overview-cloudshell-icon.png)
 
-2. **Bash** 또는 **PowerShell** 을 선택 합니다.
+2. **Bash** 또는 **PowerShell** 을 선택합니다.
 
-    ![Bash 또는 PowerShell 중 하나를 선택 합니다.](media/overview/overview-choices.png)
+    ![Bash 또는 PowerShell 중 하나를 선택](media/overview/overview-choices.png)
 
-    처음 시작한 후에는 shell 유형 드롭다운 컨트롤을 사용 하 여 Bash와 PowerShell 사이를 전환할 수 있습니다.
+    처음 실행한 후 셸 유형 드롭다운 컨트롤을 사용하여 Bash와 PowerShell 간에 전환할 수 있습니다.
 
-    ![Bash 또는 PowerShell을 선택 하는 드롭다운 컨트롤](media/overview/select-shell-drop-down.png)
+    ![Bash 또는 PowerShell을 선택하는 드롭다운 컨트롤](media/overview/select-shell-drop-down.png)
 
 ### <a name="authenticated-and-configured-azure-workstation"></a>인증 및 구성된 Azure 워크스테이션
 
@@ -94,12 +94,12 @@ Cloud Shell은 다음에서 사용할 수 있는 유연한 도구입니다.
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Microsoft Azure Files 스토리지 연결
 
-Cloud Shell 컴퓨터는 임시 이지만 파일은 디스크 이미지와 이라는 탑재 된 파일 공유를 통해 두 가지 방법으로 유지 `clouddrive` 됩니다. 처음 시작하면 Cloud Shell은 사용자를 대신하여 리소스 그룹, 스토리지 계정 및 Azure Files 공유를 만들라는 메시지를 표시합니다. 이는 일회성 단계이며 모든 세션에서 자동으로 연결됩니다. Azure Cloud Shell의 Bash 및 PowerShell 모두에 의해 단일 파일 공유가 매핑될 수 있으며 사용될 것입니다.
+Cloud Shell 머신은 일시적이지만 파일은 디스크 이미지를 통해, 그리고 `clouddrive`라는 탑재된 파일 공유를 통하는 두 가지 방법으로 유지됩니다. 처음 시작하면 Cloud Shell은 사용자를 대신하여 리소스 그룹, 스토리지 계정 및 Azure Files 공유를 만들라는 메시지를 표시합니다. 이는 일회성 단계이며 모든 세션에서 자동으로 연결됩니다. Azure Cloud Shell의 Bash 및 PowerShell 모두에 의해 단일 파일 공유가 매핑될 수 있으며 사용될 것입니다.
 
-자세한 내용은 [새 또는 기존 저장소 계정을](persisting-shell-storage.md) 탑재 하거나 [Cloud Shell에 사용 되는 지 속성 메커니즘](persisting-shell-storage.md#how-cloud-shell-storage-works)에 대해 알아보는 방법을 알아보세요.
+자세히 읽어보고 [신규 또는 기존 스토리지 계정](persisting-shell-storage.md)을 탑재하는 방법 또는 [Cloud Shell에서 사용되는 지속 메커니즘](persisting-shell-storage.md#how-cloud-shell-storage-works)에 대해 알아보세요.
 
 > [!NOTE]
-> Azure storage 방화벽은 cloud shell 저장소 계정에 대해 지원 되지 않습니다.
+> Cloud Shell 스토리지 계정에는 Azure Storage 방화벽이 지원되지 않습니다.
 
 ## <a name="concepts"></a>개념
 
@@ -112,6 +112,10 @@ Cloud Shell 컴퓨터는 임시 이지만 파일은 디스크 이미지와 이�
 * 사용 권한은 Bash의 일반적인 Linux 사용자로 설정됩니다.
 
 [Azure Cloud Shell의 Bash](features.md)와 [Azure Cloud Shell의 PowerShell](./features.md)에 들어 있는 기능에 대해 자세히 알아 보세요.
+
+## <a name="complaince"></a>준수
+### <a name="encryption-at-rest"></a>미사용 암호화
+모든 Cloud Shell 인프라는 기본적으로 미사용 이중 암호화를 준수합니다. 사용자가 수행할 작업은 없습니다.
 
 ## <a name="pricing"></a>가격 책정
 

@@ -5,13 +5,13 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 02/08/2021
-ms.openlocfilehash: 60ac56cfda026871afa1725bbd54625b7ce7585e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/09/2021
+ms.openlocfilehash: bb820be289aa2ddcec2183094e819083dde8c1d8
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789198"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902790"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기
 Azure 활동 로그 및 리소스 로그를 포함한 Azure의 [플랫폼 로그](./platform-logs-overview.md)에서 Azure 리소스 및 이에 따른 Azure 플랫폼에 대한 자세한 진단 및 감사 정보를 제공합니다. [플랫폼 메트릭](./data-platform-metrics.md)은 기본적으로 수집되며 일반적으로 Azure 모니터 메트릭 데이터베이스에 저장됩니다. 이 문서에서는 플랫폼 메트릭 및 플랫폼 로그를 다른 대상으로 보내기 위한 진단 설정을 만들고 구성하는 방법에 대한 세부 정보를 제공합니다.
@@ -199,7 +199,7 @@ Resource Manager 템플릿을 사용하여 진단 설정을 만들거나 업데�
 ## <a name="create-using-azure-policy"></a>Azure Policy를 사용하여 만들기
 진단 설정은 각 Azure 리소스에 대해 만들어야 하며, 각 리소스를 만들 때마다 진단 설정을 자동으로 만드는 데 Azure Policy를 사용할 수 있습니다. 자세한 내용은 [Azure Policy를 사용하여 대규모로 Azure Monitor 배포](../deploy-scale.md)를 참조하세요.
 
-## <a name="metric-category-is-not-supported-error"></a>메트릭 범주 지원되지 않음 오류
+## <a name="error-metric-category-is-not-supported"></a>오류: 메트릭 범주가 지원되지 않음
 진단 설정을 배포할 때 다음과 같은 오류 메시지가 표시됩니다.
 
    "메트릭 범주 '*xxxx*' 지원되지 않음"
@@ -216,7 +216,9 @@ Resource Manager 템플릿, 진단 설정 REST API, Azure CLI 또는 Azure Power
 
 이 오류가 발생하면 모든 메트릭 범주 이름을 'AllMetrics'로 바꿔 배포를 업데이트하여 문제를 해결합니다. 배포가 이전에 여러 범주를 추가한 경우에는 'AllMetrics' 참조를 포함하는 단 하나만 유지해야 합니다. 문제가 계속되면 Azure Portal을 통해 Azure 지원에 문의하세요. 
 
+## <a name="error-setting-disappears-due-to-non-ascii-characters-in-resourceid"></a>오류: resourceID의 비 ASCII 문자로 인해 설정이 사라짐
 
+진단 설정은 비 ASCII 문자(예: Preproducción)가 포함된 Resourceid를 지원하지 않습니다. Azure에서 리소스의 이름을 바꿀 수 없으므로 유일한 방법은 비 ASCII 문자 없이 새 리소스를 만드는 것입니다. 문자가 리소스 그룹에 있는 경우 그 아래에 있는 리소스를 새 리소스로 이동할 수 있습니다. 이동하지 않으면 리소스를 다시 만들어야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

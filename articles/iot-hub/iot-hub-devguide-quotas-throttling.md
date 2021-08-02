@@ -1,22 +1,23 @@
 ---
-title: Azure IoT Hub 할당량 및 제한 이해 | Microsoft 문서
+title: Azure IoT Hub 할당량 및 제한 이해
 description: 개발자 가이드 - IoT Hub에 적용할 할당량 및 예상되는 제한 동작을 설명합니다.
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 04/05/2021
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 4b65d42522f40eb7d0e65356223313a924de3039
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+- contperf-fy21q4
+ms.openlocfilehash: 127e511769a7c2aface1531c9f888e9ce213b999
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104656994"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111407024"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
@@ -29,10 +30,6 @@ ms.locfileid: "104656994"
 각 IoT 허브는 특정 계층에서 특정한 단위 수로 프로비전됩니다. 계층과 단위 수는 보낼 수 있는 메시지의 최대 일일 할당량을 결정합니다. 일일 할당량을 계산하는 데 사용되는 메시지 크기는 무료 계층 허브의 경우 0.5KB이며 기타 모든 계층의 경우 4KB입니다. 자세한 내용은 [Azure IoT Hub 가격](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조하세요.
 
 또한 계층은 IoT Hub가 모든 작업에 강제로 적용하는 조정 제한을 결정합니다.
-
-## <a name="iot-plug-and-play"></a>IoT Plug and Play
-
-IoT 플러그 앤 플레이 디바이스는 루트를 포함하여 인터페이스별로 하나 이상의 원격 분석 메시지를 전송하며 이로 인해 메시지 할당량에 집계되는 메시지 수가 증가할 수 있습니다.
 
 ## <a name="operation-throttles"></a>작업 제한
 
@@ -79,7 +76,7 @@ IoT 플러그 앤 플레이 디바이스는 루트를 포함하여 인터페이�
 
 ### <a name="traffic-shaping"></a>트래픽 셰이핑
 
-버스트 트래픽을 수용하기 위해 IoT Hub는 제한된 시간 동안 제한을 초과하는 요청을 수락합니다. 이러한 요청 중 처음 몇 개는 즉시 처리됩니다. 그러나 요청 수가 계속해서 제한을 위반하는 경우 IoT Hub는 요청을 큐에 배치하고 제한 속도로 처리하기 시작합니다. 이러한 효과를 ‘트래픽 셰이핑’이라고 합니다. 또한 이 큐의 크기가 제한됩니다. 제한 위반이 계속되면 결국 큐가 가득 차게 되고 IoT Hub는 `429 ThrottlingException`을 사용해 요청을 거부하기 시작합니다.
+버스트 트래픽을 수용하기 위해 IoT Hub는 제한된 시간 동안 제한을 초과하는 요청을 수락합니다. 이러한 요청 중 처음 몇 개는 즉시 처리됩니다. 그러나 요청 수가 계속해서 제한을 위반하는 경우 IoT Hub는 요청을 큐에 배치하기 시작하며 요청은 제한 속도로 처리됩니다. 이러한 효과를 ‘트래픽 셰이핑’이라고 합니다. 또한 이 큐의 크기가 제한됩니다. 제한 위반이 계속되면 결국 큐가 가득 차게 되고 IoT Hub는 `429 ThrottlingException`을 사용해 요청을 거부하기 시작합니다.
 
 예를 들어 시뮬레이션된 디바이스를 사용하여 초당 200개의 디바이스-클라우드 메시지를 S1 IoT Hub(100/초 D2C 전송 제한이 있음)로 전송한다고 가정해 보겠습니다. 처음 1~2분 동안에는 메시지가 즉시 처리됩니다. 그러나 디바이스가 계속해서 조정 제한보다 많은 메시지를 보내기 때문에 IoT Hub는 초당 100개 메시지만 처리하고 나머지는 큐에 배치합니다. 대기 시간이 증가하는 것이 감지되기 시작합니다. 결과적으로 큐가 가득 차게 되면서 `429 ThrottlingException`이 나타나고 [“제한 오류 수” IoT Hub 메트릭](monitor-iot-hub-reference.md#device-telemetry-metrics)이 증가하기 시작합니다. 메트릭을 토대로 경고 및 차트를 만드는 방법을 알아보려면 [IoT Hub 모니터링](monitor-iot-hub.md)을 참조하세요.
 
@@ -87,7 +84,7 @@ IoT 플러그 앤 플레이 디바이스는 루트를 포함하여 인터페이�
 
 디바이스 ID 레지스트리 작업은 디바이스 관리 및 프로비저닝 시나리오에서 런타임에 사용하기 위한 것입니다. 많은 수의 디바이스 ID 읽기 또는 업데이트는 [가져오기 및 내보내기 작업](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)을 통해 지원됩니다.
 
-[대량 레지스트리 업데이트 작업](https://docs.microsoft.com/rest/api/iothub/service/bulkregistry/updateregistry)(대량 가져오기 및 내보내기 작업 ‘아님’)을 통해 ID 작업을 시작하는 경우 동일한 제한이 적용됩니다. 예를 들어 디바이스 50개를 만들기 위해 대량 작업을 제출하려 하고 단위가 1개인 S1 IoT Hub가 있는 경우 이러한 대량 요청 중 2개만 1분마다 수락됩니다. 이는 단위가 1개인 S1 IoT Hub에 대한 ID 작업 제한은 100/분/단위이기 때문입니다. 또한 이 경우에는 이미 제한에 도달했으므로 동일한 분에 속하는 세 번째 요청(및 이후의 요청)이 거부됩니다. 
+[대량 레지스트리 업데이트 작업](/rest/api/iothub/service/bulkregistry/updateregistry)(대량 가져오기 및 내보내기 작업 ‘아님’)을 통해 ID 작업을 시작하는 경우 동일한 제한이 적용됩니다. 예를 들어 디바이스 50개를 만들기 위해 대량 작업을 제출하려 하고 단위가 1개인 S1 IoT Hub가 있는 경우 이러한 대량 요청 중 2개만 1분마다 수락됩니다. 이는 단위가 1개인 S1 IoT Hub에 대한 ID 작업 제한은 100/분/단위이기 때문입니다. 또한 이 경우에는 이미 제한에 도달했으므로 동일한 분에 속하는 세 번째 요청(및 이후의 요청)이 거부됩니다. 
 
 ### <a name="device-connections-throttle"></a>디바이스 연결 제한
 

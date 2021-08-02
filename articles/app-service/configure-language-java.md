@@ -11,18 +11,52 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: cc532c5ac6babb8378860ac5049e931cc7657932
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a42db5b6787f56f981ea1afa34958fecf6b2f9fc
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629260"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477017"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Azure App Service용 Java 앱 구성
 
 Azure App Service는 Java 개발자가 완전 관리형 서비스에 Java SE, Tomcat 및 JBoss EAP 웹 애플리케이션을 신속하게 구축하고, 배포하고, 규모를 조정할 수 있게 도와줍니다. 명령줄에서 또는 IntelliJ, Eclipse 또는 Visual Studio Code와 같은 편집기에서 Maven 플러그 인을 사용하여 애플리케이션을 배포합니다.
 
 이 가이드에서는 App Service를 사용하는 Java 개발자를 위해 핵심 개념 및 지침을 제공합니다. Azure App Service를 사용한 경험이 없는 분들은 먼저 [Java 빠른 시작](quickstart-java.md)을 정독해야 합니다. Java 개발에 국한되지 않는 App Service 사용에 대한 일반적인 질문의 답은 [App Service FAQ](faq-configuration-and-management.md)에서 찾을 수 있습니다.
+
+## <a name="show-java-version"></a>Java 버전 표시
+
+::: zone pivot="platform-windows"  
+
+현재 Java 버전을 표시하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행합니다.
+
+```azurecli-interactive
+az webapp config show --name <app-name> --resource-group <resource-group-name> --query "[javaVersion, javaContainer, javaContainerVersion]"
+```
+
+지원되는 Java 버전을 모두 표시하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행합니다.
+
+```azurecli-interactive
+az webapp list-runtimes | grep java
+```
+
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+현재 Java 버전을 표시하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행합니다.
+
+```azurecli-interactive
+az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
+```
+
+지원되는 Java 버전을 모두 표시하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행합니다.
+
+```azurecli-interactive
+az webapp list-runtimes --linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
+```
+
+::: zone-end
 
 ## <a name="deploying-your-app"></a>앱 배포
 
@@ -32,7 +66,10 @@ Azure App Service는 Java 개발자가 완전 관리형 서비스에 Java SE, To
 
 ### <a name="java-se"></a>Java SE
 
-Java SE에 .jar 파일을 배포하려면 Kudu 사이트의 `/api/zipdeploy/` 엔드포인트를 사용합니다. 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#rest)를 참조하세요.
+Java SE에 .jar 파일을 배포하려면 Kudu 사이트의 `/api/zipdeploy/` 엔드포인트를 사용합니다. 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#rest)를 참조하세요. 
+
+> [!NOTE]
+>  .jar 애플리케이션의 이름을 App Service에서 `app.jar`로 정해야 애플리케이션을 식별하고 실행할 수 있습니다. 위에서 언급한 Maven 플러그인은 배포 중에 애플리케이션의 이름을 자동으로 바꿉니다. JAR 이름을 *app.jar* 로 변경하고 싶지 않은 경우에는 .jar 앱을 실행하는 명령이 포함된 셸 스크립트를 업로드하면 됩니다. 그런 다음, Portal의 구성 섹션에 있는 [시작 파일](faq-app-service-linux.md#built-in-images) 텍스트 상자에 이 스크립트의 절대 경로를 붙여넣습니다. 시작 스크립트는 배치된 디렉터리에서 실행되지 않습니다. 따라서 항상 절대 경로를 사용하여 시작 스크립트의 파일을 참조해야 합니다(예: `java -jar /home/myapp/myapp.jar`).
 
 ### <a name="tomcat"></a>Tomcat
 
@@ -44,7 +81,7 @@ Java SE에 .jar 파일을 배포하려면 Kudu 사이트의 `/api/zipdeploy/` �
 
 JBoss에 .war 파일을 배포하려면 `/api/wardeploy/` 엔드포인트를 사용하여 보관 파일을 게시합니다. 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#deploy-war-file)를 참조하세요.
 
-.ear 파일을 배포하려면 [FTP를 사용합니다](deploy-ftp.md).
+.ear 파일을 배포하려면 [FTP를 사용합니다](deploy-ftp.md). .ear 애플리케이션은 애플리케이션의 구성에 정의된 컨텍스트 루트에 배포됩니다. 예를 들어 앱의 컨텍스트 루트가 `<context-root>myapp</context-root>`인 경우, `/myapp` 경로에서 사이트를 찾아 볼 수 있습니다. `http://my-app-name.azurewebsites.net/myapp` 웹앱을 루트 경로에 제공하려면 앱이 컨텍스트 루트를 루트 경로로 설정했는지 확인합니다. `<context-root>/</context-root>` 자세한 정보는 [웹 애플리케이션의 컨텍스트 루트 설정](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html)을 참조하세요.
 
 ::: zone-end
 
@@ -141,18 +178,18 @@ jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
 
 ::: zone pivot="platform-windows"
 
-Azure Portal 또는 [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config)를 통해 [애플리케이션 로깅](troubleshoot-diagnostic-logs.md#enable-application-logging-windows)을 사용하도록 설정하여 애플리케이션의 표준 콘솔 출력 및 표준 콘솔 오류 스트림을 로컬 파일 시스템 또는 Azure Blob Storage에 쓰도록 App Service를 구성할 수 있습니다. 로컬 App Service 파일 시스템 인스턴스에 로깅하는 동작은 구성된 지 12시간 후에 비활성화 됩니다. 더 긴 시간 동안 보존하기를 원하는 경우 Blob Storage 컨테이너에 출력을 쓰도록 애플리케이션을 구성합니다. Java 및 Tomcat 앱 로그는 */home/LogFiles/Application/* 디렉터리에서 찾을 수 있습니다.
+Azure Portal 또는 [Azure CLI](/cli/azure/webapp/log#az_webapp_log_config)를 통해 [애플리케이션 로깅](troubleshoot-diagnostic-logs.md#enable-application-logging-windows)을 사용하도록 설정하여 애플리케이션의 표준 콘솔 출력 및 표준 콘솔 오류 스트림을 로컬 파일 시스템 또는 Azure Blob Storage에 쓰도록 App Service를 구성할 수 있습니다. 로컬 App Service 파일 시스템 인스턴스에 로깅하는 동작은 구성된 지 12시간 후에 비활성화 됩니다. 더 긴 시간 동안 보존하기를 원하는 경우 Blob Storage 컨테이너에 출력을 쓰도록 애플리케이션을 구성합니다. Java 및 Tomcat 앱 로그는 */home/LogFiles/Application/* 디렉터리에서 찾을 수 있습니다.
 
 ::: zone-end
 ::: zone pivot="platform-linux"
 
-Azure Portal 또는 [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config)를 통해 [애플리케이션 로깅](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer)을 사용하도록 설정하여 애플리케이션의 표준 콘솔 출력 및 표준 콘솔 오류 스트림을 로컬 파일 시스템 또는 Azure Blob Storage에 쓰도록 App Service를 구성할 수 있습니다. 더 긴 시간 동안 보존하기를 원하는 경우 Blob Storage 컨테이너에 출력을 쓰도록 애플리케이션을 구성합니다. Java 및 Tomcat 앱 로그는 */home/LogFiles/Application/* 디렉터리에서 찾을 수 있습니다.
+Azure Portal 또는 [Azure CLI](/cli/azure/webapp/log#az_webapp_log_config)를 통해 [애플리케이션 로깅](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer)을 사용하도록 설정하여 애플리케이션의 표준 콘솔 출력 및 표준 콘솔 오류 스트림을 로컬 파일 시스템 또는 Azure Blob Storage에 쓰도록 App Service를 구성할 수 있습니다. 더 긴 시간 동안 보존하기를 원하는 경우 Blob Storage 컨테이너에 출력을 쓰도록 애플리케이션을 구성합니다. Java 및 Tomcat 앱 로그는 */home/LogFiles/Application/* 디렉터리에서 찾을 수 있습니다.
 
 Linux 기반 App Services에 대한 Azure Blob Storage 로깅은 [Azure Monitor(미리 보기)](./troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview)를 사용해서만 구성할 수 있습니다. 
 
 ::: zone-end
 
-애플리케이션에서 [Logback](https://logback.qos.ch/) 또는 [Log4j](https://logging.apache.org/log4j)를 추적에 사용하는 경우 [Application Insights에서 Java 추적 로그 탐색](../azure-monitor/app/java-trace-logs.md)의 로깅 프레임워크 구성 지침에 따라 이러한 추적 로그를 Azure Application Insights로 전송하여 검토할 수 있습니다.
+애플리케이션에서 [Logback](https://logback.qos.ch/) 또는 [Log4j](https://logging.apache.org/log4j)를 추적에 사용하는 경우 [Application Insights에서 Java 추적 로그 탐색](../azure-monitor/app/java-2x-trace-logs.md)의 로깅 프레임워크 구성 지침에 따라 이러한 추적 로그를 Azure Application Insights로 전송하여 검토할 수 있습니다.
 
 ## <a name="customization-and-tuning"></a>사용자 지정 및 튜닝
 
@@ -324,7 +361,54 @@ App Service에 [SSH 연결을 열고](configure-linux-open-ssh-session.md) `keyt
 
 ## <a name="configure-apm-platforms"></a>APM 플랫폼 구성
 
-이 섹션에서는 NewRelic 및 AppDynamics APM(애플리케이션 성능 모니터링) 플랫폼을 사용하여 Linux의 Azure App Service에 배포된 Java 애플리케이션을 연결하는 방법을 보여 줍니다.
+이 섹션에서는 Azure Monitor Application Insights, NewRelic, AppDynamics 애플리케이션 성능 모니터링(APM) 플랫폼을 사용하여 Linux의 Azure App Service에 배포된 Java 애플리케이션을 연결하는 방법을 설명합니다.
+
+### <a name="configure-application-insights"></a>Application Insights 구성
+
+Azure Monitor Application Insights는 고객이 실패, 병목 현상 및 사용 패턴을 관찰하여 애플리케이션 성능을 개선하고 MTTR (평균 해결 시간)을 줄일 수 있는 클라우드 네이티브 애플리케이션 모니터링 서비스입니다. 몇 번의 클릭 또는 CLI 명령을 통해 Node.js 또는 Java 앱에 대한 모니터링을 사용하도록 설정하고 로그, 메트릭 및 분산 추적을 자동으로 수집할 수 있어 앱에 SDK를 포함할 필요가 없습니다.
+
+#### <a name="azure-portal"></a>Azure Portal
+
+Azure Portal에서 Application Insights를 사용하도록 설정하려면 왼쪽 메뉴의 **Application Insights** 로 이동하여 **Application Insights 활성화** 를 선택합니다. 기본값으로 웹앱과 동일한 이름의 새로운 Application Insights 리소스가 사용됩니다. 기존 Application Insights 리소스를 사용하거나 이름을 변경할 수 있습니다. 아래쪽에서 **적용** 을 클릭합니다
+
+#### <a name="azure-cli"></a>Azure CLI
+
+Azure CLI 통해 사용하도록 설정하려면 Application Insights 리소스를 만들고 포털에서 몇 가지 앱 설정을 지정하여 웹앱에 Application Insights를 연결해야 합니다.
+
+1. Application Insights 확장 사용
+
+    ```bash
+    az extension add -n application-insights
+    ```
+
+2. 아래 CLI 명령을 사용해 Application Insights 리소스를 만듭니다. 자리 표시자를 원하는 리소스 이름 및 그룹으로 바꿉니다.
+
+    ```bash
+    az monitor app-insights component create --app <resource-name> -g <resource-group> --location westus2  --kind web --application-type web
+    ```
+
+    다음 단계에서 `connectionString` 및 `instrumentationKey` 값이 필요하므로 이 값을 메모해두십시오.
+
+    > 기타 위치의 목록을 검색하려면 `az account list-locations`을 실행하십시오.
+
+::: zone pivot="platform-windows"
+    
+3. 계측 키, 연결 문자열 및 모니터링 에이전트 버전을 웹앱의 앱 설정으로 설정합니다. `<instrumentationKey>` 및 `<connectionString>`를 이전 단계의 값으로 바꿉니다.
+
+    ```bash
+    az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default" "XDT_MicrosoftApplicationInsights_Java=1"
+    ```
+
+::: zone-end
+::: zone pivot="platform-linux"
+    
+3. 계측 키, 연결 문자열 및 모니터링 에이전트 버전을 웹앱의 앱 설정으로 설정합니다. `<instrumentationKey>` 및 `<connectionString>`를 이전 단계의 값으로 바꿉니다.
+
+    ```bash
+    az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default"
+    ```
+
+::: zone-end
 
 ### <a name="configure-new-relic"></a>New Relic 구성
 
@@ -461,6 +545,236 @@ JDBC(Java Database Connectivity) 또는 JPA(Java Persistence API)를 사용하�
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
     ```
+
+#### <a name="shared-server-level-resources"></a>공유 서버 수준 리소스
+
+Windows의 App Service에 설치된 Tomcat은 App Service 플랜의 공유 공간에 존재합니다. 서버 차원의 구성에 대해서는 Tomcat 설치를 직접 수정할 수 없습니다. Tomcat 설치에 대한 서버 수준 구성을 변경하려면 Tomcat를 로컬 폴더에 복사해야 합니다. 여기에서 Tomcat의 구성을 수정할 수 있습니다. 
+
+##### <a name="automate-creating-custom-tomcat-on-app-start"></a>앱 시작 시 사용자 지정 Tomcat 만들기 자동화
+
+웹앱이 시작되기 전에 시작 스크립트를 사용하여 작업을 수행할 수 있습니다. Tomcat를 사용자 지정하기 위한 시작 스크립트는 다음 단계를 완료해야 합니다.
+
+1. Tomcat이 이미 복사되고 로컬로 구성되었는지 확인합니다. 그런 경우 시작 스크립트가 여기에서 끝날 수 있습니다.
+2. Tomcat을 로컬로 복사합니다.
+3. 필요한 구성 변경을 수행합니다.
+4. 구성이 성공적으로 완료되었음을 표시합니다.
+
+다음은 이러한 단계를 완료하는 PowerShell 스크립트입니다.
+
+```powershell
+    # Check for marker file indicating that config has already been done
+    if(Test-Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker"){
+        return 0
+    }
+
+    # Delete previous Tomcat directory if it exists
+    # In case previous config could not be completed or a new config should be forcefully installed
+    if(Test-Path "$Env:LOCAL_EXPANDED\tomcat"){
+        Remove-Item "$Env:LOCAL_EXPANDED\tomcat" --recurse
+    }
+
+    # Copy Tomcat to local
+    # Using the environment variable $AZURE_TOMCAT90_HOME uses the 'default' version of Tomcat
+    Copy-Item -Path "$Env:AZURE_TOMCAT90_HOME\*" -Destination "$Env:LOCAL_EXPANDED\tomcat" -Recurse
+
+    # Perform the required customization of Tomcat
+    {... customization ...}
+
+    # Mark that the operation was a success
+    New-Item -Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
+```
+
+##### <a name="transforms"></a>변형
+
+Tomcat 버전을 사용자 지정하는 일반적인 사용 사례는 `server.xml`, `context.xml`, 또는 `web.xml` Tomcat 구성 파일을 수정하는 경우입니다. App Service는 플랫폼 기능을 제공하기 위해 이러한 파일을 이미 수정합니다. 이러한 기능을 계속 사용하려면 해당 파일을 변경할 때 이러한 파일의 내용을 유지하는 것이 중요합니다. 이를 위해서는 [XSLT (XSL 변환)](https://www.w3schools.com/xml/xsl_intro.asp)를 사용하는 것을 권합니다. XSL 변환을 사용하여 파일의 기존 콘텐츠를 유지하면서 XML 파일을 변경할 수 있습니다.
+
+###### <a name="example-xslt-file"></a>XSLT 파일 예제
+
+이 예제 변환은 새 커넥터 노드를 `server.xml`에 추가합니다. 파일의 기존 콘텐츠를 유지하는 *ID 변환* 을 메모하십시오.
+
+```xml
+    <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="xml" indent="yes"/>
+  
+    <!-- Identity transform: this ensures that the original contents of the file are included in the new file -->
+    <!-- Ensure that your transform files include this block -->
+    <xsl:template match="@* | node()" name="Copy">
+      <xsl:copy>
+        <xsl:apply-templates select="@* | node()"/>
+      </xsl:copy>
+    </xsl:template>
+  
+    <xsl:template match="@* | node()" mode="insertConnector">
+      <xsl:call-template name="Copy" />
+    </xsl:template>
+  
+    <xsl:template match="comment()[not(../Connector[@scheme = 'https']) and
+                                   contains(., '&lt;Connector') and
+                                   (contains(., 'scheme=&quot;https&quot;') or
+                                    contains(., &quot;scheme='https'&quot;))]">
+      <xsl:value-of select="." disable-output-escaping="yes" />
+    </xsl:template>
+  
+    <xsl:template match="Service[not(Connector[@scheme = 'https'] or
+                                     comment()[contains(., '&lt;Connector') and
+                                               (contains(., 'scheme=&quot;https&quot;') or
+                                                contains(., &quot;scheme='https'&quot;))]
+                                    )]
+                        ">
+      <xsl:copy>
+        <xsl:apply-templates select="@* | node()" mode="insertConnector" />
+      </xsl:copy>
+    </xsl:template>
+  
+    <!-- Add the new connector after the last existing Connnector if there is one -->
+    <xsl:template match="Connector[last()]" mode="insertConnector">
+      <xsl:call-template name="Copy" />
+  
+      <xsl:call-template name="AddConnector" />
+    </xsl:template>
+  
+    <!-- ... or before the first Engine if there is no existing Connector -->
+    <xsl:template match="Engine[1][not(preceding-sibling::Connector)]"
+                  mode="insertConnector">
+      <xsl:call-template name="AddConnector" />
+  
+      <xsl:call-template name="Copy" />
+    </xsl:template>
+  
+    <xsl:template name="AddConnector">
+      <!-- Add new line -->
+      <xsl:text>&#xa;</xsl:text>
+      <!-- This is the new connector -->
+      <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true" 
+                 maxThreads="150" scheme="https" secure="true" 
+                 keystroreFile="${{user.home}}/.keystore" keystorePass="changeit"
+                 clientAuth="false" sslProtocol="TLS" />
+    </xsl:template>
+
+    </xsl:stylesheet>
+```
+
+###### <a name="function-for-xsl-transform"></a>XSL 변환에 대한 함수
+
+PowerShell에는 XSL 변환을 사용하여 XML 파일을 변환하는 기본 제공 도구가 있습니다. 다음 스크립트는 `startup.ps1`에서 변환을 수행하는 데 사용할 수 있는 예제 함수입니다.
+
+```powershell
+    function TransformXML{
+        param ($xml, $xsl, $output)
+
+        if (-not $xml -or -not $xsl -or -not $output)
+        {
+            return 0
+        }
+
+        Try
+        {
+            $xslt_settings = New-Object System.Xml.Xsl.XsltSettings;
+            $XmlUrlResolver = New-Object System.Xml.XmlUrlResolver;
+            $xslt_settings.EnableScript = 1;
+
+            $xslt = New-Object System.Xml.Xsl.XslCompiledTransform;
+            $xslt.Load($xsl,$xslt_settings,$XmlUrlResolver);
+            $xslt.Transform($xml, $output);
+
+        }
+
+        Catch
+        {
+            $ErrorMessage = $_.Exception.Message
+            $FailedItem = $_.Exception.ItemName
+            Write-Host  'Error'$ErrorMessage':'$FailedItem':' $_.Exception;
+            return 0
+        }
+        return 1
+    }
+```
+
+##### <a name="app-settings"></a>앱 설정
+
+플랫폼은 사용자 지정 버전의 Tomcat이 설치된 위치를 알고 있어야 합니다. 설치 위치를 `CATALINA_BASE` 앱 설정에서 지정할 수 있습니다.
+
+이 설정 변경을 위해 Azure CLI를 사용할 수도 있습니다.
+
+```powershell
+    az webapp config appsettings set -g $MyResourceGroup -n $MyUniqueApp --settings CATALINA_BASE="%LOCAL_EXPANDED%\tomcat"
+```
+
+또는 Azure Portal에서 설정을 수동으로 변경할 수도 있습니다.
+
+1. 메뉴에서 **설정** > **구성** > **애플리케이션 설정** 으로 이동합니다.
+1. 메뉴에서 **새로운 애플리케이션 설정** 을 선택합니다.
+1. 다음 값을 사용하여 설정을 만듭니다.
+   1. **이름**: `CATALINA_BASE`
+   1. **값**: `"%LOCAL_EXPANDED%\tomcat"`
+
+##### <a name="example-startupps1"></a>예제 startup.ps1
+
+다음 예제 스크립트는 사용자 지정 Tomcat을 로컬 폴더에 복사하고, XSL 변환을 수행하며, 변환이 성공했음을 표시합니다.
+
+```powershell
+    # Locations of xml and xsl files
+    $target_xml="$Env:LOCAL_EXPANDED\tomcat\conf\server.xml"
+    $target_xsl="$Env:HOME\site\server.xsl"
+    
+    # Define the transform function
+    # Useful if transforming multiple files
+    function TransformXML{
+        param ($xml, $xsl, $output)
+    
+        if (-not $xml -or -not $xsl -or -not $output)
+        {
+            return 0
+        }
+    
+        Try
+        {
+            $xslt_settings = New-Object System.Xml.Xsl.XsltSettings;
+            $XmlUrlResolver = New-Object System.Xml.XmlUrlResolver;
+            $xslt_settings.EnableScript = 1;
+    
+            $xslt = New-Object System.Xml.Xsl.XslCompiledTransform;
+            $xslt.Load($xsl,$xslt_settings,$XmlUrlResolver);
+            $xslt.Transform($xml, $output);
+        }
+    
+        Catch
+        {
+            $ErrorMessage = $_.Exception.Message
+            $FailedItem = $_.Exception.ItemName
+            echo  'Error'$ErrorMessage':'$FailedItem':' $_.Exception;
+            return 0
+        }
+        return 1
+    }
+    
+    $success = TransformXML -xml $target_xml -xsl $target_xsl -output $target_xml
+    
+    # Check for marker file indicating that config has already been done
+    if(Test-Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker"){
+        return 0
+    }
+    
+    # Delete previous Tomcat directory if it exists
+    # In case previous config could not be completed or a new config should be forcefully installed
+    if(Test-Path "$Env:LOCAL_EXPANDED\tomcat"){
+        Remove-Item "$Env:LOCAL_EXPANDED\tomcat" --recurse
+    }
+    
+    md -Path "$Env:LOCAL_EXPANDED\tomcat"
+    
+    # Copy Tomcat to local
+    # Using the environment variable $AZURE_TOMCAT90_HOME uses the 'default' version of Tomcat
+    Copy-Item -Path "$Env:AZURE_TOMCAT90_HOME\*" "$Env:LOCAL_EXPANDED\tomcat" -Recurse
+    
+    # Perform the required customization of Tomcat
+    $success = TransformXML -xml $target_xml -xsl $target_xsl -output $target_xml
+    
+    # Mark that the operation was a success if successful
+    if($success){
+        New-Item -Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
+    }
+```
 
 #### <a name="finalize-configuration"></a>구성 완료
 
@@ -689,13 +1003,18 @@ xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /
 
 ## <a name="choosing-a-java-runtime-version"></a>Java 런타임 버전 선택
 
-App Service를 통해 사용자는 JVM의 주 버전(예: Java 8 또는 Java 11) 및 부 버전(예: 1.8.0_232 또는 11.0.5)을 선택할 수 있습니다. 새 부 버전을 사용할 수 있게 되면 부 버전이 자동으로 업데이트되도록 선택할 수도 있습니다. 대부분의 경우 프로덕션 사이트는 고정된 부 JVM 버전을 사용해야 합니다. 이렇게 하면 부 버전 자동 업데이트 중에 발생하는 중단이 발생하지 않습니다.
+App Service를 통해 사용자는 JVM의 주 버전(예: Java 8 또는 Java 11) 및 부 버전(예: 1.8.0_232 또는 11.0.5)을 선택할 수 있습니다. 새 부 버전을 사용할 수 있게 되면 부 버전이 자동으로 업데이트되도록 선택할 수도 있습니다. 대부분의 경우 프로덕션 사이트는 고정된 부 JVM 버전을 사용해야 합니다. 이렇게 하면 부 버전 자동 업데이트 중에 발생하는 중단이 발생하지 않습니다. 모든 Java Wep Apps는 64비트 JVM을 사용하며 이는 구성이 불가능합니다.
 
 부 버전을 고정하도록 선택하는 경우 사이트에서 JVM 부 버전을 주기적으로 업데이트해야 합니다. 최신 부 버전에서 애플리케이션을 실행하려면 스테이징 슬롯을 만들고 준스테이징 사이트에서 부 버전을 증가시킵니다. 새 부 버전에서 애플리케이션이 올바르게 실행되었는지 확인한 후에는 스테이징 및 프로덕션 슬롯을 교환할 수 있습니다.
 
-## <a name="jboss-eap-hardware-options"></a>JBoss EAP 하드웨어 옵션
+::: zone pivot="platform-linux"
 
-JBoss EAP는 프리미엄 및 격리된 하드웨어 옵션에서만 사용할 수 있습니다. 공개 미리 보기 중 제공되는 무료, 공유, 기본 또는 표준 계층에서 JBoss EAP 사이트를 만든 고객은 예기치 않은 동작을 방지하기 위해 프리미엄 또는 격리된 하드웨어 계층으로 확장해야 합니다.
+## <a name="jboss-eap-app-service-plans"></a>JBoss EAP App Service 플랜
+<a id="jboss-eap-hardware-options"></a>
+
+JBoss EAP는 프리미엄 v3 및 격리 v2 App Service 플랜 유형에서만 사용할 수 있습니다. 공개 미리 보기 중 제공되는 무료, 공유, 기본 또는 표준 계층에서 JBoss EAP 사이트를 만든 고객은 예기치 않은 동작을 방지하기 위해 프리미엄 또는 격리된 하드웨어 계층으로 확장해야 합니다.
+
+::: zone-end
 
 ## <a name="java-runtime-statement-of-support"></a>Java 런타임 문 지원
 

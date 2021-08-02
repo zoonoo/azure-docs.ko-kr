@@ -1,7 +1,7 @@
 ---
-title: 관리 id를 사용 하 여 저장소 계정에 대 한 연결 설정
+title: 관리 ID를 사용하여 스토리지 계정에 대한 연결 설정
 titleSuffix: Azure Cognitive Search
-description: 관리 id를 사용 하 여 Azure Storage 계정에 인덱서 연결을 설정 하는 방법을 알아봅니다.
+description: 관리 ID를 사용하여 Azure Storage 계정에 인덱서 연결을 설정하는 방법 알아보기
 manager: luisca
 author: markheff
 ms.author: maheff
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: f26ca04955dfa854a8ee17b7aa255a6ed991b8df
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 91ca017bf94f2c9a75a8016fb861cc085dc47ebe
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94358374"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556967"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>관리 ID를 사용하여 Azure Storage 계정에 대한 연결 설정
 
@@ -30,7 +30,7 @@ ms.locfileid: "94358374"
 
 ### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - 시스템 할당 관리 ID 켜기
 
-시스템 할당 관리 ID 사용이 설정되면 Azure는 동일한 테넌트 및 구독 내에서 다른 Azure 서비스에 인증하는 데 사용할 수 있는 검색 서비스 ID를 만듭니다. 그런 다음 인덱싱 중 데이터에 액세스할 수 있도록 하는 azure RBAC (역할 기반 액세스 제어) 할당에서이 id를 사용할 수 있습니다.
+시스템 할당 관리 ID 사용이 설정되면 Azure는 동일한 테넌트 및 구독 내에서 다른 Azure 서비스에 인증하는 데 사용할 수 있는 검색 서비스 ID를 만듭니다. 그런 다음, 인덱싱 중에 데이터 액세스를 허용하는 Azure RBAC(Azure 역할 기반 액세스 제어) 할당에서 이 ID를 사용할 수 있습니다.
 
 ![시스템 할당 관리 ID 켜기](./media/search-managed-identities/turn-on-system-assigned-identity.png "시스템 할당 관리 ID 켜기")
 
@@ -49,23 +49,23 @@ ms.locfileid: "94358374"
     ![역할 할당 추가](./media/search-managed-identities/add-role-assignment-storage.png "역할 할당 추가")
 
 4. 인덱싱할 스토리지 계정 유형에 따라 적절한 역할을 선택합니다.
-    1. Azure Blob storage를 사용 하려면 **저장소 Blob 데이터 판독기** 역할에 검색 서비스를 추가 해야 합니다.
-    1. Azure Data Lake Storage Gen2 하려면 **저장소 Blob 데이터 판독기** 역할에 검색 서비스를 추가 해야 합니다.
-    1. Azure 테이블 저장소를 사용 하려면 검색 서비스를 **판독기 및 데이터 액세스** 역할에 추가 해야 합니다.
+    1. Azure Blob Storage를 사용하려면 **Storage Blob 데이터 읽기 권한자** 역할에 검색 서비스를 추가해야 합니다.
+    1. Azure Data Lake Storage Gen2를 사용하려면 **Storage Blob Data 읽기 권한자** 역할에 검색 서비스를 추가해야 합니다.
+    1. Azure Table Storage를 사용하려면 **읽기 권한자 및 데이터 액세스** 역할에 검색 서비스를 추가해야 합니다.
 5.  **액세스 할당** 을 **Azure AD 사용자, 그룹 또는 서비스 보안 주체** 로 둡니다.
 6.  검색 서비스를 검색하고 선택한 다음 **저장** 을 선택합니다.
 
-    Azure Blob storage 및 Azure Data Lake Storage Gen2에 대 한 예제:
+    Azure Blob Storage 및 Azure Data Lake Storage Gen2의 예:
 
     ![스토리지 Blob 데이터 읽기 권한자 역할 할당 추가](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "스토리지 Blob 데이터 읽기 권한자 역할 할당 추가")
 
-    Azure 테이블 저장소에 대 한 예제:
+    Azure Table Storage의 예:
 
     ![읽기 및 데이터 액세스 역할 할당 추가](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "읽기 및 데이터 액세스 역할 할당 추가")
 
 ### <a name="3---create-the-data-source"></a>3 - 데이터 원본 만들기
 
-[REST API](/rest/api/searchservice/create-data-source), Azure Portal 및 [.net SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) 는 관리 되는 id 연결 문자열을 지원 합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 되는 id 연결 문자열을 사용 하 여 저장소 계정에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법의 예입니다. 관리 되는 id 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일 합니다.
+[REST API](/rest/api/searchservice/create-data-source), Azure Portal 및 [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)는 관리 ID 연결 문자열을 지원합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 ID 연결 문자열을 사용하여 스토리지 계정에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법의 예입니다. 관리 ID 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일합니다.
 
 스토리지 계정에서 인덱싱할 때 데이터 원본에는 다음과 같은 필수 속성이 있어야 합니다.
 
@@ -144,9 +144,9 @@ Blob 인덱서에 대한 인덱서 정의 예:
 
 인덱서 일정을 정의하는 방법에 대한 자세한 내용은 [Azure Cognitive Search에 대한 인덱서 일정 지정 방법](search-howto-schedule-indexers.md)을 참조하세요.
 
-## <a name="accessing-secure-data-in-storage-accounts"></a>저장소 계정에서 보안 데이터 액세스
+## <a name="accessing-secure-data-in-storage-accounts"></a>스토리지 계정의 보안 데이터 액세스
 
-방화벽 및 가상 네트워크를 사용 하 여 Azure storage 계정을 더욱 안전 하 게 보호할 수 있습니다. Blob storage 계정 또는 방화벽이 나 가상 네트워크를 사용 하 여 보호 되는 Data Lake Gen2 저장소 계정에서 콘텐츠를 인덱싱하는 경우 [신뢰할 수 있는 서비스 예외를 통해 안전 하 게 저장소 계정의 데이터에 액세스](search-indexer-howto-access-trusted-service-exception.md)하는 방법에 대 한 지침을 따르세요.
+Azure 스토리지 계정은 방화벽 및 가상 네트워크를 사용하여 추가로 보호할 수 있습니다. 방화벽이나 가상 네트워크를 사용하여 보호되는 Blob Storage 계정 또는 Data Lake Gen2 스토리지 계정의 콘텐츠를 인덱싱하려면 [신뢰할 수 있는 서비스 예외를 통해 스토리지 계정의 데이터에 안전하게 액세스](search-indexer-howto-access-trusted-service-exception.md) 지침을 따르세요.
 
 ## <a name="see-also"></a>참고 항목
 

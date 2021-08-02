@@ -1,19 +1,19 @@
 ---
 title: Application Gateway와 백엔드 풀 간의 보안 트래픽
 titleSuffix: Azure Virtual WAN
-description: 라우팅 시나리오 - 보안 Virtual WAN 허브에 연결된 스포크 VNet에 배포되는 애플리케이션 게이트웨이를 통과하는 안전한 트래픽입니다.
+description: 애플리케이션 게이트웨이를 통해 이동하는 보안 트래픽을 대한 Virtual WAN 라우팅 시나리오에 대해 알아봅니다. 애플리케이션 게이트웨이는 보안 Virtual WAN 허브에 연결된 스포크 VNet에 배포됩니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: d9cb1251b90cf1c928f8286072bcd91e5ddf767e
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 4231ca2330fd49bcfae28c0aa844088bdbd7f50e
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107315343"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110575342"
 ---
 # <a name="scenario-secure-traffic-between-application-gateway-and-backend-pools"></a>시나리오: Application Gateway와 백엔드 풀 간의 보안 트래픽
 

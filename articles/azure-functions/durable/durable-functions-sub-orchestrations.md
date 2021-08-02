@@ -4,23 +4,23 @@ description: Azure Functions의 지속성 함수 확장에서 오케스트레이
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5625bc2ddfa4b6f527ca16f19f33d257a1834d4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b68f1235c07c5f3548dba1dbd6e46db91804fecc
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85340812"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110189433"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>지속성 함수의 하위 오케스트레이션(Azure Functions)
 
 오케스트레이터 함수는 활동 함수를 호출하는 것 외에도 다른 오케스트레이터 함수를 호출할 수 있습니다. 예를 들어 더 작은 오케스트레이터 함수 라이브러리에서 더 큰 오케스트레이션을 빌드할 수 있습니다. 또는 오케스트레이터 함수의 여러 인스턴스를 병렬로 실행할 수 있습니다.
 
-오케스트레이터 함수는 .NET에서 `CallSubOrchestratorAsync` 또는 `CallSubOrchestratorWithRetryAsync` 메서드를 사용하거나 JavaScript에서 `callSubOrchestrator` 또는 `callSubOrchestratorWithRetry` 메서드를 사용하여 다른 오케스트레이터 함수를 호출할 수 있습니다. [오류 처리 및 보정](durable-functions-error-handling.md#automatic-retry-on-failure) 문서에서는 자동 다시 시도에 대해 자세히 설명하고 있습니다.
+오케스트레이터 함수는 .NET의 `CallSubOrchestratorAsync` 또는 `CallSubOrchestratorWithRetryAsync` 메서드, JavaScript의 `callSubOrchestrator` 또는 `callSubOrchestratorWithRetry` 메서드 및 Python의 `call_sub_orchestrator` 또는 `call_sub_orchestrator_with_retry` 메서드를 사용하여 다른 오케스트레이터 함수를 호출할 수 있습니다. [오류 처리 및 보정](durable-functions-error-handling.md#automatic-retry-on-failure) 문서에서는 자동 다시 시도에 대해 자세히 설명하고 있습니다.
 
 하위 오케스트레이터 함수는 호출자의 관점에서 작업 함수처럼 작동합니다. 이러한 함수는 값을 반환하고, 예외를 throw하며, 부모 오케스트레이터 함수에서 기다릴 수 있습니다. 
 
 > [!NOTE]
-> 현재 하위 오케스트레이션은 .NET 및 JavaScript에서 지원됩니다.
+> 현재 하위 오케스트레이션은 .NET, JavaScript 및 Python에서 지원됩니다.
 
 ## <a name="example"></a>예제
 
@@ -68,9 +68,30 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    device_id = context.get_input()
+
+    # Step 1: Create an installation package in blob storage and return a SAS URL.
+    sas_url = yield context.call_activity"CreateInstallationPackage", device_id)
+
+    # Step 2: Notify the device that the installation package is ready.
+    yield context.call_activity("SendPackageUrlToDevice", { "id": device_id, "url": sas_url })
+
+    # Step 3: Wait for the device to acknowledge that it has downloaded the new package.
+    yield context.call_activity("DownloadCompletedAck")
+
+    # Step 4: ...
+```
+
 ---
 
-이 오케스트레이터 함수는 일회용 디바이스 프로비전을 위해 그대로 사용하거나 더 큰 오케스트레이션의 일부로 포함될 수 있습니다. 후자의 경우 부모 오케스트레이터 함수는 `CallSubOrchestratorAsync`(.NET) 또는 `callSubOrchestrator`(JavaScript) API를 사용하여 `DeviceProvisioningOrchestration` 인스턴스를 예약할 수 있습니다.
+이 오케스트레이터 함수는 일회용 디바이스 프로비전을 위해 그대로 사용하거나 더 큰 오케스트레이션의 일부로 포함될 수 있습니다. 후자의 경우 부모 오케스트레이터 함수는 `CallSubOrchestratorAsync`(.NET), `callSubOrchestrator`(JavaScript) 또는 `call_sub_orchestrator`(Python) API를 사용하여 `DeviceProvisioningOrchestration` 인스턴스를 예약할 수 있습니다.
 
 다음은 여러 오케스트레이터 함수를 병렬로 실행하는 방법을 보여 주는 예제입니다.
 
@@ -98,7 +119,7 @@ public static async Task ProvisionNewDevices(
 ```
 
 > [!NOTE]
-> 이전 C# 예제는 Durable Functions 2.x에 대한 것입니다. Durable Functions 1.x의 경우 `IDurableOrchestrationContext` 대신 `DurableOrchestrationContext`를 사용해야 합니다. 버전 간의 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
+> 이전 C# 예제는 Durable Functions 2.x에 대한 것입니다. Durable Functions 1.x의 경우 `IDurableOrchestrationContext` 대신 `DurableOrchestrationContext`를 사용해야 합니다. 버전 간 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -124,6 +145,30 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+
+    device_IDs = yield context.call_activity("GetNewDeviceIds")
+
+    # Run multiple device provisioning flows in parallel
+    provisioning_tasks = []
+    id_ = 0
+    for device_id in device_IDs:
+        child_id = context.instance_id + ":" + id_
+        provision_task = context.call_sub_orchestrator("DeviceProvisioningOrchestration", device_id, child_id)
+        provisioning_tasks.append(provision_task)
+        id_ += 1
+
+    yield context.task_all(provisioning_tasks)
+
+    # ...
+```
 ---
 
 > [!NOTE]

@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop MSIX 앱 연결 개요 - Azure
+title: Azure Virtual Desktop MSIX 앱 연결 개요 - Azure
 description: MSIX 앱 연결이란? 이 문서에서 확인하세요.
 services: virtual-desktop
 author: Heidilohr
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: cdbb7574f9da5ea6cd0695b74c269d8e1b88b7f4
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 3da80de79490ce21ae99a4dd7dd36c08054cd666
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444074"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751580"
 ---
 # <a name="what-is-msix-app-attach"></a>MSIX 앱 연결이란?
 
 MSIX는 모든 Windows 앱의 패키징 환경을 개선하는 데 필요한 많은 기능을 제공하는 새로운 패키징 형식입니다. MSIX에 대해 자세히 알아보려면 [MSIX 개요](/windows/msix/overview)를 참조하세요.
 
-MSIX 앱 연결은 물리적 머신과 가상 머신 모두에 MSIX 애플리케이션을 제공하는 방법입니다. 그러나 MSIX 앱 연결은 Windows Virtual Desktop용으로 만들어졌기 때문에 일반 MSIX와는 다릅니다. 이 문서에서는 MSIX 앱 연결의 정의와 사용자를 위해 수행할 수 있는 작업을 설명합니다.
+MSIX 앱 연결은 물리적 머신과 가상 머신 모두에 MSIX 애플리케이션을 제공하는 방법입니다. 그러나 MSIX 앱 연결은 Azure Virtual Desktop용으로 만들어졌기 때문에 일반 MSIX와는 다릅니다. 이 문서에서는 MSIX 앱 연결의 정의와 사용자를 위해 수행할 수 있는 작업을 설명합니다.
 
-## <a name="application-delivery-options-in-windows-virtual-desktop"></a>Windows Virtual Desktop의 애플리케이션 제공 옵션
+## <a name="application-delivery-options-in-azure-virtual-desktop"></a>Azure Virtual Desktop의 애플리케이션 제공 옵션
 
-다음 메서드 중 하나를 통해 Windows Virtual Desktop에서 앱을 제공할 수 있습니다.
+다음 메서드 중 하나를 통해 Azure Virtual Desktop에서 앱을 제공할 수 있습니다.
 
 - 마스터 이미지에 앱 배치
 - 중앙 관리를 위해 SCCM 또는 Intune과 같은 도구 사용
@@ -32,7 +32,7 @@ MSIX 앱 연결은 물리적 머신과 가상 머신 모두에 MSIX 애플리케
 
 ## <a name="what-does-msix-app-attach-do"></a>MSIX 앱 연결은 어떤 기능을 하나요?
 
-Windows Virtual Desktop 배포에서 MSIX 앱 연결은 다음을 수행할 수 있습니다.
+Azure Virtual Desktop 배포에서 MSIX 앱 연결은 다음을 수행할 수 있습니다.
 
 - [MSIX 컨테이너](/windows/msix/msix-container)를 사용하여 사용자 데이터, OS 및 앱을 구분합니다.
 - 애플리케이션을 동적으로 제공할 때 재패키징할 필요가 없습니다.

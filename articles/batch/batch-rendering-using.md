@@ -5,17 +5,17 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/12/2020
 ms.topic: how-to
-ms.openlocfilehash: dc3d2cc53b478b1ec955d8f4b3717b0407772849
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d164eb0250c98573e781b87be339748900c4920b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103496629"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110452069"
 ---
 # <a name="using-azure-batch-rendering"></a>Azure Batch 렌더링 사용
 
 > [!IMPORTANT]
-> 렌더링 VM 이미지 및 사용 요금 청구 라이선스는 [더 이상 사용되지 않으며 2024년 2월 29일에 지원이 종료](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/)됩니다. 렌더링에 Batch를 사용하려면 [사용자 지정 VM 이미지와 표준 애플리케이션 라이선싱을 사용해야 합니다.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
+> 렌더링 VM 이미지 및 사용량 지불 라이선스는 [더 이상 사용되지 않으며 2024년 2월 29일부터 사용 중지됩니다](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). 렌더링에 Batch를 사용하려면 [사용자 지정 VM 이미지와 표준 애플리케이션 라이선싱을 사용해야 합니다.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 몇 가지 방법으로 Azure Batch 렌더링을 사용할 수 있습니다.
 
@@ -35,10 +35,6 @@ ms.locfileid: "103496629"
 
 ## <a name="using-batch-explorer"></a>Batch Explorer 사용
 
-Batch Explorer를 사용하여 렌더링을 수행하는 단계별 자습서는 [Blender 자습서](./tutorial-rendering-batchexplorer-blender.md)를 참조하세요.
-
-### <a name="download-and-install"></a>다운로드 및 설치
-
 Batch Explorer [다운로드](https://azure.github.io/BatchExplorer/)는Windows, OSX 및 Linux용으로 제공됩니다.
 
 ### <a name="using-templates-to-create-pools-and-run-jobs"></a>템플릿을 사용하여 풀 만들기 및 작업 실행
@@ -57,7 +53,5 @@ Batch Explorer의 '데이터' 섹션을 통해 로컬 파일 시스템과 Azure 
 
 ## <a name="next-steps"></a>다음 단계
 
-Batch 렌더링 예제는 다음 두 자습서를 사용해 보세요.
-
-* [Azure CLI를 사용한 렌더링](./tutorial-rendering-cli.md)
-* [Batch ExplorerI를 사용한 렌더링](./tutorial-rendering-batchexplorer-blender.md)
+* [Batch를 이용해 렌더링 애플리케이션을 사용](batch-rendering-applications.md)하는 방법에 대해 알아봅니다.
+* [자산 및 출력 파일을 렌더링하기 위한 스토리지 및 데이터 이동 옵션](batch-rendering-storage-data-movement.md)에 대해 알아봅니다.

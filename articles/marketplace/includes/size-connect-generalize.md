@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 04/16/2021
-ms.openlocfilehash: e119d40cd0b8f482d33c3c86c644cf6a0846390a
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 7d94bd0a4a9fb50cb211fd227c3022a46beef502
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727141"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111527547"
 ---
 ## <a name="generalize-the-image"></a>이미지 일반화
 
@@ -55,17 +55,39 @@ VM이 준비되면 Azure Shared Image Gallery에서 이를 캡처할 수 있습�
 8. **검토 + 만들기** 를 선택하여 선택 사항을 검토합니다.
 9. 유효성 검사를 통과하면 **만들기** 를 선택합니다.
 
-액세스 권한을 부여하려면 다음을 수행합니다.
+## <a name="set-the-right-permissions"></a>올바른 권한 설정
 
-1. Shared Image Gallery로 이동합니다.
+파트너 센터 계정이 Shared Image Gallery를 호스트하는 구독의 소유자인 경우, 다른 권한이 필요하지 않습니다.
+
+구독에 대한 읽기 권한만 있는 경우 다음 두 가지 옵션 중 하나를 사용합니다.
+
+### <a name="option-one--ask-the-owner-to-grant-owner-permission"></a>옵션 1 - 소유자에게 소유자 권한을 부여하도록 요청
+
+소유자가 소유자 권한을 부여하기 위한 단계는 다음과 같습니다.
+
+1. SIG(Shared Image Gallery)로 이동합니다.
 2. 왼쪽 패널에서 **액세스 제어**(IAM)를 선택합니다.
-3. **추가** 를 선택한 다음, **역할 할당 추가** 를 선택합니다.
-4. **역할** 또는 **소유자** 를 선택합니다.
-5. **다음에 대한 액세스 할당** 에서 **사용자, 그룹 또는 서비스 주체** 를 선택합니다.
-6. 이미지를 게시할 사용자의 Azure 이메일을 선택합니다.
-7. **저장** 을 선택합니다.
+3. **추가** 를 선택한 다음 **역할 할당 추가** 를 선택합니다.<br>
+    :::image type="content" source="../media/create-vm/add-role-assignment.png" alt-text="역할 할당 추가 창이 표시됩니다.":::
+1. **역할** 에 대해 **소유자** 를 선택합니다.
+1. **다음에 대한 액세스 할당** 에서 **사용자, 그룹 또는 서비스 주체** 를 선택합니다.
+1. **선택** 에서 이미지를 게시할 사용자의 Azure 메일을 입력합니다.
+1. **저장** 을 선택합니다.
 
-:::image type="content" source="../media/create-vm/add-role-assignment.png" alt-text="역할 할당 추가 창이 표시됩니다.":::
+### <a name="option-two--run-a-command"></a>옵션 2 - 명령 실행
+
+소유자에게 다음 명령 중 하나를 실행하도록 요청합니다. 두 경우 모두 공유 이미지 갤러리를 만든 구독의 SusbscriptionId를 사용합니다.
+
+```azurecli
+az login
+az provider register --namespace Microsoft.PartnerCenterIngestion --subscription {subscriptionId}
+```
+ 
+```powershell
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId {subscriptionId}
+Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
+```
 
 > [!NOTE]
 > 이제 파트너 센터에서 SIG 이미지를 게시할 수 있으므로 SAS URI를 생성할 필요가 없습니다. 그러나 SAS URI 생성 단계를 계속 참조해야 하는 경우 [VM 이미지에 대한 SAS URI를 생성하는 방법](../azure-vm-get-sas-uri.md)을 참조하세요.
