@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 829f89f716a29f09f88a2e02b257aba1b207d072
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 31183be893a9216f33adc4f5e25a55cfb3545db8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102634195"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110099571"
 ---
 # <a name="azure-stack-edge-mini-r-system-requirements"></a>Azure Stack Edge Mini R 시스템 요구 사항
 
@@ -40,7 +40,7 @@ Azure Stack Edge Mini R의 시스템 요구 사항은 다음과 같습니다.
 
 다음 Edge 스토리지 계정은 디바이스의 REST 인터페이스에서 지원됩니다. Edge 스토리지 계정은 디바이스에 생성됩니다. 자세한 내용은 [Edge 스토리지 계정](azure-stack-edge-gpu-manage-storage-accounts.md#about-edge-storage-accounts)을 참조하세요.
 
-|유형  |스토리지 계정  |주석  |
+|유형  |스토리지 계정  |의견  |
 |---------|---------|---------|
 |Standard     |GPv1: 블록 Blob         |         |
 
@@ -51,7 +51,7 @@ Azure Stack Edge Mini R의 시스템 요구 사항은 다음과 같습니다.
 
 이러한 스토리지 계정은 로컬 Azure 리소스 관리자에 연결한 경우 디바이스 로컬 API를 통해 이루어집니다. 지원되는 스토리지 계정은 다음과 같습니다.
 
-|유형  |스토리지 계정  |주석  |
+|형식  |스토리지 계정  |의견  |
 |---------|---------|---------|
 |Standard     |GPv1: 블록 Blob, Page Blob         | SKU 유형은 Standard_LRS입니다        |
 |Premium   |GPv1: 블록 Blob, Page Blob         |SKU 유형은 Premium_LRS입니다         |
@@ -107,6 +107,7 @@ Azure IoT Edge 런타임을 호스트하는 서버의 포트 구성에 대한 �
 | https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft 컨테이너 레지스트리(필수)               |
 | https://\*.azurecr.io                     | 개인 및 타사 컨테이너 레지스트리(선택 사항) | 
 | https://\*.azure-devices.net              | IoT Hub 액세스(필수)                             | 
+| https://\*.docker.com              | StorageClass(필수)                             |
 
 ### <a name="url-patterns-for-gateway-for-azure-government"></a>Azure Government 게이트웨이 URL 패턴
 

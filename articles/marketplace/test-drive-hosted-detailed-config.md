@@ -7,22 +7,22 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 04/20/2021
-ms.openlocfilehash: f11f1d5601a61bbd9b8729b478c278db8d3e73dc
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 85668f07512e8aaa925b924ef0e631fe89b5c3fa
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812422"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005702"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>호스트형 시험 사용의 세부 구성
 
-이 문서에서는 Dynamics 365 for Customer Engagement 또는 Dynamics 365 for Operations에 대해 호스트형 시험 사용을 구성하는 방법을 설명합니다.
+이 문서에서는 Dynamics 365 for Customer Engagement 및 Power Apps 또는 Dynamics 365 for Operations에 대해 호스트형 시험 사용을 구성하는 방법을 설명합니다.
 
-## <a name="configure-for-dynamics-365-customer-engagement"></a>Dynamics 365 Customer Engagement에 대한 구성
+## <a name="configure-for-dynamics-365-customer-engagement--power-apps"></a>Dynamics 365 Customer Engagement 및 Power Apps에 대한 구성
 
-1. [파트너 센터](https://partner.microsoft.com/)에 로그인합니다.
+1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165507)에 로그인합니다.
 2. 위의 링크에 액세스할 수 없는 경우 애플리케이션을 게시하려면 [여기](https://appsource.microsoft.com/partners/list-an-app)에서 요청을 제출해야 합니다. 요청을 검토한 후 게시 프로세스를 시작할 수 있는 권한이 부여됩니다.
-3. 기존 **Dynamics 365 for Customer Engagement** 제품을 찾거나 새 **Dynamics 365 for Customer Engagement** 제품을 만듭니다.
+3. 기존 **Dynamics 365 for Customer Engagement 및 Power Apps** 제품을 찾거나 새 **Dynamics 365 for Customer Engagement 및 Power Apps** 제품을 만듭니다.
 4. **시험 사용 지원** 확인란을 선택하고 **시험 사용 유형**(아래 글머리 기호 참조)을 선택한 다음 **저장** 을 선택합니다.
 
     [![‘시험 사용 지원’ 확인란 선택](media/test-drive/enable-test-drive-check-box.png)](media/test-drive/enable-test-drive-check-box.png#lightbox)
@@ -61,9 +61,10 @@ ms.locfileid: "107812422"
 
 ## <a name="configure-for-dynamics-365-operations"></a>Dynamics 365 Operations에 대한 구성
 
+1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165507)에 로그인합니다.
 2. 위의 링크에 액세스할 수 없는 경우 애플리케이션을 게시하려면 [여기](https://appsource.microsoft.com/partners/list-an-app)에서 요청을 제출해야 합니다. 요청을 검토한 후 게시 프로세스를 시작할 수 있는 권한이 부여됩니다.
 3. 기존 **Dynamics 365 for Operations** 제품을 찾거나 새 **Dynamics 365 for Operations** 제품을 만듭니다.
-4. **시험 사용 지원** 확인란을 선택하고 **시험 사용 유형**(아래 글머리 기호 참조)을 선택한 다음 **저장** 을 선택합니다.
+4. **시험 사용 지원** 확인란을 선택하고 **시험 사용 유형**(아래 글머리 기호 참조)을 선택한 다음 **초안 저장** 을 선택합니다.
 
     [![‘시험 사용 지원’ 확인란 선택](media/test-drive/enable-test-drive-check-box-operations.png)](media/test-drive/enable-test-drive-check-box-operations.png#lightbox)
 

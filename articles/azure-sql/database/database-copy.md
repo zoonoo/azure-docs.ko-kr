@@ -4,19 +4,19 @@ description: 동일한 서버 또는 다른 서버에서 Azure SQL Database의 �
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: sqldbrb=1, devx-track-azurecli
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
-author: stevestein
-ms.author: sashan
-ms.reviewer: wiassaf
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma
 ms.date: 03/10/2021
-ms.openlocfilehash: 1a86522975ffb7b5b2bd514402dd97a76aa2506e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 325a2feb0cf29a03a88249e2d0ac3a22f685d498
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103014607"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110694559"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Azure SQL Database의 데이터베이스에 대한 트랜잭션 일치 복사본 복사
 
@@ -74,7 +74,7 @@ az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myRes
     --name "<databaseName>" --resource-group "<resourceGroup>" --server $sourceserver
 ```
 
-데이터베이스 복사는 비동기 작업이지만 요청이 수락된 직후에 대상 데이터베이스가 생성됩니다. 진행 중인 동안 복사 작업을 취소해야 하는 경우 [az sql db delete](/cli/azure/sql/db#az-sql-db-delete) cmdlet을 사용하여 대상 데이터베이스를 삭제합니다.
+데이터베이스 복사는 비동기 작업이지만 요청이 수락된 직후에 대상 데이터베이스가 생성됩니다. 진행 중인 동안 복사 작업을 취소해야 하는 경우 [az sql db delete](/cli/azure/sql/db#az_sql_db_delete) cmdlet을 사용하여 대상 데이터베이스를 삭제합니다.
 
 * * *
 
@@ -182,6 +182,7 @@ AS COPY OF source_server_name.source_database_name;
 
 > [!TIP]
 > T-SQL을 사용한 데이터베이스 복사는 다른 Azure 테넌트의 구독에서 데이터베이스를 복사 하는 것을 지원합니다. 이는 SQL 인증 로그인을 사용하여 대상 서버에 로그인하는 경우에만 지원됩니다.
+> 원본 또는 대상 논리 서버에서 [Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-sql/support-for-azure-ad-user-creation-on-behalf-of-azure-ad/ba-p/2346849) 인증이 활성화(사용)된 경우 다른 Azure 테넌트의 논리 서버에 데이터베이스 복사본을 만드는 것은 지원되지 않습니다.
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>복사 작업 진행률 모니터링
 
@@ -218,7 +219,7 @@ Azure Portal을 사용하여 데이터베이스 복사본을 관리하려면 다
 
    Microsoft.Resources/subscriptions/resources/read Microsoft.Resources/subscriptions/resources/write Microsoft.Resources/deployments/read Microsoft.Resources/deployments/write Microsoft.Resources/deployments/operationstatuses/read
 
-포털에서 리소스 그룹의 배포 아래에 있는 작업, SQL 작업을 비롯한 여러 리소스 공급자의 작업을 확인하려면 다음과 같은 추가 Azure 역할이 필요합니다.
+포털에서 리소스 그룹의 배포 아래에 있는 작업, SQL 작업을 비롯한 여러 리소스 공급자의 작업을 확인하려면 다음과 같은 추가 권한이 필요합니다.
 
    Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read
 

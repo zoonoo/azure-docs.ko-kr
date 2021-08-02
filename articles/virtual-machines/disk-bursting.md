@@ -3,25 +3,38 @@ title: 관리 디스크 버스팅
 description: Azure 디스크 및 Azure 가상 머신의 디스크 버스팅에 대해 알아봅니다.
 author: albecker1
 ms.author: albecker
-ms.date: 03/02/2021
+ms.date: 06/03/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 9758b026ef205e6608f7fc4110219dc5f267369e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f9fd7d892eea43edf71da212fdba8cc1ac11c798
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568718"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111528325"
 ---
 # <a name="managed-disk-bursting"></a>관리 디스크 버스팅
-[!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
 
-Azure [프리미엄 SSD](disks-types.md#premium-ssd)는 두 가지 버스팅 모델을 제공합니다.
+Azure는 디스크 스토리지 IOPS 및 MB/s 성능을 향상시킬 수 있는 기능을 제공합니다. 이를 VM(가상 머신) 및 디스크 모두에서 버스팅이라고 합니다. VM 및 디스크 버스팅을 효과적으로 사용하여 VM과 디스크에서 버스팅 성능을 향상시킬 수 있습니다.
+
+Azure VM에 대한 버스팅과 디스크 리소스에 대한 버스팅은 서로 종속되지 않습니다. 연결된 버스트 가능 디스크를 버스트하기 위해 버스트 가능 VM이 필요하지 않습니다. 마찬가지로, VM을 버스트하기 위해 버스트 가능 VM에 연결된 버스트 디스크가 필요하지 않습니다.
+
+## <a name="common-scenarios"></a>일반적인 시나리오
+다음 시나리오는 버스팅을 통해 큰 이점을 얻을 수 있습니다.
+- **시작 시간 개선** – 버스팅을 사용하면 인스턴스가 빠른 속도로 시작됩니다. 예를 들어 프리미엄 사용 VM의 기본 OS 디스크는 최대 120 IOPS 및 25MB/초의 프로비전된 성능인 P4 디스크입니다. 버스팅을 사용하면 P4는 최대 3500 IOPS 및 170MB/초까지 이동하여 6배까지 가속화할 수 있습니다.
+- **일괄 작업 처리** – 일부 애플리케이션 워크로드는 본질적으로 순환됩니다. 대부분의 경우 기본 성능이 필요하고 짧은 시간 동안 더 높은 성능이 필요합니다. 예를 들어 소량의 디스크 트래픽이 필요한 일일 트랜잭션을 처리하는 회계 프로그램이 있습니다. 이 프로그램은 월말에 훨씬 더 많은 양의 디스크 트래픽이 필요한 보고서 조정을 완료합니다.
+- **트래픽 급증** – 웹 서버와 해당 애플리케이션은 언제든지 트래픽 급증을 경험할 수 있습니다. 웹 서버가 버스트를 사용하는 VM 또는 디스크에 의해 지원되는 경우 서버는 트래픽 급증을 처리하는 데 더 적합합니다. 
+
+## <a name="disk-level-bursting"></a>디스크 수준 버스팅
+
+현재 버스트할 수 있는 관리 디스크 유형에는 [프리미엄 SSD](disks-types.md#premium-ssd)와 [표준 SSD](disks-types.md#standard-ssd)의 두 가지가 있습니다. 기타 디스크 유형은 현재 버스트할 수 없습니다. 디스크 버스트에는 두 가지 모델이 있습니다.
 
 - 필요량이 현재 용량을 초과할 때마다 디스크가 버스트되는 주문형 버스트 모델(미리 보기)입니다. 이 모델은 디스크가 버스트될 때마다 추가 요금이 발생합니다. 크레딧 기반이 아닌 버스트는 512GiB 이상의 디스크에서만 사용할 수 있습니다.
 - 크레딧 기반 모델입니다. 이 모델을 사용하면 버스트 크레딧을 크레딧 버킷에 축적한 경우에만 디스크가 버스트됩니다. 이 모델은 디스크가 버스트될 때 추가 요금이 발생하지 않습니다. 크레딧 기반 버스트는 512GiB 이하의 디스크에서만 사용할 수 있습니다.
+
+Azure [프리미엄 SSD](disks-types.md#premium-ssd)는 두 버스팅 모델을 모두 사용할 수 있지만 [표준 SSD](disks-types.md#standard-ssd)는 현재 크레딧 기반 버스팅만 제공합니다.
 
 또한 [관리 디스크의 성능 계층을 변경할 수 있으며](disks-change-performance.md), 이는 워크로드가 버스트 상태로 실행되는 경우 이상적일 수 있습니다.
 
@@ -31,12 +44,6 @@ Azure [프리미엄 SSD](disks-types.md#premium-ssd)는 두 가지 버스팅 모
 |**비용**     |무료         |비용은 가변적입니다. 자세한 내용은 [청구](#billing) 섹션을 참조하세요.        |각 성능 계층의 비용은 고정되어 있습니다. 자세한 내용은 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요.         |
 |**가용성**     |512GiB 이하의 프리미엄 SSD에만 사용할 수 있습니다.         |512GiB 이상의 프리미엄 SSD에만 사용할 수 있습니다.         |모든 프리미엄 SSD 크기에서 사용할 수 있습니다.         |
 |**사용 여부**     |적격 디스크에서 기본적으로 사용됩니다.         |사용자가 사용하도록 설정해야 합니다.         |사용자는 계층을 수동으로 변경해야 합니다.         |
-
-## <a name="common-scenarios"></a>일반적인 시나리오
-다음 시나리오는 버스팅을 통해 큰 이점을 얻을 수 있습니다.
-- **시작 시간 개선** – 버스팅을 사용하면 인스턴스가 훨씬 빠른 속도로 시작됩니다. 예를 들어 프리미엄 사용 VM의 기본 OS 디스크는 최대 120 IOPS 및 25MB/초의 프로비전된 성능인 P4 디스크입니다. 버스팅을 사용하면 P4는 최대 3500 IOPS 및 170MB/초까지 이동하여 6배까지 가속화할 수 있습니다.
-- **일괄 작업 처리** – 일부 애플리케이션 워크로드는 본질적으로 순환됩니다. 대부분의 경우 기본 성능이 필요하고 짧은 시간 동안 더 높은 성능이 필요합니다. 예를 들어 소량의 디스크 트래픽이 필요한 일일 트랜잭션을 처리하는 회계 프로그램이 있습니다. 이 프로그램은 월말에 훨씬 더 많은 양의 디스크 트래픽이 필요한 보고서 조정을 완료합니다.
-- **트래픽 급증** – 웹 서버와 해당 애플리케이션은 언제든지 트래픽 급증을 경험할 수 있습니다. 웹 서버가 버스트를 사용하는 VM 또는 디스크에 의해 지원되는 경우 서버는 트래픽 급증을 처리하는 데 더 적합합니다. 
 
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting-2.md)]
 

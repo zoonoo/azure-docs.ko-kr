@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 04/28/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 0bfc09a372584a25c23060cef33d1f698e6d5ff3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e766b2aba1aef47b16b4351c7852bb2f457475fa
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101712609"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111887603"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export에 대한 시스템 요구 사항
 
@@ -62,8 +62,8 @@ Azure Import/Export 서비스는 다음과 같은 유형의 스토리지 계정�
 
 |작업  |스토리지 서비스 |지원됨  |지원되지 않음  |
 |---------|---------|---------|---------|
-|가져오기     |  Azure Blob Storage <br><br> Azure File Storage       | 블록 Blob 및 페이지 Blob 지원됨 <br><br> 파일 지원됨          |
-|내보내기     |   Azure Blob Storage       | 블록 Blob, 페이지 Blob 및 추가 Blob 지원됨         | Azure Files 지원되지 않음
+|가져오기     |  Azure Blob Storage <br><br> Azure Files 스토리지       | 블록 Blob 및 페이지 Blob 지원됨 <br><br> 파일 지원됨          |
+|내보내기     |   Azure Blob Storage       | 블록 Blob, 페이지 Blob 및 추가 Blob 지원됨         | Azure Files 지원되지 않음<br>보관 계층에서 내보내기 지원되지 않음|
 
 
 ## <a name="supported-hardware"></a>지원되는 하드웨어

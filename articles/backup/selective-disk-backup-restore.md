@@ -1,52 +1,55 @@
 ---
-title: Azure 가상 컴퓨터에 대 한 선택적 디스크 백업 및 복원
-description: 이 문서에서는 Azure 가상 컴퓨터 백업 솔루션을 사용 하 여 선택적 디스크 백업 및 복원에 대해 알아봅니다.
+title: Azure 가상 머신의 선택적 디스크 백업 및 복원
+description: 이 문서에서는 Azure 가상 머신 백업 솔루션을 사용한 선택적 디스크 백업 및 복원을 지원합니다.
 ms.topic: conceptual
-ms.date: 07/17/2020
-ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: e82c959dc63222e8565243cc9ac805283cab6617
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.date: 05/13/2021
+ms.custom: references_regions , devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: cee95941aa091f77fe128457434a66398188a0a4
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102501835"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110678205"
 ---
-# <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Azure 가상 컴퓨터에 대 한 선택적 디스크 백업 및 복원
+# <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Azure 가상 머신의 선택적 디스크 백업 및 복원
 
-Azure Backup는 가상 컴퓨터 백업 솔루션을 사용 하 여 VM의 모든 디스크 (운영 체제 및 데이터)를 백업 하는 작업을 지원 합니다. 이제 선택적 디스크 백업 및 복원 기능을 사용 하 여 VM에서 데이터 디스크의 하위 집합을 백업할 수 있습니다. 이는 사용자의 백업 및 복원 요구 사항을 충족하는 능률적이고 비용 효율적인 솔루션을 제공합니다. 각 복구 지점에는 백업 작업에 포함 된 디스크만 포함 됩니다. 이렇게 하면 복원 작업을 수행 하는 동안 지정 된 복구 지점에서 복원 된 디스크의 하위 집합을 사용할 수 있습니다. 이는 스냅숏과 자격 증명 모음에서의 복원 모두에 적용 됩니다.
+Azure Backup은 가상 머신 백업 솔루션을 함께 사용하여 VM의 모든 디스크(운영 체제 및 데이터) 백업 작업을 지원합니다. 이제 선택적 디스크 백업 및 복원 기능을 사용하여 VM에서 데이터 디스크의 하위 집합을 백업할 수 있습니다. 이는 사용자의 백업 및 복원 요구 사항을 충족하는 능률적이고 비용 효율적인 솔루션을 제공합니다. 각 복구 지점에는 백업 작업에 포함되는 디스크만 포함됩니다. 나아가 복원 작업 중에 해당 복구 지점에서 복원된 디스크의 하위 집합을 확보할 수 있게 됩니다. 스냅샷에서의 복원과 자격 증명 모음에서의 복원 모두에 해당합니다.
 
 ## <a name="scenarios"></a>시나리오
 
-이 솔루션은 특히 다음과 같은 시나리오에서 유용 합니다.
+이 솔루션은 다음과 같은 시나리오에서 특히 유용합니다.
 
-1. 백업 저장소 비용을 최소화 하기 위해 VM에 연결 된 디스크의 나머지 부분을 백업 하지 않으려는 경우, 하나의 디스크 또는 디스크의 하위 집합에만 백업할 중요 한 데이터가 있는 경우
-2. VM 또는 데이터의 일부에 대 한 다른 백업 솔루션이 있는 경우 예를 들어 다른 워크 로드 백업 솔루션을 사용 하 여 데이터베이스나 데이터를 백업 하 고 나머지 데이터 또는 디스크에 대해 Azure VM 수준 백업을 사용 하 여 사용 가능한 최상의 기능을 통해 효율적이 고 강력한 시스템을 구축 하려는 경우
+1. 백업 스토리지 비용을 최소화하기 위해, 한 디스크 또는 디스크 하위 집합에서만 중요 데이터만 백업하고 VM에 연결된 나머지 디스크는 백업하지 않으려는 경우
+2. VM 또는 데이터의 일부에 대해 다른 백업 솔루션이 있는 경우 가능한 최상의 기능을 사용하여 효율적이고 강력한 시스템을 구축하기 위해, 다른 워크로드 백업 솔루션을 사용하여 데이터베이스나 데이터를 백업하고 나머지 데이터나 디스크에 대해서만 Azure VM 수준 백업을 사용하려는 경우를 예로 들 수 있습니다.
 
-PowerShell 또는 Azure CLI를 사용 하 여 Azure VM의 선택적 디스크 백업을 구성할 수 있습니다.  스크립트를 사용 하 여 LUN 번호를 사용 하 여 데이터 디스크를 포함 하거나 제외할 수 있습니다.  현재 Azure Portal를 통해 선택적 디스크 백업을 구성 하는 기능은 **OS 디스크만 백업** 옵션으로 제한 됩니다. 따라서 OS 디스크를 사용 하 여 Azure VM의 백업을 구성 하 고 연결 된 모든 데이터 디스크를 제외할 수 있습니다.
+PowerShell 또는 Azure CLI를 사용하여 Azure VM의 선택적 디스크 백업을 구성할 수 있습니다. 스크립트를 사용하여 데이터 디스크를 해당 LUN 번호로 포함하거나 제외할 수 있습니다. 현재 Azure Portal을 통해 선택적 디스크 백업을 구성하는 기능은 **OS 디스크만 백업** 옵션으로 제한됩니다. 따라서 OS 디스크에서의 Azure VM 백업을 구성하고, 연결된 모든 데이터 디스크는 제외할 수 있습니다.
 
 >[!NOTE]
-> OS 디스크는 기본적으로 VM 백업에 추가 되며 제외할 수 없습니다.
+> OS 디스크는 기본적으로 VM 백업에 추가되며 제외할 수 없습니다.
 
 ## <a name="using-azure-cli"></a>Azure CLI 사용
 
-Az CLI version 2.0.80 이상을 사용 하 고 있는지 확인 합니다. 다음 명령을 사용 하 여 CLI 버전을 가져올 수 있습니다.
+Az CLI 버전 2.0.80 이상을 사용해야 합니다. CLI 버전은 다음 명령을 사용하여 구할 수 있습니다.
 
 ```azurecli
 az --version
 ```
 
-Recovery Services 자격 증명 모음 및 VM이 있는 구독 ID에 로그인 합니다.
+Recovery Services 자격 증명 모음 및 VM이 있는 구독 ID에 로그인합니다.
 
 ```azurecli
 az account set -s {subscriptionID}
 ```
 
 >[!NOTE]
->아래 각 명령에는 자격 증명 모음에 해당 하는 **resourcegroup** 이름 (개체가 아님)만 필요 합니다.
+>아래의 각 명령에는 자격 증명 모음에 해당하는 **resourcegroup** 이름(개체 아님)만 필요합니다.
 
-### <a name="configure-backup-with-azure-cli"></a>Azure CLI를 사용 하 여 백업 구성
+### <a name="configure-backup-with-azure-cli"></a>Azure CLI를 사용하여 백업 구성
 
-보호 구성 작업 중에 포함 제외 매개 변수 **를 사용** 하 여 디스크 목록 설정을 지정 하 여  /   백업에 포함 하거나 제외할 디스크의 LUN 번호를 제공 해야 합니다.
+보호 구성 작업 중에는 디스크의 LUN 번호를 백업에서 포함 또는 제외하도록 **inclusion** / **exclusion** 매개 변수로 디스크 목록 설정을 지정해야 합니다.
+
+>[!NOTE]
+>보호 구성 작업은 이전 설정을 재정의하며 누적되지 않습니다.
 
 ```azurecli
 az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
@@ -56,49 +59,49 @@ az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name
 az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --disk-list-setting exclude --diskslist 0 1
 ```
 
-VM이 자격 증명 모음과 동일한 리소스 그룹에 없는 경우 **ResourceGroup** 은 자격 증명 모음이 만들어진 리소스 그룹을 참조 합니다. VM 이름 대신 아래에 표시 된 대로 VM ID를 제공 합니다.
+VM이 자격 증명 모음과 동일한 리소스 그룹에 있지 않으면 **ResourceGroup** 은 자격 증명 모음이 생성된 리소스 그룹을 참조합니다. VM 이름 대신 아래 표시된 대로 VM ID를 제공합니다.
 
 ```azurecli
 az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-name {vaultname} --vm $(az vm show -g VMResourceGroup -n MyVm --query id --output tsv) --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
 ```
 
-### <a name="modify-protection-for-already-backed-up-vms-with-azure-cli"></a>Azure CLI를 사용 하 여 이미 백업 된 Vm에 대 한 보호 수정
+### <a name="modify-protection-for-already-backed-up-vms-with-azure-cli"></a>Azure CLI를 사용하여 이미 백업된 VM에 대한 보호 수정
 
 ```azurecli
 az backup protection update-for-vm --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM --disk-list-setting exclude --diskslist {LUN number(s) separated by space}
 ```
 
-### <a name="backup-only-os-disk-during-configure-backup-with-azure-cli"></a>Azure CLI를 사용 하 여 백업을 구성 하는 동안 OS 디스크만 백업
+### <a name="backup-only-os-disk-during-configure-backup-with-azure-cli"></a>Azure CLI를 사용하여 백업을 구성하는 동안 OS 디스크만 백업
 
 ```azurecli
 az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --exclude-all-data-disks
 ```
 
-### <a name="backup-only-os-disk-during-modify-protection-with-azure-cli"></a>Azure CLI를 사용 하 여 보호를 수정 하는 동안 OS 디스크만 백업
+### <a name="backup-only-os-disk-during-modify-protection-with-azure-cli"></a>Azure CLI를 사용하여 보호를 수정하는 동안 OS 디스크만 백업
 
 ```azurecli
 az backup protection update-for-vm --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM --exclude-all-data-disks
 ```
 
-### <a name="restore-disks-with-azure-cli"></a>Azure CLI를 사용 하 여 디스크 복원
+### <a name="restore-disks-with-azure-cli"></a>Azure CLI를 사용하여 디스크 복원
 
 ```azurecli
 az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN number of the disk(s) to be restored}
 ```
 
-### <a name="restore-only-os-disk-with-azure-cli"></a>Azure CLI를 사용 하 여 OS 디스크만 복원
+### <a name="restore-only-os-disk-with-azure-cli"></a>Azure CLI를 사용하여 OS 디스크만 복원
 
 ```azurecli
 az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} -r {restorepoint} } --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --restore-only-osdisk
 ```
 
-### <a name="get-protected-item-to-get-disk-exclusion-details-with-azure-cli"></a>Azure CLI를 사용 하 여 디스크 제외 정보를 가져오기 위해 보호 된 항목을 가져옵니다.
+### <a name="get-protected-item-to-get-disk-exclusion-details-with-azure-cli"></a>Azure CLI를 사용하여 디스크 제외 세부 정보를 얻기 위해 보호된 항목 가져오기
 
 ```azurecli
 az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-group {resourcegroup} --backup-management-type AzureIaasVM
 ```
 
-아래와 같이 보호 된 항목에 추가 **diskExclusionProperties** 매개 변수가 추가 되었습니다.
+아래와 같이 보호된 항목에 **diskExclusionProperties** 매개 변수가 더 추가되었습니다.
 
 ```azurecli
 "extendedProperties": {
@@ -111,26 +114,31 @@ az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-
       }
 ```
 
-### <a name="get-backup-job-with-azure-cli"></a>Azure CLI를 사용 하 여 백업 작업 가져오기
+### <a name="get-backup-job-with-azure-cli"></a>Azure CLI를 사용하여 백업 작업 가져오기
 
 ```azurecli
 az backup job show --vault-name {vaultname} --resource-group {resourcegroup} -n {BackupJobID}
 ```
 
-이 명령은 아래와 같이 백업 된 디스크 및 제외 된 디스크의 세부 정보를 가져오는 데 도움이 됩니다.
+이 명령은 아래와 같이 백업된 디스크 및 제외 된 디스크의 세부 정보를 가져올 수 있습니다.
 
 ```output
    "Backed-up disk(s)": "diskextest_OsDisk_1_170808a95d214428bad92efeecae626b; diskextest_DataDisk_0; diskextest_DataDisk_1",  "Backup Size": "0 MB",
    "Excluded disk(s)": "diskextest_DataDisk_2",
 ```
 
-### <a name="list-recovery-points-with-azure-cli"></a>Azure CLI 복구 지점의 목록 표시
+_BackupJobID_ 는 백업 작업 이름입니다. 작업 이름을 가져오려면 다음 명령을 실행합니다.
+
+```azurecli
+az backup job list --resource-group {resourcegroup} --vault-name {vaultname}
+```
+### <a name="list-recovery-points-with-azure-cli"></a>Azure CLI를 사용하여 복구 지점 나열
 
 ```azurecli
 az backup recoverypoint list --vault-name {vaultname} --resource-group {resourcegroup} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM
 ```
 
-이렇게 하면 VM에 연결 되 고 백업 된 디스크 수에 대 한 정보가 제공 됩니다.
+이렇게 하면 VM에 연결 및 백업된 디스크 수에 대한 정보가 제공됩니다.
 
 ```azurecli
       "recoveryPointDiskConfiguration": {
@@ -141,13 +149,13 @@ az backup recoverypoint list --vault-name {vaultname} --resource-group {resource
 };
 ```
 
-### <a name="get-recovery-point-with-azure-cli"></a>Azure CLI를 사용 하 여 복구 지점 가져오기
+### <a name="get-recovery-point-with-azure-cli"></a>Azure CLI를 사용하여 복구 지점 가져오기
 
 ```azurecli
 az backup recoverypoint show --vault-name {vaultname} --resource-group {resourcegroup} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM -n {recoverypointID}
 ```
 
-각 복구 지점에 포함 된 디스크와 제외 된 디스크의 정보는 다음과 같습니다.
+각 복구 지점에는 다음과 같이 포함된 디스크와 제외된 디스크 정보가 있습니다.
 
 ```azurecli
   "recoveryPointDiskConfiguration": {
@@ -175,7 +183,7 @@ az backup recoverypoint show --vault-name {vaultname} --resource-group {resource
       "numberOfDisksIncludedInBackup": 3
 ```
 
-### <a name="remove-disk-exclusion-settings-and-get-protected-item-with-azure-cli"></a>Azure CLI를 사용 하 여 디스크 제외 설정 제거 및 보호 된 항목 가져오기
+### <a name="remove-disk-exclusion-settings-and-get-protected-item-with-azure-cli"></a>Azure CLI를 사용하여 디스크 제외 설정을 제거하고 보호된 항목 가져오기
 
 ```azurecli
 az backup protection update-for-vm --vault-name {vaultname} --resource-group {resourcegroup} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM --disk-list-setting resetexclusionsettings
@@ -183,15 +191,18 @@ az backup protection update-for-vm --vault-name {vaultname} --resource-group {re
 az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-group {resourcegroup} --backup-management-type AzureIaasVM
 ```
 
-이러한 명령을 실행 하면이 표시 됩니다 `"diskExclusionProperties": null` .
+이 명령을 실행하면 `"diskExclusionProperties": null` 이 표시됩니다.
 
 ## <a name="using-powershell"></a>PowerShell 사용
 
-Azure PowerShell 버전 3.7.0 이상을 사용 하 고 있는지 확인 합니다.
+Azure PowerShell 버전 3.7.0 이상을 사용해야 합니다.
 
-보호 구성 작업 중에 포함/제외 매개 변수를 사용 하 여 디스크 목록 설정을 지정 하 여 백업에 포함 하거나 제외할 디스크의 LUN 번호를 제공 해야 합니다.
+보호 구성 작업 중에는 디스크의 LUN 번호를 백업에서 포함 또는 제외하도록 inclusion/exclusion 매개 변수로 디스크 목록 설정을 지정해야 합니다.
 
-### <a name="enable-backup-with-powershell"></a>PowerShell을 사용 하 여 백업 사용
+>[!NOTE]
+>보호 구성 작업은 이전 설정을 재정의하며 누적되지 않습니다.
+
+### <a name="enable-backup-with-powershell"></a>PowerShell을 통해 백업을 사용하도록 설정
 
 예를 들면 다음과 같습니다.
 
@@ -210,21 +221,21 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -ExclusionDisksList $disks -VaultId $targetVault.ID
 ```
 
-### <a name="backup-only-os-disk-during-configure-backup-with-powershell"></a>PowerShell을 사용 하 여 백업을 구성 하는 동안 OS 디스크만 백업
+### <a name="backup-only-os-disk-during-configure-backup-with-powershell"></a>PowerShell을 사용하여 백업을 구성하는 동안 OS 디스크만 백업
 
 ```azurepowershell
 Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -ExcludeAllDataDisks -VaultId $targetVault.ID
 ```
 
-### <a name="get-backup-item-object-to-be-passed-in-modify-protection-with-powershell"></a>PowerShell을 사용 하 여 수정 방지에서 전달할 백업 항목 개체 가져오기
+### <a name="get-backup-item-object-to-be-passed-in-modify-protection-with-powershell"></a>PowerShell을 사용하여 보호 수정에서 전달할 백업 항목 개체 가져오기
 
 ```azurepowershell
 $item= Get-AzRecoveryServicesBackupItem -BackupManagementType "AzureVM" -WorkloadType "AzureVM" -VaultId $targetVault.ID -FriendlyName "V2VM"
 ```
 
-위의 가져온 **$item** 개체를 다음 cmdlet의 **– item** 매개 변수에 전달 해야 합니다.
+다음 cmdlet에서, 위에서 구한 **$item** 개체를 **–Item** 매개 변수에 전달해야 합니다.
 
-### <a name="modify-protection-for-already-backed-up-vms-with-powershell"></a>PowerShell을 사용 하 여 이미 백업 된 Vm에 대 한 보호 수정
+### <a name="modify-protection-for-already-backed-up-vms-with-powershell"></a>PowerShell을 사용하여 이미 백업된 VM에 대한 보호 수정
 
 ```azurepowershell
 Enable-AzRecoveryServicesBackupProtection -Item $item -InclusionDisksList[Strings] -VaultId $targetVault.ID
@@ -234,19 +245,19 @@ Enable-AzRecoveryServicesBackupProtection -Item $item -InclusionDisksList[String
 Enable-AzRecoveryServicesBackupProtection -Item $item -ExclusionDisksList[Strings] -VaultId $targetVault.ID
 ```
 
-### <a name="backup-only-os-disk-during-modify-protection-with-powershell"></a>PowerShell을 사용 하 여 보호를 수정 하는 동안 OS 디스크만 백업
+### <a name="backup-only-os-disk-during-modify-protection-with-powershell"></a>PowerShell을 사용하여 보호를 수정하는 동안 OS 디스크만 백업
 
 ```azurepowershell
 Enable-AzRecoveryServicesBackupProtection -Item $item  -ExcludeAllDataDisks -VaultId $targetVault.ID
 ```
 
-### <a name="reset-disk-exclusion-setting-with-powershell"></a>PowerShell을 사용 하 여 디스크 제외 설정 다시 설정
+### <a name="reset-disk-exclusion-setting-with-powershell"></a>PowerShell을 사용하여 디스크 제외 설정 초기화
 
 ```azurepowershell
 Enable-AzRecoveryServicesBackupProtection -Item $item -ResetExclusionSettings -VaultId $targetVault.ID
 ```
 
-### <a name="restore-selective-disks-with-powershell"></a>PowerShell을 사용 하 여 선택적 디스크 복원
+### <a name="restore-selective-disks-with-powershell"></a>PowerShell을 사용하여 선택적 디스크 복원
 
 ```azurepowershell
 $startDate = (Get-Date).AddDays(-7)
@@ -255,7 +266,7 @@ $rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $item -StartDate $startdat
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID -RestoreDiskList [$disks]
 ```
 
-### <a name="restore-only-os-disk-with-powershell"></a>PowerShell을 사용 하 여 OS 디스크만 복원
+### <a name="restore-only-os-disk-with-powershell"></a>PowerShell을 사용하여 OS 디스크만 복원
 
 ```azurepowershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID -RestoreOnlyOSDisk
@@ -265,79 +276,81 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "
 
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
-Azure Portal를 사용 하 여 VM 백업 세부 정보 창 및 백업 작업 세부 정보 창에서 포함 및 제외 된 디스크를 볼 수 있습니다.  복원 하는 동안 복원할 복구 지점을 선택 하면 해당 복구 지점에서 백업 된 디스크를 볼 수 있습니다.
+Azure Portal을 사용하여 VM 백업 세부 정보 창과 백업 작업 세부 정보 창에서 포함 및 제외된 디스크를 볼 수 있습니다.  복원 중에 복원을 시작할 복구 지점을 선택할 때 해당 복구 지점에서의 백업된 디스크를 볼 수 있습니다.
 
-여기서 VM 백업 세부 정보 창에서 포털의 가상 컴퓨터에 대 한 포함 및 제외 된 디스크를 볼 수 있습니다.
+여기서는 VM 백업 세부 정보 창에서 포털의 가상 머신에 대해 포함 및 제외된 디스크를 확인할 수 있습니다.
 
-![백업 세부 정보 창에서 포함 및 제외 된 디스크 보기](./media/selective-disk-backup-restore/backup-details.png)
+![백업 세부 정보 창에서 포함 및 제외된 디스크 보기](./media/selective-disk-backup-restore/backup-details.png)
 
-여기에서 작업 세부 정보 창의 백업에서 포함 및 제외 된 디스크를 볼 수 있습니다.
+여기에서는 작업 세부 정보 창의 백업에 포함 및 제외된 디스크를 볼 수 있습니다.
 
-![작업 세부 정보 창에서 포함 및 제외 된 디스크 보기](./media/selective-disk-backup-restore/job-details.png)
+![작업 세부 정보 창에서 포함 및 제외된 디스크 보기](./media/selective-disk-backup-restore/job-details.png)
 
-여기서 복원할 복구 지점을 선택할 때 복원 중에 백업 된 디스크를 볼 수 있습니다.
+여기에서는 복원을 시작할 복구 지점을 선택할 때 복원된 디스크를 볼 수 있습니다.
 
-![복원 중 백업 디스크 보기](./media/selective-disk-backup-restore/during-restore.png)
+![복원 중 백업된 디스크 보기](./media/selective-disk-backup-restore/during-restore.png)
 
-Azure Portal를 통해 VM에 대 한 선택적 디스크 백업 환경을 구성 하는 것은 **OS 디스크만 백업** 옵션으로 제한 됩니다. 이미 백업 된 VM에 대 한 선택적 디스크 백업을 사용 하거나 VM의 특정 데이터 디스크에 대 한 고급 포함 또는 제외를 사용 하려면 PowerShell 또는 Azure CLI을 사용 합니다.
+Azure Portal을 통해 VM에 대해 선택적 디스크 백업 환경을 구성하는 기능은 **OS 디스크만 백업** 옵션으로 제한됩니다. 이미 백업된 VM이나, VM의 특정 데이터 디스크에 대한 고급 포함 또는 제외에 선택적 디스크 백업을 사용하려면 PowerShell 또는 Azure CLI를 사용합니다.
 
 >[!NOTE]
->데이터가 여러 디스크에 걸쳐 있는 경우 모든 종속 디스크가 백업에 포함 되어 있는지 확인 합니다. 볼륨의 모든 종속 디스크를 백업 하지 않는 경우 복원 중에 일부 백업 되지 않은 디스크로 구성 된 볼륨은 생성 되지 않습니다.
+>데이터가 여러 디스크에 걸쳐 있는 경우 모든 종속 디스크가 백업에 포함되어야 합니다. 볼륨의 모든 종속 디스크를 백업하지 않으면 복원 중에 백업되지 않은 디스크로 구성된 볼륨이 만들어지지 않습니다.
 
 ### <a name="backup-os-disk-only-in-the-azure-portal"></a>Azure Portal에서 OS 디스크만 백업
 
-Azure Portal를 사용 하 여 백업을 사용 하도록 설정 하는 경우 **OS 디스크만 백업** 옵션을 선택할 수 있습니다. 따라서 OS 디스크를 사용 하 여 Azure VM의 백업을 구성 하 고 연결 된 모든 데이터 디스크를 제외할 수 있습니다.
+Azure Portal을 사용하여 백업을 사용하도록 설정할 경우 **OS 디스크만 백업** 옵션을 선택할 수 있습니다. 따라서 OS 디스크에서의 Azure VM의 백업을 구성하고, 연결된 모든 데이터 디스크는 제외할 수 있습니다.
 
 ![OS 디스크만 백업 구성](./media/selective-disk-backup-restore/configure-backup-operating-system-disk.png)
 
 ## <a name="using-azure-rest-api"></a>Azure REST API 사용
 
-몇 개의 선택 디스크를 사용 하 여 Azure VM 백업을 구성 하거나, [여기](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup)에 설명 된 대로 몇 개의 디스크를 포함/제외 하도록 기존 VM의 보호를 수정할 수 있습니다.
+일부 선택한 디스크에서의 Azure VM Backup을 구성하거나, [여기](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup)에서 설명한 대로 일부 디스크를 포함/제외하도록 기존 VM의 보호를 수정할 수 있습니다.
 
 ## <a name="selective-disk-restore"></a>선택적 디스크 복원
 
-선택적 디스크 복원은 선택적 디스크 백업 기능을 사용 하도록 설정할 때 제공 되는 추가 기능입니다. 이 기능을 사용 하면 복구 지점에 백업 된 모든 디스크에서 선택적 디스크를 복원할 수 있습니다. 더 효율적 이며 복원 해야 하는 디스크를 아는 시나리오에서 시간을 절약할 수 있습니다.
+선택적 디스크 복원은 선택적 디스크 백업 기능을 사용하도록 설정할 때 제공되는 추가 기능입니다. 이 기능을 사용하면 복구 지점에서 백업된 모든 디스크로부터 선택적 디스크를 복원할 수 있습니다. 더 효율적이며, 복원이 필요한 디스크가 어떤 것인지 알고 있는 시나리오에서 시간을 절약할 수 있습니다.
 
-- OS 디스크는 VM 백업 및 복원에 기본적으로 포함 되어 있으며 제외할 수 없습니다.
-- 선택적 디스크 복원은 디스크 제외 기능을 사용 하도록 설정한 후 생성 된 복구 지점만 지원 됩니다.
-- 디스크 **제외 설정을 사용** 하는 백업은 **디스크 복원** 옵션만 지원 합니다. 이 경우 **VM 복원** 또는 기존 복원 옵션 **바꾸기** 는 지원 되지 않습니다.
+- OS 디스크는 VM 백업 및 복원에 기본적으로 포함되며 제외할 수 없습니다.
+- 선택적 디스크 복원은 디스크 제외 기능을 사용하도록 설정한 후 만들어진 복구 지점에 대해서만 지원됩니다.
+- 디스크 제외 설정을 **사용** 하는 백업은 **디스크 복원** 옵션만 지원합니다. 이 경우 **VM 복원** 또는 **기존 항목 바꾸기** 복원 옵션은 지원되지 않습니다.
 
-![복원 작업을 수행 하는 동안 VM을 복원 하는 옵션과 기존을 바꿀 수 없음](./media/selective-disk-backup-restore/options-not-available.png)
+![VM을 복원하고 기존 항목을 바꾸는 옵션은 복원 작업 중에 사용할 수 없습니다.](./media/selective-disk-backup-restore/options-not-available.png)
 
 ## <a name="limitations"></a>제한 사항
 
-선택적 디스크 백업 기능은 클래식 가상 머신 및 암호화 된 가상 머신에 대해 지원 되지 않습니다. 따라서 Windows VM 암호화에 BitLocker를 사용 하 여 Azure Disk Encryption (ADE)로 암호화 된 Azure Vm 및 Linux Vm의 dm 기능을 지원 하지 않습니다.
+선택적 디스크 백업 기능은 클래식 가상 머신 및 암호화된 가상 머신에 대해 지원되지 않습니다. 따라서 ADE(Azure Disk Encryption)로 암호화된 Azure VM은 Windows VM의 암호화에 BitLocker를 사용하며, Linux VM에 대한 dm-crypt 기능은 지원되지 않습니다.
 
-선택적 디스크 백업 기능이 사용 하도록 설정 된 VM에 대해서는 **새 vm을 만들고** **기존 기존을 바꾸는** 복원 옵션이 지원 되지 않습니다.
+선택적 디스크 백업 기능을 사용하도록 설정된 VM에 대해서는 **새 VM 만들기** 및 **기존 항목 바꾸기** 복원 옵션이 지원되지 않습니다.
 
-현재 Azure VM 백업은 디스크 또는 공유 디스크가 연결 된 Vm을 지원 하지 않습니다. 디스크를 제외 하 고 VM을 백업 하는 경우에는 선택적 디스크 백업을 사용할 수 없습니다.
+현재 Azure VM 백업은 Ultra Disk 또는 공유 디스크가 연결되어 있는 VM을 지원하지 않습니다. 디스크를 제외하고 VM을 백업하는 경우에는 선택적 디스크 백업을 사용할 수 없습니다.
+
+Azure VM을 백업하는 동안 디스크 제외 또는 선택적 디스크를 사용하는 경우 _[보호를 중지하고 백업 데이터를 보존](backup-azure-manage-vms.md#stop-protection-and-retain-backup-data)_ 합니다. 이 리소스에 대한 백업을 다시 시작할 때 디스크 제외 설정을 다시 설정해야 합니다.
 
 ## <a name="billing"></a>결제
 
-Azure 가상 머신 백업은 [여기](https://azure.microsoft.com/pricing/details/backup/)에 자세히 설명 된 기존 가격 책정 모델을 따릅니다.
+Azure 가상 머신 백업은 기존 가격 책정 모델을 따르며 [여기](https://azure.microsoft.com/pricing/details/backup/)에서 상세히 설명합니다.
 
-**Os** 디스크만 사용 옵션을 백업 하도록 선택한 경우에만 os 디스크에 대해 **PI (Protected Instance) 비용이** 계산 됩니다.  백업을 구성 하 고 하나 이상의 데이터 디스크를 선택 하는 경우에는 VM에 연결 된 모든 디스크에 대해 PI 비용이 계산 됩니다. **백업 저장소 비용은** 포함 된 디스크만을 기준으로 계산 되므로 저장소 비용을 절약 하는 데 도움이 됩니다. **스냅숏 비용은** VM의 모든 디스크 (포함 된 디스크와 제외 된 디스크 모두)에 대해 항상 계산 됩니다.
+**OS 디스크만** 옵션을 사용하여 백업하도록 선택한 경우 **PI(보호된 인스턴스) 비용** 은 OS 디스크에 대해서만 계산됩니다.  백업을 구성하고 하나 이상의 데이터 디스크를 선택한 경우 PI 비용은 VM에 연결된 모든 디스크에 대해 계산됩니다. **백업 스토리지 비용** 은 포함된 디스크만을 기준으로 하므로 스토리지 비용을 절감할 수 있습니다. **스냅샷 비용** 은 항상 VM의 모든 디스크에 대해 계산됩니다(포함 및 제외된 디스크 모두).
 
-CRR (교차 지역 복원) 기능을 선택한 경우에는 디스크를 제외 하 고 나 서 [crr 가격이](https://azure.microsoft.com/pricing/details/backup/) 백업 저장소 비용에 적용 됩니다.
+CRR(교차 지역 복원) 기능을 선택한 경우 디스크 제외 후 [CRR 가격 책정](https://azure.microsoft.com/pricing/details/backup/)이 백업 스토리지 비용에 적용됩니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-### <a name="how-is-protected-instance-pi-cost-calculated-for-only-os-disk-backup-in-windows-and-linux"></a>Windows 및 Linux에서 OS 디스크 백업만을 위해 PI (Protected Instance) 비용을 계산 하는 방법
+### <a name="how-is-protected-instance-pi-cost-calculated-for-only-os-disk-backup-in-windows-and-linux"></a>Windows 및 Linux의 OS 디스크만 백업에 대한 PI(보호된 인스턴스) 비용은 어떻게 계산하나요?
 
-PI 비용은 VM의 실제 (사용 되는) 크기를 기준으로 계산 됩니다.
+PI 비용은 VM의 실제(사용) 크기에 따라 계산됩니다.
 
-- Windows의 경우: 사용 된 공간 계산은 운영 체제 (일반적으로 C:)를 저장 하는 드라이브를 기반으로 합니다.
-- Linux의 경우: 사용 된 공간 계산은 루트 파일 시스템 (/)이 탑재 된 장치를 기반으로 합니다.
+- Windows의 경우: 사용 공간 계산은 운영 체제를 저장하는 드라이브(보통 C:)를 기준으로 합니다.
+- Linux의 경우: 사용 공간 계산은 루트 파일 시스템(/)이 탑재된 디바이스를 기준으로 합니다.
 
-### <a name="i-have-configured-only-os-disk-backup-why-is-the-snapshot-happening-for-all-the-disks"></a>OS 디스크 백업만 구성 했습니다. 모든 디스크에 대해 스냅숏이 발생 하는 이유는 무엇 인가요?
+### <a name="i-have-configured-only-os-disk-backup-why-is-the-snapshot-happening-for-all-the-disks"></a>OS 디스크만 백업을 구성했습니다. 모든 디스크에 대해 스냅샷이 발생하는 이유는 무엇인가요?
 
-선택적 디스크 백업 기능을 사용 하면 백업에 포함 된 디스크를 강화 하 여 backup 자격 증명 모음 저장소 비용을 절감할 수 있습니다. 그러나 VM에 연결 된 모든 디스크에 대해 스냅숏이 생성 됩니다. 따라서 스냅숏 비용은 VM의 모든 디스크 (포함 된 디스크와 제외 된 디스크 모두)에 대해 항상 계산 됩니다. 자세한 내용은 [청구](#billing)를 참조 하세요.
+선택적 디스크 백업 기능을 사용하면 백업의 일부인 포함된 디스크를 강화하여 백업 자격 증명 모음 스토리지 비용을 줄일 수 있습니다. 그러나 VM에 연결된 모든 디스크에 대해 스냅샷이 생성됩니다. 따라서 스냅샷 비용은 항상 VM의 모든 디스크에 대해 계산됩니다(포함 및 제외된 디스크 모두). 자세한 내용은 [청구](#billing)를 참조하세요.
 
-### <a name="i-cant-configure-backup-for-the-azure-virtual-machine-by-excluding-ultra-disk-or-shared-disks-attached-to-the-vm"></a>VM에 연결 된 ultra disk 또는 공유 디스크를 제외 하 여 Azure 가상 머신에 대 한 백업을 구성할 수 없습니다.
+### <a name="i-cant-configure-backup-for-the-azure-virtual-machine-by-excluding-ultra-disk-or-shared-disks-attached-to-the-vm"></a>VM에 연결된 Ultra Disk 또는 공유 디스크를 제외하여 Azure 가상 머신에 대한 백업을 구성할 수 없습니다.
 
-선택적 디스크 백업 기능은 Azure virtual machine 백업 솔루션 위에 제공 되는 기능입니다. 현재 Azure VM 백업은 ultra disk 또는 공유 디스크가 연결 된 Vm을 지원 하지 않습니다.
+선택적 디스크 백업 기능은 Azure 가상 머신 백업 솔루션을 바탕으로 제공되는 기능입니다. 현재 Azure VM 백업은 Ultra Disk 또는 공유 디스크가 연결되어 있는 VM을 지원하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure VM 백업의 지원 매트릭스](backup-support-matrix-iaas.md)
-- [질문과 대답-Azure Vm 백업](backup-azure-vm-backup-faq.yml)
+- [질문과 대답 - Azure VM 백업](backup-azure-vm-backup-faq.yml)

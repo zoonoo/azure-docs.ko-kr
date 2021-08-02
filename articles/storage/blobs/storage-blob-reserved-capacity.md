@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 05/17/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6fd791495602846b95e2dd3e99423db5505f5307
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f130e2367ed2fa4c9095479e9ff9d9722b010e5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98600908"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110098545"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>예약된 용량으로 Blob 스토리지에 대한 비용 최적화
 
@@ -49,7 +49,7 @@ Azure Storage 예약 용량은 GPv2(범용 v2) 및 Blob 스토리지 계정을 �
 모든 유형의 중복도가 예약에 대해 지원됩니다. 중복도 옵션에 대한 자세한 내용은 [Azure Storage 중복도](../common/storage-redundancy.md)를 참조하세요.
 
 > [!NOTE]
-> Azure Storage 예약 용량은 프리미엄 스토리지 계정, GPv1(범용 v1) 스토리지 계정, Azure Data Lake Storage Gen1, 페이지 Blob, Azure Queue 스토리지, Azure Table 스토리지 또는 Azure Files에 사용할 수 없습니다.  
+> Azure Storage 예약 용량은 프리미엄 스토리지 계정, GPv1(범용 v1) 스토리지 계정, Azure Data Lake Storage Gen1, 페이지 Blob, Azure Queue Storage 또는 Azure Table Storage에 사용할 수 없습니다. Azure Files의 예약된 용량에 대한 자세한 내용은 [예약된 용량을 사용하여 Azure Files 비용 최적화](../files/files-reserve-capacity.md)를 참조하세요.  
 
 ### <a name="security-requirements-for-purchase"></a>구매를 위한 보안 요구 사항
 
@@ -79,7 +79,7 @@ Azure Storage 예약을 구매할 때 지역, 액세스 계층 및 예약에 대
 
     ![예약된 용량을 구매하는 방법을 보여 주는 스크린샷](media/storage-blob-reserved-capacity/select-reserved-capacity.png)
 
-   |필드  |Description  |
+   |필드  |설명  |
    |---------|---------|
    |**범위**   |  얼마나 많은 구독이 예약과 연결된 청구 혜택을 사용할 수 있는지 나타냅니다. 또한 예약이 특정 구독에 적용되는 방식을 제어합니다. <br/><br/> **공유** 를 선택하면 예약 할인이 청구 컨텍스트 내 모든 구독의 Azure Storage 용량에 적용됩니다. 청구 컨텍스트는 Azure에 등록한 방법에 따라 결정됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 경우 공유 범위에는 계정 관리자가 만든 종량제 요금을 사용하는 모든 개별 구독이 포함됩니다.  <br/><br/>  **단일 구독** 을 선택하면 예약 할인이 선택한 구독의 Azure Storage 용량에 적용됩니다. <br/><br/> **단일 리소스 그룹** 을 선택하면 예약 할인이 선택한 구독의 Azure Storage 용량과 해당 구독 내에서 선택한 리소스 그룹에 적용됩니다. <br/><br/> 예약을 구매한 후에는 예약 범위를 변경할 수 있습니다.  |
    |**구독**  | Azure Storage 예약 요금을 지불하는 데 사용되는 구독입니다. 선택한 구독에 대한 지불 방법은 비용을 청구하는 데 사용됩니다. 구독은 다음 유형 중 하나여야 합니다. <br/><br/>  기업계약(제품 번호: MS-AZR-0017P 또는 MS-AZR-0148P): Enterprise 구독에 대한 요금은 등록의 Azure Prepayment(이전에는 금액 약정이라고 함) 잔액에서 차감되거나 초과분에 대한 요금으로 청구됩니다. <br/><br/> 종량제 요금을 사용하는 개별 구독(제품 번호: MS-AZR-0003P 또는 MS-AZR-0023P): 종량제 요금을 사용하는 개별 구독의 경우 요금은 구독에 대한 신용 카드 또는 청구서 지불 방법으로 청구됩니다.    |

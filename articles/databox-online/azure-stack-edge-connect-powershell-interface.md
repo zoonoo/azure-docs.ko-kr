@@ -1,6 +1,6 @@
 ---
-title: Windows PowerShell 인터페이스를 통해 Microsoft Azure Stack Edge Pro 디바이스에 연결 및 관리 | Microsoft Docs
-description: Windows PowerShell 인터페이스를 통해 Azure Stack Edge Pro에 연결하고 관리하는 방법을 설명합니다.
+title: Windows PowerShell 인터페이스를 통해 Microsoft Azure Stack Edge Pro FPGA 디바이스에 연결 및 관리
+description: Windows PowerShell 인터페이스를 통한 Azure Stack Edge Pro FPGA 연결 및 관리에 대해 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: alkohli
-ms.openlocfilehash: c9c6247f021b7af4cfdd899ffd4b6bd178f2256c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09271ddeac59446d134feaa0f2acb6c3e3d9d89f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96345596"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461277"
 ---
 # <a name="manage-an-azure-stack-edge-pro-fpga-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure Stack Edge Pro FPGA 디바이스 관리
 
-Azure Stack Edge Pro 솔루션을 사용하면 데이터를 처리하고 네트워크를 통해 Azure에 보낼 수 있습니다. 이 문서에서는 Azure Stack Edge Pro 디바이스에 대한 구성 및 관리 작업을 설명합니다. Azure Portal, 로컬 웹 UI 또는 Windows PowerShell 인터페이스를 사용하여 디바이스를 관리할 수 있습니다.
+Azure Stack Edge Pro FPGA 솔루션을 사용하면 데이터를 처리하고 네트워크를 통해 Azure에 보낼 수 있습니다. 이 문서에서는 Azure Stack Edge Pro FPGA 디바이스에 대한 구성 및 관리 작업을 설명합니다. Azure Portal, 로컬 웹 UI 또는 Windows PowerShell 인터페이스를 사용하여 디바이스를 관리할 수 있습니다.
 
 이 문서에서는 PowerShell 인터페이스를 사용하여 수행하는 작업을 중점적으로 설명합니다. 
 
@@ -94,4 +94,4 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Portal에서 [Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)를 배포합니다.
+- Azure Portal에서 [Azure Stack Edge Pro FPGA](azure-stack-edge-deploy-prep.md)를 배포합니다.

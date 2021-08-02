@@ -8,14 +8,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
-ms.reviewer: mathoma
+ms.reviewer: chadam
 ms.date: 05/14/2021
-ms.openlocfilehash: 69783519f2f10da452f1075c1b10026d9475935a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ebe8c40f6e86c96fb4af49d261ce00d2364d0180
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110063175"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957663"
 ---
 # <a name="migration-guide-ibm-db2-to-sql-server-on-azure-vm"></a>마이그레이션 가이드: IBM Db2에서 Azure VM의 SQL Server로
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -149,8 +149,9 @@ DB2용 SSMA를 사용하여 데이터베이스 개체 및 데이터를 검토하
 |자산  |Description  |
 |---------|---------|
 |[데이터 워크로드 평가 모델 및 도구](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| 이 도구는 권장되는 “최적의” 대상 플랫폼, 클라우드 준비 상태 및 애플리케이션/데이터베이스 수정 수준을 지정된 워크로드에 제공합니다. 또한 자동화되고 균일한 대상 플랫폼 결정 프로세스를 제공하여 대규모 자산 평가를 가속화하는 데 도움이 되는 간단한 원클릭 계산 및 보고서 생성 기능을 제공합니다.|
-|[Db2 zOS 데이터 자산 검색 및 평가 패키지](https://github.com/microsoft/DataMigrationTeam/tree/master/DB2%20zOS%20Data%20Assets%20Discovery%20and%20Assessment%20Package)|데이터베이스에서 SQL 스크립트를 실행한 후에는 파일 시스템의 파일로 결과를 내보낼 수 있습니다. *.csv를 비롯한 여러 파일 형식이 지원되므로 스프레드시트와 같은 외부 도구에서 결과를 캡처할 수 있습니다. 이 방법은 워크벤치가 설치되지 않은 팀과 결과를 쉽게 공유하려는 경우에 유용할 수 있습니다.|
-|[IBM Db2 LUW 인벤토리 스크립트 및 아티팩트](https://github.com/microsoft/DataMigrationTeam/tree/master/IBM%20DB2%20LUW%20Inventory%20Scripts%20and%20Artifacts)|이 자산에는 IBM Db2 LUW 버전 11.1 시스템 테이블에 적용되며, 스키마 및 개체 형식별 개체 수, 각 스키마의 대략적인 "원시 데이터" 예측 및 각 스키마의 테이블 크기 조정을 CSV 형식으로 저장된 결과와 함께 제공하는 SQL 쿼리가 포함됩니다.|
+|[Db2 zOS 데이터 자산 검색 및 평가 패키지](https://www.microsoft.com/download/details.aspx?id=103108)|데이터베이스에서 SQL 스크립트를 실행한 후에는 파일 시스템의 파일로 결과를 내보낼 수 있습니다. \*.csv를 비롯한 여러 파일 형식이 지원되므로 스프레드시트와 같은 외부 도구에서 결과를 캡처할 수 있습니다. 이 방법은 워크벤치가 설치되지 않은 팀과 결과를 쉽게 공유하려는 경우에 유용할 수 있습니다.|
+|[IBM Db2 LUW 인벤토리 스크립트 및 아티팩트](https://www.microsoft.com/download/details.aspx?id=103109)|이 자산에는 IBM Db2 LUW 버전 11.1 시스템 테이블에 적용되며, 스키마 및 개체 형식별 개체 수, 각 스키마의 대략적인 "원시 데이터" 예측 및 각 스키마의 테이블 크기 조정을 CSV 형식으로 저장된 결과와 함께 제공하는 SQL 쿼리가 포함됩니다.|
+|[IBM Db2-SQL Server - 데이터베이스 비교 유틸리티](https://www.microsoft.com/download/details.aspx?id=103016)|데이터베이스 비교 유틸리티는 원본 플랫폼과 대상 플랫폼에서 데이터가 동일한지 확인하는 데 사용할 수 있는 Windows 콘솔 애플리케이션입니다. 이 도구를 사용하여 모든 테이블 또는 선택한 테이블, 행, 열의 행 또는 열 수준까지 데이터를 효율적으로 비교할 수 있습니다.|
 
 데이터 SQL 엔지니어링 팀이 이러한 리소스를 개발했습니다. 이 팀의 핵심 선언은 Microsoft의 Azure 데이터 플랫폼으로의 데이터 플랫폼 마이그레이션 프로젝트에 대한 복잡한 현대화의 장애물을 제거하고 속도를 높이는 것입니다.
 

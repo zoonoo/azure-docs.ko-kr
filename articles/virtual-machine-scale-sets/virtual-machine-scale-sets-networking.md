@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 9ad761f289805d15d316fc6f528a0049adb36b30
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mimckitt, devx-track-azurepowershell
+ms.openlocfilehash: 452d24d95fc0c43d8301e29b2304b9f0baa3cb25
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97722320"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110673928"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 네트워킹
 
@@ -130,7 +130,7 @@ Azure 템플릿에서 도메인 이름을 설정하려면 **networkInterfaceConf
 그러나 일부 시나리오의 경우 확장 집합 가상 머신에는 자체의 공용 IP 주소가 필요합니다. 게임 물리 처리를 수행하는 클라우드 가상 머신에 콘솔을 직접 연결해야 하는 게임이 그 예입니다. 또 다른 예로 가상 머신이 분산된 데이터베이스의 여러 지역에서 서로를 외부 연결해야 하는 경우가 있습니다.
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>가상 머신별 공용 IP가 포함된 확장 집합 만들기
-CLI를 사용하여 각 가상 머신에 공용 IP 주소를 할당하는 확장 집합을 만들려면 **vmss create** 명령에 **--public-ip-per-vm** 매개 변수를 추가합니다. 
+CLI를 사용하여 각 가상 머신에 공용 IP 주소를 할당하는 확장 집합을 만들려면 **vmss create** 명령에 **--public-ip-per-vm** 매개 변수를 추가합니다.
 
 Azure 템플릿을 사용하여 확장 집합을 만들려면 Microsoft.Compute/virtualMachineScaleSets 리소스의 API 버전이 적어도 **2017-03-30** 인지 확인하고, ipConfigurations 확장 집합 섹션에 **publicIpAddressConfiguration** JSON 속성을 추가합니다. 예를 들면 다음과 같습니다.
 
@@ -143,7 +143,7 @@ Azure 템플릿을 사용하여 확장 집합을 만들려면 Microsoft.Compute/
 }
 ```
 
-템플릿 예제: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
+템플릿 예제: [vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>확장 집합에 있는 가상 머신의 공용 IP 주소 쿼리
 CLI를 사용하여 확장 집합 가상 머신에 할당된 공용 IP 주소를 나열하려면 **az vmss list-instance-public-ips** 명령을 사용합니다.
@@ -384,7 +384,7 @@ az vmss show \
 
 ## <a name="make-networking-updates-to-specific-instances"></a>특정 인스턴스에 대한 네트워킹 업데이트 만들기
 
-특정 가상 머신 확장 집합 인스턴스에 대한 네트워킹 업데이트를 수행할 수 있습니다. 
+특정 가상 머신 확장 집합 인스턴스에 대한 네트워킹 업데이트를 수행할 수 있습니다.
 
 인스턴스에 대해 `PUT`을 수행하여 네트워크 구성을 업데이트할 수 있습니다. 이를 사용하여 NIC(네트워크 인터페이스 카드)를 추가 또는 제거하거나 백 엔드 풀에서 인스턴스를 제거하는 등의 작업을 수행할 수 있습니다.
 
@@ -395,8 +395,8 @@ PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/provid
 다음 예제에서는 두 번째 IP 구성을 NIC에 추가하는 방법을 보여 줍니다.
 
 1. 특정 가상 머신 확장 집합 인스턴스에 대한 세부 정보를 `GET`합니다.
-    
-    ``` 
+
+    ```
     GET https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
     ```
 
@@ -449,10 +449,10 @@ PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/provid
       }
     }
     ```
- 
+
 2. 인스턴스에 대해 `PUT`을 수행하여 추가 IP 구성을 추가하도록 업데이트합니다. 이 작업은 `networkInterfaceConfiguration`을 추가하는 것과 유사합니다.
 
-    
+
     ```
     PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
     ```

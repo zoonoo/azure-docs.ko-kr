@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 4/7/2021
+ms.date: 5/20/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 9b217f9911d9a1e3ab3bfcabde5955764314cc7d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 1cd716ea74f1e16e448f312d007bbd4d90f232d5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787602"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461745"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -25,13 +25,14 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 | Milestone | 에이전트 버전 번호 | 릴리스 날짜 | 상태 |
 |----|----------------------|--------------|------------------|
-| V12 릴리스 - [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | 2021년 3월 26일 | 지원됨 |
+| V12.1 릴리스-[KB4588751](https://support.microsoft.com/topic/497dc33c-d38b-42ca-8015-01c906b96132)| 12.1.0.0 | 2021년 5월 20일 | 지원 여부 |
+| V12 릴리스 - [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | 2021년 3월 26일 | 지원 여부 |
 | V11.3 릴리스 - [KB4539953](https://support.microsoft.com/topic/f68974f6-bfdd-44f4-9659-bf2d8a696c26)| 11.3.0.0 | 2021년 4월 7일 | 지원됨 |
 | V11.2 릴리스 - [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | 2021년 2월 2일 | 지원됨 |
 | V11.1 릴리스 - [KB4539951](https://support.microsoft.com/help/4539951)| 11.1.0.0 | 2020년 11월 4일 | 지원됨 |
-| V10.1 릴리스 - [KB4522411](https://support.microsoft.com/help/4522411)| 10.1.0.0 | 2020년 6월 5일 | 지원됨 - 에이전트 버전은 2021년 6월 7일에 만료됩니다. |
-| 2020년 5월 업데이트 롤업 - [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 2020년 5월 19일 | 지원됨 - 에이전트 버전은 2021년 6월 7일에 만료됩니다. |
-| V10 릴리스 - [KB4522409](https://support.microsoft.com/help/4522409)| 10.0.0.0 | 2020년 4월 9일 | 지원됨 - 에이전트 버전은 2021년 6월 7일에 만료됩니다. |
+| V10.1 릴리스 - [KB4522411](https://support.microsoft.com/help/4522411)| 10.1.0.0 | 2020년 6월 5일 | 지원됨 - 에이전트 버전은 2021년 6월 28일에 만료됩니다. |
+| 2020년 5월 업데이트 롤업 - [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 2020년 5월 19일 | 지원됨 - 에이전트 버전은 2021년 6월 28일에 만료됩니다. |
+| V10 릴리스 - [KB4522409](https://support.microsoft.com/help/4522409)| 10.0.0.0 | 2020년 4월 9일 | 지원됨 - 에이전트 버전은 2021년 6월 28일에 만료됩니다. |
 
 ## <a name="unsupported-versions"></a>지원되지 않는 버전
 다음 Azure 파일 동기화 에이전트 버전은 만료되었으며 더 이상 지원되지 않습니다.
@@ -49,6 +50,14 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-12100"></a>에이전트 버전 12.1.0.0
+다음 릴리스 정보는 2021년 5월 20일 릴리스된 Azure 파일 동기화 에이전트의 버전 12.1.0.0에 대한 것입니다. 이러한 정보는 버전 12.0.0.0에 대해 나열된 릴리스 정보에 대한 추가 사항입니다.
+
+### <a name="improvements-and-issues-that-are-fixed"></a>개선 사항 및 해결된 문제 
+V12.0 에이전트 릴리스에는 이 릴리스에서 수정된 두 가지 버그가 있습니다.
+- 에이전트 자동 업데이트에서 에이전트를 최신 버전으로 업데이트하지 못했습니다.
+- FileSyncErrorsReport.ps1 스크립트는 항목당 오류 목록을 제공하지 않습니다.
 
 ## <a name="agent-version-12000"></a>에이전트 버전 12.0.0.0
 다음 릴리스 정보는 Azure 파일 동기화 에이전트(2021년 3월 26일 릴리스) 버전 12.0.0.0에 대한 것입니다.

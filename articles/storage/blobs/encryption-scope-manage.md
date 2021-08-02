@@ -4,17 +4,18 @@ description: 암호화 범위를 만들어 컨테이너 또는 BLOB 수준에서
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/26/2021
+ms.date: 05/10/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 656443b0bc9d0e45f43634b1b4c21145de7a5bb5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1419dcba2dbf1732760848738c6f50c4168ac545
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107792546"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110664986"
 ---
 # <a name="create-and-manage-encryption-scopes"></a>암호화 범위 만들기 및 관리
 
@@ -41,7 +42,8 @@ Azure Portal에서 암호화 범위를 만드는 방법은 다음과 같습니�
 1. **암호화 범위 만들기** 창에서 새 범위의 이름을 입력합니다.
 1. **Microsoft 관리형 키** 또는 **고객 관리형 키** 중에서 원하는 유형의 암호화 키 지원을 선택합니다.
     - **Microsoft 관리형 키** 를 선택한 경우 **만들기** 를 클릭하여 암호화 범위를 만듭니다.
-    - **고객 관리형 키** 를 선택한 경우 다음 이미지에 표시된 것처럼 구독을 선택하고 이 암호화 범위에 사용할 키 자격 증명 모음 또는 관리되는 HSM 및 키를 지정합니다.
+    - **고객 관리형 키** 를 선택한 경우 구독을 선택하고 Key Vault 또는 관리 HSM과 이 암호화 범위에 사용할 키를 지정합니다.
+1. 스토리지 계정에 대해 인프라 암호화를 사용하도록 설정한 경우 새 암호화 범위에 대해 자동으로 사용하도록 설정됩니다. 그렇지 않으면 암호화 범위에 대해 인프라 암호화를 사용하도록 설정할지 여부를 선택할 수 있습니다.
 
     :::image type="content" source="media/encryption-scope-manage/create-encryption-scope-customer-managed-key-portal.png" alt-text="Azure Portal에서 암호화 범위를 만드는 방법을 보여주는 스크린샷":::
 
@@ -51,7 +53,9 @@ PowerShell을 사용하여 암호화 범위를 만들려면 [Az.Storage](https:/
 
 ### <a name="create-an-encryption-scope-protected-by-microsoft-managed-keys"></a>Microsoft 관리형 키로 보호되는 암호화 범위 만들기
 
-Microsoft 관리형 키로 보호되는 새 암호화 범위를 만들려면 `-StorageEncryption` 매개 변수를 사용하여 **New-AzStorageEncryptionScope** 명령을 호출합니다.
+Microsoft 관리형 키로 보호되는 새 암호화 범위를 만들려면 `-StorageEncryption` 매개 변수를 사용하여 [New-AzStorageEncryptionScope](/powershell/module/az.storage/new-azstorageencryptionscope) 명령을 호출합니다.
+
+스토리지 계정에 대해 인프라 암호화를 사용하도록 설정한 경우 새 암호화 범위에 대해 자동으로 사용하도록 설정됩니다. 그렇지 않으면 암호화 범위에 대해 인프라 암호화를 사용하도록 설정할지 여부를 선택할 수 있습니다. 인프라 암호화가 사용하도록 설정된 새 범위를 만들려면 `-RequireInfrastructureEncryption` 매개 변수를 포함합니다.
 
 예제의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
@@ -93,7 +97,9 @@ Set-AzKeyVaultAccessPolicy `
     -PermissionsToKeys wrapkey,unwrapkey,get
 ```
 
-그런 다음 `-KeyvaultEncryption` 매개 변수를 사용하여 **New-AzStorageEncryptionScope** 명령을 호출하고 키 URI를 지정합니다. 키 URI에 키 버전을 포함하는 것은 선택 사항입니다. 키 버전을 생략하면 암호화 범위는 가장 최신 키 버전을 자동으로 사용합니다. 키 버전을 포함하는 경우 다른 버전을 사용하려면 수동으로 키 버전을 업데이트해야 합니다.
+그런 다음 `-KeyvaultEncryption` 매개 변수를 사용하여 [New-AzStorageEncryptionScope](/powershell/module/az.storage/new-azstorageencryptionscope) 명령을 호출하고 키 URI를 지정합니다. 키 URI에 키 버전을 포함하는 것은 선택 사항입니다. 키 버전을 생략하면 암호화 범위는 가장 최신 키 버전을 자동으로 사용합니다. 키 버전을 포함하는 경우 다른 버전을 사용하려면 수동으로 키 버전을 업데이트해야 합니다.
+
+스토리지 계정에 대해 인프라 암호화를 사용하도록 설정한 경우 새 암호화 범위에 대해 자동으로 사용하도록 설정됩니다. 그렇지 않으면 암호화 범위에 대해 인프라 암호화를 사용하도록 설정할지 여부를 선택할 수 있습니다. 인프라 암호화가 사용하도록 설정된 새 범위를 만들려면 `-RequireInfrastructureEncryption` 매개 변수를 포함합니다.
 
 예제의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
@@ -111,7 +117,11 @@ Azure CLI를 사용하여 암호화 범위를 만들려면 먼저 Azure CLI 버�
 
 ### <a name="create-an-encryption-scope-protected-by-microsoft-managed-keys"></a>Microsoft 관리형 키로 보호되는 암호화 범위 만들기
 
-Microsoft 관리형 키로 보호되는 새 암호화 범위를 만들려면 [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) 명령을 호출하여 `--key-source` 매개 변수를 `Microsoft.Storage`로 지정합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+Microsoft 관리형 키로 보호되는 새 암호화 범위를 만들려면 [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) 명령을 호출하여 `--key-source` 매개 변수를 `Microsoft.Storage`로 지정합니다.
+
+스토리지 계정에 대해 인프라 암호화를 사용하도록 설정한 경우 새 암호화 범위에 대해 자동으로 사용하도록 설정됩니다. 그렇지 않으면 암호화 범위에 대해 인프라 암호화를 사용하도록 설정할지 여부를 선택할 수 있습니다. 인프라 암호화가 사용하도록 설정된 새 범위를 만들려면 `--require-infrastructure-encryption` 매개 변수를 포함하고 해당 값을 `true`로 설정합니다.
+
+자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli-interactive
 az storage account encryption-scope create \
@@ -122,8 +132,6 @@ az storage account encryption-scope create \
 ```
 
 ### <a name="create-an-encryption-scope-protected-by-customer-managed-keys"></a>고객 관리형 키로 보호되는 암호화 범위 만들기
-
-Microsoft 관리형 키로 보호되는 새 암호화 범위를 만들려면 [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) 명령을 호출하여 `--key-source` 매개 변수를 `Microsoft.Storage`로 지정합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 키 자격 증명 모음 또는 관리되는 HSM에 있는 고객 관리형 키로 보호되는 새 암호화 범위를 만들려면 먼저 스토리지 계정에 대한 고객 관리형 키를 구성합니다. 관리되는 ID를 스토리지 계정에 할당한 뒤 관리되는 ID를 사용하여 키 자격 증명 모음에 대한 액세스 정책을 구성함으로써 스토리지 계정이 액세스 권한을 가질 수 있도록 합니다. 자세한 내용은 [Azure Storage 암호화용 고객 관리형 키](../common/customer-managed-keys-overview.md)를 참조하세요.
 
@@ -153,7 +161,9 @@ az keyvault set-policy \
     --key-permissions get unwrapKey wrapKey
 ```
 
-그런 다음 `--key-uri` 매개 변수를 사용하여 **az storage account encryption-scope create** 명령을 호출하고 키 URI를 지정합니다. 키 URI에 키 버전을 포함하는 것은 선택 사항입니다. 키 버전을 생략하면 암호화 범위는 가장 최신 키 버전을 자동으로 사용합니다. 키 버전을 포함하는 경우 다른 버전을 사용하려면 수동으로 키 버전을 업데이트해야 합니다.
+그런 다음 `--key-uri` 매개 변수와 함께 [az storage account encryption-scope](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) 명령을 호출하고 키 URI를 지정합니다. 키 URI에 키 버전을 포함하는 것은 선택 사항입니다. 키 버전을 생략하면 암호화 범위는 가장 최신 키 버전을 자동으로 사용합니다. 키 버전을 포함하는 경우 다른 버전을 사용하려면 수동으로 키 버전을 업데이트해야 합니다.
+
+스토리지 계정에 대해 인프라 암호화를 사용하도록 설정한 경우 새 암호화 범위에 대해 자동으로 사용하도록 설정됩니다. 그렇지 않으면 암호화 범위에 대해 인프라 암호화를 사용하도록 설정할지 여부를 선택할 수 있습니다. 인프라 암호화가 사용하도록 설정된 새 범위를 만들려면 `--require-infrastructure-encryption` 매개 변수를 포함하고 해당 값을 `true`로 설정합니다.
 
 예제의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
@@ -172,6 +182,8 @@ az storage account encryption-scope create \
 
 - [Azure Key Vault에 저장된 고객 관리형 키를 사용하여 암호화 구성](../common/customer-managed-keys-configure-key-vault.md)
 - [Azure Key Vault 관리되는 HSM에 저장된 고객 관리형 키를 사용하여 암호화 구성(미리 보기)](../common/customer-managed-keys-configure-key-vault-hsm.md).
+
+인프라 암호화에 대한 자세한 내용은 [데이터 이중 암호화를 위한 인프라 암호화 사용](../common/infrastructure-encryption-enable.md)을 참조하세요.
 
 ## <a name="list-encryption-scopes-for-storage-account"></a>스토리지 계정의 암호화 범위 나열
 
@@ -418,3 +430,4 @@ az storage account encryption-scope update \
 - [미사용 데이터에 대한 Azure Storage 암호화](../common/storage-service-encryption.md)
 - [BLOB 스토리지의 암호화 범위](encryption-scope-overview.md)
 - [Azure Storage 암호화용 고객 관리형 키](../common/customer-managed-keys-overview.md)
+- [데이터 이중 암호화를 위한 인프라 암호화 사용](../common/infrastructure-encryption-enable.md)

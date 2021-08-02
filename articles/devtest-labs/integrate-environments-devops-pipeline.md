@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 Azure Pipelines에 환경 통합
 description: Azure DevOps CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인에 Azure DevTest Labs 환경을 통합하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: be726b2a3f67fd3dada4fdc3cf794922a3c18d06
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18f334fe85b6a38c38fc41d55c711ee6d6629760
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85483026"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006134"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Azure DevOps CI/CD 파이프라인에 환경 통합
 Azure DevOps Services(이전의 Visual Studio Team Services)에 설치된 Azure DevTest Labs Tasks 확장을 사용하여 CI(연속 통합)/CD(지속적인 업데이트) 빌드 및 릴리스 파이프라인을 Azure DevTest Labs와 손쉽게 통합할 수 있습니다. 이 확장을 사용하면 특정 테스트 작업을 위한 [환경](devtest-lab-test-env.md)을 빠르고 쉽게 배포한 후 테스트가 완료되면 삭제할 수 있습니다. 
@@ -26,8 +26,8 @@ CI/CD 파이프라인을 Azure DevTest Labs와 통합하려면 먼저 Visual Stu
 
 1. 랩이 아직 없는 경우 [랩을 만듭니다](devtest-lab-create-lab.md). 
 2. [Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기](devtest-lab-create-environment-from-arm.md) 문서의 지침에 따라 랩을 구성하고 환경 템플릿을 만듭니다.
-3. 이 예에서는 기존의 Azure 빠른 시작 템플릿을 사용합니다([https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/](https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/)).
-4. **201-web-app-redis-cache-sql-database** 폴더를 2단계에서 구성한 리포지토리의 **ArmTemplate** 폴더에 복사합니다.
+3. 이 예에서는 기존의 Azure 빠른 시작 템플릿을 사용합니다([https://azure.microsoft.com/resources/templates/web-app-redis-cache-sql-database](https://azure.microsoft.com/resources/templates/web-app-redis-cache-sql-database)).
+4. **web-app-redis-cache-sql-database** 폴더를 2단계에서 구성한 리포지토리의 **ArmTemplate** 폴더에 복사합니다.
 
 ## <a name="create-a-release-definition"></a>릴리스 정의 만들기
 릴리스 정의를 만들려면 다음을 수행합니다.

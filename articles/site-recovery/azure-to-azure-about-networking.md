@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: b9fdaf8a0791570ecee402442c5faefe2f70a22b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e1d7bba91ca9283b00432a06e24d1b8beaa49fc
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92370443"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111811318"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구의 네트워킹 정보
 
@@ -58,6 +58,10 @@ login.microsoftonline.com | Site Recovery 서비스 URL에 대한 권한 부여 
 *.automation.ext.azure.com | 포털을 통해 복제된 항목의 모바일 에이전트의 자동 업그레이드 활성화 허용
 
 ## <a name="outbound-connectivity-using-service-tags"></a>서비스 태그를 사용하는 아웃바운드 연결
+
+URL 제어 외에도 서비스 태그를 사용하여 연결을 제어할 수 있습니다. 이렇게 하려면 먼저 Azure에서 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/network-security-group-how-it-works)을 만들어야 합니다. 그런 다음, 기존 서비스 태그를 사용하여 Azure Site Recovery 서비스에 대한 액세스를 허용하는 NSG 규칙을 만들어야 합니다. 
+
+IP 주소를 사용하여 연결을 제어하는 것과 비교할 때 서비스 태그를 사용하여 연결을 제어할 경우의 이점은 서비스에 연결된 상태를 유지하기 위해 특정 IP 주소에 강하게 종속되지 않는다는 것입니다. 이 시나리오에서는 서비스 중 하나의 IP 주소가 변경될 경우 진행 중인 복제가 머신에 영향을 미치지 않습니다. 반면 하드 코딩된 IP 주소에 대한 종속성으로 인해 복제 상태가 위험해지고 시스템이 위험에 노출됩니다. 또한 서비스 태그는 하드 코딩된 IP 주소보다 더 나은 보안, 안정성, 복원력을 보장합니다.
 
 NSG를 사용하여 아웃바운드 연결을 제어하는 동안 이러한 서비스 태그를 허용해야 합니다.
 

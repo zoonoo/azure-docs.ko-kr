@@ -1,18 +1,18 @@
 ---
 title: Debian Linux VHD 준비
 description: Azure에서 배포할 Debian VHD 이미지를 만드는 방법을 알아봅니다.
-author: gbowerman
+author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 11/13/2018
-ms.author: guybo
-ms.openlocfilehash: 7dcb6dbc62513535c562a430f5958a62dae9d005
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 6/3/2021
+ms.author: srijangupta
+ms.openlocfilehash: 9e276c9051be711e41b68d0b2dbb17c6816645d5
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554516"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004964"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Azure용 Debian VHD 준비
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -42,89 +42,117 @@ ms.locfileid: "102554516"
 ```
 
 
-## <a name="manually-prepare-a-debian-vhd"></a>Debian VHD 수동 준비
-1. Hyper-V 관리자에서 가상 머신을 선택합니다.
-2. **연결** 을 클릭하여 가상 머신의 콘솔 창을 엽니다.
-3. ISO를 사용하여 OS를 설치한 경우 `/etc/apt/source.list`에서 "`deb cdrom`"과 관련된 모든 줄을 주석 처리합니다.
+## <a name="prepare-a-debian-image-for-azure"></a>Azure용 Debian 이미지 준비
 
-4. 다음과 같이 `/etc/default/grub` 파일을 편집하고 **GRUB_CMDLINE_LINUX** 매개 변수를 수정하여 Azure에 대한 추가 커널 매개 변수를 포함시킵니다.
+[FAI 클라우드 이미지 작성기](https://salsa.debian.org/cloud-team/debian-cloud-images)를 사용하여 기본 Azure Debian Cloud 이미지를 만들 수 있습니다.
 
-    ```config-grub
-    GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200n8 earlyprintk=ttyS0,115200"
-    ```
+(Debian Cloud 이미지 리포지토리에서 다음 git clone 및 apt install 명령을 가져왔습니다.) 리포지토리를 복제하고 종속성을 설치하여 시작합니다.
 
-5. grub을 다시 빌드하고 다음을 실행합니다.
+```
+$ git clone https://salsa.debian.org/cloud-team/debian-cloud-images.git
+$ sudo apt install --no-install-recommends ca-certificates debsums dosfstools \
+    fai-server fai-setup-storage make python3 python3-libcloud python3-marshmallow \
+    python3-pytest python3-yaml qemu-utils udev
+$ cd ./debian-cloud-images
+```
 
-    ```console
-    # sudo update-grub
-    ```
+(선택 사항) 필드 스크립트(예: 셸 스크립트)를 `./config_space/scripts/AZURE`에 추가하여 빌드를 사용자 지정합니다.
 
-6. Debian의 Azure 리포지토리를 Debian 8, 9 또는 10 중 하나에 대한 /etc/apt/sources.list에 추가합니다.
 
-    **Debian 8.x "Jessie"**
 
-    ```config-grub
-    deb http://debian-archive.trafficmanager.net/debian jessie main
-    deb-src http://debian-archive.trafficmanager.net/debian jessie main
-    deb http://debian-archive.trafficmanager.net/debian-security jessie/updates main
-    deb-src http://debian-archive.trafficmanager.net/debian-security jessie/updates
-    deb http://debian-archive.trafficmanager.net/debian jessie-updates main
-    deb-src http://debian-archive.trafficmanager.net/debian jessie-updates main
-    deb http://debian-archive.trafficmanager.net/debian jessie-backports main
-    deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main
-    ```
+## <a name="an-example-of-a-script-to-customize-the-image-is"></a>이미지를 사용자 지정하는 스크립트의 예는 다음과 같습니다.
 
-    **Debian 9.x "Stretch"**
+```
+$ mkdir -p ./config_space/scripts/AZURE
+$ cat > ./config_space/scripts/AZURE/10-custom <<EOF
+#!/bin/bash
 
-    ```config-grub
-    deb http://debian-archive.trafficmanager.net/debian stretch main
-    deb-src http://debian-archive.trafficmanager.net/debian stretch main
-    deb http://debian-archive.trafficmanager.net/debian-security stretch/updates main
-    deb-src http://debian-archive.trafficmanager.net/debian-security stretch/updates main
-    deb http://debian-archive.trafficmanager.net/debian stretch-updates main
-    deb-src http://debian-archive.trafficmanager.net/debian stretch-updates main
-    deb http://debian-archive.trafficmanager.net/debian stretch-backports main
-    deb-src http://debian-archive.trafficmanager.net/debian stretch-backports main
-    ```
-    
-    **Debian 10. x "Buster"**
-    ```config-grub
-    deb http://debian-archive.trafficmanager.net/debian buster main
-    deb-src http://debian-archive.trafficmanager.net/debian buster main
-    deb http://debian-archive.trafficmanager.net/debian-security buster/updates main
-    deb-src http://debian-archive.trafficmanager.net/debian-security buster/updates main
-    deb http://debian-archive.trafficmanager.net/debian buster-updates main
-    deb-src http://debian-archive.trafficmanager.net/debian buster-updates main
-    deb http://debian-archive.trafficmanager.net/debian buster-backports main
-    deb-src http://debian-archive.trafficmanager.net/debian buster-backports main
-    ```
+\$ROOTCMD bash -c "echo test > /usr/local/share/testing"
+EOF
+$ sudo chmod 755 ./config_space/scripts/AZURE/10-custom
+```
 
-7. Azure Linux 에이전트를 설치합니다.
+이미지를 사용자 지정하려는 모든 명령에 `chroot $target`으로 별칭이 지정되므로 `$ROOTCMD`로 접두사를 지정하는 것이 중요합니다.
 
-    ```console
-    # sudo apt-get update
-    # sudo apt-get install waagent
-    ```
 
-8. Debian 9+의 경우 Azure의 VM에서 사용할 수 있게 새 Debian 클라우드 커널을 사용하는 것이 좋습니다. 이러한 새 커널을 설치하려면 먼저 다음과 같은 내용으로 /etc/apt/preferences.d/linux.pref라는 파일을 만듭니다.
+## <a name="build-the-azure-debian-10-image"></a>Azure Debian 10 이미지를 빌드합니다.
 
-    ```config-pref
-    Package: linux-* initramfs-tools
-    Pin: release n=stretch-backports
-    Pin-Priority: 500
-    ```
+```
+$ make image_buster_azure_amd64
+```
 
-    그런 다음, “sudo apt-get install linux-image-cloud-amd64"를 실행하여 새 Debian 클라우드 커널을 만듭니다.
 
-9. 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 가상 머신을 준비하고 다음 명령을 실행합니다.
+이렇게 하면 현재 디렉터리(특히 `image_buster_azure_amd64.raw` 이미지 파일)에 몇 개의 파일이 출력됩니다.
 
-    ```console
-    # sudo waagent –force -deprovision
-    # export HISTSIZE=0
-    # logout
-    ```
+원시 이미지를 Azure용 VHD로 변환하려면 다음을 수행하면 됩니다.
 
-10. Hyper-V 관리자에서 **작업** -> 종료를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+```
+rawdisk="image_buster_azure_amd64.raw"
+vhddisk="image_buster_azure_amd64.vhd"
 
-## <a name="next-steps"></a>다음 단계
-이제 Debian 가상 하드 디스크를 사용하여 Azure에서 새 가상 머신을 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음 업로드하는 경우 [사용자 지정 디스크에서 Linux VM 만들기](upload-vhd.md#option-1-upload-a-vhd)를 참조하세요.
+MB=$((1024*1024))
+size=$(qemu-img info -f raw --output json "$rawdisk" | \
+gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+
+rounded_size=$(((($size+$MB-1)/$MB)*$MB))
+rounded_size_adjusted=$(($rounded_size + 512))
+
+echo "Rounded Size Adjusted = $rounded_size_adjusted"
+
+sudo qemu-img resize "$rawdisk" $rounded_size
+qemu-img convert -f raw -o subformat=fixed,force_size -O vpc "$rawdisk" "$vhddisk"
+```
+
+
+이렇게 하면 Azure 디스크에 성공적으로 복사할 수 있도록 크기가 반올림된 VHD `image_buster_azure_amd64.vhd`가 만들어집니다.
+
+이제 이 이미지에 대한 Azure 리소스를 만들어야 합니다. 이는 `$rounded_size_adjusted` 변수를 사용하므로 위와 동일한 셸 프로세스 내에서 가져와야 합니다.
+
+```
+az group create -l $LOCATION -n $RG
+
+az disk create \
+    -n $DISK \
+    -g $RG \
+    -l $LOCATION \
+    --for-upload --upload-size-bytes "$rounded_size_adjusted" \
+    --sku standard_lrs --hyper-v-generation V1
+
+ACCESS=$(az disk grant-access \
+    -n $DISK -g $RG \
+    --access-level write \
+    --duration-in-seconds 86400 \
+    --query accessSas -o tsv)
+
+azcopy copy "$vhddisk" "$ACCESS" --blob-type PageBlob
+
+az disk revoke-access -n $DISK -g $RG
+az image create \
+    -g $RG \
+    -n $IMAGE \
+    --os-type linux \
+    --source $(az disk show \
+        -g $RG \
+        -n $DISK \
+        --query id -o tsv)
+az vm create \
+    -g $RG \
+    -n $VM \
+    --ssh-key-value $SSH_KEY_VALUE \
+    --public-ip-address-dns-name $VM \
+    --image $(az image show \
+        -g $RG \
+        -n $IMAGE \
+        --query id -o tsv)
+```
+
+
+>[!Note]
+> 로컬 컴퓨터에서 Azure 디스크로의 대역폭으로 인해 azcopy로 업로드를 처리하는 데 오랜 시간이 소요되는 경우 Azure VM 점프 상자를 사용하여 프로세스의 속도를 높일 수 있습니다. 이 작업을 수행하는 방법은 다음과 같습니다.
+>
+>1. 로컬 컴퓨터(`tar -czvf ./image_buster_azure_amd64.vhd.tar.gz ./image_buster_azure_amd64.vhd`)에서 VHD의 tarball을 만듭니다.
+>2. Azure Linux VM(선택한 배포판)을 만듭니다. 추출한 VHD를 보관할 만큼 충분한 디스크를 사용하여 만들어야 합니다.
+>3. Azure Linux VM에 azcopy 유틸리티를 다운로드합니다. [여기](../../storage/common/storage-use-azcopy-v10.md#download-azcopy)에서 검색할 수 있습니다.
+>4. tarball을 VM(`scp ./image_buster_azure_amd64.vhd.tar.gz <vm>:~`)에 복사합니다.
+>5. VM에서 VHD를 추출합니다. `tar -xf ./image_buster_azure_amd64.vhd.tar.gz`(파일 크기를 지정하는 데 약간의 시간이 소요됩니다).
+>6. 마지막으로 VM에서 `azcopy`(위의 명령)를 사용하여 VHD를 Azure Disk에 복사합니다.

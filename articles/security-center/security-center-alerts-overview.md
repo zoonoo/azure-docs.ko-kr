@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.author: memildin
-ms.openlocfilehash: cdf46a5f0185e33e1e877e3682ab418a00725de2
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: a8356b863323511951ddd5eae463e0f07d65e61c
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012549"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061977"
 ---
 # <a name="security-alerts-and-incidents-in-azure-security-center"></a>Azure Security Center에서 보안 경고 및 인시던트
 
@@ -22,7 +22,7 @@ Security Center는 Azure, 온-프레미스 및 하이브리드 클라우드 환�
 
 ## <a name="what-are-security-alerts-and-security-incidents"></a>보안 경고 및 보안 인시던트란 무엇인가요? 
 
-**경고** 는 리소스에 대한 위협을 검색할 때 Security Center가 생성하는 알림입니다. Security Center는 사용자가 신속하게 문제를 조사하기 위해 필요한 정보와 함께 경고에 우선 순위를 정하여 나열합니다. Security Center는 공격을 해결하는 방법에 대한 권장 사항도 제공합니다.
+**경고** 는 리소스에 대한 위협을 검색할 때 Security Center가 생성하는 알림입니다. Security Center는 사용자가 신속하게 문제를 조사하기 위해 필요한 정보와 함께 경고에 우선 순위를 정하여 나열합니다. Security Center는 공격을 해결하는 데 도움이 되는 자세한 단계도 제공합니다. 경고 데이터는 90일 동안 유지됩니다.
 
 **보안 인시던트** 는 각 경고를 개별적으로 나열하는 것이 아닌 관련 경고의 컬렉션입니다. Security Center는 [클라우드 스마트 경고 상관 관계](#cloud-smart-alert-correlation-in-azure-security-center-incidents)를 사용하여 다양한 경고와 저충실도 신호를 보안 인시던트에 상호 관련짓습니다.
 
@@ -73,20 +73,23 @@ Security Center는 사용자가 각각의 경고에 주목하는 우선 순위�
 > [!NOTE]
 > 경고 심각도는 포털과, 01-01-2019 이전 REST API 버전에서 다르게 표시됩니다. 이전 버전의 API를 사용할 경우 아래에서 설명한 대로 일관된 환경을 위해 업그레이드하세요.
 
-| 심각도          | 권장되는 응답      |
-|---|---|
-| **높음**          | 리소스가 손상될 가능성이 높습니다. 지금 즉시 리소스를 살펴보아야 합니다. Security Center는 경고 실행에 사용되는 악의적 의도와 결과 둘 다에서 신뢰성이 높습니다. 자격 증명 훔치기에 많이 사용되는 Mimikatz처럼 알려진 악의적 도구 실행을 검색하는 경고를 예로 들 수 있습니다.                                                                                                               |
-| **중간**        | 리소스의 손상 가능성을 나타내는 의심스러운 작업입니다. Security Center의 분석 또는 결과 신뢰도는 보통이며 악의적 의도의 신뢰도는 보통부터 높음 사이입니다. 일반적으로 기계 학습 또는 변칙 기반 검색입니다. 비정상적인 위치에서의 로그인 시도를 예로 들 수 있습니다.                                                                                                                |
+| 심각도          | 권장되는 응답                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **높음**          | 리소스가 손상될 가능성이 높습니다. 지금 즉시 리소스를 살펴보아야 합니다. Security Center는 경고 실행에 사용되는 악의적 의도와 결과 둘 다에서 신뢰성이 높습니다. 자격 증명 훔치기에 많이 사용되는 Mimikatz처럼 알려진 악의적 도구 실행을 검색하는 경고를 예로 들 수 있습니다.                                                                                                           |
+| **중간**        | 리소스의 손상 가능성을 나타내는 의심스러운 작업입니다. Security Center의 분석 또는 결과 신뢰도는 보통이며 악의적 의도의 신뢰도는 보통부터 높음 사이입니다. 일반적으로 기계 학습 또는 변칙 기반 검색입니다. 비정상적인 위치에서의 로그인 시도를 예로 들 수 있습니다.                                                                                                            |
 | **낮음**           | 무해한 양성 또는 차단된 공격일 수 있습니다. Azure Security Center는 의도가 악의적이라고 확신하지 못하며 무해한 작업일 수 있습니다. 예를 들어, 로그 지우기는 공격자가 자신의 트랙을 숨기려는 경우 발생할 수 있는 동작이지만 대부분은 관리자가 수행하는 루틴 작업입니다. Security Center는 일반적으로 공격을 차단하더라도 살펴볼 가치가 있는 흥미로운 사례가 아닌 경우에는 사용자에게 알리지 않습니다. |
-| **정보 제공** | 인시던트는 일반적으로 여러 경고로 구성되며 그중 일부는 정보 제공만을 위해 표시될 수 있지만 다른 경고의 컨텍스트에서는 자세히 살펴볼 필요가 있습니다.                                                                                                                         |
+| **정보 제공** | 인시던트는 일반적으로 여러 경고로 구성되며 그중 일부는 정보 제공만을 위해 표시될 수 있지만 다른 경고의 컨텍스트에서는 자세히 살펴볼 필요가 있습니다.                                                                                                                                                                                                                                                               |
+|                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 ## <a name="export-alerts"></a>경고 내보내기
 
 다음을 포함하여 Security Center 외부에서 경고를 볼 수 있는 다양한 옵션이 있습니다.
 
 - 경고 대시보드에서 **CSV 보고서 다운로드** 는 CSV로 일회성 내보내기를 제공합니다.
-- 가격 책정 및 설정에서 **연속 내보내기** 를 사용하면 Log Analytics 작업 영역 및 Event Hubs에 대한 보안 경고 및 권장 사항 스트림을 구성할 수 있습니다. [연속 내보내기에 대해 자세히 알아보기](continuous-export.md)
-- **Azure Sentinel 커넥터** 는 Azure Security Center에서 Azure Sentinel로 보안 경고를 스트림합니다. [Azure Security Center를 Azure Sentinel과 연결하는 데 관해 알아보기](../sentinel/connect-azure-security-center.md)
+- 가격 책정 및 설정에서 **연속 내보내기** 를 사용하면 Log Analytics 작업 영역 및 Event Hubs에 대한 보안 경고 및 권장 사항 스트림을 구성할 수 있습니다. [연속 내보내기에 대해 자세히 알아보세요](continuous-export.md).
+- **Azure Sentinel 커넥터** 는 Azure Security Center에서 Azure Sentinel로 보안 경고를 스트림합니다. [Azure Security Center를 Azure Sentinel과 연결하는 데 관해 알아보세요](../sentinel/connect-azure-security-center.md).
+
+[SIEM, SOAR 또는 IT Service Management 솔루션에 대한 경고 스트림](export-to-siem.md)의 모든 내보내기 옵션에 대해 알아보고 [Security Center 데이터를 지속적으로 내보냅니다](continuous-export.md).
 
 ## <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Azure Security Center의 클라우드 스마트 경고 상관 관계(인시던트)
 

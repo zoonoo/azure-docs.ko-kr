@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0490334c759da6ef7ba7ff2535f5f561cdb7a9bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b23b4a60795dc01667df3c6a9efa8e9cde4aeda9
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92369814"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409904"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Azure Active Directory의 그룹 기반 라이선스란?
 
@@ -30,7 +30,7 @@ Microsoft 365, Enterprise Mobility + Security, Dynamics 365, 기타 유사한 �
 이러한 문제를 해결하기 위해 이제는 Azure AD에 그룹 기반 라이선스가 포함됩니다. 그룹에 제품 라이선스를 하나 이상 할당할 수 있습니다. Azure AD는 그룹의 모든 멤버에게 라이선스가 할당되도록 합니다. 그룹에 참가하는 새 멤버에게는 적절한 라이선스가 할당됩니다. 멤버가 그룹을 떠날 때 해당 라이선스가 제거됩니다. 이 라이선싱 관리를 사용하면 사용자 기준으로 조직 및 부서 구조에 변경 내용을 반영하기 위해 PowerShell을 통해 라이선스 관리를 자동화할 필요가 없습니다.
 
 ## <a name="licensing-requirements"></a>라이선싱 요구 사항
-그룹 기반 라이선싱을 사용하려면 다음 라이선스 중 하나가 있어야 합니다.
+그룹 기반 라이선스를 **활용하는 모든 사용자에게** 다음 라이선스 중 하나가 있어야 합니다.
 
 - Azure AD Premium P1 이상의 유료 또는 평가판 구독
 

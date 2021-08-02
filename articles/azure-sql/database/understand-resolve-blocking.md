@@ -14,12 +14,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 3/02/2021
-ms.openlocfilehash: e176c0399b191c7a511ea1d26388219b2cef1df8
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: cedd161a392af9df52ed94aa4ed60379cf28776a
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107149"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413540"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Azure SQL Database 차단 문제의 이해 및 해결
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -95,17 +95,17 @@ ms.locfileid: "106107149"
 
 대상 Azure SQL Database에서 이러한 각 스크립트를 실행해야 합니다.
 
-* sp_who 및 sp_who2 명령은 현재 세션을 모두 표시하는 이전 명령입니다. DMV sys.dm_exec_sessions는 더 쉽게 쿼리하고 필터링할 수 있는 더 많은 데이터를 결과 집합에 반환합니다. 다른 쿼리의 핵심 sys.dm_exec_sessions를 찾을 수 있습니다. 
+* sp_who 및 sp_who2 명령은 현재 세션을 모두 표시하는 이전 명령입니다. DMV `sys.dm_exec_sessions`는 더 쉽게 쿼리하고 필터링할 수 있는 더 많은 데이터를 결과 집합에 반환합니다. 다른 쿼리의 핵심에서 `sys.dm_exec_sessions`를 찾을 수 있습니다. 
 
-* 특정 세션이 이미 식별된 경우 `DBCC INPUTBUFFER(<session_id>)`를 사용하여 세션에서 제출한 마지막 문을 찾을 수 있습니다. session_id와 request_id를 제공하여 쿼리 및 필터링이 용이한 결과 집합에서 sys.dm_exec_input_buffer DMF(동적 관리 함수)를 사용하여 유사한 결과를 반환할 수 있습니다. 예를 들어, session_id 66 및 request_id 0에서 제출한 최신 쿼리를 반환하려면,
+* 특정 세션이 이미 식별된 경우 `DBCC INPUTBUFFER(<session_id>)`를 사용하여 세션에서 제출한 마지막 문을 찾을 수 있습니다. session_id와 request_id를 제공하여 쿼리 및 필터링이 용이한 결과 집합에서 `sys.dm_exec_input_buffer` DMF(동적 관리 함수)를 사용하여 유사한 결과를 반환할 수 있습니다. 예를 들어, session_id 66 및 request_id 0에서 제출한 최신 쿼리를 반환하려면,
 
 ```sql
 SELECT * FROM sys.dm_exec_input_buffer (66,0);
 ```
 
-* sys.dm_exec_requests를 참조하고 blocking_session_id 열을 참조합니다. blocking_session_id = 0이면 세션이 차단되지 않습니다. sys.dm_exec_requests는 현재 실행 중인 요청만 나열하지만, 모든 연결(활성 또는 비활성)은 sys.dm_exec_sessions에 나열됩니다. 다음 쿼리에서 sys.dm_exec_requests 및 sys.dm_exec_sessions 간에 이 공통 조인을 작성합니다.
+* `sys.dm_exec_requests`의 `blocking_session_id` 열을 참조하세요. `blocking_session_id` = 0이면 세션이 차단되지 않습니다. `sys.dm_exec_requests`는 현재 실행 중인 요청만 나열하지만, 모든 연결(활성 또는 비활성)은 `sys.dm_exec_sessions`에 나열됩니다. 다음 쿼리에서 `sys.dm_exec_requests` 및 `sys.dm_exec_sessions` 간에 이 공통 조인을 작성합니다.
 
-* [sys.dm_exec_sql_text](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql) 또는 [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) DMV를 사용하여 적극적으로 실행 중인 쿼리와 현재 SQL 배치 텍스트 또는 입력 버퍼 텍스트를 찾으려면 이 샘플 쿼리를 실행합니다. sys.dm_exec_sql_text의 `text` 필드에서 반환된 데이터가 NULL이면 해당 쿼리는 현재 실행 중이 아닙니다. 이 경우 sys.dm_exec_input_buffer의 `event_info` 필드는 SQL 엔진에 전달된 마지막 명령 문자열을 포함합니다. 이 쿼리를 사용하여 session_id당 차단된 session_ids 목록을 포함하여 다른 세션을 차단하는 세션을 식별할 수도 있습니다. 
+* [sys.dm_exec_sql_text](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql) 또는 [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) DMV를 사용하여 적극적으로 실행 중인 쿼리와 현재 SQL 배치 텍스트 또는 입력 버퍼 텍스트를 찾으려면 이 샘플 쿼리를 실행합니다. `sys.dm_exec_sql_text`의 `text` 필드에서 반환된 데이터가 NULL이면 해당 쿼리는 현재 실행 중이 아닙니다. 이 경우 `sys.dm_exec_input_buffer`의 `event_info` 필드는 SQL 엔진에 전달된 마지막 명령 문자열을 포함합니다. 이 쿼리를 사용하여 session_id당 차단된 session_ids 목록을 포함하여 다른 세션을 차단하는 세션을 식별할 수도 있습니다. 
 
 ```sql
 WITH cteBL (session_id, blocking_these) AS 
@@ -183,14 +183,14 @@ INNER JOIN sys.dm_exec_connections [s_ec] ON [s_ec].[session_id] = [s_tst].[sess
 CROSS APPLY sys.dm_exec_sql_text ([s_ec].[most_recent_sql_handle]) AS [s_est];
 ```
 
-* SQL의 스레드/작업 계층에 있는 참조 [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql)입니다. 현재 요청에서 경험하고 있는 SQL 대기 유형에 대한 정보를 반환합니다. sys.dm_exec_requests와 마찬가지로 활성 요청만 sys.dm_os_waiting_tasks에 의해 반환됩니다. 
+* SQL의 스레드/작업 계층에 있는 참조 [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql)입니다. 현재 요청에서 경험하고 있는 SQL 대기 유형에 대한 정보를 반환합니다. `sys.dm_exec_requests`와 마찬가지로 활성 요청만 `sys.dm_os_waiting_tasks`에 의해 반환됩니다. 
 
 > [!Note]
 > 시간 경과에 따른 집계된 대기 통계를 포함한 대기 유형에 대한 자세한 내용은 DMV [sys.dm_db_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database)를 참조하세요. 이 DMV는 현재 데이터베이스에 대한 집계 대기 통계만 반환합니다.
 
 * 쿼리에 의해 배치된 잠금에 대한 세부 정보를 보려면 [sys.dm_tran_locks](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql) DMV를 사용합니다. 이 DMV는 프로덕션 SQL Server에서 많은 양의 데이터를 반환할 수 있으며 현재 보유 중인 잠금을 진단하는 데 유용합니다. 
 
-sys.dm_os_waiting_tasks의 INNER JOIN으로 인해 다음 쿼리는 sys.dm_tran_locks의 출력을 현재 차단된 요청, 해당 대기 상태 및 잠금으로만 제한합니다.
+`sys.dm_os_waiting_tasks`의 INNER JOIN으로 인해 다음 쿼리는 `sys.dm_tran_locks`의 출력을 현재 차단된 요청, 해당 대기 상태 및 잠금으로만 제한합니다.
 
 ```sql
 SELECT table_name = schema_name(o.schema_id) + '.' + o.name
@@ -242,9 +242,9 @@ SSMS에서 [확장 이벤트 새 세션 마법사](/sql/relational-databases/ext
 
 ## <a name="analyze-blocking-data"></a>차단 데이터 분석 
 
-* DMV sys.dm_exec_requests 및 sys.dm_exec_sessions의 출력을 검사하여 blocking_these 및 session_id를 사용하여 차단 체인의 헤드를 판단합니다. 이렇게 하면 차단되는 요청과 차단 중인 요청을 가장 명확하게 식별할 수 있습니다. 차단된 세션 및 차단 중인 세션을 자세히 살펴봅니다. 차단 체인에 공통 요소 또는 루트가 있나요? 차단 체인은 공통 테이블을 공유하고 있으며, 차단 체인과 관련된 세션 중 하나 이상이 쓰기 작업을 수행하고 있습니다. 
+* `sys.dm_exec_requests` 및 `sys.dm_exec_sessions`의 출력을 검사하여 `blocking_these` 및 `session_id`를 사용하여 차단 체인의 헤드를 판단합니다. 이렇게 하면 차단되는 요청과 차단 중인 요청을 가장 명확하게 식별할 수 있습니다. 차단된 세션 및 차단 중인 세션을 자세히 살펴봅니다. 차단 체인에 공통 요소 또는 루트가 있나요? 차단 체인은 공통 테이블을 공유하고 있으며, 차단 체인과 관련된 세션 중 하나 이상이 쓰기 작업을 수행하고 있습니다. 
 
-* 차단 체인의 헤드에 있는 SPID에 대한 정보는 DMV sys.dm_exec_requests 및 sys.dm_exec_sessions의 출력을 검사합니다. 다음 필드를 찾습니다. 
+* 차단 체인의 헤드에 있는 SPID에 대한 정보는 `sys.dm_exec_requests` 및 `sys.dm_exec_sessions`의 출력을 검사합니다. 다음 필드를 찾습니다. 
 
     -    `sys.dm_exec_requests.status`  
     이 열은 특정 요청의 상태를 표시합니다. 일반적으로 중지 중 상태는 SPID가 실행을 완료했으며 애플리케이션이 다른 쿼리나 배치를 제출하기를 기다리고 있음을 나타냅니다. 실행 가능 또는 실행 중 상태는 SPID가 현재 쿼리를 처리하고 있음을 나타냅니다. 다음 표에서는 다양한 상태 값에 대한 간략한 설명을 제공합니다.
@@ -264,7 +264,7 @@ SSMS에서 [확장 이벤트 새 세션 마법사](/sql/relational-databases/ext
     마찬가지로 이 필드는 이 요청에서 열린 트랜잭션 수를 알려줍니다. 이 값이 0보다 크면 SPID는 열린 트랜잭션 내에 있으며 트랜잭션 내의 모든 문이 획득한 잠금을 보유할 수 있습니다.
 
     -   `sys.dm_exec_requests.wait_type`, `wait_time`, `last_wait_type`  
-     `sys.dm_exec_requests.wait_type` 은 NULL이며, 요청은 현재 대기 중이 아니며  `last_wait_type`  값은 요청이 마지막으로 발견한  `wait_type` 을 나타냅니다.  `sys.dm_os_wait_stats`에 대한 자세한 내용 및 가장 일반적인 대기 유형에 대한 설명은 [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)를 참조하세요.  `wait_time`  값을 사용하여 요청을 진행 중인지 여부를 확인할 수 있습니다. sys.dm_exec_requests 테이블에 대한 쿼리가 s `wait_time`  열에 이전 쿼리인 ys.dm_exec_requests의  `wait_time`  값보다 작은 값을 반환하는 경우, 이전 잠금을 획득하여 해제한 다음 현재 새 잠금에서 대기하고 있음을 나타냅니다(0이 아닌 `wait_time`인 것으로 가정). 이는 요청이 대기 중인 리소스를 표시하는 sys.dm_exec_requests 출력 간의 `wait_resource` 를 비교하여 확인할 수 있습니다.
+     `sys.dm_exec_requests.wait_type` 은 NULL이며, 요청은 현재 대기 중이 아니며  `last_wait_type`  값은 요청이 마지막으로 발견한  `wait_type` 을 나타냅니다.  `sys.dm_os_wait_stats`에 대한 자세한 내용 및 가장 일반적인 대기 유형에 대한 설명은 [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)를 참조하세요.  `wait_time`  값을 사용하여 요청을 진행 중인지 여부를 확인할 수 있습니다.  `sys.dm_exec_requests` 테이블에 대한 쿼리가  `wait_time` 열에 이전 쿼리인  `sys.dm_exec_requests`의  `wait_time` 값보다 작은 값을 반환하는 경우, 이전 잠금을 획득하여 해제한 다음, 현재 새 잠금에서 대기하고 있음을 나타냅니다(0이 아닌 `wait_time`인 것으로 가정). 이는 요청이 대기 중인 리소스를 표시하는  `sys.dm_exec_requests` 출력 간의 `wait_resource`를 비교하여 확인할 수 있습니다.
 
     -   `sys.dm_exec_requests.wait_resource` 이 필드는 차단된 요청이 대기 중인 리소스를 나타냅니다. 다음 테이블은 일반  `wait_resource`  형식 및 해당 의미를 나열합니다.
 
@@ -272,7 +272,7 @@ SSMS에서 [확장 이벤트 새 세션 마법사](/sql/relational-databases/ext
     |:-|:-|:-|:-|
     | 테이블 | DatabaseID:ObjectID:IndexID | TAB: 5:261575970:1 | 이 경우 데이터베이스 ID 5는 Pubs 샘플 데이터베이스, 개체 ID 261575970은 제목 테이블, 1은 클러스터형 인덱스입니다. |
     | 페이지 | DatabaseID:FileID:PageID | PAGE: 5:1:104 | 이 경우 데이터베이스 ID 5는 pubs, 파일 ID 1은 기본 데이터 파일, 페이지 104는 제목 테이블에 속하는 페이지입니다. 페이지가 속한 object_id를 식별하려면 `wait_resource`에서 DatabaseID, FileId, PageId를 전달하는 동적 관리 함수 [sys.dm_db_page_info](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-page-info-transact-sql)를 사용합니다. | 
-    | 키 | DatabaseID:Hobt_id(인덱스 키에 대한 해시 값) | KEY: 5:72057594044284928 (3300a4f361aa) | 이 경우 데이터베이스 ID 5는 Pubs, Hobt_ID 72057594044284928은 object_id 261575970(제목 표)의 index_id 2에 해당합니다. hobt_id를 특정 index_id 및 object_id에 연결하려면 sys.partitions 카탈로그 뷰를 사용합니다. 인덱스 키 해시를 특정 키 값으로 해시하는 방법은 없습니다. |
+    | 키 | DatabaseID:Hobt_id(인덱스 키에 대한 해시 값) | KEY: 5:72057594044284928 (3300a4f361aa) | 이 경우 데이터베이스 ID 5는 Pubs, Hobt_ID 72057594044284928은 object_id 261575970(제목 표)의 index_id 2에 해당합니다. hobt_id를 특정 `index_id` 및 `object_id`에 연결하려면 `sys.partitions` 카탈로그 뷰를 사용합니다. 인덱스 키 해시를 특정 키 값으로 해시하는 방법은 없습니다. |
     | 행 | DatabaseID:FileID:PageID:Slot(row) | RID: 5:1:104:3 | 이 경우 데이터베이스 ID 5는 pubs, 파일 ID 1은 기본 데이터 파일, 페이지 104는 제목 테이블에 속하는 페이지, 슬롯 3은 페이지의 행 위치를 나타냅니다. |
     | Compile  | DatabaseID:FileID:PageID:Slot(row) | RID: 5:1:104:3 | 이 경우 데이터베이스 ID 5는 pubs, 파일 ID 1은 기본 데이터 파일, 페이지 104는 제목 테이블에 속하는 페이지, 슬롯 3은 페이지의 행 위치를 나타냅니다. |
 
@@ -309,30 +309,30 @@ SSMS에서 [확장 이벤트 새 세션 마법사](/sql/relational-databases/ext
     , s.host_name, s.program_name, s.client_interface_name, s.login_name, s.is_user_process
     FROM sys.dm_tran_active_transactions tat 
     INNER JOIN sys.dm_tran_session_transactions tst  on tat.transaction_id = tst.transaction_id
-    INNER JOIN Sys.dm_exec_sessions s on s.session_id = tst.session_id 
+    INNER JOIN sys.dm_exec_sessions s on s.session_id = tst.session_id 
     LEFT OUTER JOIN sys.dm_exec_requests r on r.session_id = s.session_id
     CROSS APPLY sys.dm_exec_input_buffer(s.session_id, null) AS ib;
     ```
 
     -   기타 열
 
-        [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) 및 [sys.dm_exec_request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)에 나머지 열은 문제의 근원에 대한 통찰력도 제공할 수 있습니다. 이러한 유용성은 문제의 상황에 따라 달라집니다. 예를 들어, 특정 클라이언트(호스트 이름)에서, 특정 네트워크 라이브러리(net_library)에서, SPID에 의해 제출된 마지막 배치가 sys.dm_exec_sessions에서 `last_request_start_time`이었던 때, sys.dm_exec_requests에서 `start_time`을 사용하여 요청이 실행된 기간에 문제가 발생하는지 확인할 수 있습니다.
+        [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) 및 [sys.dm_exec_request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)에 나머지 열은 문제의 근원에 대한 통찰력도 제공할 수 있습니다. 이러한 유용성은 문제의 상황에 따라 달라집니다. 예를 들어, 특정 클라이언트(호스트 이름)에서, 특정 네트워크 라이브러리(net_library)에서, SPID에 의해 제출된 마지막 배치가 `sys.dm_exec_sessions`에서 `last_request_start_time`이었던 때, `sys.dm_exec_requests`에서 `start_time`을 사용하여 요청이 실행된 기간에 문제가 발생하는지 확인할 수 있습니다.
 
 
 ## <a name="common-blocking-scenarios"></a>일반적인 차단 시나리오
 
 아래 표에서는 일반적인 증상을 가능한 원인에 매핑합니다.  
 
-`wait_type`, `open_transaction_count` 및 `status` 열은 [sys.dm_exec_request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)에서 반환된 정보를 참조하며, 다른 열은 [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql)에서 반환될 수 있습니다. "해결 여부" 열은 차단이 자체적으로 해결되는지 또는 세션을 `KILL` 명령을 통해 종료해야 하는지 여부를 나타냅니다. 자세한 내용은 [KILL(Transact-SQL)](/sql/t-sql/language-elements/kill-transact-sql)을 참조하세요.
+Waittype, Open_Tran 및 Status 열은 [sys.dm_exec_request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)에서 반환된 정보를 참조하며, 다른 열은 [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql)에서 반환될 수 있습니다. "해결 여부" 열은 차단이 자체적으로 해결되는지 또는 세션을 `KILL` 명령을 통해 종료해야 하는지 여부를 나타냅니다. 자세한 내용은 [KILL(Transact-SQL)](/sql/t-sql/language-elements/kill-transact-sql)을 참조하세요.
 
 | 시나리오 | Waittype | Open_Tran | 상태 | 해결 여부 | 기타 증상 |  
 |:-|:-|:-|:-|:-|:-|--|
-| 1 | NOT NULL | >= 0 | runnable | 예(쿼리가 완료되는 경우). | sys.dm_exec_sessions에서 **reads**, **cpu_time** 및/또는 **memory_usage** 열은 시간이 지남에 따라 증가합니다. 작업을 완료하면 쿼리의 기간이 증가합니다. |
+| 1 | NOT NULL | >= 0 | runnable | 예(쿼리가 완료되는 경우). | `sys.dm_exec_sessions`에서 `reads`, `cpu_time` 및/또는 `memory_usage` 열은 시간이 지남에 따라 증가합니다. 작업을 완료하면 쿼리의 기간이 증가합니다. |
 | 2 | NULL | \>0 | sleeping | 아니요. 하지만 SPID는 종료할 수 있습니다. | 이 SPID에 대한 확장 이벤트 세션에서 쿼리 시간 제한 또는 취소가 발생했음을 나타내는 주의 신호가 표시될 수 있습니다. |
 | 3 | NULL | \>= 0 | runnable | 아니요. 클라이언트가 모든 행을 가져오거나 연결을 닫을 때까지 해결되지 않습니다. SPID는 종료할 수 있지만 최대 30초까지 걸릴 수 있습니다. | open_transaction_count = 0이고 트랜잭션 격리 수준이 기본값(READ COMMMITTED)인 동안 SPID가 잠금을 유지하는 경우 이 문제가 원인일 수 있습니다. |  
-| 4 | 상황에 따라 다름 | \>= 0 | runnable | 아니요. 클라이언트가 쿼리를 취소하거나 연결을 닫을 때까지 해결되지 않습니다. SPID는 종료할 수 있지만 최대 30초까지 걸릴 수 있습니다. | 차단 체인의 헤드에 있는 SPID에 대한 sys.dm_exec_sessions에 있는 **호스트 이름** 열은 차단 중인 SPID 중 하나와 동일합니다. |  
+| 4 | 상황에 따라 다름 | \>= 0 | runnable | 아니요. 클라이언트가 쿼리를 취소하거나 연결을 닫을 때까지 해결되지 않습니다. SPID는 종료할 수 있지만 최대 30초까지 걸릴 수 있습니다. | 차단 체인의 헤드에 있는 SPID에 대한 `sys.dm_exec_sessions`에 있는 `hostname` 열은 차단 중인 SPID 중 하나와 동일합니다. |  
 | 5 | NULL | \>0 | 롤백 | 예. | 이 SPID에 대한 확장 이벤트 세션에서 쿼리 시간 제한 또는 취소가 발생했거나 롤백 문이 발행되었음을 나타내는 주의 신호가 표시될 수 있습니다. |  
-| 6 | NULL | \>0 | sleeping | 결국. Windows NT에서 세션이 더 이상 활성 상태가 아니라고 판단하면 Azure SQL Database 연결이 끊어집니다. | sys.dm_exec_sessions에서 `last_request_start_time` 값이 현재 시간보다 훨씬 이전입니다. |
+| 6 | NULL | \>0 | sleeping | 결국. Windows NT에서 세션이 더 이상 활성 상태가 아니라고 판단하면 Azure SQL Database 연결이 끊어집니다. | `sys.dm_exec_sessions`의 `last_request_start_time` 값이 현재 시간보다 훨씬 이전입니다. |
 
 ## <a name="detailed-blocking-scenarios"></a>자세한 차단 시나리오
 
@@ -346,7 +346,7 @@ SSMS에서 [확장 이벤트 새 세션 마법사](/sql/relational-databases/ext
 
 1.  커밋되지 않은 트랜잭션이 있는 일시 중지 SPID로 인한 차단
 
-    이러한 유형의 차단은 흔히 중지 중이거나 명령을 기다리고 있지만 트랜잭션 중첩 수준(sys.dm_exec_requests의 `@@TRANCOUNT`, `open_transaction_count`)이 0보다 큰 SPID로 식별할 수 있습니다. 이 문제는 애플리케이션이 필요한 수의 롤백 및/또는 커밋 문을 발행하지 않고 쿼리 시간 제한을 경험하거나 취소를 발행하는 경우에 발생할 수 있습니다. SPID는 쿼리 시간 제한이나 취소를 수신하면 현재 쿼리 및 배치를 종료하지만 트랜잭션을 자동으로 롤백하거나 커밋하지는 않습니다. Azure SQL Database는 단일 쿼리가 취소되어 전체 트랜잭션이 롤백되어야 한다고 가정할 수 없기 때문에 애플리케이션이 이를 담당합니다. 쿼리 시간 제한 또는 취소는 확장 이벤트 세션에서 SPID에 대한 주의 신호 이벤트로 표시됩니다.
+    이러한 유형의 차단은 흔히 중지 중이거나 명령을 기다리고 있지만 트랜잭션 중첩 수준(`sys.dm_exec_requests`의 `@@TRANCOUNT`, `open_transaction_count`)이 0보다 큰 SPID로 식별할 수 있습니다. 이 문제는 애플리케이션이 필요한 수의 롤백 및/또는 커밋 문을 발행하지 않고 쿼리 시간 제한을 경험하거나 취소를 발행하는 경우에 발생할 수 있습니다. SPID는 쿼리 시간 제한이나 취소를 수신하면 현재 쿼리 및 배치를 종료하지만 트랜잭션을 자동으로 롤백하거나 커밋하지는 않습니다. Azure SQL Database는 단일 쿼리가 취소되어 전체 트랜잭션이 롤백되어야 한다고 가정할 수 없기 때문에 애플리케이션이 이를 담당합니다. 쿼리 시간 제한 또는 취소는 확장 이벤트 세션에서 SPID에 대한 주의 신호 이벤트로 표시됩니다.
 
     커밋되지 않은 명시적 트랜잭션을 시연하려면 다음 쿼리를 실행합니다.
 
@@ -366,7 +366,7 @@ SSMS에서 [확장 이벤트 새 세션 마법사](/sql/relational-databases/ext
 
     두 번째 쿼리의 출력은 트랜잭션 중첩 수준이 하나임을 나타냅니다. 트랜잭션에서 획득한 모든 잠금은 트랜잭션이 커밋되거나 롤백될 때까지 유지됩니다. 애플리케이션이 트랜잭션을 명시적으로 열고 커밋할 경우, 통신 또는 기타 오류가 세션과 해당 트랜잭션을 열린 상태로 유지할 수 있습니다. 
 
-    sys.dm_tran_active_transactions에 따라 이 문서의 앞부분에 나오는 스크립트를 사용하여 인스턴스 간에 현재 커밋되지 않은 트랜잭션을 식별합니다.
+    `sys.dm_tran_active_transactions`에 따라 이 문서의 앞부분에 나오는 스크립트를 사용하여 인스턴스 간에 현재 커밋되지 않은 트랜잭션을 식별합니다.
 
     **해결 방법**:
 
@@ -395,7 +395,7 @@ SSMS에서 [확장 이벤트 새 세션 마법사](/sql/relational-databases/ext
 
 1.  롤백 상태의 세션으로 인한 차단
 
-    사용자 정의 트랜잭션 외부에서 종료 또는 취소된 데이터 수정 쿼리가 롤백됩니다. 클라이언트 네트워크 세션 연결이 끊기거나 요청이 교착 상태로 선택된 경우에도 이러한 문제가 발생할 수 있습니다. 이 문제는 롤백 **명령** 을 나타내는 sys.dm_exec_requests 출력을 관찰하여 확인할 수 있으며, **percent_complete 열** 에 진행률이 표시될 수 있습니다. 
+    사용자 정의 트랜잭션 외부에서 종료 또는 취소된 데이터 수정 쿼리가 롤백됩니다. 클라이언트 네트워크 세션 연결이 끊기거나 요청이 교착 상태로 선택된 경우에도 이러한 문제가 발생할 수 있습니다. 이 문제는 ROLLBACK 명령을 나타내는 `sys.dm_exec_requests`의 출력을 관찰하여 확인할 수 있으며, `percent_complete` 열에 진행률이 표시될 수 있습니다. 
 
     2019에 도입된 [가속 데이터베이스 복구 기능](../accelerated-database-recovery.md) 덕분에 긴 롤백이 거의 발생하지 않습니다.
     

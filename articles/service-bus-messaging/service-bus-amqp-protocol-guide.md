@@ -2,13 +2,13 @@
 title: Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0 | Microsoft Docs
 description: Azure Service Bus 및 Event Hubs의 AMQP 1.0 식 및 설명에 대한 프로토콜 가이드
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 2154221ebfe69b659ff83100ed614133e178ccdb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/14/2021
+ms.openlocfilehash: 0c1c053378c8c2dec1f769fe489eb823ea81390f
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98624492"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438741"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0
 
@@ -368,11 +368,10 @@ CBS는 *$cbs* 라는 가상 관리 노드가 메시징 인프라에 의해 제�
 
 | 토큰 형식 | 토큰 설명 | 본문 형식 | 참고 |
 | --- | --- | --- | --- |
-| amqp:jwt |JWT(JSON 웹 토큰) |AMQP 값(문자열) |아직 사용할 수 없습니다. |
-| amqp:swt |SWT(단순 웹 토큰) |AMQP 값(문자열) |AAD/ACS에서 발급한 SWT 토큰에 대해서만 지원됩니다. |
+| jwt |JWT(JSON 웹 토큰) |AMQP 값(문자열) | |
 | servicebus.windows.net:sastoken |Service Bus SAS 토큰 |AMQP 값(문자열) |- |
 
-토큰은 권한을 부여합니다. Service Bus는 다음 세 가지 기본 권한을 알고 있습니다. "전송"은 전송을 가능하게 하고, "수신"은 수신을 가능하게 하고, "메시지"는 엔터티 조작을 가능하게 합니다. 명시적으로 AAD/ACS에서 발급한 SWT 토큰에는 이러한 권한이 클레임으로 포함되어 있습니다. Service Bus SAS 토큰은 네임스페이스 또는 엔터티에 구성된 규칙을 참조하며, 이러한 규칙은 권한으로 구성됩니다. 해당 규칙과 연결된 키를 사용하여 토큰에 서명하면 토큰이 해당 권한을 나타냅니다. *put-token* 을 사용하여 엔터티와 연결된 토큰은 연결된 클라이언트가 토큰 권한에 따라 엔터티와 상호 작용하는 것을 허용합니다. 클라이언트가 *발신자* 역할을 맡고 있는 링크에는 "전송" 권한이 필요하고, *수신자* 역할을 맡고 있는 링크에는 "수신" 권한이 필요합니다.
+토큰은 권한을 부여합니다. Service Bus는 다음 세 가지 기본 권한을 알고 있습니다. "전송"은 전송을 가능하게 하고, "수신"은 수신을 가능하게 하고, "메시지"는 엔터티 조작을 가능하게 합니다. Service Bus SAS 토큰은 네임스페이스 또는 엔터티에 구성된 규칙을 참조하며, 이러한 규칙은 권한으로 구성됩니다. 해당 규칙과 연결된 키를 사용하여 토큰에 서명하면 토큰이 해당 권한을 나타냅니다. *put-token* 을 사용하여 엔터티와 연결된 토큰은 연결된 클라이언트가 토큰 권한에 따라 엔터티와 상호 작용하는 것을 허용합니다. 클라이언트가 *발신자* 역할을 맡고 있는 링크에는 "전송" 권한이 필요하고, *수신자* 역할을 맡고 있는 링크에는 "수신" 권한이 필요합니다.
 
 회신 메시지는 다음과 같은 *애플리케이션 속성* 값을 갖습니다.
 
@@ -405,12 +404,7 @@ CBS는 *$cbs* 라는 가상 관리 노드가 메시징 인프라에 의해 제�
 | | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 
 ## <a name="next-steps"></a>다음 단계
-
-AMQP에 대한 자세한 내용을 알아보려면 다음 링크를 방문하세요.
-
-* [Service Bus AMQP 개요]
-* [Service Bus 분할 큐 및 항목을 위한 AMQP 1.0 지원]
-* [Windows Server용 Service Bus의 AMQP]
+AMQP에 대한 자세한 내용은 [Service Bus AMQP 개요](service-bus-amqp-overview.md)를 참조하세요.
 
 [this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp-protocol-guide/amqp1.png
@@ -418,6 +412,3 @@ AMQP에 대한 자세한 내용을 알아보려면 다음 링크를 방문하세
 [3]: ./media/service-bus-amqp-protocol-guide/amqp3.png
 [4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
-[Service Bus AMQP 개요]: service-bus-amqp-overview.md
-[Service Bus 분할 큐 및 항목을 위한 AMQP 1.0 지원]: 
-[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)

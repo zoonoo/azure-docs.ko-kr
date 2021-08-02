@@ -15,14 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 3df78d6b53f8e8739307e9b870aa03d76bfd6771
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d6b132fbb3aed541cc602537df1d40fa0d47702a
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101718610"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111421853"
 ---
 # <a name="connect-data-sources"></a>데이터 원본 연결
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Azure Sentinel을 사용하도록 설정한 후에는 먼저 데이터 소스를 연결해야 합니다. Azure Sentinel에는 Microsoft 365 Defender(이전에는 Microsoft Threat Protection) 솔루션과 Microsoft 365 원본(Office 365 포함), Azure AD, Microsoft Defender for Identity(이전에는 Azure ATP), Microsoft Cloud App Security 등을 포함하여 즉시 사용 가능하고 실시간 통합을 제공하는 다양한 Microsoft 솔루션용 커넥터가 포함되어 있습니다. 또한 타사 솔루션에 대한 광범위한 보안 에코시스템에 기본 제공 커넥터도 제공됩니다. CEF(Common Event Format), Syslog 또는 REST API를 사용하여 Azure Sentinel에 데이터 원본을 연결할 수도 있습니다.
 
@@ -46,23 +48,28 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
 - **서비스 간 통합**:<br> AWS 및 Microsoft 서비스와 같은 일부 서비스는 기본적으로 연결되어 있으며, 이러한 서비스는 기본 통합을 위한 Azure 토대를 활용합니다. 다음 솔루션은 클릭 몇 번으로 연결할 수 있습니다.
     - [Amazon Web Services - CloudTrail](connect-aws.md)
     - [Azure Active Directory](connect-azure-active-directory.md) - 감사 로그 및 로그인 로그
+    - [Azure Active Directory ID 보호](connect-azure-ad-Identity-protection.md)
     - [Azure 활동](connect-azure-activity.md)
-    - [Azure AD ID 보호](connect-azure-ad-Identity-protection.md)
     - [Azure DDoS Protection](connect-azure-ddos-protection.md)
+    - Azure Security Center의 [Azure Defender](connect-azure-security-center.md) 경고
     - [Azure Defender for IoT](connect-asc-iot.md)(이전의 Azure Security Center for IoT)
-    - [Azure Information Protection](connect-azure-information-protection.md)
     - [Azure Firewall](connect-azure-firewall.md)
-    - [Azure Security Center](connect-azure-security-center.md) - Azure Defender 솔루션의 경고
+    - [Azure Information Protection](connect-azure-information-protection.md)
+    - [Azure Key Vault](connect-azure-key-vault.md)
+    - [AKS(Azure Kubernetes Service)](connect-azure-kubernetes-service.md)
+    - [Azure SQL 데이터베이스](connect-azure-sql-logs.md)
+    - [Azure Storage 계정](connect-azure-storage-account.md)
     - [WAF(Azure Web Application Firewall)](connect-azure-waf.md)(이전의 Microsoft WAF)
-    - [Cloud App Security](connect-cloud-app-security.md)
     - [도메인 이름 서버](connect-dns.md)
-    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) - M365D 인시던트 및 MDE 원시 데이터 포함
+    - [Dynamics 365](connect-dynamics-365.md)
+    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) - M365D 인시던트 및 Defender for Endpoint 원시 데이터 포함
+    - [Microsoft Cloud App Security](connect-cloud-app-security.md)
     - [엔드포인트용 Microsoft Defender](connect-microsoft-defender-advanced-threat-protection.md)(이전의 Microsoft Defender Advanced Threat Protection)
     - [Microsoft Defender for Identity](connect-azure-atp.md)(이전의 Azure Advanced Threat Protection)
     - [Microsoft Defender for Office 365](connect-office-365-advanced-threat-protection.md)(이전의 Office 365 Advanced Threat Protection)
-    - [Office 365](connect-office-365.md)(이제 Teams 포함!)
+    - [Office 365](connect-office-365.md)(Teams 포함)
     - [Windows 방화벽](connect-windows-firewall.md)
-    - [Windows 보안 이벤트](connect-windows-security-events.md)
+    - (Windows) [보안 이벤트](connect-windows-security-events.md)
 
 - **API를 통한 외부 솔루션**: 일부 데이터 원본은 연결된 데이터 원본에서 제공하는 API를 사용하여 연결됩니다. 일반적으로 대부분의 보안 기술은 이벤트 로그에 검색할 수 있는 API 세트를 제공합니다. 이러한 API는 Azure Sentinel에 연결되며, 특정 데이터 형식을 수집한 후 Azure Log Analytics로 보냅니다. API를 통해 연결되는 어플라이언스는 다음과 같습니다.
     
@@ -185,7 +192,7 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
 | Sysmon(이벤트) | [Sysmon 연결](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Windows 이벤트 연결](../azure-monitor/agents/data-sources-windows-events.md) <br> [Sysmon Parser 가져오기](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | Sysmon 컬렉션은 가상 머신에 기본적으로 설치되지 않습니다. Sysmon 에이전트를 설치하는 방법에 대한 자세한 내용은 [Sysmon](/sysinternals/downloads/sysmon)을 참조하세요. |
 | ConfigurationData  | [VM 인벤토리 자동화](../automation/change-tracking/overview.md)| &#10007; | |
 | ConfigurationChange  | [VM 추적 자동화](../automation/change-tracking/overview.md) | &#10007; | |
-| F5 BIG-IP | [F5 BIG-IP 연결](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10007; | |
+| F5 BIG-IP | [F5 BIG-IP 연결](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10003; | |
 | McasShadowItReporting  |  | &#10007; | |
 | Barracuda_CL | [Barracuda 연결](connect-barracuda.md) | &#10003; | |
 

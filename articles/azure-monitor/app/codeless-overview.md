@@ -4,14 +4,14 @@ description: Azure Monitor Application Insights의 자동 계측 개요 - 코드
 ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
-ms.date: 05/31/2020
+ms.date: 05/17/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: df6271f8c036d708b93d7312076f3eee585cfcba
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 1c9d3e10ebf02016a0188617567cb2e4e2eeb036
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287287"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092713"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>자동 계측 또는 코드 없는 연결이란? - Azure Monitor Application Insights
 
@@ -25,12 +25,13 @@ Application Insights는 다양한 리소스 공급자와 통합되며 여러 환
 
 |환경/리소스 공급자          | .NET            | .NET Core       | Java            | Node.js         | Python          |
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-|Windows의 Azure App Service           | GA, OnBD*       | GA, 옵트인      | 진행 중     | 진행 중     | 지원되지 않음   |
-|Linux의 Azure App Service             | 해당 없음             | 지원되지 않음   | 진행 중     | 공개 미리 보기  | 지원되지 않음   |
+|Windows의 Azure App Service           | GA, OnBD*       | GA, 옵트인      | 공개 미리 보기  | 공개 미리 보기  | 지원되지 않음   |
+|Linux의 Azure App Service             | 해당 없음             | 지원되지 않음   | 공개 미리 보기  | 공개 미리 보기  | 지원되지 않음   |
 |Azure Functions - 기본                | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
 |Azure Functions Windows - 종속성 | 지원되지 않음   | 지원되지 않음   | 공개 미리 보기  | 지원되지 않음   | 지원되지 않음   |
+|Azure Spring Cloud                     | 지원되지 않음   | 지원되지 않음   | 공개 미리 보기  | 지원되지 않음   | 지원되지 않음   |
 |Azure Kubernetes Service               | 해당 없음             | 디자인에서       | 에이전트를 통해   | 디자인에서       | 지원되지 않음   |
-|Azure VM Windows                      | 공개 미리 보기  | 지원되지 않음   | 지원되지 않음   | 지원되지 않음   | 지원되지 않음   |
+|Azure VM Windows                      | 공개 미리 보기  | 지원되지 않음   | 에이전트를 통해 | 지원되지 않음   | 지원되지 않음   |
 |온-프레미스 VM 창                | GA, 옵트인      | 지원되지 않음   | 에이전트를 통해   | 지원되지 않음   | 지원되지 않음   |
 |독립 실행형 에이전트 - 모든 env.            | 지원되지 않음   | 지원되지 않음   | GA              | 지원되지 않음   | 지원되지 않음   |
 
@@ -40,35 +41,24 @@ Application Insights는 다양한 리소스 공급자와 통합되며 여러 환
 
 ### <a name="windows"></a>Windows
 
-#### <a name="net"></a>.NET
-Windows의 Azure App Service에 대한 애플리케이션 모니터링은 [.NET 애플리케이션](./azure-web-apps.md?tabs=net)에서 사용할 수 있으며 .NET을 기본값으로 사용하도록 설정되어 있습니다.
+Windows의 Azure App Service에서 애플리케이션 모니터링은 **[.NET](./azure-web-apps.md?tabs=net)** (기본적으로 활성화됨), **[.NET Core](./azure-web-apps.md?tabs=netcore)** , **[Java](./azure-web-apps.md?tabs=java)** (공개 미리 보기) 및 **[Node.js](./azure-web-apps.md?tabs=nodejs)** 애플리케이션에서 사용할 수 있습니다. Python 앱을 모니터링하려면 코드에 [SDK](./opencensus-python.md)를 추가하세요.
 
-#### <a name="netcore"></a>.NETCore
-한 번 클릭으로 [.NETCore 애플리케이션](./azure-web-apps.md?tabs=netcore) 모니터링을 사용하도록 설정할 수 있습니다.
-
-#### <a name="java"></a>Java
-Windows에서 App Service의 Java 애플리케이션 모니터링에 대한 포털 통합을 현재 사용할 수 없습니다. 그러나 App Service에 앱을 배포 하기 전에 코드를 변경하지 않고 애플리케이션에 Application Insights [Java 3.0 독립 실행형 에이전트](./java-in-process-agent.md)를 추가할 수 있습니다. Application Insights Java 3.0 에이전트는 일반적으로 사용 가능합니다.
-
-#### <a name="nodejs"></a>Node.js
-현재 포털에서 Windows의 Node.js 애플리케이션에 대한 모니터링을 사용하도록 설정할 수 없습니다. Node.js 애플리케이션을 모니터링 하려면 [SDK](./nodejs.md)를 사용합니다.
+> [!NOTE]
+> 애플리케이션 모니터링은 현재 App Service의 Windows 코드 기반 애플리케이션에 사용할 수 있습니다. App Service의 Windows 컨테이너에서 앱에 대한 모니터링은 Application Insights와의 통합을 통해 아직 지원되지 않습니다.
 
 ### <a name="linux"></a>Linux
+포털을 통해 App Service의 Linux에서 실행되는 **[Java](./azure-web-apps.md?tabs=java)** 및 **[Node.js](./azure-web-apps.md?tabs=nodejs)** 앱에 대한 모니터링을 사용할 수 있습니다. - 두 언어에 대한 환경은 공개 미리 보기로 제공되며 모든 지역에서 사용할 수 있습니다. 
 
-#### <a name="netcore"></a>.NETCore
-Linux에서 실행되는 .NETCore 애플리케이션을 모니터링 하려면 [SDK](./asp-net-core.md)를 사용합니다.
-
-#### <a name="java"></a>Java 
-포털에서 App Service on Linux에 대한 Java 애플리케이션 모니터링을 사용하도록 설정하는 것은 불가능하지만 앱을 App Service에 배포하기 전에 [Application Insights Java 3.0 에이전트](./java-in-process-agent.md)를 앱에 추가할 수 있습니다. Application Insights Java 3.0 에이전트는 일반적으로 사용 가능합니다.
-
-#### <a name="nodejs"></a>Node.js
-[App Service on Linux에서 Node.js 애플리케이션 모니터링](./azure-web-apps.md?tabs=nodejs)은 공개 미리 보기 상태이며 모든 지역에서 사용할 수 있는 Azure Portal에서 사용하도록 설정할 수 있습니다. 
-
-#### <a name="python"></a>Python
-SDK를 사용하여 [Python 앱 모니터링](./opencensus-python.md) 
+다른 언어([.NET Core](./asp-net-core.md) 및 [Python](./opencensus-python.md))의 경우 SDK를 사용합니다.
 
 ## <a name="azure-functions"></a>Azure Functions
 
-기본값으로 Azure Functions에 대한 기본적인 모니터링을 사용하여 로그, 성능, 오류 데이터 및 HTTP 요청을 수집합니다. Java 애플리케이션의 경우 분산 추적을 통해 다양한 모니터링을 사용하도록 설정하고 엔드투엔드 트랜잭션 세부 정보를 얻을 수 있습니다. Java용 기능은 공개 미리 보기 상태이며 [Azure Portal에서 사용하도록 설정](./monitor-functions.md)할 수 있습니다.
+기본값으로 Azure Functions에 대한 기본적인 모니터링을 사용하여 로그, 성능, 오류 데이터 및 HTTP 요청을 수집합니다. Java 애플리케이션의 경우 분산 추적을 통해 다양한 모니터링을 사용하도록 설정하고 엔드투엔드 트랜잭션 세부 정보를 얻을 수 있습니다. Java용 기능은 Windows용 공개 미리 보기 상태이며 [Azure Portal에서 사용하도록 설정](./monitor-functions.md)할 수 있습니다.
+
+## <a name="azure-spring-cloud"></a>Azure Spring Cloud
+
+### <a name="java"></a>Java 
+Azure Spring Cloud에서 실행되는 Java 앱에 대한 애플리케이션 모니터링은 포털에 통합되어 있으며, 기존 및 새로 만든 Azure Spring Cloud 리소스 모두에 대해 Azure Portal에서 직접 Application Insights를 사용하도록 설정할 수 있습니다.  
 
 ## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 

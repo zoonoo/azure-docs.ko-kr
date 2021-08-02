@@ -4,16 +4,16 @@ description: 호스트에서 암호화를 사용하여 Azure 관리 디스크 - 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 06/14/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: cdb22805e2e68893d3883272b66c2cfac13c807e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad053a0e97a8efa50fbb01798e639fb33e769bef
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104721871"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078777"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Azure Portal을 사용하여 호스트에서 암호화를 사용하는 엔드투엔드 암호화를 사용하도록 설정
 
@@ -34,19 +34,19 @@ ms.locfileid: "104721871"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-VM/VMSS에 대한 EncryptionAtHost 속성을 사용하기 전에 구독에 이 기능을 사용하도록 설정해야 합니다. 구독 기능을 사용하도록 설정하려면 아래 단계를 따르세요.
+VM/VMSS에 대한 EncryptionAtHost 속성을 사용하기 전에 구독에 이 기능을 사용하도록 설정해야 합니다. 구독 기능을 사용하도록 설정하려면 아래 단계를 따릅니다.
 
 1. **Azure Portal**: [Azure Portal](https://portal.azure.com)에서 Cloud Shell 아이콘을 선택합니다.
 
     ![Azure Portal에서 Cloud Shell을 시작하는 아이콘](../Cloud-Shell/media/overview/portal-launch-icon.png)
     
-2.  다음 명령을 실행하여 구독 기능을 등록합니다.
+1.  다음 명령을 실행하여 구독 기능을 등록합니다.
 
     ```powershell
      Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute" 
     ```
 
-3.  기능을 사용해 보기 전에 아래 명령을 사용하여 등록 상태가 등록됨(몇 분 소요)인지 확인합니다.
+1.  기능을 사용해 보기 전에 아래 명령을 사용하여 등록 상태가 **등록됨**(몇 분 소요)인지 확인합니다.
 
     ```powershell
      Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  
@@ -66,7 +66,7 @@ VM/VMSS에 대한 EncryptionAtHost 속성을 사용하기 전에 구독에 이 �
 
 ## <a name="deploy-a-vm"></a>VM 배포
 
-호스트에서 암호화를 사용하도록 설정하려면 새 VM을 배포해야 하며, 기존 VM에서는 사용하도록 설정할 수 없습니다.
+이제 Azure Key Vault 및 디스크 암호화 집합을 설정했으므로 VM을 배포할 수 있으며 호스트에서 암호화를 사용합니다.
 
 1. **가상 머신** 을 검색하고 **+ 추가** 를 선택하여 VM을 만듭니다.
 1. 새 가상 머신을 만들고 적절한 지역과 지원되는 VM 크기를 선택합니다.

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 0d09851cf8e68cead4a67615aaa792512482f351
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: fc27ed68f5dedefa0b4bf77a206faa15c94f083f
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98955125"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112018318"
 ---
 # <a name="python-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search에 대한 Python 코드 샘플
 
@@ -44,13 +44,14 @@ Azure SDK 개발 팀의 코드 샘플에서 API 사용을 보여 줍니다. 이�
 
 ## <a name="doc-samples"></a>문서 샘플
 
-Cognitive Search 팀의 코드 샘플은 기능 및 워크플로를 보여 줍니다. 이러한 샘플은 대부분 자습서, 빠른 시작 및 방법 문서에서 참조됩니다. GitHub의 [**Azure-Samples/azure-search-python-samples**](https://github.com/Azure-Samples/azure-search-python-samples)에서 이러한 샘플을 찾을 수 있습니다.
+Cognitive Search 팀의 코드 샘플은 기능 및 워크플로를 보여줍니다. 이러한 샘플은 대부분 자습서, 빠른 시작 및 방법 문서에서 참조됩니다. GitHub의 [**Azure-Samples/azure-search-python-samples**](https://github.com/Azure-Samples/azure-search-python-samples)에서 이러한 샘플을 찾을 수 있습니다.
 
 | 샘플 | 아티클 |
 |---------|---------|
 | [빠른 시작](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart) | [빠른 시작: Python에서 검색 인덱스 만들기](search-get-started-python.md)에 대한 소스 코드입니다. 이 문서에서는 샘플 데이터를 사용하여 검색 인덱스를 만들고, 로드하고, 쿼리하는 기본 워크플로를 다룹니다. |
+| [search-website](https://github.com/azure-samples/azure-search-python-samples/tree/master/search-website) | [자습서: 웹앱에 검색 추가](tutorial-python-overview.md)의 소스 코드입니다. 리치 클라이언트와 앱 호스팅 및 검색 요청 처리를 위한 구성 요소가 포함된 엔드투엔드 검색 앱을 보여 줍니다.|
 | [tutorial-ai-enrichment](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment)  | [자습서: Python 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성](cognitive-search-tutorial-blob-python.md)의 소스 코드입니다. 이 문서에서는 인식 기술 세트를 사용하여 Blob 인덱서를 만드는 방법을 보여줍니다. 여기서 기술 세트는 원시 콘텐츠를 만들고 변환하여 검색 및 사용이 가능하도록 합니다. |
 | [AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill)  | [예제: Python을 사용하여 사용자 지정 기술 만들기](cognitive-search-custom-skill-python.md)의 소스 코드입니다. 이 문서에서는 Azure Machine Learning에서 딥 러닝 모델과의 인덱서 및 기술 세트 통합을 보여줍니다. |
 
 > [!Tip]
-> [샘플 브라우저](/samples/browse/?languages=python&products=azure-cognitive-search)를 사용하여 제품, 서비스 및 언어를 기준으로 필터링하여 GitHub의 Microsoft 코드 샘플을 검색해 보세요.
+> [샘플 브라우저](/samples/browse/?languages=python&products=azure-cognitive-search)를 통해 제품, 서비스 및 언어별로 필터링하여 GitHub에서 Microsoft 코드 샘플을 검색해 보세요.

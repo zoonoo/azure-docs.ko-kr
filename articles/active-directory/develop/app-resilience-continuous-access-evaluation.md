@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
-ms.openlocfilehash: f6ce792b3db0100d7356884bbc6ee2696580df10
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 970985193245a4d7482979c2fc753c2c0b67834b
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97652061"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111406736"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>애플리케이션에서 지속적인 액세스 권한 평가를 사용하도록 설정된 API를 사용하는 방법
 
-CAE([지속적인 액세스 권한 평가](../conditional-access/concept-continuous-access-evaluation.md))는 수명에 따라 토큰 만료에 의존하는 대신 [중요한 이벤트](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) 및 [정책 평가](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation-preview)에 따라 액세스 토큰을 철회할 수 있게 해주는 새로운 업계 표준입니다. 일부 리소스 API의 경우 위험 및 정책이 실시간으로 평가되기 때문에 토큰 수명이 최대 28시간까지 늘어날 수 있습니다. 이러한 수명이 긴 토큰은 MSAL(Microsoft Authentication Library)을 통해 사전에 새로 고침되므로 애플리케이션의 복원력이 향상됩니다.
+CAE[(Continuous Access Evaluation)](../conditional-access/concept-continuous-access-evaluation.md)는 수명을 기반으로 한 토큰 만료에 의존하지 않고 [중요한 이벤트](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) 및 [정책 평가](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation-preview)에 따라 액세스 토큰을 취소할 수 있는 Azure AD 기능입니다. 일부 리소스 API의 경우 위험 및 정책이 실시간으로 평가되기 때문에 토큰 수명이 최대 28시간까지 늘어날 수 있습니다. 이러한 수명이 긴 토큰은 MSAL(Microsoft Authentication Library)을 통해 사전에 새로 고침되므로 애플리케이션의 복원력이 향상됩니다.
 
-이 문서에서는 애플리케이션에서 CAE 사용 API를 사용하는 방법을 보여 줍니다.
+이 문서에서는 애플리케이션에서 CAE 사용 API를 사용하는 방법을 보여 줍니다. MSAL을 사용하지 않는 애플리케이션은 CAE를 사용하기 위해 [클레임 챌린지, 클레임 요청 및 클라이언트 기능](claims-challenge.md)에 대한 지원을 추가할 수 있습니다.
 
 ## <a name="implementation-considerations"></a>구현 고려 사항
 
@@ -116,4 +116,5 @@ _clientApp = PublicClientApplicationBuilder.Create(App.ClientId)
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [지속적인 액세스 권한 평가](../conditional-access/concept-continuous-access-evaluation.md)를 참조하세요.
+- [지속적인 액세스 평가](../conditional-access/concept-continuous-access-evaluation.md) 개념 개요
+- [클레임 챌린지, 클레임 요청 및 클라이언트 기능](claims-challenge.md)

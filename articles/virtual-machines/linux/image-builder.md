@@ -1,5 +1,5 @@
 ---
-title: Linux VM용 이미지 갤러리에서 Azure Image Builder 사용(미리 보기)
+title: Linux VM용 이미지 갤러리에서 Azure Image Builder 사용
 description: Azure Image Builder 및 Shared Image Gallery를 사용하여 Linux VM 이미지를 만듭니다.
 author: cynthn
 ms.author: cynthn
@@ -9,14 +9,14 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: danis
-ms.openlocfilehash: 6ae7e384aa5d70b688b7fe4c6d4140e886b789f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7fbee42440b9f0ad7663850cd72a46c238a8d2e1
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101694294"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027248"
 ---
-# <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery-by-using-azure-cli"></a>미리 보기: Linux 이미지를 만들어 Azure CLI로 Shared Image Gallery에 배포하기
+# <a name="create-a-linux-image-and-distribute-it-to-a-shared-image-gallery-by-using-azure-cli"></a>Linux 이미지를 만들어 Azure CLI를 사용해 Shared Image Gallery에 배포
 
 이 문서에서는 Azure Image Builder 및 Azure CLI를 사용하여 [Shared Image Gallery](../shared-image-galleries.md)에서 이미지 버전을 만든 다음, 전 세계에 이미지를 배포하는 방법을 보여 줍니다. [Azure PowerShell](../windows/image-builder-gallery.md)를 사용하여 이 작업을 수행할 수도 있습니다.
 
@@ -25,22 +25,9 @@ ms.locfileid: "101694294"
 
 Shared Image Gallery에 이미지를 배포하기 위해 이 템플릿에서는 [sharedImage](image-builder-json.md#distribute-sharedimage)를 템플릿의 `distribute` 섹션 값으로 사용합니다.
 
-> [!IMPORTANT]
-> Azure Image Builder는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="register-the-features"></a>기능 등록
-미리 보기 중에 Azure Image Builder를 사용하려면 이 새 기능을 등록해야 합니다.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-기능 등록 상태를 확인합니다.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview -o json | grep state
-```
+Azure Image Builder를 사용하려면 새 기능을 등록해야 합니다.
 
 등록을 확인합니다.
 
@@ -66,7 +53,7 @@ az provider register -n Microsoft.Network
 
 일부 정보를 반복해서 사용하게 되며, 해당 정보를 저장하기 위해 몇 가지 변수를 만듭니다.
 
-미리 보기에서는 Image Builder가 원본 관리 이미지와 동일한 리소스 그룹에서 사용자 지정 이미지를 만드는 것만 지원합니다. 이 예제의 리소스 그룹 이름을 원본 관리 이미지와 동일한 리소스 그룹으로 업데이트합니다.
+Image Builder는 원본 관리 이미지와 동일한 리소스 그룹에서 사용자 지정 이미지를 만드는 작업만 지원합니다. 이 예제의 리소스 그룹 이름을 원본 관리 이미지와 동일한 리소스 그룹으로 업데이트합니다.
 
 ```azurecli-interactive
 # Resource group name - we are using ibLinuxGalleryRG in this example

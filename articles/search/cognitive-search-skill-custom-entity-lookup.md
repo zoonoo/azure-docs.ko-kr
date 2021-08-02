@@ -8,18 +8,29 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 0f233bdff54822037d15fde9ac62e34193794ad3
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 68e4949fe0ef0b10018cd3827e259028c37d5b5c
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110311"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112019092"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill"></a>사용자 지정 엔터티 조회 인식 기술
 
 **사용자 지정 엔터티 조회** 기술은 사용자 지정된 단어 및 구의 사용자 정의 목록에서 텍스트를 찾습니다. 이 목록을 사용하면 일치하는 엔터티가 있는 모든 문서에 레이블이 지정됩니다. 또한 이 기술은 비슷하지만 정확하지 않는 일치 항목을 찾는 데 적용할 수 있는 유사 항목 일치 수준을 지원합니다.  
 
-이 기술은 Cognitive Services API에 바인딩되지 않으며 미리 보기 기간 동안 사용해보실 수 있습니다. 그러나 일일 보강 한도를 재정의하려면 [Cognitive Services 리소스를 연결](./cognitive-search-attach-cognitive-services.md)해야 합니다. Azure Cognitive Search를 통해 액세스할 때 Cognitive Services 액세스에 일일 한도가 적용됩니다.
+이 기술은 Cognitive Services API에 바인딩되지 않습니다. 그러나 일일 보강 한도를 재정의하려면 [Cognitive Services 리소스를 연결](./cognitive-search-attach-cognitive-services.md)해야 합니다. Azure Cognitive Search를 통해 액세스할 때 Cognitive Services 액세스에 일일 한도가 적용됩니다.
+
+## <a name="pricing-details"></a>가격 정보
+
+텍스트 레코드는 기술에 대한 입력으로 제공되는 문서 내의 1,000자 단위 수에 해당합니다.
+
+|  가격 책정 계층  |        가격  |
+|--------------|----------------------|
+| 0-500,000개 텍스트 레코드 | 텍스트 레코드 1,000개당 1달러 |
+| 0.5M-2.5M 텍스트 레코드 | 텍스트 레코드 1,000개당 0.75달러 |
+| 2.5M-10.0M 텍스트 레코드 | 텍스트 레코드 1,000개당 0.30달러 |
+| 10M 이상의 텍스트 레코드 | 텍스트 레코드 1,000개당 0.25달러 |
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.CustomEntityLookupSkill 
@@ -308,4 +319,4 @@ JSON 정의의 좀 더 복잡한 예는 필요에 따라 각 엔터티의 ID, �
 
 + [기본 제공 기술](cognitive-search-predefined-skills.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
-+ [엔터티 인식 기술(잘 알려진 엔터티를 검색)](cognitive-search-skill-entity-recognition.md)
++ [엔터티 인식 기술(잘 알려진 엔터티를 검색)](cognitive-search-skill-entity-recognition-v3.md)

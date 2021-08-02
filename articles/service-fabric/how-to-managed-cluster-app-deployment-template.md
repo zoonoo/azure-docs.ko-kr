@@ -1,18 +1,19 @@
 ---
-title: ARM 템플릿을 사용한 Service Fabric 관리형 클러스터(미리 보기) 애플리케이션 배포
-description: Azure Resource Manager 템플릿을 사용한 Azure Service Fabric 관리형 클러스터(미리 보기)에 애플리케이션을 배포합니다.
+title: ARM 템플릿을 사용한 Service Fabric 관리형 클러스터 애플리케이션 배포
+description: Azure Resource Manager 템플릿을 사용하여 Azure Service Fabric 관리형 클러스터에 애플리케이션을 배포합니다.
 ms.topic: how-to
-ms.date: 02/15/2021
-ms.openlocfilehash: e860c77d77e3aabb70f70defdaa25de14e77e0e1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 5/10/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0f2561b182689467598f2c939589295d9af72e4d
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728014"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671223"
 ---
-# <a name="deploy-a-service-fabric-managed-cluster-preview-application-using-arm-template"></a>ARM 템플릿을 사용한 Service Fabric 관리형 클러스터(미리 보기) 애플리케이션 배포
+# <a name="deploy-a-service-fabric-managed-cluster-application-using-arm-template"></a>ARM 템플릿을 사용한 Service Fabric 관리형 클러스터 애플리케이션 배포
 
-Service Fabric 관리형 클러스터에 Azure Service Fabric 애플리케이션을 배포하기 위한 여러 옵션이 있습니다. Azure Resource Manager를 사용하는 것이 좋습니다. Resource Manager를 사용하는 경우 애플리케이션과 서비스를 JSON 형식으로 설명한 다음, 클러스터와 동일한 Resource Manager 템플릿에 배포할 수 있습니다. PowerShell 또는 Azure CLI를 사용하여 애플리케이션을 배포하고 관리하는 것과 달리, Resource Manager를 사용하는 경우 클러스터가 준비될 때까지 기다릴 필요가 없습니다. 애플리케이션 등록, 프로비전 및 배포를 모두 한 단계로 수행할 수 있습니다. 클러스터에서 애플리케이션 수명 주기를 관리하는 가장 좋은 방법은 Resource Manager를 사용하는 것입니다. 자세한 내용은 [모범 사례: IaC(Infrastructure as Code)](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources)를 참조하세요.
+Service Fabric 관리형 클러스터에 Azure Service Fabric 애플리케이션을 배포하기 위한 여러 옵션이 있습니다. Azure Resource Manager를 사용하는 것이 좋습니다. Resource Manager를 사용하는 경우 애플리케이션과 서비스를 JSON 형식으로 설명한 다음, 클러스터와 동일한 Resource Manager 템플릿에 배포할 수 있습니다. PowerShell 또는 Azure CLI를 사용하여 애플리케이션을 배포하고 관리하는 것과 달리, Resource Manager를 사용하는 경우 클러스터가 준비될 때까지 기다릴 필요가 없습니다. 애플리케이션 등록, 프로비전 및 배포를 모두 한 단계로 수행할 수 있습니다. 클러스터에서 애플리케이션 수명 주기를 관리하는 가장 좋은 방법은 Resource Manager를 사용하는 것입니다. 자세한 내용은 [모범 사례: IaC(Infrastructure as Code)](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources)를 참조하세요.
 
 Resource Manager의 리소스로 애플리케이션을 관리하면 다음과 같은 영역에서 향상된 기능을 얻을 수 있습니다.
 
@@ -90,7 +91,7 @@ Resource Manager 템플릿에서 애플리케이션을 배포하려면 스토리
 >
 >
 
-| 매개 변수              | 설명                                 | 예제                                                      | 주석                                                     |
+| 매개 변수              | Description                                 | 예제                                                      | 주석                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | 배포하는 클러스터의 이름 | sf-cluster123                                                |                                                              |
 | 애플리케이션            | 애플리케이션의 이름                 | Voting                                                       |
@@ -101,25 +102,25 @@ Resource Manager 템플릿에서 애플리케이션을 배포하려면 스토리
 
 ```json
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applications",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applicationTypes",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applicationTypes/versions",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applications/services",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
     "location": "[variables('clusterLocation')]"
@@ -181,12 +182,10 @@ Resource Manager에서 애플리케이션 리소스 모델을 사용하여 배�
 
 ## <a name="next-steps"></a>다음 단계
 
-애플리케이션 리소스 모델에 대한 정보를 가져옵니다.
+관리형 클러스터 애플리케이션 배포에 대해 자세히 알아봅니다.
 
-* [Service Fabric에서 애플리케이션 모델링](service-fabric-application-model.md)
-* [Service Fabric 애플리케이션 및 서비스 매니페스트](service-fabric-application-and-service-manifests.md)
-* [모범 사례: IaC(Infrastructure as Code)](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources)
-* [애플리케이션 및 서비스를 Azure 리소스로 관리](service-fabric-best-practices-infrastructure-as-code.md)
+* [관리형 클러스터 애플리케이션 비밀 배포](how-to-managed-cluster-application-secrets.md)
+* [관리 ID를 사용하여 관리형 클러스터 애플리케이션 배포](how-to-managed-cluster-application-managed-identity.md)
 
 
 <!--Image references-->

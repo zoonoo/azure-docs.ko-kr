@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8a59c24100b433719ccfd3a9ea1b6a676695d381
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed9a5c63fa86e1fac6abd9ac023bb48abd2f196d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98673437"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459651"
 ---
 # <a name="partitioning-tables-in-dedicated-sql-pool"></a>전용 SQL 풀의 테이블 분할
 
@@ -46,7 +46,7 @@ ms.locfileid: "98673437"
 
 일부 시나리오에서 분할을 사용하여 성능을 향상시킬 수 있지만 **너무 많은** 파티션이 있는 테이블을 만들면 경우에 따라 성능이 저하될 수 있습니다.  특히 클러스터형 columnstore 테이블에서 이러한 점이 우려됩니다. 
 
-분할이 도움이 되려면 분할을 사용하는 시기 및 만들려는 파티션 수를 이해하는 것이 중요합니다. 파티션 수가 너무 많은 경우와 관련해서는 엄격한 규칙이 없지만 데이터 및 동시에 로드하는 파티션 수에 따라 달라집니다. 성공적인 파티션 구성표에는 일반적으로 수천 개가 아닌 수십 개에서 수백 개의 파티션이 있습니다.
+분할이 도움이 되려면 분할을 사용하는 시기 및 만들려는 파티션 수를 이해하는 것이 중요합니다. 파티션 수가 너무 많은 경우와 관련된 엄격한 규칙은 없으며, 데이터 및 데이터를 동시에 로드하는 파티션 수에 따라 달라집니다. 성공적인 파티션 구성표에는 일반적으로 수천 개가 아닌 수십 개에서 수백 개의 파티션이 있습니다.
 
 **클러스터형 columnstore** 테이블에서 파티션을 만들 때 각 파티션에 얼마나 많은 행 수를 둘지 고려하는 것은 중요합니다. 클러스터형 columnstore 테이블에 대한 최적의 압축 및 성능을 고려할 때, 배포 및 파티션당 최소 1백만 개의 행이 필요합니다. 파티션이 생성되기 전에 전용 SQL 풀은 미리 각 테이블을 60개의 분산된 데이터베이스로 나눕니다. 
 

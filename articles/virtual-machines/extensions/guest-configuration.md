@@ -7,12 +7,13 @@ ms.subservice: extensions
 author: mgreenegit
 ms.author: migreene
 ms.date: 04/15/2021
-ms.openlocfilehash: 2fda3cc2cf9adc3a734780209a0c9cc06a04e7cf
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d189cf54edfaca13b801e786254eec9fc5aa96f6
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107368492"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110662834"
 ---
 # <a name="overview-of-the-azure-policy-guest-configuration-extension"></a>Azure Policy 게스트 구성 확장 개요
 
@@ -45,12 +46,15 @@ ms.locfileid: "107368492"
 
 ## <a name="how-can-i-install-the-extension"></a>확장을 설치하는 방법
 
-ID 요구 사항을 포함하여 대규모로 최신 버전의 확장을 배포하려면 Azure Policy를 할당하고 [필수 구성 요소를 배포하여 가상 머신에서 게스트 구성 정책을 사용하도록 설정](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json)합니다.
-개별 머신의 경우 Azure CLI, PowerShell, Resource Manager 템플릿 또는 타사 도구를 사용하여 확장을 배포할 수 있습니다.
-
 확장의 인스턴스 이름은 “AzurePolicyforWindows” 또는 “AzurePolicyforLinux”로 설정해야 하는데, 위에 언급된 정책에 이러한 특정 문자열이 필요하기 때문입니다.
 
 기본적으로 모든 배포가 최신 버전으로 업데이트됩니다. _autoUpgradeMinorVersion_ 속성의 값은 달리 지정되지 않은 경우 “true”로 기본 설정됩니다. 새 버전의 확장을 릴리스할 때 코드 업데이트에 대해서는 신경 쓰지 않아도 됩니다.
+
+### <a name="azure-policy"></a>Azure Policy
+
+ID 요구 사항을 포함하여 최신 버전의 확장을 규모에 맞게 배포하려면 Azure Policy를 [할당](../../governance/policy/assign-policy-portal.md)합니다.
+
+[필수 구성 요소를 배포하여 가상 머신에서 게스트 구성 정책을 사용하도록 설정합니다](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_AzureBaseline.json).
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -163,5 +167,5 @@ resource "azurerm_virtual_machine_extension" "gc" {
 * Azure Policy 게스트 구성에 대한 자세한 내용은 [Azure Policy의 게스트 구성 이해](../../governance/policy/concepts/guest-configuration.md)를 참조하세요.
 * Linux 에이전트 및 확장의 작동 방식에 대한 자세한 내용은 [Linux용 Azure VM 확장 및 기능](features-linux.md)을 참조하세요.
 * Windows 게스트 에이전트 및 확장의 작동 방식에 대한 자세한 내용은 [Windows용 Azure VM 확장 및 기능](features-windows.md)을 참조하세요.  
-* Windows 게스트 에이전트를 설치하려면 [Azure Windows 가상 머신 에이전트 개요](agent-windows.md)를 참조하세요.  
-* Linux 에이전트를 설치하려면 [Azure Linux 가상 머신 에이전트 개요](agent-linux.md)를 참조하세요.  
+* Windows 게스트 에이전트를 설치하려면 [Azure Windows Virtual Machine 에이전트 개요](agent-windows.md)를 참조하세요.  
+* Linux 에이전트를 설치하려면 [Azure Linux Virtual Machine 에이전트 개요](agent-linux.md)를 참조하세요.  

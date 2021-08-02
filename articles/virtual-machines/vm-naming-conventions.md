@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/22/2020
 ms.author: mimckitt
 ms.custom: sttsinar
-ms.openlocfilehash: 2fa362a56eb1246381fcc944e82ea85d31ff3d39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c0fcd7923d03ed4086e424e3a8ec86fc74df4af
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599904"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111526959"
 ---
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Azure Virtual Machine 크기 명명 규칙
 
@@ -29,7 +29,7 @@ ms.locfileid: "104599904"
 | \* 하위 제품군 | 특수한 VM 차별화에만 사용됩니다.|
 | vCPU 수| VM의 vCPU 수를 나타냅니다. |
 | *제한된 vCPU| 특정 VM 크기에만 사용됩니다. [제한된 vCPU 지원 크기](./constrained-vcpu.md)에 대한 vCPU 수를 나타냅니다. |
-| 추가 기능 | 하나 이상의 소문자가 다음과 같은 추가 기능을 나타냅니다. <br> a = AMD 기반 프로세서 <br> d = 최신 Azure VM에 대한 디스크(로컬 임시 디스크가 있음). [Ddv4 및 Ddsv4 시리즈](./ddv4-ddsv4-series.md)를 참조하세요. <br> h = 최대 절전 모드 지원 <br> i = 격리 크기 <br> l = 메모리 부족. 메모리 집약적 크기보다 적은 양의 메모리 <br> m = 메모리 집약적. 특정 크기에서 가장 많은 양의 메모리 <br> t = 적은 메모리. 특정 크기의 가장 적은 양의 메모리 <br> r = RDMA 지원 <br> s = [Ultra SSD](./disks-types.md#ultra-disk) 사용을 비롯한 Premium Storage 지원(참고: s 특성이 없는 최신 크기의 일부는 여전히 Premium Storage를 지원할 수 있음(예: M128, M64 등))<br> |
+| 추가 기능 | 하나 이상의 소문자가 다음과 같은 추가 기능을 나타냅니다. <br> a = AMD 기반 프로세서 <br> d = 최신 Azure VM에 대한 diskfull(로컬 임시 디스크가 있음). [Ddv4 및 Ddsv4 시리즈](./ddv4-ddsv4-series.md)를 참조하세요. <br> i = 격리 크기 <br> l = 메모리 부족. 메모리 집약적 크기보다 적은 양의 메모리 <br> m = 메모리 집약적. 특정 크기에서 가장 많은 양의 메모리 <br> t = 적은 메모리. 특정 크기의 가장 적은 양의 메모리 <br> s = [Ultra SSD](./disks-types.md#ultra-disk) 사용을 비롯한 Premium Storage 지원(참고: s 특성이 없는 최신 크기의 일부는 여전히 Premium Storage를 지원할 수 있음(예: M128, M64 등))<br> |
 | *가속기 유형 | 특수/GPU SKU의 하드웨어 가속기 유형을 나타냅니다. 2020년 3분기부터 출시된 새로운 특수/GPU SKU에만 이름에 하드웨어 가속기가 있습니다. |
 | Version | VM 제품군 시리즈의 버전을 나타냅니다. |
 

@@ -6,13 +6,13 @@ ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 03/12/2021
-ms.openlocfilehash: 2b6f97f0966cb2c92dbd88c4a70188282ed3ed27
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/27/2021
+ms.openlocfilehash: 72f58258f427c5a9414bd7627d4d121c6a89c365
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104802036"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060861"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>ADF에서 CI-CD, Azure DevOps 및 GitHub 문제 해결 
 
@@ -39,7 +39,7 @@ ms.locfileid: "104802036"
 
 #### <a name="recommendation"></a>권장
 
-대신 게스트 테넌트에서 발급된 토큰을 사용해야 합니다. 예를 들어 토큰 동작을 올바르게 설정하고 올바른 테넌트를 사용할 수 있도록 DevOps는 물론 동일한 Azure Active Directory를 게스트 테넌트로 할당해야 합니다.
+게스트 테넌트에서 발급된 토큰을 사용해야 합니다. 예를 들어 토큰 동작을 올바르게 설정하고 올바른 테넌트를 사용할 수 있도록 DevOps는 물론 동일한 Azure Active Directory를 게스트 테넌트로 할당해야 합니다.
 
 ### <a name="template-parameters-in-the-parameters-file-are-not-valid"></a>매개변수 파일에 있는 템플릿 매개변수가 올바르지 않음
 
@@ -57,7 +57,7 @@ CI/CD 파이프라인이 다음 오류와 함께 실패합니다.
 
 #### <a name="recommendation"></a>권장
 
-이 오류는 매개변수화된 트리거를 자주 삭제하기 때문에 발생합니다. 따라서 트리거가 더 이상 존재하지 않기 때문에 ARM 템플릿에서 해당 매개변수를 사용할 수 없게 됩니다. 매개변수가 ARM 템플릿에 더 이상 존재하지 않기 때문에 DevOps 파이프라인에서 재정의된 매개변수를 업데이트해야 합니다. 그렇지 않으면 ARM 템플릿에서 매개변수가 변경될 때마다 DevOps 파이프라인(배포 작업)에서 재정의된 매개변수를 업데이트해야 합니다.
+이 오류는 매개변수화된 트리거를 자주 삭제하기 때문에 발생합니다. 따라서 트리거가 더 이상 존재하지 않기 때문에 ARM(Azure Resource Manager) 템플릿에서 해당 매개변수를 사용할 수 없게 됩니다. 매개변수가 ARM 템플릿에 더 이상 존재하지 않기 때문에 DevOps 파이프라인에서 재정의된 매개변수를 업데이트해야 합니다. 그렇지 않으면 ARM 템플릿에서 매개변수가 변경될 때마다 DevOps 파이프라인(배포 작업)에서 재정의된 매개변수를 업데이트해야 합니다.
 
 ### <a name="updating-property-type-is-not-supported"></a>속성 유형 업데이트가 지원되지 않음
 
@@ -77,7 +77,7 @@ CI/CD 파이프라인이 다음 오류와 함께 실패합니다.
 
 #### <a name="cause"></a>원인
 
-이는 대상 팩터리에 있는 이름이 동일하지만 유형이 다른 통합 런타임 때문입니다. Integration Runtime은 배포할 때와 동일한 유형이어야 합니다.
+이 오류는 대상 팩터리에 있는 이름이 동일하지만 유형이 다른 통합 런타임 때문입니다. Integration Runtime은 배포 동안 동일한 유형이어야 합니다.
 
 #### <a name="recommendation"></a>권장
 
@@ -103,7 +103,7 @@ Data Factory에 변경 사항을 게시하려고 시도할 때 다음 오류 메
 `
 ### <a name="cause"></a>원인
 
-Git 구성을 분리하고 “리소스 가져오기” 플래그가 선택된 상태로 다시 설정하여 Data Factory가 “동기화 상태”로 설정되었습니다. 이것은 게시할 변경 사항이 없음을 의미합니다.
+Git 구성을 분리하고 “리소스 가져오기” 플래그가 선택된 상태로 다시 설정하여 Data Factory가 “동기화 상태”로 설정되었습니다. 즉, 게시하는 동안 변경되지 않습니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -131,7 +131,7 @@ Data Factory를 한 리소스 그룹에서 다른 그룹으로 이동할 수 없
 
 #### <a name="resolution"></a>해결 방법
 
-이동 작업을 수행하기 위해서는 SSIS-IR 및 공유 IR을 삭제해야 합니다. 통합 런타임을 삭제하지 않으려는 경우 최선의 방법은 복사 및 클론 문서에 따라 복사를 수행하고 완료되면 이전 Data Factory를 삭제하는 것입니다.
+이동 작업을 수행하기 위해서는 SSIS-IR 및 공유 IR을 삭제할 수 있습니다. 통합 런타임을 삭제하지 않으려는 경우 최선의 방법은 복사 및 클론 문서에 따라 복사를 수행하고 완료되면 이전 Data Factory를 삭제하는 것입니다.
 
 ###  <a name="unable-to-export-and-import-arm-template"></a>ARM 템플릿을 내보내고 가져올 수 없음
 
@@ -157,9 +157,9 @@ ARM 템플릿을 내보내고 가져올 수 없습니다. 포털에 오류가 �
 
 #### <a name="resolution"></a>해결 방법
 
-CI/CD 프로세스가 향상되었습니다. **자동화된 게시** 기능은 ADF UX에서 모든 ARM(Azure Resource Manager) 템플릿 기능을 가져오고, 검증하고 내보냅니다. 이렇게 해서 공개적으로 사용 가능한 npm 패키지 [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities)를 통해 논리를 사용할 수 있게 만듭니다. 따라서 ADF UI로 이동하여 단추 클릭을 수행할 필요 없이 이러한 작업을 프로그래밍 방식으로 트리거할 수 있습니다. 이렇게 하여 CI/CD 파이프라인에 **진정한** 연속 통합 환경을 제공합니다. 자세한 내용은 [ADF CI/CD 게시 향상](./continuous-integration-deployment-improvements.md)을 참조하세요. 
+CI/CD 프로세스가 향상되었습니다. **자동화된 게시** 기능은 ADF UX에서 모든 ARM 템플릿 기능을 가져오고, 검증하고 내보냅니다. 이렇게 해서 공개적으로 사용 가능한 npm 패키지 [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities)를 통해 논리를 사용할 수 있게 만듭니다. 따라서 이 방법을 사용하면 ADF UI로 이동하여 단추 클릭을 수행할 필요 없이 이러한 작업을 프로그래밍 방식으로 트리거할 수 있습니다. 이 방법은 CI/CD 파이프라인에 **진정한** 연속 통합 환경을 제공합니다. 자세한 내용은 [ADF CI/CD 게시 향상](./continuous-integration-deployment-improvements.md)을 참조하세요. 
 
-###  <a name="cannot-publish-because-of-4mb-arm-template-limit"></a>4MB ARM 템플릿 제한으로 인해 게시할 수 없음  
+###  <a name="cannot-publish-because-of-4-mb-arm-template-limit"></a>4MB ARM 템플릿 제한으로 인해 게시할 수 없음  
 
 #### <a name="issue"></a>문제
 
@@ -167,7 +167,7 @@ Azure Resource Manager의 4MB 총 템플릿 크기 제한에 도달하여 배포
 
 #### <a name="cause"></a>원인
 
-Azure Resource Manager는 템플릿 크기를 4MB로 제한합니다. 템플릿의 크기는 4MB로, 각 매개 변수 파일의 크기는 64KB로 제한됩니다. 4MB 제한은 반복 리소스 정의로 확장된 다음 템플릿의 최종 상태에 적용되며, 변수 및 매개 변수의 값에 적용됩니다. 하지만 이 제한이 초과되었습니다. 
+Azure Resource Manager는 템플릿 크기를 4MB로 제한합니다. 템플릿의 크기는 4MB로, 각 매개 변수 파일의 크기는 64KB로 제한됩니다. 4MB의 제한은 반복적인 리소스 정의로 확장된 후 템플릿의 마지막 상태와 변수 및 매개 변수 값에 적용됩니다. 하지만 이 제한이 초과되었습니다. 
 
 #### <a name="resolution"></a>해결 방법
 
@@ -191,15 +191,13 @@ Azure Resource Manager는 템플릿 크기를 4MB로 제한합니다. 템플릿�
 ### <a name="cannot-recover-from-a-deleted-data-factory"></a>삭제된 데이터 팩터리에서 복구할 수 없음
 
 #### <a name="issue"></a>문제
-고객이 데이터 팩터리 또는 데이터 팩터리가 포함된 리소스 그룹을 삭제했습니다. 삭제된 데이터 팩터리를 복원하는 방법을 알고 싶습니다.
+고객이 데이터 팩터리 또는 데이터 팩터리가 포함된 리소스 그룹을 삭제했습니다. 고객은 삭제된 데이터 팩터리를 복원하는 방법을 알고 싶습니다.
 
 #### <a name="cause"></a>원인
 
-고객이 소스 제어를 구성한 경우에만(DevOps 또는 Git) 데이터 팩터리를 복구할 수 있습니다. 이렇게 하면 모든 최근에 게시된 리소스가 표시되고 게시되지 않은 파이프라인, 데이터 세트 및 연결된 서비스는 복원되지 **않습니다**.
+고객이 소스 제어를 구성한 경우에만(DevOps 또는 Git) 데이터 팩터리를 복구할 수 있습니다. 이 작업을 수행하면 모든 최근에 게시된 리소스가 표시되고 게시되지 않은 파이프라인, 데이터 세트 및 연결된 서비스는 복원되지 **않습니다**. 소스 제어가 없으면 서비스에 삭제됨 명령이 수신된 후 인스턴스가 삭제되고 백업이 저장되지 않았기 때문에 백엔드에서 삭제된 데이터 팩터리를 복구하는 것이 불가능합니다.
 
-소스 제어가 없으면 서비스에 삭제됨 명령이 수신된 후 인스턴스가 삭제되고 백업이 저장되지 않았기 때문에 백엔드에서 삭제된 데이터 팩터리를 복구하는 것이 불가능합니다.
-
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 소스 제어가 포함된 삭제된 데이터 팩터리를 복구하려면 아래 단계를 참조하세요.
 
@@ -211,7 +209,51 @@ Azure Resource Manager는 템플릿 크기를 4MB로 제한합니다. 템플릿�
 
  * 고객이 삭제된 ADF에 자체 호스팅 통합 런타임을 갖고 있으면 새 ADF에서 새 인스턴스를 만들고 새로 얻은 키를 사용해서 온-프레미스 머신/VM에서 인스턴스를 제거하고 다시 설치해야 합니다. IR 설정이 완료되었으면 고객이 새 IR을 가리키도록 연결된 서비스를 변경하고 연결을 테스트해야 합니다. 그렇지 않으면 **잘못된 참조** 오류와 함께 실패합니다.
 
+### <a name="cannot-deploy-to-different-stage-using-automatic-publish-method"></a>자동 게시 방법을 사용하여 다른 스테이지에 배포할 수 없음
 
+#### <a name="issue"></a>문제
+고객은 NPM 패키지를 설치하고 Azure DevOps 및 ADF를 사용하여 더 높은 스테이지를 설정하는 등 필요한 모든 단계를 수행했습니다. 그러나 배포는 발생하지 않습니다.
+
+#### <a name="cause"></a>원인
+
+npm 패키지는 다양한 방식으로 사용될 수 있지만 Azure 파이프라인을 통해 주요 이점 중 하나가 사용되고 있습니다. 협업 분기에 대한 각 병합에서는 먼저 모든 코드의 유효성을 검사한 다음 릴리스 파이프라인에서 사용될 수 있는 빌드 아티팩트로 ARM 템플릿을 내보내는 파이프라인을 트리거할 수 있습니다. Starter 파이프라인에서 YAML 파일은 유효하고 완전해야 합니다.
+
+
+#### <a name="resolution"></a>해상도
+
+package.json 폴더가 유효하지 않으므로 다음 섹션은 유효하지 않습니다.
+
+```
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
+    customCommand: 'run build validate $(Build.Repository.LocalPath) /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'
+  displayName: 'Validate'
+```
+*'run build validate $(Build.Repository.LocalPath)/DataFactory/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'* 과 같은 customCommand에 DataFactory가 포함되어 있어야 합니다. 더 높은 스테이지에 대해 생성된 YAML 파일에 필요한 JSON 아티팩트가 있는지 확인합니다.
+
+### <a name="git-repository-or-purview-connection-disconnected"></a>Git 리포지토리 또는 Purview 연결 끊김
+
+#### <a name="issue"></a>문제
+Data Factory를 배포할 때 git 리포지토리 또는 purview 연결이 끊어집니다.
+
+#### <a name="cause"></a>원인
+전역 매개 변수를 배포하기 위해 **ARM 템플릿에 포함** 을 선택한 경우 팩터리가 ARM 템플릿에 포함됩니다. 따라서 배포 시 다른 팩터리 속성이 제거됩니다.
+
+#### <a name="resolution"></a>해상도
+CI/CD의 전역 매개 변수에 설명된 대로 **ARM 템플릿에 포함** 을 선택 취소하고 PowerShell을 통해 전역 매개 변수를 배포합니다. 
+ 
+### <a name="extra--left--displayed-in-published-json-file"></a>게시된 JSON 파일에 불필요한 왼쪽 "["가 표시됨
+
+#### <a name="issue"></a>문제
+DevOps를 통해 ADF를 게시할 때 왼쪽 "["가 1개 더 표시됩니다. ADF는 DevOps의 ARMTemplate에 왼쪽 "["를 1개 더 자동으로 추가합니다. 
+
+#### <a name="cause"></a>원인
+[는 ARM에서 예약 문자이므로 "["를 이스케이프하기 위해 추가 [가 자동으로 추가됩니다.
+
+#### <a name="resolution"></a>해상도
+이것은 CI/CD에 대한 ADF 게시 프로세스 중에 일반적으로 나타나는 동작입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

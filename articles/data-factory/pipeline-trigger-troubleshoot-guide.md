@@ -7,12 +7,12 @@ ms.date: 04/01/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 49205025e26f7c0eb609638e70a58c9c0c14748e
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: aaaa9f2e82bb8db0ce4851359d7fb97d475f4e98
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385414"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111812738"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 오케스트레이션 및 트리거 문제 해결
 
@@ -26,7 +26,7 @@ Azure Data Factory의 파이프라인 실행은 파이프라인 실행의 인스
 
 ### <a name="an-azure-functions-app-pipeline-throws-an-error-with-private-endpoint-connectivity"></a>Azure Functions 앱 파이프라인이 프라이빗 엔드포인트 연결에 오류 throw
  
-Data Factory 및 Azure 함수 앱이 프라이빗 엔드포인트에서 실행됩니다. 함수 앱과 상호 작용하는 파이프라인을 실행하려고 시도하는 중입니다. 세 가지 방법을 시도했지만, 한 가지 경우에 “잘못된 요청” 오류가 반환되고, 다른 두 경우에는 “103 금지된 오류”가 반환됩니다.
+Data Factory 및 함수 앱이 Azure의 프라이빗 엔드포인트에서 실행됩니다. 함수 앱과 상호 작용하는 파이프라인을 실행하려고 시도하는 중입니다. 세 가지 방법을 시도했지만, 한 가지 경우에 “잘못된 요청” 오류가 반환되고, 다른 두 경우에는 “103 금지된 오류”가 반환됩니다.
 
 **원인**
 
@@ -190,6 +190,16 @@ Azure Data Factory는 모든 리프 수준 활동의 결과를 평가합니다. 
 * 매핑 데이터 흐름에 대한 오류 메시지(이로 인해 긴 큐가 생성될 수 있음)가 표시되는 경우 [데이터 흐름 문제 해결 가이드](./data-flow-troubleshoot-guide.md)로 이동하세요.
 * Databricks, 사용자 지정 활동, HDI와 같은 다른 활동에 대한 오류 메시지(이로 인해 긴 큐가 생성될 수 있음)가 표시되는 경우 [활동 문제 해결 안내서](./data-factory-troubleshoot-guide.md)로 이동하세요.
 * SSIS 패키지 실행에 대한 오류 메시지(이로 인해 긴 큐가 생성될 수 있음)가 표시되는 경우 Azure-SSIS [패키지 실행 문제 해결 가이드](./ssis-integration-runtime-ssis-activity-faq.md) 및 [통합 런타임 관리 문제 해결 가이드](./ssis-integration-runtime-management-troubleshoot.md)로 이동하세요.
+
+### <a name="error-message---codebadrequest-messagenull"></a>오류 메시지 - "code":"BadRequest", "message":"null"
+
+**원인**
+
+management.azure.com에 도달하는 JSON 페이로드가 손상되었으므로 사용자 오류입니다. 사용자 호출이 ADF 서비스 계층에 도달하지 않았으므로 로그가 저장되지 않습니다.
+
+**해결 방법**
+
+Edge/Chrome 브라우저 **개발자 도구** 를 사용하여 ADF 포털에서 API 호출의 네트워크를 추적합니다. 특수 문자(예: $), 공백 및 기타 유형의 사용자 입력으로 인해 발생할 수 있는 잘못된 JSON 페이로드가 표시됩니다. 문자열 식을 수정한 후 브라우저에서 나머지 ADF 사용 호출을 진행합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

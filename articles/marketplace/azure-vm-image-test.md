@@ -1,18 +1,18 @@
 ---
 title: Azure Marketplace에 대한 Azure 가상 머신 이미지 테스트
-description: Azure Marketplace에서 Azure 가상 머신 제품을 테스트하고 제출하는 방법에 대해 알아봅니다.
+description: Azure Marketplace에서 Azure 가상 머신 제품을 테스트하고 제출합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: kriti-ms
 ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: 467b7d605b57c479d84fc995b4e0dc53b3ac5275
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c885f7e953849825c9a0ef87f68df6e9e2d3360a
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558298"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111528579"
 ---
 # <a name="test-a-virtual-machine-image"></a>가상 머신 이미지 테스트
 

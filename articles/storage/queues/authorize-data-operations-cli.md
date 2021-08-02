@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1570906ae036b31dc2e97f35c827385933093f73
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 480798177797ad83ec01f33297d5fc559c7c3e3d
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108162206"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111900470"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-with-azure-cli"></a>Azure CLI에서 큐 데이터에 대한 액세스 권한을 부여하는 방법 선택
 
@@ -35,7 +35,7 @@ Azure Storage는 큐 데이터에 작업 권한을 부여하는 방법을 지정
 `--auth-mode`매개 변수를 사용하려면 Azure CLI v2.0.46 이상을 설치했는지 확인합니다. `az --version`을 실행하여 설치된 버전을 확인합니다.
 
 > [!NOTE]
-> Azure Resource Manager **읽기 전용** 잠금을 사용하여 스토리지 계정이 잠긴 경우, 해당 스토리지 계정에서 [키 나열](/rest/api/storagerp/storageaccounts/listkeys) 작업이 허용되지 않습니다. **키 나열** 은 POST 작업이며, 계정에 **읽기 전용** 잠금이 설정된 경우 모든 POST 작업은 차단됩니다. 이러한 이유로 계정이 **읽기 전용** 잠금으로 잠겨 있으면 계정 키를 소유하고 있지 않은 사용자는 Azure AD 자격 증명을 사용하여 큐 데이터에 액세스해야 합니다.
+> Azure Resource Manager **읽기 전용** 잠금을 사용하여 스토리지 계정이 잠긴 경우, 해당 스토리지 계정에 대한 [키 나열](/rest/api/storagerp/storageaccounts/listkeys) 작업이 허용되지 않습니다. **키 나열** 은 POST 작업으로, 계정에 대해 **읽기 전용** 잠금이 설정된 경우 모든 POST 작업이 차단됩니다. 그렇기 때문에 계정이 **읽기 전용** 잠금으로 잠겨 있으면 계정 키를 소유하고 있지 않은 사용자는 Azure AD 자격 증명을 사용하여 큐 데이터에 액세스해야 합니다.
 
 > [!IMPORTANT]
 > `--auth-mode`매개 변수를 생략 또는 `key`로 설정하는 경우, Azure CLI은 권한 부여를 위해 계정 액세스 키를 사용하려고 시도합니다. 해당 경우 명령 또는 `AZURE_STORAGE_KEY` 환경 변수에 액세스 키를 제공하는 것이 좋습니다. 환경 변수에 대한 자세한 내용은 [권한 부여 매개 변수에 대한 환경 변수 설정](#set-environment-variables-for-authorization-parameters) 섹션을 참조하세요.
@@ -46,7 +46,7 @@ Azure Storage는 큐 데이터에 작업 권한을 부여하는 방법을 지정
 
 Azure AD 자격 증명을 사용하여 Azure CLI에 로그인하면 OAuth 2.0 액세스 토큰이 반환됩니다. 해당 토큰은 Azure CLI에서 Queue Storage에 대한 후속 데이터 작업에 권한을 부여하는 데 자동으로 사용됩니다. 지원되는 작업의 경우, 더 이상 명령과 함께 계정 키 또는 SAS 토큰을 전달할 필요가 없습니다.
 
-Azure RBAC(Azure 역할 기반 액세스 제어)를 통해 Azure AD 보안 주체에 큐 데이터에 대한 사용 권한을 할당할 수 있습니다. Azure Storage에서의 Azure 역할에 대한 자세한 내용은 [Azure RBAC를 통한 Azure Storage 데이터 액세스 권한 관리](../common/storage-auth-aad-rbac-portal.md)를 참조하세요.
+Azure RBAC(Azure 역할 기반 액세스 제어)를 통해 Azure AD 보안 주체에 큐 데이터에 대한 사용 권한을 할당할 수 있습니다. Azure Storage의 Azure 역할에 대한 자세한 내용은 [Azure RBAC를 사용하여 Azure Storage 데이터에 대한 액세스 권한 관리](assign-azure-role-data-access.md)를 참조하세요.
 
 ### <a name="permissions-for-calling-data-operations"></a>데이터 작업 호출에 대한 사용 권한
 
@@ -58,7 +58,7 @@ Azure Storage 확장은 큐 데이터에 대한 작업에 지원됩니다. 호�
 
 다음 예제에서는 Azure AD 자격 증명을 사용하여 Azure CLI에서 큐를 만드는 방법을 보여 줍니다. 큐를 만들려면 Azure CLI에 로그인해야 하고 리소스 그룹 및 스토리지 계정이 필요합니다.
 
-1. 큐를 만들기 전에 [Storage 큐 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) 역할을 자신에게 할당합니다. 계정 소유자인 경우에도 스토리지 계정에 대한 데이터 작업을 수행하려면 명시적 권한이 필요합니다. Azure 역할을 할당하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Blob 및 큐 데이터에 액세스하기 위한 Azure 역할 할당](../common/storage-auth-aad-rbac-portal.md)을 참조하세요.
+1. 큐를 만들기 전에 [Storage Queue Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) 역할을 자신에게 할당합니다. 계정 소유자라도 스토리지 계정에 대한 데이터 작업을 수행하려면 명시적 권한이 필요합니다. Azure 역할을 할당하는 방법에 관한 자세한 내용은 [큐 데이터 액세스를 위해 Azure 역할 할당](assign-azure-role-data-access.md)을 참조하세요.
 
     > [!IMPORTANT]
     > Azure 역할 할당을 전파하는 데 몇 분 정도 걸릴 수 있습니다.
@@ -111,5 +111,5 @@ az storage queue create \
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure CLI를 사용하여 Blob 및 큐 데이터에 액세스하기 위한 Azure 역할 할당](../common/storage-auth-aad-rbac-cli.md)
+- [대기열 데이터에 액세스하기 위한 Azure 역할 할당](assign-azure-role-data-access.md)
 - [Azure 리소스에 대한 관리 ID를 사용하여 Blob 및 큐 데이터에 대한 액세스 권한 부여](../common/storage-auth-aad-msi.md)

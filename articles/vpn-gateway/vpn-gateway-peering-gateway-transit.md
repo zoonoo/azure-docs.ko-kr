@@ -1,19 +1,20 @@
 ---
 title: 가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성
-description: 가상 네트워크 피어링에 대한 게이트웨이 전송을 구성하여 연결 목적으로 두 개의 Azure 가상 네트워크를 하나로 원활하게 연결합니다.
+description: 연결 목적으로 두 개의 Azure 가상 네트워크를 하나로 원활하게 연결하기 위해 가상 네트워크 피어링에 대한 게이트웨이 전송을 구성하는 방법을 알아봅니다.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 73a7d76de34d29b2d51c54569b234cd8221b08f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1fe78687b8cd200bce6eb0ce75f54fb603aa13ae
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98872182"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671860"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성
 

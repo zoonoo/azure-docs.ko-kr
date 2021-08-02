@@ -7,12 +7,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
-ms.openlocfilehash: 28325a1bbda1b2d4a4bb060ae3e79057275ee42a
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 804166beebf4f12e246a27122bd44c611972a488
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106582121"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438003"
 ---
 # <a name="tips-for-better-performance-in-azure-cognitive-search"></a>Azure Cognitive Search의 성능 향상을 위한 팁
 
@@ -24,7 +24,7 @@ ms.locfileid: "106582121"
 
 ## <a name="index-size-and-schema"></a>인덱스 크기 및 스키마
 
-쿼리는 더 작은 인덱스에서 더 빨리 실행됩니다. 이는 부분적으로 검사할 필드가 더 적은 기능이지만, 시스템에서 이후 쿼리를 위해 콘텐츠를 캐시하는 방식으로 인해 발생할 수 있습니다. 첫 번째 쿼리 후에도 일부 콘텐츠는 더 효율적으로 검색되는 메모리에 남아 있습니다. 인덱스 크기는 시간이 지남에 따라 증가하는 경향이 있으므로 한 가지 모범 사례는 스키마와 문서 모두에서 인덱스 구성을 정기적으로 다시 방문하여 콘텐츠를 줄일 수 있는 기회를 찾는 것입니다. 그러나 인덱스가 적절한 크기인 경우 [복제본을 추가](search-capacity-planning.md#adjust-capacity)하거나 서비스 계층을 업그레이드하여 용량을 늘리는 것만이 유일하게 보정할 수 있는 방법입니다. [팁: 표준 S2 계층으로 업그레이드](#tip-upgrade-to-a-standard-s2-tier) 섹션에는 스케일 업 및 스케일 아웃 결정을 평가하는 방법이 나와 있습니다.
+쿼리는 더 작은 인덱스에서 더 빨리 실행됩니다. 이는 부분적으로 검사할 필드가 더 적은 기능이지만, 시스템에서 이후 쿼리를 위해 콘텐츠를 캐시하는 방식으로 인해 발생할 수 있습니다. 첫 번째 쿼리 후에도 일부 콘텐츠는 더 효율적으로 검색되는 메모리에 남아 있습니다. 인덱스 크기는 시간이 지남에 따라 증가하는 경향이 있으므로 한 가지 모범 사례는 스키마와 문서 모두에서 인덱스 구성을 정기적으로 다시 방문하여 콘텐츠를 줄일 수 있는 기회를 찾는 것입니다. 그러나 인덱스가 적절한 크기인 경우 [복제본을 추가](search-capacity-planning.md#adjust-capacity)하거나 서비스 계층을 업그레이드하여 용량을 늘리는 것만이 유일하게 보정할 수 있는 방법입니다. ["팁: 표준 S2 계층으로 업그레이드"](#tip-upgrade-to-a-standard-s2-tier) 섹션에는 확장 및 스케일 아웃 결정을 평가하는 방법이 나와 있습니다.
 
 스키마 복잡성은 인덱싱 및 쿼리 성능에 부정적인 영향을 미칠 수도 있습니다. 과도한 필드 특성은 제한 사항 및 처리 요구 사항을 기반으로 합니다. [복합 형식](search-howto-complex-data-types.md)은 인덱싱하고 쿼리하는 데 더 오래 걸립니다. 다음 몇 가지 섹션에서는 각 조건에 대해 살펴봅니다.
 

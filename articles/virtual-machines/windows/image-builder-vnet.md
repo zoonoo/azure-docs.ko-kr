@@ -1,6 +1,6 @@
 ---
-title: 기존 VNET (미리 보기)을 사용 하 여 Azure 이미지 작성기를 사용 하 여 Windows VM 만들기
-description: 기존 VNET을 사용 하 여 Azure 이미지 작성기를 사용 하 여 Windows VM 만들기
+title: 기존 VNET을 사용하여 Azure Image Builder로 Windows VM 만들기
+description: 기존 VNET을 사용하여 Azure Image Builder로 Windows VM 만들기
 author: cynthn
 ms.author: cynthn
 ms.date: 03/02/2021
@@ -9,39 +9,21 @@ ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
 ms.reviewer: danis
-ms.openlocfilehash: 3695732f81463efcadb3d8d8b49e367501cb6e29
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 12ec69f3976cb156bc04bf2ed7b79b1fd775b142
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034084"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031093"
 ---
-# <a name="use-azure-image-builder-for-windows-vms-allowing-access-to-an-existing-azure-vnet"></a>Windows Vm 용 Azure 이미지 작성기를 사용 하 여 기존 Azure VNET에 액세스 허용
+# <a name="use-azure-image-builder-for-windows-vms-allowing-access-to-an-existing-azure-vnet"></a>기존 Azure VNET에 액세스를 허용하는 Windows VM용 Azure Image Builder 사용
 
-이 문서에서는 Azure 이미지 작성기를 사용 하 여 VNET의 기존 리소스에 대 한 액세스 권한이 있는 기본 사용자 지정 Windows 이미지를 만드는 방법을 보여 줍니다. 만든 빌드 VM은 구독에서 지정 하는 새 VNET 또는 기존 VNET에 배포 됩니다. 기존 Azure VNET을 사용 하는 경우 Azure 이미지 작성기 서비스는 공용 네트워크 연결이 필요 하지 않습니다.
+이 문서에서는 Azure Image Builder를 사용하여 VNET의 기존 리소스에 대한 액세스 권한이 있는 기본 사용자 지정 Windows 이미지를 만드는 방법을 보여줍니다. 만드는 빌드 VM은 구독에서 지정하는 새 VNET 또는 기존 VNET에 배포됩니다. 기존 Azure VNET을 사용하는 경우, Azure Image Builder 서비스에는 공용 네트워크 연결이 필요하지 않습니다.
 
-> [!IMPORTANT]
-> Azure Image Builder는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-## <a name="register-the-features"></a>기능 등록
-
-먼저, Azure 이미지 작성기 서비스에 등록 해야 합니다. 등록은 스테이징 리소스 그룹을 만들고, 관리 하 고, 삭제할 수 있는 권한을 서비스에 부여 합니다. 또한이 서비스에는 이미지 빌드에 필요한 그룹에 리소스를 추가할 수 있는 권한이 있습니다.
-
-```powershell-interactive
-# Register for Azure Image Builder Feature
-
-Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-
-Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-
-# wait until RegistrationState is set to 'Registered'
-```
 ## <a name="set-variables-and-permissions"></a>변수 및 사용 권한 설정 
 
-일부 정보를 반복 해 서 사용 하 게 됩니다. 해당 정보를 저장할 변수를 만듭니다.
+몇 가지 정보를 반복해서 사용하게 됩니다. 해당 정보를 저장할 약간의 변수를 만듭니다.
 
 ```powershell-interactive
 # Step 1: Import module
@@ -93,7 +75,7 @@ New-AzResourceGroup -Name $imageResourceGroup -Location $location
 
 ## <a name="configure-networking"></a>네트워킹 구성
 
-기존 VNET\Subnet\NSG 없는 경우 다음 스크립트를 사용 하 여 새로 만듭니다.
+기존 VNET\Subnet\NSG 가 없는 경우, 다음 스크립트를 사용하여 새로 만듭니다.
 
 ```powershell-interactive
 New-AzResourceGroup -Name $vnetRgName -Location $location
@@ -112,13 +94,13 @@ New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $vnetRgName -Location $l
 
 ### <a name="add-network-security-group-rule"></a>네트워크 보안 그룹 규칙 추가
 
-이 규칙은 Azure 이미지 작성기 부하 분산 장치에서 프록시 VM으로의 연결을 허용 합니다. 포트 60001은 Linux OSs 용 이며 포트 6만는 Windows OSs 용입니다. 프록시 VM은 Linux OSs의 경우 포트 22, Windows OSs의 경우 포트 5986을 사용 하 여 빌드 VM에 연결 합니다.
+이 규칙으로 Azure Image Builder 부하 분산 장치에서 프록시 VM으로의 연결이 허용됩니다. 포트 60001은 Linux OS 용이며, 포트 60000은 Windows OS 용입니다. 프록시 VM은 Linux OS의 경우 포트 22, Windows OS의 경우 포트 5986을 사용하여 빌드 VM에 연결합니다.
 
 ```powershell-interactive
 Get-AzNetworkSecurityGroup -Name $nsgName -ResourceGroupName $vnetRgName  | Add-AzNetworkSecurityRuleConfig -Name AzureImageBuilderAccess -Description "Allow Image Builder Private Link Access to Proxy VM" -Access Allow -Protocol Tcp -Direction Inbound -Priority 400 -SourceAddressPrefix AzureLoadBalancer -SourcePortRange * -DestinationAddressPrefix VirtualNetwork -DestinationPortRange 60000-60001 | Set-AzNetworkSecurityGroup
 ```
 
-### <a name="disable-private-service-policy-on-subnet"></a>서브넷에서 개인 서비스 정책 사용 안 함
+### <a name="disable-private-service-policy-on-subnet"></a>서브넷에서 프라이빗 서비스 정책 사용 안함
 
 ```powershell-interactive
 $virtualNetwork= Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $vnetRgName 
@@ -128,7 +110,7 @@ $virtualNetwork= Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $vnetRg
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-이미지 작성기 네트워킹에 대 한 자세한 내용은 [Azure 이미지 작성기 서비스 네트워킹 옵션](../linux/image-builder-networking.md)을 참조 하세요.
+Image Builder 네트워킹에 대한 자세한 내용은 [Azure Image Builder Service 네트워킹 옵션](../linux/image-builder-networking.md)을 참조하세요.
 
 ## <a name="modify-the-example-template-and-create-role"></a>예제 템플릿 수정 및 역할 만들기
 
@@ -160,7 +142,7 @@ Invoke-WebRequest -Uri $aibRoleImageCreationUrl -OutFile $aibRoleImageCreationPa
 ((Get-Content -path $templateFilePath -Raw) -replace '<subnetName>',$subnetName) | Set-Content -Path $templateFilePath
 ((Get-Content -path $templateFilePath -Raw) -replace '<vnetRgName>',$vnetRgName) | Set-Content -Path $templateFilePath
 ```
-## <a name="create-a-user-assigned-identity-and-set-permissions"></a>사용자 할당 id 만들기 및 사용 권한 설정
+## <a name="create-a-user-assigned-identity-and-set-permissions"></a>사용자 할당 ID 만들기 및 권한 설정
 
 ```powershell-interactive
 # setup role def names, these need to be unique
@@ -202,7 +184,7 @@ New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imag
 New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $networkRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$vnetRgName"
 ```
 
-사용 권한에 대 한 자세한 내용은 [Azure CLI를 사용 하 여 Azure 이미지 작성기 서비스 권한 구성](../linux/image-builder-permissions-cli.md) 또는 [PowerShell을 사용 하 여 Azure 이미지 작성기 서비스 권한 구성](../linux/image-builder-permissions-powershell.md)을 참조 하세요.
+권한에 대한 자세한 내용은 [Azure CLI를 사용하여 Azure Image Builder Service 권한 구성](../linux/image-builder-permissions-cli.md) 또는 [PowerShell을 사용하여 Azure Image Builder Service 권한 구성](../linux/image-builder-permissions-powershell.md)을 참조하세요.
 
 ## <a name="create-the-image"></a>이미지 만들기
 
@@ -234,7 +216,7 @@ $buildJsonStatus
 
 ```
 
-이 예제의 이미지 빌드에는 약 50 분 (여러 재부팅, windows 업데이트 설치/다시 부팅)이 소요 됩니다. 상태를 쿼리하면 *Lastrunstatus* 를 확인 해야 합니다. 아래에는 빌드가 아직 실행 중 이라고 표시 되 고 성공적으로 완료 되 면 ' 성공 '이 표시 됩니다.
+이 예제의 이미지 빌드에는 약 50분(여러 재부팅, Windows 업데이트 설치/재부팅)이 소요됩니다. 상태를 쿼리할 때 *lastRunStatus* 를 확인해야 합니다. 아래에는 빌드가 아직 실행 중이라고 표시되고 성공적으로 완료되면 '성공됨'이 표시됩니다.
 
 ```text
   "lastRunStatus": {
@@ -247,7 +229,7 @@ $buildJsonStatus
 ```
 
 ### <a name="query-the-distribution-properties"></a>분포 속성 쿼리
-VHD 위치에 배포 하는 경우 관리 되는 이미지 위치 속성 또는 공유 이미지 갤러리 복제 상태가 필요 합니다. ' runOutput '을 쿼리해야 합니다. 배포 대상이 있을 때마다 배포 유형의 속성을 설명 하는 고유한 runOutput이 있습니다.
+VHD 위치에 배포하거나, 관리되는 이미지 위치 속성 또는 공유 이미지 갤러리 복제 상태가 필요한 경우 배포 대상이 있을 때마다 'runOutput'을 쿼리해야 합니다. 배포 유형의 속성을 설명하는 고유한 runOutput이 있습니다.
 
 ```powerShell
 $managementEp = $currentAzureContext.Environment.ResourceManagerUrl
@@ -259,7 +241,7 @@ $runOutJsonStatus
 ```
 ## <a name="create-a-vm"></a>VM 만들기
 
-이제 빌드가 완료 되 면 이미지에서 VM을 빌드할 수 있습니다. [PowerShell New-AzVM 설명서](/powershell/module/az.compute/new-azvm#description)의 예제를 사용 합니다.
+이제 빌드가 완료되면 이미지에서 VM을 빌드할 수 있습니다. [PowerShell New-AzVM 설명서](/powershell/module/az.compute/new-azvm#description)의 예제를 사용합니다.
 
 ## <a name="clean-up"></a>정리
 

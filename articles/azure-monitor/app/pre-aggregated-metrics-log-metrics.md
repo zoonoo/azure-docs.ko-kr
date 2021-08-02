@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: acbe535d740eb527d165be1675f31e759851a987
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ce337c97aa7eca601e72122568c3205ca21457f
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101717828"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372387"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Azure Application Insights의 로그 기반 및 사전 집계 메트릭
 
@@ -47,7 +47,7 @@ ms.locfileid: "101717828"
 |------------------------------|-----------------------------------|----------------------------------------------|---------------------------------------|
 | .NET Core 및 .NET Framework | 지원됨(V2.13.1 이상)| [TrackMetric](api-custom-events-metrics.md#trackmetric)을 통해 지원됨| [GetMetric](get-metric.md)을 통해 지원됨(V2.7.2 이상) |
 | Java                         | 지원되지 않음       | [TrackMetric](api-custom-events-metrics.md#trackmetric)을 통해 지원됨| 지원되지 않음                           |
-| Node.js                      | 지원되지 않음       | [TrackMetric](api-custom-events-metrics.md#trackmetric)을 통해 지원됨| 지원되지 않음                           |
+| Node.js                      | 지원됨(V2.0.0 이상) | [TrackMetric](api-custom-events-metrics.md#trackmetric)을 통해 지원됨| 지원되지 않음                           |
 | Python                       | 지원되지 않음       | 지원됨                                 | [OpenCensus.stats](opencensus-python.md#metrics)를 통해 부분적으로 지원됨 |  
 
 > [!NOTE]

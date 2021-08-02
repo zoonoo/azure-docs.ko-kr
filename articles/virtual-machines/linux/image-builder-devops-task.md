@@ -1,5 +1,5 @@
 ---
-title: Azure Image Builder Service DevOps 작업
+title: '미리 보기: Azure Image Builder Service DevOps 작업'
 description: 애플리케이션과 OS를 설치하고 구성할 수 있도록 VM 이미지에 빌드 아티팩트를 넣는 Azure DevOps 작업입니다.
 author: danielsollondon
 ms.author: danis
@@ -8,14 +8,15 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: d02a5c6bc194009d459647721dab16be0dcade84
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7055aa967058e1592f757c2dabf7890b1da76632
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670477"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111441801"
 ---
-# <a name="azure-image-builder-service-devops-task"></a>Azure Image Builder Service DevOps 작업
+# <a name="azure-image-builder-service-devops-task-preview"></a>Azure Image Builder Service DevOps 작업(미리 보기)
 
 이 문서에서는 애플리케이션과 OS를 설치하고 구성할 수 있도록 Azure DevOps 작업을 사용하여 VM 이미지에 빌드 아티팩트를 넣는 방법을 보여줍니다.
 
@@ -28,6 +29,9 @@ ms.locfileid: "101670477"
 * ['불안정' AIB 작업](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary): 최신 업데이트와 기능을 적용할 수 있으며 '안정' 작업으로 승격하기 전에 고객이 테스트할 수 있습니다. 보고된 문제가 없고 약 일주일 후에 원격 분석에서 문제가 보이지 않는 경우 작업 코드가 '안정'으로 승격됩니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
+
+> [!NOTE]
+> AIB 작업은 현재 관리자로 상승된 명령을 실행하는 Windows 다시 시작을 지원하지 않습니다. 즉, 위 작업이 필요한 Windows Virtual Desktop 시나리오 또는 Windows 사용자 지정에는 적합하지 않습니다. Image Builder에서 DevOps를 사용하려는 경우 템플릿을 Azure Resource Manager 작업으로 중첩하고 AZ CLI 또는 PowerShell 작업을 사용해야 합니다.
 
 * [Visual Studio Marketplace에서 안정적 DevOps 작업](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder)을 설치합니다.
 * VSTS DevOps 계정이 있고 빌드 파이프라인이 만들어져 있어야 합니다.

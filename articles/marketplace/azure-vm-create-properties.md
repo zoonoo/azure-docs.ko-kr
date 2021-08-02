@@ -1,18 +1,18 @@
 ---
 title: Azure Marketplace에서 가상 머신 제품 속성 구성
-description: Azure Marketplace에서 가상 머신 제품 속성을 구성하는 방법을 알아봅니다.
+description: Azure Marketplace에서 가상 머신 제품 속성을 구성합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 5942368ba1709127b815a35676b716955c1bee8f
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: f59bd0798347e39c696a8a774f2e9a85dfae6dfa
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107819091"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111525357"
 ---
 # <a name="configure-virtual-machine-offer-properties"></a>가상 머신 제품 속성 구성
 

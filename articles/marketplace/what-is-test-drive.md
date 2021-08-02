@@ -1,18 +1,18 @@
 ---
-title: 시험 사용이란? Microsoft 상업용 마켓플레이스
-description: Marketplace 시험 사용 기능에 대한 설명
+title: Microsoft AppSource 시험 사용이란?
+description: Microsoft AppSource 시험 사용 기능에 대한 설명입니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 06/19/2020
-ms.openlocfilehash: e44d5d94a8dc172962a26f3e0dae9ccbb7f8a865
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 12/08/2020
+ms.openlocfilehash: 5fba64beff10f59be42776cc87cf6f37922295dd
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107818893"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949069"
 ---
 # <a name="what-is-a-test-drive"></a>시험 사용이란?
 
@@ -61,7 +61,7 @@ ms.locfileid: "107818893"
 호스트형 시험 사용은 Microsoft가 시험 사용 사용자 프로비저닝 및 프로비저닝 해제를 수행하는 서비스를 호스트하고 관리하도록 함으로써 설치의 복잡성이 줄어듭니다. Microsoft AppSource에 대한 제품이 있는 경우 Dynamics AX/CRM 인스턴스를 사용하여 연결하는 시험 사용을 빌드합니다. 사용할 수 있는 AppSource 제품 유형은 다음과 같습니다.
 
 - 영업, 서비스, 프로젝트 서비스 및 현장 서비스와 같은 고객 참여 시스템에 대해 [Dynamics 365 for Customer Engagement 및 Power Apps](dynamics-365-customer-engage-offer-setup.md)를 사용합니다.
-- 재무, 운영, 제조, 공급망 등의 재무 및 운영 엔터프라이즈 리소스 계획 시스템에 대해 [Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)를 사용합니다.
+- 재무, 운영, 제조, 공급망 등의 재무 및 운영 엔터프라이즈 리소스 계획 시스템에 대해 [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md)를 사용합니다.
 
 ### <a name="logic-app-test-drive"></a>논리 앱 시험 사용
 
@@ -94,6 +94,6 @@ ms.locfileid: "107818893"
 - [시험 사용 모범 사례](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [개요](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)(PDF. 팝업 차단이 해제되어 있는지 확인)
 
-## <a name="next-step"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 - [시험 사용 기술 구성](test-drive-technical-configuration.md)

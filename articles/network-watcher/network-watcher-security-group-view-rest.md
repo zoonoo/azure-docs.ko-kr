@@ -1,7 +1,7 @@
 ---
-title: 네트워크 보안 분석-보안 그룹 보기-Azure REST API
+title: 네트워크 보안 분석 - 보안 그룹 보기 - Azure REST API
 titleSuffix: Azure Network Watcher
-description: 이 문서에서는 Azure REST API 보안 그룹 보기를 사용 하 여 가상 머신 보안을 분석 하는 방법을 설명 합니다.
+description: 이 문서에서는 보안 그룹 보기를 사용하여 가상 머신 보안을 분석하기 위해 Azure REST API를 사용하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 2efd3e9c9ca97ea3d94b03bd5e440cd24d5da5da
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ea52c10859b9e229fdcd9b02c6b264689dd1fe75
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94960605"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110664001"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>REST API를 사용하는 보안 그룹 보기에서 Virtual Machine 보안 분석
 
@@ -27,7 +28,7 @@ ms.locfileid: "94960605"
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 > [!NOTE]
-> 보안 그룹 보기 API는 더 이상 유지 되지 않으며 곧 사용 되지 않을 예정입니다. 동일한 기능을 제공 하는 [효과적인 보안 규칙 기능](./network-watcher-security-group-view-overview.md) 을 사용 하세요. 
+> Security Group View API는 더 이상 유지 관리되지 않으며 곧 사용 중단될 예정입니다. 동일한 기능을 제공하는 [효과적인 보안 규칙 기능](./network-watcher-security-group-view-overview.md)을 사용하세요. 
 
 보안 그룹 보기는 가상 컴퓨터에 적용되는 효과적으로 구성된 네트워크 보안 규칙을 반환합니다. 이 기능은 VM에 구성된 네트워크 보안 그룹 및 규칙을 감사하고 진단하여 트래픽을 올바르게 허용하거나 거부하는 데 유용합니다. 이 문서에서는 REST API를 사용하여 가상 머신에 효과적으로 적용된 보안 규칙을 검색하는 방법을 보여 줍니다.
 
@@ -36,7 +37,7 @@ ms.locfileid: "94960605"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 시나리오에서는 Network Watcher Rest API를 호출하여 가상 머신에 대한 보안 그룹 보기를 가져옵니다. PowerShell을 사용하여 REST API를 호출하는 데 ARMclient가 사용됩니다. ARMClient는 chocolatey의 [ARMClient On chocolatey](https://chocolatey.org/packages/ARMClient) 에 있습니다.
+이 시나리오에서는 Network Watcher Rest API를 호출하여 가상 머신에 대한 보안 그룹 보기를 가져옵니다. PowerShell을 사용하여 REST API를 호출하는 데 ARMclient가 사용됩니다. ARMClient는 [Chocolatey의 ARMClient](https://chocolatey.org/packages/ARMClient)에서 chocolatey에 있습니다.
 
 이 시나리오에서는 사용자가 Network Watcher를 만드는 [Network Watcher 만들기](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다. 또한 시나리오에서는 유효한 가상 머신을 포함한 리소스 그룹을 사용할 수 있다고 가정합니다.
 
@@ -54,7 +55,7 @@ armclient login
 
 다음 스크립트를 실행하여 가상 머신을 반환합니다. 다음 코드에는 변수가 필요합니다.
 
-- **subscriptionId** - **AzSubscription** cmdlet을 사용 하 여 구독 id를 검색할 수도 있습니다.
+- **subscriptionId** - 구독 ID는 **Get-AzSubscription** cmdlet으로도 검색할 수 있습니다.
 - **resourceGroupName** - 가상 머신을 포함하는 리소스 그룹의 이름입니다.
 
 ```powershell

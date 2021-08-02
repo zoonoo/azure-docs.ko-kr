@@ -6,17 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 06/09/2021
 ms.author: tamram
-ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ce3bda82e634cd80560d7915a08fa33218173779
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: d060a066c80f10fb9d887db90bde434cc89922a5
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967202"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901633"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Change how a storage account is replicated(스토리지 계정이 복제되는 방식 변경)
 
@@ -46,7 +45,6 @@ Azure Storage는 다음과 같은 복제 유형을 제공합니다.
 
 <sup>1</sup> 일회성 송신 요금이 발생합니다.<br />
 <sup>2</sup> 스토리지 계정에 보관 계층의 BLOB이 포함된 경우 LRS에서 GRS로 마이그레이션할 수 없습니다.<br />
-<sup>3</sup> 미국 동부 2, 미국 동부, 유럽 서부 지역에서는 ZRS에서 GZRS/RA-GZRS로 변환하거나 그 반대로 전환할 수 없습니다.
 
 > [!CAUTION]
 > (RA-)GRS 또는 (RA-)GZRS 계정에 대해 [계정 장애 조치(failover)](storage-disaster-recovery-guidance.md)를 수행한 경우 해당 계정은 장애 조치 후 새 주 지역에 로컬로 중복(LRS)됩니다. 장애 조치로 인한 LRS 계정의 ZRS 또는 GZRS에 대한 실시간 마이그레이션은 지원되지 않습니다. 이는 장애 복구(failback) 작업의 경우에도 마찬가지입니다. 예를 들어, 보조 지역의 RA-GZRS에서 LRS로 계정 장애 조치를 수행한 다음 RA-GRS로 다시 구성하고 원래 주 지역에 대한 다른 계정 장애 조치를 수행하면 주 지역의 RA-GZRS의 원래 실시간 마이그레이션에 대해 고객 지원팀에 문의할 수 없습니다. 대신 ZRS 또는 GZRS로 수동 마이그레이션을 수행해야 합니다.
@@ -62,10 +60,10 @@ Azure Storage는 다음과 같은 복제 유형을 제공합니다.
 Azure Portal에서 스토리지 계정에 대한 중복성 옵션을 변경하려면 다음 단계를 수행합니다.
 
 1. Azure Portal의 스토리지 계정으로 이동합니다.
-1. **구성** 설정을 선택합니다.
+1. **설정** 에서 **구성** 을 선택합니다.
 1. **복제** 설정을 업데이트합니다.
 
-![포털에서 복제 옵션을 변경하는 방법을 보여 주는 스크린샷](media/redundancy-migration/change-replication-option.png)
+    :::image type="content" source="media/redundancy-migration/change-replication-option.png" alt-text="포털에서 복제 옵션을 변경하는 방법을 보여주는 스크린샷." lightbox="media/redundancy-migration/change-replication-option.png":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -79,7 +77,7 @@ Set-AzStorageAccount -ResourceGroupName <resource_group> `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI를 사용하여 스토리지 계정에 대한 중복성 옵션을 변경하려면 [az storage account update](/cli/azure/storage/account#az-storage-account-update) 명령을 호출하고 `--sku` 매개 변수를 지정합니다.
+Azure CLI를 사용하여 스토리지 계정에 대한 중복성 옵션을 변경하려면 [az storage account update](/cli/azure/storage/account#az_storage_account_update) 명령을 호출하고 `--sku` 매개 변수를 지정합니다.
 
 ```azurecli-interactive
 az storage account update \
@@ -148,7 +146,7 @@ Microsoft에서는 실시간 마이그레이션에 대한 요청을 신속하게
 1. **세부 정보** 탭에 필요한 추가 정보를 입력한 다음 **검토 + 만들기** 를 선택하여 지원 티켓을 검토하고 제출합니다. 지원 담당자가 연락하여 필요한 모든 지원을 제공합니다.
 
 > [!NOTE]
-> 프리미엄 파일 공유(FileStorage 계정)는 LRS 및 ZRS에만 사용할 수 있습니다.
+> 프리미엄 파일 공유는 LRS 및 ZRS에서만 사용할 수 있습니다.
 >
 > GZRS 스토리지 계정은 현재 보관 계층을 지원하지 않습니다. 자세한 내용은 [Azure Blob Storage: 핫, 쿨, 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요.
 >
@@ -197,7 +195,7 @@ az storage account update -g <resource_group> -n <storage_account> --set kind=St
 
 데이터 복제 방법 변경과 관련된 비용은 변환 경로에 따라 달라집니다. Azure Storage 중복성 서비스에는 가장 저렴한 비용에서 가장 비싼 비용이 드는 순서로 LRS, ZRS, GRS, RA-GRS, GZRS, RA-GZRS가 포함됩니다.
 
-예를 들어 LRS‘에서’ 다른 복제 유형으로 전환하면 보다 정교한 중복성 수준으로 이동하기 때문에 추가 비용이 발생합니다. GRS 또는 RA-GRS로 마이그레이션하면 주 지역의 데이터가 원격 보조 지역으로 복제되므로 송신 대역폭 요금이 발생합니다. 이 요금은 초기 설정 시 일회성 비용입니다. 데이터가 복사된 후에는 더 이상의 마이그레이션 요금이 없습니다. 대역폭 요금에 대한 자세한 내용은 [Azure Storage 가격 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
+예를 들어 LRS‘에서’ 다른 복제 유형으로 전환하면 보다 정교한 중복성 수준으로 이동하기 때문에 추가 비용이 발생합니다. GRS 또는 RA-GRS *로* 마이그레이션하면 전체 스토리지 계정이 보조 지역에 복제되므로 마이그레이션 시 송신 대역폭 요금이 발생합니다. 기본 지역에 대한 모든 후속 쓰기에는 보조 지역에 쓰기를 복제하기 위한 송신 대역폭 요금도 발생합니다. 대역폭 요금에 대한 자세한 내용은 [Azure Storage 가격 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
 
 GRS에서 LRS로 스토리지 계정을 마이그레이션하는 경우 추가 비용은 없지만 복제된 데이터가 보조 위치에서 삭제됩니다.
 

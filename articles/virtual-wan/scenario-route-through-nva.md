@@ -1,20 +1,20 @@
 ---
 title: '시나리오: NVA(네트워크 가상 어플라이언스)를 통한 트래픽 라우팅'
 titleSuffix: Azure Virtual WAN
-description: NVA를 통한 트래픽 라우팅
+description: NVA(네트워크 가상 어플라이언스)를 통해 트래픽을 라우팅하기 위한 Virtual WAN 라우팅 시나리오에 대해 알아봅니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 24671a34214864e253d96c356dc8b2853bf6d560
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c8c4e516b297bb5d4466910bff83859288e0ec89
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100519799"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110575394"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>시나리오: NVA를 통한 트래픽 라우팅
 

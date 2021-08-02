@@ -11,12 +11,12 @@ ms.collection: windows
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: trinadhk
-ms.openlocfilehash: 834c886c15e50870ec008dbb5ceab38132cc4649
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6dc2fb12ebd166f62f04a1ecb9833edaad18f539
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561071"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789614"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Azure Backup용 VM 스냅샷 Windows 확장
 
@@ -61,7 +61,7 @@ VMSnapshot 확장은 관리형이 아닌 VM의 경우에만 Azure Portal에 나�
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 | 데이터 형식 |
+| 속성 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | 문자열 |
@@ -88,6 +88,16 @@ az backup protection enable-for-vm \
     --vault-name myRecoveryServicesVault \
     --vm myVM \
     --policy-name DefaultPolicy
+```
+
+## <a name="azure-powershell-deployment"></a>Azure PowerShell 배포
+
+Azure Powershell을 사용하여 가상 머신에서 백업을 사용하도록 설정할 수 있습니다. 백업이 구성되면 첫 번째 예약된 백업 작업이 VM 스냅샷 확장을 VM에 설치합니다.
+
+```azurepowershell
+$targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "myResourceGroup" -Name "myRecoveryServicesVault"
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy Name DefaultPolicy -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "myVM" -ResourceGroupName "myVMResourceGroup" -VaultId $targetVault.ID
 ```
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원

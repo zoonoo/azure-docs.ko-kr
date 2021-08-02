@@ -1,20 +1,20 @@
 ---
 title: Widevine Android 오프라인 스트림
-description: 이 항목에서는 Widevine 보호된 콘텐츠의 오프라인 스트리밍에 대한 Azure Media Services v3 계정을 구성하는 방법을 보여 줍니다.
+description: 이 토픽에서는 Widevine 보호 콘텐츠의 오프라인 스트리밍에 대한 Azure Media Services v3 계정을 구성하는 방법을 보여 줍니다.
 services: media-services
 author: willzhan
 manager: femila
 ms.service: media-services
 ms.workload: media
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 05/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 297520764272e2d6df54fe3a8ad734088163638d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: c5d8d5d5dbbe8e79591c735e4a6fa77f47ff9b2f
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106068544"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793358"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Media Services v3를 사용하는 Android용 오프라인 Widevine 스트리밍
 
@@ -23,7 +23,7 @@ ms.locfileid: "106068544"
 온라인 스트리밍을 위해 콘텐츠를 보호하는 것 외에도, 미디어 콘텐츠 구독 및 임대 서비스는 인터넷에 연결되지 않았을 때 작동하는 다운로드 가능한 콘텐츠를 제공합니다. 네트워크에서 연결이 끊긴 상태로 비행하는 비행기 모드에서 재생하려면 휴대폰이나 태블릿에 콘텐츠를 다운로드해야 할 수 있습니다. 콘텐츠를 다운로드하려는 추가적인 시나리오는 다음과 같습니다.
 
 - 일부 콘텐츠 공급자는 국가/지역 경계를 넘어 DRM 라이선스 전송을 허용하지 않을 수 있습니다. 사용자를 해외 여행을 하면서 콘텐츠를 보려 할 경우 오프 라인 다운로드가 필요합니다.
-- 일부 국가/지역에서는 인터넷 가용성 및/또는 대역폭이 제한됩니다. 사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 볼 수 있도록 콘텐츠를 다운로드하도록 선택할 수도 있습니다.
+- 일부 국가/지역에서는 인터넷 가용성 및/또는 대역폭이 여전히 제한되어 있습니다. 사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 볼 수 있도록 콘텐츠를 다운로드하도록 선택할 수도 있습니다.
 
 [!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
 
@@ -39,9 +39,9 @@ Android 플레이어 앱을 빌드하는 경우 다음 세 가지 옵션을 사�
 또한 Widevine 보호 콘텐츠의 오프라인 스트리밍과 관련된 몇 가지 일반적인 질문에 대한 답변도 제공되어 있습니다.
 
 > [!NOTE]
-> 오프라인 DRM은 콘텐츠를 다운로드할 때 단일 라이선스 요청에 대해서만 청구됩니다. 모든 오류에 대해 청구되지는 않습니다.
+> 오프라인 DRM은 콘텐츠를 다운로드할 때 한 번의 라이선스 요청에 대해서만 청구됩니다. 모든 오류에 대해서는 청구되지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Android 디바이스에서 Widevine에 대한 오프라인 DRM을 구현하기 전에 먼저 다음을 수행해야 합니다.
 
@@ -50,7 +50,7 @@ Android 디바이스에서 Widevine에 대한 오프라인 DRM을 구현하기 �
     - [DRM 동적 암호화 및 라이선스 배달 서비스 사용](drm-protect-with-drm-tutorial.md)
 - https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git을 복제합니다.
 
-    [.NET을 사용하여 DRM으로 암호화](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM)에서 코드를 수정하여 Widevine 구성을 추가해야 합니다.  
+    [.NET을 사용하여 DRM으로 암호화](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/main/AMSV3Tutorials/EncryptWithDRM)에서 코드를 수정하여 Widevine 구성을 추가해야 합니다.  
 - 오프라인 Widevine DRM 재생을 지원할 수 있는 오픈 소스 비디오 플레이어 SDK인 Android용 Google ExoPlayer SDK에 익숙해집니다. 
     - [ExoPlayer SDK](https://github.com/google/ExoPlayer)
     - [ExoPlayer 개발자 가이드](https://google.github.io/ExoPlayer/guide.html)
@@ -58,7 +58,7 @@ Android 디바이스에서 Widevine에 대한 오프라인 DRM을 구현하기 �
 
 ## <a name="configure-content-protection-in-azure-media-services"></a>Azure Media Services에서 콘텐츠 보호 구성
 
-[GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L189) 메서드에서는 다음 단계가 필요합니다.
+[GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L192) 메서드에서는 다음 단계가 필요합니다.
 
 1. 라이선스 배달 서비스에서 콘텐츠 키 배달이 허가되는 방식을 지정합니다. 
 
@@ -91,7 +91,7 @@ Android 디바이스에서 Widevine에 대한 오프라인 DRM을 구현하기 �
 
 ## <a name="enable-offline-mode"></a>오프라인 모드 사용
 
-Widevine 라이선스에 대해 **오프라인** 모드를 사용하도록 설정하려면 [Widevine 라이선스 템플릿](drm-widevine-license-template-concept.md)을 구성해야 합니다. [ConfigureWidevineLicenseTempate](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L563)에 표시된 대로 **policy_overrides** 개체에서 **can_persist** 속성을 **true**(기본값은 false)로 설정합니다. 
+Widevine 라이선스에 대해 **오프라인** 모드를 사용하도록 설정하려면 [Widevine 라이선스 템플릿](drm-widevine-license-template-concept.md)을 구성해야 합니다. [ConfigureWidevineLicenseTempate](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L452)에 표시된 대로 **policy_overrides** 개체에서 **can_persist** 속성을 **true**(기본값은 false)로 설정합니다. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#ConfigureWidevineLicenseTempate)]
 
@@ -135,7 +135,7 @@ Android 4.4 KitKat은 원래부터 다른 이전 Android 버전과 마찬가지�
 
 ## <a name="chrome-player-apps-for-android"></a>Android용 Chrome 플레이어 앱
 
-[Android v. 62용 크롬](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates)의 릴리스를 시작으로 EME의 영구 라이선스가 지원됩니다. [Widevine L1](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates#widevine_l1)은 이제 Android용 Chrome에서도 지원됩니다. 따라서, 최종 사용자에게 이 버전 이상의 Chrome이 있기만 하면 Chrome에서 오프라인 재생 애플리케이션을 만들 수 있습니다. 
+[안드로이드 v. 62용 Chrome](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates)의 릴리스를 시작으로 EME의 영구 라이선스가 지원됩니다. [Widevine L1](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates#widevine_l1)은 이제 Android용 Chrome에서도 지원됩니다. 따라서, 최종 사용자에게 이 버전 이상의 Chrome이 있기만 하면 Chrome에서 오프라인 재생 애플리케이션을 만들 수 있습니다. 
 
 또한 Google은 PWA(Progressive Web App) 샘플을 생성하고 오픈 소스로 설정했습니다. 
 

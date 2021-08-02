@@ -1,5 +1,5 @@
 ---
-title: Azure Image Builder를 사용하여 기존의 이미지 버전에서 새로운 이미지 버전을 만들기(미리 보기)
+title: Azure Image Builder를 사용하여 기존의 이미지 버전에서 새로운 이미지 버전을 만들기
 description: Windows에서 Azure Image Builder를 사용하여 기존의 이미지 버전에서 새로운 VM 이미지 버전을 만듭니다.
 author: cynthn
 ms.author: cynthn
@@ -7,36 +7,23 @@ ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
-ms.colletion: windows
-ms.openlocfilehash: 0a53e8de8dd832e793ae12034c96ce9fe634ed7a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.collection: windows
+ms.openlocfilehash: 619821c87c4897c93e6a0344a98335cf4f95a53b
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101694107"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112070834"
 ---
-# <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-windows"></a>미리 보기: Windows에서 Azure Image Builder를 사용하여 기존 이미지 버전에서 새 VM 이미지 버전 만들기
+# <a name="create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-windows"></a>Windows에서 Azure Image Builder를 사용하여 기존 이미지 버전에서 새로운 VM 이미지 버전 만들기
 
 본 문서에서는 [Shared Image Gallery](../shared-image-galleries.md)에서 기존 이미지 버전을 가져오기, 해당 이미지 업데이트하기 및 업데이트한 이미지를 갤러리에 새 이미지 버전으로 게시하기에 대한 방법을 알려줍니다.
 
 이미지를 구성하는 데 샘플 .json 템플릿을 사용합니다. 사용할 .json 파일은 다음 위치에 있습니다: [helloImageTemplateforSIGfromWinSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
 
-> [!IMPORTANT]
-> Azure Image Builder는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="register-the-features"></a>기능 등록
-미리 보기 중에 Azure Image Builder를 사용하려면 이 새 기능을 등록해야 합니다.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-기능 등록 상태를 확인합니다.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
-```
+Azure Image Builder를 사용하려면 이 기능을 등록해야 합니다.
 
 등록을 확인합니다.
 
@@ -63,7 +50,7 @@ az provider register -n Microsoft.Network
 
 Shared Image Gallery를 만들기 위하여 [이미지를 만들어 Shared Image Gallery에 배포하기](image-builder-gallery.md)를 사용한 경우, 필요한 변수를 이미 만들어 놓은 것입니다. 그렇지 않은 경우라면 해당 예제에서 사용할 몇 가지 변수를 설정하세요.
 
-미리 보기에서는 Image Builder가 원본 관리 이미지와 동일한 리소스 그룹에서 사용자 지정 이미지를 만드는 것만 지원합니다. 이 예제의 리소스 그룹 이름을 원본 관리 이미지와 동일한 리소스 그룹으로 업데이트합니다.
+Image Builder는 원본 관리 이미지와 동일한 리소스 그룹에서 사용자 지정 이미지를 만드는 것만 지원합니다. 이 예제의 리소스 그룹 이름을 원본 관리 이미지와 동일한 리소스 그룹으로 업데이트합니다.
 
 ```azurecli-interactive
 # Resource group name - we are using ibsigRG in this example
@@ -181,4 +168,4 @@ dir c:\
 
 ## <a name="next-steps"></a>다음 단계
 
-본 문서에서 사용한 .json 파일의 구성 요소에 대한 자세한 내용은 [Image Builder 템플릿 참조](../linux/image-builder-json.md)를 확인하세요.
+이 문서에서 사용한 .json 파일 구성 요소에 대한 자세한 내용은 [Image Builder 템플릿 참조](../linux/image-builder-json.md)를 확인하세요.

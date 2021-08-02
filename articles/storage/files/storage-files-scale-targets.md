@@ -4,15 +4,15 @@ description: 용량, 요청 속도 및 인바운드/아웃바운드 대역폭 �
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 05/28/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0ecfbb9053fde4ff332cbbcb6e14a84a5bbeb99a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78ecf275a9c607273aef16e6351224709f230959
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593155"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690523"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 [Azure Files](storage-files-introduction.md)는 SMB 및 NFS 파일 시스템 프로토콜을 통해 액세스할 수 있는 완전 관리형 파일 공유를 클라우드에서 제공합니다. 이 문서에서는 Azure Files 및 Azure 파일 동기화의 확장성 및 성능 목표에 대해 설명합니다.
@@ -35,8 +35,8 @@ Azure에서는 고객에게 있을 수 있는 다양한 스토리지 시나리�
 | 최대 스토리지 계정 용량 | 5PiB<sup>1</sup> | 100TiB(프로비전됨) |
 | 최대 파일 공유 수 | 제한 없음 | 모든 공유의 무제한, 총 프로비전 크기는 최대 스토리지 계정 용량보다 작아야 합니다. |
 | 최대 동시 요청 빈도 | 20,000 IOPS<sup>1</sup> | 100,000 IOPS |
-| 최대 수신 | <ul><li>미국/유럽: 10Gbp/초<sup>1</sup></li><li>기타 지역(LRS/ZRS): 10Gbp/초<sup>1</sup></li><li>기타 지역(GRS): 5Gbp/초<sup>1</sup></li></ul> | 4,136MiB/초 |
-| 최대 송신 | 50Gbp/초<sup>1</sup> | 6,204MiB/초 |
+| 최대 수신 | <ul><li>미국/유럽: 9,536MiB/초<sup>1</sup></li><li>기타 지역(LRS/ZRS): 9,536MiB/초<sup>1</sup></li><li>기타 지역 (GRS): 4,768MiB/초<sup>1</sup></li></ul> | 4,136MiB/초 |
+| 최대 송신 | 47,683MiB/초<sup>1</sup> | 6,204MiB/초 |
 | 최대 가상 네트워크 규칙 수 | 200 | 200 |
 | 최대 IP 주소 규칙 수 | 200 | 200 |
 | 관리 읽기 작업 | 5분당 800 | 5분당 800 |
@@ -103,7 +103,7 @@ Azure 파일 동기화 에이전트가 Azure 파일 공유에 연결된 Windows 
 
 Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중요합니다.
 
-1. **일회성 초기 프로비전**: 초기 프로비전에 대한 성능을 최적화하기 위해 최적의 배포 세부 정보는 [Azure 파일 동기화에 온보딩](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync)을 참조하세요.
+1. **일회성 초기 프로비전**: 초기 프로비전에 대한 성능을 최적화하기 위해 최적의 배포 세부 정보는 [Azure 파일 동기화에 온보딩](../file-sync/file-sync-deployment-guide.md#onboarding-with-azure-file-sync)을 참조하세요.
 2. **진행 중인 동기화**: Azure 파일 공유에서 데이터를 처음으로 시드한 후에 Azure 파일 동기화는 여러 엔트포인트를 동기화된 상태로 유지합니다.
 
 각 단계에 대한 배포를 계획하기 위해 구성이 포함된 시스템의 내부 테스트 중에 확인되는 결과는 아래와 같습니다.
@@ -134,7 +134,7 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 
 **Windows server에서 Azure 파일 공유로의 데이터 초기 동기화**: 모든 데이터가 Windows Server에 존재하기 때문에 Azure 파일 동기화 배포가 빈 Azure 파일 공유로 시작하는 경우가 많습니다. 이러한 경우 초기 클라우드 변경 열거가 빠르며 Windows Server에서 Azure 파일 공유로 변경 내용을 동기화하는 데 대부분의 시간이 소요됩니다. 
 
-동기화가 데이터를 Azure 파일 공유로 업로드하는 동안 로컬 파일 서버에는 가동 중지 시간이 발생하지 않으며 관리자는 [네트워크 제한을 설정](./storage-sync-files-server-registration.md#set-azure-file-sync-network-limits)하여 백그라운드 데이터 업로드에 사용되는 대역폭의 양을 제한할 수 있습니다.
+동기화가 데이터를 Azure 파일 공유로 업로드하는 동안 로컬 파일 서버에는 가동 중지 시간이 발생하지 않으며 관리자는 [네트워크 제한을 설정](../file-sync/file-sync-server-registration.md#set-azure-file-sync-network-limits)하여 백그라운드 데이터 업로드에 사용되는 대역폭의 양을 제한할 수 있습니다.
 
 초기 동기화는 일반적으로 동기화 그룹당 초당 20 개 파일의 초기 업로드 속도로 제한됩니다. 고객은 다음 수식을 사용해 일 단위로 시간을 계산함으로써 모든 데이터를 Azure에 업로드하는 시간을 추정할 수 있습니다.  
 
@@ -164,4 +164,4 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 
 ## <a name="see-also"></a>참고 항목
 - [Azure 파일 배포에 대한 계획](storage-files-planning.md)
-- [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
+- [Azure 파일 동기화 배포에 대한 계획](../file-sync/file-sync-planning.md)

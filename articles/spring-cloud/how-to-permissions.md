@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 0c0b3bd81e0f73a7879382e28516378bd722bc17
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8bc17ef020ae61a18f5259a956c7b5d3b3998a4d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878484"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110463583"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Azure Spring Cloud에서 권한을 사용하는 방법
 이 문서에서는 Azure Spring Cloud 리소스에 대한 권한을 위임하는 사용자 지정 역할을 만드는 방법을 보여 줍니다. 사용자 지정 역할은 다양한 스톡 권한으로 [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 확장합니다.
@@ -29,7 +29,7 @@ ms.locfileid: "104878484"
     * 앱 다시 시작
     * 로그 스트림 가져오기
     * 앱 또는 구성 변경할 수 없음
-* **Azure Pipelines/Jenkins/Github 작업 역할**:
+* **Azure Pipelines/Jenkins/GitHub Actions 역할**:
     * 만들기, 읽기, 업데이트 및 삭제 작업 수행할 수 있음
     * 서비스 인스턴스 내에 있는 모든 항목(Azure Pipelines, Jenkins 또는 GitHub 작업, Terraform 또는 ARM 템플릿 사용)을 만들고 구성할 수 있습니다.
 
@@ -194,7 +194,7 @@ Microsoft.AppPlatform/locations/operationResults/Spring에서 다음을 선택�
 5. **검토 + 만들기** 를 클릭합니다.
 
 ## <a name="define-azure-pipelinesprovisioning-role"></a>Azure Pipelines/프로비전 역할 정의
-이 Jenkins/Github 작업 역할은 Azure Spring Cloud 및 서비스 인스턴스를 사용하는 앱에서 모든 항목을 만들고 구성할 수 있습니다. 이 역할은 코드를 릴리스 또는 배포하는 데 사용할 수 있습니다.
+이 Jenkins/GitHub Actions의 역할은 Azure Spring Cloud 및 서비스 인스턴스를 사용하는 앱에서 모든 항목을 만들고 구성할 수 있습니다. 이 역할은 코드를 릴리스 또는 배포하는 데 사용할 수 있습니다.
 
 1. 프로시저를 반복하여 구독, 리소스 그룹 및 액세스 제어(IAM)를 탐색합니다.
 

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 85a4d6390087100d8d9521f6ac20dbace3a711eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: 073095d590e61d9e7e561339c17501f0ccee844d
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104955944"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112018660"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search에 대한 JavaScript 코드 샘플
 
@@ -52,14 +52,15 @@ Azure SDK 개발 팀의 코드 샘플에서 API 사용을 보여 줍니다. 이�
 
 ## <a name="doc-samples"></a>문서 샘플
 
-Cognitive Search 팀의 코드 샘플은 기능 및 워크플로를 보여 줍니다. 이러한 샘플은 대부분 자습서, 빠른 시작 및 방법 문서에서 참조됩니다. GitHub의 [**Azure-Samples/azure-search-javascript-samples**](https://github.com/Azure-Samples/azure-search-javascript-samples)에서 이러한 샘플을 찾을 수 있습니다.
+Cognitive Search 팀의 코드 샘플은 기능 및 워크플로를 보여줍니다. 이러한 샘플은 대부분 자습서, 빠른 시작 및 방법 문서에서 참조됩니다. GitHub의 [**Azure-Samples/azure-search-javascript-samples**](https://github.com/Azure-Samples/azure-search-javascript-samples)에서 이러한 샘플을 찾을 수 있습니다.
 
 | 샘플 | 아티클 |
 |---------|---------|
-| [빠른 시작](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | [빠른 시작: JavaScript에서 검색 인덱스 만들기](search-get-started-javascript.md)에 대한 소스 코드입니다. 이 문서에서는 샘플 데이터를 사용하여 검색 인덱스를 만들고, 로드하고, 쿼리하는 기본 워크플로를 다룹니다. |
+| [빠른 시작](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | [빠른 시작: JavaScript에서 검색 인덱스 만들기](search-get-started-javascript.md)에 대한 소스 코드입니다. 샘플 데이터를 사용하여 검색 인덱스를 만들고, 로드하고, 쿼리하는 기본 워크플로를 다룹니다. |
+| [search-website](https://github.com/azure-samples/azure-search-javascript-samples/tree/master/search-website) | [자습서: 웹앱에 검색 추가](tutorial-javascript-overview.md)에 대한 소스 코드입니다. 다양한 클라이언트와 앱을 호스팅하고 검색 요청을 처리하기 위한 구성 요소를 포함하는 엔드투엔드 검색 앱을 보여줍니다.|
 
 > [!Tip]
-> [샘플 브라우저](/samples/browse/?languages=javascript&products=azure-cognitive-search)를 사용하여 제품, 서비스 및 언어를 기준으로 필터링하여 Github의 Microsoft 코드 샘플을 검색해 보세요.
+> [샘플 브라우저](/samples/browse/?languages=javascript&products=azure-cognitive-search)를 통해 제품, 서비스 및 언어별로 필터링하여 GitHub에서 Microsoft 코드 샘플을 검색해 보세요.
 
 ## <a name="other-samples"></a>기타 샘플
 

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f9b40c934cb428a31a3feb77195518d5351818d7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f340ac18cb74523d64f4dbf8d6ae1d6f4559582a
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785364"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411884"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm-preview"></a>Azure Key Vault 관리되는 HSM에 저장된 고객 관리형 키를 사용하여 암호화 구성(미리 보기)
 
@@ -45,7 +45,7 @@ az storage account update \
 
 ## <a name="assign-a-role-to-the-storage-account-for-access-to-the-managed-hsm"></a>관리되는 HSM에 액세스하기 위해 스토리지 계정에 역할 할당
 
-그런 다음 스토리지 계정이 관리되는 HSM에 대한 사용 권한을 가지도록 **관리되는 HSM 암호화 서비스 암호화** 역할을 스토리지 계정의 관리 ID에 할당합니다. 관리 ID에 가능한 최소 권한을 부여하려면 역할 할당 범위를 개별 키 수준으로 지정하는 것이 좋습니다.
+그런 다음, 저장소 계정이 관리되는 HSM에 대한 사용 권한을 가지도록 **관리되는 HSM 암호화 서비스 암호화 사용자** 역할을 저장소 계정의 관리 ID에 할당합니다. 관리 ID에 가능한 최소 권한을 부여하려면 역할 할당 범위를 개별 키 수준으로 지정하는 것이 좋습니다.
 
 스토리지 계정에 대한 역할 할당을 만들려면 [az key vault role assignment create](/cli/azure/role/assignment#az_role_assignment_create)를 호출합니다. 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
   
@@ -58,7 +58,7 @@ storage_account_principal = $(az storage account show \
 
 az keyvault role assignment create \
     --hsm-name <hsm-name> \
-    --role "Managed HSM Crypto Service Encryption" \
+    --role "Managed HSM Crypto Service Encryption User" \
     --assignee $storage_account_principal \
     --scope /keys/<key-name>
 ```
@@ -69,7 +69,7 @@ az keyvault role assignment create \
 
 Azure CLI 2.12.0 이상을 설치하여 관리되는 HSM에서 고객 관리형 키를 사용하도록 암호화를 구성합니다. 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-고객 관리형 키의 키 버전을 자동으로 업데이트하려면 스토리지 계정에 대해 고객 관리형 키로 암호화를 구성할 때 키 버전을 생략하세요. 다음 예제와 같이 [az storage account update](/cli/azure/storage/account#az_storage_account_update)를 호출하여 스토리지 계정의 암호화 설정을 업데이트합니다. `--encryption-key-source parameter`를 포함하고 이를 `Microsoft.Keyvault`에 설정하여 계정에 대해 고객 관리형 키를 사용하도록 설정합니다. 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+고객 관리형 키의 키 버전을 자동으로 업데이트하려면 스토리지 계정의 고객 관리형 키를 사용하도록 암호화를 구성할 때 키 버전을 생략합니다. 다음 예제와 같이 [az storage account update](/cli/azure/storage/account#az_storage_account_update)를 호출하여 스토리지 계정의 암호화 설정을 업데이트합니다. `--encryption-key-source parameter`를 포함하고 이를 `Microsoft.Keyvault`에 설정하여 계정에 대해 고객 관리형 키를 사용하도록 설정합니다. 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli
 hsmurl = $(az keyvault show \
@@ -97,9 +97,9 @@ az storage account update
     --encryption-key-vault $hsmurl
 ```
 
-키 버전을 수동으로 업데이트할 때 새 버전을 사용하려면 스토리지 계정의 암호화 설정을 업데이트해야 합니다. 먼저 [az keyvault show](/cli/azure/keyvault#az_keyvault_show)를 호출하여 KEY Vault URI를 쿼리하고 [az keyvault key list-versions](/cli/azure/keyvault/key#az_keyvault_key_list_versions)를 호출하여 키 버전을 쿼리합니다. 그런 다음 이전 예제와 같이 [az storage account update](/cli/azure/storage/account#az_storage_account_update)를 호출하여 새 버전의 키를 사용하도록 스토리지 계정의 암호화 설정을 업데이트합니다.
+키 버전을 수동으로 업데이트할 때 새 버전을 사용하려면 스토리지 계정의 암호화 설정을 업데이트해야 합니다. 먼저 [az keyvault show](/cli/azure/keyvault#az_keyvault_show)를 호출하여 키 자격 증명 모음 URI를 쿼리하고 [az keyvault key list-versions](/cli/azure/keyvault/key#az_keyvault_key_list_versions)를 호출하여 키 버전을 쿼리합니다. 그런 다음 이전 예제와 같이 [az storage account update](/cli/azure/storage/account#az_storage_account_update)를 호출하여 새 버전의 키를 사용하도록 스토리지 계정의 암호화 설정을 업데이트합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [미사용 데이터에 대한 Azure Storage 암호화](storage-service-encryption.md)
-- [Azure Storage 암호화를 위한 고객 관리형 키](customer-managed-keys-overview.md)
+- [Azure Storage 암호화용 고객 관리형 키](customer-managed-keys-overview.md)

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: duau
-ms.openlocfilehash: 56d6a76991c4386be45b2c18f4edb3d363e58fa5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fd890c8e8d72609d109fa466e260dd7315fd553b
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027145"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111441225"
 ---
 # <a name="about-expressroute-direct"></a>ExpressRoute Direct 정보
 
@@ -69,7 +69,7 @@ Microsoft Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처�
 
 ## <a name="circuit-skus"></a>회로 SKU
 
-ExpressRoute Direct는 Azure Storage 및 기타 빅 데이터 서비스에 대규모 데이터 수집 시나리오를 지원합니다. 100Gbps ExpressRoute Direct의 ExpressRoute 회로는 이제 **40Gbps** 및 **100Gbps 회로 SKU도 지원합니다. 실제 포트 쌍은 **100Gbps 또는 10Gbps** 뿐이며 다수의 가상 회로를 가질 수 있습니다. 회로 크기:
+ExpressRoute Direct는 Azure Storage 및 기타 빅 데이터 서비스에 대규모 데이터 수집 시나리오를 지원합니다. 100Gbps ExpressRoute Direct의 ExpressRoute 회로는 이제 **40Gbps** 및 **100Gbps** 회로 SKU도 지원합니다. 실제 포트 쌍은 **100Gbps 또는 10Gbps** 뿐이며 다수의 가상 회로를 가질 수 있습니다. 회로 크기:
 
 | **100Gbps ExpressRoute Direct** | **10Gbps ExpressRoute Direct** | 
 | --- | --- |

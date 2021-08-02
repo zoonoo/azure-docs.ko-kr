@@ -2,13 +2,13 @@
 title: Azure Backup의 새로운 기능
 description: Azure Backup의 새로운 기능에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 11/11/2020
-ms.openlocfilehash: c5e6734c6a962fa43d79fc90fdfaa85923b6339f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/05/2021
+ms.openlocfilehash: 7be5b96a8575c0bed9208ef5d700aca747411aa2
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612486"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959327"
 ---
 # <a name="whats-new-in-azure-backup"></a>Azure Backup의 새로운 기능
 
@@ -18,6 +18,10 @@ Azure Backup은 Azure에서 데이터의 보호 성능을 향상시키는 새로
 
 ## <a name="updates-summary"></a>업데이트 요약
 
+- 2021년 5월
+  - [이제 Azure Blob용 백업이 일반 공급됨](#backup-for-azure-blobs-is-now-generally-available)
+- 2021년 4월
+  - [Azure Backup용 고객 관리형 키를 사용하는 암호화 기능 향상(미리 보기)](#enhancements-to-encryption-using-customer-managed-keys-for-azure-backup-in-preview)
 - 2021년 3월
   - [이제 Azure Disk Backup이 일반 공급됨](#azure-disk-backup-is-now-generally-available)
   - [이제 백업 센터가 일반 공급됨](#backup-center-is-now-generally-available)
@@ -40,6 +44,16 @@ Azure Backup은 Azure에서 데이터의 보호 성능을 향상시키는 새로
   - [RHEL Azure Virtual Machines에서 SAP HANA 백업(미리 보기)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [백업 데이터에 대한 ZRS(영역 중복 스토리지)(미리 보기)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Azure VM의 SQL Server 및 SAP HANA 워크로드에 대한 일시 삭제](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="backup-for-azure-blobs-is-now-generally-available"></a>이제 Azure Blob용 백업이 일반 공급됨
+
+Azure Blob에 대한 운영 백업은 Blob 손상, Blob 삭제 및 실수로 인한 스토리지 계정 삭제와 같은 다양한 데이터 손실 시나리오로부터 블록 Blob 데이터를 보호할 수 있는 관리형 데이터 보호 솔루션입니다.
+
+운영 백업 솔루션인 백업 데이터는 원본 스토리지 계정에 로컬로 저장되며, 선택한 지정 시간에서 복구할 수 있으므로 Blob 데이터를 안전하게 보호하는 간단하고 비용 효율적인 방법을 제공합니다. 이를 위해 솔루션은 Blob 스토리지에서 사용할 수 있는 Blob 지정 시간 복원 기능을 사용합니다.
+
+Blob에 대한 운영 백업은 Backup Center를 비롯한 Azure Backup 관리 도구와 통합되어 Blob 데이터 보호를 효과적으로 관리할 수 있도록 지원합니다. 이전에 사용할 수 있는 기능 외에도 이제 [PowerShell을 통해](backup-blobs-storage-account-ps.md) 스토리지 계정의 **데이터 보호** 보기를 사용하여 Blob에 대한 운영 백업을 구성하고 관리할 수 있습니다. 또한 백업은 이제 운영 백업을 구성하는 데 필요한 역할 할당을 관리하기 위한 향상된 환경을 제공합니다.
+
+자세한 내용은 [Azure Blob용 운영 백업 개요](blob-backup-overview.md)를 참조하세요.
 
 ## <a name="azure-disk-backup-is-now-generally-available"></a>이제 Azure Disk Backup이 일반 공급됨
 
@@ -89,7 +103,7 @@ Azure Disk Backup은 스냅샷 생성을 정기적으로 자동화하고 백업 
 
 이제 Azure Backup은 Azure VM에서 호스트되는 SAP HANA 데이터베이스용 증분 백업을 지원합니다. 이를 통해 SAP HANA 데이터를 보다 빠르고 비용 효율적으로 백업할 수 있습니다.
 
-자세한 내용은 [백업 정책을 만드는 동안 사용할 수 있는 다양한 옵션](sap-hana-faq-backup-azure-vm.md#policy) 및 [SAP HANA 데이터베이스용 백업 정책을 만드는 방법](tutorial-backup-sap-hana-db.md#creating-a-backup-policy)을 참조하세요.
+자세한 내용은 [백업 정책을 만드는 동안 사용할 수 있는 다양한 옵션](/azure/backup/sap-hana-faq-backup-azure-vm.yml#policy) 및 [SAP HANA 데이터베이스용 백업 정책을 만드는 방법](tutorial-backup-sap-hana-db.md#creating-a-backup-policy)을 참조하세요.
 
 ## <a name="backup-center-in-preview"></a>백업 센터(미리 보기)
 
@@ -147,11 +161,27 @@ Azure Storage는 다양한 중복도 옵션을 통해 고성능과 고가용성,
 
 맬웨어, 랜섬웨어 및 침입과 같은 보안 문제에 대한 우려는 증가하고 있습니다. 이러한 보안 문제는 돈과 데이터 측면 모두에서 비용이 많이 들 수 있습니다. 이러한 공격을 방지하기 위해 Azure Backup은 삭제 후에도 백업 데이터를 보호하는 데 도움이 되는 보안 기능을 제공합니다.
 
-이러한 기능 중 하나가 바로 일시 삭제입니다. 일시 삭제를 사용하면 악의적인 행위자가 백업을 삭제하거나 백업 데이터가 실수로 삭제된 경우에도 백업 데이터가 추가로 14일간 보관되므로 데이터 없이 해당 백업 항목을 복구할 수 있습니다. "일시 삭제" 상태의 백업 데이터에 대한 추가 보존 기간은 14일이며 비용이 발생하지 않습니다.
+이러한 기능 중 하나가 바로 일시 삭제입니다. 일시 삭제를 사용하면 악의적인 행위자가 백업을 삭제하거나 백업 데이터가 실수로 삭제된 경우에도 백업 데이터가 추가로 14일 동안 보관되므로 데이터 없이 해당 백업 항목을 복구할 수 있습니다. "일시 삭제" 상태의 백업 데이터에 대한 추가 보존 기간은 14일이며 비용이 발생하지 않습니다.
 
 현재 Azure VM에 대한 일시 삭제를 지원할 뿐만 아니라, Azure VM의 SQL Server 및 SAP HANA 워크로드도 일시 삭제로 보호합니다.
 
 자세한 내용은 [Azure VM의 SQL Server 일시 삭제 및 Azure VM 워크로드의 SAP HANA 일시 삭제](soft-delete-sql-saphana-in-azure-vm.md)를 참조하세요.
+
+## <a name="enhancements-to-encryption-using-customer-managed-keys-for-azure-backup-in-preview"></a>Azure Backup용 고객 관리형 키를 사용하는 암호화 기능 향상(미리 보기)
+
+이제 Azure Backup은 고객 관리형 키로 암호화를 관리하는 향상된 기능(미리 보기)을 제공합니다. Azure Backup을 사용하면 고유한 키를 가져와 Recovery Services 자격 증명 모음의 백업 데이터를 암호화할 수 있으므로 더 잘 제어할 수 있습니다.
+
+- Recovery Services 자격 증명 모음에서 데이터 암호화를 관리할 수 있는 키에 권한을 부여하기 위해 사용자 할당 관리 ID를 지원합니다.
+- Recovery Services 자격 증명 모음을 만드는 동안 고객 관리형 키로 암호화할 수 있습니다.
+  >[!NOTE]
+  >이 기능은 현재 제한된 미리 보기로 제공됩니다. 등록하려면 [이 양식](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURDNTVVhGOUxXSVBZMEwxUU5FNDkyQkU4Ny4u)을 작성하고 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)에 씁니다.
+- Azure 정책을 통해 고객 관리형 키를 사용하여 암호화를 감사하고 적용할 수 있습니다.
+>[!NOTE]
+>- 위의 기능은 Azure Portal을 통해서만 지원됩니다. PowerShell은 현재 지원되지 않습니다.<br>백업에 대한 암호화 키를 관리하기 위해 PowerShell을 사용하는 경우 포털에서 키를 업데이트하지 않는 것이 좋습니다.<br>포털에서 키를 업데이트하면 새 모델을 지원하기 위한 PowerShell 업데이트를 사용할 수 있을 때까지 PowerShell을 사용하여 암호화 키를 추가로 업데이트할 수 없습니다. 그러나 Azure Portal에서 키를 계속 업데이트할 수 있습니다.
+>- 2021년 4월 1일 이후에 사용하도록 설정된 고객 관리형 키를 사용하여 암호화된 자격 증명 모음 감사에 감사 정책을 사용할 수 있습니다.  
+>- 이 날짜 이전에 CMK 암호화를 사용하도록 설정된 자격 증명 모음의 경우 정책이 적용되지 않거나 가음성 결과가 표시될 수 있습니다(즉, CMK 암호화를 사용하도록 설정된 경우에도 이러한 자격 증명 모음이 비규격으로 보고될 수 있음). [자세한 정보](encryption-at-rest-with-cmk.md#using-azure-policies-for-auditing-and-enforcing-encryption-utilizing-customer-managed-keys-in-preview).
+
+자세한 내용은 [고객 관리형 키를 사용하여 Azure Backup을 위한 암호화](encryption-at-rest-with-cmk.md)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,13 +7,13 @@ ms.subservice: extensions
 author: mgoedtel
 ms.author: magoedte
 ms.collection: linux
-ms.date: 03/29/2019
-ms.openlocfilehash: d28f0a34f47942bba8776a0acd0bfe3aaf25df12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/01/2021
+ms.openlocfilehash: 97f557ec45530de3f42dd61ee1cded57fd7c33a0
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566308"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793749"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Linux용 Azure Monitor 종속성 가상 머신 확장
 
@@ -134,6 +134,29 @@ az vm extension set \
     --publisher Microsoft.Azure.Monitoring.DependencyAgent \
     --version 9.5 
 ```
+
+## <a name="automatic-upgrade-preview"></a>자동 업그레이드 프로세스(미리 보기)
+종속성 확장의 부 버전을 자동으로 업그레이드하는 새로운 기능을 이제 공개 미리 보기에서 사용할 수 있습니다. 이 기능을 사용하도록 설정하려면 다음 구성 변경을 수행해야 합니다.
+
+-   [미리 보기 액세스 사용](../automatic-extension-upgrade.md#enabling-preview-access)의 방법 중 하나를 사용하여 구독 기능을 사용하도록 설정합니다.
+- 템플릿에 `enableAutomaticUpgrade` 특성을 추가합니다.
+
+종속성 에이전트 확장 버전 관리 체계는 다음 형식을 따릅니다.
+
+```
+<MM.mm.bb.rr> where M = Major version number, m = minor version number, b = bug number, r = revision number.
+```
+
+`enableAutomaticUpgrade` 및 `autoUpgradeMinorVersion` 특성은 함께 작동하여 구독의 가상 머신에 대해 업그레이드가 처리되는 방식을 결정합니다.
+
+| enableAutomaticUpgrade | autoUpgradeMinorVersion | 영향 |
+|:---|:---|:---|
+| true | false | 최신 버전의 bb.rr이 있는 경우 종속성 에이전트를 업그레이드합니다. 예를 들어 9.6.0.1355를 실행 중이고 최신 버전이 9.6.2.1366인 경우 사용하도록 설정된 구독의 가상 머신은 9.6.2.1366으로 업그레이드됩니다. |
+| true | true |  mm.bb.rr 또는 bb.rr의 최신 버전이 있는 경우 종속성 에이전트를 업그레이드합니다. 예를 들어 9.6.0.1355를 실행 중이고 최신 버전이 9.7.1.1416인 경우 사용하도록 설정된 구독의 가상 머신은 9.7.1.1416으로 업그레이드됩니다. 또한 9.6.0.1355를 실행 중이고 최신 버전이 9.6.2.1366인 경우 사용하도록 설정된 구독의 가상 머신은 9.6.2.1366으로 업그레이드됩니다. |
+| false | true 또는 false | 자동 업그레이드를 사용할 수 없습니다.
+
+> [!IMPORTANT]
+> 템플릿에 `enableAutomaticUpgrade`를 추가하는 경우 최소 API 버전 2019-12-01을 사용해야 합니다.
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원
 

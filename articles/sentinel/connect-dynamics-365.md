@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2020
+ms.date: 06/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 018368b6284cf39edec01f0a9a943b8ea15c85d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7d2a9c69108211b1342c553731c28785e1f2cc79
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98104183"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111421799"
 ---
 # <a name="connect-dynamics-365-activity-logs-to-azure-sentinel"></a>Dynamics 365 활동 로그를 Azure Sentinel에 연결
 
 [Dynamics 365](/office365/servicedescriptions/microsoft-dynamics-365-online-service-description) CDS(Common Data Service) 활동 커넥터는 관리자, 사용자 및 지원 활동과 Microsoft Social Engagement 로깅 이벤트에 관한 인사이트를 제공합니다. Dynamics 365 CRM 로그를 Azure Sentinel에 연결하면 통합 문서에서 이 데이터를 보고 이를 통해 사용자 지정 경고를 만들어 조사 프로세스를 개선할 수 있습니다. 이 새 Azure Sentinel 커넥터는 Office 관리 API에서 Dynamics CDS 데이터를 수집합니다. Power Platform에서 감사된 Dynamics CD 활동에 대해 자세히 알아보려면 [활동 로깅 활성화 및 사용](/power-platform/admin/enable-use-comprehensive-auditing)을 참조하세요.
 
-> [!IMPORTANT]
->
-> Dynamics 365 CDS(Common Data Service) 활동 커넥터는 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure Sentinel 작업 영역에 대한 읽기 및 쓰기 권한이 있어야 합니다.
 
@@ -45,7 +43,7 @@ ms.locfileid: "98104183"
 
 1. Azure Sentinel 탐색 메뉴에서 **데이터 커넥터** 를 선택합니다.
 
-1. **데이터 커넥터** 갤러리에서 **Dynamics 365(미리 보기)** 를 선택한 다음 미리 보기 창에서 **커넥터 페이지 열기** 를 선택합니다.
+1. **데이터 커넥터** 갤러리에서 **Dynamics 365** 를 선택한 다음, 미리 보기 창에서 **커넥터 페이지 열기** 를 선택합니다.
 
 1. **지침** 탭의 **구성** 에서 **연결** 을 클릭합니다. 
 

@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 055e212e0f8fcd53f74c7e1b99dd0a217412c21f
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 7aca099b4396237a80255a24149d9977c96b87cd
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166760"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110794106"
 ---
 # <a name="back-up-your-app-in-azure"></a>Azure에서 앱 백업
 
@@ -50,6 +50,8 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 * TLS 지원 Azure Database for PostgreSQL의 백업은 지원되지 않습니다. 백업이 구성된 경우, 백업 실패가 발생합니다.
 * 인앱 MySQL 데이터베이스는 구성 없이도 자동으로 백업됩니다. 연결 문자열 추가 등의 인앱 MySQL 데이터베이스에 대한 설정을 수동으로 수행하는 경우 백업이 제대로 작동하지 않을 수 있습니다.
 * 방화벽 지원 스토리지 계정을 백업 대상으로 사용하는 기능은 지원되지 않습니다. 백업이 구성된 경우, 백업 실패가 발생합니다.
+* 현재는 Azure App Service VNet 통합 기능과 함께 백업 및 복원 기능을 사용할 수 없습니다. 
+* 현재는 프라이빗 엔드포인트를 사용하도록 구성된 Azure Storage 계정에서 백업 및 복원 기능을 사용할 수 없습니다.
 
 <a name="manualbackup"></a>
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2021
-ms.openlocfilehash: 8943986bf8e8c082889d3a0b18618ac54c75e6d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1c0c7c2bf312b636c5ed16223a6bf8865d44fd1
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022979"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112070979"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Azure Monitor 에이전트를 위한 데이터 수집 구성(미리 보기)
 
@@ -38,26 +38,30 @@ Azure Portal를 사용하여 데이터 수집 규칙을 만들고 구독의 가�
 > [!IMPORTANT]
 > 현재 데이터 수집 규칙에서 사용자 할당 관리 ID가 이미 있는 가상 머신에서 관리 ID를 만들 경우 사용자 할당 ID를 사용할 수 없습니다.
 
-Azure Portal **Azure Monitor** 메뉴의 **설정** 섹션에서 **데이터 수집 규칙** 을 선택합니다. **추가** 를 클릭하여 새 데이터 수집 규칙 및 할당을 추가합니다.
+> [!NOTE]
+> Log Analytics로 데이터를 보내려면 Log Analytics 작업 영역이 있는 **동일한 영역** 에서 데이터 수집 규칙을 만들어야 합니다. 규칙은 지원되는 다른 영역의 컴퓨터에 연결할 수 있습니다.
 
-[![데이터 수집 규칙](media/data-collection-rule-azure-monitor-agent/data-collection-rules.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rules.png#lightbox)
+Azure Portal **Azure Monitor** 메뉴의 **설정** 섹션에서 **데이터 수집 규칙** 을 선택합니다. **만들기** 를 클릭하여 새 데이터 수집 규칙 및 할당을 만듭니다.
 
-**추가** 를 클릭하여 새 규칙 및 연결 집합을 만듭니다. **규칙 이름** 을 입력하고 **구독** 및 **리소스 그룹** 을 지정합니다. DCR를 만들 위치를 지정합니다. 가상 머신과 해당 연결은 테넌트의 모든 구독 또는 리소스 그룹에 있을 수 있습니다.
+[![데이터 수집 규칙](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png#lightbox)
 
-[![데이터 수집 규칙 기본 사항](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics.png#lightbox)
+**추가** 를 클릭하여 새 규칙 및 연결 집합을 만듭니다. **규칙 이름** 을 입력하고 **구독**, **리소스 그룹** 및 **영역** 을 지정합니다. DCR를 만들 위치를 지정합니다. 가상 머신과 해당 연결은 테넌트의 모든 구독 또는 리소스 그룹에 있을 수 있습니다.
+또한 이 규칙이 적용될 수 있는 리소스의 종류를 지정하는 적절한 **플랫폼 형식** 을 선택합니다. 사용자 지정 시 Windows/Linux 형식이 모두 허용됩니다. 이렇게 하면 선택한 플랫폼 형식으로 범위가 지정된 옵션을 사용해 사전 큐레이팅된 상태로 만들 수 있습니다.
 
-**가상 머신** 탭에서 데이터 수집 규칙이 적용되어야 하는 가상 머신을 추가합니다. 사용자 환경에서 Azure 가상 머신과 Azure Arc 사용 서버를 모두 나열해야 합니다. Azure Monitor 에이전트는 아직 설치하지 않은 가상 머신에 설치됩니다.
+[![데이터 수집 규칙 기본 사항](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png#lightbox)
 
-[![데이터 수집 규칙 가상 머신](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines.png#lightbox)
+**리소스** 탭에서 데이터 수집 규칙을 적용해야 하는 리소스(가상 머신, Virtual Machine Scale Sets, 서버용 Arc)를 추가합니다. Azure Monitor 에이전트는 아직 설치되지 않은 리소스에 설치되며, Azure 관리 ID도 사용됩니다.
+
+[![데이터 수집 규칙 가상 머신](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-updated.png#lightbox)
 
 **수집 및 배달** 탭에서 **데이터 원본 추가** 를 클릭하여 데이터 원본 및 대상 집합을 추가합니다. **데이터 원본 형식** 을 선택하면 선택할 항목에 해당하는 세부 정보가 표시됩니다. 성능 카운터의 경우 미리 정의된 개체 집합과 샘플링 주기 중에서 선택할 수 있습니다. 이벤트의 경우 여러 로그나 기능 및 심각도 수준을 선택할 수 있습니다. 
 
-[![데이터 원본 기본](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-basic.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-basic.png#lightbox)
+[![데이터 원본 기본](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-basic-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-basic-updated.png#lightbox)
 
 
 [현재 지원되는 데이터 원본](azure-monitor-agent-overview.md#data-sources-and-destinations)에서 다른 로그 및 성능 카운터를 지정하거나 XPath 쿼리를 사용하여 이벤트를 필터링하려면 **사용자 지정** 을 선택합니다. 그런 다음 수집할 특정 값에 대한 [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp)를 지정할 수 있습니다. 예제는 [샘플 DCR](data-collection-rule-overview.md#sample-data-collection-rule)을 참조하세요.
 
-[![데이터 원본 사용자 지정](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-custom.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-custom.png#lightbox)
+[![데이터 원본 사용자 지정](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-custom-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-custom-updated.png#lightbox)
 
 **대상** 탭에서 데이터 원본에 대한 대상을 하나 이상 추가합니다. Windows 이벤트 및 Syslog 데이터 원본은 Azure Monitor 로그에만 보낼 수 있습니다. 성능 카운터는 Azure Monitor 메트릭과 Azure Monitor 로그에 모두 보낼 수 있습니다.
 
@@ -101,6 +105,9 @@ Windows 이벤트 로그에서 지원되는 XPath의 제한 사항 목록은 [XP
 
 REST API를 사용하여 데이터 수집 규칙 및 연결을 만들려면 다음 단계를 수행합니다.
 
+> [!NOTE]
+> Log Analytics로 데이터를 보내려면 Log Analytics 작업 영역이 있는 **동일한 영역** 에서 데이터 수집 규칙을 만들어야 합니다. 규칙은 지원되는 다른 영역의 컴퓨터에 연결할 수 있습니다.
+
 1. [SAMPLE DCR](data-collection-rule-overview.md#sample-data-collection-rule)에 표시된 JSON 형식을 사용하여 DCR 파일을 수동으로 만듭니다.
 
 2. [REST API](/rest/api/monitor/datacollectionrules/create#examples)를 사용하여 규칙을 만듭니다.
@@ -110,8 +117,43 @@ REST API를 사용하여 데이터 수집 규칙 및 연결을 만들려면 다�
 
 ## <a name="create-association-using-resource-manager-template"></a>리소스 관리자 템플릿을 사용하여 연결 만들기
 
-리소스 관리자 템플릿을 사용하여 데이터 수집 규칙을 만들 수는 없지만 리소스 관리자 템플릿을 사용하여 Azure 가상 머신 또는 Azure Arc 사용 서버 간에 연결을 만들 수 있습니다. 샘플 템플릿으로는 [Azure Monitor의 데이터 수집 규칙에 대한 Resource Manager 템플릿 샘플](./resource-manager-data-collection-rules.md)을 참조하세요.
+> [!NOTE]
+> Log Analytics로 데이터를 보내려면 Log Analytics 작업 영역이 있는 **동일한 영역** 에서 데이터 수집 규칙을 만들어야 합니다. 규칙은 지원되는 다른 영역의 컴퓨터에 연결할 수 있습니다.
 
+리소스 관리자 템플릿을 사용하여 Azure 가상 머신 또는 Azure Arc 사용 서버 간에 연결할 수 있습니다. 샘플 템플릿으로는 [Azure Monitor의 데이터 수집 규칙에 대한 Resource Manager 템플릿 샘플](./resource-manager-data-collection-rules.md)을 참조하세요.
+
+
+## <a name="manage-rules-and-association-using-powershell"></a>PowerShell을 사용하여 규칙 및 연결 관리
+
+> [!NOTE]
+> Log Analytics로 데이터를 보내려면 Log Analytics 작업 영역이 있는 **동일한 영역** 에서 데이터 수집 규칙을 만들어야 합니다. 규칙은 지원되는 다른 영역의 컴퓨터에 연결할 수 있습니다.
+
+**데이터 수집 규칙**
+
+| 작업 | 명령 |
+|:---|:---|
+| 규칙 가져오기 | [Get-AzDataCollectionRule](/powershell/module/az.monitor/get-azdatacollectionrule?view=azps-5.4.0&preserve-view=true) |
+| 규칙 만들기 | [New-AzDataCollectionRule](/powershell/module/az.monitor/new-azdatacollectionrule?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) |
+| 규칙 업데이트 | [Set-AzDataCollectionRule](/powershell/module/az.monitor/set-azdatacollectionrule?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) |
+| 규칙 삭제 | [Remove-AzDataCollectionRule](/powershell/module/az.monitor/remove-azdatacollectionrule?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) |
+| 규칙에 대한 '태그' 업데이트 | [Update-AzDataCollectionRule](/powershell/module/az.monitor/update-azdatacollectionrule?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) |
+
+**데이터 수집 규칙 연결**
+
+| 작업 | 명령 |
+|:---|:---|
+| 연결 가져오기 | [Get-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/get-azdatacollectionruleassociation?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) |
+| 연결 만들기 | [New-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/new-azdatacollectionruleassociation?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) |
+| 연결 삭제 | [Remove-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/remove-azdatacollectionruleassociation?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) |
+
+
+
+## <a name="manage-rules-and-association-using-azure-cli"></a>Azure CLI를 사용하여 규칙 및 연결 관리
+
+> [!NOTE]
+> Log Analytics로 데이터를 보내려면 Log Analytics 작업 영역이 있는 **동일한 영역** 에서 데이터 수집 규칙을 만들어야 합니다. 규칙은 지원되는 다른 영역의 컴퓨터에 연결할 수 있습니다.
+
+이는 Azure CLI **monitor-control-service** 확장의 일부로 사용됩니다. [모든 명령 표시](/cli/azure/monitor/data-collection/rule?view=azure-cli-latest&preserve-view=true)
 
 
 ## <a name="next-steps"></a>다음 단계

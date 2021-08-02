@@ -9,12 +9,12 @@ ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
 ms.collection: linux
-ms.openlocfilehash: dddbad2403734bc749497a7acca16b2a5b6076f4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: b77702ea78d9b44da7843d08b2f32adeecfb9383
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107792258"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440613"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>가상 머신 또는 VHD의 관리형 이미지를 만드는 방법
 
@@ -26,7 +26,7 @@ Azure에서 사용할 VM(가상 머신)의 복사본을 여러 개 만들려면 
 
 백업 또는 디버깅을 위해 기존 Linux VM의 복사본을 만들거나 온-프레미스 VM에서 특수한 Linux VHD를 업로드하려면 [사용자 지정 디스크 이미지에서 Linux VM 업로드 및 만들기](upload-vhd.md)를 참조하세요.  
 
-**Azure VM Image Builder(퍼블릭 미리 보기)** 서비스를 사용하여 사용자 지정 이미지를 빌드할 수 있으며, 도구를 배우거나 빌드 파이프라인을 설정할 필요 없이 이미지 구성을 제공하기만 하면 Image Builder에서 이미지를 만듭니다. 자세한 내용은 [Azure VM Image Builder 시작](../image-builder-overview.md)을 참조하세요.
+**Azure VM Image Builder** 를 사용하여 사용자 지정 이미지를 빌드할 수 있으며, 도구를 배우거나 빌드 파이프라인을 설정할 필요 없이 이미지 구성을 제공하기만 하면 Image Builder에서 이미지를 만듭니다. 자세한 내용은 [Azure VM Image Builder 시작](../image-builder-overview.md)을 참조하세요.
 
 이미지를 만들려면 다음 항목이 필요합니다.
 
@@ -82,12 +82,14 @@ Azure CLI를 사용하여 VM을 일반화된 항목으로 표시하고 이미지
     ```azurecli
     az image create \
         --resource-group myResourceGroup \
-        --name myImage --source myVM
+    --name myImage --source myVM
     ```
    
    > [!NOTE]
    > 이미지는 원본 VM과 동일한 리소스 그룹에 만들어집니다. 이 이미지에서 구독 내의 모든 리소스 그룹에 VM을 만들 수 있습니다. 관리 측면에서 VM 리소스 및 이미지에 대한 특정 리소스 그룹을 만들 수도 있습니다.
    >
+   > 2세대 VM의 이미지를 캡처하는 경우 `--hyper-v-generation V2` 매개 변수도 사용합니다. 자세한 내용은 [2세대 VM](../generation-2.md)을 참조하세요.
+   > 
    > 이미지를 영역 중복 스토리지에 저장하려는 경우 [가용성 영역](../../availability-zones/az-overview.md)을 지원하고 `--zone-resilient true` 매개 변수를 포함하는 지역에 만들어야 합니다.
    
 이 명령은 VM 이미지를 설명하는 JSON을 반환합니다. 나중에 참조할 수 있도록 이 출력을 저장해 둡니다.

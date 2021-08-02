@@ -1,5 +1,5 @@
 ---
-title: Azure Static Web Apps에서 배포 토큰 초기화(미리 보기)
+title: Azure Static Web Apps에서 배포 토큰 초기화
 description: Azure Static Web Apps 사이트에서 토큰 초기화
 services: static-web-apps
 author: webmaxru
@@ -7,14 +7,14 @@ ms.author: masalnik
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 1/31/2021
-ms.openlocfilehash: fe1edb2693993d02a705039c18b04c8d1b7b9725
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d516a448240e32f58318689d985bc0aad906b9f
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101745540"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814013"
 ---
-# <a name="reset-deployment-tokens-in-azure-static-web-apps-preview"></a>Azure Static Web Apps에서 배포 토큰 초기화(미리 보기)
+# <a name="reset-deployment-tokens-in-azure-static-web-apps"></a>Azure Static Web Apps에서 배포 토큰 초기화
 
 새 Azure Static Web Apps 사이트를 만들 때 Azure는 배포 중 애플리케이션을 식별하는 데 사용되는 토큰을 생성합니다. 프로비저닝 중에 해당 토큰은 GitHub 리포지토리에서 비밀로 저장됩니다. 이 문서에서는 해당 토큰을 사용하고 관리하는 방법을 설명합니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: 164bb6ca0c84120dbef2ab8307e723ed5723cf2f
-ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
+ms.openlocfilehash: 13fb05fe04988320c46755b38bfc952b7265d30d
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107992002"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112059907"
 ---
 # <a name="microsoft-365-defender-integration-with-azure-sentinel"></a>Azure Sentinel과 Microsoft 365 Defender 통합
 
@@ -74,9 +74,10 @@ Microsoft 365 Defender 통합이 연결되면 모든 구성 요소 경고 커넥
 
 - 두 메커니즘을 함께 사용하는 것이 완벽하게 지원되며, 이에 따라 새로운 Microsoft 365 Defender 인시던트 만들기 논리로의 전환이 촉진됩니다. 하지만 이렇게 하면 동일한 경고에 대해 **중복 인시던트** 가 생성됩니다.
 
-- 동일한 경고에 대해 중복 인시던트가 생성되지 않도록 하려면 Microsoft 365 Defender에 연결할 때 Microsoft 365 제품(Defender for Endpoint, Defender for Identity 및 Defender for Office 365 - 아래 Cloud App Security 참조)에 대한 모든 **Microsoft 인시던트 만들기 규칙** 을 직접 해제하는 것이 좋습니다. 이렇게 하려면 커넥터 페이지에서 인시던트 만들기를 사용하지 않도록 설정하면 됩니다. 이렇게 하면 인시던트 만들기 규칙에 의해 적용된 필터가 Microsoft 365 Defender 인시던트 통합에 전혀 적용되지 않습니다.
+- 동일한 경고에 대해 중복 인시던트가 생성되지 않도록 하려면 Microsoft 365 Defender에 연결할 때 Microsoft 365 제품(Defender for Endpoint, Defender for Identity 및 Defender for Office 365 및 Cloud App Security)에 대한 모든 **Microsoft 인시던트 만들기 규칙** 을 직접 해제하는 것이 좋습니다. 이렇게 하려면 커넥터 페이지에서 인시던트 만들기를 사용하지 않도록 설정하면 됩니다. 이렇게 하면 인시던트 만들기 규칙에 의해 적용된 필터가 Microsoft 365 Defender 인시던트 통합에 전혀 적용되지 않습니다.
 
-- Microsoft Cloud App Security 경고의 경우 현재 모든 경고 유형이 Microsoft 365 Defender에 온보딩되는 것은 아닙니다. 모든 Cloud App Security 경고에 대한 인시던트를 계속 받으려면 [Microsoft 365 Defender에 *온보딩되지 않은* 경고 유형](microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md)에 대한 **Microsoft 인시던트 만들기 규칙** 을 유지하거나 만들어야 합니다.
+    > [!NOTE]
+    > 현재 모든 Microsoft Cloud App Security 경고 유형이 Microsoft 365 Defender에 온보딩됩니다.
 
 ### <a name="working-with-microsoft-365-defender-incidents-in-azure-sentinel-and-bi-directional-sync"></a>Azure Sentinel 및 양방향 동기화에서 Microsoft 365 Defender 인시던트 작업
 

@@ -3,26 +3,26 @@ title: MSAL.js와 ADAL.js의 차이점 | Azure
 titleSuffix: Microsoft identity platform
 description: MSAL.js(JavaScript용 Microsoft 인증 라이브러리)과 ADAL.js(JavaScript용 Azure AD 인증 라이브러리)의 차이점과 사용할 라이브러리를 선택하는 방법을 알아봅니다.
 services: active-directory
-author: navyasric
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/10/2019
-ms.author: nacanuma
+ms.author: mtillman
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 1a56685c830fc7aa717add3e826c68c04449e378
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 2c4a1463074635ed46fc4bc0c21771aabdb00254
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99580849"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077251"
 ---
-# <a name="differences-between-msaljs-and-adaljs"></a>MSAL.js와 ADAL.js의 차이점
+# <a name="differences-between-msaljs-and-adaljs"></a>MSAL JS와 ADAL JS의 차이점
 
-JavaScript 용 Microsoft 인증 라이브러리 (MSAL.js)와 JavaScript 용 Azure AD 인증 라이브러리 (ADAL.js)는 모두 azure ad 엔터티를 인증 하 고 Azure AD에서 토큰을 요청 하는 데 사용 됩니다. 지금까지 대부분의 개발자는 ADAL을 사용하는 토큰을 요청하여 Azure AD ID(회사 및 학교 계정)를 인증하는 데 개발자용 Azure AD(v1.0)를 사용해 왔습니다. 이제 MSAL.js를 사용 하 여 Microsoft id 플랫폼을 통해 광범위 한 Microsoft id 집합 (Azure AD id 및 Microsoft 계정, Azure AD B2C를 통해 소셜 및 로컬 계정)을 인증할 수 있습니다.
+MSAL.js(JavaScript용 Microsoft 인증 라이브러리) 및 ADAL.js(JavaScript용 Azure AD 인증 라이브러리)는 모두 Azure AD 엔터티를 인증하고 Azure AD에서 토큰을 요청하는 데 사용됩니다. 지금까지 대부분의 개발자는 ADAL을 사용하는 토큰을 요청하여 Azure AD ID(회사 및 학교 계정)를 인증하는 데 개발자용 Azure AD(v1.0)를 사용해 왔습니다. 이제 MSAL.js를 사용하면 Microsoft ID 플랫폼을 통해 광범위한 Microsoft ID 세트(Azure AD ID, Microsoft 계정 및 Azure AD B2C를 통한 소셜/로컬 계정)를 인증할 수 있습니다.
 
 이 문서에서는 MSAL.js(JavaScript용 Microsoft 인증 라이브러리)와 ADAL.js(JavaScript용 Azure AD 인증 라이브러리) 중에서 선택하는 방법을 설명하고, 두 라이브러리를 비교합니다.
 
@@ -48,7 +48,7 @@ v1.0 엔드포인트(및 ADAL.js)에 이미 익숙한 경우 [v2.0 엔드포인�
 
 v1.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하는 경우 사용자가 모든 조직에 대해 Azure AD 계정을 사용하여 로그인할 수 있습니다.
 
-v2.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하는 경우 사용자가 Azure AD 조직 계정 또는 MSA(Microsoft 개인 계정)를 사용하여 로그인할 수 있습니다. Azure AD 계정에 대 한 로그인을 제한 하려면 (ADAL.js와 동일한 동작)를 사용 `https://login.microsoftonline.com/organizations` 합니다. 자세한 내용은 [MSAL.js를 사용하여 초기화](msal-js-initializing-client-applications.md)의 `authority` 구성 옵션을 참조하세요.
+v2.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하는 경우 사용자가 Azure AD 조직 계정 또는 MSA(Microsoft 개인 계정)를 사용하여 로그인할 수 있습니다. 로그인을 Azure AD 계정으로만 제한하려면(ADAL.js와 동일한 동작) `https://login.microsoftonline.com/organizations`를 사용합니다. 자세한 내용은 [MSAL.js를 사용하여 초기화](msal-js-initializing-client-applications.md)의 `authority` 구성 옵션을 참조하세요.
 
 ### <a name="scopes-for-acquiring-tokens"></a>토큰 획득에 대한 범위
 * 토큰을 획득하기 위한 인증 요청에서 리소스 매개 변수 대신 범위를 지정합니다.
@@ -61,7 +61,7 @@ v2.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하
 
     API의 URI를 appidURI/scope 형식으로 사용하여 리소스 API에 대한 범위를 요청할 수 있습니다. 예를 들어 https:\//mytenant.onmicrosoft.com/myapi/api.read입니다.
 
-    MS Graph API에 대해서만 범위 값은 `user.read` https: \/ /graph.microsoft.com/User.Read에 매핑되고 서로 바꿔 사용할 수 있습니다.
+    MS Graph API의 경우에만 범위 값 `user.read`가 https:\//graph.microsoft.com/User.Read에 매핑되며 서로 교환하여 사용할 수 있습니다.
 
     ```javascript
     var request = {

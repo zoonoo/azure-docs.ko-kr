@@ -3,12 +3,12 @@ title: Azure Functions 보안 설정
 description: Azure에서 실행 중인 함수 코드가 일반적인 공격으로부터 더욱 안전하게 보호하는 방법을 알아봅니다.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 351bdca7ff94b6c058b5ab62fd9c16d707e7dc78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c8649c342b237a321c3c47510644451ceb3581fe
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100368492"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467926"
 ---
 # <a name="securing-azure-functions"></a>Azure Functions 보안 설정
 
@@ -28,7 +28,7 @@ Security Center는 포털의 함수 앱과 통합됩니다. 잠재적인 구성 
 
 ### <a name="log-and-monitor"></a>로그 및 모니터
 
-작업 모니터링과 로그 분석을 통해 공격을 감지하는 방법입니다. Functions는 함수 앱에 대한 로그, 성능 및 오류 데이터를 수집하는 Application Insights와 통합됩니다. Application Insights는 성능 이상을 자동으로 감지하며, 문제를 진단하고 함수가 어떻게 사용되는지 이해할 수 있는 강력한 분석 도구를 포함하고 있습니다. 자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
+작업 모니터링과 로깅 분석을 통해 공격을 탐지하는 방법입니다. Functions는 함수 앱에 대한 로그, 성능 및 오류 데이터를 수집하는 Application Insights와 통합됩니다. Application Insights는 성능 이상을 자동으로 감지하며, 문제를 진단하고 함수가 어떻게 사용되는지 이해할 수 있는 강력한 분석 도구를 포함하고 있습니다. 자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
 
 Functions는 또한 더욱 쉬운 분석을 위해 함수 앱 로그를 시스템 이벤트와 통합할 수 있도록 Azure Monitor 로그와 통합됩니다. 진단 설정을 사용하여 Logs Analytics 작업 영역 등 사용자가 선택한 대상으로 함수에 대한 플랫폼 로그 및 메트릭의 스트리밍 내보내기를 구성할 수 있습니다. 자세한 내용은 [Azure Monitor 로그를 사용한 Azure Functions 모니터링](functions-monitor-log-analytics.md)을 참조하세요. 
 
@@ -42,7 +42,7 @@ Functions는 또한 더욱 쉬운 분석을 위해 함수 앱 로그를 시스�
 
 HTTPS가 필요한 경우 최신 TLS 버전도 필요합니다. 방법을 알아보려면 [TLS 버전 적용](../app-service/configure-ssl-bindings.md#enforce-tls-versions)을 참조하세요.
 
-자세한 내용은 [보안 연결(TSL)](../app-service/overview-security.md#https-and-certificates)을 참조하세요.
+자세한 정보는 [보안 연결(TLS)](../app-service/overview-security.md#https-and-certificates)을 참조하세요.
 
 ### <a name="function-access-keys"></a>함수 액세스 키
 

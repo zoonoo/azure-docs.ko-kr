@@ -6,14 +6,14 @@ services: media-services
 author: Juliako
 manager: femila
 ms.topic: article
-ms.date: 05/06/2021
+ms.date: 05/25/2021
 ms.author: juliako
-ms.openlocfilehash: 620ebb81462f807b46c12aeee596e8873c99a1e4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1c4b96bf7874c5ade93601f7ff40238ef04cb7ee
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386781"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966665"
 ---
 # <a name="video-analyzer-for-media-frequently-asked-questions"></a>Video Analyzer for Media 질문과 대답
 
@@ -102,6 +102,12 @@ Video Analyzer for Media API 및 Video Analyzer for Media 웹 기반 인터페�
 
 여러 오디오 스트림이 있는 경우 Video Analyzer for Media는 발견한 첫 번째 스트림을 취하고 이 스트림만 처리합니다. Video Analyzer for Media가 처리하는 모든 오디오 스트림에서 서로 다른 채널(있는 경우)을 사용하고 모노로 함께 처리합니다. 스트림/채널 조작을 위해 인덱싱하기 전에 파일에 ffmpeg 명령을 사용할 수 있습니다.
 
+### <a name="can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall"></a>Media Services 계정에 연결된 스토리지 계정이 방화벽 뒤에 있을 수 있나요?
+
+유료 Video Analyzer for Media 계정은 스토리지 계정에 연결된 지정된 Media Services 계정을 사용합니다. 현재 방화벽 뒤에 있는 연결된 스토리지 계정을 사용하려면 Video Analyzer for Media 지원에 문의해야 합니다. 그러면 정확한 지침이 제공됩니다. 
+
+Azure Portal에서 새 지원 요청을 열려면 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)으로 이동합니다.
+
 ### <a name="what-is-the-sla-for-video-analyzer-for-media"></a>Video Analyzer for Media에 대한 SLA는 무엇인가요?
 
 Azure Media Service의 SLA가 Video Analyzer for Media에 적용되며, [SLA](https://azure.microsoft.com/support/legal/sla/media-services/v1_2/) 페이지에서 확인할 수 있습니다. SLA는 Video Analyzer for Media 유료 계정에만 적용되며 평가판에는 적용되지 않습니다.
@@ -136,7 +142,7 @@ Azure Media Service의 SLA가 Video Analyzer for Media에 적용되며, [SLA](ht
 
 예, 콘텐츠 및 해당 인사이트는 여러 Azure 지역을 사용하는 수동 구성이 Azure 구독에 없는 한 Azure 지역(싱가포르 및 브라질 남부 지역 제외) 내에 유지됩니다.
 
-지역의 고객 데이터는 BCDR 이유로 [쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs)에 복제됩니다.
+지역의 고객 데이터는 BCDR 이유로 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md#azure-regional-pairs)에 복제됩니다.
 
 ### <a name="what-is-the-privacy-policy-for-video-analyzer-for-media"></a>Video Analyzer for Media에 대한 개인정보처리방침은 무엇인가요?
 

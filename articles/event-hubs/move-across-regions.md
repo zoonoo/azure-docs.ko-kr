@@ -2,13 +2,13 @@
 title: Azure Event Hubs 네임스페이스를 다른 지역으로 이동 | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs 네임스페이스를 현재 지역에서 다른 지역으로 이동하는 방법을 보여줍니다.
 ms.topic: how-to
-ms.date: 09/01/2020
-ms.openlocfilehash: b177c3916919e3d97325f9d8c6b6027c00cb476f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/08/2021
+ms.openlocfilehash: 9e10cd220a18849336fdc520b269c8af2cb257bd
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96019925"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111811610"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Azure Event Hubs 네임스페이스를 다른 지역으로 이동
 이 문서에서는 기존 Event Hubs 네임스페이스용 Azure Resource Manager 템플릿을 내보낸 다음, 템플릿을 사용하여 다른 지역에서 동일한 구성 설정으로 네임스페이스를 만드는 방법을 보여줍니다. 그러나 이 프로세스에서는 아직 처리되지 않은 이벤트는 이동하지 않습니다. 원래 네임스페이스를 삭제하기 전에 해당 이벤트를 처리해야 합니다.
@@ -26,7 +26,7 @@ Event Hubs 네임스페이스를 포함하는 Azure 리소스 그룹에 다른 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **모든 리소스** 를 선택한 후 Event Hubs 네임스페이스를 선택합니다.
-3. **설정** > **템플릿 내보내기** 를 선택합니다.
+3. **Event Hubs 네임스페이스** 페이지의 왼쪽 메뉴에 있는 **자동화** 에서 **템플릿 내보내기** 를 선택합니다. 
 4. **템플릿 내보내기** 페이지에서 **다운로드** 를 선택합니다.
 
     ![Resource Manager 템플릿 다운로드](./media/move-across-regions/download-template.png)
@@ -46,7 +46,7 @@ Event Hubs 네임스페이스를 포함하는 Azure 리소스 그룹에 다른 �
 6. **파일 로드** 를 선택한 다음, 지침에 따라 마지막 섹션에서 다운로드한 **template.json** 파일을 로드합니다.
 1. 새 지역을 가리키도록 `location` 속성 값을 업데이트합니다. 위치 코드를 확인하려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조하세요. 지역 코드는 공백이 없는 지역 이름입니다. 예를 들어 `West US`는 `westus`와 같습니다.
 1. **저장** 을 선택하여 템플릿을 사용합니다. 
-1. **사용자 지정 배포** 페이지에서 다음 단계를 수행합니다. 
+1. **사용자 지정 배포** 페이지에서 다음 단계를 수행합니다: 
     1. Azure **구독** 을 선택합니다. 
     2. 기존 **리소스 그룹** 을 선택하거나 리소스 그룹을 만듭니다. 원본 네임스페이스가 Event Hubs 클러스터에 있는 경우 대상 지역에서 클러스터가 포함된 리소스 그룹을 선택합니다. 
     3. 대상 **위치** 또는 지역을 선택합니다. 기존 리소스 그룹을 선택한 경우 이 설정은 읽기 전용입니다. 

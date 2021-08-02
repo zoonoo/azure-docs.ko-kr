@@ -1,14 +1,30 @@
 ---
-ms.openlocfilehash: 69f0da2f1528ad1f45762a8f754cc2020b4cb880
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5208f497fc5423cd0e9c2343af2a5757088399b1
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98901058"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111449942"
 ---
-이 문서에서는 릴리스된 Azure Active Directory Connect Provisioning Agent의 버전과 기능을 나열합니다. Azure AD 팀은 새로운 기능과 기능으로 프로비전 에이전트를 정기적으로 업데이트합니다. 프로비전 에이전트는 새 버전이 릴리스되면 자동으로 업데이트됩니다. 
+이 문서에서는 릴리스된 Azure Active Directory Connect Provisioning Agent의 버전과 기능을 나열합니다. Azure AD 팀은 새로운 기능과 기능으로 프로비전 에이전트를 정기적으로 업데이트합니다. 
 
 Microsoft에서는 최신 에이전트 버전 및 이전 버전을 직접 지원합니다.
+
+## <a name="113590"></a>1.1.359.0
+
+### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
+- 권한을 설정/다시 설정하는 GMSA Cmdlet
+
+### <a name="fixed-issues"></a>해결된 문제
+- GMSA 폴더 권한 버그 수정(원래 이 문제로 인해 부트스트랩 문제가 발생함)
+- 단일 값 참조 특성(예: 관리자)에 대한 여러 변경 내용을 처리하기 위한 버그 수정
+- 초기 열거형의 오류에 대한 버그 수정 및 향상된 오류 추적
+- 범위 지정 그룹에 대한 그룹 멤버 자격 업데이트를 최적화합니다. 이를 통해 고객은 이제 그룹 범위 지정 필터를 사용하여 최대 50,000명의 멤버 그룹을 동기화할 수 있습니다. 
+- 범위 지정 논리를 준수하기 위해 주문형 프로비저닝에서 사용하는 범위 지정을 통해 DN으로 단일 개체 검색 지원
+
+
+
+
 
 ## <a name="113540"></a>1.1.354.0
 
@@ -97,5 +113,4 @@ Microsoft에서는 최신 에이전트 버전 및 이전 버전을 직접 지원
 ### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 
 * 더 나은 성능, 안정성 및 안정성을 위해 프로비전 에이전트 및 커넥터 아키텍처가 개선됨 
-* UI 기반 설치 마법사를 사용하여 프로비전 에이전트 구성이 간소화됨 
-* 자동 에이전트 업데이트에 대한 지원이 추가됨
+* UI 기반 설치 마법사를 사용하여 프로비전 에이전트 구성이 간소화됨

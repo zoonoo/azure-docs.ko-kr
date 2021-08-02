@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
-ms.custom: references_regions, synapse-cosmos-db
-ms.openlocfilehash: 24886ff3e01e9d9b4c01eabc917ced433599c0fa
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
+ms.openlocfilehash: bba594a6b0482457acad8bead382099a1e8e3a5b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727130"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968046"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link 구성 및 사용
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -206,7 +206,7 @@ Azure Portal을 통해 분석 저장소를 사용하도록 설정된 컨테이�
 1. 분석 저장소가 사용하도록 설정된 기존 컨테이너를 선택합니다. 확장하고 다음 값을 수정합니다.
 
   * **배율 및 설정** 창을 엽니다.
-  * **설정** 에서 ** 분석 스토리지 TTL(Time to live)**을 찾습니다.
+  * **설정** 에서 **분석 스토리지 Time to Live** 를 찾습니다.
   * **설정(기본값 없음)** 를 선택하거나 **켜기** 를 선택하고 TTL 값을 설정합니다.
   * **저장** 을 클릭하여 변경 내용을 저장합니다.
 
@@ -270,7 +270,8 @@ Synapse Spark를 사용하여 쿼리하는 방법에 대해 [Azure Cosmos DB 분
 
 ## <a name="use-serverless-sql-pool-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>서버리스 SQL 풀을 사용하여 Power BI에서 데이터 분석 및 시각화
 
-Azure Cosmos DB용 Synapse Link를 통해 서버리스 SQL 풀 데이터베이스와 보기를 빌드할 수 있습니다. 나중에 Azure Cosmos 컨테이너를 쿼리한 다음 해당 보기를 통해 Power BI로 모델을 빌드하여 해당 쿼리를 반영할 수 있습니다. 자세한 내용은 [Synapse Link로 Azure Cosmos DB 데이터를 분석하기 위한 서버리스 SQL 풀](synapse-link-power-bi.md) 사용 방법 문서를 참조하세요.
+Azure Cosmos DB용 Synapse Link를 통해 서버리스 SQL 풀 데이터베이스와 보기를 만들 수 있습니다. 나중에 Azure Cosmos 컨테이너를 쿼리한 다음 해당 보기를 통해 Power BI로 모델을 빌드하여 해당 쿼리를 반영할 수 있습니다. 트랜잭션 워크로드에 대한 성능 또는 비용 영향은 없으며 ETL 파이프라인 관리의 복잡성도 없습니다. [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) 또는 [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) 모드를 사용할 수 있습니다. 자세한 내용은 [Synapse Link로 Azure Cosmos DB 데이터를 분석하기 위한 서버리스 SQL 풀](synapse-link-power-bi.md) 사용 방법 문서를 참조하세요.
+
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
@@ -288,7 +289,7 @@ Azure Cosmos DB용 Synapse Link를 통해 서버리스 SQL 풀 데이터베이�
 
 * [Azure Cosmos DB 분석 저장소 개요](analytical-store-introduction.md)
 
-* [Azure Cosmos DB용 Synapse Link에 대한 질문과 대답](synapse-link-frequently-asked-questions.md)
+* [Azure Cosmos DB용 Synapse Link에 대한 질문과 대답](synapse-link-frequently-asked-questions.yml)
 
 * [Azure Synapse Analytics의 Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md)
 

@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: a7951543d548696c8de403d7980e1a41b678c6cd
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 9877f50fe7bb06cb33a38f8ee89fa09ad12c0693
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078671"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110672481"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 개발자 가이드
 
@@ -74,7 +74,7 @@ param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 $TriggerMetadata.sys
 ```
 
-| 속성   | 설명                                     | Type     |
+| 속성   | Description                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | UTC에서 함수가 실행된 경우        | DateTime |
 | MethodName | 실행된 함수의 이름     | 문자열   |
@@ -122,7 +122,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 * 출력 바인딩에서 singleton 값만 허용하는 경우 `Push-OutputBinding`을 두 번째 호출하면 오류가 발생합니다.
 
-#### <a name="push-outputbinding-syntax"></a>`Push-OutputBinding` 구문
+#### <a name="push-outputbinding-syntax"></a>Push-OutputBinding 구문
 
 `Push-OutputBinding`을 호출하는 데 유효한 매개 변수는 다음과 같습니다.
 
@@ -196,7 +196,7 @@ PS >Push-OutputBinding -Name outQueue -Value @("output #3", "output #4")
 
 큐에 기록될 때 메시지는 네 가지 값("출력 #1", "출력 #2", "출력 #3", "출력 #4")을 포함합니다.
 
-#### <a name="get-outputbinding-cmdlet"></a>`Get-OutputBinding` cmdlet
+#### <a name="get-outputbinding-cmdlet"></a>Get-OutputBinding cmdlet
 
 `Get-OutputBinding` cmdlet을 사용하여 현재 출력 바인딩에 설정된 값을 검색할 수 있습니다. cmdlet은 해당 값을 사용하여 출력 바인딩의 이름을 포함하는 해시 테이블을 검색합니다. 
 
@@ -295,7 +295,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 스크립트에 전달되는 요청 개체의 형식은 다음 속성을 가진 `HttpRequestContext` 형식입니다.
 
-| 속성  | 설명                                                    | Type                      |
+| 속성  | Description                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body`는 데이터에 따라 가장 적합한 형식으로 직렬화됩니다. 예를 들어 데이터가 JSON인 경우, 해시 테이블로 전달됩니다. 데이터가 문자열인 경우 문자열로 전달됩니다. | object |
 | **`Headers`** | 요청 헤더를 포함하는 사전입니다.                | Dictionary<string,string><sup>*</sup> |
@@ -310,7 +310,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 다시 전송해야 하는 응답 개체는 다음과 같은 속성을 포함하는 `HttpResponseContext` 형식입니다.
 
-| 속성      | 설명                                                 | Type                      |
+| 속성      | Description                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | 응답의 본문을 포함하는 개체입니다.           | object                    |
 | **`ContentType`** | 응답의 콘텐츠 형식을 설정하는 데 사용할 축약형입니다. | 문자열                    |
@@ -462,21 +462,47 @@ Set-AzResource -ResourceId "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RES
 
 requirements.psd1 파일을 업데이트하는 경우, 업데이트된 모듈이 다시 시작한 후 설치됩니다.
 
-> [!NOTE]
-> 모듈을 다운로드하려면 관리형 종속성이 www.powershellgallery.com에 액세스해야 합니다. 로컬로 실행하는 경우 런타임에서 필요한 방화벽 규칙을 추가하여 해당 URL에 액세스할 수 있는지 확인합니다.
+### <a name="target-specific-versions"></a>특정 버전을 대상으로 지정
 
-> [!NOTE]
-> 관리형 종속성은 현재 사용자가 대화형으로 라이선스를 수락하거나, `Install-Module`을 호출할 때 `-AcceptLicense` 스위치를 제공하여 라이선스를 수락해야 하는 모듈을 지원하지 않습니다.
+requirements.psd1 파일에서 모듈의 특정 버전을 대상으로 지정할 수 있습니다. 예를 들어, 포함된 Az module에 있는 것보다 더 이전 버전인 Az.Accounts를 사용하려는 경우 다음 예제와 같이 특정 버전을 대상으로 지정해야 합니다. 
 
-다음 애플리케이션 설정을 사용하여 관리형 종속성을 다운로드하고 설치하는 방법을 변경할 수 있습니다. 앱 업그레이드는 `MDMaxBackgroundUpgradePeriod`내에서 시작되고, 업그레이드 프로세스는 대략 `MDNewSnapshotCheckPeriod` 에서 완료됩니다.
+```powershell
+@{
+    'Az.Accounts' = '1.9.5'
+}
+```
 
-| 함수 앱 설정              | 기본값             | 설명                                         |
+이 경우 다음 예제와 같이 profile.ps1 파일의 맨 위에 import 문도 추가해야 합니다.
+
+```powershell
+Import-Module Az.Accounts -RequiredVersion '1.9.5'
+```
+
+이러한 방식으로 함수를 시작하면 이전 버전의 Az.Account 모듈이 먼저 로드됩니다.
+
+### <a name="dependency-management-considerations"></a>종속성 관리 고려 사항
+
+종속성 관리를 사용하는 경우 다음 사항을 고려해야 합니다.
+
++ 모듈을 다운로드하려면 관리형 종속성이 <https://www.powershellgallery.com>에 액세스할 수 있어야 합니다. 로컬로 실행하는 경우 런타임에서 필요한 방화벽 규칙을 추가하여 해당 URL에 액세스할 수 있는지 확인합니다.
+
++ 관리형 종속성은 현재 사용자가 대화형으로 라이선스를 수락하거나, `Install-Module`을 호출할 때 `-AcceptLicense` 스위치를 제공하여 라이선스를 수락해야 하는 모듈을 지원하지 않습니다.
+
+### <a name="dependency-management-app-settings"></a>종속성 관리 앱 설정
+
+다음 애플리케이션 설정을 사용하여 관리형 종속성을 다운로드하고 설치하는 방법을 변경할 수 있습니다. 
+
+| 함수 앱 설정              | 기본값             | Description                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
-| **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00`(7일)     | 각 PowerShell 작업자 프로세스는 프로세스 시작 시와 그 이후 `MDMaxBackgroundUpgradePeriod`마다 PowerShell 갤러리에서 모듈 업그레이드 확인을 시작합니다. PowerShell 갤러리에서 새 모듈 버전을 사용할 수 있는 경우 해당 버전은 파일 시스템에 설치되며 PowerShell 작업자에게 제공됩니다. 이 값을 줄이면 함수 앱에서 최신 모듈 버전을 더 빨리 가져올 수 있지만, 앱 리소스 사용량(네트워크 I/O, CPU, 스토리지)도 늘어납니다. 이 값을 늘이면 앱의 리소스 사용량이 줄어들지만, 앱에 새 모듈 버전을 전달하는 작업이 지연될 수도 있습니다. | 
-| **`MDNewSnapshotCheckPeriod`**         | `01:00:00`(1시간)       | 새 모듈 버전이 파일 시스템에 설치된 후에는 모든 PowerShell 작업자 프로세스를 다시 시작해야 합니다. PowerShell 작업자를 다시 시작하면 현재 함수 실행을 중단할 수 있으므로 앱 사용 가능성이 영향을 받습니다. 모든 PowerShell 작업자 프로세스가 다시 시작될 때까지 함수 호출은 이전 버전 또는 새 모듈 버전을 사용할 수 있습니다. 모든 Powershall 작업자를 다시 시작하는 작업이 `MDNewSnapshotCheckPeriod` 내에서 완료됩니다. 이 값을 늘리면 중단 빈도가 줄어들지만, 함수 호출이 이전 모듈 버전 또는 새 모듈 버전을 비결정적으로 사용할 때 시간이 길어질 수 있습니다. |
-| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00`(1일)     | 잦은 작업자 재시작을 과도하게 모듈 업그레이드하지 않기 위해 작업자가 마지막 `MDMinBackgroundUpgradePeriod`에 체크 인을 이미 시작한 경우에는 모듈 업그레이드를 확인하지 않습니다. |
+| **MDMaxBackgroundUpgradePeriod**      | `7.00:00:00`(7일)     | PowerShell 함수 앱에 대한 백그라운드 업데이트 기간을 제어합니다. 자세히 알아보려면 [MDMaxBackgroundUpgradePeriod](functions-app-settings.md#mdmaxbackgroundupgradeperiod)를 참조하세요. | 
+| **MDNewSnapshotCheckPeriod**         | `01:00:00`(1시간)       | 각 PowerShell 작업자가 관리되는 종속성 업그레이드의 설치 여부를 확인하는 빈도를 지정합니다. 자세히 알아보려면 [MDNewSnapshotCheckPeriod](functions-app-settings.md#mdnewsnapshotcheckperiod)를 참조하세요.|
+| **MDMinBackgroundUpgradePeriod**      | `1.00:00:00`(1일)     | 이전 업그레이드 이후, 다른 업그레이드 확인이 시작될 때까지의 기간입니다. 자세히 알아보려면 [MDMinBackgroundUpgradePeriod](functions-app-settings.md#mdminbackgroundupgradeperiod)를 참조하세요.|
 
-고유의 사용자 지정 모듈을 활용하는 것은 일반적인 수행 방법과 약간 다릅니다.
+기본적으로 앱 업그레이드는 `MDMaxBackgroundUpgradePeriod`내에서 시작되고, 업그레이드 프로세스는 대략 `MDNewSnapshotCheckPeriod` 에서 완료됩니다.
+
+## <a name="custom-modules"></a>사용자 지정 모듈
+
+Azure Functions의 사용자 고유의 사용자 지정 모듈을 활용하는 것은 PowerShell에서 일반적으로 작업을 수행하는 방법과 다릅니다.
 
 로컬 컴퓨터에서 모듈은 `$env:PSModulePath`에서 전역으로 사용 가능한 폴더 중 하나에 설치됩니다. Azure에서 실행하는 경우 컴퓨터에 설치된 모듈에 액세스할 수 없습니다. 즉, PowerShell 함수 앱을 위한 `$env:PSModulePath`는 일반 PowerShell 스크립트 내의 `$env:PSModulePath`와 다릅니다.
 
@@ -485,13 +511,12 @@ Functions에는 `PSModulePath`에 두 개의 경로가 포함되어 있습니다
 * 함수 앱의 루트에 있는 `Modules` 폴더.
 * PowerShell 언어 작업자에 의해 제어되는 `Modules` 폴더의 경로.
 
-
-### <a name="function-app-level-modules-folder"></a>함수 앱 수준 `Modules` 폴더
+### <a name="function-app-level-modules-folder"></a>함수 앱 수준 모듈 폴더
 
 사용자 지정 모듈을 사용하기 위해 함수가 `Modules` 폴더에 종속되는 모듈을 배치할 수 있습니다. 이 폴더에서 모듈은 자동으로 함수 런타임에 사용할 수 있습니다. 함수 앱의 모든 함수는 해당 모듈을 사용할 수 있습니다. 
 
 > [!NOTE]
-> requirements.psd1 파일에 지정된 모듈은 자동으로 다운로드되어 경로에 포함되므로 모듈 폴더에 포함할 필요가 없습니다. 해당 모듈은 클라우드에서 실행될 때 `$env:LOCALAPPDATA/AzureFunctions` 폴더 및 `/data/ManagedDependencies` 폴더에 로컬로 저장됩니다.
+> [requirements.psd1 파일](#dependency-management)에 지정된 모듈은 자동으로 다운로드되어 경로에 포함되므로 모듈 폴더에 포함할 필요가 없습니다. 해당 모듈은 클라우드에서 실행될 때 `$env:LOCALAPPDATA/AzureFunctions` 폴더 및 `/data/ManagedDependencies` 폴더에 로컬로 저장됩니다.
 
 사용자 지정 모듈 기능을 활용하려면 함수 앱의 루트에 `Modules` 폴더를 만듭니다. 함수에서 사용하려는 모듈을 해당 위치에 복사합니다.
 
@@ -518,7 +543,7 @@ PSFunctionApp
 
 함수 앱을 시작하는 경우 PowerShell 언어 작업자는 해당 `Modules` 폴더를 `$env:PSModulePath`에 추가하므로 일반 PowerShell 스크립트에서와 마찬가지로 모듈 자동 로드가 처리합니다.
 
-### <a name="language-worker-level-modules-folder"></a>언어 작업자 수준 `Modules` 폴더
+### <a name="language-worker-level-modules-folder"></a>언어 작업자 수준 모듈 폴더
 
 일반적으로 여러 모듈이 PowerShell 언어 작업자에서 사용됩니다. 모듈은 `PSModulePath`의 마지막 위치에 정의됩니다. 
 
@@ -573,7 +598,7 @@ Azure PowerShell은 _프로세스 수준_ 컨텍스트 및 상태를 통해 과�
 
 일부 작업에는 상당한 시간이 걸릴 수 있으므로 Azure PowerShell을 사용하는 동시성에는 엄청난 값이 있습니다. 그러나 주의해야 합니다. 경합 상태가 발생한 것 같다면 PSWorkerInProcConcurrencyUpperBound 앱 설정을 `1`로 설정하고, 대신 동시성에 [언어 작업자 프로세스 수준 격리](functions-app-settings.md#functions_worker_process_count)를 사용합니다.
 
-## <a name="configure-function-scriptfile"></a>함수 `scriptFile` 구성
+## <a name="configure-function-scriptfile"></a>함수 scriptFile 구성
 
 기본적으로 PowerShell 함수는 해당하는 `function.json`과 동일한 부모 디렉터리를 공유하는 `run.ps1` 파일에서 실행됩니다.
 
@@ -651,7 +676,7 @@ PowerShell 함수로 작업하는 경우 다음 섹션의 고려 사항에 유�
 
 [서버리스 호스팅 모델](consumption-plan.md)에서 Azure Functions를 개발하는 경우 사실상 콜드 부팅됩니다. *콜드 부팅* 은 함수 앱이 요청 처리를 위해 실행을 시작하기까지 걸리는 시간을 나타냅니다. 비활성 기간에 함수 앱이 종료되기 때문에 소비 계획에서 콜드 부팅이 더 자주 발생합니다.
 
-### <a name="bundle-modules-instead-of-using-install-module"></a>`Install-Module`을 사용하는 대신 번들 모듈
+### <a name="bundle-modules-instead-of-using-install-module"></a>Install-Module을 사용하는 대신 모듈을 번들로 묶기
 
 모든 호출에서 스크립트가 실행됩니다. 스크립트에서 `Install-Module`을 사용하지 않습니다. 대신 함수가 모듈을 다운로드하느라 시간을 낭비하지 않도록 게시하기 전에 `Save-Module`을 사용합니다. 콜드 부팅이 함수에 영향을 줄 때는 *Always On* 또는 [프리미엄 계획](functions-premium-plan.md)으로 설정된 [App Service 요금제](dedicated-plan.md)에 함수 앱을 배포하는 것이 좋습니다.
 

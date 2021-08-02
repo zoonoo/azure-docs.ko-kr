@@ -1,5 +1,5 @@
 ---
-title: Azure Image Builder를 사용하여 기존의 이미지 버전에서 새로운 VM 이미지 버전을 만들기(미리 보기)
+title: Azure Image Builder를 사용하여 기존의 이미지 버전에서 새로운 VM 이미지 버전을 만들기
 description: Linux에서 Azure Image Builder를 사용하여 기존의 이미지 버전에서 새로운 VM 이미지 버전을 만듭니다.
 author: cynthn
 ms.author: cynthn
@@ -9,14 +9,14 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: danis
-ms.openlocfilehash: 0887051ffa396f1eac8bc00dc2437b8e92bec45a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e9508da2002035ee413d557c0cd48474b6e10e0d
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101695637"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071248"
 ---
-# <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-linux"></a>미리 보기: Linux에서 Azure Image Builder를 사용하여 기존의 이미지 버전에서 새로운 VM 이미지 버전 만들기
+# <a name="create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-linux"></a>Linux에서 Azure Image Builder를 사용하여 기존의 이미지 버전에서 새로운 VM 이미지 버전을 만듭니다.
 
 본 문서에서는 [Shared Image Gallery](../shared-image-galleries.md)에서 기존 이미지 버전을 가져오기, 해당 이미지 업데이트하기 및 업데이트한 이미지를 갤러리에 새 이미지 버전으로 게시하기에 대한 방법을 알려줍니다.
 
@@ -24,17 +24,7 @@ ms.locfileid: "101695637"
 
 
 ## <a name="register-the-features"></a>기능 등록
-미리 보기 중에 Azure Image Builder를 사용하려면 이 새 기능을 등록해야 합니다.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-기능 등록 상태를 확인합니다.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
-```
+Azure Image Builder를 사용하려면 해당 기능을 등록해야 합니다.
 
 등록을 확인합니다.
 
@@ -188,4 +178,4 @@ az sig image-version list -g $sigResourceGroup -r $sigName -i $imageDefName -o t
 
 ## <a name="next-steps"></a>다음 단계
 
-본 문서에서 사용한 .json 파일 구성 요소에 대한 자세한 내용은 [Image Builder 템플릿 참조](../linux/image-builder-json.md)를 확인하세요.
+이 문서에서 사용한 .json 파일 구성 요소에 대한 자세한 내용은 [Image Builder 템플릿 참조](../linux/image-builder-json.md)를 확인하세요.

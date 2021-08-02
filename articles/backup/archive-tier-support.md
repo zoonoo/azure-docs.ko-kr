@@ -2,13 +2,14 @@
 title: 보관 계층 지원(미리 보기)
 description: Azure Backup용 보관 계층 지원에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.openlocfilehash: 322bc9d7e2160cc9156c793859b9fda833b3df09
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 06/03/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c817e5e0fbed7ebe6c659a91e180820de3fdc677
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563976"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410102"
 ---
 # <a name="archive-tier-support-preview"></a>보관 계층 지원(미리 보기)
 
@@ -40,6 +41,8 @@ Azure Backup은 스냅숏과 표준 계층 외에도 보관 계층 내 장기 �
 
 ## <a name="get-started-with-powershell"></a>PowerShell 시작
 
+1. GitHub에서 [최신](https://github.com/PowerShell/PowerShell/releases) 버전의 PowerShell을 다운로드합니다.
+
 1. PowerShell에서 다음 명령을 실행합니다.
   
     ```azurepowershell
@@ -57,7 +60,13 @@ Azure Backup은 스냅숏과 표준 계층 외에도 보관 계층 내 장기 �
 
 1. 백업 항목의 목록을 가져옵니다.
 
-    `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM/AzureWorkload" -WorkloadType "AzureVM/MSSQL"`
+    - Azure Virtual Machines:
+
+        `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM" -WorkloadType "AzureVM"`
+
+    - Azure Virtual Machines의 SQL Server:
+
+        `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureWorkload" -WorkloadType "MSSQL"`
 
 1. 백업 항목을 가져옵니다.
 
@@ -69,19 +78,29 @@ Azure Backup은 스냅숏과 표준 계층 외에도 보관 계층 내 장기 �
 
         `$bckItm = $BackupItemList | Where-Object {$_.Name -match '<dbName>' -and $_.ContainerName -match '<vmName>'}`
 
+1. 복구 지점을 표시할 날짜 범위를 추가합니다. 예를 들어 지난 124일에서 지난 95일까지의 복구 지점을 보려면 다음 명령을 사용합니다.
+
+   ```azurepowershell
+    $startDate = (Get-Date).AddDays(-124)
+    $endDate = (Get-Date).AddDays(-95) 
+
+    ```
+    >[!NOTE]
+    >시작 날짜와 종료 날짜의 범위는 30일 이하여야 합니다.<br><br>다른 시간 범위에 대한 복구 지점을 표시하려면 시작 날짜와 종료 날짜를 적절하게 수정합니다.
 ## <a name="use-powershell"></a>PowerShell 사용
 
 ### <a name="check-archivable-recovery-points"></a>보관 가능 복구 지점 확인
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm  -IsReadyForMove $true -TargetTier VaultArchive
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -IsReadyForMove $true -TargetTier VaultArchive
 ```
 
-여기에는 보관으로 이동할 준비가 된 특정 백업 항목과 관련된 복구 지점이 모두 나열됩니다.
+여기에는 보관으로 이동할 준비가 된 특정 백업 항목과 관련된 복구 지점이 모두 나열됩니다(시작 날짜부터 종료 날짜까지). 시작 날짜와 종료 날짜를 수정할 수도 있습니다.
 
 ### <a name="check-why-a-recovery-point-cannot-be-moved-to-archive"></a>복구 지점을 보관으로 이동할 수 없는 이유 확인
 
 ```azurepowershell
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -IsReadyForMove $false -TargetTier VaultArchive
 $rp[0].RecoveryPointMoveReadinessInfo["ArchivedRP"]
 ```
 
@@ -111,8 +130,10 @@ $RecommendedRecoveryPointList = Get-AzRecoveryServicesBackupRecommendedArchivabl
 ### <a name="move-to-archive"></a>보관으로 이동
 
 ```azurepowershell
-Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[2] -SourceTier VaultStandard -DestinationTier VaultArchive
+Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[0] -SourceTier VaultStandard -DestinationTier VaultArchive
 ```
+
+여기서 `$rp[0]`는 목록의 첫 번째 복구 지점입니다. 다른 복구 지점을 이동하려면 `$rp[1]`, `$rp[2]` 등을 사용합니다.
 
 이 명령은 보관 가능 복구 지점을 보관으로 이동합니다. 포털 및 PowerShell에서 모두 이동 작업을 추적하는 데 사용될 수 있는 작업을 반환합니다.
 
@@ -121,7 +142,7 @@ Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp
 이 명령은 보관된 복구 지점을 모두 반환합니다.
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
 ```
 
 ### <a name="restore-with-powershell"></a>PowerShell로 복원
@@ -141,7 +162,7 @@ Azure Virtual Machines의 다양한 복원 방법에 대한 자세한 내용은 
 Restore-AzRecoveryServicesBackupItem -VaultLocation $vault.Location -RehydratePriority "Standard" -RehydrateDuration 15 -RecoveryPoint $rp -StorageAccountName "SampleSA" -StorageAccountResourceGroupName "SArgName" -TargetResourceGroupName $vault.ResourceGroupName -VaultId $vault.ID
 ```
 
-SQL Server를 복원하려면 [다음 단계](backup-azure-sql-automation.md#restore-sql-dbs)를 수행합니다. 필요한 추가 매개 변수는 **RehydrationPriority** 및 **RehydrationDuration** 입니다.
+SQL Server를 복원하려면 [다음 단계](backup-azure-sql-automation.md#restore-sql-dbs)를 수행합니다. `Restore-AzRecoveryServicesBackupItem` 명령에는 **RehydrationDuration** 및 **RehydrationPriority** 의 두 가지 추가 매개 변수가 필요합니다.
 
 ### <a name="view-jobs-from-powershell"></a>PowerShell에서 작업 보기
 
@@ -283,6 +304,12 @@ Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
 ### <a name="what-will-happen-to-archive-recovery-points-if-i-stop-protection-and-retain-data"></a>보호를 중지하고 데이터를 보존하면 보관 복구 지점은 어떻게 되나요?
 
 복구 지점이 영구적으로 보관 상태로 유지됩니다. 자세한 내용은 [복구 지점에 대한 보호 중지의 영향](manage-recovery-points.md#impact-of-stop-protection-on-recovery-points)을 참조하세요.
+
+### <a name="is-cross-region-restore-supported-from-archive-tier"></a>지역 간 복원이 보관 계층에서 지원되나요?
+
+GRS 자격 증명 모음의 데이터를 표준 계층에서 보관 계층으로 이동하면 데이터가 GRS 보관으로 이동합니다. 지역 간 복원이 사용되는 경우에도 마찬가지입니다. 백업 데이터를 보관 계층으로 이동한 후에는 쌍으로 연결된 지역으로 데이터를 복원할 수 없습니다. 그러나 지역에서 장애가 발생하는 경우 보조 지역의 백업 데이터를 복원할 수 있게 됩니다. 
+
+주 지역의 보관 계층에 있는 복구 지점에서 복원하는 동안 복구 지점은 표준 계층에 복사되고 주 지역과 보조 지역에서 모두 리하이드레이션 기간에 따라 보존됩니다. 이러한 리하이드레이션된 복구 지점에서 지역 간 복원을 수행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

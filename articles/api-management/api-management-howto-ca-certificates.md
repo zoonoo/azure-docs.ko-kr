@@ -4,27 +4,25 @@ description: Azure API Management에서 사용자 지정 CA 인증서를 추가�
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/20/2018
+ms.topic: how-to
+ms.date: 06/01/2021
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 51719f23302bfaa036f99e88fcd440d97ca3bc02
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: e1cb09f24f12d8c4480833995a95e1e08b5e7bbe
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107817831"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111812231"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Azure API Management에서 사용자 지정 CA 인증서를 추가하는 방법
 
 Azure API Management를 통해 신뢰할 수 있는 루트 및 중간 인증서 저장소 내의 머신에 CA 인증서를 설치할 수 있습니다. 서비스에 사용자 지정 CA 인증서가 필요한 경우 이 기능을 사용해야 합니다.
 
-이 문서에서는 Azure Portal에서 Azure API Management 서비스 인스턴스의 CA 인증서를 관리하는 방법을 보여줍니다.
+이 문서에서는 Azure Portal에서 Azure API Management 서비스 인스턴스의 CA 인증서를 관리하는 방법을 보여줍니다. 예를 들어 자체 서명된 클라이언트 인증서를 사용하는 경우 API Management에 신뢰할 수 있는 사용자 지정 루트 인증서를 업로드할 수 있습니다. 
+
+API Management에 업로드된 CA 인증서는 관리형 API Management 게이트웨이별 인증서의 유효성 검사에만 사용할 수 있습니다. [자체 호스팅 게이트웨이](self-hosted-gateway-overview.md)를 사용하는 경우 이 문서의 뒷부분에 있는 [자체 호스팅 게이트웨이에 대한 사용자 지정 CA를 만드](#create-custom-ca-for-self-hosted-gateway)는 방법에 대해 알아봅니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -32,34 +30,35 @@ Azure API Management를 통해 신뢰할 수 있는 루트 및 중간 인증서 
 
 ## <a name="upload-a-ca-certificate"></a><a name="step1"> </a>CA 인증서 업로드
 
-![CA 인증서 추가](media/api-management-howto-ca-certificates/00.png)
+:::image type="content" source="media/api-management-howto-ca-certificates/00.png" alt-text="Azure Portal의 CA 인증서":::
 
 새 CA 인증서를 업로드하려면 다음 단계를 수행합니다. 아직 API Management 서비스 인스턴스를 만들지 않은 경우 자습서 [API Management 서비스 인스턴스 만들기](get-started-create-service-instance.md)를 참조하세요.
 
 1. Azure Portal에서 Azure API Management 서비스 인스턴스로 이동합니다.
 
-2. 메뉴에서 **CA 인증서** 를 선택합니다.
+1. 메뉴의 **보안** 아래에서 **인증서 > CA 인증서 > + 추가** 를 선택합니다.
 
-3. **+추가** 단추를 클릭합니다.  
+1. 인증서 .cer 파일을 찾고 인증서 저장소를 결정합니다. 공개 키만 필요하므로 암호는 선택 사항입니다.
 
-    ![CA 인증서를 추가하기 위한 + Add 단추가 표시되는 스크린샷입니다.](media/api-management-howto-ca-certificates/01.png)  
+    :::image type="content" source="media/api-management-howto-ca-certificates/02.png" alt-text="Azure Portal에서 CA 인증서 추가"::: 
 
-4. 인증서를 찾고 인증서 저장소를 결정합니다. 공개 키만 필요하므로 암호는 필요하지 않습니다.
-
-    ![인증서를 찾아보는 방법을 보여 주는 스크린샷입니다.](media/api-management-howto-ca-certificates/02.png)  
-
-5. **저장** 을 클릭합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
-
-    ![인증서를 저장하는 방법을 보여 주는 스크린샷입니다.](media/api-management-howto-ca-certificates/03.png)  
+1. **저장** 을 선택합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
 
 > [!NOTE]
-> `New-AzApiManagementSystemCertificate` Powershell 명령을 사용하여 CA 인증서를 업로드할 수 있습니다.
+> `New-AzApiManagementSystemCertificate` PowerShell 명령을 사용하여 CA 인증서를 업로드할 수도 있습니다.
 
-## <a name="delete-a-client-certificate"></a><a name="step1a"> </a>클라이언트 인증서 삭제
+## <a name="delete-a-ca-certificate"></a><a name="step1a"> </a>CA 인증서 삭제
 
-인증서를 삭제하려면 바로 가기 메뉴 **...** 를 클릭하고 인증서 옆에 있는 **삭제** 를 선택합니다.
+인증서를 선택하고 바로 가기 메뉴( **...** )에서 **삭제** 를 선택합니다.
 
-![CA 인증서 삭제](media/api-management-howto-ca-certificates/04.png)  
+## <a name="create-custom-ca-for-self-hosted-gateway"></a>자체 호스팅 게이트웨이에 대한 사용자 지정 CA 만들기 
+
+[자체 호스팅 게이트웨이](self-hosted-gateway-overview.md)를 사용하는 경우 API Management 서비스에 업로드된 CA 루트 인증서를 사용하는 서버 및 클라이언트 인증서의 유효성 검사는 지원되지 않습니다. 트러스트를 설정하려면 게이트웨이에서 사용자 지정 인증 기관으로 신뢰할 수 있도록 특정 클라이언트 인증서를 구성합니다.
+
+[게이트웨이 인증 기관](/rest/api/apimanagement/2021-01-01-preview/gateway-certificate-authority) REST API를 사용하여 자체 호스팅 게이트웨이에 대한 사용자 지정 CA를 만들고 관리합니다. 사용자 지정 CA를 만들려면 다음을 수행합니다.
+
+1. [인증서](api-management-howto-mutual-certificates.md) .pfx 파일을 API Management 인스턴스에 추가합니다.
+1. [게이트웨이 인증 기관 - 만들기 또는 업데이트](/rest/api/apimanagement/2021-01-01-preview/gateway-certificate-authority/create-or-update) REST API를 사용하여 인증서를 자체 관리형 게이트웨이와 연결합니다.
 
 [Upload a CA certificate]: #step1
 [Delete a CA certificate]: #step1a

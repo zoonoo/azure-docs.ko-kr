@@ -2,7 +2,7 @@
 제목: AES-128로 비디오 암호화 : Azure Media Services 설명: AES 128비트 암호화를 사용하여 비디오를 암호화하는 방법 및 Azure Media Services에서 키 배달 서비스를 사용하는 방법을 알아봅니다.
 services: media-services documentationcenter: '' author: IngridAtMicrosoft 관리자: femila editor: ''
 
-ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.date: 03/17/2021 ms.author: inhenkel
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.date: 05/25/2021 ms.author: inhenkel
 
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>자습서: AES-128을 사용하여 비디오를 암호화하고 키 배달 서비스 사용
@@ -21,7 +21,7 @@ Media Services에서는 128비트 암호화 키를 사용하여 AES로 암호화
 이 자습서에서는 다음을 수행하는 방법을 보여 줍니다.
 
 > [!div class="checklist"]
-> * 이 문서에 설명된 [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) 샘플을 다운로드하세요.
+> * 이 문서에 설명된 [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithAES) 샘플을 다운로드하세요.
 > * .NET SDK로 Media Services API 사용을 시작합니다.
 > * 출력 자산을 만듭니다.
 > * 인코딩 변환을 만듭니다.
@@ -54,16 +54,24 @@ Media Services에서는 128비트 암호화 키를 사용하여 AES로 암호화
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
 
-"AES-128로 암호화" 샘플은 [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) 폴더에 있습니다.
+"AES-128로 암호화" 샘플은 [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithAES) 폴더에 있습니다.
 
 > [!NOTE]
 > 이 샘플은 앱을 실행할 때마다 고유한 리소스를 만듭니다. 일반적으로 변환 및 정책 등 기존 리소스를 다시 사용합니다(기존 리소스에 필요한 구성이 있는 경우).
 
-## <a name="start-using-media-services-apis-with-net-sdk"></a>.NET SDK로 Media Services API 사용하기
+### <a name="start-using-media-services-apis-with-the-net-sdk"></a>.NET SDK로 Media Services API 사용 시작
 
-.NET으로 Media Services API를 사용하려면 **AzureMediaServicesClient** 개체를 만듭니다. 개체를 만들려면 Azure AD를 사용하여 클라이언트가 Azure에 연결하는 데 필요한 자격 증명을 제공해야 합니다. 아티클의 시작 부분에서 복제한 코드에서 **GetCredentialsAsync** 함수는 로컬 구성 파일에 제공된 자격 증명에 따라 ServiceClientCredentials 개체를 만듭니다.
+.NET으로 Media Services API를 사용하려면 `AzureMediaServicesClient` 개체를 만들어야 합니다. 개체를 만들려면 Azure Active Directory를 사용하여 클라이언트가 Azure에 연결할 수 있는 자격 증명을 제공해야 합니다. 또 다른 옵션은 `GetCredentialsInteractiveAuthAsync`에서 구현된 대화형 인증을 사용하는 것입니다.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateMediaServicesClient)]
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#CreateMediaServicesClientAsync)]
+
+문서 시작 부분에서 복제한 코드에 있는 `GetCredentialsAsync` 함수는 로컬 구성 파일(*appsettings.json)* 에 제공된 자격 증명을 기반으로 또는 리포지토리의 루트에 있는 *.env* 환경 변수 파일을 통해 `ServiceClientCredentials` 개체를 만듭니다.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsAsync)]
+
+대화형 인증의 경우 `GetCredentialsInteractiveAuthAsync` 함수는 대화형 인증 및 로컬 구성 파일(*appsettings.json*)에 제공된 연결 매개 변수를 기반으로 또는 리포지토리의 루트에 있는 *.env* 환경 변수 파일을 통해 `ServiceClientCredentials` 개체를 만듭니다. 이 경우 구성 또는 환경 변수 파일에 AADCLIENTID 및 AADSECRET가 필요하지 않습니다.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsInteractiveAuthAsync)]
 
 ## <a name="create-an-output-asset"></a>출력 자산 만들기  
 

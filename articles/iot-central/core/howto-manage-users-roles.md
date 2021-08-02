@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: cff8830d180b0c234e54f7578ed9fafafeb598f0
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 00dd677610924fba58f8b0c6c709b162dd2088bf
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719172"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110794174"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>IoT Central 애플리케이션에서 사용자 및 역할 관리
 
-이 문서에서는 관리자가 Azure IoT Central 애플리케이션에서 사용자를 추가, 편집 및 삭제할 수 있는 방법에 대해 설명합니다. 또한 이 문서에서는 애플리케이션에서 역할을 관리하는 방법을 설명합니다.
+이 문서에서는 Azure IoT Central 애플리케이션에서 사용자를 추가, 편집, 삭제할 수 있는 방법에 대해 설명합니다. 또한 이 문서에서는 애플리케이션에서 역할을 관리하는 방법을 설명합니다.
 
 **관리** 섹션에 액세스하여 사용하려면 Azure IoT Central 애플리케이션에서 **관리자** 역할이어야 합니다. Azure IoT Central 애플리케이션을 만드는 사용자에게는 자동으로 해당 애플리케이션의 **관리자** 역할이 추가됩니다.
 
@@ -29,13 +29,13 @@ ms.locfileid: "107719172"
 
 1. IoT Central 애플리케이션에 사용자를 추가하려면 **관리** 섹션에 있는 **사용자** 페이지로 이동합니다.
 
-  :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="사용자 관리":::
+    :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="사용자 관리의 스크린샷":::
 
-1. 사용자를 추가하려면 **사용자** 페이지에서 **+ 사용자 추가** 를 선택합니다.
+1. 사용자를 추가하려면 **사용자** 페이지에서 **+ 사용자 할당** 을 선택합니다.
 
 1. **역할** 드롭다운 메뉴에서 사용자의 역할을 선택합니다. 이 문서의 [역할 관리](#manage-roles) 섹션에서 역할에 대해 자세히 알아보세요.
 
-  :::image type="content" source="media/howto-manage-users-roles/add-user-pnp.png" alt-text="사용자를 추가하고 역할을 선택합니다.":::
+    :::image type="content" source="media/howto-manage-users-roles/add-user-pnp.png" alt-text="사용자를 추가하고 역할을 선택하는 스크린샷":::
 
   > [!NOTE]
   > 다른 사용자를 추가할 수 있는 권한을 부여하는 사용자 지정 역할의 사용자는 자신의 역할과 같거나 적은 권한을 가진 역할에만 사용자를 추가할 수 있습니다.
@@ -58,8 +58,8 @@ ms.locfileid: "107719172"
 
 역할을 통해 조직 내에서 다양한 IoT Central 작업 수행이 허용된 사용자를 제어할 수 있습니다. 애플리케이션의 사용자에게 할당할 수 있는 세 가지 기본 제공 역할이 있습니다. 세분화된 제어가 필요한 경우 [사용자 지정 역할을 만들](#create-a-custom-role) 수도 있습니다.
 
-> [!div class="mx-imgBorder"]
-> ![역할 선택 관리](media/howto-manage-users-roles/manage-roles-pnp.png)
+:::image type="content" source="media/howto-manage-users-roles/manage-roles-pnp.png" alt-text="역할 선택을 관리하는 스크린샷":::
+
 
 ### <a name="administrator"></a>관리자
 
@@ -81,8 +81,8 @@ ms.locfileid: "107719172"
 
 기본 제공 역할에 사용자를 추가하는 것과 동일한 방식으로 사용자 지정 역할에 사용자를 추가할 수 있습니다.
 
-> [!div class="mx-imgBorder"]
-> ![사용자 지정 역할 빌드](media/howto-manage-users-roles/create-custom-role-pnp.png)
+:::image type="content" source="media/howto-manage-users-roles/create-custom-role-pnp.png" alt-text="사용자 지정 역할을 빌드하는 스크린샷":::
+
 
 ### <a name="custom-role-options"></a>사용자 지정 역할 옵션
 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/30/2020
+ms.date: 06/11/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 22a1a4b99717df32a40ea69ebb65a3a8e14ee2b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19b9cfc6ad6467b2779abb3561899fd3bd8d037e
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102510764"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112040825"
 ---
 공유 디스크 활성화는 디스크 유형의 하위 집합에서만 사용할 수 있습니다. 현재는 울트라 디스크와 프리미엄 SSD만 공유 디스크를 활성화할 수 있습니다. 공유 디스크를 사용할 수 있는 각 관리 디스크에는 디스크 유형별로 구성된 다음 제한 사항이 적용됩니다.
 
@@ -25,6 +25,7 @@ Ultra disks를 공유하는 경우 다음과 같은 추가 제한 사항이 있�
 
 - 현재 Azure Resource Manager 또는 SDK 지원으로 제한되어 있습니다. 
 - 일부 버전의 Windows Server 장애 조치(failover) 클러스터에서는 기본 디스크만 사용할 수 있습니다. 자세한 내용은 [장애 조치(Failover) 클러스터링 하드웨어 요구 사항 및 스토리지 옵션](/windows-server/failover-clustering/clustering-requirements)을 참조하세요.
+- [서버 쪽 암호화](../articles/virtual-machines/disk-encryption.md)만 지원되고 [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md)은 현재 지원되지 않습니다.
 
 공유 ultra disks는 기본적으로 ultra disks를 지원하는 모든 지역에서 사용 가능하며, 사용을 위한 액세스 등록이 필요 없습니다.
 
@@ -38,7 +39,8 @@ Ultra disks를 공유하는 경우 다음과 같은 추가 제한 사항이 있�
 - [PPG(근접 배치 그룹)](../articles/virtual-machines/windows/proximity-placement-groups.md)를 사용하는 경우 디스크를 공유하는 모든 가상 머신은 동일한 PPG에 속해야 합니다.
 - 일부 버전의 Windows Server 장애 조치(failover) 클러스터에서는 기본 디스크만 사용할 수 있습니다. 자세한 내용은 [장애 조치(Failover) 클러스터링 하드웨어 요구 사항 및 스토리지 옵션](/windows-server/failover-clustering/clustering-requirements)을 참조하세요.
 - Azure Site Recovery 지원은 아직 사용할 수 없습니다.
-- Azure Backup은 [Azure Disk Backup(미리 보기)](../articles/backup/disk-backup-overview.md)을 통해 사용할 수 있습니다.
+- Azure Backup은 [Azure Disk Backup](../articles/backup/disk-backup-overview.md)을 통해 사용할 수 있습니다.
+- [서버 쪽 암호화](../articles/virtual-machines/disk-encryption.md)만 지원되고 [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md)은 현재 지원되지 않습니다.
 
 #### <a name="regional-availability"></a>국가별 가용성
 

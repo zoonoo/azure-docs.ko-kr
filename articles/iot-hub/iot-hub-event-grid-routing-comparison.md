@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 37b411792ea1a3e21e0f26df0c7905eb8d46310e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d2b0e096c1432b8130ca43a91d277aec93d630f
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97897708"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191276"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>IoT Hub에 대한 메시지 라우팅과 Event Grid 비교
 
@@ -32,7 +32,7 @@ Azure IoT Hub는 연결된 디바이스에서 데이터를 스트림하고 해�
 
 | 기능 | IoT Hub 메시지 라우팅 | Event Grid와 IoT Hub 통합 |
 | ------- | --------------- | ---------- |
-| **디바이스 메시지 및 이벤트** | 예, 메시지 라우팅은 원격 분석 데이터, 디바이스 쌍 변경, 디바이스 수명 주기 이벤트 및 디지털 트윈 변경 이벤트에 사용할 수 있습니다. | 예, Event Grid는 원격 분석 데이터 및 디바이스 만들기/삭제/연결/연결 끊김과 같은 디바이스 이벤트에 사용할 수 있습니다. 그러나 Event Grid는 디바이스 쌍 변경 이벤트 및 디지털 트윈 변경 이벤트에는 사용할 수 없습니다. |
+| **디바이스 메시지 및 이벤트** | 예, 메시지 라우팅은 원격 분석 데이터, 디바이스 쌍 변경, 디바이스 수명 주기 이벤트, 디지털 트윈 변경 이벤트 및 디바이스 연결 상태 이벤트에 사용할 수 있습니다. | 예, Event Grid는 원격 분석 데이터 및 디바이스 만들기/삭제/연결/연결 끊김과 같은 디바이스 이벤트에 사용할 수 있습니다. 그러나 Event Grid는 디바이스 쌍 변경 이벤트 및 디지털 트윈 변경 이벤트에는 사용할 수 없습니다. |
 | **순서 지정** | 예, 이벤트 순서가 유지 관리됩니다.  | 아니요, 이벤트 순서가 보장되지 않습니다. | 
 | **필터링** | 메시지 애플리케이션 속성, 메시지 시스템 속성, 메시지 본문, 디바이스 쌍 태그 및 디바이스 쌍 속성에 대한 다양한 필터링입니다. 필터링은 디지털 트윈 변경 이벤트에 적용되지 않습니다. 예를 보려면 [메시지 라우팅 쿼리 구문](iot-hub-devguide-routing-query-syntax.md)을 참조하세요. | 이벤트 유형, 주제 유형 및 각 이벤트의 속성을 기반으로 필터링합니다. 예제는 [Event Grid 구독의 필터링 이벤트 이해](../event-grid/event-filtering.md)를 참조하십시오. 원격 분석 이벤트를 구독할 때 Event Grid에 게시하기 전에 데이터에 추가 필터를 적용하여 IoT Hub의 메시지 속성, 메시지 본문 및 디바이스 쌍을 필터링 할 수 있습니다. [이벤트 필터링 방법](../iot-hub/iot-hub-event-grid.md#filter-events)을 참조하세요. |
 | **엔드포인트** | <ul><li>Event Hubs</li> <li>Azure Blob Storage</li> <li>Service Bus 큐</li> <li>Service Bus 토픽</li></ul><br>유료 IoT Hub SKU(S1, S2, S3)은 사용자 지정 엔드포인트 10개로 제한됩니다. IoT Hub당 100 경로를 만들 수 있습니다. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>스토리지 Blob</li> <li>사용자 지정 토픽</li> <li>Queue storage</li> <li>Power Automate</li> <li>Webhook 통한 다른 공급 업체 서비스</li></ul><br>IoT Hub 당 500개의 엔드포인트가 지원됩니다. 엔드포인트 최신 목록은 [Event Grid 이벤트 처리기](../event-grid/overview.md#event-handlers)를 참조하세요. |

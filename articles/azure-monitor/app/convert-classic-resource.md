@@ -3,12 +3,13 @@ title: Azure Monitor Application Insights 클래식 리소스를 작업 영역 �
 description: Azure Monitor Application Insights 클래식 리소스를 새 작업 영역 기반 모델로 업그레이드하는 데 필요한 단계에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 5791abe33dee2e62aadb00ae1024338e1e44a900
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3d6092d694d1c99ff7755dfcbec5c0edbfb7567f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100584253"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077305"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>작업 영역 기반 Application Insights 리소스로 마이그레이션
 
@@ -40,7 +41,7 @@ ms.locfileid: "100584253"
 
 기존 리소스를 마이그레이션할 필요가 없으며 대신 새 작업 영역 기반 Application Insights 리소스를 만들려는 경우에는 [작업 영역 기반 리소스 생성 가이드](create-workspace-resource.md)를 사용합니다.
 
-## <a name="pre-requisites"></a>필수 구성 요소 
+## <a name="pre-requisites"></a>필수 구성 요소
 
 - 액세스 제어 모드가 **`use resource or workspace permissions`** 설정으로 지정 된 Log Analytics 작업 영역 
 
@@ -75,6 +76,9 @@ ms.locfileid: "100584253"
 ![작업 영역 이름](./media/create-workspace-resource/workspace-name.png)
 
 파란색 링크 텍스트를 클릭하면 새 통합 작업 영역 쿼리 환경을 활용할 수 있는 관련 Log Analytics 작업 영역으로 이동합니다.
+
+> [!NOTE]
+> 작업 영역 기반 Application Insights 리소스로 마이그레이션한 후 Application Insights의 한도 대신 [작업 영역의 일일 한도](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume)를 사용하여 수집 및 비용을 제한하는 것이 좋습니다.
 
 ## <a name="understanding-log-queries"></a>로그 쿼리 이해
 
@@ -114,7 +118,7 @@ az monitor app-insights component update --app
 az monitor app-insights component update --app your-app-insights-resource-name -g your_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-이 명령에 대한 전체 Azure CLI 설명서는 [Azure CLI 설명서](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-update)를 참조하세요.
+이 명령에 대한 전체 Azure CLI 설명서는 [Azure CLI 설명서](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_update)를 참조하세요.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

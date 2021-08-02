@@ -4,20 +4,18 @@ description: 상업용 마켓플레이스에서 Azure 애플리케이션에 대�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: cpercy737
-ms.author: camper
-ms.date: 03/22/2021
-ms.custom: devx-track-terraform
-ms.openlocfilehash: 53edd3ec9a8d30d0c25f994db4a8b6f0199c2169
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/12/2021
+ms.custom: devx-track-terraform, devx-track-azurepowershell
+ms.openlocfilehash: b1f40ff5175de88e101bfe8f22f9593502e7d6d0
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558417"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005882"
 ---
 # <a name="azure-customer-usage-attribution"></a>Azure 고객 사용량 특성
 
-고객 사용량 특성은 파트너로서 IP를 배포하는 동안 생성된 고객 구독에서 Azure 리소스의 사용량을 연결합니다. 내부 Microsoft 시스템에 이러한 연결을 구성하면 소프트웨어를 실행하는 Azure의 메모리 공간을 보다 잘 파악할 수 있습니다. [상업용 마켓플레이스의 Azure 애플리케이션 제품](#commercial-marketplace-azure-apps)의 경우 이 추적 기능을 사용하면 Microsoft 영업 팀에 맞춰 Microsoft 파트너 프로그램에 대한 크레딧을 얻을 수 있습니다.
+고객 사용량 특성은 파트너로서 IP를 배포하는 동안 생성된 고객 구독에서 Azure 리소스의 사용량을 연결합니다. 내부 Microsoft 시스템에 이러한 연결을 구성하면 소프트웨어를 실행하는 Azure의 메모리 공간을 보다 잘 파악할 수 있습니다. [상업용 마켓플레이스의 Azure 애플리케이션 제품](#commercial-marketplace-azure-apps)의 경우 이 추적 기능을 사용하면 Microsoft 영업 팀에 맞춰 Microsoft 파트너 프로그램에 대한 크레딧을 얻을 수 있습니다. 고객 사용량 특성은 [상용 마켓플레이스의 Azure 가상 머신 제품](marketplace-virtual-machines.md)에 적용되지 않습니다. 최종 고객 구독에서 Azure 사용량을 추적하기 위해 마켓플레이스 게시자가 가상 머신 제품에 대해 수행해야 하는 작업은 없습니다.
 
 고객 사용량 특성은 세 가지 배포 옵션을 지원합니다.
 
@@ -34,7 +32,7 @@ ms.locfileid: "105558417"
 
 ## <a name="commercial-marketplace-azure-apps"></a>Azure 앱 상업용 마켓플레이스
 
-상업용 마켓플레이스에 게시된 Azure 앱에서 Azure 사용량 추적은 대부분 자동으로 이루어집니다. [Marketplace Azure 앱 계획의 기술 구성](./create-new-azure-apps-offer-solution.md#define-the-technical-configuration)의 일부로 Resource Manager 템플릿을 업로드하는 경우 파트너 센터는 Azure Resource Manager에서 읽을 수 있는 추적 ID를 추가합니다.
+상업용 마켓플레이스에 게시된 Azure 앱에서 Azure 사용량 추적은 대부분 자동으로 이루어집니다. [Marketplace Azure 앱 계획의 기술 구성](./azure-app-solution.md#define-the-technical-configuration)의 일부로 Resource Manager 템플릿을 업로드하는 경우 파트너 센터는 Azure Resource Manager에서 읽을 수 있는 추적 ID를 추가합니다.
 
 Azure Resource Manager API를 사용하는 경우 코드에서 리소스를 배포하는 것처럼 Azure Resource Manager에 전달하려면 [아래 지침](#use-resource-manager-apis) 에 따라 추적 ID를 추가해야 합니다. 이 ID는 계획의 기술 구성페이지에서 파트너 센터에 표시됩니다. 
 
@@ -43,7 +41,7 @@ Azure Resource Manager API를 사용하는 경우 코드에서 리소스를 배�
 >
 >제품을 업데이트할 때 기본 템플릿 파일에 더 이상 **Microsoft.Resources/deployments** 리소스 유형을 추가할 필요가 없습니다.
 
-## <a name="other-use-cases"></a>기타 사용 사례 
+## <a name="other-use-cases"></a>기타 사용 사례
 
 고객 사용량 특성을 사용하여 상업용 마켓플레이스에서 사용할 수 없는 솔루션의 Azure 사용현황을 추적할 수 있습니다. 이러한 솔루션은 일반적으로 빠른 시작 리포지토리, 프라이빗 GitHub 리포지토리에 위치하거나 지속형 IP를 생성하는 1:1 고객 참여(예: 배포 가능하고 확장 가능한 앱)를 통해 고객 계약에서 제공됩니다.
 
@@ -67,9 +65,9 @@ Azure Resource Manager API를 사용하는 경우 코드에서 리소스를 배�
 
 GUID는 이후에 파트너 센터에 등록해야 파트너로 연결할 수 있습니다.
 
-1. [파트너 센터](https://partner.microsoft.com/dashboard)에 로그인합니다.
+1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165507)에 로그인합니다.
 
-1. [상업용 마켓플레이스 게시자](https://aka.ms/JoinMarketplace)로 등록합니다.
+1. [상업용 마켓플레이스 게시자](https://go.microsoft.com/fwlink/?linkid=2165614)로 등록합니다.
 
 1. 오른쪽 위 모서리에서 **설정**(기어 아이콘)을 선택하고 **계정 설정** 을 선택합니다.
 
@@ -255,7 +253,7 @@ provider "azurerm" {
 1. 제목과 문제에 대한 자세한 설명을 입력합니다.
 1. **제출** 을 선택합니다.
 
-[기술 예약 판매 및 배포 서비스 사용](https://aka.ms/TechConsultInstructions)에서 스크린샷과 함께 단계별 지침을 확인하세요.
+[기술 예약 판매 및 배포 서비스 사용](/partner-center/technical-benefits)에서 스크린샷과 함께 단계별 지침을 확인하세요.
 
 Microsoft 파트너 기술 컨설턴트로부터 요구 사항의 범위를 확인하는 전화 약속을 잡기 위한 연락을 받게 됩니다.
 

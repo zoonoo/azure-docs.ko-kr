@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 9d4aac17ca823f4eaa0f52ab260b1daca3f52f94
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 48766e51e3408e11c264b77c43b066f3fedc6c28
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109750"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110080509"
 ---
 # <a name="programmatically-manage-workbooks"></a>프로그래밍 방식으로 통합 문서 관리
 
@@ -206,9 +206,105 @@ ms.locfileid: "106109750"
 | `tsg` | Application Insights의 문제 해결 가이드 갤러리 |
 | `usage` | Application Insights의 ‘사용’ 아래의 ‘더 보기’ 갤러리  |
 
+### <a name="working-with-json-formatted-workbook-data-in-the-serializeddata-template-parameter"></a>serializedData 템플릿 매개 변수에서 JSON 형식의 통합 문서 데이터 작업
+
+Azure 통합 문서용 Azure Resource Manager 템플릿을 내보낼 때 내보낸 `serializedData` 템플릿 매개 변수 내에 포함된 고정 리소스 링크가 있는 경우가 많습니다. 여기에는 구독 ID, 리소스 그룹 이름 및 다른 유형의 리소스 ID와 같은 잠재적으로 중요한 값이 포함됩니다.
+
+아래 예에서는 문자열 조작을 사용하지 않고 내보낸 통합 문서의 Azure Resource Manager 템플릿을 사용자 지정하는 방법을 보여 줍니다. 이 예에 표시된 패턴은 Azure Portal에서 내보낸 변경되지 않은 데이터를 사용하기 위한 것입니다. 또한 통합 문서를 프로그래밍 방식으로 관리하는 경우 포함된 중요한 값을 마스킹하는 것이 좋습니다. 따라서 구독 ID와 리소스 그룹이 여기에 마스킹되었습니다. 원시 수신 `serializedData` 값에 다른 수정 사항이 없습니다.
+
+```json
+{
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workbookDisplayName": {
+      "type": "string"
+    },
+    "workbookSourceId": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().id]"
+    },
+    "workbookId": {
+      "type": "string",
+      "defaultValue": "[newGuid()]"
+    }
+  },
+  "variables": {
+    // serializedData from original exported Azure Resource Manager template
+    "serializedData": "{\"version\":\"Notebook/1.0\",\"items\":[{\"type\":1,\"content\":{\"json\":\"Replace with Title\"},\"name\":\"text - 0\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\"{\\\"version\\\":\\\"ARMEndpoint/1.0\\\",\\\"data\\\":null,\\\"headers\\\":[],\\\"method\\\":\\\"GET\\\",\\\"path\\\":\\\"/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups\\\",\\\"urlParams\\\":[{\\\"key\\\":\\\"api-version\\\",\\\"value\\\":\\\"2019-06-01\\\"}],\\\"batchDisabled\\\":false,\\\"transformers\\\":[{\\\"type\\\":\\\"jsonpath\\\",\\\"settings\\\":{\\\"tablePath\\\":\\\"$..*\\\",\\\"columns\\\":[]}}]}\",\"size\":0,\"queryType\":12,\"visualization\":\"map\",\"tileSettings\":{\"showBorder\":false},\"graphSettings\":{\"type\":0},\"mapSettings\":{\"locInfo\":\"AzureLoc\",\"locInfoColumn\":\"location\",\"sizeSettings\":\"location\",\"sizeAggregation\":\"Count\",\"opacity\":0.5,\"legendAggregation\":\"Count\",\"itemColorSettings\":null}},\"name\":\"query - 1\"}],\"isLocked\":false,\"fallbackResourceIds\":[\"/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/XXXXXXX\"]}",
+
+    // parse the original into a JSON object, so that it can be manipulated
+    "parsedData": "[json(variables('serializedData'))]",
+
+    // create new JSON objects that represent only the items/properties to be modified
+    "updatedTitle": {
+      "content":{
+        "json": "[concat('Resource Group Regions in subscription \"', subscription().displayName, '\"')]"
+      }
+    },
+    "updatedMap": {
+      "content": {
+        "path": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups')]"
+      }
+    },
+
+    // the union function applies the updates to the original data
+    "updatedItems": [
+      "[union(variables('parsedData')['items'][0], variables('updatedTitle'))]",
+      "[union(variables('parsedData')['items'][1], variables('updatedMap'))]"
+    ],
+
+    // copy to a new workbook object, with the updated items
+    "updatedWorkbookData": {
+      "version": "[variables('parsedData')['version']]",
+      "items": "[variables('updatedItems')]",
+      "isLocked": "[variables('parsedData')['isLocked']]",
+      "fallbackResourceIds": ["[parameters('workbookSourceId')]"]
+    },
+
+    // convert back to an encoded string
+    "reserializedData": "[string(variables('updatedWorkbookData'))]"
+  },
+  "resources": [
+    {
+      "name": "[parameters('workbookId')]",
+      "type": "microsoft.insights/workbooks",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2018-06-17-preview",
+      "dependsOn": [],
+      "kind": "shared",
+      "properties": {
+        "displayName": "[parameters('workbookDisplayName')]",
+        "serializedData": "[variables('reserializedData')]",
+        "version": "1.0",
+        "sourceId": "[parameters('workbookSourceId')]",
+        "category": "workbook"
+      }
+    }
+  ],
+  "outputs": {
+    "workbookId": {
+      "type": "string",
+      "value": "[resourceId( 'microsoft.insights/workbooks', parameters('workbookId'))]"
+    }
+  },
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"
+}
+```
+
+이 예에서는 다음 단계를 수행하여 내보낸 Azure Resource Manager 템플릿 사용자 지정을 용이하게 합니다.
+1. 위의 섹션에 설명된 대로 통합 문서를 Azure Resource Manager 템플릿으로 내보냅니다.
+2. 템플릿의 `variables` 섹션에서:
+    1. `serializedData` 값을 JSON 개체 변수로 구문 분석하여 통합 문서의 콘텐츠를 나타내는 항목 배열을 포함하는 JSON 구조를 만듭니다.
+    2. 수정할 항목/속성만 나타내는 새 JSON 개체를 만듭니다.
+    3. `union()` 함수를 사용하여 원래 JSON 항목에 수정 사항을 적용하여 새 JSON 콘텐츠 항목(`updatedItems`) 집합을 프로젝션합니다.
+    4. 원래 구문 분석된 데이터의 `updatedItems` 및 `version`/`isLocked` 데이터와 수정된 `fallbackResourceIds` 집합을 포함하는 새 통합 문서 개체 `updatedWorkbookData`를 만듭니다.
+    5. 새 JSON 콘텐츠를 다시 새 문자열 변수 `reserializedData`로 직렬화합니다.
+3. 원래 `serializedData` 특성 대신 새 `reserializedData` 변수를 사용합니다.
+4. 업데이트된 Azure Resource Manager 템플릿을 사용하여 새 통합 문서 리소스를 배포합니다.
+
 ### <a name="limitations"></a>제한 사항
 기술적인 이유로 이 메커니즘을 사용하여 Application Insights의 _통합 문서_ 갤러리에서 통합 문서 인스턴스를 만들 수 없습니다. 이 제한 사항을 해결하기 위해 노력하고 있습니다. 한편 문제 해결 가이드 갤러리(통합 문서 형식: `tsg`)를 사용하여 Application Insights 관련 통합 문서를 배포하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-통합 문서를 사용하여 [스토리지 환경을 위한 Azure Monitor](../insights/storage-insights-overview.md)를 활용하는 방법을 알아봅니다.
+통합 문서를 사용하여 새로운 [Storage 인사이트 환경](../insights/storage-insights-overview.md)을 강화하는 방법을 살펴보세요.

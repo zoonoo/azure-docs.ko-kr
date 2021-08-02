@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/22/2021
-ms.openlocfilehash: eb54ad3e5e7d3db5fc1a399c473de81531e27178
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 06/10/2021
+ms.openlocfilehash: e3e468b774503b42fd46e66492f09982e8d1d9a6
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988589"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982271"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버에서 논리 복제 및 논리 디코딩
 
@@ -21,7 +21,7 @@ ms.locfileid: "107988589"
 Azure Database for PostgreSQL - 유연한 서버는 다음과 같은 논리적 데이터 추출 및 복제 방법론을 지원합니다.
 1. **논리적 복제**
    1. PostgreSQL [원시 논리 복제](https://www.postgresql.org/docs/12/logical-replication.html)를 사용하여 데이터 개체를 복제합니다. 논리 복제를 사용하면 테이블 수준 데이터 복제를 비롯하여 데이터 복제를 세부적으로 제어할 수 있습니다.
-   2. 논리 스트리밍 복제를 제공하는 [pglogical](https://github.com/2ndQuadrant/pglogical) 확장을 사용하면 데이터베이스의 초기 스키마 복사, TRUNCATE 지원, DDL 복제 기능 등의 추가 기능을 제공합니다.
+   <!--- 2. Using [pglogical](https://github.com/2ndQuadrant/pglogical) extension that provides logical streaming replication and additional capabilities such as copying initial schema of the database, support for TRUNCATE, ability to replicate DDL etc. -->
 2. **논리 디코딩** 은 WAL(미리 쓰기 로그)의 콘텐츠를 [디코딩](https://www.postgresql.org/docs/12/logicaldecoding-explanation.html)하여 구현합니다. 
 
 ## <a name="comparing-logical-replication-and-logical-decoding"></a>논리 복제 및 논리 디코딩 비교
@@ -43,10 +43,13 @@ Azure Database for PostgreSQL - 유연한 서버는 다음과 같은 논리적 �
 
 ## <a name="pre-requisites-for-logical-replication-and-logical-decoding"></a>논리 복제 및 논리 디코딩을 위한 필수 구성 요소
 
-1. `wal_level` 서버 매개 변수를 `logical`로 설정합니다.
-2. 서버를 다시 시작하여 `wal_level` 변경 내용을 적용합니다.
-3. PostgreSQL 인스턴스가 연결하는 리소스의 네트워크 트래픽을 허용하는지 확인합니다.
-4. 관리 사용자 복제 권한을 부여합니다.
+1. 포털의 서버 매개 변수 페이지로 이동합니다.
+2. `wal_level` 서버 매개 변수를 `logical`로 설정합니다.
+<!---
+3. If you want to use pglogical extension, search for the `shared_preload_libaries` parameter, and select `pglogical` from the drop-down box. Also update `max_worker_processes` parameter value to at least 16. -->
+3. 변경 내용을 저장하고 서버를 다시 시작하여 `wal_level` 변경 내용을 적용합니다.
+4. PostgreSQL 인스턴스가 연결하는 리소스의 네트워크 트래픽을 허용하는지 확인합니다.
+5. 관리 사용자 복제 권한을 부여합니다.
    ```SQL
    ALTER ROLE <adminname> WITH REPLICATION;
    ```
@@ -86,36 +89,62 @@ Azure Database for PostgreSQL - 유연한 서버는 다음과 같은 논리적 �
    ```SQL
    SELECT * FROM basic;
    ```
+   게시자의 테이블에 더 많은 행을 추가하고 구독자에 대한 변경 내용을 볼 수 있습니다.
 
-게시자의 테이블에 더 많은 행을 추가하고 구독자에 대한 변경 내용을 볼 수 있습니다.
+   데이터를 볼 수 없는 경우 `azure_pg_admin`에 대한 로그인 권한을 사용하도록 설정하고 테이블 콘텐츠를 확인합니다. 
+   ```SQL 
+   ALTER ROLE azure_pg_admin login;
+   ```
+
 
 [논리 복제](https://www.postgresql.org/docs/current/logical-replication.html)에 대한 자세한 정보는 PostgreSQL 설명서를 참조하세요.
 
+<!---
+### pglogical extension
 
-### <a name="pglogical-extension"></a>pglogical 확장
+Here is an example of configuring pglogical at the provider database server and the subscriber. Please refer to pglogical extension documentation for more details. Also make sure you have performed pre-requisite tasks listed above.
 
-다음은 공급자 데이터베이스 서버와 구독자에서 pglogical을 구성하는 예입니다. 세부 정보는 pglogical 확장 설명서를 참조하세요.
-
-1. 공급자와 구독자 데이터베이스 서버 모두에 pglogical 확장을 설치합니다.
+1. Install pglogical extension in the database in both the provider and the subscriber database servers.
     ```SQL
+   \C myDB
    CREATE EXTENSION pglogical;
    ```
-2. 공급자 데이터베이스 서버에서 공급자 노드를 만듭니다.
+2. At the **provider** (source/publisher) database server, create the provider node.
    ```SQL
-   select pglogical.create_node( node_name := 'provider1', dsn := ' host=myProviderDB.postgres.database.azure.com port=5432 dbname=myDB');
+   select pglogical.create_node( node_name := 'provider1', 
+   dsn := ' host=myProviderServer.postgres.database.azure.com port=5432 dbname=myDB user=myUser password=myPassword');
    ```
-3. testUser 스키마의 테이블을 기본 복제 집합에 추가합니다.
-    ```SQL
+3. Create a replication set.
+   ```SQL
+   select pglogical.create_replication_set('myreplicationset');
+   ```
+4. Add all tables in the database to the replication set.
+   ```SQL
+   SELECT pglogical.replication_set_add_all_tables('myreplicationset', '{public}'::text[]);
+   ```
+
+   As an alternate method, ou can also add tables from a specific schema (for example, testUser) to a default replication set.
+   ```SQL
    SELECT pglogical.replication_set_add_all_tables('default', ARRAY['testUser']);
    ```
-4. 구독자 서버에서 구독자 노드를 만듭니다.
+
+5. At the **subscriber** database server, create a subscriber node.
    ```SQL
-   select pglogical.create_node( node_name := 'subscriber1', dsn := ' host=mySubscriberDB.postgres.database.azure.com port=5432 dbname=myDB');
+   select pglogical.create_node( node_name := 'subscriber1', 
+   dsn := ' host=mySubscriberServer.postgres.database.azure.com port=5432 dbname=myDB user=myUser password=myPasword' );
    ```
-5. 동기화 및 복제 프로세스를 시작하는 구독을 만듭니다.
+6. Create a subscription to start the synchronization and the replication process.
     ```SQL
-   select pglogical.create_subscription( subscription_name := 'subscription1', provider_dsn := ' host=myProviderDB.postgres.database.azure.com port=5432 dbname=myDB');
+   select pglogical.create_subscription (
+   subscription_name := 'subscription1',
+   replication_sets := array['myreplicationset'],
+   provider_dsn := 'host=myProviderServer.postgres.database.azure.com port=5432 dbname=myDB user=myUser password=myPassword');
    ```
+7. You can then verify the subscription status.
+   ```SQL
+   SELECT subscription_name, status FROM pglogical.show_subscription_status();
+   ```
+-->
 ### <a name="logical-decoding"></a>논리 디코딩
 논리 디코딩을 스트리밍 프로토콜 또는 SQL 인터페이스를 통해 이용할 수 있습니다. 
 

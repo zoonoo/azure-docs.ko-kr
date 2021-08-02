@@ -1,25 +1,25 @@
 ---
-title: Microsoft Azure Stack Edge Pro 시스템 요구 사항 | Microsoft Docs
-description: Azure Stack Edge Pro의 소프트웨어 및 네트워킹 요구 사항 알아보기
+title: Azure Stack Edge Pro FPGA 시스템 요구 사항
+description: Azure Stack Edge Pro FPGA의 소프트웨어 및 네트워킹 요구 사항 알아보기
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/05/2021
+ms.date: 04/26/2021
 ms.author: alkohli
-ms.openlocfilehash: c87c8cfd40903f6296f0a36f5c83c0b5c5cb7818
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7be7715586339a4d38370acbe4a047f86b3a917f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99831583"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460517"
 ---
-# <a name="azure-stack-edge-pro-system-requirements"></a>Azure Stack Edge Pro 시스템 요구 사항
+# <a name="azure-stack-edge-pro-fpga-system-requirements"></a>Azure Stack Edge Pro FPGA 시스템 요구 사항
 
-이 문서에서는 Microsoft Azure Stack Edge Pro 솔루션 및 Azure Stack Edge Pro에 연결하는 클라이언트에 대한 중요한 시스템 요구 사항을 설명합니다. Azure Stack Edge Pro를 배포하기 전에 정보를 신중하게 검토하는 것이 좋습니다. 배포 및 후속 작업 중에 필요하면 이 정보를 다시 참조할 수 있습니다.
+이 문서에서는 Microsoft Azure Stack Edge Pro FPGA 솔루션 및 Azure Stack Edge Pro FPGA에 연결하는 클라이언트에 대한 중요한 시스템 요구 사항을 설명합니다. Azure Stack Edge Pro FPGA를 배포하기 전에 정보를 신중하게 검토하는 것이 좋습니다. 배포 및 후속 작업 중에 필요하면 이 정보를 다시 참조할 수 있습니다.
 
-Azure Stack Edge Pro의 시스템 요구 사항은 다음과 같습니다. 
+Azure Stack Edge Pro FPGA의 시스템 요구 사항은 다음과 같습니다. 
 
 - **호스트의 소프트웨어 요구 사항**: 지원되는 플랫폼, 로컬 구성 UI용 브라우저, SMB 클라이언트, 디바이스에 액세스하는 클라이언트에 대한 추가 요구 사항을 설명합니다.
 - **디바이스의 네트워킹 요구 사항**: 물리적 디바이스가 작동하기 위한 네트워킹 요구 사항에 관한 정보를 제공합니다.
@@ -46,9 +46,9 @@ Azure Stack Edge Pro의 시스템 요구 사항은 다음과 같습니다.
 
 ## <a name="networking-port-requirements"></a>네트워킹 포트 요구 사항
 
-### <a name="port-requirements-for-azure-stack-edge-pro"></a>Azure Stack Edge Pro의 포트 요구 사항
+### <a name="port-requirements-for-azure-stack-edge-pro-fpga"></a>Azure Stack Edge Pro FPGA의 포트 요구 사항
 
-다음 테이블에는 SMB, 클라우드 또는 관리 트래픽을 고려하여 방화벽에서 열려야 하는 포트가 나열되어 있습니다. 이 테이블에서 *인* 또는 *인바운드* 는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드* 는 배포 후 데이터를 외부로 보내는 Azure Stack Edge Pro 디바이스에서 방향을 참조합니다.
+다음 테이블에는 SMB, 클라우드 또는 관리 트래픽을 고려하여 방화벽에서 열려야 하는 포트가 나열되어 있습니다. 이 테이블에서 *인* 또는 *인바운드* 는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드* 는 배포 후 데이터를 외부로 보내는 Azure Stack Edge Pro FPGA 디바이스에서 방향을 참조합니다.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
@@ -66,9 +66,9 @@ Azure IoT Edge 런타임을 호스트하는 서버의 포트 구성에 대한 �
 
 ## <a name="url-patterns-for-firewall-rules"></a>방화벽 규칙에 대한 URL 패턴
 
-네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. Azure Stack Edge Pro 디바이스 및 Data Box Edge 서비스는 Azure Service Bus, Azure Active Directory Access Control, 스토리지 계정 및 Microsoft 업데이트 서버 등의 다른 Microsoft 애플리케이션에 의존합니다. 이러한 애플리케이션과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 애플리케이션과 연결된 URL 패턴은 달라질 수 있습니다. 이렇게 변경하려면 네트워크 관리자가 Azure Stack Edge Pro에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
+네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. Azure Stack Edge Pro FPGA 디바이스 및 서비스는 Azure Service Bus, Azure Active Directory Access Control, 스토리지 계정 및 Microsoft 업데이트 서버 등의 다른 Microsoft 애플리케이션에 의존합니다. 이러한 애플리케이션과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 애플리케이션과 연결된 URL 패턴은 달라질 수 있습니다. 이렇게 변경하려면 네트워크 관리자가 Azure Stack Edge Pro FPGA에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
 
-Azure Stack Edge Pro 고정 IP 주소에 따라 대부분의 경우 자유롭게 아웃바운드 트래픽에 대한 방화벽 규칙을 설정하는 것이 좋습니다. 그러나 보안 환경을 만드는 데 필요한 고급 방화벽 규칙을 설정하려면 아래 정보를 사용할 수 있습니다.
+Azure Stack Edge Pro FPGA 고정 IP 주소에 따라 대부분의 경우 자유롭게 아웃바운드 트래픽에 대한 방화벽 규칙을 설정하는 것이 좋습니다. 그러나 보안 환경을 만드는 데 필요한 고급 방화벽 규칙을 설정하려면 아래 정보를 사용할 수 있습니다.
 
 > [!NOTE]
 > - 디바이스(원본) IP는 항상 클라우드를 사용하도록 설정된 네트워크 인터페이스로 설정해야 합니다.
@@ -86,11 +86,11 @@ Azure Stack Edge Pro 고정 IP 주소에 따라 대부분의 경우 자유롭게
 | https://\*.azurecr.io                     | 개인 및 타사 컨테이너 레지스트리(선택 사항) | 
 | https://\*.azure-devices.net              | IoT Hub 액세스(필수)                             | 
 
-### <a name="url-patterns-for-gateway-for-azure-government"></a>Azure Government 게이트웨이의 URL 패턴
+### <a name="url-patterns-for-gateway-for-azure-government"></a>Azure Government 게이트웨이 URL 패턴
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
 
-### <a name="url-patterns-for-compute-for-azure-government"></a>Azure Government 컴퓨팅의 URL 패턴
+### <a name="url-patterns-for-compute-for-azure-government"></a>Azure Government 컴퓨팅 URL 패턴
 
 | URL 패턴                      | 구성 요소 또는 기능                     |  
 |----------------------------------|---------------------------------------------|
@@ -104,7 +104,7 @@ Azure Stack Edge Pro 고정 IP 주소에 따라 대부분의 경우 자유롭게
 
 ## <a name="compute-sizing-considerations"></a>컴퓨팅 크기 조정 고려 사항
 
-솔루션을 개발하고 테스트하는 동안 사용자 환경을 사용하여 Azure Stack Edge Pro 디바이스에 충분한 용량이 있는지 확인하고 디바이스에서 최적의 성능을 얻을 수 있습니다.
+솔루션을 개발하고 테스트하는 동안 사용자 환경을 사용하여 Azure Stack Edge Pro FPGA 디바이스에 충분한 용량이 있는지 확인하고 디바이스에서 최적의 성능을 얻을 수 있습니다.
 
 고려해야 할 요소는 다음과 같습니다.
 
@@ -115,24 +115,24 @@ Azure Stack Edge Pro 고정 IP 주소에 따라 대부분의 경우 자유롭게
     - 컨테이너는 몇 개의 계층을 공유하나요?
     - 사용하지 않는 컨테이너가 있나요? 중지된 컨테이너도 디스크 공간을 차지합니다.
     - 컨테이너가 어떤 언어로 작성되어 있나요?
-- **처리된 데이터의 크기** - 컨테이너가 처리하는 데이터의 양은 어느 정도인가요? 데이터가 디스크 공간을 사용하나요 아니면 메모리에서 처리되나요?
-- **예상 성능** - 솔루션의 원하는 성능 특성은 무엇인가요? 
+- **처리된 데이터의 크기** - 컨테이너가 처리하는 데이터의 양은 얼마인가요? 데이터가 디스크 공간을 사용하나요 아니면 메모리에서 처리되나요?
+- **예상 성능** - 솔루션의 원하는 성능 특징은 무엇인가요? 
 
-다음을 사용하면 솔루션의 성능을 이해하고 구체화할 수 있습니다.
+솔루션의 성능을 이해하고 개선하기 위해 다음을 사용할 수 있습니다:
 
-- Azure Portal에서 사용할 수 있는 컴퓨팅 메트릭 Azure Stack Edge 리소스로 이동한 다음 **모니터링 > 메트릭** 으로 이동합니다. **Edge 컴퓨팅 - 메모리 사용량** 및 **에지 컴퓨팅 - CPU 백분율** 을 확인하여 사용 가능한 리소스와 소모되는 리소스 양을 파악합니다.
-- 디바이스의 PowerShell 인터페이스를 통해 사용할 수 있는 모니터링 명령. 예:
+- Azure Portal에서 사용할 수 있는 컴퓨팅 메트릭 Azure Stack Edge 리소스로 이동한 다음 **모니터링 > 메트릭** 으로 이동하세요. **Edge 컴퓨팅 - 메모리 사용량** 및 **에지 컴퓨팅 - Percentage CPU** 를 확인하여 사용 가능한 리소스 및 소모되는 리소스를 파악하세요.
+- 디바이스의 PowerShell 인터페이스를 통해 사용할 수 있는 모니터링 명령:
 
-    - `dkr` 컨테이너 리소스 사용량 통계의 라이브 스트림을 이용하기 위한 통계. 이 명령은 CPU, 메모리 사용량, 메모리 제한, 네트워크 IO 메트릭을 지원합니다.
-    - `dkr system df` 사용된 디스크 공간의 양에 대한 정보 확보. 
-    - `dkr image [prune]` 사용되지 않은 이미지를 정리하고 공간 확보.
+    - `dkr` 컨테이너 리소스 사용량 통계의 라이브 스트림을 이용하기 위한 통계. 이 명령은 CPU, 메모리 사용량, 메모리 한도, 네트워크 IO 메트릭을 지원합니다.
+    - `dkr system df` 사용된 디스크 공간의 양에 대한 정보 가져오기 
+    - `dkr image [prune]` 사용되지 않은 이미지를 정리 및 공간 확보.
     - `dkr ps --size` 실행 중인 컨테이너의 대략적인 크기 보기. 
 
     사용할 수 있는 명령에 대한 자세한 내용을 확인하려면 [계산 모듈 모니터링 및 문제 해결](azure-stack-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules)을 확인하십시오.
 
-마지막으로, 프로덕션 환경에 배포하기 전에 데이터 집합에 대한 솔루션의 유효성을 검사하고 Azure Stack Edge Pro에서 성능을 정량화해야 합니다.
+마지막으로, 프로덕션 환경에 배포하기 전에 데이터 세트에 대한 솔루션의 유효성을 검사하고 Azure Stack Edge Pro FPGA에서 성능을 정량화해야 합니다.
 
 
 ## <a name="next-step"></a>다음 단계
 
-- [Azure Stack Edge Pro 배포](azure-stack-edge-deploy-prep.md)
+- [Azure Stack Edge Pro FPGA 배포](azure-stack-edge-deploy-prep.md)

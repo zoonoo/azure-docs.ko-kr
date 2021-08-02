@@ -5,22 +5,23 @@ ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
+ms.topic: how-to
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: cawrites
 ms.date: 03/19/2021
-ms.openlocfilehash: f9fa2426e371ab9fd99e88979cbcbbb34adb00d6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 37266c7a7692c59efdded9ba3fabe71458a5f674
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643582"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110788625"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>마이그레이션 가이드: Access에서 Azure SQL Database로 마이그레이션
 
-이 가이드에서는 Access용 SSMA(Access용 SQL Server Migration Assistant)를 사용하여 Microsoft Access 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션하는 방법을 학습합니다.
+이 가이드에서는 Access용 SSMA(Access용 [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant)를 사용하여 Microsoft Access 데이터베이스를 Azure SQL 데이터베이스로 [마이그레이션하는 방법](https://azure.microsoft.com/migration/migration-journey)을 알아봅니다.
 
-다른 마이그레이션 가이드는 [Azure 데이터베이스 마이그레이션 가이드](https://docs.microsoft.com/data-migration)를 참조하세요. 
+다른 마이그레이션 가이드는 [Azure 데이터베이스 마이그레이션 가이드](/data-migration)를 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -32,7 +33,7 @@ Access 데이터베이스를 SQL 데이터베이스로 마이그레이션하기 
 
 ## <a name="pre-migration"></a>사전 마이그레이션
 
-필수 조건을 충족하면 사용자 환경의 토폴로지를 검색하고 마이그레이션의 적합성을 평가할 준비가 완료됩니다.
+필수 구성 요소를 충족하면 사용자 환경의 토폴로지를 검색하고 [Azure 클라우드 마이그레이션](https://azure.microsoft.com/migration)의 적합성을 평가할 준비가 된 것입니다.
 
 
 ### <a name="assess"></a>평가 
@@ -152,9 +153,9 @@ Access용 SSMA를 사용하여 스키마를 게시하고 데이터를 마이그�
 
 1. **테스트 환경 설정**: 테스트 환경에는 원본 데이터베이스와 대상 데이터베이스의 복사본이 포함되어야 합니다. 테스트 환경을 격리해야 합니다.
 
-1. **유효성 검사 테스트 실행**: 원본과 대상에서 유효성 검사 테스트를 실행한 다음, 결과를 분석합니다.
+1. **유효성 검사 테스트 실행**: 원본 및 대상에서 유효성 검사 테스트를 실행한 다음, 결과를 분석합니다.
 
-1. **성능 테스트 실행**: 원본과 대상에서 성능 테스트를 실행한 다음, 결과를 분석하고 비교합니다.
+1. **성능 테스트 실행**: 원본 및 대상에서 성능 테스트를 실행한 다음, 결과를 분석하고 비교합니다.
 
 
 ### <a name="optimize"></a>최적화
@@ -185,6 +186,8 @@ Access용 SSMA를 사용하여 스키마를 게시하고 데이터를 마이그�
 - 클라우드 마이그레이션의 프레임워크 및 채택 주기에 대해 자세히 알아보려면 다음을 참조하세요.
    -  [Azure용 클라우드 채택 프레임워크](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Azure로 마이그레이션하기 위한 워크로드의 비용 계산 및 크기 조정 모범 사례](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [클라우드 마이그레이션 리소스](https://azure.microsoft.com/migration/resources)
+
 
 - 애플리케이션 액세스 레이어를 평가하려면 [Data Access Migration Toolkit(미리 보기)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)를 참조하세요.
 - 데이터 액세스 계층 A/B 테스트를 수행하는 방법에 관한 자세한 내용은 [데이터베이스 실험 도우미 개요](/sql/dea/database-experimentation-assistant-overview)를 참조하세요.

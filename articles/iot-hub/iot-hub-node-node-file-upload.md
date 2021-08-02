@@ -10,18 +10,18 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.custom: mqtt, devx-track-js
-ms.openlocfilehash: db4f78e14696c421adaedd16b0b3f8d598f12846
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b94cd4cc5c76495cb08f743b1a6849b6eb6c77b2
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91251901"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005936"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>IoT Hub를 사용하여 디바이스에서 클라우드로 파일 업로드(Node.js)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-이 자습서에서는 [IoT Hub를 사용하여 클라우드-디바이스 메시지 보내기](iot-hub-node-node-c2d.md) 자습서의 코드를 기반으로 작성되었으며 [IoT Hub의 파일 업로드 기능](iot-hub-devguide-file-upload.md)을 사용하여 [Azure Blob Storage](../storage/index.yml)에 파일을 업로드하는 방법을 보여 줍니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
+이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 * 파일을 업로드하기 위한 Azure blob URI를 디바이스에 안전하게 제공합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "91251901"
 
 이 자습서의 끝 부분에서 다음 두 개의 Node.js 콘솔 앱을 실행합니다.
 
-* **SimulatedDevice.js** - IoT Hub에서 제공하는 SAS URI를 사용하여 스토리지에 파일을 업로드합니다.
+* **FileUpload.js** - IoT 허브에서 제공하는 SAS URI를 사용하여 스토리지에 파일을 업로드합니다.
 
 * **ReadFileUploadNotification** - IoT Hub에서 파일 업로드 알림을 받습니다.
 
@@ -55,76 +55,69 @@ ms.locfileid: "91251901"
 
 * 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 문서의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
+## <a name="create-an-iot-hub"></a>IoT Hub 만들기
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
 ## <a name="upload-a-file-from-a-device-app"></a>디바이스 앱에서 파일 업로드
 
-이 섹션에서는 IoT Hub에 파일을 업로드하는 디바이스 앱을 만듭니다.
+이 섹션에서는 GitHub에서 디바이스 앱을 복사하여 IoT 허브에 파일을 업로드합니다.
 
-1. ```simulateddevice```라는 빈 폴더를 만듭니다.  ```simulateddevice``` 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다.  모든 기본값을 수락합니다.
+1. Node.js용 GitHub에는 기본 샘플과 고급 샘플인 두 개의 파일 업로드 샘플이 있습니다. [여기](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/upload_to_blob.js)에서 리포지토리의 기본 샘플을 복사합니다. 고급 샘플은 [여기](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/upload_to_blob_advanced.js)에 있습니다.   
+
+2. ```fileupload```라는 빈 폴더를 만듭니다.  ```fileupload``` 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다.  모든 기본값을 수락합니다.
 
     ```cmd/sh
     npm init
     ```
 
-2. ```simulateddevice``` 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 디바이스 SDK 패키지 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
+3. ```fileupload``` 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 디바이스 SDK 패키지 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
 
     ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-3. 텍스트 편집기를 사용하여 ```simulateddevice``` 폴더에 **SimulatedDevice.js** 파일을 만듭니다.
-
-4. **SimulatedDevice.js** 파일 앞에 다음 ```require``` 문을 추가합니다.
+4. 텍스트 편집기를 사용하여 ```fileupload``` 폴더에 **FileUpload.js** 파일을 만들고 기본 샘플을 복사합니다.
 
     ```javascript
+    // Copyright (c) Microsoft. All rights reserved.
+    // Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
     'use strict';
 
+    var Protocol = require('azure-iot-device-mqtt').Mqtt;
+    var Client = require('azure-iot-device').Client;
     var fs = require('fs');
-    var mqtt = require('azure-iot-device-mqtt').Mqtt;
-    var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
-    ```
 
-5. `deviceconnectionstring` 변수를 추가하고 이 변수를 사용하여 **클라이언트** 인스턴스를 만듭니다.  `{deviceconnectionstring}`을 *IoT Hub 만들기* 섹션에서 만든 디바이스 이름으로 바꿉니다.
+    var deviceConnectionString = process.env.ConnectionString;
+    var filePath = process.env.FilePath;
 
-    ```javascript
-    var connectionString = '{deviceconnectionstring}';
-    var filename = 'myimage.png';
-    ```
+    var client = Client.fromConnectionString(deviceConnectionString, Protocol);
+    fs.stat(filePath, function (err, fileStats) {
+      var fileStream = fs.createReadStream(filePath);
 
-    > [!NOTE]
-    > 간소화를 위해 연결 문자열이 코드에 포함되어 있습니다. 이것은 권장되는 방법이 아니며 사용 사례 및 아키텍처에 따라 이러한 비밀을 보다 안전하게 저장하는 방법을 고려할 수 있습니다.
-
-6. 클라이언트에 연결하도록 다음 코드를 추가합니다.
-
-    ```javascript
-    var client = clientFromConnectionString(connectionString);
-    console.log('Client connected');
-    ```
-
-7. 콜백을 만들고 **uploadToBlob** 함수를 사용하여 파일을 업로드합니다.
-
-    ```javascript
-    fs.stat(filename, function (err, stats) {
-        const rr = fs.createReadStream(filename);
-
-        client.uploadToBlob(filename, rr, stats.size, function (err) {
-            if (err) {
-                console.error('Error uploading file: ' + err.toString());
-            } else {
-                console.log('File uploaded');
-            }
-        });
+      client.uploadToBlob('testblob.txt', fileStream, fileStats.size, function (err, result) {
+        if (err) {
+          console.error('error uploading file: ' + err.constructor.name + ': ' + err.message);
+        } else {
+          console.log('Upload successful - ' + result);
+        }
+        fileStream.destroy();
+      });
     });
     ```
 
-8. **SimulatedDevice.js** 파일을 저장한 후 닫습니다.
+5. 디바이스 연결 문자열에 대한 환경 변수와 업로드할 파일의 경로를 추가합니다.
 
-9. 이미지 파일을 `simulateddevice` 폴더에 복사하고 파일 이름을 `myimage.png`로 바꿉니다.
+6. **FileUpload.js** 파일을 저장하고 닫습니다.
+
+7. 이미지 파일을 `fileupload` 폴더에 복사하고 `myimage.png`와 같은 이름을 지정합니다. `FilePath` 환경 변수에 파일 경로를 배치합니다.
 
 ## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
 
-이 문서에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-node.md)에서 만든 IoT Hub에서 파일 업롣 알림 메시지를 수신하는 백 엔드 서비스를 만듭니다. 파일 업로드 알림 메시지를 수신하려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service** 라는 공유 액세스 정책을 사용하여 만듭니다.
+이 문서에서는 사용자가 만든 IoT 허브에서 파일 업로드 알림 메시지를 수신하는 백 엔드 서비스를 만듭니다. 파일 업로드 알림 메시지를 수신하려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service** 라는 공유 액세스 정책을 사용하여 만듭니다.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
@@ -163,7 +156,7 @@ ms.locfileid: "91251901"
     ```
 
     > [!NOTE]
-    > 간소화를 위해 연결 문자열이 코드에 포함되어 있습니다. 이것은 권장되는 방법이 아니며 사용 사례 및 아키텍처에 따라 이러한 비밀을 보다 안전하게 저장하는 방법을 고려할 수 있습니다.
+    > 간소화를 위해 연결 문자열이 코드에 포함되어 있습니다. 이는 권장되는 방법이 아니며 사용 사례 및 아키텍처에 따라 이러한 비밀을 보다 안전하게 저장하는 방법을 고려할 수 있습니다.
 
 6. 클라이언트에 연결하도록 다음 코드를 추가합니다.
 
@@ -205,13 +198,13 @@ ms.locfileid: "91251901"
 node FileUploadNotification.js
 ```
 
-`simulateddevice` 폴더의 명령 프롬프트에서 다음 명령을 실행합니다.
+`fileupload` 폴더의 명령 프롬프트에서 다음 명령을 실행합니다.
 
 ```cmd/sh
-node SimulatedDevice.js
+node FileUpload.js
 ```
 
-다음 스크린샷은 **SimulatedDevice** 앱의 출력을 보여 줍니다.
+다음 스크린샷은 **FileUpload** 앱의 출력을 보여 줍니다.
 
 ![simulated-device 앱의 출력](./media/iot-hub-node-node-file-upload/simulated-device.png)
 

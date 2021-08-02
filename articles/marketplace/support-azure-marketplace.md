@@ -6,15 +6,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 04/14/2020
-ms.openlocfilehash: 02e64c6c6e5ab2ef77f02959ada6f95d1042b76d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.date: 06/14/2021
+ms.openlocfilehash: 0173d6e897c122d53d8f64c1d0110ab7ddfa68ed
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94488760"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075919"
 ---
-# <a name="support-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 지원
+# <a name="support-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 Marketplace 지원
 
 Microsoft 상업용 Marketplace 게시자로 시작하는 것과 관련된 질문이 있나요? 다음은 상업용 Marketplace에 대한 지원 옵션 목록입니다. 다음 리소스 외의 [C+AI 커뮤니티 포럼의 Marketplace 채널](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222)에서도 많은 질문에 대한 답변을 확인할 수 있습니다.  
 
@@ -26,7 +26,8 @@ Microsoft 상업용 Marketplace 게시자로 시작하는 것과 관련된 질�
 
 | 지원 채널 | Description | 가용성 |  
 |:--- |:--- |:--- |  
-| 도움이 필요하면 [Marketplace 지원](https://aka.ms/marketplacepublishersupport)의 인시던트 만들기 페이지를 방문하세요.</li> </ul> | 파트너 센터 지원. | 지원은 24x5로 제공됩니다. |  
+| 도움이 필요하면 [Marketplace 지원](https://aka.ms/marketplacepublishersupport)의 인시던트 만들기 페이지를 방문하세요.</li> </ul> | 파트너 센터 지원. | 지원은 24x5로 제공됩니다. |
+|
 
 ## <a name="technical"></a>기술  
 
@@ -39,12 +40,12 @@ Microsoft 상업용 Marketplace 게시자로 시작하는 것과 관련된 질�
 
 | 지원 채널 | Description | 가용성 |  
 |:--- |:--- |:--- |
-| 메일: [gtm@microsoft.com](mailto:gtm@microsoft.com) | GTM 혜택 및 프로그램 질문에 대한 지원입니다. | 태평양 표준 시간대의 근무 시간입니다. |  
-| 메일: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Azure 로고의 브랜드 사용과 브랜딩에 대한 질문과 답변을 제공합니다. |  |  
+| 메일: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Azure 로고의 브랜드 사용과 브랜딩에 대한 질문과 답변을 제공합니다. |  |
+|
+
+Marketplace Rewards에 대한 질문은 [파트너 센터 지원](https://partner.microsoft.com/support/v2/?stage=1)에 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [상업용 Marketplace 게시자 가이드 페이지](index.yml)를 참조하세요.
-* [파트너 센터에서 상업용 Marketplace 프로그램에 대한 지원](support.md)에 대해 자세히 알아보세요.
-
----
+- [상업용 Marketplace 게시자 가이드 페이지](index.yml)를 참조하세요.
+- [파트너 센터에서 상업용 Marketplace 프로그램에 대한 지원](support.md)에 대해 자세히 알아보세요.

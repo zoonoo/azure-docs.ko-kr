@@ -5,16 +5,17 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 06/13/2021
 ms.author: mjbrown
-ms.openlocfilehash: d849c3d611cefab7db20197d3c43dd9faefe9b47
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 28bb55b24cdc758906ab9aff5746e4c5d4c7bfc3
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110097897"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112059709"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB Core(SQL) API 리소스 관리
+
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너를 배포 및 관리하는 방법을 알아봅니다.
@@ -27,6 +28,7 @@ ms.locfileid: "110097897"
 > * 처리량 값을 변경하려면 업데이트된 RU/s로 템플릿을 다시 배포합니다.
 > * Azure Cosmos 계정에 위치를 추가하거나 제거하면 다른 속성을 동시에 수정할 수 없습니다. 이러한 작업은 별도로 수행해야 합니다.
 > * Azure Resource Manager가 리소스 URI와 함께 작동하는 방식을 위반하므로 Azure Cosmos DB 리소스의 이름을 바꿀 수 없습니다.
+> * 데이터베이스 수준에서 처리량을 프로비전하고 모든 컨테이너에서 공유하려면 데이터베이스 옵션 속성에 처리량 값을 적용합니다.
 
 아래의 Azure Cosmos DB 리소스를 만들려면 다음 예제 템플릿을 새 json 파일에 복사합니다. 필요에 따라 이름 및 값이 다른 동일한 리소스의 여러 인스턴스를 배포할 때 매개 변수 json 파일을 만들 수 있습니다. [Azure Portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) 및 [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md)를 비롯한 Azure Resource Manager 템플릿을 배포할 수 있는 여러 가지 방법이 있습니다.
 

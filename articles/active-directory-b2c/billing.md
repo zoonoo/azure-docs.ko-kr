@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 02/01/2021
+ms.date: 05/28/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a54ed9dc6557d9b613485bf28e74af0c59fc9e5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 623799b894846034dcf3f58a4bd6e53c56d526df
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99225211"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690489"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Azure Active Directory B2C 청구 모델
 
@@ -27,22 +27,23 @@ Azure AD B2C(Azure Active Directory B2C) 가격 책정은 MAU(월간 활성 사�
 
 ## <a name="what-do-i-need-to-do"></a>무엇을 해야 하나요?
 
-MAU 청구 기능을 사용하려면 Azure AD B2C 테넌트가 Azure 구독에 연결되어 있어야 합니다. 위험 기반 조건부 액세스와 같은 Azure AD B2C 프리미엄 P2 기능을 사용하려는 경우 Azure AD B2C 테넌트를 다른 가격 책정 계층으로 전환해야 할 수도 있습니다.
+MAU 청구 기능을 사용하려면 Azure AD B2C 테넌트가 Azure 구독에 연결되어 있어야 합니다. 위험 기반 조건부 액세스 정책과 같은 Azure AD B2C 프리미엄 P2 기능을 사용하려는 경우 Azure AD B2C 테넌트를 다른 가격 책정 계층으로 전환해야 할 수도 있습니다.
 
 |테넌트 ID는 다음과 같습니다.  |그러려면 다음 작업을 수행해야 합니다.  |
 |---------|---------|
 | Azure AD B2C 테넌트에 이미 MAU 기준으로 청구됨     | 아무 작업도 하지 않습니다. 사용자가 Azure AD B2C 테넌트에 인증하면 MAU 기반 청구 모델을 사용하여 자동으로 청구됩니다.        |
 | Azure AD B2C 테넌트가 아직 구독에 연결되지 않음     |  [구독에 Azure AD B2C 테넌트를 연결](#link-an-azure-ad-b2c-tenant-to-a-subscription)하여 MAU 청구를 활성화하세요.     |
 | 2019년 11월 1일 이전에 구독에 연결된 Azure AD B2C 테넌트    | [MAU 청구(권장)로 전환](#switch-to-mau-billing-pre-november-2019-azure-ad-b2c-tenants)하거나 인증별 청구 모델을 유지합니다.     |
-| Azure AD B2C 테넌트이고 프리미엄 기능(예: 위험 기반 조건부 액세스)을 사용하려는 경우    | 사용하려는 기능을 지원하는 [Azure AD 가격 책정 계층으로 변경](#change-your-azure-ad-pricing-tier)합니다.        |
+| Azure AD B2C 테넌트이고 프리미엄 기능(예: 위험 기반 조건부 액세스 정책)을 사용하려는 경우    | 사용하려는 기능을 지원하는 [Azure AD 가격 책정 계층으로 변경](#change-your-azure-ad-pricing-tier)합니다.        |
 |  |  |
 
 ## <a name="about-the-monthly-active-users-mau-billing-model"></a>MAU(월간 활성 사용자) 청구 모델 정보
 
 MAU 청구는 **2019년 11월 1일** 에 Azure AD B2C 테넌트에 적용되었습니다. 이 날짜 또는 그 이후에 만들어 구독에 연결한 모든 Azure AD B2C 테넌트는 MAU 기준으로 청구되었습니다. 구독에 연결하지 않은 Azure AD B2C 테넌트가 있는 경우 지금 연결해야 합니다. 2019년 11월 1일 이전에 구독에 연결된 기존 Azure AD B2C 테넌트가 있는 경우 MAU(월간 활성 사용자) 청구 모델로 업그레이드하거나 인증별 청구 모델을 유지하는 것이 좋습니다.
   
-Azure AD B2C 테넌트는 사용하려는 기능에 따라 적절한 Azure 가격 책정 계층에도 연결되어야 합니다. 프리미엄 기능을 사용하려면 Azure AD B2C [프리미엄 P1 또는 P2 가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)이 필요합니다. 새 기능을 사용할 때 가격 책정 계층을 업그레이드해야 할 수도 있습니다. 예를 들어 조건부 액세스의 경우 테넌트에 대해 Azure AD B2C 프리미엄 P2 가격 책정 계층을 선택해야 합니다.
-
+Azure AD B2C 테넌트는 사용하려는 기능에 따라 적절한 Azure 가격 책정 계층에도 연결되어야 합니다. 프리미엄 기능을 사용하려면 Azure AD B2C [프리미엄 P1 또는 P2 가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)이 필요합니다. 새 기능을 사용할 때 가격 책정 계층을 업그레이드해야 할 수도 있습니다. 예를 들어 위험 기반 조건부 액세스 정책의 경우 테넌트에 대해 Azure AD B2C 프리미엄 P2 가격 책정 계층을 선택해야 합니다.
+> [!NOTE]
+>  프리미엄 P1 및 프리미엄 P2 기능 모두에 대해 매월 처음 50,000개의 MAU가 무료입니다. MAU의 총 수를 확인하기 위해 동일한 구독에 연결된 모든 테넌트(Azure AD 및 Azure AD B2C)의 MAU를 결합합니다.
 ## <a name="link-an-azure-ad-b2c-tenant-to-a-subscription"></a>구독에 Azure AD B2C 테넌트 연결
 
 Azure AD B2C(Azure Active Directory B2C) 사용 요금은 Azure 구독에 청구됩니다. 대상 Azure 구독 내에서 Azure AD B2C 리소스를 만들어 Azure AD B2C 테넌트를 Azure 구독에 명시적으로 연결해야 합니다. 가상 머신, Storage 계정, Logic Apps 등의 다른 Azure 리소스와 함께 여러 Azure AD B2C 리소스를 단일 Azure 구독에서 만들 수 있습니다. 구독과 연결된 Azure AD(Azure Active Directory) 테넌트로 이동하여 구독 내의 모든 리소스를 볼 수 있습니다.
@@ -74,7 +75,7 @@ Azure AD B2C 테넌트에 대해 이러한 단계를 완료하면 Azure Direct �
 
 ## <a name="change-your-azure-ad-pricing-tier"></a>Azure AD 가격 책정 계층 변경
 
-Azure AD B2C 테넌트에 사용하려는 기능에 따라 테넌트를 적절한 Azure 가격 책정 계층에 연결해야 합니다. 프리미엄 기능을 사용하려면 [Azure Active Directory B2C 가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)에 설명된 대로 Azure AD B2C 프리미엄 P1 또는 P2가 필요합니다. 새 기능을 사용할 때 가격 책정 계층을 업그레이드해야 하는 경우도 있습니다. 예를 들어 ID 보호, 위험 기반 조건부 액세스 및 향후 Premium P2 기능을 Azure AD B2C에 사용하려면 테넌트에 대해 Azure AD B2C Premium P2 가격 책정 계층을 선택해야 합니다.
+Azure AD B2C 테넌트에 사용하려는 기능에 따라 테넌트를 적절한 Azure 가격 책정 계층에 연결해야 합니다. 프리미엄 기능을 사용하려면 [Azure Active Directory B2C 가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)에 설명된 대로 Azure AD B2C 프리미엄 P1 또는 P2가 필요합니다. 새 기능을 사용할 때 가격 책정 계층을 업그레이드해야 하는 경우도 있습니다. 예를 들어 ID 보호, 위험 기반 조건부 액세스 정책, 향후 Premium P2 기능을 Azure AD B2C에 사용하려면 테넌트에 대해 Azure AD B2C Premium P2 가격 책정 계층을 선택해야 합니다.
 
 가격 책정 계층을 변경하려면 다음 단계를 수행합니다.
 

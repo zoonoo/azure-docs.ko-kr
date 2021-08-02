@@ -11,12 +11,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: bcdb91d7516acb8f987a3f302c04fbd2d8594fc7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d71b96a08a6c3f886d7afa6fefffa09a39ae9e1e
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98019774"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110678372"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Azure REST API를 사용하여 Azure Network Watcher로 패킷 캡처 관리
 
@@ -42,7 +43,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 시나리오에서는 Network Watcher Rest API를 호출하여 IP 흐름 확인을 실행합니다. PowerShell을 사용하여 REST API를 호출하는 데 ARMclient가 사용됩니다. ARMClient는 chocolatey의 [ARMClient On chocolatey](https://chocolatey.org/packages/ARMClient) 에 있습니다.
+이 시나리오에서는 Network Watcher Rest API를 호출하여 IP 흐름 확인을 실행합니다. PowerShell을 사용하여 REST API를 호출하는 데 ARMclient가 사용됩니다. ARMClient는 [Chocolatey의 ARMClient](https://chocolatey.org/packages/ARMClient)에서 chocolatey에 있습니다.
 
 이 시나리오에서는 사용자가 Network Watcher를 만드는 [Network Watcher 만들기](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다.
 
@@ -60,7 +61,7 @@ armclient login
 
 다음 코드에는 다음 변수가 필요합니다.
 
-- **subscriptionId** - **AzSubscription** cmdlet을 사용 하 여 구독 id를 검색할 수도 있습니다.
+- **subscriptionId** - **Get-AzSubscription** cmdlet을 사용하여 구독 ID를 검색할 수도 있습니다.
 - **resourceGroupName** - 가상 머신을 포함하는 리소스 그룹의 이름입니다.
 
 ```powershell
@@ -301,6 +302,6 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-quickstart-blobs-dotnet.md)을 참조하세요. 사용할 수 있는 다른 도구는 Storage Explorer입니다. Storage 탐색기에 대 한 자세한 내용은 다음 링크에서 찾을 수 있습니다. [Storage 탐색기](https://storageexplorer.com/)
+Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-quickstart-blobs-dotnet.md)을 참조하세요. 사용할 수 있는 다른 도구는 Storage Explorer입니다. Storage Explorer에 대한 자세한 내용은 여기에 있는 [Storage Explorer](https://storageexplorer.com/) 링크에서 찾을 수 있습니다.
 
 [경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 머신 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.

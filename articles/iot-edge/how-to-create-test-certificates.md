@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: adfb46894e769a23a2ac48bdb4ac3e432d9cebce
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 724c02f56b49957934deefe9f4733cda57620987
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139060"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112019992"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>데모 인증서를 만들어 IoT Edge 디바이스 기능 테스트
 
@@ -38,7 +38,7 @@ IoT Edge 시나리오를 테스트하기 위한 데모 인증서를 만들려면
    * 게이트웨이 시나리오에서 IoT Edge 디바이스에 대한 [IoT Edge 디바이스 CA 인증서를 만듭니다](#create-iot-edge-device-ca-certificates).
    * 게이트웨이 시나리오에서 다운스트림 디바이스를 인증하기 위한 [다운스트림 디바이스 인증서를 만듭니다](#create-downstream-device-certificates).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Git이 설치된 개발 머신
 
@@ -119,7 +119,7 @@ Azure IoT Edge Git 리포지토리에는 테스트 인증서를 생성하는 데
 
 ### <a name="set-up-on-linux"></a>Linux에서 설정하기
 
-Windows 디바이스에서 데모 인증서를 만들려면 생성 스크립트를 복제하고 Bash에서 로컬로 실행되도록 설정해야 합니다.
+Linux 디바이스에서 데모 인증서를 만들려면 생성 스크립트를 복제하여 bash에서 로컬로 실행되도록 설정해야 합니다.
 
 1. 데모 인증서를 생성하는 스크립트가 포함된 IoT Edge Git 리포지토리를 복제합니다.
 
@@ -159,7 +159,7 @@ Windows 디바이스에서 데모 인증서를 만들려면 생성 스크립트�
 
 1. 인증서 생성 스크립트를 배치한 작업 디렉터리로 이동합니다.
 
-1. 루트 CA 인증서를 만들고 중간 인증서에 서명하도록 합니다. 인증서는 모두 작업 디렉터리에 저장됩니다.
+1. 루트 CA 인증서를 만들고 중간 인증서에 서명하도록 합니다. 인증서는 모두 작업 디렉터리에 저장됩니다. 
 
    ```powershell
    New-CACertsCertChain rsa
@@ -168,6 +168,8 @@ Windows 디바이스에서 데모 인증서를 만들려면 생성 스크립트�
    이 스크립트 명령은 여러 인증서 및 키 파일을 만들지만, 아티클이 **루트 CA 인증서** 를 요청하는 경우 다음 파일을 사용합니다.
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
+   
+   다음 섹션에 설명된 대로 IoT Edge 디바이스 및 리프 디바이스에 대한 추가 인증서를 만들려면 먼저 이 인증서가 있어야 합니다.
 
 ### <a name="linux"></a>Linux
 
@@ -206,6 +208,9 @@ New-CACertsEdgeDeviceIdentity "<name>"
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
+
+DPS의 IoT Edge 디바이스에 대한 개별 등록을 위해서는 `iot-edge-device-identity-<name>.cert.pem`을 사용합니다. IoT Edge 디바이스를 IoT Hub에 등록하려면 `iot-edge-device-identity-<name>-full-chain.cert.pem` 및 `iot-edge-device-identity-<name>.key.pem` 인증서를 사용합니다. 자세한 내용은 [x.509 인증서를 사용하여 IoT Edge 디바이스 만들기 및 프로비저닝](how-to-auto-provision-x509-certs.md)을 참조하세요.
+
 
 ### <a name="linux"></a>Linux
 
@@ -299,7 +304,7 @@ IoT 디바이스에는 IoT Hub를 사용하여 인증할 수 있도록 디바이
 
 1. 인증서 생성 스크립트 및 루트 CA 인증서가 있는 작업 디렉터리로 이동합니다.
 
-2. 다운스트림 디바이스에 대해 두 개의 인증서(기본 및 보조)를 만듭니다. 사용하기 쉬운 명명 규칙의 예로는 IoT 디바이스 이름으로 인증서를 만든 다음 기본 또는 보조 레이블을 만드는 것입니다. 예를 들어:
+2. 다운스트림 디바이스에 대해 두 개의 인증서(기본 및 보조)를 만듭니다. 사용하기 쉬운 명명 규칙의 예로는 IoT 디바이스 이름으로 인증서를 만든 다음 기본 또는 보조 레이블을 만드는 것입니다. 예를 들면 다음과 같습니다.
 
    ```PowerShell
    New-CACertsDevice "<device name>-primary"
@@ -329,7 +334,7 @@ IoT 디바이스에는 IoT Hub를 사용하여 인증할 수 있도록 디바이
 
 1. 인증서 생성 스크립트 및 루트 CA 인증서가 있는 작업 디렉터리로 이동합니다.
 
-2. 다운스트림 디바이스에 대해 두 개의 인증서(기본 및 보조)를 만듭니다. 사용하기 쉬운 명명 규칙의 예로는 IoT 디바이스 이름으로 인증서를 만든 다음 기본 또는 보조 레이블을 만드는 것입니다. 예를 들어:
+2. 다운스트림 디바이스에 대해 두 개의 인증서(기본 및 보조)를 만듭니다. 사용하기 쉬운 명명 규칙의 예로는 IoT 디바이스 이름으로 인증서를 만든 다음 기본 또는 보조 레이블을 만드는 것입니다. 예를 들면 다음과 같습니다.
 
    ```bash
    ./certGen.sh create_device_certificate "<device name>-primary"
@@ -357,11 +362,11 @@ IoT 디바이스에는 IoT Hub를 사용하여 인증할 수 있도록 디바이
 
 ### <a name="ca-signed-certificates"></a>CA 서명 인증서
 
-자체 서명된 인증서를 사용하여 IoT 디바이스를 인증하는 경우 솔루션에 대한 루트 CA 인증서를 IoT Hub에 업로드해야 합니다.
+CA 서명된 인증서를 사용하여 IoT 디바이스를 인증하는 경우 솔루션에 대한 루트 CA 인증서를 IoT Hub에 업로드해야 합니다.
 그런 다음 루트 CA 인증서를 소유하고 있음을 IoT Hub에 증명하기 위한 확인 작업을 수행합니다.
 마지막으로 IoT Hub로 인증할 수 있도록 IoT 디바이스에 넣을 디바이스 인증서를 만들기 위해 동일한 루트 CA 인증서를 사용합니다.
 
-이 섹션의 인증서는 [Azure IoT Hub에서 X.509 보안 설정](../iot-hub/tutorial-x509-scripts.md)의 단계에 사용됩니다.
+이 섹션의 인증서는 IoT Hub X.509 인증서 자습서 시리즈의 단계를 위한 것입니다. 이 시리즈의 소개 내용은 [퍼블릭 키 암호화 및 X.509 퍼블릭 키 인프라 이해](../iot-hub/tutorial-x509-introduction.md)를 참조하세요.
 
 #### <a name="windows"></a>Windows
 

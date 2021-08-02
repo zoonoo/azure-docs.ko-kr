@@ -12,29 +12,31 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: d238b566c1286b9b765fb574cd72ee68ccf4b4a7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e6bc27674cadc8798afa3f9f9297b0d573d7ce64
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048377"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071062"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Azure NetApp Files에 대한 Active Directory 연결 만들기 및 관리
 
-Azure NetApp Files의 여러 기능을 수행하려면 Active Directory에 연결해야 합니다.  예를 들어, [SMB 볼륨](azure-netapp-files-create-volumes-smb.md) 또는 [이중 프로토콜 볼륨](create-volumes-dual-protocol.md)을 만들기 전에 Active Directory에 연결해야 합니다.  이 문서에서는 Azure NetApp Files에 대한 Active Directory 연결을 만들고 관리하는 방법을 보여 줍니다.
+Azure NetApp Files의 여러 기능을 수행하려면 Active Directory에 연결해야 합니다.  예를 들어 [SMB 볼륨](azure-netapp-files-create-volumes-smb.md), [NFSv4.1 Kerberos 볼륨](configure-kerberos-encryption.md) 또는 [이중 프로토콜 볼륨](create-volumes-dual-protocol.md)을 만들려면 먼저 Active Directory에 연결해야 합니다.  이 문서에서는 Azure NetApp Files에 대한 Active Directory 연결을 만들고 관리하는 방법을 보여 줍니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에  
 
-용량 풀을 설정해야 합니다.   
-[용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)   
-Azure NetApp Files에 서브넷을 위임해야 합니다.  
-[Azure NetApp Files에 서브넷 위임](azure-netapp-files-delegate-subnet.md)
+* 용량 풀을 설정해야 합니다. [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)을 참조하세요.   
+* Azure NetApp Files에 서브넷을 위임해야 합니다. [Azure NetApp Files에 서브넷 위임](azure-netapp-files-delegate-subnet.md)을 참조하세요.
 
 ## <a name="requirements-for-active-directory-connections"></a>Active Directory 연결에 대한 요구 사항
 
- Active Directory 연결에 대한 요구 사항은 다음과 같습니다. 
+* 구독 및 지역별로 하나의 AD(Active Directory) 연결만 구성할 수 있습니다.   
+
+    AD 연결이 다른 NetApp 계정에 있는 경우에도 Azure NetApp Files는 단일 *지역* 에서 여러 AD 연결을 지원하지 않습니다. 그러나 AD 연결이 서로 다른 지역에 있는 경우에는 여러 AD 연결을 단일 구독에 사용할 수 있습니다. 여러 AD 연결이 단일 지역에 필요한 경우 별도의 구독을 사용하여 이 작업을 수행할 수 있습니다.  
+
+    AD 연결은 생성된 NetApp 계정을 통해서만 볼 수 있습니다. 그러나 공유 AD 기능을 사용하도록 설정하여 동일한 구독 및 동일한 지역에 있는 NetApp 계정이 NetApp 계정 중 하나에서 만든 AD 서버를 사용하도록 허용할 수 있습니다. [동일한 구독 및 지역의 여러 NetApp 계정을 하나의 AD 연결에 매핑](#shared_ad)을 참조하세요. 이 기능을 활성화할 경우 동일한 구독 및 동일한 지역에 있는 모든 NetApp 계정에서 AD 연결이 표시됩니다. 
 
 * 사용하는 관리자 계정은 사용자가 지정할 OU(조직 구성 단위) 경로에 머신 계정을 만들 수 있어야 합니다.  
 
@@ -134,6 +136,8 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
 
 1. NetApp 계정에서 **Active Directory 연결** 을 클릭하고 **조인** 을 클릭합니다.  
 
+    Azure NetApp Files는 동일한 지역 및 동일한 구독 내에서 하나의 Active Directory 연결만 지원합니다. 동일한 구독 및 지역의 다른 NetApp 계정에서 Active Directory를 이미 구성한 경우 NetApp 계정에서 다른 Active Directory를 구성하고 조인할 수 없습니다. 그러나 동일한 구독 및 동일한 지역 내의 여러 NetApp 계정에서 Active Directory 구성을 공유할 수 있도록 공유 AD 기능을 사용하도록 설정할 수 있습니다. [동일한 구독 및 지역의 여러 NetApp 계정을 하나의 AD 연결에 매핑](#shared_ad)을 참조하세요.
+
     ![Active Directory 연결](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
 
 2. Active Directory 조인 창에서 사용하려는 도메인 서비스에 따라 다음 정보를 제공합니다.  
@@ -166,8 +170,10 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         ![Active Directory 조인](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
     * **AES 암호화**   
-        SMB 볼륨에 대해 AES 암호화를 사용하도록 설정하려면 이 확인란을 선택합니다. 요구 사항에 대해서는 [Active Directory 연결에 대한 요구 사항](#requirements-for-active-directory-connections)을 참조하세요. 
-
+        AD 인증에 AES 암호화를 활성화하거나 [SMB 볼륨에 대한 암호화](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)가 필요한 경우 이 확인란을 선택합니다.   
+        
+        요구 사항에 대해서는 [Active Directory 연결에 대한 요구 사항](#requirements-for-active-directory-connections)을 참조하세요.  
+  
         ![Active Directory AES 암호화](../media/azure-netapp-files/active-directory-aes-encryption.png)
 
         **AES 암호화** 기능은 현재 미리 보기로 제공됩니다. 이 기능을 처음 사용하는 경우 사용하기 전에 등록합니다. 
@@ -179,7 +185,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         기능 등록 상태를 확인합니다. 
 
         > [!NOTE]
-        > **RegistrationState** 는 `Registered`로 변경되기 전까지 최대 60분 동안 `Registering` 상태가 될 수 있습니다. 상태가 `Registered`가 될 때까지 기다린 후 계속합니다.
+        > **RegistrationState** 는 `Registered`로 변경되기 전 최대 60분 동안 `Registering` 상태에 있을 수 있습니다. 상태가 `Registered`이 될 때까지 기다린 후에 계속하세요.
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
@@ -201,7 +207,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         기능 등록 상태를 확인합니다. 
 
         > [!NOTE]
-        > **RegistrationState** 는 `Registered`로 변경되기 전까지 최대 60분 동안 `Registering` 상태가 될 수 있습니다. 상태가 `Registered`가 될 때까지 기다린 후 계속합니다.
+        > **RegistrationState** 는 `Registered`로 변경되기 전 최대 60분 동안 `Registering` 상태에 있을 수 있습니다. 상태가 `Registered`이 될 때까지 기다린 후에 계속하세요.
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
@@ -215,7 +221,9 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         예를 들어 특정 시나리오에서 SQL Server를 설치하는 데 사용되는 사용자 계정에는 상승된 보안 권한을 부여해야 합니다. 비관리자(도메인) 계정을 사용하여 SQL Server를 설치하고 계정에 할당된 보안 권한이 없는 경우 계정에 보안 권한을 추가해야 합니다.  
 
         > [!IMPORTANT]
-        > SQL Server를 설치하는 데 사용되는 도메인 계정을 이미 존재해야만 **보안 권한 사용자** 필드에 추가할 수 있습니다. SQL Server 설치 관리자의 계정을 **보안 권한 사용자** 에게 추가하면 Azure NetApp Files 서비스에서 도메인 컨트롤러에 연결하여 계정의 유효성을 검사할 수 있습니다. 도메인 컨트롤러에 연결할 수 없는 경우 명령이 실패할 수 있습니다.  
+        > **보안 권한 사용자** 기능을 사용하려면 **[Azure NetApp Files SMB 지속적인 가용성 공유 공개 미리 보기 대기 목록 제출 페이지](https://aka.ms/anfsmbcasharespreviewsignup)** 를 통해 대기 목록 요청을 제출해야 합니다. 이 기능을 사용하기 전에 Azure NetApp Files 팀의 공식 확인 이메일을 기다리세요.        
+        > 
+        > 이 기능을 사용하는 것은 선택 사항이며 SQL Server에 대해서만 지원됩니다. SQL Server를 설치하는 데 사용되는 도메인 계정을 이미 존재해야만 **보안 권한 사용자** 필드에 추가할 수 있습니다. SQL Server 설치 관리자의 계정을 **보안 권한 사용자** 에게 추가하면 Azure NetApp Files 서비스에서 도메인 컨트롤러에 연결하여 계정의 유효성을 검사할 수 있습니다. 도메인 컨트롤러에 연결할 수 없는 경우 명령이 실패할 수 있습니다.  
 
         `SeSecurityPrivilege` 및 SQL Server에 대한 자세한 내용은 [설치 계정에 특정 사용자 권한이 없는 경우 SQL Server 설치 실패](/troubleshoot/sql/install/installation-fails-if-remove-user-right)를 참조하세요.
 
@@ -235,13 +243,13 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         기능 등록 상태를 확인합니다. 
 
         > [!NOTE]
-        > **RegistrationState** 는 `Registered`로 변경되기 전까지 최대 60분 동안 `Registering` 상태가 될 수 있습니다. 상태가 `Registered`가 될 때까지 기다린 후 계속합니다.
+        > **RegistrationState** 는 `Registered`로 변경되기 전 최대 60분 동안 `Registering` 상태에 있을 수 있습니다. 상태가 `Registered`이 될 때까지 기다린 후에 계속하세요.
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
         ```
         
-        [Azure CLI 명령](/cli/azure/feature) `az feature register` 및 `az feature show`를 사용하여 기능을 등록하고 등록 상태를 표시할 수도 있습니다. 
+        [Azure CLI 명령](/cli/azure/feature) `az feature register` 및 `az feature show`를 사용하여 기능을 등록하고 등록 상태를 표시할 수도 있습니다.  
 
     * **사용자 이름** 과 **암호** 를 포함한 자격 증명
 
@@ -253,6 +261,28 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
 
     ![Active Directory 연결이 만들어짐](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
 
+## <a name="map-multiple-netapp-accounts-in-the-same-subscription-and-region-to-an-ad-connection"></a><a name="shared_ad"></a>동일한 구독 및 지역의 여러 NetApp 계정을 하나의 AD 연결에 매핑  
+
+공유 AD 기능을 사용하면 모든 NetApp 계정이 동일한 구독 및 동일한 지역에 속하는 NetApp 계정 중 하나로 만든 AD(Active Directory) 연결을 공유할 수 있습니다. 예를 들어, 이 기능을 사용하면 동일한 구독 및 지역의 모든 NetApp 계정이 공통 AD 구성을 사용하여 [SMB 볼륨](azure-netapp-files-create-volumes-smb.md), [NFSv4.1 Kerberos 볼륨](configure-kerberos-encryption.md) 또는 [이중 프로토콜 볼륨](create-volumes-dual-protocol.md)을 만들 수 있습니다. 이 기능을 사용할 경우 동일한 구독 및 동일한 지역에 있는 모든 NetApp 계정에 AD 연결이 표시됩니다.   
+
+이 기능은 현재 미리 보기로 제공됩니다. 이 기능을 처음 사용하기 전에 등록해야 합니다. 등록 후 기능이 활성화되고 백그라운드에서 작동합니다. UI 컨트롤이 필요하지 않습니다. 
+
+1. 다음 기능을 등록합니다. 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSharedAD
+    ```
+
+2. 기능 등록 상태를 확인합니다. 
+
+    > [!NOTE]
+    > **RegistrationState** 는 `Registered`로 변경되기 전 최대 60분 동안 `Registering` 상태에 있을 수 있습니다. 상태가 **Registered** 가 될 때까지 기다린 후에 계속하세요.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSharedAD
+    ```
+[Azure CLI 명령](/cli/azure/feature) `az feature register` 및 `az feature show`를 사용하여 기능을 등록하고 등록 상태를 표시할 수도 있습니다. 
+ 
 ## <a name="next-steps"></a>다음 단계  
 
 * [SMB 볼륨 만들기](azure-netapp-files-create-volumes-smb.md)

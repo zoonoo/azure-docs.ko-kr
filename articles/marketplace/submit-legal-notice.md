@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 03/08/2021
-ms.openlocfilehash: 7acf7e8dc9f90c50f3c7d5555e6fe37260b35c93
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3935afe1c174ace2492d2d81c6ef10d3d934d26d
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103022153"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112008042"
 ---
 # <a name="notifying-microsoft-regarding-the-publisher-agreement"></a>게시자 계약에 대해 Microsoft에 알림
 
@@ -20,7 +20,7 @@ ms.locfileid: "103022153"
 
 ## <a name="submit-notice-regarding-the-publisher-agreement"></a>게시자 계약과 관련된 알림 제출
 
-1. 파트너 센터 지원의 [계약 또는 법률 질문](https://partner.microsoft.com/support/?stage=2&topicid=05a1a389-1256-d441-89c9-a140217de6b9) 섹션으로 이동합니다.
+1. 파트너 센터 지원의 [계약 또는 법률 질문](https://go.microsoft.com/fwlink/?linkid=2157631) 섹션으로 이동합니다.
 
 1. **문제 세부 정보 제공** 을 선택합니다(필요한 경우 파트너 센터에 먼저 로그인).
 
@@ -45,4 +45,4 @@ ms.locfileid: "103022153"
 ## <a name="next-steps"></a>다음 단계
 
 - 궁금한 점이 있을 경우 지원 담당자가 연락을 드립니다.
-- [Microsoft 게시자 계약](https://go.microsoft.com/fwlink/?LinkID=699560)(PDF)을 검토합니다.
+- [Microsoft 게시자 계약](/legal/marketplace/msft-publisher-agreement)을 검토합니다.

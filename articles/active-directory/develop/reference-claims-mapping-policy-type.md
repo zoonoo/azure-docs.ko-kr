@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/16/2021
+ms.date: 06/03/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 56e855bafa70360711f3e30a7c4527091af7b34c
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 66af0fa248f3ead5755ed3fb27cd3bfd6bb19452
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107601226"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060897"
 ---
 # <a name="claims-mapping-policy-type"></a>클레임 매핑 정책 유형
 
@@ -33,7 +33,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | 클레임 집합 | Description |
 |---|---|
 | 핵심 클레임 집합 | 정책에 관계없이 모든 토큰에 포함됩니다. 또한 이러한 클레임은 제한된 것으로 간주되며 수정할 수 없습니다. |
-| 기본 클레임 집합 | 핵심 클레임 집합뿐 아니라 토큰에서 기본적으로 내보내지는 클레임을 포함합니다. 클레임 매핑 정책을 사용하여 기본 클레임을 생략하거나 수정할 수 있습니다. |
+| 기본 클레임 집합 | 핵심 클레임 집합뿐 아니라 토큰에서 기본적으로 내보내지는 클레임을 포함합니다. 클레임 매핑 정책을 사용하여 기본 클레임을 [생략하거나 수정](active-directory-claims-mapping.md#omit-the-basic-claims-from-tokens)할 수 있습니다. |
 | 제한된 클레임 집합 | 정책을 사용하여 수정할 수 없습니다. 데이터 원본을 변경할 수 없으며, 이러한 클레임을 생성할 때 변환이 적용됩니다. |
 
 ### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>테이블 1: JWT(JSON Web Token) 제한된 클레임 집합
@@ -412,6 +412,6 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-- PowerShell을 사용하여 테넌트의 특정 애플리케이션에 대한 토큰에서 내보낸 클레임을 사용자 지정하는 방법을 알아보려면 [방법: 테넌트의 특정 앱에 대한 토큰에 내보낸 클레임 사용자 지정(미리 보기)](active-directory-claims-mapping.md)을 참조하세요.
+- PowerShell을 사용하여 테넌트의 특정 애플리케이션에 대한 토큰에서 내보낸 클레임을 사용자 지정하는 방법을 알아보려면 [방법: 테넌트의 특정 앱에 대한 토큰에 내보낸 클레임 사용자 지정](active-directory-claims-mapping.md)을 참조하세요.
 - Azure Portal을 통해 SAML 토큰에서 발급된 클레임을 사용자 지정하는 방법에 대한 자세한 내용은 [방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정](active-directory-saml-claims-customization.md)을 참조하세요.
 - 확장 특성에 대해 자세히 알아보려면 [클레임에서 디렉터리 스키마 확장 특성 사용](active-directory-schema-extensions.md)을 참조하세요.

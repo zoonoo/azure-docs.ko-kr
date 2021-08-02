@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 06/11/2021
 ms.author: alkohli
-ms.openlocfilehash: c845f5d5daf79a51b7d3f3305a4f005cabe6886d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 9eef9a99dbf27100fdb6e1fd731ace380f7ba4fb
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373002"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072850"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스의 Kubernetes 클러스터에 Azure Arc 사용
 
@@ -142,16 +142,18 @@ Azure Arc 관리를 위해 Kubernetes 클러스터를 구성하려면 다음 단
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
 
+    Azure 퍼블릭이 아닌 다른 클라우드를 사용하는 경우 `CloudEnvironment` 매개 변수를 추가합니다. 이 매개 변수를 `AZUREPUBLICCLOUD`, `AZURECHINACLOUD`, `AZUREGERMANCLOUD`, `AZUREUSGOVERNMENTCLOUD`로 설정할 수 있습니다.
 
     > [!NOTE]
     > - 디바이스에 Azure Arc를 배포하려면 [Azure Arc의 지원되는 지역](../azure-arc/kubernetes/overview.md#supported-regions)을 사용해야 합니다. 
     > - `az account list-locations` 명령을 사용하여 `Set-HcsKubernetesAzureArcAgent` cmdlet에 전달할 정확한 위치 이름을 파악합니다. 위치 이름 형식은 일반적으로 공백이 없습니다.
+    > - `ClientId`와 `ClientSecret`은 필수 매개 변수입니다. `ClientSecret`은 보안 문자열입니다.
     
     예를 들면 다음과 같습니다.
    
     ```powershell
     [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed&quot; -ResourceGroupName &quot;myaserg1&quot; -ResourceName &quot;myasetestresarc&quot; -Location &quot;westeurope&quot; -TenantId &quot;72f988bf-86f1-41af-91ab-2d7cd011db47&quot; -ClientId &quot;aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b&quot; -ClientSecret &quot;<password>"
-        [10.128.44.240]: PS>
+    [10.128.44.240]: PS>
     ```
     
     Azure Portal에서는 이전 명령에 제공했던 이름으로 리소스를 만들어야 합니다.

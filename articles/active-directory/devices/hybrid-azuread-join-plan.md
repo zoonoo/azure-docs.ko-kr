@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 05/28/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cadba181ea7d6a12ca64c78f3c7c58654d5f756f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30c0d0fa394c8b962206879a80d600987753f2f6
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500811"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953469"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -74,7 +74,6 @@ Windows 데스크톱 운영 체제를 실행하는 디바이스의 경우 지원
 ## <a name="review-things-you-should-know"></a>알아야 할 사항 검토
 
 ### <a name="unsupported-scenarios"></a>지원되지 않는 시나리오
-- 환경이 둘 이상의 Azure AD 테넌트에 ID 데이터를 동기화하는 단일 AD 포리스트로 구성된 경우 하이브리드 Azure AD 조인이 현재 지원되지 않습니다.
 
 - 도메인 컨트롤러(DC) 역할을 실행하는 Windows Server에서는 하이브리드 Azure AD 조인이 지원되지 않습니다.
 
@@ -85,6 +84,7 @@ Windows 데스크톱 운영 체제를 실행하는 디바이스의 경우 지원
 - USMT(사용자 상태 마이그레이션 도구)에서는 디바이스 등록이 작동하지 않습니다.  
 
 ### <a name="os-imaging-considerations"></a>OS 이미징 고려 사항
+
 - 시스템 준비 도구(Sysprep)를 사용하고 설치를 위해 **Windows 10 1809 이전** 이미지를 사용하는 경우 이미지가 Azure AD에 이미 하이브리드 Azure AD 조인으로 등록된 디바이스에서 만들어지지 않았는지 확인합니다.
 
 - VM(가상 머신) 스냅샷을 사용하여 추가 VM을 만드는 경우, 스냅샷이 Azure AD에 이미 하이브리드 Azure AD 조인으로 등록된 VM에서 만들어지지 않았는지 확인합니다.
@@ -92,6 +92,7 @@ Windows 데스크톱 운영 체제를 실행하는 디바이스의 경우 지원
 - 다시 부팅 시 디스크에 대한 변경 내용을 지우는 [통합 쓰기 필터](/windows-hardware/customize/enterprise/unified-write-filter)와 유사한 기술을 사용하는 경우 이 기술은 디바이스가 하이브리드 Azure AD에 조인된 후에 적용되어야 합니다. 하이브리드 Azure AD 조인을 완료하기 전에 해당 기술을 사용하도록 설정하면 디바이스가 다시 부팅될 때마다 조인이 해제됩니다.
 
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>디바이스에서 Azure AD 등록 상태 처리
+
 Windows 10 도메인 조인 디바이스가 테넌트에 [등록된 Azure AD](overview.md#getting-devices-in-azure-ad)인 경우 하이브리드 Azure AD 조인 및 Azure AD 등록 디바이스의 이중 상태로 이어질 수 있습니다. 이 시나리오를 자동으로 해결하려면 Windows 10 1803(KB4489894 적용) 이상으로 업그레이드하는 것이 좋습니다. 1803 이전 릴리스에서는 하이브리드 Azure AD 조인을 사용하도록 설정하기 전에 Azure AD 등록 상태를 수동으로 제거해야 합니다. 1803 이상 릴리스에서는 이중 상태를 방지하기 위해 다음과 같은 변경 내용이 적용되었습니다.
 
 - 사용자에 대한 기존 Azure AD 등록 상태는 <i>디바이스가 하이브리드 Azure AD에 조인되고 동일한 사용자가 로그인한 후</i> 자동으로 제거됩니다. 예를 들어 디바이스에 사용자 A의 Azure AD 등록 상태가 있는 경우 사용자 A가 디바이스에 로그인할 때만 사용자 A에 대한 이중 상태가 정리됩니다. 동일한 디바이스에 여러 사용자가 있는 경우 해당하는 사용자가 로그인하면 이중 상태가 개별적으로 정리됩니다. Azure AD 등록 상태를 제거하는 것 외에도, 자동 등록을 통해 Azure AD 등록의 일부로 등록을 수행하는 경우 Windows 10은 Intune 또는 다른 MDM에서 디바이스 등록을 취소합니다.
@@ -102,7 +103,18 @@ Windows 10 도메인 조인 디바이스가 테넌트에 [등록된 Azure AD](ov
 > [!NOTE]
 > Windows 10이 Azure AD 등록 상태를 로컬에서 자동으로 제거하더라도 Azure AD의 디바이스 개체는 Intune에 의해 관리되는 경우 즉시 삭제되지 않습니다. dsregcmd /status를 실행하여 Azure AD 등록 상태 제거를 확인하고 이를 바탕으로 디바이스가 Azure AD가 등록되지 않도록 고려할 수 있습니다.
 
+### <a name="hybrid-azure-ad-join-for-single-forest-multiple-azure-ad-tenants"></a>단일 포리스트, 여러 Azure AD 테넌트용 하이브리드 Azure AD 조인
+
+디바이스를 각 테넌트에 대한 하이브리드 Azure AD 조인으로 등록하려면 조직은 SCP 구성이 AD가 아닌 디바이스에서 수행되도록 해야 합니다. 이를 수행하는 방법에 대한 자세한 내용은 [하이브리드 Azure AD 조인의 제어된 유효성 검사](hybrid-azuread-join-control.md) 문서에서 확인할 수 있습니다. 조직에서는 특정 Azure AD 기능이 단일 포리스트, 여러 Azure AD 테넌트 구성에서 작동하지 않는다는 것을 이해하는 것도 중요합니다.
+- [디바이스 쓰기 저장](../hybrid/how-to-connect-device-writeback.md)이 작동하지 않습니다. 이는 [ADFS를 사용하여 페더레이션된 온-프레미스 앱에 대한 디바이스 기반 조건부 액세스](/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises)에 영향을 줍니다. 이는 하이브리드 [인증서 신뢰 모델을 사용할 때 비즈니스용 Windows Hello 배포](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust)에도 영향을 줍니다.
+- [그룹 쓰기 저장](../hybrid/how-to-connect-group-writeback.md)이 작동하지 않습니다. 이는 Exchange가 설치된 포리스트에 대한 Office 365 그룹의 쓰기 저장에 영향을 줍니다.
+- [Seamless SSO](../hybrid/how-to-connect-sso.md)가 작동하지 않습니다. 이는 조직에서 OS/broowser 플랫폼(예: Windows 10 확장이 없는 Firefox, Safari, Chrome을 사용하는 iOS/Linux) 간에 사용할 수 있는 SSO 시나리오에 영향을 미칩니다.
+- [관리되는 환경에서 Windows 하위 수준 디바이스에 대한 하이브리드 Azure AD 조인](./hybrid-azuread-join-managed-domains.md#enable-windows-down-level-devices)이 작동하지 않습니다. 예를 들어 관리되는 환경에서 Windows Server 2012 R2의 하이브리드 Azure AD 조인에는 Seamless SSO가 필요하며 Seamless SSO가 작동하지 않으므로 이러한 설정에 대한 하이브리드 Azure AD 조인은 작동하지 않습니다.
+- [온-프레미스 Azure AD 암호 보호](../authentication/concept-password-ban-bad-on-premises.md)가 작동하지 않습니다. 이는 Azure AD에 저장된 것과 동일한 글로벌 및 사용자 지정 금지 암호 목록을 사용하여 온-프레미스 AD DS(Active Directory Domain Services) 도메인 컨트롤러에 대해 암호 변경 및 암호 재설정 이벤트를 수행하는 기능에 영향을 줍니다.
+
+
 ### <a name="additional-considerations"></a>기타 고려 사항
+
 - 사용자 환경에서 VDI(가상 데스크톱 인프라)를 사용하는 경우 [디바이스 ID 및 데스크톱 가상화](./howto-device-identity-virtual-desktop-infrastructure.md)를 참조하세요.
 
 - 하이브리드 Azure AD 조인은 FIPS 규격 TPM 2.0에 대해 지원되며 TPM 1.2에 대해서는 지원되지 않습니다. 디바이스에 FIPS 규격 TPM 1.2가 있는 경우 하이브리드 Azure AD 조인을 진행하기 전에 디바이스를 사용하지 않도록 설정해야 합니다. TPM은 TPM 제조업체에 따라 다르므로 Microsoft에서 FIPS 모드를 사용하지 않도록 설정하는 도구를 제공하지 않습니다. 하드웨어 OEM에 지원을 문의하세요. 

@@ -3,13 +3,13 @@ title: Azure Video Analyzer 할당량 및 제한 사항 - Azure
 description: 이 문서에서는 Azure Video Analyzer 할당량 및 제한 사항을 설명합니다.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 03/26/2021
-ms.openlocfilehash: ca70737fd9bcf571dd4f0ca729bbe50b540de90e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 05/26/2021
+ms.openlocfilehash: d4bc488411319832b59540fb1392b5d3259cef69
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387853"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652190"
 ---
 # <a name="video-analyzer-quotas-and-limitations"></a>Video Analyzer 할당량 및 제한 사항
 
@@ -44,6 +44,7 @@ Edge 모듈을 작동 상태로 복원하려면 모듈이 Azure Video Analyzer �
    * HTTP 또는 gRPC 확장 프로세서에서 다운스트림으로 사용할 수 없습니다.
 * 신호 게이트 프로세서
    * RTSP 원본에서 직접적으로 다운스트림이어야 합니다.
+   * HTTP 또는 gRPC 확장 프로세서에서 업스트림으로 사용할 수 없습니다.
 * 개체 추적기 프로세서
    * HTTP 또는 gRPC 확장 프로세서에서 즉시 다운스트리밍해야 합니다. 확장 프로세서는 라이브 비디오의 모든 프레임에 AI 모델을 적용하지 않아야 합니다.
 * 라인 교차 프로세서

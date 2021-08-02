@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 05/03/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cff76672c7c687d1755996ba0dbf81daf947b8c2
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 904b4ec201b38a817fe7a84d88878c62629b2625
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070626"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110785934"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 RESTful 기술 프로필 정의
 
@@ -91,7 +91,7 @@ REST API 기술 프로필을 사용하면 복잡한 JSON 페이로드를 엔드�
 
 ## <a name="output-claims"></a>출력 클레임
 
-**OutputClaims** 요소는 REST API에서 반환된 클레임 목록을 포함합니다. 정책에 정의된 클레임 이름을 REST API에서 정의된 이름에 매핑해야 할 수도 있습니다. `DefaultValue` 특성만 설정하면, REST API ID 공급자에서 반환되지 않은 클레임을 포함할 수도 있습니다.
+**OutputClaims** 요소는 REST API에서 반환된 클레임 목록을 포함합니다. 정책에 정의된 클레임 이름을 REST API에서 정의된 이름에 매핑해야 할 수도 있습니다. `DefaultValue` 특성을 설정하는 한 REST API에서 반환하지 않는 클레임을 포함할 수도 있습니다.
 
 **OutputClaimsTransformations** 요소는 출력 클레임을 수정하거나 새 출력 클레임을 생성하는 데 사용되는 **OutputClaimsTransformation** 요소 컬렉션을 포함할 수 있습니다.
 
@@ -117,7 +117,7 @@ REST API 기술 프로필을 사용하면 복잡한 JSON 페이로드를 엔드�
 | ServiceUrl | 예 | REST API 엔드포인트의 URL입니다. |
 | AuthenticationType | 예 | RESTful 클레임 공급자가 수행하는 인증 형식입니다. 가능한 값은 `None`, `Basic`, `Bearer`, `ClientCertificate` 또는 `ApiKeyHeader`입니다. <br /><ul><li>`None` 값은 REST API가 익명임을 나타냅니다. </li><li>`Basic` 값은 REST API가 HTTP 기본 인증으로 보호됨을 나타냅니다. Azure AD B2C를 포함하여 확인된 사용자만 API에 액세스할 수 있습니다. </li><li>`ClientCertificate`(권장) 값은 REST API에서 클라이언트 인증서 인증을 사용하여 액세스를 제한함을 나타냅니다. Azure AD B2C와 같은 적절한 인증서가 있는 서비스만 API에 액세스할 수 있습니다. </li><li>`Bearer` 값은 REST API에서 클라이언트 OAuth2 전달자 토큰을 사용하여 액세스를 제한함을 나타냅니다. </li><li>`ApiKeyHeader` 값은 REST API가 *x-functions-key* 와 같은 API 키 HTTP 헤더로 보호되고 있음을 나타냅니다. </li></ul> |
 | AllowInsecureAuthInProduction| 예| 프로덕션 환경에서 `AuthenticationType`을 `none`으로 설정할 수 있는지 여부를 나타냅니다([TrustFrameworkPolicy](trustframeworkpolicy.md)의 `DeploymentMode`가 `Production`으로 설정되었거나 지정되지 않음). 가능한 값은 true 또는 false(기본값)입니다. |
-| SendClaimsIn | 예 | 입력 클레임이 RESTful 클레임 공급자에게 전송되는 방법을 지정합니다. 가능한 값은 `Body`(기본값), `Form`, `Header`, `Url` 또는 `QueryString`입니다. `Body` 값은 JSON 형식의 요청 본문에 전송되는 입력 클레임입니다. `Form` 값은 앰퍼샌드 '&'로 구분된 키 값 형식의 요청 본문에 전송되는 입력 클레임입니다. `Header` 값은 요청 헤더에 전송되는 입력 클레임입니다. `Url` 값은 URL에 전송된 입력 클레임입니다(예: https://{claim1}.example.com/{claim2}/{claim3}?{claim4}={claim5}). `QueryString` 값은 요청 쿼리 문자열에 전송되는 입력 클레임입니다. 각각에서 호출되는 HTTP 동사는 다음과 같습니다.<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`Url`: GET</li><li>`QueryString`: GET</li></ul> |
+| SendClaimsIn | 예 | 입력 클레임이 RESTful 클레임 공급자에게 전송되는 방법을 지정합니다. 가능한 값은 `Body`(기본값), `Form`, `Header`, `Url` 또는 `QueryString`입니다. <br /> `Body` 값은 JSON 형식의 요청 본문에 전송되는 입력 클레임입니다. <br />`Form` 값은 앰퍼샌드 '&'로 구분된 키 값 형식의 요청 본문에 전송되는 입력 클레임입니다. <br />`Header` 값은 요청 헤더에 전송되는 입력 클레임입니다. <br />`Url` 값은 URL에 전송되는 입력 클레임입니다(예: `https://api.example.com/{claim1}/{claim2}?{claim3}={claim4}`). URL의 호스트 이름 부분은 클레임을 포함할 수 없습니다.  <br />`QueryString` 값은 요청 쿼리 문자열에 전송되는 입력 클레임입니다. <br />각각에서 호출되는 HTTP 동사는 다음과 같습니다.<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`Url`: GET</li><li>`QueryString`: GET</li></ul> |
 | ClaimsFormat | 예 | 현재 사용되지 않습니다. 무시해도 됩니다. |
 | ClaimUsedForRequestPayload| 예 | REST API에 전송될 페이로드가 포함된 문자열 클레임의 이름입니다. |
 | DebugMode | 예 | 디버그 모드에서 기술 프로필을 실행합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 디버그 모드에서 REST API는 자세한 정보를 반환할 수 있습니다. [오류 메시지 반환](#returning-validation-error-message) 섹션을 참조하세요. |
@@ -290,6 +290,6 @@ public class ResponseContent
 RESTful 기술 프로필 사용 예제에 대해서는 다음 문서를 참조하세요.
 
 - [Azure AD B2C 사용자 지정 정책에서 REST API 클레임 교환 통합](api-connectors-overview.md)
-- [연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합](custom-policy-rest-api-claims-validation.md)
-- [연습: Azure Active Directory B2C에서 REST API 클레임 교환을 사용자 지정 정책에 추가](custom-policy-rest-api-claims-validation.md)
+- [연습: 등록 사용자 흐름에 API 커넥터 추가](add-api-connector.md)
+- [연습: Azure Active Directory B2C에서 REST API 클레임 교환을 사용자 지정 정책에 추가](custom-policy-rest-api-claims-exchange.md)
 - [REST API 서비스 보호](secure-rest-api.md)

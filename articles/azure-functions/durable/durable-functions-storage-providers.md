@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 05/05/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 090db9c84786735071ef82e60ab2234fb01d5d6e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: bf50f0bdc3c8e654a3d2f780bb7f0c32533948eb
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387170"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465803"
 ---
 # <a name="durable-functions-storage-providers"></a>Durable Functions 스토리지 공급자
 
@@ -39,7 +39,7 @@ Azure Storage 스토리지 공급자의 DTFx 구성 요소에 대한 소스 코�
 > [!NOTE]
 > Azure Storage 공급자를 사용하는 경우 표준 범용 Azure Storage 계정이 필요합니다. 그 외의 스토리지 계정 유형은 지원되지 않습니다. 최신 v2 스토리지 계정은 Durable Functions 워크로드 비용이 훨씬 많이 발생할 수 있으므로 레거시 v1 범용 스토리지 계정을 사용하는 것이 좋습니다. Azure Storage 계정 유형에 대한 자세한 내용은 [Storage 계정 개요](../../storage/common/storage-account-overview.md) 설명서를 참조하세요.
 
-## <a name=""></a><a name="netherite">Netherite(미리 보기)</a>
+## <a name="netherite-preview"></a><a name="netherite"></a>Netherite(미리 보기)
 
 Netherite 스토리지 백 엔드는 [Microsoft Research](https://www.microsoft.com/research)에서 설계하고 개발했습니다. [Azure 페이지 Blob](../../storage/blobs/storage-blob-pageblob-overview.md)을 바탕으로 [Azure Event Hubs](../../event-hubs/event-hubs-about.md) 및 [더 빠른](https://www.microsoft.com/research/project/faster/) 데이터베이스 기술을 사용합니다. Netherite 디자인은 다른 공급자에 비해 오케스트레이션 및 엔터티 처리량이 훨씬 높습니다. 일부 벤치마크 시나리오에서는 기본 Azure Storage 공급자에 비해 처리량이 수십 배 증가하는 것으로 나타났습니다.
 
@@ -55,7 +55,7 @@ Netherite 스토리지 공급자의 주요 이점은 다음과 같습니다.
 > [!NOTE]
 > _Netherite_ 라는 이름의 기원은 [Minecraft](https://minecraft.fandom.com/wiki/Netherite)입니다.
 
-## <a name=""></a><a name="mssql">MSSQL(Microsoft SQL Server)(미리 보기)</a>
+## <a name="microsoft-sql-server-mssql-preview"></a><a name="mssql">MSSQL(Microsoft SQL Server)(미리 보기)</a>
 
 MSSQL(Microsoft SQL Server) 스토리지 공급자는 모든 상태를 Microsoft SQL Server 데이터베이스에 유지합니다. [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)를 포함하여 SQL Server의 온-프레미스 및 클라우드 호스팅 배포와 호환됩니다.
 

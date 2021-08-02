@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 05/25/2021
-ms.openlocfilehash: 8058f6a912981f44205a6a2739fe2be54141d3dd
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 63b3de255269d921f38374adc246fb923fdda100
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368200"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110497111"
 ---
 # <a name="create-an-integration-workflow-using-single-tenant-azure-logic-apps-and-the-azure-portal"></a>단일 테넌트 Azure Logic Apps와 Azure Portal을 사용하여 통합 워크플로 만들기
 
@@ -76,11 +76,11 @@ ms.locfileid: "110368200"
    | **구독** | 예 | <*Azure-subscription-name*> | 논리 앱에 사용할 Azure 구독입니다. |
    | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 논리 앱 및 관련 리소스를 만드는 Azure 리소스 그룹입니다. 이 리소스 이름은 모든 Azure 지역에서 고유해야 하고 문자, 숫자, 하이픈( **-** ), 밑줄( **_** ), 괄호( **()** ) 및 마침표( **.** )만 포함할 수 있습니다. <p><p>이 예제에서는 `Fabrikam-Workflows-RG`라는 리소스 그룹을 만듭니다. |
    | **논리 앱 이름** | 예 | <*logic-app-name*> | 논리 앱에 사용할 이름입니다. 이 리소스 이름은 모든 Azure 지역에서 고유해야 하고 문자, 숫자, 하이픈( **-** ), 밑줄( **_** ), 괄호( **()** ) 및 마침표( **.** )만 포함할 수 있습니다. <p><p>이 예제에서는 `Fabrikam-Workflows`라는 논리 앱을 만듭니다. <p><p>**참고**: **논리 앱(표준)** 리소스는 동일한 앱 명명 규칙을 사용하는 Azure Functions로 구동되기 때문에 논리 앱의 이름이 `.azurewebsites.net` 접미사를 자동으로 가져옵니다. |
-   | **게시** | 예 | <*deployment-environment*> | 논리 앱의 배포 대상입니다. 기본적으로 **워크플로** 는 현재 사용할 수 있는 유일한 포털 옵션이며 단일 테넌트 Azure Logic Apps에 배포됩니다. <p><p>**참고**: Azure에서 첫 번째 워크플로를 추가해야 하는 빈 논리 앱 리소스를 만듭니다. |
-   | **지역** | 예 | <*Azure-region*> | 리소스 그룹 및 리소스를 만들 때 사용할 Azure 지역입니다. <p><p>이 예제에서는 **미국 서부** 를 사용합니다. |
+   | **게시** | 예 | <*deployment-environment*> | 논리 앱의 배포 대상입니다. 기본적으로 **워크플로** 는 단일 테넌트 Azure Logic Apps에 배포하도록 선택됩니다. Azure에서 첫 번째 워크플로를 추가해야 하는 빈 논리 앱 리소스를 만듭니다. <p><p>**참고**: 현재 **Docker 컨테이너** 옵션을 사용하려면 Azure Arc 지원 Kubernetes 클러스터에서 [*사용자 지정 위치*](../azure-arc/kubernetes/conceptual-custom-locations.md)가 필요하며 [Azure Arc 지원 Logic Apps(미리 보기)](azure-arc-enabled-logic-apps-overview.md)와 함께 사용할 수 있습니다. 논리 앱, 사용자 지정 위치 및 클러스터의 리소스 위치는 모두 동일해야 합니다. |
+   | **지역** | 예 | <*Azure-region*> | 리소스 그룹 및 리소스를 만들 때 사용할 위치입니다. **Docker 컨테이너** 를 선택한 경우 사용자 지정 위치를 선택합니다. <p><p>이 예제에서는 샘플 논리 앱을 Azure에 배포하고 **미국 서부** 를 사용합니다. |
    |||||
 
-   예를 들면 다음과 같습니다.
+   다음 예제에서는 **논리 앱 만들기(표준)** 페이지를 보여 줍니다.
 
    ![Azure Portal 및 "논리 앱 만들기" 페이지를 보여주는 스크린샷.](./media/create-single-tenant-workflows-azure-portal/create-logic-app-resource-portal.png)
 

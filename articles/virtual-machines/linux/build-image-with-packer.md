@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
 ms.collection: linux
-ms.openlocfilehash: 1b40646109265b803945b43d7cc855688c5b47c5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6b0b66806dbcd01a5975c139c0e20b0423eb3e05
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764660"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111437517"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Azure에서 Packer를 사용하여 Linux 가상 머신 이미지를 만드는 방법
 Azure의 각 VM(가상 컴퓨터)은 Linux 배포판 및 OS 버전을 정의하는 이미지에서 만들어집니다. 이미지는 사전 설치된 애플리케이션 및 구성을 포함할 수 있습니다. Azure Marketplace는 가장 일반적인 배포 및 애플리케이션 환경에 대한 다양한 자사 및 타사 이미지를 제공하거나 사용자 요구에 맞게 사용자 지정 이미지를 만들 수 있습니다. 이 문서에는 오픈 소스 도구 [Packer](https://www.packer.io/)를 사용하여 Azure에서 사용자 지정 이미지를 정의하고 작성하는 방법을 자세히 설명합니다.
 
 > [!NOTE]
-> 이제 Azure에는 고유한 사용자 지정 이미지를 정의하고 만드는 데 필요한 Azure Image Builder(미리 보기) 서비스가 있습니다. Azure Image Builder는 Packer를 기반으로 빌드되므로 기존 Packer 셸 프로비저닝 프로그램 스크립트도 사용할 수 있습니다. Azure Image Builder를 시작하려면 [Azure Image Builder를 사용하여 Linux VM 만들기](image-builder.md)를 참조하세요.
+> 이제 Azure에는 고유한 사용자 지정 이미지를 정의하고 만드는 데 필요한 Azure Image Builder 서비스가 있습니다. Azure Image Builder는 Packer를 기반으로 빌드되므로 기존 Packer 셸 프로비저닝 프로그램 스크립트도 사용할 수 있습니다. Azure Image Builder를 시작하려면 [Azure Image Builder를 사용하여 Linux VM 만들기](image-builder.md)를 참조하세요.
 
 
 ## <a name="create-azure-resource-group"></a>Azure 리소스 그룹 만들기

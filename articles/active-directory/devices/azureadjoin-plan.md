@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 383bd00bb0daf165f37ed98e48a5d36708367920
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2eb74dccb01bb599a40bbf9c606661d4661a37f3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130866"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953635"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -164,7 +164,7 @@ AD FS를 사용하는 경우 [AD FS를 사용하여 Single Sign-On 확인 및 �
 
 디바이스가 도메인 컨트롤러에 액세스할 수 있는 경우 사용자는 Azure AD 조인 디바이스에서 SSO를 얻습니다. 
 
-**권장 사항:** 이러한 애플리케이션에 안전하게 액세스할 수 있도록 [Azure AD 앱 프록시](../manage-apps/application-proxy.md)를 배포합니다.
+**권장 사항:** 이러한 애플리케이션에 안전하게 액세스할 수 있도록 [Azure AD 앱 프록시](../app-proxy/application-proxy.md)를 배포합니다.
 
 ### <a name="on-premises-network-shares"></a>온-프레미스 네트워크 공유
 
@@ -185,6 +185,11 @@ Azure AD 조인 디바이스는 머신 인증에 의존하는 온-프레미스 �
 Azure AD 조인 디바이스에 원격 데스크톱 연결을 설정하려면 호스트 머신이 Azure AD에 조인되거나 하이브리드 Azure AD에 조인되어야 합니다. 조인되지 않은 디바이스 또는 Windows 이외의 디바이스에서 원격 데스크톱으로 연결하는 기능은 지원되지 않습니다. 자세한 내용은 [원격 Azure AD 조인 pc에 연결](/windows/client-management/connect-to-remote-aadj-pc)을 참조하세요.
 
 Windows 10 2004 업데이트를 시작하면 사용자는 Azure AD에 등록된 Windows 10 디바이스에서 Azure AD 조인 디바이스로 원격 데스크톱을 사용할 수도 있습니다. 
+
+### <a name="radius-and-wi-fi-authentication"></a>RADIUS 및 Wi-Fi 인증
+
+현재 Azure AD 조인 디바이스는 온-프레미스 컴퓨터 개체를 사용하므로 Wi-Fi 액세스 지점에 연결하기 위한 RADIUS 인증을 지원하지 않습니다. 또한 Intune이나 사용자 자격 증명을 통해 푸시되는 인증서를 사용하여 Wi-Fi에 인증할 수 있습니다. 
+
 
 ## <a name="understand-your-provisioning-options"></a>프로비전 옵션 이해
 **참고**: 시스템 준비 도구(Sysprep) 또는 이와 유사한 이미징 도구를 사용하여 Azure AD 조인 디바이스를 배포할 수 없습니다.

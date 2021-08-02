@@ -1,6 +1,6 @@
 ---
-title: 서버를 사용 하지 않는 SQL 풀을 사용 하 여 CSV 파일 쿼리
-description: 이 문서에서는 서버를 사용 하지 않는 SQL 풀을 사용 하 여 다른 파일 형식으로 단일 CSV 파일을 쿼리 하는 방법에 대해 알아봅니다.
+title: 서버리스 SQL 풀을 사용하여 CSV 파일 쿼리
+description: 이 문서에서는 서버리스 SQL 풀을 사용하여 다양한 파일 형식으로 단일 CSV 파일을 쿼리하는 방법에 대해 알아봅니다.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: f2f0cdf307e91fb40c55d4a98139bad1a5eca886
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 8400713ea04c3f26d18fc032b5b0d0f3b8c65068
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96462597"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061923"
 ---
 # <a name="query-csv-files"></a>CSV 파일 쿼리
 
-이 문서에서는 Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 단일 CSV 파일을 쿼리 하는 방법에 대해 알아봅니다. CSV 파일의 형식은 서로 다를 수 있습니다. 
+이 문서에서는 Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 단일 CSV 파일을 쿼리하는 방법에 대해 알아봅니다. CSV 파일의 형식은 서로 다를 수 있습니다. 
 
 - 헤더 행 포함 또는 제외
 - 쉼표 및 탭으로 구분된 값
@@ -29,11 +29,11 @@ ms.locfileid: "96462597"
 
 ## <a name="quickstart-example"></a>빠른 시작 예제
 
-`OPENROWSET` 함수를 사용 하면 파일에 대 한 URL을 제공 하 여 CSV 파일의 내용을 읽을 수 있습니다.
+`OPENROWSET` 함수를 사용하면 파일에 대한 URL을 제공하여 CSV 파일의 콘텐츠를 읽을 수 있습니다.
 
-### <a name="read-a-csv-file"></a>Csv 파일 읽기
+### <a name="read-a-csv-file"></a>CSV 파일 읽기
 
-파일의 콘텐츠를 확인 하는 가장 쉬운 방법은 `CSV` 함수에 파일 URL을 제공 하 고 `OPENROWSET` csv 및 2.0을 지정 하는 것입니다 `FORMAT` `PARSER_VERSION` . 파일이 공개적으로 사용 가능한 경우 또는 Azure AD id가이 파일에 액세스할 수 있는 경우 다음 예제와 같이 쿼리를 사용 하 여 파일의 내용을 볼 수 있어야 합니다.
+`CSV` 파일의 콘텐츠를 확인하는 가장 쉬운 방법은 `OPENROWSET` 함수에 파일 URL을 제공하고 csv `FORMAT` 및 2.0 `PARSER_VERSION`을 지정하는 것입니다. 파일이 공개적으로 사용할 수 있거나 Azure AD ID로 이 파일에 액세스할 수 있다면 다음 예제와 같이 쿼리를 사용하여 파일의 콘텐츠를 볼 수 있습니다.
 
 ```sql
 select top 10 *
@@ -44,23 +44,23 @@ from openrowset(
     firstrow = 2 ) as rows
 ```
 
-옵션 `firstrow` 은이 경우 헤더를 나타내는 CSV 파일의 첫 번째 행을 건너뛰는 데 사용 됩니다. 이 파일에 액세스할 수 있는지 확인 합니다. 파일이 SAS 키 또는 사용자 지정 id를 사용 하 여 보호 되는 경우 [sql 로그인에 대 한 서버 수준 자격 증명](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential)을 설정 해야 합니다.
+`firstrow` 옵션은 이 경우에 헤더를 나타내는 CSV 파일의 첫 번째 행을 건너뛰는 데 사용됩니다. 이 파일에 액세스할 수 있는지 확인합니다. 파일이 SAS 키 또는 사용자 지정 ID를 통해 보호되는 경우 [sql 로그인에 대한 서버 수준 자격 증명](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential)을 설정해야 합니다.
 
 > [!IMPORTANT]
-> CSV 파일에 UTF-8 문자가 포함 된 경우 UTF-8 데이터베이스 데이터 정렬을 사용 하 고 있는지 확인 합니다 (예: `Latin1_General_100_CI_AS_SC_UTF8` ).
-> 파일의 텍스트 인코딩과 데이터 정렬이 일치 하지 않으면 예기치 않은 변환 오류가 발생할 수 있습니다.
-> 다음 T-sql 문을 사용 하 여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다. `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> CSV 파일에 UTF-8 문자가 포함된 경우 UTF-8 데이터베이스 데이터 정렬을 사용하고 있는지 확인합니다(예: `Latin1_General_100_CI_AS_SC_UTF8`).
+> 파일의 텍스트 인코딩과 데이터 정렬이 일치하지 않으면 예기치 않은 변환 오류가 발생할 수 있습니다.
+> 다음 T-SQL 문 `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`을 사용하여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다.
 
 ### <a name="data-source-usage"></a>데이터 원본 사용
 
-이전 예에서는 파일에 대 한 전체 경로를 사용 합니다. 대신 저장소의 루트 폴더를 가리키는 위치를 사용 하 여 외부 데이터 원본을 만들 수 있습니다.
+이전 예제에서는 파일에 전체 경로를 사용했습니다. 전체 경로 대신 스토리지의 루트 폴더를 가리키는 위치를 사용하여 외부 데이터 원본을 만들 수 있습니다.
 
 ```sql
 create external data source covid
 with ( location = 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases' );
 ```
 
-데이터 원본을 만든 후에는 해당 데이터 원본 및 함수에 있는 파일에 대 한 상대 경로를 사용할 수 있습니다 `OPENROWSET` .
+데이터 원본을 만든 후에는 `OPENROWSET` 함수에서 해당 데이터 원본 및 파일의 상대 경로를 사용할 수 있습니다.
 
 ```sql
 select top 10 *
@@ -73,11 +73,11 @@ from openrowset(
     ) as rows
 ```
 
-데이터 원본이 SAS 키 또는 사용자 지정 id를 사용 하 여 보호 되는 경우 [데이터베이스 범위 자격 증명을 사용 하 여 데이터 원본을](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential)구성할 수 있습니다.
+데이터 원본이 SAS 키 또는 사용자 지정 ID를 통해 보호되는 경우 [데이터베이스 범위 자격 증명을 사용하여 데이터 원본](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential)을 구성할 수 있습니다.
 
-### <a name="explicitly-specify-schema"></a>명시적으로 스키마 지정
+### <a name="explicitly-specify-schema"></a>스키마를 명시적으로 지정
 
-`OPENROWSET` 에서는 절을 사용 하 여 파일을 읽을 열을 명시적으로 지정할 수 있습니다 `WITH` .
+`OPENROWSET`을 사용하면 `WITH` 절을 사용하여 파일에서 읽을 열을 명시적으로 지정할 수 있습니다.
 
 ```sql
 select top 10 *
@@ -94,17 +94,17 @@ from openrowset(
     ) as rows
 ```
 
-절에서 데이터 형식 뒤의 숫자는 `WITH` CSV 파일의 열 인덱스를 나타냅니다.
+`WITH` 절에서 데이터 형식 뒤의 숫자는 CSV 파일의 열 인덱스를 나타냅니다.
 
 > [!IMPORTANT]
-> CSV 파일에 UTF-8 문자가 포함 된 경우 절에 있는 모든 열에 대 한 UTF-8 데이터 정렬 (예:)을 지정 `Latin1_General_100_CI_AS_SC_UTF8` `WITH` 하거나 데이터베이스 수준에서 utf-8 데이터 정렬을 설정 하는 것이 explicilty 확인 합니다.
-> 파일 및 데이터 정렬에서 텍스트 인코딩이 일치 하지 않으면 예기치 않은 변환 오류가 발생할 수 있습니다.
-> 다음 T-sql 문을 사용 하 여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다. `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
-> 다음 정의를 사용 하 여 열 형식에 대 한 데이터 정렬을 쉽게 설정할 수 있습니다. `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8 8`
+> CSV 파일에 UTF-8 문자가 포함된 경우 `WITH` 절의 모든 열에 대해 UTF-8 데이터 정렬(예: `Latin1_General_100_CI_AS_SC_UTF8`)을 명시적으로 지정하거나 데이터베이스 수준에서 UTF-8 데이터 정렬을 설정합니다.
+> 파일의 텍스트 인코딩과 데이터 정렬이 일치하지 않으면 예기치 않은 변환 오류가 발생할 수 있습니다.
+> 다음 T-SQL 문 `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`을 사용하여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다.
+> 다음 정의 `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8 8`을 사용하여 열 형식에 대한 데이터 정렬을 쉽게 설정할 수 있습니다.
 
-다음 섹션에서는 다양 한 유형의 CSV 파일을 쿼리 하는 방법을 볼 수 있습니다.
+다음 섹션에서는 다양한 유형의 CSV 파일을 쿼리하는 방법을 알아볼 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 첫 번째 단계는 테이블을 만들 **데이터베이스를 만드는 것** 입니다. 그런 다음 해당 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql)를 실행하여 개체를 초기화합니다. 이 설치 스크립트는 이러한 예에서 사용되는 데이터 원본, 데이터베이스 범위의 자격 증명 및 외부 파일 형식을 만듭니다.
 
@@ -179,7 +179,8 @@ FROM OPENROWSET(
         DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
-        FIRSTROW = 2
+        FIRSTROW = 2,
+        HEADER_ROW = TRUE
     )
     WITH (
         [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
@@ -191,6 +192,8 @@ WHERE
     country_name = 'Luxembourg'
     AND year = 2017;
 ```
+
+`HEADER_ROW = { TRUE | FALSE }` 옵션은 CSV 파일의 첫 번째 행을 HEADER ROW로 읽고 값을 기본 이름(C1, C2 등) 대신 열 이름으로 표시합니다.
 
 ## <a name="custom-quote-character"></a>사용자 지정 따옴표
 
@@ -259,11 +262,11 @@ WHERE
 
 ### <a name="escape-quoting-characters"></a>이스케이프 따옴표 문자
 
-다음 쿼리에서는 헤더 행이 있는 파일을 읽는 방법을 보여 줍니다. 여기에는 Unix 스타일의 줄 바꿈 및 쉼표로 구분 된 열과 값 내 이스케이프 된 큰따옴표 문자를 사용 합니다. 다른 예와 비교하면 파일의 위치가 다르다는 것을 알 수 있습니다.
+다음 쿼리에서는 헤더 행, Unix 스타일 줄 바꿈, 쉼표로 구분된 열 및 값 내에서 이스케이프된 큰따옴표가 있는 파일을 읽는 방법을 보여 줍니다. 다른 예와 비교하면 파일의 위치가 다르다는 것을 알 수 있습니다.
 
 파일 미리 보기:
 
-![다음 쿼리에서는 헤더 행이 있는 파일을 읽는 방법을 보여 줍니다. 여기에는 Unix 스타일의 줄 바꿈 및 쉼표로 구분 된 열과 값 내 이스케이프 된 큰따옴표 문자를 사용 합니다.](./media/query-single-csv-file/population-unix-hdr-escape-quoted.png)
+![다음 쿼리에서는 헤더 행, Unix 스타일 줄 바꿈, 쉼표로 구분된 열 및 값 내에서 이스케이프된 큰따옴표가 있는 파일을 읽는 방법을 보여 줍니다.](./media/query-single-csv-file/population-unix-hdr-escape-quoted.png)
 
 ```sql
 SELECT *

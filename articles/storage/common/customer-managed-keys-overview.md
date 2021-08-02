@@ -5,17 +5,17 @@ description: 사용자 고유의 암호화 키를 사용하여 스토리지 계�
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/30/2021
+ms.date: 06/01/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 07f8faf503bdea6be8263afa6240594956b61391
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: cd2a265c5d4c339fa6e50338949cbf643314a3ee
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059448"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111371325"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Azure Storage 암호화용 고객 관리형 키
 
@@ -45,8 +45,18 @@ ms.locfileid: "106059448"
 1. Azure Key Vault 관리자는 스토리지 계정과 연결된 관리 ID에 암호화 키에 대한 권한을 부여합니다.
 2. Azure Storage 관리자는 스토리지 계정에 고객 관리형 키를 사용하여 암호화를 구성합니다.
 3. Azure Storage는 스토리지 계정과 연결된 관리 ID를 사용하여 Azure Active Directory를 통해 Azure Key Vault에 대한 액세스를 인증합니다.
-4. Azure Storage는 Azure Key Vault의 고객 키로 계정 암호화 키를 래핑합니다.
+4. Azure Storage는 Azure Key Vault의 고객 관리형 키로 계정 암호화 키를 래핑합니다.
 5. 읽기/쓰기 작업의 경우 Azure Storage는 계정 암호화 키를 래핑 해제하라는 요청을 Azure Key Vault에 보내서 암호화 및 암호 해독 작업을 수행합니다.
+
+Azure Key Vault의 고객 관리형 키에 액세스하려면 스토리지 계정과 연결된 관리 ID에 최소한 다음 권한이 있어야 합니다.
+
+- *wrapkey*
+- *unwrapkey*
+- *get*  
+
+키 권한에 대한 자세한 내용은 [키 유형, 알고리즘 및 작업](../../key-vault/keys/about-keys-details.md#key-access-control)을 참조하세요.
+
+Azure Policy는 스토리지 계정이 Blob Storage 및 Azure Files 워크로드에 대해 고객 관리형 키를 사용하도록 요구하는 기본 제공 정책을 제공합니다. 자세한 내용은 [Azure Policy 기본 제공 정책 정의](../../governance/policy/samples/built-in-policies.md#storage)의 **스토리지** 섹션을 참조하세요.
 
 ## <a name="customer-managed-keys-for-queues-and-tables"></a>큐 및 테이블에 대한 고객 관리형 키
 

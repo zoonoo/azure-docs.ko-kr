@@ -8,25 +8,30 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 03/07/2021
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ced586db1b4e417e623431c137c43dac8ba56f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d62e723f42838343798603517ca430d727ff517
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466647"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787838"
 ---
 # <a name="assign-azure-ad-roles-to-users"></a>사용자에게 Azure AD 역할 할당
 
 이제 Azure AD 관리 센터에서 관리자 역할의 모든 멤버를 확인하고 관리할 수 있습니다. 역할 할당을 자주 관리하는 경우, 이 환경이 유용할 것입니다. 이 문서에서는 Azure AD 관리 센터를 사용하여 Azure AD 역할을 할당하는 방법을 설명합니다.
 
+## <a name="prerequisites"></a>사전 요구 사항
+
+- 권한 있는 역할 관리자 또는 전역 관리자
+- PIM(Privileged Identity Management)을 사용하는 경우 Azure AD Premium P2 라이선스
+
 ## <a name="assign-a-role"></a>역할 할당
 
-1. 전역 관리자 또는 권한 있는 역할 관리자 권한으로 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+1. [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 
 1. **Azure Active Directory** 를 선택합니다.
 
@@ -48,9 +53,9 @@ ms.locfileid: "103466647"
 
 ## <a name="privileged-identity-management-pim"></a>PIM(Privileged Identity Management)
 
-[Azure AD PIM(Privileged Identity Management)](../privileged-identity-management/pim-configure.md)을 사용하여 추가 관리 기능에 대해 **PIM에서 관리** 를 선택할 수 있습니다. 권한 있는 역할 관리자는 “영구적”(역할에서 항상 활성 상태임) 할당을 “적격”(상승된 경우에만 역할에 포함)으로 변경할 수 있습니다. Privileged Identity Management가 없는 경우, **PIM에서 관리** 를 선택하여 평가판에 등록할 수 있습니다. Privileged Identity Management에는 [Azure AD Premium P2 라이선스 계획](../privileged-identity-management/subscription-requirements.md)이 필요합니다.
+[Azure AD PIM(Privileged Identity Management)](../privileged-identity-management/pim-configure.md)을 사용하여 추가 관리 기능에 대해 **PIM에서 관리** 를 선택할 수 있습니다. 권한 있는 역할 관리자는 “영구적”(역할에서 항상 활성 상태임) 할당을 “적격”(상승된 경우에만 역할에 포함)으로 변경할 수 있습니다. Privileged Identity Management가 없는 경우, **PIM에서 관리** 를 선택하여 평가판에 등록할 수 있습니다. Privileged Identity Management는 [Azure AD Premium P2 라이선스](../privileged-identity-management/subscription-requirements.md)가 필요합니다.
 
-![“PIM에서 관리” 작업이 선택된 “사용자 관리자 - 할당” 페이지를 보여 주는 스크린샷.](./media/manage-roles-portal/member-list-pim.png)
+![“PIM에서 관리” 작업이 선택된 “사용자 관리자 - 할당” 페이지를 보여 주는 스크린샷](./media/manage-roles-portal/member-list-pim.png)
 
 글로벌 관리자 또는 권한 있는 역할 관리자인 경우 멤버를 쉽게 추가 또는 제거하거나, 목록을 필터링하거나, 멤버를 선택하여 할당된 활성 역할을 확인할 수 있습니다.
 

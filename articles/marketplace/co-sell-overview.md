@@ -7,13 +7,13 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 3/17/2021
-ms.openlocfilehash: b626012ad825b263e4f837159a067ed1d817d93a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 4/15/2021
+ms.openlocfilehash: bb4a0cd58c316a9e40a3346d4f5417fe911c2c0e
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104609648"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111420971"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Microsoft 영업 팀 및 파트너와 공동 판매 개요
 
@@ -79,14 +79,14 @@ Azure IP 공동 판매 인센티브 상태는 다음 제품 유형에 적용될 
 
 - 마켓플레이스 서비스 요금이 20%에서 10%로 줄어듭니다. 이 할인은 상업용 마켓플레이스를 통해 판매되는 귀사의 IaaS(Infrastructure as a service) 솔루션 또는 SaaS(Software as a service) 솔루션에 적용됩니다. 자세한 내용은 [상업용 마켓플레이스 서비스 요금](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees)을 참조하세요.
 - CSP(클라우드 솔루션 공급자) 파트너는 귀사의 IaaS 솔루션 또는 SaaS 제품을 판매하는 데 대해 10%의 인센티브를 받습니다. CSP 프로그램에 대해 자세히 알아보려면 [클라우드 솔루션 공급자 프로그램](cloud-solution-providers.md)을 참조하세요.
-- Azure Marketplace를 통한 제품 판매는 고객의 Azure 사용량 약정에 기여합니다. 적격 고객은 Azure Portal에서 제품에 **Azure 혜택 적격** 이라는 표시가 있는 것을 볼 수 있습니다. 자세한 내용은 [Azure 사용량 약정 혜택](azure-consumption-commitment-benefit.md)을 참조하세요.
-- ‘Azure IP 공동 판매 인센티브’ 상태를 취득하거나 [Microsoft 비즈니스 애플리케이션 ISV 연결 프로그램](business-applications-isv-program.md)에 공동 판매 준비 상태로 등록된 제품은 온라인 스토어의 제품 목록 페이지에서 **Microsoft 기본 솔루션** 배지를 받습니다. 배지는 특정 수직 시장 또는 솔루션 영역에서 제품의 품질, 성능 및 고객의 요구를 해결하는 기능을 홍보합니다.
+- Azure Marketplace를 통한 제품 판매는 고객의 Azure 사용량 약정에 기여합니다. 적격 고객은 Azure Portal에서 제품에 **Azure 혜택 적격** 이라는 표시가 있는 것을 볼 수 있습니다. MACC 프로그램이 고객에게 제공하는 이점과 MACC를 사용하도록 설정된 솔루션을 찾는 방법을 자세히 알아보려면 [Azure 사용량 약정 혜택](/marketplace/azure-consumption-commitment-benefit)을 참조하세요. 게시자가 MACC에 등록된 거래 가능한 제품을 가져오는 방법을 알아보려면 [Azure 사용량 약정 등록](azure-consumption-commitment-enrollment.md)을 참조하세요.
+- _Azure IP 공동 판매 인센티브_ 상태를 취득하거나 [Microsoft 비즈니스 애플리케이션 ISV 연결 프로그램](business-applications-isv-program.md)에 공동 판매 준비 상태로 등록된 제품은 온라인 스토어 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 및 [AppSource](https://appsource.microsoft.com/)의 제품 목록 페이지에서 **Microsoft 기본 솔루션** 배지를 받습니다.  제품이 해당 상태를 달성한 후에는 기본 솔루션 배지가 온라인 스토어에 표시되는 데 최대 30일이 걸릴 수 있습니다. 배지는 특정 수직 시장 또는 솔루션 영역에서 제품의 품질, 성능 및 고객의 요구를 해결하는 기능을 홍보합니다.
 
 공동 판매 준비 및 공동 판매 인센티브 상태를 취득하는 방법을 알아보려면 [공동 판매 준비 및 공동 판매 인센티브 요구 사항](co-sell-requirements.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - 요구 사항에 대한 자세한 내용은 [공동 판매 준비 및 공동 판매 인센티브 요구 사항](co-sell-requirements.md)을 참조하세요.
-- 공동 판매할 제품을 구성하는 방법은 [상업용 마켓플레이스 제품에 대한 공동 판매 구성](commercial-marketplace-co-sell.md)을 참조하세요.
+- 공동 판매할 제품을 구성하는 방법은 [상업용 마켓플레이스 제품에 대한 공동 판매 구성](./co-sell-configure.md)을 참조하세요.
 - 공동 판매 상태를 확인하려면 [제품의 공동 판매 상태 확인](co-sell-status.md)을 참조하세요.
 - [Microsoft와 공동 판매](https://partner.microsoft.com/membership/sell-with-microsoft)에 대해 자세히 알아봅니다.

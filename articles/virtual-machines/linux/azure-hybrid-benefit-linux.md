@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 73747222b9131fa85ae6ac01c9dedd5b0bbe1d63
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5b81883b8c9556500ec6b6bd994d50a1f4202808
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543411"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949914"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Azure 하이브리드 혜택을 Linux Virtual Machines에 적용하는 방법
 
@@ -47,8 +47,8 @@ Linux VM으로 이미 혜택을 사용하고 있다면 Azure Dedicated Host 인�
 
 RHEL에 대한 Azure 하이브리드 혜택은 다음 두 가지 기준을 모두 충족하는 Red Hat 고객에게 제공됩니다.
 
-- Azure에서 사용하기에 적격한 사용 중 또는 미사용 중인 RHEL 구독 보유
-- [Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 프로그램을 사용하여 Azure에서 사용할 수 있도록 해당 구독을 하나 이상 활성화
+- Azure에서 사용하기에 적격한 사용 또는 미사용 중인 RHEL 구독 보유
+- [Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 프로그램을 사용하여 Azure에서 사용할 수 있도록 이러한 구독을 하나 이상 활성화
 
 > [!IMPORTANT]
 > [클라우드 액세스](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 프로그램에서 올바른 구독을 사용하도록 설정했는지 확인합니다.
@@ -74,7 +74,7 @@ SUSE에 대한 혜택을 사용하려면 다음을 수행합니다.
 
 왼쪽의 **구성** 옵션을 방문하고 해당 단계를 수행하여 기존 VM에서 혜택을 사용하도록 설정할 수 있습니다. VM을 만드는 동안 새 VM에서 혜택을 사용하도록 설정할 수 있습니다.
 
-### <a name="azure-portal-example-to-enable-the-benefit-for-an-existing-vm"></a>기존 VM에서 혜택을 사용하도록 설정하는 Azure Portal 예시입니다.
+### <a name="azure-portal-example-to-enable-the-benefit-during-creation-of-vm"></a>VM 생성 중에 혜택을 사용하도록 설정하는 Azure Portal 예시입니다.
 1. [Microsoft Azure Portal](https://portal.azure.com/)을 방문합니다.
 1. 포털에서 ‘가상 머신 만들기’ 페이지로 이동합니다.
  ![VM을 만드는 동안의 AHB](./media/azure-hybrid-benefit/create-vm-ahb.png)
@@ -84,14 +84,12 @@ SUSE에 대한 혜택을 사용하려면 다음을 수행합니다.
 1. **구성** 블레이드를 확인하면 사용하도록 설정된 옵션이 보입니다. 
 ![생성 후 AHB 구성 블레이드](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
-### <a name="azure-portal-example-to-enable-the-benefit-during-creation-of-vm"></a>VM 생성 중에 혜택을 사용하도록 설정하는 Azure Portal 예시입니다.
+### <a name="azure-portal-example-to-enable-the-benefit-for-an-existing-vm"></a>기존 VM에서 혜택을 사용하도록 설정하는 Azure Portal 예시입니다.
 1. [Microsoft Azure Portal](https://portal.azure.com/)을 방문합니다.
 1. 변환을 적용할 가상 머신 페이지를 엽니다.
 1. 왼쪽의 **구성** 옵션으로 이동합니다. 라이선스 섹션이 표시됩니다. AHB 변환을 사용하도록 설정하려면 ‘예’ 라디오 단추를 선택하고 확인란을 선택합니다.
 ![생성 후 AHB 구성 블레이드](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
->[!NOTE]
-> RHEL 또는 SLES PAYG Marketplace 이미지의 **사용자 지정 스냅샷** 또는 **SIG(공유 이미지)** 를 만든 경우 Azure CLI를 통해서만 Azure 하이브리드 혜택을 사용하도록 설정할 수 있습니다. 이는 알려진 제한 사항이며 현재는 Azure Portal에서도 해당 기능을 제공할 예정된 일정이 없습니다.
 
 ## <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Azure CLI에서 혜택 사용 및 사용 안 함 설정
 
@@ -176,9 +174,11 @@ Red Hat 구독 규정 준수, 소프트웨어 업데이트, Azure 하이브리�
 
 SLES VM에 Azure 하이브리드 혜택을 사용하고 SLES PAYG에서 BYOS로 전환하거나 SLES BYOS에서 PAYG로 전환하는 방법에 대한 자세한 내용은 [SUSE Linux Enterprise 및 Azure 하이브리드 혜택](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/)을 참조하세요. 
 
-## <a name="azure-hybrid-benefit-on-reserved-instances-is-in-preview"></a>미리 보기 상태인 예약 인스턴스의 Azure 하이브리드 혜택
+## <a name="azure-hybrid-benefit-on-reserved-instances"></a>예약 인스턴스에 대한 Azure 하이브리드 혜택 
 
-Azure Reservations(Azure Reserved Virtual Machine Instances)를 통해 여러 제품에 1년 또는 3년 플랜을 선택함으로써 비용을 절감할 수 있습니다. [여기에서 예약 인스턴스](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)에 대해 자세히 알아볼 수 있습니다. Azure 하이브리드 혜택은 [RIs(예약 가상 머신 인스턴스)](https://review.docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation)의 미리 보기에서 사용할 수 있습니다. 즉, RI를 사용하여 컴퓨팅 비용을 할인된 요금으로 구매한 경우, 거기에 더해 RHEL과 SUSE의 라이선스 비용에도 AHB 혜택을 적용할 수 있습니다. AHB 혜택을 RI 인스턴스에 적용하는 단계는 일반 VM에 적용하는 단계와 정확히 동일합니다.
+Azure Reservations(Azure Reserved Virtual Machine Instances)를 통해 여러 제품에 1년 또는 3년 플랜을 선택함으로써 비용을 절감할 수 있습니다. [여기에서 예약 인스턴스](../../cost-management-billing/reservations/save-compute-costs-reservations.md)에 대해 자세히 알아볼 수 있습니다. Azure 하이브리드 혜택은 [RI(예약 가상 머신 인스턴스)](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation)에 대해 사용할 수 있습니다. 
+
+즉, RI를 사용하여 컴퓨팅 비용을 할인된 요금으로 구매한 경우, 거기에 더해 RHEL과 SUSE의 라이선스 비용에도 AHB 혜택을 적용할 수 있습니다. AHB 혜택을 RI 인스턴스에 적용하는 단계는 일반 VM에 적용하는 단계와 정확히 동일합니다.
 ![RIs를 위한 AHB](./media/azure-hybrid-benefit/reserved-instances.png)
 
 >[!NOTE]
@@ -212,11 +212,11 @@ A: 예, 가능합니다. 라이선스 유형 `RHEL_BYOS`을 RHEL VM에 사용할
 
 Q: RHEL 및 SLES용 Virtual Machine Scale Sets에서 Azure 하이브리드 혜택을 사용할 수 있나요?
 
-A: 예, RHEL 및 SLES용 Virtual Machine Scale Sets의 Azure 하이브리드 혜택은 미리 보기 상태입니다. [여기에서 해당 혜택과 사용 방법에 대한 자세한 정보](https://docs.microsoft.com/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux-vmss)를 알아볼 수 있습니다. 
+A: 예, RHEL 및 SLES용 Virtual Machine Scale Sets의 Azure 하이브리드 혜택은 모든 사용자가 사용할 수 있습니다. [여기에서 해당 혜택과 사용 방법에 대한 자세한 정보](../../virtual-machine-scale-sets/azure-hybrid-benefit-linux.md)를 알아볼 수 있습니다. 
 
 Q: RHEL 및 SLES에 대한 예약 인스턴스에서 Azure 하이브리드 혜택을 사용할 수 있나요?
 
-A: 예, RHEL 및 SLES에 대한 예약 인스턴스의 Azure 하이브리드 혜택은 미리 보기 상태입니다. [여기에서 해당 혜택과 사용 방법에 대한 자세한 정보](#azure-hybrid-benefit-on-reserved-instances-is-in-preview)를 알아볼 수 있습니다.
+A: 예, RHEL 및 SLES용 예약 인스턴스의 Azure 하이브리드 혜택은 모든 사용자가 사용할 수 있습니다. [여기에서 해당 혜택과 사용 방법에 대한 자세한 정보](#azure-hybrid-benefit-on-reserved-instances)를 알아볼 수 있습니다.
 
 Q: RHEL 이미지에서 SQL Server를 위해 배포된 가상 머신에서 Azure 하이브리드 혜택을 사용할 수 있나요?
 
@@ -235,4 +235,5 @@ A: 아니요, 불가능합니다. AHB를 포함하여 Azure에서는 VDC가 전�
 | “Azure 구독에서 Red Hat Cloud Access를 성공적으로 활성화하지 못한 것으로 기록되어 있기 때문에 작업을 완료할 수 없습니다.” | RHEL VM에서 혜택을 사용하려면 먼저 [Red Hat Cloud Access를 사용하여 Azure 구독을 등록](https://access.redhat.com/management/cloud)해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure CLI를 사용하여 Azure 하이브리드 혜택에 대한 VM을 만들고 업데이트하고 라이선스 유형(RHEL_BYOS, SLES_BYOS)을 추가하는 방법 알아보기](/cli/azure/vm)
+* [Azure CLI를 사용하여 Azure 하이브리드 혜택에 대한 VM을 만들고 업데이트하고 라이선스 형식(RHEL_BYOS, SLES_BYOS)을 추가하는 방법 알아보기](/cli/azure/vm)
+* RHEL 및 SLES용 Virtual Machine Scale Sets의 Azure 하이브리드 혜택은 모든 사용자가 사용할 수 있습니다. [여기에서 해당 혜택과 사용 방법에 대한 자세한 정보](../../virtual-machine-scale-sets/azure-hybrid-benefit-linux.md)를 알아볼 수 있습니다.

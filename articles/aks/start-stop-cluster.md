@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: 2d3c946bc2f98b0c06fe33dcaaa77a5399f6d56b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 734986d2c9b372214a54c1308e4ca445940c5f65
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782732"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111808928"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 중지 및 시작
 
@@ -27,6 +27,7 @@ ms.locfileid: "107782732"
 - 이 기능은 Virtual Machine Scale Sets 지원 클러스터에서만 지원됩니다.
 - 중지된 AKS 클러스터의 클러스터 상태는 최대 12개월 동안 보존됩니다. 클러스터가 12개월 넘게 중지된 경우 클러스터 상태를 복구할 수 없습니다. 자세한 내용은 [AKS 지원 정책](support-policies.md)을 참조하세요.
 - 중지된 AKS 클러스터를 시작하거나 삭제할 수만 있습니다. 스케일링 또는 업그레이드와 같은 작업을 수행하려면 먼저 클러스터를 시작합니다.
+- 프라이빗 클러스터에 연결된 고객이 프로비전한 PrivateEndpoints는 중지된 AKS 클러스터를 시작할 때 삭제하고 다시 만들어야 합니다.
 
 ## <a name="stop-an-aks-cluster"></a>AKS 클러스터 중지
 
@@ -83,6 +84,9 @@ az aks start --name myAKSCluster --resource-group myResourceGroup
 ```
 
 `provisioningState` `Starting` 이 표시되면 클러스터가 아직 완전히 시작 되지 않았음을 의미 합니다.
+
+> [!NOTE]
+> 클러스터 자동 크기 조정기를 사용하는 경우 클러스터 백업을 시작할 때 현재 노드 수가 설정한 최소 및 최대 범위 값 사이에 없을 수 있습니다. 이는 정상적인 동작입니다. 클러스터는 워크로드를 실행하는 데 필요한 노드 수로 시작하며, 자동 크기 조정기 설정의 영향을 받지 않습니다. 클러스터가 크기 조정 작업을 수행하는 경우 최솟값 및 최댓값은 현재 노드 수에 영향을 줍니다. 클러스터는 클러스터를 중지할 때까지 원하는 범위에 진입하여 유지됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.date: 04/27/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 43a519cfd08ff96e2e53a07223f6cda31e98df50
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 6984230044dc70e6e5e05c7ae0dcb4789065c436
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108280938"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955357"
 ---
 # <a name="migrate-data-to-azure-with-datadobi-dobimigrate"></a>Datadobi DobiMigrate를 사용하여 데이터를 Azure로 마이그레이션
 
@@ -41,8 +41,8 @@ Microsoft는 Azure를 시작하기 위해 수행할 수 있는 프레임워크�
 
 Azure로 파일 데이터의 마이그레이션을 고려할 때 몇 가지 중요한 측면이 있습니다. 계속하기 전에 자세히 알아보세요.
 
-- [스토리지 마이그레이션 개요](/azure/storage/common/storage-migration-overview)
-- [마이그레이션 도구 비교 행렬](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison)에서 DobiMigrate가 지원하는 최신 기능
+- [스토리지 마이그레이션 개요](../../../common/storage-migration-overview.md)
+- [마이그레이션 도구 비교 행렬](./migration-tools-comparison.md)에서 DobiMigrate가 지원하는 최신 기능
 
 프로덕션 애플리케이션에 영향을 주지 않고 마이그레이션을 지원하기에 충분한 네트워크 용량이 필요합니다. 이 섹션에서는 네트워크 요구 사항을 평가하는 데 사용할 수 있는 도구와 기술에 대해 간략하게 설명합니다.
 
@@ -80,7 +80,7 @@ Azure가 사용할 수 있는 여유 대역폭을 확인하려면 다음 방법�
    2. 스토리지 계정의 고유한 이름을 입력합니다.
    3. 지역을 선택합니다.
    4. 필요에 따라 **표준** 또는 **프리미엄** 성능을 선택합니다. **프리미엄** 을 선택하는 경우 **프리미엄 계정 유형** 에서 **파일 공유** 를 선택합니다.
-   5. 데이터 보호 요구 사항을 충족하는 **[중복도](/azure/storage/common/storage-redundancy)** 를 선택합니다.
+   5. 데이터 보호 요구 사항을 충족하는 **[중복도](../../../common/storage-redundancy.md)** 를 선택합니다.
    
    :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-account-create-1.png" alt-text="Portal의 스토리지 계정 설정을 보여 줍니다.":::
 
@@ -104,17 +104,17 @@ Azure가 사용할 수 있는 여유 대역폭을 확인하려면 다음 방법�
 
 8. (_선택 사항_) 배포에 더 많은 보안 계층을 추가할 수 있습니다.
  
-   1. 역할 기반 액세스를 구성하여 스토리지 계정을 변경할 수 있는 사용자를 제한합니다. 자세한 내용은 [관리 작업을 위한 기본 제공 역할](/azure/storage/common/authorization-resource-provider#built-in-roles-for-management-operations)을 참조하세요.
+   1. 역할 기반 액세스를 구성하여 스토리지 계정을 변경할 수 있는 사용자를 제한합니다. 자세한 내용은 [관리 작업을 위한 기본 제공 역할](../../../common/authorization-resource-provider.md#built-in-roles-for-management-operations)을 참조하세요.
  
-   2.  [스토리지 방화벽 설정](/azure/storage/common/storage-network-security)을 사용하여 특정 네트워크 세그먼트로 계정에 대한 액세스를 제한합니다. 회사 네트워크 외부에서 액세스하지 못하도록 방화벽 설정을 구성합니다.
+   2.  [스토리지 방화벽 설정](../../../common/storage-network-security.md)을 사용하여 특정 네트워크 세그먼트로 계정에 대한 액세스를 제한합니다. 회사 네트워크 외부에서 액세스하지 못하도록 방화벽 설정을 구성합니다.
 
        :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-storage-firewall.png" alt-text="Portal의 스토리지 방화벽 설정을 보여 줍니다.":::
 
-   3.  계정에 대해 [삭제 잠금](/azure/azure-resource-manager/management/lock-resources)을 설정하여 스토리지 계정이 실수로 삭제되지 않도록 합니다.
+   3.  계정에 대해 [삭제 잠금](../../../../azure-resource-manager/management/lock-resources.md)을 설정하여 스토리지 계정이 실수로 삭제되지 않도록 합니다.
 
        :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-resource-lock.png" alt-text="Portal에서 삭제 잠금을 설정하는 방법을 보여 줍니다.":::
 
-   4.  추가 [보안 모범 사례](/azure/storage/blobs/security-recommendations)를 구성합니다.
+   4.  추가 [보안 모범 사례](../../../blobs/security-recommendations.md)를 구성합니다.
 
 9.  DobiMigrate에서 구성 -> 파일 서버로 이동합니다. **추가** 를 클릭하여 Microsoft Azure Files를 파일 서버 유형으로 추가합니다.
 
@@ -136,7 +136,25 @@ Azure가 사용할 수 있는 여유 대역폭을 확인하려면 다음 방법�
  
     :::image type="content" source="./media/dobimigrate-quick-start-guide/dobiprotect-azure-files-shares.png" alt-text="사용 가능한 공유를 보여 줍니다.":::
 
-13. **마침** 을 클릭하여 Azure Files 구성을 완료합니다. 그런 다음, 새 마이그레이션 작업을 시작할 수 있습니다.
+13. **마침** 을 클릭하여 Azure Files 구성을 완료합니다. 그러면 새 마이그레이션 작업을 시작할 수 있습니다.
+
+### <a name="start-a-new-migration"></a>새 마이그레이션 시작
+
+DobiMigrate는 수동으로 마이그레이션 경로를 추가하거나 대량 가져오기를 사용하여 새 마이그레이션을 설정할 수 있습니다. 대량 가져오기는 공통 마이그레이션 옵션을 사용하여 여러 마이그레이션을 추가합니다.
+
+새 마이그레이션을 시작하려면 다음을 수행합니다.
+
+1. 대시보드에서 **새 마이그레이션** 단추를 클릭합니다.
+   
+    :::image type="content" source="./media/dobimigrate-quick-start-guide/dobimigrate-new-migration.png" alt-text="새 마이그레이션 작업을 시작합니다.":::
+
+1. 마이그레이션할 경로와 원본을 선택합니다.
+
+    :::image type="content" source="./media/dobimigrate-quick-start-guide/dobimigrate-select-source.png" alt-text="마이그레이션할 경로와 원본을 선택합니다.":::
+
+1. **대상** 을 선택합니다.
+2. 프로토콜을 확인하고 마이그레이션 옵션을 확인합니다.
+3. **마침** 을 클릭하여 마이그레이션 프로세스를 완료합니다.
 
 ## <a name="support"></a>지원 
 
@@ -156,10 +174,11 @@ Datadobi를 통해 Azure에서 솔루션을 쉽게 배포하고 Azure Virtual Ma
 
 - [DobiMigrate를 사용하여 Azure로 파일 데이터 마이그레이션](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=overview)
 
+## <a name="next-steps"></a>다음 단계
 
-## <a name="additional-resources"></a>추가 리소스
+가이드를 방문하여 자세히 알아보세요.
 
-- [스토리지 마이그레이션 개요](/azure/storage/common/storage-migration-overview)
+- [스토리지 마이그레이션 개요](../../../common/storage-migration-overview.md)
 - [DobiMigrate 사용자 설명서](https://downloads.datadobi.com/NAS/olh/latest/dobimigrate.html)
 - [DobiMigrate 필수 구성 요소 가이드](https://downloads.datadobi.com/NAS/guides/latest/prerequisites.html)
 - [DobiMigrate 설치 가이드](https://downloads.datadobi.com/NAS/guides/latest/installguide.html)

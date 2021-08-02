@@ -7,21 +7,17 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/11/2020
 ms.author: jushiman
-ms.openlocfilehash: d8acab17e9d8dfc078b46f6a279cc671a70b0a50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b804536c54cce64ace2605999c7cc28cef357a4d
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91974841"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072328"
 ---
-# <a name="preview-maintenance-control-for-os-image-upgrades-on-azure-virtual-machine-scale-sets-using-powershell"></a>미리 보기: PowerShell을 사용한 Azure 가상 머신 확장 집합의 OS 이미지 업그레이드에 대한 유지 관리 제어
+# <a name="maintenance-control-for-os-image-upgrades-on-azure-virtual-machine-scale-sets-using-powershell"></a>PowerShell을 사용한 Azure 가상 머신 확장 집합의 OS 이미지 업그레이드에 대한 유지 관리 제어
 
 유지 관리 제어를 통해 가상 머신 확장 집합에 자동 게스트 OS 이미지 업그레이드를 적용하는 시기를 결정할 수 있습니다. 이 항목에서는 Azure PowerShell의 유지 관리 제어 옵션에 대해 설명합니다. 유지 관리 제어를 사용하는 방법에 대한 자세한 내용은 [Azure 가상 머신 확장 집합에 대한 유지 관리 제어](virtual-machine-scale-sets-maintenance-control.md)를 참조하세요.
-
-> [!IMPORTANT]
-> Azure 가상 머신 확장 집합의 OS 이미지 업그레이드에 대한 유지 관리 제어는 현재 퍼블릭 미리 보기로 제공되고 있습니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 
 ## <a name="enable-the-powershell-module"></a>PowerShell 모듈 사용
@@ -112,12 +108,10 @@ New-AzConfigurationAssignment `
 
 ## <a name="enable-automatic-os-upgrade"></a>자동 OS 업그레이드 사용
 
-유지 관리 제어를 사용하려는 각 가상 머신 확장 집합에 대해 자동 OS 업그레이드를 사용하도록 설정할 수 있습니다. 가상 머신 확장 집합에서 자동 OS 업그레이드를 사용하도록 설정하려면 [Azure 가상 머신 확장 집합 자동 OS 이미지 업그레이드](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) 문서를 참조하세요. 
+유지 관리 제어를 사용하려는 각 가상 머신 확장 집합에 대해 자동 OS 업그레이드를 사용하도록 설정할 수 있습니다. 가상 머신 확장 집합에서 자동 OS 업그레이드를 사용하도록 설정하는 방법에 관한 자세한 내용은 [Azure 가상 머신 확장 집합 자동 OS 이미지 업그레이드](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure에서 실행되는 가상 머신의 유지 관리 및 업데이트에 대해 알아봅니다.
-
 > [!div class="nextstepaction"]
-> [유지 관리 및 업데이트](maintenance-and-updates.md)
+> [Azure에서 실행되는 가상 머신의 유지 관리 및 업데이트에 대해 알아보기](maintenance-and-updates.md)

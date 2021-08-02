@@ -1,19 +1,19 @@
 ---
 title: 여러 ISP 링크에서 Azure 경로 선택
 titleSuffix: Azure Virtual WAN
-description: Azure 경로 선택 및 Virtual WAN에 대해 알아보기
+description: Azure Virtual WAN이 Azure 경로 선택을 사용하여 다양한 링크에서 트래픽을 조정하기 위해 링크 정보를 포함할 수 있는 방법을 알아봅니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: f24696c0db3155a59106e1361b01454b9ac16a20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9938f9da91f42c8f22b1abca5f85b332321dc486
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91267757"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579090"
 ---
 # <a name="azure-path-selection-across-multiple-isp-links"></a>여러 ISP 링크에서 Azure 경로 선택
 

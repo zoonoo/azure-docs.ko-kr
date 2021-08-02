@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/17/2021
+ms.date: 05/26/2021
 ms.author: radeltch
-ms.openlocfilehash: c5f94329920f8c850c0a47dd607ade8e83658b29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6162f02de8eb742653aef0d527c525e1b792a033
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599921"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110534516"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux에서 Azure NetApp Files를 사용한 SAP HANA 스케일 업의 고가용성
 
@@ -128,15 +128,15 @@ SAP HANA 시스템 복제 구성은 전용 가상 호스트 이름과 가상 IP 
 
 Azure NetApp Files 인프라 설정을 진행하기 전에 [Azure NetApp Files 설명서](../../../azure-netapp-files/index.yml)를 숙지하세요.
 
-Azure NetApp Files는 여러 [Azure 지역](https://azure.microsoft.com/global-infrastructure/services/?products=netapp)에서 사용 가능합니다. 선택한 Azure 지역에서 Azure NetApp Files를 제공하는지 확인합니다.
+Azure NetApp Files는 여러 [Azure 지역](https://azure.microsoft.com/global-infrastructure/services/?products=netapp)에서 사용 가능합니다. 선택한 Azure 지역에서 Azure NetApp Files를 제공하는지 확인하세요.
 
 Azure 지역별 Azure NetApp Files 가용성에 대한 자세한 내용은 [Azure 지역별 Azure NetApp Files 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)을 참조하세요.
 
-Azure NetApp Files를 배포하기 전에 [Azure NetApp Files에 등록 지침](../../../azure-netapp-files/azure-netapp-files-register.md)으로 이동하여 Azure NetApp Files에 온보딩을 요청합니다.
+Azure NetApp Files를 배포하기 전에 [Azure NetApp Files에 등록 지침](../../../azure-netapp-files/azure-netapp-files-register.md)으로 이동하여 Azure NetApp Files에 온보딩을 요청하세요.
 
 ### <a name="deploy-azure-netapp-files-resources"></a>Azure NetApp Files 리소스 배포
 
-다음 지침에서는 이미 [Azure 가상 네트워크](../../../virtual-network/virtual-networks-overview.md)를 배포했다고 가정합니다. Azure NetApp Files 리소스가 탑재될 Azure NetApp Files 리소스와 VM을 동일하거나 피어링된 Azure Virtual Network에 배포해야 합니다.
+다음 지침에서는 [Azure 가상 네트워크](../../../virtual-network/virtual-networks-overview.md)를 이미 배포했다고 가정합니다. Azure NetApp Files 리소스가 탑재될 Azure NetApp Files 리소스와 VM을 동일하거나 피어링된 Azure Virtual Network에 배포해야 합니다.
 
 1. 아직 리소스를 배포하지 않은 경우 [Azure NetApp Files에 온보딩](../../../azure-netapp-files/azure-netapp-files-register.md)을 요청합니다.
 
@@ -206,10 +206,10 @@ Azure에서 SAP용 인프라를 설계할 때 최소 처리량 특성으로 변�
 
 
 > [!NOTE]
-> 여기에 명시된 Azure NetApp Files 크기 조정 권장 사항은 SAP에서 인프라 공급자에 대해 권장하는 최소 요구 사항을 충족하는 것입니다. 실제 고객 배포 및 워크로드 시나리오에서는 충분하지 않을 수 있습니다. 이러한 권장 사항을 시작점으로 삼아 워크로드의 요구 사항에 따라 조정합니다.
+> 여기에 명시된 Azure NetApp Files 크기 조정 권장 사항은 SAP에서 인프라 공급자에 대해 권장하는 최소 요구 사항을 충족하는 것을 목표로 합니다. 실제 고객 배포 및 워크로드 시나리오에서는 이러한 크기가 충분하지 않을 수 있습니다. 이러한 권장 사항을 시작점으로 삼아 워크로드의 요구 사항에 따라 조정합니다.
 
 > [!TIP]
-> 볼륨을 *분리* 하거나, 가상 머신을 중지하거나, SAP HANA를 중지하지 않고도 Azure NetApp Files 볼륨의 크기를 동적으로 조정할 수 있습니다. 이 접근 방식을 사용하면 애플리케이션의 예상된 처리량 및 예기치 못한 처리량 요구 사항을 모두 유연하게 충족할 수 있습니다.
+> 볼륨을 분리(*unmount*)하거나, 가상 머신을 중지하거나, SAP HANA를 중지하지 않고도 Azure NetApp Files 볼륨의 크기를 동적으로 조정할 수 있습니다. 이 접근 방식을 사용하면 애플리케이션의 예상된 처리량 및 예기치 못한 처리량 요구 사항을 모두 유연하게 충족할 수 있습니다.
 
 > [!NOTE]
 > 이 문서에서 /hana/shared를 탑재하는 모든 명령은 NFSv4.1 /hana/shared 볼륨에 대해 제공됩니다.
@@ -230,7 +230,7 @@ Azure에서 SAP용 인프라를 설계할 때 최소 처리량 특성으로 변�
 7.  가상 머신을 만드는 동안 모든 탑재 지점이 Azure NetApp Files의 NFS 공유에 있으므로 디스크를 추가하지 않습니다. 
 
 > [!IMPORTANT]
-> 부하 분산 시나리오의 NIC 보조 IP 구성에서는 부동 IP가 지원되지 않습니다. 자세한 내용은 [Azure Load Balancer 제한 사항](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조하세요. VM에 추가 IP 주소가 필요한 경우 보조 NIC를 배포합니다.    
+> 부하 분산 시나리오의 NIC 보조 IP 구성에서는 부동 IP가 지원되지 않습니다. 자세한 내용은 [Azure Load Balancer 제한 사항](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조하세요. VM에 대한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포합니다.    
 
 > [!NOTE] 
 > 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.
@@ -259,7 +259,6 @@ Azure에서 SAP용 인프라를 설계할 때 최소 처리량 특성으로 변�
         1.  새 부하 분산 장치 규칙의 이름을 입력합니다(예: **hana-lb**).
         1.  이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브를 선택합니다(예: **hana-frontend**, **hana-backend** 및 **hana-hp**).
         1.  **HA 포트** 를 선택합니다.
-        1.  **유휴 상태 시간 제한** 을 30분으로 증가시킵니다.
         1.  **부동 IP를 사용하도록 설정** 했는지 확인합니다.
         1.  **확인** 을 선택합니다.
 
@@ -403,6 +402,49 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
    10.32.0.5   hanadb2
    ```
 
+3. **[A]** [Azure NetApp Files를 사용하는 Microsoft Azure의 NetApp SAP 애플리케이션][anf-sap-applications-azure]에 설명된 대로 NFS를 사용하는 Azure NetApp에서 SAP HANA를 실행하기 위해 OS를 준비합니다. NetApp 구성 설정에 대한 구성 파일 */etc/sysctl.d/netapp-hana.conf* 를 만듭니다.  
+
+    <pre><code>
+    vi /etc/sysctl.d/netapp-hana.conf
+    # Add the following entries in the configuration file
+    net.core.rmem_max = 16777216
+    net.core.wmem_max = 16777216
+    net.core.rmem_default = 16777216
+    net.core.wmem_default = 16777216
+    net.core.optmem_max = 16777216
+    net.ipv4.tcp_rmem = 65536 16777216 16777216
+    net.ipv4.tcp_wmem = 65536 16777216 16777216
+    net.core.netdev_max_backlog = 300000 
+    net.ipv4.tcp_slow_start_after_idle=0 
+    net.ipv4.tcp_no_metrics_save = 1
+    net.ipv4.tcp_moderate_rcvbuf = 1
+    net.ipv4.tcp_window_scaling = 1    
+    net.ipv4.tcp_sack = 1
+    </code></pre>
+
+4. **[A]** 추가 최적화 설정을 사용하여 */etc/sysctl.d/ms-az.conf* 구성 파일을 만듭니다.  
+
+    <pre><code>
+    vi /etc/sysctl.d/ms-az.conf
+    # Add the following entries in the configuration file
+    net.ipv6.conf.all.disable_ipv6 = 1
+    net.ipv4.tcp_max_syn_backlog = 16348
+    net.ipv4.conf.all.rp_filter = 0
+    sunrpc.tcp_slot_table_entries = 128
+    vm.swappiness=10
+    </code></pre>
+
+    > [!TIP]
+    > SAP 호스트 에이전트가 포트 범위를 관리할 수 있도록 sysctl 구성 파일에서 net.ipv4.ip_local_port_range 및 net.ipv4.ip_local_reserved_ports를 명시적으로 설정하지 마십시오. 자세한 내용은 SAP Note [2382421](https://launchpad.support.sap.com/#/notes/2382421)을 참조하세요.  
+
+5. **[A]** [Azure NetApp Files를 사용하는 Microsoft Azure의 NetApp SAP 애플리케이션][anf-sap-applications-azure]의 권장대로 sunrpc 설정을 조정합니다.  
+
+    <pre><code>
+    vi /etc/modprobe.d/sunrpc.conf
+    # Insert the following line
+    options sunrpc tcp_max_slot_table_entries=128
+    </code></pre>
+
 2. **[A]** HANA용 RHEL 구성
 
    RHEL 버전에 따라 아래 SAP Note에 설명된 대로 RHEL을 구성합니다.
@@ -473,6 +515,71 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 [Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정](./high-availability-guide-rhel-pacemaker.md) 단계에 따라 이 HANA 서버용 기본 Pacemaker 클러스터를 만듭니다.
 
+### <a name="implement-the-python-system-replication-hook-saphanasr"></a>Python 시스템 복제 후크 SAPHanaSR 구현
+
+이는 클러스터와의 통합을 최적화하고 클러스터 장애 조치(failover)가 필요할 때 검색 기능을 향상시키는 중요한 단계입니다. SAPHanaSR python 후크를 구성하는 것이 좋습니다.    
+
+1. **[A]** HANA "시스템 복제 후크"를 설치합니다. 후크는 두 개의 HANA DB 노드에 모두 설치해야 합니다.           
+
+   > [!TIP]
+   > Python 후크는 HANA 2.0에서만 구현할 수 있습니다.        
+
+   1. 후크를 `root`로 준비합니다.  
+
+    ```bash
+     mkdir -p /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR/srHook/SAPHanaSR.py /hana/shared/myHooks
+     chown -R hn1adm:sapsys /hana/shared/myHooks
+    ```
+
+   2. 두 노드에서 HANA를 중지합니다. <sid\>adm으로 실행합니다.  
+   
+    ```bash
+    sapcontrol -nr 03 -function StopSystem
+    ```
+
+   3. 각 클러스터 노드에서 `global.ini`를 조정합니다.  
+ 
+    ```bash
+    # add to global.ini
+    [ha_dr_provider_SAPHanaSR]
+    provider = SAPHanaSR
+    path = /hana/shared/myHooks
+    execution_order = 1
+    
+    [trace]
+    ha_dr_saphanasr = info
+    ```
+
+2. **[A]** 클러스터에서 <sid\>adm용 각 클러스터 노드에 sudoers 구성을 요구합니다. 이 예제에서는 새 파일을 만들어 수행합니다. 명령을 `root`로 실행합니다.    
+    ```bash
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR python hook
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    EOF
+    ```
+
+3. **[A]** 두 노드에서 SAP HANA를 시작합니다. <sid\>adm으로 실행합니다.  
+
+    ```bash
+    sapcontrol -nr 03 -function StartSystem 
+    ```
+
+4. **[1]** 후크 설치를 확인합니다. 활성 HANA 시스템 복제 사이트에서 <sid\>adm으로 실행합니다.   
+
+    ```bash
+     cdtrace
+     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+     # Example output
+     # 2021-04-12 21:36:16.911343 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:36:29.147808 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:37:04.898680 ha_dr_SAPHanaSR SOK
+
+    ```
+
+SAP HANA 시스템 복제 후크 구현에 대한 자세한 내용은 [SAP HA/DR 공급자 후크 사용](https://access.redhat.com/articles/3004101#enable-srhook)을 참조하세요.  
+
 ### <a name="configure-filesystem-resources"></a>파일 시스템 리소스 구성
 
 이 예에서는 각 클러스터 노드에 고유한 HANA NFS 파일 시스템 /hana/shared, /hana/data 및 /hana/log가 있습니다.   
@@ -501,7 +608,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
     `OCF_CHECK_LEVEL=20` 특성이 모니터 작업에 추가되어 각 모니터가 파일 시스템에서 읽기/쓰기 테스트를 수행합니다. 이 특성이 없으면 모니터 작업은 파일 시스템이 탑재되어 있는지만 확인합니다. 연결이 끊어지면 액세스할 수 없더라도 파일 시스템이 탑재된 상태로 남아있을 수 있기 때문에 이것은 문제가 될 수 있습니다.
 
-    `on-fail=fence` 특성도 모니터 작업에 추가됩니다. 이 옵션을 사용하면 노드에서 모니터 작업이 실패하는 경우 해당 노드가 즉시 차단됩니다. 이 옵션이 없으면 기본 동작으로 실패한 리소스에 종속된 모든 리소스를 중지하고, 실패한 리소스를 다시 시작한 다음 실패한 리소스에 종속된 모든 리소스를 시작합니다. 이 동작은 SAPHana 리소스가 실패한 리소스에 의존하는 경우 시간이 오래 걸릴 뿐만 아니라 완전히 실패할 수도 있습니다. HANA 실행 파일이 있는 NFS 서버에 액세스할 수 없는 경우 SAPHana 리소스를 중지할 수 없습니다.
+    `on-fail=fence` 특성도 모니터 작업에 추가됩니다. 이 옵션을 사용하면 노드에서 모니터 작업이 실패하는 경우 해당 노드가 즉시 펜싱됩니다. 이 옵션이 없으면 기본 동작으로 실패한 리소스에 종속된 모든 리소스를 중지하고, 실패한 리소스를 다시 시작한 다음, 실패한 리소스에 종속된 모든 리소스를 시작합니다. 이 동작은 SAPHana 리소스가 실패한 리소스에 의존하는 경우 시간이 오래 걸릴 뿐만 아니라 완전히 실패할 수도 있습니다. HANA 실행 파일이 있는 NFS 서버에 액세스할 수 없는 경우 SAPHana 리소스를 중지할 수 없습니다.
 
 4. **[1]** 위치 제약 조건 구성
 
@@ -604,7 +711,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 SAP HANA 2.0 SPS 01부터 SAP는 SAP HANA 시스템 복제를 위한 활성/읽기 사용 설정을 허용합니다. 여기서 SAP HANA 시스템 복제의 보조 시스템은 읽기 집약적인 워크로드에 적극적으로 사용할 수 있습니다. 클러스터에서 이러한 설정을 지원하려면 클라이언트가 보조 읽기 사용 SAP HANA 데이터베이스에 액세스할 수 있도록 두 번째 가상 IP 주소가 필요합니다. 인수가 발생한 후에도 보조 복제 사이트에 액세스할 수 있도록 클러스터에서 가상 IP 주소를 SAPHana 리소스의 보조로 이동해야 합니다.
 
-두 번째 가상 IP를 사용하는 Red Hat 고가용성 클러스터에서 HANA 활성/읽기 사용 시스템 복제를 관리하는 데 필요한 추가 구성은 [Pacemaker 클러스터에서 Hana 활성/읽기 사용 시스템 복제 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster)에 설명되어 있습니다.  
+두 번째 가상 IP를 사용하는 Red Hat 고가용성 클러스터에서 HANA 활성/읽기 사용 시스템 복제를 관리하는 데 필요한 추가 구성은 [Pacemaker 클러스터에서 Hana 활성/읽기 사용 시스템 복제 구성](./sap-hana-high-availability-rhel.md#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster)에 설명되어 있습니다.  
 
 계속 진행하기 전에 설명서의 상단 세그먼트에 설명된 대로 SAP HANA 데이터베이스를 관리하는 Red Hat 고가용성 클러스터를 완전히 구성했는지 확인합니다.    
 

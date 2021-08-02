@@ -1,22 +1,25 @@
 ---
-title: Azure Static Web Apps 미리 보기 모니터링
-description: Azure Static Web Apps 미리 보기에서 요청, 오류 및 추적 정보 모니터링
+title: Azure Static Web Apps 모니터링
+description: Azure Static Web Apps에서 요청, 오류 및 추적 정보 모니터링
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 4/23/2021
 ms.author: cshoe
-ms.openlocfilehash: 474b612d835ab415f9607f737ef219acc2e99152
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 8c97c3c008dda4269b282e89af7badda889588fe
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108077704"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110497576"
 ---
 # <a name="monitor-azure-static-web-apps"></a>Azure Static Web Apps 모니터링
 
 [Application Insights](../azure-monitor/app/app-insights-overview.md)를 사용하여 API 요청, 오류 및 추적 정보를 모니터링할 수 있습니다.
+
+> [!IMPORTANT]
+> Application Insights에는 Azure Static Web Apps의 [독립적인 가격 책정 모델](https://azure.microsoft.com/pricing/details/monitor)이 있습니다.
 
 > [!NOTE]
 > Azure Static Web Apps에서 Application Insights를 사용하려면 [API](./add-api.md)를 사용하는 애플리케이션이 필요합니다.
@@ -71,6 +74,27 @@ ms.locfileid: "108077704"
 1. **실행** 단추를 선택합니다.
 
 :::image type="content" source="media/monitoring/azure-static-web-apps-application-insights-traces.png" alt-text="Application Insights 추적 보기":::
+
+## <a name="limit-logging"></a>로깅 제한
+
+경우에 따라 Azure Functions 앱의 _host.json_ 파일을 다음과 같이 변경하여 오류 및 경고에 대한 세부 정보를 캡처하면서 로깅을 제한할 수 있습니다.
+
+```json
+{
+    "version": "2.0",
+    "logging": {
+        "applicationInsights": {
+            "samplingSettings": {
+              "isEnabled": true
+            },
+            "enableDependencyTracking": false
+        },
+        "logLevels": {
+            "default": "Warning"
+        }
+    }
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 

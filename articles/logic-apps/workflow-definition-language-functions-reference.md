@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 03/12/2021
-ms.openlocfilehash: 1414a7b0f17918caa16ccf854d70ea199fb42a47
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.date: 03/30/2021
+ms.openlocfilehash: 71a8dc9c72672ae0bee18be159631daba3d88a39
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870197"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062005"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
 
@@ -123,7 +123,7 @@ ms.locfileid: "104870197"
 조건을 사용하고 값 및 식 결과를 비교하거나 다양한 종류의 논리를 평가하려면 이러한 논리 비교 함수를 사용하면 됩니다. 각 함수에 대한 전체 참조는 [사전순 목록](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)을 참조하세요.
 
 > [!NOTE]
-> 논리 함수 또는 조건을 사용 하 여 값을 비교 하는 경우 null 값은 빈 문자열 ( `""` ) 값으로 변환 됩니다. 조건의 동작은 null 값 대신 빈 문자열과 비교할 때 다릅니다. 자세한 내용은 [string () 함수](#string)를 참조 하세요. 
+> 논리 함수 또는 조건을 사용하여 값을 비교하는 경우 Null 값은 빈 문자열(`""`) 값으로 변환됩니다. 조건의 동작은 Null 값 대신 빈 문자열과 비교할 때 다릅니다. 자세한 내용은 [string() 함수](#string)를 참조하세요. 
 
 | 논리 비교 함수 | Task |
 | --------------------------- | ---- |
@@ -145,7 +145,7 @@ ms.locfileid: "104870197"
 값의 유형 또는 형식을 변경하려면 이러한 변환 함수를 사용할 수 있습니다. 예를 들어 부울에서 정수로 값을 변경할 수 있습니다. 변환하는 동안 Logic Apps가 콘텐츠 형식을 처리하는 방법에 대한 자세한 내용은 [콘텐츠 형식 처리](../logic-apps/logic-apps-content-type.md)를 참조하세요. 각 함수에 대한 전체 참조는 [사전순 목록](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)을 참조하세요.
 
 > [!NOTE]
-> Azure Logic Apps는 일부 데이터 형식 간에 값을 자동으로 변환하므로 사용자가 이러한 변환을 수동으로 수행할 필요가 없습니다. 그러나 이렇게 하면 예기치 않은 표시 동작이 발생할 수 있으며, 이러한 동작은 실제 변환에 영향을 주지는 않고 표시 방법에만 영향을 줍니다. 자세한 내용은 [암시적 데이터 형식 변환](#implicit-data-conversions)을 참조하세요.
+> Azure Logic Apps는 자동으로 또는 암시적으로 base64 인코딩 또는 디코딩을 수행하므로 사용자가 인코딩 및 디코딩 함수를 사용하여 이러한 변환을 수동으로 수행할 필요가 없습니다. 그러나 디자이너에서 이러한 함수를 사용하는 경우 디자이너에서 예기치 않은 렌더링 동작이 발생할 수 있습니다. 이러한 동작은 함수의 매개 변수 값을 편집하여 코드에서 함수와 그 효과를 제거하지 않는 한 함수의 표시 유형에만 영향을 줍니다. 자세한 내용은 [암시적 데이터 형식 변환](#implicit-data-conversions)을 참조하세요.
 
 | 변환 함수 | Task |
 | ------------------- | ---- |
@@ -177,7 +177,7 @@ ms.locfileid: "104870197"
 
 ## <a name="implicit-data-type-conversions"></a>암시적 데이터 형식 변환
 
-Azure Logic Apps는 일부 데이터 형식 간에 자동으로 또는 암시적으로 변환되므로 사용자가 이러한 형식을 수동으로 변환할 필요가 없습니다. 예를 들어 입력으로 문자열이 필요한 비-문자열 값을 사용하는 경우 Logic Apps는 비-문자열 값을 문자열로 자동 변환합니다.
+Azure Logic Apps는 일부 데이터 형식 간에 자동으로 또는 암시적으로 변환되므로 사용자가 이러한 변환을 수동으로 수행할 필요가 없습니다. 예를 들어 입력으로 문자열이 필요한 비-문자열 값을 사용하는 경우 Logic Apps는 비-문자열 값을 문자열로 자동 변환합니다.
 
 트리거가 숫자 값을 출력으로 반환한다고 가정해 봅시다.
 
@@ -186,6 +186,8 @@ Azure Logic Apps는 일부 데이터 형식 간에 자동으로 또는 암시적
 URL처럼 문자열 입력이 필요한 이 숫자 출력을 사용하는 경우 Logic Apps는 중괄호(`{}`) 표기법을 사용하여 값을 문자열로 자동 변환합니다.
 
 `@{triggerBody()?['123']}`
+
+<a name="base64-encoding-decoding"></a>
 
 ### <a name="base64-encoding-and-decoding"></a>Base64 인코딩 및 디코딩
 
@@ -200,7 +202,7 @@ Logic Apps는 자동으로 또는 암시적으로 base64 인코딩 또는 디코
 * `decodeDataUri(<value>)`
 
 > [!NOTE]
-> 예를 들어 사용자가 식 편집기를 사용하여 논리 앱에 이러한 식을 수동으로 추가하는 경우 논리 앱 디자이너에서 나와 디자이너로 돌아가면 디자이너에 매개 변수 값만 표시됩니다. 매개 변수 값을 편집하지 않는 경우에만 코드 보기에 식이 유지됩니다. 편집할 경우 Logic Apps가 코드 보기에서 식을 제거하고 매개 변수 값만 남겨 둡니다. 이 동작은 인코딩 또는 디코딩에는 영향을 주지 않고 식의 표시 여부에만 영향을 줍니다.
+> 예를 들어 식 편집기를 사용하여 논리 앱 디자이너를 통해 워크플로에 이러한 함수를 수동으로 추가하는 경우 디자이너에서 나갔다가 돌아오면 함수가 디자이너에서 사라지고 매개 변수 값만 남게 됩니다. 함수의 매개 변수 값을 편집하지 않고 이 함수를 사용하는 트리거 또는 작업을 선택하는 경우에도 마찬가지입니다. 이 결과는 함수의 표시 유형에만 영향을 주고 효과에는 영향을 주지 않습니다. 코드 보기에서 함수는 영향을 받지 않습니다. 그러나 함수의 매개 변수 값을 편집하면 함수와 그 효과가 코드 보기에서 모두 제거되어 함수의 매개 변수 값만 남게 됩니다.
 
 <a name="math-functions"></a>
 
@@ -282,7 +284,7 @@ Logic Apps는 자동으로 또는 암시적으로 base64 인코딩 또는 디코
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | 여러 부분으로 구성된 작업의 출력에서 특정 부분에 대한 본문을 반환합니다. |
 | [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | 런타임 시 작업의 출력을 반환합니다. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | 흐름 정의에 설명된 매개 변수의 값을 반환합니다. |
-| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | 지정 된 범위 지정 작업 (예:, 및) 내의 최상위 작업에서 입력 및 출력을 반환 합니다 `For_each` `Until` `Scope` . |
+| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | `For_each`, `Until` 및 `Scope`처럼 지정된 범위 내에 있는 최상위 작업의 입력과 출력을 반환합니다. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | 런타임 시 또는 다른 JSON 이름-값 쌍에서 트리거 출력을 반환합니다. [triggerOutputs](#triggerOutputs) 및 [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody)도 참조합니다. |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | 런타임 시 트리거의 `body` 출력을 반환합니다. [트리거](../logic-apps/workflow-definition-language-functions-reference.md#trigger)를 참조합니다. |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | *form-data* 또는 *form-encoded* 트리거 출력에서 키 이름과 일치하는 단일 값을 반환합니다. |
@@ -480,7 +482,7 @@ actionOutputs('Get_user')
 현재 작업에 대해서는 [action()](#action)을 참조하세요.
 
 > [!TIP]
-> `actions()`함수는 출력을 문자열로 반환 합니다. 반환 된 값을 JSON 개체로 사용 해야 하는 경우 먼저 문자열 값을 변환 해야 합니다. [Json 구문 분석 작업](logic-apps-perform-data-operations.md#parse-json-action)을 사용 하 여 문자열 값을 json 개체로 변환할 수 있습니다.
+> `actions()` 함수는 출력을 문자열로 반환합니다. 반환된 값을 JSON 개체로 사용해야 하는 경우 먼저 문자열 값을 변환해야 합니다. [JSON 구문 분석 작업](logic-apps-perform-data-operations.md#parse-json-action)을 사용하여 문자열 값을 JSON 개체로 변환할 수 있습니다.
 
 > [!NOTE]
 > 이전에는 한 작업이 다른 작업의 출력을 기반으로 실행했음을 지정할 때 `actions()` 함수 또는 `conditions` 요소를 사용할 수 있었습니다. 그러나 작업 간의 종속성을 명시적으로 선언하려면 이제 종속 작업의 `runAfter` 속성을 사용해야 합니다.
@@ -556,7 +558,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
 | <*days*> | 예 | 정수 | 더할 양수 또는 음수 일 수 |
-| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임 스탬프의 기본 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 을 준수 하 고 표준 시간대 정보를 유지 하는 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (Yyyy-mm-yyyy-mm-ddthh: Mm: Ss. fffffffk)입니다. |
+| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss.fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -598,7 +600,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
 | <*hours*> | 예 | 정수 | 더할 양수 또는 음수 시간 수 |
-| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임 스탬프의 기본 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 을 준수 하 고 표준 시간대 정보를 유지 하는 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (Yyyy-mm-yyyy-mm-ddthh: Mm: Ss. fffffffk)입니다. |
+| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss.fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -614,7 +616,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-및는 ' "2018-03-15T10:00:00.0000000 Z" 결과를 반환 합니다.
+그리고 결과 "2018-03-15T10:00:00.0000000Z"를 반환합니다.
 
 *예제 2*
 
@@ -640,7 +642,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
 | <*minutes*> | 예 | 정수 | 더할 양수 또는 음수 분 수 |
-| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임 스탬프의 기본 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 을 준수 하 고 표준 시간대 정보를 유지 하는 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (Yyyy-mm-yyyy-mm-ddthh: Mm: Ss. fffffffk)입니다. |
+| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss.fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -690,7 +692,7 @@ addProperty(<object>, '<property>', <value>)
 | <*updated-object*> | Object | 지정한 속성으로 업데이트된 JSON 개체 |
 ||||
 
-기존 속성에 부모 속성을 추가 하려면 `setProperty()` 함수가 아닌 함수를 사용 `addProperty()` 합니다. 그렇지 않으면 함수는 출력으로 자식 개체만 반환합니다.
+기존 속성에 부모 속성을 추가하려면 `addProperty()` 함수가 아닌 `setProperty()` 함수를 사용합니다. 그렇지 않으면 함수는 출력으로 자식 개체만 반환합니다.
 
 ```
 setProperty(<object>['<parent-property>'], '<parent-property>', addProperty(<object>['<parent-property>'], '<child-property>', <value>)
@@ -781,7 +783,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
 | <*seconds*> | 예 | 정수 | 더할 양수 또는 음수 초 수 |
-| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임 스탬프의 기본 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 을 준수 하 고 표준 시간대 정보를 유지 하는 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (Yyyy-mm-yyyy-mm-ddthh: Mm: Ss. fffffffk)입니다. |
+| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss.fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -825,7 +827,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
 | <*interval*> | 예 | 정수 | 더할 지정한 시간 단위 수 |
 | <*timeUnit*> | 예 | String | *interval* 을 사용하는 시간 단위: “초”, “분”, “시간”, “일”, “주”, “월”, “년” |
-| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임 스탬프의 기본 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 을 준수 하 고 표준 시간대 정보를 유지 하는 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (Yyyy-mm-yyyy-mm-ddthh: Mm: Ss. fffffffk)입니다. |
+| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss.fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -944,7 +946,7 @@ array('hello')
 문자열에 대한 base64로 인코딩된 버전을 반환합니다.
 
 > [!NOTE]
-> Azure Logic Apps는 base64 인코딩 및 디코딩을 자동으로 수행하므로 사용자가 이러한 변환을 수동으로 수행할 필요가 없습니다. 그러나 이렇게 하면 예기치 않은 표시 동작이 발생할 수 있으며, 이러한 동작은 실제 변환에 영향을 주지는 않고 표시 방법에만 영향을 줍니다. 자세한 내용은 [암시적 데이터 형식 변환](#implicit-data-conversions)을 참조하세요.
+> Azure Logic Apps는 자동으로 또는 암시적으로 base64 인코딩 또는 디코딩을 수행하므로 사용자가 인코딩 및 디코딩 함수를 사용하여 이러한 변환을 수동으로 수행할 필요가 없습니다. 그러나 이러한 함수를 사용하는 경우 디자이너에서 예기치 않은 렌더링 동작이 발생할 수 있습니다. 이러한 동작은 함수의 매개 변수 값을 편집하여 코드에서 함수와 그 효과를 제거하지 않는 한 함수의 표시 유형에만 영향을 줍니다. 자세한 내용은 [Base64 인코딩 및 디코딩](#base64-encoding-decoding)을 참조하세요.
 
 ```
 base64('<value>')
@@ -977,7 +979,7 @@ base64('hello')
 Base64로 인코딩된 문자열에 대한 이진 버전을 반환합니다.
 
 > [!NOTE]
-> Azure Logic Apps는 base64 인코딩 및 디코딩을 자동으로 수행하므로 사용자가 이러한 변환을 수동으로 수행할 필요가 없습니다. 그러나 이렇게 하면 예기치 않은 표시 동작이 발생할 수 있으며, 이러한 동작은 실제 변환에 영향을 주지는 않고 표시 방법에만 영향을 줍니다. 자세한 내용은 [암시적 데이터 형식 변환](#implicit-data-conversions)을 참조하세요.
+> Azure Logic Apps는 자동으로 또는 암시적으로 base64 인코딩 또는 디코딩을 수행하므로 사용자가 인코딩 및 디코딩 함수를 사용하여 이러한 변환을 수동으로 수행할 필요가 없습니다. 그러나 디자이너에서 이러한 함수를 사용하는 경우 디자이너에서 예기치 않은 렌더링 동작이 발생할 수 있습니다. 이러한 동작은 함수의 매개 변수 값을 편집하여 코드에서 함수와 그 효과를 제거하지 않는 한 함수의 표시 유형에만 영향을 줍니다. 자세한 내용은 [Base64 인코딩 및 디코딩](#base64-encoding-decoding)을 참조하세요.
 
 ```
 base64ToBinary('<value>')
@@ -1012,7 +1014,7 @@ base64ToBinary('aGVsbG8=')
 base64로 인코딩된 문자열에 대한 문자열 버전을 반환하며, 결과적으로 base64 문자열을 디코딩합니다. 더 이상 사용되지 않는 [decodeBase64()](#decodeBase64) 함수 대신 이 함수를 사용하세요.
 
 > [!NOTE]
-> Azure Logic Apps는 base64 인코딩 및 디코딩을 자동으로 수행하므로 사용자가 이러한 변환을 수동으로 수행할 필요가 없습니다. 그러나 이렇게 하면 예기치 않은 표시 동작이 발생할 수 있으며, 이러한 동작은 실제 변환에 영향을 주지는 않고 표시 방법에만 영향을 줍니다. 자세한 내용은 [암시적 데이터 형식 변환](#implicit-data-conversions)을 참조하세요.
+> Azure Logic Apps는 자동으로 또는 암시적으로 base64 인코딩 또는 디코딩을 수행하므로 사용자가 인코딩 및 디코딩 함수를 사용하여 이러한 변환을 수동으로 수행할 필요가 없습니다. 그러나 디자이너에서 이러한 함수를 사용하는 경우 디자이너에서 예기치 않은 렌더링 동작이 발생할 수 있습니다. 이러한 동작은 함수의 매개 변수 값을 편집하여 코드에서 함수와 그 효과를 제거하지 않는 한 함수의 표시 유형에만 영향을 줍니다. 자세한 내용은 [Base64 인코딩 및 디코딩](#base64-encoding-decoding)을 참조하세요.
 
 ```
 base64ToString('<value>')
@@ -1074,9 +1076,7 @@ binary('hello')
 
 ### <a name="body"></a>본문
 
-런타임 시 작업의 `body` 출력을 반환합니다.
-`actions('<actionName>').outputs.body`를 줄인 표현입니다.
-[actionBody()](#actionBody) 및 [actions()](#actions)를 참조하세요.
+런타임 시 작업의 `body` 출력을 반환합니다. `actions('<actionName>').outputs.body`를 줄인 표현입니다. [actionBody()](#actionBody) 및 [actions()](#actions)를 참조하세요.
 
 ```
 body('<actionName>')
@@ -1132,16 +1132,16 @@ bool(<value>)
 | <*value*> | 예 | 모두 | 부울로 변환할 값입니다. |
 |||||
 
-를 개체와 함께 사용 하는 경우 `bool()` 개체의 값은 부울로 변환할 수 있는 문자열 또는 정수 여야 합니다.
+`bool()`을 개체와 함께 사용하는 경우 개체의 값은 부울로 변환할 수 있는 문자열 또는 정수여야 합니다.
 
 | 반환 값 | Type | 설명 |
 | ------------ | ---- | ----------- |
-| `true` 또는 `false` | 부울 | 지정 된 값의 부울 버전입니다. |
+| `true` 또는 `false` | 부울 | 지정한 값의 부울 버전입니다. |
 ||||
 
 *출력*
 
-다음 예에서는에 대해 지원 되는 다양 한 유형의 입력을 보여 줍니다 `bool()` .
+다음 예에서는 `bool()`에 대해 지원되는 다양한 입력 형식을 보여줍니다.
 
 | 입력 값 | Type | 반환 값 |
 | ----------- | ---------- | ---------------------- |
@@ -1194,6 +1194,15 @@ coalesce(null, null, null)
 
 둘 이상의 문자열을 결합하고 결합된 문자열을 반환합니다.
 
+> [!NOTE]
+> Azure Logic Apps는 자동으로 또는 암시적으로 base64 인코딩 및 디코딩을 수행하므로 인코딩 또는 디코딩이 필요한 데이터와 함께 `concat()` 함수를 사용할 때 이러한 변환을 수동으로 수행할 필요가 없습니다.
+> 
+> * `concat('data:;base64,',<value>)`
+> * `concat('data:,',encodeUriComponent(<value>))`
+> 
+> 그러나 디자이너에서 이러한 함수를 사용하는 경우 디자이너에서 예기치 않은 렌더링 동작이 발생할 수 있습니다. 이러한 동작은 함수의 매개 변수 값을 편집하여 코드에서 함수와 그 효과를 제거하지 않는 한 함수의 표시 유형에만 영향을 줍니다. 
+> 자세한 내용은 [Base64 인코딩 및 디코딩](#base64-encoding-decoding)을 참조하세요.
+
 ```
 concat('<text1>', '<text2>', ...)
 ```
@@ -1222,9 +1231,7 @@ concat('Hello', 'World')
 
 ### <a name="contains"></a>contains
 
-컬렉션에 특정 항목이 있는지 검사합니다.
-항목이 발견되면 true를 반환하거나 발견되지 않으면 false를 반환합니다.
-이 함수는 대/소문자를 구분합니다.
+컬렉션에 특정 항목이 있는지 검사합니다. 항목이 발견되면 true를 반환하거나 발견되지 않으면 false를 반환합니다. 이 함수는 대/소문자를 구분합니다.
 
 ```
 contains('<collection>', '<value>')
@@ -1277,8 +1284,8 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
-| <*destinationTimeZone*> | 예 | String | 대상 표준 시간대의 이름입니다. 표준 시간대 이름의 경우 [Microsoft 표준 시간대 인덱스 값](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)을 참조하세요. 다만 표준 시간대 이름에서 모든 문장 부호를 제거해야 할 수도 있습니다. |
-| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임 스탬프의 기본 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 을 준수 하 고 표준 시간대 정보를 유지 하는 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (Yyyy-mm-yyyy-mm-ddthh: Mm: Ss. fffffffk)입니다. |
+| <*destinationTimeZone*> | 예 | String | 대상 표준 시간대의 이름입니다. 표준 시간대 이름은 [Microsoft Windows 기본 표준 시간대](/windows-hardware/manufacture/desktop/default-time-zones)를 참조하세요. 하지만 표준 시간대 이름에서 문장 부호를 제거해야 할 수도 있습니다. |
+| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss.fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -1319,9 +1326,9 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
-| <*sourceTimeZone*> | 예 | String | 원본 표준 시간대의 이름입니다. 표준 시간대 이름의 경우 [Microsoft 표준 시간대 인덱스 값](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)을 참조하세요. 다만 표준 시간대 이름에서 모든 문장 부호를 제거해야 할 수도 있습니다. |
-| <*destinationTimeZone*> | 예 | String | 대상 표준 시간대의 이름입니다. 표준 시간대 이름의 경우 [Microsoft 표준 시간대 인덱스 값](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)을 참조하세요. 다만 표준 시간대 이름에서 모든 문장 부호를 제거해야 할 수도 있습니다. |
-| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임 스탬프의 기본 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 을 준수 하 고 표준 시간대 정보를 유지 하는 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (Yyyy-mm-yyyy-mm-ddthh: Mm: Ss. fffffffk)입니다. |
+| <*sourceTimeZone*> | 예 | String | 원본 표준 시간대의 이름입니다. 표준 시간대 이름은 [Microsoft Windows 기본 표준 시간대](/windows-hardware/manufacture/desktop/default-time-zones)를 참조하세요. 하지만 표준 시간대 이름에서 문장 부호를 제거해야 할 수도 있습니다. |
+| <*destinationTimeZone*> | 예 | String | 대상 표준 시간대의 이름입니다. 표준 시간대 이름은 [Microsoft Windows 기본 표준 시간대](/windows-hardware/manufacture/desktop/default-time-zones)를 참조하세요. 하지만 표준 시간대 이름에서 문장 부호를 제거해야 할 수도 있습니다. |
+| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss.fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -1362,8 +1369,8 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
-| <*sourceTimeZone*> | 예 | String | 원본 표준 시간대의 이름입니다. 표준 시간대 이름의 경우 [Microsoft 표준 시간대 인덱스 값](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)을 참조하세요. 다만 표준 시간대 이름에서 모든 문장 부호를 제거해야 할 수도 있습니다. |
-| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임 스탬프의 기본 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 을 준수 하 고 표준 시간대 정보를 유지 하는 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (Yyyy-mm-yyyy-mm-ddthh: Mm: Ss. fffffffk)입니다. |
+| <*sourceTimeZone*> | 예 | String | 원본 표준 시간대의 이름입니다. 표준 시간대 이름은 [Microsoft Windows 기본 표준 시간대](/windows-hardware/manufacture/desktop/default-time-zones)를 참조하세요. 하지만 표준 시간대 이름에서 문장 부호를 제거해야 할 수도 있습니다. |
+| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss.fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -1622,7 +1629,7 @@ dayOfYear('2018-03-15T13:27:36Z')
 데이터 URI(Uniform Resource Identifier)에 대한 이진 버전을 반환합니다. `decodeDataUri()` 대신에 [dataUriToBinary()](#dataUriToBinary)의 사용을 검토해 보세요. 두 함수 모두 같은 방법으로 작동하지만 `dataUriToBinary()`를 사용하는 것이 좋습니다.
 
 > [!NOTE]
-> Azure Logic Apps는 base64 인코딩 및 디코딩을 자동으로 수행하므로 사용자가 이러한 변환을 수동으로 수행할 필요가 없습니다. 그러나 이렇게 하면 예기치 않은 표시 동작이 발생할 수 있으며, 이러한 동작은 실제 변환에 영향을 주지는 않고 표시 방법에만 영향을 줍니다. 자세한 내용은 [암시적 데이터 형식 변환](#implicit-data-conversions)을 참조하세요.
+> Azure Logic Apps는 자동으로 또는 암시적으로 base64 인코딩 또는 디코딩을 수행하므로 사용자가 인코딩 및 디코딩 함수를 사용하여 이러한 변환을 수동으로 수행할 필요가 없습니다. 그러나 디자이너에서 이러한 함수를 사용하는 경우 디자이너에서 예기치 않은 렌더링 동작이 발생할 수 있습니다. 이러한 동작은 함수의 매개 변수 값을 편집하여 코드에서 함수와 그 효과를 제거하지 않는 한 함수의 표시 유형에만 영향을 줍니다. 자세한 내용은 [Base64 인코딩 및 디코딩](#base64-encoding-decoding)을 참조하세요.
 
 ```
 decodeDataUri('<value>')
@@ -1701,12 +1708,12 @@ div(<dividend>, <divisor>)
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | 정수 또는 부동 소수점 수 | 첫 번째 숫자를 두 번째 숫자로 나눈 결과입니다. 피제수 또는 제 수가 Float 형식인 경우 결과에는 Float 형식이 있습니다. <p><p>**참고**: float 결과를 정수로 변환 하려면 논리 앱의 [Azure에서 함수를 만들고 호출](../logic-apps/logic-apps-azure-functions.md) 해 보세요. |
+| <*quotient-result*> | 정수 또는 부동 소수점 수 | 첫 번째 숫자를 두 번째 숫자로 나눈 결과입니다. 피제수 또는 제수가 Float 형식인 경우 결과는 Float 형식입니다. <p><p>**참고:** 부동 소수점 수 결과를 정수로 변환하려면 논리 앱으로부터 [Azure에서 함수를 만들고 호출](../logic-apps/logic-apps-azure-functions.md)해보세요. |
 ||||
 
 *예 1*
 
-두 예제 모두 정수 형식으로이 값을 반환 합니다. `2`
+두 예제 모두 Integer 형식의 값 `2`를 반환합니다.
 
 ```
 div(10,5)
@@ -1715,7 +1722,7 @@ div(11,5)
 
 *예 2*
 
-두 예제 모두 Float 형식으로이 값을 반환 합니다. `2.2`
+두 예제 모두 Integer 형식의 값 `2.2`를 반환합니다.
 
 ```
 div(11,5.0)
@@ -1729,7 +1736,7 @@ div(11.0,5)
 URL 안전하지 않은 문자를 이스케이프 문자로 바꾸어 문자열에 대한 URI(Uniform Resource Identifier) 인코딩된 버전을 반환합니다. `encodeUriComponent()` 대신에 [uriComponent()](#uriComponent)의 사용을 검토해 보세요. 두 함수 모두 같은 방법으로 작동하지만 `uriComponent()`를 사용하는 것이 좋습니다.
 
 > [!NOTE]
-> Azure Logic Apps는 base64 인코딩 및 디코딩을 자동으로 수행하므로 사용자가 이러한 변환을 수동으로 수행할 필요가 없습니다. 그러나 이렇게 하면 예기치 않은 표시 동작이 발생할 수 있으며, 이러한 동작은 실제 변환에 영향을 주지는 않고 표시 방법에만 영향을 줍니다. 자세한 내용은 [암시적 데이터 형식 변환](#implicit-data-conversions)을 참조하세요.
+> Azure Logic Apps는 자동으로 또는 암시적으로 base64 인코딩 또는 디코딩을 수행하므로 사용자가 인코딩 및 디코딩 함수를 사용하여 이러한 변환을 수동으로 수행할 필요가 없습니다. 그러나 디자이너에서 이러한 함수를 사용하는 경우 디자이너에서 예기치 않은 렌더링 동작이 발생할 수 있습니다. 이러한 동작은 함수의 매개 변수 값을 편집하여 코드에서 함수와 그 효과를 제거하지 않는 한 함수의 표시 유형에만 영향을 줍니다. 자세한 내용은 [Base64 인코딩 및 디코딩](#base64-encoding-decoding)을 참조하세요.
 
 ```
 encodeUriComponent('<value>')
@@ -1948,7 +1955,7 @@ formatDateTime('<timestamp>', '<format>'?)
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
-| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임 스탬프의 기본 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 을 준수 하 고 표준 시간대 정보를 유지 하는 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (Yyyy-mm-yyyy-mm-ddthh: Mm: Ss. fffffffk)입니다. |
+| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss.fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -2097,7 +2104,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | 예 | 정수 | 더할 지정한 시간 단위 수 |
 | <*timeUnit*> | 예 | String | *interval* 을 사용하는 시간 단위: “초”, “분”, “시간”, “일”, “주”, “월”, “년” |
-| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임 스탬프의 기본 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 을 준수 하 고 표준 시간대 정보를 유지 하는 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (Yyyy-mm-yyyy-mm-ddthh: Mm: Ss. fffffffk)입니다. |
+| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss.fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -2141,7 +2148,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | 예 | 정수 | 뺄 지정한 시간 단위 수 |
 | <*timeUnit*> | 예 | String | *interval* 을 사용하는 시간 단위: “초”, “분”, “시간”, “일”, “주”, “월”, “년” |
-| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임 스탬프의 기본 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 을 준수 하 고 표준 시간대 정보를 유지 하는 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (Yyyy-mm-yyyy-mm-ddthh: Mm: Ss. fffffffk)입니다. |
+| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss.fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -2532,7 +2539,7 @@ iterationIndexes('<loopName>')
 
 ### <a name="json"></a>json :
 
-JavaScript Object Notation (JSON) 형식 값, 개체 또는 문자열 또는 XML에 대 한 개체 배열을 반환 합니다.
+문자열 또는 XML에 대한 JSON(JavaScript Object Notation) 형식 값, 개체 또는 개체 배열을 반환합니다.
 
 ```
 json('<value>')
@@ -2540,9 +2547,9 @@ json(xml('value'))
 ```
 
 > [!IMPORTANT]
-> 출력의 구조를 정의 하는 XML 스키마가 없으면 함수는 입력에 따라 구조가 예상 형식과 크게 다른 결과를 반환할 수 있습니다.
+> 출력의 구조를 정의하는 XML 스키마가 없으면 함수는 입력에 따라 구조체가 예상 형식과 크게 다른 결과를 반환할 수 있습니다.
 >  
-> 이 동작은 출력이 중요 한 비즈니스 시스템이 나 솔루션 등의 잘 정의 된 계약을 준수 해야 하는 시나리오에 적합 하지 않습니다.
+> 따라서 이 함수는 중요한 비즈니스 시스템 또는 솔루션에서 출력이 잘 정의된 계약을 준수해야 하는 시나리오에는 부적합합니다.
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
@@ -2551,12 +2558,12 @@ json(xml('value'))
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*JSON-result*> | JSON 네이티브 형식, 개체 또는 배열 | 입력 문자열 또는 XML에서 JSON 네이티브 형식 값, 개체 또는 개체의 배열입니다. <p><p>-루트 요소에 단일 자식 요소가 있는 XML을 전달 하는 경우이 함수는 해당 자식 요소에 대해 단일 JSON 개체를 반환 합니다. <p> -루트 요소에 여러 자식 요소가 있는 XML을 전달 하는 경우이 함수는 해당 자식 요소에 대 한 JSON 개체를 포함 하는 배열을 반환 합니다. <p>-문자열이 null 인 경우 함수는 빈 개체를 반환 합니다. |
+| <*JSON-result*> | JSON 네이티브 형식, 개체 또는 배열 | 입력 문자열 또는 XML의 JSON 네이티브 형식 값, 개체 또는 개체 배열입니다. <p><p>- 루트 요소에 단일 자식 요소가 있는 XML을 전달하는 경우 함수는 해당 자식 요소에 대해 단일 JSON 개체를 반환합니다. <p> - 루트 요소에 여러 자식 요소가 있는 XML을 전달하는 경우 함수는 해당 자식 요소에 대한 JSON 개체가 포함된 배열을 반환합니다. <p>- 문자열이 Null이면 함수는 빈 개체를 반환합니다. |
 ||||
 
 *예 1*
 
-이 예제에서는이 문자열을 JSON 값으로 변환 합니다.
+이 예제는 이 문자열을 JSON 값으로 변환합니다.
 
 ```
 json('[1, 2, 3]')
@@ -2566,7 +2573,7 @@ json('[1, 2, 3]')
 
 *예제 2*
 
-이 예제에서는이 문자열을 JSON으로 변환 합니다.
+이 예제는 이 문자열을 JSON으로 변환합니다.
 
 ```
 json('{"fullName": "Sophia Owen"}')
@@ -2582,9 +2589,9 @@ json('{"fullName": "Sophia Owen"}')
 
 *예 3*
 
-이 예제에서는 및 함수를 사용 하 여 `json()` `xml()` root 요소의 단일 자식 요소가 있는 XML을 `person` 해당 자식 요소에 대해 라는 JSON 개체로 변환 합니다.
+이 예제는 `json()` 및 `xml()` 함수를 사용하여 루트 요소에 단일 자식 요소가 있는 XML을 해당 자식 요소에 대한 `person`이라는 JSON 개체로 변환합니다.
 
-`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
+`json(xml('<?xml version="1.0"?> <root> <person id="1"> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 그리고 다음 결과를 반환합니다.
 
@@ -2605,9 +2612,9 @@ json('{"fullName": "Sophia Owen"}')
 
 *예제 4*
 
-이 예제에서는 및 함수를 사용 하 여 `json()` `xml()` root 요소의 여러 자식 요소가 있는 XML을 `person` 해당 자식 요소의 JSON 개체를 포함 하는 라는 배열로 변환 합니다.
+이 예제는 `json()` 및 `xml()` 함수를 사용하여 루트 요소에 여러 자식 요소가 있는 XML을 해당 자식 요소에 대한 JSON 개체를 포함하는 `person`이라는 배열로 변환합니다.
 
-`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id='2'> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
+`json(xml('<?xml version="1.0"?> <root> <person id="1"> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id="2"> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 그리고 다음 결과를 반환합니다.
 
@@ -2753,23 +2760,23 @@ lastIndexOf('<text>', '<searchText>')
 | <*ending-index-value*> | 정수 | 마지막으로 나오는 지정된 부분 문자열의 시작 위치 또는 인덱스 값입니다. |
 |||
 
-문자열이 나 부분 문자열 값이 비어 있으면 다음과 같은 동작이 발생 합니다.
+문자열 또는 부분 문자열 값이 비어 있으면 다음 동작이 발생합니다.
 
-* 문자열 값만 비어 있는 경우이 함수는를 반환 `-1` 합니다.
+* 문자열 값만 비어 있으면 함수는 `-1`을 반환합니다.
 
-* 문자열과 부분 문자열 값이 모두 비어 있으면 함수는를 반환 `0` 합니다.
+* 문자열과 부분 문자열 값 모두 비어 있으면 함수는 `0`을 반환합니다.
 
-* Substring 값만 비어 있는 경우 함수는 문자열 길이에서 1을 뺀 값을 반환 합니다.
+* 부분 문자열 값만 비어 있으면 함수는 문자열 길이에서 1을 뺀 값을 반환합니다.
 
-*예*
+*예제*
 
-이 예에서는 문자열에서 하위 문자열 부분 문자열의 마지막 항목에 대 한 시작 인덱스 값을 찾습니다 `world` `hello world hello world` . 반환 된 결과는 `18` 다음과 같습니다.
+이 예제는 문자열 `hello world hello world`의 부분 문자열 `world`가 마지막으로 나오는 경우의 시작 인덱스 값을 찾습니다. 반환된 결과는 `18`입니다.
 
 ```json
 lastIndexOf('hello world hello world', 'world')
 ```
 
-이 예제에서는 부분 문자열 매개 변수가 누락 되 고 `22` 입력 문자열 ()의 값에서 `23` 1을 뺀 값이 0 보다 크므로 값을 반환 합니다.
+이 예제는 부분 문자열 매개 변수가 누락되었으며 입력 문자열(`23`)에서 1을 뺀 값이 0보다 크므로 값 `22`를 반환합니다.
 
 ```json
 lastIndexOf('hello world hello world', '')
@@ -3451,12 +3458,12 @@ removeProperty(json('{ "customerName": { "firstName": "Sophia", "middleName": "A
 
 ### <a name="result"></a>result
 
-`For_each`, 또는 동작과 같은 지정 된 범위 지정 작업의 최상위 작업에서 결과를 반환 합니다 `Until` `Scope` . `result()`함수는 범위 이름인 단일 매개 변수를 수락 하 고 해당 범위의 첫 번째 수준 작업 정보를 포함 하는 배열을 반환 합니다. 이러한 작업 개체에는 `actions()` 작업 시작 시간, 종료 시간, 상태, 입력, 상관 관계 id 및 출력과 같이 함수에서 반환 된 특성과 동일한 특성이 포함 됩니다.
+`For_each`, `Until` 또는 `Scope` 작업과 같은 범위가 지정된 작업에서 최상위 작업의 결과를 반환합니다. `result()` 함수는 범위 이름인 단일 매개 변수를 수락하고 해당 범위의 첫 번째 수준 작업 정보를 포함하는 배열을 반환합니다. 이러한 작업 개체는 `actions()` 함수로 인하여 반환된 해당 작업의 시작 시간, 종료 시간, 상태, 입력, 상관 관계 ID, 출력 등과 같은 특성을 포함합니다.
 
 > [!NOTE]
-> 이 함수는 범위 지정 된 작업의 첫 번째 수준 작업 *에서만* 정보를 반환 하 고 switch 또는 condition 작업과 같은 보다 심층적인 중첩 된 작업에서 정보를 반환 하지 않습니다.
+> 이 함수는 switch 또는 condition 작업과 같은 보다 심층적인 중첩된 작업이 아닌 범위가 지정된 작업의 첫 번째 수준 작업에서 *만* 정보를 반환합니다.
 
-예를 들어이 함수를 사용 하면 예외를 진단 하 고 처리할 수 있도록 실패 한 작업의 결과를 가져올 수 있습니다. 자세한 내용은 [실패에 대한 컨텍스트 및 결과 가져오기](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures)를 참조하세요.
+예를 들어 예외 진단 및 처리를 위해 이 함수를 사용하여 실패한 작업의 결과를 가져올 수 있습니다. 자세한 내용은 [실패에 대한 컨텍스트 및 결과 가져오기](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures)를 참조하세요.
 
 ```
 result('<scopedActionName>')
@@ -3464,17 +3471,17 @@ result('<scopedActionName>')
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*scopedActionName*> | 예 | String | 해당 범위 내의 최상위 작업에서 입력 및 출력을 원하는 범위 지정 작업의 이름입니다. |
+| <*scopedActionName*> | 예 | String | 해당 범위 내 최상위 작업의 입력 및 출력을 원하는 범위가 지정된 작업의 이름입니다. |
 ||||
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*array-object*> | 배열 개체 | 지정 된 범위 내에서 각 최상위 작업의 입력 및 출력의 배열을 포함 하는 배열입니다. |
+| <*array-object*> | 배열 개체 | 지정된 범위 내에서 각 최상위 작업의 입력 및 출력 배열을 포함하는 배열 |
 ||||
 
 *예제*
 
-이 예에서는 `For_each` 동작에서 함수를 사용 하 여 루프에 있는 HTTP 작업의 각 반복에서 입력 및 출력을 반환 합니다 `result()` `Compose` .
+이 예제는 `result()` 함수를 `Compose` 작업에 사용하여 `For_each` 루프 내에 있는 각 HTTP 작업 반복의 입력 및 출력을 반환합니다.
 
 ```json
 {
@@ -3740,7 +3747,7 @@ startOfDay('<timestamp>', '<format>'?)
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
-| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임 스탬프의 기본 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 을 준수 하 고 표준 시간대 정보를 유지 하는 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (Yyyy-mm-yyyy-mm-ddthh: Mm: Ss. fffffffk)입니다. |
+| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss.fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -3771,7 +3778,7 @@ startOfHour('<timestamp>', '<format>'?)
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
-| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임 스탬프의 기본 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 을 준수 하 고 표준 시간대 정보를 유지 하는 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (Yyyy-mm-yyyy-mm-ddthh: Mm: Ss. fffffffk)입니다. |
+| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss.fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -3802,7 +3809,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
-| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임 스탬프의 기본 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 을 준수 하 고 표준 시간대 정보를 유지 하는 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (Yyyy-mm-yyyy-mm-ddthh: Mm: Ss. fffffffk)입니다. |
+| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss.fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -3885,12 +3892,12 @@ string(<value>)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | 예 | 모두 | 변환할 값입니다. 이 값이 null 이거나 null로 계산 되 면 값은 빈 문자열 () 값으로 변환 됩니다 `""` . <p><p>예를 들어, 연산자를 사용 하 여 액세스할 수 있는 존재 하지 않는 속성에 문자열 변수를 할당 하는 경우 `?` null 값이 빈 문자열로 변환 됩니다. 그러나 null 값을 비교 하는 것은 빈 문자열을 비교 하는 것과는 다릅니다. |
+| <*value*> | 예 | 모두 | 변환할 값입니다. 이 값이 Null이거나 Null로 평가되면 값은 빈 문자열(`""`) 값으로 변환됩니다. <p><p>예를 들어 `?` 연산자로 액세스할 수 있는 존재하지 않는 속성에 문자열 변수를 할당하면 Null 값이 빈 문자열로 변환됩니다. 그러나 Null 값을 비교하는 것은 빈 문자열을 비교하는 것과 다릅니다. |
 |||||
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*string-value*> | String | 지정 된 값의 문자열 버전입니다. *값* 매개 변수가 null 이거나 null로 계산 되는 경우이 값은 빈 문자열 () 값으로 반환 됩니다 `""` . |
+| <*string-value*> | String | 지정한 값에 대한 문자열 버전 *value* 매개 변수가 Null이거나 Null로 평가되면 이 값은 빈 문자열(`""`) 값으로 반환됩니다. |
 ||||
 
 
@@ -3962,12 +3969,12 @@ substring('<text>', <startIndex>, <length>)
 | --------- | -------- | ---- | ----------- |
 | <*text*> | 예 | String | 해당 문자를 원하는 문자열 |
 | <*startIndex*> | 예 | 정수 | 시작 위치 또는 인덱스 값으로 사용하려는 0 이상의 양수 |
-| <*length*> | 아니요 | 정수 | 하위 문자열에 원하는 문자의 양수 |
+| <*length*> | 예 | 정수 | 하위 문자열에 원하는 문자의 양수 |
 |||||
 
 > [!NOTE]
-> *StartIndex* 및 *length* 매개 변수 값을 추가 하는 합계가 *텍스트* 매개 변수에 제공 하는 문자열의 길이 보다 적은지 확인 합니다.
-> 그렇지 않으면 다른 언어의 유사 함수와 달리 오류가 발생 합니다 .이는 결과가 *startIndex* 에서 문자열 끝 까지의 하위 문자열입니다. *길이* 매개 변수는 선택 사항이 며, 제공 되지 않은 경우 **substring ()** 함수는 *startIndex* 부터 문자열 끝 까지의 모든 문자를 사용 합니다.
+> *startIndex* 및 *length* 매개 변수 값을 추가하여 얻은 합계가 *text* 매개 변수에 제공하는 문자열의 길이보다 작은지 확인합니다.
+> 그렇지 않으면 결과가 *startIndex* 에서 문자열 끝까지의 부분 문자열인 다른 언어의 유사한 함수와 달리 오류가 발생합니다. *length* 매개 변수는 선택 사항이며 제공되지 않은 경우 **substring()** 함수는 *startIndex* 부터 문자열 끝까지 모든 문자를 사용합니다.
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
@@ -4000,7 +4007,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
 | <*interval*> | 예 | 정수 | 뺄 지정한 시간 단위 수 |
 | <*timeUnit*> | 예 | String | *interval* 을 사용하는 시간 단위: “초”, “분”, “시간”, “일”, “주”, “월”, “년” |
-| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임 스탬프의 기본 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 을 준수 하 고 표준 시간대 정보를 유지 하는 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (Yyyy-mm-yyyy-mm-ddthh: Mm: Ss. fffffffk)입니다. |
+| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss.fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -4635,7 +4642,7 @@ utcNow('<format>')
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임 스탬프의 기본 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 을 준수 하 고 표준 시간대 정보를 유지 하는 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (Yyyy-mm-yyyy-mm-ddthh: Mm: Ss. fffffffk)입니다. |
+| <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss.fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -4708,7 +4715,7 @@ workflow().<property>
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*property*> | 예 | String | 해당 값을 원하는 워크플로 속성의 이름 <p><p>기본적으로 워크플로 개체에는,,,, `name` `type` `id` `location` `run` 및 `tags` 속성이 있습니다. <p><p>- `run` 속성 값은, 및 속성을 포함 하는 JSON 개체 `name` 입니다 `type` `id` . <p><p>- `tags` 속성은 [Azure Logic Apps에서 논리 앱과 연결 된 태그](../azure-resource-manager/management/tag-resources.md) 를 포함 하는 JSON 개체 또는 전원 자동화의 흐름 및 해당 태그에 대 한 값입니다. Azure 리소스의 태그에 대 한 자세한 내용은 [azure의 논리적 조직에 대 한 태그 리소스, 리소스 그룹 및 구독](../azure-resource-manager/management/tag-resources.md)을 검토 하세요. <p><p>**참고**: 기본적으로 논리 앱에는 태그가 없지만 전원 자동화 흐름에는 `flowDisplayName` 및 `environmentName` 태그가 있습니다. |
+| <*property*> | 예 | String | 해당 값을 원하는 워크플로 속성의 이름 <p><p>기본적으로 워크플로 개체에는 `name`, `type`, `id`, `location`, `run` 및 `tags` 속성이 있습니다. <p><p>- `run` 속성 값은 `name`, `type` 및 `id` 속성을 포함하는 JSON 개체입니다. <p><p>- `tags` 속성은 [Azure Logic Apps의 논리 앱 또는 Power Automate의 흐름과 연결된 태그와 해당 태그의 값](../azure-resource-manager/management/tag-resources.md)을 포함하는 JSON 개체입니다. Azure 리소스의 태그에 대한 자세한 내용은 [Azure에서 논리적 조직의 리소스, 리소스 그룹 및 구독에 태그 지정](../azure-resource-manager/management/tag-resources.md)을 검토하세요. <p><p>**참고**: 기본적으로 논리 앱에는 태그가 없지만 Power Automate 흐름에는 `flowDisplayName` 및 `environmentName` 태그가 있습니다. |
 |||||
 
 *예 1*
@@ -4719,9 +4726,9 @@ workflow().<property>
 
 *예 2*
 
-전원 자동화를 사용 하 `@workflow()` 는 경우 출력 속성을 사용 하 여 `tags` 흐름의 또는 속성에서 값을 가져오는 식을 만들 수 `flowDisplayName` 있습니다 `environmentName` .
+Power Automate를 사용하는 경우 `tags` 출력 속성을 사용하여 흐름의 `flowDisplayName` 또는 `environmentName`속성에서 값을 가져오는 `@workflow()` 식을 만들 수 있습니다.
 
-예를 들어 흐름에 다시 연결 되는 흐름 자체에서 사용자 지정 전자 메일 알림을 보낼 수 있습니다. 이러한 알림에는 전자 메일 제목의 흐름 표시 이름을 포함 하는 HTML 링크를 포함할 수 있으며 다음 구문을 따릅니다.
+예를 들어 흐름 자체에서 흐름으로 다시 연결되는 사용자 지정 이메일 알림을 보낼 수 있습니다. 이러한 알림에는 이메일 제목에 흐름의 표시 이름을 포함하고 다음 구문을 따르는 HTML 링크가 포함될 수 있습니다.
 
 `<a href=https://flow.microsoft.com/manage/environments/@{workflow()['tags']['environmentName']}/flows/@{workflow()['name']}/details>Open flow @{workflow()['tags']['flowDisplayName']}</a>`
 
@@ -4747,9 +4754,9 @@ xml('<value>')
 
 *예제 1*
 
-이 예제는 이 문자열에 대한 XML 버전을 만들며, 이 문자열은 JSON 개체를 포함합니다.
+이 예에서는 문자열을 XML로 변환합니다.
 
-`xml(json('{ \"name\": \"Sophia Owen\" }'))`
+`xml('<name>Sophia Owen</name>')`
 
 그리고 다음 결과 XML을 반환합니다.
 
@@ -4758,6 +4765,18 @@ xml('<value>')
 ```
 
 *예제 2*
+
+이 예제는 이 문자열에 대한 XML 버전을 만들며, 이 문자열은 JSON 개체를 포함합니다.
+
+`xml(json('{ "name": "Sophia Owen" }'))`
+
+그리고 다음 결과 XML을 반환합니다.
+
+```xml
+<name>Sophia Owen</name>
+```
+
+*예 3*
 
 이 JSON 개체가 있다고 가정합니다.
 
@@ -4772,7 +4791,7 @@ xml('<value>')
 
 이 예제는 이 JSON 개체를 포함하는 문자열에 대한 XML을 만듭니다.
 
-`xml(json('{\"person\": {\"name\": \"Sophia Owen\", \"city\": \"Seattle\"}}'))`
+`xml(json('{"person": {"name": "Sophia Owen", "city": "Seattle"}}'))`
 
 그리고 다음 결과 XML을 반환합니다.
 
@@ -4808,7 +4827,7 @@ xpath('<xml>', '<xpath>')
 
 *예제 1*
 
-이 XML 문자열이 있다고 가정 합니다 `'items'` . 
+이 `'items'` XML 문자열을 갖고 있다고 가정합니다. 
 
 ```xml
 <?xml version="1.0"?>
@@ -4826,11 +4845,11 @@ xpath('<xml>', '<xpath>')
 </produce>
 ```
 
-이 예에서는 XPath 식를 전달 `'/produce/item/name'` 하 여 XML 문자열의 노드와 일치 하는 노드를 찾고 `<name></name>` `'items'` 해당 노드 값이 포함 된 배열을 반환 합니다.
+이 예제는 `'items'` XML 문자열에서 `<name></name>` 노드와 일치하는 노드를 찾기 위해 XPath 식 `'/produce/item/name'`을 전달하고 해당 노드 값을 포함하는 배열을 반환합니다.
 
 `xpath(xml(parameters('items')), '/produce/item/name')`
 
-또한이 예제에서는 [parameters ()](#parameters) 함수를 사용 하 여 xml 문자열을 가져온 `'items'` 다음 [xml ()](#xml) 함수를 사용 하 여 문자열을 xml 형식으로 변환 합니다.
+또한 이 예제는 [parameters()](#parameters) 함수를 사용하여 `'items'`에서 XML 문자열을 가져오고 [xml()](#xml) 함수를 사용하여 문자열을 XML 형식으로 변환합니다.
 
 다음은 `<name></name`과 일치하는 노드를 가진 결과 배열입니다.
 
@@ -4838,23 +4857,23 @@ xpath('<xml>', '<xpath>')
 
 *예제 2*
 
-예제 1에 따라이 예제에서는 XPath 식를 전달 하 여 `'/produce/item/name[1]'` 요소의 자식인 첫 번째 요소를 찾습니다 `name` `item` .
+예제 1 다음에 이 예제는 XPath 식 `'/produce/item/name[1]'`을 전달하여 `item` 요소의 자식인 첫 번째 `name` 요소를 찾습니다.
 
 `xpath(xml(parameters('items')), '/produce/item/name[1]')`
 
-결과는 다음과 같습니다. `Gala`
+결과는 `Gala`입니다.
 
 *예 3*
 
-예제 1에서 다음 예제에서는 XPath 식를 전달 `'/produce/item/name[last()]'` 하 여 요소의 자식인 마지막 요소를 찾습니다 `name` `item` .
+예제 1 다음에 이 예제는 XPath 식 `'/produce/item/name[last()]'`을 전달하여 `item` 요소의 자식인 마지막 `name` 요소를 찾습니다.
 
 `xpath(xml(parameters('items')), '/produce/item/name[last()]')`
 
-결과는 다음과 같습니다. `Honeycrisp`
+결과는 `Honeycrisp`입니다.
 
 *예제 4*
 
-이 예제에서는 `items` XML 문자열에 및 속성도 포함 되어 있다고 가정 합니다 `expired='true'` `expired='false'` .
+이 예제는 `items` XML 문자열에 `expired='true'` 및 `expired='false'` 특성도 있다고 가정합니다.
 
 ```xml
 <?xml version="1.0"?>
@@ -4872,15 +4891,15 @@ xpath('<xml>', '<xpath>')
 </produce>
 ```
 
-이 예에서는 XPath 식를 전달 `'//name[@expired]'` 하 여 특성이 있는 모든 요소를 찾습니다 `name` `expired` .
+이 예제는 XPath 식 `'//name[@expired]'`를 전달하여 `expired` 특성이 있는 모든 `name` 요소를 찾습니다.
 
 `xpath(xml(parameters('items')), '//name[@expired]')`
 
-결과는 다음과 같습니다. `[ Gala, Honeycrisp ]`
+결과는 `[ Gala, Honeycrisp ]`입니다.
 
 *예제 5*
 
-이 예에서는 `items` XML 문자열에이 특성만 포함 되어 있다고 가정 합니다 `expired = 'true'` .
+이 예제는 `items` XML 문자열에 `expired = 'true'` 특성만 있다고 가정합니다.
 
 ```xml
 <?xml version="1.0"?>
@@ -4898,15 +4917,15 @@ xpath('<xml>', '<xpath>')
 </produce>
 ```
 
-이 예에서는 XPath 식를 전달 `'//name[@expired = 'true']'` 하 여 `name` 특성이 인 모든 요소를 찾습니다 `expired = 'true'` .
+이 예제는 XPath 식 `'//name[@expired = 'true']'`를 전달하여 `expired = 'true'` 특성이 있는 모든 `name` 요소를 찾습니다.
 
 `xpath(xml(parameters('items')), '//name[@expired = 'true']')`
 
-결과는 다음과 같습니다. `[ Gala ]`
+결과는 `[ Gala ]`입니다.
 
 *예제 6*
 
-이 예에서는 `items` XML 문자열에 다음과 같은 특성도 포함 되어 있다고 가정 합니다. 
+이 예제는 `items` XML 문자열에 이러한 특성도 있다고 가정합니다. 
 
 * `expired='true' price='12'`
 * `expired='false' price='40'`
@@ -4927,15 +4946,15 @@ xpath('<xml>', '<xpath>')
 </produce>
 ```
 
-이 예에서는 XPath 식를 전달 하 여이 있는 `'//name[price>35]'` 모든 요소를 찾습니다 `name` `price > 35` .
+이 예제는 XPath 식 `'//name[price>35]'`를 전달하여 `price > 35`가 있는 모든 `name` 요소를 찾습니다.
 
 `xpath(xml(parameters('items')), '//name[price>35]')`
 
-결과는 다음과 같습니다. `Honeycrisp`
+결과는 `Honeycrisp`입니다.
 
 *예제 7*
 
-이 예에서는 `items` XML 문자열이 예 1의 경우와 동일 하다 고 가정 합니다.
+이 예제는 `items` XML 문자열이 예제 1과 같다고 가정합니다.
 
 ```xml
 <?xml version="1.0"?>
@@ -4953,21 +4972,21 @@ xpath('<xml>', '<xpath>')
 </produce>
 ```
 
-이 예에서는 노드와 일치 하는 노드를 찾은 `<count></count>` 다음 함수를 사용 하 여 해당 노드 값을 추가 합니다 `sum()` .
+이 예제는 `<count></count>` 노드와 일치하는 노드를 찾고 `sum()` 함수를 사용하여 해당 노드 값을 더합니다.
 
 `xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
-결과는 다음과 같습니다. `30`
+결과는 `30`입니다.
 
 *예제 8*
 
-이 예제에서는 XML 문서 네임 스페이스를 포함 하는 XML 문자열을 가정 합니다 `xmlns="https://contoso.com"` .
+이 예제에서는 XML 문서 네임스페이스인 `xmlns="https://contoso.com"`을 포함하는 이 XML 문자열이 있다고 가정합니다.
 
 ```xml
 <?xml version="1.0"?><file xmlns="https://contoso.com"><location>Paris</location></file>
 ```
 
-이러한 식은 XPath 식 `/*[name()="file"]/*[name()="location"]` 또는 `/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]` 를 사용 하 여 노드와 일치 하는 노드를 찾습니다 `<location></location>` . 다음 예에서는 논리 앱 디자이너나 식 편집기에서 사용 하는 구문을 보여 줍니다.
+이러한 식은 XPath 식인 `/*[name()="file"]/*[name()="location"]` 또는 `/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]`을 사용하여 `<location></location>` 노드와 일치하는 노드를 찾습니다. 이러한 예제에서는 논리 앱 디자이너나 식 편집기에서 사용하는 구문을 보여줍니다.
 
 * `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
 * `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]')`
@@ -4978,9 +4997,9 @@ xpath('<xml>', '<xpath>')
 
 > [!IMPORTANT]
 >
-> 코드 보기에서 작업 하는 경우 백슬래시 문자 ()를 사용 하 여 큰따옴표 (")를 이스케이프 합니다 \\ . 
+> 코드 보기에서 작업하는 경우 백슬래시 문자(\\)를 사용하여 큰따옴표(")를 이스케이프합니다. 
 > 예를 들어 식을 JSON 문자열로 직렬화할 때에는 이스케이프 문자를 사용해야 합니다. 
-> 그러나 논리 앱 디자이너나 식 편집기에서 작업 하는 경우 백슬래시 문자는 기본 정의에 자동으로 추가 되므로 큰따옴표를 이스케이프할 필요가 없습니다. 예를 들면 다음과 같습니다.
+> 그러나 논리 앱 디자이너나 식 편집기에서 작업할 때는 다음 예제처럼 백슬래시 문자가 기본 정의에 자동으로 추가되므로 큰따옴표를 이스케이프할 필요가 없습니다.
 > 
 > * 코드 보기: `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
 >
@@ -4988,11 +5007,11 @@ xpath('<xml>', '<xpath>')
 
 *예제 9*
 
-예 8에서 다음 예에서는 XPath 식를 사용 하 여 `'string(/*[name()="file"]/*[name()="location"])'` 노드의 값을 찾습니다 `<location></location>` .
+예제 8 다음에 이 예제는 XPath 식 `'string(/*[name()="file"]/*[name()="location"])'`을 사용하여 `<location></location>` 노드에서 값을 찾습니다.
 
 `xpath(xml(body('Http')), 'string(/*[name()="file"]/*[name()="location"])')`
 
-결과는 다음과 같습니다. `Paris`
+결과는 `Paris`입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

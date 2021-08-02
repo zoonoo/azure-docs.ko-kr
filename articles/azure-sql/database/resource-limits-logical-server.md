@@ -3,20 +3,20 @@ title: Azure의 논리 서버에 대한 리소스 한도
 description: 이 문서에서는 Azure SQL Database와 Azure Synapse Analytics에서 사용하는 Azure의 논리 서버의 리소스 한도에 대한 개요를 제공합니다. 또한 이러한 리소스 한도에 도달하거나 초과할 때 발생하는 사항에 대한 정보도 제공합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: service-overview
 ms.custom: ''
 ms.devlang: ''
 ms.topic: reference
-author: stevestein
-ms.author: sstein
-ms.reviewer: sashan,moslake,josack
-ms.date: 03/25/2021
-ms.openlocfilehash: 5e95bc50a74413389bd2583beb90128b3fd0810a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
+ms.date: 04/16/2021
+ms.openlocfilehash: fa5e8bc8ec3e0ebbc93d682d8ff9988f110ffe69
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543519"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110708363"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Azure SQL Database 및 Azure Synapse Analytics 서버에 대한 리소스 한도
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -49,7 +49,7 @@ ms.locfileid: "105543519"
 
 ### <a name="storage-size"></a>스토리지 크기
 
-단일 데이터베이스 리소스 스토리지 크기의 경우 가격 책정 계층당 스토리지 크기 한도에 대해 [DTU 기반 리소스 한도](resource-limits-dtu-single-databases.md) 또는 [vCore 기반 리소스 한도](resource-limits-vcore-single-databases.md)를 참조하세요.
+단일 데이터베이스 리소스 스토리지 크기의 경우 가격 책정 계층당 스토리지 크기 제한(서비스 목표라고도 함)은 [DTU 기반 리소스 제한](resource-limits-dtu-single-databases.md) 또는 [vCore 기반 리소스 제한](resource-limits-vcore-single-databases.md)을 참조하세요.
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>데이터베이스 리소스 한계에 도달하면 어떻게 되나요?
 
@@ -63,14 +63,17 @@ ms.locfileid: "105543519"
 
 ### <a name="storage"></a>스토리지
 
-사용된 데이터베이스 공간이 최대 크기 제한에 도달하면 데이터 크기 증가를 가져오는 데이터베이스 삽입 및 업데이트가 실패하고 클라이언트에 [오류 메시지](troubleshoot-common-errors-issues.md)가 표시됩니다. SELECT 및 DELETE 문은 계속해서 성공합니다.
+사용된 데이터베이스 공간이 최대 데이터 크기 제한에 도달하면 데이터 크기를 증가시키는 데이터베이스 삽입 및 업데이트가 실패하고 클라이언트는 [오류 메시지](troubleshoot-common-errors-issues.md)를 수신합니다. SELECT 및 DELETE 문은 영향을 받지 않습니다.
+
+프리미엄 및 중요 비즈니스용 서비스 계층에서는 데이터, 트랜잭션 로그 및 tempdb에 의한 결합된 스토리지 사용이 최대 로컬 스토리지 크기를 초과하는 경우 클라이언트에 오류 메시지가 표시됩니다. 자세한 내용은 [스토리지 공간 거버넌스](#storage-space-governance)를 참조하세요.
 
 높은 공간 사용률에 도달할 경우 완화하는 방법에는 다음이 포함됩니다.
 
-- 데이터베이스 또는 탄력적 풀의 최대 크기를 늘리거나 더 많은 스토리지를 추가합니다. [단일 데이터베이스 리소스 확장](single-database-scale.md) 및 [탄력적 풀 리소스 확장](elastic-pool-scale.md)을 참조하세요.
+- 데이터베이스 또는 탄력적 풀의 최대 데이터 크기를 늘리거나 더 높은 최대 데이터 크기 제한으로 서비스 목표를 스케일 업합니다. [단일 데이터베이스 리소스 확장](single-database-scale.md) 및 [탄력적 풀 리소스 확장](elastic-pool-scale.md)을 참조하세요.
 - 데이터베이스가 탄력적 풀에 속하는 경우 데이터베이스를 풀 외부로 이동하여 스토리지 공간이 다른 데이터베이스와 공유되지 않도록 할 수 있습니다.
-- 데이터베이스를 축소하여 사용하지 않는 공간을 회수합니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](file-space-manage.md)를 참조하세요.
+- 데이터베이스를 축소하여 사용하지 않는 공간을 회수합니다. 탄력적 풀에서 데이터베이스를 축소하면 풀의 다른 데이터베이스에 더 많은 스토리지가 제공됩니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](file-space-manage.md)를 참조하세요.
 - 높은 공간 사용률이 PVS(영구 버전 저장소) 크기의 스파이크 때문인지 확인합니다. PVS는 각 데이터베이스의 일부이며 [가속 데이터베이스 복구](../accelerated-database-recovery.md)를 구현하는 데 사용됩니다. 현재 PVS 크기를 확인하려면 [PVS 문제 해결](/sql/relational-databases/accelerated-database-recovery-management#troubleshooting)을 참조하세요. PVS 크기가 큰 일반적인 이유는 트랜잭션이 장시간(시) 열려 있어서 PVS의 이전 버전을 정리하지 못했기 때문입니다.
+- 프리미엄 및 중요 비즈니스용 서비스 계층의 데이터베이스의 경우 데이터베이스에서 사용된 공간이 최대 크기 제한보다 낮은 경우에도 공간 부족 오류가 발생할 수 있습니다. 이는 tempdb 또는 트랜잭션 로그가 최대 로컬 스토리지 제한에 대해 많은 양의 스토리지를 사용하는 경우에 발생할 수 있습니다. 데이터베이스 또는 탄력적 풀을 [장애 조치(failover)](high-availability-sla.md#testing-application-fault-resiliency)하여 tempdb를 초기 더 작은 크기로 재설정하거나 트랜잭션 로그를 [축소](file-space-manage.md#shrinking-transaction-log-file)하여 로컬 스토리지 소비를 줄입니다.
 
 ### <a name="sessions-and-workers-requests"></a>세션 및 작업자(요청)
 
@@ -132,7 +135,7 @@ Azure SQL Database 리소스 거버넌스는 본질적으로 계층적입니다.
 
 데이터 IO 거버넌스는 데이터베이스의 데이터 파일에 대해 읽기 및 쓰기 물리적 IO를 제한하는 데 사용되는 Azure SQL Database의 프로세스입니다. IOPS 한도는 각 서비스 수준에서 설정되어 “시끄러운 이웃” 효과를 최소화하고, 멀티 테넌트 서비스에서 리소스를 공정하게 할당하며, 기본 하드웨어 및 스토리지의 기능을 유지합니다.
 
-단일 데이터베이스의 경우, 작업 그룹 한도는 데이터베이스에 대한 모든 스토리지 IO에 적용되는 반면, 리소스 풀 한도는 `tempdb` 데이터베이스를 비롯하여 동일한 전용 SQL 풀에 있는 모든 데이터베이스에 대한 모든 스토리지 IO에 적용됩니다. 탄력적 풀의 경우, 작업 그룹 한도는 풀의 각 데이터베이스에 적용되는 반면, 리소스 풀 한도는 풀의 모든 데이터베이스 간에 공유되는 `tempdb` 데이터베이스를 비롯한 탄력적 풀 전체에 적용됩니다. 일반적으로 작업 그룹 한도가 리소스 풀 한도보다 낮고 IOPS/처리량을 더 빨리 제한하므로 데이터베이스(단일 또는 풀)에 대한 워크로드로 리소스 풀 한도를 달성하지 못할 수 있습니다. 그러나 동일한 풀에 있는 여러 데이터베이스에 대한 결합된 워크로드로 풀의 한도에 도달할 수 있습니다.
+단일 데이터베이스의 경우, 워크로드 그룹 한도는 데이터베이스에 대한 모든 스토리지 IO에 적용되는 반면, 리소스 풀 한도는 tempdb 데이터베이스를 비롯하여 동일한 전용 SQL 풀에 있는 모든 데이터베이스에 대한 모든 스토리지 IO에 적용됩니다. 탄력적 풀의 경우, 워크로드 그룹 한도는 풀의 각 데이터베이스에 적용되는 반면, 리소스 풀 한도는 풀의 모든 데이터베이스 간에 공유되는 tempdb 데이터베이스를 비롯한 탄력적 풀 전체에 적용됩니다. 일반적으로 작업 그룹 한도가 리소스 풀 한도보다 낮고 IOPS/처리량을 더 빨리 제한하므로 데이터베이스(단일 또는 풀)에 대한 워크로드로 리소스 풀 한도를 달성하지 못할 수 있습니다. 그러나 동일한 풀에 있는 여러 데이터베이스에 대한 결합된 워크로드로 풀의 한도에 도달할 수 있습니다.
 
 예를 들어 IO 리소스 거버넌스 없이 쿼리가 1,000IOPS를 생성하는데 작업 그룹의 IOPS 최대한도가 900IOPS로 설정되었다면, 쿼리는 900IOPS를 초과할 수 없습니다. 하지만 리소스 풀의 IOPS 최대한도가 1,500IOPS로 설정되어 있고 리소스 풀과 연결된 모든 작업 그룹의 총 IO가 1,500IOPS를 초과하는 경우, 동일한 쿼리의 IO가 작업 그룹 한도인 900IOPS 미만으로 감소할 수 있습니다.
 
@@ -177,11 +180,40 @@ Azure Storage의 데이터 파일을 사용하는 기본, 표준, 범용 데이�
 
 ### <a name="storage-space-governance"></a>스토리지 공간 거버넌스
 
-프리미엄 및 중요 비즈니스용 서비스 계층에서 데이터와 트랜잭션 로그 파일은 데이터베이스 또는 탄력적 풀을 호스트하는 머신의 로컬 SSD 볼륨에 저장됩니다. 이는 높은 IOPS 및 처리량과 낮은 IO 대기 시간을 제공합니다. 이 로컬 볼륨의 크기는 하드웨어 기능에 따라 다르며 유한합니다. 특정 머신에서 로컬 볼륨 공간은 `tempdb`, 운영 체제, 관리 소프트웨어, 모니터링 데이터, 로그 등의 고객 데이터베이스에 의해 사용됩니다. 데이터베이스가 생성되고, 삭제되고, 데이터베이스의 공간 사용량이 증가/감소함에 따라, 머신의 로컬 공간 사용량은 시간이 지나며 변동합니다. 
+프리미엄 및 중요 비즈니스용 서비스 계층에서 *데이터 파일*, *트랜잭션 로그 파일* 및 *tempdb 파일* 을 포함한 고객 데이터는 데이터베이스 또는 탄력적 풀을 호스팅하는 컴퓨터의 로컬 SSD 스토리지에 저장됩니다. 로컬 SSD 스토리지는 높은 IOPS 및 처리량과 낮은 IO 대기 시간을 제공합니다. 고객 데이터 외에도 로컬 스토리지는 운영 체제, 관리 소프트웨어, 데이터 및 로그 모니터링 및 시스템 작업에 필요한 기타 파일에 사용됩니다.
 
-시스템에서 머신의 사용 가능 공간이 부족하고 데이터베이스 또는 탄력적 풀에 공간이 부족할 위험이 있다고 탐지하면, 사용 가능한 공간이 충분한 다른 머신으로 데이터베이스와 탄력적 풀을 이동하여, 구성된 서비스 목표의 최대 크기 한도까지 늘릴 수 있습니다. 이와 같은 이동은 데이터베이스 스케일링 작업과 유사하게 온라인 방식으로 진행되며, 작업 끝에 발생하는 몇 초의 짧은 장애 조치(failover) 등 유사한 [영향](single-database-scale.md#impact)을 미칩니다. 이 장애 조치(failover)는 열려 있는 연결을 종료하고 트랜잭션을 롤백하여 해당 시점의 데이터베이스를 사용하는 애플리케이션에 영향을 줄 수 있습니다.
+로컬 스토리지의 크기는 한정되어 있으며 **최대 로컬 스토리지** 제한 또는 고객 데이터 용으로 따로 설정한 로컬 스토리지를 결정하는 하드웨어 기능에 따라 다릅니다. 이 제한은 안전하고 신뢰할 수 있는 시스템 작업을 보장하면서 고객 데이터 스토리지를 최대화하도록 설정되어 있습니다. 각 서비스 목표에 대한 **최대 로컬 스토리지** 값을 찾으려면 [단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)에 대한 리소스 제한 문서를 참조하세요.
 
-데이터가 물리적으로 다른 머신에 복사되기 때문에 큰 데이터베이스를 이동하는 데는 상당한 시간이 필요할 수 있습니다. 그동안 대규모 사용자 데이터베이스 또는 탄력적 풀 또는 `tempdb` 데이터베이스의 로컬 공간 사용량이 매우 빠르게 증가하면, 공간 부족의 위험이 증가합니다. 시스템은 공간 부족 오류를 방지하고 불필요한 장애 조치(failover)를 피하기 위해 균형 잡힌 방식으로 데이터베이스 이동을 시작합니다.
+다음 쿼리를 사용하여 이 값 및 지정된 데이터베이스 또는 탄력적 풀에서 현재 사용하는 로컬 스토리지의 양을 확인할 수도 있습니다.
+
+```tsql
+SELECT server_name, database_name, slo_name, user_data_directory_space_quota_mb, user_data_directory_space_usage_mb
+FROM sys.dm_user_db_resource_governance
+WHERE database_id = DB_ID();
+```
+
+|열|Description|
+| :----- | :----- |
+|`server_name`|논리 서버 이름|
+|`database_name`|데이터베이스 이름|
+|`slo_name`|하드웨어 생성을 포함한 서비스 목표 이름|
+|`user_data_directory_space_quota_mb`|**최대 로컬 스토리지**(MB)|
+|`user_data_directory_space_usage_mb`|데이터 파일, 트랜잭션 로그 파일 및 tempdb 파일의 현재 로컬 스토리지 사용량(MB)입니다. 5분마다 업데이트됩니다.|
+|||
+
+이 쿼리는 master 데이터베이스가 아닌 user 데이터베이스에서 실행해야 합니다. 탄력적 풀의 경우 풀의 모든 데이터베이스에서 쿼리를 실행할 수 있습니다. 보고된 값은 전체 풀에 적용합니다.
+
+> [!IMPORTANT]
+> 프리미엄 및 중요 비즈니스용 서비스 계층에서 워크로드가 데이터 파일, 트랜잭션 로그 파일 및 tempdb 파일의 결합된 로컬 스토리지 소비를 **최대 로컬 스토리지** 제한을 초과하여 늘리려 고 하면 공간 부족 오류가 발생합니다.
+
+데이터베이스를 만들고, 삭제하고, 크기를 늘리거나 줄이면 시간이 지남에 따라 컴퓨터의 로컬 스토리지 사용량이 변동됩니다. 시스템에서 컴퓨터의 사용 가능한 로컬 스토리지가 부족하고 데이터베이스 또는 탄력적 풀에 공간이 부족할 위험이 있음을 감지하면 데이터베이스 또는 탄력적 풀을 사용 가능한 로컬 스토리지가 충분한 다른 컴퓨터로 이동합니다.
+
+이와 같은 이동은 데이터베이스 스케일링 작업과 유사하게 온라인 방식으로 진행되며, 작업 끝에 발생하는 몇 초의 짧은 장애 조치(failover) 등 유사한 [영향](single-database-scale.md#impact)을 미칩니다. 이 장애 조치(failover)는 열려 있는 연결을 종료하고 트랜잭션을 롤백하여 해당 시점의 데이터베이스를 사용하는 애플리케이션에 영향을 줄 수 있습니다.
+
+모든 데이터가 다른 컴퓨터의 로컬 스토리지 볼륨에 복사되기 때문에 더 큰 데이터베이스를 이동하려면 상당한 시간이 필요할 수 있습니다. 그동안 데이터베이스 또는 탄력적 풀 또는 tempdb 데이터베이스의 로컬 공간 사용량이 빠르게 증가하면, 공간 부족의 위험이 증가합니다. 시스템은 공간 부족 오류를 최소화하고 불필요한 장애 조치(failover)를 피하기 위해 균형 잡힌 방식으로 데이터베이스 이동을 시작합니다.
+
+> [!NOTE]
+> 로컬 스토리지 부족으로 인한 데이터베이스 이동은 프리미엄 또는 중요 비즈니스용 서비스 계층에서만 발생합니다. 이러한 계층에서는 데이터 파일이 로컬 스토리지에 저장되지 않으므로 하이퍼스케일, 범용, 표준 및 기본 서비스 계층에서는 발생하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

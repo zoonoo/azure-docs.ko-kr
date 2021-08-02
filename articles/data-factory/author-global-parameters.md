@@ -1,81 +1,83 @@
 ---
 title: 글로벌 매개 변수
-description: 각 Azure Data Factory 환경의 전역 매개 변수 설정
+description: 각 Azure Data Factory 환경에 대한 전역 매개 변수 설정
 ms.service: data-factory
 ms.topic: conceptual
-author: dcstwh
-ms.author: weetok
-ms.date: 03/15/2021
-ms.openlocfilehash: 3110ce8cb97379fd4690903ec769cc1dfc7f1326
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+author: minhe-msft
+ms.author: hemin
+ms.date: 05/12/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b699b7929709fd9ae9e206d6a50291f02aca2a18
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492764"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110675246"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Azure Data Factory의 전역 매개 변수
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-전역 매개 변수는 모든 식에서 파이프라인에 의해 사용 될 수 있는 데이터 팩터리에 대 한 상수입니다. 동일한 매개 변수 이름 및 값을 가진 파이프라인이 여러 개 있는 경우에 유용 합니다. CI/CD (지속적인 통합 및 배포 프로세스)를 사용 하 여 데이터 팩터리를 승격 하는 경우 각 환경에서 이러한 매개 변수를 재정의할 수 있습니다. 
+전역 매개 변수는 모든 식의 파이프라인에서 사용할 수 있는 데이터 팩터리 간의 상수입니다. 동일한 매개 변수 이름 및 값을 가진 파이프라인이 여러 개 있는 경우에 유용합니다. CI/CD(연속 통합 및 배포 프로세스)를 사용하여 데이터 팩터리를 승격하는 경우 각 환경에서 이러한 매개 변수를 재정의할 수 있습니다. 
 
 ## <a name="creating-global-parameters"></a>전역 매개 변수 만들기
 
-전역 매개 변수를 만들려면 [ **관리** ] 섹션의 [ *전역 매개 변수* ] 탭으로 이동 하세요. **새로** 만들기를 선택 하 여 만들기-탐색을 엽니다.
+전역 매개 변수를 만들려면 **관리** 섹션의 *전역 매개 변수* 탭으로 이동합니다. **새로 만들기** 를 선택하여 생성 측면 탐색을 엽니다.
 
-![전역 매개 변수를 만들기 위해 선택한 새 단추를 강조 표시 하는 스크린샷](media/author-global-parameters/create-global-parameter-1.png)
+![전역 매개 변수를 만들기 위해 선택한 새로 만들기 단추를 강조 표시하는 스크린샷.](media/author-global-parameters/create-global-parameter-1.png)
 
-Side-by-side 탐색에서 이름을 입력 하 고, 데이터 형식을 선택 하 고, 매개 변수 값을 지정 합니다.
+측면 탐색에서 이름을 입력하고 데이터 형식을 선택하며 매개 변수 값을 지정합니다.
 
-![새 전역 매개 변수에 대 한 이름, 데이터 형식 및 값을 추가 하는 위치를 보여 주는 스크린샷](media/author-global-parameters/create-global-parameter-2.png)
+![새 전역 매개 변수의 이름, 데이터 형식 및 값을 추가하는 위치를 보여주는 스크린샷.](media/author-global-parameters/create-global-parameter-2.png)
 
-전역 매개 변수를 만든 후에는 매개 변수의 이름을 클릭 하 여 해당 매개 변수를 편집할 수 있습니다. 한 번에 여러 매개 변수를 변경 하려면 **모두 편집** 을 선택 합니다.
+전역 매개 변수를 생성된 후에는 매개 변수의 이름을 클릭하여 해당 매개 변수를 편집할 수 있습니다. 한 번에 여러 매개 변수를 변경하려면 **모두 편집** 을 선택합니다.
 
 ![전역 매개 변수 만들기](media/author-global-parameters/create-global-parameter-3.png)
 
 ## <a name="using-global-parameters-in-a-pipeline"></a>파이프라인에서 전역 매개 변수 사용
 
-모든 [파이프라인 식](control-flow-expression-language-functions.md)에는 전역 매개 변수를 사용할 수 있습니다. 파이프라인이 데이터 집합 또는 데이터 흐름과 같은 다른 리소스를 참조 하는 경우 해당 리소스의 매개 변수를 통해 전역 매개 변수 값을 전달할 수 있습니다. 전역 매개 변수는로 참조 됩니다 `pipeline().globalParameters.<parameterName>` .
+전역 매개 변수는 모든 [파이프라인 식](control-flow-expression-language-functions.md)에서 사용할 수 있습니다. 파이프라인이 데이터 세트 또는 데이터 흐름과 같은 다른 리소스를 참조하는 경우 해당 리소스의 매개 변수를 통해 전역 매개 변수 값을 전달할 수 있습니다. 전역 매개 변수는 `pipeline().globalParameters.<parameterName>`으로 참조됩니다.
 
 ![전역 매개 변수 사용](media/author-global-parameters/expression-global-parameters.png)
 
-## <a name="global-parameters-in-cicd"></a><a name="cicd"></a> CI/CD의 글로벌 매개 변수
+## <a name="global-parameters-in-cicd"></a><a name="cicd"></a> CI/CD의 전역 매개 변수
 
-연속 통합 및 배포 솔루션에서 글로벌 매개 변수를 통합 하는 방법에는 두 가지가 있습니다.
+연속 통합 및 배포 솔루션에는 두 가지 방법으로 전역 매개 변수를 통합할 수 있습니다.
 
 * ARM 템플릿에 전역 매개 변수 포함
 * PowerShell 스크립트를 통해 전역 매개 변수 배포
 
-대부분의 사용 사례에서 ARM 템플릿에 전역 매개 변수를 포함 하는 것이 좋습니다. 이는 [CI/CD 문서](continuous-integration-deployment.md)에 설명 된 솔루션과 기본적으로 통합 됩니다. 전역 매개 변수는 환경에서 환경으로 변경 되는 경우가 많기 때문에 기본적으로 ARM 템플릿 매개 변수로 추가 됩니다. **관리** 허브에서 ARM 템플릿에 전역 매개 변수를 포함 하도록 설정할 수 있습니다.
-
-> [!NOTE]
-> **ARM 템플릿** 구성에 포함은 "Git 모드" 에서만 사용할 수 있습니다. 현재 "라이브 모드" 또는 "Data Factory" 모드에서는 사용할 수 없습니다. 
-
-> [!WARNING]
->매개 변수 이름에는 '-'을 사용할 수 없습니다. Errorcode "{" code ":" BadRequest "," message ":" ErrorCode = InvalidTemplate, ErrorMessage = 식이 > ' 파이프라인 (). myparam '이 (가) 잘못 됨: ...} "입니다. 그러나 매개 변수 이름에는 ' _ '을 사용할 수 있습니다.
+일반적인 사용 사례의 경우 ARM 템플릿에 전역 매개 변수를 포함하는 것이 좋습니다. 이는 [CI/CD 문서](continuous-integration-deployment.md)에 설명된 솔루션과 기본적으로 통합됩니다. 자동 게시 및 Purview 연결의 경우 **PowerShell 스크립트** 메서드가 필요합니다. 나중에 PowerShell 스크립트 메서드에 대해 자세히 알아볼 수 있습니다. 전역 매개 변수는 환경에 따라 자주 변경되므로 기본적으로 ARM 템플릿 매개 변수로 추가됩니다. **관리** 허브에서 ARM 템플릿에 전역 매개 변수를 포함하도록 설정할 수 있습니다.
 
 ![ARM 템플릿에 포함](media/author-global-parameters/include-arm-template.png)
 
-ARM 템플릿에 전역 매개 변수를 추가 하면 다른 환경에서 고객이 관리 하는 키 또는 git 구성과 같은 다른 팩터리 수준 설정을 재정의 하는 팩터리 수준 설정이 추가 됩니다. UAT 또는 PROD와 같은 높은 수준의 환경에서 이러한 설정을 사용 하도록 설정한 경우 아래 강조 표시 된 단계에서 PowerShell 스크립트를 통해 전역 매개 변수를 배포 하는 것이 좋습니다.
+> [!NOTE]
+> **ARM 템플릿** 구성에 포함은 "Git 모드"에서만 사용할 수 있습니다. 현재 “라이브 모드” 또는 “Data Factory” 모드에서는 사용할 수 없습니다. 자동 게시 또는 Purview 연결의 경우 전역 매개 변수 포함 메서드를 사용하지 말고 PowerShell 스크립트 메서드를 사용하세요. 
 
-### <a name="deploying-using-powershell"></a>PowerShell을 사용 하 여 배포
+> [!WARNING]
+>매개 변수 이름에는 '-'를 사용할 수 없습니다. {"code":"BadRequest","message":"ErrorCode=InvalidTemplate,ErrorMessage=The expression >'pipeline().globalParameters.myparam-dbtest-url' is not valid: .....}" 오류 코드가 표시됩니다. 그러나 매개 변수 이름에 '_'를 사용할 수 있습니다. 
 
-다음 단계에서는 PowerShell을 통해 전역 매개 변수를 배포 하는 방법을 간략하게 설명 합니다. 이는 대상 팩터리에 고객 관리 키와 같은 팩터리 수준 설정이 있는 경우에 유용 합니다.
+ARM 템플릿에 전역 매개 변수를 추가하면 다른 환경의 고객 관리형 키 또는 git 구성과 같은 다른 팩터리 수준 설정을 재정의하는 팩터리 수준 설정이 추가됩니다. UAT 또는 PROD와 같은 높은 수준의 환경에서 이러한 설정을 사용하도록 설정한 경우 아래 강조 표시된 단계에서 PowerShell 스크립트를 통해 전역 매개 변수를 배포하는 것이 좋습니다. 
 
-팩터리를 게시 하거나 전역 매개 변수를 사용 하 여 ARM 템플릿을 내보낼 때 *Globalparameters* 라는 폴더가 *에your-factory-name_GlobalParameters.js* 이라는 파일로 생성 됩니다. 이 파일은 게시 된 팩터리의 각 전역 매개 변수 형식 및 값을 포함 하는 JSON 개체입니다.
+
+### <a name="deploying-using-powershell"></a>PowerShell을 사용하여 배포
+
+다음 단계에서는 PowerShell을 통해 전역 매개 변수를 배포하는 방법을 간략하게 설명합니다. 이는 대상 팩터리에 고객 관리형 키와 같은 팩터리 수준 설정이 있는 경우에 유용합니다.
+
+팩터리를 게시하거나 전역 매개 변수를 사용하여 ARM 템플릿을 내보낼 때 *your-factory-name_GlobalParameters.json* 이라는 파일과 함께 *globalParameters* 라는 폴더가 생성됩니다. 이 파일은 게시된 팩터리의 각 전역 매개 변수 형식 및 값을 포함하는 JSON 개체입니다.
 
 ![전역 매개 변수 게시](media/author-global-parameters/global-parameters-adf-publish.png)
 
-테스트 또는 PROD와 같은 새 환경에 배포 하는 경우에는이 전역 매개 변수 파일의 복사본을 만들고 적절 한 환경 관련 값을 덮어써야 합니다. 원래 전역 매개 변수 파일을 다시 게시 하면 파일은 덮어쓰므로 다른 환경의 복사본은 그대로 유지 됩니다.
+TEST 또는 PROD와 같은 새 환경에 배포하는 경우 이 전역 매개 변수 파일의 복사본을 만들고 적절한 환경별 값을 덮어쓰는 것이 좋습니다. 원래 전역 매개 변수 파일을 다시 게시하면 파일은 덮어쓰므로 다른 환경의 복사본은 그대로 유지됩니다.
 
-예를 들어 ' ADF-DEV ' 라는 팩터리가 있고 값이 ' t r u e ' 인 ' environment ' 라는 문자열 형식의 전역 매개 변수를 사용 하는 경우 *ADF-DEV_GlobalParameters.json* 이라는 파일을 게시 하면이 생성 됩니다. ' ADF_TEST ' 이라는 테스트 팩터리에 배포 하는 경우 JSON 파일의 복사본을 만들고 (예:에 ADF-TEST_GlobalParameters.js), 매개 변수 값을 환경 관련 값으로 바꿉니다. ' Environment ' 매개 변수에 ' test ' 값이 있을 수 있습니다. 
+예를 들어 'ADF-DEV'라는 팩터리가 있고 값이 'dev'인 'environment'라는 문자열 형식의 전역 매개 변수를 사용하는 경우 *ADF-DEV_GlobalParameters.json* 이라는 파일을 게시하면 생성됩니다. 'ADF_TEST'라는 테스트 팩터리에 배포하는 경우 JSON 파일의 복사본(예: ADF-TEST_GlobalParameters.json이라고 함)을 만들고 매개 변수 값을 환경별 값으로 바꿉니다. 매개 변수 'environment'는 이제 'test' 값을 가질 수 있습니다. 
 
 ![전역 매개 변수 배포](media/author-global-parameters/powershell-task.png)
 
-아래 PowerShell 스크립트를 사용 하 여 글로벌 매개 변수를 추가 환경으로 승격 합니다. ARM 템플릿 배포 전에 Azure PowerShell DevOps 작업을 추가 합니다. DevOps 작업에서 새 매개 변수 파일, 대상 리소스 그룹 및 대상 데이터 팩터리의 위치를 지정 해야 합니다.
+아래 PowerShell 스크립트를 사용하여 전역 매개 변수를 추가 환경으로 승격합니다. ARM 템플릿 배포 전에 Azure PowerShell DevOps 작업을 추가합니다. DevOps 작업에서 새 매개 변수 파일, 대상 리소스 그룹 및 대상 데이터 팩터리의 위치를 지정해야 합니다.
 
 > [!NOTE]
-> PowerShell을 사용 하 여 전역 매개 변수를 배포 하려면 Az 모듈의 버전 4.4.0 이상을 사용 해야 합니다.
+> PowerShell을 사용하여 전역 매개 변수를 배포하려면 Az 모듈 버전 4.4.0 이상을 사용해야 합니다.
 
 ```powershell
 param
@@ -111,5 +113,5 @@ Set-AzDataFactoryV2 -InputObject $dataFactory -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Data Factory의 [지속적인 통합 및 배포 프로세스](continuous-integration-deployment.md) 에 대 한 자세한 정보
-* [제어 흐름 식 언어](control-flow-expression-language-functions.md) 를 사용 하는 방법 알아보기
+* Azure Data Factory의 [연속 통합 및 배포 프로세스](continuous-integration-deployment.md)에 대해 알아보기
+* [제어 흐름 식 언어](control-flow-expression-language-functions.md)를 사용하는 방법 알아보기

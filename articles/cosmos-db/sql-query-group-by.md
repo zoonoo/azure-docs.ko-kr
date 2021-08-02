@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: tisande
-ms.openlocfilehash: d9cafc100ddd4b553577c447e82334e6ee7d1b6d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 0bc50cb511f176b76db2f0ea9f0576a857b3c69e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96545454"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466892"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 GROUP BY 절
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,7 +41,7 @@ GROUP BY 절은 하나 이상의 지정된 속성 값에 따라 쿼리의 결과
 
 ## <a name="remarks"></a>설명
   
-  쿼리에서 GROUP BY 절을 사용하는 경우 SELECT 절은 GROUP BY 절에 포함된 속성 및 시스템 함수의 일부만 포함할 수 있습니다. 한 가지 예외는 GROUP BY 절에 포함 되지 않고 SELECT 절에 나타날 수 있는 [집계 함수](sql-query-aggregate-functions.md)입니다. SELECT 절에는 항상 리터럴 값을 포함할 수도 있습니다.
+  쿼리에서 GROUP BY 절을 사용하는 경우 SELECT 절은 GROUP BY 절에 포함된 속성 및 시스템 함수의 일부만 포함할 수 있습니다. 한 가지 예외는 [집계 함수](sql-query-aggregate-functions.md)이며, 이는 GROUP BY 절에 포함되지 않고 SELECT 절에 나타날 수 있습니다. SELECT 절에는 항상 리터럴 값을 포함할 수도 있습니다.
 
   GROUP BY 절은 SELECT, FROM 및 WHERE 절 뒤와 OFFSET LIMIT 절 앞에 와야 합니다. 현재, GROUP BY 절을 ORDER BY 절과 함께 사용할 수 없으며 이러한 특성은 계획된 것입니다.
 
@@ -61,6 +61,8 @@ FROM f
 GROUP BY f.lastName
 ) AS UniqueLastNames
 ```
+
+또한 파티션 간 `GROUP BY` 쿼리는 최대 21개의 [집계 시스템 함수](sql-query-aggregate-functions.md)를 포함할 수 있습니다. 
 
 ## <a name="examples"></a>예
 

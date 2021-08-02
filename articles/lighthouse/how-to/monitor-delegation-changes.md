@@ -1,14 +1,15 @@
 ---
 title: 관리 테넌트에서 위임 변경 내용 모니터링
-description: 고객 테넌트에서 관리 테넌트로의 위임 활동을 모니터링하는 방법을 알아봅니다.
-ms.date: 02/18/2021
+description: 관리 테넌트에 대한 모든 Azure Lighthouse 위임 활동을 모니터링하는 방법을 알아봅니다.
+ms.date: 05/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 8bd9e89039c114f3d1088df44198fe00c69bbf82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2472e7519a6c45ff62fb0c0280f0886b4aa0ff4d
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199053"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077703"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>관리 테넌트에서 위임 변경 내용 모니터링
 
@@ -86,7 +87,7 @@ az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role
 
 - 다른 자동화에 사용되는 기존 서비스 주체에게 이 역할을 할당하는 대신 이 기능에만 사용할 [새 서비스 주체 계정을 만듭니다](../../active-directory/develop/howto-create-service-principal-portal.md).
 - 이 서비스 주체에는 위임된 고객 리소스에 대한 액세스 권한이 없어야 합니다.
-- [인증서를 사용하여 인증](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)하고 [Azure Key Vault에 안전하게 저장합니다](../../key-vault/general/security-overview.md).
+- [인증서를 사용하여 인증](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)하고 [Azure Key Vault에 안전하게 저장합니다](../../key-vault/general/security-features.md).
 - 서비스 주체를 대신하여 작업할 수 있는 액세스 권한이 있는 사용자를 제한합니다.
 
 관리 테넌트의 루트 범위에 대한 모니터링 리더 액세스 권한이 있는 새 서비스 주체 계정을 만든 후 해당 계정을 테넌트의 위임 작업을 쿼리하고 보고하는 데 사용할 수 있습니다.
@@ -180,6 +181,6 @@ else {
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Lighthouse](../concepts/azure-delegated-resource-management.md)에 고객을 온보딩하는 방법에 대해 알아봅니다.
+- [Azure Lighthouse](onboard-customer.md)에 고객을 온보딩하는 방법에 대해 알아봅니다.
 - [Azure Monitor](../../azure-monitor/index.yml) 및 [Azure 활동 로그](../../azure-monitor/essentials/platform-logs-overview.md)에 대해 알아봅니다.
 - [도메인별 활동 로그](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) 샘플 통합 문서를 검토하여 도메인 이름별로 필터링하는 옵션을 통해 구독 간에 Azure 활동 로그를 표시하는 방법을 알아봅니다.

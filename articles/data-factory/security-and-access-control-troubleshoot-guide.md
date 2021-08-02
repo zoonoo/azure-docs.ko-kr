@@ -4,14 +4,14 @@ description: Azure Data Factory에서 보안 및 액세스 제어 문제를 해�
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/24/2021
+ms.date: 05/31/2021
 ms.author: lle
-ms.openlocfilehash: 5e94ea989002d3d3c6d0e96123d5b8ddb5f078c3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ff95f5c3f8d978d58146529825adee94f82eaf07
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568038"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110782896"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Azure Data Factory 보안 및 액세스 제어 문제 해결
 
@@ -188,6 +188,18 @@ ADF는 관리형 VNet IR을 계속 사용할 수 있지만, 관리형 VNet의 Az
 
 - 관리형 VNet IR을 사용하는 경우 원본 및 싱크 쪽에서 프라이빗 엔드포인트를 사용하도록 설정합니다.
 - 여전히 퍼블릭 엔드포인트를 사용하려는 경우 원본 및 싱크에 대해 관리형 VNet IR을 사용하는 대신, 퍼블릭 IR로 전환할 수 있습니다. 퍼블릭 IR로 다시 전환하더라도 관리형 VNet IR이 여전히 있는 경우 ADF에서 관리형 VNet IR을 계속 사용할 수 있습니다.
+
+## <a name="sharing-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 공유
+
+### <a name="sharing-a-self-hosted-ir-from-a-different-tenant-is-not-supported"></a>다른 테넌트의 자체 호스팅 IR 공유는 지원되지 않습니다. 
+
+#### <a name="symptoms"></a>증상
+
+Azure Data Factory UI에서 자체 호스팅 IR을 공유하려고 할 때 (다른 테넌트에 있는) 다른 데이터 팩터리를 확인할 수 있지만 다른 테넌트에 있는 데이터 팩터리와 공유할 수는 없습니다.
+
+#### <a name="cause"></a>원인
+
+자체 호스팅 IR은 테넌트 간에 공유할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

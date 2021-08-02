@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: ed231a4870af7489d48ff54548be380c2cf0799c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 76d81aa92643002bc5cd2b8859941af8e7440c87
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104864893"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111421871"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -133,19 +133,24 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 
 제한된 액세스를 포함하는 컴퓨터에서 스크립트를 실행하는 경우 다음에 대한 액세스 권한이 있는지 확인합니다.
 
-- `download.microsoft.com`
+- NSG의 `download.microsoft.com` 또는 `AzureFrontDoor.FirstParty` 서비스 태그
 - Recovery Service URL(복구 서비스 자격 증명 모음이 있는 지역을 참조하는 GEO-NAME)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com`(모든 Azure 공용 지역)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn`(Azure 중국 21Vianet의 경우)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us`(Azure 미국 정부의 경우)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de`(Azure 독일의 경우)
+  - NSG의 `https://pod01-rec2.GEO-NAME.backup.windowsazure.com`(Azure 공용 지역의 경우) 또는 `AzureBackup` 서비스 태그
+  - NSG의 `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn`(Azure 중국 21Vianet의 경우) 또는 `AzureBackup` 서비스 태그
+  - NSG의 `https://pod01-rec2.GEO-NAME.backup.windowsazure.us`(Azure 미국 정부의 경우) 또는 `AzureBackup` 서비스 태그
+  - NSG의 `https://pod01-rec2.GEO-NAME.backup.windowsazure.de`(Azure 독일의 경우) 또는 `AzureBackup` 서비스 태그
 - 아웃바운드 포트 53(DNS), 443, 3260
 
 > [!NOTE]
 >
-> [위의](#step-1-generate-and-download-script-to-browse-and-recover-files) 1단계에서 다운로드한 스크립트 파일은 파일 이름에 **지역 이름** 이 있습니다. 해당 **지역 이름** 을 사용하여 URL을 입력합니다. 다운로드한 스크립트 이름은 \'VMname\'\_\'geoname\'_\'GUID\'로 시작됩니다.<br><br>
-> 예를 들어 스크립트 파일 이름이 *ContosoVM_wcus_12345678* 인 경우 **geo-name** 은 *wcus* 이고 URL은 다음과 같습니다.<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
+> 백업된 VM이 Windows인 경우 생성된 암호에서 지역 이름이 언급됩니다.<br><br>
+> 예를 들어 생성된 암호가 *ContosoVM_wcus_GUID* 인 경우 지역 이름은 wcus이고 URL은 <https://pod01-rec2.wcus.backup.windowsazure.com>입니다.<br><br>
 >
+>
+> 백업된 VM이 Linux인 경우 [위의](#step-1-generate-and-download-script-to-browse-and-recover-files) 1단계에서 다운로드한 스크립트 파일에는 파일 이름에 **지역 이름** 이 포함됩니다. 해당 **지역 이름** 을 사용하여 URL을 입력합니다. 다운로드한 스크립트 이름은 \'VMname\'\_\'geoname\'_\'GUID\'로 시작됩니다.<br><br>
+> 예를 들어 스크립트 파일 이름이 *ContosoVM_wcus_12345678* 인 경우 **지역 이름** 은 *wcus* 이고 URL은 <https://pod01-rec2.wcus.backup.windowsazure.com>입니다.<br><br>
+>
+
 
 Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' 및 'lshw' 구성 요소가 필요합니다. 스크립트가 실행되는 컴퓨터에 구성 요소가 없으면 스크립트에서는 구성 요소를 설치할 권한을 요청합니다. 동의하여 필요한 구성 요소를 설치 합니다.
 

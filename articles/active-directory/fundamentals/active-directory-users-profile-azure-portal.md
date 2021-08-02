@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 04/11/2019
+ms.date: 06/10/2021
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27896bac6f5436fb6717e4bc1ab0a1f9381904ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6239b0c7f56db49d54ee95b1d6fb0737d2ea9cb8
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92370919"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112017987"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자 프로필 정보 추가 또는 업데이트
 프로필 사진, 작업 관련 정보 및 Azure AD(Azure Active Directory)를 사용하는 일부 설정을 비롯하여 사용자 프로필 정보를 추가합니다. 새 사용자를 추가하는 방법에 대한 자세한 내용은 [Azure Active Directory에서 사용자를 추가 또는 삭제하는 방법](add-users-azure-active-directory.md)을 참조하세요.
@@ -26,7 +26,11 @@ ms.locfileid: "92370919"
 앞으로 살펴보겠지만 사용자를 만드는 동안 추가할 수 있는 것보다 많은 정보를 사용자 프로필에서 사용할 수 있습니다. 이 추가 정보는 모두 선택 사항이며 조직에서 필요에 따라 추가할 수 있습니다.
 
 ## <a name="to-add-or-change-profile-information"></a>프로필 정보를 추가 또는 변경하려면
-1. 조직의 사용자 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+
+>[!Note]
+>사용자 이름 및 메일 주소 속성은 악센트 문자를 포함할 수 없습니다.
+
+1. 조직의 사용자 관리자 역할로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. **Azure Active Directory** 를 선택하고, **사용자** 를 선택한 다음, 사용자를 선택합니다. 예를 들어 _Alain Charon_ 입니다.
 
@@ -34,9 +38,7 @@ ms.locfileid: "92370919"
 
     ![편집 가능한 정보가 포함된 사용자 프로필 페이지](media/active-directory-users-profile-azure-portal/user-profile-all-blade.png)
 
-3. **편집** 을 선택하여 사용 가능한 각 섹션에 포함된 정보를 선택적으로 추가하거나 업데이트합니다.
-
-    ![편집 가능한 영역을 보여 주는 사용자 프로필 페이지](media/active-directory-users-profile-azure-portal/user-profile-edit.png)
+3. **편집** 을 선택하여 편집 가능한 각 섹션에 포함된 정보를 선택적으로 추가하거나 업데이트합니다.
 
     - **프로필 사진.** 사용자 계정의 썸네일 이미지를 선택합니다. 이 사진은 Azure Active Directory 및 사용자의 개인 페이지(예: myapps.microsoft.com 페이지)에 나타납니다.
 

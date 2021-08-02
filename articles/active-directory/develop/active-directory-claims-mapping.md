@@ -1,7 +1,7 @@
 ---
 title: Azure AD 테넌트 앱 클레임 사용자 지정(PowerShell)
 titleSuffix: Microsoft identity platform
-description: 이 페이지에서는 Azure Active Directory 클레임 매핑을 설명합니다.
+description: 특정 Azure Active Directory 테넌트의 애플리케이션에 대한 토큰에서 내보낸 클레임을 사용자 지정하는 방법을 알아봅니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -10,29 +10,28 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 06/10/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: e77155f8a6efd3916ae90fcb562d688bb5b5126f
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: bb44904379e7a9b784f4e2d9bb7c93673718ed37
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107598893"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111983045"
 ---
-# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정(미리 보기)
+# <a name="customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant"></a>테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정
 
-> [!NOTE]
-> 이 기능은 현재 포털을 통해 제공되는 [클레임 사용자 지정](active-directory-saml-claims-customization.md)을 바꾸고 대체합니다. 이 문서에 자세히 설명된 Graph/PowerShell 방법과 함께 포털을 사용하여 동일한 애플리케이션에서 클레임을 사용자 지정하는 경우 해당 애플리케이션용으로 발급된 토큰은 포털의 구성을 무시합니다. 이 문서에 설명된 방법을 통해 만들어진 구성은 포털에서 반영되지 않습니다.
-
-> [!NOTE]
-> 이 기능은 현재 공개 미리 보기로 제공되고 있습니다. 변경 내용을 되돌리거나 제거할 준비를 해야 합니다. 이 기능은 공개 미리 보기 동안 모든 Azure AD(Azure Active Directory) 구독에서 사용할 수 있습니다. 그러나 기능이 일반 공급되면 일부 기능에는 Azure AD Premium 구독이 필요할 수도 있습니다. 이 기능은 WS-Fed, SAML, OAuth 및 OpenID Connect 프로토콜용 클레임 매핑 정책 구성을 지원합니다.
-
-이 기능은 테넌트 관리자가 테넌트의 특정 애플리케이션에 대한 토큰에 내보내지는 클레임을 사용자 지정하는 데 사용됩니다. 클레임 매핑 정책을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
+클레임 사용자 지정은 테넌트 관리자가 테넌트의 특정 애플리케이션에 대한 토큰에 내보내는 클레임을 사용자 지정하는 데 사용됩니다. 클레임 매핑 정책을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
 - 토큰에 포함할 클레임을 선택합니다.
 - 아직 존재하지 않는 클레임 형식을 만듭니다.
-- 특정 클레임에 내보내지는 데이터 원본을 선택하거나 변경합니다.
+- 특정 클레임에 내보내는 데이터 원본을 선택하거나 변경합니다.
+
+클레임 사용자 지정은 WS-Fed, SAML, OAuth 및 OpenID Connect 프로토콜용 클레임 매핑 정책 구성을 지원합니다.
+
+> [!NOTE]
+> 이 기능은 Azure Portal을 통해 제공되는 [클레임 사용자 지정](active-directory-saml-claims-customization.md)을 바꾸고 대체합니다. 이 문서에 자세히 설명된 Microsoft Graph/PowerShell 방법과 함께 포털을 사용하여 동일한 애플리케이션에서 클레임을 사용자 지정하는 경우 해당 애플리케이션용으로 발급된 토큰은 포털의 구성을 무시합니다. 이 문서에 설명된 방법을 통해 만들어진 구성은 포털에서 반영되지 않습니다.
 
 이 문서에서는 [클레임 매핑 정책 형식](reference-claims-mapping-policy-type.md)을 사용하는 방법을 이해하는 데 도움이 되는 몇 가지 일반적인 시나리오를 설명합니다.
 
@@ -41,6 +40,9 @@ ms.locfileid: "107598893"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 다음 예제에서는 서비스 주체에 대한 정책을 만들고, 업데이트, 연결 및 삭제합니다. 클레임 매핑 정책은 서비스 사용자 개체에만 할당할 수 있습니다. Azure AD를 처음 접하는 분들은 [Azure AD 테넌트를 가져오는 방법](quickstart-create-new-tenant.md)을 살펴본 후 예제를 진행하는 것이 좋습니다.
+
+> [!NOTE]
+> 클레임 매핑 정책을 구성하려면 [Azure AD PowerShell 모듈 공개 미리 보기 릴리스](https://www.powershellgallery.com/packages/AzureADPreview)가 필요합니다. PowerShell 모듈은 미리 보기로 제공되며 변경 내용을 되돌리거나 제거할 수 있습니다. 
 
 시작하려면 다음 단계 중 하나를 수행합니다.
 

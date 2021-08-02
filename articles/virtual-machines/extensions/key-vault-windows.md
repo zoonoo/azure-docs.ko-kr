@@ -10,12 +10,13 @@ ms.collection: windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a984d044134dbd775bacb653f8590ee78724f15b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 546537003d599dc66f77ace31471e04c8cef2d43
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563560"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854831"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Windows용 Key Vault 가상 머신 확장
 
@@ -81,7 +82,7 @@ Key Vault VM 확장은 Windows Server 2019 core 설치를 사용하여 Azure에�
       "autoUpgradeMinorVersion": true,
       "settings": {
         "secretsManagementSettings": {
-          "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
+          "pollingIntervalInS": <string specifying polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: false>,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
@@ -109,7 +110,7 @@ Key Vault VM 확장은 Windows Server 2019 core 설치를 사용하여 Azure에�
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 | 데이터 형식 |
+| 속성 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | 문자열 |
@@ -120,7 +121,7 @@ Key Vault VM 확장은 Windows Server 2019 core 설치를 사용하여 Azure에�
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine 또는 CurrentUser(대/소문자 구분) | 문자열 |
 | requireInitialSync | true | boolean |
-| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate","https://myvault.vault.azure.net/secrets/mycertificate2"] | 문자열 배열
+| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | 문자열 배열
 | msiEndpoint | http://169.254.169.254/metadata/identity | 문자열 |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | 문자열 |
 
@@ -151,7 +152,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
       "autoUpgradeMinorVersion": true,
       "settings": {
         "secretsManagementSettings": {
-          "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
+          "pollingIntervalInS": <string specifying polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"]>
@@ -176,9 +177,20 @@ Key Vault VM 확장은 구성된 경우 확장 순서 지정을 지원합니다.
 > 이 기능의 사용은 시스템 할당 ID를 만들고 해당 ID를 사용하여 Key Vault 액세스 정책을 업데이트하는 ARM 템플릿과 호환되지 않습니다. 이렇게 하면 모든 확장이 시작될 때까지 자격 증명 모음 액세스 정책을 업데이트할 수 없으므로 교착 상태가 발생합니다. 대신 *단일 사용자 할당 MSI ID* 를 사용하고 배포하기 전에 해당 ID를 사용하여 자격 증명 모음을 사전 ACL해야 합니다.
 
 ## <a name="azure-powershell-deployment"></a>Azure PowerShell 배포
-> [!WARNING]
-> PowerShell 클라이언트는 오류와 함께 akvvm_service에 실패를 일으키는 settings.json에서 `"`에 `\`를 추가하는 경우가 많습니다.`[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
 
+> [!WARNING]
+> PowerShell 클라이언트는 settings.json에서 `\`를 `"`에 추가하는 경우가 많습니다, 이로 인해 akvvm_service가 오류 `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`와 함께 실패하게 됩니다. 추가 `\` 및 `"` 문자는 포털의 **설정** 아래의 **확장** 에서 볼 수 있습니다. 이를 방지하려면 `$settings`를 PowerShell `HashTable`로 초기화합니다.
+> 
+> ```powershell
+> $settings = @{
+>     "secretsManagementSettings" = @{ 
+>         "pollingIntervalInS"       = "<pollingInterval>"; 
+>         "certificateStoreName"     = "<certStoreName>"; 
+>         "certificateStoreLocation" = "<certStoreLoc>"; 
+>         "observedCertificates"     = @("<observedCert1>", "<observedCert2>") } }
+> ```
+>
+  
 Azure PowerShell은 기존 가상 머신 또는 가상 머신 확장 집합에 Key Vault VM 확장을 배포하는 데 사용할 수 있습니다. 
 
 * VM에 확장을 배포하려면 다음과 같습니다.

@@ -4,17 +4,17 @@ description: Azure 프라이빗 엔드포인트를 사용하여 비공개로 웹
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 03/16/2021
+ms.date: 04/27/2021
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4de405e07a9ae9d1efb33f2cee3630a1eefdef33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6bb8343ae6281120d8bfef549946f47d8658cbba
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104655906"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890162"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Azure 웹앱용 프라이빗 엔드포인트 사용
 
@@ -68,7 +68,7 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 기본적으로 프라이빗 엔드포인트를 사용하지 않는 웹 앱의 공개 이름은 클러스터에 대한 정식 이름입니다.
 예를 들어 이름 확인은 다음과 같습니다.
 
-|이름 |유형 |값 |
+|이름 |Type |값 |
 |-----|-----|------|
 |mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
 |clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
@@ -78,7 +78,7 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 프라이빗 엔드포인트를 배포할 때 정식 이름 mywebapp.privatelink.azurewebsites.net을 가리키도록 DNS 항목을 업데이트합니다.
 예를 들어 이름 확인은 다음과 같습니다.
 
-|이름 |유형 |값 |설명 |
+|이름 |Type |값 |설명 |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
@@ -89,7 +89,7 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 만들어야 하는 DNS 영역은 **privatelink.azurewebsites.net** 입니다. A 레코드와 프라이빗 엔드포인트 IP를 사용하여 웹 앱에 대한 레코드를 등록합니다.
 예를 들어 이름 확인은 다음과 같습니다.
 
-|이름 |유형 |값 |설명 |
+|이름 |Type |값 |설명 |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<--Azure 공용 DNS에서 이 항목을 만들어 앱 서비스가 privatelink를 가리키도록 합니다. 이 항목은 Microsoft에서 관리합니다.|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<--프라이빗 엔드포인트 IP 주소를 가리키도록 DNS 시스템 에서 이 항목을 관리합니다.|
@@ -101,7 +101,7 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 
 Kudu 콘솔 또는 Kudu REST API(예: Azure DevOps 자체 호스팅 에이전트로 배포)의 경우, Azure DNS 프라이빗 영역 또는 사용자 지정 DNS 서버에서 두 개의 레코드를 만들어야 합니다. 
 
-| 이름 | 유형 | 값 |
+| 이름 | Type | 값 |
 |-----|-----|-----|
 | mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 | mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
@@ -121,6 +121,8 @@ Kudu 콘솔 또는 Kudu REST API(예: Azure DevOps 자체 호스팅 에이전트
 웹 앱에 대해 프라이빗 엔드포인트를 사용하는 경우 원격 디버깅 기능을 사용할 수 없습니다. 슬롯에 코드를 배포하고 원격으로 디버그하는 것이 좋습니다.
 
 FTP 액세스는 인바운드 공용 IP 주소를 통해 제공됩니다. 프라이빗 엔드포인트는 웹 앱에 대한 FTP 액세스를 지원하지 않습니다.
+
+슬롯이 있는 트래픽 라우팅과 프라이빗 엔드포인트에 영향을 주는 알려진 제한 사항이 있습니다(즉, [프로덕션에서 테스트 기능][TiP]) 2021년 4월부터 슬롯 간 자동 및 수동 요청 라우팅으로 인해 "403 액세스 거부"가 발생합니다. 이 제한 사항은 향후 릴리스에서 제거될 예정입니다.
 
 Private Link 기능 및 프라이빗 엔드포인트는 정기적으로 개선되고 있습니다. 제한 사항에 대한 최신 정보는 [이 문서][pllimitations]를 확인하세요.
 
@@ -148,5 +150,6 @@ Private Link 기능 및 프라이빗 엔드포인트는 정기적으로 개선�
 [howtoguide2]: ../scripts/cli-deploy-privateendpoint.md
 [howtoguide3]: ../scripts/powershell-deploy-private-endpoint.md
 [howtoguide4]: ../scripts/template-deploy-private-endpoint.md
-[howtoguide5]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection
+[howtoguide5]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-privateendpoint-vnet-injection
 [howtoguide6]: ../scripts/terraform-secure-backend-frontend.md
+[TiP]: ../deploy-staging-slots.md#route-traffic

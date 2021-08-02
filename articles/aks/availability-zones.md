@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 03/16/2021
-ms.openlocfilehash: 4c5b0ceb3f8e0b96f18a67ed0c7dbf1b56ac30da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 13a14854f373ca7297e454ddbdc9f475849dc0b8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104583550"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110100543"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>가용성 영역을 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기
 
@@ -54,9 +54,15 @@ AKS 클러스터는 현재 다음 지역에서 가용성 영역을 사용하여 
 
 ### <a name="azure-disks-limitations"></a>Azure 디스크 제한 사항
 
-Azure 관리형을 사용하는 볼륨은 현재 영역 중복 리소스가 아닙니다. 볼륨은 영역에 연결할 수 없으며 대상 Pod를 호스트하는 지정된 노드와 동일한 영역에 함께 배치되어야 합니다.
+Azure 관리형을 사용하는 볼륨은 현재 영역 중복 리소스가 아닙니다. 볼륨은 영역 간에 연결될 수 없으며 대상 Pod를 호스트하는 지정된 노드와 같은 영역에 공동 배치되어야 합니다.
 
 Kubernetes는 버전 1.12부터 Azure 가용성 영역을 인식합니다. Azure Managed Disk를 참조하는 PersistentVolumeClaim 개체를 다중 영역 AKS 클러스터에 배포할 수 있으며, [Kubernetes는 올바른 가용성 영역에서 이 PVC를 클레임하는 Pod를 예약하는 과정](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones)을 담당합니다.
+
+### <a name="azure-resource-manager-templates-and-availability-zones"></a>Azure Resource Manager 템플릿 및 가용성 영역
+
+AKS 클러스터를 *생성* 할 때 `"availabilityZones": null`와 같은 구문을 사용하여 [템플릿에 null 값][arm-template-null]을 명시적으로 정의하면 Resource Manager 템플릿은 속성이 존재하지 않는 것처럼 속성을 처리합니다. 이는 클러스터의 가용성 영역이 사용하도록 설정되지 않았음을 의미합니다. 또한 가용성 영역 속성을 생략하는 Resource Manager 템플릿을 사용하여 클러스터를 만드는 경우 가용성 영역이 사용하지 않도록 설정됩니다.
+
+기존 클러스터의 가용성 영역에 대한 설정을 업데이트할 수 없으므로 Resource Manager 템플릿으로 AKS 클러스터를 업데이트할 때 동작이 다릅니다.  가용성 영역에 대한 템플릿에서 명시적으로 null 값을 설정하고 클러스터를 *업데이트* 하는 경우 가용성 영역에 대한 클러스터 변경 사항이 없습니다. 그러나 `"availabilityZones": []`와 같은 구문으로 가용성 영역 속성을 생략하면 배포가 기존 AKS 클러스터에서 가용성 영역을 사용하지 않도록 하고 **실패** 합니다.
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>AKS 클러스터의 가용성 영역 개요
 
@@ -191,20 +197,21 @@ Node:         aks-nodepool1-28993262-vmss000004/10.240.0.8
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-aks-create]: /cli/azure/aks#az_aks_create
 [az-overview]: ../availability-zones/az-overview.md
 [best-practices-bc-dr]: operator-best-practices-multi-region.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [standard-lb-limitations]: load-balancer-standard.md#limitations
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-nodepool-add]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-add
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [vmss-zone-balancing]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing
+[arm-template-null]: ../azure-resource-manager/templates/template-expressions.md#null-values
 
 <!-- LINKS - external -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
