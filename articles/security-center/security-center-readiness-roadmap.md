@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: e4f905b7a08564eadb20d65d651c137ef3741376
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 4f48ccaab8ba084a3944ba2d5fdd7188efa56555
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100324"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556841"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center 준비 로드맵
 이 문서에서는 Azure Security Center를 시작하는 데 도움이 되는 준비 로드맵을 제공합니다.
@@ -46,7 +46,7 @@ Security Center를 완벽하게 활용하려면 조직의 여러 개인 또는 �
 
 
 ### <a name="onboarding-computers-to-security-center"></a>Security Center에 컴퓨터 온보딩
-Security Center는 azure Defender에서 보호 하지 않는 Azure 구독 또는 작업 영역을 자동으로 검색 합니다. 여기에는 Security Center Free를 사용 하는 Azure 구독과 보안 솔루션이 사용 하도록 설정 되지 않은 작업 영역이 포함 됩니다.
+Security Center는 Azure Defender로 보호되지 않는 모든 Azure 구독 또는 작업 영역을 자동으로 감지합니다. 여기에는 Security Center 무료 계층을 사용하는 Azure 구독과 보안 솔루션이 사용하도록 설정되지 않은 작업 영역이 포함됩니다.
 
 다음 리소스를 사용하여 온보딩 프로세스 중에 도움을 받습니다.
 
@@ -77,7 +77,7 @@ Security Center는 azure Defender에서 보호 하지 않는 Azure 구독 또는
 
 아티클    
 * [인시던트 대응에 Azure Security Center 사용](./tutorial-security-incident.md)
-* [자동화를 사용 하 여 Security Center 트리거에 응답](workflow-automation.md)
+* [자동화를 사용하여 Security Center 트리거에 응답](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>고급 클라우드 방어
 
@@ -102,7 +102,7 @@ Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 �
 ## <a name="additional-resources"></a>추가 리소스
 * [Security Center 설명서 페이지](./index.yml)
 * [Security Center REST API 설명서 페이지](/previous-versions/azure/reference/mt704034(v=azure.100))
-* [Azure Security Center FAQ(질문과 대답)](./faq-general.md)
+* [Azure Security Center FAQ(질문과 대답)](./faq-general.yml)
 * [Security Center 가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)
 * [ID 보안 모범 사례](../security/fundamentals/identity-management-best-practices.md)
 * [네트워크 보안 모범 사례](../security/fundamentals/network-best-practices.md)
@@ -113,4 +113,4 @@ Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 �
 ## <a name="community-resources"></a>커뮤니티 리소스
 
 * [Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
-* [Q&Security Center 페이지](/answers/topics/azure-security-center.html)
+* [보안 센터에 대한 Q&A 페이지](/answers/topics/azure-security-center.html)

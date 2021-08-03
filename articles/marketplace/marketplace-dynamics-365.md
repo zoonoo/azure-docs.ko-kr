@@ -1,22 +1,22 @@
 ---
-title: Microsoft AppSource에 대한 Dynamics 365 제품 플랜
+title: Microsoft AppSource에 대한 Dynamics 365 제품 플랜 - Azure
 description: Microsoft AppSource에 대한 Dynamics 365 제품 플랜
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/16/2021
-ms.openlocfilehash: c2b4fddc91a9bd24ac1fd4f326d225835180dd78
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 04/30/2021
+ms.openlocfilehash: 5d81b8321fe574be39a23a99521521516b86cfbb
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144694"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971260"
 ---
 # <a name="plan-a-microsoft-dynamics-365-offer"></a>Dynamics 365 제품 플랜
 
-이 문서에서는 상업용 Marketplace에 있는 Microsoft AppSource의 Dynamics 365 제품에 대한 다양한 옵션 및 기능을 설명합니다. AppSource는 Microsoft 365, Dynamics 365, PowerApps 및 Power BI를 기반으로 하거나 확장하는 제품을 포함합니다. AppSource는 유료판(*지금 다운로드*), 목록(*연락처*) 및 평가판(*지금 체험*)을 제공합니다.
+이 문서에서는 상업용 Marketplace에 있는 Microsoft AppSource의 Dynamics 365 제품에 대한 다양한 옵션 및 기능을 설명합니다. AppSource는 Microsoft 365, Dynamics 365, PowerApps 및 Power BI를 기반으로 하거나 확장하는 제품을 포함합니다.
 
 시작하기 전에 [파트너 센터](./create-account.md)에서 상업용 Marketplace 계정을 만들고 상업용 Marketplace 프로그램에 해당 계정이 등록되어 있는지 확인합니다. [게시 프로세스 및 지침](/office/dev/store/submit-to-appsource-via-partner-center)을 검토합니다.
 
@@ -28,10 +28,11 @@ Dynamics 365 제품에 사용할 수 있는 라이선싱 옵션은 다음과 같
 
 | 라이선싱 옵션 | 트랜잭션 프로세스 |
 | --- | --- |
-| 지금 받기(무료) | 고객에게 평가판으로 제공하는 제품을 나열합니다. |
-| 평가판(목록) | 1개월, 3개월, 6개월 평가판을 고객에게 제공합니다. 평가판을 나열하는 제품은 서비스에 의해 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독을 포함하지 않습니다. |
 | 연락처 | CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 수집합니다. 고객에게 정보를 공유할 수 있는 권한을 요청합니다. 고객 세부 정보는 제품 이름, ID 및 Marketplace(고객이 제품을 찾은 소스)와 함께 구성된 CRM 시스템으로 전송됩니다. CRM을 구성하는 방법에 대한 자세한 정보는 제품 유형에 있는 **제품 설정** 페이지의 **잠재 고객** 섹션을 참조하세요. |
-|
+| 평가판(목록) | 1개월, 3개월, 6개월 평가판을 고객에게 제공합니다. 평가판을 나열하는 제품은 서비스에 의해 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독을 포함하지 않습니다. |
+| 지금 받기(무료) | 고객에게 평가판으로 제공하는 제품을 나열합니다. |
+| 지금 받기 | 파트너 센터에서 타사 라이선스를 관리할 수 있습니다.<br>현재 다음 제품 유형에만 사용할 수 있습니다.<ul><li>Dynamics 365 for Customer Engagement 및 Power Apps</li></ul><br>이 옵션에 대한 자세한 내용은 [Microsoft를 통한 타사 앱 라이선스 관리](third-party-license.md)를 참조하세요. |
+|||
 
 ## <a name="test-drive"></a>시험 사용
 
@@ -84,8 +85,8 @@ Microsoft에서 지원하는 마케팅 및 영업 채널을 옵트인하도록 �
 
 | 게시 가이드    | 참고  |
 | :------------------- | :-------------------|
-| [Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md) | Enterprise Edition용으로 빌드하는 경우 먼저 이러한 추가 [게시 프로세스 및 지침](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)을 검토합니다. |
-| [Dynamics 365 for Business Central](partner-center-portal/create-new-business-central-offer.md) |   |
+| [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md) | Enterprise Edition용으로 빌드하는 경우 먼저 이러한 추가 [게시 프로세스 및 지침](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)을 검토합니다. |
+| [Dynamics 365 for Business Central](dynamics-365-business-central-offer-setup.md) |   |
 | [Dynamics 365 for Customer Engagement 및 Power Apps](dynamics-365-customer-engage-offer-setup.md) | 먼저 이러한 추가 [게시 프로세스 및 지침](/dynamics365/customer-engagement/developer/publish-app-appsource)을 검토합니다. |
-| [Power BI](/partner-center-portal/create-power-bi-app-offer.md) | 먼저 이러한 추가 [게시 프로세스 및 지침](/power-bi/developer/office-store)을 검토합니다. |
-|
+| [Power BI](./power-bi-app-offer-setup.md) | 먼저 이러한 추가 [게시 프로세스 및 지침](/power-bi/developer/office-store)을 검토합니다. |
+|||

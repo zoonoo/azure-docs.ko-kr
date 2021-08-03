@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: a7ab48759ac775c1195dedb4143d895bdcdec937
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a903b63ad1da2dbb029fdbeba1106d3090ba3ef
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98956529"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111554825"
 ---
 # <a name="rest-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search용 REST 코드 샘플
 
@@ -28,7 +28,7 @@ REST 샘플은 일반적으로 Postman에서 개발되고 테스트되지만 HTT
 
 ## <a name="doc-samples"></a>문서 샘플
 
-Cognitive Search 팀의 코드 샘플은 기능 및 워크플로를 보여 줍니다. 이러한 샘플은 대부분 자습서, 빠른 시작 및 방법 문서에서 참조됩니다. GitHub의 [**Azure-Samples/azure-search-postman-samples**](https://github.com/Azure-Samples/azure-search-postman-samples)에서 이러한 샘플을 찾을 수 있습니다.
+Cognitive Search 팀의 코드 샘플은 기능 및 워크플로를 보여줍니다. 이러한 샘플은 대부분 자습서, 빠른 시작 및 방법 문서에서 참조됩니다. GitHub의 [**Azure-Samples/azure-search-postman-samples**](https://github.com/Azure-Samples/azure-search-postman-samples)에서 이러한 샘플을 찾을 수 있습니다.
 
 | 샘플 | 아티클 |
 |---------|---------|
@@ -41,11 +41,11 @@ Cognitive Search 팀의 코드 샘플은 기능 및 워크플로를 보여 줍�
 | [index-encrypted-blobs](https://github.com/Azure-Samples/azure-search-postman-samples/commit/f5ebb141f1ff98f571ab84ac59dcd6fd06a46718) | [Blob 인덱서 및 기술 세트를 사용하여 암호화된 Blob을 인덱싱하는 방법](search-howto-index-encrypted-blobs.md)에 대한 소스 코드입니다. 이 문서에서는 Azure Key Vault를 사용하여 이전에 암호화된 Azure Blob Storage의 문서를 인덱싱하는 방법을 보여 줍니다. |
 
 > [!Tip]
-> [샘플 브라우저](/samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search)를 통해 제품, 서비스 및 언어별로 필터링하여 Github에서 Microsoft 코드 샘플을 검색해 보세요.
+> [샘플 브라우저](/samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search)를 통해 제품, 서비스 및 언어별로 필터링하여 GitHub에서 Microsoft 코드 샘플을 검색해 보세요.
 
 ## <a name="other-samples"></a>기타 샘플
 
-다음 샘플은 Cognitive Search 팀에서도 게시하지만 설명서에서 참조되지 않습니다. 관련된 추가 정보 파일에 사용 지침이 제공됩니다.
+다음 샘플은 Cognitive Search 팀에서도 게시하지만 설명서에서 참조되지 않습니다. 관련된 추가 정보 파일은 사용 지침을 제공합니다.
 
 | 샘플 | Description |
 |---------|-------------|

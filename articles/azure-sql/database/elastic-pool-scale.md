@@ -7,16 +7,16 @@ ms.subservice: elastic-pools
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
-ms.reviewer: sstein
-ms.date: 09/16/2020
-ms.openlocfilehash: 947d842860452425f8b30fbdaf9558c2a94a89a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: arvindshmicrosoft
+ms.author: arvindsh
+ms.reviewer: mathoma
+ms.date: 04/09/2021
+ms.openlocfilehash: 68ae6587cb896939b88979ac56278fc5a058f786
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92781212"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110708764"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Azure SQL Database에서 탄력적 풀 리소스 크기 조정
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,14 @@ ms.locfileid: "92781212"
 
 ## <a name="change-compute-resources-vcores-or-dtus"></a>컴퓨팅 리소스 변경(vCores or DTU)
 
-vCore 또는 eDTU 수를 처음 선택한 후에는 [Azure portal](elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) 또는 [REST API](/rest/api/sql/elasticpools/update)를 사용하여 실제 환경에 따라 탄력적 풀을 동적으로 늘리거나 줄일 수 있습니다.
+처음에 vCore 또는 eDTU 수를 선택한 후 다음 항목을 사용하여 실제 환경에 따라 탄력적 풀을 동적으로 확장하거나 축소할 수 있습니다.
+
+* [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Azure Portal](elastic-pool-manage.md#azure-portal)
+* [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool)
+* [Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)
+* [REST API](/rest/api/sql/elasticpools/update)
+
 
 ### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>서비스 계층 또는 크기 조정 컴퓨팅 크기 변경의 영향
 
@@ -99,8 +106,8 @@ WHERE s.type_desc IN ('ROWS', 'LOG');
 
 ### <a name="dtu-based-purchasing-model"></a>DTU 기반 구매 모델
 
-- 탄력적 풀에 대한 eDTU 가격에는 특정 크기의 스토리지가 추가 비용 없이 포함됩니다. 포함된 용량 외 추가 스토리지는 최대 250GB씩 총 1TB이 최대 크기 제한까지 추가 비용을 내고 프로비전할 수 있고 1TB 이상일 경우 256GB씩 프로비전할 수 있습니다. 포함된 스토리지 용량 및 최대 크기 제한에 대한 자세한 내용은 [탄력적 풀: 스토리지 크기 및 컴퓨팅 크기](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes)를 참조하세요.
-- 탄력적 풀에 대한 추가 스토리지는 [Azure portal](elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) 또는 [REST API](/rest/api/sql/elasticpools/update)를 통해 해당 최대 크기를 늘려 프로비전할 수 있습니다.
+- 탄력적 풀에 대한 eDTU 가격에는 특정 크기의 스토리지가 추가 비용 없이 포함됩니다. 포함된 용량 외 추가 스토리지는 최대 250GB씩 총 1TB이 최대 크기 제한까지 추가 비용을 내고 프로비전할 수 있고 1TB 이상일 경우 256GB씩 프로비전할 수 있습니다. 포함된 스토리지 용량 및 최대 크기 제한은 [DTU 구매 모델을 사용하는 탄력적 풀에 대한 리소스 제한](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes) 또는 [vCore 구매 모델을 사용하는 탄력적 풀에 대한 리소스 제한](resource-limits-vcore-elastic-pools.md)을 참조하세요.
+- 탄력적 풀에 대한 추가 스토리지는 [Azure portal](elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) 또는 [REST API](/rest/api/sql/elasticpools/update)를 통해 해당 최대 크기를 늘려 프로비전할 수 있습니다.
 - 탄력적 풀에 대한 추가 스토리지 가격은 추가 스토리지 용량에 해당 서비스 계층의 추가 스토리지 단가를 곱한 것입니다. 추가 스토리지 가격에 대한 자세한 내용은 [SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
 
 > [!IMPORTANT]

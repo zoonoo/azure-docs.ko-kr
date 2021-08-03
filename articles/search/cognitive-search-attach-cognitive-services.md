@@ -7,12 +7,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: 77735166fafe9d39dff483baa89a4b31db31275d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1ba8ce3e84439a3f9419e0c038b93fb298370b9
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100577930"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591335"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Azure Cognitive Search에서 기술 세트에 Cognitive Services 리소스 연결
 
@@ -144,7 +144,7 @@ Content-Type: application/json
 
 ## <a name="example-estimate-costs"></a>예제: 비용 추정
 
-인식 검색 인덱싱과 관련된 비용을 추정하려면, 평균 문서가 어떤 모양인지부터 생각하여 몇 가지 숫자를 실행할 수 있도록 합니다. 예를 들어 다음과 같을 수 있습니다.
+인식 검색 인덱싱과 관련된 비용을 추정하려면 평균 문서가 어떤 모양인지부터 생각하여 몇 가지 숫자를 실행할 수 있도록 합니다. 예를 들어 다음과 같을 수 있습니다.
 
 + PDF 파일 1,000개
 + 각 6페이지

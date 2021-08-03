@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/15/2021
+ms.date: 05/26/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b1c8bf5cb8944b990737d557326b2741716bab3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a1771dd6f312129d418cac3ddac8ef2411e95c6
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579759"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110496137"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -142,7 +142,7 @@ ms.locfileid: "104579759"
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | 사용자 경험의 SSO(Single Sign-On) 세션 동작 범위입니다. |
 | SessionExpiryType |0:1 | 세션의 인증 동작입니다. 가능한 값은 `Rolling` 또는 `Absolute`입니다. `Rolling` 값(기본값)은 사용자가 애플리케이션에서 계속 활성 상태이면 로그인된 상태로 유지됨 을 나타냅니다. `Absolute` 값은 애플리케이션 세션 수명에 따라 지정된 기간 후 사용자가 강제로 다시 인증을 해야 함을 나타냅니다. |
-| SessionExpiryInSeconds | 0:1 | 인증 성공 시 사용자 브라우저에 저장되는 Azure AD B2C 세션 쿠키의 수명(정수로 지정됨)입니다. |
+| SessionExpiryInSeconds | 0:1 | 인증 성공 시 사용자 브라우저에 저장되는 Azure AD B2C 세션 쿠키의 수명(정수로 지정됨)입니다. 기본값은 86,400초(24시간)입니다. 최소값은 900초(15분)입니다. 최대값은 86,400초(24시간)입니다. |
 | JourneyInsights | 0:1 | 사용할 Application Insights 계측 키입니다. |
 | ContentDefinitionParameters | 0:1 | 콘텐츠 정의 로드 URI에 추가할 키 값 쌍의 목록입니다. |
 |ScriptExecution| 0:1| 지원되는 [JavaScript](javascript-and-page-layout.md) 실행 모드입니다. 가능한 값은 `Allow` 또는 `Disallow`(기본값)입니다.
@@ -192,7 +192,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| 이름 | 예 | 키 값 쌍의 이름입니다. |
+| 속성 | 예 | 키 값 쌍의 이름입니다. |
 
 자세한 내용은 [사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)을 참조하세요.
 
@@ -228,7 +228,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| 이름 | 예 | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OpenIdConnect` 또는 `SAML2`입니다. `OpenIdConnect` 값은 OpenID Foundation 사양에 따른 OpenID Connect 1.0 프로토콜 표준을 나타냅니다. `SAML2`는 OASIS 사양에 따른 SAML 2.0 프로토콜 표준을 나타냅니다. |
+| 속성 | 예 | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OpenIdConnect` 또는 `SAML2`입니다. `OpenIdConnect` 값은 OpenID Foundation 사양에 따른 OpenID Connect 1.0 프로토콜 표준을 나타냅니다. `SAML2`는 OASIS 사양에 따른 SAML 2.0 프로토콜 표준을 나타냅니다. |
 
 ### <a name="metadata"></a>메타데이터
 

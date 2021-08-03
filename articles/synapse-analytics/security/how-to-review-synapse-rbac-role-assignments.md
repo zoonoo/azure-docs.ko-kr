@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9065ca9c7638f3d2bda36e4831b81963936f4b45
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: acc1ed8cece087628f6f8deb41696acefe124874
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100102158"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784037"
 ---
 # <a name="how-to-review-synapse-rbac-role-assignments"></a>Synapse RBAC 역할 할당을 검토하는 방법
 
@@ -24,7 +24,7 @@ Synapse RBAC 역할은 사용자, 그룹 및 기타 보안 주체가 사용 권�
 Synapse RBAC 역할을 사용하여 액세스할 수 없는 개체에 대한 할당을 포함하여 모든 범위의 Synapse RBAC 역할 할당을 나열할 수 있습니다. Synapse 관리자만 Synapse RBAC 액세스 권한을 부여할 수 있습니다.  
 
 >[!Note]
->게스트 사용자(다른 AD 테넌트의 사용자)는 Synapse 관리자 역할이 할당된 경우에도 역할 할당을 보거나 관리할 수 없습니다.    
+> 게스트 사용자(다른 AD 테넌트의 사용자)도 Synapse 관리자 역할이 할당된 후 역할 할당을 보고 관리할 수 있습니다.    
 
 ## <a name="open-synapse-studio"></a>Synapse Studio 열기  
 

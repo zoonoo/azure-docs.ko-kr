@@ -8,14 +8,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: MashaMSFT
+ms.reviewer: cawrites
 ms.date: 11/06/2020
-ms.openlocfilehash: a1dcb72c30268dd82052e29232e79a485d86f72d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61f169c447b61c6c072971fb5913b37a3752e09e
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025308"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790265"
 ---
 # <a name="migration-guide-sql-server-to-azure-sql-managed-instance"></a>마이그레이션 가이드: SQL Server를 Azure SQL Managed Instance로
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -30,18 +30,19 @@ ms.locfileid: "105025308"
 - Compute Engine(Google Cloud Platform - GCP)  
 - SQL Server용 Cloud SQL(Google Cloud Platform - GCP) 
 
-마이그레이션에 대한 자세한 내용은 [마이그레이션 개요](sql-server-to-managed-instance-overview.md)를 참조하세요. 다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](https://docs.microsoft.com/data-migration)을 참조하세요. 
+마이그레이션에 대한 자세한 내용은 [마이그레이션 개요](sql-server-to-managed-instance-overview.md)를 참조하세요. 다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](/data-migration)을 참조하세요. 
 
 :::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-flow-small.png" alt-text="마이그레이션 프로세스 흐름":::
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
-SQL Server를 Azure SQL Managed Instance로 마이그레이션하려면 다음 필수 구성 요소를 확인하세요. 
+SQL Server를 Azure SQL Managed Instance로 마이그레이션하려면 다음을 수행한 상태여야 합니다. 
 
-- 선택한 방법에 필요한 [마이그레이션 방법](sql-server-to-managed-instance-overview.md#compare-migration-options) 및 해당 도구를 선택합니다.
-- 원본 SQL Server에 연결할 수 있는 머신에 [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)를 설치합니다.
-- 원본과 대상 모두에 액세스하려면 연결이 보장되어야 하며 적합한 권한이 필요합니다. 
-
+- [마이그레이션 방법](sql-server-to-managed-instance-overview.md#compare-migration-options) 및 방법에 해당하는 도구를 선택했습니다.
+- 원본 SQL Server에 연결할 수 있는 컴퓨터에 [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)가 설치되어 있습니다.
+- 대상 [Azure SQL Managed Instance](../../managed-instance/instance-create-quickstart.md)를 만들었습니다.
+- 원본과 대상 모두에 액세스할 수 있도록 연결 및 적합한 권한을 구성했습니다. 
+- [Azure SQL Managed Instance에서 사용 가능](../../database/features-comparison.md)한 SQL Server 데이터베이스 엔진 기능을 검토했습니다. 
 
 
 ## <a name="pre-migration"></a>사전 마이그레이션
@@ -224,5 +225,5 @@ SQL Managed Instance에서 제공하는 고급 클라우드 기반 기능(예:[�
    -  [Azure용 클라우드 채택 프레임워크](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Azure로 마이그레이션된 워크로드의 비용 계산 및 크기 조정 모범 사례](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
-- 애플리케이션 액세스 레이어를 평가하려면 [(미리 보기)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)를 참조하세요.
+- 애플리케이션 액세스 레이어를 평가하려면 [Data Access Migration Toolkit(미리 보기)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)을 참조하세요.
 - 데이터 액세스 레이어 A/B 테스트를 수행하는 방법에 관한 자세한 내용은 [데이터베이스 실험 도우미](/sql/dea/database-experimentation-assistant-overview)를 참조하세요.

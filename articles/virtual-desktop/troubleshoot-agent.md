@@ -1,21 +1,21 @@
 ---
-title: Windows Virtual Desktop 에이전트 문제 해결 - Azure
+title: Azure Virtual Desktop 에이전트 문제 해결 - Azure
 description: 일반적인 에이전트 및 연결 문제를 해결하는 방법입니다.
 author: Sefriend
 ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 67bc4218e28e561b618ab092f0b73207438bd2aa
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 1ca3d938851b1aa54e13a29638fa3e4c1f8569d1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633342"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751418"
 ---
-# <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>일반적인 Windows Virtual Desktop 에이전트 문제 해결
+# <a name="troubleshoot-common-azure-virtual-desktop-agent-issues"></a>일반적인 Azure Virtual Desktop 에이전트 문제 해결
 
-Windows Virtual Desktop 에이전트는 다음과 같은 여러 요인으로 인해 연결 문제가 발생할 수 있습니다.
+Azure Virtual Desktop 에이전트는 다음과 같은 여러 요인으로 인해 연결 문제가 발생할 수 있습니다.
    - 에이전트가 서비스를 중지하게 만드는 브로커의 오류
    - 업데이트 관련 문제
    - 에이전트 설치 중 설치 관련 문제(세션 호스트에 대한 연결이 중단됨)
@@ -23,7 +23,7 @@ Windows Virtual Desktop 에이전트는 다음과 같은 여러 요인으로 인
 이 문서에서는 이러한 일반적인 시나리오에 대한 솔루션과 연결 문제를 해결하는 방법을 안내합니다.
 
 >[!NOTE]
->세션 연결 및 Windows Virtual Desktop 에이전트와 관련된 문제를 해결하려면 **이벤트 뷰어** > **windows 로그** > **애플리케이션** 에서 이벤트 로그를 검토하는 것이 좋습니다. 다음 원본 중 하나가 있는 이벤트를 찾아 문제를 확인하세요.
+>세션 연결 및 Azure Virtual Desktop 에이전트와 관련된 문제를 해결하려면 **이벤트 뷰어** > **windows 로그** > **애플리케이션** 에서 이벤트 로그를 검토하는 것이 좋습니다. 다음 원본 중 하나가 있는 이벤트를 찾아 문제를 확인하세요.
 >
 >- WVD-Agent
 >- WVD-Agent-Updater
@@ -106,19 +106,19 @@ Windows Virtual Desktop 에이전트는 다음과 같은 여러 요인으로 인
    > ![로드에 성공하지 못한 broker 글로벌 액세스의 스크린샷](media/unsuccessful-broker-global.png)
 
 8. 네트워크에서 이러한 URL을 차단하는 경우 필요한 URL을 차단 해제해야 합니다. 자세한 내용은 [필수 URL 목록](safe-url-list.md)를 참조하세요.
-9. 그래도 문제가 해결되지 않으면 에이전트에서 broker로 연결하는 것을 차단하는 암호화를 사용하는 그룹 정책이 없는지 확인합니다. Windows Virtual Desktop은 [Azure Front Door](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-)와 동일한 TLS 1.2 암호화를 사용합니다. 자세한 내용은 [연결 보안](network-connectivity.md#connection-security)을 참조하세요.
+9. 그래도 문제가 해결되지 않으면 에이전트에서 broker로 연결하는 것을 차단하는 암호화를 사용하는 그룹 정책이 없는지 확인합니다. Azure Virtual Desktop은 [Azure Front Door](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-)와 동일한 TLS 1.2 암호화를 사용합니다. 자세한 내용은 [연결 보안](network-connectivity.md#connection-security)을 참조하세요.
 
 ## <a name="error-3703"></a>오류: 3703
 
-**이벤트 뷰어** > **windows 로그** > **애플리케이션** 으로 이동 합니다. 설명에 "RD Gateway Url: is not accessible"이라고 표시된 ID가 3703인 이벤트가 보이면 에이전트가 게이트웨이 URL에 도달할 수 없는 것입니다. 세션 호스트에 성공적으로 연결하고 이러한 엔드포인트에 대한 네트워크 트래픽이 제한을 우회하도록 허용하려면 [필수 URL 목록](safe-url-list.md)의 URL을 차단 해제해야 합니다. 또한 방화벽 또는 프록시 설정이 이러한 URL을 차단하지 않는지 확인합니다. Windows Virtual Desktop을 사용하려면 이러한 URL 차단을 해제해야 합니다.
+**이벤트 뷰어** > **windows 로그** > **애플리케이션** 으로 이동 합니다. 설명에 "RD Gateway Url: is not accessible"이라고 표시된 ID가 3703인 이벤트가 보이면 에이전트가 게이트웨이 URL에 도달할 수 없는 것입니다. 세션 호스트에 성공적으로 연결하고 이러한 엔드포인트에 대한 네트워크 트래픽이 제한을 우회하도록 허용하려면 [필수 URL 목록](safe-url-list.md)의 URL을 차단 해제해야 합니다. 또한 방화벽 또는 프록시 설정이 이러한 URL을 차단하지 않는지 확인합니다. Azure Virtual Desktop을 사용하려면 이러한 URL 차단을 해제해야 합니다.
 
 이 문제를 해결하려면 방화벽 및/또는 DNS 설정이 다음 URL을 차단하지 않는지 확인합니다.
-1. [Azure Firewall을 사용하여 Windows Virtual Desktop 배포를 보호합니다](../firewall/protect-windows-virtual-desktop.md).
+1. [Azure Firewall을 사용하여 Azure Virtual Desktop 배포를 보호합니다](../firewall/protect-windows-virtual-desktop.md).
 2. [Azure Firewall DNS 설정](../firewall/dns-settings.md)을 구성합니다.
 
 ## <a name="error-3019"></a>오류: 3019
 
-**이벤트 뷰어** > **windows 로그** > **애플리케이션** 으로 이동 합니다. ID가 3019인 이벤트가 표시되면 에이전트가 웹 소켓 전송 URL에 연결할 수 없음을 의미합니다. 세션 호스트에 성공적으로 연결하고 네트워크 트래픽이 이러한 제한을 우회하도록 허용하려면 [필수 URL 목록](safe-url-list.md)에 나열된 URL을 차단 해제해야 합니다. Azure 네트워킹 팀과 협력하여 방화벽, 프록시 및 DNS 설정이 이러한 URL을 차단하지 않는지 확인하세요. 네트워크 추적 로그를 확인하여 Windows Virtual Desktop 서비스가 차단되는 위치를 확인할 수도 있습니다. 이런 특정 문제에 대한 지원 요청을 여는 경우에는 네트워크 추적 로그를 요청에 첨부해야 합니다.
+**이벤트 뷰어** > **windows 로그** > **애플리케이션** 으로 이동 합니다. ID가 3019인 이벤트가 표시되면 에이전트가 웹 소켓 전송 URL에 연결할 수 없음을 의미합니다. 세션 호스트에 성공적으로 연결하고 네트워크 트래픽이 이러한 제한을 우회하도록 허용하려면 [필수 URL 목록](safe-url-list.md)에 나열된 URL을 차단 해제해야 합니다. Azure 네트워킹 팀과 협력하여 방화벽, 프록시 및 DNS 설정이 이러한 URL을 차단하지 않는지 확인하세요. 네트워크 추적 로그를 확인하여 Azure Virtual Desktop 서비스가 차단되는 위치를 확인할 수도 있습니다. 이런 특정 문제에 대한 지원 요청을 여는 경우에는 네트워크 추적 로그를 요청에 첨부해야 합니다.
 
 ## <a name="error-installationhealthcheckfailedexception"></a>오류: InstallationHealthCheckFailedException
 
@@ -189,7 +189,7 @@ Windows Virtual Desktop 에이전트는 다음과 같은 여러 요인으로 인
 
 ## <a name="error-stack-listener-isnt-working-on-windows-10-2004-vm"></a>오류: Windows 10 2004 VM에서 스택 수신기가 작동하지 않음
 
-명령 프롬프트에서 **qwinsta** 를 실행하고 **rdp-sxs** 옆에 표시되는 버전 번호를 적어둡니다. **rdp-tcp** 및 **rdp-sxs** 구성 요소 옆에 **Listen** 이 보이지 않거나 **qwinsta** 를 실행한 후 전혀 보이지 않으면, 스택 문제가 있는 것입니다. 스택 업데이트는 에이전트 업데이트와 함께 설치되며 설치가 잘못되면 Windows Virtual Desktop 수신기가 작동하지 않습니다.
+명령 프롬프트에서 **qwinsta** 를 실행하고 **rdp-sxs** 옆에 표시되는 버전 번호를 적어둡니다. **rdp-tcp** 및 **rdp-sxs** 구성 요소 옆에 **Listen** 이 보이지 않거나 **qwinsta** 를 실행한 후 전혀 보이지 않으면, 스택 문제가 있는 것입니다. 스택 업데이트는 에이전트 업데이트와 함께 설치되며, 설치가 잘못되면 Azure Virtual Desktop 수신기가 작동하지 않습니다.
 
 이 문제를 해결하려면:
 1. 레지스트리 편집기를 엽니다.
@@ -224,7 +224,7 @@ Windows Virtual Desktop 에이전트는 다음과 같은 여러 요인으로 인
 
 ## <a name="error-agent-fails-to-update-with-missingmethodexception"></a>오류 : MissingMethodException으로 인해 에이전트를 업데이트하지 못함
 
-**이벤트 뷰어** > **windows 로그** > **애플리케이션** 으로 이동 합니다. 설명에 "MissingMethodException: 메서드를 찾을 수 없음"이라고 표시된 ID가 3389인 이벤트가 보이면, Windows Virtual Desktop 에이전트가 성공적으로 업데이트되지 않았고 이전 버전으로 되돌려진 것을 의미합니다. 현재 VM에 설치된 .NET Framework의 버전 번호가 4.7.2보다 낮기 때문일 수 있습니다. 이 문제를 해결하려면 [.NET Framework 설명서](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2)의 설치 지침에 따라 .NET을 버전 4.7.2 이상으로 업그레이드해야 합니다.
+**이벤트 뷰어** > **windows 로그** > **애플리케이션** 으로 이동 합니다. 설명에 "MissingMethodException: 메서드를 찾을 수 없음"이라고 표시된 ID가 3389인 이벤트가 보이면, Azure Virtual Desktop 에이전트가 정상적으로 업데이트되지 않았고 이전 버전으로 되돌려진 것을 의미합니다. 현재 VM에 설치된 .NET Framework의 버전 번호가 4.7.2보다 낮기 때문일 수 있습니다. 이 문제를 해결하려면 [.NET Framework 설명서](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2)의 설치 지침에 따라 .NET을 버전 4.7.2 이상으로 업그레이드해야 합니다.
 
 
 ## <a name="error-vms-are-stuck-in-unavailable-or-upgrading-state"></a>오류: VM이 사용할 수 없음 또는 업그레이드 중 상태에서 멈춤
@@ -287,7 +287,7 @@ VM의 이름이 이미 등록되었으며 중복되었을 수 있습니다.
 
 ## <a name="your-issue-isnt-listed-here-or-wasnt-resolved"></a>문제가 여기에 없거나 해결되지 않은 경우
 
-이 문서에서 문제를 찾을 수 없거나 지침이 도움이 되지 않았다면, Windows Virtual Desktop 에이전트를 제거, 다시 설치 및 다시 등록하는 것이 좋습니다. 이 섹션의 지침은 모든 에이전트, 부팅 로더 및 스택 구성 요소 제거하고, 호스트 풀에서 세션 호스트를 제거하고, VM에 대한 새 등록 키를 생성하고, 에이전트 및 부팅 로더를 다시 설치하여 Windows Virtual Desktop 서비스에 VM을 다시 등록하는 방법을 보여줍니다. 다음 시나리오 중 하나 이상에 해당하는 경우 다음 지침을 따르십시오.
+이 문서에서 문제를 찾을 수 없거나 지침이 도움이 되지 않았다면, Azure Virtual Desktop 에이전트를 제거, 다시 설치 및 다시 등록하는 것이 좋습니다. 이 섹션의 지침은 모든 에이전트, 부팅 로더 및 스택 구성 요소 제거하고, 호스트 풀에서 세션 호스트를 제거하고, VM에 대한 새 등록 키를 생성하고, 에이전트 및 부팅 로더를 다시 설치하여 Azure Virtual Desktop 서비스에 VM을 다시 등록하는 방법을 보여줍니다. 다음 시나리오 중 하나 이상에 해당하는 경우 다음 지침을 따르십시오.
 - VM이 **업그레이드 중** 또는 **사용할 수 없음** 상태로 멈춤
 - 스택 수신기가 작동하지 않고 Windows 10 1809, 1903 또는 1909에서 실행 중임
 - **EXPIRED_REGISTRATION_TOKEN** 오류가 발생함
@@ -345,7 +345,7 @@ VM을 호스트 풀 및 서비스에 다시 등록하는 데 사용되는 새 �
 ### <a name="step-4-reinstall-the-agent-and-boot-loader"></a>4단계: 에이전트 및 부팅 로더 다시 설치
 
 최신 버전의 에이전트와 부팅 로더를 다시 설치하면 병렬 스택 및 Geneva 모니터링 에이전트도 자동으로 설치됩니다. 에이전트 및 부팅 로더를 다시 설치하려면 다음을 수행합니다.
-1. 관리자 권한으로 VM에 로그인하고 VM에서 실행 중인 Windows 버전에 따라 배포에 맞는 에이전트 설치 프로그램 버전을 사용합니다. Windows 10 VM이 있는 경우 [가상 머신 등록](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool)의 지침에 따라 **Windows Virtual Desktop 에이전트** 및 **Windows Virtual Desktop 에이전트 부팅 로더** 를 다운로드합니다. Windows 7 VM이 있는 경우 [가상 머신 등록](deploy-windows-7-virtual-machine.md#configure-a-windows-7-virtual-machine)의 13~14 단계에 따라 **Windows Virtual Desktop 에이전트** 및 **Windows Virtual Desktop 에이전트 관리자** 를 다운로드합니다.
+1. 관리자 권한으로 VM에 로그인하고 VM에서 실행 중인 Windows 버전에 따라 배포에 맞는 에이전트 설치 프로그램 버전을 사용합니다. Windows 10 VM이 있는 경우 [가상 머신 등록](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool)의 지침에 따라 **Azure Virtual Desktop 에이전트** 및  **Azure Virtual Desktop 에이전트 부팅 로더** 를 다운로드합니다. Windows 7 VM이 있는 경우 [가상 머신 등록](deploy-windows-7-virtual-machine.md#configure-a-windows-7-virtual-machine)의 13~14 지침에 따라 **Azure Virtual Desktop 에이전트** 및 **Azure Virtual Desktop 에이전트 관리자** 를 다운로드합니다.
 
    > [!div class="mx-imgBorder"]
    > ![에이전트 및 부팅 로더 다운로드 페이지의 스크린샷](media/download-agent.png)
@@ -371,15 +371,15 @@ VM을 호스트 풀 및 서비스에 다시 등록하는 데 사용되는 새 �
 
 ## <a name="next-steps"></a>다음 단계
 
-문제가 계속되면 지원 사례를 만들어서 현재 겪고 있는 문제와 문제를 해결하기 위해 취한 조치에 대한 자세한 정보를 포함하세요. 다음 목록에는 Windows Virtual Desktop 배포에서 발생하는 문제를 해결하는 데 사용할 수 있는 기타 리소스가 포함되어 있습니다.
+문제가 계속되면 지원 사례를 만들어서 현재 겪고 있는 문제와 문제를 해결하기 위해 취한 조치에 대한 자세한 정보를 포함하세요. 다음 목록에는 Azure Virtual Desktop 배포에서 발생하는 문제를 해결하는 데 사용할 수 있는 기타 리소스가 포함되어 있습니다.
 
-- Windows Virtual Desktop 및 에스컬레이션 트랙 문제 해결에 대한 개요는 [문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview.md)을 참조하세요.
-- Windows Virtual Desktop 환경에서 호스트 풀을 만드는 동안 발생하는 문제를 해결하려면 [환경 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)를 참조하세요.
-- Windows Virtual Desktop에서 VM(가상 머신)을 구성하면서 생기는 문제를 해결하려면 [세션 호스트 가상 머신 구성](troubleshoot-vm-configuration.md)을 참조하세요.
-- Windows Virtual Desktop 클라이언트 연결 문제를 해결하려면 [Windows Virtual Desktop 서비스 연결](troubleshoot-service-connection.md)을 참조하세요.
+- Azure Virtual Desktop 및 에스컬레이션 트랙 문제 해결에 대한 개요는 [문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview.md)을 참조하세요.
+- Azure Virtual Desktop 환경에서 호스트 풀을 만드는 동안 발생하는 문제를 해결하려면 [환경 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)를 참조하세요.
+- Azure Virtual Desktop에서 VM(가상 머신)을 구성하는 동안 문제를 해결하려면 [세션 호스트 가상 머신 구성](troubleshoot-vm-configuration.md)을 참조하세요.
+- Azure Virtual Desktop 클라이언트 연결 문제를 해결하려면 [Azure Virtual Desktop 서비스 연결](troubleshoot-service-connection.md)을 참조하세요.
 - 원격 데스크톱 클라이언트와 관련된 문제를 해결하려면 [원격 데스크톱 클라이언트 문제 해결](troubleshoot-client.md)을 참조하세요.
-- Windows Virtual Desktop과 함께 PowerShell을 사용할 때 발생하는 문제를 해결하려면 [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md)을 참조하세요.
-- 서비스에 대한 자세한 내용은 [Windows Virtual Desktop 환경](environment-setup.md)을 참조하세요.
+- Azure Virtual Desktop과 함께 PowerShell을 사용할 때 발생하는 문제를 해결하려면 [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md)을 참조하세요.
+- 서비스에 대한 자세한 내용은 [Azure Virtual Desktop 환경](environment-setup.md)을 참조하세요.
 - 문제 해결 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포 문제 해결](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조하세요.
 - 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](../azure-resource-manager/management/view-activity-logs.md)를 참조하세요.
 - 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](../azure-resource-manager/templates/deployment-history.md)를 참조하세요.

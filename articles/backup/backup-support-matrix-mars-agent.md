@@ -1,14 +1,14 @@
 ---
 title: MARS 에이전트 지원 매트릭스
 description: 이 문서에는 MARS(Microsoft Azure Recovery Services) 에이전트를 실행하는 컴퓨터를 백업할 때의 Azure Backup 지원이 요약되어 있습니다.
-ms.date: 08/30/2019
+ms.date: 06/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2170440b7b47861b75801b8dbd334686b4cabc8b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 068a5391130f569a2d56fa9bd605356036e7737f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98985617"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952992"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 
@@ -50,77 +50,7 @@ Location | 캐시 폴더는 백업되는 컴퓨터에 로컬로 저장되어야 
 
 ## <a name="networking-and-access-support"></a>네트워킹 및 액세스 지원
 
-### <a name="url-and-ip-access"></a>URL 및 IP 액세스
-
-MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
-
-- `http://www.msftncsi.com/ncsi.txt`
-- *.Microsoft.com
-- *.WindowsAzure.com
-- *.MicrosoftOnline.com
-- *.Windows.net
-- `www.msftconnecttest.com`
-
-또한 다음 IP 주소에 액세스해야 합니다.
-
-- 20.190.128.0/18
-- 40.126.0.0/18
-
-위에 나열된 모든 URL 및 IP 주소에 대한 액세스는 포트 443에서 HTTPS 프로토콜을 사용합니다.
-
-MARS 에이전트를 사용하여 Azure VM에서 파일 및 폴더를 백업하는 경우 Azure 가상 네트워크도 액세스를 허용하도록 구성해야 합니다. NSG(네트워크 보안 그룹)를 사용하는 경우 *AzureBackup* 서비스 태그를 사용하여 Azure Backup에 대한 아웃바운드 액세스를 허용하세요. Azure Backup 태그 외에도 Azure AD(*AzureActiveDirectory*) 및 Azure Storage(*Storage*)에 대해 유사한 [NSG 규칙](../virtual-network/network-security-groups-overview.md#service-tags)을 만들어 인증 및 데이터 전송에 대한 연결을 허용해야 합니다. 다음 단계에서는 Azure Backup 태그에 대한 규칙을 만드는 프로세스에 대해 설명합니다.
-
-1. **모든 서비스** 에서 **네트워크 보안 그룹** 으로 이동하여 네트워크 보안 그룹을 선택합니다.
-2. **설정** 아래에서 **아웃바운드 보안 규칙** 을 선택합니다.
-3. **추가** 를 선택합니다. [보안 규칙 설정](../virtual-network/manage-network-security-group.md#security-rule-settings)에 설명된 대로 새 규칙을 만드는 데 필요한 세부 정보를 모두 입력합니다. **대상** 옵션이 *서비스 태그* 로 설정되고 **대상 서비스 태그** 가 *AzureBackup* 으로 설정되어 있는지 확인합니다.
-4. **추가** 를 선택하여 새로 만든 아웃바운드 보안 규칙을 저장합니다.
-
-마찬가지로, Azure Storage 및 Azure AD에 대한 NSG 아웃바운드 보안 규칙을 만들 수 있습니다. 서비스 태그에 대한 자세한 내용은 이 [문서](../virtual-network/service-tags-overview.md)를 참조하세요.
-
-### <a name="azure-expressroute-support"></a>Azure ExpressRoute 지원
-
-공용 피어링(이전 회로에 사용 가능) 및 Microsoft 피어링을 사용하여 Azure ExpressRoute를 통해 데이터를 백업할 수 있습니다. 개인 피어링에 대한 백업은 지원되지 않습니다.
-
-공용 피어링 사용: 다음 도메인/주소에 대한 액세스를 확인합니다.
-
-* URL
-  * `www.msftncsi.com`
-  * `*.Microsoft.com`
-  * `*.WindowsAzure.com`
-  * `*.microsoftonline.com`
-  * `*.windows.net`
-  * `www.msftconnecttest.com`
-* IP 주소
-  * 20.190.128.0/18
-  * 40.126.0.0/18
-
-Microsoft 피어링을 사용하여 다음 서비스/지역 및 관련 커뮤니티 값을 선택합니다.
-
-- Azure Backup(Recovery Services 자격 증명 모음의 위치에 따름)
-- Azure Active Directory(12076:5060)
-- Azure Storage(Recovery Services 자격 증명 모음의 위치에 따름)
-
-자세한 내용은 [ExpressRoute 라우팅 요구 사항](../expressroute/expressroute-routing.md#bgp)을 참조하세요.
-
->[!NOTE]
->공용 피어링은 새 회로에 사용되지 않습니다.
-
-### <a name="private-endpoint-support"></a>프라이빗 엔드포인트 지원
-
-이제 프라이빗 엔드포인트를 사용하여 데이터를 서버에서 Recovery Services 자격 증명 모음으로 안전하게 백업할 수 있습니다. Azure Active Directory는 현재 프라이빗 엔드포인트를 지원하지 않으므로 Azure Active Directory에 필요한 IP 및 FQDN은 별도의 아웃바운드 액세스가 허용되어야 합니다.
-
-MARS 에이전트를 사용하여 온-프레미스 리소스를 백업하는 경우 (백업할 리소스가 포함된) 온-프레미스 네트워크는 자격 증명 모음의 프라이빗 엔드포인트를 포함하는 Azure VNet과 피어링됩니다. 그러면 MARS 에이전트를 계속 설치하고 백업을 구성할 수 있습니다. 다만 백업을 위한 모든 통신은 피어링된 네트워크를 통해 수행되어야 합니다.
-
-MARS 에이전트를 등록한 후에 자격 증명 모음의 프라이빗 엔드포인트를 제거하는 경우 컨테이너를 자격 증명 모음에 다시 등록해야 합니다. 보호를 중지할 필요는 없습니다.
-
-[Azure Backup의 프라이빗 엔드포인트](private-endpoints.md)에 대해 자세히 알아보세요.
-
-### <a name="throttling-support"></a>제한 지원
-
-**기능** | **세부 정보**
---- | ---
-대역폭 제어 | 지원됨. MARS 에이전트에서 **속성 변경** 을 사용하여 대역폭을 조정합니다.
-네트워크 제한 | Windows Server 2008 R2, Windows Server 2008 SP2 또는 Windows 7을 실행하는 백업된 컴퓨터에는 사용할 수 없습니다.
+[!INCLUDE [Configuring network connectivity](../../includes/backup-network-connectivity.md)]
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
@@ -234,6 +164,29 @@ Azure Backup은 디스크를 사용하여 초기 백업 데이터를 Azure로 �
 Azure Backup의 [즉시 복원](backup-instant-restore-capability.md) 기능을 사용하면 자격 증명 모음에 복사하기 전에 데이터를 복원할 수 있습니다. 백업하는 컴퓨터가 .NET Framework 4.5.2 이상을 실행해야 합니다.
 
 이전 버전의 운영 체제를 실행 중인 대상 컴퓨터에는 백업을 복원할 수 없습니다. 예를 들어 Windows 7를 실행하는 컴퓨터에서 만든 백업은 Windows 8 이상에서 복원할 수 있습니다. 그러나 Windows 8을 실행하는 컴퓨터에서 만든 백업은 Windows 7을 실행하는 컴퓨터에서 복원할 수 없습니다.
+
+## <a name="previous-mars-agent-versions"></a>이전 MARS 에이전트 버전
+
+다음 표에는 이전 버전의 에이전트가 다운로드 링크와 함께 나열됩니다. 최신 기능과 최적의 성능을 활용할 수 있도록 에이전트 버전을 최신 버전으로 업그레이드하는 것이 좋습니다.
+
+**버전** | **기술 자료 문서**
+--- | ---
+[2.0.9145.0](https://download.microsoft.com/download/4/5/E/45EB38B4-2DA7-45FA-92E1-5CA1E23D18D1/MARSAgentInstaller.exe) | 사용할 수 없음
+[2.0.9151.0](https://download.microsoft.com/download/7/1/7/7177B70A-51E8-434D-BDF2-FA3A09E917D6/MARSAgentInstaller.exe) | 사용할 수 없음
+[2.0.9153.0](https://download.microsoft.com/download/3/D/D/3DD8A2FF-AC48-4A62-8566-B2C05F0BCCD0/MARSAgentInstaller.exe) | 사용할 수 없음
+[2.0.9162.0](https://download.microsoft.com/download/0/1/0/010E598E-6289-47DB-872A-FFAF5030E6BE/MARSAgentInstaller.exe) | 사용할 수 없음
+[2.0.9169.0](https://download.microsoft.com/download/f/7/1/f716c719-24bc-4337-af48-113baddc14d8/MARSAgentInstaller.exe) | [4515971](https://support.microsoft.com/help/4538314)
+[2.0.9170.0](https://download.microsoft.com/download/1/8/7/187ca9a9-a6e5-45f0-928f-9a843d84aed5/MARSAgentInstaller.exe) | 사용할 수 없음
+[2.0.9173.0](https://download.microsoft.com/download/7/9/2/79263a35-de87-4ba6-9732-65563a4274b6/MARSAgentInstaller.exe) | [4538314](https://support.microsoft.com/help/4538314)
+[2.0.9177.0](https://download.microsoft.com/download/3/0/4/304d3cdf-b123-42ee-ad03-98fb895bc38f/MARSAgentInstaller.exe) | 사용할 수 없음
+[2.0.9181.0](https://download.microsoft.com/download/6/6/9/6698bc49-e30b-4a3e-a1f4-5c859beafdcc/MARSAgentInstaller.exe) | 사용할 수 없음
+[2.0.9190.0](https://download.microsoft.com/download/a/c/e/aceffec0-794e-4259-8107-92a3f6c10f55/MARSAgentInstaller.exe) | [4575948](https://support.microsoft.com/help/4575948)
+[2.0.9195.0](https://download.microsoft.com/download/6/1/3/613b70a7-f400-4806-9d98-ae26aeb70be9/MARSAgentInstaller.exe) | [4582474](https://support.microsoft.com/help/4582474)
+[2.0.9197.0](https://download.microsoft.com/download/2/7/5/27531ace-3100-43bc-b4af-7367680ea66b/MARSAgentInstaller.exe) | [4589598](https://support.microsoft.com/help/4589598)
+[2.0.9207.0](https://download.microsoft.com/download/b/5/a/b5a29638-1cef-4906-b704-4d3d914af76e/MARSAgentInstaller.exe) | [5001305](https://support.microsoft.com/help/5001305)
+
+>[!NOTE]
+>안정성과 성능이 약간 개선된 MARS 에이전트 버전에는 KB 문서가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

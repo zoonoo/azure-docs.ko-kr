@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2021
-ms.openlocfilehash: 41b327e793c6b35a2b2aeae825c493a484d84fb4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/10/2021
+ms.openlocfilehash: 4bbb85593d41b56ba465f577c3be35de43ba610a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562769"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468617"
 ---
 # <a name="train-model-module"></a>모델 학습 모듈
 
@@ -75,9 +75,16 @@ Azure Machine Learning에서 기계 학습 모델을 만들고 사용하는 과�
 
 - 선형 회귀
 - 신경망 회귀
+- 향상된 의사 결정 트리 회귀
+- 의사 결정 포리스트 회귀
+- 포아송 회귀
 - 2클래스 로지스틱 회귀
 - 2클래스 Support Vector Machine
+- 2클래스 향상된 의사 결정 트리
+- 2클래스 의사 결정 포리스트
 - 다중 클래스 의사 결정 포리스트
+- 다중 클래스 로지스틱 회귀 분석
+- 다중 클래스 신경망
 
 모델 설명을 생성하려면 모델 학습 모듈의 **모델 설명** 드롭다운 목록에서 **True** 를 선택합니다. **모델 학습** 모듈에서는 기본적으로 False로 설정되어 있습니다. 설명 생성하려면 추가 컴퓨팅 비용이 필요합니다.
 

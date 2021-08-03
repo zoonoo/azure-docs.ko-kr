@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 06/14/2021
 ms.author: memildin
-ms.openlocfilehash: 1a6a9080a8957b56d12eca289a500fd45f0e709b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: fefbc605702539cb882aba4c7802d284b4291a9c
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310821"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112062301"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Kubernetes 워크로드 보호
 
@@ -21,7 +21,7 @@ ms.locfileid: "107310821"
 
 [Kubernetes 허용 제어를 사용한 워크로드 보호 모범 사례](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)에서 해당 기능에 대해 자세히 알아보세요.
 
-Security Center는 Azure Defender를 사용하도록 설정하는 경우 더 많은 컨테이너 보안 기능을 제공합니다. 특히 다음 사항에 주의하세요.
+Security Center는 Azure Defender를 사용하도록 설정하는 경우 더 많은 컨테이너 보안 기능을 제공합니다. 특히:
 
 - [컨테이너 레지스트리용 Azure Defender](defender-for-container-registries-introduction.md)로 컨테이너 레지스트리의 취약성을 검사합니다.
 - [Kubernetes용 Azure Defender](defender-for-kubernetes-introduction.md) K8s 클러스터에 대한 실시간 위협 탐지 경고를 가져옵니다.
@@ -33,14 +33,14 @@ Security Center는 Azure Defender를 사용하도록 설정하는 경우 더 많
 
 ## <a name="availability"></a>가용성
 
-|양상|세부 정보|
-|----|:----|
-|릴리스 상태:|GA(일반 공급)|
-|가격 책정:|Free|
-|필요한 역할 및 권한:|할당을 편집하기 위한 **소유자** 또는 **보안 관리자**<br>권장 사항을 보기 위한 **읽기 권한자**|
-|환경 요구 사항:|Kubernetes v1.14 이상이 필요합니다.<br>클러스터에 PodSecurityPolicy 리소스(이전 PSP 모델)가 없습니다.<br>Windows 노드는 지원되지 않습니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
-|||
+| 양상                          | 세부 정보                                                                                                                                      |
+|---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
+| 릴리스 상태:                  | GA(일반 공급)                                                                                                                    |
+| 가격 책정:                        | Free                                                                                                                                         |
+| 필요한 역할 및 권한: | 할당을 편집하기 위한 **소유자** 또는 **보안 관리자**<br>권장 사항을 보기 위한 **읽기 권한자**                                              |
+| 환경 요구 사항:       | Kubernetes v1.14 이상이 필요합니다.<br>클러스터에 PodSecurityPolicy 리소스(이전 PSP 모델)가 없습니다.<br>Windows 노드는 지원되지 않습니다. |
+| 클라우드:                         | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부) |
+|                                 |                                                                                                                                              |
 
 
 ## <a name="set-up-your-workload-protection"></a>워크로드 보호 설정
@@ -69,7 +69,7 @@ Azure Security Center에는 **Kubernetes용 Azure Policy 추가 기능** 을 설
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="**클러스터에 Kubernetes용 Azure Policy 추가 기능을 설치하고 사용하도록 설정해야 함**에 대한 권장 사항 세부 정보 페이지":::
 
-### <a name="step-2-view-and-configure-the-bundle-of-13-recommendations"></a>2단계: 13개 권장 사항 번들 보기 및 구성
+### <a name="step-2-view-and-configure-the-bundle-of-recommendations"></a>02단계: 권장 사항 번들 보기 및 구성
 
 1. 추가 기능 설치가 완료되고 약 30분 후에 Security Center에는 다음과 같은 권장 사항에 대한 클러스터의 상태가 표시되며, 각각 관련 보안 제어에 다음과 같이 표시됩니다.
 
@@ -253,5 +253,5 @@ spec:
 기타 관련 자료는 다음 페이지를 참조하세요. 
 
 - [컴퓨팅에 대한 Security Center 권장 사항](recommendations-reference.md#recs-compute)
-- [AKS 클러스터 수준에 대한 경고](alerts-reference.md#alerts-akscluster)
+- [AKS 클러스터 수준에 대한 경고](alerts-reference.md#alerts-k8scluster)
 - [컨테이너 호스트 수준에 대한 경고](alerts-reference.md#alerts-containerhost)

@@ -1,20 +1,20 @@
 ---
-title: 승인된 베이스인 Azure Marketplace에서 Azure VM(가상 머신 제품) 만들기
-description: 승인된 베이스에서 VM(가상 머신) 제품을 만드는 방법에 대해 알아봅니다.
+title: 승인된 베이스에서 Azure VM(가상 머신 제품) 만들기
+description: 승인된 베이스(Azure Marketplace)에서 VM(가상 머신) 제품을 만드는 방법에 대해 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: krsh
 ms.date: 04/16/2021
-ms.openlocfilehash: 19ae4b929964aaeb971bef75a2a620e40e4667f5
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 23fc6f6f6a62230e2cfc710c1c738eb42d6cc115
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727171"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111527546"
 ---
-# <a name="how-to-create-a-virtual-machine-using-an-approved-base"></a>승인된 베이스를 사용하여 가상 머신을 만드는 방법
+# <a name="create-a-virtual-machine-using-an-approved-base"></a>승인된 베이스를 사용하여 가상 머신 만들기
 
 이 문서에서는 Azure를 사용하여 사전 구성된 인증 운영 체제를 포함하는 VM(가상 머신)을 만드는 방법을 설명합니다. 솔루션과 호환되지 않는 경우 승인된 운영 체제를 사용하여 [온-프레미스 VM을 만들고 구성](azure-vm-create-using-own-image.md)할 수 있습니다.
 

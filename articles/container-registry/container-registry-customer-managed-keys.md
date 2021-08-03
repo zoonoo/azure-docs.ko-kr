@@ -2,14 +2,14 @@
 title: 고객 관리형 키를 사용하여 레지스트리 암호화
 description: Azure 컨테이너 레지스트리의 저장 데이터 암호화 및 Azure Key Vault에 저장된 고객 관리형 키를 사용하여 프리미엄 레지스트리를 암호화하는 방법을 알아봅니다.
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 05/27/2021
 ms.custom: ''
-ms.openlocfilehash: 9ec32e32d187a3db07f023c78efbd301ef578cbc
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 84a949e26bbf5677888185741e06139ed2d35db2
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107817038"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412748"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>고객 관리형 키를 사용하여 레지스트리 암호화
 
@@ -26,7 +26,7 @@ ms.locfileid: "107817038"
 
 ## <a name="things-to-know"></a>알아야 할 사항
 
-* 고객 관리형 키는 현재 레지스트리를 만들 때만 사용하도록 설정할 수 있습니다. 키를 사용할 때 키 자격 증명 모음에 액세스하기 위해 *사용자가 할당한* 관리 ID를 구성합니다.
+* 고객 관리형 키는 현재 레지스트리를 만들 때만 사용하도록 설정할 수 있습니다. 키를 사용할 때 키 자격 증명 모음에 액세스하기 위해 *사용자가 할당한* 관리 ID를 구성합니다. 나중에 필요한 경우 키 자격 증명 모음 액세스를 위해 레지스트리의 시스템 관리 ID를 사용하도록 설정할 수 있습니다.
 * 레지스트리에서 고객 관리형 키를 사용하여 암호화를 설정한 후에는 암호화를 사용하지 않도록 설정할 수 없습니다.  
 * Azure Container Registry는 RSA 또는 RSA-HSM 키만 지원합니다. 타원 곡선 키는 현재 지원되지 않습니다.
 * [콘텐츠 신뢰](container-registry-content-trust.md)는 현재 고객 관리형 키로 암호화된 레지스트리에서 지원되지 않습니다.
@@ -516,11 +516,14 @@ az keyvault delete-policy \
   --object-id $identityPrincipalID
 ```
 
-레지스트리는 암호화 키에 액세스할 수 없으므로 키를 철회하면 모든 레지스트리 데이터에 대한 액세스가 효과적으로 차단됩니다. 키에 대한 액세스를 사용하도록 설정되거나 삭제된 키가 복원되는 경우 레지스트리에서 암호화된 레지스트리 데이터에 다시 액세스할 수 있도록 키를 선택합니다.
+레지스트리는 암호화 키에 액세스할 수 없으므로 키를 철회하면 모든 레지스트리 데이터에 대한 액세스가 효과적으로 차단됩니다. 키에 대한 액세스를 사용하도록 설정되거나 삭제된 키가 복원되는 경우 레지스트리에서 암호화된 레지스트리 데이터에 다시 액세스할 수 있도록 키를 선택합니다. 
 
 ## <a name="advanced-scenario-key-vault-firewall"></a>고급 시나리오: Key Vault 방화벽
 
-공용 액세스를 거부하고 프라이빗 엔드포인트 또는 선택한 가상 네트워크만 허용하는 [Key Vault 방화벽](../key-vault/general/network-security.md)으로 구성된 기존 Azure Key Vault를 사용하여 암호화 키를 저장할 수 있습니다. 
+> [!IMPORTANT]
+> 현재 레지스트리 배포 중에 레지스트리의 *사용자 할당* ID는 [Key Vault 방화벽](../key-vault/general/network-security.md)으로 구성된 것이 아니라 공용 액세스를 허용하는 Key Vault의 암호화 키에만 액세스하도록 구성할 수 있습니다. 
+> 
+> Key Vault 방화벽으로 보호되는 Key Vault에 액세스하려면 레지스트리에서 *시스템 관리* ID를 사용하여 방화벽을 우회해야 합니다. 현재 이러한 설정은 레지스트리가 배포된 후에만 구성할 수 있습니다. 
 
 이 시나리오의 경우, 먼저 [Azure CLI](#enable-customer-managed-key---cli), [포털](#enable-customer-managed-key---portal) 또는 [템플릿](#enable-customer-managed-key---template)을 사용하여 고객 관리형 키로 암호화된 새 사용자가 할당한 ID, 키 자격 증명 모음 및 컨테이너 레지스트리를 만듭니다. 자세한 단계는 이 문서의 이전 섹션에 나와 있습니다.
    > [!NOTE]

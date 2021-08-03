@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2021
 ms.author: yelevin
-ms.openlocfilehash: 8980a8920b4f41f5a8e6afe106415032eef2055b
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: ab24c9157a82591352e3511e15d4b45c750444db
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375844"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110497662"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>자습서: Azure Sentinel을 사용하여 인시던트 조사
 
 > [!IMPORTANT]
-> 조사 그래프는 이제 **일반 공급** 입니다. 
+> 조사 그래프는 이제 **일반 공급** 입니다.
 
 이 자습서는 Azure Sentinel을 사용하여 인시던트를 조사하는 데 도움이 됩니다. 데이터 원본을 Azure Sentinel에 연결한 후 의심스러운 상황이 발생하면 알림이 표시됩니다. 이를 사용하기 위해 Azure Sentinel은 할당 및 조사할 수 있는 인시던트를 생성하는 고급 경고 규칙을 만들게 해 줍니다.
 
@@ -85,12 +85,14 @@ ms.locfileid: "107375844"
 
 1. 인시던트를 선택하고 **조사** 를 선택합니다. 그러면 조사 그래프로 이동합니다. 그래프는 경고에 직접 연결된 엔터티 및 추가로 연결된 각 리소스의 설명 맵을 제공합니다.
 
+
+    [ ![지도 보기.](media/tutorial-investigate-cases/investigation-map.png) ](media/tutorial-investigate-cases/investigation-map.png#lightbox)
+
    > [!IMPORTANT] 
    > - 분석 규칙을 설정할 때 엔터티 매핑 필드를 사용한 경우에만 인시던트를 조사할 수 있습니다. 조사 그래프에서 원본 인시던트에 엔터티를 포함해야 합니다.
    >
    > - Azure Sentinel은 현재 **최대 30일 이전의 인시던트** 조사를 지원합니다.
 
-   ![지도 보기](media/tutorial-investigate-cases/map1.png)
 
 1. 엔터티를 선택하면 해당 엔터티에 대한 정보를 검토할 수 있는 **엔터티** 창이 열립니다.
 
@@ -125,6 +127,8 @@ ms.locfileid: "107375844"
 - 결정되지 않음
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="분류 선택 목록에서 사용할 수 있는 분류를 강조 표시하는 스크린샷.":::
+
+가양성 및 양성 양성에 대한 자세한 내용은 [Azure Sentinel에서 가양성 처리](false-positives.md)를 참조하세요.
 
 적절한 분류를 선택한 후 **설명** 필드에 설명 텍스트를 추가합니다. 이 문제는 이 인시던트를 다시 참조해야 하는 경우에 유용합니다. 완료되면 **적용** 을 클릭합니다. 그러면 인시던트가 종결됩니다.
 

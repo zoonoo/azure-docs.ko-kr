@@ -2,6 +2,7 @@
 title: Azure 게스트 OS에 적용된 업데이트 목록 | Microsoft Docs
 description: 이 문서에서는 다른 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터 업데이트를 나열합니다. 업데이트가 사용 중인 게스트 OS에 적용되는지 확인합니다.
 services: cloud-services
+ms.subservice: auto-os-updates
 documentationcenter: na
 author: gunnarcms
 editor: ''
@@ -10,17 +11,185 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/28/2021
+ms.date: 6/14/2021
 ms.author: gunnarc
-ms.openlocfilehash: c9a4a5229629b2a65b167a80fce8e502612dcf3c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a516fd1706fdd07ad3c28a0a9e3058de5603cd40
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709908"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078639"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+## <a name="june-2021-guest-os"></a>2021년 6월 게스트 OS
+
+>[!NOTE] 
+
+>6월 게스트 OS는 현재 자동 업데이트에 구성된 클라우드 서비스 VM에 배포되고 있습니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 다음과 같은 패치가 6월 게스트 OS에 포함됩니다. 이 목록은 변경될 수 있습니다. 
+
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+|  Rel 21-06 |  [5003646]  |  LCU(최신 누적 업데이트) | 6.32 | 2021년 6월 8일 |
+|  Rel 21-06 |  [4580325]  |  Flash 업데이트 | 3.98, 4.91, 5.56, 6.32 | 2020년 10월 13일 |
+|  Rel 21-06 |  [5003636]  |  IE 누적 업데이트 | 2.111, 3.98, 4.91 | 2021년 6월 8일 |
+|  Rel 21-06 |  [5003638]  |  LCU(최신 누적 업데이트) | 5.56 | 2021년 6월 8일 |
+|  Rel 21-06 |  [4578952]  |  .NET Framework 3.5 보안 및 품질 롤업  | 2.111 | 2020년 10월 13일 |
+|  Rel 21-06 |  [4578955]  |  .NET Framework 4.5.2 보안 및 품질 롤업  | 2.111 | 2020년 10월 13일 |
+|  Rel 21-06 |  [4578953]  |  .NET Framework 3.5 보안 및 품질 롤업  | 4.91 | 2020년 10월 13일 |
+|  Rel 21-06 |  [4578956]  |  .NET Framework 4.5.2 보안 및 품질 롤업  | 4.91 | 2020년 10월 13일 |
+|  Rel 21-06 |  [4578950]  |  .NET Framework 3.5 보안 및 품질 롤업  | 3.98 | 2020년 10월 13일 |
+|  Rel 21-06 |  [4578954]  |  . .NET Framework 4.5.2 보안 및 품질 롤업  | 3.98 | 2020년 10월 13일 |
+|  Rel 21-06 |  [4601060]  |  . NET Framework 3.5 및 4.7.2 누적 업데이트  | 6.32 | 2021년 2월 9일 |
+|  Rel 21-06 |  [5003667]  |  월간 롤업  | 2.111 | 2021년 6월 8일 |
+|  Rel 21-06 |  [5003697]  |  월간 롤업  | 3.98 | 2021년 6월 8일 |
+|  Rel 21-06 |  [5003671]  |  월간 롤업  | 4.91 | 2021년 6월 8일 |
+|  Rel 21-06 |  [5001401]  |  서비스 스택 업데이트  | 3.98 | 2021년 4월 13일 |
+|  Rel 21-06 |  [5001403]  |  서비스 스택 업데이트  | 4.91 | 2021년 4월 13일 |
+|  Rel 21-06 OOB |  [4578013]  |  독립 실행형 보안 업데이트  | 4.91 | 2020년 8월 19일 |
+|  Rel 21-06 |  [5001402]  |  서비스 스택 업데이트  | 5.56 | 2021년 4월 13일 |
+|  Rel 21-06 |  [4592510]  |  서비스 스택 업데이트  | 2.111 | 2020년 12월 8일 |
+|  Rel 21-06 |  [5003711]  |  서비스 스택 업데이트  | 6.32 | 2021년 6월 8일 |
+|  Rel 21-06 |  [4494175]  |  마이크로코드  | 5.56 | 2020년 9월 1일 |
+|  Rel 21-06 |  [4494174]  |  마이크로코드  | 6.32 | 2020년 9월 1일 |
+|  Rel 21-06 |  [4052623]  |  Microsoft Defender 맬웨어 방지 플랫폼 업데이트 | 6.32, 5.56 | 2021년 5월 13일 |
+
+[5003646]: https://support.microsoft.com/kb/5003646
+[4580325]: https://support.microsoft.com/kb/4580325
+[5003636]: https://support.microsoft.com/kb/5003636
+[5003638]: https://support.microsoft.com/kb/5003638
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5003667]: https://support.microsoft.com/kb/5003667
+[5003697]: https://support.microsoft.com/kb/5003697
+[5003671]: https://support.microsoft.com/kb/5003671
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[4592510]: https://support.microsoft.com/kb/4592510
+[5003711]: https://support.microsoft.com/kb/5003711
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[4052623]: https://support.microsoft.com/kb/4052623
+
+## <a name="may-2021-guest-os"></a>2021년 5월 게스트 OS
+
+
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+|  Rel 21-05 |  [5003171]  |  LCU(최신 누적 업데이트) | [6.31] | 2021년 5월 11일 |
+|  Rel 21-05 |  [4580325]  |  Flash 업데이트 | [3.97], [4.90], [5.55], [6.31] | 2020년 10월 13일 |
+|  Rel 21-05 |  [5003165]  |  IE 누적 업데이트 | [2.110], [3.97], [4.90] | 2021년 5월 11일 |
+|  Rel 21-05 |  [5003197]  |  LCU(최신 누적 업데이트) | [5.55] | 2021년 5월 11일 |
+|  Rel 21-05 |  [4578952]  |  .NET Framework 3.5 보안 및 품질 롤업  | [2.110] | 2020년 10월 13일 |
+|  Rel 21-05 |  [4578955]  |  .NET Framework 4.5.2 보안 및 품질 롤업  | [2.110] | 2020년 10월 13일 |
+|  Rel 21-05 |  [4578953]  |  .NET Framework 3.5 보안 및 품질 롤업  | [4.90] | 2020년 10월 13일 |
+|  Rel 21-05 |  [4578956]  |  .NET Framework 4.5.2 보안 및 품질 롤업  | [4.90] | 2020년 10월 13일 |
+|  Rel 21-05 |  [4578950]  |  .NET Framework 3.5 보안 및 품질 롤업  | [3.97] | 2020년 10월 13일 |
+|  Rel 21-05 |  [4578954]  |  . .NET Framework 4.5.2 보안 및 품질 롤업  | [3.97] | 2020년 10월 13일 |
+|  Rel 21-05 |  [4601060]  |  . NET Framework 3.5 및 4.7.2 누적 업데이트  | [6.31] | 2021년 2월 9일 |
+|  Rel 21-05 |  [5003233]  |  월간 롤업  | [2.110] | 2021년 5월 11일 |
+|  Rel 21-05 |  [5003208]  |  월간 롤업  | [3.97] | 2021년 5월 11일 |
+|  Rel 21-05 |  [5003209]  |  월간 롤업  | [4.90] | 2021년 5월 11일 |
+|  Rel 21-05 |  [5001401]  |  서비스 스택 업데이트  | [3.97] | 2021년 4월 13일 |
+|  Rel 21-05 |  [5001403]  |  서비스 스택 업데이트  | [4.90] | 2021년 4월 13일 |
+|  Rel 21-05 OOB |  [4578013]  |  독립 실행형 보안 업데이트  | [4.90] | 2020년 8월 19일 |
+|  Rel 21-05 |  [5001402]  |  서비스 스택 업데이트  | [5.55] | 2021년 4월 13일 |
+|  Rel 21-05 |  [4592510]  |  서비스 스택 업데이트  | [2.110] | 2020년 12월 8일 |
+|  Rel 21-05 |  [5003243]  |  서비스 스택 업데이트  | [6.31] | 2021년 5월 11일 |
+|  Rel 21-05 |  [4494175]  |  마이크로코드  | [5.55] | 2020년 9월 1일 |
+|  Rel 21-05 |  [4494174]  |  마이크로코드  | [6.31] | 2020년 9월 1일 |
+
+[5003171]: https://support.microsoft.com/kb/5003171
+[4580325]: https://support.microsoft.com/kb/4580325
+[5003165]: https://support.microsoft.com/kb/5003165
+[5003197]: https://support.microsoft.com/kb/5003197
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5003233]: https://support.microsoft.com/kb/5003233
+[5003208]: https://support.microsoft.com/kb/5003208
+[5003209]: https://support.microsoft.com/kb/5003209
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[4592510]: https://support.microsoft.com/kb/4592510
+[5003243]: https://support.microsoft.com/kb/5003243
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.110]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.97]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.90]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.55]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.31]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+## <a name="april-2021-guest-os"></a>2021년 4월 게스트 OS
+
+
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+|  Rel 21-04 |  [5001342]  |  LCU(최신 누적 업데이트) | [6.30] | 2021년 4월 13일 |
+|  Rel 21-04 |  [4580325]  |  Flash 업데이트 | [3.96], [4.89], [5.54], [6.30] | 2020년 10월 13일 |
+|  Rel 21-04 |  [5000800]  |  IE 누적 업데이트 | [2.109], [3.96], [4.89] | 2021년 3월 9일 |
+|  Rel 21-04 |  [5001347]  |  LCU(최신 누적 업데이트) | [5.54] | 2021년 4월 13일 |
+|  Rel 21-04 |  [4578952]  |  .NET Framework 3.5 보안 및 품질 롤업  | [2.109] | 2020년 10월 13일 |
+|  Rel 21-04 |  [4578955]  |  .NET Framework 4.5.2 보안 및 품질 롤업  | [2.109] | 2020년 10월 13일 |
+|  Rel 21-04 |  [4578953]  |  .NET Framework 3.5 보안 및 품질 롤업  | [4.89] | 2020년 10월 13일 |
+|  Rel 21-04 |  [4578956]  |  .NET Framework 4.5.2 보안 및 품질 롤업  | [4.89] | 2020년 10월 13일 |
+|  Rel 21-04 |  [4578950]  |  .NET Framework 3.5 보안 및 품질 롤업  | [3.96] | 2020년 10월 13일 |
+|  Rel 21-04 |  [4578954]  |  . .NET Framework 4.5.2 보안 및 품질 롤업  | [3.96] | 2020년 10월 13일 |
+|  Rel 21-04 |  [4601060]  |  . NET Framework 3.5 및 4.7.2 누적 업데이트  | [6.30] | 2021년 2월 9일 |
+|  Rel 21-04 |  [5001335]  |  월간 롤업  | [2.109] | 2021년 3월 9일 |
+|  Rel 21-04 |  [5001387]  |  월간 롤업  | [3.96] | 2021년 4월 13일 |
+|  Rel 21-04 |  [5001382]  |  월간 롤업  | [4.89] | 2021년 4월 13일 |
+|  Rel 21-04 |  [5001401]  |  서비스 스택 업데이트  | [3.96] | 2021년 4월 13일 |
+|  Rel 21-04 |  [5001403]  |  서비스 스택 업데이트  | [4.89] | 2021년 4월 13일 |
+|  Rel 21-04 OOB |  [4578013]  |  독립 실행형 보안 업데이트  | [4.89] | 2020년 8월 19일 |
+|  Rel 21-04 |  [5001402]  |  서비스 스택 업데이트  | [5.54] | 2021년 4월 13일 |
+|  Rel 21-04 |  [4592510]  |  서비스 스택 업데이트  | [2.109] | 2020년 12월 8일 |
+|  Rel 21-04 |  [5001404]  |  서비스 스택 업데이트  | [6.30] | 2021년 4월 13일 |
+|  Rel 21-04 |  [4494175]  |  마이크로코드  | [5.54] | 2020년 9월 1일 |
+|  Rel 21-04 |  [4494174]  |  마이크로코드  | [6.30] | 2020년 9월 1일 |
+
+[5001342]: https://support.microsoft.com/kb/5001342
+[4580325]: https://support.microsoft.com/kb/4580325
+[5000800]: https://support.microsoft.com/kb/5000800
+[5001347]: https://support.microsoft.com/kb/5001347
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5001335]: https://support.microsoft.com/kb/5001335
+[5001387]: https://support.microsoft.com/kb/5001387
+[5001382]: https://support.microsoft.com/kb/5001382
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[4592510]: https://support.microsoft.com/kb/4592510
+[5001404]: https://support.microsoft.com/kb/5001404
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.109]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.96]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.89]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.54]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.30]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="march-2021-guest-os"></a>2021년 3월 게스트 OS
 

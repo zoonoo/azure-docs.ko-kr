@@ -9,42 +9,38 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fad9356d3379e76aa259d67711d18f14a4e266f
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 78468c9528c4502ce691dec183c261b9636325f8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107505278"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094333"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Azure Active Directory의 관리 단위 관리
 
 Azure Active Directory(Azure AD)의 보다 세부적인 관리 제어를 위해 하나 이상의 관리 단위로 제한되는 범위를 사용하여 Azure AD 역할에 사용자를 할당할 수 있습니다.
 
-## <a name="get-started"></a>시작
 
-1. [Graph 탐색기](https://aka.ms/ge)를 통해 다음 안내에서 쿼리를 실행하려면 다음을 수행합니다.
+## <a name="prerequisites"></a>필수 구성 요소
 
-    a. Azure Portal에서 Azure AD로 이동합니다. 
-    
-    b. 애플리케이션 목록에서 **Graph 탐색기** 를 선택합니다.
-    
-    c. **권한** 창에서 **Graph 탐색기에 대한 관리자 동의 허용** 을 선택합니다.
+- 각 관리 단위 관리자에 대한 Azure AD Premium P1 또는 P2 라이선스
+- 관리 단위 구성원에 대한 Azure AD Free 라이선스
+- 권한 있는 역할 관리자 또는 전역 관리자
+- PowerShell을 사용하는 경우 AzureAD 모듈
+- Microsoft Graph API용 Graph 탐색기 사용 시 관리자 동의
 
-    ![“Graph 탐색기에 대한 관리자 동의 허용” 링크를 보여 주는 스크린샷.](./media/admin-units-manage/select-graph-explorer.png)
-
-
-1. [Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/)을 사용합니다.
+자세한 내용은 [PowerShell 또는 Graph 탐색기를 사용하기 위한 필수 구성 요소](prerequisites.md)를 참조하세요.
 
 ## <a name="add-an-administrative-unit"></a>관리 단위 추가
 
 Azure Portal 또는 PowerShell을 사용하여 관리 단위를 추가할 수 있습니다.
 
-### <a name="use-the-azure-portal"></a>Azure Portal 사용
+### <a name="azure-portal"></a>Azure portal
 
 1. Azure Portal에서 Azure AD로 이동합니다. 그런 다음 왼쪽 창에서 **관리 단위** 를 선택합니다.
 
@@ -56,9 +52,7 @@ Azure Portal 또는 PowerShell을 사용하여 관리 단위를 추가할 수 �
 
 1. 파란색 **추가** 단추를 선택하여 관리 단위를 확정합니다.
 
-### <a name="use-powershell"></a>PowerShell 사용
-
-다음 명령을 실행하기 전에 [Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/)을 설치합니다.
+### <a name="powershell"></a>PowerShell
 
 ```powershell
 Connect-AzureAD
@@ -67,7 +61,7 @@ New-AzureADMSAdministrativeUnit -Description "West Coast region" -DisplayName "W
 
 필요에 따라 따옴표 안의 값을 수정할 수 있습니다.
 
-### <a name="use-microsoft-graph"></a>Microsoft Graph 사용
+### <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 요청
 
@@ -88,7 +82,7 @@ POST /administrativeUnits
 
 Azure AD에서 관리 역할의 범위 단위로 더 이상 필요하지 않은 관리 단위를 제거할 수 있습니다.
 
-### <a name="use-the-azure-portal"></a>Azure Portal 사용
+### <a name="azure-portal"></a>Azure portal
 
 1. Azure Portal에서 **Azure AD** 로 이동한 다음 **관리 단위** 를 선택합니다. 
 1. 삭제할 관리 단위를 선택하고 **삭제** 를 선택합니다. 
@@ -96,7 +90,7 @@ Azure AD에서 관리 역할의 범위 단위로 더 이상 필요하지 않은 
 
 ![관리 단위 삭제 단추 및 확인 창 스크린샷.](./media/admin-units-manage/select-admin-unit-to-delete.png)
 
-### <a name="use-powershell"></a>PowerShell 사용
+### <a name="powershell"></a>PowerShell
 
 ```powershell
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
@@ -105,7 +99,7 @@ Remove-AzureADMSAdministrativeUnit -Id $adminUnitObj.Id
 
 특정 환경의 필요에 따라 따옴표 안의 값을 수정할 수 있습니다.
 
-### <a name="use-the-graph-api"></a>Graph API 사용
+### <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 요청
 

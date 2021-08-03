@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 10/14/2020
-ms.author: akjosh
+ms.date: 6/8/2021
+ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 32b4cf1555a2d0e074ae1551a5c0085f2758fa2b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6c39a7ef0404a0e78e5b8ed0b41bf54156b488a
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102609144"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032666"
 ---
 # <a name="shared-image-galleries-overview"></a>공유 이미지 갤러리 개요
 
@@ -64,7 +64,7 @@ Shared Image Gallery는 이미지를 기준으로 구조와 조직을 빌드하�
 
 - 운영 체제 상태 - OS 상태를 [일반화 또는 특수화](#generalized-and-specialized-images)로 설정할 수 있습니다. 이 필드는 필수 필드입니다.
 - 운영 체제 - Windows 또는 Linux입니다. 이 필드는 필수 필드입니다.
--   Hyper-V 생성 - 이미지가 1세대 또는 [2세대](generation-2.md) Hyper-V VHD 중 무엇으로 만들었는지 여부를 지정합니다. 기본값은 1세대입니다.
+- Hyper-V 생성 - 이미지가 1세대 또는 [2세대](generation-2.md) Hyper-V VHD 중 무엇으로 만들었는지 여부를 지정합니다. 기본값은 1세대입니다.
 
 
 다음은 리소스를 보다 쉽게 추적할 수 있도록 이미지 정의에 대해 설정할 수 있는 다른 매개 변수입니다.
@@ -72,7 +72,7 @@ Shared Image Gallery는 이미지를 기준으로 구조와 조직을 빌드하�
 - 설명 - 설명을 사용하여 이미지 정의가 존재하는 이유를 자세히 알려줍니다. 예를 들어 애플리케이션이 미리 설치된 프런트 엔드 서버의 이미지 정의가 있을 수 있습니다.
 - Eula - 이미지 정의와 관련된 최종 사용자 사용권 계약을 가리키는 데 사용할 수 있습니다.
 - 개인정보처리방침 및 릴리스 정보 - 릴리스 정보와 개인정보처리방침을 Azure 스토리지에 저장하고 이미지 정의 과정에서 액세스할 수 있도록 URI를 제공합니다.
-- 수명 종료 데이터 - 수명 종료 날짜를 이미지 정의에 연결하면 오래된 이미지 정의를 자동으로 삭제할 수 있습니다.
+- 수명 종료 날짜 - 이미지 정의의 모든 이미지 버전에 대한 기본 수명 종료 날짜를 설정합니다. 수명 종료 날짜는 정보 제공용입니다. 사용자는 수명 종료 날짜가 지난 이미지와 버전에서 VM을 계속 만들 수 있습니다.
 - 태그 - 이미지 정의를 만들 때 태그를 추가할 수 있습니다. 태그에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](../azure-resource-manager/management/tag-resources.md)을 참조하세요.
 - 최소/최대 vCPU 및 메모리 권장 사항 - 이미지에 대한 vCPU 및 메모리 권장 사항이 있는 경우 해당 정보를 이미지 정의에 연결할 수 있습니다.
 - 허용되지 않는 디스크 유형 - VM의 스토리지 요구 사항에 대한 정보를 제공할 수 있습니다. 예를 들어 이미지가 표준 HDD 디스크에 적합하지 않은 경우 허용되지 않는 유형 목록에 추가합니다.
@@ -88,7 +88,7 @@ VM을 만드는 데 사용하는 것은 **이미지 버전** 입니다. 사용 �
 - 버전 번호. 이는 이미지 버전의 이름으로 사용됩니다. 항상 다음과 같은 형식입니다. MajorVersion.MinorVersion.Patch. VM을 만들 때 **최신** 을 사용하도록 지정하면 가장 높은 MajorVersion, 다음으로 MinorVersion, 다음으로 패치를 기준으로 최신 이미지가 선택됩니다. 
 - 원본. 원본은 VM, 관리 디스크, 스냅샷, 관리형 이미지 또는 다른 이미지 버전일 수 있습니다. 
 - 최신 항목에서 제외. 버전을 최신 이미지 버전으로 사용하지 않도록 할 수 있습니다. 
-- 수명 주기 끝. 이 이미지에서 VM을 만들 수 없는 날짜입니다.
+- 수명 주기 끝. 이미지 버전의 수명 종료 날짜를 나타냅니다. 수명 종료 날짜는 정보 제공용입니다. 사용자는 수명 종료 날짜가 지난 버전에서 VM을 계속 만들 수 있습니다.
 
 
 ## <a name="generalized-and-specialized-images"></a>일반화 이미지와 특수화 이미지
@@ -159,8 +159,8 @@ Shared Image Gallery, 이미지 정의 및 이미지 버전은 모두 리소스�
 
 ## <a name="billing"></a>결제
 공유 이미지 갤러리 서비스 사용에 대한 추가 비용은 없습니다. 다음 리소스에 대한 비용이 청구됩니다.
--   각 복제본을 저장하는 데 드는 스토리지 비용. 스토리지 비용은 스냅샷으로 청구되며 이미지 버전의 사용되는 크기, 이미지 버전의 복제본 수 및 버전이 복제되는 지역 수를 기반으로 합니다. 
--   이미지 버전을 원본 지역에서 복제된 지역으로 처음 복제할 때 발생하는 네트워크 송신 요금. 후속 복제본은 지역 내에서 처리되므로 추가 비용이 없습니다. 
+- 각 복제본을 저장하는 데 드는 스토리지 비용. 스토리지 비용은 스냅샷으로 청구되며 이미지 버전의 사용되는 크기, 이미지 버전의 복제본 수 및 버전이 복제되는 지역 수를 기반으로 합니다. 
+- 이미지 버전을 원본 지역에서 복제된 지역으로 처음 복제할 때 발생하는 네트워크 송신 요금. 후속 복제본은 지역 내에서 처리되므로 추가 비용이 없습니다. 
 
 예를 들어 10GB의 스토리지만 사용하는 127GB OS 디스크의 이미지와 하나의 빈 32GB 데이터 디스크가 있다고 가정해 보겠습니다. 각 이미지의 사용 크기는 10GB에 불과합니다. 이미지는 3개 지역에 복제되고 각 지역에는 2개의 복제본이 있습니다. 각각 10GB를 사용하는 총 6개의 스냅샷이 있습니다. 10GB의 사용 크기를 기준으로 각 스냅샷에 대한 스토리지 비용이 청구됩니다. 추가 두 지역에 복사할 첫 번째 복제본에 대한 네트워크 송신 요금을 지불합니다. 각 지역의 스냅샷 가격에 대한 자세한 내용은 [관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요. 네트워크 송신에 대한 자세한 내용은 [대역폭 가격 책정](https://azure.microsoft.com/pricing/details/bandwidth/)을 참조하세요.
 
@@ -198,10 +198,10 @@ Shared Image Gallery, 이미지 정의 및 이미지 버전은 모두 리소스�
 
 템플릿을 사용하여 공유 이미지 갤러리 리소스를 만들 수 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
 
-- [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [이미지 버전에서 VM 만들기](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/sig-create/)
+- [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [이미지 버전에서 VM 만들기](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 ## <a name="frequently-asked-questions"></a>질문과 대답 
 
@@ -291,7 +291,7 @@ Azure Portal에서 액세스할 수 있는 구독 간에 Shared Image Gallery �
 1. 지역당 만들려는 복제본의 수를 지정하는 지역당 복제본 수. 
 2. 지역당 복제본 수가 지정되지 않은 경우 지역당 기본 개수인 일반적인 복제본 수입니다. 
 
-지역당 복제본 수를 지정하려면 다음과 같이 해당 지역에 만들려는 복제본 수와 위치를 전달합니다. 예를 들어 "South Central US=2"를 전달할 수 있습니다. 
+지역당 복제본 수를 지정하려면 다음과 같이 해당 지역에 만들려는 복제본 수와 위치를 전달합니다. 예를 들어 "미국 중남부=2"를 전달할 수 있습니다. 
 
 각 위치에 지역당 복제본 수가 지정되지 않은 경우 기본 복제본 수가 일반적인 복제본 수로 지정됩니다. 
 

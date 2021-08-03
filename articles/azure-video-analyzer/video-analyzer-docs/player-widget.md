@@ -4,12 +4,12 @@ description: 이 참조 문서에서는 애플리케이션에 Video Analyzer 플
 ms.service: azure-video-analyzer
 ms.topic: reference
 ms.date: 05/11/2021
-ms.openlocfilehash: 12565f2ca1a86d3a9e57fef652abab9564cb7b5e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f4c2d3f7d13002d0de231859bc31a74b72b1c7fd
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387866"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555131"
 ---
 # <a name="using-the-azure-video-analyzer-player-widget"></a>Azure Video Analyzer 플레이어 위젯 사용
 
@@ -44,7 +44,7 @@ ms.locfileid: "110387866"
 > [!NOTE] 
 > RSA 또는 ECC 인증서를 기반으로 JWT 토큰을 생성하는 방법을 잘 알고 있는 경우 이 섹션을 건너뛸 수 있습니다.
 
-1. [여기](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp/tree/main/src/jwt-token-issuer/readme.md)에 있는 JWTTokenIssuer 애플리케이션을 다운로드합니다.
+1. [여기](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp/tree/main/src/jwt-token-issuer/)에 있는 JWTTokenIssuer 애플리케이션을 다운로드합니다.
 
    > [!NOTE] 
    > 대상 그룹 값 구성에 대한 자세한 내용은 이 [문서](./access-policies.md)를 참조하세요.
@@ -260,10 +260,15 @@ Video name: <input type="text" id="videoName" /><br><br>
 npm install @azure/video-analyzer/widgets
 ```
 
-또는 다음을 사용하여 애플리케이션 코드 내에서 가져올 수 있습니다.
+또는 Typescript에 다음을 사용하여 애플리케이션 코드 내에서 가져올 수 있습니다.
 
 ```typescript
 import { Player } from '@video-analyzer/widgets';
+```
+
+또는 플레이어 위젯을 동적으로 생성하려는 경우 Javascript에 다음을 사용할 수 있습니다.
+```javascript
+<script async type="module" src="https://unpkg.com/@azure/video-analyzer-widgets@latest/dist/global.min.js"></script>
 ```
 
 이 방법을 사용하여 가져오는 경우 가져오기가 완료된 후에는 프로그래밍 방식으로 플레이어 개체를 만들어야 합니다.  위의 예에서는 `ava-player` HTML 태그를 사용하여 페이지에 모듈을 추가했습니다.  코드를 통해 플레이어 개체를 만들려면 JavaScript에서 다음을 수행할 수 있습니다.

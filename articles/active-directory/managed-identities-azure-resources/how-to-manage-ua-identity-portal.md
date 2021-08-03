@@ -1,32 +1,34 @@
 ---
-title: Azure Portal에서 사용자 할당 관리 id 관리-Azure AD
-description: 사용자 할당 관리 id에 역할을 만들고, 나열 하 고, 삭제 하 고, 할당 하는 방법에 대 한 단계별 지침입니다.
+title: Azure Portal에서 사용자가 할당한 관리 ID 관리 - Azure AD
+description: 사용자가 할당한 관리 ID를 생성, 나열, 삭제하고 이 ID에 역할을 할당하는 방법에 대한 단계별 지침
 services: active-directory
 documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: ''
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/26/2020
+ms.date: 05/20/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd4cccdfc3a2cf8dd3827776028a7738ae769673
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 72a9cfe6142b4c82cd122068e096776c19c4e392
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98184833"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080906"
 ---
-# <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Azure Portal를 사용 하 여 사용자 할당 관리 id에 역할을 만들거나 나열, 삭제 또는 할당 합니다.
+# <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Azure Portal을 사용하여 사용자가 할당한 관리 ID 생성, 나열, 삭제 또는 역할 할당
 
-Azure 리소스에 대 한 관리 id는 Azure Active Directory에서 관리 id를 사용 하 여 Azure 서비스를 제공 합니다. 이 ID를 사용하면 코드에 자격 증명을 포함할 필요 없이 Azure AD 인증을 지원하는 서비스에 인증할 수 있습니다. 
+Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 관리 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 코드에 자격 증명을 포함할 필요 없이 Azure AD 인증을 지원하는 서비스에 인증할 수 있습니다. 
 
-이 문서에서는 Azure Portal를 사용 하 여 사용자 할당 관리 id에 역할을 만들거나 나열, 삭제 또는 할당 하는 방법에 대해 알아봅니다.
+이 문서에서는 Azure Portal을 사용하여 사용자가 할당한 관리 ID를 생성, 나열, 삭제하거나 이 ID에 역할을 할당하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -38,14 +40,14 @@ Azure 리소스에 대 한 관리 id는 Azure Active Directory에서 관리 id�
 사용자 할당 관리 ID를 만들려면 계정에 [관리 ID 기여자](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) 역할 할당이 필요합니다.
 
 1. 사용자가 할당한 관리 ID를 만들려면 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 검색 상자에 *관리 되는 id* 를 입력 하 고 **서비스** 에서 **관리 id** 를 클릭 합니다.
+2. 검색 상자에 *관리 ID* 를 입력하고, **서비스** 아래에서 **관리 ID** 를 클릭합니다.
 3. **추가** 를 클릭하고 **사용자가 할당한 관리 ID 만들기** 창 아래에서 다음 필드에 값을 입력합니다.
-    - **구독**: 구독을 선택 하 여 사용자 할당 관리 id를 만듭니다.
-    - **리소스 그룹**: 사용자 할당 관리 id를 만들 리소스 그룹을 선택 하거나 **새로 만들기** 를 클릭 하 여 새 리소스 그룹을 만듭니다.
-    - **지역**: 사용자 할당 관리 id (예: **미국 서 부**)를 배포할 지역을 선택 합니다.
-    - **이름**: 사용자 할당 관리 id의 이름 (예: UAI1)입니다.
-    ![사용자 할당 관리 ID 만들기](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
-4. **검토 + 만들기** 를 클릭 하 여 변경 내용을 검토 합니다.
+    - **구독**: 사용자가 할당한 관리 ID를 만들 구독을 선택합니다.
+    - **리소스 그룹**: 사용자가 할당한 관리 ID를 만들 리소스 그룹을 선택하거나 **새로 만들기** 를 클릭하여 새 리소스 그룹을 만듭니다.
+    - **지역**: 사용자가 할당한 관리 ID를 배포할 지역(예: **미국 서부**)을 선택합니다.
+    - **이름**: 사용자가 할당한 관리 ID의 이름(예: UAI1)입니다.
+    ![사용자가 할당한 관리 ID 만들기](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
+4. **검토 + 만들기** 를 클릭하여 변경 내용을 검토합니다.
 5. **만들기** 를 클릭합니다.
 
 ## <a name="list-user-assigned-managed-identities"></a>사용자 할당 관리 ID 나열
@@ -74,16 +76,9 @@ Azure 리소스에 대 한 관리 id는 Azure Active Directory에서 관리 id�
 
 사용자 할당 관리 ID에 역할을 할당하려면 계정에 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 역할 할당이 필요합니다.
 
-1. 사용자 할당 관리 ID를 나열하려면 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 검색 상자에 *관리 ID* 를 입력하고, 서비스 아래에서 **관리 ID** 를 클릭합니다.
-3. 구독의 사용자 할당 관리 ID 목록이 반환됩니다.  역할을 할당하려는 사용자 할당 관리 ID를 선택합니다.
-4. **액세스 제어(IAM)** , **역할 할당 추가** 를 차례로 선택합니다.
+세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
-   ![사용자 할당 관리 ID 시작](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
+## <a name="next-steps"></a>다음 단계
 
-5. 역할 할당 추가 블레이드에서 다음 값을 구성한 후 **저장** 을 클릭 합니다.
-   - **역할** - 할당할 역할
-   - **다음에 대한 액세스 할당** - 사용자 할당 관리 ID를 할당할 리소스
-   - **선택** - 액세스를 할당할 구성원
-   
-   ![사용자 할당 관리 ID IAM](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)
+- [Azure CLI를 사용하여 리소스에 관리 ID 액세스 권한 할당](howto-assign-access-cli.md)
+- [PowerShell을 사용하여 리소스에 관리 ID 액세스 권한 할당](howto-assign-access-powershell.md)

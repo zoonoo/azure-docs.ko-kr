@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 19183da24a3652757626cb37fae96027ed01a8ea
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 51a79058ec4456b173b1f50169198d3ea3ba2e93
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633180"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111541880"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>IoT Edge 배포에서 로그 검색
 
@@ -54,6 +54,9 @@ IoT Edge 에이전트 모듈에 포함된 직접 메서드를 사용하여 디�
 
 **GetModuleLogs** 직접 메서드를 사용하여 IoT Edge 모듈의 로그를 검색합니다.
 
+>[!TIP]
+>Azure Portal의 IoT Edge 문제 해결 페이지는 모듈 로그를 보기 위한 간소화된 환경을 제공합니다. 자세한 내용은 [Azure Portal에서 IoT Edge 디바이스 모니터링 및 문제 해결](troubleshoot-in-portal.md)을 참조하세요.
+
 이 메서드는 다음 스키마를 사용하여 JSON 페이로드를 허용합니다.
 
 ```json
@@ -76,7 +79,7 @@ IoT Edge 에이전트 모듈에 포함된 직접 메서드를 사용하여 디�
     }
 ```
 
-| Name | 유형 | Description |
+| Name | Type | Description |
 |-|-|-|
 | schemaVersion | 문자열 | `1.0` |
 | items | JSON 배열 | `id` 및 `filter` 튜플이 포함된 배열입니다. |
@@ -185,7 +188,7 @@ az iot hub invoke-module-method \
     }
 ```
 
-| Name | 유형 | Description |
+| Name | Type | Description |
 |-|-|-|
 | sasURL | 문자열(URI) | [Azure Blob Storage 컨테이너에 대한 쓰기 권한이 있는 공유 액세스 서명 URL](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer)입니다. |
 
@@ -199,7 +202,7 @@ az iot hub invoke-module-method \
     }
 ```
 
-| Name | 유형 | Description |
+| Name | Type | Description |
 |-|-|-|
 | 상태 | 문자열 | `NotStarted`, `Running`, `Completed`, `Failed`, `Unknown` 중 하나입니다. |
 | message | 문자열 | 오류가 발생하면 메시지이고, 그러지 않으면 빈 문자열입니다. |
@@ -302,7 +305,7 @@ Azure Portal에서 sasURL을 사용자의 정보로 채운 후 메서드 이름�
     }
 ```
 
-| Name | 유형 | Description |
+| Name | Type | Description |
 |-|-|-|
 | schemaVersion | 문자열 | `1.0` |
 | sasURL | 문자열(URI) | [Azure Blob Storage 컨테이너에 대한 쓰기 권한이 있는 공유 액세스 서명 URL](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer)입니다. |
@@ -323,7 +326,7 @@ Azure Portal에서 sasURL을 사용자의 정보로 채운 후 메서드 이름�
     }
 ```
 
-| Name | 유형 | Description |
+| Name | Type | Description |
 |-|-|-|
 | 상태 | 문자열 | `NotStarted`, `Running`, `Completed`, `Failed`, `Unknown` 중 하나입니다. |
 | message | 문자열 | 오류가 발생하면 메시지이고, 그러지 않으면 빈 문자열입니다. |
@@ -381,7 +384,7 @@ Azure Portal에서 sasURL을 사용자의 정보로 채운 후 메서드 이름�
     }
 ```
 
-| Name | 유형 | Description |
+| Name | Type | Description |
 |-|-|-|
 | 상태 | 문자열 | `NotStarted`, `Running`, `Completed`, `Failed`, `Unknown` 중 하나입니다. |
 | message | 문자열 | 오류가 발생하면 메시지이고, 그러지 않으면 빈 문자열입니다. |

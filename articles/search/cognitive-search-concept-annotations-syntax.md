@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 03431d861ca6d469b894e45c36fe2a3d7904c3a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26f8f5a4688eb5ccd472d7f402e6a543e318a7e2
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88935537"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559854"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Azure Cognitive Search 기술 세트의 주석을 참조하는 방법
 
@@ -33,7 +33,7 @@ ms.locfileid: "88935537"
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>예제 1: 단순 주석 참조
 
-Azure Blob Storage에서는 엔터티 인식을 사용하여 추출하려는 사용자 이름에 대한 참조가 포함된 다양한 파일이 있다고 가정합니다. 아래의 기술 정의에서 `"/document/content"`은 전체 문서의 텍스트 표현이며 "사람"은 사용자로 식별되는 엔터티에 대한 전체 이름의 추출입니다.
+Azure Blob Storage에서는 엔터티 인식을 사용하여 추출할 사용자 이름에 대한 참조가 포함된 다양한 파일이 있다고 가정합니다. 아래의 기술 정의에서 `"/document/content"`은 전체 문서의 텍스트 표현이며 "사람"은 사용자로 식별되는 엔터티에 대한 전체 이름의 추출입니다.
 
 기본 컨텍스트가 `"/document"`이므로 사람의 목록은 이제 `"/document/people"`로서 참조될 수 있습니다. 특정한 경우에 `"/document/people"`은 인덱스의 필드에 매핑되거나 동일 기술 집합의 다른 기술에 사용될 수 있는 주석입니다.
 

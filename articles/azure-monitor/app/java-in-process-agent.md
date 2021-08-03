@@ -1,60 +1,71 @@
 ---
-title: Azure Monitor Application Insights Java
-description: 코드를 수정할 필요 없이 모든 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 애플리케이션 맵.
+title: 'Azure Monitor: Application Insights Java'
+description: 코드를 수정할 필요 없이 모든 환경에서 실행되는 Java 애플리케이션에 대한 애플리케이션 성능 모니터링입니다. 분산 추적 및 애플리케이션 맵.
 ms.topic: conceptual
 ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: b695df29b7a4704ee9e4e25e402fa0de8f2b7685
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 7ca2f037c274519a00db8d39350656f31b5c4487
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103008215"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069169"
 ---
-# <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights
+# <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java 코드리스 애플리케이션 모니터링 Azure Monitor Application Insights
+
+> [!NOTE]
+> 이전 2.x 문서를 찾고 있다면 [여기](./java-2x-get-started.md)로 이동하세요.
 
 Java 코드리스 애플리케이션 모니터링은 단순성에 관한 것입니다. 코드 변경이 없으며 Java 에이전트는 몇 가지 구성 변경만으로 활성화할 수 있습니다.
 
- Java 에이전트는 모든 환경에서 작동 하며 모든 Java 응용 프로그램을 모니터링할 수 있도록 합니다. 즉, 온-프레미스 Vm, 온-프레미스, Windows, Linux에서 Java 앱을 실행 하 고 있는지 여부에 관계 없이 Java 3.0 에이전트가 앱을 모니터링 하 게 됩니다.
+Java 에이전트는 모든 환경에서 작동하며 모든 Java 애플리케이션을 모니터링할 수 있도록 합니다. 즉, VM, 온-프레미스, Windows, Linux에서 Java 앱을 실행하고 있는지 여부에 관계없이 Application Insights Java 에이전트가 앱을 모니터링합니다.
 
-3.0 에이전트가 요청, 종속성 및 로그를 모두 자동으로 수집할 수 있으므로 응용 프로그램에 Application Insights Java SDK를 추가 하는 것은 더 이상 필요 하지 않습니다.
+Application Insights Java 3.x 에이전트가 요청, 종속성 및 로그를 모두 자동으로 수집하기 때문에 Application Insights Java 2.x SDK를 애플리케이션에 추가하는 것은 더 이상 필요하지 않습니다.
 
-응용 프로그램에서 사용자 지정 원격 분석을 계속 보낼 수 있습니다. 3.0 에이전트는 자동으로 수집 된 모든 원격 분석과 함께 추적 하 고 상관 관계를 바꿉니다.
+애플리케이션에서 사용자 지정 원격 분석을 계속 보낼 수 있습니다.
+3\.x 에이전트는 자동으로 수집된 모든 원격 분석과 함께 이를 추적하고 상관 관계를 지정합니다.
 
-3.0 에이전트는 Java 8 이상을 지원 합니다.
+3\.x 에이전트는 Java 8 이상을 지원합니다.
 
 ## <a name="quickstart"></a>빠른 시작
 
-**1. 에이전트를 다운로드 합니다.**
+**1. 에이전트 다운로드**
 
 > [!WARNING]
-> **3.0 미리 보기에서 업그레이드 하는 경우**
+> **3.0 미리 보기에서 업그레이드하는 경우**
 >
-> 모든 구성 옵션은 json 구조가 완전히 변경 되었으므로 모든 [구성 옵션](./java-standalone-config.md) 을 신중 하 게 검토 해야 합니다.
+> 모두 소문자로 된 파일 이름 자체 외에도 json 구조가 완전히 변경되었으므로 아래 모든 [구성 옵션](./java-standalone-config.md)을 신중히 검토하세요.
 
-[Applicationinsights-agent-3.0.2를 다운로드 합니다.](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.2/applicationinsights-agent-3.0.2.jar)
+> [!WARNING]
+> **3.0.x에서 업그레이드하는 경우**
+>
+> 이제 작업 이름과 요청 원격 분석 이름에 http 메서드(`GET`, `POST` 등)가 접두사로 붙습니다.
+> 이전 접두사가 없는 값을 사용하는 경우 사용자 지정 대시보드 또는 경고에 영향을 줄 수 있습니다.
+> 자세한 내용은 [3.1.0 릴리스 정보](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)를 참조하세요.
 
-**2. JVM을 에이전트로 가리키기**
+[applicationinsights-agent-3.1.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.1.0/applicationinsights-agent-3.1.0.jar) 다운로드
 
-`-javaagent:path/to/applicationinsights-agent-3.0.2.jar`응용 프로그램의 JVM 인수에를 추가 합니다.
+**2. JVM을 에이전트로 지정**
 
-일반적인 JVM 인수에는 및가 포함 됩니다 `-Xmx512m` `-XX:+UseG1GC` . 따라서이를 추가할 위치를 알고 있으면이를 추가할 위치를 이미 알고 있는 것입니다.
+애플리케이션의 JVM 인수에 `-javaagent:path/to/applicationinsights-agent-3.1.0.jar` 추가
 
-응용 프로그램의 JVM 인수를 구성 하는 방법에 대 한 추가 도움말은 [jvm 인수를 업데이트 하기 위한 팁](./java-standalone-arguments.md)을 참조 하세요.
+일반적인 JVM 인수에는 `-Xmx512m` 및 `-XX:+UseG1GC`가 포함됩니다. 따라서 이러한 인수를 추가할 위치를 알고 있으면 이를 추가할 위치를 이미 알고 있는 것입니다.
 
-**3. 에이전트가 Application Insights 리소스를 가리키도록 합니다.**
+애플리케이션의 JVM 인수 구성에 대한 추가 도움말은 [JVM 인수 업데이트를 위한 팁](./java-standalone-arguments.md)을 참조하세요.
 
-Application Insights 리소스가 아직 없는 경우 [리소스 만들기 가이드](./create-new-resource.md)의 단계에 따라 새 리소스를 만들 수 있습니다.
+**3. 에이전트를 Application Insights 리소스로 지정**
 
-환경 변수를 설정 하 여 에이전트가 Application Insights 리소스를 가리키도록 합니다.
+Application Insights 리소스가 아직 없는 경우 [리소스 생성 가이드](./create-new-resource.md)의 단계에 따라 새 리소스를 만들 수 있습니다.
+
+환경 변수를 설정하여 에이전트가 Application Insights 리소스를 가리키도록 합니다.
 
 ```
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-또는 이라는 구성 파일을 만들고와 `applicationinsights.json` 동일한 디렉터리에 배치 하 여 `applicationinsights-agent-3.0.2.jar` 다음과 같은 내용을 포함 합니다.
+또는 `applicationinsights.json`이라는 구성 파일을 작성하고 다음 내용으로 `applicationinsights-agent-3.1.0.jar`과 동일한 디렉터리에 배치합니다.
 
 ```json
 {
@@ -64,100 +75,140 @@ APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 
 Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다.
 
-:::image type="content" source="media/java-ipa/connection-string.png" alt-text="연결 문자열 Application Insights":::
+:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights 연결 문자열":::
 
-**4. 이제 끝났습니다.**
+**4. 이것으로 끝입니다.**
 
-이제 응용 프로그램을 시작 하 고 Azure Portal의 Application Insights 리소스로 이동 하 여 모니터링 데이터를 확인 합니다.
+이제 애플리케이션을 시작하고 Azure Portal의 Application Insights 리소스로 이동하여 모니터링 데이터를 확인합니다.
 
 > [!NOTE]
-> 모니터링 데이터가 포털에 표시 되는 데 몇 분 정도 걸릴 수 있습니다.
+> 모니터링 데이터가 포털에 표시되는 데 몇 분 정도 걸릴 수 있습니다.
 
 
 ## <a name="configuration-options"></a>구성 옵션
 
-파일에서 `applicationinsights.json` 다음을 추가로 구성할 수 있습니다.
+`applicationinsights.json` 파일에서 다음을 추가로 구성할 수 있습니다.
 
 * 클라우드 역할 이름
 * 클라우드 역할 인스턴스
 * 샘플링
 * JMX 메트릭
 * 사용자 지정 차원
-* 원격 분석 프로세서 (미리 보기)
-* 자동 수집 된 로깅
-* 자동 수집 된 마이크로 측정기 메트릭 (스프링 부트 발동기 메트릭 포함)
+* 원격 분석 프로세서(미리 보기)
+* 자동 수집된 로깅
+* 자동 수집된 마이크로미터 메트릭(Spring Boot Actuator 메트릭 포함)
 * 하트비트
 * HTTP 프록시
 * 자체 진단
 
-전체 정보는 [구성 옵션](./java-standalone-config.md) 을 참조 하세요.
+자세한 내용은 [구성 옵션](./java-standalone-config.md)을 참조하세요.
 
-## <a name="auto-collected-requests-dependencies-logs-and-metrics"></a>자동 수집 된 요청, 종속성, 로그 및 메트릭
-
-### <a name="requests"></a>요청
+## <a name="auto-collected-requests"></a>자동으로 수집된 요청
 
 * JMS 소비자
 * Kafka 소비자
 * Netty/WebFlux
 * 서블릿
-* 스프링 예약
+* Spring 일정
 
-### <a name="dependencies-with-distributed-trace-propagation"></a>분산 추적 전파를 사용한 종속성
+## <a name="auto-collected-dependencies"></a>자동으로 수집된 종속성
+
+자동으로 수집된 종속성 및 다운스트림 분산 추적 전파:
 
 * Apache HttpClient 및 HttpAsyncClient
 * gRPC
-* HttpURLConnection
+* java.net.HttpURLConnection
 * JMS
 * Kafka
 * Netty 클라이언트
 * OkHttp
 
-### <a name="other-dependencies"></a>기타 종속성
+자동으로 수집된 종속성(다운스트림 분산 추적 전파가 없음):
 
 * Cassandra
 * JDBC
-* MongoDB (async 및 sync)
-* Redis (선하라 및 Jedis)
+* MongoDB(비동기 및 동기)
+* Redis(Lettuce 및 Jedis)
 
-### <a name="logs"></a>로그
+## <a name="auto-collected-logs"></a>자동으로 수집된 로그
 
 * java.util.logging
-* Log4j (MDC 속성 포함)
-* SLF4J/Logback (MDC 속성 포함)
+* Log4j(MDC 속성 포함)
+* SLF4J/Logback(MDC 속성 포함)
 
-### <a name="metrics"></a>메트릭
+## <a name="auto-collected-metrics"></a>자동으로 수집된 메트릭
 
-* 마이크로 측정기 (스프링 부트 발동기 메트릭 포함)
+* Micrometer(Spring Boot Actuator 메트릭 포함)
 * JMX 메트릭
 
-## <a name="send-custom-telemetry-from-your-application"></a>응용 프로그램에서 사용자 지정 원격 분석 보내기
+## <a name="azure-sdks-preview"></a>Azure SDK(미리 보기)
 
-3.0 +의 목표는 표준 Api를 사용 하 여 사용자 지정 원격 분석을 보낼 수 있도록 하는 것입니다.
+이 미리 보기 기능을 사용하도록 설정하고 다음 Azure SDK에서 내보낸 원격 분석을 자동으로 수집하려면 [구성 옵션](./java-standalone-config.md#auto-collected-azure-sdk-telemetry-preview)을 참조하세요.
 
-지금까지 마이크로 측정기, 인기 있는 로깅 프레임 워크 및 Application Insights Java 2.x SDK를 지원 합니다.
-Application Insights Java 3.0은 이러한 Api를 통해 전송 되는 원격 분석을 자동으로 캡처하고 자동 수집 된 원격 분석과 상관 관계를 합니다.
+* [App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10 이상
+* [Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0 이상
+* [Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0 이상
+* [Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0 이상
+* [Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0 이상
+* [Communication SMS](/java/api/overview/azure/communication-sms-readme) 1.0.0 이상
+* [Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.13.0+
+* [Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
+* [Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0 이상
+* [Event Hubs - Azure Blob Storage 검사점 저장소](/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
+* [Form Recognizer](/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6 이상
+* [ID](/java/api/overview/azure/identity-readme) 1.2.4+
+* [Key Vault - Certificates](/java/api/overview/azure/security-keyvault-certificates-readme) 4.1.6 이상
+* [Key Vault - Keys](/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6 이상
+* [Key Vault - Secrets](/java/api/overview/azure/security-keyvault-secrets-readme) 4.2.6 이상
+* [Service Bus](/java/api/overview/azure/messaging-servicebus-readme) 7.1.0+
+* [Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4 이상
 
-### <a name="supported-custom-telemetry"></a>지원 되는 사용자 지정 원격 분석
+[//]: # "https://azure.github.io/azure-sdk/releases/latest/java.html"에서 스크랩한 위의 이름 및 링크
+[//]: # "및 버전은 azure-core 1.14.0에 구축된 Maven Central의 가장 오래된 버전에 대해 수동으로 동기화되었습니다."
+[//]: # ""
+[//]: # "var table = document.querySelector('#tg-sb-content > div > table')"
+[//]: # "var str = ''"
+[//]: # "for (var i = 1, row; row = table.rows[i]; i++) {"
+[//]: # "  var name = row.cells[0].getElementsByTagName('div')[0].textContent.trim()"
+[//]: # "  var stableRow = row.cells[1]"
+[//]: # "  var versionBadge = stableRow.querySelector('.badge')"
+[//]: # "  if (!versionBadge) {"
+[//]: # "    계속"
+[//]: # "  }"
+[//]: # "  var version = versionBadge.textContent.trim()"
+[//]: # "  var link = stableRow.querySelectorAll('a')[2].href"
+[//]: # "  str += '* [' + name + '](' + link + ') ' + version"
+[//]: # "}"
+[//]: # "console.log(str)"
 
-다음 표에서는 Java 3.0 에이전트를 보완 하기 위해 사용할 수 있는 현재 지원 되는 사용자 지정 원격 분석 유형을 나타냅니다. 요약 하자면, 사용자 지정 메트릭은 마이크로 측정기를 통해 지원 되 고, 사용자 지정 예외 및 추적은 로깅 프레임 워크를 통해 사용 하도록 설정할 수 있으며, 사용자 지정 원격 분석의 모든 유형은 [Java 2.X SDK Application Insights](#send-custom-telemetry-using-the-2x-sdk)을 통해 지원 됩니다.
+## <a name="send-custom-telemetry-from-your-application"></a>애플리케이션에서 사용자 지정 원격 분석 보내기
 
-|                     | 마이크로미터 | Log4j, logback, 7 월 | 2.x SDK |
+Java 3.x Application Insights의 목표는 표준 API를 사용하여 사용자 지정 원격 분석을 보낼 수 있도록 하는 것입니다.
+
+지금까지 널리 사용되는 로깅 프레임워크인 Micrometer 및 Application Insights Java 2.x SDK를 지원합니다.
+Application Insights Java 3.x는 이러한 API를 통해 전송되는 원격 분석을 자동으로 캡처하고 자동으로 수집된 원격 분석과의 상관 관계를 지정합니다.
+
+### <a name="supported-custom-telemetry"></a>지원되는 사용자 지정 원격 분석
+
+아래 표에서는 Java 3.x 에이전트를 보완하기 위해 사용할 수 있는 현재 지원되는 사용자 지정 원격 분석 유형을 나타냅니다. 요약하면 사용자 지정 메트릭은 Micrometer를 통해 지원되고 사용자 지정 예외 및 추적은 로깅 프레임워크를 통해 사용하도록 설정될 수 있으며 모든 유형의 사용자 지정 원격 분석은 [Application Insights Java 2.x SDK](#send-custom-telemetry-using-the-2x-sdk)를 통해 지원됩니다.
+
+|                     | 마이크로미터 | Log4j, logback, JUL | 2.x SDK |
 |---------------------|------------|---------------------|---------|
 | **사용자 지정 이벤트**   |            |                     |  예    |
-| **사용자 지정 메트릭**  |  예       |                     |  yes    |
+| **사용자 지정 메트릭**.  |  예       |                     |  yes    |
 | **종속성**    |            |                     |  예    |
 | **예외**      |            |  예                |  예    |
 | **페이지 보기**      |            |                     |  예    |
 | **요청**        |            |                     |  예    |
-| **추적**          |            |  예                |  예    |
+| **Traces**          |            |  예                |  예    |
 
-현재 Application Insights 3.0를 사용 하 여 SDK를 릴리스할 계획은 아닙니다.
+이제 Application Insights 3.x를 사용하여 SDK를 릴리스할 계획을 세울 예정입니다.
 
-Application Insights Java 3.0는 Application Insights Java 2.x SDK로 전송 되는 원격 분석을 이미 수신 대기 하 고 있습니다. 이 기능은 기존 2.x 사용자를 위한 업그레이드 스토리의 중요 한 부분으로, OpenTelemetry API가 GA 될 때까지 사용자 지정 원격 분석 지원의 중요 한 격차를 채웁니다.
+Application Insights Java 3.x는 Application Insights Java 2.x SDK로 전송되는 원격 분석을 이미 수신 대기하고 있습니다. 이 기능은 기존 2.x 사용자를 위한 업그레이드 스토리의 중요한 부분으로, OpenTelemetry API가 GA될 때까지 사용자 지정 원격 분석 지원의 중요한 격차를 메꿉니다.
 
-### <a name="send-custom-metrics-using-micrometer"></a>마이크로 측정기를 사용 하 여 사용자 지정 메트릭 보내기
+### <a name="send-custom-metrics-using-micrometer"></a>Micrometer를 사용하여 사용자 지정 메트릭 보내기
 
-응용 프로그램에 마이크로 측정기를 추가 합니다.
+애플리케이션에 Micrometer를 추가합니다.
 
 ```xml
 <dependency>
@@ -167,36 +218,36 @@ Application Insights Java 3.0는 Application Insights Java 2.x SDK로 전송 되
 </dependency>
 ```
 
-마이크로 측정기 [글로벌 레지스트리](https://micrometer.io/docs/concepts#_global_registry) 를 사용 하 여 측정기를 만듭니다.
+Micrometer [전역 레지스트리](https://micrometer.io/docs/concepts#_global_registry)를 사용하여 미터를 만듭니다.
 
 ```java
 static final Counter counter = Metrics.counter("test_counter");
 ```
 
-그리고 메트릭을 기록 하는 데 사용 합니다.
+이를 사용하여 메트릭을 기록합니다.
 
 ```java
 counter.increment();
 ```
 
-### <a name="send-custom-traces-and-exceptions-using-your-favorite-logging-framework"></a>즐겨 사용 하는 로깅 프레임 워크를 사용 하 여 사용자 지정 추적 및 예외 보내기
+### <a name="send-custom-traces-and-exceptions-using-your-favorite-logging-framework"></a>선호하는 로깅 프레임워크를 사용하여 사용자 지정 추적 및 예외 보내기
 
-Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임 워크를 통해 수행 된 로깅은 추적 및 예외 원격 분석으로 자동 수집 됩니다.
+Log4j, Logback 및 java.util.logging은 자동으로 계측되며 이러한 로깅 프레임워크를 통해 수행된 로깅은 추적 및 예외 원격 분석으로 자동 수집됩니다.
 
-기본적으로 로깅은 정보 수준 이상에서 수행 되는 경우에만 수집 됩니다.
-이 수준을 변경 하는 방법에 대 한 [구성 옵션](./java-standalone-config.md#auto-collected-logging) 을 참조 하십시오.
+기본적으로 로깅은 정보 수준 이상에서 수행되는 경우에만 수집됩니다.
+이 수준을 변경하는 방법은 [구성 옵션](./java-standalone-config.md#auto-collected-logging)을 참조하세요.
 
-로그에 사용자 지정 차원을 연결 하려면 [Log4j 1.2 mdc](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [Log4j 2 Mdc](https://logging.apache.org/log4j/2.x/manual/thread-context.html)또는 [logback MDC](http://logback.qos.ch/manual/mdc.html)Application Insights를 사용 하면 됩니다. 그러면 Java 3.0에서 이러한 mdc 속성을 추적 및 예외 원격 분석에서 사용자 지정 차원으로 자동으로 캡처합니다.
+로그에 사용자 지정 차원을 연결하려는 경우 [Log4j 1.2 MDC,](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html) [Log4j 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html) 또는 [Logback MDC](http://logback.qos.ch/manual/mdc.html)를 사용할 수 있으며, java 3.x를 Application Insights 추적 및 예외 원격 분석에서 해당 MDC 속성을 사용자 지정 차원으로 자동 캡처합니다.
 
-### <a name="send-custom-telemetry-using-the-2x-sdk"></a>2.x SDK를 사용 하 여 사용자 지정 원격 분석 보내기
+### <a name="send-custom-telemetry-using-the-2x-sdk"></a>2\.x SDK를 사용하여 사용자 지정 원격 분석 보내기
 
-`applicationinsights-core-2.6.2.jar`응용 프로그램에를 추가 합니다. (모든 2.x 버전은 Application Insights Java 3.0에서 지원 되지만, 원하는 경우 최신 버전을 사용 하는 것이 좋습니다.)
+애플리케이션에 `applicationinsights-core-2.6.3.jar`을 추가합니다(모든 2.x 버전은 Application Insights Java 3.x에서 지원되지만 원하는 경우 최신 버전을 사용하는 것이 좋습니다).
 
 ```xml
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-core</artifactId>
-  <version>2.6.2</version>
+  <version>2.6.3</version>
 </dependency>
 ```
 
@@ -206,7 +257,7 @@ TelemetryClient를 만듭니다.
 static final TelemetryClient telemetryClient = new TelemetryClient();
 ```
 
-그리고이를 사용 하 여 사용자 지정 원격 분석을 보냅니다.
+이를 사용하여 사용자 지정 원격 분석을 보냅니다.
 
 ##### <a name="events"></a>이벤트
 
@@ -253,22 +304,22 @@ try {
 }
 ```
 
-### <a name="add-request-custom-dimensions-using-the-2x-sdk"></a>2.x SDK를 사용 하 여 요청 사용자 지정 차원 추가
+### <a name="add-request-custom-dimensions-using-the-2x-sdk"></a>2\.x SDK를 사용하여 요청 사용자 지정 차원 추가
 
 > [!NOTE]
-> 이 기능은 3.0.2 이상에만 해당 됩니다.
+> 이 기능은 3.0.2 이상에만 해당됩니다.
 
-`applicationinsights-web-2.6.2.jar`응용 프로그램에를 추가 합니다. (모든 2.x 버전은 Application Insights Java 3.0에서 지원 되지만, 원하는 경우 최신 버전을 사용 하는 것이 좋습니다.)
+애플리케이션에 `applicationinsights-web-2.6.3.jar`을 추가합니다(모든 2.x 버전은 Application Insights Java 3.x에서 지원되지만 원하는 경우 최신 버전을 사용하는 것이 좋습니다).
 
 ```xml
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.2</version>
+  <version>2.6.3</version>
 </dependency>
 ```
 
-코드에 사용자 지정 차원을 추가 합니다.
+코드에 사용자 지정 차원을 추가합니다.
 
 ```java
 import com.microsoft.applicationinsights.web.internal.ThreadContext;
@@ -277,22 +328,22 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.getProperties().put("mydimension", "myvalue");
 ```
 
-### <a name="set-the-request-telemetry-user_id-using-the-2x-sdk"></a>2.x SDK를 사용 하 여 user_Id 요청 원격 분석 설정
+### <a name="set-the-request-telemetry-user_id-using-the-2x-sdk"></a>2\.x SDK를 사용하여 요청 원격 분석 user_Id 설정
 
 > [!NOTE]
-> 이 기능은 3.0.2 이상에만 해당 됩니다.
+> 이 기능은 3.0.2 이상에만 해당됩니다.
 
-`applicationinsights-web-2.6.2.jar`응용 프로그램에를 추가 합니다. (모든 2.x 버전은 Application Insights Java 3.0에서 지원 되지만, 원하는 경우 최신 버전을 사용 하는 것이 좋습니다.)
+애플리케이션에 `applicationinsights-web-2.6.3.jar`을 추가합니다(모든 2.x 버전은 Application Insights Java 3.x에서 지원되지만 원하는 경우 최신 버전을 사용하는 것이 좋습니다).
 
 ```xml
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.2</version>
+  <version>2.6.3</version>
 </dependency>
 ```
 
-코드에서를 설정 합니다 `user_Id` .
+코드에서 `user_Id`를 설정합니다.
 
 ```java
 import com.microsoft.applicationinsights.web.internal.ThreadContext;
@@ -301,22 +352,22 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.getContext().getUser().setId("myuser");
 ```
 
-### <a name="override-the-request-telemetry-name-using-the-2x-sdk"></a>2.x SDK를 사용 하 여 요청 원격 분석 이름을 재정의 합니다.
+### <a name="override-the-request-telemetry-name-using-the-2x-sdk"></a>2\.x SDK를 사용하여 요청 원격 분석 이름을 재정의합니다.
 
 > [!NOTE]
-> 이 기능은 3.0.2 이상에만 해당 됩니다.
+> 이 기능은 3.0.2 이상에만 해당됩니다.
 
-`applicationinsights-web-2.6.2.jar`응용 프로그램에를 추가 합니다. (모든 2.x 버전은 Application Insights Java 3.0에서 지원 되지만, 원하는 경우 최신 버전을 사용 하는 것이 좋습니다.)
+애플리케이션에 `applicationinsights-web-2.6.3.jar`을 추가합니다(모든 2.x 버전은 Application Insights Java 3.x에서 지원되지만 원하는 경우 최신 버전을 사용하는 것이 좋습니다).
 
 ```xml
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.2</version>
+  <version>2.6.3</version>
 </dependency>
 ```
 
-코드에 이름을 설정 합니다.
+코드에 이름을 설정합니다.
 
 ```java
 import com.microsoft.applicationinsights.web.internal.ThreadContext;
@@ -325,22 +376,22 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.setName("myname");
 ```
 
-### <a name="get-the-request-telemetry-id-and-the-operation-id-using-the-2x-sdk"></a>2.x SDK를 사용 하 여 요청 원격 분석 id 및 작업 id를 가져옵니다.
+### <a name="get-the-request-telemetry-id-and-the-operation-id-using-the-2x-sdk"></a>2\.x SDK를 사용하여 요청 원격 분석 ID 및 작업 ID를 얻습니다.
 
 > [!NOTE]
-> 이 기능은 3.0.3-BETA 이상에만 해당 됩니다.
+> 이 기능은 3.0.3 이상에만 해당됩니다.
 
-`applicationinsights-web-2.6.2.jar`응용 프로그램에를 추가 합니다. (모든 2.x 버전은 Application Insights Java 3.0에서 지원 되지만, 원하는 경우 최신 버전을 사용 하는 것이 좋습니다.)
+애플리케이션에 `applicationinsights-web-2.6.3.jar`을 추가합니다(모든 2.x 버전은 Application Insights Java 3.x에서 지원되지만 원하는 경우 최신 버전을 사용하는 것이 좋습니다).
 
 ```xml
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.2</version>
+  <version>2.6.3</version>
 </dependency>
 ```
 
-그리고 코드에서 요청 원격 분석 id 및 작업 id를 가져옵니다.
+코드에서 요청 원격 분석 ID 및 작업 ID를 얻습니다.
 
 ```java
 import com.microsoft.applicationinsights.web.internal.ThreadContext;

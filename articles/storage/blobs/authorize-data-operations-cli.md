@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 53ad6dd922c1ccebd79aebcd2966b23b38de00e7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d02d18bec76578ec93d238d6dba284a8447428e9
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776900"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901654"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-with-azure-cli"></a>Azure CLI를 사용하여 Blob 데이터에 대한 액세스 권한을 부여하는 방법 선택
 
@@ -46,7 +46,7 @@ Blob 데이터를 읽고 쓰기 위한 Azure CLI 명령에는 선택적 `--auth-
 
 Azure AD 자격 증명을 사용하여 Azure CLI에 로그인하면 OAuth 2.0 액세스 토큰이 반환됩니다. 해당 토큰은 Azure CLI에서 Blob 또는 Queue Storage에 대한 후속 데이터 작업에 권한을 부여하는 데 자동으로 사용됩니다. 지원되는 작업의 경우, 더 이상 명령과 함께 계정 키 또는 SAS 토큰을 전달할 필요가 없습니다.
 
-Azure RBAC(Azure 역할 기반 액세스 제어)를 통해 Azure AD 보안 주체에 Blob 데이터에 대한 사용 권한을 할당할 수 있습니다. Azure Storage의 Azure 역할에 대한 자세한 내용은 [Azure RBAC를 사용하여 Azure Storage 데이터에 대한 액세스 권한 관리](../common/storage-auth-aad-rbac-portal.md)를 참조하세요.
+Azure RBAC(Azure 역할 기반 액세스 제어)를 통해 Azure AD 보안 주체에 Blob 데이터에 대한 사용 권한을 할당할 수 있습니다. Azure Storage에서 Azure 역할을 할당하는 방법에 관한 자세한 내용은 [Blob 데이터 액세스를 위해 Azure 역할 할당](assign-azure-role-data-access.md)을 참조하세요.
 
 ### <a name="permissions-for-calling-data-operations"></a>데이터 작업 호출에 대한 사용 권한
 
@@ -58,7 +58,7 @@ Blob 데이터에 작업에 대한 Azure Storage 확장을 지원합니다. 호�
 
 다음 예제에서는 Azure AD 자격 증명을 사용하여 Azure CLI에서 컨테이너를 만드는 방법을 보여 줍니다. 컨테이너를 만들려면 Azure CLI에 로그인해야 하고 리소스 그룹 및 스토리지 계정이 필요합니다. 해당 리소스를 만드는 방법을 알아보려면, [빠른 시작: Azure CLI을 사용하여 Blob 생성, 다운로드, 나열하기](../blobs/storage-quickstart-blobs-cli.md)를 참조하세요.
 
-1. 컨테이너를 만들기 전에 [Storage Blob 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) 역할을 자신에게 할당합니다. 계정 소유자라도 스토리지 계정에 대한 데이터 작업을 수행하려면 명시적 권한이 필요합니다. Azure 역할을 할당하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Blob 및 큐 데이터에 액세스하기 위한 Azure 역할 할당](../common/storage-auth-aad-rbac-portal.md)을 참조하세요.
+1. 컨테이너를 만들기 전에 [Storage Blob 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) 역할을 자신에게 할당합니다. 계정 소유자라도 스토리지 계정에 대한 데이터 작업을 수행하려면 명시적 권한이 필요합니다. Azure 역할을 할당하는 방법에 관한 자세한 내용은 [Blob 데이터 액세스를 위해 Azure 역할 할당](assign-azure-role-data-access.md)을 참조하세요.
 
     > [!IMPORTANT]
     > Azure 역할 할당을 전파하는 데 몇 분 정도 걸릴 수 있습니다.
@@ -114,5 +114,5 @@ az storage container create \
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure CLI를 사용하여 Blob 및 큐 데이터에 액세스하기 위한 Azure 역할 할당](../common/storage-auth-aad-rbac-cli.md)
-- [Azure 리소스의 관리 ID를 사용하여 Blob 및 큐 데이터에 대한 액세스 권한 부여](../common/storage-auth-aad-msi.md)
+- [BLOB 데이터에 액세스하기 위한 Azure 역할 할당](assign-azure-role-data-access.md)
+- [Azure 리소스에 대한 관리 ID를 사용하여 Blob 및 큐 데이터에 대한 액세스 권한 부여](../common/storage-auth-aad-msi.md)

@@ -10,12 +10,12 @@ ms.date: 12/28/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 51e73222233602491b0c8ed3835d032610c68e0d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c7f8f46cf8d6195df7d47663cae809c7074129e4
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104722789"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111903944"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여
 
@@ -78,7 +78,7 @@ Azure Storage는 다음 세 가지 유형의 공유 액세스 서명을 지원�
 공유 액세스 서명은 여러 스토리지 리소스를 가리키는 서명된 URI입니다. URI에는 특별한 쿼리 매개 변수 집합을 포함한 토큰이 포함되어 있습니다. 토큰은 클라이언트가 리소스를 액세스하는 방식을 나타냅니다. 쿼리 매개 변수 중 하나인 서명은 SAS 매개 변수에서 구성되고 SAS를 만드는 데 사용된 키로 서명됩니다. 이 서명은 Azure Storage에서 스토리지 리소스에 대한 액세스 권한을 부여하는 데 사용됩니다.
 
 > [!NOTE]
-> SAS 토큰 생성을 감사할 수 없습니다. 계정 키를 사용하거나 Azure RBAC 역할 할당을 통해 SAS 토큰을 생성할 수 있는 권한이 있는 사용자는 스토리지 계정의 소유자가 모르게 작업을 수행할 수 있습니다. 사용자가 SAS 토큰을 생성하도록 허락하는 권한을 제한해야 합니다. 사용자가 Blob 및 큐 워크로드에 대한 계정 키로 서명된 SAS를 생성하지 못하도록 하려면 스토리지 계정에 대한 공유 키 액세스를 허용하지 않을 수 있습니다. 자세한 내용은 [공유 키로 권한 부여 방지](shared-key-authorization-prevent.md)를 참조하세요.
+> SAS 토큰 생성을 감사할 수 없습니다. 계정 키를 사용하거나 Azure 역할 할당을 통해 SAS 토큰을 생성할 수 있는 권한이 있는 사용자는 스토리지 계정 소유자를 모른 채 작업을 수행할 수 있습니다. 사용자가 SAS 토큰을 생성하도록 허락하는 권한을 제한해야 합니다. 사용자가 Blob 및 큐 워크로드에 대한 계정 키로 서명된 SAS를 생성하지 못하도록 하려면 스토리지 계정에 대한 공유 키 액세스를 허용하지 않을 수 있습니다. 자세한 내용은 [공유 키로 권한 부여 방지](shared-key-authorization-prevent.md)를 참조하세요.
 
 ### <a name="sas-signature-and-authorization"></a>SAS 서명 및 권한 부여
 

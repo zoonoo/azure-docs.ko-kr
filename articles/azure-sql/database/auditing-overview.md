@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/17/2021
+ms.date: 06/14/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8513127f4a79c9c94323140462ad2d2648a0130d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f7bdadaf8570fe06d7573ff622ed921137229ae1
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577699"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061563"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에 대한 감사
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -40,7 +40,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 - **분석** 합니다. 의심스러운 이벤트, 특별한 활동 및 추세를 찾을 수 있습니다.
 
 > [!IMPORTANT]
-> Azure SQL Database 및 Azure Synapse에 대한 감사는 가용성 및 성능에 맞게 최적화되어 있습니다. 활동이 많거나 네트워크 부하가 많을 때는 Azure SQL Database 및 Azure Synapse를 사용하여 작업을 계속 진행하도록 허용하지만 일부 감사 이벤트를 기록하지 않을 수 있습니다.
+> Azure SQL Database, Azure Synapse 및 Azure SQL Managed Instance에 대한 감사는 가용성과 성능에 맞게 최적화되어 있습니다. 활동이 많거나 네트워크 부하가 많을 때는 Azure SQL Database, Azure Synapse 및 Azure SQL Managed Instance에서 작업을 계속 진행하도록 허용하지만, 일부 감사 이벤트를 기록하지 않을 수도 있습니다.
 
 ### <a name="auditing-limitations"></a>감사 제한 사항
 
@@ -81,7 +81,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 - VNet 또는 방화벽 뒤의 Azure Storage 계정에 감사 로그를 작성할 수 있습니다. 구체적인 지침은 [VNet 및 방화벽 뒤의 스토리지 계정에 감사 작성](audit-write-storage-account-behind-vnet-firewall.md)을 참조하세요.
 - 로그 형식, 스토리지 폴더의 계층 구조 및 명명 규칙에 대한 자세한 내용은 [Blob 감사 로그 형식 참조](./audit-log-format.md)를 참조하세요.
 - [읽기 전용 복제본](read-scale-out.md)에 대한 감사는 자동으로 설정됩니다. 스토리지 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 [SQL Database 감사 로그 형식](audit-log-format.md)을 참조하세요.
-- Azure AD 인증을 사용하는 경우 실패한 로그인 레코드가 SQL 감사 로그에 나타나지 않습니다. 실패한 로그인 감사 레코드를 보려면 이러한 이벤트의 세부 정보를 로깅하는 [Azure Active Directory 포털](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)을 방문해야 합니다.
+- Azure AD 인증을 사용하는 경우 실패한 로그인 레코드가 SQL 감사 로그에 나타나지 않습니다. 실패한 로그인 감사 레코드를 보려면 이러한 이벤트의 세부 정보를 로깅하는 [Azure Active Directory 포털](../../active-directory/reports-monitoring/concept-sign-ins.md)을 방문해야 합니다.
 - 로그인이 게이트웨이에 의해 데이터베이스가 있는 특정 인스턴스로 라우팅됩니다.  AAD 로그인의 경우 자격 증명이 확인된 후 해당 사용자로 요청된 데이터베이스에 로그인을 시도합니다.  오류가 발생하는 경우 요청된 데이터베이스는 액세스되지 않으므로 감사가 수행되지 않습니다.  SQL 로그인의 경우 요청된 데이터에서 자격 증명을 확인하므로 해당 사례를 감사할 수 있습니다.  데이터베이스에 연결된 성공적인 로그인은 두 경우 모두 감사됩니다.
 - 감사 설정을 구성했으면 새로운 위협 감지 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지를 사용하면 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](threat-detection-overview.md)을 참조하세요.
 
@@ -100,7 +100,7 @@ Azure SQL Database 및 Azure Synapse 감사는 감사 레코드의 문자 필드
 
   > [!NOTE]
   > - 일시 중지된 전용 SQL 풀에서는 감사를 사용하도록 설정할 수 없습니다. 감사를 사용하도록 설정하려면 전용 SQL 풀의 일시 중지를 해제합니다. [전용 SQL 풀](../..//synapse-analytics/sql/best-practices-dedicated-sql-pool.md)에 대해 자세히 알아보세요.
-  > - 감사가 Azure Portal 또는 PowerShell cmdlet을 통해 Log Analytics 작업 영역 또는 Event Hub 대상으로 구성되면 “SQLSecurityAuditEvents” 범주가 사용 설정된 [진단 설정](../../azure-monitor/essentials/diagnostic-settings.md)이 만들어집니다.
+  > - 감사가 Azure Portal 또는 PowerShell cmdlet을 통해 Log Analytics 작업 영역 또는 Event Hub 대상으로 구성되면 "SQLSecurityAuditEvents" 범주가 사용되는 [진단 설정](../../azure-monitor/essentials/diagnostic-settings.md)이 만들어집니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. **SQL 데이터베이스** 또는 **SQL 서버** 창의 보안 제목 아래에 있는 **감사** 로 이동합니다.
@@ -290,9 +290,9 @@ WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입�
 
 다음 예제에 나오는 대로 [Azure Resource Manager](../../azure-resource-manager/management/overview.md) 템플릿을 사용하여 Azure SQL Database 감사를 관리할 수 있습니다.
 
-- [감사가 설정된 Azure SQL Database를 배포하여 Azure Blob Storage 계정에 감사 로그 쓰기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [감사가 설정된 Azure SQL Database를 배포하여 Log Analytics에 감사 로그 쓰기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
-- [감사가 설정된 Azure SQL Database를 배포하여 Event Hubs에 감사 로그 쓰기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+- [감사가 설정된 Azure SQL Database를 배포하여 Azure Blob Storage 계정에 감사 로그 쓰기](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-blob-storage/)
+- [감사가 설정된 Azure SQL Database를 배포하여 Log Analytics에 감사 로그 쓰기](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-oms/)
+- [감사가 설정된 Azure SQL Database를 배포하여 Event Hubs에 감사 로그 쓰기](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-eventhub/)
 
 > [!NOTE]
 > 연결된 샘플은 외부 공용 리포지토리에 있으며 보증 없이 '있는 그대로' 제공되며 Microsoft 지원 프로그램/서비스에서 지원되지 않습니다.

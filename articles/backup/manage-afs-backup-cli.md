@@ -2,13 +2,13 @@
 title: Azure CLI를 사용하여 Azure 파일 공유 백업 관리
 description: Azure CLI를 사용하여 Azure Backup으로 백업한 Azure 파일 공유를 관리하고 모니터링하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 01/15/2020
-ms.openlocfilehash: e389f5cde12734ef4bf0be4ecfba69ba33f5e030
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/10/2021
+ms.openlocfilehash: 9ddee7e0e7595d4606d077f33362344fe582d9a8
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773606"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902973"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure 파일 공유 백업 관리
 
@@ -88,6 +88,98 @@ az backup job list --resource-group azurefiles --vault-name azurefilesvault
     "type": "Microsoft.RecoveryServices/vaults/backupJobs"
   }
 ]
+```
+## <a name="create-policy"></a>정책 만들기
+
+다음 매개 변수와 함께 [az backup policy create](/cli/azure/backup/policy?view=azure-cli-latest&preserve-view=true#az_backup_policy_create) 명령을 실행하여 백업 정책을 만들 수 있습니다.
+
+- --backup-management-type – Azure Storage
+- --workload-type - AzureFileShare
+- --name – 정책 이름
+- --policy - 일정 및 보존에 대한 적절한 세부 정보가 포함된 JSON 파일
+- --resource-group - 자격 증명 모음의 리소스 그룹
+- --vault-name – 자격 증명 모음의 이름
+
+**예제**
+
+```azurecli-interactive
+az backup policy create --resource-group azurefiles --vault-name azurefilesvault --name schedule20 --backup-management-type AzureStorage --policy samplepolicy.json --workload-type AzureFileShare
+
+```
+
+**샘플 JSON(samplepolicy.json)**
+
+```json
+{
+  "eTag": null,
+  "id": "/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupPolicies/schedule20",
+  "location": null,
+  "name": "schedule20",
+  "properties": {
+    "backupManagementType": "AzureStorage",
+    "protectedItemsCount": 0,
+    "retentionPolicy": {
+      "dailySchedule": {
+        "retentionDuration": {
+          "count": 30,
+          "durationType": "Days"
+        },
+        "retentionTimes": [
+          "2020-01-05T08:00:00+00:00"
+        ]
+      },
+      "monthlySchedule": null,
+      "retentionPolicyType": "LongTermRetentionPolicy",
+      "weeklySchedule": null,
+      "yearlySchedule": null
+    },
+    "schedulePolicy": {
+      "schedulePolicyType": "SimpleSchedulePolicy",
+      "scheduleRunDays": null,
+      "scheduleRunFrequency": "Daily",
+      "scheduleRunTimes": [
+        "2020-01-05T08:00:00+00:00"
+      ],
+      "scheduleWeeklyFrequency": 0
+    },
+    "timeZone": "UTC",
+    "workLoadType": “AzureFileShare”
+  },
+  "resourceGroup": "azurefiles",
+  "tags": null,
+  "type": "Microsoft.RecoveryServices/vaults/backupPolicies"
+}
+```
+
+정책이 성공적으로 생성되면 명령을 실행하는 동안 매개 변수로 전달한 정책 JSON이 명령 출력에 표시됩니다.
+
+필요에 따라 정책의 일정 및 보존 섹션을 수정할 수 있습니다.
+
+**예제**
+
+매월 첫 번째 일요일의 백업을 두 달 동안 보존 하려면 월별 일정을 다음과 같이 업데이트합니다.
+
+```json
+"monthlySchedule": {
+        "retentionDuration": {
+          "count": 2,
+          "durationType": "Months"
+        },
+        "retentionScheduleDaily": null,
+        "retentionScheduleFormatType": "Weekly",
+        "retentionScheduleWeekly": {
+          "daysOfTheWeek": [
+            "Sunday"
+          ],
+          "weeksOfTheMonth": [
+            "First"
+          ]
+        },
+        "retentionTimes": [
+          "2020-01-05T08:00:00+00:00"
+        ]
+      }
+
 ```
 
 ## <a name="modify-policy"></a>정책 수정

@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 05/25/2021
 ms.author: tisande
-ms.openlocfilehash: 26465eb9826c60daad7b44e1c2fe6ae3c19b1ed0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20798fc438f037ca7372822ea8bd54117b8936ee
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100378811"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456586"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -97,7 +97,7 @@ Azure Cosmos DB에서 사용된 총 스토리지는 데이터 크기와 인덱�
 
 - `dataType`은 `String` 또는 `Number`일 수 있습니다. 이는 인덱싱되는 JSON 속성의 형식을 나타냅니다.
 
-지정하지 않으면 이러한 속성은 다음과 같은 기본값을 갖습니다.
+이러한 속성 설정은 이제 필요하지 않습니다. 지정하지 않으면 이러한 속성은 다음과 같은 기본값을 갖습니다.
 
 | **속성 이름**     | **기본값** |
 | ----------------------- | -------------------------------- |
@@ -337,7 +337,7 @@ ORDER BY c.firstName, c.lastName
 > 인덱스 변환은 [요청 단위](request-units.md)를 사용하는 작업입니다. 인덱스 변환에서 사용하는 요청 단위는 현재 [서버리스](serverless.md) 컨테이너를 사용하는 경우 요금이 청구되지 않습니다. 서버리스가 일반 공급되면 이러한 요청 단위에 요금이 청구됩니다.
 
 > [!NOTE]
-> [SDK 중 하나를 사용](how-to-manage-indexing-policy.md)하여 인덱스 변환의 진행률을 추적할 수 있습니다.
+> Azure Portal에서 또는 [SDK 중 하나를 사용](how-to-manage-indexing-policy.md)하여 인덱스 변환의 진행률을 추적할 수 있습니다.
 
 인덱스를 변환하는 동안에는 쓰기 가용성에 영향이 없습니다. 인덱스 변환은 프로비전된 RU를 사용하지만 CRUD 작업 또는 쿼리보다 낮은 우선 순위로 사용합니다.
 

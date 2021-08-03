@@ -7,16 +7,16 @@ ms.subservice: elastic-pools
 ms.custom: seo-lt-2019 sqldbrb=1 references_regions
 ms.devlang: ''
 ms.topic: reference
-author: sachinpMSFT
-ms.author: sachinp
-ms.reviewer: sstein
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
 ms.date: 04/09/2021
-ms.openlocfilehash: 906d34a91736d28f0da4a5ba34b7114fbe410adb
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: fbbd345e6b2832d8b992ea42a8a2c1fb33615af7
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306639"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110689958"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>DTU 구매 모델을 사용한 탄력적 풀의 리소스 한도
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -161,6 +161,8 @@ DTU 수가 동일한 경우 탄력적 풀에 제공된 리소스가 탄력적 �
 
 > [!NOTE]
 > `tempdb` 한도는 [tempdb 한도](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database)를 참조하세요.
+>
+> 프리미엄 서비스 계층의 스토리지 제한에 대한 자세한 내용은 [스토리지 공간 거버넌스](resource-limits-logical-server.md#storage-space-governance)를 참조하세요.
 
 ### <a name="database-properties-for-pooled-databases"></a>풀링된 데이터베이스에 대한 데이터베이스 속성
 
@@ -180,4 +182,4 @@ DTU 수가 동일한 경우 탄력적 풀에 제공된 리소스가 탄력적 �
 * 탄력적 풀의 vCore 리소스 한도는 [vCore 구매 모델을 사용한 탄력적 풀의 리소스 한도](resource-limits-vcore-elastic-pools.md)를 참조하세요.
 * Azure SQL Managed Instance에 있는 관리되는 인스턴스의 리소스 한도는 [SQL Managed Instance 리소스 한도](../managed-instance/resource-limits.md)를 참조하세요.
 * 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조하세요.
-* 논리 SQL Server의 리소스 한도에 관한 자세한 내용은 서버 및 구독 수준의 한도와 관련된 [논리 SQL Server의 리소스 한도 개요](resource-limits-logical-server.md)를 참조하세요.
+* 논리 SQL Server의 리소스 한도에 대한 자세한 내용은 [논리 SQL 서버의 리소스 한도 개요](resource-limits-logical-server.md)를 참조하여 서버 및 구독 수준 한도에 대해 알아보세요.

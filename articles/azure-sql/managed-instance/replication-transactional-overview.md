@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Managed Instance
 description: Azure SQL Database Managed Instance(미리 보기)에서 SQL Server 트랜잭션 복제를 사용하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: data-movement
+ms.subservice: replication
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
-ms.date: 04/20/2020
-ms.openlocfilehash: 3e4b4fc3d4a6c9529c7c0ac0daef8a28173e0bf3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: ferno-ms
+ms.author: ferno
+ms.reviewer: mathoma
+ms.date: 05/10/2020
+ms.openlocfilehash: bad663dd0101a4e42f761256bf5fb9d32ac09320
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99225346"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110693943"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Azure SQL Managed Instance(미리 보기)를 사용하여 트랜잭션 복제
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -152,9 +152,7 @@ Azure SQL Managed Instance는 다음 버전의 SQL Server에서 구독자가 되
 
 ## <a name="with-failover-groups"></a>장애 조치(failover) 그룹 사용
 
-[활성 지역 복제](../database/active-geo-replication-overview.md)는 트랜잭션 복제를 사용하는 SQL Managed Instance에서 지원되지 않습니다. 활성 지역 복제 대신 [자동 장애 조치(failover) 그룹](../database/auto-failover-group-overview.md)을 사용하지만, 장애 조치(failover) 후에 주 관리되는 인스턴스에서 게시를 [수동으로 삭제](transact-sql-tsql-differences-sql-server.md#replication)하고 보조 SQL Managed Instance에서 다시 만들어야 합니다.
-
-[장애 조치(failover) 그룹](../database/auto-failover-group-overview.md)의 **게시자** 또는 **배포자** SQL Managed Instance에서 지역 복제를 사용하도록 설정된 경우에는 장애 조치(failover)가 발생한 후 SQL Managed Instance 관리자가 모든 게시를 이전 주 데이터베이스에서 정리하고 새로운 주 데이터베이스에서 다시 구성해야 합니다. 이 시나리오에는 다음과 같은 작업이 필요합니다.
+**게시자** 또는 **배포자** SQL Managed Instance가 [장애 조치(failover) 그룹](../database/auto-failover-group-overview.md)에 있는 경우, 장애 조치가 발생한 후 SQL Managed Instance 관리자가 모든 게시를 이전 주 데이터베이스에서 정리하고 새로운 주 데이터베이스에서 다시 구성해야 합니다. 이 시나리오에는 다음과 같은 작업이 필요합니다.
 
 1. 데이터베이스에서 실행 중인 모든 복제 작업을 중지합니다(있는 경우).
 1. 게시자 데이터베이스에서 다음 스크립트를 실행하여 게시자에서 구독 메타데이터를 삭제합니다.
@@ -184,7 +182,7 @@ Azure SQL Managed Instance는 다음 버전의 SQL Server에서 구독자가 되
    EXEC sp_dropdistributor 1,1
    ```
 
-장애 조치(failover) 그룹의 **구독자** 인스턴스에서 지역 복제를 사용하도록 설정하는 경우 구독자 관리되는 인스턴스의 장애 조치(failover) 그룹 수신기 엔드포인트에 연결하도록 게시를 구성해야 합니다. 장애 조치(failover) 시 관리되는 인스턴스 관리자의 후속 작업은 발생한 장애 조치(failover) 유형에 따라 달라집니다.
+**구독자** SQL Managed Instance가 장애 조치 그룹에 있는 경우, 구독자 관리형 인스턴스의 장애 조치 그룹 수신기 엔드포인트에 연결하도록 게시를 구성해야 합니다. 장애 조치(failover) 시 관리되는 인스턴스 관리자의 후속 작업은 발생한 장애 조치(failover) 유형에 따라 달라집니다.
 
 - 데이터 손실이 없는 장애 조치(failover)의 경우 장애 조치(failover) 후에도 복제가 계속 작동합니다.
 - 데이터 손실이 있는 장애 조치(failover)의 경우 복제도 작동합니다. 손실된 변경 내용을 다시 복제합니다.

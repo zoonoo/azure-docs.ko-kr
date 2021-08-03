@@ -1,26 +1,27 @@
 ---
-title: Azure Automation Windows Virtual Desktop(클래식) 세션 호스트 크기 조정 - Azure
-description: Azure Automation을 사용하여 Windows Virtual Desktop(클래식) 세션 호스트의 크기를 자동으로 조정하는 방법입니다.
+title: Azure Automation Azure Virtual Desktop(클래식) 세션 호스트 크기 조정 - Azure
+description: Azure Automation을 사용하여 Azure Virtual Desktop(클래식) 세션 호스트의 크기를 자동으로 조정하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 907871a85680202a4a8b5f73b4454a9b2f2fe103
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 781ac1e84fb742908ca020806b04135f35b3a65d
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444312"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751832"
 ---
-# <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Azure Automation을 사용하여 Windows Virtual Desktop(클래식) 세션 호스트의 크기 조정
+# <a name="scale-azure-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Azure Automation을 사용하여 Azure Virtual Desktop(클래식) 세션 호스트의 크기 조정
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다.
 
-VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비용을 줄일 수 있습니다. VM을 크기 조정한다는 것은 사용량이 적은 시간에는 세션 호스트 VM을 종료 및 할당 취소하고 사용량이 많은 시간에는 다시 켜서 할당하는 것을 의미합니다.
+VM(가상 머신)을 크기 조정하여 총 Azure Virtual Desktop 배포 비용을 줄일 수 있습니다. VM을 크기 조정한다는 것은 사용량이 적은 시간에는 세션 호스트 VM을 종료 및 할당 취소하고 사용량이 많은 시간에는 다시 켜서 할당하는 것을 의미합니다.
 
-이 문서에서는 Azure Automation 계정을 사용하여 빌드된 크기 조정 도구와 Windows Virtual Desktop 환경에서 세션 호스트 VM을 자동으로 크기 조정하는 Azure Logic App에 대해 알아봅니다. 크기 조정 도구를 사용하는 방법을 알아보려면 [사전 요구 사항](#prerequisites)으로 건너뛰세요.
+이 문서에서는 Azure Automation 계정을 사용하여 빌드된 크기 조정 도구와 Azure Virtual Desktop 환경에서 세션 호스트 VM을 자동으로 크기 조정하는 Azure Logic App에 대해 알아봅니다. 크기 조정 도구를 사용하는 방법을 알아보려면 [사전 요구 사항](#prerequisites)으로 건너뛰세요.
 
 ## <a name="how-the-scaling-tool-works"></a>크기 조정 도구의 작동 방식
 
@@ -48,7 +49,7 @@ VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비�
 
 언제든지 작업은 호스트 풀의 *MaxSessionLimit* 을 고려하여 현재 세션 수가 최대 용량 중 90%를 초과하는지 확인합니다. 초과하는 경우 작업에서 추가 세션 호스트 VM을 시작합니다.
 
-작업은 설정된 되풀이 간격에 따라 주기적으로 실행됩니다. Windows Virtual Desktop 환경의 크기에 따라 이 간격을 변경할 수 있지만, VM을 시작하고 종료하는 데 다소 시간이 걸릴 수 있으므로 지연 시간을 고려해야 합니다. 되풀이 간격은 15분으로 설정하는 것이 좋습니다.
+작업은 설정된 되풀이 간격에 따라 주기적으로 실행됩니다. Azure Virtual Desktop 환경의 크기에 따라 이 간격을 변경할 수 있지만, VM을 시작하고 종료하는 데 다소 시간이 걸릴 수 있으므로 지연 시간을 고려해야 합니다. 되풀이 간격은 15분으로 설정하는 것이 좋습니다.
 
 단, 이 도구에는 다음과 같은 제한 사항도 있습니다.
 
@@ -63,8 +64,8 @@ VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비�
 
 크기 조정 도구를 설정하기 전에 먼저 다음을 준비해야 합니다.
 
-- [Windows Virtual Desktop 테넌트 및 호스트 풀](create-host-pools-arm-template.md)
-- Windows Virtual Desktop 서비스를 사용하여 구성 및 등록된 세션 호스트 풀 VM
+- [Azure Virtual Desktop 테넌트 및 호스트 풀](create-host-pools-arm-template.md)
+- Azure Virtual Desktop 서비스를 사용하여 구성 및 등록된 세션 호스트 풀 VM
 - Azure 구독에 대한 [기여자 액세스](../../role-based-access-control/role-assignments-portal.md)를 갖는 사용자
 
 도구를 배포하는 데 사용할 머신에는 다음이 필요합니다.
@@ -150,11 +151,11 @@ Azure Automation 계정에서 실행 계정을 만들려면 다음을 수행합�
 
 6. 프로세스가 완료되면 지정된 Azure Automation 계정에 **AzureRunAsConnection** 이라는 자산이 생성됩니다. **Azure 실행 계정** 을 선택합니다. 이 연결 자산은 애플리케이션 ID, 테넌트 ID, 구독 ID 및 인증서 지문을 보유합니다. 나중에 사용할 수 있도록 애플리케이션 ID를 기록해 두세요. **연결** 페이지에서 동일한 정보를 찾을 수도 있습니다. 이 페이지로 이동하려면 창의 왼쪽 창에서 **공유 리소스** 섹션 아래에 있는 **연결** 을 선택하고 **AzureRunAsConnection** 이라는 연결 자산을 클릭합니다.
 
-### <a name="create-a-role-assignment-in-windows-virtual-desktop"></a>Windows Virtual Desktop에서 역할 할당 수행하기
+### <a name="create-a-role-assignment-in-azure-virtual-desktop"></a>Azure Virtual Desktop에서 역할 할당 만들기
 
-다음으로, **AzureRunAsConnection** 이 Windows Virtual Desktop과 상호 작용할 수 있도록 역할 할당을 만들어야 합니다. PowerShell을 사용하여, 역할 할당을 만들 수 있는 권한이 있는 계정에 로그인합니다.
+다음으로, **AzureRunAsConnection** 이 Azure Virtual Desktop과 상호 작용할 수 있도록 역할 할당을 만들어야 합니다. PowerShell을 사용하여, 역할 할당을 만들 수 있는 권한이 있는 계정에 로그인합니다.
 
-먼저 PowerShell 세션에서 사용할 [Windows Virtual Desktop PowerShell 모듈](/powershell/windows-virtual-desktop/overview/)을 다운로드하고 가져옵니다. 다음 PowerShell cmdlet을 실행하여 Windows Virtual Desktop에 연결하고 테넌트를 표시합니다.
+먼저, 아직 수행하지 않은 경우 PowerShell 세션에서 사용할 [Azure Virtual Desktop PowerShell 모듈](/powershell/windows-virtual-desktop/overview/)을 다운로드하고 가져옵니다. 다음 PowerShell cmdlet을 실행하여 Azure Virtual Desktop에 연결하고 테넌트를 표시합니다.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -165,7 +166,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Get-RdsTenant
 ```
 
-크기를 조정하려는 호스트 풀이 있는 테넌트를 찾았으면 [Azure Automation 실행 계정 만들기](#create-an-azure-automation-run-as-account)의 지침에 따라 **AzureRunAsConnection** 애플리케이션 ID를 모으고 다음 cmdlet의 이전 cmdlet에서 가져온 Windows Virtual Desktop 테넌트 이름을 사용하여 역할 할당을 만듭니다.
+크기를 조정하려는 호스트 풀이 있는 테넌트를 찾았으면 [Azure Automation 실행 계정 만들기](#create-an-azure-automation-run-as-account)의 지침에 따라 **AzureRunAsConnection** 애플리케이션 ID를 수집하고 다음 cmdlet의 이전 cmdlet에서 가져온 Azure Virtual Desktop 테넌트 이름을 사용하여 역할 할당을 만듭니다.
 
 ```powershell
 New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId "<applicationid>" -TenantName "<tenantname>"
@@ -193,7 +194,7 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId "<app
     Invoke-WebRequest -Uri $Uri -OutFile ".\CreateOrUpdateAzLogicApp.ps1"
     ```
 
-4. 다음 cmdlet을 실행하여 RDS 소유자 또는 RDS 기여자 권한이 있는 계정으로 Windows Virtual Desktop에 로그인합니다.
+4. 다음 cmdlet을 실행하여 RDS 소유자 또는 RDS 기여자 권한이 있는 계정으로 Azure Virtual Desktop에 로그인합니다.
 
     ```powershell
     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"

@@ -7,22 +7,22 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 03/15/2021
+ms.date: 05/20/2021
 ms.custom: generated
-ms.openlocfilehash: ba5340fdc12bf3141c5e3f24b6b9d178a5db600d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 989724452f57b5b44954f739eae6bff1da61263f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104602522"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470133"
 ---
 # <a name="azure-built-in-roles"></a>Azure 기본 제공 역할
 
-[Azure RBAC(역할 기반 액세스 제어)](overview.md)는 사용자, 그룹, 서비스 주체 및 관리 ID에 할당할 수 있는 여러 가지 Azure 기본 제공 역할을 제공합니다. 역할 할당은 Azure 리소스에 대한 액세스를 제어하는 방법입니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [Azure 사용자 지정 역할](custom-roles.md)을 만들면 됩니다.
+[Azure RBAC(역할 기반 액세스 제어)](overview.md)는 사용자, 그룹, 서비스 주체 및 관리 ID에 할당할 수 있는 여러 가지 Azure 기본 제공 역할을 제공합니다. 역할 할당은 Azure 리소스에 대한 액세스를 제어하는 방법입니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [Azure 사용자 지정 역할](custom-roles.md)을 만들면 됩니다. 역할을 할당하는 방법에 대한 자세한 내용은 [Azure 역할 할당 단계](role-assignments-steps.md)를 참조하세요.
 
-이 문서에는 Azure 기본 제공 역할 목록이 포함되어 있으며, 이 목록은 지속적으로 업데이트됩니다. 최신 역할을 가져오려면 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 또는 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용합니다. Azure AD(Azure Active Directory)의 관리자 역할을 찾고 있는 경우 [Azure Active Directory의 관리자 역할 권한](../active-directory/roles/permissions-reference.md)을 참조하세요.
+이 문서에는 Azure 기본 제공 역할 목록이 포함되어 있습니다. Azure AD(Azure Active Directory)의 관리자 역할을 찾고 있는 경우 [Azure AD 기본 제공 역할](../active-directory/roles/permissions-reference.md)을 참조하세요.
 
-다음 표에서는 각 기본 제공 역할에 대한 간략한 설명과 고유 ID를 제공합니다. 각 역할의 `Actions`, `NotActions`, `DataActions` 및 `NotDataActions` 목록을 보려면 역할 이름을 클릭합니다. 이러한 작업의 의미와 작업이 관리 및 데이터 평면에 적용되는 방식에 대한 자세한 내용은 [Azure 리소스에 대한 역할 정의 이해](role-definitions.md)를 참조하세요.
+다음 표에서는 각 기본 제공 역할에 대한 간략한 설명을 제공합니다. 각 역할의 `Actions`, `NotActions`, `DataActions` 및 `NotDataActions` 목록을 보려면 역할 이름을 클릭합니다. 이러한 작업의 의미와 작업이 관리 및 데이터 평면에 적용되는 방식에 대한 자세한 내용은 [Azure 리소스에 대한 역할 정의 이해](role-definitions.md)를 참조하세요.
 
 ## <a name="all"></a>모두
 
@@ -37,7 +37,7 @@ ms.locfileid: "104602522"
 > | **컴퓨팅** |  |  |
 > | [Classic Virtual Machine 참가자](#classic-virtual-machine-contributor) | 클래식 가상 머신을 관리할 수 있지만 가상 머신이나 연결된 가상 네트워크 또는 스토리지 계정에 액세스할 수는 없습니다. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 > | [가상 머신 관리자 로그인](#virtual-machine-administrator-login) | 포털에서 Virtual Machines를 보고 관리자 권한으로 로그인합니다. | 1c0163c0-47e6-4577-8991-ea5c82e286e4 |
-> | [Virtual Machine 참가자](#virtual-machine-contributor) | 가상 머신을 관리할 수 있지만 가상머신이나 연결된 가상 네트워크 또는 스토리지 계정에 액세스할 수는 없습니다. | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
+> | [Virtual Machine 참가자](#virtual-machine-contributor) | 가상 머신을 만들고 관리하며, 디스크 및 디스크 스냅샷을 관리하고, 소프트웨어를 설치 및 실행하고, VM 확장을 사용하여 가상 머신의 루트 사용자에 대한 암호를 재설정하고, VM 확장을 사용하여 로컬 사용자 계정을 관리합니다. 이 역할은 가상 머신이 연결된 가상 네트워크 또는 스토리지 계정에 대한 관리 액세스 권한을 부여하지 않습니다. 이 역할은 Azure RBAC에서 역할을 할당하는 것을 허용하지 않습니다. | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | [가상 머신 사용자 로그인](#virtual-machine-user-login) | 포털에서 Virtual Machines를 보고 일반 사용자 권한으로 로그인합니다. | fb879df8-f326-4884-b1cf-06f3ad86be52 |
 > | **네트워킹** |  |  |
 > | [CDN 엔드포인트 기여자](#cdn-endpoint-contributor) | CDN 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. | 426e0c7f-0c7e-4658-b36f-ff54d6c29b45 |
@@ -77,6 +77,12 @@ ms.locfileid: "104602522"
 > | **Web** |  |  |
 > | [Azure Maps 데이터 기여자](#azure-maps-data-contributor) | Azure Maps 계정에서 지도 관련 데이터를 읽고, 쓰고, 삭제할 수 있는 액세스 권한을 부여합니다. | 8f5e0ce6-4f7b-4dcf-bddf-e6f48634a204 |
 > | [Azure Maps 데이터 읽기 권한자](#azure-maps-data-reader) | Azure 맵 계정에서 맵 관련 데이터를 읽을 수 있는 액세스 권한을 부여합니다. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | [Azure Spring Cloud 데이터 판독기](#azure-spring-cloud-data-reader) | Azure Spring Cloud 데이터에 대한 읽기 권한 허용 | b5537268-8956-4941-a8f0-646150406f0c |
+> | [Media Services 계정 관리자](#media-services-account-administrator) | Media Services 계정을 생성하고, 읽고, 수정하고, 삭제합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다. | 054126f8-9a2b-4f1c-a9ad-eca461f08466 |
+> | [Media Services 라이브 이벤트 관리자](#media-services-live-events-administrator) | 라이브 이벤트, 자산, 자산 필터, 스트리밍 로케이터를 만들고, 읽고, 수정합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다. | 532bc159-b25e-42c0-969e-a1d439f60d77 |
+> | [Media Services 미디어 운영자](#media-services-media-operator) | 자산, 자산 필터, 스트리밍 로케이터, 작업을 만들고, 읽고, 수정하고, 삭제합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다. | e4395492-1534-4db2-bedf-88c14621589c |
+> | [Media Services 정책 관리자](#media-services-policy-administrator) | 계정 필터, 스트리밍 정책, 콘텐츠 키 정책 및 변환을 만들고, 읽고, 수정하고, 삭제합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다. 작업, 자산, 스트리밍 리소스를 만들 수 없습니다. | c4bba371-dacd-4a26-b320-7250bca963ae |
+> | [Media Services 스트리밍 엔드포인트 관리자](#media-services-streaming-endpoints-administrator) | 스트리밍 엔드포인트를 만들고, 읽고, 수정하고, 삭제합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다. | 99dba123-b5fe-44d5-874c-ced7199a5804 |
 > | [Search 서비스 기여자](#search-service-contributor) | Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [SignalR AccessKey 읽기 권한자](#signalr-accesskey-reader) | SignalR 서비스 액세스 키 읽기 | 04165923-9d83-45d5-8227-78b77b0a687e |
 > | [SignalR 앱 서버(미리 보기)](#signalr-app-server-preview) | 앱 서버에서 AAD 인증 옵션을 사용하여 SignalR Service에 액세스할 수 있습니다. | 420fcaa2-552c-430f-98ca-3264be4806c7 |
@@ -87,12 +93,12 @@ ms.locfileid: "104602522"
 > | [웹 계획 참가자](#web-plan-contributor) | 웹 사이트의 웹 계획을 관리할 수 있지만 액세스할 수는 없습니다. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [웹 사이트 기여자](#website-contributor) | 웹 사이트(웹 계획은 제외)를 관리할 수 있지만 액세스할 수는 없습니다. | de139f84-1756-47ae-9be6-808fbbe84772 |
 > | **컨테이너** |  |  |
-> | [AcrDelete](#acrdelete) | acr 삭제 | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
-> | [AcrImageSigner](#acrimagesigner) | acr 이미지 서명자 | 6cef56e8-d556-48e5-a04f-b8e64114680f |
-> | [AcrPull](#acrpull) | acr pull | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
-> | [AcrPush](#acrpush) | acr push | 8311e382-0749-4cb8-b61a-304f252e45ec |
-> | [AcrQuarantineReader](#acrquarantinereader) | acr 격리 데이터 읽기 권한자 | cdda3590-29a3-44f6-95f2-9f980659eb04 |
-> | [AcrQuarantineWriter](#acrquarantinewriter) | acr 격리 데이터 작성자 | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
+> | [AcrDelete](#acrdelete) | 컨테이너 레지스트리에서 리포지토리, 태그, 매니페스트를 삭제합니다. | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
+> | [AcrImageSigner](#acrimagesigner) | 콘텐츠 신뢰를 사용하도록 설정된 컨테이너 레지스트리에 신뢰할 수 있는 이미지를 푸시하거나 설정된 컨테이너 레지스트리에서 신뢰할 수 있는 이미지를 끌어옵니다. | 6cef56e8-d556-48e5-a04f-b8e64114680f |
+> | [AcrPull](#acrpull) | 컨테이너 레지스트리에서 아티팩트를 끌어옵니다. | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
+> | [AcrPush](#acrpush) | 컨테이너 레지스트리에 아티팩트를 푸시하거나 또는 컨테이너 레지스트리에서 아티팩트를 끌어옵니다. | 8311e382-0749-4cb8-b61a-304f252e45ec |
+> | [AcrQuarantineReader](#acrquarantinereader) | 컨테이너 레지스트리에서 격리된 이미지를 끌어옵니다. | cdda3590-29a3-44f6-95f2-9f980659eb04 |
+> | [AcrQuarantineWriter](#acrquarantinewriter) | 컨테이너 레지스트리에 격리된 이미지를 푸시하거나 컨테이너 레지스트리에서 격리된 이미지를 끌어옵니다. | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | [Azure Kubernetes Service 클러스터 관리자 역할](#azure-kubernetes-service-cluster-admin-role) | 클러스터 관리자 자격 증명 작업을 나열합니다. | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | [Azure Kubernetes Service 클러스터 사용자 역할](#azure-kubernetes-service-cluster-user-role) | 클러스터 사용자 자격 증명 작업을 나열합니다. | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | [Azure Kubernetes Service 기여자 역할](#azure-kubernetes-service-contributor-role) | Azure Kubernetes Service 클러스터를 읽고 쓸 수 있는 액세스 권한을 부여합니다. | ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8 |
@@ -136,11 +142,16 @@ ms.locfileid: "104602522"
 > | [Cognitive Services Custom Vision 읽기 권한자](#cognitive-services-custom-vision-reader) | 프로젝트의 읽기 전용 작업입니다. 읽기 권한자는 프로젝트를 만들거나 업데이트할 수 없습니다. | 93586559-c37d-4a6b-ba08-b9f0940c2d73 |
 > | [Cognitive Services Custom Vision 강사](#cognitive-services-custom-vision-trainer) | 모델을 게시, 게시 취소, 내보내는 기능을 포함하여 프로젝트를 보고 편집하고 모델을 학습합니다. 강사는 프로젝트를 만들거나 삭제할 수 없습니다. | 0a5ae4ab-0d65-4eeb-be61-29fc9b54394b |
 > | [Cognitive Services 데이터 읽기 권한자(미리 보기)](#cognitive-services-data-reader-preview) | Cognitive Services 데이터를 읽을 수 있습니다. | b59867f0-fa02-499b-be73-45a86b5b3e1c |
+> | [Cognitive Services 얼굴 인식기](#cognitive-services-face-recognizer) | Face API에서 유사한 작업을 검색, 확인, 식별, 그룹화하고 찾을 수 있습니다. 이 역할은 만들기 또는 삭제 작업을 허용하지 않으므로, ‘최소 권한’ 모범 사례에 따라 추론 기능만 필요한 엔드포인트에 적합합니다. | 9894cab4-e18a-44aa-828b-cb588cd6f2d7 |
 > | [Cognitive Services Metrics Advisor 관리자](#cognitive-services-metrics-advisor-administrator) | 시스템 수준 구성을 포함하는 프로젝트에 대한 모든 권한입니다. | cb43c632-a144-4ec5-977c-e80c4affc34a |
 > | [Cognitive Services QnA Maker 편집기](#cognitive-services-qna-maker-editor) | KB를 만들고, 편집하고, 가져오고, 내보낼 수 있습니다. KB를 게시하거나 삭제할 수 없습니다. | f4cc2bf9-21be-47a1-bdf1-5c5804381025 |
 > | [Cognitive Services QnA Maker 읽기 권한자](#cognitive-services-qna-maker-reader) | KB만 읽고 테스트할 수 있습니다. | 466ccd10-b268-4a11-b098-b4849f024126 |
 > | [Cognitive Services 사용자](#cognitive-services-user) | Cognitive Services의 키를 읽고 나열할 수 있습니다. | a97b65f3-24c7-4388-baec-2e87135dc908 |
 > | **사물 인터넷** |  |  |
+> | [IoT Hub 데이터 기여자](#iot-hub-data-contributor) | IoT Hub 데이터 평면 작업에 대한 모든 권한을 허용합니다. | 4fc6c259-987e-4a07-842e-c321cc9d413f |
+> | [IoT Hub 데이터 판독기](#iot-hub-data-reader) | IoT Hub 데이터 평면 속성에 대한 전체 읽기 권한을 허용합니다 | b447c946-2db7-41ec-983d-d8bf3b1c77e3 |
+> | [IoT Hub 레지스트리 기여자](#iot-hub-registry-contributor) | IoT Hub 디바이스 레지스트리에 대한 모든 권한을 허용합니다. | 4ea46cd5-c1b2-4a8e-910b-273211f9ce47 |
+> | [IoT Hub 쌍 기여자](#iot-hub-twin-contributor) | 모든 IoT Hub 디바이스 및 모듈 쌍에 대한 읽기 및 쓰기 권한을 허용합니다. | 494bdba2-168f-4f31-a0a1-191d2f7c028c |
 > | [디바이스 업데이트 관리자](#device-update-administrator) | 관리 및 콘텐츠 작업에 대한 모든 권한을 제공합니다. | 02ca0879-e8e4-47a5-a61e-5c618b76e64a |
 > | [디바이스 업데이트 콘텐츠 관리자](#device-update-content-administrator) | 콘텐츠 작업에 대한 모든 권한을 제공합니다. | 0378884a-3af5-44ab-8323-f5b22f9f3c98 |
 > | [디바이스 업데이트 콘텐츠 읽기 권한자](#device-update-content-reader) | 콘텐츠 작업에 대한 읽기 권한을 제공하지만, 변경은 허용하지 않습니다. | d1ee9a80-8b14-47f0-bdc2-f4a351625a7b |
@@ -181,6 +192,7 @@ ms.locfileid: "104602522"
 > | **보안** |  |  |
 > | [증명 기여자](#attestation-contributor) | 증명 공급자 인스턴스를 읽고 쓰거나 삭제할 수 있습니다. | bbf86eb8-f7b4-4cce-96e4-18cddf81d86e |
 > | [증명 판독기](#attestation-reader) | 증명 공급자 속성을 읽을 수 있습니다. | fd1bd22b-8476-40bc-a0bc-69b95687b9f3 |
+> | [Azure Sentinel Automation 기여자](#azure-sentinel-automation-contributor) | Azure Sentinel Automation 기여자 | f4c81013-99ee-4d62-a7ee-b3f1f648599a |
 > | [Azure Sentinel 기여자](#azure-sentinel-contributor) | Azure Sentinel 기여자 | ab8e14d6-4a74-4a29-9ba8-549422addade |
 > | [Azure Sentinel 읽기 권한자](#azure-sentinel-reader) | Azure Sentinel 읽기 권한자 | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Azure Sentinel 응답자](#azure-sentinel-responder) | Azure Sentinel 응답자 | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
@@ -213,6 +225,11 @@ ms.locfileid: "104602522"
 > | [Automation 작업 연산자](#automation-job-operator) | Automation Runbook을 사용하여 작업을 만들고 관리합니다. | 4fe576fe-1146-4730-92eb-48519fa6bf9f |
 > | [Automation 운영자](#automation-operator) | 자동화 연산자는 작업을 시작, 중지, 일시 중단 및 다시 시작할 수 있습니다. | d3881f73-407a-4167-8283-e981cbba0404 |
 > | [Automation Runbook 연산자](#automation-runbook-operator) | Runbook 작업을 만들려면 Runbook 속성을 읽어보세요. | 5fb5aef8-1081-4b8e-bb16-9d5d0385bab5 |
+> | [Azure Arc 지원 Kubernetes 클러스터 사용자 역할](#azure-arc-enabled-kubernetes-cluster-user-role) | 클러스터 사용자 자격 증명 동작을 나열합니다. | 00493d72-78f6-4148-b6c5-d3ce8e4799dd |
+> | [Azure Arc Kubernetes 관리자](#azure-arc-kubernetes-admin) | 리소스 할당량 및 네임스페이스 업데이트 또는 삭제를 제외하고 클러스터/네임스페이스의 모든 리소스를 관리할 수 있습니다. | dffb1e0c-446f-4dde-a09f-99eb5cc68b96 |
+> | [Azure Arc Kubernetes 클러스터 관리자](#azure-arc-kubernetes-cluster-admin) | 클러스터의 모든 리소스를 관리할 수 있습니다. | 8393591c-06b9-48a2-a542-1bd6b377f6a2 |
+> | [Azure Arc Kubernetes 뷰어](#azure-arc-kubernetes-viewer) | 비밀을 제외한 클러스터/네임스페이스의 모든 리소스를 볼 수 있습니다. | 63f0a09d-1495-4db4-a681-037d84835eb4 |
+> | [Azure Arc Kubernetes 작성자](#azure-arc-kubernetes-writer) | (클러스터)역할 및 (클러스터)역할 바인딩을 제외하고 클러스터/네임스페이스의 모든 항목을 업데이트할 수 있습니다. | 5b999177-9696-4545-85c7-50de3797e5a1 |
 > | [Azure Connected Machine 온보딩](#azure-connected-machine-onboarding) | Azure Connected Machines을 온보딩할 수 있습니다. | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
 > | [Azure Connected Machine 리소스 관리자](#azure-connected-machine-resource-administrator) | Azure Connected Machines을 읽고, 쓰고, 삭제하고, 다시 온보딩할 수 있습니다. | cd570a14-e51a-42ad-bac8-bafd67325302 |
 > | [청구 읽기 권한자](#billing-reader) | 결제 데이터에 대해 읽기 권한 허용 | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
@@ -230,7 +247,7 @@ ms.locfileid: "104602522"
 > | [관리 그룹 읽기 권한자](#management-group-reader) | 관리 그룹 읽기 권한자 역할 | ac63b705-f282-497d-ac71-919bf39d939d |
 > | [NewRelic APM 계정 기여자](#new-relic-apm-account-contributor) | New Relic Application Performance Management 계정 및 애플리케이션을 관리할 수 있지만 액세스할 수는 없습니다. | 5d28c62d-5b37-4476-8438-e587778df237 |
 > | [Policy Insights 데이터 쓰기 권한자(미리 보기)](#policy-insights-data-writer-preview) | 리소스 정책에 대한 읽기 액세스 권한과 리소스 구성 요소 정책 이벤트에 대한 쓰기 액세스 권한을 허용합니다. | 66bb4e9e-b016-4a94-8249-4c0511c2be84 |
-> | [할당량 요청 운영자 역할](#quota-request-operator-role) | 할당량 요청을 읽고 만들고, 할당량 요청 상태를 가져오고, 지원 티켓을 만듭니다. | 0e5f05e5-9ab9-446b-b98d-1e2157c94125 |
+> | [할당량 요청 운영자](#quota-request-operator) | 할당량 요청을 읽고 만들고, 할당량 요청 상태를 가져오고, 지원 티켓을 만듭니다. | 0e5f05e5-9ab9-446b-b98d-1e2157c94125 |
 > | [예약 구매자](#reservation-purchaser) | 예약을 구매할 수 있습니다. | f7b75c60-3036-4b75-91c3-6b41c27c1689 |
 > | [리소스 정책 기여자](#resource-policy-contributor) | 리소스 정책을 생성/수정하고, 지원 티켓을 만들고, 리소스/계층 구조를 읽을 수 있는 권한을 가진 사용자입니다. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | [Site Recovery 기여자](#site-recovery-contributor) | 자격 증명 모음 만들기 및 역할 할당을 제외한 Site Recovery 서비스를 관리할 수 있습니다. | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
@@ -562,7 +579,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. [�
 
 ### <a name="virtual-machine-contributor"></a>가상 머신 참가자
 
-가상 머신을 관리할 수 있지만 가상머신이나 연결된 가상 네트워크 또는 스토리지 계정에 액세스할 수는 없습니다. [자세히 알아보기](../virtual-machines/linux/tutorial-govern-resources.md)
+가상 머신을 만들고 관리하며, 디스크 및 디스크 스냅샷을 관리하고, 소프트웨어를 설치 및 실행하고, VM 확장을 사용하여 가상 머신의 루트 사용자에 대한 암호를 재설정하고, VM 확장을 사용하여 로컬 사용자 계정을 관리합니다. 이 역할은 가상 머신이 연결된 가상 네트워크 또는 스토리지 계정에 대한 관리 액세스 권한을 부여하지 않습니다. 이 역할은 Azure RBAC에서 역할을 할당하는 것을 허용하지 않습니다. [자세히 알아보기](/azure/architecture/reference-architectures/n-tier/linux-vm)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -570,7 +587,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. [�
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | 역할 및 역할 할당 읽기 |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/availabilitySets/* | 컴퓨팅 가용성 집합 만들기 및 관리 |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/locations/* | 컴퓨팅 위치 만들기 및 관리 |
-> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/* | 가상 머신 만들기, 업데이트, 삭제, 시작, 다시 시작, 전원 끄기 등을 비롯한 모든 가상 머신 작업을 수행합니다. 가상 머신에서 미리 정의된 스크립트를 실행합니다. |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/* | 가상 머신 만들기, 업데이트, 삭제, 시작, 다시 시작, 전원 끄기 등을 비롯한 모든 가상 머신 작업을 수행합니다. 가상 머신에서 스크립트를 실행합니다. |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachineScaleSets/* | 가상 머신 확장 집합 만들기 및 관리 |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/write | 새 디스크를 만들거나 기존 디스크를 업데이트합니다. |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/read | 디스크의 속성을 가져옵니다. |
@@ -2732,6 +2749,366 @@ Azure 맵 계정에서 맵 관련 데이터를 읽을 수 있는 액세스 권�
 }
 ```
 
+### <a name="azure-spring-cloud-data-reader"></a>Azure Spring Cloud 데이터 판독기
+
+Azure Spring Cloud 데이터에 대한 읽기 권한 허용 [자세히 알아보기](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/*/read |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allow read access to Azure Spring Cloud Data",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b5537268-8956-4941-a8f0-646150406f0c",
+  "name": "b5537268-8956-4941-a8f0-646150406f0c",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.AppPlatform/Spring/*/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Spring Cloud Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="media-services-account-administrator"></a>Media Services 계정 관리자
+
+Media Services 계정을 생성하고, 읽고, 수정하고, 삭제합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | 역할 및 역할 할당 읽기 |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metrics/read | 메트릭 읽기 |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/read | 메트릭 정의 읽기 |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | 배포를 만들고 관리합니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/*/read |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/assets/listStreamingLocators/action | 자산에 대한 스트리밍 로케이터를 나열합니다. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/streamingLocators/listPaths/action | 경로를 나열합니다. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/write | Media Services 계정을 만들거나 업데이트합니다. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/delete | Media Services 계정을 삭제합니다. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/privateEndpointConnectionsApproval/action | 프라이빗 엔드포인트 연결을 승인합니다. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/privateEndpointConnections/* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | *없음* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, read, modify and delete Media Services accounts; read-only access to other Media Services resources.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/054126f8-9a2b-4f1c-a9ad-eca461f08466",
+  "name": "054126f8-9a2b-4f1c-a9ad-eca461f08466",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Media/mediaservices/*/read",
+        "Microsoft.Media/mediaservices/assets/listStreamingLocators/action",
+        "Microsoft.Media/mediaservices/streamingLocators/listPaths/action",
+        "Microsoft.Media/mediaservices/write",
+        "Microsoft.Media/mediaservices/delete",
+        "Microsoft.Media/mediaservices/privateEndpointConnectionsApproval/action",
+        "Microsoft.Media/mediaservices/privateEndpointConnections/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Media Services Account Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="media-services-live-events-administrator"></a>Media Services 라이브 이벤트 관리자
+
+라이브 이벤트, 자산, 자산 필터, 스트리밍 로케이터를 만들고, 읽고, 수정합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | 역할 및 역할 할당 읽기 |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metrics/read | 메트릭 읽기 |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/read | 메트릭 정의 읽기 |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | 배포를 만들고 관리합니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/*/read |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/assets/* |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/assets/assetfilters/* |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/streamingLocators/* |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/liveEvents/* |  |
+> | **NotActions** |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/assets/getEncryptionKey/action | 자산 암호화 키를 가져옵니다. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/streamingLocators/listContentKeys/action | 콘텐츠 키를 나열합니다. |
+> | **DataActions** |  |
+> | *없음* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, read and modify Live Events, Assets, Asset Filters and Streaming Locators; read-only access to other Media Services resources.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/532bc159-b25e-42c0-969e-a1d439f60d77",
+  "name": "532bc159-b25e-42c0-969e-a1d439f60d77",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Media/mediaservices/*/read",
+        "Microsoft.Media/mediaservices/assets/*",
+        "Microsoft.Media/mediaservices/assets/assetfilters/*",
+        "Microsoft.Media/mediaservices/streamingLocators/*",
+        "Microsoft.Media/mediaservices/liveEvents/*"
+      ],
+      "notActions": [
+        "Microsoft.Media/mediaservices/assets/getEncryptionKey/action",
+        "Microsoft.Media/mediaservices/streamingLocators/listContentKeys/action"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Media Services Live Events Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="media-services-media-operator"></a>Media Services 미디어 운영자
+
+자산, 자산 필터, 스트리밍 로케이터, 작업을 만들고, 읽고, 수정하고, 삭제합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | 역할 및 역할 할당 읽기 |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metrics/read | 메트릭 읽기 |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/read | 메트릭 정의 읽기 |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | 배포를 만들고 관리합니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/*/read |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/assets/* |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/assets/assetfilters/* |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/streamingLocators/* |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/transforms/jobs/* |  |
+> | **NotActions** |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/assets/getEncryptionKey/action | 자산 암호화 키를 가져옵니다. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/streamingLocators/listContentKeys/action | 콘텐츠 키를 나열합니다. |
+> | **DataActions** |  |
+> | *없음* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, read, modify, and delete of Assets, Asset Filters, Streaming Locators and Jobs; read-only access to other Media Services resources.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/e4395492-1534-4db2-bedf-88c14621589c",
+  "name": "e4395492-1534-4db2-bedf-88c14621589c",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Media/mediaservices/*/read",
+        "Microsoft.Media/mediaservices/assets/*",
+        "Microsoft.Media/mediaservices/assets/assetfilters/*",
+        "Microsoft.Media/mediaservices/streamingLocators/*",
+        "Microsoft.Media/mediaservices/transforms/jobs/*"
+      ],
+      "notActions": [
+        "Microsoft.Media/mediaservices/assets/getEncryptionKey/action",
+        "Microsoft.Media/mediaservices/streamingLocators/listContentKeys/action"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Media Services Media Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="media-services-policy-administrator"></a>Media Services 정책 관리자
+
+계정 필터, 스트리밍 정책, 콘텐츠 키 정책 및 변환을 만들고, 읽고, 수정하고, 삭제합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다. 작업, 자산, 스트리밍 리소스를 만들 수 없습니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | 역할 및 역할 할당 읽기 |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metrics/read | 메트릭 읽기 |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/read | 메트릭 정의 읽기 |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | 배포를 만들고 관리합니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/*/read |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/assets/listStreamingLocators/action | 자산에 대한 스트리밍 로케이터를 나열합니다. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/streamingLocators/listPaths/action | 경로를 나열합니다. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/accountFilters/* |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/streamingPolicies/* |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/contentKeyPolicies/* |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/transforms/* |  |
+> | **NotActions** |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/contentKeyPolicies/getPolicyPropertiesWithSecrets/action | 비밀을 사용하여 정책 속성을 가져옵니다. |
+> | **DataActions** |  |
+> | *없음* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, read, modify, and delete Account Filters, Streaming Policies, Content Key Policies and Transforms; read-only access to other Media Services resources. Cannot create Jobs, Assets or Streaming resources.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/c4bba371-dacd-4a26-b320-7250bca963ae",
+  "name": "c4bba371-dacd-4a26-b320-7250bca963ae",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Media/mediaservices/*/read",
+        "Microsoft.Media/mediaservices/assets/listStreamingLocators/action",
+        "Microsoft.Media/mediaservices/streamingLocators/listPaths/action",
+        "Microsoft.Media/mediaservices/accountFilters/*",
+        "Microsoft.Media/mediaservices/streamingPolicies/*",
+        "Microsoft.Media/mediaservices/contentKeyPolicies/*",
+        "Microsoft.Media/mediaservices/transforms/*"
+      ],
+      "notActions": [
+        "Microsoft.Media/mediaservices/contentKeyPolicies/getPolicyPropertiesWithSecrets/action"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Media Services Policy Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="media-services-streaming-endpoints-administrator"></a>Media Services 스트리밍 엔드포인트 관리자
+
+스트리밍 엔드포인트를 만들고, 읽고, 수정하고, 삭제합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | 역할 및 역할 할당 읽기 |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metrics/read | 메트릭 읽기 |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/read | 메트릭 정의 읽기 |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | 배포를 만들고 관리합니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/*/read |  |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/assets/listStreamingLocators/action | 자산에 대한 스트리밍 로케이터를 나열합니다. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/streamingLocators/listPaths/action | 경로를 나열합니다. |
+> | [Microsoft.Media](resource-provider-operations.md#microsoftmedia)/mediaservices/streamingEndpoints/* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | *없음* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, read, modify and delete Streaming Endpoints; read-only access to other Media Services resources.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/99dba123-b5fe-44d5-874c-ced7199a5804",
+  "name": "99dba123-b5fe-44d5-874c-ced7199a5804",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Media/mediaservices/*/read",
+        "Microsoft.Media/mediaservices/assets/listStreamingLocators/action",
+        "Microsoft.Media/mediaservices/streamingLocators/listPaths/action",
+        "Microsoft.Media/mediaservices/streamingEndpoints/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Media Services Streaming Endpoints Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="search-service-contributor"></a>Search 서비스 참가자
 
 Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. [자세히 알아보기](../search/search-security-rbac.md)
@@ -2841,7 +3218,7 @@ SignalR 서비스 액세스 키 읽기
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | ClientTokens 서명을 위한 임시 AccessKey를 생성합니다. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | AccessToken에 서명하기 위한 AccessKey를 생성합니다. 이 키는 기본값으로 90분 후에 만료됩니다. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/serverConnection/write | 서버 연결을 시작합니다. |
 > | **NotDataActions** |  |
 > | *없음* |  |
@@ -2931,7 +3308,7 @@ SignalR Service 리소스 만들기, 읽기, 업데이트, 삭제
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | 클라이언트 연결 시작을 위한 ClientToken을 생성합니다. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | 클라이언트에서 ASRS에 연결하기 위한 AccessToken을 생성합니다. 이 토큰은 기본값으로 5분 후에 만료됩니다. |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -2970,6 +3347,8 @@ Azure SignalR Service REST API에 대한 모든 권한
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | AccessToken에 서명하기 위한 AccessKey를 생성합니다. 이 키는 기본값으로 90분 후에 만료됩니다. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | 클라이언트에서 ASRS에 연결하기 위한 AccessToken을 생성합니다. 이 토큰은 기본값으로 5분 후에 만료됩니다. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/hub/send/action | 허브의 모든 클라이언트 연결에 메시지를 브로드캐스트합니다. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/send/action | 그룹에 메시지를 브로드캐스트합니다. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | 그룹의 존재 또는 그룹 내 사용자의 존재를 확인합니다. |
@@ -2979,7 +3358,7 @@ Azure SignalR Service REST API에 대한 모든 권한
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/write | 클라이언트 연결을 닫습니다. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/send/action | 여러 클라이언트 연결로 구성될 수 있는 사용자에게 메시지를 보냅니다. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | 사용자 존재를 확인합니다. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/write |  |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/write | 사용자를 수정합니다. |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -2996,6 +3375,8 @@ Azure SignalR Service REST API에 대한 모든 권한
       "actions": [],
       "notActions": [],
       "dataActions": [
+        "Microsoft.SignalRService/SignalR/auth/accessKey/action",
+        "Microsoft.SignalRService/SignalR/auth/clientToken/action",
         "Microsoft.SignalRService/SignalR/hub/send/action",
         "Microsoft.SignalRService/SignalR/group/send/action",
         "Microsoft.SignalRService/SignalR/group/read",
@@ -3178,7 +3559,7 @@ Azure SignalR Service REST API에 대한 읽기 전용 권한
 
 ### <a name="acrdelete"></a>AcrDelete
 
-ACR 삭제 [자세한 정보](../container-registry/container-registry-roles.md)
+컨테이너 레지스트리에서 리포지토리, 태그, 매니페스트를 삭제합니다. [자세히 알아보기](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -3217,7 +3598,7 @@ ACR 삭제 [자세한 정보](../container-registry/container-registry-roles.md)
 
 ### <a name="acrimagesigner"></a>AcrImageSigner
 
-ACR 이미지 서명자 [자세한 정보](../container-registry/container-registry-roles.md)
+콘텐츠 신뢰를 사용하도록 설정된 컨테이너 레지스트리에 신뢰할 수 있는 이미지를 푸시하거나 설정된 컨테이너 레지스트리에서 신뢰할 수 있는 이미지를 끌어옵니다. [자세히 알아보기](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -3256,7 +3637,7 @@ ACR 이미지 서명자 [자세한 정보](../container-registry/container-regis
 
 ### <a name="acrpull"></a>AcrPull
 
-ACR 풀 [자세한 정보](../container-registry/container-registry-roles.md)
+컨테이너 레지스트리에서 아티팩트를 끌어옵니다. [자세히 알아보기](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -3295,7 +3676,7 @@ ACR 풀 [자세한 정보](../container-registry/container-registry-roles.md)
 
 ### <a name="acrpush"></a>AcrPush
 
-ACR 푸시 [자세한 정보](../container-registry/container-registry-roles.md)
+컨테이너 레지스트리에 아티팩트를 푸시하거나 또는 컨테이너 레지스트리에서 아티팩트를 끌어옵니다. [자세히 알아보기](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -3336,7 +3717,7 @@ ACR 푸시 [자세한 정보](../container-registry/container-registry-roles.md)
 
 ### <a name="acrquarantinereader"></a>AcrQuarantineReader
 
-acr 격리 데이터 읽기 권한자
+컨테이너 레지스트리에서 격리된 이미지를 끌어옵니다. [자세히 알아보기](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -3375,7 +3756,7 @@ acr 격리 데이터 읽기 권한자
 
 ### <a name="acrquarantinewriter"></a>AcrQuarantineWriter
 
-acr 격리 데이터 작성자
+컨테이너 레지스트리에 격리된 이미지를 푸시하거나 컨테이너 레지스트리에서 격리된 이미지를 끌어옵니다. [자세히 알아보기](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -5657,6 +6038,53 @@ Cognitive Services 데이터를 읽을 수 있습니다.
 }
 ```
 
+### <a name="cognitive-services-face-recognizer"></a>Cognitive Services 얼굴 인식기
+
+Face API에서 유사한 작업을 검색, 확인, 식별, 그룹화하고 찾을 수 있습니다. 이 역할은 만들기 또는 삭제 작업을 허용하지 않으므로, ‘최소 권한’ 모범 사례에 따라 추론 기능만 필요한 엔드포인트에 적합합니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/detect/action | 이미지에서 사람의 얼굴을 검색하고, 얼굴 사각형을 반환하고, 선택적으로 faceId, 랜드마크 및 특성을 함께 반환합니다. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/verify/action | 두 얼굴이 동일한 사람인지 또는 하나의 얼굴이 한 사람에게 속하는지 여부를 확인합니다. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/identify/action | 일대다 식별을 통해 사람 그룹 또는 대규모 사람 그룹에서 특정 쿼리 사람 얼굴과 가장 가까운 일치를 찾습니다. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/group/action | 얼굴 유사성을 기준으로 후보 얼굴을 그룹으로 나눕니다. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/findsimilars/action | 쿼리 얼굴의 faceId에 따라 faceId 배열, 얼굴 목록 또는 대규모 얼굴 목록에서 유사한 모습의 얼굴을 검색합니다. faceId |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you perform detect, verify, identify, group, and find similar operations on Face API. This role does not allow create or delete operations, which makes it well suited for endpoints that only need inferencing capabilities, following 'least privilege' best practices.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/9894cab4-e18a-44aa-828b-cb588cd6f2d7",
+  "name": "9894cab4-e18a-44aa-828b-cb588cd6f2d7",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/Face/detect/action",
+        "Microsoft.CognitiveServices/accounts/Face/verify/action",
+        "Microsoft.CognitiveServices/accounts/Face/identify/action",
+        "Microsoft.CognitiveServices/accounts/Face/group/action",
+        "Microsoft.CognitiveServices/accounts/Face/findsimilars/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Cognitive Services Face Recognizer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="cognitive-services-metrics-advisor-administrator"></a>Cognitive Services Metrics Advisor 관리자
 
 시스템 수준 구성을 포함하는 프로젝트에 대한 모든 권한입니다. [자세히 알아보기](../cognitive-services/metrics-advisor/how-tos/alerts.md)
@@ -5965,6 +6393,163 @@ Cognitive Services의 키를 읽고 나열할 수 있습니다. [자세히 알�
 
 ## <a name="internet-of-things"></a>사물 인터넷
 
+### <a name="iot-hub-data-contributor"></a>IoT Hub 데이터 기여자
+
+IoT Hub 데이터 평면 작업에 대한 모든 권한을 허용합니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for full access to IoT Hub data plane operations.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4fc6c259-987e-4a07-842e-c321cc9d413f",
+  "name": "4fc6c259-987e-4a07-842e-c321cc9d413f",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Devices/IotHubs/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "IoT Hub Data Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="iot-hub-data-reader"></a>IoT Hub 데이터 판독기
+
+IoT Hub 데이터 평면 속성에 대한 전체 읽기 권한을 허용합니다
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/*/read |  |
+> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/fileUpload/notifications/action | 파일 업로드 알림을 수신, 완료하거나 중단합니다 |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for full read access to IoT Hub data-plane properties",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b447c946-2db7-41ec-983d-d8bf3b1c77e3",
+  "name": "b447c946-2db7-41ec-983d-d8bf3b1c77e3",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Devices/IotHubs/*/read",
+        "Microsoft.Devices/IotHubs/fileUpload/notifications/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "IoT Hub Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="iot-hub-registry-contributor"></a>IoT Hub 레지스트리 기여자
+
+IoT Hub 디바이스 레지스트리에 대한 모든 권한을 허용합니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/devices/* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for full access to IoT Hub device registry.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4ea46cd5-c1b2-4a8e-910b-273211f9ce47",
+  "name": "4ea46cd5-c1b2-4a8e-910b-273211f9ce47",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Devices/IotHubs/devices/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "IoT Hub Registry Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="iot-hub-twin-contributor"></a>IoT Hub 쌍 기여자
+
+모든 IoT Hub 디바이스 및 모듈 쌍에 대한 읽기 및 쓰기 권한을 허용합니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/twins/* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for read and write access to all IoT Hub device and module twins.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/494bdba2-168f-4f31-a0a1-191d2f7c028c",
+  "name": "494bdba2-168f-4f31-a0a1-191d2f7c028c",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Devices/IotHubs/twins/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "IoT Hub Twin Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 
 ### <a name="device-update-administrator"></a>디바이스 업데이트 관리자
 
@@ -6926,7 +7511,7 @@ Azure Stack 등록을 관리할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
 > | --- | --- |
-> | [Microsoft.AzureStack](resource-provider-operations.md#microsoftazurestack)/edgeSubscriptions/read | Azure Stack Edge 구독의 속성을 가져옵니다. |
+> | [Microsoft.AzureStack](resource-provider-operations.md#microsoftazurestack)/edgeSubscriptions/read |  |
 > | [Microsoft.AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/products/*/action |  |
 > | [Microsoft.AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/products/read | Azure Stack Marketplace 제품의 속성 가져오기 |
 > | [Microsoft.AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/read | Azure Stack 등록의 속성 가져오기 |
@@ -7758,6 +8343,51 @@ EventGrid 이벤트 구독을 읽을 수 있습니다. [자세히 알아보기](
 }
 ```
 
+### <a name="azure-sentinel-automation-contributor"></a>Azure Sentinel Automation 기여자
+
+Azure Sentinel Automation 기여자 [자세히 알아보기](../sentinel/roles.md)
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | 역할 및 역할 할당 읽기 |
+> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/triggers/read | 트리거를 읽습니다. |
+> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/triggers/listCallbackUrl/action | 워크플로의 콜백 URL을 가져옵니다. |
+> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/runs/read | 워크플로 실행을 읽습니다. |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | *없음* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Azure Sentinel Automation Contributor",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/f4c81013-99ee-4d62-a7ee-b3f1f648599a",
+  "name": "f4c81013-99ee-4d62-a7ee-b3f1f648599a",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Logic/workflows/triggers/read",
+        "Microsoft.Logic/workflows/triggers/listCallbackUrl/action",
+        "Microsoft.Logic/workflows/runs/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Sentinel Automation Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="azure-sentinel-contributor"></a>Azure Sentinel 기여자
 
 Azure Sentinel 기여자 [자세한 정보](../sentinel/roles.md)
@@ -8115,7 +8745,7 @@ Azure Sentinel 응답자 [자세한 정보](../sentinel/roles.md)
 
 ### <a name="key-vault-contributor"></a>Key Vault 참가자
 
-Key Vault를 관리하지만, Azure RBAC에서 역할을 할당하는 것을 허용하지 않으며 비밀, 키 또는 인증서에 액세스할 수 없습니다. [자세히 알아보기](../key-vault/general/secure-your-key-vault.md)
+Key Vault를 관리하지만, Azure RBAC에서 역할을 할당하는 것을 허용하지 않으며 비밀, 키 또는 인증서에 액세스할 수 없습니다. [자세히 알아보기](../key-vault/general/security-features.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -9484,6 +10114,449 @@ Runbook 작업을 만들려면 Runbook 속성을 읽어보세요. [자세히 알
 }
 ```
 
+### <a name="azure-arc-enabled-kubernetes-cluster-user-role"></a>Azure Arc 지원 Kubernetes 클러스터 사용자 역할
+
+클러스터 사용자 자격 증명 동작을 나열합니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/write | 배포를 만들거나 업데이트합니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | 구독 작업 결과를 가져옵니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | 구독 목록을 가져옵니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/listClusterUserCredentials/action | clusterUser 자격 증명을 나열합니다. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | 역할 및 역할 할당 읽기 |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | 지원 티켓을 만들거나 업데이트합니다. |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | *없음* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "List cluster user credentials action.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/00493d72-78f6-4148-b6c5-d3ce8e4799dd",
+  "name": "00493d72-78f6-4148-b6c5-d3ce8e4799dd",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Kubernetes/connectedClusters/listClusterUserCredentials/action",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Arc Enabled Kubernetes Cluster User Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="azure-arc-kubernetes-admin"></a>Azure Arc Kubernetes 관리자
+
+리소스 할당량 및 네임스페이스 업데이트 또는 삭제를 제외하고 클러스터/네임스페이스의 모든 리소스를 관리할 수 있습니다. [자세히 알아보기](../azure-arc/kubernetes/azure-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | 역할 및 역할 할당 읽기 |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/write | 배포를 만들거나 업데이트합니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | 구독 작업 결과를 가져옵니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | 구독 목록을 가져옵니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | 지원 티켓을 만들거나 업데이트합니다. |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/controllerrevisions/read | controllerrevisions를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/daemonsets/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/deployments/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/replicasets/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/statefulsets/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/authorization.k8s.io/localsubjectaccessreviews/write | localsubjectaccessreviews를 씁니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/autoscaling/horizontalpodautoscalers/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/batch/cronjobs/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/batch/jobs/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/configmaps/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/endpoints/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/events.k8s.io/events/read | events를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/events/read | events를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/daemonsets/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/deployments/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/ingresses/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/networkpolicies/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/replicasets/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/limitranges/read | limitranges를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/namespaces/read | namespaces를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/ingresses/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/networkpolicies/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/persistentvolumeclaims/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/pods/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/policy/poddisruptionbudgets/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/rbac.authorization.k8s.io/rolebindings/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/rbac.authorization.k8s.io/roles/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/resourcequotas/read | resourcequotas를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/secrets/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/serviceaccounts/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/services/* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage all resources under cluster/namespace, except update or delete resource quotas and namespaces.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/dffb1e0c-446f-4dde-a09f-99eb5cc68b96",
+  "name": "dffb1e0c-446f-4dde-a09f-99eb5cc68b96",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Kubernetes/connectedClusters/apps/controllerrevisions/read",
+        "Microsoft.Kubernetes/connectedClusters/apps/daemonsets/*",
+        "Microsoft.Kubernetes/connectedClusters/apps/deployments/*",
+        "Microsoft.Kubernetes/connectedClusters/apps/replicasets/*",
+        "Microsoft.Kubernetes/connectedClusters/apps/statefulsets/*",
+        "Microsoft.Kubernetes/connectedClusters/authorization.k8s.io/localsubjectaccessreviews/write",
+        "Microsoft.Kubernetes/connectedClusters/autoscaling/horizontalpodautoscalers/*",
+        "Microsoft.Kubernetes/connectedClusters/batch/cronjobs/*",
+        "Microsoft.Kubernetes/connectedClusters/batch/jobs/*",
+        "Microsoft.Kubernetes/connectedClusters/configmaps/*",
+        "Microsoft.Kubernetes/connectedClusters/endpoints/*",
+        "Microsoft.Kubernetes/connectedClusters/events.k8s.io/events/read",
+        "Microsoft.Kubernetes/connectedClusters/events/read",
+        "Microsoft.Kubernetes/connectedClusters/extensions/daemonsets/*",
+        "Microsoft.Kubernetes/connectedClusters/extensions/deployments/*",
+        "Microsoft.Kubernetes/connectedClusters/extensions/ingresses/*",
+        "Microsoft.Kubernetes/connectedClusters/extensions/networkpolicies/*",
+        "Microsoft.Kubernetes/connectedClusters/extensions/replicasets/*",
+        "Microsoft.Kubernetes/connectedClusters/limitranges/read",
+        "Microsoft.Kubernetes/connectedClusters/namespaces/read",
+        "Microsoft.Kubernetes/connectedClusters/networking.k8s.io/ingresses/*",
+        "Microsoft.Kubernetes/connectedClusters/networking.k8s.io/networkpolicies/*",
+        "Microsoft.Kubernetes/connectedClusters/persistentvolumeclaims/*",
+        "Microsoft.Kubernetes/connectedClusters/pods/*",
+        "Microsoft.Kubernetes/connectedClusters/policy/poddisruptionbudgets/*",
+        "Microsoft.Kubernetes/connectedClusters/rbac.authorization.k8s.io/rolebindings/*",
+        "Microsoft.Kubernetes/connectedClusters/rbac.authorization.k8s.io/roles/*",
+        "Microsoft.Kubernetes/connectedClusters/replicationcontrollers/*",
+        "Microsoft.Kubernetes/connectedClusters/replicationcontrollers/*",
+        "Microsoft.Kubernetes/connectedClusters/resourcequotas/read",
+        "Microsoft.Kubernetes/connectedClusters/secrets/*",
+        "Microsoft.Kubernetes/connectedClusters/serviceaccounts/*",
+        "Microsoft.Kubernetes/connectedClusters/services/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Arc Kubernetes Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="azure-arc-kubernetes-cluster-admin"></a>Azure Arc Kubernetes 클러스터 관리자
+
+클러스터의 모든 리소스를 관리할 수 있습니다. [자세히 알아보기](../azure-arc/kubernetes/azure-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | 역할 및 역할 할당 읽기 |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/write | 배포를 만들거나 업데이트합니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | 구독 작업 결과를 가져옵니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | 구독 목록을 가져옵니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | 지원 티켓을 만들거나 업데이트합니다. |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage all resources in the cluster.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8393591c-06b9-48a2-a542-1bd6b377f6a2",
+  "name": "8393591c-06b9-48a2-a542-1bd6b377f6a2",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Kubernetes/connectedClusters/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Arc Kubernetes Cluster Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="azure-arc-kubernetes-viewer"></a>Azure Arc Kubernetes 뷰어
+
+비밀을 제외한 클러스터/네임스페이스의 모든 리소스를 볼 수 있습니다. [자세히 알아보기](../azure-arc/kubernetes/azure-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | 역할 및 역할 할당 읽기 |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/write | 배포를 만들거나 업데이트합니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | 구독 작업 결과를 가져옵니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | 구독 목록을 가져옵니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | 지원 티켓을 만들거나 업데이트합니다. |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/controllerrevisions/read | controllerrevisions를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/daemonsets/read | daemonsets를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/deployments/read | deployments를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/replicasets/read | replicasets를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/statefulsets/read | statefulsets를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/autoscaling/horizontalpodautoscalers/read | horizontalpodautoscalers를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/batch/cronjobs/read | cronjobs를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/batch/jobs/read | jobs를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/configmaps/read | configmaps를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/endpoints/read | endpoints를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/events.k8s.io/events/read | events를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/events/read | events를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/daemonsets/read | daemonsets를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/deployments/read | deployments를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/ingresses/read | ingresses를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/networkpolicies/read | networkpolicies를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/replicasets/read | replicasets를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/limitranges/read | limitranges를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/namespaces/read | namespaces를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/ingresses/read | ingresses를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/networkpolicies/read | networkpolicies를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/persistentvolumeclaims/read | persistentvolumeclaims를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/pods/read | pods를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/policy/poddisruptionbudgets/read | poddisruptionbudgets를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/read | replicationcontrollers를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/read | replicationcontrollers를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/resourcequotas/read | resourcequotas를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/serviceaccounts/read | serviceaccounts를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/services/read | services를 읽습니다. |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you view all resources in cluster/namespace, except secrets.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/63f0a09d-1495-4db4-a681-037d84835eb4",
+  "name": "63f0a09d-1495-4db4-a681-037d84835eb4",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Kubernetes/connectedClusters/apps/controllerrevisions/read",
+        "Microsoft.Kubernetes/connectedClusters/apps/daemonsets/read",
+        "Microsoft.Kubernetes/connectedClusters/apps/deployments/read",
+        "Microsoft.Kubernetes/connectedClusters/apps/replicasets/read",
+        "Microsoft.Kubernetes/connectedClusters/apps/statefulsets/read",
+        "Microsoft.Kubernetes/connectedClusters/autoscaling/horizontalpodautoscalers/read",
+        "Microsoft.Kubernetes/connectedClusters/batch/cronjobs/read",
+        "Microsoft.Kubernetes/connectedClusters/batch/jobs/read",
+        "Microsoft.Kubernetes/connectedClusters/configmaps/read",
+        "Microsoft.Kubernetes/connectedClusters/endpoints/read",
+        "Microsoft.Kubernetes/connectedClusters/events.k8s.io/events/read",
+        "Microsoft.Kubernetes/connectedClusters/events/read",
+        "Microsoft.Kubernetes/connectedClusters/extensions/daemonsets/read",
+        "Microsoft.Kubernetes/connectedClusters/extensions/deployments/read",
+        "Microsoft.Kubernetes/connectedClusters/extensions/ingresses/read",
+        "Microsoft.Kubernetes/connectedClusters/extensions/networkpolicies/read",
+        "Microsoft.Kubernetes/connectedClusters/extensions/replicasets/read",
+        "Microsoft.Kubernetes/connectedClusters/limitranges/read",
+        "Microsoft.Kubernetes/connectedClusters/namespaces/read",
+        "Microsoft.Kubernetes/connectedClusters/networking.k8s.io/ingresses/read",
+        "Microsoft.Kubernetes/connectedClusters/networking.k8s.io/networkpolicies/read",
+        "Microsoft.Kubernetes/connectedClusters/persistentvolumeclaims/read",
+        "Microsoft.Kubernetes/connectedClusters/pods/read",
+        "Microsoft.Kubernetes/connectedClusters/policy/poddisruptionbudgets/read",
+        "Microsoft.Kubernetes/connectedClusters/replicationcontrollers/read",
+        "Microsoft.Kubernetes/connectedClusters/replicationcontrollers/read",
+        "Microsoft.Kubernetes/connectedClusters/resourcequotas/read",
+        "Microsoft.Kubernetes/connectedClusters/serviceaccounts/read",
+        "Microsoft.Kubernetes/connectedClusters/services/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Arc Kubernetes Viewer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="azure-arc-kubernetes-writer"></a>Azure Arc Kubernetes 작성자
+
+(클러스터)역할 및 (클러스터)역할 바인딩을 제외하고 클러스터/네임스페이스의 모든 항목을 업데이트할 수 있습니다. [자세히 알아보기](../azure-arc/kubernetes/azure-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | 역할 및 역할 할당 읽기 |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/write | 배포를 만들거나 업데이트합니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | 구독 작업 결과를 가져옵니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | 구독 목록을 가져옵니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | 지원 티켓을 만들거나 업데이트합니다. |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/controllerrevisions/read | controllerrevisions를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/daemonsets/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/deployments/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/replicasets/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/statefulsets/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/autoscaling/horizontalpodautoscalers/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/batch/cronjobs/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/batch/jobs/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/configmaps/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/endpoints/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/events.k8s.io/events/read | events를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/events/read | events를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/daemonsets/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/deployments/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/ingresses/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/networkpolicies/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/replicasets/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/limitranges/read | limitranges를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/namespaces/read | namespaces를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/ingresses/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/networkpolicies/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/persistentvolumeclaims/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/pods/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/policy/poddisruptionbudgets/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/resourcequotas/read | resourcequotas를 읽습니다. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/secrets/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/serviceaccounts/* |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/services/* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you update everything in cluster/namespace, except (cluster)roles and (cluster)role bindings.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/5b999177-9696-4545-85c7-50de3797e5a1",
+  "name": "5b999177-9696-4545-85c7-50de3797e5a1",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Kubernetes/connectedClusters/apps/controllerrevisions/read",
+        "Microsoft.Kubernetes/connectedClusters/apps/daemonsets/*",
+        "Microsoft.Kubernetes/connectedClusters/apps/deployments/*",
+        "Microsoft.Kubernetes/connectedClusters/apps/replicasets/*",
+        "Microsoft.Kubernetes/connectedClusters/apps/statefulsets/*",
+        "Microsoft.Kubernetes/connectedClusters/autoscaling/horizontalpodautoscalers/*",
+        "Microsoft.Kubernetes/connectedClusters/batch/cronjobs/*",
+        "Microsoft.Kubernetes/connectedClusters/batch/jobs/*",
+        "Microsoft.Kubernetes/connectedClusters/configmaps/*",
+        "Microsoft.Kubernetes/connectedClusters/endpoints/*",
+        "Microsoft.Kubernetes/connectedClusters/events.k8s.io/events/read",
+        "Microsoft.Kubernetes/connectedClusters/events/read",
+        "Microsoft.Kubernetes/connectedClusters/extensions/daemonsets/*",
+        "Microsoft.Kubernetes/connectedClusters/extensions/deployments/*",
+        "Microsoft.Kubernetes/connectedClusters/extensions/ingresses/*",
+        "Microsoft.Kubernetes/connectedClusters/extensions/networkpolicies/*",
+        "Microsoft.Kubernetes/connectedClusters/extensions/replicasets/*",
+        "Microsoft.Kubernetes/connectedClusters/limitranges/read",
+        "Microsoft.Kubernetes/connectedClusters/namespaces/read",
+        "Microsoft.Kubernetes/connectedClusters/networking.k8s.io/ingresses/*",
+        "Microsoft.Kubernetes/connectedClusters/networking.k8s.io/networkpolicies/*",
+        "Microsoft.Kubernetes/connectedClusters/persistentvolumeclaims/*",
+        "Microsoft.Kubernetes/connectedClusters/pods/*",
+        "Microsoft.Kubernetes/connectedClusters/policy/poddisruptionbudgets/*",
+        "Microsoft.Kubernetes/connectedClusters/replicationcontrollers/*",
+        "Microsoft.Kubernetes/connectedClusters/replicationcontrollers/*",
+        "Microsoft.Kubernetes/connectedClusters/resourcequotas/read",
+        "Microsoft.Kubernetes/connectedClusters/secrets/*",
+        "Microsoft.Kubernetes/connectedClusters/serviceaccounts/*",
+        "Microsoft.Kubernetes/connectedClusters/services/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Arc Kubernetes Writer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="azure-connected-machine-onboarding"></a>Azure Connected Machine 온보딩
 
 Azure Connected Machines을 온보딩할 수 있습니다. [자세히 알아보기](../azure-arc/servers/onboard-service-principal.md)
@@ -9493,6 +10566,7 @@ Azure Connected Machines을 온보딩할 수 있습니다. [자세히 알아보�
 > | --- | --- |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/read | Azure Arc 머신을 읽습니다. |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/write | Azure Arc 머신을 씁니다. |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/privateLinkScopes/read | 모든 Azure Arc privateLinkScopes를 읽습니다 |
 > | [Microsoft.GuestConfiguration](resource-provider-operations.md#microsoftguestconfiguration)/guestConfigurationAssignments/read | 게스트 구성 할당을 가져옵니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -9514,6 +10588,7 @@ Azure Connected Machines을 온보딩할 수 있습니다. [자세히 알아보�
       "actions": [
         "Microsoft.HybridCompute/machines/read",
         "Microsoft.HybridCompute/machines/write",
+        "Microsoft.HybridCompute/privateLinkScopes/read",
         "Microsoft.GuestConfiguration/guestConfigurationAssignments/read"
       ],
       "notActions": [],
@@ -9537,8 +10612,10 @@ Azure Connected Machines을 읽고, 쓰고, 삭제하고, 다시 온보딩할 �
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/read | Azure Arc 머신을 읽습니다. |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/write | Azure Arc 머신을 씁니다. |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/delete | Azure Arc 머신을 삭제합니다. |
-> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/reconnect/action |  |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/read | 모든 Azure Arc 확장을 읽습니다. |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/write | Azure Arc 확장을 설치 또는 업데이트합니다. |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/delete | Azure Arc 확장을 삭제합니다. |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/privateLinkScopes/* |  |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/*/read |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -9561,8 +10638,10 @@ Azure Connected Machines을 읽고, 쓰고, 삭제하고, 다시 온보딩할 �
         "Microsoft.HybridCompute/machines/read",
         "Microsoft.HybridCompute/machines/write",
         "Microsoft.HybridCompute/machines/delete",
-        "Microsoft.HybridCompute/machines/reconnect/action",
+        "Microsoft.HybridCompute/machines/extensions/read",
         "Microsoft.HybridCompute/machines/extensions/write",
+        "Microsoft.HybridCompute/machines/extensions/delete",
+        "Microsoft.HybridCompute/privateLinkScopes/*",
         "Microsoft.HybridCompute/*/read"
       ],
       "notActions": [],
@@ -10297,7 +11376,7 @@ New Relic Application Performance Management 계정 및 애플리케이션을 �
 }
 ```
 
-### <a name="quota-request-operator-role"></a>할당량 요청 운영자 역할
+### <a name="quota-request-operator"></a>할당량 요청 운영자
 
 할당량 요청을 읽고 만들고, 할당량 요청 상태를 가져오고, 지원 티켓을 만듭니다. [자세히 알아보기](/rest/api/reserved-vm-instances/quotaapi)
 
@@ -10325,7 +11404,7 @@ New Relic Application Performance Management 계정 및 애플리케이션을 �
   "assignableScopes": [
     "/"
   ],
-  "description": "Role to read and create Quota Requests and get Quota Request Status.",
+  "description": "Read and create quota requests, get quota request status, and create support tickets.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/0e5f05e5-9ab9-446b-b98d-1e2157c94125",
   "name": "0e5f05e5-9ab9-446b-b98d-1e2157c94125",
   "permissions": [
@@ -10346,7 +11425,7 @@ New Relic Application Performance Management 계정 및 애플리케이션을 �
       "notDataActions": []
     }
   ],
-  "roleName": "Quota Request Operator Role",
+  "roleName": "Quota Request Operator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -11604,7 +12683,7 @@ BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다.
 
 ### <a name="disk-backup-reader"></a>디스크 백업 읽기 권한자
 
-디스크 백업을 수행하려면 백업 자격 증명 모음에 대한 권한을 제공합니다. [자세히 알아보기](../backup/disk-backup-faq.md)
+디스크 백업을 수행하려면 백업 자격 증명 모음에 대한 권한을 제공합니다. [자세히 알아보기](../backup/disk-backup-faq.yml)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -11859,6 +12938,6 @@ Scheduler 작업 컬렉션을 관리할 수 있지만 액세스할 수는 없습
 
 ## <a name="next-steps"></a>다음 단계
 
-- [리소스 공급자를 서비스에 매칭](../azure-resource-manager/management/azure-services-resource-providers.md)
+- [Azure Portal을 사용하여 Azure 역할 할당](role-assignments-portal.md)
 - [Azure 사용자 지정 역할](custom-roles.md)
 - [Azure Security Center의 권한](../security-center/security-center-permissions.md)

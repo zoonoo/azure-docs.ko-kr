@@ -1,20 +1,20 @@
 ---
-title: Azure Certified Device 요구 사항
-description: Azure Certified Device 프로그램 요구 사항
+title: Azure Certified Device 인증 요구 사항
+description: Azure Certified Device 인증 요구 사항
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Azure Certified Device Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 948fe25da8468e887693fe8c9f75f675dfbea858
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 8e68cf180927e000c93c4c2d73d25d4ae6ccf0f8
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105975882"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538144"
 ---
-# <a name="azure-certified-device-requirements"></a>Azure Certified Device 요구 사항 
+# <a name="azure-certified-device-certification-requirements"></a>Azure Certified Device 인증 요구 사항 
 (이전에는 IoT Hub로 알려짐)
 
 이 문서에서는 Azure Certified Device 카탈로그에 표시되는 디바이스 관련 기능에 대해 간략하게 설명합니다. 기능은 소프트웨어 구현이나 소프트웨어 및 하드웨어 구현의 조합일 수 있는 단일 디바이스 특성입니다. 
@@ -40,7 +40,7 @@ Azure Certified Device 인증에 대한 약속은 다음과 같습니다.
 | **적용 대상**          | 리프 디바이스/에지 디바이스                                      |
 | **OS**                  | 장치 및 시스템 독립성                                                     |
 | **유효성 검사 유형**     | 자동                                                    |
-| **유효성 검사**          | 디바이스는 IoT Hub에 대한 원격 분석 스키마를 전송해야 합니다. Microsoft는 테스트를 실행하기 위한 [포털 워크플로](https://certify.azure.come)를 제공합니다. 디바이스-클라우드(필수): **1.** 디바이스가 AICS 관리 IoT Hub에 메시지를 보낼 수 있는지에 대해 유효성을 검사합니다. **2.** 사용자는 메시지의 수와 빈도를 지정해야 합니다. **3.** AICS는 허브 인스턴스에서 원격 분석을 수신했는지에 대해 유효성을 검사합니다. |
+| **유효성 검사**          | 디바이스는 IoT Hub에 대한 원격 분석 스키마를 전송해야 합니다. Microsoft는 테스트를 실행하기 위한 [포털 워크플로](https://certify.azure.com/)를 제공합니다. 디바이스-클라우드(필수): **1.** 디바이스가 AICS 관리 IoT Hub에 메시지를 보낼 수 있는지에 대해 유효성을 검사합니다. **2.** 사용자는 메시지의 수와 빈도를 지정해야 합니다. **3.** AICS는 허브 인스턴스에서 원격 분석을 수신했는지에 대해 유효성을 검사합니다. |
 | **리소스**           | [인증 단계](./overview.md)(모든 추가 리소스 포함) |
 
 **[필수] DPS: 테스트의 목적은 세 가지 증명 방법 중 하나를 사용해 디바이스가 IoT Hub Device Provisioning Service를 구현하고 지원하는지 확인하는 것입니다.**
@@ -51,7 +51,7 @@ Azure Certified Device 인증에 대한 약속은 다음과 같습니다.
 | **적용 대상**          | 모든 디바이스                                                   |
 | **OS**                  | 장치 및 시스템 독립성                                                     |
 | **유효성 검사 유형**     | 자동                                                    |
-| **유효성 검사**          | 디바이스에서는 포함된 코드를 다시 컴파일할 필요 없이 대상 DPS ID 범위 소유권을 쉽게 입력할 수 있습니다. Microsoft는 디바이스가 DPS를 지원하는지에 대해 유효성을 검사하기 위해 테스트를 실행하는 [포털 워크플로](https://certify.azure.com)를 제공합니다. **1.** 사용자는 증명 방법(X.509, TPM 및 SAS 키) 중 하나를 선택해야 합니다. **2.** 사용자는 증명 방법에 따라 **a)** X.509 인증서를 AICS 관리 DPS 범위에 업로드 **b)** 디바이스에 SAS 키 또는 보증 키 구현 등 해당 작업을 수행해야 합니다. |
+| **유효성 검사**          | 디바이스는 대상 DPS ID 범위 소유권의 쉬운 입력을 지원합니다. Microsoft는 디바이스가 DPS를 지원하는지에 대해 유효성을 검사하기 위해 테스트를 실행하는 [포털 워크플로](https://certify.azure.com)를 제공합니다. **1.** 사용자는 증명 방법(X.509, TPM 및 SAS 키) 중 하나를 선택해야 합니다. **2.** 사용자는 증명 방법에 따라 **a)** X.509 인증서를 AICS 관리 DPS 범위에 업로드 **b)** 디바이스에 SAS 키 또는 보증 키 구현 등 해당 작업을 수행해야 합니다. |
 | **리소스**           | [Device Provisioning Service 개요](../iot-dps/about-iot-dps.md) |
 
 **[구현된 경우] 클라우드-디바이스: 테스트의 목적은 메시지를 클라우드에서 디바이스로 보낼 수 있는지에 대해 유효성을 검사하는 것입니다.**                                                              
@@ -86,3 +86,14 @@ Azure Certified Device 인증에 대한 약속은 다음과 같습니다.
 | **유효성 검사 유형**                       | 자동                                                       |
 | **유효성 검사**                            | 디바이스는 IoT Hub에 대한 원격 분석 스키마를 전송해야 합니다. Microsoft는 테스트를 실행하기 위한 [포털 워크플로](https://certify.azure.com)를 제공합니다. 디바이스 쌍 속성(구현된 경우): **1.** AICS는 디바이스 쌍 JSON에서 읽기/쓰기 가능 속성의 유효성을 검사합니다. **2.** 사용자는 변경할 JSON 페이로드를 지정해야 합니다. **3.** AICS는 IoT Hub에서 보낸 지정된 원하는 속성과 디바이스에서 받은 ACK 메시지의 유효성을 검사합니다. |
 | **리소스**                             | **a)** [인증 단계](./overview.md)(모든 추가 리소스 포함) **b)** [IoT Hub로 디바이스 쌍 사용](../iot-hub/iot-hub-devguide-device-twins.md) |
+
+**[필수] 다시 컴파일 제한: 이 정책의 목적은 기본적으로 사용자가 디바이스를 배포하기 위해 코드를 다시 컴파일할 필요가 없도록 하는 것입니다.**
+
+| **이름**                                  | AzureCertified.Policy.LimitRecompile                                      |
+| ----------------------------------------- | ------------------------------------------------------------ |
+| **대상 가용성**                   | 정책                                            |
+| **적용 대상**                            | 모든 디바이스                                                   |
+| **OS**                                    | 장치 및 시스템 독립성                                                     |
+| **유효성 검사 유형**                       | 정책                                                       |
+| **유효성 검사**                            | 사용자에 대한 디바이스 구성을 간소화하기 위해 디바이스 소스 코드를 다시 컴파일하거나 배포할 필요 없이 모든 디바이스를 Azure에 연결하도록 구성할 수 있어야 합니다. 여기에는 구성 설정으로 설정되고 컴파일되지 않아야 하는 DPS 정보(예: 범위 ID)가 포함됩니다. 그러나 디바이스에 특정 보안 하드웨어가 포함되어 있거나 사용자가 코드를 컴파일하고 배포할 것으로 예상되는 정상 상황이 있는 경우 인증 팀에 문의하여 예외 검토를 요청하세요. |
+| **리소스**                             | **a)** [디바이스 프로비저닝 서비스 개요](../iot-dps/about-iot-dps.md), **b)** [DPS ID 범위 전송을 위한 샘플 config 파일](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview-pnp/serializer/samples/devicetwin_simplesample) |

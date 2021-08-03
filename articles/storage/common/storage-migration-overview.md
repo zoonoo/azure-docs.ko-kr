@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/31/2021
 ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 3e9baedafb436bc92f734bf39519918686cec58d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2e54eb0ea8166b32dd4bcc794bfcf401d9196884
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124476"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469248"
 ---
 # <a name="azure-storage-migration-overview"></a>Azure Storage 마이그레이션 개요
 
@@ -37,7 +37,9 @@ ms.locfileid: "108124476"
 
 전체 마이그레이션은 검색, 평가 및 마이그레이션이라는 여러 단계로 구성됩니다.
 
-![마이그레이션의 검색, 평가 및 마이그레이션 단계를 보여 주는 다이어그램](./media/storage-migration-overview/migration-phases.png)
+| 검색 | 평가 | 마이그레이션 |
+| --------- | ---------- | --------- |
+| - 마이그레이션할 원본 검색 | - 적용 가능한 대상 서비스 평가 <br> - 기술 및 비용 고려 사항 | - 초기 마이그레이션 <br> - 다시 동기화 <br> - 최종 전환 |
 
 #### <a name="discovery-phase"></a>검색 단계
 

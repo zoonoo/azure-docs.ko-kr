@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 49def79c467aa8f2b3fda9688dc77fcb003a34a5
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: a58042c7098116a2800453dcca46cae62011dfac
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256568"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111570487"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Strata를 사용하여 온-프레미스 애플리케이션을 보호하는 Azure AD B2C 확장을 위한 자습서
 
@@ -29,9 +29,9 @@ Maverics Identity Orchestrator는 온-프레미스 애플리케이션을 보호�
 
 - **간편한 구성**: Azure AD B2C는 Maverics Identity Orchestrator SAML 또는 OIDC 커넥터를 Azure AD B2C에 연결하는 간단한 단계별 사용자 인터페이스를 제공합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-시작하기 위해 필요한 사항:
+시작하려면 다음이 필요합니다.
 
 - Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 
@@ -49,7 +49,7 @@ Strata의 Maverics 통합은 다음 구성 요소를 포함합니다.
 
 - **Azure AD B2C**: 사용자의 자격 증명 확인을 담당하는 권한 부여 서버입니다. 인증된 사용자는 Azure AD B2C 디렉터리에 저장된 로컬 계정을 사용하여 온-프레미스 앱에 액세스할 수 있습니다.
 
-- **외부 소셜 또는 엔터프라이즈 IdP**: Facebook, Google 또는 GitHub와 같은 모든 OpenID Connect 공급자입니다. Azure AD B2C에서 [외부 IdP](./technical-overview.md#external-identity-providers)를 사용하는 방법을 참조하세요.  
+- **외부 소셜 또는 엔터프라이즈 IdP**: Facebook, Google 또는 GitHub와 같은 모든 OpenID Connect 공급자입니다. 자세한 내용은 [ID 공급자 정의](./add-identity-provider.md)를 참조하세요.  
 
 - **Strata의 Maverics Identity Orchestrator**: 사용자 로그온을 오케스트레이션하고 HTTP 헤더로 ID를 앱에 투명하게 전달하는 서비스입니다.
 

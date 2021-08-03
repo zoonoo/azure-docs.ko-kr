@@ -4,14 +4,15 @@ description: 이 문서에서는 다양한 구성 시나리오에서 Automation 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-ms.date: 03/18/2021
+ms.date: 06/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: c3a514aa507fcf069671f987e175b7ae5be59d10
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 00401c7afd4fff1fcea7c5097d31ccf440e09049
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105735093"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572505"
 ---
 # <a name="how-to-delete-your-azure-automation-account"></a>Azure Automation 계정 삭제 방법
 
@@ -22,13 +23,19 @@ IT 또는 비즈니스 프로세스를 자동화하는 데 도움이 되도록 A
 * Automation 계정이 포함된 리소스 그룹을 삭제합니다.
 * 다음과 같은 경우 Automation 계정 및 연결된 Azure Monitor Log Analytics 작업 영역을 포함하는 리소스 그룹을 삭제합니다.
 
-    * 계정 및 작업 영역은 업데이트 관리, 변경 내용 추적 및 인벤토리, 작업 시간 외 VM 시작/중지를 지원하는 데 전적으로 사용합니다.
+    * 계정 및 작업 영역은 업데이트 관리, 변경 내용 추적, 인벤토리, 작업 시간 외 VM 시작/중지를 지원하는 데 전적으로 사용합니다.
     * 이 계정은 프로세스 자동화 전용이며 Runbook 작업 상태와 작업 스트림을 보내기 위해 작업 영역과 통합됩니다.
 
 * Automation 계정에서 Log Analytics 작업 영역의 연결을 해제하고 Automation 계정을 삭제합니다.
 * 연결된 작업 영역에서 기능을 삭제하고 작업 영역에서 계정 연결을 해제한 다음, Automation 계정을 삭제합니다.
 
-이 문서에서는 Azure Portal, PowerShell, Azure CLI 또는 REST API를 통해 Automation 계정을 완전히 제거하는 방법을 설명합니다.
+이 문서에서는 Azure Portal에서 Azure PowerShell, Azure CLI 또는 REST API를 사용해 Automation 계정을 완전히 제거하는 방법을 설명합니다.
+
+## <a name="prerequisite"></a>필수 요소
+중요한 리소스를 실수로 삭제하거나 수정하지 못하도록 하는 [Resource Manager 잠금](../azure-resource-manager/management/lock-resources.md)이 구독, 리소스 그룹 또는 리소스에서 적용되지 않는지 확인합니다. 작업 시간 외 VM 시작/중지 솔루션을 배포할 경우 Automation 계정의 여러 종속 리소스(특히 해당 Runbook 및 변수)에 대해 잠금 수준을 **CanNotDelete** 로 설정합니다. Automation 계정을 삭제하기 전에 잠금을 제거합니다.
+
+> [!NOTE]
+> `The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions`와 유사한 오류 메시지가 표시되면 Automation 계정은 업데이트 관리 및/또는 변경 내용 추적 및 인벤토리 기능을 사용하도록 설정된 Log Analytics 작업 영역에 연결됩니다. 자세한 내용은 아래의 [공유 기능 Automation 계정 삭제](#delete-a-shared-capability-automation-account)를 참조하세요.
 
 ## <a name="delete-the-dedicated-resource-group"></a>전용 리소스 그룹 삭제
 
@@ -102,7 +109,7 @@ Automation 계정의 연결을 해제하는 동안 메뉴의 **알림** 에서 �
 
 3. **작업 영역으로 이동** 을 선택합니다.
 
-4. **일반** 아래에서 **솔루션** 을 클릭합니다.
+4. **일반** 아래에서 **솔루션** 을 선택합니다.
 
 5. 솔루션 페이지에서 계정에 배포된 기능에 따라 다음 중 하나를 선택합니다.
 

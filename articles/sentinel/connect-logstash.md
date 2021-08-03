@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 25deccdd190e13d3f0ade319c7a8243e20847ee6
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 328dd2145cb72de929c421e8688cd35db435ca30
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071053"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075307"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Logstash를 사용하여 Azure Sentinel에 데이터 원본 연결
 
@@ -44,7 +44,9 @@ Logstash 엔진은 다음과 같은 세 가지 구성 요소로 구성됩니다.
 - 출력 플러그 인: 수집되고 처리된 데이터를 다양한 대상으로 보내기를 사용자 지정합니다.
 
 > [!NOTE]
-> - Azure Sentinel은 자체 제공되는 출력 플러그 인만 지원합니다. 플러그 인의 현재 버전은 v1.0.0이며 2020년 8월 25일에 릴리스되었습니다. Azure Sentinel의 타사 출력 플러그 인이나 모든 형식의 다른 Logstash 플러그 인은 지원하지 않습니다.
+> - Microsoft는 여기에서 설명하는 Azure Sentinel 제공 Logstash 출력 플러그 인만 지원합니다. 플러그 인의 현재 버전은 v1.0.0이며 2020년 8월 25일에 릴리스되었습니다. 출력 플러그 인과 관련된 모든 문제에 대해 [지원 티켓을 열 수 있습니다](https://ms.portal.azure.com/#create/Microsoft.Support).
+>
+> - Microsoft는 Azure Sentinel용 타사 Logstash 출력 플러그 인 또는 기타 모든 Logstash 플러그 인 또는 모든 유형의 구성 요소를 지원하지 않습니다.
 >
 > - Azure Sentinel의 Logstash 출력 플러그 인은 **Logstash 버전 7.0부터 7.9까지** 만 지원합니다.
 
@@ -179,5 +181,5 @@ Azure Sentinel 출력 플러그 인의 연결 및 작업을 모니터링하려�
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Logstash를 사용하여 외부 데이터 원본을 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터 및 잠재적 위협에 대한 가시성을 확보](quickstart-get-visibility.md)하는 방법을 알아봅니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
 - [기본 제공](tutorial-detect-threats-built-in.md) 또는 [사용자 지정](tutorial-detect-threats-custom.md) 규칙을 사용하여 Azure Sentinel에서 위협 검색을 시작합니다.

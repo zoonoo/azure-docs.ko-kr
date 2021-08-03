@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f2fe29ede2bf0f92049d1ae82bae87326057a63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe8024650909ef3f48057c572fba2a70f2d611e2
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594283"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796396"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -40,7 +40,7 @@ ms.locfileid: "100594283"
 권한 있는 액세스를 관심 있는 Microsoft 서비스에서 관리되고 보고되는 방식으로 보호합니다. 온-프레미스 관리자 계정이 있는 경우 [권한 있는 액세스 보안](/windows-server/identity/securing-privileged-access/securing-privileged-access)에서 Active Directory의 온-프레미스 및 하이브리드 권한 액세스에 대한 지침을 참조하세요.
 
 > [!NOTE]
-> 이 문서의 지침은 주로 Azure Active Directory Premium 계획 P1 및 P2에 포함된 Azure Active Directory의 기능을 인용합니다. Azure Active Directory Premium P2는 EMS E5 제품군 및 Microsoft 365 E5 제품군에 포함되어 있습니다. 이 지침에서는 사용자를 위해 구입한 Azure AD Premium P2 라이선스가 조직에 이미 있다고 가정합니다. 이러한 라이선스가 없으면 일부 지침이 조직에 적용되지 않을 수 있습니다. 또한 이 문서 전체에서 전역 관리자라는 용어는 “회사 관리자” 또는 “테넌트 관리자”와 동일한 의미입니다.
+> 이 문서의 지침은 주로 Azure AD Premium P1 및 P2에 포함된 Azure Active Directory의 기능을 인용합니다. Azure AD Premium P2는 EMS E5 제품군 및 Microsoft 365 E5 제품군에 포함되어 있습니다. 이 지침에서는 사용자를 위해 구입한 Azure AD Premium P2 라이선스가 조직에 이미 있다고 가정합니다. 이러한 라이선스가 없으면 일부 지침이 조직에 적용되지 않을 수 있습니다. 또한 이 문서 전체에서 전역 관리자라는 용어는 “회사 관리자” 또는 “테넌트 관리자”와 동일한 의미입니다.
 
 ## <a name="develop-a-roadmap"></a>로드맵 개발
 
@@ -52,7 +52,7 @@ ms.locfileid: "100594283"
 
 * 스테이지 2(2~4주): 가장 자주 사용되는 공격 기법에 대한 완화
 
-* 스테이지 3(1~3개월): 가시성 빌드 및 관리자 활동에 대한 모든 권한 빌드
+* 스테이지 3(1~3개월): 가시성을 확보하고 관리자 활동을 완벽하게 제어
 
 * 스테이지 4(6개월 이상): 보안 플랫폼 강화를 위한 방어 체계 구축 계속
 
@@ -112,9 +112,9 @@ Azure AD Privileged Identity Management가 설정되면 다음 Azure AD 역할�
 
 전역 관리자 역할에 할당되었거나 적합한 계정을 평가합니다. \*.onmicrosoft.com 도메인("비상" 응급 액세스용)을 사용하는 클라우드 전용 계정이 표시되지 않으면 해당 계정을 만듭니다. 자세한 내용은 [Azure AD에서 응급 액세스 관리 계정의 관리](security-emergency-access.md)를 참조하세요.
 
-#### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>다단계 인증 설정 및 권한이 높고 페더레이션되지 않은 다른 모든 단일 사용자 관리자 계정 등록
+#### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-administrator-accounts"></a>다단계 인증 설정 및 권한이 높고 페더레이션되지 않은 다른 모든 단일 사용자 관리자 계정 등록
 
-로그인 시 Azure AD 관리자 역할(전역 관리자, 권한 있는 역할 관리자, Exchange 관리자, SharePoint 관리자) 중 하나 이상에 영구적으로 할당된 모든 개별 사용자에 대해 Azure AD MFA(다단계 인증)를 요구합니다. 이 가이드를 사용하여 [관리자 계정에 대해 MFA(Multi-Factor Authentication)](../authentication/howto-mfa-userstates.md)를 사용하도록 설정하고, 해당 사용자가 모두 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 등록되었는지 확인합니다. 자세한 내용은 [Microsoft 365에서 데이터 및 서비스에 대한 액세스 보호](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) 가이드의 2단계 및 3단계에서 찾을 수 있습니다. 
+로그인 시 Azure AD 관리자 역할(전역 관리자, 권한 있는 역할 관리자, Exchange 관리자, SharePoint 관리자) 중 하나 이상에 영구적으로 할당된 모든 개별 사용자에게 Azure AD MFA(Multi-Factor Authentication)를 요구합니다. 이 가이드를 사용하여 [관리자 계정에 MFA(Multi-Factor Authentication)](../authentication/howto-mfa-userstates.md)를 사용하도록 설정하고, 해당 사용자가 모두 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 등록되었는지 확인합니다. 자세한 내용은 [Microsoft 365에서 데이터 및 서비스에 대한 액세스 보호](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) 가이드의 2단계 및 3단계에서 찾을 수 있습니다. 
 
 ## <a name="stage-2-mitigate-frequently-used-attacks"></a>2단계: 자주 사용되는 공격 완화
 
@@ -124,13 +124,13 @@ Azure AD Privileged Identity Management가 설정되면 다음 Azure AD 역할�
 
 ### <a name="general-preparation"></a>일반적인 준비
 
-#### <a name="conduct-an-inventory-of-services-owners-and-admins"></a>서비스, 소유자 및 관리자의 인벤토리 수행
+#### <a name="conduct-an-inventory-of-services-owners-and-administrators"></a>서비스, 소유자 및 관리자의 인벤토리 수행
 
 "BYOD(Bring Your Own Device)" 및 재택 근무 정책이 증가하고 무선 연결이 확장됨에 따라 네트워크에 연결하는 사용자를 모니터링하는 것이 중요합니다. 보안 감사는 조직에서 지원하지 않으며 높은 위험을 나타내는 디바이스, 애플리케이션 및 프로그램을 네트워크에서 공개할 수 있습니다. 자세한 내용은 [Azure 보안 관리 및 모니터링 개요](../../security/fundamentals/management-monitoring-overview.md)를 참조하세요. 인벤토리 프로세스에는 다음 작업이 모두 포함되어야 합니다.
 
 * 관리 역할과 관리할 수 있는 서비스가 있는 사용자를 식별합니다.
 * Azure AD PIM을 사용하여 Azure AD에 대한 관리자 액세스 권한이 있는 조직의 사용자를 확인합니다.
-* Azure AD에 정의된 역할 외에도, Microsoft 365에는 조직의 사용자에게 할당할 수 있는 관리자 역할의 집합이 제공됩니다. 각 관리자 역할은 일반적인 비즈니스 기능에 매핑되며, [Microsoft 365 관리 센터](https://admin.microsoft.com)에서 조직의 사용자에게 특정 작업을 수행할 수 있는 권한을 부여합니다. Microsoft 365 관리자 센터를 사용하여 Azure AD에서 관리되지 않는 역할을 포함한 Microsoft 365에 대한 관리자 액세스 권한이 있는 조직의 사용자를 확인합니다. 자세한 내용은 [Microsoft 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) 및 [Office 365 보안 모범 사례](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center)를 참조하세요.
+* Azure AD에 정의된 역할 외에도, Microsoft 365에는 조직의 사용자에게 할당할 수 있는 관리자 역할 세트가 제공됩니다. 각 관리자 역할은 일반적인 비즈니스 기능에 매핑되며, [Microsoft 365 관리 센터](https://admin.microsoft.com)에서 조직의 사용자에게 특정 작업을 수행할 수 있는 권한을 부여합니다. Microsoft 365 관리자 센터를 사용하여 Azure AD에서 관리되지 않는 역할을 포함한 Microsoft 365에 대한 관리자 액세스 권한이 있는 조직의 사용자를 확인합니다. 자세한 내용은 [Microsoft 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) 및 [Office 365 보안 모범 사례](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center)를 참조하세요.
 * Azure, Intune 또는 Dynamics 365와 같이 조직에서 사용하는 서비스의 인벤토리를 수행합니다.
 * 다음과 같은 관리 목적으로 사용되는 계정을 확인합니다.
 
@@ -206,7 +206,7 @@ Azure Active Directory 조직이 온-프레미스 Active Directory와 동기화�
 
 엔터프라이즈 포털과 Azure Portal을 사용하여 프로덕션 애플리케이션을 호스팅하는 조직의 구독을 식별합니다.
 
-#### <a name="remove-microsoft-accounts-from-admin-roles"></a>관리자 역할에서 Microsoft 계정 제거
+#### <a name="remove-microsoft-accounts-from-administrator-roles"></a>관리자 역할에서 Microsoft 계정 제거
 
 Xbox, Live 및 Outlook과 같은 다른 프로그램의 Microsoft 계정은 조직의 구독에 대한 관리자 계정으로 사용하면 안 됩니다. 모든 Microsoft 계정에서 관리자 상태를 제거하고 Azure AD(예: chris@contoso.com) 회사 또는 학교 계정으로 바꿉니다. 관리 목적으로 다른 서비스가 아닌 Azure AD에서 인증된 계정에 따라 달라집니다.
 
@@ -220,9 +220,9 @@ Azure 활동 로그는 Azure에서 구독 수준 이벤트 기록을 제공합�
 
 온-프레미스 및 클라우드 호스팅 애플리케이션에 대한 조건부 액세스 정책을 준비합니다. 사용자 작업 영역 조인 디바이스가 있는 경우 [Azure Active Directory 디바이스 등록을 사용하여 온-프레미스 조건부 액세스 설정](../../active-directory-b2c/overview.md)에서 자세한 정보를 얻을 수 있습니다.
 
-## <a name="stage-3-take-control-of-admin-activity"></a>3단계: 관리자 활동 제어
+## <a name="stage-3-take-control-of-administrator-activity"></a>3단계: 관리자 활동 제어
 
-![3단계 관리자 활동 제어](./media/security-planning/stage-three.png)
+![3단계: 관리자 활동 제어](./media/security-planning/stage-three.png)
 
 3단계는 2단계의 완화를 기반으로 하며, 약 1~3개월 내에 구현해야 합니다. 권한 있는 보안 액세스 로드맵의 이 단계에 포함되는 구성 요소는 다음과 같습니다.
 
@@ -236,7 +236,7 @@ Azure 활동 로그는 Azure에서 구독 수준 이벤트 기록을 제공합�
 
 다음을 수행하는 것이 좋습니다.
 
-1. Azure AD 관리자인 사용자를 확인하고, 요청 시 JIT(Just-In-Time) 관리자 액세스 권한 및 역할 기반 보안 제어를 사용하도록 설정합니다.
+1. Azure AD 관리자인 사용자를 확인하고, 주문형 JIT(Just-In-Time) 관리자 액세스 권한 및 역할 기반 보안 제어를 사용하도록 설정합니다.
 2. 관리자 권한 액세스에 대한 명확한 이유가 없는 사용자를 다른 역할로 변환합니다(적격 역할이 아닌 경우 제거함).
 
 #### <a name="continue-rollout-of-stronger-authentication-for-all-users"></a>더 강력한 모든 사용자 인증에 대한 지속적인 공개
@@ -270,7 +270,7 @@ Azure Active Directory의 경우 [Azure AD Privileged Identity Management](../pr
 * 활성화 프로세스 중에 MFA 적용
 * 경고를 사용하여 관리자에게 대역 외 변경 내용을 알림
 * 사용자가 미리 구성된 시간 동안 권한 있는 액세스를 유지할 수 있도록 설정
-* 보안 관리자가 다음을 수행할 수 있도록 허용
+* 보안 관리자에게 다음 작업의 수행을 허용
 
   * 모든 권한 있는 ID 검색
   * 감사 보고서 보기
@@ -380,9 +380,9 @@ Cloud App Security SIEM 에이전트는 Cloud App Security와 SIEM 서버를 통
 
 ### <a name="general-preparation"></a>일반적인 준비
 
-#### <a name="review-admin-roles-in-azure-ad"></a>Azure AD에서 관리자 역할 검토
+#### <a name="review-administrator-roles-in-azure-ad"></a>Azure AD에서 관리자 역할 검토
 
-현재 기본 제공 Azure AD 관리자 역할이 최신 상태인지 확인하고, 사용자가 필요한 역할에만 있는지 확인합니다. Azure AD를 사용하면 별도의 관리자를 할당하여 다른 기능을 제공할 수 있습니다. 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](permissions-reference.md)을 참조하세요.
+현재 기본 제공 Azure AD 관리자 역할이 최신 상태인지 확인하고, 사용자가 필요한 역할에만 있는지 확인합니다. Azure AD를 사용하면 별도의 관리자를 할당하여 다른 기능을 제공할 수 있습니다. 자세한 내용은 [Azure AD 기본 제공 역할](permissions-reference.md)을 참조하세요.
 
 #### <a name="review-users-who-have-administration-of-azure-ad-joined-devices"></a>Azure AD 가입 디바이스를 관리하는 사용자 검토
 
@@ -445,7 +445,7 @@ Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 
 
 **답변:** 비상 계정 중 하나를 사용하여 즉각적인 권한 있는 액세스를 얻습니다.
 
-**Q:** 조직 내에서 관리자를 보호하려면 어떻게 해야 할까요?
+**Q:** 조직 내에서 관리자를 보호하려면 어떻게 해야 하나요?
 
 **답변:** 관리자는 항상 “권한이 없는” 표준 사용자로 통상적인 업무를 수행해야 합니다.
 
@@ -461,9 +461,9 @@ Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 
 
 **답변:** 계층 0 관리자 계정은 온-프레미스 AD 계정에만 사용됩니다. 이러한 계정은 일반적으로 클라우드에서 Azure AD와 동기화되지 않습니다. 계층 0 관리자 계정에는 온-프레미스 Active Directory 포리스트, 도메인, 도메인 컨트롤러 및 자산 관리를 직접 또는 간접적으로 제어할 수 있는 계정, 그룹 및 기타 자산이 포함됩니다.
 
-**Q:** 관리자가 포털에서 임의의 관리자 액세스 권한을 할당하지 못하게 하려면 어떻게 해야 할까요?
+**Q:** 관리자가 포털에서 임의의 관리자 액세스 권한을 할당하지 못하게 하려면 어떻게 해야 하나요?
 
-**답변:** 모든 사용자와 대부분의 관리자에게 권한이 없는 계정을 사용합니다. 먼저 조직의 공간을 개발하여 권한이 부여되어야 하는 몇 개의 관리자 계정을 결정합니다. 그리고 새로 만든 관리 사용자를 모니터링합니다.
+**답변:** 모든 사용자와 대부분의 관리자에게 권한 없는 계정을 사용합니다. 먼저 조직의 공간을 개발하여 권한이 부여되어야 하는 몇 개의 관리자 계정을 결정합니다. 그리고 새로 만든 관리 사용자를 모니터링합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

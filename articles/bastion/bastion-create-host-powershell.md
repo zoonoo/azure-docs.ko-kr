@@ -1,18 +1,18 @@
 ---
 title: Azure PowerShell을 사용하여 베스천 호스트 만들기 | Microsoft Docs
-description: 이 문서에서는 Azure Bastion을 만드는 방법을 배웁니다.
+description: PowerShell을 사용하여 Azure Bastion 호스트를 만드는 방법을 알아봅니다.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8abd4c417181b46fbf4d5c139c157044b329ea2a
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: f08ffdafdbca4e406e0bf7d6e23fa3218ccccfe4
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580145"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110538033"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Bastion 호스트 만들기
 
@@ -34,7 +34,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 이 섹션은 Azure PowerShell을 사용하여 새 Azure Bastion 리소스를 만드는 데 도움이 됩니다.
 
-1. 가상 네트워크 및 Azure Bastion 서브넷을 만듭니다. **AzureBastionSubnet** 이름 값을 사용하여 Azure Bastion 서브넷을 만들어야 합니다. 이 값을 통해 Azure에서 Bastion 리소스를 배포할 서브넷을 인식할 수 있습니다. 이는 게이트웨이 서브넷과는 다릅니다. 최소 /27 이상(/27, /26 등)의 서브넷을 사용해야 합니다. 경로 테이블 또는 위임 없이 **AzureBastionSubnet** 을 만듭니다. **AzureBastionSubnet** 의 네트워크 보안 그룹을 사용하는 경우 [NSG 사용](bastion-nsg.md) 문서를 참조하세요.
+1. 가상 네트워크 및 Azure Bastion 서브넷을 만듭니다. 이름 값으로 **AzureBastionSubnet** 을 사용하여 Azure Bastion 서브넷을 만들어야 합니다. 이 값을 통해 Azure에서 Bastion 리소스를 배포할 서브넷을 인식할 수 있습니다. 이는 게이트웨이 서브넷과는 다릅니다. 최소 /27 이상(/27, /26 등)의 서브넷을 사용해야 합니다. 경로 테이블 또는 위임 없이 **AzureBastionSubnet** 을 만듭니다. **AzureBastionSubnet** 의 네트워크 보안 그룹을 사용하는 경우 [NSG 사용](bastion-nsg.md) 문서를 참조하세요.
 
    ```azurepowershell-interactive
    $subnetName = "AzureBastionSubnet"

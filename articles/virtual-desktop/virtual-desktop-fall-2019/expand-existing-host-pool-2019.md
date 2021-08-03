@@ -1,22 +1,22 @@
 ---
-title: 새 세션 호스트를 사용하여 기존 Windows Virtual Desktop(클래식) 호스트 풀 확장 - Azure
-description: Windows Virtual Desktop(클래식)에서 새 세션 호스트를 사용하여 기존 호스트 풀을 확장하는 방법입니다.
+title: 새 세션 호스트를 사용하여 기존 Azure Virtual Desktop(클래식) 호스트 풀 확장 - Azure
+description: Azure Virtual Desktop(클래식)에서 새 세션 호스트를 사용하여 기존 호스트 풀을 확장하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f82b831d887f0ebdd659167935f2134583b3bb87
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: e459737db621dfb55b5534e60989437b293e57a9
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551954"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745082"
 ---
-# <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Windows Virtual Desktop(클래식)에서 새 세션 호스트를 사용하여 기존 호스트 풀 확장
+# <a name="expand-an-existing-host-pool-with-new-session-hosts-in-azure-virtual-desktop-classic"></a>Azure Virtual Desktop(클래식)에서 새 세션 호스트를 사용하여 기존 호스트 풀 확장
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../expand-existing-host-pool.md)를 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Azure Virtual Desktop 개체를 관리하려는 경우 [이 문서](../expand-existing-host-pool.md)를 참조하세요.
 
 호스트 풀 내에서 사용량을 늘릴 때 새 부하를 처리하기 위해 새 세션 호스트를 사용하여 기존 호스트 풀을 확장해야 할 수 있습니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "106551954"
 또한 호스트 풀 및 세션 호스트 VM을 처음 만들 때 사용한 다음 정보가 필요합니다.
 
 - VM 크기, 이미지 및 이름 접두사
-- 도메인 가입 및 Windows Virtual Desktop 테넌트 관리자 자격 증명
+- 도메인 가입 및 Azure Virtual Desktop 테넌트 관리자 자격 증명
 - 가상 네트워크 이름 및 서브넷 이름
 
 다음 세 개의 섹션에서는 호스트 풀을 확장하는 데 사용할 수 있는 세 가지 방법을 설명합니다. 익숙한 배포 도구 중 하나를 사용하여 확장할 수 있습니다.
@@ -83,7 +83,7 @@ ms.locfileid: "106551954"
 3.    *지역* 에서 기존 호스트 풀 세션 호스트 VM이 있는 지역을 선택합니다.
 4.    *호스트 풀 이름* 에 기존 호스트 풀의 이름을 입력합니다.
 5.    *데스크톱 유형* 에서 기존 호스트 풀과 일치하는 데스크톱 유형을 선택합니다.
-6.    *기본 데스크톱 사용자* 에서 Azure Marketplace 제품이 완료된 후 Windows Virtual Desktop 클라이언트에 로그인하고 데스크톱에 액세스하도록 할 추가 사용자를 쉼표로 구분된 목록 형식으로 입력합니다. 예를 들어 user3@contoso.com 및 user4@contoso.com 액세스 권한을 할당하려면 user3@contoso.com, user4@contoso.com을 입력합니다.
+6.    *기본 데스크톱 사용자* 에서 Azure Marketplace 제품이 완료된 후 Azure Virtual Desktop 클라이언트에 로그인하고 데스크톱에 액세스하도록 할 추가 사용자를 쉼표로 구분된 목록 형식으로 입력합니다. 예를 들어 user3@contoso.com 및 user4@contoso.com 액세스 권한을 할당하려면 user3@contoso.com, user4@contoso.com을 입력합니다.
 7.    **다음: 가상 머신 구성** 을 선택합니다.
 
 >[!NOTE]
@@ -109,14 +109,14 @@ ms.locfileid: "106551954"
 1. *이미지 원본* 및 *이미지 OS 버전* 에서 호스트 풀을 처음 만들 때 지정한 것과 동일한 정보를 입력합니다.
 2. *AD 도메인 가입 UPN* 및 연결된 암호에서 VM을 Active Directory 도메인에 가입시키기 위해 호스트 풀을 처음 만들 때 지정한 것과 동일한 정보를 입력합니다. 이러한 자격 증명을 사용하여 가상 머신에 로컬 계정을 만들 수 있습니다. 나중에 이러한 로컬 계정을 다시 설정하여 자격 증명을 변경할 수 있습니다.
 3. 가상 네트워크 정보에 기존 호스트 풀 세션 호스트 VM이 있는 위치와 동일한 가상 네트워크 및 서브넷을 선택합니다.
-4. **다음: Windows Virtual Desktop 정보 구성** 을 선택합니다.
+4. **다음: Azure Virtual Desktop 정보 구성** 을 선택합니다.
 
-### <a name="windows-virtual-desktop-information"></a>Windows Virtual Desktop 정보
+### <a name="azure-virtual-desktop-information"></a>Azure Virtual Desktop 정보
 
 이 섹션에서 모든 매개 변수 값은 호스트 풀 및 세션 호스트 VM을 처음 만들 때 입력한 값과 일치해야 합니다.
 
-1. *Windows Virtual Desktop 테넌트 그룹 이름* 의 경우, 테넌트를 포함하는 테넌트 그룹의 이름을 입력합니다. 특정 테넌트 그룹 이름이 제공되지 않은 경우 기본값을 그대로 유지합니다.
-2. *Windows Virtual Desktop 테넌트 이름* 의 경우, 이 호스트 풀을 만들 테넌트의 이름을 입력합니다.
+1. *Azure Virtual Desktop 테넌트 그룹 이름* 의 경우, 테넌트를 포함하는 테넌트 그룹의 이름을 입력합니다. 특정 테넌트 그룹 이름이 제공되지 않은 경우 기본값을 그대로 유지합니다.
+2. *Azure Virtual Desktop 테넌트 이름* 의 경우, 이 호스트 풀을 만들 테넌트의 이름을 입력합니다.
 3. 호스트 풀 및 세션 호스트 VM을 처음 만들 때 사용한 것과 동일한 자격 증명을 지정합니다. 서비스 주체를 사용하는 경우 서비스 주체가 있는 Azure Active Directory 인스턴스의 ID를 입력합니다.
 4. **다음: 검토 + 만들기** 를 선택합니다.
 
@@ -126,7 +126,7 @@ ms.locfileid: "106551954"
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 기존 호스트 풀을 확장했으므로 Windows Virtual Desktop 클라이언트에 로그인하여 사용자 세션의 일부로 테스트할 수 있습니다. 다음 클라이언트 중 하나를 사용하여 세션에 연결할 수 있습니다.
+이제 기존 호스트 풀을 확장했으므로 Azure Virtual Desktop 클라이언트에 로그인하여 사용자 세션의 일부로 테스트할 수 있습니다. 다음 클라이언트 중 하나를 사용하여 세션에 연결할 수 있습니다.
 
 - [Windows Desktop 클라이언트를 사용하여 연결](connect-windows-7-10-2019.md)
 - [웹 클라이언트를 사용하여 연결](connect-web-2019.md)

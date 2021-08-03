@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 배포 계획
 description: Azure에 프로덕션 Service Fabric 클러스터를 배포하기 위해 계획하고 준비하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 82521487b9a3e9438784e010a32cf6df8e7be2ef
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e6b7c0a14f6e5f63e84c8efa484347cd4ff322f4
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046320"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789546"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>클러스터 배포를 위한 계획 및 준비
 
@@ -33,7 +33,7 @@ Azure Service Fabric을 사용하면 Windows Server 또는 Linux를 실행하는
 ### <a name="select-node-properties-for-each-node-type"></a>각 노드 형식에 대한 노드 속성 선택
 노드 형식은 연결된 확장 집합에 있는 VM의 VM SKU, 수, 속성을 정의합니다.
 
-각 노드 형식에 대한 최소 VM 크기는 노드 형식에서 선택한 [내구성 계층][durability]에 따라 결정됩니다.
+각 노드 형식에 대한 최소 VM 크기는 노드 형식에서 선택한 [내구성 계층][durability]에 따라 결정됩니다. VM SKU를 선택하기 전에 향후 다른 VM SKU가 필요하다고 판단되는 경우 [수직 크기 조정](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations)에 필요한 단계를 이해해야 합니다.
 
 주 노드 유형에 대한 최소 VM 수는 선택한 [안정성 계층][reliability]에 따라 결정됩니다.
 

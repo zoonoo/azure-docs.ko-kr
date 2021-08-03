@@ -2,18 +2,18 @@
 title: 일반적인 Azure Arc 사용 Kubernetes 문제 해결
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/02/2020
+ms.date: 05/21/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Arc 사용 Kubernetes 클러스터를 통한 일반적인 문제를 해결합니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너
-ms.openlocfilehash: 992ea75c48b2630032e1314610986fbc610eec7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c05e82b084e49958a8c99bc755bdf954b708d69e
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025784"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110795085"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting"></a>Azure Arc 사용 Kubernetes 문제 해결
 
@@ -191,4 +191,333 @@ metadata:
 
 ```console
 juju config kubernetes-worker allow-privileged=true
+```
+
+## <a name="enable-custom-locations-using-service-principal"></a>서비스 주체를 사용하여 사용자 지정 위치 사용
+
+클러스터를 Azure Arc에 연결하거나 기존 클러스터에서 사용자 지정 위치 기능을 사용하도록 설정하는 경우 다음과 같은 경고가 표시될 수 있습니다.
+
+```console
+Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation.
+```
+
+위의 경고는 서비스 주체를 사용하여 Azure에 로그인하고 이 서비스 주체에게 Azure Arc 서비스에서 사용하는 애플리케이션의 정보를 가져올 수 있는 권한이 없는 경우에 관찰됩니다. 이 오류를 방지하려면 다음 단계를 실행합니다.
+
+1. Azure Arc 서비스에서 사용하는 Azure AD 애플리케이션의 개체 ID를 가져옵니다.
+
+    ```console
+    az ad sp show --id 'bc313c14-388c-4e7d-a58e-70017303ee3b' --query objectId -o tsv
+    ```
+
+1. 위 단계의 `<objectId>` 값을 사용하여 클러스터에서 사용자 지정 위치 기능을 사용하도록 설정합니다.
+    - Arc로 클러스터 연결의 일부로 사용자 지정 위치 기능을 사용하도록 설정하는 경우 다음 명령을 실행합니다.
+
+        ```console
+        az connectedk8s connect -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId>   
+        ```
+
+    - 기존 Arc 지원 Kubernetes 클러스터에서 사용자 지정 위치 기능을 사용하도록 설정하는 경우 다음 명령을 실행합니다.
+
+        ```console
+        az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
+        ```
+
+위의 사용 권한이 부여되면 이제 클러스터에서 [사용자 지정 위치 기능을 사용하도록 설정](custom-locations.md#enable-custom-locations-on-cluster)할 수 있습니다.
+
+## <a name="arc-enabled-open-service-mesh"></a>Arc 지원 Open Service Mesh
+
+다음 문제 해결 단계에서는 클러스터에 있는 모든 Open Service Mesh 확장 구성 요소의 배포 유효성 검사에 대한 지침을 제공합니다.
+
+### <a name="1-check-osm-controller-deployment"></a>1. OSM 컨트롤러 **배포** 확인
+```bash
+kubectl get deployment -n arc-osm-system --selector app=osm-controller
+```
+
+OSM 컨트롤러가 정상 상태이면 다음 출력과 유사한 출력을 얻게 됩니다.
+```
+NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+osm-controller   1/1     1            1           59m
+```
+
+### <a name="2-check-the-osm-controller-pod"></a>2. OSM 컨트롤러 **Pod** 확인
+```bash
+kubectl get pods -n arc-osm-system --selector app=osm-controller
+```
+
+OSM 컨트롤러가 정상 상태이면 다음 출력과 유사한 출력을 얻게 됩니다.
+```
+NAME                            READY   STATUS    RESTARTS   AGE
+osm-controller-b5bd66db-wglzl   0/1     Evicted   0          61m
+osm-controller-b5bd66db-wvl9w   1/1     Running   0          31m
+```
+
+특정 시점에 하나의 컨트롤러를 _제거한_ 경우에도 다시 시작한 횟수가 `0`번인 `READY 1/1` 및 `Running`인 하나의 컨트롤러가 있습니다.
+`READY` 열이 `1/1`이 아닌 경우 서비스 메시는 중단된 상태에 있게 됩니다.
+`0/1`인 `READY` 열은 컨트롤 플레인 컨테이너가 충돌함을 나타내는 것이며, 로그를 가져와야 합니다. 아래 `Get OSM Controller Logs from Azure Support Center` 섹션을 참조하세요.
+`READY` 열의 `/` 뒤에 1보다 큰 숫자가 있으면 사이드카가 설치되어 있는 것입니다. 사이드카가 연결되어 있는 경우 OSM 컨트롤러는 작동하지 않을 가능성이 높습니다.
+
+### <a name="3-check-osm-controller-service"></a>3. OSM 컨트롤러 **서비스** 확인
+```bash
+kubectl get service -n arc-osm-system osm-controller
+```
+
+OSM 컨트롤러가 정상 상태가 되면 다음과 같은 출력이 표시됩니다.
+```
+NAME             TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)              AGE
+osm-controller   ClusterIP   10.0.31.254   <none>        15128/TCP,9092/TCP   67m
+```
+
+> 참고: `CLUSTER-IP`는 다를 수 있습니다. 서비스 `NAME` 및 `PORT(S)`는 출력에 표시된 것과 동일해야 합니다.
+
+### <a name="4-check-osm-controller-endpoints"></a>4. OSM 컨트롤러 **엔드포인트** 확인:
+```bash
+kubectl get endpoints -n arc-osm-system osm-controller
+```
+
+OSM 컨트롤러가 정상 상태이면 다음 출력과 유사한 출력을 얻게 됩니다.
+```
+NAME             ENDPOINTS                              AGE
+osm-controller   10.240.1.115:9092,10.240.1.115:15128   69m
+```
+
+사용자의 클러스터에 `osm-controller`에 대한 `ENDPOINTS`가 없는 경우에는 컨트롤 평면이 비정상 상태임을 의미합니다. 이는 OSM 컨트롤러 Pod가 충돌하거나 올바르게 배포되지 않은 경우에 발생할 수 있습니다.
+
+### <a name="5-check-osm-injector-deployment"></a>5. OSM 인젝터 **배포** 확인
+```bash
+kubectl get deployments -n arc-osm-system osm-injector
+```
+
+OSM 인젝터가 정상 상태이면 다음 출력과 유사한 출력을 얻게 됩니다.
+```
+NAME           READY   UP-TO-DATE   AVAILABLE   AGE
+osm-injector   1/1     1            1           73m
+```
+
+### <a name="6-check-osm-injector-pod"></a>6. OSM 인젝터 **Pod** 확인
+```bash
+kubectl get pod -n arc-osm-system --selector app=osm-injector
+```
+
+OSM 인젝터가 정상 상태이면 다음 출력과 유사한 출력을 얻게 됩니다.
+```
+NAME                            READY   STATUS    RESTARTS   AGE
+osm-injector-5986c57765-vlsdk   1/1     Running   0          73m
+```
+
+`READY` 열은 `1/1`이어야 합니다. 다른 모든 값은 비정상 osm-인젝터 Pod를 표시합니다.
+
+### <a name="7-check-osm-injector-service"></a>7. OSM 인젝터 **서비스** 확인
+```bash
+kubectl get service -n arc-osm-system osm-injector
+```
+
+OSM 인젝터가 정상 상태이면 다음 출력과 유사한 출력을 얻게 됩니다.
+```
+NAME           TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
+osm-injector   ClusterIP   10.0.39.54   <none>        9090/TCP   75m
+```
+
+`osm-injector` 서비스에 대해 나열된 IP 주소가 `9090`인지 확인합니다. `EXTERNAL-IP`가 없어야 합니다.
+
+### <a name="8-check-osm-injector-endpoints"></a>8. OSM 인젝터 **엔드포인트** 확인
+```bash
+kubectl get endpoints -n arc-osm-system osm-injector
+```
+
+OSM 인젝터가 정상 상태이면 다음 출력과 유사한 출력을 얻게 됩니다.
+```
+NAME           ENDPOINTS           AGE
+osm-injector   10.240.1.172:9090   75m
+```
+
+OSM이 작동하려면 `osm-injector`에 대해 엔드포인트가 하나 이상 있어야 합니다. OSM 인젝터 엔드포인트의 IP 주소는 다를 수 있습니다. 포트 `9090`은 동일해야 합니다.
+
+
+### <a name="9-check-validating-and-mutating-webhooks"></a>9. **유효성 검사** 및 **변경** 웹후크 확인:
+```bash
+kubectl get ValidatingWebhookConfiguration --selector app=osm-controller
+```
+
+유효성 검사 웹후크가 정상 상태이면 다음 출력과 유사한 출력을 얻게 됩니다.
+```
+NAME              WEBHOOKS   AGE
+arc-osm-webhook-osm   1      81m
+```
+
+```bash
+kubectl get MutatingWebhookConfiguration --selector app=osm-controller
+```
+
+
+변경 웹후크가 정상 상태이면 다음 출력과 유사한 출력을 얻게 됩니다.
+```
+NAME              WEBHOOKS   AGE
+arc-osm-webhook-osm   1      102m
+```
+
+**유효성 검사** 웹후크의 서비스 및 CA 번들을 확인합니다.
+```
+kubectl get ValidatingWebhookConfiguration arc-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
+```
+
+잘 구성된 유효성 검사 웹후크 구성은 다음과 같이 출력됩니다.
+```json
+{
+  "name": "osm-config-validator",
+  "namespace": "arc-osm-system",
+  "path": "/validate-webhook",
+  "port": 9093
+}
+```
+
+**변경** 웹후크의 서비스 및 CA 번들을 확인합니다.
+```bash
+kubectl get MutatingWebhookConfiguration arc-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
+```
+
+잘 구성된 변경 웹후크 구성은 다음과 같이 출력됩니다.
+```
+{
+  "name": "osm-injector",
+  "namespace": "arc-osm-system",
+  "path": "/mutate-pod-creation",
+  "port": 9090
+}
+```
+
+
+다음 명령을 사용하여 OSM 컨트롤러가 CA 번들에 유효성 검사(또는 변경) 웹후크를 제공했는지 확인합니다.
+
+```bash
+kubectl get ValidatingWebhookConfiguration arc-osm-webhook-osm -o json | jq -r '.webhooks[0].clientConfig.caBundle' | wc -c
+```
+
+```bash
+kubectl get MutatingWebhookConfiguration arc-osm-webhook-osm -o json | jq -r '.webhooks[0].clientConfig.caBundle' | wc -c
+```
+
+예제 출력:
+```bash
+1845
+```
+출력의 숫자는 CA 번들의 바이트 수 또는 크기를 나타냅니다. 이 값이 비어 있거나, 0 또는 1000보다 작은 숫자이면 CA 번들이 올바르게 프로비전되지 않았음을 나타내는 것입니다. 올바른 CA 번들이 없으면 ValidatingWebhook에서 오류를 throw하고 `arc-osm-system` 네임스페이스의 `osm-config` ConfigMap을 변경하지 못하도록 합니다.
+
+CA 번들이 잘못된 경우의 샘플 오류를 살펴보겠습니다.
+- `osm-config` ConfigMap을 변경하려고 한 경우:
+  ```bash
+  kubectl patch ConfigMap osm-config -n arc-osm-system --type merge --patch '{"data":{"config_resync_interval":"2m"}}'
+  ```
+- 오류 출력:
+  ```bash
+  Error from server (InternalError): Internal error occurred: failed calling webhook "osm-config-webhook.k8s.io": Post https://osm-config-validator.arc-osm-system.svc:9093/validate-webhook?timeout=30s: x509: certificate signed by unknown authority
+  ```
+
+**유효성 검사** 웹후크 구성에 잘못된 인증서가 있는 경우 다음 해결 방법 중 하나를 사용합니다.
+- 옵션 1. OSM 컨트롤러 다시 시작 - OSM 컨트롤러를 다시 시작합니다. 시작 시에는 변경 웹후크 및 유효성 검사 웹후크의 CA 번들을 덮어씁니다.
+  ```bash
+  kubectl rollout restart deployment -n arc-osm-system osm-controller
+  ```
+
+- 옵션 2. 유효성 검사 웹후크 삭제 - 유효성 검사 웹후크를 제거하면 `osm-config` ConfigMap의 변경은 더 이상 유효하지 않게 됩니다. 모든 패치가 진행됩니다. CA 번들을 신속하게 다시 작성하려면 OSM 컨트롤러를 다시 시작해야 할 수 있습니다.
+   ```bash
+   kubectl delete ValidatingWebhookConfiguration arc-osm-webhook-osm
+   ```
+
+- 옵션 3. 삭제 및 패치: 다음 명령은 유효성 검사 웹후크를 삭제하고, 값을 추가하도록 허용하고, 즉시 패치 적용을 시도합니다.
+  ```bash
+  kubectl delete ValidatingWebhookConfiguration arc-osm-webhook-osm; kubectl patch ConfigMap osm-config -n arc-osm-system --type merge --patch '{"data":{"config_resync_interval":"15s"}}'
+  ```
+
+
+### <a name="10-check-the-osm-config-configmap"></a>10. `osm-config` **ConfigMap** 확인
+
+>[!Note]
+>OSM 컨트롤러는 `arc-osm-system` 네임스페이스에 `osm-config` ConfigMap이 있음을 요구하지 않습니다. 컨트롤러는 구성에 대한 적절한 기본값을 가지며, 이 값이 없어도 작동할 수 있습니다.
+
+존재 여부를 확인합니다.
+```bash
+kubectl get ConfigMap -n arc-osm-system osm-config
+```
+
+`osm-config` ConfigMap의 내용 확인:
+```bash
+kubectl get ConfigMap -n arc-osm-system osm-config -o json | jq '.data'     
+```
+다음 출력이 표시됩니다.
+```json
+{
+  "egress": "false",
+  "enable_debug_server": "false",
+  "enable_privileged_init_container": "false",
+  "envoy_log_level": "error",
+  "permissive_traffic_policy_mode": "true",
+  "prometheus_scraping": "true",
+  "service_cert_validity_duration": "24h",
+  "tracing_enable": "false",
+  "use_https_ingress": "false",
+}
+```
+
+`osm-config` ConfigMap 값을 이해하려면 [OSM ConfigMap 설명서](https://release-v0-8.docs.openservicemesh.io/docs/osm_config_map/)를 참조하세요.
+
+### <a name="11-check-namespaces"></a>11. 네임스페이스 확인
+
+>[!Note]
+>arc-osm-system 네임스페이스는 서비스 메시에 참여하지 않으며 아래의 키/값으로 레이블이 지정되거나 주석이 추가되지 않습니다.
+
+`osm namespace add` 명령을 사용하여 지정된 서비스 메시에 네임스페이스를 조인합니다.
+kubernetes 네임스페이스가 메시의 일부인 경우 다음을 충족해야 합니다.
+
+`bookbuyer` 네임스페이스의 주석을 봅니다.
+```bash
+kc get namespace bookbuyer -o json | jq '.metadata.annotations'
+```
+
+다음과 같은 주석이 있어야 합니다.
+```
+{
+  "openservicemesh.io/sidecar-injection": "enabled"
+}
+```
+
+
+`bookbuyer` 네임스페이스의 레이블을 봅니다.
+```bash
+kc get namespace bookbuyer -o json | jq '.metadata.labels'
+```
+
+다음과 같은 레이블이 있어야 합니다.
+```
+{
+  "openservicemesh.io/monitored-by": "osm"
+}
+```
+`osm` CLI를 사용하지 않는 경우 네임스페이스에 이러한 주석을 수동으로 추가할 수도 있습니다. 네임스페이스에 주석이 `"openservicemesh.io/sidecar-injection": "enabled"`로 지정되어 있지 않거나 레이블이 `"openservicemesh.io/monitored-by": "osm"`으로 지정되지 않은 경우 OSM 인젝터는 Envoy 사이드카를 추가하지 않습니다.
+
+>[!Note]
+>`osm namespace add`를 호출한 후 **새** Pod에는 Envoy 사이드카가 삽입됩니다. 기존 Pod는 `kubectl rollout restard deployment` 명령으로 다시 시작해야 합니다.
+
+
+### <a name="12-verify-the-smi-crds"></a>12. SMI CRD 확인
+클러스터에 필요한 CRD가 있는지 확인합니다.
+```bash
+kubectl get crds
+```
+
+CRD가 동일한 OSM 업스트림 버전에 해당하는지 확인합니다. 예를 들어 v0.8.4를 사용하는 경우 CRD가 [OSM OSS 프로젝트](https://docs.openservicemesh.io/)의 릴리스 분기 v0.8.4에서 사용할 수 있는 것과 일치하는지 확인합니다. [OSM 릴리스 정보](https://github.com/openservicemesh/osm/releases)를 참조합니다.
+
+다음 명령을 사용하여 설치된 CRD의 버전을 가져옵니다.
+```bash
+for x in $(kubectl get crds --no-headers | awk '{print $1}' | grep 'smi-spec.io'); do
+    kubectl get crd $x -o json | jq -r '(.metadata.name, "----" , .spec.versions[].name, "\n")'
+done
+```
+
+CRD가 없으면 다음 명령을 사용하여 클러스터에 설치합니다. 명령에서 버전을 바꾸어야 합니다.
+```bash
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8.2/charts/osm/crds/access.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8.2/charts/osm/crds/specs.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8.2/charts/osm/crds/split.yaml
 ```

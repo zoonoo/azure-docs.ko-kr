@@ -3,21 +3,21 @@ author: baanders
 description: Azure Digital Twins 제한에 대한 포함 파일
 ms.service: digital-twins
 ms.topic: include
-ms.date: 6/9/2020
+ms.date: 4/8/2021
 ms.author: baanders
-ms.openlocfilehash: 4a69b2ff15fc4857e9fb292d2f753aa68ed875d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 460176dd8c86abc59d2f82948a6a35655b9eef84
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100370110"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530519"
 ---
 ### <a name="functional-limits"></a>기능 제한
 
 다음 표에는 Azure Digital Twins의 기능 제한이 나와 있습니다. 
 
 > [!TIP]
-> 이러한 기능 제한 내에서 작동하는 모델링 권장 사항은 [모델 설계 모범 사례](../articles/digital-twins/concepts-models.md#best-practices-for-designing-models)를 참조하세요.
+> 해당 기능 제한 내에서 작동하는 모델링 권장 사항은 [모델링 모범 사례](../articles/digital-twins/concepts-models.md#modeling-best-practices)를 참조하세요.
 
 | 영역형 | 기능 | 기본 제한 | 조정 가능 |
 | --- | --- | --- | --- |
@@ -46,7 +46,8 @@ ms.locfileid: "100370110"
 | API | 기능 | 기본 제한 | 조정 가능 |
 | --- | --- | --- | --- |
 | 모델 API | 초당 요청 수 | 100 | 예 |
-| Digital Twins API | 초당 요청 수 | 2,000 | 예 |
+| Digital Twins API | 초당 읽기 요청 수 | 1,000 | 예 |
+| Digital Twins API | 초당 패치 요청 수 | 1,000 | 예 |
 | Digital Twins API | **모든 트윈 및 관계** 에서 초당 생성/삭제 작업 수 | 50 | 예 |
 | Digital Twins API | **단일 쌍** 또는 해당 관계에서 초당 생성/업데이트/삭제 작업 수 | 10 | 예 |
 | 쿼리 API | 초당 요청 수 | 500 | 예 |
@@ -55,6 +56,6 @@ ms.locfileid: "100370110"
 
 ### <a name="other-limits"></a>기타 제한
 
-Azure Digital Twins 모델의 DTDL 문서 내에 있는 데이터 형식 및 필드에 대한 제한은 GitHub: [*DTDL(Digital Twins 정의 언어) - 버전 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)의 사양 설명서 내에서 찾을 수 있습니다.
+Azure Digital Twins 모델의 DTDL 문서 내에 있는 데이터 형식 및 필드에 대한 제한은 GitHub: [DTDL(Digital Twins 정의 언어) - 버전 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)의 사양 설명서 내에서 찾을 수 있습니다.
  
-쿼리 대기 시간 정보 및 기타 쿼리 제한은 [*방법: 트윈 그래프 쿼리*](../articles/digital-twins/how-to-query-graph.md)에서 찾을 수 있습니다.
+쿼리 대기 시간 세부 정보는 [개념: 쿼리 언어](../articles/digital-twins/concepts-query-language.md#considerations-for-querying)에 설명되어 있습니다. 특정 쿼리 언어 기능의 제한 사항은 [쿼리 참조 문서](../articles/digital-twins/concepts-query-language.md#reference-documentation)에서 확인할 수 있습니다.

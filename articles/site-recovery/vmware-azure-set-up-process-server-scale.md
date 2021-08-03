@@ -1,22 +1,22 @@
 ---
-title: Azure Site Recovery를 사용 하 여 VMware Vm 및 물리적 서버를 재해 복구 하는 동안 스케일 아웃 프로세스 서버 설정 Microsoft Docs '
-description: 이 문서에서는 VMware Vm 및 물리적 서버를 재해 복구 하는 동안 스케일 아웃 프로세스 서버를 설정 하는 방법을 설명 합니다.
-author: Rajeswari-Mamilla
-manager: rochakm
+title: Azure Site Recovery를 사용하여 VMware VM 및 물리적 서버의 재해 복구 중에 스케일 아웃 프로세스 서버 설정 | Microsoft Docs'
+description: 이 문서에서는 VMware VM 및 물리적 서버의 재해 복구 중에 스케일 아웃 프로세스 서버를 설정하는 방법을 설명합니다.
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/23/2019
-ms.author: ramamill
-ms.openlocfilehash: 40f912122e6ffb9cccbd32a747f6f0d46fd6c330
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: 9f98b37bf45593d55f9fe90c97dfc8b924f657cd
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96019147"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576727"
 ---
-# <a name="scale-with-additional-process-servers"></a>추가 프로세스 서버를 사용 하 여 크기 조정
+# <a name="scale-with-additional-process-servers"></a>추가 프로세스 서버로 확장
 
-기본적으로 [사이트 복구](site-recovery-overview.md)를 사용하여 VMware VM 또는 물리적 서버를 Azure에 복제하는 경우 프로세스 서버가 구성 서버 컴퓨터에 설치되어 사이트 복구 및 온-프레미스 인프라 간의 데이터 전송을 조정하는 데 사용됩니다. 용량을 늘리고 복제 배포를 확장하려면 추가 독립 실행형 프로세스 서버를 추가할 수 있습니다. 이 문서에서는 스케일 아웃 프로세스 서버를 설정 하는 방법을 설명 합니다.
+기본적으로 [사이트 복구](site-recovery-overview.md)를 사용하여 VMware VM 또는 물리적 서버를 Azure에 복제하는 경우 프로세스 서버가 구성 서버 컴퓨터에 설치되어 사이트 복구 및 온-프레미스 인프라 간의 데이터 전송을 조정하는 데 사용됩니다. 용량을 늘리고 복제 배포를 확장하려면 추가 독립 실행형 프로세스 서버를 추가할 수 있습니다. 이 문서에서는 스케일 아웃 프로세스 서버를 설정하는 방법을 설명합니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -24,7 +24,7 @@ ms.locfileid: "96019147"
 
 VMware 복제에 대해 [용량 계획](site-recovery-plan-capacity-vmware.md)을 수행했는지 확인합니다. 추가 프로세스 서버를 배포해야 시기와 방법을 식별하도록 도와줍니다.
 
-9.24 버전에서 새 복제를 위해 프로세스 서버를 선택 하는 동안 지침이 추가 됩니다. 프로세스 서버는 특정 조건에 따라 정상, 경고 및 위험으로 표시 됩니다. 프로세스 서버의 상태에 영향을 줄 수 있는 다양 한 시나리오를 이해 하려면 [프로세스 서버 경고](vmware-physical-azure-monitor-process-server.md#process-server-alerts)를 검토 합니다.
+9\.24 버전부터 새 복제를 위한 프로세스 서버를 선택하는 동안 지침이 추가됩니다. 프로세스 서버는 특정 조건에 따라 정상, 경고 및 위험으로 표시됩니다. 프로세스 서버의 상태에 영향을 줄 수 있는 다양한 시나리오를 이해하려면 [프로세스 서버 경고](vmware-physical-azure-monitor-process-server.md#process-server-alerts)를 검토합니다.
 
 > [!NOTE]
 > 복제된 프로세스 서버 구성 요소를 사용하는 것은 지원되지 않습니다. 각 PS 스케일 아웃에서 이 문서의 단계를 수행할 수 있습니다.
@@ -41,7 +41,7 @@ VMware 복제에 대해 [용량 계획](site-recovery-plan-capacity-vmware.md)�
 
 여기서 보호된 원본 머신 각각은 각 100GB의 디스크 3개로 구성됩니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 추가 프로세스 서버에 대한 필수 구성 요소는 다음 표에 요약되어 있습니다.
 
@@ -51,10 +51,10 @@ VMware 복제에 대해 [용량 계획](site-recovery-plan-capacity-vmware.md)�
 
 다음과 같이 프로세스 서버에 대한 설치 파일을 다운로드합니다.
 
-1. Azure Portal에 로그인 하 여 Recovery Services 자격 증명 모음으로 이동 합니다.
-2. **Site Recovery 인프라**  >  **vmware 및 물리적 컴퓨터**  >  **구성 서버** (vmware & 물리적 컴퓨터의 경우)를 엽니다.
+1. Azure Portal에 로그인하고 Recovery Services 자격 증명 모음으로 이동합니다.
+2. **Site Recovery 인프라** > **VMware 및 물리적 컴퓨터** > **구성 서버**(VMware 및 물리적 컴퓨터용 아래에서)를 엽니다.
 3. 구성 서버를 선택하여 서버의 세부 정보로 드릴다운합니다. 그럼 다음, **+ 프로세스 서버** 를 클릭합니다.
-4. 프로세스 서버 **추가** 에서  >   **프로세스 서버를 배포할 위치를 선택** 하 고 **온-프레미스로 확장 프로세스 서버 배포** 를 선택 합니다.
+4. **프로세스 서버 추가** >  **프로세스 서버 배포하려는 위치 선택** 에서 **온-프레미스로 확장 프로세스 서버 배포를 선택합니다**.
 
    ![서버 페이지 추가](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 1. **Microsoft Azure Site Recovery 통합 설치 다운로드** 를 클릭합니다. 최신 버전의 설치 파일을 다운로드합니다.

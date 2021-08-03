@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업 문제 해결
 description: 이 문서에서는 Azure 파일 공유를 보호할 때 발생하는 문제를 해결하는 방법에 대한 내용을 설명합니다.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 4c934d2295fa702425e8df0a03636b9f9208cfa4
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 86324c80f0df70713c6ea76a43e4b9da50c1fae6
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515076"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555023"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Azure 파일 공유를 백업하는 동안 발생하는 문제 해결
 
@@ -42,6 +42,7 @@ ms.locfileid: "107515076"
 - 보호하려는 파일 공유가 삭제되지 않았는지 확인합니다.
 - 스토리지 계정이 파일 공유 백업이 지원되는 스토리지 계정인지 확인합니다. [Azure 파일 공유 백업에 대한 지원 매트릭스](azure-file-share-support-matrix.md)를 참조하여 지원되는 스토리지 계정을 찾을 수 있습니다.
 - 파일 공유가 이미 동일한 Recovery Services 자격 증명 모음에서 보호되고 있는지 확인합니다.
+- 라우팅 기본 설정이 Microsoft 네트워크 라우팅으로 설정되어 있는지 확인하려면 저장소 계정의 네트워크 라우팅 설정을 확인합니다.
 
 ### <a name="backup-file-share-configuration-or-the-protection-policy-configuration-is-failing"></a>백업 파일 공유 구성(또는 보호 정책 구성)이 실패함
 
@@ -126,6 +127,14 @@ Azure Files 포털에서 요청 시 백업(Azure 파일 공유 스냅샷)을 삭
 - 파일 공유 백업은 동일한 파일 공유에 대한 병렬 스냅샷 요청을 지원하지 않습니다.
 
 - 기존 백업 작업이 완료될 때까지 기다린 후 다시 시도합니다. Recovery Services 자격 증명 모음에서 백업 작업을 찾을 수 없으면 동일한 구독에 다른 Recovery Services 자격 증명 모음을 확인합니다.
+
+### <a name="usererrorstorageaccountinternetroutingnotsupported--storage-accounts-with-internet-routing-configuration-are-not-supported-by-azure-backup"></a>UserErrorStorageAccountInternetRoutingNotSupported - 인터넷 라우팅 구성이 있는 저장소 계정은 Azure Backup에서 지원되지 않습니다.
+
+오류 코드: UserErrorStorageAccountInternetRoutingNotSupported
+
+오류 메시지: 인터넷 라우팅 구성을 사용한 저장소 계정은 Azure Backup에서 지원하지 않습니다.
+
+백업된 파일 공유를 호스팅하는 저장소 계정에 대해 설정된 라우팅 기본 설정이 Microsoft 네트워크 라우팅인지 확인합니다.
 
 ### <a name="filesharebackupfailedwithazurerprequestthrottling-filesharerestorefailedwithazurerprequestthrottling--file-share-backup-or-restore-failed-due-to-storage-service-throttling-this-may-be-because-the-storage-service-is-busy-processing-other-requests-for-the-given-storage-account"></a>FileshareBackupFailedWithAzureRpRequestThrottling/ FileshareRestoreFailedWithAzureRpRequestThrottling- 스토리지 서비스 제한으로 인해 파일 공유 백업 또는 복원이 실패했습니다. 스토리지 서비스가 특정 스토리지 계정에 대한 다른 요청을 처리 중이기 때문에 이 오류가 발생할 수 있습니다
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 513f262f5d09cf56c4506a4f20c9aa41507c2abd
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 3fa167233c5afe7b50b2794f6c0fff5458e9acf7
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515280"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089059"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
 이 문서에서는 Azure Monitor에서 모니터링하는 다양한 애플리케이션 및 서비스에 대해 설명합니다. 
@@ -26,13 +26,13 @@ ms.locfileid: "107515280"
 |:---|:---|
 | [Application Insights](app/app-insights-overview.md) | 모든 플랫폼에서 라이브 웹 애플리케이션을 모니터링하는 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. |
 | [컨테이너 인사이트](containers/container-insights-overview.md) | AKS(Azure Kubernetes Service)에 호스트된 Azure Container Instances 또는 관리되는 Kubernetes 클러스터에 배포된 컨테이너 워크로드의 성능을 모니터링합니다. |
-| [Cosmos DB용 Azure Monitor](insights/cosmosdb-insights-overview.md) | 통합 대화형 환경에서 모든 Azure Cosmos DB 리소스의 전체 성능, 실패, 용량 및 운영 상태를 보여 줍니다. |
-| [네트워크용 Azure Monitor(미리 보기)](insights/network-insights-overview.md) | 모든 네트워크 리소스에 대한 상태 및 메트릭의 포괄적인 보기를 제공합니다. 고급 검색 기능은 리소스 종속성을 식별하는 데 유용하여 웹 사이트 이름을 검색하기만 하면 웹 사이트를 호스트하는 리소스를 식별하는 등의 시나리오를 사용할 수 있습니다. |
-[리소스 그룹용 Azure Monitor(미리 보기)](insights/resource-group-insights.md) |  리소스 그룹의 상태 및 성능과 관련된 컨텍스트를 전체적으로 제공하면서 개별 리소스에 발생하는 문제를 심사하고 진단할 수 있습니다. |
-| [Storage용 Azure Monitor](insights/storage-insights-overview.md) | Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. |
+| [Cosmos DB 인사이트](insights/cosmosdb-insights-overview.md) | 통합 대화형 환경에서 모든 Azure Cosmos DB 리소스의 전체 성능, 실패, 용량 및 운영 상태를 보여 줍니다. |
+| [네트워크 인사이트(미리 보기)](insights/network-insights-overview.md) | 모든 네트워크 리소스에 대한 상태 및 메트릭의 포괄적인 보기를 제공합니다. 고급 검색 기능은 리소스 종속성을 식별하는 데 유용하여 웹 사이트 이름을 검색하기만 하면 웹 사이트를 호스트하는 리소스를 식별하는 등의 시나리오를 사용할 수 있습니다. |
+[리소스 그룹 인사이트(미리 보기)](insights/resource-group-insights.md) |  리소스 그룹의 상태 및 성능과 관련된 컨텍스트를 전체적으로 제공하면서 개별 리소스에 발생하는 문제를 심사하고 진단할 수 있습니다. |
+| [Storage 인사이트](insights/storage-insights-overview.md) | Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. |
 | [VM 인사이트](vm/vminsights-overview.md) | Azure VM(Virtual Machines) 및 가상 머신 확장 집합을 대규모로 모니터링합니다. 또한 Windows 및 Linux VM의 성능과 상태를 분석하고, 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. |
-| [Key Vault용 Azure Monitor(미리 보기)](./insights/key-vault-insights-overview.md) | Key Vault 요청, 성능, 실패 및 대기 시간 통합 보기를 제공하여 키 자격 증명 모음에 대한 종합적인 모니터링을 제공합니다. |
-| [Azure Cache for Redis용 Azure Monitor(미리 보기)](insights/redis-cache-insights-overview.md) |  전반적인 성능, 실패, 용량 및 운영 상태에 대한 통합된 대화형 보기를 제공합니다. |
+| [Key Vault 인사이트(미리 보기)](./insights/key-vault-insights-overview.md) | Key Vault 요청, 성능, 실패 및 대기 시간 통합 보기를 제공하여 키 자격 증명 모음에 대한 종합적인 모니터링을 제공합니다. |
+| [Azure Cache for Redis insights(미리 보기)](insights/redis-cache-insights-overview.md) |  전반적인 성능, 실패, 용량 및 운영 상태에 대한 통합된 대화형 보기를 제공합니다. |
 
 
 ### <a name="core-solutions"></a>핵심 솔루션
@@ -57,111 +57,111 @@ ms.locfileid: "107515280"
 | 서비스 | 메트릭 | 로그 | 인사이트 | 메모 |
 |:---|:---|:---|:---|:---|
 |Active Directory | 예 | 예 | [예](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
-|Active Directory B2C | 예 | 예 | 예 |  |
+|Active Directory B2C | 예 | 아니요 | 아니요 |  |
 |Active Directory Domain Services | 예 | 예 | 예 |  |
 |활동 로그 | 예 | 예 | 예 | |
-|고급 위협 보호 | 예 | 예 | 예 |  |
-|Advisor | 예 | 예 | 예 |  |
-|AI Builder | 예 | 예 | 예 |  |
+|고급 위협 보호 | 예 | 아니요 | 예 |  |
+|Advisor | 예 | 아니요 | 예 |  |
+|AI Builder | 예 | 아니요 | 예 |  |
 |Analysis Services | 예 | 예 | 예 |  |
-|FHIR용 API | 예 | 예 | 예 |  |
+|FHIR용 API | 예 | 아니요 | 예 |  |
 |API Management | 예 | 예 | 예 |  |
 |App Service | 예 | 예 | 예 |  |
-|AppConfig | 예 | 예 | 예 |  |
+|AppConfig | 예 | 아니요 | 예 |  |
 |Application Gateway | 예 | 예 | 예 |  |
-|증명 상태 | 예 | 예 | 예 |  |
+|증명 상태 | 예 | 아니요 | 예 |  |
 |Automation | 예 | 예 | 예 |  |
-|Azure Service Manager(RDFE) | 예 | 예 | 예 |  |
+|Azure Service Manager(RDFE) | 예 | 아니요 | 예 |  |
 |Backup | 예 | 예 | 예 |  |
-|Bastion | 예 | 예 | 예 |  |
+|Bastion | 예 | 아니요 | 예 |  |
 |Batch | 예 | 예 | 예 |  |
-|Batch AI | 예 | 예 | 예 |  |
+|Batch AI | 예 | 아니요 | 예 |  |
 |Blockchain Service | 예 | 예 | 예 |  |
-|Blueprints | 예 | 예 | 예 |  |
-|Bot 서비스 | 예 | 예 | 예 |  |
+|Blueprints | 예 | 아니요 | 예 |  |
+|Bot 서비스 | 예 | 아니요 | 예 |  |
 |Cloud Services | 예 | 예 | 예 | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.  |
-|Cloud Shell | 예 | 예 | 예 |  |
+|Cloud Shell | 예 | 아니요 | 예 |  |
 |Cognitive Services | 예 | 예 | 예 |  |
-|Container Instances | 예 | 예 | 예 |  |
+|Container Instances | 예 | 아니요 | 예 |  |
 |Container Registry | 예 | 예 | 예 |  |
 |CDN(콘텐츠 전송 네트워크) | 예 | 예 | 예 |  |
 |Cosmos DB | 예 | 예 | [예](insights/cosmosdb-insights-overview.md) |  |
-|Cost Management | 예 | 예 | 예 |  |
-|Data Box | 예 | 예 | 예 |  |
-|Data Catalog Gen2 | 예 | 예 | 예 |  |
+|Cost Management | 예 | 아니요 | 예 |  |
+|Data Box | 예 | 아니요 | 예 |  |
+|Data Catalog Gen2 | 예 | 아니요 | 예 |  |
 |Data Explorer | 예 | 예 | 예 |  |
 |Data Factory | 예 | 예 | 예 |  |
 |Data Factory v2 | 예 | 예 | 예 |  |
-|Data Share | 예 | 예 | 예 |  |
+|Data Share | 예 | 아니요 | 예 |  |
 |Database for MariaDB | 예 | 예 | 예 |  |
 |Database for MySQL | 예 | 예 | 예 |  |
 |Database for PostgreSQL | 예 | 예 | 예 |  |
-|Database Migration Service | 예 | 예 | 예 |  |
+|Database Migration Service | 예 | 아니요 | 예 |  |
 |Databricks | 예 | 예 | 예 |  |
 |DDoS Protection | 예 | 예 | 예 |  |
-|DevOps | 예 | 예 | 예 |  |
-|DNS | 예 | 예 | 예 |  |
-|도메인 이름 | 예 | 예 | 예 |  |
-|DPS | 예 | 예 | 예 |  |
-|Dynamics 365 Customer Engagement | 예 | 예 | 예 |  |
-|Dynamics 365 Finance and Operations | 예 | 예 | 예 |  |
-|Event Grid | 예 | 예 | 예 |  |
+|DevOps | 예 | 아니요 | 예 |  |
+|DNS | 예 | 아니요 | 예 |  |
+|도메인 이름 | 예 | 아니요 | 예 |  |
+|DPS | 예 | 아니요 | 예 |  |
+|Dynamics 365 Customer Engagement | 예 | 아니요 | 예 |  |
+|Dynamics 365 Finance and Operations | 예 | 아니요 | 예 |  |
+|Event Grid | 예 | 아니요 | 예 |  |
 |Event Hubs | 예 | 예 | 예 |  |
 |ExpressRoute | 예 | 예 | 예 |  |
 |방화벽 | 예 | 예 | 예 |  |
 |Front Door | 예 | 예 | 예 |  |
 |Functions | 예 | 예 | 예 |  |
 |HDInsight | 예 | 예 | 예 |  |
-|HPC Cache | 예 | 예 | 예 |  |
+|HPC Cache | 예 | 아니요 | 예 |  |
 |Information Protection | 예 | 예 | 예 |  |
 |Intune | 예 | 예 | 예 |  |
-|IoT Central | 예 | 예 | 예 |  |
+|IoT Central | 예 | 아니요 | 예 |  |
 |IoT Hub | 예 | 예 | 예 |  |
 |Key Vault | 예 | 예 | [예](./insights/key-vault-insights-overview.md) |  |
-|AKS(Azure Kubernetes Service) | 예 | 예 | [예](containers/container-insights-overview.md)  |  |
-|Load Balancer | 예 | 예 | 예 |  |
+|AKS(Azure Kubernetes Service) | 예 | 아니요 | [예](containers/container-insights-overview.md)  |  |
+|Load Balancer | 예 | 아니요 | 예 |  |
 |Logic Apps | 예 | 예 | 예 |  |
-|Machine Learning Service | 예 | 예 | 예 |  |
-|Managed Applications  | 예 | 예 | 예 |  |
-|지도  | 예 | 예 | 예 |  |
+|Machine Learning Service | 예 | 아니요 | 예 |  |
+|Managed Applications  | 예 | 아니요 | 예 |  |
+|지도  | 예 | 아니요 | 예 |  |
 |Media Services | 예 | 예 | 예 |  |
-|Microsoft Managed Desktop | 예 | 예 | 예 |  |
-|Microsoft PowerApps | 예 | 예 | 예 |  |
-|Microsoft 소셜 참여 | 예 | 예 | 예 |  |
+|Microsoft Managed Desktop | 예 | 아니요 | 예 |  |
+|Microsoft PowerApps | 예 | 아니요 | 예 |  |
+|Microsoft 소셜 참여 | 예 | 아니요 | 예 |  |
 |Microsoft Stream | 예 | 예 | 예 |  |
-|마이그레이션 | 예 | 예 | 예 |  |
+|마이그레이션 | 예 | 아니요 | 예 |  |
 |Multi-Factor Authentication | 예 | 예 | 예 |  |
 |Network Watcher | 예 | 예 | 예 |  |
-|Notification Hubs | 예 | 예 | 예 |  |
-|공개 데이터 세트 | 예 | 예 | 예 |  |
-|정책 | 예 | 예 | 예 |  |
-|Power Automate | 예 | 예 | 예 |  |
+|Notification Hubs | 예 | 아니요 | 예 |  |
+|공개 데이터 세트 | 예 | 아니요 | 예 |  |
+|정책 | 예 | 아니요 | 예 |  |
+|Power Automate | 예 | 아니요 | 아니요 |  |
 |Power BI Embedded | 예 | 예 | 예 |  |
-|Private Link | 예 | 예 | 예 |  |
-|프로젝트 Spool 통신 플랫폼 | 예 | 예 | 예 |  |
-|Red Hat OpenShift | 예 | 예 | 예 |  |
+|Private Link | 예 | 아니요 | 예 |  |
+|프로젝트 Spool 통신 플랫폼 | 예 | 아니요 | 예 |  |
+|Red Hat OpenShift | 예 | 아니요 | 예 |  |
 |Redis Cache | 예 | 예 | [예](insights/redis-cache-insights-overview.md) | |
-|Resource Graph | 예 | 예 | 예 |  |
-|리소스 관리자 | 예 | 예 | 예 |  |
-|소매점 검색 – Bing에서 | 예 | 예 | 예 |  |
+|Resource Graph | 예 | 아니요 | 예 |  |
+|리소스 관리자 | 예 | 아니요 | 예 |  |
+|소매점 검색 – Bing에서 | 예 | 아니요 | 예 |  |
 |검색 | 예 | 예 | 예 |  |
 |Service Bus | 예 | 예 | 예 |  |
 |Service Fabric | 예 | 예 | 예 | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.  |
-|등록 포털 | 예 | 예 | 예 |  |
+|등록 포털 | 예 | 아니요 | 예 |  |
 |Site Recovery | 예 | 예 | 예 |  |
-|Spring Cloud Service | 예 | 예 | 예 |  |
+|Spring Cloud Service | 예 | 아니요 | 예 |  |
 |Azure Synapse Analytics | 예 | 예 | 예 |  |
 |SQL Database | 예 | 예 | 예 |  |
 |SQL Server Stretch Database | 예 | 예 | 예 |  |
-|스택 | 예 | 예 | 예 |  |
-|스토리지 | 예 | 예 | [예](insights/storage-insights-overview.md) |  |
-|스토리지 캐시 | 예 | 예 | 예 |  |
-|스토리지 동기화 서비스 | 예 | 예 | 예 |  |
+|스택 | 예 | 아니요 | 예 |  |
+|스토리지 | 예 | 아니요 | [예](insights/storage-insights-overview.md) |  |
+|스토리지 캐시 | 예 | 아니요 | 예 |  |
+|스토리지 동기화 서비스 | 예 | 아니요 | 예 |  |
 |Stream Analytics | 예 | 예 | 예 |  |
 |Time Series Insights | 예 | 예 | 예 |  |
-|TINA | 예 | 예 | 예 |  |
+|TINA | 예 | 아니요 | 예 |  |
 |Traffic Manager | 예 | 예 | 예 |  |
-|유니버설 인쇄 | 예 | 예 | 예 |  |
+|유니버설 인쇄 | 예 | 아니요 | 예 |  |
 |Virtual Machine Scale Sets | 예 | 예 | [예](vm/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
 |Virtual Machines | 예 | 예 | [예](vm/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
 |Virtual Network | 예 | 예 | [예](insights/network-insights-overview.md) |  |

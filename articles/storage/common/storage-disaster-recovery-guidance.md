@@ -6,16 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 06/09/2021
 ms.author: tamram
-ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 11d9b38d71d428a3c6c829b508318389338f5a15
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2fdbdcfd847c33bc6d948d12b14f468233b4cf19
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800349"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901496"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>재해 복구 및 저장소 계정 장애 조치(failover)
 
@@ -23,7 +22,7 @@ Microsoft는 Azure 서비스를 항상 사용할 수 있도록 하기 위해 노
 
 Azure Storage는 지역 중복 스토리지 계정에 대해 계정 장애 조치를 지원합니다. 계정 장애 조치(failover)의 경우 기본 엔드포인트를 사용할 수 없는 경우 스토리지 계정에 대해 장애 조치(failover) 프로세스를 시작할 수 있습니다. 장애 조치(failover)는 스토리지 계정의 기본 엔드포인트가 되도록 보조 엔드포인트를 업데이트합니다. 장애 조치(failover)가 완료되면 클라이언트는 새 기본 엔드포인트에 쓰기 시작할 수 있습니다.
 
-계정 장애 조치(failover)는 Azure Resource Manager 배포를 사용하는 범용 v1, 범용 v2 및 Blob 스토리지 계정 유형에 사용할 수 있습니다. 모든 공용 지역에 대해 계정 장애 조치(failover)가 지원되지만, 현재 소버린 또는 국가 클라우드에서는 사용할 수 없습니다. 계정 장애 조치(failover)는 계층 구조 네임스페이스를 사용하도록 설정한 스토리지 계정에 대해 지원되지 않습니다.
+계정 장애 조치(failover)는 Azure Resource Manager 배포를 사용하는 범용 v1, 범용 v2 및 Blob 스토리지 계정 유형에 사용할 수 있습니다. 계정 장애 조치(failover)는 계층 구조 네임스페이스를 사용하도록 설정한 스토리지 계정에 대해 지원되지 않습니다.
 
 이 문서에서는 계정 장애 조치(failover)와 관련된 개념 및 프로세스를 설명하고 고객에게 최소의 영향만 미치고 복구할 수 있게 스토리지 계정을 준비하는 방법을 논의합니다. Azure Portal 또는 PowerShell에서 계정 장애 조치(failover)를 시작하는 방법을 알아보려면 [계정 장애 조치(failover) 시작](storage-initiate-account-failover.md)을 참조하세요.
 
@@ -89,7 +88,7 @@ DNS 항목이 업데이트되면 지역 중복 계정의 쓰기 액세스 권한
 > [!IMPORTANT]
 > 장애 조치(failover)를 완료한 후 스토리지 계정은 새 기본 엔드포인트에서 로컬로 중복되도록 구성됩니다. 새 보조 엔드포인트로의 복제를 재개하려면 지리적 중복성에 대한 계정을 다시 구성합니다.
 >
-> LRS 계정을 지역 중복성을 사용하도록 변환하면 비용이 발생합니다. 이 비용은 장애 조치(failover) 후에 새 주 지역의 스토리지 계정을 업데이트할 경우에 적용됩니다.  
+> 지역 중복을 사용하도록 로컬 중복 스토리지 계정을 변환하려면 비용과 시간이 필요합니다. 자세한 내용은 [계정 장애 조치의 중요한 의미](storage-initiate-account-failover.md#important-implications-of-account-failover)를 참조하세요.
 
 ### <a name="anticipate-data-loss"></a>데이터 손실 예상
 
@@ -158,7 +157,7 @@ VM이 종료되면 임시 디스크에 저장된 데이터가 손실됩니다.
 다음 기능 또는 서비스는 계정 장애 조치(failover)에서 지원되지 않습니다.
 
 - Azure 파일 동기화는 스토리지 계정 장애 조치(Failover)를 지원하지 않습니다. Azure 파일 동기화에서 클라우드 엔드포인트로 사용되는 Azure 파일 공유를 포함하는 스토리지 계정은 장애 조치(failover)하지 않아야 합니다. 이러한 계정을 장애 조치(failover)하면 동기화가 더 이상 진행되지 않고, 새로 계층화된 파일의 경우 예기치 않은 데이터 손실이 발생할 수도 있습니다.
-- ADLS Gen2 storage 계정(계층 구조 네임스페이스를 사용하는 계정)은 현재 지원되지 않습니다.
+- 계층 구조 네임스페이스를 사용하는 저장소 계정(예: Data Lake Storage Gen2)은 현재 지원되지 않습니다.
 - 프리미엄 블록 blob을 포함하는 스토리지 계정은 장애 조치(failover)할 수 없습니다. 프리미엄 블록 blob를 지원하는 스토리지 계정은 현재 지리적 중복을 지원하지 않습니다.
 - [WORM 불변성 정책](../blobs/storage-blob-immutable-storage.md)이 활성화된 컨테이너의 스토리지 계정은 장애 조치(failover)할 수 없습니다. 잠금 해제/잠금 시간 기반 보존 또는 법적 보류 정책은 규정 준수를 유지하기 위해 장애 조치(failover)를 방지합니다.
 

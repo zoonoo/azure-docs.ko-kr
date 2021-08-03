@@ -8,16 +8,22 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 58377252e163894cdfee83d9c68146a9131f94c5
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: c9ee7e475957ca41c9094cab3b149f53e48a3764
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288781"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111900913"
 ---
 # <a name="extensions-for-cloud-services-extended-support"></a>Cloud Services용 확장(추가 지원)
 
-확장은 역할에 대한 배포 후 구성 및 Automation 작업을 제공하는 작은 애플리케이션입니다. 예를 들어 원격 데스크톱 확장을 사용하여 클라우드 서비스(추가 지원) 배포 중에 역할에서 원격 데스크톱 연결을 사용하도록 설정할 수 있습니다.  
+확장은 역할에 대한 배포 후 구성 및 Automation 작업을 제공하는 작은 애플리케이션입니다. 예를 들어 원격 데스크톱 확장을 사용하여 클라우드 서비스(추가 지원) 배포 중에 역할에서 원격 데스크톱 연결을 사용하도록 설정할 수 있습니다. 
+
+## <a name="key-vault-extension"></a>Key Vault 확장
+
+Key Vault VM 확장은 Azure Key Vault에 저장된 인증서의 자동 새로 고침을 제공합니다. 특히 확장은 키 자격 증명 모음에 저장된 인증서에 대해 관찰된 목록을 모니터링하고, 변경 내용이 검색되면 해당 인증서를 검색 및 설치합니다. 또한 클라우드 서비스에 대한 인증서의 지역 간/구독 간 참조를 허용합니다(추가 지원).
+
+자세한 내용은 [클라우드 서비스용 키 자격 증명 모음 확장 구성(추가 지원)](https://docs.microsoft.com/azure/cloud-services-extended-support/enable-key-vault-virtual-machine)을 참조하세요.
 
 ## <a name="remote-desktop-extension"></a>원격 데스크톱 확장
 

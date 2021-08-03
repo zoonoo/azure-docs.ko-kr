@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: 4d1dd358c03d051be4be5733d9e729d1d7ef5b0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7b2e6ee4b54427f33ba9701ae13f139341a1941
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026175"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030956"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -43,7 +43,7 @@ ms.locfileid: "105026175"
 
 | | Azure Monitor 에이전트(미리 보기) | 진단<br>확장(LAD) | Telegraf<br>에이전트 | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
 |:---|:---|:---|:---|:---|:---|
-| **지원되는 환경** | Azure<br>기타 클라우드(Azure Arc)<br>온-프레미스(Azure Arc) | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 |
+| **지원되는 환경**(지원되는 운영 체제는 아래의 표 참조) | Azure<br>기타 클라우드(Azure Arc)<br>온-프레미스(Azure Arc) | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 |
 | **에이전트 요구 사항**  | 없음 | 없음 | 없음 | 없음 | Log Analytics 에이전트가 필요합니다. |
 | **수집되는 데이터** | Syslog<br>성능 | Syslog<br>성능 | 성능 | Syslog<br>성능| 프로세스 종속성<br>네트워크 연결 메트릭 |
 | **데이터 전송 대상** | Azure Monitor 로그<br>Azure Monitor 메트릭 | Azure Storage<br>이벤트 허브 | Azure Monitor 메트릭 | Azure Monitor 로그 | Azure Monitor 로그<br>(Log Analytics 에이전트를 통해) |
@@ -140,8 +140,9 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 | 운영 체제 | Azure Monitor 에이전트 | Log Analytics 에이전트 | 종속성 에이전트 | 진단 확장 | 
 |:---|:---:|:---:|:---:|:---:|
 | Windows Server 2019                                      | X | X | X | X |
+| Windows Server 2019 Core                                 | X |   |   |   |
 | Windows Server 2016                                      | X | X | X | X |
-| Windows Server 2016 Core                                 |   |   |   | X |
+| Windows Server 2016 Core                                 | X |   |   | X |
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2 SP1                               | X | X | X | X |
@@ -168,13 +169,16 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 | Oracle Linux 7                                              | X | X |   | X |
 | Oracle Linux 6                                              |   | X |   |   |
 | Oracle Linux 6.4 이상                                           |   | X |   | X |
+| Red Hat Enterprise Linux Server 8.3                         | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 8                           | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X | X |
 | SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |   |
 | SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |   |
+| SUSE Linux Enterprise Server 15 SP1                         | X | X | X |   |
 | SUSE Linux Enterprise Server 15                             | X | X | X |   |
+| SUSE Linux Enterprise Server 12 SP5                         | X | X | X | X |
 | SUSE Linux Enterprise Server 12                             | X | X | X | X |
 | Ubuntu 20.04 LTS                                            | X | X | X |   |
 | Ubuntu 18.04 LTS                                            | X | X | X | X |
@@ -183,9 +187,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
 <sup>1</sup> 머신에 Python(2 또는 3)을 설치해야 합니다.
 
-<sup>2</sup> 머신에 Python 2를 설치해야 합니다.
-
-<sup>3</sup> Syslog 이벤트 수집과 관련된 알려진 문제입니다. 현재 성능 데이터만 지원됩니다.
+<sup>3</sup> 1.9.0 이전 버전의 Syslog 이벤트 수집에 관한 알려진 문제
 #### <a name="dependency-agent-linux-kernel-support"></a>종속성 에이전트 Linux 커널 지원
 
 종속성 에이전트는 커널 수준에서 작동하므로 지원은 커널 버전에도 좌우됩니다. 다음 표에는 종속성 에이전트에 대한 주 및 부 Linux OS 릴리스와 지원되는 커널 버전이 나와 있습니다.

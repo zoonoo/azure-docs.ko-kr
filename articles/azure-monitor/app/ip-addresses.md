@@ -3,12 +3,12 @@ title: Azure Monitor에서 사용하는 IP 주소
 description: Application Insights에 필요한 서버 방화벽 예외
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 56ff33cc0a34cb254ca88f96d69a07bc131bebf4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e98419c805b7012a20ef08090c8cf3025baf30e
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101714037"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111420827"
 ---
 # <a name="ip-addresses-used-by-azure-monitor"></a>Azure Monitor에서 사용하는 IP 주소
 
@@ -67,144 +67,26 @@ Azure 네트워크 보안 그룹을 사용하는 경우 **서비스 태그** 를
 
 이 주소에서 들어오는 트래픽에 대한 80(http) 및 443(https) 포트를 엽니다(IP 주소가 위치별로 그룹화됨).
 
-### <a name="addresses-grouped-by-location"></a>위치별로 그룹화된 주소
+### <a name="ip-addresses"></a>IP 주소
+
+방화벽에서 허용된 IP 목록에 추가할 수 있도록 실제 IP 주소를 찾는 경우에는 Azure IP 범위를 설명하는 JSON 파일을 다운로드하세요. 이러한 파일에는 최신 정보가 포함되어 있습니다.
+
+적절한 파일을 다운로드한 후 즐겨 사용하는 텍스트 편집기를 사용하여 파일을 열고, "ApplicationInsightsAvailability"를 검색하여 가용성 테스트를 위한 서비스 태그를 설명하는 파일 섹션으로 바로 이동합니다.
 
 > [!NOTE]
 > 이러한 주소는 CIDR(Classless Inter-Domain Routing) 표기법을 사용하여 나열됩니다. 즉, `51.144.56.112/28` 같은 항목은 `51.144.56.112`에서 시작하여 `51.144.56.127`에서 끝나는 16개의 IP와 동일합니다.
 
-```
-Australia East
-20.40.124.176/28
-20.40.124.240/28
-20.40.125.80/28
+#### <a name="azure-public-cloud"></a>Azure 퍼블릭 클라우드
+[퍼블릭 클라우드 IP 주소](https://www.microsoft.com/download/details.aspx?id=56519)를 다운로드합니다.
 
-Brazil South
-191.233.26.176/28
-191.233.26.128/28
-191.233.26.64/28
+#### <a name="azure-us-government-cloud"></a>Azure US Government 클라우드
+[정부 클라우드 IP 주소](https://www.microsoft.com/download/details.aspx?id=57063)를 다운로드합니다.
 
-France Central (Formerly France South)
-20.40.129.96/28
-20.40.129.112/28
-20.40.129.128/28
-20.40.129.144/28
+#### <a name="azure-china-cloud"></a>Azure 중국 클라우드
+[중국 클라우드 IP 주소](https://www.microsoft.com/download/details.aspx?id=57062)를 다운로드합니다.
 
-France Central
-20.40.129.32/28
-20.40.129.48/28
-20.40.129.64/28
-20.40.129.80/28
-
-East Asia
-52.229.216.48/28
-52.229.216.64/28
-52.229.216.80/28
-
-North Europe
-52.158.28.64/28
-52.158.28.80/28
-52.158.28.96/28
-52.158.28.112/28
-
-Japan East
-52.140.232.160/28
-52.140.232.176/28
-52.140.232.192/28
-
-West Europe
-51.144.56.96/28
-51.144.56.112/28
-51.144.56.128/28
-51.144.56.144/28
-51.144.56.160/28
-51.144.56.176/28
-
-UK South
-51.105.9.128/28
-51.105.9.144/28
-51.105.9.160/28
-
-UK West
-20.40.104.96/28
-20.40.104.112/28
-20.40.104.128/28
-20.40.104.144/28
-
-Southeast Asia
-52.139.250.96/28
-52.139.250.112/28
-52.139.250.128/28
-52.139.250.144/28
-
-West US
-40.91.82.48/28
-40.91.82.64/28
-40.91.82.80/28
-40.91.82.96/28
-40.91.82.112/28
-40.91.82.128/28
-
-Central US
-13.86.97.224/28
-13.86.97.240/28
-13.86.98.48/28
-13.86.98.0/28
-13.86.98.16/28
-13.86.98.64/28
-
-North Central US
-23.100.224.16/28
-23.100.224.32/28
-23.100.224.48/28
-23.100.224.64/28
-23.100.224.80/28
-23.100.224.96/28
-23.100.224.112/28
-23.100.225.0/28
-
-South Central US
-20.45.5.160/28
-20.45.5.176/28
-20.45.5.192/28
-20.45.5.208/28
-20.45.5.224/28
-20.45.5.240/28
-
-East US
-20.42.35.32/28
-20.42.35.64/28
-20.42.35.80/28
-20.42.35.96/28
-20.42.35.112/28
-20.42.35.128/28
-
-```  
-
-#### <a name="azure-government"></a>Azure Government
-
-Azure 퍼블릭 클라우드 고객인 경우에는 필요하지 않습니다.
-
-```
-USGov Virginia
-52.227.229.80/31
-
-
-USGov Arizona
-52.244.35.112/31
-
-
-USGov Texas
-52.243.157.80/31
-
-
-USDoD Central
-52.182.23.96/31
-
-
-USDoD East
-52.181.33.96/31
-
-```
+### <a name="discovery-api"></a>검색 API
+IP 주소 범위 세부 정보와 함께 현재 서비스 태그 목록을 [프로그래밍 방식으로 검색](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview)할 수도 있습니다.
 
 ## <a name="application-insights--log-analytics-apis"></a>Application Insights 및 Log Analytics API
 

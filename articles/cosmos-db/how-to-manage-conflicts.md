@@ -1,24 +1,27 @@
 ---
 title: Azure Cosmos DB의 지역 간 충돌 관리
 description: 최종 작성자 인정(last-writer-wins) 또는 사용자 지정 충돌 해결 정책을 만들어 Azure Cosmos DB에서 충돌을 관리하는 방법에 대해 알아봅니다.
-author: anfeldma-ms
+author: fsautomata
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
-ms.author: anfeldma
+ms.author: elioda
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8f98c2201159350f5774f4d2b05102384f31f3af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd4743657e6ac45b37d1e5eb7b2687ab6fc52270
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93339345"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591641"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 충돌 해결 정책 관리
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 다중 영역 쓰기를 사용하면 여러 클라이언트가 동일한 항목에 쓸 때 충돌이 발생할 수 있습니다. 충돌이 발생할 때 여러 충돌 해결 정책을 사용하여 충돌을 해결할 수 있습니다. 이 문서에서는 충돌 해결 정책을 관리하는 방법을 설명합니다.
+
+> [!TIP]
+> 충돌 해결 정책은 컨테이너를 만들 때에만 지정할 수 있으며 컨테이너를 만든 후에는 수정할 수 없습니다.
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>최종 작성자 인정(last-writer-wins) 충돌 해결 정책 만들기
 

@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/12/2021
+ms.date: 05/21/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bad8ae86827144269e816a6c2e01d6af3f4d88ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa9bc861ffdc2c8671f062bb41499c8ffee1123d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103225421"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965625"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Azure Monitor에서 Azure AD 로그인 로그 스키마 해석
 
@@ -151,8 +151,8 @@ ms.locfileid: "103225421"
 | OperationVersion | - | 클라이언트에서 요청한 REST API 버전입니다. |
 | 범주 | - | 로그인의 경우 이 값은 항상 *SignIn* 입니다. | 
 | TenantId | - | 로그와 연결된 테넌트 GUID입니다. |
-| ResultType | - | 로그인 작업의 결과는 *성공* 또는 *실패* 일 수 있습니다. | 
-| ResultSignature | - | 로그인 작업에 대한 오류 코드(있는 경우)를 포함합니다. |
+| ResultType | - | 로그인 작업의 결과는 성공의 경우 `0`, 실패의 경우 ‘오류 코드’일 수 있습니다. | 
+| ResultSignature | - | 이 값은 항상 ‘None’입니다. |
 | ResultDescription | 해당 없음 또는 공백 | 로그인 작업에 대한 오류 설명을 제공합니다. |
 | riskDetail | riskDetail | 위험한 사용자, 로그인 또는 위험 검색의 특정 상태 뒤에 'reason'을 제공합니다. 사용 가능한 값은 `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`입니다. `none` 값은 지금까지 사용자 또는 로그인에 대해 수행된 작업이 없음을 의미합니다. <br>**참고:** 이 속성에 대한 세부 정보를 보려면 Azure AD Premium P2 라이선스가 필요합니다. 다른 라이선스는 `hidden` 값을 반환합니다. |
 | riskEventTypes | riskEventTypes | 로그인과 관련된 위험 감지 유형입니다. 사용 가능한 값은 `unlikelyTravel`, `anonymizedIPAddress`, `maliciousIPAddress`, `unfamiliarFeatures`, `malwareInfectedIPAddress`, `suspiciousIPAddress`, `leakedCredentials`, `investigationsThreatIntelligence`, `generic` 및 `unknownFutureValue`입니다. |
@@ -171,5 +171,5 @@ ms.locfileid: "103225421"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Monitor에서 감사 로그 스키마 해석](reference-azure-monitor-audit-log-schema.md)
+* [Azure Monitor에서 감사 로그 스키마 해석](./overview-reports.md)
 * [Azure 플랫폼 로그에 대해 자세히 알아보기](../../azure-monitor/essentials/platform-logs-overview.md)

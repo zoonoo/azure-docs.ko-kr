@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: fc1bca1265139a438fad86bfce770026866d9a2f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/07/2021
+ms.openlocfilehash: 5a7b8c2f76abc9dd41894280e7cf610d0cae85ea
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90937004"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111554884"
 ---
 # <a name="manage-zone-redundant-high-availability-in-flexible-server"></a>유연한 서버에서 영역 중복 고가용성 관리
 
@@ -95,6 +95,46 @@ ms.locfileid: "90937004"
 5.  **HA 사용 안 함** 단추를 클릭하여 고가용성을 사용하지 않도록 설정합니다.
 
 6.  고가용성 배포 해제가 진행 중이라는 알림이 표시됩니다.
+
+## <a name="forced-failover"></a>강제 장애 조치(failover)
+
+다음 단계를 수행하여 강제로 주 서버를 유연한 대기 서버로 장애 조치합니다. 그러면 기본 서버가 즉시 중단되고 대기 서버로의 장애 조치가 트리거됩니다. 이러한 기능은 워크로드에 대해 계획되지 않은 중단 장애 조치 시간을 테스트하는 것과 같은 상황에서 유용합니다.
+
+1.  [Azure Portal](https://portal.azure.com/)에서 고가용성 기능이 이미 사용하도록 설정된 기존의 유연한 서버를 선택합니다.
+2.  유연한 서버 페이지의 전면 패널에서 고가용성을 클릭하여 고가용성 페이지를 엽니다.
+3.  주 가용성 영역 및 대기 가용성 영역 확인
+4.  강제 장애 조치를 클릭하여 수동 장애 조치 절차를 시작합니다. 장애 조치가 완료될 때까지 가동 중지 시간이 나타날 수 있다는 팝업 메시지가 표시됩니다. 메시지를 읽고 확인을 클릭합니다.
+5.  장애 조치가 진행 중임을 나타내는 알림이 표시됩니다.
+6.  대기 서버로의 장애 조치가 완료되면 알림이 팝업됩니다.
+7.  새로운 주 가용성 영역 및 대기 가용성 영역을 확인합니다.
+    
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/ha-forced-failover.png" alt-text="주문형 강제 장애 조치"::: 
+
+>[!IMPORTANT] 
+> * 장애 조치를 연속해서 바로 수행하지는 마세요. 장애 조치 간에 최소 15-20분 동안 기다리면 새 대기 서버를 완전히 설정할 수 있습니다.
+>
+> * 포털에서 보고되는 전체 종단 간 작업 시간은 애플리케이션에서 발생하는 실제 가동 중지 시간보다 길 수 있습니다. 애플리케이션 관점에서 가동 중지 시간을 측정하세요. 
+
+## <a name="planned-failover"></a>계획된 장애 조치
+
+주 서버에서 유연한 대기 서버로의 계획된 장애 조치를 수행하려면 다음 단계를 수행합니다. 여기서는 먼저 대기 서버를 준비하고 장애 조치를 수행합니다. 이렇게 하면 장애 조치 이벤트 후와 같은 상황에서 대기 서버로의 정상 장애 조치를 수행하기 때문에 가동 중지 시간이 최소화됩니다.
+1.  [Azure Portal](https://portal.azure.com/)에서 고가용성 기능이 이미 사용하도록 설정된 기존의 유연한 서버를 선택합니다.
+2.  유연한 서버 페이지의 전면 패널에서 고가용성을 클릭하여 고가용성 페이지를 엽니다.
+3.  주 가용성 영역 및 대기 가용성 영역 확인
+4.  계획된 장애 조치를 클릭하여 수동 장애 조치 절차를 시작합니다. 프로세스를 알리는 팝업 메시지가 표시됩니다. 메시지를 읽고 확인을 클릭합니다.
+5.  장애 조치가 진행 중임을 나타내는 알림이 표시됩니다.
+6.  대기 서버로의 장애 조치가 완료되면 알림이 팝업됩니다.
+7.  새로운 주 가용성 영역 및 대기 가용성 영역을 확인합니다.
+        :::image type="content" source="./media/how-to-manage-high-availability-portal/ha-planned-failover.png" alt-text="주문형 계획된 장애 조치"::: 
+
+>[!IMPORTANT] 
+>
+> * 장애 조치를 연속해서 바로 수행하지는 마세요. 장애 조치 간에 최소 15-20분 동안 기다리면 새 대기 서버를 완전히 설정할 수 있습니다.
+>
+> * 계획된 장애 조치는 활동이 적은 기간에 수행하는 것이 좋습니다.
+>
+> * 전체 종단 간 작업 시간은 애플리케이션에서 발생하는 실제 가동 중지 시간보다 길 수 있습니다. 애플리케이션 관점에서 가동 중지 시간을 측정하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 

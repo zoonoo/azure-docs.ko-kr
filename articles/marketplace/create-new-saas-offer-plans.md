@@ -1,6 +1,6 @@
 ---
-title: Microsoft 파트너 센터에서 SaaS 제품 플랜을 만드는 방법
-description: 파트너 센터에서 Microsoft 상업용 Marketplace 포털을 사용하여 새 SaaS(software as a service) 제품 플랜을 만드는 방법입니다.
+title: Azure Marketplace의 SaaS 제품에 대한 플랜 만들기
+description: Azure Marketplace에서 새 SaaS(Software as a Service) 제품에 대한 플랜을 만듭니다.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,28 +8,25 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: fb1514c146dcd352451597e6182c6d99ed8836d6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 714197288708691cb35e887975d1fabbe27cb406
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044722"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555383"
 ---
-# <a name="how-to-create-plans-for-your-saas-offer"></a>SaaS 제품 계획을 만드는 방법
+# <a name="create-plans-for-a-saas-offer"></a>SaaS 제품에 대한 플랜 만들기
 
 Microsoft 상업용 Marketplace를 통해 판매되는 제품에는 플랜이 하나 이상 있어야 합니다. 동일한 제품 내에서 다양한 옵션을 사용하여 여러 가지 플랜을 만들 수 있습니다. 이러한 플랜(SKU라고도 함)은 버전, 수익 창출 또는 서비스 계층 측면에서 다를 수 있습니다. 플랜에 대한 자세한 참고 자료는 [상업용 Marketplace 제품에 대한 플랜 및 가격 책정](plans-pricing.md)을 참조하세요.
 
 > [!NOTE]
-> 트랜잭션을 독립적으로 처리하도록 선택하면 이 옵션이 표시되지 않습니다. 대신, [SaaS 제품을 판매하는 방법](create-new-saas-offer-marketing.md)으로 건너뜁니다.
+> 트랜잭션을 독립적으로 처리하도록 선택하면 이 옵션이 표시되지 않습니다. 대신 [SaaS 제품 판매](create-new-saas-offer-marketing.md)로 건너뜁니다.
 
 ## <a name="create-a-plan"></a>계획 만들기
 
 1. **플랜 개요** 탭의 위에 있는 **+ 새 플랜 만들기** 를 선택합니다.
-
 1. 표시되는 대화 상자의 **플랜 ID** 상자에 고유한 플랜 ID를 입력합니다. 최대 50자의 영숫자 소문자, 대시 또는 밑줄을 사용합니다. **만들기** 를 선택한 후에는 플랜 ID를 수정할 수 없습니다.
-
-1. **플랜 이름** 상자에 이 플랜의 고유한 이름을 입력합니다. 최대 50자를 사용합니다.
-
+1. **플랜 이름** 상자에 이 플랜의 고유한 이름을 입력합니다. 최대 50자를 사용할 수 있습니다.
 1. **만들기** 를 선택합니다.
 
 ## <a name="define-the-plan-listing"></a>플랜 목록 정의
@@ -37,7 +34,6 @@ Microsoft 상업용 Marketplace를 통해 판매되는 제품에는 플랜이 �
 **계획 목록** 탭에서 상업용 Marketplace에 표시할 플랜 이름과 설명을 정의할 수 있습니다.
 
 1. **플랜 이름** 상자에는 이 플랜에 대해 이전에 제공한 이름이 표시됩니다. 이는 언제든지 변경할 수 있습니다. 이 이름은 상업용 Marketplace에서 제품 소프트웨어 플랜의 제목으로 표시됩니다.
-
 1. **플랜 설명** 상자에 이 소프트웨어 플랜의 고유한 특징과 제품 내 다른 소프트웨어 플랜과의 차이점을 설명합니다. 이 설명에는 최대 500자까지 포함할 수 있습니다.
 1. 다음 탭인 **가격 책정 및 가용성** 을 계속 진행하기 전에 **초안 저장** 을 선택합니다.
 
@@ -91,7 +87,7 @@ Microsoft 상업용 Marketplace를 통해 판매되는 제품에는 플랜이 �
 1. 가격 책정 데이터를 내보낼 수 있도록 먼저 가격 책정 변경 내용을 저장해야 합니다. **가격 책정 및 가용성** 탭의 아래쪽에 있는 **초안 저장** 을 선택합니다.
 1. **가격 책정** 에서 **가격 책정 데이터 내보내기** 링크를 선택합니다.
 1. Microsoft Excel에서 exportedPrice.xlsx 파일을 엽니다.
-1. 스프레드시트에서 가격 책정 정보를 업데이트한 다음 .CSV 파일을 저장합니다.<br> Excel에서 편집을 사용하도록 설정해야 파일을 업데이트할 수 있습니다.
+1. 스프레드시트에서 가격 책정 정보에 대한 업데이트를 수행하고 .CSV 파일을 저장합니다.<br> Excel에서 편집을 사용하도록 설정해야 파일을 업데이트할 수 있습니다.
 2. **가격 책정 및 가용성** 탭의 **가격 책정** 에서 **가격 책정 데이터 가져오기** 링크를 선택합니다.
 3. 표시되는 대화 상자에서 **예** 를 클릭합니다.
 4. 업데이트한 exportedPrice.xlsx 파일을 선택한 다음 **열기** 를 클릭합니다.
@@ -152,9 +148,9 @@ Microsoft 상업용 Marketplace를 통해 판매되는 제품에는 플랜이 �
 
 ## <a name="before-you-publish-your-offer"></a>제품을 게시하기 전에
 
-아직 수행하지 않은 경우 프로덕션 제품을 실시간으로 게시하기 전에 개발 및 테스트(DEV) 제품을 만들어 제품을 테스트합니다. 자세히 알아보려면 [개발 및 테스트 제품 만들기](create-saas-dev-test-offer.md)를 참조하세요.
+아직 수행하지 않은 경우 프로덕션 제품을 실시간으로 게시하기 전에 개발 및 테스트(DEV) 제품을 만들어 제품을 테스트합니다. 자세한 내용은 [테스트 SaaS 제품 만들기](create-saas-dev-test-offer.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- **Microsoft와 공동 판매** 및 **CSP를 통한 재판매** 프로그램을 통해 [SaaS 제품을 판매하는 방법](create-new-saas-offer-marketing.md)을 알아봅니다.
-- [SaaS 제품을 테스트하고 상업용 Marketplace에 게시하는 방법](test-publish-saas-offer.md)을 알아봅니다.
+- **Microsoft와 공동 판매** 및 **CSP를 통한 재판매** 프로그램을 통해 [SaaS 제품을 판매](create-new-saas-offer-marketing.md)합니다.
+- [SaaS 제품을 테스트 및 게시](test-publish-saas-offer.md)합니다.

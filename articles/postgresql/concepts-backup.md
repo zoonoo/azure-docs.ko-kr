@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/29/2021
-ms.openlocfilehash: db3b62e7ce07c1e10bc5030c37cb8957d281ea05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/29/2021
+ms.openlocfilehash: 585a2cf1a3dcbc1c45ae40b728b28ece505efee3
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100517300"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110788369"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버의 백업 및 복원
 
@@ -34,13 +34,16 @@ Azure Database for PostgreSQL은 데이터 파일과 트랜잭션 로그를 백�
 
 [Azure 지역](./concepts-pricing-tiers.md#storage)의 하위 집합에서 새로 프로비전되는 모든 서버는 최대 16TB 스토리지를 지원할 수 있습니다. 대용량 스토리지 서버에서의 백업은 스냅샷을 기반으로 합니다. 첫 번째 전체 스냅샷 백업은 서버를 만든 직후에 예약됩니다. 첫 번째 전체 스냅샷 백업은 서버의 기본 백업으로 유지됩니다. 후속 스냅샷 백업은 차등 백업만 수행합니다. 차등 스냅샷 백업은 정해진 일정으로 발생하지 않습니다. 하루에는 세 번의 차등 스냅샷 백업이 수행됩니다. 트랜잭션 로그 백업은 5분마다 발생합니다. 
 
+> [!NOTE]
+> 최대 4TB의 저장소 구성으로 구성된 [복제본 서버](./concepts-read-replicas.md)에 대해 자동 백업이 수행됩니다.
+
 ### <a name="backup-retention"></a>백업 보존
 
-백업은 서버의 백업 보존 기간에 따라 보존됩니다. 보존 기간은 7~35일 사이로 선택할 수 있습니다. 기본 보존 기간은 7일입니다. 서버 생성 도중이나 [Azure Portal](./howto-restore-server-portal.md#set-backup-configuration) 또는 [Azure CLI](./howto-restore-server-cli.md#set-backup-configuration)를 사용하여 나중에 백업 구성을 업데이트하여 보존 기간을 설정할 수 있습니다. 
+백업은 서버의 백업 보존 기간에 따라 보존됩니다. 보존 기간은 7~35일 사이로 선택할 수 있습니다. 기본 보존 기간은 7일입니다. 서버 생성 중에 또는 [Azure Portal](./howto-restore-server-portal.md#set-backup-configuration) 또는 [Azure CLI](./howto-restore-server-cli.md#set-backup-configuration)를 사용하여 나중에 백업 구성을 업데이트하여 보존 기간을 설정할 수 있습니다. 
 
 백업 보존 기간은 사용 가능한 백업을 기반으로 하기 때문에 특정 시점 복원을 검색할 수 있는 시간을 제어합니다. 백업 보존 기간은 복원 관점에서 복구 기간으로 취급될 수도 있습니다. 백업 보존 기간 내에 지정 시간 복구를 수행하기 위해 필요한 모든 백업이 백업 스토리지에 보존됩니다. 예를 들어 백업 보존 기간이 7일로 설정되었으면 복구 기간이 최근 7일로 간주됩니다. 이 시나리오에서는 최근 7일 동안 서버 복원에 필요한 모든 백업이 보존됩니다. 백업 보존 기간 7일 동안 다음이 수행됩니다.
 - 최대 4TB 스토리지 서버의 경우 가장 먼저 수행된 전체 데이터베이스 백업 이후 수행된 최대 2개의 전체 데이터베이스 백업, 모든 차등 백업 및 트랜잭션 로그 백업을 보존합니다.
--   16TB 스토리지 서버의 경우 이전 8일 동안의 전체 데이터베이스 스냅샷, 모든 차등 스냅샷 및 트랜잭션 로그 백업을 보존합니다.
+- 16TB 스토리지 서버의 경우 이전 8일 동안의 전체 데이터베이스 스냅샷, 모든 차등 스냅샷 및 트랜잭션 로그 백업을 보존합니다.
 
 ### <a name="backup-redundancy-options"></a>백업 중복 옵션
 
@@ -55,7 +58,7 @@ Azure Database for PostgreSQL은 추가 비용 없이 최대 100%의 프로비�
 
 Azure Portal에서 제공되는 Azure Monitor의 [사용된 백업 스토리지](concepts-monitoring.md) 메트릭을 사용하여 서버에서 사용된 백업 스토리지를 모니터링할 수 있습니다. 사용된 백업 스토리지 메트릭은 서버에 설정된 백업 보존 기간에 따라 보존된 모든 전체 데이터베이스 백업, 차등 백업, 로그 백업에 사용된 스토리지의 합계를 나타냅니다. 백업 빈도는 서비스로 관리되며 앞에서 설명되었습니다. 서버에서 과도한 트랜잭션 작업을 수행하면 전체 데이터베이스 크기에 관계없이 백업 스토리지 사용량이 증가할 수 있습니다. 지리적 중복 스토리지의 경우 백업 스토리지 사용량은 로컬 중복 스토리지의 두 배입니다. 
 
-백업 스토리지 비용을 제어하기 위한 기본 방법은 적합한 백업 보존 기간을 설정하고 원하는 복구 목표에 맞게 올바른 백업 중복성 옵션을 선택하는 것입니다. 보존 기간은 7~35일 사이의 범위로 선택할 수 있습니다. 범용 및 메모리 최적화 서버는 백업에 대해 지리적 중복 스토리지를 사용하도록 선택할 수 있습니다.
+백업 스토리지 비용을 제어하기 위한 기본 방법은 적합한 백업 보존 기간을 설정하고 원하는 복구 목표에 맞게 올바른 백업 중복성 옵션을 선택하는 것입니다. 보존 기간은 7~35일 사이로 선택할 수 있습니다. 범용 및 메모리 최적화 서버는 백업에 대해 지리적 중복 스토리지를 사용하도록 선택할 수 있습니다.
 
 ## <a name="restore"></a>복원
 

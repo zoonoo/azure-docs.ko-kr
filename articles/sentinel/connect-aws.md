@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: 3d24fa1ea046a860feb40d09a6d0a57c79371450
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9346cc79943676f4dc3fe99f111002b8e7bee9d6
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99807600"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110586530"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>AWS CloudTrail에 Azure Sentinel에 연결
 
@@ -27,6 +27,7 @@ AWS 커넥터를 사용하여 AWS CloudTrail 관리 이벤트를 Azure Sentinel�
 
 > [!NOTE]
 > AWS CloudTrail은 LookupEvents API에 [기본적으로 제한](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html)이 있습니다. 계정별로 초당 2개 이하의 트랜잭션을 허용하며 각 쿼리는 최대 50개의 레코드를 반환할 수 있습니다. 따라서 단일 테넌트가 한 지역에서 초당 100개 이상의 레코드를 지속적으로 생성하는 경우 데이터 수집의 백로그 및 지연이 발생합니다.
+> 현재 AWS Commercial CloudTrail을 Azure Sentinel에만 연결할 수 있고 AWS GovCloud CloudTrail에는 연결할 수 없습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

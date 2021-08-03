@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 76cb2f94c949217c36fdccb8c64a53555bab227c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3d3dec6dd3095cb357a6c6b5fa1d18c6d948b782
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606337"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556589"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Azure Search .NET SDK 버전 9로 업그레이드
 
@@ -41,7 +41,7 @@ Azure Search .NET SDK 버전 9는 다음 기능을 포함하는 Azure Search RES
 * [AI 보강](cognitive-search-concept-intro.md)은 이미지, blob 및 기타 비정형 데이터 소스에서 텍스트를 추출하는 기능으로, 콘텐츠를 Azure Search 인덱스에서 보다 검색 가능하도록 강화합니다.
 * [복합 형식](search-howto-complex-data-types.md)을 지원하면 Azure Search 인덱스에서 거의 모든 중첩된 JSON 구조를 모델링할 수 있습니다.
 * [자동 완성](search-add-autocomplete-suggestions.md)은 증분 검색 동작을 구현하기 위한 **API 제안** 에 대한 대안을 제공합니다. 자동 완성은 사용자가 현재 입력하고 있는 단어 또는 구를 "완성"합니다.
-* Azure Blob 인덱싱의 일부인 [JsonLines 구문 분석 모드](search-howto-index-json-blobs.md)는 JSON 엔터티 마다 하나의 검색 문서가 작성되고, 이 문서는 새로운 행으로 구분됩니다.
+* Blob 인덱싱의 일부인 [JsonLines 구문 분석 모드](search-howto-index-json-blobs.md)는 JSON 엔터티 마다 하나의 검색 문서가 작성되고, 이 문서는 새로운 행으로 구분됩니다.
 
 ### <a name="new-preview-features-in-version-80-preview"></a>버전 8.0-preview의 새로운 미리 보기 기능
 Azure Search .NET SDK의 버전 8.0-preview는 API 버전 2017-11-11-Preview를 대상으로 합니다. 이 버전에는 버전 9의 모든 기능이 포함되어 있고, 이에 더하여:
@@ -109,8 +109,8 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 
   -  `DocumentSearchResultBase`에서 상속된 `DocumentSearchResult`과 `DocumentSearchResult<T>`
   -  `DocumentSuggestResult`에서 상속된 `DocumentSuggestResult<T>`과 `DocumentSuggestResultBase`
-  -  `IndexActionBase`에서 상속된 `IndexAction`과 `IndexAction<T>`
-  -  `IndexBatchBase`에서 상속된 `IndexBatch`과 `IndexBatch<T>`
+  -  `IndexAction`에서 상속된 `IndexAction<T>`과 `IndexActionBase`
+  -  `IndexBatch`에서 상속된 `IndexBatch<T>`과 `IndexBatchBase`
   -  `SearchResult`에서 상속된 `SearchResult<T>`과 `SearchResultBase`
   -  `SuggestResult`에서 상속된 `SuggestResult<T>`과 `SuggestResultBase`
 

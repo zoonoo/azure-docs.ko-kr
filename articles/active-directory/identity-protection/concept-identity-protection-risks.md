@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 04/13/2021
+ms.date: 05/27/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87516ddcce32ab205b13139c057a2ab999146b74
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 3d13b1f515d5585c6378e48eb64feed59615cdef
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376361"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616918"
 ---
 # <a name="what-is-risk"></a>위험이란?
 
@@ -66,6 +66,7 @@ Azure AD ID 보호의 위험 검색에는 디렉터리에서 사용자 계정과
 | 새 국가 | 오프라인 | 이 검색은 [MCAS(Microsoft Cloud App Security)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country)에서 검색됩니다. 이 검색은 이전 활동 위치를 고려하여 새 위치 및 드문 위치를 확인합니다. 이상 문제 검색 엔진은 조직의 사용자가 사용하는 이전 위치에 대한 정보를 저장합니다. |
 | 익명 IP 주소에서의 활동 | 오프라인 | 이 검색은 [MCAS(Microsoft Cloud App Security)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses)에서 검색됩니다. 이 검색은 익명 프록시 IP 주소로 식별된 IP 주소에서 사용자가 활성 상태인지 식별합니다. |
 | 의심스러운 받은 편지함 전달 | 오프라인 | 이 검색은 [MCAS(Microsoft Cloud App Security)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding)에서 검색됩니다. 이 검색은 의심스러운 메일 전달 규칙(예: 사용자가 모든 메일의 복사본을 외부 주소로 전달하는 받은 편지함 규칙을 만든 경우)을 찾습니다. |
+| Azure AD 위협 인텔리전스 | 오프라인 | 이 위험 검색 유형은 Microsoft 내부 및 외부 위협 인텔리전스 소스에 따라 지정된 사용자에게 비정상적이거나 알려진 공격 패턴과 일치하는 로그인 활동을 표시합니다. |
 
 ### <a name="other-risk-detections"></a>기타 위험 검색
 
@@ -109,6 +110,10 @@ Microsoft에서 공개된 새 일괄 처리를 찾을 때마다 유출된 자격
 #### <a name="how-often-does-microsoft-process-new-credentials"></a>Microsoft에서 얼마나 자주 새 자격 증명을 처리하나요?
 
 자격 증명은 일반적으로 매일 여러 번의 일괄 처리에서 검색된 후 즉시 처리됩니다.
+
+### <a name="locations"></a>위치
+
+위험 검색의 위치는 IP 주소 조회에 의해 결정됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

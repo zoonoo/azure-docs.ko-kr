@@ -10,12 +10,12 @@ ms.date: 09/09/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: ca4fe1410c18357a1fab10cc9c971cf3a81542fd
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: f696a6b071d353c98e87387d5640e35ff579460e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105963260"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477813"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>쿼리 가속 SQL 언어 참조
 
@@ -38,6 +38,11 @@ JSON 형식 데이터의 경우 *테이블* 은 “테이블 설명자”입니�
 ```sql
 SELECT expression [, expression …] FROM table [WHERE expression] [LIMIT limit]
 ```
+
+SELECT 식의 일부로 하나 이상의 특정 열을 지정할 수 있습니다(예: `SELECT Title, Author, ISBN`). 
+
+> [!NOTE]
+> SELECT 식에서 사용할 수 있는 특정 열의 최대 수는 49입니다. 49개 이상의 열을 반환하기 위해 SELECT 문이 필요한 경우 SELECT 식에 와일드카드 문자(`*`)를 사용합니다(예: `SELECT *`). 
 
 다음 예에서는 *식* 이 true를 반환하는 각 행에 대해 집계 계산(예: 특정 열의 평균값)을 반환합니다. 
 
@@ -235,12 +240,12 @@ SELECT 문에는 하나 이상의 프로젝션 식이나 단일 집계 식이 �
 
 |식|설명|
 |--|--|
-|[COUNT(\*)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |조건자 식과 일치하는 레코드 수를 반환합니다.|
-|[COUNT(expression)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |식이 null이 아닌 레코드 수를 반환합니다.|
-|[AVERAGE(expression)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql)    |식의 null이 아닌 값의 평균을 반환합니다.|
-|[MIN(expression)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql)    |식의 null이 아닌 최소값을 반환합니다.|
-|[MAX(expression](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql)    |식의 null이 아닌 최대값을 반환합니다.|
-|[SUM(expression)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql)    |식의 null이 아닌 모든 값의 합계를 반환합니다.|
+|[COUNT(\*)](/sql/t-sql/functions/count-transact-sql)    |조건자 식과 일치하는 레코드 수를 반환합니다.|
+|[COUNT(expression)](/sql/t-sql/functions/count-transact-sql)    |식이 null이 아닌 레코드 수를 반환합니다.|
+|[AVERAGE(expression)](/sql/t-sql/functions/avg-transact-sql)    |식의 null이 아닌 값의 평균을 반환합니다.|
+|[MIN(expression)](/sql/t-sql/functions/min-transact-sql)    |식의 null이 아닌 최소값을 반환합니다.|
+|[MAX(expression](/sql/t-sql/functions/max-transact-sql)    |식의 null이 아닌 최대값을 반환합니다.|
+|[SUM(expression)](/sql/t-sql/functions/sum-transact-sql)    |식의 null이 아닌 모든 값의 합계를 반환합니다.|
 
 ### <a name="missing"></a>MISSING
 

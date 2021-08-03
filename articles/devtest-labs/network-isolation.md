@@ -3,12 +3,12 @@ title: Azure DevTest Labs 네트워크 격리
 description: Azure DevTest Labs 네트워크 격리에 대해 알아보세요.
 ms.topic: article
 ms.date: 08/25/2020
-ms.openlocfilehash: 28bfa048a8a6666deb58a8ecfff38779c91d95b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7a46d242d16cf1c84495fbd2f2f10911cf4f1e9
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96352935"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111809521"
 ---
 # <a name="network-isolation-in-devtest-labs"></a>DevTest Labs 네트워크 격리
 
@@ -75,6 +75,10 @@ ms.locfileid: "96352935"
 또한 이러한 단계를 자동화하여 여러 랩에 이 설정을 구성할 수 있습니다. 
 
 [PowerShell 및 CLI를 사용하여 Azure Storage의 기본 네트워크 액세스 규칙 관리에 대해 자세히 알아보기](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#powershell)
+
+## <a name="network-isolation-for-an-existing-lab"></a>기존 랩에 대한 네트워크 격리
+
+랩 소유자는 기존 랩에 대해 네트워크 격리를 선택할 수 있습니다. [이 샘플 스크립트](https://github.com/Azure/azure-devtestlab/blob/master/Tools/ConvertDtlLabToIsolatedNetwork/Convert-DtlLabToIsolatedNetwork.ps1)는 기존 랩 및 연결된 랩 리소스를 격리된 네트워크 모드로 변환하는 방법을 보여 줍니다. 
 
 ## <a name="things-to-remember-while-using-a-lab-in-a-network-isolated-mode"></a>네트워크 격리 모드에서 랩을 사용하는 동안 기억해야 할 사항
 

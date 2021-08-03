@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory의 XML 포맷
 description: 이 항목에서는 Azure Data Factory에서 XML 포맷을 처리하는 방법에 대해 설명합니다.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.author: jingwang
-ms.openlocfilehash: a4082e1e00ecb1d3b0157fcc35616704eaab0aae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/29/2021
+ms.author: jianleishen
+ms.openlocfilehash: c054c789dd7c26e57a4f393863711d34665854ee
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386359"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097645"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Azure Data Factory의 XML 포맷
 
@@ -19,16 +19,16 @@ ms.locfileid: "100386359"
 
 **XML 파일을 구문 분석** 하려면 이 문서의 내용을 따르세요. 
 
-XML 포맷은 [Amazon S3](connector-amazon-simple-storage-service.md),[Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md),[Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md)File System[, ](connector-file-system.md)[FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) 및 [SFTP](connector-sftp.md) 커넥터에 지원됩니다. 원본으로 지원되며 싱크로는 지원되지 않습니다.
+XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) 및 [SFTP](connector-sftp.md) 커넥터에 지원됩니다. 원본으로 지원되며 싱크로는 지원되지 않습니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 XML 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-| 속성         | Description                                                  | 필수 |
+| 속성         | 설명                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 세트의 형식 속성을 **Xml** 로 설정해야 합니다. | 예      |
-| 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location` 아래에 고유의 위치 형식 및 지원되는 속성이 있습니다. **자세한 내용은 커넥터 문서 ->데이터 세트 속성 섹션을 참조하세요**. | 예      |
+| 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`의 고유한 위치 형식 및 지원되는 속성이 있습니다. **자세한 내용은 커넥터 문서 -> 데이터 세트 속성 섹션을 참조하세요**. | 예      |
 | encodingName     | 테스트 파일을 읽고 쓰는 데 사용되는 인코딩 형식입니다. <br>허용되는 값: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| 예       |
 | nullValue | Null 값의 문자열 표현을 지정합니다.<br/>기본값은 **빈 문자열** 입니다. | 예 |
 | 압축 | 파일 압축을 구성하는 속성 그룹입니다. 작업 실행 중 압축/압축 풀기를 수행하려는 경우 이 섹션을 구성합니다. | 예 |
@@ -70,7 +70,7 @@ XML 포맷은 [Amazon S3](connector-amazon-simple-storage-service.md),[Azure Blo
 
 복사 작업 ***\*원본\**** 섹션에서 지원되는 속성은 다음과 같습니다. [XML 커넥터 동작](#xml-connector-behavior)에 대한 자세한 정보.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 형식 속성을 **XmlSource** 로 설정해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **XML 읽기 설정** 표를 참조하세요. | 예       |
@@ -78,7 +78,7 @@ XML 포맷은 [Amazon S3](connector-amazon-simple-storage-service.md),[Azure Blo
 
 `formatSettings`에서 지원되는 **XML 읽기 설정**:
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | formatSettings의 형식을 **XmlReadSettings** 로 설정해야 합니다. | 예      |
 | validationMode | XML 스키마의 유효성을 검사할지 여부를 지정합니다.<br>허용되는 값은 **none**(기본값, 유효성 검사하지 않음), **xsd**(XSD를 사용하여 유효성 검사), **dtd**(DTD를 사용하여 유효성 검사)입니다. | 예 |
@@ -91,13 +91,13 @@ XML 포맷은 [Amazon S3](connector-amazon-simple-storage-service.md),[Azure Blo
 
 ## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
 
-매핑 데이터 흐름에서는 [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties)같은 데이터 저장소에서 XML 포맷을 읽고 쓸 수 있습니다. XML 데이터 세트나 [인라인 데이터 세트](data-flow-source.md#inline-datasets)를 사용하여 XML 파일을 가리킬 수 있습니다.
+매핑 데이터 흐름에서는 [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) 같은 데이터 저장소에서 XML 형식을 읽을 수 있습니다. XML 데이터 세트나 [인라인 데이터 세트](data-flow-source.md#inline-datasets)를 사용하여 XML 파일을 가리킬 수 있습니다.
 
 ### <a name="source-properties"></a>원본 속성
 
 다음 표에서는 XML 원본에서 지원하는 속성을 나열합니다. 해당 속성은 **원본 옵션** 탭에서 편집할 수 있습니다. [XML 커넥터 동작](#xml-connector-behavior)에 대한 자세한 정보. 인라인 데이터 세트를 사용하는 경우 [데이터 세트 속성](#dataset-properties) 섹션에 설명된 속성과 동일한 추가 파일 설정이 표시됩니다. 
 
-| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 와일드 카드 경로 | 와일드 카드 경로와 일치하는 모든 파일이 처리됩니다. 데이터 세트에 설정된 폴더 및 파일 경로를 재정의합니다. | 예 | String[] | wildcardPaths |
 | 파티션 루트 경로 | 분할된 파일 데이터의 경우 분할된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | 예 | String | partitionRootPath |
@@ -108,7 +108,7 @@ XML 포맷은 [Amazon S3](connector-amazon-simple-storage-service.md),[Azure Blo
 | 유효성 검사 모드 | XML 스키마의 유효성을 검사할지 여부를 지정합니다. | 예 | `None` (기본값, 유효성 검사하지 않음)<br>`xsd` (XSD를 사용하여 유효성 검사)<br>`dtd` (DTD를 사용하여 유효성 검사) | validationMode |
 | 네임스페이스 | XML 파일을 구문 분석할 때 네임스페이스를 사용할지 여부를 지정합니다. | 예 | `true`(기본값) 또는 `false` | 네임스페이스 |
 | 네임스페이스 접두사 쌍 | Xml 파일을 구문 분석할 때 필드의 이름을 결정하는 데 사용되는 네임스페이스 URI-접두사 매핑<br/>XML 파일에 네임스페이스 및 네임스페이스가 사용되는 경우 기본적으로 필드 이름은 XML 문서에 있는 것과 동일합니다.<br>이 맵에서 네임스페이스 URI에 대해 정의된 항목이 있는 경우 필드 이름은 `prefix:fieldName` 입니다. | 예 | 패턴이 포함된 배열`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
-| 파일을 찾을 수 없음 | True면 파일이 없는 경우 오류가 발생하지 않습니다. | 아니요 | `true` 또는 `false` | ignoreNoFilesFound |
+| 파일을 찾을 수 없음 | true이면 파일이 없는 경우 오류가 throw되지 않습니다. | 아니요 | `true` 또는 `false` | ignoreNoFilesFound |
 
 ### <a name="xml-source-script-example"></a>XML 원본 스크립트의 예
 

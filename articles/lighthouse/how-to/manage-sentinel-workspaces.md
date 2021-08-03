@@ -1,14 +1,14 @@
 ---
 title: 대규모 Azure Sentinel 작업 영역 관리
-description: 위임된 고객 리소스에서 Azure Sentinel을 효과적으로 관리하는 방법을 알아봅니다.
+description: Azure Lighthouse는 위임된 고객 리소스에서 Azure Sentinel을 효과적으로 관리할 수 있도록 지원합니다.
 ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 009edaefe021dedb5d9a40a8cc3bac2c2974ae10
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c72dcdd190acfaf3db0b5c9feb1a30b00c63a94d
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101702524"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077829"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>대규모 Azure Sentinel 작업 영역 관리
 

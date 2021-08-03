@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/16/2020
+ms.date: 04/30/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a3f8a0562df4b4eeef338ddf357f37d7d0bc8f5a
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 6477283b3eb96579b943baf0aa34c2737bf43a58
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107946640"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059616"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 ID 토큰 힌트 기술 프로필 정의
 
@@ -84,16 +84,18 @@ Id_token_hint는 유효한 JWT 토큰이어야 합니다. 다음 표에는 필�
 
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| 발급자 | Yes | 보안 토큰 서비스(토큰 발급자)를 식별합니다. 이 값은 JWT 토큰 클레임 내의 `iss` 클레임과 동일해야 합니다. | 
-| IdTokenAudience | Yes | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임 내의 `aud` 클레임과 동일해야 합니다. | 
+| 발급자 | 예 | 보안 토큰 서비스(토큰 발급자)를 식별합니다. 이 값은 JWT 토큰 클레임 내의 `iss` 클레임과 동일해야 합니다. | 
+| IdTokenAudience | 예 | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임 내의 `aud` 클레임과 동일해야 합니다. | 
 
 다음 메타데이터는 비대칭 키를 사용할 때 관련됩니다. 
 
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| METADATA| Yes | OpenID의 잘 알려진 구성 엔드포인트라고도 하는 토큰 발급자 구성 문서를 가리키는 URL입니다.   |
+| METADATA| 예 | OpenID의 잘 알려진 구성 엔드포인트라고도 하는 토큰 발급자 구성 문서를 가리키는 URL입니다.   |
 | 발급자 | No | 보안 토큰 서비스(토큰 발급자)를 식별합니다. 이 값은 메타데이터에 구성된 값을 덮어쓰는 데 사용할 수 있으며 `iss` JWT 토큰 클레임 내의 클레임과 동일해야 합니다. |  
 | IdTokenAudience | No | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임 내의 `aud` 클레임과 동일해야 합니다. |  
+
+[!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
 
 ## <a name="cryptographic-keys"></a>암호화 키
 
@@ -101,7 +103,7 @@ Id_token_hint는 유효한 JWT 토큰이어야 합니다. 다음 표에는 필�
 
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| client_secret | Yes | JWT 토큰 서명의 유효성을 검사하는 데 사용되는 암호화 키입니다.|
+| client_secret | 예 | JWT 토큰 서명의 유효성을 검사하는 데 사용되는 암호화 키입니다.|
 
 
 ## <a name="how-to-guide"></a>방법 가이드
@@ -185,7 +187,7 @@ $newClientSecret
 * `/.well-known/openid-configuration` -토큰 발급자 이름 및 JWK 엔드포인트에 대한 링크와 같이 토큰에 대한 관련 정보가 포함된 잘 알려진 구성 엔드포인트입니다. 
 * `/.well-known/keys` -키(인증서의 프라이빗 키 부분 포함)에 서명하는 데 사용되는 공개 키가 있는 JWK(JSON 웹 키) 엔드포인트입니다.
 
-[TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .Net MVC 컨트롤러 샘플을 참조하세요.
+[TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .NET MVC 컨트롤러 샘플을 참조하세요.
 
 #### <a name="step-1-prepare-a-self-signed-certificate"></a>1단계. 자체 서명된 인증서 준비
 
@@ -219,7 +221,7 @@ New-SelfSignedCertificate `
       <Metadata>
         <!-- Replace with your endpoint location -->
         <Item Key="METADATA">https://your-app.azurewebsites.net/.well-known/openid-configuration</Item>
-        <Item Key="IdTokenAudience">your_optional_audience</Item> -->
+        <Item Key="IdTokenAudience">your_optional_audience</Item>
         <!-- <Item Key="issuer">your_optional_token_issuer_override</Item> -->
       </Metadata>
       <OutputClaims>
@@ -249,7 +251,7 @@ New-SelfSignedCertificate `
     ```xml
     <OrchestrationStep Order="1" Type="GetClaims" CpimIssuerTechnicalProfileReferenceId="IdTokenHint_ExtractClaims" />
     ``` 
-1. 신뢰 당사자 정책에서 IdTokenHint_ExtractClaims 기술 프로필에서 구성한 것과 동일한 입력 클레임을 반복합니다. 예를 들어:
+1. 신뢰 당사자 정책에서 IdTokenHint_ExtractClaims 기술 프로필에서 구성한 것과 동일한 입력 클레임을 반복합니다. 예를 들면 다음과 같습니다.
     ```xml
    <RelyingParty>
      <DefaultUserJourney ReferenceId="SignUp" />

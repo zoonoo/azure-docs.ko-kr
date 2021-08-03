@@ -3,31 +3,43 @@ title: DTU 리소스 한도 단일 데이터베이스
 description: 이 페이지에서는 Azure SQL Database에서 단일 데이터베이스에 대한 몇 가지 일반적인 DTU 리소스 한도를 설명합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: service-overview
 ms.custom: references_regions, seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: reference
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
-ms.date: 03/20/2019
-ms.openlocfilehash: c530d584282cebba78c095798944e48d7efe2c66
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
+ms.date: 04/16/2021
+ms.openlocfilehash: aecf872bcac77c94090d374cc18415eba6323b61
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625637"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110689811"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>DTU 구매 모델을 사용한 단일 데이터베이스의 리소스 한도 - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 이 문서에서는 DTU 구매 모델을 사용하는 Azure SQL Database 단일 데이터베이스의 리소스 한도를 자세히 설명합니다.
 
-탄력적 풀의 DTU 구매 모델 리소스 한도는 [DTU 리소스 한도 - 탄력적 풀](resource-limits-dtu-elastic-pools.md)을 참조하세요. vCore 리소스 한도는 [vCore 리소스 한도 - 단일 데이터베이스](resource-limits-vcore-single-databases.md)와 [vCore 리소스 한도 - 탄력적 풀](resource-limits-vcore-elastic-pools.md)을 참조하세요. 다양한 구매 모델에 관한 자세한 내용은 [구매 모델 및 서버 계층](purchasing-models.md)을 참조하세요.
+* 서버에 있는 단일 데이터베이스의 DTU 구매 모델 한도에 관해서는 [서버의 리소스 한도 개요](resource-limits-logical-server.md)를 참조하세요.
+* Azure SQL Database의 DTU 구매 모델 리소스 한도에 관해서는 [DTU 리소스 한도 - 단일 데이터베이스](resource-limits-dtu-single-databases.md) 및 [DTU 리소스 한도 - 탄력적 풀](resource-limits-dtu-elastic-pools.md)을 참조하세요.
+* vCore 리소스 한도에 관해서는 [vCore 리소스 한도 - Azure SQL Database](resource-limits-vcore-single-databases.md) 및 [vCore 리소스 한도 - 탄력적 풀](resource-limits-vcore-elastic-pools.md)을 참조하세요.
+* 다양한 구매 모델에 관한 자세한 내용은 [구매 모델 및 서버 계층](purchasing-models.md)을 참조하세요.
+
+각 읽기 전용 복제본에는 DTU, 작업자 및 세션과 같은 자체 리소스가 있습니다. 각 읽기 전용 복제본에는 이 문서의 뒷부분에서 설명하는 리소스 한도가 적용됩니다. 
+
 
 ## <a name="single-database-storage-sizes-and-compute-sizes"></a>단일 데이터베이스: 스토리지 크기 및 컴퓨팅 크기
 
-아래 표에는 각 서비스 계층과 컴퓨팅 크기에서 단일 데이터베이스에 사용할 수 있는 리소스가 나와 있습니다. [Azure Portal](single-database-manage.md#the-azure-portal), [Transact-SQL](single-database-manage.md#transact-sql-t-sql), [PowerShell](single-database-manage.md#powershell), [Azure CLI](single-database-manage.md#the-azure-cli) 또는 [REST API](single-database-manage.md#rest-api)를 사용하여 단일 데이터베이스에 대한 서비스 계층, 컴퓨팅 크기 및 스토리지 용량을 설정할 수 있습니다.
+아래 표에는 각 서비스 계층과 컴퓨팅 크기에서 단일 데이터베이스에 사용할 수 있는 리소스가 나와 있습니다. 다음을 사용하여 단일 데이터베이스의 서비스 계층, 컴퓨팅 크기, 스토리지 용량을 설정할 수 있습니다.
+
+* [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)를 통해 [Transact-SQL](single-database-manage.md#transact-sql-t-sql)
+* [Azure Portal](single-database-manage.md#the-azure-portal)
+* [PowerShell](single-database-manage.md#powershell)
+* [Azure CLI](single-database-manage.md#the-azure-cli)
+* [REST API](single-database-manage.md#rest-api)
 
 > [!IMPORTANT]
 > 크기 조정 참고 자료 및 고려 사항은 [단일 데이터베이스 스케일링](single-database-scale.md)을 참조하세요.
@@ -102,8 +114,11 @@ ms.locfileid: "105625637"
 
 > [!IMPORTANT]
 > 현재 다음을 제외한 모든 지역에서 프리미엄 계층의 스토리지는 1TB를 초과하여 사용할 수 있습니다. 중국 동부, 중국 북부, 독일 중부, 독일 북동부. 이러한 지역에서 프리미엄 계층 스토리지 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.
+
 > [!NOTE]
 > `tempdb` 한도는 [tempdb 한도](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database)를 참조하세요.
+> 
+> 프리미엄 서비스 계층의 스토리지 제한에 대한 자세한 내용은 [스토리지 공간 거버넌스](resource-limits-logical-server.md#storage-space-governance)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

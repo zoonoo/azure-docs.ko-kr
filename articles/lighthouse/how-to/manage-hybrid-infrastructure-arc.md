@@ -1,14 +1,14 @@
 ---
 title: Azure Arc를 사용하여 대규모 하이브리드 인프라 관리
-description: Azure 외부에서 고객의 머신 및 Kubernetes 클러스터를 효과적으로 관리하는 방법을 알아봅니다.
+description: Azure Lighthouse를 사용하면 Azure 외부에서 고객의 컴퓨터와 Kubernetes 클러스터를 효과적으로 관리할 수 있습니다.
 ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: da7f016b507f8f876d27f6924f87f078a7806563
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: edb9553288ff909e5a5f51bf1440c29914672cb9
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563602"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112082085"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Azure Arc를 사용하여 대규모 하이브리드 인프라 관리
 

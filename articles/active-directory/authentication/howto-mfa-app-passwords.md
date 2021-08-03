@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfb38f9fcdba6898b690d0af68b715fea07e80bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac603cef478b821d1fea72fce22004fc72860914
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96743108"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744470"
 ---
 # <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>앱 암호를 사용하여 레거시 애플리케이션에서 Azure AD Multi-Factor Authentication 사용 설정 및 사용
 
@@ -81,7 +81,7 @@ Azure AD는 온-프레미스 AD DS(Active Directory Domain Services)를 통해 �
 
 ## <a name="allow-users-to-create-app-passwords"></a>사용자가 앱 암호를 만들 수 있음
 
-기본적으로 사용자가 앱 암호를 만들 수 없습니다. 앱 암호 기능은 사용자가 사용하기 전에 활성화되어야 합니다. 사용자에게 앱 암호를 생성할 수 있는 기능을 제공하려면 다음 절차를 수행합니다:
+기본적으로 사용자가 앱 암호를 만들 수 없습니다. 앱 암호 기능은 사용자가 사용하기 전에 활성화되어야 합니다. 사용자에게 앱 암호를 생성할 수 있는 기능을 제공하려면 **관리자** 가 다음 단계를 완료해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** 를 검색하여 선택한 후 **사용자** 를 선택합니다.
@@ -101,7 +101,9 @@ Azure AD는 온-프레미스 AD DS(Active Directory Domain Services)를 통해 �
 
 사용자가 Azure AD Multi-Factor Authentication의 초기 등록을 완료하면 등록 프로세스의 마지막에 앱 암호를 만드는 옵션이 있습니다.
 
-사용자는 등록 후 앱 암호를 만들 수도 있습니다. 사용자에 대한 자세한 내용과 세부 단계는 [Azure AD Multi-Factor Authentication에서 앱 암호란?](../user-help/multi-factor-authentication-end-user-app-passwords.md)을 참조하세요.
+사용자는 등록 후 앱 암호를 만들 수도 있습니다. 사용자에 대한 자세한 내용 및 자세한 단계는 다음 리소스를 참조하세요.
+* [Azure AD Multi-Factor Authentication의 앱 암호는 무엇인가요?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+* [보안 정보 페이지에서 앱 암호 만들기](https://docs.microsoft.com/azure/active-directory/user-help/security-info-app-passwords)
 
 ## <a name="next-steps"></a>다음 단계
 

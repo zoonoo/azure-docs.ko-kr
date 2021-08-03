@@ -1,17 +1,17 @@
 ---
-title: 원격 데스크톱 클라이언트 Windows Virtual Desktop 문제 해결 - Azure
-description: Windows Virtual Desktop 테넌트 환경에서 클라이언트 연결을 설정할 때 발생하는 문제를 해결하는 방법입니다.
+title: 원격 데스크톱 클라이언트 Azure Virtual Desktop 문제 해결 - Azure
+description: Azure Virtual Desktop 테넌트 환경에서 클라이언트 연결을 설정할 때 발생하는 문제를 해결하는 방법입니다.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e31ff0bfdb0ead13c2636ea2f4d175c9ced34581
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 9534425344a09bb2e2e733cde5294d08d175eb96
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445434"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755342"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>원격 데스크톱 클라이언트 문제 해결
 
@@ -60,9 +60,9 @@ nslookup에서 이름을 확인할 수 없는 경우 네트워크 연결 문제 
 
 ## <a name="client-doesnt-show-my-resources"></a>클라이언트가 내 리소스를 표시하지 않습니다.
 
-먼저 사용 중인 Azure Active Directory 계정을 확인합니다. Windows Virtual Desktop에 사용하려는 계정이 아닌 Azure Active Directory 계정으로 이미 로그인한 경우에는 로그아웃하거나 프라이빗 브라우저 창을 사용해야 합니다.
+먼저 사용 중인 Azure Active Directory 계정을 확인합니다. Azure Virtual Desktop에 사용할 계정과 다른 Azure Active Directory 계정으로 이미 로그인한 경우, 로그아웃하거나 개인 브라우저 창을 사용해야 합니다.
 
-Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/connect-web-2019.md)의 웹 클라이언트 링크를 사용하여 리소스에 연결합니다.
+Azure Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/connect-web-2019.md)의 웹 클라이언트 링크를 사용하여 리소스에 연결합니다.
 
 이 작업이 수행되지 않으면 앱 그룹이 작업 영역과 연결되어 있는지 확인하세요.
 
@@ -79,19 +79,19 @@ Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual
 웹 클라이언트에서 자격 증명을 입력하라는 메시지가 표시되면 다음 지침을 따르세요.
 
 1. 웹 클라이언트 URL이 올바른지 확인합니다.
-2. 사용 중인 자격 증명이 URL에 연결된 Windows Virtual Desktop 환경의 자격 증명인지 확인합니다.
+2. 사용 중인 자격 증명이 URL에 연결된 Azure Virtual Desktop 환경의 자격 증명인지 확인합니다.
 3. 브라우저 쿠키를 지웁니다. 자세한 내용은 [Internet Explorer에서 쿠키 파일을 삭제하는 방법](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer)을 참조하세요.
 4. 브라우저 캐시를 지웁니다. 자세한 내용은 [브라우저의 브라우저 캐시 지우기](https://binged.it/2RKyfdU)를 참조하세요.
 5. 프라이빗 모드에서 브라우저를 엽니다.
 
-## <a name="windows-client-blocks-windows-virtual-desktop-classic-feed"></a>Windows 클라이언트는 Windows Virtual Desktop(클래식) 피드를 차단합니다.
+## <a name="windows-client-blocks-azure-virtual-desktop-classic-feed"></a>Windows 클라이언트는 Azure Virtual Desktop(클래식) 피드를 차단합니다.
 
-Windows 클라이언트 피드에 Windows Virtual Desktop(클래식) 앱이 표시되지 않는 경우 다음 지침을 따르세요.
+Windows 클라이언트 피드에 Azure Virtual Desktop(클래식) 앱이 표시되지 않는 경우 다음 지침을 따르세요.
 
-1. 조건부 액세스 정책에 Windows Virtual Desktop(클래식)과 연결된 앱 ID가 포함되어 있는지 확인합니다.
-2. 조건부 액세스 정책이 Windows Virtual Desktop(클래식) 앱 ID를 제외한 모든 액세스를 차단하는지 확인합니다. 그렇다면 클라이언트에서 피드를 검색할 수 있도록 앱 ID **9cdead84-a844-4324-93f2-b2e6bb768d07** 을 정책에 추가해야 합니다.
+1. 조건부 액세스 정책에 Azure Virtual Desktop(클래식)과 연결된 앱 ID가 포함되어 있는지 확인합니다.
+2. 조건부 액세스 정책이 Azure Virtual Desktop(클래식) 앱 ID를 제외한 모든 액세스를 차단하는지 확인합니다. 그렇다면 클라이언트에서 피드를 검색할 수 있도록 앱 ID **9cdead84-a844-4324-93f2-b2e6bb768d07** 을 정책에 추가해야 합니다.
 
-목록에서 앱 ID 9cdead84-a844-4324-93f2-b2e6bb768d07을 찾을 수 없는 경우 Windows Virtual Desktop 리소스 공급자를 등록해야 합니다. 리소스 공급자를 등록하려면 다음 단계를 따릅니다.
+목록에서 앱 ID 9cdead84-a844-4324-93f2-b2e6bb768d07을 찾을 수 없는 경우 Azure Virtual Desktop 리소스 공급자를 등록해야 합니다. 리소스 공급자를 등록하려면 다음 단계를 따릅니다.
 
 1. Azure Portal에 로그인합니다.
 2. **구독** 으로 이동한 다음, 구독을 선택합니다.
@@ -100,9 +100,9 @@ Windows 클라이언트 피드에 Windows Virtual Desktop(클래식) 앱이 표�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Windows Virtual Desktop 및 에스컬레이션 트랙 문제 해결에 대한 개요는 [문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview.md)을 참조하세요.
-- Windows Virtual Desktop 환경에서 Windows Virtual Desktop 환경 및 호스트 풀을 만드는 데 발생하는 문제를 해결하려면 [환경 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)를 참조하세요.
-- Windows Virtual Desktop에서 VM(가상 머신)을 구성하면서 생기는 문제를 해결하려면 [세션 호스트 가상 머신 구성](troubleshoot-vm-configuration.md)을 참조하세요.
-- Windows Virtual Desktop 에이전트 또는 세션 연결과 관련된 문제를 해결하려면 [일반적인 Windows Virtual Desktop 에이전트 문제 해결](troubleshoot-agent.md)을 참조하세요.
-- Windows Virtual Desktop과 함께 PowerShell을 사용할 때 발생하는 문제를 해결하려면 [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md)을 참조하세요.
+- Azure Virtual Desktop 및 에스컬레이션 트랙 문제 해결에 대한 개요는 [문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview.md)을 참조하세요.
+- Azure Virtual Desktop 환경에서 Azure Virtual Desktop 환경 및 호스트 풀을 만드는 데 발생하는 문제를 해결하려면 [환경 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)를 참조하세요.
+- Azure Virtual Desktop에서 VM(가상 머신)을 구성하는 동안 문제를 해결하려면 [세션 호스트 가상 머신 구성](troubleshoot-vm-configuration.md)을 참조하세요.
+- Azure Virtual Desktop 에이전트 또는 세션 연결과 관련된 문제를 해결하려면 [일반적인 Azure Virtual Desktop 에이전트 문제 해결](troubleshoot-agent.md)을 참조하세요.
+- Azure Virtual Desktop과 함께 PowerShell을 사용할 때 발생하는 문제를 해결하려면 [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md)을 참조하세요.
 - 문제 해결 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포 문제 해결](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조하세요.

@@ -3,20 +3,20 @@ title: Azure SQL Database 파일 공간 관리
 description: 이 페이지에서는 Azure SQL Database의 단일 및 풀링된 데이터베이스로 파일 공간을 관리하는 방법을 설명하고, 단일 및 풀링된 데이터베이스를 축소해야 할지 여부를 결정하는 방법은 물론 데이터베이스 축소 작업을 수행하는 방법에 대한 코드 샘플을 제공합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
-ms.custom: sqldbrb=1
+ms.subservice: deployment-configuration
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, sstein
-ms.date: 12/22/2020
-ms.openlocfilehash: 7bb754b892715adffc6ead99f3d866f9f9d8af9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/28/2021
+ms.openlocfilehash: fb5ee8b096f64faa47756642b4e94bae429fb879
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99096494"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591263"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Azure SQL Database의 데이터베이스에 대한 파일 공간 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,7 +38,7 @@ Azure SQL Database에는 데이터베이스에 대한 기본 데이터 파일의
 
 ### <a name="monitoring-file-space-usage"></a>파일 공간 사용량 모니터링
 
-Azure Portal 및 다음 API에 표시되는 대부분의 스토리지 공간 메트릭은 사용한 데이터 페이지의 크기만 측정합니다.
+다음 API에 표시되는 대부분의 스토리지 공간 메트릭은 사용한 데이터 페이지의 크기만 측정합니다.
 
 - PowerShell [get-metrics](/powershell/module/az.monitor/get-azmetric)를 포함한 Azure Resource Manager 기반 메트릭 API
 - T-SQL: [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
@@ -52,8 +52,15 @@ Azure Portal 및 다음 API에 표시되는 대부분의 스토리지 공간 메
 
 Azure SQL Database는 데이터베이스 성능에 영향을 미칠 수 있기 때문에 사용되지 않은 할당된 공간을 회수하기 위해 데이터 파일을 자동으로 축소하지 않습니다.  하지만 고객이 [사용되지 않은 할당된 공간 회수](#reclaim-unused-allocated-space)에 설명된 단계를 수행하기로 선택하면 셀프 서비스를 통해 데이터 파일을 축소할 수 있습니다.
 
-> [!NOTE]
-> 데이터 파일과 달리 Azure SQL Database는 로그 파일을 자동으로 축소합니다. 이 작업은 데이터베이스 성능에 영향을 미치지 않기 때문입니다.
+### <a name="shrinking-transaction-log-file"></a>트랜잭션 로그 파일 축소
+
+데이터 파일과 달리 Azure SQL Database는 공간 부족 오류를 일으킬 수 있는 과도한 공간 사용을 방지하기 위해 트랜잭션 로그 파일을 자동으로 축소합니다. 일반적으로 고객은 트랜잭션 로그 파일을 축소할 필요가 없습니다.
+
+프리미엄 및 중요 비즈니스용 서비스 계층에서 트랜잭션 로그가 커질 경우 로컬 스토리지 사용으로 인해 큰 영향을 미쳐 [최대 로컬 스토리지](resource-limits-logical-server.md#storage-space-governance) 한도에 이를 수 있습니다. 로컬 스토리지 사용량이 한도에 근접한 경우 고객은 다음 예제와 같이 [DBCC SHRINKFILE](/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql) 명령을 사용하여 트랜잭션 로그를 축소하도록 선택할 수 있습니다. 이렇게 하면 정기적 자동 축소 작업을 기다리지 않아도 명령이 완료되는 즉시 로컬 스토리지의 공간이 확보됩니다.
+
+```tsql
+DBCC SHRINKFILE (2);
+```
 
 ## <a name="understanding-types-of-storage-space-for-a-database"></a>데이터베이스의 스토리지 공간 유형 이해
 
@@ -61,7 +68,7 @@ Azure SQL Database는 데이터베이스 성능에 영향을 미칠 수 있기 �
 
 |데이터베이스 수량|정의|주석|
 |---|---|---|
-|**사용된 데이터 공간**|8KB 페이지에 데이터베이스 데이터를 저장하는 데 사용된 공간의 크기입니다.|일반적으로 사용된 공간은 삽입(삭제) 시 증가(감소)합니다. 작업 및 조각화와 관련된 데이터의 크기 및 패턴에 따라 삽입 또는 삭제 시 사용된 공간이 변경되지 않는 경우가 있습니다. 예를 들어 모든 데이터 페이지에서 하나의 행을 삭제한다고 해서 사용된 공간이 반드시 감소하지는 않습니다.|
+|**사용된 데이터 공간**|데이터베이스 데이터를 저장하는 데 사용되는 공간 크기입니다.|일반적으로 사용된 공간은 삽입(삭제) 시 증가(감소)합니다. 작업 및 조각화와 관련된 데이터의 크기 및 패턴에 따라 삽입 또는 삭제 시 사용된 공간이 변경되지 않는 경우가 있습니다. 예를 들어 모든 데이터 페이지에서 하나의 행을 삭제한다고 해서 사용된 공간이 반드시 감소하지는 않습니다.|
 |**할당된 데이터 공간**|데이터베이스 데이터 저장에 사용할 수 있는 형식화된 파일 공간의 크기입니다.|할당된 공간의 크기는 자동으로 증가하지만 삭제 후에는 감소하지 않습니다. 이 동작은 공간을 다시 형식화할 필요가 없기 때문에 향후 삽입이 더 빨라질 수 있습니다.|
 |**할당되었지만 사용되지 않은 데이터 공간**|할당된 데이터 공간의 크기와 사용된 데이터 공간 간의 차이입니다.|이 수량은 데이터베이스 데이터 파일을 축소하면 회수할 수 있는 사용 가능한 공간의 최대 크기를 나타냅니다.|
 |**데이터 최대 크기**|데이터베이스 데이터 저장에 사용할 수 있는 최대 공간의 크기입니다.|할당된 데이터 공간 크기는 데이터 최대 크기를 초과할 수 없습니다.|
@@ -223,21 +230,22 @@ DBCC SHRINKDATABASE (N'db1');
 
 ### <a name="auto-shrink"></a>자동 축소
 
-또는 데이터베이스에 대한 자동 축소를 사용하도록 설정할 수 있습니다.  자동 축소는 파일 관리의 복잡도를 줄여 주며 데이터베이스 성능에 대한 영향이 `SHRINKDATABASE` 또는 `SHRINKFILE`보다 더 적습니다.  자동 축소는 많은 데이터베이스에서 탄력적 풀을 관리하는 데 특히 유용할 수 있습니다.  그러나 자동 축소의 파일 공간 회수 효과는 `SHRINKDATABASE` 및 `SHRINKFILE`보다 떨어질 수 있습니다.
-기본적으로 대부분의 데이터베이스에는 자동 축소를 사용하지 않도록 설정되어 있습니다. 자세한 내용은 [AUTO_SHRINK 고려 사항](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink)을 참조하세요.
+또는 데이터베이스에 대한 자동 축소를 사용하도록 설정할 수 있습니다.  자동 축소는 파일 관리의 복잡도를 줄여 주며 데이터베이스 성능에 대한 영향이 `SHRINKDATABASE` 또는 `SHRINKFILE`보다 더 적습니다. 자동 축소는 사용 공간이 크게 증가 및 감소하는 많은 데이터베이스가 있는 탄력적 풀을 관리하는 데 특히 유용할 수 있습니다. 그러나 자동 축소의 파일 공간 회수 효과는 `SHRINKDATABASE` 및 `SHRINKFILE`보다 떨어질 수 있습니다.
 
-자동 축소를 사용하도록 설정하려면 다음 명령에서 데이터베이스의 이름을 수정합니다.
+기본적으로 대부분의 데이터베이스는 자동 축소를 사용하지 않도록 설정되어 있습니다. 자동 축소를 사용하도록 설정해야 하는 경우, 영구적으로 사용하도록 설정하는 대신 공간 관리 목표가 달성되면 사용하지 않도록 설정하는 것이 좋습니다. 자세한 내용은 [AUTO_SHRINK 고려 사항](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink)을 참조하세요.
+
+자동 축소를 사용하도록 설정하려면 master 데이터베이스가 아닌 데이터베이스에서 다음 명령을 실행합니다.
 
 ```sql
--- Enable auto-shrink for the database.
-ALTER DATABASE [db1] SET AUTO_SHRINK ON;
+-- Enable auto-shrink for the current database.
+ALTER DATABASE CURRENT SET AUTO_SHRINK ON;
 ```
 
 이 명령에 대한 자세한 내용은 [DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options) 옵션을 참조하세요.
 
 ### <a name="rebuild-indexes"></a>인덱스 다시 작성
 
-데이터베이스 데이터 파일이 축소된 후에는 인덱스가 조각화되어 성능 최적화 효과가 상실될 수 있습니다. 성능 저하가 발생하는 경우 데이터베이스 인덱스를 다시 작성하는 것을 고려합니다. 조각화 및 인덱스 다시 작성에 대한 자세한 내용은 [인덱스 재구성 및 다시 작성](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)을 참조하세요.
+데이터 파일이 축소된 후에는 인덱스가 조각화되어 성능 최적화 효과가 상실될 수 있습니다. 성능 저하가 발생하는 경우 데이터베이스 인덱스를 다시 작성하는 것이 좋습니다. 조각화와 인덱스 유지 관리에 대한 자세한 내용은 [쿼리 성능 향상 및 리소스 소비 감소를 위한 인덱스 유지 관리 최적화](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,17 +1,17 @@
 ---
 title: 그래픽 성능 문제 진단 원격 데스크톱 - Azure
-description: 이 문서에서는 원격 데스크톱 프로토콜 세션에서 RemoteFX 그래픽 카운터를 사용하여 Windows Virtual Desktop의 그래픽에서 성능 문제를 진단하는 방법을 설명합니다.
+description: 이 문서에서는 원격 데스크톱 프로토콜 세션에서 RemoteFX 그래픽 카운터를 사용하여 Azure Virtual Desktop의 그래픽에서 성능 문제를 진단하는 방법을 설명합니다.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: fc1bb9d6dbdb024fba6544c25951ba94384132b0
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 86d5aa82aaf51d0d2407799050f92a04a12c4a58
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445739"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752930"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>원격 데스크톱에서 그래픽 성능 문제 진단
 
@@ -100,6 +100,6 @@ RDP는 33ms의 평균 인코딩 시간을 지원하므로 초당 최대 30프레
 
 ## <a name="next-steps"></a>다음 단계
 
-- GPU에 최적화된 Azure 가상 머신을 만들려면 [Windows Virtual Desktop 환경에 대한 GPU(그래픽 처리 장치) 가속 구성](configure-vm-gpu.md)을 참조하세요.
+- GPU에 최적화된 Azure 가상 머신을 만들려면 [Azure Virtual Desktop 환경에 대한 GPU(그래픽 처리 디바이스) 가속 구성](configure-vm-gpu.md)을 참조하세요.
 - 문제 해결 및 에스컬레이션 트랙에 대한 개요는 [문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview.md)을 참조하세요.
 - 서비스에 대한 자세한 내용은 [Windows 데스크톱 환경](environment-setup.md)을 참조하세요.

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 6629beacb5c3edc6fe1d21509051b915c0894479
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e25412e502f10c80a55aeab215fddfd0cfc3f41b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109695"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110471924"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버의 고가용성 개념(미리 보기)
 
@@ -60,6 +60,9 @@ HA의 상태는 개요 페이지에서 지속적으로 모니터링되고 보고
 ## <a name="failover-process"></a>장애 조치(failover) 프로세스 
 비즈니스 연속성을 유지하려면 계획된 이벤트 혹은 계획되지 않은 이벤트에 대한 장애 조치(failover) 프로세스가 필요합니다. 
 
+>[!NOTE]
+> 항상 FQDN(정규화된 도메인 이름)을 사용하여 주 서버에 연결하고 IP 주소를 사용하여 연결하지 않도록 합니다. 장애 조치(failover)의 경우 주 서버와 대기 서버 역할이 전환되면 DNS A 레코드도 변경되어 연결 문자열에 IP 주소가 사용되는 경우 애플리케이션이 새 주 서버에 연결하지 못할 수 있습니다. 
+
 ### <a name="planned-events"></a>계획된 이벤트
 
 계획된 가동 중지 시간 이벤트에는 Azure에서 예약된 작업(예: 정기적인 소프트웨어 업데이트, 부 버전 업그레이드) 또는 고객이 시작한 작업(예: 컴퓨팅 스케일링, 스토리지 작업 스케일링)이 포함됩니다. 모든 변경 내용은 대기 복제본에 먼저 적용됩니다. 그동안 애플리케이션이 계속해서 주 서버에 액세스합니다. 대기 복제본이 업데이트되면 주 서버 연결이 드레이닝되고 장애 조치(failover)가 트리거됩니다. 이 작업은 DNS 레코드를 업데이트함으로써 동일한 데이터베이스 서버 이름을 사용하는 주 서버에 대기 복제본을 활성화합니다. 클라이언트의 연결이 끊어지고 작업을 다시 시작하려면 다시 연결해야 합니다. 새 대기 서버가 이전 주 서버와 동일한 영역에 설정됩니다. 전반적인 장애 조치(failover) 시간에는 60~120초가 소요됩니다. 
@@ -69,6 +72,9 @@ HA의 상태는 개요 페이지에서 지속적으로 모니터링되고 보고
 
 ### <a name="failover-process---unplanned-events"></a>장애 조치(failover) 프로세스 - 계획되지 않은 이벤트
 계획되지 않은 서비스 가동 중지 시간에는 소프트웨어 버그 또는 데이터베이스의 가용성에 영향을 미치는 컴퓨팅, 네트워크, 스토리지 오류 또는 전원 중단과 같은 인프라 오류가 포함됩니다. 데이터베이스를 사용할 수 없는 경우 대기 복제본에 대한 복제가 중단되고 대기 복제본이 주 데이터베이스 역할로 활성화됩니다. DNS가 업데이트되고 클라이언트가 데이터베이스 서버에 다시 연결되어 작업을 다시 시작합니다. 전반적인 장애 조치(failover) 시간에는 60~120초가 소요됩니다. 그러나 장애 조치(failover) 시의 주 데이터베이스 서버 활동(예: 대규모 트랜잭션 및 복구 시간)에 따라 장애 조치(failover)에 더 오랜 시간이 소요될 수 있습니다.
+
+### <a name="forced-failover"></a>강제 장애 조치(Failover)
+Azure Database for MySQL 강제 장애 조치(failover)를 사용하면 수동으로 장애 조치(failover)를 수행하여 애플리케이션 시나리오에서 기능을 테스트할 수 있으며 가동 중단 시 대비할 수 있습니다. 강제 장애 조치(failover)는 DNS 레코드를 업데이트하여 대기 복제본을 동일한 데이터베이스 서버 이름으로 주 서버가 되도록 활성화하는 장애 조치(failover)를 트리거하여 대기 서버를 주 서버로 전환합니다. 기존의 주 서버가 다시 시작되고 대기 복제본으로 전환됩니다. 클라이언트 연결의 연결이 끊어지고 작업을 다시 시작하려면 다시 연결해야 합니다. 현재 워크로드 및 마지막 검사점에 따라 전체 장애 조치(failover) 시간이 측정됩니다. 일반적으로 60-120초 사이입니다.
 
 ## <a name="schedule-maintenance-window"></a>유지 관리 기간 예약 
 
@@ -101,4 +107,4 @@ HA의 상태는 개요 페이지에서 지속적으로 모니터링되고 보고
 
 - [비즈니스 연속성](./concepts-business-continuity.md)에 대한 자세한 정보
 - [영역 중복 고가용성](./concepts-high-availability.md)에 대한 자세한 정보
-- [백업 및 복구](./concepts-backup-restore.md)에 대한 자세한 정보
+- [백업 및 복구](./concepts-backup-restore.md) 알아보기

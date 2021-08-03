@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 23afe1e91a07277a3b6e583fcf5d767a843ef4e5
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 2f1892ab7cafae0b344026ed73a801ca30f4d9ee
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108320478"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111421547"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Application Gateway의 잘못된 게이트웨이 오류 문제 해결
 
@@ -131,7 +131,7 @@ DhcpOptions            : {
 
 ### <a name="cause"></a>원인
 
-사용자 요청이 수신되면 애플리케이션 게이트웨이가 요청에 구성된 규칙을 적용하고 백 엔드 풀 인스턴스를 라우팅합니다. 백 엔드 인스턴스의 응답에 대해 구성 가능한 시간 간격을 기다립니다. 기본적으로 이 간격은 **20** 초입니다. 애플리케이션 게이트웨이가 이 간격에서 백 엔드 애플리케이션의 응답을 수신하지 않으면 사용자 요청에 502 오류가 표시됩니다.
+사용자 요청이 수신되면 애플리케이션 게이트웨이가 요청에 구성된 규칙을 적용하고 백 엔드 풀 인스턴스를 라우팅합니다. 백 엔드 인스턴스의 응답에 대해 구성 가능한 시간 간격을 기다립니다. 기본적으로 이 간격은 **20** 초입니다. Application Gateway v1에서 애플리케이션 게이트웨이가 이 간격에서 백 엔드 애플리케이션의 응답을 수신하지 않으면 사용자 요청에 502 오류가 표시됩니다.  Application Gateway v2에서 Application Gateway가 이 간격 동안 백 엔드 애플리케이션의 응답을 수신하지 않으면 두 번째 백 엔드 풀 멤버에 대해 요청이 시도됩니다.  두 번째 요청이 실패하면 사용자 요청에 502 오류가 발생합니다.
 
 ### <a name="solution"></a>솔루션
 

@@ -4,14 +4,15 @@ description: Azure Key Vault를 사용하여 Azure Cosmos DB 계정에 대한 �
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/01/2021
+ms.date: 04/23/2021
 ms.author: thweiss
-ms.openlocfilehash: 1b1fc0b51c1cd2a99ec97bec9f588699a893ceca
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8738f34ea9d038bbc5a0bc3d9f13be11db2b9e00
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222625"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681713"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 계정에 대한 고객 관리형 키 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -243,18 +244,29 @@ az cosmosdb show \
 
 1. [위에](#add-access-policy)설명된 것처럼 Azure Key Vault 계정에 새 액세스 정책을 추가하고, Azure Cosmos DB의 자사 ID 대신 이전 단계에서 복사한 `principalId`를 사용합니다.
 
-1. Azure Key Vault의 암호화 키에 액세스할 때 시스템 할당 관리 ID를 사용하도록 지정하려면 Azure Cosmos DB 계정을 업데이트합니다. 계정의 Azure Resource Manager 템플릿에서 이 속성을 지정하여 이 작업을 수행할 수 있습니다.
+1. Azure Key Vault의 암호화 키에 액세스할 때 시스템 할당 관리 ID를 사용하도록 지정하려면 Azure Cosmos DB 계정을 업데이트합니다. 다음과 같이 수행할 수 있습니다.
 
-   ```json
-   {
-       "type": " Microsoft.DocumentDB/databaseAccounts",
-       "properties": {
-           "defaultIdentity": "SystemAssignedIdentity",
-           // ...
-       },
-       // ...
-   }
-   ```
+   - 계정의 Azure Resource Manager 템플릿에서 이 속성을 지정하여
+
+     ```json
+     {
+         "type": " Microsoft.DocumentDB/databaseAccounts",
+         "properties": {
+             "defaultIdentity": "SystemAssignedIdentity",
+             // ...
+         },
+         // ...
+     }
+     ```
+
+   - Azure CLI로 계정을 업데이트하여
+
+     ```azurecli
+     resourceGroupName='myResourceGroup'
+     accountName='mycosmosaccount'
+     
+     az cosmosdb update --resource-group $resourceGroupName --name $accountName --default-identity "SystemAssignedIdentity"
+     ```
 
 1. 필요에 따라 Azure Key Vault 액세스 정책에서 Azure Cosmos DB 자사 ID를 제거할 수 있습니다.
 

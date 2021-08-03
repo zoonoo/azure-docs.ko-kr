@@ -1,40 +1,33 @@
 ---
-title: Windows Virtual Desktop MSIX 앱 연결 미리 보기 PowerShell - Azure
-description: PowerShell을 사용하여 Windows Virtual Desktop에 대한 MSIX 앱 연결을 설정하는 방법입니다.
+title: Azure Virtual Desktop MSIX 앱 연결 PowerShell - Azure
+description: PowerShell을 사용하여 Azure Virtual Desktop에 대한 MSIX 앱 연결을 설정하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 8b6bad32ec653fb2ba63c6940cf6a89a13a8afd0
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 6a5dd53bee4e6ae99559d63441f1240d5905644e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448324"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745424"
 ---
-# <a name="set-up-msix-app-attach-preview-using-powershell"></a>PowerShell을 사용하여 MSIX 앱 연결(미리 보기) 설정
+# <a name="set-up-msix-app-attach-using-powershell"></a>PowerShell을 사용하여 MSIX 앱 연결 설정
 
-> [!IMPORTANT]
-> MSIX 앱 연결은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-Azure Portal 이외에 PowerShell을 사용하여 MSIX 앱 연결(미리 보기)을 수동으로 설정할 수도 있습니다. 이 문서에서는 PowerShell을 사용하여 MSIX 앱 연결을 설정하는 방법을 안내합니다.
+Azure Portal 이외에 PowerShell을 사용하여 MSIX 앱 연결을 수동으로 설정할 수도 있습니다. 이 문서에서는 PowerShell을 사용하여 MSIX 앱 연결을 설정하는 방법을 안내합니다.
 
 ## <a name="requirements"></a>요구 사항
 
->[!IMPORTANT]
->시작하기 전에 [이 양식](https://aka.ms/enablemsixappattach)을 작성하고 제출하여 구독에서 MSIX 앱 연결을 활성화합니다. 승인된 요청이 없으면 MSIX 앱 연결이 작동하지 않습니다. 요청 승인은 영업일 동안 최대 24시간이 걸릴 수 있습니다. 요청이 수락되고 완료되면 이메일을 받게 됩니다.
-
 MSIX 앱 연결을 구성하는 데 필요한 사항은 다음과 같습니다.
 
-- 작동하는 Windows Virtual Desktop 배포 Windows Virtual Desktop(클래식)을 배포하는 방법을 알아보려면 [Windows Virtual Desktop에서 테넌트 만들기](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)를 참조하세요. Azure Resource Manager 통합을 사용하여 Windows Virtual Desktop을 배포하는 방법을 알아보려면 [Azure Portal을 사용하여 호스트 풀 만들기](./create-host-pools-azure-marketplace.md)를 참조하세요.
-- 하나 이상의 활성 세션 호스트를 포함하는 Windows Virtual Desktop 호스트 풀
-- 이 호스트 풀은 유효성 검사 환경에 있어야 합니다.
+- 작동하는 Azure Virtual Desktop 배포 Azure Virtual Desktop(클래식)을 배포하는 방법을 알아보려면 [Azure Virtual Desktop에서 테넌트 만들기](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)를 참조하세요. Azure Resource Manager 통합을 사용하여 Azure Virtual Desktop을 배포하는 방법을 알아보려면 [Azure Portal을 사용하여 호스트 풀 만들기](./create-host-pools-azure-marketplace.md)를 참조하세요.
+- 하나 이상의 활성 세션 호스트를 포함하는 Azure Virtual Desktop 호스트 풀
 - 데스크톱 원격 앱 그룹
 - MSIX 패키징 도구
 - MSIX 패키지 애플리케이션은 파일 공유에 업로드된 MSIX 이미지로 확장됩니다.
-- MSIX 패키지를 저장할 Windows Virtual Desktop 배포의 파일 공유
+- MSIX 패키지를 저장할 Azure Virtual Desktop 배포의 파일 공유.
 - MSIX 이미지를 업로드한 파일 공유도 호스트 풀의 모든 VM(가상 머신)에 액세스할 수 있어야 합니다. 사용자는 이미지에 액세스하기 위한 읽기 전용 권한이 필요합니다.
 - PowerShell Core를 다운로드하고 설치합니다.
 - 공개 미리 보기 Azure PowerShell 모듈을 다운로드하고 로컬 폴더로 확장합니다.
@@ -242,9 +235,9 @@ $grName = "<AppGroupName>"
 
 ## <a name="next-steps"></a>다음 단계
 
-[Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)에서 이 기능에 대한 커뮤니티 질문을 요청합니다.
+[Azure Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)에서 이 기능에 대해 커뮤니티에 질문합니다.
 
-[Windows Virtual Desktop 피드백 허브](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)에서 Windows Virtual Desktop에 대한 피드백을 남길 수도 있습니다.
+[Azure Virtual Desktop 피드백 허브](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)에서 Azure Virtual Desktop에 대한 피드백을 남길 수도 있습니다.
 
 다음은 도움이 될 수 있는 다른 문서입니다.
 

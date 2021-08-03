@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 1b3d13402e18659d0deba723eaf52d4eb5959253
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7eff89301fa54312ffef323023100660237185a4
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379254"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955337"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -28,6 +28,12 @@ ms.locfileid: "110379254"
 * 알려진 문제
 * 버그 수정
 * 사용되지 않는 기능
+
+## <a name="may-2021"></a>2021년 5월
+
+### <a name="availability-zones-default-support-in-media-services"></a>Media Services의 가용성 영역 기본 지원
+
+이제 Media Services에서 [가용성 영역](concept-availability-zones.md)을 지원하여 동일한 Azure 지역 내에서 오류 격리 위치를 제공합니다.  Media Services 계정은 기본적으로 영역이 중복되며 추가 구성이나 설정이 필요하지 않습니다. 이는 [가용성 영역 지원](../../availability-zones/az-region.md#azure-regions-with-availability-zones)이 있는 지역에만 적용됩니다.
 
 ## <a name="march-2021"></a>2021년 3월
 
@@ -498,7 +504,7 @@ CMAF를 지원하는 Apple HLS(iOS 11+) 및 MPEG-DASH 플레이어에 대해 CMA
 
 ### <a name="video-indexer"></a>비디오 인덱서
 
-Video Indexer GA 릴리스가 8월에 발표되었습니다. 현재 지원되는 기능에 대한 자세한 내용은 [Video Indexer란?](../video-indexer/video-indexer-overview.md?bc=/azure/media-services/video-indexer/breadcrumb/toc.json&toc=/azure/media-services/video-indexer/toc.json)을 참조하세요. 
+Video Indexer GA 릴리스가 8월에 발표되었습니다. 현재 지원되는 기능에 대한 자세한 내용은 [Video Indexer란?](../../azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview.md?bc=%2fazure%2fmedia-services%2fvideo-indexer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmedia-services%2fvideo-indexer%2ftoc.json)을 참조하세요. 
 
 ### <a name="plans-for-changes"></a>변경 계획
 

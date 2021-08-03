@@ -3,14 +3,14 @@ title: Azure HDInsight 클러스터에 가상 네트워크 만들기
 description: Azure 가상 네트워크를 사용하여 HDInsight를 다른 클라우드 리소스 또는 데이터 센터의 리소스에 연결하는 방법을 알아봅니다.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, devx-track-azurecli
-ms.date: 04/16/2020
-ms.openlocfilehash: 43d57eac94cabb5c648183911e0c0bf72889946d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: hdinsightactive, devx-track-azurecli, devx-track-azurepowershell
+ms.date: 05/12/2021
+ms.openlocfilehash: 28d2cc40d1272fdf29b6df3f08469418ecbc36da
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98946070"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559397"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 가상 네트워크 만들기
 
@@ -38,7 +38,7 @@ Azure HDInsight에 대한 가상 네트워크를 사용하는 방법에 대한 �
 
 다음 리소스 관리 템플릿은 인바운드 트래픽을 제한하지만 HDInsight에 필요한 IP 주소에서의 트래픽은 허용하는 가상 네트워크를 만듭니다. 또한 이 템플릿은 가상 네트워크에 HDInsight 클러스터를 만듭니다.
 
-* [보안 Azure Virtual Network 및 HDInsight Hadoop 클러스터 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
+* [보안 Azure Virtual Network 및 HDInsight Hadoop 클러스터 배포](https://azure.microsoft.com/resources/templates/hdinsight-secure-vnet/)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -366,6 +366,60 @@ az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protoc
 4. 구성을 사용하려면 바인딩을 다시 시작합니다. 예를 들어, 두 DNS 서버에서 `sudo service bind9 restart`입니다.
 
 다음 단계를 완료한 후 FQDN(정규화된 도메인 이름)을 사용하여 가상 네트워크의 리소스에 연결할 수 있습니다. 이제 HDInsight를 가상 네트워크에 설치할 수 있습니다.
+
+## <a name="test-your-settings-before-deploying-an-hdinsight-cluster"></a>HDInsight 클러스터를 배포하기 전에 설정 테스트
+
+클러스터를 배포하기 전에, 계획된 클러스터와 동일한 VNet 및 서브넷의 가상 머신에서 [networkValidator 도구](https://github.com/Azure-Samples/hdinsight-diagnostic-scripts/blob/main/HDInsightNetworkValidator)를 실행하여 많은 네트워크 구성 설정이 올바른지 확인할 수 있습니다.
+
+**networkValidator.sh 스크립트를 실행하기 위해 가상 머신을 배포하려면**
+
+1. [Azure Portal Ubuntu Server 18.04 LTS 페이지](https://portal.azure.com/?feature.customportal=false#create/Canonical.UbuntuServer1804LTS-ARM)를 열고 **만들기** 를 클릭합니다.
+
+1. **기본 사항** 탭의 **프로젝트 세부 정보** 에서 구독을 선택하고, 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
+
+    :::image type="content" source="./media/hdinsight-create-virtual-network/project-details.png" alt-text="가상 머신에 대한 Azure 구독 및 리소스 그룹을 선택하는 위치를 보여 주는 프로젝트 세부 정보 섹션의 스크린샷":::
+
+1. **인스턴스 세부 정보** 아래에서 고유한 **가상 머신 이름** 을 입력하고, VNet과 동일한 **지역** 을 선택하고, **가용성 옵션** 으로 ‘인프라 중복이 필요하지 않습니다.’를 선택하고, **이미지** 로 *Ubuntu 18.04 LTS* 를 선택하고, **Azure Spot 인스턴스** 를 비워두고 **크기** 로 Standard_B1s(또는 그 이상)를 선택합니다.
+
+    :::image type="content" source="./media/hdinsight-create-virtual-network/instance-details.png" alt-text="가상 머신의 이름을 입력하고 해당 지역, 이미지, 크기를 선택하는 인스턴스 세부 정보 섹션의 스크린샷":::
+
+1. **관리자 계정** 에서 **암호** 를 선택하고 관리자 계정의 사용자 이름 및 암호를 입력합니다. 
+
+    :::image type="content" source="./media/hdinsight-create-virtual-network/administrator-account.png" alt-text="인증 유형을 선택하고 관리자 자격 증명을 입력하는 관리자 계정 섹션의 스크린샷":::
+
+1. **인바운드 포트 규칙** > **퍼블릭 인바운드 포트** 에서 **선택된 포트 허용** 을 선택한 다음, 드롭다운에서 **SSH(22)** 를 선택하고, **다음: 디스크 >** 를 선택합니다.
+
+    :::image type="content" source="./media/hdinsight-create-virtual-network/inbound-port-rules.png" alt-text="인바운드 연결이 허용되는 포트를 선택하는 인바운드 포트 규칙 섹션의 스크린샷":::
+
+1. **디스크 옵션** 에서 ‘OS 디스크 유형에 대해 표준 SSD’를 선택하고 **다음: 네트워킹 >** 을 클릭합니다.
+
+1. **네트워킹** 페이지의 **네트워크 인터페이스** 아래에서 HDInsight 클러스터를 추가할 **가상 네트워크** 및 **서브넷** 을 선택한 다음, 페이지 하단에서 **검토 + 만들기** 단추를 선택합니다.
+
+    :::image type="content" source="./media/hdinsight-create-virtual-network/vnet.png" alt-text="가상 머신을 추가할 VNet과 서브넷을 선택할 네트워크 인터페이스 섹션의 스크린샷":::
+
+1. **가상 머신 만들기** 페이지에서 만들려는 VM의 세부 정보를 볼 수 있습니다. 준비가 되면 **만들기** 를 선택합니다.
+
+1. 배포가 완료되면 **리소스로 이동** 을 선택합니다.
+
+1. 새 VM에 대한 페이지에서 공용 IP 주소를 선택하고 클립보드에 복사합니다.
+
+    :::image type="content" source="./media/hdinsight-create-virtual-network/ip-address.png" alt-text="가상 머신의 IP 주소를 복사하는 방법을 보여 주는 스크린샷":::
+
+**/networkValidator.sh 스크립트 실행**
+
+1. 새 가상 머신으로 SSH합니다.
+1. 다음 명령을 사용하여 [GitHub](https://github.com/Azure-Samples/hdinsight-diagnostic-scripts/tree/main/HDInsightNetworkValidator)의 모든 파일을 가상 머신으로 복사합니다.
+
+    `wget -i https://raw.githubusercontent.com/Azure-Samples/hdinsight-diagnostic-scripts/main/HDInsightNetworkValidator/all.txt`
+
+1. 텍스트 편집기에서 params.txt 파일을 열고 모든 변수에 값을 추가합니다. 관련 유효성 검사를 생략하려면 빈 문자열("")을 사용합니다.
+1. `sudo chmod +x ./setup.sh`를 실행하여 setup.sh를 실행 가능하게 만들고 `sudo ./setup.sh`와 함께 실행하여 Python 2.x용 pip를 설치하고 필요한 Python 2.x 모듈을 설치합니다.
+1. `sudo python2 ./networkValidator.py`와 함께 주 스크립트를 실행합니다.
+1. 스크립트가 완료되면 요약 섹션에는 검사가 성공했는지와 클러스터를 만들 수 있는지가 표시됩니다. 또는 문제가 발생했는지가 표시되는데, 이 경우 오류 출력 및 관련 설명서를 검토하여 오류를 해결해야 합니다.
+
+    오류를 수정하려고 시도한 후에는 스크립트를 다시 실행하여 진행 상황을 확인할 수 있습니다.
+1. 검사를 완료하고 요약에 “SUCCESS: You can create your HDInsight cluster in this VNet/Subnet.”(성공: 이 VNet/서브넷에 HDInsight 클러스터를 만들 수 있습니다.)이라는 메시지가 표시되면 클러스터를 만들 수 있습니다. 
+1. 유효성 검사 스크립트 실행이 완료되면 새 가상 머신을 삭제합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

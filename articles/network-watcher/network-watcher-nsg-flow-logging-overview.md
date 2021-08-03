@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: bc085163b4f738d022ab9771794ec85293de5ed8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f46dc092776e73556a67fee705a98fa883dfbc6
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100521682"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810699"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -93,10 +93,10 @@ ms.locfileid: "100521682"
                     * **트래픽 흐름** - 트래픽 흐름의 방향입니다. 유효한 값은 인바운드에 대해서 **I** 이며 아웃바운드에 대해서 **O** 입니다.
                     * **트래픽 의사 결정** - 트래픽이 허용되었는지 또는 거부되었는지 여부입니다. 유효한 값은 허용에 대해 **A** 이며 거부에 대해 **D** 입니다.
                     * **흐름 상태 - 버전 2만** - 흐름의 상태를 캡처합니다. 가능한 상태는 다음과 같습니다. **B**: 흐름이 만들어질 때 시작합니다. 통계가 제공되지 않습니다. **C**: 지속적인 흐름에 대해 계속됩니다. 통계가 5분 간격으로 제공됩니다. **E**: 흐름이 종료되면 끝납니다. 통계가 제공됩니다.
-                    * **패킷 - 원본에서 대상으로 - 버전 2만** 마지막 업데이트 이후 원본에서 대상으로 전송된 TCP 또는 UDP 패킷의 총 수입니다.
-                    * **전송된 바이트 - 원본에서 대상으로 - 버전 2만** 마지막 업데이트 이후 원본에서 대상으로 전송된 TCP 또는 UDP 패킷 바이트의 총 수입니다. 패킷 바이트에는 패킷 헤더 및 페이로드가 포함됩니다.
-                    * **패킷 - 대상에서 원본으로 - 버전 2만** 마지막 업데이트 이후 대상에서 원본으로 전송된 TCP 또는 UDP 패킷의 총 수입니다.
-                    * **전송된 바이트 - 대상에서 원본으로 - 버전 2만** 마지막 업데이트 이후 대상에서 원본으로 전송된 TCP 및 UDP 패킷 바이트의 총 수입니다. 패킷 바이트에는 패킷 헤더 및 페이로드가 포함됩니다.
+                    * **패킷 - 원본에서 대상으로 - 버전 2만** 마지막 업데이트 이후 원본에서 대상으로 전송된 TCP 패킷의 총 수입니다.
+                    * **전송된 바이트 - 원본에서 대상으로 - 버전 2만** 마지막 업데이트 이후 원본에서 대상으로 전송된 TCP 패킷 바이트의 총 수입니다. 패킷 바이트에는 패킷 헤더 및 페이로드가 포함됩니다.
+                    * **패킷 - 대상에서 원본으로 - 버전 2만** 마지막 업데이트 이후 대상에서 원본으로 전송된 TCP UDP 패킷의 총 수입니다.
+                    * **전송된 바이트 - 대상에서 원본으로 - 버전 2만** 마지막 업데이트 이후 대상에서 원본으로 전송된 TCP 패킷 바이트의 총 수입니다. 패킷 바이트에는 패킷 헤더 및 페이로드가 포함됩니다.
 
 
 **NSG 흐름 로그 버전 2(버전 1과 비교)** 
@@ -339,7 +339,7 @@ Azure Portal에서 Network Watcher의 NSG 흐름 로그 섹션으로 이동합�
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-*흐름 로그 시각화하기*
+*흐름 로그 시각화*
 
 - [Azure 트래픽 분석](./traffic-analytics.md)은 흐름 로그를 처리하고, 인사이트를 추출하고, 흐름 로그를 시각화하는 Azure Native Service입니다. 
 - [[자습서] Power BI를 사용하여 NSG 흐름 로그 시각화하기](./network-watcher-visualize-nsg-flow-logs-power-bi.md)
@@ -347,6 +347,18 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 - [[자습서] Grafana를 사용하여 NSG 흐름 로그 관리 및 분석하기](./network-watcher-nsg-grafana.md)
 - [[자습서] Graylog를 사용하여 NSG 흐름 로그 관리 및 분석하기](./network-watcher-analyze-nsg-flow-logs-graylog.md)
 
+*흐름 로그를 사용하지 않도록 설정*
+
+흐름 로그를 사용하지 않도록 설정하면 연결된 NSG에 대한 흐름 로깅이 중지됩니다. 그러나 리소스로서의 흐름 로그는 모든 설정 및 연결과 함께 계속 존재합니다. 구성된 NSG에서 흐름 로깅을 시작할 때마다 사용하도록 설정할 수 있습니다. 흐름 로그의 사용/사용 안 함 단계는 [이 가이드](./network-watcher-nsg-flow-logging-powershell.md)에서 찾을 수 있습니다.  
+
+*흐름 로그 삭제*
+
+흐름 로그가 삭제되면 연결된 NSG에 대한 흐름 로깅이 중지될 뿐만 아니라 해당 설정 및 연결을 통해 흐름 로그 리소스도 삭제됩니다. 흐름 로깅을 다시 시작하려면 해당 NSG에 대한 새 흐름 로그 리소스를 만들어야 합니다. 흐름 로그는 [PowerShell](/powershell/module/az.network/remove-aznetworkwatcherflowlog), [CLI](/cli/azure/network/watcher/flow-log#az_network_watcher_flow_log_delete) 또는 [REST API](/rest/api/network-watcher/flowlogs/delete)를 사용하여 삭제할 수 있습니다. Azure Portal에서 흐름 로그 삭제에 대한 지원은 파이프라인에 있습니다.    
+
+또한 NSG가 삭제되면 기본적으로 연결된 흐름 로그 리소스가 삭제됩니다.
+
+> [!NOTE]
+> NSG를 다른 리소스 그룹 또는 구독으로 이동하려면 연결된 흐름 로그를 삭제해야 합니다. 흐름 로그를 사용하지 않도록 설정하면 작동하지 않습니다. NSG를 마이그레이션한 후 흐름 로그를 다시 만들어 흐름 로깅을 사용하도록 설정해야 합니다.  
 
 ## <a name="nsg-flow-logging-considerations"></a>NSG 흐름 로깅 고려 사항
 
@@ -358,14 +370,14 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **흐름 로깅 비용**: NSG 흐름 로그는 생성된 로그 양에 따라 요금이 청구됩니다. 트래픽 볼륨이 많으면 흐름 로그 볼륨과 관련 비용도 증가할 수 있습니다. NSG 흐름 로그의 가격에는 스토리지의 기본 비용이 포함되지 않습니다. NSG 흐름 로깅에서 보존 정책 기능을 사용하면 해당 기간 동안 별도의 스토리지 비용이 발생됩니다. 데이터를 영구적으로 보존하기 원하지만 보존 정책을 적용하고 싶지는 않은 경우, 보존(일)을 0으로 설정합니다. 추가 세부 정보는 [Network Watcher 가격 책정](https://azure.microsoft.com/pricing/details/network-watcher/) 및 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
-**사용자 정의 인바운드 TCP 규칙** 에 대한 문제: [NSG](../virtual-network/network-security-groups-overview.md)(네트워크 보안 그룹)는 [상태 저장 방화벽](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true)으로 구현됩니다. 그러나 현재는 플랫폼 제한으로 인해 인바운드 TCP 흐름에 영향을 주는 사용자 정의 규칙은 상태 비저장 방식으로 구현됩니다. 이로 인해 사용자 정의 인바운드 규칙의 영향을 받는 흐름은 종료되지 않습니다. 해당 흐름에 대해서는 바이트 및 패킷 수가 추가로 기록되지 않습니다. 따라서 NSG 흐름 로그(및 트래픽 분석)에서 보고되는 바이트와 패킷 수는 실제와 다를 수 있습니다. 해당 문제를 해결하는 옵트인 플래그는 늦어도 2021년 3월부터 사용할 수 있습니다. 그러는 사이에 해당 동작으로 인해 심각한 이슈를 겪고 있는 고객은 옵트인 지원을 요청할 수 있습니다. Network Watcher > NSG 흐름 로그에서 지원을 요청하세요.  
+**사용자 정의 인바운드 TCP 규칙** 에 대한 문제: [NSG](../virtual-network/network-security-groups-overview.md)(네트워크 보안 그룹)는 [상태 저장 방화벽](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true)으로 구현됩니다. 그러나 현재는 플랫폼 제한으로 인해 인바운드 TCP 흐름에 영향을 주는 사용자 정의 규칙은 상태 비저장 방식으로 구현됩니다. 이로 인해 사용자 정의 인바운드 규칙의 영향을 받는 흐름은 종료되지 않습니다. 해당 흐름에 대해서는 바이트 및 패킷 수가 추가로 기록되지 않습니다. 따라서 NSG 흐름 로그(및 트래픽 분석)에서 보고되는 바이트와 패킷 수는 실제와 다를 수 있습니다. 해당 문제를 해결하는 옵트인 플래그는 늦어도 2021년 6월부터 사용할 수 있습니다. 그러는 사이에 해당 동작으로 인해 심각한 문제를 겪고 있는 고객은 옵트인 지원을 요청할 수 있습니다. Network Watcher > NSG 흐름 로그에서 지원을 요청하세요.  
 
 **인터넷 IP에서 공용 IP가 없는 VM으로 로그인하는 인바운드 흐름**: 인스턴스 수준 공용 IP로서 NIC와 연결된 공용 IP 주소를 통해 할당된 공용 IP 주소가 없거나, 기본 부하 분산 장치 백 엔드 풀의 일부인 VM에 대해서는 [기본 SNAT](../load-balancer/load-balancer-outbound-connections.md)를 사용하고 Azure에서 할당된 IP 주소를 통해 아웃바운드 연결을 지원하도록 합니다. 따라서 SNAT에 할당된 포트 범위의 포트로 흐름을 보내는 경우, 인터넷 IP 주소에서 흐름 로그 항목을 확인할 수 있습니다. Azure는 VM에 대한 흐름을 허용하지 않지만, 해당 시도를 기록하고 Network Watcher의 NSG 흐름 로그에 기본적으로 표시됩니다. NSG를 사용하여 원치 않는 인바운드 인터넷 트래픽을 명시적으로 차단하는 것이 좋습니다.
 
 **Application Gateway V2 서브넷 NSG에 대한 문제**: 현재는 Application Gateway V2 서브넷 NSG의 흐름 로깅이 [지원되지 않습니다.](../application-gateway/application-gateway-faq.yml#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) 해당 문제는 V1 Application Gateway에 영향을 주지 않습니다.
 
 **호환되지 않는 서비스**: 현재는 플랫폼 제한으로 인해 Azure 서비스의 일부가 NSG 흐름 로그에서 지원되지 않습니다. 현재 호환되지 않는 서비스 목록은 다음과 같습니다.
-- [AKS(Azure Kubernetes Service)](https://azure.microsoft.com/services/kubernetes-service/)
+- [ACI(Azure Container Instances)](https://azure.microsoft.com/services/container-instances/)
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
 
 ## <a name="best-practices"></a>모범 사례
@@ -377,6 +389,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 몇 가지 일반적인 시나리오:
 1. **VM의 다중 NIC**: 가상 머신에 여러 NIC를 연결하는 경우 모든 NIC에서 흐름 로깅을 사용하도록 설정해야 합니다.
 1. **NIC 및 서브넷 수준에서의 NSG 설정**: NSG가 NIC 및 서브넷 수준에서 구성된 경우에는 두 NSG에서 흐름 로깅을 사용하도록 설정해야 합니다. 
+1. **AKS 클러스터 서브넷**: AKS는 클러스터 서브넷에 기본 NSG를 추가합니다. 위의 지점에서 설명한 대로 이 기본 NSG에서 흐름 로깅을 사용하도록 설정해야 합니다.
 
 **스토리지 프로비저닝**: 스토리지는 예상 흐름 로그 볼륨이 포함된 튜닝에서 프로비저닝되어야 합니다.
 

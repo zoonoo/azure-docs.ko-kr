@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 05/26/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9a31fe8046e6bb0a933ade78ee2c7f4b208767a7
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: a6952679ad2497a059b6ad043ef5e1e23fea0236
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028352"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744074"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대한 로그인 설정
 
@@ -64,7 +64,7 @@ Azure AD B2C(Azure Active Directory B2C)에서 특정 Azure AD 조직의 Azure A
 
 Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경우 Azure Portal UI 또는 애플리케이션 매니페스트에서 애플리케이션에 대한 선택적 클레임을 구성할 수 있습니다. 자세한 내용은 [Azure AD 앱에 선택적 클레임을 제공하는 방법](../active-directory/develop/active-directory-optional-claims.md)을 참조하세요.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **Azure Active Directory** 를 검색하고 선택합니다.
+1. 조직 Azure AD 테넌트를 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 섹션에서 **앱 등록** 을 선택합니다.
 1. 목록에서 선택적 클레임을 구성하려는 애플리케이션을 선택합니다.
 1. **관리** 섹션에서 **토큰 구성** 을 선택합니다.
@@ -114,7 +114,7 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 1. **소셜 ID 공급자** 에서 **Contoso Azure AD** 를 선택합니다.
 1. **저장** 을 선택합니다.
 1. 정책을 테스트하려면 **사용자 흐름 실행** 을 선택합니다.
-1. **애플리케이션** 에서 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 에서 [이전에 등록된](tutorial-register-applications.md) 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다. 
 1. **사용자 흐름 실행** 단추를 선택합니다.
 1. 가입 또는 로그인 페이지에서 **Contoso Azure AD** 를 선택하여 Azure AD Contoso 계정으로 로그인합니다.
 

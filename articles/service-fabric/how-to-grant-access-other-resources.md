@@ -3,12 +3,13 @@ title: 애플리케이션에 다른 Azure 리소스에 대한 액세스 권한 �
 description: 이 문서에서는 Azure Active Directory 기반 인증을 지원하는 다른 Azure 리소스에 대한 관리 ID 사용 Service Fabric 애플리케이션 액세스 권한을 부여하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: c7560294fbf6d122396b6a5a8ffd3ee93bc89048
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 7f49a3f97862c3a141ea9376d0ffc9bf510d3e6f
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97507458"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110782965"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources"></a>Azure 리소스에 대한 Service Fabric 애플리케이션의 관리 ID 액세스 권한 부여
 
@@ -17,18 +18,10 @@ ms.locfileid: "97507458"
 정확한 단계 순서는 액세스되는 Azure 리소스 유형과 권한을 부여하는 데 사용되는 언어/클라이언트에 따라 달라집니다. 이 문서의 나머지 부분에서는 애플리케이션에 할당된 사용자 할당 ID를 가정하고 편의를 위해 몇 가지 일반적인 예제를 포함하지만 이 항목에 대한 완전한 참조는 아닙니다. 권한 부여에 대한 최신 지침은 해당 Azure 서비스의 설명서를 참조하세요.  
 
 ## <a name="granting-access-to-azure-storage"></a>Azure Storage에 대한 액세스 권한 부여
-Service Fabric 애플리케이션의 관리 ID(이 경우 사용자 할당)를 사용하여 Azure Storage Blob에서 데이터를 검색할 수 있습니다. 다음 단계를 수행하여 Azure Portal에 필요한 권한을 ID에 부여합니다.
+Service Fabric 애플리케이션의 관리 ID(이 경우 사용자 할당)를 사용하여 Azure Storage Blob에서 데이터를 검색할 수 있습니다. *리소스 그룹* 범위에서 애플리케이션의 관리 ID에 [Storage Blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 역할을 할당하여 저장소 계정에 필요한 권한을 ID에 부여합니다.
 
-1. 스토리지 계정으로 이동
-2. 왼쪽 패널의 액세스 제어(IAM) 링크를 클릭합니다.
-3. (선택 사항) 기존 액세스 확인: '찾기' 컨트롤에서 시스템 또는 사용자 할당 관리 ID를 선택합니다. 다음 결과 목록에서 적절한 ID를 선택합니다.
-4. 페이지 상단에서 + 역할 할당 추가를 클릭하여 애플리케이션 ID에 대한 새 역할 할당을 추가합니다.
-역할의 드롭다운에서 Storage Blob 데이터 판독기를 선택합니다.
-5. 다음 드롭다운의 다음에 대한 액세스 할당 아래에서 `User assigned managed identity`를 선택합니다.
-6. 다음으로 적절한 구독이 구독 드롭다운에 나열되는지 확인한 다음, 리소스 그룹을 모든 리소스 그룹으로 설정합니다.
-7. 선택에서 Service Fabric 애플리케이션에 해당하는 UAI를 선택한 후 저장을 클릭합니다.
+세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
-시스템 할당 Service Fabric 관리 ID에 대한 지원은 Azure Portal의 통합을 포함하지 않습니다. 애플리케이션에서 시스템 할당 ID를 사용하는 경우 먼저 애플리케이션 ID의 클라이언트 ID를 찾은 다음, 위의 단계를 반복하지만 찾기 컨트롤에서 `Azure AD user, group, or service principal` 옵션을 선택해야 합니다.
 
 ## <a name="granting-access-to-azure-key-vault"></a>Azure Key Vault에 대한 액세스 권한 부여
 스토리지 액세스와 마찬가지로 Service Fabric 애플리케이션의 관리 ID를 활용하여 Azure Key Vault에 액세스할 수 있습니다. Azure Portal의 액세스 권한을 부여하는 단계는 위에 나온 단계와 비슷하므로 여기서는 설명하지 않습니다. 차이점은 아래 이미지를 참조하세요.

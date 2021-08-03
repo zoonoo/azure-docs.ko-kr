@@ -1,32 +1,32 @@
 ---
-title: Windows Virtual Desktop(클래식) 진단 문제 - Azure
-description: Windows Virtual Desktop(클래식) 진단 기능을 사용하여 문제를 진단하는 방법.
+title: Azure Virtual Desktop(클래식) 진단 문제 - Azure
+description: Azure Virtual Desktop(클래식) 진단 기능을 사용하여 문제를 진단하는 방법.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e23a1e9a2a0118402df0d9b8869f170762a52284
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 29826aba135c2d409a99489aeb9e2c71f6d6a7c4
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444958"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754712"
 ---
-# <a name="identify-and-diagnose-issues-in-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱(클래식)의 문제 식별 및 진단
+# <a name="identify-and-diagnose-issues-in-azure-virtual-desktop-classic"></a>Azure Virtual Desktop(클래식)의 문제 식별 및 진단
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../diagnostics-role-service.md)를 참조하세요.
+>이 내용은 Azure Resource Manager의 Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager의 Azure Virtual Desktop 개체를 관리하려는 경우 [이 문서](../diagnostics-role-service.md)를 참조하세요.
 
-Windows Virtual Desktop은 관리자가 단일 인터페이스를 통해 문제를 식별할 수 있도록 지원하는 진단 기능을 제공합니다. Windows Virtual Desktop 역할은 사용자가 시스템과 상호 작용할 때마다 진단 작업을 로깅합니다. 각 로그에는 트랜잭션에 개입한 Windows Virtual Desktop 역할, 오류 메시지, 테넌트 정보, 사용자 정보와 같은 관련 정보가 포함됩니다. 진단 작업은 최종 사용자 작업과 관리자 작업 양쪽에 의해 생성되며, 다음과 같은 세 가지 버킷으로 구분됩니다.
+Azure Virtual Desktop은 관리자가 단일 인터페이스를 통해 문제를 식별할 수 있도록 지원하는 진단 기능을 제공합니다. Azure Virtual Desktop 역할은 사용자가 시스템과 상호 작용할 때마다 진단 작업을 로깅합니다. 각 로그에는 트랜잭션에 개입한 Azure Virtual Desktop 역할, 오류 메시지, 테넌트 정보, 사용자 정보와 같은 관련 정보가 포함됩니다. 진단 작업은 최종 사용자 작업과 관리자 작업 양쪽에 의해 생성되며, 다음과 같은 세 가지 버킷으로 구분됩니다.
 
 * 피드 구독 작업: 최종 사용자가 Microsoft 원격 데스크톱 애플리케이션을 통해 피드에 연결하려고 시도할 때마다 이 작업이 트리거됩니다.
 * 연결 작업: 최종 사용자가 Microsoft 원격 데스크톱 애플리케이션을 통해 데스크톱 또는 RemoteApp에 연결하려고 시도할 때마다 이 작업이 트리거됩니다.
 * 관리 작업: 관리자가 시스템에서 호스트 풀 만들기, 앱 그룹에 사용자 할당, 역할 할당 만들기와 같은 관리 작업을 수행할 때마다 이 작업이 트리거됩니다.
 
-진단 역할 서비스 자체가 Windows Virtual Desktop의 일부이므로 Windows Virtual Desktop에 도달하지 않는 연결은 진단 결과에 표시되지 않습니다. Windows Virtual Desktop 연결 문제는 최종 사용자가 네트워크 연결 문제를 경험할 때 발생할 수 있습니다.
+진단 역할 서비스 자체가 Azure Virtual Desktop의 일부이므로 Azure Virtual Desktop에 도달하지 않는 연결은 진단 결과에 표시되지 않습니다. Azure Virtual Desktop 연결 문제는 최종 사용자가 네트워크 연결 문제를 경험할 때 발생할 수 있습니다.
 
-시작하려면 PowerShell 세션에서 사용할 수 있도록 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](/powershell/windows-virtual-desktop/overview/). 그런 후, 다음 cmdlet을 실행하여 계정에 로그인합니다.
+시작하려면 PowerShell 세션에서 사용할 수 있도록 [Azure Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](/powershell/windows-virtual-desktop/overview/). 그런 후, 다음 cmdlet을 실행하여 계정에 로그인합니다.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -34,7 +34,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## <a name="diagnose-issues-with-powershell"></a>PowerShell 관련 진단 문제
 
-Windows Virtual Desktop 진단은 하나의 PowerShell cmdlet만 사용하지만 문제의 범위를 좁히고 문제를 분리할 수 있도록 여러 선택적 매개 변수를 포함합니다. 다음 섹션에서는 문제 진단을 위해 실행할 수 있는 cmdlet을 안내합니다. 대부분의 필터는 함께 적용할 수 있습니다. `<tenantName>`과 같이 괄호로 묶인 값은 사용자의 상황에 맞는 값으로 바꾸어야 합니다.
+Azure Virtual Desktop 진단은 하나의 PowerShell cmdlet만 사용하지만 문제의 범위를 좁히고 문제를 분리할 수 있도록 여러 선택적 매개 변수를 포함합니다. 다음 섹션에서는 문제 진단을 위해 실행할 수 있는 cmdlet을 안내합니다. 대부분의 필터는 함께 적용할 수 있습니다. `<tenantName>`과 같이 괄호로 묶인 값은 사용자의 상황에 맞는 값으로 바꾸어야 합니다.
 
 >[!IMPORTANT]
 >진단 기능은 단일 사용자의 문제 해결을 위한 기능입니다. PowerShell을 사용하는 모든 쿼리에는 *-UserName* 또는 *-ActivityID* 매개 변수를 포함해야 합니다. 모니터링용으로는 Log Analytics를 사용하세요. 작업 영역으로 진단 데이터를 보내는 방법은 [진단 기능에 Log Analytics 사용](diagnostics-log-analytics-2019.md)을 참조하세요.
@@ -123,10 +123,10 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityGuid> 
 
 ## <a name="common-error-scenarios"></a>일반적인 오류 시나리오
 
-오류 시나리오는 서비스 내부 오류와 Windows Virtual Desktop 외부 오류로 분류됩니다.
+오류 시나리오는 서비스 내부 오류와 Azure Virtual Desktop 외부 오류로 분류됩니다.
 
-* 내부 문제: 테넌트 관리자가 완화할 수 없고 지원 문제로서 해결해야 하는 시나리오를 지정합니다. [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 통해 피드백을 제공할 때는 작업 ID와 문제가 발생한 대략적인 시간 프레임을 알려 주세요.
-* 외부 문제: 시스템 관리자가 완화할 수 있는 시나리오와 관련이 있습니다. 이러한 문제는 Windows Virtual Desktop 외부적인 오류입니다.
+* 내부 문제: 테넌트 관리자가 완화할 수 없고 지원 문제로서 해결해야 하는 시나리오를 지정합니다. [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 통해 피드백을 제공할 때는 작업 ID와 문제가 발생한 대략적인 시간 프레임을 포함합니다.
+* 외부 문제: 시스템 관리자가 완화할 수 있는 시나리오와 관련이 있습니다. 이러한 문제는 Azure Virtual Desktop 외부적인 오류입니다.
 
 다음 표에는 관리자가 직면할 수 있는 일반적인 오류가 나와 있습니다.
 
@@ -153,7 +153,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityGuid> 
 |8000|InvalidAuthorizationRoleScope|입력한 역할 이름이 기존 역할 이름과 일치하지 않습니다. 역할 이름에 오타가 있는지 확인한 후 다시 시도하세요. |
 |8001|UserNotFound |입력한 사용자 이름이 기존 사용자 이름과 일치하지 않습니다. 이름에 오타가 있는지 확인한 후 다시 시도하세요.|
 |8005|UserNotFoundInAAD |입력한 사용자 이름이 기존 사용자 이름과 일치하지 않습니다. 이름에 오타가 있는지 확인한 후 다시 시도하세요.|
-|8008|TenantConsentRequired|[이](tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) 지침에 따라 테넌트에 대한 동의를 제공하세요.|
+|8008|TenantConsentRequired|[이](tenant-setup-azure-active-directory.md#grant-permissions-to-azure-virtual-desktop) 지침에 따라 테넌트에 대한 동의를 제공하세요.|
 
 ### <a name="external-connection-error-codes"></a>외부 연결 오류 코드
 
@@ -174,6 +174,6 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityGuid> 
 
 ## <a name="next-steps"></a>다음 단계
 
-Windows Virtual Desktop의 역할에 대해 자세히 알아보려면 [Windows Virtual Desktop 환경](environment-setup-2019.md)을 참조하세요.
+Azure Virtual Desktop 내의 역할에 대해 자세히 알아보려면 [Azure Virtual Desktop 환경](environment-setup-2019.md)을 참조하세요.
 
-Windows Virtual Desktop에 대해 사용할 수 있는 PowerShell cmdlet 목록을 보려면 [PowerShell 참조](/powershell/windows-virtual-desktop/overview)를 참조하세요.
+Azure Virtual Desktop에 사용할 수 있는 PowerShell cmdlet 목록을 보려면 [PowerShell 참조](/powershell/windows-virtual-desktop/overview)를 참조하세요.

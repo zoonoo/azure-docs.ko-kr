@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 95f1c4bf9b599da8285ac69e299549e5aa73c2f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: efb7d0a239d31d82b55b5cd5066e6003391ace45
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92519591"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558792"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>관리 ID를 사용하여 데이터 원본에 대한 인덱서 연결 설정
 
@@ -39,7 +39,7 @@ Azure Cognitive Search의 [인덱서](search-indexer-overview.md)는 데이터 �
 
 다음 데이터 원본은 관리 ID를 사용하는 인덱서 연결 설정을 지원합니다. 
 
-* [Azure Blob 스토리지, Azure Data Lake Storage Gen2(미리 보기), Azure Table Storage](search-howto-managed-identities-storage.md)
+* [Azure Blob Storage,  Azure Data Lake Storage Gen2(미리 보기), Azure Table Storage](search-howto-managed-identities-storage.md)
 * [Azure Cosmos DB](search-howto-managed-identities-cosmos-db.md)
 * [Azure SQL Database](search-howto-managed-identities-sql.md)
 
@@ -51,6 +51,6 @@ Azure Cognitive Search의 [인덱서](search-indexer-overview.md)는 데이터 �
 
 관리 ID를 사용하여 인덱서 연결을 설정하는 방법에 대해 자세히 알아봅니다.
 
-* [Azure Blob 스토리지, Azure Data Lake Storage Gen2(미리 보기), Azure Table Storage](search-howto-managed-identities-storage.md)
+* [Azure Blob Storage,  Azure Data Lake Storage Gen2(미리 보기), Azure Table Storage](search-howto-managed-identities-storage.md)
 * [Azure Cosmos DB](search-howto-managed-identities-cosmos-db.md)
 * [Azure SQL Database](search-howto-managed-identities-sql.md)
