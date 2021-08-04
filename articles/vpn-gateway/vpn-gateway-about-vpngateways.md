@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 04/28/2021
+ms.date: 07/08/2021
 ms.author: cherylmc
 ms.custom:
 - contperf-fy21q1
 - e2e-hybrid
-ms.openlocfilehash: bdaa61aa45c357e95e35196a5be7774f0af95ec0
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: ae7c9ee5357e09dcf7c33cd2ae3111cce15b6641
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202338"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721211"
 ---
 # <a name="what-is-vpn-gateway"></a>VPN Gateway란?
 
@@ -27,7 +27,7 @@ VPN Gateway는 공용 인터넷을 통해 Azure 가상 네트워크와 온-프�
 
 가상 네트워크 게이트웨이를 구성할 때 게이트웨이 유형을 지정하는 설정을 구성합니다. 게이트웨이 유형에 따라 가상 네트워크 게이트웨이 사용 방법과 게이트웨이가 수행하는 작업이 결정합니다. 게이트웨이 유형 'Vpn'은 생성된 가상 네트워크 게이트웨이의 유형이 'VPN 게이트웨이'임을 지정합니다. 이렇게 하면 다른 게이트웨이 유형을 사용하는 ExpressRoute 게이트웨이와 구별됩니다. 가상 네트워크에는 두 개의 가상 네트워크 게이트웨이(하나의 VPN Gateway와 하나의 ExpressRoute 게이트웨이)가 있을 수 있습니다. 자세한 내용은 [게이트웨이 유형](vpn-gateway-about-vpn-gateway-settings.md#gwtype)을 참조하세요.
 
-가상 네트워크 게이트웨이 만들기는 완료되는 데 최대 45분까지 소요됩니다. 가상 네트워크 게이트웨이를 만들 때 게이트웨이 VM은 게이트웨이 서브넷에 배포되고 지정한 설정으로 구성됩니다. VPN Gateway를 만든 후에 해당 VPN Gateway와 다른 VPN Gateway(VNet 대 VNet) 간에 IPsec/IKE VPN 터널 연결을 만들거나, VPN Gateway와 온-프레미스 VPN 디바이스 간(사이트 간)의 크로스-프레미스 IPsec/IKE VPN 터널 연결을 생성할 수 있습니다. 지점과 사이트 간 VPN 연결(OpenVPN, IKEv2 또는 SSTP를 통한 VPN)을 생성하여 회의실 또는 집과 같은 원격 위치에서 가상 네트워크에 연결할 수 있습니다.
+종종 선택한 게이트웨이 SKU에 따라 게이트웨이를 만드는 데 45분 이상 걸릴 수 있습니다. 가상 네트워크 게이트웨이를 만들 때 게이트웨이 VM은 게이트웨이 서브넷에 배포되고 지정한 설정으로 구성됩니다. VPN Gateway를 만든 후에 해당 VPN Gateway와 다른 VPN Gateway(VNet 대 VNet) 간에 IPsec/IKE VPN 터널 연결을 만들거나, VPN Gateway와 온-프레미스 VPN 디바이스 간(사이트 간)의 크로스-프레미스 IPsec/IKE VPN 터널 연결을 생성할 수 있습니다. 지점과 사이트 간 VPN 연결(OpenVPN, IKEv2 또는 SSTP를 통한 VPN)을 생성하여 회의실 또는 집과 같은 원격 위치에서 가상 네트워크에 연결할 수 있습니다.
 
 ## <a name="configuring-a-vpn-gateway"></a><a name="configuring"></a>VPN Gateway 구성
 
@@ -82,6 +82,7 @@ RSS 피드를 구독하고 [Azure 업데이트](https://azure.microsoft.com/upda
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자세한 내용은 [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)를 참조하세요.
-- [구독 및 서비스 한도](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)를 참조하세요.
-- Azure의 몇 가지 다른 주요 [네트워킹 기능](../networking/fundamentals/networking-overview.md)을 알아봅니다.
+- [자습서: VPN Gateway 만들기 및 관리](tutorial-create-gateway-portal.md)
+- [학습 모듈: VPN Gateway를 사용하여 온-프레미스 네트워크를 Azure에 연결](/learn/modules/connect-on-premises-network-with-vpn-gateway/)
+- [구독 및 서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
+

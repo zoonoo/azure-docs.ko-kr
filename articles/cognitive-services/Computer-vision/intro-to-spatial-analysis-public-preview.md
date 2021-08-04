@@ -9,13 +9,13 @@ ms.author: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 03/29/2021
-ms.openlocfilehash: d19a080ef596975dd3377207b84bade6ef0d3b12
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 06/21/2021
+ms.openlocfilehash: 02249fc08dc661a31a461116dab3ab08e230cbc6
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537579"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112520918"
 ---
 # <a name="what-is-spatial-analysis"></a>공간 분석이란?
 
@@ -43,9 +43,7 @@ ms.locfileid: "111537579"
 
 ## <a name="get-started"></a>시작
 
-### <a name="follow-a-quickstart"></a>빠른 시작 따르기
-
-공간 분석에 대한 액세스 권한이 부여되면 [빠른 시작](spatial-analysis-container.md)에 따라 컨테이너를 설정하고 비디오 분석을 시작합니다.
+[빠른 시작](spatial-analysis-container.md)에 따라 컨테이너를 설정하고 비디오 분석을 시작합니다.
 
 ## <a name="responsible-use-of-spatial-analysis-technology"></a>공간 분석 기술의 책임 있는 사용
 

@@ -6,13 +6,13 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 04/28/2021
-ms.openlocfilehash: 29f479444679d1f76dc90eec4546539faea5337f
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.date: 07/21/2021
+ms.openlocfilehash: d0723d4a5e77fe9bcf52f515a1310dfc270338f6
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202572"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721824"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>자습서: Azure Portal을 사용하여 VPN 게이트웨이 만들기 및 관리
 
@@ -50,7 +50,7 @@ Azure VPN 게이트웨이는 고객 프레미스와 Azure 사이에 프레미스
 
 ## <a name="create-a-vpn-gateway"></a><a name="VNetGateway"></a>VPN 게이트웨이 만들기
 
-이 단계에서는 VNet용 가상 네트워크 게이트웨이를 만듭니다. 종종 선택한 게이트웨이 SKU에 따라 게이트웨이를 만드는 데 45분 이상 걸릴 수 있습니다.
+이 단계에서는 VNet에 대한 가상 네트워크 게이트웨이(VPN 게이트웨이)를 만듭니다. 종종 선택한 게이트웨이 SKU에 따라 게이트웨이를 만드는 데 45분 이상 걸릴 수 있습니다.
 
 다음 값을 사용하여 가상 네트워크 게이트웨이를 만듭니다.
 
@@ -58,16 +58,17 @@ Azure VPN 게이트웨이는 고객 프레미스와 Azure 사이에 프레미스
 * **지역:** 미국 동부
 * **게이트웨이 유형:** VPN
 * **VPN 유형:** 경로 기반
-* **SKU:** VpnGw1
-* **생성:** Generation1
+* **SKU:** VpnGw2
+* **세대:** 2세대
 * **가상 네트워크:** VNet1
 * **게이트웨이 서브넷 주소 범위:** 10.1.255.0/27
 * **공용 IP 주소:** 새로 만들기
 * **공용 IP 주소 이름:** VNet1GWpip
-* **active-active 모드를 사용하도록 설정:** 사용 안 함
-* **BGP 구성:** 사용 안 함
 
-[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+게이트웨이에서 완전히 만들고 배포하는 데 45분 이상 걸릴 수 있습니다. 배포 상태는 게이트웨이에 대한 [개요] 페이지에서 확인할 수 있습니다. 게이트웨이를 만든 후 포털에서 가상 네트워크를 살펴보면 게이트웨이에 할당된 IP 주소를 볼 수 있습니다. 게이트웨이가 연결된 디바이스로 표시됩니다.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
