@@ -4,12 +4,12 @@ description: Application Insights 엔드투엔드 트랜잭션 진단
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 7623b7131e6344a67c468d0436884ebfef9b0058
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60365079c295e154ff0a38277c9ccdec35157e6e
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96746100"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481398"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>통합된 구성 요소 간 트랜잭션 진단
 
@@ -94,3 +94,6 @@ ms.locfileid: "96746100"
 
 이것은 의도적인 것입니다. 모든 구성 요소에서 관련된 모든 항목은 이미 왼쪽(위쪽 및 아래쪽 섹션)에서 사용할 수 있습니다. 새 환경에는 왼쪽에서 다루지 않는 두 개의 관련 항목, 즉 이 이벤트 전후 5분의 모든 원격 분석 및 사용자 타임라인이 있습니다.
 
+*Application Insights JavaScript SDK를 사용할 때 트랜잭션 진단 환경에서 예상보다 많은 이벤트가 표시됩니다. 트랜잭션당 이벤트를 더 적게 볼 수 있는 방법이 있나요?*
+
+트랜잭션 진단 환경은 [작업 ID](data-model-context.md#operation-id)를 공유하는 [단일 작업](correlation.md#data-model-for-telemetry-correlation)의 모든 원격 분석을 보여 줍니다. 기본적으로 JavaScript용 Application Insights SDK는 고유한 각 페이지 보기당 새 작업을 만듭니다. SPA(단일 페이지 애플리케이션)에서는 하나의 페이지 보기 이벤트만 생성되고 단일 작업 ID가 생성된 모든 원격 분석에서 사용되며, 이로 인해 많은 이벤트가 동일한 작업과 상호 연관될 수 있습니다. 이러한 시나리오에서는 자동 경로 추적을 사용하여 단일 페이지 앱 탐색을 위한 새 작업을 자동으로 만들 수 있습니다. URL 경로가 업데이트될 때마다(논리적 페이지 보기 발생) 페이지 보기가 생성되도록 [enableAutoRouteTracking](javascript.md#single-page-applications)을 켜야 합니다. 작업 ID를 수동으로 새로 고치려면 `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()`를 호출하면 됩니다. PageView 이벤트를 수동으로 트리거하면 작업 ID도 재설정됩니다.

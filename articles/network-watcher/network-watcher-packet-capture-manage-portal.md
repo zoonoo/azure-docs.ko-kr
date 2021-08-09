@@ -1,5 +1,5 @@
 ---
-title: 패킷 캡처 관리-Azure Portal
+title: 패킷 캡처 관리 - Azure Portal
 titleSuffix: Azure Network Watcher
 description: Azure Portal을 사용하여 Network Watcher의 패킷 캡처 기능을 관리하는 방법을 알아봅니다.
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: d4112bd1d632ec21e2d8cb565027277eeb85452d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98018262"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>포털에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
@@ -27,16 +27,16 @@ Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-패킷 캡처에는 다음과 같은 아웃 바운드 TCP 연결이 필요 합니다.
-- 포트 443을 통해 선택한 저장소 계정으로
-- 포트 80을 통해 169.254.169.254
-- 포트 8037을 통해 168.63.129.16
+패킷 캡처에는 다음과 같은 아웃바운드 TCP 연결이 필요합니다.
+- 포트 443을 통해 선택한 스토리지 계정으로
+- 포트 80을 통해 169.254.169.254로
+- 포트 8037을 통해 168.63.129.16으로
 
 > [!NOTE]
-> 위의 두 가지 경우에 설명 된 포트는 Network Watcher 확장을 포함 하는 모든 Network Watcher 기능에서 공통적 이며 때때로 변경 될 수 있습니다.
+> 위의 두 후자에서 설명된 포트는 Network Watcher 확장을 포함하는 모든 Network Watcher 기능에서 공통적이며 때때로 변경될 수 있습니다.
 
 
-네트워크 보안 그룹이 네트워크 인터페이스에 연결되거나 네트워크 인터페이스가 포함된 서브넷에 연결되어 있으면 이전 포트를 허용하는 규칙이 있는지 확인합니다. 마찬가지로 네트워크에 사용자 정의 트래픽 경로를 추가 하면 위에서 언급 한 Ip 및 포트에 연결 하지 못할 수 있습니다. 연결할 수 있는지 확인 하세요. 
+네트워크 보안 그룹이 네트워크 인터페이스에 연결되거나 네트워크 인터페이스가 포함된 서브넷에 연결되어 있으면 이전 포트를 허용하는 규칙이 있는지 확인합니다. 마찬가지로 네트워크에 사용자 정의 트래픽 경로를 추가하면 위에서 언급한 IP와 포트에 연결하지 못할 수도 있으므로 연결할 수 있는지 확인합니다. 
 
 ## <a name="start-a-packet-capture"></a>패킷 캡처 시작
 

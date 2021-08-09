@@ -1,14 +1,14 @@
 ---
-title: Azure Event Grid를 사용 하 여 이벤트 도메인으로 이벤트 게시
+title: Azure Event Grid 이벤트 도메인을 통해 이벤트 게시
 description: Azure Event Grid에서 이벤트 도메인을 사용하여 대규모 토픽 집합을 관리하고 토픽에 이벤트를 게시하는 방법을 보여줍니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: e6861e89def10eec391bf302b1ddc726b38bb98c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97109898"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>이벤트 도메인을 사용하여 토픽을 관리하고 이벤트를 게시하는 방법
@@ -65,7 +65,7 @@ New-AzEventGridDomain `
 
 ## <a name="manage-access-to-topics"></a>토픽에 대한 액세스 관리
 
-토픽에 대한 액세스 관리는 [역할 할당](../role-based-access-control/role-assignments-cli.md)을 통해 수행됩니다. 역할 할당은 Azure 역할 기반 액세스 제어를 사용 하 여 Azure 리소스에 대 한 작업을 특정 범위에서 권한 있는 사용자로 제한 합니다.
+토픽에 대한 액세스 관리는 [역할 할당](../role-based-access-control/role-assignments-cli.md)을 통해 수행됩니다. 역할 할당은 Azure 역할 기반 액세스 제어를 사용하여 Azure 리소스에 대한 작업을 특정 범위에서 권한이 부여된 사용자로 제한합니다.
 
 Event Grid는 도메인 내 다양한 토픽에 대한 특정 사용자 액세스를 할당하는 데 사용할 수 있는 두 가지 기본 제공 역할을 제공합니다. 이러한 역할은 구독을 만들고 삭제할 수 있는 `EventGrid EventSubscription Contributor (Preview)` 및 이벤트 구독을 나열하는 것만 가능한 `EventGrid EventSubscription Reader (Preview)`입니다.
 
@@ -124,12 +124,12 @@ New-AzEventGridSubscription `
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 
-토픽에 대해 설정되고 Azure Active Directory에 저장된 권한은 명시적으로 삭제해야 합니다. 이벤트 구독을 삭제 하면 항목에 대 한 쓰기 권한이 있는 경우 사용자가 이벤트 구독을 만들 수 있는 권한이 취소 되지 않습니다.
+토픽에 대해 설정되고 Azure Active Directory에 저장된 권한은 명시적으로 삭제해야 합니다. 구독이 토픽에 대한 쓰기 권한을 갖고 있는 경우 이벤트 구독을 삭제해도 이벤트 구독을 만드는 사용자 액세스 권한이 철회되지 않습니다.
 
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>Event Grid 도메인에 이벤트 게시
 
-도메인에 이벤트를 게시 하는 것은 [사용자 지정 토픽에 게시 하](./post-to-custom-topic.md)는 것과 같습니다. 그러나 사용자 지정 항목에 게시하는 대신 모든 이벤트를 도메인 엔드포인트에 게시합니다. JSON 이벤트 데이터에서 이벤트를 이동할 항목을 지정합니다. 다음 이벤트 배열을 게시하면 `"id": "1111"`인 이벤트는 `demotopic1` 토픽으로 전송되고 `"id": "2222"`인 이벤트는 `demotopic2` 토픽으로 전송됩니다.
+도메인에 이벤트를 게시하는 방법은 [사용자 지정 토픽에 게시](./post-to-custom-topic.md)하는 방법과 동일합니다. 그러나 사용자 지정 항목에 게시하는 대신 모든 이벤트를 도메인 엔드포인트에 게시합니다. JSON 이벤트 데이터에서 이벤트를 이동할 항목을 지정합니다. 다음 이벤트 배열을 게시하면 `"id": "1111"`인 이벤트는 `demotopic1` 토픽으로 전송되고 `"id": "2222"`인 이벤트는 `demotopic2` 토픽으로 전송됩니다.
 
 ```json
 [{
@@ -195,18 +195,18 @@ Get-AzEventGridDomainKey `
 
 그런 다음, 선호하는 방법으로 HTTP POST를 만들어서 Event Grid 도메인에 이벤트를 게시합니다.
 
-## <a name="search-lists-of-topics-or-subscriptions"></a>토픽 또는 구독 목록 검색
+## <a name="search-lists-of-topics-or-subscriptions"></a>토픽 또는 구독의 검색 목록
 
-많은 항목 또는 구독을 검색 하 고 관리 하기 위해 Event Grid의 Api는 목록 및 페이지 매김을 지원 합니다.
+많은 수의 토픽 또는 구독을 검색하고 관리하기 위해, Event Grid의 API는 목록 및 페이지 매김을 지원합니다.
 
 ### <a name="using-cli"></a>CLI 사용
-예를 들어 다음 명령은 이름이 인 모든 항목을 나열 합니다 `mytopic` . 
+예를 들어 다음 명령은 이름에 `mytopic`이 포함된 모든 토픽을 나열합니다. 
 
 ```azurecli-interactive
 az eventgrid topic list --odata-query "contains(name, 'mytopic')"
 ```
 
-이 명령에 대 한 자세한 내용은을 참조 하십시오 [`az eventgrid topic list`](/cli/azure/eventgrid/topic?#az_eventgrid_topic_list) . 
+이 명령에 대한 자세한 내용은 [`az eventgrid topic list`](/cli/azure/eventgrid/topic?#az_eventgrid_topic_list)를 참조하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계

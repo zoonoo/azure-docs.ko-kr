@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.openlocfilehash: e3d4fd6b6b83681284278d10409a1c16394db31f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98018686"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>처리량을 높이도록 Azure Stream Analytics 작업 크기 조정
@@ -22,7 +22,7 @@ ms.locfileid: "98018686"
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>사례 1 - 쿼리가 기본적으로 여러 입력 파티션 간에 완전히 병렬 처리 가능한 경우
 쿼리가 기본적으로 여러 입력 파티션 간에 완전히 병렬 처리가 가능하면 다음 단계를 따를 수 있습니다.
 1.  **PARTITION BY** 키워드를 사용하여 쉬운 병렬 처리가 되도록 쿼리를 작성합니다. [이 페이지](stream-analytics-parallelization.md)의 쉬운 병렬 처리(Embarrassingly parallel) 작업 섹션에서 자세한 내용을 참조하세요.
-2.  쿼리에 사용되는 출력 형식에 따라, 일부 출력은 병렬 처리할 수 없거나, 쉬운 병렬 처리를 위해 추가 구성이 필요할 수 있습니다. 예를 들어 PowerBI 출력은 병렬화되지 않습니다. 출력은 출력 싱크로 전송되기 전에 항상 병합됩니다. Blob, Tables, ADLS, Service Bus 및 Azure Function은 자동으로 병렬 처리됩니다. SQL 및 Azure Synapse Analytics 출력에는 병렬화를 위한 옵션이 있습니다. 이벤트 허브에서는 PartitionKey 구성이 **PARTITION BY** 필드(일반적으로 PartitionId)와 일치하도록 설정되어야 합니다. 이벤트 허브의 경우 모든 입/출력의 파티션 수가 일치하도록 하여 파티션 간에 교차가 이루어지지 않도록 특히 주의해야 합니다. 
+2.  쿼리에 사용되는 출력 형식에 따라, 일부 출력은 병렬 처리할 수 없거나, 쉬운 병렬 처리를 위해 추가 구성이 필요할 수 있습니다. 예를 들어 PowerBI 출력은 병렬화되지 않습니다. 출력은 출력 싱크로 전송되기 전에 항상 병합됩니다. Blob, Tables, ADLS, Service Bus 및 Azure Function은 자동으로 병렬 처리됩니다. SQL 및 Azure Synapse Analytics 출력에는 병렬화 옵션이 있습니다. 이벤트 허브에서는 PartitionKey 구성이 **PARTITION BY** 필드(일반적으로 PartitionId)와 일치하도록 설정되어야 합니다. 이벤트 허브의 경우 모든 입/출력의 파티션 수가 일치하도록 하여 파티션 간에 교차가 이루어지지 않도록 특히 주의해야 합니다. 
 3.  **6개 SU**(단일 컴퓨팅 노드의 전체 용량)로 쿼리를 실행하여 달성 가능한 최대 처리량을 측정하고, **GROUP BY** 를 사용하는 경우 작업이 처리할 수 있는 그룹(카디널리티) 수를 측정합니다. 시스템 리소스 제한에 도달하는 작업의 일반적인 증상은 다음과 같습니다.
     - SU % 사용률 메트릭이 80%를 초과합니다. 이것은 메모리 사용량이 높음을 나타냅니다. 이 메트릭의 증가에 영향을 주는 요인은 [여기](stream-analytics-streaming-unit-consumption.md)에 설명되어 있습니다. 
     -   출력 타임스탬프가 벽 시계 시간보다 느립니다. 쿼리 논리에 따라 출력 타임스탬프와 벽 시계 시간 간에는 논리 오프셋이 있을 수 있습니다. 그러나 이들은 거의 같은 속도로 진행됩니다. 출력 타임스탬프가 점점 더 느려지면 시스템이 과부하되었다는 것을 의미합니다. 이것은 다운스트림 출력 싱크 제한이나 높은 CPU 사용률의 결과일 수 있습니다. 현재는 CPU 사용률 메트릭을 제공하지 않으므로 둘 간을 구분하는 것이 어려울 수 있습니다.

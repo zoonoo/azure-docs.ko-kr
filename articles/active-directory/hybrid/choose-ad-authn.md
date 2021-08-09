@@ -11,10 +11,10 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
 ms.openlocfilehash: 15d62f40b50617fd1f6e543cb404a0d38361d3bd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94836498"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택
@@ -30,7 +30,7 @@ ms.locfileid: "94836498"
 ID는 IT 보안의 새 제어 평면이며, 따라서 인증은 새로운 클라우드 환경으로부터 조직의 액세스를 보호합니다. 조직에서는 보안을 강화하고 클라우드 앱을 침입자들로부터 안전하게 보호하는 ID 제어 평면을 필요로 합니다.
 
 > [!NOTE]
-> 인증 방법을 변경하려면 계획, 테스트, 경우에 따라 가동 중지 시간이 필요합니다. [단계적 출시](./how-to-connect-staged-rollout.md) 는 페더레이션에서 클라우드 인증으로 사용자 마이그레이션을 테스트 하는 좋은 방법입니다.
+> 인증 방법을 변경하려면 계획, 테스트, 경우에 따라 가동 중지 시간이 필요합니다. [단계적 롤아웃](./how-to-connect-staged-rollout.md)은 페더레이션에서 클라우드 인증으로의 사용자 마이그레이션을 테스트하는 좋은 방법입니다.
 
 ### <a name="out-of-scope"></a>범위 외
 기존 온-프레미스 디렉터리 공간이 없는 조직은 이 문서의 대상이 아닙니다. 일반적으로 이러한 기업은 클라우드에서만 ID를 생성하므로 하이브리드 ID 솔루션이 필요하지 않습니다. 클라우드 전용 ID는 클라우드에서만 존재하며 해당 온-프레미스 ID와 연결되지 않습니다.
@@ -86,13 +86,13 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 
 ### <a name="cloud-authentication-password-hash-synchronization"></a>클라우드 인증: 암호 해시 동기화
 
-* **활동**. 암호 해시 동기화는 배포, 유지 관리 및 인프라와 관련한 최소한의 활동을 필요로 합니다.  이러한 노력 수준은 일반적으로 사용자가 Microsoft 365, SaaS 앱 및 기타 Azure AD 기반 리소스에 로그인 해야 하는 조직에 적용 됩니다. 설정된 경우, 암호 해시 동기화는 Azure AD Connect 동기화 프로세스의 일부로 2분마다 실행됩니다.
+* **활동**. 암호 해시 동기화는 배포, 유지 관리 및 인프라와 관련한 최소한의 활동을 필요로 합니다.  이 활동 수준은 일반적으로 사용자가 Microsoft 365, SaaS 앱, 기타 Azure AD 기반 리소스에 로그인만 하면 되는 조직에 적용됩니다. 설정된 경우, 암호 해시 동기화는 Azure AD Connect 동기화 프로세스의 일부로 2분마다 실행됩니다.
 
 * **사용자 환경**. 사용자의 로그인 환경을 개선하려면 암호 해시 동기화를 사용하는 원활한 SSO를 배포합니다. 원활한 SSO는 사용자가 로그인한 후 불필요한 프롬프트를 방지합니다.
 
 * **고급 시나리오**. 조직에서 원하는 경우, Azure AD Premium P2가 있으면 손실된 자격 증명 보고서 등의 Azure AD ID 보호 보고서에서 ID의 정보를 사용할 수 있습니다. Windows Hello for Business는 [암호 해시 동기화를 사용할 때 특정 요구 사항](/windows/access-protection/hello-for-business/hello-identity-verification)이 있습니다. [Azure AD Domain Services](../../active-directory-domain-services/tutorial-create-instance.md)는 관리되는 도메인에서 사용자에게 회사 자격 증명을 프로비전하기 위해 암호 해시 동기화가 필요합니다.
 
-    암호 해시 동기화를 사용 하는 다단계 인증을 요구 하는 조직은 Azure AD Multi-Factor Authentication 또는 [조건부 액세스 사용자 지정 컨트롤](../../active-directory/conditional-access/controls.md#custom-controls-preview)을 사용 해야 합니다. 이러한 조직은 페더레이션을 기반으로 하는 타사 또는 온-프레미스 다단계 인증 방법을 사용할 수 없습니다.
+    암호 해시 동기화를 사용하는 다단계 인증을 요구하는 조직은 Azure AD Multi-Factor Authentication 또는 [조건부 액세스 사용자 지정 제어](../../active-directory/conditional-access/controls.md#custom-controls-preview)를 사용해야 합니다. 이러한 조직은 페더레이션을 기반으로 하는 타사 또는 온-프레미스 다단계 인증 방법을 사용할 수 없습니다.
 
 > [!NOTE]
 > Azure AD 조건부 액세스에는 [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/) 라이선스가 필요합니다.
@@ -116,7 +116,7 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 
 * **고급 시나리오**. 로그인 시 통과 인증이 온-프레미스 계정 정책을 적용합니다. 예를 들어, 온-프레미스 사용자의 계정이 사용 안 함, 잠김 또는 [암호 만료됨](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) 상태이거나 로그온 시도가 사용자의 허용된 로그인 시간을 벗어난 상태인 경우 액세스가 거부됩니다.
 
-    통과 인증을 사용 하는 multi-factor authentication이 필요한 조직은 MFA (Azure AD Multi-Factor Authentication) 또는 [조건부 액세스 사용자 지정 컨트롤](../../active-directory/conditional-access/controls.md#custom-controls-preview)을 사용 해야 합니다. 이러한 조직은 페더레이션을 기반으로 하는 타사 또는 온-프레미스 다단계 인증 방법을 사용할 수 없습니다. ID 보호의 유출된 자격 증명 보고서 등과 같은 고급 기능을 사용하려면 통과 인증 선택 여부에 관계없이 암호 해시 동기화를 배포해야 합니다.
+    통과 인증을 사용하는 다단계 인증이 필요한 조직은 Azure AD MFA(다단계 인증) 또는 [조건부 액세스 사용자 지정 제어](../../active-directory/conditional-access/controls.md#custom-controls-preview)를 사용해야 합니다. 이러한 조직은 페더레이션을 기반으로 하는 타사 또는 온-프레미스 다단계 인증 방법을 사용할 수 없습니다. ID 보호의 유출된 자격 증명 보고서 등과 같은 고급 기능을 사용하려면 통과 인증 선택 여부에 관계없이 암호 해시 동기화를 배포해야 합니다.
 
 * **비즈니스 연속성**. Azure AD Connect 서버의 첫 번째 에이전트 외에 두 개의 추가적인 통과 인증 에이전트를 배포하는 것이 좋습니다. 이러한 추가 배포는 인증 요청의 높은 가용성을 보장합니다. 세 개의 에이전트를 배포하면 유지 관리를 위해 에이전트 하나가 중지된 경우에도 다른 에이전트가 실패해도 괜찮습니다.
 
@@ -177,7 +177,7 @@ Azure AD에서 확인할 수 없는 라우팅 불가능한 도메인의 경우 �
 |인증은 어디서 수행되나요?|클라우드|클라우드에서 온-프레미스 인증 에이전트와 보안 암호 확인을 교환한 후|온-프레미스|
 |프로비저닝 시스템인 Azure AD Connect 이외의 온-프레미스 서버 요구 사항은 무엇인가요?|None|각 추가 인증 에이전트마다 서버 1개|둘 이상의 AD FS 서버<br><br>경계/DMZ 네트워크에 둘 이상의 WAP 서버|
 |프로비저닝 시스템 이외의 온-프레미스 인터넷 및 네트워킹 요구 사항은 무엇인가요?|None|인증 에이전트를 실행하는 서버의[아웃바운드 인터넷 액세스](../../active-directory/hybrid/how-to-connect-pta-quick-start.md)|경계에 있는 WAP 서버에 대한 [인바운드 인터넷 액세스](/windows-server/identity/ad-fs/overview/ad-fs-requirements)<br><br>경계에 있는 WAP 서버에서 AD FS 서버로의 인바운드 네트워크 액세스<br><br>네트워크 부하 분산|
-|TLS/SSL 인증서 요구 사항이 있나요?|예|아니요|예|
+|TLS/SSL 인증서 요구 사항이 있나요?|예|예|예|
 |상태 모니터링 솔루션이 있나요?|필요하지 않음|[Azure Active Directory 관리 센터](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)에서 제공한 에이전트 상태|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
 |사용자가 회사 네트워크 내의 도메인 가입 디바이스에서 Single Sign-On 방식으로 클라우드 리소스에 액세스할 수 있나요?|[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md)의 경우 예|[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md)의 경우 예|예|
 |지원되는 로그인 유형은 무엇인가요?|UserPrincipalName + 암호<br><br>[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md)를 사용하는 Windows 통합 인증<br><br>[대체 로그인 ID](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + 암호<br><br>[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md)를 사용하는 Windows 통합 인증<br><br>[대체 로그인 ID](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + 암호<br><br>sAMAccountName + 암호<br><br>Windows 통합 인증<br><br>[인증서 및 스마트 카드 인증](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[대체 로그인 ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
@@ -193,7 +193,7 @@ Azure AD에서 확인할 수 없는 라우팅 불가능한 도메인의 경우 �
 > 현재, Azure AD 조건부 액세스의 사용자 지정 컨트롤은 디바이스 등록을 지원하지 않습니다.
 
 ## <a name="recommendations"></a>권장 사항
-ID 시스템은 마이그레이션하여 클라우드에서 사용할 수 있도록 만든 클라우드 앱 및 LOB(기간 업무) 앱에 사용자가 액세스할 수 있도록 해줍니다. 권한 있는 사용자가 생산성을 유지하고 악의적인 행위자가 조직의 중요한 데이터에 접근하지 못하도록 하기 위해 인증은 앱에 대한 액세스를 제어합니다.
+ID 시스템은 마이그레이션하여 클라우드에서 사용할 수 있도록 생성된 클라우드 앱 및 LOB(기간 업무) 앱에 사용자가 액세스할 수 있도록 해줍니다. 권한 있는 사용자가 생산성을 유지하고 악의적인 행위자가 조직의 중요한 데이터에 접근하지 못하도록 하기 위해 인증은 앱에 대한 액세스를 제어합니다.
 
 다음과 같은 이유로, 선택한 인증 방법에 관계없이 암호 해시 동기화를 사용하거나 사용하도록 설정합니다.
 
@@ -203,7 +203,7 @@ ID 시스템은 마이그레이션하여 클라우드에서 사용할 수 있도
 
 2. **온-프레미스 중단에서 생존**.  사이버 공격이나 재해로 인한 온-프레미스 중단은 브랜드 이미지 손상부터 해당 공격을 처리할 수 없을 정도의 조직 마비에 이르기까지 막대한 영향을 줄 수 있습니다. 최근에는 대부분의 조직이 표적형 랜섬웨어를 포함하여 온-프레미스 서버를 중단시키는 맬웨어 공격으로 피해를 입었습니다. 고객이 이러한 종류의 공격을 처리할 수 있도록 지원하면서 Microsoft는 두 가지 범주의 조직이 있음을 알았습니다.
 
-   * 이전에 페더레이션 또는 통과 인증을 기반으로 암호 해시 동기화도 설정한 조직은 기본 인증 방법을 변경한 다음 암호 해시 동기화를 사용했습니다. 몇 시간 만에 다시 온라인 상태가 되었습니다. Microsoft 365를 통해 전자 메일에 대 한 액세스를 사용 하 여 문제를 해결 하 고 다른 클라우드 기반 작업에 액세스 하기 위해 작업 했습니다.
+   * 이전에 페더레이션 또는 통과 인증을 기반으로 암호 해시 동기화도 설정한 조직은 기본 인증 방법을 변경한 다음 암호 해시 동기화를 사용했습니다. 몇 시간 만에 다시 온라인 상태가 되었습니다. Microsoft 365를 통해 메일에 액세스하여 문제를 해결하고 다른 클라우드 기반 워크로드에 액세스하기 위한 작업을 했습니다.
 
    * 이전에 암호 해시 동기화를 사용하지 않은 조직은 통신이 문제를 해결하는 데 신뢰할 수 없는 외부 소비자 이메일 시스템에 의존해야 했습니다. 이러한 경우, 사용자가 클라우드 기반 앱에 다시 로그인할 수 있기 전에 온-프레미스 ID 인프라를 복원하는 데 몇 주가 걸렸습니다.
 

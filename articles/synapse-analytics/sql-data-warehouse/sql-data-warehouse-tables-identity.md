@@ -1,6 +1,6 @@
 ---
-title: ID를 사용 하 여 서로게이트 키 만들기
-description: IDENTITY 속성을 사용 하 여 전용 SQL 풀의 테이블에 서로게이트 키를 만드는 방법에 대 한 권장 사항 및 예제입니다.
+title: IDENTITY를 사용하여 서로게이트 키 만들기
+description: IDENTITY 속성을 사용하여 전용 SQL 풀의 테이블에 서로게이트 키를 만드는 방법에 대한 권장 사항 및 예입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,26 +12,26 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 5c620aa60e134379614a905226caa4a66d179fae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98673538"
 ---
-# <a name="using-identity-to-create-surrogate-keys-using-dedicated-sql-pool-in-azuresynapse-analytics"></a>IDENTITY를 사용 하 여 AzureSynapse Analytics에서 전용 SQL 풀을 사용 하 여 서로게이트 키 만들기
+# <a name="using-identity-to-create-surrogate-keys-using-dedicated-sql-pool-in-azuresynapse-analytics"></a>IDENTITY를 사용하여 Azure Synapse Analytics에서 전용 SQL 풀을 통해 서로게이트 키 만들기
 
-이 문서에는 IDENTITY 속성을 사용 하 여 전용 SQL 풀의 테이블에 서로게이트 키를 만드는 방법에 대 한 권장 사항 및 예제가 나와 있습니다.
+이 문서에는 IDENTITY 속성을 사용하여 전용 SQL 풀의 테이블에 서로게이트 키를 만드는 방법에 대한 권장 사항 및 예가 나와 있습니다.
 
-## <a name="what-is-a-surrogate-key"></a>서로게이트 키 란?
+## <a name="what-is-a-surrogate-key"></a>서로게이트 키란?
 
 테이블의 서로게이트 키는 각 행에 대해 고유 식별자가 있는 열입니다. 이 키는 테이블 데이터에서 생성되지 않습니다. 데이터 웨어하우스 모델을 설계하는 경우 데이터 모델러는 해당 테이블에 서로게이트 키를 만들려고 합니다. 로드 성능에 영향을 주지 않고 간단하고 효과적으로 이 목표를 달성하기 위해 IDENTITY 속성을 사용할 수 있습니다.
 > [!NOTE]
-> Azure Synapse Analytics에서 ID 값은 각 배포에서 고유 하 게 늘어나고 다른 배포의 ID 값과 겹치지 않습니다.  사용자가 "SET IDENTITY_INSERT ON" 또는 reseeds IDENTITY를 사용 하 여 중복 값을 명시적으로 삽입 하는 경우 Synapse의 ID 값은 고유 하지 않을 수 있습니다. 자세한 내용은 [CREATE TABLE (transact-sql) IDENTITY (속성)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest&preserve-view=true)를 참조 하세요. 
+> Azure Synapse Analytics에서 IDENTITY 값은 각 배포에서 고유하게 늘어나고 다른 배포의 IDENTITY 값과 겹치지 않습니다.  사용자가 “SET IDENTITY_INSERT ON”으로 중복 값을 명시적으로 삽입하거나 IDENTITY를 다시 시드하는 경우 Synapse의 IDENTITY 값이 고유하도록 보장하지 않습니다. 자세한 내용은 [CREATE TABLE(Transact-SQL) IDENTITY(속성)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest&preserve-view=true)를 참조하세요. 
 
 
 ## <a name="creating-a-table-with-an-identity-column"></a>IDENTITY 열이 있는 테이블 만들기
 
-IDENTITY 속성은 로드 성능에 영향을 주지 않고 전용 SQL 풀의 모든 배포에 걸쳐 규모를 확장 하도록 설계 되었습니다. 따라서 IDENTITY를 구현하여 이러한 목표를 달성합니다.
+IDENTITY 속성은 로드 성능에 영향을 주지 않고 전용 SQL 풀의 모든 배포에 스케일 아웃하도록 설계되었습니다. 따라서 IDENTITY를 구현하여 이러한 목표를 달성합니다.
 
 다음 문과 유사한 구문을 사용하여 테이블을 처음 만드는 경우 테이블이 IDENTITY 속성을 가졌다고 정의할 수 있습니다.
 
@@ -53,7 +53,7 @@ WITH
 
 ### <a name="allocation-of-values"></a>값 할당
 
-IDENTITY 속성은 데이터 웨어하우스의 분산 아키텍처로 인해 서로게이트 값이 할당 되는 순서를 보장 하지 않습니다. IDENTITY 속성은 로드 성능에 영향을 주지 않고 전용 SQL 풀의 모든 배포에 걸쳐 규모를 확장 하도록 설계 되었습니다. 
+IDENTITY 속성은 데이터 웨어하우스의 분산 아키텍처로 인해 서로게이트 값이 할당되는 순서를 보장하지 않습니다. IDENTITY 속성은 로드 성능에 영향을 주지 않고 전용 SQL 풀의 모든 배포에 스케일 아웃하도록 설계되었습니다. 
 
 다음 예제는 그림입니다.
 
@@ -103,7 +103,7 @@ CTAS(CREATE TABLE AS SELECT)의 경우 SELECT..INTO에서 설명한 동일한 SQ
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>IDENTITY 열에 값을 명시적으로 삽입
 
-전용 SQL 풀은 `SET IDENTITY_INSERT <your table> ON|OFF` 구문을 지원 합니다. 이 구문을 사용하여 명시적으로 값을 IDENTITY 열에 삽입할 수 있습니다.
+전용 SQL 풀은 `SET IDENTITY_INSERT <your table> ON|OFF` 구문을 지원합니다. 이 구문을 사용하여 명시적으로 값을 IDENTITY 열에 삽입할 수 있습니다.
 
 많은 데이터 모델러는 해당 차원에 있는 특정 행에 미리 정의된 음수 값을 사용하려고 합니다. 예를 들어 -1 또는 "알 수 없는 멤버" 행입니다.
 
@@ -164,7 +164,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > 현재 IDENTITY 열이 있는 테이블에 데이터를 로드 하는 경우 `CREATE TABLE AS SELECT`를 사용할 수 없습니다.
 >
 
-데이터 로드에 대 한 자세한 내용은 [전용 SQL 풀의 ELT (추출, 로드 및 변환) 설계](design-elt-data-loading.md) 및  [로드 모범 사례](guidance-for-loading-data.md)를 참조 하세요.
+데이터 로드에 대한 자세한 내용은 [전용 SQL 풀에 대한 ELT(추출, 로드 및 변환) 설계](design-elt-data-loading.md) 및 [로드 모범 사례](guidance-for-loading-data.md)를 참조하세요.
 
 ## <a name="system-views"></a>시스템 뷰
 
@@ -198,9 +198,9 @@ IDENTITY 속성을 사용할 수 없는 경우:
 - 열이 배포 키인 경우
 - 테이블이 외부 테이블인 경우
 
-다음 관련 함수는 전용 SQL 풀에서 지원 되지 않습니다.
+다음 관련 함수는 전용 SQL 풀에서 지원되지 않습니다.
 
-- [IDENTITY ()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 - [SCOPE_IDENTITY](/sql/t-sql/functions/scope-identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 - [IDENT_CURRENT](/sql/t-sql/functions/ident-current-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)

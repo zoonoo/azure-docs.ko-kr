@@ -1,14 +1,14 @@
 ---
-title: 행위자 기반 Azure Service Fabric 행위자의 이벤트
-description: 행위자와 클라이언트 간에 통신 하는 효과적인 방법 인 Service Fabric Reliable Actors에 대 한 이벤트에 대해 알아봅니다.
+title: 행위자 기반 Azure 서비스 패브릭 행위자의 이벤트
+description: 행위자와 클라이언트 간에 통신하는 효과적인 방법인 Service Fabric Reliable Actors의 이벤트에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 591e3539715ba0873e44f56a93d05df6552bb1ef
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96571371"
 ---
 # <a name="actor-events"></a>행위자 이벤트
@@ -99,9 +99,9 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 
 
 ## <a name="next-steps"></a>다음 단계
-* [행위자 재입력](service-fabric-reliable-actors-reentrancy.md)
+* [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
 * [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
 * [행위자 API 참조 설명서](/previous-versions/azure/dn971626(v=azure.100))
-* [C # 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [C# 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [C# .NET Core 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
 * [Java 샘플 코드](https://github.com/Azure-Samples/service-fabric-java-getting-started)

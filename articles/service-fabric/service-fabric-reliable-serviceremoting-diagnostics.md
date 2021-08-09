@@ -1,15 +1,15 @@
 ---
-title: Azure ServiceFabric 진단 및 모니터링
+title: Azure Service Fabric 진단 및 모니터링
 description: 이 문서에서는 Service Fabric Reliable ServiceRemoting 런타임에서 내보낸 성능 카운터를 포함하여 성능 모니터링 기능을 설명합니다.
 author: suchiagicha
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
 ms.openlocfilehash: 9c7d466d6e8fd36b4445966b92ee753becf96c64
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98791764"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Reliable Service Remoting에 대한 진단 및 성능 모니터링
@@ -36,7 +36,7 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* 는 성능 카운터 인스턴스와 연결 된 SERVICE FABRIC 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) 형식 지정자 "D"를 사용 하는 메서드를 통해 생성 됩니다.
+*ServiceFabricPartitionID* - 성능 카운터 인스턴스와 연결된 서비스 패브릭 파티션 ID의 문자열 표현. 파티션 ID는 GUID이며 해당 문자열 표현은 형식 지정자 "D"와 함께 [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) 메서드를 통해 생성됩니다.
 
 *ServiceReplicaOrInstanceId* 는 성능 카운터 인스턴스와 연결된 Service Fabric 복제본/인스턴스 ID의 문자열 표현입니다.
 
@@ -57,7 +57,7 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 *ServiceRuntimeMethodId* 는 내부 용도에 맞게 패브릭 서비스 런타임에 의해 생성되는 32비트 정수의 문자열 표현입니다. 고유성을 보장하고 다른 성능 카운터 인스턴스 이름과의 충돌을 방지하기 위해 성능 카운터 인스턴스 이름에 포함시킵니다. 사용자는 성능 카운터 인스턴스 이름에서 이 부분을 해석하지 않도록 해야 합니다.
 
-*ServiceFabricPartitionID* 는 성능 카운터 인스턴스와 연결 된 SERVICE FABRIC 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) 형식 지정자 "D"를 사용 하는 메서드를 통해 생성 됩니다.
+*ServiceFabricPartitionID* - 성능 카운터 인스턴스와 연결된 서비스 패브릭 파티션 ID의 문자열 표현. 파티션 ID는 GUID이며 해당 문자열 표현은 형식 지정자 "D"와 함께 [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) 메서드를 통해 생성됩니다.
 
 *ServiceReplicaOrInstanceId* 는 성능 카운터 인스턴스와 연결된 Service Fabric 복제본/인스턴스 ID의 문자열 표현입니다.
 

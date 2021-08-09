@@ -1,6 +1,6 @@
 ---
-title: GeoJSON에 대 한 데이터 형식 | Microsoft Azure 맵
-description: Azure Maps 지 오 오 데이터 데이터에 대해 알아봅니다. 지 오를 기준으로 하는 좌표의 위치를 검색할 때 고 지 오를 사용 하는 방법 및 지 오, 포스트 지 오 Api
+title: 지오펜스용 GeoJSON 데이터 서식 | Microsoft Azure Maps
+description: Azure Maps 지오펜스 데이터에 대해 알아봅니다. 지오펜스를 기준으로 좌표의 위치를 검색할 때 GET 지오펜스 및 POST 지오펜스 API를 사용하는 방법을 참조하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 02/14/2019
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e880710b93a6764df50780e685c89b5f569b4ec0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92897197"
 ---
 # <a name="geofencing-geojson-data"></a>지오펜싱 GeoJSON 데이터
@@ -30,7 +30,7 @@ Azure Maps [GET 지오펜스](/rest/api/maps/spatial/getgeofence) 및 [POST 지�
 * `expiredTime`은 지오펜싱 데이터의 만료 날짜 및 시간입니다. 요청의 `userTime` 값이 이 값보다 이후이면 해당 지오펜스 데이터는 만료된 데이터로 간주되며 쿼리되지 않습니다. 이 경우 이 지오펜스 데이터의 geometryId가 지오펜스 응답 내의 `expiredGeofenceGeometryId` 배열에 포함됩니다.
 * `validityPeriod`는 지오펜스의 유효 기간 목록입니다. 요청의 `userTime` 값이 유효 기간을 벗어난 경우 해당 지오펜스 데이터는 잘못된 데이터로 간주되며 쿼리되지 않습니다. 이 지오펜스 데이터의 geometryId가 지오펜스 응답 내의 `invalidPeriodGeofenceGeometryId` 배열에 포함됩니다. 다음 표에는 validityPeriod 요소의 속성이 나와 있습니다.
 
-| Name | Type | 필수  | 설명 |
+| 이름 | 유형 | 필수  | 설명 |
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | DateTime  | true | 유효 기간의 시작 날짜/시간입니다. |
 | endTime   | DateTime  | true |  유효 기간의 종료 날짜/시간입니다. |
@@ -38,8 +38,8 @@ Azure Maps [GET 지오펜스](/rest/api/maps/spatial/getgeofence) 및 [POST 지�
 | businessDayOnly | 부울 | false |  데이터가 영업일에만 유효한지 여부를 나타냅니다. 기본값은 `false`여야 합니다.|
 
 
-* 모든 좌표 값은에 정의 된 [경도, 위도]로 표시 됩니다 `WGS84` .
-* `MultiPoint`, `MultiLineString`, `MultiPolygon` 또는 `GeometryCollection`을 포함하는 각 기능의 경우 속성이 모든 요소에 적용됩니다. 예를 들어의 모든 지점은 `MultiPoint` 동일한 반경을 사용 하 여 여러 원 지 오를 형성 합니다.
+* 모든 좌표 값은 `WGS84`에 정의된 [경도, 위도]로 표시됩니다.
+* `MultiPoint`, `MultiLineString`, `MultiPolygon` 또는 `GeometryCollection`을 포함하는 각 기능의 경우 속성이 모든 요소에 적용됩니다. 예를 들어, `MultiPoint`에서 모든 지점은 동일한 반지름을 사용하여 여러 원 지오펜스를 형성합니다.
 * 점-원형 시나리오에서는 [GeoJSON 기하 도형 확장](./extend-geojson.md)에 자세히 설명된 속성을 가진 `Point` 기하 도형 개체를 사용하여 원형 기하 도형을 표시할 수 있습니다.      
 
 다음은 중심점과 반경을 사용하여 `GeoJSON`에서 원형 지오펜싱 기하 도형으로 표시된 지오펜스에 대한 샘플 요청 본문입니다. 지오펜스 데이터의 유효 기간은 2018년 10월 22일 오전 9시-오후 5시에 시작되며 주말을 제외하고 매일 반복됩니다. `expiredTime`은 요청의 `userTime`이 `2019-01-01`보다 이후인 경우 이 지오펜스 데이터가 만료된 데이터로 간주됨을 나타냅니다.  

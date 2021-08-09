@@ -1,5 +1,5 @@
 ---
-title: StorSimple 8000 시리즈 장치 모니터링
+title: StorSimple 8000 시리즈 디바이스 모니터링
 description: StorSimple 디바이스 관리자 서비스를 사용하여 사용량, I/O 성능 및 수용작업량 사용률을 모니터링하는 방법에 대해 설명합니다.
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
 ms.openlocfilehash: de4cae90f2cc1223271672d9fc5ba5b42e4409e4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94962436"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스를 모니터링합니다.
@@ -77,7 +77,7 @@ Growth (%) = [{Usage(last day) - Usage(first day)} X 100]/Usage(first day)
 
 목록에서 각각의 볼륨을 클릭하고 해당 사용량을 확인할 수 있습니다.
 
-![모든 로컬로 고정 된 볼륨에 대 한 기본 용량 사용률 2](./media/storsimple-8000-monitor-device/device-primary-storage-usage-by-volume.png)
+![모든 로컬 고정 볼륨에 대한 기본 용량 사용률 2](./media/storsimple-8000-monitor-device/device-primary-storage-usage-by-volume.png)
 
 ### <a name="cloud-storage-usage"></a>클라우드 스토리지 사용량
 이 차트는 사용한 클라우드 스토리지의 크기를 표시합니다. 이 데이터는 중복 제거되고 압축됩니다. 이 양에는 모든 기본 볼륨에 반영되지 않으며 레거시 또는 필수 보존 목적을 위해 유지되는 데이터를 포함할 수 있는 클라우드 스냅샷이 포함되어 있습니다. 기본 및 클라우드 스토리지 소비 수치를 비교하여 정확한 숫자는 아니지만 데이터 축소 비율을 파악할 수 있습니다.

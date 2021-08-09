@@ -1,5 +1,5 @@
 ---
-title: 클러스터 리소스 관리자 Service Fabric 배치 정책
+title: Service Fabric 클러스터 리소스 관리자 - 배치 정책
 description: 서비스 패브릭 서비스에 대한 추가 배치 정책 및 규칙 개요
 author: masnider
 ms.topic: conceptual
@@ -7,10 +7,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 263e45928642aa74d682fc490e424a24deeb8076
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98790684"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>서비스 패브릭 서비스에 대한 배치 정책
@@ -20,7 +20,7 @@ ms.locfileid: "98790684"
 - 사용자 환경이 지정학적 또는 법적 통제 또는 정책적 경계를 적용해야 하는 여러 영역에 확대되는 경우
 - 먼 거리 또는 보다 느리거나 덜 안정적인 네트워크 링크의 사용으로 인해 통신 성능 또는 대기 시간을 고려해야 할 경우
 - 특정 워크로드를 다른 워크로드와 함께 배치하거나 고객과 가까이에 배치해야 할 수도 있습니다.
-- 단일 노드에서 파티션의 상태 비저장 인스턴스가 여러 개 필요 합니다.
+- 단일 노드에 파티션의 여러 상태 비저장 인스턴스가 필요합니다.
 
 이러한 요구 사항 대부분은 클러스터의 장애 도메인으로 표시되는 클러스터의 실제 레이아웃과 맞춰 조정합니다. 
 
@@ -82,7 +82,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 <center>
 
-![기본 설정 주 도메인 및 장애 조치 (Failover)][Image3]
+![기본 설정 주 도메인 및 장애 조치(failover)][Image3]
 </center>
 
 ```csharp
@@ -125,12 +125,12 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 현재 지리적으로 분산되지 않은 클러스터의 서비스에 대해 이러한 구성을 사용할 수 있나요? 가능하지만 그럴 필요는 없습니다. 시나리오에서 꼭 필요한 경우가 아니면 유효하지 않은 필수 기본 도메인 구성은 피해야 합니다. 지정된 워크로드를 단일 랙에서 실행하거나 다른 로컬 클러스터의 일부 세그먼트를 기본으로 사용하려는 것은 바람직하지 않습니다. 여러 하드웨어 구성을 장애 도메인 간에 분산하고 일반 배치 제약 조건 및 노드 속성을 통해 처리해야 합니다.
 
-## <a name="placement-of-multiple-stateless-instances-of-a-partition-on-single-node"></a>단일 노드에서 파티션의 여러 상태 비저장 인스턴스 배치
-**AllowMultipleStatelessInstancesOnNode** 배치 정책을 사용 하면 단일 노드에서 파티션의 여러 상태 비저장 인스턴스를 배치할 수 있습니다. 기본적으로 단일 파티션의 여러 인스턴스는 노드에 배치할 수 없습니다. -1 서비스의 경우에도 지정 된 명명 된 서비스에 대해 클러스터의 노드 수를 초과 하는 인스턴스 수를 조정할 수 없습니다. 이 배치 정책은이 제한을 제거 하 고 InstanceCount를 노드 수보다 높게 지정할 수 있습니다.
+## <a name="placement-of-multiple-stateless-instances-of-a-partition-on-single-node"></a>단일 노드에 파티션의 여러 상태 비저장 인스턴스 배치
+**AllowMultipleStatelessInstancesOnNode** 배치 정책을 사용하면 단일 노드에 파티션의 여러 상태 비저장 인스턴스를 배치할 수 있습니다. 기본적으로 노드에 단일 파티션의 여러 인스턴스를 배치할 수 없습니다. -1 서비스를 사용하는 경우에도 지정된 명명된 서비스에 대해 클러스터의 노드 수를 초과하여 인스턴스 수를 스케일링할 수 없습니다. 이 배치 정책은 이 제한을 없애고 InstanceCount를 노드 수보다 높게 지정할 수 있도록 허용합니다.
 
 `The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: ReplicaExclusion`와 같은 상태 메시지가 표시된 경우 이 조건 또는 비슷한 조건에 도달한 것입니다. 
 
-`AllowMultipleStatelessInstancesOnNode`서비스에서 정책을 지정 하 여 클러스터의 노드 수를 초과 하 여 InstanceCount를 설정할 수 있습니다.
+서비스에 `AllowMultipleStatelessInstancesOnNode` 정책을 지정하면 InstanceCount를 클러스터의의 노드 수보다 높게 설정할 수 있습니다.
 
 코드:
 
@@ -146,19 +146,19 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ```
 
 > [!NOTE]
-> 배치 정책은 현재 미리 보기 상태 이며 `EnableUnsupportedPreviewFeatures` 클러스터 설정 뒤에 있습니다. 지금은 미리 보기 기능 이므로 미리 보기 구성을 설정 하면 클러스터가에서로 업그레이드 되지 않습니다. 즉, 기능을 사용해 보려면 새 클러스터를 만들어야 합니다.
+> 배치 정책은 현재 미리 보기이며 `EnableUnsupportedPreviewFeatures` 클러스터 설정 뒤에 있습니다. 지금은 미리 보기 기능이므로 미리 보기 구성을 설정하면 클러스터가 업그레이드되지 않습니다. 즉, 기능을 사용해 볼 새 클러스터를 만들어야 합니다.
 >
 
 > [!NOTE]
-> 현재이 정책은 ExclusiveProcess [서비스 패키지 활성화 모드](/dotnet/api/system.fabric.description.servicepackageactivationmode)를 사용 하는 상태 비저장 서비스에 대해서만 지원 됩니다.
+> 현재 이 정책은 ExclusiveProcess [서비스 패키지 활성화 모드](/dotnet/api/system.fabric.description.servicepackageactivationmode)의 상태 비저장 서비스에 대해서만 지원됩니다.
 >
 
 > [!WARNING]
-> 고정 포트 끝점과 함께 사용 하는 경우 정책이 지원 되지 않습니다. 둘 다를 함께 사용 하면 동일한 노드에서 여러 인스턴스로 비정상 클러스터가 이동 하 여 동일한 포트에 바인딩하려는 동시에 발생할 수 없습니다. 
+> 정적 포트 엔드포인트와 함께 사용하는 경우 정책이 지원되지 않습니다. 두 인스턴스를 함께 사용하면 같은 노드의 여러 인스턴스가 같은 포트에 바인딩하려고 하며 시작될 수 없으므로 비정상 클러스터가 발생할 수 있습니다. 
 >
 
 > [!NOTE]
-> 이 배치 정책에 높은 값의 [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount) 를 사용 하면 응용 프로그램 업그레이드가 중단 될 수 있습니다. 예를 들어 5 개 노드 클러스터가 있고 InstanceCount = 10을 설정 하는 경우 각 노드에 두 개의 인스턴스가 있습니다. MinInstanceCount = 9를 설정 하는 경우 시도 된 앱 업그레이드는 중단 될 수 있습니다. MinInstanceCount = 8 인 경우이를 방지할 수 있습니다.
+> 이 배치 정책과 함께 높은 [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount) 값을 사용하면 애플리케이션 업그레이드가 중단될 수 있습니다. 예를 들어 5노드 클러스터가 있고 InstanceCount=10으로 설정하는 경우 각 노드에 두 개의 인스턴스가 있습니다. MinInstanceCount=9로 설정한 경우 앱 업그레이드를 시도하면 중단될 수 있습니다. MinInstanceCount=8로 설정하면 중단을 방지할 수 있습니다.
 >
 
 ## <a name="next-steps"></a>다음 단계

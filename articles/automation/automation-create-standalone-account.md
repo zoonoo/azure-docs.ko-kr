@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 01/07/2021
 ms.topic: conceptual
 ms.openlocfilehash: e0088fb129e9c6558de7539ba754a45e067dc3d8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99576840"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
@@ -22,7 +22,7 @@ Azure Portal에서 Automation 계정을 만드는 경우 **실행** 계정이 �
 
 * Azure AD(Azure Active Directory)에서 서비스 주체 만들기
 * 인증서 만들기
-* Runbook을 사용 하 여 Azure Resource Manager 리소스를 관리 하는 참가자 역할을 할당 합니다.
+* Runbook을 사용하여 Azure Resource Manager 리소스를 관리하는 기여자 역할을 할당합니다.
 
 이 계정을 만들면 Runbook을 신속하게 빌드하고 배포하기 시작하여 자동화 요구 사항을 지원할 수 있습니다.
 
@@ -31,7 +31,7 @@ Azure Portal에서 Automation 계정을 만드는 경우 **실행** 계정이 �
 Automation 계정을 만들거나 업데이트하고 이 문서에서 설명한 작업을 완료하려면 다음과 같은 권한이 있어야 합니다.
 
 * Automation 계정을 만들려면 Azure AD 사용자 계정을 `Microsoft.Automation` 리소스에 대한 소유자 역할과 동일한 권한이 있는 역할에 추가해야 합니다. 자세한 내용은 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
-* Azure Portal의 **Azure Active Directory** > **관리** > **사용자 설정** 에서 **앱 등록** 이 **예** 로 설정된 경우, Azure AD 테넌트에서 관리자가 아닌 사용자는 [Active Directory 애플리케이션을 등록](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)할 수 있습니다. **앱 등록** 를 **아니요** 로 설정 하면이 작업을 수행 하는 사용자에 게 적어도 Azure AD의 응용 프로그램 개발자 역할이 있어야 합니다.
+* Azure Portal의 **Azure Active Directory** > **관리** > **사용자 설정** 에서 **앱 등록** 이 **예** 로 설정된 경우, Azure AD 테넌트에서 관리자가 아닌 사용자는 [Active Directory 애플리케이션을 등록](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)할 수 있습니다. **앱 등록** 이 **아니요** 로 설정된 경우 이 작업을 수행하는 사용자는 최소한 Azure AD의 애플리케이션 개발자 역할을 가지고 있어야 합니다.
 
 사용자는 구독의 전역 관리자/공동 관리자 역할에 추가되기 전에 해당 구독의 Active Directory 인스턴스에 속한 멤버가 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 시나리오에서는 Automation 계정 추가 창에 `You do not have permissions to create.` 메시지가 표시됩니다.
 
@@ -59,7 +59,7 @@ Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완�
    > [!NOTE]
    > Automation 계정 추가 창에서 다음과 같은 경고가 표시되는 경우 사용자의 계정은 구독 관리자 역할의 구성원 및 구독의 공동 관리자가 아닙니다.
    >
-   > :::image type="content" source="media/automation-create-standalone-account/create-account-without-perms.png" alt-text="' Azure Active directory에 실행 계정을 만들 수 있는 권한이 없습니다. ' 라는 프롬프트의 스크린샷":::
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-without-perms.png" alt-text="'Azure Active Directory에서 실행 계정을 만들 수 있는 권한이 없습니다.'라는 메시지의 스크린샷":::
 
 1. Automation 계정 추가 창의 **이름** 필드에 새 Automation 계정의 이름을 입력합니다. 선택한 후에는 이 이름을 변경할 수 없습니다. 
 
@@ -74,7 +74,7 @@ Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완�
    > [!NOTE]
    > **Azure 실행 계정 만들기** 에서 **아니요** 를 선택하여 실행 계정을 만들지 않는 경우 Automation 계정 추가 창에 메시지가 표시됩니다. Azure Portal에서 계정이 생성되지만 계정에는 클래식 모델 구독 또는 Azure Resource Manager 구독 디렉터리 서비스에서 해당하는 인증 ID가 없습니다. 따라서 Automation 계정에는 구독의 리소스에 대한 액세스 권한도 없습니다. 이렇게 하면 이 계정을 참조하는 Runbook이 그러한 배포 모델의 리소스에 대해 작업을 인증하고 수행하지 못하도록 방지합니다.
    >
-   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="' 실행 계정을 만들지 않기로 선택 했습니다. ' 메시지가 표시 된 프롬프트 스크린샷":::
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="'실행 계정을 만들지 않도록 선택했습니다.'라는 메시지의 스크린샷":::
    >
    > 서비스 주체가 생성되지 않은 경우 참여자 역할은 할당되지 않습니다.
    >
@@ -93,7 +93,7 @@ Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자
 
 ## <a name="create-a-classic-run-as-account"></a>클래식 실행 계정 만들기
 
-클래식 실행 계정은 Azure Automation 계정을 만들 때 기본적으로 생성 되지 않습니다. 클래식 실행 계정을 통해 Azure 클래식 리소스를 관리 해야 하는 경우 다음 단계를 수행 합니다.
+클래식 실행 계정은 Azure Automation 계정을 만들 때 기본적으로 만들어지지 않습니다. Azure 클래식 리소스를 관리하기 위해 클래식 실행 계정이 필요한 경우 다음 단계를 수행합니다.
 
 1. Automation 계정에서 **계정 설정** 아래의 **실행 계정** 을 선택합니다.
 2. **Azure 클래식 실행 계정** 을 선택합니다.
@@ -104,5 +104,5 @@ Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자
 * 그래픽 작성에 대해 자세히 알아보려면 [Azure Automation에서 그래픽 Runbook 작성](automation-graphical-authoring-intro.md)을 참조하세요.
 * PowerShell Runbook을 시작하려면 [자습서: PowerShell Runbook 만들기](learn/automation-tutorial-runbook-textual-powershell.md)를 참조하세요.
 * PowerShell 워크플로 Runbook을 시작하려면 [자습서: PowerShell 워크플로 Runbook 만들기](learn/automation-tutorial-runbook-textual.md)를 참조하세요.
-* Python 3 runbook을 시작 하려면 [자습서: python 3 Runbook 만들기](learn/automation-tutorial-runbook-textual-python-3.md)를 참조 하세요.
+* Python 3 Runbook을 시작하려면 [자습서: Python 3 Runbook 만들기](learn/automation-tutorial-runbook-textual-python-3.md)를 참조하세요.
 * PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.

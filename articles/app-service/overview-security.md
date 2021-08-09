@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
 ms.openlocfilehash: 61bffcfa8b98ed666e450c344023258b752e4880
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98736108"
 ---
 # <a name="security-in-azure-app-service"></a>Azure App Service의 보안
@@ -22,7 +22,7 @@ ms.locfileid: "98736108"
 
 ## <a name="https-and-certificates"></a>HTTPS 및 인증서
 
-App Service를 사용하면 [HTTPS](https://wikipedia.org/wiki/HTTPS)를 통해 앱을 보호할 수 있습니다. 앱을 만들 때 해당 기본 도메인 이름 ( \<app_name> . azurewebsites.net)은 이미 HTTPS를 사용 하 여 액세스할 수 있습니다. [앱에 대해 사용자 지정 도메인을 구성](app-service-web-tutorial-custom-domain.md)한 경우 클라이언트 브라우저에서 사용자 지정 도메인에 보안 HTTPS를 연결할 수 있도록 [TLS/SSL 인증서로도 보안을 설정](configure-ssl-bindings.md)해야 합니다. App Service에서 지원하는 여러 유형의 인증서가 있습니다.
+App Service를 사용하면 [HTTPS](https://wikipedia.org/wiki/HTTPS)를 통해 앱을 보호할 수 있습니다. 앱이 만들어질 때 기본 도메인 이름(\<app_name>.azurewebsites.net)은 이미 HTTPS를 사용하여 액세스할 수 있습니다. [앱에 대해 사용자 지정 도메인을 구성](app-service-web-tutorial-custom-domain.md)한 경우 클라이언트 브라우저에서 사용자 지정 도메인에 보안 HTTPS를 연결할 수 있도록 [TLS/SSL 인증서로도 보안을 설정](configure-ssl-bindings.md)해야 합니다. App Service에서 지원하는 여러 유형의 인증서가 있습니다.
 
 - 체험 App Service 관리형 인증서
 - App Service 인증서
@@ -43,7 +43,7 @@ App Service는 파일을 배포하기 위해 FTP와 FTPS를 모두 지원합니�
 
 기본적으로 App Service 앱은 인터넷의 모든 IP 주소로부터 요청을 수락하지만, IP 주소의 작은 하위 집합에만 액세스하도록 제한할 수 있습니다. Windows에서 App Service를 사용하면 앱에 액세스할 수 있는 IP 주소 목록을 정의할 수 있습니다. 허용 목록에는 서브넷 마스크에서 정의된 개별 IP 주소 또는 IP 주소 범위가 포함될 수 있습니다. 자세한 내용은 [Azure App Service 고정 IP 제한](app-service-ip-restrictions.md)을 참조하세요.
 
-Windows에서 App Service _web.config_ 를 구성 하 여 IP 주소를 동적으로 제한할 수도 있습니다. 자세한 내용은 [동적 IP 보안 \<dynamicIpSecurity>](/iis/configuration/system.webServer/security/dynamicIpSecurity/)을 참조 하세요.
+Windows에 App Service가 있는 경우 _web.config_ 를 구성하여 IP 주소를 동적으로 제한할 수도 있습니다. 자세한 내용은 [동적 IP 보안 \<dynamicIpSecurity>](/iis/configuration/system.webServer/security/dynamicIpSecurity/)를 참조하세요.
 
 ## <a name="client-authentication-and-authorization"></a>클라이언트 인증 및 권한 부여
 

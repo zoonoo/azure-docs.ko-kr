@@ -4,35 +4,38 @@ description: AKS VM 호스트 OS의 보안 강화에 대해 알아보기
 services: container-service
 author: mlearned
 ms.topic: article
-ms.date: 09/11/2019
+ms.date: 03/29/2021
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 84b826ce33b5395db5bd38e883b3a0fb3425725b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0866905d0228d2304ebf5c8ef930a629979d2da
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86244041"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012089"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>AKS 에이전트 노드 호스트 OS의 보안 강화
 
-Azure Kubernetes Service(AKS)는 SOC, ISO, PCI DSS, HIPAA 표준을 준수하는 보안 서비스입니다. 이 문서에서는 AKS 가상 머신 호스트에 적용된 보안 강화에 대해 설명합니다. AKS 보안에 대한 자세한 내용은 [AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념](./concepts-security.md)을 참조하세요.
+보안 서비스인 AKS(Azure Kubernetes Service)는 SOC, ISO, PCI DSS 및 HIPAA 표준을 준수합니다. 이 문서에서는 AKS VM(가상 머신) 호스트에 적용되는 보안 강화에 대해 설명합니다. AKS 보안에 대한 자세한 내용은 [AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념](./concepts-security.md)을 참조하세요.
 
 > [!Note]
 > 이 문서의 범위는 AKS의 Linux 에이전트로 한정됩니다.
 
-AKS 클러스터는 보안 최적화 OS를 실행하는 호스트 가상 머신에 배포되었습니다. 이 OS는 AKS를 실행하는 컨테이너에 사용됩니다. 이 호스트 OS는 부가적인 보안 강화와 최적화가 적용된 **Ubuntu 16.04.LTS** 이미지를 기반으로 합니다(보안 강화 세부 정보 참조).
+AKS 클러스터는 AKS에서 실행되는 컨테이너에 사용되는 보안에 최적화된 OS를 실행하는 호스트 VM에 배포됩니다. 이 호스트 OS는 [보안 강화](#security-hardening-features) 및 최적화가 더 적용된 **Ubuntu 16.04.LTS** 이미지를 기반으로 합니다.
 
 보안 강화 호스트 OS의 목표는 공격 노출 영역을 줄이고 안전하게 컨테이너의 배포를 최적화하는 것입니다.
 
 > [!Important]
-> 보안 강화 OS는 CIS 벤치마크를 거치지 않았습니다. CIS 벤치마크와 중첩되는 사항이 있으나 목표는 CIS 준수가 아닙니다. 호스트 OS 강화의 목적은 Microsoft의 자체적인 내부 호스트 보안 표준과 일치하는 보안 수준으로 수렴하는 것입니다.
+> 보안 강화 OS는 CIS 벤치마크를 거치지 **않았습니다**. CIS 벤치마크와 겹치는 부분이 있지만 목표는 CIS를 준수하지 않는 것입니다. 호스트 OS 강화의 목적은 Microsoft의 자체적인 내부 호스트 보안 표준과 일치하는 보안 수준으로 수렴하는 것입니다.
 
 ## <a name="security-hardening-features"></a>보안 강화 기능
 
-* AKS는 기본적으로 보안에 최적화된 호스트 OS를 제공합니다. 대체 운영 체제를 선택할 수 있는 옵션은 없습니다.
+* AKS는 기본적으로 보안 최적화 호스트 OS를 제공하지만 대체 운영 체제를 선택할 수 있는 옵션은 없습니다.
 
-* Azure는 AKS 가상 머신 호스트에 매일 패치를 적용합니다(보안 패치 포함). 이러한 패치 중 일부는 다시 부팅해야 적용됩니다. 필요에 따라 AKS VM 호스트 다시 부팅을 예약해야 합니다. AKS 패치를 자동화하는 방법에 대한 지침은 [AKS 노드 패치](./node-updates-kured.md)를 참조하세요.
+* Azure는 AKS 가상 머신 호스트에 매일 패치를 적용합니다(보안 패치 포함). 
+    * 이러한 패치 중 일부는 다시 부팅해야 적용됩니다. 
+    * 필요에 따라 AKS VM 호스트 다시 부팅을 예약해야 합니다. 
+    * AKS 패치를 자동화하는 방법에 대한 지침은 [AKS 노드 패치](./node-updates-kured.md)를 참조하세요.
 
 ## <a name="what-is-configured"></a>구성되는 항목
 
@@ -79,14 +82,12 @@ AKS 클러스터는 보안 최적화 OS를 실행하는 호스트 가상 머신�
  
 * 공격 노출 영역을 더 줄이기 위해 일부 불필요한 커널 모듈 드라이버는 OS에서 사용하지 않도록 설정되었습니다.
 
-* 보안 강화 OS는 AKS에 대해 특별히 구축 및 유지 관리되며 AKS 플랫폼 밖에서는 지원되지 않습니다.
+* 보안 강화 OS는 AKS에 대해 특별히 구축 및 유지 관리되며 AKS 플랫폼 밖에서는 지원되지 **않습니다**.
 
 ## <a name="next-steps"></a>다음 단계  
 
 AKS 보안에 대한 자세한 내용은 다음 문서를 참조하세요. 
 
-[AKS(Azure Kubernetes Service)](./intro-kubernetes.md)
-
-[AKS 보안 고려 사항 ](./concepts-security.md)
-
-[AKS 모범 사례 ](./best-practices.md)
+* [AKS(Azure Kubernetes Service)](./intro-kubernetes.md)
+* [AKS 보안 고려 사항 ](./concepts-security.md)
+* [AKS 모범 사례 ](./best-practices.md)

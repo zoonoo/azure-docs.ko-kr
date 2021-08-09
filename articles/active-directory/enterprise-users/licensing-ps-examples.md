@@ -1,6 +1,6 @@
 ---
-title: 그룹 라이선스에 대 한 PowerShell 및 그래프 예제-Azure AD | Microsoft Docs
-description: Azure Active Directory 그룹 기반 라이선스에 대 한 PowerShell + 그래프 예제 및 시나리오
+title: 그룹 라이선스를 위한 PowerShell 및 Graph 예제 - Azure AD | Microsoft Docs
+description: Azure Active Directory 그룹 기반 라이선스에 대한 PowerShell + Graph 예제 및 시나리오
 services: active-directory
 keywords: Azure AD 라이선스
 documentationcenter: ''
@@ -15,25 +15,25 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 77483920e327b95c699c9bb2b494f41eff3d2605
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97586383"
 ---
-# <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD의 그룹 기반 라이선스에 대 한 PowerShell 및 그래프 예제
+# <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD의 그룹 기반 라이선싱에 대한 PowerShell 및 Graph 예제
 
-[Azure Portal](https://portal.azure.com)를 통해 그룹 기반 라이선스에 대 한 전체 기능을 사용할 수 있으며 현재는 기존 [msonline PowerShell cmdlet](/powershell/module/msonline) 및 Microsoft Graph를 사용 하 여 수행할 수 있는 몇 가지 유용한 작업이 있습니다. 이 문서는 가능한 작업에 대한 예제를 제공합니다.
+그룹 기반 라이선스의 전체 기능은 [Azure Portal](https://portal.azure.com)을 통해 사용할 수 있으며, 현재 기존 [MSOnline PowerShell cmdlet](/powershell/module/msonline) 및 Microsoft Graph를 사용하여 수행할 수 있는 몇 가지 유용한 작업이 있습니다. 이 문서는 가능한 작업에 대한 예제를 제공합니다.
 
 > [!NOTE]
-> Cmdlet 실행을 시작 하기 전에 cmdlet을 실행 하 여 조직에 먼저 연결 해야 합니다 `Connect-MsolService` .
+> cmdlet 실행을 시작하기 전에 먼저 `Connect-MsolService` cmdlet을 실행하여 조직에 연결해야 합니다.
 
 > [!WARNING]
-> 이 코드는 데모 용도의 예로 제공됩니다. 사용자 환경에서 사용 하려는 경우 먼저 작은 규모에서 테스트 하거나 별도의 테스트 조직에서 테스트 해 보세요. 환경의 특정 요구에 맞게 코드를 조정해야 할 수도 있습니다.
+> 이 코드는 데모 용도의 예로 제공됩니다. 사용자 환경에서 사용하려는 경우, 먼저 작은 규모로 테스트하거나 별도의 테스트 조직에서 테스트하는 것이 좋습니다. 환경의 특정 요구에 맞게 코드를 조정해야 할 수도 있습니다.
 
 ## <a name="assign-licenses-to-a-group"></a>그룹에 라이선스 할당
 
-Microsoft Graph를 사용 하 여 그룹에 라이선스를 할당 하려면 다음 샘플을 사용 합니다.
+다음 샘플을 사용하여 Microsoft Graph를 통해 그룹에 라이선스를 할당합니다.
 
 ```
 POST https://graph.microsoft.com/v1.0/groups/1ad75eeb-7e5a-4367-a493-9214d90d54d0/assignLicense
@@ -88,7 +88,7 @@ EMSPREMIUM
 > [!NOTE]
 > 데이터는 제품(SKU) 정보로 제한됩니다. 라이선스에 사용하지 않도록 설정된 서비스 계획은 나열할 수 없습니다.
 
-다음 샘플을 사용 하 여 Microsoft Graph에서 동일한 데이터를 가져올 수 있습니다.
+다음 샘플을 사용하여 Microsoft Graph에서 동일한 데이터를 가져옵니다.
 
 ```
 GET https://graph.microsoft.com/v1.0/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41?$select=assignedLicenses
@@ -265,7 +265,7 @@ ObjectId                             DisplayName      License Error
 6d325baf-22b7-46fa-a2fc-a2500613ca15 Catherine Gibson MutuallyExclusiveViolation
 ```
 
-다음을 사용 하 여 Microsoft Graph에서 동일한 데이터를 가져옵니다.
+다음을 사용하여 Microsoft Graph에서 동일한 데이터를 가져옵니다.
 
 ```powershell
 GET https://graph.microsoft.com/v1.0/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors
@@ -294,7 +294,7 @@ HTTP/1.1 200 OK
 다음 스크립트는 하나 이상의 그룹에서 라이선스 오류가 있는 모든 사용자를 가져오는 데 사용할 수 있습니다. 이 스크립트는 사용자당, 라이선스 오류당 한 행을 출력하기 때문에 각 오류의 소스를 명확하게 식별할 수 있습니다.
 
 > [!NOTE]
-> 이 스크립트는 조직에 있는 모든 사용자를 열거 하며,이는 대기업에는 적합 하지 않을 수 있습니다.
+> 이 스크립트는 조직의 모든 사용자를 열거하기 때문에 대규모 조직에는 적합하지 않을 수 있습니다.
 
 ```powershell
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
@@ -402,7 +402,7 @@ function UserHasLicenseAssignedFromGroup
 }
 ```
 
-이 스크립트는 SKU ID를 입력으로 사용 하 여 조직의 각 사용자에 대해 해당 함수를 실행 합니다 .이 예제에서는 조직에서 ID *contoso: EMS* 로 표시 되는 *Enterprise Mobility + Security* 에 대 한 라이선스에 관심이 있습니다.
+이 스크립트는 SKU ID를 입력으로 사용하여 조직의 각 사용자에 대해 해당 함수를 실행합니다. 이 예제에서는 *Enterprise Mobility + Security* 에 대한 라이선스가 필요합니다. 이 라이선스는 조직에서 ID *contoso:EMS* 로 표시됩니다.
 
 ```powershell
 #the license SKU we are interested in. use Get-MsolAccountSku to see a list of all identifiers in your organization
@@ -426,7 +426,7 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 240622ac-b9b8-4d50-94e2-dad19a3bf4b5 contoso:EMS             True              True
 ```
 
-그래프에는 결과를 표시 하는 간단한 방법이 없지만이 API에서 볼 수 있습니다.
+Graph는 결과를 표시하는 간단한 방법이 없지만 이 API에서 확인할 수 있습니다.
 
 ```powershell
 GET https://graph.microsoft.com/v1.0/users/e61ff361-5baf-41f0-b2fd-380a6a5e406a?$select=licenseAssignmentStates
@@ -483,7 +483,7 @@ HTTP/1.1 200 OK
 
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>그룹 라이선스가 있는 사용자에 대한 직접 라이선스 제거
 
-이 스크립트의 목적은 이미 그룹에서 동일한 라이선스를 상속 받은 사용자의 불필요 한 직접 라이선스를 제거 하는 것입니다. 예를 들어 [그룹 기반 라이선스 전환](licensing-groups-migrate-users.md)의 일부로 사용할 수 있습니다.
+이 스크립트의 용도는 동일한 라이선스를 그룹에서 이미 상속한(예: [그룹 기반 라이선스로 전환](licensing-groups-migrate-users.md)의 일환으로) 사용자로부터 불필요한 직접 라이선스를 제거하는 것입니다.
 > [!NOTE]
 > 우선 제거할 직접 라이선스가 상속된 라이선스보다 더 많은 서비스 기능을 사용하지 않는지 검사하는 것이 중요합니다. 그렇지 않을 경우 직접 라이선스를 제거하면 사용자가 서비스 및 데이터를 액세스할 수 없게 될 수 있습니다. 현재는 어떤 서비스가 상속된 라이선스를 통해 사용되고 어떤 서비스가 직접 라이선스를 통해 사용되는지 PowerShell을 통해 확인할 수 없습니다. 스크립트에서는 우리가 아는 최소 수준의 서비스가 그룹에서 상속되는 것으로 지정하고 사용자가 예기치 않게 서비스 액세스 권한을 상실하지 않는지 확인합니다.
 
@@ -655,7 +655,7 @@ UserId                               OperationResult
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
 > [!NOTE]
-> `$skuId` `$groupId` 위의 스크립트를 실행 하기 전에 테스트 환경에 따라 직접 라이선스 제거를 대상으로 하는 변수에 대 한 값을 업데이트 하십시오. 
+> 위의 스크립트를 실행하기 전에 테스트 환경에 따라 직접 라이선스를 제거할 `$skuId` 및 `$groupId` 변수의 값을 업데이트합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

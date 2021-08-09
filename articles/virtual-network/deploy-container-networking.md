@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Network 컨테이너 네트워킹 배포 | Microsoft Docs
-description: Kubernetes 클러스터에 대 한 Azure CNI (Virtual Network container Network interface) 플러그 인을 배포 하는 방법에 대해 알아봅니다.
+description: Kubernetes 클러스터용 Azure Virtual Network CNI(컨테이너 네트워크 인터페이스) 플러그 인을 배포하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: aanandr
@@ -17,10 +17,10 @@ ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: b95b3cfdf8fea6e31015d945566803569b4ba064
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98222924"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Azure Virtual Network 컨테이너 네트워크 인터페이스 플러그 인 배포
@@ -29,9 +29,9 @@ Azure 가상 머신에 설치되는 Azure Virtual Network CNI(컨테이너 네�
 
 ## <a name="deploy-plug-in-for-acs-engine-kubernetes-cluster"></a>ACS-Engine Kubernetes 클러스터용 플러그 인 배포
 
-ACS-Engine은 Azure Resource Manager 템플릿을 사용하여 Kubernetes 클러스터를 배포합니다. 클러스터 구성은 템플릿 생성 시 도구로 전달되는 JSON 파일에서 지정됩니다. 지원 되는 클러스터 설정 및 해당 설명의 전체 목록에 대 한 자세한 내용은 [컨테이너 서비스 엔진-클러스터 정의 Microsoft Azure](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md)를 참조 하세요. 플러그 인은 ACS-Engine을 사용하여 만드는 클러스터의 기본 네트워킹 플러그 인입니다. 플러그 인을 구성할 때 중요한 네트워크 구성 설정은 다음과 같습니다.
+ACS-Engine은 Azure Resource Manager 템플릿을 사용하여 Kubernetes 클러스터를 배포합니다. 클러스터 구성은 템플릿 생성 시 도구로 전달되는 JSON 파일에서 지정됩니다. 지원되는 클러스터 설정 및 해당 설명의 전체 목록을 자세히 확인하려면 [Microsoft Azure Container Service Engine - 클러스터 정의](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md)를 참조하세요. 플러그 인은 ACS-Engine을 사용하여 만드는 클러스터의 기본 네트워킹 플러그 인입니다. 플러그 인을 구성할 때 중요한 네트워크 구성 설정은 다음과 같습니다.
 
-  | 설정                              | 설명                                                                                                           |
+  | 설정                              | Description                                                                                                           |
   |--------------------------------------|------------------------------------------------------------------------------------------------------                 |
   | firstConsecutiveStaticIP             | 마스터 노드에 할당되는 IP 주소입니다. 필수 설정입니다.                                     |
   | kubernetesConfig 아래의 clusterSubnet | 클러스터가 배포되며 IP 주소가 Pod에 할당되는 가상 네트워크 서브넷의 CIDR입니다.   |
@@ -92,7 +92,7 @@ ACS-Engine은 Azure Resource Manager 템플릿을 사용하여 Kubernetes 클러
 
 Kubernetes 클러스터의 모든 Azure 가상 머신에 플러그 인을 설치하려면 다음 단계를 완료합니다.
 
-1. [플러그 인을 다운로드 하 여 설치](#download-and-install-the-plug-in)합니다.
+1. [플러그 인을 다운로드하여 설치합니다](#download-and-install-the-plug-in).
 2. Pod에 IP 주소를 할당할 모든 가상 머신에서 가상 네트워크 IP 주소 풀을 미리 할당합니다. 모든 Azure 가상 머신의 각 네트워크 인터페이스에서는 기본 가상 네트워크 개인 IP 주소가 제공됩니다. Pod용 IP 주소 풀은 다음 옵션 중 하나를 사용하여 가상 머신 네트워크 인터페이스에서 보조 주소(*ipconfigs*)로 추가됩니다.
 
    - **CLI**: [Azure CLI를 사용해 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-cli.md)
@@ -118,7 +118,7 @@ Kubernetes 클러스터의 모든 Azure 가상 머신에 플러그 인을 설치
 
 ## <a name="deploy-plug-in-for-docker-containers"></a>Docker 컨테이너용 플러그 인 배포
 
-1. [플러그 인을 다운로드 하 여 설치](#download-and-install-the-plug-in)합니다.
+1. [플러그 인을 다운로드하여 설치합니다](#download-and-install-the-plug-in).
 2. 다음 명령을 사용하여 Docker 컨테이너를 만듭니다.
 
    ```
@@ -168,8 +168,8 @@ CNI 네트워크 구성 파일은 JSON 형식으로 기술되어 있습니다. �
 
 [GitHub](https://github.com/Azure/azure-container-networking/releases)에서 플러그 인을 다운로드합니다. 사용 중인 플랫폼용 최신 버전을 다운로드하세요.
 
-- **Linux**: [azure-vnet-cni-Linux-amd64 \<version no.\> tgz](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-linux-amd64-v1.0.12-rc3.tgz)
-- **Windows**: [azure-vnet-cni-Windows-amd64- \<version no.\> .zip](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-windows-amd64-v1.0.12-rc3.zip)
+- **Linux**: [azure-vnet-cni-linux-amd64-\<version no.\>.tgz](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-linux-amd64-v1.0.12-rc3.tgz)
+- **Windows**: [azure-vnet-cni-windows-amd64-\<version no.\>.zip](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-windows-amd64-v1.0.12-rc3.zip)
 
 [Linux](https://github.com/Azure/azure-container-networking/blob/master/scripts/install-cni-plugin.sh) 또는 [Windows](https://github.com/Azure/azure-container-networking/blob/master/scripts/Install-CniPlugin.ps1)용 설치 스크립트를 컴퓨터에 복사합니다. 컴퓨터의 `scripts` 디렉터리에 스크립트를 저장하고 파일 이름을 `install-cni-plugin.sh`(Linux) 또는 `install-cni-plugin.ps1`(Windows)로 지정합니다. 플러그 인을 설치하려면 사용 중인 플러그 인 버전을 지정하여 플랫폼에 적합한 스크립트를 실행합니다. 예를 들어 *v1.0.12-rc3* 을 지정할 수 있습니다.
 

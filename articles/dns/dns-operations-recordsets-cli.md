@@ -8,14 +8,14 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
 ms.workload: infrastructure-services
-ms.date: 05/15/2018
+ms.date: 04/28/2021
 ms.author: rohink
-ms.openlocfilehash: 2d3989b3c477a35d602f1ccf3e45d6f597f5d78d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 52e82e52ba0476aba02b4d083537e085181bbde9
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96011571"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228073"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리
 
@@ -24,7 +24,7 @@ ms.locfileid: "96011571"
 > * [Azure CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-이 문서에서는 Windows, Mac 및 Linux용으로 제공되는 플랫폼 간 Azure CLI를 사용하여 DNS 영역에 대한 DNS 레코드를 관리하는 방법을 설명합니다. [Azure PowerShell](dns-operations-recordsets.md) 또는 [Azure Portal](dns-operations-recordsets-portal.md)을 사용하여 DNS 레코드를 관리할 수도 있습니다.
+이 문서에서는 플랫폼 간 Azure CLI를 사용하여 DNS 영역에 대한 DNS 레코드를 관리하는 방법을 보여 줍니다. Azure CLI는 Windows, Mac 및 Linux에서 사용할 수 있습니다. [Azure PowerShell](dns-operations-recordsets.md) 또는 [Azure Portal](dns-operations-recordsets-portal.md)을 사용하여 DNS 레코드를 관리할 수도 있습니다.
 
 이 문서의 예제에서는 이미 [Azure CLI를 설치했고, 로그인했고, DNS 영역을 만들었다](dns-operations-dnszones-cli.md)고 가정합니다.
 
@@ -38,29 +38,34 @@ Azure DNS의 DNS 레코드에 대한 자세한 내용은 [DNS 영역 및 레코�
 
 ## <a name="create-a-dns-record"></a>DNS 레코드 만들기
 
-DNS 레코드를 만들려면 `az network dns record-set <record-type> add-record` 명령을 사용합니다(여기서 `<record-type>`은 a, srv, txt 등) 도움말은를 참조 `az network dns record-set --help` 하세요.
+DNS 레코드를 만들려면 `az network dns record-set <record-type> add-record` 명령을 사용합니다(여기서 `<record-type>`은 a, srv, txt 등 레코드 유형) 도움말은 `az network dns record-set --help`를 참조하세요.
 
-레코드를 만드는 경우 리소스 그룹 이름, 영역 이름, 레코드 집합 이름, 레코드 유형 및 만드는 레코드의 세부 정보를 지정해야 합니다. 레코드 집합 이름은 *상대* 이름이어야 합니다. 즉, 영역 이름을 제외해야 합니다.
+레코드를 만들 때 다음 정보를 지정해야 합니다. 
 
-레코드 집합이 아직 없는 경우 이 명령은 자동으로 레코드 집합을 만듭니다. 레코드 집합이 이미 있는 경우 이 명령은 지정한 레코드를 기존 레코드 집합에 추가합니다.
+* 리소스 그룹 이름
+* 영역 이름
+* 레코드 집합 이름
+* 레코드 형식
+
+레코드 집합 이름은 *상대* 이름이어야 합니다. 즉, 영역 이름을 제외해야 합니다. 레코드 집합이 아직 존재하지 않는 경우 이 명령이 레코드 집합을 만듭니다. 그러나 이 명령은 레코드 집합이 이미 존재하는 경우 지정한 레코드를 추가합니다.
 
 새 레코드 집합이 만들어지면 3600의 기본 TTL(Time to Live)이 사용됩니다. 다른 TTL을 사용하는 방법에 대한 지침은 [DNS 레코드 집합 만들기](#create-a-dns-record-set)를 참조하세요.
 
 다음 예제에서는 *MyResourceGroup* 리소스 그룹의 *contoso.com* 영역에 *www* 라는 A 레코드를 만듭니다. A 레코드의 IP 주소는 *1.2.3.4* 입니다.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
 영역의 구로에서 레코드 집합을 만들려면(이 경우 "contoso.com"), 따옴표를 포함한 레코드 이름 "\@"를 사용합니다.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
 ```
 
 ## <a name="create-a-dns-record-set"></a>DNS 레코드 집합 만들기
 
-위의 예제에서는 DNS 레코드가 기존 레코드 집합에 추가되거나 레코드 집합이 *명시적* 으로 생성되었습니다. 레코드를 추가하기 전에 레코드 집합을 *명시적* 으로 만들 수도 있습니다. Azure DNS는 DNS 레코드를 만들기 전에 DNS 이름을 예약하는 자리 표시자 역할을 수행할 수 있는 '빈' 레코드 집합도 지원합니다. 빈 레코드 집합은 Azure DNS 제어 평면에 표시되어 있지만 Azure DNS 이름 서버에 나타나지 않습니다.
+위의 예제에서는 DNS 레코드가 기존 레코드 집합에 추가되거나 레코드 집합이 *명시적* 으로 생성되었습니다. 레코드를 추가하기 전에 레코드 집합을 *명시적* 으로 만들 수도 있습니다. Azure DNS는 DNS 레코드를 만들기 전에 DNS 이름을 예약하는 자리 표시자 역할을 수행할 수 있는 '빈' 레코드 집합도 지원합니다. 빈 레코드 집합은 Azure DNS 제어 평면에 표시되어 있지만 Azure DNS 이름 서버에도 나타납니다.
 
 `az network dns record-set <record-type> create` 명령을 사용하여 레코드 집합을 만듭니다. 도움말을 보려면 `az network dns record-set <record-type> create --help`을 참조하세요.
 
@@ -68,13 +73,13 @@ az network dns record-set a add-record --resource-group myresourcegroup --zone-n
 
 다음 예제에서는 `--ttl` 매개 변수(약식 `-l`)를 사용하여 60초 TTL이 있는 비어 있는 'A' 형식의 레코드 집합을 만듭니다.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --name www --ttl 60
 ```
 
 다음 예제에서는 `--metadata` 매개 변수를 사용하여 "dept=finance" 및 "environment=production"라는 두 개의 메타데이터 항목을 가진 레코드 집합을 만듭니다.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --name www --metadata "dept=finance" "environment=production"
 ```
 
@@ -88,17 +93,17 @@ az network dns record-set a create --resource-group myresourcegroup --zone-name 
 
 각각의 경우에 단일 레코드를 만드는 방법을 보여줍니다. 레코드는 기존 레코드 집합 또는 암시적으로 생성된 레코드 집합에 추가됩니다. 레코드 집합 생성 및 레코드 집합 매개 변수를 명시적으로 정의하는 방법은 [DNS 레코드 집합 만들](#create-a-dns-record-set)를 참조하세요.
 
-SOA가 각 DNS 영역과 함께 만들어지고 삭제되며 별도로 만들어지거나 삭제될 수 없기 때문에 SOA 레코드 집합을 만드는 예제를 제공하지 않습니다. 그러나 [뒷부분의 예제에 표시된 대로 SOA를 수정할 수 있습니다](#to-modify-an-soa-record).
+각 DNS 영역에 SOA가 생성 및 삭제되므로 SOA 레코드 집합을 만드는 예제는 없습니다. SOA 레코드는 별도로 생성 또는 삭제할 수 없습니다. 그러나 [뒷부분의 예제에 표시된 대로 SOA를 수정할 수 있습니다](#to-modify-an-soa-record).
 
 ### <a name="create-an-aaaa-record"></a>AAAA 레코드 만들기
 
-```azurecli
+```azurecli-interactive
 az network dns record-set aaaa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
 ```
 
-### <a name="create-an-caa-record"></a>CAA 레코드 만들기
+### <a name="create-a-caa-record"></a>CAA 레코드 만들기
 
-```azurecli
+```azurecli-interactive
 az network dns record-set caa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-caa --flags 0 --tag "issue" --value "ca1.contoso.com"
 ```
 
@@ -109,7 +114,7 @@ az network dns record-set caa add-record --resource-group myresourcegroup --zone
 > 
 > 자세한 내용은 [CNAME 레코드](dns-zones-records.md#cname-records)를 참조하세요.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set cname set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-cname --cname www.contoso.com
 ```
 
@@ -117,13 +122,13 @@ az network dns record-set cname set-record --resource-group myresourcegroup --zo
 
 이 예제에서는 레코드 집합 이름을 "\@"로 사용하여 영역 구로에 MX 레코드를 만듭니다(이 경우 "contoso.com").
 
-```azurecli
+```azurecli-interactive
 az network dns record-set mx add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
 ```
 
 ### <a name="create-an-ns-record"></a>NS 레코드 만들기
 
-```azurecli
+```azurecli-interactive
 az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-ns --nsdname ns1.contoso.com
 ```
 
@@ -131,7 +136,7 @@ az network dns record-set ns add-record --resource-group myresourcegroup --zone-
 
 이 경우에 'my-arpa-zone.com'은 IP 범위를 나타내는 ARPA 영역을 나타냅니다. 이 영역의 각 PTR 레코드 집합은 IP 범위 내의 IP 주소에 해당합니다.  레코드 이름 '10'은 이 레코드에서 나타내는 이 IP 범위 내에서 IP 주소의 마지막 옥텟입니다.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set ptr add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name my-arpa.zone.com --ptrdname myservice.contoso.com
 ```
 
@@ -139,7 +144,7 @@ az network dns record-set ptr add-record --resource-group myresourcegroup --zone
 
 [SRV 레코드 집합](dns-zones-records.md#srv-records)을 만들 경우 레코드 집합 이름에 *\_서비스* 및 *\_프로토콜* 을 지정합니다. 영역 apex에 SRV 레코드 집합을 만드는 경우 레코드 집합 이름에 "\@"을 포함할 필요가 없습니다.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set srv add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com
 ```
 
@@ -147,7 +152,7 @@ az network dns record-set srv add-record --resource-group myresourcegroup --zone
 
 다음 예제에서는 TXT 레코드를 만드는 방법을 보여 줍니다. TXT 레코드에서 지원되는 최대 문자열 길이에 대한 자세한 내용은 [TXT 레코드](dns-zones-records.md#txt-records)를 참조하세요.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set txt add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-txt --value "This is a TXT record"
 ```
 
@@ -155,11 +160,11 @@ az network dns record-set txt add-record --resource-group myresourcegroup --zone
 
 기존 레코드 집합을 가져오려면, `az network dns record-set <record-type> show`를 사용합니다. 도움말을 보려면 `az network dns record-set <record-type> show --help`을 참조하세요.
 
-레코드 또는 레코드 집합을 만들 때와 마찬가지로, 레코드 집합 이름은 *상대* 이름이어야 합니다. 즉, 영역 이름을 제외해야 합니다. 레코드 형식, 레코드 집합을 포함하는 영역 및 영역을 포함하는 리소스 그룹을 지정해야 합니다.
+레코드 또는 레코드 집합을 만들 때 지정된 레코드 집합 이름은 *상대적* 이름이어야 합니다. 이 이름에는 영역 이름이 포함되지 않습니다. 레코드 형식, 레코드 집합을 포함하는 영역 및 영역을 포함하는 리소스 그룹을 지정해야 합니다.
 
 다음 예제에서는 *MyResourceGroup* 리소스 그룹의 *contoso.com* 영역에서 *www* 라는 A 형식의 레코드를 검색합니다.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set a show --resource-group myresourcegroup --zone-name contoso.com --name www
 ```
 
@@ -167,15 +172,15 @@ az network dns record-set a show --resource-group myresourcegroup --zone-name co
 
 `az network dns record-set list` 명령을 사용하여 DNS 영역에 있는 모든 레코드를 나열할 수 있습니다. 도움말을 보려면 `az network dns record-set list --help`을 참조하세요.
 
-이 예제는 이름이나 레코드 형식에 관계없이 *MyResourceGroup* 리소스 그룹의 *contoso.com* 영역에 모든 레코드 집합을 반환합니다.
+이 예에서는 리소스 그룹 *MyResourceGroup* 의 *contoso.com* 영역에 있는 모든 레코드 집합을 반환합니다.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set list --resource-group myresourcegroup --zone-name contoso.com
 ```
 
 이 예제는 지정된 레코드 형식(이 경우 'A' 레코드)과 일치하는 모든 레코드 집합을 반환합니다.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set a list --resource-group myresourcegroup --zone-name contoso.com 
 ```
 
@@ -191,11 +196,11 @@ az network dns record-set a list --resource-group myresourcegroup --zone-name co
 
 이 명령은 레코드 집합에서 DNS 레코드를 삭제합니다. 레코드 집합에서 마지막 레코드가 삭제되면 레코드 집합 자체도 삭제됩니다. 대신, 빈 레코드 집합을 유지하려면 `--keep-empty-record-set` 옵션을 사용합니다.
 
-`az network dns record-set <record-type> add-record`를 사용하여 레코드를 만들 때와 동일한 매개 변수를 사용하여 삭제할 레코드와 레코드를 삭제할 영역을 지정해야 합니다. 이러한 매개 변수는 위의 [DNS 레코드 만들기](#create-a-dns-record) 및 [다른 형식의 레코드 만들기](#create-records-of-other-types)에 설명됩니다
+`az network dns record-set <record-type> add-record` 명령을 사용할 때 삭제할 레코드와 삭제할 영역을 지정해야 합니다. 이러한 매개 변수는 위의 [DNS 레코드 만들기](#create-a-dns-record) 및 [다른 형식의 레코드 만들기](#create-records-of-other-types)에 설명됩니다
 
 다음 예제에서는 *MyResourceGroup* 리소스 그룹의 *contoso.com* 영역에 *www* 라는 레코드 집합에서 값이 '1.2.3.4'인 A 레코드를 삭제합니다.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "www" --ipv4-address 1.2.3.4
 ```
 
@@ -209,7 +214,7 @@ A, AAAA, CAA, MX, NS, PTR, SRV 또는 TXT 형식의 기존 레코드를 수정�
 
 다음 예제에서는 IP 주소 1.2.3.4~IP 주소 5.6.7.8 범위에서 'A' 레코드를 수정하는 방법을 보여 줍니다.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 5.6.7.8
 az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
@@ -218,25 +223,25 @@ az network dns record-set a remove-record --resource-group myresourcegroup --zon
 
 ### <a name="to-modify-a-cname-record"></a>CNAME 레코드를 수정하려면
 
-대부분의 다른 레코드 형식과 달리 CNAME 레코드 집합은 단일 레코드만 포함할 수 있습니다.  따라서 다른 레코드 형식의 경우과 달리, 새 레코드를 추가하고 기존 레코드를 제거하여 현재 값을 바꿀 수 없습니다.
+대부분의 다른 레코드 형식과 달리 CNAME 레코드 집합은 단일 레코드만 포함할 수 있습니다.  따라서 다른 레코드 유형과 마찬가지로 새 레코드를 추가하고 기존 레코드를 제거하여 현재 값을 바꿀 수 없습니다.
 
 대신 CNAME 레코드를 수정하려면 `az network dns record-set cname set-record`를 사용합니다. 도움말을 보려면 `az network dns record-set cname set-record --help`를 참조하세요.
 
 이 예에서는 기존 값 대신 'www.fabrikam.net'을 가리키도록 *MyResourceGroup* 리소스 그룹의 *contoso.com* 영역에서 *www* 라는 CNAME 레코드 집합을 수정합니다.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set cname set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-cname --cname www.fabrikam.net
 ``` 
 
 ### <a name="to-modify-an-soa-record"></a>SOA 레코드를 수정하려면
 
-대부분의 다른 레코드 형식과 달리 CNAME 레코드 집합은 단일 레코드만 포함할 수 있습니다.  따라서 다른 레코드 형식의 경우과 달리, 새 레코드를 추가하고 기존 레코드를 제거하여 현재 값을 바꿀 수 없습니다.
+대부분의 다른 레코드 유형과 달리 SOA 레코드 집합에는 단일 레코드만 포함될 수 있습니다.  따라서 다른 레코드 유형과 마찬가지로 새 레코드를 추가하고 기존 레코드를 제거하여 현재 값을 바꿀 수 없습니다.
 
 대신 SOA 레코드를 수정하려면 `az network dns record-set soa update`를 사용합니다. 도움말을 보려면 `az network dns record-set soa update --help`을 참조하세요.
 
-다음 예제에서는 *MyResourceGroup* 리소스 그룹의 *contoso.com* 영역에 SOA 레코드의 'email' 속성을 설정하는 방법을 보여 줍니다.
+다음 예에서는 *contoso.com* 영역에 대한 SOA 레코드의 'email' 속성을 설정하는 방법을 보여 줍니다.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set soa update --resource-group myresourcegroup --zone-name contoso.com --email admin.contoso.com
 ```
 
@@ -244,13 +249,13 @@ az network dns record-set soa update --resource-group myresourcegroup --zone-nam
 
 각 DNS 영역에 영역 루트의 NS 레코드 집합이 자동으로 만들어집니다. 여기에는 영역에 할당된 Azure DNS 이름 서버의 이름이 포함됩니다.
 
-이 NS 레코드 집합에 추가 이름 서버를 추가하여 DNS 공급자가 2개 이상 있는 공동 호스팅 도메인을 지원할 수 있습니다. 또한 이 레코드 집합의 TTL 및 메타데이터를 수정할 수 있습니다.또한 이 레코드 집합의 TTL 및 메타데이터를 수정할 수 있습니다. 그러나 미리 채워진 Azure DNS 이름 서버를 제거 또는 수정할 수 없습니다.
+이 NS 레코드 집합에 추가 이름 서버를 추가하여 DNS 공급자가 2개 이상 있는 공동 호스팅 도메인을 지원할 수 있습니다. 또한 이 레코드 집합의 TTL 및 메타데이터를 수정할 수도 있습니다. 그러나 미리 채워진 Azure DNS 이름 서버는 제거 또는 수정할 수 없습니다.
 
-이는 영역 루트에 있는 NS 레코드 집합에만 적용됩니다. 영역의 다른 NS 레코드 집합은 제약 없이 수정할 수 있습니다(자식 영역을 위임하는 데 사용되므로).
+이 제한은 영역 루트에 있는 NS 레코드 집합에만 적용됩니다. 영역의 다른 NS 레코드 집합은 제약 없이 수정할 수 있습니다(자식 영역을 위임하는 데 사용되므로).
 
-다음 예제에서는 영역 루트의 NS 레코드 집합에 추가 이름 서버를 추가하는 방법을 보여 줍니다.
+다음 예제에서는 영역 루트의 NS 레코드 집합에 다른 이름 서버를 추가하는 방법을 보여 줍니다.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
 ```
 
@@ -260,7 +265,7 @@ az network dns record-set ns add-record --resource-group myresourcegroup --zone-
 
 다음 예제에서는 레코드 집합 TTL(이 경우 60초)을 수정하는 방법을 보여 줍니다.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set a update --resource-group myresourcegroup --zone-name contoso.com --name www --set ttl=60
 ```
 
@@ -270,7 +275,7 @@ az network dns record-set a update --resource-group myresourcegroup --zone-name 
 
 다음 예제에서는 "dept=finance" 및 "environment=production"라는 두 개의 메타데이터 항목을 가진 레코드 집합을 수정하는 방법을 보여 줍니다. 기존 메타데이터는 지정된 값으로 *대체* 됩니다.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set a update --resource-group myresourcegroup --zone-name contoso.com --name www --set metadata.dept=finance metadata.environment=production
 ```
 
@@ -283,7 +288,7 @@ az network dns record-set a update --resource-group myresourcegroup --zone-name 
 
 다음 예제에서는 *MyResourceGroup* 리소스 그룹의 *contoso.com* 영역에서 *www* 라는 A 형식의 레코드 집합을 삭제합니다.
 
-```azurecli
+```azurecli-interactive
 az network dns record-set a delete --resource-group myresourcegroup --zone-name contoso.com --name www
 ```
 

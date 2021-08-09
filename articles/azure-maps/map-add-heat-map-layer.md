@@ -1,6 +1,6 @@
 ---
-title: 지도에 열 지도 계층 추가 | Microsoft Azure 맵
-description: 열 지도를 만드는 방법에 대해 알아봅니다. Azure Maps 웹 SDK를 사용 하 여 지도에 열 지도 계층을 추가 하는 방법을 참조 하세요. 열 지도 계층을 사용자 지정 하는 방법을 알아보세요.
+title: 지도에 열 지도 계층 추가 | Microsoft Azure Maps
+description: 열 지도를 만드는 방법을 알아봅니다. Azure Maps Web SDK를 사용하여 지도에 열 지도 계층을 추가하는 방법을 알아봅니다. 열 지도 계층을 사용자 지정하는 방법을 알아봅니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -10,26 +10,26 @@ services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: b15ee7091a68f7fcc79c71877c4af28b511b84de
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97680138"
 ---
 # <a name="add-a-heat-map-layer"></a>열 지도 계층 추가
 
-지점 밀도 맵이라고도 하는 열 지도는 데이터 시각화의 한 형식입니다. 색 범위를 사용 하 여 데이터 밀도를 나타내는 데 사용 되며 지도에 "핫 스폿" 데이터를 표시 합니다. 열 맵은 많은 수의 점이 있는 데이터 집합을 렌더링 하는 좋은 방법입니다. 
+지점 밀도 맵이라고도 하는 열 지도는 데이터 시각화의 한 형식입니다. 이는 색 범위를 사용하여 데이터의 밀도를 나타내고 지도에 데이터 “핫 스폿”을 표시하는 데 사용됩니다. 열 지도는 많은 수의 요소가 있는 데이터 세트를 렌더링하는 좋은 방법입니다. 
 
-수십 개의 요소를 기호로 렌더링 하면 대부분의 맵 영역을 처리할 수 있습니다. 이 경우 많은 기호가 겹칠 수 있습니다. 데이터를 보다 잘 이해 하기 어렵게 만듭니다. 그러나이 데이터 집합을 열 맵으로 시각화 하면 각 데이터 요소의 밀도 및 상대 밀도를 쉽게 확인할 수 있습니다.
+수만 개의 요소를 기호로 렌더링하면 대부분의 지도 영역을 덮을 수 있습니다. 이 경우 많은 기호가 겹칠 수 있습니다. 그러면 데이터를 정확하게 이해하기가 어렵습니다. 그러나 열 지도와 동일한 데이터 세트를 시각화하면 각 데이터 요소의 밀도와 상대 밀도를 쉽게 확인할 수 있습니다.
 
-다음과 같은 다양 한 시나리오에서 열 지도를 사용할 수 있습니다.
+다음을 비롯한 다양한 시나리오에서 열 지도를 사용할 수 있습니다.
 
-- **온도 데이터**: 두 데이터 요소 사이의 온도에 대 한 근사치을 제공 합니다.
-- **노이즈 센서에 대 한 데이터**: 센서가 있는 노이즈의 강도 뿐만 아니라 거리를 통한 분산에 대 한 통찰력을 제공할 수도 있습니다. 한 사이트의 노이즈 수준이 높지 않을 수 있습니다. 여러 센서의 노이즈 범위 영역이 겹치면 겹치는 영역에서 더 높은 의미의 소음을 겪을 수 있습니다. 따라서 겹쳐진 영역은 열 지도에 표시 됩니다.
-- **GPS 추적**: 속도를 가중치 높이 맵으로 포함 합니다. 여기서 각 데이터 요소의 강도는 속도를 기반으로 합니다. 예를 들어이 기능을 통해 차량의 속도를 빠르게 확인할 수 있습니다.
+- **온도 데이터**: 두 데이터 요소 사이 온도의 근사값을 제공합니다.
+- **노이즈 센서 데이터**: 센서가 있는 곳의 노이즈 강도를 표시할 뿐만 아니라, 멀리 떨어진 곳에 대한 인사이트를 제공할 수도 있습니다. 한 사이트의 노이즈 수준이 높지 않을 수 있습니다. 여러 센서의 노이즈 검사 영역이 겹치는 경우 이 겹치는 영역이 더 높은 노이즈 수준을 경험할 수 있습니다. 이렇게 겹쳐진 영역이 열 지도에 표시됩니다.
+- **GPS 추적**: 각 데이터 요소의 강도가 속도에 따라 다른 가중 높이 지도에서의 속도를 포함합니다. 예를 들어 이 기능은 차량의 속도를 확인할 수 있는 방법을 제공합니다.
 
 > [!TIP]
-> 열 지도 계층은 기본적으로 데이터 원본에 있는 모든 기 하 도형의 좌표를 렌더링 합니다. 점 기 하 도형 기능만 렌더링 하도록 계층을 제한 하려면 `filter` 계층의 속성을로 설정 `['==', ['geometry-type'], 'Point']` 합니다. MultiPoint 기능도 포함 하려면 `filter` 계층의 속성을로 설정 `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` 합니다.
+> 기본적으로 열 지도 계층은 데이터 원본에 있는 모든 도형의 좌표를 렌더링합니다. 계층이 지점 기하 도형만 렌더링하도록 제한하려면 계층의 `filter` 속성을 `['==', ['geometry-type'], 'Point']`로 설정합니다. MultiPoint 기능도 포함하려면 계층의 `filter` 속성을 `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`로 설정합니다.
 
 </br>
 
@@ -37,9 +37,9 @@ ms.locfileid: "97680138"
 
 ## <a name="add-a-heat-map-layer"></a>열 지도 계층 추가
 
-지점의 데이터 소스를 열 맵으로 렌더링 하려면 데이터 소스를 클래스의 인스턴스로 전달 하 `HeatMapLayer` 고 맵에 추가 합니다.
+요소의 데이터 원본을 열 지도로 렌더링하려면 데이터 원본을 `HeatMapLayer` 클래스 인스턴스로 전달하여 맵에 추가합니다.
 
-다음 코드에서 각 열 점은 모든 확대/축소 수준에서 10 픽셀의 반지름을 갖습니다. 더 나은 사용자 환경을 보장 하기 위해 열 맵은 레이블 계층 아래에 있습니다. 레이블은 명확 하 게 표시 됩니다. 이 샘플의 데이터는 [USGS 지진 위험 프로그램](https://earthquake.usgs.gov/)에서 가져온 것입니다. 최근 30 일 동안 발생 한 중요 한 지진입니다.
+다음 코드에서 각 열 요소의 반경은 모든 확대/축소 수준에서 10픽셀입니다. 더 나은 사용자 환경을 보장하기 위해 열 지도는 레이블 계층 아래에 있습니다. 레이블이 명확하게 표시됩니다. 이 샘플의 데이터는 [USGS 지진 위험 프로그램](https://earthquake.usgs.gov/)에서 제공됩니다. 이는 지난 30일 동안 발생한 심각한 지진에 대한 것입니다.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -56,7 +56,7 @@ map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
 }), 'labels');
 ```
 
-위의 코드를 실행 하는 전체 코드 샘플은 다음과 같습니다.
+다음은 이전 코드의 전체 실행 코드 샘플입니다.
 
 <br/>
 
@@ -65,55 +65,55 @@ map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
 
 ## <a name="customize-the-heat-map-layer"></a>열 지도 계층 사용자 지정
 
-이전 예제는 반경 및 불투명도 옵션을 설정하여 열 지도를 사용자 지정했습니다. 열 지도 계층은 다음을 비롯 한 사용자 지정을 위한 몇 가지 옵션을 제공 합니다.
+이전 예제는 반경 및 불투명도 옵션을 설정하여 열 지도를 사용자 지정했습니다. 열 지도 계층은 다음을 비롯하여 다양한 사용자 지정 옵션을 제공합니다.
 
-* `radius`: 각 데이터 요소를 렌더링할 픽셀 반지름을 정의 합니다. 반지름을 고정 숫자나 식으로 설정할 수 있습니다. 식을 사용 하 여 확대/축소 수준에 따라 반지름의 크기를 조정 하 고 지도의 일관 된 공간 영역을 나타낼 수 있습니다 (예: 5 마일 반지름).
-* `color`: 열 지도의 색이 지정 되는 방법을 지정 합니다. 색 그라데이션은 열 지도의 일반적인 기능입니다. 식을 사용 하 여 효과를 달성할 수 있습니다 `interpolate` . 열 지도를 색으로 표시 하는 식을 사용 하 여 `step` 밀도를 윤곽선 또는 방사형 스타일 맵과 비슷한 범위로 시각적으로 나눌 수도 있습니다. 이러한 색상표는 색을 최소에서 최대 밀도 값까지 정의합니다. 
+* `radius`: 각 데이터 요소를 렌더링할 픽셀 반경을 정의합니다. 반경을 정수 또는 식으로 설정할 수 있습니다. 식을 사용하여 확대/축소 수준에 따라 반경을 조정하고 지도에서 일관적인 공간 영역을 나타낼 수 있습니다(예: 5마일 반경).
+* `color`: 열 지도에 색이 지정되는 방식을 지정합니다. 색 그라데이션은 열 지도의 일반적인 기능입니다. `interpolate` 식을 사용하여 해당 효과를 구현할 수 있습니다. 열 지도에 색상을 적용하는 `step` 식을 사용하여 윤곽선 또는 레이더 스타일 지도와 유사한 범위로 밀도를 시각적으로 나눌 수도 있습니다. 이러한 색상표는 색을 최소에서 최대 밀도 값까지 정의합니다. 
 
-  열 맵의 색 값을 값에 대 한 식으로 지정 `heatmap-density` 합니다. "보간" 식의 인덱스 0에 데이터가 정의 되어 있지 않은 영역의 색 또는 "단계별" 식의 기본 색입니다. 배경색을 정의 하는 데이 값을 사용할 수 있습니다. 일반적으로이 값은 투명 또는 반투명 검정으로 설정 됩니다. 
+  열 지도에 대한 색 값을 `heatmap-density` 값에서 식으로 지정합니다. “보간” 식의 인덱스 0에 데이터가 정의되어 있지 않은 영역의 색 또는 “계단식” 식의 기본 색입니다. 배경색을 정의하는 데 이 값을 사용할 수 있습니다. 대부분 이 값을 투명 또는 반투명 검은색으로 설정하는 것을 선호합니다. 
    
   색 식의 예는 다음과 같습니다.
 
-  | 보간 색 식 | 단계별 색 식 | 
+  | 보간 색 식 | 계단식 색 식 | 
   |--------------------------------|--------------------------|
-  | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.25, ' 녹색 ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.50, ' 노랑 ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.75, ' red '<br/>\] |   
+  | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.25, 'green',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.50, 'yellow',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.75, 'red'<br/>\] |   
 
-- `opacity`: 열 지도 계층이 불투명 하거나 투명 하 게 지정 되는 방식을 지정 합니다.
-- `intensity`: 열 지도의 전체 강도를 높이기 위해 각 데이터 요소의 가중치에 승수를 적용 합니다. 이로 인해 데이터 요소의 가중치가 다르므로 시각화를 쉽게 만들 수 있습니다.
-- `weight`: 기본적으로 모든 데이터 요소의 가중치는 1 이며 동일 하 게 가중치가 적용 됩니다. Weight 옵션은 승수 역할을 하며 숫자 또는 식으로 설정할 수 있습니다. 숫자가 가중치로 설정 된 경우 맵에 각 데이터 요소를 두 번 배치 하는 것과 동일 합니다. 예를 들어 가중치가 2 인 경우 밀도는 2 배가 됩니다. 숫자가 가중치 옵션을 설정하면 밀도 옵션을 사용하는 것과 비슷한 방식으로 열 지도를 렌더링합니다. 
+- `opacity`: 열 지도 계층의 불투명도 또는 투명도를 지정합니다.
+- `intensity`: 각 데이터 요소의 가중치에 승수를 적용하여 열 지도의 전체 강도를 높입니다. 이로 인해 데이터 요소의 가중치가 달라지므로 쉽게 시각화할 수 있습니다.
+- `weight`: 기본적으로 모든 데이터 요소의 가중치는 1이므로, 가중치는 동일합니다. 가중치 옵션은 승수 역할을 하며 숫자 또는 식으로 설정할 수 있습니다. 숫자를 가중치로 설정하는 경우 지도에 각 데이터 요소를 두 번씩 배치하는 것과 마찬가지입니다. 예를 들어 가중치가 2인 경우 밀도는 2배가 됩니다. 숫자가 가중치 옵션을 설정하면 밀도 옵션을 사용하는 것과 비슷한 방식으로 열 지도를 렌더링합니다. 
 
-  그러나 식을 사용 하는 경우 각 데이터 요소의 가중치는 각 데이터 요소의 속성을 기반으로 할 수 있습니다. 예를 들어 각 데이터 요소가 지진을 나타내는 경우 크기 값은 각 지진 데이터 요소에 대 한 중요 한 메트릭입니다. 지진은 항상 발생 하지만 대부분 낮은 크기를 가지 며,이는 발견 되지 않습니다. 식에서 크기 값을 사용 하 여 각 데이터 요소에 가중치를 할당 합니다. 크기 값을 사용 하 여 무게를 할당 하면 열 지도 내에서 지진의 의미를 보다 잘 표현할 수 있습니다.
-- `source` 및 `source-layer` : 데이터 원본을 업데이트할 수 있습니다.
+  그러나 식을 사용하는 경우 각 데이터 요소의 가중치는 각 데이터 요소의 속성에 따라 다를 수 있습니다. 예를 들어 각 데이터 요소가 지진을 나타내는 경우 진도 값은 각 지진 데이터 요소에서 중요한 메트릭입니다. 지진은 항상 발생하지만, 대부분 진도가 낮으며 알아차리지 못합니다. 식에서 진도 값을 사용하여 각 데이터 요소에 가중치를 할당합니다. 진도 값을 사용하여 가중치를 할당하면 열 지도 내에서 지진의 유의성을 보다 잘 표현할 수 있습니다.
+- `source` 및 `source-layer`: 데이터 원본을 업데이트할 수 있습니다.
 
-다른 열 지도 계층 옵션을 테스트 하는 도구는 다음과 같습니다.
+다른 열 지도 계층 옵션을 테스트하는 도구는 다음과 같습니다.
 
 <br/>
 
 <iframe height='700' scrolling='no' title='열 지도 계층 옵션' src='//codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/WYPaXr/'>열 지도 계층 옵션</a>을 참조하세요.
 </iframe>
 
-## <a name="consistent-zoomable-heat-map"></a>일관 된 확대/열 지도
+## <a name="consistent-zoomable-heat-map"></a>일관된 확대/축소가 가능한 열 지도
 
-기본적으로 열 지도 계층에 렌더링 되는 데이터 요소의 반지름에는 모든 확대/축소 수준에 대 한 고정 픽셀 반지름이 있습니다. 지도를 확대할 때 데이터가 함께 집계 되 고 열 지도 계층이 다르게 보입니다. 
+기본적으로 열 지도 계층에 렌더링되는 데이터 요소의 반경에는 모든 확대/축소 수준에 대한 고정 픽셀 반경이 있습니다. 지도를 확대/축소하면 데이터가 함께 집계되고 열 지도 계층이 다르게 보입니다. 
 
-각 `zoom` 데이터 요소가 지도의 동일한 실제 영역을 포함 하도록 각 확대/축소 수준에 대 한 반지름의 크기를 조정 하려면 식을 사용 합니다. 이 식은 열 지도 계층을 더 정적이 고 일관 되 게 보이게 합니다. 지도의 각 확대/축소 수준에는 이전 확대/축소 수준과 가로 및 세로로 두 배의 픽셀이 있습니다. 
+각 데이터 요소가 지도의 동일한 실제 영역을 포함하도록 각 확대/축소 수준에 맞게 반경을 조정하는 데 `zoom` 식을 사용할 수 있습니다. 이 식은 열 지도 계층을 더 정적이고 일관되게 보이게 합니다. 지도의 각 확대/축소 수준에는 이전 확대/축소 수준과 비교했을 때 가로 및 세로로 두 배의 픽셀이 있습니다. 
 
-각 확대/축소 수준에서 두 배가 되도록 반지름의 크기를 조정 하면 모든 확대/축소 수준에서 일치 하는 열 지도를 만듭니다. 이러한 크기 조정을 적용 하려면 `zoom` `exponential interpolation` 다음 샘플과 같이 계산 된 최대 확대/축소 수준에 대 한 픽셀 반지름이 설정 된 기본 2 식에를 사용 `2 * Math.pow(2, minZoom - maxZoom)` 합니다. 지도를 확대 하 여 확대/축소 수준으로 열 지도의 크기를 조정 하는 방법을 확인 합니다.
+확대/축소 수준마다 두 배가 되도록 반경을 조정하면 모든 확대/축소 수준에서 일관되게 보이는 열 지도가 생성됩니다. 이와 같이 반경을 조정하려면 다음 샘플과 같이 픽셀 반경이 최소 확대/축소 수준으로 설정되고 조정된 반경이 최대 확대/축소 수준으로 설정되어 `2 * Math.pow(2, minZoom - maxZoom)`로 계산된 기본 2 `exponential interpolation` 식에 `zoom`을 사용합니다. 지도를 확대/축소하여 확대/축소 수준으로 열 지도가 조정되는 방식을 확인합니다.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="일관 된 확대/열 지도" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
-CodePen의 Azure Maps ()를 기준으로 펜 일치 확대/ <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>열 지도</a> 를 볼 수 <a href='https://codepen.io/azuremaps'>@azuremaps</a> 있습니다. <a href='https://codepen.io'></a>
+<iframe height="500" style="width: 100%;" scrolling="no" title="일관된 확대/축소가 가능한 열 지도" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>일관된 확대/축소가 가능한 열 지도</a>를 참조하세요.
 </iframe>
 
 > [!TIP]
-> 데이터 원본에서 클러스터링을 사용 하도록 설정 하면 서로 가까운 점이 클러스터형 점으로 그룹화 됩니다. 각 클러스터의 점 개수를 열 지도의 가중치 식으로 사용할 수 있습니다. 이렇게 하면 렌더링 되는 지점의 수를 크게 줄일 수 있습니다. 클러스터의 점 개수는 `point_count` point 기능의 속성에 저장 됩니다. 
+> 데이터 원본에서 클러스터링을 사용하도록 설정하면 서로 인접한 요소는 클러스터된 요소로 그룹화됩니다. 각 클러스터의 요소 개수를 열 지도의 가중치 식으로 사용할 수 있습니다. 이렇게 하면 렌더링되는 요소의 수를 크게 줄일 수 있습니다. 한 클러스터의 요소 수는 요소 기능의 `point_count` 속성에 저장됩니다. 
 > ```JavaScript
 > var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 >    weight: ['get', 'point_count']
 > });
 > ```
-> 클러스터링 반지름이 몇 픽셀만 이면 렌더링에 약간의 시각적 차이가 있습니다. 더 큰 radius 그룹은 각 클러스터에 대 한 더 많은 요소를 추가 하 고 열 지도의 성능을 향상 시킵니다.
+> 클러스터링 반경이 단 몇 개의 픽셀로 이루어진 경우에는 렌더링에 시각적 차이가 작습니다. 반경 그룹이 커지면 각 클러스터의 요소가 많아지며 열 지도의 성능이 향상됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

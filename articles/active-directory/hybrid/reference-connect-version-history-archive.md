@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: 버전 릴리스 기록 보관 | Microsoft Docs'
-description: 이 문서에서는 Azure AD Connect 및의 모든 보관 된 릴리스를 나열 Azure AD Sync
+description: 이 문서에는 Azure AD Connect 및 Azure AD Sync의 보관된 모든 릴리스가 나열되어 있습니다.
 services: active-directory
 author: billmath
 manager: daveba
@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 859a4f199e65dd0c3aee9424029f6060683d5fbd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94836090"
 ---
 # <a name="azure-ad-connect-version-release-history-archive"></a>Azure AD Connect: 버전 릴리스 기록 보관
@@ -24,7 +24,7 @@ ms.locfileid: "94836090"
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
 
 >[!NOTE] 
-> 이 문서에는 Azure AD 1.3.20.0 이전 버전의 모든 보관 된 버전에 대 한 버전 참조 정보가 포함 되어 있습니다.  최신 릴리스는 [Azure AD Connect 버전 릴리스 기록](reference-connect-version-history.md) 을 참조 하세요.
+> 이 문서에는 보관된 모든 Azure AD 버전(1.3.20.0 이하)에 대한 버전 참조 정보가 포함되어 있습니다.  현재 릴리스는 [Azure AD Connect 버전 릴리스 기록](reference-connect-version-history.md)을 참조하세요.
 
 ## <a name="13200"></a>1.3.20.0 
 
@@ -181,7 +181,7 @@ SQL Always On 가용성이 ADSync DB에 대해 구성된 경우 Azure AD Connect
 
 ### <a name="fixed-issues"></a>해결된 문제 
 
-- .NET 4.7.2로 업그레이드 한 후 Azure AD Connect 서버에서 높은 CPU 사용량을 표시 하는 버그를 수정 했습니다.
+- .NET 4.7.2로 업그레이드한 후 Azure AD Connect 서버가 높은 CPU 사용량을 표시하는 버그가 수정되었습니다.
 - 자동으로 해결된 SQL 교착 상태 문제에 대한 오류 메시지를 간헐적으로 생성하는 버그가 수정되었습니다.
 - 동기화 규칙 편집기 및 Sync Service Manager에 대한 몇 가지 접근성 문제가 수정되었습니다.  
 - Azure AD Connect가 레지스트리 설정 정보를 가져올 수 없는 버그가 수정되었습니다.
@@ -190,7 +190,7 @@ SQL Always On 가용성이 ADSync DB에 대해 구성된 경우 Azure AD Connect
 - 보안 그룹을 확인할 때 그룹 동기화 필터링 페이지에 LDAP 오류가 발생하는 경우 Azure AD Connect는 이제 예외를 고화질로 그대로 반환합니다.  조회 예외에 대한 근본 원인을 여전히 알 수 없으며 다른 버그에 의해 해결됩니다.
 -  STK 및 NGC 키(WHfB의 User/Device 개체에 대한 ms-DS-KeyCredentialLink 특성)에 대한 권한이 올바르게 설정되지 않는 버그가 수정되었습니다.     
 - 'Set-ADSyncRestrictedPermissions’가 제대로 호출되지 않는 버그가 수정되었습니다.
--  Azure ADConnect의 설치 마법사에서 그룹 쓰기 저장에 대 한 권한 부여 추가
+-  Azure ADConnect 설치 마법사의 그룹 쓰기 저장(writeback)에 대한 권한 부여 지원이 추가됩니다.
 - 암호 해시 동기화에서 AD FS로 로그인 방법을 변경할 경우 암호 해시 동기화가 사용되지 않도록 설정되지 않았습니다.
 - AD FS 구성에서 IPv6 주소에 대한 확인이 추가되었습니다.
 - 기존 구성이 있음을 알리도록 알림 메시지가 업데이트되었습니다.
@@ -515,9 +515,9 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 * AD 준비 PowerShell 모듈에서 Initialize-ADSyncNGCKeysWriteBack cmdlet은 디바이스 등록 컨테이너에 ACL을 잘못 적용하였으므로 기존 권한만 상속합니다.  이는 동기화 서비스 계정에 올바른 권한이 있도록 업데이트되었습니다.
 
 #### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
-* Adfs에서 토큰을 검색 하는 것이 아니라 Microsoft Online에 대 한 로그인을 확인 하도록 Azure AD Connect ADFS 로그인 확인 태스크가 업데이트 되었습니다.
-* Azure AD Connect를 사용 하 여 새 ADFS 팜을 설정 하는 경우 adfs 자격 증명을 요청 하는 페이지가 이동 되어 사용자가 ADFS 및 WAP 서버를 제공 하도록 요청 되기 전에 실행 됩니다.  이렇게 하면 Azure AD Connect 지정 된 계정에 올바른 권한이 있는지 확인할 수 있습니다.
-* Azure AD Connect 업그레이드 하는 동안 ADFS Azure AD 트러스트를 업데이트 하지 못할 경우 더 이상 업그레이드가 실패 하지 않습니다.  이 경우 사용자에 게 적절 한 경고 메시지가 표시 되 고 Azure AD Connect 추가 작업을 통해 트러스트를 다시 설정 해야 합니다.
+* Azure AD Connect 확인 ADFS 로그인 작업은 ADFS에서 토큰 검색뿐 아니라 Microsoft Online에 대한 로그인을 확인하도록 업데이트되었습니다.
+* Azure AD Connect를 사용하여 새 ADFS 팜을 설정할 때, ADFS 자격 증명을 묻는 페이지가 이동되어 이제 ADFS 및 WAP 서버를 제공하라는 메시지가 사용자에게 표시되기 전에 발생합니다.  따라서 Azure AD Connect에서 지정된 계정에 올바른 권한이 있는지 확인할 수 있습니다.
+* Azure AD Connect를 업그레이드하는 동안 ADFS Azure AD 트러스트가 업데이트에 실패하는 경우 더 이상 업그레이드할 수 없습니다.  이렇게 되면 사용자에게 적절한 경고 메시지가 표시되며, Azure AD Connect 추가 작업을 통해 트러스트를 다시 설정하도록 진행해야 합니다.
 
 ### <a name="seamless-single-sign-on"></a>Seamless Single Sign-On
 #### <a name="fixed-issues"></a>해결된 문제
@@ -627,7 +627,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
   * OU 기반 필터링이 사용되는 경우 **선택한 도메인 및 OU 동기화** 옵션이 선택됩니다.
   * 그렇지 않은 경우 **모든 도메인 및 OU 동기화** 옵션이 선택됩니다.
 
-발생하는 문제는 마법사를 실행할 때 항상 **모든 도메인 및 OU 동기화** 가 선택된다는 것입니다.  이 문제는 OU 기반 필터링이 이전에 구성된 경우에도 발생합니다. Azure AD Connect 구성 변경 내용을 저장 하기 전에 **선택한 도메인 및 Ou 동기화 옵션이 선택 되어** 있는지 확인 하 고 동기화 해야 하는 모든 ou를 다시 사용 하도록 설정 해야 합니다. 그렇지 않으면 OU 기반 필터링이 비활성화됩니다.
+발생하는 문제는 마법사를 실행할 때 항상 **모든 도메인 및 OU 동기화** 가 선택된다는 것입니다.  이 문제는 OU 기반 필터링이 이전에 구성된 경우에도 발생합니다. Azure AD Connect 구성 변경 내용을 저장하기 전에 **선택한 도메인 및 OU 동기화 옵션이 선택되었는지** 확인하고 동기화해야 하는 모든 OU가 다시 활성화되었는지 확인합니다. 그렇지 않으면 OU 기반 필터링이 비활성화됩니다.
 
 #### <a name="fixed-issues"></a>해결된 문제
 
@@ -768,7 +768,7 @@ Azure AD Connect 동기화
 * 관리자가 Azure AD Connect 마법사를 사용하여 Azure AD Connect 동기화 구성을 업데이트할 때 디바이스 쓰기 저장 기능을 자동으로 비활성화하는 문제를 해결했습니다. 이 문제는 마법사에서 온-프레미스 AD의 기존 디바이스 쓰기 저장 구성에 대한 필수 조건 확인을 수행함으로써 발생하는 것이며, 이 확인은 실패합니다. 이제 디바이스 쓰기 저장을 사용하도록 이미 설정되어 있는지 확인하는 것을 건너뛰도록 했습니다.
 * OU 필터링을 구성하려면 Azure AD Connect 마법사 또는 동기화 서비스 관리자를 사용하면 됩니다. 이전에는 Azure AD Connect 마법사를 사용하여 OU 필터링을 구성하는 경우 그 후에 만든 새 OU가 디렉터리 동기화에 포함되었습니다. 새 OU를 포함하지 않도록 하려면 동기화 서비스 관리자를 사용하여 OU 필터링을 구성해야 합니다. 이제는 Azure AD Connect 마법사를 사용하여 동일한 동작을 수행할 수 있습니다.
 * Azure AD Connect에 필요한 저장 프로시저를 dbo 스키마 대신 설치 관리자 스키마에서 만드는 문제를 해결했습니다.
-* Azure AD Connect 서버 이벤트 로그에서 Azure AD에 의해 반환 되는 TrackingId 특성을 생략 하는 문제를 해결 했습니다. Azure AD Connect에서 Azure AD로부터 리디렉션 메시지를 받고 제공된 엔드포인트에 연결할 수 없는 경우에 이 문제가 발생합니다. TrackingId는 지원 엔지니어가 문제를 해결하는 동안 서비스 쪽 로그와 상호 연결하는 데 사용됩니다.
+* Azure AD에서 반환한 TrackingId 특성이 Azure AD Connect 서버 이벤트 로그에서 생략되는 문제를 해결했습니다. Azure AD Connect에서 Azure AD로부터 리디렉션 메시지를 받고 제공된 엔드포인트에 연결할 수 없는 경우에 이 문제가 발생합니다. TrackingId는 지원 엔지니어가 문제를 해결하는 동안 서비스 쪽 로그와 상호 연결하는 데 사용됩니다.
 * Azure AD Connect에서 Azure AD로부터 LargeObject 오류를 받으면 6941 EventID 및 *"프로비전된 개체가 너무 큽니다. 이 개체의 특성 값 수를 조정하십시오."* 라는 메시지가 포함된 이벤트를 생성합니다. 동시에 Azure AD Connect에서는 6900 EventID 및 *"Microsoft.Online.Coexistence.ProvisionRetryException: Windows Azure Active Directory 서비스와 통신할 수 없습니다"* 라는 메시지가 포함된 잘못된 이벤트도 생성합니다. 혼란을 최소화하기 위해 Azure AD Connect에서 LargeObject 오류를 받으면 더 이상 후자의 이벤트를 생성하지 않습니다.
 * 일반 LDAP 커넥터의 구성을 업데이트하려고 할 때 동기화 서비스 관리자에서 응답하지 않는 문제를 해결했습니다.
 
@@ -779,8 +779,8 @@ Azure AD Connect 동기화
   * 특성에 15개 이상의 값이 있는 경우 **userCertificate** 및 **userSMIMECertificate** 특성을 내보내지 않도록 기본 동기화 규칙 집합을 업데이트했습니다.
   * **employeeID** 및 **msExchBypassModerationLink** AD 특성은 이제 기본 동기화 규칙 집합에 포함되어 있습니다.
   * **photo** AD 특성은 기본 동기화 규칙 집합에서 제거되었습니다.
-  * 메타 버스 스키마 및 Azure AD 커넥터 스키마에 **preferredDataLocation** 를 추가 했습니다. Azure AD에서 두 특성 중 하나를 업데이트하려는 고객은 사용자 지정 동기화 규칙을 구현하여 해당 특성을 업데이트할 수 있습니다. 
-  * 메타 버스 스키마 및 Azure AD 커넥터 스키마에 **userType** 를 추가 했습니다. Azure AD에서 두 특성 중 하나를 업데이트하려는 고객은 사용자 지정 동기화 규칙을 구현하여 해당 특성을 업데이트할 수 있습니다.
+  * **preferredDataLocation** 을 메타버스 스키마 및 Azure AD 커넥터 스키마에 추가했습니다. Azure AD에서 두 특성 중 하나를 업데이트하려는 고객은 사용자 지정 동기화 규칙을 구현하여 해당 특성을 업데이트할 수 있습니다. 
+  * **userType** 을 메타버스 스키마 및 Azure AD 커넥터 스키마에 추가했습니다. Azure AD에서 두 특성 중 하나를 업데이트하려는 고객은 사용자 지정 동기화 규칙을 구현하여 해당 특성을 업데이트할 수 있습니다.
 
 * Azure AD Connect는 이제 ConsistencyGuid 특성을 온-프레미스 AD 개체에 대한 원본 앵커 특성으로 사용하도록 자동으로 설정합니다. 또한 Azure AD Connect는 ConsistencyGuid 특성이 비어 있는 경우 이 특성을 objectGuid 특성 값으로 채웁니다. 이 기능은 새 배포에만 적용됩니다. 이 기능에 대한 자세한 내용은 [Azure AD Connect: 설계 개념 - ms-DS-ConsistencyGuid를 sourceAnchor로 사용](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) 문서 섹션을 참조하세요.
 * 암호 해시 동기화 관련 문제를 진단하는 데 도움이 되는 새 Invoke-ADSyncDiagnostics 문제 해결 cmdlet을 추가했습니다. cmdlet 사용 방법에 대한 자세한 내용은 [Azure AD Connect 동기화를 사용하여 암호 해시 동기화 문제 해결](tshoot-connect-password-hash-synchronization.md) 아티클을 참조하세요.
@@ -871,7 +871,7 @@ AD FS 관리
 * 데스크톱 SSO 기능이 사용되도록 설정된 경우 Azure AD Connect 마법사가 선택된 로그인 방법에 대한 유효성 검사를 무시하도록 하는 문제가 해결되었습니다.
 
 암호 재설정
-* 방화벽이 나 프록시를 통해 연결이 중단 된 경우 Azure Azure AD Connect 서버에서 다시 연결을 시도 하지 않을 수 있는 문제가 해결 되었습니다.
+* 연결이 방화벽 또는 프록시에 의해 중단된 경우 Azure AD Connect 서버가 다시 연결하려고 하지 않을 수 있는 문제를 해결했습니다.
 
 **새 기능/향상된 기능:**
 
@@ -1023,7 +1023,7 @@ AD FS 관리
 **새로운 기능:**
 
 * [Automatic upgrade](how-to-connect-install-automatic-upgrade.md) 기능
-* Azure AD Multi-Factor Authentication를 사용 하 여 전역 관리자를 지원 하 고 설치 마법사에서 Privileged Identity Management 합니다.
+* 설치 마법사에서 Azure AD Multi-Factor Authentication 및 Privileged Identity Management를 사용하여 전역 관리자를 지원합니다.
   * Multi-Factor Authentication을 사용하는 경우 프록시에서 https://secure.aadcdn.microsoftonline-p.com 에 대한 트래픽을 허용하도록 설정해야 합니다.
   * Multi-Factor Authentication이 제대로 작동하려면 신뢰할 수 있는 사이트 목록에 https://secure.aadcdn.microsoftonline-p.com 을 추가해야 합니다.
 * 초기 설치 후 사용자의 로그인 방법 변경을 허용합니다.
@@ -1181,7 +1181,7 @@ Azure AD Sync에서 Azure AD Connect로 이름을 변경했습니다.
 **새로운 기능:**
 
 * 이제 특성 기반 필터링을 사용하는 암호 동기화가 지원됩니다. 자세한 내용은 [필터링으로 암호 동기화](how-to-connect-sync-configure-filtering.md)를 참조하세요.
-* ms-DS-ExternalDirectoryObjectID 특성이 다시 Active Directory에 기록됩니다. 이 기능은 Microsoft 365 응용 프로그램에 대 한 지원을 추가 합니다. 이 기능은 OAuth2를 사용하여 하이브리드 Exchange 배포의 온라인 및 온-프레미스 사서함에 액세스합니다.
+* ms-DS-ExternalDirectoryObjectID 특성이 다시 Active Directory에 기록됩니다. 이 기능을 통해 Microsoft 365 애플리케이션에 대한 지원이 추가됩니다. 이 기능은 OAuth2를 사용하여 하이브리드 Exchange 배포의 온라인 및 온-프레미스 사서함에 액세스합니다.
 
 **수정된 업그레이드 문제:**
 

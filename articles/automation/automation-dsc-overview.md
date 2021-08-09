@@ -11,10 +11,10 @@ ms.date: 01/26/2021
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 752d7f86941967c218b3a57fa163698b9f502057
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98897023"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
@@ -53,7 +53,7 @@ Azure Automation 상태 구성은 PowerShell 스크립팅에 제공하는 것처
 
 Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내려면 Azure Automation 상태 구성을 구성할 수 있습니다. [Azure Monitor 로그에 데이터를 보고하는 Azure Automation 상태 구성 전달](automation-dsc-diagnostics.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Automation 상태 구성을 사용하는 경우 이 섹션의 요구 사항을 고려합니다.
 
@@ -73,7 +73,7 @@ Windows를 실행하는 노드의 경우 지원되는 버전은 다음과 같습
 >[!NOTE]
 >[Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) 독립 실행형 제품 SKU에는 DSC 구현이 포함되어 있지 않습니다. 따라서 PowerShell DSC 또는 Azure Automation 상태 구성으로 관리할 수 없습니다.
 
-Linux를 실행 하는 노드의 경우 DSC Linux 확장은 [POWERSHELL dsc 설명서](/powershell/scripting/dsc/getting-started/lnxgettingstarted)에 나열 된 모든 Linux 배포를 지원 합니다.
+Linux를 실행하는 노드의 경우 DSC Linux 확장은 [PowerShell DSC 문서](/powershell/scripting/dsc/getting-started/lnxgettingstarted)에 나열된 모든 Linux 배포판을 지원합니다.
 
 ### <a name="dsc-requirements"></a>DSC 요구 사항
 
@@ -83,7 +83,7 @@ Azure에서 실행되는 모든 Linux 노드의 경우 컴퓨터를 사용하도
 
 ### <a name="configuration-of-private-networks"></a><a name="network-planning"></a>개인 네트워크 구성
 
-개인 네트워크의 노드에 필요한 포트, Url 및 기타 네트워킹 세부 정보에 대 한 자세한 내용은 [네트워크 구성 Azure Automation](automation-network-configuration.md#hybrid-runbook-worker-and-state-configuration) 를 확인 하세요.
+개인 네트워크의 노드에 필요한 포트, URL 및 기타 네트워크 세부 정보에 대한 자세한 내용은 [Azure Automation 네트워크 구성](automation-network-configuration.md#hybrid-runbook-worker-and-state-configuration)을 확인하세요.
 
 #### <a name="proxy-support"></a>프록시 지원
 
@@ -96,7 +96,7 @@ Linux 노드의 경우 DSC 에이전트는 프록시를 지원하고 `http_proxy
 
 #### <a name="dns-records-per-region"></a>지역별 DNS 레코드
 
-예외를 정의할 때 [지역별 DNS 레코드](how-to/automation-region-dns-records.md) 테이블당 나열 된 주소를 사용 하는 것이 좋습니다.
+예외를 정의할 때 [지역별 DNS 레코드](how-to/automation-region-dns-records.md) 표에 나열된 주소를 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

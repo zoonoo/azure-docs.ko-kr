@@ -1,26 +1,26 @@
 ---
-title: Azure Function에서 반환 값 사용
-description: Azure Functions에 대 한 반환 값을 관리 하는 방법 알아보기
+title: Azure Function의 반환 값 사용
+description: Azure Functions에 대한 반환 값 관리 방법 알아보기
 author: craigshoemaker
 ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 01/14/2019
 ms.author: cshoe
 ms.openlocfilehash: 58ee9b682bc97dc4044d811392cf4ff5b51a69fd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94491361"
 ---
 # <a name="using-the-azure-function-return-value"></a>Azure Function 반환 값 사용
 
-이 문서에서는 함수 내에서 반환 값이 작동 하는 방식을 설명 합니다.
+이 문서에서는 함수 내에서 반환 값이 작동하는 방식을 설명합니다.
 
-반환 값이 있는 언어에서 함수 [출력 바인딩을](./functions-triggers-bindings.md#binding-direction) 반환 값에 바인딩할 수 있습니다.
+반환 값이 있는 언어에서 함수 [출력 바인딩](./functions-triggers-bindings.md#binding-direction)을 반환 값에 바인딩할 수 있습니다.
 
 * C# 클래스 라이브러리에서 출력 바인딩 특성을 메서드 반환 값에 적용합니다.
-* Java에서 출력 바인딩 주석을 함수 메서드에 적용 합니다.
+* Java에서는 출력 바인딩 주석을 함수 메서드에 적용합니다.
 * 다른 언어에서 *function.json* 의 `name` 속성을 `$return`에 설정합니다.
 
 여러 개의 출력 바인딩이 있으면 둘 중 하나에 대한 반환 값을 사용합니다.
@@ -143,7 +143,7 @@ module.exports = function (context, input) {
 }
 ```
 
-Http 출력 바인딩에 대해 반환 값을 사용 하는 PowerShell 코드는 다음과 같습니다.
+다음은 http 출력 바인딩에 대한 반환 값을 사용하는 PowerShell 코드입니다.
 
 ```powershell
 Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
@@ -177,7 +177,7 @@ def main(input: azure.functions.InputStream) -> str:
 
 # <a name="java"></a>[Java](#tab/java)
 
-출력 바인딩에 대 한 반환 값을 사용 하는 Java 코드는 다음과 같습니다.
+다음은 출력 바인딩에 반환 값을 사용하는 Java 코드입니다.
 
 ```java
 @FunctionName("QueueTrigger")

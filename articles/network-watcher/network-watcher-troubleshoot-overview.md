@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
 ms.openlocfilehash: 0d0597c2df8731171505a090de6959d8a112c004
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98569983"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Azure Network Watcher의 리소스 문제 해결 소개
 
 Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다른 가상 네트워크 간의 연결을 제공합니다. 게이트웨이 및 해당 연결을 모니터링하는 것은 통신이 끊기지 않도록 하는 데 중요합니다. Network Watcher는 게이트웨이 및 연결 문제를 해결하는 기능을 제공합니다. 이 기능은 포털, PowerShell, Azure CLI 또는 REST API를 통해 호출할 수 있습니다. 호출하면 Network Watcher가 게이트웨이 또는 연결의 상태를 진단하고 적절한 결과를 반환합니다. 요청은 장기 실행 트랜잭션입니다. 진단이 완료되면 결과가 반환됩니다.
 
-![Network Watcher V P N 진단이 표시 됩니다.][2]
+![스크린샷은 Network Watcher VPN 진단을 보여 줍니다.][2]
 
 ## <a name="results"></a>결과
 
@@ -54,9 +54,9 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 | PlannedMaintenance |  게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니요|
 | UserDrivenUpdate | 이 오류는 사용자 업데이트를 진행 중인 경우 발생합니다. 업데이트는 크기 조정 작업일 수 있습니다. | 아니요 |
 | VipUnResponsive | 이 오류는 게이트웨이의 주 인스턴스가 상태 프로브 실패로 인해 연결할 수 없을 때 발생합니다. | 아니요 |
-| PlatformInActive | 플랫폼에 문제가 있습니다. | 아니요|
-| ServiceNotRunning | 기본 서비스가 실행되고 있지 않습니다. | 아니요|
-| NoConnectionsFoundForGateway | 게이트웨이에 연결이 존재하지 않습니다. 이 오류는 단지 경고일 뿐입니다.| 아니요|
+| PlatformInActive | 플랫폼에 문제가 있습니다. | 예|
+| ServiceNotRunning | 기본 서비스가 실행되고 있지 않습니다. | 예|
+| NoConnectionsFoundForGateway | 게이트웨이에 연결이 존재하지 않습니다. 이 오류는 단지 경고일 뿐입니다.| 예|
 | ConnectionsNotConnected | 연결이 연결되지 않습니다. 이 오류는 단지 경고일 뿐입니다.| 예|
 | GatewayCPUUsageExceeded | 현재 게이트웨이 CPU 사용량이 95%를 초과했습니다. | 예 |
 
@@ -68,9 +68,9 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 | GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니요|
 | PlannedMaintenance | 게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니요|
 | UserDrivenUpdate | 이 오류는 사용자 업데이트를 진행 중인 경우 발생합니다. 업데이트는 크기 조정 작업일 수 있습니다.  | 아니요 |
-| VipUnResponsive | 이 오류는 게이트웨이의 주 인스턴스가 상태 프로브 실패로 인해 연결할 수 없을 때 발생합니다. | 아니요 |
-| ConnectionEntityNotFound | 연결 구성이 없습니다. | 아니요 |
-| ConnectionIsMarkedDisconnected | 연결이 “연결 끊김”으로 표시되었습니다. |아니요|
+| VipUnResponsive | 이 오류는 게이트웨이의 주 인스턴스가 상태 프로브 실패로 인해 연결할 수 없을 때 발생합니다. | 예 |
+| ConnectionEntityNotFound | 연결 구성이 없습니다. | 예 |
+| ConnectionIsMarkedDisconnected | 연결이 “연결 끊김”으로 표시되었습니다. |예|
 | ConnectionNotConfiguredOnGateway | 기본 서비스에 연결이 구성되어 있지 않습니다. | 예 |
 | ConnectionMarkedStandby | 기본 서비스가 대기로 표시되었습니다.| 예|
 | 인증 | 미리 공유한 키가 일치하지 않습니다. | 예|
@@ -105,7 +105,7 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 > [!NOTE]
 > 일부 경우에는 로그 파일의 하위 집합만 스토리지에 기록됩니다.
 
-Azure storage 계정에서 파일을 다운로드 하는 방법에 대 한 지침은 [.net을 사용 하 여 Azure Blob storage 시작](../storage/blobs/storage-quickstart-blobs-dotnet.md)을 참조 하세요. 사용할 수 있는 다른 도구는 Storage Explorer입니다. Storage 탐색기에 대 한 자세한 내용은 다음 링크에서 찾을 수 있습니다. [Storage 탐색기](https://storageexplorer.com/)
+Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-quickstart-blobs-dotnet.md)을 참조하세요. 사용할 수 있는 다른 도구는 Storage Explorer입니다. Storage Explorer에 대한 자세한 내용은 여기에 있는 [Storage Explorer](https://storageexplorer.com/) 링크에서 찾을 수 있습니다.
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 
@@ -209,8 +209,8 @@ Elapsed Time            330 sec
 ```
 
 ## <a name="considerations"></a>고려 사항 
-* 구독 당 한 번에 하나의 문제 해결 작업만 실행할 수 있습니다. 다른 문제 해결 작업을 실행 하려면 이전 작업이 완료 될 때까지 기다립니다. 이전 작업이 완료 되지 않은 상태에서 더 많은 작업을 트리거하는 경우 후속 작업이 실패 합니다. 
-* CLI 버그: Azure CLI을 사용 하 여 명령을 실행 하는 경우 VPN Gateway와 저장소 계정이 동일한 리소스 그룹에 있어야 합니다. 다른 리소스 그룹의 리소스를 사용 하는 고객은 PowerShell 또는 Azure Portal를 대신 사용할 수 있습니다.  
+* 구독당 한 번에 하나의 문제 해결 작업만 실행할 수 있습니다. 다른 문제 해결 작업을 실행하려면 이전 작업이 완료되도록 기다립니다. 이전 작업이 완료되지 않은 상태에서 더 많은 작업을 트리거하면 후속 작업이 실패합니다. 
+* CLI 버그: Azure CLI를 사용하여 명령을 실행하는 경우 VPN Gateway와 스토리지 계정이 동일한 리소스 그룹에 있어야 합니다. 다른 리소스 그룹에 리소스가 있는 고객은 PowerShell 또는 Azure Portal을 대신 사용할 수 있습니다.  
 
 
 ## <a name="next-steps"></a>다음 단계

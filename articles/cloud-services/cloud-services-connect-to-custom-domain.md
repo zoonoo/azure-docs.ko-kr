@@ -1,5 +1,5 @@
 ---
-title: 클라우드 서비스 (클래식)를 사용자 지정 도메인 컨트롤러에 연결 | Microsoft Docs
+title: 클라우드 서비스(클래식)를 사용자 지정 도메인 컨트롤러로 연결 | Microsoft Docs
 description: PowerShell 및 AD 도메인 확장을 사용하여 사용자 지정 AD 도메인에 웹/작업자 역할을 연결하는 방법을 알아봅니다.
 ms.topic: article
 ms.service: cloud-services
@@ -9,16 +9,16 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 8c2c8377944caa7ad28f6b379531e6d5bf44c9e7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98742508"
 ---
-# <a name="connecting-azure-cloud-services-classic-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Azure에서 호스트 되는 사용자 지정 AD 도메인 컨트롤러에 Azure Cloud Services (클래식) 역할 연결
+# <a name="connecting-azure-cloud-services-classic-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Azure Cloud Services(클래식) 역할을 Azure에서 호스트되는 사용자 지정 AD 도메인 컨트롤러로 연결
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경을 통해 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 클라우드 서비스(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [클라우드 서비스(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 먼저 Azure에서 Virtual Network(VNet)를 설정합니다. 그런 다음 VNet에 Active Directory 도메인 컨트롤러(Azure Virtual Machine에서 호스팅되는)를 추가합니다. 그런 다음, 기존 클라우드 서비스 역할을 사전에 만든 VNet에 추가한 후 도메인 컨트롤러에 연결합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "98742508"
 
 클라우드 서비스에 의해 참조되는 네트워크는 **클래식 Virtual Network** 여야 합니다.
 
-## <a name="create-a-virtual-network"></a>Virtual Network 만들기
+## <a name="create-a-virtual-network"></a>Virtual Network 생성
 Azure Portal 또는 PowerShell을 사용하여 Azure에서 Virtual Network를 만들 수 있습니다. 이 자습서에서는 PowerShell이 사용됩니다. Azure Portal을 사용하여 Virtual Network를 만들려면 [Virtual Network 만들기](../virtual-network/quick-create-portal.md)를 참조하세요. 이 문서에서는 가상 네트워크(Resource Manager) 생성을 다루지만, 클라우드 서비스에 대한 가상 네트워크(클래식)를 만들어야 합니다. 이렇게 하려면 포털에서 **리소스 만들기** 를 선택하고 **검색** 상자에 *가상 네트워크* 를 입력한 후 **Enter** 키를 누릅니다. 검색 결과에서 **모두** 아래에서 **가상 네트워크** 를 선택합니다. **배포 모델 선택** 에서 **클래식** 을 선택한 다음 **만들기** 를 선택합니다. 그런 후 문서의 단계를 진행할 수 있습니다.
 
 ```powershell

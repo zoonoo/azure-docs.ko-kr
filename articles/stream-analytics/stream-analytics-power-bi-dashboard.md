@@ -7,15 +7,15 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.openlocfilehash: 3bd35df91e836245de52d8959dff0671582ebc3f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98012447"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
 
-Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 도구 중 하나인 [Microsoft Power BI](https://powerbi.com/)를 이용할 수 있습니다. 이 문서에서는 Azure Stream Analytics 작업에 대한 출력으로 Power BI를 사용하여 비즈니스 인텔리전스 도구를 만드는 방법에 대해 알아봅니다. 또한 Stream Analytics 작업을 통해 지속적으로 업데이트 되는 실시간 대시보드를 만들고 사용 하는 방법에 대해 알아봅니다.
+Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 도구 중 하나인 [Microsoft Power BI](https://powerbi.com/)를 이용할 수 있습니다. 이 문서에서는 Azure Stream Analytics 작업에 대한 출력으로 Power BI를 사용하여 비즈니스 인텔리전스 도구를 만드는 방법에 대해 알아봅니다. 또한 Stream Analytics 작업을 통해 지속적으로 업데이트되는 실시간 대시보드를 만들고 사용하는 방법에 대해 알아봅니다.
 
 이 문서는 Stream Analytics [실시간 사기 감지](stream-analytics-real-time-fraud-detection.md) 자습서로부터 내용이 이어집니다. 해당 자습서에서 만든 워크플로를 기반으로 하고 Power BI 출력을 추가하여 Streaming Analytics 작업에서 감지한 사기성 전화를 시각화할 수 있습니다. 
 
@@ -38,10 +38,10 @@ Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 �
 
 2. 왼쪽 메뉴의 **작업 토폴로지** 에서 **출력** 을 선택합니다. 그런 다음, **+ 추가** 를 선택하고 드롭다운 메뉴에서 **Power BI** 를 선택합니다.
 
-3. **+ 추가** > **Power BI** 를 선택합니다. 그런 다음 양식을 다음과 같이 입력 하 고 사용자 고유의 사용자 id를 사용 하 여 Power BI에 연결 하는 **권한 부여** 를 선택 합니다 (토큰은 90 일 동안 유효함). 
+3. **+ 추가** > **Power BI** 를 선택합니다. 그런 다음 양식을 다음 세부 정보로 채우고 **권한 부여** 를 선택하여 자신의 사용자 ID를 통해 Power BI에 연결합니다(토큰은 90일 동안 유효함). 
 
 >[!NOTE]
->프로덕션 작업의 경우 [관리 되는 id를 사용 하 여 Power BI Azure Stream Analytics 작업을 인증 하는](./powerbi-output-managed-identity.md)데 연결 하는 것이 좋습니다.
+>프로덕션 작업은 [관리 ID를 사용하여 Azure Stream Analytics 작업을 Power BI에 인증](./powerbi-output-managed-identity.md)하기 위해 연결하는 것이 좋습니다.
 
    |**설정**  |**제안 값**  |
    |---------|---------|
@@ -63,7 +63,7 @@ Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 �
 데이터 세트는 다음과 같은 설정으로 만들어집니다.
 
 * **defaultRetentionPolicy: BasicFIFO** - 데이터는 FIFO이며 최대 200,000개의 행이 있습니다.
-* **Defaultmode: 하이브리드** -데이터 집합은 스트리밍 타일 (푸시 라고도 함) 및 기존 보고서 기반 시각적 개체를 모두 지원 합니다. 푸시 콘텐츠의 경우이 경우 stream analytics 작업에서 데이터를 지속적으로 업데이트 하며, Power BI 쪽에서 새로 고침을 예약할 필요가 없습니다.
+* **defaultMode: hybrid** - 데이터 세트가 스트리밍 타일(푸시라고도 함)과 기존의 보고서 기반 시각적 개체를 모두 지원합니다. 푸시 콘텐츠에 대해서는 이 경우의 Stream Analytics 작업에서 데이터를 지속적으로 업데이트하며, Power BI 쪽에서 새로 고침을 예약할 필요가 없습니다.
 
 지금은 다른 플래그로 데이터 세트를 만들 수 없습니다.
 
@@ -220,7 +220,7 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 ```
 
 ### <a name="renew-authorization"></a>권한 부여 갱신
-작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우 Power BI 계정을 다시 인증해야 합니다. Azure AD Multi-Factor Authentication Azure Active Directory (Azure AD) 테 넌 트에서 구성 된 경우 2 주마다 Power BI 권한 부여를 갱신 해야 합니다. 갱신하지 않으면 작업 출력 부족 또는 작업 로그에 `Authenticate user error`와 같은 증상을 볼 수 있습니다.
+작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우 Power BI 계정을 다시 인증해야 합니다. Azure AD Multi-Factor Authentication가 Azure AD(Azure Active Directory) 테넌트에서 구성된 경우 2주마다 Power BI 권한 부여도 갱신해야 합니다. 갱신하지 않으면 작업 출력 부족 또는 작업 로그에 `Authenticate user error`와 같은 증상을 볼 수 있습니다.
 
 마찬가지로 토큰이 만료된 후 작업이 시작되면 오류가 발생하고 작업이 실패합니다. 이 문제를 해결하려면 실행 중인 작업을 중지하고 Power BI 출력으로 이동합니다. 데이터 손실을 방지하기 위해 **권한 부여 갱신** 링크를 클릭한 다음 **마지막 중지 시간** 부터 작업을 다시 시작합니다.
 
@@ -232,4 +232,4 @@ Power BI를 사용하여 권한 부여가 새로 고쳐지면 권한 부여 영�
 * [Stream Analytics 출력](stream-analytics-define-outputs.md)
 * [Azure Stream Analytics 쿼리 언어 참조](/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](/rest/api/streamanalytics/)
-* [관리 Id를 사용 하 여 Power BI에 대 한 Azure Stream Analytics 작업 인증](./powerbi-output-managed-identity.md)
+* [관리 ID를 사용하여 Power BI에 Azure Stream Analytics 작업 인증](./powerbi-output-managed-identity.md)

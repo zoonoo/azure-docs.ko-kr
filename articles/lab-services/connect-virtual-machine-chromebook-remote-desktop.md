@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
 ms.openlocfilehash: 74135c0b36f533ebfbba6422bc79af47825a1a3b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97813227"
 ---
 # <a name="connect-to-a-vm-using-remote-desktop-protocol-on-a-chromebook"></a>Chromebook에서 원격 데스크톱 프로토콜을 사용하여 VM에 연결
@@ -33,7 +33,7 @@ ms.locfileid: "97813227"
 
 1. 메시지가 표시되면 암호를 입력합니다.
 
-    ![사용자 이름 및 암호를 입력 하는 로그온 화면을 보여 주는 스크린샷](./media/how-to-use-classroom-lab/password-chromebook.png)
+    ![사용자 이름과 암호를 입력하는 로그온 화면을 표시하는 스크린샷](./media/how-to-use-classroom-lab/password-chromebook.png)
 
 1. 다음 경고가 표시되면 **계속** 을 선택합니다. 
 

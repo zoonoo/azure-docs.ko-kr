@@ -1,6 +1,6 @@
 ---
 title: Azure Traffic Manager의 실제 사용자 측정
-description: 이 소개에서는 Azure Traffic Manager 실제 사용자 측정 작동 하는 방법을 알아봅니다.
+description: 이 개요에서는 Azure Traffic Manager 실제 사용자 측정이 작동하는 방법을 알아봅니다.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: duongau
@@ -13,10 +13,10 @@ ms.date: 03/16/2018
 ms.author: duau
 ms.custom: ''
 ms.openlocfilehash: 618f8fff532da0f6ae315ad9e4cda35a289949d1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98183713"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Traffic Manager 실제 사용자 측정 개요
@@ -77,7 +77,7 @@ ms.locfileid: "98183713"
 
 ## <a name="next-steps"></a>다음 단계
 - [웹 페이지에서 실제 사용자 측정](traffic-manager-create-rum-web-pages.md)을 사용하는 방법 알아봅니다.
-- [Traffic Manager 작동 방법](traffic-manager-overview.md) 알아보기
+- [Traffic Manager 작동 방식](traffic-manager-overview.md)
 - [Mobile Center](/mobile-center/)에 대해 자세히 알아봅니다.
 - Traffic Manager가 지원하는 [트래픽 라우팅 방법](traffic-manager-routing-methods.md) 에 대해 자세히 알아봅니다.
-- [Traffic Manager 프로필을 만드는](./quickstart-create-traffic-manager-profile.md) 방법 알아보기
+- [Traffic Manager 프로필을 만드는](./quickstart-create-traffic-manager-profile.md)

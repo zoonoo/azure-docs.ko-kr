@@ -5,12 +5,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.date: 04/01/2021
-ms.openlocfilehash: 6529aa49d06e64947deb5ae54db0c39ad2575569
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 547242c70986c3216a4052ca3763701264dd4282
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106288590"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108212131"
 ---
 ## <a name="business-disaster-recovery"></a>비즈니스 재해 복구
 
@@ -64,6 +64,7 @@ Azure Time Series Insights 데이터, 앱 및 서비스가 중단되더라도 �
 
 1. 재해 인시던트 중 주 지역이 영향을 받을 경우 작업을 백업 Azure Time Series Insights 환경으로 전환합니다.
 1. 장애 조치(failover) 후 허브 시퀀스 번호가 0에서 다시 시작되므로 소비자 그룹이 다른 두 지역/환경에서 이벤트 원본을 다시 만들어 중복 이벤트처럼 보이지 않도록 합니다.
+1. 현재 비활성 상태인 기본 이벤트 원본을 삭제하여 환경에 사용 가능한 이벤트 원본을 확보합니다. (환경당 활성 이벤트 원본은 2개로 제한됩니다.)
 1. 두 번째 지역을 사용하여 모든 Azure Time Series Insights 원격 분석 및 쿼리 데이터를 백업 및 복구합니다.
 
 > [!IMPORTANT]

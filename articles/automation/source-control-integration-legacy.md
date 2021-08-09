@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: 4dedbcf58e76b8c969f8607db6922e87a85f08e5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97591876"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Azure Automation에서 소스 제어 통합 사용 - 레거시
@@ -43,7 +43,7 @@ ms.locfileid: "97591876"
    | 원본 선택 |원본을 선택합니다. 현재는 **GitHub** 만 지원됩니다. |
    | 권한 부여 |**권한 부여** 단추를 클릭하여 GitHub 리포지토리에 Azure Automation 액세스 권한을 부여합니다. 이미 다른 창에서 GitHub 계정에 로그인했다면 해당 계정의 자격 증명이 사용됩니다. 권한이 성공적으로 부여되면 페이지는 **권한 부여 속성** 아래에 GitHub 사용자 이름을 표시합니다. |
    | 리포지토리 선택 |사용 가능한 리포지토리 목록에서 GitHub 리포지토리를 선택합니다. |
-   | 분기 선택 |사용 가능한 분기 목록에서 분기를 선택합니다. 분기를 만들지 않은 경우에만 **주** 분기가 표시 됩니다. |
+   | 분기 선택 |사용 가능한 분기 목록에서 분기를 선택합니다. 분기를 만들지 않은 경우에는 **기본** 분기만 표시됩니다. |
    | Runbook 폴더 경로 |Runbook 폴더 경로는 코드를 푸시하거나 끌어오려는 GitHub 리포지토리에 경로를 지정합니다. **/foldername/subfoldername** 형식으로 입력되어야 합니다. Runbook 폴더 경로의 Runbook만 Automation 계정에 동기화됩니다. Runbook 폴더 경로의 하위 폴더에 있는 Runbook은 동기화되지 **않습니다** . **/** 를 사용하여 리포지토리 아래의 모든 Runbook을 동기화합니다. |
 3. 예를 들어 **RootFolder** 라는 폴더를 포함하는 **PowerShellScripts** 라는 리포지토리가 있는 경우 이는 **SubFolder** 라는 폴더를 포함합니다. 다음 문자열을 사용하여 각 폴더 수준을 동기화할 수 있습니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "97591876"
      |:--- |:--- |
      | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
      | `Type`  |String |
-     | `Value` |{"Branch": \<*Your branch name*> , "RunbookFolderPath":, \<*Runbook folder path*> "providertype": \<*has a value 1 for GitHub*> , "Repository": \<*Name of your repository*> , "Username": \<*Your GitHub user name*> } |
+     | `Value` |{"Branch":\<*Your branch name*>,"RunbookFolderPath":\<*Runbook folder path*>,"ProviderType":\<*has a value 1 for GitHub*>,"Repository":\<*Name of your repository*>,"Username":\<*Your GitHub user name*>} |
 
    * **Microsoft.Azure.Automation.SourceControl.OAuthToken** 변수는 OAuthToken의 안전하고 암호화된 값을 포함합니다.  
 

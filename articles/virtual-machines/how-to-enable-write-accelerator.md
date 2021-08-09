@@ -1,5 +1,5 @@
 ---
-title: Azure 쓰기 가속기
+title: Azure Write Accelerator
 description: Write Accelerator를 사용하는 방법에 대한 설명서
 author: raiye
 manager: markkie
@@ -10,10 +10,10 @@ ms.date: 2/20/2019
 ms.author: raiye
 ms.subservice: disks
 ms.openlocfilehash: 827643866c23583051bc290c2c50bed3f1bdd421
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98737917"
 ---
 # <a name="enable-write-accelerator"></a>Write Accelerator 사용
@@ -57,13 +57,13 @@ Write Accelerator에서 지원할 수 있는 VM당 Azure Premium Storage VHD 수
 | M16ms, M16s | 2 | 2500 |
 | M8ms, M8s | 1 | 1250 |
 
-IOPS 제한은 VM당 및 디스크가 *아닌* VM을 기준으로 합니다. 모든 Write Accelerator 디스크는 동일한 VM당 IOPS 제한을 공유합니다. 연결 된 디스크는 VM에 대 한 쓰기 가속기 IOPS 제한을 초과할 수 없습니다. 예를 들어 연결 된 디스크가 3만 IOPS를 수행할 수 있는 경우에도 시스템에서 M416ms_v2에 대해 2만 IOPS를 초과 하지 않도록 허용 하지 않습니다.
+IOPS 제한은 VM당 및 디스크가 *아닌* VM을 기준으로 합니다. 모든 Write Accelerator 디스크는 동일한 VM당 IOPS 제한을 공유합니다. 연결된 디스크는 VM에 대한 쓰기 가속기 IOPS 제한을 초과할 수 없습니다. 예를 들어 연결된 디스크가 30,000 IOPS를 수행할 수 있더라도 시스템은 디스크가 M416ms_v2에 대해 20,000 IOPS를 초과하도록 허용하지 않습니다.
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>특정 디스크에 대한 Write Accelerator 사용
 
 다음 몇 가지 섹션에서는 Azure Premium Storage VHD에 Write Accelerator를 사용하도록 설정하는 방법에 대해 설명합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 이 시점에서 Write Accelerator 사용에 적용되는 필수 조건은 다음과 같습니다.
 
@@ -77,14 +77,14 @@ Write Accelerator에서 지원하는 디스크를 사용하도록 설정하거�
 
 새 스위치 매개 변수인 **WriteAccelerator** 가 추가된 cmdlet은 다음과 같습니다.
 
-- [AzVMOsDisk](/powershell/module/az.compute/set-azvmosdisk)
+- [집합 AzVMOsDisk](/powershell/module/az.compute/set-azvmosdisk)
 - [추가 AzVMDataDisk](/powershell/module/az.compute/Add-AzVMDataDisk)
 - [집합 AzVMDataDisk](/powershell/module/az.compute/Set-AzVMDataDisk)
 - [추가 AzVmssDataDisk](/powershell/module/az.compute/Add-AzVmssDataDisk)
 
 매개 변수를 제공하지 않을 경우 해당 속성을 false로 설정하고 Write Accelerator에서 지원하지 않는 디스크를 배포합니다.
 
-새 스위치 매개 변수인 **-osdiskwriteaccelerator** 가 다음 cmdlet에 추가 되었습니다.
+새 스위치 매개 변수인 **OsDiskWriteAccelerator** 가 추가된 cmdlet은 다음과 같습니다.
 
 - [집합 AzVmssStorageProfile](/powershell/module/az.compute/Set-AzVmssStorageProfile)
 
@@ -174,7 +174,7 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 Write Accelerator가 설정된 디스크를 연결하려면 [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach)를 사용합니다. 사용자 고유의 항목으로 바꾸는 경우, 다음 예제를 사용할 수 있습니다. `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
 
-쓰기 가속기를 사용 하지 않도록 설정 하려면 [az vm update](/cli/azure/vm#az_vm_update)를 사용 하 고 속성을 false로 설정 합니다. `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
+Write Accelerator를 사용하지 않도록 설정하려면 [az vm update](/cli/azure/vm#az_vm_update)를 사용하고 속성을 false로 설정합니다. `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
 
 ## <a name="enabling-write-accelerator-using-rest-apis"></a>REST API를 사용하여 Write Accelerator를 사용하도록 설정
 

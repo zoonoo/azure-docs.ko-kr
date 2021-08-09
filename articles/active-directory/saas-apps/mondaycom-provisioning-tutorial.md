@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 monday.com 구성 | Microsoft Docs'
-description: 사용자 계정을 Azure AD에서 monday.com로 자동으로 프로 비전 및 프로 비전 해제 하는 방법을 알아봅니다.
+title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 monday.com 구성 | Microsoft Docs'
+description: 사용자 계정을 Azure AD에서 monday.com으로 자동으로 프로비저닝 및 프로비저닝 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -16,68 +16,68 @@ ms.topic: article
 ms.date: 11/24/2020
 ms.author: Zhchia
 ms.openlocfilehash: 0479e470f5d2f3880062c45a5e14981f8a4c1e56
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98743545"
 ---
-# <a name="tutorial-configure-mondaycom-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 monday.com 구성
+# <a name="tutorial-configure-mondaycom-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 monday.com 구성
 
-이 자습서에서는 자동 사용자 프로 비전을 구성 하기 위해 monday.com 및 Azure Active Directory (Azure AD)에서 수행 해야 하는 단계를 설명 합니다. 구성 된 경우 azure AD는 Azure AD 프로 비전 서비스를 사용 하 여 사용자 및 그룹을 [monday.com](https://www.monday.com/) 에 자동으로 프로 비전 하 고 프로 비전 해제 합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요. 
+이 자습서에서는 자동 사용자 프로비저닝을 구성하기 위해 monday.com 및 Azure AD(Azure Active Directory)에서 수행해야 하는 단계를 설명합니다. 구성된 경우 Azure AD는 Azure AD 프로비저닝 서비스를 사용하여 사용자 및 그룹을 [monday.com](https://www.monday.com/)으로 자동으로 프로비저닝 및 프로비저닝 해제합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요. 
 
 
 ## <a name="capabilities-supported"></a>지원되는 기능
 > [!div class="checklist"]
-> * Monday.com에서 사용자 만들기
-> * 더 이상 액세스할 필요가 없는 경우 monday.com에서 사용자 제거
-> * Azure AD와 monday.com 간에 사용자 특성을 동기화 상태로 유지
-> * Monday.com에서 그룹 및 그룹 멤버 자격 프로 비전
-> * Monday.com에 대 [한 Single sign-on](mondaycom-tutorial.md) (권장)
+> * monday.com에서 사용자 만들기
+> * monday.com에서 더 이상 액세스할 필요가 없는 사용자 제거
+> * Azure AD와 monday.com 간에 사용자 특성을 동기화된 상태로 유지
+> * monday.com에서 그룹 및 그룹 멤버 프로비저닝
+> * monday.com에 대한 [Single Sign-On](mondaycom-tutorial.md)(권장)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
 * [Azure AD 테넌트](../develop/quickstart-create-new-tenant.md) 
 * 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
-* **Enterprise** monday.com 계정.
+* **엔터프라이즈** monday.com 계정
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
 1. [프로비저닝 서비스의 작동 방식](../app-provisioning/user-provisioning.md)에 대해 알아봅니다.
 2. [프로비저닝 범위](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에 있는 사용자를 결정합니다.
-3. [AZURE AD와 monday.com 간에 매핑할](../app-provisioning/customize-application-attributes.md)데이터를 결정 합니다. 
+3. [Azure AD와 monday.com 간에 매핑](../app-provisioning/customize-application-attributes.md)할 데이터를 결정합니다. 
 
-## <a name="step-2-configure-mondaycom-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD를 사용 하 여 프로 비전을 지원 하도록 monday.com 구성
-1. [Monday.com](https://www.monday.com/)에 로그인 합니다. 왼쪽 탐색 창에서 프로필 그림을 클릭 합니다.
-2. **관리자 > 보안** 으로 이동 합니다.
-3. **로그인** 탭 아래의 **Scim** 섹션에서 **열기** 를 클릭 합니다.
+## <a name="step-2-configure-mondaycom-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD에서 프로비저닝을 지원하도록 monday.com 구성
+1. [monday.com](https://www.monday.com/)에 로그인 합니다. 왼쪽 탐색 창에서 프로필 사진을 클릭합니다.
+2. **관리자 > 보안** 으로 이동합니다.
+3. **로그인** 탭 아래의 **SCIM** 섹션에서 **열기** 를 클릭합니다.
 
-![Scim 프로 비전 탭](media/mondaycom-provisioning-tutorial/provisioning-tab-monday.png)
+![SCIM 프로비저닝 탭](media/mondaycom-provisioning-tutorial/provisioning-tab-monday.png)
 
-4. **생성** 을 클릭 합니다. 5 단계에 필요한 **테 넌 트 URL** 및 **암호 토큰** 입니다.
+4. **생성** 을 클릭합니다. 이들은 5단계에 필요한 **테넌트 URL** 및 **비밀 토큰** 입니다.
 
 >[!NOTE]
->이 비밀 토큰을 공유 하거나 저장 하지 마십시오. 언제 어디서 나 필요할 때마다 새로운 토큰을 생성할 수 있습니다.
+>이 비밀 토큰을 공유하거나 저장하지 마세요. 언제 어디서나 필요할 때마다 새 토큰을 생성할 수 있습니다.
 
-## <a name="step-3-add-mondaycom-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 monday.com 추가
+## <a name="step-3-add-mondaycom-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 애플리케이션 갤러리에서 monday.com 추가
 
-Azure AD 응용 프로그램 갤러리에서 monday.com를 추가 하 여 monday.com에 대 한 프로 비전 관리를 시작 합니다. 이전에 SSO에 대해 monday.com를 설정한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
+Azure AD 애플리케이션 갤러리에서 monday.com을 추가하여 monday.com으로의 프로비저닝 관리를 시작합니다. 이전에 SSO에 대해 monday.com을 설정한 경우 동일한 애플리케이션을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>4단계. 프로비저닝 범위에 있는 사용자 정의 
 
 Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 할당 또는 사용자/그룹의 특성을 기반으로 프로비저닝되는 사용자의 범위를 지정할 수 있습니다. 할당을 기준으로 앱에 프로비저닝할 사용자의 범위를 선택하려면 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md)를 사용하여 애플리케이션에 사용자 및 그룹을 할당할 수 있습니다. 사용자 또는 그룹의 특성만을 기준으로 프로비저닝할 사용자의 범위를 선택하려면 [여기](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) 설명된 대로 범위 지정 필터를 사용할 수 있습니다. 
 
-* Monday.com에 사용자 및 그룹을 할당할 때 **기본 액세스** 외의 다른 역할을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](../develop/howto-add-app-roles-in-azure-ad-apps.md)하여 역할을 더 추가할 수 있습니다. 
+* monday.com에 사용자 및 그룹을 할당할 때 **기본 액세스** 이외의 역할을 선택해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](../develop/howto-add-app-roles-in-azure-ad-apps.md)하여 역할을 더 추가할 수 있습니다. 
 
 * 소규모로 시작합니다. 모든 사용자에게 배포하기 전에 소수의 사용자 및 그룹 집합으로 테스트합니다. 할당된 사용자 및 그룹으로 프로비저닝 범위가 설정된 경우 앱에 하나 또는 두 개의 사용자 또는 그룹을 할당하여 범위를 제어할 수 있습니다. 모든 사용자 및 그룹으로 범위가 설정된 경우 [특성 기반 범위 지정 필터](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)를 지정할 수 있습니다. 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-mondaycom"></a>5단계. Monday.com에 자동 사용자 프로 비전 구성 
+## <a name="step-5-configure-automatic-user-provisioning-to-mondaycom"></a>5단계. monday.com에 대한 자동 사용자 프로비저닝 구성 
 
 이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당에 따라 TestApp에서 사용자 및/또는 그룹을 만들고, 업데이트하고, 사용 해제하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
 
-### <a name="to-configure-automatic-user-provisioning-for-mondaycom-in-azure-ad"></a>Azure AD에서 monday.com에 대 한 자동 사용자 프로 비전을 구성 하려면:
+### <a name="to-configure-automatic-user-provisioning-for-mondaycom-in-azure-ad"></a>Azure AD에서 monday.com에 대한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다.
 
@@ -95,7 +95,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![프로비저닝 탭 자동](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래에서 Monday.com 테 넌 트 URL 및 암호 토큰을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 monday.com에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 monday.com 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
+5. **관리자 자격 증명** 섹션 아래에서 monday.com 테넌트 URL 및 비밀 토큰을 입력합니다. **연결 테스트** 를 클릭하여 Azure AD가 monday.com에 연결할 수 있는지 확인합니다. 연결이 실패하면 monday.com 계정에 관리자 권한이 있는지 확인한 후 다시 시도합니다.
 
     ![토큰](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -105,9 +105,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 7. **저장** 을 선택합니다.
 
-8. **매핑** 섹션 아래에서 **monday.com에 사용자 Azure Active Directory 동기화를** 선택 합니다.
+8. **매핑** 섹션 아래에서 **Azure Active Directory 사용자를 monday.com에 동기화** 를 선택합니다.
 
-9. **특성 매핑** 섹션에서 Azure AD에서 monday.com로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 monday.com의 사용자 계정을 일치 시키는 데 사용 됩니다. 일치 하는 [대상 특성](../app-provisioning/customize-application-attributes.md)을 변경 하도록 선택 하는 경우 monday.com API에서 해당 특성에 따라 사용자 필터링을 지원 하는지 확인 해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+9. **특성 매핑** 섹션에서 Azure AD에서 monday.com으로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 monday.com의 사용자 계정을 일치시키는 데 사용됩니다. [일치하는 대상 특성](../app-provisioning/customize-application-attributes.md)을 변경하는 경우 monday.com API에서 해당 특성에 따라 사용자 필터링을 지원하는지 확인해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
    |attribute|Type|필터링에 지원됨|
    |---|---|---|
@@ -119,9 +119,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |locale|String|
    |timezone|String|
 
-10. **매핑** 섹션 아래에서 **Monday.com에 Azure Active Directory 그룹 동기화를** 선택 합니다.
+10. **매핑** 섹션 아래에서 **Azure Active Directory 그룹을 monday.com에 동기화** 를 선택합니다.
 
-11. **특성 매핑** 섹션에서 Azure AD에서 monday.com로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 monday.com의 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+11. **특성 매핑** 섹션에서 Azure AD에서 monday.com으로 동기화되는 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 monday.com의 그룹을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
       |attribute|Type|필터링에 지원됨|
       |---|---|---|
@@ -130,11 +130,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
-13. Monday.com에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
+13. monday.com에 대한 Azure AD 프로비저닝 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비저닝 상태** 를 **켜기** 로 변경합니다.
 
     ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-14. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 monday.com에 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다.
+14. **설정** 섹션의 **범위** 에서 원하는 값을 선택하여 monday.com에 프로비저닝하려는 사용자 및/또는 그룹을 정의합니다.
 
     ![프로비전 범위](common/provisioning-scope.png)
 
@@ -152,10 +152,10 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 * 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](../app-provisioning/application-provisioning-quarantine-status.md)를 참조하세요.  
 
 ## <a name="connector-limitations"></a>커넥터 제한 사항
-* monday.com는 userType "admin", "guest", "member" 및 "viewer"만 지원 합니다. UserType "User"는 지원 되지 않으므로 나중에 제거 될 예정입니다.
+* monday.com은 userType “admin”, “guest”, “member” 및 “viewer”만 지원합니다. userType “User”는 지원되지 않으므로 나중에 제거 될 예정입니다.
 
 ## <a name="change-log"></a>로그 변경
-* 1/21/2021-사용자에 대 한 핵심 특성 "userType"에 대 한 지원이 추가 되었습니다.
+* 2021/1/21 - 사용자의 핵심 특성 “userType”에 대한 지원이 추가되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

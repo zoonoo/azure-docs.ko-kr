@@ -1,6 +1,6 @@
 ---
 title: Striim 빠른 시작
-description: Striim 및 Azure Synapse Analytics를 빠르게 시작 하세요.
+description: Striim 및 Azure Synapse Analytics를 빠르게 시작하세요.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -12,17 +12,17 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: d6b5fa1a42201479c5d426a5bbb9188d0cb8e03d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89485977"
 ---
 # <a name="striim-azure-synapse-analytics-marketplace-offering-install-guide"></a>Striim Azure Synapse Analytics Marketplace 제품 설치 가이드
 
-이 빠른 시작에서는 Azure Synapse Analytics의 기존 인스턴스가 이미 있다고 가정 합니다.
+이 빠른 시작에서는 Azure Synapse Analytics의 기존 인스턴스가 이미 있다고 가정합니다.
 
-Azure Marketplace에서 Striim을 검색 하 고 Azure Synapse Analytics (준비 됨)에 대 한 데이터 통합 Striim를 선택 합니다. 
+Azure Marketplace에서 Striim을 검색하고 Azure Synapse Analytics로의 데이터 통합용 Striim(미리 구성) 옵션을 선택합니다. 
 
 ![Striim 설치][install]
 
@@ -32,7 +32,7 @@ Azure Marketplace에서 Striim을 검색 하 고 Azure Synapse Analytics (준비
 
 배포되면 Azure Portal에서 \<VM Name>-masternode를 클릭하고 연결을 클릭한 다음, VM 로컬 계정을 사용하여 로그인을 복사합니다. 
 
-![Azure Synapse Analytics에 Striim 연결][connect]
+![Striim을 Azure Synapse Analytics에 연결][connect]
 
 <https://www.microsoft.com/en-us/download/details.aspx?id=54671>의 sqljdbc42.jar을 로컬 머신에 다운로드합니다. 
 

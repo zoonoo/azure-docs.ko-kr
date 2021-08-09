@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 5/23/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e0c5f3ecf0334ad2190d8542e54388a2a25d30fb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95999810"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Windows에서 Service Fabric Reliable Services 및 Reliable Actors 컨테이너화
@@ -111,7 +111,7 @@ Service Fabric은 Service Fabric 마이크로 서비스(Reliable Services 및 Re
    ```
 
 > [!NOTE] 
-> 기본적으로 Service Fabric 응용 프로그램은 응용 프로그램별 요청을 수락 하는 끝점 형식의 Service Fabric 런타임에 액세스할 수 있습니다. 응용 프로그램이 신뢰할 수 없는 코드를 호스팅하는 경우이 액세스를 사용 하지 않도록 설정 하십시오. 자세한 내용은 [Service Fabric의 보안 모범 사례](service-fabric-best-practices-security.md#platform-isolation)를 참조 하세요. Service Fabric 런타임에 대 한 액세스를 사용 하지 않도록 설정 하려면 다음과 같이 가져온 서비스 매니페스트에 해당 하는 응용 프로그램 매니페스트의 정책 섹션에서 다음 설정을 추가 합니다.
+> 기본값으로 Service Fabric 애플리케이션은 애플리케이션별 요청을 수락하는 엔드포인트 형식으로 Service Fabric 런타임에 액세스할 수 있습니다. 애플리케이션이 신뢰할 수 없는 코드를 호스팅하는 경우 이 액세스를 사용하지 않도록 설정 하십시오. 자세한 내용은 [Service Fabric의 보안 모범 사례](service-fabric-best-practices-security.md#platform-isolation)를 참조하세요. Service Fabric 런타임에 대한 액세스를 사용하지 않으려면, 다음과 같이 가져온 서비스 매니페스트에 해당하는 애플리케이션 매니페스트의 정책 섹션에서 다음의 설정을 추가합니다.
 >
 ```xml
   <Policies>

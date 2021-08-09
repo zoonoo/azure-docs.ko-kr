@@ -1,6 +1,6 @@
 ---
-title: Azure Logic Apps에서 함수를 추가 하 고 호출 합니다.
-description: Azure Logic Apps의 자동화 된 작업 및 워크플로를 통해 Azure에서 만든 함수에서 사용자 지정 코드를 호출 하 고 실행 합니다.
+title: Azure Logic Apps에서 함수 추가 및 호출
+description: Azure Logic Apps의 자동화된 작업 및 워크플로를 통해 Azure에서 만들어진 함수에서 사용자 지정 코드를 호출하고 실행합니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,21 +8,21 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 7df9f7d072af7c5f6523fd1be0432ce51954fa10
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98791882"
 ---
 # <a name="call-functions-from-azure-logic-apps"></a>Azure Logic Apps에서 함수 호출
 
-논리 앱에서 특정 작업을 수행하는 코드를 실행하려는 경우 [Azure Functions](../azure-functions/functions-overview.md)를 사용하여 자체 함수를 만들 수 있습니다. 이 서비스를 사용하면 완전한 앱 또는 인프라를 빌드하지 않고도 코드를 실행 수 있으므로 Node.js, C# 및 F# 함수를 만드는 데 유용합니다. [함수 내에서 논리 앱을 호출할](#call-logic-app)수도 있습니다. Azure Functions는 클라우드에서 서버리스 컴퓨팅을 제공하며, 다음 예제와 같은 작업을 수행하는 데 유용합니다.
+논리 앱에서 특정 작업을 수행하는 코드를 실행하려는 경우 [Azure Functions](../azure-functions/functions-overview.md)를 사용하여 자체 함수를 만들 수 있습니다. 이 서비스를 사용하면 완전한 앱 또는 인프라를 빌드하지 않고도 코드를 실행 수 있으므로 Node.js, C# 및 F# 함수를 만드는 데 유용합니다. [함수 내에서 논리 앱을 호출](#call-logic-app)할 수도 있습니다. Azure Functions는 클라우드에서 서버리스 컴퓨팅을 제공하며, 다음 예제와 같은 작업을 수행하는 데 유용합니다.
 
 * Node.js 또는 C#의 함수를 사용하여 논리 앱의 동작을 확장합니다.
 * 논리 앱 워크플로에서 계산을 수행합니다.
 * 논리 앱에서 고급 서식 지정 또는 컴퓨팅 필드를 적용합니다.
 
-Azure Functions 사용 하지 않고 코드 조각을 실행 하려면 [인라인 코드를 추가 하 고 실행](../logic-apps/logic-apps-add-run-inline-code.md)하는 방법을 알아봅니다.
+Azure Functions를 만들지 않고 코드 조각을 실행하려면 [인라인 코드를 추가하고 실행](../logic-apps/logic-apps-add-run-inline-code.md)하는 방법을 알아보세요.
 
 > [!NOTE]
 > 현재 슬롯이 활성화된 경우에는 Logic Apps와 Azure Functions 간의 통합이 작동하지 않습니다.
@@ -31,7 +31,7 @@ Azure Functions 사용 하지 않고 코드 조각을 실행 하려면 [인라�
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* 사용자가 만든 함수와 함께 Azure Functions에서 만든 함수의 컨테이너인 함수 앱입니다. 함수 앱이 없는 경우 [함수 앱을 먼저 만듭니다](../azure-functions/functions-get-started.md). 그런 후 Azure Portal의 논리 앱과는 별도로 또는 Logic Apps 디자이너의 [논리 앱 내에서](#create-function-designer) 함수를 만들 수 있습니다.
+* 함수 앱은 직접 만든 함수와 더불어 Azure Functions에서 생성된 함수의 컨테이너입니다. 함수 앱이 없는 경우 [함수 앱을 먼저 만듭니다](../azure-functions/functions-get-started.md). 그런 후 Azure Portal의 논리 앱과는 별도로 또는 Logic Apps 디자이너의 [논리 앱 내에서](#create-function-designer) 함수를 만들 수 있습니다.
 
 * 논리 앱을 사용할 때는 기존 또는 새로운 함수 앱 및 함수에 동일한 요구 사항이 적용됩니다.
 
@@ -41,7 +41,7 @@ Azure Functions 사용 하지 않고 코드 조각을 실행 하려면 [인라�
 
   * 함수는 **HTTP 트리거** 템플릿을 사용합니다.
 
-    HTTP 트리거 템플릿은 논리 앱의 `application/json` 형식을 갖는 콘텐츠를 수락할 수 있습니다. 논리 앱에 함수를 추가 하는 경우 논리 앱 디자이너는 Azure 구독 내에서이 템플릿에서 만든 사용자 지정 함수를 표시 합니다.
+    HTTP 트리거 템플릿은 논리 앱의 `application/json` 형식을 갖는 콘텐츠를 수락할 수 있습니다. 논리 앱에 함수를 추가하면 Azure 구독 내에서 이 템플릿을 통해 만든 사용자 지정 함수가 Logic App 디자이너에 표시됩니다.
 
   * 이전에는 [Swagger 파일](https://swagger.io/)로 알려진 [OpenAPI 정의](../azure-functions/functions-openapi-definition.md)를 정의하지 않는 한, 함수에 사용자 지정 경로가 사용되지 않습니다.
 
@@ -96,15 +96,15 @@ function convertToDateString(request, response){
    body: data.date.ToDateString();
    ```
 
-이제 Azure에서 함수를 만들었으므로 [논리 앱에 함수를 추가](#add-function-logic-app)하는 단계를 수행 합니다.
+Azure에서 함수를 만들었으므로 [논리 앱에 함수를 추가](#add-function-logic-app)하는 단계를 따르세요.
 
 <a name="create-function-designer"></a>
 
 ## <a name="create-functions-inside-logic-apps"></a>논리 앱 내에서 함수 만들기
 
-논리 앱 디자이너에서 기본 제공 Azure Functions 작업을 사용 하 여 논리 앱의 워크플로에서 직접 함수를 만들 수 있지만 JavaScript로 작성 된 함수에만이 메서드를 사용할 수 있습니다. 다른 언어의 경우 Azure Portal에서 Azure Functions 환경을 통해 함수를 만들 수 있습니다. 자세한 내용은 [Azure Portal에서 첫 번째 함수 만들기](../azure-functions/functions-get-started.md)를 참조하세요.
+Logic App 디자이너에서 기본 제공 Azure Functions 작업을 사용하여 논리 앱의 워크플로에서 직접 함수를 만들 수 있지만 JavaScript로 작성된 함수에만 이 메서드를 사용할 수 있습니다. 다른 언어의 경우 Azure Portal에서 Azure Functions 환경을 통해 함수를 만들 수 있습니다. 자세한 내용은 [Azure Portal에서 첫 번째 함수 만들기](../azure-functions/functions-get-started.md)를 참조하세요.
 
-그러나 Azure에서 함수를 만들려면 함수 앱이 이미 있어야 합니다. 함수 앱은 함수에 대 한 컨테이너입니다. 함수 앱이 없는 경우 함수 앱을 먼저 만듭니다. [Azure Portal에서 첫 번째 함수 만들기](../azure-functions/functions-get-started.md)를 참조하세요.
+그러나 Azure에서 함수를 만들려면 함수의 컨테이너인 함수 앱이 이미 있어야 합니다. 함수 앱이 없는 경우 함수 앱을 먼저 만듭니다. [Azure Portal에서 첫 번째 함수 만들기](../azure-functions/functions-get-started.md)를 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
@@ -118,7 +118,7 @@ function convertToDateString(request, response){
 
    ![Azure Portal에서 함수를 찾습니다.](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
-1. 함수 앱 목록에서 함수 앱을 선택합니다. 작업 목록이 열리면 **새 함수 만들기** 작업을 선택 합니다.
+1. 함수 앱 목록에서 함수 앱을 선택합니다. 작업 목록이 열리면 **새 함수 만들기** 작업을 선택합니다.
 
    ![함수 앱 선택](./media/logic-apps-azure-functions/select-function-app-create-function.png)
 
@@ -155,13 +155,13 @@ function convertToDateString(request, response){
 
    ![개체를 문자열로 캐스팅](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
-1. 사용할 메서드, 요청 헤더, 쿼리 매개 변수 또는 인증 등의 기타 세부 정보를 지정하려면 **새 매개 변수 추가** 목록을 열고 원하는 옵션을 선택합니다. 인증의 경우 선택한 함수에 따라 옵션이 달라집니다. [함수에 인증 사용을](#enable-authentication-functions)참조 하세요.
+1. 사용할 메서드, 요청 헤더, 쿼리 매개 변수 또는 인증 등의 기타 세부 정보를 지정하려면 **새 매개 변수 추가** 목록을 열고 원하는 옵션을 선택합니다. 인증의 경우 선택한 함수에 따라 옵션이 달라집니다. [함수에 인증 사용](#enable-authentication-functions)을 참조하세요.
 
 <a name="add-function-logic-app"></a>
 
 ## <a name="add-existing-functions-to-logic-apps"></a>논리 앱에 기존 함수 추가
 
-논리 앱에서 기존 함수를 호출 하려면 논리 앱 디자이너의 다른 작업과 마찬가지로 함수를 추가할 수 있습니다.
+Logic Apps 디자이너에서 다른 작업처럼 함수를 추가하면 논리 앱에서 기존 함수를 호출할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
@@ -177,7 +177,7 @@ function convertToDateString(request, response){
 
    API 정의(Swagger 설명)가 있고 [논리 앱이 해당 함수를 찾아 액세스할 수 있도록 설정된](#function-swagger) 함수에 대해 **Swagger 작업** 을 선택할 수 있습니다.
 
-   ![함수 앱, "Swagger 작업" 및 함수를 선택 합니다.](./media/logic-apps-azure-functions/select-function-app-existing-function-swagger.png)
+   ![함수 앱, “Swagger 작업”, 함수 선택](./media/logic-apps-azure-functions/select-function-app-existing-function-swagger.png)
 
 1. **요청 본문** 상자에 JSON (JavaScript Notation) 개체로 형식이 지정된 함수 입력을 제공합니다.
 
@@ -189,27 +189,27 @@ function convertToDateString(request, response){
 
    ![개체를 문자열로 캐스팅](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
-1. 사용할 메서드, 요청 헤더, 쿼리 매개 변수 또는 인증 등의 기타 세부 정보를 지정하려면 **새 매개 변수 추가** 목록을 열고 원하는 옵션을 선택합니다. 인증의 경우 선택한 함수에 따라 옵션이 달라집니다. [함수에서 인증 사용을](#enable-authentication-functions)참조 하세요.
+1. 사용할 메서드, 요청 헤더, 쿼리 매개 변수 또는 인증 등의 기타 세부 정보를 지정하려면 **새 매개 변수 추가** 목록을 열고 원하는 옵션을 선택합니다. 인증의 경우 선택한 함수에 따라 옵션이 달라집니다. [함수에 인증 사용](#enable-authentication-functions)을 참조하세요.
 
 <a name="call-logic-app"></a>
 
 ## <a name="call-logic-apps-from-functions"></a>함수에서 논리 앱 호출
 
-함수 내에서 논리 앱을 트리거 하려는 경우 논리 앱은 호출 가능 끝점을 제공 하는 트리거로 시작 해야 합니다. 예를 들어, **HTTP**, **Request**, **Azure Queues** 또는 **Event Grid** 트리거로 논리 앱을 시작할 수 있습니다. 함수 내에서 트리거의 URL에 HTTP POST 요청을 전송하고 해당 논리 앱에서 처리할 페이로드를 포함합니다. 자세한 내용은 [논리 앱 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요.
+함수 내에서 논리 앱을 트리거하려면 논리 앱이 호출 가능한 엔드포인트를 제공하는 트리거로 시작해야 합니다. 예를 들어, **HTTP**, **Request**, **Azure Queues** 또는 **Event Grid** 트리거로 논리 앱을 시작할 수 있습니다. 함수 내에서 트리거의 URL에 HTTP POST 요청을 전송하고 해당 논리 앱에서 처리할 페이로드를 포함합니다. 자세한 내용은 [논리 앱 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요.
 
 <a name="enable-authentication-functions"></a>
 
-## <a name="enable-authentication-for-functions"></a>기능에 대 한 인증 사용
+## <a name="enable-authentication-for-functions"></a>함수에 인증 사용
 
 로그인하고 자격 증명 또는 비밀을 입력할 필요 없이 Azure AD(Active Directory)에서 보호하는 다른 리소스에 대한 액세스를 손쉽게 인증하려면 논리 앱에 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)(이전 명칭: MSI(관리되는 서비스 ID))를 사용하면 됩니다. 이 ID는 Azure에서 관리되며, 비밀을 제공하거나 순환할 필요가 없기 때문에 자격 증명을 보호하는 데 도움이 됩니다. [Azure AD 인증에 관리 ID를 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에 대해 자세히 알아보세요.
 
-시스템이 할당 한 id 또는 수동으로 만든 사용자 할당 id를 사용 하도록 논리 앱을 설정 하는 경우 논리 앱의 함수는 인증에 동일한 id를 사용할 수도 있습니다. 논리 앱의 함수에 대 한 인증 지원에 대 한 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요.
+시스템 할당 ID 또는 수동으로 생성된 사용자 할당 ID를 사용하도록 논리 앱을 설정하면 논리 앱의 함수가 동일한 ID를 인증에도 사용할 수 있습니다. 논리 앱의 함수에 대한 인증 지원을 자세히 알아보려면 [아웃바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조하세요.
 
 함수를 통해 관리 ID를 설정하고 사용하려면 다음 단계를 수행합니다.
 
 1. 논리 앱에서 관리 ID를 사용하도록 설정하고 해당 ID의 대상 리소스 액세스 권한을 설정합니다. [Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증](../logic-apps/create-managed-service-identity.md)을 참조하세요.
 
-1. 다음 단계를 수행 하 여 함수 및 함수 앱에서 인증을 사용 하도록 설정 합니다.
+1. 다음 단계를 수행하여 함수와 함수 앱에서 인증을 사용하도록 설정합니다.
 
    * [함수에 익명 인증 설정](#set-authentication-function-app)
    * [함수 앱에 Azure AD 인증 설정](#set-azure-ad-authentication)
@@ -218,7 +218,7 @@ function convertToDateString(request, response){
 
 ### <a name="set-up-anonymous-authentication-in-your-function"></a>함수에 익명 인증 설정
 
-함수에서 논리 앱의 관리 되는 id를 사용 하려면 함수의 인증 수준을 익명으로 설정 해야 합니다. 그렇지 않으면 논리 앱이 "BadRequest" 오류를 throw합니다.
+함수에서 논리 앱의 관리 ID를 사용하려면 함수의 인증 수준을 익명으로 설정해야 합니다. 그렇지 않으면 논리 앱이 "BadRequest" 오류를 throw합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 함수 앱을 찾아 선택합니다. 이러한 단계에서는 "FabrikamFunctionApp"을 예제 함수 앱으로 사용합니다.
 

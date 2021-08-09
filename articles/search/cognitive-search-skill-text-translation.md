@@ -1,7 +1,7 @@
 ---
-title: 텍스트 변환 인식 기술
+title: 텍스트 번역 인식 기술
 titleSuffix: Azure Cognitive Search
-description: 텍스트를 평가 하 고 각 레코드에 대해 Azure Cognitive Search AI 보강 파이프라인의 지정 된 대상 언어로 번역 된 텍스트를 반환 합니다.
+description: 텍스트를 평가하고 각 레코드에 대해 Azure Cognitive Search의 AI 보강 파이프라인에서 지정된 대상 언어로 번역된 텍스트를 반환합니다.
 manager: nitinme
 author: careyjmac
 ms.author: chalton
@@ -9,19 +9,19 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 0953d750ee8b59e9889512bb64cfd276a0bbeb53
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97654867"
 ---
-#   <a name="text-translation-cognitive-skill"></a>텍스트 변환 인식 기술
+#   <a name="text-translation-cognitive-skill"></a>텍스트 번역 인식 기술
 
-**텍스트 번역** 기술은 텍스트를 평가 하 고 각 레코드에 대해 지정 된 대상 언어로 번역 된 텍스트를 반환 합니다. 이 기술은 Cognitive Services에서 사용할 수 있는 [Translator Text API v 3.0](../cognitive-services/translator/reference/v3-0-translate.md) 을 사용 합니다.
+**텍스트 번역** 기술은 텍스트를 평가하고 각 레코드에 대해 지정된 대상 언어로 번역된 텍스트를 반환합니다. 이 기술은 Cognitive Services에서 제공하는 [Translator Text API v3.0](../cognitive-services/translator/reference/v3-0-translate.md)을 사용합니다.
 
-이 기능은 문서가 하나의 언어로 되어 있지 않을 것으로 간주 되는 경우에 유용 합니다 .이 경우 번역을 통해 검색을 인덱싱하기 전에 텍스트를 단일 언어로 정규화 할 수 있습니다.  동일한 텍스트의 복사본을 여러 언어로 사용할 수 있는 지역화 사용 사례에도 유용 합니다.
+이 기능은 문서가 하나의 언어로 되어 있지 않을 것으로 간주되는 경우에 유용합니다. 이 경우 검색을 인덱싱하기 전에 번역을 통해 텍스트를 단일 언어로 정규화할 수 있습니다.  동일한 텍스트의 복사본을 여러 언어로 제공하는 지역화 사용 사례에도 유용합니다.
 
-[Translator Text API v 3.0](../cognitive-services/translator/reference/v3-0-reference.md) 은 지역 인식 서비스 이며,이는 데이터가 Azure Cognitive Search 또는 연결 된 Cognitive Services 리소스와 동일한 지역에 유지 되는 것이 보장 되지 않는다는 것을 의미 합니다.
+[Translator Text API v3.0](../cognitive-services/translator/reference/v3-0-reference.md)은 지역과 무관한 인식 서비스입니다. 즉, 데이터가 Azure Cognitive Search 또는 연결된 Cognitive Services 리소스와 동일한 지역에 유지됨이 보장되지 않습니다.
 
 > [!NOTE]
 > 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
@@ -32,7 +32,7 @@ ms.locfileid: "97654867"
 Microsoft.Skills.Text.TranslationSkill
 
 ## <a name="data-limits"></a>데이터 제한
-레코드의 최대 크기는 [`String.Length`](/dotnet/api/system.string.length)에 의해 측정된 대로 50,000자여야 합니다. 텍스트 번역 기술에 보내기 전에 데이터를 분할 해야 하는 경우 [텍스트 분할 기술을](cognitive-search-skill-textsplit.md)사용 하는 것이 좋습니다.
+레코드의 최대 크기는 [`String.Length`](/dotnet/api/system.string.length)에 의해 측정된 대로 50,000자여야 합니다. 텍스트 번역 기술로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 나누기 기술](cognitive-search-skill-textsplit.md) 사용을 고려합니다.
 
 ## <a name="skill-parameters"></a>기술 매개 변수
 
@@ -40,25 +40,25 @@ Microsoft.Skills.Text.TranslationSkill
 
 | 입력 | Description |
 |---------------------|-------------|
-| defaultToLanguageCode | 하다 언어를 명시적으로 지정 하지 않는 문서의 문서를로 변환 하는 언어 코드입니다. <br/> [지원되는 언어 전체 목록](../cognitive-services/translator/language-support.md)을 참조합니다. |
-| defaultFromLanguageCode | 필드 에서 언어를 명시적으로 지정 하지 않는 문서의 문서를 변환 하는 언어 코드입니다.  DefaultFromLanguageCode가 지정 되지 않은 경우 Translator Text API에서 제공 하는 자동 언어 검색을 사용 하 여 from 언어를 결정 합니다. <br/> [지원되는 언어 전체 목록](../cognitive-services/translator/language-support.md)을 참조합니다. |
-| suggestedFrom | 필드 FromLanguageCode 입력 또는 defaultFromLanguageCode 매개 변수가 제공 되지 않고 자동 언어 검색이 실패 한 경우 문서를 변환 하는 언어 코드입니다.  SuggestedFrom 언어를 지정 하지 않으면 영어 (en)가 suggestedFrom 언어로 사용 됩니다. <br/> [지원되는 언어 전체 목록](../cognitive-services/translator/language-support.md)을 참조합니다. |
+| defaultToLanguageCode | (필수) to 언어를 명시적으로 지정하지 않는 문서에 대해 문서를 번역할 언어 코드입니다. <br/> [지원되는 언어 전체 목록](../cognitive-services/translator/language-support.md)을 참조합니다. |
+| defaultFromLanguageCode | (선택 사항) from 언어를 명시적으로 지정하지 않는 문서에 대해 문서를 번역할 언어 코드입니다.  defaultFromLanguageCode가 지정되지 않은 경우 Translator Text API에서 제공하는 자동 언어 감지를 사용하여 from 언어를 결정합니다. <br/> [지원되는 언어 전체 목록](../cognitive-services/translator/language-support.md)을 참조합니다. |
+| suggestedFrom | (선택 사항) fromLanguageCode 입력이나 defaultFromLanguageCode 매개 변수가 제공되지 않고 자동 언어 감지에 실패한 경우 문서를 번역할 언어 코드입니다.  suggestedFrom 언어가 지정되지 않은 경우 영어(en)가 suggestedFrom 언어로 사용됩니다. <br/> [지원되는 언어 전체 목록](../cognitive-services/translator/language-support.md)을 참조합니다. |
 
 ## <a name="skill-inputs"></a>기술 입력
 
 | 입력 이름     | Description |
 |--------------------|-------------|
-| text | 변환할 텍스트입니다.|
-| toLanguageCode    | 텍스트를 변환할 언어를 나타내는 문자열입니다. 이 입력을 지정 하지 않으면 defaultToLanguageCode 텍스트를 변환 하는 데 사용 됩니다. <br/>[지원되는 언어 전체 목록](../cognitive-services/translator/language-support.md) 참조|
-| fromLanguageCode  | 텍스트의 현재 언어를 나타내는 문자열입니다. 이 매개 변수를 지정 하지 않으면 defaultFromLanguageCode (또는 defaultFromLanguageCode가 제공 되지 않는 경우 자동 언어 검색)가 텍스트를 변환 하는 데 사용 됩니다. <br/>[지원되는 언어 전체 목록](../cognitive-services/translator/language-support.md) 참조|
+| text | 번역할 텍스트입니다.|
+| toLanguageCode    | 텍스트를 번역할 언어를 나타내는 문자열입니다. 이 입력을 지정하지 않으면 defaultToLanguageCode가 텍스트 번역에 사용됩니다. <br/>[지원되는 언어 전체 목록](../cognitive-services/translator/language-support.md) 참조|
+| fromLanguageCode  | 텍스트의 현재 언어를 나타내는 문자열입니다. 이 매개 변수를 지정하지 않으면 defaultFromLanguageCode(또는 defaultFromLanguageCode가 제공되지 않는 경우 자동 언어 감지)가 텍스트 번역에 사용됩니다. <br/>[지원되는 언어 전체 목록](../cognitive-services/translator/language-support.md) 참조|
 
 ## <a name="skill-outputs"></a>기술 출력
 
-| 출력 이름    | 설명 |
+| 출력 이름    | Description |
 |--------------------|-------------|
-| translatedText | TranslatedFromLanguageCode에서 translatedToLanguageCode로 텍스트 변환의 문자열 결과입니다.|
-| translatedToLanguageCode  | 텍스트를 번역 한 언어 코드를 나타내는 문자열입니다. 여러 언어로 번역 하 고 어떤 언어가 어떤 언어로 된 텍스트를 추적할 수 있게 하려는 경우에 유용 합니다.|
-| translatedFromLanguageCode    | 텍스트를 번역 한 언어 코드를 나타내는 문자열입니다. 자동 언어 검색 옵션을 선택한 경우이 출력에서 해당 검색의 결과를 제공 하므로 유용 합니다.|
+| translatedText | translatedFromLanguageCode에서 translatedToLanguageCode로의 텍스트 번역 결과에 대한 문자열입니다.|
+| translatedToLanguageCode  | 번역한 텍스트의 to 언어 코드를 나타내는 문자열입니다. 여러 언어로 번역하고 어떤 텍스트가 어떤 언어에 대응하는지 지속적으로 확인하려는 경우에 유용합니다.|
+| translatedFromLanguageCode    | 번역한 텍스트의 from 언어 코드를 나타내는 문자열입니다. 자동 언어 감지 옵션을 선택한 경우 이 출력이 해당 검색 결과를 제공하므로 유용합니다.|
 
 ##  <a name="sample-definition"></a>샘플 정의
 
@@ -144,9 +144,9 @@ Microsoft.Skills.Text.TranslationSkill
 
 
 ## <a name="errors-and-warnings"></a>오류 및 경고
-From 또는 to 언어에 대해 지원 되지 않는 언어 코드를 제공 하면 오류가 발생 하 고 텍스트가 변환 되지 않습니다.
+from 또는 to 언어에 대해 지원되지 않는 언어 코드를 제공하면 오류가 발생하고 텍스트가 번역되지 않습니다.
 텍스트가 비어 있는 경우 경고가 생성됩니다.
-텍스트가 5만 자 보다 큰 경우에는 첫 번째 5만 자만 변환 되 고 경고가 실행 됩니다.
+텍스트가 50,000자보다 큰 경우 처음 50,000자만 번역되고 경고가 발생합니다.
 
 ## <a name="see-also"></a>참고 항목
 

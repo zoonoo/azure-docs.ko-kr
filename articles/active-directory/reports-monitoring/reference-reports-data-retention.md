@@ -1,6 +1,6 @@
 ---
-title: Azure AD 저장소에서 데이터를 보고 하는 기간은 얼마 인가요? | Microsoft 문서
-description: Azure에서 다양 한 유형의 보고 데이터를 저장 하는 기간을 알아봅니다.
+title: Azure AD에서는 보고 데이터를 얼마나 오래 보관하나요? | Microsoft 문서
+description: Azure에서 다양한 유형의 보고 데이터를 보관하는 기간을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4e240e8ec53ce007be1a858af7b6e41273ca8831
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97093641"
 ---
-# <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD 저장소에서 데이터를 보고 하는 기간은 얼마 인가요?
+# <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD에서는 보고 데이터를 얼마나 오래 보관하나요?
 
 
 이 문서에서는 Azure Active Directory의 다른 작업 보고서에 대한 데이터 보존 정책에 대해 알아봅니다. 
@@ -40,14 +40,14 @@ ms.locfileid: "97093641"
 
 ### <a name="when-is-the-activity-data-available-in-the-azure-portal"></a>Azure Portal에서 활동 데이터를 사용할 수 있는 시기는 언제입니까?
 
-- **즉시** -Azure Portal에서 보고서를 이미 작업 한 경우
+- **즉시** - 이미 Azure Portal에서 보고서로 작업한 적이 있는 경우
 - **2시간 이내** - Azure Portal에서 보고 기능을 설정하지 않은 경우
 
 ---
 
 ### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Premium 라이선스를 받은 후 활동 데이터를 확인할 수 있을 때까지는 얼마나 걸리나요?
 
-무료 라이선스를 통해 수집한 활동 데이터가 이미 있다면 업그레이드 시 해당 데이터를 즉시 확인할 수 있습니다. 데이터가 없는 경우 프리미엄 라이선스로 업그레이드 한 후 보고서에 데이터가 표시 되는 데 최대 3 일이 소요 됩니다.
+무료 라이선스를 통해 수집한 활동 데이터가 이미 있다면 업그레이드 시 해당 데이터를 즉시 확인할 수 있습니다. 데이터가 없는 경우에는 프리미엄 라이선스로 업그레이드한 후 보고서에 데이터가 나타나기까지 최대 3일이 걸립니다.
 
 ---
 
@@ -65,7 +65,7 @@ ms.locfileid: "97093641"
 | :--                    | :--           | :--                 | :--                 |
 | 감사 로그             | 7 일        | 30일             | 30일             |
 | 로그인               | 7 일        | 30일             | 30일             |
-| Azure AD MFA 사용        | 30일       | 30일             | 30일             |
+| Azure AD MFA 사용량        | 30일       | 30일             | 30일             |
 
 Azure Monitor를 사용하여 스토리지 계정으로 라우팅하여 위에서 설명한 기본 보존 기간보다 오랫동안 감사 및 로그인 활동 데이터를 유지할 수 있습니다. 자세한 내용은 [Azure 스토리지 계정에 Azure AD 로그 보관](quickstart-azure-monitor-route-logs-to-storage-account.md)을 참조하세요.
 
@@ -80,6 +80,6 @@ Azure Monitor를 사용하여 스토리지 계정으로 라우팅하여 위에�
 
 ### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Azure AD Premium 라이선스를 받은 후에 지난 달의 데이터를 확인할 수 있나요?
 
-**아니요**, 할 수 없습니다. Azure는 무료 버전에 대 한 최대 7 일간의 활동 데이터를 저장 합니다. 즉, 무료에서 a를 프리미엄 버전으로 전환 하는 경우 최대 7 일의 데이터만 볼 수 있습니다.
+**아니요**, 확인할 수 없습니다. Azure는 무료 버전에서 최대 7일간의 활동 데이터를 보관합니다. 즉, 무료 버전에서 프리미엄 버전으로 전환하면 최대 7일간의 데이터만 확인할 수 있습니다.
 
 ---

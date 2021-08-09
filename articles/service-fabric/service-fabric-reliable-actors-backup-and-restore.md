@@ -1,14 +1,14 @@
 ---
-title: Azure Service Fabric 행위자 백업 및 복원
+title: Azure 서비스 패브릭 행위자 백업과 복원
 description: Azure Service Fabric 행위자에서 백업 및 복원을 구현하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 05dfb7d09e68373f52831a9e5233316df95ee552
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96571337"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Reliable Actors 백업 및 복원 구현

@@ -4,10 +4,10 @@ description: Azure Resource Health를 통해 지원되는 리소스 유형
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: 1b0958732a96786b2fb86b2b145f5cb8d36c0c5a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97883370"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
@@ -26,7 +26,7 @@ ms.locfileid: "97883370"
 ## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/Spring
 |실행된 검사|
 |---|
-|<ul><li>Azure 스프링 클라우드 인스턴스를 사용할 수 있나요?</li></ul>|
+|<ul><li>Azure Spring Cloud 인스턴스를 사용할 수 있는가?</li></ul>|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 |실행된 검사|
@@ -51,7 +51,7 @@ ms.locfileid: "97883370"
 ## <a name="microsoftclassiccomputedomainnames"></a>Microsoft.classiccompute/domainnames
 |실행된 검사|
 |---|
-|<ul><li>프로덕션 슬롯 배포가 모든 역할 인스턴스에 걸쳐 정상 상태 인가요?</li><li>모든 VM 인스턴스에서 역할이 정상 상태 인가요?</li><li>클라우드 서비스 역할 내에서 각 VM의 상태는 어떻습니까?</li><li>플랫폼 또는 고객이 시작한 작업으로 인해 VM 상태가 변경 되었습니까?</li><li>게스트 OS의 부팅이 완료되었는가?</li><li>진행 중인 계획된 유지 관리가 있는가?</li><li>호스트 하드웨어의 성능이 저하되고 곧 오류가 발생하나요?</li><li>실행 되는 검사에 대 한 [자세한 정보](../cloud-services/resource-health-for-cloud-services.md)</li></ul>|
+|<ul><li>프로덕션 슬롯 배포가 모든 역할 인스턴스에서 정상인가?</li><li>역할이 모든 VM 인스턴스에서 정상인가?</li><li>클라우드 서비스 역할 내에서 각 VM의 상태는 어떠한가?</li><li>플랫폼에서 또는 고객이 시작한 작업으로 인해 VM 상태가 변경되었는가?</li><li>게스트 OS의 부팅이 완료되었는가?</li><li>진행 중인 계획된 유지 관리가 있는가?</li><li>호스트 하드웨어의 성능이 저하되고 곧 오류가 발생하나요?</li><li>실행된 검사에 대한 [자세한 정보](../cloud-services/resource-health-for-cloud-services.md)</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |실행된 검사|
@@ -61,7 +61,7 @@ ms.locfileid: "97883370"
 ## <a name="microsoftcomputehostgroupshosts"></a>Microsoft.compute/hostgroups/hosts
 |실행된 검사|
 |---|
-|<ul><li>호스트를 실행 하 고 있습니까?</li><li>호스트 하드웨어 성능이 저하되었나요?</li><li>호스트 할당이 취소되었나요?</li><li>호스트 하드웨어 서비스가 다른 하드웨어로 복구되었나요?</li></ul>|
+|<ul><li>호스트가 실행 중인가?</li><li>호스트 하드웨어 성능이 저하되었나요?</li><li>호스트 할당이 취소되었나요?</li><li>호스트 하드웨어 서비스가 다른 하드웨어로 복구되었나요?</li></ul>|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |실행된 검사|
@@ -71,7 +71,7 @@ ms.locfileid: "97883370"
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
 |실행된 검사|
 |---|
-|<ul><li>클러스터가 작동 하 고 실행 되 고 있나요?</li><li>클러스터에서 핵심 서비스를 사용할 수 있나요?</li><li>모든 클러스터 노드가 준비 되었습니까?</li><li>서비스 사용자가 최신이 고 유효 합니까?</li></ul>|
+|<ul><li>클러스터가 실행 중인가?</li><li>클러스터에서 핵심 서비스를 사용할 수 있는가?</li><li>모든 클러스터 노드가 준비되었는가?</li><li>서비스 주체가 최신 상태이고 유효한가?</li></ul>|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/factories
 |실행된 검사|
@@ -119,10 +119,10 @@ ms.locfileid: "97883370"
 |---|
 |<ul><li>IoT Hub가 실행되고 있는가?</li></ul>|
 
-## <a name="microsoftdigitaltwinsdigitaltwinsinstances"></a>DigitalTwins/DigitalTwinsInstances
+## <a name="microsoftdigitaltwinsdigitaltwinsinstances"></a>Microsoft.DigitalTwins/DigitalTwinsInstances
 |실행된 검사|
 |---|
-|<ul><li>Azure Digital Twins 인스턴스가 작동 하 고 실행 되 고 있나요?</li></ul>|
+|<ul><li>Azure Digital Twins 인스턴스가 실행 중인가?</li></ul>|
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |실행된 검사|
@@ -142,17 +142,17 @@ ms.locfileid: "97883370"
 ## <a name="microsoftiotcentraliotapps"></a>Microsoft.IoTCentral/IoTApps
 |실행된 검사|
 |---|
-|<ul><li>IoT Central 응용 프로그램을 사용할 수 있나요?</li></ul>|
+|<ul><li>IoT Central 애플리케이션을 사용할 수 있는가?</li></ul>|
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |실행된 검사|
 |---|
 |<ul><li>Azure KeyVault 플랫폼 문제로 인해 Key Vault에 대한 요청이 실패하는가?</li><li>고객의 요청이 너무 많아서 Key Vault에 대한 요청이 스로틀되는가?</li></ul>|
 
-## <a name="microsoftkustoclusters"></a>Microsoft. Kusto/클러스터
+## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/clusters
 |실행된 검사|
 |---|
-|<ul><li>클러스터가 낮은 수집 성공률을 겪고 있나요?</li><li>클러스터에 수집 대기 시간이 많이 발생 하나요?</li><li>클러스터에 많은 쿼리 오류가 발생 했습니까?</li></ul>|
+|<ul><li>클러스터의 수집 성공률이 낮은가?</li><li>클러스터의 수집 대기 시간이 긴가?</li><li>클러스터에 많은 쿼리 오류가 발생했는가?</li></ul>|
 
 ## <a name="microsoftmachinelearningwebservices"></a>Microsoft.MachineLearning/webServices
 |실행된 검사|
@@ -169,10 +169,10 @@ ms.locfileid: "97883370"
 |---|
 |<ul><li>Application Gateway 성능이 저하되나요?</li><li>Application Gateway를 사용할 수 있나요?</li></ul>|
 
-## <a name="microsoftnetworkbastionhosts"></a>Microsoft. network/bastionhosts
+## <a name="microsoftnetworkbastionhosts"></a>Microsoft.network/bastionhosts
 |실행된 검사|
 |---|
-|<ul><li>요새 호스트를 실행 하 고 있습니까?</li></ul>|
+|<ul><li>베스천 호스트가 실행 중인가?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |실행된 검사|
@@ -194,10 +194,10 @@ ms.locfileid: "97883370"
 |---|
 |<ul><li>부하 분산 엔드포인트를 사용할 수 없나요?</li></ul>|
 
-## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft. network/trafficmanagerprofiles
+## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft.network/trafficmanagerprofiles
 |실행된 검사|
 |---|
-|<ul><li>Traffic Manager 프로필에 영향을 주는 문제가 있나요?</li></ul>|
+|<ul><li>Traffic Manager 프로필에 영향을 주는 문제가 있는가?</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |실행된 검사|

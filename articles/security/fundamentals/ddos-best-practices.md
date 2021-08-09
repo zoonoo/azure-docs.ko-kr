@@ -1,5 +1,5 @@
 ---
-title: Azure DDoS Protection를 사용 하 여 복원 력 솔루션 디자인
+title: Azure DDoS Protection을 사용하여 복원 솔루션 설계
 description: 로깅 데이터를 사용하여 애플리케이션에 대해 깊이 이해할 수 있는 방법에 대해 알아봅니다.
 services: security
 author: terrylanfear
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
 ms.openlocfilehash: e298cb0d1a2c510a096f8ead03f8af7e39c206a8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96498934"
 ---
-# <a name="azure-ddos-protection---designing-resilient-solutions"></a>복원 력 있는 솔루션 Azure DDoS Protection 설계
+# <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection - 복원 솔루션 설계
 
 이 아티클은 IT 의사 결정권자 및 보안 담당자를 위해 작성되었습니다. 사용자가 Azure, 네트워킹 및 보안에 익숙하다고 가정합니다.
 DDoS는 애플리케이션 리소스를 고갈시키려는 공격 유형입니다. 공격 목표는 애플리케이션의 가용성과 합법적인 요청을 처리하는 기능을 약화시키는 것입니다. 최근에는 공격이 점점 정교해지고 그 규모와 영향도 점점 커지고 있습니다. 인터넷을 통해 공개적으로 도달 가능한 모든 엔드포인트는 DDoS 공격의 대상이 될 수 있습니다. DDoS(분산 서비스 거부) 복원력을 설계하려면 다양한 오류 모드에 대한 계획과 설계가 필요합니다. Azure는 DDoS 공격으로부터 지속적으로 보호하는 기능을 제공합니다. 이 보호 기능은 기본적으로 추가 비용 없이 Azure 플랫폼에 통합됩니다.
@@ -48,13 +48,13 @@ Microsoft Azure에서 실행되는 서비스를 보호하기 위해 애플리케
 
 확장성은 시스템이 증가된 로드를 처리할 수 있는 정도입니다. 증폭되는 부하, 특히 DDoS 공격 시 증폭되는 부하 수요를 충족할 수 있도록 애플리케이션이 [수평으로 확장 가능](/azure/architecture/guide/design-principles/scale-out)하도록 설계합니다. 애플리케이션이 서비스의 단일 인스턴스에 종속된 경우 단일 실패 지점이 생깁니다. 여러 인스턴스를 프로비전하면 시스템에 복원성 및 확장성이 증가하게 됩니다.
 
-[Azure App Service](../../app-service/overview.md)의 경우 여러 인스턴스를 제공하는 [App Service 계획](../../app-service/overview-hosting-plans.md)을 선택합니다. Azure Cloud Services의 경우 각각의 역할을 [여러 인스턴스](../../cloud-services/cloud-services-choose-me.md)를 사용하도록 구성합니다. [Azure Virtual Machines](../../virtual-machines/index.yml)의 경우, VM(가상 머신) 아키텍처가 둘 이상의 VM을 포함하는지 그리고 각각의 VM이 [가용성 집합](../../virtual-machines/windows/tutorial-availability-sets.md)에 포함되는지 확인합니다. 자동 크기 조정 기능을 사용 하려면 [가상 머신 확장 집합](../../virtual-machine-scale-sets/overview.md) 을 사용 하는 것이 좋습니다.
+[Azure App Service](../../app-service/overview.md)의 경우 여러 인스턴스를 제공하는 [App Service 계획](../../app-service/overview-hosting-plans.md)을 선택합니다. Azure Cloud Services의 경우 각각의 역할을 [여러 인스턴스](../../cloud-services/cloud-services-choose-me.md)를 사용하도록 구성합니다. [Azure Virtual Machines](../../virtual-machines/index.yml)의 경우, VM(가상 머신) 아키텍처가 둘 이상의 VM을 포함하는지 그리고 각각의 VM이 [가용성 집합](../../virtual-machines/windows/tutorial-availability-sets.md)에 포함되는지 확인합니다. 자동 크기 조정 기능을 위한 [가상 머신 확장 집합](../../virtual-machine-scale-sets/overview.md)을 사용하는 것이 좋습니다.
 
 ### <a name="defense-in-depth"></a>심층 방어
 
 심층 방어의 개념은 다양한 방어 전략을 사용하여 위험을 관리하는 것입니다. 애플리케이션에서 보안 방어를 계층화하면 공격이 성공할 가능성이 줄어듭니다. Azure 플랫폼의 기본 제공 기능을 사용하여 안전한 애플리케이션 디자인을 구현하는 것이 좋습니다.
 
-예를 들어 공격 위험이 증가하면 애플리케이션의 크기(*노출 영역*)도 커집니다. 승인 목록을 사용 하 여 표시 되는 IP 주소 공간과 부하 분산 장치 ([Azure Load Balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) 및 [Azure 애플리케이션 Gateway](../../application-gateway/application-gateway-create-probe-portal.md))에서 필요 하지 않은 수신 포트를 닫아 노출 영역을 줄일 수 있습니다. [NSG(네트워크 보안 그룹)](../../virtual-network/network-security-groups-overview.md)는 공격 노출을 줄이기 위한 또 다른 방법입니다.
+예를 들어 공격 위험이 증가하면 애플리케이션의 크기(*노출 영역*)도 커집니다. 승인 목록을 사용하여 부하 분산 장치([Azure Load Balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) 및 [Azure Application Gateway](../../application-gateway/application-gateway-create-probe-portal.md))에 필요하지 않은 노출된 IP 주소 공간 및 수신 대기 포트를 종료하여 노출 영역을 줄일 수 있습니다. [NSG(네트워크 보안 그룹)](../../virtual-network/network-security-groups-overview.md)는 공격 노출을 줄이기 위한 또 다른 방법입니다.
 [서비스 태그](../../virtual-network/network-security-groups-overview.md#service-tags) 및 [애플리케이션 보안 그룹](../../virtual-network/network-security-groups-overview.md#application-security-groups)을 사용하여 보안 규칙을 만드는 복잡성을 최소화하고 애플리케이션 구조의 기본 확장으로 네트워크 보안을 구성할 수 있습니다.
 
 가능하면 [가상 네트워크](../../virtual-network/virtual-networks-overview.md)에 Azure 서비스를 배포해야 합니다. 이렇게 하면 서비스 리소스가 개인 IP 주소를 통해 통신할 수 있습니다. 가상 네트워크의 Azure 서비스 트래픽은 공용 IP 주소를 원본 IP 주소로 사용합니다. [서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md)를 사용하던 기존 방식에서 서비스 트래픽이 가상 네트워크의 Azure 서비스에 액세스할 때 가상 네트워크 프라이빗 주소를 원본 IP 주소로 사용하도록 전환됩니다.
@@ -73,7 +73,7 @@ Azure는 네트워크 공격(레이어 3 및 4)으로부터 보호하는 DDoS Pr
 
 Azure에서 기본 DDoS 보호는 소프트웨어 및 하드웨어 구성 요소로 구성됩니다. 소프트웨어 제어 평면은 공격 트래픽을 분석 및 제거하는 하드웨어 어플라이언스를 통해 언제, 어디서, 어떤 종류의 트래픽을 조정해야 하는지 결정합니다. 제어 평면은 인프라 수준의 DDoS Protection *정책* 에 따라 이 결정을 내립니다. 이 정책은 고정으로 설정되고 모든 Azure 고객에게 전체적으로 적용됩니다.
 
-예를 들어 DDoS Protection 정책은 보호가 *트리거* 되어야 하는 트래픽 볼륨을 지정합니다. 즉, 테 넌 트의 트래픽은 스크러빙 어플라이언스를 통해 라우팅됩니다. 그런 다음 삭제 기기가 공격을 *완화* 하는 방법을 지정 합니다.
+예를 들어 DDoS Protection 정책은 보호가 *트리거* 되어야 하는 트래픽 볼륨을 지정합니다. 즉, 테넌트의 트래픽은 스크러빙 어플라이언스를 통해 라우팅됩니다. 그런 다음, 정책이 스크러빙 어플라이언스가 공격을 ‘완화’하는 방법을 지정합니다.
 
 Azure DDoS Protection 기본 서비스는 인프라 보호와 Azure 플랫폼 보호를 목표로 합니다. 다중 테넌트 환경의 여러 고객에게 영향을 줄 수 있을 만큼 상당히 속도를 초과하는 경우 트래픽을 완화합니다. 경고 또는 고객별로 사용자 지정된 정책을 제공하지 않습니다.
 
@@ -81,7 +81,7 @@ Azure DDoS Protection 기본 서비스는 인프라 보호와 Azure 플랫폼 �
 
 표준 보호는 향상된 DDoS 완화 기능을 제공합니다. 가상 네트워크에서 특정 Azure 리소스를 보호하도록 자동으로 조정됩니다. 보호는 새 가상 네트워크 또는 기존 가상 네트워크에서 간단하게 설정할 수 있으며 애플리케이션 또는 리소스를 변경할 필요가 없습니다. 로깅, 경고 및 원격 분석을 포함하여 기본 서비스에 비해 여러 가지 장점이 있습니다. 다음 섹션에서는 Azure DDoS Protection 표준 서비스의 주요 기능을 간략하게 설명합니다.
 
-#### <a name="adaptive-real-time-tuning"></a>적응 실시간 튜닝
+#### <a name="adaptive-real-time-tuning"></a>적응형 실시간 조정
 
 Azure DDoS Protection Basic 서비스를 통해 고객을 보호하고 다른 고객에 영향을 주지 않도록 방지합니다. 예를 들어 인프라 수준 DDoS Protection 정책의 *트리거 비율* 보다 작고 합법적인 수신 트래픽의 일반 볼륨에 대해 서비스가 프로비전되면 해당 고객의 리소스에 대한 DDoS 공격을 알아차리지 못할 수 있습니다. 뿐만 아니라 최근 공격(예: 다중 벡터 DDoS) 및 테넌트의 애플리케이션별 동작이 더욱 복잡해지면서 고객별로 사용자 지정된 보호 정책의 필요성이 대두되었습니다. 서비스에서는 두 개의 정보를 사용하여 이 사용자 지정을 수행합니다.
 
@@ -93,11 +93,11 @@ Azure DDoS Protection Basic 서비스를 통해 고객을 보호하고 다른 �
 
 #### <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>DDoS Protection 원격 분석, 모니터링 및 경고
 
-DDoS Protection 표준은 DDoS 공격이 진행되는 동안 [Azure Monitor](../../azure-monitor/overview.md)를 통해 풍부한 원격 분석을 노출합니다. DDoS Protection에서 사용하는 Azure Monitor 메트릭 중 하나에 대한 경고를 구성할 수 있습니다. Azure Monitor 진단 인터페이스를 통해 고급 분석을 위해 Splunk (Azure Event Hubs), Azure Monitor 로그 및 Azure Storage와 로깅을 통합할 수 있습니다.
+DDoS Protection 표준은 DDoS 공격이 진행되는 동안 [Azure Monitor](../../azure-monitor/overview.md)를 통해 풍부한 원격 분석을 노출합니다. DDoS Protection에서 사용하는 Azure Monitor 메트릭 중 하나에 대한 경고를 구성할 수 있습니다. Azure Monitor 진단 인터페이스를 통한 고급 분석을 위해 Splunk(Azure Event Hubs), Azure Monitor 로그 및 Azure Storage와 로깅을 통합할 수 있습니다.
 
 ##### <a name="ddos-mitigation-policies"></a>DDoS 완화 정책
 
-Azure Portal에서 **모니터링**  >  **메트릭** 을 선택 합니다. **메트릭** 창에서 리소스 그룹, **공용 IP 주소** 의 리소스 유형, Azure 공용 IP 주소를 차례로 선택합니다. **사용 가능한 메트릭** 창에 DDoS 메트릭이 표시됩니다.
+Azure Portal에서 **모니터** > **메트릭** 을 선택합니다. **메트릭** 창에서 리소스 그룹, **공용 IP 주소** 의 리소스 유형, Azure 공용 IP 주소를 차례로 선택합니다. **사용 가능한 메트릭** 창에 DDoS 메트릭이 표시됩니다.
 
 DDoS Protection 표준은 DDoS를 사용하도록 설정된 가상 네트워크에서 보호되는 리소스의 각 공용 IP에 대해 자동 조정된 세 가지 완화 정책(TCP SYN, TCP 및 UDP)을 적용합니다. **DDoS 완화를 트리거할 인바운드 패킷** 메트릭을 선택하여 정책 임계값을 볼 수 있습니다.
 
@@ -127,7 +127,7 @@ DDoS Protection 표준은 DDoS를 사용하도록 설정된 가상 네트워크�
 
 DDoS Protection 표준이 설치된 경우 인터넷 연결 엔드포인트의 가상 네트워크에서 사용하도록 설정해야 합니다. DDoS 경고를 구성하면 인프라에 대한 잠재적 공격을 지속적으로 감시할 수 있습니다. 
 
-응용 프로그램을 독립적으로 모니터링 합니다. 애플리케이션의 정상 동작을 이해해야 합니다. DDoS 공격을 받는 동안 애플리케이션이 예상대로 작동하지 않을 경우를 준비합니다.
+애플리케이션을 독립적으로 모니터링합니다. 애플리케이션의 정상 동작을 이해해야 합니다. DDoS 공격을 받는 동안 애플리케이션이 예상대로 작동하지 않을 경우를 준비합니다.
 
 #### <a name="testing-through-simulations"></a>시뮬레이션을 통해 테스트
 
@@ -179,7 +179,7 @@ DDoS 대응 팀의 경우 서비스의 가용성과 연속성 계획의 일환�
 
 ### <a name="alerts-during-an-attack"></a>공격 진행 중 경고
 
-Azure DDoS Protection 표준은 사용자 개입 없이 DDoS 공격을 식별하여 완화합니다. 보호 된 공용 IP에 대 한 활성 완화가 있는 경우 알림을 받으려면 **DDoS Attack에서** 메트릭에 대 한 [경고를 구성할](../../ddos-protection/manage-ddos-protection.md) 수 있습니다. 다른 DDoS 메트릭에 대한 경고를 만들어서 공격의 규모, 손실되는 트래픽 및 기타 세부 내용을 이해할 수 있습니다.
+Azure DDoS Protection 표준은 사용자 개입 없이 DDoS 공격을 식별하여 완화합니다. 보호되는 공용 IP에 대한 활성 완화가 발생할 때 알림을 받으려면 **DDoS 공격 진행 여부** 메트릭에서 [경고를 구성](../../ddos-protection/manage-ddos-protection.md)합니다. 다른 DDoS 메트릭에 대한 경고를 만들어서 공격의 규모, 손실되는 트래픽 및 기타 세부 내용을 이해할 수 있습니다.
 
 #### <a name="when-to-contact-microsoft-support"></a>Microsoft 지원에 문의해야 하는 경우
 
@@ -193,7 +193,7 @@ Azure DDoS Protection 표준은 사용자 개입 없이 DDoS 공격을 식별하
 
 - 작업자가 리소스에 대한 DDoS 공격을 시작하겠다고 위협합니다.
 
-- 허용 해야 하는 경우 Azure DDoS Protection Standard에서 IP 또는 IP 범위를 나열 합니다. 일반적인 시나리오는 트래픽이 외부 클라우드 WAF에서 Azure로 라우팅되는 경우 list IP를 허용 하는 것입니다. 
+- Azure DDoS Protection 표준의 IP 또는 IP 범위를 허용 목록에 추가해야 하는 경우. 일반적인 시나리오는 트래픽이 외부 클라우드 WAF에서 Azure로 라우팅되는 경우 IP를 허용 목록에 추가하는 것입니다. 
 
 중요한 비즈니스에 영향을 주는 공격의 경우 심각도-A [지원 티켓](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 만듭니다.
 
@@ -211,7 +211,7 @@ DDoS 공격을 받고 있다고 의심 되는 경우 일반 Azure 지원 채널�
 
 ## <a name="ddos-protection-reference-architectures"></a>DDoS Protection 참조 아키텍처
 
-DDoS Protection Standard는 [가상 네트워크에 배포 된 서비스를 위해](../../virtual-network/virtual-network-for-azure-services.md)설계 되었습니다. 다른 서비스에는 기본 DDoS Protection 기본 서비스가 적용됩니다. 다음과 같은 참조 아키텍처는 시나리오별로 정렬되어 있으며, 아키텍처 패턴이 함께 그룹화되어 있습니다.
+DDoS Protection Standard는 [가상 네트워크에 배포되는 서비스](../../virtual-network/virtual-network-for-azure-services.md)를 위해 설계되었습니다. 다른 서비스에는 기본 DDoS Protection 기본 서비스가 적용됩니다. 다음과 같은 참조 아키텍처는 시나리오별로 정렬되어 있으며, 아키텍처 패턴이 함께 그룹화되어 있습니다.
 
 ### <a name="virtual-machine-windowslinux-workloads"></a>가상 머신(Windows/Linux) 워크로드
 

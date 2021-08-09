@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 5956b7b74d27a4f9a2b79ee3950c8ac765610c70
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d3f7f4e1cdd56675d6084448abc810c9a41992f9
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558485"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520142"
 ---
 # <a name="device-update-for-iot-hub-resource-management"></a>IoT Hub 리소스 관리용 디바이스 업데이트
 
@@ -95,6 +95,9 @@ IoT Hub를 구성하려면
    :::image type="content" source="media/create-device-update-account/instance-configure-selected.png" alt-text="인스턴스에 대한 IoT Hub를 구성하는 것에 동의하는 스크린샷" lightbox="media/create-device-update-account/instance-configure-selected.png":::
 
 3. “업데이트”를 클릭합니다.
+
+   > [!NOTE] 
+   > Azure IoT Hub의 무료 계층을 사용하는 경우 허용되는 메시지 경로 수는 5개로 제한됩니다. Device Update for IoT Hub가 예상대로 작동하려면 4개의 메시지 경로를 구성해야 합니다. 
 
 [구성된 메시지 경로에 대해 알아봅니다.](device-update-resources.md) 
 

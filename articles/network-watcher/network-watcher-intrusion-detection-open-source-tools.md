@@ -1,5 +1,5 @@
 ---
-title: 오픈 소스 도구를 사용 하 여 네트워크 침입 감지 수행
+title: 오픈 소스 도구로 네트워크 침입 검색 수행
 titleSuffix: Azure Network Watcher
 description: 이 문서에서는 Azure Network Watcher 및 오픈 소스 도구를 사용하여 네트워크 침입 검색을 수행하는 방법에 대해 설명합니다.
 services: network-watcher
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: b4b38112e32a55739ea14d5ff06e327819171557
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98014555"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Network Watcher 및 오픈 소스 도구를 사용하여 네트워크 침입 검색 수행
@@ -76,7 +76,7 @@ tail -f /var/log/suricata/fast.log
 
 ### <a name="set-up-the-elastic-stack"></a>탄력적 스택 설정
 
-Suricata에서 생성 하는 로그에는 네트워크에서 발생 하는 상황에 대 한 중요 한 정보가 포함 되어 있지만 이러한 로그 파일은 읽고 이해 하기가 가장 쉽습니다. Suricata를 탄력적 스택과 연결하여 로그에서 정보를 검색하고, 그래프화하며 분석하고 정보를 끌어낼 수 있는 Kibana 대시보드를 만들 수 있습니다.
+Suricata에서 생성하는 로그에는 네트워크에서 발생하는 작업에 대한 유용한 정보가 포함되지만 이러한 로그 파일은 읽고 이해하기 어렵습니다. Suricata를 탄력적 스택과 연결하여 로그에서 정보를 검색하고, 그래프화하며 분석하고 정보를 끌어낼 수 있는 Kibana 대시보드를 만들 수 있습니다.
 
 #### <a name="install-elasticsearch"></a>Elasticsearch 설치
 
@@ -254,7 +254,7 @@ Logstash 설치에 대한 추가 정보는 [공식 설명서](https://www.elasti
 
 샘플 대시보드는 Suricata 경고 로그에 대한 다양한 시각화를 제공합니다.
 
-1. GeoIP로 경고 – 지리적 위치에 따라 원본의 해당 국가/지역에의 한 경고 분포를 보여 주는 맵입니다 (IP로 결정 됨).
+1. GeoIP별 경고 – IP로 확인되는 지리적 위치에 따라 출처 국가/지역별로 경고의 분포를 보여 주는 맵입니다.
 
     ![지역 ip][3]
 
@@ -274,7 +274,7 @@ Logstash 설치에 대한 추가 정보는 [공식 설명서](https://www.elasti
 
     ![이미지 7][7]
 
-사용자 지정 시각화 및 대시보드를 만드는 방법에 대 한 자세한 설명서는 [Kibana의 공식 설명서](https://www.elastic.co/guide/en/kibana/current/introduction.html)를 참조 하세요.
+사용자 지정 시각화 및 대시보드 만들기에 대한 자세한 내용은 [Kibana의 공식적인 설명서](https://www.elastic.co/guide/en/kibana/current/introduction.html)를 참조하세요.
 
 ## <a name="conclusion"></a>결론
 

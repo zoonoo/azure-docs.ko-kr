@@ -1,13 +1,13 @@
 ---
 title: Azure Event Grid 스키마에 사용자 지정 필드 매핑
-description: 이 문서에서는 이벤트 데이터가 Event Grid 스키마와 일치 하지 않는 경우 사용자 지정 스키마를 Azure Event Grid 스키마로 변환 하는 방법을 설명 합니다.
+description: 이 문서에서는 이벤트 데이터가 Event Grid 스키마와 일치하지 않는 경우 사용자 지정 스키마를 Azure Event Grid 스키마로 변환하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 34381782c9337631b0aa04e47eb5897a8071139a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97109201"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Event Grid 스키마에 사용자 지정 필드 매핑
@@ -34,7 +34,7 @@ ms.locfileid: "97109201"
 
 사용자 지정 토픽을 만들 때 Event Grid 스키마로 사용자의 원래 이벤트의 필드를 매핑하는 방법을 지정합니다. 매핑을 사용자 지정하는 데 사용하는 값은 다음 세 가지입니다.
 
-* **입력 스키마** 값은 스키마 유형을 지정합니다. 사용 가능한 옵션은 CloudEvents 스키마, 사용자 지정 이벤트 스키마 또는 Event Grid 스키마입니다. 기본값은 Event Grid 스키마입니다. 사용자의 스키마와 Event Grid 스키마 간 사용자 지정 매핑을 만들 때는 사용자 지정 이벤트 스키마를 사용합니다. 이벤트가 CloudEvents 형식인 경우 CloudEvents 스키마를 사용 합니다.
+* **입력 스키마** 값은 스키마 유형을 지정합니다. 사용 가능한 옵션은 CloudEvents 스키마, 사용자 지정 이벤트 스키마 또는 Event Grid 스키마입니다. 기본값은 Event Grid 스키마입니다. 사용자의 스키마와 Event Grid 스키마 간 사용자 지정 매핑을 만들 때는 사용자 지정 이벤트 스키마를 사용합니다. 이벤트가 CloudEvents 형식인 경우 CloudEvents 스키마를 사용합니다.
 
 * **매핑 기본값** 속성은 Event Grid 스키마의 필드에 대한 기본값을 지정합니다. `subject`, `eventtype` 및 `dataversion`의 기본값을 설정할 수 있습니다. 일반적으로 사용자 지정 스키마가 이 세 필드 중 하나에 해당하는 필드를 포함하지 않는 경우에 이 매개 변수를 사용합니다. 예를 들어 해당 데이터 버전은 항상 **1.0** 으로 설정됩니다.
 

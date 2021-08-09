@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0dc36b817d5b5cdf731edecd64e1879c153d866a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98015133"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Azure Stream Analytics 쿼리 문제 해결
@@ -27,7 +27,7 @@ ms.locfileid: "98015133"
     - Azure Portal의 **쿼리** 탭에서 **테스트** 를 선택합니다. 다운로드한 샘플 데이터를 사용하여 [쿼리를 테스트](stream-analytics-test-query.md)합니다. 모든 오류를 검사하고 수정합니다.   
     - Visual Studio용 Azure Stream Analytics 도구 또는 [Visual Studio Code](visual-studio-code-local-run-live-input.md)를 사용하여 [쿼리를 로컬로 테스트](stream-analytics-live-data-local-testing.md)할 수도 있습니다. 
 
-2.  Visual Studio Code에 대 한 Azure Stream Analytics 도구에서 [작업 다이어그램을 사용 하 여 로컬로 쿼리 디버그를](debug-locally-using-job-diagram-vs-code.md) 단계별로 실행 합니다. 작업 다이어그램은 입력 원본(Event Hub, IoT Hub 등)에서 여러 쿼리 단계를 거쳐 최종적으로 출력 싱크까지의 데이터 흐름 방식을 보여줍니다. 각 쿼리 단계는 WITH 문을 사용하여 스크립트에 정의된 임시 결과 집합에 매핑됩니다. 각 중간 결과 집합에서 메트릭뿐만 아니라 데이터를 보고 문제의 원인을 찾을 수 있습니다.
+2.  Visual Studio Code용 Azure Stream Analytics 도구에서 [작업 다이어그램을 사용하여 로컬로 쿼리를 단계별로 디버그](debug-locally-using-job-diagram-vs-code.md)합니다. 작업 다이어그램은 입력 원본(Event Hub, IoT Hub 등)에서 여러 쿼리 단계를 거쳐 최종적으로 출력 싱크까지의 데이터 흐름 방식을 보여줍니다. 각 쿼리 단계는 WITH 문을 사용하여 스크립트에 정의된 임시 결과 집합에 매핑됩니다. 각 중간 결과 집합에서 메트릭뿐만 아니라 데이터를 보고 문제의 원인을 찾을 수 있습니다.
 
     ![작업 다이어그램 미리 보기 결과](./media/debug-locally-using-job-diagram-vs-code/preview-result.png)
 
@@ -50,7 +50,7 @@ ms.locfileid: "98015133"
 
 Azure Stream Analytics의 병렬 처리를 활용해야 합니다. 입력 파티션을 구성하고, 분석 쿼리 정의를 조정하여 Stream Analytics 작업의 [쿼리 병렬 처리로 크기를 조정](stream-analytics-parallelization.md)할 수 있습니다.
 
-리소스 사용률이 지속적으로 80%를 초과 하면 워터 마크 지연 시간이 늘어나고 백로그 된 이벤트 수가 증가 하는 것을 고려 하 여 스트리밍 단위를 늘립니다. 높은 사용률은 작업에서 할당 된 최대 리소스를 거의 사용 하지 않음을 나타냅니다.
+리소스 사용률이 지속적으로 80%를 초과하고, 워터마크 지연 시간이 늘어나고 백로그된 이벤트 수가 늘어나는 경우 스트리밍 단위를 증가시키는 것이 좋습니다. 사용률이 높으면 작업에서 할당된 최대 리소스에 가까운 용량을 사용하고 있음을 나타냅니다.
 
 ## <a name="debug-queries-progressively"></a>점진적으로 쿼리 디버그
 

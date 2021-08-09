@@ -1,6 +1,6 @@
 ---
 title: Azure 가상 머신의 여러 IP 주소 - PowerShell | Microsoft Docs
-description: PowerShell을 사용 하 여 가상 머신에 여러 IP 주소를 할당 하는 방법을 알아봅니다. | 리소스 관리자
+description: PowerShell을 사용하여 가상 머신에 여러 IP 주소를 할당하는 방법을 알아봅니다. | Resource Manager
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: allensu
 ms.openlocfilehash: d86d4248b449ad3961a7798fd36a320eb6a74009
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98217076"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>PowerShell을 사용하여 가상 머신에 여러 IP 주소 할당
@@ -36,7 +36,7 @@ ms.locfileid: "98217076"
 
 1. PowerShell 명령 프롬프트를 열고 단일 PowerShell 세션 내에서 이 섹션의 나머지 단계를 완료합니다. Azure PowerShell을 아직 설치 및 구성하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/) 문서의 단계를 완료합니다.
 2. `Connect-AzAccount` 명령을 사용하여 계정에 로그인합니다.
-3. *myResourceGroup* 및 *westus* 를 선택한 이름과 위치로 바꿉니다. 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+3. *myResourceGroup* 및 *westus* 를 선택한 이름과 위치로 바꿉니다. 리소스 그룹을 생성합니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
    ```powershell
    $RgName   = "MyResourceGroup"
@@ -92,9 +92,9 @@ ms.locfileid: "98217076"
     -SecurityRules $NSGRule
     ```
 
-6. NIC에 대한 기본 IP 구성을 정의합니다. 이전에 정의된 값을 사용하지 않는 경우 10.0.0.4를 만든 서브넷의 올바른 주소로 변경합니다. 고정 IP 주소를 할당하기 전에 먼저 해당 주소를 이미 사용하고 있지 않은지 확인하는 것이 좋습니다. `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet` 명령을 입력합니다. 주소를 사용할 수 있는 경우 출력은 *True* 를 반환합니다. 사용할 수 없는 경우 출력은 *False* 와 사용할 수 있는 주소 목록을 반환 합니다. 
+6. NIC에 대한 기본 IP 구성을 정의합니다. 이전에 정의된 값을 사용하지 않는 경우 10.0.0.4를 만든 서브넷의 올바른 주소로 변경합니다. 고정 IP 주소를 할당하기 전에 먼저 해당 주소를 이미 사용하고 있지 않은지 확인하는 것이 좋습니다. `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet` 명령을 입력합니다. 주소를 사용할 수 있는 경우 출력은 *True* 를 반환합니다. 주소를 사용할 수 없는 경우 출력은 *False* 와 사용할 수 있는 주소 목록을 반환합니다. 
 
-    다음 명령에서을 **\<replace-with-your-unique-name> 사용할 고유한 DNS 이름으로 바꿉니다.** 이름은 Azure 지역 내의 모든 공용 IP 주소에서 고유해야 합니다. 선택적 매개 변수입니다. 공용 IP 주소를 사용하여 VM에 연결하려는 경우에만 제거할 수 있습니다.
+    다음 명령에서 **\<replace-with-your-unique-name>을 사용할 고유 DNS 이름으로 바꿉니다.** 이름은 Azure 지역 내의 모든 공용 IP 주소에서 고유해야 합니다. 선택적 매개 변수입니다. 공용 IP 주소를 사용하여 VM에 연결하려는 경우에만 제거할 수 있습니다.
 
     ```powershell
     
@@ -273,7 +273,7 @@ ms.locfileid: "98217076"
    -AllocationMethod Static
    ```
 
-   고정 개인 IP 주소 및 연결 된 *myPublicIp3* 공용 ip 주소 리소스를 사용 하 여 새 ip 구성을 만들려면 다음 명령을 입력 합니다.
+   고정 개인 IP 주소 및 여기에 연결된 *myPublicIp3* 공용 IP 주소 리소스가 있는 새 IP 구성을 만들려면 다음 명령을 입력합니다.
 
    ```powershell
    Add-AzNetworkInterfaceIpConfig `
@@ -311,7 +311,7 @@ ms.locfileid: "98217076"
    -Location $Location -AllocationMethod Static
    ```
 
-   다음 명령을 입력 하 여 공용 IP 주소 리소스를 *IpConfig-3* 이라는 기존 ip 구성에 연결 합니다.
+   *IpConfig-3* 이라는 기존 IP 구성에 공용 IP 주소 리소스를 연결하려면 다음 명령을 입력합니다.
 
    ```powershell
    Set-AzNetworkInterfaceIpConfig `

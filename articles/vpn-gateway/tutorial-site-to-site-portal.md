@@ -6,13 +6,13 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 04/28/2021
-ms.openlocfilehash: 83c2e42db4cc3e1a287341592f4917afce7309e2
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.date: 07/21/2021
+ms.openlocfilehash: f035f1dce7639d8d90ca3edbe3e6cc548b68cf2a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204228"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114439901"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-in-the-azure-portal"></a>자습서: Azure Portal에서 사이트 간 연결 만들기
 
@@ -68,8 +68,8 @@ Azure VPN 게이트웨이는 고객 프레미스와 Azure 사이에 프레미스
 * **지역:** 미국 동부
 * **게이트웨이 유형:** VPN
 * **VPN 유형:** 경로 기반
-* **SKU:** VpnGw1
-* **생성:** Generation1
+* **SKU:** VpnGw2
+* **세대:** 2세대
 * **가상 네트워크:** VNet1
 * **게이트웨이 서브넷 주소 범위:** 10.1.255.0/27
 * **공용 IP 주소:** 새로 만들기
@@ -77,7 +77,10 @@ Azure VPN 게이트웨이는 고객 프레미스와 Azure 사이에 프레미스
 * **active-active 모드를 사용하도록 설정:** 사용 안 함
 * **BGP 구성:** 사용 안 함
 
-[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+배포 상태는 게이트웨이에 대한 [개요] 페이지에서 확인할 수 있습니다. 게이트웨이에서 완전히 만들고 배포하는 데 최대 45분이 걸릴 수 있습니다. 게이트웨이를 만든 후 포털에서 가상 네트워크를 살펴보면 게이트웨이에 할당된 IP 주소를 볼 수 있습니다. 게이트웨이가 연결된 디바이스로 표시됩니다.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 

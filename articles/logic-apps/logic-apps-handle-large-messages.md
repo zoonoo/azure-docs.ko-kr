@@ -6,10 +6,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 12/18/2020
 ms.openlocfilehash: de4af34182fc1a95968e95d322a6ec35101a3dc9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97695870"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Azure Logic Apps에서 청크 분할을 사용하여 큰 메시지 처리
@@ -39,7 +39,7 @@ Logic Apps와 통신하는 서비스에는 자체의 메시지 크기 제한이 
 청크 분할을 지원하는 커넥터의 경우 기본 청크 분할 프로토콜은 최종 사용자에게 표시되지 않습니다. 그러나 모든 커넥터에서 청크 분할을 지원하지 것은 아니기 때문에 들어오는 메시지가 커넥터의 크기 제한을 초과하면 이러한 커넥터에서 런타임 오류가 발생합니다.
 
 
-을 지원 하 고 청크를 사용 하도록 설정 된 작업의 경우와 같은 트리거 본문, 변수 및 식을 사용할 수 없습니다 `@triggerBody()?['Content']` . 이러한 입력을 사용 하면 청크 작업이 발생 하지 않습니다. 대신 [ **작성** 작업](../logic-apps/logic-apps-perform-data-operations.md#compose-action)을 사용 합니다. 특히 `body` 트리거 본문, 변수, 식 등의 데이터 출력을 저장 하는 **작성** 작업을 사용 하 여 필드를 만들어야 합니다. 예를 들면 다음과 같습니다.
+청크 분할을 지원하고 사용하도록 설정된 작업에는 `@triggerBody()?['Content']`와 같은 트리거 본문, 변수, 식을 사용할 수 없습니다. 해당 입력을 사용하면 청크 분할 작업이 이루어지지 않습니다. 대신 [**작성** 작업](../logic-apps/logic-apps-perform-data-operations.md#compose-action)을 사용합니다. 특히 트리거 본문, 변수, 식 등의 데이터 출력을 저장하는 **작성** 작업을 사용하여 `body` 필드를 만들어야 합니다. 예를 들면 다음과 같습니다.
 
 ```json
 "Compose": {
@@ -54,7 +54,7 @@ Logic Apps와 통신하는 서비스에는 자체의 메시지 크기 제한이 
     "type": "Compose"
 },
 ```
-그런 다음 청크 작업에서 데이터를 참조 하려면를 사용 `@body('Compose')` 합니다.
+그런 다음, 청크 분할 작업에서 데이터를 참조하기 위해 `@body('Compose')`를 사용합니다.
 
 ```json
 "Create_file": {

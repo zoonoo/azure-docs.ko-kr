@@ -1,20 +1,20 @@
 ---
-title: Linux에서 Azure Service Fabric 신뢰할 수 있는 행위자 Java 응용 프로그램 만들기
+title: Linux에서 Azure Service Fabric Reliable Actors Java 애플리케이션 만들기
 description: 5분 안에 Java Service Fabric Reliable Actors 애플리케이션을 만들고 배포하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.custom: devx-track-java
 ms.openlocfilehash: 7d87b72437f86d7dc1ca4e3cf9f3d67609691c70
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97655954"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux에서 첫 번째 Java Service Fabric Reliable Actors 애플리케이션 만들기
 > [!div class="op_single_selector"]
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C #-Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+> * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
 >
 
@@ -233,7 +233,7 @@ Maven에서 Service Fabric Java 종속성을 가져옵니다. Service Fabric Jav
     watch -n 1 ./testclient.sh
     ```
 
-2. Service Fabric Explorer에서 행위자 서비스에 대한 주 복제본을 호스팅하는 노드를 찾습니다. 아래 스크린샷에 있는 노드 3입니다. 기본 서비스 복제본은 읽기 및 쓰기 작업을 처리합니다.  그러면 서비스 상태의 변경 내용이 보조 복제본에 복제 되 고 아래 스크린샷에는 노드 0 및 1에서 실행 됩니다.
+2. Service Fabric Explorer에서 행위자 서비스에 대한 주 복제본을 호스팅하는 노드를 찾습니다. 아래 스크린샷에 있는 노드 3입니다. 기본 서비스 복제본은 읽기 및 쓰기 작업을 처리합니다.  서비스 상태의 변경 사항은 보조 복제본에 복제되고 아래 스크린샷의 0 및 1노드에서 실행됩니다.
 
     ![Service Fabric Explorer에서 기본 복제본 찾기][sfx-primary]
 
@@ -272,7 +272,7 @@ Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프
   }
   ```
 
-### <a name="services"></a>서비스
+### <a name="services"></a>Services
 
 애플리케이션에 대한 Service Fabric Reliable Services 지원입니다.
 
@@ -339,9 +339,9 @@ Service Fabric에 대한 시스템 수준 지원이며 네이티브 Service Fabr
 ## <a name="next-steps"></a>다음 단계
 
 * [Eclipse를 사용하여 Linux에서 첫 번째 Service Fabric Java 애플리케이션 만들기](service-fabric-get-started-eclipse.md)
-* [Reliable Actors에 대 한 자세한 정보](service-fabric-reliable-actors-introduction.md)
+* [Reliable Actors에 대해 자세히 알아보기](service-fabric-reliable-actors-introduction.md)
 * [Service Fabric CLI를 사용하여 Service Fabric 클러스터와 상호 작용](service-fabric-cli.md)
-* [Service Fabric 지원 옵션](service-fabric-support.md) 에 대 한 자세한 정보
+* [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기
 * [Service Fabric CLI 시작](service-fabric-cli.md)
 
 <!-- Images -->

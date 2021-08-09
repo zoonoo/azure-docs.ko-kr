@@ -1,15 +1,15 @@
 ---
-title: Azure Data Lake에 대 한 U-SQL UDO 프로그래밍 기능 가이드
-description: 적절 한 SCRIPT.USQL 스크립트를 만들 수 있도록 하는 데 도움이 되는 U-SQL UDO 프로그래밍 Azure Data Lake Analytics 기능에 대해 알아봅니다.
+title: Azure Data Lake에 대한 U-SQL UDO 프로그래밍 기능 가이드
+description: 적절한 USQL 스크립트를 만들 수 있도록 하는 U-SQL UDO 프로그래밍 기능 Azure Data Lake Analytics에 대해 알아봅니다.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 02360c68e5e830ceee69075fd5532b126d85bec2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96512652"
 ---
 # <a name="u-sql-user-defined-objects-overview"></a>U-SQL 사용자 정의 개체 개요
@@ -55,5 +55,5 @@ UDO는 일반적으로 다음 U-SQL 문의 일부로 U-SQL 스크립트에서 �
 > UDO는 0.5Gb 메모리를 사용하도록 제한됩니다.  이 메모리 제한은 로컬 실행에 적용되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [U-SQL 프로그래밍 기능 가이드-개요](data-lake-analytics-u-sql-programmability-guide.md)
-* [U-SQL 프로그래밍 기능 가이드-UDT 및 UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)
+* [U-SQL 프로그래밍 기능 가이드 - 개요](data-lake-analytics-u-sql-programmability-guide.md)
+* [U-SQL 프로그래밍 기능 가이드 - UDT 및 UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)

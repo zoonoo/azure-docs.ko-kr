@@ -1,6 +1,6 @@
 ---
 title: 연결 문자열
-description: Synapse SQL 풀에 대 한 연결 문자열
+description: Synapse SQL 풀에 대한 연결 문자열
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,17 +12,17 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: azure-synapse, seo-lt-2019, devx-track-csharp
 ms.openlocfilehash: 8130d6672cf6ef8df5fa2e9854cfeba8a37b8bc7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98677322"
 ---
-# <a name="connection-strings-for-sql-pools-in-azure-synapse"></a>Azure Synapse의 SQL 풀에 대 한 연결 문자열
+# <a name="connection-strings-for-sql-pools-in-azure-synapse"></a>Azure Synapse의 SQL 풀에 대한 연결 문자열
 
-, [ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)및 [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)와 같은 여러 가지 응용 프로그램 프로토콜을 사용 하 여 Azure Synapse의 SQL 풀에 연결할 수 있습니다. 다음은 각 프로토콜에 대한 연결 문제열의 몇 가지 예입니다.  또한 Azure 포털을 사용하여 연결 문자열을 빌드할 수도 있습니다.  
+[ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 및 [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)와 같은 여러 가지 다양한 애플리케이션 프로토콜을 사용하여 Azure Synapse의 SQL 풀에 연결할 수 있습니다. 다음은 각 프로토콜에 대한 연결 문제열의 몇 가지 예입니다.  또한 Azure 포털을 사용하여 연결 문자열을 빌드할 수도 있습니다.  
 
-Azure Portal를 사용 하 여 연결 문자열을 작성 하려면 SQL 풀 블레이드로 이동 하 고 *Essentials* 아래에서 *데이터베이스 연결 문자열 표시* 를 클릭 합니다.
+Azure Portal을 사용하여 연결 문자열을 빌드하려면 SQL 풀 블레이드로 이동한 후 *Essentials* 링크에서 ‘데이터베이스 연결 문자열 표시’를 클릭합니다.
 
 ## <a name="sample-adonet-connection-string"></a>샘플 ADO.NET 연결 문자열
 
@@ -53,4 +53,4 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="next-steps"></a>다음 단계
 
-Visual Studio 및 기타 응용 프로그램을 사용 하 여 SQL 풀 쿼리를 시작 하려면 [Visual studio를 사용 하 여 쿼리](sql-data-warehouse-query-visual-studio.md)를 참조 하세요.
+Visual Studio 및 기타 애플리케이션으로 SQL 풀을 쿼리하려면 [Visual Studio를 사용하여 쿼리](sql-data-warehouse-query-visual-studio.md)를 참조하세요.

@@ -1,7 +1,7 @@
 ---
 title: MSAL(iOS/macOS)에서 리디렉션 URI 사용 | Azure
 titleSuffix: Microsoft identity platform
-description: ObjectiveC 용 Microsoft 인증 라이브러리 (iOS 및 macOS 용 MSAL)와 ObjectiveC (ADAL)의 Azure AD 인증 Library 간의 차이점에 대해 알아봅니다. ObjC) 및 둘 사이를 마이그레이션하는 방법을 설명 합니다.
+description: ObjectiveC용 Microsoft 인증 라이브러리(iOS 및 macOS용 MSAL)와 ObjectiveC용 Azure AD 인증 라이브러리(ADAL.ObjC)의 차이점과 이들 사이의 마이그레이션 방법에 대해 알아봅니다.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: jak
 ms.custom: aaddev
 ms.openlocfilehash: 2c728854846a3add1f5b41cb318d7dc5fd86e742
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98064201"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>iOS 및 macOS용 Microsoft 인증 라이브러리를 통해 리디렉션 URI 사용
@@ -40,12 +40,12 @@ Microsoft Identity 플랫폼이 여러 앱 간에 토큰을 공유하려면 각 
 
 Azure Portal에 다음과 같은 애플리케이션 등록이 있는 경우,
 
-* 클라이언트 ID: `ABCDE-12345` (단일 클라이언트 id)
-* RedirectUris: `msauth.com.contoso.app1://auth` , `msauth.com.contoso.app2://auth` , `msauth.com.contoso.app3://auth`
+* 클라이언트 ID: `ABCDE-12345`(단일 클라이언트 ID)
+* 리디렉션 URI: `msauth.com.contoso.app1://auth`, `msauth.com.contoso.app2://auth`, `msauth.com.contoso.app3://auth`
 
-App1는 리디렉션을 사용 `msauth.com.contoso.app1://auth` 합니다.
-App2는 `msauth.com.contoso.app2://auth` .\를 사용 합니다.
-App3는 `msauth.com.contoso.app1://auth` 을 사용 합니다.
+App1은 `msauth.com.contoso.app1://auth` 리디렉션을 사용합니다.\
+App2는 `msauth.com.contoso.app2://auth`를 사용합니다.\
+App3은 `msauth.com.contoso.app1://auth`을 사용합니다.
 
 ### <a name="migrating-from-adal-to-msal"></a>ADAL에서 MSAL로 마이그레이션
 

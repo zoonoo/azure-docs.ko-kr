@@ -1,7 +1,7 @@
 ---
 title: Predicates 및 PredicateValidations
 titleSuffix: Azure AD B2C
-description: Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 잘못 된 형식의 데이터를 Azure AD B2C 테 넌 트에 추가 하지 않도록 합니다.
+description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 잘못된 형식의 데이터를 Azure AD B2C 테넌트에 추가하지 않도록 합니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,53 +11,53 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 46f04c55b40d4f1bdbbf5fd55eb648d1d3294056
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: d5317edcf7ef00c6d82c1799582ad2a92005b7cb
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97108419"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161630"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 및 PredicateValidations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**조건자** 및 **PredicateValidations** 요소를 사용 하면 올바른 형식의 데이터만 Azure AD B2C (Azure Active Directory B2C) 테 넌 트에 입력 되도록 유효성 검사 프로세스를 수행할 수 있습니다.
+**Predicates** 및 **PredicateValidations** 요소를 사용하면 Azure AD B2C(Azure Active Directory B2C) 테넌트에 적절한 형식의 데이터만 입력하도록 유효성 검사 프로세스를 수행할 수 있습니다.
 
 아래 다이어그램에서는 요소 간의 관계가 나와 있습니다.
 
-![조건자 및 조건자 유효성 검사 관계를 보여 주는 다이어그램](./media/predicates/predicates.png)
+![Predicates 및 Predicate Validations의 관계를 보여 주는 다이어그램](./media/predicates/predicates.png)
 
 ## <a name="predicates"></a>조건자
 
 **Predicate** 요소는 클레임 유형의 값을 확인하기 위한 기본적인 유효성 검사를 정의하고 `true` 또는 `false`를 반환합니다. 지정된 **Method** 요소 및 해당 메서드와 관련된 **Parameter** 요소 집합을 사용하여 유효성 검사를 수행합니다. 예를 들어 조건자는 문자열 클레임 값의 길이가 지정한 최소/최대 매개 변수 범위 내에 포함되는지 여부나 문자열 클레임 값에 특정 문자 집합이 포함되는지 여부를 확인할 수 있습니다. 확인이 실패하면 **UserHelpText** 요소가 사용자용 오류 메시지를 제공합니다. [언어 사용자 지정](localization.md)을 통해 **UserHelpText** 요소의 값을 지역화할 수 있습니다.
 
-**조건자** 요소는 [BuildingBlocks](buildingblocks.md) 요소 내의 **ClaimsSchema** 요소 바로 다음에 나와야 합니다.
+**Predicates** 요소는 [BuildingBlocks](buildingblocks.md) 요소 내에서 **ClaimsSchema** 요소 바로 다음에 나와야 합니다.
 
 **Predicates** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | Predicate | 1:n | 조건자 목록입니다. |
 
 **Predicate** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 조건자에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
-| 메서드 | 예 | 유효성 검사에 사용할 메서드 형식입니다. 가능한 값은 [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters) 또는 [IsDateRange](#isdaterange)입니다.  |
+| 방법 | Yes | 유효성 검사에 사용할 메서드 형식입니다. 가능한 값은 [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters) 또는 [IsDateRange](#isdaterange)입니다.  |
 | HelpText | 아니요 | 확인이 실패하면 사용자에게 표시할 오류 메시지입니다. [언어 사용자 지정](localization.md)을 통해 이 문자열을 지역화할 수 있습니다. |
 
 **Predicate** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
-| UserHelpText | 0:1 | Mapi 검사에 실패 한 경우 사용자에 대 한 오류 메시지입니다. |
+| UserHelpText | 0:1 | (사용되지 않음) 확인이 실패하는 경우 사용자에게 표시할 오류 메시지입니다. |
 | 매개 변수 | 1:1 | 문자열 유효성 검사의 메서드 형식에 대한 매개 변수입니다. |
 
 **Parameters** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | 매개 변수 | 1:n | 문자열 유효성 검사의 메서드 형식에 대한 매개 변수입니다. |
 
@@ -67,19 +67,18 @@ ms.locfileid: "97108419"
 | ------- | ----------- | ----------- |
 | Id | 1:1 | 매개 변수의 식별자입니다. |
 
-### <a name="predicate-methods"></a>조건자 메서드
+### <a name="predicate-methods"></a>Predicate 메서드
 
 #### <a name="islengthrange"></a>IsLengthRange
 
-IsLengthRange 메서드는 문자열 클레임 값의 길이가 지정 된 최소 및 최대 매개 변수 범위 내에 있는지 여부를 확인 합니다. Predicate 요소는 다음 매개 변수를 지원 합니다.
+IsLengthRange 메서드는 문자열 클레임 값의 길이가 지정된 최소 및 최대 매개 변수 범위 내에 있는지 여부를 확인합니다. Predicate 요소는 다음 매개 변수를 지원합니다.
 
-| 매개 변수 | 필수 | 설명 |
+| 매개 변수 | 필수 | Description |
 | ------- | ----------- | ----------- |
-| 최대 | 예 | 입력할 수 있는 최대 문자 수입니다. |
-| 최소 | 예 | 입력 해야 하는 최소 문자 수입니다. |
+| 최대 | Yes | 입력할 수 있는 최대 문자 수입니다. |
+| 최소 | Yes | 입력해야 하는 최소 문자 수입니다. |
 
-
-다음 예제에서는 `Minimum` `Maximum` 문자열의 길이 범위를 지정 하는 및 매개 변수를 사용 하는 IsLengthRange 메서드를 보여 줍니다.
+다음 예에서는 문자열의 길이 범위를 지정하는 `Minimum` 및 `Maximum` 매개 변수가 포함된 IsLengthRange 메서드를 보여 줍니다.
 
 ```xml
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
@@ -92,11 +91,11 @@ IsLengthRange 메서드는 문자열 클레임 값의 길이가 지정 된 최�
 
 #### <a name="matchesregex"></a>MatchesRegex
 
-MatchesRegex 메서드는 문자열 클레임 값이 정규식과 일치 하는지 여부를 확인 합니다. Predicate 요소는 다음 매개 변수를 지원 합니다.
+MatchesRegex 메서드는 문자열 클레임 값이 정규식과 일치하는지 여부를 확인합니다. Predicate 요소는 다음 매개 변수를 지원합니다.
 
-| 매개 변수 | 필수 | 설명 |
+| 매개 변수 | 필수 | Description |
 | ------- | ----------- | ----------- |
-| RegularExpression | 예 | 일치 항목을 찾을 정규식 패턴입니다. |
+| RegularExpression | Yes | 일치 항목을 찾을 정규식 패턴입니다. |
 
 다음 예제에서는 정규식을 지정하는 `RegularExpression` 매개 변수가 포함된 `MatchesRegex` 메서드를 보여 줍니다.
 
@@ -110,11 +109,11 @@ MatchesRegex 메서드는 문자열 클레임 값이 정규식과 일치 하는�
 
 #### <a name="includescharacters"></a>IncludesCharacters
 
-IncludesCharacters 메서드는 문자열 클레임 값에 문자 집합이 포함 되어 있는지 여부를 확인 합니다. Predicate 요소는 다음 매개 변수를 지원 합니다.
+IncludesCharacters 메서드는 문자열 클레임 값에 특정 문자 집합이 포함되는지 여부를 확인합니다. Predicate 요소는 다음 매개 변수를 지원합니다.
 
-| 매개 변수 | 필수 | 설명 |
+| 매개 변수 | 필수 | Description |
 | ------- | ----------- | ----------- |
-| CharacterSet | 예 | 입력할 수 있는 문자 집합입니다. 예를 들어 소문자  `a-z` , 대문자 `A-Z` , 숫자 `0-9` 또는 기호 목록 (예:)이 `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` 있습니다. |
+| CharacterSet | Yes | 입력할 수 있는 문자 집합입니다. 예를 들어, 소문자 `a-z`, 대문자 `A-Z`, 숫자 `0-9` 또는 기호 목록(예: `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!`)입니다. |
 
 다음 예제에서는 문자 집합을 지정하는 `CharacterSet` 매개 변수가 포함된 `IncludesCharacters` 메서드를 보여 줍니다.
 
@@ -128,12 +127,12 @@ IncludesCharacters 메서드는 문자열 클레임 값에 문자 집합이 포�
 
 #### <a name="isdaterange"></a>IsDateRange
 
-IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사이에서 날짜 클레임 값이 있는지 여부를 확인 합니다. Predicate 요소는 다음 매개 변수를 지원 합니다.
+IsDateRange 메서드는 날짜 클레임 값이 지정한 최소/최대 매개 변수 범위 사이에 있는지 여부를 확인합니다. Predicate 요소는 다음 매개 변수를 지원합니다.
 
-| 매개 변수 | 필수 | 설명 |
+| 매개 변수 | 필수 | Description |
 | ------- | ----------- | ----------- |
-| 최대 | 예 | 입력할 수 있는 최대 날짜입니다. 날짜 형식은 `yyyy-mm-dd` 규칙 또는을 따릅니다 `Today` . |
-| 최소 | 예 | 입력할 수 있는 최소 날짜입니다. 날짜 형식은 `yyyy-mm-dd` 규칙 또는을 따릅니다 `Today` .|
+| 최대 | Yes | 입력할 수 있는 최대 날짜입니다. 날짜 형식은 `yyyy-mm-dd` 규칙 또는 `Today`를 따릅니다. |
+| 최소 | Yes | 입력할 수 있는 최소 날짜입니다. 날짜 형식은 `yyyy-mm-dd` 규칙 또는 `Today`를 따릅니다.|
 
 다음 예제에서는 `yyyy-mm-dd` 및 `Today` 형식의 날짜 범위를 지정하는 `Minimum` 및 `Maximum` 매개 변수가 포함된 `IsDateRange` 메서드를 보여 줍니다.
 
@@ -150,7 +149,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 조건자는 클레임 형식에 대해 확인할 유효성 검사를 정의하는 반면 **PredicateValidations** 는 조건자 집합을 그룹화하여 클레임 형식에 적용할 수 있는 사용자 입력 유효성 검사를 작성합니다. 각 **PredicateValidation** 요소는 **PredicateGroup** 요소 집합을 포함하며, 이 요소 집합에는 **Predicate** 를 가리키는 **PredicateReference** 요소 집합이 포함됩니다. 유효성 검사에 통과하려면 클레임의 값이 **PredicateReference** 요소 집합을 포함하는 모든 **PredicateGroup** 에서 조건자의 테스트를 모두 통과해야 합니다.
 
-**PredicateValidations** 요소는 [BuildingBlocks](buildingblocks.md) 요소 내의 **조건자** 요소 바로 다음에 나와야 합니다.
+**PredicateValidations** 요소는 [BuildingBlocks](buildingblocks.md) 요소 내에서 **Predicates** 요소 바로 다음에 나와야 합니다.
 
 ```xml
 <PredicateValidations>
@@ -172,59 +171,58 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 **PredicateValidations** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | PredicateValidation | 1:n | 조건자 유효성 검사 목록입니다. |
 
 **PredicateValidation** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 조건자 유효성 검사에 사용되는 식별자입니다. **ClaimType** 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
 
 **PredicateValidation** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | PredicateGroups | 1:n | 조건자 그룹 목록입니다. |
 
 **PredicateGroups** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | PredicateGroup | 1:n | 조건자 목록입니다. |
 
 **PredicateGroup** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 조건자 그룹에 사용되는 식별자입니다.  |
 
 **PredicateGroup** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 0:1 |  사용자가 입력해야 하는 값을 쉽게 확인할 수 있는 조건자 설명입니다. |
 | PredicateReferences | 1:n | 조건자 참조 목록입니다. |
 
 **PredicateReferences** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| MatchAtLeast | 아니요 | 입력이 허용되려면 값이 일치해야 하는 조건자 정의의 최소 수를 지정합니다. 지정 하지 않으면 값이 모든 조건자 정의와 일치 해야 합니다. |
+| MatchAtLeast | 아니요 | 입력이 허용되려면 값이 일치해야 하는 조건자 정의의 최소 수를 지정합니다. 지정하지 않으면 값이 모든 조건자 정의와 일치해야 합니다. |
 
 **PredicateReferences** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | PredicateReference | 1:n | 조건자에 대한 참조입니다. |
 
 **PredicateReference** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 조건자 유효성 검사에 사용되는 식별자입니다.  |
-
 
 ## <a name="configure-password-complexity"></a>암호 복잡도 구성
 
@@ -234,7 +232,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 - **Lowercase**(`IncludesCharacters` 메서드 사용)는 암호가 소문자를 포함하는지 유효성을 검사합니다.
 - **Uppercase**(`IncludesCharacters` 메서드 사용)는 암호가 대문자를 포함하는지 유효성을 검사합니다.
 - **Number**(`IncludesCharacters` 메서드 사용)는 암호가 숫자를 포함하는지 유효성을 검사합니다.
-- **기호** 는 메서드를 사용 하 여 `IncludesCharacters` 암호가 여러 기호 문자 중 하나를 포함 하는지 확인 합니다.
+- **Symbol**(`IncludesCharacters` 메서드 사용)은 암호가 여러 기호 문자 중 하나를 포함하는지 유효성을 검사합니다.
 - **PIN**(`MatchesRegex` 메서드 사용)은 암호가 숫자만 포함하는지 유효성을 검사합니다.
 - **AllowedAADCharacters**(`MatchesRegex` 메서드 사용)는 잘못된 문자를 포함하는 암호를 입력했는지 유효성을 검사합니다.
 - **DisallowedWhitespace**(`MatchesRegex` 메서드 사용)는 암호가 공백 문자로 시작하거나 끝나지 않는지 유효성을 검사합니다.
@@ -380,7 +378,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 아래에는 Azure AD B2C에서 오류 메시지가 표시될 때 요소가 구성되는 방식이 나와 있습니다.
 
-![조건자 및 PredicateGroup 암호 복잡성 예 다이어그램](./media/predicates/predicates-pass.png)
+![Predicate 및 PredicateGroup 암호 복잡성 예의 다이어그램](./media/predicates/predicates-pass.png)
 
 ## <a name="configure-a-date-range"></a>날짜 범위 구성
 
@@ -424,8 +422,8 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
   <UserInputType>DateTimeDropdown</UserInputType>
   <PredicateValidationReference Id="CustomDateRange" />
 </ClaimType>
- ```
+```
 
 ## <a name="next-steps"></a>다음 단계
 
-- 조건자 유효성 검사를 사용 하 여 [Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 암호 복잡성을 구성](password-complexity.md) 하는 방법을 알아봅니다.
+- 조건자 유효성 검사를 사용하여 [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 복잡성을 구성](password-complexity.md)하는 방법을 알아봅니다.

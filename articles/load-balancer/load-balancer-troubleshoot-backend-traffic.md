@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
 ms.openlocfilehash: bfe2b21a86f2ce4b4630ba69cde87796fd367f4b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98029201"
 ---
-# <a name="troubleshoot-azure-load-balancer-backend-traffic-responses"></a>Azure Load Balancer 백 엔드 트래픽 응답 문제 해결
+# <a name="troubleshoot-azure-load-balancer-backend-traffic-responses"></a>Azure Load Balancer 백엔드 트래픽 응답 문제 해결
 
-이 페이지에서는 Azure Load Balancer 질문에 대 한 문제 해결 정보를 제공 합니다.
+이 페이지에서는 Azure Load Balancer 질문에 대한 문제 해결 정보를 제공합니다.
 
 ## <a name="vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Load Balancer 뒤의 VM이 구성된 데이터 포트의 트래픽에 응답하지 않습니다.
 

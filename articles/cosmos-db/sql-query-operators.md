@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB에 대 한 SQL 쿼리 연산자
-description: Azure Cosmos DB에서 지 원하는 같음, 비교 및 논리 연산자와 같은 SQL 연산자에 대해 알아봅니다.
+title: Azure Cosmos DB의 SQL 쿼리 연산자
+description: Azure Cosmos DB에서 지원하는 같음, 비교 및 논리 연산자와 같은 SQL 연산자에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
 ms.openlocfilehash: c1409bd7f098c24efbb4196d78c6dffb6048119b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93335445"
 ---
-# <a name="operators-in-azure-cosmos-db"></a>Azure Cosmos DB 연산자
+# <a name="operators-in-azure-cosmos-db"></a>Azure Cosmos DB의 연산자
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-이 문서에서는 Azure Cosmos DB에서 지 원하는 다양 한 연산자에 대해 자세히 설명 합니다.
+이 문서에서는 Azure Cosmos DB에서 지원하는 다양한 연산자에 대해 자세히 설명합니다.
 
 ## <a name="equality-and-comparison-operators"></a>같음 및 비교 연산자
 
@@ -26,18 +26,18 @@ ms.locfileid: "93335445"
 | **Op** | **정의되지 않음** | **Null** | **Boolean** | **Number** | **String** | **개체** | **배열** |
 |---|---|---|---|---|---|---|---|
 | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Null** | 정의되지 않음 | **그래** | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Boolean** | Undefined | Undefined | **그래** | Undefined | Undefined | Undefined | Undefined |
-| **Number** | Undefined | Undefined | Undefined | **그래** | Undefined | Undefined | Undefined |
-| **String** | Undefined | Undefined | Undefined | Undefined | **그래** | Undefined | Undefined |
-| **개체** | Undefined | Undefined | Undefined | Undefined | Undefined | **그래** | 정의되지 않음 |
-| **배열** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **그래** |
+| **Null** | 정의되지 않음 | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
+| **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined |
+| **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined |
+| **개체** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | 정의되지 않음 |
+| **배열** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
 
-,,,, 등의 비교 연산자의 경우 `>` `>=` 형식 간 `!=` `<` `<=` 또는 두 개체 또는 배열 간의 비교는을 생성 `Undefined` 합니다.  
+`>`, `>=`, `!=`, `<` 및 `<=`와 같은 비교 연산자의 경우 유형 간 또는 두 개체 또는 배열 간의 비교는 `Undefined`를 생성합니다.  
 
-스칼라 식의 결과가 인 경우 `Undefined` 항목은와 같지 않기 때문에 결과에 포함 되지 않습니다 `Undefined` `true` .
+스칼라 식의 결과가 `Undefined`이면 `Undefined`가 `true`와 같지 않기 때문에 항목이 결과에 포함되지 않습니다.
 
-예를 들어 다음 쿼리는 숫자와 문자열 값을 비교 하 여를 생성 `Undefined` 합니다. 따라서 필터에는 결과가 포함 되지 않습니다.
+예를 들어 다음 쿼리의 숫자와 문자열 값을 비교하면 `Undefined`가 생성됩니다. 따라서 필터에는 결과가 포함되지 않습니다.
 
 ```sql
 SELECT *
@@ -47,41 +47,41 @@ WHERE 7 = 'a'
 
 ## <a name="logical-and-or-and-not-operators"></a>논리(AND, OR 및 NOT) 연산자
 
-논리 연산자는 부울 값에 작동합니다. 다음 표에서는 이러한 연산자에 대 한 논리적 진위 테이블을 보여 줍니다.
+논리 연산자는 부울 값에 작동합니다. 다음 표는 이러한 연산자에 대한 논리적 진리표를 보여 줍니다.
 
 **OR 연산자**
 
-`true`조건 중 하나가 인 경우을 반환 합니다 `true` .
+조건 중 하나가 `true`이면 `true`를 반환합니다.
 
 |  | **True** | **False** | **정의되지 않음** |
 | --- | --- | --- | --- |
 | **True** |True |True |True |
-| **False** |참 |거짓 |정의되지 않음 |
-| **Undefined** |참 |Undefined |Undefined |
+| **False** |True |False |정의되지 않음 |
+| **Undefined** |True |Undefined |Undefined |
 
 **AND 연산자**
 
-`true`두 식이 모두 이면를 반환 `true` 합니다.
+두 식이 모두 `true`인 경우 `true`를 반환합니다.
 
 |  | **True** | **False** | **정의되지 않음** |
 | --- | --- | --- | --- |
-| **True** |참 |거짓 |정의되지 않음 |
+| **True** |True |False |정의되지 않음 |
 | **False** |False |False |False |
-| **Undefined** |정의되지 않음 |거짓 |정의되지 않음 |
+| **Undefined** |정의되지 않음 |False |정의되지 않음 |
 
 **NOT 연산자**
 
-부울 식의 값을 반대로 바꿉니다.
+부울 식의 값을 반대로 합니다.
 
 |  | **다음이 아님** |
 | --- | --- |
-| **True** |거짓 |
-| **False** |참 |
+| **True** |False |
+| **False** |True |
 | **Undefined** |정의되지 않음 |
 
 **연산자 우선 순위**
 
-논리 연산자, 및에는 아래와 같은 `OR` `AND` `NOT` 우선 순위 수준이 있습니다.
+논리 연산자 `OR`, `AND` 및 `NOT`의 우선 순위 수준은 다음과 같습니다.
 
 | **연산자** | **우선 순위** |
 | --- | --- |
@@ -91,29 +91,29 @@ WHERE 7 = 'a'
 
 ## <a name="-operator"></a>* 연산자
 
-특수 연산자 *는 전체 항목을 있는 그대로 프로젝션 합니다. 사용할 경우 프로젝션되는 유일한 필드여야 과 같은 쿼리는 `SELECT * FROM Families f` 유효 하지만 `SELECT VALUE * FROM Families f` 및  `SELECT *, f.id FROM Families f` 는 유효 하지 않습니다.
+특수 연산자 *는 전체 항목을 있는 그대로 프로젝션합니다. 사용할 경우 프로젝션되는 유일한 필드여야 `SELECT * FROM Families f`와 같은 쿼리는 유효하지만 `SELECT VALUE * FROM Families f` 및 `SELECT *, f.id FROM Families f`와 같은 쿼리는 유효하지 않습니다.
 
-## <a name="-and--operators"></a>? ? 연산자
+## <a name="-and--operators"></a>? 및 ?? 연산자
 
-C # 및 JavaScript와 같은 프로그래밍 언어에서와 같이 삼항 (?) 및 병합 (??) 연산자를 사용 하 여 조건식을 작성할 수 있습니다.
+C# 및 JavaScript와 같은 프로그래밍 언어에서와 같이 3항(?) 및 병합(??) 연산자를 사용하여 조건식을 작성할 수 있습니다.
 
-사용할 수는 ? 새 JSON 속성을 즉시 생성 하는 연산자입니다. 예를 들어 다음 쿼리는 등급 수준을 또는로 분류 합니다 `elementary` `other` .
+사용할 수는 ? 연산자를 사용하여 즉시 새 JSON 속성을 생성합니다. 예를 들어 다음 쿼리는 등급 수준을 `elementary` 또는 `other`로 분류합니다.
 
 ```sql
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel
      FROM Families.children[0] c
 ```
 
-에 대 한 호출을 중첩 시킬 수도 있습니다. 다음 쿼리와 같이 연산자를 적용 합니다. 
+다음 쿼리에서와 같이 ? 연산자에 대한 호출을 중첩할 수도 있습니다. 
 
 ```sql
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high") AS gradeLevel
     FROM Families.children[0] c
 ```
 
-다른 쿼리 연산자와 마찬가지로? 참조 된 속성이 없거나 비교할 형식이 다른 경우 연산자는 항목을 제외 합니다.
+다른 쿼리 연산자와 마찬가지로 ? 연산자는 참조된 속성이 없거나 비교되는 유형이 다른 경우 항목을 제외합니다.
 
-??를 사용 하 여 반 구조화 된 데이터 또는 혼합 형식 데이터에 대해 쿼리할 때 항목에서 속성을 효율적으로 확인 하는 연산자입니다. 예를 들어 다음 쿼리는 있는 경우를 반환 하 고,가 없는 경우를 반환 합니다 `lastName` `surname` `lastName` .
+?? 연산자를 사용하여 반구조화 또는 혼합 유형 데이터에 대해 쿼리할 때 항목의 속성을 효율적으로 확인합니다. 예를 들어 다음 쿼리는 `lastName`(있는 경우), `surname`(`lastName`이 없는 경우)을 반환합니다.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName

@@ -1,35 +1,35 @@
 ---
-title: 프로그래밍 방식으로 Azure Service Bus 엔터티 만들기 | Microsoft Docs
-description: 이 문서에서는 Service Bus 네임 스페이스 및 엔터티를 동적으로 또는 프로그래밍 방식으로 프로 비전 하는 방법을 설명 합니다.
+title: Azure Service Bus 엔터티를 프로그래밍 방식으로 만들기 | Microsoft Docs
+description: 이번 문서에서는 동적으로 또는 프로그래밍 방식으로 Service Bus 네임스페이스 및 엔터티를 프로비저닝하는 방법을 설명합니다.
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/13/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 57192ab2ee1624cb18de832ac91c95290da727df
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98539874"
 ---
-# <a name="dynamically-provision-service-bus-namespaces-and-entities"></a>Service Bus 네임 스페이스 및 엔터티를 동적으로 프로 비전 
+# <a name="dynamically-provision-service-bus-namespaces-and-entities"></a>Service Bus 네임스페이스 및 엔터티를 동적으로 프로비저닝 
 Azure Service Bus 관리 라이브러리는 Service Bus 네임스페이스 및 엔터티를 동적으로 프로비전할 수 있습니다. 이를 통해 복잡한 배포 및 메시지 시나리오가 가능하며, 어떤 엔터티를 프로비전할 것인지 프로그래밍 방식으로 결정할 수 있습니다. 이러한 라이브러리는 현재 .NET에서 사용할 수 있습니다.
 
 ## <a name="overview"></a>개요
-Service Bus 엔터티를 만들고 관리 하는 데 사용할 수 있는 세 가지 관리 라이브러리가 있습니다. 핵심 원리는 다음과 같습니다.
+Service Bus 엔터티를 만들고 관리하는 데 사용할 수 있는 세 가지 관리 라이브러리가 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
-- [ServiceBus. 관리](#azuremessagingservicebusadministration)
-- [ServiceBus. 관리](#microsoftazureservicebusmanagement)
+- [Azure.Messaging.ServiceBus.Administration](#azuremessagingservicebusadministration)
+- [Microsoft.Azure.ServiceBus.Management](#microsoftazureservicebusmanagement)
 - [Microsoft.Azure.Management.ServiceBus](#microsoftazuremanagementservicebus)
 
-이러한 모든 패키지는 **큐, 토픽 및 구독** 에 대 한 만들기, 가져오기, 나열, 삭제, 업데이트, 삭제 및 업데이트 작업을 지원 합니다. 그러나 [ServiceBus](#microsoftazuremanagementservicebus) 만 **네임 스페이스** 에 대 한 만들기, 업데이트, 나열, 가져오기 및 삭제 작업을 지원 하 고 SAS 키를 나열 하 고 다시 생성 하는 등의 작업을 지원 합니다. 
+모든 패키지는 **큐, 토픽, 구독** 에 대한 만들기, 가져오기, 나열, 삭제, 업데이트 작업을 지원합니다. 그러나 [Microsoft.Azure.Management.ServiceBus](#microsoftazuremanagementservicebus)만 **네임스페이스** 에 대한 만들기, 업데이트, 나열, 가져오기, 삭제 작업을 지원하며, SAS 키 등을 나열하고 다시 생성합니다. 
 
-ServiceBus 라이브러리는 Azure Active Directory (Azure AD) 인증에만 사용할 수 있으며 연결 문자열 사용은 지원 하지 않습니다. 반면 다른 두 라이브러리 (ServiceBus 및 ServiceBus)는 서비스를 인증 하는 데 연결 문자열을 사용 하는 것을 지원 하 고 더 쉽게 사용할 수 있습니다. 이러한 라이브러리 사이에 ServiceBus은 최신 버전 이며 사용 하는 것이 좋습니다.
+Microsoft.Azure.Management.ServiceBus 라이브러리는 Azure AD(Azure Active Directory) 인증에서만 작동하며 연결 문자열 사용을 지원하지 않습니다. 반면, 다른 두 라이브러리(Azure.Messaging.ServiceBus 및 Microsoft.Azure.ServiceBus)는 서비스 인증을 위해 연결 문자열 사용을 지원하며 사용하기가 더 쉽습니다. 두 라이브러리 중에 더 최신인 Azure.Messaging.ServiceBus를 사용하는 것이 좋습니다.
 
-다음 섹션에서는 이러한 라이브러리에 대 한 자세한 정보를 제공 합니다. 
+다음 섹션에서 해당 라이브러리에 대한 자세한 정보를 제공합니다. 
 
-## <a name="azuremessagingservicebusadministration"></a>ServiceBus. 관리
-[ServiceBus](/dotnet/api/azure.messaging.servicebus.administration) 네임 스페이스에서 [ServiceBusAdministrationClient](/dotnet/api/azure.messaging.servicebus.administration.servicebusadministrationclient) 클래스를 사용 하 여 네임 스페이스, 큐, 토픽 및 구독을 관리할 수 있습니다. 샘플 코드는 다음과 같습니다. 전체 예제는 [CRUD 예](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/tests/Samples/Sample07_CrudOperations.cs)를 참조 하세요.
+## <a name="azuremessagingservicebusadministration"></a>Azure.Messaging.ServiceBus.Administration
+[Azure.Messaging.ServiceBus.Administration](/dotnet/api/azure.messaging.servicebus.administration) 네임스페이스의 [ServiceBusAdministrationClient](/dotnet/api/azure.messaging.servicebus.administration.servicebusadministrationclient) 클래스를 사용하여 네임스페이스, 큐, 토픽, 구독을 관리할 수 있습니다. 다음은 샘플 코드입니다. 전체 예제는 [CRUD 예제](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/tests/Samples/Sample07_CrudOperations.cs)를 참조하세요.
 
 ```csharp
 using System;
@@ -91,11 +91,11 @@ namespace adminClientTrack2
 ```
 
 
-## <a name="microsoftazureservicebusmanagement"></a>ServiceBus. 관리 
-[ServiceBus](/dotnet/api/microsoft.azure.servicebus.management) 네임 스페이스에서 [managementclient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) 클래스를 사용 하 여 네임 스페이스, 큐, 토픽 및 구독을 관리할 수 있습니다. 샘플 코드는 다음과 같습니다. 
+## <a name="microsoftazureservicebusmanagement"></a>Microsoft.Azure.ServiceBus.Management 
+[Microsoft.Azure.ServiceBus.Management](/dotnet/api/microsoft.azure.servicebus.management) 네임스페이스의 [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) 클래스를 사용하여 네임스페이스, 큐, 토픽, 구독을 관리할 수 있습니다. 다음은 샘플 코드입니다. 
 
 > [!NOTE]
-> `ServiceBusAdministrationClient`라이브러리의 클래스 (최신 SDK)를 사용 하는 것이 좋습니다 `Azure.Messaging.ServiceBus.Administration` . 자세한 내용은 [첫 번째 섹션](#azuremessagingservicebusadministration)을 참조 하세요. 
+> 최신 SDK인 `Azure.Messaging.ServiceBus.Administration` 라이브러리의 `ServiceBusAdministrationClient` 클래스를 사용하는 것이 좋습니다. 자세한 내용은 [첫 번째 섹션](#azuremessagingservicebusadministration)을 참조하세요. 
 
 ```csharp
 using System;
@@ -154,17 +154,17 @@ namespace SBusManagementClient
 
 
 ## <a name="microsoftazuremanagementservicebus"></a>Microsoft.Azure.Management.ServiceBus 
-이 라이브러리는 Azure Resource Manager 기반 컨트롤 평면 SDK의 일부입니다. 
+이 라이브러리는 Azure Resource Manager 기반 컨트롤 플레인 SDK의 일부입니다. 
 
 ### <a name="prerequisites"></a>필수 구성 요소
 
-이 라이브러리를 사용 하기 시작 하려면 Azure Active Directory (Azure AD) 서비스를 사용 하 여 인증 해야 합니다. Azure AD를 사용하려면 Azure 리소스에 대한 액세스를 제공하는 서비스 주체로 인증해야 합니다. 서비스 주체 만들기에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.  
+해당 라이브러리를 사용하려면 Azure AD(Azure Active Directory) 서비스로 인증해야 합니다. Azure AD를 사용하려면 Azure 리소스에 대한 액세스를 제공하는 서비스 주체로 인증해야 합니다. 서비스 주체 만들기에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.  
 
-* [Azure Portal를 사용 하 여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체를 만듭니다.](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Azure Portal을 사용하여 리소스에 액세스할 수 있는 Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli)
 
-이러한 자습서는 관리 라이브러리를 통해 인증에 사용되는 `AppId`(클라이언트 ID), `TenantId` 및 `ClientSecret`(인증 키)를 제공합니다. 실행 하려는 리소스 그룹에 대 한 [**Azure Service Bus 이상의 데이터 소유자**](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) 또는 [**참가자**](../role-based-access-control/built-in-roles.md#contributor) 권한이 있어야 합니다.
+이러한 자습서는 관리 라이브러리를 통해 인증에 사용되는 `AppId`(클라이언트 ID), `TenantId` 및 `ClientSecret`(인증 키)를 제공합니다. 실행하려는 리소스 그룹에 대한 [**Azure Service Bus 데이터 소유자**](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) 또는 [**Contributor**](../role-based-access-control/built-in-roles.md#contributor) 사용 권한이 최소한 필요합니다.
 
 ### <a name="programming-pattern"></a>프로그래밍 패턴
 
@@ -200,8 +200,8 @@ Service Bus 리소스를 조작하는 패턴은 일반 프로토콜을 따릅니
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);
    ```
 
-### <a name="complete-code-to-create-a-queue"></a>큐를 만들기 위한 전체 코드
-Service Bus 큐를 만드는 샘플 코드는 다음과 같습니다. 전체 예제는 [GitHub의 .net 관리 샘플](https://github.com/Azure-Samples/service-bus-dotnet-management/)을 참조 하세요. 
+### <a name="complete-code-to-create-a-queue"></a>큐를 만드는 전체 코드
+Service Bus 큐를 만드는 샘플 코드는 다음과 같습니다. 전체 예제는 [GitHub의 .NET 관리 샘플](https://github.com/Azure-Samples/service-bus-dotnet-management/)을 참조하세요. 
 
 ```csharp
 using System;
@@ -288,12 +288,12 @@ namespace SBusADApp
 ```
 
 ## <a name="fluent-library"></a>흐름 라이브러리
-흐름 라이브러리를 사용 하 여 Service Bus 엔터티를 관리 하는 예제는 [이 샘플](https://github.com/Azure/azure-libraries-for-net/tree/master/Samples/ServiceBus)을 참조 하세요. 
+흐름 라이브러리를 사용하여 Service Bus 엔터티를 관리하는 예제는 [이 샘플](https://github.com/Azure/azure-libraries-for-net/tree/master/Samples/ServiceBus)을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
-다음 참조 항목을 참조 하세요. 
+아래 참조 토픽을 참조하세요. 
 
-- [ServiceBus. 관리](/dotnet/api/azure.messaging.servicebus.administration.servicebusadministrationclient)
-- [ServiceBus. 관리](/dotnet/api/microsoft.azure.servicebus.management.managementclient)
+- [Azure.Messaging.ServiceBus.Administration](/dotnet/api/azure.messaging.servicebus.administration.servicebusadministrationclient)
+- [Microsoft.Azure.ServiceBus.Management](/dotnet/api/microsoft.azure.servicebus.management.managementclient)
 - [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus.servicebusmanagementclient)
 - [Fluent](/dotnet/api/microsoft.azure.management.servicebus.fluent)

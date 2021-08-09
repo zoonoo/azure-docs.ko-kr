@@ -1,19 +1,19 @@
 ---
-title: REST API를 사용 하 여 Azure Vm 백업
-description: 이 문서에서는 REST API를 사용 하 여 Azure VM 백업에 대 한 백업 작업을 구성, 시작 및 관리 하는 방법을 알아봅니다.
+title: REST API를 사용하여 Azure VM 백업
+description: 이 문서에서는 REST API를 사용하여 Azure VM Backup의 백업 작업을 구성, 시작 및 관리하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 9ba22c51c7a6c26a232ed20aec21fc83d2c54b37
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92171457"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure VM 백업
 
-이 문서에서는 REST API를 통해 Azure Backup을 사용하여 Azure VM의 백업을 관리하는 방법을 설명합니다. 이전에 보호 되지 않은 Azure VM에 대해 처음으로 보호를 구성 하 고, 보호 된 Azure VM에 대 한 주문형 백업을 트리거하고 여기에 설명 된 대로 REST API를 통해 백업 된 VM의 백업 속성을 수정 합니다.
+이 문서에서는 REST API를 통해 Azure Backup을 사용하여 Azure VM의 백업을 관리하는 방법을 설명합니다. 이전에 보호되지 않는 Azure VM에 대한 보호를 처음으로 구성하고, 보호된 Azure VM에 대한 주문형 백업을 트리거하고, 여기에 설명된 대로 REST API를 통해 백업된 VM의 백업 속성을 수정합니다.
 
 새 자격 증명 모음 및 정책 만들기는 [자격 증명 모음 만들기](backup-azure-arm-userestapi-createorupdatevault.md) 및 [정책 만들기](backup-azure-arm-userestapi-createorupdatepolicy.md) REST API 자습서를 참조하세요.
 
@@ -23,30 +23,30 @@ ms.locfileid: "92171457"
 
 ### <a name="discover-unprotected-azure-vms"></a>보호되지 않는 Azure VM 검색
 
-먼저 자격 증명 모음은 Azure VM을 식별할 수 있어야 합니다. [새로 고침 작업](/rest/api/backup/protectioncontainers/refresh)을 사용하여 이 자격 증명 모음을 트리거합니다. 자격 증명 모음이 현재 구독에서 보호 되지 않는 모든 VM의 최신 목록을 가져오고 ' 캐시 ' 하는지 확인할 수 있도록 하는 비동기 *POST*  작업입니다. VM이 '캐시되면' Recovery Services는 해당 VM에 액세스하고 보호할 수 있습니다.
+먼저 자격 증명 모음은 Azure VM을 식별할 수 있어야 합니다. [새로 고침 작업](/rest/api/backup/protectioncontainers/refresh)을 사용하여 이 자격 증명 모음을 트리거합니다. 자격 증명 모음이 현재 구독에서 보호되지 않는 모든 VM의 최신 목록을 가져와서 '캐시'하도록 하는 비동기식 *POST* 작업입니다. VM이 '캐시되면' Recovery Services는 해당 VM에 액세스하고 보호할 수 있습니다.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
 ```
 
-POST URI에는 `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}` 매개 변수가 있습니다. `{fabricName}`은 "Azure"입니다. 예제에 따르면는 `{vaultName}` "testVault"이 고 `{vaultresourceGroupName}` 는 "testVaultRG"입니다. 모든 필수 매개 변수가 URI에 제공 되므로 별도의 요청 본문이 필요 하지 않습니다.
+POST URI에는 `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}` 매개 변수가 있습니다. `{fabricName}`은 "Azure"입니다. 이 예에 따르면 `{vaultName}`은 "testVault"이고 `{vaultresourceGroupName}`은 "testVaultRG"입니다. 모든 필수 매개 변수가 URI에서 지정되므로 별도의 요청 본문이 필요 없습니다.
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses-to-refresh-operation"></a>새로 고침 작업에 대 한 응답
+#### <a name="responses-to-refresh-operation"></a>새로 고침 작업에 대한 응답
 
 '새로 고침' 작업은 [비동기 작업](../azure-resource-manager/management/async-operations.md)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|Name  |Type  |설명  |
+|속성  |유형  |Description  |
 |---------|---------|---------|
 |204 콘텐츠 없음     |         |  반환된 콘텐츠가 없는 경우 정상      |
 |202 수락됨     |         |     수락됨    |
 
-##### <a name="example-responses-to-refresh-operation"></a>새로 고침 작업에 대 한 응답 예제
+##### <a name="example-responses-to-refresh-operation"></a>새로 고침 작업에 대한 응답 예
 
 *POST* 요청을 제출하면 202(수락됨) 응답이 반환됩니다.
 
@@ -92,7 +92,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>관련 Azure VM 선택
 
- 구독에서 [모든 보호 가능한 항목 나열하기](/rest/api/backup/backupprotectableitems/list)에서 "캐싱"을 수행했는지 확인하고 응답에서 원하는 VM을 찾을 수 있습니다. [이 작업의 응답으로](#example-responses-to-get-operation) VM Recovery Services 식별 하는 방법에 대 한 정보도 제공 됩니다.  패턴에 친숙해지면 이 단계를 건너뛰고 직접 [보호 활성화](#enabling-protection-for-the-azure-vm)를 진행할 수 있습니다.
+ 구독에서 [모든 보호 가능한 항목 나열하기](/rest/api/backup/backupprotectableitems/list)에서 "캐싱"을 수행했는지 확인하고 응답에서 원하는 VM을 찾을 수 있습니다. [이 작업의 응답](#example-responses-to-get-operation)은 또한 Recovery Services가 VM을 식별하는 방법에 대한 정보를 제공합니다.  패턴에 친숙해지면 이 단계를 건너뛰고 직접 [보호 활성화](#enabling-protection-for-the-azure-vm)를 진행할 수 있습니다.
 
 이 작업은 *GET* 작업입니다.
 
@@ -102,13 +102,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 *GET* URI에는 필요한 모든 매개 변수가 있습니다. 추가 요청 본문이 필요없습니다.
 
-#### <a name="responses-to-get-operation"></a>가져오기 작업에 대 한 응답
+#### <a name="responses-to-get-operation"></a>가져오기 작업에 대한 응답
 
-|Name  |Type  |설명  |
+|속성  |유형  |Description  |
 |---------|---------|---------|
 |200 정상     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       정상 |
 
-#### <a name="example-responses-to-get-operation"></a>작업 가져오기에 대 한 예제 응답
+#### <a name="example-responses-to-get-operation"></a>가져오기 작업에 대한 응답 예
 
 *GET* 요청이 제출되면 200(정상) 응답이 반환됩니다.
 
@@ -162,7 +162,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Azure VM 보호 사용
 
-관련 VM이 "캐시"되고 "확인"된 경우 정책을 선택하여 보호합니다. 자격 증명 모음의 기존 정책에 대한 자세한 내용은 [정책 API 목록](/rest/api/backup/backuppolicies/list)을 참조하세요. 그런 다음, 정책 이름을 참조하여 [관련 정책](/rest/api/backup/protectionpolicies/get)을 선택합니다. 정책을 만들려면 [정책 자습서 만들기](backup-azure-arm-userestapi-createorupdatepolicy.md)를 참조하세요. 아래 예제에서는 "DefaultPolicy"를 선택 합니다.
+관련 VM이 "캐시"되고 "확인"된 경우 정책을 선택하여 보호합니다. 자격 증명 모음의 기존 정책에 대한 자세한 내용은 [정책 API 목록](/rest/api/backup/backuppolicies/list)을 참조하세요. 그런 다음, 정책 이름을 참조하여 [관련 정책](/rest/api/backup/protectionpolicies/get)을 선택합니다. 정책을 만들려면 [정책 자습서 만들기](backup-azure-arm-userestapi-createorupdatepolicy.md)를 참조하세요. 다음 예에서 "DefaultPolicy"를 선택합니다.
 
 보호 사용은 '보호된 항목'를 만드는 비동기 *PUT* 작업입니다.
 
@@ -180,7 +180,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 보호된 항목을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|Name  |Type  |설명  |
+|속성  |유형  |Description  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |ProtectedItem 리소스 속성         |
 
@@ -202,18 +202,18 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 `{sourceResourceId}`는 [보호 가능한 항목 목록의 응답](#example-responses-to-get-operation)의 위에서 설명한 `{virtualMachineId}`입니다.
 
-#### <a name="responses-to-create-protected-item-operation"></a>보호 된 항목 만들기 작업에 대 한 응답
+#### <a name="responses-to-create-protected-item-operation"></a>보호 항목 생성 작업에 대한 응답
 
 보호된 항목 만들기는 [비동기 작업](../azure-resource-manager/management/async-operations.md)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|Name  |Type  |설명  |
+|속성  |유형  |Description  |
 |---------|---------|---------|
 |200 정상     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  정상       |
 |202 수락됨     |         |     수락됨    |
 
-##### <a name="example-responses-to-create-protected-item-operation"></a>보호 된 항목 만들기 작업에 대 한 예제 응답
+##### <a name="example-responses-to-create-protected-item-operation"></a>보호 항목 생성 작업에 대한 응답 예
 
 보호된 항목 만들기 또는 업데이트를 위한 *PUT* 요청을 제출하면 초기 응답은 위치 헤더 또는 Azure-async-header를 사용한 202(수락됨)입니다.
 
@@ -272,11 +272,11 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 }
 ```
 
-이렇게 하면 VM에 대해 보호를 사용 하도록 설정 하 고 첫 번째 백업이 정책 일정에 따라 트리거됩니다.
+이렇게 하면 VM에 대한 보호가 사용하도록 설정되고 정책 일정에 따라 첫 번째 백업이 트리거됩니다.
 
 ### <a name="excluding-disks-in-azure-vm-backup"></a>Azure VM 백업에서 디스크 제외
 
-또한 Azure Backup은 Azure VM에서 디스크의 하위 집합을 선택적으로 백업 하는 방법을 제공 합니다. 자세한 내용은 [여기](selective-disk-backup-restore.md)에 나와 있습니다. 보호를 사용 하도록 설정 하는 동안 몇 가지 디스크를 선택적으로 백업 하려면 [보호를 사용 하도록 설정](#example-request-body)하는 동안 다음 코드 조각이 요청 본문 이어야 합니다.
+Azure Backup은 또한 Azure VM에서 디스크의 하위 집합을 선택적으로 백업하는 방법을 제공합니다. 자세한 내용은 [여기](selective-disk-backup-restore.md)를 참조하세요. 보호를 사용하도록 설정하는 동안 일부 디스크를 선택적으로 백업하려면 다음 코드 조각이 [보호 사용 설정 중 요청 본문](#example-request-body)이어야 합니다.
 
 ```json
 {
@@ -294,18 +294,18 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 }
 ```
 
-위의 요청 본문에서 백업할 디스크 목록이 확장 속성 섹션에 제공 됩니다.
+위의 요청 본문에서 백업할 디스크 목록은 확장 속성 섹션에 제공됩니다.
 
 |속성  |값  |
 |---------|---------|
-|diskLunList     | 디스크 LUN 목록은 *데이터 디스크의 lun* 목록입니다. **OS 디스크는 항상 백업 되며 언급 하지 않아도** 됩니다.        |
-|IsInclusionList     | 백업 하는 동안 Lun이 포함 되려면 **true** 여야 합니다. **False** 이면 앞서 언급 한 lun이 제외 됩니다.         |
+|diskLunList     | 디스크 LUN 목록은 *데이터 디스크의 LUN* 목록입니다. **OS 디스크는 항상 백업되며 언급할 필요가 없습니다**.        |
+|IsInclusionList     | 백업 중에 LUN을 포함하려면 **true** 여야 합니다. **false** 이면 앞서 언급한 LUN이 제외됩니다.         |
 
-따라서 OS 디스크만 백업 하는 요구 사항이 있는 경우 _모든_ 데이터 디스크를 제외 해야 합니다. 데이터 디스크가 포함 되지 않도록 하는 것이 더 쉬운 방법입니다. 따라서 디스크 LUN 목록이 비어 있고 **IsInclusionList** 가 **true** 가 됩니다. 마찬가지로 하위 집합을 선택 하는 것이 더 쉬운 방법에 대해 생각해 보겠습니다. 몇 개의 디스크가 항상 제외 되거나 몇 개의 디스크가 항상 포함 되어야 합니다. LUN 목록과 부울 변수 값을 적절 하 게 선택 합니다.
+따라서 요구 사항이 OS 디스크만 백업하는 것이라면 _모든_ 데이터 디스크를 제외해야 합니다. 더 쉬운 방법은 데이터 디스크가 포함되지 않아야 한다고 말하는 것입니다. 따라서 디스크 LUN 목록은 비어 있고 **IsInclusionList** 는 **true** 가 됩니다. 마찬가지로 하위 집합을 선택하는 더 쉬운 방법은 무엇인지 생각해 보세요. 항상 몇 개의 디스크를 제외하거나 몇 개의 디스크를 항상 포함해야 합니다. 그에 따라 LUN 목록과 부울 변수 값을 선택합니다.
 
 ## <a name="trigger-an-on-demand-backup-for-a-protected-azure-vm"></a>보호된 Azure VM에 대한 주문형 백업 트리거
 
-Azure VM이 백업용으로 구성 되 면 백업은 정책 일정에 따라 수행 됩니다. 첫 번째 예약 백업을 대기하거나 언제든 주문형 백업을 트리거할 수 있습니다. 주문형 백업의 보존은 백업 정책의 보존과는 별개이며 특정 날짜/시간을 지정할 수 있습니다. 지정하지 않으면 주문형 백업을 트리거한 날로부터 30일까지로 간주됩니다.
+Azure VM이 백업용으로 구성되면 정책 일정에 따라 백업이 수행됩니다. 첫 번째 예약 백업을 대기하거나 언제든 주문형 백업을 트리거할 수 있습니다. 주문형 백업의 보존은 백업 정책의 보존과는 별개이며 특정 날짜/시간을 지정할 수 있습니다. 지정하지 않으면 주문형 백업을 트리거한 날로부터 30일까지로 간주됩니다.
 
 주문형 백업의 트리거는 *POST* 작업입니다.
 
@@ -319,19 +319,19 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2016-12-01
 ```
 
-### <a name="create-the-request-body-for-on-demand-backup"></a>주문형 백업에 대 한 요청 본문 만들기
+### <a name="create-the-request-body-for-on-demand-backup"></a>주문형 백업을 위한 요청 본문 생성
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|Name  |Type  |설명  |
+|속성  |유형  |Description  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 속성         |
 
 요청 본문 및 기타 세부 정보에 대한 전체 정의 목록은 [보호된 항목 REST API 문서의 백업 트리거](/rest/api/backup/backups/trigger#request-body)를 참조하세요.
 
-#### <a name="example-request-body-for-on-demand-backup"></a>주문형 백업에 대 한 예제 요청 본문
+#### <a name="example-request-body-for-on-demand-backup"></a>주문형 백업에 대한 요청 본문의 예
 
-다음 요청 본문은 보호된 항목의 백업을 트리거하는 데 필요한 속성을 정의합니다. 보존 기간을 지정 하지 않으면 백업 작업의 트리거에서 30 일 동안 보존 됩니다.
+다음 요청 본문은 보호된 항목의 백업을 트리거하는 데 필요한 속성을 정의합니다. 보존을 지정하지 않으면 백업 작업을 트리거한 시간에서 30일 동안 유지됩니다.
 
 ```json
 {
@@ -342,17 +342,17 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 }
 ```
 
-### <a name="responses-for-on-demand-backup"></a>주문형 백업에 대 한 응답
+### <a name="responses-for-on-demand-backup"></a>주문형 백업에 대한 응답
 
 주문형 백업의 트리거는 [비동기 작업](../azure-resource-manager/management/async-operations.md)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|Name  |Type  |설명  |
+|속성  |유형  |Description  |
 |---------|---------|---------|
 |202 수락됨     |         |     수락됨    |
 
-#### <a name="example-responses-for-on-demand-backup"></a>주문형 백업에 대 한 예제 응답
+#### <a name="example-responses-for-on-demand-backup"></a>주문형 백업에 대한 응답 예
 
 주문형 백업에 대한 *POST* 요청을 제출하면 초기 응답은 위치 헤더 또는 Azure-async-header를 사용한 202(수락됨)입니다.
 
@@ -416,7 +416,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="changing-the-policy-of-protection"></a>보호 정책 변경
 
-VM을 보호하는 정책을 변경하려면 [보호 사용](#enabling-protection-for-the-azure-vm)과 동일한 형식을 사용할 수 있습니다. [요청 본문](#example-request-body)의 새 정책 ID를 제공하고 요청을 제출합니다. 예: testVM의 정책을 ' DefaultPolicy '에서 ' ProdPolicy '로 변경 하려면 요청 본문에 ' ProdPolicy ' ID를 제공 합니다.
+VM을 보호하는 정책을 변경하려면 [보호 사용](#enabling-protection-for-the-azure-vm)과 동일한 형식을 사용할 수 있습니다. [요청 본문](#example-request-body)의 새 정책 ID를 제공하고 요청을 제출합니다. 예: testVM의 정책을 'DefaultPolicy'에서 'ProdPolicy'로 변경하려면 요청 본문에 'ProdPolicy' ID를 제공합니다.
 
 ```json
 {
@@ -430,14 +430,14 @@ VM을 보호하는 정책을 변경하려면 [보호 사용](#enabling-protectio
 
 응답은 [보호 사용의 경우](#responses-to-create-protected-item-operation)에 설명된 것과 동일한 형식을 따름
 
-#### <a name="excluding-disks-during-azure-vm-protection"></a>Azure VM 보호 중에 디스크 제외
+#### <a name="excluding-disks-during-azure-vm-protection"></a>Azure VM 보호 중 디스크 제외
 
-Azure VM이 이미 백업 된 경우 보호 정책을 변경 하 여 백업 하거나 제외할 디스크 목록을 지정할 수 있습니다. [보호를 사용 하도록 설정 하는 동안 디스크를 제외](#excluding-disks-in-azure-vm-backup) 하는 것과 동일한 형식으로 요청을 준비 합니다.
+Azure VM이 이미 백업된 경우 보호 정책을 변경하여 백업하거나 제외할 디스크 목록을 지정할 수 있습니다. [보호 사용 설정 중 디스크 제외](#excluding-disks-in-azure-vm-backup)와 동일한 형식으로 요청을 준비하세요.
 
 > [!IMPORTANT]
-> 위의 요청 본문은 항상 제외 하거나 포함할 데이터 디스크의 최종 복사본입니다. 이전 구성에는 *추가* 되지 않습니다. 예: 먼저 "제외 데이터 디스크 1"로 보호를 업데이트 한 후 "데이터 디스크 2 제외"로 반복 하면 후속 백업에서 *데이터 디스크 2만 제외 되* 고 데이터 디스크 1이 포함 됩니다. 이는 항상 후속 백업에서 포함/제외 되는 최종 목록입니다.
+> 위의 요청 본문은 항상 제외하거나 포함할 데이터 디스크의 최종 복사본입니다. 이는 이전 구성에 *추가* 되지 않습니다. 예: 보호를 "데이터 디스크 1 제외"로 먼저 업데이트한 다음 "데이터 디스크 2 제외"로 반복하면 후속 백업에서 *데이터 디스크 2만 제외* 되고 데이터 디스크 1이 포함됩니다. 이것은 항상 후속 백업에 포함/제외되는 최종 목록입니다.
 
-제외 되거나 포함 된 디스크의 현재 목록을 가져오려면 [여기](/rest/api/backup/protecteditems/get)에 설명 된 대로 보호 된 항목 정보를 가져옵니다. 응답은 데이터 디스크 Lun 목록을 제공 하 고이를 포함 하거나 제외할지를 나타냅니다.
+제외되거나 포함된 디스크의 현재 목록을 얻으려면 [여기](/rest/api/backup/protecteditems/get)에 언급된 보호 항목 정보를 가져옵니다. 응답은 데이터 디스크 LUN 목록을 제공하고 포함 또는 제외 여부를 나타냅니다.
 
 ### <a name="stop-protection-but-retain-existing-data"></a>보호를 중지하지만 기존 데이터는 보존
 
@@ -471,25 +471,25 @@ DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroup
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
-#### <a name="responses-for-delete-protection"></a>삭제 방지에 대 한 응답
+#### <a name="responses-for-delete-protection"></a>삭제 방지에 대한 응답
 
 보호 *DELETE* 작업은 [비동기 작업](../azure-resource-manager/management/async-operations.md)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 204(NoContent)의 두 응답을 반환합니다.
 
-|Name  |Type  |설명  |
+|속성  |유형  |Description  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 수락됨     |         |     수락됨    |
 
 > [!IMPORTANT]
-> 실수로 인 한 삭제 시나리오를 방지 하기 위해 Recovery Services 자격 증명 모음에 대해 [일시 삭제 기능을 사용할 수](use-restapi-update-vault-properties.md#soft-delete-state) 있습니다. 자격 증명 모음의 일시 삭제 상태가 사용으로 설정 된 경우 삭제 작업은 데이터를 즉시 삭제 하지 않습니다. 14 일 동안 보관 되 고 영구적으로 제거 됩니다. 이 14 일 동안 저장소에 대 한 요금이 청구 되지 않습니다. 삭제 작업을 실행 취소 하려면 [실행 취소-삭제 섹션](#undo-the-deletion)을 참조 하세요.
+> 실수로 인한 삭제 시나리오를 방지하기 위해 Recovery Services 자격 증명 모음에 [사용할 수 있는 일시 삭제 기능](use-restapi-update-vault-properties.md#soft-delete-state)이 있습니다. 자격 증명 모음의 일시 삭제 상태가 사용으로 설정되어 있으면 삭제 작업으로 데이터가 즉시 삭제되지 않습니다. 14일 동안 보관된 후 영구적으로 제거됩니다. 이 14일 동안의 스토리지 요금은 청구되지 않습니다. 삭제 작업을 취소하려면 [삭제 취소 섹션](#undo-the-deletion)을 참조하세요.
 
 ### <a name="undo-the-deletion"></a>삭제 취소
 
-실수로 삭제를 실행 취소 하는 것은 백업 항목을 만드는 것과 비슷합니다. 삭제를 취소 한 후에는 항목이 유지 되지만 이후의 백업은 트리거되지 않습니다.
+실수로 삭제한 항목을 취소하는 것은 백업 항목을 만드는 것과 유사합니다. 삭제를 실행 취소한 후 항목은 유지되지만 이후 백업은 트리거되지 않습니다.
 
-삭제 취소는 [정책을 변경](#changing-the-policy-of-protection) 하거나 [보호를 사용 하도록 설정](#enabling-protection-for-the-azure-vm)하는 것과 매우 유사한 *PUT* 작업입니다. [요청 본문](#example-request-body) 에서 *isRehydrate* 변수를 사용 하 여 삭제를 취소 하 고 요청을 제출 하는 의도를 제공 하기만 하면 됩니다. 예: testVM에 대 한 삭제를 실행 취소 하려면 다음 요청 본문을 사용 해야 합니다.
+삭제 취소는 [정책을 변경하거나](#changing-the-policy-of-protection) [보호를 사용하도록 설정하는](#enabling-protection-for-the-azure-vm)것과 매우 유사한 *PUT* 작업입니다. [요청 본문](#example-request-body)에서 변수 *isRehydrate* 를 사용하여 삭제를 취소하고 요청을 제출하려고 하기만 하면 됩니다. 예: testVM에 대한 삭제를 취소하려면 다음 요청 본문을 사용해야 합니다.
 
 ```http
 {

@@ -1,5 +1,5 @@
 ---
-title: Azure Automation를 사용 하 여 Azure Cloud Services (클래식) 관리 | Microsoft Docs
+title: Azure Automation을 사용하여 Azure Cloud Services(클래식) 관리 | Microsoft Docs
 description: Azure Automation 서비스를 사용하여 대규모 Azure Cloud Services를 관리하는 방법을 알아봅니다.
 ms.topic: article
 ms.service: cloud-services
@@ -9,16 +9,16 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 530efd09f3632637c6a12648495dcff0e7bf0e6d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98743494"
 ---
-# <a name="managing-azure-cloud-services-classic-using-azure-automation"></a>Azure Automation를 사용 하 여 Azure Cloud Services (클래식) 관리
+# <a name="managing-azure-cloud-services-classic-using-azure-automation"></a>Azure Automation을 사용하여 Azure Cloud Services(클래식) 관리
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 이 가이드에서는 Azure Automation 서비스 및 이 서비스를 사용하여 Azure Cloud Services 관리를 간소화하는 방법을 소개합니다.
 
 ## <a name="what-is-azure-automation"></a>Azure Automation 정의

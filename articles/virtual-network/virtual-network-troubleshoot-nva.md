@@ -1,6 +1,6 @@
 ---
 title: Azure의 네트워크 가상 어플라이언스 문제 해결 | Microsoft Docs
-description: Azure에서 NVA (네트워크 가상 어플라이언스) 문제를 해결 하 고 NVA 구성에 대 한 기본 Azure 플랫폼 요구 사항을 확인 합니다.
+description: Azure의 NVA(네트워크 가상 어플라이언스) 문제를 해결하고 NVA 구성에 대한 기본 Azure 플랫폼 요구 사항의 유효성을 검사합니다.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
 ms.openlocfilehash: fe4c17b74cd786d03bd19257dea190a21ecaa9f5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99095644"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Azure의 네트워크 가상 어플라이언스 문제
@@ -42,7 +42,7 @@ Microsoft Azure에서 타사 NVA(네트워크 가상 어플라이언스)를 사�
 - NVA의 트래픽을 보내는 가상 네트워크 서브넷의 UDR
 - NVA 내의 라우팅 테이블 및 NVA(예를 들어 NIC1에서 NIC2로)
 - NVA NIC를 추적하여 네트워크 트래픽 수신 및 전송 확인
-- 표준 SKU 및 공용 Ip를 사용 하는 경우 NSG가 생성 되 고 트래픽이 NVA로 라우팅될 수 있도록 하는 명시적 규칙이 있어야 합니다.
+- 표준 SKU 및 공용 IP를 사용하는 경우 NSG가 생성되어야 하고 트래픽이 NVA로 라우팅되도록 허용하는 명시적 규칙이 있어야 합니다.
 
 ## <a name="basic-troubleshooting-steps"></a>기본 문제 해결 단계
 
@@ -83,7 +83,7 @@ PowerShell 사용
    NetworkSecurityGroup : null
    ```
 
-**STANDARD SKU PUBILC IP를 사용 하는 경우 NSG 확인** 표준 SKU 및 공용 Ip를 사용 하는 경우 NVA에 대 한 트래픽을 허용 하는 NSG 및 명시적 규칙을 만들어야 합니다.
+**표준 SKU 공용 IP를 사용할 때 NSG 확인** 표준 SKU 및 공용 IP를 사용하는 경우 NSG가 생성되어야 하고 NVA로의 트래픽을 허용하는 명시적 규칙이 있어야 합니다.
 
 **트래픽을 NVA로 라우팅할 수 있는지 확인**
 
@@ -118,7 +118,7 @@ PowerShell 사용
 
 ### <a name="validate-vm-cpu"></a>VM CPU 유효성 검사
 
-CPU 사용량이 100%에 근접 한 경우 네트워크 패킷 삭제에 영향을 주는 문제가 발생할 수 있습니다. VM은 Azure Portal에서 특정 시간대의 평균 CPU 사용량을 보고합니다. CPU가 급증하는 시간에 게스트 VM의 어떤 프로세스 때문에 CPU 사용량이 높아지는지 확인하고, 가능하다면 사용량을 줄입니다. 또한 VM 크기를 좀 더 큰 SKU로 조정하거나, 가상 머신 확장 집합의 경우 인스턴스 수를 늘리거나 CPU 사용량에 따라 자동으로 크기를 조정하도록 설정해야 합니다. 이러한 문제 중 하나에 대해 필요한 경우 [NVA 공급 업체에 지원을 문의 하세요](https://mskb.pkisolutions.com/kb/2984655).
+CPU 사용량이 100%에 가까워지면 네트워크 패킷 삭제에 영향을 주는 문제가 발생할 수 있습니다. VM은 Azure Portal에서 특정 시간대의 평균 CPU 사용량을 보고합니다. CPU가 급증하는 시간에 게스트 VM의 어떤 프로세스 때문에 CPU 사용량이 높아지는지 확인하고, 가능하다면 사용량을 줄입니다. 또한 VM 크기를 좀 더 큰 SKU로 조정하거나, 가상 머신 확장 집합의 경우 인스턴스 수를 늘리거나 CPU 사용량에 따라 자동으로 크기를 조정하도록 설정해야 합니다. 필요에 따라 이러한 문제에 대해 [NVA 공급업체에 지원을 요청](https://mskb.pkisolutions.com/kb/2984655)하세요.
 
 ### <a name="validate-vm-network-statistics"></a>VM 네트워크 통계 유효성 검사
 
@@ -133,11 +133,11 @@ VM 네트워크 사용량이 급증하거나 특정 기간에 사용량이 많�
 
    **Windows**
 
-   netsh trace start capture = yes tracefile = c:\ server_IP. .etl 시나리오 = netconnection
+   netsh trace start capture=yes tracefile=c:\server_IP.etl scenario=netconnection
 
    **Linux**
 
-   sudo tcpdump-s0-i eth0-X-w vmtrace. 캡
+   sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
 
 2. 원본 VM에서 대상 VM으로 **PsPing** 또는 **Nmap** 을 사용합니다(예: `PsPing 10.0.0.4:80` 또는 `Nmap -p 80 10.0.0.4`).
 3. [네트워크 모니터](https://download.cnet.com/s/network-monitor) 또는 tcpdump를 사용하여 대상 VM에서 네트워크 추적을 엽니다. `IPv4.address==10.0.0.4 (Windows netmon)` 또는 `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4`처럼(Linux인 경우) **PsPing** 또는 **Nmap** 을 실행한 원본 VM의 IP에 대한 디스플레이 필터를 적용합니다.

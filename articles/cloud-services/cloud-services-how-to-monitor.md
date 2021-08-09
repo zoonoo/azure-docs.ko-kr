@@ -1,5 +1,5 @@
 ---
-title: Azure 클라우드 서비스 (클래식) 모니터링 | Microsoft Docs
+title: Azure 클라우드 서비스(클래식) 모니터링 | Microsoft Docs
 description: Azure 클라우드 서비스에 포함되는 모니터링 기능과 사용 가능한 일부 옵션에 대해 설명합니다.
 ms.topic: article
 ms.service: cloud-services
@@ -9,16 +9,16 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 60f320f86860cca482cdf25c7d93f84dae8c4e5f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98743375"
 ---
-# <a name="introduction-to-cloud-service-classic-monitoring"></a>클라우드 서비스 (클래식) 모니터링 소개
+# <a name="introduction-to-cloud-service-classic-monitoring"></a>클라우드 서비스(클래식) 모니터링 소개
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 클라우드 서비스의 주요 성능 메트릭을 모니터링할 수 있습니다. 모든 클라우드 서비스 역할은 최소 데이터에 해당하는 CPU 사용량, 네트워크 사용량 및 디스크 사용률을 수집합니다. `Microsoft.Azure.Diagnostics` 확장이 적용된 클라우드 서비스 역할은 추가 데이터 요소를 수집할 수 있습니다. 이 문서에서는 Cloud Services용 Azure Diagnostics 기능을 소개합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "98743375"
 
 ## <a name="advanced-monitoring"></a>고급 모니터링
 
-고급 모니터링에서는 모니터링 하려는 역할에 **Azure 진단** 확장 (필요에 따라 Application Insights SDK)을 사용 해야 합니다. 진단 확장은 **diagnostics.wadcfgx** 라는 구성 파일(역할당)을 사용하여 모니터링되는 진단 메트릭을 구성합니다. Azure 진단 확장은 데이터를 수집하고 Azure Storage 계정에 저장합니다. 이러한 설정은 **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 및 [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) 파일에서 구성됩니다. 따라서 고급 모니터링에는 추가 비용이 부과됩니다.
+고급 모니터링에서는 모니터링하려는 역할에 **Azure Diagnostics** 확장(및 필요에 따라 Application Insights SDK)을 사용합니다. 진단 확장은 **diagnostics.wadcfgx** 라는 구성 파일(역할당)을 사용하여 모니터링되는 진단 메트릭을 구성합니다. Azure 진단 확장은 데이터를 수집하고 Azure Storage 계정에 저장합니다. 이러한 설정은 **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 및 [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) 파일에서 구성됩니다. 따라서 고급 모니터링에는 추가 비용이 부과됩니다.
 
 각 역할을 만들 때 Visual Studio는 역할에 Azure Diagnostics 확장을 추가합니다. 이 진단 확장은 다음과 같은 유형의 정보를 수집할 수 있습니다.
 
@@ -51,13 +51,13 @@ ms.locfileid: "98743375"
 * 고객 오류 로그
 
 > [!IMPORTANT]
-> 이러한 모든 데이터는 저장소 계정으로 집계 되지만 포털은 데이터를 차트로 만드는 기본적인 방법을 제공 **하지** 않습니다. 애플리케이션에 Application Insights와 같은 다른 서비스를 통합하는 것이 좋습니다.
+> 이러한 모든 데이터가 스토리지 계정에 집계되지만, 포털은 데이터를 차트로 작성하는 기본적인 방법을 제공하지 **않습니다**. 애플리케이션에 Application Insights와 같은 다른 서비스를 통합하는 것이 좋습니다.
 
 ## <a name="setup-diagnostics-extension"></a>진단 확장 설정
 
 먼저 **클래식** 스토리지 계정이 없는 경우 [하나 만듭니다](../storage/common/storage-account-create.md). **클래식 배포 모델** 을 지정하여 스토리지 계정을 만듭니다.
 
-다음으로, **스토리지 계정(클래식)** 리소스로 이동합니다. **설정**  >  **액세스 키** 를 선택 하 고 **기본 연결 문자열** 값을 복사 합니다. 클라우드 서비스에 대해 이 값이 필요합니다. 
+다음으로, **스토리지 계정(클래식)** 리소스로 이동합니다. **설정** > **액세스 키** 를 선택하고 **기본 연결 문자열** 값을 복사합니다. 클라우드 서비스에 대해 이 값이 필요합니다. 
 
 고급 진단을 사용하려면 두 개의 구성 파일인 **ServiceDefinition.csdef** 및 **ServiceConfiguration.cscfg** 를 변경해야 합니다.
 

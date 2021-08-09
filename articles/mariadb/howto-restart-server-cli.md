@@ -1,6 +1,6 @@
 ---
-title: 서버 다시 시작-Azure CLI-Azure Database for MariaDB
-description: 이 문서에서는 Azure CLI를 사용 하 여 Azure Database for MariaDB 서버를 다시 시작 하는 방법을 설명 합니다.
+title: 서버 다시 시작 - Azure CLI - Azure Database for MariaDB
+description: 이 문서에서는 Azure CLI를 사용하여 Azure Database for MariaDB 서버를 다시 시작하는 방법을 설명합니다.
 author: savjani
 ms.author: pariks
 ms.service: mariadb
@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 8ae69adfe83b871eb29c85fc4d03e817026ec006
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98664922"
 ---
-# <a name="restart-azure-database-for-mariadb-server-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MariaDB 서버 다시 시작
+# <a name="restart-azure-database-for-mariadb-server-using-the-azure-cli"></a>Azure CLI를 사용한 Azure Database for MariaDB 서버 다시 시작
 이 항목에서는 Azure Database for MariaDB 서버를 다시 시작하는 방법을 설명합니다. 유지 관리를 위해 서버를 다시 시작해야 할 수 있지만 이 경우 서버가 해당 작업을 수행할 때 잠깐 가동이 중단됩니다.
 
 서비스가 다른 작업 중이면 서버가 다시 시작되지 않습니다. 예를 들어, 서비스가 vCore 크기를 조정하는 것과 같이 이전에 요청된 작업을 처리할 수 있습니다.
@@ -23,11 +23,11 @@ ms.locfileid: "98664922"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
-- [Azure Database for MariaDB 서버가](quickstart-create-mariadb-server-database-using-azure-cli.md)필요 합니다.
+- [Azure Database for MariaDB 서버](quickstart-create-mariadb-server-database-using-azure-cli.md)가 필요합니다.
  
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -36,7 +36,7 @@ ms.locfileid: "98664922"
 
 ## <a name="restart-the-server"></a>서버 다시 시작
 
-다음 명령을 사용 하 여 서버를 다시 시작 합니다.
+다음 명령을 사용하여 서버를 다시 시작합니다.
 
 ```azurecli-interactive
 az mariadb server restart --name mydemoserver --resource-group myresourcegroup
@@ -44,4 +44,4 @@ az mariadb server restart --name mydemoserver --resource-group myresourcegroup
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Database for MariaDB에서 매개 변수를 설정 하는 방법](howto-configure-server-parameters-cli.md) 에 대해 알아봅니다.
+[Azure Database for MariaDB에서 매개 변수를 설정 하는 방법](howto-configure-server-parameters-cli.md)에 대해 알아봅니다

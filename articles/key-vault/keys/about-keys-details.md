@@ -1,6 +1,6 @@
 ---
-title: 키 유형, 알고리즘 및 작업-Azure Key Vault
-description: 지원 되는 키 유형, 알고리즘 및 작업 (세부 정보)
+title: 키 유형, 알고리즘 및 작업 - Azure Key Vault
+description: 지원되는 키 유형, 알고리즘 및 작업(세부 정보)
 services: key-vault
 author: amitbapat
 manager: msmbaldwin
@@ -10,23 +10,23 @@ ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: ambapat
 ms.openlocfilehash: 675c4f04ece322000ae0ebb44d6291c455db9397
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98133279"
 ---
 # <a name="key-types-algorithms-and-operations"></a>키 유형, 알고리즘 및 작업
 
-Key Vault는 자격 증명 모음 및 관리 되는 Hsm 이라는 두 가지 리소스 유형을 지원 합니다. 두 리소스 유형 모두 다양 한 암호화 키를 지원 합니다. 각 리소스 유형별로 지원 되는 키 유형, 보호 유형에 대 한 요약을 보려면 [키 정보](about-keys.md)를 참조 하세요.
+Key Vault는 자격 증명 모음과 관리형 HSM이라는 두 가지 리소스 종류를 지원합니다. 두 리소스 종류 모두 다양한 암호화 키를 지원합니다. 각 리소스 종류별로 지원되는 키 유형과 보호 유형에 대한 요약을 보려면 [키 정보](about-keys.md)를 참조하세요.
 
-다음 표에서는 키 유형 및 지원 되는 알고리즘에 대 한 요약을 보여 줍니다.
+다음 표는 키 유형과 지원되는 알고리즘에 대한 요약입니다.
 
 |키 유형/크기/곡선| 암호화/암호 해독<br>(래핑/래핑 해제) | 서명/확인 | 
 | --- | --- | --- |
 |EC-P256, EC-P256K, EC-P384, EC-521|해당 없음|ES256<br>ES256K<br>ES384<br>ES512|
 |RSA 2K, 3K, 4K| RSA1_5<br>RSA-OAEP<br>RSA-OAEP-256|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
-|AES 128비트, 256비트 <br/>(관리 되는 HSM에만 해당)| AES-KW<br>AES-GCM<br>AES-CBC| 해당 없음| 
+|AES 128비트, 256비트 <br/>(관리형 HSM에만 해당)| AES-KW<br>AES-GCM<br>AES-CBC| 해당 없음| 
 |||
 
 ##  <a name="ec-algorithms"></a>EC 알고리즘
@@ -65,10 +65,10 @@ Key Vault는 자격 증명 모음 및 관리 되는 Hsm 이라는 두 가지 리
 -   **RS512** - SHA-512를 사용하는 RSASSA-PKCS-v1_5입니다. 애플리케이션에서 제공하는 다이제스트 값은 SHA-512를 사용하여 계산되어야 하며, 길이는 64바이트여야 합니다.  
 -   **RSNULL** - 특정 TLS 시나리오를 사용하려면 특수 사용 사례인 [RFC2437](https://tools.ietf.org/html/rfc2437)을 참조하세요.  
 
-##  <a name="symmetric-key-algorithms-managed-hsm-only"></a>대칭 키 알고리즘 (관리 되는 HSM에만 해당)
+##  <a name="symmetric-key-algorithms-managed-hsm-only"></a>대칭 키 알고리즘(관리형 HSM에만 해당)
 - **AES-KW** - AES 키 래핑([RFC3394](https://tools.ietf.org/html/rfc3394))
-- **Aes-GCM** -Galois의 aes 암호화가 카운터 모드 ([NIST SP 800-38d](https://csrc.nist.gov/publications/sp800))
-- **Aes-** 암호화 블록 체인 모드의 aes 암호화 ([NIST SP 800-38a](https://csrc.nist.gov/publications/sp800))
+- **AES-GCM** - Galois 카운터 모드의 AES 암호화([NIST SP 800-38d](https://csrc.nist.gov/publications/sp800))
+- **AES-CBC** - 암호화 블록 연결 모드의 AES 암호화([NIST SP 800-38a](https://csrc.nist.gov/publications/sp800))
 
 > [!NOTE] 
 > 현재 AES-GCM 구현 및 해당 API는 실험적입니다. 구현 및 API는 이후 반복에서 크게 변경될 수 있습니다. 
@@ -137,7 +137,7 @@ IntDate 및 기타 데이터 형식에 대한 자세한 내용은 [키, 비밀 �
 
 Key Vault에서 관리하는 키에 대한 액세스 제어는 키 컨테이너 역할을 하는 Key Vault 수준에서 제공됩니다. 키에 대한 액세스 제어 정책은 동일한 Key Vault의 비밀에 대한 액세스 제어 정책과 다릅니다. 사용자는 키를 보관할 하나 이상의 자격 증명 모음을 만들 수 있으며, 시나리오에 따라 키를 적절하게 세분화하고 관리해야 합니다. 키 액세스 제어는 비밀 액세스 제어와 무관합니다.  
 
-자격 증명 모음의 키 액세스 제어 항목에 대해 사용자/서비스 사용자별로 부여할 수 있는 권한은 다음과 같습니다. 이러한 권한은 키 개체에 허용되는 작업을 밀접하게 미러링합니다.  Key vault에서 서비스 주체에 대 한 액세스 권한은 onetime 작업 이며 모든 Azure 구독에 대해 동일 하 게 유지 됩니다. 이를 사용하여 원하는 만큼의 인증서를 배포할 수 있습니다. 
+자격 증명 모음의 키 액세스 제어 항목에 대해 사용자/서비스 사용자별로 부여할 수 있는 권한은 다음과 같습니다. 이러한 권한은 키 개체에 허용되는 작업을 밀접하게 미러링합니다.  키 자격 증명 모음에서 서비스 주체에 액세스 권한을 부여하는 작업은 일회성 작업이며 모든 Azure 구독에 대해 동일하게 유지됩니다. 이를 사용하여 원하는 만큼의 인증서를 배포할 수 있습니다. 
 
 - 키 관리 작업에 필요한 권한
   - *get*: 키의 공개 부분 및 해당 특성 읽기

@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services REST API 호출에 대해 Postman 구성
-description: 이 문서에서는 Media Services REST API 호출에 대해 Postman을 구성 하는 방법을 설명 합니다.
+description: 이 문서에서는 Media Services REST API 호출에 대한 Postman 구성 방법을 알아봅니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: ef92e772085b1b89388c3f85fb3fdb91df0f6a75
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103012210"
 ---
-# <a name="configure-postman-for-media-services-v2-rest-api-calls"></a>Media Services v2 REST API 호출에 대해 Postman 구성
+# <a name="configure-postman-for-media-services-v2-rest-api-calls"></a>Media Services v2 REST API 호출에 대한 Postman 구성
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
@@ -43,14 +43,14 @@ ms.locfileid: "103012210"
 2. **Postman** 을 엽니다.
 3. 화면 오른쪽에서 **환경 관리** 옵션을 선택합니다.
 
-    ![스크린샷 선택한 환경 관리 옵션을 보여 줍니다.](./media/media-services-rest-upload-files/postman-create-env.png)
+    ![스크린샷은 선택된 계정 환경 관리 옵션을 표시합니다.](./media/media-services-rest-upload-files/postman-create-env.png)
 4. **환경 관리** 대화 상자에서 **가져오기** 를 클릭합니다.
 5. **AzureMediaServices.postman_environment.json** 파일을 찾아 선택합니다.
 6. **AzureMedia** 환경이 추가됩니다.
 7. 대화 상자를 닫습니다.
 8. **AzureMedia** 환경을 선택합니다.
 
-    ![선택한 AzureMedia 환경을 보여 주는 스크린샷](./media/media-services-rest-upload-files/postman-choose-env.png)
+    ![스크린샷은 선택한 AzureMedia 환경을 표시합니다.](./media/media-services-rest-upload-files/postman-choose-env.png)
 
 ## <a name="configure-the-collection"></a>컬렉션 구성
 
@@ -58,7 +58,7 @@ ms.locfileid: "103012210"
 2. **가져오기** 를 클릭하여 컬렉션 파일을 가져옵니다.
 3. **AzureMediaServicesOperations.postman_collection.json** 파일을 선택합니다.
 
-    ![선택 된 파일 선택이 있는 가져오기 대화 상자를 보여 주는 스크린샷](./media/media-services-rest-upload-files/postman-import-collection.png)
+    ![스크린샷은 파일 선택이 선택된 가져오기 대화 상자를 표시합니다.](./media/media-services-rest-upload-files/postman-import-collection.png)
 
 ## <a name="next-steps"></a>다음 단계
 

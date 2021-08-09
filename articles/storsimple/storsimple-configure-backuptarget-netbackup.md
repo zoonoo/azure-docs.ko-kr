@@ -1,6 +1,6 @@
 ---
 title: NetBackup에서 백업 대상으로 StorSimple 8000 시리즈 구성 | Microsoft Docs
-description: Veritas NetBackup을 사용한 StorSimple 백업 대상 구성 및 두 솔루션을 통합 하는 모범 사례에 대해 알아봅니다.
+description: Veritas NetBackup을 사용한 StorSimple 백업 대상 구성과 두 솔루션을 통합하기 위한 모범 사례에 대해 알아봅니다.
 services: storsimple
 documentationcenter: ''
 author: harshakirank
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
 ms.openlocfilehash: 4f71cf82b675222836a73eec12d68bd8f62a5538
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94967281"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>NetBackup에서 백업 대상으로 StorSimple 구성
@@ -55,8 +55,8 @@ StorSimple이 백업 대상으로 적합한 이유는 다음과 같습니다.
 
 StorSimple은 잘 정의된 데이터(핫 데이터)의 작업 집합에서 작동하는 애플리케이션에 대한 스토리지를 제공하도록 설계되었습니다. 이 모델에서 데이터의 작업 집합은 로컬 계층에 저장되고 데이터의 나머지 비작업/콜드/보관 집합은 클라우드에서 계층화됩니다. 다음 그림에서 이 모델을 나타냅니다. 평평한 녹색선은 StorSimple 디바이스의 로컬 계층에 저장된 데이터를 나타냅니다. 빨간색 선은 모든 계층에서 StorSimple 솔루션에 저장된 총 데이터 양을 나타냅니다. 평편한 녹색선과 빨강색 지수 곡선 사이의 간격은 클라우드에 저장된 데이터의 총량을 나타냅니다.
 
-**StorSimple 계층화** 
- ![ StorSimple 계층화 다이어그램](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
+**StorSimple 계층화**
+![StorSimple 계층화 다이어그램](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
 
 이 아키텍처를 염두에 두면 StorSimple이 백업 대상으로 작동하는 데 적합하다는 점을 알 수 있습니다. StorSimple을 사용하면 다음 작업을 수행할 수 있습니다.
 -   데이터의 로컬 작업 집합에서 가장 빈번하게 복원을 수행합니다.
@@ -132,7 +132,7 @@ StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브�
 
 보존 정책, 용량 및 성능 요구 사항을 처리할 수 있도록 고성능 볼륨의 크기를 조정하는 것이 중요합니다.
 
-![초기 백업 및 복원이 고성능 볼륨을 대상으로 하는 아키텍처를 보여 주는 다이어그램입니다.](./media/storsimple-configure-backup-target-using-netbackup/secondarybackuptargetlogicaldiagram.png)
+![초기 백업 및 복원이 고성능 볼륨을 대상으로 하는 아키텍처를 보여 주는 다이어그램.](./media/storsimple-configure-backup-target-using-netbackup/secondarybackuptargetlogicaldiagram.png)
 
 ### <a name="secondary-target-backup-logical-steps"></a>보조 대상 백업 논리 단계
 
@@ -265,7 +265,7 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 
 ### <a name="to-set-up-netbackup-storage"></a>NetBackup 스토리지를 설정하려면
 
-1.  Netbackup 관리 콘솔에서 **미디어 및 장치 관리**  >  **장치**  >  **디스크 풀** 을 선택 합니다. [디스크 풀 구성 마법사]에서 **AdvancedDisk** 스토리지 서버 유형을 선택한 후 **다음** 을 선택합니다.
+1.  [NetBackup 관리 콘솔]에서 **미디어 및 디바이스 관리** > **디바이스** > **디스크 풀** 을 차례로 선택합니다. [디스크 풀 구성 마법사]에서 **AdvancedDisk** 스토리지 서버 유형을 선택한 후 **다음** 을 선택합니다.
 
     ![NetBackup 관리 콘솔 - 디스크 풀 구성 마법사](./media/storsimple-configure-backup-target-using-netbackup/nbimage1.png)
 
@@ -277,7 +277,7 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 
     ![[NetBackup 관리 콘솔]에서 StorSimple 볼륨 디스크를 선택합니다.](./media/storsimple-configure-backup-target-using-netbackup/nbimage3.png)
 
-4.  백업 대상의 이름을 입력 하 **고 다음**  >  을 선택 하 **여** 마법사를 완료 합니다.
+4.  백업 대상의 이름을 입력한 후 **다음** > **다음** 을 차례로 선택하여 마법사를 마칩니다.
 
 5.  설정을 검토한 다음 **마침** 을 선택합니다.
 
@@ -340,7 +340,7 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 
    ![NetBackup 관리 콘솔 - 새 정책의 백업 빈도 및 회전](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8. **다음**  >  **다음**  >  **마침** 을 선택 합니다.  정책을 만든 후에는 일정을 수정할 수 있습니다.
+8. **다음** > **다음** > **마침** 을 차례로 선택합니다.  정책을 만든 후에는 일정을 수정할 수 있습니다.
 
 9. 방금 만든 정책을 선택하여 확장한 다음 **일정** 을 선택합니다.
 
@@ -430,7 +430,7 @@ NetBackup은 스토리지와 미디어 관리를 위해 다양한 옵션을 제�
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>NetBackup 보관 및 중복 제거 작업에 StorSimple 볼륨을 할당하려면
 
-1. Netbackup 관리 콘솔에서 **저장소**  >  **저장소 수명 주기 정책**  >  **새 저장소 수명 주기 정책** 을 선택 합니다.
+1. [NetBackup 관리 콘솔]에서 **스토리지** > **스토리지 수명 주기 정책** > **새 스토리지 수명 주기 정책** 을 차례로 선택합니다.
 
    ![NetBackup 관리 콘솔 - 새 스토리지 수명 주기 정책](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 

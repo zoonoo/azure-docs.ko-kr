@@ -1,6 +1,6 @@
 ---
 title: StorSimple Linux 호스트에서 MPIO 구성
-description: StorSimple Linux (Centos 6.6) 호스트 서버에서 MPIO (다중 경로 IO)를 구성 하는 데 필요한 단계를 알아봅니다.
+description: StorSimple Linux(Centos 6.6) 호스트 서버에서 MPIO(다중 경로 IO)를 구성하는 데 필요한 단계를 알아봅니다.
 author: alkohli
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
 ms.openlocfilehash: 2b7ddf6423db4c471ee2065635f4e3e89f7eb7b2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98745736"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS를 실행하는 StorSimple 호스트에서 MPIO 구성
@@ -50,7 +50,7 @@ multipath.conf에는 다섯 가지 섹션이 있습니다.
 
 - **시스템 수준 기본값** *(기본값)*: 시스템 수준 기본값을 재정의할 수 있습니다.
 - **금지 목록에 올린 디바이스** *(금지 목록)*: 디바이스 매퍼에서 제어하지 말아야 하는 디바이스 목록을 지정할 수 있습니다.
-- **블랙 리스트 예외** *(blacklist_exceptions)*: 차단 목록에 나열 된 경우에도 다중 경로 장치로 취급할 특정 장치를 식별할 수 있습니다.
+- **차단 목록 예외** *(blacklist_exceptions)* : 차단 목록에 나열되면 특정 디바이스를 식별하여 다중 경로 디바이스로 취급할 수 있습니다.
 - **스토리지 컨트롤러 특정 설정** *(디바이스)*: 공급업체 및 제품 정보가 있는 디바이스에 적용될 구성 설정을 지정할 수 있습니다.
 - **디바이스 특정 설정** *(다중 경로)*: 이 섹션을 사용하여 개별 LUN에 구성 설정을 미세하게 조정할 수 있습니다.
 
@@ -59,7 +59,7 @@ multipath.conf에는 다섯 가지 섹션이 있습니다.
 
 다음 절차는 두 네트워크 인터페이스가 있는 StorSimple 디바이스가 두 네트워크 인터페이스가 있는 호스트에 연결된 경우 다중 경로를 구성하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 섹션은 CentOS 서버 및 StorSimple 디바이스에 대한 필수 구성 요소를 자세히 설명합니다.
 
 ### <a name="on-centos-host"></a>CentOS 호스트에서
@@ -211,12 +211,12 @@ StorSimple 디바이스에는 다음이 있어야 합니다.
     ```
 
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>2단계: StorSimple 볼륨에 대한 다중 경로 구성
-기본적으로 모든 장치는 다중 경로 파일에 표시 되며 무시 됩니다. StorSimple 장치에서 볼륨에 대 한 다중 경로를 허용 하는 차단 목록 예외를 만들어야 합니다.
+기본적으로 모든 디바이스는 multipath.conf 파일의 차단 목록에 있으며 무시됩니다. StorSimple 디바이스에서 볼륨에 대한 다중 경로를 허용하는 차단 목록 예외를 만들어야 합니다.
 
 1. `/etc/mulitpath.conf` 파일을 편집합니다. 유형:
    
     `vi /etc/multipath.conf`
-1. multipath.conf 파일에서 blacklist_exceptions 섹션을 찾습니다. 이 섹션에서는 StorSimple 장치를 차단 목록 예외로 나열 해야 합니다. 이 파일에서 관련된 줄의 주석 처리를 제거하여 아래 그림과 같이 수정할 수 있습니다.(사용하는 디바이스의 특정 모델에만 사용)
+1. multipath.conf 파일에서 blacklist_exceptions 섹션을 찾습니다. StorSimple 디바이스는 이 섹션에서 차단 목록 예외로 나열되어야 합니다. 이 파일에서 관련된 줄의 주석 처리를 제거하여 아래 그림과 같이 수정할 수 있습니다.(사용하는 디바이스의 특정 모델에만 사용)
    
     ```config
     blacklist_exceptions {
@@ -345,13 +345,13 @@ A. 두 개의 경로를 라우팅할 수 있으며 동일한 서브넷에 있는
 
 17. 사용 가능한 경로를 나열하는 경우 어떤 출력도 나타나지 않습니다.
 
-A. 일반적으로 다중 경로인 경로를 표시 하지 않는 것은 다중 경로 디먼의 문제를 제안 하며,이는 파일에 문제가 있을 가능성이 높습니다 `multipath.conf` .
+A. 일반적으로 다중 경로인 경로가 표시되지 않으면 다중 경로인 데몬과 문제가 있을 수 있고 `multipath.conf` 파일에 어떤 문제가 있을 가능성이 높습니다.
 
-또한 다중 경로 목록의 응답이 디스크가 없음을 의미할 수 있으므로 대상에 연결한 후에 일부 디스크를 실제로 볼 수 있는지 확인 하는 것이 좋습니다.
+또한 다중 경로 목록으로부터 응답이 없으면 디스크가 없다는 것을 의미할 수 있으므로 대상에 연결한 후에 일부 디스크를 실제로 볼 수 있는지 확인하는 것이 좋습니다.
 
 * 다음 명령을 사용하여 SCSI 버스를 다시 스캔합니다.
   
-    `$ rescan-scsi-bus.sh` (sg3_utils 패키지의 일부)
+    `$ rescan-scsi-bus.sh`(sg3_utils 패키지의 일부)
 * 다음 명령을 입력합니다.
   
     `$ dmesg | grep sd*`
@@ -365,7 +365,7 @@ A. 일반적으로 다중 경로인 경로를 표시 하지 않는 것은 다중
   
     `cat /sys/block/<DISK>/device/model`
   
-    이는 StorSimple 디스크 인지 여부를 확인 하는 문자열을 반환 합니다.
+    StorSimple 디스크인지를 확인하는 문자열을 반환합니다.
 
 또한 가능성이 적지만 가능한 원인은 iscsid pid일 수 있습니다. 다음 명령을 사용하여 iSCSI 세션에서 로그오프합니다.
 
@@ -376,9 +376,9 @@ StorSimple 디바이스인 iSCSI 대상에서 연결된 모든 네트워크 인�
 `iscsiadm -m node --login -T <TARGET_IQN>`
 
 
-17. 장치가 허용 되는지 확실 하지 않습니다.
+17. 디바이스가 허용되었는지 확실하지 않습니다.
 
-A. 장치가 허용 되는지 여부를 확인 하려면 다음과 같은 대화형 문제 해결 명령을 사용 합니다.
+A. 디바이스가 허용되었는지 확인하려면 다음 문제 해결 대화형 명령을 사용합니다.
 
 ```console
 multipathd -k
@@ -419,10 +419,10 @@ dm-3 devnode blacklisted, unmonitored
 ```
 
 
-자세한 내용은 [다중 경로 문제 해결](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot)을 참조 하세요.
+자세한 내용은 [다중 경로 문제 해결](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot)을 참조하세요.
 
 ## <a name="list-of-useful-commands"></a>유용한 명령 목록
-| Type | 명령 | 설명 |
+| 유형 | 명령 | Description |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |iSCSI 서비스 시작 |
 | &nbsp; |`service iscsid stop` |iSCSI 서비스 중지 |
@@ -437,7 +437,7 @@ dm-3 devnode blacklisted, unmonitored
 | **다중 경로 지정** |`service multipathd start` |다중 경로 디먼 시작 |
 | &nbsp; |`service multipathd stop` |다중 경로 디먼 중지 |
 | &nbsp; |`service multipathd restart` |다중 경로 디먼 다시 시작 |
-| &nbsp; |`chkconfig multipathd on` </br> 또는 </br> `mpathconf -with_chkconfig y` |부팅 시 시작되도록 다중 경로 디먼 설정 |
+| &nbsp; |`chkconfig multipathd on` </br> OR </br> `mpathconf -with_chkconfig y` |부팅 시 시작되도록 다중 경로 디먼 설정 |
 | &nbsp; |`multipathd -k` |문제 해결을 위한 대화형 콘솔 시작 |
 | &nbsp; |`multipath -l` |다중 경로 연결 및 디바이스 나열 |
 | &nbsp; |`mpathconf --enable` |`/etc/mulitpath.conf` |

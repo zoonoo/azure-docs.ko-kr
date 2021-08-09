@@ -1,5 +1,5 @@
 ---
-title: VNet 끝점 관리-Azure Portal-Azure Database for MySQL
+title: VNet 엔드포인트 관리 - Azure Portal - Azure Database for MySQL
 description: Azure Portal을 사용한 Azure Database for MySQL VNet 서비스 엔드포인트 만들기 및 관리
 author: mksuni
 ms.author: sumuth
@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 5273681f23f6eea54c35e5cacea487dab18793e2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93240786"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL VNet 서비스 엔드포인트 및 VNet 규칙 만들기 및 관리
@@ -25,14 +25,14 @@ VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트�
 
 1. MySQL 서버 페이지의 설정 제목에서 **연결 보안** 을 클릭하여 Azure Database for MySQL에 대한 연결 보안 창을 엽니다. 
 
-2. Azure 서비스에 대 한 액세스 허용 컨트롤이 **OFF** 로 설정 되어 있는지 확인 합니다.
+2. Azure 서비스 제어에 대한 액세스 허용이 **OFF** 로 설정되어 있는지 확인합니다.
 
 > [!Important]
-> 제어를 설정 된 상태로 두면 Azure MySQL 데이터베이스 서버가 모든 서브넷의 통신을 수락 합니다. 제어 집합을 ON으로 유지하면 보안 관점에서 과도하게 액세스할 수도 있습니다. Microsoft Azure Virtual Network 서비스 끝점 기능은 Azure Database for MySQL의 가상 네트워크 규칙 기능을 함께 사용 하 여 보안 노출 영역을 줄일 수 있습니다.
+> 제어 집합을 ON으로 설정하면 Azure MySQL 데이터베이스 서버는 모든 서브넷으로부터의 통신을 수락합니다. 제어 집합을 ON으로 유지하면 보안 관점에서 과도하게 액세스할 수도 있습니다. Microsoft Azure Virtual Network 서비스 엔드포인트 기능을 Azure Database for MySQL의 가상 네트워크 규칙 기능과 함께 사용하여 보안 노출 영역을 줄일 수 있습니다.
 
 3. 다음으로, **+ 기존 가상 네트워크 추가** 를 클릭합니다. 기존 VNet이 없는 경우 **+ 새 가상 네트워크 만들기** 를 클릭할 수 있습니다. [빠른 시작: Azure Portal을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-portal.md) 참조
 
-   :::image type="content" source="./media/howto-manage-vnet-using-portal/1-connection-security.png" alt-text="연결 보안 Azure Portal 클릭":::
+   :::image type="content" source="./media/howto-manage-vnet-using-portal/1-connection-security.png" alt-text="Azure Portal - 보안 연결 클릭":::
 
 4. VNet 규칙 이름을 입력하고 구독, 가상 네트워크 및 서브넷 이름을 선택한 다음, **사용** 을 클릭합니다. **Microsoft.SQL** 서비스 태그를 사용하여 서브넷에서 VNet 서비스 엔드포인트를 자동으로 사용하도록 설정할 수 있습니다.
 

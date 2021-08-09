@@ -1,5 +1,5 @@
 ---
-title: 실제 예제를 사용 하 여 Azure Cosmos DB에서 데이터 모델링 및 분할
+title: 실제 예를 사용하여 Azure Cosmos DB에서 데이터 모델링 및 분할
 description: Azure Cosmos DB Core API를 사용하여 실제 예제를 모델링하고 분할하는 방법을 알아봅니다.
 author: ThomasWeiss
 ms.service: cosmos-db
@@ -9,20 +9,20 @@ ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
 ms.openlocfilehash: d2f35ae7a6110acb2ca89bdaeb487eddabf84923
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98185821"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>실제 예제를 사용하여 Azure Cosmos DB에서 데이터를 모델링하고 분할하는 방법
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-이 문서는 [데이터 모델링](modeling-data.md), [분할](partitioning-overview.md)및 [프로 비전 된 처리량](request-units.md) 과 같은 여러 가지 Azure Cosmos DB 개념을 기반으로 하 여 실제 데이터 디자인 연습을 처리 하는 방법을 보여 줍니다.
+이 문서는 실제 데이터 설계 연습을 처리하는 방법을 보여 주기 위해 [데이터 모델링](modeling-data.md), [분할](partitioning-overview.md) 및 [프로비저닝된 처리량](request-units.md)과 같은 여러 Azure Cosmos DB 개념을 기반으로 하여 작성되었습니다.
 
 일반적으로 관계형 데이터베이스를 사용하는 경우 데이터 모델을 설계하는 방법에 대한 습관과 직관을 구축했을 수 있습니다. 특정 제약 조건뿐만 아니라 Azure Cosmos DB의 고유한 장점으로 인해 이러한 모범 사례의 대부분은 제대로 변환되지 않고 최적이 아닌 솔루션으로 끌어들일 수 있습니다. 이 문서의 목표는 항목 모델링에서 엔터티 공동 배치 및 컨테이너 분할에 이르기까지 Azure Cosmos DB의 실제 사용 사례를 모델링하는 전체 프로세스를 안내하는 것입니다.
 
-이 문서의 개념을 설명 하는 [커뮤니티에서 생성 된 소스 코드를 다운로드 하거나 봅니다](https://github.com/jwidmer/AzureCosmosDbBlogExample) . 이 코드 샘플은 커뮤니티 참가자가 제공 했으며 Azure Cosmos DB 팀이 유지 관리를 지원 하지 않습니다.
+이 문서의 개념을 설명하는 [커뮤니티 생성 소스 코드를 다운로드하거나 봅니다](https://github.com/jwidmer/AzureCosmosDbBlogExample). 이 코드 샘플은 커뮤니티 기여자가 제공했으며 Azure Cosmos DB 팀은 유지 관리를 지원하지 않습니다.
 
 ## <a name="the-scenario"></a>시나리오
 
@@ -52,15 +52,15 @@ ms.locfileid: "98185821"
 - **[C2]** 게시물 만들기/편집
 - **[Q2]** 게시물 검색
 - **[Q3]** 약식으로 사용자의 게시물 나열
-- **[C3]** 설명 만들기
-- **[Q4]** 게시물의 설명을 나열 합니다.
+- **[C3]** 댓글 만들기
+- **[Q4]** 게시물의 댓글 나열
 - **[C4]** 게시물에 대한 좋아요 표시
 - **[Q5]** 게시물에 대한 좋아요 나열
 - **[Q6]** 최근에 만든 *x* 개 게시물을 약식으로 나열(피드)
 
-이 단계에서는 각 엔터티 (사용자, 게시물 등)에 대 한 세부 정보를 고려 하지 않았습니다. 이 단계는 일반적으로 관계형 저장소에 대해 디자인할 때 첫 번째 단계 중 하나는 테이블, 열, 외래 키 등을 기준으로 엔터티가 어떻게 변환 되는지 파악 해야 하기 때문에 세울. 쓰기 시 스키마를 적용 하지 않는 문서 데이터베이스의 경우에는 훨씬 더 중요 하지 않습니다.
+이 단계에서는 각 엔터티(사용자, 게시물 등)에 포함될 세부 정보에 대해 자세히 생각하지 않았습니다. 이 단계는 일반적으로 관계형 저장소에 대해 설계할 때 가장 먼저 처리해야 하는 단계 중 하나입니다. 왜냐하면 이러한 엔터티가 테이블, 열, 외래 키 등의 측면에서 어떻게 변환되는지 파악해야 하기 때문입니다. 스키마를 적용하지 않고 쓰는 문서 데이터베이스에 대한 우려는 훨씬 적습니다.
 
-액세스 패턴을 처음부터 파악하는 것이 중요한 주된 이유는 이 요청 목록이 테스트 도구 모음이 되기 때문입니다. 데이터 모델을 반복할 때마다 각 요청을 검토하고 성능과 확장성을 확인합니다. 각 모델에서 사용 되는 요청 단위를 계산 하 고 최적화 합니다. 이러한 모든 모델은 기본 인덱싱 정책을 사용 하 고 특정 속성을 인덱싱하여 재정의할 수 있으며,이를 통해 사용 및 대기 시간을 추가로 향상 시킬 수 있습니다.
+액세스 패턴을 처음부터 파악하는 것이 중요한 주된 이유는 이 요청 목록이 테스트 도구 모음이 되기 때문입니다. 데이터 모델을 반복할 때마다 각 요청을 검토하고 성능과 확장성을 확인합니다. 각 모델에서 사용되는 요청 단위를 계산하고 최적화합니다. 이러한 모든 모델은 기본 인덱싱 정책을 사용하며 특정 속성을 인덱싱하여 이를 재정의할 수 있으므로 RU 사용 및 대기 시간을 더욱 개선할 수 있습니다.
 
 ## <a name="v1-a-first-version"></a>V1: 첫 번째 버전
 
@@ -232,7 +232,7 @@ ms.locfileid: "98185821"
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-Q6.png" alt-text="최근 게시물 검색 및 추가 데이터 집계" border="false":::
 
-다시 한 번, 초기 쿼리는 컨테이너의 파티션 키를 필터링 하지 않으며 `posts` ,이로 인해 비용이 많이 드는 팬이 트리거됩니다. 훨씬 더 큰 결과 집합을 대상으로 하 고 절을 사용 하 여 결과를 정렬 하는 것과 마찬가지로이는 훨씬 더 악화 됩니다 `ORDER BY` . 그러면 요청 단위 측면에서 비용이 더 많이 듭니다.
+다시 한 번, 초기 쿼리는 비용이 많이 드는 팬아웃을 트리거하는 `posts` 컨테이너의 파티션 키를 필터링하지 않습니다. 이것은 훨씬 더 큰 결과 집합을 대상으로 하고 결과를 `ORDER BY` 절을 사용하여 정렬하므로 요청 단위 측면에서 비용이 더 많이 듭니다.
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -247,7 +247,7 @@ ms.locfileid: "98185821"
 
 첫 번째 문제부터 시작하여 각 문제를 해결해 보겠습니다.
 
-## <a name="v2-introducing-denormalization-to-optimize-read-queries"></a>V2: 읽기 쿼리를 최적화 하기 위한 비 정규화 소개
+## <a name="v2-introducing-denormalization-to-optimize-read-queries"></a>V2: 읽기 쿼리 최적화를 위한 비정규화 도입
 
 초기 요청의 결과에 반환해야 하는 데이터가 모두 포함되어 있지 않으므로 경우에 따라 추가 요청을 발급해야 합니다. Azure Cosmos DB와 같은 비관계형 데이터 저장소를 사용하는 경우 이러한 유형의 문제는 일반적으로 데이터 세트에서 데이터를 정규화하여 해결됩니다.
 
@@ -331,7 +331,7 @@ function createComment(postId, comment) {
 - 게시물 대체
 - 새 댓글 추가
 
-저장 프로시저는 원자성 트랜잭션으로 실행 되므로의 값 `commentCount` 과 실제 주석 수는 항상 동기화 된 상태를 유지 합니다.
+저장 프로시저가 원자성 트랜잭션으로 실행되기 때문에 `commentCount` 값과 실제 주석 수는 항상 동기화된 상태로 유지됩니다.
 
 새 좋아요를 추가하여 `likeCount`를 증분시킬 때도 분명히 이와 비슷한 저장 프로시저를 호출합니다.
 
@@ -407,7 +407,7 @@ function updateUsernames(userId, username) {
 | --- | --- | --- |
 | 4ms | 8.92RU | ✅ |
 
-## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: 모든 요청을 확장 가능 하 게 합니다.
+## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: 모든 요청이 확장 가능한지 확인
 
 전반적인 성능 향상을 살펴보면 아직 완전히 최적화되지 않은 **[Q3]** 와 **[Q6]** 의 두 가지 요청이 있습니다. 이는 대상 컨테이너의 파티션 키를 필터링하지 않는 쿼리와 관련된 요청입니다.
 
@@ -415,7 +415,7 @@ function updateUsernames(userId, username) {
 
 이 요청은 이미 V2에서 도입된 향상된 기능의 이점으로 인해 추가 쿼리를 줄일 수 있습니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="사용자의 게시물을 약식으로 나열 하는 쿼리를 보여 주는 다이어그램입니다." border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="짧은 형식으로 사용자의 게시물을 나열하는 쿼리를 보여 주는 다이어그램" border="false":::
 
 그러나 나머지 쿼리에서는 아직 `posts` 컨테이너의 파티션 키를 필터링하지 않습니다.
 
@@ -473,7 +473,7 @@ function updateUsernames(userId, username) {
 
 여기서 비슷한 상황을 처리해야 합니다. V2에 도입된 비정규화에서 남겨진 불필요한 추가 쿼리를 줄인 후에도 나머지 쿼리에서는 컨테이너의 파티션 키를 필터링하지 않습니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="약식으로 만들어진 x 가장 최근 게시물을 나열 하는 쿼리를 보여 주는 다이어그램입니다." border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="짧은 형식으로 작성된 가장 최근 게시물 x개를 나열하는 쿼리를 보여 주는 다이어그램" border="false":::
 
 동일한 접근 방식에 따라 이 요청의 성능과 확장성을 최대화하려면 하나의 파티션만 적중해야 합니다. 이는 제한된 수의 항목만 반환해야 하므로 고려할 수 있습니다. 블로깅 플랫폼의 홈페이지를 채우기 위해 전체 데이터 세트에 대해 페이지를 매길 필요 없이 100개의 최근 게시물을 가져오기만 하면 됩니다.
 
@@ -561,14 +561,14 @@ function truncateFeed() {
 
 | | V1 | V2 | V3 |
 | --- | --- | --- | --- |
-| **C1** | 7ms/5.71RU | 7ms/5.71RU | 7ms/5.71RU |
-| **사분기** | 2ms/1RU | 2ms/1RU | 2ms/1RU |
-| **있다면** | 9ms/8.76RU | 9ms/8.76RU | 9ms/8.76RU |
-| **2** | 9ms/19.54RU | 2ms/1RU | 2ms/1RU |
-| **Q3** | 130ms/619.41RU | 28ms/201.54RU | 4ms/6.46RU |
-| **소모** | 7ms/8.57RU | 7ms/15.27RU | 7ms/15.27RU |
-| **4** | 23ms/27.72RU | 4ms/7.72RU | 4ms/7.72RU |
-| **C4** | 6ms/7.05RU | 7ms/14.67RU | 7ms/14.67RU |
+| **[C1]** | 7ms/5.71RU | 7ms/5.71RU | 7ms/5.71RU |
+| **[Q1]** | 2ms/1RU | 2ms/1RU | 2ms/1RU |
+| **[C2]** | 9ms/8.76RU | 9ms/8.76RU | 9ms/8.76RU |
+| **[Q2]** | 9ms/19.54RU | 2ms/1RU | 2ms/1RU |
+| **[Q3]** | 130ms/619.41RU | 28ms/201.54RU | 4ms/6.46RU |
+| **[C3]** | 7ms/8.57RU | 7ms/15.27RU | 7ms/15.27RU |
+| **[Q4]** | 23ms/27.72RU | 4ms/7.72RU | 4ms/7.72RU |
+| **[C4]** | 6ms/7.05RU | 7ms/14.67RU | 7ms/14.67RU |
 | **[Q5]** | 59ms/58.92RU | 4ms/8.92RU | 4ms/8.92RU |
 | **[Q6]** | 306ms/2063.54RU | 83ms/532.33RU | 9ms/16.97RU |
 
@@ -592,4 +592,4 @@ function truncateFeed() {
 
 - [데이터베이스, 컨테이너 및 항목 작업](account-databases-containers-items.md)
 - [Azure Cosmos DB에서 분할](partitioning-overview.md)
-- [Azure Cosmos DB에서 피드 변경](change-feed.md)
+- [Azure Cosmos DB의 변경 피드](change-feed.md)

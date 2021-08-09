@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB에서 날짜 사용
-description: Azure Cosmos DB에서 DataTime 개체를 저장, 인덱싱 및 쿼리 하는 방법에 대해 알아봅니다.
+description: Azure Cosmos DB에서 DataTime 개체를 저장, 인덱싱, 쿼리하는 방법 알아보기
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 author: SnehaGunda
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ba4d4e63bdd1e795bc1c599d0eae8a595aa0d643
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97359526"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Azure Cosmos DB에서 날짜 사용
@@ -24,9 +24,9 @@ Azure Cosmos DB는 네이티브 [JSON](https://www.json.org) 데이터 모델을
 
 ## <a name="storing-datetimes"></a>날짜/시간 저장
 
-Azure Cosmos DB는-string, number, boolean, null, array, object 등의 JSON 형식을 지원 합니다. DateTime 형식을 직접 지원 하지 않습니다. 현재 Azure Cosmos DB는 날짜 지역화를 지원 하지 않습니다. 따라서 DateTimes를 문자열로 저장 해야 합니다. Azure Cosmos DB의 DateTime 문자열에 권장 되는 형식은 `yyyy-MM-ddTHH:mm:ss.fffffffZ` ISO 8601 UTC 표준을 따릅니다. Azure Cosmos DB의 모든 날짜를 UTC로 저장 하는 것이 좋습니다. 날짜 문자열을이 형식으로 변환 하면 날짜를 사전순으로 정렬할 수 있습니다. 비 UTC 날짜를 저장 한 경우에는 클라이언트 쪽에서 논리를 처리 해야 합니다. 현지 DateTime을 UTC로 변환 하려면 오프셋을 JSON에서 속성으로 인식/저장 해야 하며 클라이언트는이 오프셋을 사용 하 여 UTC 날짜/시간 값을 계산할 수 있습니다.
+Azure Cosmos DB는 문자열, 숫자, 부울, null, 배열, 개체와 같은 JSON 형식을 지원합니다. DateTime 형식은 직접 지원하지 않습니다. 현재 Azure Cosmos DB는 날짜 지역화를 지원하지 않습니다. 따라서 DateTime을 문자열로 저장해야 합니다. Azure Cosmos DB DateTime 문자열에 권장되는 형식은 ISO 8601 UTC 표준에 따른 `yyyy-MM-ddTHH:mm:ss.fffffffZ`입니다. Azure Cosmos DB에는 모든 날짜를 UTC 기준으로 저장하는 것이 좋습니다. 날짜 문자열을 이 형식으로 변환하면 날짜를 사전순으로 정렬할 수 있습니다. UTC 기준이 아닌 날짜가 저장되면 클라이언트 측에서 논리를 처리해야 합니다. 현지 DateTime을 UTC 기준으로 변환하려면 오프셋을 JSON의 속성으로 파악하고 저장해야 하며 클라이언트는 오프셋을 사용하여 UTC DateTime 값을 계산할 수 있습니다.
 
-Datetime 문자열을 필터로 사용 하는 범위 쿼리는 DateTime 문자열이 모두 UTC이 고 길이가 동일한 경우에만 지원 됩니다. Azure Cosmos DB [Getcurrentdatetime](sql-query-getcurrentdatetime.md) 시스템 함수는 현재 UTC 날짜 및 시간 ISO 8601 문자열 값을 형식으로 반환 `yyyy-MM-ddTHH:mm:ss.fffffffZ` 합니다.
+DateTime 문자열이 모두 UTC 기준이고 길이가 동일한 경우에만 DateTime 문자열을 필터로 사용하는 범위 쿼리가 지원됩니다. Azure Cosmos DB에서 [GetCurrentDateTime](sql-query-getcurrentdatetime.md) 시스템 함수는 현재 UTC 날짜 및 시간 ISO 8601 문자열 값을 `yyyy-MM-ddTHH:mm:ss.fffffffZ` 형식으로 반환합니다.
 
 대부분의 애플리케이션에서는 다음과 같은 이유로 DateTime의 기본 문자열 표현을 사용할 수 있습니다.
 
@@ -72,23 +72,23 @@ Datetime 문자열을 필터로 사용 하는 범위 쿼리는 DateTime 문자�
 
 ## <a name="querying-datetimes-in-linq"></a>LINQ에서 날짜/시간 쿼리
 
-SQL .NET SDK는 LINQ를 통해 Azure Cosmos DB에 저장된 데이터의 쿼리를 자동으로 지원합니다. 예를 들어, 다음 코드 조각은 지난 3 일간 배송 된 주문을 필터링 하는 LINQ 쿼리를 보여 줍니다.
+SQL .NET SDK는 LINQ를 통해 Azure Cosmos DB에 저장된 데이터의 쿼리를 자동으로 지원합니다. 예를 들어 다음 코드 조각에서는 지난 3일 동안 배송된 주문을 필터링하는 LINQ 쿼리를 보여 줍니다.
 
 ```csharp
     IQueryable<Order> orders = container.GetItemLinqQueryable<Order>(allowSynchronousQueryExecution: true).Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
 ```
 
-다음 SQL 문으로 변환 되 고 Azure Cosmos DB에서 실행 됩니다.
+다음 SQL 문으로 변환되고 Azure Cosmos DB에서 실행됩니다.
 
 ```sql
     SELECT * FROM root WHERE (root["ShipDate"] >= "2014-09-30T23:14:25.7251173Z")
 ```
 
-[Linq에서 Cosmos DB를 쿼리하면](sql-query-linq-to-sql.md)AZURE COSMOS DB의 SQL 쿼리 언어와 linq 공급자에 대해 자세히 알아볼 수 있습니다.
+[LINQ에서 Cosmos DB 쿼리](sql-query-linq-to-sql.md)에서 Azure Cosmos DB의 SQL 쿼리 언어와 LINQ 공급자에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="indexing-datetimes-for-range-queries"></a>범위 쿼리의 날짜/시간 인덱싱
 
-쿼리는 DateTime 값에 공통적으로 사용 됩니다. 이러한 쿼리를 효율적으로 실행 하려면 쿼리 필터의 모든 속성에 인덱스를 정의 해야 합니다.
+쿼리는 일반적으로 DateTime 값입니다. 쿼리를 효율적으로 실행하려면 쿼리 필터의 속성에 인덱스가 정의되어야 합니다.
 
 [Azure Cosmos DB 인덱싱 정책](index-policy.md)에서 인덱싱 정책을 구성하는 방법에 대해 자세히 알아볼 수 있습니다. 
 

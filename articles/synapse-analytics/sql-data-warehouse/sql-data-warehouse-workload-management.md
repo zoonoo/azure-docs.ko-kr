@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 5640c1e254c4738ab53881544a09808b4894a462
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98676972"
 ---
 # <a name="what-is-workload-management"></a>워크로드 관리란?
@@ -42,7 +42,7 @@ ms.locfileid: "98676972"
 
 예를 들어 임시 사용자 역할 멤버 자격을 smallrc에 부여하면 해당 사용자가 시스템의 메모리를 100% 사용할 수 있습니다.  리소스 클래스를 사용하면 리소스를 예약하고 중요한 워크로드에 사용할 수 있도록 보장할 수 없습니다.
 
-Azure Synapse의 전용 SQL 풀 워크 로드 관리는 [작업 분류](sql-data-warehouse-workload-classification.md), [작업 중요도](sql-data-warehouse-workload-importance.md)및 [워크 로드 격리](sql-data-warehouse-workload-isolation.md)의 세 가지 상위 수준 개념으로 구성 됩니다.  이러한 기능을 통해 워크로드에서 시스템 리소스를 활용하는 방법을 더 효과적으로 제어할 수 있습니다.
+Azure Synapse의 전용 SQL 풀 워크로드 관리는 [워크로드 분류](sql-data-warehouse-workload-classification.md), [워크로드 중요도](sql-data-warehouse-workload-importance.md) 및 [워크로드 격리](sql-data-warehouse-workload-isolation.md)의 세 가지 상위 수준 개념으로 구성됩니다.  이러한 기능을 통해 워크로드에서 시스템 리소스를 활용하는 방법을 더 효과적으로 제어할 수 있습니다.
 
 워크로드 분류는 요청을 워크로드 그룹에 할당하고 중요도 수준을 설정하는 방법에 대한 개념입니다.  지금까지 이 할당은 [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class)를 사용하여 역할 멤버 자격을 통해 수행되었습니다.  이 작업은 이제 [CREATE WORKLOAD CLASSIFER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 통해 수행할 수 있습니다.  분류 기능은 레이블, 세션 및 요청을 분류하는 시간과 같은 다양한 옵션 세트를 제공합니다.
 

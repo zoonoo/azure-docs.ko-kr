@@ -1,31 +1,31 @@
 ---
-title: Azure HDInsight의 Apache Phoenix 보기에서 데이터를 & HDP 업그레이드
-description: HDP 업그레이드를 수행 하면 Azure HDInsight의 Apache Phoenix 보기에서 데이터가 나타나지 않음
+title: HDP 업그레이드로 인해 Azure HDInsight의 Apache Phoenix 보기에 데이터가 나타나지 않음
+description: HDP 업그레이드로 인해 Azure HDInsight의 Apache Phoenix 보기에 데이터가 나타나지 않음
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/08/2019
 ms.openlocfilehash: f68e227e10a85b7e1d98dcabbfb870933059ec04
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98936939"
 ---
 # <a name="scenario-hdp-upgrade-causes-no-data-in-apache-phoenix-views-in-azure-hdinsight"></a>시나리오: HDP 업그레이드로 인해 Azure HDInsight의 Apache Phoenix 보기에서 데이터가 나타나지 않음
 
-이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
+이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 발생하는 문제에 대한 문제 해결 단계 및 가능한 해결 방법을 설명합니다.
 
 ## <a name="issue"></a>문제
 
-HDP 2.4에서 HDP 2.5로 업그레이드 한 후 Apache Phoenix 보기에 날짜가 포함 되지 않습니다.
+HDP 2.4에서 HDP 2.5로 업그레이드하면 Apache Phoenix 보기에 데이터가 포함되지 않습니다.
 
 ## <a name="cause"></a>원인
 
-뷰의 인덱스 테이블 (뷰의 모든 인덱스는 단일 실제 Apache HBase 테이블에 저장 됨)은 업그레이드 하는 동안 잘립니다.
+보기의 인덱스 테이블(보기의 모든 인덱스는 단일 실제 Apache HBase 테이블에 저장됨)은 업그레이드 중에 잘립니다.
 
 ## <a name="resolution"></a>해결 방법
 
-업그레이드 후 모든 뷰 인덱스를 삭제 하 고 다시 만듭니다.
+업그레이드 후 모든 보기 인덱스를 삭제하고 다시 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 

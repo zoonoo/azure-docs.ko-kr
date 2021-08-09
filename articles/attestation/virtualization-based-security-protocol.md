@@ -1,5 +1,5 @@
 ---
-title: Azure 증명에 대 한 VBS (가상화 기반 보안) 프로토콜
+title: Azure Attestation용 VBS(가상화 기반 보안) 프로토콜
 description: VBS 증명 프로토콜
 services: attestation
 author: msmbaldwin
@@ -8,25 +8,25 @@ ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 38012c5b4bb9338c1200d9583256193ee8402c98
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99507916"
 ---
-# <a name="trusted-platform-module-tpm-and-virtualization-based-securityvbs-enclave-attestation-protocol"></a>신뢰할 수 있는 플랫폼 모듈 (TPM) 및 VBS (가상화 기반 보안) enclave 증명 프로토콜 
+# <a name="trusted-platform-module-tpm-and-virtualization-based-securityvbs-enclave-attestation-protocol"></a>TPM(신뢰할 수 있는 플랫폼 모듈) 및 VBS(가상화 기반 보안) enclave 증명 프로토콜 
 
-강력한 보안 보증을 제공 하기 위해 증명을 Microsoft Azure 하는 것은 신뢰 체인을 확인 하는 데 사용 됩니다. 이 Azure 증명을 얻기 위해서는 보안 enclave 신뢰를 설정 하기 전에 컴퓨터의 부팅 상태를 증명 해야 합니다. 운영 체제, 하이퍼바이저 및 보안 커널 이진 파일은 올바른 공식 Microsoft 기관에서 서명 하 고 안전한 방식으로 구성 해야 합니다. 신뢰할 수 있는 플랫폼 모듈 (TPM)와 하이퍼바이저의 상태 간에 신뢰가 신뢰 되 면 측정 된 부팅 로그에 제공 된 VBS (가상화 기반 보안) enclave IDKs를 신뢰할 수 있습니다 .이를 통해 enclave 및 mint에서 키 쌍이 생성 되었는지 유효성을 검사 하 고 해당 키의 트러스트를 바인딩하고 보안 수준 및 부팅 증명 속성과 같은 다른 클레임을 포함 하는 증명 보고서를 수 있습니다. 
+강력한 보안을 보장하는 Microsoft Azure Attestation은 신뢰 루트(TPM)에서 하이퍼바이저 및 보안 커널의 시작에 이르기까지 신뢰 체인이 유지 관리되는지 확인하는 작업을 기반으로 합니다. 이러한 목적을 달성하려면 먼저 Azure Attestation에서 머신의 부팅 상태를 증명해야 보안 enclave에 대한 신뢰를 설정할 수 있습니다. 운영 체제, 하이퍼바이저 및 보안 커널 이진 파일은 올바른 공식 Microsoft 기관의 서명을 받고 안전한 방식으로 구성되어야 합니다. TPM(신뢰할 수 있는 플랫폼 모듈)과 하이퍼바이저 상태 간에 신뢰를 바인딩하면 Measured Boot Log에서 제공되는 VBS(가상화 기반 보안) enclave IDK를 신뢰할 수 있습니다. 이를 통해 키 쌍이 enclave에서 생성된 것임을 확인한 다음, 해당 키에 대한 신뢰를 바인딩하고 보안 수준 및 부팅 증명 속성과 같은 다른 클레임이 포함된 증명 보고서를 발급할 수 있습니다. 
 
-VBS enclaves는 보안 파운데이션의 유효성을 검사 하는 측정을 제공 하는 TPM이 필요 합니다. VBS enclaves는 프로토콜에서 요청 개체를 추가 하 여 TPM 끝점에 의해 증명 된 됩니다. 
+VBS enclave에는 보안 기반의 유효성을 검사하기 위한 측정값을 제공하는 TPM이 있어야 합니다. VBS enclave는 프로토콜의 요청 개체에 더하여 TPM 엔드포인트에서 증명됩니다. 
 
 ## <a name="protocol-messages"></a>프로토콜 메시지
 
-### <a name="init-message"></a>초기화 메시지
+### <a name="init-message"></a>Init message
 
 #### <a name="direction"></a>Direction
 
-클라이언트-> Azure 증명
+클라이언트 -> Azure Attestation
 
 #### <a name="payload"></a>Payload
 
@@ -36,13 +36,13 @@ VBS enclaves는 보안 파운데이션의 유효성을 검사 하는 측정을 �
 } 
 ```
 
-"type" (ASCII string): 요청 된 증명의 형식을 나타냅니다. 현재 "aikcert"만 지원 됩니다.
+“type”(ASCII 문자열): 요청된 증명의 유형을 나타냅니다. 현재는 “aikcert”만 지원됩니다.
 
 ### <a name="challenge-message"></a>챌린지 메시지
 
 #### <a name="direction"></a>Direction
 
-Azure 증명-> 클라이언트
+Azure Attestation -> 클라이언트
 
 #### <a name="payload"></a>Payload
 
@@ -53,16 +53,16 @@ Azure 증명-> 클라이언트
 } 
 ```
 
-**챌린지** (BASE64URL (8 진수)): 서비스에서 발급 된 임의 값입니다.
+**challenge**(BASE64URL(OCTETS)): 서비스에서 발급한 임의의 값입니다.
 
-**service_context** (BASE64URL (8 진수)): 서비스에 의해 생성 된 불투명 컨텍스트입니다.
+**service_context**(BASE64URL(OCTETS)): 서비스에서 만든 불투명 컨텍스트입니다.
 
 
 ### <a name="request-message"></a>메시지 요청
 
 #### <a name="direction"></a>Direction
 
-클라이언트-> Azure 증명 
+클라이언트 -> Azure Attestation 
 
 #### <a name="payload"></a>Payload
 
@@ -72,15 +72,15 @@ Azure 증명-> 클라이언트
 }
 ```
 
-**요청** (jws): 요청은 JWS (JSON 웹 서명) 구조체로 구성 됩니다. JWS 보호 헤더 및 JWS 페이로드가 아래에 표시 됩니다. 모든 JWS 구조에서와 마찬가지로 최종 값은 다음으로 구성 됩니다.
+**request**(JWS): JWS(JSON 웹 서명) 구조로 구성된 요청입니다. JWS 보호 헤더 및 JWS 페이로드는 아래와 같습니다. JWS 구조와 마찬가지로 최종값은 다음과 같이 구성됩니다.
 
-BASE64URL (UTF8 (JWS Protected 헤더)) | | '.' ||
+BASE64URL(UTF8(JWS Protected Header)) || '.' ||
 
-BASE64URL (JWS 페이로드) | | '.' ||
+BASE64URL(JWS Payload) || '.' ||
 
-BASE64URL (JWS 서명)
+BASE64URL(JWS Signature)
 
-##### <a name="jws-protected-header"></a>JWS Protected 헤더
+##### <a name="jws-protected-header"></a>JWS 보호 헤더
 
 ```
 {
@@ -92,9 +92,9 @@ BASE64URL (JWS 서명)
 
 ##### <a name="jws-payload"></a>JWS 페이로드
 
-JWS 페이로드는 basic 또는 VBS 형식일 수 있습니다. 기본은 증명 증명 정보에 VBS 데이터가 포함 되지 않은 경우에 사용 됩니다. 
+JWS 페이로드는 기본 또는 VBS 형식일 수 있습니다. 기본 형식은 증명 증거에 VBS 데이터가 포함되지 않은 경우에 사용됩니다. 
 
-TPM 전용 샘플: 
+TPM만 포함된 경우의 샘플: 
 
 ``` 
 { 
@@ -200,49 +200,49 @@ TPM + VBS enclave 샘플:
 } 
 ``` 
 
-**rp_id** (stringoruri): 신뢰 당사자 식별자입니다. 서비스에서 컴퓨터 ID 클레임을 계산 하는 데 사용 됩니다.
+**rp_id**(StringOrURI): 신뢰 당사자 식별자. 서비스에서 머신 ID 클레임을 계산하는 데 사용됩니다.
 
-**rp_data** (BASE64URL (8 진수)): 신뢰 당사자가 전달한 불투명 데이터입니다. 이는 일반적으로 신뢰 당사자가 보고서의 최신 유효성을 보장 하기 위해 nonce로 사용 됩니다.
+**rp_data**(BASE64URL(OCTETS)): 신뢰 당사자가 전달한 불투명 데이터. 일반적으로 신뢰 당사자에 의해 보고서가 최신 상태임을 보장하는 nonce로 사용됩니다.
 
-**챌린지** (BASE64URL (8 진수)): 서비스에서 발급 한 임의의 값
+**challenge**(BASE64URL(OCTETS)): 서비스에서 발급한 임의의 값
 
-**tpm_att_data**: tpm 관련 증명 데이터
+**tpm_att_data**: TPM 관련 증명 데이터
 
-- **srtm_boot_log (BASE64URL (8 진수))**: 함수 Tbsi_Get_TCG_Log_Ex에 의해 검색 된 srtm 부팅 로그를 log type = TBS_TCGLOG_SRTM_BOOT
+- **srtm_boot_log(BASE64URL(OCTETS))** : 함수 Tbsi_Get_TCG_Log_Ex(로그 유형 = TBS_TCGLOG_SRTM_BOOT)로 검색된 SRTM 부팅 로그
 
-- **srtm_resume_log (BASE64URL (8 진수))**: srtm는 log type =을 (를) 사용 하 여 함수 Tbsi_Get_TCG_Log_Ex에서 검색 한 로그를 다시 시작 TBS_TCGLOG_SRTM_RESUME
+- **srtm_resume_log(BASE64URL(OCTETS))** : 함수 Tbsi_Get_TCG_Log_Ex(로그 유형 = TBS_TCGLOG_SRTM_RESUME)로 검색된 SRTM 계속하기 로그
 
-- **drtm_boot_log (BASE64URL (8 진수))**: 함수 Tbsi_Get_TCG_Log_Ex에 의해 검색 된 drtm 부팅 로그 (log type = TBS_TCGLOG_DRTM_BOOT
+- **drtm_boot_log(BASE64URL(OCTETS))** : 함수 Tbsi_Get_TCG_Log_Ex(로그 유형 = TBS_TCGLOG_DRTM_BOOT)로 검색된 DRTM 부팅 로그
 
-- **drtm_resume_log (BASE64URL (8 진수))**: drtm은 log type =을 (를) 사용 하 여 함수 Tbsi_Get_TCG_Log_Ex에서 검색 한 로그를 다시 시작 TBS_TCGLOG_DRTM_RESUME
+- **drtm_resume_log(BASE64URL(OCTETS))** : 함수 Tbsi_Get_TCG_Log_Ex(로그 유형 = TBS_TCGLOG_DRTM_RESUME)로 검색된 DRTM 계속하기 로그
 
-- **aik_cert (BASE64URL (8 진수))**: 속성 = NCRYPT_CERTIFICATE_PROPERTY를 사용 하 여 NCryptGetProperty 함수에서 반환 된 aik의 x.509 인증서
+- **aik_cert(BASE64URL(OCTETS))** : 함수 NCryptGetProperty(속성 = NCRYPT_CERTIFICATE_PROPERTY)에서 반환한 AIK에 대한 X.509 인증서
 
-- **aik_pub**: JWK (JSON 웹 키) 개체로 표현 된 aik의 공개 부분 (RFC 7517)
+- **aik_pub**: JWK(JSON 웹 키) 개체(RFC 7517)로 표시된 AIK의 퍼블릭 부분
 
-- **current_claim (BASE64URL (8 진수))**: dwclaimtype = NCRYPT_CLAIM_PLATFORM 인 NCryptCreateClaim 함수에서 반환 된 현재 PCR 상태에 대 한 증명 클레임 및 모든 PCRs 포함 하도록 설정 된 매개 변수 NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK. 이 클레임을 계산 하는 데 서비스에서 보낸 챌린지도 사용 해야 합니다.
+- **current_claim(BASE64URL(OCTETS))** : 함수 NCryptCreateClaim(dwClaimType = NCRYPT_CLAIM_PLATFORM) 및 모든 PCR을 포함하도록 설정된 매개 변수 NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK에서 반환한 현재 PCR 상태에 대한 증명 클레임. 서비스에서 보낸 챌린지는 이 클레임의 계산에도 사용해야 합니다.
 
-- **boot_claim (BASE64URL (8 진수))**: dwclaimtype = NCRYPT_CLAIM_PLATFORM를 사용 하 여 함수 NCryptCreateClaim에서 반환 된 PCR 상태에 대 한 증명 클레임 및 모든 PCRs를 포함 하도록 설정 된 매개 변수 NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK
+- **boot_claim(BASE64URL(OCTETS))** : 함수 NCryptCreateClaim(dwClaimType = NCRYPT_CLAIM_PLATFORM) 및 모든 PCR을 포함하도록 설정된 매개 변수 NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK에서 반환한 부팅 시 PCR 상태에 대한 증명 클레임
 
-**vsm_report**   (BASE64URL (8 진수)): EnclaveGetAttestationReport 함수에서 반환 되는 VBS enclave 증명 보고서입니다. EnclaveData 매개 변수는 report_signed 값의 SHA-512 해시 (여는 중괄호 및 닫는 중괄호 포함) 여야 합니다. 해시 함수 입력은 UTF8 (report_signed)입니다.
+**vsm_report** (BASE64URL(OCTETS)): 함수 EnclaveGetAttestationReport에서 반환한 VBS enclave 증명 보고서. EnclaveData 매개 변수는 report_signed 값의 SHA-512 해시여야 합니다(여는 중괄호 및 닫는 중괄호 포함). 해시 함수 입력은 UTF8(report_signed)입니다.
 
-**attest_key**: JWK (JSON 웹 키) 개체로 표시 되는 enclave 키의 공개 부분 (RFC 7517)
+**attest_key**: JWK(JSON 웹 키) 개체(RFC 7517)로 표시되는 enclave 키의 퍼블릭 부분
 
-**custom_claims**: 정책으로 평가할 수 있는 서비스에 전송 되는 사용자 지정 enclave 클레임의 배열입니다. 클레임
+**custom_claims**: 정책으로 평가할 수 있는 서비스에 전송된 사용자 지정 enclave 클레임 서비스의 배열 다음과 같은 클레임 항목이 있습니다.
 
-- **이름 (String)**: 클레임의 이름입니다. 이 이름은 증명 서비스에 의해 결정 되는 url에 추가 되며 (충돌을 방지 하기 위해) 연결 된 문자열은 정책에서 사용할 수 있는 클레임 형식이 됩니다.
+- **name(문자열)** : 클레임의 이름. 이 이름은 증명 서비스에서 결정된 URL에 추가되고(충돌을 방지하기 위해) 연결된 문자열은 정책에서 사용 가능한 클레임 형식이 됩니다.
 
-- **값 (문자열)**: 클레임의 값입니다.
+- **value(문자열)** : 클레임의 값
 
-- **value_type (문자열)**: 클레임 값의 데이터 형식
+- **value_type(문자열)** : 클레임 값의 데이터 형식
 
-**service_context** (BASE64URL (8 진수)): 서비스에 의해 생성 된 불투명 컨텍스트입니다.
+**service_context**(BASE64URL(OCTETS)): 서비스에서 만든 불투명 컨텍스트입니다.
 
 ### <a name="report-message"></a>보고서 메시지
 
 #### <a name="direction"></a>Direction
 
-Azure 증명-> 클라이언트
+Azure Attestation -> 클라이언트
 
 #### <a name="payload"></a>Payload
 
@@ -252,8 +252,8 @@ Azure 증명-> 클라이언트
 }
 ```
 
-**report** (jwt): 증명 보고서 (jwt) 형식의 JSON WEB TOKEN (RFC 7519).
+**report**(JWT): JWT(JSON Web Token) 형식(RFC 7519)의 증명 보고서
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 증명 워크플로](workflow.md)
+- [Azure Attestation 워크플로](workflow.md)

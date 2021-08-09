@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect 제거
-description: 이 문서에서는 Azure AD Connect를 제거 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure AD Connect를 제거하는 방법을 설명합니다.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,34 +12,34 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f5eb537a70c69745c8067ffb71cfb895a0875945
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96934186"
 ---
 # <a name="uninstall-azure-ad-connect"></a>Azure AD Connect 제거
 
-이 문서에서는 Azure AD Connect를 올바르게 제거 하는 방법을 설명 합니다.
+이 문서에서는 Azure AD Connect를 올바르게 제거하는 방법을 설명합니다.
 
 ## <a name="uninstall-azure-ad-connect-from-the-server"></a>서버에서 Azure AD Connect 제거
-가장 먼저 수행 해야 하는 작업은 실행 중인 서버에서 Azure AD Connect를 제거 하는 것입니다.  다음 단계를 사용합니다.
+가장 먼저 해야 할 일은 실행 중인 서버에서 Azure AD Connect를 제거하는 것입니다.  다음 단계를 사용합니다.
 
- 1. Azure AD Connect를 실행 하는 서버에서 **제어판** 으로 이동 합니다.
- 2. **프로그램 제거** 프로그램 제거 
-  ![ 를 클릭 합니다.](media/how-to-connect-uninstall/uninstall-1.png)</br>
+ 1. Azure AD Connect를 실행 중인 서버에서 **제어판** 으로 이동합니다.
+ 2. **프로그램 제거**
+ ![프로그램 제거](media/how-to-connect-uninstall/uninstall-1.png)를 클릭합니다.</br>
  
  3. **Azure AD Connect** 를 선택합니다.
- ![Azure AD Connect 선택](media/how-to-connect-uninstall/uninstall-2.png)</br>
+ ![Azure AD Connect를 선택합니다.](media/how-to-connect-uninstall/uninstall-2.png)</br>
  
- 4. 메시지가 표시 되 면 **예** 를 클릭 하 여 확인 합니다.
- 5. 이 확인은 Azure AD Connect 화면을 표시 합니다.  **제거** 를 클릭합니다.
+ 4. 메시지가 표시되면 **예** 를 클릭하여 확인합니다.
+ 5. 이 확인 작업을 거치면 Azure AD Connect 화면이 나타납니다.  **제거** 를 클릭합니다.
  ![제거](media/how-to-connect-uninstall/uninstall-3.png)</br>
  
- 6. 이 작업이 완료 되 면 **끝내기** 를 클릭 합니다.
+ 6. 이 작업이 완료되면 **끝내기** 를 클릭합니다.
  7. ![종료](media/how-to-connect-uninstall/uninstall-4.png)</br>
  
- 8. **제어판** 으로 돌아가서 **새로 고침** 을 클릭 하면 모든 구성 요소가 제거 됩니다.
+ 8. 다시 **제어판** 으로 돌아가서 **새로 고침** 을 누르고 모든 구성 요소가 제거되었는지 확인합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

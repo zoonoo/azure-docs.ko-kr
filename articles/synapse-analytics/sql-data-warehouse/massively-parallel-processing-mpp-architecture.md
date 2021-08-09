@@ -1,6 +1,6 @@
 ---
-title: 전용 SQL 풀 (이전의 SQL DW) 아키텍처
-description: Azure Synapse Analytics의 전용 SQL 풀 (이전의 SQL DW)에서 분산 쿼리 처리 기능을 Azure Storage와 결합 하 여 고성능 및 확장성을 구현 하는 방법에 대해 알아봅니다.
+title: 전용 SQL 풀(이전 명칭 SQL DW) 아키텍처
+description: Azure Synapse Analytics의 전용 SQL 풀(이전 명칭 SQL DW)이 Azure Storage에 분산 쿼리 처리 기능을 결합하여 고성능 및 높은 스케일링 성능을 달성하는 방법에 대해 알아봅니다.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,15 +11,15 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 0e87451531750e502f67dc30e6fbd26c8c944d22
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98678596"
 ---
-# <a name="dedicated-sql-pool-formerly-sql-dw-architecture-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀 (이전의 SQL DW) 아키텍처
+# <a name="dedicated-sql-pool-formerly-sql-dw-architecture-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀(이전 명칭 SQL DW) 아키텍처
 
-Azure Synapse Analytics는 엔터프라이즈 데이터 웨어하우징과 빅 데이터 분석을 결합한 분석 서비스입니다. 이를 통해 사용자의 용어로 데이터를 자유롭게 쿼리할 수 있습니다.
+Azure Synapse Analytics는 엔터프라이즈 데이터 웨어하우징과 빅 데이터 분석을 결합한 분석 서비스입니다. 원하는 방식으로 데이터를 쿼리할 수 있습니다.
 
 > [!NOTE]
 >[Azure Synapse Analytics 설명서](../overview-what-is.md)를 살펴보세요.
@@ -30,24 +30,24 @@ Azure Synapse Analytics는 엔터프라이즈 데이터 웨어하우징과 빅 �
 
 ## <a name="synapse-sql-architecture-components"></a>Synapse SQL 아키텍처 구성 요소
 
-[전용 sql 풀 (이전의 SQL DW)](sql-data-warehouse-overview-what-is.md) 은 확장 아키텍처를 활용 하 여 여러 노드에 걸친 데이터의 계산 처리를 분산 합니다. 규모 단위는 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)로 알려진 컴퓨팅 능력의 추상화입니다. 시스템 데이터와 독립적으로 컴퓨팅을 확장할 수 있도록 컴퓨팅이 스토리지에서 분리됩니다.
+[전용 SQL 풀(이전 명칭 SQL DW)](sql-data-warehouse-overview-what-is.md)은 스케일 아웃 아키텍처를 활용하여 여러 노드에 걸쳐 데이터의 계산 처리를 분산합니다. 규모 단위는 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)로 알려진 컴퓨팅 능력의 추상화입니다. 시스템 데이터와 독립적으로 컴퓨팅을 확장할 수 있도록 컴퓨팅이 스토리지에서 분리됩니다.
 
-![전용 SQL 풀 (이전의 SQL DW) 아키텍처](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
+![전용 SQL 풀(이전 명칭 SQL DW) 아키텍처](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-전용 SQL 풀 (이전의 SQL DW)은 노드 기반 아키텍처를 사용 합니다. 응용 프로그램은 T-sql 명령을 제어 노드에 연결 하 고이를 실행 합니다. 제어 노드는 병렬 처리를 위한 쿼리를 최적화 하 고 작업을 병렬 작업을 수행 하기 위해 계산 노드에 전달 하는 분산 쿼리 엔진을 호스팅합니다.
+전용 SQL 풀(이전 명칭 SQL DW)은 노드 기반 아키텍처를 사용합니다. 애플리케이션은 제어 노드에 연결하고 T-SQL 명령을 보냅니다. 제어 노드는 병렬 처리를 위해 쿼리를 최적화하는 분산 쿼리 엔진을 호스트한 다음, 연산을 컴퓨팅 노드에 전달하여 병렬로 처리되도록 합니다.
 
 컴퓨팅 노드는 모든 사용자 데이터를 Azure Storage에 저장하고 병렬 쿼리를 실행합니다. DMS(데이터 이동 서비스)는 쿼리를 병렬로 실행하고 정확한 결과를 반환하기 위해 필요할 때 노드에서 데이터를 이동시키는 시스템 수준의 내부 서비스입니다.
 
-분리 된 저장소 및 계산을 사용 하 여 전용 SQL 풀 (이전의 SQL DW)을 사용할 경우 다음을 수행할 수 있습니다.
+분리된 스토리지 및 컴퓨팅을 통해 전용 SQL 풀(이전 명칭 SQL DW)을 사용하면 다음을 수행할 수 있습니다.
 
 - 스토리지 요구 사항에 관계없이 컴퓨팅 능력을 독립적으로 조정합니다.
-- 데이터를 이동 하지 않고 전용 SQL 풀 (이전의 SQL DW) 내에서 계산 능력을 확장 하거나 축소 합니다.
+- 데이터 이동 없이 전용 SQL 풀(이전 명칭 SQL DW) 내에서 컴퓨팅 성능을 늘리거나 줄입니다.
 - 데이터를 그대로 둔 채 컴퓨팅 용량을 일시 중지하여 스토리지 비용만 지불합니다.
 - 운영 시간 동안 컴퓨팅 용량을 다시 시작합니다.
 
 ### <a name="azure-storage"></a>Azure Storage
 
-전용 SQL 풀 SQL (이전의 SQL DW)은 Azure Storage를 활용 하 여 사용자 데이터를 안전 하 게 유지 합니다.  데이터가 Azure Storage에 의해 저장되고 관리되므로 스토리지 사용에 대한 별도 요금이 부과됩니다. 데이터는 시스템의 성능을 최적화하기 위해 **분산** 으로 분할됩니다. 테이블을 정의할 때 데이터 분산에 사용할 분할 패턴을 선택할 수 있습니다. 다음과 같은 분할 패턴이 지원됩니다.
+전용 SQL 풀 SQL(이전 명칭 SQL DW)은 Azure Storage를 활용하여 사용자 데이터를 안전하게 유지합니다.  데이터가 Azure Storage에 의해 저장되고 관리되므로 스토리지 사용에 대한 별도 요금이 부과됩니다. 데이터는 시스템의 성능을 최적화하기 위해 **분산** 으로 분할됩니다. 테이블을 정의할 때 데이터 분산에 사용할 분할 패턴을 선택할 수 있습니다. 다음과 같은 분할 패턴이 지원됩니다.
 
 - Hash
 - 라운드 로빈
@@ -55,13 +55,13 @@ Azure Synapse Analytics는 엔터프라이즈 데이터 웨어하우징과 빅 �
 
 ### <a name="control-node"></a>제어 노드
 
-제어 노드는 아키텍처의 두뇌입니다. 모든 애플리케이션 및 연결과 상호 작용하는 프런트 엔드입니다. 분산 쿼리 엔진은 제어 노드에서 실행 되어 병렬 쿼리를 최적화 하 고 조정 합니다. T-SQL 쿼리를 제출하면 제어 노드는 이것을 각 분산에 대해 병렬로 실행되는 쿼리로 변환합니다.
+제어 노드는 아키텍처의 두뇌입니다. 모든 애플리케이션 및 연결과 상호 작용하는 프런트 엔드입니다. 분산 쿼리 엔진은 제어 노드에서 실행되어 병렬 쿼리를 최적화하고 조정합니다. T-SQL 쿼리를 제출하면 제어 노드는 이것을 각 분산에 대해 병렬로 실행되는 쿼리로 변환합니다.
 
 ### <a name="compute-nodes"></a>컴퓨팅 노드
 
 컴퓨팅 노드는 컴퓨팅 능력을 제공합니다. 분산은 처리를 위해 컴퓨팅 노드로 매핑됩니다. 더 많은 컴퓨팅 리소스에 대한 비용을 지불하는 경우 사용 가능한 컴퓨팅 노드에 분산이 다시 매핑됩니다. 컴퓨팅 노드 수는 1~60 사이이며 Synapse SQL의 서비스 수준에 따라 결정됩니다.
 
-각 컴퓨팅 노드에는 시스템 뷰에 표시되는 노드 ID가 있습니다. 시스템 뷰에서 이름이 sys.pdw_nodes로 시작하는 node_id 열을 검색하여 Compute 노드 ID를 볼 수 있습니다. 이러한 시스템 뷰 목록은 [SYNAPSE SQL system views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조 하세요.
+각 컴퓨팅 노드에는 시스템 뷰에 표시되는 노드 ID가 있습니다. 시스템 뷰에서 이름이 sys.pdw_nodes로 시작하는 node_id 열을 검색하여 Compute 노드 ID를 볼 수 있습니다. 시스템 뷰 목록은 [Synapse SQL 시스템 뷰](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
 
 ### <a name="data-movement-service"></a>데이터 이동 서비스
 
@@ -71,7 +71,7 @@ DMS(데이터 이동 서비스)는 컴퓨팅 노드 간의 데이터 이동을 �
 
 분산은 분산 데이터에 실행되는 병렬 쿼리의 스토리지 및 처리의 기본 단위입니다. Synapse SQL이 쿼리를 실행하면 병렬로 실행되는 60개의 작은 쿼리로 작업이 나뉩니다.
 
-60개의 작은 쿼리는 각각 데이터 분산 중 하나에서 실행됩니다. 각 컴퓨팅 노드는 60개 중 하나 이상의 분산을 관리합니다. 최대 계산 리소스를 포함 하는 전용 SQL 풀 (이전의 SQL DW)에는 Compute 노드당 하나의 분포가 있습니다. 최소 계산 리소스를 포함 하는 전용 SQL 풀 (이전의 SQL DW)에는 하나의 계산 노드에 있는 모든 배포가 있습니다.  
+60개의 작은 쿼리는 각각 데이터 분산 중 하나에서 실행됩니다. 각 컴퓨팅 노드는 60개 중 하나 이상의 분산을 관리합니다. 컴퓨팅 리소스가 최대인 전용 SQL 풀(이전 명칭 SQL DW)은 컴퓨팅 노드당 하나의 분산이 있습니다. 컴퓨팅 리소스가 최소인 전용 SQL 풀(이전 명칭 SQL DW)은 하나의 컴퓨팅 노드에 모든 분산이 있습니다.  
 
 ## <a name="hash-distributed-tables"></a>해시 분산 테이블
 
@@ -107,7 +107,7 @@ DMS(데이터 이동 서비스)는 컴퓨팅 노드 간의 데이터 이동을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Synapse에 대 한 자세한 내용을 배웠으므로 이제 [전용 sql 풀 (이전의 SQL DW)](create-data-warehouse-portal.md) 을 빠르게 만들고 [샘플 데이터를 로드](./load-data-from-azure-blob-storage-using-copy.md)하는 방법을 알아보세요. Azure을 처음 접하는 경우 새 용어를 발견하면 [Azure 용어집](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 을 유용하게 사용할 수 있습니다. 또는 다음과 같은 기타 Azure Synapse 리소스를 살펴봅니다.  
+Azure Synapse에 대한 내용을 파악했으므로 [전용 SQL 풀(이전 명칭 SQL DW) 만들기](create-data-warehouse-portal.md) 및 [샘플 데이터 로드](./load-data-from-azure-blob-storage-using-copy.md) 작업을 빠르게 수행하는 방법을 알아봅니다. Azure을 처음 접하는 경우 새 용어를 발견하면 [Azure 용어집](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 을 유용하게 사용할 수 있습니다. 또는 다음과 같은 기타 Azure Synapse 리소스를 살펴봅니다.  
 
 - [고객 성공 사례](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [블로그](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)

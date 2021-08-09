@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 41a97c639d9148f2bff3e4f530363ea05a65a7b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96018253"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Azure API Management 인스턴스 자동 크기 조정  
@@ -25,7 +25,7 @@ Azure API Management 서비스 인스턴스가 규칙 집합을 기반으로 자
 이 문서는 자동 크기 조정을 구성하는 과정을 안내하고, 최적의 자동 크기 조정 규칙 구성을 제안합니다.
 
 > [!NOTE]
-> **소비** 계층의 API Management 서비스는 추가 구성 없이 트래픽을 기반으로 자동으로 크기를 조정 합니다.
+> **사용** 계층의 API Management 서비스는 추가 구성의 필요 없이 트래픽을 기반으로 자동으로 스케일링합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -84,10 +84,10 @@ Azure API Management 서비스 인스턴스가 규칙 집합을 기반으로 자
     | 연산자              | 보다 큼      |                                                                                                                                                                                                                                                                                 |
     | 임계값             | 80%               | 평균 용량 메트릭에 대한 임계값입니다.                                                                                                                                                                                                                                 |
     | 기간(분) | 30                | 용량 메트릭의 평균을 구하는 시간 간격은 사용 패턴에 따라 다릅니다. 시간이 길어질수록 반응은 더 원활해지며 일시적인 스파이크는 스케일 아웃 결정에 적은 영향을 미칩니다. 그러나 스케일 아웃 트리거는 지연됩니다. |
-    | *작업*              |                   |                                                                                                                                                                                                                                                                                 |
+    | *동작*              |                   |                                                                                                                                                                                                                                                                                 |
     | 작업             | 다음을 기준으로 개수 늘이기 |                                                                                                                                                                                                                                                                                 |
     | 인스턴스 수        | 1                 | 1단위로 Azure API Management 인스턴스를 규모 확장합니다.                                                                                                                                                                                                                          |
-    | 정지 시간(분)   | 60                | Azure API Management 서비스를 확장 하는 데 20 분 이상이 걸립니다. 대부분의 경우에는 60 분의 쿨 다운 기간으로 인해 많은 확장을 트리거할 수 없습니다.                                                                                                  |
+    | 정지 시간(분)   | 60                | Azure API Management 서비스는 스케일링 아웃하는 데 20분 이상이 걸립니다. 대부분의 경우에는 60분의 휴지 기간으로 인해 많은 스케일 아웃을 트리거할 수 없습니다.                                                                                                  |
 
 8. **추가** 를 클릭하여 규칙을 저장합니다.
 
@@ -111,7 +111,7 @@ Azure API Management 서비스 인스턴스가 규칙 집합을 기반으로 자
     | 연산자              | 보다 작음         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | 임계값             | 35%               | 규모 확장 규칙과 마찬가지로 이 값은 Azure API Management의 사용 패턴에 크게 의존합니다. |
     | 기간(분) | 30                | 규모 확장 규칙에 사용한 것과 동일한 값                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-    | *작업*              |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+    | *동작*              |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | 작업             | 다음을 기준으로 개수 줄이기 | 규모 확장 규칙에 사용한 것과 반대입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
     | 인스턴트 수        | 1                 | 규모 확장 규칙에 사용한 것과 동일한 값                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | 정지 시간(분)   | 90                | 규모 감축은 규모 확장보다 더 보수적이므로 정지 기간이 더 길어야 합니다.                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -125,11 +125,11 @@ Azure API Management 서비스 인스턴스가 규칙 집합을 기반으로 자
     > [!NOTE]
     > Azure API Management에는 인스턴스 규모를 확장할 수 있는 단위 제한이 있습니다. 이 제한은 서비스 계층에 따라 달라집니다.
 
-    ![최대 Azure API Management 단위 수를 설정할 위치를 강조 표시 하는 스크린샷](media/api-management-howto-autoscale/07.png)
+    ![최대 Azure API Management 단위 수를 설정할 위치를 강조하는 스크린샷](media/api-management-howto-autoscale/07.png)
 
 13. **저장** 을 클릭합니다. 자동 크기 조정이 구성되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포하는 방법](api-management-howto-deploy-multi-region.md)
-- [클라우드 지출에 맞게 최적화 및 절약](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [클라우드 지출을 최적화하고 비용을 절약](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

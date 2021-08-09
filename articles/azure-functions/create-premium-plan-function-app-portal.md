@@ -1,20 +1,20 @@
 ---
-title: 포털에서 Azure Functions 프리미엄 계획 만들기
-description: Azure Portal를 사용 하 여 프리미엄 계획에서 실행 되는 함수 앱을 만드는 방법에 대해 알아봅니다.
+title: 포털에서 Azure Functions 프리미엄 플랜 만들기
+description: Azure Portal을 사용하여 프리미엄 플랜에서 실행되는 함수 앱을 만드는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 10/30/2020
 ms.openlocfilehash: 9cab67f096665c9333fa40bcb790896fcbebd8d5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98676589"
 ---
-# <a name="create-a-premium-plan-function-app-in-the-azure-portal"></a>Azure Portal에서 프리미엄 계획 함수 앱 만들기
+# <a name="create-a-premium-plan-function-app-in-the-azure-portal"></a>Azure Portal에서 프리미엄 플랜 함수 앱 만들기
 
-Azure Functions는 가상 네트워크 연결, 콜드 부팅 및 프리미엄 하드웨어를 제공 하는 확장 가능한 프리미엄 요금제를 제공 합니다. 자세한 내용은 [Azure Functions Premium 요금제](functions-premium-plan.md)를 참조 하세요. 
+Azure Functions는 가상 네트워크 연결, 콜드 시작 방지, 프리미엄 하드웨어를 제공하는 스케일링 가능한 프리미엄 플랜을 제공합니다. 자세한 정보는 [Azure Functions 프리미엄 플랜](functions-premium-plan.md)을 참조하세요. 
 
-이 문서에서는 Azure Portal를 사용 하 여 프리미엄 계획에서 함수 앱을 만드는 방법에 대해 알아봅니다. 
+이 문서에서는 Azure Portal을 사용하여 프리미엄 플랜에서 함수 앱을 만드는 방법을 알아봅니다. 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -26,7 +26,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]
 
-이제 새 함수 앱에서 함수를 만들 수 있습니다. 이러한 함수는 [프리미엄 계획](functions-premium-plan.md)의 이점을 활용할 수 있습니다.
+이제 새 함수 앱에서 함수를 만들 수 있습니다. 해당 함수는 [프리미엄 플랜](functions-premium-plan.md)의 이점을 활용할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -35,4 +35,4 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [HTTP 트리거된 함수 추가] (./functions-get-started.md
+> [HTTP 트리거된 함수 추가](./functions-get-started.md

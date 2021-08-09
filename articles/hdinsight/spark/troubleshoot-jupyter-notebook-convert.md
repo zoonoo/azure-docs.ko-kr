@@ -1,23 +1,23 @@
 ---
-title: Azure HDInsight에서 Jupyter Notebook를 만들 수 없습니다.
-description: Azure HDInsight 클러스터와 상호 작용 하는 경우 문제 해결 단계 및 가능한 해결 방법에 대해 알아봅니다.
+title: Azure HDInsight에서 Jupyter Notebook를 만들 수 없음
+description: Azure HDInsight 클러스터와 상호 작용하는 경우 문제 해결 단계 및 가능한 해결 방법에 대해 알아봅니다.
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
 ms.openlocfilehash: d5f6612e22522452efb5eecd14c6c825bf29e6d5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98938675"
 ---
-# <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Azure HDInsight에서 Jupyter Notebook를 만들 수 없습니다.
+# <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Azure HDInsight에서 Jupyter Notebook를 만들 수 없음
 
-이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
+이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대한 문제 해결 단계 및 가능한 해결 방법을 설명합니다.
 
 ## <a name="issue"></a>문제
 
-Jupyter Notebook를 시작 하는 경우 다음을 포함 하는 오류 메시지가 표시 됩니다.
+Jupyter Notebook를 시작할 때 다음을 포함하는 오류 메시지를 수신하게 됩니다.
 
 ```error
 Cannot convert notebook to v5 because that version doesn't exist
@@ -25,7 +25,7 @@ Cannot convert notebook to v5 because that version doesn't exist
 
 ## <a name="cause"></a>원인
 
-버전이 일치 하지 않습니다.
+버전이 일치하지 않습니다.
 
 ## <a name="resolution"></a>해결 방법
 
@@ -35,23 +35,23 @@ Cannot convert notebook to v5 because that version doesn't exist
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. `_version.py`다음 명령을 실행 하 여를 엽니다.
+1. 다음 명령을 실행하여 `_version.py`을 시작합니다.
 
     ```bash
     sudo nano /usr/bin/anaconda/lib/python2.7/site-packages/nbformat/_version.py
     ```
 
-1. **5** 를 **4** 로 변경 하 여 수정 된 줄이 다음과 같이 표시 되도록 합니다.
+1. **5** 를 **4** 로 변경하여 수정된 줄이 다음과 같이 표시되도록 합니다.
 
     ```python
     version_info = (4, 0, 3)
     ```
 
-    **Ctrl + X**, **Y**, **Enter** 를 입력 하 여 변경 내용을 저장 합니다.
+    **Ctrl+X**, **Y**, **Enter** 를 입력 하여 변경 내용을 저장합니다.
 
 1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/JUPYTER`로 이동합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 
-1. Jupyter 서비스를 다시 시작 합니다.
+1. Jupyter 서비스를 다시 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

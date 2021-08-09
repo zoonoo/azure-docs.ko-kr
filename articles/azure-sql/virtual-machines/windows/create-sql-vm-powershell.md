@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell를 사용 하 여 Azure VM에서 SQL Server를 프로 비전 하는 가이드
+title: Azure PowerShell을 사용하여 Azure VM에서 SQL Server를 프로비저닝하는 방법 가이드
 description: SQL Server 가상 머신 갤러리 이미지를 사용하여 Azure VM을 만드는 단계 및 PowerShell 명령을 제공합니다.
 services: virtual-machines-windows
 documentationcenter: na
@@ -17,17 +17,17 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: a3f51a07b274320d1cd9f12b33703d8ec7f21f49
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97359662"
 ---
-# <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Azure PowerShell를 사용 하 여 Azure Virtual Machines에서 SQL Server를 프로 비전 하는 방법
+# <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Azure PowerShell을 사용하여 Azure Virtual Machines에서 SQL Server를 프로비저닝하는 방법 가이드
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-이 가이드에서는 PowerShell을 사용 하 여 Azure Virtual Machines (Vm)에서 SQL Server를 프로 비전 하는 옵션을 설명 합니다. 기본값에 의존 하는 간소화 된 Azure PowerShell 예제는 [SQL VM Azure PowerShell 빠른](sql-vm-create-powershell-quickstart.md)시작을 참조 하세요.
+이 가이드에서는 PowerShell을 사용하여 Azure Virtual Machines(VMs)에서 SQL Server를 프로비저닝하는 옵션을 설명합니다. 기본값을 사용하는 간소화된 Azure PowerShell 예제는 [SQL VM Azure PowerShell 빠른 시작](sql-vm-create-powershell-quickstart.md)을 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="location-and-resource-group"></a>위치 및 리소스 그룹
 
-다른 VM 리소스를 만들려는 데이터 영역 및 리소스 그룹을 정의 합니다.
+기타 VM 리소스를 만들 데이터 지역 및 리소스 그룹을 정의합니다.
 
 원하는 대로 수정한 후 다음 cmdlet을 실행하여 이러한 변수를 초기화합니다.
 
@@ -62,7 +62,7 @@ $ResourceGroupName = "sqlvm2"
 
 가상 머신에서 사용할 스토리지 계정 및 스토리지 유형을 정의합니다.
 
-원하는 대로 수정한 후 다음 cmdlet을 실행 하 여 이러한 변수를 초기화 합니다. 프로덕션 워크로드에는 [프리미엄 SSD](../../../virtual-machines/disks-types.md#premium-ssd)를 사용하는 것이 좋습니다.
+원하는 대로 수정한 후 다음 cmdlet을 실행하여 이러한 변수를 초기화합니다. 프로덕션 워크로드에는 [프리미엄 SSD](../../../virtual-machines/disks-types.md#premium-ssd)를 사용하는 것이 좋습니다.
 
 ```powershell
 $StorageName = $ResourceGroupName + "storage"
@@ -96,12 +96,12 @@ $DomainName = $ResourceGroupName
 
 ### <a name="virtual-machine-properties"></a>가상 머신 속성
 
-다음 속성을 정의 합니다.
+다음 속성을 정의합니다.
 
 - 가상 머신 이름
 - 컴퓨터 이름
 - 가상 머신 크기
-- 가상 컴퓨터의 운영 체제 디스크 이름
+- 가상 머신의 운영 체제 디스크 이름
 
 원하는 대로 수정한 후 다음 cmdlet을 실행하여 이러한 변수를 초기화합니다.
 
@@ -116,7 +116,7 @@ $OSDiskName = $VMName + "OSDisk"
 
 다음 변수를 사용하여 가상 머신에 사용할 SQL Server 이미지를 정의합니다. 
 
-1. 먼저 명령을 사용 하 여 모든 SQL Server 이미지 제품을 나열 `Get-AzVMImageOffer` 합니다. 이 명령은 Azure Portal에서 사용할 수 있는 현재 이미지와 PowerShell을 사용 하 여 설치할 수 있는 이전 이미지도 나열 합니다.
+1. 먼저 `Get-AzVMImageOffer` 명령을 사용하여 모든 SQL Server 이미지 제품을 나열합니다. 이 명령은 Azure Portal에서 사용할 수 있는 현재 이미지와 PowerShell을 통해서만 설치할 수 있는 이전 이미지를 나열합니다.
 
    ```powershell
    Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
@@ -154,7 +154,7 @@ New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-가상 머신에 운영 체제 디스크와 SQL Server 데이터 및 로그 파일에 대한 스토리지 리소스가 필요합니다. 간단히 하기 위해 둘 다에 대한 단일 디스크를 만듭니다. SQL Server 데이터와 로그 파일을 전용 디스크에 배치하기 위해 [Add-Azure Disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) cmdlet을 사용하여 나중에 추가 디스크를 연결할 수 있습니다. [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 새 리소스 그룹에 표준 스토리지 계정을 만듭니다. 저장소 계정 이름, 저장소 SKU 이름 및 위치에 대해 이전에 초기화 한 변수를 지정 합니다.
+가상 머신에 운영 체제 디스크와 SQL Server 데이터 및 로그 파일에 대한 스토리지 리소스가 필요합니다. 간단히 하기 위해 둘 다에 대한 단일 디스크를 만듭니다. SQL Server 데이터와 로그 파일을 전용 디스크에 배치하기 위해 [Add-Azure Disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) cmdlet을 사용하여 나중에 추가 디스크를 연결할 수 있습니다. [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 새 리소스 그룹에 표준 스토리지 계정을 만듭니다. 스토리지 계정 이름, 스토리지 SKU 이름 및 위치에 대해 이전에 초기화한 변수를 지정합니다.
 
 다음 cmdlet을 실행하여 새 스토리지 계정을 만듭니다.
 
@@ -219,7 +219,7 @@ $PublicIp = New-AzPublicIpAddress -Name $InterfaceName `
 
 VM 및 SQL Server 트래픽을 보호하려면 네트워크 보안 그룹을 만듭니다.
 
-1. 먼저 rdp 연결을 허용 하는 RDP (원격 데스크톱)에 대 한 네트워크 보안 그룹 규칙을 만듭니다.
+1. 먼저, RDP(원격 데스크톱) 연결을 허용하는 RDP의 네트워크 보안 그룹 규칙을 만듭니다.
 
    ```powershell
    $NsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
@@ -244,7 +244,7 @@ VM 및 SQL Server 트래픽을 보호하려면 네트워크 보안 그룹을 만
 
 ### <a name="create-the-network-interface"></a>네트워크 인터페이스 만들기
 
-이제 가상 머신에 대 한 네트워크 인터페이스를 만들 준비가 되었습니다. [AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) cmdlet을 사용 하 여 새 리소스 그룹에 네트워크 인터페이스를 만듭니다. 이전에 정의한 이름, 위치, 서브넷 및 공용 IP 주소를 지정합니다.
+이제 가상 머신을 위한 네트워크 인터페이스를 만들 수 있습니다. [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) cmdlet을 사용하여 새 리소스 그룹에 네트워크 인터페이스를 만듭니다. 이전에 정의한 이름, 위치, 서브넷 및 공용 IP 주소를 지정합니다.
 
 다음 cmdlet을 실행하여 네트워크 인터페이스를 만듭니다.
 
@@ -278,7 +278,7 @@ $VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize
 
 가상 머신에 대한 운영 체제 속성을 설정하려면 먼저 보안 문자열로 로컬 관리자 계정의 자격 증명을 제공해야 합니다. 이렇게 하려면 [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet을 사용합니다.
 
-다음 cmdlet을 실행합니다. PowerShell 자격 증명 요청 창에 VM의 로컬 관리자 이름과 암호를 입력 해야 합니다.
+다음 cmdlet을 실행합니다. PowerShell 자격 증명 요청 창에 VM의 로컬 관리자 이름 및 암호를 입력해야 합니다.
 
 ```powershell
 $Credential = Get-Credential -Message "Type the name and password of the local administrator account."
@@ -313,7 +313,7 @@ $VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $Interface.Id
 
 ### <a name="set-the-blob-storage-location-for-the-disk-to-be-used-by-the-virtual-machine"></a>가상 머신에서 사용할 디스크에 대한 Blob Storage 위치를 설정합니다.
 
-다음으로, 이전에 정의한 변수를 사용 하 여 VM의 디스크에 대 한 blob 저장소 위치를 설정 합니다.
+다음으로, 이전에 정의한 변수를 사용하여 VM 디스크의 Blob Storage 위치를 설정합니다.
 
 다음 cmdlet을 실행하여 Blob 스토리지 위치를 설정합니다.
 
@@ -368,17 +368,17 @@ New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualM
 
 ## <a name="install-the-sql-iaas-agent"></a>SQL Iaas 에이전트 설치
 
-SQL Server 가상 머신은 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)을 사용하여 자동화된 관리 기능을 지원합니다. 확장을 사용 하 여 SQL Server를 등록 하려면 가상 머신을 만든 후 [AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) 명령을 실행 합니다. SQL Server VM에 맞는 라이선스 유형을 지정하고 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 통해 종량제 또는 BYOL 중 하나를 선택합니다. 라이선스에 대한 자세한 내용은 [라이선스 모델](licensing-model-azure-hybrid-benefit-ahb-change.md)을 참조하세요. 
+SQL Server 가상 머신은 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)을 사용하여 자동화된 관리 기능을 지원합니다. 확장을 통해 SQL Server를 등록하려면 가상 머신을 만든 후 [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) 명령을 실행합니다. SQL Server VM에 맞는 라이선스 유형을 지정하고 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 통해 종량제 또는 BYOL 중 하나를 선택합니다. 라이선스에 대한 자세한 내용은 [라이선스 모델](licensing-model-azure-hybrid-benefit-ahb-change.md)을 참조하세요. 
 
 
    ```powershell
    New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
    ```
 
-확장에 등록 하는 방법에는 다음 세 가지가 있습니다. 
-- [구독에서 모든 현재 및 미래의 Vm에 대해 자동으로](sql-agent-extension-automatic-registration-all-vms.md)
+확장에 등록하는 세 가지 방법이 있습니다. 
+- [구독에서 모든 현재 및 미래의 VM에 대해 자동으로](sql-agent-extension-automatic-registration-all-vms.md)
 - [단일 VM에 대해 수동으로](sql-agent-extension-manually-register-single-vm.md)
-- [대량으로 여러 Vm에 대 한 수동](sql-agent-extension-manually-register-vms-bulk.md)
+- [여러 VM에 대해 수동으로](sql-agent-extension-manually-register-vms-bulk.md)
 
 
 ## <a name="stop-or-remove-a-vm"></a>VM 중지 또는 제거

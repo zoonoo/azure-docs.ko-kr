@@ -1,7 +1,7 @@
 ---
-title: Azure NSG 흐름 로그 시각화-Power BI
+title: Azure NSG 흐름 로그 시각화 - Power BI
 titleSuffix: Azure Network Watcher
-description: Power BI를 사용 하 여 Azure Network Watcher의 IP 트래픽에 대 한 정보를 볼 수 있도록 네트워크 보안 그룹 흐름 로그를 시각화 하는 방법을 알아봅니다.
+description: Azure Network Watcher에서 IP 트래픽에 대한 정보를 볼 수 있도록 Power BI를 사용하여 네트워크 보안 그룹 흐름 로그를 시각화하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: 50f08ffc304962cc66f6eed07adcb5b7e4aa6692
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98011155"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Power BI를 사용하여 네트워크 보안 그룹 흐름 로그 시각화
@@ -42,7 +42,7 @@ ms.locfileid: "98011155"
 
 제공된 템플릿은 편집 가능하므로 사용자는 템플릿을 수정하여 새 데이터와 시각 효과를 추가하거나 본인의 요구 사항에 맞게 쿼리를 편집할 수 있습니다.
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치 프로그램
 
 시작하기 전에 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 흐름 로그를 사용하도록 설정하는 방법에 대한 지침은 [네트워크 보안 그룹에 대한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md) 문서를 참조하세요.
 

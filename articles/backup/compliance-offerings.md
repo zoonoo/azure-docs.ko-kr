@@ -1,20 +1,20 @@
 ---
-title: Azure Backup 준수 제공
-description: Azure Backup에 대 한 준수 제공 요약
+title: Azure Backup 규정 준수 제안
+description: Azure Backup에 대한 규정 준수 제안 요약
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.openlocfilehash: 0b175590bc83ad1cd1f47d0111101b967962f3a8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97093301"
 ---
-# <a name="azure-backup-compliance-offerings"></a>Azure Backup 준수 제공
+# <a name="azure-backup-compliance-offerings"></a>Azure Backup 규정 준수 제안
 
 Microsoft Azure 및 Azure Backup은 조직이 개인 데이터의 수집 및 사용을 규정하는 국가, 지역 및 산업별 요구 사항을 준수할 수 있도록 포괄적인 인증 및 증명 모음을 제공합니다.
 
-Azure Backup 서비스를 사용 하는 경우 서비스를 규제 하는 Azure Backup에 대 한 아래 준수 제품을 찾을 수 있습니다.
+Azure Backup 서비스를 사용하는 경우 서비스를 규제하는 Azure Backup에 대한 규정 준수 제안은 다음과 같습니다.
 
 ## <a name="global"></a>Global
 
@@ -27,7 +27,7 @@ Azure Backup 서비스를 사용 하는 경우 서비스를 규제 하는 Azure 
 * [ISO 27017](/microsoft-365/compliance/offering-iso-27017)
 * [ISO 27018](/microsoft-365/compliance/offering-iso-27018)
 * [ISO 9001](/microsoft-365/compliance/offering-iso-9001)
-* [SOC 1, 2, 3](/microsoft-365/compliance/offering-soc)
+* [SOC 1,2,3](/microsoft-365/compliance/offering-soc)
 
 ## <a name="us-government"></a>미국 정부
 
@@ -48,4 +48,4 @@ Azure Backup 서비스를 사용 하는 경우 서비스를 규제 하는 Azure 
 
 ## <a name="next-steps"></a>다음 단계
 
-[Microsoft TrustCenter](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)의 준수에 대 한 최신 검사 및 세부 정보를 확인 하세요.
+규정 준수에 대한 최신 범위 및 세부 정보는 [Microsoft TrustCenter](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)를 참조하세요.

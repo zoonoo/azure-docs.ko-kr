@@ -4,10 +4,10 @@ description: 프로덕션 워크로드를 처리하기 위한 클러스터를 �
 ms.topic: conceptual
 ms.date: 9/11/2018
 ms.openlocfilehash: 18b8b0ce8c0e877bf9dd274596b19f85b1febe12
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98790955"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Service Fabric 독립 실행형 클러스터 배포 계획 및 준비
@@ -18,7 +18,7 @@ ms.locfileid: "98790955"
 클러스터가 견뎌낼 수 있는 실패의 종류를 결정할 수 있도록 사용자가 “소유한” 컴퓨터에서 Service Fabric 클러스터를 만들려고 합니다. 예를 들어 이러한 컴퓨터를 제공하는 전원 줄 또는 인터넷 연결을 구분해야 하나요? 또한 이러한 컴퓨터의 물리적 보안을 고려합니다. 컴퓨터는 어디에 있으며 누가 액세스해야 하나요? 이러한 결정을 내리면 다양한 장애 도메인에 컴퓨터를 논리적으로 매핑할 수 있습니다(다음 단계 참조). 프로덕션 클러스터에 대한 인프라 계획은 테스트 클러스터보다 더 복잡합니다.
 
 ## <a name="determine-the-number-of-fault-domains-and-upgrade-domains"></a>장애 도메인 및 업그레이드된 도메인의 수 확인
-[FD ( *장애 도메인* )](service-fabric-cluster-resource-manager-cluster-description.md) 는 실패의 물리적 단위 이며 데이터 센터의 물리적 인프라와 직접적으로 관련이 있습니다. 장애 도메인은 실패한 단일 지점이 공유하는 하드웨어 구성 요소(컴퓨터, 스위치, 네트워크 등)로 구성됩니다. 쉽게 말해 장애 도메인과 랙 간에 1:1 매핑이 없지만 각 랙은 장애 도메인으로 간주될 수 있습니다.
+[*FD*(장애 도메인)](service-fabric-cluster-resource-manager-cluster-description.md)은 실패의 물리적 단위이며 데이터 센터의 물리적 인프라에 직접 연관됩니다. 장애 도메인은 실패한 단일 지점이 공유하는 하드웨어 구성 요소(컴퓨터, 스위치, 네트워크 등)로 구성됩니다. 쉽게 말해 장애 도메인과 랙 간에 1:1 매핑이 없지만 각 랙은 장애 도메인으로 간주될 수 있습니다.
 
 FD를 ClusterConfig.json에 지정하는 경우 각 FD의 이름을 선택할 수 있습니다. 서비스 패브릭은 내부에서 인프라 토폴로지를 반영할 수 있도록 계층적 FD를 지원합니다.  예를 들어 다음 FD가 유효합니다.
 
@@ -26,7 +26,7 @@ FD를 ClusterConfig.json에 지정하는 경우 각 FD의 이름을 선택할 �
 * "faultDomain": "fd:/FD1"
 * "faultDomain": "fd:/Room1/Rack1/PDU1/M1"
 
-UD ( *업그레이드 도메인* )는 노드의 논리적 단위입니다. Service Fabric이 업그레이드(애플리케이션 업그레이드 또는 클러스터 업그레이드)를 조정하는 동안 다른 UD의 노드를 요청을 처리하는 데 계속 사용할 수 있도록 업그레이드를 수행하기 위해 UD의 모든 노드를 사용합니다. 컴퓨터에 수행하는 펌웨어 업그레이드는 UD를 인식하지 못하므로 한 번에 하나의 컴퓨터를 수행해야 합니다.
+*UD(업그레이드 도메인)* 는 노드의 논리적 단위입니다. Service Fabric이 업그레이드(애플리케이션 업그레이드 또는 클러스터 업그레이드)를 조정하는 동안 다른 UD의 노드를 요청을 처리하는 데 계속 사용할 수 있도록 업그레이드를 수행하기 위해 UD의 모든 노드를 사용합니다. 컴퓨터에 수행하는 펌웨어 업그레이드는 UD를 인식하지 못하므로 한 번에 하나의 컴퓨터를 수행해야 합니다.
 
 이러한 개념에 대해 생각하는 가장 간단한 방법은 FD를 계획되지 않은 오류의 단위로, UD를 계획된 유지 관리의 단위로 인식하는 것입니다.
 
@@ -49,18 +49,18 @@ FD 및 UD에 대한 자세한 내용은 [Service Fabric 클러스터 설명](ser
 
 ## <a name="prepare-the-machines-that-will-serve-as-nodes"></a>노드의 역할을 하는 컴퓨터 준비
 
-Service Fabric 클러스터의 컴퓨터에 권장 되는 사양은 다음과 같습니다.
+Service Fabric 클러스터의 머신에 권장되는 사양은 다음과 같습니다.
 
 * 최소 16GB의 RAM
 * 최소 40GB의 사용 가능한 디스크 공간
 * 4 코어 이상의 CPU
 * 모든 컴퓨터에 대해 보안 네트워크 또는 네트워크 연결성
-* Windows Server OS가 설치 되었습니다 (유효한 버전: 2012 R2, 2016, 1709 또는 1803). Service Fabric 버전 6.4.654.9590 이상에서는 서버 2019 및 1809도 지원 합니다.
+* Windows Server OS 설치(유효한 버전: 2012 R2, 2016, 1709 또는 1803) Service Fabric 버전 6.4.654.9590 이상에서는 Server 2019 및 1809도 지원합니다.
 * [.NET Framework 4.5.1 이상](https://www.microsoft.com/download/details.aspx?id=40773), 전체 설치
 * [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell)
-* [RemoteRegistry 서비스](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) 는 모든 컴퓨터에서 실행 되어야 합니다.
-* **Service Fabric 설치 드라이브는 NTFS 파일 시스템 이어야 합니다.**
-* **Windows 서비스 *성능 로그 & 경고* 및 *windows 이벤트 로그* 를 [사용 하도록 설정](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))해야** 합니다.
+* [RemoteRegistry 서비스](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11))는 모든 컴퓨터에서 실행되어야 함
+* **Service Fabric 설치 드라이브는 NTFS 파일 시스템이어야 합니다.**
+* **Windows 서비스 *성능 로그와 경고* 및 *Windows 이벤트 로그* 를 [사용하도록 설정](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))해야 합니다**.
 
 > [!IMPORTANT]
 > 클러스터를 배포하고 구성하는 클러스터 관리자는 각 컴퓨터에서 [관리자 권한](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) 이 있어야 합니다. 도메인 컨트롤러에 Service Fabric을 설치할 수 없습니다.
@@ -101,9 +101,9 @@ Service Fabric 클러스터의 컴퓨터에 권장 되는 사양은 다음과 �
 3. 모든 클러스터 노드 컴퓨터는 도메인 컨트롤러여서는 안 됩니다.
 4. 배포되는 클러스터가 보안 클러스터인 경우 필수 보안 구성 요소가 배치되고 구성에 대해 올바르게 구성되어 있는지 유효성을 검사합니다.
 5. 클러스터 컴퓨터를 인터넷에서 액세스할 수 없는 경우 클러스터 구성에서 다음을 설정합니다.
-   * 원격 분석 사용 안 함: *속성* 에서 *"enableTelemetry": false를* 설정 합니다.
-   * 자동 패브릭 버전 & 다운로드를 사용 하지 않도록 설정 하 여 현재 클러스터 버전이 지원 끝에 fabricClusterAutoupgradeEnabled 알림: *속성* 에서 *"": false* 를 설정 합니다.
-   * 또는 네트워크 인터넷 액세스가 allowlisted 도메인으로 제한 된 경우 자동 업그레이드를 위해 아래 도메인이 필요 합니다. go.microsoft.com download.microsoft.com
+   * 원격 분석 사용 안 함: ‘속성’에서 *“enableTelemetry”: false* 설정
+   * 자동 패브릭 버전 다운로드 및 현재 클러스터 버전이 곧 지원 종료된다는 알림 사용 안 함: ‘속성’에서 *“fabricClusterAutoupgradeEnabled”: false* 설정
+   * 또는 네트워크 인터넷 액세스가 허용 목록 도메인으로 제한될 경우 자동 업그레이드를 위해 go.microsoft.com, download.microsoft.com 도메인이 필요합니다.
 
 6. 적절한 Service Fabric 바이러스 백신 예외 설정:
 

@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 45b2ac73ffcb4b777572f9ad62d8aae0e8277e1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f7d69d1bf2bd0c1f3b6b8a3a67a788155f30d73
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95558542"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746903"
 ---
 > [!NOTE]
 > SharePoint RBS용 StorSimple 어댑터 구성을 변경하면, Domain Admins 그룹에 속하는 사용자 계정으로 로그온해야 합니다. 또한 중앙 관리와 같은 호스트에서 실행 되는 브라우저에서 구성 페이지에 액세스해야 합니다.

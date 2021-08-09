@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB 쿼리 언어로 복제
-description: Azure Cosmos DB에서 SQL 시스템 함수 복제에 대해 알아봅니다.
+title: Azure Cosmos DB 쿼리 언어의 REPLICATE
+description: Azure Cosmos DB의 SQL 시스템 함수 REPLICATE에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,13 +9,13 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 7c0f1673c620ceadeb5ccca2a15cc9b7ce8d7685
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93341606"
 ---
-# <a name="replicate-azure-cosmos-db"></a>복제 (Azure Cosmos DB)
+# <a name="replicate-azure-cosmos-db"></a>REPLICATE(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  지정한 횟수만큼 문자열 값을 반복합니다.
@@ -32,7 +32,7 @@ REPLICATE(<str_expr>, <num_expr>)
    문자열 식입니다.
   
 *num_expr*  
-   숫자 식입니다. *Num_expr* 음수 이거나 한정 되지 않은 경우 결과가 정의 되지 않습니다.
+   숫자 식입니다. *num_expr* 이 음수이거나 무한 값이면 결과가 정의되지 않습니다.
   
 ## <a name="return-types"></a>반환 형식
   
@@ -40,11 +40,11 @@ REPLICATE(<str_expr>, <num_expr>)
   
 ## <a name="remarks"></a>설명
 
-  결과의 최대 길이는 1만 자입니다. 예를 들어 (length (*str_expr*) *  *num_expr*) <= 1만입니다. 이 시스템 함수는 인덱스를 활용 하지 않습니다.
+  결과의 최대 길이는 10,000자입니다(length(*str_expr*)  *  *num_expr*) <= 10,000). 이 시스템 함수는 인덱스를 활용하지 않습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
-  다음 예제에서는 쿼리에서를 사용 하는 방법을 보여 줍니다 `REPLICATE` .
+  다음 예제에서는 쿼리에서 `REPLICATE`를 사용하는 방법을 보여 줍니다.
   
 ```sql
 SELECT REPLICATE("a", 3) AS replicate

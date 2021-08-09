@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/01/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3436d29446e963faea9bda47f5a5247b7de7d859
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97912617"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Reliable Services 통신 API를 사용하는 방법
@@ -288,7 +288,7 @@ public class MyCommunicationClient implements CommunicationClient {
 }
 ```
 
-클라이언트 팩터리는 주로 통신 클라이언트를 만드는 작업을 담당합니다. HTTP 클라이언트와 같은 영구 연결을 유지하지 않는 클라이언트의 경우 팩터리는 클라이언트를 만들고 반환해야 합니다. 또한 일부 이진 프로토콜과 같은 영구 연결을 유지 하는 다른 프로토콜은 팩터리를 통해 유효성을 검사 `ValidateClient(string endpoint, MyCommunicationClient client)` 하 여 연결을 다시 만들어야 하는지 여부를 결정 해야 합니다.  
+클라이언트 팩터리는 주로 통신 클라이언트를 만드는 작업을 담당합니다. HTTP 클라이언트와 같은 영구 연결을 유지하지 않는 클라이언트의 경우 팩터리는 클라이언트를 만들고 반환해야 합니다. 또한 일부 이진 프로토콜과 같은 영구 연결을 유지하는 다른 프로토콜은 팩터리를 통해 유효성을 검사(`ValidateClient(string endpoint, MyCommunicationClient client)`)하여 연결을 다시 만들어야 하는지 여부를 결정해야 합니다.  
 
 ```csharp
 public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCommunicationClient>

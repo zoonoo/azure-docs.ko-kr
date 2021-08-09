@@ -1,13 +1,13 @@
 ---
-title: Service Fabric의 응용 프로그램 수명 주기
+title: Service Fabric에서 애플리케이션 수명 주기
 description: 서비스 패브릭 애플리케이션 개발, 배포, 테스트, 업그레이드, 유지 관리 및 제거를 설명합니다.
 ms.topic: conceptual
 ms.date: 1/19/2018
 ms.openlocfilehash: ae0c79cdaafc8fc016d463a01046f0a02121330a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98785738"
 ---
 # <a name="service-fabric-application-lifecycle"></a>서비스 패브릭 애플리케이션 수명 주기
@@ -18,7 +18,7 @@ ms.locfileid: "98785738"
 ## <a name="service-model-roles"></a>서비스 모델 역할
 서비스 모델은 다음과 같습니다.
 
-* **서비스 개발자**: 동일한 형식이 나 다른 형식의 여러 응용 프로그램에서 사용 하 고 사용할 수 있는 모듈식 및 일반 서비스를 개발 합니다. 예를 들어 큐 서비스를 사용하여 발권 애플리케이션(헬프데스크) 또는 전자 상거래 애플리케이션(장바구니)을 만들 수 있습니다.
+* **서비스 개발자**: 유형이 같거나 다른 여러 애플리케이션에서 용도를 변경하고 사용할 수 있는 모듈식 및 일반 서비스를 개발합니다. 예를 들어 큐 서비스를 사용하여 발권 애플리케이션(헬프데스크) 또는 전자 상거래 애플리케이션(장바구니)을 만들 수 있습니다.
 * **애플리케이션 개발자**: 특정 요구 사항 또는 시나리오를 충족하도록 서비스 컬렉션을 통합하여 애플리케이션을 만듭니다. 예를 들어 전자 상거래 웹 사이트에 "JSON 상태 비저장 프런트엔드 서비스", "경매 상태 저장 서비스" 및 "큐 상태 저장 서비스"를 통합하여 경매 솔루션을 빌드합니다.
 * **애플리케이션 관리자**: 애플리케이션 구성(구성 템플릿 매개 변수를 입력), 배포(사용 가능한 리소스에 매핑) 및 서비스의 품질에 대한 결정을 내립니다. 예를 들어 애플리케이션 관리자가 애플리케이션의 언어 로캘을 결정합니다(예: 미국은 영어, 일본은 일본어). 배포된 다른 애플리케이션을 다르게 설정할 수 있습니다.
 * **운영자**: 애플리케이션 관리자가 지정한 애플리케이션 구성 및 요구 사항에 따라 애플리케이션을 배포합니다. 예를 들어 운영자가 애플리케이션을 프로비전 및 배포하고 Azure에서 실행되고 있는지 확인합니다. 운영자는 애플리케이션 상태 및 성능 정보를 모니터링 하고 필요에 따라 실제 인프라를 유지 관리합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "98785738"
 
 이에 대한 예는 [Reliable Actors 시작](service-fabric-reliable-actors-get-started.md) 및 [Reliable Services 시작](service-fabric-reliable-services-quick-start.md)을 참조하세요.
 
-## <a name="deploy"></a>배포
+## <a name="deploy"></a>배포:
 1. *애플리케이션 관리자* 는 애플리케이션 매니페스트에 있는 **ApplicationType** 요소의 매개 변수를 적절하게 지정하여 애플리케이션 유형을 서비스 패브릭 클러스터에 배포할 특정 애플리케이션으로 맞춤화합니다.
 2. *운영자* 는 [**CopyApplicationPackage** 메서드](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient) 또는 [**Copy-ServiceFabricApplicationPackage** cmdlet](/powershell/module/servicefabric/copy-servicefabricapplicationpackage)을 사용하여 애플리케이션 패키지를 클러스터 이미지 저장소에 업로드합니다. 애플리케이션 패키지는 애플리케이션 매니페스트 및 서비스 패키지 컬렉션을 포함합니다. 서비스 패브릭이 이미지 저장소에 저장된 애플리케이션 패키지의 애플리케이션을 배포합니다. ImageStore는 Azure Blob 저장소일 수도 있고 서비스 패브릭 시스템 서비스일 수도 있습니다.
 3. 그런 다음, *운영자* 가 [**ProvisionApplicationAsync** 메서드](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [**Register-ServiceFabricApplicationType** cmdlet](/powershell/module/servicefabric/register-servicefabricapplicationtype) 또는 [**Provision an Application** REST 작업](/rest/api/servicefabric/provision-an-application)을 사용하여 업로드된 애플리케이션 패키지의 대상 클러스터에 애플리케이션 유형을 프로비전합니다.

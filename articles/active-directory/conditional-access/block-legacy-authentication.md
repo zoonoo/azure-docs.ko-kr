@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09f98e3d6c7997d9cae2737b25f4323021e29bfb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: a289d39140b559636378184d10ac8b90557fc3a1
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98892442"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108176057"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>방법: 조건부 액세스를 사용하여 Azure AD에 대한 레거시 인증 차단   
 
 사용자가 클라우드 앱에 쉽게 액세스할 수 있도록 Azure AD(Active Directory)에서 레거시 인증을 포함한 다양한 인증 프로토콜을 지원합니다. 그러나 레거시 프로토콜은 MFA(다단계 인증)를 지원하지 않습니다. MFA는 다양한 환경에서 ID 도용 문제를 해결하기 위한 일반적인 요구 사항입니다. 
 
-Microsoft의 ID 보안 책임자 Alex Weinert의 2020년 3월 12일 블로그 게시물 [조직에서 레거시 인증을 차단할 수 있는 새로운 도구](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#)에서는 조직에서 레거시 인증을 차단해야 하는 이유와 이 작업을 수행할 수 있도록 Microsoft에서 제공하는 추가 도구에 대해 설명합니다.
+Microsoft의 ID 보안 책임자 Alex Weinert의 2020년 3월 12일 블로그 게시물 [조직에서 레거시 인증을 차단할 수 있는 새로운 도구](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#)에서는 조직에서 레거시 인증을 차단해야 하는 이유와 이 작업을 수행할 수 있도록 Microsoft에서 제공하는 기타 도구에 대해 설명합니다.
 
 > MFA를 효과적으로 적용하려면 레거시 인증도 차단해야 합니다. POP, SMTP, IMAP, MAPI 등의 레거시 인증 프로토콜은 MFA를 적용할 수 없기 때문에 조직을 공격하는 악의적 사용자에게 적합한 진입점입니다.
 > 
@@ -33,11 +33,14 @@ Microsoft의 ID 보안 책임자 Alex Weinert의 2020년 3월 12일 블로그 �
 > - 레거시 인증 환경을 사용하지 않도록 설정한 조직의 Azure AD 계정 손상이 레거시 인증을 사용하는 조직보다 67% 더 낮습니다.
 >
 
-환경에서 레거시 인증을 차단하여 테넌트의 보호를 향상시킬 준비가 되면 조건부 액세스를 사용하여 이 목표를 달성할 수 있습니다. 이 문서에서는 테넌트에 대한 레거시 인증을 차단하는 조건부 액세스 정책을 구성하는 방법에 대해 설명합니다.
+환경에서 레거시 인증을 차단하여 테넌트의 보호를 향상시킬 준비가 되면 조건부 액세스를 사용하여 이 목표를 달성할 수 있습니다. 이 문서에서는 테넌트에 대한 레거시 인증을 차단하는 조건부 액세스 정책을 구성하는 방법에 대해 설명합니다. 조건부 액세스가 포함된 라이선스가 없는 고객은 [보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md)을 사용하여 레거시 인증을 차단할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서에서는 사용자가 Azure AD 조건부 액세스의 [기본 개념](overview.md) 을 잘 알고 있다고 가정 합니다.
+이 문서에서는 사용자가 Azure AD 조건부 액세스의 [기본 개념](overview.md)을 잘 알고 있다고 가정합니다.
+
+> [!NOTE]
+> 조건부 액세스 정책은 1단계 인증이 완료된 후에 적용됩니다. 조건부 액세스는 DoS(서비스 거부) 공격과 같은 시나리오에 대한 조직의 최전방 방어선으로 사용하기 위해 개발된 것은 아니지만, 이러한 이벤트의 신호를 사용하여 액세스를 결정할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -46,7 +49,7 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 - 이전 Microsoft Office 앱
 - POP, IMAP 및 SMTP와 같은 메일 프로토콜을 사용하는 앱
 
-요즘에는 단일 단계 인증(예: 사용자 이름 및 암호)만으로도 충분하지 않습니다. 추측하기 쉬운 암호는 적합하지 않으며, 인간이 적합한 암호를 선택하는 데도 서투릅니다. 또한 암호는 피싱 또는 암호 스프레이와 같은 다양한 공격에도 취약합니다. 암호 위협 으로부터 보호 하기 위해 수행할 수 있는 가장 쉬운 작업 중 하나는 MFA (multi-factor authentication)를 구현 하는 것입니다. MFA를 사용하면 공격자가 사용자의 암호를 획득하더라도 암호만으로 데이터를 성공적으로 인증하고 액세스하기에는 충분하지 않습니다.
+요즘에는 단일 단계 인증(예: 사용자 이름 및 암호)만으로도 충분하지 않습니다. 추측하기 쉬운 암호는 적합하지 않으며, 인간이 적합한 암호를 선택하는 데도 서투릅니다. 또한 암호는 피싱 또는 암호 스프레이와 같은 다양한 공격에도 취약합니다. 암호 위협으로부터 보호하기 위해 수행할 수 있는 가장 쉬운 작업 중 하나는 MFA(다단계 인증)를 구현하는 것입니다. MFA를 사용하면 공격자가 사용자의 암호를 획득하더라도 암호만으로 데이터를 성공적으로 인증하고 액세스하기에는 충분하지 않습니다.
 
 레거시 인증을 사용하는 애플리케이션에서 테넌트의 리소스에 액세스하지 못하도록 방지하려면 어떻게 해야 할까요? 단지 조건부 액세스 정책을 사용하여 액세스를 차단하는 것이 좋습니다. 필요한 경우 특정 사용자 및 특정 네트워크 위치만 레거시 인증을 기반으로 하는 애플리케이션을 사용하도록 허용합니다.
 
@@ -60,9 +63,9 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 다음 옵션은 레거시 인증 프로토콜로 간주됩니다.
 
-- 인증 된 SMTP-POP 및 IMAP 클라이언트에서 전자 메일 메시지를 보내는 데 사용 됩니다.
+- 인증된 SMTP - POP 및 IMAP 클라이언트에서 이메일 메시지를 보낼 때 사용합니다.
 - 자동 검색 - Outlook 및 EAS 클라이언트에서 Exchange Online의 사서함을 찾아 연결할 때 사용합니다.
-- EAS (exchange ActiveSync)-Exchange Online의 사서함에 연결 하는 데 사용 됩니다.
+- EAS(EExchange ActiveSync) - Exchange Online의 사서함에 연결하는 데 사용됩니다.
 - Exchange Online PowerShell - 원격 PowerShell을 사용하여 Exchange Online에 연결하는 데 사용됩니다. Exchange Online PowerShell에 대한 기본 인증을 차단하는 경우 Exchange Online PowerShell 모듈을 사용하여 연결해야 합니다. 자세한 내용은 [다단계 인증을 사용하여 Exchange Online PowerShell에 연결](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)을 참조하세요.
 - EWS(Exchange 웹 서비스) - Outlook, Outlook for Mac 및 타사 앱에서 사용하는 프로그래밍 인터페이스입니다.
 - IMAP4 - IMAP 이메일 클라이언트에서 사용합니다.
@@ -82,8 +85,8 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 1. **Azure Portal** > **Azure Active Directory** > **로그인** 으로 이동합니다.
 1. 클라이언트 앱 열이 표시되지 않는 경우 **열** > **클라이언트 앱** 을 클릭하여 추가합니다.
-1. **필터 추가**  >  **클라이언트 앱** > 모든 레거시 인증 프로토콜을 선택 합니다. 필터링 대화 상자 외부를 선택 하 여 선택 항목을 적용 하 고 대화 상자를 닫습니다.
-1. [새 로그인 활동 보고서 미리 보기](../reports-monitoring/concept-all-sign-ins.md)를 활성화 한 경우 **사용자 로그인 (비 대화형)** 탭 에서도 위의 단계를 반복 합니다.
+1. **필터 추가** > **클라이언트 앱** 에서 모든 레거시 인증 프로토콜을 선택합니다. 필터링 대화 상자 외부를 선택하여 선택 항목을 적용하고 대화 상자를 닫습니다.
+1. [새 로그인 활동 보고서 미리 보기](../reports-monitoring/concept-all-sign-ins.md)를 활성화한 경우 **사용자 로그인(비대화형)** 탭에서도 위의 단계를 반복합니다.
 
 필터링은 레거시 인증 프로토콜을 통해 수행된 로그인 시도만 표시합니다. 각 개별 로그인 시도를 클릭하면 추가 세부 정보가 표시됩니다. **기본 정보** 탭의 **클라이언트 앱** 필드는 사용된 레거시 인증 프로토콜을 표시합니다.
 
@@ -91,20 +94,20 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 ## <a name="block-legacy-authentication"></a>레거시 인증 차단 
 
-조건부 액세스 정책을 사용 하 여 레거시 인증을 차단 하는 두 가지 방법이 있습니다.
+조건부 액세스 정책을 사용하여 레거시 인증을 차단하는 두 가지 방법이 있습니다.
 
 - [레거시 인증 직접 차단](#directly-blocking-legacy-authentication)
-- [간접적으로 레거시 인증 차단](#indirectly-blocking-legacy-authentication)
+- [레거시 인증을 간접적으로 차단](#indirectly-blocking-legacy-authentication)
  
 ### <a name="directly-blocking-legacy-authentication"></a>레거시 인증 직접 차단
 
-전체 조직에서 레거시 인증을 차단 하는 가장 쉬운 방법은 레거시 인증 클라이언트에만 적용 되 고 액세스를 차단 하는 조건부 액세스 정책을 구성 하는 것입니다. 사용자 및 응용 프로그램을 정책에 할당 하는 경우 레거시 인증을 사용 하 여 여전히 로그인 해야 하는 사용자 및 서비스 계정을 제외 해야 합니다. **Exchange ActiveSync 클라이언트** 및 **기타 클라이언트** 를 선택 하 여 클라이언트 앱 조건을 구성 합니다. 이러한 클라이언트 앱에 대 한 액세스를 차단 하려면 액세스를 차단 하도록 액세스 제어를 구성 합니다.
+전체 조직에서 레거시 인증을 차단하는 가장 쉬운 방법은 레거시 인증 클라이언트에만 적용되고 액세스를 차단하는 조건부 액세스 정책을 구성하는 것입니다. 사용자 및 애플리케이션을 정책에 할당하는 경우 여전히 레거시 인증을 사용하여 로그인해야 하는 사용자 및 서비스 계정을 제외해야 합니다. **Exchange ActiveSync 클라이언트** 및 **기타 클라이언트** 를 선택하여 클라이언트 앱 조건을 구성합니다. 이러한 클라이언트 앱에 대한 액세스를 차단하려면 액세스를 차단하도록 액세스 제어를 구성합니다.
 
-![레거시 인증을 차단 하도록 구성 된 클라이언트 앱 조건](./media/block-legacy-authentication/client-apps-condition-configured-yes.png)
+![레거시 인증을 차단하도록 구성된 클라이언트 앱 조건](./media/block-legacy-authentication/client-apps-condition-configured-yes.png)
 
-### <a name="indirectly-blocking-legacy-authentication"></a>간접적으로 레거시 인증 차단
+### <a name="indirectly-blocking-legacy-authentication"></a>레거시 인증을 간접적으로 차단
 
-조직이 전체 조직에서 레거시 인증을 차단할 준비가 되지 않은 경우에도 레거시 인증을 사용 하는 로그인은 multi-factor authentication 또는 규격/하이브리드 Azure AD 조인 장치 요구와 같은 부여 제어가 필요한 정책을 무시 하지 않도록 해야 합니다. 인증 하는 동안 레거시 인증 클라이언트는 MFA, 장치 준수 또는 연결 상태 정보를 Azure AD에 전송 하는 기능을 지원 하지 않습니다. 따라서 권한 부여 컨트롤을 충족 시킬 수 없는 레거시 인증 기반 로그인이 차단 되도록 모든 클라이언트 응용 프로그램에 grant 컨트롤이 있는 정책을 적용 합니다. 8 월 2020에 클라이언트 앱 조건의 일반 공급으로 새로 만든 조건부 액세스 정책은 기본적으로 모든 클라이언트 앱에 적용 됩니다.
+조직이 전체 조직에서 레거시 인증을 차단할 준비가 되지 않은 경우에도 레거시 인증을 사용하는 로그인이 다단계 인증 또는 호환/하이브리드 Azure AD 조인 디바이스와 같은 권한 부여 컨트롤이 필요한 정책을 우회하지 않는지 확인해야 합니다. 인증하는 동안 레거시 인증 클라이언트는 MFA, 디바이스 준수 또는 조인 상태 정보를 Azure AD에 전송하는 기능을 지원하지 않습니다. 따라서 권한 부여 컨트롤을 충족시킬 수 없는 레거시 인증 기반 로그인이 차단되도록 모든 클라이언트 애플리케이션에 권한 부여 컨트롤이 있는 정책을 적용합니다. 2020년 8월에 클라이언트 앱 조건의 일반 공급으로 새로 만든 조건부 액세스 정책이 기본적으로 모든 클라이언트 앱에 적용됩니다.
 
 ![클라이언트 앱 조건 기본 구성](./media/block-legacy-authentication/client-apps-condition-configured-no.png)
 
@@ -120,11 +123,11 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 ### <a name="sharepoint-online-and-b2b-guest-users"></a>SharePoint Online 및 B2B 게스트 사용자
 
-레거시 인증을 통해 SharePoint Online에 대 한 B2B 사용자 액세스를 차단 하려면 조직에서 PowerShell 명령을 사용 하 `Set-SPOTenant` 고 매개 변수를로 설정 하 여 sharepoint에서 레거시 인증을 사용 하지 않도록 설정 해야 합니다 `-LegacyAuthProtocolsEnabled` `$false` . 이 매개 변수를 설정 하는 방법에 대 한 자세한 내용은 [set-spotenant](/powershell/module/sharepoint-online/set-spotenant) 에 대 한 SharePoint PowerShell 참조 문서에서 찾을 수 있습니다.
+SharePoint Online에서 레거시 인증을 통한 B2B 사용자 액세스를 차단하려면 조직에서 `Set-SPOTenant` PowerShell 명령을 사용하고 `-LegacyAuthProtocolsEnabled` 매개 변수를 `$false`로 설정하여 SharePoint에서 레거시 인증을 사용하지 않도록 설정해야 합니다. 이 매개 변수 설정에 대한 자세한 내용은 [Set-SPOtenant](/powershell/module/sharepoint-online/set-spotenant)에 관한 SharePoint PowerShell 참조 문서에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [조건부 액세스 보고서 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
 - 조건부 액세스 정책을 구성하는 데 아직 익숙하지 않은 경우 한 가지 예로 [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](../authentication/tutorial-enable-azure-mfa.md)를 참조하세요.
 - 최신 인증 지원에 대한 자세한 내용은 [Office 2013 및 Office 2016 클라이언트 앱에 대한 최신 인증 작동 방식](/office365/enterprise/modern-auth-for-office-2013-and-2016)을 참조하세요. 
-- [Microsoft 365를 사용 하 여 전자 메일을 보내도록 다기능 장치 또는 응용 프로그램을 설정 하는 방법](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
+- [Microsoft 365를 사용하여 이메일을 보내도록 다기능 디바이스 또는 애플리케이션을 설정하는 방법](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)

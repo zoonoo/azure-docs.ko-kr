@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: df31f8538bb9eabeca37fe4c52c4443fd447e415
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98015321"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 검사점 및 재생 개념
@@ -57,7 +57,7 @@ Microsoft는 경우에 따라 Azure 서비스에서 Stream Analytics 작업을 �
 
 3. 시작 시간과 첫 번째 출력이 생성되는 시점 사이의 시간을 측정합니다. 시간은 서비스 업그레이드 중에 작업이 지연되는 시간을 대략적으로 나타냅니다.
 
-4. 지연 시간이 너무 길면 작업을 분할하고 SU 수를 늘려 로드가 더 많은 노드로 분산되도록 합니다. 또는 쿼리에서 창 크기를 줄이고 다운스트림 싱크에서 Stream Analytics 작업에 의해 생성 된 출력에서 추가 집계 또는 기타 상태 저장 처리를 수행 하는 것이 좋습니다 (예: Azure SQL Database 사용).
+4. 지연 시간이 너무 길면 작업을 분할하고 SU 수를 늘려 로드가 더 많은 노드로 분산되도록 합니다. 또는 쿼리의 시간 범위를 줄이고, 다운스트림 싱크(예: Azure SQL Database 사용)의 Stream Analytics 작업에서 생성되는 출력에 대해 추가 집계 또는 다른 상태 저장 처리를 수행하는 것이 좋습니다.
 
 중요 업무용 작업을 업그레이드하는 동안 일반적인 서비스 안정성 문제가 발생하면 쌍을 이루는 Azure 지역에서 중복 작업을 실행하는 것이 좋습니다. 자세한 내용은 [서비스 업데이트 도중 Stream Analytics 작업 안정성 보장](stream-analytics-job-reliability.md)을 참조하세요.
 

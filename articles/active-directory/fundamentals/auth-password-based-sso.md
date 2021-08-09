@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory를 사용 하 여 암호 기반 인증
-description: Azure Active Directory를 사용 하 여 암호 기반 인증을 얻기 위한 아키텍처 지침입니다.
+title: Azure Active Directory를 사용한 암호 기반 인증
+description: Azure Active Directory를 사용한 암호 기반 인증에 대한 아키텍처 지침입니다.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -14,40 +14,40 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5bd6a5c8af117bf6cb39969a5f1b1f17ff08681c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96172825"
 ---
-# <a name="password-based-authentication-with-azure-active-directory"></a>Azure Active Directory를 사용 하 여 암호 기반 인증
+# <a name="password-based-authentication-with-azure-active-directory"></a>Azure Active Directory를 사용한 암호 기반 인증
 
-암호 기반 SSO (Single Sign-On)는 응용 프로그램에 대 한 기존 인증 프로세스를 사용 합니다. 암호 기반 SSO를 사용 하도록 설정 하는 경우 Azure AD (Azure Active Directory)는 디렉터리에 사용자 자격 증명을 수집, 암호화 및 안전 하 게 저장 합니다. Azure AD는 사용자가 로그인을 시도할 때 응용 프로그램에 사용자 이름과 암호를 제공 합니다.
+암호 기반 SSO(Single Sign-On)는 애플리케이션에 대한 기존 인증 프로세스를 사용합니다. 암호 기반 SSO를 사용하도록 설정하는 경우 Azure AD(Azure Active Directory)는 사용자 자격 증명을 수집하고 암호화하여 디렉터리에 안전하게 저장합니다. Azure AD는 사용자가 로그인을 시도할 때 애플리케이션에 사용자 이름과 암호를 제공합니다.
 
-응용 프로그램에서 액세스 토큰 및 헤더 대신 사용자 이름 및 암호를 사용 하 여 인증 하는 경우 암호 기반 SSO를 선택 합니다. 암호 기반 SSO는 HTML 기반 로그인 페이지가 있는 모든 클라우드 기반 응용 프로그램을 지원 합니다. 
+애플리케이션이 액세스 토큰 및 헤더 대신 사용자 이름과 암호를 사용하여 인증할 때 암호 기반 SSO를 선택합니다. 암호 기반 SSO는 HTML 기반 로그인 페이지가 있는 모든 클라우드 기반 애플리케이션을 지원합니다. 
 
 ## <a name="use-when"></a>적용 가능한 상황
 
-사전 인증을 사용 하 여 보호 하 고 웹 앱에 대 한 암호 보관을 통해 SSO를 제공 해야 합니다.
+사전 인증을 사용하여 보호하고 웹앱에 대한 암호 보관을 통해 SSO를 제공해야 합니다.
 
 ![아키텍처 다이어그램](./media/authentication-patterns/password-based-sso-auth.png)
 
 
 ## <a name="components-of-system"></a>시스템의 구성 요소
 
-* **사용자**: 내 앱에서 또는 사이트를 직접 방문 하 여 원본 기반 응용 프로그램에 액세스 합니다. 
+* **사용자**: 내 앱에서 또는 사이트를 직접 방문하여 양식 기반 애플리케이션에 액세스합니다. 
 
-* **웹 브라우저**: 응용 프로그램의 외부 URL에 액세스 하기 위해 사용자가 상호 작용 하는 구성 요소입니다. 사용자는 MyApps 확장을 통해 양식 기반 응용 프로그램에 액세스 합니다. 
+* **웹 브라우저**: 애플리케이션의 외부 URL에 액세스하기 위해 사용자가 상호 작용하는 구성 요소입니다. 사용자는 MyApps 확장을 통해 양식 기반 애플리케이션에 액세스합니다. 
 
-* **Myapps 확장**: 구성 된 암호 기반 SSO 응용 프로그램을 식별 하 고 로그인 양식에 자격 증명을 제공 합니다. MyApps 확장은 웹 브라우저에 설치 됩니다. 
+* **MyApps 확장**: 구성된 암호 기반 SSO 애플리케이션을 식별하고 로그인 양식에 자격 증명을 제공합니다. MyApps 확장은 웹 브라우저에 설치됩니다. 
 
-* **AZURE AD**: 사용자를 인증 합니다.
+* **Azure AD**: 사용자를 인증합니다.
 
-## <a name="implement-password-based-sso-with-azure-ad"></a>Azure AD를 사용 하 여 암호 기반 SSO 구현
+## <a name="implement-password-based-sso-with-azure-ad"></a>Azure AD를 사용하여 암호 기반 SSO 구현
 
-* [암호 기반 SSO 란?](../manage-apps/what-is-single-sign-on.md) 
+* [암호 기반 SSO란?](../manage-apps/what-is-single-sign-on.md) 
 
-* [클라우드 응용 프로그램에 대 한 암호 기반 SSO 구성 ](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
+* [클라우드 애플리케이션용 암호 기반 SSO 구성](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
-* [응용 프로그램 프록시를 사용 하 여 온-프레미스 응용 프로그램에 대 한 암호 기반 SSO 구성](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
+* [애플리케이션 프록시를 사용하여 온-프레미스 애플리케이션용 암호 기반 SSO 구성](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 

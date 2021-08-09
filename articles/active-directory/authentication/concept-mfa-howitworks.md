@@ -1,6 +1,6 @@
 ---
 title: Azure AD Multi-Factor Authentication 개요
-description: 간단한 로그인 프로세스에 대 한 사용자의 요구를 충족 하는 동시에 Azure AD Multi-Factor Authentication 데이터 및 응용 프로그램에 대 한 액세스를 보호 하는 방법을 알아봅니다.
+description: Azure AD Multi-Factor Authentication이 간단한 로그인 프로세스에 대한 사용자 요구를 충족하면서 데이터 및 애플리케이션에 대한 액세스를 보호하는 방법을 알아봅니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1cc5227cb4b5de02cba65a60dd469da93d3767e5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96744060"
 ---
 # <a name="how-it-works-azure-ad-multi-factor-authentication"></a>작동 방법: Azure AD Multi-Factor Authentication
@@ -36,34 +36,34 @@ Azure AD Multi-Factor Authentication은 다음 인증 방법 중 둘 이상을 �
 
 ![로그인 화면에서 사용하는 인증 방법](media/concept-authentication-methods/overview-login.png)
 
-Azure AD Multi-Factor Authentication는 사용자의 편의를 유지 하면서 데이터와 응용 프로그램에 대 한 액세스를 보호 합니다. 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 사용하기 쉬운 다양한 [인증 방법](concept-authentication-methods.md)을 통해 강력한 인증을 제공합니다. 관리자가 결정한 구성에 따라 사용자에게 MFA 챌린지가 표시될 수도 있고 그렇지 않을 수도 있습니다.
+Azure AD Multi-Factor Authentication은 사용자 단순성을 유지하면서 데이터와 애플리케이션에 대한 액세스를 보호할 수 있습니다. 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 사용하기 쉬운 다양한 [인증 방법](concept-authentication-methods.md)을 통해 강력한 인증을 제공합니다. 관리자가 결정한 구성에 따라 사용자에게 MFA 챌린지가 표시될 수도 있고 그렇지 않을 수도 있습니다.
 
-응용 프로그램 또는 서비스에서 Azure AD Multi-Factor Authentication를 사용 하기 위해 변경할 필요가 없습니다. 확인 메시지는 필요한 경우 MFA 챌린지를 자동으로 요청 하 고 처리 하는 Azure AD 로그인 이벤트의 일부입니다.
+Azure AD Multi-Factor Authentication을 사용하기 위해 애플리케이션 또는 서비스를 변경할 필요가 없습니다. 확인 프롬프트는 Azure AD 로그인 이벤트의 일부에서 필요한 경우 MFA 챌린지를 자동으로 요청하고 처리합니다.
 
-## <a name="available-verification-methods"></a>사용 가능한 확인 방법
+## <a name="available-verification-methods"></a>사용 가능한 인증 방법
 
-사용자가 응용 프로그램 또는 서비스에 로그인 하 고 MFA 프롬프트를 수신 하면 등록 된 형태의 추가 확인 중 하나를 선택할 수 있습니다. 관리자는 이러한 Azure AD Multi-Factor Authentication 인증 방법을 등록 해야 하거나 사용자가 자신의 [내 프로필](https://myprofile.microsoft.com) 에 액세스 하 여 인증 방법을 편집 하거나 추가할 수 있습니다.
+사용자가 애플리케이션 또는 서비스에 로그인하고 MFA 프롬프트를 받으면 등록된 추가 인증 형식 중 하나를 선택할 수 있습니다. 관리자는 해당 Azure AD Multi-Factor Authentication 인증 방법을 등록하거나 사용자가 [내 프로필에](https://myprofile.microsoft.com) 액세스하여 인증 방법을 편집하거나 추가할 수 있습니다.
 
-Azure AD Multi-Factor Authentication와 함께 다음과 같은 추가 형태의 확인을 사용할 수 있습니다.
+Azure AD Multi-Factor Authentication에 사용할 수 있는 추가 인증 형식은 다음과 같습니다.
 
 * Microsoft Authenticator 앱
 * OATH 하드웨어 토큰
 * sms
 * 음성 통화
 
-## <a name="how-to-enable-and-use-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication를 사용 하도록 설정 하 고 사용 하는 방법
+## <a name="how-to-enable-and-use-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication을 사용하도록 설정하는 방법
 
-로그인 이벤트 중에 추가 확인을 요청 하기 위해 Azure AD Multi-Factor Authentication에 대해 사용자 및 그룹을 사용 하도록 설정할 수 있습니다. 모든 Azure AD 테 넌 트에서 [보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md) 을 사용 하 여 모든 사용자에 게 Microsoft Authenticator 앱을 신속 하 게 사용할 수 있습니다.
+Azure AD Multi-Factor Authentication에 대해 사용자 및 그룹을 사용하도록 설정하여 로그인 이벤트 중에 추가 인증 메시지를 표시할 수 있습니다. 모든 사용자가 Microsoft Authenticator 앱을 빠르게 사용할 수 있도록 모든 Azure AD 테넌트에 [보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md)을 사용할 수 있습니다.
 
-더 세부적인 제어를 위해 [조건부 액세스](../conditional-access/overview.md) 정책을 사용 하 여 MFA를 요구 하는 이벤트 또는 응용 프로그램을 정의할 수 있습니다. 이러한 정책은 사용자가 회사 네트워크 또는 등록 된 장치에 있는 경우 일반 로그인 이벤트를 허용할 수 있지만, 원격 또는 개인 장치에서 추가 확인 요인을 확인 하는 메시지를 표시 합니다.
+보다 세부적으로 컨트롤하려는 경우 [조건부 액세스](../conditional-access/overview.md) 정책을 사용하여 MFA가 필요한 이벤트 또는 애플리케이션을 정의할 수 있습니다. 해당 정책은 사용자가 회사 네트워크 또는 등록된 디바이스를 사용하는 경우 일반 로그인 이벤트를 허용하지만 원격 또는 개인 디바이스에서는 추가 인증 요소를 요청하는 메시지를 표시할 수 있습니다.
 
 ![조건부 액세스를 적용하여 로그인 프로세스를 보호하는 방법에 대한 개략적인 다이어그램](media/tutorial-enable-azure-mfa/conditional-access-overview.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-라이선스에 대해 알아보려면 [AZURE AD Multi-Factor Authentication의 기능 및 라이선스](concept-mfa-licensing.md)를 참조 하세요.
+라이선스에 대한 자세한 내용은 [Azure AD Multi-Factor Authentication 기능 및 라이선스](concept-mfa-licensing.md)를 참고하세요.
 
-작동 중인 MFA를 보려면 다음 자습서에서 테스트 사용자 집합에 대해 Azure AD Multi-Factor Authentication를 사용 하도록 설정 합니다.
+MFA가 작동하는 모습을 보려면 다음 자습서에서 테스트 사용자 집합에 대해 Azure AD Multi-Factor Authentication을 사용하도록 설정하세요.
 
 > [!div class="nextstepaction"]
 > [Azure AD Multi-Factor Authentication 사용](./tutorial-enable-azure-mfa.md)

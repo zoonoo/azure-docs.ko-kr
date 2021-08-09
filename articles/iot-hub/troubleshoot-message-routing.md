@@ -1,18 +1,18 @@
 ---
 title: Azure IoT 메시지 라우팅 문제 해결
-description: Azure IoT 메시지 라우팅에 대한 문제 해결을 수행하는 방법
+description: Azure IoT Hub 메시지 라우팅에 대한 문제 해결을 수행하는 방법
 author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: asrastog
-ms.openlocfilehash: 3abff5645775d724042acba3ee2461c7cad771a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: daa0b1dd47884b104cc353a7483d71ff7eded2c7
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103149667"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287863"
 ---
 # <a name="troubleshooting-message-routing"></a>메시지 라우팅 문제 해결
 
@@ -59,11 +59,13 @@ REST API [Get Endpoint Health](/rest/api/iothub/iothubresource/getendpointhealth
 
 대체 경로는 기존 경로에서 쿼리 조건을 충족하지 않는 모든 메시지를 [Event Hubs](../event-hubs/index.yml)와 호환되는 [기본 제공 Event Hubs](iot-hub-devguide-messages-read-builtin.md)(messages/events)로 전송합니다. 메시지 라우팅이 설정되어 있으면 대체 경로 기능을 사용하도록 설정할 수 있습니다. 기본 제공 엔드포인트에 대한 경로가 없고 대체(fallback) 경로를 사용할 수 있는 경우 경로의 모든 쿼리 조건을 충족하지 않는 메시지만 기본 제공 엔드포인트로 전송됩니다. 또한 기존 경로가 모두 삭제된 경우에는 대체(fallback) 경로가 기본 제공 엔드포인트에서 모든 데이터를 수신하도록 설정해야 합니다.
 
-대체 경로는 Azure Portal->메시지 라우팅 블레이드에서 사용하도록/사용하지 않도록 설정할 수 있습니다. [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties)에 Azure Resource Manager를 사용하여 대체(fallback) 경로에 대해 사용자 지정 엔드포인트를 사용할 수도 있습니다.
+대체 경로는 기존 경로에서 모든 쿼리 조건을 충족하지 않는 모든 메시지를 [Event Hubs](../event-hubs/index.yml)와 호환되는 [기본 제공 Event Hubs](iot-hub-devguide-messages-read-builtin.md)(messages/events)로 전송합니다. 메시지 라우팅이 설정되어 있으면 대체 경로 기능을 사용하도록 설정할 수 있습니다. 기본 제공 엔드포인트에 대한 경로가 없고 대체(fallback) 경로가 사용하도록 설정된 경우 경로의 모든 쿼리 조건을 충족하지 않는 메시지만 기본 제공 엔드포인트로 전송됩니다. 또한 기존 경로가 모두 삭제된 경우에는 대체(fallback) 경로가 기본 제공 엔드포인트에서 모든 데이터를 수신하도록 설정되어 있어야 합니다.
+
+Azure Portal에서 IoT Hub에 대한 메시지 라우팅 블레이드를 사용하여 대체 경로를 사용 또는 사용 안 함으로 설정할 수 있습니다. [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties)에 Azure Resource Manager를 사용하여 대체(fallback) 경로에 대해 사용자 지정 엔드포인트를 사용할 수도 있습니다.
 
 ## <a name="last-known-errors-for-iot-hub-routing-endpoints"></a>IoT Hub 라우팅 엔드포인트에 대해 마지막으로 알려진 오류
 
-<a id="last-known-errors"></a>
+<a id="last-known-errors"></a>  <!-- why are we using anchors? robin -->
 [!INCLUDE [iot-hub-include-last-known-errors](../../includes/iot-hub-include-last-known-errors.md)]
 
 ## <a name="routes-resource-logs"></a>경로 리소스 로그

@@ -8,29 +8,41 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 07/12/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 63063ef205b456c368cec2d5c1a8ce1f456aaa59
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: f79c9cb7381f2325de2efca5e20b37c60ab72013
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756476"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113652455"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
 Text Analytics API는 지속적으로 업데이트됩니다. 최신 개발 정보를 항상 파악할 수 있게 이 문서에서는 새 릴리스 및 기능 관련 정보를 제공합니다.
 
+## <a name="july-2021"></a>2021년 7월
+
+### <a name="ga-release-updates"></a>GA 릴리스 업데이트
+
+* 컨테이너 및 호스트된 API(/health) 모두에 대한 [Text Analytics for Health](how-tos/text-analytics-for-health.md?tabs=ner) 일반 공급
+* [오피니언 마이닝](how-tos/text-analytics-how-to-sentiment-analysis.md?tabs=version-3-1#opinion-mining) 일반 공급
+* [PII 추출 및 교정](how-tos/text-analytics-how-to-entity-linking.md?tabs=version-3-1#personally-identifiable-information-pii) 일반 공급
+* [비동기(`/analyze`) 엔드포인트](how-tos/text-analytics-how-to-call-api.md?tabs=synchronous#using-the-api-asynchronously) 일반 공급
+* 새 SDK를 사용하여 [빠른 시작](quickstarts/client-libraries-rest-api.md) 예제가 업데이트되었습니다. 
+
 ## <a name="june-2021"></a>2021년 6월
 
 ### <a name="general-api-updates"></a>일반 API 업데이트
 
-* 핵심 구문 추출을 위한 새 모델-버전 `2021-06-01`로, 중국어 간체에 대한 지원을 추가합니다.
+* 변환기를 기반으로 하여 핵심 구를 추출하는 새 모델 버전(`2021-06-01`). 이 콘솔은 다음과 같은 기능을 제공합니다.
+  * 10개 언어(라틴어 및 CJK) 지원 
+  * 향상된 핵심 구 추출
 * 다음을 제공하는 [명명된 엔터티 인식](how-tos/text-analytics-how-to-entity-linking.md) v3.x의 `2021-06-01` 모델 버전 
   * *기술* 엔터티 범주에 대한 AI 품질 개선 및 언어 지원 확대. 
   * *기술* 엔터티 범주에 대한 스페인어, 프랑스어, 독일어, 이탈리아어 및 포르투갈어 지원이 추가되었습니다.
-* 모든 지역에서 상태에 대한 비동기 작업 및 Text Analytics를 사용할 수 있습니다. 
+* 모든 지역에서 비동기(/analyze) 작업 및 Text Analytics for Health(업데이트된 미리 보기)를 사용할 수 있습니다. 
 
 ### <a name="text-analytics-for-health-updates"></a>Text Analytics for Health 업데이트
 
@@ -40,7 +52,7 @@ Text Analytics API는 지속적으로 업데이트됩니다. 최신 개발 정�
     * 14개의 새 관계 유형
     * 새 엔터티 형식에 대해 어설션 검색 확장 및
     * ALLERGEN 엔터티 형식에 대한 연결 지원
-
+* 태그가 `3.0.016230002-onprem-amd64`이고 모델 버전이 `2021-05-15`인 Text Analytics for Health 컨테이너에 대한 새 이미지. 이 컨테이너는 Microsoft Container Registry에서 다운로드할 수 있습니다.
  
 ## <a name="may-2021"></a>2021년 5월
 

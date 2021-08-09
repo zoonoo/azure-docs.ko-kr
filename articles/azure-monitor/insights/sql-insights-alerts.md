@@ -5,15 +5,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2021
-ms.openlocfilehash: 5fe853ee0f7a113bfb8b0511744d9087f67927c4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bb42f74f6ac8487a93479bdf980c66ef87e8e742
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104609905"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726865"
 ---
 # <a name="create-alerts-with-sql-insights-preview"></a>SQL 인사이트를 사용하여 경고 만들기(미리 보기)
 SQL 인사이트에는 일반적인 SQL 문제에 대한 [Azure Monitor 경고 규칙](../alert/../alerts/alerts-overview.md)을 만드는 데 사용할 수 있는 경고 규칙 템플릿 집합이 포함되어 있습니다. SQL 인사이트의 경고 규칙은 Azure Monitor 로그의 *InsightsMetrics* 테이블에 저장된 성능 데이터를 기반으로 하는 로그 경고 규칙입니다.  
+
+> [!NOTE]
+> Resource Manager 템플릿을 사용하여 SQL 통계에 대한 경고를 만들려면 [SQL 통계에 대한 Resource Manager 템플릿 샘플](resource-manager-sql-insights.md#create-an-alert-rule-for-sql-insights)을 참조하세요.
+
 
 > [!NOTE]
 > 더 많은 SQL 인사이트 경고 규칙 템플릿에 대한 요청이 있는 경우 이 페이지의 맨 아래에 있는 링크를 사용하거나 Azure Portal의 SQL 인사이트 피드백 링크를 사용하여 피드백을 보내주세요.

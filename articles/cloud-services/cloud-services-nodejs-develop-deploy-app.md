@@ -9,16 +9,16 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 9889e0e95db84b4dbc5856ba6425f0f303161068
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98741624"
 ---
-# <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service-classic"></a>Azure 클라우드 서비스 (클래식)에 Node.js 응용 프로그램 빌드 및 배포
+# <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service-classic"></a>Azure Cloud Service에 Node.js 애플리케이션 빌드 및 배포(클래식)
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경을 통해 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 클라우드 서비스(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [클라우드 서비스(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 이 자습서에서는 Azure 클라우드 서비스에서 실행되는 간단한 Node.js 애플리케이션을 만드는 방법을 보여줍니다. Cloud Services는 Azure에서 확장 가능한 클라우드 애플리케이션의 구성 요소입니다. 이 클라우드 서비스는 애플리케이션의 프런트 엔드 및 백 엔드 구성 요소의 구분과 독립적인 관리 및 스케일 아웃을 허용합니다.  Cloud Services는 각 역할을 안정적으로 호스팅할 수 있는 강력한 전용 가상 머신을 제공합니다.
 
@@ -33,12 +33,12 @@ Cloud Services에 대한 자세한 내용 및 Azure Websites와 Virtual Machines
 
 ![Hello World 웹 페이지를 표시하는 웹 브라우저][A web browser displaying the Hello World web page]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 > [!NOTE]
 > 이 자습서는 Azure PowerShell을 사용하며,
 
-* [Azure PowerShell]를 설치 하 고 구성 합니다.
-* [.NET 2.7 용 Azure SDK]를 다운로드 하 여 설치 합니다. 설치 설정에서 다음을 선택합니다.
+* [Azure PowerShell]를 설치 및 구성합니다.
+* [Azure SDK for .NET 2.7]을 다운로드 및 설치합니다. 설치 설정에서 다음을 선택합니다.
   * MicrosoftAzureAuthoringTools
   * MicrosoftAzureComputeEmulator
 
@@ -91,7 +91,7 @@ http.createServer(function (req, res) {
 ## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포
 
 > [!NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 하거나 [무료 계정에 등록할](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)수 있습니다.
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)하거나 [무료 계정을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)할 수 있습니다.
 
 ### <a name="download-the-azure-publishing-settings"></a>Azure 게시 설정 다운로드
 애플리케이션을 Azure에 배포하려면 먼저 Azure 구독에 대한 게시 설정을 다운로드해야 합니다.

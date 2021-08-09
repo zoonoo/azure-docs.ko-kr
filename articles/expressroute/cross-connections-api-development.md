@@ -1,6 +1,6 @@
 ---
-title: Azure Express 경로 CrossConnnections API 개발 및 통합
-description: 이 문서에서는 expressRouteCrossConnections 리소스 종류에 대 한 Express 경로 파트너에 대 한 자세한 개요를 제공 합니다.
+title: Azure ExpressRoute CrossConnnections API 개발 및 통합
+description: 이 문서에서는 expressRouteCrossConnections 리소스 종류와 관련한 ExpressRoute 파트너에 대한 자세한 개요를 제공합니다.
 services: expressroute
 author: duongau
 ms.service: expressroute
@@ -8,80 +8,80 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: duau
 ms.openlocfilehash: b80392231dba26a10141dcd8247b092e8171894c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96011985"
 ---
-# <a name="expressroute-crossconnnections-api-development-and-integration"></a>Express 경로 CrossConnnections API 개발 및 통합
+# <a name="expressroute-crossconnnections-api-development-and-integration"></a>ExpressRoute CrossConnnections API 개발 및 통합
 
-Express 경로 파트너 리소스 관리자 API를 사용 하 여 Express 경로 파트너는 고객 Express 회로의 계층 2 및 계층 3 구성을 관리할 수 있습니다. Express 경로 파트너 리소스 관리자 API에는 새 리소스 유형인 **expressRouteCrossConnections** 가 도입 되었습니다. 파트너는이 리소스를 사용 하 여 고객 Express 경로 회로를 관리 합니다.
+ExpressRoute Partner Resource Manager API를 사용하여 ExpressRoute 파트너는 고객 ExpressRoute 회로의 계층 2 및 계층 3 구성을 관리할 수 있습니다. ExpressRoute Partner Resource Manager API에는 새 리소스 종류인 **expressRouteCrossConnections** 가 도입되었습니다. 파트너는 이 리소스를 사용하여 고객 ExpressRoute 회로를 관리합니다.
 
 ## <a name="workflow"></a>워크플로
 
-ExpressRouteCrossConnections 리소스는 Express 경로 회로에 대 한 그림자 리소스입니다. Azure 고객이 Express 경로 회로를 만들고 특정 Express 경로 파트너를 선택 하는 경우 Microsoft는 파트너의 Azure Express 경로 관리 구독에 expressRouteCrossConnections 리소스를 만듭니다. 이렇게 하는 경우 Microsoft는에서 expressRouteCrossConnections 리소스를 만들 리소스 그룹을 정의 합니다. 리소스 그룹에 대 한 명명 표준은 **간 연결-* peeringlocation * * *입니다. 여기서 PeeringLocation = Express 경로 위치입니다. 예를 들어 고객이 덴버에서 Express 경로 회로를 만드는 경우 덴버의 리소스 그룹에서 파트너의 Azure 구독에 **간** 연결이 생성 됩니다.
+expressRouteCrossConnections 리소스는 ExpressRoute 회로에 대한 섀도 리소스입니다. Azure 고객이 ExpressRoute 회로를 만들고 특정 ExpressRoute 파트너를 선택하는 경우 Microsoft는 파트너의 Azure ExpressRoute 관리 구독에 expressRouteCrossConnections 리소스를 만듭니다. 이 과정에서 Microsoft에서는 expressRouteCrossConnections 리소스를 만들 리소스 그룹을 정의합니다. 리소스 그룹에 대한 명명 표준은 **CrossConnection-* PeeringLocation***입니다. 여기서 PeeringLocation = ExpressRoute 위치입니다. 예를 들어 고객이 덴버에서 ExpressRoute 회로를 만드는 경우 다음 리소스 그룹 **CrossConnnection-Denver** 에서 파트너의 Azure 구독에 CrossConnection이 생성됩니다.
 
-Express 경로 파트너는 expressRouteCrossConnections 리소스에 대해 REST 작업을 실행 하 여 계층 2 및 계층 3 구성을 관리 합니다.
+ExpressRoute 파트너는 expressRouteCrossConnections 리소스에 대해 REST 작업을 발급하여 계층 2 및 계층 3 구성을 관리합니다.
 
 ## <a name="benefits"></a>이점
 
-ExpressRouteCrossConnections 리소스로 이동할 경우의 이점:
+expressRouteCrossConnections 리소스로 이동할 경우의 이점:
 
-* Express 경로 파트너에 대 한 향후 개선 사항은 ExpressRouteCrossConnection 리소스에서 제공 될 예정입니다.
+* ExpressRoute 파트너에 대한 향후 개선 사항은 ExpressRouteCrossConnection 리소스에서 제공될 예정입니다.
 
-* 파트너는 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md) 를 expressRouteCrossConnection 리소스에 적용할 수 있습니다. 이러한 컨트롤은 사용자 계정에서 expressRouteCrossConnection 리소스를 수정 하 고 피어 링 구성을 추가/업데이트/삭제할 수 있는 권한을 정의할 수 있습니다.
+* 파트너는 [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 expressRouteCrossConnection 리소스에 적용할 수 있습니다. 이러한 컨트롤은 계정에서 expressRouteCrossConnection 리소스를 수정하고 피어링 구성을 추가/업데이트/삭제할 수 있는 사용자에 대한 권한을 정의할 수 있습니다.
 
-* ExpressRouteCrossConnection 리소스는 Express 경로 연결 문제를 해결 하는 데 도움이 될 수 있는 Api를 노출 합니다. 여기에는 ARP 테이블, BGP 경로 테이블 요약 및 BGP 경로 테이블 정보가 포함 됩니다. 이 기능은 클래식 배포 Api에서 지원 되지 않습니다.
+* expressRouteCrossConnection 리소스는 ExpressRoute 연결 문제를 해결하는 데 도움이 될 수 있는 API를 노출합니다. 여기에는 ARP 테이블, BGP 경로 테이블 요약 및 BGP 경로 테이블 세부 정보가 포함됩니다. 이 기능은 클래식 배포 API에서 지원되지 않습니다.
 
-* 파트너는 *RouteFilter* 리소스를 사용 하 여 Microsoft 피어 링에서 보급 된 커뮤니티를 조회할 수도 있습니다.
+* 파트너는 *RouteFilter* 리소스를 사용하여 Microsoft 피어링에 보급된 커뮤니티를 조회할 수도 있습니다.
 
 ## <a name="api-development-and-integration-steps"></a>API 개발 및 통합 단계
 
-파트너 API에 대해 개발 하기 위해 Express 경로 파트너는 테스트 고객 및 테스트 파트너 설정을 활용 합니다. 테스트 고객 설치 프로그램은 더미 장치 및 포트에 매핑되는 테스트 피어 링 위치에서 Express 경로 회로를 만드는 데 사용 됩니다. 테스트 파트너 설치는 테스트 피어 링 위치에 생성 된 Express 경로 회로를 관리 하는 데 사용 됩니다.
+파트너 API에 대해 개발하기 위해 ExpressRoute 파트너는 테스트 고객 및 테스트 파트너 설정을 활용합니다. 테스트 고객 설정은 더미 디바이스 및 포트에 매핑되는 테스트 피어링 위치에서 ExpressRoute 회로를 만드는 데 사용됩니다. 테스트 파트너 설정은 테스트 피어링 위치에서 만든 ExpressRoute 회로를 관리하는 데 사용됩니다.
 
-### <a name="1-enlist-subscriptions"></a>1. 구독 참여
+### <a name="1-enlist-subscriptions"></a>1. 구독 등록
 
-테스트 파트너를 요청 하 고 고객 설정을 테스트 하려면 Express 경로 엔지니어링 담당자에 게 두 개의 종 량 제 Azure 구독을 등록 합니다.
-* **ExpressRoute_API_Dev_Provider_Sub:** 이 구독은 더미 장치 및 포트에서 테스트 피어 링 위치에 생성 되는 Express 경로 회로를 관리 하는 데 사용 됩니다.
+테스트 파트너 및 테스트 고객 설정을 요청하려면 ExpressRoute 엔지니어링 담당자에게 두 개의 종량제 Azure 구독을 등록합니다.
+* **ExpressRoute_API_Dev_Provider_Sub:** 이 구독은 더미 디바이스 및 포트의 테스트 피어링 위치에서 만든 ExpressRoute 회로를 관리하는 데 사용됩니다.
 
-* **ExpressRoute_API_Dev_Customer_Sub:** 이 구독은 더미 장치 및 포트에 매핑되는 테스트 피어 링 위치에서 Express 경로 회로를 만드는 데 사용 됩니다.
+* **ExpressRoute_API_Dev_Customer_Sub:** 이 구독은 더미 디바이스 및 포트에 매핑되는 테스트 피어링 위치에서 ExpressRoute 회로를 만드는 데 사용됩니다.
 
-테스트 피어 링 위치: 더미 장치 및 포트는 기본적으로 프로덕션 고객에 게 노출 되지 않습니다. 테스트 설정에 매핑되는 Express 경로 회로를 만들려면 구독 기능 플래그를 사용 하도록 설정 해야 합니다.
+테스트 피어링 위치: 더미 디바이스 및 포트는 기본적으로 프로덕션 고객에게 노출되지 않습니다. 테스트 설정에 매핑되는 ExpressRoute 회로를 만들려면 구독 기능 플래그를 사용하도록 설정해야 합니다.
 
-### <a name="2-register-the-dev_provider-subscription-to-access-the-expressroutecrossconnections-api"></a>2. expressRouteCrossConnections API에 액세스 하는 Dev_Provider 구독 등록
+### <a name="2-register-the-dev_provider-subscription-to-access-the-expressroutecrossconnections-api"></a>2. Dev_Provider 구독을 등록하여 expressRouteCrossConnections API에 액세스
 
-ExpressRouteCrossConnections API에 액세스 하려면 파트너 구독을 **Microsoft 네트워크 리소스 공급자** 에 등록 해야 합니다. [Azure 리소스 공급자 및 유형](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) 문서의 단계에 따라 등록 프로세스를 완료 합니다.
+expressRouteCrossConnections API에 액세스하려면 파트너 구독을 **Microsoft.Network 리소스 공급자** 에 등록해야 합니다. [Azure 리소스 공급자 및 종류](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) 문서의 단계에 따라 등록 프로세스를 완료합니다.
 
-### <a name="3-set-up-authentication-for-azure-resource-manager-rest-api-calls"></a>3. Azure Resource Manager REST API 호출에 대 한 인증 설정
+### <a name="3-set-up-authentication-for-azure-resource-manager-rest-api-calls"></a>3. Azure Resource Manager REST API 호출에 대한 인증 설정
 
-대부분의 Azure 서비스는 서비스 Api를 호출 하기 전에 유효한 자격 증명을 사용 하 여 리소스 관리자 인증 하는 클라이언트 코드를 요구 합니다. 인증은 Azure AD의 다양 한 행위자 간에 조정 되며 인증 증명으로 클라이언트에 액세스 토큰을 제공 합니다.
+대부분의 Azure 서비스는 서비스 API를 호출하기 전에 유효한 자격 증명을 사용하여 Resource Manager에 인증하는 클라이언트 코드가 필요합니다. 인증은 Azure AD의 다양한 행위자 간에 조정되며 인증 증명으로 클라이언트에 액세스 토큰을 제공합니다.
 
-인증 프로세스에는 두 가지 주요 단계가 포함 됩니다.
+인증 프로세스에는 두 가지 주요 단계가 포함됩니다.
 
 1. [클라이언트를 등록](/rest/api/azure/#register-your-client-application-with-azure-ad)합니다.
 2. [액세스 요청을 만듭니다](/rest/api/azure/#create-the-request).
 
-### <a name="4-provide-network-contributor-permission-to-the-client-application"></a>4. 클라이언트 응용 프로그램에 대 한 네트워크 참가자 권한 제공
+### <a name="4-provide-network-contributor-permission-to-the-client-application"></a>4. 클라이언트 애플리케이션에 대한 네트워크 기여자 권한 제공
 
-인증이 성공적으로 구성 되 면 Dev_Provider_Sub에서 클라이언트 응용 프로그램에 대 한 네트워크 참가자 액세스 권한을 부여 해야 합니다. 사용 권한을 부여 하려면 [Azure Portal](https://ms.portal.azure.com/#home) 에 로그인 하 고 다음 단계를 완료 합니다.
+인증이 구성되면 Dev_Provider_Sub에서 클라이언트 애플리케이션에 대한 네트워크 기여자 액세스 권한을 부여해야 합니다. 사용 권한을 부여하려면 [Azure Portal](https://ms.portal.azure.com/#home)에 로그인하고 다음 단계를 완료합니다.
 
-1. 구독으로 이동 하 여 Dev_Provider_Sub을 선택 합니다.
-2. Access Control (IAM)로 이동 합니다.
-3. 역할 할당 추가
-4. 네트워크 참가자 역할을 선택 합니다.
-5. Azure AD 사용자, 그룹 또는 서비스 주체에 대 한 액세스 할당
-6. 클라이언트 응용 프로그램 선택
+1. 구독으로 이동하고 Dev_Provider_Sub을 선택합니다.
+2. 엑세스 제어(IAM)로 이동합니다.
+3. 역할 할당을 추가합니다.
+4. 네트워크 기여자 역할을 선택합니다.
+5. Azure AD 사용자, 그룹 또는 서비스 주체에 대한 액세스를 할당합니다.
+6. 클라이언트 애플리케이션을 선택합니다.
 7. 변경 내용 저장
 
 ### <a name="5-develop"></a>5. 개발
 
-[EXPRESSROUTECROSSCONNECTIONS API](/rest/api/expressroute/expressroutecrossconnections)에 대해 개발 합니다.
+[expressRouteCrossConnections API](/rest/api/expressroute/expressroutecrossconnections)를 기반으로 하여 개발합니다.
 
 ## <a name="rest-api"></a>REST API
 
-REST API 설명서 [REST API express 경로 연결](/rest/api/expressroute/expressroutecrossconnections) 을 참조 하세요.
+REST API 설명서의 [ExpressRoute CrossConnections REST API](/rest/api/expressroute/expressroutecrossconnections)를 참고하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-모든 Express 경로 REST Api에 대 한 자세한 내용은 [express 경로 Rest api](/rest/api/expressroute/)를 참조 하세요.
+모든 ExpressRoute REST API에 대한 자세한 내용은 [ExpressRoute REST API](/rest/api/expressroute/)를 참고하세요.

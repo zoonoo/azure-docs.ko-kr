@@ -8,10 +8,10 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.openlocfilehash: e1b175a176255da465433b2db45cb3cb67d360d1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98934508"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Azure IoT DPS IP 연결 필터 사용
@@ -58,7 +58,7 @@ IP 필터 규칙을 추가하려면 **+ IP 필터 규칙 추가** 를 선택합�
 
 ![IP 필터 규칙 저장에 대한 알림](./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png)
 
-최대 100 IP 필터 규칙에 도달 하면 **추가** 옵션을 사용할 수 없습니다.
+최대 100개의 IP 필터 규칙에 도달하면 **추가** 옵션이 사용하지 않도록 설정됩니다.
 
 기존 규칙을 편집하려면 변경하려는 데이터를 선택하고 변경 내용을 적용한 다음, **저장** 을 선택하여 편집 내용을 저장합니다.
 
@@ -135,7 +135,7 @@ DPS IP 필터 규칙 업데이트는 현재 Azure CLI 또는 Azure PowerShell에
 
 | attribute                | Description |
 | ------------------------ | ----------- |
-| **FilterName**           | IP 필터 규칙의 이름을 제공합니다. 이름은 최대 128자 길이의 대/소문자를 구분하는 고유한 영숫자 문자열이어야 합니다. ASCII 7 비트 영숫자 문자만  `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`   사용할 수 있습니다. |
+| **FilterName**           | IP 필터 규칙의 이름을 제공합니다. 이름은 최대 128자 길이의 대/소문자를 구분하는 고유한 영숫자 문자열이어야 합니다. ASCII 7비트 영숫자 및  `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` 만 허용됩니다. |
 | **동작**               | 허용되는 값은 IP 필터 규칙에 대한 작업으로 **수락**  또는  **거부** 입니다. |
 | **ipMask**               | 단일 IPv4 주소 또는 CIDR 표기법으로 IP 주소 블록을 제공합니다. 예를 들어 CIDR 표기법 192.168.100.0/22는 192.168.100.0에서 192.168.103.255까지 IPv4 주소 1024개를 나타냅니다. |
 
@@ -258,5 +258,5 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
 관리 DPS에 대해 자세히 살펴보려면 다음을 참조하세요.
 
 * [IoT DPS IP 주소 이해](iot-dps-understand-ip-address.md)
-* [Azure CLI를 사용 하 여 DPS 설정](quick-setup-auto-provision-cli.md)
+* [Azure CLI를 사용하여 DPS 설정](quick-setup-auto-provision-cli.md)
 * [DPS에 대한 액세스 제어](how-to-control-access.md)

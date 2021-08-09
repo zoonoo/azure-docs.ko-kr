@@ -1,16 +1,16 @@
 ---
-title: Azure 앱 구성 복원 력 및 재해 복구
-description: Azure 앱 구성을 사용 하 여 복원 력 및 재해 복구를 구현 하는 방법에 대해 설명 합니다.
+title: Azure App Configuration 복원력 및 재해 복구
+description: Azure App Configuration을 사용하여 복원력 및 재해 복구를 구현하는 방법에 대해 알아봅니다.
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.openlocfilehash: 7910e2092259081aade799fc662052e5a1375e25
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96930486"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>복원력 및 재해 복구
@@ -23,11 +23,11 @@ ms.locfileid: "96930486"
 
 ![지역 중복 저장소](./media/geo-redundant-app-configuration-stores.png)
 
-애플리케이션은 기본 저장소와 보조 저장소 모두에서 해당 구성을 병렬로 로드합니다. 이렇게 하면 구성 데이터를 성공적으로 가져올 가능성이 높아집니다. 두 저장소의 데이터를 동기화 된 상태로 유지 하는 일을 담당 합니다. 다음 섹션에서는 응용 프로그램에 지역 복원 력을 구축 하는 방법을 설명 합니다.
+애플리케이션은 기본 저장소와 보조 저장소 모두에서 해당 구성을 병렬로 로드합니다. 이렇게 하면 구성 데이터를 성공적으로 가져올 가능성이 높아집니다. 두 저장소의 데이터를 동기화된 상태로 유지하는 일을 담당하게 됩니다. 다음 섹션에서는 애플리케이션에 지역 복원력을 구축하는 방법에 대해 설명합니다.
 
 ## <a name="failover-between-configuration-stores"></a>구성 저장소 간 장애 조치
 
-기술적으로는 애플리케이션에서 장애 조치(failover)를 실행하지 않습니다. 두 App Configuration 저장소에서 동일한 구성 데이터 세트를 동시에 검색하려고 합니다. 먼저 보조 저장소에서 로드한 다음, 기본 저장소에서 로드하도록 코드를 정렬합니다. 이 방법은 기본 저장소의 구성 데이터를 사용할 수 있을 때마다 이를 우선적으로 적용하도록 합니다. 다음 코드 조각에서는 .NET Core에서이 배열을 구현할 수 있는 방법을 보여 줍니다.
+기술적으로는 애플리케이션에서 장애 조치(failover)를 실행하지 않습니다. 두 App Configuration 저장소에서 동일한 구성 데이터 세트를 동시에 검색하려고 합니다. 먼저 보조 저장소에서 로드한 다음, 기본 저장소에서 로드하도록 코드를 정렬합니다. 이 방법은 기본 저장소의 구성 데이터를 사용할 수 있을 때마다 이를 우선적으로 적용하도록 합니다. 다음 코드 조각은 .NET Core에서 이 정렬을 구현하는 방법을 보여줍니다.
 
 #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -66,7 +66,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 지역 중복 구성 저장소의 데이터 세트가 모두 동일해야 합니다. 두 가지 방법으로 이 작업을 수행할 수 있습니다.
 
-### <a name="backup-manually-using-the-export-function"></a>내보내기 기능을 사용 하 여 수동으로 백업
+### <a name="backup-manually-using-the-export-function"></a>내보내기 함수를 사용하여 수동으로 백업
 
 App Configuration에서 **내보내기** 함수를 사용하여 요청에 따라 데이터를 기본 저장소에서 보조 저장소로 복사할 수 있습니다. 이 함수는 Azure Portal과 CLI 모두를 통해 사용할 수 있습니다.
 
@@ -74,21 +74,21 @@ Azure Portal에서 다음 단계를 수행하면 다른 구성 저장소에 대�
 
 1. **가져오기/내보내기** 탭으로 이동하고 **내보내기** > **App Configuration** > **대상** > **리소스 선택** 을 선택합니다.
 
-1. 열리는 새 블레이드에서 보조 저장소의 구독, 리소스 그룹 및 리소스 이름을 지정한 다음 **적용** 을 선택 합니다.
+1. 열린 새 블레이드에서 보조 저장소의 구독, 리소스 그룹, 리소스 이름을 지정한 다음, **적용** 을 선택합니다.
 
-1. UI가 업데이트되어 보조 저장소로 내보내려는 구성 데이터를 선택할 수 있습니다. 기본 시간 값을 그대로 두고 **레이블과** 레이블 둘 다를 같은 **값으로 설정할** 수 있습니다. **적용** 을 선택합니다. 기본 저장소의 모든 레이블에 대해이를 반복 합니다.
+1. UI가 업데이트되어 보조 저장소로 내보내려는 구성 데이터를 선택할 수 있습니다. 기본 시간 값을 그대로 유지한 채 **원본 레이블** 과 **레이블** 을 모두 동일한 값으로 설정할 수 있습니다. **적용** 을 선택합니다. 기본 저장소의 모든 레이블에 대해 이 작업을 반복합니다.
 
-1. 구성이 변경 될 때마다 이전 단계를 반복 합니다.
+1. 구성이 변경될 때마다 위의 단계를 반복합니다.
 
-내보내기 프로세스는 Azure CLI을 사용 하 여 수행할 수도 있습니다. 다음 명령은 기본 저장소에서 보조로 모든 구성을 내보내는 방법을 보여 줍니다.
+내보내기 프로세스는 Azure CLI를 사용하여 수행할 수도 있습니다. 다음 명령에서는 모든 구성을 기본 저장소에서 보조 저장소로 내보내는 방법을 보여줍니다.
 
 ```azurecli
     az appconfig kv export --destination appconfig --name {PrimaryStore} --dest-name {SecondaryStore} --label * --preserve-labels -y
 ```
 
-### <a name="backup-automatically-using-azure-functions"></a>Azure Functions를 사용 하 여 자동으로 백업
+### <a name="backup-automatically-using-azure-functions"></a>Azure Functions를 사용하여 자동으로 백업
 
-Azure Functions를 사용 하 여 백업 프로세스를 자동화할 수 있습니다. 앱 구성에서 Azure Event Grid와의 통합을 활용 합니다. 설정 되 면 앱 구성이 구성 저장소에서 키 값에 대 한 변경 내용에 대 한 Event Grid에 이벤트를 게시 합니다. 따라서 Azure Functions 앱은 이러한 이벤트를 수신 하 고 그에 따라 데이터를 백업할 수 있습니다. 자세한 내용은 [앱 구성 저장소를 자동으로 백업 하는 방법](./howto-backup-config-store.md)에 대 한 자습서를 참조 하세요.
+Azure Functions를 사용하여 백업 프로세스를 자동화할 수 있습니다. 이 작업은 App Configuration의 Azure Event Grid와의 통합을 활용합니다. 설정이 완료되면 App Configuration이 구성 저장소에서 키 값에 적용된 모든 변경 사항에 대해 Event Grid에 이벤트를 게시합니다. 따라서 Azure Functions 앱은 이러한 이벤트를 수신 대기하고 그에 따라 데이터를 백업할 수 있습니다. 자세한 내용은 [App Configuration 저장소를 자동으로 백업하는 방법](./howto-backup-config-store.md)에 대한 자습서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

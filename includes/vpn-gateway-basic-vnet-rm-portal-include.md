@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 05/27/2021
+ms.date: 06/30/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c5741ab0207d5631aab4abd594f5ff557ebfe23b
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 82db4939b6f980e1d9fb9a82a6cd255bb10c04cb
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110658034"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126365"
 ---
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **검색 리소스, 서비스 및 문서(G +/)** 에서 *가상 네트워크* 를 입력합니다.
@@ -47,7 +47,7 @@ ms.locfileid: "110658034"
 
 1. **보안** 탭에서 이때는 기본값을 그대로 둡니다.
 
-   - **DDos 보호**: 기본
+   - **DDos 보호**: 사용 안 함
    - **방화벽**: 사용 안 함
 1. **검토 + 만들기** 를 선택하여 가상 네트워크 설정의 유효성을 검사합니다.
 1. 설정의 유효성을 검사한 후 **만들기** 를 선택합니다.

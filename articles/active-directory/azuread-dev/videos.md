@@ -1,6 +1,6 @@
 ---
-title: Azure ADAL에서 MSAL 마이그레이션 비디오 | Microsoft
-description: Azure Active Directory developer platform에서 Microsoft id 플랫폼으로 마이그레이션하는 데 도움이 되는 비디오
+title: Azure ADAL에서 MSAL로 마이그레이션하는 비디오 | Microsoft
+description: Azure Active Directory 개발자 플랫폼에서 Microsoft ID 플랫폼으로 마이그레이션하는 데 도움이 되는 비디오
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,23 +14,23 @@ ms.custom: aaddev
 ms.reviewer: celested
 ROBOTS: NOINDEX
 ms.openlocfilehash: a4bb9151e9d4b76507b0c7f8ab5aaa7f5f1820b8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96608200"
 ---
-# <a name="azure-active-directory-developer-platform-videos"></a>Azure Active Directory developer platform 비디오
+# <a name="azure-active-directory-developer-platform-videos"></a>Azure Active Directory 개발자 플랫폼 비디오
 
-새 Microsoft id 플랫폼 및 Azure Active Directory (Azure AD) 개발자 플랫폼에서 해당 플랫폼으로 마이그레이션하는 방법에 대해 알아봅니다. 비디오는 일반적으로 1-2 분 길이입니다.
+새 Microsoft ID 플랫폼과 Azure AD(Azure Active Directory) 개발자 플랫폼에서 해당 플랫폼으로 마이그레이션하는 방법에 대해 알아봅니다. 비디오는 일반적으로 1~2분 길이입니다.
 
 ## <a name="migrate-from-v10-to-v20"></a>v1.0에서 v2.0으로 마이그레이션
 
-**최신 버전의 Microsoft id 플랫폼으로 마이그레이션하는 방법에 대해 알아봅니다.**
+**최신 버전의 Microsoft ID 플랫폼으로 마이그레이션하는 방법에 대한 자세한 정보**
 
 :::row:::
     :::column:::
-        새 Microsoft id 플랫폼 개요
+        새 Microsoft ID 플랫폼 개요
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
@@ -73,4 +73,4 @@ ms.locfileid: "96608200"
 
 ## <a name="next-steps"></a>다음 단계
 
-새 [Microsoft id 플랫폼](../develop/index.yml) 에 대 한 자세한 정보
+새 [Microsoft ID 플랫폼](../develop/index.yml)에 대한 자세한 정보

@@ -1,21 +1,21 @@
 ---
 title: 서비스 패브릭 서비스 분할
-description: Service Fabric 상태 비저장 및 상태 저장 서비스를 분할 하는 방법 알아보기
+description: Service Fabric의 상태 비저장 서비스와 상태 저장 서비스를 분할하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 199ae9d9844149c1931da638633110f717fe0517
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97915898"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>서비스 패브릭 Reliable Services 분할
-이 문서에서는 Azure 서비스 패브릭 Reliable Services 분할의 기본 개념에 대한 소개를 제공합니다. 분할을 사용 하면 데이터 및 계산을 함께 확장할 수 있도록 로컬 컴퓨터에 데이터를 저장할 수 있습니다.
+이 문서에서는 Azure 서비스 패브릭 Reliable Services 분할의 기본 개념에 대한 소개를 제공합니다. 분할하면 로컬 머신에 데이터를 저장할 수 있으므로 데이터와 컴퓨팅을 함께 스케일링할 수 있습니다.
 
 > [!TIP]
-> 이 문서의 [전체 코드 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions) 은 GitHub에서 사용할 수 있습니다.
+> 이 문서의 [전체 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions) 코드는 GitHub에서 확인할 수 있습니다.
 
 ## <a name="partitioning"></a>분할
 분할은 서비스 패브릭에만 있는 것이 아닙니다. 사실, 분할은 확장 가능한 서비스 구축의 코어 패턴입니다. 광범위한 의미로 분할을 상태(데이터) 분할의 개념으로 생각하고 확장성 및 성능 향상을 위해 더 작은 액세스 가능한 단위로 컴퓨팅할 수 있습니다. 분할의 잘 알려진 양식은 [데이터 분할][wikipartition]로서 분할이라고도 합니다.
@@ -25,11 +25,11 @@ ms.locfileid: "97915898"
 
 ![상태 비저장 서비스](./media/service-fabric-concepts-partitioning/statelessinstances.png)
 
-실제로 두 종류의 상태 비저장 서비스 솔루션이 있습니다. 첫 번째는 Azure SQL Database의 데이터베이스 (예: 세션 정보 및 데이터를 저장 하는 웹 사이트)와 같이 외부에서 상태를 유지 하는 서비스입니다. 두 번째는 모든 영구적 상태를 관리하지 않는 계산 전용 서비스(예: 계산기 또는 이미지 미리 보기)입니다.
+실제로 두 종류의 상태 비저장 서비스 솔루션이 있습니다. 첫 번째는 Azure SQL Database의 데이터베이스처럼 외부적으로 상태를 유지하는 서비스(세션 정보 및 데이터를 저장하는 웹 사이트처럼)입니다. 두 번째는 모든 영구적 상태를 관리하지 않는 계산 전용 서비스(예: 계산기 또는 이미지 미리 보기)입니다.
 
 두 경우 모두 상태 비저장 서비스 분할은 매우 드문 시나리오이며 확장성 및 가용성은 일반적으로 더 많은 인스턴스를 추가하여 이루어집니다. 상태 비저장 서비스 인스턴스에 대한 여러 파티션을 고려하려는 경우는 특별한 라우팅 요청을 충족해야 하는 때입니다.
 
-한 예로 특정 범위의 ID가 있는 사용자가 특정한 서비스 인스턴스로만 제공되어야 하는 경우 고려합니다. 상태 비저장 서비스를 분할할 수 있는 또 다른 예는 진정한 분할 된 백 엔드가 있는 경우 (예: SQL Database의 분할 된 데이터베이스), 데이터베이스 분할에 써야 하는 서비스 인스턴스를 제어 하려는 경우, 또는 상태 비저장 서비스 내에서 백 엔드에서 사용 되는 것과 동일한 분할 정보를 요구 하는 다른 준비 작업을 수행 하는 경우입니다. 이러한 유형의 시나리오는 다른 방법으로 해결될 수 있으며 서비스 분할이 반드시 필요하지 않습니다.
+한 예로 특정 범위의 ID가 있는 사용자가 특정한 서비스 인스턴스로만 제공되어야 하는 경우 고려합니다. 상태 비저장 서비스를 분할할 수 있는 경우의 다른 예는 분할된 SQL Database의 분할된 데이터베이스와 같이 실제로 분할된 백 엔드가 있는 경우와 데이터베이스 분할에 작성하거나 백 엔드에서 사용되므로 동일한 분할 정보가 필요한 상태 비저장 서비스 내에서 다른 준비 작업을 수행해야 하는 서비스 인스턴스를 제어하려는 경우입니다. 이러한 유형의 시나리오는 다른 방법으로 해결될 수 있으며 서비스 분할이 반드시 필요하지 않습니다.
 
 이 연습의 나머지 부분에서는 상태 저장 서비스에 중점을 둡니다.
 
@@ -48,11 +48,11 @@ Service Fabric은 파티션 상태(데이터)에 최상의 방법을 제공하�
 결과적으로 클라이언트의 요청이 컴퓨터 간에 분산되므로 확장이 달성되고 애플리케이션의 전체 성능이 향상되며 데이터의 청크에 대한 액세스의 경합이 줄어듭니다.
 
 ## <a name="plan-for-partitioning"></a>분할에 대한 계획
-서비스를 구현 하기 전에 규모를 확장 하는 데 필요한 분할 전략을 항상 고려해 야 합니다. 여러 가지 방법이 있지만 모든 응용 프로그램이 구현 해야 하는 작업에 중점을 둡니다. 이 문서의 컨텍스트에 대해 몇 가지 더 중요한 측면을 생각해 봅시다.
+서비스를 구현하기 전에 스케일 아웃에 필요한 분할 전략을 항상 고려해야 합니다. 여러 가지 방법이 있지만 모두 애플리케이션이 달성해야 하는 사항에 중점을 둡니다. 이 문서의 컨텍스트에 대해 몇 가지 더 중요한 측면을 생각해 봅시다.
 
 첫 단계로 분할되어야 하는 상태의 구조에 대해 생각하는 것이 좋습니다.
 
-간단한 예를 살펴봅시다. 관할지 전체 폴링에 대 한 서비스를 빌드하는 경우 관할지의 각 도시에 대 한 파티션을 만들 수 있습니다. 그런 다음 그 도시에 해당하는 파티션에 있는 도시에 속한 모든 사람의 투표 결과를 저장할 수 있습니다. 그림 3은 사람과 거주하는 도시의 집합을 보여 줍니다.
+간단한 예를 살펴봅시다. 군 단위 투표를 위한 서비스를 빌드하는 경우 군의 각 도시에 대한 파티션을 만들 수 있습니다. 그런 다음 그 도시에 해당하는 파티션에 있는 도시에 속한 모든 사람의 투표 결과를 저장할 수 있습니다. 그림 3은 사람과 거주하는 도시의 집합을 보여 줍니다.
 
 ![간단한 파티션](./media/service-fabric-concepts-partitioning/cities.png)
 
@@ -119,7 +119,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
 > 
 > 
 
-1. **Visual Studio**  >  **파일**  >  **새**  >  **프로젝트** 를 엽니다.
+1. **Visual Studio** > **파일** > **새로 만들기** > **프로젝트** 를 엽니다.
 2. **새 프로젝트** 대화 상자에서 Service Fabric 애플리케이션을 선택합니다.
 3. "AlphabetPartitions" 프로젝트를 호출합니다.
 4. **서비스 만들기** 대화 상자에서 **상태 저장** 서비스를 선택하고 이름을 "Alphabet.Processing"으로 지정합니다.
@@ -156,7 +156,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
    
     이 서비스의 여러 복제본은 동일한 컴퓨터에서 호스팅될 수 있으므로 이 주소가 복제본에 고유해야 합니다. 이 때문에 URL에 파티션 ID와 복제본 ID가 있습니다. HttpListener는 URL 접두사가 고유하기만 하면 동일한 포트에서 여러 주소를 수신할 수 있습니다.
    
-    추가 GUID는 보조 복제본이 읽기 전용 요청을 수신하는 고급 사례에 대해 사용되고 있습니다. 이 경우 클라이언트가 주소를 다시 확인하도록 기본에서 보조로 전환하는 경우 고유한 새 주소가 사용되도록 확인하려고 합니다. ' + '는 사용 가능한 모든 호스트 (IP, FQDN, localhost 등)에서 수신 대기 하는 주소로 사용 됩니다. 아래 코드는 예제를 보여 줍니다.
+    추가 GUID는 보조 복제본이 읽기 전용 요청을 수신하는 고급 사례에 대해 사용되고 있습니다. 이 경우 클라이언트가 주소를 다시 확인하도록 기본에서 보조로 전환하는 경우 고유한 새 주소가 사용되도록 확인하려고 합니다. 여기서 ‘+’는 IP, FQDN, localhost 등의 사용 가능한 모든 호스트에서 복제본이 수신 대기할 수 있도록 주소로 사용됩니다. 아래의 코드는 예제를 보여 줍니다.
    
     ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -351,10 +351,10 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
     
     ![브라우저 스크린 샷](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
-이 문서에 사용 된 코드의 전체 솔루션은에서 사용할 수 있습니다 https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions .
+이 문서에 사용된 코드의 전체 솔루션은 https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions 에서 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-Service Fabric services에 대해 자세히 알아보세요.
+Service Fabric 서비스에 대한 자세한 정보:
 
 * [서비스 패브릭에서 서비스와 연결 및 통신](service-fabric-connect-and-communicate-with-services.md)
 * [서비스 패브릭 서비스의 가용성](service-fabric-availability-services.md)

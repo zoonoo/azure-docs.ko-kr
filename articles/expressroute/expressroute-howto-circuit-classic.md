@@ -1,5 +1,5 @@
 ---
-title: 'Azure Express 경로: 회로 수정: PowerShell: 클래식'
+title: 'Azure ExpressRoute: 회로 수정: PowerShell: 클래식'
 description: 이 문서에서는 ExpressRoute 클래식 배포 모델 회로 상태를 확인하고, 업데이트 또는 삭제하고, 프로비전을 해제하는 단계를 설명합니다.
 services: expressroute
 author: duongau
@@ -9,10 +9,10 @@ ms.date: 11/05/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: be45d49d3f445810c7ac6a38e3e12abe178a4bed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96018173"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>PowerShell을 사용하여 ExpressRoute 회로 수정(클래식)

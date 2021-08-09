@@ -1,6 +1,6 @@
 ---
 title: CREATE TABLE AS SELECT (CTAS)
-description: 솔루션 개발을 위한 Synapse SQL의 CTAS (CREATE TABLE SELECT) 문에 대 한 설명 및 예제입니다.
+description: 솔루션 개발용 Synapse SQL의 CTAS(CREATE TABLE AS SELECT) 문에 대한 설명 및 예제입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,25 +12,25 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
 ms.openlocfilehash: 68bab754142538fc6067cf2593ae6244a03a48d1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98734817"
 ---
 # <a name="create-table-as-select-ctas"></a>CREATE TABLE AS SELECT (CTAS)
 
-이 문서에서는 Synapse SQL에서 솔루션 개발을 위한 CTAS (CREATE TABLE AS SELECT) T-sql 문을 설명 합니다. 코드 예제도 제공합니다.
+이 문서에서는 솔루션 개발용 Synapse SQL의 CTAS(CREATE TABLE AS SELECT) T-SQL 문을 설명합니다. 코드 예제도 제공합니다.
 
 ## <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 
-Ctas ( [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) ) 문은 사용할 수 있는 가장 중요 한 t-sql 기능 중 하나입니다. CTAS는 SELECT 문의 출력을 기반으로 새 테이블을 만드는 병렬 작업입니다. CTAS는 단일 명령을 사용 하 여 테이블에 데이터를 만들고 삽입 하는 가장 간단 하 고 빠른 방법입니다.
+[CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)(CREATE TABLE AS SELECT) 문은 현재 제공되고 있는 가장 중요한 T-SQL 기능 중 하나로, SELECT 문의 출력을 기반으로 새 테이블을 만드는 병렬 연산입니다. CTAS는 단일 명령을 사용하여 데이터를 만들고 테이블에 삽입하는 가장 간단하고 빠른 방법입니다.
 
-## <a name="selectinto-vs-ctas"></a>...를 선택 합니다. Vs와 CTAS
+## <a name="selectinto-vs-ctas"></a>SELECT...INTO와 CTAS
 
-CTAS는 더 사용자 지정이 가능한 버전의 [SELECT ... INTO](/sql/t-sql/queries/select-into-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문.
+CTAS는 [SELECT...INTO](/sql/t-sql/queries/select-into-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문의 한 버전으로, 보다 다양한 사용자 지정이 가능합니다.
 
-다음은 간단한 SELECT ... 범주로
+다음은 간단한 SELECT..INTO 문의 예제입니다.
 
 ```sql
 SELECT *
@@ -38,9 +38,9 @@ INTO    [dbo].[FactInternetSales_new]
 FROM    [dbo].[FactInternetSales]
 ```
 
-...를 선택 합니다. 을 (를) 사용 하면 작업의 일부로 배포 메서드나 인덱스 유형을 변경할 수 없습니다. `[dbo].[FactInternetSales_new]`ROUND_ROBIN 기본 배포 유형 및 클러스터형 COLUMNSTORE 인덱스의 기본 테이블 구조를 사용 하 여 만듭니다.
+SELECT...INTO를 사용할 때는 작업의 일환으로 배포 방법이나 인덱스 유형을 변경할 수 없습니다. 기본 배포 유형인 ROUND_ROBIN과 기본 테이블 구조인 CLUSTERED COLUMNSTORE INDEX를 사용하여 `[dbo].[FactInternetSales_new]`를 생성합니다.
 
-반면 CTAS를 사용 하면 테이블 데이터의 배포와 테이블 구조 유형을 모두 지정할 수 있습니다. 이전 예제를 CTAS로 변환 하려면 다음을 수행 합니다.
+반면, CTAS를 사용할 때는 테이블 데이터 배포와 테이블 구조 유형을 모두 지정할 수 있습니다. 이전 예제를 CTAS로 변환하려면 다음을 수행합니다.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_new]
@@ -55,13 +55,13 @@ FROM    [dbo].[FactInternetSales];
 ```
 
 > [!NOTE]
-> CTAS 작업에서 인덱스를 변경 하려는 경우에만 원본 테이블이 hash distributed 인 경우 동일한 배포 열과 데이터 형식을 유지 합니다. 이렇게 하면 작업 중에 교차 분산 데이터 이동이 방지 되므로 효율성이 높아집니다.
+> CTAS 작업에서 인덱스만 변경하려고 하고 원본 테이블이 해시로 배포되는 경우 동일한 배포 열과 데이터 형식을 유지합니다. 이렇게 하면 보다 효율적으로 작업하는 동안 배포 간 데이터 이동을 방지할 수 있습니다.
 
 ## <a name="use-ctas-to-copy-a-table"></a>CTAS를 사용하여 테이블 복사
 
-CTAS의 가장 일반적인 사용 중 하나는 DDL을 변경 하기 위해 테이블의 복사본을 만드는 것입니다. 원래 테이블을로 만들었으며 `ROUND_ROBIN` 이제 열에 배포 된 테이블로 변경 하 려 한다고 가정해 보겠습니다. CTAS는 배포 열을 변경 하는 방법입니다. CTAS를 사용 하 여 분할, 인덱싱 또는 열 유형을 변경할 수도 있습니다.
+CTAS의 가장 일반적인 용도 중 하나는 DDL을 변경하기 위해 테이블의 복사본을 만드는 경우일 것입니다. 테이블을 원래는 `ROUND_ROBIN`으로 만들었는데 지금은 이를 열에 배포된 테이블로 변경하려 한다고 가정해 보겠습니다. CTAS를 사용하여 배포 열을 변경할 수 있습니다. CTAS를 사용하여 분할, 인덱싱 또는 열 형식을 변경할 수도 있습니다.
 
-의 `ROUND_ROBIN` 배포 열을 지정 하지 않고의 기본 배포 유형을 사용 하 여이 테이블을 만든 경우를 가정해 보겠습니다 `CREATE TABLE` .
+`CREATE TABLE`에서 배포 열을 지정하지 않고 `ROUND_ROBIN`의 기본 배포 유형을 사용하여 이 테이블을 만들었다고 가정해 보겠습니다.
 
 ```sql
 CREATE TABLE FactInternetSales
@@ -91,7 +91,7 @@ CREATE TABLE FactInternetSales
     CustomerPONumber nvarchar(25));
 ```
 
-이제를 사용 하 여이 테이블의 새 복사본을 만들어 `Clustered Columnstore Index` 클러스터형 Columnstore 테이블의 성능을 활용할 수 있습니다. 이 `ProductKey` 열에 대 한 조인을 예측 하 고 조인 하는 동안 데이터 이동을 방지 하려는 경우에도이 테이블을에 배포 하려고 합니다 `ProductKey` . 마지막으로, `OrderDateKey` 이전 파티션을 삭제 하 여 오래 된 데이터를 신속 하 게 삭제할 수 있도록 분할을 추가 하려고 합니다. 다음은 이전 테이블을 새 테이블에 복사 하는 CTAS 문입니다.
+이제 클러스터형 Columnstore 테이블의 성능을 이용할 수 있도록 `Clustered Columnstore Index`로 이 테이블의 새 복사본을 만들려고 합니다. 또한 이 열에 대한 조인을 예상하고 `ProductKey`에 대한 조인 중에 데이터 이동을 방지하려고 하므로 `ProductKey`에 대해 이 테이블을 배포하려고 합니다. 마지막으로 이전 파티션을 삭제하여 이전 데이터를 빨리 삭제할 수 있도록 `OrderDateKey`에 대한 분할을 추가하려고 합니다. 다음은 이전 테이블을 새 테이블에 복사하는 CTAS 문입니다.
 
 ```sql
 CREATE TABLE FactInternetSales_new
@@ -112,7 +112,7 @@ WITH
 AS SELECT * FROM FactInternetSales;
 ```
 
-마지막으로, 테이블 이름을 바꾸고 새 테이블에서 바꾼 후 이전 테이블을 삭제할 수 있습니다.
+끝으로 새 테이블에서 바꿀 테이블 이름을 변경한 다음, 이전 테이블을 삭제할 수 있습니다.
 
 ```sql
 RENAME OBJECT FactInternetSales TO FactInternetSales_old;
@@ -121,20 +121,20 @@ RENAME OBJECT FactInternetSales_new TO FactInternetSales;
 DROP TABLE FactInternetSales_old;
 ```
 
-## <a name="use-ctas-to-work-around-unsupported-features"></a>CTAS를 사용 하 여 지원 되지 않는 기능 해결
+## <a name="use-ctas-to-work-around-unsupported-features"></a>CTAS를 사용하여 지원되지 않는 기능 해결
 
-CTAS를 사용 하 여 아래 나열 된 지원 되지 않는 여러 기능을 해결할 수도 있습니다. 이 메서드는 코드가 규격을 준수할 뿐만 아니라 Synapse SQL에서 더 빠르게 실행 되는 경우가 많기 때문에 종종 유용할 수 있습니다. 이 성능은 완전히 병렬화 된 디자인의 결과입니다. 시나리오는 다음과 같습니다.
+CTAS를 사용하면 아래에 나와 있는 여러 지원되지 않는 기능과 관련된 문제도 해결할 수 있습니다. 이 방법은 종종 유용할 수 있는데, 사용자의 코드가 규격을 갖추게 될 뿐 아니라 Synapse SQL에서 실행 속도가 빨라지는 경우가 많기 때문입니다. 이러한 성능 향상은 완전히 병렬화된 디자인의 결과입니다. 다음과 같은 시나리오가 있습니다.
 
 * UPDATE에 대한 ANSI JOINS
 * DELETE에 대한 ANSI JOIN
 * MERGE 문
 
 > [!TIP]
-> "CTAS를 먼저" 생각해 보세요. 결과적으로 더 많은 데이터를 작성 하는 경우에도 CTAS를 사용 하 여 문제를 해결 하는 것은 일반적으로 좋은 방법입니다.
+> “CTAS를 먼저” 생각해 보세요. 결과적으로 더 많은 데이터를 작성하게 되더라도 CTAS를 사용하여 문제를 해결하는 것이 좋습니다.
 
 ## <a name="ansi-join-replacement-for-update-statements"></a>update 문에 대한 ANSI 조인 대체
 
-복잡 한 업데이트가 있는 것을 확인할 수 있습니다. 업데이트는 ANSI 조인 구문을 사용 하 여 업데이트 또는 삭제를 수행 하는 두 개 이상의 테이블을 결합 합니다.
+업데이트가 복잡한 경우가 있을 수 있습니다. 업데이트를 실행하면 ANSI 조인 구문을 사용하여 UPDATE 또는 DELETE를 수행하므로 두 개 이상의 테이블이 함께 조인됩니다.
 
 이 테이블을 업데이트해야 했다고 가정해 보십시오.
 
@@ -150,7 +150,7 @@ WITH
 );
 ```
 
-원본 쿼리는 다음 예제와 같이 보일 수 있습니다.
+원래 쿼리는 다음 예제와 유사했을 것입니다.
 
 ```sql
 UPDATE    acs
@@ -174,9 +174,9 @@ ON    [acs].[EnglishProductCategoryName]    = [fis].[EnglishProductCategoryName]
 AND    [acs].[CalendarYear]                = [fis].[CalendarYear];
 ```
 
-Synapse SQL은 문의 절에서 ANSI 조인을 지원 하지 `FROM` `UPDATE` 않으므로 앞의 예제를 수정 하지 않고 사용할 수 없습니다.
+Synapse SQL은 `UPDATE` 문의 `FROM` 절에서 ANSI 조인을 지원하지 않으므로 이전 예제를 수정하지 않고는 사용할 수 없습니다.
 
-CTAS와 암시적 조인의 조합을 사용 하 여 이전 예제를 바꿀 수 있습니다.
+CTAS와 암시적 조인의 조합을 사용하여 이전 예제를 대체할 수 있습니다.
 
 ```sql
 -- Create an interim table
@@ -206,9 +206,9 @@ AND     CTAS_acs.[CalendarYear]  = AnnualCategorySales.[CalendarYear] ;
 DROP TABLE CTAS_acs;
 ```
 
-## <a name="ansi-join-replacement-for-merge"></a>병합을 위한 ANSI 조인 대체 
+## <a name="ansi-join-replacement-for-merge"></a>MERGE에 대한 ANSI 조인 대체 
 
-Azure Synapse Analytics에서 대상으로 일치 하지 않는 [병합](/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true) (미리 보기)을 사용 하려면 대상이 해시 분산 테이블 이어야 합니다.  사용자는 [UPDATE](/sql/t-sql/queries/update-transact-sql?view=azure-sqldw-latest&preserve-view=true) 또는 [DELETE](/sql/t-sql/statements/delete-transact-sql?view=azure-sqldw-latest&preserve-view=true) 와 함께 ANSI JOIN을 사용 하 여 다른 테이블과의 조인 결과에 따라 대상 테이블 데이터를 수정할 수 있습니다.  다음은 예제입니다.
+Azure Synapse Analytics에서 [MERGE](/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true)(미리 보기)를 NOT MATCHED BY TARGET과 함께 사용하려면 대상이 해시로 배포된 테이블이어야 합니다.  사용자는 ANSI JOIN을 [UPDATE](/sql/t-sql/queries/update-transact-sql?view=azure-sqldw-latest&preserve-view=true) 또는 [DELETE](/sql/t-sql/statements/delete-transact-sql?view=azure-sqldw-latest&preserve-view=true)와 함께 사용하여 다른 테이블과 조인한 결과에 따라 대상 테이블 데이터를 수정할 수 있습니다.  다음은 예제입니다.
 
 ```sql
 CREATE TABLE dbo.Table1   
@@ -233,7 +233,7 @@ FROM dbo.Table2;
 
 ## <a name="explicitly-state-data-type-and-nullability-of-output"></a>데이터 형식 및 출력의 null 허용 여부를 명시적으로 지정
 
-코드를 마이그레이션할 때 이러한 유형의 코딩 패턴을 통해 실행 되는 것을 확인할 수 있습니다.
+코드를 마이그레이션하는 경우 이 유형의 코딩 패턴을 볼 수 있습니다.
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -248,9 +248,9 @@ INSERT INTO result
 SELECT @d*@f;
 ```
 
-이 코드를 CTAS로 마이그레이션해야 하는 것으로 생각할 수 있습니다. 그러나 여기에는 숨겨진 문제가 있습니다.
+직관적으로 이 코드를 CTAS로 마이그레이션하는 것이 옳을 것 같다는 생각이 들 것입니다. 그러나 여기에는 숨겨진 문제가 있습니다.
 
-다음 코드는 동일한 결과를 생성 하지 않습니다.
+다음 코드는 동일한 결과를 산출하지 않습니다.
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -262,9 +262,9 @@ AS
 SELECT @d*@f as result;
 ```
 
-참고로 "결과" 열은 식의 데이터 형식 및 NULL 허용 여부 값을 이월합니다. 데이터 형식을 앞으로 옮기면 주의 하지 않으면 값의 미묘한 차이가 발생할 수 있습니다.
+참고로 "결과" 열은 식의 데이터 형식 및 NULL 허용 여부 값을 이월합니다. 데이터 형식을 이월할 경우 주의하지 않으면 값에 미묘한 차이가 발생할 수 있습니다.
 
-다음 예제를 사용해 보세요.
+다음 예제를 실행해 보세요.
 
 ```sql
 SELECT result,result*@d
@@ -274,18 +274,18 @@ SELECT result,result*@d
 from ctas_r;
 ```
 
-결과에 저장된 값이 다릅니다. 결과 열에서 지속형 값이 다른 식에 사용 되 면 오류가 훨씬 더 중요 하 게 됩니다.
+결과에 저장된 값이 다릅니다. 결과 열에 보관된 값이 다른 식에 사용되면 오류가 훨씬 더 심각해집니다.
 
-![CTAS 결과의 스크린샷](./media/sql-data-warehouse-develop-ctas/ctas-results.png)
+![CTAS 결과 스크린샷](./media/sql-data-warehouse-develop-ctas/ctas-results.png)
 
-이는 데이터 마이그레이션에 중요 합니다. 두 번째 쿼리는 매우 정확 하지만 문제가 있습니다. 데이터는 원본 시스템과 비교 하 여 서로 다르며 마이그레이션의 무결성에 대 한 질문이 발생 합니다. 이는 "오답"이 실제로는 정답인, 드문 경우 중 하나입니다!
+이는 데이터 마이그레이션의 경우 중요합니다. 두 번째 쿼리는 틀림없이 더 정확하지만 문제가 있습니다. 데이터가 원본 시스템과 다르며 마이그레이션에서 무결성 문제가 발생합니다. 이는 "오답"이 실제로는 정답인, 드문 경우 중 하나입니다!
 
-두 결과 사이에 차이가가 표시 되는 이유는 암시적 형식 캐스팅 때문입니다. 첫 번째 예제에서 테이블은 열 정의를 정의 합니다. 행이 삽입 되 면 암시적 형식 변환이 발생 합니다. 두 번째 예에서는 식에서 열의 데이터 형식을 정의 하므로 암시적 형식 변환이 없습니다.
+두 결과 간에 차이가 나타나는 이유는 암시적 형식 캐스팅 때문입니다. 첫 번째 예제에서 테이블은 열 정의를 정의합니다. 행이 삽입되면 암시적 형식 변환이 일어납니다. 두 번째 예제에서는 식이 열의 데이터 형식을 정의하기 때문에 암시적 형식 변환이 없습니다.
 
-또한 두 번째 예제의 열은 Null을 허용 하는 열로 정의 된 반면 첫 번째 예에서는 그렇지 않습니다. 첫 번째 예제에서 테이블을 만든 경우 열 null 허용 여부가 명시적으로 정의 되었습니다. 두 번째 예제에서는 식이 식으로 남겨진 데 기본적으로 NULL 정의가 생성 됩니다.
+또한 두 번째 예제의 열은 NULL을 허용하는 열로 정의되었지만, 첫 번째 예제의 열은 NULL을 허용하는 열로 정의되지 않았다는 점에 주목하세요. 첫 번째 예제에서 테이블이 만들어질 때 열의 NULL 허용 여부를 명시적으로 정의했습니다. 두 번째 예제에서는 NULL 허용 여부가 식에 따라서 결정되기 때문에 기본적으로 이로 인해 NULL 정의가 있는 셈입니다.
 
-이러한 문제를 해결 하려면 CTAS 문의 SELECT 부분에서 형식 변환 및 null 허용 여부를 명시적으로 설정 해야 합니다. ' CREATE TABLE '에서는 이러한 속성을 설정할 수 없습니다.
-다음 예제에서는 코드를 수정 하는 방법을 보여 줍니다.
+이러한 문제를 해결하려면 CTAS 문의 SELECT 부분에서 형식 변환 및 Null 허용 여부를 명시적으로 설정해야 합니다. ‘CREATE TABLE’에서는 해당 속성을 설정할 수 없습니다.
+다음 예제에서는 코드를 수정하는 방법을 보여 줍니다.
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -300,14 +300,14 @@ SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 다음 사항에 유의하세요.
 
 * CAST 또는 CONVERT를 사용할 수 있습니다.
-* Null 허용 여부를 적용 하려면 병합이 아닌 ISNULL을 사용 합니다. 다음 참고를 참조 하세요.
-* ISNULL은 가장 바깥쪽 함수입니다.
-* ISNULL의 두 번째 부분은 상수, 0입니다.
+* NULL 허용 여부를 강제 설정하려면 COALESCE가 아닌 ISNULL을 사용합니다. 다음이 참고를 확인하세요.
+* ISNULL은 맨 바깥쪽의 함수입니다.
+* ISNULL의 두 번째 부분은 상수(0)입니다.
 
 > [!NOTE]
-> Null 허용 여부를 올바르게 설정 하려면 ISNULL을 사용 하 고 병합 하지 않는 것이 중요 합니다. 병합은 결정적 함수가 아니므로 식의 결과는 항상 Null을 허용 합니다. ISNULL은 다릅니다. 결정적입니다. 따라서 ISNULL 함수의 두 번째 부분이 상수 또는 리터럴인 경우 결과 값은 NULL이 아닙니다.
+> Null 허용 여부를 올바르게 설정하려면 COALESCE가 아닌 ISNULL을 사용해야 합니다. COALESCE는 결정 함수가 아니므로 식의 결과는 언제나 Null을 허용합니다. ISNULL은 다릅니다. ISNULL은 결정적 함수입니다. 그러므로 ISNULL 함수의 두 번째 부분이 상수이거나 리터럴이면 결과 값은 NOT NULL이 됩니다.
 
-테이블 파티션 전환에도 계산의 무결성을 유지 하는 것이 중요 합니다. 이 테이블이 팩트 테이블로 정의 되어 있다고 가정 합니다.
+테이블 파티션 전환에도 계산의 무결성을 유지하는 것이 중요 합니다. 이 테이블을 팩트 테이블로 정의했다고 생각해 보세요.
 
 ```sql
 CREATE TABLE [dbo].[Sales]
@@ -329,9 +329,9 @@ WITH
 );
 ```
 
-그러나 amount 필드는 계산 된 식입니다. 원본 데이터의 일부가 아닙니다.
+그러나 amount 필드는 계산된 식이며 원본 데이터의 일부가 아닙니다.
 
-분할 된 데이터 집합을 만들려면 다음 코드를 사용 하는 것이 좋습니다.
+분할된 데이터 세트를 만들려면 다음 코드를 사용하는 것이 좋습니다.
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -354,7 +354,7 @@ FROM [stg].[source]
 OPTION (LABEL = 'CTAS : Partition IN table : Create');
 ```
 
-쿼리가 완벽 하 게 실행 됩니다. 이 문제는 파티션 전환을 수행 하려고 할 때 발생 합니다. 테이블 정의가 일치 하지 않습니다. 테이블 정의를 일치 시키려면 `ISNULL` 열 null 허용 여부 특성을 유지 하는 함수를 추가 하도록 CTAS를 수정 합니다.
+쿼리는 아주 잘 실행될 것입니다. 문제는 파티션 전환을 시도할 때 나타납니다. 즉, 테이블 정의가 일치하지 않는 것입니다. 테이블 정의가 일치하도록 하려면 CTAS를 수정하여 열의 Null 허용 여부 특성이 유지되도록 `ISNULL` 함수를 추가합니다.
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -377,9 +377,9 @@ FROM [stg].[source]
 OPTION (LABEL = 'CTAS : Partition IN table : Create');
 ```
 
-CTAS에서 형식 일관성 및 null 허용 여부 속성을 유지 하는 것이 엔지니어링 모범 사례 임을 확인할 수 있습니다. 계산의 무결성을 유지 하는 데 도움이 되며 파티션 전환이 가능 합니다.
+형식 일관성과 CTAS에 대한 NULL 허용 여부 속성을 유지하는 것이 엔지니어링 모범 사례임을 알 수 있습니다. 계산에서 무결성을 유지하고 파티션 전환도 가능하도록 하는 것이 좋습니다.
 
-CTAS는 Synapse SQL에서 가장 중요 한 문 중 하나입니다. 완전하게 이해해야 합니다. [Ctas 설명서](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조 하세요.
+CTAS는 Synapse SQL에서 가장 중요한 문 중 하나이므로, 완전하게 이해해야 합니다. [CTAS 설명서](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

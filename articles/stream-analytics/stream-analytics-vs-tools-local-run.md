@@ -1,5 +1,5 @@
 ---
-title: Visual Studio에서 로컬로 테스트 Azure Stream Analytics 쿼리
+title: Visual Studio에서 로컬로 Azure Stream Analytics 쿼리 테스트
 description: 이 문서에서는 Visual Studio용 Azure Stream Analytics 도구를 사용하여 쿼리를 로컬로 테스트하는 방법을 설명합니다.
 author: su-jie
 ms.author: sujie
@@ -7,15 +7,15 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2018
 ms.openlocfilehash: b856826761f355e896cae48aa4a6fb62f5947e0b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98019927"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Visual Studio를 사용하여 로컬로 Stream Analytics 쿼리 테스트
 
-Visual Studio 용 Azure Stream Analytics 도구를 사용 하 여 샘플 데이터 또는 [라이브 데이터](stream-analytics-live-data-local-testing.md)를 사용 하 여 Stream Analytics 작업을 로컬로 테스트할 수 있습니다. 
+Visual Studio용 Azure Stream Analytics 도구를 사용하여 샘플 데이터 또는 [라이브 데이터](stream-analytics-live-data-local-testing.md)로 Stream Analytics 작업을 로컬로 테스트할 수 있습니다. 
 
 이 [빠른 시작](stream-analytics-quick-create-vs.md)을 통해 Visual Studio를 사용하여 Stream Analytics 작업을 만드는 방법을 알아보세요.
 
@@ -29,7 +29,7 @@ Azure Stream Analytics 프로젝트에서 **Script.asaql** 을 두 번 클릭하
 
 로컬 정적 데이터에 대해 쿼리 유효성을 검사하려면 입력을 마우스 오른쪽 단추로 클릭하고 **로컬 입력 추가** 를 선택합니다.
    
-![로컬 입력 추가 메뉴 옵션을 강조 표시 하는 스크린샷](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
+![로컬 입력 추가 메뉴 옵션을 강조 표시하는 스크린샷](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
    
 팝업 창에서 로컬 경로의 샘플 데이터를 선택하고 **저장** 을 선택합니다.
    
@@ -57,7 +57,7 @@ Visual Studio에서 바로 출력을 테이블 형식으로 볼 수 있습니다
    
 
 ### <a name="sample-input"></a>샘플 입력
-입력 원본에서 로컬 파일로 샘플 입력 데이터를 수집할 수도 있습니다. 입력 구성 파일을 마우스 오른쪽 단추로 클릭 하 고 **샘플 데이터** 를 선택 합니다. 
+입력 원본에서 로컬 파일로 샘플 입력 데이터를 수집할 수도 있습니다. 입력 구성 파일을 마우스 오른쪽 단추로 클릭하고 **샘플 데이터** 를 선택합니다. 
 
 ![데이터 샘플링](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)
 

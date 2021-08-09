@@ -11,10 +11,10 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 04/06/2018
 ms.openlocfilehash: 3097041c96f70dda384f0b116bbbc9bc9130be4d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "93395753"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Microsoft Genomics를 사용한 비즈니스 연속성 개요
@@ -30,7 +30,7 @@ ms.locfileid: "93395753"
 
 
 ### <a name="manually-failover-microsoft-genomics-workflows-to-another-region"></a>Microsoft Genomics 워크플로를 다른 지역으로 수동 장애 조치(Failover)
-지역별 데이터 센터가 중단 되 면 개별 데이터 주권 및 비즈니스 연속성 요구 사항에 따라 보조 지역에 Microsoft Genomics 워크플로를 제출 하도록 선택할 수 있습니다. Microsoft Genomics 워크플로를 수동으로 장애 조치(Failover)하려면 다른 지역별 Genomics 계정을 사용하고 해당 지역별 Genomics 및 스토리지 계정 자격 증명으로 작업을 전송합니다.
+지역 데이터 센터 가동 중단이 발생하는 경우 개별 데이터 주권 및 비즈니스 연속성 요구 사항에 따라, 보조 지역에 Microsoft Genomics 워크플로를 전송하도록 선택할 수 있습니다. Microsoft Genomics 워크플로를 수동으로 장애 조치(Failover)하려면 다른 지역별 Genomics 계정을 사용하고 해당 지역별 Genomics 및 스토리지 계정 자격 증명으로 작업을 전송합니다.
 
 특히 다음을 수행해야 합니다.
 * Azure Portal을 사용하여 보조 지역에서 Genomics 계정을 만듭니다. 

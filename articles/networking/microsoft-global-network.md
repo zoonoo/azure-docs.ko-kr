@@ -1,6 +1,6 @@
 ---
 title: Microsoft 글로벌 네트워크 - Azure
-description: Microsoft에서 전 세계의 가장 큰 백본 네트워크 중 하나를 빌드하고 운영 하는 방법과 우수한 클라우드 환경을 제공 하는 것이 중요 한 이유를 알아보세요.
+description: Microsoft가 세계에서 가장 큰 백본 네트워크 중 하나를 구축하고 운영하는 방법과 이것이 훌륭한 클라우드 경험을 제공하는 데 핵심적인 이유를 알아봅니다.
 services: networking
 documentationcenter: ''
 author: KumudD
@@ -14,31 +14,31 @@ ms.date: 01/05/2020
 ms.author: kumud
 ms.reviewer: ypitsch
 ms.openlocfilehash: a33c7e7d637b519b249c250481a73d04c661d4d5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97915847"
 ---
 # <a name="microsoft-global-network"></a>Microsoft 글로벌 네트워크
 
-Microsoft는 전 세계에서 가장 큰 백본 네트워크 중 하나를 소유하고 운영 중입니다. 165000 마일 이상으로 확장 되는 이러한 글로벌 및 고급 아키텍처는 데이터 센터와 고객을 연결 합니다. 
+Microsoft는 전 세계에서 가장 큰 백본 네트워크 중 하나를 소유하고 운영 중입니다. 165,000마일 넘게 뻗어 있는 이 촘촘한 글로벌 아키텍처는 데이터 센터와 고객을 연결합니다. 
  
-매일 전 세계 고객은 Microsoft Azure, Bing, Dynamics 365, Microsoft 365, XBox 등에 대 한 엄청난 요청을 연결 하 고 전달 합니다. 종류가 무엇이든, 고객은 당사의 서비스에서 즉각적인 안정성과 응답성을 기대합니다. 
+매일 전 세계의 고객이 Microsoft Azure, Bing, Dynamics 365, Microsoft 365, XBox 등에 연결하여 수조 건의 요청을 전달합니다. 종류가 무엇이든, 고객은 당사의 서비스에서 즉각적인 안정성과 응답성을 기대합니다. 
  
-[Microsoft 글로벌 네트워크](https://azure.microsoft.com/global-infrastructure/global-network/)(WAN)는 우수한 클라우드 환경을 제공하는 데 있어서 핵심적인 역할을 합니다. Microsoft [데이터 센터](https://azure.microsoft.com/global-infrastructure/) 를 61 Azure 지역에 연결 하 고 광범위 한에 지 노드를 광범위 하 게 연결 하 여 전 세계에 배치 된 글로벌 네트워크는 가용성, 용량 및 수요를 충족 하는 유연성을 모두 제공 합니다.
+[Microsoft 글로벌 네트워크](https://azure.microsoft.com/global-infrastructure/global-network/)(WAN)는 우수한 클라우드 환경을 제공하는 데 있어서 핵심적인 역할을 합니다. 61개 Azure 지역의 Microsoft [데이터 센터](https://azure.microsoft.com/global-infrastructure/)와 전 세계에 전략적으로 배치된 그물망 같은 에지 노드를 연결하는 당사의 글로벌 네트워크는 모든 수요를 충족하는 가용성, 용량 및 유연성을 모두 제공합니다.
 
 ![Microsoft 글로벌 네트워크](./media/microsoft-global-network/microsoft-global-wan.png)
  
 ## <a name="get-the-premium-cloud-network"></a>프리미엄 클라우드 네트워크 이용
  
-Microsoft 클라우드를 사용하면 [최상의 환경](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/)을 쉽게 사용할 수 있습니다. 전략적으로 배치된 에지 노드를 통해 고객 트래픽이 당사의 글로벌 네트워크에 진입하는 순간, 데이터가 최적화된 경로를 따라 광속에 가까운 속도로 이동합니다. 따라서 최상의 성능을 내기 위한 최적 대기 시간이 보장됩니다. 4000 개 이상의 위치 175에서 수천 개의 연결을 통해 개가 넘는 고유한 인터넷 파트너 (피어)에 연결 된 이러한 가장자리 노드는 상호 연결 전략의 기반을 제공 합니다. 
+Microsoft 클라우드를 사용하면 [최상의 환경](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/)을 쉽게 사용할 수 있습니다. 전략적으로 배치된 에지 노드를 통해 고객 트래픽이 당사의 글로벌 네트워크에 진입하는 순간, 데이터가 최적화된 경로를 따라 광속에 가까운 속도로 이동합니다. 따라서 최상의 성능을 내기 위한 최적 대기 시간이 보장됩니다. 175개 이상의 위치에서 수천 개의 연결을 통해 4000개가 넘는 고유한 인터넷 파트너(피어)와 상호 연결된 이러한 에지 노드는 상호 연결 전략의 기반을 제공합니다. 
  
 런던에서 도쿄로 연결하든 아니면 워싱턴 DC에서 로스앤젤레스로 연결하든, 네트워크 성능은 대기 시간, 지터, 패킷 손실, 처리량 등의 지표를 사용하여 계량화되며 그에 따른 영향을 받습니다.  Microsoft에서는 전송 링크와 달리 직접 상호 연결을 선호하고 사용합니다. 이렇게 하면 응답 트래픽이 대칭으로 유지되며 홉, 피어링 파티 및 경로를 가능한 짧고 간단하게 유지할 수 있습니다. 
 
 예를 들어 런던의 사용자가 도쿄의 서비스에 액세스하려고 시도할 때 인터넷 트래픽이 런던에 있는 당사의 에지 중 하나에 진입하여 Microsoft WAN을 통해 프랑스, 유럽과 인도 사이의 아라비아 전역 경로를 거친 다음, 서비스가 호스팅되는 일본으로 이동합니다. 응답 트래픽이 대칭입니다. 이것을 [콜드 포테이토 라우팅](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing)이라고도 하는데, Microsoft에서 트래픽을 전달할 때까지 트래픽이 Microsoft 네트워크에서 최대한 오래 머문다는 의미입니다.  
   
-Microsoft 서비스를 사용할 때 모든 트래픽이 그렇다는 의미일까요? 예, Microsoft Azure 내에서 또는 Virtual Machines, Microsoft 365, XBox, SQL Db, 저장소 및 가상 네트워크와 같은 Microsoft 서비스 간에 전송 되는 모든 트래픽은 최상의 성능 및 무결성을 보장 하기 위해 공용 네트워크 내에서 라우팅됩니다.  
+Microsoft 서비스를 사용할 때 모든 트래픽이 그렇다는 의미일까요? 예, 데이터 센터 간의 트래픽, Microsoft Azure 내의 트래픽 또는 Virtual Machines, Microsoft 365, XBox, SQL DB, Storage 같은 Microsoft 서비스와 가상 네트워크 간의 모든 트래픽은 당사의 글로벌 네트워크 내에서 라우팅되며, 최적의 성능과 무결성을 보장하기 위해 어떤 경우에도 공용 인터넷을 통해 라우팅되지 않습니다.  
  
 클라우드 및 온라인 서비스의 빠른 성장세를 유지하면서도 일관적이고 우수한 서비스 수준을 유지하려면 대도시, 지상파 및 해저 경로의 파이버 용량과 다양성에 막대한 투자를 해야 합니다. 최근 당사의 글로벌 네트워크에는 해저를 통해 스페인 빌바오와 미국 버지니아주 버지니아 비치를 연결하는 업계 최초의 OLS(Open Line System)인 [MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea), 미국 뉴욕과 아일랜드 더블린을 연결하는 [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1), 일본 도쿄와 미국 오리건주 포틀랜드를 연결하는 [NCP(New Cross Pacific)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system)가 추가되었습니다. 
  
@@ -71,5 +71,5 @@ Microsoft는 다음과 같은 강력한 운영 원칙을 준수합니다.
 Azure와 해당 네트워크가 폭발적으로 성장하면서 사람의 직관으로는 더 이상 글로벌 네트워크 운영을 관리할 수 없는 시점에 도달했습니다. 네트워크에서 장기, 중기 및 단기 변경 사항의 유효성을 검사하기 위해 당사는 프로덕션 네트워크를 종합적으로 미러링하고 에뮬레이트하는 플랫폼을 개발했습니다. 미러링 환경을 만들어서 수백만 개의 시뮬레이션을 실행하는 기능을 사용하면 소프트웨어 및 하드웨어의 변경 내용과 그 영향을 프로덕션 플랫폼 및 네트워크에 커밋하기 전에 미리 테스트할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-- [Microsoft가 지능형 소프트웨어를 통해 글로벌 네트워크 안정성을 이동 하는 방법에 대해 알아봅니다.](https://azure.microsoft.com/blog/advancing-global-network-reliability-through-intelligent-software-part-1-of-2/)
+- [Microsoft가 지능형 소프트웨어를 통해 글로벌 네트워크 안정성을 향상시키는 방법 알아보기](https://azure.microsoft.com/blog/advancing-global-network-reliability-through-intelligent-software-part-1-of-2/)
 - [Azure에서 제공하는 네트워킹 서비스에 대한 자세한 정보](https://azure.microsoft.com/product-categories/networking/)

@@ -1,5 +1,5 @@
 ---
-title: Grafana를 사용 하 여 NSG 흐름 로그 관리
+title: Grafana를 사용하여 NSG 흐름 로그 관리
 titleSuffix: Azure Network Watcher
 description: Network Watcher 및 Grafana를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그를 관리하고 분석합니다.
 services: network-watcher
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
 ms.openlocfilehash: d522d305c70214009b8aa2886d07d2d5403dd2b1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97656311"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Network Watcher 및 Grafana를 사용하여 네트워크 보안 그룹 흐름 로그 관리 및 분석
@@ -37,7 +37,7 @@ NSG 흐름 로그는 Network Watcher를 사용하여 사용할 수 있으며 Azu
 
 ### <a name="enable-network-security-group-flow-logging"></a>네트워크 보안 그룹 흐름 로그 사용
 
-이 시나리오에서는 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 흐름 로그를 사용 하도록 설정 하는 방법에 대 한 지침은 [네트워크 보안 그룹에 대 한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md)문서를 참조 하세요.
+이 시나리오에서는 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 흐름 로그를 사용하도록 설정하는 방법에 대한 지침은 [네트워크 보안 그룹에 대한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md) 문서를 참조하세요.
 
 ### <a name="setup-considerations"></a>설치 고려 사항
 
@@ -199,7 +199,7 @@ NSG 흐름 로그가 포함된 ElasticSearch 인덱스에서 읽을 수 있게 G
 
 다음 스크린샷에는 상위 흐름 및 빈도를 보여 주는 그래프와 차트가 나와 있습니다. 흐름을 NSG 규칙 및 결정을 기준으로 표시할 수도 있습니다. Grafana는 사용자 지정 기능이 뛰어나므로 특정 모니터링 요구에 맞게 대시보드를 만들 수 있습니다. 다음 예제에서는 일반적인 대시보드를 보여 줍니다.
 
-![NSG 규칙에 따라 분할 된 흐름이 있는 샘플 그래프 구성을 보여 주는 스크린샷](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
+![NSG 규칙에 따라 흐름이 분할된 샘플 그래프 구성을 보여 주는 스크린샷](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
 
 ## <a name="conclusion"></a>결론
 

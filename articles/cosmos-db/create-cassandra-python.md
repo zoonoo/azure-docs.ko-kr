@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 129d66f762966f55567793d6a39589585f194b35
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
+ms.openlocfilehash: d6a4feb5f758753ad4750d59f4e7ca379c624844
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113223581"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297530"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>빠른 시작: Python SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "113223581"
 
 이 빠른 시작에서는 Azure Cosmos DB Cassandra API 계정을 만들고 GitHub에서 복제된 Cassandra Python 앱을 사용하여 Cassandra 데이터베이스 및 컨테이너를 만듭니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 또는 Azure 구독 없이 [무료로 Azure Cosmos DB를 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다.
 - [Python 2.7 또는 3.6 이상](https://www.python.org/downloads/)
@@ -127,7 +127,7 @@ ms.locfileid: "113223581"
     
 ## <a name="use-the-x509-certificate"></a>X509 인증서 사용
 
-1. [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt)에서 로컬로 Baltimore CyberTrust Root 인증서를 다운로드합니다. 파일 확장명 *.cer* 를 사용하여 파일 이름을 바꿉니다.
+1. [https://baltimore-cybertrust-root.chain-demos.digicert.com/info/index.html](https://baltimore-cybertrust-root.chain-demos.digicert.com/info/index.html)에서 Baltimore CyberTrust Root 인증서 세부 정보를 텍스트 파일로 복사합니다. *.cer* 파일 확장명을 사용하여 파일을 저장합니다.
 
    인증서에 일련 번호 `02:00:00:b9` 및 SHA1 지문 `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`가 있습니다.
 

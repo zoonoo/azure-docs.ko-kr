@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/22/2020
 ms.openlocfilehash: 07cfa4d4a1698629a36d75deab2f74c89f948475
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98931125"
 ---
 # <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>HDInsight 버전과 관련된 Hortonworks 릴리스 정보
@@ -18,7 +18,7 @@ ms.locfileid: "98931125"
 
 ## <a name="current-versions"></a>현재 버전
 
-* HDInsight 클러스터 버전 4.0은 [Hortonworks Data Platform 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html)을 기반으로 하는 Hadoop 배포를 사용 합니다.
+* HDInsight 클러스터 버전 4.0에서는 [Hortonworks Data Platform 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html)을 기반으로 하는 Hadoop 배포를 사용합니다.
 
 * HDInsight 클러스터 버전 3.6에서는 [Hortonworks Data Platform 2.6](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html)을 기반으로 하는 Hadoop 배포를 사용합니다.
 

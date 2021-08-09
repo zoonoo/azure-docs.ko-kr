@@ -1,5 +1,5 @@
 ---
-title: Apache Spark에 대 한 하이퍼스페이스 인덱스
+title: Apache Spark를 위한 하이퍼스페이스 인덱스
 description: 하이퍼스페이스 인덱스를 사용하여 Apache Spark에 대한 성능 최적화
 services: synapse-analytics
 author: euangMS
@@ -11,34 +11,34 @@ ms.author: euang
 ms.reviewer: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.openlocfilehash: 3aedef8452ad3e972f78958fc0765639692d76d6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98121059"
 ---
-# <a name="hyperspace-an-indexing-subsystem-for-apache-spark"></a>하이퍼스페이스: Apache Spark에 대 한 인덱싱 하위 시스템
+# <a name="hyperspace-an-indexing-subsystem-for-apache-spark"></a>하이퍼스페이스: Apache Spark를 위한 인덱싱 하위 시스템
 
-하이퍼스페이스는 Apache Spark 사용자가 CSV, JSON, Parquet 등의 데이터 집합에 인덱스를 만들어 잠재적 쿼리 및 워크 로드 가속에 사용할 수 있는 기능을 도입 합니다.
+하이퍼스페이스에는 Apache Spark 사용자가 CSV, JSON, Parquet과 같은 데이터 세트에 인덱스를 만들고 이를 잠재적 쿼리 및 워크로드 가속화에 사용할 수 있는 기능이 도입되었습니다.
 
-이 문서에서는 하이퍼스페이스의 기본 사항을 강조 하 고, 간단한 설명을 강조 표시 하 고, 누구에 게 나 사용할 수 있는 방법을 보여 줍니다.
+이 문서에서는 하이퍼스페이스의 기본 사항 및 단순성을 중점적으로 설명하고 누구나 하이퍼스페이스를 사용할 수 있는 방법을 보여 줍니다.
 
-부인: 하이퍼스페이스는 다음과 같은 두 가지 상황에서 작업 또는 쿼리를 가속화 합니다.
+고지 사항: 하이퍼스페이스는 다음 두 가지 상황에서 워크로드 또는 쿼리를 가속화하는 데 도움을 줍니다.
 
-* 쿼리에는 높은 선택이 있는 조건자에 대 한 필터가 포함 되어 있습니다. 예를 들어 백만 개 행에서 일치 하는 행 100 개를 선택할 수 있습니다.
-* 쿼리에는 높은 섞 습니다가 필요한 조인이 포함 되어 있습니다. 예를 들어 10gb 데이터 집합을 사용 하 여 100 GB 데이터 집합을 조인할 수 있습니다.
+* 쿼리에 선택도가 높은 조건자에 대한 필터가 포함되어 있는 경우입니다. 예를 들어 백만 개의 후보 행에서 일치하는 행 100개를 선택하려는 경우입니다.
+* 쿼리에 많은 순서 섞기가 필요한 조인이 포함되어 있는 경우입니다. 예를 들어 10GB 데이터 세트를 100GB 데이터 세트에 조인하려는 경우입니다.
 
-작업을 신중 하 게 모니터링 하 고 인덱싱이 사례를 어떻게 지원 하는지 확인 하는 것이 좋습니다.
+워크로드를 신중하게 모니터링하고 인덱싱이 도움이 되는지 여부를 사례별로 판단하는 것이 좋습니다.
 
-이 문서는 [Python](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), [c #](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)및 [Scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)에 대 한 노트북 양식 에서도 사용할 수 있습니다.
+[Python](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), [C#](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb) 및 [Scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)의 경우 이 문서는 Notebook 양식으로도 제공됩니다.
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치 프로그램
 
-먼저 새 Spark 세션을 시작 합니다. 이 문서는 하이퍼스페이스가 제공할 수 있는 기능을 보여 주기 위한 자습서 이므로 작은 데이터 집합에서 수행 하는 작업을 강조 하는 데 사용할 수 있는 구성 변경 작업을 수행 합니다. 
+먼저 새 Spark 세션을 시작합니다. 이 문서는 하이퍼스페이스가 제공하는 기능을 설명하는 데 그치는 자습서이므로 하이퍼스페이스가 작은 데이터 세트에 대해 수행하는 기능이 중점적으로 설명되도록 구성을 변경할 수 있습니다. 
 
-기본적으로 Spark는 한 쪽 조인의 데이터 크기가 작은 경우 (이 자습서에서 사용 하는 샘플 데이터의 경우) 브로드캐스트 조인을 사용 하 여 조인 쿼리를 최적화 합니다. 따라서 나중에 조인 쿼리를 실행할 때 Spark에서 정렬 병합 조인을 사용 하도록 브로드캐스트 조인을 사용 하지 않도록 설정 합니다. 이는 일반적으로 조인 쿼리를 가속화 하는 데 하이퍼스페이스 인덱스를 사용 하는 방법을 보여 주기 위한 것입니다.
+기본적으로 Spark는 한 쪽 조인의 데이터 크기가 작은 경우(이 자습서에서 사용하는 샘플 데이터가 그러함) 브로드캐스트 조인을 사용하여 조인 쿼리를 최적화합니다. 따라서 브로드캐스트 조인을 사용하지 않도록 설정하여 나중에 조인 쿼리를 실행할 때 Spark에서 정렬 병합 조인을 사용하도록 합니다. 이렇게 하는 주된 이유는 조인 쿼리를 가속화하는 데 하이퍼스페이스 인덱스가 대규모로 사용되는 방식을 보여 주기 위해서입니다.
 
-다음 셀 실행의 출력에서는 성공적으로 생성 된 Spark 세션에 대 한 참조를 표시 하 고 수정 된 조인 구성에 대 한 값으로 '-1 '을 출력 하 여 브로드캐스트 조인이 성공적으로 비활성화 되었음을 나타냅니다.
+다음 셀 실행의 출력에는 성공적으로 생성된 Spark 세션에 대한 참조가 표시되며 수정된 조인 구성에 대한 값으로 ‘-1’이 출력됩니다. 이는 브로드캐스트 조인이 성공적으로 비활성화되었음을 나타냅니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -92,11 +92,11 @@ res3: org.apache.spark.sql.SparkSession = org.apache.spark.sql.SparkSession@297e
 
 ## <a name="data-preparation"></a>데이터 준비
 
-환경을 준비 하려면 샘플 데이터 레코드를 만들고 Parquet 데이터 파일로 저장 합니다. Parquet는 그림에 사용 되지만 CSV와 같은 다른 형식을 사용할 수도 있습니다. 후속 셀에서이 샘플 데이터 집합에 몇 개의 하이퍼스페이스 인덱스를 만들고 쿼리를 실행할 때 Spark에서 사용 하도록 설정 하는 방법을 확인할 수 있습니다.
+환경을 준비하려면 샘플 데이터 레코드를 만들고 Parquet 데이터 파일로 저장합니다. 설명에는 Parquet가 사용되지만 CSV와 같은 다른 형식을 사용할 수도 있습니다. 후속 셀에서는 이 샘플 데이터 세트에 대해 여러 하이퍼스페이스 인덱스를 만들고 쿼리 실행 시 Spark에서 이를 사용하도록 만드는 방법을 확인할 수 있습니다.
 
-예제 레코드는 부서 및 직원의 두 데이터 집합에 해당 합니다. 저장소 계정에서 생성 된 데이터 파일을 저장 하기 위해 원하는 위치를 가리키도록 "empLocation" 및 "deptLocation" 경로를 구성 해야 합니다.
+예제 레코드는 부서 및 직원이라는 두 데이터 세트에 해당합니다. “empLocation” 및 “deptLocation” 경로를 구성하여 스토리지 계정에서 해당 경로가 생성된 데이터 파일을 저장하기 원하는 위치를 가리키도록 해야 합니다.
 
-다음 셀 실행의 출력은 데이터 집합의 내용을 triplets의 목록으로 표시 한 다음, 각 데이터 집합의 콘텐츠를 기본 위치에 저장 하기 위해 생성 된 데이터 프레임에 대 한 참조를 표시 합니다.
+다음 셀 실행의 출력에는 데이터 세트의 콘텐츠가 삼중 쌍 목록으로 표시되며 뒤이어 각 데이터 세트의 콘텐츠를 기본 위치에 저장하기 위해 만든 dataFrame에 대한 참조가 표시됩니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -241,9 +241,9 @@ empLocation: String = /your-path/employees.parquet
 deptLocation: String = /your-path/departments.parquet  
 ```
 
-만든 Parquet 파일의 내용을 확인 하 여 올바른 형식으로 예상 레코드가 포함 되어 있는지 확인 합니다. 나중에 이러한 데이터 파일을 사용 하 여 하이퍼스페이스 인덱스를 만들고 샘플 쿼리를 실행 합니다.
+우리가 만든 Parquet 파일의 콘텐츠에 예상했던 레코드가 올바른 형식으로 포함되어 있는지 확인해 보겠습니다. 나중에 해당 데이터 파일을 사용하여 하이퍼스페이스 인덱스를 만들고 샘플 쿼리를 실행하게 됩니다.
 
-다음 셀을 실행 하면 employee 및 학과 데이터 프레임의 행을 테이블 형식으로 표시 하는 및 출력이 생성 됩니다. 사용자가 이전 셀에서 만든 triplets 중 하 나와 일치 하는 14 명의 직원과 4 개의 부서가 있어야 합니다.
+다음 셀을 실행하면 직원 및 부서 dataFrame의 행을 테이블 형식으로 표시하는 출력이 생성됩니다. 직원 14명과 부서 4개가 있어야 하며, 각각은 이전 셀에서 만든 삼중 쌍 중 하나와 일치해야 합니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -330,22 +330,22 @@ deptDF: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 mo
 
 ## <a name="indexes"></a>인덱스
 
-하이퍼스페이스를 사용 하면 지속형 데이터 파일에서 검색 된 레코드에 대해 인덱스를 만들 수 있습니다. 성공적으로 생성 된 후에는 인덱스에 해당 하는 항목이 하이퍼스페이스의 메타 데이터에 추가 됩니다. 이 메타 데이터는 나중에 쿼리를 처리 하는 동안 Apache Spark의 최적화 프로그램에서 적절 한 인덱스를 찾고 사용 하는 데 사용 됩니다.
+하이퍼스페이스를 사용하면 지속형 데이터 파일에서 검색된 레코드에 대해 인덱스를 만들 수 있습니다. 인덱스가 성공적으로 만들어지면 인덱스에 해당하는 항목이 하이퍼스페이스의 메타데이터에 추가됩니다. 해당 메타데이터는 나중에 쿼리 처리 중 Apache Spark 최적화 프로그램에서 적합한 인덱스를 찾고 사용하는 데 사용됩니다.
 
 인덱스를 만든 후에는 다음과 같은 몇 가지 작업을 수행할 수 있습니다.
 
-* **기본 데이터가 변경 되 면 새로 고칩니다.** 기존 인덱스를 새로 고쳐 변경 내용을 캡처할 수 있습니다.
-* **인덱스가 필요 하지 않은 경우 삭제 합니다.** 일시 삭제를 수행할 수 있습니다. 즉, 인덱스는 실제로 삭제 되지 않지만 작업에서 더 이상 사용 되지 않도록 "삭제 됨"으로 표시 됩니다.
-* **인덱스가 더 이상 필요 하지 않은 경우에는입니다.** 인덱스를 진공 할 수 있으며,이 경우에는 하이퍼스페이스의 메타 데이터에서 인덱스 내용 및 연결 된 메타 데이터를 완전히 실제로 삭제 합니다.
+* **기본 데이터가 변경되면 새로 고칩니다.** 기존 인덱스를 새로 고침하여 변경 사항을 캡처할 수 있습니다.
+* **필요하지 않은 인덱스를 삭제합니다.** 일시 삭제를 수행할 수 있습니다. 즉, 인덱스는 물리적으로 삭제되지 않지만 워크로드에서 더 이상 사용되지 않도록 “삭제됨”으로 표시됩니다.
+* **더 이상 필요하지 않은 인덱스를 완전히 비웁니다.** 인덱스를 완전히 비워 하이퍼스페이스의 메타데이터에서 인덱스 콘텐츠와 관련 메타데이터를 물리적으로 완전히 삭제할 수 있습니다.
 
-새로 고침 기본 데이터가 변경 되 면이를 캡처하기 위해 기존 인덱스를 새로 고칠 수 있습니다.
-삭제 인덱스가 필요 하지 않은 경우에는 삭제를 수행할 수 있습니다. 즉, 인덱스는 실제로 삭제 되지 않고 ' 삭제 됨 '으로 표시 되므로 작업에서 더 이상 사용 되지 않습니다.
+기본 데이터가 변경되는 경우 기존 인덱스를 새로 고침하여 변경 사항을 캡처할 수 있습니다.
+인덱스가 필요하지 않은 경우 일시 삭제를 수행할 수 있습니다. 즉, 인덱스는 물리적으로 삭제되지 않지만 워크로드에서 더 이상 삭제되지 않도록 ‘삭제됨’으로 표시됩니다.
 
-다음 섹션에서는 하이퍼스페이스에서 이러한 인덱스 관리 작업을 수행 하는 방법을 보여 줍니다.
+다음 섹션에서는 하이퍼스페이스에서 이러한 인덱스 관리 작업을 수행하는 방법을 보여 줍니다.
 
-먼저 필요한 라이브러리를 가져오고 하이퍼스페이스의 인스턴스를 만들어야 합니다. 나중에이 인스턴스를 사용 하 여 샘플 데이터에 대 한 인덱스를 만들고 해당 인덱스를 수정 하는 다양 한 하이퍼스페이스 Api를 호출 합니다.
+먼저 필요한 라이브러리를 가져오고 하이퍼스페이스의 인스턴스를 만들어야 합니다. 나중에 이 인스턴스를 사용해 서로 다른 하이퍼스페이스 API를 호출하여 샘플 데이터에 대해 인덱스를 만들고 해당 인덱스를 수정하게 됩니다.
 
-다음 셀 실행의 출력에는 하이퍼스페이스의 생성 된 인스턴스에 대 한 참조가 표시 됩니다.
+다음 셀 실행의 출력에는 생성된 하이퍼스페이스 인스턴스에 대한 참조가 표시됩니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -391,17 +391,17 @@ hyperspace: com.microsoft.hyperspace.Hyperspace = com.microsoft.hyperspace.Hyper
 
 ## <a name="create-indexes"></a>인덱스 만들기
 
-하이퍼스페이스 인덱스를 만들려면 다음 두 가지 정보를 제공 해야 합니다.
+하이퍼스페이스 인덱스를 만들려면 다음 두 가지 정보를 제공해야 합니다.
 
-* 인덱싱할 데이터를 참조 하는 Spark 데이터 프레임.
-* 인덱스 구성 개체인 IndexConfig는 인덱스 이름 및 인덱스의 인덱싱된 열과 포괄 열을 지정 합니다.
+* 인덱싱할 데이터를 참조하는 Spark DataFrame.
+* 인덱스 이름과 인덱싱된 열 및 포괄 열을 지정하는 인덱스 구성 개체인 IndexConfig.
 
-먼저 샘플 데이터에 세 개의 하이퍼스페이스 인덱스 ("deptIndex1" 및 "deptIndex2" 라는 부서 데이터 집합의 두 인덱스 및 "empIndex" 라는 직원 데이터 집합에 대 한 인덱스)를 만듭니다. 각 인덱스에 대해 인덱싱된 열 및 포괄 열에 대해 열 목록과 함께 이름을 캡처하기 위해 해당 하는 IndexConfig가 필요 합니다. 다음 셀을 실행 하면 이러한 IndexConfigs 만들어지고 해당 출력에 나열 됩니다.
+먼저 샘플 데이터에 대해 3개의 하이퍼스페이스 인덱스(“deptIndex1” 및 “deptIndex2”라는 부서 데이터 세트에 대해 2개의 인덱스, “empIndex”라는 직원 데이터 세트에 대해 1개의 인덱스)를 만듭니다. 인덱스별로 이름과 함께 인덱싱 열 및 포괄 열의 목록을 캡처하려면 해당 IndexConfig가 있어야 합니다. 다음 셀을 실행하면 해당 IndexConfig가 만들어지고 출력에 나열됩니다.
 
 > [!Note]
-> 인덱스 열은 필터 또는 조인 조건에 표시 되는 열입니다. 포괄 열은 선택/프로젝트에 표시 되는 열입니다.
+> 인덱스 열은 필터 또는 조인 조건에 표시되는 열입니다. 포괄 열은 선택/프로젝트에 표시되는 열입니다.
 
-예를 들어 다음 쿼리에서는
+예를 들어, 다음 쿼리에서
 
 ```sql
 SELECT X
@@ -459,7 +459,7 @@ empIndexConfig: com.microsoft.hyperspace.index.IndexConfig = [indexName: empInde
 deptIndexConfig1: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex1; indexedColumns: deptid; includedColumns: deptname]  
 deptIndexConfig2: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex2; indexedColumns: location; includedColumns: deptname]  
 ```
-이제 인덱스 구성을 사용 하 여 세 개의 인덱스를 만듭니다. 이러한 목적을 위해 하이퍼스페이스 인스턴스에서 "createIndex" 명령을 호출 합니다. 이 명령에는 인덱스 구성 및 인덱싱할 행이 포함 된 데이터 프레임가 필요 합니다. 다음 셀을 실행 하면 3 개의 인덱스가 생성 됩니다.
+이제 인덱스 구성을 사용하여 세 개의 인덱스를 만듭니다. 이를 위해 하이퍼스페이스 인스턴스에서 “createIndex” 명령을 호출합니다. 이 명령에는 인덱싱할 행이 포함된 인덱스 구성 및 dataFrame이 필요합니다. 다음 셀을 실행하면 3개의 인덱스가 생성됩니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -503,17 +503,17 @@ hyperspace.CreateIndex(deptDF, deptIndexConfig2);
 
 ## <a name="list-indexes"></a>인덱스 나열
 
-다음 코드는 하이퍼스페이스 인스턴스에서 사용 가능한 모든 인덱스를 나열 하는 방법을 보여 줍니다. 추가 작업을 수행할 수 있도록 기존 인덱스에 대 한 정보를 Spark 데이터 프레임로 반환 하는 "인덱스" API를 사용 합니다. 
+다음 코드는 하이퍼스페이스 인스턴스에서 사용 가능한 모든 인덱스를 나열하는 방법을 보여 줍니다. 이 코드는 추가 작업을 수행할 수 있도록 기존 인덱스에 대한 정보를 Spark DataFrame으로 반환하는 “인덱스” API를 사용합니다. 
 
-예를 들어, 해당 콘텐츠를 확인 하거나 추가로 분석할 수 있도록이 데이터 프레임에 대 한 유효한 작업을 호출할 수 있습니다. 예를 들어 특정 인덱스를 필터링 하거나 원하는 속성에 따라 그룹화 하는 등의 작업을 수행할 수 있습니다.
+예를 들어 이 DataFrame에 대해 유효한 작업을 호출하여 해당 콘텐츠를 확인하거나 추가로 분석(예를 들어 특정 인덱스를 필터링하거나 원하는 속성에 따라 콘텐츠를 그룹화)할 수 있습니다.
 
-다음 셀에서는 데이터 프레임의 ' show ' 작업을 사용 하 여 행을 완전히 인쇄 하 고 인덱스의 세부 정보를 테이블 형식으로 표시 합니다. 각 인덱스에 대해 하이퍼스페이스가 메타 데이터에 저장 한 모든 정보를 볼 수 있습니다. 다음에 대 한 알림이 즉시 표시 됩니다.
+다음 셀은 DataFrame의 ‘show’ 작업을 사용하여 행을 완전히 출력하고 인덱스의 세부 정보를 테이블 형식으로 표시합니다. 인덱스별로 하이퍼스페이스가 해당 인덱스와 관련하여 메타데이터에 저장한 모든 정보를 볼 수 있습니다. 곧바로 다음 사항을 확인할 수 있습니다.
 
-* indexName, config.xml, includedColumns 및 status입니다. status는 사용자가 일반적으로 참조 하는 필드입니다.
-* dfSignature는 하이퍼스페이스에 의해 자동으로 생성 되며 각 인덱스에 대해 고유 합니다. 하이퍼스페이스는 내부적으로이 서명을 사용 하 여 인덱스를 유지 관리 하 고 쿼리 시이를 활용 합니다.
+* config.indexName, config.indexedColumns, config.includedColumns 및 status.status는 사용자가 일반적으로 참조하는 필드입니다.
+* dfSignature는 하이퍼스페이스에서 자동으로 생성되며 인덱스별로 고유합니다. 하이퍼스페이스는 이 서명을 내부적으로 사용하여 인덱스를 유지 관리하고 쿼리 시 이를 활용합니다.
 
 
-다음 출력에서 세 인덱스는 모두 "활성" 상태이 고 해당 이름, 인덱싱된 열 및 포괄 열은 위의 인덱스 구성에서 정의한 내용과 일치 해야 합니다.
+다음 출력에서 세 인덱스는 모두 상태 및 해당 이름, 인덱싱된 열 및 포함된 열이 모두 위의 인덱스 구성에서 정의한 것과 일치해야 합니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -555,11 +555,11 @@ hyperspace.Indexes().Show();
 
 ## <a name="delete-indexes"></a>인덱스 삭제
 
-"DeleteIndex" API를 사용 하 고 인덱스 이름을 제공 하 여 기존 인덱스를 삭제할 수 있습니다. 인덱스 삭제는 일시 삭제를 수행 합니다 .이는 주로 하이퍼스페이스 메타 데이터의 인덱스 상태를 "활성"에서 "삭제 됨"으로 업데이트 합니다. 이렇게 하면 이후 쿼리 최적화에서 삭제 된 인덱스가 제외 되 고 하이퍼스페이스는 더 이상 쿼리에 대해 해당 인덱스를 선택 하지 않습니다. 
+“deleteIndex” API를 사용하고 인덱스 이름을 제공하여 기존 인덱스를 삭제할 수 있습니다. 인덱스 삭제는 일시 삭제를 수행합니다. 주로 하이퍼스페이스 메타데이터의 인덱스 상태를 “ACTIVE”에서 “DELETED”로 업데이트합니다. 그러면 삭제된 인덱스가 이후 쿼리 최적화에서 제외되고 하이퍼스페이스는 더 이상 쿼리에 대해 해당 인덱스를 선택하지 않습니다. 
 
-그러나 삭제 된 인덱스에 대 한 인덱스 파일은 일시 삭제 되기 때문에 계속 사용할 수 있으므로 사용자가 요청 하는 경우 인덱스를 복원할 수 있습니다.
+그러나 삭제된 인덱스의 인덱스 파일이 계속 사용할 수 있는 상태로 유지되므로(일시 삭제이기 때문에) 사용자가 요청할 경우 인덱스를 복원할 수 있습니다.
 
-다음 셀은 이름이 "deptIndex2" 인 인덱스를 삭제 하 고 그 후에 하이퍼스페이스 메타 데이터를 나열 합니다. 출력은 "deptIndex2"를 제외 하 고 "인덱스 나열"의 위 셀과 유사 해야 합니다 .이 경우 이제 상태가 "삭제 됨"으로 변경 되어야 합니다.
+다음 셀은 이름이 “deptIndex2”인 인덱스를 삭제하고 그다음에 하이퍼스페이스 메타데이터를 나열합니다. 출력은 이제 상태가 “DELETED”로 변경되어야 하는 “deptIndex2”를 제외하고 위의 “인덱스 나열” 셀과 유사해야 합니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -605,7 +605,7 @@ hyperspace.Indexes().Show();
 
 ## <a name="restore-indexes"></a>인덱스 복원
 
-"RestoreIndex" API를 사용 하 여 삭제 된 인덱스를 복원할 수 있습니다. 이렇게 하면 최신 버전의 인덱스를 활성 상태로 되돌려 쿼리에 대해 다시 사용할 수 있습니다. 다음 셀은 "restoreIndex" 사용의 예를 보여 줍니다. "DeptIndex1"를 삭제 하 고 복원 합니다. "DeleteIndex" 명령을 호출 하 고 "restoreIndex"를 호출한 후 "활성" 상태로 다시 전환한 후 "deptIndex1"가 "삭제 됨" 상태로 표시 됩니다.
+“restoreIndex” API를 사용하여 삭제된 인덱스를 복원할 수 있습니다. 그러면 최신 버전의 인덱스가 ACTIVE 상태로 회복되고 쿼리에 다시 사용할 수 있게 됩니다. 다음 셀은 “restoreIndex”의 사용 예시를 보여 줍니다. “deptIndex1”을 삭제하고 복원하는 경우입니다. 출력에는 “deptIndex1”이 “deleteIndex” 명령 호출 후에 우선 “DELETED” 상태로 전환되었다가 “restoreIndex” 호출 후 “ACTIVE” 상태로 돌아온 것으로 표시되어 있습니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -667,11 +667,11 @@ hyperspace.Indexes().Show();
 |        empIndex|             [deptId]|             [empName]|`deptId` INT,`emp...|com.microsoft.cha...|30768c6c9b2533004...|Relation[empId#32...|       200|abfss://datasets@...|      ACTIVE|              0|
 ```
 
-## <a name="vacuum-indexes"></a>인덱스
+## <a name="vacuum-indexes"></a>인덱스 완전히 비우기
 
-하드 삭제를 수행할 수 있습니다. 즉, **vacuumIndex** 명령을 사용 하 여 파일을 완전히 제거 하 고 삭제 된 인덱스에 대 한 메타 데이터 항목을 수행할 수 있습니다. 이 작업은 되돌릴 수 없습니다. 모든 인덱스 파일을 물리적으로 삭제 하므로 하드 삭제가 됩니다.
+영구 삭제를 수행할 수 있습니다. 즉, **vacuumIndex** 명령을 사용하여 파일 및 삭제된 인덱스의 메타데이터 항목을 완전히 제거할 수 있습니다. 이 작업은 되돌릴 수 없습니다. 이 작업은 영구 삭제이므로 이 작업을 수행하면 모든 인덱스 파일이 물리적으로 삭제됩니다.
 
-다음 셀은 "deptIndex2" 인덱스를 vacuums 베 큐 밍 후에 하이퍼스페이스 메타 데이터를 표시 합니다. "DeptIndex1" 및 "empIndex"의 두 인덱스에 대 한 메타 데이터 항목이 "활성" 상태이 고 "deptIndex2"에 대 한 항목이 없다는 것을 볼 수 있습니다.
+다음 셀은 “deptIndex2” 인덱스를 완전히 비우고 그 후에 하이퍼스페이스 메타데이터를 표시합니다. 두 인덱스 “deptIndex1” 및 “empIndex”에 대한 메타데이터 항목이 표시됩니다. 두 인덱스 모두 “ACTIVE” 상태에 있고 “deptIndex2”에 대해서는 항목이 없음을 볼 수 있습니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -714,14 +714,14 @@ hyperspace.Indexes().Show();
 |        empIndex|             [deptId]|             [empName]|`deptId` INT,`emp...|com.microsoft.cha...|30768c6c9b2533004...|Relation[empId#32...|       200|abfss://datasets@...|      ACTIVE|              0|
 ```
 
-## <a name="enable-or-disable-hyperspace"></a>하이퍼스페이스 사용 또는 사용 안 함
+## <a name="enable-or-disable-hyperspace"></a>하이퍼스페이스를 사용 또는 사용하지 않도록 설정
 
-하이퍼스페이스는 Spark를 사용 하 여 인덱스 사용을 설정 하거나 해제 하는 Api를 제공 합니다.
+하이퍼스페이스는 Spark에서 인덱스를 사용하거나 사용하지 않도록 설정하는 API를 제공합니다.
 
-* **Enablehyperspace** 명령을 사용 하면 하이퍼스페이스 최적화 규칙이 Spark 최적화 프로그램에 표시 되 고 기존 하이퍼스페이스 인덱스를 악용 하 여 사용자 쿼리를 최적화할 수 있습니다.
-* **Disablehyperspace** 명령을 사용 하면 쿼리 최적화 중에 하이퍼스페이스 규칙이 더 이상 적용 되지 않습니다. 하이퍼스페이스를 사용 하지 않도록 설정 해도 생성 된 인덱스는 그대로 유지 되므로 생성 된 인덱스에 영향을 미치지 않습니다
+* **enableHyperspace** 명령을 사용하면 Spark 최적화 프로그램에 하이퍼스페이스 최적화 규칙이 표시되고 기존 하이퍼스페이스 인덱스를 활용하여 사용자 쿼리를 최적화합니다.
+* **disableHyperspace** 명령을 사용하면 쿼리 최적화 중에 더 이상 하이퍼스페이스 규칙이 적용되지 않습니다. 하이퍼스페이스를 사용하지 않도록 설정해도 생성된 인덱스는 그대로 유지되므로 아무런 영향을 받지 않습니다.
 
-다음 셀에서는 이러한 명령을 사용 하 여 하이퍼스페이스를 사용 하거나 사용 하지 않도록 설정 하는 방법을 보여 줍니다. 출력은 구성이 업데이트 되는 기존 Spark 세션에 대 한 참조를 표시 합니다.
+다음 셀은 이러한 명령을 사용하여 하이퍼스페이스를 사용하거나 사용하지 않도록 설정하는 방법을 보여 줍니다. 출력에는 해당 구성이 업데이트된 기존 Spark 세션에 대한 참조가 표시되어 있습니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -772,9 +772,9 @@ res51: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.SparkSession@
 
 ## <a name="index-usage"></a>인덱스 사용
 
-Spark에서 쿼리를 처리 하는 동안 하이퍼스페이스 인덱스를 사용 하도록 하려면 하이퍼스페이스가 사용 하도록 설정 되어 있는지 확인 해야 합니다.
+쿼리 처리 중 Spark에서 하이퍼스페이스 인덱스를 사용하도록 설정하려면 하이퍼스페이스가 사용 설정되어 있어야 합니다.
 
-다음 셀은 하이퍼스페이스를 사용 하도록 설정 하 고 예제 쿼리를 실행 하는 데 사용 하는 예제 데이터 레코드를 포함 하는 두 개의 데이터 프레임를 만듭니다. 각 데이터 프레임에 대해 몇 가지 샘플 행이 인쇄 됩니다.
+다음 셀은 하이퍼스페이스를 사용하도록 설정하고 예제 쿼리 실행에 사용하는 샘플 데이터 레코드가 포함된 두 개의 DataFrame을 만듭니다. DataFrame별로 샘플 행이 몇 개 출력됩니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -845,7 +845,7 @@ deptDFrame: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 
 | 7876|  ADAMS|    20|
 ```
 
-&nbsp;&nbsp;상위 5 개 행 &nbsp; 만 표시 됩니다.&nbsp;
+&nbsp; &nbsp; 상위 5개 행만 표시된 것입니다. &nbsp; &nbsp;
 
 ```console
 |deptId|  deptName|location|
@@ -858,14 +858,14 @@ deptDFrame: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 
 
 ## <a name="index-types"></a>인덱스 형식
 
-현재, 하이퍼스페이스에는 두 가지 쿼리 그룹에 대 한 인덱스를 활용 하는 규칙이 있습니다.
+현재 하이퍼스페이스에는 두 가지 쿼리 그룹에 대해 인덱스를 활용하는 규칙이 있습니다.
 
-* 조회 또는 범위 선택 필터링 조건자를 사용 하 여 선택 쿼리
-* 같음 조인 조건자 (즉, 동등 조인)를 사용 하 여 쿼리를 조인 합니다.
+* 조회 또는 범위 선택 필터링 조건자를 사용하는 선택 쿼리
+* 같음 조인 조건자(즉, 동등 조인)를 사용하는 조인 쿼리
 
-## <a name="indexes-for-accelerating-filters"></a>필터 가속화를 위한 인덱스
+## <a name="indexes-for-accelerating-filters"></a>필터 가속을 위한 인덱스
 
-첫 번째 예제 쿼리에서는 다음 셀에 표시 된 것 처럼 부서 레코드를 조회 합니다. SQL에서이 쿼리는 다음 예제와 같습니다.
+다음 셀에 표시된 것과 같이 첫 번째 예제 쿼리는 부서 레코드를 조회합니다. SQL에서 이 쿼리는 다음 예제와 같습니다.
 
 ```sql
 SELECT deptName
@@ -873,12 +873,12 @@ FROM departments
 WHERE deptId = 20
 ```
 
-다음 셀을 실행 하면 출력이 표시 됩니다.
+다음 셀 실행의 출력에는 다음 사항이 표시됩니다.
 
-* 단일 부서 이름인 쿼리 결과
-* Spark에서 쿼리를 실행 하는 데 사용 하는 쿼리 계획입니다.
+* 쿼리 결과(단일 부서 이름)
+* Spark가 쿼리를 실행할 때 사용한 쿼리 계획
 
-쿼리 계획의 맨 아래에 있는 **Filescan** 연산자는 레코드를 읽은 데이터 원본을 보여 줍니다. 이 파일의 위치는 "deptIndex1" 인덱스의 최신 버전에 대 한 경로를 나타냅니다. 이 정보는 쿼리 및 하이퍼스페이스 최적화 규칙 사용에 따라 Spark에서 런타임에 적절 한 인덱스를 활용 하기로 결정 했습니다.
+쿼리 계획에서 계획 하단의 **FileScan** 연산자는 레코드를 읽은 위치인 데이터 원본을 표시합니다. 이 파일의 위치는 “deptIndex1” 인덱스의 최신 버전의 경로를 나타냅니다. 해당 정보는 Spark가 쿼리에 따라 하이퍼스페이스 최적화 규칙을 사용하여 런타임 시 적절한 인덱스를 활용하기로 결정했음을 보여 줍니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -958,7 +958,7 @@ Project [deptName#534]
    +- *(1) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), EqualTo(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
 ```
 
-두 번째 예는 부서 레코드에 대 한 범위 선택 쿼리입니다. SQL에서이 쿼리는 다음 예제와 같습니다.
+두 번째 예제는 부서 레코드에 대한 범위 선택 쿼리입니다. SQL에서 이 쿼리는 다음 예제와 같습니다.
 
 ```sql
 SELECT deptName
@@ -966,7 +966,7 @@ FROM departments
 WHERE deptId > 20
 ```
 
-첫 번째 예제와 마찬가지로 다음 셀의 출력에서는 쿼리 결과 (두 부서의 이름)와 쿼리 계획을 보여 줍니다. **Filescan** 연산자에서 데이터 파일의 위치는 "deptIndex1"를 사용 하 여 쿼리를 실행 하는 것을 보여 줍니다.
+첫 번째 예제와 마찬가지로 다음 셀의 출력에는 쿼리 결과(두 부서의 이름) 및 쿼리 계획이 표시됩니다. **FileScan** 연산자의 데이터 파일 위치는 쿼리를 실행하는 데 “deptIndex1”이 사용되었음을 보여 줍니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -1045,14 +1045,14 @@ Project [deptName#534]
 +- *(1) Filter (isnotnull(deptId#533) && (deptId#533 > 20))
    +- *(1) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), GreaterThan(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
 ```
-세 번째 예는 부서 ID에서 부서 및 직원 레코드를 조인 하는 쿼리입니다. 해당 하는 SQL 문은 다음과 같이 표시 됩니다.
+세 번째 예제는 부서 ID에 대해 부서 및 직원 레코드를 조인하는 쿼리입니다. 이에 해당하는 SQL 문은 다음과 같습니다.
 
 ```sql
 SELECT employees.deptId, empName, departments.deptId, deptName
 FROM   employees, departments
 WHERE  employees.deptId = departments.deptId
 ```
-다음 셀 실행의 출력은 쿼리 결과를 보여 줍니다. 여기에는 14 명의 직원 이름과 각 직원의 근무 부서 이름이 나와 있습니다. 또한 쿼리 계획은 출력에 포함 됩니다. 두 **Filescan** 연산자의 파일 위치는 Spark에서 "empIndex" 및 "deptIndex1" 인덱스를 사용 하 여 쿼리를 실행 하는 방법을 보여 줍니다.
+다음 셀 실행의 출력에는 쿼리 결과(직원 14명의 이름 및 각 직원이 근무하는 부서의 이름)가 표시됩니다. 쿼리 계획도 출력에 포함됩니다. 두 **FileScan** 연산자의 파일 위치가 어떻게 Spark가 쿼리를 실행하는 데 “empIndex” 및 “deptIndex1” 인덱스를 사용했음을 보여 주는지 확인하세요.
 
 :::zone pivot = "programming-language-scala"
 
@@ -1167,7 +1167,7 @@ Project [empName#528, deptName#534]
 
 ## <a name="support-for-sql-semantics"></a>SQL 의미 체계 지원
 
-인덱스 사용은 데이터 프레임 API 또는 Spark SQL을 사용 하는지 여부에 대해 투명 합니다. 다음 예에서는 해당 하는 경우 인덱스 사용을 보여 주는 SQL 형식의 동일한 조인 예제를 보여 줍니다.
+인덱스 사용은 DataFrame API 또는 Spark SQL 중 무엇을 사용하는지에 따라 영향을 받지 않습니다. 다음 예제는 이전과 동일한 조인 예제를 SQL 형식으로 보여 주며 해당하는 경우 인덱스의 사용을 보여 줍니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -1288,9 +1288,9 @@ Project [empName#528, deptName#534]
 
 ## <a name="explain-api"></a>API 설명
 
-인덱스는 유용 하지만 사용 여부를 어떻게 알 수 있나요? 하이퍼스페이스를 통해 사용자는 쿼리를 실행 하기 전에 원래 계획과 업데이트 된 인덱스 종속 계획을 비교할 수 있습니다. 명령 출력을 표시 하려면 HTML, 일반 텍스트 또는 콘솔 모드에서 선택할 수 있습니다.
+인덱스는 유용하지만 인덱스가 사용되고 있는지 어떻게 알 수 있나요? 하이퍼스페이스를 사용하면 쿼리를 실행하기 전에 원래 계획과 업데이트된 인덱스 종속 계획을 비교할 수 있습니다. HTML, 일반 텍스트 또는 콘솔 모드 중에서 하나를 선택하여 명령 출력을 표시할 수 있습니다.
 
-다음 셀에서는 HTML을 사용 하는 예제를 보여 줍니다. 강조 표시 된 섹션은 사용 중인 인덱스와 원본 및 업데이트 계획의 차이를 나타냅니다.
+다음 셀은 HTML을 사용한 예제를 보여 줍니다. 강조 표시된 섹션은 사용 중인 인덱스와 함께 원래 계획과 업데이트된 계획 간의 차이를 나타냅니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -1330,7 +1330,7 @@ hyperspace.Explain(eqJoin, false, input => DisplayHTML(input));
 
 결과:
 
-### <a name="plan-with-indexes"></a>인덱스를 사용 하 여 계획
+### <a name="plan-with-indexes"></a>인덱스가 있는 계획
 
 ```console
 Project [empName#528, deptName#534]
@@ -1343,7 +1343,7 @@ Project [empName#528, deptName#534]
          +- *(2) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId)], ReadSchema: struct
 ```
 
-### <a name="plan-without-indexes"></a>인덱스 없이 계획
+### <a name="plan-without-indexes"></a>인덱스가 없는 계획
 
 ```console
 Project [empName#528, deptName#534]
@@ -1360,7 +1360,7 @@ Project [empName#528, deptName#534]
                +- *(3) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/your-path/departments.parquet], PartitionFilters: [], PushedFilters: [IsNotNull(deptId)], ReadSchema: struct
 ```
 
-### <a name="indexes-used"></a>사용 되는 인덱스
+### <a name="indexes-used"></a>사용되는 인덱스
 
 ```console
 deptIndex1:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/<container>/indexes/public/deptIndex1/v__=0
@@ -1369,12 +1369,12 @@ empIndex:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/<container>/i
 
 ## <a name="refresh-indexes"></a>인덱스 새로 고침
 
-인덱스가 생성 된 원본 데이터가 변경 되 면 인덱스는 더 이상 데이터의 최신 상태를 캡처하지 않습니다. **Refreshindex** 명령을 사용 하 여 오래 된 인덱스를 새로 고칠 수 있습니다. 이 명령은 인덱스를 완전히 다시 작성 하 고 최신 데이터 레코드에 따라 업데이트 합니다. 다른 노트북에서 인덱스를 증분 방식으로 새로 고치는 방법을 보여 드리겠습니다.
+인덱스가 생성된 원본 데이터가 변경되면 인덱스는 더 이상 해당 데이터의 최신 상태를 캡처하지 않습니다. **refreshIndex** 명령을 사용하여 오래된 인덱스를 새로 고칠 수 있습니다. 이 명령을 사용하면 인덱스가 완전히 다시 작성되고 최신 데이터 레코드에 따라 업데이트됩니다. 다른 Notebook에서 인덱스를 증분 방식으로 새로 고치는 방법을 보여 드리겠습니다.
 
-다음 두 셀은이 시나리오에 대 한 예를 보여 줍니다.
+다음 두 셀은 이 시나리오에 해당하는 예를 보여 줍니다.
 
-* 첫 번째 셀은 원본 부서 데이터에 두 개 이상의 부서를 추가 합니다. 부서 목록을 읽고 인쇄 하 여 새 부서가 올바르게 추가 되었는지 확인 합니다. 출력에는 총 6 개 부서 (이전 4 개 및 두 개의 새)가 표시 됩니다. **Refreshindex** 를 호출 하면 인덱스가 새 부서를 캡처하도록 "deptIndex1"가 업데이트 됩니다.
-* 두 번째 셀은 범위 선택 쿼리 예제를 실행 합니다. 이제 결과에는 위의 쿼리를 실행 했을 때 표시 되는 두 개의 학과가 포함 됩니다. 두 개의 부서는 추가 된 새로운 부서입니다.
+* 첫 번째 셀은 원본 부서 데이터에 부서를 2개 더 추가합니다. 이 셀은 부서 목록을 읽고 출력하여 새 부서가 올바르게 추가되었는지 확인합니다. 출력에는 총 6개 부서(이전 부서 4개 및 새 부서 2개)가 표시되어 있습니다. **refreshIndex** 를 호출하면 인덱스에서 새 부서를 캡처하도록 “deptIndex1”이 업데이트됩니다.
+* 두 번째 셀은 범위 선택 쿼리 예제를 실행합니다. 이제는 결과에 4개의 부서가 포함되어 있습니다. 2개는 앞에서 이전 쿼리를 실행했을 때 표시되었던 부서이고 나머지 2개는 이번에 추가한 새 부서입니다.
 
 ### <a name="specific-index-refresh"></a>특정 인덱스 새로 고침
 
@@ -1536,27 +1536,27 @@ Project [deptName#675]
    +- *(1) FileScan parquet [deptId#674,deptName#675] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), GreaterThan(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
 ```
 
-## <a name="hybrid-scan-for-mutable-datasets"></a>변경 가능한 데이터 집합에 대 한 하이브리드 검색
+## <a name="hybrid-scan-for-mutable-datasets"></a>변경 가능한 데이터 세트에 대한 하이브리드 검색
 
-기본 원본 데이터에 일부 새 파일이 추가 되었거나 기존 파일이 삭제 된 경우에는 인덱스가 부실 하 고 하이퍼스페이스에서 사용 하지 않도록 결정 하는 경우가 많습니다. 그러나 매번 새로 고치지 않고도 인덱스를 사용 하려는 경우가 있습니다. 이 작업을 수행 하는 여러 가지 이유가 있을 수 있습니다.
+기본 원본 데이터에 새 파일이 몇 개 추가되거나 기존 파일이 삭제된 경우 인덱스는 유효하지 않게 되고 하이퍼스페이스에서 해당 인덱스를 사용하지 않기로 결정하는 경우가 많습니다. 그러나 인덱스를 매번 새로 고치지 않고 사용하고 싶은 경우가 있습니다. 이렇게 하고 싶은 데에는 몇 가지 이유가 있을 수 있습니다.
 
-- 인덱스를 지속적으로 새로 고치지 않고 작업을 가장 잘 이해할 수 있으므로 주기적으로 수행 하려고 합니다.
-- 몇 개의 파일만 추가/제거 하 고 다른 새로 고침 작업이 완료 될 때까지 기다리지 않으려고 합니다.
+- 자신의 워크로드에 대해서 가장 잘 알기 때문에 인덱스를 계속 새로 고치는 대신 주기적으로 새로 고치고 싶은 경우입니다.
+- 추가/제거한 파일이 몇 개에 불과해 다른 새고 고침 작업이 완료될 때까지 기다리고 싶지 않은 경우입니다.
 
-부실 인덱스를 계속 사용할 수 있도록 하기 위해 하이퍼스페이스는 인덱스를 새로 고치지 않고 오래 되거나 오래 된 인덱스를 사용할 수 있는 novel 기술인 하이브리드 검색을 도입 합니다.
+오래된 인덱스를 계속 사용할 수 있도록 하이퍼스페이스에는 사용자가 인덱스를 새로 고치지 않고도 오래되거나 유효하지 않은 인덱스(예를 들어, 기본 원본 데이터에 새 파일이 몇 개 추가되거나 기존 파일이 삭제된 경우)를 활용할 수 있는 새로운 기술인 하이브리드 검색이 도입되었습니다.
 
-이를 위해 하이브리드 검색을 사용 하도록 적절 한 구성을 설정 하면 하이퍼스페이스는 다음과 같이 변경 내용을 활용 하도록 쿼리 계획을 수정 합니다.
-* 추가 된 파일은 Union 또는 BucketUnion (조인)를 사용 하 여 데이터를 인덱싱하는 병합 될 수 있습니다. 필요한 경우 병합 하기 전에 순서 섞기 추가 된 데이터를 적용할 수도 있습니다.
-* 삭제 된 파일은 인덱스 데이터의 계보 열에서 필터에 대 한 NOT IN 조건을 삽입 하 여 처리할 수 있으므로 삭제 된 파일의 인덱싱된 행을 쿼리 시 제외할 수 있습니다.
+이를 위해 사용자가 하이브리드 검색을 사용하도록 구성을 설정하면 하이퍼스페이스는 변경 내용을 활용하기 위해 다음과 같이 쿼리 계획을 수정합니다.
+* 추가된 파일은 Union 또는 BucketUnion을 사용하여 인덱스 데이터에 병합될 수 있습니다. 필요한 경우 병합 전에 추가된 데이터 순서 섞기도 적용될 수 있습니다.
+* 삭제된 파일의 인덱싱된 행을 쿼리 시 제외할 수 있도록 인덱스 데이터의 계보 열에 Filter-NOT-IN 조건을 삽입하여 삭제된 파일을 처리할 수 있습니다.
 
 다음 예제에서 쿼리 계획의 변환을 확인할 수 있습니다.
 
 > [!NOTE]
-> 현재 하이브리드 검색은 분할 되지 않은 데이터에 대해서만 지원 됩니다.
+> 현재 하이브리드 검색은 분할되지 않은 데이터에 대해서만 지원됩니다.
 
-### <a name="hybrid-scan-for-appended-files---non-partitioned-data"></a>추가 된 파일에 대 한 하이브리드 검색-분할 되지 않은 데이터
+### <a name="hybrid-scan-for-appended-files---non-partitioned-data"></a>추가된 파일에 대한 하이브리드 검색 - 분할되지 않은 데이터
 
-분할 되지 않은 데이터는 다음 예제에서 사용 됩니다. 이 예에서는 조인 인덱스를 쿼리에 사용할 수 있고 추가 된 파일에 대해 BucketUnion가 도입 될 것으로 간주 합니다.
+다음 예제에서는 분할되지 않은 데이터가 사용됩니다. 이 예제에서는 쿼리에 조인 인덱스를 사용할 수 있고 추가된 파일에 대해 BucketUnion을 도입할 수 있습니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -1778,9 +1778,9 @@ appendData.Write().Mode("Append").Parquet(testDataLocation);
 
 ::: zone-end
 
-하이브리드 검색은 기본적으로 사용 되지 않습니다. 따라서 새 데이터를 추가 했으므로 하이퍼스페이스는 인덱스를 사용 *하지 않도록* 결정 하는 것을 알 수 있습니다.
+하이브리드 검색은 기본적으로 사용하지 않도록 설정되어 있습니다. 따라서 새 데이터를 추가했으므로 하이퍼스페이스에서 인덱스를 사용하지 *않기로* 결정할 것입니다.
 
-출력에는 계획 차이가 없습니다 (따라서 강조 표시 되지 않음).
+출력에 표시되는 계획에는 달라진 점이 없습니다(따라서 강조 표시가 없음).
 
 :::zone pivot = "programming-language-scala"
 
@@ -1881,7 +1881,7 @@ Project [name#678, qty#679, date#680, qty#685, date#686]
 
 ### <a name="enable-hybrid-scan"></a>하이브리드 검색 사용
 
-인덱스를 사용 하 여 계획에서 추가 된 파일에 대해서만 필요한 Exchange 해시 분할을 확인할 수 있습니다. 그러면 추가 된 파일을 사용 하 여 "섞은" 인덱스 데이터를 계속 활용할 수 있습니다. BucketUnion는 "섞은" 추가 된 파일을 인덱스 데이터와 병합 하는 데 사용 됩니다.
+인덱스가 있는 계획에서는 “순서가 섞인” 인덱스 데이터를 추가된 파일에서 계속 활용할 수 있도록 추가된 파일에 대해서만 Exchange 해시 분할이 필요하다는 것을 볼 수 있습니다. BucketUnion은 “순서가 섞인” 추가된 파일을 인덱스 데이터와 병합하는 데 사용됩니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -1985,13 +1985,13 @@ productIndex2:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspa
 +------+---+----------+---+----------+
 ```
 
-## <a name="incremental-index-refresh"></a>증분 인덱스 새로 고침
+## <a name="incremental-index-refresh"></a>증분 방식의 인덱스 새로 고침
 
-인덱스를 업데이트할 준비가 되었지만 전체 인덱스를 다시 작성 하지 않으려는 경우, 하이퍼스페이스는 API를 사용 하 여 증분 방식으로 인덱스 업데이트를 지원 `hs.refreshIndex("name", "incremental")` 합니다. 이렇게 하면 이전에 만든 인덱스 파일을 활용 하 고 새로 추가 된 데이터에 대해서만 인덱스를 업데이트 하는 전체 인덱스를 처음부터 다시 빌드할 필요가 없습니다.
+인덱스를 업데이트할 준비가 되었지만 전체 인덱스를 다시 빌드하고 싶지는 않은 경우 하이퍼스페이스는 `hs.refreshIndex("name", "incremental")` API를 사용하여 증분 방식의 인덱스 업데이트를 지원합니다. 이렇게 하면 이전에 만든 인덱스 파일을 활용하고 새로 추가된 데이터에 대해서만 인덱스를 업데이트할 수 있어 전체 인덱스를 처음부터 다시 빌드할 필요가 없습니다.
 
-물론, `optimizeIndex` 성능 재발이 표시 되지 않도록 하려면 아래와 같이 보충 API를 정기적으로 사용 해야 합니다. 사용자 `refreshIndex(..., "incremental")` 가 추가/제거한 데이터가 원래 데이터 집합의 10% < 경우에는를 호출 하 여 10 번 이상 최적화를 호출 하는 것이 좋습니다. 예를 들어 원래 데이터 집합이 100 GB이 고 증분/감소의 데이터를 1gb로 추가/제거 하는 경우를 `refreshIndex` 호출 하기 전에를 10 번 호출할 수 있습니다 `optimizeIndex` . 이 예제는 간단히 설명 하기 위해 사용 되며 워크 로드에 맞게 조정 해야 합니다.
+물론 성능 저하가 발생하지 않도록 보완 `optimizeIndex` API(아래에 표시)를 사용해야 합니다. 원본 데이터 세트 중 추가/삭제한 데이터가 10% 미만인 경우 `refreshIndex(..., "incremental")`를 10번 호출할 때마다 최적화를 한 번 이상 호출하는 것이 좋습니다. 예를 들어 원본 데이터 세트가 100GB이고 데이터를 1GB씩 추가/제거한 경우 `optimizeIndex`를 호출하기 전에 `refreshIndex`를 10번 호출할 수 있습니다. 이 예제는 설명을 위해 사용된 것이며 자신의 워크로드에 맞게 조정해야 합니다.
 
-아래 예제에서는 인덱스를 사용할 때 쿼리 계획에 정렬 노드가 추가 된 것을 확인 합니다. 이는 추가 된 데이터 파일에 부분 인덱스가 생성 되어 Spark에서을 도입 하기 때문입니다 `Sort` . 또한 `Shuffle` Exchange는 계획에서 계속 제거 되어 적절 한 가속을 제공 합니다.
+아래 예제에서는 인덱스가 사용될 때 쿼리 계획에 Sort 노드가 추가된 것을 볼 수 있습니다. 이는 추가된 데이터 파일에 부분 인덱스가 생성되어 Spark에서 `Sort`를 도입했기 때문입니다. 또한 계획에서 `Shuffle`(즉, Exchange)이 계속 제거되어 있어 처리 속도가 빨라짐을 볼 수 있습니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -2072,9 +2072,9 @@ Project [name#820, qty#821, date#822, qty#827, date#828]
 
 ## <a name="optimize-index-layout"></a>인덱스 레이아웃 최적화
 
-새로 추가 된 데이터에서 증분 새로 고침을 여러 번 호출 하는 경우 (예: 사용자가 작은 일괄 처리로 데이터에 쓰거나 스트리밍 시나리오의 경우) 인덱스 파일 수는 인덱스의 성능에 크게 영향을 주게 됩니다 (작은 파일의 많은 문제). 하이퍼스페이스는 `hyperspace.optimizeIndex("indexName")` 인덱스 레이아웃을 최적화 하 고 많은 파일 문제를 줄이는 API를 제공 합니다.
+새로 추가된 데이터에 대해 새로 고침을 증분 방식으로 여러 번 호출하면(예: 사용자가 소규모 일괄 처리로 데이터에 쓰기를 수행하는 경우 또는 스트리밍 시나리오의 경우) 데이터 인덱스 파일 수가 증가하여 인덱스의 성능에 영향을 주게 됩니다(많은 수의 작은 파일 문제). 하이퍼스페이스는 인덱스 레이아웃을 최적화하고 대규모 파일 문제를 줄일 수 있는 `hyperspace.optimizeIndex("indexName")` API를 제공합니다.
 
-아래 계획에서 하이퍼스페이스가 쿼리 계획의 추가 정렬 노드를 제거 했는지 확인 합니다. 최적화를 통해 하나의 파일만 포함 하는 인덱스 버킷에 대 한 정렬을 피할 수 있습니다. 그러나이는 모든 인덱스 버킷에 버킷 당 최대 1 개의 파일이 있는 경우에만 적용 됩니다 `optimizeIndex` .
+아래 계획을 보면 하이퍼스페이스가 쿼리 계획에서 추가 Sort 노드를 제거했습니다. 최적화는 파일이 1개만 포함된 모든 인덱스 버킷에 대해 정렬이 실행되지 않도록 하는 데 도움이 될 수 있습니다. 그러나 이는 모든 인덱스 버킷에서 `optimizeIndex` 뒤에 파일이 최대 1개인 경우에만 해당합니다.
 
 :::zone pivot = "programming-language-scala"
 
@@ -2168,7 +2168,7 @@ productIndex2:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspa
 
 ### <a name="optimize-modes"></a>최적화 모드
 
-최적화를 위한 기본 모드는 최적화를 위해 미리 정의 된 임계값 보다 작은 파일이 선택 되는 "빠른" 모드입니다. 최적화 효과를 최대화 하기 위해 하이퍼스페이스는 아래와 같이 다른 최적화 모드 "full"을 허용 합니다. 이 모드는 파일 크기에 관계 없이 최적화를 위해 모든 인덱스 파일을 선택 하 고 인덱스의 가능한 최상의 레이아웃을 만듭니다. 여기에서 더 많은 데이터를 처리 하는 경우에도 기본 최적화 모드 보다 속도가 느립니다.
+최적화를 위한 기본 모드는 최적화를 위해 미리 정의된 임계값보다 작은 파일을 선택하는 “빠른” 모드입니다. 최적화 효과를 극대화하기 위해 하이퍼스페이스는 아래와 같이 또 다른 최적화 모드인 “전체”를 허용합니다. 이 모드에서는 파일 크기와 관계없이 최적화를 위해 모든 인덱스 파일이 선택되고 가장 적합한 인덱스 레이아웃이 만들어 집니다. 또한 이 모드에서는 더 많은 데이터가 처리되므로 기본 최적화 모드보다 속도가 느립니다.
 
 :::zone pivot = "programming-language-scala"
 

@@ -1,13 +1,13 @@
 ---
-title: Service Fabric 응용 프로그램의 업그레이드 구성
+title: Service Fabric 애플리케이션의 업그레이드 구성
 description: Microsoft Visual Studio를 사용하여 Service Fabric 애플리케이션을 업그레이드하기 위한 설정을 구성하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.openlocfilehash: 11df0387db07669ebacdba2e3d850e32903da133
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96573683"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Visual Studio에서 Service Fabric 애플리케이션의 업그레이드 구성

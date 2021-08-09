@@ -1,22 +1,22 @@
 ---
-title: Azure 애플리케이션 Insights 기본 SDK 끝점 재정의
-description: Azure Government 같은 영역에 대 한 기본 Azure Monitor Application Insights SDK 끝점을 수정 합니다.
+title: Azure Application Insights에서 기본 SDK 엔드포인트 재정의
+description: Azure Government 같은 영역에 대한 기본 Azure Monitor Application Insights SDK 엔드포인트를 수정합니다.
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.custom: references_regions, devx-track-js
 ms.openlocfilehash: 13470017281ecfa616715777e78e446e71a08b0e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102489806"
 ---
-# <a name="application-insights-overriding-default-endpoints"></a>기본 끝점 재정의 Application Insights
+# <a name="application-insights-overriding-default-endpoints"></a>기본 엔드포인트를 재정의하는 Application Insights
 
-Application Insights에서 특정 지역으로 데이터를 보내려면 기본 끝점 주소를 재정의 해야 합니다. 각 SDK에는 약간 다른 수정이 필요 하며,이에 대해서는이 문서에 설명 되어 있습니다. 이러한 변경을 수행 하려면 샘플 코드를 조정 하 고, 및에 대 한 자리 표시자 값을 `QuickPulse_Endpoint_Address` `TelemetryChannel_Endpoint_Address` `Profile_Query_Endpoint_address` 특정 지역의 실제 끝점 주소로 바꾸어야 합니다. 이 문서의 끝에는이 구성이 필요한 지역의 끝점 주소에 대 한 링크가 포함 되어 있습니다.
+Application Insights에서 특정 지역으로 데이터를 보내려면 기본 엔드포인트 주소를 재정의해야 합니다. 각 SDK에는 약간 다른 수정이 필요하며, 이는 모두 이 문서에 설명되어 있습니다. 이러한 변경을 수행하려면 샘플 코드를 조정하고 `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address` 및 `Profile_Query_Endpoint_address`의 자리 표시자 값을 특정 지역의 실제 엔드포인트 주소로 바꿔야 합니다. 이 문서의 끝에는 이 구성이 필요한 지역의 엔드포인트 주소에 대한 링크가 포함되어 있습니다.
 
 > [!NOTE]
-> [연결 문자열](./sdk-connection-string.md?tabs=net) 은 Application Insights 내에서 사용자 지정 끝점을 설정 하는 새로운 기본 방법입니다.
+> [연결 문자열](./sdk-connection-string.md?tabs=net)은 Application Insights 내에서 사용자 지정 엔드포인트를 설정하는 새로운 기본 방법입니다.
 
 ---
 
@@ -25,7 +25,7 @@ Application Insights에서 특정 지역으로 데이터를 보내려면 기본 
 # <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
-> SDK 업그레이드가 수행 될 때마다 applicationinsights.config 파일을 자동으로 덮어씁니다. SDK 업그레이드를 수행한 후에는 지역별 끝점 값을 다시 입력 해야 합니다.
+> SDK 업그레이드가 수행될 때마다 applicationinsights.config 파일이 자동으로 덮어쓰여집니다. SDK 업그레이드를 수행한 후에는 지역별 엔드포인트 값을 다시 입력해야 합니다.
 
 ```xml
 <ApplicationInsights>
@@ -49,7 +49,7 @@ Application Insights에서 특정 지역으로 데이터를 보내려면 기본 
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-다음과 같이 프로젝트에서 파일의 appsettings.js를 수정 하 여 주 끝점을 조정 합니다.
+다음과 같이 프로젝트의 appsettings.json 파일을 수정하여 주 엔드포인트를 조정합니다.
 
 ```json
 "ApplicationInsights": {
@@ -60,7 +60,7 @@ Application Insights에서 특정 지역으로 데이터를 보내려면 기본 
   }
 ```
 
-라이브 메트릭 및 프로필 쿼리 끝점에 대 한 값은 코드를 통해서만 설정할 수 있습니다. 코드를 통해 모든 끝점 값의 기본값을 재정의 하려면 `ConfigureServices` 파일의 메서드에서 다음과 같이 변경 합니다 `Startup.cs` .
+라이브 메트릭 및 프로필 쿼리 엔드포인트에 대한 값은 코드를 통해서만 설정할 수 있습니다. 코드를 통해 모든 엔드포인트 값의 기본값을 재정의하려면 `Startup.cs` 파일의 `ConfigureServices` 메서드를 다음과 같이 변경합니다.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
@@ -77,13 +77,13 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 # <a name="azure-functions"></a>[Azure Functions](#tab/functions)
 
-Azure Functions 이제 함수의 응용 프로그램 설정에 설정 된 [연결 문자열](./sdk-connection-string.md?tabs=net) 을 사용 하는 것이 좋습니다. 함수 창 내에서 함수에 대 한 응용 프로그램 설정에 액세스 하려면 **설정**  >  **구성**  >  **응용 프로그램 설정** 을 선택 합니다. 
+Azure Functions의 경우 이제 함수의 애플리케이션 설정에 설정된 [연결 문자열](./sdk-connection-string.md?tabs=net)을 사용하는 것이 좋습니다. 함수 창 내에서 함수의 애플리케이션 설정에 액세스하려면 **설정** > **구성** > **애플리케이션 설정** 을 선택합니다. 
 
 이름: `APPLICATIONINSIGHTS_CONNECTION_STRING` 값: `Connection String Value`
 
 # <a name="java"></a>[Java](#tab/java)
 
-applicationinsights.xml 파일을 수정 하 여 기본 끝점 주소를 변경 합니다.
+applicationinsights.xml 파일을 수정하여 기본 엔드포인트 주소를 변경합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -110,7 +110,7 @@ applicationinsights.xml 파일을 수정 하 여 기본 끝점 주소를 변경 
 
 ### <a name="spring-boot"></a>Spring Boot
 
-파일을 수정 `application.properties` 하 고 다음을 추가 합니다.
+`application.properties` 파일을 수정하고 다음을 추가합니다.
 
 ```yaml
 azure.application-insights.channel.in-process.endpoint-address= TelemetryChannel_Endpoint_Address
@@ -127,7 +127,7 @@ appInsights.defaultClient.config.quickPulseHost = "QuickPulse_Endpoint_Address";
 appInsights.Configuration.start();
 ```
 
-환경 변수를 통해 끝점을 구성할 수도 있습니다.
+환경 변수를 통해 엔드포인트를 구성할 수도 있습니다.
 
 ```
 Instrumentation Key: "APPINSIGHTS_INSTRUMENTATIONKEY"
@@ -137,7 +137,7 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 # <a name="javascript"></a>[JavaScript](#tab/js)
 
-현재 코드 조각 (아래에 나열 됨)은 버전 "5"이 고, 버전은 sv: "#" 이며 [현재 버전은 GitHub 에서도 사용할 수](https://go.microsoft.com/fwlink/?linkid=2156318)있습니다.
+현재 코드 조각(아래에 나열됨)은 버전 '5'이며 이 버전은 코드 조각에서 sv:"#"으로 인코딩됩니다. [현재 버전은 GitHub에서도 이용할 수 있습니다](https://go.microsoft.com/fwlink/?linkid=2156318).
 
 ```html
 <script type="text/javascript">
@@ -156,29 +156,29 @@ cfg: { // Application Insights Configuration
 ```
 
 > [!NOTE]
-> 가독성을 높이고 가능한 JavaScript 오류를 줄이기 위해 가능한 모든 구성 옵션은 위의 코드 조각 코드에서 새 줄에 나열 됩니다. 주석 처리 된 줄의 값을 변경 하지 않으려는 경우 제거할 수 있습니다.
+> 가독성을 높이고 가능한 JavaScript 오류를 줄이기 위해 가능한 모든 구성 옵션이 위의 코드 조각 코드에서 새 줄에 나열됩니다. 주석 처리된 줄의 값을 변경하지 않으려는 경우 이를 제거할 수 있습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Opencensus에 대 한 수집 끝점을 수정 하는 방법에 대 한 지침은 [opencensus 리포지토리](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py) 를 참조 하세요.
+opencensus-python SDK의 수집 엔드포인트 수정에 대한 지침은 [opencensus-python 리포지토리](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)를 참조하세요.
 
 ---
 
-## <a name="regions-that-require-endpoint-modification"></a>끝점을 수정 해야 하는 영역
+## <a name="regions-that-require-endpoint-modification"></a>엔드포인트를 수정해야 하는 지역
 
-현재는 끝점을 수정 해야 하는 유일한 지역은 [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) 및 [Azure 중국](/azure/china/resources-developer-guide)입니다.
+현재 엔드포인트 수정이 필요한 유일한 지역은 [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights)와 [Azure 중국](/azure/china/resources-developer-guide)입니다.
 
 |지역 |  엔드포인트 이름 | 값 |
 |-----------------|:------------|:-------------|
 | Azure 중국 | 원격 분석 채널 | `https://dc.applicationinsights.azure.cn/v2/track` |
-| Azure 중국 | QuickPulse (라이브 메트릭) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
+| Azure 중국 | QuickPulse(라이브 메트릭) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
 | Azure 중국 | 프로필 쿼리 |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
 | Azure Government | 원격 분석 채널 |`https://dc.applicationinsights.us/v2/track` |
-| Azure Government | QuickPulse (라이브 메트릭) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
+| Azure Government | QuickPulse(라이브 메트릭) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
 | Azure Government | 프로필 쿼리 |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
 
-현재 ' api.applicationinsights.io '를 통해 액세스 되는 [Application Insights REST API](https://dev.applicationinsights.io/
-) 를 사용 하는 경우 지역에 로컬인 끝점을 사용 해야 합니다.
+현재 일반적으로 `api.applicationinsights.io'를 통해 액세스되는 [Application Insights REST API](https://dev.applicationinsights.io/
+)를 사용하는 경우 해당 지역에 로컬인 엔드포인트를 사용해야 합니다.
 
 |지역 |  엔드포인트 이름 | 값 |
 |-----------------|:------------|:-------------|
@@ -186,9 +186,9 @@ Opencensus에 대 한 수집 끝점을 수정 하는 방법에 대 한 지침은
 | Azure Government | REST API | `api.applicationinsights.us`|
 
 > [!NOTE]
-> Azure 앱 Services에 대 한 코드 없는 agent/extension 기반 모니터링은 현재 이러한 지역에서 **지원 되지** 않습니다. 이 기능을 사용할 수 있게 되 면이 문서가 업데이트 됩니다.
+> Azure App Services에 대한 코드 없는 에이전트/확장 기반 모니터링은 다음 지역에서 **현재 지원되지 않습니다**. 이 기능을 사용할 수 있게 되면 이 문서가 업데이트됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Government에 대 한 사용자 지정 수정 사항에 대해 자세히 알아보려면 [Azure 모니터링 및 관리](../../azure-government/compare-azure-government-global-azure.md#application-insights)에 대 한 자세한 지침을 참조 하세요.
-- Azure 중국에 대해 자세히 알아보려면 [Azure 중국 플레이 북](/azure/china/)를 참조 하세요.
+- Azure Government의 사용자 지정 수정 사항에 대해 자세히 알아보려면 [Azure 모니터링 및 관리](../../azure-government/compare-azure-government-global-azure.md#application-insights)에 대한 자세한 지침을 참조하세요.
+- Azure 중국에 대해 자세히 알아보려면 [Azure 중국 플레이북](/azure/china/)을 참조하세요.
