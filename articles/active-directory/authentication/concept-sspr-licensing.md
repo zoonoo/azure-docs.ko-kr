@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 06/03/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d332c831cc764c61a4672ea5ad1db231b68e106
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70c441cc2bae0c318e312ccfa64b5161937c2457
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952374"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963808"
 ---
 # <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Azure Active Directory 셀프 서비스 암호 재설정을 위한 라이선스 요구 사항
 
@@ -25,8 +25,6 @@ ms.locfileid: "104952374"
 이 문서에서는 셀프 서비스 암호 재설정을 라이선스하고 사용하는 다양한 방법에 대해 자세히 설명합니다. 가격 책정 및 청구에 대한 자세한 내용은 [Azure AD 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
 
 ## <a name="compare-editions-and-features"></a>버전 및 기능 비교
-
-SSPR에는 테넌트에 대한 라이선스가 필요합니다. 
 
 다음 표에서는 암호 변경, 재설정 또는 온-프레미스 쓰기 저장에 대한 다양한 SSPR 시나리오와 기능을 제공하는 SKU를 간략하게 설명합니다.
 
@@ -41,6 +39,8 @@ SSPR에는 테넌트에 대한 라이선스가 필요합니다.
 
 요금을 비롯한 라이선스에 대한 더 자세한 정보는 다음 페이지를 참조하세요.
 
+
+* [보안 및 규정 준수를 위한 Microsoft 365 라이선스 지침](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance)
 * [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Azure Active Directory 기능 및 특성](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)

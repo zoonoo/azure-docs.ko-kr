@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: d7ae1e72dee28509c1338a1b56cf42a5293af9bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3034f117f8efa383a9f7a5e768e8d5627ea32099
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104670259"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110668408"
 ---
 # <a name="glossary-of-iot-terms"></a>IoT 용어집
 
@@ -48,7 +48,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 
 ### <a name="azure-digital-twins"></a>Azure Digital Twins
 
-Azure Digital Twins는 실제 사물, 장소, 비즈니스 프로세스 및 사람들의 디지털 재현을 만들기 위한 PaaS(platform as a service) 제공입니다. 전체 환경을 나타내는 정보 그래프를 작성하고, 이를 사용하여 더 나은 제품을 구동하고, 운영 및 비용을 최적화하며, 혁신적인 고객 환경을 만들기 위한 인사이트를 얻습니다. 자세한 내용은 [Azure Digital Twins](../digital-twins/index.yml)를 참조하십시오.
+Azure Digital Twins는 실제 사물, 장소, 비즈니스 프로세스 및 사람들의 디지털 재현을 만들기 위한 PaaS(platform as a service) 제공입니다. 전체 환경을 나타내는 쌍 그래프를 작성하고, 이를 사용하여 더 나은 제품을 구동하고, 운영 및 비용을 최적화하며, 혁신적인 고객 경험을 만들기 위한 인사이트를 얻습니다. 자세한 내용은 [Azure Digital Twins](../digital-twins/index.yml)를 참조하십시오.
 
 ### <a name="azure-digital-twins-instance"></a>Azure Digital Twins 인스턴스
 
@@ -85,6 +85,10 @@ IoT Hub에 기본 제공되는 [엔드포인트](#endpoint)의 형식입니다. 
 ### <a name="cloud-gateway"></a>클라우드 게이트웨이
 
 클라우드 게이트웨이를 통해 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 디바이스의 연결이 가능합니다. 클라우드 게이트웨이는 디바이스에 대해 로컬로 시행되는 [필드 게이트웨이](#field-gateway)와 달리, 클라우드에서 호스트됩니다. 클라우드 게이트웨이를 위한 일반 사용 사례는 디바이스에 대한 프로토콜 변환을 구현하는 것입니다.
+
+### <a name="cloud-property"></a>클라우드 속성
+
+IoT Central에서 클라우드 속성은 [디바이스 템플릿](#device-model)의 일부이지만 [디바이스 모델](#device-model)의 일부는 아닙니다. 클라우드 속성을 사용하면 솔루션 개발자가 IoT Central 애플리케이션에 저장할 디바이스 메타데이터를 지정할 수 있습니다. 클라우드 속성은 디바이스 개발자가 디바이스 모델을 구현하기 위해 작성하는 코드에 영향을 주지 않습니다.
 
 ### <a name="cloud-to-device"></a>클라우드-디바이스
 
@@ -178,7 +182,7 @@ IoT 플러그 앤 플레이 디바이스 인증 프로그램은 디바이스가 
 
 ### <a name="device-model"></a>디바이스 모델
 
-디바이스 모델은 [Ditigal Twins Definition Language](#digital-twins-definition-language-dtdl)를 사용하여 IoT 플러그 앤 플레이 디바이스의 기능을 설명하는 [모델](#model) 형식입니다. 간단한 디바이스 모델은 단일 인터페이스를 사용하여 디바이스 기능을 설명합니다. 더 복잡한 디바이스 모델에는 여러 구성 요소가 포함되며, 각 구성 요소는 기능 집합을 설명합니다. 자세한 내용은 [모델의 IoT 플러그 앤 플레이 구성 요소](../iot-pnp/concepts-components.md)를 참조하십시오.
+디바이스 모델은 [Ditigal Twins Definition Language](#digital-twins-definition-language-dtdl)를 사용하여 IoT 플러그 앤 플레이 디바이스의 기능을 설명하는 [모델](#model) 형식입니다. 간단한 디바이스 모델은 단일 인터페이스를 사용하여 디바이스 기능을 설명합니다. 더 복잡한 디바이스 모델에는 여러 구성 요소가 포함되며, 각 구성 요소는 기능 집합을 설명합니다. 자세한 내용은 [모델의 IoT 플러그 앤 플레이 구성 요소](../iot-pnp/concepts-modeling-guide.md)를 참조하십시오.
 
 ### <a name="device-modeling"></a>디바이스 모델링
 
@@ -195,6 +199,10 @@ IoT Hub DPS(Device Provisioning Service)는 지정된 IoT 허브에 대한 제�
 ### <a name="device-rest-api"></a>디바이스 REST API
 
 디바이스에서 [디바이스 REST API](/rest/api/iothub/device)를 사용하여 디바이스-클라우드 메시지를 IoT Hub로 보내고 IoT Hub에서 [클라우드-디바이스](#cloud-to-device) 메시지를 수신할 수 있습니다. 일반적으로 IoT Hub 자습서에 나와 있는 것보다 상위 수준의 [디바이스 SDK](#azure-iot-device-sdks)를 사용해야 합니다.
+
+### <a name="device-template"></a>디바이스 템플릿
+
+IoT Central에서 [디바이스 템플릿](../iot-central/core/concepts-device-templates.md)은 애플리케이션에 연결하는 디바이스 유형의 특징과 동작을 정의하는 청사진입니다. 예를 들어 디바이스 템플릿은 IoT Central이 올바른 단위와 데이터 형식을 사용하는 시각화를 만들 수 있도록 디바이스에서 보내는 원격 분석 데이터를 정의합니다. [디바이스 모델](#device-model)은 디바이스 템플릿의 일부입니다.
 
 ### <a name="device-twin"></a>디바이스 쌍
 
@@ -368,7 +376,9 @@ Azure IoT 솔루션 가속기는 여러 Azure 서비스를 솔루션으로 함�
 
 ### <a name="job"></a>작업
 
-솔루션 백 엔드에서는 IoT Hub에 등록된 디바이스 집합에서의 활동을 예약 및 추적하는 [작업](../iot-hub/iot-hub-devguide-jobs.md)을 사용할 수 있습니다. 활동에는 디바이스 쌍 [desired 속성](#desired-properties) 업데이트, 디바이스 쌍 [태그](#tags) 업데이트 및 [직접 메서드](#direct-method) 호출이 포함됩니다. [IoT Hub](#iot-hub)는 [ID 레지스트리](#identity-registry)에서 [가져오고 내보내는](../iot-hub/iot-hub-devguide-identity-registry.md#import-and-export-device-identities) 작업도 사용합니다.
+[IoT Hub](#iot-hub)에서는 [작업](../iot-hub/iot-hub-devguide-jobs.md)을 통해 IoT Hub에 등록된 디바이스 세트에 대한 활동을 예약하고 추적할 수 있습니다. 활동에는 디바이스 쌍 [desired 속성](#desired-properties) 업데이트, 디바이스 쌍 [태그](#tags) 업데이트 및 [직접 메서드](#direct-method) 호출이 포함됩니다. IoT Hub는 [ID 레지스트리](#identity-registry)에서 [가져오고 내보내는](../iot-hub/iot-hub-devguide-identity-registry.md#import-and-export-device-identities) 작업도 사용합니다.
+
+IoT Central에서는 [작업](../iot-central/core/howto-run-a-job.md)을 통해 속성을 설정하고 명령을 호출하여 연결된 디바이스를 대량으로 관리할 수 있습니다. 또한 IoT Central 작업을 통해 [클라우드 속성](#cloud-property)을 대량으로 업데이트할 수 있습니다.
 
 ## <a name="l"></a>L
 
@@ -435,6 +445,12 @@ IoT 플러그 앤 플레이 디바이스가 IoT Hub에 연결될 때 디바이�
 [MQTT](https://mqtt.org/)는 [IoT Hub](#iot-hub)에서 디바이스와 통신을 위해 지원하는 메시징 프로토콜 중 하나입니다. IoT Hub에서 지원하는 메시징 프로토콜에 대한 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](../iot-hub/iot-hub-devguide-messaging.md)를 참조하세요.
 
 ## <a name="o"></a>O
+
+### <a name="ontology"></a>온톨로지
+
+부동산, 스마트 도시, IoT 시스템, 에너지 그리드 등과 같은 특정 도메인에 대한 모델 세트입니다. 온톨로지는 산업 표준 및 모범 사례에 따라 시작점을 제공하기 때문에 [Azure Digital Twins](#azure-digital-twins)와 같은 정보 그래프의 스키마로 사용되는 경우가 많습니다.
+
+온톨로지에 대한 자세한 내용은 [온톨로지란?](../digital-twins/concepts-ontologies.md)을 참조하세요.
 
 ### <a name="operations-monitoring"></a>작업 모니터링
 

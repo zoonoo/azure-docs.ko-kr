@@ -1,5 +1,5 @@
 ---
-title: 네트워크 보안 분석-보안 그룹 보기-Azure PowerShell
+title: 네트워크 보안 분석 - 보안 그룹 보기 - Azure PowerShell
 titleSuffix: Azure Network Watcher
 description: 이 문서에서는 보안 그룹 보기를 사용하여 가상 머신 보안을 분석하기 위해 PowerShell을 사용하는 방법을 설명합니다.
 services: network-watcher
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 2da4ebfa6a9ce64b03e6e1d29956f740f6cb3c1b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6e8f33ee0ba32fcff99d71b7eca69a206efe1fca
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94960633"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110664018"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>PowerShell를 사용하는 보안 그룹 보기에서 Virtual Machine 보안 분석
 
@@ -27,7 +28,7 @@ ms.locfileid: "94960633"
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 > [!NOTE]
-> 보안 그룹 보기 API는 더 이상 유지 되지 않으며 곧 사용 되지 않을 예정입니다. 동일한 기능을 제공 하는 [효과적인 보안 규칙 기능](./network-watcher-security-group-view-overview.md) 을 사용 하세요. 
+> Security Group View API는 더 이상 유지 관리되지 않으며 곧 사용 중단될 예정입니다. 동일한 기능을 제공하는 [효과적인 보안 규칙 기능](./network-watcher-security-group-view-overview.md)을 사용하세요. 
 
 보안 그룹 보기는 가상 컴퓨터에 적용되는 효과적으로 구성된 네트워크 보안 규칙을 반환합니다. 이 기능은 VM에 구성된 네트워크 보안 그룹 및 규칙을 감사하고 진단하여 트래픽을 올바르게 허용하거나 거부하는 데 유용합니다. 이 문서에서는 PowerShell을 사용하여 가상 컴퓨터에 구성된 효과적인 보안 규칙을 검색하는 방법을 설명합니다.
 

@@ -1,21 +1,21 @@
 ---
-title: 환경별 구성 사용
+title: 레이블을 사용하여 환경별 구성 값을 제공합니다.
 titleSuffix: Azure App Configuration
-description: 레이블을 사용하여 환경별 구성 값을 제공합니다.
+description: 이 문서에서는 레이블을 사용하여 앱이 현재 실행 중인 환경에 대한 앱 구성 값을 검색하는 방법을 설명합니다.
 ms.service: azure-app-configuration
 author: AlexandraKemperMS
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 3/12/2020
 ms.author: alkemper
-ms.openlocfilehash: 84286df063994f3def15079cb9b190550d5bd977
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e6d9aadff5fba66aef260c674f5a01904b289da2
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96929619"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592361"
 ---
-# <a name="use-labels-to-enable-configurations-for-different-environments"></a>레이블을 사용하여 다양한 환경에 대한 구성을 사용할 수 있도록 설정
+# <a name="use-labels-to-provide-per-environment-configuration-values"></a>레이블을 사용하여 환경별 구성 값을 제공합니다.
 
 많은 애플리케이션은 환경마다 다른 구성을 사용해야 합니다. 애플리케이션에 백 엔드 데이터베이스에 사용할 연결 문자열을 정의하는 구성 값이 있다고 가정합니다. 애플리케이션 개발자는 프로덕션 환경에서 사용하는 것과 다른 데이터베이스를 사용합니다. 애플리케이션이 개발 환경에서 프로덕션 환경으로 이동할 때 애플리케이션에서 사용하는 데이터베이스 연결 문자열을 변경해야 합니다.
 
@@ -38,29 +38,80 @@ Azure Portal에서 **구성 탐색기** 로 이동하고 빠른 시작에서 만
 
 이전 섹션에서는 개발 환경에 대한 다른 구성 값을 만들었습니다. `HostingEnvironment.EnvironmentName` 변수를 사용하여 앱이 현재 실행되는 환경을 동적으로 결정할 수 있습니다. 자세히 알아보려면 [ASP.NET Core에서 여러 환경 사용](/aspnet/core/fundamentals/environments)을 참조하세요.
 
-환경 이름을 `Select` 메서드에 전달하여 현재 환경에 해당하는 레이블을 사용하여 구성 값을 로드합니다.
+[KeyFilter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.keyfilter) 및 [LabelFilter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.labelfilter) 클래스에 액세스하려면 [Microsoft.Extensions.Configuration.AzureAppConfiguration](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration) 네임스페이스에 대한 참조를 추가합니다.
 
 ```csharp
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-            {
-                var settings = config.Build();
-                config.AddAzureAppConfiguration(options =>
-                    options
-                        .Connect(Environment.GetEnvironmentVariable("AppConfigConnectionString"))
-                        // Load configuration values with no label
-                        .Select(KeyFilter.Any, LabelFilter.Null)
-                        // Override with any configuration values specific to current hosting env
-                        .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
-                );
-            })
-            .UseStartup<Startup>());
+using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+``` 
+
+환경 이름을 `Select` 메서드에 전달하여 현재 환경에 해당하는 레이블을 사용하여 구성 값을 로드합니다.
+
+### <a name="net-core-5x"></a>[.NET Core 5.x](#tab/core5x)
+
+```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(options =>
+                options
+                    .Connect(settings.GetConnectionString("AppConfig"))
+                    // Load configuration values with no label
+                    .Select(KeyFilter.Any, LabelFilter.Null)
+                    // Override with any configuration values specific to current hosting env
+                    .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
+            );
+        })
+        .UseStartup<Startup>());
 ```
 
+### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
+
+```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(options =>
+                options
+                    .Connect(settings.GetConnectionString("AppConfig"))
+                    // Load configuration values with no label
+                    .Select(KeyFilter.Any, LabelFilter.Null)
+                    // Override with any configuration values specific to current hosting env
+                    .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
+            );
+        })
+        .UseStartup<Startup>());
+```
+
+### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+        .ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(options =>
+                options
+                    .Connect(settings.GetConnectionString("AppConfig"))
+                    // Load configuration values with no label
+                    .Select(KeyFilter.Any, LabelFilter.Null)
+                    // Override with any configuration values specific to current hosting env
+                    .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
+            );
+        })
+        .UseStartup<Startup>();
+```
+---
+
+
 > [!IMPORTANT]
-> 위의 코드 조각에서는 `AppConfigConnectionString`이라는 환경 변수에서 App Configuration 연결 문자열을 로드합니다. 이 환경 변수를 올바르게 설정해야 합니다.
+> 위의 코드 조각은 비밀 관리자 도구를 사용하여 App Configuration 연결 문자열을 로드합니다. 비밀 관리자를 사용하여 연결 문자열을 저장하는 정보는 [ASP.NET Core를 사용한 Azure App Configuration용 빠른 시작](quickstart-aspnet-core-app.md)을 참조하세요.
 
 `Select` 메서드는 두 번 호출됩니다. 처음에는 레이블이 없는 구성 값을 로드합니다. 그런 다음, 현재 환경에 해당하는 레이블을 사용하여 구성 값을 로드합니다. 이러한 환경 관련 값은 레이블 없이 해당하는 모든 값을 재정의합니다. 모든 키에 대해 환경 특정 값을 정의할 필요는 없습니다. 현재 환경에 해당하는 레이블이 있는 값이 키에 없는 경우에는 레이블이 없는 값이 사용됩니다.
 

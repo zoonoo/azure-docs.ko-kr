@@ -4,19 +4,19 @@ description: HTTP 엔드포인트의 유효성을 검사한 다음, Azure Event 
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 75c80fb85d39298f1130537971bc700897c039d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93494bc35099c2ef9cbc93ed6713d8a2608f2c4c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96023726"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110473442"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>HTTP 엔드포인트에서 이벤트 수신
 
 이 아티클에서는 이벤트 구독으로부터 이벤트를 수신하기 위해 [HTTP 엔드포인트의 유효성을 검사](webhook-event-delivery.md)한 다음, 이벤트를 수신하고 역직렬화하는 방법을 설명합니다. 이 문서에서는 데모용으로 Azure Function을 사용하나 애플리케이션이 어디서 호스팅되느냐와 관계없이 동일한 개념이 적용됩니다.
 
 > [!NOTE]
-> Event Grid로 Azure Function을 트리거할 때는 [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md)를 사용하는 것이 **좋습니다**. 여기서 사용된 일반 웹후크 트리거는 데모용입니다.
+> Event Grid로 Azure Function을 트리거할 때는 [Event Grid 트리거](../azure-functions/functions-bindings-event-grid.md)를 사용하는 것이 좋습니다. Event Grid와 Azure Functions를 보다 쉽고 빠르게 통합할 수 있습니다. 그러나 Azure Functions Event Grid 트리거는 호스트된 코드가 Event Grid에 반환된 HTTP 상태 코드를 제어해야 하는 시나리오를 지원하지 않습니다. 이러한 제한으로 인해 Azure Function에서 실행되는 코드는 5XX 오류를 반환하여 Event Grid의 이벤트 전달 재시도를 시작할 수 없습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

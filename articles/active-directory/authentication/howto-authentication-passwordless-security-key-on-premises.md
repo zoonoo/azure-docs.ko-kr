@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef56db4ef67515d14f8462db2975e68a1a86f238
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 367d2679b360bfc90d84609384c61c9b66ba3706
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105959860"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538326"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Azure Active Directory를 통해 온-프레미스 리소스에 대한 암호 없는 보안 키 로그인 사용 설정 
 
@@ -106,7 +106,11 @@ Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 
 이 명령은 Azure AD Kerberos 서버의 속성을 출력합니다. 속성을 검토하여 모든 것이 올바른 순서인지 확인할 수 있습니다.
 
-| 속성 | 설명 |
+> [!NOTE]
+
+자격 증명을 제공하여 다른 도메인에 대해 실행하면 NTLM을 통해 연결된 후 실패합니다. 사용자가 AD 해결 방법에서 "보호된 사용자" 보안 그룹의 일부인 경우: 다른 도메인 사용자로 ADConnect 상자에 로그인하고 -domainCredential을 제공하지 않습니다. 현재 로그온 사용자의 kerebros 티켓을 사용합니다. whoami/groups를 실행하여 사용자가 위의 명령을 실행하기 위해 AD에서 필요한 권한이 있는지 확인할 수 있습니다.
+ 
+| 속성 | Description |
 | --- | --- |
 | ID | AD DS DC 개체의 고유 ID입니다. 이 ID는 “슬롯” 또는 “분기 ID”라고도 합니다. |
 | DomainDnsName | Active Directory 도메인의 DNS 도메인 이름입니다. |

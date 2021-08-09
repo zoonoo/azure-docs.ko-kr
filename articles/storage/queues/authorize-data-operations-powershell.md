@@ -10,18 +10,18 @@ ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 61bcf7abca2860078bd89da070309a0057360f0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 862c576ae86cd7d91a1bd73243caa0a68e3689c1
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100370226"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111900542"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Azure AD 자격 증명으로 PowerShell 명령을 실행하여 큐 데이터에 액세스
 
 Azure Storage는 로그인 후 Azure AD(Azure Active Directory) 자격 증명에서 스크립트 명령을 실행하도록 하는 PowerShell용 확장 기능을 제공합니다. Azure AD 자격 증명을 사용하여 PowerShell에 로그인 하면 OAuth 2.0 액세스 토큰이 반환됩니다. 이 토큰은 PowerShell에서 Queue Storage에 대한 후속 데이터 작업에 권한을 부여하는 데 자동으로 사용됩니다. 지원되는 작업의 경우, 더 이상 명령과 함께 계정 키 또는 SAS 토큰을 전달할 필요가 없습니다.
 
-Azure RBAC(Azure 역할 기반 액세스 제어)를 통해 Azure AD 보안 주체에 큐 데이터에 대한 사용 권한을 할당할 수 있습니다. Azure Storage에서의 Azure 역할에 대한 자세한 내용은 [Azure RBAC를 통한 Azure Storage 데이터 액세스 권한 관리](../common/storage-auth-aad-rbac-portal.md)를 참조하세요.
+Azure RBAC(Azure 역할 기반 액세스 제어)를 통해 Azure AD 보안 주체에 큐 데이터에 대한 사용 권한을 할당할 수 있습니다. Azure Storage의 Azure 역할에 대한 자세한 내용은 [Azure RBAC를 사용하여 Azure Storage 데이터에 대한 액세스 권한 관리](assign-azure-role-data-access.md)를 참조하세요.
 
 ## <a name="supported-operations"></a>지원되는 작업
 
@@ -30,7 +30,7 @@ Azure Storage 확장은 큐 데이터에 대한 작업에 지원됩니다. 호�
 큐의 각 Azure Storage 작업에 필요한 사용 권한에 대한 자세한 내용은 [OAuth 토큰을 이용한 스토리지 작업 호출](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens)을 참조하세요.
 
 > [!IMPORTANT]
-> Azure Resource Manager **읽기 전용** 잠금을 사용하여 스토리지 계정이 잠긴 경우, 해당 스토리지 계정에서 [키 나열](/rest/api/storagerp/storageaccounts/listkeys) 작업이 허용되지 않습니다. **키 나열** 은 POST 작업이며, 계정에 **읽기 전용** 잠금이 설정된 경우 모든 POST 작업은 차단됩니다. 이러한 이유로 계정이 **읽기 전용** 잠금으로 잠겨 있으면 계정 키를 소유하고 있지 않은 사용자는 Azure AD 자격 증명을 사용하여 큐 데이터에 액세스해야 합니다. PowerShell에서 `-UseConnectedAccount` 매개 변수를 포함하여 Azure AD 자격 증명을 사용한 **AzureStorageContext** 개체를 만듭니다.
+> Azure Resource Manager **읽기 전용** 잠금을 사용하여 스토리지 계정이 잠긴 경우, 해당 스토리지 계정에서 [키 나열](/rest/api/storagerp/storageaccounts/listkeys) 작업이 허용되지 않습니다. **키 나열** 은 POST 작업으로, 계정에 대해 **읽기 전용** 잠금이 설정된 경우 모든 POST 작업이 차단됩니다. 이러한 이유로 계정이 **읽기 전용** 잠금으로 잠겨 있으면 계정 키를 소유하고 있지 않은 사용자는 Azure AD 자격 증명을 사용하여 큐 데이터에 액세스해야 합니다. PowerShell에서 `-UseConnectedAccount` 매개 변수를 포함하여 Azure AD 자격 증명을 사용한 **AzureStorageContext** 개체를 만듭니다.
 
 ## <a name="call-powershell-commands-using-azure-ad-credentials"></a>Azure AD 자격 증명을 사용하여 PowerShell 명령 호출
 
@@ -71,7 +71,7 @@ Azure PowerShell를 사용하여 로그인한 뒤 Azure AD 자격 증명을 사�
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. 큐를 만들기 전에 [Storage 큐 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) 역할을 자신에게 할당합니다. 계정 소유자인 경우에도 스토리지 계정에 대한 데이터 작업을 수행하려면 명시적 권한이 필요합니다. Azure 역할을 할당하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Blob 및 큐 데이터에 액세스하기 위한 Azure 역할 할당](../common/storage-auth-aad-rbac-portal.md)을 참조하세요.
+1. 큐를 만들기 전에 [Storage 큐 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) 역할을 자신에게 할당합니다. 계정 소유자라도 스토리지 계정에 대한 데이터 작업을 수행하려면 명시적 권한이 필요합니다. Azure 역할을 할당하는 방법에 관한 자세한 내용은 [큐 데이터 액세스를 위해 Azure 역할 할당](assign-azure-role-data-access.md)을 참조하세요.
 
     > [!IMPORTANT]
     > Azure 역할 할당을 전파하는 데 몇 분 정도 걸릴 수 있습니다.
@@ -85,5 +85,5 @@ Azure PowerShell를 사용하여 로그인한 뒤 Azure AD 자격 증명을 사�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PowerShell을 사용하여 Blob 및 큐 데이터에 액세스하기 위한 Azure 역할 할당](../common/storage-auth-aad-rbac-powershell.md)
+- [대기열 데이터에 액세스하기 위한 Azure 역할 할당](assign-azure-role-data-access.md)
 - [Azure 리소스에 대한 관리 ID를 사용하여 Blob 및 큐 데이터에 대한 액세스 권한 부여](../common/storage-auth-aad-msi.md)

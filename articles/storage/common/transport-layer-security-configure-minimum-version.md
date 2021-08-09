@@ -6,16 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 04/29/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 257cd8dce2a080203f116a6f0d5b7c7ebd6d13f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 91fd04f24989df64aa294690fdedfd472c79f379
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593179"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677252"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>스토리지 계정에 대한 요청에 대해 필요한 최소 버전의 TLS(전송 계층 보안)를 적용합니다.
 
@@ -35,22 +36,22 @@ ms.locfileid: "104593179"
 
 Azure Storage 계정에 요청을 로깅하고 클라이언트에서 사용하는 TLS 버전을 확인하기 위해 Azure Monitor(미리 보기)에서 Azure Storage 로깅을 사용할 수 있습니다. 자세한 내용은 [Azure Storage 모니터링](../blobs/monitor-blob-storage.md)을 참조하세요.
 
-Azure Monitor의 Azure Storage 로깅은 로그 쿼리를 사용하여 로그 데이터를 분석합니다. 로그를 쿼리하기 위해 Azure Log Analytics 작업 영역을 사용할 수 있습니다. 로그 쿼리에 대해 자세히 알아보려면 [자습서: Log Analytics 쿼리 시작하기](../../azure-monitor/logs/log-analytics-tutorial.md)를 참조하세요.
+Azure Monitor의 Azure Storage 로깅은 로그 쿼리를 사용하여 로그 데이터를 분석하도록 지원합니다. 로그를 쿼리하려면 Azure Log Analytics 작업 영역을 사용사면 됩니다. 로그 쿼리에 대해 자세히 알아보려면 [자습서: Log Analytics 쿼리 시작하기](../../azure-monitor/logs/log-analytics-tutorial.md)를 참조하세요.
 
 Azure Monitor를 사용하여 Azure Storage 데이터를 로깅하고 Azure Log Analytics를 사용하여 분석하려면 먼저 요청 유형과 관련 데이터를 로깅할 스토리지 서비스를 나타내는 진단 설정을 만들어야 합니다. Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대한 로그를 사용하도록 설정합니다. Azure Portal에서 진단 설정을 만들려면 다음 단계를 수행합니다.
 
 1. Azure Storage 계정을 포함하는 구독에 새 Log Analytics 작업 영역을 만듭니다. 스토리지 계정에 대한 로깅을 구성하면 Log Analytics 작업 영역에서 로그를 사용할 수 있습니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../azure-monitor/logs/quick-create-workspace.md)를 참조하세요.
 1. Azure Portal의 스토리지 계정으로 이동합니다.
 1. 모니터링 섹션에서 **진단 설정(미리 보기)** 을 선택합니다.
-1. 요청을 로깅할 Azure Storage 서비스를 선택합니다. 예를 들어 Blob 스토리지에 요청을 로깅하려면 **blob** 을 선택합니다.
+1. 요청을 로그할 Azure Storage 서비스를 선택합니다. 예를 들어 Blob Storage에 요청을 로그하려면 **Blob** 을 선택합니다.
 1. **진단 설정 추가** 를 선택합니다.
 1. 진단 설정의 이름을 제공합니다.
 1. **범주 세부 정보** 의 **로그** 섹션에서 로깅할 요청 유형을 선택합니다. 읽기, 쓰기 및 삭제 요청을 로깅할 수 있습니다. 예를 들어 **StorageRead** 및 **StorageWrite** 를 선택하면 선택한 서비스에 대한 읽기 및 쓰기 요청이 로깅됩니다.
-1. **대상 세부 정보** 에서 **Log Analytics로 보내기** 를 선택합니다. 다음 이미지에 표시된 것처럼, 앞에서 만든 구독 및 Log Analytics 작업 영역을 선택합니다.
+1. **대상 세부 정보** 에서 **Log Analytics로 보내기** 를 선택합니다. 다음 이미지와 같이, 구독 및 이전에 만든 Log Analytics 작업 영역을 선택합니다.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="로깅 요청에 대한 진단 설정을 만드는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="로깅 요청에 대한 진단 설정을 만드는 방법을 보여주는 스크린샷":::
 
-진단 설정을 만든 후에는 해당 설정에 따라 스토리지 계정에 대한 요청이 나중에 로깅됩니다. 자세한 내용은 [Azure에서 리소스 로그 및 메트릭을 수집하기 위한 진단 설정 만들기](../../azure-monitor/essentials/diagnostic-settings.md)를 참조하세요.
+진단 설정을 만든 후에는 이 설정에 따라 스토리지 계정에 대한 요청이 로그됩니다. 자세한 내용은 [Azure에서 리소스 로그 및 메트릭을 수집하기 위한 진단 설정 만들기](../../azure-monitor/essentials/diagnostic-settings.md)를 참조하세요.
 
 Azure Monitor의 Azure Storage 로그에서 사용할 수 있는 필드에 대한 참조는 [리소스 로그(미리 보기)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview)를 참조하세요.
 
@@ -102,10 +103,10 @@ Azure Portal을 사용하여 스토리지 계정을 만드는 경우 최소 TLS 
 Azure Portal을 사용하여 기존 스토리지 계정에 대한 최소 TLS 버전을 구성하려면 다음 단계를 수행합니다.
 
 1. Azure Portal의 스토리지 계정으로 이동합니다.
-1. **구성** 설정을 선택합니다.
-1. 다음 이미지에 표시된 것처럼, **최소 TLS 버전** 에서 드롭다운을 사용하여 이 스토리지 계정의 데이터에 액세스하는 데 필요한 최소 버전의 TLS를 선택합니다.
+1. **설정** 에서 **구성** 을 선택합니다.
+1. **최소 TLS 버전** 에서 드롭다운을 사용하여 이 스토리지 계정의 데이터에 액세스하는 데 필요한 최소 버전의 TLS를 선택합니다.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Azure Portal에서 TLS의 최소 버전을 구성하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Azure Portal에서 TLS의 최소 버전을 구성하는 방법을 보여 주는 스크린샷" lightbox="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -237,7 +238,7 @@ resources
 
 ## <a name="use-azure-policy-to-audit-for-compliance"></a>Azure Policy를 사용하여 규정 준수 감사
 
-스토리지 계정이 많은 경우 감사를 수행하여 조직에서 요구하는 최소 버전의 TLS에 대해 모든 계정이 구성되어 있는지 확인하는 것이 좋습니다. 규정 준수를 위해 스토리지 계정 집합을 감사하려면 Azure Policy를 사용합니다. Azure Policy는 Azure 리소스에 규칙을 적용하는 정책을 만들고 할당하고 관리하는 데 사용할 수 있는 서비스입니다. Azure Policy는 해당 리소스가 회사 표준 및 서비스 수준 계약을 준수하는 데 도움이 됩니다. 자세한 내용은 [Azure Policy 개요](../../governance/policy/overview.md)를 참조하세요.
+스토리지 계정이 많은 경우 감사를 수행하여 조직에서 요구하는 최소 버전의 TLS에 대해 모든 계정이 구성되어 있는지 확인하는 것이 좋습니다. 규정 준수를 위해 스토리지 계정 집합을 감사하려면 Azure Policy를 사용합니다. Azure Policy는 Azure 리소스에 규칙을 적용하는 정책을 만들고 할당하고 관리하는 데 사용할 수 있는 서비스입니다. Azure Policy는 해당 리소스 가 회사 표준 및 서비스 수준 계약을 준수하도록 유지하는 데 도움이 됩니다. 자세한 내용은 [Azure Policy 개요](../../governance/policy/overview.md)를 참조하세요.
 
 ### <a name="create-a-policy-with-an-audit-effect"></a>감사 효과를 사용하여 정책 만들기
 
@@ -288,7 +289,7 @@ Azure Portal에서 정책을 할당하려면 다음 단계를 수행합니다.
 1. **작성** 섹션에서 **할당** 을 선택합니다.
 1. **정책 할당** 을 선택하여 새 정책 할당을 만듭니다.
 1. **범위** 필드에서 정책 할당의 범위를 선택합니다.
-1. **정책 정의** 필드에서 **자세히** 단추를 선택한 다음, 목록에서 이전 섹션에서 정의한 정책을 선택합니다.
+1. **정책 정의** 필드에서 **자세히** 단추를 선택한 다음, 이전 섹션에서 정의한 정책을 목록에서 선택합니다.
 1. 정책 할당의 이름을 제공합니다. 설명은 선택 사항입니다.
 1. **정책 적용** 을 *사용 가능* 으로 유지합니다. 이 설정은 감사 정책에 영향을 주지 않습니다.
 1. **검토 + 만들기** 를 선택하여 할당을 만듭니다.
@@ -348,20 +349,20 @@ TLS 1.2 이전의 최소 TLS 버전에 대해 거부 효과가 적용된 정책�
 
 ## <a name="permissions-necessary-to-require-a-minimum-version-of-tls"></a>최소 버전의 TLS를 요구하는 데 필요한 권한
 
-스토리지 계정에 대한 **MinimumTlsVersion** 속성을 설정하려면 사용자에게 스토리지 계정을 만들고 관리할 수 있는 권한이 있어야 합니다. 해당 권한을 제공하는 Azure RBAC(역할 기반 액세스 제어) 역할에는 **Microsoft.Storage/storageAccounts/write** 또는 **Microsoft.Storage/storageAccounts/\*** 작업이 포함됩니다. 이 작업을 사용하는 기본 제공 역할은 다음과 같습니다.
+스토리지 계정에 대한 **MinimumTlsVersion** 속성을 설정하려면 사용자에게 스토리지 계정을 만들고 관리할 수 있는 권한이 있어야 합니다. 해당 권한을 제공하는 Azure RBAC(역할 기반 액세스 제어) 역할에는 **Microsoft.Storage/storageAccounts/write** 또는 **Microsoft.Storage/storageAccounts/\*** 작업이 포함됩니다. 이 작업이 포함된 기본 제공 역할은 다음과 같습니다.
 
 - Azure Resource Manager [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할
 - Azure Resource Manager [기여자](../../role-based-access-control/built-in-roles.md#contributor) 역할
 - [스토리지 계정 기여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor) 역할
 
-해당 역할은 Azure Active Directory(Azure AD)를 통해 스토리지 계정의 데이터에 대한 액세스 권한을 제공하지 않습니다. 그러나 계정 액세스 키에 대한 액세스 권한을 부여하는 **Microsoft.Storage/storageAccounts/listkeys/action** 이 포함되어 있습니다. 이 권한을 사용하는 경우 사용자는 계정 액세스 키를 사용하여 스토리지 계정의 모든 데이터에 액세스할 수 있습니다.
+이러한 역할은 Azure AD(Azure Active Directory)를 통해 스토리지 계정의 데이터에 대한 액세스 권한을 제공하지 않습니다. 그러나 계정 액세스 키에 대한 액세스 권한을 부여하는 **Microsoft.Storage/storageAccounts/listkeys/action** 이 포함되어 있습니다. 이 권한을 사용하는 경우 사용자는 계정 액세스 키를 사용하여 스토리지 계정의 모든 데이터에 액세스할 수 있습니다.
 
 사용자가 스토리지 계정에 대해 최소 버전의 TLS를 요구하도록 허용하려면 역할 할당 범위를 저장소 계정 수준 이상으로 지정해야 합니다. 역할 범위에 대한 자세한 내용은 [Azure RBAC의 범위 이해](../../role-based-access-control/scope-overview.md)를 참조하세요.
 
-해당 역할은 스토리지 계정을 만들거나 해당 속성을 업데이트하는 기능을 필요로 하는 사용자에게만 제한적으로 할당해야 합니다. 최소 권한의 원칙을 사용하여 사용자에게 작업을 수행하는 데 필요한 최소 권한을 부여합니다. Azure RBAC를 사용하여 액세스를 관리하는 방법에 대한 자세한 내용은 [ Azure RBAC 모범 사례](../../role-based-access-control/best-practices.md)를 참조하세요.
+이러한 역할은 스토리지 계정을 만들거나 해당 속성을 업데이트하는 기능이 필요한 사용자에게만 제한적으로 할당해야 합니다. 최소 권한의 원칙을 사용하여 사용자에게 작업을 수행하는 데 필요한 최소 권한을 부여합니다. Azure RBAC를 사용하여 액세스를 관리하는 방법에 대한 자세한 내용은 [Azure RBAC 모범 사례](../../role-based-access-control/best-practices.md)를 참조하세요.
 
 > [!NOTE]
-> 클래식 구독 관리자 역할인 서비스 관리자 및 공동 관리자에는 Azure Resource Manager [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할에 해당하는 역할이 포함됩니다. **소유자** 역할은 모든 작업을 포함하므로 해당 관리 역할 중 하나가 있는 사용자는 스토리지 계정을 만들고 관리할 수도 있습니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)을 참조하세요.
+> 클래식 구독 관리자 역할인 서비스 관리자 및 공동 관리자에는 Azure Resource Manager [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할에 해당하는 항목이 포함됩니다. **소유자** 역할은 모든 작업을 포함하므로 이러한 관리 역할 중 하나가 있는 사용자는 스토리지 계정을 만들고 관리할 수도 있습니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)을 참조하세요.
 
 ## <a name="network-considerations"></a>네트워크 고려 사항
 

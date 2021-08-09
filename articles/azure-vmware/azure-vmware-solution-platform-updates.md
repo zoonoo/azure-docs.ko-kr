@@ -2,20 +2,41 @@
 title: Azure VMware Solution에 대한 플랫폼 업데이트
 description: Azure VMware Solution에 대한 플랫폼 업데이트에 대해 알아봅니다.
 ms.topic: reference
-ms.date: 03/24/2021
-ms.openlocfilehash: da6317d49edd3f40e1a8f2518f91fe353bbae285
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/26/2021
+ms.openlocfilehash: 38cd183b783989f6a682b68e92e490354b032750
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045215"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110538067"
 ---
 # <a name="platform-updates-for-azure-vmware-solution"></a>Azure VMware Solution에 대한 플랫폼 업데이트
 
-Azure VMware Solution은 2021년 3월부터 중요 업데이트를 적용합니다. 유지 관리 타임라인을 포함하는 Azure Service Health를 통해 알림을 받게 됩니다. 자세한 내용은 [Azure VMware Solution 프라이빗 클라우드 업데이트 및 업그레이드](concepts-upgrades.md)를 참조하세요.
+Azure VMware Solution은 2021년 3월부터 중요 업데이트를 적용합니다. 유지 관리 타임라인을 포함하는 Azure Service Health를 통해 알림을 받게 됩니다. 자세한 내용은 [호스트 유지 관리 및 수명 주기 관리](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management)를 참조하세요.
+
+## <a name="may-25-2021"></a>2021년 5월 25일
+VMware 보안 권고 [VMSA-2021-0010](https://www.vmware.com/security/advisories/VMSA-2021-0010.html)에 따라 VMware ESXi 및 vSphere Client(HTML5)의 여러 취약성이 VMware에 보고되었습니다. 
+
+VMware 보안 권고 [VMSA-2021-0010](https://www.vmware.com/security/advisories/VMSA-2021-0010.html)에 보고된 취약성([CVE-2021-21985](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21985) 및 [CVE-2021-21986](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21986))을 해결하기 위해 vCenter Server가 모든 Azure VMware Solution 프라이빗 클라우드에서 업데이트되었습니다.
+
+추가적인 조치가 필요하지 않습니다.
+
+## <a name="may-21-2021"></a>2021년 5월 21일
+ 
+Azure VMware Solution 서비스는 프라이빗 클라우드의 vCenter Server에 중요 업데이트를 적용하기 위해 2021년 5월 23일을 통해 유지 관리 작업을 수행합니다.  프라이빗 클라우드를 위한 유지 관리 타임라인을 포함하는 Azure Service Health를 통해 알림을 받게 됩니다.
+ 
+이 시간 동안에는 VMware vCenter를 사용할 수 없으며 VM을 관리(중지, 시작, 만들기 또는 삭제)할 수 없습니다. 이 시간 동안 프라이빗 클라우드에서 스케일 업, 새 네트워크 만들기와 같은 다른 작업을 프라이빗 클라우드에서 계획하지 않는 것이 좋습니다.
+ 
+프라이빗 클라우드에서 실행되는 워크로드에는 영향을 주지 않습니다.
+
+
+## <a name="april-26-2021"></a>2021년 4월 26일
+이제 모든 새 Azure VMware Solution 프라이빗 클라우드가 VMware vCenter 버전 6.7 U3l 및 NSX 버전 2.5.2를 사용하여 배포됩니다. 고객 VM 연결에 영향을 주는 NSX 3.1.1의 식별된 문제로 인해 새 프라이빗 클라우드에 NSX-T 3.1.1을 사용하지 않습니다. 
+
+VMware 권장 완화는 현재 Azure VMware Solution에서 NSX-T 3.1.1을 실행하는 모든 기존 프라이빗 클라우드에 적용되었습니다. 해결 방법은 고객 VM 연결에 영향이 없는 것으로 확인되었습니다.
 
 ## <a name="march-24-2021"></a>2021년 3월 24일
-모든 새 Azure VMware Solution 프라이빗 클라우드는 VMware vCenter 버전 6.7 U3l 및 NSX-T 버전 3.1.1을 사용하여 배포됩니다. 모든 기존 프라이빗 클라우드는 **2021년 6월** 까지 위에서 언급한 릴리스로 업데이트 및 업그레이드됩니다.
+모든 새 Azure VMware Solution 프라이빗 클라우드는 VMware vCenter 버전 6.7 U3l 및 NSX-T 버전 3.1.1을 사용하여 배포됩니다. 기존의 모든 프라이빗 클라우드는 **2021년 6 월까지** 위에 언급된 릴리스로 업데이트 및 업그레이드됩니다.
 
 계획된 유지 관리 날짜 및 시간이 포함된 메일을 받게 됩니다. 업그레이드를 다시 예약할 수 있습니다. 또한 메일은 업그레이드된 구성 요소에 대한 세부 정보, 워크로드에 대한 영향, 프라이빗 클라우드 액세스 및 기타 Azure 서비스를 제공합니다.  업그레이드하기 1시간 전에 알림이 표시되고 완료되면 다시 알림이 수신됩니다.
 
@@ -23,7 +44,7 @@ Azure VMware Solution은 2021년 3월부터 중요 업데이트를 적용합니�
 
 - Azure VMware Solution 서비스는 **2021년 3월 19일까지** 유지 관리 작업을 수행하여 프라이빗 클라우드의 vCenter Server를 vCenter Server 6.7 Update 3l 버전으로 업데이트합니다.
 
-- 이 기간 동안에는 VMware vCenter를 사용할 수 없습니다.  따라서 VM(중지, 시작, 만들기, 삭제) 또는 프라이빗 클라우드 스케일링(서버 및 클러스터 추가/제거)을 관리할 수 없습니다. 그러나 VMware HA(고가용성)는 기존 VM을 보호하기 위해 계속 작동합니다. 
+- 이 시간 동안에는 VMware vCenter를 사용할 수 없으므로 VM(중지, 시작, 만들기, 삭제) 또는 프라이빗 클라우드 크기 조정(서버 및 클러스터 추가/제거)을 관리할 수 없습니다. 그러나 VMware HA(고가용성)는 기존 VM을 보호하기 위해 계속 작동합니다. 
  
 이 vCenter 버전에 대한 자세한 내용은 [VMware vCenter Server 6.7 Update 3l 릴리스 정보](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/vsphere-vcenter-server-67u3l-release-notes.html)를 참조하세요.
 

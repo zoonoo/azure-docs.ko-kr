@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2021
 ms.author: apimpm
-ms.openlocfilehash: 743a7e7d34457405aa4be42b196dc994506c6587
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 37a0ac51f5cbc7d3eaa98027b5e8568dfcf208ee
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105035808"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747710"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한 부여
 
@@ -92,18 +92,21 @@ ms.locfileid: "105035808"
 
 Azure AD 테넌트에서 사용자에 대한 액세스를 활성화한 후에 API Management에서 Azure AD 그룹을 추가할 수 있습니다. 따라서 Azure AD 그룹을 사용하여 제품 표시 여부를 제어할 수 있습니다.
 
-외부 Azure AD 그룹을 APIM에 추가하려면 먼저 이전 섹션을 완료해야 합니다. 또한 등록한 애플리케이션에는 다음 단계에 따라 `Directory.Read.All` 권한으로 Microsoft Graph API에 대한 액세스 권한을 부여해야 합니다. 
+외부 Azure AD 그룹을 APIM에 추가하려면 먼저 이전 섹션을 완료해야 합니다. 기본적으로 등록한 애플리케이션에는 필요한 `User.Read` 위임된 권한으로 Microsoft Graph API에 액세스할 수 있습니다. 또한 다음 단계에 따라 `Directory.Read.All` 애플리케이션 권한으로 Microsoft Graph API 및 Azure Active Directory Graph API에 대한 액세스 권한을 애플리케이션에 부여해야 합니다. 
 
 1. 이전 섹션에서 만든 앱 등록으로 돌아갑니다.
-2. **API 사용 권한** 을 선택한 후 **+사용 권한 추가** 를 클릭합니다. 
-3. **API 사용 권한 요청** 창에서 **Microsoft API** 탭을 선택하고 아래로 스크롤한 다음, **Azure Active Directory 그래프** 타일을 선택합니다. **애플리케이션 사용 권한** 을 선택하고 **디렉터리** 를 검색한 후 **Directory.Read.All** 권한을 선택합니다. 
-4. 창의 맨 아래에 있는 **사용 권한 추가** 를 클릭한 다음, 이 디렉터리의 모든 사용자에게 액세스 권한을 부여하도록 **{tenantname}에 대한 관리자 동의 허용** 을 클릭합니다. 
+2. **API 사용 권한** 을 선택한 다음, **사용 권한 추가** 를 선택합니다. 
+3. **API 사용 권한 요청** 창에서 **Microsoft API** 탭을 선택한 후 **Microsoft Graph** 타일을 선택합니다. **애플리케이션 권한** 을 선택하고 **디렉터리** 를 검색합니다. **Directory.Read.All** 권한을 선택한 다음, 창 하단에서 **사용 권한 추가** 를 선택합니다.
+4. **사용 권한 추가** 를 선택합니다. 
+5. **API 사용 권한 요청** 창에서 **Microsoft API** 탭을 선택하고 아래로 스크롤한 다음, **Azure Active Directory 그래프** 타일을 선택합니다. **애플리케이션 권한** 을 선택하고 **디렉터리** 를 검색합니다. **Directory.Read.All** 권한을 선택한 다음, **사용 권한 추가** 를 선택합니다. 
+6. 이 디렉터리의 모든 사용자에 게 액세스 권한을 부여하도록 **{tenantname}에 대한 관리자 동의 부여** 를 선택합니다. 
 
 이제 API Management 인스턴스의 **그룹** 탭에서 외부 Azure AD 그룹을 추가할 수 있습니다.
 
 1. **그룹** 탭을 선택합니다.
 2. **AAD 그룹 추가** 단추를 선택합니다.
-    !["AAD 그룹 추가" 단추](./media/api-management-howto-aad/api-management-with-aad008.png)
+
+   !["A A D 그룹 추가" 단추](./media/api-management-howto-aad/api-management-with-aad008.png)
 3. 추가하려는 그룹을 선택합니다.
 4. **선택** 단추를 누릅니다.
 

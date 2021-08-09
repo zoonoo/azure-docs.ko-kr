@@ -1,18 +1,19 @@
 ---
 title: 위임에 대한 액세스 권한 제거
 description: Azure Lighthouse의 서비스 공급자에게 위임된 리소스에 대한 액세스 권한을 제거하는 방법을 알아봅니다.
-ms.date: 02/16/2021
+ms.date: 05/11/2021
 ms.topic: how-to
-ms.openlocfilehash: c53b678ba6e37ece1bcaf2860abceb9eea980532
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e9456d7b910c71305f321d0a4874aab0f4f368cd
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555782"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110700129"
 ---
 # <a name="remove-access-to-a-delegation"></a>위임에 대한 액세스 권한 제거
 
-고객의 구독 또는 리소스 그룹이 [Azure Lighthouse](../overview.md)의 서비스 공급자에게 위임된 후 필요한 경우 위임이 제거될 수 있습니다. 위임이 제거되면 서비스 공급자 테넌트의 사용자에게 이전에 부여되었던 [Azure 위임된 리소스 관리](../concepts/azure-delegated-resource-management.md) 액세스 권한이 더 이상 적용되지 않습니다.
+고객의 구독 또는 리소스 그룹이 [Azure Lighthouse](../overview.md)의 서비스 공급자에게 위임된 후 필요한 경우 위임이 제거될 수 있습니다. 위임이 제거되면 서비스 공급자 테넌트의 사용자에게 이전에 부여되었던 [Azure 위임된 리소스 관리](../concepts/architecture.md) 액세스 권한이 더 이상 적용되지 않습니다.
 
 사용자에게 적절한 권한이 있는 경우 고객 테넌트 또는 서비스 공급자 테넌트의 사용자가 위임 제거를 수행할 수 있습니다.
 
@@ -97,6 +98,6 @@ az managedservices assignment delete --assignment <id or full resourceId>
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 위임 리소스 관리](../concepts/azure-delegated-resource-management.md)에 대해 알아봅니다.
+- [Azure Lighthouse 아키텍처](../concepts/architecture.md)에 대해 알아봅니다.
 - Azure Portal의 **내 고객** 으로 이동하여 [고객을 보고 관리](view-manage-customers.md)합니다.
 - [이전 위임을 업데이트](update-delegation.md)하는 방법을 알아봅니다.

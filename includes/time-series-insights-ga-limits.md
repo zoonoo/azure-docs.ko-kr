@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: e584b6eff16636f0657c586f6c630dbf8bbb99b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9af31fb52a888148f33268a30c37609a5e8f2cd3
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96027696"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110487444"
 ---
 다음은 Azure Time Series Insights Gen1의 주요 제한을 요약한 것입니다.
 
@@ -24,13 +24,13 @@ S1 및 S2 SKU 수신 속도 및 용량은 새 Azure Time Series Insights 환경�
 
 | S1 SKU 용량 | 수신 속도 | 최대 스토리지 용량
 | --- | --- | --- |
-| 1 | 매일 1GB(1백만 이벤트) | 매달 30GB(3천만 이벤트) |
-| 10 | 매일 10GB(1천만 이벤트) | 매달 300GB(3억 이벤트) |
+| 1 | 매일 1GB(1백만 이벤트) | 30GB(3천만 개 이벤트) |
+| 10 | 매일 10GB(1천만 이벤트) | 300GB(3억 개 이벤트) |
 
 | S2 SKU 용량 | 수신 속도 | 최대 스토리지 용량
 | --- | --- | --- |
-| 1 | 매일 10GB(1천만 이벤트) | 매달 300GB(3억 이벤트) |
-| 10 | 매일 100GB(1억 이벤트) | 매달 3TB(30억 이벤트) |
+| 1 | 매일 10GB(1천만 이벤트) | 300GB(3억 개 이벤트) |
+| 10 | 매일 100GB(1억 이벤트) | 3TB(30억 개 이벤트) |
 
 > [!NOTE]
 > 용량은 연속해서 크기가 조정되므로 용량 2의 S1 SKU는 일일 2GB(2백만) 이벤트 수신 속도 및 매달 60GB(6천만 이벤트)를 지원합니다.

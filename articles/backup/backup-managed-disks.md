@@ -2,13 +2,13 @@
 title: Azure Managed Disks 백업
 description: Azure Portal에서 Azure Managed Disks를 백업하는 방법을 알아보세요.
 ms.topic: conceptual
-ms.date: 01/07/2021
-ms.openlocfilehash: e234495eb483d6d0cc6ca556ca418138c61a99f5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/27/2021
+ms.openlocfilehash: c47499c371a9eccfd97224344a48c166d0e1f811
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105110630"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110653634"
 ---
 # <a name="back-up-azure-managed-disks"></a>Azure Managed Disks 백업
 
@@ -28,7 +28,7 @@ Azure Disk Backup 지역 가용성, 지원되는 시나리오 및 제한 사항�
 
 ## <a name="create-a-backup-vault"></a>Backup 자격 증명 모음 만들기
 
-백업 자격 증명 모음은 Azure Database for PostgreSQL 및 Azure Disk와 같이 Azure Backup이 지원하는 다양한 최신 워크로드에 대한 백업 데이터를 보유하는 Azure의 스토리지 엔터티입니다. 백업 자격 증명 모음을 사용하면 관리 오버헤드를 최소화하면서 백업 데이터를 쉽게 구성할 수 있습니다. 백업 자격 증명 모음은 Azure의 Azure Resource Manager 모델을 기반으로 하며 백업 데이터를 보호할 수 있도록 하는 향상된 기능을 제공합니다.
+Backup 자격 증명 모음은 PostgreSQL용 Azure Database 서버 및 Azure Disk와 같이 Azure Backup이 지원하는 다양한 최신 워크로드에 대한 백업 데이터를 보유하는 Azure의 스토리지 엔터티입니다. Backup 자격 증명 모음을 사용하면 관리 오버헤드를 최소화하면서 백업 데이터를 쉽게 구성할 수 있습니다. 백업 자격 증명 모음은 Azure의 Azure Resource Manager 모델을 기반으로 하며 백업 데이터를 보호할 수 있도록 하는 향상된 기능을 제공합니다.
 
 1. [https://portal.azure.com](https://portal.azure.com/)에서 Azure Portal에 로그인합니다.
 1. 검색 창에 **백업 센터** 를 입력합니다.
@@ -81,6 +81,13 @@ Azure Disk Backup 지역 가용성, 지원되는 시나리오 및 제한 사항�
 
 ## <a name="configure-backup"></a>백업 구성
 
+- Azure Disk backup은 운영 계층 백업만 지원 하며, 현재는 자격 증명 모음 저장소 계층에 대 한 백업 복사를 사용할 수 없습니다. 백업 자격 증명 모음 저장소 중복성 설정(LRS/GRS)은 운영 계층에 저장된 백업에 적용되지 않습니다.
+증분 스냅숏은 부모 디스크의 저장소 유형과 관계없이 표준 HDD 저장소에 저장됩니다. 안정성을 높이기 위해 증분 스냅숏은 기본적으로 [영역 중복 저장소](../storage/common/storage-redundancy.md)를 지원하는 지역의 ZRS에 저장됩니다.
+
+- Azure Disk backup은 한 구독의 백업 자격 증명 모음과 다른 구독의 원본 디스크를 사용하여 구독 간 백업 및 복원을 지원합니다. 그러나 지역 간 백업 및 복원은 지원되지 않습니다. 따라서 백업 자격 증명 모음과 백업할 디스크는 동일한 구독이나 다른 구독에 있을 수 있습니다. 그러나 백업할 백업 자격 증명 모음과 디스크는 모두 동일한 지역에 있어야 합니다.
+
+- 디스크의 백업을 구성할 때 백업 인스턴스에 할당된 스냅숏 리소스 그룹은 변경할 수 없습니다. 
+
 백업 자격 증명 모음은 관리 ID를 사용하여 다른 Azure 리소스에 액세스합니다. 관리 디스크의 백업을 구성하려면 백업 자격 증명 모음의 관리 ID에 스냅샷이 생성되고 관리되는 소스 디스크 및 리소스 그룹에 대한 권한 집합이 필요합니다.
 
 시스템 할당 관리 ID는 리소스당 하나로 제한되며 이 리소스의 수명 주기에 연결됩니다. Azure RBAC(역할 기반 액세스 제어)를 사용하여 관리 ID에 대한 권한을 부여할 수 있습니다. 관리 ID는 Azure 리소스에서만 사용할 수 있는 특수 유형의 서비스 주체입니다. [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)에 대해 자세히 알아보세요.
@@ -112,7 +119,24 @@ Azure Disk Backup 지역 가용성, 지원되는 시나리오 및 제한 사항�
 
    - 해당 디스크의 구독 외부에 있는 특정 디스크에 대해 증분 스냅샷을 만들 수 없습니다. 따라서 백업할 디스크와 동일한 구독 내에 있는 리소스 그룹을 선택합니다. 관리 디스크의 [증분 스냅샷](../virtual-machines/disks-incremental-snapshots.md#restrictions)에 대해 자세히 알아보세요.
 
-   역할을 지정하려면 다음 단계를 따릅니다.
+   - 디스크의 백업을 구성할 때 백업 인스턴스에 할당된 스냅숏 리소스 그룹은 변경할 수 없습니다.
+
+   - 백업 작업 중에 Azure Backup 서비스는 스냅숏이 저장되는 스냅숏 리소스 그룹에 저장소 계정을 만듭니다. 스냅숏 리소스 그룹당 하나의 저장소 계정만 생성됩니다. 계정은 스냅숏 리소스 그룹과 동일한 리소스 그룹을 사용하는 여러 디스크 백업 인스턴스에서 다시 사용됩니다.
+     
+     - 스냅숏은 저장소 계정에 저장되지 않습니다. 관리 디스크의 증분 스냅숏은 저장소 계정이 아닌 리소스 그룹에 생성되는 ARM 리소스입니다. 
+     
+     - 저장소 계정은 각 복구 지점에 대한 메타데이터를 저장하는 데 사용됩니다. Azure Backup 서비스는 디스크 백업 인스턴스당 Blob 컨테이너를 만듭니다. 각 복구 지점에는 작은 공간(몇 KiB)을 차지하는 복구 지점(예: 구독, 디스크 ID, 디스크 특성 등)을 설명하는 메타데이터를 저장하기 위해 블록 Blob이 생성됩니다.
+     
+     - 지역에서 영역 중복을 지원하는 경우 저장소 계정이 RA GZRS로 생성됩니다. 지역이 영역 중복을 지원하지 않는 경우 저장소 계정은 RA GRS로 생성됩니다.<br>기존 정책이 GRS 중복이 있는 구독 또는 리소스 그룹에서 저장소 계정 만들기를 중지하는 경우 저장소 계정은 LRS로 만들어집니다. 만든 저장소 계정은 **범용 v2** 이며 Blob 컨테이너의 핫 계층에서 블록 Blob이 저장됩니다. 
+     
+     - 복구 지점 수는 디스크 백업 인스턴스의 백업을 구성하는 데 사용되는 백업 정책에 따라 결정됩니다. 이전 블록 Blob은 해당하는 이전 복구 지점이 정리되므로 가비지 수집 프로세스에 따라 삭제됩니다.
+   
+   - Azure Backup 서비스에서 만든 스냅숏 리스 그룹 또는 저장소 계정에 리소스 잠금이나 을 적용하지 마세요. 이 서비스는 디스크의 백업을 구성할 때 백업 인스턴스에 할당된 스냅숏 리소스 그룹의 리소스를 만들고 관리합니다. 저장소 계정 및 해당 계정에 있는 리소스는 서비스에서 만들어지며 삭제하거나 이동하면 안 됩니다.
+
+     >[!NOTE]
+     >저장소 계정이 삭제되면 백업이 실패하고 기존 복구 지점의 복원이 모두 실패합니다.
+
+역할을 지정하려면 다음 단계를 따릅니다.
 
    1. 리소스 그룹으로 이동합니다. 예를 들어 리소스 그룹은 백업할 디스크와 동일한 구독에 있는 *SnapshotRG* 입니다.
 

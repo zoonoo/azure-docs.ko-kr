@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: bbb996362df1f99a8702de310bc11f6828cc303a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 10caff631d59085aa2bbfcd573c3e3114b0306f7
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103008453"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560873"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 
@@ -108,6 +108,9 @@ Azure Storage에서 기본적으로 지원하므로 사용자 지정 도메인�
 
 여러 지역에서 웹 사이트를 호스트하려면 지역 캐싱에 [Content Delivery Network](../../cdn/index.yml)를 사용하는 것이 좋습니다. 지역마다 다른 콘텐츠를 제공하려면 [Azure Front Door](../../frontdoor/index.yml)를 사용합니다. 장애 조치(failover) 기능도 제공됩니다. 사용자 지정 도메인을 사용하려면 [Azure Traffic Manager](../../traffic-manager/index.yml)를 사용하지 않는 것이 좋습니다. Azure Storage에서 사용자 지정 도메인 이름을 확인하는 방식으로 인해 문제가 발생할 수 있습니다.
 
+## <a name="permissions"></a>사용 권한
+
+정적 웹 사이트를 사용하도록 설정할 수 있는 권한은 Microsoft.Storage/storageAccounts/blobServices/write 또는 공유 키입니다.  이 액세스를 제공하는 기본 제공 역할에는 스토리지 계정 기여자가 포함됩니다.  
 
 ## <a name="pricing"></a>가격 책정
 

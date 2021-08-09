@@ -1,28 +1,29 @@
 ---
-title: Windows Virtual Desktop 부하 분산 구성 - Azure
-description: Windows Virtual Desktop 환경에 대한 부하 분산 메서드를 구성하는 방법입니다.
+title: Azure Virtual Desktop 부하 분산 구성 - Azure
+description: Azure Virtual Desktop 환경에 대한 부하 분산 방법을 구성하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 0e742a046d43fef6e8263f73fc2ca8460848ad40
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: a39aad7889ee395c723d76a74cfb006b6d09caa3
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448120"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751058"
 ---
-# <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Windows Virtual Desktop 부하 분산 방법 구성
+# <a name="configure-the-azure-virtual-desktop-load-balancing-method"></a>Azure Virtual Desktop 부하 분산 방법 구성
 
-호스트 풀에 대한 부하 분산 메서드를 구성하면 사용자의 요구에 맞게 Windows Virtual Desktop 환경을 조정할 수 있습니다.
+호스트 풀에 대한 부하 분산 방법을 구성하면 사용자의 요구에 맞게 Azure Virtual Desktop 환경을 조정할 수 있습니다.
 
 >[!NOTE]
 > 사용자에게는 항상 호스트 풀 내의 세션 호스트에 1:1 매핑이 있으므로 영구 데스크톱 호스트 풀에는 적용되지 않습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서에서는 [Windows Virtual Desktop PowerShell 모듈 설정](powershell-module.md)의 지침에 따라 PowerShell 모듈을 다운로드 및 설치하고 Azure 계정에 로그인했다고 가정합니다.
+이 문서에서는 [ Virtual Desktop PowerShell 모듈 설정](powershell-module.md)의 지침에 따라 PowerShell 모듈을 다운로드 및 설치하고 Azure 계정에 로그인했다고 가정합니다.
 
 ## <a name="configure-breadth-first-load-balancing"></a>폭 우선 부하 분산 구성
 
@@ -82,8 +83,8 @@ Azure Portal을 사용하여 부하 분산을 구성할 수도 있습니다.
 부하 분산을 구성하려면 다음을 수행합니다.
 
 1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
-2. 서비스 아래에서 **Windows Virtual Desktop** 을 검색하여 선택합니다.
-3. Windows Virtual Desktop 페이지에서 **호스트 풀** 을 선택합니다.
+2. 서비스 아래에서  **Virtual Desktop** 을 검색하여 선택합니다.
+3. Azure Virtual Desktop 페이지에서 **호스트 풀** 을 선택합니다.
 4. 편집하려는 풀의 이름을 선택합니다.
 5. **속성** 을 선택합니다.
 6. 필드에 **최대 세션 제한** 을 입력하고 드롭다운 메뉴에서 이 호스트 풀에 대해 원하는 **부하 분산 알고리즘** 을 선택합니다.

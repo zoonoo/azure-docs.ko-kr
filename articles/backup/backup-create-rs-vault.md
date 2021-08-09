@@ -2,14 +2,14 @@
 title: Recovery Services 자격 증명 모음 만들기 및 구성
 description: 이 문서에서는 백업과 복구 지점이 저장되는 Recovery Services 자격 증명 모음을 만들고 구성하는 방법에 대해 알아봅니다. 지역 간 복원을 사용하여 보조 지역에서 복원하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1a20cd2b1245febea5fd18a9f6fe6e7a7bb6f04b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b301ce0ab2f4b57a03e3ba24d672bb4102a1a997
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101716757"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110794225"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기 및 구성
 
@@ -69,7 +69,7 @@ VM을 복원할 때는 VM 또는 그 디스크를 복원할 수 있습니다. Az
 >- SQL 및 SAP HANA 데이터베이스에 대한 지역 간 복원은 모든 Azure 공용 지역에서 미리 보기 상태입니다.
 >- CRR은 GRS 자격 증명 모음에 대한 자격 증명 모음 수준 옵트인 기능입니다(기본적으로 꺼짐).
 >- 옵트인 후에는 보조 지역에서 백업 항목을 사용하는 데 최대 48시간이 걸릴 수 있습니다.
->- 현재 Azure VM용 CRR은 Azure Resource Manger Azure VM에 대해서만 지원됩니다. 클래식 Azure VM은 지원되지 않습니다.  추가 관리 형식이 CRR을 지원하는 경우 **자동으로** 등록됩니다.
+>- 현재 Azure VM용 CRR은 Azure Resource Manager Azure VM 및 암호화된 Azure VM에 대해 지원됩니다. 클래식 Azure VM은 지원되지 않습니다. 추가 관리 형식이 CRR을 지원하는 경우 **자동으로** 등록됩니다.
 >- 현재는 보호를 처음으로 시작한 후에 지역 간 복원을 GRS 또는 LRS로 **되돌릴 수 없습니다**.
 >- 현재 [RA-GRS(읽기 액세스 지역 중복 스토리지)](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) 복제는 15분이나, 보조 지역 [RPO](azure-backup-glossary.md#rpo-recovery-point-objective)는 주 지역에서 최대 12시간입니다.
 

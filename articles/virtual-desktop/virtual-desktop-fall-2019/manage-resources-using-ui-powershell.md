@@ -1,23 +1,23 @@
 ---
-title: 서비스 사용자를 사용하여 Windows Virtual Desktop(클래식)용 관리 도구 배포 - Azure
-description: PowerShell을 사용하여 Windows Virtual Desktop(클래식)용 관리 도구를 배포하는 방법.
+title: 서비스 사용자를 사용하여 Azure Virtual Desktop(클래식)용 관리 도구 배포 - Azure
+description: PowerShell을 사용하여 Azure Virtual Desktop(클래식)용 관리 도구를 배포하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 60eec4580e222123795db9554f56e74cb01c5257
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: fbd12216cbc81df7f4f9e187c8150f69744eb139
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444448"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744524"
 ---
-# <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>PowerShell을 사용하여 Windows Virtual Desktop(클래식) 관리 도구 배포
+# <a name="deploy-a-azure-virtual-desktop-classic-management-tool-with-powershell"></a>PowerShell을 사용하여 Azure Virtual Desktop(클래식) 관리 도구 배포
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다.
 
 이 문서에서는 PowerShell을 사용하여 관리 도구를 배포하는 방법을 보여줍니다.
 
@@ -41,7 +41,7 @@ Azure AD(Azure Active Directory) 테넌트의 구독마다 별도의 관리 도�
 - Azure 구독에서 리소스를 만드는 데 필요한 권한 보유
 - Azure AD 애플리케이션을 만드는 데 필요한 권한 보유 [필요한 권한](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)의 지침에 따라 사용자에게 필요한 권한이 있는지 확인하려면 다음 단계를 수행합니다.
 
-관리 도구를 배포하고 구성한 후에는 사용자에게 관리 UI를 시작하여 모든 기능이 작동하는지 확인하도록 요청하는 것이 좋습니다. 관리 UI를 시작하는 사용자에게는 Windows Virtual Desktop 테넌트를 보거나 편집할 수 있는 역할 할당이 있어야 합니다.
+관리 도구를 배포하고 구성한 후에는 사용자에게 관리 UI를 시작하여 모든 기능이 작동하는지 확인하도록 요청하는 것이 좋습니다. 관리 UI를 시작하는 사용자에게는 Azure Virtual Desktop 테넌트를 보거나 편집할 수 있는 역할 할당이 있어야 합니다.
 
 ## <a name="set-up-powershell"></a>PowerShell 설정
 
@@ -156,7 +156,7 @@ Azure AD 애플리케이션을 확인하고 동의를 제공하려면 다음을 
 이제 관리 도구를 설정했으므로 언제 어디서든 시작할 수 있습니다. 이 도구를 시작하는 방법은 다음과 같습니다.
 
 1. 웹 브라우저에서 웹앱의 URL을 엽니다. URL을 기억할 수 없는 경우 Azure에 로그인하고 관리 도구에 배포한 앱 서비스를 찾은 다음, URL을 선택할 수 있습니다.
-2. Windows Virtual Desktop 자격 증명을 사용하여 로그인합니다.
+2. Azure Virtual Desktop 자격 증명을 사용하여 로그인합니다.
 
    > [!NOTE]
    > 관리 도구를 구성하는 동안 관리자 동의를 부여하지 않은 경우에는 로그인하는 각 사용자가 고유한 사용자 동의를 제공해야 해당 도구를 사용할 수 있습니다.
@@ -169,7 +169,7 @@ Azure AD 애플리케이션을 확인하고 동의를 제공하려면 다음을 
 
 ## <a name="report-issues"></a>문제 보고
 
-관리 도구 또는 기타 Windows Virtual Desktop 도구에 문제가 발생하는 경우 [Remote Desktop Services용 Azure Resource Manager 템플릿](https://github.com/Azure/RDS-Templates/blob/master/README.md)의 지침에 따라 GitHub에 보고합니다.
+관리 도구 또는 기타 Azure Virtual Desktop 도구에 문제가 발생하는 경우 [Remote Desktop Services용 Azure Resource Manager 템플릿](https://github.com/Azure/RDS-Templates/blob/master/README.md)의 지침에 따라 GitHub에 보고합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

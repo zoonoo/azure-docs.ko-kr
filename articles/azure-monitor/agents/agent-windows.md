@@ -5,28 +5,31 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/03/2020
-ms.openlocfilehash: aec39b86f9651539028efce93ba6a88c3be75b0c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: e7a20b617808457ad9512f5dc835e4de33f880f3
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102038313"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110585222"
 ---
 # <a name="install-log-analytics-agent-on-windows-computers"></a>Windows 머신에 Log Analytics 에이전트 설치
-이 문서에서는 다음 방법을 사용 하 여 Windows 컴퓨터에 Log Analytics 에이전트를 설치 하는 방법에 대해 자세히 설명 합니다.
+이 문서는 다음 방법을 사용하여 Windows 컴퓨터에 Log Analytics 에이전트를 설치하는 방법을 자세히 설명합니다.
 
-* [설치 마법사](#install-agent-using-setup-wizard) 또는 [명령줄](#install-agent-using-command-line)을 사용 하 여 수동으로 설치 합니다.
-* [DSC (필요한 상태 구성)를 Azure Automation](#install-agent-using-dsc-in-azure-automation)합니다. 
+* [설치 마법사](#install-agent-using-setup-wizard) 또는 [명령줄](#install-agent-using-command-line)을 사용하여 수동으로 설치합니다.
+* [Azure Automation DSC(Desired State Configuration)](#install-agent-using-dsc-in-azure-automation) 
 
 >[!IMPORTANT]
-> 이 문서에서 설명 하는 설치 방법은 일반적으로 온-프레미스 또는 다른 클라우드의 가상 컴퓨터에 사용 됩니다. Azure virtual machines에 사용할 수 있는 보다 효율적인 옵션은 [설치 옵션](./log-analytics-agent.md#installation-options) 을 참조 하세요.
+> 이 문서에서 설명하는 설치 방법은 일반적으로 온-프레미스 또는 다른 클라우드의 가상 머신에 사용됩니다. Azure 가상 머신에 사용할 수 있는 보다 효율적인 옵션은 [설치 옵션](./log-analytics-agent.md#installation-options)을 참조하세요.
 
 > [!NOTE]
 > 두 개 이상의 작업 영역에 보고하도록 에이전트를 구성해야 하는 경우에는 [작업 영역 추가 또는 제거](agent-manage.md#adding-or-removing-a-workspace)에 설명된 대로 제어판 또는 PowerShell에서 설정을 업데이트하는 경우에만 초기 설정 중에 이 작업을 수행할 수 없습니다.  
 
+> [!NOTE]
+> Log Analytics 에이전트를 설치하는 경우 일반적으로 컴퓨터를 다시 시작하지 않아도 됩니다.  
+
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-Log Analytics 에이전트에서 지원 되는 Windows 버전 목록은 [Azure Monitor 에이전트 개요](agents-overview.md#supported-operating-systems) 를 참조 하세요.
+Log Analytics 에이전트에서 지원하는 Windows 배포 목록은 [Azure Monitor 에이전트 개요](agents-overview.md#supported-operating-systems)를 참조하세요.
 
 ### <a name="sha-2-code-signing-support-requirement"></a>SHA-2 코드 서명 지원 요구 사항 
 Windows 에이전트는 2020년 8월 17일에 SHA-2 서명 독점 사용을 시작합니다. 이 변경 사항은 모든 Azure 서비스(Azure Monitor, Azure Automation, Azure 업데이트 관리, Azure 변경 내용 추적, Azure Security Center, Azure Sentinel, Windows Defender ATP)의 일부로 레거시 OS에서 Log Analytics 에이전트를 사용하는 고객에게 영향을 줍니다. 레거시 OS 버전(Windows 7, Windows Server 2008 R2 및 Windows Server 2008)에서 에이전트를 실행하는 경우 이외에는 이 변경에 따른 고객 조치가 필요 없습니다. 레거시 OS 버전에서 실행하는 고객은 2020년 8월 17일 전에 머신에서 다음 조치를 수행해야 합니다. 그렇지 않으면 해당 에이전트가 Log Analytics 작업 영역으로 데이터 전송을 중지합니다.
@@ -41,12 +44,12 @@ Windows 에이전트는 2020년 8월 17일에 SHA-2 서명 독점 사용을 시�
 4. [TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12)를 사용하도록 에이전트를 구성하는 것이 좋습니다. 
 
 ## <a name="network-requirements"></a>네트워크 요구 사항
-Windows 에이전트에 대 한 네트워크 요구 사항은 [Log Analytics 에이전트 개요](./log-analytics-agent.md#network-requirements) 를 참조 하세요.
+Windows 에이전트에 대한 네트워크 요구 사항은 [Log Analytics 에이전트 개요](./log-analytics-agent.md#network-requirements)를 참조하세요.
 
 
    
 ## <a name="configure-agent-to-use-tls-12"></a>TLS 1.2를 사용하도록 에이전트 구성
-[TLS 1.2](/windows-server/security/tls/tls-registry-settings#tls-12) 프로토콜은 Windows 에이전트와 Log Analytics 서비스 간의 통신을 위해 전송 중인 데이터의 보안을 보장 합니다. [기본적으로 tls 1.2을 사용 하지 않고 운영 체제](../logs/data-security.md#sending-data-securely-using-tls-12)에를 설치 하는 경우 아래 단계를 사용 하 여 tls 1.2를 구성 해야 합니다.
+[TLS 1.2](/windows-server/security/tls/tls-registry-settings#tls-12) 프로토콜은 Windows 에이전트와 Log Analytics 서비스 간의 통신을 위해 전송 중인 데이터의 보안을 보장합니다. [기본적으로 TLS 1.2를 사용하지 않고 운영 체제](../logs/data-security.md#sending-data-securely-using-tls-12)에 설치하는 경우 아래 단계에 따라 TLS 1.2를 구성해야 합니다.
 
 1. 다음 레지스트리 하위 키를 찾습니다. **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
 2. **프로토콜** 아래에서 TLS 1.2에 대한 하위 키 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2** 를 만듭니다.
@@ -64,7 +67,7 @@ Windows 에이전트에 대 한 네트워크 요구 사항은 [Log Analytics 에
 4. 이 하위 키 아래에 값 **1** 을 사용하는 DWORD 값 **SchUseStrongCrypto** 를 만듭니다. 
 5. 시스템을 다시 시작하여 설정을 적용합니다. 
 
-## <a name="install-agent-using-setup-wizard"></a>설치 마법사를 사용 하 여 에이전트 설치
+## <a name="install-agent-using-setup-wizard"></a>설치 마법사를 사용하여 에이전트 설치
 다음은 컴퓨터에서 에이전트 설치 마법사를 사용하여 Azure 및 Azure Government 클라우드에 Log Analytics 에이전트를 설치하고 구성하는 단계입니다. System Center Operations Manager 관리 그룹에도 보고하도록 에이전트를 구성하는 방법을 알아보려면 [deploy the Operations Manager agent with the Agent Setup Wizard](/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard)(에이전트 설치 마법사를 사용하여 Operations Manager 에이전트 배포)를 참조하세요.
 
 1. Log Analytics 작업 영역에서 이전에 이동해 온 **Windows 서버** 페이지에서 Windows 운영 체제의 프로세서 아키텍처에 따라 적절한 **Windows 에이전트 다운로드** 버전을 선택하여 다운로드합니다.   
@@ -82,7 +85,7 @@ Windows 에이전트에 대 한 네트워크 요구 사항은 [Log Analytics 에
 
 완료되면 **제어판** 에 **Microsoft Monitoring Agent** 가 나타납니다. Log Analytics에 대한 보고를 확인하려면 [Log Analytics에 대한 에이전트 연결 확인](#verify-agent-connectivity-to-azure-monitor)을 검토하세요. 
 
-## <a name="install-agent-using-command-line"></a>명령줄을 사용 하 여 에이전트 설치
+## <a name="install-agent-using-command-line"></a>명령줄을 사용하여 에이전트 설치
 다운로드한 에이전트용 파일은 자체 포함 설치 패키지입니다.  에이전트용 설치 프로그램과 지원 파일이 패키지에 포함되어 있으며 다음 예제에 나온 대로 명령줄을 사용하여 제대로 설치하려면 이러한 프로그램과 파일을 추출해야 합니다.    
 
 >[!NOTE]
@@ -116,7 +119,7 @@ Windows 에이전트에 대 한 네트워크 요구 사항은 [Log Analytics 에
     >[!NOTE]
     >매개 변수 *OPINSIGHTS_WORKSPACE_ID* 및 *OPINSIGHTS_WORKSPACE_KEY* 에 대한 문자열 값을 패키지에 대한 유효한 옵션으로 해석하도록 Windows Installer에 지시하기 위해 큰따옴표로 캡슐화해야 합니다. 
 
-## <a name="install-agent-using-dsc-in-azure-automation"></a>Azure Automation에서 DSC를 사용 하 여 에이전트 설치
+## <a name="install-agent-using-dsc-in-azure-automation"></a>Azure Automation에서 DSC를 사용하여 에이전트 설치
 
 다음 스크립트 예제를 사용하여 Azure Automation DSC를 사용하여 에이전트를 설치합니다.   Automation 계정이 없는 경우 자동화 DSC를 사용하기 전에 필요한 Automation 계정을 만드는 데 필요한 요구 사항과 단계를 이해하기 위해 [Azure Automation 시작](../../automation/index.yml)을 참조하세요.  자동화 DSC에 익숙하지 않은 경우 [자동화 DSC 시작](../../automation/automation-dsc-getting-started.md)을 참조하세요.
 
@@ -177,7 +180,7 @@ Configuration MMAgent
 5. Automation 계정으로 [MMAgent.ps1 구성 스크립트를 가져옵니다](../../automation/automation-dsc-getting-started.md#import-a-configuration-into-azure-automation). 
 6. 구성에 [Windows 컴퓨터 또는 노드를 할당](../../automation/automation-dsc-getting-started.md#enable-an-azure-resource-manager-vm-for-management-with-state-configuration)합니다. 15분 이내에 노드가 구성을 점검하고 에이전트가 노드로 푸시됩니다.
 
-## <a name="verify-agent-connectivity-to-azure-monitor"></a>Azure Monitor에 대 한 에이전트 연결 확인
+## <a name="verify-agent-connectivity-to-azure-monitor"></a>에이전트가 Azure Monitor에 연결되었는지 확인
 
 에이전트 설치가 완료되면 두 가지 방법으로 성공적으로 연결되었는지 확인하고 보고할 수 있습니다.  
 
@@ -199,9 +202,9 @@ Azure Portal에서 단순 로그 쿼리를 수행할 수도 있습니다.
 
 ## <a name="cache-information"></a>캐시 정보
 
-Log Analytics 에이전트의 데이터는 Azure Monitor으로 전송 되기 전에 *C:\Program Files\Microsoft Monitoring \Agent\health Service 상태* 에 있는 로컬 컴퓨터에 캐시 됩니다. 에이전트는 20 초 마다 업로드 하려고 합니다. 실패 하는 경우 성공할 때까지 계속 해 서 많은 시간 동안 대기 합니다. 두 번째 시도 전에 30 초 60, 다음, 120 초 전에 30 초 동안 대기 하 고 다시 연결할 때까지 다시 시도 사이에 최대 8.5 시간까지 대기 합니다. 모든 에이전트가 동시에 연결을 시도 하는 것을 방지 하기 위해이 대기 시간은 약간 무작위로 사용 됩니다. 최대 버퍼에 도달 하면 가장 오래 된 데이터가 삭제 됩니다.
+Log Analytics 에이전트의 데이터는 Azure Monitor로 전송되기 전에 로컬 컴퓨터의 *C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State* 에 캐시됩니다. 에이전트는 20초마다 업로드를 시도합니다. 업로드에 실패하면 에이전트가 성공할 때까지 기하급수적으로 증가하는 시간을 대기합니다. 두 번째 시도 전에 30초, 그 다음 시도 전에 60초, 그리고 120초 등 다시 연결될 때까지 재시도 사이에 최대 8.5시간 동안 대기합니다. 이 대기 시간은 모든 에이전트가 동시에 연결을 시도하지 않도록 약간 무작위화됩니다. 최대 버퍼에 도달하면 가장 오래된 데이터가 삭제됩니다.
 
-기본 캐시 크기는 50 MB 이지만 최소 5mb와 최대 1.5 GB 사이에서 구성할 수 있습니다. *HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Persistence Cache Maximum* 레지스트리 키에 저장 됩니다. 값은 페이지 수를 나타내며 페이지 당 8kb를 사용 합니다.
+기본 캐시 크기는 50MB이지만 최소 5MB와 최대 1.5GB 사이에서 구성할 수 있습니다. 캐시는 레지스트리 키 *HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Persistence Cache Maximum* 에 저장됩니다. 값은 페이지 수를 나타내며 페이지당 8KB를 사용합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

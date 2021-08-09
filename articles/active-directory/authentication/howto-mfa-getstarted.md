@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 05/03/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9ee81abd7cd0268a7cbd6b16aa6065ec7b54bef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa57446053531ee4d3b40b617e8664eb0648c725
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96861309"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951933"
 ---
 # <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Azure AD Multi-Factor Authentication 배포 계획
 
@@ -39,7 +39,7 @@ Azure AD Multi-Factor Authentication 배포를 시작하기 전에 고려해야 
 | --- | --- |
 | 최신 인증을 사용하는 **클라우드 전용** ID 환경 | **추가 사전 요구 작업 없음** |
 | **하이브리드** ID 시나리오 | [Azure AD Connect](../hybrid/whatis-hybrid-identity.md)가 배포되고 사용자 ID가 Azure Active Directory를 사용하여 온-프레미스 Active Directory Domain Services와 동기화되거나 페더레이션됩니다. |
-| 클라우드 액세스용으로 게시된 온-프레미스 레거시 애플리케이션 | Azure AD [애플리케이션 프록시](../manage-apps/application-proxy.md)가 배포됩니다. |
+| 클라우드 액세스용으로 게시된 온-프레미스 레거시 애플리케이션 | Azure AD [애플리케이션 프록시](../app-proxy/application-proxy.md)가 배포됩니다. |
 | RADIUS 인증과 함께 Azure AD MFA 사용 | [NPS(네트워크 정책 서버)](howto-mfa-nps-extension.md)가 배포됩니다. |
 | 사용자가 Microsoft Office 2010 이하를 보유하거나 iOS 11 이하용 Apple Mail 보유 | [Microsoft Office 2013 이상](https://support.microsoft.com/help/4041439/modern-authentication-configuration-requirements-for-transition-from-o) 및 iOS 12 이상용 Apple Mail로 업그레이드합니다. 레거시 인증 프로토콜에서는 조건부 액세스를 지원하지 않습니다. |
 
@@ -144,6 +144,9 @@ Microsoft Authenticator 앱과 같은 모바일 앱은 30초마다 새로운 OAT
 
 1. **Save** 를 클릭합니다.
 1. **서비스 설정** 탭을 닫습니다.
+
+> [!WARNING]
+> [보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md)을 사용하는 경우 조직에 대한 인정 방법을 사용하지 않도록 설정하지 마세요. 보안 방법을 사용하지 않도록 설정하면 테넌트에서 스스로 잠금이 발생할 수 있습니다. MFA 서비스 설정 포털에서 **사용자가 사용할 수 있는 방법** 을 모두 사용하도록 설정합니다.
 
 ## <a name="plan-registration-policy"></a>등록 정책 계획
 
@@ -264,7 +267,7 @@ Azure AD에서 직접 인증하고 최신 인증(WS-Fed, SAML, OAuth, OpenID Con
 
 ### <a name="use-azure-ad-mfa-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시로 Azure AD MFA 사용
 
-온-프레미스에 있는 애플리케이션은 [Azure AD 애플리케이션 프록시](../manage-apps/application-proxy.md)를 통해 Azure AD 테넌트에 게시될 수 있으며 Azure AD 사전 인증을 사용하도록 구성된 경우 Azure AD Multi-Factor Authentication을 활용할 수 있습니다.
+온-프레미스에 있는 애플리케이션은 [Azure AD 애플리케이션 프록시](../app-proxy/application-proxy.md)를 통해 Azure AD 테넌트에 게시될 수 있으며 Azure AD 사전 인증을 사용하도록 구성된 경우 Azure AD Multi-Factor Authentication을 활용할 수 있습니다.
 
 이러한 애플리케이션에는 다른 Azure AD 통합 애플리케이션과 마찬가지로 Azure AD Multi-Factor Authentication을 적용하는 조건부 액세스 정책이 적용됩니다.
 
@@ -335,7 +338,7 @@ Windows 보안 로그 및 AD FS 관리자 로그 모두에서 표준 AD FS 2016 
 
 1. 필요한 모든 필수 구성 요소 충족
    1. 모든 하이브리드 시나리오에 대해 [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) 배포
-   1. 클라우드 액세스를 위해 게시된 온-프레미스 앱에 대해 [Azure AD 애플리케이션 프록시](../manage-apps/application-proxy.md) 배포
+   1. 클라우드 액세스를 위해 게시된 온-프레미스 앱에 대해 [Azure AD 애플리케이션 프록시](../app-proxy/application-proxy.md) 배포
    1. RADIUS 인증을 위한 [NPS](/windows-server/networking/technologies/nps/nps-top) 배포
    1. 사용자가 최신 인증을 사용하도록 설정된 Microsoft Office 지원 버전으로 업그레이드했는지 확인
 1. 선택한 [인증 방법](#choose-verification-options) 구성

@@ -4,27 +4,24 @@ description: 새 데이터 내보내기를 사용하여 IoT 데이터를 Azure �
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/24/2021
+ms.date: 06/04/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 7d57f24f8cb4b59ce9b9cd5853be11fb2d104d75
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 914fd683c45415db4af1f932404bc2cc2cf35716
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277898"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111814552"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>데이터 내보내기를 사용하여 IoT 데이터를 클라우드 대상으로 내보내기
 
-> [!Note]
-> 이 문서에서는 IoT Central의 데이터 내보내기 기능에 대해 설명합니다. 레거시 데이터 내보내기 기능에 대한 자세한 내용은 [데이터 내보내기(레거시)를 사용하여 IoT 데이터를 클라우드 대상으로 내보내기](./howto-export-data-legacy.md)를 참조하세요.
-
-이 문서에서는 Azure IoT Central에서 새 데이터 내보내기 기능을 사용하는 방법에 대해 설명합니다. 이 기능을 사용하여 IoT Central 애플리케이션에서 필터링되고 보강된 IoT 데이터를 지속적으로 내보낼 수 있습니다. 데이터 내보내기는 웜 경로 인사이트, 분석 및 스토리지를 위해 변경 내용을 클라우드 솔루션의 다른 부분에 거의 실시간으로 푸시합니다.
+이 문서에서는 Azure IoT Central에서 데이터 내보내기를 사용하는 방법을 설명합니다. 이 기능을 사용하여 IoT Central 애플리케이션에서 필터링되고 보강된 IoT 데이터를 지속적으로 내보낼 수 있습니다. 데이터 내보내기는 웜 경로 인사이트, 분석 및 스토리지를 위해 변경 내용을 클라우드 솔루션의 다른 부분에 거의 실시간으로 푸시합니다.
 
 예를 들어 다음을 수행할 수 있습니다.
 
-- 원격 분석, 속성 변경, 디바이스 수명 주기 및 디바이스 템플릿 수명 주기 데이터를 JSON 형식으로 거의 실시간으로 지속적으로 내보냅니다.
+- 원격 분석, 속성 변경, 디바이스 연결, 디바이스 수명 주기 및 디바이스 템플릿 수명 주기 데이터를 JSON 형식으로 거의 실시간으로 지속적으로 내보냅니다.
 - 데이터 스트림을 필터링하여 사용자 지정 조건과 일치하는 데이터를 내보냅니다.
 - 데이터 스트림을 디바이스의 사용자 지정 값 및 속성 값으로 보강합니다.
 - 데이터를 Azure Event Hubs, Azure Service Bus, Azure Blob Storage 및 웹후크 엔드포인트와 같은 대상으로 보냅니다.
@@ -133,21 +130,25 @@ V2 애플리케이션이 있는 경우 [V2를 V3 IoT Central 애플리케이션�
     | :------------- | :---------- | :----------- |
     |  원격 분석 | 디바이스에서 원격 분석 메시지를 거의 실시간으로 내보냅니다. 내보낸 각 메시지에는 정규화된 원래 디바이스 메시지의 전체 내용이 포함됩니다.   |  [원격 분석 메시지 형식](#telemetry-format)   |
     | 속성 변경 | 디바이스 및 클라우드 속성에 대한 변경 내용을 거의 실시간으로 내보냅니다. 읽기 전용 디바이스 속성의 경우 reported 값의 변경 내용을 내보냅니다. 읽기-쓰기 속성의 경우 reported 값과 desired 값을 모두 내보냅니다. | [속성 변경 메시지 형식](#property-changes-format) |
-    | 디바이스 수명 주기 | 디바이스가 등록된 이벤트 및 삭제된 이벤트를 내보냅니다. | [디바이스 수명 주기 변경 메시지 형식](#device-lifecycle-changes-format) |
+    | 디바이스 연결 | 디바이스 연결 및 연결 끊김 이벤트를 내 보냅니다. | [디바이스 연결 메시지 형식](#device-connectivity-changes-format) |
+    | 디바이스 수명 주기 | 디바이스 등록, 삭제, 프로비저닝, 사용, 사용 안 함, displayNameChanged 및 deviceTemplateChanged 이벤트를 내보냅니다. | [디바이스 수명 주기 변경 메시지 형식](#device-lifecycle-changes-format) |
     | 디바이스 템플릿 수명 주기 | 만들기, 업데이트 및 삭제를 포함하여 게시된 디바이스 템플릿 변경 내용을 내보냅니다. | [디바이스 템플릿 수명 주기 변경 메시지 형식](#device-template-lifecycle-changes-format) | 
 
 1. 필요에 따라 필터를 추가하여 내보내는 데이터의 양을 줄입니다. 각 데이터 내보내기 형식에 사용할 수 있는 다양한 유형의 필터가 있습니다.<a name="DataExportFilters"></a>
     
     | 데이터 형식 | 사용 가능한 필터| 
     |--------------|------------------|
-    |원격 분석|<ul><li>디바이스 이름, 디바이스 ID 및 디바이스 템플릿 기준 필터</li><li>필터 조건과 일치하는 원격 분석만 포함하는 필터 스트림</li><li>필터 조건과 일치하는 속성이 있는 디바이스의 원격 분석만 포함하는 필터 스트림</li><li>필터 조건과 일치하는 *메시지 속성* 이 있는 원격 분석만 포함하는 필터 스트림. *메시지 속성*(*애플리케이션 속성* 이라고도 함)은 디바이스 SDK를 사용하는 디바이스에서 선택적으로 보내는 각 원격 분석 메시지의 키 값 쌍 모음으로 보냅니다. 메시지 속성 필터를 만들려면 찾고 있는 메시지 속성 키를 입력하고 조건을 지정합니다. 지정된 필터 조건과 일치하는 속성이 있는 원격 분석 메시지만 내보냅니다. [IoT Hub 문서에서 애플리케이션 속성에 대해 자세히 알아보세요](../../iot-hub/iot-hub-devguide-messages-construct.md). </li></ul>|
-    |속성 변경|<ul><li>디바이스 이름, 디바이스 ID 및 디바이스 템플릿 기준 필터</li><li>필터 조건과 일치하는 속성 변경만 포함하는 필터 스트림</li></ul>|
-    |디바이스 수명 주기|<ul><li>디바이스 이름, 디바이스 ID 및 디바이스 템플릿 기준 필터</li><li>필터 조건과 일치하는 속성이 있는 디바이스의 변경만 포함하는 필터 스트림</li></ul>|
+    |원격 분석|<ul><li>디바이스 이름, 디바이스 ID, 디바이스 템플릿 및 디바이스가 시뮬레이션되었는지 여부 필터링</li><li>필터 조건과 일치하는 원격 분석만 포함하는 필터 스트림</li><li>필터 조건과 일치하는 속성이 있는 디바이스의 원격 분석만 포함하는 필터 스트림</li><li>필터 조건과 일치하는 *메시지 속성* 이 있는 원격 분석만 포함하는 필터 스트림. *메시지 속성*(*애플리케이션 속성* 이라고도 함)은 디바이스 SDK를 사용하는 디바이스에서 선택적으로 보내는 각 원격 분석 메시지의 키 값 쌍 모음으로 보냅니다. 메시지 속성 필터를 만들려면 찾고 있는 메시지 속성 키를 입력하고 조건을 지정합니다. 지정된 필터 조건과 일치하는 속성이 있는 원격 분석 메시지만 내보냅니다. [IoT Hub 문서에서 애플리케이션 속성에 대해 자세히 알아보세요](../../iot-hub/iot-hub-devguide-messages-construct.md). </li></ul>|
+    |속성 변경|<ul><li>디바이스 이름, 디바이스 ID, 디바이스 템플릿 및 디바이스가 시뮬레이션되었는지 여부 필터링</li><li>필터 조건과 일치하는 속성 변경만 포함하는 필터 스트림</li></ul>|
+    |디바이스 연결|<ul><li>디바이스 이름, 디바이스 ID, 디바이스 템플릿 및 디바이스가 시뮬레이션되었는지 여부 필터링</li><li>필터 조건과 일치하는 속성이 있는 디바이스의 변경만 포함하는 필터 스트림</li></ul>|
+    |디바이스 수명 주기|<ul><li>디바이스 이름, 디바이스 ID, 디바이스 템플릿 및 디바이스가 프로비저닝, 사용 또는 시뮬레이션되었는지 여부 필터링</li><li>필터 조건과 일치하는 속성이 있는 디바이스의 변경만 포함하는 필터 스트림</li></ul>|
     |디바이스 템플릿 수명 주기|<ul><li>디바이스 템플릿 기준 필터</li></ul>|
     
-1. 필요에 따라 추가 키-값 쌍 메타데이터를 사용하여 내보낸 메시지를 보강합니다. 원격 분석 및 속성 변경 데이터 내보내기 형식에 대해 다음과 같은 보강을 사용할 수 있습니다.<a name="DataExportEnrichmnents"></a>
+1. 필요에 따라 추가 키-값 쌍 메타데이터를 사용하여 내보낸 메시지를 보강합니다. 원격 분석, 속성 변경, 디바이스 연결 및 디바이스 수명 주기 데이터 내보내기 유형에 대해 다음과 같은 보강을 사용할 수 있습니다. <a name="DataExportEnrichmnents"></a>
     - **사용자 지정 문자열**: 각 메시지에 사용자 지정 정적 문자열을 추가합니다. 아무 키나 입력하고 문자열 값을 입력합니다.
-    - **속성**: 각 메시지에 현재 디바이스 reported 속성 또는 클라우드 속성 값을 추가합니다. 아무 키나 입력하고 디바이스 또는 클라우드 속성을 선택합니다. 내보낸 메시지가 지정된 속성이 없는 디바이스에서 제공된 경우 내보낸 메시지에서 보강을 받지 않습니다.
+    - 각 메시지에 추가되는 **속성**:
+       - 디바이스 이름, 디바이스 템플릿 이름, 사용, 프로비저닝됨, 시뮬레이션됨 등의 디바이스 메타데이터
+       - 현재 디바이스는 각 메시지에 속성 또는 클라우드 속성 값을 보고했습니다. 내보낸 메시지가 지정된 속성이 없는 디바이스에서 제공된 경우 내보낸 메시지에서 보강을 받지 않습니다.
 
 1. 새 대상을 추가하거나 이미 만든 대상을 추가합니다. **새 항목 만들기** 링크를 선택하고, 다음 정보를 추가합니다.
 
@@ -207,6 +208,8 @@ Azure Portal에서 내보낸 파일을 찾아보려면 해당 파일로 이동�
 - `templateId`: 디바이스와 연결된 디바이스 템플릿의 ID
 - `enqueuedTime`: IoT Central에서 이 메시지를 받은 시간
 - `enrichments`: 내보내기에 설정된 모든 보강
+- `module`: 이 메시지를 보낸 IoT Edge 모듈 이 필드는 메시지가 IoT Edge 모듈에서 온 경우에만 나타납니다.
+- `component`: 이 메시지를 보낸 구성 요소 이 필드는 메시지에 전송된 기능이 [디바이스 템플릿의 구성 요소](howto-set-up-template.md#create-a-component)로 모델링된 경우에만 나타납니다.
 - `messageProperties`: 디바이스에서 메시지와 함께 보낸 추가 속성. 이러한 속성은 *애플리케이션 속성* 이라고도 합니다. [IoT Hub 문서에서 자세히 알아보세요](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 Event Hubs 및 Service Bus의 경우 IoT Central은 디바이스로부터 메시지를 받은 후 새 메시지를 빠르게 내보냅니다. 각 메시지의 사용자 속성(애플리케이션 속성이라고도 함)에는 `iotcentral-device-id`, `iotcentral-application-id` 및 `iotcentral-message-source`가 자동으로 포함됩니다.
@@ -238,6 +241,8 @@ Blob 스토리지의 경우 메시지는 1분에 한 번씩 일괄 처리하여 
     "enrichments": {
       "userSpecifiedKey": "sampleValue"
     },
+    "module": "VitalsModule",
+    "component": "DeviceComponent",
     "messageProperties": {
       "messageProp": "value"
     }
@@ -250,6 +255,9 @@ Blob 스토리지의 경우 메시지는 1분에 한 번씩 일괄 처리하여 
 사용자 지정 메타데이터를 원격 분석 메시지에 추가해야 하는 경우 속성을 원격 분석 메시지에 추가할 수 있습니다. 예를 들어 디바이스에서 메시지를 만들 때 타임스탬프를 추가해야 합니다.
 
 다음 코드 조각에서는 디바이스에서 `iothub-creation-time-utc` 속성을 만들 때 이 속성을 메시지에 추가하는 방법을 보여 줍니다.
+
+> [!IMPORTANT]
+> 이 타임스탬프의 형식은 표준 시간대 정보가 없는 UTC여야 합니다. 예를 들어 `2021-04-21T11:30:16Z`는 유효하고 `2021-04-21T11:30:16-07:00`은 잘못된 것입니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -373,17 +381,52 @@ Blob 스토리지의 경우 메시지는 1분에 한 번씩 일괄 처리하여 
     }],
     "enrichments": {
         "userSpecifiedKey" : "sampleValue"
-    }
+    },
+    "module": "VitalsModule",
+    "component": "DeviceComponent"
 }
 ```
+## <a name="device-connectivity-changes-format"></a>디바이스 연결 변경 형식
 
+각 메시지 또는 레코드는 단일 디바이스에서 발생한 연결 이벤트를 나타냅니다. 내보낸 메시지에 포함되는 정보는 다음과 같습니다.
+
+- `applicationId`: IoT Central 애플리케이션의 ID
+- `messageSource`: 메시지의 원본(`deviceConnectivity`)
+- `messageType`: `connected` 또는 `disconnected`
+- `deviceId`: 변경된 디바이스의 ID
+- `schema`: 페이로드 스키마의 이름 및 버전
+- `templateId`: 디바이스와 연결된 디바이스 템플릿의 ID
+- `enqueuedTime`: IoT Central에서 이 변경이 발생한 시간
+- `enrichments`: 내보내기에 설정된 모든 보강
+
+Event Hubs 및 Service Bus의 경우 IoT Central은 새 메시지 데이터를 이벤트 허브 또는 Service Bus 큐 또는 토픽으로 거의 실시간으로 내보냅니다. 각 메시지의 사용자 속성(애플리케이션 속성이라고도 함)에는 `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source` 및 `iotcentral-message-type`이 자동으로 포함됩니다.
+
+Blob 스토리지의 경우 메시지는 1분에 한 번씩 일괄 처리하여 내보냅니다.
+
+다음 예에서는 Azure Blob Storage에서 수신된 내보낸 디바이스 연결 메시지를 보여 줍니다.
+
+```json
+{
+  "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+  "messageSource": "deviceConnectivity",
+  "messageType": "connected",
+  "deviceId": "1vzb5ghlsg1",
+  "schema": "default@v1",
+  "templateId": "urn:qugj6vbw5:___qbj_27r",
+  "enqueuedTime": "2021-04-05T22:26:55.455Z",
+  "enrichments": {
+    "userSpecifiedKey": "sampleValue"
+  }
+}
+
+```
 ## <a name="device-lifecycle-changes-format"></a>디바이스 수명 주기 변경 형식
 
 각 메시지 또는 레코드는 단일 디바이스에 대한 변경 내용을 나타냅니다. 내보낸 메시지에 포함되는 정보는 다음과 같습니다.
 
 - `applicationId`: IoT Central 애플리케이션의 ID
 - `messageSource`: 메시지의 원본(`deviceLifecycle`)
-- `messageType`: `registered` 또는 `deleted`
+- `messageType`: 발생한 변경 유형. `registered`, `deleted`, `provisioned`, `enabled`, `disabled`, `displayNameChanged` 및 `deviceTemplateChanged` 중 하나입니다.
 - `deviceId`: 변경된 디바이스의 ID
 - `schema`: 페이로드 스키마의 이름 및 버전
 - `templateId`: 디바이스와 연결된 디바이스 템플릿의 ID
@@ -444,11 +487,11 @@ Blob 스토리지의 경우 메시지는 1분에 한 번씩 일괄 처리하여 
 
 ## <a name="comparison-of-legacy-data-export-and-data-export"></a>레거시 데이터 내보내기 및 데이터 내보내기 비교
 
-다음 표에서는 [레거시 데이터 내보내기](howto-export-data-legacy.md)와 새 데이터 내보내기 기능의 차이점을 보여 줍니다.
+다음 표는 [기존 데이터 내보내기](howto-export-data-legacy.md)와 데이터 내보내기 기능의 차이점을 보여 줍니다.
 
 | 기능  | 레거시 데이터 내보내기 | 새 데이터 내보내기 |
 | :------------- | :---------- | :----------- |
-| 사용 가능한 데이터 형식 | 원격 분석, 디바이스, 디바이스 템플릿 | 원격 분석, 속성 변경, 디바이스 수명 주기 변경, 디바이스 템플릿 수명 주기 변경 |
+| 사용 가능한 데이터 형식 | 원격 분석, 디바이스, 디바이스 템플릿 | 원격 분석, 속성 변경, 디바이스 연결 변경, 디바이스 수명 주기 변경, 디바이스 템플릿 수명 주기 변경 |
 | 필터링 | 없음 | 내보내는 데이터 형식에 따라 달라집니다. 원격 분석의 경우 원격 분석, 메시지 속성, 속성 값을 기준으로 필터링합니다. |
 | 보강 | 없음 | 디바이스의 사용자 지정 문자열 또는 속성 값을 사용하여 보강합니다. |
 | 대상 | Azure Event Hubs, Azure Service Bus 큐 및 토픽, Azure Blob Storage | 레거시 데이터 내보내기 및 웹후크의 경우와 동일합니다.|

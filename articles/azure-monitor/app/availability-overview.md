@@ -2,13 +2,13 @@
 title: Application Insights 가용성 개요
 description: 반복적인 웹 테스트를 설정하여 앱 또는 웹 사이트의 가용성 및 응답성을 모니터링합니다.
 ms.topic: conceptual
-ms.date: 04/15/2021
-ms.openlocfilehash: 3c2d248df98fcb9f75f5de9c05b9f600955cbac7
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.date: 05/04/2021
+ms.openlocfilehash: 94fe55a5bce0e915a092fd32ad5acf6936d59e61
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600797"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967020"
 ---
 # <a name="availability-tests-overview"></a>가용성 테스트 개요
 
@@ -39,3 +39,4 @@ ms.locfileid: "107600797"
 * [다단계 웹 테스트](availability-multistep.md)
 * [URL 테스트](monitor-web-app-availability.md)
 * [Azure Functions를 사용하여 사용자 지정 가용성 테스트 만들기 및 실행](availability-azure-functions.md)
+* [웹 테스트 Azure Resource Manager 템플릿](/azure/templates/microsoft.insights/webtests?tabs=json)

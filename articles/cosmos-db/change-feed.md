@@ -5,20 +5,20 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 06/07/2021
 ms.reviewer: sngun
 ms.custom: seodec18, "seo-nov-2020"
-ms.openlocfilehash: c6856a0cb70123f1a3570b611c81660a592fdc1b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: a8dd8e1da81d6c906e29caf155edc8c2b9e44ea9
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98027778"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755540"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드
 [!INCLUDE[appliesto-all-apis-except-table](includes/appliesto-all-apis-except-table.md)]
 
-Azure Cosmos DB 변경 피드는 발생 하는 순서 대로 컨테이너의 변경 내용에 대 한 영구 레코드입니다. Azure Cosmos DB의 변경 피드 지원은 모든 변경 사항에 대해 Azure Cosmos 컨테이너를 수신하여 작동합니다. 그런 다음 변경된 문서가 수정된 순서로 정렬된 목록이 출력됩니다. 지속형 변경 내용은 비동기식으로 비동기적으로 처리 될 수 있으며 병렬 처리를 위해 한 명 이상의 소비자에 게 출력을 배포할 수 있습니다.
+Azure Cosmos DB 변경 피드는 컨테이너의 변경 내용을 발생하는 순서대로 보관하는 영구 레코드입니다. Azure Cosmos DB의 변경 피드 지원은 모든 변경 사항에 대해 Azure Cosmos 컨테이너를 수신하여 작동합니다. 그런 다음 변경된 문서가 수정된 순서로 정렬된 목록이 출력됩니다. 영구 변경 내용은 비동기적 및 증분적으로 처리할 수 있고 출력을 하나 이상의 소비자 사이에 분산하여 병렬 처리가 가능합니다.
 
 [변경 피드 디자인 패턴](change-feed-design-patterns.md)에 대해 자세히 알아봅니다.
 
@@ -57,7 +57,7 @@ Azure Cosmos DB 변경 피드는 발생 하는 순서 대로 컨테이너의 변
 
 ### <a name="change-feed-and-_etag-_lsn-or-_ts"></a>변경 피드 및 _etag, _lsn 또는 _ts
 
-_etag 형식은 내부적이며 언제든지 변경될 수 있으므로 의존하면 안 됩니다. _ts는 수정 또는 생성 타임스탬프입니다. _ts를 시간순 비교에 사용할 수 있습니다. _lsn은 변경 피드에 대해서만 추가되는 일괄 처리 ID로, 트랜잭션 ID를 나타냅니다. 많은 항목에는 동일한 _lsn이 있을 수 있습니다. FeedResponse의 ETag는 항목에 표시된 _etag와 다릅니다. _etag는 내부 식별자 이며 동시성 제어에 사용 됩니다. _Etag 속성은 항목의 버전에 대 한 정보를 제공 하는 반면 ETag 속성은 피드를 시퀀싱 하는 데 사용 됩니다.
+_etag 형식은 내부적이며 언제든지 변경될 수 있으므로 의존하면 안 됩니다. _ts는 수정 또는 생성 타임스탬프입니다. _ts를 시간순 비교에 사용할 수 있습니다. _lsn은 변경 피드에 대해서만 추가되는 일괄 처리 ID로, 트랜잭션 ID를 나타냅니다. 많은 항목에는 동일한 _lsn이 있을 수 있습니다. FeedResponse의 ETag는 항목에 표시된 _etag와 다릅니다. _etag는 내부 식별자이며 동시성 제어에 사용됩니다. _etag 속성은 항목의 버전에 대해 알려주지만 ETag 속성은 피드 시퀀싱에 사용됩니다.
 
 ## <a name="working-with-change-feed"></a>변경 피드를 사용하여 작업
 
@@ -78,9 +78,9 @@ _etag 형식은 내부적이며 언제든지 변경될 수 있으므로 의존�
 
 * 변경 피드는 컨테이너 내의 항목에 수행된 삽입 및 업데이트 작업을 포함합니다. 삭제 대신 항목(예: 문서) 내에서 "soft-delete" 플래그를 설정하여 삭제를 캡처할 수 있습니다. 또는 [TTL 기능](time-to-live.md)을 사용하여 항목에 대한 제한된 만료 기간을 설정할 수 있습니다. 예를 들어 24시간 및 삭제를 캡처하는 해당 속성의 값을 사용합니다. 이 솔루션을 사용하여 TTL 만료 기간보다 짧은 시간 간격 내에 변경 내용을 처리해야 합니다.
 
-* 각 항목에 대한 변경 내용이 정확히 한 번 변경 피드에 표시되고, 클라이언트는 검사점 논리를 관리해야 합니다. 검사점 관리의 복잡성을 방지하려는 경우 변경 피드 프로세서가 자동 검사점 및 "최소 한 번" 의미 체계를 제공합니다. [변경 피드 프로세서와 함께 변경 피드 사용](change-feed-processor.md)을 참조하세요.
-
 * 지정된 항목에 대한 가장 최근의 변경 내용만이 변경 로그에 포함됩니다. 중간 변경 내용을 사용할 수 없습니다.
+
+* 변경 로드에 포함된 각 변경 내용이 정확히 한 번 변경 피드에 표시되고, 클라이언트는 검사점 논리를 관리해야 합니다. 검사점 관리의 복잡성을 방지하려는 경우 변경 피드 프로세서가 자동 검사점 및 "최소 한 번" 의미 체계를 제공합니다. [변경 피드 프로세서와 함께 변경 피드 사용](change-feed-processor.md)
 
 * 변경 피드는 각 논리 파티션 키 값 내에서 수정된 순서로 정렬됩니다. 파티션 키 값에 보장된 순서가 없습니다.
 

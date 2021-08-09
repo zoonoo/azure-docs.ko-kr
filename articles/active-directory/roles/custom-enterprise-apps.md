@@ -8,21 +8,30 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 04/14/2021
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7c04afe76ced0abf40abf8e30362005fb269172
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: db22b44e032261d138d74e34340dca6fcaf75779
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534718"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092875"
 ---
 # <a name="create-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱을 관리하는 사용자 지정 역할 만들기
 
 이 문서에서는 Azure AD(Azure Active Directory)에서 사용자 및 그룹에 대한 엔터프라이즈 앱 할당을 관리할 수 있는 권한이 있는 사용자 지정 역할을 만드는 방법을 설명합니다. 역할 할당의 요소와 하위 형식, 권한 및 속성 집합과 같은 용어의 의미에 대해서는 [사용자 지정 역할 개요](custom-overview.md)를 참조하세요.
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+- Azure AD Premium P1 또는 P2 라이선스
+- 권한 있는 역할 관리자 또는 전역 관리자
+- PowerShell 사용 시 AzureADPreview 모듈
+- Microsoft Graph API용 Graph 탐색기 사용 시 관리자 동의
+
+자세한 내용은 [PowerShell 또는 Graph 탐색기를 사용하기 위한 필수 구성 요소](prerequisites.md)를 참조하세요.
 
 ## <a name="enterprise-app-role-permissions"></a>엔터프라이즈 앱 역할 권한
 
@@ -38,14 +47,14 @@ ms.locfileid: "107534718"
 1. 권한이 `microsoft.directory/servicePrincipals/appRoleAssignedTo/update`인 사용자 지정 역할을 만듭니다.
 1. 사용자 또는 그룹에게 엔터프라이즈 앱에 대한 사용자 및 그룹 할당을 관리할 수 있는 권한을 부여합니다. 이는 범위를 조직 전체 수준 또는 단일 애플리케이션으로 설정할 수 있는 경우입니다.
 
-## <a name="use-the-azure-ad-admin-center"></a>Azure AD 관리 센터 사용
+## <a name="azure-portal"></a>Azure portal
 
 ### <a name="create-a-new-custom-role"></a>새 사용자 지정 역할 만들기
 
 >[!NOTE]
 > 사용자 지정 역할은 조직 전체 수준에서 만들어지고 관리되며 조직의 개요 페이지에서만 사용할 수 있습니다.
 
-1. 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+1. [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 1. **Azure Active Directory** 를 선택하고 **역할 및 관리자** 를 선택한 다음, **새 사용자 지정 역할** 을 선택합니다.
 
     ![Azure AD의 역할 목록에서 새 사용자 지정 역할 추가](./media/custom-enterprise-apps/new-custom-role.png)
@@ -62,9 +71,9 @@ ms.locfileid: "107534718"
 
     ![이제 사용자 지정 역할을 만들 수 있습니다.](./media/custom-enterprise-apps/role-custom-create.png)
 
-### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Azure AD 포털을 사용하여 사용자에게 역할 할당
+### <a name="assign-the-role-to-a-user-using-the-azure-portal"></a>Azure Portal을 사용하여 사용자에게 역할 할당
 
-1. 권한 있는 역할 관리자 권한으로 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+1. [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 1. **Azure Active Directory** 를 선택한 다음, **역할 및 관리자** 를 선택합니다.
 1. **사용자 및 그룹 할당을 관리할 수 있는 권한 부여** 역할을 선택합니다.
 
@@ -82,24 +91,9 @@ ms.locfileid: "107534718"
 
     ![사용자 권한 확인](./media/custom-enterprise-apps/verify-user-permissions.png)
 
-## <a name="use-azure-ad-powershell"></a>Azure AD PowerShell 사용
+## <a name="powershell"></a>PowerShell
 
 자세한 내용은 [사용자 지정 역할 만들기 및 할당](custom-create.md) 및 [PowerShell을 사용하여 리소스 범위를 통해 사용자 지정 역할 할당](custom-assign-powershell.md)을 참조하세요.
-
-먼저 [PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17)에서 Azure AD PowerShell 모듈을 설치합니다. 그런 다음, 다음 명령을 사용하여 Azure AD PowerShell 미리 보기 모듈을 가져옵니다.
-
-```powershell
-Import-Module -Name AzureADPreview
-```
-
-모듈을 사용할 준비가 되었는지 확인하려면 다음 명령에서 반환된 버전을 여기에 나열된 버전과 일치시킵니다.
-
-```powershell
-Get-Module -Name AzureADPreview
-  ModuleType Version      Name                         ExportedCommands
-  ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    AzureADPreview               {Add-AzureADAdministrati...}
-```
 
 ### <a name="create-a-custom-role"></a>사용자 지정 역할 만들기
 
@@ -138,7 +132,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-## <a name="use-the-microsoft-graph-api"></a>Microsoft Graph API 사용
+## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 Microsoft Graph API의 주어진 예를 사용하여 사용자 지정 역할 만들기 자세한 내용은 [사용자 지정 역할 만들기 및 할당](custom-create.md) 및 [Microsoft Graph API를 사용하여 사용자 지정 관리자 역할 할당](custom-assign-graph.md)을 참조하세요.
 
@@ -169,7 +163,7 @@ https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitionsIsEnabl
 }
 ```
 
-### <a name="assign-the-custom-role-using-microsoft-graph-api"></a>Microsoft Graph API를 사용하여 사용자 지정 역할 할당
+### <a name="assign-the-custom-role-using-the-microsoft-graph-api"></a>Microsoft Graph API를 사용하여 사용자 지정 역할 할당
 
 역할 할당은 보안 주체 ID(사용자 또는 서비스 주체일 수 있음), 역할 정의 ID 및 Azure AD 리소스 범위를 결합합니다. 역할 할당의 요소에 대한 자세한 내용은 [사용자 지정 역할 개요](custom-overview.md)를 참조하세요.
 

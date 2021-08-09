@@ -4,18 +4,18 @@ titleSuffix: Azure Maps
 description: Azure Maps에서 요청을 인증하는 두 가지 방법, 즉, 공유 키 인증 및 Azure Active Directory(Azure AD) 인증에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 05/25/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9c973859c8b7a3d04693946f50377837c3538b85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3f594f910a6645a3a1a0cc8e71afcb65cac8735
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101094104"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616363"
 ---
 # <a name="authentication-with-azure-maps"></a>Azure Maps 인증
 
@@ -30,8 +30,8 @@ Azure Maps에서는 요청을 인증하는 두 가지 방법인 공유 키 인�
 
 Azure Portal에서 키를 보는 방법에 대한 자세한 내용은 [인증 관리](./how-to-manage-authentication.md#view-authentication-details)를 참조하세요.
 
-> [!TIP]
-> 보안을 위해 기본 키와 보조 키 사이를 회전하는 것이 좋습니다. 키를 회전하려면 보조 키를 사용하도록 앱을 업데이트하고 배포한 다음, 기본 키 옆에 있는 주기/새로 고침 단추를 눌러 새 기본 키를 생성합니다. 이전 기본 키는 사용할 수 없습니다. 키 회전에 대한 자세한 내용은 [키 회전 및 감사를 사용하여 Azure Key Vault 설정](../key-vault/secrets/tutorial-rotation-dual.md)을 참조하세요.
+> [!NOTE]
+> 기본 키와 보조 키는 중요한 데이터로 취급되어야 합니다. 공유 키는 모든 Azure Maps REST API를 인증하는 데 사용됩니다.  공유 키를 사용하는 사용자는 API 키를 중앙에서 관리될 수 있는 환경 변수 또는 보안 비밀 저장소를 통해 추상화해야 합니다.
 
 ## <a name="azure-ad-authentication"></a>Azure AD 인증
 
@@ -80,9 +80,9 @@ Authorization: Bearer eyJ0e….HNIVN
 
 ## <a name="authorization-with-role-based-access-control"></a>역할 기반 액세스 제어를 사용하는 권한 부여
 
-Azure Maps는 개별 Azure AD 사용자, 그룹, 애플리케이션, Azure 리소스 및 Azure 관리 ID를 포함하여 [Azure RBAC](../role-based-access-control/overview.md)(Azure 역할 기반 액세스 제어)의 모든 보안 주체 유형에 대한 액세스를 지원합니다. 보안 주체 유형에는 역할 정의라고도 하는 권한 집합이 부여됩니다. 역할 정의는 REST API 작업에 대한 권한을 제공합니다. 하나 이상의 Azure Maps 계정에 대한 액세스를 적용하는 것을 범위라고 합니다. 보안 주체, 역할 정의 및 범위를 적용하는 경우 역할 할당이 만들어집니다. 
+Azure Maps는 개별 Azure AD 사용자, 그룹, 애플리케이션, Azure 리소스 및 Azure 관리 ID를 포함하여 [Azure RBAC](../role-based-access-control/overview.md)(Azure 역할 기반 액세스 제어)의 모든 보안 주체 유형에 대한 액세스를 지원합니다. 보안 주체 유형에는 역할 정의라고도 하는 권한 집합이 부여됩니다. 역할 정의는 REST API 작업에 대한 권한을 제공합니다. 하나 이상의 Azure Maps 계정에 대한 액세스를 적용하는 것을 범위라고 합니다. 보안 주체, 역할 정의 및 범위를 적용하는 경우 역할 할당이 만들어집니다.
 
-다음 섹션에서는 Azure RBAC와 Azure Maps 통합의 개념 및 구성 요소에 대해 설명합니다. Azure Maps 계정을 설정하는 프로세스의 일부로 Azure AD 디렉터리는 Azure Maps 계정이 있는 Azure 구독에 연결됩니다. 
+다음 섹션에서는 Azure RBAC와 Azure Maps 통합의 개념 및 구성 요소에 대해 설명합니다. Azure Maps 계정을 설정하는 프로세스의 일부로, Azure AD 디렉터리는 Azure Maps 계정이 있는 Azure 구독에 연결됩니다.
 
 Azure RBAC를 구성하는 경우 보안 주체를 선택하여 역할 할당에 적용합니다. Azure Portal에 역할 할당을 추가하는 방법에 대한 자세한 내용은 [Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 

@@ -1,21 +1,22 @@
 ---
-title: Windows Virtual Desktop 호스트 풀 삭제 - Azure
-description: Windows Virtual Desktop에서 호스트 풀을 삭제하는 방법.
+title: Azure Virtual Desktop 호스트 풀 삭제 - Azure
+description: Azure Virtual Desktop에서 호스트 풀을 삭제하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 3693a82a0d9c9544ed6a14d4596d544725125bd3
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: e4621799389e738bd03e75f84f5c1706f90d69d3
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447049"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751958"
 ---
 # <a name="delete-a-host-pool"></a>호스트 풀 삭제
 
-Windows Virtual Desktop에서 만든 모든 호스트 풀은 세션 호스트 및 앱 그룹에 연결됩니다. 호스트 풀을 삭제하려면 연결된 앱 그룹 및 세션 호스트를 삭제해야 합니다. 앱 그룹을 삭제하는 것은 매우 간단하지만 세션 호스트를 삭제하는 것은 더 복잡합니다. 세션 호스트를 삭제하는 경우 활성 사용자 세션이 없는지 확인해야 합니다. 사용자가 데이터를 잃지 않도록 세션 호스트의 모든 사용자 세션을 로그오프해야 합니다.
+Azure Virtual Desktop에서 만든 모든 호스트 풀은 세션 호스트 및 앱 그룹에 연결됩니다. 호스트 풀을 삭제하려면 연결된 앱 그룹 및 세션 호스트를 삭제해야 합니다. 앱 그룹을 삭제하는 것은 매우 간단하지만 세션 호스트를 삭제하는 것은 더 복잡합니다. 세션 호스트를 삭제하는 경우 활성 사용자 세션이 없는지 확인해야 합니다. 사용자가 데이터를 잃지 않도록 세션 호스트의 모든 사용자 세션을 로그오프해야 합니다.
 
 ## <a name="delete-a-host-pool-with-powershell"></a>PowerShell을 사용하여 호스트 풀 삭제
 
@@ -39,7 +40,7 @@ Azure Portal에서 호스트 풀을 삭제하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. **Windows Virtual Desktop** 을 검색하여 선택합니다.
+2. **Azure Virtual Desktop** 을 검색하여 선택합니다.
 
 3. 페이지 왼쪽에 있는 메뉴에서 **호스트 풀** 을 선택한 다음, 삭제할 호스트 풀의 이름을 선택합니다.
 
@@ -65,5 +66,5 @@ Azure Portal에서 호스트 풀을 삭제하려면 다음을 수행합니다.
 호스트 풀 설정을 구성하는 방법을 알아보려면 다음 문서를 확인하세요.
 
 - [호스트 풀의 원격 데스크톱 프로토콜 속성 사용자 지정](customize-rdp-properties.md)
-- [Windows Virtual Desktop 부하 분산 방법 구성](configure-host-pool-load-balancing.md)
+- [Azure Virtual Desktop 부하 분산 방법 구성](configure-host-pool-load-balancing.md)
 - [개인 데스크톱 호스트 풀 할당 유형 구성](configure-host-pool-personal-desktop-assignment-type.md)

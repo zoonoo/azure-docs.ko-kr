@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: terrylan
-ms.openlocfilehash: 54be25317717bcf98b9e296d5c9ed59643cd334e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0337a9aec4991dddbf95cf1ac2e2ec6adf7d28ea
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044756"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110471593"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 이 문서에서는 클라우드 내의 데이터, 리소스 및 애플리케이션을 보호하고 비즈니스의 보안 요구를 충족하는 데 도움이 되는 Azure의 보안 서비스를 소개합니다.
@@ -147,7 +147,7 @@ Azure AD Privileged Identity Management를 통해 다음을 할 수 있습니다
 
 ## <a name="secure-resource-access"></a>보안 리소스 액세스
 
-Azure의 액세스 제어는 결제 관점에서 시작합니다. [Azure 계정 센터](https://account.windowsazure.com/subscriptions)를 방문하여 액세스하는 Azure 계정의 소유자는 계정 관리자(AA)입니다. 구독은 결제를 위한 컨테이너이지만 보안 경계로서의 역할도 합니다. 각 구독에는 Azure Portal을 사용하여 해당 구독에서 Azure 리소스를 추가, 제거 및 수정할 수 있는 SA(서비스 관리자)가 있습니다. 새 구독의 기본 SA는 AA이지만 AA가 Azure 계정 센터에서 SA를 변경할 수 있습니다.
+Azure의 액세스 제어는 결제 관점에서 시작합니다. AA(계정 관리자)는 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)을 방문해서 액세스하는 Azure 계정의 소유자입니다. 구독은 결제를 위한 컨테이너이지만 보안 경계로서의 역할도 합니다. 각 구독에는 Azure Portal을 사용하여 해당 구독에서 Azure 리소스를 추가, 제거 및 수정할 수 있는 SA(서비스 관리자)가 있습니다. 새 구독의 기본 SA는 AA이지만 AA는 Azure Portal에서 SA를 변경할 수 있습니다.
 
 ![Azure의 보안 리소스 액세스](./media/technical-capabilities/azure-security-technical-capabilities-fig3.png)
 

@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6be76878a9a07c5f4a1e2a9348bb7b09cb1b10eb
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: efe404511b725680697c5f6601b8cb13be13910b
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567590"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109808971"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Private Link를 사용하여 연결된 서비스 보호
 
@@ -31,7 +31,7 @@ ms.locfileid: "107567590"
 
 Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 연결 정보를 정의합니다. 이 섹션에서는 Azure Synapse Analytics 및 Azure Data Lake Gen2를 연결된 서비스로 추가합니다.
 
-1. Azure Synapse Studio를 열고 **관리** 탭으로 이동합니다.
+1. Synapse Studio를 열고 **관리** 탭으로 이동합니다.
 1. **외부 연결** 에서 **연결된 서비스** 를 선택합니다.
 1. 연결된 서비스를 추가하려면 **새로 만들기** 를 선택합니다.
 1. 목록에서 Azure Data Lake Storage Gen2 타일을 선택하고 **계속** 을 선택합니다.

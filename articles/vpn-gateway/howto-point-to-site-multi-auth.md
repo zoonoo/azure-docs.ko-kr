@@ -1,19 +1,19 @@
 ---
 title: 'P2S VPN 및 여러 인증 유형을 사용하여 VNet에 연결: 포털'
 titleSuffix: Azure VPN Gateway
-description: Azure Portal에서 여러 인증 유형을 사용하여 P2S를 통해 VNet에 연결합니다.
+description: 여러 인증 유형을 사용하여 P2S를 통해 VNet에 연결하는 방법을 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: d405f4b10808b7d39c0d116f2c9006c85532b4f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8141d44aa4da394726d8c45a1f8514bdcaac09aa
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101745685"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229381"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-multiple-authentication-types-azure-portal"></a>여러 인증 유형을 사용하여 VNet에 지점 및 사이트 간 VPN 연결 구성: Azure Portal
 
@@ -23,7 +23,7 @@ ms.locfileid: "101745685"
 
 지점 및 사이트 간 VPN에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](point-to-site-about.md)를 참조하세요. Azure PowerShell을 사용하여 해당 구성을 만들려면 [Azure PowerShell을 사용하여 지점 및 사이트 간 VPN 구성](vpn-gateway-howto-point-to-site-rm-ps.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
 

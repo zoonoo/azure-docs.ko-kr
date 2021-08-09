@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: e5ea7a1abbbd6ab4be32955179227fbd539cf641
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/28/2021
+ms.openlocfilehash: ccedab6284fd5dac5a3d9f8d221a22803a3571f8
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019621"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110666674"
 ---
 # <a name="azure-functions-output-from-azure-stream-analytics"></a>Azure Stream Analytics 작업에서 Azure Functions 실행
 
@@ -45,6 +45,11 @@ partition 키 값은 쿼리의 PARTITION BY 절에 기반합니다. 출력 작�
 ## <a name="output-batch-size"></a>출력 일괄 처리 크기
 
 기본 일괄 처리 크기는 262,144바이트(256KB)입니다. 일괄 처리당 기본 이벤트 수는 100개입니다. 일괄 처리 크기는 구성 가능하며 Stream Analytics 출력 옵션에서 증가 또는 감소될 수 있습니다.
+
+## <a name="limitation"></a>제한 사항
+
+Azure Functions는 HTTP 클라이언트가 100초 후에 시간이 초과되기 때문에 100초 이내에 요청을 완료해야 합니다. Azure Functions가 데이터 일괄 처리를 처리하는 데 100초 이상 걸리는 경우에는 재시도를 트리거하는 시간 제한이 있습니다. Azure Functions가 이전 요청에서 부분적으로 출력되었을 수 있어 데이터를 다시 처리하고 동일한 출력을 잠재적으로 생성하기 때문에 이 재시도는 중복 데이터를 생성할 수 있습니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

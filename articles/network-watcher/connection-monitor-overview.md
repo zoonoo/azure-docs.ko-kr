@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 24c181c17e49fe5b7c3001c1cb2839bc957ef463
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: fe259c3858e798f9bcb72600b680f12c19055884
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490491"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470366"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>연결 모니터를 사용하여 네트워크 연결 모니터링
 
@@ -97,7 +97,7 @@ Linux 컴퓨터의 경우 사용할 portNumber를 수동으로 변경해야 합�
 
 가상 네트워크가 있는 모든 구독은 Network Watcher에서 사용하도록 설정됩니다. 구독에서 가상 네트워크를 만들 때 가상 네트워크의 지역 및 구독에서 Network Watcher가 자동으로 사용하도록 설정됩니다. 이렇게 자동으로 사용하도록 설정해도 리소스에 영향을 주거나 요금이 발생하지 않습니다. 구독에서 Network Watcher가 명시적으로 사용하지 않도록 설정되어 있는지 확인합니다. 
 
-자세한 내용은 [Network Watcher를 사용하도록 설정](./network-watcher-create.md)을 참조하세요.
+[해당 지역](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher&regions=all)에서 Network Watcher를 사용할 수 있는지 확인합니다. 자세한 내용은 [Network Watcher를 사용하도록 설정](./network-watcher-create.md)을 참조하세요.
 
 ## <a name="create-a-connection-monitor"></a>연결 모니터 만들기 
 
@@ -281,7 +281,7 @@ Log Analytics를 사용하여 모니터링 데이터의 사용자 지정 보기�
 
 #### <a name="metrics-in-azure-monitor"></a>Azure Monitor의 메트릭
 
-연결 모니터 환경 전에 만들어진 연결 모니터에서는 4가지 메트릭인 프로브 실패 %, AverageRoundtripMs, ChecksFailedPercent(미리 보기), RoundTripTimeMs(미리 보기)를 모두 사용할 수 있습니다. 연결 모니터 환경에서 만든 연결 모니터에서는 *(Preview)* 태그가 지정된 메트릭에 대해서만 데이터를 사용할 수 있습니다.
+연결 모니터 환경 전에 생성된 연결 모니터에서는 4가지 메트릭인 % 프로브 실패, AverageRoundtripMs, ChecksFailedPercent, RoundTripTimeMs를 모두 사용할 수 있습니다. 연결 모니터 환경에서 생성된 연결 모니터에서는 ChecksFailedPercent, RoundTripTimeMs, Test Result 메트릭에 대해서만 데이터를 사용할 수 있습니다.
 
   :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="연결 모니터의 메트릭을 보여주는 스크린샷" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
@@ -289,11 +289,11 @@ Log Analytics를 사용하여 모니터링 데이터의 사용자 지정 보기�
 
 | 메트릭 | 표시 이름 | 단위 | 집계 유형 | Description | 차원 |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent(클래식) | 프로브 실패 %(클래식) | 백분율 | 평균 | 실패한 연결 모니터링 프로브의 백분율(%) | 차원 없음 |
-| AverageRoundtripMs(클래식) | 평균 왕복 시간(ms)(클래식) | 밀리초 | 평균 | 원본과 대상 간에 전송된 연결 모니터링 프로브의 평균 네트워크 RTT |             차원 없음 |
-| ChecksFailedPercent | 검사 실패율(%) | 백분율 | 평균 | 테스트에 대해 실패한 검사 비율 | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>프로토콜 <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>지역 |
-| RoundTripTimeMs | 왕복 시간(ms) | 밀리초 | 평균 | 원본 및 대상 간에 전송되는 검사에 대한 RTT. 이 값은 평균이 아닙니다. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>프로토콜 <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>지역 |
-| TestResult | 테스트 결과 | 개수 | 평균 | 연결 모니터 테스트 결과 | SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>프로토콜 <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
+| ProbesFailedPercent(클래식) | 프로브 실패 %(클래식) | 백분율 | 평균 | 실패한 연결 모니터링 프로브의 백분율(%)<br>이 메트릭은 연결 모니터 클래식에만 사용할 수 있습니다  | 차원 없음 |
+| AverageRoundtripMs(클래식) | 평균 왕복 시간(ms)(클래식) | 밀리초 | 평균 | 원본과 대상 간에 전송된 연결 모니터링 프로브의 평균 네트워크 RTT<br>이 메트릭은 연결 모니터 클래식에만 사용할 수 있습니다 |             차원 없음 |
+| ChecksFailedPercent | 검사 실패율(%) | 백분율 | 평균 | 테스트에 대해 실패한 검사 비율 | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>프로토콜 <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>지역 <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
+| RoundTripTimeMs | 왕복 시간(ms) | 밀리초 | 평균 | 원본 및 대상 간에 전송되는 검사에 대한 RTT. 이 값은 평균이 아닙니다. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>프로토콜 <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>지역 <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
+| TestResult | 테스트 결과 | 개수 | 평균 | 연결 모니터 테스트 결과 <br>결과 값의 해석은 다음과 같습니다. <br>0- 미확정 <br>1- 합격 <br>2- 경고 <br>3- 실패| SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>프로토콜 <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>연결 모니터에 대한 메트릭 기반 경고
 
@@ -304,8 +304,8 @@ Log Analytics를 사용하여 모니터링 데이터의 사용자 지정 보기�
 1. Azure Monitor에서 - Azure Monitor에서 경고를 만들려면: 
     1. 연결 모니터에서 만든 연결 모니터 리소스를 선택합니다.
     1. **메트릭** 이 연결 모니터의 신호 유형으로 표시되는지 확인합니다.
-    1. **조건 추가** 에서 **신호 이름** 에 대해 **ChecksFailedPercent(미리 보기)** 또는 **RoundTripTimeMs(미리 보기)** 를 선택합니다.
-    1. **신호 유형** 에 **메트릭** 을 선택합니다. 예를 들어 **ChecksFailedPercent(미리 보기)** 를 선택합니다.
+    1. **조건 추가** 에서 **신호 이름** 에 대해 **ChecksFailedPercent** 또는 **RoundTripTimeMs** 를 선택합니다.
+    1. **신호 유형** 에 **메트릭** 을 선택합니다. 예를 들어, **ChecksFailedPercent** 를 선택합니다.
     1. 메트릭의 모든 차원이 나열됩니다. 차원 이름 및 차원 값을 선택합니다. 예를 들어 **원본 주소** 를 선택한 후 연결 모니터에 원본의 IP 주소를 입력합니다.
     1. **경고 논리** 에 다음 세부 정보를 입력합니다.
         * **조건 형식**: **정적**
@@ -364,6 +364,21 @@ Log Analytics를 사용하여 모니터링 데이터의 사용자 지정 보기�
 * 시스템 경로 또는 UDR 때문에 트래픽이 중지되었습니다.
 * 게이트웨이 연결에서 BGP를 사용하도록 설정되지 않았습니다.
 * 부하 분산 장치에서 DIP 프로브가 다운되었습니다.
+
+## <a name="faq"></a>FAQ
+
+### <a name="are-classic-vms-supported"></a>클래식 VM이 지원되나요?
+아니요, 연결 모니터는 클래식 VM을 지원하지 않습니다. 클래식 리소스가 [사용되지 않으므로](../virtual-machines/classic-vm-deprecation.md) 클래식에서 Azure Resource Manager로 IaaS 리소스를 마이그레이션하는 것이 좋습니다. [마이그레이션 방법](../virtual-machines/migration-classic-resource-manager-overview.md)을 이해하려면 이 문서를 참조하세요.
+
+### <a name="my-topology-is-not-decorated-or-my-hops-have-missing-information"></a>토폴로지가 데코레이트되지 않았거나 홉에 누락된 정보가 있나요?
+비 Azure부터 Azure까지, 토폴로지는 대상 Azure 리소스 및 연결 모니터 리소스가 동일한 지역에 있는 경우에만 데코레이트할 수 있습니다. 
+
+### <a name="my-connection-monitor-creation-is-failing-with-error-we-dont-allow-creating-different-endpoints-for-the-same-vm"></a>“동일한 VM에 대해 다른 엔드포인트를 만들 수 없습니다”라는 오류가 표시되면서 연결 모니터 만들기가 실패합니다.
+동일한 연결 모니터에서 서로 다른 구성으로 동일한 Azure VM을 사용할 수 없습니다. 예를 들어, 동일한 연결 모니터에서 필터가 있는 상태 및 필터가 없는 상태로 동일한 VM을 사용하는 것은 지원되지 않습니다.
+
+### <a name="the-test-failure-reason-is-nothing-to-display"></a>테스트 실패 이유가 “표시할 내용 없음”입니다.
+연결 모니터 대시보드에 표시되는 문제는 토폴로지 검색 또는 홉 탐색 중에 발견됩니다. % 손실 또는 RTT에 대해 설정된 임계값이 위반되었지만 홉에 문제가 없는 경우가 있을 수 있습니다.
+
 
 ## <a name="next-steps"></a>다음 단계
     

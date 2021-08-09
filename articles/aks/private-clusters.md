@@ -4,12 +4,12 @@ description: 프라이빗 AKS(Azure Kubernetes Service) 클러스터를 만드�
 services: container-service
 ms.topic: article
 ms.date: 3/31/2021
-ms.openlocfilehash: 474c9a5d58627cec59904ccbcc5b3597de314612
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 7238b0d9fdf3ada1f4133c68e5248b7e20aecf91
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120370"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111371604"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>프라이빗 Azure Kubernetes Service 클러스터 만들기
 
@@ -70,23 +70,24 @@ az aks create \
 
 다음 매개 변수를 활용하여 프라이빗 DNS 영역을 구성할 수 있습니다.
 
-- “System”이 기본값입니다. --private-dns-zone 인수를 생략하면 AKS는 노드 리소스 그룹에 프라이빗 DNS 영역을 만듭니다.
-- “None”은 AKS가 프라이빗 DNS 영역을 만들지 않음을 의미합니다.  이렇게 하려면 사용자 고유의 DNS 서버를 가져오고 프라이빗 FQDN을 위한 DNS 확인을 구성해야 합니다.  DNS 확인을 구성하지 않으면 DNS는 에이전트 노드 내에서만 확인할 수 있으며 배포 후에 클러스터 이슈를 일으킵니다. 
+- 기본값이기도 한 "System"입니다. --private-dns-zone 인수를 생략하면 AKS는 노드 리소스 그룹에 프라이빗 DNS 영역을 만듭니다.
+- “None”은 AKS가 프라이빗 DNS 영역(미리 보기)을 만들지 않음을 의미합니다.  이렇게 하려면 사용자 고유의 DNS 서버를 가져오고 프라이빗 FQDN을 위한 DNS 확인을 구성해야 합니다.  DNS 확인을 구성하지 않으면 DNS는 에이전트 노드 내에서만 확인할 수 있으며 배포 후에 클러스터 이슈를 일으킵니다. 
 - “CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID”를 사용하려면 Azure 글로벌 클라우드에 대한 프라이빗 DNS 영역을 `privatelink.<region>.azmk8s.io` 형식으로 만들어야 합니다. 앞으로 프라이빗 DNS 영역의 리소스 ID가 필요합니다.  또한 적어도 `private dns zone contributor` 및 `vnet contributor` 역할이 있는 사용자 할당 ID 또는 서비스 주체가 필요합니다.
-- “fqdn-subdomain”은 “CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID”와 함께 사용되어 `privatelink.<region>.azmk8s.io`에 하위 도메인 기능을 제공할 수 있습니다.
+  - 프라이빗 DNS 영역이 AKS 클러스터와 다른 구독에 있는 경우 두 구독 모두에 Microsoft.ContainerServices를 등록해야 합니다.
+  - “fqdn-subdomain”은 “CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID”와 함께 사용되어 `privatelink.<region>.azmk8s.io`에 하위 도메인 기능을 제공할 수 있습니다.
 
 ### <a name="prerequisites"></a>필수 조건
 
 * AKS 미리 보기 버전 0.5.7 이상
 * API 버전 2020-11-01 이상
 
-### <a name="create-a-private-aks-cluster-with-private-dns-zone-preview"></a>프라이빗 DNS 영역(미리 보기)을 사용하여 프라이빗 AKS 클러스터 만들기
+### <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>프라이빗 DNS 영역을 사용하여 프라이빗 AKS 클러스터 만들기
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [system|none]
 ```
 
-### <a name="create-a-private-aks-cluster-with-a-custom-private-dns-zone-preview"></a>사용자 지정 프라이빗 DNS 영역(미리 보기)을 사용하여 프라이빗 AKS 클러스터 만들기
+### <a name="create-a-private-aks-cluster-with-a-custom-private-dns-zone"></a>사용자 지정 프라이빗 DNS 영역을 사용하여 프라이빗 AKS 클러스터 만들기
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain-name>
@@ -185,6 +186,7 @@ az aks command invoke -g <resourceGroup> -n <clusterName> -c "helm repo add bitn
 > [kubenet을 사용하여 사용자 고유의 경로 테이블 가져오기](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet)와 프라이빗 클러스터를 사용하여 자체 DNS 가져오기를 사용하는 경우 클러스터 만들기가 실패합니다. 클러스터 만들기를 실패한 후에는 노드 리소스 그룹의 [RouteTable](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet)을 서브넷에 연결하여 성공적으로 클러스터를 만듭니다.
 
 ## <a name="limitations"></a>제한 사항 
+* AKS 관리형 AAD 및 프라이빗 링크를 사용하도록 설정한 클러스터에서는 AKS-RunCommand가 작동하지 않습니다.
 * IP 권한이 부여된 범위는 프라이빗 API 서버 엔드포인트에 적용할 수 없으며 퍼블릭 API 서버에만 적용됩니다.
 * [Azure Private Link 서비스 제한][private-link-service]은 프라이빗 클러스터에 적용됩니다.
 * 프라이빗 클러스터를 사용하는 Azure DevOps Microsoft 호스팅 에이전트를 지원하지 않습니다. [자체 호스팅 에이전트](/azure/devops/pipelines/agents/agents?tabs=browser)를 사용하는 것이 좋습니다. 
@@ -195,10 +197,10 @@ az aks command invoke -g <resourceGroup> -n <clusterName> -c "helm repo add bitn
 * 컨트롤 플레인의 유지 관리의 경우 [AKS IP](./limit-egress-traffic.md)가 변경될 수 있습니다. 이 경우 사용자 지정 DNS 서버에서 API 서버 개인 IP를 가리키는 A 레코드를 업데이트하고 hostNetwork를 사용하여 모든 사용자 지정 pod 또는 배포를 다시 시작해야 합니다.
 
 <!-- LINKS - internal -->
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [private-link-service]: ../private-link/private-link-service-overview.md#limitations
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/tutorial-create-host-portal.md

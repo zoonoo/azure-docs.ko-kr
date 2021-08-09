@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: d6f0e5230fb3c59cab690620e837f476f3392a48
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95020081"
 ---
-# <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>C #을 사용 하 여 Azure Time Series Insights Gen 1 환경에 대 한 참조 데이터 관리
+# <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>C#을 사용하여 Azure Time Series Insights Gen 1 환경에 대한 참조 데이터 관리
 
 > [!CAUTION]
 > 이는 Gen1 문서입니다.
 
-이 문서에서는 c #, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)및 Azure Active Directory를 결합 하 여 Azure Time Series Insights Gen 1 [참조 데이터 관리 api](/rest/api/time-series-insights/gen1-reference-data-api)에 대 한 프로그래밍 방식 api 요청을 만드는 방법을 보여 줍니다.
+이 문서에서는 C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet), Azure Active Directory를 결합하여 Azure Time Series Insights Gen 1 [참조 데이터 관리 API](/rest/api/time-series-insights/gen1-reference-data-api)에 대한 프로그래매틱 API 요청을 만드는 방법을 보여 줍니다.
 
 > [!TIP]
 > [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample)에서 GA C# 코드 샘플을 봅니다.
@@ -33,7 +33,7 @@ ms.locfileid: "95020081"
 아래 샘플 코드에서는 다음과 같은 기능을 보여 줍니다.
 
 * [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication** 을 사용하여 액세스 토큰 획득
-* Gen 1 [참조 데이터 관리 API](/rest/api/time-series-insights/gen1-reference-data-api)에 대 한 순차적 생성, 읽기, 업데이트 및 삭제 작업입니다.
+* Gen 1 [참조 데이터 관리 API](/rest/api/time-series-insights/gen1-reference-data-api)에 대한 순차적 만들기, 읽기, 업데이트, 삭제 작업.
 * [일반적인 오류 코드](/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling)를 포함하는 일반적인 응답 코드
 
     Reference Data Management API는 각 항목을 개별적으로 처리하며 한 항목의 오류 때문에 다른 항목이 완료되지 못하는 것은 아닙니다. 예를 들어, 요청에 100개 항목이 있고 한 항목에 오류가 있는 경우 99개 항목이 기록되고 하나는 거부됩니다.
@@ -42,8 +42,8 @@ ms.locfileid: "95020081"
 
 샘플 코드를 컴파일 및 실행하기 전에 다음 단계를 완료합니다.
 
-1. [Gen 1 Azure Time Series Insights 환경을 프로 비전](./time-series-insights-get-started.md
-) 합니다.
+1. [Gen 1 Azure Time Series Insights](./time-series-insights-get-started.md
+) 환경을 프로비저닝합니다.
 
 1. 환경 내에서 [참조 데이터 세트를 만듭니다](time-series-insights-add-reference-data-set.md). 다음 참조 데이터 구성표를 사용합니다.
 

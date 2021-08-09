@@ -6,12 +6,12 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: how-to
 ms.custom: subject-cost-optimization
 ms.date: 05/25/2021
-ms.openlocfilehash: 5fbf0d8f713785c7ec37e48fbf78e6d95a21ca4b
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 5bbdcd8032fbb4d20af2e681bf703c3d62985fe0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379580"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971628"
 ---
 # <a name="plan-and-manage-costs-for-azure-logic-apps"></a>Azure Logic Apps에 대한 비용 계획 및 관리
 
@@ -19,7 +19,7 @@ ms.locfileid: "110379580"
 
 Logic Apps에 대한 비용은 Azure 청구서 월별 비용의 일부일 뿐입니다. 이 문서에서는 Logic Apps에 대한 비용을 예측하고 관리하는 방법에 대해 설명하지만, 타사 서비스를 포함하여 Azure 구독에 사용되는 모든 Azure 서비스 및 리소스에 대한 요금이 청구됩니다. Logic Apps에 대한 비용 관리에 익숙해지면 비슷한 방법을 적용하여 구독에 사용되는 모든 Azure 서비스에 대한 비용을 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 요건
 
 <!--Note for Azure service writer: This section covers prerequisites for the Cost Management's Cost Analysis feature. Add other prerequisites needed for your service after the Cost Management prerequisites. -->
 
@@ -59,7 +59,7 @@ Azure Logic Apps 서비스는 사용자가 만들고 사용하는 리소스에 �
 
 #### <a name="storage-operations-and-costs"></a>스토리지 작업 및 비용
 
-Azure Logic Apps는 모든 스토리지 작업에 [Azure Storage](/storage)를 사용합니다. 다중 테넌트 Azure Logic Apps를 사용하여 스토리지 사용량 및 비용을 논리 앱에 연결합니다. [데이터 보존 및 스토리지 사용량](../logic-apps/logic-apps-pricing.md#data-retention)은 [고정 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 사용하여 비용을 계산합니다. 예를 들어 실행 기록의 입력 및 출력은 논리 앱에서 독립적으로 만들고 관리하고 액세스하는 스토리지 리소스와는 다른 백그라운드 스토리지에 유지됩니다.
+Azure Logic Apps는 모든 스토리지 작업에 [Azure Storage](../storage/index.yml)를 사용합니다. 다중 테넌트 Azure Logic Apps를 사용하여 스토리지 사용량 및 비용을 논리 앱에 연결합니다. [데이터 보존 및 스토리지 사용량](../logic-apps/logic-apps-pricing.md#data-retention)은 [고정 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 사용하여 비용을 계산합니다. 예를 들어 실행 기록의 입력 및 출력은 논리 앱에서 독립적으로 만들고 관리하고 액세스하는 스토리지 리소스와는 다른 백그라운드 스토리지에 유지됩니다.
 
 단일 테넌트 Azure Logic Apps를 사용하여 고유한 Azure [Storage 계정](../azure-functions/storage-considerations.md#storage-account-requirements)을 사용할 수 있습니다. 이 기능은 Logic Apps 데이터에 대해 더 많은 제어와 유연성을 제공합니다. *상태 저장* 워크플로가 작업을 실행할 때 Azure Logic Apps 런타임은 스토리지 트랜잭션을 수행합니다. 예를 들어 큐는 예약에 사용되고 테이블 및 Blob은 워크플로 상태를 저장하는 데 사용됩니다. 스토리지 비용은 워크플로 콘텐츠에 따라 변경됩니다. 트리거, 작업 및 페이로드가 다르면 스토리지 작업 및 요구 사항도 다릅니다. 스토리지 트랜잭션은 [Azure Storage 가격 책정 모델](https://azure.microsoft.com/pricing/details/storage/)을 따릅니다. 스토리지 비용은 Azure 청구서에 별도로 표시됩니다.
 
@@ -127,7 +127,7 @@ Azure에서 만들거나 사용하는 리소스에 대한 비용이 발생하면
 
 <a name="monitor-billing-metrics"></a>
 
-### <a name="monitor-logic-app-executions-and-storage-consumption"></a>논리 앱 실행 및 스토리지 사용량 모니터링
+### <a name="monitor-logic-app-executions-and-storage-usage"></a>논리 앱 실행 및 스토리지 사용량 모니터링
 
 Azure Monitor를 사용하면 특정 논리 앱에 대한 다음 메트릭을 확인할 수 있습니다.
 

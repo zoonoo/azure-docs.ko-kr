@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 3ba0abe8510291351c10ba085ba7e42b8197d886
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af4958610f2be5aa31a6800203d06dd887191e15
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553241"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538300"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Azure Cognitive Search의 일반적인 인덱서 오류 및 경고 문제 해결
 
@@ -228,7 +228,7 @@ Blob 데이터 원본이 있는 인덱서가 문서(예: PDF 파일)에서 콘�
 
 | 이유 | 세부 정보/예제 | 해결 방법 |
 | --- | --- | --- |
-| 기술 입력의 형식이 잘못되었습니다. | "필요한 기술 입력이 예상한 `String` 형식과 다릅니다. 이름: `text`, 원본: `/document/merged_content`."  "필요한 기술 입력이 예상한 형식과 다릅니다. 이름: `text`, 원본: `/document/merged_content`."  "배열이 아닌 `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`에 대해 반복할 수 없습니다."  "배열이 아닌 `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`에서 `0`을 선택할 수 없습니다." | 특정 기술에는 특정 형식의 입력이 필요합니다. 예를 들어 [감정 기술](cognitive-search-skill-sentiment.md)은 `text`가 문자열이 될 것으로 예상합니다. 입력에서 문자열이 아닌 값을 지정하면 기술이 실행되지 않고 출력을 생성하지 않습니다. 데이터 세트의 입력 값 형식이 균일한지 확인하거나 [사용자 지정 웹 API 기술](cognitive-search-custom-skill-web-api.md)을 사용하여 입력을 전처리합니다. 배열에 대해 기술을 반복하는 경우 기술 컨텍스트와 입력의 `*`가 올바른 위치에 있는지 확인합니다. 일반적으로 컨텍스트와 입력 원본 모두 배열에 대한 `*`로 끝나야 합니다. |
+| 기술 입력의 형식이 잘못되었습니다. | "필요한 기술 입력이 예상한 `String` 형식과 다릅니다. 이름: `text`, 원본: `/document/merged_content`."  "필요한 기술 입력이 예상한 형식과 다릅니다. 이름: `text`, 원본: `/document/merged_content`."  "배열이 아닌 `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`에 대해 반복할 수 없습니다."  "배열이 아닌 `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`에서 `0`을 선택할 수 없습니다." | 특정 기술에는 특정 형식의 입력이 필요합니다. 예를 들어 [감정 기술](cognitive-search-skill-sentiment-v3.md)은 `text`가 문자열이 될 것으로 예상합니다. 입력에서 문자열이 아닌 값을 지정하면 기술이 실행되지 않고 출력을 생성하지 않습니다. 데이터 세트의 입력 값 형식이 균일한지 확인하거나 [사용자 지정 웹 API 기술](cognitive-search-custom-skill-web-api.md)을 사용하여 입력을 전처리합니다. 배열에 대해 기술을 반복하는 경우 기술 컨텍스트와 입력의 `*`가 올바른 위치에 있는지 확인합니다. 일반적으로 컨텍스트와 입력 원본 모두 배열에 대한 `*`로 끝나야 합니다. |
 | 기술 입력이 없습니다. | "필수 기술 입력이 없습니다. 이름: `text`, 원본: `/document/merged_content`"  "누락된 값 `/document/normalized_images/0/imageTags`."  "길이 `0`의 `/document/pages` 배열에서 `0`을 선택할 수 없습니다." | 모든 문서에서 이 경고가 발생하는 경우 입력 경로에 오타가 있을 가능성이 높습니다. 속성 이름의 대/소문자와 경로에서 누락 또는 추가된 `*`를 확인하고, 데이터 원본의 문서에서 필요한 입력을 제공해야 합니다. |
 | 기술 언어 코드 입력이 잘못되었습니다. | 기술 입력 `languageCode`에 언어 코드 `X,Y,Z`가 있으며, 그 중 하나 이상이 잘못되었습니다. | 자세한 내용은 [아래](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid)를 참조하세요. |
 
@@ -257,7 +257,7 @@ LanguageDetectionSkill에 잘못된 `countryHint` 입력이 전달되는 경우�
 ```
 
 다음은 이 오류 메시지를 생성할 수 있는 각 기술에 대해 현재 지원되는 언어의 참고 자료입니다.
-* [Text Analytics 지원 언어](../cognitive-services/text-analytics/language-support.md)([KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md) 및 [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
+* [Text Analytics 지원 언어](../cognitive-services/text-analytics/language-support.md)([KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md), [EntityLinkingSkill](cognitive-search-skill-entity-linking-v3.md), [SentimentSkill](cognitive-search-skill-sentiment-v3.md) 및 [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
 * [Translator 지원 언어](../cognitive-services/translator/language-support.md)([텍스트 TranslationSkill](cognitive-search-skill-text-translation.md))
 * [텍스트 SplitSkill](cognitive-search-skill-textsplit.md) 지원 언어: `da, de, en, es, fi, fr, it, ko, pt`
 

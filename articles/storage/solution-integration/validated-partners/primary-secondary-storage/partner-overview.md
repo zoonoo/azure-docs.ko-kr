@@ -4,16 +4,16 @@ titleSuffix: Azure Storage
 description: Azure Storage를 사용하여 기본 및 보조 스토리지 솔루션을 위한 고객 솔루션을 빌드하는 Microsoft 파트너
 author: beber-msft
 ms.author: beber
-ms.date: 03/15/2021
+ms.date: 05/12/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 5fa17083be01a702ebac888eecc17a4969b754ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 378c7ea828d6e0ff1a08ad5e5888af5b634b94ab
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103561598"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109838220"
 ---
 # <a name="azure-storage-partners-for-primary-and-secondary-storage"></a>기본 및 보조 스토리지를 위한 Azure Storage 파트너
 
@@ -28,7 +28,9 @@ ms.locfileid: "103561598"
 | ![Pure Storage](./media/pure-logo.png) |**Pure Storage**<br>Pure은 조직이 여러 클라우드에서 원활하게 진정한 의미의 자동화된 서비스로서의 스토리지 모델로 작업을 실행할 수 있도록 지원하는 최신 데이터 환경을 제공합니다.|[파트너 페이지](https://www.purestorage.com/company/technology-partners/microsoft.html)<br>[솔루션 동영상](https://azure.microsoft.com/resources/videos/pure-storage-overview)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/purestoragemarketplaceadmin.cbs_license_offer)|
 | ![Scality](./media/scality-logo.png) |**Scality**<br>Scality는 온-프레미스, 하이브리드 및 다중 클라우드 환경을 위해 설계된 개체 플랫폼 및 소프트웨어 정의 파일을 빌드합니다. Scality와 Azure Blob Storage의 통합을 통해 엔터프라이즈는 온-프레미스 환경과 Azure 간의 데이터를 관리하고 보호하며, 고성능의 클라우드 기반 파일 워크로드의 수요를 충족할 수 있습니다. |[파트너 페이지](https://www.scality.com/partners/azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/scality.scalityconnecthourly?tab=Overview)|
 | ![Tiger Technology 회사 로고](./media/tiger-logo.png) |**Tiger Technology**<br>Tiger Technology는 성능이 뛰어나고 안전한 데이터 관리 소프트웨어 솔루션을 제공합니다. Tiger Technology는 모든 규모의 조직이 온-프레미스, 모든 퍼블릭 클라우드 또는 하이브리드 모델을 통해 디지털 자산을 관리할 수 있도록 지원합니다. <br><br> Tiger Bridge는 비독점 소프트웨어 전용 데이터 및 스토리지 관리 시스템입니다. 온-프레미스와 다중 계층 클라우드 스토리지를 단일 공간으로 결합하여 하이브리드 워크플로가 가능하게 합니다. 이 투명한 파일 서버 확장을 통해 레거시 애플리케이션 및 워크플로를 유지하면서 Azure 스케일과 서비스의 이점을 누릴 수 있습니다. Tiger Bridge는 파일 서버 확장, 재해 복구, 클라우드 마이그레이션, 백업 및 보관, 원격 협업, 멀티 사이트 동기화 등 여러 가지 데이터 관리 과제를 해결합니다. 또한 지속적인 데이터 보호 기능을 제공합니다. |[파트너 페이지](https://www.tiger-technology.com/partners/microsoft-azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tiger-technology.tigerbridge_vm)|
+| ![XenData 회사 로고](./media/xendata-logo.png) |**XenData**<br>XenData 소프트웨어는 온-프레미스 스토리지와 Azure Blob Storage에서 파일 및 폴더를 관리하는 다중 계층 스토리지 시스템을 만듭니다. XenData 다중 사이트 동기화 소프트웨어는 분산 팀을 위한 글로벌 파일 시스템을 만들어 여러 위치에서 파일을 공유하고 동기화할 수 있도록 합니다. XenData 클라우드 솔루션은 비디오 스트리밍 및 부분 파일 복원을 지원하는 비디오 파일에 최적화되어 있습니다. 이러한 제품은 미디어 및 엔터테인먼트 업계에서 사용되는 많은 보완 소프트웨어 제품과 통합되며 다양한 워크플로를 지원합니다. XenData 솔루션을 사용하는 기타 산업 및 애플리케이션에는 석유 및 가스, 공학 및 과학적 데이터, 비디오 감시 및 의료 이미징이 포함됩니다. |[파트너 페이지](https://xendata.com/tech_partners_cloud/azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/xendata-inc.sol-15118-gyy?tab=Overview)|
 
+스토리지 파트너가 있지만 솔루션이 아직 나열되지 않나요? [여기](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUQjY4QlJYUzFHQ0ZBVDNYWERaUlNRVU5IMyQlQCN0PWcu)로 정보를 보내주세요.
 ## <a name="next-steps"></a>다음 단계
 
 다른 파트너에 대해 자세히 알아보려면 다음을 참조하세요.

@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4be775d8a6a8c476bcc659a902c7f43c12a6d6d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: daaa7a2fa0c25c49a1a6d404edb8ab0765d8c36a
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96905335"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784010"
 ---
 # <a name="provide-data-feedback-to-azure-maps"></a>Azure Maps에 대한 데이터 피드백 제공
 
 Azure Maps는 2018년 5월부터 사용할 수 있습니다. Azure Maps는 새로운 지도 데이터, 사용하기 쉬운 REST API 및 강력한 SDK를 제공하여 다양한 종류의 비즈니스 사용 사례로 당사 엔터프라이즈 고객을 지원합니다. 현실 세계는 매초 바뀌고 있으며 고객에게 사실적인 디지털 표현을 제공하는 것이 매우 중요합니다. 시설을 열거나 닫을 계획인 고객은 지도를 즉시 업데이트해야 합니다. 따라서 올바른 시설에서 배달, 유지 관리 또는 고객 서비스를 효율적으로 계획할 수 있습니다. 고객에게 직접 데이터 피드백을 제공할 수 있도록 하는 Azure Maps 데이터 피드백 사이트를 만들었습니다. 고객의 데이터 피드백은 데이터 공급자 및 해당 맵 편집기로 직접 이동합니다. 이를 통해 피드백을 신속하게 평가하고 매핑 제품에 통합할 수 있습니다.  
 
-[Azure Maps 데이터(미리 보기) 피드백 사이트](https://feedback.azuremaps.com)를 통해 맵 데이터 피드백, 특히 비즈니스적 관심 지점 및 거주지 주소를 고객에게 쉽게 제공할 수 있습니다. 이 문서에서는 Azure Maps 피드백 사이트를 사용하여 다양한 종류의 피드백을 제공하는 방법을 안내합니다.
+[Azure Maps 데이터 피드백 사이트](https://feedback.azuremaps.com)를 통해 맵 데이터 피드백, 특히 비즈니스적 관심 지점 및 거주지 주소를 고객에게 쉽게 제공할 수 있습니다. 이 문서에서는 Azure Maps 피드백 사이트를 사용하여 다양한 종류의 피드백을 제공하는 방법을 안내합니다.
 
 ## <a name="add-a-business-place-or-a-residential-address"></a>비즈니스 위치 또는 거주지 주소 추가 
 

@@ -4,13 +4,13 @@ description: Etherereum Proof-of-Authority 컨소시엄 솔루션을 사용하�
 ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: f4b12a9b3b830fcc4f45cb5e957232fee5a756a3
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.custom: contperf-fy21q3, devx-track-azurepowershell
+ms.openlocfilehash: 58615f1d57c5b97da555e894bcc33dcf98dee204
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078648"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705237"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Azure에서 Ethereum Proof-of-Authority 컨소시엄 솔루션 템플릿 배포
 
@@ -147,7 +147,7 @@ F16s|프리미엄 SSD|high|high|low
 
 매개 변수 | 설명 | 예제 값
 ----------|-------------|--------------
-컨소시엄 멤버 ID | 컨소시엄 네트워크에 참여하는 각 멤버와 관련된 ID입니다. 이는 충돌을 방지하기 위해 IP 주소 공간을 구성하는 데 사용됩니다. 개인 네트워크의 경우 멤버 ID는 동일한 네트워크의 여러 조직에서 고유해야 합니다.  고유 멤버 ID는 같은 조직이 여러 지역에 배포하는 경우에도 필요합니다. 충돌이 없는지 확인하기 위해 다른 조인 멤버와 공유해야 하므로 이 매개 변수의 값을 적어 둡니다. 유효한 범위는 0~255입니다. | 0
+컨소시엄 멤버 ID | 컨소시엄 네트워크에 참여하는 각 멤버와 관련된 ID입니다. 이는 충돌을 방지하기 위해 IP 주소 공간을 구성하는 데 사용됩니다. 개인 네트워크의 경우 멤버 ID는 동일한 네트워크의 여러 조직에서 고유해야 합니다.  고유 멤버 ID는 같은 조직이 여러 지역에 배포하는 경우에도 필요합니다. 충돌이 없는지 확인하기 위해 다른 조인 멤버와 공유해야 하므로 이 매개 변수의 값을 기록해 두세요. 유효한 범위는 0~255입니다. | 0
 네트워크 ID | 배포하는 컨소시엄 Ethereum 네트워크의 네트워크 ID입니다. 각 Ethereum 네트워크에는 공용 네트워크에 대한 ID를 1로 하는 자체의 네트워크 ID가 있습니다. 유효한 범위는 5~999,999,999입니다. | 10101010
 관리자 Ethereum 주소 | PoA 거버넌스 참여에 사용되는 Ethereum 계정 주소입니다. MetaMask를 사용하여 Ethereum 주소를 생성할 수 있습니다. |
 고급 옵션 | Ethereum 설정에 대한 고급 옵션 | 사용
@@ -241,7 +241,7 @@ Location | 새 리소스가 배포되는 지역 | 미국 동부
 
 ![Cloud Shell](./media/ethereum-poa-deployment/cloud-shell.png)
 
-```Powershell
+```powershell
 $MyGatewayResourceId = "<EXISTING_MEMBER_RESOURCEID>"
 $OtherGatewayResourceId = "<NEW_MEMBER_RESOURCEID]"
 $ConnectionName = "Leader2Member"
@@ -288,7 +288,7 @@ New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $
 
 거버넌스 DApp을 통해 원하는 트랜잭션을 수행하려면 Ethereum 전자지갑을 사용해야 합니다. 가장 간단한 방법은 [MetaMask](https://metamask.io) 등의 브라우저 내 전자지갑을 사용하는 것입니다. 하지만 거버넌스 DApp는 네트워크에서 배포되는 스마트 계약이므로 거버넌스 계약에 대한 상호 작용을 자동화할 수도 있습니다.
 
-MetaMask를 설치한 후 브라우저에서 거버넌스 DApp로 이동합니다.  배포 출력에서 Azure Portal을 통해 URL을 찾을 수 있습니다.  브라우저 내 전자지갑이 설치되어 있지 않으면 작업을 수행할 수는 없지만 관리자 상태를 확인할 수는 있습니다.  
+MetaMask를 설치한 후 브라우저에서 거버넌스 DApp로 이동합니다.  배포 출력에서 Azure Portal을 통해 URL을 찾을 수 있습니다.  브라우저 내 전자지갑이 설치되어 있지 않으면 작업을 수행할 수는 없지만 관리자 상태를 확인할 수는 있습니다.
 
 ### <a name="becoming-an-admin"></a>관리자 되기
 

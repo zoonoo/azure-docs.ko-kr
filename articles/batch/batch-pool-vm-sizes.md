@@ -2,14 +2,14 @@
 title: 풀의 VM 크기 및 이미지 선택
 description: Azure Batch 풀의 컴퓨팅 노드에 대해 사용 가능한 VM 크기 및 OS 버전을 선택하는 방법
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 06/01/2021
 ms.custom: seodec18
-ms.openlocfilehash: 2c3b90d6188dc6660233ae659fb4280dc1d4f2a5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b5314d3672da87ac1d2fadca61046348a369e218
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027383"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789120"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 컴퓨팅 노드에 대한 VM 크기 선택
 
@@ -35,7 +35,7 @@ VM 구성의 Batch 풀은 거의 모든 [VM 크기](../virtual-machines/sizes.md
 | Dv4, Dsv4 | 지원되지 않음 |
 | Ev3, Esv3 | E64is_v3를 제외한 모든 크기 |
 | Eav4, Easv4 | 모든 크기 |
-| Edv4, Edsv4 |  모든 크기 |
+| Edv4, Edsv4 |  Standard_E20d_v4, Standard_E20ds_v4 Standard_E80ids_v4를 제외한 모든 크기 |
 | Ev4, Esv4 | 지원되지 않음 |
 | F, Fs | 모든 크기 |
 | Fsv2 | 모든 크기 |
@@ -43,7 +43,7 @@ VM 구성의 Batch 풀은 거의 모든 [VM 크기](../virtual-machines/sizes.md
 | H | 모든 크기 |
 | HB | 모든 크기 |
 | HBv2 | 모든 크기 |
-| HBv3 | Standard_HB120rs_v3(다른 크기를 아직 사용할 수 없음) |
+| HBv3 | 모든 크기 |
 | HC | 모든 크기 |
 | Ls | 모든 크기 |
 | Lsv2 | 모든 크기 |
@@ -55,6 +55,7 @@ VM 구성의 Batch 풀은 거의 모든 [VM 크기](../virtual-machines/sizes.md
 | NCasT4_v3 | 모든 크기 |
 | ND | 모든 크기 |
 | NDv2 | 없음 - 아직 사용할 수 없습니다. |
+| NP | 모든 크기 |
 | NV | 모든 크기 |
 | NVv3 | 모든 크기 |
 | NVv4 | 모든 크기 |
@@ -66,9 +67,12 @@ VM 구성의 Batch 풀은 거의 모든 [VM 크기](../virtual-machines/sizes.md
 
 [Mv2](../virtual-machines/mv2-series.md)와 같은 일부 VM 시리즈는 [2세대 VM 이미지](../virtual-machines/generation-2.md)에만 사용할 수 있습니다. 2세대 VM 이미지는 [‘imageReference’](/rest/api/batchservice/pool/add#imagereference) 구성의 ‘sku’ 속성을 사용하여 VM이미지와 같이 지정됩니다. ‘sku’ 문자열에는 “-g2” 또는 “-gen2”와 같은 접미사가 있습니다. 2세대 이미지를 포함하여 Batch에서 지원되는 VM 이미지 목록을 가져오려면 [‘지원되는 이미지 나열’](/rest/api/batchservice/account/listsupportedimages) API, [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage)또는 [Azure CLI](/cli/azure/batch/pool/supported-images)를 사용합니다.
 
-### <a name="pools-in-cloud-service-configuration"></a>Cloud Service 구성의 풀
+### <a name="pools-in-cloud-services-configuration"></a>Cloud Services 구성의 풀
 
-Cloud Service 구성의 Batch 풀은 다음을 **제외한** 모든 [Cloud Services에 적합한 VM 크기](../cloud-services/cloud-services-sizes-specs.md)를 지원합니다.
+> [!WARNING]
+> Cloud Services 구성 풀은 [사용되지 않습니다](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). 대신 Virtual Machine 구성 풀을 사용하세요.
+
+Cloud Service 구성의 Batch 풀은 다음을 **제외** 한 모든 [Cloud Services에 적합한 VM 크기](../cloud-services/cloud-services-sizes-specs.md)를 지원합니다.
 
 | VM 시리즈  | 지원되지 않는 크기 |
 |------------|-------------------|
@@ -97,7 +101,7 @@ Cloud Service 구성의 Batch 풀은 다음을 **제외한** 모든 [Cloud Servi
 - PowerShell: [Get-AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
 - Azure CLI: [az batch pool supported-images](/cli/azure/batch/pool/supported-images)
 
-Batch 지원 EOL(end of Life) 날짜가 임박한 이미지는 피하는 것이 좋습니다. 해당 날짜는 [`ListSupportedImages` API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/batch/pool/supported-images)를 통해 검색할 수 있습니다. Batch 풀 VM 이미지 선택에 대한 자세한 내용은 [Batch 모범 사례 가이드](best-practices.md)를 참조하세요.
+Batch 지원 EOL(end of Life) 날짜가 임박한 이미지는 피하는 것이 좋습니다. 해당 날짜는 [`ListSupportedImages` API](/rest/api/batchservice/account/listsupportedimages), [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage) 또는 [Azure CLI](/cli/azure/batch/pool/supported-images)를 통해 검색할 수 있습니다. Batch 풀 VM 이미지 선택에 대한 자세한 내용은 [Batch 모범 사례 가이드](best-practices.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

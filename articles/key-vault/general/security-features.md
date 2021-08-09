@@ -9,16 +9,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.openlocfilehash: fe88933049ad39de57f879789e8c1b86ed7a54f5
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: cb3c503000e895344368f09dfdceac1156628bb9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107820208"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969977"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault 보안
 
-Azure Key Vault는 클라우드에서 암호화 키 및 인증서, 연결 문자열, 암호와 같은 비밀을 보호합니다. 그러나 중요한 데이터와 중요 비즈니스용 데이터를 저장하는 경우 자격 증명 모음과 여기에 저장된 데이터의 보안을 극대화하기 위한 단계를 수행해야 합니다.
+Azure Key Vault는 클라우드에서 암호화 키, 인증서(및 인증서와 연결된 개인 키) 및 비밀(예: 연결 문자열 및 암호)을 보호합니다. 그러나 중요한 데이터와 중요 비즈니스용 데이터를 저장하는 경우 자격 증명 모음과 여기에 저장된 데이터의 보안을 극대화하기 위한 단계를 수행해야 합니다.
 
 이 문서에서는 Azure Key Vault에 대한 보안 기능 및 모범 사례에 대한 개요를 제공합니다.
 
@@ -50,7 +50,7 @@ Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 �
 
 모든 유형의 액세스에서 애플리케이션은 Microsoft Azure AD를 사용하여 인증합니다. 애플리케이션은 애플리케이션 유형에 따라 [지원되는 인증 방법](../../active-directory/develop/authentication-vs-authorization.md)을 사용합니다. 애플리케이션은 액세스 권한을 부여하기 위해 평면의 리소스에 대해 토큰을 획득합니다. 리소스는 Azure 환경에 따라 관리 또는 데이터 평면의 엔드포인트입니다. 애플리케이션은 해당 토큰을 사용하고 REST API 요청을 Key Vault에 보냅니다. 자세한 내용은 [전체 인증 흐름](../../active-directory/develop/v2-oauth2-auth-code-flow.md)을 참조하세요.
 
-자세한 내용은 [Key Vault 인증 기본 사항](authentication-fundamentals.md)을 참조하세요.
+자세한 내용은 [Key Vault 인증 기본 사항](/azure/key-vault/general/authentication.md)을 참조하세요.
 
 ## <a name="key-vault-authentication-options"></a>Key Vault 인증 옵션
 
@@ -58,7 +58,7 @@ Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 �
 
 - **애플리케이션 전용**: 애플리케이션은 서비스 주체 또는 관리 ID를 나타냅니다. 해당 ID는 주기적으로 키 자격 증명 모음에서 인증서, 키 또는 암호에 액세스해야 하는 애플리케이션에 가장 일반적으로 사용되는 시나리오입니다. 해당 시나리오가 작동하려면 액세스 정책에서 애플리케이션의 `objectId`가 지정되어야 하며 `applicationId`는 지정되지 _않거나_ `null`이어야 합니다.
 - **사용자 전용**: 사용자는 테넌트에 등록된 애플리케이션에서 키 자격 증명 모음에 액세스합니다. Azure PowerShell과 Azure Portal이 이러한 액세스 유형의 예제입니다. 해당 시나리오가 작동하려면 액세스 정책에서 사용자의 `objectId`가 지정되어야 하며 `applicationId`는 지정되지 _않거나_ `null`이어야 합니다.
-- **애플리케이션 + 사용자**(_복합 ID_ 라고도 함): 사용자는 특정 애플리케이션에서 키 자격 증명 모음에 액세스해야 _하며_ 애플리케이션은 사용자로 가장하기 위해 OBO(On-Behalf-Of 인증) 흐름을 사용해야 합니다. 해당 시나리오가 작동하려면 액세스 정책에서 `applicationId` 및 `objectId` 모두 지정되어야 합니다. `applicationId`는 필수 애플리케이션을 식별하고 `objectId`는 사용자를 식별합니다. 현재 이 옵션은 데이터 평면 Azure RBAC(미리 보기)에서 사용할 수 없습니다.
+- **애플리케이션 + 사용자**(_복합 ID_ 라고도 함): 사용자는 특정 애플리케이션에서 키 자격 증명 모음에 액세스해야 _하며_ 애플리케이션은 사용자로 가장하기 위해 OBO(On-Behalf-Of 인증) 흐름을 사용해야 합니다. 해당 시나리오가 작동하려면 액세스 정책에서 `applicationId` 및 `objectId` 모두 지정되어야 합니다. `applicationId`는 필수 애플리케이션을 식별하고 `objectId`는 사용자를 식별합니다. 현재 해당 옵션은 데이터 평면 Azure RBAC에서 사용할 수 없습니다.
 
 모든 유형의 액세스에서 애플리케이션은 Microsoft Azure AD를 사용하여 인증합니다. 애플리케이션은 애플리케이션 유형에 따라 [지원되는 인증 방법](../../active-directory/develop/authentication-vs-authorization.md)을 사용합니다. 애플리케이션은 액세스 권한을 부여하기 위해 평면의 리소스에 대해 토큰을 획득합니다. 리소스는 Azure 환경에 따라 관리 또는 데이터 평면의 엔드포인트입니다. 애플리케이션은 해당 토큰을 사용하고 REST API 요청을 Key Vault에 보냅니다. 자세한 내용은 [전체 인증 흐름](../../active-directory/develop/v2-oauth2-auth-code-flow.md)을 참조하세요.
 

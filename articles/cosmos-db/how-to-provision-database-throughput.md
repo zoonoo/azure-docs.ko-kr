@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 4ecbee2260da735cd6ba74d3b9ffb55b4a652e9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7466a2e620a9489fe7b3b69967388d3ad4b7ab85
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93342000"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110065339"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Azure Cosmos DB - SQL API의 데이터베이스에 대한 표준(수동) 처리량 프로비전
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,8 +31,10 @@ ms.locfileid: "93342000"
 1. **데이터 탐색기** 창을 열고 **새 데이터베이스** 를 선택합니다. 다음과 같은 세부 정보를 제공합니다.
 
    * 데이터베이스 ID를 입력합니다.
-   * **데이터베이스 처리량 프로비전** 옵션을 선택합니다.
-   * 처리량을 입력합니다(예: 1000RU).
+   * **컨테이너 간 처리량 공유** 옵션을 선택합니다.
+   * **자동 크기 조정** 또는 **수동** 처리량을 선택하고 필요한 **데이터베이스 처리량**(예: 1000RU/s)을 입력합니다.
+   * **컨테이너 ID** 아래에 컨테이너 이름을 입력합니다.
+   * **파티션 키** 를 입력합니다.
    * **확인** 을 선택합니다.
 
     :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-sql-api.png" alt-text="새 데이터베이스 대화 상자 스크린샷":::

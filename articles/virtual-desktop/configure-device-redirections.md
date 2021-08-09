@@ -1,21 +1,21 @@
 ---
 title: 디바이스 리디렉션 구성 - Azure
-description: Windows Virtual Desktop을 위해 디바이스 리디렉션을 구성하는 방법,
+description: Azure Virtual Desktop을 위해 디바이스 리디렉션을 구성하는 방법.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 37ecd06c4e3e71234e8fb1b6bad0cd05482dd31b
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 570983229c16fa9c01d14bd7575d0720a7197191
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727851"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756548"
 ---
 # <a name="configure-device-redirections"></a>디바이스 리디렉션 구성
 
-Windows Virtual Desktop 환경을 위해 디바이스 리디렉션을 구성하면 원격 세션에서 프린터, USB 디바이스, 마이크 및 기자 주변 기기를 사용할 수 있습니다. 일부 디바이스 리디렉션의 경우 RDP(원격 데스크톱 프로토콜) 속성과 그룹 정책 설정을 모두 변경해야 합니다.
+Azure Virtual Desktop 환경을 위해 디바이스 리디렉션을 구성하면 원격 세션에서 프린터, USB 디바이스, 마이크 및 기자 주변 기기를 사용할 수 있습니다. 일부 디바이스 리디렉션의 경우 RDP(원격 데스크톱 프로토콜) 속성과 그룹 정책 설정을 모두 변경해야 합니다.
 
 ## <a name="supported-device-redirections"></a>지원되는 디바이스 리디렉션
 
@@ -101,7 +101,7 @@ KSCATEGORY_VIDEO_CAMERA 인터페이스의 세미콜론으로 구분된 목록�
 
 세미콜론으로 구분된 목록을 사용하여 특정 드라이브를 선택할 수도 있습니다(예: `drivestoredirect:s:C:;E:;`).
 
-웹 클라이언트 파일 전송을 구성하려면 `drivestoredirect:s:*`을 설정합니다.
+웹 클라이언트 파일 전송을 사용하도록 설정하려면 `drivestoredirect:s:*`를 설정합니다. 이 RDP 속성에 다른 값을 설정하면 웹 클라이언트 파일 전송이 사용하지 않도록 설정됩니다.
 
 ### <a name="printer-redirection"></a>프린터 리디렉션
 

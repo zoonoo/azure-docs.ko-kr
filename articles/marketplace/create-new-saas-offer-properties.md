@@ -1,6 +1,6 @@
 ---
-title: Microsoft 파트너 센터에서 SaaS 제품 속성을 구성하는 방법
-description: 파트너 센터에서 SaaS(Software as a Service) Microsoft 상업용 마켓플레이스 제품에 대한 속성을 구성하는 방법에 대해 알아봅니다.
+title: Azure Marketplace에서 SaaS 제품 속성 구성
+description: Azure Marketplace에서 SaaS(Software as a Service)에 대한 속성을 구성합니다.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 7d90c9b9b2c9aa97083e17d5ab7d20fc6b471658
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac4461d01ea020886b83e0f643bbca5c0fba5ab0
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94492126"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110614459"
 ---
-# <a name="how-to-configure-your-saas-offer-properties"></a>SaaS 제품 속성을 구성하는 방법
+# <a name="configure-saas-offer-properties"></a>SaaS 제품 속성 구성
 
 이 문서에서는 Microsoft 상업용 마켓플레이스에서 SaaS(Software as a Service) 제품에 대한 속성을 구성하는 방법을 설명합니다.
 
@@ -43,16 +43,16 @@ ms.locfileid: "94492126"
 
 ## <a name="provide-terms-and-conditions"></a>사용 약관 만들기
 
-**법률 정보** 에서 제품에 대한 사용 약관을 제공합니다. 다음 두 가지 옵션을 사용할 수 있습니다.
+**법률 정보** 에서 제품에 대한 사용 약관을 제공합니다. 다음과 같은 두 가지 옵션이 있습니다.
 
 - [수정안 옵션이 있는 표준 계약 사용](#use-the-standard-contract)
 - [사용자 고유의 사용 약관 사용](#use-your-own-terms-and-conditions)
 
-표준 계약에 대한 자세한 내용은 [Microsoft 상업용 마켓플레이스의 표준 계약](standard-contract.md)을 참조하세요. [표준 계약](https://go.microsoft.com/fwlink/?linkid=2041178) PDF를 다운로드할 수 있습니다(팝업 차단이 해제되어 있는지 확인).
+표준 계약에 대한 자세한 내용은 [Microsoft 상업용 Marketplace의 표준 계약](standard-contract.md)을 참조하세요. [표준 계약](https://go.microsoft.com/fwlink/?linkid=2041178) PDF를 다운로드할 수 있습니다(팝업 차단이 해제되어 있는지 확인).
 
 ### <a name="use-the-standard-contract"></a>표준 계약 사용
 
-고객을 위한 조달 프로세스를 간소화하고 소프트웨어 공급업체의 법적 복잡성을 줄이기 위해 Microsoft는 상업용 마켓플레이스에서 제품에 사용할 수 있는 표준 계약을 제공합니다. 표준 계약에 따라 소프트웨어를 제공하는 경우 고객은 이 계약을 한 번 읽고 동의하기만 하면 되고 사용자 지정 사용 약관을 만들 필요는 없습니다.
+고객을 위한 조달 프로세스를 간소화하고 소프트웨어 공급업체의 법적 복잡성을 줄이기 위해 Microsoft는 상업용 Marketplace에서 제품에 사용할 수 있는 표준 계약을 제공합니다. 표준 계약에 따라 소프트웨어를 제공하는 경우 고객은 이 계약을 한 번 읽고 동의하기만 하면 되고 사용자 지정 사용 약관을 만들 필요는 없습니다.
 
 1. **Microsoft의 상업용 마켓플레이스의 표준 계약 사용** 확인란을 선택합니다.
 
@@ -61,7 +61,7 @@ ms.locfileid: "94492126"
 1. 계속하기 전에 **초안 저장** 을 선택합니다.
 
    > [!NOTE]
-   > 상업용 마켓플레이스 표준 계약을 사용하여 제품이 게시되면 사용자 고유의 사용 약관을 사용할 수 없습니다. 수정안 옵션이 있는 표준 계약 또는 사용자 고유의 사용 약관에 따라 솔루션을 제공합니다.
+   > 상업용 Marketplace 표준 계약을 사용하여 제품이 게시되면 사용자 고유의 사용 약관을 사용할 수 없습니다. 수정안 옵션이 있는 표준 계약 또는 사용자 고유의 사용 약관에 따라 솔루션을 제공합니다.
 
 ### <a name="add-amendments-to-the-standard-contract-optional"></a>표준 계약에 수정안 추가(선택 사항)
 
@@ -69,7 +69,7 @@ ms.locfileid: "94492126"
 
 #### <a name="add-universal-amendment-terms"></a>범용 수정계약 사용 약관 추가
 
-**Microsoft의 상업용 마켓플레이스 표준 계약에 대한 범용 수정계약 조건** 상자에서 범용 수정계약 사용 약관을 입력합니다. 이 상자에는 문자를 개수 제한 없이 입력할 수 있습니다. 이러한 조건은 검색 및 구매 흐름 중에 AppSource, Azure Marketplace 및/또는 Azure Portal의 고객에게 표시됩니다.
+**Microsoft의 상업용 Marketplace 표준 계약에 대한 범용 수정계약 조건** 상자에서 범용 수정계약 사용 약관을 입력합니다. 이 상자에는 문자를 개수 제한 없이 입력할 수 있습니다. 이러한 조건은 검색 및 구매 흐름 중에 AppSource, Azure Marketplace 및/또는 Azure Portal의 고객에게 표시됩니다.
 
 #### <a name="add-one-or-more-custom-amendments"></a>하나 이상의 사용자 지정 수정안 추가
 
@@ -93,4 +93,4 @@ ms.locfileid: "94492126"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SaaS 제품 목록 세부 정보를 구성하는 방법](create-new-saas-offer-listing.md)
+- [SaaS 제품 목록 세부 정보 구성](create-new-saas-offer-listing.md)

@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: reference
 ms.date: 11/19/2020
 ms.author: jlian
-ms.openlocfilehash: 5f0af7d6bf16a05fad1ca9df5db1729abd088010
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4102171a14abc6eeb037f8b7425b7923f7b0651
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96603565"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069835"
 ---
 # <a name="iot-hub-data-plane-mqtt-5-api-reference"></a>IoT Hub 데이터 평면 MQTT 5 API 참조
 
@@ -74,7 +74,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| 이름 | 유형 | 필수 | Description |
+| 이름 | Type | 필수 | Description |
 | :--- | :--- | :------- | :---------- |
 | if-version | u64 | 아니요 |  |
 
@@ -84,7 +84,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| 이름 | 유형 | 필수 | Description |
+| 이름 | Type | 필수 | Description |
 | :--- | :--- | :------- | :---------- |
 | 버전 | u64 | 예 | 패치가 적용된 후의 보고된 상태 버전 |
 
@@ -128,7 +128,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| 이름 | 유형 | 필수 | Description |
+| 이름 | Type | 필수 | Description |
 | :--- | :--- | :------- | :---------- |
 | sequence-no | u64 | 예 | 메시지의 시퀀스 번호 |
 | enqueued-time | time | 예 | 메시지가 시스템에 입력된 시간의 타임스탬프 |
@@ -190,7 +190,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| 이름 | 유형 | 필수 | Description |
+| 이름 | Type | 필수 | Description |
 | :--- | :--- | :------- | :---------- |
 | response-code | u32 | 예 |  |
 
@@ -229,7 +229,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| 이름 | 유형 | 필수 | Description |
+| 이름 | Type | 필수 | Description |
 | :--- | :--- | :------- | :---------- |
 | 버전 | u64 | 예 | 이 업데이트와 일치하는 원하는 상태의 버전 |
 
@@ -260,7 +260,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| 이름 | 유형 | 필수 | Description |
+| 이름 | Type | 필수 | Description |
 | :--- | :--- | :------- | :---------- |
 | 콘텐츠 유형 | 문자열 | 아니요 | 게시된 메시지에서 `content-type` 시스템 속성으로 변환 |
 | content-encoding | 문자열 | 아니요 | 게시된 메시지에서 `content-encoding` 시스템 속성으로 변환 |
@@ -268,6 +268,9 @@ ms.locfileid: "96603565"
 | user-id | 문자열 | 아니요 | 게시된 메시지에서 `user-id` 시스템 속성으로 변환 |
 | correlation-id | 문자열 | 아니요 | 게시된 메시지에서 `correlation-id` 시스템 속성으로 변환 |
 | creation-time | time | 아니요 | 게시된 메시지에서 `iothub-creation-time-utc` 속성으로 변환 |
+
+> [!TIP]
+> `creation-time`의 형식은 시간대 정보가 없는 UTC여야 합니다. 예를 들어 `2021-04-21T11:30:16Z`는 유효하고 `2021-04-21T11:30:16-07:00`은 잘못된 것입니다.
 
 **페이로드**: 임의의 바이트 시퀀스
 
@@ -321,7 +324,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| 이름 | 유형 | 필수 | Description |
+| 이름 | Type | 필수 | Description |
 | :--- | :--- | :------- | :---------- |
 | reason | 문자열 | 아니요 | 메시지에서 구체적으로 잘못된 점에 대한 정보 포함 |
 
@@ -337,7 +340,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| 이름 | 유형 | 필수 | Description |
+| 이름 | Type | 필수 | Description |
 | :--- | :--- | :------- | :---------- |
 | trace-id | 문자열 | 아니요 | 오류에 대한 추가 진단과의 상관 관계에 대해 추적 ID |
 | reason | 문자열 | 아니요 | 메시지에서 구체적으로 잘못된 점에 대한 정보 포함 |
@@ -354,7 +357,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| 이름 | 유형 | 필수 | Description |
+| 이름 | Type | 필수 | Description |
 | :--- | :--- | :------- | :---------- |
 | reason | 문자열 | 아니요 | 메시지에서 구체적으로 잘못된 점에 대한 정보 포함 |
 
@@ -370,7 +373,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| 이름 | 유형 | 필수 | Description |
+| 이름 | Type | 필수 | Description |
 | :--- | :--- | :------- | :---------- |
 | trace-id | 문자열 | 아니요 | 오류에 대한 추가 진단과의 상관 관계에 대해 추적 ID |
 
@@ -386,7 +389,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| 이름 | 유형 | 필수 | Description |
+| 이름 | Type | 필수 | Description |
 | :--- | :--- | :------- | :---------- |
 | reason | 문자열 | 아니요 | 메시지에서 구체적으로 잘못된 점에 대한 정보 포함 |
 
@@ -438,7 +441,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| 이름 | 유형 | 필수 | Description |
+| 이름 | Type | 필수 | Description |
 | :--- | :--- | :------- | :---------- |
 | reason | 문자열 | 아니요 | 메시지에서 구체적으로 잘못된 점에 대한 정보 포함 |
 
@@ -454,7 +457,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| 이름 | 유형 | 필수 | Description |
+| 이름 | Type | 필수 | Description |
 | :--- | :--- | :------- | :---------- |
 | trace-id | 문자열 | 아니요 | 오류에 대한 추가 진단과의 상관 관계에 대해 추적 ID |
 
@@ -470,7 +473,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| 이름 | 유형 | 필수 | Description |
+| 이름 | Type | 필수 | Description |
 | :--- | :--- | :------- | :---------- |
 | trace-id | 문자열 | 아니요 | 오류에 대한 추가 진단과의 상관 관계에 대해 추적 ID |
 
@@ -486,7 +489,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| 이름 | 유형 | 필수 | Description |
+| 이름 | Type | 필수 | Description |
 | :--- | :--- | :------- | :---------- |
 | reason | 문자열 | 아니요 | 메시지에서 구체적으로 잘못된 점에 대한 정보 포함 |
 
@@ -502,7 +505,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| 이름 | 유형 | 필수 | Description |
+| 이름 | Type | 필수 | Description |
 | :--- | :--- | :------- | :---------- |
 | trace-id | 문자열 | 아니요 | 오류에 대한 추가 진단과의 상관 관계에 대해 추적 ID |
 | reason | 문자열 | 아니요 | 메시지에서 구체적으로 잘못된 점에 대한 정보 포함 |
@@ -543,7 +546,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| 이름 | 유형 | 필수 | Description |
+| 이름 | Type | 필수 | Description |
 | :--- | :--- | :------- | :---------- |
 | trace-id | 문자열 | 아니요 | 오류에 대한 추가 진단과의 상관 관계에 대해 추적 ID |
 

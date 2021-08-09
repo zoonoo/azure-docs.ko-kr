@@ -13,14 +13,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/12/2021
+ms.date: 05/26/2021
 ms.author: radeltch
-ms.openlocfilehash: c2610ed46d707af6acfb1b6004df4367add94391
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 75ab5bb14ad06a7396ee549ebb773328160754d1
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305160"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110534499"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux에 배포된 SAP HANA 스케일 아웃 시스템의 고가용성 
 
@@ -28,7 +28,7 @@ ms.locfileid: "107305160"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
+[anf-azure-doc]:../../../azure-netapp-files/index.yml
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
 [anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
@@ -109,9 +109,9 @@ HANA 스케일 아웃 설치용 HAHA 고가용성을 달성하는 방법 중 하
 * 내부 HANA 노드 간 통신 - `inter` 10.23.1.128/26  
 * HANA 시스템 복제 - `hsr` 10.23.1.192/26  
 
-`/hana/data` 및 `/hana/log`는 로컬 디스크에 배포되므로, 스토리지와 통신하기 위해 별도의 서브넷 및 별도의 가상 네트워크 카드를 배포할 필요가 없습니다.  
+`/hana/data` 및 `/hana/log`는 로컬 디스크에 배포되므로, 저장소 통신을 위해 별도의 서브넷 및 별도의 가상 네트워크 카드를 배포할 필요가 없습니다.  
 
-Azure NetApp 볼륨은 별도의 서브넷, 즉 [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet: `anf` 10.23.1.0/26으로 위임된 서브넷)에 배포됩니다.   
+Azure NetApp 볼륨은 별도의 서브넷, 즉 [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md): `anf` 10.23.1.0/26으로 위임된 서브넷에 배포됩니다.   
 
 ## <a name="set-up-the-infrastructure"></a>인프라 설정
 
@@ -279,6 +279,48 @@ Azure NetApp 볼륨은 별도의 서브넷, 즉 [Azure NetApp Files](https://doc
      10.23.1.207 hana-s2-db3-hsr
     ```
 
+3. **[A]** [Azure NetApp Files를 사용하는 Microsoft Azure의 NetApp SAP 애플리케이션][anf-sap-applications-azure]에 설명된 대로 NFS를 사용하는 Azure NetApp의 SAP HANA를 실행하기 위해 OS를 준비합니다. NetApp 구성 설정에 대한 구성 파일 */etc/sysctl.d/netapp-hana.conf* 를 만듭니다.  
+
+    <pre><code>
+    vi /etc/sysctl.d/netapp-hana.conf
+    # Add the following entries in the configuration file
+    net.core.rmem_max = 16777216
+    net.core.wmem_max = 16777216
+    net.core.rmem_default = 16777216
+    net.core.wmem_default = 16777216
+    net.core.optmem_max = 16777216
+    net.ipv4.tcp_rmem = 65536 16777216 16777216
+    net.ipv4.tcp_wmem = 65536 16777216 16777216
+    net.core.netdev_max_backlog = 300000 
+    net.ipv4.tcp_slow_start_after_idle=0 
+    net.ipv4.tcp_no_metrics_save = 1
+    net.ipv4.tcp_moderate_rcvbuf = 1
+    net.ipv4.tcp_window_scaling = 1    
+    net.ipv4.tcp_sack = 1
+    </code></pre>
+
+4. **[A]** 추가 최적화 설정을 사용하여 */etc/sysctl.d/ms-az.conf* 구성 파일을 만듭니다.  
+
+    <pre><code>
+    vi /etc/sysctl.d/ms-az.conf
+    # Add the following entries in the configuration file
+    net.ipv6.conf.all.disable_ipv6 = 1
+    net.ipv4.tcp_max_syn_backlog = 16348
+    net.ipv4.conf.all.rp_filter = 0
+    sunrpc.tcp_slot_table_entries = 128
+    vm.swappiness=10
+    </code></pre>
+
+    > [!TIP]
+    > SAP 호스트 에이전트가 포트 범위를 관리할 수 있도록 sysctl 구성 파일에서 net.ipv4.ip_local_port_range 및 net.ipv4.ip_local_reserved_ports를 명시적으로 설정하지 마십시오. 자세한 내용은 SAP Note [2382421](https://launchpad.support.sap.com/#/notes/2382421)을 참조하세요.  
+
+5. **[A]** [Azure NetApp Files를 사용하는 Microsoft Azure의 NetApp SAP 애플리케이션][anf-sap-applications-azure]의 권장대로 sunrpc 설정을 조정합니다.  
+
+    <pre><code>
+    vi /etc/modprobe.d/sunrpc.conf
+    # Insert the following line
+    options sunrpc tcp_max_slot_table_entries=128
+    </code></pre>
 
 2. **[A]** NFS 클라이언트 패키지를 설치합니다.  
 

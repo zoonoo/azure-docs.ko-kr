@@ -1,18 +1,18 @@
 ---
 title: 'Bastion을 사용한 원격 근무: Azure Bastion'
-description: 이 페이지에서는 Azure Bastion을 활용하여 코로나19 대유행에 따른 원격 근무를 지원하는 방법을 설명합니다.
+description: Azure Bastion을 사용하여 코로나19 팬데믹에 따른 원격 근무를 수행하는 방법을 알아봅니다.
 services: bastion
 author: mialdrid
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mialdrid
-ms.openlocfilehash: 515a6f7175aee23c6f720258b7fdaefe76b3b5d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60709bf337c945d1ece7ecc5453350b0e126b046
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92077952"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110540353"
 ---
 # <a name="working-remotely-using-azure-bastion"></a>Azure Bastion을 사용한 원격 근무
 

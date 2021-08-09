@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 26e1fe78e54b0de1cf7c7a0ddc54c3d792d1deed
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 6aa233e82ca272b9b5b9e4a9bee4ef2b57f2de77
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071175"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070020"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-sql-api"></a>Azure Cosmos DB SQL API에서 컨테이너 만들기
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,12 +34,12 @@ ms.locfileid: "108071175"
 1. **Data Explorer** 창을 열어 **새 컨테이너** 를 선택합니다. 다음으로, 다음과 같은 세부 정보를 제공합니다.
 
    * 새 데이터베이스를 만드는지 아니면 기존 데이터베이스를 사용하는지 표시합니다.
-   * 컨테이너 ID를 입력합니다.
-   * 파티션 키를 입력합니다.
-   * 프로비저닝할 처리량을 입력합니다(예: 1000RU).
+   * **컨테이너 ID** 를 입력합니다.
+   * **파티션 키** 값을 입력합니다(예: `/ItemID`).
+   * **자동 크기 조정** 또는 **수동** 처리량을 선택하고 필요한 **컨테이너 처리량**(예: 1000RU/s)을 입력합니다. 프로비저닝하려는 처리량을 입력합니다(예: 1000RU).
    * **확인** 을 선택합니다.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-sql.png" alt-text="새 컨테이너가 강조 표시된 데이터 탐색기 창의 스크린샷":::
+    :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="새 컬렉션이 강조 표시된 데이터 탐색기 스크린샷":::
 
 ## <a name="create-a-container-using-azure-cli"></a><a id="cli-sql"></a>Azure CLI를 사용하여 컨테이너 만들기
 

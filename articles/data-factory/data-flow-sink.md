@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/10/2021
-ms.openlocfilehash: 5548d82326ec4ac2306e2c8945bedc20236a4e54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: 8996e7a30756877b5329ef959b86529bdfcbd943
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103009354"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789665"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 싱크 변환
 
@@ -27,7 +27,7 @@ ms.locfileid: "103009354"
 
 싱크 변환을 만들 때 싱크 정보가 데이터 세트 개체 내부에 정의되어 있는지 또는 싱크 변환 내에 정의되어 있는지 여부를 선택합니다. 대부분의 형식은 한 가지만 선택할 수 있습니다. 특정 커넥터를 사용하는 방법을 알아보려면 해당 커넥터 문서를 참조하세요.
 
-인라인 및 데이터 세트 개체 모두에 대해 형식이 지원되는 경우 두 가지 다 이점이 있습니다. 데이터 세트 개체는 다른 데이터 흐름 및 복사와 같은 작업에서 사용될 수 있는 재사용 가능한 엔터티입니다. 이러한 재사용 가능한 엔터티는 강화된 스키마를 사용할 때 특히 유용합니다. 데이터 세트는 Spark를 기반으로 하지 않습니다. 경우에 따라 싱크 변환에서 특정 설정 또는 스키마 프로젝션을 재정의해야 할 수도 있습니다.
+특정 형식이 인라인 및 데이터 세트 개체 모두에 지원되는 경우 두 가지 다 이점이 있습니다. 데이터 세트 개체는 다른 데이터 흐름 및 복사와 같은 작업에서 사용될 수 있는 재사용 가능한 엔터티입니다. 이러한 재사용 가능한 엔터티는 강화된 스키마를 사용할 때 특히 유용합니다. 데이터 세트는 Spark를 기반으로 하지 않습니다. 경우에 따라 싱크 변환에서 특정 설정 또는 스키마 프로젝션을 재정의해야 할 수도 있습니다.
 
 유연한 스키마, 일회용 싱크 인스턴스 또는 매개 변수가 있는 싱크를 사용하는 경우 인라인 데이터 세트를 사용하는 것이 좋습니다. 싱크에 매개 변수가 많은 경우 인라인 데이터 세트를 사용하여 "더미" 개체를 만들 수 없습니다. 인라인 데이터 세트는 Spark를 기반으로 하며 해당 속성은 데이터 흐름의 기본입니다.
 
@@ -47,10 +47,11 @@ ms.locfileid: "103009354"
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br/>[공통 데이터 모델](format-common-data-model.md#sink-properties)<br>[구분된 텍스트](format-delimited-text.md#mapping-data-flow-properties) <br>[델타](format-delta.md) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br>-/✓ <br>✓/- <br>-/✓ <br>✓/-<br>✓/✓ <br>✓/- |
 | [Azure Database for MySQL](connector-azure-database-for-mysql.md) |  | ✓/✓ |
 | [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md) |  | ✓/✓ |
-| [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
-| [Azure SQL Managed Instance(미리 보기)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/✓ |
+| [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
+| [SQL Server](connector-sql-server.md) | | ✓/✓ |
 
 이러한 커넥터와 관련된 설정은 **설정** 탭에 있습니다. 이러한 설정에 대한 정보 및 데이터 흐름 스크립트 예는 커넥터 설명서에 있습니다.
 
@@ -89,6 +90,8 @@ Azure Data Factory는 [90가지 이상의 네이티브 커넥터](connector-over
 > [!NOTE]
 > 캐시 싱크는 캐시 조회를 통해 참조하는 모든 변환에서 완전히 독립적인 데이터 스트림에 있어야 합니다. 캐시 싱크도 첫 번째 싱크에 써야 합니다. 
 
+**작업 출력에 쓰기** 캐시된 싱크는 필요에 따라 출력 데이터를 다음 파이프라인 작업의 입력에 쓸 수 있습니다. 이렇게 하면 데이터 저장소에 데이터를 유지할 필요 없이 데이터 흐름 작업에서 데이터를 빠르고 쉽게 전달할 수 있습니다.
+
 ## <a name="field-mapping"></a>필드 매핑
 
 선택 변환과 마찬가지로 싱크의 **매핑** 탭에서 쓸 들어오는 열을 결정할 수 있습니다. 기본적으로 초안이 작성된 열을 포함한 모든 입력 열이 매핑됩니다. 이 동작을 *automapping* 이라고 합니다.
@@ -120,7 +123,35 @@ Azure Data Factory는 [90가지 이상의 네이티브 커넥터](connector-over
 
 ## <a name="data-preview-in-sink"></a>싱크의 데이터 미리 보기
 
-디버그 클러스터에서 데이터 미리 보기를 페치하는 경우 싱크에 데이터가 쓰여지지 않습니다. 데이터가 어떻게 표시되는지 보여 주는 스냅샷은 반환되지만 대상에는 아무것도 쓰여지지 않습니다. 싱크에 대한 데이터 쓰기를 테스트하려면 파이프라인 캔버스에서 파이프라인 디버그를 실행합니다.
+디버그 모드에서 데이터 미리 보기를 페치하는 경우 싱크에 데이터가 쓰여지지 않습니다. 데이터가 어떻게 표시되는지 보여 주는 스냅샷은 반환되지만 대상에는 아무것도 쓰여지지 않습니다. 싱크에 대한 데이터 쓰기를 테스트하려면 파이프라인 캔버스에서 파이프라인 디버그를 실행합니다.
+
+## <a name="data-flow-script"></a>데이터 흐름 스크립트
+
+### <a name="example"></a>예제
+
+다음은 싱크 변환 및 해당 데이터 흐름 스크립트의 예입니다.
+
+```
+sink(input(
+        movie as integer,
+        title as string,
+        genres as string,
+        year as integer,
+        Rating as integer
+    ),
+    allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:false,
+    insertable:false,
+    updateable:true,
+    upsertable:false,
+    keys:['movie'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true,
+    saveOrder: 1,
+    errorHandlingOption: 'stopOnFirstError') ~> sink1
+```
 
 ## <a name="next-steps"></a>다음 단계
 

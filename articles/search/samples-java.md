@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: b5ae38a3dc4a9324a4141314106d67c96c06c8e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 39547b3405e25faabef64b6a9c80d0405fe1e66a
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98955040"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110586393"
 ---
 # <a name="java-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search용 Java 코드 샘플
 
@@ -42,14 +42,14 @@ Azure SDK 개발 팀의 코드 샘플은 API 사용을 보여 줍니다. 이러�
 
 ## <a name="doc-samples"></a>Doc 샘플
 
-Cognitive Search 팀의 코드 샘플은 기능 및 워크플로를 보여 줍니다. 이러한 샘플은 대부분 자습서, 빠른 시작 및 방법 문서에서 참조됩니다. GitHub의 [**Azure-Samples/azure-search-java-samples**](https://github.com/Azure-Samples/azure-search-java-samples)에서 이러한 샘플을 찾을 수 있습니다.
+Cognitive Search 팀의 코드 샘플은 기능 및 워크플로를 보여줍니다. 이러한 샘플은 대부분 자습서, 빠른 시작 및 방법 문서에서 참조됩니다. GitHub의 [**Azure-Samples/azure-search-java-samples**](https://github.com/Azure-Samples/azure-search-java-samples)에서 이러한 샘플을 찾을 수 있습니다.
 
 | 샘플 | 아티클 | 
 |---------|-------------|
 | [빠른 시작](https://github.com/Azure-Samples/azure-search-java-samples/tree/java-rest-api/quickstart) | [빠른 시작: Java 및 REST에서 검색 인덱스 만들기](search-get-started-java.md)에 대한 소스 코드입니다. 이 샘플은 Java SDK에 대해서는 업데이트되지 않았습니다. REST API를 호출합니다. |
 
 > [!Tip]
-> [샘플 브라우저](/samples/browse/?languages=java&products=azure-cognitive-search)를 통해 제품, 서비스 및 언어별로 필터링하여 Github의 Microsoft 코드 샘플을 검색해 보세요.
+> [샘플 브라우저](/samples/browse/?languages=java&products=azure-cognitive-search)를 통해 제품, 서비스 및 언어별로 필터링하여 GitHub에서 Microsoft 코드 샘플을 검색해 보세요.
 
 ## <a name="other-samples"></a>기타 샘플
 

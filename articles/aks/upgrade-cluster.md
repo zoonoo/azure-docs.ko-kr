@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service) 클러스터를 업그레이드하여
 services: container-service
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: d6a5ed468541090d433dba732707a59841e6ff41
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 772cb9d33c9bf9307ca0dc16536933fc9123de4b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779618"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085801"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 업그레이드
 
@@ -126,6 +126,7 @@ myAKSCluster  eastus      myResourceGroup  1.18.10              Succeeded       
 | `patch`| 부 버전은 동일하게 유지하고 클러스터를 사용할 수 있게 되면 지원되는 최신 패치 버전으로 자동으로 업그레이드합니다.| 예를 들어, 클러스터가 *1.17.7* 버전을 실행하고 있으며, *1.17.9*, *1.18.4*, *1.18.6*, 및 *1.19.1* 버전을 이용할 수 있는 경우, 클러스터는 *1.17.9* 버전으로 업그레이드됩니다.|
 | `stable`| 부 버전 *N-1* 에서 지원되는 최신 패치 릴리스로 클러스터를 자동 업그레이드합니다. 여기서 숫자 *N* 은 지원되는 최신 부 버전입니다.| 예를 들어, 클러스터가 *1.17.7* 버전을 실행하고 있으며, *1.17.9*, *1.18.4*, *1.18.6*, 및 *1.19.1* 버전을 이용할 수 있는 경우, 클러스터는 *1.18.6* 버전으로 업그레이드됩니다.
 | `rapid`| 지원되는 최신 부 버전에서 지원되는 최신 패치 릴리스로 클러스터를 자동으로 업그레이드합니다.| Kubernetes 버전이 *N-2* 인(여기서 *N* 은 지원되는 최신 부 버전) 클러스터의 경우, 클러스터는 우선 *N-1* 부 버전의 지원되는 최신 패치 버전으로 업그레이드됩니다. 예를 들어, 클러스터가 *1.17.7* 버전을 실행하고 *1.17.9*, *1.18.4*, *1.18.6*, 및 *1.19.1* 버전을 이용할 수 있는 경우, 클러스터는 우선 *1.18.6* 버전으로 업그레이드되고 이후 *1.19.1* 버전으로 업그레이드됩니다.
+| `node-image`| 노드 이미지를 사용 가능한 최신 버전으로 자동으로 업그레이드합니다.| Microsoft는 이미지 노드에 대한 패치 및 새 이미지를 자주(일반적으로 매주) 제공하지만 노드 이미지 업그레이드를 수행하지 않는 한 실행 중인 노드는 새 이미지를 얻지 못합니다. 노드 이미지 채널을 켜면 새 버전을 사용할 수 있을 때마다 노드 이미지가 자동으로 업데이트됩니다. |
 
 > [!NOTE]
 > 클러스터 자동 업그레이드는 Kubernetes의 GA 버전으로만 업데이트되며 미리 보기 버전으로 업데이트되지 않습니다.
@@ -166,6 +167,10 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --auto-upgrad
 az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
 ```
 
+## <a name="using-cluster-auto-upgrade-with-planned-maintenance"></a>계획된 유지 관리와 함께 클러스터 자동 업그레이드 사용
+
+계획된 유지 관리 및 자동 업그레이드를 사용하는 경우 지정된 유지 관리 기간 동안 업그레이드가 시작됩니다. 계획된 유지 관리에 대한 자세한 내용은 [계획된 유지 관리를 사용하여 AKS(Azure Kubernetes Service) 클러스터의 유지 관리 기간 예약(미리 보기)][planned-maintenance]을 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 기존 AKS 클러스터를 업그레이드하는 방법을 설명했습니다. AKS 클러스터의 배포 및 관리에 대해 더 자세히 알아보려면 자습서 세트를 참조하세요.
@@ -189,3 +194,4 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrad
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [upgrade-cluster]:  #upgrade-an-aks-cluster
+[planned-maintenance]: planned-maintenance.md

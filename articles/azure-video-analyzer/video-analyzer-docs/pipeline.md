@@ -3,12 +3,12 @@ title: Azure Video Analyzer 파이프라인
 description: Azure Video Analyzer 파이프라인을 사용하여 입력 데이터를 캡처할 위치, 처리 방법 및 결과를 전달해야 하는 위치를 정의할 수 있습니다. 파이프라인은 원하는 데이터 흐름을 얻기 위해 연결된 노드로 구성됩니다.
 ms.topic: conceptual
 ms.date: 05/13/2021
-ms.openlocfilehash: 9e3945624a52b64612c7edca2f3380b072f60bec
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: deed7eec980272dd3dd001219016eee139f22ad6
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387893"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591245"
 ---
 # <a name="pipeline"></a>파이프라인
 
@@ -74,11 +74,11 @@ RTSP 원본 노드는 RTSP 서버에서 미디어를 캡처할 수 있습니다.
 
 #### <a name="http-extension-processor"></a>HTTP 확장 프로세서
 
-HTTP 확장 프로세서 노드는 파이프라인을 자체 IoT Edge 모듈로 확장할 수 있습니다. 이 노드는 디코딩된 비디오 프레임을 입력으로 사용하며, 이러한 프레임을 모듈에서 노출하는 HTTP REST 엔드포인트에 릴레이합니다. 여기서 AI 모델을 사용하여 프레임을 분석하고 유추 결과를 반환할 수 있습니다. [여기서 프로세서](pipeline-extension.md#http-extension-processor)에 대해 자세히 알아보세요. 또한 이 노드에는 비디오 프레임을 HTTP 엔드포인트로 릴레이하기 전에 스케일링하고 인코딩하기 위한 기본 제공 이미지 포맷터가 포함되어 있습니다. 스케일러는 이미지 가로 세로 비율을 유지하거나 패딩하거나 늘일 수 있는 옵션을 제공합니다. 이미지 인코더는 JPEG, PNG, BMP 및 RAW 형식을 지원합니다. [여기서 프로세서](/pipeline-extension.md#grpc-extension-processor)에 대해 자세히 알아보세요.
+HTTP 확장 프로세서 노드는 파이프라인을 자체 IoT Edge 모듈로 확장할 수 있습니다. 이 노드는 디코딩된 비디오 프레임을 입력으로 사용하며, 이러한 프레임을 모듈에서 노출하는 HTTP REST 엔드포인트에 릴레이합니다. 여기서 AI 모델을 사용하여 프레임을 분석하고 유추 결과를 반환할 수 있습니다. 또한 이 노드에는 비디오 프레임을 HTTP 엔드포인트로 릴레이하기 전에 스케일링하고 인코딩하기 위한 기본 제공 이미지 포맷터가 포함되어 있습니다. 스케일러는 이미지 가로 세로 비율을 유지하거나 패딩하거나 늘일 수 있는 옵션을 제공합니다. 이미지 인코더는 JPEG, PNG, BMP 및 RAW 형식을 지원합니다. [여기서 프로세서](pipeline-extension.md#http-extension-processor)에 대해 자세히 알아보세요.
 
 #### <a name="grpc-extension-processor"></a>gRPC 확장 프로세서
 
-gRPC 확장 프로세서 노드는 디코딩된 비디오 프레임을 입력으로 가져오고, 이러한 프레임을 모듈에서 노출하는 [gRPC](pipeline-extension.md#grpc-extension-processor) 엔드포인트로 릴레이합니다. 이 노드는 [공유 메모리](https://en.wikipedia.org/wiki/Shared_memory)를 사용하여 데이터를 전송하거나 프레임을 gRPC 메시지의 본문에 직접 포함할 수 있도록 지원합니다. HTTP 확장 프로세스와 마찬가지로 이 노드에도 비디오 프레임을 gRPC 엔드포인트로 릴레이하기 전에 스케일링하고 인코딩하기 위한 기본 제공 이미지 포맷터가 포함되어 있습니다. [여기서 프로세서](/pipeline-extension.md#grpc-extension-processor)에 대해 자세히 알아보세요.
+gRPC 확장 프로세서 노드는 디코딩된 비디오 프레임을 입력으로 가져오고, 이러한 프레임을 모듈에서 노출하는 [gRPC](terminology.md#grpc) 엔드포인트로 릴레이합니다. 이 노드는 [공유 메모리](https://en.wikipedia.org/wiki/Shared_memory)를 사용하여 데이터를 전송하거나 프레임을 gRPC 메시지의 본문에 직접 포함할 수 있도록 지원합니다. HTTP 확장 프로세스와 마찬가지로 이 노드에도 비디오 프레임을 gRPC 엔드포인트로 릴레이하기 전에 스케일링하고 인코딩하기 위한 기본 제공 이미지 포맷터가 포함되어 있습니다. [여기서 프로세서](pipeline-extension.md#grpc-extension-processor)에 대해 자세히 알아보세요.
 
 #### <a name="cognitive-services-extension-processor"></a>Cognitive Services 확장 프로세서
 
@@ -86,7 +86,7 @@ Cognitive Services 확장 프로세서 노드는 파이프라인을 [공간 분�
 
 #### <a name="signal-gate-processor"></a>신호 게이트 프로세서
 
-신호 게이트 프로세서 노드를 사용하면 한 노드에서 다른 노드로 미디어를 조건부로 전달할 수 있습니다. 예제 사용 사례는 RTSP 원본 노드와 비디오 싱크 노드 사이에 신호 게이트 프로세서 노드를 삽입하고 동작 감지기 프로세서 노드의 출력을 사용하여 게이트를 트리거하는 것입니다. 이러한 파이프라인을 사용하면 동작이 감지된 경우에만 비디오를 녹화할 수 있습니다. 또한 동작 감지 프로세서 노드 대신 HTTP 또는 gRPC 확장 노드의 출력을 사용하여 게이트를 트리거할 수 있으므로 흥미로운 항목이 감지될 때 비디오를 녹화할 수 있습니다.
+신호 게이트 프로세서 노드를 사용하면 한 노드에서 다른 노드로 미디어를 조건부로 전달할 수 있습니다. 신호 게이트 프로세서 노드 바로 뒤에 비디오 싱크 또는 파일 싱크가 있어야 합니다. 예제 사용 사례는 RTSP 원본 노드와 비디오 싱크 노드 사이에 신호 게이트 프로세서 노드를 삽입하고 동작 감지기 프로세서 노드의 출력을 사용하여 게이트를 트리거하는 것입니다. 이러한 파이프라인을 사용하면 동작이 감지된 경우에만 비디오를 녹화할 수 있습니다. 또한 동작 감지 프로세서 노드 대신 HTTP 또는 gRPC 확장 노드의 출력을 사용하여 게이트를 트리거할 수 있으므로 흥미로운 항목이 감지될 때 비디오를 녹화할 수 있습니다.
 
 #### <a name="object-tracker-processor"></a>개체 추적기 프로세서
 

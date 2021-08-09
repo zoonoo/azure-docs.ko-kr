@@ -3,14 +3,14 @@ title: Azure Automation 업데이트 평가 보기
 description: 이 문서에서는 업데이트 관리를 배포하기 위한 업데이트 평가를 살펴보는 방법을 설명합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 09/17/2020
+ms.date: 06/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 39df5888a330a92ae043e34c3043da5b1f566345
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 270a48181e8eceb7b5e851f9bc69bb5a41428573
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92222526"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964452"
 ---
 # <a name="view-update-assessments-in-update-management"></a>업데이트 관리에서 업데이트 평가 보기
 
@@ -46,6 +46,9 @@ Automation 계정의 Arc 사용 서버를 포함하여 모든 머신에서 업�
 
 [ ![업데이트 상태 보기](./media/view-update-assessments/missing-updates.png)](./media/view-update-assessments/missing-updates-expanded.png#lightbox)
 
+> [!NOTE]
+> Windows Defender 정의 업데이트 상태에 대해 표시되는 정보는 Log Analytics 작업 영역에서 요약된 마지막 데이터를 기반으로 하며 최신 정보가 아닐 수 있습니다. 이 동작에 대해 자세히 알아보려면 [항상 누락으로 표시된 Windows Defender 업데이트](../troubleshoot/update-management.md#windows-defender-update-missing-status)를 검토하세요.
+ 
 업데이트의 다른 위치를 클릭하면 로그 검색 창이 열립니다. 로그 검색에 대한 쿼리는 해당 특정 업데이트에 대해 미리 정의되어 있습니다. 이 쿼리를 수정하거나 자체 쿼리를 만들어 자세한 정보를 볼 수 있습니다.
 
 [ ![로그 쿼리 결과 보기](./media/view-update-assessments/logsearch-results.png)](./media/view-update-assessments/logsearch-results-expanded.png#lightbox)

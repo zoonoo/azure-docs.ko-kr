@@ -7,12 +7,12 @@ author: nabhishek
 ms.author: abnarain
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 0a1eb593e9f9f15f88aefb2fe06706153a4b74a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44fc791fd10517ee52fc2e05ea292b889bd95e11
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361403"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110496856"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
 
@@ -26,6 +26,7 @@ ms.locfileid: "100361403"
 > * [Azure Machine Learning Studio(클래식)](transform-data-using-machine-learning.md) 
 > * [저장 프로시저](transform-data-using-stored-procedure.md)
 > * [데이터 레이크 분석 U-SQL](transform-data-using-data-lake-analytics.md)
+> * [Synapse Notebook](../synapse-analytics/synapse-notebook-activity.md)
 > * [Databricks Notebook](transform-data-databricks-notebook.md)
 > * [Databricks Jar](transform-data-databricks-jar.md)
 > * [Databricks Python](transform-data-databricks-python.md)
@@ -79,6 +80,10 @@ Data Factory 파이프라인에서 SQL Server 저장 프로시저 작업을 사�
 
 ### <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 작업
 Data Lake Analytics U-SQL 작업은 Azure Data Lake Analytics 클러스터에 대해 U-SQL 스크립트를 실행합니다. 자세한 내용은 [Data Analytics U-SQL 작업](transform-data-using-data-lake-analytics.md) 문서를 참조하세요. 
+
+### <a name="synapse-notebook-activity"></a>Synapse Notebook 작업 
+
+Synapse 파이프라인의 Azure Synapse Notebook 작업은 Azure Synapse 작업 영역에서 Synapse Notebook을 실행합니다. [ Notebook을 실행하여 데이터 변환](../synapse-analytics/synapse-notebook-activity.md)을 참조하세요.
 
 ### <a name="databricks-notebook-activity"></a>Databricks Notebook 활동
 

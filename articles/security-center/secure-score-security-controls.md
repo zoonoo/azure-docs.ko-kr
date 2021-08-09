@@ -1,24 +1,18 @@
 ---
 title: Azure Security Center의 보안 점수
 description: Azure Security Center의 보안 점수 및 보안 컨트롤에 대한 설명
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetd: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/03/2021
+ms.date: 05/05/2021
 ms.author: memildin
-ms.openlocfilehash: 2f5d98dd9bf893065f2bf9c37cbec4384d0f7c94
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e6582aedbc8357715f4e49cc8d5a780859ef3929
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727143"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112062079"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수
 
@@ -47,19 +41,26 @@ Security Center는 리소스, 구독 및 조직의 보안 이슈를 지속적으
 
 전체적인 보안 점수에 대한 각 보안 컨트롤의 기여도는 권장 사항 페이지에 명확히 표시됩니다.
 
-[![향상된 보안 점수로 보안 컨트롤 도입](media/secure-score-security-controls/security-controls.png)](media/secure-score-security-controls/security-controls.png#lightbox)
+:::image type="content" source="./media/secure-score-security-controls/security-controls.png" alt-text="Azure Security Center의 보안 제어 및 보안 점수에 미치는 영향" lightbox="./media/secure-score-security-controls/security-controls.png":::
 
 보안 컨트롤을 위한 가능한 모든 포인트를 구하려면 모든 리소스가 보안 컨트롤 내의 모든 보안 권장 사항을 준수해야 합니다. 예를 들어, Security Center에는 관리 포트를 보호하는 방법에 대한 여러 권장 사항이 있습니다. 보안 점수에 영향을 주려면 모든 항목을 수정해야 합니다.
 
-예를 들어 "시스템 업데이트 적용"이라는 보안 컨트롤의 최대 점수는 6포인트이며, 이 컨트롤의 잠재적 증가 값을 도구 설명에서 볼 수 있습니다.
+### <a name="example-scores-for-a-control"></a>컨트롤에 대한 예제 점수
 
-[![보안 컨트롤 "시스템 업데이트 적용"](media/secure-score-security-controls/apply-system-updates-control.png)](media/secure-score-security-controls/apply-system-updates-control.png#lightbox)
+:::image type="content" source="./media/secure-score-security-controls/remediate-vulnerabilities-control.png" alt-text="시스템 업데이트 보안 제어 적용" lightbox="./media/secure-score-security-controls/remediate-vulnerabilities-control.png":::
 
-시스템 업데이트 적용 컨트롤의 최대 점수는 항상 6입니다. 이 예제에는 50개의 리소스가 있습니다. 따라서 최대 점수를 50으로 나누면 결과적으로 모든 리소스는 0.12포인트를 기여합니다. 
 
-* **잠재적 증가**(0.12 x 8개의 비정상 리소스 = 0.96) - 컨트롤 내에서 사용할 수 있는 나머지 포인트입니다. 이 컨트롤의 모든 권장 사항을 수정하면 점수가 2%씩 증가합니다(이 경우 0.96포인트가 1포인트로 반올림됨). 
-* **현재 점수**(0.12 x 42개의 정상 리소스 = 5.04) - 이 컨트롤의 현재 점수입니다. 각 컨트롤의 점수로 전체 점수를 계산합니다. 이 예제에서 이 컨트롤은 현재 보안 합계에서 5.04포인트를 차지합니다.
-* **최대 점수** - 컨트롤 내의 모든 권장 사항을 완료하여 얻을 수 있는 최대 포인트입니다. 컨트롤의 최대 점수는 해당 컨트롤의 상대적 중요도를 나타냅니다. 가장 먼저 작업할 이슈를 심사하려면 최대 점수 값을 사용합니다. 
+이 예제에서:
+
+| #  | 속성                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-:|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1 | **취약성 보안 제어 수정** | 이 컨트롤은 알려진 취약성 검색 및 해결과 관련된 여러 권장 사항을 그룹화합니다.                                                                                                                                                                                                                                                                                                                                   |
+| 2 | **최대 점수**                                  | 컨트롤 내의 모든 권장 사항을 완료하여 얻을 수 있는 최대 포인트입니다. 컨트롤의 최대 점수는 해당 컨트롤의 상대적 중요도를 나타내며 모든 환경에 대해 고정됩니다. 가장 먼저 작업할 이슈를 심사하려면 최대 점수 값을 사용합니다.<br>모든 컨트롤 및 해당 최대 점수 목록은 [보안 제어 및 해당 권장 사항](#security-controls-and-their-recommendations)을 참조하세요. |
+| 3 | **리소스 수**                        | 이 컨트롤의 영향을 받는 리소스는 35개입니다.<br>모든 리소스의 가능한 기여도를 이해하려면 최대 점수를 리소스 수로 나눕니다.<br>이 예제의 경우 6/35=0.1714입니다.<br>**모든 리소스는 0.1714포인트를 제공합니다.**                                                                                                                                                                                          |
+| 4 | **현재 점수**                              | 이 컨트롤의 현재 점수입니다.<br>현재 점수=[리소스당 점수]*[정상 리소스 수]<br> 0.1714 x 5 정상 리소스 = 0.86<br>각 컨트롤의 점수로 전체 점수를 계산합니다. 이 예제에서 이 컨트롤은 현재 총 보안 점수에 0.86포인트를 제공합니다.                                                                                                                                               |
+| 5 | **잠재적 점수 증가**                   | 컨트롤 내에서 사용할 수 있는 나머지 포인트입니다. 이 컨트롤의 모든 권장 사항을 수정하면 점수가 9% 증가합니다.<br>잠재적 점수 증가=[리소스당 점수]*[비정상 리소스 수]<br> 0.1714 x 30 비정상 리소스 = 5.14<br>                                                                                                                                                        |
+|   |                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+
 
 
 ### <a name="calculations---understanding-your-score"></a>계산 - 점수 이해
@@ -83,7 +84,7 @@ Security Center는 리소스, 구독 및 조직의 보안 이슈를 지속적으
 
 ## <a name="improve-your-secure-score"></a>보안 점수 향상
 
-보안 점수를 향상시키려면 권장 사항 목록에서 보안 권장 사항을 수정하세요. 각 리소스에 대해 각 권장 사항을 수동으로 수정하거나 **빠른 수정!** 옵션(사용 가능한 경우)을 사용하여 권장 사항의 수정 작업을 리소스 그룹에 빠르게 적용할 수 있습니다. 자세한 내용은 [권장 사항에 따라 수정](security-center-remediate-recommendations.md)을 참조하세요.
+보안 점수를 향상시키려면 권장 사항 목록에서 보안 권장 사항을 수정하세요. 각 리소스에 대해 각 권장 사항을 수동으로 수정하거나 **수정** 옵션(사용 가능한 경우)을 사용하여 여러 리소스에 대한 문제를 신속하게 해결할 수 있습니다. 자세한 내용은 [권장 사항에 따라 수정](security-center-remediate-recommendations.md)을 참조하세요.
 
 점수를 개선하고 사용자가 점수에 부정적인 영향을 주는 리소스를 만들지 않도록 하는 또 다른 방법은 관련 권장 사항에 따라 적용 및 거부 옵션을 구성하는 것입니다. [적용/거부 추천 사항을 사용하여 구성 오류 방지](prevent-misconfigurations.md)에서 자세히 알아보세요.
 
@@ -98,7 +99,7 @@ Security Center와 함께 제공되는 보안 권장 사항 세트는 각 조직
 > [!TIP]
 > 이니셔티브 검토 및 편집에 대한 자세한 내용은 [보안 정책 사용](tutorial-security-policy.md)을 참조하세요. 
 
-Security Center의 기본 보안 이니셔티브는 업계 모범 사례 및 표준을 기반으로 하지만 아래에 나열된 기본 제공 권장 사항이 조직에 완전히 맞지 않을 수 있는 시나리오가 있습니다. 따라서 보안을 손상시키지 않고 기본 이니셔티브를 조정하여 조직의 자체 정책과 일치하도록 해야 하는 경우도 있습니다. 충족해야 하는 업계 표준, 규정 표준 및 벤치마크.<br><br>
+Security Center의 기본 보안 이니셔티브는 업계 모범 사례 및 표준을 기반으로 하지만 아래에 나열된 기본 제공 권장 사항이 조직에 완전히 맞지 않을 수 있는 시나리오가 있습니다. 따라서 보안을 손상시키지 않으면서 기본 이니셔티브를 조정하여 조직의 자체 정책, 업계 표준, 규제 표준 및 벤치마크에 맞게 조정해야 할 경우도 있습니다.<br><br>
 <div class="foo">
 
 <style type="text/css"> .tg  {border-collapse:collapse;border-spacing:0;} .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px; overflow:hidden;padding:10px 5px;word-break:normal;} .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px; font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;} .tg .tg-cly1{text-align:left;vertical-align:middle} .tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle} </style>
@@ -110,7 +111,7 @@ Security Center의 기본 보안 이니셔티브는 업계 모범 사례 및 표
 
 
 
-## <a name="secure-score-faq"></a>보안 점수 FAQ
+## <a name="faq---secure-score"></a>FAQ - 보안 점수
 
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>보안 컨트롤의 4가지 권장 사항 중 3가지를 해결하는 경우 보안 점수가 변경되나요?
 아니요. 단일 리소스에 대한 모든 권장 사항을 수정할 때까지 변경되지 않습니다. 컨트롤에 대해 최대 점수를 얻으려면 모든 리소스에 대해 모든 권장 사항을 수정해야 합니다.

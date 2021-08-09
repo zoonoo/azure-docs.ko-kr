@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 3/30/2021
+ms.date: 5/05/2021
 ms.reviewer: lagayhar
-ms.openlocfilehash: e048e788e674e90a62b15784c590c07e5d36b816
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 1ed9fc345b1c8afe416b4b98c621fc1c9b48a557
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078403"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795261"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -197,8 +197,11 @@ Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/qu
  
 * **일일 한도**: Azure Portal에서 Application Insights 리소스를 만들 때 일일 한도는 100GB/일로 설정됩니다. Visual Studio에서 Application Insights 리소스를 만들 때 기본값은 적습니다(불과 32.3MB/일). 일일 한도 기본값은 테스트가 용이하도록 설정됩니다. 앱을 프로덕션에 배포하기 전에 사용자가 일일 한도를 높여야 합니다. 
 
-    트래픽이 많은 애플리케이션에 대해 더 높은 최대값을 요구하지 않으면 최대 한도는 하루 1,000GB입니다.
+    트래픽이 많은 애플리케이션에 대해 더 높은 최댓값을 요구하지 않으면 Application Insights의 최대 한도는 하루 1,000GB입니다.
     
+    > [!TIP]
+    > 작업 영역 기반 Application Insights 리소스가 있는 경우 Application Insights의 한도 대신 [작업 영역의 일일 한도](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume)를 사용하여 수집 및 비용을 제한하는 것이 좋습니다.
+
     일일 상한에 대한 경고 메일은 Application Insights 리소스의 “ServiceAdmin”, “AccountAdmin”, “CoAdmin”, “Owner” 역할의 구성원인 계정으로 전송됩니다.
 
     일일 한도를 설정할 때 주의해야 합니다. *일일 한도에 도달하지 않도록* 해야 합니다. 일일 한도에 도달하는 경우 해당 날짜의 남은 기간 동안 데이터가 손실되고 애플리케이션을 모니터링할 수 없습니다. 일일 한도를 변경하려면 **일일 볼륨 한도** 옵션을 사용합니다. **사용량 및 예상 비용** 창에서 이 옵션에 액세스할 수 있습니다(문서의 뒷부분에 자세히 설명되어 있음).
@@ -210,6 +213,9 @@ Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/qu
 ## <a name="manage-your-maximum-daily-data-volume"></a>일일 최대 데이터 볼륨 관리
 
 일일 볼륨 한도를 사용하여 수집된 데이터를 제한할 수 있습니다. 그러나 한도가 충족되는 경우 해당 날짜의 나머지 기간 동안 애플리케이션에서 보낸 모든 원격 분석의 손실이 발생합니다. 애플리케이션이 일일 한도에 도달하는 것은 *권장되지 않습니다*. 일일 한도에 도달한 후 애플리케이션의 상태 및 성능을 추적할 수 없습니다.
+
+> [!WARNING]
+> 작업 영역 기반 Application Insights 리소스가 있는 경우 [작업 영역의 일일 한도](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume)를 사용하여 수집 및 비용을 제한하는 것이 좋습니다. Application Insights의 일일 한도는 모든 경우의 수집을 선택한 수준으로 제한하지 않을 수 있습니다. (Application Insights 리소스가 많은 데이터를 수집하는 경우 Application Insights 일일 한도를 높여야 할 수 있습니다.)
 
 일별 볼륨 한도를 사용하는 대신 [샘플링](./sampling.md)을 사용하여 원하는 수준으로 데이터 볼륨을 조정합니다. 그런 다음, 애플리케이션이 예기치 않게 높은 볼륨의 원격 분석을 보내기 시작하는 경우 "최후의 수단"으로만 일일 한도를 사용합니다.
 

@@ -5,19 +5,19 @@ description: PowerShell 또는 Azure CLI를 통해 미사용 데이터 암호화
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 96b35e65f11e9f0c1dec6b75465454be962dce46
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: df531a38d7a38141ee07a88ddce77a2e85c2cd98
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109735137"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413594"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 및 Azure CLI: Azure Key Vault에서 고객 관리형 키로 투명한 데이터 암호화를 사용하도록 설정
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -74,7 +74,7 @@ Key Vault에 대한 자세한 내용은 [Key Vault의 PowerShell 지침](../../k
    Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> `
        -ObjectId $server.Identity.PrincipalId -PermissionsToKeys get, wrapKey, unwrapKey
    ```
-관리형 HSM의 서버에 권한을 추가하려면 ‘관리형 HSM Crypto Service 암호화’ 로컬 RBAC 역할을 서버에 추가합니다. 이렇게 하면 서버에서 관리형 HSM의 키에 대해 가져오기, 키 래핑, 키 래핑 해제 작업을 수행할 수 있습니다.
+관리형 HSM의 서버에 권한을 추가하려면 '관리형 HSM Crypto Service 암호화 사용자' 로컬 RBAC 역할을 서버에 추가합니다. 이렇게 하면 서버에서 관리형 HSM의 키에 대해 가져오기, 키 래핑, 키 래핑 해제 작업을 수행할 수 있습니다.
 [관리형 HSM에서 서버 액세스를 프로비저닝하는 방법에 대한 지침](../../key-vault/managed-hsm/role-management.md)
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Key Vault 키를 서버에 추가하고 TDE 보호기를 설정합니다

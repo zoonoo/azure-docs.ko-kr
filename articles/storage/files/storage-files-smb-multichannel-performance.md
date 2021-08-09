@@ -1,22 +1,22 @@
 ---
 title: SMB 다중 채널 성능 - Azure Files
 description: SMB 다중 채널 성능에 대해 알아봅니다.
-author: gunjanj
+author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/16/2020
-ms.author: gunjanj
+ms.date: 05/17/2021
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a9edd93aa265622732be4a7582cce9900959bf6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8b2f64b0249cfe3b8a0a2e1bebcf7daabfe94dc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100374986"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094621"
 ---
 # <a name="smb-multichannel-performance"></a>SMB 다중 채널 성능
 
-Azure Files SMB 다중 채널(미리 보기)은 SMB 3.x 클라이언트에서 FileStorage 계정의 프리미엄 파일 공유에 대한 여러 네트워크 연결을 할 수 있습니다. SMB 3.0 프로토콜은 Windows Server 2012 및 Windows 8 클라이언트에서 SMB 다중 채널 기능을 도입했습니다. 이로 인해 SMB 다중 채널을 지원하는 모든 Azure Files SMB 3.x 클라이언트는 Azure 프리미엄 파일 공유 기능을 활용할 수 있습니다. 스토리지 계정에서 SMB 다중 채널을 사용하도록 설정하는 데에는 별도의 추가 비용이 없습니다.
+Azure Files SMB 다중 채널(미리 보기)은 SMB 3.x 클라이언트에서 FileStorage 계정의 프리미엄 파일 공유에 대한 여러 네트워크 연결을 할 수 있습니다. SMB 3.x 프로토콜은 Windows Server 2012 및 Windows 8 클라이언트에서 SMB 다중 채널 기능을 도입했습니다. 이로 인해 SMB 다중 채널을 지원하는 모든 Azure Files SMB 3.x 클라이언트는 Azure 프리미엄 파일 공유 기능을 활용할 수 있습니다. 스토리지 계정에서 SMB 다중 채널을 사용하도록 설정하는 데에는 별도의 추가 비용이 없습니다.
 
 ## <a name="benefits"></a>이점
 

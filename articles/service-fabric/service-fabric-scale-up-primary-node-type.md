@@ -4,16 +4,17 @@ description: 새 노드 형식을 추가하고 이전 노드 형식을 제거하
 ms.date: 12/11/2020
 ms.author: pepogors
 ms.topic: how-to
-ms.openlocfilehash: 325ece761481077171a670c52e9d98071237601a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ad6b105d18f431c53c9fc46a463271e0481b4f0b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251184"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110688579"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Service Fabric 클러스터 주 노드 형식 강화
 
-이 문서에서는 가동 중지 시간을 최소화하면서 Service Fabric 클러스터 주 노드 형식을 강화하는 방법을 설명합니다. Service Fabric 클러스터 노드 유형을 업그레이드하는 일반적인 전략은 다음과 같습니다.
+이 문서에서는 가동 중지 시간을 최소화하면서 Service Fabric 클러스터 주 노드 형식을 강화하는 방법을 설명합니다. 현재 위치 SKU 업그레이드는 Service Fabric 클러스터 노드에서 지원되지 않습니다. 이러한 작업에는 잠재적으로 데이터 및 가용성 손실이 발생할 수 있습니다. Service Fabric 노드 형식을 확장하는 가장 안전하고 안정적이며 권장되는 방법은 다음과 같습니다.
 
 1. 업그레이드된(또는 수정된) 가상 머신 확장 집합 SKU 및 구성에 의해 지원되는 Service Fabric 클러스터에 새 노드 형식을 추가합니다. 또한 이 단계는 확장 집합에 대한 새 부하 분산 디바이스, 서브넷 및 공용 IP를 설정하는 작업을 포함합니다.
 
@@ -568,7 +569,7 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > 이 단계는 시간이 오래 걸립니다(일반적으로 최대 2시간).
 
-업그레이드는 설정이 *InfrastructureService* 로 변경되므로 노드를 다시 시작해야 합니다. 이 경우 *forceRestart* 는 무시됩니다. 매개 변수 `upgradeReplicaSetCheckTimeout`은 아직 안전한 상태가 아닌 경우 Service Fabric에서 파티션이 안전한 상태가 될 때까지 대기하는 최대 시간을 지정합니다. 안전 검사가 노드의 모든 파티션에 대해 통과하면 Service Fabric는 해당 노드에 대한 업그레이드를 진행합니다. 매개 변수 `upgradeTimeout`의 값은 6시간으로 줄일 수 있지만 최대 안전을 위해 12시간을 사용해야 합니다.
+업그레이드는 설정이 *InfrastructureService* 로 변경되므로 노드를 다시 시작해야 합니다. 이 경우 *forceRestart* 는 무시됩니다. 매개 변수 `upgradeReplicaSetCheckTimeout`은 아직 안전한 상태가 아닌 경우 Service Fabric에서 파티션이 안전한 상태가 될 때까지 대기하는 최대 시간을 지정합니다. 노드의 모든 파티션에서 안전 검사가 통과되면 Service Fabric은 해당 노드에 대한 업그레이드를 진행합니다. 매개 변수 `upgradeTimeout`의 값은 6시간으로 줄일 수 있지만 최대 안전을 위해 12시간을 사용해야 합니다.
 
 배포가 완료되면 Service Fabric 리소스 상태가 *준비되었는지* Azure Portal을 확인합니다. 새 Service Fabric Explorer 엔드포인트에 연결할 수 있는지, **클러스터 성능 상태** 가 *양호* 한지 및 배포된 애플리케이션이 제대로 작동하는지 확인합니다.
 

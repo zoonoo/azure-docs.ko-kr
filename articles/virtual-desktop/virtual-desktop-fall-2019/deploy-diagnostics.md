@@ -1,24 +1,24 @@
 ---
-title: Windows Virtual Desktop(클래식)용 진단 도구 배포 - Azure
-description: Windows Virtual Desktop(클래식)용 진단 UX 도구를 배포하는 방법입니다.
+title: Azure Virtual Desktop(클래식)용 진단 도구 배포 - Azure
+description: Azure Virtual Desktop(클래식)용 진단 UX 도구를 배포하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: ed010b3eed875c8b14892a588be13a32fbbd95ac
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 92876524f036126f39a2e4e5db8eb5dbd660cee9
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445094"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754784"
 ---
-# <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Windows Virtual Desktop(클래식) 진단 도구 배포
+# <a name="deploy-the-azure-virtual-desktop-classic-diagnostics-tool"></a>Azure Virtual Desktop(클래식) 진단 도구 배포
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다.
 
-Windows Virtual Desktop용 진단 도구로 다음 작업을 수행할 수 있습니다.
+Azure Virtual Desktop용 진단 도구로 다음 작업을 수행할 수 있습니다.
 
 - 일주일 동안 단일 사용자에 대한 진단 작업(관리, 연결 또는 피드)을 찾습니다.
 - Log Analytics 작업 영역에서 연결 작업에 대한 세션 호스트 정보를 수집합니다.
@@ -50,7 +50,7 @@ Windows Virtual Desktop용 진단 도구로 다음 작업을 수행할 수 있�
 이 섹션에서는 PowerShell을 사용하여 서비스 주체가 있는 Azure Active Directory 앱을 만들고 이에 대한 API 권한을 얻는 방법을 보여줍니다.
 
 >[!NOTE]
->Windows Virtual Desktop, Log Analytics 및 Microsoft Graph API 권한이 Azure Active Directory 애플리케이션에 추가됩니다.
+>Azure Virtual Desktop, Log Analytics 및 Microsoft Graph API 권한인 API 권한이 Azure Active Directory 애플리케이션에 추가됩니다.
 
 1. 관리자 권한으로 PowerShell을 엽니다.
 2. 진단 도구에 사용하려는 Azure 구독에 대한 소유자 또는 기여자 권한이 있는 계정으로 Azure에 로그인합니다.
@@ -200,7 +200,7 @@ VM의 상태를 보려면 Log Analytics 연결을 사용하도록 설정해야 �
 사용자가 진단 도구를 사용할 수 있도록 설정하기 전에 사용자에게 다음 권한이 있는지 확인합니다.
 
 - 사용자에게 로그 분석에 대한 읽기 권한이 필요합니다. 자세한 내용은 [Azure Monitor로 역할, 권한 및 보안 시작하기](../../azure-monitor/roles-permissions-security.md)를 참조하세요.
--  또한 사용자에게 Windows Virtual Desktop 테넌트(RDS 읽기 권한자 역할)에 대한 읽기 권한이 필요합니다. 자세한 내용은 [Windows Virtual Desktop에서 위임된 액세스](delegated-access-virtual-desktop-2019.md)를 참조하세요.
+-  또한 사용자에게 Azure Virtual Desktop 테넌트(RDS 리더 역할)에 대한 읽기 권한이 필요합니다. 자세한 내용은 [Azure Virtual Desktop에서 위임된 액세스](delegated-access-virtual-desktop-2019.md)를 참조하세요.
 
 또한 사용자에게 다음 정보를 제공해야 합니다.
 

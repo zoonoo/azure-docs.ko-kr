@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: b38f2831136b0ccec4aa241135f2fd342c939845
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ae33d1695188e103c7c56374a5f39e8fc0d27430
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936889"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061411"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>빠른 시작: Azure DDoS Protection Standard 만들기 및 구성
 
@@ -76,7 +76,7 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 
 ### <a name="enable-ddos-protection-for-all-virtual-networks"></a>모든 가상 네트워크에 DDoS 보호 사용
 
-이 [정책](https://aka.ms/ddosvnetpolicy)은 정의된 범위에서 DDoS Protection 표준을 사용하지 않는 가상 네트워크를 검색한 다음, 선택적으로 VNet을 보호하기 위한 연결을 만드는 수정 작업을 만듭니다. 이 정책을 배포하는 방법에 관한 자세한 단계별 지침은 https://aka.ms/ddosvnetpolicy-techcommunity 를 참조하세요.
+이 [기본 정책](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d)은 정의된 범위에서 DDoS Protection 표준을 사용하지 않는 가상 네트워크를 검색한 다음, 선택적으로 VNet을 보호하기 위한 연결을 만드는 수정 작업을 만듭니다. 기본 제공 정책의 전체 목록은 [Azure DDoS Protection 표준에 대한 Azure Policy 기본 제공 정의](policy-reference.md)를 참조하세요. 
 
 ## <a name="validate-and-test"></a>유효성 검사 및 테스트
 

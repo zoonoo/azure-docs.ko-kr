@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: 7f7e6cb896d5284a7bc4ff54c7396600463260c9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 0e954b06afb9e1db09aefc77d9c9b85204f6fe28
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110367627"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110615236"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -91,7 +91,7 @@ Cosmos DB는 SDK 또는 포털을 통해 컨테이너 또는 데이터베이스�
 
 | 리소스 | 제한 |
 | --- | --- |
-| (논리적) 파티션당 최대 RU/s | 5,000 |
+| 컨테이너당 최대 RU/s | 5,000 |
 | (논리적) 파티션당 모든 항목의 최대 스토리지 | 20GB |
 | 고유한(논리적) 파티션 키의 최대 수 | 제한 없음 |
 | 컨테이너당 최대 스토리지 | 50GB |

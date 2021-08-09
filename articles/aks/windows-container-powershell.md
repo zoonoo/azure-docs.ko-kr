@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 03/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b877ecbdca06ff73d152e1b491e993798a99f98a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c47fb2cdd16a0342163492309da999364eb37b8
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103233517"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756854"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>PowerShell을 사용하여 AKS(Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 
@@ -24,7 +24,7 @@ AKS(Azure Kubernetes Service)는 클러스터를 빠르게 배포하고 관리�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-PowerShell을 로컬로 사용하도록 선택하는 경우 이 문서에서는 Az PowerShell 모듈을 설치하고 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet을 사용하여 Azure 계정에 연결해야 합니다. Az PowerShell 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치][install-azure-powershell]를 참조하세요. 또한 Az.Aks PowerShell 모듈을 설치해야 합니다. 
+PowerShell을 로컬로 사용하도록 선택하는 경우 이 문서에서는 Az PowerShell 모듈을 설치하고 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet을 사용하여 Azure 계정에 연결해야 합니다. Az PowerShell 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치][install-azure-powershell]를 참조하세요. 또한 Az.Aks PowerShell 모듈을 설치해야 합니다.
 
 ```azurepowershell-interactive
 Install-Module Az.Aks
@@ -77,7 +77,7 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 `ssh-keygen` 명령줄 유틸리티를 사용하여 SSH 키 쌍을 생성합니다. 자세한 내용은 [빠른 단계: Azure에서 Linux VM용 SSH 퍼블릭-프라이빗 키 쌍 만들기 및 사용](../virtual-machines/linux/mac-create-ssh-keys.md)을 참조하세요.
 
-Windows Server 컨테이너의 노드 풀을 지원하는 AKS 클러스터를 실행하려면 클러스터에서 [Azure CNI][azure-cni-about](고급) 네트워크 플러그인을 사용하는 네트워크 정책을 사용해야 합니다. 필요한 서브넷 범위 및 네트워크 고려 사항을 계획하는 데 도움이 되는 자세한 내용은 [Azure CNI 네트워킹 구성][use-advanced-networking]을 참조하세요. 아래의 [New-AzAks][new-azaks] cmdlet을 사용하여 **myAKSCluster** 라는 AKS 클러스터를 만듭니다. 다음 예제에서는 필요한 네트워크 리소스(존재하지 않는 경우)를 만듭니다.
+Windows Server 컨테이너의 노드 풀을 지원하는 AKS 클러스터를 실행하려면 클러스터에서 [Azure CNI][azure-cni-about](고급) 네트워크 플러그인을 사용하는 네트워크 정책을 사용해야 합니다. 필요한 서브넷 범위 및 네트워크 고려 사항을 계획하는 데 도움이 되는 자세한 내용은 [Azure CNI 네트워킹 구성][use-advanced-networking]을 참조하세요. 아래의 [New-AzAksCluster][new-azakscluster] cmdlet을 사용하여 **myAKSCluster** 라는 AKS 클러스터를 만듭니다. 다음 예제에서는 필요한 네트워크 리소스(존재하지 않는 경우)를 만듭니다.
 
 > [!NOTE]
 > 클러스터를 안정적으로 작동하도록 하려면 기본 노드 풀에서 2개 이상의 노드를 실행해야 합니다.
@@ -101,7 +101,7 @@ New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCoun
 New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin
 ```
 
-위의 명령은 **npwin** 이라는 새 노드 풀을 만들어 **myAKSCluster** 에 추가합니다. Windows Server 컨테이너를 실행하기 위해 노드 풀을 만들 때 **VmSize** 의 기본값은 **Standard_D2s_v3** 입니다. **VmSize** 매개 변수를 설정하도록 선택하는 경우 [제한된 VM 크기][restricted-vm-sizes] 목록을 확인합니다. 권장되는 최소 크기는 **Standard_D2s_v3** 입니다. 또한 이전 명령은 `New-AzAks`를 실행할 때 생성되는 기본 vnet의 기본 서브넷을 사용합니다.
+위의 명령은 **npwin** 이라는 새 노드 풀을 만들어 **myAKSCluster** 에 추가합니다. Windows Server 컨테이너를 실행하기 위해 노드 풀을 만들 때 **VmSize** 의 기본값은 **Standard_D2s_v3** 입니다. **VmSize** 매개 변수를 설정하도록 선택하는 경우 [제한된 VM 크기][restricted-vm-sizes] 목록을 확인합니다. 권장되는 최소 크기는 **Standard_D2s_v3** 입니다. 또한 이전 명령은 `New-AzAksCluster`를 실행할 때 생성되는 기본 vnet의 기본 서브넷을 사용합니다.
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 
@@ -262,7 +262,7 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 [new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
 [azure-cni-about]: concepts-network.md#azure-cni-advanced-networking
 [use-advanced-networking]: configure-azure-cni.md
-[new-azaks]: /powershell/module/az.aks/new-azaks
+[new-azakscluster]: /powershell/module/az.aks/new-azakscluster
 [restricted-vm-sizes]: quotas-skus-regions.md#restricted-vm-sizes
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests

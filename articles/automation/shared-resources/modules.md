@@ -3,14 +3,15 @@ title: Azure Automation에서 모듈 관리
 description: 이 문서에서는 PowerShell 모듈을 사용하여 DSC 구성의 Runbook 및 DSC 리소스에서 cmdlet을 사용하도록 설정하는 방법을 설명합니다.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 02/01/2021
+ms.date: 04/28/2021
 ms.topic: conceptual
-ms.openlocfilehash: c86eab249167fab2d1ad72bba22e1d507122138c
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 48888f9ca840888310aebcc82d38d2af351a8611
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169405"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277897"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Azure Automation에서 모듈 관리
 
@@ -84,12 +85,11 @@ Az.Automation의 경우 `AzureRM` 접두사가 `Az`로 변경된 경우를 제�
 
 ## <a name="internal-cmdlets"></a>내부 cmdlet
 
-Azure Automation은 기본적으로 설치된 Windows용 Log Analytics 에이전트에 대한 내부 `Orchestrator.AssetManagement.Cmdlets` 모듈을 지원합니다. 다음 표에서는 내부 cmdlet을 정의합니다. 이러한 cmdlet은 Azure PowerShell cmdlet 대신 사용하여 공유 리소스와 상호 작용하도록 설계되었습니다. 암호화된 변수, 자격 증명 및 암호화된 연결에서 비밀을 검색할 수 있습니다.
+Azure Automation은 Azure 샌드박스 환경 또는 Windows Hybrid Runbook Worker에서 Runbook을 실행하는 경우에만 사용할 수 있는 내부 cmdlet을 지원합니다. 내부 모듈 `Orchestrator.AssetManagement.Cmdlets`는 기본적으로 Automation 계정에 설치되며 Windows Hybrid Runbook Worker 역할이 컴퓨터에 설치될 때 설치됩니다. 
 
->[!NOTE]
->내부 cmdlet은 Azure 샌드박스 환경 또는 Windows Hybrid Runbook Worker에서 Runbook을 실행하는 경우에만 사용할 수 있습니다. 
+다음 표에서는 내부 cmdlet을 정의합니다. 이러한 cmdlet은 Azure PowerShell cmdlet 대신 사용하여 Automation 계정 리소스와 상호 작용하도록 설계되었습니다. 암호화된 변수, 자격 증명 및 암호화된 연결에서 비밀을 검색할 수 있습니다.
 
-|속성|Description|
+|이름|Description|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |
@@ -99,7 +99,7 @@ Azure Automation은 기본적으로 설치된 Windows용 Log Analytics 에이전
 |Start-AutomationRunbook|`Start-AutomationRunbook [-Name] <string> [-Parameters <IDictionary>] [-RunOn <string>] [-JobId <guid>] [<CommonParameters>]`|
 |Wait-AutomationJob|`Wait-AutomationJob -Id <guid[]> [-TimeoutInMinutes <int>] [-DelayInSeconds <int>] [-OutputJobsTransitionedToRunning] [<CommonParameters>]`|
 
-참고로 내부 cmdlet은 Az 및 AzureRM cmdlet과는 이름을 다르게 지정합니다. 내부 cmdlet 이름에는 명사에 `Azure` 또는 `Az`와 같은 단어가 포함되지 않지만 `Automation`이라는 단어는 사용합니다. Azure 샌드박스 또는 Windows Hybrid Runbook Worker에서 Runbook을 실행하는 동안 Az 또는 AzureRM cmdlet을 사용할 때 사용하는 것이 좋습니다. 필요한 매개 변수의 수가 더 적으며 이미 실행 중인 작업의 컨텍스트에서 실행됩니다.
+참고로 내부 cmdlet은 Az 및 AzureRM cmdlet과는 이름을 다르게 지정합니다. 내부 cmdlet 이름에는 명사에 `Azure` 또는 `Az`와 같은 단어가 포함되지 않지만 `Automation`이라는 단어는 사용합니다. Azure 샌드박스 또는 Windows Hybrid Runbook Worker에서 Runbook을 실행하는 동안 필요한 매개 변수의 수가 더 적으며 실행 중에 작업의 컨텍스트에서 실행되므로 Az 또는 AzureRM cmdlet을 사용하는 것이 좋습니다.
 
 Runbook의 컨텍스트를 벗어난 Automation 리소스를 조작하는 데 Az 또는 AzureRM cmdlet을 사용합니다. 
 
@@ -147,10 +147,13 @@ Automation 계정으로 Az 모듈을 가져와도 Runbook이 사용하는 PowerS
 
 Azure Portal에서 Az 모듈을 Automation 계정으로 가져올 수 있습니다. 사용 가능한 모든 Az 모듈이 아니라 필요한 Az 모듈만 가져와야 합니다. [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0)는 다른 Az 모듈에 대한 종속성이기 때문에 이 모듈을 다른 모듈보다 먼저 가져와야 합니다.
 
+1. Azure [Portal](https://portal.azure.com)에 로그인합니다.
+1. **Automation 계정** 을 검색하여 선택합니다.
+1. **Automation 계정** 페이지의 목록에서 Automation 계정을 선택합니다.
 1. Automation 계정의 **공유 리소스** 아래에서 **모듈** 을 선택합니다.
-2. **갤러리 찾아보기** 를 선택합니다.  
-3. 검색 표시줄에서 모듈 이름(예: `Az.Accounts`)을 입력합니다.
-4. PowerShell 모듈 페이지에서 **가져오기** 를 선택하여 Automation 계정으로 모듈을 가져옵니다.
+1. **갤러리 찾아보기** 를 선택합니다.  
+1. 검색 표시줄에서 모듈 이름(예: `Az.Accounts`)을 입력합니다.
+1. PowerShell 모듈 페이지에서 **가져오기** 를 선택하여 Automation 계정으로 모듈을 가져옵니다.
 
     ![Automation 계정으로 모듈을 가져오는 스크린샷](../media/modules/import-module.png)
 
@@ -328,11 +331,12 @@ Import-DscResource -ModuleName <ModuleName> -ModuleVersion <version>
 
 Azure Portal에서 모듈을 가져오려면 다음을 수행합니다.
 
-1. Automation 계정으로 이동합니다.
-2. **공유 리소스** 에서 **모듈** 을 선택합니다.
-3. **모듈 추가** 를 선택합니다.
-4. 모듈을 포함하는 **.zip** 파일을 선택합니다.
-5. **확인** 을 선택하여 가져오기 프로세스를 시작합니다.
+1. 포털에서 **Automation 계정** 을 검색하여 선택합니다.
+1. **Automation 계정** 페이지의 목록에서 Automation 계정을 선택합니다.
+1. **공유 리소스** 에서 **모듈** 을 선택합니다.
+1. **모듈 추가** 를 선택합니다.
+1. 모듈을 포함하는 **.zip** 파일을 선택합니다.
+1. **확인** 을 선택하여 가져오기 프로세스를 시작합니다.
 
 ### <a name="import-modules-by-using-powershell"></a>PowerShell을 사용하여 모듈 가져오기
 
@@ -364,10 +368,12 @@ PowerShell 갤러리에서 직접 모듈을 가져오려면 다음을 수행합�
 
 Automation 계정에서 직접 PowerShell 갤러리 모듈을 가져오려면 다음을 수행합니다.
 
+1. 포털에서 **Automation 계정** 을 검색하여 선택합니다.
+1. **Automation 계정** 페이지의 목록에서 Automation 계정을 선택합니다.
 1. **공유 리소스** 에서 **모듈** 을 선택합니다. 
-2. **갤러리 찾아보기** 를 선택하고 갤러리에서 모듈을 검색합니다. 
-3. 가져올 모듈을 선택하고 **가져오기** 를 선택합니다. 
-4. **확인** 을 선택하여 가져오기 프로세스를 시작합니다.
+1. **갤러리 찾아보기** 를 선택하고 갤러리에서 모듈을 검색합니다. 
+1. 가져올 모듈을 선택하고 **가져오기** 를 선택합니다. 
+1. **확인** 을 선택하여 가져오기 프로세스를 시작합니다.
 
 ![Azure Portal에서 PowerShell 갤러리 모듈을 가져오는 스크린샷](../media/modules/gallery-azure-portal.png)
 
@@ -379,9 +385,11 @@ Automation 계정에서 직접 PowerShell 갤러리 모듈을 가져오려면 �
 
 Azure Portal에서 모듈을 제거하려면 다음을 수행합니다.
 
-1. Automation 계정으로 이동합니다. **공유 리소스** 에서 **모듈** 을 선택합니다.
-2. 제거하려는 모듈을 선택합니다.
-3. 모듈 페이지에서 **삭제** 를 선택합니다. 이 모듈이 [기본 모듈](#default-modules) 중 하나인 경우 Automation 계정을 만들 때 있었던 버전으로 롤백됩니다.
+1. 포털에서 **Automation 계정** 을 검색하여 선택합니다.
+1. **Automation 계정** 페이지의 목록에서 Automation 계정을 선택합니다.
+1. **공유 리소스** 에서 **모듈** 을 선택합니다.
+1. 제거하려는 모듈을 선택합니다.
+1. 모듈 페이지에서 **삭제** 를 선택합니다. 이 모듈이 [기본 모듈](#default-modules) 중 하나인 경우 Automation 계정을 만들 때 있었던 버전으로 롤백됩니다.
 
 ### <a name="delete-modules-by-using-powershell"></a>PowerShell을 사용하여 모듈 삭제
 

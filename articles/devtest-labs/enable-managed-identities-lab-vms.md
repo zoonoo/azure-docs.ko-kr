@@ -3,12 +3,12 @@ title: Azure DevTest Labs의 랩 VM에서 관리 ID 사용
 description: 이 문서는 랩 소유자가 랩 가상 머신에서 사용자가 할당한 관리 ID를 사용하도록 설정할 수 있는 방법을 보여 줍니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b4bf2900acebaeecd5cbc4cb65635aee6de87dda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d2c7b944d37160df241e6ca4407c730593f1b62
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88717638"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854039"
 ---
 # <a name="enable-user-assigned-managed-identities-on-lab-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩 가상 머신에서 사용자가 할당한 관리 ID 사용
 랩 소유자는 Azure DevTest Labs의 랩 VM(가상 머신)에서 사용자가 할당한 관리 ID를 사용하도록 설정할 수 있습니다.
@@ -40,23 +40,22 @@ ms.locfileid: "88717638"
 
 1.  ID를 만든 후 해당 ID의 리소스 ID를 확인합니다. 다음 샘플과 유사해야 합니다. 
 
-    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
-2. PUT HTTPS 메서드를 실행하여 다음 예제와 같이 새 **서비스 실행기** 리소스를 랩에 추가합니다. 
+    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}`.
+    
+2. 랩 리소스에서 PUT HTTPS 메서드를 수행하여 하나 또는 여러 사용자 할당 ID를 **managementIdentities** 필드에 추가합니다.
 
-    서비스 실행기 리소스는 DevTest Labs에서 관리 ID를 관리하고 제어하는 프록시 리소스입니다. 서비스 실행기 이름은 어떤 유효한 이름도 될 수 있지만 관리 ID 리소스 이름을 사용하는 것이 좋습니다.
 
     ```json
     {
-        "identity": {
-            "type": "userAssigned",
-            "userAssignedIdentities": { 
-                "[userAssignedIdentityResourceId]": {}
-            }
-            },
         "location": "southeastasia",
         "properties": {
-            "identityUsageType": "VirtualMachine"
-        }
+        ...
+            "managementIdentities": {
+               "/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}": {}
+        },
+        ...
+        },
+    ...
     }
     ```
 

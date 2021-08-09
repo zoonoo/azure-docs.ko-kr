@@ -3,19 +3,19 @@ title: 게이트웨이 트래픽 마이그레이션 알림
 description: 이 문서에서는 사용자에게 Azure SQL Database 게이트웨이 IP 주소 마이그레이션에 대한 알림을 제공합니다.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: vanto
+ms.reviewer: vanto, mathoma
 ms.date: 07/01/2019
-ms.openlocfilehash: 07611a3620a2fd8efe0da075b03b55a5be3a5be9
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 58194f74bb32fec7d58f707d74720c37e26dba5a
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107505380"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110699493"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>최신 게이트웨이로 Azure SQL Database 트래픽 마이그레이션
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,6 +29,14 @@ Azure 인프라가 개선됨에 따라 Microsoft는 최상의 고객 환경을 �
 ## <a name="status-updates"></a>상태 업데이트
 
 # <a name="in-progress"></a>[진행 중](#tab/in-progress-ip)
+## <a name="june-2021"></a>2021년 6월
+새 SQL 게이트웨이가 다음 지역에 추가됩니다.
+- 영국 서부: 51.140.208.96, 51.140.208.97
+- 한국 중부: 20.44.24.32, 20.194.64.33
+- 일본 동부: 13.78.104.32
+
+이 SQL 게이트웨이는 2021년 6월 1일부터 고객 트래픽을 수락합니다.
+
 ## <a name="may-2021"></a>2021년 5월
 새 SQL 게이트웨이가 다음 지역에 추가됩니다.
 - 영국 남부: 51.140.144.36, 51.105.72.32  
@@ -84,7 +92,7 @@ Azure 인프라가 개선됨에 따라 Microsoft는 최상의 고객 환경을 �
 - 오스트레일리아 중부 2: 20.36.112.6 
 - 브라질 남부: 191.234.144.16, 191.234.152.3 
 - 캐나다 동부: 40.69.105.9, 40.69.105.10
-- 인도 중부: 104.211.86.30, 104.211.86.31 
+- 인도 중부: 104.211.86.30 , 104.211.86.31 
 - 동아시아: 13.75.32.14 
 - 프랑스 중부: 40.79.137.8, 40.79.145.12 
 - 프랑스 남부: 40.79.177.10, 40.79.177.12

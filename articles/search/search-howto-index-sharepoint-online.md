@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 5888a7cc8aa58d1c6edab191e1243ebc60000fd6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ea65011a27b7dab65ea75b5365bdcdf2be67d8b2
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048870"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747134"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Cognitive Search에서 SharePoint Online 인덱싱을 구성하는 방법(미리 보기)
 
@@ -49,6 +49,10 @@ Azure Cognitive Search SharePoint Online 인덱서는 다음 문서 형식에서
 
 ## <a name="setting-up-sharepoint-online-indexing"></a>SharePoint Online 인덱싱 설정
 SharePoint Online 인덱서를 설정하려면 Azure Portal 및 미리 보기 REST API에서 각각 수행해야 할 작업이 있습니다. 이 미리 보기는 SDK에서 지원되지 않습니다.
+
+ 다음 비디오에서는 SharePoint Online 인덱서를 설정하는 방법을 보여 줍니다.
+ 
+> [!VIDEO https://www.youtube.com/embed/QmG65Vgl0JI]
 
 ### <a name="step-1-enable-system-assigned-managed-identity"></a>1단계: 시스템이 할당한 관리 ID 사용
 시스템 할당 관리 ID를 사용하도록 설정하면 Azure는 인덱서에서 사용할 수 있는 검색 서비스의 ID를 만듭니다.
@@ -87,7 +91,7 @@ SharePoint Online 인덱서는 인증을 위해 이 AAD 애플리케이션을 �
 
 1.  관리자 동의를 제공합니다(특정 테넌트에만 필요).
 
-    일부 테넌트는 이러한 위임된 API 권한에 대해 관리자 동의가 필요하도록 잠깁니다. 이 경우 인덱서를 만들기 전에 관리자에게 이 AAD 애플리케이션에 대한 동의를 허용해야 합니다. 
+    일부 테넌트는 이러한 위임된 API 권한에 대해 관리자 동의가 필요하도록 잠깁니다. 이 경우 인덱서를 만들기 전에 관리자에게 이 AAD 애플리케이션에 대한 동의를 허용해야 합니다.
 
     모든 테넌트가 이러한 사항을 요구하는 것은 아니므로 먼저 이 단계를 건너뛰고 지침을 계속 진행하는 것이 좋습니다. 인덱서를 만들 때 관리자 동의가 필요한지 여부를 알 수 있습니다. 인증이 실패하면서 관리자가 인증을 승인해야 한다는 메시지가 표시됩니다. 이 경우 테넌트 관리자는 아래 단추를 사용하여 동의를 허용합니다.
 

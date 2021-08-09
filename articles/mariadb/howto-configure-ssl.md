@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f541e2302bc1f1de132de76e0638f9843d7003f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: d790bfd86f1180230aaf57a8052cef0b9c876309
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98662273"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089275"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Azure Database for MariaDB에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성
 Azure Database for MariaDB는 SSL(Secure Sockets Layer)을 사용한 Azure Database for MariaDB 서버와 클라이언트 애플리케이션 간 연결을 지원합니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
@@ -23,13 +23,7 @@ Azure Database for MariaDB는 SSL(Secure Sockets Layer)을 사용한 Azure Datab
 [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem)에서 SSL을 통해 Azure Database for MariaDB 서버와 통신하는 데 필요한 인증서를 다운로드하고 인증서 파일을 로컬 드라이브에 저장합니다(이 자습서에서는 c:\ssl을 예로 사용).
 **Microsoft Internet Explorer 및 Microsoft Edge:** 다운로드가 완료된 후 인증서 이름을 BaltimoreCyberTrustRoot.crt.pem으로 변경합니다.
 
->[!NOTE]
-> 고객의 의견에 따라 2021 (02/15/2021)까지 기존 Baltimore 루트 CA에 대 한 루트 인증서 사용 중단을 연장 했습니다.
-
-> [!IMPORTANT] 
-> SSL 루트 인증서가 2021 (02/15/2021)부터 만료 되도록 설정 되어 있습니다. [새 인증서](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)를 사용 하도록 응용 프로그램을 업데이트 하십시오. 자세히 알아보려면 [계획 된 인증서 업데이트](concepts-certificate-rotation.md) 를 참조 하세요.
-
-소 버린 클라우드의 서버 인증서에 대 한 다음 링크 ( [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure 중국](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)및 [azure 독일](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt))를 참조 하세요.
+소버린 클라우드의 서버 인증서에 대한 링크([Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure 중국](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)및 [Azure 독일](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt))를 참조하세요.
 
 ## <a name="bind-ssl"></a>SSL 바인딩
 
@@ -60,7 +54,7 @@ mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 Azure Portal을 사용하여 Azure Database for MariaDB 서버를 방문한 다음, **연결 보안** 을 클릭합니다. 설정/해제 단추를 사용하여 **SSL 연결 적용** 설정을 사용하거나 사용하지 않도록 설정한 다음 **저장** 을 클릭합니다. Microsoft는 향상된 보안을 위해 항상 **SSL 연결 적용** 을 활성화하는 것을 권장합니다.
-![사용-MariaDB 서버에 ssl](./media/howto-configure-ssl/enable-ssl.png)
+![MariaDB 서버에 ssl 사용](./media/howto-configure-ssl/enable-ssl.png)
 
 ### <a name="using-azure-cli"></a>Azure CLI 사용
 Azure CLI에서 Enabled 또는 Disabled 값을 각각 사용하여 **ssl-enforcement** 매개 변수를 사용하거나 사용하지 않도록 설정할 수 있습니다.
@@ -213,7 +207,6 @@ using (var connection = new MySqlConnection(builder.ConnectionString))
 }
 ```
 
-<!-- 
-## Next steps
-Review various application connectivity options following [Connection libraries for Azure Database for MariaDB](concepts-connection-libraries.md)
--->
+
+## <a name="next-steps"></a>다음 단계
+인증서 만료 및 순환에 대한 자세한 내용은 [인증서 순환 문서](concepts-certificate-rotation.md)를 참조하세요.

@@ -3,16 +3,16 @@ title: Azure Marketplace의 IoT Edge 모듈 제품에 대한 사전 인증 검�
 description: Azure Marketplace에서 IoT Edge 모듈 제품을 게시하기 위한 특정 인증 요구 사항에 대해 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-author: keferna
-ms.author: keferna
-ms.date: 03/01/2021
-ms.openlocfilehash: 31c19f62f0328fca05562eaa2f19b7a79c0f3e15
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+author: aarathin
+ms.author: aarathin
+ms.date: 05/21/2021
+ms.openlocfilehash: ec24d4df5a792166812693ad90f21396771ecdd6
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562701"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111537893"
 ---
 # <a name="pre-certification-checklist-for-iot-edge-modules"></a>IoT Edge 모듈의 사전 인증 검사 목록
 
@@ -79,5 +79,5 @@ Edge 모듈은 Azure에서 만든 Edge 디바이스에 배포됩니다.
 ## <a name="next-steps"></a>다음 단계
 
 - [상업용 Marketplace에서 모듈 배포](../iot-edge/how-to-deploy-modules-portal.md#deploy-from-azure-marketplace)
-- [파트너 센터에 Edge 모듈 게시](./partner-center-portal/azure-iot-edge-module-creation.md)
+- [파트너 센터에 Edge 모듈 게시](./iot-edge-offer-setup.md)
 - [IoT Edge 모듈 배포](../iot-edge/quickstart-linux.md)

@@ -4,12 +4,12 @@ description: Application Insights를 사용하여 Node.js 서비스의 성능을
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 9eba74bcf2b4b047b3ed881342db4f7b1011f928
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9709c52bde7ab866ba6b6b5c0526cef7f2ff6d87
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100585756"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110079285"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
@@ -42,7 +42,7 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 데이터를 수집할 수 있도록 앱에 SDK를 포함합니다.
 
 > [!IMPORTANT]
-> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 **사용해야 합니다**. [연결 문자열](./sdk-connection-string.md?tabs=nodejs)은 원격 분석 데이터를 연결하려는 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
+> 계측 키보다 [연결 문자열](./sdk-connection-string.md?tabs=nodejs)이 권장됩니다. 새 Azure 지역에서는 계측 키 대신 연결 문자열을 **사용해야 합니다**. 연결 문자열은 원격 분석 데이터를 연결할 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
 
 1. 새로 만든 리소스에서 리소스의 계측 키(*ikey* 라고도 함)를 복사합니다. Application Insights는 ikey를 사용하여 Azure 리소스에 데이터를 매핑합니다. SDK가 ikey를 사용하려면 먼저 환경 변수 또는 코드에 ikey를 지정해야 합니다.  
 

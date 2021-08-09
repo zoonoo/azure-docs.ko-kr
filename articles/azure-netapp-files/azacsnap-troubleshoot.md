@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/14/2020
+ms.date: 05/17/2021
 ms.author: phjensen
-ms.openlocfilehash: 7ba5a05515284612e17d5aba4cc673c7e78f7ba1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85f6c7d8ef0eced1e7cbb2259d4117bc1ae5ff89
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869925"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083731"
 ---
-# <a name="troubleshoot-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일치 스냅샷 도구 문제 해결(미리 보기)
+# <a name="troubleshoot-azure-application-consistent-snapshot-tool"></a>Azure 애플리케이션 일치 스냅샷 도구 문제 해결
 
-이 문서에서는 Azure NetApp Files에서 사용할 수 있는 Azure 애플리케이션 일치 스냅샷 도구를 사용에 대한 문제 해결 내용을 제공합니다.
+이 문서에서는 Azure NetApp Files 및 Azure 대규모 인스턴스에서 사용할 수 있는 Azure 애플리케이션 일치 스냅샷 도구를 사용에 대한 문제 해결 내용을 제공합니다.
 
 명령을 실행하는 동안 발생할 수 있는 일반적인 문제는 다음과 같습니다. 문제를 해결하려면 설명된 해결 지침을 수행합니다. 여전히 문제가 발생하는 경우 Azure Portal에서 서비스 요청을 열고 Microsoft 지원에 응답할 SAP HANA 대규모 인스턴스 큐에 요청을 할당합니다.
 
@@ -62,7 +62,9 @@ Azure NetApp Files와의 통신 유효성을 검사하는 경우 통신이 실�
 - (https://)management.azure.com:443
 - (https://)login.microsoftonline.com:443 
 
-## <a name="failed-communication-with-sap-hana"></a>SAP HANA와의 통신 실패
+## <a name="problems-with-sap-hana"></a>SAP HANA 관련 문제
+
+### <a name="running-the-test-command-fails"></a>테스트 명령 실행 실패
 
 `azacsnap -c test --test hana`로 테스트를 실행하여 SAP HANA와의 통신 유효성을 검사하는 경우 다음 오류가 표시됩니다.
 
@@ -99,7 +101,7 @@ Cannot get SAP HANA version, exiting with error: 127
     이 예제에서는 `hdbsql` 명령이 사용자의 `$PATH`에 있지 않습니다.
 
     ```bash
-    hdbsql -n 172.18.18.50 - i 00 -U SCADMIN "select version from sys.m_database"
+    hdbsql -n 172.18.18.50 - i 00 -U AZACSNAP "select version from sys.m_database"
     ```
 
     ```output
@@ -114,17 +116,45 @@ Cannot get SAP HANA version, exiting with error: 127
     ```
 
     ```bash
-    hdbsql -n 172.18.18.50 -i 00 -U SCADMIN "select version from sys.m_database"
+    hdbsql -n 172.18.18.50 -i 00 -U AZACSNAP "select version from sys.m_database"
     ```
 
     ```output
-    * -10104: Invalid value for KEY (SCADMIN)
+    * -10104: Invalid value for KEY (AZACSNAP)
     ```
 
     > [!NOTE]
     > 사용자의 `$PATH`에 영구적으로 추가하려면 사용자의 `$HOME/.profile` 파일을 업데이트합니다.
 
-## <a name="the-hdbuserstore-location"></a>`hdbuserstore` 위치
+### <a name="insufficient-privilege"></a>권한이 부족함
+
+`azacsnap`을 실행하여 `* 258: insufficient privilege`와 같은 오류가 표시되는 경우 적절한 권한이 "AZACSNAP" 데이터베이스 사용자에게 할당되었는지 확인합니다([설치 안내서](azacsnap-installation.md#enable-communication-with-sap-hana)에 따라 생성된 사용자라고 가정).  다음 명령을 사용하여 사용자의 현재 권한을 확인합니다.
+
+```bash
+hdbsql -U AZACSNAP "select GRANTEE,GRANTEE_TYPE,PRIVILEGE,IS_VALID,IS_GRANTABLE from sys.granted_privileges "' | grep -i -e GRANTEE -e azacsnap
+```
+
+```output
+GRANTEE,GRANTEE_TYPE,PRIVILEGE,IS_VALID,IS_GRANTABLE
+"AZACSNAP","USER","BACKUP ADMIN","TRUE","FALSE"
+"AZACSNAP","USER","CATALOG READ","TRUE","FALSE"
+"AZACSNAP","USER","CREATE ANY","TRUE","TRUE"
+```
+
+오류는 `Detailed info for this error can be found with guid '99X9999X99X9999X99X99XX999XXX999' SQLSTATE: HY000`의 출력과 같은 필수 SAP HANA 권한을 결정하는 데 도움이 되는 추가 정보를 제공할 수도 있습니다.  이 경우 [SAP 도움말 포털 - GET_INSUFFICIENT_PRIVILEGE_ERROR_DETAILS](https://help.sap.com/viewer/b3ee5778bc2e4a089d3299b82ec762a7/2.0.05/en-US/9a73c4c017744288b8d6f3b9bc0db043.html)에서 SAP의 지침을 따르세요. 이 지침은 다음 SQL 쿼리를 사용하여 필요한 권한에 대한 세부 정보를 결정하는 것을 권장합니다.
+
+```sql
+CALL SYS.GET_INSUFFICIENT_PRIVILEGE_ERROR_DETAILS ('99X9999X99X9999X99X99XX999XXX999', ?)
+```
+
+```output
+GUID,CREATE_TIME,CONNECTION_ID,SESSION_USER_NAME,CHECKED_USER_NAME,PRIVILEGE,IS_MISSING_ANALYTIC_PRIVILEGE,IS_MISSING_GRANT_OPTION,DATABASE_NAME,SCHEMA_NAME,OBJECT_NAME,OBJECT_TYPE
+"99X9999X99X9999X99X99XX999XXX999","2021-01-01 01:00:00.180000000",120212,"AZACSNAP","AZACSNAP","DATABASE ADMIN or DATABASE BACKUP ADMIN","FALSE","FALSE","","","",""
+```
+
+위의 예에서는 SYSTEMDB의 AZACSNAP 사용자에게 'DATABASE BACKUP ADMIN' 권한을 추가하려면 권한 부족 오류를 해결해야 합니다.
+
+### <a name="the-hdbuserstore-location"></a>`hdbuserstore` 위치
 
 SAP HANA와의 통신을 설정할 때 `hdbuserstore` 프로그램을 사용하여 보안 통신 설정을 만듭니다.  `hdbuserstore` 프로그램은 일반적으로 `/usr/sap/<SID>/SYS/exe/hdb/` 또는 `/usr/sap/hdbclient` 아래에 있습니다.  일반적으로 설치 프로그램은 `azacsnap` 사용자 `$PATH`에 올바른 위치를 추가합니다.
 

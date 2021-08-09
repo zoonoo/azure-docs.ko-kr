@@ -4,16 +4,17 @@ description: 데이터 복구를 수행하고 실수로 삭제하는 경우를 �
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 04/05/2021
 ms.author: rogarana
 ms.subservice: files
+ms.custom: devx-track-azurepowershell
 services: storage
-ms.openlocfilehash: 428ef41340cd565bef0fa3c1e6519fb8862b091a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3687eeb09473a5281ddcde98f5b9b7b11472589f
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727572"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110666761"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Azure 파일 공유에서 일시 삭제 사용
 
@@ -26,12 +27,13 @@ ms.locfileid: "105727572"
 ## <a name="getting-started"></a>시작
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. 스토리지 계정으로 이동하고 **파일 서비스** 에서 **파일 공유** 를 선택합니다.
+1. 스토리지 계정으로 이동하고 **데이터 스토리지** 에서 **파일 공유** 를 선택합니다.
+1. **일시 삭제** 옆에 있는 **사용** 을 선택합니다.
 1. **모든 파일 공유 일시 삭제** 에서 **사용** 을 선택합니다.
 1. **파일 공유 보존 기간(일)** 을 선택하고 원하는 기간을 입력합니다.
 1. **저장** 을 선택하여 데이터 보존 설정을 확인합니다.
 
-:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="스토리지 계정 일시 삭제 설정 창 스크린샷. 파일 공유 일시 삭제 섹션, 사용 토글, 보존 기간 설정 및 저장 강조 표시 그러면 스토리지 계정의 모든 파일 공유에 대해 일시 삭제가 사용하도록 설정됩니다.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/files-enable-soft-delete-new-ui.png" alt-text="스토리지 계정 일시 삭제 설정 창 스크린샷. 파일 공유 일시 삭제 섹션, 사용 토글, 보존 기간 설정 및 저장 강조 표시 그러면 스토리지 계정의 모든 파일 공유에 대해 일시 삭제가 사용하도록 설정됩니다.":::
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -129,11 +131,12 @@ Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $account
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. 스토리지 계정으로 이동하고 **파일 서비스** 에서 **파일 공유** 를 선택합니다.
+1. 스토리지 계정으로 이동하고 **데이터 스토리지** 에서 **파일 공유** 를 선택합니다.
+1. **일시 삭제** 옆에 있는 링크를 선택합니다.
 1. **모든 파일 공유 일시 삭제** 에서 **사용하지 않음** 을 선택합니다.
 1. **저장** 을 선택하여 데이터 보존 설정을 확인합니다.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="일시 삭제를 사용하지 않도록 설정하면 원할 때 스토리지 계정의 모든 파일 공유를 즉시 영구적으로 삭제할 수 있습니다.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/files-disable-soft-delete.png" alt-text="일시 삭제를 사용하지 않도록 설정하면 원할 때 스토리지 계정의 모든 파일 공유를 즉시 영구적으로 삭제할 수 있습니다.":::
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

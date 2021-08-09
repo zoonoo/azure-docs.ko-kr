@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 5eb5c351462279fe5c4f790e052f73201d211cfb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94961178"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스 구성 수정
@@ -44,7 +44,7 @@ Azure Portal을 사용하여 디바이스 이름을 변경하거나 사용자가
 
 StorSimple 디바이스 관리자 서비스에 연결된 StorSimple 디바이스에는 기본 이름이 할당됩니다. 기본 이름에는 일반적으로 디바이스의 일련 번호가 반영됩니다. 예를 들어, 기본 디바이스 이름은 8600-SHX0991003G44HT와 같이 다음을 나타내는 15자 길이의 문자입니다.
 
-* **8600**  – 장치 모델을 나타냅니다.
+* **8600** – 디바이스 모델을 나타냅니다.
 * **SHX** – 제조 사이트를 나타냅니다.
 * **0991003** - 특정 제품을 나타냅니다.
 * **G44HT** - 마지막 5자리는 고유한 일련 번호를 만들기 위해 증분되며, 순차적인 집합이 아닐 수 있습니다.
@@ -61,7 +61,7 @@ StorSimple 디바이스 관리자 서비스에 연결된 StorSimple 디바이스
 
 디바이스는 클라우드 스토리지 서비스 공급자를 사용하여 인증하기 위해 시간을 동기화해야 합니다. 디바이스의 **일반 설정** 블레이드를 사용하여 디바이스 시간 설정을 수정합니다.
 
-![일반 설정 2의 장치 설명](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
+![일반 설정의 디바이스 설명 2](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
 
  드롭다운 목록에서 표준 시간대를 선택합니다. 최대 두 개의 NTP(Network Time Protocol) 서버를 지정할 수 있습니다.
 

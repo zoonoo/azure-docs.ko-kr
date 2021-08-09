@@ -3,12 +3,12 @@ title: 이벤트 복제 작업 패턴-Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 특정 이벤트 복제 작업 패턴을 구현하기 위한 자세한 지침을 제공합니다.
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: 438964c228f060dede93abf582c9504b698db8b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: adaa124470e6b3cc94bab647967f08b63a1c4f49
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934614"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110462856"
 ---
 # <a name="event-replication-tasks-patterns"></a>이벤트 복제 작업 패턴
 
@@ -78,7 +78,7 @@ SRV 레코드는 일반적인 규칙에 따라 `_azure_eventhubs._amqp`로 접�
 
 | CNAME 레코드                | Alias                    |
 | --------------------------- | ------------------------ |
-| `eventhub.test.example.com` | `test1.test.example.com` |
+| `eventhub.test.example.com` | `eh1.test.example.com`   |
 
 CNAME 및 SRV 레코드를 명시적으로 쿼리할 수 있도록 허용하는 DNS 클라이언트를 사용하는 경우(Java 및 .NET의 기본 제공 클라이언트는 IP 주소로 간단한 이름 확인만 허용) 원하는 엔드포인트를 확인할 수 있습니다. 예를 들어 [DnsClient.NET](https://dnsclient.michaco.net/)를 사용하는 경우 조회 함수는 다음과 같습니다.
 

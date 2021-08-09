@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 9822dfe50fa50fdd70f4e09e188188cad0f9b8f0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 96cd715a16c06dd6e35d042a6938de083ec262a9
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102438219"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556787"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center 문제 해결 가이드
 
@@ -28,7 +28,7 @@ Security Center는 Log Analytics 에이전트를 사용하여 데이터를 수�
 
 * VMBA(Virtual Machine 동작 분석)
 * 네트워크 분석
-* SQL Database 및 Azure Synapse 분석 분석
+* SQL Database 및 Azure Synapse Analytics Analysis
 * 컨텍스트 정보
 
 경고 유형에 따라, 고객은 다음 리소스를 사용하여 경고를 조사하는 데 필요한 정보를 수집할 수 있습니다.
@@ -131,7 +131,7 @@ Security Center 대시보드를 로드하는 문제가 있는 경우 Security Ce
 
 ## <a name="contacting-microsoft-support"></a>Microsoft 지원에 문의
 
-이 문서에 제공 된 지침을 사용 하 여 몇 가지 문제를 확인할 수 있으며, 다른 사용자는이 문서에서 설명 하는 Security Center 공용 [Microsoft Q&페이지를](/answers/topics/azure-security-center.html)찾을 수도 있습니다. 그러나 추가로 문제 해결이 필요한 경우 아래와 같이 **Azure Portal** 을 사용하여 새로운 지원 요청을 열 수 있습니다.
+이 문서에서 제공된 지침을 사용하여 몇 가지 문제를 식별할 수 있으며 그 외 문제는 Security Center 공용 [Microsoft Q&A 페이지](/answers/topics/azure-security-center.html)에도 설명되어 있습니다. 그러나 추가로 문제 해결이 필요한 경우 아래와 같이 **Azure Portal** 을 사용하여 새로운 지원 요청을 열 수 있습니다.
 
 ![Microsoft 지원](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
@@ -148,5 +148,5 @@ Security Center 대시보드를 로드하는 문제가 있는 경우 Security Ce
 * [Azure Security Center에서 보안 인시던트 처리](security-center-incident.md)
 * [Azure Security Center 감지 기능](./security-center-alerts-overview.md)
 * [Azure Security Center를 사용하여 파트너 솔루션 모니터링](./security-center-partner-integration.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center FAQ](faq-general.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
+* [Azure Security Center FAQ](faq-general.yml) - 서비스 사용에 관한 질문과 대답 찾기
 * [Azure 보안 블로그](/archive/blogs/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

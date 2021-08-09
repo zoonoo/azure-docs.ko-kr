@@ -3,24 +3,22 @@ title: Azure 리소스를 관리하고 모니터링하는 자동화 작업 만�
 description: Azure Logic Apps에서 실행되는 워크플로를 만들어 Azure 리소스를 관리하고 비용을 모니터링하는 데 도움이 되는 자동화된 작업을 설정합니다.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: conceptual
-ms.date: 02/19/2021
-ms.openlocfilehash: 8180fe8554e5fff83e4caef8c245839518649ca1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: azla
+ms.topic: how-to
+ms.date: 06/09/2021
+ms.openlocfilehash: bd8ac7857d5be31aafd9a1e91cbd276d79823ed2
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719052"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747152"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>자동화 작업을 만들어 Azure 리소스 관리 및 비용 모니터링(미리 보기)
 
 > [!IMPORTANT]
-> 이 기능은 공개 미리 보기 상태이고 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 이 기능은 미리 보기로 제공되고 프로덕션 워크로드에는 권장되지 않으며 서비스 수준 계약에서 제외됩니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 [Azure 리소스](../azure-resource-manager/management/overview.md#terminology)를 더 쉽게 관리할 수 있도록 리소스 종류에 따라 가용성이 달라지는 자동화 작업 템플릿을 사용하여 특정 리소스 또는 리소스 그룹에 대한 자동화된 관리 작업을 만들 수 있습니다. 예를 들어 [Azure 스토리지 계정](../storage/common/storage-account-overview.md)의 경우 해당 스토리지 계정에 대한 월별 비용을 보내는 자동화 작업을 설정할 수 있습니다. [Azure 가상 머신](https://azure.microsoft.com/services/virtual-machines/)의 경우 미리 정의된 일정에 따라 해당 가상 머신을 설정하거나 해제하는 자동화 작업을 만들 수 있습니다.
-
-내부적으로 자동화 작업은 실제로 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 서비스에서 실행되며 동일한 [가격 책정 요율](https://azure.microsoft.com/pricing/details/logic-apps/) 및 [가격 책정 모델](../logic-apps/logic-apps-pricing.md)을 사용하여 청구되는 워크플로입니다. 작업이 만들어지면 Logic Apps 디자이너에서 작업을 열어 기본 워크플로를 보고 편집할 수 있습니다. 작업에서 하나 이상의 실행이 완료되면 각 실행의 상태, 기록, 입력 및 출력을 검토할 수 있습니다.
 
 이 미리 보기에서 현재 사용 가능한 작업 템플릿은 다음과 같습니다.
 
@@ -45,9 +43,22 @@ ms.locfileid: "101719052"
 
 ## <a name="how-do-automation-tasks-differ-from-azure-automation"></a>자동화 작업은 Azure Automation과 어떻게 다른가요?
 
-현재 리소스 수준에서만 자동화 작업을 만들고, 작업의 실행 기록을 보고, [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 서비스에서 제공하는 작업의 기본 논리 앱 워크플로를 편집할 수 있습니다. 자동화 작업은 [Azure Automation](../automation/automation-intro.md)보다 더 기본적이고 가볍습니다.
+자동화 작업은 [Azure Automation](../automation/automation-intro.md)보다 더 기본적이고 가볍습니다. 현재는 Azure 리소스 수준에서만 자동화 작업을 만들 수 있습니다. 백그라운드에서 자동화 작업은 실제로 워크플로를 실행하고 [*다중 테넌트* Azure Logic Apps 서비스](../logic-apps/logic-apps-overview.md)에서 구동되는 논리 앱 리소스입니다. 자동화 작업을 만든 후 워크플로 디자이너에서 작업을 열어 기본 워크플로를 보고 편집할 수 있습니다. 작업에서 하나 이상의 실행이 완료되면 각 실행의 작업 상태, 워크플로 실행 기록, 입력 및 출력을 검토할 수 있습니다.
 
 이에 비해 Azure Automation은 Azure 환경 및 Azure 이외의 환경에서 일관된 관리를 지원하는 클라우드 기반 자동화 및 구성 서비스입니다. 이 서비스는 [Runbook](../automation/automation-runbook-execution.md)을 사용하여 [프로세스를 오케스트레이션하기 위한 프로세스 자동화](../automation/automation-intro.md#process-automation), [변경 추적 및 인벤토리](../automation/change-tracking/overview.md)를 통한 구성 관리, 업데이트 관리, 공유 기능 및 다른 유형의 기능으로 구성됩니다. Automation을 통해 워크로드와 리소스를 배포하고, 운영하고, 서비스를 해제하는 동안 완벽한 제어가 가능합니다.
+
+<a name="pricing"></a>
+
+## <a name="pricing"></a>가격 책정
+
+자동화 작업을 만드는 것만으로는 요금이 자동으로 부과되지 않습니다. 그 아래에 자동화 작업은 다중 테넌트 기반 논리 앱이므로 [소비 가격 책정 모델](logic-apps-pricing.md)은 자동화 작업에도 적용됩니다. 계량 및 청구는 기본 논리 앱 워크플로의 트리거 및 작업 실행을 기반으로 합니다.
+
+실행은 워크플로가 성공적으로 실행되는지 또는 워크플로가 인스턴스화되었는지 여부에 관계없이 계량 및 요금이 청구됩니다. 예를 들어 자동화 태스크가 정기적으로 엔드포인트에 나가는 호출을 수행하는 폴링 트리거를 사용한다고 가정합니다. 이 아웃바운드 요청은 트리거가 발생하거나 건너뛰는지 여부에 관계없이 계량되고 실행으로 청구됩니다. 이는 워크플로 인스턴스가 만들어지는지 여부에 영향을 줍니다.
+
+트리거 및 작업은 이러한 작업이 ["기본 제공"](../connectors/built-in.md) 또는 ["관리"(표준 또는 엔터프라이즈)](../connectors/managed.md)인지에 따라 달라지는 [소비 계획 요금](https://azure.microsoft.com/pricing/details/logic-apps/)을 따릅니다. 트리거 및 작업은 [소비 계획 데이터 속도](https://azure.microsoft.com/pricing/details/logic-apps/)를 사용하는 스토리지 트랜잭션도 만듭니다.
+
+> [!TIP]
+> 월별 보너스로, 소비 계획에는 *수천 개* 의 기본 제공 실행이 무료로 포함됩니다. 자세한 내용은 [소비 계획 요금](https://azure.microsoft.com/pricing/details/logic-apps/)을 검토하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -150,7 +161,7 @@ ms.locfileid: "101719052"
 
    **논리 앱 실행** 창이 열리고, 실행된 기본 워크플로가 표시됩니다.
 
-   * 워크플로는 항상 [*트리거*](../connectors/apis-list.md#triggers-actions)로 시작합니다. 이 작업의 경우 워크플로는 [**되풀이**](../connectors/connectors-native-recurrence.md) 트리거로 시작합니다.
+   * 워크플로는 항상 [*트리거*](../connectors/apis-list.md#triggers)로 시작합니다. 이 작업의 경우 워크플로는 [**되풀이**](../connectors/connectors-native-recurrence.md) 트리거로 시작합니다.
 
    * 각 단계에는 상태 및 실행 기간이 표시됩니다. 기간이 0초인 단계를 실행하는 데 1초 미만이 걸렸습니다.
 

@@ -3,21 +3,21 @@ title: Azure Maps 그리기 변환 오류 및 경고
 description: Azure Maps Conversion 서비스를 사용하는 동안 발생할 수 있는 Conversion 오류 및 경고에 대해 알아봅니다. 몇 가지 예와 함께 오류 및 경고를 해결하는 방법에 대한 추천 사항을 참조하세요.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 05/21/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: cecc19f0984ce1801d50e5cbda73e98a01e2825b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: fd6c20277098d0a2d1909cfb93243dd8e3bbcca0
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96906219"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793239"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>그리기 변환 오류 및 경고
 
-[Azure Maps Conversion 서비스](/rest/api/maps/conversion)를 사용하여 업로드된 그리기 패키지를 맵 데이터로 변환할 수 있습니다. 그리기 패키지는 [그리기 패키지 요구 사항](drawing-requirements.md)을 따라야 합니다. 하나 이상의 요구 사항이 충족되지 않으면 Conversion 서비스에서 오류 또는 경고를 반환합니다. 이 문서에는 변환 오류 및 경고 코드가 나열되며, 이를 해결하는 방법에 대한 추천 사항이 포함되어 있습니다. 또한 Conversion 서비스에서 이러한 코드를 반환할 수 있는 몇 가지 그리기의 예도 제공합니다.
+[Azure Maps Conversion 서비스](/rest/api/maps/v2/conversion)를 사용하여 업로드된 그리기 패키지를 맵 데이터로 변환할 수 있습니다. 그리기 패키지는 [그리기 패키지 요구 사항](drawing-requirements.md)을 따라야 합니다. 하나 이상의 요구 사항이 충족되지 않으면 Conversion 서비스에서 오류 또는 경고를 반환합니다. 이 문서에는 변환 오류 및 경고 코드가 나열되며, 이를 해결하는 방법에 대한 추천 사항이 포함되어 있습니다. 또한 Conversion 서비스에서 이러한 코드를 반환할 수 있는 몇 가지 그리기의 예도 제공합니다.
 
 변환 경고가 있으면 Conversion 서비스가 성공합니다. 그러나 모든 경고를 검토하고 해결하는 것이 좋습니다. 경고는 변환의 일부가 무시되거나 자동으로 수정되었음을 의미합니다. 경고가 해결되지 않으면 후자의 프로세스에서 오류가 발생할 수 있습니다.
 
@@ -35,9 +35,9 @@ Conversion 서비스는 잘못된 엔터티에서 맵 기능을 만들 수 없�
 
 * 아래 두 이미지에서는 자체 교차 다각형의 예를 보여 줍니다.
 
-     ![자기 교차 다각형의 예: 예 1.](./media/drawing-conversion-error-codes/geometry-warning-1.png)
+     ![자체 교차 다각형의 예, 예제 1.](./media/drawing-conversion-error-codes/geometry-warning-1.png)
 
-     ![자기 교차 다각형의 예입니다 (예: 2).](./media/drawing-conversion-error-codes/geometry-warning-2.png)
+     ![자체 교차 다각형의 예, 예제 2.](./media/drawing-conversion-error-codes/geometry-warning-2.png)
 
 * 다음은 닫히지 않은 폴리라인을 보여주는 이미지입니다. 레이어에서 닫힌 기하 도형만 지원한다고 가정합니다.
 
@@ -95,7 +95,7 @@ Conversion 서비스에서 잘못된 기하 도형이 자동으로 복구되면 
 
     ![스냅된 폴리라인의 예](./media/drawing-conversion-error-codes/automatic-repair-2.png)
 
-* 아래 이미지에서는 닫힌 폴리라인만 지원하는 레이어에서 Conversion 서비스를 통해 닫히지 않은 여러 폴리라인을 복구한 방법을 보여 줍니다. 닫히지 않은 폴리라인을 삭제하지 않도록 방지하기 위해 서비스에서 하나의 닫힌 폴리라인으로 결합했습니다.
+* 아래 이미지에서는 닫힌 폴리라인만 지원하는 레이어에서 Conversion 서비스를 통해 닫히지 않은 여러 폴리라인을 복구한 방법을 보여 줍니다. 닫히지 않은 폴리라인을 삭제되는 것을 방지하기 위해 서비스에서 하나의 닫힌 폴리라인으로 결합했습니다.
 
     ![닫히지 않은 폴리라인이 하나의 닫힌 폴리라인으로 결합된 예](./media/drawing-conversion-error-codes/automatic-repair-3.png)
 
@@ -330,7 +330,7 @@ Conversion 서비스에서 스토리지의 사용자 데이터 개체를 읽을 
 **invalidUserData** 오류를 해결하려면 다음을 확인합니다.
 
 * 올바른 `udid`를 업로드된 패키지에 제공했습니다.
-* 그리기 패키지를 업로드 하는 데 사용한 Azure Maps 계정에 대해 Azure Maps 작성자 (미리 보기)를 사용 하도록 설정 했습니다.
+* 그리기 패키지를 업로드하는 데 사용한 Azure Maps 계정에 대해 Azure Maps Creator가 사용하도록 설정되었습니다.
 * 그리기 패키지를 업로드하는 데 사용한 Azure Maps 계정에 대한 구독 키가 Conversion 서비스에 대한 API 요청에 포함되어 있습니다.
 
 ### <a name="dwgerror"></a>**dwgError**
@@ -506,4 +506,7 @@ _manifest.json_ 파일이 ZIP 보관 파일에 없으면 **missingManifest** 오
 > [Azure Maps 그리기 오류 시각화 도우미를 사용하는 방법](drawing-error-visualizer.md)
 
 > [!div class="nextstepaction"]
-> [실내 매핑을 위한 작성자 (미리 보기)](creator-indoor-maps.md)
+> [그리기 패키지 가이드](drawing-package-guide.md)
+
+> [!div class="nextstepaction"]
+> [실내 맵용 Creator](creator-indoor-maps.md)

@@ -6,18 +6,18 @@ ms.topic: how-to
 ms.date: 04/09/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 59e2fc1f528040515398e51d359840f6ef1bbefc
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 33e73a70db1a0fd16fae98ee5bc4bbdaa3759fe8
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107255803"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756062"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Azure Files 및 Azure AD DS를 사용하여 프로필 컨테이너 만들기
 
 이 문서에서는 Azure Files 및 AD DS(Azure Active Directory Domain Services)를 사용하여 FSLogix 프로필 컨테이너를 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 Azure AD DS 인스턴스를 이미 설정했다고 가정합니다. 아직 없는 경우 먼저 [기본 관리되는 도메인 만들기](../active-directory-domain-services/tutorial-create-instance.md)의 지침을 따라 만든 다음, 여기로 돌아옵니다.
 
@@ -113,7 +113,7 @@ ms.locfileid: "107255803"
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile
      ```
 
-8. 다음 명령을 실행하여 Windows Virtual Desktop 사용자가 다른 사용자의 프로필 컨테이너에 대한 액세스를 차단하면서 자신의 프로필 컨테이너를 만들도록 할 수 있습니다.
+8. 다음 명령을 실행하여 Azure Virtual Desktop 사용자가 다른 사용자의 프로필 컨테이너에 대한 액세스를 차단하면서 자신의 프로필 컨테이너를 만들도록 할 수 있습니다.
 
      ```cmd
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
@@ -175,7 +175,7 @@ FSLogix 프로필 컨테이너를 구성하려면 다음을 수행합니다.
 
 사용자를 할당하려면 다음을 수행합니다.
 
-1. 관리자 권한으로 Windows PowerShell을 실행한 후 PowerShell에서 다음 cmdlet을 실행하여 Windows 가상 데스크톱에 로그인합니다.
+1. 관리자 권한으로 Windows PowerShell을 실행한 후 PowerShell에서 다음 cmdlet을 실행하여 Azure 가상 데스크톱에 로그인합니다.
 
    ```powershell
    Import-Module Microsoft.RdInfra.RdPowershell
@@ -188,7 +188,7 @@ FSLogix 프로필 컨테이너를 구성하려면 다음을 수행합니다.
    Add-RdsAccount -DeploymentUrl $brokerurl
    ```
 
-   자격 증명을 입력하라는 메시지가 표시되면 Windows 가상 데스크톱 테넌트에 대한 TenantCreator, RDS 소유자 또는 RDS 기여자 역할을 부여받은 사용자를 입력합니다.
+   자격 증명을 입력하라는 메시지가 표시되면 Azure 가상 데스크톱 테넌트에 대한 TenantCreator, RDS 소유자 또는 RDS 기여자 역할을 부여받은 사용자를 입력합니다.
 
 2. 다음 cmdlet을 실행하여 사용자를 원격 데스크톱 그룹에 할당합니다.
 
@@ -226,7 +226,7 @@ FSLogix 프로필 컨테이너를 구성하려면 다음을 수행합니다.
 
 프로필을 확인하려면 다음을 수행합니다.
 
-1. 브라우저를 열고 [Windows 가상 데스크톱 웹 클라이언트](https://rdweb.wvd.microsoft.com/arm/webclient)로 이동합니다.
+1. 브라우저를 열고 [ 가상 데스크톱 웹 클라이언트](https://rdweb.wvd.microsoft.com/arm/webclient)로 이동합니다.
 
 2. 원격 데스크톱 그룹에 할당된 사용자 계정으로 로그인합니다.
 

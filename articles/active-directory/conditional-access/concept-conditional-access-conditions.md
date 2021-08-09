@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 05/18/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab840b46503aed1a318e3b39a4e8fe3e4d11735c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e0aaac1c52a2def624f8bc8736219685458ad42
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579130"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070295"
 ---
 # <a name="conditional-access-conditions"></a>조건부 액세스: 조건
 
@@ -82,9 +82,9 @@ Azure AD 조건부 액세스에서는 다음과 같은 디바이스 플랫폼을
       -  이 옵션에는 Office 데스크톱 및 전화 애플리케이션과 같은 애플리케이션이 포함됩니다.
 - 레거시 인증 클라이언트
    - Exchange ActiveSync 클라이언트
-      - 여기에는 EAS(Exchange ActiveSync) 프로토콜의 모든 사용이 포함됩니다.
+      - 이렇게 선택하면 EAS(Exchange ActiveSync) 프로토콜의 모든 사용이 포함됩니다.
       - 정책에서 Exchange ActiveSync 사용을 차단하는 경우 영향을 받는 사용자는 단일 격리 메일을 받게 됩니다. 이 메일은 차단된 이유에 대한 정보를 제공하고 가능하다면 수정 지침도 포함합니다.
-      - 관리자는 조건부 액세스 MS Graph API를 통해 지원되는 플랫폼(예: iOS, Android 및 Windows)에만 정책을 적용할 수 있습니다.
+      - 관리자는 조건부 액세스 Microsoft Graph API를 통해 지원되는 플랫폼(예: iOS, Android 및 Windows)에만 정책을 적용할 수 있습니다.
    - 기타 클라이언트
       - 이 옵션은 최신 인증을 지원하지 않는 기본/레거시 인증 프로토콜을 사용하는 클라이언트를 포함합니다.
          - 인증된 SMTP - POP 및 IMAP 클라이언트에서 이메일 메시지를 보낼 때 사용합니다.
@@ -120,7 +120,7 @@ Azure AD 조건부 액세스에서는 다음과 같은 디바이스 플랫폼을
 | macOS | Chrome, Safari |
 
 > [!NOTE]
-> Edge 85 이상에서는 디바이스 ID를 올바르게 전달하기 위해 사용자의 브라우저 로그인을 요구합니다. 그렇지 않으면 계정 확장이 없는 Chrome처럼 동작합니다. 이 로그인은 하이브리드 Azure AD 조인 시나리오에서는 자동으로 발생하지 않을 수 있습니다. 
+> Edge 85 이상에서는 디바이스 ID를 올바르게 전달하기 위해 사용자의 브라우저 로그인을 요구합니다. 그렇지 않으면 계정 확장이 없는 Chrome처럼 동작합니다. 이 로그인은 하이브리드 Azure AD 조인 시나리오에서는 자동으로 발생하지 않을 수 있습니다. Safari는 디바이스 기반 조건부 액세스에 지원되지만 **승인된 클라이언트 앱 필요** 또는 **앱 보호 정책 필요** 조건을 충족할 수 없습니다. Microsoft Edge와 같은 관리되는 브라우저는 승인된 클라이언트 앱 및 앱 보호 정책 요구 사항을 충족합니다.
 
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>브라우저에 인증서 메시지가 표시되는 이유는 무엇인가요
 
@@ -157,7 +157,7 @@ Windows 7, iOS, Android 및 macOS Azure AD는 디바이스가 Azure AD에 등록
 | Dynamics CRM 앱 | Dynamics CRM | Windows 10, Windows 8.1, iOS 및 Android |
 | 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Exchange Online | Windows 10 |
 | 앱에 대한 MFA 및 위치 정책입니다. 디바이스 기반 정책은 지원되지 않습니다.| 모든 My Apps 앱 서비스 | Android 및 iOS |
-| Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다. | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
+| Microsoft Teams Services - 이 클라이언트 앱은 Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다. | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
 | Office 2016 앱, Office 2013(최신 인증 사용), [OneDrive 동기화 클라이언트](/onedrive/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
 | Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), [OneDrive 동기화 클라이언트](/onedrive/enable-conditional-access) | SharePoint Online | Windows 10 |
 | Office 2016(Word, Excel, PowerPoint, OneNote만 해당) | SharePoint | macOS |
@@ -195,6 +195,13 @@ Windows 7, iOS, Android 및 macOS Azure AD는 디바이스가 Azure AD에 등록
 
 예를 들어 *Microsoft Azure Management* 클라우드 앱에 액세스하는 *모든 사용자* 는 **모든 디바이스 상태** 를 포함하고 **하이브리드 Azure AD 조인된 디바이스** 및 **준수 상태로 표시된 디바이스** 를 *액세스 제어*, **차단** 을 위해 제외합니다. 
    - 이 예제에서는 하이브리드 Azure AD 조인된 디바이스 또는 준수 상태로 표시된 디바이스에서만 Microsoft Azure 관리에 대한 액세스를 허용하는 정책을 만듭니다.
+
+> [!IMPORTANT]
+> 디바이스에 대한 디바이스 상태 및 필터는 조건부 액세스 정책에서 함께 사용할 수 없습니다. 디바이스에 대한 필터는 `trustType` 및 `isCompliant` 속성을 통해 디바이스 상태 정보를 대상으로 지정하는 지원을 포함하여 보다 세부적인 대상 지정을 제공합니다.
+
+## <a name="filters-for-devices-preview"></a>장치용 필터(미리 보기)
+
+조건부 액세스에는 디바이스에 대한 필터라는 새로운 선택적 조건이 있습니다. 디바이스에 대한 필터를 조건으로 구성할 때 조직은 디바이스 속성에 규칙 식을 사용하여 필터를 기반으로 디바이스를 포함하거나 제외하도록 선택할 수 있습니다. 디바이스 필터에 대한 규칙 식은 규칙 작성기 또는 규칙 구문을 사용하여 작성할 수 있습니다. 이 환경은 그룹의 동적 멤버 자격 규칙에 사용되는 환경과 비슷합니다. 자세한 내용은 [조건부 액세스: 디바이스 필터(미리 보기)](concept-condition-filters-for-devices.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

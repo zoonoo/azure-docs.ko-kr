@@ -1,31 +1,29 @@
 ---
-title: 공유 키로 권한 부여 방지(미리 보기)
+title: 공유 키로 권한 부여 방지
 titleSuffix: Azure Storage
-description: 클라이언트가 Azure AD를 사용하여 요청을 승인하도록 하려면 공유 키로 권한이 부여된 스토리지 계정에 대한 요청을 허용하지 않으면 됩니다(미리 보기).
+description: 클라이언트가 Azure AD를 사용하여 요청을 승인하도록 하려면 공유 키로 권한이 부여된 저장소 계정에 대한 요청을 허용하지 않으면 됩니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 05/27/2021
 ms.author: tamram
-ms.reviewer: fryu
-ms.openlocfilehash: b7290abe102d22bb87c87c3c9d13ee99c127b942
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: sohamnc
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0262cdd348c03dafd378af95374beacf2bc77c23
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199925"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110679273"
 ---
-# <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Azure Storage 계정에 대한 공유 키 권한 부여 방지(미리 보기)
+# <a name="prevent-shared-key-authorization-for-an-azure-storage-account"></a>Azure Storage 계정에 대한 공유 키 권한 부여 방지
 
-Azure Storage 계정에 대한 모든 보안 요청에는 권한이 있어야 합니다. 기본적으로 요청은 Azure AD(Azure Active Directory) 자격 증명을 사용하거나 공유 키 권한 부여를 위한 계정 액세스 키를 사용하여 권한을 부여할 수 있습니다. 이러한 두 가지 유형의 권한 부여 중 Azure AD는 공유 키보다 뛰어난 보안과 사용 편의성을 제공하며 Microsoft에서 권장합니다. 클라이언트가 Azure AD를 사용하여 요청을 승인하도록 하려면 공유 키로 권한이 부여된 스토리지 계정에 대한 요청을 허용하지 않으면 됩니다(미리 보기).
+Azure Storage 계정에 대한 모든 보안 요청에는 권한이 있어야 합니다. 기본적으로 요청은 Azure AD(Azure Active Directory) 자격 증명을 사용하거나 공유 키 권한 부여를 위한 계정 액세스 키를 사용하여 권한을 부여할 수 있습니다. 이러한 두 가지 유형의 권한 부여 중 Azure AD는 공유 키보다 뛰어난 보안과 사용 편의성을 제공하며 Microsoft에서 권장합니다. 클라이언트가 Azure AD를 사용하여 요청을 승인하도록 하려면 공유 키로 권한이 부여된 저장소 계정에 대한 요청을 허용하지 않으면 됩니다.
 
 스토리지 계정에 대한 공유 키 권한 부여를 허용하지 않으면 Azure Storage는 계정 액세스 키로 권한이 부여된 계정에 대한 모든 후속 요청을 거부합니다. Azure AD로 권한이 부여된 보안 요청만 성공합니다. Azure AD 사용에 대한 자세한 내용은 [Azure Active Directory를 사용하여 Blob 및 큐에 대한 액세스 권한 부여](storage-auth-aad.md)를 참조하세요.
 
-> [!IMPORTANT]
-> 공유 키 권한 부여를 불허하는 것은 현재 **미리 보기** 상태입니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-이 문서에서는 공유 키 권한 부여를 사용하여 보낸 요청을 검색하는 방법과 스토리지 계정에 대한 공유 키 권한 부여를 수정하는 방법을 설명합니다. 미리 보기에 등록하는 방법을 알아보려면 [미리 보기 정보](#about-the-preview)를 참조하세요.
+이 문서에서는 공유 키 권한 부여를 사용하여 보낸 요청을 검색하는 방법과 스토리지 계정에 대한 공유 키 권한 부여를 수정하는 방법을 설명합니다.
 
 ## <a name="detect-the-type-of-authorization-used-by-client-applications"></a>클라이언트 애플리케이션에 사용되는 권한 부여 유형 검색
 
@@ -33,7 +31,7 @@ Azure Storage 계정에 대한 모든 보안 요청에는 권한이 있어야 �
 
 메트릭을 사용하여 스토리지 계정이 수신하는 공유 키 또는 SAS(공유 액세스 서명)로 권한이 부여된 요청 수를 확인합니다. 로그를 사용하여 어떤 클라이언트가 해당 요청을 보내는지 확인합니다.
 
-미리 보기 중에 공유 액세스 서명으로 이루어진 요청을 해석하는 방법에 대한 자세한 내용은 [미리 보기 정보](#about-the-preview)를 참조하세요.
+SAS는 공유 키 또는 Azure AD를 사용하여 권한을 부여할 수 있습니다. 공유 액세스 서명으로 수행된 요청을 해석하는 방법에 대한 자세한 내용은 [공유 키가 SAS 토큰에 미치는 영향 이해](#understand-how-disallowing-shared-key-affects-sas-tokens)를 참조하세요.
 
 ### <a name="monitor-how-many-requests-are-authorized-with-shared-key"></a>공유 키로 권한이 부여된 요청 수 모니터링
 
@@ -77,7 +75,6 @@ Azure Monitor의 Azure Storage 로깅은 로그 쿼리를 사용하여 로그 �
 
 Azure Monitor를 사용하여 Azure Storage 데이터를 로깅하고 Azure Log Analytics를 사용하여 분석하려면 먼저 데이터를 로그할 요청 유형과 스토리지 서비스를 나타내는 진단 설정을 만들어야 합니다. Azure Portal에서 진단 설정을 만들려면 다음 단계를 수행합니다.
 
-1. [Azure Monitor 미리 보기에서 Azure Storage 로깅](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u)에 등록합니다.
 1. Azure Storage 계정이 포함된 구독에서 새 Log Analytics 작업 영역을 만들거나 기존 Log Analytics 작업 영역을 사용합니다. 스토리지 계정에 대한 로깅을 구성하면 Log Analytics 작업 영역에서 로그를 사용할 수 있습니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../azure-monitor/logs/quick-create-workspace.md)를 참조하세요.
 1. Azure Portal의 스토리지 계정으로 이동합니다.
 1. 모니터링 섹션에서 **진단 설정(미리 보기)** 을 선택합니다.
@@ -158,6 +155,8 @@ az storage account update \
 
 공유 키 권한 부여를 허용하지 않으면 공유 키 권한 부여를 사용하여 스토리지 계정에 보낸 요청이 실패하고 오류 코드 403(금지됨)이 표시됩니다. Azure Storage는 키 기반 인증이 스토리지 계정에서 허용되지 않는다는 오류를 반환합니다.
 
+**AllowSharedKeyAccess** 속성은 Azure Resource Manager 배포 모델을 사용하는 저장소 계정에 대해서만 지원됩니다. 어떤 스토리지 계정이 Azure Resource Manager 배포 모델을 사용하는지에 대한 자세한 내용은 [스토리지 계정 유형](storage-account-overview.md#types-of-storage-accounts)을 참조하세요.
+
 ### <a name="verify-that-shared-key-access-is-not-allowed"></a>공유 키 액세스가 허용되지 않는지 확인
 
 공유 키 권한 부여가 더 이상 허용되지 않는지 확인하려면 계정 액세스 키를 사용하여 데이터 작업을 호출합니다. 다음 예에서는 액세스 키를 사용하여 컨테이너를 만들려고 시도합니다. 이 호출은 스토리지 계정에 대해 공유 키 권한 부여가 허용되지 않으면 실패합니다. 괄호 안의 자리 표시자 값은 자체적인 값으로 바꿔야 합니다.
@@ -213,6 +212,13 @@ resources
 | 서비스 SAS | 공유 키 | 모든 Azure Storage 서비스에 대한 요청이 거부됩니다. |
 | 계정 SAS | 공유 키 | 모든 Azure Storage 서비스에 대한 요청이 거부됩니다. |
 
+Azure Monitor의 Azure 메트릭 및 로깅은 서로 다른 유형의 공유 액세스 서명을 구분하지 않습니다. Azure 메트릭 탐색기의 **SAS** 필터와 Azure Monitor의 Azure Storage 로깅에 있는 **SAS** 필드는 둘 다 모든 유형의 SAS로 권한이 부여된 요청을 보고합니다. 단, 공유 키 액세스가 불허된 경우 서로 다른 유형의 공유 액세스 서명은 다르게 권한이 부여되고 다르게 작동합니다.
+
+- 서비스 SAS 토큰 또는 계정 SAS 토큰은 **AllowSharedKeyAccess** 속성이 **false** 로 설정된 경우 공유 키를 사용하여 권한이 부여되며 Blob Storage에 대한 요청에서 허용되지 않습니다.
+- 사용자 위임 SAS는 **AllowSharedKeyAccess** 속성이 **false** 로 설정된 경우 Azure AD를 사용하여 권한이 부여되며 Blob Storage에 대한 요청에서 허용됩니다.
+
+스토리지 계정에 대한 트래픽을 평가할 때는 [클라이언트 애플리케이션에 사용되는 권한 부여 유형 검색](#detect-the-type-of-authorization-used-by-client-applications)에 설명된 메트릭 및 로그에 사용자 위임 SAS를 통해 이루어진 요청이 포함될 수 있다는 점에 유의하세요.
+
 공유 액세스 서명에 대한 자세한 내용은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](storage-sas-overview.md)를 참조하세요.
 
 ## <a name="consider-compatibility-with-other-azure-tools-and-services"></a>다른 Azure 도구 및 서비스와의 호환성 고려
@@ -238,21 +244,6 @@ Azure Storage는 Blob 및 Queue Storage에 대한 요청에 대해서만 Azure A
 공유 키를 통한 계정 액세스를 불허하기 전에 Azure Files 또는 Table Storage 데이터를 별도의 스토리지 계정으로 마이그레이션하거나, Azure Files 또는 Table Storage 워크로드를 지원하는 스토리지 계정에는 이 설정을 적용하지 않는 것이 좋습니다.
 
 스토리지 계정에 대한 공유 키 액세스를 불허해도 Azure Files에 대한 SMB 연결에는 영향을 주지 않습니다.
-
-## <a name="about-the-preview"></a>미리 보기 정보
-
-공유 키 권한 부여를 불허하는 미리 보기는 Azure 퍼블릭 클라우드에서 사용할 수 있습니다. Azure Resource Manager 배포 모델을 사용하는 스토리지 계정에 대해서만 지원됩니다. 어떤 스토리지 계정이 Azure Resource Manager 배포 모델을 사용하는지에 대한 자세한 내용은 [스토리지 계정 유형](storage-account-overview.md#types-of-storage-accounts)을 참조하세요.
-
-미리 보기에는 다음 섹션에서 설명하는 제한 사항이 포함되어 있습니다.
-
-### <a name="metrics-and-logging-report-all-requests-made-with-a-sas-regardless-of-how-they-are-authorized"></a>메트릭 및 로깅은 권한 부여 방법에 관계없이 SAS를 통해 이루어진 모든 요청을 보고함
-
-Azure Monitor의 Azure 메트릭 및 로깅은 미리 보기에서 서로 다른 유형의 공유 액세스 서명을 구분하지 않습니다. Azure 메트릭 탐색기의 **SAS** 필터와 Azure Monitor의 Azure Storage 로깅에 있는 **SAS** 필드는 둘 다 모든 유형의 SAS로 권한이 부여된 요청을 보고합니다. 단, 공유 키 액세스가 불허된 경우 서로 다른 유형의 공유 액세스 서명은 다르게 권한이 부여되고 다르게 작동합니다.
-
-- 서비스 SAS 토큰 또는 계정 SAS 토큰은 **AllowSharedKeyAccess** 속성이 **false** 로 설정된 경우 공유 키를 사용하여 권한이 부여되며 Blob Storage에 대한 요청에서 허용되지 않습니다.
-- 사용자 위임 SAS는 **AllowSharedKeyAccess** 속성이 **false** 로 설정된 경우 Azure AD를 사용하여 권한이 부여되며 Blob Storage에 대한 요청에서 허용됩니다.
-
-스토리지 계정에 대한 트래픽을 평가할 때는 [클라이언트 애플리케이션에 사용되는 권한 부여 유형 검색](#detect-the-type-of-authorization-used-by-client-applications)에 설명된 메트릭 및 로그에 사용자 위임 SAS를 통해 이루어진 요청이 포함될 수 있다는 점에 유의하세요. **AllowSharedKeyAccess** 속성이 **false** 로 설정된 경우 Azure Storage가 SAS에 응답하는 방식에 대한 자세한 내용은 [공유 키를 불허하는 경우 SAS 토큰에 미치는 영향 이해](#understand-how-disallowing-shared-key-affects-sas-tokens)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

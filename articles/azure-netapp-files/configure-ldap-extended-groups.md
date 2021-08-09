@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/09/2021
+ms.date: 05/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 2546236399853f3ed6fad9e07e031edb568fbfe9
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 680563e0688d11e02f79f3c184b38d5a80bafeb0
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311535"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480360"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>NFS 볼륨 액세스에 대한 확장 그룹을 사용하여 ADDS LDAP 구성
 
@@ -86,6 +86,8 @@ ms.locfileid: "107311535"
     Active Directory 사용자 및 컴퓨터 MMC 스냅인을 사용하여 POSIX 특성을 관리할 수 ​​있습니다. 다음 예에서는 Active Directory 특성 편집기를 보여 줍니다.  
 
     ![Active Directory 특성 편집기](../media/azure-netapp-files/active-directory-attribute-editor.png) 
+
+    자세한 내용은 [Access Active Directory 특성 편집기 액세스](create-volumes-dual-protocol.md#access-active-directory-attribute-editor)를 참조하세요.  
 
 5. LDAP 통합 NFSv4.1 Linux 클라이언트를 구성하려면 [Azure NetApp Files용 NFS 클라이언트 구성](configure-nfs-clients.md)을 참조하세요.
 

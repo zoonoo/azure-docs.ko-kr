@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/15/2020
+ms.date: 05/19/2021
 ms.author: rolyon
-ms.openlocfilehash: 9779c2a269902d856d1639ce78028d0e658656bb
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: c9ab7faebc28354e96cf1c54332fc1d7b19ef196
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479834"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469909"
 ---
 # <a name="azure-custom-roles"></a>Azure 사용자 지정 역할
 
@@ -159,7 +159,7 @@ Azure에는 사용자 지정 역할에 잠재적으로 포함할 수 있는 수�
 | --- | --- | --- | --- |
 | `Name`</br>`roleName` | 예 | String | 사용자 지정 역할의 표시 이름입니다. 역할 정의는 관리 그룹 또는 구독 수준 리소스이지만 역할 정의는 동일한 Azure AD 디렉터리를 공유하는 여러 구독에서 사용할 수 있습니다. 표시 이름은 Azure AD 디렉터리의 범위에서 고유해야 합니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 128자입니다. |
 | `Id`</br>`name` | 예 | String | 사용자 지정 역할의 고유 ID입니다. Azure PowerShell 및 Azure CLI의 경우 이 ID는 새 역할을 만들 때 자동으로 생성됩니다. |
-| `IsCustom`</br>`roleType` | 예 | String | 사용자 지정 역할인지 여부를 나타냅니다. 사용자 지정 역할인 경우 `true` 또는 `CustomRole`으로 설정합니다. 기본 제공 역할인 경우 `false` 또는 `BuiltInRole`으로 설정합니다. |
+| `IsCustom`</br>`roleType` | 예 | String | 사용자 지정 역할인지 여부를 나타냅니다. 사용자 지정 역할인 경우 `true` 또는 `CustomRole`로 설정합니다. 기본 제공 역할인 경우 `false` 또는 `BuiltInRole`으로 설정합니다. |
 | `Description`</br>`description` | 예 | String | 사용자 지정 역할에 대한 설명입니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 1,024자입니다. |
 | `Actions`</br>`actions` | 예 | String[] | 역할에서 수행할 수 있는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [Actions](role-definitions.md#actions)를 참조하세요. |
 | `NotActions`</br>`notActions` | No | String[] | 허용된 `Actions`에서 제외되는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotActions](role-definitions.md#notactions)를 참조하세요. |
@@ -185,12 +185,6 @@ Microsoft.CostManagement/exports/run/action
 Microsoft.CostManagement/exports/*
 ```
 
-문자열에 와일드카드가 여러 개 있을 수도 있습니다. 예를 들어 다음 문자열은 Cost Management에 대한 모든 쿼리 권한을 나타냅니다.
-
-```
-Microsoft.CostManagement/*/query/*
-```
-
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>사용자 지정 역할을 생성, 삭제, 업데이트 또는 볼 수 있는 사용자
 
 기본 제공 역할과 마찬가지로, `AssignableScopes` 속성은 할당에 사용할 수 있는 역할에 대한 범위를 지정합니다. 또한 사용자 지정 역할에 대한 `AssignableScopes` 속성은 사용자 지정 역할을 생성, 삭제, 업데이트 또는 볼 수 있는 사용자도 제어합니다.
@@ -210,6 +204,7 @@ Microsoft.CostManagement/*/query/*
 - `AssignableScopes`를 루트 범위(`"/"`)로 설정할 수 없습니다.
 - `AssignableScopes`에서는 와일드카드(`*`)를 사용할 수 없습니다. 이 와일드카드 제한은 사용자가 역할 정의를 업데이트하여 범위에 대한 액세스 권한을 얻을 수 없도록 하는 데 도움이 됩니다.
 - 사용자 지정 역할의 `AssignableScopes`에서 하나의 관리 그룹만 정의할 수 있습니다. `AssignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다.
+- 작업 문자열에는 와일드카드를 하나만 사용할 수 있습니다.
 - `DataActions`의 사용자 지정 역할은 관리 그룹 범위에서 할당할 수 없습니다.
 - Azure Resource Manager는 관리 그룹이 역할 정의의 할당 가능한 범위에 있는지 확인하지 않습니다.
 

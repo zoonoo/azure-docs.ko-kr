@@ -6,13 +6,13 @@ ms.author: suvirdi
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 10/20/2020
-ms.openlocfilehash: 94b765cbcbdd81505b08052845207ee1d93a28d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/08/2021
+ms.openlocfilehash: 5926add3b4affffeb532c1b10cd81edc866f7f14
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101667805"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059557"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-purview"></a>Azure Purview에 대한 FAQ(질문과 대답)
 
@@ -141,3 +141,13 @@ Azure Purview는 Atlas API와 호환됩니다. Atlas에서 마이그레이션하
 ### <a name="does-azure-purview-support-column-level-lineage"></a>Azure Purview는 열 수준 계보를 지원하나요?
 
 예, Azure Purview는 열 수준 계보를 지원합니다.
+
+### <a name="does-azure-purview-support-soft-delete"></a>Azure Purview는 일시 삭제를 지원하나요?
+
+예, Azure Purview는 Azure 구독 상태 관리를 위해 일시 삭제를 지원합니다. Purview는 구독 상태(사용 안 함/경고 등)를 읽고 계정이 복원/삭제될 때까지 계정을 일시 삭제 상태로 둘 수 있습니다. 계정이 일시 삭제 상태이고 GET/DELETE 컨트롤 플레인 API 호출만 허용되면 모든 데이터 평면 API 호출이 차단됩니다. Azure 구독 상태 페이지 [Azure 구독 상태](../cost-management-billing/manage/subscription-states.md)에서 추가 정보를 찾을 수 있습니다.
+
+### <a name="does-azure-purview-currently-support-data-loss-prevention-capabilities"></a>Azure Purview는 현재 데이터 손실 방지 기능을 지원하나요?
+
+아니요, Azure Purview는 현재 데이터 손실 방지 기능을 제공하지 않습니다. 
+
+Microsoft 365의 데이터 손실 방지 기능에 관심이 있는 경우 [Microsoft 정보 보호의 데이터 손실 방지](/microsoft-365/compliance/information-protection#prevent-data-loss)에 대해 읽어보세요.

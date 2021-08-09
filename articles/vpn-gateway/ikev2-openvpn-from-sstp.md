@@ -1,18 +1,19 @@
 ---
-title: SSTP에서 OpenVPN 또는 IKEv2로 전환 | Azure VPN Gateway
-description: 이 문서를 통해 SSTP의 128 동시 연결 제한을 극복하는 방법을 이해하는 데 도움을 줍니다.
+title: SSTP에서 OpenVPN 또는 IKEv2로 전환하는 방법
+titleSuffix: Azure VPN Gateway
+description: SSTP에서 OpenVPN 프로토콜 또는 IKEv2로 전환하여 128개 동시 연결 SSTP 제한을 극복하는 방법을 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 06/04/2021
 ms.author: alzam
-ms.openlocfilehash: e2fa265e580bc0e752498284ed50e398b59423fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9b6671a2baa807d8def27a78d7776eb6fec2c1a
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97657144"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559433"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>SSTP에서 OpenVPN 프로토콜 또는 IKEv2로 전환
 
@@ -22,11 +23,11 @@ P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 
 
 지점 및 사이트 간 VPN에서는 다음 프로토콜 중 하나를 사용할 수 있습니다.
 
-* **OpenVPN&reg; 프로토콜**, SSL/TLS 기반 VPN 프로토콜입니다. 대부분의 방화벽에서 SSL이 사용되는 443 아웃바운드 TCP 포트를 열기 때문에 SSL VPN 솔루션이 방화벽을 통과할 수 있습니다. OpenVPN은 Android, iOS(버전 11.0 이상), Windows, Linux, Mac 디바이스(OSX 버전 10.13 이상)에서 연결하는 데 사용할 수 있습니다.
+* **OpenVPN&reg; 프로토콜**, SSL/TLS 기반 VPN 프로토콜입니다. 대부분의 방화벽에서 SSL이 사용되는 443 아웃바운드 TCP 포트를 열기 때문에 SSL VPN 솔루션이 방화벽을 통과할 수 있습니다. OpenVPN은 Android, iOS(버전 11.0 이상), Windows, Linux, Mac 디바이스(macOS 버전 10.13 이상)에서 연결하는 데 사용할 수 있습니다.
 
 * **SSTP(Secure Socket Tunneling Protocol)** - 독점적인 SSL 기반 VPN 프로토콜입니다. 대부분의 방화벽에서 SSL이 사용되는 443 아웃바운드 TCP 포트를 열기 때문에 SSL VPN 솔루션이 방화벽을 통과할 수 있습니다. SSTP는 Windows 디바이스에서만 지원됩니다. Azure는 SSTP가 설치된 모든 Windows 버전(Windows 7 이상)을 지원합니다. **SSTP는 게이트웨이 SKU에 관계없이 최대 128개의 동시 연결을 지원합니다**.
 
-* IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 디바이스(OSX 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다.
+* IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 디바이스(macOS 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다.
 
 
 >[!NOTE]

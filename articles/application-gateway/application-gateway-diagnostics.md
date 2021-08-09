@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a2571706d3b1341d6eb3751e50b699043b376767
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: f35a32370f2c5aba0ea3c3e0ea84b739942ceb30
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108320658"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457946"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Application Gateway에 대한 백 엔드 상태, 진단 로그
 
@@ -176,7 +176,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 |sentBytes| 보낸 패킷의 크기(바이트)|
 |timeTaken| 요청을 처리하고 응답을 보내는 데 걸리는 시간(밀리초)입니다. 이 값은 Application Gateway에서 HTTP 요청의 첫 번째 바이트를 받은 시점부터 응답 보내기 작업을 완료하는 시점까지의 간격으로 계산됩니다. 걸린 시간(Time-Taken) 필드에는 대개 요청 및 응답 패킷이 네트워크를 통해 이동하는 시간이 포함됩니다. |
 |sslEnabled| 백 엔드 풀에 대한 통신에서 TLS/SSL을 사용했는지 여부입니다. 유효한 값은 on과 off입니다.|
-|host| 요청이 백 엔드 서버로 전송된 호스트 이름입니다. 백 엔드 호스트 이름이 재정의되는 경우 이 이름에 반영됩니다.|
+|호스트| 요청이 백 엔드 서버로 전송된 호스트 이름입니다. 백 엔드 호스트 이름이 재정의되는 경우 이 이름에 반영됩니다.|
 |originalHost| 클라이언트로부터 Application Gateway가 요청을 받은 호스트 이름입니다.|
 ```json
 {
@@ -222,8 +222,8 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 |sslProtocol| 사용되는 SSL/TLS 프로토콜입니다(TLS가 사용 설정된 경우).|
 |serverRouted| Application Gateway에서 요청을 라우팅하는 백 엔드 서버입니다.|
 |serverStatus| 백 엔드 서버의 HTTP 상태 코드입니다.|
-|serverResponseLatency| 백 엔드 서버의 응답 대기 시간입니다.|
-|host| 요청의 호스트 헤더에 나열된 주소입니다. 헤더 다시 쓰기를 사용하여 다시 생성하는 경우 이 필드에 업데이트된 호스트 이름이 포함됩니다.|
+|serverResponseLatency| 백 엔드 서버의 응답 대기 시간(**초** 단위)입니다.|
+|호스트| 요청의 호스트 헤더에 나열된 주소입니다. 헤더 다시 쓰기를 사용하여 다시 생성하는 경우 이 필드에 업데이트된 호스트 이름이 포함됩니다.|
 |originalRequestUriWithArgs| 이 필드에는 원래 요청 URL이 포함됩니다 |
 |requestUri| 이 필드에는 Application Gateway에 다시 쓰기 작업 후 URL이 포함됩니다 |
 |originalHost| 이 필드는 원래 요청 호스트 이름을 포함합니다.
@@ -243,13 +243,13 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
         "httpVersion": "HTTP/1.0",
         "receivedBytes": 65,
         "sentBytes": 553,
-        "timeTaken": 205,
+        "timeTaken": "0.012",
         "sslEnabled": "off",
         "sslCipher": "",
         "sslProtocol": "",
         "serverRouted": "104.41.114.59:80",
         "serverStatus": "200",
-        "serverResponseLatency": "0.023",
+        "serverResponseLatency": "0.012",
         "host": "www.contoso.com",
     }
 }

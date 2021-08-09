@@ -3,12 +3,12 @@ title: Apache Kafka 앱에서 이벤트 허브 사용 - Azure Event Hubs | Micro
 description: 이 문서에서는 Azure Event Hubs에서 지원하는 Apache Kafka에 정보를 제공합니다.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 2e6e1defffd012e524044bc427788fc8a1bcc53a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: fcc81063ece5ced864cdcd44fe301d5c359106e9
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376087"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613701"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Apache Kafka 애플리케이션에서 Azure Event Hubs 사용
 Event Hubs는 사용자 고유의 Apache Kafka 클러스터를 실행하는 대신 대부분의 기존 Apache Kafka 클라이언트 애플리케이션에서 사용할 수 있는 Apache Kafka® 생산자 및 소비자 API 호환 엔드포인트를 제공합니다. Event Hubs는 버전 1.0 이상에서 Apache Kafka의 생산자 및 소비자 API 클라이언트를 지원합니다.
@@ -39,7 +39,7 @@ Apache Kafka용 Event Hubs 기능은 Apache Kafka 서버 버전 1.0 이상용으
 
 Event Hubs 및 네임스페이스에 대한 자세한 내용은 [Event Hubs 기능](event-hubs-features.md#namespace)을 참조하세요. 클라우드 서비스로서 Event Hubs는 안정적인 단일 가상 IP 주소를 엔드포인트로 사용하므로 클라이언트는 클러스터 내에서 브로커 또는 컴퓨터에 대해 알 필요가 없습니다. Event Hubs가 동일한 프로토콜을 구현하더라도 이 차이점은 모든 파티션에 대한 모든 Kafka 트래픽이 클러스터의 모든 브로커에 대한 방화벽 액세스를 요구하지 않고 이 하나의 엔드포인트를 통해 예측 가능하게 라우팅됨을 의미합니다.   
 
-Event Hubs의 규모는 구입한 [처리량 단위](event-hubs-scalability.md#throughput-units) 또는 [처리 단위](event-hubs-scalability.md#processing-units) 수에 따라 제어되며, 각 처리량 단위는 초당 1MB 또는 수신 시 초당 이벤트 1,000개 및 송신 시 이벤트 2,000개에 해당합니다. Event Hubs는 [자동 확장](event-hubs-auto-inflate.md) 기능을 사용하는 경우 처리량 제한에 도달하면 처리량 단위 또는 처리 단위를 자동으로 스케일 업할 수 있습니다. 이 기능은 Apache Kafka 프로토콜 지원에서도 작동합니다.  
+Event Hubs 규모는 구매한 [처리량 단위(TU)](event-hubs-scalability.md#throughput-units) 또는 [처리 단위](event-hubs-scalability.md#processing-units) 수에 따라 제어됩니다. 표준 계층 네임스페이스에 대해 [자동 확장](event-hubs-auto-inflate.md) 기능을 사용하도록 설정하는 경우 처리량 제한에 도달하면 Event Hubs가 자동으로 TU를 확장합니다. 이 기능은 Apache Kafka 프로토콜 지원에서도 작동합니다. 프리미어 계층 네임스페이스의 경우 네임스페이스에 할당된 처리 단위 수를 늘릴 수 있습니다. 
 
 ### <a name="is-apache-kafka-the-right-solution-for-your-workload"></a>Apache Kafka가 워크로드에 적합한 솔루션인가요?
 

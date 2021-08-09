@@ -3,12 +3,12 @@ title: Azure Video Analyzer 릴리스 정보 - Azure
 description: 이 항목에서는 Azure Video Analyzer 릴리스, 개선 사항, 버그 수정 및 알려진 문제에 대한 릴리스 정보를 제공합니다.
 ms.topic: conceptual
 ms.date: 05/25/2021
-ms.openlocfilehash: ffb6381fafd4aabed3bd27b14f4778d23fa7441e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: ef1c395bb10000599f901e62cf77b3573146aeee
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387829"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591227"
 ---
 # <a name="azure-video-analyzer-release-notes"></a>Azure Video Analyzer 릴리스 정보
 
@@ -23,13 +23,30 @@ ms.locfileid: "110387829"
 
 <hr width=100%>
 
+## <a name="june-3-2021"></a>2021년 6월 3일
+
+모듈의 2021년 6월 새로 고침에 대한 릴리스 태그는 다음과 같습니다.
+
+```
+     mcr.microsoft.com/media/video-analyzer:1.0.1
+```
+> [!NOTE]
+> 빠른 시작 및 자습서에서 배포 매니페스트는 태그 1(video-analyzer: 1)을 사용합니다. 따라서 이러한 매니페스트를 다시 배포하면 최신 태그가 릴리스될 때 에지 디바이스의 모듈이 업데이트되어야 합니다.
+
+### <a name="module-updates"></a>모듈 업데이트
+* RTSP 카메라에 연결하기 위한 자격 증명에서 유니코드 문자를 지원합니다.
+* 디버그 모드에서 세부 로그를 사용하도록 업데이트
+
+<hr width=100%>
+
 ## <a name="may-25-2021"></a>2021년 5월 25일
 
 이 릴리스는 Azure Video Analyzer의 첫 번째 공개 미리 보기 릴리스입니다. 릴리스 태그는 다음과 같습니다.
 
 ```
-     mcr.microsoft.com/media/video-analyzer:1.0.0
+mcr.microsoft.com/media/video-analyzer:1.0.0
 ```
+
 > [!NOTE]
 > 빠른 시작 및 자습서에서 배포 매니페스트는 태그 1(video-analyzer: 1)을 사용합니다. 따라서 이러한 매니페스트를 다시 배포하면 최신 태그가 릴리스될 때 에지 디바이스의 모듈이 업데이트되어야 합니다.
 

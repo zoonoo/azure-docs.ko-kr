@@ -2,13 +2,13 @@
 title: Event Grid 원본으로서의 Azure Blob Storage
 description: Azure Event Grid를 사용하여 Blob Storage 이벤트에 제공되는 속성을 설명합니다.
 ms.topic: conceptual
-ms.date: 02/11/2021
-ms.openlocfilehash: 893e86ecf220ceb327eed9c6f95be4c7ed1afb1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/12/2021
+ms.openlocfilehash: 37637a486bd80e9d0018495e6fd4713bab36e8ff
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363647"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111541954"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Event Grid 원본으로서의 Azure Blob Storage
 
@@ -29,11 +29,9 @@ ms.locfileid: "100363647"
 
  |이벤트 이름 |Description|
  |----------|-----------|
- |**Microsoft.Storage.BlobCreated** |Blob 생성 또는 교체 시 트리거됩니다. <br>특히 해당 이벤트는 클라이언트가 Blob REST API에서 사용할 수 있는 `PutBlob`, `PutBlockList`, 또는 `CopyBlob` 작업 사용 시 트리거됩니다.   |
+ |**Microsoft.Storage.BlobCreated** |Blob 생성 또는 교체 시 트리거됩니다. <br>특히 이 이벤트는 클라이언트가 Blob REST API에서 사용할 수 있는 `PutBlob`, `PutBlockList` 또는 `CopyBlob` 작업을 사용할 때, **그리고** 블록 Blob이 완전히 커밋될 때 트리거됩니다. <br>**계층 구조 네임스페이스** 기능이 사용되는 계정에서 클라이언트가 `CopyBlob` 작업을 사용하는 경우, `CopyBlob` 작업은 약간 다르게 작동합니다. 이 경우 **Microsoft.Storage.BlobCreated** 이벤트는 블록 Blob이 완전히 커밋될 때가 아니라 `CopyBlob` 작업이 **시작** 될 때 트리거됩니다.   |
  |**Microsoft.Storage.BlobDeleted** |Blob 삭제 시 트리거됩니다. <br>특히 해당 이벤트는 클라이언트가 `DeleteBlob` Blob REST API에서 사용할 수 있는 작업을 호출하는 경우 트리거됩니다. |
-
-> [!NOTE]
-> **Azure Blob Storage** 는 블록 Blob이 완전히 커밋되었을 때만 **Microsoft.Storage.BlobCreated** 이벤트가 트리거되는지 것을 확인하려면 `CopyBlob`, `PutBlob` 및 `PutBlockList` REST API 호출에 대한 이벤트를 필터링합니다. 해당 API 호출은 데이터가 블록 Blob에 완전히 커밋된 후에만 **Microsoft.Storage.BlobCreated** 이벤트를 트리거합니다. 필터를 만드는 방법은 [Event Grid에 대한 필터 이벤트](./how-to-filter-events.md)를 참조하세요.
+ |**Microsoft.Storage.BlobTierChanged** |Blob 액세스 계층이 변경될 때 트리거됩니다. 특히 클라이언트가 Blob REST API에서 사용할 수 있는 `Set Blob Tier` 작업을 호출하면 이 이벤트는 계층 변경이 완료된 후에 트리거됩니다. |
 
 ### <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Azure Data Lake Storage Gen 2 REST API에 대한 이벤트 목록
 
@@ -184,6 +182,33 @@ Blob Storage 계정에 계층 구조 네임스페이스가 있는 경우, 데이
   "dataVersion": "2",
   "metadataVersion": "1"
 }]
+```
+
+### <a name="microsoftstorageblobtierchanged-event"></a>Microsoft.Storage.BlobTierChanged 이벤트
+
+```json
+{
+    "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+    "subject": "/blobServices/default/containers/testcontainer/blobs/Auto.jpg",
+    "eventType": "Microsoft.Storage.BlobTierChanged",
+    "id": "0fdefc06-b01e-0034-39f6-4016610696f6",
+    "data": {
+        "api": "SetBlobTier",
+        "clientRequestId": "68be434c-1a0d-432f-9cd7-1db90bff83d7",
+        "requestId": "0fdefc06-b01e-0034-39f6-401661000000",
+        "contentType": "image/jpeg",
+        "contentLength": 105891,
+        "blobType": "BlockBlob",
+        "url": "https://my-storage-account.blob.core.windows.net/testcontainer/Auto.jpg",
+        "sequencer": "000000000000000000000000000089A4000000000018d6ea",
+        "storageDiagnostics": {
+            "batchId": "3418f7a9-7006-0014-00f6-406dc6000000"
+        }
+    },
+    "dataVersion": "",
+    "metadataVersion": "1",
+    "eventTime": "2021-05-04T15:00:00.8350154Z"
+}
 ```
 
 ### <a name="microsoftstorageblobrenamed-event"></a>Microsoft.Storage.BlobRenamed 이벤트
@@ -512,7 +537,7 @@ Blob Storage 계정에 계층 구조 네임스페이스가 있는 경우, 데이
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `topic` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -527,7 +552,7 @@ Blob Storage 계정에 계층 구조 네임스페이스가 있는 경우, 데이
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `source` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -541,7 +566,7 @@ Blob Storage 계정에 계층 구조 네임스페이스가 있는 경우, 데이
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `api` | 문자열 | 이벤트를 트리거하는 작업입니다. |
 | `clientRequestId` | 문자열 | 스토리지 API 작업에 대한 클라이언트 제공 요청 ID입니다. 해당 ID는 로그의 ‘client-request-id’ 필드를 사용하여 Azure Storage 진단 로그와의 상관관계를 지정하는 데 사용할 수 있으며, ‘x-ms-client-request-id’ 헤더를 사용하여 클라이언트 요청에 제공할 수 있습니다. [로그 형식](/rest/api/storageservices/storage-analytics-log-format)을 참조하세요. |
@@ -566,7 +591,7 @@ Blob Storage 계정에 계층 구조 네임스페이스가 있는 경우, 데이
 | [빠른 시작: Azure Portal을 사용하여 Blob Storage 이벤트 만들기 및 라우팅](blob-event-quickstart-portal.md) | 포털를 사용하여 Blob Storage 이벤트를 WebHook로 전송하는 방법을 보여줍니다. |
 | [Azure CLI: Blob Storage 계정에 대한 이벤트 구독](./scripts/event-grid-cli-blob.md) | Blob Storage 계정에 대한 이벤트를 구독하는 샘플 스크립트입니다. 이벤트를 WebHook로 전송합니다. |
 | [PowerShell: Blob Storage 계정에 대한 이벤트 구독](./scripts/event-grid-powershell-blob.md) | Blob Storage 계정에 대한 이벤트를 구독하는 샘플 스크립트입니다. 이벤트를 WebHook로 전송합니다. |
-| [Resource Manager 템플릿: Blob Storage 및 구독 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Azure Blob Storage 계정을 배포하고 해당 스토리지 계정에 대한 이벤트를 구독합니다. WebHook에 이벤트를 보냅니다. |
+| [Resource Manager 템플릿: Blob Storage 및 구독 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-subscription-and-storage) | Azure Blob Storage 계정을 배포하고 해당 스토리지 계정에 대한 이벤트를 구독합니다. WebHook에 이벤트를 보냅니다. |
 | [개요: Blob Storage 이벤트에 대응](../storage/blobs/storage-blob-event-overview.md) | Event Grid와 Blob Storage 통합의 개요입니다. |
 
 ## <a name="next-steps"></a>다음 단계

@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: 82a5e90221a77b891df78984c7fddfd63b6532aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d1aae5620f32b5680badc073d74d360b70b68a3b
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585420"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579875"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>가상 Wan 허브에 교차 테넌트 VNet 연결
 
@@ -54,7 +54,7 @@ ms.locfileid: "104585420"
 1. 그런 다음 PowerShell의 현재 세션에 원격 테넌트 구독과 부모 테넌트 구독을 추가합니다. 다음 명령을 실행합니다. 부모에 로그인한 경우에는 원격 테넌트에 대해서만 명령을 실행하면 됩니다.
 
    ```azurepowershell-interactive
-   Add-AzAccount -SubscriptionId "xxxxx-b34a-4df9-9451-4402dcaecc5b"
+   Connect-AzAccount -SubscriptionId "[subscription ID]" -TenantId "[tenant ID]"
    ```
 
 1. 부모 자격 증명을 사용하여 Azure PowerShell에 로깅하고 다음 명령을 실행하여 역할 할당에 성공했는지 확인합니다.
@@ -63,7 +63,7 @@ ms.locfileid: "104585420"
    Get-AzSubscription
    ```
 
-1. 권한이 부모에 성공적으로 전파되고 세션에 추가된 경우 원격 테넌트가 소유한 구독은 명령 출력에 표시됩니다.
+1. 권한이 부모에 성공적으로 전파되고 세션에 추가된 경우, 부모 **및** 원격 테넌트가 소유한 구독이 모두 명령 출력에 표시됩니다.
 
 ## <a name="connect-vnet-to-hub"></a><a name="connect"></a>허브에 VNet 연결
 

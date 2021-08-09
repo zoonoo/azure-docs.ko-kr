@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 950a786b29a8144c4bb192fa6078e8c88d67481d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87156914769c2cb76b7509b74ebfeb13b15af95e
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100384455"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784198"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Synapse에서 일반적인 작업을 수행하는 데 필요한 역할 이해
 
@@ -116,7 +116,7 @@ Notebook 또는 작업 정의에 대한 변경 내용을 Git 리포지토리에 
 사용자, 그룹 및 서비스 주체에 대한 Synapse RBAC 역할 할당 및 제거| 작업 영역 또는 특정 작업 영역 항목 범위에서 Synapse 관리자|roleAssignments/write, delete 
 
 >[!Note]
->다른 테넌트의 게스트 사용자는 할당된 역할에 관계없이 역할 할당을 검토, 추가 또는 변경할 수 없습니다. 
+>다른 테넌트의 게스트 사용자도 Synapse 관리자로 할당되면 역할 할당을 검토, 추가 또는 변경할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

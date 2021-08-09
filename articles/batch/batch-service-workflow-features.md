@@ -2,13 +2,13 @@
 title: Batch 서비스 워크플로 및 리소스
 description: 개발 관점에서 Batch 서비스 및 고급 워크플로의 기능에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: 76a0b140f3bea4b07a6de632abbcbc3fd26e582d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: c525b635bbda4284c876fa092c285e884a33db73
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85965215"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006998"
 ---
 # <a name="batch-service-workflow-and-resources"></a>Batch 서비스 워크플로 및 리소스
 
@@ -17,7 +17,7 @@ Azure Batch 서비스의 핵심 구성 요소에 대한 이 개요에서는 Batc
 분산된 계산 애플리케이션 또는 [REST API](/rest/api/batchservice/) 호출을 직접 실행하는 서비스를 개발하거나 [Batch SDK](batch-apis-tools.md#batch-service-apis) 중 다른 하나를 사용하거나 상관없이 여기에서 설명하는 다양한 리소스 및 기능을 사용하게 됩니다.
 
 > [!TIP]
-> Batch 서비스에 대한 고급 소개는 [Azure Batch의 기본 사항](batch-technical-overview.md)을 참조하세요. 또한 최신 [Batch 서비스 업데이트](https://azure.microsoft.com/updates/?product=batch)를 참조하세요.
+> Batch 서비스에 대한 고급 소개는 [Azure Batch란?](batch-technical-overview.md)을 참조하세요. 또한 최신 [Batch 서비스 업데이트](https://azure.microsoft.com/updates/?product=batch)를 참조하세요.
 
 ## <a name="basic-workflow"></a>기본 워크플로
 

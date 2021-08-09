@@ -4,12 +4,12 @@ description: Azure Application Insights를 사용하여 IP 주소 및 지리적 
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js, devx-track-azurepowershell
-ms.openlocfilehash: d5bacde864d42dfefab9c4b0d5dc90072081a25f
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 8115ea2334d0ea90ef0e31bb857f3e76154912ce
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321360"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110082543"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>지리적 위치 및 IP 주소 처리
 
@@ -58,7 +58,7 @@ IP 수집과 스토리지를 사용하도록 설정하려면 Application Insight
 }
 ```
 
-### <a name="portal"></a>포털 
+### <a name="portal"></a>포털
 
 단일 Application Insights 리소스의 동작만 수정해야 하는 경우 Azure Portal을 사용하세요. 
 
@@ -79,15 +79,14 @@ IP 수집과 스토리지를 사용하도록 설정하려면 Application Insight
     > [!WARNING]
     > **_리소스 그룹이 템플릿에 있는 하나 이상의 리소스가 지원하지 않는 위치에 있습니다. 다른 리소스 그룹을 선택하세요,_** 오류가 발생하면 드롭다운에서 다른 리소스 그룹을 임시로 선택한 다음 원래 리소스 그룹을 다시 선택하여 오류를 해결합니다.
 
-5. **동의함** > **구매** 를 선택합니다. 
+5. **검토 + 만들기** > **만들기** 를 차례로 선택합니다.
 
-    ![‘구매’가 빨간색으로 강조 표시된 단어 위에 ‘위에 명시된 사용 약관에 동의함’이 빨간색으로 강조 표시된 확인란 선택.](media/ip-collection/purchase.png)
-
-    이 경우 실제로 구매되는 새 항목은 없습니다. 기존 Application Insights 리소스의 구성을 업데이트하는 것뿐입니다.
+    > [!NOTE]
+    > "배포 실패"가 표시되면 "microsoft.insights/components" 유형의 배포 세부 정보를 살펴보고 상태를 확인합니다. 성공하면 DisableIpMasking에 대한 변경 내용이 배포된 것입니다.
 
 6. 배포가 완료되면 새 원격 분석 데이터가 기록됩니다.
 
-    템플릿을 선택하고 편집하는 경우 새로 추가된 속성이 없는 기본 템플릿만 표시됩니다. IP 주소 데이터가 표시되지 않고 `"DisableIpMasking": true`가 설정되어 있는지 확인하려면 다음 PowerShell을 실행합니다. 
+    템플릿을 선택하고 편집하는 경우 새로 추가된 속성이 없는 기본 템플릿만 표시됩니다. IP 주소 데이터가 표시되지 않고 `"DisableIpMasking": true`가 설정되어 있는지 확인하려면 다음 PowerShell을 실행합니다.
     
     ```powershell
     # Replace `Fabrikam-dev` with the appropriate resource and resource group name.

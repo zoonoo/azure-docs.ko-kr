@@ -4,12 +4,12 @@ description: 새 라이브 애플리케이션에 대한 Application Insights 모
 ms.topic: conceptual
 ms.date: 02/10/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 7e4c4b0ba4dca9b51f120e6092c13195a061aa87
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 37f090f44099dc45d6c258e10b09d164277fcb47
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754536"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077179"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 
@@ -28,7 +28,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ![왼쪽 위에 있는 ‘+’ 기호를 클릭합니다. 개발자 도구, Application Insights를 차례로 선택합니다.](./media/create-new-resource/new-app-insights.png)
 
-   | 설정        |  값           | Description  |
+   | 설정        |  값           | 설명  |
    | ------------- |:-------------|:-----|
    | **이름**      | `Unique value` | 모니터링하는 애플리케이션을 식별하는 이름입니다. |
    | **리소스 그룹**     | `myResourceGroup`      | App Insights 데이터를 호스트할 신규 또는 기존 리소스 그룹의 이름입니다. |
@@ -50,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 계측 키는 원격 분석 데이터를 연결하려는 리소스를 식별합니다. 계측 키를 복사하고 애플리케이션의 코드에 추가해야 합니다.
 
 > [!IMPORTANT]
-> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 **사용해야 합니다**. [연결 문자열](./sdk-connection-string.md?tabs=net)은 원격 분석 데이터를 연결하려는 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
+> 계측 키보다 [연결 문자열](./sdk-connection-string.md)이 권장됩니다. 새 Azure 지역에서는 계측 키 대신 연결 문자열을 **사용해야 합니다**. 연결 문자열은 원격 분석 데이터를 연결할 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
 
 ## <a name="install-the-sdk-in-your-app"></a>응용 프로그램에 SDK를 설치합니다.
 

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 3985564d49ce8a5c62b15f9537364418c0a8f5da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83837ebc464c1168bd71cd616d0483459c8ae2cc
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97509923"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111557147"
 ---
 # <a name="how-to-shape-and-export-enrichments"></a>강화 셰이프 및 내보내기 방법
 
@@ -33,7 +33,7 @@ ms.locfileid: "97509923"
 + 개체
 + 파일
 
-테이블 프로젝션은 Azure Table 스토리지에 저장됩니다. 개체 및 파일 프로젝션은 Blob Storage에 기록되며, 여기서 개체 프로젝션은 JSON 파일로 저장되고 원본 문서의 콘텐츠는 물론 모든 기술 출력 또는 보강을 포함할 수 있습니다. 또한 보강 파이프라인은 이미지와 같은 이진 파일을 추출할 수 있습니다. 이러한 이진 파일은 파일 프로젝션으로 프로젝션됩니다. 이진 개체를 개체 프로젝션으로 프로젝션하면 연결된 메타데이터만 JSON Blob으로 저장됩니다. 
+테이블 프로젝션은 Azure Table Storage에 저장됩니다. 개체 및 파일 프로젝션은 Blob Storage에 기록되며, 여기서 개체 프로젝션은 JSON 파일로 저장되고 원본 문서의 콘텐츠는 물론 모든 기술 출력 또는 보강을 포함할 수 있습니다. 또한 보강 파이프라인은 이미지와 같은 이진 파일을 추출할 수 있습니다. 이러한 이진 파일은 파일 프로젝션으로 프로젝션됩니다. 이진 개체를 개체 프로젝션으로 프로젝션하면 연결된 메타데이터만 JSON Blob으로 저장됩니다. 
 
 데이터 셰이핑과 프로젝션의 교차를 이해하기 위해 다양한 구성을 탐색하기 위한 기준으로 다음 기술 세트를 사용합니다. 이 기술 세트는 원시 이미지 및 텍스트 콘텐츠를 처리합니다. 프로젝션은 원하는 시나리오에 대해 문서의 내용과 기술의 출력을 통해 정의됩니다.
 

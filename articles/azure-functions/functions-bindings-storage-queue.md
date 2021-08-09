@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: a1b9d03da29b7c89055303fa97fc38c2ef734b23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7497f98ec82596417a8c3fbb8cef11814e7df6c0
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100381480"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412190"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Azure Functions의 Azure Queue 스토리지 트리거 및 바인딩 개요
 
@@ -28,7 +28,7 @@ Azure Functions는 새 Azure Queue 스토리지 메시지가 만들어질 때 �
 
 트리거 및 바인딩을 사용하려면 적절한 패키지를 참조해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용되는 반면 확장 번들은 다른 모든 애플리케이션 형식에 사용됩니다.
 
-| 언어                                        | 추가 방법                                   | 설명 
+| 언어                                        | 추가 방법...                                   | 설명 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | [NuGet 패키지] 버전 3.x 설치 | |
 | C# Script, Java, JavaScript, Python, PowerShell | [확장 번들] 등록          | [Azure Tools 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)은 Visual Studio Code와 함께 사용하는 것이 좋습니다. |
@@ -36,7 +36,7 @@ Azure Functions는 새 Azure Queue 스토리지 메시지가 만들어질 때 �
 
 #### <a name="storage-extension-5x-and-higher"></a>스토리지 확장 5.x 이상
 
-새 버전의 스토리지 바인딩 확장은 [미리 보기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.2)로 제공됩니다. 이 미리 보기에서는 [비밀 대신 ID를 사용하여 연결](./functions-reference.md#configure-an-identity-based-connection)하는 기능이 도입되었습니다. .NET 애플리케이션의 경우 `WindowsAzure.Storage` 및 `Microsoft.Azure.Storage`의 형식이 [Azure.Storage.Queues](/dotnet/api/azure.storage.queues)의 최신 형식으로 바뀌어 사용자가 바인딩할 수 있는 형식도 변경됩니다.
+새 버전의 스토리지 바인딩 확장은 [미리 보기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.3)로 제공됩니다. 이 미리 보기에서는 [비밀 대신 ID를 사용하여 연결](./functions-reference.md#configure-an-identity-based-connection)하는 기능이 도입되었습니다. .NET 애플리케이션의 경우 `WindowsAzure.Storage` 및 `Microsoft.Azure.Storage`의 형식이 [Azure.Storage.Queues](/dotnet/api/azure.storage.queues)의 최신 형식으로 바뀌어 사용자가 바인딩할 수 있는 형식도 변경됩니다.
 
 > [!NOTE]
 > 미리 보기 패키지는 확장 번들에 포함되지 않으며 수동으로 설치해야 합니다. .NET 앱의 경우 패키지에 대한 참조를 추가합니다. 다른 모든 앱 유형에 대해서는 [확장 업데이트]를 참조하세요.
@@ -84,7 +84,7 @@ Functions 1.x 앱은 [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Mi
 |visibilityTimeout|00:00:00|메시지 처리가 실패하는 경우 재시도 사이의 간격입니다. |
 |batchSize|16|함수 런타임이 동시에 검색하고 병렬로 처리하는 큐 메시지 수입니다. 처리되는 개수가 `newBatchThreshold`로 감소하면 런타임은 다른 일괄 처리를 가져와 해당 메시지의 처리를 시작합니다. 따라서 함수당 처리되는 최대 동시 메시지 수는 `batchSize` + `newBatchThreshold`입니다. 이 제한은 큐 트리거 함수에 개별적으로 적용됩니다. <br><br>하나의 큐에 수신된 메시지에 대해 병렬 실행을 방지하려면 `batchSize`을 1로 설정합니다. 그러나 이 설정은 함수 앱이 단일 VM(가상 머신)에서 실행되는 동안에만 동시성을 제거합니다. 함수 앱이 여러 VM에 확장되면 각 VM은 각 큐 트리거 함수의 인스턴스 하나를 실행할 수 있습니다.<br><br>최대 `batchSize`은 32입니다. |
 |maxDequeueCount|5|포이즌 큐로 이동하기 전에 메시지 처리를 시도할 횟수입니다.|
-|newBatchThreshold|batchSize/2|동시에 처리되는 메시지의 수가 이 숫자로 내려갈 때마다 런타임은 다른 일괄 처리를 검색합니다.|
+|newBatchThreshold|N*batchSize/2|동시에 처리되는 메시지의 수가 이 숫자로 내려갈 때마다 런타임은 다른 일괄 처리를 검색합니다.<br><br>`N`은 App Service 또는 프리미엄 플랜에서 실행할 때 사용 가능한 vCPU 수를 나타냅니다. 사용 계획에 대한 값은 `1`입니다.|
 |messageEncoding|base64| 이 설정은 [확장 버전 5.0.0 이상](#storage-extension-5x-and-higher)에서만 사용할 수 있습니다. 메시지의 인코딩 형식을 나타냅니다. 유효한 값은 `base64` 및 `none`입니다.|
 
 ## <a name="next-steps"></a>다음 단계

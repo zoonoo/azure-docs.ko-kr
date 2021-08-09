@@ -4,12 +4,12 @@ description: 노드 자동 복구 기능 및 AKS에서 중단된 작업자 노�
 services: container-service
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: 341aef394a3784edbc0acd91dad396c9794da3d0
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 95783000739fd42e39ef1bbce88c3b8e62d4a8dc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105207"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110073201"
 ---
 # <a name="azure-kubernetes-service-aks-node-auto-repair"></a>AKS(Azure Kubernetes Service) 노드 자동 복구
 
@@ -45,6 +45,11 @@ AKS가 10분 동안 비정상 상태로 유지되는 비정상 노드를 식별�
 자동 복구에 실패한 경우 대체 수정 사항은 AKS 엔지니어가 조사합니다. 
 
 AKS가 상태 확인 중에 여러 비정상 노드를 발견하면 다른 복구가 시작되기 전에 각 노드가 개별적으로 복구됩니다.
+
+
+## <a name="limitations"></a>제한 사항
+
+대부분의 경우 AKS는 노드가 비정상인지 확인하고 문제를 복구하려고 시도할 수 있지만 AKS가 문제를 복구할 수 없거나 문제가 있음을 검색할 수 없는 경우가 있습니다. 예를 들어 네트워크 구성에서 오류로 인해 노드 상태가 보고되지 않는 경우 AKS는 문제를 검색할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

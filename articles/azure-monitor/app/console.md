@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.custom: devx-track-csharp
 ms.reviewer: lmolkova
-ms.openlocfilehash: aa39a1eca04621fc4db75f755402d3679403e814
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee78fb4f778ac1ab629a68173249bdcada7b00fa
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96920598"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110082597"
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET 콘솔 애플리케이션용 Application Insights
 
@@ -24,7 +24,7 @@ ms.locfileid: "96920598"
 ## <a name="getting-started"></a>시작
 
 > [!IMPORTANT]
-> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 **사용해야 합니다**. [연결 문자열](./sdk-connection-string.md?tabs=net)은 원격 분석 데이터를 연결하려는 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
+> 계측 키보다 [연결 문자열](./sdk-connection-string.md?tabs=net)이 권장됩니다. 새 Azure 지역에서는 계측 키 대신 연결 문자열을 **사용해야 합니다**. 연결 문자열은 원격 분석 데이터를 연결할 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
 
 * [Azure Portal](https://portal.azure.com)에서 [Application Insights 리소스를 만듭니다](./create-new-resource.md). 애플리케이션 유형으로 **일반** 을 선택합니다.
 * 계측 키를 복사합니다. 만든 새 리소스의 **필수** 드롭다운에서 키를 찾습니다.

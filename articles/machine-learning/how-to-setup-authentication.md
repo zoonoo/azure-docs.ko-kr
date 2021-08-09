@@ -8,31 +8,36 @@ ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 04/02/2021
+ms.date: 05/27/2021
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2
-ms.openlocfilehash: 44468f056cb9e13b8384c86fa5858ef1c3edb44b
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 5f8f2c1f6d48a5c1b128643258af083b1811570e
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070032"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854633"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Azure Machine Learning 리소스 및 워크플로에 대한 인증 설정
 
 
-Azure Machine Learning 작업 영역에 인증을 설정하는 방법을 알아봅니다. Azure Machine Learning 작업 영역 인증은 대부분 __Azure Active Directory__(Azure AD)를 기반으로 합니다. 일반적으로 작업 영역에 연결할 때는 세 가지 인증 워크플로를 사용할 수 있습니다.
+Azure Machine Learning 작업 영역에 인증을 설정하는 방법을 알아봅니다. Azure Machine Learning 작업 영역 인증은 대부분 __Azure Active Directory__(Azure AD)를 기반으로 합니다. 일반적으로 작업 영역에 연결할 때는 네 가지 인증 워크플로를 사용할 수 있습니다.
 
 * __대화형__: Azure Active Directory의 계정을 사용하여 직접 인증하거나 인증에 사용되는 토큰을 가져옵니다. 대화형 인증은 _실험 및 반복적인 개발_ 중에 사용됩니다. 대화형 인증을 사용하면 사용자별 기준으로 웹 서비스와 같은 리소스에 대한 액세스를 제어할 수 있습니다.
 
 * __서비스 주체__: Azure Active Directory에 서비스 주체 계정을 만들고 이를 사용하여 인증하거나 토큰을 가져옵니다. 서비스 주체는 사용자 상호 작용 없이 서비스 _인증을 위해 자동화된 프로세스_ 가 필요한 경우에 사용됩니다. 예를 들어 학습 코드가 변경될 때마다 모델을 학습시키고 테스트하는 연속 통합 및 배포 스크립트가 있습니다.
 
+* __Azure CLI 세션__: 활성 Azure CLI 세션을 사용하여 인증합니다. Azure CLI 인증은 _실험 및 반복 개발_ 중이거나 사전 인증된 세션을 사용하여 서비스의 _인증을 위한 자동화된 프로세스_ 가 필요한 경우에 사용됩니다. Python 코드에 자격 증명을 저장하지 않거나 사용자에게 인증을 요청하지 않고 로컬 워크스테이션에서 Azure CLI를 통해 Azure에 로그인할 수 있습니다. 마찬가지로, 서비스 사용자 ID를 사용하여 Azure CLI를 인증하는 동시에 연속 통합 및 배포 파이프라인의 일부로 동일한 스크립트를 다시 사용할 수 있습니다.
+
 * __관리 ID__: _Azure Virtual Machine_ 에서 Azure Machine Learning SDK를 사용할 때 Azure에 관리 ID를 사용할 수 있습니다. 이 워크플로를 사용하면 Python 코드에 자격 증명을 저장하거나 사용자에게 인증 프롬프트를 표시하지 않아도 VM이 관리 ID를 사용하여 작업 영역에 연결할 수 있습니다. 또한 _모델을 학습시킬_ 때 관리 ID를 사용하여 작업 영역에 액세스하도록 Azure Machine Learning 컴퓨팅 클러스터를 구성할 수도 있습니다.
 
-> [!IMPORTANT]
-> 사용된 인증 워크플로에 관계없이 Azure 역할 기반 액세스 제어(Azure RBAC)는 리소스에 허용된 액세스 수준(권한 부여) 범위를 지정하는 데 사용됩니다. 예를 들어 관리 또는 자동화 프로세스는 컴퓨팅 인스턴스만들기 액세스 권한이 있지만, 사용 권한이 없고, 데이터 과학자는 사용 권한만 있고 삭제 또는 만들기 원한이 없을 수 있습니다. 자세한 내용은 [Azure Machine Learning 작업 영역 액세스 관리](how-to-assign-roles.md)를 참조하세요.
+사용된 인증 워크플로에 관계없이 Azure 역할 기반 액세스 제어(Azure RBAC)는 리소스에 허용된 액세스 수준(권한 부여) 범위를 지정하는 데 사용됩니다. 예를 들어 관리 또는 자동화 프로세스는 컴퓨팅 인스턴스만들기 액세스 권한이 있지만, 사용 권한이 없고, 데이터 과학자는 사용 권한만 있고 삭제 또는 만들기 원한이 없을 수 있습니다. 자세한 내용은 [Azure Machine Learning 작업 영역 액세스 관리](how-to-assign-roles.md)를 참조하세요.
+
+Azure AD 조건부 액세스를 사용하여 각 인증 워크플로의 작업 영역에 대한 액세스를 추가로 제어하거나 제한할 수 있습니다. 예를 들어 관리자는 관리 디바이스에서만 작업 영역 액세스를 허용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
+
+[!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 * Azure Machine Learning SDK를 설치하도록 [개발 환경을 구성](how-to-configure-environment.md)하거나 SDK가 이미 설치된 [Azure Machine Learning 컴퓨팅 인스턴스](concept-azure-machine-learning-architecture.md#compute-instance)를 사용합니다.
@@ -392,6 +397,10 @@ ws = Workspace(subscription_id="your-sub-id",
                 auth=msi_auth
                 )
 ```
+
+## <a name="use-conditional-access"></a>조건부 액세스 사용
+
+관리자는 작업 영역에 로그인하는 사용자에 대해 [AZURE AD 조건부 액세스 정책](../active-directory/conditional-access/overview.md)을 적용할 수 있습니다. 예를 들어 2단계 인증을 요구하거나, 관리 디바이스에서만 로그인을 허용할 수 있습니다. 특히 Azure Machine Learning 작업 영역에 조건부 액세스를 사용하려면 Machine Learning Cloud 앱에 [조건부 액세스 정책을 할당](../active-directory/conditional-access/concept-conditional-access-cloud-apps.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

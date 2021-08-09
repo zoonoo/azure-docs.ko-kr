@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 407d208ef0385c795d086bb495ed51a020395cd2
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: dffe54250bdbe8b060483a846b84b4adae858fb6
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443989"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109845496"
 ---
 # <a name="edv4-and-edsv4-series"></a>Edv4 및 Edsv4 시리즈
 
@@ -46,7 +46,7 @@ Edv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) 프
 | Standard_E64d_v4 | 64 | 504 | 2400 | 32 | 615000/3872 | 8|30000 |
 
 
-<sup>**</sup> [Gen2 VM](generation-2.md)을 사용하여 이러한 IOP 값을 보장할 수 있습니다.
+<sup>**</sup> 해당 IOP 값은 [Gen2 VM](generation-2.md)을 사용하여 얻을 수 있습니다.
 
 ## <a name="edsv4-series"></a>Edsv4 시리즈
 
@@ -65,18 +65,20 @@ Edsv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) �
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | <sup>**</sup> 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭(Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_E2ds_v4  | 2 | 16 | 75 | 4 | 19000/120(50) | 3200/48 | 2|1000 |
-| Standard_E4ds_v4  | 4 | 32 | 150 | 8 | 38500/242(100) | 6400/96 | 2|2000 |
-| Standard_E8ds_v4 | 8 | 64 | 300 | 16 | 77000/485(200) | 12800/192 | 4|4000 |
-| Standard_E16ds_v4 | 16 | 128 | 600 | 32 | 154000/968(400) | 25600/384 | 8|8000 |
+| Standard_E4ds_v4 <sup>1</sup> | 4 | 32 | 150 | 8 | 38500/242(100) | 6400/96 | 2|2000 |
+| Standard_E8ds_v4 <sup>1</sup> | 8 | 64 | 300 | 16 | 77000/485(200) | 12800/192 | 4|4000 |
+| Standard_E16ds_v4 <sup>1</sup> | 16 | 128 | 600 | 32 | 154000/968(400) | 25600/384 | 8|8000 |
 | Standard_E20ds_v4 | 20 | 160 | 750 | 32 | 193000/1211(500)  | 32000/480  | 8|10000 |
-| Standard_E32ds_v4 | 32 | 256 | 1200 | 32 | 308000/1936(800) | 51200/768  | 8|16000 |
+| Standard_E32ds_v4 <sup>1</sup> | 32 | 256 | 1200 | 32 | 308000/1936(800) | 51200/768  | 8|16000 |
 | Standard_E48ds_v4 | 48 | 384 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 8|24000 |
 | Standard_E64ds_v4 <sup>1</sup> | 64 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8|30000 |
 | Standard_E80ids_v4 <sup>2</sup> | 80 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1500 | 8|30000 |
 
-<sup>1</sup> [사용 가능한 코어 크기 제한)](./constrained-vcpu.md).
+<sup>1</sup> [사용 가능한 코어 크기 제한](./constrained-vcpu.md).
 
 <sup>2</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
+
+<sup>**</sup> 해당 IOP 값은 [Gen2 VM](generation-2.md)을 사용하여 얻을 수 있습니다.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

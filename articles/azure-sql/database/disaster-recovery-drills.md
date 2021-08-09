@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 12/18/2018
-ms.openlocfilehash: f53a08a12c5afda8dbc3f25d9102f52b870ceea4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: caba051710117cd21a590f2a7f17813b9ff8491c
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91321665"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110694435"
 ---
 # <a name="performing-disaster-recovery-drills"></a>재해 복구 훈련 수행
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -70,5 +70,5 @@ ms.locfileid: "91321665"
 
 * 비즈니스 연속성 시나리오에 대해 알아보려면 [연속성 시나리오](business-continuity-high-availability-disaster-recover-hadr-overview.md)를 참조하세요.
 * Azure SQL Database 자동화 백업에 대한 자세한 내용은 [SQL Database 자동화 백업](automated-backups-overview.md)
-* 복구를 위해 자동화 된 백업을 사용 하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](recovery-using-backups.md)을 참조 하세요.
+* 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](recovery-using-backups.md)을 참조하세요.
 * 빠른 복구 옵션에 대해 알아보려면 [활성 지역 복제](active-geo-replication-overview.md)와 [자동 장애 조치(failover) 그룹](auto-failover-group-overview.md)을 참조하세요.

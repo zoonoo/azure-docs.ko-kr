@@ -1,6 +1,6 @@
 ---
-title: 위치에 따라 Edge Pro 전원 코드 기술 사양을 Microsoft Azure Stack | Microsoft Docs
-description: Azure Stack Edge Pro 전원 코드에 대 한 기술 사양에 대해 알아봅니다.
+title: Azure Stack Edge Pro FPGA 위치별 전원 코드의 기술적 사양
+description: Azure Stack Edge Pro FPGA 전원 코드의 기술 사양에 대해 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 18de1f445990f167041c755aa5e7d909819319b1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 06809cacd3a8176338b2df0882f8f3d31d665c4a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96446455"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460364"
 ---
-# <a name="azure-stack-edge-pro-power-cord-specifications"></a>Azure Stack Edge Pro 전원 코드 사양
+# <a name="azure-stack-edge-pro-fpga-power-cord-specifications"></a>Azure Stack Edge Pro FPGA 전원 코드 사양
 
-Azure Stack Edge Pro 장치에는 Azure 지역에 따라 달라 지는 전원 코드가 필요 합니다.
+Azure Stack Edge Pro FPGA 디바이스에는 Azure 지역에 따라 달라지는 전원 코드가 필요합니다.
 
 ## <a name="supported-power-cords"></a>지원되는 전원 코드
 
@@ -158,4 +158,4 @@ Azure Stack Edge Pro 장치에는 Azure 지역에 따라 달라 지는 전원 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Stack Edge Pro 기술 사양](./azure-stack-edge-technical-specifications-compliance.md)
+[Azure Stack Edge Pro FPGA 기술 사양](./azure-stack-edge-technical-specifications-compliance.md)

@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 03/15/2021
-ms.author: kuthapar
+ms.date: 04/06/2021
+ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 536c0ab78a4b7e08abb1532635aff722df9e15cd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 009d40d0120aa21a38f218087e803dd94bbfb9c2
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563109"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075037"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Core(SQL) API용 Spring Data Azure Cosmos DB v3: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,7 +30,8 @@ ms.locfileid: "105563109"
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark 커넥터](sql-api-sdk-java-spark.md)
+> * [Spark 3 OLTP 커넥터](sql-api-sdk-java-spark-v3.md)
+> * [Spark 2 OLTP 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)
@@ -48,7 +49,7 @@ Core(SQL) 용 Spring Data Azure Cosmos DB 버전 3을 통해 개발자는 Spring
 > 3\.5.0 이상의 azure-스프링 데이터 cosmos 버전은 스프링 데이터 버전 2.4.3 이상을 지원합니다.
 >
 
-[Spring Framework](https://spring.io/projects/spring-framework)는 Java 애플리케이션 개발을 간소화하는 프로그래밍 및 구성 모델입니다. 스프링은 종속성 주입을 사용하여 애플리케이션의 "배관"을 간소화합니다. 애플리케이션을 보다 간단하게 빌드하고 테스트할 수 있기 때문에 많은 개발자들이 Spring을 좋아합니다. [Spring Boot](https://spring.io/projects/spring-boot)는 웹 애플리케이션 및 마이크로 서비스 개발을 목적으로 이러한 배관의 처리를 확장합니다. [Spring Data](https://spring.io/projects/spring-data)는 Spring 또는 Spring Boot 애플리케이션의 컨텍스트에서 Azure Cosmos DB와 같은 데이터 저장소에 액세스하기 위한 프로그래밍 모델 및 프레임워크입니다. 
+[Spring Framework](https://spring.io/projects/spring-framework)는 Java 애플리케이션 개발을 간소화하는 프로그래밍 및 구성 모델입니다. Spring은 종속성 주입을 사용하여 애플리케이션의 "연결"을 간소화합니다. 애플리케이션을 보다 간단하게 빌드하고 테스트할 수 있기 때문에 많은 개발자들이 Spring을 좋아합니다. [Spring Boot](https://spring.io/projects/spring-boot)는 웹 애플리케이션 및 마이크로 서비스 개발을 목적으로 이러한 배관의 처리를 확장합니다. [Spring Data](https://spring.io/projects/spring-data)는 Spring 또는 Spring Boot 애플리케이션의 컨텍스트에서 Azure Cosmos DB와 같은 데이터 저장소에 액세스하기 위한 프로그래밍 모델 및 프레임워크입니다. 
 
 [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/) 애플리케이션에서 Spring Data Azure Cosmos DB를 사용할 수 있습니다.
 
@@ -60,7 +61,6 @@ Core(SQL) 용 Spring Data Azure Cosmos DB 버전 3을 통해 개발자는 Spring
 > 다른 Azure Cosmos DB API의 Spring Data에 대한 정보는 다음 문서를 참조하세요.
 > * [Azure Cosmos DB의 Spring Data for Apache Cassandra](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
 > * [Azure Cosmos DB의 Spring Data MongoDB](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
-> * [Azure Cosmos DB의 Spring Data Gremlin](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 
 ## <a name="get-started-fast"></a>빠른 시작
@@ -90,6 +90,9 @@ Core(SQL) 용 Spring Data Azure Cosmos DB 버전 3을 통해 개발자는 Spring
 | **문제 해결** | [Java SDK v4에 대한 문제 해결(Spring Data에 적용 가능)](troubleshoot-java-sdk-v4-sql.md) | 
 | **Azure Cosmos DB 워크샵 및 랩** |[Cosmos DB 워크샵 홈페이지](https://aka.ms/cosmosworkshop)
 
+> [!IMPORTANT]
+> * 3\.5.0 릴리스는 Spring Boot 2.4.3 이상을 지원합니다.
+
 [!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md)]
 
 ## <a name="additional-notes"></a>추가적인 참고 사항
@@ -105,8 +108,8 @@ Core(SQL) 용 Spring Data Azure Cosmos DB 버전 3을 통해 개발자는 Spring
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)에 대해 자세히 알아보세요.
 
-[Spring 프레임워크](https://spring.io/projects/spring-framework)에 대해 자세히 알아봅니다.
+[Spring Framework](https://spring.io/projects/spring-framework)에 대해 자세히 알아봅니다.
 
 [Spring Boot](https://spring.io/projects/spring-boot)에 대해 자세히 알아봅니다.
 
-[Spring 데이터](https://spring.io/projects/spring-data)에 대해 자세히 알아봅니다.
+[Spring Data](https://spring.io/projects/spring-data)에 대해 자세히 알아봅니다.

@@ -4,19 +4,20 @@ description: Azure 프리미엄 파일 공유에서 SMB 다중 채널을 사용�
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 05/17/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: da4e1a58aef28e5c47100a0311ff81a5af04a918
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a7b6feb2cfb255e231b8c2f9080915195f49d29a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718984"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663450"
 ---
 # <a name="enable-smb-multichannel-on-a-filestorage-account-preview"></a>FileStorage 계정에서 SMB 다중 채널 사용(미리 보기) 
 
-Azure FileStorage 계정은 프리미엄 파일 공유에 대한 여러 네트워크 연결을 설정하여 SMB 3.x 클라이언트의 성능을 향상시키는 SMB 다중 채널(미리 보기)을 지원합니다. 이 문서에서는 기존 스토리지 계정에서 SMB 다중 채널을 사용하도록 설정하는 단계별 지침을 제공합니다. Azure Files SMB 다중 채널에 대한 자세한 내용은 SMB 다중 채널 성능을 참조하세요.
+Azure FileStorage 계정은 프리미엄 파일 공유에 대한 여러 네트워크 연결을 설정하여 SMB 3.x 클라이언트의 성능을 향상시키는 SMB 다중 채널(미리 보기)을 지원합니다. 이 문서에서는 기존 스토리지 계정에서 SMB 다중 채널을 사용하도록 설정하는 단계별 지침을 제공합니다. Azure Files SMB 다중 채널에 대한 자세한 내용은  [SMB 다중 채널 성능](storage-files-smb-multichannel-performance.md)을 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 

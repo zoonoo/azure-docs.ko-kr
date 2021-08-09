@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 3eecb584f468bc170f0325da8d734a1890691483
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 10fe02b0deb505fcedc6fc3119150709b6613b04
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104601774"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110673026"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Azure CLI를 사용하여 호스트에서 암호화를 사용하는 엔드투엔드 암호화를 사용하도록 설정
 
@@ -27,11 +27,12 @@ ms.locfileid: "104601774"
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
 
-VM 크기를 프로그래밍 방식으로 찾을 수도 있습니다. VM 크기를 프로그래밍 방식으로 검색하는 방법에 대한 자세한 내용은 [지원되는 VM 크기 찾기](#finding-supported-vm-sizes) 섹션을 참조하세요.
+지원되는 VM 크기의 전체 목록은 프로그래밍 방식으로 끌어올 수 있습니다. VM 크기를 프로그래밍 방식으로 검색하는 방법에 대한 자세한 내용은 [지원되는 VM 크기 찾기](#finding-supported-vm-sizes) 섹션을 참조하세요.
+VM 크기를 업그레이드하면 새 VM 크기가 EncryptionAtHost 기능을 지원하는지 확인하기 위해 유효성 검사가 수행됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-VM/VMSS에 대한 EncryptionAtHost 속성을 사용하기 전에 구독에 대해 이 기능을 사용하도록 설정해야 합니다. 다음 단계를 수행하여 구독에 대한 기능을 사용하도록 설정하세요.
+VM/VMSS에 대한 EncryptionAtHost 속성을 사용하기 전에 구독에 이 기능을 사용하도록 설정해야 합니다. 다음 단계를 수행하여 구독에 대한 기능을 사용하도록 설정하세요.
 
 1.  다음 명령을 실행하여 구독에 대한 기능 등록
 

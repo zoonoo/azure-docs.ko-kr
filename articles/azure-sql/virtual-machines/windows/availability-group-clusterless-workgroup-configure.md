@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 0f194101720481f71434709c467d0e3130a0f1f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2daf927ff9e0a99845ec6fb0283b550856ebfc47
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359458"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572415"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>작업 그룹 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -292,4 +292,11 @@ GO
 
 ## <a name="next-steps"></a>다음 단계
 
-[Az SQL VM CLI](./availability-group-az-commandline-configure.md)를 사용하여 가용성 그룹을 구성할 수도 있습니다.
+가용성 그룹이 배포되면 [Azure VM에서 SQL Server에 대한 HADR 설정](hadr-cluster-best-practices.md)을 최적화하는 것이 좋습니다. 
+
+
+자세한 내용은 다음을 참조하세요.
+
+- [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
+- [Azure VM에서 SQL Server를 사용하는 Always On 가용성 그룹](availability-group-overview.md)
+- [Always On 가용성 그룹 개요](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
