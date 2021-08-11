@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 61f0f2a71240c0ade13f7cd20b6c411f3df7f278
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 7d1c31c9f8507154056e6e6de0073eeb9ae636b7
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279157"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111422015"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Azure Machine Learning에서 관리 ID 사용(미리 보기)
 
@@ -260,7 +260,7 @@ ws = Workspace.create(name="workspace name",
 > [!IMPORTANT]
 > 사용자 고유의 연결된 리소스를 가져오는 경우 Azure Machine Learning Service에서 만드는 대신 해당 리소스에 대한 관리 ID 역할을 부여해야 합니다. [역할 할당 ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment)을 사용하여 할당을 만듭니다.
 
-[https://docs.microsoft.com/azure/machine-learning/concept-data-encryption ](암호화를 위해 고객이 관리하는 키)을 사용하는 작업 영역의 경우 사용자가 할당한 관리 ID를 전달하여 스토리지에서 Key Vault로 인증할 수 있습니다. __user-assigned-identity-for-cmk-encryption__(CLI) 또는 __user_assigned_identity_for_cmk_encryption__(SDK) 인수를 사용하여 관리 ID를 전달합니다. 이 관리 ID는 작업 영역 기본 사용자가 할당한 관리 ID와 동일하거나 다를 수 있습니다.
+[암호화를 위한 사용자 관리 키](concept-data-encryption.md)를 사용하는 작업 영역의 경우 사용자가 할당한 관리 ID를 전달하여 저장소에서 Key Vault로 인증할 수 있습니다. __user-assigned-identity-for-cmk-encryption__(CLI) 또는 __user_assigned_identity_for_cmk_encryption__(SDK) 인수를 사용하여 관리 ID를 전달합니다. 이 관리 ID는 작업 영역 기본 사용자가 할당한 관리 ID와 동일하거나 다를 수 있습니다.
 
 기존 작업 영역이 있는 경우 ```az ml workspace update``` CLI 명령 또는 ```Workspace.update``` Python SDK 메서드를 사용하여 시스템 할당에서 사용자가 할당한 관리 ID로 업데이트할 수 있습니다.
 

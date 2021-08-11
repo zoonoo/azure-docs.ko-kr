@@ -1,21 +1,21 @@
 ---
 title: 도메인 컨트롤러를 사용하여 Azure Files 파일 공유 만들기 - Azure
-description: Active Directory 도메인을 사용하여 기존 Windows Virtual Desktop 호스트 풀의 Azure 파일 공유에 FSLogix 프로필 컨테이너를 설정합니다.
+description: Active Directory 도메인을 사용하여 기존 Azure Virtual Desktop 호스트 풀의 Azure 파일 공유에 FSLogix 프로필 컨테이너를 설정합니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e859da6b3ac38ddb89c998d172c39f2549455aaa
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: ab9a70dccdeff6ed16eb3f25e9dc78fb274b2449
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447933"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746936"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Azure Files 및 AD DS를 사용하여 프로필 컨테이너 만들기
 
-이 문서에서는 기존 Windows Virtual Desktop 호스트 풀의 도메인 컨트롤러에서 인증한 Azure 파일 공유를 만드는 방법에 대해 알아봅니다. 이 파일 공유를 사용하여 스토리지 프로필을 저장할 수 있습니다.
+이 문서에서는 기존 Azure Virtual Desktop 호스트 풀의 도메인 컨트롤러에서 인증한 Azure 파일 공유를 만드는 방법에 대해 알아봅니다. 이 파일 공유를 사용하여 스토리지 프로필을 저장할 수 있습니다.
 
 이 프로세스는 온-프레미스 디렉터리 서비스인 AD DS(Active Directory Domain Services)를 사용합니다. Azure AD DS를 사용하여 FSLogix 프로필 컨테이너를 만드는 방법에 대한 자세한 내용은 [Azure Files를 사용하여 FSLogix 프로필 컨테이너 만들기](create-profile-container-adds.md)를 참조하세요.
 
@@ -39,8 +39,8 @@ ms.locfileid: "106447933"
 
     - 새 리소스 그룹 만들기
     - 스토리지 계정에 고유한 이름을 입력합니다.
-    - **위치** 의 경우 Windows Virtual Desktop 호스트 풀과 동일한 위치를 선택하는 것이 좋습니다.
-    - **성능** 은 **표준** 을 선택합니다. (IOPS 요구 사항에 따라 달라집니다. 자세한 내용은 [Windows Virtual Desktop의 FSLogix 프로필 컨테이너에 대한 스토리지 옵션](store-fslogix-profile.md)을 참조하세요.)
+    - **위치** 의 경우 Azure Virtual Desktop 호스트 풀과 동일한 위치를 선택하는 것이 좋습니다.
+    - **성능** 은 **표준** 을 선택합니다. (IOPS 요구 사항에 따라 달라집니다. 자세한 내용은 [Azure Virtual Desktop의 FSLogix 프로필 컨테이너에 대한 스토리지 옵션](store-fslogix-profile.md)을 참조하세요.)
     - **계정 유형** 의 경우 **StorageV2** 또는 **FileStorage**(성능 계층이 프리미엄인 경우에만 사용 가능)를 선택합니다.
     - **복제** 의 경우 **LRS(로컬 중복 스토리지)** 를 선택합니다.
 
@@ -75,11 +75,11 @@ ms.locfileid: "106447933"
      > [!div class="mx-imgBorder"]
      > ![Azure AD(Active Directory)를 사용할 수 있는 구성 페이지의 스크린샷](media/active-directory-enabled.png)
 
-## <a name="assign-azure-rbac-permissions-to-windows-virtual-desktop-users"></a>Windows Virtual Desktop 사용자에게 Azure RBAC 권한 할당
+## <a name="assign-azure-rbac-permissions-to-azure-virtual-desktop-users"></a>Azure Virtual Desktop 사용자에게 Azure RBAC 권한 할당
 
 스토리지 계정에 저장된 FSLogix 프로필을 포함해야 하는 모든 사용자에게 스토리지 파일 데이터 SMB 공유 기여자 역할을 할당해야 합니다.
 
-Windows Virtual Desktop 세션 호스트에 로그인하는 사용자는 파일 공유에 액세스하기 위한 액세스 권한이 필요합니다. Azure 파일 공유에 대한 액세스 권한을 부여하려면 기존 Windows 공유와 마찬가지로 공유 수준과 NTFS 수준 모두에서 사용 권한을 구성해야 합니다.
+Azure Virtual Desktop 세션 호스트에 로그인하는 사용자는 파일 공유에 액세스하기 위한 액세스 권한이 필요합니다. Azure 파일 공유에 대한 액세스 권한을 부여하려면 기존 Windows 공유와 마찬가지로 공유 수준과 NTFS 수준 모두에서 사용 권한을 구성해야 합니다.
 
 공유 수준 권한을 구성하려면 각 사용자에게 적절한 액세스 권한이 있는 역할을 할당합니다. 권한은 개별 사용자 또는 Azure AD 그룹에 할당할 수 있습니다. 자세히 알아보려면 [ID에 액세스 권한 할당](../storage/files/storage-files-identity-ad-ds-assign-permissions.md)을 참조하세요.
 
@@ -167,7 +167,7 @@ NTFS 권한을 구성하려면 다음을 수행합니다.
 
     *NT Authority\Authenticated Users* 및 *BUILTIN\Users* 에는 기본적으로 특정 권한이 있습니다. 이러한 기본 권한을 통해 이러한 사용자는 다른 사용자의 프로필 컨테이너를 읽을 수 있습니다. 그러나 [프로필 컨테이너 및 Office 컨테이너에서 사용할 수 있도록 스토리지 권한 구성](/fslogix/fslogix-storage-config-ht)에서 설명하는 권한은 사용자가 다른 사용자의 프로필 컨테이너를 읽을 수 없습니다.
 
-4. 다음 명령을 실행하여 Windows Virtual Desktop 사용자가 다른 사용자의 프로필 컨테이너에 대한 액세스를 차단하면서 자신의 프로필 컨테이너를 만들도록 할 수 있습니다.
+4. 다음 명령을 실행하여 Azure Virtual Desktop 사용자가 다른 사용자의 프로필 컨테이너에 대한 액세스를 차단하면서 자신의 프로필 컨테이너를 만들도록 할 수 있습니다.
 
      ```cmd
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
@@ -194,7 +194,7 @@ NTFS 권한을 구성하려면 다음을 수행합니다.
 
 세션 호스트 VM에서 FSLogix를 구성하려면 다음을 수행하세요.
 
-1. Windows Virtual Desktop 호스트 풀의 세션 호스트 VM으로 RDP합니다.
+1. Azure Virtual Desktop 호스트 풀의 세션 호스트 VM으로 RDP합니다.
 
 2. [FSLogix를 다운로드하고 설치합니다](/fslogix/install-ht).
 
@@ -220,7 +220,7 @@ FSLogix를 설치하고 구성한 후에는 호스트 풀에서 앱 그룹이나
 
 세션에 대한 권한을 확인하려면 다음을 수행합니다.
 
-1. Windows Virtual Desktop에서 세션을 시작합니다.
+1. Azure Virtual Desktop에서 세션을 시작합니다.
 
 2. Azure Portal을 엽니다.
 

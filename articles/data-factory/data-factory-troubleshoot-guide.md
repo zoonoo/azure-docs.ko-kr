@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 12/30/2020
 ms.author: abnarain
-ms.openlocfilehash: 101e55188b8021040e2fd6bd573c1c6330241e72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3011309da477dcfad2285e5832dfa163f69cc419
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100382806"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108183545"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Azure Data Factory 문제 해결
 
@@ -106,6 +106,14 @@ ms.locfileid: "100382806"
 - **원인**: 액세스 토큰을 생성한 사용자는 연결 서비스에 지정된 Databricks 클러스터에 액세스할 수 없습니다.
 
 - **권장 사항**: 사용자에게 필요한 권한이 작업 영역에 있는지 확인하세요.
+
+<br/> 
+
+- **메시지**: `Job is not fully initialized yet. Please retry later.`
+
+- **원인**: 작업이 초기화되지 않았습니다.
+
+- **권장 사항**: 기다렸다가 나중에 다시 시도하세요.
 
 ### <a name="error-code-3203"></a>오류 코드: 3203
 

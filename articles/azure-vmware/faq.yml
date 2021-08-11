@@ -1,0 +1,224 @@
+### YamlMime:FAQ
+metadata:
+  title: Microsoft Azure VMware Solution FAQ
+  description: Azure VMware Solution에 대한 일반적인 질문과 대답
+  ms.topic: troubleshooting
+  ms.custom: contperf-fy21q4
+  ms.date: 05/25/2021
+  ms.openlocfilehash: cd72bb3dd857d91ae486555a7fae3cdce0b5eec2
+  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111953008"
+title: Azure VMware 솔루션에 대한 일반적인 질문
+summary: 이 문서에서는 Azure VMware Solution에 대해 일반적으로 묻는 질문에 답변합니다.
+sections:
+- name: 일반
+  questions:
+  - question: Azure VMware Solution이란?
+    answer: 기업은 비즈니스 민첩성을 개선하고, 비용을 절감하고, 혁신을 가속화하는 IT 현대화 전략을 찾고 있으며, 고객의 디지털 변환을 가능하게 하는 핵심 요소로 하이브리드 클라우드 플랫폼이 등장했습니다. Azure VMware Solution은 VMware의 SDDC(소프트웨어 정의 데이터 센터) 소프트웨어를 Microsoft Azure 글로벌 클라우드 서비스 에코시스템과 결합합니다. Azure VMware Solution은 성능, 가용성, 보안 및 규정 준수 요구 사항을 충족하도록 관리됩니다. 자세한 내용은 [Azure VMware Solution이란?](introduction.md)을 참조하세요.
+  - question: 현재 Azure VMware Solution을 사용할 수 있는 위치는 어디인가요?
+    answer: 이 서비스는 새 지역에서 추가적으로 계속 지원될 예정입니다. 자세한 내용은 [최신 서비스 가용성 정보](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware)를 참조하세요.
+  - question: Azure VMware Solution 인스턴스에서 실행되는 워크로드가 Azure 서비스와 통합될 수 있나요?
+    answer: Azure VMware Solution 고객은 모든 Azure 서비스를 사용할 수 있습니다. 서비스의 성능 및 가용성 제한은 서비스마다 다르게 접근해야 합니다.
+  - question: Azure VMware Solution과 호환되는 게스트 운영 체제는 무엇인가요?
+    answer: '[VMware 호환성 가이드](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software&details=1&releases=485&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc&testConfig=16)를 사용하여 vSphere와의 게스트 운영 체제 호환성에 대한 정보를 찾을 수 있습니다. Azure VMware Solution 실행되는 vSphere 버전을 확인하려면 [VMware 소프트웨어 버전](concepts-private-clouds-clusters.md#vmware-software-versions)을 참조하세요.'
+  - question: 변경 제어 프로세스는 어떻게 생겼나요?
+    answer: 서비스 자체에 대한 업데이트는 Microsoft Azure의 표준 변경 관리 프로세스를 따릅니다. 고객은 워크로드 관리 작업 및 관련된 변경 관리 프로세스를 담당합니다.
+  - question: 이 버전은 Azure VMware Solution by CloudSimple과 어떻게 다른가요?
+    answer: 새 Azure VMware Solution과 관련하여 Microsoft와 VMware는 직접 클라우드 공급자 파트너십을 체결했습니다. 새 솔루션을 설계, 빌드, 지원하는 일은 전적으로 Microsoft의 책임이고, VMware는 제품을 보증합니다. 전용 Azure 인프라에서 실행되는 VMware 기술 스택을 사용하므로 솔루션의 아키텍처는 동일합니다.
+- name: 고객 커뮤니케이션
+  questions:
+  - question: Azure에서 Azure 구독에 서비스 상태 알림을 전송할 때 어떻게 경고를 받을 수 있나요?
+    answer: >
+      [!INCLUDE [customer-communications](includes/customer-communications.md)]
+- name: 구성 및 설정
+  questions:
+  - question: 클러스터에서 초기 3개의 노드를 프로비저닝하는 데 얼마나 걸리나요?
+    answer: 현재, 프로비저닝에는 약 3~4시간이 걸릴 수 있습니다.  기존/동일한 클러스터에서 단일 노드를 추가하는 데는 30~45분이 소요됩니다.
+- name: VMware 소프트웨어
+  questions:
+  - question: Azure VMware Solution VM을 VMRC에서 관리할 수 있나요?
+    answer: 예. 설치된 시스템이 프라이빗 클라우드 vCenter에 액세스할 수 있고 퍼블릭 DNS를 사용하여 ESXi 호스트 이름을 확인하고 있다고 가정합니다.
+  - question: Azure VMware Solution VM에서 VMRC를 설치하고 사용하기 위한 특별한 지침이 있나요?
+    answer: 아니요. VM 필수 구성 요소를 충족하려면 [VMware에서 제공하는 지침](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html)을 따르세요.
+  - question: 온-프레미스에서 실행되는 vRealize Suite를 사용할 수 있나요?
+    answer: 구체적인 통합 및 사용 사례는 건별로 평가할 수 있습니다.
+  - question: 온-프레미스 환경의 vSphere VM을 Azure VMware Solution 프라이빗 클라우드로 마이그레이션할 수 있나요?
+    answer: 예. 표준 교차 vCenter [vMotion 요구 사항](https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=2106952)을 충족하는 경우 VM 마이그레이션 및 vMotion을 사용하여 VM을 프라이빗 클라우드로 이동할 수 있습니다.
+  - question: 온-프레미스 환경에서 특정 버전의 vSphere가 필요한가요?
+    answer: 모든 클라우드 환경은 VMware HCX가 함께 제공되므로vMotion에 대한 온-프레미스 환경에서 vSphere 5.5 이상이 필요합니다.
+  - question: VPN에서 VMware HCX가 지원되나요?
+    answer: 아니요, 대역폭 및 대기 시간 요구 사항 때문입니다.
+  - question: 프라이빗 클라우드에 사용되는 VMware 소프트웨어 버전은 무엇인가요?
+    answer: >
+      [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
+  - question: Azure VMware Solution 프라이빗 클라우드에서 VMware 소프트웨어(ESXi, vCenter, PSC 및 NXS)를 패치, 업데이트 또는 업그레이드하는 빈도는 얼마나 되나요?
+    answer: >
+      [!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
+  - question: 프라이빗 클라우드는 VMware NSX를 사용하나요? 그렇다면 어떤 버전이 지원되나요?
+    answer: 예, Azure VMware Solution 프라이빗 클라우드의 소프트웨어 정의 네트워킹에 NSX-T 2.5가 사용됩니다. 현재 지원되는 유일한 NSX 버전은 NSX-T입니다.
+  - question: 프라이빗 클라우드에 연결하는 온-프레미스 환경 또는 네트워크에서 NSX가 필요한가요?
+    answer: 아니요, 온-프레미스에서는 NSX를 사용할 필요가 없습니다.
+  - question: VMware Horizon 8 2012는 Azure VMware Solution과 호환되나요?
+    answer: 예.
+  - question: 기본 vSphere Web Client 시간 제한 값을 변경할 수 있나요?
+    answer: 예. 시간 제한 값 변경에 대한 내용은 [vSphere Web Client 시간 제한 값 구성](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcenterhost.doc/GUID-975412DE-CDCB-49A1-8E2A-0965325D33A5.html)을 참조하세요.
+- name: 마이그레이션
+  questions:
+  - question: Sentinel Appliance 서비스를 사용할 때 HCX Manager에 내 Sentinel 관리 탭이 표시되지 않는 이유는 무엇인가요?
+    answer: Sentinel 관리 탭에서는 Sentinal 소프트웨어를 다운로드할 수 있는 액세스 권한을 제공합니다.  HCX Enterprise 라이선스가 활성화되고 SGW(Sentinel Gateway) 및 SDR(Sentinel Data Receiver) 쌍이 배포된 서비스 메시를 배포한 경우 HCX Interconnect 인터페이스에 표시됩니다. 또한 기존의 온-프레미스에서 클라우드로의 배포에서는 Sentinel 탭이 클라우드 관리자가 아닌 커넥터에만 표시됩니다.
+  - question: 온-프레미스 쪽에서 씬 프로비저닝을 사용하여 만든 VM을 Azure VMware Solution으로 마이그레이션하는 경우 VM은 씬 상태로 유지되나요?
+    answer: 아니요. 그러나 VM이 씩으로 마이그레이션되는 경우 UI와 PowerCLI의 조합을 통해 개별 VM 및 개별 vmdk에 대한 정책을 변경할 수 있습니다.
+- name: 컴퓨팅
+  questions:
+  - question: 각 호스트 유형의 CPU 사양이 어떻게 되나요?
+    answer: 서버에는 듀얼 18코어 2.3GHz Intel CPU를 사용합니다.
+  - question: 각 호스트의 메모리는 얼마인가요?
+    answer: 서버의 RAM은 576GB입니다.
+  - question: Azure VMware Solution이 ESXi/ESX를 중첩된 가상화 솔루션으로 실행하는 것을 지원하나요?
+    answer: 아니요. VMware는 공식적으로 중첩된 가상화를 지원하지 않습니다.
+- name: 타사 백업 및 복구
+  questions:
+  - question: Azure VMware Solution에서 cloudadmin 확장 권한을 지원하나요?
+    answer: 아니요. 현재 cloudadmin 확장 권한은 지원되지 않으며, 향후 지원할 계획이 없습니다.
+  - question: Azure VMware Solution에는 어떤 ISV(독립 소프트웨어 공급업체) 백업 솔루션이 작동하나요?
+    answer: Commvault, Veritas 및 Veeam은 Azure VMware Solution에서 작동하도록 백업 솔루션을 확장했습니다.  그러나 HotAdd 전송 모드에서 VADP(VMware vStorage API for Data Protection)를 사용하는 모든 백업 솔루션은 Azure VMware Solution에서 바로 작동합니다. 자세한 내용은 [Azure VMware Solution VM에 대한 백업 솔루션](ecosystem-back-up-vms.md)을 참조하세요.
+  - question: ISV 백업 솔루션에 대한 지원은 어떤가요?
+    answer: 이러한 백업 솔루션을 고객이 설치하고 관리할 경우 지원을 위해 해당 ISV에 연락할 수 있습니다.
+- name: 네트워킹 및 상호 연결
+  questions:
+  - question: Azure VMware Solution VM에 연결하는 데 Azure Bastion을 사용할 수 있나요?
+    answer: Azure Bastion은 인터넷에 Azure VMware Solution을 노출하지 않도록 점프 상자에 연결하도록 권장되는 서비스입니다. Azure IaaS 개체가 아니므로 Azure Bastion을 사용하여 Azure VMware Solution VM에 연결할 수 없습니다.
+  - question: 각 ESXi 호스트에서 사용할 수 있는 네트워크 대역폭은 얼마나 되나요?
+    answer: Azure VMware Solution의 각 ESXi 호스트는 25Gbps NIC 4개, ESXi 시스템 트래픽용으로 프로비저닝된 NIC 2개 및 워크로드 트래픽용으로 프로비저닝된 2개의 NIC로 구성됩니다.
+  - question: SNMP 인프라 로그가 공유되고 있나요?
+    answer: 아니요.
+  - question: ExpressRoute는 MTU 1500을 초과하는 패킷을 지원하나요?
+    answer: 아니요.
+  - question: Azure VMware Solution VM에 Azure Load Balancer 내부용을 사용할 수 있나요?
+    answer: 아니요. Azure Load Balancer 내부 전용은 Azure IaaS VM을 지원합니다. Azure Load Balancer는 IP 기반 백 엔드 풀을 지원하지 않습니다. Azure VMware Solution VM이 Azure 개체가 아닌 Azure VM 또는 가상 머신 확장 집합 개체만 지원합니다.
+  - question: 기존 ExpressRoute 게이트웨이를 사용하여 Azure VMware Solution에 연결할 수 있나요?
+    answer: 예. 가상 네트워크당 4개의 ExpressRoute 회로 제한을 초과하지 않는 한 기존 ExpressRoute 게이트웨이를 사용하여 Azure VMware Solution에 연결합니다. ExpressRoute를 통해 온-프레미스에서 Azure VMware Solution에 액세스하려면 ExpressRoute 게이트웨이가 연결된 회로 간에 전이적 라우팅을 제공하지 않으므로 ExpressRoute Global Reach가 있어야 합니다.
+  - question: Azure VMware Solution에 퍼블릭 4바이트 ASN(자치 시스템 번호)을 사용하는 이유는 무엇인가요?
+    answer: Azure VMware Solution은 공식적으로 등록된 퍼블릭 4바이트 ASN을 사용하여 Azure VMware Solution으로의 고객 라우팅 경로에서 온-프레미스 방식으로 프라이빗 ASN을 사용하는 경우와 충돌하지 않도록 합니다.
+  - question: 온-프레미스 ExpressRoute 이동 통신 사업자 파트너/ISP가 4바이트 ASN을 지원하지 않는 경우 ExpressRoute를 사용하여 Azure VMware Solution에 연결하려면 어떻게 해야 하나요?
+    answer: ExpressRoute를 통해 Azure VMware Solution에 연결하는 유일한 방법을 사용자 환경에 사용할 수 있으며, 온-프레미스 ExpressRoute 이동 통신 사업자 파트너/ISP는 4바이트 ASN을 지원하거나 BGP 접두사 ASN 경로 보급 알림에서 이전 버전과의 호환성(4바이트에서 2바이트 ASN으로)을 갖습니다.
+  - question: 프라이빗 클라우드를 온-프레미스 환경과 통합하는 데 필요한 네트워크 IP 주소 계획은 무엇인가요?
+    answer: Azure VMware Solution 프라이빗 클라우드를 배포하려면 개인 네트워크/22 주소 공간이 필요합니다. 이 프라이빗 주소 공간은 구독의 다른 가상 네트워크 또는 온-프레미스 네트워크와 겹치지 않아야 합니다.
+  - question: 온-프레미스 환경에서 Azure VMware Solution 프라이빗 클라우드로 연결하려면 어떻게 하나요?
+    answer: "다음 두 가지 방법 중 하나로 서비스에 연결할 수 있습니다. \n\n- ExpressRoute를 통해 프라이빗 클라우드에 피어링되는 Azure 가상 네트워크에 배포된 VM 또는 애플리케이션 게이트웨이를 사용합니다.\n- ExpressRoute Global Reach를 통해 온-프레미스 데이터 센터에서 Azure ExpressRoute 회로로 연결합니다.\n"
+  - question: 온-프레미스 통신을 위해 vWAN에서 VPN S2S를 사용할 때 HCX의 지원 불가능을 해결하기 위해 퍼블릭 인터넷 통신을 통해 HCX를 사용할 수 있나요?
+    answer: 현재, VMware HCX에 지원되는 유일한 방법은 ExpressRoute를 사용하는 것입니다.
+  - question: 워크로드 VM을 인터넷 또는 Azure 서비스 엔드포인트에 연결하려면 어떻게 할까요?
+    answer: >
+      Azure Portal에서 프라이빗 클라우드에 인터넷 연결을 사용하도록 설정합니다. NSX-T 관리자를 사용하여 NSX-T T1 라우터와 논리 스위치를 만듭니다. 그런 다음, vCenter를 사용하여 논리 스위치가 정의한 네트워크 세그먼트에 VM을 배포합니다. 해당 VM은 네트워크를 통해 인터넷 및 Azure 서비스에 액세스할 수 있습니다.
+
+
+      > [!NOTE]
+
+      > 프라이빗 클라우드 배포의 한 과정으로 T0 라우터가 생성 및 구성됩니다.
+
+      > 이 논리 라우터 또는 NSX-T 에지 노드 VM을 수정하면 프라이빗 클라우드에 연결하는 데 영향을 줄 수 있습니다.
+  - question: 프라이빗 클라우드의 논리 네트워크에 있는 VM에 대한 인터넷 액세스를 제한해야 하나요?
+    answer: 아니요. 인터넷에서 프라이빗 클라우드로 직접 들어오는 네트워크 트래픽은 기본적으로 허용되지 않습니다.  그러나 Azure VMware Solution 프라이빗 클라우드에 대한 Azure Portal의 [공용 IP](./enable-public-internet-access.md) 옵션을 통해 Azure VMware Solution VM을 인터넷에 노출할 수 있습니다.
+  - question: 논리 네트워크의 VM에서 인터넷으로 액세스하는 것을 제한해야 하나요?
+    answer: 예. NSX-T 관리자를 사용하여 VM의 인터넷 액세스를 제한하는 방화벽을 만들어야 합니다.
+  - question: DNS 서비스 IP 및 DHCP 서버 IP에 어떤 IP 범위를 사용할 수 있나요?
+    answer: IP 주소 범위는 구독과 온-프레미스 네트워크의 다른 가상 네트워크에서 사용되는 IP 범위와 겹치지 않아야 합니다.
+  - question: Azure VMware Solution에서 Azure Virtual WAN 호스티드 ExpressRoute 게이트웨이를 사용할 수 있나요?
+    answer: 예.
+  - question: ExpressRoute Global Reach의 Azure Virtual WAN을 통해 온-프레미스와 Azure VMware Solution 간에 전송 연결을 설정할 수 있나요?
+    answer: Azure Virtual WAN은 연결된 두 ExpressRoute 회로와 비가상 WAN ExpressRoute 게이트웨이 간에 전이적 라우팅을 제공하지 않습니다. ExpressRoute Global Reach는 온-프레미스와 Azure VMware Solution 간의 연결을 허용하지만 Virtual WAN Hub 대신 Microsoft의 글로벌 네트워크를 통과합니다.
+- name: 스토리지
+  questions:
+  - question: 중복 제거 설정에 대한 올바른 스토리지 정책은 무엇인가요?
+    answer: VM 템플릿에 *thin_provision* 스토리지 정책을 사용합니다.  기본값은 *thick_provision* 입니다.
+  - question: 각 호스트의 스토리지 용량은 얼마인가요?
+    answer: 각 ESXi 호스트에는 15.2TB 용량 계층과 3.2TB(디스크 그룹마다 1.6 TB) NVMe 캐시 계층을 사용하는 vSAN 디스크 그룹이 2개 있습니다.
+  - question: VSAN 데이터 저장소에 저장된 데이터는 암호화되나요?
+    answer: 예, vSAN 데이터 저장소는 기본적으로 Azure Key Vault에 저장된 키를 사용하여 미사용 데이터 암호화를 사용합니다. 암호화 솔루션은 KMS 기반이며 키 관리를 위한 vCenter 작업을 지원합니다.  클러스터에서 호스트를 제거하면 SSD의 데이터가 즉시 무효화됩니다.
+  - question: 만드는 동안 데이터 저장소 또는 클러스터의 이름을 바꿀 수 있나요?
+    answer: 아니요, 데이터스토어 또는 클러스터의 이름은 변경할 수 없습니다. 클러스터 이름은 비기본 클러스터에 대해 비포털 배포 메커니즘을 통해 구성할 수 있습니다.
+  - question: vSAN의 하드웨어 오류 내결함성이란 무엇인가요?
+    answer: "개체 공간 예약이 씩 프로비저닝으로 설정된 FTT-1, RAID-1(미러링)은 SDDC에 대한 기본 스토리지 정책입니다.\n\n:::image type=\"content\" source=\"media/vsphere-vm-storage-policies.png\" alt-text=\"vSphere Client VM 스토리지 정책을 보여 주는 스크린샷\":::  \n"
+  - question: Azure VMware Solution에서 씩 프로비저닝이 기본 vSAN 정책인 이유는 무엇인가요?
+    answer: 씩 프로비저닝은 예약되거나 미리 할당된 스토리지 공간입니다.  씩 프로비저닝은 vSAN 데이터 저장소가 가득 찬 경우에도 공간이 이미 예약되어 있으므로 시스템이 작동될 수 있게 보호합니다. 예를 들어 씩 프로비저닝을 사용하여 10GB 가상 디스크를 만드는 경우를 가정해 보겠습니다. 여기서 가상 디스크가 만들어지고 데이터 저장소에 할당된 모든 공간을 사용하는 경우 실제 스토리지에 전체 가상 디스크 스토리지 용량이 미리 할당됩니다.  다른 VM은 데이터 저장소의 공간을 공유할 수 없습니다. 씬 프로비저닝된 가상 디스크는 처음에 필요한 공간을 사용하고 데이터 저장소에 사용되는 데이터 공간 수요까지 증가합니다.
+  - question: 기본 vSAN 정책이 씩 프로비저닝인 경우에도 씬 프로비저닝을 사용하여 Azure VMware Solution에서 새 VM을 만들 수 있나요?
+    answer: 예. 기본 정책(thick_provision) 외에도 FTT1 씬 프로비저닝을 사용하여 VM을 만들 수 있습니다.
+  - question: 데이터 손실이 발생하기 전에 vSAN에서 실패할 수 있는 디스크 수는 몇 개나 되나요?
+    answer: 이 디스크 수는 SDDC(프라이빗 클라우드) 내에서 애플리케이션 워크로드를 실행하는 방법에 따라 달라집니다. Microsoft는 이러한 오류를 정기적으로 관리하고 인프라 관점에서 이러한 이벤트가 검색될 때 하드웨어를 바꿉니다. 기본적으로 단일 호스트의 오류를 수용하는 FFT-1 설정이 사용됩니다.
+  - question: vSAN에 대해 어떤 종류의 경고가 표시됩니까?
+    answer: Microsoft는 용량 사용량이 75%를 초과하는 경우 경고를 제공합니다. 또는 Azure Monitor 통합된 용량 소비량 메트릭을 모니터링할 수도 있습니다.
+  - question: 호스트당 15.4TB의 원시 SSD 스토리지를 제공하기 위해 몇 개의 1.6TB NVMe 드라이브를 디스크 그룹에 포함해야 하나요?
+    answer: '[AV36 SKU](https://azure.microsoft.com/pricing/details/azure-vmware/)에는 1.6TB NVMe 캐시 2개와 1.9TB 원시 스토리지 용량 8개가 포함됩니다. 이러한 드라이브는 두 개의 디스크 그룹으로 분할됩니다.'
+  - question: 디스크 그룹의 RAID 구성은 무엇인가요?
+    answer: 디스크 그룹은 RAID로 구성되지 않습니다. JBOD(Just a Bunch of Disks)일 뿐이며 [vSAN에서 직접 제어](https://core.vmware.com/vsan-learn-and-evaluate)됩니다.
+- name: 호스트, 클러스터 및 프라이빗 클라우드
+  questions:
+  - question: 사용 가능한 호스트 유형이 2개 이상 있나요?
+    answer: 아니요. 사용할 수 있는 유형은 하나뿐입니다.
+  - question: 현재 프라이빗 클라우드 리소스를 관리하는 데 사용하는 것과 동일한 도구를 사용하나요?
+    answer: 예. 배포 및 여러 관리 작업에는 Azure Portal을 사용합니다. vSphere 및 NSX-T 리소스 관리에는 vCenter 및 NSX Manager가 사용됩니다.
+  - question: 온-프레미스 vCenter를 사용하여 프라이빗 클라우드를 관리할 수 있나요?
+    answer: 시작할 때 Azure VMware Solution은 온-프레미스 및 프라이빗 클라우드 환경에서 단일 관리 환경을 지원하지 않습니다. 프라이빗 클라우드 클러스터는 프라이빗 클라우드에 로컬인 vCenter 및 NSX Manager를 통해 관리됩니다.
+  - question: 클러스터가 스케일 업된 후 워크로드 수요가 감소하는 경우 다시 스케일 다운할 수 있나요?
+    answer: 예, 프라이빗 클라우드에 할당된 할당량이 있는 한, 클러스터를 스케일 아웃할 수 있습니다. 워크로드 수요가 감소하면 클러스터에서 노드를 삭제하여 스케일 다운할 수 있습니다. 이 작업은 Azure VMware Solution 포털에서 수행할 수 있습니다.
+  - question: 기본 인프라를 공유하나요?
+    answer: 아니요, 프라이빗 클라우드 호스트와 클러스터는 전용이며 사용 전과 후에 안전하게 삭제됩니다.
+  - question: 클러스터당 최소/최대 호스트 수는 얼마인가요?
+    answer: 클러스터는 3개(최소)에서 16개(최대) ESXi 호스트 사이에서 스케일링할 수 있습니다. 평가판 클러스터는 호스트 3개로 제한됩니다.
+  - question: 프라이빗 클라우드 클러스터를 스케일링할 수 있나요?
+    answer: 예, 클러스터는 3개(최소)에서 16개(최대) ESXi 호스트 사이에서 스케일링합니다.
+  - question: 평가판 클러스터란 무엇인가요?
+    answer: 평가판 클러스터는 Azure VMware Solution 프라이빗 클라우드의 1개월 평가판에 사용되는 세 개의 호스트로 제한됩니다.
+- name: ID 관리
+  questions:
+  - question: 새 Azure VMware Solution 프라이빗 클라우드에서는 어떤 계정과 권한을 얻게 되나요?
+    answer: vCenter의 cloudadmin 사용자에 대한 자격 증명과 NSX-T 관리자에 대한 관리자 액세스 권한이 제공됩니다. Azure Active Directory를 통합하는 데 사용할 수 있는 CloudAdmin 그룹도 있습니다. 자세한 내용은 [액세스 및 ID 개념](concepts-identity.md)을 참조하세요.
+  - question: ESXi 호스트에 관리자로 액세스할 수 있나요?
+    answer: 아니요, 솔루션의 보안 요구 사항을 충족하기 위해 ESXi에 대한 관리자 권한 액세스는 제한되어 있습니다.
+  - question: vCenter에서 어떤 권한을 얻게 되나요?
+    answer: CloudAdmin 역할 권한을 얻게 됩니다. 자세한 내용은 [액세스 및 ID 개념](concepts-identity.md)을 참조하세요.
+  - question: NSX-T 관리자에서 어떤 권한을 얻게 되나요?
+    answer: >
+      NSX-T에 대한 모든 관리자 권한이 부여되며 NSX-T Data Center 온-프레미스와 마찬가지로 vSphere 역할 기반 액세스 제어를 관리할 수 있습니다. 자세한 내용은 [액세스 및 ID 개념](concepts-identity.md)을 참조하세요.
+
+
+      > [!NOTE]
+
+      > 프라이빗 클라우드 배포의 한 과정으로 T0 라우터가 생성 및 구성됩니다. 이 논리 라우터 또는 NSX-T 에지 노드 VM을 수정하면 프라이빗 클라우드에 연결하는 데 영향을 줄 수 있습니다.
+  - question: 자격 증명을 변경하려면 어떻게 해야 하나요?
+    answer: 자격 증명 재설정에 대한 내용은 [Azure VMware Solution의 vSphere 자격 증명 재설정](rotate-cloudadmin-credentials.md)을 참조하세요.
+  - question: Azure VMware Solution에서 cloudadmin 확장 권한을 지원하나요?
+    answer: 아니요. 현재는 cloudadmin 확장 권한을 지원하지 않으며 지원할 계획이 없습니다.
+- name: 청구 및 지원
+  questions:
+  - question: 오류가 발생 시 교체용 디스크에 대한 SLA가 있나요?
+    answer: 디스크 문제가 있는 모든 호스트가 대체됩니다. 이를 통해 Azure VMware Solution 서비스의 최대 99.9 SLA 가용성이 지원됩니다.
+  - question: Azure VMware Solution에 대한 가격 책정은 어떻게 구성되나요?
+    answer: 가격 책정에 대한 일반적인 질문은 Azure VMware Solution [가격 책정](https://azure.microsoft.com/pricing/details/azure-vmware) 페이지를 참조하세요.
+  - question: Microsoft CSP를 통해 Azure VMware Solution을 구매할 수 있나요?
+    answer: 예, 고객은 CSP에서 관리하는 Azure 구독 내에서 Azure VMware Solution을 배포할 수 있습니다.
+  - question: Azure VMware Solution은 어디에서 지원하나요?
+    answer: >-
+      Microsoft가 Azure VMware Solution에 대한 지원을 제공합니다. [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출할 수 있습니다.
+
+      CSP(클라우드 솔루션 공급자) 관리형 구독의 경우 첫 번째 지원 수준은 CSP가 다른 Azure 서비스에 대해 수행하는 것과 동일한 방식으로 솔루션 공급자를 제공합니다.
+  - question: Azure VMware Solution 프라이빗 클라우드를 만들기 위해 어떤 계정이 필요한가요?
+    answer: Azure 구독의 Azure 계정이 필요합니다.
+  - question: Azure VMware Solution에서 Red Hat 솔루션이 지원되나요?
+    answer: Microsoft와 Red Hat은 Azure 플랫폼에서 실행되는 Red Hat 에코시스템에 대한 통합된 연락 지점을 제공하는 같은 위치에 배치된 통합 지원 팀을 공유합니다.  Red Hat Enterprise Linux에서 작동하는 다른 Azure 플랫폼 서비스와 마찬가지로, Azure VMware Solution은 Cloud Access 및 통합된 지원 시스템에 속합니다. Red Hat Enterprise Linux는 Azure 내의 Azure VMware Solution을 토대로 실행될 수 있습니다.
+  - question: VMware HCX Enterprise를 사용할 수 있나요? 그렇다면 비용은 얼마나 드나요?
+    answer: VMware HCX Enterprise는 *미리 보기* 기능/서비스로서 Azure VMware Solution에서 사용할 수 있습니다. Azure VMware Solution을 위한 VMware HCX Enterprise는 현재 미리 보기로 제공되는 무료 기능/서비스이며 미리 보기 서비스 사용 약관을 따릅니다. VMware HCX Enterprise 서비스가 일반 공급으로 전환되면 요금 청구 방식이 변경된다는 내용의 알림을 30일 전에 받게 됩니다. 이 서비스를 끄거나 옵트아웃할 수 있습니다.
+  - question: Azure VMware Solution의 호스트 할당량 증가를 요청하려면 어떻게 하나요?
+    answer: 기존 프라이빗 클라우드에 더 많은 호스트가 필요하거나 새 프라이빗 클라우드를 만드는 경우 호스트를 할당하기 위해 지원 티켓을 제출해야 합니다.  자세한 내용은 [Azure VMware Solution 리소스를 사용하도록 설정하는 방법](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)을 참조하세요.
+  - question: 예약 인스턴스를 CSP 프로그램을 통해 구매할 수 있나요?
+    answer: 예. CSP는 고객을 위해 예약 인스턴스를 구매할 수 있습니다. 자세한 내용은 [예약 인스턴스로 비용 절감](reserved-instance.md)을 참조하세요.
+  - question: Azure VMware Solution이 CSP 파트너를 호스트하기 위한 다중 테넌트를 제공하나요?
+    answer: 아니요. 현재 Azure VMware Solution은 다중 테넌시를 제공하지 않습니다.
+  - question: ExpressRoute를 통하는 온-프레미스와 Azure VMware Solution 간의 트래픽은 데이터 요금제에서 아웃바운드 데이터 전송 요금을 발생하나요?
+    answer: Azure VMware Solution ExpressRoute 회로의 트래픽은 어떤 경우에도 요금이 발생하지 않습니다. 온-프레미스에서 Azure로 연결하는 ExpressRoute 회로의 트래픽은 ExpressRoute 가격 책정 플랜에 따라 요금이 부과됩니다.
+  - question: L2 확장을 사용하여 온-프레미스 VM 환경에서 마이그레이션할 때 AV36 인스턴스 이외의 라이선스 및 리소스를 조달해야 하나요?
+    answer: 아니요

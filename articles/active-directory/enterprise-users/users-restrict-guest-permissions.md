@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 01/14/2020
+ms.date: 06/01/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df4cb32720d80dd23289be7e760c9934e9a8db8a
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: f1b9ceb41300d8a53d192602812f1e3c04017609
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107501504"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111371466"
 ---
-# <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Azure Active Directory에서 게스트 액세스 권한 제한(미리 보기)
+# <a name="restrict-guest-access-permissions-in-azure-active-directory"></a>Azure Active Directory에서 게스트 액세스 권한 제한
 
-Azure AD(Azure Active Directory)를 사용하면 외부 게스트 사용자가 Azure AD의 조직에서 볼 수 있는 항목을 제한할 수 있습니다. 게스트 사용자는 기본적으로 Azure AD에서 제한된 권한 수준으로 설정되지만 멤버 사용자의 기본값은 전체 기본 사용자 권한 세트입니다. 이는 훨씬 더 제한된 액세스를 위한 Azure AD 조직의 외부 협업 설정에 있는 새 게스트 사용자 권한 수준의 미리 보기이므로 이제 다음과 같이 게스트 액세스를 선택할 수 있습니다.
+Azure AD(Azure Active Directory)를 사용하면 외부 게스트 사용자가 Azure AD의 조직에서 볼 수 있는 항목을 제한할 수 있습니다. 게스트 사용자는 기본적으로 Azure AD에서 제한된 권한 수준으로 설정되지만 멤버 사용자의 기본값은 전체 사용자 권한 세트입니다. 이는 훨씬 더 제한된 액세스를 위한 Azure AD 조직의 외부 협업 설정에 있는 새 게스트 사용자 권한 수준이므로 게스트 액세스 수준은 다음과 같습니다.
 
 권한 수준         | 액세스 수준 | 값
 ----------------         | ------------ | -----
@@ -34,7 +34,7 @@ Azure AD(Azure Active Directory)를 사용하면 외부 게스트 사용자가 A
 
 ## <a name="permissions-and-licenses"></a>권한 및 라이선스
 
-외부 협업 설정을 구성하려면 전역 관리자 역할이어야 합니다. 게스트 액세스를 제한하기 위한 추가 라이선스 요구 사항은 없습니다.
+게스트 사용자 액세스를 구성하려면 전역 관리자 또는 권한 있는 역할 관리자 역할에 속해야 합니다. 게스트 액세스를 제한하기 위한 추가 라이선스 요구 사항은 없습니다.
 
 ## <a name="update-in-the-azure-portal"></a>Azure Portal에서 업데이트
 

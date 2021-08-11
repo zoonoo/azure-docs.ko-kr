@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: ambapat
-ms.openlocfilehash: 0c0a0c5f62f92aaf195e207dfd505ffb017d924e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bea1ccf0777c6325bc86c15e0f88304c465d89c9
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100653903"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750287"
 ---
 # <a name="managed-hsm-access-control"></a>관리형 HSM 액세스 제어
 
@@ -65,6 +65,7 @@ Azure 구독에서 관리되는 HSM을 만들 때 구독의 Azure Active Directo
 | 관리 평면 | **전역:**<br> management.azure.com:443<br> | 관리되는 HSM 만들기, 읽기, 업데이트, 삭제, 이동<br>관리되는 HSM 태그 설정 | Azure RBAC |
 | 데이터 평면 | **전역:**<br> &lt;hsm-name&gt;.managedhsm.azure.net:443<br> | **키**: 암호 해독, 암호화,<br> 래핑 해제, 래핑, 확인, 서명, 얻기, 나열, 업데이트, 만들기, 가져오기, 삭제, 백업, 복원, 제거<br/><br/> **데이터 평면 역할 관리(관리되는 HSM 로컬 RBAC)** _: 역할 정의 나열, 역할 할당, 역할 할당 삭제, 사용자 지정 역할 정의<br/><br/>_ *백업/복원 **: 백업, 복원, 상태 확인 백업/복원 작업<br/><br/>** 보안 도메인**: 보안 도메인 다운로드 및 업로드 | 관리되는 HSM 로컬 RBAC |
 |||||
+
 ## <a name="management-plane-and-azure-rbac"></a>관리 평면과 Azure RBAC
 
 관리 평면에서 Azure RBAC를 사용하여 호출자가 실행할 수 있는 작업에 대해 권한을 부여합니다. Azure RBAC 모델에서 각 Azure 구독에는 Azure Active Directory의 인스턴스가 있습니다. 이 디렉터리에서 사용자, 그룹 및 애플리케이션에 대해 액세스 권한을 부여합니다. Resource Manager 배포 모델을 사용하는 Azure 구독의 리소스를 관리할 수 있는 액세스 권한을 부여합니다. 이 액세스 권한을 부여하려면 [Azure Portal](https://portal.azure.com/), [Azure CLI](/cli/azure/install-classic-cli), [PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Azure Resource Manager REST API](/rest/api/authorization/roleassignments)를 사용합니다.
@@ -87,6 +88,6 @@ Azure Active Directory를 사용하여 리소스 그룹에 키 자격 증명 모
 
 ## <a name="next-steps"></a>다음 단계
 
-- 관리자를 위한 시작 자습서는 [관리형 HSM이란?](overview.md)을 참조하세요.
+- 관리자를 위한 시작 자습서는 [Managed HSM이란?](overview.md)을 참조하세요.
 - 역할 관리 자습서는 [관리되는 HSM 로컬 RBAC](role-management.md)를 참조하세요
-- 관리형 HSM 로깅의 사용량 로깅에 대한 자세한 내용은 [관리형 HSM 로깅](logging.md)을 참조하세요.
+- Managed HSM 로깅의 사용량 로깅에 대한 자세한 내용은 [Managed HSM 로깅](logging.md)을 참조하세요.

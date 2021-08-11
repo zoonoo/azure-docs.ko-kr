@@ -8,12 +8,12 @@ ms.subservice: proximity-placement-groups
 ms.topic: conceptual
 ms.date: 3/07/2021
 ms.reviewer: zivr
-ms.openlocfilehash: 1a65a1e4ecd989f3a7c4968c424472c3c6dfe472
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 15da7300018d563ed9919c145ca3e7f08a07f619
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559078"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190646"
 ---
 # <a name="proximity-placement-groups"></a>근접 배치 그룹
 
@@ -23,18 +23,16 @@ VM을 최대한 가깝게 유지하고 대기 시간을 최대한 줄이려면 V
 
 근접 배치 그룹은 Azure 컴퓨팅 리소스가 물리적으로 서로 가까운 위치에 있도록 하는 데 사용되는 논리적 그룹화입니다. 근접 배치 그룹은 낮은 대기 시간을 요구하는 작업에 유용합니다.
 
-
 - 독립 실행형 VM 간에 대기 시간이 짧습니다.
 - 단일 가용성 집합 또는 가상 머신 확장 집합의 VM 간에 대기 시간이 짧습니다. 
 - 독립 실행형 VM, 여러 가용성 집합의 VM 또는 여러 확장 집합의 VM 간에 대기 시간이 짧습니다. 단일 배치 그룹에 여러 컴퓨팅 리소스를 포함하여 다중 계층 애플리케이션을 통합할 수 있습니다. 
 - 서로 다른 하드웨어 유형을 사용하는 여러 애플리케이션 계층 간에 대기 시간이 짧습니다. 예를 들어, 단일 근접 배치 그룹에서 가용성 집합에 M 시리즈를 사용하여 백엔드를 실행하고 확장 집합에 D 시리즈 인스턴스를 사용하여 프런트 엔드를 실행합니다.
 
-
 ![근접 배치 그룹에 대한 그래픽](./media/virtual-machines-common-ppg/ppg.png)
 
 ## <a name="using-proximity-placement-groups"></a>근접 배치 그룹 사용 
 
-근접 배치 그룹은 Azure의 새로운 리소스 종류입니다. 다른 리소스와 함께 사용하기 전에 만들어야 합니다. 만든 후에는 가상 머신, 가용성 집합 또는 가상 머신 확장 집합에 사용할 수 있습니다. 근접 배치 그룹 ID를 제공하는 컴퓨팅 리소스를 만들 때 근접 배치 그룹을 지정합니다. 
+근접 배치 그룹은 Azure의 리소스입니다. 다른 리소스와 함께 사용하기 전에 만들어야 합니다. 만든 후에는 가상 머신, 가용성 집합 또는 가상 머신 확장 집합에 사용할 수 있습니다. 근접 배치 그룹 ID를 제공하는 컴퓨팅 리소스를 만들 때 근접 배치 그룹을 지정합니다. 
 
 기존 리소스를 근접 배치 그룹으로 이동할 수도 있습니다. 리소스를 근접 배치 그룹으로 이동하는 경우 공동 배치 제약 조건을 충족하기 위해 지역 내 다른 데이터 센터에 잠재적으로 다시 배포되므로 먼저 자산을 중지(할당 취소)해야 합니다. 
 
@@ -57,7 +55,6 @@ Azure 데이터 센터에서 하드웨어 서비스 해제와 같은 계획된 �
 
 다음을 수행하여 근접 배치 그룹의 정렬 상태를 확인할 수 있습니다.
 
-
 - 근접 배치 그룹 공동 배치 상태는 포털, CLI, PowerShell을 사용하여 볼 수 있습니다.
 
     -   PowerShell을 사용하는 경우 선택적 매개 변수 ‘-ColocationStatus’를 포함한 Get-AzProximityPlacementGroup cmdlet을 사용하여 공동 배치 상태를 가져올 수 있습니다.
@@ -76,7 +73,6 @@ Azure 데이터 센터에서 하드웨어 서비스 해제와 같은 계획된 �
 
 - 확장 집합의 경우 개별 인스턴스의 정렬에 대한 정보는 확장 집합에 대한 **개요** 페이지의 **인스턴스** 탭에서 볼 수 있습니다. 
 
-
 ### <a name="re-align-resources"></a>리소스 다시 정렬 
 
 근접 배치 그룹이 `Not Aligned`인 경우 중지/할당 취소한 다음 영향을 받는 리소스를 다시 시작할 수 있습니다. VM이 가용성 집합 또는 확장 집합에 있는 경우 가용성 집합 또는 확장 집합의 모든 VM을 먼저 중지/할당 취소한 후 다시 시작해야 합니다.
@@ -92,10 +88,7 @@ Azure 데이터 센터에서 하드웨어 서비스 해제와 같은 계획된 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure CLI](./linux/proximity-placement-groups.md) 또는 [PowerShell](./windows/proximity-placement-groups.md)을 사용하여 근접 배치 그룹에 VM 배포
-
-[네트워크 대기 시간을 테스트](../virtual-network/virtual-network-test-latency.md)하는 방법을 알아봅니다.
-
-[네트워크 처리량을 최적화](../virtual-network/virtual-network-optimize-network-bandwidth.md)하는 방법을 알아봅니다.  
-
-[SAP 애플리케이션에서 근접 배치 그룹을 사용](./workloads/sap/sap-proximity-placement-scenarios.md)하는 방법을 알아봅니다.
+- [Azure CLI](./linux/proximity-placement-groups.md) 또는 [PowerShell](./windows/proximity-placement-groups.md)을 사용하여 근접 배치 그룹에 VM을 배포합니다.
+- [네트워크 대기 시간을 테스트](../virtual-network/virtual-network-test-latency.md)하는 방법을 알아봅니다.
+- [네트워크 처리량을 최적화](../virtual-network/virtual-network-optimize-network-bandwidth.md)하는 방법을 알아봅니다.
+- [SAP 애플리케이션에서 근접 배치 그룹을 사용](./workloads/sap/sap-proximity-placement-scenarios.md)하는 방법을 알아봅니다.

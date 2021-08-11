@@ -7,18 +7,18 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 03/16/2020
-ms.openlocfilehash: a7f12891bf394e54ee46c60598536faed1731202
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c82f68ee35ae95a424c0847be9a9cc770185af43
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104600886"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005738"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>호스트된 시험 사용에 대한 Azure Marketplace 구독 설정
 
-이 문서에서는 **Dynamics 365 for Customer Engagement** 및 **Dynamics 365 for Operations** 시험 사용을 위한 환경에 대해 Azure Marketplace 구독을 설정하는 방법을 설명합니다.
+이 문서에서는 **Dynamics 365 for Customer Engagement & Power Apps** 및 **Dynamics 365 for Operations** 시험 사용을 위한 환경에 대해 Azure Marketplace 구독을 설정하는 방법을 설명합니다.
 
-## <a name="set-up-for-dynamics-365-for-customer-engagement"></a>Dynamics 365 for Customer Engagement 설정
+## <a name="set-up-for-dynamics-365-for-customer-engagement--power-apps"></a>Dynamics 365 for Customer Engagement 및 Power Apps 설정
 
 1. 관리자 계정으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 오른쪽 위 모서리의 계정 아이콘을 가리켜 Dynamics 365 시험 사용 인스턴스와 연결된 테넌트에 있는지 확인합니다. 올바른 테넌트에 있지 않은 경우 계정 아이콘을 선택하여 올바른 테넌트로 전환합니다.

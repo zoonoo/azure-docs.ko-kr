@@ -6,14 +6,14 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: e28243f5919c355e6ad0d4998ff8388a56e3d0ca
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a08c9244644228bd6d9154bdc4882fc91334bc62
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607371"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110797377"
 ---
-# <a name="stopstart-an-azure-database-for-postgresql---flexible-server-preview"></a>Azure Database for PostgreSQL 중지/시작 - 유연한 서버(미리 보기)
+# <a name="stopstart-an-azure-database-for-postgresql---flexible-server-preview-using-azure-portal"></a>Azure Portal을 사용하여 Azure Database for PostgreSQL Flexible Server(미리 보기) 중지/시작
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - 유연한 서버는 현재 미리 보기로 제공됩니다.

@@ -1,18 +1,18 @@
 ---
 title: IoT 플러그 앤 플레이 인증 요구 사항
-description: IoT 플러그 앤 플레이 인증 프로그램 요구 사항
+description: IoT 플러그 앤 플레이 인증 요구 사항
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: IoT Plug and Play Certification Requirements
 ms.service: certification
-ms.openlocfilehash: bbe9a3f18463285521dde0ee64b369cffcd71d75
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: bec37c72d8db3e0891cb2cd375084465950ea5f5
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105975870"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111541952"
 ---
 # <a name="iot-plug-and-play-certification-requirements"></a>IoT 플러그 앤 플레이 인증 요구 사항
 
@@ -25,9 +25,9 @@ IoT 플러그 앤 플레이 미리 보기를 사용하면 솔루션 빌더가 �
 IoT 플러그 앤 플레이 인증이 약속하는 것은 다음과 같습니다.
 
 1.  정의된 디바이스 모델 및 인터페이스가 [Digital Twins 정의 언어](https://github.com/Azure/opendigitaltwins-dtdl)를 준수합니다.  
-2.  Device Provisioning Service에서 ID 범위 소유권의 보안 프로비전 및 쉬운 전송
-3.  [Digital Twins API](../iot-pnp/concepts-digital-twin.md)(Azure IoT Hub 및 Azure IoT Central)를 사용하여 Azure IoT 기반 솔루션과 쉽게 통합
-4.  인증된 디바이스에 대해 제품 유효성이 검사됨
+1.  [Digital Twins API](../iot-pnp/concepts-digital-twin.md)(Azure IoT Hub 및 Azure IoT Central)를 사용하여 Azure IoT 기반 솔루션과 쉽게 통합
+1.  인증된 디바이스에 대해 제품 유효성이 검사됨
+1.  [Azure Certified Device](./program-requirements-azure-certified-device.md)의 모든 요구 사항 충족
 
 ## <a name="requirements"></a>요구 사항
 
@@ -42,16 +42,6 @@ IoT 플러그 앤 플레이 인증이 약속하는 것은 다음과 같습니다
 | **유효성 검사**          | 디바이스는 IoT Hub에 대한 원격 분석 스키마를 전송해야 합니다. Microsoft는 테스트를 실행하기 위한 [포털 워크플로](https://certify.azure.com)를 제공합니다. 디바이스-클라우드(필수): **1.** 디바이스가 AICS 관리 IoT Hub에 메시지를 보낼 수 있는지에 대해 유효성을 검사합니다. **2.** 사용자는 메시지의 수와 빈도를 지정해야 합니다. **3.** AICS는 허브 인스턴스에서 원격 분석을 수신했는지에 대해 유효성을 검사합니다. |
 | **리소스**           | [인증 단계](./overview.md)(모든 추가 리소스 포함) |
 
-**[필수] DPS: 테스트의 목적은 세 가지 증명 방법 중 하나를 사용해 디바이스가 IoT Hub Device Provisioning Service를 구현하고 지원하는지 확인하는 것입니다.**
-
-| **이름**                | IoTPnP.DPS                                               |
-| ----------------------- | ------------------------------------------------------------ |
-| **대상 가용성** | 지금 사용 가능                                                |
-| **적용 대상**          | 모든 디바이스                                                   |
-| **OS**                  | 장치 및 시스템 독립성                                                     |
-| **유효성 검사 유형**     | 자동                                                    |
-| **유효성 검사**          | 디바이스는 포함된 코드를 다시 컴파일할 필요 없이 DPS ID 범위 소유권의 쉬운 전송을 구현해야 합니다. Microsoft는 디바이스가 DPS를 지원하는지에 대해 유효성을 검사하기 위해 테스트를 실행하는 [포털 워크플로](https://certify.azure.com)를 제공합니다. **1.** 사용자는 증명 방법(X.509, TPM 및 SAS 키) 중 하나를 선택해야 합니다. **2.** 사용자는 증명 방법에 따라 **a)** X.509 인증서를 AICS 관리 DPS 범위에 업로드 **b)** 디바이스에 SAS 키 또는 보증 키 구현 등 해당 작업을 수행해야 합니다. |
-| **리소스**           | **a)** [디바이스 프로비저닝 서비스 개요](../iot-dps/about-iot-dps.md), **b)** [DPS ID 범위 전공을 위한 샘플 config 파일](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview-pnp/digitaltwin_client/samples/digitaltwin_sample_ll_device/sample_config) |
 
 **[필수] DTDL v2: 테스트의 목적은 정의된 디바이스 모델 및 인터페이스가 Digital Twins 정의 언어 v2를 준수하는지 확인하는 것입니다.**                                                              
 
@@ -62,7 +52,7 @@ IoT 플러그 앤 플레이 인증이 약속하는 것은 다음과 같습니다
 | **OS**                  | 장치 및 시스템 독립성                                                     |
 | **유효성 검사 유형**     | 자동                                                    |
 | **유효성 검사**          | [포털 워크플로](https://certify.azure.com)는 다음에 대한 유효성을 검사합니다. **1.** 모델 ID 알림 및 Websocket 프로토콜을 통한 MQTT 또는 MQTT를 사용하여 디바이스가 연결되어 있는지 확인합니다. **2.** 모델은 DTDL v2를 준수합니다. **3.** 원격 분석, 속성 및 명령이 올바르게 구현되고 디바이스에서 IoT Hub Digital Twin과 Device Twin 간에 상호 작용합니다. |
-| **리소스**           | [공개 미리 보기 새로 고침 업데이트](../iot-pnp/overview-iot-plug-and-play-preview-updates.md) |
+| **리소스**           | [공개 미리 보기 새로 고침 업데이트](../iot-pnp/overview-iot-plug-and-play.md) |
 
 **[필수] 디바이스 모델은 공개 모델 리포지토리에 게시됩니다.**
 
@@ -73,7 +63,7 @@ IoT 플러그 앤 플레이 인증이 약속하는 것은 다음과 같습니다
 | **OS**                  | 장치 및 시스템 독립성                                                     |
 | **유효성 검사 유형**     | 자동                                                    |
 | **유효성 검사**          | 모든 디바이스 모델은 공용 리포지토리에 게시해야 합니다. 디바이스 모델은 공용 리포지토리에 사용할 수 있는 모델을 통해 확인됩니다 **1.** 사용자는 인증을 위해 제출하기 전에 모델을 공개 리포지토리에 수동으로 게시해야 합니다. **2.** 모델을 게시한 후에는 변경할 수 없습니다. 모델 및 포함된 디바이스 코드가 종료된 경우에만 게시하는 것이 좋습니다.*1 *1 사용자가 모델 리포지토리에 게시된 모델을 해지하려면 Microsoft 지원에 문의해야 합니다. **3.** [포털 워크플로](https://certify.azure.com)는 디바이스가 인증 서비스에 연결된 경우 공용 리포지토리에 모델이 있는지 확인합니다. |
-| **리소스**           | [모델 리포지토리](../iot-pnp/overview-iot-plug-and-play-preview-updates.md) |
+| **리소스**           | [모델 리포지토리](../iot-pnp/overview-iot-plug-and-play.md) |
 
 **[필수] GSG를 사용하여 물리적 디바이스 유효성 검사**
 
@@ -95,8 +85,8 @@ IoT 플러그 앤 플레이 인증이 약속하는 것은 다음과 같습니다
 | **적용 대상**          | 모든 디바이스                                                   |
 | **OS**                  | 장치 및 시스템 독립성                                                     |
 | **유효성 검사 유형**     | 자동                                                    |
-| **유효성 검사**          | [포털 워크플로](https://certify.azure.com)는 디바이스 코드에서 [ 정보 인터페이스](https://repo.azureiotrepository.com/Models/dtmi:azure:DeviceManagement:DeviceInformation;1?api-version=2020-05-01-previewureiot:DeviceManagement:DeviceInformation:1)를 구현하는지에 대해 유효성을 검사합니다. **1.** 값을 디바이스 코드에서 IoT Hub로 내보내야 하는지 확인합니다. **2.** 인터페이스를 DCM에서 구현하는지 확인합니다(이 구현은 DTDL v2에서 변경 됨). **3.** 속성이 쓰기 가능이 아닌지(읽기 전용) 확인합니다. **4.** 스키마 형식이 string 및/또는 long인지, 또는 null이 아닌지 확인합니다. |
-| **리소스**           | [Microsoft에서 정의한 인터페이스](../iot-pnp/overview-iot-plug-and-play-preview-updates.md) |
+| **유효성 검사**          | [포털 워크플로](https://certify.azure.com)는 디바이스 코드에서 정보 인터페이스를 구현하는지에 대해 유효성을 검사합니다. **1.** 값을 디바이스 코드에서 IoT Hub로 내보내야 하는지 확인합니다. **2.** 인터페이스를 DCM에서 구현하는지 확인합니다(이 구현은 DTDL v2에서 변경 됨). **3.** 속성이 쓰기 가능이 아닌지(읽기 전용) 확인합니다. **4.** 스키마 형식이 string 및/또는 long인지, 또는 null이 아닌지 확인합니다. |
+| **리소스**           | [Microsoft에서 정의한 인터페이스](../iot-pnp/overview-iot-plug-and-play.md) |
 | **Azure 권장**  | 해당 없음                                                          |
 
 **[구현된 경우] 클라우드-디바이스: 테스트의 목적은 메시지를 클라우드에서 디바이스로 보낼 수 있는지에 대해 유효성을 검사하는 것입니다.**

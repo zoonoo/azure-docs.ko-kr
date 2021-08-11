@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: bed0c00b8cb5718456302dff06e98ff2f7f2b4e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01f923828f0b83280d033b9bc6e5c7b6bbebae35
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100102192"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784078"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Synapse Studio에서 Synapse RBAC 역할 할당을 관리하는 방법
 
@@ -23,7 +23,7 @@ Synapse RBAC는 사용자, 그룹 및 기타 보안 주체에 Synapse 리소스 
 
 >[!Note]
 >- Synapse RBAC 역할 할당을 관리하려면 작업 영역 또는 관리하려는 개체를 포함하는 하위 수준 범위에서 Synapse 관리자 역할이 있어야 합니다. 작업 영역에서 Synapse 관리자인 경우 작업 영역의 모든 개체에 대한 액세스 권한을 부여할 수 있습니다. 
->- 다른 AD 테넌트의 **게스트 사용자** 는 Synapse 관리자 역할이 할당된 경우에도 역할 할당을 보거나 관리할 수 없습니다.
+>- 다른 AD 테넌트의 사용자의 **게스트 사용자** 도 Synapse 관리자 역할이 할당된 후 역할 할당을 보고 관리할 수 있습니다.
 >- 할당되거나 사용할 수 있는 Synapse 관리자가 없는 경우 작업 영역에 대한 액세스 권한을 다시 얻기 위해, 작업 영역에 대한 **Azure RBAC** 역할 할당을 관리할 수 있는 권한이 있는 사용자가 **Synapse RBAC** 역할 할당을 관리할 수도 있습니다. 이를 통해 Synapse 관리자 또는 기타 Synapse 역할 할당을 추가할 수 있습니다.
 >- SQL 풀에 대한 액세스는 SQL 권한을 사용하여 관리합니다.  Synapse 관리자 및 Synapse SQL 관리자 역할을 제외하고, Synapse RBAC 역할은 SQL 풀에 대한 액세스 권한을 부여하지 않습니다.
 

@@ -2,13 +2,13 @@
 title: Azure 단추에 배포
 description: 단추를 사용하여 GitHub 리포지토리에서 Azure Resource Manager 템플릿을 배포합니다.
 ms.topic: conceptual
-ms.date: 03/25/2021
-ms.openlocfilehash: e25d49571347bb5ed27dbd52bb60c68cbeb4360d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/05/2021
+ms.openlocfilehash: 5074d21867e931560367a6ab62c46e5753f1b00e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543784"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957811"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>배포 템플릿을 사용하여 GitHub 리포지토리에서 템플릿 배포
 
@@ -46,20 +46,20 @@ ms.locfileid: "105543784"
 URL 형식은 다음과 같습니다.
 
 ```html
-https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
+https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json
 ```
 
 그런 다음 URL을 URL로 인코딩된 값으로 변환합니다. 온라인 인코더를 사용하거나 명령을 실행할 수 있습니다. 다음 PowerShell 예제에는 URL로 값을 인코딩하는 방법이 나와 있습니다.
 
 ```powershell
-$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json"
 [uri]::EscapeDataString($url)
 ```
 
 URL을 인코딩할 때 예제 URL의 값은 다음과 같습니다.
 
 ```html
-https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json
+https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json
 ```
 
 각 링크는 동일한 기준 URL로 시작합니다.
@@ -71,7 +71,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/
 URL로 인코딩된 템플릿 링크를 기본 URL의 끝에 추가합니다.
 
 ```html
-https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json
+https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json
 ```
 
 사용자에게는 링크의 전체 URL이 있습니다.
@@ -93,13 +93,13 @@ https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/
 GitHub 리포지토리 또는 웹 페이지의 _README.md_ 파일에서 Markdown을 사용하여 단추를 추가하려면 다음을 사용합니다.
 
 ```markdown
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json)
 ```
 
 HTML의 경우 다음을 사용합니다.
 
 ```html
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json" target="_blank">
   <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
 ```
@@ -114,12 +114,12 @@ Azure Repos Git의 경우 단추의 형식은 다음과 같습니다.
 
 전체 솔루션을 테스트하려면 다음 단추를 선택합니다.
 
-[![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json)
+[![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json)
 
-포털에는 매개 변수 값을 쉽게 입력할 수 있는 창이 표시됩니다. 매개 변수는 템플릿의 기본값으로 미리 채워져 있습니다.
+포털에는 매개 변수 값을 쉽게 입력할 수 있는 창이 표시됩니다. 매개 변수는 템플릿의 기본값으로 미리 채워져 있습니다. 템플릿에 정의된 카멜식 대/소문자 매개 변수 이름 *storageAccountType* 은 포털에 표시될 때 공백으로 구분된 문자열로 바뀝니다.
 
 ![포털을 사용하여 배포](./media/deploy-to-azure-button/portal.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-- 템플릿에 대한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.
+- 템플릿에 대한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](./syntax.md)를 참조하세요.

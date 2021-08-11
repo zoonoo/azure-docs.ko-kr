@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 3ce22837da2ca30249b399a297b6188d950b1ea4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/30/2021
+ms.openlocfilehash: 348cd594ae515503c870c1b96eb64aa7117ea26b
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98935143"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786757"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 Blob Storage 및 Azure Data Lake Gen2 출력
 
@@ -58,7 +58,12 @@ Blob 스토리지를 출력으로 사용할 때 새 파일이 Blob에 만들어�
 
 ## <a name="output-batch-size"></a>출력 일괄 처리 크기
 
-최대 메시지 크기는 [Azure Storage 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)을 참조하세요. 최대 blob 블록 크기는 4MB이고 최대 blob bock 수는 5만 개입니다. |
+최대 메시지 크기는 [Azure Storage 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)을 참조하세요. 최대 blob 블록 크기는 4MB이고 최대 blob bock 수는 5만 개입니다.
+
+## <a name="limitations"></a>제한 사항
+
+* 경로 패턴(예: /folder2/folder3)에 "/"가 사용되면 빈 폴더가 생성되고 Storage Explorer에 표시되지 않습니다.
+* Stream Analytics는 새 Blob 파일이 필요하지 않은 경우 동일한 파일에 추가합니다. 이벤트 그리드와 같은 Azure 서비스가 Blob 파일 업데이트 시 트리거되도록 구성된 경우 이로 인해 추가 트리거가 생성될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,13 +6,14 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
+ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: 708d84bdb3ebe8fbba6939aa771a9120868d5d1b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 50e9dbddd0a84f104aed9275f985f444990dbc30
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375207"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677167"
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
 > [!NOTE]
@@ -199,8 +200,8 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트를 일반적으�
 ### <a name="configure-proxy-server-settings"></a>프록시 서버 설정 구성
 HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택하는 경우 게이트웨이는 diahost.exe.config 및 diawp.exe.config의 프록시 설정을 사용합니다. diahost.exe.config나 diawp.exe.config에 프록시가 지정되어 있지 않으면 게이트웨이는 프록시를 거치지 않고 클라우드 서비스에 직접 연결합니다. 다음 절차에서는 diahost.exe.config 파일을 업데이트하는 지침을 제공합니다.
 
-1. 파일 탐색기에서 원본 파일을 백업하기 위해 *C:\\\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config* 의 안전한 복사본을 만듭니다.
-2. 관리자 권한으로 Notepad.exe를 실행하고 텍스트 파일 *C:\\\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config* 를 엽니다. 다음 코드와 같이 system.net에 대한 기본 태그를 찾을 수 있습니다.
+1. 파일 탐색기에서 원본 파일을 백업할 *C:\\Program Files\\Microsoft Integration Runtime\\5.0\\Shared\\diahost.exe.config* 의 안전한 복사본을 만듭니다.
+2. 관리자 권한으로 Notepad.exe를 실행하고 텍스트 파일 *C:\\Program Files\\Microsoft Integration Runtime\\5.0\\Shared\\diahost.exe.config* 를 엽니다. 다음 코드와 같이 system.net에 대한 기본 태그를 찾을 수 있습니다.
 
     ```
     <system.net>
@@ -276,7 +277,7 @@ msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
 [단일 노드 게이트웨이의 경우]
 1. 게이트웨이 컴퓨터에서 Windows PowerShell을 시작합니다.
-2. *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* 폴더로 전환합니다.
+2. *C:\\\\Program Files\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* 폴더로 전환합니다.
 3. 다음 명령을 실행하여 자동 업데이트 기능을 끕니다(사용 안 함).
 
     ```powershell
@@ -289,7 +290,7 @@ msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
     ```
    [다중 노드 고가용성 및 확장성 있는 게이트웨이의 경우](data-factory-data-management-gateway-high-availability-scalability.md)
 1. 게이트웨이 컴퓨터에서 Windows PowerShell을 시작합니다.
-2. *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* 폴더로 전환합니다.
+2. *C:\\\\Program Files\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* 폴더로 전환합니다.
 3. 다음 명령을 실행하여 자동 업데이트 기능을 끕니다(사용 안 함).
 
     고가용성 기능이 있는 게이트웨이의 경우, 추가 AuthKey 매개 변수가 필요합니다.
@@ -306,14 +307,14 @@ msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 게이트웨이를 설치하면 다음 방법 중 하나로 데이터 관리 게이트웨이 구성 관리자를 시작할 수 있습니다.
 
 1. **Search** 창에서 **데이터 관리 게이트웨이** 를 입력하여 이 유틸리티에 액세스합니다.
-2. *C:\\\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared* 폴더의 *ConfigManager.exe* 실행 파일을 실행합니다.
+2. *C:\\Program Files\\Microsoft Integration Runtime\\5.0\\Shared\\* 폴더의 *ConfigManager.exe* 실행 파일을 실행합니다.
 
 ### <a name="home-page"></a>홈 페이지
 홈 페이지를 통해 다음 작업을 수행할 수 있습니다.
 
 * 게이트웨이의 상태를 봅니다(클라우드 서비스에 연결되어 있는지 등).
 * **Register** 합니다.
-* 게이트웨이 컴퓨터에서 **데이터 관리 게이트웨이 호스트 서비스** 를 **중지** 하고 시작합니다.
+* 게이트웨이 머신에서 **Integration Runtime 서비스** 를 **중지** 하고 시작합니다.
 * **업데이트를 예약** 합니다.
 * 게이트웨이가 **마지막으로 업데이트된** 날짜를 봅니다.
 
@@ -326,7 +327,7 @@ msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 * **SSL 인증서** 보기는 포털과 게이트웨이 간의 TLS/SSL 통신에서 데이터 원본에 대한 자격 증명을 설정하는 데 사용됩니다.
 
 ### <a name="remote-access-from-intranet"></a>인트라넷에서 원격 액세스
-이 기능은 나중에 사용할 수 있습니다. 향후 업데이트(v3.4 이상)에서는 현재 자격 증명 암호화에 PowerShell 또는 자격 증명 관리자 애플리케이션을 사용하는 동안 포트 8050(위의 섹션 참조)을 사용하여 이뤄지는 원격 연결을 사용자가 활성화/비활성화할 수 있습니다.
+현재 자격 증명 암호화에 PowerShell 또는 자격 증명 관리자 애플리케이션을 사용하는 동안 포트 8050(위의 섹션 참조)을 사용하여 이뤄지는 원격 연결을 사용자가 활성화/비활성화할 수 있습니다.
 
 ### <a name="diagnostics-page"></a>진단 페이지
 진단 페이지를 통해 다음 작업을 수행할 수 있습니다.
@@ -359,7 +360,7 @@ Azure Portal에서 게이트웨이 컴퓨터의 리소스 사용률(CPU, 메모�
 
 다음 표에서는 **게이트웨이 노드** 목록의 열에 대해 설명합니다.
 
-모니터링 속성 | 설명
+모니터링 속성 | Description
 :------------------ | :----------
 이름 | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다. 노드는 게이트웨이가 설치되는 온-프레미스 Windows 컴퓨터입니다. 단일 논리 게이트웨이에서 하나 이상의 노드(최대 4개의 노드)를 포함하는 방법은 [데이터 관리 게이트웨이 - 고가용성 및 확장성](data-factory-data-management-gateway-high-availability-scalability.md)을 참조하세요.
 상태 | 논리 게이트웨이 및 게이트웨이 노드의 상태입니다. 예: 온라인/오프라인/제한됨/기타. 해당 상태에 대한 자세한 내용은 [게이트웨이 상태](#gateway-status) 섹션을 참조하세요.
@@ -507,7 +508,7 @@ API 기반 방식으로 자격 증명을 암호화하려는 경우에는 [New-Az
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Azure PowerShell에서 *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* 폴더로 전환합니다. 다음 명령에 나와 있는 대로 로컬 변수 **$Key** 와 연결된 *RegisterGateway.ps1* 을 실행합니다. 이 스크립트는 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리적 게이트웨이에 등록합니다.
+1. Azure PowerShell에서 *C:\\\\Program Files\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* 폴더로 전환합니다. 다음 명령에 나와 있는 대로 로컬 변수 **$Key** 와 연결된 *RegisterGateway.ps1* 을 실행합니다. 이 스크립트는 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리적 게이트웨이에 등록합니다.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

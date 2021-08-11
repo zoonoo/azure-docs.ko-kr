@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: 44ab9e4ff83fec2ddfbd1cb44f503298d12789d1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f1df5c945c5216e82837672ad8aeaa669fc4fb20
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766302"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786451"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Media Services의 라이브 이벤트 및 라이브 출력
 
@@ -47,7 +47,7 @@ Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라�
 
 통과 **라이브 이벤트** 를 사용하는 경우 온-프레미스 라이브 인코더에 의존하여 다중 비트 전송률이 있는 비디오 스트림을 생성하고 이 스트림을 기여 피드로 하여 라이브 이벤트에 전송(RTMP 또는 조각난 MP4 프로토콜 사용)할 수 있습니다. 그러면 라이브 이벤트는 들어오는 비디오 스트림을 추가 처리 없이 제공합니다. 이러한 통과 라이브 이벤트는 장기 실행 라이브 이벤트 또는 연중무휴 선형 라이브 스트리밍에 최적화되어 있습니다. 이 유형의 라이브 이벤트를 만들 경우 None(LiveEventEncodingType.None)을 지정합니다.
 
-H.264/AVC 또는 H.265/HEVC 비디오 코덱 및 AAC(AAC-LC, HE-AACv1 또는 HE-AACv2) 오디오 코덱을 사용하여 최대 4K의 해상도 및 초당 60프레임의 프레임 속도로 기여 피드를 전송할 수 있습니다. 자세한 내용은 [라이브 이벤트 유형 비교](live-event-types-comparison-reference.md)를 참조하세요.
+H.264/AVC 또는 H.265/HEVC(원활한 수집만 해당) 비디오 코덱 및 AAC(AAC-LC, HE-AACv1 또는 HE-AACv2) 오디오 코덱을 사용하여 최대 4K의 해상도 및 초당 60프레임의 프레임 속도로 기여 피드를 전송할 수 있습니다. 자세한 내용은 [라이브 이벤트 유형 비교](live-event-types-comparison-reference.md)를 참조하세요.
 
 > [!NOTE]
 > 통과 방법을 사용하면 긴 기간 동안 여러 이벤트를 수행하고 온-프레미스 인코더에 이미 투자한 경우 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다. [가격 책정](https://azure.microsoft.com/pricing/details/media-services/) 세부 정보를 참조하세요.
@@ -175,7 +175,7 @@ Media Services에서 라이브 인코딩을 사용하는 경우 단일 비트 �
 ### <a name="live-ingest-url-naming-rules"></a>라이브 수집 URL 명명 규칙
 
 * 아래 *임의* 문자열은 128비트 16진수 숫자입니다(0-9 a-f의 32문자로 구성됨).
-* *your access token*: 정적 호스트 이름 설정을 사용하는 경우 설정하는 유효한 GUID 문자열입니다. 예: `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *your access token*: 정적 호스트 이름 설정을 사용하는 경우 설정하는 유효한 GUID 문자열입니다. 예들 들어 `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`입니다.
 * *stream name*: 특정 연결에 대한 스트림 이름을 나타냅니다. 스트림 이름 값은 일반적으로 사용하는 라이브 인코더에 의해 추가됩니다. 연결을 설명하는 이름을 사용하도록 라이브 인코더를 구성할 수 있습니다(예: "video1_audio1", "video2_audio1", "stream").
 
 #### <a name="non-static-hostname-ingest-url"></a>비정적 호스트 이름 수집 URL

@@ -5,12 +5,12 @@ services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: 83633b6f107aee995c19e1cda94f4f93a96e84e2
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 587dddfde930bb64aa21f2e24c26d815e60ab9b0
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110076783"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110791693"
 ---
 # <a name="troubleshoot-common-issues-with-startstop-vms-preview"></a>VM 시작/중지(미리 보기)와 관련된 일반적인 문제 해결
 
@@ -32,7 +32,7 @@ Azure 공유 대시보드를 검토하여 시작할 수 있습니다. VM v2 시�
 
 VM v2 시작/중지(미리 보기)에 사용되는 Azure 스토리지 계정의 **requestsstoretable** 테이블에 기록된 VM에서 수행된 작업에 대한 세부 정보를 검토할 수 있습니다. 레코드를 보려면 다음 단계를 수행합니다.
 
-1. Azure Portal의 스토리지 계정으로 이동하고 계정의 왼쪽 창에 있는 **스토리지 탐색기(미리 보기)를 선택합니다.
+1. Azure Portal의 저장소 계정으로 이동하고 계정의 왼쪽 창에 있는 **저장소 탐색기(미리 보기)** 를 선택합니다.
 1. **테이블** 을 선택한 다음 **requeststoretable** 을 선택합니다.
 1. 테이블의 각 레코드는 논리 앱 시나리오에 정의된 대상 범위에 따라 Azure VM에 대해 수행되는 시작/중지 동작을 나타냅니다. 레코드 속성(예: 타임스탬프, 동작 또는 TARGETTOPLEVELRESOURCENAME) 중 하나를 기준으로 결과를 필터링할 수 있습니다.
 

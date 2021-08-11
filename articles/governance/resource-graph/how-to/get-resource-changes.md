@@ -1,14 +1,14 @@
 ---
 title: 리소스 변경 내용 가져오기
 description: 리소스가 변경된 시기를 찾고 변경된 속성의 목록을 가져오고 차이를 평가하는 방법을 이해합니다.
-ms.date: 01/27/2021
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 5ad86ec2598cd7f24b8e0cd2208889bb7a088568
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 103ebf0303ee2b8613ccafd13d9c8916ed7e1fbc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100594647"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751610"
 ---
 # <a name="get-resource-changes"></a>리소스 변경 내용 가져오기
 
@@ -145,6 +145,10 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 - **beforeSnapshot** - 변경 내용이 검색되기 전에 수행된 리소스 스냅샷의 **snapshotId** 및 **타임스탬프** 를 포함합니다.
 - **afterSnapshot** - 변경 내용이 검색된 후에 수행된 리소스 스냅샷의 **snapshotId** 및 **타임스탬프** 를 포함합니다.
 - **changeType** - **beforeSnapshot** 과 **afterSnapshot** 간에 전체 변경 레코드에 대해 검색된 변경 형식을 설명합니다. 값은 다음과 같습니다. _만들기_, _업데이트_ 및 _삭제_ **propertyChanges** 속성 배열은 **changeType** 이 _업데이트_ 인 경우에만 포함됩니다.
+
+  > [!IMPORTANT]
+  > _만들기_ 는 이전에 존재했고 지난 14일 이내에 삭제된 리소스에서만 사용할 수 있습니다.
+
 - **propertyChanges** - 이 속성 배열은 **beforeSnapshot** 과 **afterSnapshot** 간에 업데이트된 모든 리소스 속성에 대해 자세히 설명합니다.
   - **propertyName** - 변경된 리소스 속성의 이름입니다.
   - **changeCategory** - 변경을 수행한 내용에 대해 설명합니다. 값은 다음과 같습니다. _시스템_ 및 _사용자_
@@ -279,7 +283,7 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 }
 ```
 
-**beforeSnapshot** 및 **afterSnapshot** 은 각각 스냅샷을 만든 시간 및 해당 시점의 속성을 제공합니다. 이러한 스냅샷 간의 특정 지점에서 변경이 발생했습니다. 이전 예제를 살펴보면 변경 된 속성이 **supportsHttpsTrafficOnly** 된 것을 볼 수 있습니다.
+**beforeSnapshot** 및 **afterSnapshot** 은 각각 스냅샷을 만든 시간 및 해당 시점의 속성을 제공합니다. 이러한 스냅샷 간의 특정 지점에서 변경이 발생했습니다. 이전 예제를 살펴보면 변경된 속성이 **supportsHttpsTrafficOnly** 인 것을 볼 수 있습니다.
 
 결과를 비교하려면 **resourceChanges** 에서 **changes** 속성을 사용하거나 **resourceChangeDetails** 에서 각 스냅샷의 **콘텐츠** 부분을 평가하여 차이점을 확인합니다. 스냅샷을 비교하는 경우 **타임스탬프** 는 항상 예상됨에도 불구하고 차이점으로 표시됩니다.
 

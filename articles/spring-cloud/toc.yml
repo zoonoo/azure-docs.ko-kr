@@ -25,10 +25,15 @@
           href: quickstart-logs-metrics-tracing.md
         - name: Azure Database for MySQL과 통합
           href: quickstart-integrate-azure-database-mysql.md
-        - name: 프로비전
-          items:
-            - name: ARM 템플릿을 사용하여 프로비전
-              href: quickstart-deploy-infrastructure-vnet.md
+    - name: 프로비전
+      expanded: true
+      items:
+        - name: ARM 템플릿을 사용하여 프로비전
+          href: quickstart-deploy-infrastructure-vnet.md
+        - name: Azure CLI를 사용하여 프로비전
+          href: quickstart-deploy-infrastructure-vnet-azure-cli.md
+        - name: Terraform을 사용하여 프로비전
+          href: quickstart-deploy-infrastructure-vnet-terraform.md
 - name: 자습서
   items:
     - name: 경고 및 작업 그룹
@@ -149,16 +154,6 @@
           href: how-to-enable-end-to-end-tls.md
         - name: Config Server 및 서비스 레지스트리 액세스
           href: how-to-access-data-plane-azure-ad-rbac.md
-    - name: 통합
-      items:
-        - name: Azure CosmosDB에 앱 바인딩
-          href: how-to-bind-cosmos.md
-        - name: Azure Cache for Redis에 앱 바인딩
-          href: how-to-bind-redis.md
-        - name: Azure MySQL에 앱 바인딩
-          href: how-to-bind-mysql.md
-        - name: Azure 부하 분산 솔루션과 통합
-          href: how-to-integrate-azure-load-balancers.md
     - name: 자동화
       items:
         - name: Azure DevOps를 사용하는 CI/CD
@@ -185,7 +180,7 @@
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
-- name: Architecture
+- name: 아키텍처
   items:
     - name: 참조 아키텍처
       href: reference-architecture.md

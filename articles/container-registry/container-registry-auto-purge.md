@@ -2,24 +2,21 @@
 title: 태그 및 매니페스트 제거
 description: 제거 명령을 사용하여 연령 및 태그 필터를 기준으로 Azure 컨테이너 레지스트리에서 여러 태그와 매니페스트를 삭제하고 필요에 따라 제거 작업을 예약합니다.
 ms.topic: article
-ms.date: 02/19/2021
-ms.openlocfilehash: 562d1940459cb1594b7cd9aca2af280b05a4e419
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/07/2021
+ms.openlocfilehash: bb1a8a2a9af0e7ab96b5ae12bd10500e700dfa39
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784194"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089077"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Azure 컨테이너 레지스트리에서 자동으로 이미지 제거
 
 개발 워크플로의 일부로 Azure 컨테이너 레지스트리를 사용하는 경우 레지스트리는 짧은 기간 후 필요하지 않은 이미지 또는 기타 아티팩트로 신속하게 채울 수 있습니다. 특정 기간보다 오래되었거나 지정된 이름 필터와 일치하는 모든 태그를 삭제하는 것이 좋습니다. 여러 아티팩트를 신속하게 삭제하기 위해 이 문서에서는 주문형 또는 [예약된](container-registry-tasks-scheduled.md) ACR 작업으로 실행할 수 있는 `acr purge` 명령을 소개합니다. 
 
-`acr purge` 명령은 현재 GitHub의 [acr-cli](https://github.com/Azure/acr-cli) 리포지토리의 소스 코드에서 빌드된 공용 컨테이너 이미지(`mcr.microsoft.com/acr/acr-cli:0.4`)에 배포되어 있습니다.
+`acr purge` 명령은 현재 GitHub의 [acr-cli](https://github.com/Azure/acr-cli) 리포지토리의 소스 코드에서 빌드된 공용 컨테이너 이미지(`mcr.microsoft.com/acr/acr-cli:0.4`)에 배포되어 있습니다. `acr purge`는 현재 미리 보기로 제공됩니다.
 
 Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 문서의 ACR 작업 예제를 실행할 수 있습니다. 로컬로 사용하려는 경우 2.0.76 이상 버전이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요. 
-
-> [!IMPORTANT]
-> 이 기능은 현재 미리 보기로 제공됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
 > [!WARNING]
 > 삭제된 이미지 데이터는 복구할 수 없으므로 `acr purge` 명령을 주의해서 사용해야 합니다. 매니페스트 다이제스트(이미지 이름 아님)로 이미지를 풀하는 시스템이 있는 경우 태그가 지정되지 않은 이미지를 제거하지 않아야 합니다. 태그가 지정되지 않은 이미지를 삭제하면 해당 시스템은 레지스트리에서 이미지를 끌어올 수 없게 됩니다. 매니페스트에 따라 풀하는 대신 [권장 모범 사례](container-registry-image-tag-version.md)에 해당하는 ‘고유 태그 지정’ 체계를 채택하는 것이 좋습니다.

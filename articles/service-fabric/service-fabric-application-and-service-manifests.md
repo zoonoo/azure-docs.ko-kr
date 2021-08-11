@@ -3,12 +3,12 @@ title: Azure Service Fabric 앱 및 서비스 설명
 description: Service Fabric 애플리케이션 및 서비스를 설명하는 데 매니페스트를 사용하는 방법에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 8/12/2019
-ms.openlocfilehash: fcf4c7611f0a6f52c28b234717b9244ac58ad2d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22a04f94dfcd1ee4592e281ebd75efb0a8d0133a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86248223"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476547"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 애플리케이션 및 서비스 매니페스트
 이 문서에서는 Service Fabric 애플리케이션 및 서비스가 ApplicationManifest.xml 및 ServiceManifest.xml 파일을 사용하여 정의되고 버전화되는 방법에 대해 설명합니다.  자세한 예제는 [애플리케이션 및 서비스 매니페스트 예제](service-fabric-manifest-examples.md)를 참조하세요.  이러한 매니페스트 파일의 XML 스키마는 [ServiceFabricServiceModel.xsd 스키마 설명서](service-fabric-service-model-schema.md)에 설명되어 있습니다.
@@ -182,6 +182,7 @@ For more information about other features supported by application manifests, re
 
 ## <a name="next-steps"></a>다음 단계
 - [애플리케이션을 패키지](service-fabric-package-apps.md)하고 배포를 준비합니다.
+- [애플리케이션에서 StartupServices.xml을 사용합니다](service-fabric-startupservices-model.md).
 - [애플리케이션을 배포하고 제거](service-fabric-deploy-remove-applications.md)합니다.
 - [여러 애플리케이션 인스턴스에 대해 매개 변수 및 환경 변수를 구성](service-fabric-manage-multiple-environment-app-configuration.md)합니다.
 - [애플리케이션에 대한 보안 정책을 구성](service-fabric-application-runas-security.md)합니다.

@@ -7,12 +7,12 @@ metadata:
   ms.date: 02/19/2020
   ms.author: helohr
   manager: femila
-  ms.openlocfilehash: f0d85ccf34c8c05a88b5cba891ba6fd35869d080
-  ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+  ms.openlocfilehash: a8fe71b3f89121d752f99f59755064aa6b64d4b4
+  ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/23/2021
-  ms.locfileid: "112538897"
+  ms.lasthandoff: 06/09/2021
+  ms.locfileid: "111907865"
 title: Windows 10 Enterprise 다중 세션 FAQ
 summary: 이 문서에서는 Windows 10 Enterprise 다중 세션에 대해 자주 묻는 질문에 답하고 모범 사례에 대해 설명합니다.
 sections:
@@ -48,9 +48,9 @@ sections:
   - question: Windows 10 Enterprise 다중 세션 이미지는 어디서 찾을 수 있나요?
     answer: Windows 10 Enterprise 다중 세션은 Azure 갤러리에 있습니다. Azure Portal로 이동하여 Windows 10 Enterprise for Virtual Deskstop 릴리스를 검색하면 찾을 수 있습니다. Enterprise용 Microsoft 365 Apps와 통합된 이미지의 경우 Azure Portal로 이동하여 **Microsoft Windows 10 + Microsoft 365 Apps for enterprise** 를 검색하세요.
   - question: 어떤 Windows 10 Enterprise 다중 세션 이미지를 사용해야 하나요?
-    answer: Azure 갤러리에는 Windows 10 Enterprise 다중 세션 버전 1909, Windows 10 Enterprise 다중 세션 버전 1903을 비롯한 여러 릴리스가 있습니다. 성능 및 안정성 향상을 위해 최신 버전을 사용하는 것이 좋습니다.
+    answer: Azure 갤러리에는 Windows 10 Enterprise 다중 세션 버전 1809, Windows 10 Enterprise 다중 세션 버전 1903을 비롯한 여러 릴리스가 있습니다. 성능 및 안정성 향상을 위해 최신 버전을 사용하는 것이 좋습니다.
   - question: 지원되는 Windows 10 Enterprise 다중 세션 버전은 무엇인가요?
-    answer: Windows 10 Enterprise 다중 세션 버전 1909 이상이 지원되며 Azure 갤러리에서 찾을 수 있습니다. 릴리스는 Windows 10 Enterprise와 동일한 지원 수명 주기 정책을 따릅니다. 즉 3월 릴리스는 18개월 동안 지원되고 9월 릴리스는 30개월 동안 지원됩니다.
+    answer: Windows 10 Enterprise 다중 세션 버전 1809 이상이 지원되며 Azure 갤러리에서 찾을 수 있습니다. 릴리스는 Windows 10 Enterprise와 동일한 지원 수명 주기 정책을 따릅니다. 즉 3월 릴리스는 18개월 동안 지원되고 9월 릴리스는 30개월 동안 지원됩니다.
   - question: Windows 10 Enterprise 다중 세션에 어떤 프로필 관리 솔루션을 사용해야 하나요?
     answer: >
       Windows 10 Enterprise를 비영구 환경 또는 중앙에 저장된 프로필이 필요한 다른 시나리오로 구성할 때 FSLogix 프로필 컨테이너를 사용하는 것이 좋습니다. FSLogix를 사용하면 모든 사용자 세션에 사용자 프로필을 사용할 수 있고 최신 상태로 유지할 수 있습니다. 또한, FSLogix 프로필 컨테이너를 사용하여 적절한 권한이 있는 SMB 공유에 사용자 프로필을 저장하는 것이 좋지만, 필요한 경우 Azure 페이지 BLOB 스토리지에 사용자 프로필을 저장할 수 있습니다. Azure Virtual Desktop 사용자는 추가 비용 없이 FSLogix를 사용할 수 있습니다.  FSLogix는 모든 Windows 10 Enterprise 다중 세션 이미지에 미리 설치되어 있지만, 여전히 IT 관리자가 FSLogix 프로필 컨테이너를 구성해야 합니다.

@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2021
+ms.date: 04/14/2021
 ms.author: aldomel
-ms.openlocfilehash: 0dd053fa268e88c281c1fe6c00339fe6a6edf27a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3f17e24bb63a60fc542806da848f85e7d0279bba
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732604"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984953"
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -111,7 +111,7 @@ Azure에서 사용자 지정 경로 또는 사용자 정의(정적) 경로를 �
    3. AzureCloud 지역 태그(예: AzureCloud.canadacentral, AzureCloud.eastasia)
    4. AzureCloud 태그 </br></br>
 
-이 기능을 사용하려면 경로 테이블 명령에 주소 접두사 매개 변수의 서비스 태그 이름을 지정합니다. 예를 들어 Powershell에서 다음을 사용하여 Azure Storage IP 접두사로 직접 전송된 트래픽을 가상 어플라이언스로 보내도록 새 경로를 만들 수 있습니다. </br>
+이 기능을 사용하려면 경로 테이블 명령에 주소 접두사 매개 변수의 서비스 태그 이름을 지정합니다. 예를 들어 Powershell에서 다음을 사용하여 Azure Storage IP 접두사로 직접 전송된 트래픽을 가상 어플라이언스로 보내도록 새 경로를 만들 수 있습니다. </br></br>
 
 ```azurepowershell-interactive
 New-AzRouteConfig -Name "StorageRoute" -AddressPrefix "Storage" -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
@@ -123,6 +123,10 @@ CLI의 경우 동일한 명령은 다음과 같습니다. </br>
 az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.100.4
 ```
 </br>
+
+#### <a name="known-issues-april-2021"></a>알려진 문제(2021년 4월)
+
+BGP 경로가 존재하거나 서브넷에 서비스 엔드포인트가 구성된 경우 경로가 올바른 우선 순위로 평가되지 않을 수 있습니다. 이 기능은 현재 이중 스택(IPv4+IPv6) 가상 네트워크에서 작동하지 않습니다. 이러한 시나리오에 대한 수정이 현재 진행 중입니다. </br>
 
 
 > [!NOTE] 

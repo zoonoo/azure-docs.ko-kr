@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 0158c9f5b9debf0c47978e816951e25634621645
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0687b3bf486d2496763237164536be34f504f7ed
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104609808"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112070888"
 ---
 # <a name="automate-threat-response-with-playbooks-in-azure-sentinel"></a>Azure Sentinel의 플레이북을 사용하여 위협 대응 자동화
 
@@ -32,7 +32,7 @@ ms.locfileid: "104609808"
 
 대부분의 경우 경고 및 인시던트는 특정 및 정의된 수정 작업으로 해결할 수 있는 반복 패턴을 따릅니다.
 
-플레이북은 Azure Sentinel에서 루틴으로 실행할 수 있는 수정 작업의 컬렉션입니다. 플레이북은 위협 대응을 자동화하고 오케스트레이션하는 데 도움이 될 수 있습니다. 각각 분석 규칙 또는 자동화 규칙에 따라 트리거되는 경우 특정 경고나 인시던트에 대응하여 플레이북을 자동으로 실행되도록 설정하거나 수동으로 실행할 수 있습니다.
+플레이북은 Azure Sentinel에서 루틴으로 실행할 수 있는 수정 작업의 컬렉션입니다. 플레이북은 [**위협 대응을 자동화하고 오케스트레이션**](tutorial-respond-threats-playbook.md)하는 데 도움이 될 수 있습니다. 각각 분석 규칙 또는 자동화 규칙에 따라 트리거되는 경우 특정 경고나 인시던트에 대응하여 플레이북을 자동으로 실행되도록 설정하거나 수동으로 실행할 수 있습니다.
 
 플레이북은 구독 수준에서 만들어지고 적용되지만, **플레이북** 탭(새 **자동화** 블레이드에서)에는 선택한 구독에서 사용할 수 있는 모든 플레이북이 표시됩니다.
 
@@ -210,13 +210,17 @@ IP 주소 엔터티를 생성하는 분석 규칙에 따라 경고에서 Azure S
 - **자동화** 블레이드의 **자동화 규칙** 탭에서 새 자동화 규칙을 만들고 적절한 조건 및 원하는 작업을 지정합니다. 이 자동화 규칙은 지정된 조건을 충족하는 모든 분석 규칙에 적용됩니다.
 
     > [!NOTE]
+    > **Azure Sentinel 자동화 규칙에는 플레이북을 실행할 수 있는 권한이 필요합니다.**
+    >
     > 자동화 규칙에서 플레이북을 실행하기 위해 Azure Sentinel은 특별히 권한이 부여된 서비스 계정을 사용합니다. 사용자 계정과 달리 이 계정을 사용하면 서비스의 보안 수준을 높이고 자동화 규칙 API를 사용하여 CI/CD 사용 사례를 지원할 수 있습니다.
     >
-    > 이 계정에는 플레이북이 있는 리소스 그룹에 대한 명시적 권한을 부여해야 합니다. 이때 모든 자동화 규칙은 해당 리소스 그룹에서 모든 플레이북을 실행할 수 있습니다.
+    > 이 계정에는 플레이북이 있는 리소스 그룹에 대한 명시적 권한(**Azure Sentinel Automation 기여자** 역할 형식 사용)이 부여되어야 합니다. 이때 모든 자동화 규칙은 해당 리소스 그룹에서 모든 플레이북을 실행할 수 있습니다.
     >
-    > **플레이북 실행** 작업을 자동화 규칙에 추가하면 플레이북의 드롭다운 목록이 표시됩니다. Azure Sentinel에 권한이 없는 플레이북은 사용할 수 없는 것으로 표시됩니다("회색으로 표시됨"). **플레이북 권한 관리** 링크를 선택하여 즉시 Azure Sentinel에 사용 권한을 부여할 수 있습니다.
+    > **플레이북 실행** 작업을 자동화 규칙에 추가하면 선택한 플레이북의 드롭다운 목록이 표시됩니다. Azure Sentinel에 권한이 없는 플레이북은 사용할 수 없는 것으로 표시됩니다("회색으로 표시됨"). **플레이북 권한 관리** 링크를 선택하여 즉시 Azure Sentinel에 사용 권한을 부여할 수 있습니다.
     >
     > 다중 테넌트([Lighthouse](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse)) 시나리오에서 플레이북을 호출하는 자동화 규칙이 다른 테넌트에 있는 경우에도 플레이북이 있는 테넌트에 대한 권한을 정의해야 합니다. 권한을 정의하려면 플레이북의 리소스 그룹에 대한 **소유자** 권한이 있어야 합니다.
+    >
+    > **MSSP(관리형 보안 서비스 공급자)** 가 있는 고유한 시나리오가 있습니다. 여기서 서비스 공급자는 자체 테넌트에 로그인한 상태에서 [Azure Lighthouse](../lighthouse/index.yml)를 사용하여 고객의 작업 영역에 자동화 규칙을 만듭니다. 그러면 이 자동화 규칙이 고객의 테넌트에 속한 플레이북을 호출합니다. 이 경우 Azure Sentinel에는 **_두 테넌트_ *_에 대한 권한이 부여되어야 합니다. 고객 테넌트에서는 일반적인 다중 테넌트 시나리오와 마찬가지로 _* 플레이북 관리 권한**  패널에서 권한을 부여합니다. 서비스 공급자 테넌트에서 관련 권한을 부여하려면 플레이북이 있는 리소스 그룹에서 **Azure Sentinel Automation 기여자** 역할을 사용하여 **Azure Security Insights** 앱에 대한 액세스 권한을 부여하는 추가 Azure Lighthouse 위임을 추가해야 합니다. [이 위임을 추가하는 방법을 알아봅니다](tutorial-respond-threats-playbook.md#permissions-to-run-playbooks).
 
 [자동화 규칙을 만드는 방법에 대한 전체 지침](tutorial-respond-threats-playbook.md#respond-to-incidents)을 참조하세요.
 

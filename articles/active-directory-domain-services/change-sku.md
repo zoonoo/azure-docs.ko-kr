@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 320bd87aa78d26cee44c48f27365febd1dd426ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2bdf660d57f4fa8cb3a804ff55028dc442f96b8b
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96620293"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786139"
 ---
 # <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>기존 Azure Active Directory Domain Services 관리되는 도메인의 SKU 변경
 
@@ -42,7 +42,7 @@ Azure AD DS(Azure Active Directory Domain Services)에서 사용할 수 있는 �
 
 예를 들면 다음과 같습니다.
 
-* *프리미엄* SKU에서 2개의 포리스트 트러스트를 만든 경우 *표준* SKU로 낮춰 변경할 수 없습니다. *표준* SKU는 포리스트 트러스트를 지원하지 않습니다.
+* ‘표준’ SKU로 변경할 수 없습니다. Azure AD DS 리소스 포리스트는 ‘표준’ SKU를 지원하지 않습니다. 
 * 또는 *프리미엄* SKU에서 7개의 포리스트 트러스트를 만든 경우 *엔터프라이즈* SKU로 낮춰 변경할 수 없습니다. *엔터프라이즈* SKU는 최대 5개의 트러스트를 지원합니다.
 
 이러한 제한에 대한 자세한 내용은 [Azure AD DS SKU 기능 및 제한][concepts-sku]을 참조하세요.

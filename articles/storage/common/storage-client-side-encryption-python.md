@@ -1,5 +1,5 @@
 ---
-title: Python을 사용 하는 클라이언트 쪽 암호화
+title: Python을 사용하여 클라이언트 쪽 암호화
 titleSuffix: Azure Storage
 description: Python용 Azure Storage 클라이언트 라이브러리는 Azure Storage 애플리케이션의 보안을 최대화하기 위해 클라이언트 쪽 암호화를 지원합니다.
 services: storage
@@ -11,14 +11,14 @@ ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: ffdfd4dc8a81587d757e3f9853f1bb34e0b93c0d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: b76a1b8fa3a7d42f8b649adc225af89b4a40f15c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102043748"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461814"
 ---
-# <a name="client-side-encryption-with-python"></a>Python을 사용 하는 클라이언트 쪽 암호화
+# <a name="client-side-encryption-with-python"></a>Python을 사용하여 클라이언트 쪽 암호화
 
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
@@ -80,7 +80,7 @@ ms.locfileid: "102043748"
 
 암호를 해독 하는 동안, 래핑된 키는 큐 메시지에서 추출되고 래핑이 해제됩니다. IV 또한 큐메시지에서 추출되고 큐 메시지 데이터를 암호해독하기 위해 래핑해제된 키와 함께 사용 됩니다. 참고로 암호화 메타데이터는 작아야하므로(500바이트 이하),큐 메시지는 64KB의 제한이 있어야만 영향을 관리 할 수 있습니다.
 
-### <a name="tables"></a>Tables
+### <a name="tables"></a>테이블
 클라이언트 라이브러리는 작업 삽입 및 삭제의 엔터티 속성 암호화를 지원합니다.
 
 > [!NOTE]
@@ -97,7 +97,7 @@ ms.locfileid: "102043748"
 
    문자열 속성만 암호화 할 수 있다는 것을 참고하세요. 다른 유형의 속성이 암호화 된 경우, 문자열로 변환합니다. 암호화된 문자열은 서비스에 이진 속성으로 저장되고 암호 해독 후에는 다시 문자열(원시 문자열, EdmType.STRING 형식을 갖는 EntityProperties 아님)로 변환됩니다.
 
-   테이블의 경우, 암호화 정책 외에도 사용자가 암호화할 속성을 지정해야 합니다. 형식을 EdmType.STRING으로 설정하고 암호화를 true로 설정하여 TableEntity 개체에 이러한 속성을 저장하거나 tableservice 개체에 대해 encryption_resolver_function을 설정하여 이 작업을 수행할 수 있습니다. 암호화 해결 프로그램은 파티션 키, 행 키, 그리고 속성 이름 및 암호화 여부 속성을 나타내는 부울을 반환하는 함수입니다. 암호화 하는 동안 클라이언트 라이브러리는 네트워크에 쓰는 동안 속성을 암호화 해야 하는지 여부를 결정하는데 이 정보를 사용합니다. 대리자 속성은 암호화 하는 방법 논리의 가능성도 제공 합니다. 예를 들어 X 인 경우에는 속성 A를 암호화 하 고, 그렇지 않으면 A와 B 속성을 암호화 합니다. 엔터티를 읽거나 쿼리 하는 동안에는이 정보를 제공 하지 않아도 됩니다.
+   테이블의 경우, 암호화 정책 외에도 사용자가 암호화할 속성을 지정해야 합니다. 형식을 EdmType.STRING으로 설정하고 암호화를 true로 설정하여 TableEntity 개체에 이러한 속성을 저장하거나 tableservice 개체에 대해 encryption_resolver_function을 설정하여 이 작업을 수행할 수 있습니다. 암호화 해결 프로그램은 파티션 키, 행 키, 그리고 속성 이름 및 암호화 여부 속성을 나타내는 부울을 반환하는 함수입니다. 암호화 하는 동안 클라이언트 라이브러리는 네트워크에 쓰는 동안 속성을 암호화 해야 하는지 여부를 결정하는데 이 정보를 사용합니다. 대리자 속성은 암호화 하는 방법 논리의 가능성도 제공 합니다. (예를 들어 X인 경우 A 속성을 암호화하고, 그렇지 않은 경우 A와 B 속성을 암호화합니다.) 엔터티를 읽거나 쿼리하는 동안 해당 정보를 제공할 필요가 없습니다.
 
 ### <a name="batch-operations"></a>Batch 작업
 배치의 모든 행에는 단일 암호화 정책이 적용됩니다. 클라이언트 라이브러리는 내부적으로 배치의 새로운 임의 IV와 행 기준 임의 CEK를 만듭니다. 사용자가 암호화 해결 프로그램에 이동작을 정의하여 배치의 모든 작업에 대해 암호화 할 다른 속성들을 선택할 수 있습니다.
@@ -150,11 +150,11 @@ KEK는 데이터를 성공적으로 암호화하기 위해 다음 메서드를 �
 ### <a name="blob-service-encryption"></a>Blob service 암호화
 blockblobservice 개체에 대해 암호화 정책 필드를 설정합니다. 다른 모든 요소에서 처리 되는 클라이언트 라이브러리는 내부적으로 처리됩니다.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[Python v12 SDK](#tab/python)
 
-현재 Azure Storage 클라이언트 라이브러리의 버전 2.x를 반영 하는 코드 조각을 만들 수 있도록 작업 하 고 있습니다. 자세한 내용은 [Azure Storage V12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조 하세요.
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
 
-# <a name="python-v21"></a>[Python 2.1](#tab/python2)
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 ```python
 # Create the KEK used for encryption.
@@ -182,11 +182,11 @@ blob = my_block_blob_service.get_blob_to_bytes(container_name, blob_name)
 ### <a name="queue-service-encryption"></a>큐 서비스 암호화
 queueservice 개체에 대해 암호화 정책 필드를 설정합니다. 다른 모든 요소에서 처리 되는 클라이언트 라이브러리는 내부적으로 처리됩니다.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[Python v12 SDK](#tab/python)
 
-현재 Azure Storage 클라이언트 라이브러리의 버전 2.x를 반영 하는 코드 조각을 만들 수 있도록 작업 하 고 있습니다. 자세한 내용은 [Azure Storage V12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조 하세요.
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
 
-# <a name="python-v21"></a>[Python 2.1](#tab/python2)
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 ```python
 # Create the KEK used for encryption.
@@ -215,11 +215,11 @@ retrieved_message_list = my_queue_service.get_messages(queue_name)
 
 ### <a name="using-the-resolver"></a>확인자를 사용하여
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[Python v12 SDK](#tab/python)
 
-현재 Azure Storage 클라이언트 라이브러리의 버전 2.x를 반영 하는 코드 조각을 만들 수 있도록 작업 하 고 있습니다. 자세한 내용은 [Azure Storage V12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조 하세요.
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
 
-# <a name="python-v21"></a>[Python 2.1](#tab/python2)
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 ```python
 # Create the KEK used for encryption.
@@ -258,11 +258,11 @@ my_table_service.get_entity(
 ### <a name="using-attributes"></a>특성 사용
 위에서 설명한 것처럼 EntityProperty 개체에 저장하고 암호화 필드를 설정하여 속성을 암호화용으로 표시할 수 있습니다.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[Python v12 SDK](#tab/python)
 
-현재 Azure Storage 클라이언트 라이브러리의 버전 2.x를 반영 하는 코드 조각을 만들 수 있도록 작업 하 고 있습니다. 자세한 내용은 [Azure Storage V12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조 하세요.
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
 
-# <a name="python-v21"></a>[Python 2.1](#tab/python2)
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 ```python
 encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)

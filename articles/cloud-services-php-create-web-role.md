@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.openlocfilehash: 0b02662658b2199a13f117ad95c6402f9b2974f9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95519849"
 ---
 # <a name="create-php-web-and-worker-roles"></a>PHP 웹 및 작업자 역할 만들기
@@ -153,7 +153,7 @@ PS C:\myProject> Add-AzurePHPWorkerRole roleName
 
 ## <a name="run-your-application-in-the-compute-and-storage-emulators"></a>컴퓨팅 및 스토리지 에뮬레이터에서 애플리케이션 실행
 
-Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 애플리케이션을 테스트할 수 있는 로컬 환경을 제공합니다. 에뮬레이터와 Azure 환경 사이에는 약간의 차이가 있습니다. 이를 더 잘 이해 하려면 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](storage/common/storage-use-emulator.md)을 참조 하세요.
+Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 애플리케이션을 테스트할 수 있는 로컬 환경을 제공합니다. 에뮬레이터와 Azure 환경 사이에는 약간의 차이가 있습니다. 이해하기 쉽도록 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](storage/common/storage-use-emulator.md)을 참조하세요.
 
 컴퓨팅 에뮬레이터를 사용하려면 PHP를 로컬로 설치해야 합니다. 컴퓨팅 에뮬레이터는 로컬 PHP 설치를 사용하여 애플리케이션을 실행합니다.
 
@@ -189,8 +189,8 @@ PS C:\MyProject> Stop-AzureEmulator
 자세한 내용은 [PHP 개발자 센터](https://azure.microsoft.com/develop/php/)를 참조하세요.
 
 [install ps and emulators]: https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[서비스 정의 (.csdef)]: /previous-versions/azure/reference/ee758711(v=azure.100)
-[서비스 구성 (.cscfg)]: /previous-versions/azure/reference/ee758710(v=azure.100)
+[서비스 정의(.csdef)]: /previous-versions/azure/reference/ee758711(v=azure.100)
+[서비스 구성(.cscfg)]: /previous-versions/azure/reference/ee758710(v=azure.100)
 [iis.net]: https://www.iis.net/
 [sql native client]: /sql/sql-server/sql-server-technical-documentation
 [sqlsrv drivers]: https://php.net/sqlsrv

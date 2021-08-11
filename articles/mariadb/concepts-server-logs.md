@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: 2e7e56616300566839fadef762c2165c8d989e6e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c0cb9e0da3ba5dd899cac56f393d7332bac6c597
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100570815"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258489"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 느린 쿼리 로그
 Azure Database for MariaDB에서는 사용자에게 느린 쿼리 로그를 제공합니다. 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 느린 쿼리 로그를 사용하여 문제 해결을 위한 성능 병목을 파악할 수 있습니다.
@@ -45,7 +45,7 @@ Azure Database for MariaDB에서 느린 쿼리 로그에 액세스하는 두 가
 Azure Monitor 진단 로그를 사용하면 느린 쿼리 로그를 Azure Monitor 로그(Log Analytics), Azure Storage 또는 Event Hubs로 파이프할 수 있습니다. 자세한 내용은 [아래](concepts-server-logs.md#diagnostic-logs)를 참조하세요.
 
 ## <a name="local-server-storage-log-retention"></a>로컬 서버 스토리지 로그 보존
-서버의 로컬 스토리지에 로그할 경우, 로그는 생성일로부터 7일 간 유효합니다. 사용 가능한 로그의 전체 크기가 7GB를 초과하면 여유 공간이 생길 때까지 가장 오래된 파일이 삭제됩니다.
+서버의 로컬 스토리지에 로그할 경우, 로그는 생성일로부터 7일 간 유효합니다. 사용 가능한 로그의 전체 크기가 7GB를 초과하면 여유 공간이 생길 때까지 가장 오래된 파일이 삭제됩니다. 서버 로그에 대한 7GB 스토리지 제한은 무료로 사용할 수 있으며 확장할 수 없습니다. 
 
 즉, 24시간이 지나거나 전체 크기가 7GB를 초과할 때마다(먼저 해당되는 쪽) 로그가 가장 오래된 파일부터 삭제됩니다.
 

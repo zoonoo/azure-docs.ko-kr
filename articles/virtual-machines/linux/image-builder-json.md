@@ -1,22 +1,23 @@
 ---
-title: Azure Image Builder 템플릿 만들기(미리 보기)
+title: Azure Image Builder 템플릿 만들기
 description: Azure Image Builder에서 사용할 템플릿을 만드는 방법을 알아봅니다.
-author: danielsollondon
-ms.author: danis
-ms.date: 03/02/2021
+author: kof-f
+ms.author: kofiforson
+ms.date: 05/24/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: aaaabe758b036335062907c8e5549ae876c63997
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 07dfd9eb2dab9ae8c7e7a024bbf09c641e0910e4
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594736"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967250"
 ---
-# <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure Image Builder 템플릿 만들기 
+# <a name="create-an-azure-image-builder-template"></a>Azure Image Builder 템플릿 만들기 
 
 Azure Image Builder는 .json 파일을 사용하여 Image Builder 서비스로 정보를 전달합니다. 이 문서에서는 사용자가 직접 빌드할 수 있도록 json 파일의 섹션을 설명합니다. 전체 .json 파일 예제를 보려면 [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts)를 참조하세요.
 
@@ -38,6 +39,7 @@ Azure Image Builder는 .json 파일을 사용하여 Image Builder 서비스로 �
         "vmProfile": 
             {
             "vmSize": "<vmSize>",
+        "proxyVmSize": "<vmSize>",
             "osDiskSizeGB": <sizeInGB>,
             "vnetConfig": {
                 "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
@@ -54,7 +56,7 @@ Azure Image Builder는 .json 파일을 사용하여 Image Builder 서비스로 �
 
 ## <a name="type-and-api-version"></a>종류 및 API 버전
 
-`type`는 리소스 종류로, `"Microsoft.VirtualMachineImages/imageTemplates"`이어야 합니다. `apiVersion`은 시간이 경과하면서 API 변경에 따라 달라지지만, 미리 보기에서는 `"2020-02-14"`여야 합니다.
+`type`는 리소스 종류로, `"Microsoft.VirtualMachineImages/imageTemplates"`이어야 합니다. `apiVersion`은 시간이 경과하면서 API 변경에 따라 달라지지만, 현재는 `"2020-02-14"`여야 합니다.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
@@ -63,28 +65,52 @@ Azure Image Builder는 .json 파일을 사용하여 Image Builder 서비스로 �
 
 ## <a name="location"></a>위치
 
-위치는 사용자 지정 이미지가 만들어질 지역입니다. Image Builder 미리 보기의 경우 다음 지역이 지원됩니다.
+위치는 사용자 지정 이미지가 만들어질 지역입니다. 다음 지역이 지원됩니다.
 
 - 미국 동부
 - 미국 동부 2
 - 미국 중서부
 - 미국 서부
 - 미국 서부 2
+- 미국 중남부
 - 북유럽
 - 서유럽
-
+- 동남아시아
+- 오스트레일리아 남동부
+- 오스트레일리아 동부
+- 영국 남부
+- 영국 서부
 
 ```json
     "location": "<region>",
 ```
-## <a name="vmprofile"></a>vmProfile
-기본적으로 Image Builder는 "Standard_D1_v2" 빌드 VM을 사용합니다. 사용자가 이를 재정의할 수 있습니다. 예를 들어 GPU VM에 대한 이미지를 사용자 지정하려면 GPU VM 크기가 필요합니다. 이 구성 요소는 선택 사항입니다.
 
+### <a name="data-residency"></a>데이터 보존
+Azure VM Image Builder 서비스는 고객이 해당 지역에서 빌드를 요청할 때 엄격한 단일 지역 데이터 보존 요구 사항이 있는 지역 외부에서 고객 데이터를 저장/처리하지 않습니다. 데이터 보존 요구 사항이 있는 지역에서 서비스 중단이 발생하는 경우 다른 지역 및 지리적 위치에서 템플릿을 만들어야 합니다.
+
+### <a name="zone-redundancy"></a>영역 중복
+배포는 영역 중복을 지원하고, VHD는 기본적으로 영역 중복 스토리지 계정에 배포되며, Shared Image Gallery 버전은 [ZRS 스토리지 유형](../disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview)을 지원합니다(지정된 경우).
+ 
+## <a name="vmprofile"></a>vmProfile
+## <a name="buildvm"></a>buildVM
+기본적으로 Image Builder는 “Standard_D1_v2” 빌드 VM을 사용하며, 이는 `source`에서 지정한 이미지에서 빌드됩니다. 이를 재정의할 수 있으며 다음 이유로 이 작업을 수행하려고 할 수 있습니다.
+1. 증가된 메모리, CPU 및 대량 파일(GB) 처리가 필요한 사용자 지정을 수행.
+2. Windows 빌드를 실행하는 경우 “Standard_D2_v2” 또는 해당 VM 크기를 사용해야 합니다.
+3. [VM 격리](../isolation.md)가 필요합니다.
+4. 특정 하드웨어가 필요한 이미지를 사용자 지정합니다. 예를 들어, GPU VM의 경우 GPU VM 크기가 필요합니다. 
+5. 빌드 VM에서 엔드투엔드 미사용 암호화가 필요합니다. 로컬 임시 디스크를 사용하지 않는 지원 빌드 [VM 크기](../azure-vms-no-temp-disk.md)를 지정해야 합니다.
+ 
+선택 사항입니다.
+
+
+## <a name="proxy-vm-size"></a>프록시 VM 크기
+프록시 VM은 Azure Image Builder 서비스와 빌드 VM 간에 명령을 전송하는 데 사용됩니다. 이는 기존 VNET을 지정하는 경우에만 배포됩니다. 자세한 내용은 네트워킹 옵션 [설명서](image-builder-networking.md#why-deploy-a-proxy-vm)를 검토하세요.
 ```json
  {
-    "vmSize": "Standard_D1_v2"
+    "proxyVmSize": "Standard A1_v2"
  },
 ```
+이 구성 요소는 선택 사항입니다.
 
 ## <a name="osdisksizegb"></a>osDiskSizeGB
 
@@ -117,7 +143,7 @@ VNET 속성을 지정하지 않으면 Image Builder에서 자체 VNET, 공용 IP
     "dependsOn": [],
 ```
 
-자세한 내용은 [리소스 종속성 정의](../../azure-resource-manager/templates/define-resource-dependency.md#dependson)를 참조하세요.
+자세한 내용은 [리소스 종속성 정의](../../azure-resource-manager/templates/resource-dependency.md#dependson)를 참조하세요.
 
 ## <a name="identity"></a>ID
 
@@ -152,7 +178,7 @@ API에는 이미지 빌드에 대한 소스를 정의하는 'SourceType'이 필�
 
 
 > [!NOTE]
-> 기존 Windows 사용자 지정 이미지를 사용하는 경우 단일 Windows 이미지에서 Sysprep 명령을 최대 8번까지 실행할 수 있습니다. 자세한 내용은 [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) 설명서를 참조하십시오.
+> 기존 Windows 사용자 지정 이미지를 사용하는 경우 단일 Windows 7 또는 Windows Server 2008 R2 이미지에서 Sysprep 명령을 최대 3회 실행하거나, 이후 버전의 단일 Windows 이미지에서 1,001회 실행할 수 있습니다. 자세한 내용은 [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) 설명서를 참조하세요.
 
 ### <a name="platformimage-source"></a>PlatformImage 원본 
 Azure Image Builder는 Windows Server 및 클라이언트 그리고 Linux Azure Marketplace 이미지를 지원합니다. 전체 목록은 [여기](../image-builder-overview.md#os-support)를 참조하세요. 
@@ -222,7 +248,7 @@ Shared Image Gallery에서 원본 이미지를 기존 이미지 버전으로 설
    } 
 ```
 
-`imageVersionId`는 이미지 버전의 ResourceId여야 합니다. [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list)를 사용하여 이미지 버전을 나열합니다.
+`imageVersionId`는 이미지 버전의 ResourceId여야 합니다. [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list)를 사용하여 이미지 버전을 나열합니다.
 
 
 ## <a name="properties-buildtimeoutinminutes"></a>속성: buildTimeoutInMinutes
@@ -278,7 +304,7 @@ Image Builder는 여러 '사용자 지정자'를 지원합니다. 사용자 지�
  
 ### <a name="shell-customizer"></a>셸 사용자 지정자
 
-셸 사용자 지정자는 셸 스크립트 실행을 지원합니다. 이러한 스크립트는 IB가 액세스하도록 공개적으로 액세스할 수 있어야 합니다.
+셸 사용자 지정자는 셸 스크립트 실행을 지원합니다. 셸 스크립트는 공개적으로 액세스할 수 있어야 하거나 Image Builder가 셸 스크립트에 액세스하도록 [MSI](./image-builder-user-assigned-identity.md)를 구성해야 합니다.
 
 ```json
     "customize": [ 
@@ -396,7 +422,7 @@ OS 지원: Windows 및 Linux
 
 ### <a name="file-customizer"></a>파일 사용자 지정자
 
-Image Builder는 파일 사용자 지정자를 사용하여 GitHub 또는 Azure 스토리지에서 파일을 다운로드할 수 있습니다. 빌드 아티팩트에 의존하는 이미지 빌드 파이프라인이 있는 경우 빌드 공유에서 다운로드하도록 파일 사용자 지정자를 설정하고 아티팩트를 이미지로 이동할 수 있습니다.  
+파일 사용자 지정자를 사용하면 Image Builder에서 GitHub 리포지토리 또는 Azure 스토리지의 파일을 다운로드할 수 있습니다. 빌드 아티팩트를 사용하는 이미지 빌드 파이프라인이 있는 경우 빌드 공유에서 다운로드하도록 파일 사용자 지정자를 설정하고 아티팩트를 이미지로 이동할 수 있습니다.  
 
 ```json
      "customize": [ 
@@ -425,7 +451,7 @@ OS 지원: Linux 및 Windows
 - Linux OS – Image Builder가 쓸 수 있는 유일한 경로는 /tmp입니다.
 - Windows – 경로 제한이 없지만 해당 경로가 존재해야 합니다.
  
- 
+
 파일을 다운로드하는 동안 오류가 발생하거나 지정된 디렉터리에 파일을 저장하는 동안 오류가 발생하면 사용자 지정 단계가 실패하고 이는 customization.log에 기록됩니다.
 
 > [!NOTE]
@@ -446,10 +472,11 @@ OS 지원: Linux 및 Windows
                 "updateLimit": 20
             }
                ], 
-OS support: Windows
 ```
 
-사용자 지정 속성은 다음과 같습니다.
+OS 지원: Windows
+
+사용자 지정자 속성:
 - **type** – WindowsUpdate.
 - **searchCriteria** - 선택 사항. 설치되는 업데이트 유형(권장, 중요 등)을 정의합니다. BrowseOnly=0 및 IsInstalled=0(권장)이 기본값입니다.
 - **filters** – 선택 사항. 업데이트를 포함하거나 제외하도록 필터를 지정할 수 있습니다.

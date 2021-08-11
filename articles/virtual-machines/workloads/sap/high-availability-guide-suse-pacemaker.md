@@ -12,14 +12,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 05/13/2021
 ms.author: radeltch
-ms.openlocfilehash: aa2006ecfad91e21ac13a1e63be23302b2a70399
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: c762f0e04a7079fff72962cafe44b06acfcf0eaf
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551036"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110100039"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -442,8 +442,8 @@ o- / ...........................................................................
    >SUSEConnect---list-extensions를 실행하여 확장을 확인할 수 있습니다.  
    >Azure Fence 에이전트를 사용하여 더 빠른 장애 조치(failover) 시간을 달성하려면 다음을 수행합니다.
    > - SLES 12 SP4 또는 SLES 12 SP5에 python-azure-mgmt-compute 패키지 버전 **4.6.2** 이상 설치  
-   > - SLES 15에 python **3**-azure-mgmt-compute 패키지 버전 **4.6.2** 이상 설치 
-
+   > - SLES 15.X에서 패키지 python **3**-azure-mgmt-compute의 **4.6.2** 버전을 설치하지만 그 이상은 아닙니다. 패키지 python **3**-azure-mgmt-compute의 버전 17.0.0-6.7.1은 Azure Fence Agent와 호환되지 않는 변경 사항을 포함하므로 사용하지 마세요.    
+     
 1. **[A]** 호스트 이름 확인 설정
 
    DNS 서버를 사용하거나 모든 노드의 /etc/hosts를 수정할 수 있습니다. 이 예에서는 /etc/hosts 파일 사용 방법을 보여줍니다.
@@ -660,7 +660,7 @@ sudo crm configure property stonith-timeout=900
 
 ## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Azure 예약된 이벤트에 대한 Pacemaker 구성
 
-Azure는 [예약된 이벤트](../../linux/scheduled-events.md)를 제공합니다. 예약된 이벤트는 메타 데이터 서비스를 통해 제공되며 애플리케이션이 VM 종료, VM 다시 배포 등의 이벤트를 준비할 시간을 허용합니다. 리소스 에이전트 **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** 는 예약된 Azure 이벤트를 모니터합니다. 이벤트가 검색되면 에이전트가 영향을 받은 VM의 모든 리소스를 중지하고 클러스터의 다른 노드로 이동하려 시도합니다. 이렇게 하려면 추가 Pacemaker 리소스를 구성해야 합니다. 
+Azure는 [예약된 이벤트](../../linux/scheduled-events.md)를 제공합니다. 예약된 이벤트는 메타 데이터 서비스를 통해 제공되며 애플리케이션이 VM 종료, VM 다시 배포 등의 이벤트를 준비할 시간을 허용합니다. 리소스 에이전트 **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** 는 예약된 Azure 이벤트를 모니터합니다. 이벤트가 검색되고 리소스 에이전트가 사용 가능한 다른 클러스터 노드가 있음을 확인하는 경우 azure-events 에이전트는 클러스터가 보류 상태의 [Azure Scheduled Events](../../linux/scheduled-events.md)로 VM에서 리소스를 강제로 마이그레이션하기 위해 대상 클러스터 노드를 대기 모드로 설정합니다. 이렇게 하려면 추가 Pacemaker 리소스를 구성해야 합니다. 
 
 1. **[A]** **azure-events** 에이전트에 대한 패키지가 이미 설치되어 있고 최신인지 확인합니다. 
 

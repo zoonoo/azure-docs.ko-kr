@@ -1,18 +1,18 @@
 ---
-title: Azure Bastion 세션 모니터링 및 관리 | Microsoft Docs
-description: 이 문서에서는 진행 중인 세션을 선택하고 강제로 연결을 끊거나 삭제하는 방법에 대해 알아봅니다.
+title: Azure Bastion의 세션 모니터링 및 관리
+description: 진행 중인 세션을 선택하고 강제로 연결을 끊거나 삭제하는 방법에 대해 알아봅니다.
 services: bastion
-author: charwen
+author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 05/21/2020
-ms.author: charwen
-ms.openlocfilehash: beb4f8fc5b9e22bc3e2bdd4732c8321dfcd70780
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: cherylmc
+ms.openlocfilehash: 6b0df7ae98c3718ddfadf9e13354b4f961585c98
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90980721"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110540439"
 ---
 # <a name="session-monitoring-and-management-for-azure-bastion"></a>Azure Bastion의 세션 모니터링 및 관리
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/03/2021
 ms.author: qpetraroia
 author: qpetraroia
-ms.openlocfilehash: f1e0822e77d8466b1b9796041fbdba53c3f9c91f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f984eaa49539890b8ae4d5132f9a03594e2f19f8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782912"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110073795"
 ---
 # <a name="use-planned-maintenance-to-schedule-maintenance-windows-for-your-azure-kubernetes-service-aks-cluster-preview"></a>계획된 유지 관리를 사용하여 AKS(Azure Kubernetes Service) 클러스터의 유지 관리 기간 예약(미리 보기)
 
@@ -210,6 +210,10 @@ AKS 클러스터에서 특정 유지 관리 구성 기간을 모두 보려면 `a
 ```azurecli-interactive
 az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCluster --name default
 ```
+
+## <a name="using-planned-maintenance-with-cluster-auto-upgrade"></a>클러스터 자동 업그레이드와 함께 계획된 유지 관리 사용
+
+계획된 유지 관리는 클러스터 자동 업그레이드를 사용하고 자동으로 유지 관리 기간 동안 업그레이드를 예약하는지 검색합니다. 클러스터 자동 업그레이드에 대한 자세한 내용은 [AKS(Azure Kubernetes Service) 클러스터 업그레이드][aks-upgrade]를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

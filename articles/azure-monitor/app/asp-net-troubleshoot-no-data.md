@@ -4,24 +4,24 @@ description: Azure Application Insights에서 데이터를 볼 수 없나요? �
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 40fbe4d08676d7cc56478d3740424fccaa7addc0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 2a301efe2ea7c6c74d503fda4a9bbf63f8ce7f80
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103562198"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061581"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>데이터 없음 문제 해결 - .NET/.NET Core용 Application Insights
 
 ## <a name="some-of-my-telemetry-is-missing"></a>일부 원격 분석이 누락됨
 *Application Insights에서 내 앱이 생성하는 이벤트의 일부만 표시됩니다.*
 
-* 동일한 부분이 일관되게 표시되는 경우 적응 [샘플링](./sampling.md)때문일 것입니다. 이러한 사항을 확인하려면 개요 블레이드에서 검색을 열고 요청 또는 다른 이벤트의 인스턴스를 확인합니다. 속성 섹션의 아래쪽에서 "..."를 클릭하여 전체 속성 세부 정보를 표시합니다. 요청 수가 1보다 크면 샘플링이 작동 중인 것입니다.
-* 그렇지 않은 경우 요금제의 [데이터 속도 제한](./pricing.md#limits-summary) 에 도달한 것일 수 있습니다. 이러한 제한은 분당으로 적용됩니다.
+* 동일한 부분이 일관되게 표시되는 경우 적응 [샘플링](../../azure-monitor/app/sampling.md)때문일 것입니다. 이러한 사항을 확인하려면 개요 블레이드에서 검색을 열고 요청 또는 다른 이벤트의 인스턴스를 확인합니다. 전체 속성 세부 정보를 보려면 **속성** 섹션의 맨 아래에 있는 줄임표( **...** )를 선택합니다. 요청 수가 1보다 크면 샘플링이 작동 중인 것입니다.
+* 요금제의 [데이터 속도 제한](../../azure-monitor/app/pricing.md#limits-summary) 에 도달한 것일 수 있습니다. 이러한 제한은 분당으로 적용됩니다.
 
 *무작위로 데이터 손실이 발생합니다.*
 
-* [원격 분석 채널](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)에서 데이터 손실이 발생하는지 확인합니다.
+* [원격 분석 채널](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)에서 데이터 손실이 발생하는지 여부를 확인합니다.
 
 * 원격 분석 채널 [GitHub 리포지토리](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)의 알려진 문제를 확인합니다.
 
@@ -29,27 +29,30 @@ ms.locfileid: "103562198"
 
 * SDK 채널은 버퍼에 원격 분석을 유지하고 일괄 처리로 보냅니다. 애플리케이션이 종료되는 경우 [Flush()](api-custom-events-metrics.md#flushing-data)를 명시적으로 호출해야 할 수 있습니다. `Flush()` 동작은 사용되는 실제 [채널](telemetry-channels.md#built-in-telemetry-channels)에 따라 달라집니다.
 
-## <a name="no-data-from-my-server"></a>내 서버에서 데이터 없음
-*웹 서버에 이 앱을 설치했지만 지금 원격 분석이 표시되지 않습니다. 내 개발 컴퓨터에서 문제 없이 작동했습니다.*
+## <a name="request-count-collected-by-application-insights-sdk-does-not-match-the-iis-log-count-for-my-application"></a>Application Insights SDK에서 수집한 요청 수가 내 애플리케이션의 IIS 로그 수와 일치하지 않습니다.
 
-* 아마도 방화벽 문제일 것입니다. [Application Insights에 대한 방화벽 예외를 설정하여 데이터를 전송합니다](./ip-addresses.md).
-* IIS 서버에 필수 구성 요소 .NET Extensibility 4.5 및 ASP.NET 4.5가 없는 것이 원인일 수 있습니다.
+IIS(인터넷 정보 서비스)는 IIS에 도달하는 모든 요청의 수를 기록하며 기본적으로 애플리케이션에 도달하는 총 요청 수와 다를 수 있습니다. 이로 인해 SDK에서 수집한 요청 수가 총 IIS 로그 수와 일치한다고 보장할 수 없습니다. 
+
+## <a name="no-data-from-my-server"></a>내 서버에서 데이터 없음
+* 웹 서버에 이 앱을 설치했지만 지금 원격 분석이 표시되지 않습니다. 내 개발 머신에서는 문제 없이 작동했습니다.
+* 아마도 방화벽 문제일 것입니다. [Application Insights에 대한 방화벽 예외를 설정하여 데이터를 전송합니다](../../azure-monitor/app/ip-addresses.md).
+* IIS 서버에 필수 구성 요소 .NET Extensibility 4.5 또는 ASP.NET 4.5가 없는 것이 원인일 수 있습니다.
 
 기존 앱을 모니터링하려고 웹 서버에 *[상태 모니터를 설치](./monitor-performance-live-website-now.md)했지만 결과가 보이지 않습니다.*
 
 * [상태 모니터 문제 해결](./monitor-performance-live-website-now.md#troubleshoot)을 참조하세요.
 
 > [!IMPORTANT]
-> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 사용 **해야** 합니다. [연결 문자열](./sdk-connection-string.md?tabs=net) 원격 분석 데이터를 연결 하려는 리소스를 식별 합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
+> 계측 키보다 [연결 문자열](./sdk-connection-string.md?tabs=net)이 권장됩니다. 새 Azure 지역에서는 계측 키 대신 연결 문자열을 **사용해야 합니다**. 연결 문자열은 원격 분석 데이터를 연결할 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
 
 
-## <a name="filenotfoundexception-could-not-load-file-or-assembly-microsoftaspnet-telemetrycorrelation"></a>System.io.filenotfoundexception: 파일 또는 어셈블리 ' Microsoft. AspNet TelemetryCorrelation을 (를) 로드할 수 없습니다.
+## <a name="filenotfoundexception-could-not-load-file-or-assembly-microsoftaspnet-telemetrycorrelation"></a>FileNotFoundException: 파일 또는 어셈블리 ‘Microsoft.AspNet TelemetryCorrelation’을 로드할 수 없습니다.
 
-이 오류에 대 한 자세한 내용은 [GitHub 문제 1610] ( https://github.com/microsoft/ApplicationInsights-dotnet/issues/1610) 을 참조 하세요.
+이 오류에 대한 자세한 내용은 [GitHub 이슈 1610](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1610) )을 참조하세요.
 
-보다 오래 된 Sdk (2.4)에서 업그레이드 하는 경우 및에 다음 변경 내용이 적용 되었는지 확인 해야 합니다 `web.config` `ApplicationInsights.config` .
+(2.4) 이전 버전의 SDK에서 업그레이드할 경우 다음 변경 사항이 `web.config` 및 `ApplicationInsights.config`에 적용되었는지 확인해야 합니다.
 
-1. 하나 대신 두 개의 http 모듈이 있습니다. 에는 `web.config` 두 개의 http 모듈이 있어야 합니다. 일부 시나리오에서는 순서가 중요 합니다.
+1. 한 개 대신 두 개의 http 모듈이 있습니다. `web.config`에는 두 개의 http 모듈이 있어야 합니다. 일부 시나리오에서는 순서가 중요합니다.
 
     ``` xml
     <system.webServer>
@@ -60,7 +63,7 @@ ms.locfileid: "103562198"
     </system.webServer>
     ```
 
-2. 또한에는 `ApplicationInsights.config` `RequestTrackingTelemetryModule` 다음과 같은 원격 분석 모듈이 있어야 합니다.
+2. `RequestTrackingTelemetryModule` 외에도 `ApplicationInsights.config`에는 원격 분석 모듈이 있어야 합니다.
 
     ``` xml
     <TelemetryModules>
@@ -68,7 +71,7 @@ ms.locfileid: "103562198"
     </TelemetryModules>
     ```
 
-***제대로 업그레이드 하지 못하면 예기치 않은 예외 또는 원격 분석을 수집 하지 않을 수 있습니다.***
+***제대로 업그레이드하지 않으면 예기치 않은 예외가 발생하거나 원격 분석 데이터가 수집되지 않을 수 있습니다.***
 
 
 ## <a name="no-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>Visual Studio에 'Application Insights 추가' 옵션이 없음
@@ -157,7 +160,7 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 *앱을 실행한 다음, Microsoft Azure에서 Application Insights 서비스를 열었지만, 모든 차트에 '수집하는 방법을 알아보세요...' 또는 '구성되지 않았습니다' 메시지가 표시됩니다.* 또는 *페이지 보기와 사용자 데이터만 표시되고 서버 데이터는 표시되지 않습니다.*
 
 * Visual Studio의 디버그 모드에서 애플리케이션을 실행합니다(F5). 애플리케이션을 사용하여 원격 분석을 생성합니다. Visual Studio 출력 창에서 기록된 이벤트를 볼 수 있는지 확인합니다.  
-  ![Visual Studio의 디버그 모드에서 응용 프로그램을 실행 하는 것을 보여 주는 스크린샷](./media/asp-net-troubleshoot-no-data/output-window.png)
+  ![Visual Studio의 디버그 모드로 애플리케이션을 실행하는 것을 보여 주는 스크린샷](./media/asp-net-troubleshoot-no-data/output-window.png)
 * Application Insights 포털에서 [진단 검색](./diagnostic-search.md)을 엽니다. 일반적으로 데이터는 여기에 처음으로 나타납니다.
 * 새로고침 단추를 클릭합니다. 블레이드 자체는 주기적으로 새로 고쳐지지만 수동으로 새로 고칠 수도 있습니다. 시간 범위가 커지면 새로 고침 간격이 길어집니다.
 * 계측 키가 일치하는지 확인합니다. Application Insights 포털에서 내 앱의 기본 블레이드로 이동한 다음 **기본 정보** 드롭다운 목록에서 **계측 키** 를 확인합니다. 그런 다음, Visual Studio의 프로젝트에서 ApplicationInsights.config를 열고 `<instrumentationkey>`를 찾습니다. 두 키가 같은지 확인합니다. 같이 않으면  
@@ -182,7 +185,7 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 [종속성 원격 분석](./asp-net-dependencies.md) 및 [예외 원격 분석](asp-net-exceptions.md)을 참조하세요.
 
 ## <a name="no-performance-data"></a>성능 데이터 없음
-성능 데이터(CPU, IO 속도 등)는 [Java 웹 서비스](./java-collectd.md), [Windows 데스크톱 앱](./windows-desktop.md), [IIS Web Apps 및 서비스(상태 모니터를 설치한 경우)](./monitor-performance-live-website-now.md) 및 [Azure Cloud Services](./app-insights-overview.md)에 사용할 수 있습니다. 이 내용은 설정, 서버 아래에 있습니다.
+성능 데이터(CPU, IO 속도 등)는 [Java 웹 서비스](java-2x-collectd.md), [Windows 데스크톱 앱](./windows-desktop.md), [IIS Web Apps 및 서비스(상태 모니터를 설치한 경우)](./monitor-performance-live-website-now.md) 및 [Azure Cloud Services](./app-insights-overview.md)에 사용할 수 있습니다. 이 내용은 설정, 서버 아래에 있습니다.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>내 서버에 앱을 게시한 이후로 (서버) 데이터가 없음
 * 실제로 Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll을 포함하여 모든 Microsoft ApplicationInsights DLL을 Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll과 함께 서버에 추가합니다.
@@ -239,9 +242,9 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 
 ### <a name="net-core"></a>.NET Core
 
-1. NuGet에서 [ASP.NET Core 패키지에 대 한 APPLICATION INSIGHTS SDK nuget 패키지](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 를 설치 합니다. 설치 하는 버전은 현재 설치 된 버전과 일치 해야 합니다 `Microsoft.ApplicationInsights` .
+1. NuGet에서 [ASP.NET Core용 Application Insights SDK NuGet 패키지](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)를 설치합니다. 설치한 버전이 현재 설치된 `Microsoft.ApplicationInsights` 버전과 같아야 합니다.
 
-   최신 버전의 AspNetCore는 2.14.0이 고, Microsoft ApplicationInsights 버전 2.14.0를 참조 합니다. 따라서 설치 될 AspNetCore 버전은 2.14.0 이어야 합니다.
+   Microsoft.ApplicationInsights.AspNetCore의 최신 버전은 2.14.0이며 Microsoft ApplicationInsights 버전 2.14.0을 참조합니다. 따라서 설치할 Microsoft.ApplicationInsights.AspNetCore의 버전은 2.14.0입니다.
 
 2. `Startup.cs` 클래스의 `ConfigureServices` 메서드를 수정합니다.
 
@@ -278,11 +281,13 @@ PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-Applica
 
 자세한 내용은,
 - [PerfView를 사용하여 성능 추적 기록](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView)
-- [Application Insights 이벤트 원본](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/ETW)
+- [Application Insights 이벤트 원본](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/troubleshooting/ETW)
 
 ## <a name="collect-logs-with-dotnet-trace"></a>dotnet-trace를 사용하여 로그 수집
 
-문제 해결을 위해 로그를 수집하는 다른 방법은 [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace)이며 Linux 기반 환경에 특히 유용할 수 있습니다.
+또는 고객은 플랫폼 간 .NET Core 도구인 [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace)를 사용하여 문제 해결에 도움이 되는 로그를 수집할 수도 있습니다. 이는 Linux 기반 환경에 특히 유용할 수 있습니다.
+
+[`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace)를 설치한 후 Bash에서 아래 명령을 실행합니다.
 
 ```bash
 dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsights-Core,Microsoft-ApplicationInsights-Data,Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,Microsoft-ApplicationInsights-Extensibility-DependencyCollector,Microsoft-ApplicationInsights-Extensibility-HostingStartup,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,Microsoft-ApplicationInsights-Extensibility-Web,Microsoft-ApplicationInsights-Extensibility-WindowsServer,Microsoft-ApplicationInsights-WindowsServer-Core,Microsoft-ApplicationInsights-LoggerProvider,Microsoft-ApplicationInsights-Extensibility-EventSourceListener,Microsoft-ApplicationInsights-AspNetCore
@@ -294,4 +299,3 @@ dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsight
 
 ## <a name="still-not-working"></a>여전히 작동하지 않습니다.
 * [Application Insights에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-monitor.html)
-

@@ -1,6 +1,7 @@
 ---
-title: 활성-활성 S2S Azure VPN Gateway 연결 구성
-description: 이 문서에서는 Azure Resource Manager 및 PowerShell을 사용하여 Azure VPN Gateway와의 활성-활성 연결을 구성하는 방법을 안내합니다.
+title: 활성-활성 S2S VPN 연결 구성
+titleSuffix: Azure VPN Gateway
+description: PowerShell을 사용하여 VPN Gateway와 활성-활성 연결을 구성하는 방법을 알아봅니다.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
@@ -8,12 +9,13 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
 ms.reviewer: cherylmc
-ms.openlocfilehash: 022ccaab0b210cd2d656b69f505791d1a2aa963f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 373c3e28e1d2dffdde8e8483a78c23174bd6513a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89440782"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110678599"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Azure VPN Gateway와의 활성-활성 S2S VPN 연결 구성
 

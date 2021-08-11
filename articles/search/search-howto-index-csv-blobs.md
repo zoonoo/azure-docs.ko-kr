@@ -1,23 +1,23 @@
 ---
-title: CSV blob 검색
+title: CSV Blob 검색
 titleSuffix: Azure Cognitive Search
-description: DelimitedText 구문 분석 모드를 사용 하 여 Azure Blob storage에서 CSV를 추출 하 고 가져옵니다.
+description: delimitedText 구문 분석 모드를 사용하여 Azure Blob Storage에서 CSV를 추출하고 가져옵니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: d9633031ca8358ab0498c2e806b22e6c4ddd3eab
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: cae696e8a7bd5fbe477a1f4b5af5d4838d7d599b
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99430482"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111557129"
 ---
-# <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Azure Cognitive Search에서 delimitedText 구문 분석 모드 및 Blob 인덱서를 사용 하 여 CSV blob을 인덱싱하는 방법
+# <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Azure Cognitive Search에서 delimitedText 구문 분석 모드 및 Blob 인덱서를 사용하여 CSV Blob을 인덱싱하는 방법
 
-Azure Cognitive Search [blob 인덱서](search-howto-indexing-azure-blob-storage.md) 는 csv `delimitedText` 파일에 대 한 구문 분석 모드를 제공 하 여 csv의 각 줄을 별도의 검색 문서로 처리 합니다. 예를 들어 다음과 같이 쉼표로 구분 된 텍스트를 지정 하면 `delimitedText` 검색 인덱스에 두 개의 문서가 생성 됩니다. 
+Azure Cognitive Search [blob 인덱서](search-howto-indexing-azure-blob-storage.md)는 CSV의 각 줄을 별도의 검색 문서로 처리하는 CSV 파일에 대한 `delimitedText` 구문 분석 모드를 제공합니다. 예를 들어, 쉼표로 구분된 다음 텍스트가 주어지면 `delimitedText`는 검색 색인에 두 개의 문서가 됩니다. 
 
 ```text
 id, datePublished, tags
@@ -25,13 +25,13 @@ id, datePublished, tags
 2, 2016-07-07, "cloud,mobile"
 ```
 
-`delimitedText`구문 분석 모드가 없으면 CSV 파일의 전체 내용이 하나의 검색 문서로 처리 됩니다.
+`delimitedText` 구문 분석 모드가 없으면 CSV 파일의 전체 내용이 하나의 검색 문서로 처리됩니다.
 
-단일 blob에서 여러 검색 문서를 만들 때마다 인덱싱 blob을 검토 하 여 [여러 검색](search-howto-index-one-to-many-blobs.md) 문서를 생성 하 여 문서 키 할당의 작동 방식을 이해 해야 합니다. Blob 인덱서는 각 새 문서를 고유 하 게 정의 하는 값을 찾거나 생성할 수 있습니다. 특히 `AzureSearch_DocumentKey` blob이 더 작은 부분으로 구문 분석 될 때 생성 된 일시적을 만들 수 있습니다. 여기서 값은 인덱스에서 검색 문서의 키로 사용 됩니다.
+단일 Blob에서 여러 검색 문서를 만들 때마다 [여러 검색 문서를 생성하기 위한 Blob 인덱싱](search-howto-index-one-to-many-blobs.md)을 검토하여 문서 키 할당이 작동하는 방식을 이해합니다. Blob 인덱서는 각각의 새 문서를 고유하게 정의하는 값을 찾거나 생성할 수 있습니다. 특히, Blob이 더 작은 부분으로 구문 분석될 때 생성되는 일시적인 `AzureSearch_DocumentKey`를 생성할 수 있습니다. 그러면 값이 인덱스에서 검색 문서의 키로 사용됩니다.
 
 ## <a name="setting-up-csv-indexing"></a>CSV 인덱싱 설정
 
-CSV blob을 인덱싱 하려면 `delimitedText` [create 인덱서](/rest/api/searchservice/create-indexer) 요청에서 구문 분석 모드를 사용 하 여 인덱서 정의를 만들거나 업데이트 합니다.
+CSV blob을 인덱싱하려면 [인덱서 만들기](/rest/api/searchservice/create-indexer) 요청에서 `delimitedText` 구문 분석 모드로 인덱서 정의를 만들거나 업데이트합니다.
 
 ```http
 {
@@ -58,7 +58,7 @@ Blob이 초기 헤더 줄을 포함하지 않는 경우 헤더는 인덱서 구�
 > 현재는 UTF-8 인코딩만 지원됩니다. 다른 인코딩을 지원해야 하는 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에서 투표하세요.
 
 > [!IMPORTANT]
-> 구분 된 텍스트 구문 분석 모드를 사용 하는 경우 Azure Cognitive Search는 데이터 원본의 모든 blob이 CSV 라고 가정 합니다. 동일한 데이터 원본에서 CSV 및 비 CSV Blob을 지원해야 하는 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에서 투표하세요.
+> 구분된 텍스트 구문 분석 모드를 사용하는 경우 Azure Cognitive Search는 데이터 원본의 모든 Blob이 CSV라고 가정합니다. 동일한 데이터 원본에서 CSV 및 비 CSV Blob을 지원해야 하는 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에서 투표하세요.
 >
 
 ## <a name="request-examples"></a>요청 예제

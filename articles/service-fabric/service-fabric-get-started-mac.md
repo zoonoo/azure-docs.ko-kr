@@ -4,12 +4,12 @@ description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스�
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6fe551f8371322af8d955b5233e6d9d05741f3d9
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 71fd869ad68164faf883fe148a47c2da4fd133b0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868126"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110088432"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X에서 개발 환경 설정
 > [!div class="op_single_selector"]
@@ -22,13 +22,13 @@ Mac OS X를 사용하여 Azure Service Fabric 애플리케이션을 Linux 클러
 ## <a name="prerequisites"></a>사전 요구 사항
 Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다. 로컬 Service Fabric 클러스터를 실행하기 위해 미리 구성된 Docker 컨테이너 이미지가 제공됩니다. 시작하기 전에 다음 항목이 필요합니다.
 
-* RAM 4GB 이상
-* 최신 버전의 [Docker](https://www.docker.com/)
+* [Mac에 Docker 데스크톱](https://docs.docker.com/docker-for-mac/install/)을 설치하기 위한 시스템 요구 사항
+
+* [Mac에서 Docker Desktop 설치 및 실행](https://docs.docker.com/docker-for-mac/install/#install-and-run-docker-desktop-on-mac)
 
 >[!TIP]
 >
->Docker를 Mac에 설치하려면 [Docker 설명서](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install)의 단계를 따릅니다. 설치 후 [설치를 확인합니다](https://docs.docker.com/docker-for-mac/#check-versions-of-docker-engine-compose-and-machine).
->
+>Docker를 Mac에 설치하려면 [Docker 설명서](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install)의 단계를 따릅니다. 설치 후 Docker Desktop을 사용하여 [리소스 제한](https://docs.docker.com/docker-for-mac) 및 [디스크 사용률](https://docs.docker.com/docker-for-mac/space/)을 포함한 환경 설정을 지정할 수 있습니다.
 
 ## <a name="create-a-local-container-and-set-up-service-fabric"></a>로컬 컨테이너 만들기 및 Service Fabric 설정
 로컬 Docker 컨테이너를 설정하고 Service Fabric 클러스터가 실행되도록 하려면 다음 단계를 수행합니다.

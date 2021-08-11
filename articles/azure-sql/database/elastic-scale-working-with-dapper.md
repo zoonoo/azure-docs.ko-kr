@@ -1,24 +1,24 @@
 ---
-title: Dapper와 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용
-description: Dapper와 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용
+title: Dapper로 탄력적 데이터베이스 클라이언트 라이브러리 사용하기
+description: Dapper로 탄력적 데이터베이스 클라이언트 라이브러리 사용하기
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: scoriani
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 12/04/2018
-ms.openlocfilehash: d660e62ea293bd3cc377b95612cfaf41a9f1cd6a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: be7eafac3856d576dd86d226ce1de2f8d6a919c0
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92793367"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690095"
 ---
-# <a name="using-the-elastic-database-client-library-with-dapper"></a>Dapper와 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용
+# <a name="using-the-elastic-database-client-library-with-dapper"></a>Dapper로 탄력적 데이터베이스 클라이언트 라이브러리 사용하기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 이 문서는 Dapper를 기반으로 애플리케이션을 작성하는 개발자뿐만 아니라 데이터 계층 규모를 확장하도록 분할을 구현하는 애플리케이션을 만들기 위해 [탄력적 데이터베이스 도구](elastic-scale-introduction.md)를 받아들이려는 개발자를 대상으로 합니다.  이 문서에서는 탄력적 데이터베이스 도구와 통합하기 위해 Dapper 기반 애플리케이션에서 수행해야 하는 변경에 대해 설명합니다. 여기서는 Dapper를 사용하여 탄력적 데이터베이스 분할 관리 및 데이터 종속 라우팅을 작성하는 방법에 대해 중점적으로 설명합니다. 
@@ -38,7 +38,7 @@ Dapper 및 DapperExtensions를 사용할 때 또 다른 이점은 애플리케�
 
 Dapper 어셈블리를 확인하려면 [Dapper.net](https://www.nuget.org/packages/Dapper/)을 참조하세요. Dapper 확장은 [DapperExtensions](https://www.nuget.org/packages/DapperExtensions)를 참조하세요.
 
-## <a name="a-quick-look-at-the-elastic-database-client-library"></a>탄력적 데이터베이스 클라이언트 라이브러리에 대 한 빠른 보기
+## <a name="a-quick-look-at-the-elastic-database-client-library"></a>탄력적 데이터베이스 클라이언트 라이브러리를 간단히 살펴보기
 탄력적 데이터베이스 클라이언트 라이브러리를 사용하면 *shardlets* 라는 애플리케이션 데이터 파티션을 정의하여 데이터베이스에 매핑한 다음, *분할 키* 로 식별할 수 있습니다. 데이터베이스는 필요한 수만큼 포함할 수 있으며 이러한 데이터베이스에 대해 shardlet을 배포할 수 있습니다. 라이브러리의 API에서 제공하는 분할된 데이터베이스 맵을 통해 데이터베이스에 대한 분할 키 값의 매핑이 저장됩니다. 이 기능을 **분할된 데이터베이스 맵 관리** 라고 합니다. 분할된 데이터베이스 맵은 분할 키를 전송하는 요청에 대한 데이터베이스 연결의 브로커 역할도 합니다. 이 기능을 **데이터 종속 라우팅** 이라고 합니다.
 
 ![분할된 데이터베이스 맵과 데이터 종속 라우팅][1]
@@ -87,7 +87,7 @@ Dapper를 사용하는 경우 대개 애플리케이션에서 기본 데이터�
 
 분할된 데이터베이스 맵 개체는 지정된 분할 키용 shardlet을 포함하는 분할된 데이터베이스에 대한 연결을 만듭니다. 또한 탄력적 데이터베이스 클라이언트 API는 일관성을 보장하기 위해 연결에 태그를 지정합니다. [OpenConnectionForKey](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) 호출에서는 일반 SQL 클라이언트 연결 개체를 반환하므로 Dapper에서 후속 **Execute** 확장 메서드를 호출할 때는 표준 Dapper 방식을 따릅니다.
 
-쿼리는 거의 동일한 방식으로 작동 합니다. 먼저 클라이언트 API에서 [Openconnectionforkey](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) 를 사용 하 여 연결을 엽니다. 그런 다음 일반 Dapper 확장 메서드를 사용하여 SQL 쿼리 결과를 .NET 개체에 매핑합니다.
+쿼리는 거의 비슷한 방식으로 작동합니다. 즉, 먼저 탄력적인 확장 API에서 [OpenConnectionForKey](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)를 사용하여 연결을 엽니다. 그런 다음 일반 Dapper 확장 메서드를 사용하여 SQL 쿼리 결과를 .NET 개체에 매핑합니다.
 
 ```csharp
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(

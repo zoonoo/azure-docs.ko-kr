@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: tisande
-ms.openlocfilehash: f857d9945cc52aa192838d58066a7fcc005a622d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: ddfdd4897a0cd194465828bba4bea0c002a4e434
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386605"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110797675"
 ---
 # <a name="how-to-configure-the-azure-cosmos-db-integrated-cache-preview"></a>Azure Cosmos DB 통합 캐시를 구성하는 방법(미리 보기)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -65,6 +65,27 @@ ms.locfileid: "110386605"
 
 > [!NOTE]
 > Python SDK를 사용하는 경우 각 요청에 대해 일관성 수준을 명시적으로 **설정해야 합니다**. 기본 계정 수준 설정은 자동으로 적용되지 않습니다.
+
+## <a name="adjust-maxintegratedcachestaleness"></a>MaxIntegratedCacheStaleness 조정
+
+부실 캐시 데이터를 허용할 최대 시간인 `MaxIntegratedCacheStaleness`를 구성합니다. 반복되는 지점 읽기 및 쿼리가 캐시 적중이 될 가능성이 높아지므로 `MaxIntegratedCacheStaleness`를 최대한 높게 설정하는 것이 좋습니다. `MaxIntegratedCacheStaleness`를 0으로 설정하면 일관성 수준에 관계없이 읽기 요청이 통합 캐시를 **전혀** 사용하지 않습니다. 구성되지 않은 경우 `MaxIntegratedCacheStaleness` 기본값은 5분입니다.
+
+**.NET**
+
+```csharp
+FeedIterator<Food> myQuery = container.GetItemQueryIterator<Food>(new QueryDefinition("SELECT * FROM c"), requestOptions: new QueryRequestOptions
+        {
+            ConsistencyLevel = ConsistencyLevel.Eventual,
+            DedicatedGatewayRequestOptions = new DedicatedGatewayRequestOptions 
+            { 
+                MaxIntegratedCacheStaleness = TimeSpan.FromMinutes(30) 
+            }
+        }
+);
+```
+
+> [!NOTE]
+> 현재는 최신 .NET 및 Java 미리 보기 SDK를 사용하여 MaxIntegratedCacheStaleness만 조정할 수 있습니다.
 
 ## <a name="verify-cache-hits"></a>캐시 적중 확인
 

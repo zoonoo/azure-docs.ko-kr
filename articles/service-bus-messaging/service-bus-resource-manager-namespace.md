@@ -1,5 +1,5 @@
 ---
-title: 템플릿을 사용 하 여 Azure Service Bus 네임 스페이스 만들기
+title: 템플릿을 사용하여 Azure Service Bus 네임스페이스 만들기
 description: Azure Resource Manager 템플릿을 사용하여 Service Bus 메시징 네임스페이스 만들기
 documentationcenter: .net
 author: spelluru
@@ -7,18 +7,19 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 1b7aafca331170100ce99c084a11c96c97df7781
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 973d84356c4757044f0e66f32fd0f5b96334daca
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88067395"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110680938"
 ---
-# <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Service Bus 네임 스페이스 만들기
+# <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 만들기
 
-Azure Resource Manager 템플릿을 배포 하 여 Service Bus 네임 스페이스를 만드는 방법에 대해 알아봅니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다. 템플릿을 만드는 방법에 대 한 자세한 내용은 [Azure Resource Manager 설명서](../azure-resource-manager/index.yml)를 참조 하세요.
+Azure Resource Manager 템플릿을 배포하여 Service Bus 네임스페이스를 만드는 방법을 알아봅니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다. 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure Resource Manager 설명서](../azure-resource-manager/index.yml)를 참조하세요.
 
-다음 템플릿은 Service Bus 네임 스페이스를 만드는 데에도 사용할 수 있습니다.
+Service Bus 네임스페이스를 만드는 데 다음 템플릿을 사용할 수도 있습니다.
 
 * [큐가 있는 Service Bus 네임스페이스 만들기](./service-bus-resource-manager-namespace-queue.md)
 * [토픽 및 구독이 있는 Service Bus 네임스페이스 만들기](./service-bus-resource-manager-namespace-topic.md)
@@ -31,21 +32,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-service-bus-namespace"></a>Service Bus 네임스페이스 만들기
 
-이 빠른 시작에서는 [Azure 빠른 시작 템플릿에서](https://azure.microsoft.com/resources/templates/) [기존 리소스 관리자 템플릿을](https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/azuredeploy.json) 사용 합니다.
+이 빠른 시작에서는 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)의 [기존 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.servicebus/servicebus-create-namespace/azuredeploy.json)을 사용합니다.
 
-[!code-json[create-azure-service-bus-namespace](~/quickstart-templates/101-servicebus-create-namespace/azuredeploy.json)]
+[!code-json[create-azure-service-bus-namespace](~/quickstart-templates/quickstarts/microsoft.servicebus/servicebus-create-namespace/azuredeploy.json)]
 
 더 많은 샘플 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular)에서 찾을 수 있습니다.
 
-템플릿을 배포 하 여 service bus 네임 스페이스를 만들려면 다음을 수행 합니다.
+템플릿을 배포하여 서비스 버스 네임스페이스를 만들려면:
 
-1. 다음 코드 블록에서 **시도** 를 선택 하 고 지침에 따라 Azure Cloud shell에 로그인 합니다.
+1. 다음 코드 블록에서 **사용해보기** 를 선택한 다음, 지침에 따라 Azure Cloud 셸에 로그인합니다.
 
     ```azurepowershell-interactive
     $serviceBusNamespaceName = Read-Host -Prompt "Enter a name for the service bus namespace to be created"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $resourceGroupName = "${serviceBusNamespaceName}rg"
-    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json"
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicebus/servicebus-create-namespace/azuredeploy.json"
 
     New-AzResourceGroup -Name $resourceGroupName -Location $location
     New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -serviceBusNamespaceName $serviceBusNamespaceName
@@ -53,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-    리소스 그룹 이름은 **rg** 추가 된 service bus 네임 스페이스 이름입니다.
+    리소스 그룹 이름은 서비스 버스 네임스페이스 이름 끝에 **rg** 가 추가된 것입니다.
 
 2. **복사** 를 선택하여 PowerShell 스크립트를 복사합니다.
 3. 셸 콘솔 창을 마우스 오른쪽 단추로 클릭하고 **붙여넣기** 를 선택합니다.
@@ -62,7 +63,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="verify-the-deployment"></a>배포 확인
 
-배포 된 service bus 네임 스페이스를 보려면 Azure Portal에서 리소스 그룹을 열거나 다음 Azure PowerShell 스크립트를 사용할 수 있습니다. Cloud shell이 아직 열려 있으면 다음 스크립트의 첫 번째 및 두 번째 줄을 복사/실행할 필요가 없습니다.
+배포된 서비스 버스 네임스페이스를 확인하려면 Azure Portal에서 리소스 그룹을 열거나 다음 Azure PowerShell 스크립트를 사용하면 됩니다. Cloud 셸이 아직 열려 있으면 다음 스크립트의 첫 번째 및 두 번째 줄을 복사/실행할 필요가 없습니다.
 
 ```azurepowershell-interactive
 $serviceBusNamespaceName = Read-Host -Prompt "Enter the same service bus namespace name used earlier"
@@ -73,15 +74,15 @@ Get-AzServiceBusNamespace -ResourceGroupName $resourceGroupName -Name $serviceBu
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-이 자습서에서는 Azure PowerShell를 사용 하 여 템플릿을 배포 합니다. 다른 템플릿 배포 방법은 다음을 참조 하세요.
+이 자습서에서는 Azure PowerShell을 사용하여 템플릿을 배포합니다. 다른 템플릿 배포 방법은 다음을 참조하세요.
 
-* [Azure Portal를 사용](../azure-resource-manager/templates/deploy-portal.md)합니다.
-* [Azure CLI 사용](../azure-resource-manager/templates/deploy-cli.md).
-* [REST API 사용](../azure-resource-manager/templates/deploy-rest.md).
+* [Azure Portal 사용](../azure-resource-manager/templates/deploy-portal.md)
+* [Azure CLI 사용](../azure-resource-manager/templates/deploy-cli.md)
+* [REST API 사용](../azure-resource-manager/templates/deploy-rest.md)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭제하여 배포한 리소스를 정리합니다. Cloud shell이 아직 열려 있으면 다음 스크립트의 첫 번째 및 두 번째 줄을 복사/실행할 필요가 없습니다.
+Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭제하여 배포한 리소스를 정리합니다. Cloud 셸이 아직 열려 있으면 다음 스크립트의 첫 번째 및 두 번째 줄을 복사/실행할 필요가 없습니다.
 
 ```azurepowershell-interactive
 $serviceBusNamespaceName = Read-Host -Prompt "Enter the same service bus namespace name used earlier"

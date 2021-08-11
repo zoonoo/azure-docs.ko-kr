@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: 0e0ca8a787145fb40087a2d99be85607404eebfa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4c23859a44f45fc294631dd33da0ab9cad1dd61
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92152132"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191227"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
@@ -194,11 +194,11 @@ Event Grid를 통해 원격 분석 이벤트를 구독하면 IoT Hub에서 기�
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>디바이스 연결됨 및 디바이스 연결 끊김 이벤트에 대한 제한
 
-디바이스 연결 상태 이벤트를 수신하려면 디바이스에서 Iot Hub를 사용하여 ‘D2C 원격 분석 보내기’ 또는 ‘C2D 메시지 받기’ 작업을 수행해야 합니다. 그러나 디바이스에서 AMQP 프로토콜을 사용하여 Iot Hub에 연결하는 경우에는 ‘C2D 메시지 받기’ 작업을 수행하는 것이 좋습니다. 그러지 않으면 연결 상태 알림이 몇 분간 지연될 수 있습니다. 디바이스가 MQTT 프로토콜을 사용하는 경우, IoT Hub는 C2D 링크를 열어둡니다. AMQP의 경우 IoT Hub C# SDK용 비동기 수신 API 또는 [AMQP용 디바이스 클라이언트](iot-hub-amqp-support.md#device-client)를 호출하여 C2D 링크를 열 수 있습니다.
+디바이스 연결 상태 이벤트를 수신하려면 디바이스가 IoT Hub를 사용하여 *디바이스-클라우드 전송 원격 분석* 또는 *클라우드-디바이스 수신 메시지* 작업을 호출해야 합니다. 그러나 디바이스가 AMQP 프로토콜을 사용하여 IoT Hub에 연결하는 경우 디바이스가 *클라우드-디바이스 수신 메시지* 작업을 호출하는 것이 좋습니다. 그러지 않으면 연결 상태 알림이 몇 분 지연될 수 있습니다. 디바이스가 MQTT 프로토콜로 연결되는 경우 IoT Hub는 클라우드-디바이스 링크를 열린 상태로 유지합니다. AMQP에 대한 클라우드-디바이스 링크를 열려면 [수신 비동기 API](/rest/api/iothub/device/receivedeviceboundnotification)를 호출합니다.
 
-원격 분석 데이터를 보내는 경우 D2C 링크가 열려 있습니다. 
+디바이스-클라우드 링크는 디바이스에서 원격 분석을 전송하는 동안 열린 상태로 유지됩니다.
 
-디바이스 연결이 깜박이는 경우(디바이스 연결 및 연결 끊김이 빈번함을 의미함) 단일 연결 상태를 모두 전송하지 않고 깜박임이 계속될 때까지 주기적인 스냅샷에서 생성된 현재 연결 상태를 게시합니다. 동일한 연결 상태 이벤트를 여러 시퀀스 번호로 수신하거나 여러 연결 상태 이벤트를 수신하는 경우 디바이스 연결 상태가 변경된 것을 의미합니다.
+디바이스 연결이 깜박이는 경우, 즉 디바이스가 자주 연결 및 연결 해제되는 경우 IoT Hub가 모든 단일 연결 상태를 보내지 않지만 깜박임이 멈출 때까지 60초의 주기적인 스냅샷에서 찍은 현재 연결 상태를 게시합니다. 동일한 연결 상태 이벤트를 여러 시퀀스 번호로 수신하거나 여러 연결 상태 이벤트를 수신하는 경우 디바이스 연결 상태가 변경된 것을 의미합니다.
 
 ## <a name="tips-for-consuming-events"></a>이벤트 사용 팁
 

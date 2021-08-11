@@ -2,13 +2,13 @@
 title: 템플릿 함수 - 문자열
 description: ARM 템플릿(Azure Resource Manager 템플릿)에서 문자열 작업을 수행하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: cff1424562b45bc722f87fa3ec896c1c641ee758
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/14/2021
+ms.openlocfilehash: e8b99fa59feeaa3e18916089c71f17fa48627627
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108845"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959495"
 ---
 # <a name="string-functions-for-arm-templates"></a>ARM 템플릿의 문자열 함수
 
@@ -48,8 +48,6 @@ Resource Manager는 ARM 템플릿(Azure Resource Manager 템플릿)에서 문자
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## <a name="base64"></a>base64
 
 `base64(inputString)`
@@ -69,8 +67,6 @@ Base64 표현을 포함하는 문자열입니다.
 ### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json)에서는 base64 함수를 사용하는 방법을 보여줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -109,25 +105,9 @@ Base64 표현을 포함하는 문자열입니다.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringData string = 'one, two, three'
-param jsonFormattedData string = '{\'one\': \'a\', \'two\': \'b\'}'
-
-var base64String = base64(stringData)
-var base64Object = base64(jsonFormattedData)
-
-output base64Output string = base64String
-output toStringOutput string = base64ToString(base64String)
-output toJsonOutput object = base64ToJson(base64Object)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -153,8 +133,6 @@ JSON 개체입니다.
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json)에서는 base64ToJson 함수를 사용하여 base64 값을 변환합니다.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -192,26 +170,9 @@ JSON 개체입니다.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringData string = 'one, two, three'
-param jsonFormattedData string = '{\'one\': \'a\', \'two\': \'b\'}'
-
-var base64String = base64(stringData)
-var base64Object = base64(jsonFormattedData)
-
-output base64Output string = base64String
-output toStringOutput string = base64ToString(base64String)
-output toJsonOutput object = base64ToJson(base64Object)
-
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -237,8 +198,6 @@ base64 표현을 문자열로 변환합니다.
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json)에서는 base64ToString 함수를 사용하여 base64 값을 변환합니다.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -276,25 +235,9 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringData string = 'one, two, three'
-param jsonFormattedData string = '{\'one\': \'a\', \'two\': \'b\'}'
-
-var base64String = base64(stringData)
-var base64Object = base64(jsonFormattedData)
-
-output base64Output string = base64String
-output toStringOutput string = base64ToString(base64String)
-output toJsonOutput object = base64ToJson(base64Object)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -305,8 +248,6 @@ output toJsonOutput object = base64ToJson(base64Object)
 `concat (arg1, arg2, arg3, ...)`
 
 여러 문자열 값을 결합하고 연결된 문자열을 반환하거나 여러 배열을 결합하고 연결된 배열을 반환합니다.
-
-문자열 연결을 간소화하기 위해 Bicep은 [문자열 보간](https://en.wikipedia.org/wiki/String_interpolation#) 구문을 지원합니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -324,8 +265,6 @@ output toJsonOutput object = base64ToJson(base64Object)
 ### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json)에서는 2개의 문자열 값을 결합하고 연결된 문자열을 반환하는 방법을 보여줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -347,33 +286,13 @@ output toJsonOutput object = base64ToJson(base64Object)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param prefix string = 'prefix'
-
-output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id))
-```
-
-또는
-
-```bicep
-param prefix string = 'prefix'
-
-output concatOutput string = '${prefix}-${uniqueString(resourceGroup().id)}'
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json)에서는 두 개의 배열을 결합하는 방법을 보여줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -408,28 +327,9 @@ output concatOutput string = '${prefix}-${uniqueString(resourceGroup().id)}'
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstArray array = [
-  '1-1'
-  '1-2'
-  '1-3'
-]
-param secondArray array = [
-  '2-1'
-  '2-2'
-  '2-3'
-]
-
-output return array = concat(firstArray, secondArray)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -453,8 +353,6 @@ output return array = concat(firstArray, secondArray)
 ### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json)에서는 여러 다른 형식의 contains를 사용하는 방법을 보여줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -509,34 +407,9 @@ output return array = concat(firstArray, secondArray)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringToTest string = 'OneTwoThree'
-param objectToTest object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
-}
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-
-output stringTrue bool = contains(stringToTest, 'e')
-output stringFalse bool = contains(stringToTest, 'z')
-output objectTrue bool = contains(objectToTest, 'one')
-output objectFalse bool = contains(objectToTest, 'a')
-output arrayTrue bool = contains(arrayToTest, 'three')
-output arrayFalse bool = contains(arrayToTest, 'four')
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -565,8 +438,6 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json)에서는 값을 데이터 URI로 변환하고 데이터 URI를 문자열로 변환합니다.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -595,21 +466,9 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringToTest string = 'Hello'
-param dataFormattedString string = 'data:;base64,SGVsbG8sIFdvcmxkIQ=='
-
-output dataUriOutput string = dataUri(stringToTest)
-output toStringOutput string = dataUriToString(dataFormattedString)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -634,8 +493,6 @@ output toStringOutput string = dataUriToString(dataFormattedString)
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json)에서는 값을 데이터 URI로 변환하고 데이터 URI를 문자열로 변환합니다.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -664,21 +521,9 @@ output toStringOutput string = dataUriToString(dataFormattedString)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringToTest string = 'Hello'
-param dataFormattedString string = 'data:;base64,SGVsbG8sIFdvcmxkIQ=='
-
-output dataUriOutput string = dataUri(stringToTest)
-output toStringOutput string = dataUriToString(dataFormattedString)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -702,8 +547,6 @@ output toStringOutput string = dataUriToString(dataFormattedString)
 ### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json)에서는 배열, 개체 및 문자열이 비어 있는지 여부를 확인합니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -742,23 +585,9 @@ output toStringOutput string = dataUriToString(dataFormattedString)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testArray array = []
-param testObject object = {}
-param testString string = ''
-
-output arrayEmpty bool = empty(testArray)
-output objectEmpty bool = empty(testObject)
-output stringEmpty bool = empty(testString)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -784,8 +613,6 @@ output stringEmpty bool = empty(testString)
 ### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json)에서는 startsWith 및 endsWith 함수를 사용하는 방법을 보여 줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -821,22 +648,9 @@ output stringEmpty bool = empty(testString)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output startsTrue bool = startsWith('abcdef', 'ab')
-output startsCapTrue bool = startsWith('abcdef', 'A')
-output startsFalse bool = startsWith('abcdef', 'e')
-output endsTrue bool = endsWith('abcdef', 'ef')
-output endsCapTrue bool = endsWith('abcdef', 'F')
-output endsFalse bool = endsWith('abcdef', 'e')
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -865,8 +679,6 @@ output endsFalse bool = endsWith('abcdef', 'e')
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json)에서는 배열 및 문자열에 첫 번째 함수를 사용하는 방법을 보여줍니다.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -892,24 +704,9 @@ output endsFalse bool = endsWith('abcdef', 'e')
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-
-output arrayOutput string = first(arrayToTest)
-output stringOutput string = first('One Two Three')
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
@@ -935,8 +732,6 @@ output stringOutput string = first('One Two Three')
 ### <a name="examples"></a>예
 
 다음 예제 템플릿에서는 서식 함수를 사용하는 방법을 보여 줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -967,21 +762,9 @@ output stringOutput string = first('One Two Three')
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param greeting string = 'Hello'
-param name string = 'User'
-param numberToFormat int = 8175133
-
-output formatTest string = format('{0}, {1}. Formatted number: {2:N0}', greeting, name, numberToFormat)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | formatTest | String | Hello, User. 형식이 지정된 숫자: 8,175,133 |
 
@@ -1008,51 +791,21 @@ output formatTest string = format('{0}, {1}. Formatted number: {2:N0}', greeting
 
 구독에 범위가 지정된 고유함
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 "[guid(subscription().subscriptionId)]"
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-guid(subscription().subscriptionId)
-```
-
----
-
 리소스 그룹에 범위가 지정된 고유함
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "[guid(resourceGroup().id)]"
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-guid(resourceGroup().id)
-```
-
----
-
 리소스 그룹의 배포에 범위가 지정된 고유함
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "[guid(resourceGroup().id, deployment().name)]"
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-guid(resourceGroup().id, deployment().name)
-```
-
----
 
 ### <a name="return-value"></a>반환 값
 
@@ -1061,8 +814,6 @@ guid(resourceGroup().id, deployment().name)
 ### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json)은 guid의 결과를 반환합니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1088,16 +839,6 @@ guid(resourceGroup().id, deployment().name)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output guidPerSubscription string = guid(subscription().subscriptionId)
-output guidPerResourceGroup string = guid(resourceGroup().id)
-output guidPerDeployment string = guid(resourceGroup().id, deployment().name)
-```
-
----
-
 ## <a name="indexof"></a>indexof
 
 `indexOf(stringToSearch, stringToFind)`
@@ -1118,8 +859,6 @@ output guidPerDeployment string = guid(resourceGroup().id, deployment().name)
 ### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json)에서는 indexOf 및 lastIndexOf 함수를 사용하는 방법을 보여줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1151,21 +890,9 @@ output guidPerDeployment string = guid(resourceGroup().id, deployment().name)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output firstT int = indexOf('test', 't')
-output lastT int = lastIndexOf('test', 't')
-output firstString int = indexOf('abcdef', 'CD')
-output lastString int = lastIndexOf('abcdef', 'AB')
-output notFound int = indexOf('abcdef', 'z')
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -1201,8 +928,6 @@ output notFound int = indexOf('abcdef', 'z')
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json)에서는 배열 및 문자열에 최근 함수를 사용하는 방법을 보여줍니다.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -1228,24 +953,9 @@ output notFound int = indexOf('abcdef', 'z')
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-
-output arrayOutput string = last(arrayToTest)
-output stringOutput string = last('One Two Three')
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
@@ -1270,8 +980,6 @@ output stringOutput string = last('One Two Three')
 ### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json)에서는 indexOf 및 lastIndexOf 함수를 사용하는 방법을 보여줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1303,21 +1011,9 @@ output stringOutput string = last('One Two Three')
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output firstT int = indexOf('test', 't')
-output lastT int = lastIndexOf('test', 't')
-output firstString int = indexOf('abcdef', 'CD')
-output lastString int = lastIndexOf('abcdef', 'AB')
-output notFound int = indexOf('abcdef', 'z')
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -1344,8 +1040,6 @@ int입니다.
 ### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json)에서는 배열 및 문자열에 length를 사용하는 방법을 보여줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1395,35 +1089,9 @@ int입니다.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-param stringToTest string = 'One Two Three'
-param objectToTest object = {
-  'propA': 'one'
-  'propB': 'two'
-  'propC': 'three'
-  'propD': {
-    'propD-1': 'sub'
-    'propD-2': 'sub'
-  }
-}
-
-output arrayLength int = length(arrayToTest)
-output stringLength int = length(stringToTest)
-output objectLength int = length(objectToTest)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -1457,8 +1125,6 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 다음 예제 템플릿에서는 새 식별자를 포함하는 매개 변수를 보여 줍니다.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -1480,25 +1146,13 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param guidValue string = newGuid()
-
-output guidOutput string = guidValue
-```
-
----
-
 이전 예제의 출력은 각 배포마다 다르지만 다음과 유사합니다.
 
-| 이름 | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | guidOutput | 문자열 | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
 다음 예제에서는 newGuid 함수를 사용하여 스토리지 계정에 대한 고유한 이름을 만듭니다. 이 템플릿은 스토리지 계정이 짧은 시간 동안 존재하고 다시 배포되지 않는 테스트 환경에 사용할 수 있습니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1535,31 +1189,9 @@ output guidOutput string = guidValue
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param guidValue string = newGuid()
-
-var storageName = 'storage${uniqueString(guidValue)}'
-
-resource myStorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
-  name: storageName
-  location: 'West US'
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'StorageV2'
-  properties: {}
-}
-
-output nameOutput string = storageName
-```
-
----
-
 이전 예제의 출력은 각 배포마다 다르지만 다음과 유사합니다.
 
-| 이름 | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | nameOutput | 문자열 | storagenziwvyru7uxie |
 
@@ -1587,8 +1219,6 @@ output nameOutput string = storageName
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json)에서는 문자열이 총 문자 수에 도달할 때까지 0 문자를 추가하여 사용자가 제공한 매개 변수 값을 채우는 방법을 보여줍니다.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -1609,19 +1239,9 @@ output nameOutput string = storageName
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testString string = '123'
-
-output stringOutput string = padLeft(testString, 10, '0')
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
 
@@ -1647,8 +1267,6 @@ output stringOutput string = padLeft(testString, 10, '0')
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json)에서는 사용자가 제공한 문자열에서 모든 대시를 제거하는 방법 및 문자열의 일부를 다른 문자열로 대체하는 방법을 보여줍니다.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -1673,20 +1291,9 @@ output stringOutput string = padLeft(testString, 10, '0')
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testString string = '123-123-1234'
-
-output firstOutput string = replace(testString, '-', '')
-output secondOutput string = replace(testString, '1234', 'xxxx')
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
 | secondOutput | String | 123-123-xxxx |
@@ -1711,8 +1318,6 @@ output secondOutput string = replace(testString, '1234', 'xxxx')
 ### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json)에서는 배열에서 지정된 요소 수 및 문자열에서 지정된 수의 문자를 건너뜁니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1754,27 +1359,9 @@ output secondOutput string = replace(testString, '1234', 'xxxx')
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testArray array = [
-  'one'
-  'two'
-  'three'
-]
-param elementsToSkip int = 2
-param testString string = 'one two three'
-param charactersToSkip int = 4
-
-output arrayOutput array = skip(testArray, elementsToSkip)
-output stringOutput string = skip(testString, charactersToSkip)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
@@ -1799,8 +1386,6 @@ output stringOutput string = skip(testString, charactersToSkip)
 ### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json)에서는 쉼표를 사용하여 또는 쉼표 또는 세미콜론을 사용하여 입력 문자열을 분할합니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1833,26 +1418,9 @@ output stringOutput string = skip(testString, charactersToSkip)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstString string = 'one,two,three'
-param secondString string = 'one;two,three'
-
-var delimiters = [
-  ','
-  ';'
-]
-
-output firstOutput array = split(firstString, ',')
-output secondOutput array = split(secondString, delimiters)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | firstOutput | Array | [“one”, “two”, “three”] |
 | secondOutput | Array | [“one”, “two”, “three”] |
@@ -1877,8 +1445,6 @@ output secondOutput array = split(secondString, delimiters)
 ### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json)에서는 startsWith 및 endsWith 함수를 사용하는 방법을 보여 줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -1914,22 +1480,9 @@ output secondOutput array = split(secondString, delimiters)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output startsTrue bool = startsWith('abcdef', 'ab')
-output startsCapTrue bool = startsWith('abcdef', 'A')
-output startsFalse bool = startsWith('abcdef', 'e')
-output endsTrue bool = endsWith('abcdef', 'ef')
-output endsCapTrue bool = endsWith('abcdef', 'F')
-output endsFalse bool = endsWith('abcdef', 'e')
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -1957,8 +1510,6 @@ output endsFalse bool = endsWith('abcdef', 'e')
 ### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/string.json)에서는 다른 형식의 값을 문자열로 변환하는 방법을 보여 줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -2003,30 +1554,9 @@ output endsFalse bool = endsWith('abcdef', 'e')
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testObject object = {
-  'valueA': 10
-  'valueB': 'Example Text'
-}
-param testArray array = [
-  'a'
-  'b'
-  'c'
-]
-param testInt int = 5
-
-output objectOutput string = string(testObject)
-output arrayOutput string = string(testArray)
-output intOutput string = string(testInt)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | objectOutput | String | {“valueA”:10,“valueB”:“Example Text”} |
 | arrayOutput | String | [“a”,“b”,“c”] |
@@ -2054,8 +1584,6 @@ output intOutput string = string(testInt)
 
 함수는 부분 문자열이 문자열의 끝을 넘어 확장되거나 길이가 0보다 작은 경우 실패합니다. 다음 예제는 "인덱스 및 길이 매개 변수는 문자열 내 위치를 참조해야 합니다. 인덱스 매개 변수: '0', 길이 매개 변수: '11', 문자열 매개 변수의 길이: '10'." 오류와 함께 실패합니다.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 "parameters": {
   "inputString": {
@@ -2067,21 +1595,9 @@ output intOutput string = string(testInt)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param inputString string = '1234567890'
-
-var prefix = substring(inputString, 0, 11)
-```
-
----
-
 ### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/substring.json)에서는 매개 변수에서 하위 문자열을 추출합니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -2103,18 +1619,9 @@ var prefix = substring(inputString, 0, 11)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testString string = 'one two three'
-output substringOutput string = substring(testString, 4, 3)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | substringOutput | String | two |
 
@@ -2138,8 +1645,6 @@ output substringOutput string = substring(testString, 4, 3)
 ### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json)에서는 배열에서 지정된 수의 요소 및 문자열의 문자를 가져옵니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -2181,27 +1686,9 @@ output substringOutput string = substring(testString, 4, 3)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testArray array = [
-  'one'
-  'two'
-  'three'
-]
-param elementsToTake int = 2
-param testString string = 'one two three'
-param charactersToTake int = 2
-
-output arrayOutput array = take(testArray, elementsToTake)
-output stringOutput string = take(testString, charactersToTake)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | On |
@@ -2226,8 +1713,6 @@ output stringOutput string = take(testString, charactersToTake)
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json)에서는 매개 변수 값을 소문자 및 대문자로 변환합니다.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -2252,20 +1737,9 @@ output stringOutput string = take(testString, charactersToTake)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testString string = 'One Two Three'
-
-output toLowerOutput string = toLower(testString)
-output toUpperOutput string = toUpper(testString)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
@@ -2290,8 +1764,6 @@ output toUpperOutput string = toUpper(testString)
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json)에서는 매개 변수 값을 소문자 및 대문자로 변환합니다.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -2316,20 +1788,9 @@ output toUpperOutput string = toUpper(testString)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testString string = 'One Two Three'
-
-output toLowerOutput string = toLower(testString)
-output toUpperOutput string = toUpper(testString)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
@@ -2354,8 +1815,6 @@ output toUpperOutput string = toUpper(testString)
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json)에서는 매개 변수에서 공백 문자를 자릅니다.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -2376,19 +1835,9 @@ output toUpperOutput string = toUpper(testString)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testString string = '    one two three   '
-
-output return string = trim(testString)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | return | String | one two three |
 
@@ -2413,59 +1862,27 @@ output return string = trim(testString)
 
 `tcvhiyu5h2o5o`
 
-다음 예제에서는 uniqueString를 사용하여 일반적으로 사용하는 수준에 대해 고유한 값을 만드는 방법을 보여 줍니다.
+다음 예제에서는 `uniqueString`을 사용하여 일반적으로 사용하는 수준에 대해 고유한 값을 만드는 방법을 보여줍니다.
 
 구독에 범위가 지정된 고유함
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "[uniqueString(subscription().subscriptionId)]"
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-uniqueString(subscription().subscriptionId)
-```
-
----
-
 리소스 그룹에 범위가 지정된 고유함
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "[uniqueString(resourceGroup().id)]"
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-uniqueString(resourceGroup().id)
-```
-
----
-
 리소스 그룹의 배포에 범위가 지정된 고유함
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-uniqueString(resourceGroup().id, deployment().name)
-```
-
----
-
 다음 예제에서는 리소스 그룹에 따라 스토리지 계정에 고유한 이름을 만드는 방법을 보여 줍니다. 리소스 그룹의 내부에서 같은 방식으로 생성된 경우 이름은 고유하지 않습니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "resources": [{
@@ -2474,18 +1891,7 @@ uniqueString(resourceGroup().id, deployment().name)
   ...
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
-  name: 'storage${uniqueString(resourceGroup().id)}'
-  ...
-}
-```
-
----
-
-템플릿을 배포할 때마다 새 고유 이름을 만들어야 하고 리소스를 업데이트 하지 않으려는 경우 uniqueString에 [utcNow](template-functions-date.md#utcnow) 함수를 사용할 수 있습니다. 이 방법은 테스트 환경에서 사용할 수 있습니다. 예제는 [utcNow](template-functions-date.md#utcnow)를 참조하세요.
+템플릿을 배포할 때마다 고유한 이름을 새로 만들어야 하고 리소스를 업데이트 하지 않으려는 경우 [에서 ](template-functions-date.md#utcnow)utcNow`uniqueString` 함수를 사용할 수 있습니다. 이 방법은 테스트 환경에서 사용할 수 있습니다. 예제는 [utcNow](template-functions-date.md#utcnow)를 참조하세요.
 
 ### <a name="return-value"></a>반환 값
 
@@ -2493,9 +1899,7 @@ resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json)에서는 uniquestring에서 결과를 반환합니다.
-
-# <a name="json"></a>[JSON](#tab/json)
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json)은 `uniquestring`의 결과를 반환합니다.
 
 ```json
 {
@@ -2515,15 +1919,6 @@ resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output uniqueRG string = uniqueString(resourceGroup().id)
-output uniqueDeploy string = uniqueString(resourceGroup().id, deployment().name)
-```
-
----
-
 ## <a name="uri"></a>uri
 
 `uri (baseUri, relativeUri)`
@@ -2534,14 +1929,14 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseUri |예 |문자열 |기본 uri 문자열입니다. 이 표 다음에 설명된 대로 후행 슬래시('/')의 처리와 관련된 동작을 주의해서 살펴봅니다.  |
+| baseUri |예 |문자열 |기본 uri 문자열입니다. 이 표 다음에 설명된 대로 후행 슬래시(`/`)의 처리와 관련된 동작을 주의해서 살펴봅니다.  |
 | relativeUri |예 |문자열 |기본 uri 문자열에 추가할 상대 uri 문자열입니다. |
 
 * **baseUri** 가 후행 슬래시로 끝나는 경우 결과로 **baseUri** 다음에 **relativeUri** 가 나옵니다.
 
 * **baseUri** 가 후행 슬래시로 끝나지 않는 경우 두 가지 중 하나가 발생합니다.
 
-   * **baseUri** 에 슬래시가 전혀 없는 경우(앞의 "//" 제외) 결과로 **baseUri** 다음에 **relativeUri** 가 나옵니다.
+   * **baseUri** 에 슬래시가 전혀 없는 경우(앞의 `//` 제외) 결과로 **baseUri** 다음에 **relativeUri** 가 나옵니다.
 
    * **baseUri** 에 슬래시가 있지만 슬래시로 끝나지 않는 경우 마지막 슬래시부터 나오는 모든 항목은 **baseuri** 에서 제거되고 결과로 **baseUri** 다음에 **relativeUri** 가 나옵니다.
 
@@ -2553,6 +1948,7 @@ uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstp
 uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
 uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
 ```
+
 전체 세부 정보를 보려면 [RFC 3986, 섹션 5](https://tools.ietf.org/html/rfc3986#section-5)에 지정된 대로 **baseUri** 및 **relativeUri** 매개 변수를 확인합니다.
 
 ### <a name="return-value"></a>반환 값
@@ -2563,23 +1959,11 @@ uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://c
 
 다음 예제에서는 부모 템플릿의 값을 기반으로 중첩된 템플릿에 대한 링크를 생성하는 방법을 보여 줍니다.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-templateLink: uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')
-```
-
----
-
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json)에서는 uri, uriComponent 및 uriComponentToString를 사용하는 방법을 보여줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -2608,22 +1992,9 @@ templateLink: uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-var uriFormat = uri('http://contoso.com/resources/', 'nested/azuredeploy.json')
-var uriEncoded = uriComponent(uriFormat)
-
-output uriOutput string = uriFormat
-output componentOutput string = uriEncoded
-output toStringOutput string = uriComponentToString(uriEncoded)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -2649,8 +2020,6 @@ URI로 인코딩된 값의 문자열입니다.
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json)에서는 uri, uriComponent 및 uriComponentToString를 사용하는 방법을 보여줍니다.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -2678,22 +2047,9 @@ URI로 인코딩된 값의 문자열입니다.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-var uriFormat = uri('http://contoso.com/resources/', 'nested/azuredeploy.json')
-var uriEncoded = uriComponent(uriFormat)
-
-output uriOutput string = uriFormat
-output componentOutput string = uriEncoded
-output toStringOutput string = uriComponentToString(uriEncoded)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -2719,8 +2075,6 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json)에서는 uri, uriComponent 및 uriComponentToString를 사용하는 방법을 보여줍니다.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -2748,22 +2102,9 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-var uriFormat = uri('http://contoso.com/resources/', 'nested/azuredeploy.json')
-var uriEncoded = uriComponent(uriFormat)
-
-output uriOutput string = uriFormat
-output componentOutput string = uriEncoded
-output toStringOutput string = uriComponentToString(uriEncoded)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -2771,7 +2112,7 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 
 ## <a name="next-steps"></a>다음 단계
 
-* ARM 템플릿의 섹션에 대한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하십시오.
+* ARM 템플릿의 섹션에 대한 설명은 [ARM 템플릿의 구조 및 구문 이해](./syntax.md)를 참조하십시오.
 * 여러 템플릿을 병합하려면 [Azure 리소스를 배포할 때 연결된 템플릿 및 중첩된 템플릿 사용](linked-templates.md)을 참조하세요.
 * 리소스 형식을 만들 때 지정된 횟수만큼 반복하려면 [ARM 템플릿의 리소스 반복](copy-resources.md)을 참조하세요.
 * 만든 템플릿을 배포하는 방법을 보려면 [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포](deploy-powershell.md)를 참조하세요.

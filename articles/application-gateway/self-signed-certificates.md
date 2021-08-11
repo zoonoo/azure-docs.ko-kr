@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/23/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 51536db7fe0bc1ae723327f17b2b5e8303c07e83
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 602f766429045d91748c0f0873744fe1d35b621d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315888"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467016"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>사용자 지정 루트 CA를 사용하여 Azure Application Gateway 자체 서명된 인증서 생성
 
@@ -50,20 +50,21 @@ OpenSSL을 사용하여 루트 CA 인증서를 만듭니다.
 
 ### <a name="create-the-root-key"></a>루트 키 만들기
 
-1. OpenSSL이 설치된 컴퓨터에 로그인하고 다음 명령을 실행합니다. 그러면 암호로 보호된 키가 만들어집니다.
+1. OpenSSL이 설치된 컴퓨터에 로그인하고 다음 명령을 실행합니다. 암호화된 키를 생성합니다.
 
    ```
    openssl ecparam -out contoso.key -name prime256v1 -genkey
    ```
-1. 프롬프트에서 강력한 암호를 입력합니다. 예를 들어, 대문자, 소문자, 숫자 및 기호를 사용하여 9자 이상으로 입력합니다.
-
+   
 ### <a name="create-a-root-certificate-and-self-sign-it"></a>루트 인증서 만들기 및 자체 서명
 
 1. 다음 명령을 사용하여 csr 및 인증서를 생성합니다.
 
    ```
    openssl req -new -sha256 -key contoso.key -out contoso.csr
-
+   ```
+   
+   ```
    openssl x509 -req -sha256 -days 365 -in contoso.csr -signkey contoso.key -out contoso.crt
    ```
    이전 명령은 루트 인증서를 만듭니다. 서버 인증서에 서명하는 데 이 인증서를 사용합니다.
