@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/15/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 9aa394cda245bd3a457a16c19660bfe08553d14d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a4544b2ec632f763fdc2324f1323881ff4947f3e
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058887"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113595236"
 ---
 # <a name="what-are-the-comparisons-between-azure-cdn-product-features"></a>Azure CDN 제품 기능 간의 비교는 무엇인가요?
 
@@ -53,7 +53,7 @@ Azure CDN(Content Delivery Network)에는 다음과 같은 네 가지 제품이 
 | CDN 엔드포인트에 HTTPS 지원 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [사용자 지정 도메인 HTTPS](cdn-custom-ssl.md)  | **&#x2713;** | **&#x2713;** 활성화하려면 직접 CNAME이 필요함 |**&#x2713;** |**&#x2713;** |
 | [사용자 지정 도메인 이름 지원](cdn-map-content-to-custom-domain.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [지역 필터링](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [지역 필터링](cdn-restrict-access-by-country-region.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [토큰 인증](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 
 | [DDOS 보호](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [사용자 고유의 인증서 가져오기](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) |**&#x2713;** |  | **&#x2713;** | **&#x2713;** |

@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory를 사용하여 자동으로 사용자를 프로비저닝하도록 Netskope User Authentication 구성 | Microsoft Docs'
 description: 사용자 계정을 Netskope User Authentication으로 자동으로 프로비저닝 및 프로비저닝 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.author: Zhchia
-ms.openlocfilehash: 46766a7439185714648572f3f1b9d51ef96abba6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: thwimmer
+ms.openlocfilehash: 25f665c0750650c395713e1c7f1a8ad3240b7615
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94357473"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113769173"
 ---
 # <a name="tutorial-configure-netskope-user-authentication-for-automatic-user-provisioning"></a>자습서: 자동으로 사용자를 프로비저닝하도록 Netskope User Authentication 구성
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: 3bd85d6faf05fcf659e9335ee9de3d64198dfa08
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98011172"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Azure Network Watcher로 패킷 검사
@@ -51,7 +51,7 @@ WireShark를 시작합니다.
 
 ### <a name="step-3"></a>3단계
 
-TCP 대화에서 초기 RTT(왕복 시간)를 보려면 TCP 핸드셰이크에 관련된 처음 두 패킷만 확인합니다. 세 방향 핸드셰이크에서 처음 두 패킷([SYN], [SYN, ACK] 패킷)을 사용할 것입니다. TCP 헤더에 설정된 플래그에 따라 이름이 지정되었습니다. 핸드셰이크에서 마지막 패킷인 [ACK] 패킷은 이 시나리오에서는 사용하지 않습니다. 클라이언트에 의해 [SYN] 패킷이 전송됩니다. 수신 되 면 서버는 클라이언트에서 SYN을 수신 하는 승인으로 [ACK] 패킷을 보냅니다. 서버의 응답에는 오버헤드가 거의 필요하지 않다는 사실에 따라 [SYN, ACK] 패킷이 클라이언트에 수신된 시간에서 클라이언트가 [SYN] 패킷을 전송한 시간을 뺀 값으로 RTT를 계산합니다.
+TCP 대화에서 초기 RTT(왕복 시간)를 보려면 TCP 핸드셰이크에 관련된 처음 두 패킷만 확인합니다. 세 방향 핸드셰이크에서 처음 두 패킷([SYN], [SYN, ACK] 패킷)을 사용할 것입니다. TCP 헤더에 설정된 플래그에 따라 이름이 지정되었습니다. 핸드셰이크에서 마지막 패킷인 [ACK] 패킷은 이 시나리오에서는 사용하지 않습니다. 클라이언트에 의해 [SYN] 패킷이 전송됩니다. 수신되면 서버는 클라이언트에서 SYN을 수신하는 승인으로 [ACK] 패킷을 보냅니다. 서버의 응답에는 오버헤드가 거의 필요하지 않다는 사실에 따라 [SYN, ACK] 패킷이 클라이언트에 수신된 시간에서 클라이언트가 [SYN] 패킷을 전송한 시간을 뺀 값으로 RTT를 계산합니다.
 
 WireShark를 사용하여 이 값을 계산합니다.
 
@@ -77,7 +77,7 @@ Azure에 배포한 가상 머신 인스턴스에 많은 애플리케이션이 �
 
 ### <a name="step-1"></a>1단계
 
-이전 시나리오에서 동일한 캡처를 사용 하 여 **통계**  >  **프로토콜 계층** 을 클릭 합니다.
+이전 시나리오의 동일한 캡처를 사용하고 **통계** > **프로토콜 계층** 을 클릭합니다.
 
 ![프로토콜 계층 메뉴][2]
 
@@ -93,7 +93,7 @@ Azure에 배포한 가상 머신 인스턴스에 많은 애플리케이션이 �
 
 ### <a name="step-1"></a>1단계
 
-이전 시나리오에서 동일한 캡처를 사용 하 여 **통계**  >  **IPv4 통계**  >  **대상 및 포트를** 클릭 합니다.
+이전 시나리오의 동일한 캡처를 사용하고 **통계** > **IPv4 통계** > **대상 및 포트** 를 클릭합니다.
 
 ![패킷 캡처 창][4]
 

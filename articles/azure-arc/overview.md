@@ -3,12 +3,12 @@ title: Azure Arc 개요
 description: Azure Arc란 무엇이며 고객이 다른 Azure 서비스 및 기능을 사용하여 하이브리드 리소스의 관리 및 거버넌스를 활성화하는 데 어떤 도움이 되는지 알아봅니다.
 ms.date: 05/25/2021
 ms.topic: overview
-ms.openlocfilehash: b67c01f666916508946b49b0ad45d7151ed179ef
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: ddab135ffe98675a498c4a364bc9e04ce57b92fe
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112287302"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113732047"
 ---
 # <a name="azure-arc-overview"></a>Azure Arc 개요
 
@@ -48,7 +48,7 @@ Azure Arc의 핵심 기능은 다음과 같습니다.
 
 * Azure에서 실행되는 것처럼 모든 Kubernetes 환경에서 [Azure 데이터 서비스](../azure-arc/kubernetes/custom-locations.md)를 실행합니다(특히 업그레이드, 업데이트, 보안 및 모니터링과 같은 이점이 있는 Azure SQL Managed Instance 및 Azure Database for PostgreSQL Hyperscale). Azure에 대한 지속적인 연결 없이도, 탄력적인 스케일링을 사용하고 애플리케이션 다운타임 없이 업데이트를 적용합니다.
 
-* Azure 서비스 인스턴스를 배포하기 위한 대상 위치로 사용하여 [Azure Arc 지원 Kubernetes](./kubernetes/overview.md) 클러스터를 기반으로 [사용자 지정 위치](./kubernetes/custom-locations.md)를 만듭니다. [Azure Arc 지원 Data Services](./data/deploy-data-controller-direct-mode.md), [Azure Arc의 App Services](../app-service/overview-arc-integration.md)(웹, 함수 및 논리 앱 포함) 및 [Kubernetes의 Event Grid](../event-grid/kubernetes/overview.md)에 대한 Azure 서비스 클러스터 확장을 배포합니다.
+* Azure 서비스 인스턴스를 배포하기 위한 대상 위치로 사용하여 [Azure Arc 지원 Kubernetes](./kubernetes/overview.md) 클러스터를 기반으로 [사용자 지정 위치](./kubernetes/custom-locations.md)를 만듭니다. [Azure Arc 지원 Data Services](./data/create-data-controller-direct-azure-portal.md), [Azure Arc의 App Services](../app-service/overview-arc-integration.md)(웹, 함수 및 논리 앱 포함) 및 [Kubernetes의 Event Grid](../event-grid/kubernetes/overview.md)에 대한 Azure 서비스 클러스터 확장을 배포합니다.
 
 * Azure Portal, Azure CLI, Azure PowerShell 또는 Azure REST API를 사용하는지에 관계없이 Azure Arc 지원 리소스를 보는 통합 환경입니다.
 

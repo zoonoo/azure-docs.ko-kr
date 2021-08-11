@@ -38,6 +38,8 @@
         - name: ARM 템플릿
           displayName: Resource Manager
           href: quickstart-arm-template.md
+        - name: 파트너 솔루션
+          href: sql-data-warehouse-partner-browse-partners.md
     - name: 데이터 로드
       items:
         - name: COPY 문

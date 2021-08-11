@@ -6,13 +6,13 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/16/2021
-ms.openlocfilehash: 392b1a1650ab40951704d003f2a5e5337cf3c0f5
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.date: 06/04/2021
+ms.openlocfilehash: 0f295a2c628a7ca931287463a75ad441bc40ee24
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566711"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113214960"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Azure Data Factory 및 Azure Data Share를 사용하여 데이터 통합
 
@@ -60,7 +60,7 @@ Azure Data Factory 연결된 서비스에서는 외부 리소스에 대한 연�
     ![포털 3](media/lab-data-flow-data-share/portal3.png)
 1. ADF UX 홈페이지로 리디렉션됩니다. 이 페이지에는 데이터 팩터리 개념을 배울 수 있는 빠른 시작, 교육용 비디오 및 자습서 링크가 포함되어 있습니다. 작성을 시작하려면 왼쪽 막대에서 연필 아이콘을 클릭합니다.
 
-    ![포털 구성](media/lab-data-flow-data-share/configure1.png)
+    ![포털 구성](./media/doc-common-process/get-started-page-author-button.png)
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Azure SQL Database 연결된 서비스 만들기
 

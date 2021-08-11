@@ -1,5 +1,5 @@
 ---
-title: Azure CLI-연결 되지 않은 관리 되는 디스크 및 관리 되지 않는 디스크 찾기 및 삭제
+title: Azure CLI - 연결되지 않은 관리/비관리 디스크를 찾아서 삭제
 description: Azure CLI를 사용하여 연결되지 않은 Azure 관리 및 비관리(VHD/페이지 Blob) 디스크를 찾고 삭제하는 방법입니다.
 author: roygara
 ms.service: virtual-machines
@@ -8,10 +8,10 @@ ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 0c3e8bb2ff6f3313e851a4253a95a5ad923a8f70
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96016219"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks-using-the-azure-cli"></a>Azure CLI를 사용하여 연결되지 않은 Azure 관리 및 비관리 디스크를 찾아서 삭제

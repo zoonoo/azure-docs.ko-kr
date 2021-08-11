@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 64107c3f667dd7e59fcf6d191e83457029b3a277
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3d877641948635a47dd69ddb03b98acc2ddf3eaf
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100546349"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633144"
 ---
 # <a name="migrating-applications-to-msalnet"></a>애플리케이션을 MSAL.NET으로 마이그레이션
 
@@ -29,9 +29,17 @@ MSAL.NET(.NET용 Microsoft 인증 라이브러리) 및 ADAL.NET(.NET용 Azure AD
 - 애플리케이션에서 증분 동의를 설정할 수 있으며 조건부 액세스를 지원하기 더 쉽습니다.
 - 혁신을 통한 혜택을 누릴 수 있습니다.
 
-**MSAL.NET은 이제 Microsoft ID 플랫폼에 사용할 수 있는 권장 인증 라이브러리입니다**. ADAL.NET에는 새로운 기능이 구현되지 않습니다. 대신 MSAL 향상에 중점을 두었습니다.
+**MSAL.NET 또는 Microsoft.Identity.Web은 이제 Microsoft ID 플랫폼과 함께 사용할 수 있는 권장 인증 라이브러리입니다**. ADAL.NET에는 새로운 기능이 구현되지 않습니다. 대신 MSAL 향상에 중점을 두었습니다.
 
 이 문서에서는 MSAL.NET(.NET용 Microsoft 인증 라이브러리)과 ADAL.NET(.NET용 Azure AD 인증 라이브러리)의 차이점을 설명하며 MSAL로의 마이그레이션에 도움을 줍니다.
+
+## <a name="should-you-migrate-to-msalnet-or-to-microsoftidentityweb"></a>MSAL.NET 또는 Microsoft.Identity.Web으로 마이그레이션해야 합니다.
+
+MSAL.NET 및 ADAL.NET의 세부 정보를 자세히 알아보기 전에 MSAL.NET 또는 [Microsoft.Identity.Web](microsoft-identity-web.md)과 같은 상위 수준 추상화 사용 여부를 확인할 수 있습니다.
+
+아래 의사 결정 트리에 대한 자세한 내용은 [MSAL.NET을 사용해야 합니까? 또는 더 높은 수준의 추상화를 사용해야 합니까?](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Is-MSAL.NET-right-for-me%3F)를 참조하세요.
+
+:::image type="content" source="media/msal-net-migration/decision-diagram.png" alt-text="ADAL.NET에서 마이그레이션하는 경우 MSAL.NET 및 Microsoft.Identity.Web을 사용해야 하는지 아니면 둘 다를 사용해야 하는지를 선택하는 방법을 설명하는 블록 다이어그램":::
 
 ## <a name="differences-between-adal-and-msal-apps"></a>ADAL 및 MSAL 앱의 차이점
 
@@ -41,13 +49,15 @@ MSAL.NET(.NET용 Microsoft 인증 라이브러리) 및 ADAL.NET(.NET용 Azure AD
 
 그러나 애플리케이션이 이전 버전의 [ADFS(Active Directory Federation Services)](/windows-server/identity/active-directory-federation-services)를 사용하여 사용자를 로그인해야 하는 경우에는 여전히 ADAL.NET을 사용해야 합니다. 자세한 내용은 [ADFS 지원](https://aka.ms/msal-net-adfs-support)을 참조하세요.
 
-다음 그림에서는 ADAL.NET 및 MSAL.NET ![병렬(side-by-side) 코드](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png) 간의 차이점 중 일부를 요약하고 있습니다.
+다음 그림에서는 퍼블릭 클라이언트 애플리케이션에 대한 ADAL.NET 및 MSAL.NET 간의 몇 가지 차이점을 요약합니다. [![퍼블릭 클라이언트 애플리케이션에 대한 ADAL.NET 및 MSAL.NET 간의 몇 가지 차이점을 보여 주는 스크린샷](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png)](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png#lightbox)
+
+다음 그림에서는 기밀 클라이언트 애플리케이션에 대한 ADAL.NET 및 MSAL.NET 간의 몇 가지 차이점을 요약합니다. [![기밀 클라이언트 애플리케이션에 대한 ADAL.NET 및 MSAL.NET 간의 몇 가지 차이점을 보여 주는 스크린샷](./media/msal-net-migration/confidential-client-application.png)](./media/msal-net-migration/confidential-client-application.png#lightbox)
 
 ### <a name="nuget-packages-and-namespaces"></a>NuGet 패키지 및 네임스페이스
 
 ADAL.NET은 [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet 패키지에서 사용됩니다. 사용할 네임스페이스는 `Microsoft.IdentityModel.Clients.ActiveDirectory`입니다.
 
-MSAL.NET을 사용하려면 [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet 패키지를 추가하고 `Microsoft.Identity.Client` 네임스페이스를 사용해야 합니다.
+MSAL.NET을 사용하려면 [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet 패키지를 추가하고 `Microsoft.Identity.Client` 네임스페이스를 사용해야 합니다. 기밀 클라이언트 애플리케이션을 빌드하는 경우 [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web)도 확인하세요.
 
 ### <a name="scopes-not-resources"></a>리소스가 아닌 범위
 
@@ -120,26 +130,26 @@ MSAL.NET에서 클레임 챌린지 예외는 다음과 같은 방법으로 처�
 
 허용 | ADAL.NET | MSAL.NET
 ----- |----- | -----
-대화형 | [대화형 인증](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [MSAL.NET에서 대화형으로 토큰 획득](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
-Windows 통합 인증 | [Windows의 통합 인증(Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Windows 통합 인증](msal-authentication-flows.md#integrated-windows-authentication)
-사용자 이름/암호 | [사용자 이름 및 암호를 사용하여 토큰 획득](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)| [사용자 이름 암호 인증](msal-authentication-flows.md#usernamepassword)
-디바이스 코드 흐름 | [웹 브라우저가 없는 디바이스에 대한 디바이스 프로필](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [디바이스 코드 흐름](msal-authentication-flows.md#device-code)
+대화형 | [대화형 인증](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [MSAL.NET에서 대화형으로 토큰 획득](scenario-desktop-acquire-token.md?tabs=dotnet#acquire-a-token-interactively)
+Windows 통합 인증 | [Windows의 통합 인증(Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Windows 통합 인증](scenario-desktop-acquire-token.md?tabs=dotnet#integrated-windows-authentication)
+사용자 이름/암호 | [사용자 이름 및 암호를 사용하여 토큰 획득](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)| [사용자 이름 암호 인증](scenario-desktop-acquire-token.md?tabs=dotnet#username-and-password)
+디바이스 코드 흐름 | [웹 브라우저가 없는 디바이스에 대한 디바이스 프로필](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [디바이스 코드 흐름](scenario-desktop-acquire-token.md?tabs=dotnet#command-line-tool-without-a-web-browser)
 
 #### <a name="confidential-client-applications"></a>기밀 클라이언트 애플리케이션
 
-웹 애플리케이션, 웹 API 및 디먼 애플리케이션용 ADAL.NET 및 MSAL.NET에서 지원되는 권한은 다음과 같습니다.
+웹 애플리케이션, 웹 API 및 디먼 애플리케이션용 ADAL.NET, MSAL.NET 및 Microsoft.Identity.Web에서 지원되는 권한은 다음과 같습니다.
 
 앱 유형 | 허용 | ADAL.NET | MSAL.NET
 ----- | ----- | ----- | -----
-웹앱, 웹 API, 디먼 | 클라이언트 자격 증명 | [ADAL.NET의 클라이언트 자격 증명 흐름](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [MSAL.NET의 클라이언트 자격 증명 흐름](msal-authentication-flows.md#client-credentials)
-Web API | On-Behalf-Of | [사용자를 대신하여 ADAL.NET을 통해 서비스 간 호출](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [MSAL.NET의 On-Behalf-Of 흐름](msal-authentication-flows.md#on-behalf-of)
-웹앱 | 권한 부여 코드 | [ADAL.NET을 사용하여 웹앱에서 권한 부여 코드가 있는 토큰 획득](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-authorization-codes-on-web-apps) | [MSAL.NET을 사용하여 웹앱에서 권한 부여 코드가 있는 토큰 획득](msal-authentication-flows.md#authorization-code)
+웹앱, 웹 API, 디먼 | 클라이언트 자격 증명 | [ADAL.NET의 클라이언트 자격 증명 흐름](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [MSAL.NET의 클라이언트 자격 증명 흐름](scenario-daemon-acquire-token.md?tabs=dotnet#acquiretokenforclient-api)
+Web API | On-Behalf-Of | [사용자를 대신하여 ADAL.NET을 통해 서비스 간 호출](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [MSAL.NET의 On-Behalf-Of 흐름](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/on-behalf-of)
+웹앱 | 권한 부여 코드 | [ADAL.NET을 사용하여 웹앱에서 권한 부여 코드가 있는 토큰 획득](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-authorization-codes-on-web-apps) | [MSAL.NET을 사용하여 웹앱에서 권한 부여 코드가 있는 토큰 획득](scenario-web-app-call-api-acquire-token.md?tabs=aspnetcore)
 
 ### <a name="cache-persistence"></a>캐시 지속성
 
 ADAL.NET을 사용하면 보안 스토리지(.NET Framework 및 .NET Core)가 없는 플랫폼에서 원하는 지속성 기능을 구현하기 위해 `BeforeAccess` 및 `BeforeWrite` 메서드를 사용하여 `TokenCache` 클래스를 확장할 수 있습니다. 자세한 내용은 [ADAL.NET의 토큰 캐시 직렬화](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization)를 참조하세요.
 
-MSAL.NET은 토큰 캐시를 sealed 클래스로 만들어 확장 기능을 제거합니다. 따라서 토큰 캐시 지속성의 구현은 sealed 토큰 캐시와 상호 작용하는 도우미 클래스 형식이어야 합니다. 이 상호 작용은 [MSAL.NET의 토큰 캐시 직렬화](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization)에서 설명하고 있습니다.
+MSAL.NET은 토큰 캐시를 sealed 클래스로 만들어 확장 기능을 제거합니다. 따라서 토큰 캐시 지속성의 구현은 sealed 토큰 캐시와 상호 작용하는 도우미 클래스 형식이어야 합니다. 이 상호 작용은 [MSAL.NET의 토큰 캐시 직렬화](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization)에서 설명하고 있습니다. 직렬화는 퍼블릭 클라이언트 애플리케이션([퍼블릭 클라이언트 애플리케이션의 경우 토큰 캐시](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization#token-cache-for-a-public-client-application) 참조) 및 기밀 클라이언트 애플리케이션의 경우 다릅니다([웹앱 또는 웹 API에 대한 토큰 캐시](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization#token-cache-for-a-public-client-application) 참조).
 
 ## <a name="signification-of-the-common-authority"></a>공용 인증 기관의 의미
 

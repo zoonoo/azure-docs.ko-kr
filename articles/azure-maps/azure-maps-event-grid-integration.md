@@ -1,6 +1,6 @@
 ---
 title: Event Grid를 사용하여 Azure Maps 이벤트에 대응
-description: 지역 구분와 관련 된 Azure Maps 이벤트에 대응 하는 방법을 알아봅니다. 이벤트를 수신 대기 하는 방법 및 Event Grid 사용 하 여 이벤트를 이벤트 처리기로 라우팅하는 방법을 참조 하세요.
+description: 지오펜스와 관련된 Azure Maps 이벤트에 대응하는 방법을 알아봅니다. 이벤트를 수신 대기하는 방법 및 Event Grid를 사용하여 이벤트를 이벤트 처리기로 라우팅하는 방법을 참조하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/16/2020
@@ -10,15 +10,15 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 44b2cab814d4e51c4eb0c3ce3322b898f5b26414
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92889769"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Event Grid를 사용하여 Azure Maps 이벤트에 대응
 
-Azure Maps는 사용자가 다른 서비스로 이벤트 알림을 보내고 다운스트림 프로세스를 트리거할 수 있도록 Azure Event Grid와 통합 됩니다. 이 문서의 목적은 Azure Maps 이벤트를 수신 하도록 비즈니스 응용 프로그램을 구성 하는 데 도움이 됩니다. 이를 통해 사용자는 안정적이 고 확장 가능 하 고 안전한 방식으로 중요 한 이벤트에 대응할 수 있습니다. 예를 들어, 사용자가 응용 프로그램을 빌드하여 데이터베이스를 업데이트 하 고, 티켓을 만들고, 장치를 지 오로 가져갈 때마다 전자 메일 알림을 배달할 수 있습니다.
+Azure Maps는 사용자가 이벤트 알림을 기타 서비스에 보내고 다운스트림 프로세스를 트리거할 수 있도록 Azure Event Grid와 통합됩니다. 이 문서의 목적은 Azure Maps 이벤트를 수신 대기하도록 비즈니스 애플리케이션을 구성하는 데 도움이 되는 것입니다. 이를 통해 안정적이고, 확장성 있으며, 안전한 방식으로 위험 이벤트에 빠르게 대응할 수 있습니다. 예를 들어, 사용자는 디바이스가 지오펜스에 들어갈 때마다 데이터베이스를 업데이트하고, 티켓을 생성하고, 이메일 알림을 전달하는 애플리케이션을 빌드할 수 있습니다.
 
 Azure Event Grid는 게시-구독 모델을 사용하는 완전 관리형 이벤트 라우팅 서비스입니다. Event Grid에는 [Azure Functions](../azure-functions/functions-overview.md) 및 [Azure Logic Apps](../azure-functions/functions-overview.md)와 같은 Azure 서비스에 대한 지원이 기본적으로 제공됩니다. 웹후크를 사용하여 비 Azure 서비스에 이벤트 경고를 제공할 수 있습니다. Azure Event Grid가 지원하는 이벤트 처리기의 전체 목록은 [Azure Event Grid 소개](../event-grid/overview.md)를 참조하세요.
 
@@ -32,13 +32,13 @@ Event Grid는 [이벤트 구독](../event-grid/concepts.md#event-subscriptions)�
 
 | 이벤트 유형 | 설명 |
 | ---------- | ----------- |
-| Microsoft.Maps.GeofenceEntered | 받은 좌표가 지정 된 지 오의 외부에서 내부로 이동 했을 때 발생 합니다. |
-| Microsoft.Maps.GeofenceExited | 받은 좌표가 지정 된 지 오의 내에서 바깥쪽으로 이동 했을 때 발생 합니다. |
+| Microsoft.Maps.GeofenceEntered | 수신된 좌표가 지정된 지오펜스 외부에서 내부로 이동한 경우에 발생합니다. |
+| Microsoft.Maps.GeofenceExited | 수신된 좌표가 지정된 지오펜스 내부에서 외부로 이동한 경우에 발생합니다. |
 | Microsoft.Maps.GeofenceResult | 상태와 관계없이 지오펜싱 쿼리에서 결과가 반환될 때마다 발생합니다. |
 
 ## <a name="event-schema"></a>이벤트 스키마
 
-다음 예제에서는 GeofenceResult에 대 한 스키마를 보여 줍니다.
+다음 예제에서는 GeofenceResult의 스키마를 보여줍니다.
 
 ```JSON
 {
@@ -73,9 +73,9 @@ Event Grid는 [이벤트 구독](../event-grid/concepts.md#event-subscriptions)�
 
 Azure Maps 지오펜스 이벤트를 처리하는 애플리케이션은 다음과 같은 몇 가지 권장 지침을 따라야 합니다.
 
-* 여러 구독을 구성 하 여 이벤트를 동일한 이벤트 처리기로 라우팅합니다. 이벤트가 특정 원본에서 제공되었다고 가정하지 않는 것이 중요합니다. 항상 메시지 항목을 확인 하 여 메시지가 원하는 원본에서 온 것인지 확인 합니다.
-* `X-Correlation-id`응답 헤더의 필드를 사용 하 여 개체에 대 한 정보가 최신 상태 인지를 파악 합니다. 메시지가 잘못된 순서로 도착하거나 지연 후에 도착할 수 있습니다.
-* 로 설정 된 mode 매개 변수를 사용 하 여 지 오 지 오 API의 GET 또는 POST 요청을 호출 하면 이전에 지 `EnterAndExit` 오 라 api 호출에서 상태가 변경 된 지 오 라의 각 기 하 도형에 대해 Enter 또는 Exit 이벤트가 생성 됩니다.
+* 여러 구독을 구성하여 이벤트를 동일한 이벤트 처리기로 라우팅합니다. 이벤트가 특정 원본에서 제공되었다고 가정하지 않는 것이 중요합니다. 항상 메시지 토픽을 확인하여 예상한 원본에서 보낸 메시지인지 확인합니다.
+* 응답 헤더의 `X-Correlation-id` 필드를 사용하여 개체 정보가 최신 상태인지 파악합니다. 메시지가 잘못된 순서로 도착하거나 지연 후에 도착할 수 있습니다.
+* 모드 매개 변수를 `EnterAndExit`로 설정하여 지오펜스 API에서 GET이나 POST 요청을 호출하는 경우, 상태가 이전 지오펜스 API 호출과 다르게 변경된 지오펜스의 각 기하 도형에 대해 Enter 또는 Exit 이벤트가 생성됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,15 +6,15 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 06/10/2021
+ms.date: 07/22/2021
 ms.author: alkohli
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d5c9874324a11f9416806c22a3153c1ee4e8d442
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: dc06c5646f85fda4b4100805be4a9566d0917e2a
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111981959"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652995"
 ---
 # <a name="tutorial-order-azure-data-box"></a>자습서: Azure Data Box 주문
 
@@ -29,7 +29,10 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
 > * 주문 추적
 > * 주문 취소
 
-## <a name="prerequisites"></a>필수 구성 요소
+> [!NOTE]
+> Data Box 주문 및 배송에 대한 질문과 대답은 [Data Box FAQ](data-box-faq.yml)를 참조하세요.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 # <a name="portal"></a>[포털](#tab/portal)
 

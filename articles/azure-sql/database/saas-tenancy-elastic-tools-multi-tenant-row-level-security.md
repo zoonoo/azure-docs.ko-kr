@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 6d753a90f2a4cb19c9f3933d007fb3d378af6d81
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92793214"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 애플리케이션
@@ -40,7 +40,7 @@ ms.locfileid: "92793214"
 ### <a name="prerequisites"></a>사전 요구 사항
 
 - Visual Studio 2012 이상 사용
-- 에서 3 개의 데이터베이스를 만듭니다 Azure SQL Database
+- Azure SQL Database에서 3개의 데이터베이스 만들기
 - 샘플 프로젝트 다운로드: [Azure SQL을 위한 탄력적 DB 도구 - 다중 테넌트 분할된 데이터베이스](https://go.microsoft.com/?linkid=9888163)
   - **Program.cs**
 

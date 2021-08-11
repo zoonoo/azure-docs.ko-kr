@@ -3,25 +3,25 @@ title: '빠른 시작: Java 디먼에서 Microsoft Graph 호출 | Azure'
 titleSuffix: Microsoft identity platform
 description: 이 빠른 시작에서는 Java 앱이 앱의 자체 ID를 사용하여 액세스 토큰을 가져오고 Microsoft ID 플랫폼 엔드포인트로 보호된 API를 호출하는 방법을 알아봅니다.
 services: active-directory
-author: mtillman
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 01/22/2021
-ms.author: mtillman
+ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 866fc8c0a44f9380dd38227d2b5a2d2b332ec8b4
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 1ef66472d878d33f78ec6ef67c9d7de060f4f292
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075460"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113357700"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-java-console-app-using-apps-identity"></a>빠른 시작: 앱의 ID를 사용하여 Java 콘솔 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
-이 빠른 시작에서는 Java 애플리케이션이 앱의 ID를 사용하여 액세스 토큰을 가져와 Microsoft Graph API를 호출하고 디렉터리에 [사용자 목록](/graph/api/user-list)을 표시하는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다. 코드 샘플에서는 사용자의 ID 대신 애플리케이션 ID를 사용하여 무인 작업 또는 Windows 서비스를 실행할 수 있는 방법을 보여줍니다. 
+이 빠른 시작에서는 Java 애플리케이션이 앱의 ID를 사용하여 액세스 토큰을 가져와 Microsoft Graph API를 호출하고 디렉터리에 [사용자 목록](/graph/api/user-list)을 표시하는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다. 코드 샘플에서는 사용자의 ID 대신 애플리케이션 ID를 사용하여 무인 작업 또는 Windows 서비스를 실행할 수 있는 방법을 보여줍니다.
 
 > [!div renderon="docs"]
 > ![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-java-daemon/java-console-daemon.svg)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 820c10a2f5bb43ff931027954b7ecf10c5b4c59f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103013570"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>DASH.js를 사용하여 HTML5 애플리케이션에 MPEG-DASH 적응 스트리밍 비디오 포함
@@ -26,7 +26,7 @@ ms.locfileid: "103013570"
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 ## <a name="overview"></a>개요
-MPEG-DASH는 고품질 적응 비디오 스트리밍 출력을 전달하려는 개발자에게 많은 혜택을 제공하는 비디오 콘텐츠의 적응 스트리밍을 위한 ISO 표준입니다. MPEG-DASH를 사용하면 네트워크 정체 상태일 때 비디오 스트림이 자동으로 낮은 화질로 조정됩니다. 이렇게 하면 플레이어가 재생을 위해 다음 몇 초를 다운로드 하는 동안 "일시 중지 됨" 비디오가 표시 될 가능성을 줄일 수 있습니다. 즉, 버퍼링 가능성이 줄어듭니다. 네트워크 정체가 줄어들면 비디오 플레이어가 높은 품질의 스트림에 다시 돌아갑니다. 또한 이렇게 필요한 대역폭으로 조정하는 기능 덕분에 비디오의 시작 시간이 더욱 빨라집니다. 즉, 처음 몇 초는 낮은 품질로 세그먼트를 빠르게 다운로드하여 재생한 다음 충분한 콘텐츠가 버퍼링되고 나면 높은 품질로 설정할 수 있습니다.
+MPEG-DASH는 고품질 적응 비디오 스트리밍 출력을 전달하려는 개발자에게 많은 혜택을 제공하는 비디오 콘텐츠의 적응 스트리밍을 위한 ISO 표준입니다. MPEG-DASH를 사용하면 네트워크 정체 상태일 때 비디오 스트림이 자동으로 낮은 화질로 조정됩니다. 이를 통해 플레이어가 재생할 다음 몇 초를 다운로드해서 뷰어에 "일시 중지된" 비디오가 표시될 가능성을 줄여줍니다. 즉, 버퍼링이 일어날 가능성을 줄입니다. 네트워크 정체가 줄어들면 비디오 플레이어가 높은 품질의 스트림에 다시 돌아갑니다. 또한 이렇게 필요한 대역폭으로 조정하는 기능 덕분에 비디오의 시작 시간이 더욱 빨라집니다. 즉, 처음 몇 초는 낮은 품질로 세그먼트를 빠르게 다운로드하여 재생한 다음 충분한 콘텐츠가 버퍼링되고 나면 높은 품질로 설정할 수 있습니다.
 
 Dash.js는 JavaScript로 작성된 오픈 소스 MPEG-DASH 비디오 플레이어입니다. 목표는 비디오 재생이 필요한 애플리케이션에서 자유롭게 다시 사용할 수 있는 강력한 플랫폼 간 플레이어를 제공하는 것입니다. W3C MSE(미디어 원본 확장)를 지원하는 모든 브라우저에서 MPEG-DASH 재생을 제공합니다. 현재는 Chrome, Microsoft Edge 및 IE11에서 지원되며 다른 브라우저는 MSE를 지원하지 않는 것으로 보입니다. DASH.js에 대한 자세한 내용은 GitHub dash.js 리포지토리를 참조하세요.
 
@@ -57,7 +57,7 @@ Dash.js는 JavaScript로 작성된 오픈 소스 MPEG-DASH 비디오 플레이�
 ```
 
 ## <a name="adding-the-dashjs-player"></a>DASH.js 플레이어 추가
-응용 프로그램에 dash.js 참조 구현을 추가 하려면 dash.js 프로젝트의 최신 버전에서 dash.all.js 파일을 시작 해야 합니다. 이 파일은 애플리케이션의 JavaScript 폴더에 저장되어 있어야 합니다. 이 파일은 단일 파일에 모든 필요한 dash.js 코드를 간편하게 취합해 놓은 파일입니다. dash.js 리포지토리를 살펴보면 개별 파일, 테스트 코드 등을 찾을 수 있지만 dash.js만 사용하려는 경우는 dash.all.js 파일이 필요합니다.
+응용 프로그램에 dash.js 참조 구현을 추가하려면 dash.js 프로젝트 최신 버전에서 dash.all.js 파일을 가져와야 합니다. 이 파일은 애플리케이션의 JavaScript 폴더에 저장되어 있어야 합니다. 이 파일은 단일 파일에 모든 필요한 dash.js 코드를 간편하게 취합해 놓은 파일입니다. dash.js 리포지토리를 살펴보면 개별 파일, 테스트 코드 등을 찾을 수 있지만 dash.js만 사용하려는 경우는 dash.all.js 파일이 필요합니다.
 
 애플리케이션에 dash.js 플레이어를 추가하려면 basicPlayer.html의 헤드 섹션에 다음 스크립트 태그를 추가합니다.
 

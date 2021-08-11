@@ -82,8 +82,6 @@
           href: howto-sspr-windows.md
     - name: Azure AD Multi-Factor Authentication
       items:
-        - name: 계획 가이드
-          href: concept-mfa-plan.md
         - name: 배포 가이드
           href: howto-mfa-getstarted.md
         - name: 설정 구성
@@ -272,7 +270,7 @@
     - name: Microsoft Q&A 질문 페이지
       href: /answers/topics/azure-active-directory.html
     - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+      href: 'https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing'
     - name: 서비스 업데이트
       href: ../fundamentals/whats-new.md
     - name: Stack Overflow

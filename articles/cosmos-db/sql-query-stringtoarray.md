@@ -9,16 +9,16 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 7ae1f69e92e890daae528eb1f4dfb95f76560043
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93337985"
 ---
-# <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
+# <a name="stringtoarray-azure-cosmos-db"></a>StringToArray(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
- 배열로 변환 된 식을 반환 합니다. 식을 변환할 수 없는 경우는 undefined를 반환 합니다.  
+ 배열로 변환된 식을 반환합니다. 식을 변환할 수 없는 경우 undefined을 반환합니다.  
   
 ## <a name="syntax"></a>구문
   
@@ -33,16 +33,16 @@ StringToArray(<str_expr>)
   
 ## <a name="return-types"></a>반환 형식
   
-  배열 식을 반환 하거나 정의 되지 않은를 반환 합니다. 
+  배열 식 또는 undefined를 반환합니다. 
   
 ## <a name="remarks"></a>설명
-  중첩 된 문자열 값은 큰따옴표를 사용 하 여 유효한 JSON으로 작성 해야 합니다. JSON 형식에 대 한 자세한 내용은 [json.org](https://json.org/)를 참조 하세요. 이 시스템 함수는 인덱스를 활용 하지 않습니다.
+  중첩된 문자열 값은 큰따옴표를 사용하여 유효한 JSON이 되도록 작성해야 합니다. JSON 형식에 대한 자세한 내용은 [json.org](https://json.org/)를 참조하세요. 이 시스템 함수는 인덱스를 활용하지 않습니다.
   
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
-  다음 예제에서는가 `StringToArray` 서로 다른 형식에서 동작 하는 방법을 보여 줍니다. 
+  다음 예는 `StringToArray`이 여러 유형에서 작동하는 방식을 보여줍니다. 
   
- 유효한 입력을 사용 하는 예제는 다음과 같습니다.
+ 다음은 유효한 입력을 사용한 예입니다.
 
 ```sql
 SELECT 
@@ -59,10 +59,10 @@ SELECT
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
-다음은 잘못 된 입력의 예입니다. 
+다음은 유효하지 않은 입력의 예입니다. 
    
  배열 내의 작은따옴표는 유효한 JSON이 아닙니다.
-쿼리 내에서 유효 하더라도 올바른 배열로 구문 분석 되지 않습니다. 배열 문자열 내의 문자열은 "[" "]"로 이스케이프 되어야 합니다 \\ \\ . 그렇지 않으면 주변 따옴표가 단일 ' [""] ' 여야 합니다.
+쿼리 내에서 유효하더라도 이는 유효한 배열로 구문 분석되지 않습니다. 배열 문자열 내의 문자열은 "[\\"\\"]" 또는 주변 따옴표가 작은따옴표 '[""]'여야 합니다.
 
 ```sql
 SELECT
@@ -75,9 +75,9 @@ SELECT
 [{}]
 ```
 
-다음은 잘못 된 입력의 예입니다.
+다음은 잘못된 입력을 사용한 예입니다.
    
- 전달 된 식은 JSON 배열로 구문 분석 됩니다. 다음은 형식 배열로 계산 되지 않으므로 undefined로 반환 됩니다.
+ 전달된 식은 JSON 배열로 구문 분석됩니다. 다음은 형식 배열로 평가되지 않으므로 undefined를 반환합니다.
    
 ```sql
 SELECT

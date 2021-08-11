@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/26/2021
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: c0a232dc0541ea8626cdb40a9b3497a686a5ee11
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 475d7d25bf0d4a373fd2cb630ee7f2a643581b04
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074548"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090676"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
@@ -313,13 +313,13 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 이제 앱이 구성되었습니다. 이제 프런트 엔드가 적절한 액세스 토큰을 사용하여 백 엔드에 액세스할 준비가 되었습니다.
 
-다른 공급자에 대한 액세스 토큰을 구성하는 방법에 대한 자세한 내용은 [ID 공급자 토큰 새로 고침](app-service-authentication-how-to.md#refresh-identity-provider-tokens)을 참조하세요.
+다른 공급자에 대한 액세스 토큰을 구성하는 방법에 대한 자세한 내용은 [ID 공급자 토큰 새로 고침](configure-authentication-oauth-tokens.md#refresh-auth-tokens)을 참조하세요.
 
 ## <a name="call-api-securely-from-server-code"></a>서버 코드에서 안전하게 API 호출
 
 이 단계에서는 이전에 수정한 서버 코드를 사용하여 백 엔드 API에 대해 인증된 호출을 수행합니다.
 
-이제 프런트 엔드 앱에 필요한 권한이 있고 백 엔드의 클라이언트 ID가 로그인 매개 변수에 추가됩니다. 따라서 백 엔드 앱 인증을 위한 액세스 토큰을 가져올 수 있습니다. App Service는 인증된 요청마다 `X-MS-TOKEN-AAD-ACCESS-TOKEN` 헤더를 삽입하여([앱 코드에서 토큰 검색](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) 참조) 이 토큰을 서버 코드에 제공합니다.
+이제 프런트 엔드 앱에 필요한 권한이 있고 백 엔드의 클라이언트 ID가 로그인 매개 변수에 추가됩니다. 따라서 백 엔드 앱 인증을 위한 액세스 토큰을 가져올 수 있습니다. App Service는 인증된 요청마다 `X-MS-TOKEN-AAD-ACCESS-TOKEN` 헤더를 삽입하여([앱 코드에서 토큰 검색](configure-authentication-oauth-tokens.md#retrieve-tokens-in-app-code) 참조) 이 토큰을 서버 코드에 제공합니다.
 
 > [!NOTE]
 > 이 헤더는 지원되는 모든 언어로 삽입됩니다. 각 해당 언어에 대한 표준 패턴을 사용하여 액세스할 수 있습니다.
@@ -357,7 +357,7 @@ git push frontend master
 
 이 단계에서는 프런트 엔드 Angular.js 앱을 백 엔드 API로 가리킵니다. 이러한 방식으로 액세스 토큰을 검색하고 이를 사용하여 백 엔드 앱에 API 호출을 수행하는 방법을 알아봅니다.
 
-서버 코드가 요청 헤더에 액세스할 수 있지만, 클라이언트 코드는 `GET /.auth/me`에 액세스하여 동일한 액세스 토큰을 얻을 수 있습니다([앱 코드에서 토큰 검색](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) 참조).
+서버 코드가 요청 헤더에 액세스할 수 있지만, 클라이언트 코드는 `GET /.auth/me`에 액세스하여 동일한 액세스 토큰을 얻을 수 있습니다([앱 코드에서 토큰 검색](configure-authentication-oauth-tokens.md#retrieve-tokens-in-app-code) 참조).
 
 > [!TIP]
 > 이 섹션에서는 표준 HTTP 메서드를 사용하여 보안 HTTP 호출을 보여줍니다. 그러나 [JavaScript용 Microsoft 인증 라이브러리](https://github.com/AzureAD/microsoft-authentication-library-for-js)를 사용하여 Angular.js 애플리케이션 패턴을 간소화할 수 있습니다.
@@ -437,7 +437,7 @@ git push frontend master
 
 ## <a name="when-access-tokens-expire"></a>액세스 토큰이 만료되는 시기
 
-액세스 토큰은 일정 시간 후에 만료됩니다. 사용자에게 앱 재인증을 요구하지 않고 액세스 토큰을 새로 고치는 방법은 [ID 공급자 토큰 새로 고침](app-service-authentication-how-to.md#refresh-identity-provider-tokens)을 참조하세요.
+액세스 토큰은 일정 시간 후에 만료됩니다. 사용자에게 앱 재인증을 요구하지 않고 액세스 토큰을 새로 고치는 방법은 [ID 공급자 토큰 새로 고침](configure-authentication-oauth-tokens.md#refresh-auth-tokens)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

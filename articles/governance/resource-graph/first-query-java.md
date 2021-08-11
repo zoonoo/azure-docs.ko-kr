@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: 첫 번째 Java 쿼리'
 description: 이 빠른 시작에서는 Java용 Resource Graph Maven 패키지를 사용하도록 설정하고 첫 번째 쿼리를 실행하는 단계를 수행합니다.
-ms.date: 03/30/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
 ms.custom: devx-track-java
-ms.openlocfilehash: 04e32a3e147ed68248f7fead488a1f630ffcdb4d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 1d6d3dfb309b359e4b999d06671db7dc541d5f32
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751754"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459984"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-java"></a>빠른 시작: Java를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -26,7 +26,7 @@ Azure Resource Graph를 사용하는 첫 번째 단계는 필요한 Java용 Mave
   > [!NOTE]
   > 다음 예제에서 **CLI 기반 인증** 을 사용하기 위해 Java용 Azure SDK를 사용하도록 설정하려면 Azure CLI가 필요합니다. 다른 옵션에 대한 자세한 정보는 [Java용 Azure ID 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity)를 참조하세요.
 
-- [Java 개발자 키트](/azure/developer/java/fundamentals/java-jdk-long-term-support) 버전
+- [Java 개발자 키트](/azure/developer/java/fundamentals/java-support-on-azure) 버전
   8.
 
 - [Apache Maven](https://maven.apache.org/) 버전 3.6 이상
@@ -52,7 +52,7 @@ Azure Resource Graph를 쿼리하기 위해 Java를 사용하도록 설정하려
     <dependency>
         <groupId>com.azure.resourcemanager</groupId>
         <artifactId>azure-resourcemanager-resourcegraph</artifactId>
-        <version>1.0.0-beta.1</version>
+        <version>1.0.0</version>
     </dependency>
    ```
 

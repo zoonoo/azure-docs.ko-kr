@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 03/20/2020
-ms.openlocfilehash: 5a1548cdf1d05a1f9d42f5c64b7fdc18f514518e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f9f02c0daf3af99faf61d33997bc59fe124297d5
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99822261"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287425"
 ---
 # <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Kafka Streams API 사용
 
@@ -36,7 +36,7 @@ Kafka Streams에 대한 자세한 내용은 Apache.org의 [Streams 소개](https
 
 * [Apache Kafka 소비자 및 생산자 API](apache-kafka-producer-consumer-api.md) 문서의 단계를 완료합니다. 이 문서의 단계는 이 자습서에서 만든 예제 애플리케이션 및 토픽을 사용합니다.
 
-* OpenJDK 같은 [JDK(Java 개발자 키트) 버전 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) 또는 그와 동등한 프로그램
+* OpenJDK 같은 [JDK(Java 개발자 키트) 버전 8](/azure/developer/java/fundamentals/java-support-on-azure) 또는 그와 동등한 프로그램
 
 * Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html)[Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 

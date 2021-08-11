@@ -1,32 +1,32 @@
 ---
 title: Azure HDInsight에서 네트워크 가상 어플라이언스 구성
-description: Azure HDInsight에서 네트워크 가상 어플라이언스에 대 한 다양 한 추가 기능을 구성 하는 방법에 대해 알아봅니다.
+description: Azure HDInsight에서 네트워크 가상 어플라이언스에 대한 다양 한 추가 기능을 구성하는 방법을 알아봅니다.
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.openlocfilehash: 7fe266c3c7b75762133fca4645e0675845c28972
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98943975"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Azure HDInsight에서 네트워크 가상 어플라이언스 구성
 
 > [!Important]
-> 다음 정보는 [Azure 방화벽](./hdinsight-restrict-outbound-traffic.md)이외의 nva (네트워크 가상 어플라이언스)를 구성 하려는 경우에 **만** 필요 합니다.
+> 다음 정보는 [Azure Firewall](./hdinsight-restrict-outbound-traffic.md) 이외의 NVA(네트워크 가상 어플라이언스)를 구성하려는 경우에 **만** 필요합니다.
 
-Azure 방화벽 FQDN 태그는 여러 가지 중요 한 Fqdn에 대 한 트래픽을 허용 하도록 자동으로 구성 됩니다. 다른 네트워크 가상 어플라이언스를 사용 하려면 몇 가지 추가 기능을 구성 해야 합니다. 네트워크 가상 어플라이언스를 구성할 때 다음 요소를 염두에 두어야 합니다.
+Azure Firewall FQDN 태그는 여러 가지 중요한 FQDN에 대한 트래픽을 허용하도록 자동으로 구성됩니다. 다른 네트워크 가상 어플라이언스를 사용하려면 몇 가지 추가 기능을 구성해야 합니다. 네트워크 가상 어플라이언스를 구성할 때 다음 요소를 염두에 두어야 합니다.
 
-* 서비스 끝점을 사용 하 여 서비스 끝점을 구성할 수 있습니다. 이러한 서비스 끝점은 일반적으로 비용 또는 성능 고려 사항에 대해 NVA를 우회 합니다.
-* ResourceProviderConnection이 *아웃 바운드* 로 설정 된 경우 metastore에 대 한 저장소 및 SQL server에 대 한 개인 끝점을 사용할 수 있으며 nva에 추가 하지 않아도 됩니다.
-* IP 주소 종속성은 비 HTTP/S 트래픽 (TCP 및 UDP 트래픽 모두)을 위한 것입니다.
-* NVA 장치에서 FQDN HTTP/HTTPS 끝점을 승인할 수 있습니다.
-* 만든 경로 테이블을 HDInsight 서브넷에 할당 합니다.
+* 서비스 엔드포인트 지원 서비스는 일반적으로 비용 또는 성능을 고려해서 NVA를 우회하게 되는 서비스 엔드포인트로 구성할 수 있습니다.
+* ResourceProviderConnection이 ‘outbound’로 설정된 경우 스토리지로 프라이빗 엔드포인트를 사용하고 메타스토어로 SQL 서버를 사용할 수 있으며 NVA에 이러한 항목을 추가하지 않아도 됩니다.
+* IP 주소 종속성은 HTTP/S가 아닌 트래픽(TCP 및 UDP 모두)에 대한 것입니다.
+* FQDN HTTP/HTTPS 엔드포인트는 NVA 디바이스에서 승인될 수 있습니다.
+* 만든 경로 테이블을 HDInsight 서브넷에 할당합니다.
 
-## <a name="service-endpoint-capable-dependencies"></a>서비스 끝점 지원 종속성
+## <a name="service-endpoint-capable-dependencies"></a>서비스 엔드포인트 지원 종속성
 
-필요에 따라 NVA를 우회 하는 다음 서비스 끝점을 하나 이상 사용할 수 있습니다. 이 옵션은 비용을 절약 하 고 성능 최적화를 위해 많은 양의 데이터를 전송 하는 데 유용할 수 있습니다. 
+필요에 따라 NVA를 우회하는 다음 서비스 엔드포인트를 하나 이상 사용하도록 설정할 수 있습니다. 이 옵션은 비용을 절약하고 성능 최적화를 위해 많은 양의 데이터를 전송하는 데 유용할 수 있습니다. 
 
 | **엔드포인트** |
 |---|
@@ -38,17 +38,17 @@ Azure 방화벽 FQDN 태그는 여러 가지 중요 한 Fqdn에 대 한 트래�
 
 | **엔드포인트** | **세부 정보** |
 |---|---|
-| [여기](hdinsight-management-ip-addresses.md) 에 게시 된 ip | 이러한 Ip는 HDInsight 리소스 공급자를 위한 것 이며 비대칭 라우팅을 방지 하려면 UDR에 포함 되어야 합니다. 이 규칙은 ResourceProviderConnection이 *Inbound* 로 설정 된 경우에만 필요 합니다. ResourceProviderConnection이 *아웃 바운드* 로 설정 된 경우 이러한 IP는 udr에 필요 하지 않습니다.  |
-| AAD-DS 개인 Ip | Vnet이 피어 링가 아닌 경우에만 ESP 클러스터에 필요 합니다.|
+| [여기](hdinsight-management-ip-addresses.md)에 게시된 IP | 이러한 IP는 HDInsight 리소스 공급자를 위한 것이며 비대칭 라우팅을 방지하기 위해 UDR에 포함해야 합니다. 이 규칙은 ResourceProviderConnection이 *인바운드* 로 설정된 경우에만 필요합니다. ResourceProviderConnection이 *아웃바운드* 로 설정된 경우 이러한 IP는 UDR에 필요하지 않습니다.  |
+| AAD-DS 개인 IP | VNET이 피어링되지 않은 경우 ESP 클러스터에만 필요합니다.|
 
 
 ### <a name="fqdn-httphttps-dependencies"></a>FQDN HTTP/HTTPS 종속성
 
-[이](https://github.com/Azure-Samples/hdinsight-fqdn-lists/)리포지토리에서 nva를 구성 하기 위해 fqdn 종속성 목록을 가져올 수 있습니다 (대부분 Azure Storage 및 Azure Service Bus). 지역 목록에 대해서는 [여기](https://github.com/Azure-Samples/hdinsight-fqdn-lists/tree/master/Regional)를 참조 하세요. 이러한 종속성은 RP (HDInsight 리소스 공급자)에서 클러스터를 성공적으로 만들고 모니터링/관리 하는 데 사용 됩니다. 여기에는 원격 분석/진단 로그, 프로 비전 메타 데이터, 클러스터 관련 구성, 스크립트 등이 포함 됩니다. 이 FQDN 종속성 목록은 향후 HDInsight 업데이트 해제로 변경 될 수 있습니다.
+[이 리포지토리](https://github.com/Azure-Samples/hdinsight-fqdn-lists/)에서 NVA를 구성하기 위해 FQDB 종속성(주로 Azure Storage 및 Azure Service Bus) 목록을 가져올 수 있습니다. 지역 목록에 대해서는 [여기](https://github.com/Azure-Samples/hdinsight-fqdn-lists/tree/master/Regional)를 참조하세요. 이러한 종속성은 HDInsight RP(리소스 공급자)에서 클러스터를 성공적으로 만들고 모니터링/관리하는 데 사용됩니다. 여기에는 원격 분석/진단 로그, 프로비저닝 메타데이터, 클러스터 관련 구성, 스크립트 등이 포함됩니다. 이 FQDN 종속성 목록은 향후 HDInsight 업데이트를 릴리스할 때 변경될 수 있습니다.
 
-아래 목록에는 클러스터를 만든 *후* 클러스터 작업 수명 동안 OS 및 보안 패치 또는 인증서 유효성 검사에 필요할 수 있는 몇 가지 fqdn이 있습니다.
+아래 목록에서는 클러스터를 만든 이후 및 클러스터 작업의 수명 동안 OS 및 보안 패치나 인증서 유효성 검사에 필요할 수 있는 몇 가지 FQDN만 제공합니다.
 
-| **런타임 종속성 Fqdn**                                                          |
+| **런타임 종속성 FQDN**                                                          |
 |---|
 | azure.archive.ubuntu.com:80                                           |
 | security.ubuntu.com:80                                                |

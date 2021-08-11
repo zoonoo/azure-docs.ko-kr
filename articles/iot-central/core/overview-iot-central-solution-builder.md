@@ -8,16 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 72aa8e5e3284e0ee7fbe63e0fb617b9eba03292e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc8ca48d11f31f69ca9db5dce53cce4d9d6e8f25
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100417804"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772336"
 ---
 # <a name="iot-central-solution-builder-guide"></a>IoT Central 솔루션 빌더 가이드
-
-이 문서는 솔루션 빌더에 적용됩니다.
 
 IoT Central 애플리케이션을 사용하면 수백만 대의 디바이스를 수명 주기 전체 동안 모니터링하고 관리할 수 있습니다. 이 가이드는 IoT Central을 사용하여 통합 솔루션을 빌드하는 솔루션 빌더용입니다. IoT Central 애플리케이션을 사용하여 디바이스를 관리하고, 디바이스 원격 분석을 분석하고, 다른 백 엔드 서비스와 통합할 수 있습니다.
 
@@ -51,10 +49,19 @@ IoT Central에는 운영자가 연결된 디바이스에서 데이터 흐름을 
 솔루션 빌더는 IoT Central의 데이터 내보내기 및 규칙 기능을 사용하여 다른 서비스와 통합할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
 - [데이터 내보내기를 사용하여 클라우드 대상으로 IoT 데이터 내보내기](howto-export-data.md)
+- [IoT Central에 대한 데이터 변환](howto-transform-data.md)
 - [워크플로를 사용하여 Azure IoT Central 애플리케이션을 다른 클라우드 서비스와 통합](howto-configure-rules-advanced.md)
 - [Stream Analytics, Azure Functions 및 SendGrid를 사용하여 사용자 지정 규칙으로 Azure IoT Central 확장](howto-create-custom-rules.md)
 - [Azure Databricks를 사용하여 사용자 지정 분석으로 Azure IoT Central 확장](howto-create-custom-analytics.md)
 - [Power BI 대시보드에서 Azure IoT Central 데이터 시각화 및 분석](howto-connect-powerbi.md)
+
+## <a name="apis"></a>API
+
+IoT Central API를 사용하면 IoT 솔루션의 다른 서비스와 긴밀하게 통합할 수 있습니다. 사용 가능한 API는 *데이터 평면* 또는 *컨트롤 플레인* API로 분류됩니다.
+
+데이터 평면 API를 사용하여 IoT Central 애플리케이션의 엔터티 및 기능에 액세스합니다. 예를 들어 디바이스, 디바이스 템플릿, 사용자 및 역할을 관리합니다. IoT Central REST API 작업은 *데이터 평면* 작업입니다. 자세한 내용은 [IoT Central REST API를 사용하여 사용자 및 역할을 관리하는 방법](howto-manage-users-roles-with-rest-api.md)을 참조하세요.
+
+*컨트롤 플레인* 을 사용하여 Azure 구독에서 IoT Central 관련 리소스를 관리합니다. 컨트롤 플레인 작업에 Azure CLI 및 Resource Manager 템플릿을 사용할 수 있습니다. 예를 들어 Azure CLI를 사용하여 IoT Central 애플리케이션을 만들 수 있습니다. 자세한 내용은 [Azure CLI 에서 IoT Central 관리](howto-manage-iot-central-from-cli.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

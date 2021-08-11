@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: f6b6e53440556fb7b9c0d7a774aa1b6786609461
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: d323fd5a3faf5811e88fd924ab767ec20568b917
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668061"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113435473"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM 이미지 만들기
 
@@ -93,7 +93,7 @@ $gallery = New-AzGallery `
 
 이미지 정의는 이미지에 대한 논리적 그룹화를 만듭니다. 내부에서 생성된 이미지 버전에 대한 정보를 관리하는 데 사용됩니다. 이미지 정의 이름은 대문자 또는 소문자, 숫자, 점, 대시 및 마침표로 구성될 수 있습니다. 이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](../shared-image-galleries.md#image-definitions)를 참조하세요.
 
-[New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 이미지 정의를 만듭니다. 이 예제에서 갤러리 이미지는 *myGalleryImage* 로 이름이 지정되고 특수 이미지에 대해 만들어집니다. 
+[New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimagedefinition)을 사용하여 이미지 정의를 만듭니다. 이 예제에서 갤러리 이미지는 *myGalleryImage* 로 이름이 지정되고 특수 이미지에 대해 만들어집니다. 
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `

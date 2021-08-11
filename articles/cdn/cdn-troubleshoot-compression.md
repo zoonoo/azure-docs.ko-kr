@@ -1,6 +1,6 @@
 ---
 title: Azure CDN의 파일 압축 문제 해결 | Microsoft Docs
-description: Azure Content Delivery Network에서 파일 압축 문제를 해결 하는 방법에 대해 알아봅니다. 이 문서에서는 몇 가지 가능한 원인을 설명 합니다.
+description: Azure Content Delivery Network에서 파일 압축 문제를 해결하는 방법을 알아봅니다. 이 문서에서는 몇 가지 가능한 원인을 설명합니다.
 services: cdn
 documentationcenter: ''
 author: sohamnc
@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f49af1488a0c044639a72fc2ea52ba0a47727a24
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95996154"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>CDN 파일 압축 문제 해결
@@ -42,7 +42,7 @@ ms.locfileid: "95996154"
 * 요청된 콘텐츠에 압축을 사용할 수 없습니다.
 * 압축은 요청된 파일 형식에 대해 활성화되지 않습니다.
 * HTTP 요청에 유효한 압축 형식을 요청하는 헤더가 포함되지 않았습니다.
-* 원본에서 청크 분할 된 콘텐츠를 보내는 중입니다.
+* 원본에서 청크 분할된 콘텐츠를 보내는 중입니다.
 
 ## <a name="troubleshooting-steps"></a>문제 해결 단계
 > [!TIP]
@@ -111,8 +111,8 @@ ms.locfileid: "95996154"
 
 압축을 적용할 수 있으려면, 파일은 다음과 같은 크기 요건을 충족해야 합니다.
 
-* 128 바이트 보다 큼 (Content-length: 128)
-* 3mb 보다 작음
+* 128바이트 보다 큼(Content-length: 128)
+* 3MB 미만
 
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>원본 서버의 요청에서 **Via** 헤더 확인
 **Via** HTTP 헤더는 요청이 프록시 서버에 의해 전달되고 있음을 웹 서버에 알립니다.  기본적으로 Microsoft IIS 웹 서버는 요청에 **Via** 헤더가 들어 있으면 응답을 압축하지 않습니다.  이 동작을 재정의하려면 다음 단계를 수행합니다.

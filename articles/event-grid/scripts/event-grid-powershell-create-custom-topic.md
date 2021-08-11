@@ -3,20 +3,17 @@ title: Azure PowerShell 스크립트 샘플 - 사용자 지정 항목 만들기 
 description: 이 문서에서는 Event Grid 사용자 지정 항목을 만드는 방법을 보여주는 샘플 Azure PowerShell 스크립트를 제공합니다.
 services: event-grid
 documentationcenter: na
-author: spelluru
-ms.service: event-grid
 ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2020
-ms.author: tomfitz
-ms.openlocfilehash: 915b8e13adaa440063f5db62b72fa39e1035d576
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/22/2021
+ms.openlocfilehash: c95f4dc48f1b6da72cad0418468ef06929ac6866
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87460782"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467313"
 ---
 # <a name="create-event-grid-custom-topic-with-powershell"></a>PowerShell을 사용하여 Event Grid 사용자 지정 항목 만들기
 

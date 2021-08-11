@@ -1,24 +1,24 @@
 ---
-title: U-SQL 사용자 정의 적용 자 Azure Data Lake에 대 한 프로그래밍 기능 가이드
-description: U-SQL UDO 프로그래밍 기능 가이드-사용자 정의 적용 자에 대해 알아봅니다.
+title: Azure Data Lake에 대한 U-SQL 사용자 정의 적용자 프로그래밍 가이드
+description: U-SQL UDO 프로그래밍 가이드 - 사용자 정의 적용자에 대해 알아봅니다.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 0842a2cfa021ef8ea45c19ec885c7dec371730de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96512640"
 ---
 # <a name="use-user-defined-applier"></a>사용자 정의 적용자 사용 
 
-## <a name="u-sql-udo-user-defined-applier"></a>U-SQL UDO: 사용자 정의 적용 자
+## <a name="u-sql-udo-user-defined-applier"></a>U-SQL UDO: 사용자 정의 적용자
 U-SQL 사용자 정의 적용자를 사용하면 쿼리의 외부 테이블 식에서 반환한 각 행에 대해 사용자 지정 C # 함수를 호출할 수 있습니다. 오른쪽 입력은 왼쪽 입력에서 각 행에 대해 평가되고, 생성된 행은 최종 출력을 위해 결합됩니다. APPLY 연산자에서 생성한 열 목록은 왼쪽 및 오른쪽 입력에 있는 열 집합의 조합입니다.
 
 
-## <a name="how-to-define-and-use-user-defined-applier"></a>사용자 정의 적용 자를 정의 하 고 사용 하는 방법
+## <a name="how-to-define-and-use-user-defined-applier"></a>사용자 정의 적용자를 정의하고 사용하는 방법
 사용자 정의 적용자는 U-SQL SELECT 식의 일부로 호출됩니다.
 
 사용자 정의 적용자에 대한 일반적인 호출은 다음과 같은 모양입니다.
@@ -230,5 +230,5 @@ CROSS APPLY new MyNameSpace.MyApplier (parameter: "value") AS alias([columns typ
 
 
 ## <a name="next-steps"></a>다음 단계
-* [U-SQL 프로그래밍 기능 가이드-개요](data-lake-analytics-u-sql-programmability-guide.md)
-* [U-SQL 프로그래밍 기능 가이드-UDT 및 UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)
+* [U-SQL 프로그래밍 가이드 - 개요](data-lake-analytics-u-sql-programmability-guide.md)
+* [U-SQL 프로그래밍 가이드 - UDT 및 UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)

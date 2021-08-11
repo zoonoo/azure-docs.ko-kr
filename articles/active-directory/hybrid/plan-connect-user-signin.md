@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3365a58a0c667ca55b74a5120cdd7a78ad0abc79
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95997786"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 사용자 로그인 옵션
@@ -47,7 +47,7 @@ Azure AD에서는 다음과 같은 인증 방법을 지원합니다.
    * **PTA(통과 인증)** - 이 옵션은 암호 해시 동기화와 유사하지만 강력한 보안 및 준수 정책을 통해 조직의 온-프레미스 소프트웨어 에이전트를 사용하여 간단한 암호 검증을 제공합니다.
 * **페더레이션 인증** - 이 인증 방법을 선택하면 Azure AD가 인증 프로세스를 별도의 신뢰할 수 있는 인증 시스템(예: AD FS 또는 타사 페더레이션 시스템)으로 넘겨서 사용자의 로그인이 확인됩니다. 
 
-Microsoft 365, SaaS 응용 프로그램 및 기타 Azure AD 기반 리소스에 사용자 로그인을 사용 하도록 설정 하려는 대부분의 조직에서는 기본 암호 해시 동기화 옵션을 사용 하는 것이 좋습니다.
+Microsoft 365, SaaS 애플리케이션 및 기타 Azure AD 기반 리소스에 사용자가 로그인할 수 있도록 하려는 대부분의 조직은 기본 암호 해시 동기화 옵션을 사용하는 것이 좋습니다.
  
 인증 방법을 선택하는 방법에 대한 자세한 내용은 [Azure Active Directory 하이브리드 ID 솔루션에 대한 올바른 인증 방법 선택](./choose-ad-authn.md)을 참조하세요.
 
@@ -85,7 +85,7 @@ Microsoft 365, SaaS 응용 프로그램 및 기타 Azure AD 기반 리소스에 
 
 * 페더레이션 서버용 Windows Server 2012 R2 서버
 * 웹 애플리케이션 프록시용 Windows Server 2012 R2 서버
-* 원하는 페더레이션 서비스 이름에 대 한 TLS/SSL 인증서가 있는 .pfx 파일입니다. 예: fs.contoso.com
+* 원하는 페더레이션 서비스 이름에 대한 TLS/SSL 인증서가 하나 있는 .pfx 파일. 예: fs.contoso.com
 
 새 팜을 배포 하거나 기존 팜을 사용하는 경우 필수 요건은 다음과 같습니다.
 
@@ -139,12 +139,12 @@ Azure AD 로그인 페이지는 현재 확인 상태를 사용하여 Azure AD에
 새로 고침 단추를 클릭하여 Azure AD에서 사용자 지정 도메인의 최신 상태를 다시 가져올 수 있습니다.
 
 ### <a name="selecting-the-attribute-for-the-user-principal-name-in-azure-ad"></a>Azure AD에서 사용자 계정 이름에 특성 선택
-UserPrincipalName 특성은 사용자가 Azure AD에 로그인 하 고 Microsoft 365 때 사용 하는 특성입니다. Azure AD에서 사용된 도메인(또는 UPN 접미사)은 사용자가 동기화되기 전에 Azure AD에서 확인해야 합니다.
+userPrincipalName 특성은 사용자가 Azure AD 및 Microsoft 365에 로그인할 때 사용하는 특성입니다. Azure AD에서 사용된 도메인(또는 UPN 접미사)은 사용자가 동기화되기 전에 Azure AD에서 확인해야 합니다.
 
 기본 특성 userPrincipalName을 유지하는 것이 좋습니다. 이 특성은 라우팅할 수 없고 확인할 수 없는 경우 다른 특성(전자 메일 등)을 로그인 ID를 보유하는 특성으로 선택할 수 있습니다. 대체 ID로도 알려져 있습니다. 대체 ID 특성 값은 RFC 822 표준을 따라야 합니다. 암호 SSO 및 페더레이션 SSO 모두에 대체 ID를 로그인 솔루션으로 사용할 수 있습니다.
 
 > [!NOTE]
-> 대체 ID를 사용 하는 작업은 모든 Microsoft 365 작업과 호환 되지 않습니다. 자세한 내용은 [대체 로그인 ID 구성](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)을 참조하세요.
+> 대체 ID를 사용하면 일부 Microsoft 365 워크로드와 호환되지 않습니다. 자세한 내용은 [대체 로그인 ID 구성](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)을 참조하세요.
 >
 >
 
@@ -179,7 +179,7 @@ Azure AD의 기본 .onmicrosoft.com 도메인 또는 Azure AD의 확인되지 �
 
 다음 페이지에서 Azure AD에 대한 자격 증명을 제공하도록 요청합니다.
 
-![Azure AD에 대 한 자격 증명을 입력 해야 하는 위치를 보여 주는 스크린샷](./media/plan-connect-user-signin/changeusersignin2.png)
+![Azure AD에 대한 자격 증명을 입력해야 하는 위치를 보여 주는 스크린샷.](./media/plan-connect-user-signin/changeusersignin2.png)
 
 **사용자 로그인** 페이지에서 원하는 사용자 로그인을 선택합니다.
 
@@ -191,5 +191,5 @@ Azure AD의 기본 .onmicrosoft.com 도메인 또는 Azure AD의 확인되지 �
 >
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Active Directory와 온-프레미스 id 통합](whatis-hybrid-identity.md)에 대해 자세히 알아보세요.
-- [Azure AD Connect 디자인 개념](plan-connect-design-concepts.md)에 대해 자세히 알아보세요.
+- [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대해 자세히 알아봅니다.
+- [Azure AD Connect 설계 개념](plan-connect-design-concepts.md)에 대해 자세히 알아봅니다.

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 03/06/2021
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7ee10327ab95a3e66e5592593ae72d6e5cd8d606
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 76561e0b19d3d42421a73ddc178ad12cd83d5e25
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060604"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "114297605"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>빠른 시작: PowerShell을 사용하여 가상 네트워크 만들기
 
@@ -127,6 +127,8 @@ New-AzVM @vm2
 
 > [!IMPORTANT]
 > Azure에서 작업을 마칠 때까지 다음 단계를 진행하지 마세요.  PowerShell에 출력이 반환되면 작업이 완료되었음을 알 수 있습니다.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>인터넷에서 VM에 연결
 

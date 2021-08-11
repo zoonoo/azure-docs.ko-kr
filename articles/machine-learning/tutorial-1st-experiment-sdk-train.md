@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
 ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q
-ms.openlocfilehash: 616723e66dceeb3c0de21b36e3af3039dafbe63e
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: c96936635898f9173b7eb8e60502ea059420cf0b
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028274"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113758861"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-2-of-3"></a>자습서: 첫 번째 기계 학습 모델 학습(2/3부)
 
@@ -135,10 +135,6 @@ ms.locfileid: "112028274"
 1. 이제 다음과 같은 폴더 구조를 가지게 되었습니다.
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-train/directory-structure.png" alt-text="src 하위 디렉터리에 train.py가 표시되는 디렉터리 구조":::
-    
-
-> [!div class="nextstepaction"]
-> [학습 스크립트를 만들었습니다.](?success=create-scripts#test-local) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQN?issue=create-scripts)
 
 
 ## <a name="test-locally"></a><a name="test-local"></a> 로컬로 테스트
@@ -148,9 +144,6 @@ ms.locfileid: "112028274"
 스크립트가 완료되면 파일 폴더 위에서 **새로 고침** 을 선택합니다. **get-started/data** 라는 새 데이터 폴더가 표시됩니다. 이 폴더를 확장하여 다운로드한 데이터를 봅니다.  
 
 :::image type="content" source="media/tutorial-1st-experiment-hello-world/directory-with-data.png" alt-text="폴더의 스크린샷은 파일을 로컬로 실행하여 만든 새 데이터 폴더를 보여줍니다.":::
-
-> [!div class="nextstepaction"]
-> [코드를 로컬로 실행했습니다.](?success=test-local#create-local) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQN?issue=test-local)
 
 
 ## <a name="create-the-control-script"></a><a name="create-local"></a> 제어 스크립트 만들기
@@ -205,10 +198,6 @@ if __name__ == "__main__":
    :::column-end:::
 :::row-end:::
 
-> [!div class="nextstepaction"]
-> [제어 스크립트를 만들었습니다.](?success=control-script#submit) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQN?issue=control-script)
-
-
 ## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit"></a> Azure Machine Learning에 실행 제출
 
 **터미널에서 스크립트 저장 및 실행** 을 선택하여 *run-pytorch.py* 스크립트를 실행합니다.
@@ -245,11 +234,6 @@ Finished Training
 > 오류 `Your total snapshot size exceeds the limit`가 표시되면 **데이터** 폴더가 `ScriptRunConfig`에서 사용되는 `source_directory` 값에 있음을 나타냅니다.
 >
 > 폴더 끝에 있는 **...** 를 선택한 다음, **이동** 을 선택하여 **데이터** 를 **get-started** 폴더로 이동합니다.  
-
-
-
-> [!div class="nextstepaction"]
-> [실행을 제출했습니다.](?success=test-w-environment#log) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQN?issue=test-w-environment)
 
 ## <a name="log-training-metrics"></a><a name="log"></a> 학습 메트릭 기록
 
@@ -334,10 +318,6 @@ Azure Machine Learning의 메트릭은 다음과 같습니다.
 - Studio에서 UI를 사용하여 학습 성과를 시각화할 수 있습니다.
 - 크기를 조정할 수 있도록 설계되었으므로 수백 개의 실험을 실행하는 경우에도 이러한 이점을 유지할 수 있습니다.
 
-> [!div class="nextstepaction"]
-> [train.py를 수정했습니다.](?success=modify-train#log) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQN?issue=modify-train)
-
-
 ### <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit-again"></a> Azure Machine Learning에 실행 제출
 
 *run-pytorch.py* 스크립트의 탭을 선택한 다음, **터미널에서 스크립트 저장 및 실행** 을 선택하여 *run-pytorch.py* 스크립트를 다시 실행합니다. 
@@ -345,9 +325,6 @@ Azure Machine Learning의 메트릭은 다음과 같습니다.
 이번에는 Studio를 방문할 때 모델 학습 손실에 대한 라이브 업데이트를 볼 수 있는 **메트릭** 탭으로 이동합니다. 학습이 시작되기까지 1~2분 정도 걸릴 수 있습니다.  
 
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="메트릭 탭의 학습 손실 그래프":::
-
-> [!div class="nextstepaction"]
-> [실행을 다시 제출했습니다.](?success=resubmit-with-logging#next-steps) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQN?issue=resubmit-with-logging)
 
 ## <a name="next-steps"></a>다음 단계
 

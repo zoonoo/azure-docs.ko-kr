@@ -10,12 +10,12 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
-ms.openlocfilehash: 00d5fa43245fb25b8ee99a0523d680bef891b71e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 409936f98dab0fa975c1314a84096b7b46df7613
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387005"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112459409"
 ---
 # <a name="tutorial-power-bi-integration---create-the-predictive-model-with-a-jupyter-notebook-part-1-of-2"></a>자습서: Power BI 통합 - Jupyter Notebook을 사용하여 예측 모델 만들기(2-1부)
 
@@ -40,7 +40,7 @@ Power BI에서 사용할 모델을 만들고 배포하는 방법은 세 가지�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure 구독 구독이 아직 없는 경우 [평가판](https://aka.ms/AMLFree)을 사용할 수 있습니다. 
+- Azure 구독 구독이 아직 없는 경우 [평가판](https://azure.microsoft.com/free/)을 사용할 수 있습니다. 
 - Azure Machine Learning 작업 영역 작업 영역이 아직 없는 경우 [Azure Machine Learning 작업 영역 만들기 및 관리](./how-to-manage-workspace.md#create-a-workspace)를 참조하세요.
 - Python 언어 및 기계 학습 워크플로에 대한 입문 지식
 

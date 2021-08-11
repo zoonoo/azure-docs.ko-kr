@@ -2,18 +2,17 @@
 title: '자습서: Azure Blob을 통한 REST 및 AI'
 titleSuffix: Azure Cognitive Search
 description: Postman 및 Azure Cognitive Search REST API를 사용하여 Blob Storage의 콘텐츠에서 텍스트를 추출하고 자연어를 처리하는 예제를 단계별로 실행합니다.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: 878bdc1224134f7b9de684635cde77d057b221a7
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: cc1be51c506123ae18d0006be693b100f2e5af1b
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555995"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727137"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: REST 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성
 
@@ -200,7 +199,7 @@ Azure Cognitive Search에서 보강은 인덱싱(또는 데이터 수집) 중에
       "skills":
       [
         {
-          "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+          "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
           "categories": [ "Person", "Organization", "Location" ],
           "defaultLanguageCode": "en",
           "inputs": [

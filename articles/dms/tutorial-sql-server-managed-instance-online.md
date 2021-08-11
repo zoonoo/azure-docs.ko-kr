@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 70793c997979be1c94dda0a5198df8c450e16496
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 521a6a159bd86b7480ce705a83ac3b56ee8c150f
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112031010"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114689111"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 SQL Managed Instance로 온라인 마이그레이션
 
-Azure Database Migration Service를 사용하면 최소한의 가동 중지 시간으로 SQL Server 인스턴스에서 [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)로 데이터를 마이그레이션할 수 있습니다. 수동 작업이 필요한 추가적인 방법은 [SQL Server 인스턴스를 Azure SQL Managed Instance로 마이그레이션](../azure-sql/managed-instance/migrate-to-instance-from-sql-server.md) 문서를 참조하세요.
+Azure Database Migration Service를 사용하면 최소한의 가동 중지 시간으로 SQL Server 인스턴스에서 [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)로 데이터를 마이그레이션할 수 있습니다. 수동 작업이 필요한 추가적인 방법은 [SQL Server 인스턴스를 Azure SQL Managed Instance로 마이그레이션](../azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide.md) 문서를 참조하세요.
 
 이 자습서에서는 Azure Database Migration Service를 사용하여 최소한의 가동 중지 시간으로 **Adventureworks2012** 데이터베이스를 SQL Server의 온-프레미스 인스턴스에서 SQL Managed Instance로 마이그레이션합니다.
 

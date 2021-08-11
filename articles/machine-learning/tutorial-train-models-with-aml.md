@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.date: 04/26/2021
-ms.custom: seodec18, devx-track-python, contperf-fy21q4
-ms.openlocfilehash: 544b3ac4702f8ecaa66735f8e0b836cc6f004f42
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.custom: seodec18, devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: d1ad8e4af0d3fdb0abb95fc12ec4a445afabbb1f
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028256"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112459247"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-an-example-jupyter-notebook"></a>자습서: Jupyter Notebook 예제를 통해 이미지 분류 모델 학습 
 
@@ -33,7 +33,7 @@ ms.locfileid: "112028256"
 
 모델을 선택하고 배포하는 방법은 이 [자습서의 제2부](tutorial-deploy-models-with-aml.md)에서 알아봅니다.
 
-Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 
 >[!NOTE]
 > 이 문서의 코드는 [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro) 버전 1.13.0에서 테스트되었습니다.

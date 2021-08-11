@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Envoy 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 Envoy로 자동으로 프로비저닝 및 프로비저닝을 해제하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/3/2019
-ms.author: Zhchia
-ms.openlocfilehash: b18ec2531b26574357f56c11558f2afd84467495
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 06/28/2021
+ms.author: thwimmer
+ms.openlocfilehash: f33f9e04781344cd0bb926cecd81f31a2b645bba
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437692"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113763939"
 ---
 # <a name="tutorial-configure-envoy-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Envoy 구성
 
@@ -52,19 +52,19 @@ ms.locfileid: "102437692"
 
 1. [Envoy 관리자 콘솔](https://dashboard.envoy.com/login)에 로그인합니다. **통합** 을 클릭합니다.
 
-    ![Envoy 통합](media/envoy-provisioning-tutorial/envoy01.png)
+    ![Envoy 통합](media/envoy-provisioning-tutorial/envoy-01.png)
 
 2. **Microsoft Azure SCIM 통합** 에 대해 **설치** 를 클릭합니다.
 
-    ![Envoy 설치](media/envoy-provisioning-tutorial/envoy02.png)
+    ![Envoy 설치](media/envoy-provisioning-tutorial/integrations.png)
 
 3. **모든 사용자 동기화** 에 대해 **저장** 을 클릭합니다. 
 
-    ![Envoy 저장](media/envoy-provisioning-tutorial/envoy03.png)
+    ![Envoy 저장](media/envoy-provisioning-tutorial/microsoft-azure.png)
 
 4. **OAUTH 전달자 토큰** 을 복사합니다. 이 값은 Azure Portal에서 Envoy 애플리케이션의 프로비저닝 탭에 있는 **비밀 토큰** 필드에 입력됩니다.
     
-    ![Envoy OAUTH](media/envoy-provisioning-tutorial/envoy04.png)
+    ![Envoy OAUTH](media/envoy-provisioning-tutorial/token.png)
 
 ## <a name="step-3-add-envoy-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 애플리케이션 갤러리에서 Envoy 추가
 

@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efd71944d0c29b9e796c4e5508f6b5116df99ec2
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2d7c0c7c5a0fe5ff3100e754c99b476676cab222
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110092821"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733379"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Azure Active Directory의 역할 기반 액세스 제어 개요
 
@@ -81,7 +81,7 @@ Azure portal, Azure AD PowerShell 또는 Graph API를 사용하여 [역할 할�
 
 ## <a name="license-requirements"></a>라이선스 요구 사항
 
-Azure AD에서 기본 제공 역할을 사용하는 것은 무료이지만, 사용자 지정 역할에는 Azure AD Premium P1 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [체험판 및 프리미엄 버전의 일반적으로 사용할 수 있는 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
+Azure AD에서 기본 제공 역할을 사용하는 것은 무료이지만, 사용자 지정 역할에는 Azure AD Premium P1 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [체험판 및 프리미엄 버전의 일반적으로 사용할 수 있는 기능 비교](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

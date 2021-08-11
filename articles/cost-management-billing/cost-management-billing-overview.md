@@ -4,17 +4,17 @@ description: Azure Cost Management + 청구 기능을 사용하여 청구 관리
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2021
+ms.date: 07/13/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9fe658a1755ce3731f220ec656845da1f861fa9b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8eb040183f1a207410c5e093009878845a61f261
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050541"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768489"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Azure Cost Management + 청구란?
 
@@ -75,10 +75,6 @@ Cost Management를 통해 비용을 계획하고 제어하는 방법에는 비�
 
 외부 시스템을 사용하여 비용 관리 데이터를 액세스 및 검토하는 경우 Azure에서 데이터를 쉽게 내보낼 수 있습니다. 또한 일별로 예약된 내보내기를 CSV 형식으로 설정하고 데이터 파일을 Azure Storage에 저장할 수 있습니다. 그런 다음, 외부 시스템에서 데이터에 액세스할 수 있습니다.
 
-### <a name="cloudyn-deprecation"></a>Cloudyn 사용 중단
-
-Cloudyn은 2020년 말에 더 이상 사용되지 않는 Cost Management와 관련된 Azure 서비스입니다. 기존 Cloudyn 기능은 가능한 한 Azure Portal에 직접 통합되고 있습니다. 현재 온보딩되는 신규 고객은 없지만, 완전히 사용되지 않을 때까지는 제품에 대한 지원이 유지됩니다.
- 
 ### <a name="additional-azure-tools"></a>추가 Azure 도구
 
 Azure에는 Azure Cost Management + 청구 기능 세트에 포함되지 않는 다른 도구가 있습니다. 그러나 비용 관리 프로세스에서 중요한 역할을 합니다. 이러한 도구에 대한 자세한 내용은 다음 링크를 참조하세요.

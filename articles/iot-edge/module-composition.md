@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 2e3f1891a786751365a0bea58097e03bd41f85bb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103489923"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>IoT Edge에서 모듈을 배포하고 경로를 설정하는 방법 알아보기
@@ -40,7 +40,7 @@ Azure IoT Edge 자습서에서는 Azure IoT Edge 포털의 마법사를 통해 �
 
 모든 배포 매니페스트에는 `$edgeAgent` 및 `$edgeHub`라는 두 개의 모듈이 필요합니다. 두 모듈은 IoT Edge 디바이스와 이 디바이스에서 실행되는 모듈을 관리하는 IoT Edge 런타임의 일부입니다. 이러한 모듈에 대한 자세한 내용은 [IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)를 참조하세요.
 
-두 개의 런타임 모듈 외에도 IoT Edge 장치에서 실행할 수 있는 최대 50 모듈을 추가할 수 있습니다.
+두 개의 런타임 모듈 외에도 IoT Edge 디바이스에서 실행할 고유한 모듈을 최대 50개까지 추가할 수 있습니다.
 
 IoT Edge 런타임(edgeAgent 및 edgeHub)만 포함하는 배포 매니페스트가 유효합니다.
 
@@ -120,13 +120,13 @@ $edgeAgent 속성은 다음과 같은 구조를 따릅니다.
 }
 ```
 
-IoT Edge 에이전트 스키마 버전 1.1은 IoT Edge 버전 1.0.10 함께 출시 되었으며 모듈 시작 순서를 사용 하도록 설정 합니다. 1.0.10 이상 버전을 실행 하는 IoT Edge 배포의 경우 스키마 버전 1.1이 권장 됩니다.
+IoT Edge 에이전트 스키마 버전 1.1은 IoT Edge 버전 1.0.10 함께 출시되었으며 모듈 시작 순서를 사용하도록 설정합니다. 1\.0.10 이상 버전을 실행하는 IoT Edge 배포의 경우 스키마 버전 1.1이 권장됩니다.
 
 ### <a name="module-configuration-and-management"></a>모듈 구성 및 관리
 
-IoT Edge 에이전트 desired 속성 목록에서는 IoT Edge 장치에 배포 되는 모듈 및 구성 및 관리 하는 방법을 정의 합니다.
+IoT Edge 에이전트의 원하는 속성 목록에서는 IoT Edge 디바이스에 배포되는 모듈과 구성 및 관리 방법을 정의합니다.
 
-포함 하거나 포함할 수 있는 desired 속성의 전체 목록은 [IoT Edge 에이전트 및 IoT Edge 허브의 속성](module-edgeagent-edgehub.md)을 참조 하세요.
+포함될 수 있거나 포함되어야 하는 원하는 속성의 전체 목록은 [IoT Edge 에이전트 및 IoT Edge 허브의 속성](module-edgeagent-edgehub.md)을 참조하세요.
 
 예를 들면 다음과 같습니다.
 
@@ -164,17 +164,17 @@ IoT Edge 에이전트 desired 속성 목록에서는 IoT Edge 장치에 배포 �
 }
 ```
 
-모든 모듈에는 모듈 **이미지**, 컨테이너 레지스트리의 컨테이너 이미지에 대 한 주소 및 시작 시 이미지를 구성 하는 **createoptions** 를 포함 하는 **settings** 속성이 있습니다. 자세한 내용은 [IoT Edge 모듈의 컨테이너 만들기 옵션을 구성 하는 방법](how-to-use-create-options.md)을 참조 하세요.
+모든 모듈에는 모듈 **이미지**, 컨테이너 레지스트리의 컨테이너 이미지에 대한 주소, 시작 시 이미지를 구성하는 **createOptions** 가 포함된 **settings** 속성이 있습니다. 자세한 내용은 [IoT Edge 모듈에 대한 컨테이너 만들기 옵션 구성 방법](how-to-use-create-options.md)을 참조하세요.
 
-EdgeHub 모듈 및 사용자 지정 모듈에는 IoT Edge 에이전트를 관리 하는 방법을 지시 하는 세 가지 속성도 있습니다.
+EdgeHub 모듈 및 사용자 지정 모듈에는 IoT Edge 에이전트에 관리 방법을 알려주는 세 가지 속성도 있습니다.
 
-* **상태**: 모듈을 처음 배포할 때 실행 해야 하는지 아니면 중지 해야 하는지를 나타냅니다. 필수 요소.
-* **RestartPolicy**: IoT Edge 에이전트가 중지 된 경우 모듈을 다시 시작 해야 하는지 여부를 지정 합니다. 필수 요소.
-* **Starver1.0.10 der**: *버전 IoT Edge에서 도입 되었습니다.* IoT Edge 에이전트가 처음 배포할 때 모듈을 시작 해야 하는 순서입니다. 순서는 정수를 사용 하 여 선언 됩니다. 여기서 시작 값이 0 인 모듈이 먼저 시작 된 다음 더 큰 숫자가 사용 됩니다. EdgeAgent 모듈은 항상 먼저 시작 되기 때문에 시작 값을 갖지 않습니다. 선택 사항입니다.
+* **Status**: 모듈을 처음 배포할 때 실행 중이어야 하는지 아니면 중지되어야 하는지를 나타냅니다. 필수 요소.
+* **RestartPolicy**: 모듈이 중지된 경우 IoT Edge 에이전트가 모듈을 다시 시작해야 하는지 여부 및 다시 시작해야 하는 시기를 나타냅니다. 필수 요소.
+* **StartupOrder**: *IoT Edge 버전 1.0.10에 도입되었습니다.* IoT Edge 에이전트가 모듈을 처음 배포할 때 모듈을 시작해야 하는 순서입니다. 이 순서는 정수를 사용하여 선언됩니다. 여기서 시작 값이 0인 모듈이 먼저 시작된 다음, 시작 값이 더 높은 모듈이 다음에 시작됩니다. edgeAgent 모듈은 항상 먼저 시작되기 때문에 시작 값이 없습니다. 선택 사항입니다.
 
-  IoT Edge 에이전트는 시작 값을 기준으로 모듈을 시작 하지만, 각 모듈이 완료 될 때까지 기다리지 않고 다음 항목으로 이동 합니다.
+  IoT Edge 에이전트는 시작 값 순서로 모듈을 시작하지만, 각 모듈이 완료될 때까지 기다리지 않고 다음 모듈로 이동합니다.
 
-  시작 순서는 일부 모듈이 다른 모듈에 의존 하는 경우에 유용 합니다. 예를 들어 다른 모듈이 시작 될 때 메시지를 라우트할 준비가 되도록 edgeHub 모듈을 먼저 시작 하는 것이 좋습니다. 또는 데이터를 전송 하는 모듈 보다 먼저 저장소 모듈을 시작할 수도 있습니다. 그러나 항상 다른 모듈의 오류를 처리 하도록 모듈을 디자인 해야 합니다. 언제 든 지 언제 든 지 중지 및 다시 시작할 수 있는 컨테이너의 특성입니다.
+  시작 순서는 일부 모듈이 다른 모듈에 의존하는 경우에 유용합니다. 예를 들어 다른 모듈이 시작될 때 메시지를 라우팅할 준비가 되도록 edgeHub 모듈을 먼저 시작할 수 있습니다. 또는 데이터를 전송하는 모듈보다 먼저 스토리지 모듈을 시작할 수도 있습니다. 그러나 항상 다른 모듈의 실패를 처리하도록 모듈을 디자인해야 합니다. 언제든지 횟수에 관계없이 중지 및 다시 시작될 수 있는 것이 컨테이너의 특성입니다.
 
 ## <a name="declare-routes"></a>경로 선언
 
@@ -208,11 +208,11 @@ IoT Edge 허브는 모듈, IoT Hub 및 리프 디바이스 간의 통신을 관�
 }
 ```
 
-IoT Edge 허브 스키마 버전 1.1은 IoT Edge 버전 1.0.10 함께 출시 되었으며 경로 우선 순위 지정 및 ttl (time to live)을 사용 하도록 설정 합니다. 1.0.10 이상 버전을 실행 하는 IoT Edge 배포의 경우 스키마 버전 1.1이 권장 됩니다.
+IoT Edge 허브 스키마 버전 1.1은 IoT Edge 버전 1.0.10과 함께 릴리스되었으며 경로 우선 순위 지정 및 TTL(Time To Live)을 사용하도록 설정합니다. 1\.0.10 이상 버전을 실행하는 IoT Edge 배포의 경우 스키마 버전 1.1이 권장됩니다.
 
-모든 경로에는 메시지가 도착 하는 *원본* 및 메시지가 전달 되는 *싱크가* 필요 합니다. *조건은* 메시지를 필터링 하는 데 사용할 수 있는 선택적 부분입니다.
+모든 경로에는 메시지가 제공된 *원본* 과 메시지가 이동하는 *싱크* 가 필요합니다. *조건* 은 메시지를 필터링하는 데 사용할 수 있는 선택적 부분입니다.
 
-먼저 메시지를 처리 하도록 할 경로에 *우선 순위* 를 할당할 수 있습니다. 이 기능은 업스트림 연결이 취약 하거나 제한적 이며 표준 원격 분석 메시지에 우선 순위를 지정 해야 하는 중요 한 데이터가 있는 시나리오에서 유용 합니다.
+메시지를 먼저 처리하려는 경로에 *우선 순위* 를 할당할 수 있습니다. 이 기능은 업스트림 연결이 약하거나 제한되고 표준 원격 분석 메시지보다 우선적으로 고려해야 하는 중요한 데이터가 있는 시나리오에서 유용합니다.
 
 ### <a name="source"></a>원본
 
@@ -267,9 +267,9 @@ IoT Edge는 최소 한 번의 보장을 제공합니다. IoT Edge 허브는 경�
 
 IoT Edge 허브는 [IoT Edge 허브 원하는 속성](module-edgeagent-edgehub.md)의 `storeAndForwardConfiguration.timeToLiveSecs` 속성에서 지정된 시간까지 메시지를 저장합니다.
 
-### <a name="priority-and-time-to-live"></a>우선 순위 및 ttl (time-to-live)
+### <a name="priority-and-time-to-live"></a>우선 순위 및 TTL(Time to Live)
 
-경로는 경로를 정의 하는 문자열 또는 경로 문자열, 우선 순위 정수 및 ttl (time to live) 정수를 사용 하 여 선언할 수 있습니다.
+경로는 경로를 정의하는 문자열 또는 경로 문자열, 우선 순위 정수 및 TTL(Time-to-Live) 정수를 사용하는 개체로 선언할 수 있습니다.
 
 옵션 1:
 
@@ -277,7 +277,7 @@ IoT Edge 허브는 [IoT Edge 허브 원하는 속성](module-edgeagent-edgehub.m
    "route1": "FROM <source> WHERE <condition> INTO <sink>",
    ```
 
-옵션 2: IoT Edge 허브 스키마 버전 1.1을 사용 하 IoT Edge 버전 1.0.10에서 도입 되었습니다.
+IoT Edge 허브 스키마 버전 1.1이 있는 IoT Edge 버전 1.0.10에 도입된 옵션 2:
 
    ```json
    "route2": {
@@ -287,11 +287,11 @@ IoT Edge 허브는 [IoT Edge 허브 원하는 속성](module-edgeagent-edgehub.m
    }
    ```
 
-**우선 순위** 값은 0-9 (포함)이 될 수 있습니다. 여기서 0은 가장 높은 우선 순위입니다. 메시지는 해당 끝점에 따라 큐에 대기 됩니다. 특정 끝점을 대상으로 하는 모든 우선 순위 0 메시지는 동일한 끝점을 대상으로 하는 우선 순위 1 메시지를 처리 하 고 줄을 아래로 처리 합니다. 동일한 끝점에 대 한 여러 경로에 동일한 우선 순위가 있는 경우 해당 메시지는 첫 번째로 제공 되는 방식으로 처리 됩니다. 우선 순위를 지정 하지 않으면 경로가 가장 낮은 우선 순위로 할당 됩니다.
+**우선 순위** 값은 0-9 범위일 수 있습니다. 여기서 0은 가장 높은 우선 순위입니다. 메시지는 엔드포인트에 따라 큐에 대기됩니다. 특정 엔드포인트를 대상으로 하는 모든 우선 순위 0 메시지는 동일한 엔드포인트를 대상으로 하는 우선 순위 1 메시지가 처리되기 전에 처리되며 이러한 방식이 철저히 준수됩니다. 동일한 엔드포인트에 대한 여러 경로의 우선 순위가 같으면 해당 메시지는 선착순으로 처리됩니다. 우선 순위를 지정하지 않으면 경로가 가장 낮은 우선 순위에 할당됩니다.
 
-**TimeToLiveSecs** 속성은 명시적으로 **설정 하지 않는** 한 IoT Edge 허브의 기능을 통해 해당 값을 상속 합니다. 값은 임의의 양의 정수일 수 있습니다.
+**timeToLiveSecs** 속성은 명시적으로 설정하지 않는 한, IoT Edge 허브의 **storeAndForwardConfiguration** 에서 해당 값을 상속합니다. 값은 임의의 양의 정수일 수 있습니다.
 
-우선 순위 큐를 관리 하는 방법에 대 한 자세한 내용은 [경로 우선 순위 및 ttl (time-to-live](https://github.com/Azure/iotedge/blob/master/doc/Route_priority_and_TTL.md))에 대 한 참조 페이지를 참조 하세요.
+우선 순위 큐를 관리하는 방법에 대한 자세한 내용은 [경로 우선 순위 및 Time-to-Live](https://github.com/Azure/iotedge/blob/master/doc/Route_priority_and_TTL.md)에 대한 참조 페이지를 참조하세요.
 
 ## <a name="define-or-update-desired-properties"></a>원하는 속성 정의 또는 업데이트
 

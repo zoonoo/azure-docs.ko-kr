@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템
 ms.date: 04/28/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
-ms.openlocfilehash: 8d7d62c05586032bc73c41ef671862a4aa211334
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: a4905742f2c8f3d325cbe32f35e06d9aab27222d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903175"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114450294"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Recovery Services 자격 증명 모음 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "111903175"
 템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다.
 
 - [Microsoft.RecoveryServices vaults](/azure/templates/microsoft.recoveryservices/vaults): 자격 증명 모음을 만듭니다.
-- [Microsoft.RecoveryServices/vaults/backupstorageconfig](/rest/api/backup/backupresourcestorageconfigs): 자격 증명 모음의 백업 중복 설정을 구성합니다.
+- [Microsoft.RecoveryServices/vaults/backupstorageconfig](/rest/api/backup/backup-resource-storage-configs): 자격 증명 모음의 백업 중복 설정을 구성합니다.
 
 템플릿에는 자격 증명 모음의 백업 구성에 대한 선택적 매개 변수가 포함되어 있습니다. 스토리지 중복 설정은 LRS(로컬 중복 스토리지) 또는 GRS(지역 중복 스토리지)입니다. 자세한 내용은 [스토리지 중복 설정](../backup/backup-create-rs-vault.md#set-storage-redundancy)을 참조하세요.
 

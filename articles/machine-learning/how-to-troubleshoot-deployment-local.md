@@ -1,7 +1,7 @@
 ---
 title: 로컬 모델 배포 문제 해결
 titleSuffix: Azure Machine Learning
-description: 모델 배포 오류 문제 해결의 첫 단계로 로컬 모델 배포를 시도 합니다.
+description: 모델 배포 오류 문제 해결의 첫 단계로 로컬 모델 배포를 시도합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,31 +12,31 @@ ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
 ms.openlocfilehash: 69ac47296cb4624de6cdf05ddb3e72973751f631
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102519625"
 ---
 # <a name="troubleshooting-with-a-local-model-deployment"></a>로컬 모델 배포 문제 해결
 
-Azure Container Instances (ACI) 또는 Azure Kubernetes 서비스 (AKS)에 대 한 배포 문제 해결의 첫 단계로 로컬 모델 배포를 시도 합니다.  로컬 웹 서비스를 사용 하면 일반적인 Azure Machine Learning Docker 웹 서비스 배포 오류를 쉽게 파악 하 고 해결할 수 있습니다.
+ACI(Azure Container Instances) 또는 AKS(Azure Kubernetes Service)에 대한 배포 문제 해결의 첫 번째 단계로 로컬 모델 배포를 시도합니다.  로컬 웹 서비스를 사용하면 일반적인 Azure Machine Learning Docker 웹 서비스 배포 오류를 쉽게 찾아 수정할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
-* 옵션 A (**권장**)-Azure Machine Learning 계산 인스턴스에서 로컬로 디버그
-   * [계산 인스턴스가](how-to-deploy-local-container-notebook-vm.md) 실행 되는 Azure Machine Learning 작업 영역
-* 옵션 B-계산에서 로컬로 디버그
+* 옵션 A(**권장**) - Azure Machine Learning 컴퓨팅 인스턴스에서 로컬로 디버그
+   * [컴퓨팅 인스턴스](how-to-deploy-local-container-notebook-vm.md)가 실행 되는 Azure Machine Learning 작업 영역
+* 옵션 B - 컴퓨팅에서 로컬로 디버그
    * [Azure Machine Learning SDK](/python/api/overview/azure/ml/install)
    * [Azure CLI](/cli/azure/install-azure-cli)
    * [Azure Machine Learning용 CLI 확장](reference-azure-machine-learning-cli.md)
-   * 로컬 시스템에 작동 하는 Docker가 설치 되어 있어야 합니다. 
+   * 로컬 시스템에서 작동하는 Docker가 설치되어 있어야 합니다. 
    * Docker 설치를 확인하려면 터미널 또는 명령 프롬프트에서 `docker run hello-world` 명령을 사용합니다. Docker 설치 또는 Docker 오류 문제 해결에 대한 자세한 내용은 [Docker 설명서](https://docs.docker.com/)를 참조하세요.
 
 ## <a name="debug-locally"></a>로컬에서 디버그
 
-[MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) 리포지토리에서 샘플 [로컬 배포 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) 을 찾아 실행 가능한 예제를 탐색할 수 있습니다.
+[MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) 리포지토리에서 샘플 [로컬 배포 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb)을 찾아 실행 가능한 예제를 살펴볼 수 있습니다.
 
 > [!WARNING]
 > 프로덕션 시나리오에는 로컬 웹 서비스 배포가 지원되지 않습니다.
@@ -63,9 +63,9 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-사용자 고유의 conda 사양 YAML을 정의 하는 경우 pip-기본값 버전 >= 1.0.45를 pip 종속성으로 나열 합니다. 이 패키지는 모델을 웹 서비스로 호스트 하는 데 필요 합니다.
+사용자 고유의 conda 사양 YAML을 정의하는 경우 버전 1.0.45 이상을 pip 종속성으로 사용하여 azureml-defaults를 나열합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요합니다.
 
-이 시점에서 서비스를 정상적으로 사용할 수 있습니다. 다음 코드는 서비스에 데이터를 보내는 방법을 보여 줍니다.
+이 시점에서 서비스를 정상적으로 사용할 수 있습니다. 다음 코드에서는 데이터를 서비스에 보내는 방법을 보여줍니다.
 
 ```python
 import json
@@ -88,7 +88,7 @@ Python 환경을 사용자 지정하는 방법에 대한 자세한 내용은 [�
 로컬 테스트 중에 로깅을 추가하도록 `score.py` 파일을 업데이트하거나 검색한 문제를 해결해야 할 수도 있습니다. `score.py` 파일의 변경 내용을 다시 로드하려면 `reload()`를 사용합니다. 예를 들어 다음 코드에서는 서비스에 대한 스크립트를 다시 로드한 다음, 데이터를 이 스크립트에 보냅니다. 데이터는 업데이트된 `score.py` 파일을 사용하여 채점됩니다.
 
 > [!IMPORTANT]
-> `reload` 메서드는 로컬 배포에만 사용할 수 있습니다. 다른 계산 대상으로 배포를 업데이트 하는 방법에 대 한 자세한 내용은 [webservice를 업데이트 하는 방법](how-to-deploy-update-web-service.md)을 참조 하세요.
+> `reload` 메서드는 로컬 배포에만 사용할 수 있습니다. 다른 컴퓨팅 대상으로 배포를 업데이트하는 방법에 대한 자세한 내용은 [웹 서비스를 업데이트하는 방법](how-to-deploy-update-web-service.md)을 참조하세요.
 
 ```python
 service.reload()
@@ -120,14 +120,14 @@ print(service.get_logs())
 print(ws.webservices['mysvc'].get_logs())
 ```
 
-`Booting worker with pid: <pid>`로그에서 여러 번 발생 하는 줄이 표시 되 면 작업자를 시작 하는 데 충분 한 메모리가 없는 것입니다.
-에서의 값을 늘려서 오류를 해결할 수 있습니다. `memory_gb``deployment_config`
+로그에 `Booting worker with pid: <pid>` 줄이 여러 번 표시되면 작업자를 시작할 메모리가 부족한 것입니다.
+`deployment_config`의 `memory_gb` 값을 늘려서 오류를 해결할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 배포에 대해 자세히 알아보세요.
 
-* [원격 배포 문제를 해결 하는 방법](how-to-troubleshoot-deployment.md)
+* [원격 배포 문제를 해결하는 방법](how-to-troubleshoot-deployment.md)
 * [배포 방법 및 위치](how-to-deploy-and-where.md)
 * [자습서: 모델 학습 및 배포](tutorial-train-models-with-aml.md)
-* [로컬에서 실험을 실행 하 고 디버그 하는 방법](./how-to-debug-visual-studio-code.md)
+* [로컬에서 실험을 실행하고 디버그하는 방법](./how-to-debug-visual-studio-code.md)

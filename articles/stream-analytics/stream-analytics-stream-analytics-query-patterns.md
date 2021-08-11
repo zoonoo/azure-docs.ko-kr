@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/18/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 8fcda77858b3feb78a04971a7ad1f20c0ea51fa1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98019995"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Azure Stream Analytics의 일반적인 쿼리 패턴
@@ -288,7 +288,7 @@ FROM
 
 ## <a name="data-aggregation-over-time"></a>시간별 데이터 집계
 
-시간대에 대한 정보를 계산하기 위해 데이터를 함께 집계할 수 있습니다. 이 예에서는 특정 자동차를 만들 때마다 지난 10 초 동안 카운트를 계산 합니다.
+시간대에 대한 정보를 계산하기 위해 데이터를 함께 집계할 수 있습니다. 다음 예시에서는 지난 10초 동안의 모든 특정 자동차 제작 개수를 계산합니다.
 
 **입력**:
 

@@ -1,14 +1,14 @@
 ---
-title: Azure Service Fabric 클러스터에 안전 하 게 연결
+title: Azure Service Fabric 클러스터에 안전하게 연결
 description: Service Fabric 클러스터에 대한 클라이언트 액세스를 인증하는 방법 및 클라이언트와 클러스터 간의 통신을 보호하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3a669f7400eb2daf2d71f6caed41560020699c58
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98791124"
 ---
 # <a name="connect-to-a-secure-cluster"></a>보안 클러스터에 연결
@@ -345,7 +345,7 @@ AAD로 보호되는 클러스터에 연결하려면 브라우저를 다음으로
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-AAD를 사용 하 여 로그인 하 라는 메시지가 자동으로 표시 됩니다.
+AAD에 로그인하라는 메시지가 자동으로 표시됩니다.
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>클라이언트 인증서를 사용하여 보안 클러스터에 연결
 
@@ -382,7 +382,7 @@ AAD를 사용 하 여 로그인 하 라는 메시지가 자동으로 표시 됩�
 ## <a name="next-steps"></a>다음 단계
 
 * [서비스 패브릭 클러스터 업그레이드 프로세스 및 사용자 기대 수준](service-fabric-cluster-upgrade.md)
-* [Visual Studio에서 Service Fabric 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md)
+* [Visual Studio에서 Service Fabric 애플리케이션 관리](service-fabric-manage-application-in-visual-studio.md)
 * [서비스 패브릭 상태 모델 소개](service-fabric-health-introduction.md)
 * [애플리케이션 보안 및 RunAs](service-fabric-application-runas-security.md)
 * [Service Fabric CLI 시작](service-fabric-cli.md)

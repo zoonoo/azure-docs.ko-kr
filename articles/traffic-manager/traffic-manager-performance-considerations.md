@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
 ms.openlocfilehash: 5a0de772598877029649f8a985c79e28f5264535
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98186178"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Traffic Manager 성능 고려 사
@@ -50,7 +50,7 @@ Traffic Manager 프로필의 성능 및 동작을 이해하는 데 사용할 수
 
     가장 간단한 도구 중 하나는 WebSitePulse입니다. DNS 확인 시간, 첫 번째 바이트, 마지막 바이트 및 기타 성능 통계를 보려면 URL을 입력하십시오. 3개의 서로 다른 테스트 위치를 선택할 수 있습니다. 이 예에서는 첫 번째 실행에서 DNS 조회에 0.204초가 소요됨을 보여줍니다.
 
-    !["DNS" 조회 결과가 강조 표시 된 "WebSitePulse" 도구를 보여 주는 스크린샷](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
+    !["DNS" 조회 결과가 강조 표시된 "WebSitePulse" 도구를 보여주는 스크린샷.](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
 
     결과가 캐시되므로 동일한 Traffic Manager 엔드포인트에 대한 두 번째 테스트의 경우 DNS 조회에 0.002초가 소요됩니다.
 
@@ -58,7 +58,7 @@ Traffic Manager 프로필의 성능 및 동작을 이해하는 데 사용할 수
 
 * [CA 앱 가상 모니터](https://asm.ca.com/en/checkit.php)
 
-    이전에는 조사식-마우스 확인 웹 사이트 도구 라고 하는이 사이트에서는 여러 지리적 지역에서 동시에 DNS 확인 시간을 보여 줍니다. DNS 확인 시간, 연결 시간 및 여러 지리적 위치에서의 속도를 보려면 URL을 입력하십시오. 이 테스트를 사용하면 어떤 호스티드 서비스가 전 세계의 서로 다른 위치에 대해 반환되는지 볼 수 있습니다.
+    이전에 Watch-mouse Check Website 도구로 알려진 이 사이트는 여러 지리적 지역의 DNS 확인 시간을 동시에 보여줍니다. DNS 확인 시간, 연결 시간 및 여러 지리적 위치에서의 속도를 보려면 URL을 입력하십시오. 이 테스트를 사용하면 어떤 호스티드 서비스가 전 세계의 서로 다른 위치에 대해 반환되는지 볼 수 있습니다.
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 

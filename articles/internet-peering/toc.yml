@@ -89,4 +89,4 @@
     - name: 인터넷 피어링 FAQ
       href: faqs.md
     - name: Peering Service FAQ
-      href: service-faqs.md
+      href: service-faqs.yml

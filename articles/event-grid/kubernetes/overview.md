@@ -6,17 +6,17 @@ ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/25/2021
 ms.topic: overview
-ms.openlocfilehash: a958e42f3afab3dccd2a989c9d824a37ed9d9a6c
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: fdc8c60f2c2cae7368a2e35317de2cfb8274a060
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536814"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414956"
 ---
 # <a name="event-grid-on-kubernetes-with-azure-arc-preview---overview"></a>Azure Arc를 사용하는 Kubernetes의 Event Grid(미리 보기) - 개요
 이 문서에서는 Kubernetes의 Event Grid, 사용 사례, 제공하는 기능 및 Azure Event Grid와의 차이점에 대한 개요를 제공합니다.
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="what-is-event-grid"></a>Event Grid란?
 Event Grid는 이벤트 중심 아키텍처를 사용하는 워크로드를 통합하는 데 사용되는 이벤트 브로커입니다. 이벤트 기반 아키텍처는 이벤트를 사용하여 시스템 상태 변경의 발생을 전달하며 마이크로 서비스를 사용하는 아키텍처와 같은 분리된 아키텍처의 일반적인 통합 접근 방식입니다. Event Grid는 구독자가 이벤트를 전송(푸시)하고 해당 구독자가 이벤트를 보내는 게시자를 반드시 인식하는 것이 아닌 푸시-푸시 통신 모델이라고도 설명하는 게시-구독을 제공합니다. 이 모델은 클라이언트가 메시지 브로커에서 메시지를 끌어와 결과적으로 메시지 브로커와 사용 클라이언트 간에 더 강력한 결합이 있는 Azure Service Bus 또는 Azure Event Hubs에서 사용되는 것과 같은 클래식 푸시-풀 모델과 대조됩니다.

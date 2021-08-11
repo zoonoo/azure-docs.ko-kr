@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto, mathoma
 ms.date: 07/11/2019
-ms.openlocfilehash: d36a4ed5937f6478b7b58c49c1393b6169778af5
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 5093dc4b3e401c90e06234b33cdd996ff4a9d781
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110691492"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114689697"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Azure SQL Managed Instance 시작
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -74,7 +74,7 @@ SQL Managed Instance를 배포하려는 곳에 VNet과 서브넷이 이미 있�
 - 성능 테스트 - 원본 SQL Server 인스턴스에서 기준 성능 메트릭을 측정하고 데이터베이스가 마이그레이션된 대상인 SQL Managed Instance의 성능 메트릭과 비교해야 합니다. [성능 비교 모범 사례](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210)에 대해 자세히 알아봅니다.
 - 온라인 마이그레이션 - 이 문서에 설명된 네이티브 `RESTORE`를 사용할 경우 데이터베이스가 복원될 때까지(그리고 Azure Blob Storage에 저장되지 않은 경우에는 복사될 때까지) 기다려야 합니다. 이렇게 하면 특히 대규모 데이터베이스에서 애플리케이션의 가동 중지 시간이 발생합니다. 프로덕션 데이터베이스를 이동하려면 [DMS(Data Migration Service)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%2fazure%2fsql-database%2ftoc.json)를 사용하여 최소 가동 중지 시간으로 데이터베이스를 마이그레이션하세요. DMS는 복원 중인 SQL Managed Instance 데이터베이스에 원본 데이터베이스의 변경 사항을 점진적으로 보냄으로써 데이터베이스를 이동합니다. 이 방식을 사용하면 가동 중지 시간을 최소화하면서 원본에서 대상 데이터베이스로 애플리케이션을 신속하게 전환할 수 있습니다.
 
-[권장 마이그레이션 프로세스](migrate-to-instance-from-sql-server.md)에 대해 자세히 알아봅니다.
+[권장 마이그레이션 프로세스](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md)에 대해 자세히 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory를 사용하여 자동으로 사용자를 프로비저닝하도록 SAP Cloud Platform Identity Authentication 구성 | Microsoft Docs'
 description: 사용자 계정을 SAP Cloud Platform Identity Authentication으로 자동으로 프로비저닝 및 프로비저닝을 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
-ms.author: Zhchia
-ms.openlocfilehash: 419f25ee3df471bc2fc4526254f5677b8bd71856
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: a02b767a097ec2d826f44ac5975063b681242ad1
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96342744"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113759553"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>자습서: 자동으로 사용자를 프로비저닝하도록 SAP Cloud Platform Identity Authentication 구성
 

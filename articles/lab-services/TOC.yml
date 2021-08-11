@@ -195,7 +195,7 @@
     - name: Az.LabServices PowerShell 모듈(미리 보기)
       href: reference-powershell-module.md
     - name: Azure CLI
-      href: /cli/azure/hack
+      href: 'https://github.com/Azure/azure-cli-extensions/tree/main/src/hack'
 - name: 리소스
   items:
     - name: Azure Lab Services 블로그

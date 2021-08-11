@@ -6,16 +6,16 @@ author: shahen
 manager: anvalent
 ms.service: Communication Services
 ms.subservice: Communication Services
-ms.date: 05/21/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: shahen
-ms.openlocfilehash: fa3ecf3fa6b74bdbd52a9b077cde04c6f98dde86
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: df8298416c6acf159d9bdec13e5dfc50db54ed50
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026946"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "114471441"
 ---
 ### <a name="prerequisite-check"></a>필수 구성 요소 확인
 
@@ -101,7 +101,7 @@ var identity = identityResponse.Value;
 Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 ```
 
-### <a name="exchange-the-user-access-token-for-a-relay-token"></a>릴레이 토큰의 사용자 액세스 토큰 교환
+### <a name="exchange-the-user-access-token-for-a-relay-token"></a>릴레이 토큰에 대한 사용자 액세스 토큰 교환
 
 Azure Communication 토큰 서비스를 호출하여 TURN 서비스 토큰의 사용자 액세스 토큰을 교환합니다.
 

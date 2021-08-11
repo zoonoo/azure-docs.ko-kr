@@ -7,17 +7,21 @@ ms.topic: include
 ms.date: 05/05/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 9baef8226ed44e7b11ce8108bacd2b686bee2d9d
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 1922efb97feda19154bd965f6d383daba4830338
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112040649"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114712836"
 ---
+[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample)
+
+이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. Azure CLI를 사용하여 Azure IoT Hub 및 디바이스를 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 허브에 안전하게 연결하고 원격 분석을 전송합니다.
+
 ## <a name="prerequisites"></a>사전 요구 사항
 - Azure 구독이 아직 없는 경우 시작하기 전에 [무료 구독을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Git](https://git-scm.com/downloads)
-- Java SE Development Kit 8 이상이 포함된 개발 머신. 여러 플랫폼용 Java 8(LTS) JDK는 [OpenJDK의 Zulu 빌드 다운로드](https://www.azul.com/downloads/zulu-community/)에서 다운로드할 수 있습니다. 설치 관리자에서 **경로에 추가** 옵션을 선택합니다.
+- Java SE Development Kit 8 이상이 포함된 개발 머신. 여러 플랫폼용 Java 8(LTS) JDK는 [OpenJDK의 Zulu 빌드 다운로드](https://www.azul.com/downloads/zulu-community/)에서 다운로드할 수 있습니다. 설치 프로그램에서 **경로에 추가** 옵션을 선택합니다.
 - [Apache Maven 3](https://maven.apache.org/download.cgi). 로컬 폴더로 다운로드를 추출한 후 Maven */bin* 폴더의 전체 경로를 Windows PATH 변수에 추가합니다.
 - Azure CLI. 이 빠른 시작에서 Azure CLI 명령을 실행하기 위한 두 가지 옵션이 있습니다.
     - 브라우저에서 CLI 명령을 실행하는 대화형 셸인 Azure Cloud Shell을 사용합니다. 이 옵션은 아무 것도 설치할 필요가 없으므로 권장됩니다. 처음으로 Cloud Shell을 사용하는 경우 [Azure Portal](https://portal.azure.com)에 로그인합니다. [Cloud Shell 빠른 시작](../articles/cloud-shell/quickstart.md)의 단계를 따라 **Cloud Shell을 시작하고** **Bash 환경을 선택합니다**.
@@ -55,7 +59,7 @@ ms.locfileid: "112040649"
 ### <a name="build-the-sample"></a>샘플 빌드
 1. 콘솔에서 Azure IoT Java 디바이스 SDK를 로컬 컴퓨터에 복제합니다.
     ```console
-    git clone https://github.com/Azure/azure-iot-sdk-c.git
+    git clone https://github.com/Azure/azure-iot-sdk-java.git
     ```
 1. SDK의 루트 폴더로 이동하고 다음 명령을 실행하여 SDK를 빌드한 후 샘플을 업데이트합니다.
     ```console
@@ -79,7 +83,7 @@ ms.locfileid: "112040649"
     mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
     ```
     > [!NOTE]
-    > 이 코드 샘플에서는 수동 구성 없이 솔루션에 스마트 디바이스를 통합할 수 있도록 하는 Azure IoT 플러그 앤 플레이를 사용합니다.  기본적으로 이 설명서에 있는 대부분의 샘플은 IoT 플러그 앤 플레이를 사용합니다. IoT PnP의 장점과 사용 여부에 대한 자세한 내용은 [IoT 플러그 앤 플레이란?](../articles/iot-pnp/overview-iot-plug-and-play.md)을 참조하세요.
+    > 이 코드 샘플에서는 수동 구성 없이 솔루션에 스마트 디바이스를 통합할 수 있도록 하는 Azure IoT 플러그 앤 플레이를 사용합니다.  기본적으로 이 설명서에 있는 대부분의 샘플은 IoT 플러그 앤 플레이를 사용합니다. IoT PnP의 장점과 사용 여부에 대한 자세한 내용은 [IoT 플러그 앤 플레이란?](../articles/iot-develop/overview-iot-plug-and-play.md)을 참조하세요.
 
     시뮬레이션된 디바이스가 IoT Hub에 연결되면 애플리케이션에서 만든 디바이스 인스턴스에 연결하고 원격 분석 전송을 시작합니다. 몇 가지 초기 프로비저닝 세부 정보를 제공한 후 콘솔은 온도 컨트롤러에 대한 원격 분석을 출력하기 시작합니다.
     

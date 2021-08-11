@@ -12,6 +12,10 @@
   items:
     - name: 네트워크 액세스 제한
       href: ../../virtual-network/tutorial-restrict-network-access-to-resources.md?toc=/azure/networking/fundamentals/toc.json
+- name: 샘플
+  items:
+    - name: Azure Resource Graph 쿼리
+      href: ./resource-graph-samples.md
 - name: 개념
   expanded: true
   items:
@@ -56,7 +60,7 @@
         - name: 온-프레미스에서 Azure로 확장 - 프라이빗 연결
           href: ../../expressroute/expressroute-connect-azure-to-public-cloud.md?toc=/azure/networking/fundamentals/toc.json
         - name: 아웃바운드 전용 인터넷 연결
-          href: ../../virtual-network/nat-overview.md?toc=/azure/networking/fundamentals/toc.json
+          href: ../../virtual-network/nat-gateway/nat-overview.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
     - name: 네트워크 보안
       items:
         - name: 네트워크 보안 그룹
@@ -101,7 +105,7 @@
         - name: 라우팅 비용 최적화
           href: ../../virtual-network/routing-preference-portal.md?toc=/azure/networking/fundamentals/toc.json
         - name: 아웃바운드 연결에 대한 NAT 게이트웨이 만들기
-          href: ../../virtual-network/tutorial-create-nat-gateway-portal.md?toc=/azure/networking/fundamentals/toc.json
+          href: ../../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
         - name: Azure DNS 영역 및 레코드 만들기
           href: ../../dns/dns-getstarted-portal.md?toc=/azure/networking/fundamentals/toc.json
         - name: 경로 테이블을 사용하여 트래픽 라우팅

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 6b52ca3f7fda8ee696311a2aeea1ccf9767cda35
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 7c0d4123de361fe8285213ff6f28e2cffe5e5724
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111557615"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112466378"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sailpoint-identitynow"></a>자습서: SailPoint IdentityNow와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -31,7 +31,7 @@ ms.locfileid: "111557615"
 시작하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* SailPoint IdentityNow 활성 구독.  IdentityNow가 없는 경우 [SailPoint IdentityNow 지원 팀](mailto:support@sailpoint.com)에 문의하세요.
+* SailPoint IdentityNow 활성 구독. IdentityNow가 없는 경우 [SailPoint IdentityNow 지원 팀](mailto:support@sailpoint.com)에 문의하세요.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -102,7 +102,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

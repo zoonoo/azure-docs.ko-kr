@@ -1,6 +1,6 @@
 ---
-title: 지도에 거품형 계층 추가 | Microsoft Azure 맵
-description: 지도에서 요소를 고정 크기의 원으로 렌더링 하는 방법에 대해 알아봅니다. 이 목적을 위해 Azure Maps 웹 SDK를 사용 하 여 거품형 계층을 추가 하 고 사용자 지정 하는 방법을 참조 하세요.
+title: 지도에 거품형 계층 추가 | Microsoft Azure Maps
+description: 맵의 지점을 고정된 크기의 원으로 렌더링하는 방법을 알아봅니다. Azure Maps 웹 SDK를 사용하여 거품형 계층을 추가하고 사용자 지정하는 방법을 참조하세요.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -10,22 +10,22 @@ services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: cae29dcc0d334a2296199da0d8e3bc4562e275d3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92895331"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>맵에 거품형 계층 추가
 
-이 문서에서는 데이터 원본의 점 데이터를 지도에서 거품형 계층으로 렌더링 하는 방법을 보여 줍니다. 거품형 계층은 고정 픽셀 반지름이 있는 지도에서 요소를 원으로 렌더링 합니다. 
+이 문서에서는 맵에 거품형 계층으로 데이터 원본에서 지점 데이터를 렌더링할 수 있는 방법을 보여줍니다. 거품형 계층은 고정된 픽셀 반경을 사용하여 지점을 맵에 원형으로 렌더링합니다. 
 
 > [!TIP]
-> 기본적으로 거품형 계층은 데이터 원본에 있는 모든 도형의 좌표를 렌더링합니다. 점 기 하 도형 기능만 렌더링 하도록 계층을 제한 하려면 `filter` 계층의 속성을로 설정 하 고 `['==', ['geometry-type'], 'Point']` , `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` 다중 포인트 기능을 포함 하려는 경우로 설정 합니다.
+> 기본적으로 거품형 계층은 데이터 원본에 있는 모든 도형의 좌표를 렌더링합니다. 포인트 기하 도형 기능만 렌더링하도록 계층을 제한하려면 계층의 `filter` 속성을 `['==', ['geometry-type'], 'Point']`로 설정하거나 MultiPoint 기능을 포함하려는 경우에는 `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`으로 설정합니다.
 
 ## <a name="add-a-bubble-layer"></a>거품형 레이어 추가
 
-다음 코드는 데이터 소스에 점의 배열을 로드 합니다. 그런 다음 데이터 요소를 [거품형 계층](/javascript/api/azure-maps-control/atlas.layer.bubblelayer)에 연결 합니다. 거품형 계층은 각 거품의 반지름을 5 픽셀 및 흰색 채우기 색으로 렌더링 합니다. 그리고, 파란색의 스트로크 색 및 6 픽셀의 스트로크 너비입니다. 
+다음 코드는 지점 배열을 데이터 원본에 로드합니다. 그러면 데이터 요소가 [거품형 계층](/javascript/api/azure-maps-control/atlas.layer.bubblelayer)에 연결됩니다. 거품형 계층은 5픽셀과 채우기 색이 흰색인 각 거품의 반경을 렌더링합니다. 파란색 스트로크 색과 6픽셀의 스트로크 너비입니다. 
 
 ```javascript
 //Add point locations.
@@ -62,7 +62,7 @@ map.layers.add(new atlas.layer.BubbleLayer(dataSource, null, {
 
 ## <a name="show-labels-with-a-bubble-layer"></a>거품형 계층을 사용하여 레이블 표시
 
-이 코드는 거품형 계층을 사용 하 여 지도에서 점을 렌더링 하는 방법을 보여 줍니다. 기호 계층을 사용 하 여 레이블을 렌더링 하는 방법을 보여 줍니다. 기호 계층의 아이콘을 숨기려면 `image` 아이콘 옵션의 속성을로 설정 합니다 `'none'` .
+이 코드는 거품형 계층을 사용하여 맵에 지점을 렌더링하는 방법을 보여줍니다. 기호 계층을 사용하여 레이블을 렌더링하는 방법도 있습니다. 기호 계층의 아이콘을 숨기려면 아이콘 옵션의 `image` 속성을 `'none'`로 설정합니다.
 
 <br/>
 

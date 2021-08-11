@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85574b7d33af6d9abfe25f5af4d811255f08ce4b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 176c36ee5c3addf655503e3a371767764e0d9968
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452240"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108738056"
 ---
 # <a name="string-claims-transformations"></a>문자열 클레임 변환
 
@@ -34,7 +34,7 @@ ms.locfileid: "102452240"
 | InputClaim | inputClaim2 | 문자열 | 비교할 두 번째 클레임의 형식입니다. |
 | InputParameter | stringComparison | 문자열 | 문자열 비교, 다음 값 중 하나: Ordinal, OrdinalIgnoreCase |
 
-**AssertStringClaimsAreEqual** 클레임 변환은 항상 [자체 어설션 기술 프로필](self-asserted-technical-profile.md) 또는 [DisplayConrtol](display-controls.md)을 통해 호출되는 [유효성 검사 기술 프로필](validation-technical-profile.md)에서 실행됩니다. 자체 어설션 기술 프로필의 `UserMessageIfClaimsTransformationStringsAreNotEqual` 메타데이터는 사용자에게 표시되는 오류 메시지를 제어합니다. 오류 메시지는 [지역화](localization-string-ids.md#claims-transformations-error-messages)될 수 있습니다.
+**AssertStringClaimsAreEqual** 클레임 변환은 항상 [자체 어설션 기술 프로필](self-asserted-technical-profile.md) 또는 [DisplayControl](display-controls.md)을 통해 호출되는 [유효성 검사 기술 프로필](validation-technical-profile.md)에서 실행됩니다. 자체 어설션 기술 프로필의 `UserMessageIfClaimsTransformationStringsAreNotEqual` 메타데이터는 사용자에게 표시되는 오류 메시지를 제어합니다. 오류 메시지는 [지역화](localization-string-ids.md#claims-transformations-error-messages)될 수 있습니다.
 
 
 ![AssertStringClaimsAreEqual execution](./media/string-transformations/assert-execution.png)
@@ -152,14 +152,14 @@ ms.locfileid: "102452240"
 
 ## <a name="copyclaimifpredicatematch"></a>CopyClaimIfPredicateMatch
 
-입력 클레임 값이 출력 클레임 조건자와 일치 하는 경우 클레임 값을 다른 값으로 복사 합니다. 
+입력 클레임 값이 출력 클레임 조건자와 일치하는 경우 클레임 값을 다른 값으로 복사합니다. 
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | 문자열 | 복사할 클레임 유형입니다. |
-| OutputClaim | outputClaim | 문자열 | 이 클레임 변환이 호출 된 후에 생성 된 클레임 유형입니다. 입력 클레임의 값은이 클레임 조건자에 대해 확인 됩니다. |
+| InputClaim | inputClaim | 문자열 | 복사할 클레임 형식입니다. |
+| OutputClaim | outputClaim | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 클레임 형식입니다. 입력 클레임의 값은 이 클레임 조건자에 대해 확인됩니다. |
 
-다음 예에서는 signInName가 전화 번호 인 경우에만 signInName 클레임 값을 phoneNumber 클레임에 복사 합니다. 전체 샘플을 보려면 [전화 번호 또는 전자 메일 로그인](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/scenarios/phone-number-passwordless/Phone_Email_Base.xml) 시작 팩 정책을 참조 하세요.
+다음 예제에서는 signInName이 전화번호인 경우에만 signInName 클레임 값을 phoneNumber 클레임에 복사합니다. 전체 샘플은 [전화번호 또는 이메일 로그인](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/scenarios/phone-number-passwordless/Phone_Email_Base.xml) 시작 팩 정책을 참조하세요.
 
 ```xml
 <ClaimsTransformation Id="SetPhoneNumberIfPredicateMatch" TransformationMethod="CopyClaimIfPredicateMatch">
@@ -175,14 +175,14 @@ ms.locfileid: "102452240"
 ### <a name="example-1"></a>예 1
 
 - 입력 클레임:
-    - **Inputclaim**: bob@contoso.com
+    - **inputClaim**: bob@contoso.com
 - 출력 클레임:
-    - **outputclaim**: 출력 클레임이 원래 값에서 변경 되지 않습니다.
+    - **outputClaim**: 출력 클레임이 원래 값에서 변경되지 않습니다.
 
 ### <a name="example-2"></a>예제 2
 
 - 입력 클레임:
-    - **Inputclaim**: + 11234567890
+    - **inputClaim**: +11234567890
 - 출력 클레임:
     - **outputClaim**: +11234567890
 
@@ -328,28 +328,28 @@ ms.locfileid: "102452240"
 
 ## <a name="formatlocalizedstring"></a>FormatLocalizedString
 
-제공 된 지역화 된 형식 문자열에 따라 여러 클레임의 형식을 지정 합니다. 이 변환에서는 C# `String.Format` 메서드를 사용합니다.
+제공된 지역화된 형식 문자열에 따라 여러 클레임의 형식을 지정합니다. 이 변환에서는 C# `String.Format` 메서드를 사용합니다.
 
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaims |  |문자열 | 문자열 형식, 매개 변수 역할을 하는 입력 클레임 컬렉션입니다 {0} {1} {2} . |
-| InputParameter | stringFormatId | 문자열 |  `StringId` [지역화 된 문자열](localization.md)의입니다.   |
+| InputClaims |  |문자열 | 문자열 형식 {0}, {1}, {2} 매개 변수 역할을 하는 입력 클레임 컬렉션입니다. |
+| InputParameter | stringFormatId | 문자열 |  [지역화된 문자열](localization.md)의 `StringId`입니다.   |
 | OutputClaim | outputClaim | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
 > [!NOTE]
-> 문자열 형식이 허용 되는 최대 크기는 4000입니다.
+> 문자열 형식이 허용되는 최대 크기는 4000입니다.
 
-FormatLocalizedString 클레임 변환을 사용 하려면 다음을 수행 합니다.
+FormatLocalizedString 클레임 변환을 사용하려면 다음을 수행합니다.
 
-1. [지역화 문자열](localization.md)을 정의 하 고 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)에 연결 합니다.
+1. [지역화 문자열](localization.md)을 정의하고 [자체 어설션 기술 프로필](self-asserted-technical-profile.md)과 연결합니다.
 1. `LocalizedString` 요소의 `ElementType`은 `FormatLocalizedStringTransformationClaimType`으로 설정되어야 합니다.
-1. 는 `StringId` 사용자가 정의 하는 고유 식별자 이며 나중에 클레임 변환에서 사용 합니다 `stringFormatId` .
-1. 클레임 변환에서 지역화된 문자열을 사용하여 설정할 클레임 목록을 지정합니다. 그런 다음를 `stringFormatId` 지역화 된 `StringId` 문자열 요소의로 설정 합니다. 
+1. `StringId`는 사용자가 정의하는 고유 식별자이며 나중에 클레임 변환 `stringFormatId`에서 사용합니다.
+1. 클레임 변환에서 지역화된 문자열을 사용하여 설정할 클레임 목록을 지정합니다. 그런 다음, `stringFormatId`를 지역화된 문자열 요소의 `StringId`로 설정합니다. 
 1. [자체 어설션 기술 프로필](self-asserted-technical-profile.md) 또는 [표시 제어](display-controls.md) 입력 또는 출력 클레임 변환에서 클레임 변환에 대한 참조를 만듭니다.
 
 
-다음 예에서는 계정이 디렉터리에 이미 있는 경우 오류 메시지를 생성 합니다. 이 예제에서는 영어 (기본값) 및 스페인어의 지역화 된 문자열을 정의 합니다.
+다음 예제에서는 계정이 디렉터리에 이미 있는 경우 오류 메시지를 생성합니다. 예제는 영어(기본값) 및 스페인어의 지역화된 문자열을 정의합니다.
 
 ```xml
 <Localization Enabled="true">
@@ -371,7 +371,7 @@ FormatLocalizedString 클레임 변환을 사용 하려면 다음을 수행 합�
 </Localization>
 ```
 
-클레임 변환은 지역화 된 문자열을 기반으로 응답 메시지를 만듭니다. 이 메시지에는 지역화 된 문자열 *ResponseMessge_EmailExists* 에 포함 된 사용자의 전자 메일 주소가 포함 되어 있습니다.
+클레임 변환은 지역화된 문자열을 기반으로 응답 메시지를 만듭니다. 이 메시지에는 지역화된 문자열 *ResponseMessge_EmailExists* 에 포함된 사용자의 이메일 주소가 포함되어 있습니다.
 
 ```xml
 <ClaimsTransformation Id="SetResponseMessageForEmailAlreadyExists" TransformationMethod="FormatLocalizedString">
@@ -390,11 +390,11 @@ FormatLocalizedString 클레임 변환을 사용 하려면 다음을 수행 합�
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-    - **Inputclaim**: sarah@contoso.com
+    - **inputClaim**: sarah@contoso.com
 - 입력 매개 변수:
     - **stringFormat**: ResponseMessge_EmailExists
 - 출력 클레임:
-  - **Outputclaim**: 전자 메일 ' sarah@contoso.com '은 (는) 이미이 조직의 계정입니다. 다음을 클릭 하 여 해당 계정으로 로그인 합니다.
+  - **outputClaim**: 이메일 'sarah@contoso.com'은 이미 이 조직의 계정입니다. 다음을 클릭하여 해당 계정으로 로그인합니다.
 
 
 ## <a name="formatstringclaim"></a>FormatStringClaim
@@ -408,7 +408,7 @@ FormatLocalizedString 클레임 변환을 사용 하려면 다음을 수행 합�
 | OutputClaim | outputClaim | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
 > [!NOTE]
-> 문자열 형식이 허용 되는 최대 크기는 4000입니다.
+> 문자열 형식이 허용되는 최대 크기는 4000입니다.
 
 매개 변수 {0} 하나가 포함된 모든 문자열의 서식을 지정하려면 이 클레임 변환을 사용합니다. 다음 예제에서는 **userPrincipalName** 을 만듭니다. `Facebook-OAUTH` 등의 모든 소셜 ID 공급자 기술 프로필은 **CreateUserPrincipalName** 을 호출하여 **userPrincipalName** 을 생성합니다.
 
@@ -447,7 +447,7 @@ FormatLocalizedString 클레임 변환을 사용 하려면 다음을 수행 합�
 | OutputClaim | outputClaim | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
 > [!NOTE]
-> 문자열 형식이 허용 되는 최대 크기는 4000입니다.
+> 문자열 형식이 허용되는 최대 크기는 4000입니다.
 
 두 매개 변수({0} 및 {1})가 포함된 모든 문자열의 서식을 지정하려면 이 클레임 변환을 사용합니다. 다음 예제는 지정된 형식으로 **displayName** 을 만듭니다.
 
@@ -1077,7 +1077,7 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ## <a name="string-claim-transformations-expressions"></a>문자열 클레임 변환 식
 Azure AD B2C 사용자 지정 정책의 클레임 변환 식은 테넌트 ID 및 기술 프로필 ID에 대한 컨텍스트 정보를 제공합니다.
 
-  | 식 | 설명 | 예제 |
+  | 식 | Description | 예제 |
  | ----- | ----------- | --------|
  | `{TechnicalProfileId}` | 기술 프로필 ID 이름입니다. | Facebook-OAUTH |
  | `{RelyingPartyTenantId}` | 신뢰 당사자 정책의 테넌트 ID입니다. | your-tenant.onmicrosoft.com |

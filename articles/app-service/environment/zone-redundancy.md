@@ -1,6 +1,6 @@
 ---
-title: App Service 환경에 대 한 가용성 영역 지원
-description: 앱이 영역 중복 되도록 App Service 환경을 배포 하는 방법에 대해 알아봅니다.
+title: Azure App Service Environment에 대한 가용성 영역 지원
+description: 앱이 영역 중복되도록 App Service Environment를 배포하는 방법을 알아봅니다.
 author: ccompy
 ms.assetid: 24e3e7eb-c160-49ff-8d46-e947818ef186
 ms.topic: article
@@ -8,33 +8,33 @@ ms.date: 07/15/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 383b5bb5c7295fe54efda883e47b9b2338286de5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98624728"
 ---
-# <a name="availability-zone-support-for-app-service-environments"></a>App Service 환경에 대 한 가용성 영역 지원
+# <a name="availability-zone-support-for-app-service-environments"></a>Azure App Service Environment에 대한 가용성 영역 지원
 
-ASE (App Service 환경)를 가용성 영역 (AZ)에 배포할 수 있습니다.  고객은 ILB (내부 부하 분산 장치) Ase를 Azure 지역 내의 특정 AZ에 배포할 수 있습니다. ILB ASE를 특정 AZ에 고정 하는 경우 ILB ASE에서 사용 하는 리소스는 지정 된 AZ에 고정 되거나 영역 중복 방식으로 배포 됩니다.  
+ASE(App Service Environment)는 AZ(가용성 영역)에 배포할 수 있습니다.  고객은 ILB(내부 부하 분산 장치) ASE를 Azure 지역 내 특정 AZ에 배포할 수 있습니다. ILB ASE를 특정 AZ에 고정하는 경우 ILB ASE에서 사용하는 리소스는 지정된 AZ에 고정되거나 영역 중복 방식으로 배포됩니다.  
 
-ILB ASE는 특정 영역에 고정 되므로 AZ에 명시적으로 배포 된 ILB ASE는 영역 리소스로 간주 됩니다. 다음 ILB ASE 종속성은 지정 된 영역에 고정 됩니다.
+ILB ASE는 특정 영역에 고정되므로 AZ에 명시적으로 배포된 ILB ASE는 영역 리소스로 간주합니다. 다음 ILB ASE 종속성은 지정된 영역에 고정됩니다.
 
 - ASE의 내부 부하 분산 장치 IP 주소
-- ASE에서 웹 응용 프로그램을 관리 하 고 실행 하는 데 사용 하는 계산 리소스
+- ASE에서 웹 애플리케이션을 관리하고 실행하는 데 사용하는 컴퓨팅 리소스
 
-영역 ILB ASE에 배포 된 웹 응용 프로그램의 원격 파일 저장소는 ZRS (영역 중복 저장소)를 사용 합니다.
+영역 ILB ASE에 배포된 웹 애플리케이션의 원격 파일 스토리지는 ZRS(영역 중복 스토리지)를 사용합니다.
 
-이 문서에 설명 된 단계를 따르지 않는 한 ILB Ase는 자동으로 영역 방식으로 배포 되지 않습니다. 공용 IP 주소를 사용 하 여 외부 ASE를 특정 가용성 영역에 고정할 수 없습니다. 
+이 문서에 설명된 단계를 따라야 ILB ASE가 자동으로 영역 방식으로 배포됩니다. 공용 IP 주소를 사용하여 외부 ASE를 특정 가용성 영역에 고정할 수 없습니다. 
 
-영역 ILB Ase는 다음 지역 중 하나에서 만들 수 있습니다.
+영역 ILB ASE는 다음 지역에서 만들 수 있습니다.
 
 - 오스트레일리아 동부
 - 캐나다 중부
 - 미국 중부
 - 미국 동부
 - 미국 동부 2
-- 미국 동부 2 (EUAP)
+- 미국 동부 2(EUAP)
 - 프랑스 중부 
 - 일본 동부
 - 북유럽
@@ -43,15 +43,15 @@ ILB ASE는 특정 영역에 고정 되므로 AZ에 명시적으로 배포 된 IL
 - 영국 남부
 - 미국 서부 2
 
-영역 ILB ASE에 배포 된 응용 프로그램은 계속 실행 되 고 해당 ASE에 대 한 트래픽을 제공 합니다. 같은 지역의 다른 영역이 중단 되는 경우에도 마찬가지입니다.  을 포함 하 여 런타임 동작이 아닐 수 있습니다. 응용 프로그램 서비스 계획 크기 조정, 응용 프로그램 생성, 응용 프로그램 구성 및 응용 프로그램 게시는 다른 가용성 영역에서 작동 중단의 영향을 받을 수 있습니다. 영역에 고정 된 영역 ILB ASE 배포는 이미 배포 된 응용 프로그램에 대 한 계속 가동 시간을 보장 합니다.
+영역 ILB ASE에 배포된 애플리케이션은 계속 실행되고 같은 지역의 다른 영역이 중단되는 경우에도 해당 ASE에 대한 트래픽을 제공합니다.  애플리케이션 서비스 플랜 스케일링, 애플리케이션 만들기, 애플리케이션 구성, 애플리케이션 게시를 포함한 런타임 이외 동작은 다른 가용성 영역에서 발생하는 중단의 영향을 계속 받을 수 있습니다. 영역 ILB ASE의 영역 고정 배포는 이미 배포된 애플리케이션의 지속적인 작동 시간만 보장합니다.
 
-## <a name="how-to-deploy-an-app-service-environment-in-an-availability-zone"></a>가용성 영역에서 App Service Environment를 배포 하는 방법 ##
+## <a name="how-to-deploy-an-app-service-environment-in-an-availability-zone"></a>가용성 영역에서 App Service Environment를 배포하는 방법 ##
 
-영역 ILB Ase는 ARM 템플릿을 사용 하 여 만들어야 합니다. 영역 ILB ASE를 ARM 템플릿을 통해 만든 후에는 Azure Portal 및 CLI를 통해 표시 하 고 상호 작용할 수 있습니다.  ARM 템플릿은 영역 ILB ASE를 처음 만들 때만 필요 합니다.
+영역 ILB ASE는 ARM 템플릿을 사용하여 만들어야 합니다. 영역 ILB ASE는 ARM 템플릿을 통해 생성된 후 Azure Portal 및 CLI를 통해 보고 상호 작용할 수 있습니다.  ARM 템플릿은 영역 ILB ASE를 처음 만드는 경우에만 필요합니다.
 
-영역 ILB ASE를 지정 하기 위해 ARM 템플릿에서 필요한 유일한 변경 내용은 new ***zones** _ 속성입니다. _ *_Zones_** 속성은 ILB ASE가 고정 되어야 하는 논리 가용성 영역에 따라 값 "1", "2" 또는 "3"으로 설정 되어야 합니다.
+영역 ILB ASE를 지정하기 위해 ARM 템플릿에서 필요한 유일한 변경 내용은 새로운 **zones** 속성입니다. _ *_zones_** 속성은 ILB ASE를 고정해야 하는 논리적 가용성 영역에 따라 “1”, “2” 또는 “3” 값으로 설정해야 합니다.
 
-아래 예제 ARM 템플릿 코드 조각에서는 ILB ASE를 영역 2에 고정 하도록 지정 하는 새 ***영역*** 속성을 보여 줍니다.
+아래 예제 ARM 템플릿 코드 조각에서는 ILB ASE를 영역 2에 고정하도록 지정하는 새로운 ***zones*** 속성을 보여 줍니다.
 
 ```
    "resources": [
@@ -79,16 +79,16 @@ ILB ASE는 특정 영역에 고정 되므로 AZ에 명시적으로 배포 된 IL
     ]
 ```
 
-앱 영역을 중복 하 게 하려면 두 영역 ILB Ase를 배포 해야 합니다. 두 영역 ILB Ase은 별도의 가용성 영역에 있어야 합니다. 그런 다음 각 ILB Ase에 앱을 배포 해야 합니다. 앱을 만든 후에는 부하 분산 솔루션을 구성 해야 합니다. 권장 되는 해결책은 [영역 중복 Application Gateway 영역](../../application-gateway/application-gateway-autoscaling-zone-redundant.md) Ilb ase의 업스트림을 배포 하는 것입니다. 
+앱 영역을 중복으로 만들려면 두 개의 영역 ILB ASE를 배포해야 합니다. 두 영역 ILB ASE는 개별 가용성 영역에 있어야 합니다. 그런 다음, 각 ILB ASE에 앱을 배포해야 합니다. 앱이 생성된 후 부하 분산 솔루션을 구성해야 합니다. 권장 솔루션은 영역 ILB ASE의 [영역 중복 Application Gateway](../../application-gateway/application-gateway-autoscaling-zone-redundant.md) 업스트림을 배포하는 것입니다. 
 
-## <a name="in-region-data-residency"></a>지역 데이터 상주 ##
+## <a name="in-region-data-residency"></a>지역 내 데이터 보존 ##
 
-가용성 영역에 배포 된 ILB Ase는 지역 내에서 영역 ILB ASE가 배포 된 지역에만 고객 데이터를 저장 합니다. 웹 사이트 파일 콘텐츠와 고객 제공 설정 및 App Service에 저장 된 암호는 모두 영역 ILB ASE가 배포 되는 지역 내에 유지 됩니다.
+가용성 영역에 배포된 ILB ASE는 영역 ILB ASE가 배포된 지역 내 고객 데이터만 저장합니다. 웹 사이트 파일 콘텐츠와 App Service에 저장된 고객이 제공한 설정 및 비밀은 둘 다 영역 ILB ASE가 배포된 지역 내에 남아 있습니다.
 
-고객은 "가용성 영역에서 App Service Environment를 배포 하는 방법" 섹션의 앞부분에 설명 된 단계를 수행 하 여 단일 지역 데이터를 상주 확인 합니다. 이러한 단계에 따라 App Service Environment를 구성 하 여 가용성 영역에 배포 된 App Service Environment [Azure 보안 센터](https://azuredatacentermap.azurewebsites.net/)에 지정 된 것을 포함 하 여 지역 데이터 상주 요구 사항을 충족 합니다.
+고객은 “가용성 영역에서 App Service Environment를 배포하는 방법” 섹션의 앞부분에 설명된 단계에 따라 단일 지역 데이터 보존을 확인합니다. 이 단계에 따라 App Service Environment를 구성하면 가용성 영역에 배포된 App Service Environment는 [Azure 보안 센터](https://azuredatacentermap.azurewebsites.net/)에 지정된 요구 사항을 포함한 지역 내 데이터 보존 요구 사항을 충족합니다.
 
-고객은 다음 단계를 수행 하 여 단일 지역에 데이터를 저장 하도록 App Service Environment 올바르게 구성 되었는지 확인할 수 있습니다. 
+고객은 다음 단계에 따라 App Service Environment가 단일 지역에 데이터를 저장하도록 올바르게 구성되었는지 유효성을 검사할 수 있습니다. 
 
-1. [리소스 탐색기](https://resources.azure.com)를 사용 하 여 App Service Environment에 대 한 ARM 리소스로 이동 합니다.  Ase */hostingEnvironments* 아래에 나열 됩니다.
-2. *영역* 속성이 ARM json 구문 뷰에 있고 값이 "1", "2", "3" 인 단일 값 JSON 배열을 포함 하는 경우 ASE는 zonally 배포 되 고 고객 데이터는 동일한 지역에 유지 됩니다.
-2. *Zones* 속성이 존재 하지 않거나 속성에 이전에 지정 된 유효한 영역 값이 없는 경우 ASE가 zonally 배포 되지 않고 고객 데이터가 동일한 지역에 독점적으로 저장 되지 않습니다.
+1. [리소스 탐색기](https://resources.azure.com)를 사용하여 App Service Environment의 ARM 리소스로 이동합니다.  ASE는 *providers/Microsoft.Web/hostingEnvironments* 아래에 나열됩니다.
+2. *zones* 속성이 ARM JSON 구문 보기에 있고 값이 “1”, “2” 또는 “3”인 단일 값 JSON 배열을 포함하는 경우 ASE는 영역별로 배포되고 고객 데이터는 동일한 지역에 남아 있습니다.
+2. *zones* 속성이 존재하지 않거나 속성에 이전에 지정된 유효한 영역 값이 없는 경우 ASE는 영역별로 배포되지 않고 고객 데이터는 동일한 지역에만 저장되지 않습니다.

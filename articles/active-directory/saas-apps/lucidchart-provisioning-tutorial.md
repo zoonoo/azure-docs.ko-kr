@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Lucidchart 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 Lucidchart로 자동으로 프로비저닝 및 프로비저닝을 해제하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2020
-ms.author: Zhchia
-ms.openlocfilehash: e7447a8d742caef7a2c2ff0211e7e8002307b9e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: ba9e629e0b46442546919a1ca31ed2ef7fd90fb1
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96177976"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113763212"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Lucidchart 구성
 

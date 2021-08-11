@@ -1,15 +1,15 @@
 ---
 title: Azure Service Fabric 보안 모범 사례
-description: Azure Service Fabric 클러스터와 응용 프로그램의 보안을 유지 하기 위한 모범 사례 및 디자인 고려 사항입니다.
+description: Azure Service Fabric 클러스터 및 애플리케이션의 보안을 유지하기 위한 모범 사례 및 디자인 고려 사항입니다.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: b7af0a4c26a47644973e936eb37e221853d74c03
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98784666"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 보안 
@@ -87,7 +87,7 @@ Service Fabric 클러스터 프로세스에 대한 인증서에 ACL을 적용하
 > [!NOTE]
 > Service Fabric 클러스터는 호스트의 인증서 저장소에서 찾은 첫 번째 유효한 인증서를 사용합니다. Windows에서는 일반 이름 및 발급자 지문과 일치하는 최신 만료 날짜가 있는 인증서입니다.
 
-* \<YOUR SUBDOMAIN\> . Cloudapp.azure.com 또는. trafficmanager.net와 같은 Azure 도메인 \<YOUR SUBDOMAIN\> 은 Microsoft에서 소유 합니다. 인증 기관은 인증되지 않은 사용자에게 도메인에 대한 인증서를 발급하지 않습니다. 대부분의 사용자는 인증 기관에서 해당 일반 이름의 인증서를 발급할 수 있도록 등록 기관으로부터 도메인을 구입하거나 권한이 있는 도메인 관리자여야 합니다.
+*\<YOUR SUBDOMAIN\>.cloudapp.azure.com 또는 \<YOUR SUBDOMAIN\>.trafficmanager.net과 같은 Azure 도메인은 Microsoft의 소유입니다. 인증 기관은 인증되지 않은 사용자에게 도메인에 대한 인증서를 발급하지 않습니다. 대부분의 사용자는 인증 기관에서 해당 일반 이름의 인증서를 발급할 수 있도록 등록 기관으로부터 도메인을 구입하거나 권한이 있는 도메인 관리자여야 합니다.
 
 도메인을 Microsoft IP 주소로 확인하도록 DNS 서비스를 구성하는 방법에 대한 자세한 내용은 [도메인을 호스팅하도록 Azure DNS를 구성하는 방법](../dns/dns-delegate-domain-azure-dns.md)을 검토하세요.
 
@@ -143,9 +143,9 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 
 보호되는 값이 암호화되면 [Service Fabric 애플리케이션에서 암호화된 비밀을 지정](./service-fabric-application-secret-management.md#specify-encrypted-secrets-in-an-application)하고 [서비스 코드에서 암호화된 비밀을 해독](./service-fabric-application-secret-management.md#decrypt-encrypted-secrets-from-service-code)합니다.
 
-## <a name="include-certificate-in-service-fabric-applications"></a>Service Fabric 응용 프로그램에 인증서 포함
+## <a name="include-certificate-in-service-fabric-applications"></a>Service Fabric 애플리케이션에 인증서 포함
 
-응용 프로그램에 비밀에 대 한 액세스 권한을 부여 하려면 응용 프로그램 매니페스트에 **SecretsCertificate** 요소를 추가 하 여 인증서를 포함 합니다.
+비밀에 대한 액세스 권한을 애플리케이션에 부여하려면 애플리케이션 매니페스트에 **SecretsCertificate** 요소를 추가하여 인증서를 포함합니다.
 
 ```xml
 <ApplicationManifest … >
@@ -191,7 +191,7 @@ principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGr
 az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
 ```
 
-Service Fabric 응용 프로그램 코드에서 나머지를 모두 다음과 비슷하게 만들어 Azure Resource Manager에 대 한 [액세스 토큰을 가져옵니다](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http) .
+Service Fabric 애플리케이션 코드에서 REST를 모두 다음과 유사하게 설정하여 Azure Resource Manager의 [액세스 토큰을 가져옵니다](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http).
 
 ```bash
 access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")
@@ -205,24 +205,24 @@ access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-v
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
 ## <a name="windows-security-baselines"></a>Windows 보안 기준
-[기준을 직접 만드는 것이 아니라 Microsoft 보안 기준과 같이 널리 알려져 있고 잘 테스트 된 업계 표준 구성을 구현 하는 것이 좋습니다](/windows/security/threat-protection/windows-security-baselines). Virtual Machine Scale Sets에서 프로 비전 하는 옵션은 Azure DSC (필요한 상태 구성) 확장 처리기를 사용 하 여 Vm이 온라인 상태가 되 면 프로덕션 소프트웨어를 실행 하는 Vm을 구성 하는 것입니다.
+[기준을 직접 만드는 것이 아니라 Microsoft 보안 기준과 같이 널리 알려져 있고 잘 테스트된 업계 표준 구성을 구현하는 것이 좋습니다.](/windows/security/threat-protection/windows-security-baselines) Virtual Machine Scale Sets에서 이를 프로비저닝하는 옵션은 Azure DSC(Desired State Configuration) 확장 처리기를 사용하여 VM이 온라인으로 전환되어 프로덕션 소프트웨어를 실행하도록 구성하는 것입니다.
 
 ## <a name="azure-firewall"></a>Azure Firewall
-[Azure 방화벽은 azure Virtual Network 리소스를 보호 하는 관리 되는 클라우드 기반 네트워크 보안 서비스입니다. 이는 기본 제공 고가용성 및 무제한 클라우드 확장성이 있는 완전 한 상태 저장 방화벽으로 서의 서비스입니다.](../firewall/overview.md) 이를 통해 와일드 카드를 포함 하 여 지정 된 FQDN (정규화 된 도메인 이름) 목록으로 아웃 바운드 HTTP/S 트래픽을 제한할 수 있습니다. 이 기능에는 TLS/SSL 종료가 필요 하지 않습니다. Windows 업데이트에 대 한 [Azure 방화벽 FQDN 태그](../firewall/fqdn-tags.md) 를 활용 하 고 Microsoft Windows 업데이트 끝점에 대 한 네트워크 트래픽을 방화벽을 통해 이동할 수 있도록 하는 것이 좋습니다. [템플릿을 사용 하 여 Azure 방화벽 배포](../firewall/deploy-template.md) 리소스 템플릿 정의에 대 한 샘플을 제공 합니다. Service Fabric 응용 프로그램에 공통적인 방화벽 규칙은 클러스터 가상 네트워크에 대해 다음을 허용 하는 것입니다.
+[Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리형 클라우드 기반 네트워크 보안 서비스입니다. 고가용성 및 무제한 클라우드 스케일링 성능이 기본 제공되는 서비스 형태의 완전한 상태 저장 방화벽입니다.](../firewall/overview.md) 이를 통해 아웃바운드 HTTP/S 트래픽을 와일드카드를 포함한 지정된 목록의 FQDN(정규화된 도메인 이름)으로 제한하는 기능을 사용할 수 있습니다. 이 기능에는 TLS/SSL 종료가 필요하지 않습니다. Windows 업데이트에 [Azure Firewall FQDN 태그](../firewall/fqdn-tags.md)를 이용하고 Microsoft Windows 업데이트 엔드포인트에 대한 네트워크 트래픽이 방화벽을 통해 이동할 수 있도록 하는 것이 좋습니다. [템플릿을 사용하여 Azure Firewall 배포](../firewall/deploy-template.md)에서는 Microsoft.Network/azureFirewalls 리소스 템플릿 정의의 샘플을 제공합니다. Service Fabric 애플리케이션에 공통적인 방화벽 규칙은 클러스터 가상 네트워크에 대해 다음을 허용하는 것입니다.
 
-- * download.microsoft.com
-- * servicefabric.azure.com
+- *download.microsoft.com
+- *servicefabric.azure.com
 - *.core.windows.net
 
-이러한 방화벽 규칙은 가상 네트워크에서 허용 되는 대상으로 ServiceFabric 및 Storage를 포함 하는 허용 되는 아웃 바운드 네트워크 보안 그룹을 보완 합니다.
+이 방화벽 규칙은 가상 네트워크에서 허용되는 대상으로 ServiceFabric 및 Storage를 포함하는 허용된 아웃바운드 네트워크 보안 그룹을 보완합니다.
 
 ## <a name="tls-12"></a>TLS 1.2
 
-Microsoft [Azure](https://azure.microsoft.com/updates/azuretls12/) 는 모든 고객이 tls (transport layer security) 1.2를 지 원하는 솔루션에 대 한 마이그레이션을 완료 하 고 기본적으로 tls 1.2이 사용 되도록 하는 것을 권장 합니다.
+Microsoft [Azure 권장 사항](https://azure.microsoft.com/updates/azuretls12/)에 따라 모든 고객이 TLS(전송 계층 보안) 1.2를 지원하는 솔루션으로 완전히 마이그레이션하고 TLS 1.2가 기본적으로 사용되는지 확인하는 것이 좋습니다.
 
-[Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/microsoft-azure-service-fabric-6-3-refresh-release-cu1-notes/ba-p/791493)를 포함 한 Azure 서비스는 tls 1.0/1.1 프로토콜에 대 한 종속성을 제거 하기 위한 엔지니어링 작업을 완료 했으며, tls 1.2 연결만 수락 하 고 시작 하도록 구성 된 고객에 게 완전 한 지원을 제공 합니다.
+[Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/microsoft-azure-service-fabric-6-3-refresh-release-cu1-notes/ba-p/791493)을 포함한 Azure 서비스는 TLS 1.0/1.1 프로토콜에 대한 종속성을 제거하는 엔지니어링 작업을 완료했으며, TLS 1.2 연결만 수락하고 시작하도록 워크로드를 구성하려는 고객에게 완전한 지원을 제공합니다.
 
-고객은 기본적으로 TLS 1.2을 사용 하도록 azure 서비스와 상호 작용 하는 Azure 호스팅 워크 로드 및 온-프레미스 응용 프로그램을 구성 해야 합니다. 특정 TLS 버전을 사용 하도록 [Service Fabric 클러스터 노드 및 응용 프로그램을 구성](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md) 하는 방법은 다음과 같습니다.
+고객은 기본적으로 TLS 1.2를 사용하도록 Azure 서비스와 상호 작용하는 Azure에서 호스트되는 워크로드와 온-프레미스 애플리케이션을 구성해야 합니다. 특정 TLS 버전을 사용하도록 [Service Fabric 클러스터 노드와 애플리케이션을 구성](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)하는 방법은 다음과 같습니다.
 
 ## <a name="windows-defender"></a>Windows Defender 
 
@@ -259,7 +259,7 @@ Microsoft [Azure](https://azure.microsoft.com/updates/azuretls12/) 는 모든 �
 > Windows Defender를 사용하지 않는 경우 구성 규칙에 대한 맬웨어 방지 설명서를 참조하세요. Linux에서는 Windows Defender가 지원되지 않습니다.
 
 ## <a name="platform-isolation"></a>플랫폼 격리
-기본적으로 Service Fabric 응용 프로그램에는 Service Fabric 런타임 자체에 대 한 액세스 권한이 부여 됩니다. 즉, 응용 프로그램 및 패브릭 파일에 해당 하는 호스트의 파일 경로를 가리키는 [환경 변수](service-fabric-environment-variables-reference.md) , 응용 프로그램별 요청을 수락 하는 프로세스 간 통신 끝점, 패브릭에서 응용 프로그램을 인증 하는 데 사용 해야 하는 클라이언트 인증서를 각기 다른 형식으로 매니페스트 합니다. 서비스에서 신뢰 하지 않는 코드를 대비해 야 하는 경우 명시적으로 필요 하지 않은 경우에는 SF 런타임에 대 한이 액세스를 사용 하지 않도록 설정 하는 것이 좋습니다. 응용 프로그램 매니페스트의 정책 섹션에서 다음 선언을 사용 하 여 런타임에 대 한 액세스를 제거 합니다. 
+기본적으로 Service Fabric 애플리케이션에는 애플리케이션 및 Fabric 파일에 해당하는 호스트의 파일 경로를 가리키는 [환경 변수](service-fabric-environment-variables-reference.md), 애플리케이션 관련 요청을 수락하는 프로세스 간 통신 엔드포인트, Fabric에서 애플리케이션이 인증하는 데 사용해야 하는 클라이언트 인증서 등의 다양한 형식으로 자신을 매니페스트하는 Service Fabric 런타임 자체에 대한 액세스 권한이 부여됩니다. 서비스 자체에서 신뢰할 수 없는 코드를 호스트하는 경우에 대비해서 명시적으로 필요한 경우가 아니면 SF 런타임에 대해 이 액세스 권한을 사용하지 않도록 설정하는 것이 좋습니다. 애플리케이션 매니페스트의 정책 섹션에서 다음 선언을 사용하여 런타임에 대한 액세스 권한을 제거합니다. 
 
 ```xml
 <ServiceManifestImport>
@@ -272,8 +272,8 @@ Microsoft [Azure](https://azure.microsoft.com/updates/azuretls12/) 는 모든 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* Windows server를 실행 하는 Vm 또는 컴퓨터에서 클러스터 만들기: [Windows server에 대 한 클러스터 만들기를 Service Fabric](service-fabric-cluster-creation-for-windows-server.md)합니다.
-* Vm 또는 Linux를 실행 하는 컴퓨터에서 클러스터 만들기: [linux 클러스터를 만듭니다](service-fabric-cluster-creation-via-portal.md).
+* Windows Server를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Windows Server용 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md).
+* Linux를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Linux 클러스터 만들기](service-fabric-cluster-creation-via-portal.md).
 * [Service Fabric 지원 옵션](service-fabric-support.md)에 대해 알아봅니다.
 
 [Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 78b912dd649ff942e0187f9b3602d9213383b8c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e02e042345ad1583eebbde53e85b7cf25dced30
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560738"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "114286735"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure에서 Windows 가상 머신 만들기
 
@@ -54,6 +54,8 @@ New-AzVm `
     -PublicIpAddressName "myPublicIpAddress" `
     -OpenPorts 80,3389
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## <a name="connect-to-virtual-machine"></a>가상 머신에 연결
 
