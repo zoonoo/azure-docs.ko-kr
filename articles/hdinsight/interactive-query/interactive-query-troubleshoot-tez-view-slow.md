@@ -1,31 +1,31 @@
 ---
-title: Azure HDInsight에서 Apache Ambari Tez 보기가 느리게 로드 됩니다.
-description: Apache Ambari Tez 뷰가 느리게 로드 되거나 Azure HDInsight에서 전혀 로드 되지 않을 수 있습니다.
+title: Azure HDInsight에서 Apache Ambari Tez 보기가 느리게 로드됩니다
+description: Azure HDInsight에서 Apache Ambari Tez 보기가 느리게 로드되거나 로드되지 않을 수 있습니다
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/30/2019
 ms.openlocfilehash: 4fe66b3104be0351a9b0e1df6b6545f71ff276ab
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98930762"
 ---
-# <a name="scenario-apache-ambari-tez-view-loads-slowly-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 Apache Ambari Tez 보기가 느리게 로드 됩니다.
+# <a name="scenario-apache-ambari-tez-view-loads-slowly-in-azure-hdinsight"></a>시나리오: Azure HDInsight Apache Ambari Tez 보기가 느리게 로드됩니다
 
-이 문서에서는 Azure HDInsight 클러스터에서 대화형 쿼리 구성 요소를 사용 하는 경우 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
+이 문서에서는 Azure HDInsight 클러스터에서 Interactive Query 구성 요소를 사용할 때 발생하는 문제 해결 단계와 가능한 문제 해결 방법을 설명합니다.
 
 ## <a name="issue"></a>문제
 
-Apache Ambari Tez 뷰가 느리게 로드 되거나 전혀 로드 되지 않을 수 있습니다. Ambari Tez 뷰를 로드 하는 경우 헤드 노드의 프로세스가 응답 하지 않는 것을 볼 수 있습니다.
+Apache Ambari Tez 보기가 느리게 로드되거나 로드되지 않을 수 있습니다. Ambari Tez 보기를 로드할 때 헤드 노드의 프로세스가 응답하지 않는 것을 볼 수 있습니다.
 
 ## <a name="cause"></a>원인
 
-Yarn ATS Api에 액세스 하는 경우 클러스터에 많은 수의 Hive 작업이 실행 될 때 10 월 2017 일 이전에 생성 된 클러스터의 성능이 저하 될 수 있습니다.
+2017년 10월 이전에 생성한 클러스터에서 실행되는 Hive 작업이 많은 경우, Yarn ATS API 엑세스 성능이 저하될 수 있습니다.
 
 ## <a name="resolution"></a>해결 방법
 
-이 문제는 Oct 2017에서 해결 된 문제입니다. 클러스터를 다시 만들면이 문제가 다시 실행 되지 않습니다.
+이는 2017년 10월에 해결된 문제입니다. 클러스터를 다시 생성하면 이 문제가 다시 발생하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

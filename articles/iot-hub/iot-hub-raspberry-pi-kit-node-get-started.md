@@ -1,6 +1,6 @@
 ---
-title: 클라우드에서 Azure IoT Hub에 Raspberry Pi 연결 (Node.js)
-description: Raspberry Azure IoT Hub Pi를 설정 하 고 Raspberry Pi에 연결 하 여이 자습서에서 Azure 클라우드 플랫폼으로 데이터를 전송 하는 방법에 대해 알아봅니다.
+title: Raspberry Pi를 클라우드의 Azure IoT Hub에 연결(Node.js)
+description: 이 자습서에서는 Azure 클라우드 플랫폼으로 데이터를 보내기 위해 Raspberry Pi을 설정하고 Raspberry Pi용 Azure IoT Hub에 연결하는 방법을 알아봅니다.
 author: wesmc7777
 manager: eliotgra
 keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi에서 클라우드로 데이터 전송, raspberry pi-클라우드
@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-js
 ms.openlocfilehash: c96f674b64401250d45542d0f59f13654cf37caa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97802527"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi를 Azure IoT Hub에 연결(Node.js)
@@ -97,13 +97,13 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 1. Raspbian을 다운로드합니다.
 
-   a. [Raspbian Buster with desktop](https://www.raspberrypi.org/software/) (.zip 파일).
+   a. [데스크톱을 사용하는 Raspbian Buster](https://www.raspberrypi.org/software/)(.zip 파일)
 
    b. 컴퓨터의 폴더에 Raspbian 이미지의 압축을 풉니다.
 
 2. microSD 카드에 Raspbian을 설치합니다.
 
-   a. [ETCHER SD 카드 버너 유틸리티를 다운로드 하 여 설치](https://etcher.io/)합니다.
+   a. [Etcher SD 카드 버너 유틸리티를 다운로드하여 설치합니다](https://etcher.io/).
 
    b. Etcher를 실행하고 1단계에서 압축을 푼 Raspbian 이미지를 선택합니다.
 
@@ -119,9 +119,9 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 1. Pi를 모니터, 키보드 및 마우스에 연결합니다.
 
-2. Pi를 시작한 다음를 사용자 이름으로,를 암호로 사용 하 여 Raspbian에 로그인 `pi` `raspberry` 합니다.
+2. Pi를 시작한 다음, `pi`를 사용자 이름으로, `raspberry`를 암호로 사용하여 Raspbian에 로그인합니다.
 
-3. Raspberry 아이콘 > **기본 설정**  >  **Raspberry Pi 구성** 을 클릭 합니다.
+3. Raspberry 아이콘 > **기본 설정** > **Raspberry Pi 구성** 을 클릭합니다.
 
    ![Raspbian 기본 설정 메뉴](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
@@ -134,7 +134,7 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 ### <a name="connect-the-sensor-to-pi"></a>Pi에 센서 연결
 
-실험용 회로판과 점퍼 와이어를 사용하여 LED 및 BME280 Pi를 다음과 같이 연결합니다. 센서가 없는 경우 [이 섹션을 건너뜁니다](#connect-pi-to-the-network).
+실험용 회로판과 점퍼 와이어를 사용하여 LED 및 BME280 Pi를 다음과 같이 연결합니다. 센서가 없는 경우 [이 섹션을 건너뛰세요](#connect-pi-to-the-network).
 
 ![Raspberry Pi와 센서 연결](./media/iot-hub-raspberry-pi-kit-node-get-started/3-raspberry-pi-sensor-connection.png)
 
@@ -151,7 +151,7 @@ BME280 센서는 온도 및 습도 데이터를 수집할 수 있습니다. 디�
 | LED VDD(18F 핀)        | GPIO 24(18 핀)       | 흰색 케이블   |
 | LED GND(17F 핀)        | GND(20 핀)           | 검은색 케이블   |
 
-참조에 대 한 [Raspberry Pi 2 & 3 핀 매핑](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) 을 보려면 클릭 합니다.
+참조용으로 [Raspberry Pi 2 및 3 핀 매핑](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi)을 보려면 클릭하세요.
 
 BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 보여야 합니다.
 
@@ -195,7 +195,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    node -v
    ```
 
-   버전이 10. x 보다 낮거나 Pi에 Node.js 없는 경우 최신 버전을 설치 합니다.
+   버전이 4.x보다 낮거나 Pi에 Node.js가 없는 경우 최신 버전을 설치합니다.
 
    ```bash
    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
@@ -232,7 +232,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 
    **센서가 없는 경우**`simulatedData` 값을 `true`로 설정하여 샘플 애플리케이션에서 시뮬레이션된 센서 데이터를 만들어서 사용하게 합니다.
 
-   *참고:이 자습서에 사용 된 i2c 주소는 기본적으로 0x77입니다. 구성에 따라 0 x 5 일 수도 있습니다. i2c 오류가 발생 하는 경우 값을 118로 변경 하 고 더 잘 작동 하는지 확인 하십시오. 센서에서 사용 하는 주소를 확인 하려면 `sudo i2cdetect -y 1` raspberry pi에서 셸에서를 실행 합니다.*
+   *참고: 이 자습서에서 사용되는 i2c 주소는 기본적으로 0x77입니다. 구성에 따라 0x76일 수도 있습니다. i2c 오류가 발생하면 값을 118로 변경하고 더 잘 작동하는지 확인합니다. 센서에서 사용되는 주소를 확인하려면 raspberry pi의 셸에서 `sudo i2cdetect -y 1`을 실행합니다.*
 
 2. Control-O > Enter > Control-X를 입력하여 저장하고 종료합니다.
 
@@ -253,12 +253,12 @@ IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 �
 
 ## <a name="read-the-messages-received-by-your-hub"></a>허브에서 받은 메시지 읽기
 
-장치에서 IoT hub가 받은 메시지를 모니터링 하는 한 가지 방법은 Visual Studio Code 용 Azure IoT 도구를 사용 하는 것입니다. 자세한 내용은 [Azure IoT Tools를 사용 하 여 장치와 IoT Hub 간에 메시지 보내기 및 받기 Visual Studio Code](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)을 참조 하세요.
+IoT 허브가 디바이스에서 수신한 메시지를 모니터링하는 한 가지 방법은 Visual Studio Code용 Azure IoT Tools를 사용하는 것입니다. 자세히 알아보려면 [Visual Studio Code용 Azure IoT Tools를 사용하여 디바이스와 IoT Hub 간에 메시지 보내고 받기](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)를 참조하세요.
 
-장치에서 전송 되는 데이터를 처리 하는 방법에 대 한 자세한 내용은 다음 섹션을 계속 진행 하세요.
+디바이스에서 전송되는 데이터를 처리하는 방법에 대한 자세한 내용은 다음 섹션을 계속 진행하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-샘플 응용 프로그램을 실행 하 여 센서 데이터를 수집 하 고이를 IoT hub로 보냅니다.
+샘플 애플리케이션을 실행하여 센서 데이터를 수집하고 IoT Hub로 전송했습니다.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

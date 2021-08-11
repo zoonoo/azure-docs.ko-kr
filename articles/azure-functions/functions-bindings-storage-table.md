@@ -7,22 +7,22 @@ ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 4f2b890dc60cd50b5fcaefabe8d418268b738c20
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92096728"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Table Storage 바인딩
 
-Azure Functions는 [트리거와 바인딩을](./functions-triggers-bindings.md)통해 [Azure Storage](../storage/index.yml) 와 통합 됩니다. 테이블 저장소와 통합 하면 테이블 저장소 데이터를 읽고 쓰는 함수를 작성할 수 있습니다.
+Azure Functions는 [트리거 및 바인딩](./functions-triggers-bindings.md)을 통해 [Azure Storage](../storage/index.yml)와 통합됩니다. 테이블 스토리지와 통합하면 테이블 스토리지 데이터를 읽고 쓰는 함수를 작성할 수 있습니다.
 
-| 작업 | Type |
+| 작업 | 유형 |
 |---------|---------|
-| 함수의 테이블 저장소 데이터 읽기 | [입력 바인딩](./functions-bindings-storage-table-input.md) |
-| 함수가 테이블 저장소 데이터를 쓰도록 허용 |[출력 바인딩](./functions-bindings-storage-table-output.md) |
+| 함수의 테이블 스토리지 데이터 읽기 | [입력 바인딩](./functions-bindings-storage-table-input.md) |
+| 함수가 테이블 스토리지 데이터를 쓰도록 허용 |[출력 바인딩](./functions-bindings-storage-table-output.md) |
 
-## <a name="packages---functions-2x-and-higher"></a>패키지-함수 2.x 이상
+## <a name="packages---functions-2x-and-higher"></a>패키지 - Functions 2.x 이상
 
 Table Storage 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables) GitHub 리포지토리에 있습니다.
 
@@ -38,5 +38,5 @@ Table Storage 바인딩은 [Microsoft.Azure.WebJobs](https://www.nuget.org/packa
 
 ## <a name="next-steps"></a>다음 단계
 
-- [함수가 실행 될 때 테이블 저장소 데이터 읽기](./functions-bindings-storage-table-input.md)
-- [함수에서 테이블 저장소 데이터 쓰기](./functions-bindings-storage-table-output.md)
+- [함수가 실행될 때 테이블 스토리지 데이터 읽기](./functions-bindings-storage-table-input.md)
+- [함수에서 테이블 스토리지 데이터 쓰기](./functions-bindings-storage-table-output.md)

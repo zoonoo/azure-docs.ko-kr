@@ -9,12 +9,12 @@ metadata:
   ms.date: 06/30/2020
   ms.reviewer: jushiman
   ms.custom: mimckitt
-  ms.openlocfilehash: 3fd3f0f7af11a2354a89fc86344bef44b0cffa07
-  ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
+  ms.openlocfilehash: 38037844a12f268d6942e9e78b821f2ec7ba040e
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/24/2021
-  ms.locfileid: "112676453"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114456306"
 title: Azure 가상 머신 확장 집합에 대한 FAQ
 summary: Azure의 가상 머신 확장 집합에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
 sections:
@@ -31,6 +31,8 @@ sections:
 
 
       * Azure 파일(SMB 공유 드라이브)
+
+      * Azure 공유 디스크
 
       * OS 드라이브
 

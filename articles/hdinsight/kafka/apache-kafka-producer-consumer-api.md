@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: e5a635a8837aadaf423c6f3a0925dbac4080e60f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35115f56690d4ea0f8a70bb5c3099735101a9a29
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822205"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287443"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>자습서: Apache Kafka 생산자 및 소비자 API 사용
 
@@ -31,7 +31,7 @@ API에 대한 자세한 내용은 [생산자 API](https://kafka.apache.org/docum
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight 클러스터의 Apache Kafka. 클러스터를 만드는 방법을 알아보려면 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md)을 참조하세요.
-* OpenJDK 같은 [JDK(Java 개발자 키트) 버전 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) 또는 그와 동등한 프로그램
+* OpenJDK 같은 [JDK(Java 개발자 키트) 버전 8](/azure/developer/java/fundamentals/java-support-on-azure) 또는 그와 동등한 프로그램
 * Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html)[Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 * Putty와 같은 SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 

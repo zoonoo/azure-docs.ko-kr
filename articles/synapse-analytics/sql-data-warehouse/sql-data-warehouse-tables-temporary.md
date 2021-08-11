@@ -1,6 +1,6 @@
 ---
 title: 임시 테이블
-description: 전용 SQL 풀에서 임시 테이블을 사용 하기 위한 필수 지침으로, 세션 수준 임시 테이블의 원리를 강조 표시 합니다.
+description: 전용 SQL 풀에서 임시 테이블을 사용하기 위한 필수 지침을 제공하고 세션 수준 임시 테이블의 원리를 강조해서 설명합니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,10 +11,10 @@ ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 077782099d6d61982052dc1690d545e58e928d8c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93310679"
 ---
 # <a name="temporary-tables-in-dedicated-sql-pool"></a>전용 SQL 풀의 임시 테이블
@@ -25,17 +25,17 @@ ms.locfileid: "93310679"
 
 ## <a name="what-are-temporary-tables"></a>임시 테이블이란?
 
-특히 중간 결과가 일시적인 변환 중 데이터를 처리할 때 임시 테이블은 유용합니다. 전용 SQL 풀에서 임시 테이블은 세션 수준에서 존재 합니다.  
+특히 중간 결과가 일시적인 변환 중 데이터를 처리할 때 임시 테이블은 유용합니다. 전용 SQL 풀에서 임시 테이블은 세션 수준에 있습니다.  
 
 임시 테이블은 생성된 세션에서만 보이고, 해당 세션이 로그오프되면 자동으로 삭제됩니다.  
 
 임시 테이블은 결과가 원격 스토리지 대신 로컬로 기록되기 때문에 성능상의 이점을 제공합니다.
 
-특히 중간 결과가 일시적인 변환 중 데이터를 처리할 때 임시 테이블은 유용합니다. 전용 SQL 풀을 사용 하면 임시 테이블이 세션 수준에서 존재 합니다.  이러한 임시 테이블은 만들어진 세션에만 표시됩니다. 따라서 해당 세션이 로그오프되면 자동으로 삭제됩니다. 
+특히 중간 결과가 일시적인 변환 중 데이터를 처리할 때 임시 테이블은 유용합니다. 전용 SQL 풀을 사용하면 임시 테이블이 세션 수준에 존재합니다.  이러한 임시 테이블은 만들어진 세션에만 표시됩니다. 따라서 해당 세션이 로그오프되면 자동으로 삭제됩니다. 
 
 ## <a name="temporary-tables-in-dedicated-sql-pool"></a>전용 SQL 풀의 임시 테이블
 
-전용 SQL 풀 리소스에서 임시 테이블은 결과가 원격 저장소가 아닌 로컬에 기록 되기 때문에 성능상의 이점을 제공 합니다.
+전용 SQL 풀 리소스에서 임시 테이블은 결과가 원격 스토리지 대신 로컬로 기록되기 때문에 성능상의 이점을 제공합니다.
 
 ### <a name="create-a-temporary-table"></a>임시 테이블 만들기
 
@@ -207,7 +207,7 @@ GO
 
 그러나 저장 프로시저 끝에는 `DROP TABLE` 이 없으므로 저장 프로시저가 완료되면 저장 프로시저 외부에서 읽을 수 있도록 만든 테이블이 그대로 남아 있습니다.  
 
-다른 SQL Server 데이터베이스와 달리 전용 SQL 풀에서 임시 테이블을 만든 프로시저 외부에서 임시 테이블을 사용할 수 있습니다.  전용 SQL 풀 임시 테이블은 세션 내부 **에서** 사용할 수 있습니다. 이 기능을 사용하면 다음 예와 같이 모듈식 및 관리 가능 코드가 더 많아질 수 있습니다.
+전용 SQL 풀에서는 다른 SQL Server 데이터베이스와 달리 임시 테이블을 생성한 프로시저 외부에서 임시 테이블을 사용할 수 있습니다.  세션 내의 **어디에서나** 전용 SQL 풀 임시 테이블을 사용할 수 있습니다. 이 기능을 사용하면 다음 예와 같이 모듈식 및 관리 가능 코드가 더 많아질 수 있습니다.
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -229,11 +229,11 @@ DROP TABLE #stats_ddl;
 ```
 
 ## <a name="temporary-table-limitations"></a>임시 테이블 제한 사항
-전용 SQL 풀에서는 임시 테이블을 구현할 때 몇 가지 제한 사항이 적용 됩니다.  현재 세션 범위의 임시 테이블만 지원됩니다.  전역 임시 테이블은 지원되지 않습니다.  
+전용 SQL 풀에는 임시 테이블을 구현할 때 몇 가지 제한 사항을 적용합니다.  현재 세션 범위의 임시 테이블만 지원됩니다.  전역 임시 테이블은 지원되지 않습니다.  
 
 또한 임시 테이블에서 뷰를 만들 수 없습니다.  임시 테이블은 해시 또는 라운드 로빈 배포를 통해서만 만들 수 있습니다.  복제된 임시 테이블 배포가 지원되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-테이블 개발에 대해 자세히 알아보려면 [전용 SQL 풀을 사용 하 여 테이블 디자인](sql-data-warehouse-tables-overview.md) 문서를 참조 하세요.
+테이블 개발에 대한 자세한 내용은 [전용 SQL 풀을 사용한 테이블 디자인](sql-data-warehouse-tables-overview.md) 문서를 참조하세요.
 

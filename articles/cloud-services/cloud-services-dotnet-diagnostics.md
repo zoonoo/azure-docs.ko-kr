@@ -1,5 +1,5 @@
 ---
-title: Cloud Services에서 Azure 진단 (.NET)을 사용 하는 방법 (클래식) | Microsoft Docs
+title: Cloud Services(classic)에서 Azure 진단(.NET)을 사용하는 방법 | Microsoft Docs
 description: Azure 진단을 사용하면 디버깅, 성능 측정, 모니터링, 트래픽 분석 등을 위해 Azure 클라우드 서비스에서 데이터를 수집할 수 있습니다.
 ms.topic: article
 ms.service: cloud-services
@@ -9,16 +9,16 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 97e68d338580132b6927c4cc8b206db60fe93ba2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101703510"
 ---
-# <a name="enabling-azure-diagnostics-in-azure-cloud-services-classic"></a>Azure Cloud Services에서 Azure 진단 사용 (클래식)
+# <a name="enabling-azure-diagnostics-in-azure-cloud-services-classic"></a>Azure Cloud Services(classic)에서 Azure 진단 사용
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(classic)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 Azure Diagnostics의 배경은 [Azure Diagnostics 개요](../azure-monitor/agents/diagnostics-extension-overview.md)를 참조하세요.
 
@@ -126,7 +126,7 @@ namespace WorkerRole1
 
 1. 솔루션 Explorer에서 **WadExample** 프로젝트를 선택한 후 **빌드** 메뉴에서 **게시** 를 선택하여 Visual Studio 내에서 Azure에 작업자 역할을 배포합니다.
 2. 구독을 선택합니다.
-3. **Microsoft Azure 게시 설정** 대화 상자에서 **새로 만들기 ...** 를 선택 합니다.
+3. **Microsoft Azure 게시 설정** 대화 상자에서 **새로 만들기...** 를 선택합니다.
 4. **클라우드 서비스 및 Storage 계정 만들기** 대화 상자에서 **이름**(예: "WadExample")을 입력하고 지역 또는 선호도 그룹을 선택합니다.
 5. **환경** 을 **스테이징** 으로 설정합니다.
 6. 다른 **설정** 을 적절히 수정하고 **게시** 를 클릭합니다.
@@ -138,10 +138,10 @@ namespace WorkerRole1
     ```powershell
     (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
     ```
-2. **WorkerRole1** 프로젝트에 XML 파일을 추가합니다. **WorkerRole1** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** -> **새 항목…** -> **Visual c # 항목**  ->  **데이터**  ->  **XML 파일** 입니다. 파일 이름을 “WadExample.xml”로 지정합니다.
+2. **WorkerRole1** 프로젝트에 XML 파일을 추가합니다. **WorkerRole1** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** -> **새 항목…** -> **Visual C# 항목** -> **데이터** -> **XML 파일**. 파일 이름을 “WadExample.xml”로 지정합니다.
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
-3. WadConfig.xsd를 구성 파일과 연결합니다. WadExample.xml 편집기 창이 활성 창인지 확인합니다. **F4** 키를 눌러 **속성** 창을 엽니다. **속성** 창에서 **Schemas** 속성을 클릭합니다. **...를 클릭** 합니다. **...** 를 클릭합니다. **추가** ...를 클릭 합니다. 단추를 클릭하고 XSD 파일을 저장한 위치로 이동한 후 WadConfig.xsd 파일을 선택하고 **확인** 을 클릭합니다.
+3. WadConfig.xsd를 구성 파일과 연결합니다. WadExample.xml 편집기 창이 활성 창인지 확인합니다. **F4** 를 눌러 **속성** 창을 엽니다. **속성** 창에서 **Schemas** 속성을 클릭합니다. **Schemas** 속성에서 **...** 를 클릭합니다. **추가...** 를 클릭합니다. 단추를 클릭하고 XSD 파일을 저장한 위치로 이동한 후 WadConfig.xsd 파일을 선택하고 **확인** 을 클릭합니다.
 
 4. WadExample.xml 구성 파일의 내용을 다음 XML로 바꾸고 파일을 저장합니다. 이 구성 파일은 각각 CPU 사용률 및 메모리 사용률을 수집할 두 가지 성능 카운터를 정의합니다. 그런 다음 이 구성에서는 SampleEventSourceWriter 클래스의 메서드에 해당하는 네 개의 이벤트를 정의합니다.
 

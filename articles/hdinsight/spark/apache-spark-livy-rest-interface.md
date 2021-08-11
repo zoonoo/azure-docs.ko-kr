@@ -6,15 +6,15 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: ff63f4fbadd7cb9e7584e2aa045583a35e0363fd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98930116"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark REST API를 사용하여 HDInsight Spark 클러스터에 원격 작업 제출
 
-Azure HDInsight Spark 클러스터에 원격 작업을 제출하는 데 사용되는 [Apache Livy](https://livy.incubator.apache.org/), Apache Spark REST API를 사용하는 방법을 알아봅니다. 자세한 설명서는 [Apache Livy](https://livy.incubator.apache.org/docs/latest/rest-api.html)를 참조 하세요.
+Azure HDInsight Spark 클러스터에 원격 작업을 제출하는 데 사용되는 [Apache Livy](https://livy.incubator.apache.org/), Apache Spark REST API를 사용하는 방법을 알아봅니다. 자세한 설명서는 [Apache Livy](https://livy.incubator.apache.org/docs/latest/rest-api.html)를 참조하세요.
 
 Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행되도록 배치 작업을 제출할 수 있습니다. 이 문서는 Livy를 사용하여 배치 작업을 제출하는 방법에 대해 설명합니다. 이 문서의 코드 조각은 cURL을 사용하여 Livy Spark 엔드포인트에 대한 REST API를 호출합니다.
 
@@ -30,9 +30,9 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
 curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
 ```
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
-* Jar 파일이 클러스터 저장소 (WASBS)에 있는 경우
+* jar 파일이 클러스터 저장소(WASBS)에 있는 경우
 
     ```cmd  
     curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
@@ -52,7 +52,7 @@ curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -
 curl -k --user "admin:password" -v -X GET "https://<spark_cluster_name>.azurehdinsight.net/livy/batches"
 ```
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 * 클러스터에서 실행 중인 모든 Livy Spark 배치를 검색하려는 경우:
 
@@ -60,7 +60,7 @@ curl -k --user "admin:password" -v -X GET "https://<spark_cluster_name>.azurehdi
     curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches"
     ```
 
-* 지정 된 일괄 처리 ID로 특정 배치를 검색 하려는 경우
+* 지정된 배치 ID로 특정 배치를 검색하려는 경우
 
     ```cmd
     curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
@@ -74,7 +74,7 @@ curl -k --user "admin:mypassword1!" -v -X DELETE "https://<spark_cluster_name>.a
 
 ### <a name="example"></a>예제
 
-일괄 처리 ID를 사용 하 여 일괄 처리 작업을 삭제 `5` 합니다.
+배치 ID `5`를 사용하여 일괄 처리 작업을 삭제합니다.
 
 ```cmd
 curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/5"
@@ -84,26 +84,26 @@ curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehd
 
 Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 제공합니다. 다음은 몇 가지 예입니다.
 
-* 작업을 Spark 클러스터에 원격으로 제출한 후 Livy 서비스가 중단 되는 경우 작업은 백그라운드에서 계속 실행 됩니다. Livy는 백업된 후 작업의 상태를 복원하고 다시 보고합니다.
-* HDInsight 용 jupyter 노트북은 백 엔드에서 Livy에 의해 구동 됩니다. 노트북에서 Spark 작업이 실행되고 있으며 Livy 서비스가 다시 시작되면 해당 노트북은 코드 셀을 계속 실행합니다.
+* 작업을 Spark 클러스터에 원격으로 제출한 후 Livy 서비스가 중단되는 경우 작업은 백그라운드에서 계속 실행됩니다. Livy는 백업된 후 작업의 상태를 복원하고 다시 보고합니다.
+* HDInsight용 Jupyter Notebook은 백 엔드에서 Livy를 통해 구동됩니다. 노트북에서 Spark 작업이 실행되고 있으며 Livy 서비스가 다시 시작되면 해당 노트북은 코드 셀을 계속 실행합니다.
 
 ## <a name="show-me-an-example"></a>예제 보기
 
-이 섹션에서는 Livy Spark를 사용하여 배치 작업을 제출하고 작업의 진행 상황을 모니터링한 다음 작업을 삭제하기 위한 예제를 살펴봅니다. 이 예제에서 사용하는 애플리케이션은 문서 [독립 실행형 Scala 애플리케이션을 만들고 HDInsight Spark 클러스터에서 실행하기](apache-spark-create-standalone-application.md)에서 개발된 것입니다. 이 단계에서는 다음을 가정 합니다.
+이 섹션에서는 Livy Spark를 사용하여 배치 작업을 제출하고 작업의 진행 상황을 모니터링한 다음 작업을 삭제하기 위한 예제를 살펴봅니다. 이 예제에서 사용하는 애플리케이션은 문서 [독립 실행형 Scala 애플리케이션을 만들고 HDInsight Spark 클러스터에서 실행하기](apache-spark-create-standalone-application.md)에서 개발된 것입니다. 이 단계에서는 다음을 가정합니다.
 
-* 응용 프로그램 jar를 클러스터와 연결 된 저장소 계정에 이미 복사 했습니다.
-* 이러한 단계를 시도 하는 컴퓨터에를 설치 합니다.
+* 응용 프로그램 jar를 클러스터와 연결된 스토리지 계정에 이미 복사했습니다.
+* 이 단계를 시도하는 컴퓨터에 CuRL을 설치했습니다.
 
 다음 단계를 수행합니다.
 
-1. 사용 편의성을 위해 환경 변수를 설정 합니다. 이 예제는 Windows 환경을 기반으로 하며, 사용자 환경에 필요한 대로 변수를 수정 합니다. `CLUSTERNAME`및을 `PASSWORD` 적절 한 값으로 바꿉니다.
+1. 사용 편의성을 위해 환경 변수를 설정합니다. 이 예제는 Windows 환경을 기반으로 하며, 사용자 환경에 필요한 대로 변수를 수정합니다. `CLUSTERNAME` 및 `PASSWORD`를 해당 값으로 바꿉니다.
 
     ```cmd
     set clustername=CLUSTERNAME
     set password=PASSWORD
     ```
 
-1. Livy Spark가 클러스터에서 실행 중인지 확인 합니다. 실행 중인 배치 목록을 가져와서 확인할 수 있습니다. Livy를 처음으로 사용 하 여 작업을 실행 하는 경우 출력은 0을 반환 해야 합니다.
+1. Livy Spark가 클러스터에서 실행 중인지 확인합니다. 실행 중인 배치 목록을 가져와서 확인할 수 있습니다. Livy를 처음 사용하여 작업을 실행하는 경우 출력은 0을 반환해야 합니다.
 
     ```cmd
     curl -k --user "admin:%password%" -v -X GET "https://%clustername%.azurehdinsight.net/livy/batches"
@@ -125,7 +125,7 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
 
     출력의 마지막 줄이 실행 중인 배치가 없는 것을 나타내는 **total:0** 을 말하는 방법을 확인합니다.
 
-1. 이제 배치 작업을 제출하도록 합니다. 다음 코드 조각은 입력 파일(input.txt)을 사용하여 매개 변수로 jar 이름 및 클래스 이름을 전달합니다. Windows 컴퓨터에서 이러한 단계를 실행 하는 경우에는 입력 파일을 사용 하는 것이 좋습니다.
+1. 이제 배치 작업을 제출하도록 합니다. 다음 코드 조각은 입력 파일(input.txt)을 사용하여 매개 변수로 jar 이름 및 클래스 이름을 전달합니다. Windows 컴퓨터에서 이러한 단계를 실행하는 경우에는 입력 파일 사용이 권장됩니다.
 
     ```cmd
     curl -k --user "admin:%password%" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://%clustername%.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
@@ -196,7 +196,7 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
     {"msg":"deleted"}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    출력의 마지막 줄은 배치가 성공적으로 삭제된 것을 보여 줍니다. 작업이 실행 되는 동안 작업을 삭제 하면 작업이 종료 됩니다. 성공적으로 완료됐거나 그렇지 않은 작업을 삭제하는 경우 작업 정보를 완전히 삭제합니다.
+    출력의 마지막 줄은 배치가 성공적으로 삭제된 것을 보여 줍니다. 작업이 실행되는 도중에 작업을 삭제하면 작업이 종료됩니다. 성공적으로 완료됐거나 그렇지 않은 작업을 삭제하는 경우 작업 정보를 완전히 삭제합니다.
 
 ## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>HDInsight 버전 3.5로 시작하는 Livy 구성에 대한 업데이트
 

@@ -4,12 +4,12 @@ description: 이 문서에서는 이전 Microsoft.Azure.EventHubs 패키지를 �
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 00eadbed23b702e77aefaf34b174bd1e6800c307
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: ec000babe57267e3f60cd36cb44ae2eb44c13d99
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107877465"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112417184"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>.NET Core(Microsoft.Azure.EventHubs)를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기
 이 빠른 시작에서는 **Microsoft.Azure.EventHubs** .NET Core 라이브러리를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다.
@@ -194,7 +194,7 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기** �
 > [!NOTE]
 > [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver)에서 샘플로 이 빠른 시작을 다운로드하여 `EventHubConnectionString` 및 `EventHubName`, `StorageAccountName`, `StorageAccountKey`, `StorageContainerName` 문자열을 이벤트 허브 값으로 대체한 후 실행합니다. 또는 이 자습서의 단계를 수행하여 직접 만들 수 있습니다.
 
-[!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
+[!INCLUDE [event-hubs-create-storage](./includes/event-hubs-create-storage.md)]
 
 ### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 

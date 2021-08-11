@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/11/2021
+ms.date: 07/16/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 6a3fb22aaa72c95489d8cc7203149de8b1088cd0
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 7f7a0b1d76879efbe4d66f10dfd444c93514adc9
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112040467"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114387822"
 ---
 |속성 |Description |정책 |버전 |
 |---|---|---|---|
-|[Linux 기반 워크로드에 대한 Kubernetes 클러스터 Pod 보안 기준 표준](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Kubernetes/Kubernetes_PSPBaselineStandard.json) |이 이니셔티브에는 Kubernetes 클러스터 Pod 보안 기준 표준에 대한 정책이 포함됩니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 이 정책 사용에 대한 지침은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)를 방문하세요. |5 |1.1.1 |
-|[Linux 기반 워크로드에 대한 Kubernetes 클러스터 Pod 보안 제한 표준](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Kubernetes/Kubernetes_PSPRestrictedStandard.json) |이 이니셔티브에는 Kubernetes 클러스터 Pod 보안 제한 표준에 대한 정책이 포함됩니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 이 정책 사용에 대한 지침은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)를 방문하세요. |8 |2.1.1 |
+|[Linux 기반 워크로드에 대한 Kubernetes 클러스터 Pod 보안 기준 표준](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Kubernetes/Kubernetes_PSPBaselineStandard.json) |이 이니셔티브에는 Kubernetes 클러스터 Pod 보안 기준 표준에 대한 정책이 포함됩니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 이 정책 사용에 대한 지침은 [https://aka.ms/kubepolicydoc](../../../../articles/governance/policy/concepts/policy-for-kubernetes.md)를 방문하세요. |5 |1.1.1 |
+|[Linux 기반 워크로드에 대한 Kubernetes 클러스터 Pod 보안 제한 표준](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Kubernetes/Kubernetes_PSPRestrictedStandard.json) |이 이니셔티브에는 Kubernetes 클러스터 Pod 보안 제한 표준에 대한 정책이 포함됩니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 이 정책 사용에 대한 지침은 [https://aka.ms/kubepolicydoc](../../../../articles/governance/policy/concepts/policy-for-kubernetes.md)를 방문하세요. |8 |2.1.1 |

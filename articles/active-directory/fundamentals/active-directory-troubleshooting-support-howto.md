@@ -16,10 +16,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e339e88bb62e81b1f873e8cf7e855f4dff8daade
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99257409"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Azure Active Directory에 대한 도움말 찾기 및 지원 티켓 열기
@@ -31,7 +31,7 @@ Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술,
 
 * IT 전문가 및 개발자를 위한 방법 정보 또는 코드 샘플 같은 콘텐츠는 [docs.microsoft.com의 기술 문서](../index.yml)를 참조하세요.
 
-* [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/) 는 IT 전문가 파트너와 고객이 공동 작업 하 고, 공유 하 고, 학습할 수 있는 장소입니다. [Microsoft 기술 커뮤니티 정보 센터](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) 는 공지, 블로그 게시물, 내게 필요한 항목 (AMA)과 전문가와의 상호 작용 등에 사용 됩니다. 또한 [커뮤니티에 참여하여 아이디어를 제출](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities)할 수도 있습니다.
+* [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/)는 IT 전문가 파트너와 고객이 공동 작업을 하고, 공유하고, 배울 수 있는 곳입니다. [Microsoft 기술 커뮤니티 정보 센터](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center)는 공지, 블로그 게시물, 전문가와의 AMA(무엇이든 물어보세요) 상호 작용 등에 사용됩니다. 또한 [커뮤니티에 참여하여 아이디어를 제출](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities)할 수도 있습니다.
 
 
 ## <a name="open-a-support-ticket"></a>지원 티켓 열기
@@ -41,8 +41,8 @@ Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술,
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>Azure Portal에서 Azure AD에 대한 지원 티켓을 여는 방법
 
 > [!NOTE]
-> * 청구 또는 구독 문제에 대 한 [Microsoft 365 관리 센터](https://admin.microsoft.com)를 사용 해야 합니다.  
-> * Azure AD B2C 사용 하는 경우 먼저 Azure 구독이 연결 된 Azure AD 테 넌 트로 전환 하 여 지원 티켓을 엽니다. 일반적으로 Azure 구독에 등록할 때 생성 되는 직원 테 넌 트 또는 기본 테 넌 트입니다. 자세한 내용은 [Azure 구독과 Azure AD의 연관 관계](active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
+> * 대금 청구 또는 구독 문제의 경우 [Microsoft 365 관리 센터](https://admin.microsoft.com)를 사용해야 합니다.  
+> * Azure AD B2C를 사용하는 경우 먼저 Azure 구독이 연결된 Azure AD 테넌트로 전환하여 지원 티켓을 엽니다. 일반적으로 이것은 직원 테넌트 또는 Azure 구독에 등록할 경우 만들어진 기본 테넌트입니다. 자세한 내용은 [Azure 구독과 Azure AD의 연관 관계](active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하여 **Azure Active Directory** 를 엽니다.
    
@@ -50,33 +50,33 @@ Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술,
    
 1. **기본 사항** 블레이드에서 **문제 유형** 으로 **기술** 을 선택합니다.
 
-1. **구독** 을 선택 합니다.
+1. **구독** 을 선택합니다.
 
-1. **서비스** 의 경우 **Azure Active Directory** 를 선택 합니다.
+1. **서비스** 로 **Azure Active Directory** 를 선택합니다.
 
-1. 요청에 대 한 **요약** 을 만듭니다. 요약은 140 자 미만 이어야 합니다.
+1. 요청에 대한 **요약** 을 만듭니다. 요약은 140자 미만이어야 합니다.
   
-1. **문제 유형** 을 선택한 다음 해당 유형의 범주를 선택 합니다. 현재는 문제 범주에 대한 자가 진단 정보도 제공됩니다.
+1. **문제 유형** 을 선택한 후 해당 유형의 범주를 선택합니다. 현재는 문제 범주에 대한 자가 진단 정보도 제공됩니다.
   
 1. 나머지 문제 정보를 추가하고 **다음** 을 클릭합니다. 
 
-1. 이 시점에서 **솔루션** 블레이드에서 자가 진단 솔루션 및 설명서를 제공 합니다. 해결 방법으로 문제가 해결 되지 않으면 **다음** 을 클릭 합니다. 
+1. 이때 **솔루션** 블레이드에 자가 진단 솔루션 및 설명서가 제공됩니다. 문제를 해결할 수 있는 해결 방법이 없으면 **다음** 을 클릭합니다. 
 
-1. **세부 정보** 블레이드에서 필요한 세부 정보를 입력 하 고 [심각도](https://azure.microsoft.com/support/plans/response/)를 선택 합니다. 
+1. **세부 정보** 블레이드에서 필요한 세부 정보를 입력하고 [심각도](https://azure.microsoft.com/support/plans/response/)를 선택합니다. 
  
     ![이미지](https://user-images.githubusercontent.com/13383753/76565580-1c284900-6468-11ea-8c0f-85af98097b6f.png)
  
-1. 연락처 정보를 입력 하 고 **다음** 을 선택 합니다. 
+1. 연락처 정보를 입력하고 **다음** 을 선택합니다. 
 
 1. 연락처 정보를 입력하고 **만들기** 를 선택합니다.
   ![문제 범주 자가 진단 스크린샷](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 
-### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Microsoft 365 관리 센터에서 Azure AD에 대 한 지원 티켓을 여는 방법
+### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Microsoft 365 관리 센터에서 Azure AD에 대한 지원 티켓을 여는 방법
 
 > [!NOTE]
-> [Microsoft 365 관리 센터](https://admin.microsoft.com) 의 Azure AD에 대 한 지원은 관리자 에게만 제공 됩니다.
+> [Microsoft 365 관리 센터](https://admin.microsoft.com)의 Azure AD에 대한 지원은 관리자에게만 제공됩니다.
 
-1. EMS (Enterprise Mobility + Security) 라이선스가 있는 계정으로 [Microsoft 365 관리 센터](https://admin.microsoft.com) 에 로그인 합니다.
+1. EMS(Microsoft Enterprise Mobility + Security) 라이선스가 있는 계정을 사용하여 [ 365 관리 센터](https://admin.microsoft.com)에 로그인합니다.
 
 1. **지원** 타일에서 **새 서비스 요청**:
 

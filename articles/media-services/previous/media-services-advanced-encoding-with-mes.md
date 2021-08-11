@@ -16,10 +16,10 @@ ms.date: 3/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 345fd56e5ff069ea222661a4820e75d96a9e2395
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103014505"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>MES 사전 설정을 사용자 지정하여 고급 인코딩 수행
@@ -33,7 +33,7 @@ ms.locfileid: "103014505"
 XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처럼 요소 순서를 유지해야 합니다(예를 들어, KeyFrameInterval은 SceneChangeDetection 앞에 와야 함).
 
 > [!NOTE] 
-> Media Encoder Standard의 advanced Media Services v2 기능 중 상당수는 현재 v3에서 사용할 수 없습니다. 자세한 내용은 [마이그레이션 가이드](../latest/migrate-v-2-v-3-migration-introduction.md)를 참조 하세요.
+> Media Encoder Standard의 고급 Media Services v2 기능 중 상당수는 현재 v3에서 사용할 수 없습니다. 자세한 내용은 [마이그레이션 가이드](../latest/migrate-v-2-v-3-migration-introduction.md)를 참조하세요.
 
 ## <a name="support-for-relative-sizes"></a>상대적 크기에 대한 지원
 
@@ -257,7 +257,7 @@ XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처�
 
     표기법을 원하는 대로 혼용하거나 일치시킬 수 있습니다.
 
-    또한 Start는 콘텐츠의 첫 번째 "흥미로운" 프레임을 결정 하는 특별 한 매크로 ({Best})를 지원 합니다. 참고: (시작이 {Best} (으)로 설정 된 경우 단계 및 범위는 무시 됨)
+    또한 Start는 콘텐츠의 첫 번째 "흥미로운" 프레임의 결정을 시도하는 특수 Macro:{Best}를 지원합니다. 참고: (Step 및 Range는 Start를 {Best}로 설정하면 무시됨)
   * 기본값: Start:{Best}
 * 각 이미지 형식에 대해 출력 형식을 명시적으로 제공해야 합니다. Jpg/Png/BmpFormat. 출력 형식이 있는 경우 MES는 JpgVideo를 JpgFormat에 일치시키는 식으로 진행합니다. OutputFormat은 새 이미지 코덱 특유의 Macro: {Index}를 도입하며, 이는 이미지 출력 형식에 대해 존재해야(한 번만) 합니다.
 
@@ -514,7 +514,7 @@ XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처�
 
 또한 사전 설정 파일을 정의하는 것 외에도 Media Services를 통해 오버레이 이미지에 해당하는 자산의 파일 및 이미지를 오버레이하려는 원본 비디오에 해당하는 파일을 알 수 있습니다. 비디오 파일은 **기본** 파일이어야 합니다.
 
-.NET을 사용하는 경우 [이 항목](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet)에 정의된 .NET 예제에 다음 두 함수를 추가합니다. **UploadMediaFilesFromFolder** 함수는 폴더 (예: BigBuckBunny.mp4 및 Image001.png)에서 파일을 업로드 하 고 mp4 파일을 자산의 주 파일이 되도록 설정 합니다. **EncodeWithOverlay** 함수는 전달된 사용자 지정 사전 설정 파일(예: 다음에 나오는 사전 설정)을 사용하여 인코딩 태스크를 만듭니다.
+.NET을 사용하는 경우 [이 항목](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet)에 정의된 .NET 예제에 다음 두 함수를 추가합니다. **UploadMediaFilesFromFolder** 함수는 폴더에서 파일(예: BigBuckBunny.mp4 및 Image001.png)을 업로드하고 mp4 파일을 자산의 기본 파일로 설정합니다. **EncodeWithOverlay** 함수는 전달된 사용자 지정 사전 설정 파일(예: 다음에 나오는 사전 설정)을 사용하여 인코딩 태스크를 만듭니다.
 
 ```csharp
 static public IAsset UploadMediaFilesFromFolder(string folderPath)
@@ -749,7 +749,7 @@ static public IAsset EncodeWithOverlay(IAsset assetSource, string customPresetFi
 ```
 
 ## <a name="disable-auto-de-interlacing"></a><a id="deinterlacing"></a>자동 디인터레이스 사용 안 함
-인터레이스 콘텐츠가 자동으로 제거 되는 경우 고객은 아무것도 수행할 필요가 없습니다. 자동 디인터레이스가 설정(기본값)된 경우 MES에서는 인터레이스 프레임 및 인터레이스로 표시된 디인터레이스 프레임만 자동으로 검색합니다.
+인터레이스 콘텐츠가 자동으로 디인터레이스되도록 원하는 고객은 아무 작업도 수행할 필요가 없습니다. 자동 디인터레이스가 설정(기본값)된 경우 MES에서는 인터레이스 프레임 및 인터레이스로 표시된 디인터레이스 프레임만 자동으로 검색합니다.
 
 자동 디인터레이스를 해제할 수 있습니다. 이 방법은 권장되지 않습니다.
 
@@ -1007,7 +1007,7 @@ XML을 사용하는 경우 **H264Video** 요소에 대한 특성으로 Condition
 ```
 
 ### <a name="inserting-video-at-all-output-bitrates"></a>모든 출력 비트 전송률에서 비디오 삽입
-["H264 다중 비트 전송률 720p"](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 와 같은 다중 비트 전송률 인코딩 사전 설정을 사용 하 여 비디오 파일과 오디오 전용 파일이 혼합 되어 있는 스트리밍을 위한 전체 입력 카탈로그를 인코딩하는 경우를 가정 합니다. 이 시나리오에서는 입력에 비디오가 없으면 인코더가 모든 출력 비트 속도에서 단색 비디오 트랙을 삽입하도록 강제 지정할 수 있습니다. 이렇게 하면 출력 자산의 비디오 트래픽 및 오디오 트랙 수가 모두 같아집니다. 이렇게 하려면 "InsertBlackIfNoVideo" 플래그를 지정해야 합니다.
+["H264 다중 비트 전송률 720p"](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 와 같은 다중 비트 전송률 인코딩 사전 설정을 사용하여 비디오 파일과 오디오 전용 파일이 혼합되어 있는 입력 카탈로그 전체를 스트리밍용으로 인코딩한다고 가정해 보겠습니다. 이 시나리오에서는 입력에 비디오가 없으면 인코더가 모든 출력 비트 속도에서 단색 비디오 트랙을 삽입하도록 강제 지정할 수 있습니다. 이렇게 하면 출력 자산의 비디오 트래픽 및 오디오 트랙 수가 모두 같아집니다. 이렇게 하려면 "InsertBlackIfNoVideo" 플래그를 지정해야 합니다.
 
 [이 섹션](media-services-mes-presets-overview.md)에 문서화된 MES 사전 설정 중 하나를 가져온 후에 다음과 같이 수정할 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/08/2021
 ms.author: amgowda
 ms.custom: contentperf-fy21q3, devx-track-azurecli
-ms.openlocfilehash: b7dd9685be5e0928743eaf9a541c88de6a49a36c
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 950f6fa47de273534a4636796351dd3640628dda
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891252"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551239"
 ---
 # <a name="quickstart-deploy-an-aks-cluster-with-confidential-computing-nodes-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 기밀 컴퓨팅 노드가 있는 AKS 클러스터 배포
 
@@ -25,8 +25,8 @@ AKS는 개발자 또는 클러스터 운영자가 클러스터를 신속하게 �
 
 - Linux 컨테이너를 지원하는 Linux 작업자 노드
 - Ubuntu 18.04 VM 노드를 사용하는 2세대 VM(가상 머신)
-- EPC(암호화된 페이지 캐시 메모리)를 활용하는 기밀성 보호 enclave에서 컨테이너를 실행하는 데 도움이 되는 Intel SGX 지원 CPU. 자세한 내용은 [Azure 기밀 컴퓨팅 FAQ](./faq.md)를 참조하세요.
-- 기밀 컴퓨팅 노드에 미리 설치된 Intel SGX DCAP 드라이버. 자세한 내용은 [Azure 기밀 컴퓨팅 FAQ](./faq.md)를 참조하세요.
+- EPC(암호화된 페이지 캐시 메모리)를 활용하는 기밀성 보호 enclave에서 컨테이너를 실행하는 데 도움이 되는 Intel SGX 지원 CPU. 자세한 내용은 [Azure 기밀 컴퓨팅 FAQ](./faq.yml)를 참조하세요.
+- 기밀 컴퓨팅 노드에 미리 설치된 Intel SGX DCAP 드라이버. 자세한 내용은 [Azure 기밀 컴퓨팅 FAQ](./faq.yml)를 참조하세요.
 
 > [!NOTE]
 > DCsv2 VM은 더 높은 가격 및 지역 가용성에 맞는 특별한 하드웨어를 사용합니다. 자세한 내용은 [사용 가능한 SKU 및 지원되는 지역](virtual-machine-solutions.md)을 참조하세요.

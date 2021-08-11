@@ -7,14 +7,14 @@ ms.author: sujie
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 104dfe7b2ce253d7ae42c7484532cfd5b2993aec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd74787c1e9ad158becf54f4b2b00bb71317e81d
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98014614"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114221789"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>빠른 시작: Visual Studio Code에서 Azure Stream Analytics 작업 만들기(미리 보기)
+# <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code"></a>빠른 시작: Visual Studio Code에서 Azure Stream Analytics 작업 만들기
 
 이 빠른 시작에서는 Visual Studio Code용 Azure Stream Analytics Tools 확장을 사용하여 Azure Stream Analytics 작업을 만들고 실행하는 방법을 보여 줍니다. 예제 작업은 Azure IoT Hub 디바이스에서 스트리밍 데이터를 읽습니다. 27°를 초과할 때 평균 온도를 계산하고 Blob 스토리지의 새 파일에 결과 출력 이벤트를 작성하는 작업을 정의합니다.
 

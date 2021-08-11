@@ -1,5 +1,5 @@
 ---
-title: NSG 흐름 로그 시각화-탄력적 스택
+title: NSG 흐름 로그 시각화 - Elastic Stack
 titleSuffix: Azure Network Watcher
 description: Network Watcher 및 Elastic Stack을 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그를 관리하고 분석합니다.
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: aca8c75f262e472cbc770c052b86d6e760ee449a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95026474"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>오픈 소스 도구를 사용하여 Azure Network Watcher NSG 흐름 로그 시각화
@@ -29,12 +29,12 @@ ms.locfileid: "95026474"
 
 이 문서에서는 탄력적인 스택을 사용하여 네트워크 보안 그룹 흐름 로그를 시각화할 수 있는 솔루션을 설정합니다.  Logstash 입력 플러그 인은 흐름 로그를 포함하기 위해 구성된 Blob Storage에서 직접 흐름 로그를 가져옵니다. 그런 다음, 탄력적인 스택을 사용하여 흐름 로그가 인덱싱되고, 흐름 로그로 Kibana 대시보드를 만들어 정보를 시각화합니다.
 
-![다이어그램은 탄력적 스택을 사용 하 여 네트워크 보안 그룹 흐름 로그를 시각화할 수 있는 시나리오를 보여 줍니다.][scenario]
+![Elastic Stack을 사용하여 네트워크 보안 그룹 흐름 로그를 시각화할 수 있는 시나리오를 보여 주는 다이어그램][scenario]
 
 ## <a name="steps"></a>단계
 
 ### <a name="enable-network-security-group-flow-logging"></a>네트워크 보안 그룹 흐름 로그 사용
-이 시나리오에서는 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 흐름 로그를 사용 하도록 설정 하는 방법에 대 한 지침은 [네트워크 보안 그룹에 대 한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md)문서를 참조 하세요.
+이 시나리오에서는 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 흐름 로그를 사용하도록 설정하는 방법에 대한 지침은 [네트워크 보안 그룹에 대한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md) 문서를 참조하세요.
 
 ### <a name="set-up-the-elastic-stack"></a>탄력적 스택 설정
 NSG 흐름 로그를 탄력적 스택과 연결하여 로그에서 정보를 검색하고, 그래프화하며 분석하고 정보를 끌어낼 수 있는 Kibana 대시보드를 만들 수 있습니다.
@@ -159,7 +159,7 @@ NSG 흐름 로그를 탄력적 스택과 연결하여 로그에서 정보를 검
    }  
    ```
 
-Logstash 태의 설치에 대 한 자세한 지침은 [공식 설명서](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)를 참조 하세요.
+Logstash 설치에 대한 추가 정보는 [공식 설명서](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)를 참조하세요.
 
 ### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Azure Blob Storage를 위한 Logstash 입력 플러그 인 설치
 
@@ -215,27 +215,27 @@ Kibana의 **관리** 탭 아래에서 **저장된 개체** 로 이동하고 세 
 
 1. Flows by Decision/Direction Over Time - 기간별 흐름 수를 보여주는 시계열 그래프입니다. 이러한 시각화 요소의 시간 단위와 범위를 편집할 수 있습니다. Flows by Decision은 허용 또는 거부 결정의 비율을 보여주고, Flows by Direction은 인바운드 및 아웃바운드 트래픽의 비율을 보여줍니다. 이러한 시각 효과를 사용하면 시간에 따른 트래픽 추세를 검토할 수 있고 스파이크 또는 비정상 패턴을 찾을 수 있습니다.
 
-   ![스크린샷에는 결정 및 시간별 흐름이 있는 샘플 대시보드가 표시 됩니다.][2]
+   ![시간에 따른 결정 및 방향별 흐름을 표시하는 샘플 대시보드를 보여 주는 스크린샷][2]
 
 2. Flows by Destination/Source Port - 각 해당 포트에 대한 흐름의 분석 결과를 보여 주는 원형 차트입니다. 이 보기를 사용하면 가장 자주 사용되는 포트를 볼 수 있습니다. 원형 차트 내에서 특정 포트를 클릭하면 대시보드의 나머지 부분이 해당 포트의 흐름으로 필터링됩니다.
 
-   ![스크린샷 대상 및 원본 포트당 흐름이 있는 샘플 대시보드를 보여 줍니다.][3]
+   ![대상 및 원본 포트별 흐름을 표시하는 샘플 대시보드를 보여 주는 스크린샷][3]
 
 3. Number of Flows 및 Earliest Log Time – 기록된 흐름 수 및 가장 빨리 캡처된 로그의 날짜를 보여주는 메트릭입니다.
 
-   ![스크린샷는 흐름 수와 가장 이른 로그 시간을 포함 하는 샘플 대시보드를 보여 줍니다.][4]
+   ![흐름 수와 가장 이른 로그 시간을 표시하는 샘플 대시보드를 보여 주는 스크린샷][4]
 
 4. Flows by NSG and Rule – 각 NSG 내 흐름 분포와 각 NSG 내 규칙 분포를 보여주는 막대 그래프입니다. 여기에서 어떤 NSG와 규칙이 가장 많은 트래픽을 생성했는지 볼 수 있습니다.
 
-   ![스크린샷은 N S G 및 규칙으로 흐르는 샘플 대시보드를 보여 줍니다.][5]
+   ![NSG 및 규칙별 흐름을 표시하는 샘플 대시보드를 보여 주는 스크린샷][5]
 
 5. Top 10 Source/Destination IPs - 상위 10개의 원본 및 대상 IP를 보여주는 막대형 차트입니다. 이러한 차트를 조정하여 표시되는 상위 IP를 늘리거나 줄일 수 있습니다. 여기에서 가장 자주 발생하는 IP와 각 IP에 대해 수행되는 트래픽 의사 결정(허용 또는 거부)을 볼 수 있습니다.
 
-   ![스크린샷은 상위 10 개 원본 및 대상 I P 주소를 통해 흐름이 있는 샘플 대시보드를 보여 줍니다.][6]
+   ![상위 10개 원본 및 대상 IP 주소별 흐름을 표시하는 샘플 대시보드를 보여 주는 스크린샷][6]
 
 6. Flow Tuples - 이 표에서는 각 흐름 튜플 내에 포함된 정보와 해당하는 NGS 및 규칙을 보여줍니다.
 
-   ![테이블의 흐름 튜플을 보여 주는 스크린샷][7]
+   ![흐름 튜플을 표로 보여 주는 스크린샷][7]
 
 대시보드 맨 위에 있는 쿼리 표시줄을 사용하여 구독 ID, 리소스 그룹, 규칙 또는 원하는 다른 변수 같은 흐름의 모든 매개 변수를 기준으로 대시보드를 필터링할 수 있습니다. Kibana의 쿼리 및 필터에 대한 자세한 내용을 보려면 [공식 설명서](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)를 참조하세요.
 

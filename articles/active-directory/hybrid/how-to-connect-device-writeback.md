@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d526394ac89e2d29b2002004736e8480bb15b954
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95973425"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: 디바이스 쓰기 저장 사용
@@ -31,10 +31,10 @@ ms.locfileid: "95973425"
 
 다음 설명서에서는 Azure AD Connect에서 디바이스 쓰기 저장 기능을 사용하는 방법에 대한 정보를 제공합니다. 쓰기 저장 디바이스를 다음과 같은 시나리오에서 사용합니다.
 
-* [하이브리드 인증서 신뢰 배포를 사용 하 여 비즈니스용 Windows Hello](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration) 사용
-* ADFS (2012 R2 이상) 보호 된 응용 프로그램 (신뢰 당사자 트러스트)에 대 한 장치 기반 조건부 액세스를 사용 하도록 설정 합니다.
+* [하이브리드 인증서 신뢰 배포를 사용하여 Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration) 사용
+* 장치에 따라 ADFS(2012 R2 이상) 보호된 응용 프로그램에 조건부 액세스를 사용하도록 설정합니다(신뢰 당사자 트러스트).
 
-애플리케이션에 대한 액세스 권한이 신뢰할 수 있는 디바이스에 부여된 추가 보안 및 보증을 제공합니다. 조건부 액세스에 대 한 자세한 내용은 [조건부 액세스로 위험 관리](../conditional-access/overview.md) 및 [Azure Active Directory Device Registration를 사용 하 여 온-프레미스 조건부 액세스 설정](../devices/overview.md)을 참조 하세요.
+애플리케이션에 대한 액세스 권한이 신뢰할 수 있는 디바이스에 부여된 추가 보안 및 보증을 제공합니다. 조건부 액세스에 대한 자세한 내용은 [조건부 액세스로 위험 관리](../conditional-access/overview.md) 및 [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](../devices/overview.md)을 참조하세요.
 
 > [!IMPORTANT]
 > <li>디바이스는 사용자와 동일한 포리스트에 있어야 합니다. 디바이스가 단일 포리스트에 쓰기 저장해야 하기 때문에 이 기능은 현재 여러 사용자 포리스트에서 배포를 지원하지 않습니다.</li>
@@ -61,12 +61,12 @@ ms.locfileid: "95973425"
 
     a. **엔터프라이즈 관리자 자격 증명 제공**: 디바이스를 다시 써야 하는 포리스트에 대한 엔터프라이즈 관리자 자격 증명을 제공하면 Azure AD Connect는 디바이스 쓰기 저장을 구성하는 동안 자동으로 포리스트를 준비합니다.
 
-    b. **PowerShell 스크립트 다운로드**: Azure AD Connect는 디바이스 쓰기 저장에 대한 active directory를 준비할 수 있는 PowerShell 스크립트를 자동으로 생성합니다. Azure AD Connect에서 엔터프라이즈 관리자 자격 증명을 제공할 수 없는 경우 PowerShell 스크립트를 다운로드하면 됩니다. 다운로드 한 PowerShell 스크립트 **CreateDeviceContainer.ps1** 을 장치를 다시 쓸 포리스트의 엔터프라이즈 관리자에 게 제공 합니다.
+    b. **PowerShell 스크립트 다운로드**: Azure AD Connect는 디바이스 쓰기 저장에 대한 active directory를 준비할 수 있는 PowerShell 스크립트를 자동으로 생성합니다. Azure AD Connect에서 엔터프라이즈 관리자 자격 증명을 제공할 수 없는 경우 PowerShell 스크립트를 다운로드하면 됩니다. 장치를 다시 써야 하는 포리스트의 엔터프라이즈 관리자에게 다운로드한 **CreateDeviceContainer.ps1** PowerShell 스크립트를 제공합니다.
     ![Active Directory 포리스트 준비](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     active directory 포리스트를 준비하기 위해 다음 작업이 수행됩니다.
     * 존재하지 않는 경우 CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn]에서 새 컨테이너 및 개체를 생성하고 구성합니다.
-    * 존재하지 않는 경우 CN=RegisteredDevices,[domain-dn]에서 새 컨테이너 및 개체를 생성하고 구성합니다. 이 컨테이너에서 디바이스 개체를 만듭니다.
+    * 존재하지 않는 경우 CN=RegisteredDevices,[domain-dn]에서 새 컨테이너 및 개체를 생성하고 구성합니다. 이 컨테이너에서 디바이스 개체를 생성합니다.
     * Active Directory에서 디바이스를 관리하려면 Azure AD 커넥터 계정에 필요한 사용 권한을 설정합니다.
     * Azure AD Connect가 여러 포리스트에 설치되었더라도 하나의 포리스트에서 실행해야 합니다.
 
@@ -127,7 +127,7 @@ Active Directory의 구성 확인:
 
 ## <a name="additional-information"></a>추가 정보
 * [조건부 액세스를 사용한 위험 관리](../conditional-access/overview.md)
-* [Azure Active Directory Device Registration를 사용 하 여 온-프레미스 조건부 액세스 설정](../devices/overview.md)
+* [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](../devices/overview.md)
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대해 자세히 알아봅니다.

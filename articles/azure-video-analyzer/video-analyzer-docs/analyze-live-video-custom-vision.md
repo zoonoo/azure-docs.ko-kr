@@ -2,14 +2,14 @@
 title: Azure Video Analyzer 시작
 description: 이 자습서에서는 IoT Edge 및 Azure Custom Vision에서 Azure Video Analyzer를 사용하여 라이브 비디오를 분석하는 단계를 안내합니다.
 ms.topic: tutorial
-ms.date: 04/21/2021
+ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.openlocfilehash: 3ba8fe19b08a17e2d2e35cfc34cda3a65795dea5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: efb89b8ac28ca2d4ddfb72c75d420ace705d92ba
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383888"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114603384"
 ---
 # <a name="tutorial-analyze-live-video-with-azure-video-analyzer-on-iot-edge-and-azure-custom-vision"></a>자습서: IoT Edge의 Azure Video Analyzer 및 Azure Custom Vision을 사용하여 라이브 비디오 분석
 
@@ -112,24 +112,16 @@ Custom Vision은 그 이름처럼 클라우드에서 사용자 지정 개체 탐
    2. `docker image ls`
 
       이 명령은 새 이미지가 로컬 레지스트리에 있는지 확인합니다.
-   3. `docker run -p 127.0.0.1:80:80 -d cvtruck`
+   
+## <a name="set-up-your-development-environment"></a>개발 환경 설정
 
-      이 명령은 Docker의 노출된 포트(80)를 로컬 머신의 포트(80)에 게시합니다.
-   4. `docker container ls`
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
+::: zone-end
 
-      이 명령은 포트 매핑과 머신에서 Docker 컨테이너가 성공적으로 실행되고 있는지 여부를 확인합니다. 출력은 다음과 같습니다.
-      
-      ```
-      CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                      NAMES
-      8b7505398367        cvtruck             "/bin/sh -c 'python …"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
-      ```
-   5. `curl -X POST http://127.0.0.1:80/score -F imageData=@<path to any image file that has the toy delivery truck in it>`
-
-      이 명령은 로컬 머신의 컨테이너를 테스트합니다. 모델을 학습시킬 때와 동일한 배달 트럭이 이미지에 있는 경우 출력은 다음 예제와 비슷합니다. 배달 트럭이 90.12% 확률로 탐지되었음을 나타냅니다.
-
-      ```
-      {"created":"2020-03-20T07:10:47.827673","id":"","iteration":"","predictions":[{"boundingBox":{"height":0.66167289,"left":-0.03923762,"top":0.12781593,"width":0.70003178},"probability":0.90128148,"tagId":0,"tagName":"delivery truck"},{"boundingBox":{"height":0.63733053,"left":0.25220079,"top":0.0876643,"width":0.53331227},"probability":0.59745145,"tagId":0,"tagName":"delivery truck"}],"project":""}
-      ```
+::: zone pivot="programming-language-python"
+[!INCLUDE [setup development environment](./includes/set-up-dev-environment/python/python-set-up-dev-env.md)]
+::: zone-end
 
 ## <a name="examine-the-sample-files"></a>샘플 파일 검사
 
@@ -151,7 +143,7 @@ Custom Vision은 그 이름처럼 클라우드에서 사용자 지정 개체 탐
    1. `"topologyName" : "InferencingWithHttpExtension"`
    2. 매개 변수 배열의 맨 위에 `{"name": "inferencingUrl","value": "http://cv/score"},`를 추가합니다.
    3. `rtspUrl` 매개 변수 값을 `"rtsp://rtspsim:554/media/t2.mkv"`로 변경합니다.
-4. `livePipelineDelete`에서 `"name": "InferencingWithHttpExtension"`인지 확인합니다.
+4. `pipelineTopologyDelete`에서 `"name": "InferencingWithHttpExtension"`인지 확인합니다.
 5. src/edge/ deployment.customvision.template.json 파일을 마우스 오른쪽 단추로 클릭하고, **IoT Edge 배포 매니페스트 생성** 을 선택합니다.
 
    ![[IoT Edge 배포 매니페스트 생성]을 보여주는 스크린샷](./media/custom-vision/deployment-template-json.png)
@@ -188,15 +180,11 @@ Custom Vision은 그 이름처럼 클라우드에서 사용자 지정 개체 탐
     - RTSP 서버를 시뮬레이션하는 `rtspsim`이라는 모듈. 라이브 비디오 피드의 원본 역할을 합니다.
     - `cv`이라는 모듈. 이름으로 알 수 있듯이 이미지에 Custom Vision을 적용하고 여러 태그 유형을 반환하는 Custom Vision 장난감 트럭 탐지 모델입니다. (이 모델은 배달 트럭이라는 하나의 태그에 대해서만 학습되었습니다.)
 
-## <a name="prepare-for-monitoring-events"></a>이벤트 모니터링 준비
 
-ava-sample-device를 마우스 오른쪽 단추로 클릭하고, **기본 제공 이벤트 엔드포인트 모니터링 시작** 을 선택합니다. 이 단계는 Visual Studio Code의 **출력** 창에서 IoT Hub 이벤트를 모니터링하는 데 필요합니다.
-
-![[기본 제공 이벤트 엔드포인트 모니터링 시작]을 보여주는 스크린샷](./media/custom-vision/start-monitoring.png)
 
 ## <a name="run-the-sample-program"></a>샘플 프로그램 실행
 
-브라우저에서 이 자습서의 토폴로지를 열면 `inferencingUrl` 값이 `http://cv/image`로 설정된 것을 볼 수 있습니다. 이 설정은 유추 서버가 라이브 비디오에서 장난감 트럭을 탐지한 후(있는 경우) 결과를 반환한다는 뜻입니다.
+브라우저에서 이 자습서의 토폴로지를 열면 `inferencingUrl` 값이 `http://cv/score`로 설정된 것을 볼 수 있습니다. 이 설정은 유추 서버가 라이브 비디오에서 장난감 트럭을 탐지한 후(있는 경우) 결과를 반환한다는 뜻입니다.
 
 1. Visual Studio Code에서 **확장** 탭을 열고(또는 **Ctrl+Shift+X** 를 선택하고) Azure IoT Hub를 검색합니다.
 2. 마우스 오른쪽 단추를 클릭하고 **확장 설정** 을 선택합니다.
@@ -205,7 +193,14 @@ ava-sample-device를 마우스 오른쪽 단추로 클릭하고, **기본 제공
 3. **자세한 정보 메시지 표시** 를 검색하고 활성화합니다.
 
    ![[자세한 정보 메시지 표시]를 보여주는 스크린샷](./media/custom-vision/show-verbose-message.png)
-4. 디버깅 세션을 시작하려면 **F5** 키를 선택합니다. **터미널** 창에 메시지가 출력되어 표시됩니다.
+4.  ::: zone pivot="programming-language-csharp"
+    [!INCLUDE [header](includes/common-includes/csharp-run-program.md)]
+    ::: zone-end
+
+    ::: zone pivot="programming-language-python"
+    [!INCLUDE [header](includes/common-includes/python-run-program.md)]
+    ::: zone-end  
+
 5. operations.json 코드가 `livePipelineList` 및 `livePipelineList` 직접 메서드를 호출하여 시작됩니다. 이전 빠른 시작을 완료한 후 리소스를 정리했다면 이 프로세스가 빈 목록을 반환하고 일시 중지됩니다. 계속하려면 **Enter** 키를 선택합니다.
 
    **터미널** 창에 직접 메서드 호출의 다음 세트가 표시됩니다.
@@ -223,7 +218,7 @@ ava-sample-device를 마우스 오른쪽 단추로 클릭하고, **기본 제공
             "parameters": [
               { 
                 "name": "inferencingUrl",
-                "value": "http://cv/image"
+                "value": "http://cv/score"
               },
               {
                 "name": "rtspUrl",

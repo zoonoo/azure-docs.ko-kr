@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용 하 여 다중 계층 SharePoint 응용 프로그램에 대 한 재해 복구
+title: Azure Site Recovery를 사용하여 다중 계층 SharePoint 앱에 대한 재해 복구
 description: 이 문서에서는 Azure Site Recovery 기능을 사용하여 다중 계층 SharePoint 애플리케이션에 대한 재해 복구를 설정하는 방법을 설명합니다.
 author: sujayt
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
 ms.openlocfilehash: 08e971e52f994ec5fa5663708fa9f173daf33d80
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96013754"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 SharePoint 애플리케이션에 대한 재해 복구 설정
@@ -27,14 +27,14 @@ Microsoft SharePoint는 그룹 또는 부서가 정보를 구성, 공동 작업 
 
 좋은 재해 복구 솔루션은 SharePoint와 같은 복잡한 애플리케이션 아키텍처에 대한 복구 계획의 모델링을 허용해야 합니다. 또한 다양한 계층 간 애플리케이션 매핑을 처리하도록 사용자 정의된 단계를 추가함으로써 재해 이벤트 시 한 번의 클릭으로 낮은 RTO의 장애 조치를 제공하는 기능도 갖추어야 합니다.
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용 하 여 SharePoint 응용 프로그램을 보호 하는 방법에 대해 자세히 설명 합니다. 그리고 3계층 SharePoint 애플리케이션을 Azure로 복제하는 방법, 재해 복구 연습을 수행하는 방법 및 애플리케이션을 Azure로 장애 조치하는 방법에 대한 모범 사례를 설명합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 SharePoint 애플리케이션을 보호하는 방법을 자세히 설명합니다. 그리고 3계층 SharePoint 애플리케이션을 Azure로 복제하는 방법, 재해 복구 연습을 수행하는 방법 및 애플리케이션을 Azure로 장애 조치하는 방법에 대한 모범 사례를 설명합니다.
 
-Azure에 대 한 다중 계층 응용 프로그램을 복구 하는 방법에 대 한 아래 비디오를 시청 할 수 있습니다.
+아래에 나온 비디오에서 Azure에 다중 계층 애플리케이션을 복구하는 방법을 볼 수 있습니다.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목을 이해해야 합니다.
 
@@ -56,7 +56,7 @@ SharePoint은 계층된 토폴로지 및 서버 역할을 사용하여 한 개 �
 
 ## <a name="site-recovery-support"></a>Site Recovery 지원
 
-Site Recovery는 응용 프로그램에 관계 없이 지원 되는 컴퓨터에서 실행 되는 모든 버전의 SharePoint에서 작동 해야 합니다. 이 문서를 작성하기 위해 Windows Server 2012 R2 Enterprise가 있는 VMware 가상 머신이 사용되었습니다. SharePoint 2013 Enterprise Edition 및 SQL server 2014 Enterprise Edition이 사용되었습니다.
+Site Recovery는 애플리케이션 중립적이며 지원되는 머신에서 실행되는 모든 버전의 SharePoint에서 작동해야 합니다. 이 문서를 작성하기 위해 Windows Server 2012 R2 Enterprise가 있는 VMware 가상 머신이 사용되었습니다. SharePoint 2013 Enterprise Edition 및 SQL server 2014 Enterprise Edition이 사용되었습니다.
 
 ### <a name="source-and-target"></a>원본 및 대상
 
@@ -189,7 +189,7 @@ Traffic Manager가 가용성 사후 장애 조치(Failover)를 자동으로 감�
 
 AD 및 DNS에 대한 테스트 장애 조치(Failover) 수행에 관한 지침은 [AD 및 DNS에 대한 테스트 장애 조치(Failover) 고려 사항](site-recovery-active-directory.md#test-failover-considerations) 문서를 참조하세요.
 
-SQL Always ON 가용성 그룹에 대해 테스트 장애 조치 (failover)를 수행 하는 방법에 대 한 지침은 [Azure Site Recovery로 응용 프로그램 DR 수행 및 테스트 장애 조치 (failover)](site-recovery-sql.md#disaster-recovery-of-an-application) 문서 수행
+SQL Always On 가용성 그룹의 테스트 장애 조치(failover) 수행에 관한 지침은 [Azure Site Recovery를 사용하여 애플리케이션 DR 수행 및 테스트 장애 조치(failover) 수행](site-recovery-sql.md#disaster-recovery-of-an-application) 문서를 참조하세요.
 
 ## <a name="doing-a-failover"></a>장애 조치 수행
 장애 조치(Failover)를 수행할 때 [이 지침](site-recovery-failover.md)을 따릅니다.

@@ -1,18 +1,18 @@
 ---
 title: 빠른 시작 - Azure Database for MySQL과 통합
 description: Azure Database for MySQL 인스턴스를 프로비전하고 준비한 다음, 한 번의 명령으로 영구 데이터베이스로 사용하도록 Azure Spring Cloud에서 Pet Clinic을 구성하는 방법을 설명합니다.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 05/13/2021
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: e4a9dc4d01cb2ea0aea42f00e6ece436194ce498
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 223a3ba0fdb11824cd7c45218dc72271054db428
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964997"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114470680"
 ---
 # <a name="quickstart-integrate-azure-spring-cloud-with-azure-database-for-mysql"></a>빠른 시작: Azure Spring Cloud와 Azure Database for MySQL 통합
 

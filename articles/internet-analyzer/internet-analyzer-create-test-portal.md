@@ -2,17 +2,17 @@
 title: Portal을 사용하여 Internet Analyzer 테스트 만들기 | Microsoft Docs
 description: 이 문서에서는 첫 Internet Analyzer 테스트를 만드는 방법을 알아봅니다.
 services: internet-analyzer
-author: megan-beatty
+author: KumudD
 ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
-ms.author: mebeatty
-ms.openlocfilehash: 64bbed9b558d4c20889b28a5247e2113d20daa77
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.author: kumud
+ms.openlocfilehash: f19a72f40900ee1c876a8d6130a224be868d192e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "73509837"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114455091"
 ---
 # <a name="create-an-internet-analyzer-test-using-portal-preview"></a>Portal(미리 보기)을 사용하여 인터넷 분석기 테스트 만들기
 

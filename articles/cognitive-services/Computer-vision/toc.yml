@@ -93,7 +93,7 @@ items:
           - name: 이미지 처리 앱 검색
             href: Tutorials/CSharpTutorial.md
           - name: 기타 샘플
-            href: /samples/browse/?products=azure&terms=computer-vision
+            href: /samples/browse/?products=azure&terms=analyze-image
       - name: 방법 가이드
         items:
           - name: 이미지 분석 API 호출

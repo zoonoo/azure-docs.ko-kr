@@ -2,18 +2,18 @@
 title: 관리형 HSM 데이터 평면 역할 관리 - Azure Key Vault | Microsoft Docs
 description: 이 문서를 사용하여 관리형 HSM에 대한 역할 할당을 관리합니다.
 services: key-vault
-author: amitbapat
+author: mbaldwin
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.author: ambapat
-ms.openlocfilehash: 4d36b2c2178c7205246cd7c59aefedef3358e473
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.author: mbaldwin
+ms.openlocfilehash: 7a4179d35faffbf04a70a63aafead120259802f3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104951745"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471273"
 ---
 # <a name="managed-hsm-role-management"></a>관리형 HSM 역할 관리
 
@@ -33,8 +33,8 @@ ms.locfileid: "104951745"
 이 문서에서 Azure CLI 명령을 사용하려면 다음 항목이 있어야 합니다.
 
 * Microsoft Azure에 대한 구독. 아직 구독하지 않은 경우 [평가판](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
-* Azure CLI 버전 2.21.0 이상 `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
-* 구독의 관리형 HSM. 관리형 HSM을 프로비저닝하고 활성화하려면 [빠른 시작: Azure CLI를 사용하여 관리형 HSM을 프로비저닝 및 활성화](quick-create-cli.md)를 참조하세요.
+* Azure CLI 버전 2.25.0 이상 `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+* 구독의 관리형 HSM. [빠른 시작: Azure CLI를 사용하여 관리형 HSM 프로비저닝 및 활성화](quick-create-cli.md)를 참조하여 관리형 HSM을 프로비저닝하고 활성화합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

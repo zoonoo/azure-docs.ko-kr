@@ -1,6 +1,6 @@
 ---
-title: 예외 처리 & 오류 로깅 시나리오
-description: 고급 예외 처리 및 오류 로깅에 대 한 실제 사용 사례 및 시나리오 Azure Logic Apps
+title: 예외 처리 및 오류 로깅 시나리오
+description: 다음은 Azure Logic Apps에서 고급 예외 처리 및 오류 로깅에 대한 실제 사용 사례 및 시나리오
 services: logic-apps
 ms.suite: integration
 author: hedidin
@@ -8,10 +8,10 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: fdf5f25ae6f89ccc06c95ee1be021691dab0047a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96000354"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>시나리오: 논리 앱에 대한 예외 처리 및 오류 로깅
@@ -37,9 +37,9 @@ ms.locfileid: "96000354"
 
 ## <a name="how-we-solved-the-problem"></a>문제를 해결한 방법
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") 를 로그 및 오류 레코드에 대 한 리포지토리로 선택 했습니다 (Cosmos DB 레코드를 문서로 참조). Azure Logic Apps에 모든 응답에 대한 표준 템플릿이 있으므로 사용자 지정 스키마를 만들 필요가 없습니다. 오류 및 로그 기록에 대한 **삽입** 및 **쿼리** 에 API 앱을 만들 수 있습니다. API 앱 내에서 각각에 대한 스키마를 정의할 수도 있습니다.  
+로그 및 오류 레코드에 대한 리포지토리로 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB")를 선택했습니다(Cosmos DB에서는 레코드를 문서로 참조함). Azure Logic Apps에 모든 응답에 대한 표준 템플릿이 있으므로 사용자 지정 스키마를 만들 필요가 없습니다. 오류 및 로그 기록에 대한 **삽입** 및 **쿼리** 에 API 앱을 만들 수 있습니다. API 앱 내에서 각각에 대한 스키마를 정의할 수도 있습니다.  
 
-다른 요구 사항은 특정 날짜 이후 기록을 제거하는 것입니다. Cosmos DB에는 TTL ( [time To live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Ttl (Time to Live)") ) 이라는 속성이 있으며,이 속성을 통해 각 레코드 또는 컬렉션의 Ttl ( **time to live** ) 값을 설정할 수 있었습니다. 이 기능 덕분에 Cosmos DB에서 레코드를 수동으로 삭제할 필요가 없어졌습니다.
+다른 요구 사항은 특정 날짜 이후 기록을 제거하는 것입니다. Cosmos DB에는 [TTL(Time To Live)](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "TTL(Time to Live)")이라는 속성이 있으며 이 속성을 통해 각 레코드나 컬렉션에 **Time to Live** 값을 설정할 수 있습니다. 이 기능 덕분에 Cosmos DB에서 레코드를 수동으로 삭제할 필요가 없어졌습니다.
 
 > [!IMPORTANT]
 > 이 자습서를 완료하려면 Cosmos DB 데이터베이스와 두 개의 컬렉션(로깅 및 오류)을 만들어야 합니다.
@@ -103,15 +103,15 @@ Dynamics CRM Online 포털에서 환자 기록의 원본(요청)을 로깅해야
 
    **로그 항목 삽입**
 
-   ![InsertLogEntry에 대 한 구성 설정을 보여 주는 논리 앱 디자이너의 스크린샷](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![InsertLogEntry에 대한 구성 설정을 보여주는 논리 앱 디자이너의 스크린샷입니다.](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
    **오류 항목 삽입**
 
-   ![CreateErrorRecord에 대 한 구성 설정을 보여 주는 논리 앱 디자이너의 스크린샷](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![CreateErrorRecord에 대한 구성 설정을 보여주는 논리 앱 디자이너의 스크린샷입니다.](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
    **기록 만들기 실패에 대한 확인**
 
-   ![오류 항목을 만들기 위한 필드를 표시 하는 논리 앱 디자이너의 CreateErrorRecord 화면 스크린샷](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![논리 앱 디자이너에서 오류 항목을 만들기 위한 필드를 보여주는 CreateErrorRecord 화면의 스크린샷입니다.](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## <a name="logic-app-source-code"></a>논리 앱 소스 코드
 
@@ -431,7 +431,7 @@ API 앱에서 발생한 로그 응답 메시지입니다.
 
 Azure Cosmos DB의 모든 문서에는 고유 ID가 있어야 합니다. `PatientId` 를 사용하고 Unix 타임스탬프 값(double)으로 변환되는 타임스탬프를 추가합니다. 값을 잘라서 소수 자릿수 값을 제거합니다.
 
-[GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs)에서 오류 컨트롤러 API의 소스 코드를 볼 수 있습니다.
+[GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs)에서 오류 컨트롤러 API의 소스 코드를 확인할 수 있습니다.
 
 다음 구문을 사용하여 논리 앱에서 API를 호출합니다.
 
@@ -476,7 +476,7 @@ Azure Cosmos DB의 모든 문서에는 고유 ID가 있어야 합니다. `Patien
 
 ### <a name="source-code"></a>소스 코드
 
-Logic Apps exception management API 응용 프로그램에 대 한 소스 코드는이 [GitHub 리포지토리에서](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "논리 앱 예외 관리 API")사용할 수 있습니다.
+Logic Apps 예외 관리 API 애플리케이션에 대한 소스 코드는 이 [GitHub 리포지토리](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "논리 앱 예외 관리 API")에서 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

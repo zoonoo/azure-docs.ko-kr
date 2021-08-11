@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Hootsuite 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 Hootsuite로 자동으로 프로비전 및 프로비전을 해제하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.author: Zhchia
-ms.openlocfilehash: b371baec663ffc7ff5909e04965353e79acb9708
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: c60f2ccc9325183fdcbc4edc533c7418e36eb6bf
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96177075"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113763606"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Hootsuite 구성
 

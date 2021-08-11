@@ -1,18 +1,18 @@
 ---
 title: Azure App Configuration으로 Spring Boot에 기능 플래그를 추가하기 위한 빠른 시작
 description: Spring Boot 앱에 기능 플래그를 추가하고 Azure App Configuration을 사용하여 관리
-author: AlexandraKemperMS
+author: mrm9084
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 08/06/2020
-ms.author: alkemper
+ms.date: 06/25/2021
+ms.author: mametcal
 ms.custom: devx-track-java
-ms.openlocfilehash: e931b974fc48d07237b2698e7782c48be20745d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 86a4d97f387124b7c0043ec49f00b818c8b34a19
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96930718"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114450587"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>빠른 시작: Spring Boot 앱에 기능 플래그 추가
 
@@ -58,18 +58,16 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
 1. 텍스트 편집기에서 *pom.xml* 파일을 열고 `<dependencies>` 목록에 다음을 추가합니다.
 
-    **Spring Cloud 1.1.x**
-
     ```xml
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-        <version>1.1.5</version>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
+        <version>2.0.0</version>
     </dependency>
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.1.5</version>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>azure-spring-cloud-feature-management-web</artifactId>
+        <version>2.0.0</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -77,27 +75,9 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
     </dependency>
     ```
 
-    **Spring Cloud 1.2.x**
-
-    ```xml
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-        <version>1.2.7</version>
-    </dependency>
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.2.7</version>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-thymeleaf</artifactId>
-    </dependency>
-    ```
-
-> [!Note]
-> 스프링 웹에 종속되지 않는 비웹 기능 관리 라이브러리가 있습니다. 차이점은 GitHub의 [설명서](https://github.com/microsoft/spring-cloud-azure)를 참조하세요.
+> [!NOTE]
+> * 이전 버전의 Spring Boot를 지원해야 하는 경우 [이전 appconfiguration 라이브러리](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md) 와 [이전 기능 플래그 라이브러리](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-azure-feature-management/README.md)를 참조하세요.
+> * 스프링 웹에 종속되지 않는 비웹 기능 관리 라이브러리가 있습니다. 차이점은 GitHub의 [설명서](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/appconfiguration/azure-spring-cloud-feature-management)를 참조하세요.
 
 ## <a name="connect-to-an-app-configuration-store"></a>App Configuration 저장소에 연결
 
@@ -163,7 +143,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
     import org.springframework.stereotype.Controller;
     import org.springframework.ui.Model;
 
-    import com.microsoft.azure.spring.cloud.feature.manager.FeatureManager;
+    import com.azure.spring.cloud.feature.manager.FeatureManager;
     import org.springframework.web.bind.annotation.GetMapping;
 
 

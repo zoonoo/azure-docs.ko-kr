@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: f155868483a0b00ed5ecb6f02ad3ee5440e6e45a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: a07d6c6b397f8461202ffebe081b2fde91b53547
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625383"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113289650"
 ---
 이 빠른 시작을 통해 API에 대한 래퍼이며 동일한 기능을 포함하는 Bing Image Search 클라이언트 라이브러리를 사용하여 첫 번째 이미지 검색을 수행합니다. 이 간단한 Java 애플리케이션은 이미지 검색 쿼리를 보내고 JSON 응답을 구문 분석하고 반환된 첫 번째 이미지의 URL을 표시합니다.
 
@@ -22,7 +22,7 @@ ms.locfileid: "94625383"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-[JDK(Java Development Kit)](/azure/developer/java/fundamentals/java-jdk-long-term-support)의 최신 버전
+[JDK(Java Development Kit)](/azure/developer/java/fundamentals/java-support-on-azure)의 최신 버전
 
 Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Image Search 클라이언트 라이브러리 종속성을 설치합니다. Maven POM 파일에는 다음 선언이 필요합니다.
 

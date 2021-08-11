@@ -1,5 +1,5 @@
 ---
-title: Cloud Services에 대 한 일반적인 시작 작업 (클래식) | Microsoft Docs
+title: Cloud Services(클래식)에 대한 일반적인 시작 작업 | Microsoft Docs
 description: 클라우드 서비스 웹 역할 또는 작업자 역할에서 수행하려는 경우 일반적인 시작 작업의 몇 가지 예를 제공합니다.
 ms.topic: article
 ms.service: cloud-services
@@ -9,16 +9,16 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: f55b225e615a3e7a5fbcf56b405054883d3b5413
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98741199"
 ---
-# <a name="common-cloud-service-classic-startup-tasks"></a>Common Cloud Service (클래식) 시작 작업
+# <a name="common-cloud-service-classic-startup-tasks"></a>일반적인 Cloud Service(클래식) 시작 작업
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이와 같은 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 새로운 모든 배포에서 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 이 문서에서는 클라우드 서비스에서 수행하려는 경우 일반적인 시작 작업의 몇 가지 예를 제공합니다. 시작 작업을 사용하여 역할이 시작되기 전에 작업을 수행할 수 있습니다. 수행하려는 작업은 구성 요소 설치, COM 구성 요소 등록, 레지스트리 키 설정 또는 장기 실행 프로세스를 시작을 포함합니다. 
 
@@ -304,7 +304,7 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 
 컴퓨팅 에뮬레이터와 클라우드에서 서로 다른 동작을 수행하도록 하는 이 기능은 [ServiceDefinition.csdef] 파일에서 환경 변수를 만들어서 수행될 수 있습니다. 그런 다음 시작 태스크에서 값의 해당 환경 변수를 테스트합니다.
 
-환경 변수를 만들려면 RoleInstanceValue 요소 [변수]를 추가 하 / [] 고의 XPath 값을 만듭니다 `/RoleEnvironment/Deployment/@emulated` . **%ComputeEmulatorRunning%** 환경 변수의 값은 컴퓨팅 에뮬레이터에서 실행되는 경우 `true`이 되고 클라우드에서 실행되는 경우 `false`가 됩니다.
+환경 변수를 만들려면 [변수]/[RoleInstanceValue] 요소를 추가하고 `/RoleEnvironment/Deployment/@emulated`의 XPath 값을 만듭니다. **%ComputeEmulatorRunning%** 환경 변수의 값은 컴퓨팅 에뮬레이터에서 실행되는 경우 `true`이 되고 클라우드에서 실행되는 경우 `false`가 됩니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -381,7 +381,7 @@ EXIT /B 0
 웹 또는 작업자 역할에 대한 작업을 구성할 때 따라야 하는 몇 가지 모범 사례는 다음과 같습니다.
 
 ### <a name="always-log-startup-activities"></a>항상 시작 작업 기록
-Visual Studio는 배치 파일을 통해 단계에 디버거를 제공하지 않으므로 배치 파일 작업 시 가능한 많은 데이터를 가져오는 것이 좋습니다. **stdout** 및 **stderr** 배치 파일의 출력 로깅은 배치 파일을 디버깅하고 수정하려고 할 때 중요한 정보를 제공할 수 있습니다. **stdout** 및 **stderr** 모두를 **%TEMP%** 환경 변수가 가리킨 디렉터리의 StartupLog.txt 파일에 로깅하려면 텍스트 `>>  "%TEMP%\\StartupLog.txt" 2>&1`을 로깅하려면 특정 줄의 끝에 추가합니다. 예를 들어 **% PathToApp1Install%** 디렉터리에서 setup.exe를 실행 하려면 다음을 수행 합니다. `"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
+Visual Studio는 배치 파일을 통해 단계에 디버거를 제공하지 않으므로 배치 파일 작업 시 가능한 많은 데이터를 가져오는 것이 좋습니다. **stdout** 및 **stderr** 배치 파일의 출력 로깅은 배치 파일을 디버깅하고 수정하려고 할 때 중요한 정보를 제공할 수 있습니다. **stdout** 및 **stderr** 모두를 **%TEMP%** 환경 변수가 가리킨 디렉터리의 StartupLog.txt 파일에 로깅하려면 텍스트 `>>  "%TEMP%\\StartupLog.txt" 2>&1`을 로깅하려면 특정 줄의 끝에 추가합니다. 예를 들어, **%PathToApp1Install%** 디렉터리의 setup.exe를 실행하려면: `"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
 
 xml을 단순화하기 위해 로깅과 함께 모든 시작 태스크를 호출하는 래퍼 *cmd* 파일을 만들고 동일한 환경 변수를 공유하는 각 하위 태스크를 확인할 수 있습니다.
 
@@ -485,7 +485,7 @@ EXIT %ERRORLEVEL%
 시작 배치 파일의 끝에 누락된 `EXIT /B 0` 은(는) 시작하지 않는 역할의 일반적인 이유입니다.
 
 > [!NOTE]
-> 매개 변수를 사용 하는 경우 중첩 된 배치 파일이 때때로 응답을 중지 하는 것을 알고 있습니다 `/B` . [로그 래퍼](#always-log-startup-activities)를 사용 하는 경우 처럼 다른 배치 파일이 현재 배치 파일을 호출 하는 경우에는이 문제가 발생 하지 않도록 할 수 있습니다. 이 경우에 `/B` 매개 변수를 생략할 수 있습니다.
+> `/B` 매개 변수를 사용할 때 중첩된 일괄 처리 파일의 응답이 중지되는 경우가 있습니다. [로그 래퍼](#always-log-startup-activities)를 사용하는 경우처럼 다른 일괄 처리 파일에서 현재 일괄 처리 파일을 호출하면 이 문제가 발생하지 않도록 할 수 있습니다. 이 경우에 `/B` 매개 변수를 생략할 수 있습니다.
 > 
 > 
 
@@ -493,7 +493,7 @@ EXIT %ERRORLEVEL%
 모든 역할 재활용은 재부팅을 포함하지 않으므로 모든 역할 재활용은 모든 시작 작업 실행을 포함합니다. 이는 시작 작업이 문제 없이 재부팅 사이 여러 번 실행될 수 있어야 함을 의미합니다. 이에 대해서는 [앞의 섹션](#detect-that-your-task-has-already-run)에서 설명합니다.
 
 ### <a name="use-local-storage-to-store-files-that-must-be-accessed-in-the-role"></a>로컬 스토리지를 사용하여 역할에 액세스할 수 있어야 하는 파일을 저장합니다.
-그런 다음 역할에 액세스할 수 있는 시작 작업 중 파일을 복사하거나 만들려는 경우 해당 파일이 로컬 스토리지에 배치되어 있어야 합니다. [이전 섹션](#create-files-in-local-storage-from-a-startup-task)을 참조 하세요.
+그런 다음 역할에 액세스할 수 있는 시작 작업 중 파일을 복사하거나 만들려는 경우 해당 파일이 로컬 스토리지에 배치되어 있어야 합니다. [앞의 섹션](#create-files-in-local-storage-from-a-startup-task)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 클라우드 [서비스 모델 및 패키지](cloud-services-model-and-package.md)
@@ -502,7 +502,7 @@ EXIT %ERRORLEVEL%
 
 [만들고 배포하세요](cloud-services-how-to-create-deploy-portal.md) .
 
-[ServiceDefinition. .csdef]: cloud-services-model-and-package.md#csdef
+[ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
 [Task]: /previous-versions/azure/reference/gg557552(v=azure.100)#Task
 [Startup]: /previous-versions/azure/reference/gg557552(v=azure.100)#Startup
 [Runtime]: /previous-versions/azure/reference/gg557552(v=azure.100)#Runtime

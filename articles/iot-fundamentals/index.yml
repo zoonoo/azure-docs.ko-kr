@@ -48,7 +48,7 @@ conceptualContent:
         - url: ../iot-hub/quickstart-send-telemetry-cli.md
           itemType: quickstart
           text: 디바이스에서 원격 분석 데이터 보내기
-        - url: ../iot-hub/quickstart-control-device-node.md
+        - url: ../iot-hub/quickstart-control-device.md
           itemType: quickstart
           text: 클라우드에서 디바이스 제어
         - url: /azure-stack/operator/iot-hub-rp-overview
@@ -115,17 +115,17 @@ conceptualContent:
         text: 자세히 보기
     - title: 스마트 디바이스를 솔루션에 통합
       links:
-        - url: ../iot-pnp/overview-iot-plug-and-play.md
+        - url: ../iot-develop/overview-iot-plug-and-play.md
           itemType: overview
           text: IoT 플러그 앤 플레이란?
-        - url: ../iot-pnp/quickstart-connect-device.md
-          itemType: quickstart
+        - url: ../iot-develop/tutorial-connect-device.md
+          itemType: tutorial
           text: IoT Hub에 샘플 디바이스 연결
-        - url: ../iot-pnp/concepts-developer-guide-device.md
+        - url: ../iot-develop/concepts-developer-guide-device.md
           itemType: concept
           text: 개발자 가이드
       footerLink:
-        url: ../iot-pnp/index.yml
+        url: ../iot-develop/index.yml
         text: 자세히 보기
     - title: IoT 허브 디바이스 업데이트
       links:

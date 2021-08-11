@@ -21,6 +21,10 @@
   items:
     - name: Advisor 시작
       href: advisor-get-started.md
+- name: 샘플
+  items:
+    - name: Azure Resource Graph 쿼리
+      href: ./resource-graph-samples.md
 - name: 방법 가이드
   items:
     - name: 안정성

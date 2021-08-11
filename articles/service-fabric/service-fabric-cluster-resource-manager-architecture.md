@@ -1,15 +1,15 @@
 ---
 title: 리소스 관리자 아키텍처
-description: Azure Service Fabric 클러스터 리소스 관리자 서비스에 대 한 및 아키텍처 정보를 개략적으로 설명 합니다.
+description: Azure Service Fabric 클러스터 리소스 관리자 서비스에 관한 개요와 아키텍처 정보입니다.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 0aff55810508fedcf354fba3d9fca9f7a402029b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94685837"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>클러스터 리소스 관리자 아키텍처 개요
@@ -43,7 +43,7 @@ Cluster Resource Manager는 해당 서비스 내의 각 서비스 개체별로 �
 
 <center>
 
-![클러스터 리소스 관리자 서비스는 로컬 에이전트의 모든 정보를 집계 하 고 현재 구성에 따라 반응 하는 클러스터를 보여 주는 다이어그램입니다.][Image1]
+![클러스터 리소스 관리자 서비스가 로컬 에이전트에서 모든 정보를 집계하고 현재 구성에 따라 반응함을 보여 주는 다이어그램][Image1]
 </center>
 
 런타임 중에 많은 내용이 변경될 수 있습니다. 예를 들어 일부 서비스가 사용하는 리소스의 양이 변경되고 일부 서비스가 실패하고 일부 노드가 클러스터를 연결하고 연결 해제한다고 가정하겠습니다. 노드에 대한 모든 변경 사항은 집계되어 Cluster Resource Manager 서비스(1, 2)로 정기적으로 전송되고, 여기서 다시 집계되고 분석되고 저장됩니다. 해당 서비스에서는 몇 초마다 변경 사항을 보고 필요한 작업이 있는지 확인합니다(3). 예를 들어 비어 있는 노드가 클러스터에 추가되었다는 것을 알 수 있습니다. 결과적으로 일부 서비스를 해당 노드로 이동하기로 결정합니다. Cluster Resource Manager는 특정 노드가 오버로드되거나 특정 서비스가 실패하거나 삭제되어 다른 곳에서 리소스를 확보했는지도 알 수 있습니다.
@@ -56,7 +56,7 @@ Cluster Resource Manager는 해당 서비스 내의 각 서비스 개체별로 �
 </center>
 
 ## <a name="next-steps"></a>다음 단계
-- Cluster Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대 한 자세한 내용은 [Service Fabric 클러스터 설명](./service-fabric-cluster-resource-manager-cluster-description.md) 문서를 참조 하세요.
+- Cluster Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [Service Fabric 클러스터 설명](./service-fabric-cluster-resource-manager-cluster-description.md)에 대한 문서를 확인하세요.
 - Cluster Resource Manager의 기본 임무는 클러스터의 부하를 다시 분산하고 배치 규칙을 적용하는 것입니다. 이러한 동작은 구성하는 방법에 대한 자세한 내용은 [Service Fabric 클러스터 부하 분산](./service-fabric-cluster-resource-manager-balancing.md)을 참조하세요.
 
 [Image1]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png

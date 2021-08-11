@@ -9,13 +9,13 @@ ms.date: 11/23/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 6ccd3178f1126ce8fe8f10b126dc6eadaf72bf53
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96004418"
 ---
-# <a name="st_isvaliddetailed-azure-cosmos-db"></a>ST_ISVALIDDETAILED (Azure Cosmos DB)
+# <a name="st_isvaliddetailed-azure-cosmos-db"></a>ST_ISVALIDDETAILED(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  지정된 GeoJSON Point, Polygon 또는 LineString 식이 유효한 경우 부울 값을 포함하는 JSON 값을 반환하고, 잘못된 경우 추가로 그 이유를 문자열 값으로 반환합니다.  
@@ -29,15 +29,15 @@ ST_ISVALIDDETAILED(<spatial_expr>)
 ## <a name="arguments"></a>인수
   
 *spatial_expr*  
-   GeoJSON point 또는 polygon 식입니다.  
+   GeoJSON 꼭짓점 또는 다각형 식입니다.  
   
 ## <a name="return-types"></a>반환 형식
   
   지정된 GeoJSON 점 또는 다각형 식이 유효한 경우 부울 값을 포함하는 JSON 값을 반환하고, 잘못된 경우 추가로 그 이유를 문자열 값으로 반환합니다.  
   
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
-  다음 예제에서는를 사용 하 여 유효성 (세부 정보 포함)을 확인 하는 방법을 보여 줍니다 `ST_ISVALIDDETAILED` .  
+  다음 예제에서는 `ST_ISVALIDDETAILED`를 사용하여 세부 정보로 유효성을 검사하는 방법을 보여 줍니다.  
   
 ```sql
 SELECT ST_ISVALIDDETAILED({   

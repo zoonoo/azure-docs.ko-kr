@@ -10,12 +10,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
 ms.date: 05/06/2021
-ms.openlocfilehash: a2cf4c19e21ad13a2a79343713e9a0494eff0704
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: b05dbeeb69cee8afd3c237b3fbc2c3e59fef238f
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109489421"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112288058"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-azure-cli-preview"></a>자습서: Azure CLI를 사용하여 Blob에 대한 액세스를 제한하는 역할 할당 조건 추가(미리 보기)
 
@@ -31,21 +31,21 @@ ms.locfileid: "109489421"
 
 > [!div class="checklist"]
 > * 역할 할당에 조건 추가
-> * Blob 인덱스 태그를 기반으로 Blob에 대한 액세스 제한
+> * BLOB 인덱스 태그를 기반으로 BLOB에 대한 액세스 제한
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-역할 할당 조건을 추가하거나 편집하기 위한 사전 요구 사항에 대해 알아보려면 [조건 및 사전 요구 사항](../../role-based-access-control/conditions-prerequisites.md)을 참조하세요.
+역할 할당 조건을 추가하거나 편집하기 위한 사전 요구 사항은 [조건 및 사전 요구 사항](../../role-based-access-control/conditions-prerequisites.md)을 참조하세요.
 
 ## <a name="condition"></a>조건
 
-이 자습서에서는 특정 태그를 사용하여 Blob에 대한 액세스를 제한합니다. 예를 들어, Chandra에서 Project=Cascade 태그가 있는 파일만 읽을 수 있도록 역할 할당에 조건을 추가합니다.
+이 자습서에서는 특정 태그를 사용하여 BLOB에 대한 액세스를 제한합니다. 예를 들어 Chandra에서 Project=Cascade 태그가 있는 파일만 읽을 수 있도록 역할 할당에 조건을 추가합니다.
 
 ![조건이 있는 역할 할당의 다이어그램.](./media/shared/condition-role-assignment-rg.png)
 
-Chandra가 Project=Cascade 태그 없이 Blob을 읽으려고 하면 액세스가 허용되지 않습니다.
+Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스가 허용되지 않습니다.
 
-![Project=Cascade 태그를 사용한 Blob의 읽기 권한을 보여 주는 다이어그램](./media/shared/condition-access.png)
+![Project=Cascade 태그를 사용한 BLOB의 읽기 권한을 보여주는 다이어그램](./media/shared/condition-access.png)
 
 코드에서 조건은 다음과 같습니다.
 
@@ -83,8 +83,6 @@ Chandra가 Project=Cascade 태그 없이 Blob을 읽으려고 하면 액세스�
     subscriptionId="<subscriptionId>"
     ```
 
-1. 구독을 아직 등록하지 않은 경우 Blob 인덱스 태그 사용을 위해 구독을 등록합니다. 자세한 내용은 [구독 등록(미리 보기)](../blobs/storage-manage-find-blobs.md#register-your-subscription-preview)을 참조하세요.
-
 ## <a name="step-2-create-a-user"></a>2단계: 사용자 만들기
 
 1. [az ad user create](/cli/azure/ad/user#az_ad_user_create)를 사용하여 사용자를 만들거나 기존 사용자를 찾습니다. 이 자습서에서는 Chandra를 예제로 사용합니다.
@@ -108,7 +106,7 @@ Azure AD 자격 증명을 사용하거나 스토리지 계정 액세스 키를 �
 1. 텍스트 파일에 다음 Blob 인덱스 태그를 추가합니다. 자세한 내용은 [Blob 인덱스 태그(미리 보기)를 사용하여 Azure Blob Storage 데이터 관리 및 찾기를 참조하세요](../blobs/storage-blob-index-how-to.md).
 
     > [!NOTE]
-    > Blob은 임의의 사용자 정의 키 값 메타데이터를 저장하는 기능을 지원합니다. 메타데이터는 Blob 인덱스 태그와 유사하지만 조건으로 Blob 인덱스 태그를 사용해야 합니다. 
+    > BLOB은 임의의 사용자 정의 키 값 메타데이터를 저장하는 기능을 지원합니다. 메타데이터는 BLOB 인덱스 태그와 유사하지만 조건으로 BLOB 인덱스 태그를 사용해야 합니다. 
 
     | 키 | 값 |
     | --- | --- |

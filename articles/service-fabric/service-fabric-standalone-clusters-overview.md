@@ -4,10 +4,10 @@ description: 서비스 패브릭 클러스터는 Windows Server 및 Linux에서 
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.openlocfilehash: a3162a3d02510ce8efab6c5bcac0f1fdd2b2539b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94684001"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Service Fabric 독립 실행형 클러스터 개요
@@ -23,9 +23,9 @@ Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되�
 서비스 패브릭 클러스터는 사용자가 소유하는 리소스입니다.  사용자는 권한이 없는 사용자가 연결되는 것을 방지하기 위해 클러스터를 보호해야 합니다. 보안 클러스터는 클러스터에서 프로덕션 워크로드를 실행하는 경우에 특히 중요합니다.
 
 > [!NOTE]
-> Windows 인증은 Kerberos를 기반으로 합니다. NTLM은 인증 유형으로 지원 되지 않습니다.
+> Windows 인증은 Kerberos를 기반으로 합니다. NTLM 인증 형식은 지원되지 않습니다.
 >
-> 가능 하면 Service Fabric 클러스터에 대해 x.509 인증서 인증을 사용 합니다.
+> 가능하면 Service Fabric 클러스터에 X.509 인증서 인증을 사용합니다.
 
 ### <a name="node-to-node-security"></a>노드 간 보안
 
@@ -43,10 +43,10 @@ Windows 독립 실행형 클러스터에 대해 Windows 보안을 설정할 수�
 
 자세한 내용은 [클라이언트-노드 보안](service-fabric-cluster-security.md#client-to-node-security)을 참조하세요.
 
-### <a name="service-fabric-role-based-access-control"></a>역할 기반 액세스 제어 Service Fabric
+### <a name="service-fabric-role-based-access-control"></a>Service Fabric 역할 기반 액세스 제어
 또한 Service Fabric은 다른 사용자 그룹의 특정 클러스터 작업에 대한 액세스를 제한하기 위해 액세스 제어를 지원합니다. 이를 통해 클러스터의 보안을 강화합니다. 클러스터에 연결하는 클라이언트에 대해 두 가지 액세스 제어 유형인 관리자 역할 및 사용자 역할이 지원됩니다.  
 
-자세한 내용은 [역할 기반 액세스 제어 Service Fabric](service-fabric-cluster-security.md#service-fabric-role-based-access-control)를 참조 하세요.
+자세한 내용은 [Service Fabric 역할 기반 액세스 제어](service-fabric-cluster-security.md#service-fabric-role-based-access-control)를 참조하세요.
 
 ## <a name="scaling"></a>크기 조정
 

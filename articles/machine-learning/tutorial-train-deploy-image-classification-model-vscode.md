@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 05/25/2021
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 80090bf8743c78a66e38250dbfbb89beb70e66c2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 098f2d63f7bfd87aed8c7c88d1ec13be684983c1
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457582"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112459355"
 ---
 # <a name="train-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Azure Machine Learning Visual Studio Code 확장(미리 보기)을 사용하여 이미지 분류 TensorFlow 모델 학습
 
@@ -31,7 +31,7 @@ TensorFlow 및 Azure Machine Learning Visual Studio Code 확장을 사용하여 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- 동작합니다. 구독이 없는 경우 [Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)에 가입하여 사용해 보세요.
+- 동작합니다. 구독이 없는 경우 [Azure Machine Learning의 평가판 또는 유료 버전](https://azure.microsoft.com/free/t.com/free/)에 가입하여 사용해 보세요.
 - 간단한 플랫폼 간 코드 편집기인 [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview)를 설치합니다.
 - Azure Machine Learning Visual Studio Code 확장. 설치 지침은 [Azure Machine Learning Visual Studio Code 확장 가이드 설정](./how-to-setup-vs-code.md)을 참조하세요.
 - 2.0 CLI(미리 보기). 설치 지침은 [2.0 CLI 설치, 설정 및 사용(미리 보기)](how-to-configure-cli.md)을 참조하세요.

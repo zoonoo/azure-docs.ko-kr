@@ -10,24 +10,24 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 8b3bc99d4391e2079d1b0ecc39011f1b2afc4440
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 557c2591b0bd5406266e5f833ca8c5c4fb581e47
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096039"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125358"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Microsoft Spark 유틸리티 소개
 
-Microsoft Spark 유틸리티(MSSparkUtils)는 일반적인 작업을 쉽게 할 수 있게 돕는 기본 제공 패키지입니다. MSSparkUtils를 사용하여 파일 시스템 작업을 하고, 환경 변수를 가져오고, 비밀을 사용할 수 있습니다. MSSparkUtils는 `PySpark (Python)`, `Scala`, `.NET Spark (C#)` Notebook, Synapse 파이프라인에서 사용할 수 있습니다.
+Microsoft Spark 유틸리티(MSSparkUtils)는 일반적인 작업을 쉽게 할 수 있게 돕는 기본 제공 패키지입니다. MSSparkUtils를 사용하여 파일 시스템 작업을 하고, 환경 변수를 가져오고, Notebook을 서로 연결하고, 비밀을 사용할 수 있습니다. MSSparkUtils는 `PySpark (Python)`, `Scala`, `.NET Spark (C#)` Notebook, Synapse 파이프라인에서 사용할 수 있습니다.
 
 ## <a name="pre-requisites"></a>필수 구성 요소
 
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 대한 액세스 구성 
 
-Synapse Notebook는 Azure AD(Azure Active Directory) 통과를 사용하여 ADLS Gen2 계정에 액세스합니다. ADLS Gen2 계정(또는 폴더)에 액세스하려면 **Storage Blob 데이터 기여자** 여야 합니다. 
+Synapse Notebook는 AAD(Azure Active Airectory) 통과를 사용하여 ADLS Gen2 계정에 액세스합니다. ADLS Gen2 계정(또는 폴더)에 액세스하려면 **Storage Blob 데이터 기여자** 여야 합니다. 
 
-Synapse 파이프라인은 MSI(작업 영역 ID)를 사용하여 스토리지 계정에 액세스합니다. 파이프라인 활동에서 MSSparkUtils를 사용하려면 작업 영역 ID가 **Storage Blob 데이터 기여자로** 이어야 ADLS Gen2 계정(또는 폴더)에 액세스할 수 있습니다.
+Synapse 파이프라인은 작업 영역의 MSI(관리 서비스 ID)를 사용하여 스토리지 계정에 액세스합니다. 파이프라인 활동에서 MSSparkUtils를 사용하려면 작업 영역 ID가 **Storage Blob 데이터 기여자로** 이어야 ADLS Gen2 계정(또는 폴더)에 액세스할 수 있습니다.
 
 다음 단계를 수행하여 Azure AD 및 작업 영역 MSI가 ADLS Gen2 계정에 액세스할 수 있도록 합니다.
 1. [Azure Portal](https://portal.azure.com/) 및 액세스하려는 스토리지 계정을 엽니다. 액세스하려는 특정 컨테이너를 탐색할 수 있습니다.
@@ -41,7 +41,7 @@ Synapse Spark를 사용하여 다음 URL을 통해 ADLS Gen2의 데이터에 액
 
 ### <a name="configure-access-to-azure-blob-storage"></a>Azure Blob Storage에 대한 액세스 구성  
 
-Synapse는 **SAS(공유 액세스 서명)** 를 활용하여 Azure Blob Storage에 액세스합니다. 코드에서 SAS 키를 노출하지 않으려면 Synapse 작업 영역에서 액세스하려는 Azure Blob Storage 계정에 연결된 새 서비스를 만드는 것이 좋습니다.
+Synapse는 [**SAS(공유 액세스 서명)** ](../../storage/common/storage-sas-overview.md)를 사용하여 Azure Blob Storage에 액세스합니다. 코드에서 SAS 키를 노출하지 않으려면 Synapse 작업 영역에서 액세스하려는 Azure Blob Storage 계정에 연결된 새 서비스를 만드는 것이 좋습니다.
 
 Azure Blob Storage 계정을 위한 새 연결된 서비스를 추가하려면 다음 단계를 수행합니다.
 
@@ -392,7 +392,7 @@ FS.Put("file path", "content to write", true) // Set the last parameter as True 
 :::zone pivot = "programming-language-python"
 
 ```python
-mssparkutils.fs.append('file path','content to append',True) # Set the last parameter as True to create the file if it does not exist
+mssparkutils.fs.append("file path", "content to append", True) # Set the last parameter as True to create the file if it does not exist
 ```
 ::: zone-end
 
@@ -407,7 +407,7 @@ mssparkutils.fs.append("file path","content to append",true) // Set the last par
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-FS.Append("file path","content to append",true) // Set the last parameter as True to create the file if it does not exist
+FS.Append("file path", "content to append", true) // Set the last parameter as True to create the file if it does not exist
 ```
 
 ::: zone-end
@@ -437,6 +437,178 @@ mssparkutils.fs.rm("file path", true) // Set the last parameter as True to remov
 FS.Rm("file path", true) // Set the last parameter as True to remove all files and directories recursively 
 ```
 
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+## <a name="notebook-utilities"></a>Notebook 유틸리티 
+
+MSSparkUtils Notebook 유틸리티를 사용하여 Notebook을 실행하거나 값이 있는 Notebook을 종료할 수 있습니다. 사용 가능한 메서드에 관한 개요를 가져오려면 다음 명령을 실행합니다.
+
+```python
+mssparkutils.notebook.help()
+```
+
+결과 가져오기:
+```
+The notebook module.
+
+exit(value: String): void -> This method lets you exit a notebook with a value.
+run(path: String, timeoutSeconds: int, arguments: Map): String -> This method runs a notebook and returns its exit value.
+
+```
+
+### <a name="run-a-notebook"></a>Notebook을 실행합니다.
+Notebook을 실행하고 해당 종료 값을 반환합니다. Notebook에서 대화식으로 또는 파이프라인에서 중첩 함수 호출을 실행할 수 있습니다. 참조 중인 Notebook은 Notebook이 이 함수를 호출하는 Spark 풀에서 실행됩니다.  
+
+```python
+
+mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
+
+```
+
+다음은 그 예입니다.
+
+```python
+mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
+```
+
+### <a name="exit-a-notebook"></a>Notebook을 종료합니다.
+값이 있는 Notebook을 종료합니다. Notebook에서 대화식으로 또는 파이프라인에서 중첩 함수 호출을 실행할 수 있습니다. 
+
+- 대화식으로 `exit()` 함수를 Notebook으로 호출하면 Azure Synapse는 예외를 throw하고, 실행 중인 하위 시퀀스 셀을 건너뛰고, Spark 세션을 활성 상태로 유지합니다.
+
+- Synapse 파이프라인에서 `exit()` 함수를 호출하는 Notebook을 오케스트레이션하면 Azure Synapse는 종료 값을 반환하고 파이프라인 실행을 완료하고 Spark 세션을 중지합니다.  
+
+- 참조 중인 Notebook에서 `exit()` 함수를 호출하면 Azure Synapse는 참조 중인 Notebook에서 추가 실행을 중지하고 `run()` 함수를 호출하는 Notebook에서 다음 셀을 계속 실행합니다. 예: Notebook1은 3개의 셀을 갖고 있으며 두 번째 셀에서 `exit()` 함수를 호출합니다. Notebook2는 5개의 셀을 갖고 있으며 세 번째 셀에서 `run(notebook1)`을 호출합니다. Notebook2를 실행하면 `exit()` 함수를 사용할 때 Notebook1이 두 번째 셀에서 중지됩니다. Notebook2는 네 번째 셀과 다섯 번째 셀을 계속 실행합니다. 
+
+
+```python
+mssparkutils.notebook.exit("value string")
+```
+
+다음은 그 예입니다.
+
+**Sample1** Notebook은 다음 2개의 셀이 있는 **folder/** 아래에 있습니다. 
+- 셀 1은 기본값이 10으로 설정된 **입력** 매개변수를 정의합니다.
+- 셀 2는 **입력** 을 종료 값으로 사용하여 Notebook을 종료합니다. 
+
+![샘플 Notebook의 스크린샷](./media/microsoft-spark-utilities/spark-utilities-run-notebook-sample.png)
+
+기본값을 사용하여 다른 Notebook에서 **Sample1** 을 실행할 수 있습니다.
+
+```python
+
+exitVal = mssparkutils.notebook.run("folder/Sample1")
+print (exitVal)
+
+```
+결과:
+
+```
+Sample1 run success with input is 10
+```
+
+다른 Notebook에서 **Sample1** 을 실행하고 **입력** 값을 20으로 설정할 수 있습니다.
+
+```python
+exitVal = mssparkutils.notebook.run("mssparkutils/folder/Sample1", 90, {"input": 20 })
+print (exitVal)
+```
+
+결과:
+
+```
+Sample1 run success with input is 20
+```
+::: zone-end
+
+
+:::zone pivot = "programming-language-scala"
+
+## <a name="notebook-utilities"></a>Notebook 유틸리티 
+
+MSSparkUtils Notebook 유틸리티를 사용하여 Notebook을 실행하거나 값이 있는 Notebook을 종료할 수 있습니다. 사용 가능한 메서드에 관한 개요를 가져오려면 다음 명령을 실행합니다.
+
+```scala
+mssparkutils.notebook.help()
+```
+
+결과 가져오기:
+```
+The notebook module.
+
+exit(value: String): void -> This method lets you exit a notebook with a value.
+run(path: String, timeoutSeconds: int, arguments: Map): String -> This method runs a notebook and returns its exit value.
+
+```
+
+### <a name="run-a-notebook"></a>Notebook을 실행합니다.
+Notebook을 실행하고 해당 종료 값을 반환합니다. Notebook에서 대화식으로 또는 파이프라인에서 중첩 함수 호출을 실행할 수 있습니다. 참조 중인 Notebook은 Notebook이 이 함수를 호출하는 Spark 풀에서 실행됩니다.  
+
+```scala
+
+mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
+
+```
+
+다음은 그 예입니다.
+
+```scala
+mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
+```
+
+### <a name="exit-a-notebook"></a>Notebook을 종료합니다.
+값이 있는 Notebook을 종료합니다. Notebook에서 대화식으로 또는 파이프라인에서 중첩 함수 호출을 실행할 수 있습니다. 
+
+- 대화식으로 `exit()` 함수를 Notebook으로 호출하면 Azure Synapse는 예외를 throw하고, 실행 중인 하위 시퀀스 셀을 건너뛰고, Spark 세션을 활성 상태로 유지합니다.
+
+- Synapse 파이프라인에서 `exit()` 함수를 호출하는 Notebook을 오케스트레이션하면 Azure Synapse는 종료 값을 반환하고 파이프라인 실행을 완료하고 Spark 세션을 중지합니다.  
+
+- 참조 중인 Notebook에서 `exit()` 함수를 호출하면 Azure Synapse는 참조 중인 Notebook에서 추가 실행을 중지하고 `run()` 함수를 호출하는 Notebook에서 다음 셀을 계속 실행합니다. 예: Notebook1은 3개의 셀을 갖고 있으며 두 번째 셀에서 `exit()` 함수를 호출합니다. Notebook2는 5개의 셀을 갖고 있으며 세 번째 셀에서 `run(notebook1)`을 호출합니다. Notebook2를 실행하면 `exit()` 함수를 사용할 때 Notebook1이 두 번째 셀에서 중지됩니다. Notebook2는 네 번째 셀과 다섯 번째 셀을 계속 실행합니다. 
+
+
+```python
+mssparkutils.notebook.exit("value string")
+```
+
+다음은 그 예입니다.
+
+**Sample1** Notebook은 다음 2개의 셀이 있는 **mssparkutils/folder/** 아래에 있습니다. 
+- 셀 1은 기본값이 10으로 설정된 **입력** 매개변수를 정의합니다.
+- 셀 2는 **입력** 을 종료 값으로 사용하여 Notebook을 종료합니다. 
+
+![샘플 Notebook의 스크린샷](./media/microsoft-spark-utilities/spark-utilities-run-notebook-sample.png)
+
+기본값을 사용하여 다른 Notebook에서 **Sample1** 을 실행할 수 있습니다.
+
+```scala
+
+val exitVal = mssparkutils.notebook.run("mssparkutils/folder/Sample1")
+print(exitVal)
+
+```
+결과:
+
+```
+exitVal: String = Sample1 run success with input is 10
+Sample1 run success with input is 10
+```
+
+
+다른 Notebook에서 **Sample1** 을 실행하고 **입력** 값을 20으로 설정할 수 있습니다.
+
+```scala
+val exitVal = mssparkutils.notebook.run("mssparkutils/folder/Sample1", 90, {"input": 20 })
+print(exitVal)
+```
+
+결과:
+
+```
+exitVal: String = Sample1 run success with input is 20
+Sample1 run success with input is 20
+```
 ::: zone-end
 
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: efb8fba655570a661b6b001eb93942475eb2170d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101698640"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Azure CLI에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
@@ -29,7 +29,7 @@ ms.locfileid: "101698640"
 
 Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 추적하는 캡처 세션을 만들 수 있습니다. 원하는 트래픽만 캡처할 수 있도록 캡처 세션에 대 한 필터가 제공됩니다. 패킷 캡처를 통해 사후 및 사전 대응적으로 네트워크 예외를 진단할 수 있습니다. 또한 네트워크 침입에 대한 정보를 가져오는 네트워크 통계를 수집하는 것을 포함하여 클라이언트 서버 간 통신을 디버깅할 수 있습니다. 이 기능은 원격으로 패킷 캡처를 트리거할 수 있게 하여 원하는 컴퓨터에서 수동으로 패킷 캡처를 실행하는 부담을 줄이고 시간을 단축합니다.
 
-이 문서의 단계를 수행 하려면 [Mac, Linux 및 Windows 용 Azure Command-Line 인터페이스 (Azure CLI)를 설치](/cli/azure/install-azure-cli)해야 합니다.
+이 문서의 단계를 수행하려면 [Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(Azure CLI)를 설치](/cli/azure/install-azure-cli)해야 합니다.
 
 이 문서에서는 패킷 캡처를 위해 현재 사용할 수 있는 여러 관리 태스크를 설명합니다.
 
@@ -52,7 +52,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 
 
 ### <a name="step-1"></a>1단계
 
-명령을 실행 `az vm extension set` 하 여 게스트 가상 머신에 패킷 캡처 에이전트를 설치 합니다.
+`az vm extension set` 명령을 실행하여 게스트 가상 머신에 패킷 캡처 에이전트를 설치합니다.
 
 Windows Virtual Machines의 경우:
 
@@ -68,7 +68,7 @@ az vm extension set --resource-group resourceGroupName --vm-name virtualMachineN
 
 ### <a name="step-2"></a>2단계
 
-에이전트가 설치 되어 있는지 확인 하려면 명령을 실행 하 `vm extension show` 고 리소스 그룹 및 가상 컴퓨터 이름으로 전달 합니다. 결과 목록을 확인하여 에이전트가 설치되어 있는지 확인합니다.
+에이전트가 설치되어 있는지 확인하려면 `vm extension show` 명령을 실행하고 리소스 그룹과 가상 머신 이름을 전달합니다. 결과 목록을 확인하여 에이전트가 설치되어 있는지 확인합니다.
 
 Windows Virtual Machines의 경우:
 
@@ -118,13 +118,13 @@ az storage account list
 
 ### <a name="step-2"></a>2단계
 
-이 시점에서 패킷 캡처를 만들 준비가 되었습니다.  먼저 구성할 수 있는 매개 변수를 살펴보겠습니다. 필터는 패킷 캡처에 의해 저장 되는 데이터를 제한 하는 데 사용할 수 있는 매개 변수 중 하나입니다. 다음 예제에서는 몇 가지 필터를 사용하여 패킷 캡처를 설정합니다.  처음 세 개의 필터는 로컬 IP 10.0.0.3에서 대상 포트 20, 80 및 443으로 나가는 TCP 트래픽을 수집합니다.  마지막 필터는 UDP 트래픽만을 수집합니다.
+이제 패킷 캡처를 만들 준비가 되었습니다.  먼저, 구성할 수 있는 매개 변수를 살펴보겠습니다. 필터는 패킷 캡처에 의해 저장되는 데이터를 제한하는 데 사용할 수 있는 매개 변수 중 하나입니다. 다음 예제에서는 몇 가지 필터를 사용하여 패킷 캡처를 설정합니다.  처음 세 개의 필터는 로컬 IP 10.0.0.3에서 대상 포트 20, 80 및 443으로 나가는 TCP 트래픽을 수집합니다.  마지막 필터는 UDP 트래픽만을 수집합니다.
 
 ```azurecli-interactive
 az network watcher packet-capture create --resource-group {resourceGroupName} --vm {vmName} --name packetCaptureName --storage-account {storageAccountName} --filters "[{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"20\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"80\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"443\"},{\"protocol\":\"UDP\"}]"
 ```
 
-다음 예제는 명령을 실행 하는 데 필요한 출력입니다 `az network watcher packet-capture create` .
+다음 예제는 `az network watcher packet-capture create` 명령을 실행하면 예상되는 출력입니다.
 
 ```json
 {
@@ -179,13 +179,13 @@ roviders/microsoft.compute/virtualmachines/{vmName}/2017/05/25/packetcapture_16_
 
 ## <a name="get-a-packet-capture"></a>패킷 캡처 가져오기
 
-명령을 실행 `az network watcher packet-capture show-status` 하 여 현재 실행 중이거나 완료 된 패킷 캡처의 상태를 검색 합니다.
+`az network watcher packet-capture show-status` 명령을 실행하여 현재 실행 중이거나 완료된 패킷 캡처의 상태를 검색합니다.
 
 ```azurecli-interactive
 az network watcher packet-capture show-status --name packetCaptureName --location {networkWatcherLocation}
 ```
 
-다음 예제는 명령의 출력입니다 `az network watcher packet-capture show-status` . 다음 예제는 TimeExceeded StopReason으로 인해 캡처가 중지된 경우입니다.
+다음 예제는 `az network watcher packet-capture show-status` 명령의 출력입니다. 다음 예제는 TimeExceeded StopReason으로 인해 캡처가 중지된 경우입니다.
 
 ```
 {
@@ -203,14 +203,14 @@ az network watcher packet-capture show-status --name packetCaptureName --locatio
 
 ## <a name="stop-a-packet-capture"></a>패킷 캡처 중지
 
-명령을 실행 하 여 `az network watcher packet-capture stop` 캡처 세션이 진행 중인 경우 중지 됩니다.
+`az network watcher packet-capture stop` 명령을 실행하여 캡처 세션이 진행 중인 경우 이를 중지합니다.
 
 ```azurecli-interactive
 az network watcher packet-capture stop --name packetCaptureName --location westcentralus
 ```
 
 > [!NOTE]
-> 이 명령은 현재 실행 중인 캡처 세션 또는 이미 중지 된 기존 세션에서 실행 될 때 응답을 반환 하지 않습니다.
+> 명령은 현재 실행 중인 캡처 세션 또는 이미 중지된 기존 세션에서 실행된 경우 응답을 반환하지 않습니다.
 
 ## <a name="delete-a-packet-capture"></a>패킷 캡처 삭제
 
@@ -235,6 +235,6 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 [경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 머신 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
 
-[IP 흐름 확인 확인](diagnose-vm-network-traffic-filtering-problem.md) 을 방문 하 여 VM에서 또는 VM에서 특정 트래픽이 허용 되는지 확인 합니다.
+[IP 흐름 확인 확인](diagnose-vm-network-traffic-filtering-problem.md)을 방문하여 특정 트래픽이 VM에서 허용되는지 알아봅니다.
 
 <!-- Image references -->
