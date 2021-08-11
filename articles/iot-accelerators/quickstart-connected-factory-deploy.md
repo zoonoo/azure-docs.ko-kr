@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: dbb49d990581c6b38d0eff32b01dd9b115e6794c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f65f9ea1778aba1ff60cdb4cc4b4eba3fa7562cf
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057822"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113758152"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>빠른 시작: 클라우드 기반 솔루션으로 산업용 IoT 디바이스 관리해 보기
 
@@ -98,7 +98,7 @@ OEE는 생산 관련 운영 매개 변수를 사용하여 제조 프로세스의
 
 ### <a name="factory-locations"></a>팩터리 위치
 
-솔루션의 상태, 위치 및 현재 프로덕션 구성을 보여주는 **팩터리 위치** 패널입니다. 솔루션 가속기를 처음 실행하면 대시보드에 시뮬레이션된 팩터리 집합이 표시됩니다. 각 생산 라인 시뮬레이션은 시뮬레이션된 작업을 실행하고 데이터를 공유하는 실제 OPC UA 서버 세 개로 구성됩니다. OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-accelerators-faq-cf.md)를 참조하세요.
+솔루션의 상태, 위치 및 현재 프로덕션 구성을 보여주는 **팩터리 위치** 패널입니다. 솔루션 가속기를 처음 실행하면 대시보드에 시뮬레이션된 팩터리 집합이 표시됩니다. 각 생산 라인 시뮬레이션은 시뮬레이션된 작업을 실행하고 데이터를 공유하는 실제 OPC UA 서버 세 개로 구성됩니다. OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-accelerators-faq-cf.yml)를 참조하세요.
 
 [![팩터리 위치](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
 
@@ -116,7 +116,7 @@ OEE는 생산 관련 운영 매개 변수를 사용하여 제조 프로세스의
 
 ### <a name="map"></a>맵
 
-사용자 구독으로 [Bing Maps API](iot-accelerators-faq-cf.md)에 액세스할 수 있는 경우 *팩터리* 맵에 솔루션에 있는 모든 공장의 지리적 위치 및 상태가 표시됩니다. 위치 세부 정보를 보려면 맵에 표시된 위치를 클릭합니다.
+사용자 구독으로 [Bing Maps API](iot-accelerators-faq-cf.yml)에 액세스할 수 있는 경우 *팩터리* 맵에 솔루션에 있는 모든 공장의 지리적 위치 및 상태가 표시됩니다. 위치 세부 정보를 보려면 맵에 표시된 위치를 클릭합니다.
 
 [![맵](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
 

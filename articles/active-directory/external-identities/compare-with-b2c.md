@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 07/13/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d64fd91d3f033c0a04c4936f11d096aa640942a1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 56fd9449e3954f7fe7cf3ab43a62df05869e2112
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743888"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729599"
 ---
 # <a name="what-are-external-identities-in-azure-active-directory"></a>Azure Active Directory의 외부 ID란?
 
@@ -44,7 +44,7 @@ Azure AD 외부 ID는 조직에 대한 사용자의 관계보다는 사용자가
 | **SSO(Single Sign-On)**      | 모든 Azure AD 연결 앱에 대한 SSO가 지원됩니다. 예를 들어 Microsoft 365 또는 온-프레미스 앱 및 다른 SaaS 앱(예: Salesforce 또는 Workday)에 대한 액세스를 제공할 수 있습니다.    | Azure AD B2C 테넌트 내의 고객 소유 앱에 대한 SSO가 지원됩니다. Microsoft 365 또는 다른 Microsoft SaaS 앱에 대한 SSO는 지원되지 않습니다.    |
 | **보안 정책 및 규정 준수**        | 호스트/초대한 조직에 의해 관리됩니다(예: [조건부 액세스 정책](conditional-access.md) 사용). | 조직에서 조건부 액세스 및 ID 보호를 통해 관리합니다.        |
 | **브랜딩**  | 호스트/초대한 조직의 브랜드가 사용됩니다.    | 브랜딩은 애플리케이션 또는 조직별로 완전히 사용자 지정할 수 있습니다.   |
-| **청구 모델** | MAU(월간 활성 사용자 수)에 기반한 [외부 ID 가격 책정](https://azure.microsoft.com/en-us/pricing/details/active-directory/external-identities/) <br>(참고 항목: [B2B 설정 세부 정보](external-identities-pricing.md)) | MAU(월간 활성 사용자 수)에 기반한 [외부 ID 가격 책정](https://azure.microsoft.com/en-us/pricing/details/active-directory/external-identities/) <br>(참고 항목: [B2C 설정 세부 정보](../../active-directory-b2c/billing.md)) |
+| **청구 모델** | MAU(월간 활성 사용자 수)에 기반한 [외부 ID 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/external-identities/) <br>(참고 항목: [B2B 설정 세부 정보](external-identities-pricing.md)) | MAU(월간 활성 사용자 수)에 기반한 [외부 ID 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/external-identities/) <br>(참고 항목: [B2C 설정 세부 정보](../../active-directory-b2c/billing.md)) |
 | **자세한 정보** | [블로그 게시물](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [설명서](what-is-b2b.md)                   | [제품 페이지](https://azure.microsoft.com/services/active-directory-b2c/), [설명서](../../active-directory-b2c/index.yml)       |
 
 Azure AD 외부 ID를 사용하여 조직 외부에 있는 고객과 파트너를 보호하고 관리합니다.

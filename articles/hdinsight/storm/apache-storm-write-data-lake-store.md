@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: 4e648c57be699620e669ce7db0845dad2b876095
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 48721efe03bde54f2ee766b1c5dae88e6bd5c4d7
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99821288"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288683"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>자습서: Azure HDInsight의 Apache Storm에서 Apache Hadoop HDFS에 쓰기
 
@@ -29,7 +29,7 @@ ms.locfileid: "99821288"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [JDK(Java Developer Kit) 버전 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [JDK(Java Developer Kit) 버전 8](/azure/developer/java/fundamentals/java-support-on-azure)
 
 * Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html)[Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 

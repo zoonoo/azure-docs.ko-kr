@@ -8,20 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 04/22/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dd21c1dca0dd54331780ba98f9c53d5b99d6b4e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: abe9d9cd46c7d4cbcb383ee9a37fc84cd64fcea8
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100557231"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896020"
 ---
-# <a name="set-up-phone-sign-up-and-sign-in-for-user-flows-preview"></a>사용자 흐름에 대해 전화 가입 및 로그인 설정하기(미리 보기)
-
-> [!NOTE]
-> 사용자 흐름의 전화 가입과 로그인, 그리고 메일 복구 기능은 퍼블릭 미리 보기로 제공됩니다.
+# <a name="set-up-phone-sign-up-and-sign-in-for-user-flows"></a>사용자 흐름에 대해 전화 가입 및 로그인 설정
 
 메일 및 사용자 이름 외에도 전화 가입 및 로컬 계정 ID 공급자에 로그인을 추가하여 전화 번호를 테넌트 전체의 가입 옵션으로 사용하도록 설정할 수 있습니다. 로컬 계정에 대한 전화 가입 및 로그인을 사용하도록 설정한 후 사용자 흐름에 전화 가입을 추가할 수 있습니다.
 
@@ -32,6 +29,8 @@ ms.locfileid: "100557231"
 - 사용자가 전화 번호를 사용하여 애플리케이션에 가입할 수 있도록 하려면 [사용자 흐름에 전화 번호를 추가](#add-phone-sign-up-to-a-user-flow)합니다.
 
 - 전화가 없는 사용자가 계정을 복구하는 데 사용하는 메일을 지정하도록 하려면 [복구 메일 프롬프트를 사용하도록 설정(미리 보기)](#enable-the-recovery-email-prompt-preview)합니다.
+
+- 가입 또는 로그인 흐름 중에 사용자에게 [동의 정보를 표시합니다](#enable-consent-information). 기본 동의 정보를 표시하거나 사용자 고유의 동의 정보를 사용자 지정할 수 있습니다.
 
 전화 가입으로 사용자 흐름을 구성하는 경우 MFA(다단계 인증)는 기본적으로 사용되지 않습니다. 전화 가입을 통해 사용자 흐름에서 MFA를 사용할 수 있으나, 여기에는 전화 번호가 기본 식별자로 사용되기 때문에 일회용 메일 암호가 두 번째 인증 요소에 사용할 수 있는 유일한 옵션이 됩니다.
 
@@ -139,6 +138,44 @@ ms.locfileid: "100557231"
    - 이미 등록되었지만 복구 메일을 제공하지 않은 사용자는 로그인 시 복구 메일을 제공하라는 메시지가 표시됩니다.
 
 4. 메일 주소를 입력하고 **확인 코드 보내기** 를 선택합니다. 입력한 메일의 받은 편지함으로 코드가 전송되는지 확인합니다. 코드를 검색하여 **확인 코드** 상자에 입력합니다. **코드 확인** 을 선택합니다.
+
+## <a name="enable-consent-information"></a>동의 정보 사용
+
+가입 및 로그인 흐름에 동의 정보를 포함하는 것이 좋습니다. 샘플 텍스트가 제공됩니다. [CTIA 웹 사이트의](https://www.ctia.org/programs) 짧은 코드 모니터링 안내서를 참조하고 사용자 고유의 규정 준수 요구 사항을 충족하기 위한 최종 텍스트 및 기능 구성에 대한 지침은 사용자 고유의 법률 또는 규정 준수 전문가에게 문의하세요.
+>
+> *전화 번호를 제공하면 *&lt;삽입: 애플리케이션 이름&gt;* 에 로그인할 수 있도록 문자 메시지로 전송되는 일회성 암호를 받는 데 동의하게 됩니다. 표준 메시지 및 데이터 요금이 적용될 수 있습니다.*
+>
+> *&lt;삽입: 개인정보처리방침에 대한 링크&gt;*<br/>*&lt;삽입: 서비스 약관에 대한 링크&gt;*
+
+동의 정보를 사용하도록 설정하려면 다음을 수행합니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+3. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
+4. Azure AD B2C의 **정책** 에서 **사용자 흐름** 을 선택합니다.
+5. 목록에서 사용자 흐름을 선택합니다.
+6. **사용자 지정** 아래에서 **언어** 를 선택합니다.
+7. 동의 텍스트를 표시하려면 **사용자 언어 지정 사용** 을 선택합니다.
+  
+    ![사용자 언어 지정을 사용하도록 설정](./media/phone-authentication-user-flows/enable-language-customization.png)
+
+8. 동의 정보를 사용자 지정하려면 목록에서 언어를 선택합니다.
+9. 언어 패널에서  **전화 로그인 페이지** 를 선택합니다.
+10. 기본값 다운로드를 선택합니다.
+
+    ![기본값 다운로드](./media/phone-authentication-user-flows/phone-sign-in-language-override.png)
+
+11. 다운로드한 JSON 파일을 엽니다. 다음 텍스트를 검색하고 사용자 지정합니다.
+
+    - **disclaimer_link_1_url**: **재정의** 를 "true"로 변경하고 개인 정보에 대한 URL을 추가합니다.
+
+    - **disclaimer_link_2_url**: **재정의** 를 "true"로 변경하고 사용 약관에 대한 URL을 추가합니다.  
+
+    - **disclaimer_msg_intro**: **재정의** 를 "true"로 변경하고 **값** 을 원하는 고지 사항 문자열로 변경합니다.  
+
+12. 파일을 저장합니다. **새 재정의 업로드** 에서 파일을 찾아 선택합니다. "성공적으로 업로드된 재정의" 알림이 표시되는지 확인합니다.
+
+13. **전화 가입 페이지** 를 선택한 다음, 10~12단계를 반복합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

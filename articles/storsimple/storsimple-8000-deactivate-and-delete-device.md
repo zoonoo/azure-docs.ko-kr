@@ -1,6 +1,6 @@
 ---
 title: StorSimple 8000 시리즈 디바이스 비활성화 및 삭제 | Microsoft Docs
-description: StorSimple 장치 관리자 서비스에 연결 된 StorSimple 장치를 비활성화 및 삭제 하는 방법에 대해 알아봅니다.
+description: StorSimple 디바이스 관리자 서비스에 연결된 StorSimple 디바이스를 비활성화하고 삭제하는 방법에 대해 설명합니다.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
 ms.openlocfilehash: 07d108306fdca9bfe8f793b61660550e43151d71
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96017188"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>StorSimple 디바이스 비활성화 및 삭제
@@ -41,7 +41,7 @@ ms.locfileid: "96017188"
 >
 > - StorSimple의 물리적 디바이스 또는 클라우드 어플라이언스를 비활성화하려면 먼저 해당 디바이스에 의존하는 클라이언트와 호스트를 중지하거나 삭제해야 합니다.
 >
-> - 장치에서 데이터를 삭제 하기 전에 볼륨 컨테이너와 연결 된 저장소 계정의 저장소 계정이 나 컨테이너가 이미 삭제 된 경우 오류를 수신 하 고 데이터를 삭제 하지 못할 수 있습니다. 저장소 계정이 나 컨테이너를 삭제 하기 전에 장치에서 데이터를 삭제 하는 것이 좋습니다. 그러나이 경우에는 데이터가 저장소 계정에서 이미 제거 된 것으로 가정 하 고 장치 비활성화 및 삭제를 진행 해야 합니다.
+> - 디바이스에서 데이터를 삭제하기 전에 볼륨 컨테이너와 연결된 스토리지 계정의 스토리지 계정이나 컨테이너가 이미 삭제된 경우, 오류를 수신하고 데이터를 삭제하지 못할 수 있습니다. 스토리지 계정이나 컨테이너를 삭제하기 전에 디바이스에서 데이터를 삭제하는 것이 좋습니다. 그러나 이 상황에서는 데이터가 스토리지 계정에서 이미 제거되었다고 가정하고 디바이스 비활성화 및 삭제를 진행합니다.
 
 이 자습서를 읽은 후에 다음을 수행할 수 있습니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "96017188"
 
 ### <a name="to-deactivate-the-device-and-delete-the-data"></a>디바이스를 비활성화하고 데이터를 삭제하려면
 
-1. 디바이스를 비활성화하려면 먼저 디바이스와 연결된 모든 볼륨 컨테이너(및 볼륨)를 삭제해야 합니다. 연결된 백업을 삭제한 후에만 볼륨 컨테이너를 삭제할 수 있습니다. StorSimple 물리적 장치 또는 클라우드 어플라이언스를 비활성화 하기 전에 위 개요의 참고 사항을 참조 하세요.
+1. 디바이스를 비활성화하려면 먼저 디바이스와 연결된 모든 볼륨 컨테이너(및 볼륨)를 삭제해야 합니다. 연결된 백업을 삭제한 후에만 볼륨 컨테이너를 삭제할 수 있습니다. StorSimple 물리적 디바이스 또는 클라우드 어플라이언스를 비활성화하기 전에 위 개요의 참고 사항을 참조하세요.
 
 2. 다음과 같이 디바이스를 비활성화합니다.
 
@@ -63,16 +63,16 @@ ms.locfileid: "96017188"
         ![StorSimple 디바이스 비활성화](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
    2. **비활성화** 블레이드에서 확인할 디바이스 이름을 입력하고 **비활성화** 를 클릭합니다. 비활성화 프로세스가 시작되고 완료하는 데 몇 분이 소요됩니다.
 
-        ![StorSimple 장치 비활성화 2](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
+        ![StorSimple 디바이스 비활성화 2](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
 
 3. 비활성화한 후 디바이스를 완전히 삭제할 수 있습니다. 디바이스를 삭제하면 서비스에 연결된 디바이스 목록에서 제거됩니다. 그러면 서비스에서 삭제된 디바이스를 더 이상 관리할 수 없습니다. 디바이스를 삭제하려면 다음 단계를 사용합니다.
    
    1. StorSimple 디바이스 관리자 서비스로 이동하고 **디바이스** 를 클릭합니다. **디바이스** 블레이드에서 삭제하려는 비활성화된 디바이스를 선택하고 마우스 오른쪽 단추를 클릭한 다음, **삭제** 를 클릭합니다.
 
-        ![StorSimple 장치 3 비활성화](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
+        ![StorSimple 디바이스 비활성화 3](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
    2. **삭제** 블레이드에서 확인할 디바이스 이름을 입력하고 **삭제** 를 클릭합니다. 삭제 작업을 완료하는 데는 몇 분이 소요됩니다.
 
-        ![StorSimple 장치 비활성화 4](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
+        ![StorSimple 디바이스 비활성화 4](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. 삭제가 완료되면 알림이 표시됩니다. 디바이스 목록도 삭제를 반영하도록 업데이트됩니다.
 
 ## <a name="deactivate-and-retain-data"></a>데이터 비활성화 및 보존
@@ -85,19 +85,19 @@ ms.locfileid: "96017188"
    
    1. StorSimple 디바이스 관리자 서비스로 이동하고 **디바이스** 를 클릭합니다. **디바이스** 블레이드에서 비활성화하려는 디바이스를 선택하고 마우스 오른쪽 단추를 클릭한 다음, **비활성화** 를 클릭합니다.
 
-         ![StorSimple 장치 5 비활성화](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
+         ![StorSimple 디바이스 비활성화 5](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
    2. **비활성화** 블레이드에서 확인할 디바이스 이름을 입력하고 **비활성화** 를 클릭합니다. 비활성화 프로세스가 시작되고 완료하는 데 몇 분이 소요됩니다.
 
-         ![StorSimple 장치 비활성화 6](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
+         ![StorSimple 디바이스 비활성화 6](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
 2. 이제 볼륨 컨테이너와 연결된 스냅샷을 장애 조치(failover)할 수 있습니다. 이에 대한 절차를 보려면 [StorSimple 디바이스에 대한 장애 조치 및 재해 복구](storsimple-8000-device-failover-disaster-recovery.md)로 이동하세요.
 3. 비활성화 및 장애 조치(failover) 후 디바이스를 완전히 삭제할 수 있습니다. 디바이스를 삭제하면 서비스에 연결된 디바이스 목록에서 제거됩니다. 그러면 서비스에서 삭제된 디바이스를 더 이상 관리할 수 없습니다. 디바이스를 삭제하려면 다음 단계를 완료합니다.
    
    1. StorSimple 디바이스 관리자 서비스로 이동하고 **디바이스** 를 클릭합니다. **디바이스** 블레이드에서 삭제하려는 비활성화된 디바이스를 선택하고 마우스 오른쪽 단추를 클릭한 다음, **삭제** 를 클릭합니다.
 
-       ![StorSimple 장치 비활성화 7](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
+       ![StorSimple 디바이스 비활성화 7](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
    2. **삭제** 블레이드에서 확인할 디바이스 이름을 입력하고 **삭제** 를 클릭합니다. 삭제 작업을 완료하는 데는 몇 분이 소요됩니다.
 
-       ![StorSimple 장치 비활성화 8](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
+       ![StorSimple 디바이스 비활성화 8](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. 삭제가 완료되면 알림이 표시됩니다. 디바이스 목록도 삭제를 반영하도록 업데이트됩니다.
 
 ## <a name="deactivate-and-delete-a-cloud-appliance"></a>클라우드 어플라이언스 비활성화 및 삭제

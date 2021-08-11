@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 05/24/2021
 ms.author: aahi
-ms.openlocfilehash: d648acb3ff9a1f7c2076a4b7c1fcf9755a9ea05d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f8913bc75688184d30711e4ee33b5d3601557ee7
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465196"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113303673"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Read v3.x OCR 컨테이너로 마이그레이션
 
@@ -39,7 +39,7 @@ Read v3.2 컨테이너는 Computer Vision API 버전 3을 사용하고 다음 �
 
 ## <a name="memory-requirements"></a>메모리 요구 사항
 
-요구 사항 및 권장 사항은 초당 단일 요청을 포함하는 벤치마크를 기준으로 하며, 8MB의 스캔된 비즈니스 문자 이미지를 사용하여 29개 줄과 총 803 문자를 포함합니다. 다음 표에서는 각 Read OCR 컨테이너에 대한 최소 및 권장 리소스 할당을 설명합니다.
+요구 사항 및 권장 사항은 초당 단일 요청을 포함하는 벤치마크를 기준으로 하며, 8MB의 스캔된 비즈니스 문자 이미지를 사용하여 29개 줄과 총 803 문자를 포함합니다. 다음 표에서는 각 Read OCR 컨테이너의 최소 및 권장 리소스 할당에 대해 설명합니다.
 
 |컨테이너  |최소 | 권장  |
 |---------|---------|------|
@@ -83,5 +83,5 @@ v3.x의 컨테이너에서 RabbitMQ는 현재 지원되지 않습니다. 지원�
 * [컨테이너 구성](computer-vision-resource-container-config.md)에서 구성 설정을 검토합니다.
 * [OCR 개요](overview-ocr.md)를 검토하여 인쇄 및 필기 텍스트를 인식하는 방법을 자세히 알아봅니다.
 * [Read API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)를 참조하여 컨테이너에서 지원하는 방법을 자세히 알아봅니다.
-* [FAQ(질문과 대답)](FAQ.md)를 참조하여 Computer Vision 기능과 관련된 문제를 해결합니다.
+* [FAQ(질문과 대답)](FAQ.yml)를 참조하여 Computer Vision 기능과 관련된 문제를 해결합니다.
 * 추가적인 [Cognitive Services 컨테이너](../cognitive-services-container-support.md) 사용

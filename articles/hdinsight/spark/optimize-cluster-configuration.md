@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: f70e9f242b0f12abf58e72554e7cb6819ce8f7a9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98944733"
 ---
-# <a name="cluster-configuration-optimization-for-apache-spark"></a>Apache Spark에 대 한 클러스터 구성 최적화
+# <a name="cluster-configuration-optimization-for-apache-spark"></a>Apache Spark 대한 클러스터 구성 최적화
 
 이 문서에서는 Azure HDInsight에서 최상의 성능을 위해 Apache Spark 클러스터의 구성을 최적화하는 방법을 설명합니다.
 
@@ -52,7 +52,7 @@ Spark 클러스터 워크로드에 따라 기본이 아닌 Spark 구성을 사�
 동시 쿼리를 실행할 때는 다음 사항을 고려합니다.
 
 1. 실행기당 30GB와 모든 컴퓨터 코어를 사용하여 시작합니다.
-2. CPU를 초과 구독하여(약 30%의 대기 시간 개선) 여러 병렬 Spark 애플리케이션을 만듭니다.
+2. CPU를 초과 구독하여(약 30%의 대기 시간 개선) 여러 병렬 Spark 애플리케이션을 생성합니다.
 3. 병렬 애플리케이션에서 쿼리를 배포합니다.
 4. 평가판 실행과 GC 오버헤드와 같은 이전 요인을 기준으로 크기를 수정합니다.
 

@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: reference
-ms.date: 03/16/2021
-ms.openlocfilehash: 6c23fe86af030d371e12914062bb9558e8db3484
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 107d10bec77ea7bb2b67ae86f48d5b88a286869d
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104776303"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229507"
 ---
 # <a name="cef-and-commonsecuritylog-field-mapping"></a>CEF 및 CommonSecurityLog 필드 매핑
 
@@ -37,13 +37,13 @@ ms.locfileid: "104776303"
 |디바이스 공급업체     |  DeviceVendor       | 디바이스 제품 및 버전 정의와 함께 전송 디바이스 유형을 고유하게 식별하는 문자열입니다.       |
 |디바이스 제품     |   DeviceProduct      |   디바이스 공급업체 및 버전 정의와 함께 전송 디바이스 유형을 고유하게 식별하는 문자열입니다.        |
 |디바이스 버전     |   DeviceVersion      |      디바이스 제품 및 공급업체 정의와 함께 전송 디바이스 유형을 고유하게 식별하는 문자열입니다.     |
-|DeviceEventClassID     |   DeviceEventClassID     |   이벤트 유형별 고유 식별자 역할을 하는 문자열 또는 정수입니다.      |
 | destinationDnsDomain    | DestinationDnsDomain        |   FQDN(정규화된 도메인 이름)의 DNS 부분입니다.      |
 | destinationServiceName | DestinationServiceName | 이벤트에 의해 대상으로 지정된 서비스입니다. 예들 들어 `sshd`입니다.|
 | destinationTranslatedAddress | DestinationTranslatedAddress | IP 네트워크에서 이벤트에 의해 참조되는 변환된 대상을 IPv4 IP 주소로 식별합니다. |
 | destinationTranslatedPort | DestinationTranslatedPort | 변환 후 포트(예: 방화벽)입니다. <br>유효한 포트 번호: `0` - `65535` |
 | deviceDirection | <a name="communicationdirection"></a> CommunicationDirection | 관찰된 통신이 진행된 방향에 대한 정보입니다. 유효한 값은 <br>- `0` = 인바운드 <br>- `1` = 아웃바운드 |
 | deviceDnsDomain | DeviceDnsDomain | FQDN(정규화된 도메인 이름)의 DNS 도메인 부분입니다. |
+|DeviceEventClassID     |   DeviceEventClassID     |   이벤트 유형별 고유 식별자 역할을 하는 문자열 또는 정수입니다.      |
 | deviceExternalID | DeviceExternalID | 이벤트를 생성하는 디바이스를 고유하게 식별하는 이름입니다. |
 | deviceFacility | DeviceFacility | 이벤트를 생성하는 기능입니다.|
 | deviceInboundInterface | DeviceInboundInterface |패킷 또는 데이터가 디바이스에 들어갈 때 사용된 인터페이스입니다.  |
@@ -72,7 +72,6 @@ ms.locfileid: "104776303"
 
 |CEF 키 이름  |CommonSecurityLog 이름  |Description  |
 |---------|---------|---------|
-|end     |  EndTime       | 이벤트와 관련된 활동이 종료된 시간입니다.        |
 |externalId    |   ExternalID      | 원본 디바이스에서 사용하는 ID입니다. 일반적으로 이러한 값은 각각 이벤트와 연결된 늘어나는 값입니다.        |
 |fileCreateTime     |  FileCreateTime      | 파일이 만들어진 시간입니다.        |
 |fileHash     |   FileHash      |   파일의 해시입니다.      |
@@ -109,16 +108,15 @@ ms.locfileid: "104776303"
 
 ## <a name="r---t"></a>R - T
 
-|CEF 키 이름  |CommonSecurityLog 이름  |설명  |
+|CEF 키 이름  |CommonSecurityLog 이름  |Description  |
 |---------|---------|---------|
-|이유     |  이유      |감사 이벤트가 생성된 이유입니다. <br><br>예를 들어 `Bad password` 또는 `Unknown user`입니다.         |
 |요청     |   RequestURL      | 프로토콜을 포함하여 HTTP 요청에 대해 액세스되는 URL입니다. 예를 들어 `http://www/secure.com`        |
 |requestClientApplication     |   RequestClientApplication      |   요청과 연결된 사용자 에이전트입니다.      |
 | requestContext | RequestContext | HTTP 참조 페이지와 같이 요청이 시작된 콘텐츠를 설명합니다. |
 | requestCookies | RequestCookies |요청과 연결된 쿠키입니다. |
 | requestMethod | RequestMethod | URL에 액세스하는 데 사용되는 메서드입니다. <br><br>유효한 값에는 `POST`, `GET` 등의 메서드가 포함됩니다. |
 | rt | ReceiptTime | 작업과 관련된 이벤트를 받은 시간입니다. |
-|심각도     |  <a name="logseverity"></a> LogSeverity       |  이벤트의 중요도를 설명하는 문자열 또는 정수입니다.<br><br> 유효한 문자열 값: `Unknown`, `Low`, `Medium`, `High`, `Very-High` <br><br>유효한 정수 값: `0`-`3` = 낮음, `4`-`6` = 중간, `7`-`8` = 높음, `9`- `10` = 매우 높음 |
+|심각도     |  <a name="logseverity"></a> LogSeverity       |  이벤트의 중요도를 설명하는 문자열 또는 정수입니다.<br><br> 유효한 문자열 값: `Unknown`, `Low`, `Medium`, `High`, `Very-High` <br><br>유효한 정수 값은 다음과 같습니다.<br> - `0`-`3` = 낮음 <br>- `4`-`6` = 보통<br>- `7`-`8` = 높음<br>- `9`-`10` = 매우 높음 |
 | shost    | SourceHostName        |이벤트가 IP 네트워크에서 참조하는 원본을 식별합니다. 노드를 사용할 수 있는 경우 형식은 원본 노드와 연결된 DQDN(정규화된 도메인 이름)이어야 합니다. 예를 들어 `host` 또는 `host.domain.com`입니다. |
 | smac | SourceMacAddress | 원본 MAC 주소입니다. |
 | sntdom | SourceNTDomain | 원본 주소에 대한 Windows 도메인 이름입니다. |
@@ -131,15 +129,127 @@ ms.locfileid: "104776303"
 | sproc | SourceProcessName | 이벤트 원본 프로세스의 이름입니다.|
 | spt | SourcePort | 원본 포트 번호입니다. <br>유효한 포트 번호는 `0` -  `65535`입니다. |
 | src | SourceIP |IP 네트워크에서 이벤트가 IPv4 주소로 참조하는 원본입니다. |
-| start | StartTime | 이벤트에서 참조하는 작업이 시작된 시간입니다. |
 | suid | SourceUserID | ID로 원본 사용자를 식별합니다. |
+| suser | SourceUserName | 이름으로 원본 사용자를 식별합니다. |
 | type | EventType | 이벤트 유형입니다. 값은 다음과 같습니다. <br>- `0`: 기본 이벤트 <br>- `1`: 집계됨 <br>- `2`: 상관 관계 이벤트 <br>- `3`: 작업 이벤트 <br><br>**참고**: 이 이벤트는 기본 이벤트에 대해 생략할 수 있습니다. |
 | | | |
 
-## <a name="unmapped-fields"></a>매핑되지 않은 필드
+## <a name="custom-fields"></a>사용자 지정 필드
 
-다음 **CommonSecurityLog** 필드 이름은 매핑되는 CEF 키가 없습니다.
+다음 표에서는 고객이 기본 제공 필드에 적용되지 않는 데이터에 사용할 수 있는 CEF 키 및 CommonSecurityLog 필드의 이름을 매핑합니다.
 
+### <a name="custom-ipv6-address-fields"></a>사용자 지정 IPv6 주소 필드
+
+다음 표에서는 사용자 지정 데이터에 사용할 수 있는 *IPv6* 주소 필드의 CEF 키 및 CommonSecurityLog 이름을 매핑합니다.
+
+|CEF 키 이름  |CommonSecurityLog 이름  |
+|---------|---------|
+|     c6a1    |     DeviceCustomIPv6Address1       |
+|     c6a1Label    |     DeviceCustomIPv6Address1Label    |
+|     c6a2    |     DeviceCustomIPv6Address2    |
+|     c6a2Label    |     DeviceCustomIPv6Address2Label    |
+|     c6a3    |     DeviceCustomIPv6Address3    |
+|     c6a3Label    |     DeviceCustomIPv6Address3Label    |
+|     c6a4    |     DeviceCustomIPv6Address4    |
+|     c6a4Label    |     DeviceCustomIPv6Address4Label    |
+|     cfp1    |     DeviceCustomFloatingPoint1    |
+|     cfp1Label    |     deviceCustomFloatingPoint1Label    |
+|     cfp2    |     DeviceCustomFloatingPoint2    |
+|     cfp2Label    |     deviceCustomFloatingPoint2Label    |
+|     cfp3    |     DeviceCustomFloatingPoint3    |
+|     cfp3Label    |     deviceCustomFloatingPoint3Label    |
+|     cfp4    |     DeviceCustomFloatingPoint4    |
+|     cfp4Label    |     deviceCustomFloatingPoint4Label    |
+| | |
+
+### <a name="custom-number-fields"></a>사용자 지정 숫자 필드
+
+다음 표에서는 사용자 지정 데이터에 사용할 수 있는 *숫자* 필드의 CEF 키 및 CommonSecurityLog 이름을 매핑합니다.
+
+|CEF 키 이름  |CommonSecurityLog 이름  |
+|---------|---------|
+|     cn1    |     DeviceCustomNumber1       |
+|     cn1Label    |     DeviceCustomNumber1Label       |
+|     cn2    |     DeviceCustomNumber2       |
+|     cn2Label    |     DeviceCustomNumber2Label       |
+|     cn3    |     DeviceCustomNumber3       |
+|     cn3Label    |     DeviceCustomNumber3Label       |
+| | |
+
+### <a name="custom-string-fields"></a>사용자 지정 문자열 필드
+
+다음 표에서는 사용자 지정 데이터에 사용할 수 있는 *문자열* 필드의 CEF 키 및 CommonSecurityLog 이름을 매핑합니다.
+
+|CEF 키 이름  |CommonSecurityLog 이름  |
+|---------|---------|
+|     cs1    |     DeviceCustomString1 <sup>[1](#use-sparingly)</sup>    |
+|     cs1Label    |     DeviceCustomString1Label <sup>[1](#use-sparingly)</sup>    |
+|     cs2    |     DeviceCustomString2 <sup>[1](#use-sparingly)</sup>   |
+|     cs2Label    |     DeviceCustomString2Label   <sup>[1](#use-sparingly)</sup> |
+|     cs3    |     DeviceCustomString3  <sup>[1](#use-sparingly)</sup>  |
+|     cs3Label    |     DeviceCustomString3Label   <sup>[1](#use-sparingly)</sup> |
+|     cs4    |     DeviceCustomString4   <sup>[1](#use-sparingly)</sup> |
+|     cs4Label    |     DeviceCustomString4Label  <sup>[1](#use-sparingly)</sup>  |
+|     cs5    |     DeviceCustomString5 <sup>[1](#use-sparingly)</sup>   |
+|     cs5Label    |     DeviceCustomString5Label <sup>[1](#use-sparingly)</sup>    |
+|     cs6    |     DeviceCustomString6   <sup>[1](#use-sparingly)</sup> |
+|     cs6Label    |     DeviceCustomString6Label   <sup>[1](#use-sparingly)</sup> |
+|     flexString1    |     FlexString1    |
+|     flexString1Label    |     FlexString1Label    |
+|     flexString2    |     FlexString2    |
+|     flexString2Label    |     FlexString2Label    |
+| | |
+
+> [!TIP]
+> <a name="use-sparingly"></a><sup>1</sup> 가능한 경우 **DeviceCustomString** 필드를 드물게 사용하고 보다 구체적인 기본 제공 필드를 사용하는 것이 좋습니다.
+> 
+
+### <a name="custom-timestamp-fields"></a>사용자 지정 타임스탬프 필드
+
+다음 표에서는 사용자 지정 데이터에 사용할 수 있는 *타임스탬프* 필드의 CEF 키 및 CommonSecurityLog 이름을 매핑합니다.
+
+|CEF 키 이름  |CommonSecurityLog 이름  |
+|---------|---------|
+|     deviceCustomDate1    |     DeviceCustomDate1    |
+|     deviceCustomDate1Label    |     DeviceCustomDate1Label    |
+|     deviceCustomDate2       |     DeviceCustomDate2    |
+|     deviceCustomDate2Label    |     DeviceCustomDate2Label    |
+|     flexDate1    |     FlexDate1    |
+|     flexDate1Label    |     FlexDate1Label    |
+| | |
+
+### <a name="custom-integer-data-fields"></a>사용자 지정 정수 데이터 필드
+
+다음 표에서는 사용자 지정 데이터에 사용할 수 있는 *정수* 필드의 CEF 키 및 CommonSecurityLog 이름을 매핑합니다.
+
+|CEF 키 이름  |CommonSecurityLog 이름  |
+|---------|---------|
+|     flexNumber1    |     FlexNumber1    |
+|     flexNumber1Label    |     FlexNumber1Label    |
+|     flexNumber2    |     FlexNumber2    |
+|     flexNumber2Label    |     FlexNumber2Label    |
+| | |
+
+## <a name="enrichment-fields"></a>보강 필드
+
+다음 **CommonSecurityLog** 필드는 Azure Sentinel에서 원본 디바이스에서 받은 원래 이벤트를 보강하기 위해 추가되며 CEF 키에 매핑이 없습니다.
+
+### <a name="threat-intelligence-fields"></a>위협 인텔리전스 필드
+
+|CommonSecurityLog 필드 이름  |Description  |
+|---------|---------|
+|   **IndicatorThreatType**  |  위협 인텔리전스 피드에 따른 [MaliciousIP](#MaliciousIP) 위협 유형입니다.       |
+| <a name="MaliciousIP"></a>**MaliciousIP** | 현재 위협 인텔리전스 피드와 상관 관계가 있는 메시지의 모든 IP 주소를 나열합니다. |
+|  **MaliciousIPCountry**   | 레코드 수집 시 지리적 정보에 따른 [MaliciousIP](#MaliciousIP) 국가입니다.        |
+| **MaliciousIPLatitude**    |   레코드 수집 시 지리적 정보에 따른 [MaliciousIP](#MaliciousIP) 경도입니다.      |
+| **MaliciousIPLongitude**    |  레코드 수집 시 지리적 정보에 따른 [MaliciousIP](#MaliciousIP) 경도입니다.       |
+| **ReportReferenceLink**    |    위협 인텔리전스 보고서에 대한 링크입니다.     |
+|  **ThreatConfidence**   |   위협 인텔리전스 피드에 따른 [MaliciousIP](#MaliciousIP) 위협 신뢰도입니다.      |
+| **ThreatDescription**    |   위협 인텔리전스 피드에 따른 [MaliciousIP](#MaliciousIP) 위협 설명입니다.      |
+| **ThreatSeverity** | 레코드 수집 시 위협 인텔리전스 피드에 따른 [MaliciousIP](#MaliciousIP)의 위협 심각도입니다. |
+|     |         |
+
+### <a name="additional-enrichment-fields"></a>추가 보강 필드
 
 |CommonSecurityLog 필드 이름  |Description  |
 |---------|---------|
@@ -147,8 +257,8 @@ ms.locfileid: "104776303"
 |**RemoteIP**     |     원격 IP 주소입니다. <br>가능하면 이 값은 [CommunicationDirection](#communicationdirection) 필드를 기준으로 합니다.     |
 |**RemotePort**     |   원격 포트입니다. <br>가능하면 이 값은 [CommunicationDirection](#communicationdirection) 필드를 기준으로 합니다.      |
 |**SimplifiedDeviceAction**     |   [DeviceAction](#deviceaction) 필드의 원래 값을 유지하면서 [DeviceAction](#deviceaction) 값을 정적 값 세트로 단순화합니다. <br>예:  `Denied` > `Deny`.      |
+|**SourceSystem**     | 항상 **OpsManager** 로 정의됩니다.        |
 |     |         |
-
 
 ## <a name="next-steps"></a>다음 단계
 

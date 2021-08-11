@@ -1,16 +1,16 @@
 ---
-title: 논리 앱 JSON 워크플로 정의 만들기, 편집 또는 확장
-description: Azure Logic Apps에서 논리 앱의 JSON 워크플로 정의를 작성, 편집 및 확장 하는 방법
+title: 논리 앱 JSON 워크플로 정의 작성, 편집, 또는 확장
+description: Azure Logic Apps의 논리 앱의 JSON 워크플로 정의를 작성, 편집 및 확장하는 방법
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
 ms.openlocfilehash: 9163071237041d7c8510a644c573e3763434bb0c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96014400"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Azure Logic Apps에서 논리 앱 워크플로 정의를 위한 JSON 만들기, 편집 또는 확장
@@ -65,21 +65,21 @@ Visual Studio에서 생성되어 직접 Azure Portal에서 또는 Visual Studio�
 
 ## <a name="parameters"></a>매개 변수
 
-배포 수명 주기는 일반적으로 개발, 테스트, 스테이징 및 프로덕션에 대해 서로 다른 환경을 포함 합니다. 하드 코딩 하지 않고 논리 앱 전체에서 다시 사용 하거나 배포 요구 사항에 따라 달라 지는 값이 있는 경우 논리 앱 배포를 자동화할 수 있도록 워크플로 정의에 대 한 [Azure Resource Manager 템플릿을](../azure-resource-manager/management/overview.md) 만들 수 있습니다.
+배포 수명 주기는 일반적으로 개발, 테스트, 스테이징 및 프로덕션 환경이 서로 다릅니다. 하드코딩하지 않고 논리 앱 전체에서 다시 사용하려는 값이 있거나 배포 요구 사항에 따라 달라지는 값이 있는 경우 논리 앱 배포를 자동화할 수 있도록 워크플로 정의에 대한 [Azure Resource Manager 템플릿](../azure-resource-manager/management/overview.md)을 만들 수 있습니다.
 
-이러한 값에 대 한 매개 변수를 매개 *변수화* 하거나 정의 하 고 사용 하는 일반적인 단계를 수행 합니다. 그런 다음 해당 값을 템플릿에 전달 하는 별도의 매개 변수 파일에 값을 제공할 수 있습니다. 이렇게 하면 논리 앱을 업데이트 하 고 다시 배포 하지 않고도 이러한 값을 보다 쉽게 변경할 수 있습니다. 자세한 내용은 [개요: Azure Resource Manager 템플릿을 사용 하 여 논리 앱에 대 한 배포 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)를 참조 하세요.
+이러한 일반적인 단계에 따라 해당 값을 *매개 변수화 하거나* 해당 값에 대한 매개 변수를 정의하고 사용합니다. 그런 다음, 해당 값을 템플릿에 전달하는 별도의 매개 변수 파일에 값을 제공할 수 있습니다. 이렇게 하면 논리 앱을 업데이트하고 다시 배포하지 않고도 이러한 값을 보다 쉽게 변경할 수 있습니다. 자세한 내용은 [개요: Azure Resource Manager 템플릿을 사용한 논리 앱 배포 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)를 참조하세요.
 
-1. 템플릿에서 각각 배포 및 런타임에 사용할 값을 허용 하기 위한 템플릿 매개 변수 및 워크플로 정의 매개 변수를 정의 합니다.
+1. 템플릿에서 배포 및 런타임에 사용할 값을 각각 수락하기 위한 템플릿 매개 변수 및 워크플로 정의 매개 변수를 정의합니다.
 
-   템플릿 매개 변수는 워크플로 정의 외부에 있는 매개 변수 섹션에서 정의 되며 워크플로 정의 매개 변수는 워크플로 정의 내에 있는 매개 변수 섹션에서 정의 됩니다.
+   템플릿 매개 변수는 워크플로 정의 외부의 매개 변수 섹션에서 정의되지만 워크플로 정의 매개 변수는 워크플로 정의 내에 있는 매개 변수 섹션에 정의됩니다.
 
-1. 하드 코딩 된 값을 이러한 매개 변수를 참조 하는 식으로 바꿉니다. 템플릿 식에서는 워크플로 정의 식과 다른 구문을 사용 합니다.
+1. 하드코딩된 값을 이러한 매개 변수를 참조하는 식으로 바꿉니다. 템플릿 식은 워크플로 정의 식과 다른 구문을 사용합니다.
 
-   런타임에 평가 되는 워크플로 정의 식 내에서 배포 시 평가 되는 템플릿 식을 사용 하지 않고 코드를 복잡 하 게 하지 않도록 합니다. 워크플로 정의 외부에서 템플릿 식만 사용 합니다. 워크플로 정의 내에서 워크플로 정의 식만 사용 합니다.
+   런타임에 평가되는 워크플로 정의 식 내에서 배포 시 평가되는 템플릿 식을 사용하지 않고 코드를 호환하지 않도록 합니다. 워크플로 정의 외부에서 템플릿 식만 사용합니다. 워크플로 정의 내에서 워크플로 정의 식만 사용합니다.
 
-   워크플로 정의 매개 변수에 대 한 값을 지정할 때 워크플로 정의 외부에 있지만 논리 앱에 대 한 리소스 정의 내에 있는 매개 변수 섹션을 사용 하 여 템플릿 매개 변수를 참조할 수 있습니다. 이렇게 하면 템플릿 매개 변수 값을 워크플로 정의 매개 변수에 전달할 수 있습니다.
+   워크플로 정의 매개 변수의 값을 지정하는 경우 워크플로 정의 외부에 있지만 논리 앱에 대한 리소스 정의 내부에 있는 매개 변수 섹션을 사용하여 템플릿 매개 변수를 참조할 수 있습니다. 이렇게 하면 템플릿 매개 변수 값을 워크플로 정의 매개 변수에 전달할 수 있습니다.
 
-1. 매개 변수의 값을 별도의 [매개 변수 파일](../azure-resource-manager/templates/parameter-files.md) 에 저장 하 고 해당 파일을 배포에 포함 합니다.
+1. 매개 변수의 값을 별도의 [매개 변수 파일](../azure-resource-manager/templates/parameter-files.md) 에 저장하고 배포에 해당 파일을 포함합니다.
 
 ## <a name="process-strings-with-functions"></a>함수로 문자열 처리
 
@@ -127,18 +127,18 @@ Logic Apps에는 문자열 작업을 위한 다양한 함수가 있습니다.
 "uri": "https://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
-1. [`length()`](../logic-apps/logic-apps-workflow-definition-language.md)회사 이름에 대 한를 가져와서 총 문자 수를 가져옵니다.
+1. 총 문자 수를 얻기 위해 회사 이름의 [`length()`](../logic-apps/logic-apps-workflow-definition-language.md)를 구합니다.
 
 2. 짧은 문자열을 구하려면 `5`를 뺍니다.
 
-3. 이제를 가져옵니다 [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md) .
+3. 이제 [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md)을 구합니다.
 인덱스 `5`에서 시작하여 문자열의 나머지로 이동합니다.
 
-4. 이 하위 문자열을 [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) 문자열로 변환 합니다.
+4. 이 하위 문자열을 [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) 문자열로 변환합니다.
 
-5. 이제 [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) 모든 `+` 문자를 `-` 문자로 바꿉니다.
+5. 이제 모든 `+` 문자를 `-` 문자로 [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md)합니다.
 
-6. 마지막으로 문자를 [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) `/` 포함 하는 모든 문자 `_` 입니다.
+6. 마지막으로 모든 `/` 문자를 `_` 문자로 [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md)합니다.
 
 ## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>목록 항목을 속성 값에 매핑한 다음, 맵을 매개 변수로 사용
 
@@ -147,7 +147,7 @@ Logic Apps에는 문자열 작업을 위한 다양한 함수가 있습니다.
 예를 들어,이 워크플로는 일부 범주를 매개 변수로 정의하고 이 범주를 특정 URL과 일치시키는 맵을 정의합니다.
 우선, 워크플로에서 문서의 목록을 가져옵니다. 그런 다음, 워크플로에서 맵을 사용하여 각 문서의 범주와 일치하는 URL을 찾습니다.
 
-*   [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md)함수는 범주가 알려진 정의 된 범주와 일치 하는지 여부를 확인 합니다.
+*   [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md) 함수는 해당 범주가 알려진 정의된 범주와 일치하는지 확인합니다.
 
 *   일치하는 범주를 확인한 후에는 대괄호`parameters[...]`를 사용하여 맵에서 항목을 끌어옵니다.
 
@@ -240,7 +240,7 @@ Logic Apps에는 문자열 작업을 위한 다양한 함수가 있습니다.
 
    첫 번째 값이 두 번째 값보다 작은 경우에는 명령이 처음으로 배치된 후 1초 이상의 시간이 경과된 것입니다.
 
-날짜 형식을 지정하기 위해 문자열 포맷터를 사용할 수 있습니다. 예를 들어 RFC1123를 가져오려면를 사용 [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md) 합니다.
+날짜 형식을 지정하기 위해 문자열 포맷터를 사용할 수 있습니다. 예를 들어 RFC1123을 얻으려면 [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md)를 사용합니다.
 [날짜 형식 지정](../logic-apps/logic-apps-workflow-definition-language.md)에 대해 자세히 알아보세요.
 
 ``` json

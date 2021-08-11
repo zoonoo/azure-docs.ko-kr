@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: seodec18
 ms.openlocfilehash: abe4bb3a53e3177857cb8041fd255ec916985054
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93089868"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터 암호화 
@@ -47,7 +47,7 @@ A: 키는 Microsoft에서 관리합니다.
 A: Microsoft에는 Cosmos DB가 따르는 암호화 키 순환에 대한 일련의 내부 지침이 있습니다. 특정 지침은 게시되지 않습니다. Microsoft는 내부 지침의 하위 집합으로 간주되고 개발자를 위한 유용한 모범 사례가 있는 [SDL(Security Development Lifecycle)](https://www.microsoft.com/sdl/default.aspx)을 게시합니다.
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>Q: 나만의 암호화 키를 사용할 수 있나요?
-A: 예,이 기능은 이제 새 Azure Cosmos DB 계정에 사용할 수 있으며 계정을 만들 때 수행 해야 합니다. 자세한 내용은 [고객 관리 키](./how-to-setup-cmk.md) 문서를 참조 하세요.
+A: 예, 이제 이 기능은 새 Azure Cosmos DB 계정에 사용할 수 있으며 계정 생성 시에 수행해야 합니다. 자세한 내용은 [고객 관리형 키](./how-to-setup-cmk.md) 문서를 참조하세요.
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>Q: 암호화가 켜져 있는 Azure 지역은 어디인가요?
 A: 모든 Azure Cosmos DB 지역에서 모든 사용자 데이터에 대해 암호화가 켜져 있습니다.

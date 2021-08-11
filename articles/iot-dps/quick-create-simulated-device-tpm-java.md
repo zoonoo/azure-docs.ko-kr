@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 7a0e15ac3c08f55e817eb6a6300d58ab4af6029c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a49d15ee09f3a16c8a3a791c0fb0c4331ef425a
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94966661"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288710"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>빠른 시작 - Azure IoT Hub Device Provisioning Service용 Java 디바이스 SDK를 사용하여 시뮬레이션된 TPM 디바이스 만들기 및 프로비전
 
@@ -27,7 +27,7 @@ ms.locfileid: "94966661"
 - [프로비저닝](about-iot-dps.md#provisioning-process) 개념에 대해 잘 알아야 합니다.
 - [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 완료
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure).
 - [Maven](https://maven.apache.org/install.html)
 - [Git](https://git-scm.com/download/)
 
@@ -35,7 +35,7 @@ ms.locfileid: "94966661"
 
 ## <a name="prepare-the-environment"></a>환경 준비 
 
-1. 컴퓨터에 [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)이 설치되어 있는지 확인합니다.
+1. 컴퓨터에 [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure)이 설치되어 있는지 확인합니다.
 
 1. [Maven](https://maven.apache.org/install.html)을 다운로드하고 설치합니다.
 

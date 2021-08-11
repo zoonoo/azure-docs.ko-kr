@@ -2,25 +2,26 @@
 title: Azure Active Directory 애플리케이션 관리용 PowerShell 샘플
 description: 이러한 PowerShell 샘플은 Azure Active Directory 테넌트에서 관리하는 앱에 사용됩니다. 이러한 샘플 스크립트를 사용하여 비밀 및 인증서에 대한 만료 정보를 찾을 수 있습니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 02/18/2021
-ms.author: mtillman
+ms.author: davidmu
 ms.reviewer: mifarca
-ms.openlocfilehash: 6fac606877a36a5b571096342289cc0369cd50e4
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: c0e6969b0d6814e74e99a6ad893284bc407b269d
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077431"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113568427"
 ---
 # <a name="azure-active-directory-powershell-examples-for-application-management"></a>애플리케이션 관리용 Azure Active Directory PowerShell 예제
 
 다음 표에는 Azure AD 애플리케이션 관리의 PowerShell 스크립트 예제에 대한 링크가 포함되어 있습니다. 이러한 샘플에는 다음 중 하나가 필요합니다.
+
 - [AzureAD V2 PowerShell for Graph 모듈](/powershell/azure/active-directory/install-adv2) 또는
 - 달리 명시되지 않는 한 [AzureAD V2 PowerShell for Graph 모듈 미리 보기 버전](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true).
 

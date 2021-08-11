@@ -1,6 +1,6 @@
 ---
-title: DNS 별칭 (PowerShell & Azure CLI)
-description: PowerShell 및 Azure CLI cmdlet을 사용 하면 클라이언트 구성을 건드리지 않고도 새 클라이언트 연결을 Azure의 다른 SQL server로 리디렉션할 수 있습니다.
+title: DNS 별칭(PowerShell 및 Azure CLI)
+description: PowerShell 및 Azure CLI cmdlet을 사용하여 모든 클라이언트 구성을 변경하지 않고도 새 클라이언트 연결을 Azure에 있는 다른 SQL 서버로 리디렉션할 수 있습니다.
 keywords: dns sql database
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 services: sql-database
@@ -13,53 +13,53 @@ ms.author: rohitna
 ms.reviewer: genemi, amagarwa, maboja, jrasnick, vanto
 ms.date: 05/14/2019
 ms.openlocfilehash: 02cfd839ed1b75fd85553f2e5a5150cadc29ff8e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92790460"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>Azure SQL Database의 DNS 별칭에 대한 PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-이 문서에서는 Azure SQL Database을 호스트 하는 [SQL server](logical-servers.md) 에 대 한 DNS 별칭을 관리 하는 방법을 보여 주는 PowerShell 스크립트를 제공 합니다.
+이 문서에서는 Azure SQL Database를 호스팅하는 [SQL Server](logical-servers.md) 의 DNS 별칭을 관리하는 방법을 보여주는 PowerShell 스크립트를 제공합니다.
 
 > [!NOTE]
-> 이 문서는 Azure PowerShell Az module 또는 Azure CLI를 사용 하도록 업데이트 되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다.
+> 이 문서는 Azure PowerShell Az 모듈 또는 Azure CLI를 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다.
 >
-> Az module 및 AzureRM compatibility에 대해 자세히 알아보려면 [Azure PowerShell az Module 소개](/powershell/azure/new-azureps-module-az)를 참조 하세요. 설치 지침은 [Azure PowerShell 설치](/powershell/azure/install-az-ps) 또는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조 하세요.
+> Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [Azure PowerShell Az 모듈 소개](/powershell/azure/new-azureps-module-az)를 참조하세요. 설치 지침은 [Azure PowerShell 설치](/powershell/azure/install-az-ps) 또는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="dns-alias-in-connection-string"></a>연결 문자열의 DNS 별칭
 
-[논리 SQL server](logical-servers.md)를 연결 하기 위해 SSMS (SQL Server Management Studio)와 같은 클라이언트는 실제 서버 이름 대신 DNS 별칭 이름을 제공할 수 있습니다. 다음 예제의 서버 문자열에서 별칭 *any-unique-alias-name* 은 4개 노드 서버 문자열에서 점으로 구분된 첫 번째 노드를 대신합니다.
+[논지 SQL 서버](logical-servers.md)에 연결하려면 SSMS(SQL Server Management Studio)와 같은 클라이언트가 실제 서버 이름 대신 DNS 별칭 이름을 제공할 수 있습니다. 다음 예제의 서버 문자열에서 별칭 *any-unique-alias-name* 은 4개 노드 서버 문자열에서 점으로 구분된 첫 번째 노드를 대신합니다.
 
    `<yourServer>.database.windows.net`
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에 제공된 데모 PowerShell 스크립트를 실행하려는 경우 다음과 같은 필수 조건이 적용됩니다.
 
-- Azure 구독 및 계정, 무료 평가판의 경우 [azure 평가판](https://azure.microsoft.com/free/) 을 참조 하세요.
+- Azure 구독 및 계정(무료 평가판)은 다음을 참조하세요. [Azure 평가판](https://azure.microsoft.com/free/)
 - 두 대의 서버
 
 ## <a name="example"></a>예제
 
-다음 코드 예제에서는 여러 변수에 리터럴 값을 할당 하 여를 시작 합니다.
+다음 코드 예제에서는 여러 변수에 리터럴 값을 할당하여 시작합니다.
 
-코드를 실행 하려면 시스템의 실제 값과 일치 하도록 자리 표시자 값을 편집 합니다.
+이 코드를 실행하려면 시스템의 실제 값과 일치하도록 모든 자리 표시자 값을 편집해야 합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-사용 되는 cmdlet은 다음과 같습니다.
+사용된 cmdlet은 다음과 같습니다.
 
-- [AzSqlServerDNSAlias](/powershell/module/az.Sql/New-azSqlServerDnsAlias): Azure SQL Database 서비스 시스템에 DNS 별칭을 만듭니다. 별칭은 서버 1을 참조 합니다.
-- [AzSqlServerDNSAlias](/powershell/module/az.Sql/Get-azSqlServerDnsAlias): 서버 1에 할당 된 모든 별칭을 가져오고 나열 합니다.
-- [AzSqlServerDNSAlias](/powershell/module/az.Sql/Set-azSqlServerDnsAlias): 별칭이 참조 하도록 구성 된 서버 이름을 서버 1에서 서버 2로 수정 합니다.
-- [AzSqlServerDNSAlias](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): 별칭 이름을 사용 하 여 서버 2에서 별칭을 제거 합니다.
+- [New-AzSqlServerDNSAlias](/powershell/module/az.Sql/New-azSqlServerDnsAlias): Azure SQL Database 서비스 시스템에 새 DNS 별칭을 만듭니다. 별칭은 서버 1을 참조합니다.
+- [Get-AzSqlServerDNSAlias](/powershell/module/az.Sql/Get-azSqlServerDnsAlias): 서버 1에 할당된 모든 별칭을 가져와서 나열합니다.
+- [Set-AzSqlServerDNSAlias](/powershell/module/az.Sql/Set-azSqlServerDnsAlias): 별칭이 참조하도록 구성된 서버 이름을 서버 1에서 서버 2로 수정합니다.
+- [Remove-AzSqlServerDNSAlias](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): 별칭의 이름을 사용하여 서버 2에서 별칭을 제거합니다.
 
 설치 또는 업그레이드하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
-`Get-Module -ListAvailable Az` *Powershell \_ise.exe* 에서를 사용 하 여 버전을 찾습니다.
+`Get-Module -ListAvailable Az`을 *powershell\_ise.exe* 에서 사용해 버전을 찾습니다.
 
 ```powershell
 $subscriptionName = '<subscriptionName>';
@@ -96,12 +96,12 @@ Remove-AzSqlServerDnsAlias –ResourceGroupName $resourceGroupName2 -ServerName 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-사용 되는 명령은 다음과 같습니다.
+사용되는 명령은 다음과 같습니다.
 
-- [az sql server dns-alias create](/powershell/module/az.Sql/New-azSqlServerDnsAlias): 서버에 대 한 dns 별칭을 만듭니다. 별칭은 서버 1을 참조 합니다.
-- [az sql server dns-alias show](/powershell/module/az.Sql/Get-azSqlServerDnsAlias): 서버 1에 할당 된 모든 별칭을 가져오고 나열 합니다.
-- [az sql server dns-alias set](/powershell/module/az.Sql/Set-azSqlServerDnsAlias): 별칭이 구성 된 서버 이름을 서버 1에서 서버 2로 수정 합니다.
-- [az sql server dns-alias delete](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): 별칭 이름을 사용 하 여 서버 2에서 별칭을 제거 합니다.
+- [az sql server dns-alias create](/powershell/module/az.Sql/New-azSqlServerDnsAlias):서버에 대한 DNS 별칭을 만듭니다. 별칭은 서버 1을 참조합니다.
+- [az sql server dns-alias show](/powershell/module/az.Sql/Get-azSqlServerDnsAlias): 서버 1에 할당된 모든 별칭을 가져옵니다.
+- [az sql server dns-alias set](/powershell/module/az.Sql/Set-azSqlServerDnsAlias): 별칭이 참조하도록 구성된 서버 이름을 서버 1에서 서버 2로 수정합니다.
+- [az sql server dns-alias delete](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): 별칭의 이름을 사용하여 서버 2에서 별칭을 제거합니다.
 
 설치하거나 업그레이드하려면 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
@@ -142,4 +142,4 @@ az sql server dns-alias delete –-resource-group $resourceGroupName2 --server $
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL Database에 대 한 DNS 별칭 기능에 대 한 자세한 내용은 [Azure SQL Database에 대 한 dns 별칭](./dns-alias-overview.md)을 참조 하세요.
+SQL Database에 대한 DNS 별칭 기능의 전체 설명을 보려면 [Azure SQL Database에 대한 DNS 별칭](./dns-alias-overview.md)을 참조하세요.

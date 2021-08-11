@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 03/16/2021
-ms.openlocfilehash: 8fccd508d5d6dbe380b21a85faa3889e99b9942f
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 8ad3cabbc97d869fa5e8a9e8ad7f5b0b5888949e
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579527"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112542277"
 ---
 # <a name="azure-data-factory-tutorials"></a>Azure Data Factory 자습서
 
@@ -62,6 +62,8 @@ ms.locfileid: "106579527"
 [관리형 VNet 내의 데이터 흐름](tutorial-data-flow-private.md)
 
 [ADLS Gen2의 lake 데이터에 대한 모범 사례](tutorial-data-flow-write-to-lake.md)
+
+[동적으로 열 이름 설정](data-flow-tutorials.md)
 
 ## <a name="external-data-services"></a>외부 데이터 서비스
 

@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/04/2021
-ms.openlocfilehash: 69879548be28ec02df8ba958243a97ee1925e3ae
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 7dcba5490d3f341e68b07aa798e9ca0ffa1666e7
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904155"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112122092"
 ---
 # <a name="quickstart-connect-an-nxp-mimxrt1050-evkb-evaluation-kit-to-iot-central"></a>빠른 시작: NXP MIMXRT1050-EVKB 평가 키트를 IoT Central에 연결
 
@@ -25,7 +25,7 @@ ms.locfileid: "111904155"
 
 다음 작업을 완료합니다.
 
-* C에서 NXP EVK를 프로그래밍하기 위한 임베디드 개발 도구 세트 설치
+* C에서 NXP EVK를 프로그래밍하기 위한 포함된 개발 도구 세트 설치
 * 이미지를 빌드하고 NXP EVK로 플래시
 * Azure IoT Central을 사용하여 클라우드 구성 요소 만들기, 속성 보기, 디바이스 원격 분석 보기 및 직접 명령 호출
 
@@ -123,7 +123,7 @@ NXP EVK를 Azure에 연결하려면 Wi-Fi 및 Azure IoT 설정에 대한 구성 
 1. 이진 파일을 NXP EVK의 루트 폴더에 붙여넣습니다. 깜박임이 자동으로 시작되고 몇 초 후에 완료됩니다.
 
     > [!NOTE]
-    > 깜박이는 동안 NXP EVK에서 빨간색 LED가 빠르게 깜박입니다.
+    > 플래시 프로세스 중에 NXP EVK에서 빨간색 LED가 빠르게 깜박입니다.
 
 ### <a name="confirm-device-connection-details"></a>디바이스 연결 세부 정보 확인
 
@@ -131,7 +131,7 @@ NXP EVK를 Azure에 연결하려면 Wi-Fi 및 Azure IoT 설정에 대한 구성 
 
 1. **Termite** 를 시작합니다.
     > [!TIP]
-    > 깜박인 후 디바이스를 초기화 또는 연결하는 데 문제가 있는 경우 [문제 해결](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md)을 참조하세요.
+    > 플래시한 후 디바이스를 초기화하거나 연결하는 데 문제가 있는 경우 [문제 해결](troubleshoot-embedded-device-quickstarts.md)을 참조하세요.
 1. **설정** 을 선택합니다.
 1. **직렬 포트 설정** 대화 상자에서 다음 설정을 확인하고, 필요한 경우 업데이트합니다.
     * **전송 속도**: 115,200
@@ -196,7 +196,7 @@ IoT Central 포털에서 원격 분석을 보려면
 1. 애플리케이션 대시보드의 측면 탐색 메뉴에서 **디바이스** 를 선택합니다.
 1. 디바이스 목록에서 디바이스를 선택합니다.
 1. **개요** 탭에서 디바이스에서 메시지를 클라우드에 보낼 때 원격 분석을 봅니다.
-1. 온도는 MCU wafer에서 측정됩니다.
+1. 온도는 MCU 웨이퍼에서 측정됩니다.
 
     :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1050-evkb/iot-central-device-telemetry.png" alt-text="IoT Central의 디바이스 원격 분석 스크린샷":::
 
@@ -226,7 +226,7 @@ IoT Central에서 디바이스 정보를 볼 수 있습니다.
 
 ## <a name="troubleshoot-and-debug"></a>문제 해결 및 디버그
 
-디바이스 코드 빌드, 디바이스 플래시 또는 연결에 문제가 발생하는 경우 [문제 해결](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md)을 참조하세요.
+디바이스 코드 빌드, 디바이스 플래시 또는 연결에 문제가 발생하는 경우 [문제 해결](troubleshoot-embedded-device-quickstarts.md)을 참조하세요.
 
 애플리케이션 디버깅에 대한 자세한 내용은 [Visual Studio Code를 사용하여 디버깅](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md)을 참조하세요.
 

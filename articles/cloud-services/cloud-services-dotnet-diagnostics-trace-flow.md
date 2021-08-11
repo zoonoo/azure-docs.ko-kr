@@ -1,5 +1,5 @@
 ---
-title: Azure 진단를 사용 하 여 Cloud Services (클래식) 응용 프로그램에서 흐름 추적
+title: Azure Diagnostics로 Cloud Services(classic) 응용 프로그램의 흐름 추적
 description: Azure 애플리케이션에 추적 메시지를 추가하여 디버깅, 성능 측정, 모니터링, 트래픽 분석 등을 할 수 있습니다.
 ms.topic: article
 ms.service: cloud-services
@@ -9,16 +9,16 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: b00bb28128cfe9a2e701647ad174ea2c9dd458e4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98742128"
 ---
-# <a name="trace-the-flow-of-a-cloud-services-classic-application-with-azure-diagnostics"></a>Azure 진단를 사용 하 여 Cloud Services (클래식) 응용 프로그램의 흐름 추적
+# <a name="trace-the-flow-of-a-cloud-services-classic-application-with-azure-diagnostics"></a>Azure Diagnostics로 Cloud Services(classic) 응용 프로그램의 흐름 추적
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(classic)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 추적은 실행되는 동안 애플리케이션의 실행을 모니터링하는 방법입니다. [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug) 및 [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) 클래스를 사용하여 로그의 오류 및 애플리케이션 실행, 텍스트 파일 또는 차후 분석을 위한 다른 디바이스에 대한 정보를 기록할 수 있습니다. 추적에 대한 자세한 내용은 [애플리케이션을 추적 및 계측](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications)을 참조하세요.
 
@@ -68,7 +68,7 @@ Visual Studio에서 제공되는 서식 파일을 사용하는 경우 수신기�
 
 ### <a name="to-add-trace-statement-to-your-code"></a>코드에 추적 문을 추가하려면
 1. 애플리케이션에 대한 소스 파일을 엽니다. 예를 들어 작업자 역할 또는 웹 역할에 대한 \<RoleName>.cs 파일입니다.
-2. 아직 추가 되지 않은 경우 다음 using 지시문을 추가 합니다.
+2. 아직 추가되지 않은 경우, 지시문을 사용하여 다음을 추가합니다.
     ```
         using System.Diagnostics;
     ```

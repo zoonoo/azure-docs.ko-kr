@@ -4,25 +4,24 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: nikuklic
-ms.openlocfilehash: ab5741e12bea83893f871487f92a5495b1dd08c9
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 7506f2c42066cb26532f815f2b77b240caea1993
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560363"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112536263"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../../includes/emergency-calling-notice-include.md)]
 
-> [!NOTE]
-> [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-phone-calling)에서 이 빠른 시작에 대한 최종 코드 칮기
+## <a name="sample-code"></a>샘플 코드
+[GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-phone-calling)에서 이 빠른 시작에 대한 최종 코드 칮기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../../create-communication-resource.md).
 - Communication Services 리소스에서 가져온 전화 번호입니다. [전화 번호를 가져오는 방법](../../../telephony-sms/get-phone-number.md).
 - 호출 클라이언트를 사용하도록 설정하는 `User Access Token`입니다. [`User Access Token`를 가져오는 방법](../../../access-tokens.md)에 대한 자세한 정보
-
 
 [!INCLUDE [Calling with JavaScript](../get-started/get-started-javascript-setup.md)]
 
@@ -125,7 +124,6 @@ hangUpPhoneButton.addEventListener("click", () => {
 ## <a name="run-the-code"></a>코드 실행
 
 `webpack-dev-server`를 사용하여 앱을 빌드하고 실행합니다. 다음 명령을 실행하여 로컬 웹 서버에서 애플리케이션 호스트를 번들로 묶습니다.
-
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map

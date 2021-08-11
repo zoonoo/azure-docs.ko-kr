@@ -10,10 +10,10 @@ ms.date: 03/11/2019
 ms.author: robinsh
 ms.custom: amqp, devx-track-csharp
 ms.openlocfilehash: 045d5693c4388c6285bc6983ac2a385ceac9f6d0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94408127"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IoT Hub 작업 모니터링(사용되지 않음)
@@ -21,7 +21,7 @@ ms.locfileid: "94408127"
 IoT Hub 작업 모니터링을 사용하면 실시간으로 IoT Hub에 대한 작업의 상태를 모니터링할 수 있습니다. IoT Hub는 몇 가지 작업 범주에 걸쳐 이벤트를 추적합니다. 하나 이상의 범주에서 IoT hub의 엔드포인트로 처리할 이벤트를 보내도록 선택할 수 있습니다. 데이터에 오류가 있는지 모니터링하거나 데이터 패턴을 기반으로 좀 더 복잡한 처리를 설정할 수 있습니다.
 
 >[!NOTE]
->IoT Hub **작업 모니터링은 더 이상 사용되지 않으며, 2019년 3월 10일에 IoT Hub에서 제거되었습니다**. IoT Hub의 작업 및 상태를 모니터링 하려면 [IoT Hub 모니터링](monitor-iot-hub.md)을 참조 하세요. 사용 중단 타임라인에 대한 자세한 내용은 [Azure Monitor 및 Azure Resource Health로 Azure IoT 솔루션 모니터링](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health)을 참조하세요.
+>IoT Hub **작업 모니터링은 더 이상 사용되지 않으며, 2019년 3월 10일에 IoT Hub에서 제거되었습니다**. IoT Hub의 작동 및 상태 모니터링은 [IoT Hub 모니터링](monitor-iot-hub.md)을 참조하세요. 사용 중단 타임라인에 대한 자세한 내용은 [Azure Monitor 및 Azure Resource Health로 Azure IoT 솔루션 모니터링](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health)을 참조하세요.
 
 IoT Hub는 다음 여섯 가지 범주의 이벤트를 모니터링합니다.
 
@@ -267,8 +267,8 @@ class Program
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Monitor를 사용 하 여 IoT Hub 모니터링 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
+Azure Monitor를 사용하여 IoT Hub를 모니터링하는 방법을 자세히 알아보려면 다음을 참조하세요.
 
 * [IoT Hub 모니터링](monitor-iot-hub.md)
 
-* [IoT Hub 작업 모니터링에서 Azure Monitor로 마이그레이션](iot-hub-migrate-to-diagnostics-settings.md)
+* [IoT Hub 작업 모니터링에서 Azure Monitor으로 마이그레이션](iot-hub-migrate-to-diagnostics-settings.md)

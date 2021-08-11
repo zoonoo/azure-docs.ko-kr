@@ -2,19 +2,20 @@
 title: '자습서: 환경 만들기 - Azure Time Series Insights | Microsoft Docs'
 description: 시뮬레이션된 디바이스의 데이터로 채워진 Azure Time Series Insights 환경을 만드는 방법을 알아봅니다.
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: ea57a623546df99408d488da4522411f55ab0dd9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 165d703e8515ccec5c92b7297769ccc02fbdf009
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101094352"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112369149"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>자습서: Azure Time Series Insights Gen1 환경 만들기
 

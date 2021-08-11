@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/15/2021
 ms.author: jeedes
-ms.openlocfilehash: ffdd6c30e279cc5df7f97e5ab5bb77a87c18dd8b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 6038db88610e1fde8d95c2c31a9bcfa2c5ad5ac2
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480524"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111904250"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-enterprise-managed-user"></a>자습서: GitHub Enterprise Managed User와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -117,7 +117,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. https://github.com 로 이동
 1. 오른쪽 위 모서리에 있는 Sign In(로그인)을 클릭합니다.
 1. 첫 번째 관리자 사용자 계정의 자격 증명을 입력합니다. 로그인 핸들은 다음과 같은 형식이어야 합니다. `<your enterprise short code>_admin`
-1. https://github.com/enterprises/ `<your enterprise name>`로 이동합니다. 이 정보는 솔루션 엔지니어링 담당자가 제공해야 합니다.
+1. `https://github.com/enterprises/` `<your enterprise name>`로 이동합니다. 이 정보는 솔루션 엔지니어링 담당자가 제공해야 합니다.
 1. 왼쪽 탐색 메뉴에서 **설정**, **보안** 를 차례로 선택합니다.
 1. **Enable SAML authentication**(SAML 인증 사용) 확인란을 선택합니다.
 1. 로그온 URL을 입력합니다. 이 URL은 위의 AAD에서 복사한 로그인 URL입니다.

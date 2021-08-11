@@ -5,15 +5,15 @@ ms.topic: how-to
 ms.date: 01/21/2021
 ms.custom: seodec18, devx-track-azurepowershell
 ms.openlocfilehash: 2b51a2a7852df82625fb342bbbbc4a3a1cbf72a3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98685513"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>PowerShell cmdlet을 사용한 Batch 리소스 관리
 
-Azure Batch PowerShell cmdlet을 사용 하 여 여러 일반적인 배치 작업을 수행 하 고 스크립팅할 수 있습니다. Batch 계정을 관리하고 풀, 작업, 태스크 등의 Batch 리소스 작업에 사용할 수 있는 cmdlet에 대해 간략히 소개합니다.
+Azure Batch PowerShell cmdlet을 사용하면 여러 일반적인 Batch 작업을 수행하고 스크립팅할 수 있습니다. Batch 계정을 관리하고 풀, 작업, 태스크 등의 Batch 리소스 작업에 사용할 수 있는 cmdlet에 대해 간략히 소개합니다.
 
 Batch cmdlet의 전체 목록과 상세 cmdlet 구문은 [Azure Batch cmdlet 참조](/powershell/module/az.batch)에서 확인하세요.
 
@@ -114,9 +114,9 @@ $context = Get-AzBatchAccount -AccountName <account_name>
 
 ### <a name="create-a-batch-pool"></a>Batch 풀 만들기
 
-Batch 풀을 만들거나 업데이트할 때 [구성을](nodes-and-pools.md#configurations)지정 합니다. 풀은 일반적으로 [Azure Virtual Machines Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1)에 나열 된 지원 되는 Linux 또는 Windows VM 이미지 중 하나를 지정 하거나 사용자가 준비한 사용자 지정 이미지를 제공할 수 있는 가상 머신 구성으로 구성 해야 합니다. Cloud Services 구성 풀은 Windows 계산 노드만 제공 하며 모든 배치 기능을 지원 하지 않습니다.
+Batch 풀을 만들거나 업데이트할 때 [구성](nodes-and-pools.md#configurations)을 지정합니다. 풀은 일반적으로 [Azure Virtual Machines Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1)에 나열된 지원되는 Linux 또는 Windows VM 이미지 중 하나를 지정하거나 준비한 사용자 지정 이미지를 제공할 수 있는 가상 머신 구성으로 구성해야 합니다. Cloud Services 구성 풀은 Windows 컴퓨팅 노드만 제공하며 일부 Batch 기능을 지원하지 않습니다.
 
-**AzBatchPool** 를 실행 하는 경우 PSVirtualMachineConfiguration 또는 PSCloudServiceConfiguration 개체에 운영 체제 설정을 전달 합니다. 예를 들어 다음 코드 조각은 가상 머신 구성에서 크기가 Standard_A1 컴퓨팅 노드이고 Ubuntu Server 18.04-LTS 이미지로 작성된 Batch 풀을 만듭니다. 여기서 **VirtualMachineConfiguration** 매개 변수는 *$configuration* 변수를 PSCloudServiceConfiguration 개체로 지정합니다. **BatchContext** 매개 변수는 이전에 정의한 *$context* 변수를 BatchAccountContext 개체로 지정합니다.
+**New-AzBatchPool** 을 실행할 때 PSVirtualMachineConfiguration 또는 PSCloudServiceConfiguration 개체로 운영 체제 설정을 전달합니다. 예를 들어 다음 코드 조각은 가상 머신 구성에서 크기가 Standard_A1 컴퓨팅 노드이고 Ubuntu Server 18.04-LTS 이미지로 작성된 Batch 풀을 만듭니다. 여기서 **VirtualMachineConfiguration** 매개 변수는 *$configuration* 변수를 PSCloudServiceConfiguration 개체로 지정합니다. **BatchContext** 매개 변수는 이전에 정의한 *$context* 변수를 BatchAccountContext 개체로 지정합니다.
 
 ```powershell
 $imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04-LTS")
@@ -190,7 +190,7 @@ Get-AzBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzBatch
 
 ## <a name="application-package-management"></a>애플리케이션 패키지 관리
 
-[응용 프로그램 패키지](batch-application-packages.md) 는 풀의 계산 노드에 응용 프로그램을 배포 하는 간단한 방법을 제공 합니다. Batch PowerShell cmdlet으로 Batch 계정에 애플리케이션 패키지를 업로드하여 관리하고 노드를 계산하는 패키지 버전을 배포할 수 있습니다.
+[애플리케이션 패키지](batch-application-packages.md)는 풀에서 컴퓨팅 노드에 애플리케이션을 배포하는 간단한 방법을 제공합니다. Batch PowerShell cmdlet으로 Batch 계정에 애플리케이션 패키지를 업로드하여 관리하고 노드를 계산하는 패키지 버전을 배포할 수 있습니다.
 
 > [!IMPORTANT]
 > 애플리케이션 패키지를 사용하려면 Azure Storage 계정을 Batch 계정에 연결해야 합니다.
@@ -271,7 +271,7 @@ $appPackageReference.Version = "2.0"
 
 ```
 
-그런 다음 Batch에서 풀을 가져오고, 기존 패키지를 지우고, 새 패키지 참조를 추가 하 고, 새 풀 설정을 사용 하 여 Batch 서비스를 업데이트 합니다.
+다음으로, Batch에서 풀을 가져오고, 기존 패키지를 지우고, 새 패키지 참조를 추가하고, 새 풀 설정을 사용하여 Batch 서비스를 업데이트합니다.
 
 ```powershell
 $pool = Get-AzBatchPool -BatchContext $context -Id "PoolWithAppPackage"
@@ -294,5 +294,5 @@ Get-AzBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Res
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자세한 cmdlet 구문과 예는 [Azure Batch cmdlet 참조](/powershell/module/az.batch) 를 검토 하십시오.
-- [Batch 응용 프로그램 패키지를 사용 하 여 계산 노드에 응용 프로그램을 배포](batch-application-packages.md)하는 방법을 알아봅니다.
+- 자세한 cmdlet 구문과 예제에 대한 [Azure Batch cmdlet 참조](/powershell/module/az.batch)를 검토합니다.
+- [Batch 애플리케이션 패키지를 사용하여 컴퓨팅 노드에 애플리케이션을 배포](batch-application-packages.md)하는 방법을 알아봅니다.

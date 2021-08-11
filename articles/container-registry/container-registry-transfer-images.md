@@ -4,12 +4,12 @@ description: Azure Storage 계정으로 전송 파이프라인을 만들어 한 
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: 4fe36366011fb790d25419ac46a54c4bf5ad94bf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c966600b0ca9d65cf533c3c2f0aca211c84917bd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785821"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780778"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>다른 레지스트리에 아티팩트 전송
 
@@ -30,7 +30,7 @@ ms.locfileid: "104785821"
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **컨테이너 레지스트리** - 전송할 아티팩트가 있는 기존 원본 레지스트리 및 대상 레지스트리가 필요합니다. ACR 전송은 물리적으로 연결이 끊어진 클라우드에서 이동하기 위한 기능입니다. 테스트를 위해 원본 및 대상 레지스트리는 동일하거나 다른 Azure 구독, Active Directory 테넌트 또는 클라우드에 있을 수 있습니다. 
 
@@ -416,13 +416,19 @@ az resource delete \
 * **템플릿 배포 실패 또는 오류**
   * 파이프라인 실행이 실패하면 실행 리소스의 `pipelineRunErrorMessage` 속성을 확인합니다.
   * 일반적인 템플릿 배포 오류는 [ARM 템플릿 배포 문제 해결](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조하세요.
+* **스토리지 액세스 문제**<a name="problems-accessing-storage"></a>
+  * 스토리지에서 `403 Forbidden` 오류가 표시되면 SAS 토큰에 문제가 있을 수 있습니다.
+  * SAS 토큰이 현재 유효하지 않을 수 있습니다. SAS 토큰이 만료되었거나 SAS 토큰이 생성된 후 스토리지 계정 키가 변경되었을 수 있습니다. SAS 토큰을 사용하여 스토리지 계정 컨테이너에 대한 액세스를 인증하려고 시도하여 SAS 토큰이 유효한지 확인합니다. 예를 들어 기존 Blob 엔드포인트를 새 Microsoft Edge InPrivate 창의 주소 표시줄에 SAS 토큰 앞에 배치하거나 `az storage blob upload`를 사용하여 SAS 토큰으로 컨테이너에 Blob을 업로드합니다.
+  * SAS 토큰에 허용되는 리소스 유형이 충분하지 않을 수 있습니다. SAS 토큰에 허용되는 리소스 유형(SAS 토큰에서 `srt=sco`)에서 서비스, 컨테이너 및 개체에 대한 사용 권한이 제공되었는지 확인합니다.
+  * SAS 토큰에 충분한 권한이 없을 수 있습니다. 내보내기 파이프라인의 경우 필요한 SAS 토큰 권한은 읽기, 쓰기, 나열 및 추가입니다. 가져오기 파이프라인의 경우 필요한 SAS 토큰 권한은 읽기, 삭제 및 나열입니다. (삭제 권한은 가져오기 파이프라인에서 `DeleteSourceBlobOnSuccess` 옵션을 사용하도록 설정한 경우에만 필요합니다.)
+  * SAS 토큰이 HTTPS에서만 작동하도록 구성되지 않았을 수 있습니다. SAS 토큰이 HTTPS에서만 작동하도록 구성되어 있는지 확인합니다(SAS 토큰에서 `spr=https`).
 * **스토리지 Blob 내보내기 또는 가져오기 문제**
-  * SAS 토큰이 만료되었거나 지정된 내보내기 또는 가져오기 실행에 대한 권한이 부족한 것일 수 있습니다.
+  * SAS 토큰이 잘못되었거나 지정된 내보내기 또는 가져오기 실행에 대한 권한이 부족한 것일 수 있습니다. [스토리지 액세스 문제](#problems-accessing-storage)를 참조하세요.
   * 여러 내보내기를 실행하는 동안 원본 스토리지 계정의 기존 스토리지 Blob을 덮어쓰지 못할 수 있습니다. OverwriteBlob 옵션이 내보내기 실행에 설정되어 있고 SAS 토큰에 충분한 권한이 있는지 확인합니다.
   * 가져오기를 실행한 후에는 대상 스토리지 계정의 스토리지 Blob을 삭제할 수 없습니다. DeleteBlobOnSuccess 옵션이 가져오기 실행에 설정되어 있고 SAS 토큰에 충분한 권한이 있는지 확인합니다.
   * 스토리지 Blob을 만들거나 삭제하지 않았습니다. 내보내기 또는 가져오기 실행에 지정된 컨테이너가 있는지 확인하거나, 수동 가져오기 실행을 위해 지정된 저장소 Blob이 있는지 확인합니다. 
 * **AzCopy 문제**
-  * [AzCopy 문제 해결](../storage/common/storage-use-azcopy-configure.md#troubleshoot-issues)을 참조 하세요.  
+  * [AzCopy 문제 해결](../storage/common/storage-use-azcopy-configure.md)을 참조 하세요.  
 * **아티팩트 전송 문제**
   * 모든 아티팩트가 전송되거나 아트팩트가 전혀 전송되지 않습니다. 내보내기 실행에서 아티팩트의 철자와 내보내기 및 가져오기 실행의 Blob 이름을 확인합니다. 최대 50개의 아티팩트를 전송하고 있는지 확인합니다.
   * 파이프라인 실행이 완료되지 않았을 수 있습니다. 내보내기 또는 가져오기 실행에는 다소 시간이 걸릴 수 있습니다. 
@@ -441,15 +447,15 @@ az resource delete \
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-login]: /cli/azure/reference-index#az-login
-[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
-[az-keyvault-secret-show]: /cli/azure/keyvault/secret#az-keyvault-secret-show
-[az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy
-[az-storage-container-generate-sas]: /cli/azure/storage/container#az-storage-container-generate-sas
-[az-storage-blob-list]: /cli/azure/storage/blob#az-storage-blob-list
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
-[az-deployment-group-delete]: /cli/azure/deployment/group#az-deployment-group-delete
-[az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
-[az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
-[az-acr-import]: /cli/azure/acr#az-acr-import
-[az-resource-delete]: /cli/azure/resource#az-resource-delete
+[az-login]: /cli/azure/reference-index#az_login
+[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az_keyvault_secret_set
+[az-keyvault-secret-show]: /cli/azure/keyvault/secret#az_keyvault_secret_show
+[az-keyvault-set-policy]: /cli/azure/keyvault#az_keyvault_set_policy
+[az-storage-container-generate-sas]: /cli/azure/storage/container#az_storage_container_generate_sas
+[az-storage-blob-list]: /cli/azure/storage/blob#az_storage-blob-list
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-deployment-group-delete]: /cli/azure/deployment/group#az_deployment_group_delete
+[az-deployment-group-show]: /cli/azure/deployment/group#az_deployment_group_show
+[az-acr-repository-list]: /cli/azure/acr/repository#az_acr_repository_list
+[az-acr-import]: /cli/azure/acr#az_acr_import
+[az-resource-delete]: /cli/azure/resource#az_resource_delete

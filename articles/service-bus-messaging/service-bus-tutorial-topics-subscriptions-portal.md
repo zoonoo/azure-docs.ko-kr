@@ -6,12 +6,12 @@ ms.author: spelluru
 ms.date: 10/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a7b03727c574dcee1cd56144a521f36de6dc48c6
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: c7687fb4338005003cd06dc8940d36496dea1b06
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107861376"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414452"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>자습서: Azure Portal 및 토픽/구독을 사용하여 재고 업데이트
 
@@ -42,9 +42,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 �
 
 [토픽에 대한 각 구독](service-bus-messaging-overview.md#topics)은 각 메시지의 복사본을 받을 수 있습니다. 토픽은 완전히 프로토콜이며, 의미상 Service Bus 큐와 호환됩니다. Service Bus 토픽은 메시지 속성을 설정하거나 수정하는 선택적 동작과 함께 필터 조건이 포함된 다양한 선택 규칙을 지원합니다. 규칙이 일치할 때마다 메시지를 생성합니다. 규칙, 필터 및 작업에 대해 자세히 알아보려면 이 [링크](topic-filters.md)를 따르세요.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+[!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 
-[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](./includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
 
 

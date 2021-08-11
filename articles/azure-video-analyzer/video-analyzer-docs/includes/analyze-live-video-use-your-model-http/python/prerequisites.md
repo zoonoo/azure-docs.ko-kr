@@ -4,12 +4,12 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 04/07/2021
 ms.author: juliako
-ms.openlocfilehash: 102248fb5d427df331bf6c915981328ff73cb10b
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 60f8968a3377479457cbe0faceae28bc83835453
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371930"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113735781"
 ---
 * 활성 구독이 있는 Azure 계정. 계정이 아직 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
 
@@ -18,8 +18,7 @@ ms.locfileid: "110371930"
     * 다음 확장이 포함된 [Visual Studio Code](https://code.visualstudio.com/)
         * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
-        > [!TIP]
-        > Azure IoT Tools를 설치할 때 Docker를 설치하라는 메시지가 표시될 수 있습니다. 이 메시지는 무시해도 됩니다.
+        [!INCLUDE [install-docker-prompt](../../common-includes/install-docker-prompt.md)]
         * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
     * [Python 3](https://www.python.org/downloads/)(3.6.9 이상), [Pip 3](https://pip.pypa.io/en/stable/installing/) 및 필요에 따라 [venv](https://docs.python.org/3/library/venv.html).
 * [동작 감지 및 이벤트 내보내기](../../../detect-motion-emit-events-quickstart.md) 빠른 시작 읽기

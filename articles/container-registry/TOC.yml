@@ -35,6 +35,10 @@
               href: container-registry-tutorial-deploy-app.md
             - name: 3 - 웹 애플리케이션 업데이트
               href: container-registry-tutorial-deploy-update.md
+    - name: 샘플
+      items:
+        - name: Azure Resource Graph 쿼리
+          href: ./resource-graph-samples.md
     - name: 개념
       expanded: false
       items:
@@ -175,7 +179,7 @@
               href: container-registry-check-health.md
               displayName: 'check, health'
             - name: FAQ
-              href: container-registry-faq.md
+              href: container-registry-faq.yml
 - name: 작업
   expanded: true
   items:

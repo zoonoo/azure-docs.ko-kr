@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: 4c1c6303727e503bcf5596edcc7b7a6aa5dcdb2c
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: d36f400e18566abf0631b5bec24fbfe6801fd299
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904152"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112575139"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-central"></a>빠른 시작: MXCHIP AZ3166 DevKit를 IoT Central에 연결
 
@@ -35,7 +35,7 @@ ms.locfileid: "111904152"
 * 리포지토리를 복제하기 위한 [Git](https://git-scm.com/downloads)
 * 하드웨어
 
-    * [MXCHIP AZ3166 IoT DevKit](https://aka.ms/iot-devkit)(MXCHIP DevKit)
+    * [MXCHIP AZ3166 IoT DevKit](https://www.seeedstudio.com/AZ3166-IOT-Developer-Kit.html)(MXCHIP DevKit)
     * Wi-Fi 2.4GHz
     * USB 2.0 A~마이크로 USB 수 케이블
 
@@ -137,7 +137,7 @@ MXCHIP DevKit를 Azure에 연결하려면 Wi-Fi 및 Azure IoT 설정에 대한 �
 
 1. **Termite** 를 시작합니다.
     > [!TIP]
-    > Termite를 DevKit에 연결할 수 없는 경우 [ST-LINK 드라이버](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip)를 설치하고 다시 시도합니다. 추가 단계는 [문제 해결](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md)을 참조하세요.
+    > Termite를 DevKit에 연결할 수 없는 경우 [ST-LINK 드라이버](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip)를 설치하고 다시 시도합니다. 추가 단계는 [문제 해결](troubleshoot-embedded-device-quickstarts.md)을 참조하세요.
 1. **설정** 을 선택합니다.
 1. **직렬 포트 설정** 대화 상자에서 다음 설정을 확인하고, 필요한 경우 업데이트합니다.
     * **전송 속도**: 115,200
@@ -236,7 +236,7 @@ IoT Central에서 디바이스 정보를 볼 수 있습니다.
 
 ## <a name="troubleshoot-and-debug"></a>문제 해결 및 디버그
 
-디바이스 코드 빌드, 디바이스 플래시 또는 연결에 문제가 발생하는 경우 [문제 해결](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md)을 참조하세요.
+디바이스 코드 빌드, 디바이스 플래시 또는 연결에 문제가 발생하는 경우 [문제 해결](troubleshoot-embedded-device-quickstarts.md)을 참조하세요.
 
 애플리케이션 디버깅에 대한 자세한 내용은 [Visual Studio Code를 사용하여 디버깅](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md)을 참조하세요.
 

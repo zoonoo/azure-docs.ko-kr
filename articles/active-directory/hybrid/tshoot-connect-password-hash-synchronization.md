@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c6ec162ceb51c3bf19be42219b054d8371ff221
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98247355"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 문제 해결
@@ -64,13 +64,13 @@ ms.locfileid: "98247355"
 
 3. Azure AD Connect 마법사를 시작합니다.
 
-4. **추가 작업** 페이지로 이동 하 여 **문제 해결** 을 선택 하 고 **다음** 을 클릭 합니다.
+4. **추가 작업** 페이지로 이동하고 **문제 해결** 을 선택하고 **다음** 을 클릭합니다.
 
-5. 문제 해결 페이지에서 **시작** 을 클릭 하 여 PowerShell의 문제 해결 메뉴를 시작 합니다.
+5. 문제 해결 페이지에서 **시작** 을 클릭하여 PowerShell의 문제 해결 메뉴를 시작합니다.
 
-6. 주 메뉴에서 **암호 해시 동기화 문제 해결** 을 선택 합니다.
+6. 주 메뉴에서 **암호 해시 동기화 문제 해결** 을 선택합니다.
 
-7. 하위 메뉴에서 **암호 해시 동기화가 전혀 작동 하지** 않음을 선택 합니다.
+7. 하위 메뉴에서 **암호 해시 동기화가 전혀 작동하지 않음** 을 선택합니다.
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>문제 해결 작업의 결과 이해
 
@@ -120,7 +120,7 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 
 온-프레미스 Active Directory 커넥터가 암호 해시 동기화에 사용하는 AD DS 계정에 적절한 사용 권한이 없으면 다음 오류가 반환됩니다.
 
-![AD DS 계정에 잘못 된 사용자 이름 또는 암호가 있는 경우 반환 되는 오류를 보여 주는 스크린샷](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
+![AD DS 계정에 잘못된 사용자 이름이나 암호가 있을 때 반환되는 오류를 보여 주는 스크린샷](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
 
 #### <a name="incorrect-ad-ds-account-username-or-password"></a>잘못된 AD DS 계정 사용자 이름 또는 암호
 
@@ -147,11 +147,11 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 
 3. Azure AD Connect 마법사를 시작합니다.
 
-4. **추가 작업** 페이지로 이동 하 여 **문제 해결** 을 선택 하 고 **다음** 을 클릭 합니다.
+4. **추가 작업** 페이지로 이동하고 **문제 해결** 을 선택하고 **다음** 을 클릭합니다.
 
-5. 문제 해결 페이지에서 **시작** 을 클릭 하 여 PowerShell의 문제 해결 메뉴를 시작 합니다.
+5. 문제 해결 페이지에서 **시작** 을 클릭하여 PowerShell의 문제 해결 메뉴를 시작합니다.
 
-6. 주 메뉴에서 **암호 해시 동기화 문제 해결** 을 선택 합니다.
+6. 주 메뉴에서 **암호 해시 동기화 문제 해결** 을 선택합니다.
 
 7. 하위 메뉴에서 **특정 사용자 계정에 대해 암호가 동기화되지 않음** 을 선택합니다.
 
@@ -253,7 +253,7 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 
     ![암호 동기화 설정의 PowerShell 스크립트 출력](./media/tshoot-connect-password-hash-synchronization/psverifyconfig.png)  
 
-3. Azure AD에서 이 기능이 사용되지 않거나 동기화 채널 상태가 사용되지 않는 경우 Connect 설치 마법사를 실행합니다. **동기화 옵션 사용자 지정** 을 선택 하 고 암호 동기화의 선택을 취소 합니다. 이 변경 내용은 일시적으로 기능을 사용 하지 않도록 설정 합니다. 그런 다음 마법사를 다시 실행 하 고 암호 동기화를 다시 사용 하도록 설정 합니다. 스크립트를 다시 실행 하 여 구성이 올바른지 확인 합니다.
+3. Azure AD에서 이 기능이 사용되지 않거나 동기화 채널 상태가 사용되지 않는 경우 Connect 설치 마법사를 실행합니다. **동기화 옵션 사용자 지정** 을 선택하고 암호 동기화를 선택 취소합니다. 이렇게 변경하면 기능이 일시적으로 사용되지 않습니다. 그런 다음, 마법사를 다시 실행하고 암호 동기화를 다시 사용하도록 설정합니다. 스크립트를 다시 실행하여 구성이 올바른지 확인합니다.
 
 4. 이벤트 로그에서 오류를 찾습니다. 문제를 나타내는 다음 이벤트를 찾습니다.
     * 원본: "디렉터리 동기화" ID: 0, 611, 652, 655 이러한 이벤트가 표시되면 연결 문제가 있는 것입니다. 이벤트 로그 메시지에는 문제가 있는 포리스트 정보가 포함됩니다. 자세한 내용은 [연결 문제](#connectivity problem)를 참조하세요.
@@ -293,10 +293,10 @@ Azure AD와 연결되어 있나요?
  
 8. **디렉터리 파티션 선택** 에서 도메인을 선택하고 **기본 설정 도메인 컨트롤러만 사용** 확인란을 선택한 다음 **구성** 을 클릭합니다. 
 
-9. 목록에서, 연결에서 암호 동기화에 사용 해야 하는 도메인 컨트롤러를 입력 합니다. 동일한 목록이 가져오기 및 내보내기에도 사용 됩니다. 모든 도메인에 대해 이 단계를 수행합니다.
+9. 목록에서 Connect가 암호 동기화에 사용해야 하는 도메인 컨트롤러를 입력합니다. 동일한 목록이 가져오기 및 내보내기에도 사용됩니다. 모든 도메인에 대해 이 단계를 수행합니다.
 
 > [!NOTE]
-> 이러한 변경 내용을 적용 하려면 **Microsoft Azure AD 동기화** (adsync) 서비스를 다시 시작 합니다.
+> 이 변경 내용을 적용하려면 **Microsoft Azure ADSync** 서비스를 다시 시작합니다.
 
 10. 스크립트에서 하트비트가 없음을 보여 주는 경우 [모든 암호의 전체 동기화 트리거](#trigger-a-full-sync-of-all-passwords)에서 스크립트를 실행합니다.
 
@@ -338,15 +338,15 @@ Azure AD와 연결되어 있나요?
 
     i. **메타버스 개체 속성** 을 클릭하여 사용자 특성 목록을 표시합니다.  
 
-    ![메타 버스 개체 속성의 사용자 특성 목록을 보여 주는 스크린샷](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
+    ![메타버스 개체 속성의 사용자 특성 목록을 보여 주는 스크린샷](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
 
     **cloudFiltered** 특성이 없는지 확인합니다. 도메인 특성(domainFQDN 및 domainNetBios)이 예상 값을 갖는지 확인합니다.
 
-    j. **커넥터** 탭을 클릭 합니다. 온-프레미스 Active Directory와 Azure AD 둘 다에 대 한 커넥터가 표시 되는지 확인 합니다.
+    j. **커넥터** 탭을 클릭합니다. 온-프레미스 Active Directory 및 Azure AD에 대해 둘 다 커넥터가 표시되는지 확인합니다.
 
     ![메타버스 정보](./media/tshoot-connect-password-hash-synchronization/mvconnectors.png)  
 
-    k. Azure AD를 나타내는 행을 선택 하 고 **속성** 을 클릭 한 다음 **계보** 탭을 클릭 합니다. 커넥터 공간 개체는 **Passwordsync** 열에서 **True** 로 설정 된 아웃 바운드 규칙을 포함 해야 합니다. 기본 구성에서 동기화 규칙의 이름은 **AAD로 나가기 - 사용자 조인** 입니다.  
+    k. Azure AD를 나타내는 행을 선택하고, **속성** 을 클릭한 다음, **계보** 탭을 클릭합니다. 커넥터 공간 개체에서 **PasswordSync** 열의 아웃바운드 규칙을 **True** 로 설정해야 합니다. 기본 구성에서 동기화 규칙의 이름은 **AAD로 나가기 - 사용자 조인** 입니다.  
 
     ![커넥터 공간 개체 속성 대화 상자](./media/tshoot-connect-password-hash-synchronization/cspasswordsync2.png)  
 
@@ -354,7 +354,7 @@ Azure AD와 연결되어 있나요?
 
 상태 열에는 다음과 같은 값을 포함할 수 있습니다.
 
-| 상태 | 설명 |
+| 상태 | Description |
 | --- | --- |
 | Success |암호가 성공적으로 동기화되었습니다. |
 | FilteredByTarget |**다음 로그인할 때 반드시 암호 변경** 으로 암호가 설정됩니다. 암호가 동기화되지 않았습니다. |
@@ -362,7 +362,7 @@ Azure AD와 연결되어 있나요?
 | SourceConnectorNotPresent |개체를 온-프레미스 Active Directory Connector 공간에서 찾을 수 없습니다. |
 | TargetNotExportedToDirectory |Azure AD 커넥터 공간에 있는 개체가 아직 내보내지지 않았습니다. |
 | MigratedCheckDetailsForMoreInfo |로그 항목 1.0.9125.0 빌드 전에 만들어졌으며 레거시 상태로 표시됩니다. |
-| 오류 |서비스에 알 수 없는 오류가 반환되었습니다. |
+| Error |서비스에 알 수 없는 오류가 반환되었습니다. |
 | 알 수 없음 |암호 해시의 배치를 처리하는 동안 오류가 발생했습니다.  |
 | MissingAttribute |Azure AD Domain Services에 필요한 특정 특성(예: Kerberos 해시)을 사용할 수 없습니다. |
 | RetryRequestedByTarget |Azure AD Domain Services에 필요한 특정 특성(예: Kerberos 해시)을 이전에 사용할 수 없었습니다. 사용자의 암호 해시를 다시 동기화하려고 합니다. |

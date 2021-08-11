@@ -4,16 +4,17 @@ description: 이 문서에서는 Azure Automation 계정 인증의 개요를 제
 keywords: 자동화 보안, 안전한 자동화, 자동화 인증
 services: automation
 ms.subservice: process-automation
-ms.date: 02/26/2021
+ms.date: 04/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: c559a81b17b92f48b2d51b7c2d26325d6a1b1cca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 33402eb41ed9c22cf38890229d833cd2ab00d65d
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708903"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279517"
 ---
-# <a name="automation-account-authentication-overview"></a>Automation 계정 인증 개요
+# <a name="azure-automation-account-authentication-overview"></a>Azure Automation 계정 인증 개요
 
 Azure Automation을 사용하여 Azure, 온-프레미스 및 AWS(Amazon 웹 서비스)와 같은 기타 클라우드 공급자의 리소스에 대해 작업을 자동화할 수 있습니다. Runbook을 사용하여 작업을 자동화하거나 Azure 외부에서 관리하는 비즈니스 또는 운영 프로세스가 있는 경우에는 Hybrid Runbook Worker를 사용할 수 있습니다. 해당 환경 중 하나에서 작업하려면 필요한 최소 권한으로 리소스에 안전하게 액세스할 수 있는 권한이 필요합니다.
 
@@ -31,6 +32,31 @@ Azure Automation 계정은 Microsoft 계정 또는 Azure 구독에서 만든 계
 
 Azure Automation에서 Azure Resource Manager 및 PowerShell cmdlet을 사용하여 리소스에 대해 만드는 모든 작업은 Azure AD(Azure Active Directory) 조직 ID 자격 증명 기반 인증을 사용하여 Azure에 인증해야 합니다.
 
+## <a name="managed-identities-preview"></a>관리 ID(미리 보기)
+
+Azure AD(Azure Active Directory)의 관리 ID를 사용하면 Runbook에서 다른 Azure AD 보호 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. Azure AD의 관리 ID에 대한 자세한 내용은 [Azure 리소스의 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
+
+관리 ID를 사용하는 경우 얻을 수 있는 몇 가지 혜택은 다음과 같습니다.
+
+- 관리 ID를 사용하여 Azure AD 인증을 지원하는 모든 Azure 서비스에 인증할 수 있습니다. 클라우드 및 하이브리드 작업에 사용할 수 있습니다. 하이브리드 작업은 Azure 또는 비 Azure VM에서 실행되는 Hybrid Runbook Worker를 실행할 때 관리 ID를 사용할 수 있습니다.
+
+- 관리 ID는 추가 비용 없이 사용할 수 있습니다.
+
+- Automation 실행 계정에서 사용하는 인증서를 갱신할 필요가 없습니다.
+
+- Runbook 코드에서 실행 연결 개체를 지정할 필요가 없습니다. 인증서, 연결, 실행 계정 등을 만들지 않고 Runbook에서 Automation 계정의 관리 ID를 사용하여 리소스에 액세스할 수 있습니다.
+
+Automation 계정에는 다음 두 가지 유형의 ID를 부여할 수 있습니다.
+
+- 시스템 할당 ID는 애플리케이션에 연결되어 있어 해당 앱을 삭제하면 이 ID도 삭제됩니다. 앱에는 하나의 시스템 할당 ID만 있을 수 있습니다.
+
+- 사용자 할당 ID는 앱에 할당할 수 있는 독립 실행형 Azure 리소스입니다. 앱에는 여러 사용자 할당 ID가 있을 수 있습니다.
+
+>[!NOTE]
+> 사용자 할당 ID는 아직 지원되지 않습니다.
+
+관리 ID 사용에 대한 자세한 내용은 [Azure Automation에 관리 ID 사용(미리 보기)](enable-managed-identity-for-automation.md)을 참조하세요.
+
 ## <a name="run-as-accounts"></a>실행 계정
 
 Azure Automation의 실행 계정은 클래식 배포 모델로 배포된 리소스 또는 Azure Resource Manager 리소스를 관리하기 위한 인증을 제공합니다. Azure Automation에는 두 가지 유형의 실행 계정이 있습니다.
@@ -43,7 +69,10 @@ Azure Resource Manager 및 클래식 배포 모델에 대한 자세한 내용은
 >[!NOTE]
 >Azure CSP(클라우드 솔루션 공급자) 구독은 Azure Resource Manager 모델만 지원합니다. Azure Resource Manager 기반이 아닌 서비스는 프로그램에서 사용할 수 없습니다. CSP 구독을 사용하는 경우 Azure 클래식 실행 계정이 생성되지 않지만 Azure 실행 계정은 생성됩니다. CSP 구독에 대해 자세히 알아보려면 [CSP 구독에서 사용 가능한 서비스](/azure/cloud-solution-provider/overview/azure-csp-available-services)를 참조하세요.
 
-Automation 계정을 만들면 실행 계정은 기본적으로 동시에 만들어집니다. Automation 계정과 함께 만들지 않기로 선택하면 나중에 개별적으로 만들 수 있습니다. Azure 클래식 실행 계정은 선택 사항이며 클래식 리소스를 관리해야 하는 경우 별도로 생성됩니다.
+Automation 계정을 만들면 실행 계정은 기본적으로 자체 서명된 인증서와 함께 동시에 만들어집니다. Automation 계정과 함께 만들지 않기로 선택하면 나중에 개별적으로 만들 수 있습니다. Azure 클래식 실행 계정은 선택 사항이며 클래식 리소스를 관리해야 하는 경우 별도로 생성됩니다.
+
+자체 서명된 기본 인증서 대신 엔터프라이즈 또는 타사 CA(인증 기관)에서 발급한 인증서를 사용하려면 실행 및 클래식 실행 계정에 대한 [실행 계정을 만드는 PowerShell 스크립트](create-run-as-account.md#powershell-script-to-create-a-run-as-account) 옵션을 사용할 수 있습니다.
+
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWwtF3]
 
@@ -113,10 +142,11 @@ Azure Resource Manager에서 역할 기반 액세스 제어를 사용하여 Azur
 
 데이터 센터의 Hybrid Runbook Worker에서 또는 AWS와 같은 기타 클라우드 환경의 컴퓨팅 서비스에서 실행되는 Runbook은 일반적으로 Azure 리소스를 인증하는 Runbook에 사용되는 것과 동일한 방법을 사용할 수 없습니다. 이러한 리소스는 Azure 외부에서 실행되므로 로컬로 액세스하는 리소스에 인증하려면 Automation에서 정의한 자체 보안 자격 증명이 필요하기 때문입니다. Runbook Workers를 사용하는 Runbook 인증에 대한 자세한 내용은 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 참조하세요.
 
-Azure VM에서 Hybrid Runbook Worker를 사용하는 Runbook의 경우 실행 계정 대신 [관리 ID로 Runbook 인증](automation-hrw-run-runbooks.md#runbook-auth-managed-identities)을 사용하여 Azure 리소스를 인증할 수 있습니다.
+Azure VM에서 Hybrid Runbook Worker를 사용하는 Runbook의 경우 실행 계정 대신 [관리형 ID로 Runbook 인증](automation-hrw-run-runbooks.md#runbook-auth-managed-identities)을 사용하여 Azure 리소스를 인증할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Portal에서 Automation 계정을 만들려면 [독립 실행형 Azure Automation 계정 만들기](automation-create-standalone-account.md)를 참조하세요.
 * 템플릿을 사용하여 계정을 만들려면 [Azure Resource Manager 템플릿을 사용하여 Automation 계정 만들기](quickstart-create-automation-account-template.md)를 참조하세요.
 * Amazon Web Services를 사용하는 인증의 경우 [Amazon Web Services를 사용하여 Runbook 인증](automation-config-aws-account.md)을 참조하세요.
+* Azure 리소스에 대한 관리 ID 기능을 지원하는 Azure 서비스 목록은 [Azure 리소스에 대한 관리 ID를 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)를 참조하세요.

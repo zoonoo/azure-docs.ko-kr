@@ -7,12 +7,12 @@ ms.date: 08/12/2020
 ms.topic: quickstart
 ms.custom:
 - mode-portal
-ms.openlocfilehash: f73a2b79c4bb74dc5c10171cfd3e4a7bf6098b64
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: a52142737146299f78f5e3581830121726cedc05
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479062"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416100"
 ---
 # <a name="use-azure-portal-to-create-a-service-bus-namespace-and-a-queue"></a>Azure Portal을 사용하여 Service Bus 네임스페이스 및 큐 만들기
 이 빠른 시작에서는 [Azure Portal][Azure portal]을 사용하여 Service Bus 네임스페이스 및 큐를 만드는 방법을 보여줍니다. 또한 클라이언트 애플리케이션이 큐에 메시지를 보내고 받는 데 사용할 수 있는 권한 부여 자격 증명을 가져오는 방법을 보여줍니다. 
@@ -23,9 +23,9 @@ ms.locfileid: "110479062"
 
 이 빠른 시작을 완료하려면 Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 만들 수 있습니다.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+[!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 
-[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
+[!INCLUDE [service-bus-create-queue-portal](./includes/service-bus-create-queue-portal.md)]
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Service Bus 네임스페이스와 네임스페이스에 큐를 만들었습니다. 큐에 메시지를 보내거나 받는 방법에 대한 자세한 내용은 **메시지 보내기 및 받기** 섹션에서 다음 빠른 시작 중 하나를 참조하세요. 

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: f6d52f75b3e4f1c703125a8f9172e9f8b6fc6ece
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1ac03b354abf179061adad80cb5fe05ee3d549df
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110081535"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112540271"
 ---
 # <a name="sql-authentication"></a>SQL 인증
 
@@ -73,7 +73,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 
 로그인 및 사용자가 생성되면 일반 SQL Server 구문을 사용하여 권한을 부여할 수 있습니다.
 
-## <a name="sql-pool"></a>[SQL 풀](#tab/provisioned)
+## <a name="dedicated-sql-pool"></a>[전용 SQL 풀](#tab/provisioned)
 
 ### <a name="administrator-access-path"></a>관리자 액세스 경로
 

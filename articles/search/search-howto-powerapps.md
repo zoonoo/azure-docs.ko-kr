@@ -2,19 +2,17 @@
 title: '자습서: Power Apps에서 쿼리'
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search 인덱스에 연결하고, 쿼리를 보내며, 결과를 렌더링하는 Power App을 빌드하는 방법에 대한 단계별 지침입니다.
-author: luiscabrer
-manager: eladz
-ms.author: luisca
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
-ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: e8c16f02cf6b77fa54d2a19abac48e9914aa99bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9bf5ec0f1cac61a65ef0a24ae3f7825c2a950c2
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96008568"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729553"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>자습서: Power Apps에서 Cognitive Search 인덱스 쿼리
 
@@ -265,4 +263,4 @@ Power Apps의 커넥터는 데이터 원본 연결입니다. 이 단계에서는
 Power Apps를 사용하면 사용자 지정 앱의 빠른 애플리케이션 개발이 가능합니다. 이제 검색 인덱스에 연결하는 방법을 알고 있으므로 사용자 지정 Power App에서 풍부한 시각화 환경을 만드는 방법에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [Power Apps 학습 카탈로그](/powerapps/learning-catalog/get-started)
+> [Power Apps 학습 카탈로그](/powerapps/learning-catalog/bdm#get-started)

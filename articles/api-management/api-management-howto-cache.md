@@ -14,18 +14,18 @@ ms.topic: conceptual
 ms.date: 11/13/2020
 ms.author: apimpm
 ms.openlocfilehash: 732abed830afdb759ed52fd933673edd8e5cade6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94638736"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Azure API Management에서 캐싱을 추가하여 성능 향상
 
-응답 캐싱에 API Management의 Api 및 작업을 구성할 수 있습니다. 응답 캐싱은 api 호출자의 대기 시간과 API 공급자를 위한 백 엔드 로드를 크게 줄일 수 있습니다.
+API Management의 API 및 작업은 응답 캐싱을 사용하여 구성할 수 있습니다. 응답 캐싱은 API 호출자의 대기 시간과 API 공급자의 백 엔드 부하를 크게 줄일 수 있습니다.
 
 > [!IMPORTANT]
-> 기본 제공 캐시는 일시적 이며 동일한 API Management 서비스의 동일한 지역에 있는 모든 단위에서 공유 됩니다.
+> 기본 제공 캐시는 휘발성이며 동일한 API Management 서비스의 동일한 지역에 있는 모든 유닛에서 공유됩니다.
 
 캐싱에 대한 자세한 내용은 [API Management 캐싱 정책](api-management-caching-policies.md)과 [Azure API Management의 사용자 지정 캐싱](api-management-sample-cache-by-key.md)을 참조하세요.
 
@@ -42,7 +42,7 @@ ms.locfileid: "94638736"
 > [!NOTE]
 > 내부 캐시는 Azure API Management의 **소비** 계층에서 사용할 수 없습니다. 그 대신 [외부 Azure Cache for Redis를 사용](api-management-howto-cache-external.md)할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "94638736"
 
 1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. APIM 인스턴스로 이동합니다.
-3. **API** 탭을 선택 합니다.
+3. **API** 탭을 선택합니다.
 4. API 목록에서 **Demo Conference API** 를 선택합니다.
 5. **GetSpeakers** 를 선택합니다.
 6. 화면 맨 위에서 **디자인** 탭을 선택합니다.
@@ -88,7 +88,7 @@ ms.locfileid: "94638736"
 실행 중인 캐싱을 확인하려면 개발자 포털에서 작업을 호출합니다.
 
 1. Azure Portal에서 APIM 인스턴스로 이동합니다.
-2. **Api** 탭을 선택 합니다.
+2. **API** 탭을 선택합니다.
 3. 캐싱 정책을 추가할 API를 선택합니다.
 4. **GetSpeakers** 작업을 선택합니다.
 5. 맨 위 오른쪽 메뉴에 **테스트** 탭을 클릭합니다.

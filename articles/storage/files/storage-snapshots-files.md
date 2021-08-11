@@ -8,10 +8,10 @@ ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d415ef165da18312a458d7d14fba18acd1bf44cf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84235614"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure Files의 공유 스냅샷 개요
@@ -30,7 +30,7 @@ Azure 파일은 파일 공유의 공유 스냅샷을 생성하는 기능을 제�
 
 ### <a name="general-backup-purposes"></a>일반 백업 목적
 
-파일 공유를 만든 후에는 파일 공유의 공유 스냅샷을 주기적으로 만들어 데이터 백업에 사용할 수 있습니다. 공유 스냅샷을 주기적으로 만들면 나중에 감사 요구 사항이나 재해 복구에 사용할 수 있는 데이터의 이전 버전을 유지 관리하는 데 도움이 됩니다. 스냅숏을 작성 하 고 관리 하기 위한 백업 솔루션으로 [Azure 파일 공유 백업을](../../backup/azure-file-share-backup-overview.md) 사용 하는 것이 좋습니다. CLI 또는 PowerShell을 사용 하 여 스냅숏을 직접 사용 및 관리할 수도 있습니다.
+파일 공유를 만든 후에는 파일 공유의 공유 스냅샷을 주기적으로 만들어 데이터 백업에 사용할 수 있습니다. 공유 스냅샷을 주기적으로 만들면 나중에 감사 요구 사항이나 재해 복구에 사용할 수 있는 데이터의 이전 버전을 유지 관리하는 데 도움이 됩니다. 스냅샷을 만들고 관리하기 위한 백업 솔루션으로 [Azure 파일 공유 백업](../../backup/azure-file-share-backup-overview.md)을 사용하는 것이 좋습니다. CLI 또는 PowerShell을 사용하여 직접 스냅숏을 만들고 관리할 수도 있습니다.
 
 ## <a name="capabilities"></a>기능
 
@@ -85,7 +85,7 @@ Azure Files에서 허용하는 최대 공유 스냅샷 수는 200개입니다. �
 
 ## <a name="general-best-practices"></a>일반 모범 사례
 
-스냅숏을 관리 하는 것 외에도 스냅숏을 자동화 하는 백업 솔루션으로 [Azure 파일 공유 백업을](../../backup/azure-file-share-backup-overview.md) 사용 하는 것이 좋습니다. Azure에서 인프라를 실행할 때 데이터 복구를 위해 가능하면 언제나 백업을 자동화하십시오. 자동화된 작업은 수동 프로세스보다 더 안정적이므로 데이터 보호 및 복구 기능을 개선하는 데 도움이 됩니다. Azure 파일 공유 백업, REST API, 클라이언트 SDK 또는 자동화를 위한 스크립팅을 사용할 수 있습니다.
+스냅숏 만들기를 자동화하고 스냅숏을 관리하기 위한 백업 솔루션으로 [Azure 파일 공유 백업](../../backup/azure-file-share-backup-overview.md)을 사용하는 것이 좋습니다. Azure에서 인프라를 실행할 때 데이터 복구를 위해 가능하면 언제나 백업을 자동화하십시오. 자동화된 작업은 수동 프로세스보다 더 안정적이므로 데이터 보호 및 복구 기능을 개선하는 데 도움이 됩니다. 자동화를 위해 Azure 파일 공유 백업, REST API, 클라이언트 SDK 또는 스크립팅을 사용할 수 있습니다.
 
 공유 스냅샷 스케줄러를 배포하기 전에 불필요한 요금이 발생하지 않도록 공유 스냅샷 빈도 및 보존 설정을 신중히 고려하십시오.
 

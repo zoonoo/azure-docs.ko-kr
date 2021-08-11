@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 8/04/2017
 ms.author: cawa
 ms.openlocfilehash: d4d6b781d97d481793e69cf2ca97cca5b93ce432
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96008534"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Visual Studio에서 서비스 패브릭 클러스터에 대한 보안 연결 구성
 액세스 제어 정책이 구성되어 있는 Azure 서비스 패브릭 클러스터에 안전하게 액세스하기 위해 Visual Studio를 사용하는 방법에 대해 알아봅니다.
 
 ## <a name="cluster-connection-types"></a>클러스터 연결 유형
-Azure Service Fabric 클러스터에서 지원되는 2가지 연결 형식: **비보안** 연결과 **x509 인증서 기반** 보안 연결입니다. (온-프레미스에서 호스트 되는 Service Fabric 클러스터의 경우 **Windows** 및 **asts** 인증도 지원 됩니다.) 클러스터를 만들 때 클러스터 연결 형식을 구성 해야 합니다. 만든 후에는 연결 형식을 변경할 수 없습니다.
+Azure Service Fabric 클러스터에서 지원되는 2가지 연결 형식: **비보안** 연결과 **x509 인증서 기반** 보안 연결입니다. (온-프레미스에서 호스트되는 Service Fabric 클러스터의 경우 **Windows** 및 **dSTS** 인증도 지원됩니다.) 클러스터를 만들 때 클러스터 연결 형식을 구성해야 합니다. 만든 후에는 연결 형식을 변경할 수 없습니다.
 
 Visual Studio 서비스 패브릭 도구는 게시할 클러스터에 연결하기 위한 모든 인증 형식을 지원합니다. 보안 서비스 패브릭 클러스터를 설정하는 방법에 대한 지침은 [Azure Portal에서 서비스 패브릭 클러스터 설정](service-fabric-cluster-creation-via-portal.md)을 참조하세요.
 

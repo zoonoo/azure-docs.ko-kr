@@ -5,12 +5,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
 ms.date: 1/20/2021
-ms.openlocfilehash: ac83f455d2af82c3f6970077fccb17f07e53cccc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 876e30eec31918489b174aaf4eec77508b2c5a71
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98901079"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112362410"
 ---
 ## <a name="creating-and-running-a-scan"></a>검사 만들기 및 실행
 
@@ -19,11 +19,11 @@ ms.locfileid: "98901079"
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1. **소스** 로 이동
+1. Purview Studio의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
 
 1. 등록한 데이터 원본을 선택합니다.
 
-1. **+ 새 검사** 선택
+1. **새 검사** 를 선택합니다.
 
 1. 데이터 원본에 연결할 자격 증명을 선택합니다. 
 

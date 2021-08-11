@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/14/2020
+ms.date: 07/06/2021
 ms.author: alkohli
-ms.openlocfilehash: 0c0ef6157ebf70c896fbac5ff692246e4fad2c14
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9064af6138a3dc02947b9d1de2c935afc0ad99a3
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822201"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113304159"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>자습서: Azure Data Box Gateway를 통해 데이터 전송
 
@@ -151,4 +151,4 @@ Data Box Gateway 디바이스에 연결된 Windows Server 클라이언트에서 
 Data Box Gateway를 관리하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [로컬 웹 UI를 사용하여 Data Box Gateway 관리](https://aka.ms/dbg-docs)
+> [로컬 웹 UI를 사용하여 Data Box Gateway 관리](data-box-gateway-manage-access-power-connectivity-mode.md)

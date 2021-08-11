@@ -11,10 +11,10 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
 ms.openlocfilehash: ba973bd5609dacf05eca842025d4e828d8a9f841
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102550950"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Azure Virtual Machine 사용 이해
@@ -26,9 +26,9 @@ Azure 사용량 현황 데이터를 분석하면 조직 전체의 비용 관리�
 
 | 필드 | 의미 | 예제 값 | 
 |---|---|---|
-| 사용 날짜 | 리소스가 사용 된 날짜입니다. | `11/23/2017` |
-| Meter ID | 이 사용량이 속한 최상위 서비스를 식별 합니다.| `Virtual Machines`|
-| 측정기 하위 범주 | 청구된 측정기 식별자입니다. <br><br> 컴퓨팅 시간 사용에 대해 각 VM 크기 + OS(Windows, 비 Windows) + 지역에 대한 미터가 있습니다. <br><br> 프리미엄 소프트웨어 사용의 경우 각 소프트웨어 유형에 대해 미터가 있습니다. 대부분의 프리미엄 소프트웨어 이미지는 각 코어 크기마다 서로 다른 미터를 갖습니다. 자세한 내용은 [Compute 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/) 를 참조 하세요.</li></ul>| `2005544f-659d-49c9-9094-8e0aea1be3a5`|
+| 사용 날짜 | 리소스를 사용한 날짜입니다. | `11/23/2017` |
+| Meter ID | 이 사용이 속한 최상위 서비스를 식별합니다.| `Virtual Machines`|
+| 측정기 하위 범주 | 청구된 측정기 식별자입니다. <br><br> 컴퓨팅 시간 사용에 대해 각 VM 크기 + OS(Windows, 비 Windows) + 지역에 대한 미터가 있습니다. <br><br> 프리미엄 소프트웨어 사용의 경우 각 소프트웨어 유형에 대해 미터가 있습니다. 대부분의 프리미엄 소프트웨어 이미지는 각 코어 크기마다 서로 다른 미터를 갖습니다. 자세한 내용은 [컴퓨팅 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/)를 참조하세요.</li></ul>| `2005544f-659d-49c9-9094-8e0aea1be3a5`|
 | 미터 이름| Azure의 각 서비스마다 특정합니다. Compute의 경우 항상 “컴퓨팅 시간”입니다.| `Compute Hours`|
 | 미터 영역| 데이터 센터 위치에 따라 가격이 책정되는 특정 서비스에 대한 데이터 센터의 위치를 식별합니다.|  `JA East`|
 | 단위| 서비스 요금이 청구되는 단위를 식별합니다. 컴퓨팅 리소스는 시간당 요금이 청구됩니다.| `Hours`|
@@ -37,13 +37,13 @@ Azure 사용량 현황 데이터를 분석하면 조직 전체의 비용 관리�
 | 사용되는 서비스 | 사용한 Azure 플랫폼 서비스입니다.| `Microsoft.Compute`|
 | 리소스 그룹 | 배포된 리소스가 실행되는 리소스 그룹입니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md)를 참조하세요.|`MyRG`|
 | 인스턴스 ID | 리소스에 대한 식별자입니다. 식별자를 만들 때 리소스에 대해 지정한 이름을 포함합니다. VM의 경우 인스턴스 ID는 SubscriptionId, ResourceGroupName 및 VMName(또는 확장 집합 사용에 대한 확장 집합 이름)을 포함합니다.| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>또는<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
-| 태그들| 리소스에 할당하는 태그입니다. 태그를 사용하여 청구 레코드를 그룹화합니다. [CLI](./tag-cli.md) 또는 [PowerShell](./tag-portal.md) 을 사용 하 여 Virtual Machines 태그를 만드는 방법에 대해 알아봅니다 .이는 리소스 관리자 vm에만 사용할 수 있습니다.| `{"myDepartment":"RD","myUser":"myName"}`|
+| 태그들| 리소스에 할당하는 태그입니다. 태그를 사용하여 청구 레코드를 그룹화합니다. [CLI](./tag-cli.md) 또는 [PowerShell](./tag-portal.md)을 사용하여 Virtual Machines에 태그를 지정하는 방법을 알아봅니다. Resource Manager VM에만 사용할 수 있습니다.| `{"myDepartment":"RD","myUser":"myName"}`|
 | 추가 정보 | 서비스 특정 메타데이터입니다. VM에 대해 추가 정보 필드에 다음 데이터를 채웁니다. <br><br> 이미지 형식 - 실행한 특정 이미지. 이미지 형식 아래에서 지원되는 문자열의 전체 목록을 찾습니다.<br><br> 서비스 형식: 배포한 크기입니다.<br><br> VMName: VM 이름입니다. 이 필드는 확장 집합 VM에 대해서만 채워집니다. 확장 집합 VM에 VM 이름이 필요한 경우 위의 인스턴스 ID 문자열에서 확인할 수 있습니다.<br><br> UsageType: 이 항목이 나타내는 사용 유형을 지정합니다.<br><br> ComputeHR은 Standard_D1_v2 같은 기본 VM의 컴퓨팅 시간 사용입니다.<br><br> ComputeHR_SW는 Microsoft R Server처럼 VM이 프리미엄 소프트웨어를 사용할 경우 프리미엄 소프트웨어 요금입니다. | Virtual Machines<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>프리미엄 소프트웨어<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
 
 ## <a name="image-type"></a>이미지 형식
 Azure 갤러리의 일부 이미지의 경우 추가 정보 필드에 이미지 형식이 채워집니다. 이를 통해 사용자는 자신의 가상 머신에 배포된 항목을 이해하고 추적할 수 있습니다. 배포한 이미지에 따라 이 필드에 다음 값이 채워집니다.
 - BitRock 
-- 정식 FreeBSD 
+- Canonical FreeBSD 
 - Open Logic 
 - Oracle 
 - SAP용 SLES 
@@ -59,7 +59,7 @@ Azure 갤러리의 일부 이미지의 경우 추가 정보 필드에 이미지 
 - Windows Server 미리 보기 
 
 ## <a name="service-type"></a>서비스 유형
-추가 정보 필드에 있는 서비스 유형 필드는 배포한 정확한 VM 크기에 해당합니다. Premium Storage VM(SSD 기반) 및 비 Premium Storage VM(HDD 기반)은 같은 가격이 책정됩니다. 표준 d s 2 v 2와 같은 SSD 기반 크기를 배포 하는 경우 \_ \_ 추가 정보 필드에는 ssd 크기 ( `Standard\_D2\_v2 VM` )가 측정기 Sub-Category 열에 표시 되 고 ssd 크기 ( `Standard\_DS2\_v2` )가 표시 됩니다.
+추가 정보 필드에 있는 서비스 유형 필드는 배포한 정확한 VM 크기에 해당합니다. Premium Storage VM(SSD 기반) 및 비 Premium Storage VM(HDD 기반)은 같은 가격이 책정됩니다. Standard\_DS2\_v2 같은 SSD 기반 크기를 배포한 경우, 미터 하위 카테고리 열에는 비 SSD 크기(`Standard\_D2\_v2 VM`), 추가 정보 필드에는 SSD 크기(`Standard\_DS2\_v2`)가 표시됩니다.
 
 ## <a name="region-names"></a>지역 이름
 사용 세부 정보의 리소스 위치 필드에 채워진 지역 이름은 Azure Resource Manager에서 사용된 지역 이름마다 다릅니다. 지역 값 사이의 매핑은 다음과 같습니다.
@@ -124,7 +124,7 @@ VMName은 확장 집합에서 VM에 대한 추가 정보에만 채워집니다. 
 ### <a name="what-does-computehr-mean-in-the-usagetype-field-in-the-additional-info"></a>추가 정보의 UsageType 필드에서 ComputeHR은 무엇을 의미하나요?
 ComputeHR은 기본 인프라 비용에 대한 사용 이벤트를 나타내는 컴퓨팅 시간을 나타냅니다. UsageType이 ComputeHR\_SW이면 사용 이벤트가 VM에 대한 프리미엄 소프트웨어 요금을 의미합니다.
 ### <a name="how-do-i-know-if-i-am-charged-for-premium-software"></a>프리미엄 소프트웨어의 요금을 어떻게 알 수 있나요?
-사용자의 요구 사항에 가장 적합 한 VM 이미지를 탐색 하는 경우 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute)확인 하세요. 이미지에는 소프트웨어 계획 요금이 있습니다. 요금이 "Free"로 표시된 경우 해당 소프트웨어에는 추가 비용이 없는 것입니다. 
+어떤 VM 이미지가 자신의 요구에 가장 부합하는지 모색할 때는 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute)를 확인합니다. 이미지에는 소프트웨어 계획 요금이 있습니다. 요금이 "Free"로 표시된 경우 해당 소프트웨어에는 추가 비용이 없는 것입니다. 
 ### <a name="what-is-the-difference-between-microsoftclassiccompute-and-microsoftcompute-in-the-consumed-service"></a>사용 서비스에서 Microsoft.ClassicCompute와 Microsoft.Compute의 차이는 무엇인가요?
 Microsoft.ClassicCompute는 Azure Service Manager를 통해 배포된 클래식 리소스를 나타냅니다. Resource Manager를 통해 배포하는 경우 사용되는 서비스에서 Microsoft.Compute가 채워집니다. Azure [배포 모델](../azure-resource-manager/management/deployment-models.md)에 대해 자세히 알아보세요.
 ### <a name="why-is-the-instanceid-field-blank-for-my-virtual-machine-usage"></a>내 Virtual Machine 사용에 대해 InstanceID 필드가 비어 있는 이유는 무엇인가요?

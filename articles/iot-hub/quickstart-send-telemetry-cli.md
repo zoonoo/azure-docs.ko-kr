@@ -11,16 +11,14 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 843db24707b8c826fe48e9d50aa7ec5bc135399f
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 27fde7dab5c5f16f941fd223e1e08a58948133ea
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107863608"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731893"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>빠른 시작: 디바이스에서 IoT hub로 원격 분석을 전송하고 Azure CLI를 사용하여 모니터링
-
-[!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
 IoT Hub는 스토리지 또는 처리를 위해 IoT 디바이스에서 클라우드로 다량의 원격 분석 데이터를 수집할 수 있게 해주는 Azure 서비스입니다. 이 빠른 시작에서는 Azure CLI를 사용하여 IoT Hub 및 시뮬레이트된 디바이스를 만들고, 허브에 디바이스 원격 분석을 전송하고, 클라우드-디바이스 메시지를 보냅니다. 또한 Azure Portal를 사용하여 디바이스 메트릭을 시각화할 수 있습니다. 이것은 CLI를 사용하여 IoT Hub 애플리케이션과 상호 작용하는 개발자를 위한 기본 워크플로입니다.
 
@@ -200,5 +198,7 @@ Azure Portal에서 메시징 메트릭을 시각화하려면 다음을 수행합
 
 디바이스 개발자인 경우 권장되는 다음 단계는 C용 Azure IoT 디바이스 SDK를 사용하는 원격 분석 빠른 시작을 확인하는 것입니다. 필요에 따라 기본 설정 언어 또는 SDK에서 사용 가능한 Azure IoT Hub 원격 분석 빠른 시작 문서 중 하나를 참조하세요.
 
+백 엔드 애플리케이션에서 시뮬레이션된 디바이스를 제어하는 방법을 알아보려면 다음 빠른 시작을 계속합니다.
+
 > [!div class="nextstepaction"]
-> [빠른 시작: 디바이스에서 IoT Hub로 원격 분석 데이터 보내기(C)](quickstart-send-telemetry-c.md)
+> [빠른 시작: IoT 허브에 연결된 디바이스 제어](quickstart-control-device.md)

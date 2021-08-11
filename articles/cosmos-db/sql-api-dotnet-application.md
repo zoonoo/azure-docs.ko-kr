@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 528cab915a1ac3918146e428e9ae6b3c401324c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3daecacbf06f0b0a0f74f60d07e292fa74732a5
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96010360"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112239871"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure Cosmos DB를 통해 ASP.NET Core MVC 웹 애플리케이션 개발
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -50,9 +50,9 @@ ms.locfileid: "96010360"
 
 * 활성 Azure 계정. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+  [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
 
-* Visual Studio 2019. [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]  
+* Visual Studio 2019. [!INCLUDE [cosmos-db-emulator-vs](includes/cosmos-db-emulator-vs.md)]  
 
 이 문서의 스크린샷은 모두 Microsoft Visual Studio Community 2019에서 가져온 것입니다. 다른 버전을 사용하는 경우 화면과 옵션이 완전히 일치하지 않을 수 있습니다. 필수 조건이 충족되면 솔루션이 작동합니다.
 
@@ -60,9 +60,9 @@ ms.locfileid: "96010360"
 
 Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정이 이미 있거나 Azure Cosmos DB Emulator를 사용하는 경우 [2단계: 새 ASP.NET MVC 애플리케이션 만들기](#create-a-new-mvc-application)로 건너뜁니다.
 
-[!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
 
-[!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
+[!INCLUDE [keys](includes/cosmos-db-keys.md)]
 
 다음 섹션에서는 새 ASP.NET Core MVC 애플리케이션을 만듭니다.
 

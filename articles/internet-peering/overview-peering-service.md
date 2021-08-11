@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: overview
 ms.date: 5/22/2020
 ms.author: derekol
-ms.openlocfilehash: 717a8c87c6a1c22d3f75cd4e3054bfdf0c4b5f9a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42e9df30731e40b44142bbacac8bbc7d10588345
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95023448"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687950"
 ---
 # <a name="internet-peering-vs-peering-service"></a>인터넷 피어링과 Peering Service
 
@@ -49,7 +49,7 @@ Microsoft Cloud에 연결할 때의 기본 목표는 사용자 사이트에서 M
 * 파트너는 요구 사항을 충족하는 경우 기존 피어링을 활용하여 Peering Service를 지원할 수 있습니다.
 
 ## <a name="faq"></a>FAQ
-질문과 대답은 [Peering Service - FAQ](service-faqs.md)를 참조하세요.
+질문과 대답은 [Peering Service - FAQ](service-faqs.yml)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

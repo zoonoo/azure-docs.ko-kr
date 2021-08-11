@@ -1,0 +1,255 @@
+---
+title: Azure PowerShell을 사용하여 Azure Firewall 정책 배포 및 구성
+description: 이 문서에서는 Azure PowerShell을 사용하여 Azure Firewall 정책을 배포하고 구성하는 방법을 알아봅니다.
+services: firewall
+author: vhorne
+ms.service: firewall
+ms.date: 05/03/2021
+ms.author: victorh
+ms.topic: how-to
+ms.openlocfilehash: 61ef026e89b89af17a062af29be41256dfbc8d94
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108777038"
+---
+# <a name="deploy-and-configure-azure-firewall-policy-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Firewall 정책 배포 및 구성
+
+아웃바운드 네트워크 액세스 제어는 전체 네트워크 보안 계획에서 중요한 부분입니다. 예를 들어 웹 사이트에 대한 액세스를 제한할 수 있습니다. 또는 액세스 가능한 아웃바운드 IP 주소 및 포트를 제한할 수 있습니다.
+
+Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하는 한 가지 방법은 Azure Firewall 및 Firewall Policy를 사용하는 것입니다. Azure Firewall을 사용하면 다음을 구성할 수 있습니다.
+
+* 서브넷에서 액세스할 수 있는 FQDN(정규화된 도메인 이름)을 정의하는 애플리케이션 규칙.
+* 원본 주소, 프로토콜, 대상 포트 및 대상 주소를 정의하는 네트워크 규칙.
+
+네트워크 트래픽은 서브넷 기본 게이트웨이처럼 방화벽에 네트워크 트래픽을 라우팅할 경우 구성된 방화벽 규칙에 종속됩니다.
+
+이 문서에서는 배포가 용이하도록 세 개의 서브넷을 사용하여 간소화된 단일 VNet을 만듭니다. 프로덕션 배포의 경우 [허브 및 스포크 모델](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)이 권장되며 방화벽은 자체 VNet에 있습니다. 워크로드 서버는 하나 이상의 서브넷이 있는 동일한 지역에서 피어링된 VNet에 있습니다.
+
+* **AzureFirewallSubnet** - 방화벽은 이 서브넷에 있습니다.
+* **워크로드-SN** - 워크로드 서버는 이 서브넷에 있습니다. 이 서브넷의 네트워크 트래픽은 방화벽을 통해 이동합니다.
+* **AzureBastionSubnet** - 워크로드 서버에 연결하는 데 사용되는 Azure Bastion에 사용되는 서브넷입니다. Azure Bastion에 대한 자세한 내용은 [Azure Bastion이란?](../bastion/bastion-overview.md)을 참조하세요.
+
+![자습서 네트워크 인프라](media/deploy-ps/tutorial-network.png)
+
+이 문서에서는 다음 방법을 설명합니다.
+
+
+* 테스트 네트워크 환경 설정
+* 방화벽 배포
+* 기본 경로 만들기
+* 방화벽 정책 만들기
+* [www.google.com]\(www.google.com) 액세스를 허용하도록 애플리케이션 규칙 구성
+* 외부 DNS 서버 액세스를 허용하도록 네트워크 규칙 구성
+* 방화벽 테스트
+
+원하는 경우 [Azure Portal](tutorial-firewall-deploy-portal-policy.md)을 사용하여 이 절차를 완료할 수 있습니다.
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+이 절차에서는 PowerShell을 로컬로 실행해야 합니다. Azure PowerShell 모듈을 설치해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Connect-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
+
+## <a name="set-up-the-network"></a>네트워크 설정
+
+먼저 방화벽 배포에 필요한 리소스를 포함하는 리소스 그룹을 만듭니다. 그런 다음, VNet, 서브넷 및 테스트 서버를 만듭니다.
+
+### <a name="create-a-resource-group"></a>리소스 그룹 만들기
+
+리소스 그룹에는 배포를 위한 모든 리소스가 포함되어 있습니다.
+
+```azurepowershell
+New-AzResourceGroup -Name Test-FW-RG -Location "East US"
+```
+
+### <a name="create-a-virtual-network-and-azure-bastion-host"></a>가상 네트워크 및 Azure Bastion 호스트 만들기
+
+이 가상 네트워크에는 세 개의 서브넷이 있습니다.
+
+> [!NOTE]
+> AzureFirewallSubnet 서브넷의 크기는 /26입니다. 서브넷 크기에 대한 자세한 내용은 [Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size)를 참조하세요.
+
+```azurepowershell
+$Bastionsub = New-AzVirtualNetworkSubnetConfig -Name AzureBastionSubnet -AddressPrefix 10.0.0.0/27
+$FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/26
+$Worksub = New-AzVirtualNetworkSubnetConfig -Name Workload-SN -AddressPrefix 10.0.2.0/24
+```
+이제 가상 네트워크를 만듭니다.
+
+```azurepowershell
+$testVnet = New-AzVirtualNetwork -Name Test-FW-VN -ResourceGroupName Test-FW-RG `
+-Location "East US" -AddressPrefix 10.0.0.0/16 -Subnet $Bastionsub, $FWsub, $Worksub
+```
+### <a name="create-public-ip-address-for-azure-bastion-host"></a>Azure Bastion 호스트에 대한 공용 IP 주소 만들기
+
+```azurepowershell
+$publicip = New-AzPublicIpAddress -ResourceGroupName Test-FW-RG -Location "East US" `
+   -Name Bastion-pip -AllocationMethod static -Sku standard
+```
+
+### <a name="create-azure-bastion-host"></a>Azure Bastion 호스트 만들기
+
+```azurepowershell
+New-AzBastion -ResourceGroupName Test-FW-RG -Name Bastion-01 -PublicIpAddress $publicip -VirtualNetwork $testVnet
+```
+### <a name="create-a-virtual-machine"></a>가상 머신 만들기
+
+이제 워크로드 가상 머신을 만들어 해당 서브넷에 배치합니다.
+메시지가 표시되면 가상 머신의 사용자 이름 및 암호를 입력합니다.
+
+
+워크로드 가상 머신을 만듭니다.
+메시지가 표시되면 가상 머신의 사용자 이름 및 암호를 입력합니다.
+
+```azurepowershell
+#Create the NIC
+$wsn = Get-AzVirtualNetworkSubnetConfig -Name  Workload-SN -VirtualNetwork $testvnet
+$NIC01 = New-AzNetworkInterface -Name Srv-Work -ResourceGroupName Test-FW-RG -Location "East us" -Subnet $wsn
+
+#Define the virtual machine
+$VirtualMachine = New-AzVMConfig -VMName Srv-Work -VMSize "Standard_DS2"
+$VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName Srv-Work -ProvisionVMAgent -EnableAutoUpdate
+$VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC01.Id
+$VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' -Skus '2019-Datacenter' -Version latest
+
+#Create the virtual machine
+New-AzVM -ResourceGroupName Test-FW-RG -Location "East US" -VM $VirtualMachine -Verbose
+```
+
+## <a name="create-a-firewall-policy"></a>방화벽 정책 만들기
+
+```azurepowershell
+$fwpol = New-AzFirewallPolicy -Name fw-pol -ResourceGroupName Test-FW-RG -Location eastus
+```
+## <a name="configure-a-firewall-policy-application-rule"></a>방화벽 정책 애플리케이션 규칙 구성
+
+애플리케이션 규칙은 `www.google.com`에 대한 아웃바운드 액세스를 허용합니다.
+
+```azurepowershell
+$RCGroup = New-AzFirewallPolicyRuleCollectionGroup -Name AppRCGroup -Priority 100 -FirewallPolicyObject $fwpol
+$apprule1 = New-AzFirewallPolicyApplicationRule -Name Allow-google -SourceAddress "10.0.2.0/24" -Protocol "http:80","https:443" -TargetFqdn www.google.com
+$appcoll1 = New-AzFirewallPolicyFilterRuleCollection -Name App-coll01 -Priority 100 -Rule $appRule1 -ActionType "Allow"
+Set-AzFirewallPolicyRuleCollectionGroup -Name $RCGroup.Name -Priority 100 -RuleCollection $appcoll1 -FirewallPolicyObject $fwPol
+```
+
+Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 제공 규칙 컬렉션을 포함합니다. 이러한 FQDN은 플랫폼에 대해 특정적이며 다른 용도로 사용할 수 없습니다. 자세한 내용은 [인프라 FQDN](infrastructure-fqdns.md)을 참조하세요.
+
+## <a name="configure-a-firewall-policy-network-rule"></a>방화벽 정책 네트워크 규칙 구성
+
+네트워크 규칙은 포트 53(DNS)에서 두 IP 주소에 대한 아웃바운드 액세스를 허용합니다.
+
+```azurepowershell
+$RCGroup = New-AzFirewallPolicyRuleCollectionGroup -Name NetRCGroup -Priority 200 -FirewallPolicyObject $fwpol
+$netrule1 = New-AzFirewallPolicyNetworkRule -name Allow-DNS -protocol UDP -sourceaddress 10.0.2.0/24 -destinationaddress 209.244.0.3,209.244.0.4 -destinationport 53
+$netcoll1 = New-AzFirewallPolicyFilterRuleCollection -Name Net-coll01 -Priority 200 -Rule $netrule1 -ActionType "Allow"
+Set-AzFirewallPolicyRuleCollectionGroup -Name $RCGroup.Name -Priority 200 -RuleCollection $netcoll1 -FirewallPolicyObject $fwPol
+```
+
+## <a name="deploy-the-firewall"></a>방화벽 배포
+
+이제 가상 네트워크에 방화벽을 배포합니다.
+
+```azurepowershell
+# Get a Public IP for the firewall
+$FWpip = New-AzPublicIpAddress -Name "fw-pip" -ResourceGroupName Test-FW-RG `
+  -Location "East US" -AllocationMethod Static -Sku Standard
+# Create the firewall
+$Azfw = New-AzFirewall -Name Test-FW01 -ResourceGroupName Test-FW-RG -Location "East US" -VirtualNetwork $testVnet -PublicIpAddress $FWpip -FirewallPolicyId $fwpol.Id
+
+
+#Save the firewall private IP address for future use
+
+$AzfwPrivateIP = $Azfw.IpConfigurations.privateipaddress
+$AzfwPrivateIP
+```
+
+개인 IP 주소를 참고합니다. 기본 경로를 만들 때 나중에 사용할 수 있습니다.
+
+## <a name="create-a-default-route"></a>기본 경로 만들기
+
+BGP 경로 전파를 사용하지 않도록 설정하여 테이블을 만듭니다.
+
+```azurepowershell
+$routeTableDG = New-AzRouteTable `
+  -Name Firewall-rt-table `
+  -ResourceGroupName Test-FW-RG `
+  -location "East US" `
+  -DisableBgpRoutePropagation
+
+#Create a route
+ Add-AzRouteConfig `
+  -Name "DG-Route" `
+  -RouteTable $routeTableDG `
+  -AddressPrefix 0.0.0.0/0 `
+  -NextHopType "VirtualAppliance" `
+  -NextHopIpAddress $AzfwPrivateIP `
+ | Set-AzRouteTable
+
+#Associate the route table to the subnet
+
+Set-AzVirtualNetworkSubnetConfig `
+  -VirtualNetwork $testVnet `
+  -Name Workload-SN `
+  -AddressPrefix 10.0.2.0/24 `
+  -RouteTable $routeTableDG | Set-AzVirtualNetwork
+```
+
+
+
+## <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>**Srv-Work** 네트워크 인터페이스에 대해 기본 및 보조 DNS 주소 변경
+
+이 절차에서는 테스트 목적으로 서버의 기본 DNS 주소와 보조 DNS 주소를 구성합니다. 일반적인 Azure Firewall 요구 사항이 아닙니다.
+
+```azurepowershell
+$NIC01.DnsSettings.DnsServers.Add("209.244.0.3")
+$NIC01.DnsSettings.DnsServers.Add("209.244.0.4")
+$NIC01 | Set-AzNetworkInterface
+```
+
+## <a name="test-the-firewall"></a>방화벽 테스트
+
+이제 방화벽이 예상대로 작동하는지 테스트합니다.
+
+1. Bastion을 사용하여 **Srv-Work** 가상 머신에 연결하고 로그인합니다. 
+
+   :::image type="content" source="media/deploy-ps/bastion.png" alt-text="Bastion을 사용하여 연결합니다.":::
+
+3. **Srv-Work** 에서 PowerShell 창을 열고 다음 명령을 실행합니다.
+
+   ```
+   nslookup www.google.com
+   nslookup www.microsoft.com
+   ```
+
+   두 명령 모두 DNS 쿼리가 방화벽을 통과하고 있음을 나타내는 대답을 반환해야 합니다.
+
+1. 다음 명령을 실행합니다.
+
+   ```
+   Invoke-WebRequest -Uri https://www.google.com
+   Invoke-WebRequest -Uri https://www.google.com
+
+   Invoke-WebRequest -Uri https://www.microsoft.com
+   Invoke-WebRequest -Uri https://www.microsoft.com
+   ```
+
+   `www.google.com` 요청은 성공해야 하고 `www.microsoft.com` 요청은 실패해야 합니다. 이는 방화벽 규칙이 예상대로 작동하고 있음을 보여 줍니다.
+
+이제 방화벽 정책 규칙이 작동하는지 확인했습니다.
+
+* 구성된 외부 DNS 서버를 사용하여 DNS 이름을 확인할 수 있습니다.
+* 다른 모든 FQDN이 아닌 허용된 FQDN 하나만 찾아볼 수 있습니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+추가 테스트를 위해 방화벽 리소스를 그대로 유지하거나, 더 이상 필요하지 않은 경우 **Test-FW-RG** 리소스 그룹을 삭제하여 모든 방화벽 관련 리소스를 삭제할 수 있습니다.
+
+```azurepowershell
+Remove-AzResourceGroup -Name Test-FW-RG
+```
+
+## <a name="next-steps"></a>다음 단계
+
+* [자습서: Azure Firewall 로그 모니터링](./firewall-diagnostics.md)

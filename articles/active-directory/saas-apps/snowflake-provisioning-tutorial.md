@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Snowflake 구성 | Microsoft Docs'
 description: 사용자 계정을 Snowflake로 자동으로 프로비저닝 및 프로비저닝 해제를 하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
-ms.author: zhchia
-ms.openlocfilehash: 06f11763498e3e8393d688a71e1c37b466be3f6f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: thwimmer
+ms.openlocfilehash: c7eced7fb6c073eece1edbee93da0d9f33e3ed27
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99539538"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690286"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Snowflake 구성
 
@@ -44,8 +44,8 @@ ms.locfileid: "99539538"
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계: 프로비저닝 배포 계획
 1. [프로비저닝 서비스의 작동 방식](../app-provisioning/user-provisioning.md)에 대해 알아봅니다.
-2. [프로비저닝 범위](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에 있는 사용자를 결정합니다.
-3. [Azure AD와 Snowflake 간에 매핑](../app-provisioning/customize-application-attributes.md)할 데이터를 결정합니다. 
+1. [프로비저닝 범위](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에 있는 사용자를 결정합니다.
+1. [Azure AD와 Snowflake 간에 매핑](../app-provisioning/customize-application-attributes.md)할 데이터를 결정합니다. 
 
 ## <a name="step-2-configure-snowflake-to-support-provisioning-with-azure-ad"></a>2단계: Azure AD에서 프로비저닝을 지원하도록 Snowflake 구성
 
@@ -53,15 +53,27 @@ Azure AD를 사용하여 자동 사용자 프로비저닝을 수행하도록 Sno
 
 1. Snowflake 관리자 콘솔에 로그인합니다. 강조 표시된 워크시트에 다음 쿼리를 입력하고 **실행** 을 선택합니다.
 
-    ![쿼리 및 실행 단추가 있는 Snowflake 관리 콘솔의 스크린샷](media/Snowflake-provisioning-tutorial/image00.png)
+   ![쿼리 및 실행 단추가 있는 Snowflake 관리 콘솔의 스크린샷](media/Snowflake-provisioning-tutorial/image00.png)
+    
+   ```
+   use role accountadmin;
+   
+   create or replace role aad_provisioner;
+   grant create user on account to aad_provisioner;
+   grant create role on account to aad_provisioner;
+   grant role aad_provisioner to role accountadmin;
+   create or replace security integration aad_provisioning type=scim scim_client=azure run_as_role='AAD_PROVISIONER';
+   
+   select SYSTEM$GENERATE_SCIM_ACCESS_TOKEN('AAD_PROVISIONING');
+   ```
 
-2.  Snowflake 테넌트에 대한 SCIM 액세스 토큰이 생성됩니다. 이 토큰을 검색하려면 다음 스크린샷에 강조 표시된 링크를 선택합니다.
+1.  Snowflake 테넌트에 대한 SCIM 액세스 토큰이 생성됩니다. 이 토큰을 검색하려면 다음 스크린샷에 강조 표시된 링크를 선택합니다.
 
-    ![SCIM 액세스 토큰이 호출된 Snowflake UI의 워크시트 스크린샷](media/Snowflake-provisioning-tutorial/image01.png)
+   ![SCIM 액세스 토큰이 호출된 Snowflake UI의 워크시트 스크린샷](media/Snowflake-provisioning-tutorial/image01.png)
 
-3. 생성된 토큰 값을 복사하고 **완료** 를 선택합니다. 이 값은 Azure Portal에서 Snowflake 애플리케이션의 **프로비저닝** 탭에 있는 **비밀 토큰** 상자에 입력됩니다.
+1. 생성된 토큰 값을 복사하고 **완료** 를 선택합니다. 이 값은 Azure Portal에서 Snowflake 애플리케이션의 **프로비저닝** 탭에 있는 **비밀 토큰** 상자에 입력됩니다.
 
-    ![텍스트 필드에 복사된 토큰과 호출된 완료 옵션을 모두 표시하는 세부 정보 섹션의 스크린샷](media/Snowflake-provisioning-tutorial/image02.png)
+   ![텍스트 필드에 복사된 토큰과 호출된 완료 옵션을 모두 표시하는 세부 정보 섹션의 스크린샷](media/Snowflake-provisioning-tutorial/image02.png)
 
 ## <a name="step-3-add-snowflake-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 애플리케이션 갤러리에서 Snowflake 추가
 

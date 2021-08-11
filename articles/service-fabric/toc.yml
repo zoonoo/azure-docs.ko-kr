@@ -136,7 +136,7 @@
       href: service-fabric-content-roadmap.md
     - name: 애플리케이션 시나리오
       href: service-fabric-application-scenarios.md
-    - name: 아키텍처
+    - name: Architecture
       href: service-fabric-architecture.md
     - name: 보안
       items:
@@ -917,7 +917,7 @@
       href: ./policy-reference.md
 - name: 리소스
   items:
-    - name: Service Fabric 관리형 클러스터 공통 질문
+    - name: Service Fabric 관리형 클러스터 FAQ
       href: faq-managed-cluster.yml
     - name: 일반적인 질문
       href: service-fabric-common-questions.md

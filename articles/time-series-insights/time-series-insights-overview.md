@@ -3,19 +3,20 @@ title: '개요: Azure Time Series Insights란? - Azure Time Series Insights | Mi
 description: 시계열 데이터 분석 및 IoT 솔루션을 위한 새로운 서비스인 Azure Time Series Insights를 소개합니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: shreyasharmamsft
+ms.author: shresha
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.topic: overview
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: cebe0e018b4483a9de1771fb3171effbbd5ca59c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4ad822741869ea3ea450b8964f050d9c4e318e9
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95020064"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112371250"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>Azure Time Series Insights Gen1이란?
 

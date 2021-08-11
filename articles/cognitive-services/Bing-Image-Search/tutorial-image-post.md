@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: cef39b940f0d61fc60ea10156acfd781289157de
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 7e65e9c34ed114f846021d1c5c417825d4859ac3
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591974"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913440"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>자습서: Bing Image Search API 및 C#을 사용하여 이미지 세부 정보 추출
 
@@ -119,4 +119,4 @@ https://api.cognitive.microsoft.com/bing/v7.0/images/details?InsightsToken="bcid
 
 ## <a name="see-also"></a>참고 항목
 
-* [Bing Image Search API 참조](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing Image Search API 참조](/rest/api/cognitiveservices/bing-images-api-v7-reference)

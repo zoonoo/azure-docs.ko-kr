@@ -1,19 +1,19 @@
 ---
-title: 대량 삽입 최적화-Azure Database for PostgreSQL 단일 서버
-description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버에서 대량 삽입 작업을 최적화 하는 방법을 설명 합니다.
+title: 대량 삽입 최적화 - Azure Database for PostgreSQL - 단일 서버
+description: 이 문서에서는 Azure Database for PostgreSQL - 단일 서버에서 대량 삽입 작업을 최적화하는 방법을 설명합니다.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: 4d10f06577738364e3f4a0ea40221d37ebfb31c0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86116287"
 ---
-# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>대량 삽입 최적화 및 Azure Database for PostgreSQL 단일 서버에서 임시 데이터 사용 
+# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버에서 대량 삽입 최적화 및 임시 데이터 사용 
 이 문서에서는 Azure Database for PostgreSQL 서버에서 대량 삽입 작업을 최적화하고 임시 데이터를 사용하는 방법을 설명합니다.
 
 ## <a name="use-unlogged-tables"></a>기록되지 않는 테이블 사용

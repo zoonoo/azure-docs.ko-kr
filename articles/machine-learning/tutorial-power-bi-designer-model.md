@@ -11,12 +11,12 @@ author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
 ms.custom: designer
-ms.openlocfilehash: 995979c7fe100637aa8e241489805fb09d6723f7
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 9390fc53f4d10ad770313f1f1459f02fc7e7a998
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814791"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112459445"
 ---
 # <a name="tutorial-power-bi-integration---drag-and-drop-to-create-the-predictive-model-part-1-of-2"></a>자습서: Power BI 통합 - 끌어서 놓기를 사용하여 예측 모델 만들기(2-1부)
 
@@ -36,12 +36,12 @@ Power BI에서 사용할 모델을 만들고 배포하는 세 가지 방법이 �
 
 그러나 대신 다른 옵션 중 하나를 사용할 수 있습니다.
 
-* [옵션 A: Jupyter Notebook을 사용하여 모델을 학습하고 배포합니다](tutorial-power-bi-custom-model.md). 이는 Azure Machine Learning 스튜디오에서 호스팅되는 Jupyter Notebook을 사용하는 코드 우선 제작 환경을 사용합니다.
+* [옵션 A: Jupyter Notebook을 사용하여 모델 학습 및 배포](tutorial-power-bi-custom-model.md). 이는 Azure Machine Learning 스튜디오에서 호스팅되는 Jupyter Notebook을 사용하는 코드 우선 제작 환경을 사용합니다.
 * [옵션 C: 자동화된 기계 학습을 사용하여 모델을 학습하고 배포합니다](tutorial-power-bi-automated-model.md). 이는 데이터 준비 및 모델 학습을 완전히 자동화하는 코드 없음 제작 환경입니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure 구독 구독이 아직 없는 경우 [평가판](https://aka.ms/AMLFree)을 사용할 수 있습니다. 
+- Azure 구독 구독이 아직 없는 경우 [평가판](https://azure.microsoft.com/free/)을 사용할 수 있습니다. 
 - Azure Machine Learning 작업 영역 작업 영역이 아직 없는 경우 [Azure Machine Learning 작업 영역 만들기 및 관리](./how-to-manage-workspace.md#create-a-workspace)를 참조하세요.
 - 기계 학습 워크플로에 대한 기초 지식
 
@@ -83,7 +83,7 @@ Power BI에서 사용할 모델을 만들고 배포하는 세 가지 방법이 �
 
 데이터 세트를 만들려면 왼쪽의 메뉴에서 **데이터 세트** 를 선택합니다. 그런 다음, **데이터 세트 만들기** 를 선택합니다. 다음 옵션이 표시됩니다.
 
-:::image type="content" source="media/tutorial-power-bi/create-dataset.png" alt-text="데이터 세트를 만드는 방법을 보여 주는 스크린샷.":::
+:::image type="content" source="media/tutorial-power-bi/create-dataset.png" alt-text="데이터 세트를 만드는 방법을 보여 주는 스크린샷":::
 
 **공개 데이터 세트에서** 를 선택합니다. **공개 데이터 세트에서 데이터 세트 만들기** 페이지에서
 
@@ -93,9 +93,9 @@ Power BI에서 사용할 모델을 만들고 배포하는 세 가지 방법이 �
 1. 데이터 세트의 이름을 *당뇨병* 으로 지정합니다.
 1. **만들기** 를 선택합니다.
 
-데이터를 탐색하려면 데이터 세트를 선택하고 **탐색** 을 선택합니다.
+데이터를 검색하려면 데이터 세트를 선택하고 **검색** 을 선택합니다.
 
-:::image type="content" source="media/tutorial-power-bi/explore-dataset.png" alt-text="데이터 세트를 검색하는 방법을 보여 주는 스크린샷.":::
+:::image type="content" source="media/tutorial-power-bi/explore-dataset.png" alt-text="데이터 세트를 검색하는 방법을 보여 주는 스크린샷":::
 
 데이터에는 연령, 성별, 체질량 지수, 평균 혈압 및 6개 혈청 측정값 등 10개의 기준 입력 변수가 있습니다. 또한 **Y** 라는 하나의 대상 변수가 있습니다. 이 대상 변수는 기준 1년 후 당뇨병의 진행 과정을 정량적으로 측정한 것입니다.
 

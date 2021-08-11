@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: 580cd2c72374a1c54664c8bef5c9d11c79336e88
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 63a9c808814e9ad5f1110c8a5c1834319ce495f2
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949669"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112293728"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>가상 네트워크용 Azure Resource Manager 템플릿 샘플
 
@@ -31,8 +31,8 @@ ms.locfileid: "111949669"
 | Task | Description |
 |----|----|
 |[두 서브넷이 있는 가상 네트워크 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/vnet-two-subnets/)| 두 개의 서브넷이 있는 가상 네트워크를 만듭니다.|
-|[네트워크 가상 어플라이언스를 통한 트래픽 라우팅](https://github.com/Azure/azure-quickstart-templates/tree/master/201-userdefined-routes-appliance)| 세 개의 서브넷이 있는 가상 네트워크를 만듭니다. 각 서브넷에 가상 머신을 배포합니다. 세 번째 서브넷의 가상 머신을 통해 한 서브넷에서 다른 서브넷으로 트래픽을 보내는 경로가 포함된 경로 테이블을 만듭니다. 경로 테이블을 서브넷 중 하나에 연결합니다.|
+|[네트워크 가상 어플라이언스를 통한 트래픽 라우팅](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/userdefined-routes-appliance)| 세 개의 서브넷이 있는 가상 네트워크를 만듭니다. 각 서브넷에 가상 머신을 배포합니다. 세 번째 서브넷의 가상 머신을 통해 한 서브넷에서 다른 서브넷으로 트래픽을 보내는 경로가 포함된 경로 테이블을 만듭니다. 경로 테이블을 서브넷 중 하나에 연결합니다.|
 |[Azure Storage에 대한 가상 네트워크 서비스 엔드포인트 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/vnet-2subnets-service-endpoints-storage-integration)|두 서브넷과 각 서브넷의 네트워크 인터페이스를 사용하여 새 가상 네트워크를 만듭니다. 서브넷 중 하나에 Azure Storage에 대한 서비스 엔드포인트를 사용하도록 설정하고 해당 서브넷에 새 스토리지 계정의 보안을 설정합니다.|
-|[두 가상 네트워크 연결](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-to-vnet-peering)| 두 가상 네트워크를 만들고 이들 간에 가상 네트워크 피어링을 만듭니다.|
+|[두 가상 네트워크 연결](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/vnet-to-vnet-peering)| 두 가상 네트워크를 만들고 이들 간에 가상 네트워크 피어링을 만듭니다.|
 |[여러 IP 주소로 가상 머신 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-multiple-ipconfig)| 여러 IP 주소로 Windows 또는 Linux VM을 만듭니다.|
 |[IPv4 + IPv6 이중 스택 가상 네트워크 구성](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/ipv6-in-vnet)|IPv4 및 IPv6 공용 IP 주소가 있는 Azure Basic Load Balancer 및 두 개의 VM으로 이중 스택(IPv4+IPv6) 가상 네트워크를 배포합니다. |

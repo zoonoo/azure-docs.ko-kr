@@ -1,13 +1,13 @@
 ---
 title: 포털을 통해 Azure Event Grid 구독
-description: 이 문서에서는 Azure Portal을 사용 하 여 Azure Blob Storage와 같이 지원 되는 원본에 대 한 Event Grid 구독을 만드는 방법을 설명 합니다.
+description: '이 문서에서는 Azure Portal을 사용하여 지원되는 원본(예: Azure Blob Storage)에 대한 Event Grid 구독을 만드는 방법을 설명합니다.'
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: e80e2243c93ab38187646256f567d6ab73c40100
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95995066"
 ---
 # <a name="subscribe-to-events-through-portal"></a>포털을 통해 이벤트 구독
@@ -24,7 +24,7 @@ ms.locfileid: "95995066"
 
 1. **Event Grid 구독** 을 검색하고 사용 가능한 옵션에서 선택합니다.
 
-   ![화면 캡처는 Azure Portal Event Grid 구독이 선택 된 검색을 표시 합니다.](./media/subscribe-through-portal/search.png)
+   ![Event Grid 구독이 선택된 Azure Portal 검색을 표시한 화면 캡처입니다.](./media/subscribe-through-portal/search.png)
 
 1. **+ 이벤트 구독** 을 선택합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "95995066"
 
 1. 이벤트 및 구독 이름을 처리하는 엔드포인트 같은 이벤트 구독에 대 한 추가 정보를 제공합니다.
 
-   ![구독 이름 값이 입력 된 "끝점 세부 정보" 및 "이벤트 구독 세부 정보" 섹션을 보여 주는 스크린샷](./media/subscribe-through-portal/provide-subscription-details.png)
+   ![구독 이름 값이 입력된 "엔드포인트 세부 정보" 및 "이벤트 구독 세부 정보" 섹션을 보여주는 스크린샷입니다.](./media/subscribe-through-portal/provide-subscription-details.png)
 
 1. 배달 못한 편지를 사용하도록 설정하고 재시도 정책을 사용자 지정하려면 **추가 기능** 을 선택합니다.
 

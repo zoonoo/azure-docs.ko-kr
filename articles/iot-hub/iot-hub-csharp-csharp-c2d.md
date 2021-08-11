@@ -16,10 +16,10 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-csharp
 ms.openlocfilehash: d8df9884c0104792240d85d9ebd4235ef2a18741
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92142356"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>IoT Hub(.NET)를 사용하여 클라우드에서 디바이스에 메시지 보내기
@@ -62,7 +62,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 이 섹션에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-dotnet.md)에서 만든 디바이스 앱을 수정하여 IoT Hub로부터 클라우드-디바이스 메시지를 수신합니다.
 
-1. Visual Studio의 **SimulatedDevice** 프로젝트에서 **SimulatedDevice** 클래스에 다음 메서드를 추가 합니다.
+1. Visual Studio에서 **SimulatedDevice** 프로젝트의 **SimulatedDevice** 클래스에 다음 메서드를 추가합니다.
 
    ```csharp
     private static async void ReceiveC2dAsync()
@@ -91,19 +91,19 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 `ReceiveAsync` 메서드는 수신 메시지를 디바이스에서 받은 시간에 비동기적으로 반환합니다. 지정 가능한 시간 제한 기간이 지나면 *null* 을 반환합니다. 이 예제에서는 기본값 1분이 사용됩니다. 앱에서 *null* 을 수신하면 새 메시지를 계속 기다려야 합니다. 이 요구 사항은 `if (receivedMessage == null) continue` 줄 때문입니다.
 
-호출은 `CompleteAsync()` 메시지가 성공적으로 처리 되 고 메시지를 장치 큐에서 안전 하 게 제거할 수 IoT Hub 알립니다. 장치는 사용 중인 프로토콜에 관계 없이 처리가 성공적으로 완료 되 면이 메서드를 호출 해야 합니다.
+`CompleteAsync()`에 대한 호출은 메시지가 정상적으로 처리되었으며 디바이스 큐에서 메시지를 안전하게 제거할 수 있음을 IoT Hub에 알립니다. 사용 중인 프로토콜에 관계없이 처리가 정상적으로 완료되면 디바이스가 이 메서드를 호출합니다.
 
-AMQP 및 HTTPS, MQTT를 사용 하지 않는 경우 장치는 다음을 수행할 수도 있습니다.
+AMQP 및 HTTPS를 사용하지만 MQTT를 사용하지 않는 경우에는 디바이스가 다음을 수행할 수도 있습니다.
 
-* 메시지를 중단 하면 나중에 사용 하기 위해 장치 큐에 메시지를 보관 IoT Hub 합니다.
-* 메시지를 거부 합니다 .이 메시지는 장치 큐에서 메시지를 영구적으로 제거 합니다.
+* 메시지 중단 - IoT Hub가 나중에 사용하기 위해 디바이스 큐에 메시지를 보관합니다.
+* 메시지 거부 - 디바이스 큐에서 메시지가 영구적으로 제거됩니다.
 
-장치에서 메시지를 완료, 중단 또는 거부할 수 없도록 하는 문제가 발생 하는 경우 고정 된 시간 제한 기간이 지나면 메시지를 다시 배달 하도록 큐에 대기 IoT Hub. 이러한 이유로 장치 앱의 메시지 처리 논리는 *idempotent* 이어야 하므로 동일한 메시지를 여러 번 수신 하면 결과가 동일 하 게 생성 됩니다.
+디바이스에서 메시지를 완료, 중단 또는 거부할 수 없도록 하는 문제가 발생할 경우 IoT Hub는 정해진 시간 제한 기간이 지나면 메시지를 다시 배달하도록 큐에 넣습니다. 이런 이유로 디바이스 앱의 메시지 처리 논리는 *idempotent* 이므로 같은 메시지를 여러 번 수신해도 동일한 결과가 생성됩니다.
 
-클라우드-장치 메시지 수명 주기에 대 한 세부 정보를 포함 하 여 클라우드-장치 메시지를 처리 IoT Hub는 방법에 대 한 자세한 내용은 [IoT Hub에서 클라우드-장치 메시지 보내기](iot-hub-devguide-messages-c2d.md)를 참조 하세요.
+클라우드-디바이스 메시지 수명 주기의 세부 정보를 포함하여 IoT Hub에서 클라우드-디바이스 메시지를 처리하는 방법에 대한 자세한 내용은 [IoT Hub에서 클라우드-디바이스 메시지 보내기](iot-hub-devguide-messages-c2d.md)를 참조하세요.
 
 > [!NOTE]
-> MQTT 또는 AMQP 대신 HTTPS를 전송으로 사용하는 경우 `ReceiveAsync` 메서드가 즉시 반환됩니다. HTTPS를 사용 하는 클라우드-장치 메시지에 대해 지원 되는 패턴은 메시지를 자주 확인 하지 않는 (최소 25 분 마다) 간헐적으로 연결 된 장치입니다. HTTPS 수신을 더 많이 실행하면 IoT Hub가 요청을 제한할 수 있습니다. MQTT, AMQP 및 HTTPS 지원 간의 차이점에 대 한 자세한 내용은 [클라우드-장치 통신 지침](iot-hub-devguide-c2d-guidance.md) 을 참조 하 고 [통신 프로토콜을 선택](iot-hub-devguide-protocols.md)하세요.
+> MQTT 또는 AMQP 대신 HTTPS를 전송으로 사용하는 경우 `ReceiveAsync` 메서드가 즉시 반환됩니다. HTTPS에서 클라우드-디바이스 메시지에 대해 지원되는 패턴은 메시지를 가끔씩(최소한 25분에 한 번) 확인하는 디바이스에 간헐적으로 연결됩니다. HTTPS 수신을 더 많이 실행하면 IoT Hub가 요청을 제한할 수 있습니다. MQTT, AMQP, HTTPS 지원 간 차이점에 대한 자세한 내용은 [클라우드-디바이스 통신 지침](iot-hub-devguide-c2d-guidance.md) 및 [통신 프로토콜 선택](iot-hub-devguide-protocols.md)을 참조하세요.
 >
 
 ## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
@@ -114,7 +114,7 @@ AMQP 및 HTTPS, MQTT를 사용 하지 않는 경우 장치는 다음을 수행�
 
 ## <a name="send-a-cloud-to-device-message"></a>클라우드-디바이스 메시지 보내기
 
-이 섹션에서는 클라우드-장치 메시지를 시뮬레이션 된 장치 앱으로 보내는 .NET 콘솔 앱을 만듭니다.
+이 섹션에서는 클라우드-디바이스 메시지를 시뮬레이션된 디바이스 앱으로 보내는 .NET 콘솔 앱을 만듭니다.
 
 1. 현재 Visual Studio 솔루션에서 **파일** > **새로 만들기** > **프로젝트** 를 선택합니다. **새 프로젝트 만들기** 에서 C#에 대해 **콘솔 앱(.NET Framework)** 을 선택한 후 **다음** 을 선택합니다.
 
@@ -122,7 +122,7 @@ AMQP 및 HTTPS, MQTT를 사용 하지 않는 경우 장치는 다음을 수행�
 
    ![Visual Studio에서 새 프로젝트 구성](./media/iot-hub-csharp-csharp-c2d/sendcloudtodevice-project-configure.png)
 
-1. 솔루션 탐색기에서 새 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **NuGet 패키지 관리** 를 선택 합니다.
+1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리** 를 선택합니다.
 
 1. **NuGet 패키지 관리** 에서 **찾아보기** 를 선택하고 **Microsoft. Azure. 디바이스** 를 검색한 후 선택합니다. **설치** 를 선택합니다.
 
@@ -134,7 +134,7 @@ AMQP 및 HTTPS, MQTT를 사용 하지 않는 경우 장치는 다음을 수행�
    using Microsoft.Azure.Devices;
    ```
 
-1. **Program** 클래스에 다음 필드를 추가합니다. `{iot hub connection string}`자리 표시자 값을 이전에 [iot hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 기록한 iot hub 연결 문자열로 바꿉니다. `{device id}`자리 표시자 값을 [장치에서 IoT hub로 원격 분석 전송 빠른 시작](quickstart-send-telemetry-dotnet.md) 에서 추가한 장치의 장치 ID로 바꿉니다.
+1. **Program** 클래스에 다음 필드를 추가합니다. `{iot hub connection string}` 자리 표시자 값을 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 기록한 IoT Hub 연결 문자열로 바꿉니다. `{device id}` 자리 표시자 값을 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-dotnet.md) 빠른 시작에서 추가한 디바이스의 디바이스 ID로 바꿉니다.
 
    ``` csharp
    static ServiceClient serviceClient;
@@ -142,7 +142,7 @@ AMQP 및 HTTPS, MQTT를 사용 하지 않는 경우 장치는 다음을 수행�
    static string targetDevice = "{device id}";
    ```
 
-1. **Program** 클래스에 다음 메서드를 추가 하 여 장치에 메시지를 보냅니다.
+1. **Program** 클래스에 다음 메서드를 추가하여 디바이스에 메시지를 보냅니다.
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()
@@ -167,11 +167,11 @@ AMQP 및 HTTPS, MQTT를 사용 하지 않는 경우 장치는 다음을 수행�
 
 1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정** 을 선택합니다.
 
-1. **공용 속성**  >  **시작 프로젝트** 에서 **여러 개의 시작 프로젝트** 를 선택한 다음 **SimulatedDevice** 및 **sendcloudtodevice** 에 대 한 **시작** 작업을 선택 합니다. **확인** 을 선택하여 변경 내용을 저장합니다.
+1. **공통 속성** > **시작 프로젝트** 에서 **여러 시작 프로젝트** 를 선택한 후 **SimulatedDevice** 및 **SendCloudToDevice** 에 대한 **시작** 작업을 선택합니다. **확인** 을 선택하여 변경 내용을 저장합니다.
 
-1. **F5** 키를 누릅니다. 두 애플리케이션이 모두 시작됩니다. **Sendcloudtodevice** 창을 선택 하 고 **enter** 키를 누릅니다. 디바이스 앱에서 수신하고 있는 메시지가 표시됩니다.
+1. **F5** 키를 누릅니다. 두 애플리케이션이 모두 시작됩니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 누릅니다. 디바이스 앱에서 수신하고 있는 메시지가 표시됩니다.
 
-   ![장치 앱 수신 메시지](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
+   ![디바이스 앱 수신 메시지](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
 ## <a name="receive-delivery-feedback"></a>배달 피드백 받기
 
@@ -216,9 +216,9 @@ AMQP 및 HTTPS, MQTT를 사용 하지 않는 경우 장치는 다음을 수행�
    commandMessage.Ack = DeliveryAcknowledgement.Full;
    ```
 
-1. **F5** 키를 눌러 앱을 실행합니다. 두 응용 프로그램이 시작 되는 것을 볼 수 있습니다. **Sendcloudtodevice** 창을 선택 하 고 **enter** 키를 누릅니다. 장치 앱에서 메시지를 수신하는 것이 확인됩니다. 몇 초 후에 **SendCloudToDevice** 애플리케이션에서 피드백 메시지를 수신하는지 확인해야 합니다.
+1. **F5** 키를 눌러 앱을 실행합니다. 두 애플리케이션이 시작되는 것을 볼 수 있습니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 누릅니다. 장치 앱에서 메시지를 수신하는 것이 확인됩니다. 몇 초 후에 **SendCloudToDevice** 애플리케이션에서 피드백 메시지를 수신하는지 확인해야 합니다.
 
-   ![메시지 및 서비스 앱을 받는 장치 앱이 피드백을 받습니다.](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
+   ![메시지를 수신하는 디바이스 앱과 피드백을 수신하는 서비스 앱](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
 > 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 문서 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)에서 제시한 대로 재시도 정책(예: 지수 백오프)을 구현해야 합니다.

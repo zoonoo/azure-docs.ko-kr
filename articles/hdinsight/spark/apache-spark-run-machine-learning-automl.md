@@ -1,32 +1,32 @@
 ---
-title: HDInsight의 Apache Spark에서 Azure Machine Learning 작업 실행
+title: HDInsight의 Apache Spark에서 Azure Machine Learning 워크로드 실행
 description: Azure HDInsight의 Apache Spark에서 AutoML(자동화된 기계 학습)을 사용하여 Azure Machine Learning 워크로드를 실행하는 방법을 알아봅니다.
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.openlocfilehash: 4087341a9a96ae56c00972f886ce3cc8891750a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98929743"
 ---
-# <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>HDInsight의 Apache Spark에서 자동화 된 Machine Learning을 사용 하 여 Azure Machine Learning 작업 실행
+# <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>HDInsight의 Apache Spark에서 자동화된 기계 학습을 사용하여 Azure Machine Learning 워크로드 실행
 
-Azure Machine Learning는 기계 학습 모델의 빌드, 학습 및 배포를 간소화 하 고 가속화 합니다. 자동 기계 학습 (AutoML)에서 정의 된 대상 기능이 있는 학습 데이터로 시작한 다음, 학습 점수에 따라 데이터에 대 한 최상의 모델을 자동으로 선택 하기 위해 알고리즘 및 기능 선택의 조합을 반복 합니다. HDInsight를 통해 고객은 수백 개의 노드가 있는 클러스터를 프로 비전 할 수 있습니다. HDInsight 클러스터의 Spark에서 실행 되는 AutoML을 통해 사용자는 이러한 노드에서 계산 용량을 사용 하 여 교육 작업을 실행 하 고 여러 학습 작업을 동시에 실행할 수 있습니다. 이를 통해 사용자는 다른 빅 데이터 워크 로드와 계산을 공유 하는 동안 AutoML 실험을 실행할 수 있습니다.
+Azure Machine Learning은 기계 학습 모델의 빌드, 학습 및 배포를 간소화하고 가속화합니다. 자동화된 기계 학습(AutoML)에서 정의된 대상 기능이 있는 학습 데이터로 시작한 후 알고리즘 및 기능 선택의 조합을 반복하여 학습 점수를 기준으로 데이터에 가장 적합한 모델을 자동으로 선택합니다. HDInsight를 통해 고객은 노드가 수백 개 있는 클러스터를 프로비전할 수 있습니다. HDInsight 클러스터의 Spark에서 실행되는 AutoML을 통해 사용자는 이러한 노드에서 컴퓨팅 용량을 이용하여 스케일 아웃 방식으로 학습 작업을 실행하고, 여러 학습 작업을 병렬로 실행할 수 있습니다. 이렇게 하면 사용자가 다른 빅 데이터 워크로드와 컴퓨팅을 공유하면서 AutoML 실험을 실행할 수 있습니다.
 
 ## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>HDInsight 클러스터에서 Azure Machine Learning 설치
 
-자동화 된 기계 학습에 대 한 일반적인 자습서는 [자습서: 자동화 된 machine learning을 사용 하 여 회귀 모델 빌드](../../machine-learning/tutorial-auto-train-models.md)를 참조 하세요.
-모든 새 HDInsight-Spark 클러스터는 AzureML-AutoML SDK와 함께 사전 설치 됩니다.
+자동화된 기계 학습에 대한 일반적인 자습서는 [자습서: 자동화된 기계 학습을 사용하여 회귀 모델 빌드](../../machine-learning/tutorial-auto-train-models.md)를 참조하세요.
+모든 새 HDInsight-Spark 클러스터는 AzureML-AutoML SDK와 함께 사전 설치됩니다.
 
 > [!Note]
-> Azure Machine Learning 패키지는 Python3 conda 환경에 설치됩니다. PySpark3 커널을 사용 하 여 설치 된 Jupyter Notebook를 실행 해야 합니다.
+> Azure Machine Learning 패키지는 Python3 conda 환경에 설치됩니다. 설치된 Jupyter Notebook은 PySpark3 커널을 사용하여 실행해야 합니다.
 
-Zeppelin 노트북을 사용 하 여 AutoML도 사용할 수 있습니다.
+Zeppelin Notebook을 사용해도 AutoML을 사용할 수 있습니다.
 
 > [!Note]
-> Zeppelin에는 PySpark3에서 올바른 버전의 Python을 선택 하지 않는 [알려진 문제가](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html) 있습니다. 문서화 된 해결 방법을 사용 하세요.
+> Zeppelin에는 PySpark3에서 올바른 버전의 Python을 선택하지 않는 [알려진 문제](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html)가 있습니다. 문서화된 해결 방법을 사용하세요.
 
 ## <a name="authentication-for-workspace"></a>작업 영역 인증
 
@@ -68,10 +68,10 @@ dataflow_with_token = dprep.read_csv(
 
 ## <a name="experiment-submission"></a>실험 제출
 
-자동화 된 [machine learning 구성](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)에서는 `spark_context` 패키지를 분산 모드에서 실행 하도록 속성을 설정 해야 합니다. 병렬로 실행되는 최대 반복 횟수를 나타내는 속성 `concurrent_iterations`는 Spark 앱의 실행기 코어 수보다 작은 수로 설정해야 합니다.
+[자동화된 기계 학습 구성](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)에서 패키지를 분산 모드로 실행하려면 `spark_context` 속성을 설정해야 합니다. 병렬로 실행되는 최대 반복 횟수를 나타내는 속성 `concurrent_iterations`는 Spark 앱의 실행기 코어 수보다 작은 수로 설정해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 자동화 된 machine learning의 동기에 대 한 자세한 내용은 [Microsoft의 자동화 된 machine learning을 사용 하 여 모델 릴리스](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/) (영문)를 참조 하세요.
-* Azure ML 자동화 ML 기능을 사용 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning의 새로운 자동화 된 기계 학습 기능](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/) 을 참조 하세요.
+* 자동화된 기계 학습의 목적에 대한 자세한 내용은 [Microsoft의 자동화된 기계 학습을 사용하여 모델 출시 간격 조정](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/)을 참조하세요.
+* Azure ML 자동화된 ML 기능의 사용 방법에 대한 자세한 내용은 [Azure Machine Learning에 자동화된 새로운 기계 학습 기능](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)을 참조하세요.
 * [Microsoft Research의 AutoML 프로젝트](https://www.microsoft.com/research/project/automl/)

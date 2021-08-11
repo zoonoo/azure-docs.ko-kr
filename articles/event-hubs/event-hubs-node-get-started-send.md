@@ -4,12 +4,12 @@ description: 이 문서에서는 최신 azure/event-hubs 패키지를 사용하�
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 8bf0b284a4434b15ae818693276cd04712496116
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 20308c54b7013015b92b013dc74768361660145e
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113003197"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113296832"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs"></a>JavaScript(azure/event-hubs)를 사용하여 이벤트 허브에서 이벤트 보내기 또는 받기
 이 빠른 시작에서는 **azure/event-hubs** JavaScript 패키지를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다. 
@@ -96,7 +96,7 @@ npm install @azure/eventhubs-checkpointstore-blob
     [![이벤트 허브에서 메시지를 수신했는지 확인](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
 
     > [!NOTE]
-    > 정보 제공을 위한 주석을 비롯한 전체 소스 코드는 [GitHub sendEvents.js 페이지](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/samples/javascript/sendEvents.js)로 이동하세요.
+    > 정보 제공을 위한 주석을 비롯한 전체 소스 코드는 [GitHub sendEvents.js 페이지](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventhub/event-hubs/samples/v5/javascript/sendEvents.js)로 이동하세요.
 
 축하합니다! 이벤트 허브에 메시지를 보냈습니다.
 
@@ -193,5 +193,5 @@ Azure 스토리지 계정 및 BLOB 컨테이너를 만들려면 다음 단계를
 ## <a name="next-steps"></a>다음 단계
 GitHub에서 다음 샘플을 확인합니다.
 
-- [JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/javascript)
-- [TypeScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/typescript)
+- [JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/event-hubs/samples/v5/javascript)
+- [TypeScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/event-hubs/samples/v5/typescript)

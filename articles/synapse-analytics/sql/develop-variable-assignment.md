@@ -1,6 +1,6 @@
 ---
-title: Synapse SQL을 사용 하 여 변수 할당
-description: 이 문서에서는 Synapse SQL을 사용 하 여 T-sql 변수를 할당 하기 위한 팁을 찾을 수 있습니다.
+title: Synapse SQL을 사용하여 변수 할당
+description: 이 문서에서는 Synapse SQL을 사용하여 T-SQL 변수를 할당하기 위한 팁을 찾을 수 있습니다.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,26 +10,26 @@ ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.openlocfilehash: 4ec59b7cc124a87b3939d095d03ee4a8bae9070f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94685769"
 ---
-# <a name="assign-variables-with-synapse-sql"></a>Synapse SQL을 사용 하 여 변수 할당
+# <a name="assign-variables-with-synapse-sql"></a>Synapse SQL을 사용하여 변수 할당
 
-이 문서에서는 Synapse SQL을 사용 하 여 T-sql 변수를 할당 하기 위한 팁을 찾을 수 있습니다.
+이 문서에서는 Synapse SQL을 사용하여 T-SQL 변수를 할당하기 위한 팁을 찾을 수 있습니다.
 
-## <a name="set-variables-with-declare"></a>DECLARE을 사용 하 여 변수 설정
+## <a name="set-variables-with-declare"></a>DECLARE를 사용하여 변수 설정
 
-Synapse SQL의 변수는 문 또는 문을 사용 하 여 설정 됩니다 `DECLARE` `SET` . DECLARE을 사용 하 여 변수를 초기화 하는 것은 Synapse SQL에서 변수 값을 설정 하는 가장 유연한 방법 중 하나입니다.
+Synapse SQL의 변수는 `DECLARE` 문이나 `SET` 문을 사용하여 설정됩니다. DECLARE를 사용한 변수 초기화는 Synapse SQL에서 변수 값을 설정하는 가장 유연한 방법 중 하나입니다.
 
 ```sql
 DECLARE @v  int = 0
 ;
 ```
 
-한 번에 둘 이상의 변수를 설정하려면 DECLARE를 사용할 수도 있습니다. SELECT 또는 UPDATE를 사용 하 여 다음 작업을 수행할 수 없습니다.
+한 번에 둘 이상의 변수를 설정하려면 DECLARE를 사용할 수도 있습니다. 다음 작업은 SELECT 또는 UPDATE를 사용하여 수행할 수 없습니다.
 
 ```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
@@ -37,7 +37,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-동일한 DECLARE 문에서 변수를 초기화 하 고 사용할 수 없습니다. 예를 들어, *\@ p1* 이 모두 초기화 되어 동일한 DECLARE 문에서 사용 되므로 다음 예는 허용 되지 않습니다. 다음 예제에서는 오류가 발생합니다.
+초기화하여 동일한 DECLARE 문에서 변수를 사용할 수 없습니다. 예를 들어, *\@p1* 이 동일한 DECLARE 문에서 초기화되고 사용되기 때문에 다음 예제는 허용되지 않습니다. 다음 예제에서는 오류가 발생합니다.
 
 ```sql
 DECLARE @p1 int = 0
@@ -45,7 +45,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## <a name="set-values-with-set"></a>집합을 사용 하 여 값 설정
+## <a name="set-values-with-set"></a>SET을 사용하여 값 설정
 
 SET은 단일 변수를 설정하기 위한 일반적인 방법입니다.
 
@@ -66,4 +66,4 @@ SET을 사용하여 한 번에 하나의 변수만 설정할 수 있습니다. �
 
 ## <a name="next-steps"></a>다음 단계
 
-더 많은 개발 팁은 [SYNAPSE SQL development 개요](develop-overview.md) 문서를 참조 하세요.
+더 많은 개발 팁은 [Synapse SQL 개발 개요](develop-overview.md) 문서를 참조하세요.

@@ -1,5 +1,5 @@
 ---
-title: 마이그레이션 작업 모니터링-Azure Database Migration Service
+title: 마이그레이션 작업 모니터링 - Azure Database Migration Service
 description: Azure Database Migration Service를 사용하여 마이그레이션 작업을 모니터링하는 방법을 알아봅니다.
 services: database-migration
 author: pochiraju
@@ -12,13 +12,13 @@ ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.openlocfilehash: dc9123735ef65bec89e99a14d25cba881be306fe
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91297473"
 ---
-# <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Azure Database Migration Service를 사용 하 여 마이그레이션 작업 모니터링
+# <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Azure Database Migration Service를 사용하여 마이그레이션 작업 모니터링
 이 문서에서는 데이터베이스 수준 및 테이블 수준 모두에서 마이그레이션의 진행률을 모니터링하는 방법을 알아봅니다.
 
 ## <a name="monitor-at-the-database-level"></a>데이터베이스 수준에서 모니터링
@@ -41,7 +41,7 @@ ms.locfileid: "91297473"
   </thead>
   <tbody>
     <tr>
-      <td rowspan="3" class="ActivityStatus"><strong>작업 상태</strong></td>
+      <td rowspan="3" class="ActivityStatus"><strong>활동 상태</strong></td>
       <td>실행 중</td>
       <td>마이그레이션 작업이 실행 중입니다.</td>
     </tr>

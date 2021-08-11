@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: c9d54040fc4defa30adb52cec6edb335cc7bdc76
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 51d3fd3f8da5c8d92b2b02205a607eb96882bfb9
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559181"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114708422"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: Python 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성
 
@@ -32,7 +32,7 @@ Azure Blob Storage에 비정형 텍스트 또는 이미지가 있는 경우 [AI 
 
 Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 엽니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 + [Azure Storage](https://azure.microsoft.com/services/storage/)
 + [Anaconda 3.7](https://www.anaconda.com/distribution/#download-section)
@@ -215,7 +215,7 @@ skillset_payload = {
     "skills":
     [
         {
-            "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+            "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
             "categories": ["Organization"],
             "defaultLanguageCode": "en",
             "inputs": [

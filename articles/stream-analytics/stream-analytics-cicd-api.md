@@ -1,5 +1,5 @@
 ---
-title: REST Api를 사용 하 여 IoT Edge의 Azure Stream Analytics에 대 한 CI/CD를 수행 합니다.
+title: REST API를 사용하여 IoT Edge의 Azure Stream Analytics에 대한 CI/CD 수행
 description: REST API를 사용하여 Azure Stream Analytics에 대한 지속적인 통합 및 배포 파이프라인을 구현하는 방법에 알아봅니다.
 author: su-jie
 ms.author: sujie
@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: 3c3f776ad0996fa0b7422f0fca2d899a35e853d1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98016136"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>API를 사용하여 IoT Edge의 Stream Analytics에 대한 CI/CD 구현
@@ -54,7 +54,7 @@ echo $response
  
 Stream Analytics 작업을 만들려면 Stream Analytics API를 사용하여 PUT 메서드를 호출합니다.
 
-|메서드|요청 URL|
+|방법|요청 URL|
 |------|-----------|
 |PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
@@ -141,7 +141,7 @@ JSON에서 요청 본문의 예제입니다.
  
 IoT Edge에서 Stream Analytics 작업을 게시하려면 Edge Package Publish API를 사용하여 POST 메서드를 호출합니다.
 
-|메서드|요청 URL|
+|방법|요청 URL|
 |------|-----------|
 |POST|`https://management.azure.com/subscriptions/{\**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview`|
 

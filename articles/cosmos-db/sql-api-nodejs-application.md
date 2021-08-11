@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/19/2021
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 9491a5dd8f4ab90c97d33770de8a3b609a371b50
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 90a2eb4f3171023e041216dfac052905a6319df6
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110478229"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112239328"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>자습서: JavaScript SDK를 사용하여 Azure Cosmos DB의 SQL API 계정을 관리하는 Node.js 웹앱 빌드 
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,7 +45,7 @@ ms.locfileid: "110478229"
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+  [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Node.js][Node.js] 버전 6.10 이상.
 * [Express 생성기](https://www.expressjs.com/starter/generator.html)(`npm install express-generator -g`를 통해 Express 설치 가능)
@@ -54,9 +54,9 @@ ms.locfileid: "110478229"
 ## <a name="create-an-azure-cosmos-db-account"></a><a name="create-account"></a>Azure Cosmos DB 계정 만들기
 Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 있거나 이 자습서에서 Azure Cosmos DB 에뮬레이터를 사용하는 경우 [2단계: 새 Node.js 애플리케이션 만들기](#create-new-app)로 건너뛸 수 있습니다.
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
 
-[!INCLUDE [cosmos-db-keys](../../includes/cosmos-db-keys.md)]
+[!INCLUDE [cosmos-db-keys](includes/cosmos-db-keys.md)]
 
 ## <a name="create-a-new-nodejs-application"></a><a name="create-new-app"></a>새 Node.js 애플리케이션 만들기
 이제 Express 프레임워크를 사용하여 기본 Hello World Node.js 프로젝트를 만드는 방법을 알아보겠습니다.

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 0bd895b0c19293a199b2a9b135915b7dc45b9e5e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98702500"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>빅 데이터 요구 사항에 Azure Data Lake Storage Gen1 사용
@@ -44,7 +44,7 @@ ms.locfileid: "98702500"
 | Azure Storage Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[HDInsight 클러스터에서 실행되는 DistCp](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>스트리밍된 데이터
-응용 프로그램, 장치, 센서 등의 다양 한 소스에서 생성할 수 있는 데이터를 나타냅니다. 이 데이터는 다양 한 도구를 통해 Data Lake Storage Gen1 수집 수 있습니다. 이러한 도구는 일반적으로 데이터를 이벤트별로 실시간으로 캡처하고 처리한 다음, 이벤트를 추가로 처리할 수 있도록 해당 이벤트를 일괄 처리 방식으로 Data Lake Storage Gen1에 씁니다.
+애플리케이션, 디바이스, 센서 등의 다양한 원본에서 생성할 수 있는 데이터를 나타냅니다. 이 데이터는 다양한 도구를 통해 Data Lake Storage Gen1에 수집될 수 있습니다. 이러한 도구는 일반적으로 데이터를 이벤트별로 실시간으로 캡처하고 처리한 다음, 이벤트를 추가로 처리할 수 있도록 해당 이벤트를 일괄 처리 방식으로 Data Lake Storage Gen1에 씁니다.
 
 다음은 사용할 수 있는 도구입니다.
 
@@ -108,10 +108,10 @@ Data Lake Storage Gen1의 데이터를 사용할 수 있게 되면 지원되는 
 ## <a name="download-data-from-data-lake-storage-gen1"></a>Data Lake Storage Gen1에서 데이터 다운로드
 다음과 같은 시나리오를 위해 Azure Data Lake Storage Gen1에서 데이터를 다운로드하거나 이동할 수도 있습니다.
 
-* 기존 데이터 처리 파이프라인과 상호 작용하기 위해 다른 리포지토리로 데이터를 이동합니다. 예를 들어 Data Lake Storage Gen1에서 Azure SQL Database 또는 SQL Server으로 데이터를 이동 하는 경우가 있습니다.
+* 기존 데이터 처리 파이프라인과 상호 작용하기 위해 다른 리포지토리로 데이터를 이동합니다. 예를 들어 Data Lake Storage Gen1에서 Azure SQL Database 또는 SQL Server로 데이터를 이동할 수 있습니다.
 * 애플리케이션 프로토타입을 빌드하는 동안 IDE 환경에서 데이터를 처리하기 위해 로컬 컴퓨터에 데이터를 다운로드 합니다.
 
-![Data Lake Storage Gen1에서 송신 데이터](./media/data-lake-store-data-scenarios/egress-data.png "Data Lake Storage Gen1에서 송신 데이터")
+![Data Lake Storage Gen1에서 데이터 송신](./media/data-lake-store-data-scenarios/egress-data.png "Data Lake Storage Gen1에서 데이터 송신")
 
 이러한 경우 다음 옵션을 사용할 수 있습니다.
 
@@ -130,5 +130,5 @@ Data Lake Storage Gen1의 데이터를 사용할 수 있게 되면 지원되는 
 
 ![Data Lake Storage Gen1의 데이터 시각화](./media/data-lake-store-data-scenarios/visualize-data.png "Data Lake Storage Gen1의 데이터 시각화")
 
-* Azure Data Factory를 사용 하 여 [Data Lake Storage Gen1에서 Azure Synapse Analytics로 데이터를 이동할](../data-factory/copy-activity-overview.md) 수 있습니다.
-* 그런 다음 [Power BI Azure Synapse Analytics와 통합](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect) 하 여 데이터의 시각적 표시를 만들 수 있습니다.
+* 먼저 [Azure Data Factory를 사용하여 데이터를 Data Lake Storage Gen1에서 Azure Synapse Analytics로 이동](../data-factory/copy-activity-overview.md)할 수 있습니다.
+* 그 후에는 [Power BI를 Azure Synapse Analytics와 통합](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)하여 데이터를 시각적으로 표현할 수 있습니다.

@@ -6,10 +6,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: a76974b8daddf225b0d9b8b581475d657322847e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98931448"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hive 문제 해결
@@ -36,7 +36,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
     hive -f alltables.sql
     ```
 
-해결 단계의 코드는 새 클러스터의 데이터 경로가 이전 클러스터의 데이터 경로와 동일하다고 가정합니다. 데이터 경로가 다르면 생성 된 파일을 수동으로 편집 `alltables.sql` 하 여 변경 내용을 반영할 수 있습니다.
+해결 단계의 코드는 새 클러스터의 데이터 경로가 이전 클러스터의 데이터 경로와 동일하다고 가정합니다. 데이터 경로가 다른 경우 생성된 `alltables.sql` 파일을 수동으로 편집하여 변경 내용을 반영할 수 있습니다.
 
 ### <a name="additional-reading"></a>추가 자료
 
@@ -60,7 +60,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
    /var/log/hive/hivemetastore.log
    ```
 
-4. Hive 서버 로그를 보려면 다음 명령을 사용 합니다.
+4. Hive 서버 로그를 보려면 다음 명령을 사용합니다.
 
    ```apache
    /var/log/hive/hiveserver2.log

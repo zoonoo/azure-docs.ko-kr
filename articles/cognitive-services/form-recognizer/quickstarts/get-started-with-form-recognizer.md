@@ -11,12 +11,12 @@ ms.date: 05/14/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-may-2021
 keywords: 문서 처리
-ms.openlocfilehash: b30dbd58e0a9c440f51386052529850d9ce9adc4
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 7696a7e1d62aae556d93fa5bccc23376d1ba9a25
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111894077"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112461932"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -61,7 +61,7 @@ Form Recognizer를 사용하여 다음을 수행합니다.
 
     :::image type="content" source="../media/label-tool/layout-2.jpg" alt-text="레이아웃 Form Recognizer 도구의 연결 설정":::
 
-5. 원본 URL을 선택하고 샘플 문서의 URL인 https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg 를 붙여넣고 가져오기 단추를 클릭합니다.
+5. 원본 URL을 선택하고 샘플 문서의 URL인 `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg` 를 붙여넣고 가져오기 단추를 클릭합니다.
 
 1. ‘레이아웃 실행’을 클릭합니다. Form Recognizer 샘플 레이블 지정 도구는 레이아웃 분석 API를 호출하고 문서를 분석합니다.
 
@@ -88,7 +88,7 @@ Form Recognizer의 미리 빌드된 모델을 사용하여 청구서, 판매 영
 4. 아래 옵션에서 분석하려는 파일을 선택합니다.
 
     * 청구서 이미지의 URL입니다. 이 빠른 시작에는 [샘플 청구서 문서](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf)를 사용할 수 있습니다.
-    * 영수증 이미지의 URL. 이 빠른 시작에는 [샘플 ID 문서](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-us-driver-license-wa.jpg)를 사용할 수 있습니다.
+    * 영수증 이미지의 URL. 이 빠른 시작에는 [샘플 ID 문서](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg)를 사용할 수 있습니다.
     * 영수증 이미지의 URL. 이 빠른 시작에는 [샘플 영수증 이미지](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg)를 사용할 수 있습니다.
     * 명함 이미지의 URL입니다. 이 빠른 시작에는 [샘플 명함 이미지](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/business_cards/business-card-english.jpg)를 사용할 수 있습니다.
 

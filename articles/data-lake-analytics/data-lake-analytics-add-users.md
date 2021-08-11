@@ -1,15 +1,15 @@
 ---
 title: Azure Data Lake Analytics 계정에 사용자 추가
-description: 사용자 추가 마법사 및 Azure PowerShell를 사용 하 여 Data Lake Analytics 계정에 사용자를 올바르게 추가 하는 방법에 대해 알아봅니다.
+description: 사용자 추가 마법사 및 Azure PowerShell을 사용하여 Data Lake Analytics 계정에 사용자를 올바르게 추가하는 방법을 알아봅니다.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 05/24/2018
 ms.openlocfilehash: c04b1bbd62e156aeb8d3a0ebb244cfbc753dec52
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96020826"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Azure Portal에서 사용자 추가
@@ -19,7 +19,7 @@ ms.locfileid: "96020826"
 2. **사용자 추가 마법사** 를 클릭합니다.
 3. **사용자 선택** 단계에서 추가하려는 사용자를 찾습니다. **선택** 을 클릭합니다.
 4. **역할 선택** 단계에서 **Data Lake Analytics 개발자** 를 선택합니다. 이 역할에는 U-SQL 작업을 제출/모니터링/관리하는 데 필요한 최소한의 사용 권한 집합이 있습니다. Azure 서비스를 관리하기 위한 그룹이 없는 경우 이 역할에 할당합니다.
-5. **카탈로그 사용 권한 선택** 단계에서 사용자가 액세스해야 하는 추가 데이터베이스를 선택합니다. 작업을 제출 하려면 "master" 라는 기본 정적 데이터베이스에 대 한 읽기 및 쓰기 권한이 필요 합니다. 작업이 끝나면 **확인** 을 클릭합니다.
+5. **카탈로그 사용 권한 선택** 단계에서 사용자가 액세스해야 하는 추가 데이터베이스를 선택합니다. 작업을 제출하려면 "마스터"라는 기본 고정적인 데이터베이스에 대한 읽기 및 쓰기 권한이 필요합니다. 작업이 끝나면 **확인** 을 클릭합니다.
 6. **선택한 사용 권한 할당** 이라는 마지막 단계에서 마법사에 의한 변경 내용을 검토합니다. **확인** 을 클릭합니다.
 
 
@@ -31,7 +31,7 @@ ms.locfileid: "96020826"
 1.  Azure Data Lake Storage Gen1 계정을 찾습니다.
 2.  **사용자** 를 클릭합니다.
 3. **추가** 를 클릭합니다.
-4.  이 그룹을 할당할 Azure 역할을 선택 합니다.
+4.  이 그룹에 할당하려는 Azure 역할을 선택합니다.
 5.  읽기 권한자 역할에 할당합니다. 이 역할에는 ADLSGen1에 저장된 데이터를 이동/관리하는 데 필요한 최소한의 사용 권한 집합이 있습니다. Azure 서비스를 관리하기 위한 그룹이 없는 경우 이 역할에 할당합니다.
 6.  그룹의 이름에 입력합니다.
 7.  **확인** 을 클릭합니다.

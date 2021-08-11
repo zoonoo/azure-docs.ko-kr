@@ -459,6 +459,10 @@
         - name: 네트워킹
           href: flexible-server/concepts-networking.md
           displayName: 'virtual networks, vnet, IP address, public access'
+        - name: 방화벽 규칙
+          href: flexible-server/concepts-firewall-rules.md
+        - name: 보안
+          href: flexible-server/concepts-security.md
         - name: 제한
           href: flexible-server/concepts-limits.md
         - name: 확장
@@ -645,6 +649,8 @@
               href: concepts-hyperscale-high-availability.md
         - name: 복제
           href: concepts-hyperscale-read-replicas.md
+        - name: 연결 풀링
+          href: concepts-hyperscale-connection-pool.md
         - name: 모니터링 및 튜닝
           items:
             - name: 모니터링 및 튜닝

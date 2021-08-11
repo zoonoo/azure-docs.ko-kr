@@ -1,6 +1,6 @@
 ---
-title: 자습서-동일한 장치로 StorSimple 물리적 장치 장애 조치 (failover)
-description: 재해가 발생 하는 경우 StorSimple 8000 시리즈 물리적 장치를 자신에 게 장애 조치 (failover) 하는 데 필요한 단계에 대해 알아봅니다.
+title: 자습서 - StorSimple 물리적 디바이스를 동일한 디바이스로 장애 조치(failover)
+description: 재해가 발생하는 경우 StorSimple 8000 시리즈 물리적 디바이스를 자체적으로 장애 조치(failover)하는 데 필요한 단계를 알아봅니다.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
 ms.openlocfilehash: 17c116194aa52a82246bcee9114824e8a918ebbd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96017103"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>StorSimple 물리적 디바이스를 동일한 디바이스로 장애 조치(failover)
@@ -32,7 +32,7 @@ ms.locfileid: "96017103"
 물리적 디바이스를 다른 물리적 디바이스로 장애 조치(failover)하려면 [동일한 StorSimple 물리적 디바이스로 장애 조치(failover)](storsimple-8000-device-failover-physical-device.md)로 이동하세요. StorSimple 물리적 디바이스를 StorSimple Cloud Appliance로 장애 조치(failover)하려면 [StorSimple Cloud Appliance로 장애 조치(failover)](storsimple-8000-device-failover-cloud-appliance.md)로 이동하세요.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 디바이스 장애 조치(failover)에 대한 고려 사항을 검토했는지 확인하세요. 자세한 내용을 보려면 [디바이스 장애 조치(failover)에 대한 일반적인 고려 사항](storsimple-8000-device-failover-disaster-recovery.md)으로 이동하세요.
 

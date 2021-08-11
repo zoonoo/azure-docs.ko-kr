@@ -8,18 +8,16 @@ ms.topic: quickstart
 ms.date: 05/04/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.openlocfilehash: dc59905351da364ed23b5cbc59b972feb0497a9e
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 04d7883088a4f8f9c12e384b3dcc3b4c0dfa6edf
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112294934"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730805"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-hub"></a>빠른 시작: 디바이스에서 Azure IoT Hub로 원격 분석 데이터 보내기
 
 **적용 대상**: [디바이스 애플리케이션 개발자](about-iot-develop.md#device-application-development)
-
-이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. Azure CLI를 사용하여 Azure IoT Hub 및 디바이스를 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 허브에 안전하게 연결하고 원격 분석을 전송합니다.
 
 :::zone pivot="programming-language-ansi-c"
 
@@ -88,7 +86,7 @@ ms.locfileid: "112294934"
 다음 단계로, 다음 문서를 통해 Azure IoT를 사용하여 디바이스 솔루션을 빌드하는 방법에 대해 자세히 알아봅니다. 
 
 > [!div class="nextstepaction"]
-> [IoT 허브에 연결된 디바이스 제어](../iot-hub/quickstart-control-device-dotnet.md)
+> [IoT 허브에 연결된 디바이스 제어](../iot-hub/quickstart-control-device.md)
 > [!div class="nextstepaction"]
 > [IoT Central로 원격 분석 전송](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]

@@ -1,6 +1,6 @@
 ---
 title: Azure CDN DDoS Protection 기능 | Microsoft Docs
-description: Microsoft의 Azure CDN 추가 비용 없이 basic DDoS Protection에 의해 보호 됩니다.
+description: Microsoft의 Azure CDN은 추가 비용 없이 DDoS Protection 기본 기능으로 보호됩니다.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,28 +15,28 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: allensu
 ms.openlocfilehash: ac00491a34e6e7d18c74827afc6647358794a8be
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96351693"
 ---
 # <a name="azure-cdn-ddos-protection"></a>Azure CDN DDoS Protection
 
-Content delivery network는 설계상의 DDoS 보호 기능을 제공 합니다. 대규모 Azure CDN 공격을 흡수 하기 위한 글로벌 용량 외에도 추가 비용 없이 아래에 설명 된 대로 추가 DDoS 보호를 사용할 수 있습니다.
+Content Delivery Network는 기본적으로 DDoS 보호 기능을 제공합니다. 대규모 공격을 흡수하기 위한 글로벌 용량 외에도 Azure CDN은 추가 비용 없이 아래에 설명된 것과 같은 추가 DDoS 보호 기능을 제공합니다.
 
 ## <a name="azure-cdn-from-microsoft"></a>Microsoft의 Azure CDN
 
-Microsoft의 Azure CDN는 [Azure Basic DDoS](../ddos-protection/ddos-protection-overview.md)에 의해 보호 됩니다. 기본적으로 추가 비용 없이 Microsoft 플랫폼에서 Azure CDN에 통합 됩니다. Microsoft에서 전 세계적으로 배포 된 네트워크에서 Azure CDN의 전체 크기와 용량은 상시 트래픽 모니터링과 실시간 완화를 통해 일반적인 네트워크 계층 공격에 대 한 방어를 제공 합니다. 또한 기본 DDoS 보호는 CDN 끝점을 대상으로 하는 가장 일반적인, 자주 발생 하는 계층 7 DNS 쿼리 및 계층 3 및 4 대규모 공격에 대해 방어 합니다. 또한이 서비스는 대규모 공격 으로부터 Microsoft의 엔터프라이즈 및 소비자 서비스를 보호 하는 것으로 입증 된 추적 레코드를 포함 합니다.
+Microsoft의 Azure CDN은 [Azure Basic DDoS](../ddos-protection/ddos-protection-overview.md)로 보호됩니다. 기본적으로 추가 비용 없이 Microsoft 플랫폼의 Azure CDN에 통합됩니다. Microsoft 전역 배포 네트워크에서 제공되는 Azure CDN의 전체 크기 및 용량은 항상 작동하는 트래픽 모니터링 및 실시간 위험 완화를 통해 일반적인 네트워크 레이어 공격을 방어합니다. 또한 기본 DDoS 보호는 CDN 엔드포인트를 대상으로 하는 가장 일반적이고 자주 발생하는 계층 7 DNS 쿼리 플러드(flood)와 계층 3 및 4 대규모 공격에 대해 방어합니다. 또한 이 서비스는 대규모 공격으로부터 Microsoft의 엔터프라이즈 및 소비자 서비스를 보호하는 것으로 입증된 추적 기록을 포함합니다.
 
 ## <a name="azure-cdn-from-verizon"></a>Verizon의 Azure CDN
 
-Verizon의 Azure CDN은 Verzion의 독점 DDoS 완화 플랫폼에 의해 보호 됩니다. 기본적으로 및 추가 비용 없이 Verizon의 Azure CDN에 통합 되어 있습니다. CDN 끝점을 대상으로 하는 가장 일반적인, 자주 발생 하는 계층 7 DNS 쿼리 초과 및 계층 3 및 4 대규모 공격에 대 한 기본 보호 기능을 제공 합니다.
+Verizon의 Azure CDN은 Verzion의 독점 DDoS 완화 플랫폼으로 보호됩니다. 기본적으로 추가 비용 없이 Verizon의 Azure CDN에 통합됩니다. 이 기능은 퍼블릭 CDN 엔드포인트를 대상으로 하는 가장 일반적이고 자주 발생하는 계층 7 DNS 쿼리 플러드(flood)와 계층 3 및 4 대규모 공격에 대해 기본적인 보호를 제공합니다.
 
 ## <a name="azure-cdn-from-akamai"></a>Akamai의 Azure CDN
 
-Akamai의 Azure CDN는 Akamai의 독점 DDoS 완화 플랫폼에 의해 보호 됩니다. Akamai에서 기본적으로 추가 비용 없이 Azure CDN에 통합 되어 있습니다. CDN 끝점을 대상으로 하는 가장 일반적인, 자주 발생 하는 계층 7 DNS 쿼리 초과 및 계층 3 및 4 대규모 공격에 대 한 기본 보호 기능을 제공 합니다.
+Akamai의 Azure CDN는 Akamai의 독점 DDoS 완화 플랫폼으로 보호됩니다. 기본적으로 추가 비용 없이 Akamai의 Azure CDN에 통합됩니다. 이 기능은 퍼블릭 CDN 엔드포인트를 대상으로 하는 가장 일반적이고 자주 발생하는 계층 7 DNS 쿼리 플러드(flood)와 계층 3 및 4 대규모 공격에 대해 기본적인 보호를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure DDoS](../ddos-protection/ddos-protection-overview.md)에 대해 자세히 알아보세요.
+[Azure DDoS](../ddos-protection/ddos-protection-overview.md)에 대해 자세히 알아봅니다.

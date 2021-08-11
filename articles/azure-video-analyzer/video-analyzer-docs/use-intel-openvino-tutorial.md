@@ -3,14 +3,14 @@ title: OpenVINO™ Model Server – Intel의 AI 확장을 사용하여 라이브
 description: 이 자습서에서는 Intel에서 제공하는 사전 학습된 모델이 있는 AI 서버를 사용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석합니다.
 ms.service: azure-video-analyzer
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 06/01/2021
 titleSuffix: Azure
-ms.openlocfilehash: d9c7beeb75d8a8785f58b1d0b9b3a93dfc6e53f1
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a36de6ac835b3ed9f4188b6f8d2bf3b5178be087
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110384294"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604722"
 ---
 # <a name="tutorial-analyze-live-video-using-openvino-model-server--ai-extension-from-intel"></a>자습서: OpenVINO™ Model Server – Intel의 AI 확장을 사용하여 라이브 비디오 분석 
 
@@ -18,8 +18,7 @@ ms.locfileid: "110384294"
 
 이 자습서에서는 Azure VM을 IoT Edge 디바이스로 사용하고, 시뮬레이션된 라이브 비디오 스트림을 사용합니다. C#으로 작성된 샘플 코드를 기반으로 합니다.
 
-> [!NOTE]
-> 이 자습서를 사용하려면 에지 디바이스로 x86-64 컴퓨터를 사용해야 합니다.
+[!INCLUDE [use-x86-64](./includes/common-includes/use-x86-64.md)]
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -140,7 +139,7 @@ Azure 리소스가 설치되면 [주차장의 짧은 비디오](https://lvamedia
      * 파이프라인 및 비디오 흐름을 시작하는 `livePipelineActivate`에 대한 호출
 1. **터미널** 창의 출력이 `Press Enter to continue` 프롬프트에서 일시 중지됩니다. 아직 Enter 키를 선택하지 마세요. 위로 스크롤하여 호출한 직접 메서드에 대한 JSON 응답 페이로드를 확인합니다.
 1. Visual Studio Code에서 **출력** 창으로 전환합니다. Video Analyzer 모듈에서 IoT 허브에 보내는 메시지가 표시됩니다. 이 빠른 시작의 다음 섹션에서는 이러한 메시지를 설명합니다.
-1. 라이브 파이프라인은 계속 실행되고 결과를 출력합니다. RTSP 시뮬레이터가 원본 비디오를 계속 반복합니다. 라이브 파이프라인을 중지하려면 TERMINAL 창으로 돌아가서 **Enter** 를 선택합니다. 
+1. 라이브 파이프라인은 계속 실행되고 결과를 출력합니다. RTSP 시뮬레이터가 원본 비디오를 계속 반복합니다. 라이브 파이프라인을 중지하려면 **TERMINAL** 창으로 돌아가서 Enter를 선택합니다. 
 
     일련의 다음 호출은 리소스를 정리합니다.
       * `livePipelineDeactivate`를 호출하면 파이프라인이 비활성화됩니다.

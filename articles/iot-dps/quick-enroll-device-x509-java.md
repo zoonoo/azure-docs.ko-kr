@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 8591220eb80d9c60ed7873be546007449ab46f89
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc2fbd6473886b5b9c5eb5ed5112c988fba60433
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96463029"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288539"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>빠른 시작: Java를 사용하여 Device Provisioning Service에 X.509 디바이스 등록
 
@@ -26,7 +26,7 @@ ms.locfileid: "96463029"
 
 - [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 완료
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support). 이 빠른 시작에서는 아래 [Java 서비스 SDK](https://azure.github.io/azure-iot-sdk-java/master/service/)를 설치합니다. Windows와 Linux 모두에서 작동합니다. 이 빠른 시작에서는 Windows를 사용합니다.
+- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure). 이 빠른 시작에서는 아래 [Java 서비스 SDK](https://azure.github.io/azure-iot-sdk-java/master/service/)를 설치합니다. Windows와 Linux 모두에서 작동합니다. 이 빠른 시작에서는 Windows를 사용합니다.
 - [Maven 3](https://maven.apache.org/download.cgi)
 - [Git](https://git-scm.com/download/)
 

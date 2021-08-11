@@ -3,13 +3,13 @@ title: Azure Relay를 사용하여 온-프레미스 WCF REST 서비스를 클라
 description: 이 자습서에서는 Azure WCF Relay를 사용하여 온-프레미스 WCF REST 서비스를 외부 클라이언트에 노출하는 방법을 설명합니다.
 ms.topic: tutorial
 ms.custom: devx-track-dotnet
-ms.date: 06/23/2020
-ms.openlocfilehash: 7669bc07ad91933cd31bd2ccd10eaf830d98de7c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: bfdcd59320d965f933fdf367ed60ec80dbfa7122
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101710790"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669757"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>자습서: Azure WCF Relay를 사용하여 외부 클라이언트에 온-프레미스 WCF REST 서비스 노출
 
@@ -45,7 +45,7 @@ ms.locfileid: "101710790"
 
 첫 단계는 네임스페이스를 만들고 [SAS(공유 액세스 서명)](../service-bus-messaging/service-bus-sas.md) 키를 확보합니다. 네임스페이스는 릴레이 서비스를 통해 노출되는 각 애플리케이션에 대한 애플리케이션 경계를 제공합니다. SAS 키는 서비스 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 서비스 네임스페이스 및 SAS 키 조합은 Azure에 자격 증명을 제공하여 애플리케이션에 대한 액세스를 인증합니다.
 
-[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
+[!INCLUDE [relay-create-namespace-portal](./includes/relay-create-namespace-portal.md)]
 
 ## <a name="define-a-wcf-service-contract"></a>WCF 서비스 계약 정의
 

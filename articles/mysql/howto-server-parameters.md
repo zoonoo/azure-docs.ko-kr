@@ -1,5 +1,5 @@
 ---
-title: 서버 매개 변수 구성-Azure Portal-Azure Database for MySQL
+title: 서버 매개 변수 구성 - Azure Portal - Azure Database for MySQL
 description: 이 문서에서는 Azure Portal을 사용하여 Azure Database for MySQL에서 사용 가능한 서버 매개 변수를 구성하는 방법을 설명합니다.
 author: savjani
 ms.author: pariks
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.openlocfilehash: 363be8b34f230b812bc24276e1f3925faf0cdc1c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94540844"
 ---
-# <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL에서 서버 매개 변수 구성
+# <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 서버 매개 변수 구성
 
 MySQL용 Azure Database는 일부 서버 매개 변수 구성을 지원합니다. 이 문서에서는 Azure Portal을 사용하여 이러한 매개 변수를 구성하는 방법을 설명합니다. 일부 서버 매개 변수를 조정할 수 있습니다.
 
@@ -22,25 +22,25 @@ MySQL용 Azure Database는 일부 서버 매개 변수 구성을 지원합니다
 
 ## <a name="configure-server-parameters"></a>서버 매개 변수 구성
 
-1. [Azure Portal](https://portal.azure.com)에 로그인 한 다음 Azure Database for MySQL 서버를 찾습니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인한 다음 Azure Database for MySQL 서버를 찾습니다.
 2. **설정** 섹션에서 **서버 매개 변수** 를 클릭하여 Azure Database for MySQL 서버에 대한 서버 매개 변수 페이지를 엽니다.
 :::image type="content" source="./media/howto-server-parameters/auzre-portal-server-parameters.png" alt-text="Azure Portal 서버 매개 변수 페이지":::
 3. 조정해야 하는 설정을 모두 찾습니다. **설명** 열을 검토하여 용도 및 허용되는 값을 이해합니다.
 :::image type="content" source="./media/howto-server-parameters/3-toggle_parameter.png" alt-text="드롭다운 열거":::
-4. **저장** 을 클릭 하 여 변경 내용을 저장 합니다.
+4. **저장** 을 클릭하여 변경 내용을 저장합니다.
 :::image type="content" source="./media/howto-server-parameters/4-save_parameters.png" alt-text="변경 내용 저장 또는 제거":::
 5. 매개 변수에 새 값을 저장한 경우 언제든지 **모두 기본값으로 다시 설정** 을 선택하여 모든 항목을 기본값으로 되돌릴 수있습니다.
 :::image type="content" source="./media/howto-server-parameters/5-reset_parameters.png" alt-text="모두 기본값으로 다시 설정":::
 
-## <a name="setting-parameters-not-listed"></a>나열 되지 않은 매개 변수 설정
+## <a name="setting-parameters-not-listed"></a>나열되지 않은 매개 변수 설정
 
-업데이트 하려는 서버 매개 변수가 Azure Portal에 나열 되어 있지 않으면를 사용 하 여 연결 수준에서 매개 변수를 선택적으로 설정할 수 있습니다 `init_connect` . 서버에 연결 하는 각 클라이언트에 대 한 서버 매개 변수를 설정 합니다. 
+업데이트하려는 서버 매개 변수가 Azure Portal에 나열되지 않는 경우 필요에 따라 `init_connect`를 사용하여 연결 수준에서 매개 변수를 설정할 수 있습니다. 이는 서버에 연결하는 각 클라이언트에 대한 서버 매개 변수를 설정합니다. 
 
 1. **설정** 섹션에서 **서버 매개 변수** 를 클릭하여 Azure Database for MySQL 서버에 대한 서버 매개 변수 페이지를 엽니다.
-2. 검색 `init_connect`
-3. 서버 매개 변수를 다음 형식으로 추가 합니다. 값 열에 값을 추가 `SET parameter_name=YOUR_DESIRED_VALUE` 합니다.
+2. `init_connect` 검색
+3. 값 열의 값에 `SET parameter_name=YOUR_DESIRED_VALUE` 형식으로 서버 매개 변수를 추가합니다.
 
-    예를 들어를로 설정 하 여 서버의 문자 집합을 변경할 수 있습니다. `init_connect``SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
+    예를 들면 `init_connect`을 `SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`로 설정하여 서버의 문자 집합을 변경할 수 있습니다
 4. **저장** 을 클릭하여 변경 내용을 저장합니다.
 
 >[!Note]
@@ -86,4 +86,4 @@ SET time_zone = 'US/Pacific';
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Database for MySQL에 대 한 연결 라이브러리](concepts-connection-libraries.md)입니다.
+- [Azure Database for MySQL에 대한 연결 라이브러리](concepts-connection-libraries.md).

@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Network-개념 및 모범 사례
+title: Azure Virtual Network - 개념 및 모범 사례
 description: Azure Virtual Network 개념 및 모범 사례에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
 ms.openlocfilehash: 0a9945a58aa6ec49ad58f3a0a0d03ea75e30f6d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98223621"
 ---
 # <a name="azure-virtual-network-concepts-and-best-practices"></a>Azure Virtual Network 개념 및 모범 사례
 
-이 문서에서는 Azure Virtual Network (VNet)에 대 한 주요 개념 및 모범 사례를 설명 합니다.
+이 문서에서는 Azure VNet(Virtual Network)에 대한 주요 개념 및 모범 사례를 설명합니다.
 
 ## <a name="vnet-concepts"></a>VNet 개념
 

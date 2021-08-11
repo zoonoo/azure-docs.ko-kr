@@ -11,12 +11,12 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
 ms.custom: data4ml
-ms.openlocfilehash: 53521233e4e0b130eb6416f230aba5d01d974b03
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2dcd31493bf8ebc7c5096bfe7fda3e2b3f1641be
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141742"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112459553"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>자습서: 다중 클래스 이미지 분류를 위한 레이블 지정 프로젝트 만들기 
 
@@ -37,7 +37,7 @@ ms.locfileid: "108141742"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 Azure 구독이 아직 없는 경우 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
+* Azure 구독 Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 

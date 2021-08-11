@@ -122,6 +122,8 @@
           href: document-translation/reference/get-translation-status.md
         - name: 번역 취소
           href: document-translation/reference/cancel-translation.md
+    - name: FAQ
+      href: document-translation/faq.md
 - name: Custom Translator
   items:
     - name: Custom Translator란?
@@ -142,7 +144,7 @@
           href: custom-translator/how-to-view-document-details.md
         - name: 모델 학습
           href: custom-translator/how-to-train-model.md
-        - name: Viewmodel 세부 정보
+        - name: 모델 세부 정보 보기
           href: custom-translator/how-to-view-model-details.md
         - name: 시스템 테스트 결과 보기
           href: custom-translator/how-to-view-system-test-results.md
