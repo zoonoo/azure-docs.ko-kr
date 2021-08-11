@@ -1,6 +1,6 @@
 ---
 title: 맵 이벤트 처리 | Microsoft Azure Maps
-description: 사용자가 지도와 상호 작용할 때 발생 하는 이벤트에 대해 알아봅니다. 지원 되는 모든 맵 이벤트 목록을 봅니다. Azure Maps 웹 SDK를 사용 하 여 이벤트를 처리 하는 방법을 참조 하세요.
+description: 사용자가 맵과 상호 작용할 때 발생하는 이벤트에 대해 알아봅니다. 지원되는 모든 맵 이벤트 목록을 봅니다. Azure Maps 웹 SDK를 사용하여 이벤트를 처리하는 방법을 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2019
@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 8121ceb68bdea9332316a9508bf6f4731e05b0ba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92890788"
 ---
 # <a name="interact-with-the-map"></a>맵과 상호 작용
@@ -40,7 +40,7 @@ ms.locfileid: "92890788"
 
 ## <a name="interact-with-html-marker"></a>HTML 표식과 상호 작용
 
-다음 코드에서는 HTML 마커에 JavaScript 맵 이벤트를 추가 합니다. 또한 HTML 표식과 상호 작용할 때 발생한 이벤트의 이름을 강조 표시합니다.
+다음 코드는 HTML 표식에 JavaScript 맵 이벤트를 추가합니다. 또한 HTML 표식과 상호 작용할 때 발생한 이벤트의 이름을 강조 표시합니다.
 
 <br/>
 
@@ -98,11 +98,11 @@ ms.locfileid: "92890788"
 | `sourceremoved`     | 맵에서 `DataSource` 또는 `VectorTileSource`가 제거될 때 발생합니다.|
 | `styledata`         | 맵의 스타일이 로드되거나 변경될 때 발생합니다.|
 | `styleimagemissing` | 존재하지 않는 이미지 스프라이트에서 계층이 이미지를 로드하려고 할 때 발생합니다. |
-| `tokenacquired`     | Azure Active Directory 액세스 토큰을 가져올 때 발생 합니다.|
-| `touchcancel`       | `touchcancel`지도 내에서 이벤트가 발생할 때 발생 합니다.|
-| `touchend`          | `touchend`지도 내에서 이벤트가 발생할 때 발생 합니다.|
-| `touchmove`         | `touchmove`지도 내에서 이벤트가 발생할 때 발생 합니다.|
-| `touchstart`        | `touchstart`지도 내에서 이벤트가 발생할 때 발생 합니다.|
+| `tokenacquired`     | Azure Active Directory 액세스 토큰을 가져올 때 발생합니다.|
+| `touchcancel`       | 맵 내에서 `touchcancel` 이벤트가 발생할 때 발생합니다.|
+| `touchend`          | 맵 내에서 `touchend` 이벤트가 발생할 때 발생합니다.|
+| `touchmove`         | 맵 내에서 `touchmove` 이벤트가 발생할 때 발생합니다.|
+| `touchstart`        | 맵 내에서 `touchstart` 이벤트가 발생할 때 발생합니다.|
 | `wheel`             | 맵 내에서 마우스 휠 이벤트가 발생할 때 발생합니다.|
 | `zoom`              | 사용자 상호 작용이나 메서드의 결과로 한 확대/축소 수준에서 다른 확대/축소 수준으로 애니메이션 전환이 수행되는 동안 반복적으로 발생합니다.|
 | `zoomend`           | 사용자 상호 작용이나 메서드의 결과로 맵이 한 확대/축소 수준에서 다른 확대/축소 수준으로의 전환을 완료한 후에 발생합니다.|

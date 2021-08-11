@@ -5,21 +5,21 @@ author: dademath
 manager: nimag
 services: azure-communication-services
 ms.author: ddematheu2
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: 5b71a0581bf4f9d8239171e6abc56f87e7ae8183
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1c399f05467fe23504b9f204a50484620fcec86e
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105152832"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113107302"
 ---
 ## <a name="download-code"></a>코드 다운로드
 
 [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/trusted-authentication-service)에서 이 빠른 시작에 대한 최종 코드 칮기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. 자세한 내용은 [체험 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)를 참조하세요.
 - [지원되는 플랫폼](https://code.visualstudio.com/docs/supporting/requirements#_platforms) 중 하나인 [Visual Studio Code](https://code.visualstudio.com/).

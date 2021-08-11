@@ -9,12 +9,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 31ab388d01c9bd589a809bd1c71b455d6d8bf754
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 232a3293d6529955a768ed8d7700289ddbed5177
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984737"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136367"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Azure Key Vault 비밀 정보
 
@@ -24,7 +24,7 @@ ms.locfileid: "111984737"
 
 매우 중요한 데이터의 경우 클라이언트가 데이터에 대한 추가 보호 레이어를 고려해야 합니다. 예를 들어 별도의 보호 키를 사용하여 데이터를 암호화한 후 Key Vault에 스토리지합니다.  
 
-Key Vault는 비밀에 대한 contentType 필드도 지원합니다. 클라이언트는 비밀 데이터에 대해 검색 시 해당 데이터를 해석하는 데 도움이 되는 콘텐츠 형식을 지정할 수 있습니다. 이 필드의 최대 길이는 255자이며, 미리 정의된 값이 없습니다. 비밀 데이터를 해석하기 위한 힌트로 사용하는 것이 좋습니다. 예를 들어 구현에서는 암호와 인증서를 모두 비밀로 저장한 다음, 이 필드를 사용하여 구분할 수 있습니다. 미리 정의된 값이 없습니다.  
+Key Vault는 비밀에 대한 contentType 필드도 지원합니다. 클라이언트는 비밀 데이터에 대해 검색 시 해당 데이터를 해석하는 데 도움이 되는 콘텐츠 형식을 지정할 수 있습니다. 이 필드의 최대 길이는 255자이며, 비밀 데이터를 해석하기 위한 힌트로 사용하는 것이 좋습니다. 예를 들어 구현에서는 암호와 인증서를 모두 비밀로 저장한 다음, 이 필드를 사용하여 구분할 수 있습니다. 미리 정의된 값이 없습니다.  
 
 ## <a name="encryption"></a>암호화
 

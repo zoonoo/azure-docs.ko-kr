@@ -2,8 +2,8 @@
 title: '자습서: Azure Active Directory를 사용하여 Zscaler Three에 대한 자동 사용자 프로비저닝 구성 | Microsoft Docs'
 description: 이 자습서에서는 Zscaler Three에 대한 사용자 계정을 자동으로 프로비저닝하거나 이를 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: c16c02a870edb1a777b63da6fea57fc02136d643
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ae6888ada7ec1a03d4401ee5f56130ca45e05b1
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97936603"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113760422"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>자습서: Zscaler Three에 대한 자동 사용자 프로비저닝 구성
 

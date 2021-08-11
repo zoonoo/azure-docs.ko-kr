@@ -1,14 +1,14 @@
 ---
-title: Azure Service Fabric 행위자에서 재진입
-description: 호출 컨텍스트에 따라 차단을 논리적으로 방지 하는 방법인 Service Fabric Reliable Actors에 대 한 재입력을 소개 합니다.
+title: Azure Service Fabric Actors의 다시 표시
+description: 호출 컨텍스트에 따라 차단을 논리적으로 방지하는 방법인 Service Fabric Reliable Actors 다시 표시를 소개합니다.
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 90a8e9146d18d628fbf124307f1b79b912c9cef9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98789383"
 ---
 # <a name="reliable-actors-reentrancy"></a>Reliable Actors 다시 표시
@@ -101,4 +101,4 @@ static class Program
 
 
 ## <a name="next-steps"></a>다음 단계
-* [행위자 API 참조 설명서](/dotnet/api/microsoft.servicefabric.actors)의 재입력에 대해 자세히 알아보기
+* [행위자 API 참조 설명서](/dotnet/api/microsoft.servicefabric.actors)에서 다시 표시에 대해 자세히 알아봅니다.

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/20/2021
+ms.date: 05/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 5237ca5629957f9f0e774aa1ee3f0f78c7a54f73
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 16962c14de7458c69b31d3501d7cd8317ae06f09
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481798"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111527348"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-foundu"></a>자습서: foundU와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -103,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -129,7 +129,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **Single Sign-On 설정** 페이지에서 다음 단계를 수행합니다.
 
-    ![foundU SSO 구성의 스크린샷](./media/foundu-tutorial/configuration.png)
+    ![foundU SSO 구성의 스크린샷](./media/foundu-tutorial/configuration-1.png)
 
     a. **식별자(엔터티 ID)** 값을 복사하고, 이 값을 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **식별자** 텍스트 상자에 붙여넣습니다.
 

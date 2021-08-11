@@ -1,5 +1,5 @@
 ---
-title: 연결 문제 해결-Azure REST API
+title: 연결 문제 해결 - Azure REST API
 titleSuffix: Azure Network Watcher
 description: Azure REST API를 사용하여 Azure Network Watcher의 연결 문제 해결 기능을 사용하는 방법을 알아봅니다.
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: kumud
 ms.openlocfilehash: 5b10194d47a90abf9d2070f00b71b78d8796dde4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98019757"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Azure REST API를 사용하여 Azure Network Watcher로 연결 문제 해결
@@ -466,6 +466,6 @@ null
 
 ## <a name="next-steps"></a>다음 단계
 
-[경고 트리거 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인 하 여 가상 머신 경고로 패킷 캡처를 자동화 하는 방법을 알아봅니다.
+[경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 머신 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
 
 [IP 흐름 확인 검사](diagnose-vm-network-traffic-filtering-problem.md)를 방문하여 VM에서 또는 VM으로 특정 트래픽 전송이 허용되는지 알아봅니다.

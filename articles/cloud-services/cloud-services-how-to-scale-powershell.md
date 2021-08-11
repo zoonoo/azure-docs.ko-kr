@@ -1,24 +1,25 @@
 ---
-title: Windows PowerShell에서 Azure 클라우드 서비스 (클래식) 크기 조정 | Microsoft Docs
+title: Windows PowerShell에서 Azure 클라우드 서비스(클래스) 스케일링 | Microsoft Docs
 description: (클래식) PowerShell을 사용하여 Azure에서 웹 역할 또는 작업자 역할을 축소 또는 확장하는 방법을 알아봅니다.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: autoscale
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: a090da1933b0fcd6edb5b2415c773f9efcb27387
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 0b0a9cc8032cfd849f053e2d45e05f85e4216a23
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98743307"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936617"
 ---
-# <a name="how-to-scale-an-azure-cloud-service-classic-in-powershell"></a>PowerShell에서 Azure 클라우드 서비스 (클래식)의 크기를 조정 하는 방법
+# <a name="how-to-scale-an-azure-cloud-service-classic-in-powershell"></a>PowerShell에서 Azure 클라우드 서비스(클래식)를 스케일링하는 방법
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 Windows PowerShell을 사용하여 인스턴스를 추가하거나 제거함으로써 웹 역할 또는 작업자 역할을 축소하거나 확대할 수 있습니다.  
 

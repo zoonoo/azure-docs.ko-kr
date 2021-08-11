@@ -6,20 +6,17 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 12e371dd24203625ab8987018bb223b532938e16
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e8c551ef2c1ccc76347f3d89c452cb93af49da6c
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495728"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113105834"
 ---
 # <a name="reference-documentation-overview"></a>참조 설명서 개요
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 
 다음 표에서는 해당 참조 설명서와 함께 사용 가능한 Communication Services 패키지에 대해 자세히 설명합니다.
 

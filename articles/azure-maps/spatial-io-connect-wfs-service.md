@@ -1,6 +1,6 @@
 ---
-title: 웹 기능 서비스 (워크플로) 서비스에 연결 | Microsoft Azure 맵
-description: 워크플로 서비스에 연결한 다음 Azure Maps 웹 SDK 및 공간 IO 모듈을 사용 하 여 워크플로 서비스를 쿼리 하는 방법에 대해 알아봅니다.
+title: WFS(Web Feature Service) 서비스 연결 | Microsoft Azure Maps
+description: WFS 서비스에 연결한 다음, Azure Maps 웹 SDK 및 공간 IO 모듈을 사용하여 WFS 서비스를 쿼리하는 방법을 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 03/03/2020
@@ -10,43 +10,43 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 75a7da41e4f0d5356ca135eb3cb4cbe5f29e8116
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92891454"
 ---
 # <a name="connect-to-a-wfs-service"></a>WFS 서비스에 연결
 
-워크플로 (웹 기능 서비스)는 Open Geospatial Consortium (OGC)에 정의 된 표준화 된 API를 포함 하는 공간 데이터를 쿼리 하는 웹 서비스입니다. `WfsClient`공간 IO 모듈의 클래스를 통해 개발자는 워크플로 서비스에 연결 하 고 서비스에서 데이터를 쿼리할 수 있습니다.
+WFS(Web Feature Service)는 OGC(Open Geospatial Consortium)로 정의된 표준화된 API가 있는 공간 데이터를 쿼리하기 위한 웹 서비스입니다. 공간 IO 모듈의 `WfsClient` 클래스를 사용하면 개발자가 WFS 서비스에 연결하고 서비스에서 데이터를 쿼리할 수 있습니다.
 
-클래스에서 지원 되는 기능은 다음과 `WfsClient` 같습니다.
+다음은 `WfsClient` 클래스에서 지원되지 않는 기능입니다.
 
-- 지원 되는 버전: `1.0.0` , `1.1.0` 및 `2.0.0`
-- 지원 되는 필터 연산자: 이진 비교, 논리, 수학, 값 및 `bbox` 입니다.
-- 는를 사용 하 여 요청을 수행 `HTTP GET` 합니다.
-- 지원 되는 작업:
+- 지원되는 버전: `1.0.0`, `1.1.0`, `2.0.0`
+- 지원되는 필터 연산자: 이진 비교, 논리, 수학, 값, `bbox`.
+- 요청은 `HTTP GET`만 사용하여 이루어집니다.
+- 지원되는 작업:
 
     | 작업(Operation) | Description |
     | :-- | :-- |
-    | GetCapabilities | 유효한 워크플로 작업 및 매개 변수를 사용 하 여 메타 데이터 문서를 생성 합니다. |
-    | GetFeature | 데이터 소스에서 선택 된 기능을 반환 합니다. |
-    | DescribeFeatureType | 지원 되는 기능 유형을 반환 합니다. |
+    | GetCapabilities | 유효한 WFS 작업 및 매개 변수를 사용하여 메타데이터 문서 생성 |
+    | GetFeature | 데이터 원본의 기능 선택 영역을 반환 |
+    | DescribeFeatureType | 지원되는 기능 유형 반환 |
 
-## <a name="using-the-wfs-client"></a>워크플로 클라이언트 사용
+## <a name="using-the-wfs-client"></a>WFS 클라이언트 사용
 
-`atlas.io.ogc.WfsClient`공간 IO 모듈의 클래스를 사용 하면 쉽게 워크플로 서비스를 쿼리하고 응답을 GeoJSON 개체로 변환할 수 있습니다. 그런 다음이 GeoJSON 개체를 다른 매핑 용도로 사용할 수 있습니다.
+공간 IO 모듈의 `atlas.io.ogc.WfsClient` 클래스를 사용하면 WFS 서비스를 쉽게 쿼리하고 응답을 GeoJSON 개체로 변환할 수 있습니다. 이 GeoJSON 개체는 기타 매핑 용도로 사용할 수 있습니다.
 
-다음 코드는 워크플로 서비스를 쿼리하고 반환 된 기능을 맵에 렌더링 합니다.
+다음 코드는 WFS 서비스를 쿼리하고 반환된 기능을 맵에 렌더링합니다.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Simple 워크플로 예제' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen의 Azure Maps ()에서 Pen <a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>SIMPLE 워크플로 예제</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'></a>.
+<iframe height='700' scrolling='no' title='간단한 WFS 예제' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>간단한 WFS 예제</a>를 참조합니다.
 </iframe>
 
 ## <a name="supported-filters"></a>지원되는 필터
 
-워크플로 표준에 대 한 사양에서는 OGC 필터를 사용 합니다. 아래 필터는 호출 되는 서비스에서 이러한 필터도 지원 한다고 가정 하 여 워크플로 클라이언트에서 지원 됩니다. 사용자 지정 필터 문자열을 클래스에 전달할 수 있습니다 `CustomFilter` .
+WFS 표준 사양은 OGC 필터를 사용합니다. 아래 필터는 호출되는 서비스가 이러한 필터도 지원한다는 가정 하에 WFS 클라이언트에서 지원됩니다. 사용자 지정 필터 문자열을 `CustomFilter` 클래스에 전달할 수 있습니다.
 
 **논리 연산자**
 
@@ -79,23 +79,23 @@ ms.locfileid: "92891454"
 - `PropertyIsNil`
 - `PropertyIsBetween`
 
-다음 코드에서는 워크플로 클라이언트에 다른 필터를 사용 하는 방법을 보여 줍니다.
+다음 코드에서는 WFS 클라이언트에 다른 필터를 사용하는 방법을 보여줍니다.
 
 <br/>
 
-<iframe height='500' scrolling='no' title= '워크플로 필터 예제' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen의 Azure Maps ()에서 Pen <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>워크플로 필터 예</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'></a>.
+<iframe height='500' scrolling='no' title= 'WFS 필터 예제' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>WFS 필터 예제</a>를 참조합니다.
 </iframe>
 
-## <a name="wfs-service-explorer"></a>워크플로 서비스 탐색기
+## <a name="wfs-service-explorer"></a>WFS 서비스 탐색기
 
-다음 코드에서는 워크플로 client를 사용 하 여 워크플로 services를 탐색 합니다. 서비스 내의 속성 유형 계층을 선택 하 고 연결 된 범례를 확인 합니다.
+다음 코드에서는 WFS 클라이언트를 사용하여 WFS 서비스를 탐색합니다. 서비스 내의 속성 유형 계층을 선택하고 연결된 범례를 확인합니다.
 
 <br/>
 
-<iframe height='700' style='width: 100%;' scrolling='no' title= '워크플로 서비스 탐색기' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>워크플로 서비스 탐색기</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'></a>.
+<iframe height='700' style='width: 100%;' scrolling='no' title= 'WFS 서비스 탐색기' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>WFS 서비스 탐색기</a>를 참조합니다.
 </iframe>
 
-CORS를 사용 하지 않는 끝점에서 호스트 되는 워크플로 서비스에 액세스 하기 위해 다음과 같이 CORS 사용 프록시 서비스를 `proxyService` 워크플로 클라이언트의 옵션에 전달할 수 있습니다. 
+CORS를 사용하지 않는 엔드포인트에서 호스트되는 WFS 서비스에 액세스하기 위해 아래에 표시된 바와 같이 CORS 사용 프록시 서비스를 WFS 클라이언트의 `proxyService` 옵션에 전달할 수 있습니다. 
 
 ```JavaScript
 //Create the WFS client to access the service and use the proxy service settings

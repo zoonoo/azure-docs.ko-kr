@@ -6,16 +6,16 @@ author: bertong
 manager: ankita
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/11/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: bertong
-ms.openlocfilehash: b618a2d33b812d964d48618b42421bdce109f28d
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 321e9ae3ccfb994a324b653c3e67fbae9b6b6f4c
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111429452"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113112018"
 ---
 Communication Services JavaScript SMS SDK를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작합니다.
 
@@ -24,7 +24,7 @@ Communication Services JavaScript SMS SDK를 사용하여 SMS 메시지를 보�
 > [!NOTE]
 > [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-sms)에서 이 빠른 시작에 대한 최종 코드 칮기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) 활성 LTS 및 유지 관리 LTS 버전(8.11.1 및 10.14.1 권장).

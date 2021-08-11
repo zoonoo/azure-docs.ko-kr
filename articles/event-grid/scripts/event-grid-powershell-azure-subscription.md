@@ -3,13 +3,13 @@ title: Azure PowerShell - Azure 구독에 가입
 description: 이 문서에서는 Azure 구독에 대한 Event Grid 이벤트를 구독하는 방법을 보여주는 샘플 Azure PowerShell 스크립트를 제공합니다.
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 07/08/2020
-ms.openlocfilehash: 0aae1d64b789cedab6420ac1f323a2379bff17be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/22/2021
+ms.openlocfilehash: b14d1a07725b015b436f48dc03f0c21ce1e74226
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87460816"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467435"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-powershell"></a>Azure PowerShell을 사용하여 Azure 구독에 대한 이벤트 구독
 

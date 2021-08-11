@@ -3,12 +3,12 @@ title: Live Video Analytics를 통한 공간 분석을 위해 Computer Vision을
 description: 이 자습서에서는 Azure Cognitive Services에서 Computer Vision 공간 분석 AI 기능과 함께 Azure Live Video Analytics를 사용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석하는 방법을 보여줍니다.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 549c1405e7deb3531da65ff4425befa2d29aaeef
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 824ff93e1411563b07bea9f30bbd2cf4ecad457c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373566"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456139"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-and-live-video-analytics-preview"></a>공간 분석 및 Live Video Analytics를 위해 Computer Vision을 사용하여 라이브 비디오 분석(미리 보기)
 
@@ -63,7 +63,7 @@ MediaGraphCognitiveServicesVisionExtension 노드는 프록시의 역할을 수�
 
 ## <a name="create-the-computer-vision-resource"></a>Computer Vision 리소스 만들기
 
-[Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) 또는 Azure CLI를 통해 Computer Vision 유형의 Azure 리소스를 만들어야 합니다. 컨테이너에 대한 액세스 요청을 승인하고 Azure 구독 ID를 등록한 후에 리소스를 만들 수 있습니다.  https://aka.ms/csgate 로 이동하여 사용 사례와 Azure 구독 ID를 제출합니다.  액세스 양식 요청에서 제공된 것과 동일한 Azure 구독을 사용하여 Azure 리소스를 만들어야 합니다.
+[Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) 또는 Azure CLI를 통해 Computer Vision 유형의 Azure 리소스를 만들어야 합니다.
 
 ### <a name="gathering-required-parameters"></a>필수 매개 변수 수집
 

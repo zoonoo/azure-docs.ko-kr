@@ -9,12 +9,12 @@ ms.custom:
 - devx-track-java
 - devx-track-azurecli
 - mode-api
-ms.openlocfilehash: 4d805458d90c73de879a9b87d5b08c98a8f1a250
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 9686b99a7c13ef3103513efab759e6295ef052c3
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537296"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288899"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>빠른 시작: Java 컨테이너 이미지를 빌드하고 Azure Container Registry로 푸시
 
@@ -24,7 +24,7 @@ ms.locfileid: "107537296"
 
 * Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)을 활성화하거나 [체험판 Azure 계정](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
 * [Azure CLI(명령줄 인터페이스)](/cli/azure/overview)
-* 지원되는 JDK(Java Development Kit) Azure에서 개발하는 경우 사용할 수 있는 JDK에 대한 자세한 내용은 <https://aka.ms/azure-jdks>를 참조하세요.
+* 지원되는 JDK(Java Development Kit) Azure에서 개발할 때 사용할 수 있는 JDK에 대한 자세한 내용은 [Azure 및 Azure Stack에 대한 Java 지원](/azure/developer/java/fundamentals/java-support-on-azure)을 참조하세요.
 * Apache의 [Maven](http://maven.apache.org) 빌드 도구(버전 3 이상)
 * [Git](https://git-scm.com) 클라이언트
 * [Docker](https://www.docker.com) 클라이언트
@@ -104,11 +104,11 @@ ms.locfileid: "107537296"
 1. 다음 명령을 사용하여 Azure CLI에서 Azure Container Registry에 로그인합니다. 자리 표시자를 고유의 레지스트리 이름으로 바꿔야 합니다.
 
    ```azurecli
-   az configure --defaults acr=<your registry name>
+   az config set defaults.acr=<your registry name>
    az acr login
    ```
 
-   `az configure` 명령은 `az acr` 명령에 사용할 기본 레지스트리 이름을 설정합니다.
+   `az config` 명령은 `az acr` 명령에 사용할 기본 레지스트리 이름을 설정합니다.
 
 1. Spring Boot 애플리케이션에 대해 완료된 프로젝트 디렉터리로 이동하고(예: "*C:\SpringBoot\gs-spring-boot-docker\complete*"또는" */users/robert/SpringBoot/gs-spring-boot-docker/complete*") 텍스트 편집기를 사용하여 *pom.xml* 파일을 엽니다.
 

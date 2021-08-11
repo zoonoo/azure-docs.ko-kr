@@ -1,23 +1,23 @@
 ---
-title: Azure Stream Analytics에서 Azure Data Lake Storage Gen 1 출력
-description: 이 문서에서는 Azure Stream Analytics에 대 한 출력 옵션으로 Gen 1 Azure Data Lake Storage 설명 합니다.
+title: Azure Stream Analytics의 Azure Data Lake Storage Gen 1 출력
+description: 이 문서에서는 Azure Stream Analytics에 대한 출력 옵션으로 사용되는 Azure Data Lake Storage Gen 1에 대해 설명합니다.
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.openlocfilehash: 629a154c89ad301a3e200b1d6cd04c62057d9959
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98016544"
 ---
-# <a name="azure-data-lake-storage-gen-1-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 Azure Data Lake Storage Gen 1 출력
+# <a name="azure-data-lake-storage-gen-1-output-from-azure-stream-analytics"></a>Azure Stream Analytics의 Azure Data Lake Storage Gen 1 출력
 
-Stream Analytics는 [Gen 1 출력 Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md) 지원 합니다. Azure Data Lake Storage는 빅 데이터 분석 워크로드를 위한 엔터프라이즈 수준 하이퍼스케일 리포지토리입니다. Data Lake Storage를 사용하여 운영 및 예비 분석을 위해 모든 크기, 형식 및 수집 속도의 데이터를 저장할 수 있습니다. Stream Analytics에는 Data Lake Storage에 액세스할 수 있는 권한이 있어야 합니다.
+Stream Analytics는 [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md) 출력을 지원합니다. Azure Data Lake Storage는 빅 데이터 분석 워크로드를 위한 엔터프라이즈 수준 하이퍼스케일 리포지토리입니다. Data Lake Storage를 사용하여 운영 및 예비 분석을 위해 모든 크기, 형식 및 수집 속도의 데이터를 저장할 수 있습니다. Stream Analytics에는 Data Lake Storage에 액세스할 수 있는 권한이 있어야 합니다.
 
-Stream Analytics의 Azure Data Lake Storage 출력은 Azure 중국 21Vianet 및 Azure 독일 (T-sql 국제) 지역에서 사용할 수 없습니다.
+Stream Analytics의 Azure Data Lake Storage 출력은 Azure 중국 21Vianet 및 Azure 독일(T-Systems International) 지역에서 사용할 수 없습니다.
 
 ## <a name="output-configuration"></a>출력 구성
 
@@ -35,17 +35,17 @@ Stream Analytics의 Azure Data Lake Storage 출력은 Azure 중국 21Vianet 및 
 | Encoding | CSV 또는 JSON 형식을 사용하는 경우 인코딩을 지정해야 합니다. 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다.|
 | 구분 기호 | CSV 직렬화에만 적용됩니다. Stream Analytics는 CSV 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다.|
 | 형식 | JSON 직렬화에만 적용됩니다. **줄로 구분됨** 은 각 JSON 개체를 새 줄로 구분된 형식의 출력이 되도록 지정합니다. **줄로 구분됨** 을 선택하는 경우 JSON에서 한 번에 하나의 개체를 읽습니다. 전체 콘텐츠 자체는 유효한 JSON이 아닙니다.  **배열** 은 JSON 개체 배열 형식의 출력이 되도록 지정합니다. 이 배열은 작업이 중지되거나 Stream Analytics가 다음 시간 범위로 이동되었을 때만 닫힙니다. 일반적으로 출력 파일을 쓰는 동안 특별한 처리가 필요하지 않으므로 줄로 구분된 JSON을 사용하는 것이 좋습니다.|
-| 인증 모드 | [관리 id](stream-analytics-managed-identities-adls.md) (미리 보기) 또는 사용자 토큰을 사용 하 여 Data Lake Storage 계정에 대 한 액세스 권한을 부여할 수 있습니다. 액세스 권한이 부여되면 사용자 계정 암호를 변경하거나, 이 작업에 대한 Data Lake Storage 출력을 삭제하거나, Stream Analytics 작업을 삭제하여 액세스 권한을 철회할 수 있습니다. |
+| 인증 모드 | [관리 ID](stream-analytics-managed-identities-adls.md)(미리 보기) 또는 사용자 토큰을 사용하여 Data Lake Storage 계정에 대한 액세스 권한을 부여할 수 있습니다. 액세스 권한이 부여되면 사용자 계정 암호를 변경하거나, 이 작업에 대한 Data Lake Storage 출력을 삭제하거나, Stream Analytics 작업을 삭제하여 액세스 권한을 철회할 수 있습니다. |
 
 ## <a name="partitioning"></a>분할
 
-파티션 키의 경우 경로 접두사 패턴에 {date} 및 {time} 토큰을 사용 합니다. 날짜 형식 (예: YYYY/MM/DD, DD/MM/YYYY 또는 MM-DD-YYYY)을 선택 합니다. 시간 형식으로 HH를 사용 합니다. 출력 기록기의 수는 [완전히 병렬화 쿼리에](stream-analytics-scale-jobs.md)대 한 입력 분할을 따릅니다.
+파티션 키의 경우 경로 접두사 패턴에 {date} 및 {time} 토큰을 사용합니다. 날짜 형식을 선택합니다(예: YYYY/MM/DD, DD/MM/YYYY 또는 MM-DD-YYYY). 시간 형식으로 HH를 사용합니다. 출력 작성기의 수는 [완전히 병렬 가능한 쿼리](stream-analytics-scale-jobs.md)의 입력 분할을 따릅니다.
 
 ## <a name="output-batch-size"></a>출력 일괄 처리 크기
 
-최대 메시지 크기는 [Data Lake Storage 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-storage-limits)을 참조 하세요. 일괄 처리 크기를 최적화 하려면 쓰기 작업당 최대 4mb를 사용 합니다.
+최대 메시지 크기는 [Data Lake Storage 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-storage-limits)을 참조하세요. 일괄 처리 크기를 최적화하려면 쓰기 작업당 최대 4MB를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [관리 되는 id를 사용 하 여 Azure Data Lake Storage Gen1에 Stream Analytics 인증 (미리 보기)](stream-analytics-managed-identities-adls.md)
+* [관리 ID를 사용하여 Azure Data Lake Storage Gen1 출력에 대해 Stream Analytics 인증(미리 보기)](stream-analytics-managed-identities-adls.md)
 * [빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)

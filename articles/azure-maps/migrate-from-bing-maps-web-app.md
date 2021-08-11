@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 2b072107275fba1ff83ab3ddac63ed8bf7766356
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8726f6211ef792064e9e180a8c2e34383eeb6d53
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100389113"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441575"
 ---
 # <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>자습서: Bing Maps에서 웹앱 마이그레이션
 
@@ -33,7 +33,7 @@ Bing Maps를 사용하는 웹앱은 Bing Maps V8 JavaScript SDK를 사용하는 
 
 기존 웹 애플리케이션을 마이그레이션하는 경우 Cesium, Leaflet, OpenLayers 같은 오픈 소스 지도 컨트롤 라이브러리를 사용하고 있는지 확인하세요. 사용 중이라면 해당 라이브러리를 계속 사용할 수 있으며, Azure Maps 타일 서비스([도로 타일](/rest/api/maps/render/getmaptile) \| [위성 타일](/rest/api/maps/render/getmapimagerytile))에 연결하면 됩니다. 아래 링크는 일반적으로 사용되는 오픈 소스 지도 컨트롤 라이브러리에서 Azure Maps를 사용하는 방법에 대해 자세히 설명합니다.
 
-* [Cesium](https://cesiumjs.org/) - 웹용 3D 지도 컨트롤입니다. [코드 샘플](https://azuremapscodesamples.azurewebsites.net/?search=Cesium) \| [플러그 인 리포지토리]()
+* [Cesium](https://www.cesium.com/) - 웹용 3D 지도 컨트롤입니다. [코드 샘플](https://azuremapscodesamples.azurewebsites.net/?search=Cesium) \| [플러그 인 리포지토리]()
 * [Leaflet](https://leafletjs.com/) – 웹용 경량 2D 지도 컨트롤입니다. [코드 샘플](https://azuremapscodesamples.azurewebsites.net/?search=leaflet) \| [플러그 인 리포지토리]()
 * [OpenLayers](https://openlayers.org/) - 프로젝션을 지원하는 웹용 2D 지도 컨트롤입니다. [코드 샘플](https://azuremapscodesamples.azurewebsites.net/?search=openlayers) \| [플러그 인 리포지토리]()
 
@@ -1255,7 +1255,7 @@ Bing 맵과 Azure 맵은 사용자가 맵을 이동하고 확대/축소할 때 �
 
 **이전: Bing Maps**
 
-Bing Maps에서 그라운드 오버레이를 만들 때 오버레이할 이미지의 URL과 이 이미지를 맵에 바인딩할 경계 상자를 지정해야 합니다. 이 예제에서는 [뉴저지주 뉴어크의 1922년](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) 맵 이미지를 맵에 오버레이합니다.
+Bing Maps에서 그라운드 오버레이를 만들 때 오버레이할 이미지의 URL과 이 이미지를 맵에 바인딩할 경계 상자를 지정해야 합니다. 이 예제에서는 뉴저지주 뉴어크의 1922년 맵 이미지를 맵에 오버레이합니다.
 
 ```html
 <!DOCTYPE html>

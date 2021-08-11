@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: eefef0eb61df9aa0597206b537f3d58e8b8b3213
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65874a66fd6e3843f7d1a3dc1e7d088d392df645
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96484824"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "114284991"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>자습서: Azure Private 엔드포인트를 사용하여 스토리지 계정에 연결
 
@@ -105,7 +105,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 리소스 그룹 | **myResourceGroup** 을 선택합니다. |
     | **인스턴스 세부 정보** |  |
     | 가상 머신 이름 | **myVM** 을 입력합니다. |
-    | Azure 지역 | **미국 동부** 를 선택합니다. |
+    | 지역 | **미국 동부** 를 선택합니다. |
     | 가용성 옵션 | **인프라 중복이 필요하지 않습니다** 를 선택합니다. |
     | 이미지 | **Windows Server 2019 Datacenter - Gen1** 을 선택합니다. |
     | Azure Spot 인스턴스 | **아니요** 를 선택합니다. |
@@ -131,6 +131,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 5. **검토 + 만들기** 를 선택합니다. 
   
 6. 설정을 검토한 다음, **만들기** 를 선택합니다.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="create-storage-account-with-a-private-endpoint"></a>프라이빗 엔드포인트로 스토리지 계정을 만듭니다.
 

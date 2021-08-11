@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 첫 번째 Ruby 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 Ruby용 Resource Graph gem을 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
-ms.date: 05/01/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
-ms.openlocfilehash: 40950a5ca575df67f04830446a547f8d3dd1bd92
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 3c9cfcc71dc3ec3b0ca2d6b3e665e63fd3a57d1c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324134"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459930"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-ruby"></a>빠른 시작: Ruby를 사용하여 첫 번째 Resource Graph 쿼리 실행
 

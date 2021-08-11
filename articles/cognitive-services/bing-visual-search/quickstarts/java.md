@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.custom: devx-track-java
 ms.author: scottwhi
-ms.openlocfilehash: 8974dbef47938460e5a1b32d4f6004a9fd35f9d2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b92010a1e4ea0cb942d3e3749965a1c4399a97f8
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499087"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113286163"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>빠른 시작: Bing Visual Search REST API 및 Java를 사용하여 이미지 인사이트 가져오기
 
@@ -29,7 +29,7 @@ ms.locfileid: "96499087"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [JDK(Java Development Kit) 7 또는 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [JDK(Java Development Kit) 7 또는 8](/azure/developer/java/fundamentals/java-support-on-azure)
 * [Gson Java 라이브러리](https://github.com/google/gson)
 * [Apache HttpComponents](https://hc.apache.org/downloads.cgi)
 

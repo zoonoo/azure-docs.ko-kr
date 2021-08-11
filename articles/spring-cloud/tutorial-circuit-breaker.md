@@ -1,18 +1,18 @@
 ---
 title: 자습서 - Azure Spring Cloud와 함께 회로 차단기 대시보드 사용
 description: Azure Spring Cloud를 사용하는 회로 차단기 대시보드를 사용하는 방법을 알아봅니다.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 04a325f313c57158de082c88c2ef7446cb696fdb
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 39710d88ec22699e8145edd245896975eb24d80e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132380"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114470189"
 ---
 # <a name="tutorial-use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>자습서: Azure Spring Cloud를 사용하는 회로 차단기 대시보드 사용
 

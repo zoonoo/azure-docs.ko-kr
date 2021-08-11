@@ -1,7 +1,7 @@
 ---
-title: 인증 요청에서 사용자 지정 상태 전달 (MSAL.js) | Microsoft
+title: 인증 요청에서 사용자 지정 상태 전달(MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
-description: JavaScript 용 Microsoft 인증 라이브러리 (MSAL.js)를 사용 하 여 인증 요청에서 사용자 지정 상태 매개 변수 값을 전달 하는 방법에 대해 알아봅니다.
+description: JavaScript용 Microsoft 인증 라이브러리(MSAL.js)를 사용하여 인증 요청에서 사용자 지정 state 매개 변수 값을 전달하는 방법을 알아봅니다.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,17 +14,17 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 5c1fad96ea6e3b75b3afdfd4a4d3baac43308541
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98063674"
 ---
-# <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>MSAL.js를 사용 하 여 인증 요청에서 사용자 지정 상태 전달
+# <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>MSAL.js를 사용하여 인증 요청에서 사용자 지정 상태 전달
 
-OAuth 2.0에 의해 정의 된 *상태* 매개 변수는 인증 요청에 포함 되며 교차 사이트 요청 위조 공격을 방지 하기 위해 토큰 응답에도 반환 됩니다. 기본적으로 JavaScript 용 Microsoft 인증 라이브러리 (MSAL.js)는 인증 요청에서 임의로 생성 된 고유한 *상태* 매개 변수 값을 전달 합니다.
+OAuth 2.0에서 정의된 *state* 매개 변수는 인증 요청에 포함되며 교차 사이트 요청 위조 공격을 방지하기 위해 토큰 응답에서도 반환됩니다. 기본적으로 JavaScript용 Microsoft 인증 라이브러리(MSAL.js)는 인증 요청에서 임의로 생성된 고유 *state* 매개 변수 값을 전달합니다.
 
-State 매개 변수를 사용 하 여 리디렉션 전에 앱의 상태 정보를 인코딩할 수도 있습니다. 앱에서 사용자의 상태를이 매개 변수에 대 한 입력으로 전달할 수 있습니다 (예: 설정 된 페이지 또는 보기). MSAL.js 라이브러리를 사용 하면 개체에서 사용자 지정 상태를 상태 매개 변수로 전달할 수 있습니다 `Request` .
+state 매개 변수를 사용하여 리디렉션 전에 앱 상태 정보를 인코딩할 수도 있습니다. 이 매개 변수에 대한 입력으로 앱의 사용자 상태(예: 사용자가 있었던 페이지 또는 보기)를 전달할 수 있습니다. MSAL.js 라이브러리를 사용하여 사용자 지정 상태를 `Request` 개체의 state 매개 변수로 전달할 수 있습니다.
 
 ```javascript
 // Request type
@@ -45,11 +45,11 @@ export type AuthenticationParameters = {
 ```
 
 > [!Note]
-> 캐시 된 토큰을 건너뛰고 서버로 이동 하려면 `forceRefresh` 로그인/토큰 요청을 수행 하는 데 사용 되는 AuthenticationParameters 개체에 부울을 전달 하세요.
-> `forceRefresh` 응용 프로그램의 성능에 미치는 영향 때문에 기본적으로를 사용 하면 안 됩니다.
-> 캐시에 의존 하면 사용자에 게 더 나은 환경이 제공 됩니다.
-> 캐시를 건너뛰는 것은 현재 캐시 된 데이터에 최신 정보가 없다는 것을 알고 있는 경우에만 사용 해야 합니다.
-> 업데이트 된 역할이 있는 새 토큰을 가져와야 하는 사용자에 게 역할을 추가 하는 관리 도구입니다.
+> 캐시된 토큰을 건너뛰고 서버로 이동하려면 로그인/토큰 요청을 만드는 데 사용되는 AuthenticationParameters 개체에 부울 `forceRefresh`를 전달하세요.
+> 애플리케이션 성능에 영향을 미치므로 `forceRefresh`는 기본적으로 사용하지 않아야 합니다.
+> 캐시를 사용하면 사용자에게 더 나은 환경이 제공됩니다.
+> 캐시 건너뛰기는 현재 캐시된 데이터에 최신 정보가 없음을 알고 있는 시나리오에서만 사용해야 합니다.
+> 업데이트된 역할이 있는 새 토큰을 가져와야 하는 사용자에 역할을 추가하는 관리 도구와 같습니다.
 
 예를 들면 다음과 같습니다.
 
@@ -62,7 +62,7 @@ let loginRequest = {
 myMSALObj.loginPopup(loginRequest);
 ```
 
-요청을 보낼 때 MSAL.js에 의해 설정 된 고유 GUID에 전달 된 상태가 추가 됩니다. 응답이 반환 되 면 MSAL.js에서 상태 일치를 확인 한 후 개체의 상태에 전달 된 사용자 지정를 `Response` 로 반환 합니다 `accountState` .
+전달된 상태는 요청을 보낼 때 MSAL.js에서 설정된 고유 GUID에 추가됩니다. 응답이 반환되면 MSAL.js는 상태 일치를 확인한 다음, 사용자 지정 전달된 상태를 `Response` 개체에서 `accountState`로 반환합니다.
 
 ```javascript
 export type AuthResponse = {
@@ -78,4 +78,4 @@ export type AuthResponse = {
 };
 ```
 
-자세히 알아보려면 MSAL.js를 사용 하 여 [SPA (단일 페이지 응용 프로그램) 빌드](scenario-spa-overview.md) 를 참조 하세요.
+자세한 내용은 MSAL.js를 사용하여 [SPA(단일 페이지 애플리케이션) 빌드](scenario-spa-overview.md)를 참조하세요.

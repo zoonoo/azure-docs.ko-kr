@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 05/20/2020
 ms.openlocfilehash: 3301d00dce6feb00edcb70ba9edfedcce2e31ec9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98929205"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>Apache ZooKeeper 서버가 Azure HDInsight에서 쿼럼을 형성하지 못함
@@ -24,7 +24,7 @@ ms.locfileid: "98929205"
 
 ## <a name="sample-log"></a>샘플 로그
 
-Yarn 로그 (헤드 노드의/var/log/hadoop-yarn/yarn/yarn-yarn * .log)에 다음과 유사한 오류 메시지가 표시 될 수 있습니다.
+yarn 로그(헤드 노드의 /var/log/hadoop-yarn/yarn/yarn-yarn*.log)에서 다음과 유사한 오류 메시지가 표시될 수 있습니다.
 
 ```output
 2020-05-05 03:17:18.3916720|Lost contact with Zookeeper. Transitioning to standby in 10000 ms if connection is not reestablished.
@@ -113,7 +113,7 @@ Node count: 133212
 
 ## <a name="cancelledkeyexception-in-the-zookeeper-server-log-doesnt-require-snapshot-cleanup"></a>Zookeeper 서버 로그의 CancelledKeyException에는 스냅샷 정리가 필요하지 않음
 
-* 이 예외는 사육 아웃 서버 (/var/log/zookeeper/zookeeper-zookeeper-* 또는/var/log/hdinsight-zookeeper/zookeeper * 파일)에서 볼 수 있습니다.
+* 이 예외는 Zookeeper 서버(/var/log/zookeeper/zookeeper-zookeeper-* 또는 /var/log/hdinsight-zookeeper/zookeeper* 파일)에서 표시됩니다.
 * 이 예외는 일반적으로 클라이언트가 더 이상 활성 상태가 아니므로 서버에서 메시지를 보낼 수 없음을 의미합니다.
 * 또한 이 예외는 Zookeeper 클라이언트가 중간에 세션을 종료함을 나타냅니다.
 * 이 문서에 설명된 다른 증상을 확인합니다.

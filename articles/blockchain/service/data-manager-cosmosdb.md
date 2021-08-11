@@ -4,12 +4,12 @@ description: Azure Blockchain Service용 Blockchain Data Manager를 사용하여
 ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
-ms.openlocfilehash: b054688fb524d82e758f2ac1a9ff643293bc3b29
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 22b9d881064749fa7f2a17460a9fb1cb6d0f71df
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "110465751"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112239910"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>자습서: Blockchain Data Manager를 사용하여 Azure Cosmos DB로 데이터 보내기
 
@@ -164,7 +164,7 @@ Azure Storage 계정을 삭제해도 되고 또 다른 블록체인 애플리케
 
 ## <a name="create-azure-cosmos-db"></a>Azure Cosmos DB 만들기
 
-[!INCLUDE [cosmos-db-create-storage-account](../../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-storage-account](../../cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 ### <a name="add-a-database-and-container"></a>데이터베이스 및 컨테이너 추가
 

@@ -6,16 +6,16 @@ author: peiliu
 manager: rejooyan
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/11/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: peiliu
-ms.openlocfilehash: 177c433fcc1fb990a610405c8343340314816966
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 44cf84b1a9a045d1f9ecd6c6aaf3a8224ec273a6
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111430423"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113112019"
 ---
 Communication Services C# SMS SDK를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작합니다.
 
@@ -24,7 +24,7 @@ Communication Services C# SMS SDK를 사용하여 SMS 메시지를 보내 Azure 
 > [!NOTE]
 > [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendSMS)에서 이 빠른 시작에 대한 최종 코드 칮기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 운영 체제에 대한 최신 버전의 [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)

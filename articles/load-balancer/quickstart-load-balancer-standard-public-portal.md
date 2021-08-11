@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 7c19c4963ad8c378e1282180800fd839e20edfdd
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a0952301da222282ff5f1e283a9326328da2715e
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056337"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "114289595"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
@@ -108,7 +108,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | **myHealthProbe** 를 입력합니다. |
+    | 속성 | **myHealthProbe** 를 입력합니다. |
     | 프로토콜 | **HTTP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다.|
     | 간격 | 프로브 시도 **간격**(초)으로 **15** 를 입력합니다. |
@@ -136,7 +136,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | **myHTTPRule** 을 입력합니다. |
+    | 속성 | **myHTTPRule** 을 입력합니다. |
     | IP 버전 | **IPv4** 를 선택합니다. |
     | 프런트 엔드 IP 주소 | **LoadBalancerFrontEnd** 를 입력합니다. |
     | 프로토콜 | **TCP** 를 선택합니다. |
@@ -278,6 +278,8 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     | Name |  **myVM2** |**myVM3**|
     | 가용성 영역 | **2** |**3**|
     | 네트워크 보안 그룹 | 기존 **myNSG** 를 선택합니다.| 기존 **myNSG** 를 선택합니다.|
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="create-outbound-rule-configuration"></a>아웃바운드 규칙 구성 만들기
 부하 분산 디바이스 아웃바운드 규칙은 백 엔드 풀의 VM에 대한 아웃바운드 SNAT를 구성합니다. 
@@ -451,7 +453,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | **myHealthProbe** 를 입력합니다. |
+    | 속성 | **myHealthProbe** 를 입력합니다. |
     | 프로토콜 | **HTTP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다.|
     | 경로 | **/** 를 입력합니다. |
@@ -479,7 +481,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | **myHTTPRule** 을 입력합니다. |
+    | 속성 | **myHTTPRule** 을 입력합니다. |
     | IP 버전 | **IPv4** 를 선택합니다. |
     | 프런트 엔드 IP 주소 | **LoadBalancerFrontEnd** 를 입력합니다. |
     | 프로토콜 | **TCP** 를 선택합니다. |
@@ -564,6 +566,8 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     | Name |  **myVM2** |**myVM3**|
     | 가용성 집합| **myAvailabilitySet** 을 선택합니다. | **myAvailabilitySet** 을 선택합니다.|
     | 네트워크 보안 그룹 | 기존 **myNSG** 를 선택합니다.| 기존 **myNSG** 를 선택합니다.|
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ### <a name="add-virtual-machines-to-the-backend-pool"></a>백 엔드 풀에 가상 머신 추가
 

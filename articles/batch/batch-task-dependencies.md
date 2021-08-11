@@ -5,15 +5,15 @@ ms.topic: how-to
 ms.date: 12/28/2020
 ms.custom: H1Hack27Feb2017, devx-track-csharp
 ms.openlocfilehash: ef05a98fffc3c0684ad0fa29f2f9f039b388f5ad
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97803938"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>작업 의존 관계를 만들어 다른 작업에 종속된 작업 실행
 
-Batch 태스크 종속성을 사용 하면 하나 이상의 부모 태스크가 완료 된 후 계산 노드에서 실행 되도록 예약 된 태스크를 만들 수 있습니다. 예를 들어, 별도의 병렬 태스크를 포함한 3D 동영상의 각 프레임을 렌더링하는 작업을 만들 수 있습니다. 해당 최종 작업인 "병합 태스크"는 전체 프레임이 성공적으로 렌더링된 경우에만 렌더링된 프레임을 완전한 영화로 함께 병합합니다.
+Batch 태스크 종속성을 통해 하나 이상의 상위 태스크를 완료한 후에 컴퓨팅 노드에서 실행하기 위해 예약된 태스크를 만듭니다. 예를 들어, 별도의 병렬 태스크를 포함한 3D 동영상의 각 프레임을 렌더링하는 작업을 만들 수 있습니다. 해당 최종 작업인 "병합 태스크"는 전체 프레임이 성공적으로 렌더링된 경우에만 렌더링된 프레임을 완전한 영화로 함께 병합합니다.
 
 태스크 종속성이 유용한 몇 가지 시나리오는 다음과 같습니다.
 
@@ -22,7 +22,7 @@ Batch 태스크 종속성을 사용 하면 하나 이상의 부모 태스크가 
 - 프로세스를 미리 렌더링하거나 사후 렌더링하는 경우 다음 태스크를 시작하기 전에 각 태스크를 완료해야 합니다.
 - 다운스트림 태스크가 업스트림 태스크의 출력에 따라 달라지는 다른 작업
 
-기본적으로 종속 태스크는 상위 태스크가 완료된 후에만 실행하기 위해 예약됩니다. 선택적으로 [종속성 작업](#dependency-actions)  을 지정 하 여 기본 동작을 재정의 하 고 부모 태스크가 실패할 때 작업을 실행할 수 있습니다.
+기본적으로 종속 태스크는 상위 태스크가 완료된 후에만 실행하기 위해 예약됩니다. 필요에 따라 상위 태스크가 실패한 경우 기본 동작을 재정의하고 태스크를 실행하는 [종속성 동작](#dependency-actions)을 지정할 수 있습니다.
 
 ## <a name="task-dependencies-with-batch-net"></a>Batch .NET을 사용한 태스크 종속성
 
@@ -44,7 +44,7 @@ unboundJob.UsesTaskDependencies = true;
 
 ## <a name="create-dependent-tasks"></a>종속성 태스크 만들기
 
-하나 이상의 상위 태스크를 완료하는 데 따라 달라지는 태스크를 만들려면 태스크가 다른 태스크"에 종속"되도록 지정할 수 있습니다. Batch .NET에서 [Taskdependencies](/dotnet/api/microsoft.azure.batch.taskdependencies) 클래스의 인스턴스를 사용 하 여 [DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson) 속성을 구성 합니다.
+하나 이상의 상위 태스크를 완료하는 데 따라 달라지는 태스크를 만들려면 태스크가 다른 태스크"에 종속"되도록 지정할 수 있습니다. Batch .NET에서 [TaskDependencies](/dotnet/api/microsoft.azure.batch.taskdependencies) 클래스의 인스턴스를 사용하여 [CloudTask.DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson) 속성을 구성합니다.
 
 ```csharp
 // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
@@ -58,26 +58,26 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 이 코드 조각은 태스크 ID가 "Flowers"인 종속 태스크를 만듭니다. "Flowers" 태스크는 "Rain" 및 "Sun" 태스크에 따라 달라집니다. "Rain" 및 "Sun" 태스크를 성공적으로 완료한 후에 "Flowers" 태스크를 컴퓨팅 노드에서 실행되도록 예약합니다.
 
 > [!NOTE]
-> 기본적으로 태스크가 완료 상태이고 해당 종료 코드가 `0`인 경우 성공적으로 완료되었다고 간주됩니다. Batch .NET에서이는 [cloudtask. State](/dotnet/api/microsoft.azure.batch.cloudtask.state) 속성 값이이 `Completed` 고 Cloudtask의 [Taskexecutioninformation. ExitCode](/dotnet/api/microsoft.azure.batch.taskexecutioninformation.exitcode) 속성 값은입니다. `0` 이를 변경 하는 방법에 대 한 자세한 내용은 [종속성 작업](#dependency-actions) 섹션을 참조 하세요.
+> 기본적으로 태스크가 완료 상태이고 해당 종료 코드가 `0`인 경우 성공적으로 완료되었다고 간주됩니다. 즉, Batch .NET에서 [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state) 속성 값은 `Completed`이고, CloudTask의 [TaskExecutionInformation.ExitCode](/dotnet/api/microsoft.azure.batch.taskexecutioninformation.exitcode) 속성 값은 `0`입니다. 변경 방법에 대해 알아보려면 [종속성 작업](#dependency-actions) 섹션을 참조하세요.
 
 ## <a name="dependency-scenarios"></a>종속성 시나리오
 
-Azure Batch에서 사용할 수 있는 세 가지 기본 태스크 종속성 시나리오는 일대일, 일대다 및 태스크 ID 범위 종속성입니다. 이러한 세 가지 시나리오를 결합 하 여 네 번째 시나리오를 제공할 수 있습니다. 다 대 다.
+Azure Batch에서 사용할 수 있는 세 가지 기본 태스크 종속성 시나리오는 일대일, 일대다 및 태스크 ID 범위 종속성입니다. 이러한 세 가지 시나리오를 결합하여 네 번째 시나리오인 다대다를 제공할 수 있습니다.
 
 | 시나리오&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 예제 | 그림 |
 |:---:| --- | --- |
-|  [일대일](#one-to-one) |*taskB* 가 *taskA* 에 종속됨 <p/> *taskB* 는 *taskA* 가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |:::image type="content" source="media/batch-task-dependency/01_one_to_one.png" alt-text="일대일 작업 종속성 시나리오를 보여 주는 다이어그램입니다."::: |
-|  [일 대 다](#one-to-many) |*taskC* 는 *taskA* 및 *taskB* 에 종속됨 <p/> *taskC* 는 *taskA* 및 *taskB* 가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |:::image type="content" source="media/batch-task-dependency/02_one_to_many.png" alt-text="일대다 태스크 종속성 시나리오를 보여 주는 다이어그램입니다."::: |
-|  [태스크 ID 범위](#task-id-range) |*taskD* 가 태스크의 범위에 종속됨 <p/> *taskD* 는 ID *1*-*10* 을 가진 태스크가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |:::image type="content" source="media/batch-task-dependency/03_task_id_range.png" alt-text="작업 ID 범위 작업 종속성 시나리오를 보여 주는 다이어그램입니다."::: |
+|  [일대일](#one-to-one) |*taskB* 가 *taskA* 에 종속됨 <p/> *taskB* 는 *taskA* 가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |:::image type="content" source="media/batch-task-dependency/01_one_to_one.png" alt-text="일대일 작업 종속성 시나리오를 보여 주는 다이어그램"::: |
+|  [일 대 다](#one-to-many) |*taskC* 는 *taskA* 및 *taskB* 에 종속됨 <p/> *taskC* 는 *taskA* 및 *taskB* 가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |:::image type="content" source="media/batch-task-dependency/02_one_to_many.png" alt-text="일대다 작업 종속성 시나리오를 보여 주는 다이어그램"::: |
+|  [태스크 ID 범위](#task-id-range) |*taskD* 가 태스크의 범위에 종속됨 <p/> *taskD* 는 ID *1*-*10* 을 가진 태스크가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |:::image type="content" source="media/batch-task-dependency/03_task_id_range.png" alt-text="작업 ID 범위 태스크 종속성 시나리오를 보여 주는 다이어그램"::: |
 
 > [!TIP]
 > 태스크 C, D, E 및 F는 각각 태스크 A 및 B에 종속되는 경우 **다대다** 관계를 만들 수 있습니다. 예를 들어, 다운스트림 태스크가 여러 업스트림 태스크의 출력에 따라 달라지는 병렬화된 전처리 시나리오에서 유용합니다.
 > 
-> 이 섹션의 예제에서는 부모 태스크가 성공적으로 완료된 후에 종속 태스크가 실행됩니다. 이 동작은 종속 태스크에 대한 기본 동작입니다. 기본 동작을 재정의 하는 [종속성 작업](#dependency-actions)  을 지정 하 여 부모 태스크가 실패 한 후 종속 작업을 실행할 수 있습니다.
+> 이 섹션의 예제에서는 부모 태스크가 성공적으로 완료된 후에 종속 태스크가 실행됩니다. 이 동작은 종속 태스크에 대한 기본 동작입니다. 기본 동작을 재정의하는 [종속성 작업](#dependency-actions)을 지정하여 상위 태스크에 실패한 후에 종속 태스크를 실행할 수 있습니다.
 
 ### <a name="one-to-one"></a>일 대 일
 
-일대일 관계의 경우 태스크는 상위 태스크를 성공적으로 완료했는지에 따라 달라집니다. 종속성을 만들려면 [DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson) 속성을 채울 때 [Taskdependencies. onid](/dotnet/api/microsoft.azure.batch.taskdependencies.onid) 정적 메서드에 단일 태스크 ID를 제공 합니다.
+일대일 관계의 경우 태스크는 상위 태스크를 성공적으로 완료했는지에 따라 달라집니다. 종속성을 만들려면 [CloudTask.DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson) 속성을 채우는 경우 단일 작업 ID를 [TaskDependencies](/dotnet/api/microsoft.azure.batch.taskdependencies.onid) 고정 메서드에 제공합니다.
 
 ```csharp
 // Task 'taskA' doesn't depend on any other tasks
@@ -92,7 +92,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 
 ### <a name="one-to-many"></a>일대다
 
-일대다 관계의 경우 태스크는 여러 상위 태스크를 완료했는지에 따라 달라집니다. 종속성을 만들려면 [DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson) 속성을 채울 때 작업 id의 컬렉션을 [Taskdependencies. onids](/dotnet/api/microsoft.azure.batch.taskdependencies.onids) 정적 메서드에 제공 합니다.
+일대다 관계의 경우 태스크는 여러 상위 태스크를 완료했는지에 따라 달라집니다. 종속성을 만들려면 [CloudTask.DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson) 속성을 채우는 경우 작업 ID 컬렉션을 [TaskDependencies.OnIds](/dotnet/api/microsoft.azure.batch.taskdependencies.onids) 고정 메서드에 제공합니다.
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -110,14 +110,14 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 ### <a name="task-id-range"></a>태스크 ID 범위
 
 상위 태스크의 범위에 대한 종속성에서 태스크는 범위 내에 있는 ID를 가진 태스크를 완료했는지에 따라 달라집니다.
-종속성을 만들려면 [Cloudtask](/dotnet/api/microsoft.azure.batch.cloudtask.dependson) 속성을 채울 때 범위의 첫 번째 및 마지막 태스크 Id를 [taskdependencies](/dotnet/api/microsoft.azure.batch.taskdependencies.onidrange) 정적 메서드에 제공 합니다.
+종속성을 만들려면 [CloudTask.DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson) 속성을 채우는 경우 범위의 첫 번째 작업 ID와 마지막 작업 ID를 [TaskDependencies](/dotnet/api/microsoft.azure.batch.taskdependencies.onidrange) 고정 메서드에 제공합니다.
 
 > [!IMPORTANT]
-> 종속성에 대해 태스크 ID 범위를 사용할 경우 ID가 정수 값을 나타내는 태스크만 범위에 따라 선택됩니다. 예를 들어 범위는 `1..10` 작업 `3` 및을 선택 `7` 하지만는 선택 하지 않습니다 `5flamingoes` .
+> 종속성에 대해 태스크 ID 범위를 사용할 경우 ID가 정수 값을 나타내는 태스크만 범위에 따라 선택됩니다. 예를 들어, 범위 `1..10`에서 태스크 `3` 및 `7`이 선택되지만 `5flamingoes`는 선택되지 않습니다.
 >
 > 범위 종속성을 평가할 때 앞에 오는 0은 의미가 없으므로 문자열 식별자가 `4`, `04` 및 `004`인 작업은 모두 범위 *내* 에 포함되며 `4` 작업으로 처리됩니다. 따라서 처음 완료되는 작업에서 종속성이 충족됩니다.
 >
-> 범위에 있는 모든 작업은 성공적으로 완료 되거나 [종속성 작업](#dependency-actions) 을 **충족** 하도록 설정 된 오류와 함께 완료 되어 종속성을 충족 해야 합니다.
+> **Satisfy** 로 설정된 [종속성 작업](#dependency-actions)에 매핑되는 오류를 성공적으로 완료하거나 해결하여 범위에 있는 모든 태스크가 종속성을 충족해야 합니다.
 
 ```csharp
 // Tasks 1, 2, and 3 don't depend on any other tasks. Because
@@ -143,7 +143,7 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 종속성 작업은 상위 태스크의 성공 또는 실패에 따라 종속 태스크를 실행할 수 있는지 여부를 지정합니다. 예를 들어, 종속 태스크는 데이터가 업스트림 태스크를 완료하도록 대기 중입니다. 업스트림 태스크가 실패할 경우 종속 태스크는 오래된 데이터를 사용하여 실행될 수 있습니다. 이 경우에 종속성 작업은 상위 태스크가 실패하더라도 종속 태스크를 실행할 수 있는지 여부를 지정할 수 있습니다.
 
-종속성 작업은 상위 태스크에 대한 종료 조건을 기반으로 합니다. 다음 종료 조건에 대 한 종속성 작업을 지정할 수 있습니다.
+종속성 작업은 상위 태스크에 대한 종료 조건을 기반으로 합니다. 다음과 같은 종료 조건에 대한 종속성 작업을 지정할 수 있습니다.
 
 - 전처리 오류가 발생할 때
 - 파일을 업로드 오류가 발생할 때 태스크가 **exitCodes** 또는 **exitCodeRanges** 를 통해 지정된 종료 코드로 인해 종료된 다음 파일 업로드 오류가 발생하면 해당 종료 코드로 지정된 작업이 우선적으로 적용됩니다.
@@ -151,12 +151,12 @@ new CloudTask("4", "cmd.exe /c echo 4")
 - 태스크가 **ExitCodeRanges** 속성에서 지정한 범위 내에서 실패한 종료 코드로 인해 종료되는 경우
 - 기본적인 경우(태스크가 **ExitCodes** 또는 **ExitCodeRanges** 로 정의되지 않은 종료 코드로 인해 종료되거나 태스크가 전처리 오류와 함께 종료되고 **PreProcessingError** 속성이 설정되지 않았거나, 태스크가 파일 업로드 오류로 인해 실패하고 **FileUploadError** 속성이 설정되지 않은 경우) 
 
-.NET의 경우 이러한 조건에 대 한 자세한 내용은 [exitconditions](/dotnet/api/microsoft.azure.batch.exitconditions) 클래스를 참조 하세요.
+.NET의 경우 이러한 조건에 대한 자세한 내용은 [ExitConditions](/dotnet/api/microsoft.azure.batch.exitconditions) 클래스를 참조하세요.
 
-.NET에서 종속성 작업을 지정 하려면 exit 조건의 [DependencyAction](/dotnet/api/microsoft.azure.batch.exitoptions.dependencyaction) 속성을 다음 중 하나로 설정 합니다.
+.NET의 종속성 작업을 지정하려면 종료 조건에 대한 [ExitOptions.DependencyAction](/dotnet/api/microsoft.azure.batch.exitoptions.dependencyaction) 속성을 다음 중 하나로 설정합니다.
 
-- **만족**: 부모 태스크가 지정 된 오류와 함께 종료 되는 경우 종속 태스크를 실행할 수 있음을 나타냅니다.
-- **Block**: 종속 작업을 실행할 수 없음을 나타냅니다.
+- **Satisfy**: 지정된 오류로 인해 상위 태스크를 종료하는 경우 종속 태스크를 실행할 수 있음을 나타냅니다.
+- **Block**: 종속 태스크를 실행할 수 없음을 나타냅니다.
 
 **DependencyAction** 속성에 대한 기본 설정은 종료 코드 0의 경우 **충족** 이고 다른 모든 종료 조건의 경우 **차단** 입니다.
 
@@ -197,13 +197,13 @@ new CloudTask("B", "cmd.exe /c echo B")
 
 ## <a name="code-sample"></a>코드 샘플
 
-GitHub의 [Taskdependencies](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies) 샘플 프로젝트는 다음을 보여 줍니다.
+GitHub의 [TaskDependencies](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies) 샘플 프로젝트는 다음을 보여 줍니다.
 
-- 작업에서 태스크 종속성을 사용 하도록 설정 하는 방법
-- 다른 작업에 종속 된 작업을 만드는 방법
+- 작업에 대한 태스크 종속성을 사용하는 방법
+- 다른 태스크에 종속된 태스크를 만드는 방법
 - 컴퓨팅 노드의 풀에서 해당 태스크를 실행하는 방법.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 태스크가 계산 노드에서 실행 하는 응용 프로그램을 배포 하 고 버전을 쉽게 배포 하는 방법을 제공 하는 Batch의 [응용 프로그램 패키지](batch-application-packages.md) 기능에 대해 알아봅니다.
-- [작업 및 태스크에 대 한 오류 검사](batch-job-task-error-checking.md)에 대해 알아봅니다.
+- 컴퓨팅 노드에서 태스크를 실행하는 애플리케이션을 배포하고 버전을 관리하는 쉬운 방법을 제공하는 Batch의 [애플리케이션 패키지](batch-application-packages.md) 기능에 대해 알아봅니다.
+- [작업 및 태스크에 대한 오류 검사](batch-job-task-error-checking.md)애 대해 알아봅니다.

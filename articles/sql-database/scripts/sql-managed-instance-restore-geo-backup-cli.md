@@ -7,16 +7,16 @@ ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-author: shkale-msft
-ms.author: shkale
+author: rothja
+ms.author: jroth
 ms.reviewer: mathoma
 ms.date: 07/03/2019
-ms.openlocfilehash: c0655ae56422ce29d145814b2cf4686684ae95b1
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 014ce4fdc45ba219cc7f7c68aa6b4aa16d192a2f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110698104"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114470041"
 ---
 # <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>CLI를 사용하여 다른 지역으로 Managed Instance 데이터베이스 복원
 

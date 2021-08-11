@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을
 description: 사용자 계정을 Azure AD에서 InVision으로 자동으로 프로비저닝 및 프로비저닝 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 72518dda-d485-45c8-849e-6b27ee09d9a8
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/25/2020
-ms.author: Zhchia
-ms.openlocfilehash: 75da1e2b2f1954b0126b08232046fe09b1c2b6e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: a809c17e744f466ec906f12d6dbd9a7126882c03
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96177946"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113763488"
 ---
 # <a name="tutorial-configure-invision-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 InVision 구성
 

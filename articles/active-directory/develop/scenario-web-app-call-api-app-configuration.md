@@ -1,5 +1,5 @@
 ---
-title: 웹 Api를 호출 하는 웹 앱 구성 | Microsoft
+title: 웹 API를 호출하는 웹앱 구성 | Azure
 titleSuffix: Microsoft identity platform
 description: 웹 API를 호출하는 웹앱의 코드를 구성하는 방법을 알아봅니다.
 services: active-directory
@@ -13,10 +13,10 @@ ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: aa377547f7f4961e199ec8d62bf0f1435296f983
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104669307"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>웹 API를 호출하는 웹앱: 코드 구성
@@ -28,9 +28,9 @@ ms.locfileid: "104669307"
 
 [사용자를 로그인하는 웹앱](scenario-web-app-sign-user-overview.md) 시나리오에서는 첫 번째 단계에 대해서만 다룹니다. 사용자를 로그인할 뿐만 아니라 이제 웹 API를 호출하도록 웹앱을 수정하는 방법을 알아봅니다.
 
-## <a name="microsoft-libraries-supporting-web-apps"></a>웹 앱을 지 원하는 Microsoft 라이브러리
+## <a name="microsoft-libraries-supporting-web-apps"></a>웹앱을 지원하는 Microsoft 라이브러리
 
-웹 앱을 지 원하는 Microsoft 라이브러리는 다음과 같습니다.
+다음 Microsoft 라이브러리는 웹앱을 지원합니다.
 
 [!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
 
@@ -40,12 +40,12 @@ ms.locfileid: "104669307"
 
 ## <a name="client-secrets-or-client-certificates"></a>클라이언트 암호 또는 클라이언트 인증서
 
-이제 웹 앱이 다운스트림 웹 API를 호출 하는 경우 파일의 *appsettings.js* 에 클라이언트 암호 또는 클라이언트 인증서를 제공 합니다. 다음을 지정 하는 섹션을 추가할 수도 있습니다.
+이제 웹앱이 다운스트림 웹 API를 호출하므로 *appsettings.json* 파일에 클라이언트 암호나 클라이언트 인증서를 제공합니다. 다음을 지정하는 섹션을 추가할 수도 있습니다.
 
 - 다운스트림 웹 API의 URL
-- API를 호출 하는 데 필요한 범위
+- API를 호출하는 데 필요한 범위
 
-다음 예에서는 `GraphBeta` 섹션에서 이러한 설정을 지정 합니다.
+다음 예에서는 `GraphBeta` 섹션에서 이러한 설정을 지정합니다.
 
 ```JSON
 {
@@ -66,7 +66,7 @@ ms.locfileid: "104669307"
 }
 ```
 
-클라이언트 암호 대신 클라이언트 인증서를 제공할 수 있습니다. 다음 코드 조각에서는 Azure Key Vault에 저장 된 인증서를 사용 하는 방법을 보여 줍니다.
+클라이언트 암호 대신 클라이언트 인증서를 제공할 수 있습니다. 다음 코드 조각에서는 Azure Key Vault에 저장된 인증서를 사용하는 방법을 보여줍니다.
 
 ```JSON
 {
@@ -91,11 +91,11 @@ ms.locfileid: "104669307"
 }
 ```
 
-*Microsoft. Identity* 는 구성 또는 코드를 통해 인증서를 설명 하는 여러 가지 방법을 제공 합니다. 자세한 내용은 GitHub에서 [인증서 사용](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates) 을 참조 하세요.
+*Microsoft.Identity.Web* 은 구성이나 코드를 통해 인증서를 설명 하는 여러 가지 방법을 제공합니다. 자세한 내용은 GitHub에서 [Microsoft.Identity.Web - 인증서 사용](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates)을 참조하세요.
 
 ## <a name="startupcs"></a>Startup.cs
 
-웹 앱은 다운스트림 API에 대 한 토큰을 획득 해야 합니다. 뒤에 줄을 추가 하 여 지정 `.EnableTokenAcquisitionToCallDownstreamApi()` `.AddMicrosoftIdentityWebApi(Configuration)` 합니다. 이 줄은 `ITokenAcquisition` 컨트롤러 및 페이지 작업에서 사용할 수 있는 서비스를 제공 합니다. 그러나 다음 두 가지 옵션에 표시 된 것 처럼 간단히 수행할 수 있습니다. 또한 `.AddInMemoryTokenCaches()` *시작 .cs* 에서 토큰 캐시 구현을 선택 해야 합니다.
+웹앱은 다운스트림 API의 토큰을 획득해야 합니다. `.EnableTokenAcquisitionToCallDownstreamApi()` 줄을 `.AddMicrosoftIdentityWebApi(Configuration)`의 뒤에 추가하여 이를 지정할 수 있습니다. 이 줄은 컨트롤러 및 페이지 작업에서 사용할 수 있는 `ITokenAcquisition` 서비스를 제공합니다. 그러나 다음 두 가지 옵션에 표시 된 것처럼 더 간단하게 수행할 수 있습니다. 또한 `.AddInMemoryTokenCaches()`처럼 *Startup.cs* 에서 토큰 캐시 구현을 선택해야 합니다.
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -116,16 +116,16 @@ ms.locfileid: "104669307"
    }
    ```
 
-에 전달 되는 범위는 `EnableTokenAcquisitionToCallDownstreamApi` 선택 사항이 며, 웹 앱이 범위를 요청 하 고 사용자가 로그인 할 때 범위에 대 한 사용자 동의를 요청할 수 있도록 합니다. 범위를 지정 하지 않은 경우에는 *Microsoft. Identity. Web* 에서 증분 승인 환경을 사용 하도록 설정 합니다.
+`EnableTokenAcquisitionToCallDownstreamApi` 에 전달되는 범위는 선택 사항이며, 웹앱이 범위를 요청하고 사용자가 로그인할 때 범위에 사용자 동의를 요청할 수 있도록 합니다. 범위를 지정하지 않은 경우에는 *Microsoft.Identity.Web* 에서 증분 동의 환경을 사용하도록 설정합니다.
 
-토큰을 직접 획득 하지 않으려는 *경우, 웹* 앱에서 web API를 호출 하는 두 가지 메커니즘을 제공 합니다. 선택 하는 옵션은 Microsoft Graph 또는 다른 API를 호출 하는지 여부에 따라 달라 집니다.
+토큰을 직접 획득하지 않으려면, *Microsoft.Identity.Web* 은 웹앱에서 웹 API를 호출하는 두 가지 메커니즘을 제공합니다. 선택할 옵션은 Microsoft Graph 또는 다른 API를 호출하는지 여부에 따라 달라집니다.
 
 ### <a name="option-1-call-microsoft-graph"></a>옵션 1: Microsoft Graph 호출
 
-Microsoft Graph *를 호출* 하려는 경우에는 `GraphServiceClient` API 작업에서 (Microsoft Graph SDK에 의해 노출 됨)를 직접 사용할 수 있습니다. Microsoft Graph를 노출 하려면:
+Microsoft Graph를 호출하려면 *Microsoft.Identity.Web* 을 통해 직접 `GraphServiceClient`(Microsoft Graph SDK에 의해 노출됨)를 API 작업에 사용할 수 있습니다. Microsoft Graph를 노출하려면:
 
-1. [Microsoft.azure.webjobs.extensions.microsoftgraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet 패키지를 프로젝트에 추가 합니다.
-1. `.AddMicrosoftGraph()` `.EnableTokenAcquisitionToCallDownstreamApi()` *시작 .cs* 파일에서 뒤에를 추가 합니다. `.AddMicrosoftGraph()` 에는 여러 가지 재정의가 있습니다. 구성 섹션을 매개 변수로 사용 하는 재정의를 사용 하면 코드가 다음과 같이 됩니다.
+1. [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet 패키지를 프로젝트에 추가합니다.
+1. `.AddMicrosoftGraph()`을 `.EnableTokenAcquisitionToCallDownstreamApi()` 뒤에, *Startup.cs* 파일에서 추가합니다. `.AddMicrosoftGraph()` 에는 여러 재정의가 있습니다. 구성 섹션을 매개 변수로 사용하는 재정의를 사용하면 코드가 다음과 같이 됩니다.
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -149,7 +149,7 @@ Microsoft Graph *를 호출* 하려는 경우에는 `GraphServiceClient` API 작
 
 ### <a name="option-2-call-a-downstream-web-api-other-than-microsoft-graph"></a>옵션 2: Microsoft Graph 이외의 다운스트림 웹 API 호출
 
-Microsoft Graph 이외의 웹 API를 호출 하려면 토큰을  `.AddDownstreamWebApi()` 요청 하 고 다운스트림 웹 API를 호출 하는을 제공 합니다.
+Microsoft Graph 이외의 웹 API를 호출하려면 토큰을 *Microsoft.Identity.Web* 은 토큰을 요청하고 다운스트림 웹 API를 호출하는 `.AddDownstreamWebApi()`를 제공합니다.
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -173,18 +173,18 @@ Microsoft Graph 이외의 웹 API를 호출 하려면 토큰을  `.AddDownstream
 
 ### <a name="summary"></a>요약
 
-웹 Api와 마찬가지로 다양 한 토큰 캐시 구현을 선택할 수 있습니다. 자세한 내용은 GitHub의 [Microsoft Identity cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) 을 참조 하세요.
+웹 API와 마찬가지로 다양 한 토큰 캐시 구현을 선택할 수 있습니다. 자세한 내용은 GitHub의 [Microsoft.Identity.Web - 토큰 캐시 serialization](https://aka.ms/ms-id-web/token-cache-serialization)을 참조하세요.
 
-다음 이미지는 *Microsoft* 의 다양 한 가능성과 *시작 .cs* 파일에 미치는 영향을 보여 줍니다.
+다음 이미지는 *Microsoft.Identity.Web* 의 다양한 가능성과 *Startup.cs* 파일에 미치는 영향을 보여줍니다.
 
-:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="웹 API를 호출 하 고 토큰 캐시 구현을 지정 하는 시작 점 C의 서비스 구성 옵션을 보여 주는 블록 다이어그램":::
+:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="웹 API를 호출하고 토큰 캐시 구현을 지정하는 시작점 C S의 서비스 구성 옵션을 보여주는 블록 다이어그램":::
 
 > [!NOTE]
-> 여기에서 코드 예제를 완전히 이해 하려면 [ASP.NET Core 기본 사항](/aspnet/core/fundamentals)에 대해 잘 알고 있어야 하며 특히 [종속성 주입](/aspnet/core/fundamentals/dependency-injection) 및 [옵션](/aspnet/core/fundamentals/configuration/options)을 사용 합니다.
+> 여기의 코드 예제를 완전히 이해하려면 [ASP.NET Core 기본](/aspnet/core/fundamentals), 특히 [종속성 주입](/aspnet/core/fundamentals/dependency-injection) 및 [옵션](/aspnet/core/fundamentals/configuration/options)에 대해 잘 알고 있어야 합니다.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-사용자 로그인은 OIDC (Openid connect Connect) 미들웨어에 위임 되므로 OIDC 프로세스와 상호 작용 해야 합니다. 상호 작용하는 방법은 사용하는 프레임워크에 따라 다릅니다.
+사용자 로그인은 OIDC(OpenID Connect) 미들웨어에 위임되므로 OIDC 프로세스와 상호 작용해야 합니다. 상호 작용하는 방법은 사용하는 프레임워크에 따라 다릅니다.
 
 ASP.NET의 경우 미들웨어 OIDC 이벤트를 구독합니다.
 
@@ -210,7 +210,7 @@ ASP.NET의 경우 미들웨어 OIDC 이벤트를 구독합니다.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Microsoft.Identity.Web은 올바른 OpenID Connect 설정을 지정하고, 코드를 받은 이벤트를 구독하고, 코드를 교환하여 코드를 단순화합니다. 인증 코드를 교환하는 데 필요한 추가 코드는 없습니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [Microsoft의 system.web 소스 코드](https://github.com/AzureAD/microsoft-identity-web/blob/c29f1a7950b940208440bebf0bcb524a7d6bee22/src/Microsoft.Identity.Web/WebAppExtensions/WebAppCallsWebApiAuthenticationBuilderExtensions.cs#L140) 를 참조 하십시오.
+Microsoft.Identity.Web은 올바른 OpenID Connect 설정을 지정하고, 코드를 받은 이벤트를 구독하고, 코드를 교환하여 코드를 단순화합니다. 인증 코드를 교환하는 데 필요한 추가 코드는 없습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [Microsoft.Identity.Web 소스 코드](https://github.com/AzureAD/microsoft-identity-web/blob/c29f1a7950b940208440bebf0bcb524a7d6bee22/src/Microsoft.Identity.Web/WebAppExtensions/WebAppCallsWebApiAuthenticationBuilderExtensions.cs#L140)를 참조하세요.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -416,7 +416,7 @@ services.AddDistributedSqlServerCache(options =>
 });
 ```
 
-토큰 캐시 공급자에 대 한 자세한 내용은 ASP.NET Core 웹 앱 자습서 뿐만 아니라 Microsoft의 [token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) 문서를 참조 하세요. [ ](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) 웹 앱 자습서의 토큰 캐시 단계입니다.
+토큰 캐시 공급자에 대한 자세한 내용은 Microsoft.Identity.Web의 [토큰 캐시 serialization](https://aka.ms/ms-id-web/token-cache-serialization) 문서와 웹앱 자습서의 [ASP.NET Core 웹앱 자습서 | 토큰 캐시 ](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) 단계를 참조하세요.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -515,4 +515,4 @@ def _build_msal_app(cache=None):
 
 이 시점에서 사용자가 로그인하면 토큰이 토큰 캐시에 저장됩니다. 웹앱의 다른 부분에서 사용되는 방법을 살펴보겠습니다.
 
-[전역 로그 아웃 시 캐시에서 계정 제거](scenario-web-app-call-api-sign-in.md)
+[전역 로그아웃 시 캐시에서 계정 제거](scenario-web-app-call-api-sign-in.md)

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 721fbaf1a3b2418677d07e8ac39fa733164c1459
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ad52f889cdf3d4d1faaf83ee87154b6a51a2860d
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179564"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287243"
 ---
 # <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>빠른 시작: Kotlin 및 Maven을 사용하여 첫 번째 함수 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "102179564"
 
 Kotlin을 사용하여 함수를 개발하려면 다음을 설치해야 합니다.
 
-- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), 버전 8
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), 버전 8
 - [Apache Maven](https://maven.apache.org), 버전 3.0 이상
 - [Azure CLI](/cli/azure)
 - [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.6.666 이상

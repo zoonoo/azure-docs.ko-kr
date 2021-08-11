@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 05/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e927415e0a1d2ce7d52e602eddfffb0eae5387b5
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 77b41a73ca092f36f38d35f525bc381e29848396
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076567"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113037961"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 Azure Storage에 액세스 
 
@@ -79,7 +79,7 @@ ms.locfileid: "112076567"
 
 VM의 관리 ID를 사용하여 Azure Storage Blob에서 데이터를 검색할 수 있습니다. Azure 리소스에 대한 관리 ID는 Azure AD 인증을 지원하는 리소스를 인증하는 데 사용할 수 있습니다.  스토리지 계정이 포함된 리소스 그룹의 범위에서 관리 ID에 [storage-blob-data-reade](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 역할을 할당하여 액세스 권한을 부여합니다.
  
-자세한 단계는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.”
+세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 >[!NOTE]
 > 스토리지에 대한 권한을 부여하는 데 사용할 수 있는 다양한 역할에 대한 자세한 내용은 [Azure Active Directory를 사용하여 Blob 및 큐에 대한 액세스 권한 부여](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)를 검토하세요.

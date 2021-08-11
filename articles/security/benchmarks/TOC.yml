@@ -140,7 +140,7 @@
     - name: Azure Migrate 보안 기준
       href: ../../migrate/security-baseline.md
     - name: Azure Peering Service 보안 기준
-      href: ../../peering-service/security-baseline.md
+      href: /security/benchmark/azure/baselines/peering-service-security-baseline
     - name: Azure Policy 보안 기준
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
     - name: Azure Private Link 보안 기준
@@ -206,7 +206,7 @@
     - name: Network Watcher 보안 기준
       href: ../../network-watcher/security-baseline.md
     - name: Power BI 기준
-      href: /power-bi/fundamentals/security-baseline
+      href: /security/benchmark/azure/baselines/power-bi-security-baseline
     - name: Security Center 기준
       href: ../../security-center/security-baseline.md
     - name: Service Bus 기준

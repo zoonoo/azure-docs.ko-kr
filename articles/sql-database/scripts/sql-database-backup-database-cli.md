@@ -7,16 +7,16 @@ ms.subservice: backup-restore
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: shkale-msft
-ms.author: shkale
+author: rothja
+ms.author: jroth
 ms.reviewer: mathoma
 ms.date: 03/27/2019
-ms.openlocfilehash: 0485600654fd7a041b62f07c38dfa200845cdae8
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 36e6168cc0d206ce76586d55aabdfa554479616a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110703156"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114470019"
 ---
 # <a name="use-cli-to-backup-an-azure-sql-single-database-to-an-azure-storage-container"></a>CLI를 사용하여 Azure SQL 단일 데이터베이스를 Azure 스토리지 컨테이너에 백업
 

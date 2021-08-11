@@ -1,6 +1,6 @@
 ---
 title: Azure AD 조인 디바이스란?
-description: Azure AD 조인 장치에 대해 알아보고, 사용자 환경의 리소스에 액세스 하는 장치를 관리 하는 데 장치 id를 관리 하는 방법을 알아봅니다.
+description: Azure AD 조인 장치 및 장치 ID 관리가 사용자 환경의 리소스에 액세스하는 장치를 관리하는 데 어떻게 도움이 되는지 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,23 +12,23 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2b7cc0535549f2dbcdef4ab043ee506527fdbc5f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90601455"
 ---
 # <a name="azure-ad-joined-devices"></a>Azure AD 조인 디바이스
 
 Azure AD 조인은 클라우드 우선 또는 클라우드 전용으로 사용하려는 조직을 위한 것입니다. 모든 조직에서 규모 또는 업계에 관계없이 Azure AD 조인 디바이스를 배포할 수 있습니다. Azure AD 조인은 하이브리드 환경에서도 작동하므로 클라우드 및 온-프레미스 앱과 리소스 모두에 액세스할 수 있습니다.
 
-| Azure AD 조인 | 설명 |
+| Azure AD 조인 | Description |
 | --- | --- |
 | **정의** | 조직 계정에서 디바이스에 로그인하는 데 필요한 Azure AD에만 조인됩니다. |
 | **기본 대상 그룹** | 클라우드 전용 및 하이브리드 조직 모두에 적합합니다. |
 |   | 조직의 모든 사용자에게 적용됩니다. |
 | **디바이스 소유권** | 조직 |
-| **운영 체제** | Windows 10 Home을 제외한 모든 Windows 10 장치 |
+| **운영 체제** | Windows 10 Home을 제외한 모든 Windows 10 디바이스 |
 |   | [Azure에서 실행되는 Windows Server 2019 Virtual Machines](howto-vm-sign-in-azure-ad-windows.md)(서버 코어는 지원되지 않음) |
 | **프로비전** | 셀프 서비스: Windows OOBE 또는 설정 |
 |   | 대량 등록 |
@@ -58,11 +58,11 @@ Azure AD 가입은 기본적으로 온-프레미스 Windows Server Active Direct
 
 - Azure AD 및 Intune 같은 MDM을 사용하여 클라우드 기반 인프라로 전환하려 합니다.
 - 온-프레미스 도메인 가입을 사용할 수 없습니다. 예를 들어 제어되는 태블릿 및 휴대폰과 같은 모바일 디바이스가 필요한 경우입니다.
-- 사용자가 Azure AD와 통합 된 Microsoft 365 또는 다른 SaaS 앱에 주로 액세스 해야 합니다.
+- 사용자가 기본적으로 Microsoft 365 또는 Azure AD와 통합된 다른 SaaS 앱에 액세스해야 합니다.
 - Active Directory 대신 Azure AD에서 사용자 그룹을 관리하고자 합니다. 예를 들어 이 시나리오는 계절 노동자, 계약자 또는 학생에게 적용할 수 있습니다.
 - 제한된 온-프레미스 인프라를 사용하는 원격 지사에서 작업자에게 조인 기능을 제공하려고 합니다.
 
-Windows 10 Home을 제외한 모든 Windows 10 장치에 대해 Azure AD 조인 장치를 구성할 수 있습니다.
+Windows 10 Home을 제외한 모든 Windows 10 디바이스에 대해 Azure AD 조인 디바이스를 구성할 수 있습니다.
 
 Azure AD 가입 디바이스의 목표는 단순화하는 것입니다.
 

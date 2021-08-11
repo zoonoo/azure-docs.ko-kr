@@ -1,6 +1,6 @@
 ---
 title: 중요한 데이터 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
-description: Threat Modeling Tool에서 중요 한 데이터 완화에 대해 알아봅니다. 완화 정보 및 코드 예제 보기를 참조 하십시오.
+description: Threat Modeling Tool에서 중요한 데이터 완화에 대해 알아봅니다. 완화 정보를 참조하고 코드 예제를 확인하세요.
 services: security
 documentationcenter: na
 author: jegeib
@@ -17,26 +17,26 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 0bcbe35fc6d9f104325bec8a3404ad57a6376cf2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94518127"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>보안 프레임: 중요한 데이터 | Mitigations 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
-| **컴퓨터 신뢰 경계** | <ul><li>[중요 한 정보가 포함 된 경우 이진 파일이 난독 처리 되었는지 확인](#binaries-info)</li><li>[EFS(암호화 파일 시스템)를 사용하여 비밀 사용자 지정 데이터를 보호함](#efs-user)</li><li>[파일 시스템의 애플리케이션에서 저장한 중요한 데이터가 암호화되었는지 확인](#filesystem)</li></ul> | 
+| **컴퓨터 신뢰 경계** | <ul><li>[중요한 정보가 포함된 경우 바이너리는 난독 처리되었는지 확인](#binaries-info)</li><li>[EFS(암호화 파일 시스템)를 사용하여 비밀 사용자 지정 데이터를 보호함](#efs-user)</li><li>[파일 시스템의 애플리케이션에서 저장한 중요한 데이터가 암호화되었는지 확인](#filesystem)</li></ul> | 
 | **웹 애플리케이션** | <ul><li>[브라우저에서 중요한 콘텐츠가 캐시되지 않았는지 확인](#cache-browser)</li><li>[중요한 데이터가 포함된 Web App의 구성 파일의 섹션 암호화](#encrypt-data)</li><li>[중요한 양식 및 입력에서 자동 완성 HTML 특성 명시적으로 사용 중지](#autocomplete-input)</li><li>[사용자 화면에 표시되는 중요한 데이터가 마스킹되었는지 확인](#data-mask)</li></ul> | 
-| **데이터베이스** | <ul><li>[동적 데이터 마스킹을 구현하여 권한 없는 사용자에 대한 중요한 데이터 노출 제한](#dynamic-users)</li><li>[암호가 솔트된 해시 형식으로 저장되었는지 확인](#salted-hash)</li><li>[데이터베이스 열의 중요 한 데이터가 암호화 되어 있는지 확인](#db-encrypted)</li><li>[TDE (데이터베이스 수준 암호화)가 설정 되어 있는지 확인 합니다.](#tde-enabled)</li><li>[데이터베이스 백업이 암호화되었는지 확인](#backup)</li></ul> | 
+| **데이터베이스** | <ul><li>[동적 데이터 마스킹을 구현하여 권한 없는 사용자에 대한 중요한 데이터 노출 제한](#dynamic-users)</li><li>[암호가 솔트된 해시 형식으로 저장되었는지 확인](#salted-hash)</li><li>[데이터베이스 열의 중요한 데이터가 암호화되었는지 확인](#db-encrypted)</li><li>[TDE(데이터베이스 수준 암호화)가 활성화되어 있는지 확인](#tde-enabled)</li><li>[데이터베이스 백업이 암호화되었는지 확인](#backup)</li></ul> | 
 | **앱 API** | <ul><li>[Web API와 관련된 중요한 데이터가 브라우저의 스토리지에 저장되지 않았는지 확인](#api-browser)</li></ul> | 
 | Azure Document DB | <ul><li>[Azure Cosmos DB에 저장된 중요한 데이터 암호화](#encrypt-docdb)</li></ul> | 
-| **Azure IaaS VM 신뢰 경계** | <ul><li>[Azure Disk Encryption를 사용 하 여 Virtual Machines에서 사용 하는 디스크 암호화](#disk-vm)</li></ul> | 
-| **Service Fabric 신뢰 경계** | <ul><li>[Service Fabric 응용 프로그램에서 암호 암호화](#fabric-apps)</li></ul> | 
+| **Azure IaaS VM 신뢰 경계** | <ul><li>[Azure Disk Encryption을 사용하여 Virtual Machines에 사용되는 디스크 암호화](#disk-vm)</li></ul> | 
+| **Service Fabric 신뢰 경계** | <ul><li>[Service Fabric 애플리케이션에서 암호 암호화](#fabric-apps)</li></ul> | 
 | **Dynamics CRM** | <ul><li>[보안 모델링 수행 및 필요한 경우 비즈니스 단위/팀 사용](#modeling-teams)</li><li>[액세스를 최소화하여 중요한 엔터티에 대한 기능 공유](#entities)</li><li>[Dynamics CRM 공유 기능 및 적절한 보안 사례와 관련된 위험에 대한 사용자 학습](#good-practices)</li><li>[예외 관리에서 구성 세부 정보를 표시하는 금지된 개발 표준 규칙 포함](#exception-mgmt)</li></ul> | 
 | **Azure Storage** | <ul><li>[미사용 데이터에 대한 Azure Storage 서비스 암호화(SSE) 사용(미리 보기)](#sse-preview)</li><li>[클라이언트 쪽 암호화를 사용하여 Azure Storage에 중요한 데이터 저장](#client-storage)</li></ul> | 
-| **모바일 클라이언트** | <ul><li>[휴대폰 로컬 스토리지에 기록된 중요한 PII 데이터 암호화](#pii-phones)</li><li>[최종 사용자에 게 배포 하기 전에 생성 된 바이너리 난독 처리](#binaries-end)</li></ul> | 
-| **WCF** | <ul><li>[ClientCredentialType을 인증서 또는 Windows로 설정](#cert)</li><li>[WCF 보안 모드가 활성화되지 않음](#security)</li></ul> | 
+| **모바일 클라이언트** | <ul><li>[휴대폰 로컬 스토리지에 기록된 중요한 PII 데이터 암호화](#pii-phones)</li><li>[최종 사용자에게 배포하기 전에 생성된 바이너리 난독 처리](#binaries-end)</li></ul> | 
+| **WCF** | <ul><li>[clientCredentialType을 인증서 또는 Windows로 설정](#cert)</li><li>[WCF 보안 모드가 활성화되지 않음](#security)</li></ul> | 
 
 ## <a name="ensure-that-binaries-are-obfuscated-if-they-contain-sensitive-information"></a><a id="binaries-info"></a>중요한 정보가 포함된 경우 바이너리는 난독 처리되었는지 확인
 
@@ -80,7 +80,7 @@ ms.locfileid: "94518127"
 | **적용 가능한 기술** | 일반, Web Forms, MVC5, MVC6 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
-| **단계** | 브라우저는 캐싱 및 기록을 목적으로 정보를 저장할 수 있습니다. 이러한 캐시된 파일은 Internet Explorer의 경우 임시 인터넷 파일 폴더와 같은 폴더에 저장됩니다. 이러한 페이지를 다시 참조하는 경우 브라우저는 해당 캐시의 페이지를 표시합니다. 사용자에 게 중요 한 정보 (예: 주소, 신용 카드 정보, 주민 등록 번호 또는 사용자 이름)가 표시 되는 경우이 정보는 브라우저의 캐시에 저장 될 수 있으므로 브라우저의 캐시를 검사 하거나 브라우저의 "뒤로" 단추를 누르기만 하면 검색할 수 있습니다. 모든 페이지에 대해 cache control 응답 헤더 값을 "없음-store"로 설정 합니다. |
+| **단계** | 브라우저는 캐싱 및 기록을 목적으로 정보를 저장할 수 있습니다. 이러한 캐시된 파일은 Internet Explorer의 경우 임시 인터넷 파일 폴더와 같은 폴더에 저장됩니다. 이러한 페이지를 다시 참조하는 경우 브라우저는 해당 캐시의 페이지를 표시합니다. 중요한 정보(예: 해당 주소, 신용 카드 세부 정보, 사회 보장 번호 또는 사용자 이름)를 사용자에게 표시하는 경우 이 정보를 브라우저의 캐시에 저장할 수 있습니다. 따라서 브라우저의 캐시를 검사하거나 브라우저의 "뒤로" 단추를 눌러서 검색할 수 있습니다. 캐시 제어 응답 헤더 값을 모든 페이지에 "no-store"로 설정합니다. |
 
 ### <a name="example"></a>예제
 ```XML

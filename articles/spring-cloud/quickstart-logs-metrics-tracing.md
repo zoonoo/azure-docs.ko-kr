@@ -1,19 +1,19 @@
 ---
 title: 빠른 시작 - 로그, 메트릭 및 추적을 사용하여 Azure Spring Cloud 앱 모니터링
 description: 로그 스트리밍, 로그 분석, 메트릭 및 추적을 사용하여 Azure Spring Cloud에서 PetClinic 샘플 앱을 모니터링합니다.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 04/23/2021
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 9275eb9d5f3206a5acd41fa970c4acd1f4663a37
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 424954d18fc719748175c2ad9428bb621d577a70
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321576"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114470784"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>빠른 시작: 로그, 메트릭 및 추적을 사용하여 Azure Spring Cloud 앱 모니터링
 
@@ -228,7 +228,7 @@ az group delete --name <your resource group name; for example: helloworld-155840
 이전 빠른 시작에서는 기본 리소스 그룹 이름도 설정합니다. 다음 빠른 시작을 계속하지 않으려면 다음 CLI 명령을 실행하여 기본값을 지웁니다.
 
 ```azurecli
-az configure --defaults group=
+az config set defaults.group=
 ```
 
 ## <a name="next-steps"></a>다음 단계

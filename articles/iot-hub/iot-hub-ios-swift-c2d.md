@@ -9,10 +9,10 @@ ms.date: 04/19/2018
 ms.author: kgremban
 ms.custom: mqtt
 ms.openlocfilehash: 15c0df33b8f09ec71f2be913d72f0785dc766375
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93027536"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>IoT Hub(iOS)를 사용하여 클라우드-디바이스 메시지 보내기
@@ -21,7 +21,7 @@ ms.locfileid: "93027536"
 
 Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-ios.md) 빠른 시작에서는 IoT Hub를 만들고 그 안에 디바이스 ID를 프로비저닝하고 디바이스-클라우드 메시지를 보내는 시뮬레이션된 디바이스 앱을 코딩하는 방법을 보여 줍니다.
 
-이 자습서에서는 다음을 수행하는 방법을 보여 줍니다.
+이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 * 솔루션 백 엔드에서 IoT Hub를 통해 클라우드-디바이스 메시지를 단일 디바이스로 보냅니다.
 
@@ -35,7 +35,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 * **sample-device** - [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-ios.md)에서 만든 앱과 동일한 앱으로, IoT Hub에 연결하고 클라우드-디바이스 메시지를 수신합니다.
 
-* **샘플-** IoT Hub를 통해 시뮬레이션 된 장치 앱에 클라우드-장치 메시지를 보낸 다음 배달 승인을 수신 하는 샘플 서비스입니다.
+* **sample-service** - IoT Hub를 통해 시뮬레이션된 디바이스 앱에 클라우드-디바이스 메시지를 보낸 후 전송 승인을 수신합니다.
 
 > [!NOTE]
 > IoT Hub는 Azure IoT 디바이스 SDK를 통해 많은 디바이스 플랫폼 및 언어(C, Java, Python 및 Javascript 포함)를 지원합니다. 이 자습서의 코드 및 일반적으로 Azure IoT Hub에 디바이스를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터](https://www.azure.com/develop/iot)를 참조하세요.
@@ -46,7 +46,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 * Azure의 활성 IoT Hub.
 
-* [Azure 샘플](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip)의 코드 샘플
+* [Azure 샘플](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip)의 코드 샘플.
 
 * 최신 버전의 iOS SDK를 실행 중인 최신 버전의 [XCode](https://developer.apple.com/xcode/). 이 빠른 시작은 XCode 9.3 및 iOS 11.3에서 테스트되었습니다.
 
@@ -102,7 +102,7 @@ pod install
 
 6. **빌드 및 실행** 단추 또는 **명령 + r** 키 콤보를 사용하여 디바이스 에뮬레이터에서 프로젝트를 실행합니다.
 
-   ![장치 에뮬레이터의 빌드 및 실행 단추를 보여 주는 스크린샷](media/iot-hub-ios-swift-c2d/run-sample.png)
+   ![디바이스 에뮬레이터의 빌드 및 실행 단추를 보여 주는 스크린샷](media/iot-hub-ios-swift-c2d/run-sample.png)
 
 ## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
 
@@ -144,7 +144,7 @@ pod install
 
 3. XCode에서 편집을 위해 **ViewController.swift** 를 엽니다. 
 
-4. **ConnectionString** 변수를 검색 하 고 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 서비스 연결 문자열로 값을 업데이트 합니다.
+4. **connectionString** 변수를 검색하고 [IoT 허브 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 이전에 복사한 서비스 연결 문자열로 값을 업데이트합니다.
 
 5. 변경 내용을 저장합니다.
 
@@ -152,7 +152,7 @@ pod install
 
    ![에뮬레이터 디바이스 변경](media/iot-hub-ios-swift-c2d/change-device.png)
 
-7. **빌드 및 실행** 단추나 키 콤보 **명령 + r** 을 사용 하 여 장치 에뮬레이터에서 프로젝트를 실행 합니다.
+7. **빌드 및 실행** 단추 또는 **명령 + r** 키 콤보를 사용하여 디바이스 에뮬레이터에서 프로젝트를 실행합니다.
 
    ![빌드 및 실행 단추를 보여 주는 스크린샷](media/iot-hub-ios-swift-c2d/run-app.png)
 

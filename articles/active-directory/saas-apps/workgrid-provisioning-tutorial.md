@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory를 통해 자동 사용자 프로비저닝을 위한 Workgrid 구성 | Microsoft Docs'
 description: 사용자 계정을 Workgrid로 자동으로 프로비저닝 및 프로비저닝 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/17/2019
-ms.author: Zhchia
-ms.openlocfilehash: ec39e4796d2a06ad88a8e88ea99b953064eb6d21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 8584883ffa1b1a392925f51f0808a19b25643892
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96348333"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113769007"
 ---
 # <a name="tutorial-configure-workgrid--for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workgrid 구성
 

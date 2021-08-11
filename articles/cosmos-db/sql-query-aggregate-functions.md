@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB 집계 함수
-description: Azure Cosmos DB에서 지 원하는 집계 함수 유형 및 SQL 집계 함수 구문에 대해 알아봅니다.
+title: Azure Cosmos DB의 집계 함수
+description: SQL 집계 함수 구문, Azure Cosmos DB가 지원하는 집계 함수 형식에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: tisande
 ms.openlocfilehash: c0d953c8d99582f63744d51b505852b5c44bc409
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96555418"
 ---
-# <a name="aggregate-functions-in-azure-cosmos-db"></a>Azure Cosmos DB 집계 함수
+# <a name="aggregate-functions-in-azure-cosmos-db"></a>Azure Cosmos DB의 집계 함수
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-집계 함수는 절의 값 집합에 대해 계산을 수행 `SELECT` 하 고 단일 값을 반환 합니다. 예를 들어 다음 쿼리는 컨테이너 내의 항목 수를 반환 합니다.
+집계 함수는 `SELECT` 절에 있는 값 집합에서 계산을 수행하고 단일 값을 반환합니다. 예를 들어 다음 쿼리는 컨테이너 내에서 항목의 수를 반환합니다.
 
 ```sql
     SELECT COUNT(1)
     FROM c
 ```
 
-## <a name="types-of-aggregate-functions"></a>집계 함수 유형
+## <a name="types-of-aggregate-functions"></a>집계 함수 형식
 
-SQL API는 다음과 같은 집계 함수를 지원 합니다. `SUM` 및 `AVG` 는 숫자 값에 대해 작동 `COUNT` 하며 `MIN` `MAX` 숫자, 문자열, 부울 및 null에 대 한 작업을 수행 합니다.
+SQL API는 다음과 같은 집계 함수를 지원합니다. `SUM` 및 `AVG`는 숫자 값에서 작동하며, `COUNT`, `MIN`, 그리고 `MAX`는 숫자, 문자열, 부울과 null에서 작동합니다.
 
-| 함수 | 설명 |
+| 함수 | Description |
 |-------|-------------|
 | [AVG](sql-query-aggregate-avg.md) | 식에서 평균값을 반환합니다. |
 | [COUNT](sql-query-aggregate-count.md) | 식에서 항목 수를 반환합니다. |
@@ -37,7 +37,7 @@ SQL API는 다음과 같은 집계 함수를 지원 합니다. `SUM` 및 `AVG` �
 | [SUM](sql-query-aggregate-sum.md) | 식에서 모든 값의 합계를 반환합니다. |
 
 
-VALUE 키워드를 사용 하 여 집계의 스칼라 값만 반환할 수도 있습니다. 예를 들어 다음 쿼리는 단일 숫자로 값의 수를 반환합니다.
+VALUE 키워드를 사용하여 집계의 스칼라 값만 반환할 수도 있습니다. 예를 들어 다음 쿼리는 단일 숫자로 값의 수를 반환합니다.
 
 ```sql
     SELECT VALUE COUNT(1)
@@ -50,7 +50,7 @@ VALUE 키워드를 사용 하 여 집계의 스칼라 값만 반환할 수도 �
     [ 2 ]
 ```
 
-또한 집계를 필터와 결합할 수 있습니다. 예를 들어 다음 쿼리는의 주소 상태가 인 항목의 수를 반환 합니다 `WA` .
+집계를 필터와 결합할 수도 있습니다. 예를 들어 다음 쿼리는 `WA`의 주소 상태로 항목 수를 반환합니다.
 
 ```sql
     SELECT VALUE COUNT(1)
@@ -66,7 +66,7 @@ VALUE 키워드를 사용 하 여 집계의 스칼라 값만 반환할 수도 �
 
 ## <a name="remarks"></a>설명
 
-이러한 집계 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)를 활용 합니다. 속성에서,,, 또는를 수행할 것으로 간주 되는 경우 `AVG` `COUNT` `MAX` `MIN` `SUM` [인덱싱 정책에 관련 경로를 포함](index-policy.md#includeexclude-strategy)해야 합니다.
+이러한 집계 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)를 활용합니다. 속성에서 `AVG`, `COUNT`, `MAX`, `MIN`, 또는 `SUM`를 수행해야 하는 경우, [관련 경로를 인덱싱 정책에 포함해야 합니다](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>다음 단계
 

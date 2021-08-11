@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3026cb66579fc228c890c6649a5fb9253405020a
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: a1dc0e266fc51d9e6ac85578f248b7df5deaadaa
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113112512"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114451297"
 ---
 # <a name="chat-concepts"></a>채팅 개념 
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-chat.md)]
 
 Azure Communication Services 채팅 SDK를 사용하여 실시간 텍스트 채팅을 애플리케이션에 추가할 수 있습니다. 이 페이지에는 주요 채팅 개념 및 기능이 요약되어 있습니다.    
 
