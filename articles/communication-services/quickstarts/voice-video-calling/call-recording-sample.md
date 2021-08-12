@@ -10,14 +10,17 @@ ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-csharp-java
-ms.openlocfilehash: f4dfd0701c2eeeaa5ba3b2be20b9448ca2093601
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 87a658c077a93d852e2a1e03faedf1fa5064e3dc
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111817"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114473130"
 ---
 # <a name="call-recording-api-quickstart"></a>통화 녹음/녹화 API 빠른 시작
+
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+
 이 빠른 시작을 통해 음성 및 영상 통화 녹음/녹화를 시작할 수 있습니다. 이 빠른 시작에서는 [호출 클라이언트 SDK](get-started-with-video-calling.md)를 이미 사용하여 최종 사용자 호출 환경을 빌드했다고 가정합니다. **호출 서버 API 및 SDK** 를 사용하여 기록을 사용하도록 설정하고 관리할 수 있습니다. 
 
 ::: zone pivot="programming-language-csharp"

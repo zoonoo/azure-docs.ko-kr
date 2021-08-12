@@ -1,18 +1,18 @@
 ---
 title: '자습서: Azure Spring Cloud에 기존 사용자 지정 도메인 매핑'
 description: 기존 사용자 지정 DNS(Distributed Name Service) 이름을 Azure Spring Cloud에 매핑하는 방법
-author: MikeDodaro
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 6c9d2e82e048a8693175974d6ef664d67e9deac8
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: afef05b381bbd1331cdc5af1ec91190839fdea7b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110652655"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114470224"
 ---
 # <a name="tutorial-map-an-existing-custom-domain-to-azure-spring-cloud"></a>자습서: Azure Spring Cloud에 기존 사용자 지정 도메인 매핑
 

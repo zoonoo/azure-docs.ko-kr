@@ -5,19 +5,19 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 05/07/2021
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cae2bcb1a3302814a426fa0cb2dfb36ba1b013fa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: e473e7305f7e2dd9609edf0f2d18a12a950b9d40
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218369"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656923"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>디바이스 및 모듈 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
-IoT Hub는 [장치](iot-hub-devguide-device-twins.md)쌍, [모듈](iot-hub-devguide-module-twins.md)쌍, [작업](iot-hub-devguide-jobs.md)및 [메시지 라우팅](iot-hub-devguide-messages-d2c.md)에 대 한 정보를 검색 하는 강력한 SQL 유사 언어를 제공 합니다. 이 문서에 제공되는 내용:
+IoT Hub는 [디바이스 쌍](iot-hub-devguide-device-twins.md), [모듈 쌍](iot-hub-devguide-module-twins.md), [작업](iot-hub-devguide-jobs.md) 및 [메시지 라우팅](iot-hub-devguide-messages-d2c.md)과 관련된 정보를 검색할 수 있는 강력한 SQL 유형의 언어를 제공합니다. 이 문서에 제공되는 내용:
 
 * IoT Hub 쿼리 언어의 주요 기능 소개 및
 * 언어에 대한 자세한 설명 메시지 라우팅의 쿼리 언어에 대한 자세한 내용은 [메시지 라우팅의 쿼리](../iot-hub/iot-hub-devguide-routing-query-syntax.md)를 참조하세요.
@@ -26,7 +26,7 @@ IoT Hub는 [장치](iot-hub-devguide-device-twins.md)쌍, [모듈](iot-hub-devgu
 
 ## <a name="device-and-module-twin-queries"></a>디바이스 및 모듈 쌍 쿼리
 
-[장치](iot-hub-devguide-device-twins.md) 쌍 및 [모듈](iot-hub-devguide-module-twins.md) 쌍은 임의의 JSON 개체를 태그와 속성으로 포함할 수 있습니다. IoT Hub를 사용하면 모든 쌍 정보를 포함하는 단일 JSON 문서로 디바이스 쌍 및 모듈 쌍을 쿼리할 수 있습니다.
+[디바이스 쌍](iot-hub-devguide-device-twins.md) 및 [모듈 쌍](iot-hub-devguide-module-twins.md)은 임의의 JSON 개체를 태그와 속성으로 포함할 수 있습니다. IoT Hub를 사용하면 모든 쌍 정보를 포함하는 단일 JSON 문서로 디바이스 쌍 및 모듈 쌍을 쿼리할 수 있습니다.
 
 예를 들어 IoT 허브 디바이스 쌍에 다음 구조가 있다고 가정합니다(모듈 쌍은 추가 moduleId와 유사함).
 
@@ -152,15 +152,27 @@ SELECT properties.reported.telemetryConfig.status AS status,
 
 이 예제에서는 세 디바이스는 성공적인 구성을 보고하고 두 디바이스는 구성을 계속 적용하고 있으며 하나는 오류를 보고했습니다.
 
-개발자는 프로젝션 쿼리를 사용하여 관심 있는 속성만 반환할 수 있습니다. 예를 들어, 연결된 모든 디바이스의 마지막 작업 시간을 검색하려면 다음 쿼리를 사용합니다.
+개발자는 프로젝션 쿼리를 사용하여 관심 있는 속성만 반환할 수 있습니다. 예를 들어 연결이 끊긴 모든 사용 디바이스의 디바이스 ID와 함께 마지막 작업 시간을 검색하려면 다음 쿼리를 사용합니다.
 
 ```sql
-SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+SELECT DeviceId, LastActivityTime FROM devices WHERE status = 'enabled' AND connectionState = 'Disconnected'
 ```
+
+다음은 **쿼리 탐색기** 에서 IoT Hub에 대한 쿼리의 예제 쿼리 결과입니다.
+
+```json
+[
+  {
+    "deviceId": "AZ3166Device",
+    "lastActivityTime": "2021-05-07T00:50:38.0543092Z"
+  }
+]
+```
+
 
 ### <a name="module-twin-queries"></a>모듈 쌍 쿼리
 
-모듈 쌍에 대 한 쿼리는 장치 쌍을 쿼리 하는 것과 유사 하지만 다른 컬렉션/네임 스페이스를 사용 합니다. **장치에서 대신** 장치에서 쿼리 **합니다. 모듈**:
+모듈 쌍에 대한 쿼리는 디바이스 쌍에 대한 쿼리와 유사하지만, **디바이스** 에서가 아니라 다른 컬렉션/네임스페이스를 사용하여 **device.modules** 를 쿼리합니다.
 
 ```sql
 SELECT * FROM devices.modules
@@ -234,7 +246,7 @@ query 개체는 쿼리에 필요한 역직렬화 옵션에 따라 여러 개의 
 ### <a name="limitations"></a>제한 사항
 
 > [!IMPORTANT]
-> 쿼리 결과는 디바이스 쌍의 최신 값에 따라 몇 분 정도 지연될 수 있습니다. ID로 개별 장치 쌍을 쿼리 하는 경우 [get 쌍 REST API](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin)를 사용 합니다. 이 API는 항상 최신 값을 반환 하며 제한 한도가 높습니다. REST API를 직접 발급 하거나 [Azure IoT Hub 서비스 sdk](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks)중 하나에서 해당 기능을 사용할 수 있습니다.
+> 쿼리 결과는 디바이스 쌍의 최신 값에 따라 몇 분 정도 지연될 수 있습니다. ID로 개별 디바이스 쌍을 쿼리하는 경우 [get twin REST API](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin)를 사용합니다. 이 API는 항상 최신 값을 반환하며 더 높은 제한을 적용합니다. REST API를 직접 발급하거나 [Azure IoT Hub Service SDK](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks) 중 하나에서 동등한 기능을 사용할 수 있습니다.
 
 현재 비교는 기본 형식(개체 없음) 간에만 지원됩니다. 예를 들어 `... WHERE properties.desired.config = properties.reported.config`는 해당 속성에 기본 값이 있는 경우에만 지원됩니다.
 
@@ -316,7 +328,7 @@ SELECT * FROM devices.jobs
 
 ## <a name="basics-of-an-iot-hub-query"></a>IoT Hub 쿼리의 기초
 
-모든 IoT Hub 쿼리는 SELECT 및 FROM 절로 이루어지며 선택적으로 WHERE 및 GROUP BY 절이 포함됩니다. 모든 쿼리는 JSON 문서(예: 디바이스 쌍) 컬렉션에 대해 실행됩니다. FROM 절은 반복 되는 문서 컬렉션 (**장치**, **장치, 모듈** 또는 **devices.jobs**)을 나타냅니다. 그런 다음 WHERE 절의 필터가 적용됩니다. 집계를 사용할 경우 이 단계의 결과는 GROUP BY 절에 지정된 대로 그룹화됩니다. 각 그룹에 대해 SELECT 절에 지정된 대로 행이 생성됩니다.
+모든 IoT Hub 쿼리는 SELECT 및 FROM 절로 이루어지며 선택적으로 WHERE 및 GROUP BY 절이 포함됩니다. 모든 쿼리는 JSON 문서(예: 디바이스 쌍) 컬렉션에 대해 실행됩니다. FROM 절은 반복이 수행될 문서 컬렉션을 나타냅니다(예: **devices**, **devices.modules** 또는 **devices.jobs**). 그런 다음 WHERE 절의 필터가 적용됩니다. 집계를 사용할 경우 이 단계의 결과는 GROUP BY 절에 지정된 대로 그룹화됩니다. 각 그룹에 대해 SELECT 절에 지정된 대로 행이 생성됩니다.
 
 ```sql
 SELECT <select_list>
@@ -327,7 +339,7 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>FROM 절
 
-**From <from_specification>** 절은 장치 **에서** 쿼리 장치 **쌍, 장치** 에서 쿼리 모듈 쌍으로 또는 **devices.jobs에서** 쿼리 작업 장치 세부 정보로 세 가지 값만 가정할 수 있습니다.
+**FROM <from_specification>** 절은 세 가지 값만 가정할 수 있습니다. **FROM devices** 는 디바이스 쌍을 쿼리하기 위해 **FROM devices.modules** 는 모듈 쌍을 쿼리하기 위해 또는 **FROM devices.jobs** 는 디바이스별 작업 세부 정보를 쿼리하기 위해 가정합니다.
 
 ## <a name="where-clause"></a>WHERE 절
 
@@ -441,7 +453,7 @@ GROUP BY <group_by_element>
 | binary_operator | [연산자](#operators) 섹션에서 나열한 모든 이항 연산자입니다. |
 | function_name| [함수](#functions) 섹션에서 나열한 모든 함수입니다. |
 | decimal_literal |소수 표기법으로 표현되는 부동 float입니다. |
-| hexadecimal_literal |문자열 ' 0x ' 다음에 16 진수 문자열을 표시 하는 숫자입니다. |
+| hexadecimal_literal |뒤에 16진수 문자열이 붙는 '0x' 문자열로 표현되는 숫자입니다. |
 | string_literal |문자열 리터럴은 연속적인 0이상의 유니코드 문자 또는 이스케이프 시퀀스로 표현되는 유니코드 문자열입니다. 문자열 리터럴은 작은 따옴표나 큰 따옴표로 묶습니다. 허용되는 이스케이프: `\'`, `\"`, `\\`, 4개의 16진수로 정의되는 유니코드 문자인 경우 `\uXXXX` |
 
 ### <a name="operators"></a>연산자
@@ -482,7 +494,7 @@ GROUP BY <group_by_element>
 | AS_NUMBER | 입력 문자열을 숫자로 변환합니다. 입력이 숫자이면 `noop`이고, 문자열이 숫자를 나타내지 않으면 `Undefined`입니다.|
 | IS_ARRAY | 지정한 식의 형식이 배열인지 여부를 나타내는 부울 값을 반환합니다. |
 | IS_BOOL | 지정한 식의 형식이 부울인지 여부를 나타내는 부울 값을 반환합니다. |
-| IS_DEFINED | 속성이 값을 할당할지를 나타내는 부울 값을 반환합니다. 이는 값이 기본 형식인 경우에만 지원 됩니다. 기본 형식에는 문자열, 부울, 숫자 또는가 포함 됩니다 `null` . DateTime, 개체 형식 및 배열은 지원 되지 않습니다. |
+| IS_DEFINED | 속성이 값을 할당할지를 나타내는 부울 값을 반환합니다. 이는 값이 기본 형식인 경우에만 지원됩니다. 기본 형식에는 문자열, 부울, 숫자 또는 `null`이 포함됩니다. DateTime, 개체 형식 및 배열은 지원되지 않습니다. |
 | IS_NULL | 지정한 식의 형식이 널인지 여부를 나타내는 부울 값을 반환합니다. |
 | IS_NUMBER | 지정한 식의 형식이 숫자인지 여부를 나타내는 부울 값을 반환합니다. |
 | IS_OBJECT | 지정한 식의 형식이 JSON 개체인지 여부를 나타내는 부울 값을 반환합니다. |

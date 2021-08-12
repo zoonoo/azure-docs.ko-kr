@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을
 description: 사용자 계정을 Azure AD에서 AlertMedia로 자동으로 프로비저닝 및 프로비저닝 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: a5df0dd7-05a3-4744-9d51-ec33e89a934f
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/15/2020
-ms.author: Zhchia
-ms.openlocfilehash: b15b20ee8e643dc260578d17913810aaf68cc929
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 6e4e04e935e1e743cb40c771cdf1cf5cdfe6d21c
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181101"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765023"
 ---
 # <a name="tutorial-configure-alertmedia-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 AlertMedia 구성
 

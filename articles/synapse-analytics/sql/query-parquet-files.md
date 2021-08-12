@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: cce4c6aff986c2e8c3d879d962714e13f6b2e7ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9025038727c6f71022f30f80ee67db6ccc5289b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97694679"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108740324"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 Parquet 파일 쿼리
 
@@ -40,7 +40,9 @@ from openrowset(
 > [!IMPORTANT]
 > PARQUET 파일의 문자열 값이 UTF-8 인코딩을 사용하여 인코딩되므로 UTF-8 데이터베이스 데이터 정렬(예: `Latin1_General_100_BIN2_UTF8`)을 사용하고 있는지 확인합니다.
 > PARQUET 파일의 텍스트 인코딩과 데이터 정렬이 일치하지 않으면 예기치 않은 변환 오류가 발생할 수 있습니다.
-> 다음 T-SQL 문 `alter database current collate Latin1_General_100_BIN2_UTF8`을 사용하여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다.
+> 다음 T-SQL 문 `alter database current collate Latin1_General_100_BIN2_UTF8`'을 사용하여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다.
+
+_BIN2 데이터 정렬을 사용하는 경우 추가 성능을 향상시킬 수 있습니다. BIN2 데이터 정렬은 parquet 문자열 정렬 규칙과 호환되므로 쿼리에 필요한 데이터를 포함하지 않는 parquet 파일의 일부(파일/열 세그먼트 정리)를 제거할 수 있습니다. BIN2가 아닌 데이터 정렬을 사용하는 경우 parquet 채우기의 모든 데이터는 SQL 프로세스 내에서 필터링이 수행되어 Synapse SQL로 로드되며, 이는 불필요한 데이터를 파일에서 제거하는 것보다 훨씬 느릴 수 있습니다. BIN2 데이터 정렬에는 parquet 및 CosmosDB에서만 작동하는 추가 성능 최적화가 있습니다. 단점은 대/소문자 구분 안함과 같은 세분화된 비교 규칙을 잃게 된다는 것입니다.
 
 ### <a name="data-source-usage"></a>데이터 원본 사용
 
@@ -119,7 +121,7 @@ ORDER BY
 
 Parquet 파일을 읽을 때 OPENROWSET WITH 절을 사용할 필요가 없습니다. 열 이름 및 데이터 형식은 Parquet 파일에서 자동으로 읽습니다.
 
-아래 샘플에서는 Parquet 파일에 대한 자동 스키마 유추 기능을 보여줍니다. 스키마를 지정하지 않고 2017년 9월의 행 수를 반환합니다.
+아래 샘플에서는 Parquet 파일에 대한 자동 스키마 유추 기능을 보여줍니다. 스키마를 지정하지 않고 2018년 9월의 행 수를 반환합니다.
 
 > [!NOTE]
 > Parquet 파일을 읽을 때 OPENROWSET WITH 절에 열을 지정할 필요가 없습니다. 이 경우 서버리스 SQL 풀 쿼리 서비스는 Parquet 파일의 메타데이터를 활용하여 열을 이름별로 바인딩합니다.
@@ -128,7 +130,7 @@ Parquet 파일을 읽을 때 OPENROWSET WITH 절을 사용할 필요가 없습�
 SELECT TOP 10 *
 FROM  
     OPENROWSET(
-        BULK 'puYear=2018/puMonth=*/*.snappy.parquet',
+        BULK 'puYear=2018/puMonth=9/*.snappy.parquet',
         DATA_SOURCE = 'YellowTaxi',
         FORMAT='PARQUET'
     ) AS nyc

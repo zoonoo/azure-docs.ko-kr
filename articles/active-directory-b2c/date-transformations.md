@@ -10,12 +10,13 @@ ms.topic: reference
 ms.date: 02/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eaf58b964517162ee7f7eb925e1e64830eedc087
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: b2c-support
+ms.openlocfilehash: ccf8c5fceea71c3781ae420c1c36c629ebb97a7b
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85202554"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110783822"
 ---
 # <a name="date-claims-transformations"></a>날짜 클레임 변환
 
@@ -31,7 +32,7 @@ ms.locfileid: "85202554"
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | leftOperand | 문자열 | 첫 번째 클레임의 유형이며, 두 번째 클레임보다 나중에 나와야 합니다. |
 | InputClaim | rightOperand | 문자열 | 두 번째 클레임의 유형이며, 첫 번째 클레임보다 먼저 나와야 합니다. |
-| InputParameter | AssertIfEqualTo | boolean | 왼쪽 피연산자가 오른쪽 피연산자와 같으면 이 어설션에서 전달해야 하는지 여부를 지정합니다. |
+| InputParameter | AssertIfEqualTo | boolean | 왼쪽 피연산자가 오른쪽 피연산자와 같으면 이 어설션에서 오류를 throw해야 하는지 여부를 지정합니다. 왼쪽 연산자가 오른쪽 연산자와 같고 값이 `true`로 설정된 경우 오류가 throw됩니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | 오른쪽 피연산자가 없으면 이 어설션에서 전달해야 하는지 여부를 지정합니다. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | 두 날짜 /시간 사이의 시간을 동일하게 간주하도록 허용할 시간(밀리초)을 지정합니다(예: 클럭 스큐). |
 
@@ -39,7 +40,7 @@ ms.locfileid: "85202554"
 
 ![AssertStringClaimsAreEqual execution](./media/date-transformations/assert-execution.png)
 
-다음 예제에서는 `currentDateTime` 클레임과 `approvedDateTime` 클레임을 비교합니다. `currentDateTime`이 `approvedDateTime`보다 큰 경우 오류가 throw됩니다. 차이가 5분(30,000밀리초) 이내인 경우 변환에서 값을 동일하게 처리합니다.
+다음 예제에서는 `currentDateTime` 클레임과 `approvedDateTime` 클레임을 비교합니다. `currentDateTime`이 `approvedDateTime`보다 큰 경우 오류가 throw됩니다. 차이가 5분(30,000밀리초) 이내인 경우 변환에서 값을 동일하게 처리합니다. `AssertIfEqualTo`가 `false`로 설정되어 있으므로 값이 같으면 오류가 throw되지 않습니다.
 
 ```xml
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
@@ -54,6 +55,10 @@ ms.locfileid: "85202554"
   </InputParameters>
 </ClaimsTransformation>
 ```
+
+> [!NOTE]
+> 위의 예제에서 `AssertIfEqualTo` 입력 매개 변수를 제거하고 `currentDateTime`이 `approvedDateTime`과 같으면 오류가 throw됩니다. `AssertIfEqualTo` 기본값은 `true`입니다.
+>
 
 `login-NonInteractive` 유효성 검사 기술 프로필은 `AssertApprovedDateTimeLaterThanCurrentDateTime` 클레임 변환을 호출합니다.
 ```xml

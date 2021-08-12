@@ -2,20 +2,20 @@
 title: HSM 보호 키를 생성하고 전송하는 방법 – BYOK – Azure Key Vault
 description: 이 문서의 설명에 따라 Azure Key Vault에서 사용할 고유의 HSM 보호 키를 계획하고 생성하고 전송할 수 있습니다. 이 방법을 BYOK(Bring Your Own Key)라고 합니다.
 services: key-vault
-author: amitbapat
+author: mbaldwin
 manager: devtiw
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/04/2021
-ms.author: ambapat
-ms.openlocfilehash: 44b7d5c4202307eba572caecf6910a90223c51bb
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.author: mbaldwin
+ms.openlocfilehash: 828ec5b82033c5eb2109840721349b6a89de3735
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108015936"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459877"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Key Vault로 HSM 보호 키 가져오기(BYOK)
 

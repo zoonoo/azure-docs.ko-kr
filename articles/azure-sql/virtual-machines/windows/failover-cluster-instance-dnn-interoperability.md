@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 3c92aa3b35240831fad14919dc73609d803c610a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 03dcd9f4750e9bf3e6ec5568255b06ccb8316a0b
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97358217"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569461"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>SQL Server FCI 및 DNN의 기능 상호 운용성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -175,8 +175,10 @@ GO
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음을 참조하세요. 
+자세한 내용은 다음을 참조하세요.
 
-- [Windows 클러스터 기술](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server 장애 조치(failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
+- [Azure VM에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)
+- [장애 조치(failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Azure VM의 SQL Server에 대한 HADR 설정](hadr-cluster-best-practices.md)
 

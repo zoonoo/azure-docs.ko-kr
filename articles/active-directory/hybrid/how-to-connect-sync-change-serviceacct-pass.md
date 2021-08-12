@@ -17,12 +17,12 @@ ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8778e50dcb881647696c6e901bf1058b9d6ac43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 736b43fc860cfe4405b8def97b511d18bb77c599
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104720341"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111853391"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>ADSync 서비스 계정 암호 변경
 ADSync 서비스 계정 암호를 변경하면 암호화 키를 제거하고 ADSync 서비스 계정 암호를 다시 초기화할 때까지 동기화 서비스를 제대로 시작할 수 없습니다. 
@@ -109,11 +109,14 @@ Azure AD Connect는 동기화 서비스의 일환으로 암호화 키를 사용�
 #### <a name="reinitialize-the-password-of-the-adsync-service-account"></a>ADSync 서비스 계정의 암호 다시 초기화
 Azure AD 서비스 계정의 암호를 동기화 서비스에 직접 제공할 수 없습니다. 대신 cmdlet **Add-ADSyncAADServiceAccount** 을 사용하여 Azure AD 서비스 계정을 다시 초기화해야 합니다. cmdlet은 계정 암호를 다시 설정하여 동기화 서비스에 사용할 수 있게 합니다.
 
-1. Azure AD Connect 서버에서 새 PowerShell 세션을 시작합니다.
-2. cmdlet `Add-ADSyncAADServiceAccount`를 실행합니다.
-3. 팝업 대화 상자에 Azure AD 테넌트에 대한 Azure AD 전역 관리자 자격 증명을 제공합니다.
-![Azure AD Connect 동기화 암호화 키 유틸리티](./media/how-to-connect-sync-change-serviceacct-pass/key7.png)
-4. 성공한 경우 PowerShell 명령 프롬프트가 표시됩니다.
+1. Azure AD Connect 동기화 서버에 로그인하고 PowerShell을 엽니다.
+2. Azure AD 전역 관리자 자격 증명을 제공하려면 `$credential = Get-Credential`을 실행합니다.
+3. `Add-ADSyncAADServiceAccount -AADCredential $credential` cmdlet을 실행합니다.
+ 
+   cmdlet이 성공하면 PowerShell 명령 프롬프트가 나타납니다. 
+   
+이 cmdlet은 서비스 계정의 암호를 재설정하고 Azure AD와 동기화 엔진에서 암호를 업데이트합니다.
+
 
 #### <a name="start-the-synchronization-service"></a>동기화 서비스 시작
 이제 동기화 서비스가 암호화 키 및 필요한 모든 암호에 액세스할 수 있으므로 Windows 서비스 제어 관리자에서 서비스를 다시 시작할 수 있습니다.

@@ -3,22 +3,22 @@ title: Speaker Recognition 빠른 시작 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech SDK에서 Speaker Recognition을 사용하여 질문에 대답하는 "말하는 사람"에 대해 알아봅니다. 이 빠른 시작에서는 음성 생체 측정을 사용하여 고유한 음성을 식별하는 스피커 확인 및 식별을 위한 일반적인 디자인 패턴에 대해 알아봅니다.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/02/2020
-ms.author: trbye
+ms.author: nitinme
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-twenty-five
 keywords: 스피커 인식, 음성 생체 측정
-ms.openlocfilehash: 57c7ad220ada89e5848cf49b7fb68547bc7ad1cb
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 85c7800bae08ebac11779ad049f2897e0a480b7d
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015512"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114711552"
 ---
 # <a name="get-started-with-speaker-recognition"></a>Speaker Recognition 시작
 

@@ -8,18 +8,16 @@ ms.topic: quickstart
 ms.date: 04/27/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.openlocfilehash: 52bd27122bee20377975bb7ce87f23aeb892dedf
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 376d26a591fb2cbe0d33fb9bdc261bcb535203e5
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952797"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114713000"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-central"></a>빠른 시작: 디바이스에서 Azure IoT Central로 원격 분석 보내기
 
 **적용 대상**: [디바이스 애플리케이션 개발자](about-iot-develop.md#device-application-development)
-
-이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. 먼저 디바이스 호스트를 위한 Azure IoT Central 애플리케이션을 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 IoT Central에 안전하게 연결하고 원격 분석을 전송합니다.
 
 :::zone pivot="programming-language-ansi-c"
 

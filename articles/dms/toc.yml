@@ -156,6 +156,6 @@
         - name: 온라인 마이그레이션 모니터링 및 중단 수행
           href: 'https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/'
         - name: Oracle을 Azure SQL DB로 마이그레이션
-          href: /azure/postgresql/howto-migrate-from-oracle
+          href: ../postgresql/howto-migrate-from-oracle.md
         - name: MongoDB를 Azure Cosmos DB로 마이그레이션
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/'

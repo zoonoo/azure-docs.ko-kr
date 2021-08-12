@@ -1,21 +1,22 @@
 ---
 title: Azure Active Directory 및 Workday 통합 참조
-description: Workday-HR 기반 프로비저닝에 대한 기술 심층 분석
+description: Azure Active Directory의 Workday-HR 기반 프로비저닝에 대한 기술 심층 분석
 services: active-directory
-author: cmmdesai
-manager: daveba
+author: kenwith
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 02/09/2021
-ms.author: chmutali
-ms.openlocfilehash: 2b1a43ee6b13d32c0eaed92538cf9c25405e061b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/01/2021
+ms.author: kenwith
+ms.reviewer: arvinh, chmutali
+ms.openlocfilehash: a67026238c0a3cf469cb7d6bc3112eb269cf5a13
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100104334"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110785900"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-workday"></a>Azure Active Directory 프로비저닝이 Workday와 통합되는 방법
 
@@ -50,7 +51,7 @@ Azure AD 프로비저닝 서비스와 Workday 간의 연결을 더욱 안전하�
 
 [Workday 통합 시스템 사용자를 구성](../saas-apps/workday-inbound-tutorial.md#configure-integration-system-user-in-workday)하는 기본 단계에서는 Workday 테넌트의 모든 사용자를 검색할 수 있는 액세스 권한을 부여합니다. 특정 통합 시나리오에서, 특정 감독 기관에만 속하는 사용자가 Get_Workers API 호출에서 반환되고 Workday Azure AD 커넥터에서 처리되도록 액세스를 제한할 수 있습니다. 
 
-Workday 관리자와 함께 일하고 제한된 통합 시스템 보안 그룹을 구성하여 해당 요구 사항을 수행할 수 있습니다. 해당 작업을 수행하는 방법에 대한 자세한 내용은 [관련 Workday 커뮤니티 문서](https://community.workday.com/forums/customer-questions/620393)를 참조하세요(*이 문서에 액세스하려면 Workday 커뮤니티 로그인 자격 증명이 필요함*).
+Workday 관리자와 협력하고 제한된 통합 시스템 보안 그룹을 구성하여 해당 요구 사항을 충족할 수 있습니다. 해당 작업을 수행하는 방법에 대한 자세한 내용은 [관련 Workday 커뮤니티 문서](https://community.workday.com/forums/customer-questions/620393)를 참조하세요(*이 문서에 액세스하려면 Workday 커뮤니티 로그인 자격 증명이 필요함*).
 
 제한된 ISSG(통합 시스템 보안 그룹)를 사용하여 액세스를 제한하는 전략은 특히 다음과 같은 시나리오에서 유용합니다. 
 * **단계적 출시 시나리오**: Workday 테넌트가 크고 Azure AD 자동화된 프로비저닝에서 Workday를 단계적으로 출시하는 계획입니다. 이 시나리오에서는 Azure AD 범위 지정 필터를 사용하여 현재 단계의 범위 내에 없는 사용자를 제외하는 것이 아니라, 범위 내 작업자만 Azure AD에 표시되도록 제한된 ISSG를 구성하는 것이 좋습니다.
@@ -408,7 +409,7 @@ Azure AD 프로비저닝 서비스는 전체 동기화 중에 각 페이지를 �
 
 특정 요구 사항을 충족하기 위해 Workday 통합을 확장할 수 있는 몇 가지 방법은 다음과 같습니다. 
 
-**예 1**
+### <a name="example-1-retrieving-cost-center-and-pay-group-information"></a>예제 1: 비용 센터 검색 및 그룹 정보 지불
 
 Workday에서 다음 데이터 세트를 검색하고 프로비저닝 규칙에서 사용하려는 경우를 가정합니다.
 
@@ -437,19 +438,31 @@ Workday에서 다음 데이터 세트를 검색하고 프로비저닝 규칙에�
      >| CostCenterCode | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data/wd:Organization_Data[wd:Organization_Type_Reference/@wd:Descriptor='Cost Center']/wd:Organization_Code/text() |
      >| PayGroup | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data/wd:Organization_Data[wd:Organization_Type_Reference/@wd:Descriptor='Pay Group']/wd:Organization_Name/text() |
 
-**예 2**
+### <a name="example-2-retrieving-qualification-and-skills-data"></a>예제 2: 자격 및 기술 데이터 검색
 
 사용자와 연결된 인증을 검색하려는 경우를 가정합니다. 이 정보는 *자격 데이터* 집합의 일부로 사용할 수 있습니다. 해당 데이터 세트를 *Get_Workers* 응답의 일부로 가져오려면 다음 XPATH를 사용합니다. 
 
 `wd:Worker/wd:Worker_Data/wd:Qualification_Data/wd:Certification/wd:Certification_Data/wd:Issuer/text()`
 
-**예 3**
+### <a name="example-3-retrieving-provisioning-group-assignments"></a>예제 3: 프로비저닝 그룹 할당 검색
 
-작업자에게 할당된 *프로비저닝 그룹* 을 검색하려는 경우를 가정합니다. 이 정보는 *계정 프로비저닝 데이터* 집합의 일부로 사용할 수 있습니다. 해당 데이터 세트를 *Get_Workers* 응답의 일부로 가져오려면 다음 XPATH를 사용합니다. 
+작업자에게 할당된 *프로비저닝 그룹* 을 검색하려는 경우를 가정합니다. 이 정보는 *계정 프로비저닝 데이터* 집합의 일부로 사용할 수 있습니다. 해당 데이터를 *Get_Workers* 응답의 일부로 가져오려면 다음 XPATH를 사용합니다. 
 
 `wd:Worker/wd:Worker_Data/wd:Account_Provisioning_Data/wd:Provisioning_Group_Assignment_Data[wd:Status='Assigned']/wd:Provisioning_Group/text()`
 
 ## <a name="handling-different-hr-scenarios"></a>여러 HR 시나리오 처리
+
+### <a name="support-for-worker-conversions"></a>작업자 변환 지원
+
+작업자가 직원에서 비정규 작업자로 또는 비정규 작업자에서 직원으로 전환하는 경우 Workday 커넥터는 이 변경 사항을 자동으로 감지하고 AD 계정을 활성 작업자 프로필에 연결하여 모든 AD 특성이 활성 작업자 프로필과 동기화되도록 합니다. 이 기능을 사용하려면 구성을 변경할 필요가 없습니다. 변환이 발생할 때의 프로비저닝 동작에 대한 설명은 다음과 같습니다. 
+
+* John Smith가 1월에 비정규 작업자로 조인했다고 가정해 보겠습니다. John의 *WorkerID*(일치하는 특성)와 연결된 AD 계정이 없기 때문에 프로비저닝 서비스는 사용자에 대한 새 AD 계정을 만들고 John의 비정규 작업자 *WID(WorkdayID)* 를 자신의 AD 계정에 연결합니다.
+* 3개월 후 John은 정규직 직원으로 전환합니다. Workday에서 John에 대한 새 작업자 프로필이 만들어집니다. Workday에서 John의 *WorkerID* 는 동일하게 유지되지만, John은 이제 Workday에 두 개의 *WID* 가 있습니다. 하나는 비정규 작업자 프로필과 연결되고 다른 하나는 직원 작업자 프로필과 연결됩니다. 
+* 증분 동기화 중에 프로비저닝 서비스는 동일한 WorkerID에 대해 두 개의 작업자 프로필을 검색하면 AD 계정의 소유권을 활성 작업자 프로필로 자동으로 이전합니다. 이 경우 AD 계정에서 비정규직 작업자 프로필을 연결 해제하고 John의 활성 직원 작업자 프로필과 AD 계정 간에 새 연결을 설정합니다. 
+
+>[!NOTE]
+>초기 전체 동기화 중에 이전 비활성 작업자 프로필과 연결된 특성 값이 변환된 작업자의 AD 계정으로 흐르는 동작을 확인할 수 있습니다. 이는 일시적이며 전체 동기화가 진행됨에 따라 활성 작업자 프로필의 특성 값으로 덮어쓰게 됩니다. 전체 동기화가 완료되고 프로비저닝 작업이 안정적인 상태에 도달하면 증분 동기화 중에 항상 활성 작업자 프로필을 선택합니다. 
+
 
 ### <a name="retrieving-international-job-assignments-and-secondary-job-details"></a>국제 작업 할당 및 보조 작업 세부 정보 검색
 

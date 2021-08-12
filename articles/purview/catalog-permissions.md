@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: b351be1e7212dc9923f701599dd951a73254afe0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c27287f661c133641f7b3da45784478c8fc597e
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98610372"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016011"
 ---
 # <a name="role-based-access-control-in-azure-purviews-data-plane"></a>Azure Purview의 데이터 평면에서 역할 기반 액세스 제어
 
@@ -23,7 +23,7 @@ ms.locfileid: "98610372"
 
 ## <a name="azure-purviews-pre-defined-data-plane-roles"></a>Azure Purview의 미리 정의된 데이터 평면 역할
 
-Azure Purview는 Azure Purview에서 액세스를 제어하는 데 사용할 수 있는 미리 정의된 데이터 평면 역할 집합을 제공합니다. 이러한 역할은 다음과 같습니다.
+Azure Purview는 Azure Purview에서 액세스를 제어하는 데 사용할 수 있는 미리 정의된 데이터 평면 역할 세트를 제공합니다. 이러한 역할은 다음과 같습니다.
 
 * **Purview 데이터 판독기 역할** - Purview 포털에 대한 액세스 권한을 가지며, 검사 바인딩을 제외하고 Azure Purview의 모든 콘텐츠를 읽을 수 있습니다.
 * **Purview 데이터 큐레이터 역할** - Purview 포털에 액세스할 수 있으며 검사 바인딩을 제외한 Azure Purview의 모든 콘텐츠를 읽을 수 있고, 자산에 대한 정보를 편집할 수 있으며, 분류 정의 및 용어를 편집할 수 있고, 자산에 분류 및 용어를 적용할 수 있습니다.

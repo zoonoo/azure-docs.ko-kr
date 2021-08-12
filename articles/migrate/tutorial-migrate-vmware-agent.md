@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 60b58f7cf67a22e019ff186e4e1811ff5b001d84
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 5e32daea0fd28029b13090c33cb8ec5d8d86abff
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714455"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765355"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>VMware VM을 Azure로 마이그레이션(에이전트 기반)
 
@@ -30,7 +30,7 @@ ms.locfileid: "107714455"
 > * 전체 마이그레이션을 Azure로 실행합니다.
 
 > [!NOTE]
-> 자습서에서는 개념 증명을 빠르게 설정할 수 있도록 시나리오에 대한 가장 간단한 배포 경로를 보여 줍니다. 자습서는 가능한 경우 기본 옵션을 사용하며, 가능한 모든 설정과 경로는 보여 주지 않습니다. 
+> 자습서에서는 개념 증명을 빠르게 설정할 수 있도록 시나리오에 대한 가장 간단한 배포 경로를 보여 줍니다. 자습서는 가능한 경우 기본 옵션을 사용하며, 가능한 모든 설정과 경로는 보여 주지 않습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
@@ -59,14 +59,14 @@ Azure Migrate 프로젝트가 없는 경우 새로 만들 수 있는 권한이 �
 
     - Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자입니다.
     - 구독 소유자가 아닌 경우 해당 역할을 할당해 주도록 소유자에게 문의합니다.
-    
+
 ### <a name="assign-azure-account-permissions"></a>Azure 계정 권한 할당
 
 계정에 다음과 같은 권한을 갖도록 Virtual Machine Contributor 역할을 할당합니다.
 
 - 선택한 리소스 그룹에 VM 만들기
 - 선택한 가상 네트워크에 VM 만들기
-- Azure 관리 디스크에 씁니다. 
+- Azure 관리 디스크에 씁니다.
 
 
 ### <a name="set-up-an-azure-network"></a>Azure 네트워크를 설정합니다
@@ -75,7 +75,7 @@ Azure Migrate 프로젝트가 없는 경우 새로 만들 수 있는 권한이 �
 
 ## <a name="prepare-for-migration"></a>마이그레이션 준비
 
-지원 요구 사항 및 사용 권한을 확인하고, 복제 어플라이언스 배포를 준비합니다. 
+지원 요구 사항 및 사용 권한을 확인하고, 복제 어플라이언스 배포를 준비합니다.
 
 ### <a name="prepare-an-account-to-discover-vms"></a>VM을 검색할 계정 준비
 
@@ -125,7 +125,7 @@ Azure Migrate Server Migration은 마이그레이션하려는 VM을 검색하기
 
 ### <a name="check-vmware-requirements"></a>VMware 요구 사항 확인
 
-VMware 서버와 VM에서 Azure로 마이그레이션하기 위한 요구 사항을 준수하는지 확인합니다. 
+VMware 서버와 VM에서 Azure로 마이그레이션하기 위한 요구 사항을 준수하는지 확인합니다.
 
 1. VMware 서버 요구 사항을 [확인](migrate-support-matrix-vmware-migration.md#vmware-requirements-agent-based)합니다.
 2. 마이그레이션에 대한 VM 요구 사항을 [확인](migrate-support-matrix-vmware-migration.md#vm-requirements-agent-based)합니다.
@@ -139,7 +139,7 @@ VMware 서버와 VM에서 Azure로 마이그레이션하기 위한 요구 사항
 
 ## <a name="set-up-the-replication-appliance"></a>복제 어플라이언스 설정
 
-이 절차에서는 다운로드한 OVA(Open Virtualization Application) 템플릿을 사용하여 어플라이언스를 설정하는 방법을 설명합니다. 이 방법을 사용할 수 없는 경우 [스크립트를 사용하여](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance) 어플라이언스를 설정할 수 있습니다. 
+이 절차에서는 다운로드한 OVA(Open Virtualization Application) 템플릿을 사용하여 어플라이언스를 설정하는 방법을 설명합니다. 이 방법을 사용할 수 없는 경우 [스크립트를 사용하여](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance) 어플라이언스를 설정할 수 있습니다.
 
 ### <a name="download-the-replication-appliance-template"></a>복제 어플라이언스 템플릿 다운로드
 
@@ -159,7 +159,7 @@ VMware 서버와 VM에서 Azure로 마이그레이션하기 위한 요구 사항
     ![Recovery Services 자격 증명 모음 만들기](./media/tutorial-migrate-vmware-agent/create-resources.png)  
 
     > [!NOTE]
-    > Azure Migrate 프로젝트를 만들 때 연결 방법으로 프라이빗 엔드포인트를 선택한 경우 Recovery Services 자격 증명 모음도 프라이빗 엔드포인트 연결을 위해 구성됩니다. 복제 어플라이언스에서 프라이빗 엔드포인트에 연결할 수 있는지 확인합니다. [**자세한 정보**](how-to-use-azure-migrate-with-private-endpoints.md#troubleshoot-network-connectivity)
+    > Azure Migrate 프로젝트를 만들 때 연결 방법으로 프라이빗 엔드포인트를 선택한 경우 Recovery Services 자격 증명 모음도 프라이빗 엔드포인트 연결을 위해 구성됩니다. 복제 어플라이언스에서 프라이빗 엔드포인트에 연결할 수 있는지 확인합니다. [**자세한 정보**](troubleshoot-network-connectivity.md)
 
 
 8. **새 복제 어플라이언스를 설치하거나 기존 설치를 확장하시겠습니까?** 에서 **복제 어플라이언스 설치** 를 선택합니다.
@@ -173,7 +173,7 @@ VMware 서버와 VM에서 Azure로 마이그레이션하기 위한 요구 사항
 OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016을 실행하는 VMware VM에 복제 애플리케이션을 만듭니다.
 
 1. VMware vSphere 클라이언트를 사용하여 VMware vCenter 서버 또는 vSphere ESXi 호스트에 로그인합니다.
-2. **파일** 메뉴에서 **OVF 템플릿 배포** 를 선택하여 **OVF 템플릿 배포 마법사** 를 시작합니다. 
+2. **파일** 메뉴에서 **OVF 템플릿 배포** 를 선택하여 **OVF 템플릿 배포 마법사** 를 시작합니다.
 3. **원본 선택** 에서 다운로드한 OVF의 위치를 입력합니다.
 4. **세부 정보 검토** 에서 **다음** 을 선택합니다.
 5. **이름 및 폴더 선택** 과 **구성 선택** 에서 기본 설정을 그대로 적용합니다.
@@ -250,11 +250,11 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 9. 마이그레이션하려는 각 VM을 선택합니다. 그런 다음, **다음: 대상 설정** 을 클릭합니다.
 10. **대상 설정** 에서 마이그레이션할 구독 및 대상 지역을 선택하고, 마이그레이션 후 Azure VM이 상주할 리소스 그룹을 지정합니다.
 11. **Virtual Network** 에서 마이그레이션 후 Azure VM이 조인될 Azure VNet/서브넷을 선택합니다.  
-12. **캐시 스토리지 계정** 에서 프로젝트에 대해 자동으로 생성되는 캐시 스토리지 계정을 사용하는 기본 옵션을 유지합니다. 복제를 위해 캐시 스토리지 계정으로 사용할 다른 스토리지 계정을 지정하려는 경우 드롭다운을 사용하세요. <br/> 
+12. **캐시 스토리지 계정** 에서 프로젝트에 대해 자동으로 생성되는 캐시 스토리지 계정을 사용하는 기본 옵션을 유지합니다. 복제를 위해 캐시 스토리지 계정으로 사용할 다른 스토리지 계정을 지정하려는 경우 드롭다운을 사용하세요. <br/>
     > [!NOTE]
     >
     > - Azure Migrate 프로젝트의 연결 방법으로 프라이빗 엔드포인트를 선택한 경우 Recovery Services 자격 증명 모음에 캐시 스토리지 계정에 대한 액세스 권한을 부여합니다. [**자세한 정보**](how-to-use-azure-migrate-with-private-endpoints.md#grant-access-permissions-to-the-recovery-services-vault)
-    > - 개인 피어링에서 ExpressRoute를 사용하여 복제하려면 캐시 스토리지 계정에 대한 프라이빗 엔드포인트를 만듭니다. [**자세한 정보**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional) 
+    > - 개인 피어링에서 ExpressRoute를 사용하여 복제하려면 캐시 스토리지 계정에 대한 프라이빗 엔드포인트를 만듭니다. [**자세한 정보**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional)
 13. **가용성 옵션** 에서 다음을 선택합니다.
     -  마이그레이션된 머신을 지역의 특정 가용성 영역에 고정하는 가용성 영역. 이 옵션을 사용하여 가용성 영역에서 다중 노드 애플리케이션 계층을 구성하는 서버를 배포합니다. 이 옵션을 선택하는 경우 Compute 탭에서 선택한 각 머신에 사용할 가용성 영역을 지정해야 합니다. 이 옵션은 마이그레이션을 위해 선택한 대상 지역이 가용성 영역을 지원하는 경우에만 사용할 수 있습니다.
     -  마이그레이션된 머신을 가용성 집합에 배치하기 위한 가용성 집합입니다. 이 옵션을 사용하려면 선택한 대상 리소스 그룹에 하나 이상의 가용성 집합이 있어야 합니다.
@@ -266,7 +266,7 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 
    > [!NOTE]
    > CMK를 사용하여 VM을 복제하려면 대상 리소스 그룹 아래에 [디스크 암호화 집합을 생성](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set)해야 합니다. 디스크 암호화 집합 개체는 SSE에 사용할 CMK가 포함된 Key Vault에 Managed Disks를 매핑됩니다.
-  
+
 15. **Azure 하이브리드 혜택** 에서
 
     - Azure 하이브리드 혜택을 적용하지 않으려면 **아니요** 를 선택합니다. 그런 후 **Next** 를 클릭합니다.
@@ -276,14 +276,14 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 
 16. **Compute** 에서 VM 이름, 크기, OS 디스크 유형 및 가용성 구성을 검토합니다(이전 단계에서 선택한 경우). VM은 [Azure 요구 사항](migrate-support-matrix-vmware-migration.md#azure-vm-requirements)을 준수해야 합니다.
 
-   - **VM 크기**: 평가 권장 사항을 사용하는 경우 VM 크기 드롭다운에서 권장 크기를 표시합니다. 그렇지 않으면 Azure Migrate는 Azure 구독에서 가장 일치하는 항목을 기준으로 크기를 선택합니다. 또는 **Azure VM 크기** 에서 수동 크기를 선택합니다. 
-    - **OS 디스크**: VM에 맞는 OS(부팅) 디스크를 지정합니다. OS 디스크는 운영 체제 부팅 로더 및 설치 관리자가 있는 디스크입니다. 
+   - **VM 크기**: 평가 권장 사항을 사용하는 경우 VM 크기 드롭다운에서 권장 크기를 표시합니다. 그렇지 않으면 Azure Migrate는 Azure 구독에서 가장 일치하는 항목을 기준으로 크기를 선택합니다. 또는 **Azure VM 크기** 에서 수동 크기를 선택합니다.
+    - **OS 디스크**: VM에 맞는 OS(부팅) 디스크를 지정합니다. OS 디스크는 운영 체제 부팅 로더 및 설치 관리자가 있는 디스크입니다.
     - **가용성 영역**: 사용할 가용성 영역을 지정합니다.
     - **가용성 집합**: 사용할 가용성 집합을 지정합니다.
 
 17. **디스크** 에서 VM 디스크를 Azure에 복제해야 하는지 여부를 지정하고, Azure에서 디스크 유형(표준 SSD/HDD 또는 프리미엄 관리 디스크)을 선택합니다. 그런 후 **Next** 를 클릭합니다.
     - 디스크를 복제에서 제외할 수 있습니다.
-    - 디스크를 제외하는 경우 마이그레이션 후 Azure VM에 표시되지 않습니다. 
+    - 디스크를 제외하는 경우 마이그레이션 후 Azure VM에 표시되지 않습니다.
 
 18. **검토 및 복제 시작** 에서 설정을 검토하고, **복제** 를 클릭하여 서버에 대한 초기 복제를 시작합니다.
 
@@ -293,10 +293,10 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 
 ## <a name="track-and-monitor"></a>추적 및 모니터링
 
-1. 포털 알림에서 작업 상태를 추적합니다. 
+1. 포털 알림에서 작업 상태를 추적합니다.
 
     ![작업 추적](./media/tutorial-migrate-vmware-agent/jobs.png)
-    
+
 2. 복제 상태를 모니터링하려면 **서버 복제 중** 을 **Azure Migrate: 서버 마이그레이션** 에서 클릭합니다.
 
     ![복제 모니터링](./media/tutorial-migrate-vmware-agent/replicate-servers.png)
@@ -311,7 +311,7 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 
 델타 복제가 시작되면 Azure로 전체 마이그레이션을 실행하기 전에 VM에 대한 테스트 마이그레이션을 실행할 수 있습니다. 이 작업은 마이그레이션하기 전에 각 머신에 대해 한 번 이상 수행하는 것이 좋습니다.
 
-- 테스트 마이그레이션을 실행하면 작동 상태를 유지하고 복제를 계속하는 온-프레미스 머신에 영향을 주지 않고 마이그레이션이 예상대로 작동하는지 확인합니다. 
+- 테스트 마이그레이션을 실행하면 작동 상태를 유지하고 복제를 계속하는 온-프레미스 머신에 영향을 주지 않고 마이그레이션이 예상대로 작동하는지 확인합니다.
 - 테스트 마이그레이션은 복제된 데이터를 사용하여 Azure VM을 만들어 마이그레이션을 시뮬레이션합니다(일반적으로 Azure 구독에서 비프로덕션 VNet으로 마이그레이션).
 - 복제된 테스트 Azure VM을 사용하여 마이그레이션의 유효성을 검사하고, 애플리케이션 테스트를 수행하며, 전체 마이그레이션을 수행하기 전에 문제를 해결할 수 있습니다.
 
@@ -332,7 +332,10 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 6. 테스트가 완료되면 **머신 복제 중** 에서 마우스 오른쪽 단추로 Azure VM을 클릭하고, **테스트 마이그레이션 정리** 를 클릭합니다.
 
     ![마이그레이션 정리](./media/tutorial-migrate-vmware-agent/clean-up.png)
-
+    > [!NOTE]
+    > 이제 SQL IaaS 에이전트 확장을 사용하여 자동화된 패치, 자동화된 백업 및 간소화된 라이선스 관리를 활용하기 위해 SQL Server를 실행하는 서버를 SQL VM RP에 등록할 수 있습니다.
+    >- **관리** > **복제 서버** > **SQL 서버를 포함한 머신** > **컴퓨팅 및 네트워크** 를 선택하고 **예** 를 선택하여 SQL VM RP에 등록합니다.
+    >- 활성 Software Assurance 또는 SQL Server 구독이 적용되는 SQL Server 인스턴스가 있고 마이그레이션할 머신에 이 혜택을 적용하려면 SQL Server에 대한 Azure 하이브리드 혜택을 선택합니다.
 
 ## <a name="migrate-vms"></a>VM 마이그레이션
 
@@ -344,7 +347,7 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 
 2. **머신 복제 중** 에서 마우스 오른쪽 단추로 VM > **마이그레이션** 을 차례로 클릭합니다.
 3. **마이그레이션** > **가상 머신을 종료하고 데이터 손실 없이 계획된 마이그레이션을 수행하시겠습니까?** 에서 **예** > **확인** 을 차례로 선택합니다.
-    - 기본적으로 Azure Migrate는 온-프레미스 VM을 종료하여 데이터 손실을 최소화합니다. 
+    - 기본적으로 Azure Migrate는 온-프레미스 VM을 종료하여 데이터 손실을 최소화합니다.
     - VM을 종료하지 않으려면 **아니요** 를 선택합니다.
 4. VM에 대한 마이그레이션 작업이 시작됩니다. Azure 알림에서 작업을 추적합니다.
 5. 작업이 완료되면 **Virtual Machines** 페이지에서 VM을 보고 관리할 수 있습니다.
@@ -361,7 +364,7 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 5. 트래픽을 마이그레이션된 Azure VM 인스턴스로 전환합니다.
 6. 로컬 VM 인벤토리에서 온-프레미스 VM을 제거합니다.
 7. 로컬 백업 작업에서 온-프레미스 VM을 제거합니다.
-8. 내부 문서를 업데이트하여 Azure VM의 새 위치 및 IP 주소를 표시합니다. 
+8. 내부 문서를 업데이트하여 Azure VM의 새 위치 및 IP 주소를 표시합니다.
 
 ## <a name="post-migration-best-practices"></a>마이그레이션 후 작업 모범 사례
 
@@ -386,7 +389,7 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
     - [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)을 배포하여 디스크를 보호하고 데이터를 도난 및 무단 액세스로부터 안전하게 유지합니다.
     - [IaaS 리소스 보호](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)에 대해 자세히 알아보고 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 방문하세요.
 - 모니터링 및 관리 앱:
-    - 리소스 사용량과 비용을 모니터링하려면 [Azure Cost Management](../cost-management-billing/cloudyn/overview.md)를 배포하는 것이 좋습니다.
+    - 리소스 사용량과 비용을 모니터링하려면 [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md)를 배포하는 것이 좋습니다.
 
 
 

@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Blink 구성 | Microsoft Docs'
 description: 사용자 계정을 Blink에 자동으로 프로비저닝 및 프로비저닝 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
-ms.author: Zhchia
-ms.openlocfilehash: e67c3157f1d354fe79b2e4bb4b6e822aaf3e7506
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 65ab6560d8a48849fb078a5fb7c1685ae0c9aed6
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98731351"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113764756"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Blink 구성
 

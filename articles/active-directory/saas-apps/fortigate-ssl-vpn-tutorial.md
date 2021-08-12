@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/26/2020
+ms.date: 06/30/2021
 ms.author: jeedes
-ms.openlocfilehash: 9852752799fd010ebb069637f55008d9c4f68bf8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e9663ee95b8ae9b109016e409855ef171c368793
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822496"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690858"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>자습서: FortiGate SSL VPN과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -76,7 +76,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **SAML로 Single Sign-On 설정** 페이지에서 다음 값을 입력합니다.
 
-    a. **로그온 URL** 상자에서 URL을 `https://<FQDN>/remote/login` 패턴으로 입력합니다.
+    a. **로그온 URL** 상자에서 URL을 `https://<FQDN>/remote/saml/login` 패턴으로 입력합니다.
 
     b. **식별자** 상자에서 URL을 `https://<FQDN>/remote/saml/metadata` 패턴으로 입력합니다.
 
@@ -136,7 +136,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 완료합니다.
    1. **이름** 상자에서 **B.Simon** 을 입력합니다.  
-   1. **사용자 이름** 상자에 \<username>@\<companydomain>.\<extension>을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 상자에 \<username>@\<companydomain>.\<extension>을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 를 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 선택합니다.
 
@@ -203,6 +203,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    ```console
     config user saml
     edit azure
+    set cert <FortiGate VPN Server Certificate Name>
     set entity-id <Entity ID>
     set single-sign-on-url <Reply URL>
     set single-logout-url <Logout URL>
