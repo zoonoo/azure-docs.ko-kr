@@ -7,16 +7,16 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: 2924caaac5fb8c512100d9e897f7f153af9a3b3e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 8b0bc143ca92961d7c358248b73ee5524e6835c3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87284917"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768196"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>사용자 지정 데이터와 Azure Virtual Machines에서의 Cloud-Int
 
-프로 비전 시 Microsoft Azure 가상 머신에 스크립트나 기타 메타 데이터를 삽입 해야 할 수 있습니다.  다른 클라우드에서는 이 개념을 사용자 데이터라고 하는 경우가 많습니다.  Microsoft Azure에는 사용자 지정 데이터라는 유사한 기능이 있습니다. 
+프로비전 시 스크립트 또는 기타 메타데이터를 Microsoft Azure 가상 머신에 삽입해야 할 수 있습니다.  다른 클라우드에서는 이 개념을 사용자 데이터라고 하는 경우가 많습니다.  Microsoft Azure에는 사용자 지정 데이터라는 유사한 기능이 있습니다. 
 
 사용자 지정 데이터는 첫 부팅/최초 설정 시에만 VM에 제공되므로 이를 ‘프로비저닝’이라고 합니다. 프로비저닝은 VM Create 매개변수(예: 호스트 이름, 사용자 이름, 암호, 인증서, 사용자 지정 데이터, 키)를 VM에 제공하고 프로비저닝 에이전트(예: [Linux Agent](./extensions/agent-linux.md) 및 [cloud-init](./linux/using-cloud-init.md#troubleshooting-cloud-init))가 이를 처리하는 과정입니다. 
 
@@ -92,4 +92,4 @@ Linux OS에서 사용자 지정 데이터는 ovf-env.xml 파일을 통해 VM에 
 
 
 ### <a name="is-custom-data-made-available-in-imds"></a>사용자 지정 데이터가 IMDS에 제공되나요?
-아니요, 현재 이 기능은 사용할 수 없습니다.
+IMDS에서는 사용자 지정 데이터를 사용할 수 없습니다. IMDS를 통해 사용자 데이터를 대신 사용하는 것이 좋습니다. 자세한 내용은 [Azure Instance Metadata Service를 통한 사용자 데이터](./linux/instance-metadata-service.md?tabs=linux#get-user-data)를 참조하세요.

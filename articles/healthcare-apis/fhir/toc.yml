@@ -166,6 +166,8 @@
       items:
         - name: Azure Policy의 보안 컨트롤
           href: ./security-controls-policy.md
+        - name: Azure API for FHIR에 대한 자동 크기 조정
+          href: autoscale-azure-api-fhir.md
 - name: 리소스
   items:
     - name: FAQ

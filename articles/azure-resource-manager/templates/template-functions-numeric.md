@@ -1,18 +1,18 @@
 ---
-title: 템플릿 함수-numeric
-description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 숫자를 사용 하는 데 사용 하는 함수에 대해 설명 합니다.
+title: 템플릿 함수 - 숫자
+description: ARM 템플릿(Azure Resource Manager 템플릿)에서 숫자 작업을 수행하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: f3687581d94f80cc923614a0655da1813bd5c97b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.date: 05/13/2021
+ms.openlocfilehash: 9f9959c07f936fc800fac836553fb0f37f4f4e83
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97359713"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959645"
 ---
-# <a name="numeric-functions-for-arm-templates"></a>ARM 템플릿에 대 한 숫자 함수
+# <a name="numeric-functions-for-arm-templates"></a>ARM 템플릿의 숫자 함수
 
-리소스 관리자는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 정수를 사용 하기 위한 다음 함수를 제공 합니다.
+Resource Manager는 ARM 템플릿(Azure Resource Manager 템플릿)에서 숫자 작업을 수행하는 데 사용할 수 있도록 아래의 함수를 제공합니다.
 
 * [add](#add)
 * [copyIndex](#copyindex)
@@ -25,17 +25,17 @@ ms.locfileid: "97359713"
 * [mul](#mul)
 * [sub](#sub)
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## <a name="add"></a>add
 
 `add(operand1, operand2)`
 
-제공된 두 정수의 합을 반환합니다. `add`함수는 Bicep에서 지원 되지 않습니다. 연산자를 `+` 대신 사용 합니다.
+제공된 두 정수의 합을 반환합니다.
+
+Bicep에서 `add` 함수는 지원되지 않습니다. 대신 [`+` 연산자](../bicep/operators-numeric.md#add-)를 사용하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 |operand1 |예 |int |더할 첫 번째 숫자입니다. |
 |operand2 |예 |int |더할 두 번째 숫자입니다. |
@@ -47,8 +47,6 @@ ms.locfileid: "97359713"
 ### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json)에서는 두 개의 매개 변수를 추가합니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -81,17 +79,6 @@ ms.locfileid: "97359713"
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param first int = 5
-param second int = 3
-
-output addResult int = first + second
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 속성 | Type | 값 |
@@ -106,10 +93,10 @@ output addResult int = first + second
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | loopName | 예 | 문자열 | 반복을 가져오기 위한 루프의 이름입니다. |
-| offset |아니요 |int |0부터 시작하는 반복 값에 더할 숫자입니다. |
+| offset |예 |int |0부터 시작하는 반복 값에 더할 숫자입니다. |
 
 ### <a name="remarks"></a>설명
 
@@ -117,7 +104,7 @@ output addResult int = first + second
 
 **loopName** 속성을 사용하면 copyIndex에서 리소스 반복 또는 속성 반복을 참조하는지 여부를 지정할 수 있습니다. **loopName** 에 값을 제공하지 않으면 현재 리소스 종류 반복이 사용됩니다. 속성에서 반복하는 경우 **loopName** 의 값을 제공합니다.
 
-Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
+복사본을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 * [ARM 템플릿의 리소스 반복](copy-resources.md)
 * [ARM 템플릿의 속성 반복](copy-properties.md)
@@ -127,8 +114,6 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 ### <a name="example"></a>예제
 
 다음 예제에서는 복사 루프 및 이름에 포함되는 인덱스 값을 보여 줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -161,13 +146,6 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-> [!NOTE]
-> 루프와 `copyIndex` 는 아직 Bicep에서 구현 되지 않습니다.  [루프](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md)를 참조 하세요.
-
----
-
 ### <a name="return-value"></a>반환 값
 
 반복의 현재 인덱스를 나타내는 정수입니다.
@@ -176,14 +154,16 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 
 `div(operand1, operand2)`
 
-제공된 두 정수의 나누기를 반환합니다. `div`함수는 Bicep에서 지원 되지 않습니다. 연산자를 `/` 대신 사용 합니다.
+제공된 두 정수의 나누기를 반환합니다.
+
+Bicep에서 `div` 함수는 지원되지 않습니다. 대신 [`/` 연산자](../bicep/operators-numeric.md#divide-)를 사용하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | operand1 |예 |int |나누어지는 수입니다. |
-| operand2 |예 |int |나누는 데 사용되는 정수입니다. 0 일 수 없습니다. |
+| operand2 |예 |int |나누는 데 사용되는 정수입니다. 0일 수 없습니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -192,8 +172,6 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 ### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json)에서는 다른 매개 변수로 매개 변수 하나를 나눕니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -226,17 +204,6 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param first int = 8
-param second int = 3
-
-output addResult int = first / second
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 속성 | Type | 값 |
@@ -247,11 +214,13 @@ output addResult int = first / second
 
 `float(arg1)`
 
-값을 부동 소수점 숫자로 변환합니다. 논리 앱과 같은 애플리케이션에 사용자 지정 매개 변수를 전달할 때만 이 함수를 사용합니다. `float`함수는 Bicep에서 지원 되지 않습니다.  [32 비트 정수가 아닌 숫자 형식 지원](https://github.com/Azure/bicep/issues/486)을 참조 하세요.
+값을 부동 소수점 숫자로 변환합니다. 논리 앱과 같은 애플리케이션에 사용자 지정 매개 변수를 전달할 때만 이 함수를 사용합니다.
+
+Bicep에서 `float` 함수는 지원되지 않습니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 또는 int |부동 소수점 숫자로 변환할 값입니다. |
 
@@ -262,8 +231,6 @@ output addResult int = first / second
 ### <a name="example"></a>예제
 
 다음 예제에서는 float를 사용해서 매개 변수를 논리 앱에 전달하는 방법을 보여 줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -279,13 +246,6 @@ output addResult int = first / second
       },
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-> [!NOTE]
-> `float`함수는 Bicep에서 지원 되지 않습니다.  [32 비트 정수가 아닌 숫자 형식 지원](https://github.com/Azure/bicep/issues/486)을 참조 하세요.
-
----
-
 ## <a name="int"></a>int
 
 `int(valueToConvert)`
@@ -294,7 +254,7 @@ output addResult int = first / second
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |예 |문자열 또는 int |정수로 변환할 값입니다. |
 
@@ -305,8 +265,6 @@ output addResult int = first / second
 ### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json)은 사용자가 제공한 매개 변수 값을 정수로 변환합니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -329,16 +287,6 @@ output addResult int = first / second
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringToConvert string = '4'
-
-output inResult int = int(stringToConvert)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 속성 | Type | 값 |
@@ -353,7 +301,7 @@ output inResult int = int(stringToConvert)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
@@ -364,8 +312,6 @@ output inResult int = int(stringToConvert)
 ### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json)에서는 배열 및 정소 목록에 최대값을 사용하는 방법을 보여줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -391,23 +337,6 @@ output inResult int = int(stringToConvert)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  0
-  3
-  2
-  5
-  4
-]
-
-output arrayOutPut int = max(arrayToTest)
-output intOutput int = max(0,3,2,5,4)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 속성 | Type | 값 |
@@ -423,7 +352,7 @@ output intOutput int = max(0,3,2,5,4)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
@@ -434,8 +363,6 @@ output intOutput int = max(0,3,2,5,4)
 ### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json)에서는 배열 및 정소 목록에 최소값을 사용하는 방법을 보여줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -461,23 +388,6 @@ output intOutput int = max(0,3,2,5,4)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  0
-  3
-  2
-  5
-  4
-]
-
-output arrayOutPut int = min(arrayToTest)
-output intOutput int = min(0,3,2,5,4)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 속성 | Type | 값 |
@@ -489,14 +399,16 @@ output intOutput int = min(0,3,2,5,4)
 
 `mod(operand1, operand2)`
 
-제공된 두 정수를 사용하여 나누기한 나머지를 반환합니다. `mod`함수는 Bicep에서 지원 되지 않습니다. 연산자를 `%` 대신 사용 합니다.
+제공된 두 정수를 사용하여 나누기한 나머지를 반환합니다.
+
+Bicep에서 `mod` 함수는 지원되지 않습니다. 대신 [% 연산자](../bicep/operators-numeric.md#modulo-)를 사용하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | operand1 |예 |int |나누어지는 수입니다. |
-| operand2 |예 |int |나누는 데 사용 되는 숫자는 0 일 수 없습니다. |
+| operand2 |예 |int |나누는 데 사용되는 정수로, 0일 수 없습니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -505,8 +417,6 @@ output intOutput int = min(0,3,2,5,4)
 ### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json)에서는 다른 매개 변수로 매개 변수 하나를 나눈 나머지를 반환합니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -539,17 +449,6 @@ output intOutput int = min(0,3,2,5,4)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param first int = 7
-param second int = 3
-
-output modResult int = first % second
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 속성 | Type | 값 |
@@ -560,11 +459,13 @@ output modResult int = first % second
 
 `mul(operand1, operand2)`
 
-제공된 두 정수의 곱하기를 반환합니다. `mul`함수는 Bicep에서 지원 되지 않습니다. 연산자를 `*` 대신 사용 합니다.
+제공된 두 정수의 곱하기를 반환합니다.
+
+Bicep에서 `mul` 함수는 지원되지 않습니다. 대신 [* 연산자](../bicep/operators-numeric.md#multiply-)를 사용하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | operand1 |예 |int |곱할 첫 번째 숫자입니다. |
 | operand2 |예 |int |곱할 두 번째 숫자입니다. |
@@ -576,8 +477,6 @@ output modResult int = first % second
 ### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json)에서는 다른 매개 변수로 매개 변수 하나를 곱합니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -610,17 +509,6 @@ output modResult int = first % second
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param first int = 5
-param second int = 3
-
-output mulResult int = first * second
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 속성 | Type | 값 |
@@ -631,11 +519,11 @@ output mulResult int = first * second
 
 `sub(operand1, operand2)`
 
-제공된 두 정수의 빼기를 반환합니다. `sub`함수는 Bicep에서 지원 되지 않습니다. 연산자를 `-` 대신 사용 합니다.
+제공된 두 정수의 빼기를 반환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | operand1 |예 |int |빼는 피감수입니다. |
 | operand2 |예 |int |빼는 감수입니다. |
@@ -647,8 +535,6 @@ output mulResult int = first * second
 ### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json)에서는 다른 매개 변수에서 매개 변수를 뺍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -681,17 +567,6 @@ output mulResult int = first * second
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param first int = 7
-param second int = 3
-
-output subResult int = first - second
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 속성 | Type | 값 |
@@ -700,5 +575,5 @@ output subResult int = first - second
 
 ## <a name="next-steps"></a>다음 단계
 
-* ARM 템플릿의 섹션에 대 한 설명은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
-* 리소스 형식을 만들 때 지정 된 횟수 만큼 반복 하려면 [ARM 템플릿에서 리소스 반복](copy-resources.md)을 참조 하세요.
+* ARM 템플릿의 섹션에 대한 설명은 [ARM 템플릿의 구조 및 구문 이해](./syntax.md)를 참조하십시오.
+* 리소스 형식을 만들 때 지정된 횟수만큼 반복하려면 [ARM 템플릿의 리소스 반복](copy-resources.md)을 참조하세요.

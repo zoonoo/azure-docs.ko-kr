@@ -5,13 +5,13 @@ ms.service: stream-analytics
 author: enkrumah
 ms.author: ebnkruma
 ms.topic: how-to
-ms.date: 3/10/2020
-ms.openlocfilehash: 7c1ddbbbd8198cf769e89cfa824de370184a992c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/30/2021
+ms.openlocfilehash: f0dfc7c77ce0eeedc6a85760627988e3eddc838e
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589687"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784922"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>관리 ID를 사용하여 Power BI에 Azure Stream Analytics 작업 인증
 
@@ -210,9 +210,16 @@ POST https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users
 }
 ```
 
+### <a name="use-a-service-principal-to-grant-permission-for-an-asa-jobs-managed-identity"></a>서비스 주체를 사용하여 ASA 작업의 관리 ID에 대한 사용 권한 부여
+
+자동화된 배포의 경우 대화형 로그인을 사용하여 Power BI 작업 영역에 대한 ASA 작업 액세스 권한을 부여하는 것은 불가능합니다. 이는 서비스 주체를 사용하여 ASA 작업의 관리 ID에 대한 사용 권한을 부여함으로써 수행할 수 있습니다. 이 작업은 다음과 같은 PowerShell을 사용하여 수행할 수 있습니다.
+
+Connect-PowerBIServiceAccount -ServicePrincipal -TenantId "<tenant-id>" -CertificateThumbprint "<thumbprint>" -ApplicationId "<app-id>" Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
+
+
 ## <a name="remove-managed-identity"></a>관리 ID 제거
 
-Stream Analytics 작업에 대해 생성된 관리 ID는 작업이 삭제된 경우에만 삭제됩니다. 작업을 삭제하지 않고 관리 ID를 삭제할 수는 없습니다. 관리 ID를 더 이상 사용하지 않으려는 경우에는 출력에 대한 인증 방법을 변경할 수 있습니다. 관리 ID는 작업이 삭제될 때까지 계속 존재하며, 관리 ID 인증을 다시 사용하기로 결정한 경우 사용됩니다.
+Stream Analytics 작업에 대해 생성된 관리 ID는 작업이 삭제된 경우에만 삭제됩니다. 작업을 삭제하지 않고 관리 ID를 삭제할 수는 없습니다. 관리 ID를 더 이상 사용하지 않으려는 경우에는 출력에 대한 인증 방법을 변경할 수 있습니다. 관리 ID는 작업이 삭제될 때까지 계속 존재하며, 관리 ID 인증을 다시 사용하기로 한 경우 사용됩니다.
 
 ## <a name="limitations"></a>제한 사항
 이 기능의 제한 사항은 다음과 같습니다.

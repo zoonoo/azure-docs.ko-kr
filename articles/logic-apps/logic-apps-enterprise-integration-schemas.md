@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/06/2019
-ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/27/2021
+ms.openlocfilehash: 39fc84e9a83f7417836c895481da27a0d00cc71f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "75979371"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137187"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 스키마로 XML 유효성 검사
 
@@ -21,7 +21,7 @@ ms.locfileid: "75979371"
 
 통합 계정 및 아티팩트(예: 스키마)와 관련된 제한에 대해서는 [Azure Logic Apps에 대한 제한 및 구성 정보](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">Azure 체험 계정에 등록</a>합니다.
 
@@ -183,6 +183,14 @@ ms.locfileid: "75979371"
 1. **스키마** 페이지가 열리면 스키마를 선택하고 **삭제** 를 선택합니다.
 
 1. 스키마를 삭제할지 확인하려면 **예** 를 선택합니다.
+
+## <a name="limitations"></a>제한 사항
+
+일반적으로 워크플로와 함께 통합 계정을 사용하고 XML의 유효성을 검사하려는 경우 해당 계정에 스키마를 추가하거나 업로드합니다. 통합 계정에 없는 스키마를 참조하거나 가져오는 경우 `xsd:redefine` 요소를 사용할 때 다음과 같은 오류가 표시될 수 있습니다.
+
+`An error occurred while processing the XML schemas: ''SchemaLocation' must successfully resolve if <redefine> contains any child other than <annotation>.'.`
+
+이 오류를 해결하려면 `xsd:redefine` 대신 `xsd:import` 또는 `xsd:include` 요소를 사용하거나 URI를 사용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,15 +1,15 @@
 ---
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 03/10/2021
-ms.author: jingwang
-ms.openlocfilehash: 699be9fde25a7dc2736f182edaac08ca56d6de47
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 06/01/2021
+ms.author: jianleishen
+ms.openlocfilehash: 0082bac41a615d078854ccfc76524c41db14c595
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110163820"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111761211"
 ---
 | 범주              | 데이터 저장소                                                   | [복사 작업](../copy-activity-overview.md)(원본/싱크) | [매핑 데이터 흐름](../concepts-data-flow-overview.md)(원본/싱크) | [조회 작업](../control-flow-lookup-activity.md) | [메타데이터 작업 가져오기](../control-flow-get-metadata-activity.md)/[유효성 검사 작업](../control-flow-validation-activity.md) | [활동 삭제](../delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -52,14 +52,14 @@ ms.locfileid: "110163820"
 | &nbsp;                | [SAP 테이블](../connector-sap-table.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Snowflake](../connector-snowflake.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Spark](../connector-spark.md)         | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
-| &nbsp;                | [SQL Server](../connector-sql-server.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            |                                                              |
+| &nbsp;                | [SQL Server](../connector-sql-server.md) | ✓/✓                                                           | ✓/✓ <small>[관리형 VNET](../managed-virtual-network-private-endpoint.md) 사용                                                             | ✓                                                            | ✓                                                            |                                                              |
 | &nbsp;                | [Sybase](../connector-sybase.md)       | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Teradata](../connector-teradata.md)   | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Vertica](../connector-vertica.md)     | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | **NoSQL**             | [Cassandra](../connector-cassandra.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Couchbase(미리 보기)](../connector-couchbase.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
-| &nbsp;                | [MongoDB](../connector-mongodb.md)     | ✓/−                                                          |                                                              |                                                              |                                                              |                                                              |
-| &nbsp;                | [MongoDB Atlas](../connector-mongodb-atlas.md) | ✓/−                                                          |                                                              |                                                              |                                                              |                                                              |
+| &nbsp;                | [MongoDB](../connector-mongodb.md)     | ✓/✓                                                          |                                                              |                                                              |                                                              |                                                              |
+| &nbsp;                | [MongoDB Atlas](../connector-mongodb-atlas.md) | ✓/✓                                                          |                                                              |                                                              |                                                              |                                                              |
 | **최근에 사용한 파일**              | [Amazon S3](../connector-amazon-simple-storage-service.md) | ✓/−                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;              | [Amazon S3 호환 스토리지](../connector-amazon-s3-compatible-storage.md) | ✓/−                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [파일 시스템](../connector-file-system.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |

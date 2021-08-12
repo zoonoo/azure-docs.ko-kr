@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 IDEO 구성 | Microsoft Docs'
 description: 사용자 계정을 IDEO에 자동으로 프로비저닝 및 프로비저닝 해제를 하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
-ms.author: Zhchia
-ms.openlocfilehash: 4d877468e87edb11b606668739d8d539ef0cc1dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 87c00971c9205df6e9740a1614480fa7a9faa764
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96180854"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767004"
 ---
 # <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 IDEO 구성
 

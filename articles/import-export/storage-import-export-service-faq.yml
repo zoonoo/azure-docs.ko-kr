@@ -1,0 +1,162 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Import/Export 서비스에 대한 FAQ | Microsoft Docs
+  description: Azure Import/Export 서비스에 대한 질문과 대답을 참고합니다.
+  author: alkohli
+  services: storage
+  ms.service: storage
+  ms.topic: conceptual
+  ms.date: 01/14/2021
+  ms.author: alkohli
+  ms.subservice: common
+  ms.openlocfilehash: 51af880897564851750dccd756601d86a1dab889
+  ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/30/2021
+  ms.locfileid: "113094974"
+title: 'Azure Import/Export 서비스: 질문과 대답'
+summary: >
+  Azure Import/Export 서비스를 사용하여 Azure Storage에 데이터를 전송할 때 발생할 수 있는 질문 및 답변은 다음과 같습니다.
+sections:
+- name: Import/Export 서비스 정보
+  questions:
+  - question: >
+      Azure Import/Export 서비스를 사용하여 Azure File Storage를 복사할 수 있나요?
+    answer: >
+      예. Azure Import/Export 서비스는 Azure File Storage로 가져오기를 지원합니다. 지금은 Azure 파일의 내보내기는 지원하지 않습니다.
+  - question: >
+      Azure Import/Export 서비스를 CSP 구독에 사용할 수 있나요?
+    answer: >
+      예. Azure Import/Export 서비스는 CSP(클라우드 솔루션 공급자) 구독을 지원합니다.
+  - question: >
+      Azure Import/Export 서비스를 사용하여 PST 사서함 및 SharePoint 데이터를 Microsoft 365에 복사할 수 있나요?
+    answer: >
+      예. 자세한 내용은 [조직의 PST 파일 가져오기 개요](/microsoft-365/compliance/importing-pst-files-to-office-365)를 참조하세요.
+  - question: >
+      Azure Import/Export 서비스를 사용하여 오프라인 백업을 Azure Backup 서비스에 복사할 수 있나요?
+    answer: >
+      예. 자세한 내용은 [Azure Backup의 오프라인 백업 워크플로](../backup/backup-azure-backup-import-export.md)로 이동합니다.
+  - question: >
+      가져오기/내보내기 작업에 사용할 드라이브를 Microsoft에서 구입할 수 있습니까?
+    answer: >
+      아니요. 가져오기 및 내보내기 작업에 대해 사용자가 자체 드라이브를 발송해야 합니다.
+- name: Import/Export할 디스크 준비
+  questions:
+  - question: >
+      가져오기 작업에서 드라이브 준비 단계를 건너뛸 수 있나요? 복사하지 않고 드라이브를 준비할 수 있나요?
+    answer: >
+      아니요. 데이터를 가져오는 데 사용되는 드라이브는 Azure WAImportExport 도구를 사용하여 준비되어야 합니다. 도구를 사용하여 드라이브에 데이터를 복사합니다.
+  - question: >
+      내보내기 작업을 만들 때 디스크를 준비해야 하나요?
+    answer: >
+      아니요. 일부 사전 검사를 수행하는 것이 좋습니다. 필요한 디스크 수를 확인하려면 WAImportExport 도구의 PreviewExport 명령을 사용합니다. 자세한 내용은 [내보내기 작업에 대한 드라이브 사용량 미리 보기](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1)를 참조하세요. 명령을 통해 사용하고자 하는 드라이브의 크기에 따라 선택한 Blob의 드라이브 사용량을 미리 볼 수 있습니다. 또한 내보내기 작업에 대해 제공될 하드 드라이브에서 읽고 쓸 수 있는지 확인합니다.
+- name: Import/Export 작업
+  questions:
+  - question: >
+      작업을 취소할 수 있나요?
+    answer: >
+      예. 작업 상태가 **만드는 중** 또는 **운송 중** 인 경우 작업을 취소할 수 있습니다. 이러한 단계를 넘으면 작업을 취소할 수 없고 최종 단계까지 계속됩니다.
+  - question: >
+      Azure Portal에서 완료된 작업의 상태는 얼마나 오랫동안 볼 수 있나요?
+    answer: >
+      완료된 작업의 상태는 최대 90일 동안 볼 수 있습니다. 90일이 지나면 완료된 작업이 삭제됩니다.
+  - question: >
+      10개가 넘는 드라이브를 가져오거나 내보내려면 어떻게 해야 합니까?
+    answer: >
+      하나의 가져오기 또는 내보내기 작업은 단일 작업에서 10개의 드라이브만을 참조할 수 있습니다. 10개가 넘는 드라이브를 운송하려면 여러 개의 작업을 만들어야 합니다. 동일한 작업과 연결된 드라이브는 동일한 패키지에 함께 발송되어야 합니다.
+
+      데이터 용량이 여러 디스크 가져오기 작업에 걸쳐 있는 경우 정보 및 지침은 Microsoft 지원에 문의하세요.
+  - question: >
+      업로드된 Blob은 상태를 “임대 만료”로 표시합니다.   어떻게 해야 합니까?
+    answer: >
+      “임대 만료” 필드는 무시해도 됩니다. Import/Export 기능은 업로드 중에 Blob을 임대하여 다른 프로세스가 동시에 Blob을 업데이트할 수 없도록 합니다. 임대 만료는 Import/Export 기능이 더 이상 해당 Blob에 업로드하지 않으므로 사용자가 Blob을 사용할 수 있음을 의미합니다.
+- name: 디스크 운송
+  questions:
+  - question: >
+      각 운송에 허용되는 최대 HDD 수는 몇 개인가요?
+    answer: >
+      하나의 운송에서 HDD 수는 제한되지 않습니다. 디스크가 여러 작업에 속하는 경우 다음을 수행하는 것이 좋습니다.
+
+
+      - 해당하는 작업 이름 사용하여 디스크의 레이블을 지정합니다.
+
+      - 추적 번호에 접미사 -1, -2 등을 추가하여 작업을 업데이트합니다.
+  - question: >
+      HDD 외에도 패키지에 포함해야 하는 다른 항목이 있나요?
+    answer: >
+      운송 패키지에서는 하드 드라이브만을 운송합니다. 전원 공급 장치 케이블이나 USB 케이블과 같은 품목은 포함하지 마세요.
+  - question: >
+      FedEx 또는 DHL을 사용하여 드라이브를 운송해야 하나요?
+    answer: >
+      FedEx, DHL, UPS 또는 US 우편 서비스와 같이 알려진 모든 운송업체를 사용하여 Azure 데이터 센터에 드라이브를 발송할 수 있습니다. 그러나 데이터 센터 간에 드라이브를 반송하는 경우 다음을 제공해야 합니다.
+
+
+      - 미국 및 유럽의 FedEx 계정 번호 또는
+
+      - 아시아 및 오스트레일리아 지역의 DHL 계정 번호
+
+
+      > [!NOTE]
+
+      > 인도 데이터 센터는 드라이브를 반환하기 위해 레터헤드에 선언 문서(배달 공문서)가 필요합니다. 필요한 항목 패스를 정렬하려면 선택한 운송업체와 픽업을 예약하고 세부 정보를 데이터 센터와 공유해야 합니다.
+  - question: >
+      드라이브를 전 세계로 배송하고 반품하는 데 제한 사항이 있나요?
+    answer: >
+      배송하는 실제 미디어는 국경을 지나야 할 수 있습니다. 실제 미디어와 데이터를 관련 법률에 따라 가져오거나 내보내도록 해야 합니다. 실제 미디어를 배송하기 전에 관리자에게 미디어 및 데이터를 확인된 데이터 센터에 합법적으로 배송할 수 있는지 확인하세요. 이렇게 하면 해당 품목이 시기 적절하게 Microsoft에 도착될 수 있습니다.
+
+
+      업로드가 완료되면 드라이브를 국제 주소로 반환하는 프로세스가 현지 배송에 필요한 일반적인 2~3일보다 오래 걸릴 수 있습니다. Azure Portal 패키징으로 나열된 단계에서 Data Box 팀은 배송이 다양한 국제 수출입 요구 사항을 준수하도록 올바른 설명서를 제공합니다.
+  - question: >
+      데이터 센터에 디스크를 배달하기 위한 특별한 요구 사항이 있나요?
+    answer: >
+      요구 사항은 특정 Azure 데이터 센터 제한 사항에 따라 달라집니다.
+
+
+      - 오스트레일리아, 독일 및 영국 남부 같은 몇몇 지역에서는 보안상의 이유로 Microsoft 데이터 센터 인바운드 ID 번호를 소포에 작성해야 합니다. 드라이브 또는 디스크를 데이터 센터에 배송하기 전에 Azure DataBox Operations(adbops@microsoft.com)에 문의하여 이 번호를 가져옵니다. 이 번호가 없으면 패키지가 거부됩니다.
+
+      - 인도 데이터 센터에는 정부 ID 카드 또는 증명 번호와 같은 드라이버의 개인 정보가 필요합니다. (예: PAN, AADHAR, DL), 이름, 연락처 및 자동차 번호로 게이트 진입 패스를 받습니다. 배달 지연을 방지하려면 이러한 요구 사항에 대해 운송업체에 알려 주세요.
+  - question: >
+      작업을 만들 때 배송지 주소가 스토리지 계정 위치와는 다른 위치입니다.   어떻게 해야 합니까?
+    answer: >
+      일부 스토리지 계정 위치는 대체 배송 위치로 매핑됩니다. 이전에 사용 가능했던 배송 위치 또한 일시적으로 대체 위치로 매핑될 수 있습니다. 드라이브를 발송하기 전에 작업을 만들 때 제공한 배송지 주소를 항상 확인합니다.
+  - question: >
+      드라이브를 운송할 때 운송업체에서 데이터 센터 연락처 주소 및 전화 번호를 요청합니다. 무엇을 제공해야 하나요?
+    answer: >
+      전화 번호와 DC 주소는 작업을 만드는 동안 제공됩니다.
+- name: 기타
+  questions:
+  - question: >
+      지원 요구 사항에 맞지 않는 HDD를 실수로 보내면 어떻게 됩니까?
+    answer: >
+      Azure 데이터 센터에서는 지원 요구 사항에 맞지 않는 드라이브를 사용자에게 반환합니다. 패키지의 드라이브 중 일부만 지원 요구 사항에 맞는 경우 해당 드라이브는 처리되며 요구 사항에 맞지 않는 드라이브는 사용자에게 반환됩니다.
+  - question: >
+      서비스가 드라이브를 반환하기 전에 포맷하나요?
+    answer: >
+      아니요. 모든 드라이브는 BitLocker로 암호화되어 있습니다.
+  - question: >
+      이 서비스를 통해 가져오는 데이터에 액세스하려면 어떻게 하나요?
+    answer: "Azure Portal 또는 [Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 Azure Storage 계정의 데이터에 액세스합니다.  \n"
+  - question: >
+      가져오기 작업을 완료한 후에 스토리지 계정에서 데이터는 어떻게 표시되나요? 디렉터리 계층 구조가 유지되나요?
+    answer: >
+      가져오기 작업을 위해 하드 드라이브를 준비할 때 대상은 데이터 세트 CSV의 DstBlobPathOrPrefix 필드로 지정됩니다. 이는 하드 드라이브로부터 데이터가 복사되는 스토리지 계정의 대상 컨테이너입니다. 이 대상 컨테이너 내에 하드 드라이브의 폴더에 대해 가상 디렉터리가 만들어지며 파일에 대해 Blob이 만들어집니다.
+  - question: >
+      스토리지 계정에 이미 있는 파일이 드라이브에 있는 경우 서비스가 기존 Blob 또는 파일을 덮어쓰나요?
+    answer: >
+      경우에 따라 다릅니다. 드라이브를 준비할 때 데이터 세트 CSV 파일에 있는 Disposition:&lt;rename|no-overwrite|overwrite&gt;라는 필드를 사용하여 대상 파일을 덮어쓰거나 무시해야 하는지를 지정할 수 있습니다. 기본적으로 서비스는 기존 Blob 또는 파일을 덮어쓰지 않고 새 파일의 이름을 변경합니다.
+  - question: >
+      WAImportExport 도구는 32비트 운영 체제와 호환되나요?
+    answer: >
+      아니요. WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다. 지원되는 OS의 전체 목록은 [지원되는 운영 체제](./storage-import-export-requirements.md)로 이동합니다.
+  - question: >
+      Azure Import/Export에서 지원하는 최대 블록 Blob 및 페이지 Blob 크기는 무엇인가요?
+    answer: >
+      - 최대 블록 Blob 크기는 약 4.768TB 또는 5,000,000MB입니다.
+
+      - 최대 페이지 Blob 크기는 8TB입니다.
+  - question: >
+      Azure Import/Export는 AES-256 암호화를 지원하나요?
+    answer: >
+      예. Azure Import/Export 서비스는 AES-256 BitLocker 암호화를 사용합니다.
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n* [Azure Import/Export란?](storage-import-export-service.md)"

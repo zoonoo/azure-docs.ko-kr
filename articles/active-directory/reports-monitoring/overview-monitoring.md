@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 763e628183e5f6ad7b7bdbb8ee7ce6db572f44ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e9787b18932b83526dd410aec8024066d312978
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100577777"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729510"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>Azure Active Directory 모니터링이란?
 
@@ -44,7 +44,7 @@ ms.locfileid: "100577777"
 
 Azure AD 로그인 로그에 액세스하려면 Azure AD 프리미엄 라이선스가 필요합니다.
 
-[Azure Active Directory 가격 책정 가이드](https://azure.microsoft.com/pricing/details/active-directory/)의 자세한 기능 및 라이선스 정보를 참조하세요.
+[Azure Active Directory 가격 책정 가이드](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)의 자세한 기능 및 라이선스 정보를 참조하세요.
 
 Azure AD 모니터링 및 보고를 배포하려면 Azure AD 테넌트의 전역 관리자 또는 보안 관리자인 사용자가 필요합니다.
 

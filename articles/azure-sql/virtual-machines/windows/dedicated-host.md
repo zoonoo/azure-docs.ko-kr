@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 957e458bf21eb4a95b1faba1daf0459271648310
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 7b1259843a1195301ff66e7c8d1ad7650f9ca686
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97358693"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078747"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Azure 전용 호스트에서 SQL Server VM 실행 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "97358693"
 
 ## <a name="limitations"></a>제한 사항
 
-- 모든 VM 시리즈는 전용 호스트에서 지원 되는 것이 아니라 VM 시리즈 가용성은 지역에 따라 다릅니다. 자세한 내용은 [Azure 전용 호스트의 개요](../../../virtual-machines/dedicated-hosts.md)를 참조 하세요.
+- 모든 VM 시리즈가 전용 호스트에서 지원되는 것은 아니며 VM 시리즈 가용성은 지역에 따라 다릅니다. 자세한 내용은 [Azure Dedicated Host 개요](../../../virtual-machines/dedicated-hosts.md)를 참조하세요.
 
 ## <a name="licensing"></a>라이선스
 
@@ -76,6 +76,6 @@ A: 고객은 기존 Windows Server 및 SQL Server 라이선스의 가치를 소�
 자세한 내용은 다음 문서를 참조하세요. 
 
 * [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Windows VM의 SQL Server FAQ](frequently-asked-questions-faq.md)
+* [Windows VM의 SQL Server FAQ](frequently-asked-questions-faq.yml)
 * [Windows VM의 SQL Server 가격 책정 가이드](pricing-guidance.md)
 * [Windows VM의 SQL Server 릴리스 정보](doc-changes-updates-release-notes.md)

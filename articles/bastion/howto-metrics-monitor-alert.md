@@ -1,19 +1,19 @@
 ---
 title: Azure Monitor를 사용하여 모니터링 및 메트릭 구성
 titleSuffix: Azure Bastion
-description: Azure 전반의 메트릭, 경고, 진단 로그에 대한 솔루션인 Azure Monitor를 사용하는 Azure Bastion 모니터링 및 메트릭에 대해 알아봅니다.
+description: Azure Monitor를 사용하는 Azure Bastion 모니터링 및 메트릭에 대해 알아봅니다.
 services: bastion
 author: mialdrid
 ms.service: bastion
 ms.topic: how-to
 ms.date: 03/12/2021
 ms.author: mialdrid
-ms.openlocfilehash: 3a5beba3938b5a845a378ede155f2f64e6baac7a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bed26390a2a64b7bbb39f1df014d0d63ccce6a5f
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103417946"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110534776"
 ---
 # <a name="how-to-configure-monitoring-and-metrics-for-azure-bastion-using-azure-monitor"></a>Azure Monitor를 사용하여 Azure Bastion에 대한 모니터링 및 메트릭을 구성하는 방법
 
@@ -73,6 +73,12 @@ Azure Bastion에는 사용 가능한 다양한 메트릭이 있습니다. 다음
 #### <a name="session-count"></a>세션 수
 
 각 세션 유형(RDP 및 SSH)에서 집계된 베스천 인스턴스당 활성 세션 수를 볼 수 있습니다. 각 Azure Bastion은 다양한 활성 RDP 및 SSH 세션을 지원할 수 있습니다. 이 메트릭을 모니터링하면 베스천 서비스를 실행하는 인스턴스 수를 조정해야 하는지 여부를 이해하는 데 도움이 됩니다. Azure Bastion에서 지원할 수 있는 세션 수에 대한 자세한 내용은 [Azure Bastion FAQ](bastion-faq.md)를 참조하세요.
+
+이 메트릭의 구성에 권장되는 값은 다음과 같습니다.
+
+* **집계:** 평균
+* **세분성:** 5분 또는 15 분
+* 인스턴스를 기준으로 분할하여 보다 정확한 개수를 얻는 것이 좋습니다.
 
 :::image type="content" source="./media/metrics-monitor-alert/session-count.png" alt-text="세션 수를 보여주는 스크린샷.":::
 

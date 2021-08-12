@@ -1,21 +1,21 @@
 ---
 title: Microsoft OPC 게시자 원격 분석 형식
-description: 이 문서에서는 구성 설정 파일에 대 한 개요를 제공 합니다.
+description: 이 문서에서는 구성 설정 파일에 대한 개요를 제공합니다.
 author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: reference
 ms.date: 3/22/2021
-ms.openlocfilehash: d4aea455a33f45973c2329fb44fdda6c2a508f53
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.openlocfilehash: 77469a9232361cf680eca69f4a2e9d131581d14d
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104787554"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677947"
 ---
 # <a name="opc-publisher-telemetry-format"></a>OPC 게시자 원격 분석 형식
 
-OPC 게시자 버전 2.6 이상에서는 [OPC ua 사양의 파트 14](https://opcfoundation.org/developer-tools/specifications-unified-architecture/part-14-pubsub/) 에 지정 된 대로 표준화 된 Opc Ua PUBSUB JSON 형식을 지원 하 고 다음과 같습니다.
+OPC 게시자 버전 2.6 이상에서는 [OPC UA 사양의 14부](https://opcfoundation.org/developer-tools/specifications-unified-architecture/part-14-pubsub/)에 지정된 대로 표준화된 OPC UA PubSub JSON 형식을 지원합니다.
 ```
 {
   "MessageId": "18",
@@ -49,7 +49,7 @@ OPC 게시자 버전 2.6 이상에서는 [OPC ua 사양의 파트 14](https://op
 }
 ```
 
-또한 모든 버전의 OPC 게시자는 [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) 호환 되는 표준화 되지 않은 간단한 JSON 원격 분석 형식을 지원 하며 다음과 같습니다.
+또한 모든 버전의 OPC 게시자는 표준화되지 않은 간단한 JSON 원격 분석 형식을 지원합니다. 이 형식은 [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)와 호환되며 다음과 같습니다.
 ```
 [
    {
@@ -82,10 +82,15 @@ OPC 게시자 버전 2.6 이상에서는 [OPC ua 사양의 파트 14](https://op
 ```
 
 ## <a name="opc-publisher-telemetry-configuration-file-format"></a>OPC 게시자 원격 분석 구성 파일 형식
+
+> [!NOTE]
+> 원격 분석 구성 형식은 더 이상 사용되지 않습니다. 2\.5 이하 버전에서만 사용할 수 있습니다.
+
+
 ```
     // The configuration settings file consists of two objects:
     // 1) The 'Defaults' object, which defines defaults for the telemetry configuration
-    // 2) An array 'EndpointSpecific' of endpoint specific configuration
+    // 2) An array 'EndpointSpecific' of endpoint-specific configuration
     // Both objects are optional and if they are not specified, then OPC Publisher uses
     // its internal default configuration:
     //  {
@@ -215,7 +220,7 @@ OPC 게시자 버전 2.6 이상에서는 [OPC ua 사양의 파트 14](https://op
         // or the defaults used by publisher.
         // It is not allowed to specify 'Name' and 'Flat' properties in this object.
         "EndpointSpecific": [
-            // The following shows how a endpoint specific configuration can look like:
+            // The following shows how an endpoint-specific configuration can look like:
             {
                 // 'ForEndpointUrl' allows to configure for which OPC UA server this
                 // object applies and is a required property for all objects in the
@@ -276,4 +281,4 @@ OPC 게시자 버전 2.6 이상에서는 [OPC ua 사양의 파트 14](https://op
 > [OPC 게시자 GitHub 리포지토리](https://github.com/Azure/Industrial-IoT)
 
 > [!div class="nextstepaction"]
-> [IIoT Platform GitHub 리포지토리](https://github.com/Azure/iot-edge-opc-publisher)
+> [IIoT 플랫폼 GitHub 리포지토리](https://github.com/Azure/iot-edge-opc-publisher)

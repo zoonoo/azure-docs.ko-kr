@@ -2,23 +2,23 @@
 title: 사용자 계정으로 작업 실행
 description: 사용자 계정 유형과 구성 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 04/13/2021
 ms.custom: seodec18
-ms.openlocfilehash: b19e0c10834b3c5215d14c6c5ae20caaacb4bc64
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5a071e03b27a2cb612118ad37e078ca8f8f86e08
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606609"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987977"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Batch에서 사용자 계정으로 태스크 실행
 
 > [!NOTE]
 > 이 문서에서 설명하는 사용자 계정은 보안상의 이유로 원격 데스크톱 프로토콜(RDP) 또는 보안 셸(SSH)에 사용되는 사용자 계정과는 다릅니다.
 >
-> SSH를 통해 Linux 가상 머신 구성을 실행하는 노드에 연결하려면 [Ubuntu에서 원격 데스크톱을 사용하기 위한 xrdp 설치 및 구성하기](../virtual-machines/linux/use-remote-desktop.md)를 참조하세요. RDP를 통해 Windows를 실행하는 노드에 연결하려면 [windows를 실행하는 Azure 가상 머신에 연결하 고 로그온하는 방법](../virtual-machines/windows/connect-logon.md)을 참조하세요.
+> SSH를 통해 Linux 가상 머신 구성을 실행하는 노드에 연결하려면 [Ubuntu에서 원격 데스크톱을 사용하기 위한 xrdp 설치 및 구성하기](../virtual-machines/linux/use-remote-desktop.md)를 참조하세요. RDP를 통해 Windows를 실행하는 노드에 연결하려면 [windows를 실행하는 Azure 가상 머신에 연결하고 로그온하는 방법](../virtual-machines/windows/connect-logon.md)을 참조하세요.
 >
-> RDP를 통해 클라우드 서비스 구성을 실행하는 노드에 연결하려면 [Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md)을 참조하세요.
+> RDP를 통해 실행 중인 노드에 연결하려면 [Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md)을 참조하세요.
 
 Azure Batch의 태스크는 항상 사용자 계정으로 실행됩니다. 기본적으로 태스크는 관리자 권한 없이 표준 사용자 계정으로 실행됩니다. 어떤 시나리오에서는 태스크를 실행하려는 사용자 계정을 구성하려고 할 수 있습니다. 이 문서에서는 사용자 계정의 형식 및 시나리오에 맞게 구성하는 방법을 설명합니다.
 
@@ -139,7 +139,7 @@ task.UserIdentity = new UserIdentity(new AutoUserSpecification(scope: AutoUserSc
 
 ### <a name="create-named-user-accounts"></a>명명된 사용자 계정 만들기
 
-Batch에서 명명된 사용자 계정을 만들려면 풀에 사용자 계정의 컬렉션을 추가합니다. 다음 코드 조각에서는 .NET, Java 및 Python에서 명명된 사용자 계정을 만드는 방법을 보여 줍니다. 이러한 코드 조각에서는 풀에 관리자 및 비관리자 명명된 계정을 만드는 방법을 보여 줍니다. 예제에서는 클라우드 서비스 구성을 사용하여 풀을 만들지만 가상 머신 구성을 사용하여 Windows 또는 Linux 풀을 만들 때도 같은 방법을 사용합니다.
+Batch에서 명명된 사용자 계정을 만들려면 풀에 사용자 계정의 컬렉션을 추가합니다. 다음 코드 조각에서는 .NET, Java 및 Python에서 명명된 사용자 계정을 만드는 방법을 보여 줍니다. 이러한 코드 조각에서는 풀에 관리자 및 비관리자 명명된 계정을 만드는 방법을 보여 줍니다.
 
 #### <a name="batch-net-example-windows"></a>Batch .NET 예제(Windows)
 
@@ -147,12 +147,18 @@ Batch에서 명명된 사용자 계정을 만들려면 풀에 사용자 계정�
 CloudPool pool = null;
 Console.WriteLine("Creating pool [{0}]...", poolId);
 
-// Create a pool using the cloud service configuration.
+// Create a pool using Virtual Machine Configuration.
 pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     targetDedicatedComputeNodes: 3,
     virtualMachineSize: "standard_d1_v2",
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
+    VirtualMachineConfiguration: new VirtualMachineConfiguration(
+    imageReference: new ImageReference(
+                        publisher: "MicrosoftWindowsServer",
+                        offer: "WindowsServer",
+                        sku: "2019-datacenter-core",
+                        version: "latest"),
+    nodeAgentSkuId: "batch.node.windows amd64");
 
 // Add named user accounts.
 pool.UserAccounts = new List<UserAccount>
@@ -238,7 +244,7 @@ PoolAddParameter addParameter = new PoolAddParameter()
         .withId(poolId)
         .withTargetDedicatedNodes(POOL_VM_COUNT)
         .withVmSize(POOL_VM_SIZE)
-        .withCloudServiceConfiguration(configuration)
+        .withVirtualMachineConfiguration(configuration)
         .withUserAccounts(userList);
 batchClient.poolOperations().createPool(addParameter);
 ```

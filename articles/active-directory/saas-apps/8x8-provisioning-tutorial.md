@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 8x8 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 8x8로 자동으로 프로비전 및 프로비전 해제하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2020
-ms.author: Zhchia
-ms.openlocfilehash: a6aa4ad009d037e6ea0d1ade3cc9735351bd634a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: c055b8a0bd11d6f1e1a28e053d64aaf574ca2880
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96558864"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765166"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 8x8 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "96558864"
 > * Azure AD와 8x8 간에 사용자 특성을 동기화된 상태로 유지
 > * [8x8에 대한 Single Sign-On](./8x8virtualoffice-tutorial.md)(권장)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 

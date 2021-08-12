@@ -9,10 +9,10 @@ ms.date: 01/14/2021
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 03d953bd534595e47702642403626a05b7f67aba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98706623"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>가져오기/내보내기 작업에 대한 지원 티켓 열기
@@ -26,7 +26,7 @@ ms.locfileid: "98706623"
 
 지원 요청을 만들려면 다음 단계를 수행합니다.
 
-1. 가져오기/내보내기 작업으로 이동합니다. **지원 + 문제 해결** 섹션으로 이동한 다음 **새 지원 요청** 을 선택 합니다.
+1. 가져오기/내보내기 작업으로 이동합니다. **지원 + 문제 해결** 섹션으로 이동한 다음, **새 지원 요청** 을 선택합니다.
      
     ![기본 사항](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
@@ -55,7 +55,7 @@ ms.locfileid: "98706623"
 
        ![문제](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
 
-4. **새 지원 요청** 에서 **3 단계 연락처 정보** 를 선택 합니다. **연락처 정보** 에서 다음 단계를 수행합니다.
+4. **새 지원 요청** 에서 **3단계 연락처 정보** 를 클릭합니다. **연락처 정보** 에서 다음 단계를 수행합니다.
 
    1. **연락처 옵션** 에서 기본 연락 방법(전화 또는 전자 메일) 및 언어를 지정합니다. 응답 시간은 구독 계획에 따라 자동으로 선택됩니다.
    2. 연락처 정보에서 이름, 메일, 선택적 연락처, 국가/지역을 지정합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장** 확인란을 선택합니다.
@@ -64,7 +64,7 @@ ms.locfileid: "98706623"
        ![연락처 정보](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 
       Microsoft 기술 지원 서비스는 이 정보를 사용하여 사용자에게 추가 정보, 진단 및 솔루션을 알립니다.
-      요청을 제출 하면 지원 엔지니어가 사용자에 게 연락 하 여 요청을 계속 합니다.
+      요청을 제출한 후에 지원 엔지니어가 요청을 처리하기 위해 연락할 것입니다.
 
 ## <a name="manage-a-support-request"></a>지원 요청 관리
 
@@ -74,17 +74,17 @@ ms.locfileid: "98706623"
 
 1. 도움말 및 지원 페이지로 이동하려면 **찾아보기 > 도움말 + 지원** 으로 이동합니다.
 
-    ![스크린샷 도움말 대화 상자를 표시 합니다.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
+    ![도움말 대화 상자를 표시하는 스크린샷.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
 
 2. **최근 지원 요청** 의 테이블 형식 목록이 **도움말 + 지원** 에 표시됩니다.
 
-    ![스크린샷은 지원 요청이 열려 있는 상태에서 도움말 + 지원 페이지를 표시 합니다.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
+    ![지원 요청이 열려 있는 상태의 도움말 + 지원 페이지를 표시하는 스크린샷.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
 
-3. 지원 요청을 클릭하여 선택합니다. 이 요청의 상태 및 세부 정보를 볼 수 있습니다. 이 요청에 대해 후속 작업을 수행 하려면 **+ 새 메시지** 를 선택 합니다.
+3. 지원 요청을 클릭하여 선택합니다. 이 요청의 상태 및 세부 정보를 볼 수 있습니다. 이 요청의 후속 작업을 수행하려면 **+ 새 메시지** 를 선택합니다.
 
-    ![이 요청에 대해 선택 된 새 메시지를 보여 주는 스크린샷](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
+    ![이 요청에 대해 선택된 새 메시지를 보여주는 스크린샷.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Import/Export를 사용 하 여 Azure Storage 간에 데이터를 전송](storage-import-export-service.md)하는 방법을 알아봅니다.
+[Azure Import/Export를 사용하여 Azure Storage 간에 데이터를 전송](storage-import-export-service.md)하는 방법을 알아봅니다.

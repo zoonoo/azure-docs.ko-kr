@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: azla
 ms.topic: how-to
-ms.date: 05/25/2021
-ms.openlocfilehash: e9e29a091608be54c806a98323b9e485bc7a49a8
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/08/2021
+ms.openlocfilehash: 7de89605f86e47b3062ec07160288ab14584f42e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388197"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747422"
 ---
 # <a name="create-parameters-for-values-that-change-in-workflows-across-environments-for-single-tenant-azure-logic-apps"></a>단일 테넌트 Azure Logic Apps에 대한 환경의 워크플로에서 변하는 값의 매개 변수 만들기
 
@@ -90,6 +90,16 @@ Azure CLI를 사용하여 매개 변수 파일을 동적으로 바꾸려면 다�
 
 ```azurecli
 az functionapp deploy --resource-group MyResourceGroup --name MyLogicApp --src-path C:\parameters.json --type static --target-path parameters.json
+```
+
+NuGet 기반 논리 앱 프로젝트가 있는 경우 빌드 출력에 매개 변수 파일을 포함하도록 프로젝트 파일( **&lt; logic-app-name&gt;.csproj**)을 업데이트해야 합니다. 예를 들면 다음과 같습니다.
+  
+```csproj
+<ItemGroup>
+  <None Update="parameters.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </None>
+</ItemGroup>
 ```
 
 > [!NOTE]

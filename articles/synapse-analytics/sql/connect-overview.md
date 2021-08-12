@@ -9,12 +9,12 @@ ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f5682302ea0fa83c04a8560ba3f0f98ea075e072
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: ba85f51e821faf1c4704d7295dd6ddfcb977c3c9
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565545"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112539055"
 ---
 # <a name="connect-to-synapse-sql"></a>Synapse SQL에 연결
 Azure Synapse Analytics의 Synapse SQL 기능에 연결합니다.
@@ -94,4 +94,4 @@ Synapse SQL은 연결 및 개체 생성 중에 몇 가지 설정을 표준화합
 **서버리스 SQL 풀** 쿼리를 실행하기 위해 권장되는 도구는 [Azure Data Studio](get-started-azure-data-studio.md) 및 Azure Synapse Studio입니다.
 
 ## <a name="next-steps"></a>다음 단계
-Visual Studio를 사용하여 연결하고 쿼리하려면 [Visual Studio를 사용하여 쿼리](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요. 인증 옵션에 대한 자세한 내용은 [Synapse SQL에 인증](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.
+Visual Studio를 사용하여 연결하고 쿼리하려면 [Visual Studio를 사용하여 쿼리](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요. 인증 옵션에 대한 자세한 내용은 [Synapse SQL에 인증](sql-authentication.md?tabs=provisioned)을 참조하세요.

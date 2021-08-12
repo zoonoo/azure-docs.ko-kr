@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Maps Weather Services(미리 보기) 적용 범위
-description: Microsoft Azure Maps Weather Services(미리 보기) 적용 범위에 대해 알아봅니다.
+title: Microsoft Azure Maps Weather Services 적용 범위
+description: Microsoft Azure Maps Weather Services 적용 범위에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -9,19 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
 manager: philmea
-ms.openlocfilehash: 6c4e9eb765a72b7a0b495f81a954b484ef6aa2b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5ac209dc898c2d30f8d50a8989b188ef5a9f5046
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96905488"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257673"
 ---
-# <a name="azure-maps-weather-services-preview-coverage"></a>Azure Maps Weather Services(미리 보기) 적용 범위
-
-> [!IMPORTANT]
-> Azure Maps Weather Services는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
+# <a name="azure-maps-weather-services-coverage"></a>Azure Maps Weather Services 적용 범위
 
 이 문서에서는 Azure Maps [Weather Services](/rest/api/maps/weather)의 적용 범위에 대한 정보를 제공합니다. Azure Maps Weather Data Services는 레이더 타일, 현재 날씨 조건, 날씨 예측, 경로를 따른 날씨 등의 세부 정보를 반환합니다.
 

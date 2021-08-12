@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 631fdba451f69e44a675d396a42e1cddaea50a3b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/30/2021
+ms.openlocfilehash: 67919f89167fbdb09bfed8e67dfda5fb49bb9bb0
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98013960"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592397"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Azure SQL Database의 Azure Stream Analytics 출력
 
@@ -47,6 +47,10 @@ Azure Stream Analytics에서 Azure Synapse Analytics로 출력할 수 있는 두
 ## <a name="output-batch-size"></a>출력 일괄 처리 크기
 
 **최대 일괄 처리 횟수** 를 사용하여 최대 메시지 크기를 구성할 수 있습니다. 기본 최대값은 10,000이고 기본 최소값은 단일 대량 삽입 당 100 행입니다. 자세한 내용은 [Azure SQL 제한](../azure-sql/database/resource-limits-logical-server.md)을 참조하세요. 모든 일괄 처리는 처음에 최대 일괄 처리 수로 대량 삽입됩니다. 일괄 처리는 SQL에서 재시도 가능한 오류를 기준으로 절반(최소 일괄 처리 수까지)으로 분할됩니다.
+
+## <a name="limitation"></a>제한 사항
+
+ASA 작업을 VM의 SQL에 연결하려고 할 때 자체 서명된 ssl 인증서가 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

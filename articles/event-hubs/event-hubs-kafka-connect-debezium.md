@@ -5,12 +5,12 @@ ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 01/06/2021
-ms.openlocfilehash: 0ad1df23e71e652f7d380ffbabb542b81954e038
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2395aff1d9174e5a7c99c231b1af8d2997d1926
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97935175"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111748052"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-with-debezium-for-change-data-capture"></a>변경 데이터 캡처를 위해 Azure Event Hubs의 Apache Kafka Connect 지원 Debezium와 통합
 
@@ -179,7 +179,7 @@ psql -h my-postgres.postgres.database.azure.com -p 5432 -U testuser@my-postgres 
 **테이블 만들기 및 레코드 삽입**
 
 ```sql
-CREATE TABLE todos (id SERIAL, description VARCHAR(50), todo_status VARCHAR(10), PRIMARY KEY(id));
+CREATE TABLE todos (id SERIAL, description VARCHAR(50), todo_status VARCHAR(12), PRIMARY KEY(id));
 
 INSERT INTO todos (description, todo_status) VALUES ('setup postgresql on azure', 'complete');
 INSERT INTO todos (description, todo_status) VALUES ('setup kafka connect', 'complete');
@@ -187,7 +187,7 @@ INSERT INTO todos (description, todo_status) VALUES ('configure and install conn
 INSERT INTO todos (description, todo_status) VALUES ('start connector', 'pending');
 ```
 
-커넥터는 작업을 시작하고 `database.server.name`의 값으로 `my-server`를 사용하고 `public.todos`가 변경 내용을 추적 중인 테이블이라고 가정하여(`table.whitelist` 구성에 따라), `my-server.public.todos`를 지정하여 변경 데이터 이벤트를 Event Hubs 토픽으로 보냅니다.
+커넥터는 작업을 시작하고 `database.server.name`의 값으로 `my-server`를 사용하고 `public.todos`가 변경 내용을 추적 중인 테이블이라고 가정해(`table.whitelist` 구성에 따라), `my-server.public.todos`를 지정하여 변경 데이터 이벤트를 Event Hubs 토픽으로 보냅니다.
 
 **Event Hubs 토픽 확인**
 
@@ -293,7 +293,7 @@ Kafka Connect는 Connect 클러스터가 중단된 후에도 유지되는 구성
 
 ## <a name="next-steps"></a>다음 단계
 
-Kafka용 Event Hubs에 대해 자세한 내용은 다음 문서를 참조하세요.  
+Kafka용 Event Hubs에 대한 자세한 내용은 다음 문서를 참조하세요.  
 
 - [이벤트 허브에서 Kafka broker 미러링](event-hubs-kafka-mirror-maker-tutorial.md)
 - [이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)

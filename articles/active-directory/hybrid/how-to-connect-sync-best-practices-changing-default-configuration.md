@@ -16,12 +16,12 @@ ms.date: 08/29/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70e91ff8fa3666a2dfc5aaad07be7927852b08bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: afe4db68b5a5d508aaf9760f4da0a8fd15890e15
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85357701"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110614867"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경에 대한 모범 사례
 이 항목에서는 Azure AD Connect 동기화에 지원되거나 지원되지 않는 변경사항을 설명합니다.
@@ -31,7 +31,9 @@ Azure AD Connect에 의해 만들어진 구성은 온-프레미스 Active Direct
 ## <a name="changes-to-the-service-account"></a>서비스 계정의 변경 내용
 Azure AD Connect 동기화는 설치 마법사에서 만든 서비스 계정에서 실행 중입니다. 이 서비스 계정은 동기화에 의해 사용되는 데이터베이스에 대한 암호화 키를 보유합니다. 127자의 긴 암호로 만들어지며, 만료되지 않도록 설정됩니다.
 
-* 서비스 계정의 암호는 변경 또는 초기화가 **지원되지 않습니다** . 이렇게 하면 암호화 키는 파기되고 서비스는 데이터베이스에 액세스할 수 없으며, 서비스를 시작할 수 없습니다.
+> [!WARNING]
+> ADSync 서비스 계정 암호를 변경하거나 재설정하면 암호화 키를 제거하고 ADSync 서비스 계정 암호를 다시 초기화할 때까지 동기화 서비스를 제대로 시작할 수 없습니다.
+> 이렇게 하려면 [ADSync 서비스 계정 암호 변경](how-to-connect-sync-change-serviceacct-pass.md)을 참조하세요.
 
 ## <a name="changes-to-the-scheduler"></a>스케줄러에 대한 변경 사항
 빌드 1.1(2016년 2월)의 릴리스부터 [스케줄러](how-to-connect-sync-feature-scheduler.md) 가 기본값 30분이 아닌 다른 동기화 주기를 사용하도록 구성할 수 있습니다.

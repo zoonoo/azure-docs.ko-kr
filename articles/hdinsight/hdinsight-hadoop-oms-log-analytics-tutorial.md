@@ -3,14 +3,14 @@ title: Azure Monitor Logs를 사용하여 Azure HDInsight 모니터링
 description: Azure Monitor Logs를 사용하여 HDInsight 클러스터에서 실행되는 작업을 모니터링하는 방법을 알아봅니다.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: seoapr2020, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 0dfa89f50dedad41394cb77f1cca9b2dd3a65308
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7f828d5c0183cedca9c763eb2368d1cb460b713e
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104865539"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074118"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Azure Monitor Logs를 사용하여 HDInsight 클러스터 모니터링
 
@@ -102,7 +102,7 @@ Disable-AzHDInsightMonitoring -Name "<your-cluster>"
 
 ## <a name="enable-azure-monitor-using-azure-cli"></a>Azure CLI를 통해 Azure Monitor 사용
 
-Azure CLI `[az hdinsight monitor enable`](/cli/azure/hdinsight/monitor#az-hdinsight-monitor-enable) 명령을 사용하여 Azure Monitor 로그를 사용하도록 설정할 수 있습니다.
+Azure CLI `[az hdinsight monitor enable`](/cli/azure/hdinsight/monitor#az_hdinsight_monitor_enable) 명령을 사용하여 Azure Monitor 로그를 사용하도록 설정할 수 있습니다.
 
 ```azurecli
 # set variables
@@ -117,7 +117,7 @@ az hdinsight monitor enable --name $cluster --resource-group $resourceGroup --wo
 az hdinsight monitor show --name $cluster --resource-group $resourceGroup
 ```
 
-사용하지 않으려면 [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az-hdinsight-monitor-disable) 명령을 사용합니다.
+사용하지 않으려면 [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az_hdinsight_monitor_disable) 명령을 사용합니다.
 
 ```azurecli
 az hdinsight monitor disable --name $cluster --resource-group $resourceGroup

@@ -3,12 +3,12 @@ title: 컨테이너 인스턴스에서 활동성 상태 프로브 설정
 description: Azure Container Instances의 비정상 컨테이너를 다시 시작하도록 활동성 프로브를 구성하는 방법을 알아봅니다
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: befe9693be1413abf455d915814c53aab20db53c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d88133692fbfad4c5e81eefa57c69a843448222
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86169700"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771562"
 ---
 # <a name="configure-liveness-probes"></a>활동성 프로브 구성
 
@@ -23,7 +23,7 @@ ms.locfileid: "86169700"
 
 ## <a name="yaml-deployment"></a>YAML 배포
 
-다음 코드 조각이 포함된 `liveness-probe.yaml` 파일을 만듭니다. 이 파일은 결국 비정상 상태가 되는 NGNIX 컨테이너를 구성하는 컨테이너 그룹을 정의합니다.
+다음 코드 조각이 포함된 `liveness-probe.yaml` 파일을 만듭니다. 이 파일은 결국 비정상 상태가 되는 NGINX 컨테이너를 구성하는 컨테이너 그룹을 정의합니다.
 
 ```yaml
 apiVersion: 2019-12-01

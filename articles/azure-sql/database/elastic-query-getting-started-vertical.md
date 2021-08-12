@@ -7,16 +7,16 @@ ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: scoriani
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: 90f89e72193c26b71859076b99c448a6e2d4c4c6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 58d66f587c65546aa8c2b03c25592a09ea059f7a
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98060107"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110708768"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>데이터베이스 간 쿼리 시작(수직 분할)(미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,13 +27,13 @@ Azure SQL Database에 Elastic Database 쿼리(미리 보기)를 사용하면 단
 
 탄력적 데이터베이스 쿼리 기능에 대한 자세한 내용은 [Azure SQL Database 탄력적 데이터베이스 쿼리 개요](elastic-query-overview.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 ALTER ANY EXTERNAL DATA SOURCE 권한이 필요합니다. 이 사용 권한은 ALTER DATABASE 권한에 포함됩니다. 기본 데이터 원본을 참조하기 위해 ALTER ANY EXTERNAL DATA SOURCE 권한이 필요합니다.
 
 ## <a name="create-the-sample-databases"></a>샘플 데이터베이스 만들기
 
-먼저 동일한 서버 또는 다른 서버에 두 개의 데이터베이스, 즉 **Customers** 와 **Orders** 를 만듭니다.
+먼저 동일한 서버 또는 다른 서버에 두 개의 데이터베이스, **고객** 및 **주문** 을 만듭니다.
 
 **주문** 데이터베이스에서 다음 쿼리를 실행하여 **주문 정보** 테이블을 만들고 샘플 데이터를 입력합니다.
 
@@ -77,7 +77,7 @@ INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]
     SECRET = '<password>';  
     ```
 
-    "Master_key_password"는 연결 자격 증명을 암호화 하는 데 사용한 강력한 암호입니다. 
+    "master_key_password"는 연결 자격 증명을 암호화하는 데 사용되는 강력한 암호입니다. 
     "username"과 "password"는 Customers 데이터베이스에 로그인하는 데 사용되는 사용자 이름과 암호여야 합니다.
     탄력적 쿼리를 통해 Azure Active Directory를 사용한 인증은 현재 지원되지 않습니다.
 
@@ -122,7 +122,7 @@ ON CustomerInformation.CustomerID = OrderInformation.CustomerID
 
 현재 Azure SQL Database 가격에는 Elastic Database 쿼리 기능이 포함되어 있습니다.  
 
-가격 책정 정보는 [SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database)을 참조 하세요.
+가격 정보는 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

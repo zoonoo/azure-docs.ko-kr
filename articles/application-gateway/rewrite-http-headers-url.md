@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: azhussai
-ms.openlocfilehash: 3e7bdc92dc6268c712eecbd69ff014e2229b3b84
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: b7cf7c98e71da215eb30dcab556a88d6d2701591
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490967"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789450"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Application Gateway를 사용하여 HTTP 헤더 및 URL 다시 쓰기
 
- Application Gateway를 사용하면 선택한 요청 및 응답 내용을 다시 쓸 수 있습니다. 이 기능을 사용하면 URL, 쿼리 문자열 매개 변수를 변환하고 요청 및 응답 헤더를 수정할 수 있습니다. 특정 조건이 충족되는 경우에만 URL 또는 지정된 헤더를 다시 쓸 수 있도록 조건을 추가할 수도 있습니다. 이러한 조건은 요청 및 응답 정보를 기반으로 합니다.
+Application Gateway를 사용하면 선택한 요청 및 응답 내용을 다시 쓸 수 있습니다. 이 기능을 사용하면 URL, 쿼리 문자열 매개 변수를 변환하고 요청 및 응답 헤더를 수정할 수 있습니다. 특정 조건이 충족되는 경우에만 URL 또는 지정된 헤더를 다시 쓸 수 있도록 조건을 추가할 수도 있습니다. 이러한 조건은 요청 및 응답 정보를 기반으로 합니다.
 
 >[!NOTE]
 >HTTP 헤더 및 URL 다시 쓰기 기능은 [Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md)에서만 사용할 수 있습니다.
@@ -58,7 +58,7 @@ Azure Portal을 사용하여 Application Gateway로 URL을 다시 쓰는 방법�
 
 * 텍스트
 * 요청 헤더. 요청 헤더를 지정하려면 {http_req_ *headerName*} 구문을 사용해야 합니다.
-* 응답 헤더. 응답 헤더를 지정하려면 {http_resp_ *headerName*} 구문을 사용해야 합니다.
+* 응답 헤더입니다. 응답 헤더를 지정하려면 {http_resp_ *headerName*} 구문을 사용해야 합니다.
 * 서버 변수. 서버 변수를 지정하려면 {var_ *serverVariable*} 구문을 사용해야 합니다. 지원되는 서버 변수 목록을 참조하세요.
 * 텍스트, 요청 헤더, 응답 헤더 및 서버 변수의 조합 
 
@@ -101,7 +101,7 @@ Application Gateway 서버 변수를 사용하여 서버, 클라이언트와의 
 
 애플리케이션 게이트웨이는 다음 서버 변수를 지원합니다.
 
-|   변수 이름    |                   설명                                           |
+|   변수 이름    |                   Description                                           |
 | ------------------------- | ------------------------------------------------------------ |
 | add_x_forwarded_for_proxy | `client_ip` 변수(이 표의 뒷부분에 있는 설명 참조)가 IP1, IP2, IP3 등의 형식으로 추가된 X-Forwarded-For 클라이언트 요청 헤더 필드입니다. X-Forwarded-For 필드가 클라이언트 요청 헤더에 없으면 `add_x_forwarded_for_proxy` 변수는 `$client_ip` 변수와 같습니다.   이 변수는 Application Gateway에서 설정한 X-Forwarded-For 헤더를(헤더에 포트 정보 없이 IP 주소만 포함되도록) 다시 쓰려는 경우 특히 유용합니다. |
 | ciphers_supported         | 클라이언트에서 지원하는 암호화 목록입니다.               |
@@ -130,7 +130,7 @@ Application Gateway 서버 변수를 사용하여 서버, 클라이언트와의 
 
 Application Gateway는 상호 인증 시나리오에 대해 다음과 같은 서버 변수를 지원합니다. 이러한 서버 변수는 다른 서버 변수와 함께 위와 동일한 방식으로 사용합니다. 
 
-|   변수 이름    |                   설명                                           |
+|   변수 이름    |                   Description                                           |
 | ------------------------- | ------------------------------------------------------------ |
 | client_certificate        | 설정된 SSL 연결을 위한 PEM 형식의 클라이언트 인증서입니다. |
 | client_certificate_end_date| 클라이언트 인증서의 종료 날짜입니다. |
@@ -154,12 +154,12 @@ Application Gateway는 상호 인증 시나리오에 대해 다음과 같은 서
 * **다시 쓰기 유형**: 3가지 유형의 다시 쓰기를 사용할 수 있습니다.
    * 요청 헤더 다시 쓰기 
    * 응답 헤더 다시 쓰기
-   * URL 다시 쓰기: URL 다시 쓰기 유형에는 3가지 구성 요소가 있습니다.
+   * URL 구성 요소 다시 쓰기
       * **URL 경로**: 경로를 다시 쓸 값입니다. 
       * **URL 쿼리 문자열**: 쿼리 문자열을 다시 쓸 값입니다. 
       * **경로 맵 다시 평가**: URL 경로 맵을 다시 평가할지 여부를 결정하는 데 사용됩니다. 선택하지 않은 상태로 유지하면 원래 URL 경로가 URL 경로 맵의 경로 패턴과 일치하는 데 사용됩니다. true로 설정하면 URL 경로 맵이 다시 평가되어 다시 쓴 경로와 일치하는지 확인합니다. 이러한 전환이 가능하도록 설정하면 다시 쓴 후 요청을 다른 백 엔드 풀로 라우팅하는 데 도움이 됩니다.
 
-## <a name="rewrite-configuration-common-pitfall"></a>다시 쓰기 구성의 일반적인 단점
+## <a name="rewrite-configuration-common-pitfalls"></a>다시 쓰기 구성의 일반적인 단점
 
 * 기본 요청 라우팅 규칙에는 '경로 맵 다시 평가'를 사용하도록 설정할 수 없습니다. 기본 라우팅 규칙에 대한 무한 평가 루프를 방지하기 위해서 입니다.
 
@@ -191,7 +191,7 @@ Application Gateway는 백 엔드에 요청을 전달하기 전에 모든 요청
 
 백 엔드 애플리케이션이 리디렉션 응답을 전송할 때 클라이언트를 백 엔드 애플리케이션에서 지정한 것과 다른 URL로 리디렉션할 수 있습니다. 예를 들어, 앱 서비스가 애플리케이션 게이트웨이 뒤에서 호스트되고 클라이언트가 상대 경로에 대한 리디렉션을 수행해야 하는 경우 이 작업을 수행할 수 있습니다. (예를 들어 contoso.azurewebsites.net/path1에서 contoso.azurewebsites.net/path2로 리디렉션)
 
-App Service는 다중 테넌트 서비스이기 때문에, 요청의 호스트 헤더를 사용하여 요청을 올바른 엔드포인트로 라우팅합니다. App Services의 기본 도메인 이름은 *.azurewebsites.net(예: contoso.azurewebsites.net)이며, 이것은 애플리케이션 게이트웨이의 도메인 이름(예: contoso.com)과 다릅니다. 클라이언트의 원래 요청에는 애플리케이션 게이트웨이의 도메인 이름(contoso.com)이 호스트 이름으로 있으므로 애플리케이션 게이트웨이는 호스트 이름을 contoso.azurewebsites.net으로 변경합니다. App Service가 올바른 엔드포인트로 요청을 라우팅할 수 있도록 이렇게 변경합니다.
+App Service는 다중 테넌트 서비스이기 때문에, 요청의 호스트 헤더를 사용하여 요청을 올바른 엔드포인트로 라우팅합니다. App Services의 기본 도메인 이름은 \*.azurewebsites.net(예: contoso.azurewebsites.net)이며, 이것은 애플리케이션 게이트웨이의 도메인 이름(예: contoso.com)과 다릅니다. 클라이언트의 원래 요청에는 애플리케이션 게이트웨이의 도메인 이름(contoso.com)이 호스트 이름으로 있으므로 애플리케이션 게이트웨이는 호스트 이름을 contoso.azurewebsites.net으로 변경합니다. App Service가 올바른 엔드포인트로 요청을 라우팅할 수 있도록 이렇게 변경합니다.
 
 앱 서비스가 리디렉션 응답을 보낼 때는 응답의 위치 헤더에 애플리케이션 게이트웨이에서 수신한 요청의 호스트 이름과 동일한 호스트 이름을 사용합니다. 따라서 클라이언트는 애플리케이션 게이트웨이(`contoso.com/path2`)를 통과하지 않고 `contoso.azurewebsites.net/path2`에 직접 요청을 보냅니다. 애플리케이션 게이트웨이를 우회하는 것은 바람직하지 않습니다.
 
@@ -226,7 +226,7 @@ HTTP 응답에서 중요한 정보를 나타내는 헤더는 제거하는 것이
 
 #### <a name="parameter-based-path-selection"></a>매개 변수 기반 경로 선택
 
-요청의 헤더 값, URL의 일부 또는 쿼리 문자열을 기반으로 백 엔드 풀을 선택하는 시나리오를 수행하려면 URL 다시 쓰기 기능과 경로 기반 라우팅의 조합을 사용합니다.  예를 들어 쇼핑 웹 사이트가 있고 제품 범주가 URL의 쿼리 문자열로 전달되는 경우 쿼리 문자열을 기반으로 요청을 백 엔드로 라우팅하려면 다음을 수행합니다.
+요청의 헤더 값, URL의 일부 또는 쿼리 문자열을 기반으로 백 엔드 풀을 선택하는 시나리오를 수행하려면 URL 다시 쓰기 기능과 경로 기반 라우팅의 조합을 사용합니다. 예를 들어 쇼핑 웹 사이트가 있고 제품 범주가 URL의 쿼리 문자열로 전달되는 경우 쿼리 문자열을 기반으로 요청을 백 엔드로 라우팅하려면 다음을 수행합니다.
 
 **1단계:** 아래 이미지와 같이 경로 맵을 만듭니다.
 
@@ -250,7 +250,7 @@ HTTP 응답에서 중요한 정보를 나타내는 헤더는 제거하는 것이
 
 이제 사용자가 *contoso.com/listing?category=any* 를 요청하면 경로 맵(/listing1, /listing2, /listing3)의 경로 패턴이 모두 일치하지 않으므로 기본 경로가 일치됩니다. 위의 다시 쓰기 집합을 이 경로와 연결했으므로 다시 쓰기 집합이 평가됩니다. 쿼리 문자열은 다시 쓰기 집합에 있는 3개 다시 쓰기 규칙 조건 중 무엇과도 일치하지 않으므로 다시 쓰기 작업이 수행되지 않으며 따라서 요청은 기본 경로(*Genericlist*)와 연결된 백 엔드로 변경되지 않고 라우팅됩니다.
 
- 사용자가 *contoso.com/listing?category=shoes* 를 요청하면 다시 기본 경로가 일치됩니다. 하지만 이 경우는 첫 번째 규칙의 조건이 일치하므로 해당 조건과 연결된 작업이 실행되어 URL 경로를 /*listing1* 로 다시 쓰고 경로 맵이 다시 평가됩니다. 경로 맵이 다시 평가되면 요청은 패턴 */listing1* 과 연결된 경로와 일치되고 요청은 이 패턴과 연결된 백 엔드인 ShoesListBackendPool로 라우팅됩니다.
+사용자가 *contoso.com/listing?category=shoes* 를 요청하면 다시 기본 경로가 일치됩니다. 하지만 이 경우는 첫 번째 규칙의 조건이 일치하므로 해당 조건과 연결된 작업이 실행되어 URL 경로를 /*listing1* 로 다시 쓰고 경로 맵이 다시 평가됩니다. 경로 맵이 다시 평가되면 요청은 패턴 */listing1* 과 연결된 경로와 일치되고 요청은 이 패턴과 연결된 백 엔드인 ShoesListBackendPool로 라우팅됩니다.
 
 >[!NOTE]
 >이 시나리오는 정의된 조건에 따라 모든 헤더 또는 쿠키 값, URL 경로, 쿼리 문자열 또는 서버 변수로 확장될 수 있으며, 기본적으로 이러한 조건에 따라 요청을 라우팅할 수 있습니다.
@@ -283,7 +283,7 @@ URL 리디렉션의 경우 Application Gateway는 새 URL을 사용하여 클라
 
 - 응답에 이름이 같은 헤더가 둘 이상 있는 경우 이들 헤더 중 하나의 값을 다시 쓰면 응답의 다른 헤더가 삭제됩니다. 이런 경우는 일반적으로 Set-Cookie 헤더에서 발생하는데 응답에 Set-Cookie 헤더가 둘 이상 있을 수 있기 때문입니다. 이러한 시나리오 중 하나는 애플리케이션 게이트웨이와 함께 App Service를 사용하고 애플리케이션 게이트웨이에서 쿠키 기반 세션 선호도를 구성하는 경우입니다. 이 경우 응답에는 두 개의 Set-Cookie 헤더가 포함되며, 그 중 하나는 App Service에서 사용되고(예: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net`)다른 하나는 애플리케이션 게이트웨이 선호도에 사용됩니다(예: `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`). 이 시나리오에서 Set-Cookie 헤더 중 하나를 다시 쓰면 응답에서 다른 Set-Cookie 헤더가 제거될 수 있습니다.
 - 애플리케이션 게이트웨이가 요청을 리디렉션하거나 사용자 지정 오류 페이지를 표시하도록 구성된 경우에는 다시 쓰기가 지원되지 않습니다.
-- 헤더 이름은 [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27)에 정의된 대로 영숫자 문자 및 특정 기호를 포함할 수 있습니다. 현재는 헤더 이름에 밑줄(_) 특수 문자가 지원되지 않습니다.
+- 헤더 이름은 [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27)에 정의된 대로 영숫자 문자 및 특정 기호를 포함할 수 있습니다. 현재는 헤더 이름에 밑줄(\_) 특수 문자가 지원되지 않습니다.
 - 연결 및 업그레이드 헤더는 다시 쓸 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계

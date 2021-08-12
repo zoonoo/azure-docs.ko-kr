@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0112ab53c501d639d3f8e0d09d82ef3a12cb93a8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94837249"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>What If 도구를 사용하여 조건부 액세스 문제 해결
@@ -67,7 +67,7 @@ What If 도구를 시작하려면 **사용자** 만 있으면 됩니다.
 
 적절하게 구성되었는지 유효성을 검사하기 위해 관리자는 What If 도구를 사용하여 허용해야 하는 위치 및 거부해야 하는 위치의 액세스를 모방할 수 있습니다.
 
-[![블록 액세스를 포함 하는 결과를 보여 주는 What If 도구](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png#lightbox)
+[ ![액세스 차단이 포함된 결과를 보여 주는 What If 도구](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png#lightbox)
 
 이 경우 Contoso가 해당 위치의 액세스를 차단했으므로 사용자는 북한으로 여행 시 클라우드 앱 액세스가 차단됩니다.
 

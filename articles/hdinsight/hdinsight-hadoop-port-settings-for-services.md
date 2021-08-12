@@ -1,35 +1,35 @@
 ---
 title: HDInsight에서 Hadoop 서비스에서 사용하는 포트 - Azure
-description: 이 문서에서는 Azure HDInsight에서 실행 되는 Apache Hadoop 서비스에서 사용 하는 포트 목록을 제공 합니다.
+description: 이 문서에서는 Azure HDInsight에서 실행되는 Apache Hadoop 서비스에 사용되는 포트의 목록을 제공합니다.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
 ms.openlocfilehash: b5dadb886078f701bb01447efd606c862ee73073
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98945524"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight의 Apache Hadoop 서비스에서 사용하는 포트
 
-이 문서에서는 HDInsight 클러스터에서 실행 되는 Apache Hadoop 서비스에서 사용 하는 포트 목록을 제공 합니다. 또한 SSH를 사용하여 클러스터에 연결하는 데 사용된 포트에 대한 정보도 제공합니다.
+이 문서에서는 HDInsight 클러스터에서 실행되는 Apache Hadoop 서비스에 사용되는 포트의 목록을 제공합니다. 또한 SSH를 사용하여 클러스터에 연결하는 데 사용된 포트에 대한 정보도 제공합니다.
 
 ## <a name="public-ports-vs-non-public-ports"></a>공용 포트 및 비-공용 포트
 
-Linux 기반 HDInsight 클러스터는 인터넷에서 공개적으로 3 개의 포트 (22, 23, 443)만 노출 합니다. 이러한 포트는 SSH 및 보안 HTTPS 프로토콜을 통해 노출 된 서비스를 사용 하 여 클러스터 액세스를 보호 합니다.
+Linux 기반 HDInsight 클러스터는 인터넷에서 세 포트(22, 23, 443)만 공개적으로 노출합니다. 이러한 포트는 SSH 및 보안 HTTPS 프로토콜을 통해 노출된 서비스를 사용하여 클러스터 액세스를 보호합니다.
 
-HDInsight는 Azure Virtual Network에서 실행 되는 여러 Azure Virtual Machines (클러스터 노드)에 의해 구현 됩니다. 가상 네트워크 내에서 인터넷을 통해 노출되지 않은 포트를 액세스할 수 있습니다. SSH를 통해 헤드 노드에 연결 하는 경우 클러스터 노드에서 실행 되는 서비스에 직접 액세스할 수 있습니다.
+HDInsight는 Azure Virtual Network에서 실행되는 여러 Azure Virtual Machines(클러스터 노드)에 의해 구현됩니다. 가상 네트워크 내에서 인터넷을 통해 노출되지 않은 포트를 액세스할 수 있습니다. SSH를 통해 헤드 노드에 연결하는 경우, 클러스터 노드에서 실행 중인 서비스에 직접 액세스할 수 있습니다.
 
 > [!IMPORTANT]  
-> HDInsight의 구성 옵션으로 Azure Virtual Network를 지정하지 않을 경우 하나는 자동으로 생성됩니다. 그러나 다른 컴퓨터 (예: 다른 Azure Virtual Machines 또는 클라이언트 개발 컴퓨터)를이 가상 네트워크에 조인할 수 없습니다.
+> HDInsight의 구성 옵션으로 Azure Virtual Network를 지정하지 않을 경우 하나는 자동으로 생성됩니다. 단, 다른 머신(예: 다른 Azure Virtual Machines 또는 클라이언트 개발 머신 등)은 이 가상 네트워크에 조인할 수 없습니다.
 
-추가 컴퓨터를 가상 네트워크에 조인하려면 먼저 가상 네트워크를 만든 후 HDInsight 클러스터를 만들 때 이를 지정해야 합니다. 자세한 내용은 [HDInsight에 대 한 가상 네트워크 계획](hdinsight-plan-virtual-network-deployment.md)을 참조 하세요.
+추가 컴퓨터를 가상 네트워크에 조인하려면 먼저 가상 네트워크를 만든 후 HDInsight 클러스터를 만들 때 이를 지정해야 합니다. 자세한 내용은 [HDInsight에 대한 가상 네트워크 계획](hdinsight-plan-virtual-network-deployment.md)을 참조하세요.
 
 ## <a name="public-ports"></a>공용 포트
 
-HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있습니다. 인터넷에서 노드를 직접 액세스할 수 없습니다. 공용 게이트웨이는 모든 HDInsight 클러스터 유형에 대해 일반적인 다음 포트에 대한 인터넷 액세스를 제공합니다.
+HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있습니다. 노드는 인터넷에서 직접 액세스할 수 없습니다. 공용 게이트웨이는 모든 HDInsight 클러스터 유형에 대해 일반적인 다음 포트에 대한 인터넷 액세스를 제공합니다.
 
 | 서비스 | 포트 | 프로토콜 | Description |
 | --- | --- | --- | --- |
@@ -38,7 +38,7 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있습니다
 | sshd |23 |SSH |보조 헤드 노드에서 sshd에 클라이언트를 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |
 | Ambari |443 |HTTPS |Ambari 웹 UI. [Apache Ambari 웹 UI를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요. |
 | Ambari |443 |HTTPS |Ambari REST API. [Apache Ambari REST API를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari-rest-api.md)를 참조하세요. |
-| WebHCat |443 |HTTPS |HCatalog REST API. [MapReduce와 함께 MapReduce 사용을](hadoop/apache-hadoop-use-mapreduce-curl.md) 참조 하세요. |
+| WebHCat |443 |HTTPS |HCatalog REST API. [Curl을 통한 MapReduce 사용](hadoop/apache-hadoop-use-mapreduce-curl.md)을 참조하세요. |
 | HiveServer2 |443 |ODBC |ODBC를 사용하여 Hive에 연결합니다. [Microsoft ODBC 드라이버로 HDInsight에 Excel 연결](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)을 참조하세요. |
 | HiveServer2 |443 |JDBC |JDBC를 사용하여 Apache Hive에 연결합니다. [Hive JDBC 드라이버를 사용하여 HDInsight에서 Apache Hive에 연결](hadoop/apache-hadoop-connect-hive-jdbc-driver.md)을 참조하세요. |
 
@@ -50,7 +50,7 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있습니다
 | Livy |443 |HTTPS |Spark |Spark REST API. [Apache Livy를 사용하여 원격으로 Apache Spark 작업 제출](spark/apache-spark-livy-rest-interface.md)을 참조하세요. |
 | Spark Thrift 서버 |443 |HTTPS |Spark |Hive 쿼리를 전송하는 데 사용되는 Spark Thrift 서버입니다. [HDInsight의 Apache Hive에 Beeline 사용](hadoop/apache-hadoop-use-hive-beeline.md)을 참조하세요. |
 | Storm |443 |HTTPS |Storm |Storm 웹 UI. [HDInsight에서 Apache Storm 토폴로지 배포 및 관리](storm/apache-storm-deploy-monitor-topology-linux.md)를 참조하세요. |
-| Kafka Rest 프록시 |443 |HTTPS |Kafka |Kafka REST API입니다. [REST 프록시를 사용 하 여 Azure HDInsight에서 Apache Kafka 클러스터와 상호 작용](kafka/rest-proxy.md) 을 참조 하세요. |
+| Kafka Rest 프록시 |443 |HTTPS |Kafka |Kafka REST API. [REST 프록시를 사용하여 Azure HDInsight에서 Apache Kafka 클러스터와 상호 작용](kafka/rest-proxy.md)을 참조하세요. |
 
 ### <a name="authentication"></a>인증
 
@@ -76,7 +76,7 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있습니다
 | Ambari 웹 UI | 헤드 노드 | 8080 | / | HTTP |
 | Ambari REST API | 헤드 노드 | 8080 | /api/v1 | HTTP |
 
-예제:
+예:
 
 * Ambari REST API: `curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
 
@@ -97,11 +97,11 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있습니다
 | --- | --- | --- | --- | --- |
 | Resource Manager 웹 UI |헤드 노드 |8088 |HTTP |Resource Manager용 웹 UI |
 | Resource Manager 웹 UI |헤드 노드 |8090 |HTTPS |Resource Manager용 웹 UI |
-| Resource Manager 관리 인터페이스 |헤드 노드 |8141 |IPC |응용 프로그램 서브 미션 (Hive, Hive 서버, Pig 등) |
+| Resource Manager 관리 인터페이스 |헤드 노드 |8141 |IPC |애플리케이션 제출의 경우(Hive, Hive 서버, Pig 등) |
 | Resource Manager 스케줄러 |헤드 노드 |8030 |HTTP |관리 인터페이스 |
 | Resource Manager 애플리케이션 인터페이스 |헤드 노드 |8050 |HTTP |애플리케이션 관리자 인터페이스의 주소 |
 | NodeManager |모든 작업자 노드 |30050 |&nbsp; |컨테이너 관리자의 주소 |
-| NodeManager 웹 UI |모든 작업자 노드 |30060 |HTTP |리소스 관리자 인터페이스 |
+| NodeManager 웹 UI |모든 작업자 노드 |30060 |HTTP |Resource Manager 인터페이스 |
 | 타임라인 주소 |헤드 노드 |10200 |RPC |타임라인 서비스 RPC 서비스. |
 | 타임라인 웹 UI |헤드 노드 |8188 |HTTP |타임라인 서비스 웹 UI |
 
@@ -159,12 +159,12 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있습니다
 
 ### <a name="spark-ports"></a>Spark 포트
 
-| 서비스 | 노드 | 포트 | 프로토콜 | URL 경로 | 설명 |
+| 서비스 | 노드 | 포트 | 프로토콜 | URL 경로 | Description |
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift 서버 |헤드 노드 |10002 |Thrift | &nbsp; | Spark SQL에 연결하기 위한 서비스(Thrift/JDBC) |
 | Livy 서버 | 헤드 노드 | 8998 | HTTP | &nbsp; | 문, 작업 및 애플리케이션을 실행하기 위한 서비스 |
-| Jupyter Notebook | 헤드 노드 | 8001 | HTTP | &nbsp; | 웹 사이트 Jupyter Notebook |
+| Jupyter 노트북 | 헤드 노드 | 8001 | HTTP | &nbsp; | Jupyter Notebook 웹 사이트 |
 
-예제:
+예:
 
 * Livy: `curl -u admin -G "http://10.0.0.11:8998/"`. 이 예제에서 `10.0.0.11`은 Livy 서비스를 호스트하는 헤드 노드의 IP 주소입니다.

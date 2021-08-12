@@ -1,18 +1,18 @@
 ---
 title: '가상 머신으로 혹은 가상 머신에서 복사하여 붙여넣기: Azure Bastion'
-description: 이 문서에서는 Bastion을 사용하여 Azure VM으로 혹은 Azure VM에서 복사하고 붙여넣는 방법에 대해 알아봅니다.
+description: Bastion을 사용하여 Azure VM으로 혹은 Azure VM에서 복사하고 붙여넣는 방법에 대해 알아봅니다.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: 4b0c2b734366f9a74a9b007ab9450ab4b4f51feb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b8c90e3c8bea7f6471a60804f546957f5236b70b
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800434"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536016"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>가상 머신에 복사하여 붙여넣기: Azure Bastion
 

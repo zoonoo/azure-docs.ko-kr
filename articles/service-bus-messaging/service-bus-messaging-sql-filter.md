@@ -2,13 +2,13 @@
 title: Azure Service Bus 구독 규칙 SQL 필터 구문 | Microsoft Docs
 description: 이 문서에서는 SQL 필터 문법에 대해 자세히 설명합니다. SQL 필터는 SQL-92 표준의 하위 집합을 지원합니다.
 ms.topic: article
-ms.date: 11/24/2020
-ms.openlocfilehash: 022f6cb1d698a10dc216db8d41c172691f7535ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/30/2021
+ms.openlocfilehash: 6b8190cf2a57b47fdce416fbe087fa8fa0485bda
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652944"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743240"
 ---
 # <a name="subscription-rule-sql-filter-syntax"></a>구독 규칙 SQL 필터 구문
 
@@ -50,7 +50,10 @@ Service Bus 프리미엄은 JMS 2.0 API를 통해 [JMS SQL 메시지 선택기 �
   
 ## <a name="arguments"></a>인수  
   
--   `<scope>`는 `<property_name>`의 범위를 나타내는 선택적 문자열입니다. 유효한 값은 `sys` 또는 `user`입니다. `sys` 값은 `<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)의 공용 속성 이름인 시스템 범위를 나타냅니다. `user`는 `<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 사전의 키인 사용자 범위를 나타냅니다. `<scope>`가 지정되지 않은 경우 `user` 범위가 기본 범위입니다.  
+-   `<scope>`는 `<property_name>`의 범위를 나타내는 선택적 문자열입니다. 유효한 값은 `sys` 또는 `user`입니다. 
+    - `sys` 값은 시스템 범위를 나타냅니다. 여기서 `<property_name>`은 [메시지, 페이로드 및 직렬화](service-bus-messages-payloads.md)에 설명된 대로 Service Bus 메시지의 속성 중 하나입니다.
+    - `user` 값은 사용자 범위를 나타냅니다. 여기서 `<property_name>`은 Service Bus로 보낼 때 메시지에 대해 설정할 수 있는 사용자 지정 속성의 키입니다.
+    - `<scope>`가 지정되지 않은 경우 `user` 범위가 기본 범위입니다.  
   
 ## <a name="remarks"></a>설명
 
@@ -199,13 +202,13 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
   
 ## <a name="considerations"></a>고려 사항
   
-다음과 같은 [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 의미 체계를 고려해 보세요.  
+다음과 같은 Sql 필터 의미 체계를 고려하세요  
   
 -   속성 이름은 대/소문자를 구분하지 않습니다.  
   
 -   연산자는 가능하면 C# 암시적 변환 의미 체계를 따릅니다.  
   
--   시스템 속성은 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 인스턴스에서 노출되는 공용 속성입니다.  
+-   시스템 속성은 [메시지, 페이로드 및 직렬화](service-bus-messages-payloads.md)에 설명된 대로 Service Bus 메시지의 속성 중 하나입니다.
   
     다음 `IS [NOT] NULL` 의미 체계를 고려해 보세요.  
   
@@ -213,7 +216,7 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
   
 ### <a name="property-evaluation-semantics"></a>속성 평가 의미 체계  
   
-- 존재하지 않는 시스템 속성을 평가하려고 시도하면 [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) 예외가 throw됩니다.  
+- 존재하지 않는 시스템 속성을 평가하려고 시도하면 `FilterException` 예외가 throw됩니다.  
   
 - 존재하지 않는 속성은 내부적으로 **알 수 없음** 으로 평가됩니다.  
   
@@ -270,7 +273,7 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
 -   `+`, `-`, `*`, `/`, `%`와 같은 산술 연산자는 데이터 형식 승격 및 암시적 변환에서 C# 연산자 바인딩과 동일한 의미 체계를 따릅니다.
 
 ## <a name="examples"></a>예
-예제는 [Service Bus 필터 예](service-bus-filter-examples.md)를 참조하세요.
+예시는 [Service Bus 필터 예](service-bus-filter-examples.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

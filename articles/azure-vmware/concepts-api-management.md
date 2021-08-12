@@ -1,62 +1,59 @@
 ---
-title: 개념-API Management
-description: API Management Azure VMware 솔루션 Vm (가상 머신)에서 실행 되는 Api를 보호 하는 방법을 알아봅니다.
+title: 개념 - API Management
+description: API Management가 Azure VMware Solution VM(가상 머신)에서 실행되는 API를 보호하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 10/27/2020
-ms.openlocfilehash: 958cc52c48d1121a69dca2fc901289ad1ed671cb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.date: 04/28/2021
+ms.openlocfilehash: aba60f255019701722b38036c87bcb592a0a4410
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94541966"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204534"
 ---
-# <a name="api-management-to-publish-and-protect-apis-running-on-azure-vmware-solution-based-vms"></a>Azure VMware 솔루션 기반 Vm에서 실행 되는 Api를 게시 및 보호 API Management
+# <a name="publish-and-protect-apis-running-on-azure-vmware-solution-vms"></a>Azure VMware Solution VM에서 실행되는 API 게시 및 보호
 
-Microsoft Azure [API Management](https://azure.microsoft.com/services/api-management/) 를 사용 하면 내부 또는 외부 소비자에 게 안전 하 게 게시할 수 있습니다.  Azure Virtual Network 통합을 통해 azure VMware 솔루션 작업에서 실행 되는 Api를 게시할 수 있습니다.  두 Sku 모두 API Management 서비스와 백 엔드 간에 안전 하 게 연결할 수 있습니다. 
+Microsoft Azure [API Management](https://azure.microsoft.com/services/api-management/)를 사용하면 외부 또는 내부 소비자에게 안전하게 게시할 수 있습니다.  Developer(개발) 및 Premium(프로덕션) SKU에서만 Azure Virtual Network 통합을 통해 Azure VMware Solution 워크로드에서 실행되는 API를 게시할 수 있습니다.  두 SKU 모두 API Management 서비스와 백 엔드 간의 연결을 사용하도록 설정합니다. 
 
->[!NOTE]
->개발자 SKU는 개발 및 테스트를 위한 것이 고, 프리미엄 SKU는 프로덕션 배포를 위한 것입니다.
-
-API Management 구성은 Azure VMware 솔루션 Vm (가상 머신) 및 온-프레미스에서 실행 되는 백 엔드 서비스에 대해 동일 합니다. 두 배포 모두 API Management 백 엔드 서버가 Azure VMware 솔루션의 NSX Load Balancer 뒤에 배치 되는 경우 부하 분산 장치에서 VIP (가상 IP)를 백 엔드 끝점으로 구성 합니다. 
+API Management 구성은 Azure VMware Solution VM(가상 머신) 및 온-프레미스에서 실행되는 백 엔드 서비스에 대해 동일합니다. 두 배포 모두 API Management는 백 엔드 서버가 Azure VMware Solution의 NSX Load Balancer 뒤에 배치되는 경우 부하 분산 장치의 가상 IP를 백 엔드 엔드포인트로 구성합니다. 
 
 
 ## <a name="external-deployment"></a>외부 배포
 
-외부 배포는 공용 끝점을 사용 하 여 외부 사용자가 사용 하는 Api를 게시 합니다. 개발자 및 DevOps 엔지니어는 Azure Portal 또는 PowerShell 및 API Management 개발자 포털을 통해 Api를 관리할 수 있습니다.
+외부 배포는 퍼블릭 엔드포인트를 사용하는 외부 사용자가 사용하는 API를 게시합니다. 개발자와 DevOps 엔지니어는 Azure Portal 또는 PowerShell 및 API Management 개발자 포털을 통해 API를 관리할 수 있습니다.
 
-외부 배포 다이어그램은 전체 프로세스와 관련 된 행위자 (맨 위에 표시 됨)를 보여 줍니다. 행위자는 다음과 같습니다.
+외부 배포 다이어그램은 전체 프로세스와 관련된 작업자를 보여줍니다(맨 위에 표시). 작업자는 다음과 같습니다.
 
-- **관리자:** PowerShell 또는 Azure DevOps와 같은 Azure Portal 및 자동화 메커니즘을 통해 Azure VMware 솔루션을 관리 하는 관리 또는 DevOps 팀을 나타냅니다.
+- **관리자:** Azure Portal과 PowerShell 또는 Azure DevOps 같은 자동화 메커니즘을 통해 Azure VMware Solution을 관리하는 관리자 또는 DevOps 팀을 나타냅니다.
 
-- **사용자:**  Api를 사용 하는 사용자와 서비스를 모두 표시 하 고 노출 된 Api의 소비자를 나타냅니다.
+- **사용자:** 노출된 API의 소비자를 나타내며 API를 사용하는 사용자와 서비스를 모두 나타냅니다.
 
-트래픽 흐름은 허브 가상 네트워크에 연결 된 백 엔드 서비스를 추상화 하는 API Management 인스턴스로 이동 합니다. Express 경로 게이트웨이는 트래픽을 Express 경로 Global Reach 채널로 라우팅하고 들어오는 트래픽을 다른 백 엔드 서비스 인스턴스로 배포 하 Load Balancer NSX에 도달 합니다.
+트래픽 흐름은 허브 가상 네트워크에 연결된 백 엔드 서비스를 추상화하는 API Management 인스턴스를 통과합니다. ExpressRoute Gateway는 트래픽을 ExpressRoute Global Reach 채널로 라우팅하고 들어오는 트래픽을 다른 백 엔드 서비스 인스턴스에 배포하는 NSX Load Balancer에 도달합니다.
 
-API Management Azure 공용 API가 있고 Azure DDOS Protection 서비스를 활성화 하는 것이 좋습니다. 
+API Management에는 Azure Public API가 있으며 Azure DDOS 보호 서비스를 활성화하는 것이 좋습니다. 
 
-:::image type="content" source="media/api-management/external-deployment.png" alt-text="외부 배포-Azure VMware 솔루션에 대 한 API Management":::
+:::image type="content" source="media/api-management/external-deployment.png" alt-text="외부 배포 - Azure VMware Solution에 대한 API Management":::
 
 
 ## <a name="internal-deployment"></a>내부 배포
 
-내부 배포는 내부 사용자 또는 시스템에서 사용 하는 Api를 게시 합니다. DevOps 팀 및 API 개발자는 외부 배포와 동일한 관리 도구 및 개발자 포털을 사용 합니다.
+내부 배포는 내부 사용자 또는 시스템에서 사용하는 API를 게시합니다. DevOps 팀 및 API 개발자는 외부 배포와 동일한 관리 도구 및 개발자 포털을 사용합니다.
 
-[Azure 애플리케이션 Gateway를 사용 하 여](../api-management/api-management-howto-integrate-internal-vnet-appgateway.md) 내부 배포를 수행 하 여 API에 대 한 공용 및 보안 끝점을 만들 수 있습니다.  게이트웨이의 기능은 다양 한 시나리오를 가능 하 게 하는 하이브리드 배포를 만드는 데 사용 됩니다.  
+내부 배포에 [Azure Application Gateway](../api-management/api-management-howto-integrate-internal-vnet-appgateway.md)를 사용하여 API에 대한 퍼블릭 및 보안 엔드포인트를 만듭니다.  게이트웨이의 기능은 다양한 시나리오를 가능하게 하는 하이브리드 배포를 만드는 데 사용됩니다.  
 
-* 내부 및 외부 소비자가 사용 하는 동일한 API Management 리소스를 사용 합니다.
+* 내부 소비자와 외부 소비자 모두 사용할 수 있도록 동일한 API Management 리소스를 사용합니다.
 
-* 외부 소비자에 대해 정의 되 고 사용 가능한 Api의 하위 집합이 포함 된 단일 API Management 리소스를 사용 합니다.
+* API 하위 집합이 정의되어 있고 외부 소비자가 사용할 수 있는 단일 API Management 리소스가 있습니다.
 
-* 공용 인터넷에서 API Management에 대 한 액세스를 전환 하는 쉬운 방법을 제공 합니다.
+* 퍼블릭 인터넷에서 API Management에 대한 액세스를 켜고 끌 수 있는 턴키 방법을 제공합니다.
 
-아래 배포 다이어그램은 내부 또는 외부에 있을 수 있는 소비자를 보여 줍니다. 각 형식은 동일한 Api 또는 다른 Api에 액세스 합니다.
+아래 배포 다이어그램은 내부 또는 외부에 있을 수 있는 소비자를 보여줍니다. 각 유형은 동일한 API 또는 다른 API에 액세스합니다.
 
-내부 배포에서 Api는 동일한 API Management 인스턴스에 노출 됩니다. API Management 앞에는 Azure WAF (웹 응용 프로그램 방화벽) 기능이 활성화 된 상태로 Application Gateway 배포 됩니다. 또한 Azure VMware 솔루션에서 실행 되는 백 엔드 서비스의 하위 집합만 노출 하 여 트래픽을 필터링 하는 일련의 HTTP 수신기와 규칙을 배포 합니다.
-
-
-* 내부 트래픽은 Express 경로 게이트웨이를 통해 Azure 방화벽으로 이동한 다음 직접 또는 트래픽 규칙을 통해 API Management 합니다.   
-
-* 외부 트래픽은 API Management의 외부 보호 계층을 사용 하는 Application Gateway를 통해 Azure에 들어갑니다.
+내부 배포에서 API는 동일한 API Management 인스턴스에 노출됩니다. API Management 앞에는 Application Gateway가 Azure Web Application Firewall(WAF) 기능이 활성화된 상태로 배포됩니다. 또한 트래픽을 필터링하여 Azure VMware Solution에서 실행되는 백 엔드 서비스의 하위 집합만 노출하도록 일련의 HTTP 수신기와 규칙을 배포합니다.
 
 
-:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Azure VMware 솔루션에 대 한 내부 배포-API Management" lightbox="media/api-management/internal-deployment.png":::
+* 내부 트래픽은 ExpressRoute Gateway를 통해 Azure Firewall로 라우팅된 다음 직접 또는 트래픽 규칙을 통해 API Management로 라우팅됩니다.   
+
+* 외부 트래픽은 API Management의 외부 보호 계층을 사용하는 Application Gateway를 통해 Azure에 들어갑니다.
+
+
+:::image type="content" source="media/api-management/internal-deployment.png" alt-text="외부 배포 - Azure VMware Solution에 대한 API Management" lightbox="media/api-management/internal-deployment.png":::

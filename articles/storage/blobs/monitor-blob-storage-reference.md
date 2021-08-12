@@ -1,6 +1,6 @@
 ---
-title: Azure Blob 스토리지 모니터링 데이터 참조 | Microsoft Docs
-description: Azure Blob 스토리지의 모니터링 데이터를 위한 로그 및 메트릭 참조.
+title: Azure Blob Storage 모니터링 데이터 참조 | Microsoft Docs
+description: Azure Blob Storage의 모니터링 데이터를 위한 로그 및 메트릭 참조입니다.
 author: normesta
 services: azure-monitor
 ms.service: azure-monitor
@@ -9,14 +9,14 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: subject-monitoring
-ms.openlocfilehash: b37586f66106e33b2a8dad034a6e7c131484be73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f3cf8303a0667d3479500d6c3956be3b21959c0
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100571629"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592253"
 ---
-# <a name="azure-blob-storage-monitoring-data-reference"></a>Azure Blob 스토리지 모니터링 데이터 참조
+# <a name="azure-blob-storage-monitoring-data-reference"></a>Azure Blob Storage 모니터링 데이터 참조
 
 Azure Storage의 모니터링 데이터를 수집하고 분석하는 방법은 [Azure Storage 모니터링](monitor-blob-storage.md)을 참조하세요.
 

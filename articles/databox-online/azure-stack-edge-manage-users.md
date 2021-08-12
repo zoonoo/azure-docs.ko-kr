@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro FPGA 사용자 관리 | Microsoft Docs
-description: Azure Portal를 사용 하 여 Edge Pro Azure Stack 사용자를 관리 하는 방법을 설명 합니다.
+title: Azure Stack Edge Pro FPGA 사용자 관리
+description: Azure Portal을 사용하여 Azure Stack Edge Pro에서 사용자를 관리하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 27ca190f3bad7f75175e5206d48e13dae1f5687e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: cb7b4ee235d83afd5bdaafe5c7678069c5c864de
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97913357"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460687"
 ---
-# <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro-fpga"></a>Azure Portal를 사용 하 여 Azure Stack Edge Pro FPGA의 사용자를 관리 합니다.
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro-fpga"></a>Azure Portal을 사용하여 Azure Stack Edge Pro FPGA에서 사용자 관리
 
-이 문서에서는 Azure Stack Edge Pro FPGA 장치에서 사용자를 관리 하는 방법을 설명 합니다. Azure Portal 또는 로컬 웹 UI를 통해 Azure Stack Edge Pro를 관리할 수 있습니다. Azure Portal을 사용하여 사용자를 추가, 수정 또는 삭제합니다.
+이 문서에서는 Azure Stack Edge Pro FPGA 디바이스에서 사용자를 관리하는 방법을 설명합니다. Azure Portal 또는 로컬 웹 UI를 통해 Azure Stack Edge Pro FPGA를 관리할 수 있습니다. Azure Portal을 사용하여 사용자를 추가, 수정 또는 삭제합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "97913357"
 
 사용자를 추가하려면 Azure Portal에서 다음 단계를 수행합니다.
 
-1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음 **사용자** 로 이동 합니다. 명령 모음에서 **+ 사용자 추가** 를 선택 합니다.
+1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음 **사용자** 로 이동합니다. 명령 모음에서 **+ 사용자 추가** 를 선택합니다.
 
     ![사용자 추가 선택](media/azure-stack-edge-manage-users/add-user-1.png)
 
@@ -65,7 +65,7 @@ ms.locfileid: "97913357"
 사용자를 삭제하려면 Azure Portal에서 다음 단계를 수행합니다.
 
 
-1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음 **사용자** 로 이동 합니다.
+1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음 **사용자** 로 이동합니다.
 
     ![삭제할 사용자 선택](media/azure-stack-edge-manage-users/delete-user-1.png)
 

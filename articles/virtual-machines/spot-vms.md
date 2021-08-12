@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: fb53fc37227e040ed7bd7fc8e47de9aed538bc2e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b85855238beb9887a35369011ff8daaaf58bef9e
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104721395"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787242"
 ---
 # <a name="use-azure-spot-virtual-machines"></a>Azure 스폿 가상 머신 사용 
 
@@ -38,8 +38,8 @@ VM을 제거할 때 삭제하려면 제거 정책을 *삭제* 하도록 설정�
 |--------|---------|
 | 최대 가격이 현재 가격 이상으로 설정됩니다. | 용량 및 할당량을 사용할 수 있는 경우 VM이 배포됩니다. |
 | 최대 가격이 현재 가격 미만으로 설정됩니다. | VM이 배포되지 않습니다. 최대 가격이 현재 가격 이상이어야 한다는 오류 메시지가 표시됩니다. |
-| 최대 가격이 현재 가격 이상이면 VM 중지/할당 취소 다시 시작 | 용량과 할당량이 있으면 VM이 배포됩니다. |
-| 최대 가격이 현재 가격 미만이면 VM 중지/할당 취소 다시 시작 | 최대 가격이 현재 가격 이상이어야 한다는 오류 메시지가 표시됩니다. | 
+| 최대 가격이 현재 가격 이상이면 중지/할당 취소된 VM 다시 시작 | 용량과 할당량이 있으면 VM이 배포됩니다. |
+| 최대 가격이 현재 가격 미만이면 중지/할당 취소된 VM 다시 시작 | 최대 가격이 현재 가격 이상이어야 한다는 오류 메시지가 표시됩니다. | 
 | VM 가격이 증가하여 이제 최대 가격을 초과합니다. | VM이 제거됩니다. 실제로 제거되기 30초 전에 알림을 받습니다. | 
 | 제거 후 VM 가격이 다시 최대 가격 미만으로 떨어집니다. | VM이 자동으로 다시 시작되지 않습니다. VM을 직접 다시 시작하고 현재 가격으로 요금이 청구됩니다. |
 | 최대 가격이 `-1`로 설정된 경우 | VM은 가격 책정 이유로 제거되지 않습니다. 최대 가격은 표준 VM의 가격이 될 때까지 현재 가격이 됩니다. 표준 가격 이상으로는 요금이 부과되지 않습니다.| 

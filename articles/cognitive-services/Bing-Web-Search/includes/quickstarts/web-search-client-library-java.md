@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 414c2b936d98d1269221bf1353dbc364c9b5723e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 363705460572e7158db7505765939e97642af382
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948601"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113289612"
 ---
 Bing Web Search 클라이언트 라이브러리를 사용하면 Bing Web Search를 Java 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 요청을 보내고, JSON 응답을 받고, 결과를 필터링 및 구문 분석하는 방법에 대해 알아봅니다.
 
@@ -24,7 +24,7 @@ Bing Web Search 클라이언트 라이브러리를 사용하면 Bing Web Search�
 
 이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
 
-* [JDK 7 또는 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [JDK 7 또는 8](/azure/developer/java/fundamentals/java-support-on-azure)
 * [Apache Maven](https://maven.apache.org/download.cgi) 또는 즐겨찾는 빌드 자동화 도구
 * 구독 키
 
@@ -122,7 +122,7 @@ import com.microsoft.azure.cognitiveservices.search.websearch.models.VideoObject
 import com.microsoft.azure.cognitiveservices.search.websearch.models.WebPage;
 ```
 
-Maven을 사용하여 프로젝트를 만든 경우 패키지가 이미 선언되어 있습니다. 그렇지 않은 경우 지금 패키지를 선언합니다. 다음은 그 예입니다.
+Maven을 사용하여 프로젝트를 만든 경우 패키지가 이미 선언되어 있습니다. 그렇지 않은 경우 지금 패키지를 선언합니다. 예를 들면 다음과 같습니다.
 
 ```java
 package com.bingwebsearch.app

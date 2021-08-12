@@ -1,20 +1,20 @@
 ---
 title: Azure FarmBeats 문제 해결
 description: 이 문서에서는 Azure FarmBeats 문제를 해결하는 방법을 설명합니다.
-author: uhabiba04
+author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-ummehabiba
-ms.openlocfilehash: c45b6196b82682b37e253a33eed3940b68b4d61e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.author: riyazp
+ms.openlocfilehash: 39a6ea048ca68733bfe127757e1547f1af8b65d2
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102172987"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108762932"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Azure FarmBeats 문제 해결
 
-이 문서에서는 일반적인 Azure FarmBeats 문제에 대한 해결 방법을 제공합니다. 추가 도움말을 보려면 microsoft [&지원 포럼](/answers/topics/azure-farmbeats.html) 에 문의 하거나 전자 메일을 보내세요 farmbeatssupport@microsoft.com .
+이 문서에서는 일반적인 Azure FarmBeats 문제에 대한 해결 방법을 제공합니다. 추가 도움말을 보려면 [Q&A 지원 포럼](/answers/topics/azure-farmbeats.html)에 문의하거나 farmbeatssupport@microsoft.com으로 이메일을 보내주시기 바랍니다.
 
 > [!NOTE]
   > 4월에 FarmBeats를 설치했고 빈 오류 메시지와 함께 작업이 실패하는 경우 중요한 상태 및 안전 조직에 대한 지원 우선 순위를 지정하는 배치 할당량이 설치에 할당되지 않았을 수 있습니다. 자세한 내용은 [여기](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) 를 참조하십시오. 작업을 성공적으로 실행하려면 배치 계정에 할당할 VM을 요청해야 합니다.
@@ -58,8 +58,8 @@ ms.locfileid: "102172987"
 
 **정정 작업**
 
-1. FarmBeats 리소스 그룹으로 이동 합니다.
-2. **이벤트 허브** 네임 스페이스 ("센서-파트너-참조-네임 스페이스-xxxx")를 선택 하 고 "Event Hubs"을 클릭 한 다음 파트너에 할당 된 이벤트 허브에서 들어오는 메시지 수를 확인 합니다.
+1. FarmBeats 리소스 그룹으로 이동합니다.
+2. **이벤트 허브** 네임스페이스("sensor-partner-eh-namespace-xxxx")를 선택하고 "Event Hubs"를 클릭한 다음, 파트너에게 할당된 이벤트 허브에서 들어오는 메시지 수를 확인합니다.
 3. 다음 중 하나를 수행합니다.
 
    - ‘들어오는 메시지’가 없는 경우 디바이스 파트너에게 문의하세요.  
@@ -110,7 +110,7 @@ ms.locfileid: "102172987"
 > [!NOTE]
 > 관심이 있는 센서 파트너의 파트너 ID입니다.
 
-3. 파트너 API로 돌아가서 **가져오기/ \<ID>** 를 선택 합니다.
+3. 파트너 API로 돌아가서 **Get/\<ID>** 을 선택합니다.
 4. 3단계의 파트너 ID를 지정하고 **실행** 을 선택합니다.
 
    API 응답에는 Event Hubs 연결 문자열이 있어야 합니다.
@@ -174,7 +174,7 @@ ms.locfileid: "102172987"
 
 이미 액세스 권한이 부여되었는데도 이 오류가 발생한 경우 페이지를 새로 고치고 다시 시도하세요. 오류가 계속 발생하면 오류 메시지/로그를 사용하여 문의해주세요.
 
-![권한 부여 오류를 보여 주는 스크린샷](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
+![권한 부여 오류를 보여주는 스크린샷.](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
 
 ### <a name="accelerator-issues"></a>가속기 문제  
 
@@ -250,7 +250,7 @@ ms.locfileid: "102172987"
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Sentinel: 최대 연결 수 도달
 
-**작업 실패 메시지**: "사용자 ' '이 (가) 달성 하는 최대 두 개의 동시 흐름 수 \<username> 입니다."
+**작업 실패 메시지**: "'\<username>' 사용자가 수행한 동시 흐름 두 개의 최대 수입니다."
 
 **의미**: 최대 연결 수에 도달하여 작업이 실패하는 경우 여러 작업에서 동일한 Sentinel 계정이 사용되고 있는 것입니다.
 
@@ -289,11 +289,11 @@ ms.locfileid: "102172987"
 2. **검색** 상자에서 FarmBeats Datahub 리소스 그룹을 검색합니다.
 3. **리소스 그룹** 대시보드에서 *datahublogs\** 스토리지 계정을 검색합니다. 예를 들어 *datahublogsmvxmq* 입니다.  
 4. **이름** 열에서 스토리지 계정을 선택하여 **스토리지 계정** 대시보드를 확인합니다.
-5. **Datahubblogs \* *_ 창에서 _* 탐색기에서 열기를 선택** 하 여 **열린 Azure Storage 탐색기** 응용 프로그램을 표시 합니다.
+5. **datahubblogs\* *_ 창에서 _* Explorer에서 열기** 를 선택하여 **Azure Storage Explorer 열기** 애플리케이션을 확인합니다.
 6. 왼쪽 창에서 **Blob 컨테이너** 를 선택한 다음 Azure Data Factory 로그에 대해 **job-logs** 또는 App Service에 대해 **appinsights-logs** 를 선택합니다.
 7. **다운로드** 를 선택하고 컴퓨터의 로컬 폴더에 로그를 다운로드합니다.
 
-    ![다운로드 한 로그 파일을 보여 주는 스크린샷](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
+    ![다운로드한 로그 파일을 보여주는 스크린샷.](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
 
 ### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-for-accelerator"></a>가속기에 대한 Azure Data Factory 작업 로그 또는 App Service 로그 수집
 
@@ -301,7 +301,7 @@ ms.locfileid: "102172987"
 2. **검색** 상자에서 FarmBeats 가속기 리소스 그룹을 검색합니다.
 3. **리소스 그룹** 대시보드에서 *storage\** 스토리지 계정을 검색합니다. 예를 들어 *storagedop4k\** 입니다.
 4. **이름** 열에서 스토리지 계정을 선택하여 **스토리지 계정** 대시보드를 확인합니다.
-5. **저장소 \* *_ 창에서 _* 탐색기에서 열기를 선택** 하 여 Azure Storage 탐색기 응용 프로그램을 엽니다.
+5. **storage\* *_ 창에서 _* Explorer에서 열기** 를 선택하여 Azure Storage Explorer 애플리케이션을 엽니다.
 6. 왼쪽 창에서 **Blob 컨테이너** 를 선택한 다음 Azure Data Factory 로그에 대해 **job-logs** 또는 App Service에 대해 **appinsights-logs** 를 선택합니다.
 7. **다운로드** 를 선택하고 컴퓨터의 로컬 폴더에 로그를 다운로드합니다.
 
@@ -317,36 +317,36 @@ ms.locfileid: "102172987"
 
 ## <a name="weather-data-job-failures"></a>날씨 데이터 작업 실패
 
-**오류**: 날씨 데이터를 가져오기 위해 작업을 실행 하지만 작업이 실패 합니다.
+**오류:** 작업을 실행하여 날씨 데이터를 얻지만 작업이 실패합니다.
 
-### <a name="collect-logs-to-troubleshoot-weather-data-job-failures"></a>날씨 데이터 작업 오류 문제를 해결 하기 위한 로그 수집
+### <a name="collect-logs-to-troubleshoot-weather-data-job-failures"></a>로그를 수집하여 날씨 데이터 작업 실패 문제 해결
 
-1. Azure Portal에서 FarmBeats 리소스 그룹으로 이동 합니다.
-2. 리소스 그룹의 일부인 Data Factory 서비스를 클릭 합니다. 서비스에는 "sku: Datahub" 태그가 있습니다.
+1. Azure Portal의 FarmBeats 리소스 그룹으로 이동합니다.
+2. 리소스 그룹의 일부인 Data Factory 서비스를 클릭합니다. 서비스에는 "sku: Datahub" 태그가 있습니다.
 
 > [!NOTE]
-> 리소스 그룹 내에서 서비스의 태그를 보려면 "열 편집"을 클릭 하 고 리소스 그룹 보기에 "태그"를 추가 합니다.
+> 리소스 그룹 내의 서비스 태그를 보려면 "열 편집"을 클릭하고 리소스 그룹 보기에 "태그"를 추가합니다.
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Sku: Datahub 태그를 강조 표시 하는 스크린샷":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="sku:Datahub 태그가 강조 표시된 스크린샷.":::
 
-3. 데이터 팩터리의 개요 페이지에서 **작성자 및 모니터** 를 클릭 합니다. 브라우저에서 새 탭이 열립니다. **모니터** 를 클릭 합니다.
+3. 데이터 팩터리의 개요 페이지에서 **작성자 및 모니터** 를 클릭합니다. 브라우저에서 새 탭이 열립니다. **모니터** 를 클릭합니다.
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="모니터 메뉴 옵션을 강조 표시 하는 스크린샷":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="모니터 메뉴 옵션이 강조 표시된 스크린샷.":::
 
-4. 날씨 작업 실행의 일부인 파이프라인 실행 목록이 표시 됩니다. 로그를 수집 하려는 작업을 클릭 합니다.
+4. 날씨 작업 실행의 일부인 파이프라인 실행 목록이 표시됩니다. 로그를 수집하려는 작업을 클릭합니다.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="파이프라인 실행 메뉴 옵션 및 선택한 작업을 강조 표시 하는 스크린샷":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="파이프라인 실행 메뉴 옵션 및 선택한 작업이 강조 표시된 스크린샷.":::
 
-5. 파이프라인 개요 페이지에서 작업 실행 목록이 표시 됩니다. 로그를 수집 하려는 작업의 실행 Id를 적어 둡니다.
+5. 파이프라인 개요 페이지에 활동 실행 목록이 표시됩니다. 로그를 수집하려는 활동의 실행 ID를 적어 둡니다.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="활동 실행 목록을 보여 주는 스크린샷":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="활동 실행 목록을 보여주는 스크린샷.":::
 
-6. Azure Portal에서 FarmBeats 리소스 그룹으로 돌아가서 이름이 **datahublogs-XXXX** 인 저장소 계정을 클릭 합니다.
+6. Azure Portal에서 FarmBeats 리소스 그룹으로 돌아가서 이름이 **datahublogs-XXXX** 인 스토리지 계정을 클릭합니다.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="이름이 datahublogs-XXXX 인 저장소 계정을 강조 표시 하는 스크린샷":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="이름이 datahublogs-XXXX인 스토리지 계정이 강조 표시된 스크린샷.":::
 
-7. **컨테이너**  ->  **adfjobs** 를 클릭 합니다. 검색 상자에 위의 5 단계에서 적어둔 작업 실행 ID를 입력 합니다.
+7. **컨테이너** -> **adfjobs** 를 클릭합니다. 검색 상자에 위의 5단계에서 적어 둔 작업 실행 ID를 입력합니다.
  
 :::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="프로젝트 FarmBeats":::
 
-8. 검색 결과에는 작업과 관련 된 로그가 있는 폴더가 포함 됩니다. 로그를 다운로드 하 여 문제를 디버깅 하는 데 도움이 되도록에 보냅니다 farmbeatssupport@microsoft.com .
+8. 검색 결과에는 작업과 관련된 로그가 있는 폴더가 포함됩니다. 문제 디버깅에 도움이 되도록 로그를 다운로드하고 farmbeatssupport@microsoft.com으로 보냅니다.

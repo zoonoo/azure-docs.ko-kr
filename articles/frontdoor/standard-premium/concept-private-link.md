@@ -7,14 +7,14 @@ author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.author: tyao
+ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: c927682231bab1fc92f198c56a2f6aeff2f4c516
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 38bd02f478ebe34f3c5708e1df9cc7da1e885058
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553535"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715217"
 ---
 # <a name="secure-your-origin-with-private-link-in-azure-front-door-standardpremium-preview"></a>Azure Front Door 표준/프리미엄(미리 보기)에서 Private Link를 사용하여 원본 보호
 

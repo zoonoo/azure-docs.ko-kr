@@ -3,12 +3,12 @@ title: Azure Event Hubs - Apache Kafka 이벤트 처리
 description: '자습서: 이 문서에서는 Azure Stream Analytics를 사용하여 이벤트 허브를 통해 수집되는 Kafka 이벤트를 처리하는 방법을 보여줍니다.'
 ms.topic: tutorial
 ms.date: 05/10/2021
-ms.openlocfilehash: 449301effbbb8fb92a873bd90d95da4653bfd8a2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 0a14a4f8a4e82faebe232ac072ebe61e2db427b7
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373601"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113286376"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>자습서: Stream 분석을 사용하여 Event Hubs 이벤트에 대한 Apache Kafka 처리 
 이 문서에서는 데이터를 Event Hubs로 스트리밍하고 Azure Stream Analytics를 사용하여 처리하는 방법을 보여줍니다. 다음 단계를 안내합니다. 
@@ -25,7 +25,7 @@ ms.locfileid: "110373601"
 이 빠른 시작을 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
 * Azure 구독 구독이 없으면 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
-* [Java Development Kit(JDK) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+* [Java Development Kit(JDK) 1.7+](/azure/developer/java/fundamentals/java-support-on-azure).
 * Maven 이진 아카이브를 [다운로드](https://maven.apache.org/download.cgi)하여 [설치](https://maven.apache.org/install.html)합니다.
 * [Git](https://www.git-scm.com/)
 * **Azure Storage 계정**. 계정이 없는 경우 계속 진행하기 전에 [만듭니다](../storage/common/storage-account-create.md). 이 연습에서 Stream Analytics 작업은 Azure Blob Storage에 출력 데이터를 저장합니다. 

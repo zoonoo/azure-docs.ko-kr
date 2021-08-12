@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 4471fed7b423fe05147db30afe57f6c845fe640e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2cdf4277c1177f0a963e7b7bb05813d47d2c1f57
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670696"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814337"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>확장된 Apache Spark 기록 서버를 사용하여 Apache Spark 애플리케이션 디버그 및 진단
 
@@ -44,7 +44,7 @@ Apache Spark 기록 서버는 완료되거나 실행 중인 Spark 애플리케�
 
 ### <a name="open-the-spark-history-server-web-ui-from-data-node&quot;></a>데이터 노드에서 Spark 기록 서버 웹 UI 열기
 
-1. Azure Synapse Studio Notebook의 작업 실행 출력 셀 또는 Notebook 문서 맨 아래에 있는 상태 패널에서 **Spark 기록 서버** 를 선택합니다. **세션 세부 정보** 를 선택합니다.
+1. Synapse Studio Notebook의 작업 실행 출력 셀 또는 Notebook 문서 맨 아래에 있는 상태 패널에서 **Spark 기록 서버** 를 선택합니다. **세션 세부 정보** 를 선택합니다.
 
    ![Spark 기록 서버 시작 1](./media/apache-spark-history-server/launch-history-server2.png &quot;Spark 기록 서버 시작")
 

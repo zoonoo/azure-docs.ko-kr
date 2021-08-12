@@ -1,21 +1,21 @@
 ---
 title: Azure Blockchain Workbench 아키텍처
-description: Azure Blockchain 워크 벤치 미리 보기 아키텍처 및 해당 구성 요소에 대 한 개요입니다.
+description: Azure Blockchain Workbench 미리 보기 아키텍처 및 해당 구성 요소의 개요입니다.
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.reviewer: brendal
 ms.openlocfilehash: 1fff70ef2eeb1dc27d33769fd48fe5923f56717b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96021608"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench 아키텍처
 
-Azure Blockchain 워크 벤치 Preview는 여러 Azure 구성 요소를 사용 하 여 솔루션을 제공 하 여 블록 체인 응용 프로그램 개발을 간소화 합니다. Azure Marketplace에서 솔루션 템플릿을 사용하여 Blockchain Workbench를 배포할 수 있습니다. 템플릿을 사용하면 블록체인 스택, 클라이언트 애플리케이션 종류, IoT 통합을 포함하여 배포할 구성 요소 및 모듈을 선택할 수 있습니다. Blockchain Workbench가 배포되면 웹앱, iOS 앱 및 Android 앱에 액세스할 수 있습니다.
+Azure Blockchain Workbench 미리 보기는 여러 Azure 구성 요소를 사용해 솔루션을 제공하여 블록체인 애플리케이션 개발을 간소화합니다. Azure Marketplace에서 솔루션 템플릿을 사용하여 Blockchain Workbench를 배포할 수 있습니다. 템플릿을 사용하면 블록체인 스택, 클라이언트 애플리케이션 종류, IoT 통합을 포함하여 배포할 구성 요소 및 모듈을 선택할 수 있습니다. Blockchain Workbench가 배포되면 웹앱, iOS 앱 및 Android 앱에 액세스할 수 있습니다.
 
-![블록 체인 워크 벤치 아키텍처](./media/architecture/architecture.png)
+![Blockchain Workbench 아키텍처](./media/architecture/architecture.png)
 
 ## <a name="identity-and-authentication"></a>ID 및 인증
 
@@ -43,7 +43,7 @@ Workbench는 자동으로 생성된 웹 및 모바일(iOS, Android)용 클라이
 
 ## <a name="gateway-service-api"></a>게이트웨이 서비스 API
 
-Blockchain Workbench에는 REST 기반 게이트웨이 서비스 API가 포함되어 있습니다. 블록체인에 쓸 때 API는 메시지를 생성하여 이벤트 브로커에게 전달합니다. API가 데이터를 요청 하면 쿼리가 오프 체인 데이터베이스에 전송 됩니다. 데이터베이스에는 지원 되는 스마트 계약에 대 한 컨텍스트 및 구성 정보를 제공 하는 메타 데이터 및 메타 데이터의 복제본이 포함 됩니다. 쿼리는 계약의 메타데이터에서 알리는 형식으로 오프 체인 복제본에서 필요한 데이터를 반환합니다.
+Blockchain Workbench에는 REST 기반 게이트웨이 서비스 API가 포함되어 있습니다. 블록체인에 쓸 때 API는 메시지를 생성하여 이벤트 브로커에게 전달합니다. API에서 데이터를 요청하면 쿼리가 오프체인 데이터베이스로 전송됩니다. 데이터베이스에는 지원되는 스마트 계약에 대한 컨텍스트 및 구성 정보를 제공하는 온체인 데이터와 메타데이터의 복제본이 포함되어 있습니다. 쿼리는 계약의 메타데이터에서 알리는 형식으로 오프 체인 복제본에서 필요한 데이터를 반환합니다.
 
 개발자는 Blockchain Workbench 클라이언트 앱에 의존하지 않고도 블록체인 솔루션을 빌드 또는 통합하기 위해 게이트웨이 서비스 API에 액세스할 수 있습니다.
 
@@ -70,7 +70,7 @@ DLT(분산 원장 기술) 메시지에는 블록체인에 쓰여지는 트랜잭
 
 ### <a name="database-consumer"></a>데이터베이스 소비자
 
-데이터베이스 소비자는 Service Bus에서 메시지를 가져와 Azure SQL Database의 데이터베이스와 같은 연결 된 데이터베이스로 데이터를 푸시합니다.
+데이터베이스 소비자는 Service Bus에서 메시지를 가져와 데이터를 Azure SQL Database의 데이터베이스 등의 연결된 데이터베이스로 푸시합니다.
 
 ### <a name="storage-consumer"></a>스토리지 소비자
 
@@ -91,11 +91,11 @@ DLT(분산 원장 기술) 메시지에는 블록체인에 쓰여지는 트랜잭
 DLT(분산 원장 기술) 감시자는 Blockchain Workbench에 연결된 블록체인에서 발생하는 이벤트를 모니터링합니다.
 이벤트는 개인 및 시스템과 관련된 정보를 반영합니다. 예를 들어 새 계약 인스턴스 작성, 트랜잭션 실행 및 상태 변경 등이 해당됩니다. 이벤트는 캡처되어 아웃바운드 메시지 브로커로 전송되므로 다운스트림 소비자가 해당 이벤트를 사용할 수 있습니다.
 
-예를 들어 SQL 소비자는 이벤트를 모니터링 하 고이를 사용 하 고 데이터베이스에 포함 된 값으로 채웁니다. 복사본을 사용하면 오프 체인 저장소에서 온 체인 데이터의 복제본을 다시 만들 수 있습니다.
+예를 들어 SQL 소비자는 이벤트를 모니터링하고, 이벤트를 이용하며, 포함된 값으로 데이터베이스를 채웁니다. 복사본을 사용하면 오프 체인 저장소에서 온 체인 데이터의 복제본을 다시 만들 수 있습니다.
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
 
-Blockchain 워크 벤치에 연결 된 데이터베이스는 블록 체인에 저장 된 데이터의 계약 정의, 구성 메타 데이터 및 SQL 액세스 가능 복제본을 저장 합니다. 데이터베이스에 직접 액세스하면 이 데이터를 쉽게 쿼리, 시각화 또는 분석할 수 있습니다. 개발자 및 다른 사용자는 보고, 분석 또는 기타 데이터 중심 통합을 위해 데이터베이스를 사용할 수 있습니다. 예를 들어 사용자는 Power BI를 사용하여 트랜잭션 데이터를 시각화할 수 있습니다.
+Blockchain Workbench에 연결된 데이터베이스는 계약 정의, 구성 메타데이터 및 블록체인에 저장된 데이터의 SQL 액세스 가능 복제본을 저장합니다. 데이터베이스에 직접 액세스하면 이 데이터를 쉽게 쿼리, 시각화 또는 분석할 수 있습니다. 개발자 및 다른 사용자는 보고, 분석 또는 기타 데이터 중심 통합을 위해 데이터베이스를 사용할 수 있습니다. 예를 들어 사용자는 Power BI를 사용하여 트랜잭션 데이터를 시각화할 수 있습니다.
 
 이 오프 체인 스토리지는 엔터프라이즈 조직이 블록체인 원장이 아닌 SQL로 데이터를 쿼리할 수 있는 기능을 제공합니다. 또한 오프 체인 스토리지는 블록체인 기술 스택에 대해 독립적인 표준 스키마를 표준화함으로써 프로젝트, 시나리오 및 조직 전체에서 보고서 및 기타 아티팩트를 재사용할 수 있게 해줍니다.
 

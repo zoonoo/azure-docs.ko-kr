@@ -1,15 +1,15 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 04/28/2021
-ms.openlocfilehash: f37ef6f968542c1f8fc1ef2f328cd2a78c024852
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 813a49cbb2937da19dd0b71029cc172f632e7dab
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278167"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114403828"
 ---
 *제한된 디바이스* 용으로 개발 중인 경우 다음을 통해 IoT 플러그 앤 플레이를 사용할 수 있습니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "108278167"
 
 ## <a name="use-the-sdk-for-embedded-c"></a>Embedded C용 SDK 사용
 
-Embedded C용 SDK는 [IoT 플러그 앤 플레이 규칙](../articles/iot-pnp/concepts-convention.md)을 사용하여 제한된 디바이스를 Azure IoT 서비스에 연결하는 간단한 솔루션을 제공합니다. 다음 링크에는 MCU 기반 디바이스, 교육, 디버깅을 위한 샘플이 포함되어 있습니다.
+Embedded C용 SDK는 [IoT 플러그 앤 플레이 규칙](../articles/iot-develop/concepts-convention.md)을 사용하여 제한된 디바이스를 Azure IoT 서비스에 연결하는 간단한 솔루션을 제공합니다. 다음 링크에는 MCU 기반 디바이스, 교육, 디버깅을 위한 샘플이 포함되어 있습니다.
 
 ### <a name="use-an-mcu-based-device"></a>MCU 기반 디바이스 사용
 

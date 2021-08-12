@@ -2,13 +2,13 @@
 title: Azure Monitor 경고에 대한 작업 규칙
 description: Azure Monitor의 작업 규칙과 구성 및 관리 방법 이해
 ms.topic: conceptual
-ms.date: 03/15/2021
-ms.openlocfilehash: 12e7cf8e72c5423b4a2edd6ea2a0f4537e328b08
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/08/2021
+ms.openlocfilehash: 61c9912fbe12c706c717bed448d3b7c141b40cd2
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105036784"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018352"
 ---
 # <a name="action-rules-preview"></a>작업 규칙(미리 보기)
 
@@ -53,7 +53,7 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택�
 
 ![새 작업 규칙 만들기 흐름](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>범위
+### <a name="scope"></a>Scope
 
 먼저 범위(Azure 구독, 리소스 그룹 또는 대상 리소스)를 선택합니다. 단일 구독 내에서 범위 조합을 여러 개 선택할 수도 있습니다.
 
@@ -67,8 +67,8 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택�
 
 * **심각도**  
 이 규칙은 선택한 심각도의 경고에만 적용됩니다.  
-예를 들어, **심각도 = Sev1** 은 규칙이 Sev1 심각도의 경고에만 적용됨을 의미합니다.
-* **모니터 서비스**  
+예를 들어, **심각도 = "Sev1"** 은 규칙이 Sev1 심각도의 경고에만 적용됨을 의미합니다.
+* **서비스 모니터링**  
 이 규칙은 선택한 모니터 서비스에서 들어오는 경고에만 적용됩니다.  
 예를 들어, **모니터 서비스 = "Azure Backup"** 은 규칙이 백업 경고(Azure Backup에서 제공)에만 적용됨을 의미합니다.
 * **리소스 종류**  
@@ -78,16 +78,23 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택�
 이 규칙은 특정 경고 규칙에서 들어오는 경고에만 적용됩니다. 값은 경고 규칙의 Resource Manager ID여야 합니다.  
 예를 들어, **경고 규칙 ID = "/subscriptions/SubId1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/API-Latency"** 는 이 규칙이 "API 대기 시간" 메트릭 경고 규칙에서 들어오는 경고에만 적용됨을 의미합니다.  
 _참고 - CLI에서 경고 규칙을 나열하거나 포털에서 특정 경고 규칙을 열고 "속성"을 클릭한 다음, "리소스 ID" 값을 복사하여 적절한 경고 규칙 ID를 가져올 수 있습니다._
-* **모니터 조건**  
-이 규칙은 지정된 모니터 조건(**발생** 또는 **해결됨**)의 경고 이벤트에만 적용됩니다.
+* **조건 모니터링**  
+이 규칙은 지정된 모니터 조건( **"발생"** 또는 **"해결됨"** )의 경고 이벤트에만 적용됩니다.
 * **설명**  
 이 규칙은 경고 설명 필드에 특정 문자열이 포함된 경고에만 적용됩니다. 해당 필드에는 경고 규칙 설명이 포함되어 있습니다.  
-예를 들어, **description contains 'prod'** 는 규칙이 설명에 "prod" 문자열이 포함된 경고와만 일치함을 의미합니다.
+예를 들어, **description contains "prod"** 는 규칙이 설명에 "prod" 문자열이 포함된 경고만 일치함을 의미합니다.
 * **경고 컨텍스트(페이로드)**  
 이 규칙은 경고 컨텍스트 필드에 하나 이상의 특정 값이 포함된 경고에만 적용됩니다.  
-예를 들어, **alert context (payload) contains 'Computer-01'** 은 규칙이 페이로드에 문자열 "Computer-01"이 포함된 경고에만 적용됨을 의미합니다.
+예를 들어, **alert context (payload) contains "Computer-01"** 은 규칙이 페이로드에 문자열 "Computer-01"이 포함된 경고에만 적용됨을 의미합니다.
 
-하나의 규칙에 여러 필터를 설정하는 경우 모든 필터가 적용됩니다. 예를 들어, **리소스 종류 = 가상 머신** 및 **심각도 = Sev0** 를 설정하면 규칙이 가상 머신에 대한 Sev0 경고에만 적용됩니다.
+> [!NOTE]
+> 각 필터에는 최대 5개의 값이 포함될 수 있습니다.  
+> 예를 들어 모니터 서비스의 필터에는 최대 5개의 모니터 서비스 이름이 포함될 수 있습니다.
+
+
+
+
+하나의 규칙에 여러 필터를 설정하는 경우 모든 필터가 적용됩니다. 예를 들어, **리소스 종류 = Virtual Machines"** 및 **심각도 = "Sev0"** 을 설정하면 규칙이 가상 머신에 대한 Sev0 경고에만 적용됩니다.
 
 ![작업 규칙 필터](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 
@@ -116,13 +123,13 @@ _참고 - CLI에서 경고 규칙을 나열하거나 포털에서 특정 경고 
 ### <a name="action-rule-details"></a>작업 규칙 세부 정보
 
 마지막으로, 작업 규칙에 대한 다음 세부 정보를 구성합니다.
-* 이름
+* Name
 * 저장된 리소스 그룹
 * Description
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[az monitor action-rule create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) 명령을 사용하여 Azure CLI에서 작업 규칙을 만들 수 있습니다.  `az monitor action-rule` 참조는 여러 [Azure Monitor용 Azure CLI 참조](/cli/azure/azure-cli-reference-for-monitor)중 하나일 뿐입니다.
+[az monitor action-rule create](/cli/azure/monitor/action-rule#az_monitor_action_rule_create) 명령을 사용하여 Azure CLI에서 작업 규칙을 만들 수 있습니다.  `az monitor action-rule` 참조는 여러 [Azure Monitor용 Azure CLI 참조](/cli/azure/azure-cli-reference-for-monitor)중 하나일 뿐입니다.
 
 ### <a name="prepare-your-environment"></a>환경 준비
 
@@ -136,7 +143,7 @@ _참고 - CLI에서 경고 규칙을 나열하거나 포털에서 특정 경고 
 
 1. 로그인합니다.
 
-   CLI를 로컬로 설치한 경우 [az login](/cli/azure/reference-index#az-login) 명령을 사용하여 로그인합니다.  터미널에 표시된 단계에 따라 인증 프로세스를 완료합니다.
+   CLI를 로컬로 설치한 경우 [az login](/cli/azure/reference-index#az_login) 명령을 사용하여 로그인합니다.  터미널에 표시된 단계에 따라 인증 프로세스를 완료합니다.
 
     ```azurecli
     az login
@@ -158,7 +165,7 @@ _참고 - CLI에서 경고 규칙을 나열하거나 포털에서 특정 경고 
 
 ### <a name="create-action-rules-with-the-azure-cli"></a>Azure CLI를 사용하여 작업 규칙 만들기
 
-필수 및 선택적 매개 변수에 대한 자세한 내용은 [az monitor action-rule create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create)에 대한 Azure CLI 참조 콘텐츠를 참조하세요.
+필수 및 선택적 매개 변수에 대한 자세한 내용은 [az monitor action-rule create](/cli/azure/monitor/action-rule#az_monitor_action_rule_create)에 대한 Azure CLI 참조 콘텐츠를 참조하세요.
 
 리소스 그룹에서 알림을 표시하지 않는 작업 규칙을 만듭니다.
 
@@ -244,7 +251,7 @@ Contoso는 [구독 수준에서 메트릭 경고](./alerts-metric-overview.md#mo
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI에서 [az monitor action-rule](/cli/azure/ext/alertsmanagement/monitor) 명령을 사용하여 작업 규칙을 보고 관리할 수 있습니다.
+Azure CLI에서 [az monitor action-rule](/cli/azure/monitor) 명령을 사용하여 작업 규칙을 보고 관리할 수 있습니다.
 
 Azure CLI를 사용하여 작업 규칙을 관리하기 전에 [작업 규칙 구성](#configuring-an-action-rule)에 제공된 지침을 사용하여 환경을 준비합니다.
 

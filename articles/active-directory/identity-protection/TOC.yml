@@ -61,7 +61,7 @@
     - name: Microsoft Q&A 질문 페이지
       href: /answers/topics/azure-active-directory.html
     - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+      href: 'https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing'
     - name: 서비스 업데이트
       href: ../fundamentals/whats-new.md
     - name: Stack Overflow

@@ -1,15 +1,15 @@
 ---
-title: Python 구성 요소 Apache Storm-Azure HDInsight
-description: Azure HDInsight에서 Python 구성 요소를 사용 하는 Apache Storm 토폴로지를 만드는 방법에 대해 알아봅니다.
+title: Python 구성 요소를 사용하는 Apache Storm - Azure HDInsight
+description: Azure HDInsight에서 Python 구성 요소를 사용하는 Apache Storm 토폴로지를 만드는 방법을 알아봅니다.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-python
 ms.date: 12/16/2019
 ms.openlocfilehash: e28d21ed71cf5f485165c639a8bd519b3a2736e1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98928988"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>HDInsight에서 Python을 사용하여 Apache Storm 토폴로지 개발
@@ -19,21 +19,21 @@ Python 구성 요소를 사용하는 [Apache Storm](https://storm.apache.org/) �
 > [!IMPORTANT]  
 > 이 문서의 정보는 HDInsight 3.6에서 Storm을 사용하여 테스트했습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형** 에 **Storm** 을 선택합니다.
 
-* 로컬 스톰 개발 환경 (선택 사항). 로컬 Storm 환경은 토폴로지를 로컬로 실행하려는 경우에만 필요합니다. 자세한 내용은 [개발 환경 설정](https://storm.apache.org/releases/current/Setting-up-development-environment.html)(영문)을 참조하세요.
+* 로컬 Storm 개발 환경(선택 사항) 로컬 Storm 환경은 토폴로지를 로컬로 실행하려는 경우에만 필요합니다. 자세한 내용은 [개발 환경 설정](https://storm.apache.org/releases/current/Setting-up-development-environment.html)(영문)을 참조하세요.
 
-* [Python 2.7 이상](https://www.python.org/downloads/).
+* [Python 2.7 이상](https://www.python.org/downloads/)
 
-* [JDK (Java Developer Kit) 버전 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)입니다.
+* [JDK(Java Developer Kit) 버전 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html)[Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 
 ## <a name="storm-multi-language-support"></a>Storm 다중 언어 지원
 
-Apache Storm은 모든 프로그래밍 언어로 작성된 구성 요소를 사용하도록 설계되었습니다. 구성 요소에서 Storm에 대한 Thrift 정의를 사용하는 방법을 이해해야 합니다. Python의 경우 모듈은 Apache Storm 프로젝트의 일부로 제공되므로 Storm과 쉽게 인터페이스할 수 있습니다. 이 모듈은에서 찾을 수 있습니다 [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py) .
+Apache Storm은 모든 프로그래밍 언어로 작성된 구성 요소를 사용하도록 설계되었습니다. 구성 요소에서 Storm에 대한 Thrift 정의를 사용하는 방법을 이해해야 합니다. Python의 경우 모듈은 Apache Storm 프로젝트의 일부로 제공되므로 Storm과 쉽게 인터페이스할 수 있습니다. 이 모듈은 [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py)에서 찾을 수 있습니다.
 
 Storm은 JVM(Java Virtual Machine)에서 실행되는 Java 프로세스입니다. 다른 언어로 작성된 구성 요소는 하위 프로세스로 실행됩니다. Storm은 stdin/stdout을 통해 전송되는 JSON 메시지를 사용하여 이러한 하위 프로세스와 통신합니다. 구성 요소 간의 통신에 대한 자세한 내용은 [다중 언어 프로토콜](https://storm.apache.org/releases/current/Multilang-protocol.html) (영문) 설명서에서 확인할 수 있습니다.
 
@@ -67,13 +67,13 @@ Flux에서는 토폴로지를 포함하는 jar 파일 내의 `/resources` 디렉
 </resource>
 ```
 
-앞에서 설명한 것 처럼 `storm.py` 스톰에 대 한 Thrift 정의를 구현 하는 파일이 있습니다. Flux 프레임워크는 프로젝트를 빌드할 때 `storm.py`를 자동으로 포함하므로 파일을 포함하는 것에 대해 걱정할 필요가 없습니다.
+앞에서 언급했듯이 Storm에 대한 Thrift 정의를 구현하는 `storm.py` 파일이 있습니다. Flux 프레임워크는 프로젝트를 빌드할 때 `storm.py`를 자동으로 포함하므로 파일을 포함하는 것에 대해 걱정할 필요가 없습니다.
 
 ## <a name="build-the-project"></a>프로젝트 빌드
 
-1. 에서 프로젝트를 다운로드 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) 합니다.
+1. [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount)에서 프로젝트를 다운로드합니다.
 
-1. 명령 프롬프트를 열고 프로젝트 루트:로 이동 `hdinsight-python-storm-wordcount-master` 합니다. 다음 명령을 입력합니다.
+1. 명령 프롬프트를 열고 프로젝트 루트로 이동합니다. `hdinsight-python-storm-wordcount-master` 다음 명령을 입력합니다.
 
     ```cmd
     mvn clean compile package
@@ -83,7 +83,7 @@ Flux에서는 토폴로지를 포함하는 jar 파일 내의 `/resources` 디렉
 
 ## <a name="run-the-storm-topology-on-hdinsight"></a>HDInsight에서 Storm 토폴로지 실행
 
-1. [Ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 `WordCount-1.0-SNAPSHOT.jar` HDInsight 클러스터의 스톰에 파일을 복사 합니다. CLUSTERNAME을 클러스터 이름으로 바꿔서 아래 명령을 편집하고, 다음 명령을 입력합니다.
+1. [ssh 명령](../hdinsight-hadoop-linux-use-ssh-unix.md)을 사용하여 HDInsight 클러스터의 Storm에 `WordCount-1.0-SNAPSHOT.jar` 파일을 복사합니다. CLUSTERNAME을 클러스터 이름으로 바꿔서 아래 명령을 편집하고, 다음 명령을 입력합니다.
 
     ```cmd
     scp target/WordCount-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:
@@ -103,15 +103,15 @@ Flux에서는 토폴로지를 포함하는 jar 파일 내의 `/resources` 디렉
 
     Storm 토폴로지가 시작되면 중지될 때까지 실행됩니다.
 
-1. 스톰 UI를 사용 하 여 클러스터의 토폴로지를 볼 수 있습니다. Storm UI는 `https://CLUSTERNAME.azurehdinsight.net/stormui`에 있습니다. `CLUSTERNAME`를 클러스터 이름으로 바꿉니다.
+1. Storm UI를 사용하여 클러스터에서 토폴로지를 봅니다. Storm UI는 `https://CLUSTERNAME.azurehdinsight.net/stormui`에 있습니다. `CLUSTERNAME`를 클러스터 이름으로 바꿉니다.
 
-1. 스톰 토폴로지를 중지 합니다. 다음 명령을 사용 하 여 클러스터에서 토폴로지를 중지 합니다.
+1. Storm 토폴로지를 중지합니다. 다음 명령을 사용하여 클러스터에서 토폴로지를 중지합니다.
 
     ```bash
     storm kill wordcount
     ```
 
-    또는 스톰 UI를 사용할 수 있습니다. 토폴로지에 대 한 **토폴로지 작업** 에서 **중지** 를 선택 합니다.
+    또는 Storm UI를 사용할 수 있습니다. 토폴로지에 대한 **토폴로지 작업** 에서 **종료** 를 선택합니다.
 
 ## <a name="run-the-topology-locally"></a>로컬로 토폴로지 실행
 
@@ -142,4 +142,4 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 
 ## <a name="next-steps"></a>다음 단계
 
-HDInsight에서 Python을 사용 하는 다른 방법에 대해서는 다음 문서를 참조 하세요. [Apache Pig 및 Apache Hive에서 PYTHON UDF (사용자 정의 함수)를 사용 하는 방법](../hadoop/python-udf-hdinsight.md)입니다.
+HDInsight에서 Python을 사용하는 다른 방법에 대해서는 [Apache Pig 및 Apache Hive에서 UDF(사용자 정의 함수)를 사용하는 방법](../hadoop/python-udf-hdinsight.md) 문서를 참조하세요.

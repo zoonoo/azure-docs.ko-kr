@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: d9ad439fe3f41d9e2634fbf9a76cfd21114a5dbc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103013060"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure AD 인증 시작
@@ -29,23 +29,23 @@ ms.locfileid: "103013060"
 
 Azure Portal을 사용하여 Azure AD(Azure Active Directory) 인증에 액세스하고 Azure Media Services API에 액세스하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 계정. 계정이 없는 경우 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작하세요. 
 - Media Services 계정. 자세한 내용은 [Azure Portal을 사용하여 Azure Media Services 계정 만들기](media-services-portal-create-account.md)를 참조하세요.
 
 Azure Media Services와 함께 Azure AD 인증을 사용할 때 두 가지 인증 옵션이 제공됩니다.
 
-- **서비스 사용자 인증**. 서비스를 인증합니다. 이 인증 방법을 일반적으로 사용하는 애플리케이션은 디먼 서비스, 중간 계층 서비스 또는 예약된 작업(예: 웹앱, 함수 앱, 논리 앱, API 또는 마이크로 서비스)을 실행하는 앱입니다.
+- **서비스 주체 인증**. 서비스를 인증합니다. 이 인증 방법을 일반적으로 사용하는 애플리케이션은 디먼 서비스, 중간 계층 서비스 또는 예약된 작업(예: 웹앱, 함수 앱, 논리 앱, API 또는 마이크로 서비스)을 실행하는 앱입니다.
 - **사용자 인증**. Media Services 리소스와 상호 작용하는 데 앱을 사용하는 사용자를 인증합니다. 대화형 애플리케이션은 먼저 사용자에게 자격 증명을 묻는 메시지를 표시합니다. 예제는 권한 있는 사용자가 인코딩 작업 또는 라이브 스트리밍을 모니터링하기 위해 사용한 관리 콘솔 앱입니다. 
 
 ## <a name="access-the-media-services-api"></a>Media Services API 액세스
 
-이 페이지에서 API에 연결 하는 데 사용 하려는 인증 방법을 선택할 수 있습니다. 또한 이 페이지는 API에 연결하는 데 필요한 값을 제공합니다.
+이 페이지에서 API에 연결하는 데 사용할 인증 방법을 선택할 수 있습니다. 또한 이 페이지는 API에 연결하는 데 필요한 값을 제공합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 Media Services 계정을 선택합니다.
 2. Media Services API에 연결하는 방법을 선택합니다.
-3. **MEDIA SERVICES api에 연결** 에서 연결 하려는 Media Services api 버전을 선택 합니다.
+3. **Media Services API에 연결** 에서 연결하려는 Media Services API 버전을 선택합니다.
 
 ## <a name="service-principal-authentication--recommended"></a>서비스 주체 인증(권장)
 

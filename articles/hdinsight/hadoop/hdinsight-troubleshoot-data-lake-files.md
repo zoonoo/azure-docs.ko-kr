@@ -1,23 +1,23 @@
 ---
-title: Azure HDInsight에서 Data Lake 저장소 파일에 액세스할 수 없음
-description: Azure HDInsight에서 Data Lake 저장소 파일에 액세스할 수 없음
+title: Azure HDInsight의 Data Lake Storage 파일에 액세스할 수 없음
+description: Azure HDInsight의 Data Lake Storage 파일에 액세스할 수 없음
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/13/2019
 ms.openlocfilehash: f4c5a23b604334952730fcc4cf1fcb3fcbed6237
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98944387"
 ---
-# <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Azure HDInsight에서 Data Lake 저장소 파일에 액세스할 수 없음
+# <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Azure HDInsight의 Data Lake Storage 파일에 액세스할 수 없음
 
-이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
+이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대한 문제 해결 단계 및 가능한 해결 방법을 설명합니다.
 
 ## <a name="issue-acl-verification-failed"></a>문제: ACL 확인 실패
 
-다음과 유사한 오류 메시지가 표시 됩니다.
+다음과 비슷한 오류 메시지를 받게 됩니다.
 
 ```
 LISTSTATUS failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.).
@@ -25,23 +25,23 @@ LISTSTATUS failed with error 0x83090aa2 (Forbidden. ACL verification failed. Eit
 
 ### <a name="cause"></a>원인
 
-사용자가 파일/폴더에 대해 SP (서비스 사용자)의 사용 권한을 취소 했을 수 있습니다.
+사용자가 파일/폴더에 대한 서비스 주체(SP)의 권한을 취소했을 수 있습니다.
 
 ### <a name="resolution"></a>해결 방법
 
-1. SP에 경로를 따라 트래버스하는 ' x ' 권한이 있는지 확인 하십시오. 자세한 내용은 [사용 권한](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html)을 참조하세요. `dfs`Data Lake 저장소 계정의 파일/폴더에 대 한 액세스를 확인 하는 샘플 명령:
+1. SP에 경로를 따라 트래버스할 수 있는 'x' 권한이 있는지 확인합니다. 자세한 내용은 [사용 권한](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html)을 참조하세요. Data Lake Storage 계정의 파일/폴더에 대한 액세스를 확인하는 샘플 `dfs` 명령:
 
     ```
     hdfs dfs -ls /<path to check access>
     ```
 
-1. 수행 되는 읽기/쓰기 작업에 따라 경로에 액세스 하는 데 필요한 권한을 설정 합니다. 다양 한 파일 시스템 작업에 필요한 권한은 여기를 참조 하세요.
+1. 수행 중인 읽기/쓰기 작업에 따라 경로에 액세스하는 데 필요한 권한을 설정합니다. 다양한 파일 시스템 작업에 필요한 권한은 여기를 참조하세요.
 
 ---
 
 ## <a name="issue-service-principal-certificate-expiry"></a>문제: 서비스 주체 인증서 만료
 
-다음과 유사한 오류 메시지가 표시 됩니다.
+다음과 비슷한 오류 메시지를 받게 됩니다.
 
 ```
 Token Refresh failed - Received invalid http response: 500
@@ -49,35 +49,35 @@ Token Refresh failed - Received invalid http response: 500
 
 ### <a name="cause"></a>원인
 
-서비스 주체 액세스를 위해 제공 된 인증서가 만료 되었을 수 있습니다.
+서비스 주체 액세스를 위해 제공된 인증서가 만료되었을 수 있습니다.
 
-1. 헤드 노드로 SSH 합니다. 다음 명령을 사용 하 여 저장소 계정에 대 한 액세스를 확인 합니다 `dfs` .
+1. 헤드 노드로 SSH합니다. 다음 `dfs` 명령을 사용하여 스토리지 계정에 대한 액세스를 확인합니다.
 
     ```
     hdfs dfs -ls /
     ```
 
-1. 오류 메시지가 다음 출력과 유사 하는지 확인 합니다.
+1. 오류 메시지가 다음 출력과 유사한지 확인합니다.
 
     ```
     {"stderr": "-ls: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://gw0-abccluster.24ajrd4341lebfgq5unsrzq0ue.fx.internal.cloudapp.net:909/api/oauthtoken}}...
     ```
 
-1. 에서 url 중 하나를 가져옵니다 `core-site.xml property`  -  `fs.azure.datalake.token.provider.service.urls` .
+1. `core-site.xml property` - `fs.azure.datalake.token.provider.service.urls`에서 URL 중 하나를 가져옵니다.
 
-1. 다음 말아 넘기기 명령을 실행 하 여 OAuth 토큰을 검색 합니다.
+1. 다음 curl 명령을 실행하여 OAuth 토큰을 검색합니다.
 
     ```
     curl gw0-abccluster.24ajrd4341lebfgq5unsrzq0ue.fx.internal.cloudapp.net:909/api/oauthtoken
     ```
 
-1. 유효한 서비스 사용자에 대 한 출력은 다음과 같습니다.
+1. 유효한 서비스 주체에 대한 출력은 다음과 같습니다.
 
     ```
     {"AccessToken":"MIIGHQYJKoZIhvcNAQcDoIIGDjCCBgoCAQA…….","ExpiresOn":1500447750098}
     ```
 
-1. 서비스 사용자 인증서가 만료 된 경우 출력은 다음과 같이 표시 됩니다.
+1. 서비스 주체 인증서가 만료된 경우 출력은 다음과 같습니다.
 
     ```
     Exception in OAuthTokenController.GetOAuthToken: 'System.InvalidOperationException: Error while getting the OAuth token from AAD for AppPrincipalId 23abe517-2ffd-4124-aa2d-7c224672cae2, ResourceUri https://management.core.windows.net/, AADTenantId https://login.windows.net/80abc8bf-86f1-41af-91ab-2d7cd011db47, ClientCertificateThumbprint C49C25705D60569884EDC91986CEF8A01A495783 ---> Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException: AADSTS70002: Error validating credentials. AADSTS50012: Client assertion contains an invalid signature. **[Reason - The key used is expired.**, Thumbprint of key used by client: 'C49C25705D60569884EDC91986CEF8A01A495783', Found key 'Start=08/03/2016, End=08/03/2017, Thumbprint=C39C25705D60569884EDC91986CEF8A01A4956D1', Configured keys: [Key0:Start=08/03/2016, End=08/03/2017, Thumbprint=C39C25705D60569884EDC91986CEF8A01A4956D1;]]
@@ -88,9 +88,9 @@ Token Refresh failed - Received invalid http response: 500
     at Microsoft.IdentityModel.Clients.ActiveDirectory.HttpWebRequestWrapper.<GetResponseSyncOrAsync>d__2.MoveNext()
     ```
 
-1. 다른 모든 Azure Active Directory 관련 오류/인증서 관련 오류는 OAuth 토큰을 가져오기 위해 게이트웨이 url을 ping 하 여 인식 될 수 있습니다.
+1. 다른 Azure Active Directory 관련 오류/인증서 관련 오류는 OAuth 토큰을 얻기 위해 게이트웨이 URL을 ping하여 인식할 수 있습니다.
 
-1. HDI 클러스터에서 ADLS에 액세스 하려고 할 때 다음과 같은 오류가 발생 합니다. 위에서 언급 한 단계에 따라 인증서가 만료 되었는지 확인 합니다.
+1. HDI 클러스터에서 ADLS에 액세스하려고 할 때 다음 오류가 발생하는 경우, 위에서 언급한 단계에 따라 인증서가 만료되었는지 확인합니다.
 
     ```
     Error: java.lang.IllegalArgumentException: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://clustername.hmssomerandomstringc.cx.internal.cloudapp.net:909/api/oauthtoken}
@@ -98,7 +98,7 @@ Token Refresh failed - Received invalid http response: 500
 
 ### <a name="resolution"></a>해결 방법
 
-다음 PowerShell 스크립트를 사용 하 여 새 인증서를 만들거나 기존 인증서를 할당 합니다.
+다음 PowerShell 스크립트를 사용하여 새 인증서를 만들거나 기존 인증서를 할당합니다.
 
 ```powershell
 $clusterName = 'CLUSTERNAME'
@@ -158,9 +158,9 @@ Invoke-AzureRmResourceAction `
 
 ```
 
-기존 인증서를 할당 하려면 인증서를 만들고 .pfx 파일 및 암호를 준비 합니다. AppId 준비를 사용 하 여 인증서를 클러스터가 생성 된 서비스 주체와 연결 합니다.
+기존 인증서를 할당하려면 인증서를 만들고 .pfx 파일 및 암호를 준비합니다. 준비된 AppId를 사용하여 클러스터를 생성한 서비스 주체와 인증서를 연결합니다.
 
-매개 변수를 실제 값으로 대체 한 후 PowerShell 명령을 실행 합니다.
+매개 변수를 실제 값으로 대체한 후 PowerShell 명령을 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: yitoh
-ms.openlocfilehash: f551f40a9bd70c4a3b54c1d2756cfb94caf79590
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 8f0ebeebb47885d12529a7f09041af9bc3eb12f2
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103065"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656707"
 ---
 # <a name="azure-ddos-rapid-response"></a>Azure DDoS 빠른 응답
 
-Azure DDoS Protection Standard 고객은 활성 액세스 상태에서 공격 중 조사 및 공격 후 분석에 도움을 주는 DRR(DDoS 빠른 응답) 팀에 액세스할 수 있습니다.
+Azure DDoS Protection Standard 고객은 활성 액세스 상태에서 공격 중 공격 조사 및 공격 후 분석에 도움을 주는 DRR(DDoS 빠른 응답) 팀에 액세스할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

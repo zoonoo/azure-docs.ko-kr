@@ -1,7 +1,7 @@
 ---
-title: 웹 서비스로 배포 된 모델에 대 한 인증 구성
+title: 웹 서비스로 배포된 모델에 대한 인증 구성
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 웹 서비스로 배포 된 machine learning 모델에 대 한 인증을 구성 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning에서 웹 서비스로 배포된 기계 학습 모델에 대한 인증을 구성하는 방법에 대해 알아봅니다.
 services: machine-learning
 author: cjgronlund
 ms.author: cgronlun
@@ -9,32 +9,31 @@ ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/06/2020
-ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 5bd938fce347d439c2acb4e3fcace04d5b27d770
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: c315949adbad946fef57213f38f1cb9d7d45f668
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94447652"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107898084"
 ---
-# <a name="configure-authentication-for-models-deployed-as-web-services"></a>웹 서비스로 배포 된 모델에 대 한 인증 구성
+# <a name="configure-authentication-for-models-deployed-as-web-services"></a>웹 서비스로 배포된 모델에 대한 인증 구성
 
-Azure Machine Learning를 통해 학습 된 기계 학습 모델을 웹 서비스로 배포할 수 있습니다. 이 문서에서는 이러한 배포에 대 한 인증을 구성 하는 방법을 알아봅니다.
+Azure Machine Learning을 통해 학습된 기계 학습 모델을 웹 서비스로 배포할 수 있습니다. 이 문서에서는 이러한 배포에 대한 인증을 구성하는 방법을 알아봅니다.
 
-Azure Machine Learning에서 만든 모델 배포는 다음 두 가지 인증 방법 중 하나를 사용 하도록 구성할 수 있습니다.
+Azure Machine Learning에서 만든 모델 배포는 다음 두 가지 인증 방법 중 하나를 사용하도록 구성할 수 있습니다.
 
-* **키 기반**: 정적 키가 웹 서비스를 인증 하는 데 사용 됩니다.
-* **토큰 기반**: 임시 토큰은 Azure Machine Learning 작업 영역에서 가져와 (Azure Active Directory 사용) 웹 서비스를 인증 하는 데 사용 되어야 합니다. 이 토큰은 일정 기간 후에 만료 되며 웹 서비스를 계속 사용 하려면 새로 고쳐야 합니다.
+* **키 기반**: 정적 키는 웹 서비스에 인증하는 데 사용됩니다.
+* **토큰 기반**: 임시 토큰은 Azure Machine Learning 작업 영역(Azure Active Directory 사용)에서 가져와 웹 서비스에 인증하는 데 사용해야 합니다. 이 토큰은 일정 기간 후에 만료되며 웹 서비스를 계속 사용하려면 새로 고쳐야 합니다.
 
     > [!NOTE]
-    > 토큰 기반 인증은 Azure Kubernetes Service에 배포 하는 경우에만 사용할 수 있습니다.
+    > 토큰 기반 인증은 Azure Kubernetes Service에 배포하는 경우에만 사용할 수 있습니다.
 
 ## <a name="key-based-authentication"></a>키 기반 인증
 
-AKS (Azure Kubernetes Service)에 배포 된 웹 서비스에는 기본적으로 키 기반 인증이 *사용* 됩니다.
+AKS(Azure Kubernetes Service)에 배포된 웹 서비스에는 기본적으로 키 기반 인증이 *사용하도록 설정* 되어 있습니다.
 
-ACI (Azure Container Instances) 배포 된 서비스는 기본적으로 키 기반 인증을 *사용 하지 않도록* 설정 되어 있지만 `auth_enabled=True` aci 웹 서비스를 만들 때를 설정 하 여 사용 하도록 설정할 수 있습니다. 다음 코드는 키 기반 인증을 사용 하도록 설정 하 여 ACI 배포 구성을 만드는 예입니다.
+ACI(Azure Container Instances) 배포 서비스에는 기본적으로 키 기반 인증이 *사용하지 않도록 설정* 되어 있지만 ACI 웹 서비스를 만들 때 `auth_enabled=True`를 설정하여 사용하도록 설정할 수 있습니다. 다음 코드는 키 기반 인증이 사용하도록 설정된 ACI 배포 구성을 만드는 예입니다.
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -76,7 +75,7 @@ aci_service.regen_key("Secondary")
 * 토큰 인증은 Azure Container Instances에 배포할 때 **지원되지 않습니다**.
 * 토큰 인증은 **키 기반 인증과 동시에 사용할 수 없습니다**.
 
-토큰 인증을 제어 하려면 배포를 `token_auth_enabled` 만들거나 업데이트할 때 매개 변수를 사용 합니다.
+토큰 인증을 제어하려면 배포를 만들거나 업데이트할 때 `token_auth_enabled` 매개 변수를 사용합니다.
 
 ```python
 from azureml.core.webservice import AksWebservice
@@ -104,7 +103,7 @@ aks_service.wait_for_deployment(show_output = True)
 토큰 인증을 사용하도록 설정하면 `get_token` 메서드를 사용하여 JWT(JSON 웹 토큰) 및 해당 토큰의 만료 시간을 검색할 수 있습니다.
 
 > [!TIP]
-> 서비스 주체를 사용 하 여 토큰을 가져오는 경우 토큰을 검색 하는 데 필요한 최소한의 액세스 권한을 부여 하려면 작업 영역에 대 한 **읽기 권한자** 역할에 할당 합니다.
+> 서비스 주체를 사용하여 토큰을 가져오고 토큰을 검색하는 데 필요한 최소한의 액세스 권한을 갖도록 하려면 작업 영역에 대한 **읽기 권한자** 역할에 할당합니다.
 
 ```python
 token, refresh_by = aks_service.get_token()
@@ -116,10 +115,10 @@ print(token)
 >
 > Azure Kubernetes Service 클러스터와 동일한 지역에 Azure Machine Learning 작업 영역을 만드는 것이 좋습니다.
 >
-> 토큰으로 인증하기 위해 웹 서비스는 Azure Machine Learning 작업 영역이 생성되는 지역을 호출합니다. 작업 영역 영역을 사용할 수 없는 경우 클러스터가 작업 영역에서 다른 지역에 있는 경우에도 웹 서비스에 대 한 토큰을 가져올 수 없습니다. 따라서 작업 영역 영역을 다시 사용할 수 있을 때까지 Azure AD 인증를 사용할 수 없습니다.
+> 토큰으로 인증하기 위해 웹 서비스는 Azure Machine Learning 작업 영역이 생성되는 지역을 호출합니다. 작업 영역의 지역을 사용할 수 없는 경우에는 클러스터가 작업 영역의 다른 지역에 있는 경우에도 웹 서비스에 대한 토큰을 페치할 수 없습니다. 결과적으로 작업 영역을 다시 사용할 수 있을 때까지 Azure AD 인증을 사용할 수 없습니다.
 >
-> 또한 클러스터 지역과 작업 영역 영역 간의 거리가 클수록 토큰을 인출 하는 데 시간이 오래 걸립니다.
+> 또한 클러스터 지역과 작업 영역의 지역 간 거리가 클수록 토큰을 페치하는 데 시간이 오래 걸립니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-배포 된 모델에 대 한 인증에 대 한 자세한 내용은 [웹 서비스로 배포 된 모델에 대 한 클라이언트 만들기](how-to-consume-web-service.md)를 참조 하세요.
+배포된 모델 인증에 대한 자세한 내용은 [웹 서비스로 배포된 모델용 클라이언트 만들기](how-to-consume-web-service.md)를 참조하세요.

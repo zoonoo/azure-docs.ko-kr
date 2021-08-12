@@ -3,12 +3,12 @@ title: Azure Site Recovery를 사용하는 온-프레미스 앱에 대한 재해
 description: Azure Site Recovery 서비스에서 재해 복구를 사용하여 보호할 수 있는 워크로드를 설명합니다.
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 2b901425a0020c0ccc7b834ee36d965910028018
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a5d20e6feacfe72052142c07dc45753b9bc3138
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80062831"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599114"
 ---
 # <a name="about-disaster-recovery-for-on-premises-apps"></a>온-프레미스 앱에 대한 재해 복구 정보
 
@@ -151,14 +151,7 @@ IIS에 대한 재해 복구에 대해 [자세히 알아보세요](site-recovery-
 
 ## <a name="protect-citrix-xenapp-and-xendesktop"></a>Citrix XenApp 및 XenDesktop 보호
 
-Site Recovery를 사용하여 음과 같이 Citrix XenApp와 XenDesktop 배포를 보호합니다.
-
-- Citrix XenApp 및 XenDesktop 배포에 대한 보호를 사용하도록 설정합니다. Active Directory, DNS 서버, SQL 데이터베이스 서버, Citrix Delivery Controller, StoreFront 서버, XenApp Master(VDA), Citrix XenApp License Server 등 Azure에 다양한 배포 계층을 복제합니다.
-- Citrix XenApp 및 XenDesktop 배포를 Azure로 마이그레이션하기 위해 Site Recovery를 사용하여 클라우드 마이그레이션을 간소화합니다.
-- 테스트 및 디버깅을 위해 프로덕션 환경과 유사한 주문형 복사본을 만들어 Citrix XenApp/XenDesktop 테스트를 간소화합니다.
-- 해당 솔루션은 Windows Server 가상 데스크톱에만 적용되고 클라이언트 가상 데스크톱에는 적용되지 않습니다. 클라이언트 가상 데스크톱은 아직 Azure에서 라이선스를 지원하지 않습니다. Azure의 클라이언트/서버 데스크톱용 라이선스에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/licensing-faq/).
-
-Citrix XenApp 및 XenDesktop 배포에 대한 재해 복구에 대해 [자세히 알아보세요](site-recovery-citrix-xenapp-and-xendesktop.md). 또는 [Citrix 백서](https://aka.ms/citrix-xenapp-xendesktop-with-asr)를 참조할 수 있습니다.
+2020년 3월부로 Citrix는 퍼블릭 클라우드 호스팅 워크로드에 대한 사용 중단 및 지원 종료를 발표했습니다. 따라서 Citrix 워크로드를 보호하기 위해 Site Recovery를 사용하지 않는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

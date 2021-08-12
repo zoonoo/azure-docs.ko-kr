@@ -3,12 +3,12 @@ title: 일반적인 오류 문제 해결
 description: Azure Resource Graph를 사용하여 Azure 리소스를 쿼리하는 동안 다양한 SDK와 관련된 문제를 해결하는 방법을 알아봅니다.
 ms.date: 05/01/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 54b680169c38cd4517c225e6452c02de8ecd4dd2
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 86d60f888dfd702e8895f560258b8ddb02d35827
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325808"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751484"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Azure Resource Graph를 사용하여 오류 문제 해결
 
@@ -43,7 +43,7 @@ Azure Resource Graph는 시간 범위를 기준으로 각 사용자에 대한 �
 
 #### <a name="issue"></a>문제
 
-[Azure Lighthouse](../../../lighthouse/overview.md)를 사용하는 교차 테넌트 구독을 포함하여 1,000개 이상의 구독에 액세스할 수 있는 고객이 Azure Resource Graph에 대한 단일 호출을 사용하여 모든 구독에서 데이터를 가져올 수 없습니다.
+[Azure Lighthouse](../../../lighthouse/overview.md)를 사용하는 교차 테넌트 구독을 포함하여 1,000개 초과하는 구독에 액세스할 수 있는 고객이 Azure Resource Graph에 대한 단일 호출을 사용하여 모든 구독에서 데이터를 가져올 수 없습니다.
 
 #### <a name="cause"></a>원인
 

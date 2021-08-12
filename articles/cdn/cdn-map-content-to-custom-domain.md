@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 04/12/2021
 ms.author: yuajia
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 3b64efab10a9d52209f04dfd43a43654eb55467a
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: ee721a56da41c4a5ff9184c6bc716784f858507d
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110706941"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112467638"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-endpoint"></a>자습서: 엔드포인트에 사용자 지정 도메인 추가
 
@@ -23,7 +23,7 @@ ms.locfileid: "110706941"
 
 CDN 프로필의 엔드포인트 이름은 azureedge.net의 하위 도메인입니다. 기본적으로 콘텐츠를 전송할 때 CDN 프로필 도메인이 URL에 포함됩니다.
 
-예를 들어 **https://contoso.azureedge.net/photo.png** 와 같습니다.
+`https://contoso.azureedge.net/photo.png`)을 입력합니다.
 
 Azure CDN은 CDN 엔드포인트와 사용자 지정 도메인을 연결하는 옵션을 제공합니다. 이 옵션은 URL에서 기본 도메인 대신 사용자 지정 도메인을 사용하여 콘텐츠를 전송합니다.
 
