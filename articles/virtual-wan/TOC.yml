@@ -41,7 +41,7 @@
           href: virtual-wan-locations-partners.md
         - name: 파트너를 위한 자동화 지침
           href: virtual-wan-configure-automation-providers.md
-    - name: Architecture
+    - name: 아키텍처
       items:
         - name: Virtual WAN으로 마이그레이션
           href: migrate-from-hub-spoke-topology.md
@@ -75,10 +75,6 @@
           href: scenario-route-between-vnets-firewall.md
         - name: Application Gateway 및 백 엔드 풀
           href: scenario-secured-hub-app-gateway.md
-    - name: 모니터링
-      items:
-        - name: Virtual WAN에 대한 Azure Monitor Insights 정보
-          href: azure-monitor-insights.md
     - name: 사이트 간
       items:
         - name: S2S IPsec 정책 정보
@@ -185,10 +181,12 @@
           href: howto-private-link.md
         - name: 리소스에 대한 액세스 관리 - Spoke VNet P2S
           href: manage-secure-access-resources-spoke-p2s.md
-    - name: 모니터링
+    - name: 상태 모니터링
       items:
-        - name: 로그 및 메트릭
-          href: logs-metrics.md
+        - name: Virtual WAN 모니터링
+          href: monitor-virtual-wan.md
+        - name: Virtual WAN용 Azure Monitor Insights
+          href: azure-monitor-insights.md
 - name: 참조
   items:
     - name: Azure PowerShell

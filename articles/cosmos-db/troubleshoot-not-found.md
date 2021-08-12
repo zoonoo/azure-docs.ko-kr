@@ -1,56 +1,62 @@
 ---
-title: 찾을 수 없는 예외 Azure Cosmos DB 문제 해결
-description: 찾을 수 없는 예외를 진단 하 고 해결 하는 방법을 알아봅니다.
+title: Azure Cosmos DB 찾을 수 없음 예외 문제 해결
+description: 찾을 수 없음 예외를 진단하고 해결하는 방법을 알아봅니다.
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 07/13/2020
+ms.date: 05/26/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 22cce2c620d23ab477de5d92bb8c6d4f5ef5a493
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: b9a78c1adeb5aa833c7c60be1dc4e553ae7d5393
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102425127"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110538848"
 ---
-# <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>찾을 수 없는 예외 Azure Cosmos DB 진단 및 문제 해결
+# <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Azure Cosmos DB 찾을 수 없음 예외 진단 및 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 HTTP 상태 코드 404는 리소스가 더 이상 존재하지 않음을 나타냅니다.
 
 ## <a name="expected-behavior"></a>예상되는 동작
-응용 프로그램에서 코드 404을 예상 하 고 시나리오를 올바르게 처리 하는 다양 한 시나리오를 사용할 수 있습니다.
+애플리케이션에서 코드 404를 예상하고 시나리오를 올바르게 처리하는 다양한 시나리오를 사용할 수 있습니다.
 
-## <a name="a-not-found-exception-was-returned-for-an-item-that-should-exist-or-does-exist"></a>존재 하거나 존재 해야 하는 항목에 대해 찾을 수 없는 예외가 반환 되었습니다.
-항목이 존재 하거나 존재 해야 하는 경우 상태 코드 404이 반환 되는 이유는 다음과 같습니다.
+## <a name="a-not-found-exception-was-returned-for-an-item-that-should-exist-or-does-exist"></a>존재하거나 존재해야 하는 항목에 대해 찾을 수 없음 예외가 반환되었습니다.
+항목이 존재하거나 존재해야 하는 경우 상태 코드 404가 반환되는 이유는 다음과 같습니다.
 
 ### <a name="the-read-session-is-not-available-for-the-input-session-token"></a>읽기 세션을 입력 세션 토큰에 사용할 수 없음
 
-#### <a name="solution"></a>해결 방법:
-1. 현재 SDK를 사용 가능한 최신 버전으로 업데이트 합니다. 이 특정 오류에 대 한 가장 일반적인 원인은 최신 SDK 버전에서 수정 되었습니다.
+#### <a name="solution"></a>해결책:
+1. 현재 SDK를 사용 가능한 최신 버전으로 업데이트합니다. 이 특정 오류의 가장 일반적인 원인은 최신 SDK 버전에서 수정되었습니다.
 
 ### <a name="race-condition"></a>경합 조건
-여러 SDK 클라이언트 인스턴스가 있으며 쓰기 전에 읽기가 발생 했습니다.
+여러 SDK 클라이언트 인스턴스가 있으며 쓰기 전에 읽기가 발생했습니다.
 
-#### <a name="solution"></a>해결 방법:
-1. Azure Cosmos DB에 대 한 기본 계정 일관성은 세션 일관성입니다. 항목이 만들어지거나 업데이트 되 면 응답은 읽기 요청이 해당 변경 내용으로 복제본에서 읽기를 보장 하기 위해 SDK 인스턴스 간에 전달 될 수 있는 세션 토큰을 반환 합니다.
-1. [일관성 수준을](./consistency-levels.md) [더 강력한 수준](./consistency-levels.md)으로 변경 합니다.
+#### <a name="solution"></a>해결책:
+1. Azure Cosmos DB에 대한 기본 계정 일관성은 세션 일관성입니다. 항목이 만들어지거나 업데이트되면 응답에서 SDK 인스턴스 간에 전달될 수 있는 세션 토큰을 반환하여 읽기 요청이 해당 변경 내용이 있는 복제본을 읽도록 합니다.
+1. [일관성 수준](./consistency-levels.md)을 [더 높은 수준](./consistency-levels.md)으로 변경합니다.
 
-### <a name="invalid-partition-key-and-id-combination"></a>파티션 키 및 ID 조합이 잘못 되었습니다.
-파티션 키와 ID 조합이 잘못 되었습니다.
+### <a name="reading-throughput-for-a-container-or-database-resource"></a>컨테이너 또는 데이터베이스 리소스에 대한 처리량 읽기
+PowerShell 또는 Azure CLI를 사용하고 *찾을 수 없음* 오류 메시지를 받습니다.
 
-#### <a name="solution"></a>해결 방법:
-잘못 된 조합을 유발 하는 응용 프로그램 논리를 수정 합니다. 
+#### <a name="solution"></a>해결책:
+처리량은 데이터베이스 수준, 컨테이너 수준 또는 둘 다에서 프로비저닝할 수 있습니다. *찾을 수 없음* 오류가 발생하면 부모 데이터베이스 리소스 또는 하위 컨테이너 리소스의 처리량을 읽어보세요.
 
-### <a name="invalid-character-in-an-item-id"></a>항목 ID에 잘못 된 문자가 있습니다.
-항목 ID에 [잘못 된 문자가](/dotnet/api/microsoft.azure.documents.resource.id#remarks) 있는 Azure Cosmos DB에 항목이 삽입 되었습니다.
+### <a name="invalid-partition-key-and-id-combination"></a>잘못된 파티션 키 및 ID 조합
+파티션 키와 ID 조합이 유효하지 않습니다.
 
-#### <a name="solution"></a>해결 방법:
-ID를 특수 문자를 포함 하지 않는 다른 값으로 변경 합니다. ID를 변경 하는 옵션이 아닌 경우 ID를 Base64로 인코딩하여 특수 문자를 이스케이프할 수 있습니다. Base64는 대체 해야 하는 잘못 된 문자 '/'로 이름을 계속 생성할 수 있습니다.
+#### <a name="solution"></a>해결책:
+잘못된 조합을 발생시키는 애플리케이션 논리를 수정합니다. 
 
-ID에 대 한 컨테이너에 이미 삽입 된 항목은 이름 기반 참조 대신 RID 값을 사용 하 여 바꿀 수 있습니다.
+### <a name="invalid-character-in-an-item-id"></a>항목 ID의 잘못된 문자
+항목 ID에 [잘못된 문자](/dotnet/api/microsoft.azure.documents.resource.id#remarks)가 포함된 항목이 Azure Cosmos DB에 삽입됩니다.
+
+#### <a name="solution"></a>해결책:
+ID를 특수 문자를 포함하지 않는 다른 값으로 변경합니다. ID 변경이 옵션이 아닌 경우 ID를 Base64로 인코딩하여 특수 문자를 이스케이프할 수 있습니다. Base64는 대체해야 하는 잘못된 문자 '/'로 이름을 계속 생성할 수 있습니다.
+
+ID에 대해 컨테이너에 이미 삽입된 항목은 이름 기반 참조 대신 RID 값을 사용하여 바꿀 수 있습니다.
 ```c#
 // Get a container reference that uses RID values.
 ContainerProperties containerProperties = await this.Container.ReadContainerAsync();
@@ -86,33 +92,33 @@ while (invalidItemsIterator.HasMoreResults)
 }
 ```
 
-### <a name="time-to-live-purge"></a>Ttl (Time to Live) 제거
-항목의 [TTL (Time To Live)](./time-to-live.md) 속성이 설정 되었습니다. TTL 속성이 만료 되어 항목이 제거 되었습니다.
+### <a name="time-to-live-purge"></a>TTL(Time to Live) 제거
+항목에 [TTL(Time to Live)](./time-to-live.md) 속성이 설정되었습니다. TTL 속성이 만료되어 항목이 제거되었습니다.
 
-#### <a name="solution"></a>해결 방법:
-항목이 제거 되지 않도록 TTL 속성을 변경 합니다.
+#### <a name="solution"></a>해결책:
+항목이 제거되지 않도록 TTL 속성을 변경합니다.
 
 ### <a name="lazy-indexing"></a>지연 인덱싱
-[지연 인덱싱이](index-policy.md#indexing-mode) catch 되지 않았습니다.
+[지연 인덱싱](index-policy.md#indexing-mode)이 catch되지 않았습니다.
 
-#### <a name="solution"></a>해결 방법:
-인덱싱이 인덱싱 정책을 catch 하거나 변경할 때까지 기다립니다.
+#### <a name="solution"></a>해결책:
+인덱싱이 인덱싱 정책을 따라잡거나 변경할 때까지 기다리세요.
 
-### <a name="parent-resource-deleted"></a>부모 리소스 삭제 됨
-항목이 존재 하는 데이터베이스 또는 컨테이너가 삭제 되었습니다.
+### <a name="parent-resource-deleted"></a>부모 리소스 삭제됨
+항목이 존재하는 데이터베이스 또는 컨테이너가 삭제되었습니다.
 
-#### <a name="solution"></a>해결 방법:
-1. 부모 리소스를 [복원](./configure-periodic-backup-restore.md#request-restore) 하거나 리소스를 다시 만듭니다.
-1. 삭제 된 리소스를 대체할 새 리소스를 만듭니다.
+#### <a name="solution"></a>해결책:
+1. 부모 리소스를 [복원](./configure-periodic-backup-restore.md#request-restore)하거나 리소스를 다시 만듭니다.
+1. 삭제된 리소스를 대체할 새 리소스를 만듭니다.
 
-### <a name="7-containercollection-names-are-case-sensitive"></a>7. 컨테이너/컬렉션 이름은 대/소문자를 구분 합니다.
-컨테이너/컬렉션 이름은 Cosmos DB에서 대/소문자를 구분 합니다.
+### <a name="7-containercollection-names-are-case-sensitive"></a>7. 컨테이너/컬렉션 이름은 대/소문자를 구분합니다.
+컨테이너/컬렉션 이름은 Cosmos DB에서 대/소문자를 구분합니다.
 
-#### <a name="solution"></a>해결 방법:
-Cosmos DB에 연결 하는 동안 정확한 이름을 사용 해야 합니다.
+#### <a name="solution"></a>해결책:
+Cosmos DB에 연결하는 동안 정확한 이름을 사용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* Azure Cosmos DB .NET SDK를 사용 하는 경우 문제를 [진단 하 고 해결](troubleshoot-dot-net-sdk.md) 합니다.
-* [.Net v3](performance-tips-dotnet-sdk-v3-sql.md) 및 [.net v2](performance-tips.md)의 성능 지침에 대해 알아봅니다.
-* Azure Cosmos DB Java v4 SDK를 사용 하는 경우 문제를 [진단 하 고 해결](troubleshoot-java-sdk-v4-sql.md) 합니다.
-* [Java V4 SDK](performance-tips-java-sdk-v4-sql.md)의 성능 지침에 대해 알아봅니다.
+* Azure Cosmos DB .NET SDK를 사용하고 있는 경우 문제를 [진단 및 해결](troubleshoot-dot-net-sdk.md)합니다.
+* [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) 및 [.NET v2](performance-tips.md)의 성능 지침에 대해 알아봅니다.
+* Azure Cosmos DB Java v4 SDK를 사용할 때 발생하는 문제를 [진단하고 해결](troubleshoot-java-sdk-v4-sql.md)합니다.
+* [Java v4 SDK](performance-tips-java-sdk-v4-sql.md)의 성능 지침에 대해 알아봅니다.

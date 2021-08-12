@@ -3,8 +3,8 @@ title: 복사 작업 성능 및 확장성 가이드
 description: 복사 작업을 사용할 때 Azure Data Factory의 데이터 이동의 성능에 영향을 주는 주요 요소에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/15/2020
-ms.openlocfilehash: cba248d3f254c9bb97c66ff7a3d39275b4b912c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 473f0c2c33fff48f945079ad1bd948c35c0826c4
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102616080"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482600"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>복사 작업 성능 및 확장성 가이드
 
@@ -62,14 +62,17 @@ ADF는 서로 다른 수준에서 병렬 처리를 허용하는 서버리스 아
 * 대상 데이터 저장소
 * 원본 및 대상 데이터 저장소 간의 네트워크 대역폭
 
-아래 표에서는 복사 기간을 계산합니다. 기간은 데이터 크기 및 사용자 환경에 대한 네트워크/데이터 저장소 대역폭 제한을 기반으로 합니다.
+아래 표에서는 데이터 이동 기간의 계산을 보여 줍니다. 각 셀의 기간은 지정된 네트워크 및 데이터 저장소 대역폭과 지정된 데이터 페이로드 크기를 기준으로 계산됩니다.
+
+> [!NOTE]
+> 아래에 제공된 기간은 ForEach를 사용하여 여러 동시 복사 작업을 분할하고 생성하는 것을 포함하여 [복사 성능 최적화 기능](#copy-performance-optimization-features)에 설명된 하나 이상의 성능 최적화 기술을 이용하여 ADF를 사용하여 구현된 엔드투엔드 데이터 통합 솔루션에서 달성할 수 있는 성능을 나타냅니다. 특정 데이터 세트 및 시스템 구성에 대한 복사 성능을 최적화하려면 [성능 튜닝 단계](#performance-tuning-steps)에 나와 있는 단계를 따르는 것이 좋습니다. 성능 튜닝 테스트에서 얻은 숫자를 프로덕션 배포 계획, 용량 계획 및 청구 프로젝션에 사용해야 합니다.
 
 &nbsp;
 
 | 데이터 크기 / <br/> bandwidth | 50Mbps    | 100Mbps  | 500Mbps  | 1Gbps   | 5Gbps   | 10Gbps  | 50Gbps   |
 | --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
-| **1 GB**                    | 2.7분    | 1.4분   | 0.3분   | 0.1분  | 0.03분 | 0.01분 | 0.0분   |
-| **10 GB**                   | 27.3분   | 13.7분  | 2.7분   | 1.3분  | 0.3분  | 0.1분  | 0.03분  |
+| **1GB**                    | 2.7분    | 1.4분   | 0.3분   | 0.1분  | 0.03분 | 0.01분 | 0.0분   |
+| **10GB**                   | 27.3분   | 13.7분  | 2.7분   | 1.3분  | 0.3분  | 0.1분  | 0.03분  |
 | **100GB**                  | 4.6시간    | 2.3시간   | 0.5시간   | 0.2시간  | 0.05시간 | 0.02시간 | 0.0시간   |
 | **1TB**                    | 46.6시간   | 23.3시간  | 4.7시간   | 2.3시간  | 0.5시간  | 0.2시간  | 0.05시간  |
 | **10TB**                   | 19.4일  | 9.7일  | 1.9일  | 0.9일 | 0.2일 | 0.1일 | 0.02일 |
@@ -179,5 +182,5 @@ DIU(데이터 통합 단위)는 Azure Data Factory내 단일 유닛의 power를 
 * [복사 작업 개요](copy-activity-overview.md)
 * [복사 작업 성능 문제 해결](copy-activity-performance-troubleshooting.md)
 * [복사 작업 성능 최적화 기능](copy-activity-performance-features.md)
-* [Azure Data Factory를 사용하여 데이터 레이크 또는 데이터 웨어하우스에서 Azure로 데이터 마이그레이션](data-migration-guidance-overview.md)
+* [Azure Data Factory를 사용하여 데이터 레이크에서 데이터 마이그레이션 또는 데이터 웨어하우스에서 Azure로 데이터 마이그레이션](data-migration-guidance-overview.md)
 * [Amazon S3에서 Azure Storage로 데이터 마이그레이션](data-migration-guidance-s3-azure-storage.md)

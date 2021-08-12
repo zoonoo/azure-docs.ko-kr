@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.subservice: hadr
-ms.custom: na
+ms.custom: na, devx-track-azurepowershell
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: ddd25c605ef159bddfb8a9c7cb4d02ac7094c511
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 7ca6fdf685da74b8b0e10875a2bd16d66a7b4c60
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482197"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112020310"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>프리미엄 파일 공유를 사용하여 FCI 만들기(Azure VMs의 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,6 +29,9 @@ ms.locfileid: "107482197"
 프리미엄 파일 공유는 Windows Server 2012 이상의 SQL Server 2012 이상에서 장애 조치 클러스터 인스턴스와 함께 사용할 수 있도록 완벽하게 지원되며, 대기 시간이 일관되게 짧은 SSD(스토리지 공간 다이렉트) 기반의 파일 공유입니다. 프리미엄 파일 공유는 뛰어난 유연성을 제공하여 가동 중지 시간 없이 파일 공유 크기를 조정하고 크기를 조정할 수 있습니다.
 
 자세히 알아보려면 [Azure VMs에서 SQL Server를 사용한 FCI](failover-cluster-instance-overview.md) 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)의 개요를 참조하세요. 
+
+> [!NOTE]
+> Azure Migrate를 사용하여 Azure VM의 SQL Server에 대한 장애 조치(failover) 클러스터 인스턴스 솔루션을 리프트 앤 시프트할 수 있습니다. 자세한 내용은 [장애 조치(failover) 클러스터 인스턴스 마이그레이션](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md)을 참조하세요. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -43,24 +46,21 @@ ms.locfileid: "107482197"
 ## <a name="mount-premium-file-share"></a>프리미엄 파일 공유 탑재
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 스토리지 계정으로 이동합니다.
-1. **파일 서비스** 아래의 **파일 공유** 로 이동한 다음, SQL 스토리지에 사용할 프리미엄 파일 공유를 선택합니다.
+1. **데이터 스토리지** 에서 **파일 공유** 로 이동한 다음 SQL 스토리지에 사용할 프리미엄 파일 공유를 선택합니다.
 1. **연결** 을 선택하여 파일 공유에 대한 연결 문자열을 가져옵니다.
-1. 드롭다운 목록에서 사용하려는 드라이브 문자를 선택하고 두 코드 블록을 모두 메모장에 복사합니다.
+1. 드롭다운 목록에서 사용할 드라이브 문자를 선택하고 인증 방법으로 **스토리지 계정 키** 를 선택한 다음 코드 블록을 메모장과 같은 텍스트 편집기에 복사합니다.
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/premium-file-storage-commands.png" alt-text="파일 공유 연결 포털에서 두 PowerShell 명령 복사":::
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/premium-file-storage-commands.png" alt-text="파일 공유 연결 포털에서 PowerShell 명령 복사":::
 
 1. RDP(원격 데스크톱 프로토콜)를 사용하여 SQL Server FCI가 서비스 계정에 사용할 계정으로 SQL Server VM에 연결합니다.
 1. 관리 PowerShell 명령 콘솔을 엽니다.
-1. 앞서 포털에서 작업하면서 저장한 명령을 실행합니다.
-1. 파일 탐색기 또는 **실행** 대화 상자(Windows + R 선택)를 사용하여 공유로 이동합니다. 네트워크 경로 `\\storageaccountname.file.core.windows.net\filesharename`을 사용합니다. 예를 들어 `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
-
+1. 파일 공유 포털에서 이전에 텍스트 편집기에 복사한 명령을 실행합니다.
+1. 파일 탐색기 또는 **실행** 대화 상자(Windows+R 입력)를 사용하여 공유로 이동합니다. 네트워크 경로 `\\storageaccountname.file.core.windows.net\filesharename`을 사용합니다. 예를 들어 `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 1. 새로 연결된 파일 공유에서 SQL 데이터 파일을 저장할 폴더를 하나 이상 만듭니다.
 1. 클러스터에 참여하는 각 SQL Server VM에 대해 이러한 단계를 반복합니다.
 
   > [!IMPORTANT]
   > - 백업 파일에 별도의 파일 공유를 사용하여 이 데이터 및 로그 파일용 공유에서 IOPS(초당 입출력 작업 수) 및 공간 용량을 절약하는 것이 좋습니다. 백업 파일에 프리미엄 또는 표준 파일 공유 중 하나를 사용할 수 있습니다.
-  > - Windows 2012 R2 이전 버전을 사용하는 경우 동일한 단계를 수행하여 파일 공유 감시로 사용할 파일 공유를 탑재합니다. 
-  > 
 
 
 ## <a name="add-windows-cluster-feature"></a>Windows 클러스터 기능 추가
@@ -83,34 +83,6 @@ ms.locfileid: "107482197"
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-## <a name="validate-cluster"></a>클러스터의 유효성 검사
-
-UI에서 또는 PowerShell을 사용하여 클러스터의 유효성을 검사합니다.
-
-UI를 사용하여 클러스터의 유효성을 검사하려면 가상 머신 중 하나에서 다음을 수행합니다.
-
-1. **서버 관리자** 에서 **도구** 를 선택한 다음 **장애 조치(failover) 클러스터 관리자** 를 선택합니다.
-1. **장애 조치(failover) 클러스터 관리자** 에서 **작업** 을 선택한 다음 **구성 유효성 검사** 를 선택합니다.
-1. **다음** 을 선택합니다.
-1. **서버 또는 클러스터 선택** 에서 두 가상 머신의 이름을 입력합니다.
-1. **테스트 옵션** 에서 **선택한 테스트만 실행** 을 선택합니다. 
-1. **다음** 을 선택합니다.
-1. **테스트 선택** 에서 다음과 같이 **스토리지** 및 **스토리지 공간 다이렉트** 를 선택합니다.
-
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="클러스터 유효성 검사 테스트 선택":::
-
-1. **다음** 을 선택합니다.
-1. **확인** 에서 **다음** 을 선택합니다.
-
-**구성 유효성 검사** 마법사가 유효성 검사 테스트를 실행합니다.
-
-PowerShell을 사용하여 클러스터의 유효성을 검사하려면 가상 머신 중 하나의 관리자 PowerShell 세션에서 다음 스크립트를 실행합니다.
-
-   ```powershell
-   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
-   ```
-
-클러스터의 유효성을 검사한 후에 장애 조치 클러스터를 만듭니다.
 
 
 ## <a name="create-failover-cluster"></a>장애 조치 클러스터 만들기
@@ -142,10 +114,39 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ---
 
-
 ## <a name="configure-quorum"></a>쿼럼 구성
 
-비즈니스 요구에 가장 적합한 쿼럼 솔루션을 구성합니다. [디스크 감시](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum), [클라우드 감시](/windows-server/failover-clustering/deploy-cloud-witness) 또는 [파일 공유 감시](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)를 구성할 수 있습니다. 자세한 내용은 [SQL Server VM에 대한 쿼럼](hadr-cluster-best-practices.md#quorum)을 참조하세요. 
+디스크 감시는 가장 탄력적인 쿼럼 옵션이지만 프리미엄 파일 공유로 구성된 경우 장애 조치(failover) 클러스터 인스턴스에 몇 가지 제한을 적용하는 Azure 공유 디스크가 필요합니다. 따라서 클라우드 감시는 Azure VM의 SQL Server에 대한 이 유형의 클러스터 구성에 권장되는 쿼럼 솔루션입니다. 그렇지 않으면 파일 공유 감시를 구성합니다. 
+
+클러스터에 짝수 투표가 있는 경우 비즈니스 요구에 가장 적합한 [쿼럼 솔루션](hadr-cluster-quorum-configure-how-to.md)을 구성합니다. 자세한 내용은 [SQL Server VM에 대한 쿼럼](hadr-windows-server-failover-cluster-overview.md#quorum)을 참조하세요. 
+
+## <a name="validate-cluster"></a>클러스터의 유효성 검사
+
+UI에서 또는 PowerShell을 사용하여 클러스터의 유효성을 검사합니다.
+
+UI를 사용하여 클러스터의 유효성을 검사하려면 가상 머신 중 하나에서 다음을 수행합니다.
+
+1. **서버 관리자** 에서 **도구** 를 선택한 다음 **장애 조치(failover) 클러스터 관리자** 를 선택합니다.
+1. **장애 조치(failover) 클러스터 관리자** 에서 **작업** 을 선택한 다음 **구성 유효성 검사** 를 선택합니다.
+1. **다음** 을 선택합니다.
+1. **서버 또는 클러스터 선택** 에서 두 가상 머신의 이름을 입력합니다.
+1. **테스트 옵션** 에서 **선택한 테스트만 실행** 을 선택합니다. 
+1. **다음** 을 선택합니다.
+1. **테스트 선택** 에서 다음과 같이 **스토리지** 및 **스토리지 공간 다이렉트** 를 선택합니다.
+
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="클러스터 유효성 검사 테스트 선택":::
+
+1. **다음** 을 선택합니다.
+1. **확인** 에서 **다음** 을 선택합니다.
+
+**구성 유효성 검사** 마법사가 유효성 검사 테스트를 실행합니다.
+
+PowerShell을 사용하여 클러스터의 유효성을 검사하려면 가상 머신 중 하나의 관리자 PowerShell 세션에서 다음 스크립트를 실행합니다.
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   ```
+
 
 
 ## <a name="test-cluster-failover"></a>클러스터 장애 조치(failover) 테스트
@@ -205,9 +206,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>연결 구성 
 
-현재 주 노드로 트래픽을 적절하게 라우팅하려면 사용자 환경에 적합한 연결 옵션을 구성합니다. [Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md)를 만들거나, SQL Server 2019 CU2 이상 및 Windows Server 2016 이상을 사용하는 경우 [분산 네트워크 이름](failover-cluster-instance-distributed-network-name-dnn-configure.md) 기능을 대신 사용할 수 있습니다. 
-
-클러스터 연결 옵션에 대한 자세한 내용은 [Azure VM의 SQL Server에 HADR 연결 라우팅](hadr-cluster-best-practices.md#connectivity)을 참조하세요. 
+장애 조치(failover) 클러스터 인스턴스의 가상 네트워크 이름 또는 분산 네트워크 이름을 구성할 수 있습니다. [두 이상의 차이점을 검토](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn)한 다음, 장애 조치(failover) 클러스터 인스턴스에 대해 [분산 네트워크 이름](failover-cluster-instance-distributed-network-name-dnn-configure.md) 또는 [가상 네트워크 이름](failover-cluster-instance-vnn-azure-load-balancer-configure.md)을 배포합니다.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -223,8 +222,10 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 프리미엄 파일 공유가 적합한 FCI 스토리지 솔루션이 아닌 경우 [Azure 공유 디스크](failover-cluster-instance-azure-shared-disks-manually-configure.md) 또는 [스토리지 공간 다이렉트](failover-cluster-instance-storage-spaces-direct-manually-configure.md)를 대신 사용하여 FCI를 만드는 것이 좋습니다. 
 
-자세히 알아보려면 [Azure VMs에서 SQL Server를 사용한 FCI](failover-cluster-instance-overview.md) 및 [클러스터 구성 모범 사례](hadr-cluster-best-practices.md)의 개요를 참조하세요. 
+자세한 내용은 다음을 참조하세요.
 
-자세한 내용은 다음을 참조하세요. 
-- [Windows 클러스터 기술](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server 장애 조치(failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
+- [Azure VM에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)
+- [장애 조치(Failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Azure VM의 SQL Server에 대한 HADR 설정](hadr-cluster-best-practices.md)
+

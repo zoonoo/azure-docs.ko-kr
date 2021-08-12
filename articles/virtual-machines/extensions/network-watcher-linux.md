@@ -1,5 +1,5 @@
 ---
-title: Linux 용 Azure Network Watcher 에이전트 가상 머신 확장
+title: Linux용 Azure Network Watcher 에이전트 가상 머신 확장
 description: 가상 머신 확장을 사용하여 Linux 가상 머신에 Network Watcher를 배포합니다.
 ms.topic: article
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.author: amjads
 ms.collection: linux
 ms.date: 02/14/2017
 ms.openlocfilehash: bc252e560df782625d795b30c6688a34f5c2bd79
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102563594"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Linux용 Network Watcher 에이전트 가상 머신 확장
@@ -73,7 +73,7 @@ Network Watcher 에이전트 확장은 다음 Linux 배포판에 대해 구성�
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | 게시자 | Microsoft.Azure.NetworkWatcher |
-| 형식 | NetworkWatcherAgentLinux |
+| type | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 
 ## <a name="template-deployment"></a>템플릿 배포
@@ -113,4 +113,4 @@ az vm extension show --name NetworkWatcherAgentLinux --resource-group myResource
 
 ### <a name="support"></a>지원
 
-이 문서의 어느 시점에서 든 도움이 필요한 경우 [Network Watcher 설명서](../../network-watcher/index.yml)를 참조 하거나 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에 게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기** 를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+이 아티클의 어디에서든 도움이 필요한 경우 [Network Watcher 설명서](../../network-watcher/index.yml)를 참조하거나 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기** 를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

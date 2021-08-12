@@ -6,12 +6,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: thvankra
-ms.openlocfilehash: ea28bf21424f0624b4f1bb5856a17672c1c7b106
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: ee35faf70066ece0f1c799b7d04317a8cd28729d
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107875452"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517211"
 ---
 # <a name="manage-azure-managed-instance-for-apache-cassandra-resources-using-azure-cli-preview"></a>Azure CLI(미리 보기)를 사용하여 Apache Cassandra용 Azure Managed Instance 리소스 관리
 
@@ -132,8 +132,10 @@ az managed-cassandra cluster list
 * [데이터 센터 만들기](#create-datacenter)
 * [데이터 센터 삭제](#delete-datacenter)
 * [데이터 센터 세부 정보 가져오기](#get-datacenter-details)
-* [데이터 센터 업데이트 또는 크기 조정](#update-datacenter)
 * [클러스터의 데이터 센터 가져오기](#get-datacenters-cluster)
+* [데이터 센터 업데이트 또는 크기 조정](#update-datacenter)
+* [Cassandra 구성 업데이트](#update-yaml)
+
 
 ### <a name="create-a-datacenter"></a><a id="create-datacenter"></a>데이터 센터 만들기
 
@@ -194,13 +196,50 @@ resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 dataCenterName='dc1'
 dataCenterLocation='eastus'
-delegatedSubnetId= '/subscriptions/<Subscription_ID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet'
 
 az managed-cassandra datacenter update \
     --resource-group $resourceGroupName \
     --cluster-name $clusterName \
     --data-center-name $dataCenterName \
     --node-count 13 
+```
+
+### <a name="update-cassandra-configuration"></a><a id="update-yaml"></a>Cassandra 구성 업데이트
+
+[az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update) 명령을 사용하여 데이터 센터에서 Cassandra 구성을 변경합니다. [온라인 도구](https://www.base64encode.org/)를 사용하여 YAML 조각을 base64로 인코딩해야 합니다. 다음 YAML 설정이 지원됩니다.
+
+- column_index_size_in_kb
+- compaction_throughput_mb_per_sec
+- read_request_timeout_in_ms
+- range_request_timeout_in_ms
+- aggregated_request_timeout_in_ms
+- write_request_timeout_in_ms
+- internode_compression
+- batchlog_replay_throttle_in_kb
+
+예를 들어 다음과 같은 YAML 조각이 있습니다.
+
+```yaml
+column_index_size_in_kb: 16
+read_request_timeout_in_ms: 10000
+```
+
+인코딩된 경우 YAML은 `Y29sdW1uX2luZGV4X3NpemVfaW5fa2I6IDE2CnJlYWRfcmVxdWVzdF90aW1lb3V0X2luX21zOiAxMDAwMA==`로 변환됩니다. 
+
+아래 내용을 참조하세요.
+
+```azurecli-interactive
+resourceGroupName='MyResourceGroup'
+clusterName='cassandra-hybrid-cluster'
+dataCenterName='dc1'
+dataCenterLocation='eastus'
+yamlFragment='Y29sdW1uX2luZGV4X3NpemVfaW5fa2I6IDE2CnJlYWRfcmVxdWVzdF90aW1lb3V0X2luX21zOiAxMDAwMA=='
+
+az managed-cassandra datacenter update \
+    --resource-group $resourceGroupName \
+    --cluster-name $clusterName \
+    --data-center-name $dataCenterName \
+    --base64-encoded-cassandra-yaml-fragment $yamlFragment
 ```
 
 ### <a name="get-the-datacenters-in-a-cluster"></a><a id="get-datacenters-cluster"></a>클러스터의 데이터 센터 가져오기

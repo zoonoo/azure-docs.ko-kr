@@ -7,16 +7,16 @@ ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: scoriani
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 12/04/2018
-ms.openlocfilehash: 71aad7699c5af6ce2a1b9d82a340138200cfb5e1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 8656202685db424cd6047e6a8b58191c6293e9ff
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92792075"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110694348"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>분할-병합 서비스를 배포하여 분할된 데이터베이스 간에 데이터 이동
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,13 +35,13 @@ ms.locfileid: "92792075"
    nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge
    ```  
 
-파일은 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** 라는 디렉터리에 저장됩니다. 여기서 *x.x.xxx.x* 는 버전 번호를 나타냅니다. **찾고 content\splitmerge\powershell** 하위 디렉터리에서 분할/병합 서비스 파일을 찾고, **찾습니다** 하위 디렉터리에서 Split-Merge PowerShell 스크립트 (및 필수 클라이언트 dll)를 찾습니다.
+파일은 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** 라는 디렉터리에 저장됩니다. 여기서 *x.x.xxx.x* 는 버전 번호를 나타냅니다. **content\splitmerge\service** 하위 디렉터리에서 분할/병합 서비스 파일을 찾고 **content\splitmerge\powershell** 하위 디렉터리에서 분할/병합 PowerShell 스크립트 및 필요한 클라이언트 dll을 찾습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-1. 분할/병합 상태 데이터베이스로 사용할 Azure SQL Database 데이터베이스를 만듭니다. [Azure 포털](https://portal.azure.com)로 이동합니다. 새 **SQL Database** 를 만듭니다. 데이터베이스에 이름을 지정하고 새 관리자 및 암호를 만듭니다. 나중에 사용할 수 있도록 이름과 암호를 기록합니다.
+1. 분할/병합 상태 데이터베이스로 사용할 Azure SQL Database 데이터베이스를 만듭니다. [Azure Portal](https://portal.azure.com)로 이동합니다. 새 **SQL Database** 를 만듭니다. 데이터베이스에 이름을 지정하고 새 관리자 및 암호를 만듭니다. 나중에 사용할 수 있도록 이름과 암호를 기록합니다.
 
-1. 서버에서 Azure 서비스에 연결할 수 있는지 확인 합니다. 포털의 **방화벽 설정** 에서 **Azure 서비스에 대한 액세스 허용** 설정이 **On** 으로 설정되었는지 확인합니다. "저장" 아이콘을 클릭합니다.
+1. 서버에서 Azure 서비스의 연결을 허용하는지 확인합니다. 포털의 **방화벽 설정** 에서 **Azure 서비스에 대한 액세스 허용** 설정이 **On** 으로 설정되었는지 확인합니다. "저장" 아이콘을 클릭합니다.
 
 1. 진단 출력에 사용할 Azure Storage 계정을 만듭니다.
 
@@ -60,11 +60,11 @@ ms.locfileid: "92792075"
    > [!IMPORTANT]
    > 지금은 상태 데이터베이스에서 라틴어 데이터 정렬(SQL\_Latin1\_General\_CP1\_CI\_AS)을 사용해야 합니다. 자세한 내용은 [Windows 데이터 정렬 이름(Transact-SQL)](/sql/t-sql/statements/windows-collation-name-transact-sql)을 참조하세요.
 
-   Azure SQL Database를 사용 하는 경우 연결 문자열은 일반적으로 다음과 같은 형식입니다.
+   Azure SQL Database를 사용할 경우 연결 문자열의 형식은 일반적으로 다음과 같습니다.
 
       `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<userId>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
-1. ElasticScaleMetadata 설정에서 **SplitMergeWeb** 및 **SplitMergeWorker** role 섹션의 *.cscfg* 파일에이 연결 문자열을 입력 합니다.
+1. ElasticScaleMetadata 설정의 **SplitMergeWeb** 및 **SplitMergeWorker** 역할 섹션에서 *.cscfg* 파일에 이 연결 문자열을 입력합니다.
 
 1. **SplitMergeWorker** 역할의 경우, **WorkerRoleSynchronizationStorageAccountConnectionString** 설정에 대해 Azure 스토리지에 유효한 연결 문자열을 입력합니다.
 
@@ -108,7 +108,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 ### <a name="upload-the-pfx-file-to-the-cloud-service"></a>클라우드 서비스에 PFX 파일 업로드
 
-1. [Azure 포털](https://portal.azure.com)로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. **Cloud Services** 를 선택합니다.
 3. 분할/병합 서비스에 대해 위에서 만든 클라우드 서비스를 선택합니다.
 4. 최상위 메뉴에서 **인증서** 를 클릭합니다.
@@ -151,18 +151,18 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 ## <a name="troubleshoot-the-deployment"></a>배포 문제 해결
 
-웹 역할을 온라인 상태로 전환하지 못하면 보안 구성에 문제가 있는 것입니다. TLS/SSL이 위에서 설명한 대로 구성 되었는지 확인 합니다.
+웹 역할을 온라인 상태로 전환하지 못하면 보안 구성에 문제가 있는 것입니다. 위에서 설명한 대로 TLS/SSL이 구성되었는지 확인합니다.
 
 작업자 역할을 온라인 상태로 전환하지 못했지만 웹 역할은 성공하면 대개 이전에 만든 상태 데이터베이스에 대한 연결 문제가 있는 것입니다.
 
 - cscfg의 연결 문자열이 정확한지 확인합니다.
 - 서버 및 데이터베이스가 존재하며, 사용자 ID 및 암호가 올바른지 확인합니다.
-- Azure SQL Database의 경우 연결 문자열은 다음과 같은 형식 이어야 합니다.
+- Azure SQL Database의 경우 연결 문자열은 다음 형식이어야 합니다.
 
    `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<user>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
 - 서버 이름이 **https://** 로 시작하지 않는지 확인합니다.
-- 서버에서 Azure 서비스에 연결할 수 있는지 확인 합니다. 이렇게 하려면 포털에서 데이터베이스를 열고 **Azure 서비스에 대한 액세스 허용** 설정이 **On** **로 설정되었는지 확인합니다.
+- 서버에서 Azure 서비스의 연결을 허용하는지 확인합니다. 이렇게 하려면 포털에서 데이터베이스를 열고 **Azure 서비스에 대한 액세스 허용** 설정이 **On** **로 설정되었는지 확인합니다.
 
 ## <a name="test-the-service-deployment"></a>서비스 배포 테스트
 
@@ -175,7 +175,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 포함된 샘플 PowerShell 스크립트를 실행하여 사용자 환경 및 배포를 테스트할 수 있습니다.
 
 > [!IMPORTANT]
-> 샘플 스크립트는 PowerShell 5.1에서 실행 됩니다. 현재 PowerShell 6 이상에서 실행 되지 않습니다.
+> 샘플 스크립트는 PowerShell 5.1에서 실행됩니다. 현재 PowerShell 6 이상에서는 실행되지 않습니다.
 
 포함된 스크립트 파일은 다음과 같습니다.
 
@@ -183,7 +183,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 2. *ExecuteSampleSplitMerge.ps1* - 데이터 계층에 대한 테스트 작업을 실행합니다. 자세한 설명은 아래 테이블을 참조하세요.
 3. *GetMappings.ps1* – 분할된 데이터베이스 매핑의 현재 상태를 출력하는 최상위 샘플 스크립트입니다.
 4. *ShardManagement.psm1* – ShardManagement API를 래핑하는 도우미 스크립트입니다.
-5. *Sqldatabasehelpers* -SQL Database에서 데이터베이스를 만들고 관리 하기 위한 도우미 스크립트
+5. *SqlDatabaseHelpers.psm1* - SQL Database에서 데이터베이스 생성 및 관리를 위한 도우미 스크립트입니다.
 
    <table style="width:100%">
      <tr>
@@ -231,16 +231,16 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 1. 새 PowerShell 창을 열고 분할/병합 패키지를 다운로드한 디렉터리로 이동한 다음 "powershell" 디렉터리로 이동합니다.
 
-2. 분할 된 맵 관리자 및 분할를 만들 서버를 만들거나 기존 서버를 선택 합니다.
+2. 서버를 만들거나 기존 서버를 선택합니다. 이 서버에 분할된 데이터베이스 맵 관리자 및 분할된 데이터베이스가 생성됩니다.
 
    > [!NOTE]
-   > *SetupSampleSplitMergeEnvironment.ps1* 스크립트는 기본적으로 동일한 서버에 이러한 모든 데이터베이스를 만들어 스크립트를 단순하게 유지 합니다. 이 제한은 분할/병합 서비스 자체의 제한은 아닙니다.
+   > *SetupSampleSplitMergeEnvironment.ps1* 스크립트가 기본적으로 동일한 서버에 모든 데이터베이스를 만들어 스크립트를 단순하게 유지합니다. 이 제한은 분할/병합 서비스 자체의 제한은 아닙니다.
 
    분할/병합 서비스에서 데이터를 이동하고 분할된 데이터베이스 맵을 업데이트하려면 읽기/쓰기 액세스 권한이 있는 SQL 인증 로그인이 필요합니다. 분할/병합 서비스는 클라우드에서 실행되므로 현재 통합 인증을 지원하지 않습니다.
 
-   서버가 이러한 스크립트를 실행 하는 컴퓨터의 IP 주소에서 액세스할 수 있도록 구성 되어 있는지 확인 합니다. 이 설정은 SQL server/방화벽 및 가상 네트워크/클라이언트 IP 주소에서 찾을 수 있습니다.
+   서버가 스크립트를 실행하는 머신의 IP 주소에서 액세스할 수 있도록 구성되었는지 확인합니다. 이 설정은 SQL 서버/방화벽 및 가상 네트워크/클라이언트 IP 주소에서 찾을 수 있습니다.
 
-3. *SetupSampleSplitMergeEnvironment.ps1* 스크립트를 실행 하 여 샘플 환경을 만듭니다.
+3. *SetupSampleSplitMergeEnvironment.ps1* 스크립트를 실행하여 샘플 환경을 만듭니다.
 
    이 스크립트를 실행하면 분할된 데이터베이스 맵 관리자 데이터베이스 및 분할된 데이터베이스에서 기존의 분할된 데이터베이스 맵 관리 데이터 구조가 모두 초기화됩니다. 분할된 데이터베이스 맵 또는 분할된 데이터베이스를 다시 초기화하려는 경우에 이 스크립트를 다시 실행하는 것이 유용할 수 있습니다.
 
@@ -258,7 +258,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. *ExecuteSampleSplitMerge.ps1* 스크립트를 실행 하 여 분할 작업 (첫 번째 분할 된 데이터의 절반을 두 번째 분할 된 데이터 페이지로 이동)을 실행 한 다음 병합 작업 (데이터를 첫 번째 분할 된 데이터 페이지로 다시 이동)을 실행 합니다. TLS를 구성 하 고 http 끝점을 사용 하지 않도록 설정한 경우 https://끝점을 대신 사용 해야 합니다.
+5. *ExecuteSampleSplitMerge.ps1* 스크립트를 실행하여 첫 번째 분할된 데이터베이스에서 두 번째 분할된 데이터베이스로 데이터의 절반을 이동하는 분할 작업을 실행한 다음 데이터를 첫 번째 분할된 데이터베이스로 다시 이동하는 병합 작업을 실행합니다. TLS를 구성하고 http 엔드포인트를 사용하지 않은 경우에는 https:// 엔드포인트를 대신 사용해야 합니다.
 
     샘플 명령줄:
 
@@ -333,11 +333,11 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 ## <a name="troubleshooting"></a>문제 해결
 
-샘플 PowerShell 스크립트를 실행 하는 경우 아래 메시지가 표시 될 수 있습니다.
+샘플 PowerShell 스크립트를 실행할 때 아래 메시지가 표시될 수 있습니다.
 
    `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.`
 
-이 오류는 TLS/SSL 인증서가 올바르게 구성 되지 않은 것을 의미 합니다. '웹 브라우저로 연결' 섹션의 지침을 따르세요.
+이 오류는 TLS/SSL 인증서가 제대로 구성되지 않은 것을 의미합니다. '웹 브라우저로 연결' 섹션의 지침을 따르세요.
 
 요청을 제출할 수 없는 경우에 다음이 나타날 수 있습니다.
 

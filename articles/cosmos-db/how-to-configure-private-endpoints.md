@@ -4,15 +4,15 @@ description: 가상 네트워크에서 개인 IP 주소를 사용하여 Azure Co
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/26/2021
+ms.date: 06/08/2021
 ms.author: thweiss
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 034eb35eeef975be23cc318aa797282008d71728
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 633148279332c8d2b30cae525dfa7cc6b14f849e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936906"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744308"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Azure Cosmos 계정에 대한 Azure Private Link 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -651,7 +651,7 @@ Private Link를 방화벽 규칙과 함께 사용하면 다음과 같은 상황 
 
 이전 섹션에서 설명했듯이, 방화벽 규칙을 설정하지 않고 프라이빗 엔드포인트를 추가하면 프라이빗 엔드포인트를 통해서만 Azure Cosmos 계정에 액세스할 수 있습니다. Azure Cosmos 계정이 만들어진 후 프라이빗 엔드포인트가 추가되기 전까지는 공용 트래픽이 Azure Cosmos 계정에 도달할 수 있다는 뜻입니다. 프라이빗 엔드포인트를 만들기 전에도 공용 네트워크 액세스를 사용하지 않도록 설정하려면 계정을 만들 때 `publicNetworkAccess` 플래그를 `Disabled`으로 설정하면 됩니다. 이 플래그는 모든 IP 또는 가상 네트워크 규칙보다 우선하며, 원본 IP나 가상 네트워크가 방화벽 구성에서 허용되는 경우에도 플래그가 `Disabled`로 설정되면 모든 퍼블릭 및 가상 네트워크 트래픽이 차단됩니다.
 
-이 플래그를 사용하는 방법을 보여주는 예제는 [이 Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/)을 참조하세요.
+이 플래그를 사용하는 방법을 보여주는 예제는 [이 Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/cosmosdb-private-endpoint/)을 참조하세요.
 
 ## <a name="adding-private-endpoints-to-an-existing-cosmos-account-with-no-downtime"></a>가동 중지 시간 없이 기존 Cosmos 계정에 프라이빗 엔드포인트 추가
 
@@ -688,7 +688,7 @@ Azure Cosmos 계정에 Private Link를 사용하면 다음 제한이 적용됩�
 
 * 직접 모드 연결을 통해 Azure Cosmos 계정에 Private Link를 사용하면 TCP 프로토콜만 사용할 수 있습니다. HTTP 프로토콜은 현재 지원되지 않습니다.
 
-* Azure Cosmos DB의 API for MongoDB 계정을 사용하면 서버 버전 3.6의 계정(즉, `*.mongo.cosmos.azure.com` 형식의 엔드포인트를 사용하는 계정)에만 프라이빗 엔드포인트가 지원됩니다. 서버 버전 3.2의 계정(즉, `*.documents.azure.com` 형식의 엔드포인트를 사용하는 계정)에는 Private Link가 지원되지 않습니다. Private Link를 사용하려면 이전 계정을 새 버전으로 마이그레이션해야 합니다.
+* Azure Cosmos DB의 API for MongoDB 계정을 사용하면 서버 버전 3.6 이상의 계정(즉, `*.mongo.cosmos.azure.com` 형식의 엔드포인트를 사용하는 계정)에만 프라이빗 엔드포인트가 지원됩니다. 서버 버전 3.2의 계정(즉, `*.documents.azure.com` 형식의 엔드포인트를 사용하는 계정)에는 Private Link가 지원되지 않습니다. Private Link를 사용하려면 이전 계정을 새 버전으로 마이그레이션해야 합니다.
 
 * Private Link가 있는 MongoDB 계정용 Azure Cosmos DB의 API를 사용하는 경우 도구/라이브러리는 SNI(서비스 이름 식별)를 지원하거나 연결 문자열에서 `appName` 매개 변수를 전달하여 제대로 연결해야 합니다. 일부 이전 도구/라이브러리는 Private Link 기능을 사용하도록 호환되지 않을 수 있습니다.
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 3/30/2021
+ms.date: 6/4/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: eb75450527fc31d6ea4a9f9d60d676718ad79bda
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 8efc5f44c1383ebcde397b810ba69c547afd692f
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167586"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555453"
 ---
 # <a name="whats-new-for-authentication"></a>인증의 새로운 기능?
 
@@ -35,21 +35,23 @@ ms.locfileid: "106167586"
 
 ## <a name="upcoming-changes"></a>예정된 변경
 
-### <a name="bug-fix-azure-ad-will-no-longer-url-encode-the-state-parameter-twice"></a>버그 수정: Azure AD는 더 이상 상태 매개 변수를 두 번 인코딩하지 않습니다.
+### <a name="the-device-code-flow-ux-will-now-include-an-app-confirmation-prompt"></a>이제 디바이스 코드 흐름 UX에 앱 확인 프롬프트가 포함됩니다.
 
-**적용 날짜**: 2021년 5월
+**적용 날짜**: 2021년 6월.
 
-**영향을 받는 엔드포인트**: v1.0 및 v2.0 
+**영향을 받는 엔드포인트**: v2.0 및 v1.0
 
-**영향을 받는 프로토콜**: `/authorize` 엔드포인트를 방문하는 모든 흐름(암시적 흐름 및 인증 코드 흐름)
+**영향을 받는 프로토콜**: [디바이스 코드 흐름](v2-oauth2-device-code.md)
 
-Azure AD 권한 부여 응답에서 버그가 발견되어 수정되었습니다. `/authorize`인증 기간 동안 요청의 `state` 매개 변수가 응답에 포함되어 앱 상태를 보존하고 CSRF 공격을 방지합니다. Azure AD가 `state` 매개 변수를 응답에 삽입하기 전에 URL을 잘못 인코딩하여 다시 한 번 인코딩했습니다.  이로 인해 애플리케이션이 Azure AD의 응답을 잘못 거부하게 됩니다. 
+보안을 개선하기 위해 디바이스 코드 흐름은 사용자가 예상하는 앱에 로그인하고 있는지 확인하는 프롬프트를 추가하도록 업데이트되었습니다. 이는 피싱 공격을 방지하기 위해 추가되었습니다.
 
-Azure AD는 더 이상 이 매개 변수를 두 번 인코딩하지 않으므로 앱이 결과를 올바르게 구문 분석할 수 있습니다. 이 변경은 모든 애플리케이션에 적용됩니다. 
+표시되는 프롬프트는 다음과 같습니다.
+
+:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="'Azure CLI에 로그인하려고 하나요?'라는 새 프롬프트":::
 
 ### <a name="conditional-access-will-only-trigger-for-explicitly-requested-scopes"></a>조건부 액세스는 명시적으로 요청된 범위에 대해서만 트리거됩니다.
 
-**적용 날짜**: 2021년 5월(4월부터 점진적 출시) 
+**적용 날짜**: 2021년 8월, 4월부터 점진적으로 출시됩니다. 
 
 **영향을 받는 엔드포인트**: v2.0
 
@@ -71,8 +73,19 @@ Azure AD는 더 이상 이 매개 변수를 두 번 인코딩하지 않으므로
 
 앱이 세 가지 범위(예: `scope=tasks.read`) 중 하나에 대해 마지막 요청을 한 경우 Azure AD는 사용자가 `files.readwrite`에 필요한 조건부 액세스 정책을 이미 완료했음을 확인하고 세 가지 권한 모두에 대해 토큰을 다시 발급합니다. 
 
-
 ## <a name="may-2020"></a>2020년 5월
+
+### <a name="bug-fix-azure-ad-will-no-longer-url-encode-the-state-parameter-twice"></a>버그 수정: Azure AD는 더 이상 상태 매개 변수를 두 번 인코딩하지 않습니다.
+
+**적용 날짜**: 2021년 5월
+
+**영향을 받는 엔드포인트**: v1.0 및 v2.0
+
+**영향을 받는 프로토콜**: `/authorize` 엔드포인트를 방문하는 모든 흐름(암시적 흐름 및 인증 코드 흐름)
+
+Azure AD 권한 부여 응답에서 버그가 발견되어 수정되었습니다. `/authorize`인증 기간 동안 요청의 `state` 매개 변수가 응답에 포함되어 앱 상태를 보존하고 CSRF 공격을 방지합니다. Azure AD가 `state` 매개 변수를 응답에 삽입하기 전에 URL을 잘못 인코딩하여 다시 한 번 인코딩했습니다.  이로 인해 애플리케이션이 Azure AD의 응답을 잘못 거부하게 됩니다. 
+
+Azure AD는 더 이상 이 매개 변수를 두 번 인코딩하지 않으므로 앱이 결과를 올바르게 구문 분석할 수 있습니다. 이 변경은 모든 애플리케이션에 적용됩니다. 
 
 ### <a name="azure-government-endpoints-are-changing"></a>Azure Government 엔드포인트 변경
 

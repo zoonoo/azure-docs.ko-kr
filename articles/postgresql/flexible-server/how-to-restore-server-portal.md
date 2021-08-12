@@ -5,20 +5,20 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: e69bcb3d9e4dca4c45bf9a6fe8ed4d54e7f4a8cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/22/2021
+ms.openlocfilehash: 795cc61f89729da352deb1dc1688bd19e780ca10
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90938864"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987729"
 ---
 # <a name="point-in-time-restore-of-a-flexible-server"></a>유연한 서버의 특정 시점 복원
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
 
-이 문서에서는 백업을 사용하여 유연한 서버에서 지정 시간 복구를 수행하는 단계별 절차를 제공합니다. 보존 기간 내의 가장 빠른 복원 지점이나 사용자 지정 복원 지점에 대해 수행할 수 있습니다.
+이 문서에서는 백업을 사용하여 유연한 서버에서 지정 시간 복구를 수행하는 단계별 절차를 제공합니다. 보존 기간 내의 최근 복원 지점이나 사용자 지정 복원 지점에 대해 수행할 수 있습니다.
 
 ## <a name="pre-requisites"></a>필수 구성 요소
 
@@ -26,9 +26,9 @@ ms.locfileid: "90938864"
 
 -   Azure Database for PostgreSQL - 유연한 서버가 있어야 합니다. 영역 중복성으로 구성된 유연한 서버에도 동일한 절차를 적용할 수 있습니다.
 
-## <a name="restoring-to-the-earliest-restore-point"></a>가장 빠른 복원 지점으로 복원
+## <a name="restoring-to-the-latest-restore-point"></a>최근 복원 지점으로 복원
 
-가장 빠른 기존 백업을 사용하여 유연한 서버를 복원하려면 다음 단계를 수행합니다.
+기존 백업을 사용하여 유연한 서버를 복원하려면 다음 단계를 수행합니다.
 
 1.  [Azure Portal](https://portal.azure.com/)에서 백업을 복원할 유연한 서버를 선택합니다.
 
@@ -36,11 +36,11 @@ ms.locfileid: "90938864"
    
    :::image type="content" source="./media/how-to-restore-server-portal/restore-overview.png" alt-text="복원 개요":::
 
-3.  가장 빠른 복원 지점과 사용자 지정 복원 지점 중에서 선택할 수 있는 옵션이 있는 복원 페이지가 표시됩니다.
+3.  최근 복원 지점과 사용자 지정 복원 지점 중에서 선택할 수 있는 옵션이 있는 복원 페이지가 표시됩니다.
 
-4.  **가장 빠른 복원 지점** 을 선택하고 **새 서버에 복원** 필드에 새 서버 이름을 입력합니다. 복원할 수 있는 가장 빠른 타임스탬프가 표시됩니다. 
+4.  **최근 복원 지점** 을 선택하고 **새 서버에 복원** 필드에 새 서버 이름을 입력합니다. 필요에 따라 복원할 가용성 영역을 선택할 수 있습니다.
    
-   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="가장 빠른 복원 시간":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-latest.png" alt-text="최근 복원 시간":::
 
 5.  **확인** 을 클릭합니다.
 
@@ -48,20 +48,20 @@ ms.locfileid: "90938864"
 
 ## <a name="restoring-to-a-custom-restore-point"></a>사용자 지정 복원 지점으로 복원
 
-가장 빠른 기존 백업을 사용하여 유연한 서버를 복원하려면 다음 단계를 수행합니다.
+기존 백업을 사용하여 유연한 서버를 복원하려면 다음 단계를 수행합니다.
 
 1.  [Azure Portal](https://portal.azure.com/)에서 백업을 복원할 유연한 서버를 선택합니다.
 
 2.  개요 페이지에서 **복원** 을 클릭합니다.
  :::image type="content" source="./media/how-to-restore-server-portal/restore-overview.png" alt-text="복원 개요":::
     
-3.  가장 빠른 복원 지점과 사용자 지정 복원 지점 중에서 선택할 수 있는 옵션이 있는 복원 페이지가 표시됩니다.
+3.  최근 복원 지점과 사용자 지정 복원 지점 중에서 선택할 수 있는 옵션이 있는 복원 페이지가 표시됩니다.
 
 4.  **사용자 지정 복원 지점** 을 선택합니다.
 
-5.  날짜 및 시간을 선택하고 **새 서버에 복원** 필드에 새 서버 이름을 입력합니다. 
+5.  날짜 및 시간을 선택하고 **새 서버에 복원** 필드에 새 서버 이름을 입력합니다. 새 서버 이름을 제공하고 필요에 따라 복원할 **가용성 영역** 을 선택할 수 있습니다.
    
-:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="사용자 지정 복원 시간":::
+:::image type="content" source="./media/how-to-restore-server-portal/restore-custom-2.png" alt-text="사용자 지정 복원 시간":::
  
 6.  **확인** 을 클릭합니다.
 

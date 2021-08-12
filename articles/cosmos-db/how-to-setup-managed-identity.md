@@ -4,14 +4,14 @@ description: Azure Cosmos DB 계정에 대해 Azure Active Directory를 사용�
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/02/2021
+ms.date: 04/23/2021
 ms.author: thweiss
-ms.openlocfilehash: 30efaed09a400611861bdd3adeae1f650054b405
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 3f33cc08fcb9f3c43d9da312ce9ff12d9b20d722
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106230926"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065298"
 ---
 # <a name="configure-managed-identities-with-azure-active-directory-for-your-azure-cosmos-db-account"></a>Azure Cosmos DB 계정에 대해 Azure Active Directory를 사용하여 관리 ID 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -64,6 +64,79 @@ Azure Cosmos DB 계정이 생성되거나 업데이트되면 다음 속성이 �
     "tenantId": "<azure-ad-tenant-id>",
     "principalId": "<azure-ad-principal-id>"
 }
+```
+
+### <a name="using-the-azure-cli"></a>Azure CLI 사용
+
+새 Azure Cosmos DB 계정을 만드는 동안 시스템 할당 ID를 사용하도록 설정하려면 `--assign-identity` 옵션을 추가합니다.
+
+```azurecli
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
+
+az cosmosdb create \
+    -n $accountName \
+    -g $resourceGroupName \
+    --locations regionName='West US 2' failoverPriority=0 isZoneRedundant=False \
+    --assign-identity
+```
+
+`az cosmosdb identity assign` 명령을 사용하여 기존 계정에 시스템 할당 ID를 추가할 수도 있습니다.
+
+```azurecli
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
+
+az cosmosdb identity assign \
+    -n $accountName \
+    -g $resourceGroupName
+```
+
+Azure Cosmos DB 계정이 만들어지거나 업데이트된 후에는 `az cosmosdb identity show` 명령을 사용하여 할당된 ID를 가져올 수 있습니다.
+
+```azurecli
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
+
+az cosmosdb identity show \
+    -n $accountName \
+    -g $resourceGroupName
+```
+
+```json
+{
+    "type": "SystemAssigned",
+    "tenantId": "<azure-ad-tenant-id>",
+    "principalId": "<azure-ad-principal-id>"
+}
+```
+
+## <a name="remove-a-system-assigned-identity"></a>시스템 할당 ID 제거
+
+### <a name="using-an-azure-resource-manager-arm-template"></a>ARM(Azure Resource Manager) 템플릿 사용
+
+> [!IMPORTANT]
+> 관리 ID로 작업할 때는 `2021-03-15` 이상의 `apiVersion`을 사용해야 합니다.
+
+Azure Cosmos DB 계정에서 시스템 할당 ID를 제거하려면 `identity` 속성의 `type`을 `None`으로 설정합니다.
+
+```json
+"identity": {
+    "type": "None"
+}
+```
+
+### <a name="using-the-azure-cli"></a>Azure CLI 사용
+
+Azure Cosmos DB 계정에서 시스템 할당 ID를 제거하려면 `az cosmosdb identity remove` 명령을 사용합니다.
+
+```azurecli
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
+
+az cosmosdb identity remove \
+    -n $accountName \
+    -g $resourceGroupName
 ```
 
 ## <a name="next-steps"></a>다음 단계

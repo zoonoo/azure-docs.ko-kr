@@ -14,12 +14,13 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: bf5445f6ca04e56aab466e97967a58c3e4b735a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c46a8306004fc052cd33cd13d7026934c24e3325
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556931"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110691006"
 ---
 # <a name="list-azure-role-assignments-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 역할 할당 나열
 
@@ -28,7 +29,7 @@ ms.locfileid: "100556931"
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> 조직에서 [Azure 위임된 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md)를 사용하는 서비스 공급자에 대해 아웃소싱된 관리 기능을 사용하는 경우 해당 서비스 공급자가 승인한 역할 할당은 여기에 표시되지 않습니다.
+> 조직에서 [Azure Lighthouse](../lighthouse/overview.md)를 사용하는 서비스 공급자에 대해 아웃소싱된 관리 기능을 사용하는 경우 해당 서비스 공급자가 승인한 역할 할당은 여기에 표시되지 않습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

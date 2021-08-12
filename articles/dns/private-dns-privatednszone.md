@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 9/24/2019
+ms.date: 04/09/2021
 ms.author: rohink
-ms.openlocfilehash: 9eaa320e79f1d595303c6d9fe1399df12cb6c52b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea256292510f662236fe8b9507009c8418849c5e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94954412"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772642"
 ---
 # <a name="what-is-a-private-azure-dns-zone"></a>프라이빗 Azure DNS 영역이란?
 
@@ -30,7 +30,7 @@ Azure 프라이빗 DNS는 사용자 지정 DNS 솔루션을 추가하지 않고�
 ## <a name="restrictions"></a>제한
 
 * 레이블이 지정된 단일 프라이빗 DNS 영역은 지원되지 않습니다. 프라이빗 DNS 영역에는 두 개 이상의 레이블이 있어야 합니다. 예를 들어 contoso.com에는 점으로 구분된 두 개의 레이블이 있습니다. 프라이빗 DNS 영역에는 최대 34개의 레이블이 있을 수 있습니다.
-* 프라이빗 DNS 영역에는 영역 위임(NS 레코드)을 만들 수 없습니다. 자식 도메인을 사용하려는 경우에는 도메인을 프라이빗 DNS 영역으로 직접 만들고 부모 영역에서 nameserver 위임을 설정하지 않고 가상 네트워크에 연결합니다.
+* 프라이빗 DNS 영역에는 영역 위임(NS 레코드)을 만들 수 없습니다. 자식 도메인을 사용하려는 경우 도메인을 직접 프라이빗 DNS 영역으로 생성할 수 있습니다. 그런 다음, 부모 영역에서 nameserver 위임을 설정하지 않고 가상 네트워크에 연결할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -38,4 +38,4 @@ Azure 프라이빗 DNS는 사용자 지정 DNS 솔루션을 추가하지 않고�
 
 * Azure DNS에서 프라이빗 영역으로 실현할 수 있는 몇 가지 일반 [프라이빗 영역 시나리오](./private-dns-scenarios.md)에 대해 읽어보세요.
 
-* 특정 종류의 작업에 필요한 특정 동작을 포함하여 Azure DNS의 프라이빗 영역에 대한 일반적인 질문과 대답은 [프라이빗 DNS FAQ](./dns-faq-private.md)를 참조하세요.
+* Azure DNS의 프라이빗 영역에 대한 일반적인 질문과 답변은 [프라이빗 DNS FAQ](./dns-faq-private.yml)를 참조하세요.

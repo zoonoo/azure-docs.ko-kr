@@ -1,26 +1,26 @@
 ---
-title: SCP를 사용하여 Azure Linux VM 간에 파일 이동
+title: SCP를 사용하여 VM 간에 파일 이동
 description: SCP 및 SSH 키 쌍을 사용하여 Azure에서 Linux VM 간에 안전하게 파일을 이동합니다.
 author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 07/12/2017
+ms.date: 04/20/2021
 ms.author: cynthn
-ms.subservice: disks
-ms.openlocfilehash: 83b57055ee7a3fedab014abeab96520c3877b843
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45616c5b5648153291c81c9ac17e3da3a2c66e3f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558443"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769978"
 ---
-# <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>SCP를 사용하여 Linux VM 간에 파일 이동
+# <a name="use-scp-to-move-files-to-and-from-a-linux-vm"></a>SCP를 사용하여 Linux VM 간에 파일 이동 
 
 이 문서에서는 보안 복사본(SCP)를 사용하여 워크스테이션에서 Azure Linux VM으로 또는 Azure Linux VM에서 워크스테이션으로 파일을 이동하는 방법을 보여 줍니다. 워크스테이션과 Linux VM 간에 신속하고 안전하게 파일을 이동하는 것은 Azure 인프라 관리의 중요한 부분입니다. 
 
-이 문서의 경우 [SSH 공개 및 프라이빗 키 파일](mac-create-ssh-keys.md)을 사용하여 Azure에 Linux VM이 배포되어 있어야 합니다. 또한 로컬 컴퓨터에 SCP 클라이언트가 필요합니다. SSH 위에 구축되었고 대부분의 Linux 및 Mac 컴퓨터 기본 Bash 셸과 일부 Windows 셸에 포함되어 있습니다.
+이 문서의 경우 [SSH 공개 및 프라이빗 키 파일](mac-create-ssh-keys.md)을 사용하여 Azure에 Linux VM이 배포되어 있어야 합니다. 또한 로컬 컴퓨터에 SCP 클라이언트가 필요합니다. SSH를 기반으로 빌드되었고 대부분의 Linux 및 Mac 컴퓨터와 PowerShell의 기본 Bash 셸에 포함되어 있습니다.
+
 
 ## <a name="quick-commands"></a>빠른 명령
 
@@ -50,7 +50,7 @@ SCP는 전송 계층에 대해 SSH를 사용합니다. SSH는 대상 호스트�
 
 첫 번째 예제에서는 Azure 구성 파일을 Automation 배포에 사용되는 Linux VM까지 복사합니다. 이 파일에는 비밀이 포함된 Azure API 자격 증명이 있으므로 보안이 중요합니다. SSH에서 제공하는 암호화된 터널은 파일의 콘텐츠를 보호합니다.
 
-다음 명령에서는 로컬 *.azure/config* 파일을 FQDN *myserver.eastus.cloudapp.azure.com* 을 사용하여 Azure VM에 복사합니다. Azure VM의 관리자 사용자 이름은 *azureuser* 입니다. 파일은 */home/azureuser/* 디렉터리로 대상이 지정됩니다. 이 명령에서 고유한 값을 대체합니다.
+다음 명령에서는 로컬 *.azure/config* 파일을 FQDN *myserver.eastus.cloudapp.azure.com* 을 사용하여 Azure VM에 복사합니다. [FQDN이 설정](../create-fqdn.md)되지 않은 경우 VM의 IP 주소를 사용할 수도 있습니다. Azure VM의 관리자 사용자 이름은 *azureuser* 입니다. 파일은 */home/azureuser/* 디렉터리로 대상이 지정됩니다. 이 명령에서 고유한 값을 대체합니다.
 
 ```bash
 scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/config

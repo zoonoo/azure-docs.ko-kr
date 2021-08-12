@@ -4,19 +4,19 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Azure SQL Database 및 SQL Managed Instance 할인에 기존 SQL Server 라이선스를 사용합니다.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: sqldbrb=4
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: sashan, moslake
 ms.date: 02/16/2021
-ms.openlocfilehash: b5f85e0dcb8ca70d5773b8f1c3b53e0b449ef013
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d8557c24b1f6ef46559f57d09c6e273dd4041272
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779204"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112018174"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure 하이브리드 혜택 - Azure SQL Database 및 SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -33,8 +33,8 @@ VCore 기반 구매 모델의 프로비전된 계산 계층에서는 [Azure 하�
 Azure 하이브리드 혜택을 사용하여 SQL Database 엔진 자체에 대해 기존 SQL Server 라이선스(기본 컴퓨팅 가격)를 사용하여 기존 Azure 인프라에 대해서만 비용을 지불하거나, 기본 인프라 및 SQL Server 라이선스(라이선스 포함 가격) 둘 다에 대해 비용을 지불할지를 선택할 수 있습니다.
 
 Azure Portal에서 라이선스 모델을 선택하거나 변경할 수 있습니다. 
-- 새 데이터베이스의 경우 만드는 동안 **기본 사항** 탭에서 **데이터베이스 구성** 을 선택하고 옵션을 선택하여 비용을 절감합니다.
-- 기존 데이터베이스의 경우 **설정** 메뉴에서 **구성** 을 선택하고 옵션을 선택하여 비용을 절감합니다.
+- 새 데이터베이스의 경우 만드는 동안 **기본 사항** 탭에서 **데이터베이스 구성** 을 선택하고 옵션을 선택하여 **비용을 절감** 합니다.
+- 기존 데이터베이스의 경우 **설정** 메뉴에서 **구성 + 저장소** 를 선택하고 옵션을 선택하여 **비용을 절감** 합니다.
 
 다음 API 중 하나를 사용하여 새 데이터베이스 또는 기존 데이터베이스를 구성할 수도 있습니다.
 

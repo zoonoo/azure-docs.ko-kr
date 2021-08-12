@@ -2,13 +2,13 @@
 title: Azure Disk Backup의 백업 오류 문제 해결
 description: Azure Disk Backup의 백업 오류 문제 해결 방법 알아보기
 ms.topic: conceptual
-ms.date: 01/07/2021
-ms.openlocfilehash: f6e9bcbbd618cf820ce91f8a3092d5be4aa045cb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 06/08/2021
+ms.openlocfilehash: a749c87949d53781dc810148d01cc5d179d70f77
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107247"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754118"
 ---
 # <a name="troubleshooting-backup-failures-in-azure-disk-backup"></a>Azure Disk Backup의 백업 오류 문제 해결
 
@@ -172,6 +172,12 @@ ms.locfileid: "105107247"
 
 권장 작업: 이전에 실행 중인 백업이 완료될 때까지 기다립니다.
 
+### <a name="error-code-usererrormissingsubscriptionregistration"></a>오류 코드: UserErrorMissingSubscriptionRegistration
+
+오류 메시지: 구독이 'Microsoft.Compute' 네임스페이스를 사용하도록 등록되어 있지 않습니다.
+
+권장 작업: 필요한 리소스 공급자가 구독에 등록되지 않았습니다. [솔루션 3](../azure-resource-manager/templates/error-register-resource-provider.md#solution-3---azure-portal)의 단계를 사용하여 리소스 공급자의 네임스페이스(_Microsoft.Compute_ 및 _Microsoft.Storage_)를 모두 등록합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Disk Backup 지원 매트릭스](disk-backup-support-matrix.md)
+[Azure Disk Backup 지원 매트릭스](disk-backup-support-matrix.md)

@@ -1,6 +1,6 @@
 ---
-title: CLI Azure 애플리케이션 게이트웨이를 사용 하는 외부 트래픽 리디렉션
-description: Azure CLI를 사용 하 여 외부 웹 트래픽을 적절 한 풀로 리디렉션하는 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
+title: CLI를 사용하여 외부 트래픽 리디렉션 - Azure Application Gateway
+description: Azure CLI를 사용하여 외부 웹 트래픽을 적절한 풀로 리디렉션하는 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: victorh
 ms.openlocfilehash: 838c2dc887790bb12b390261d94748595232d8b3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94565860"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 외부 리디렉션을 포함하는 애플리케이션 게이트웨이 만들기
@@ -87,7 +87,7 @@ az network application-gateway create \
 
 ### <a name="add-the-redirection-configuration"></a>리디렉션 구성 추가
 
-[Az network application-게이트웨이 리디렉션-구성 만들기](/cli/azure/network/application-gateway/redirect-config)를 사용 하 여 *www \. consoto.org* 에서 *www \. contoso.com* 수신기로 응용 프로그램 게이트웨이에 트래픽을 보내는 리디렉션 구성을 추가 합니다.
+[az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config)를 사용하여 애플리케이션 게이트웨이에 *www\.consoto.org* 의 트래픽을 *www\.contoso.com* 수신기로 전송하는 리디렉션 구성을 추가합니다.
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \

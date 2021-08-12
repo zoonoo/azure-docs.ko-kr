@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 7e85df8ae67624a253a9fb617629d7355109c210
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c61f378dd9121c727fc245d177e11921a8a8e26
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019604"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094387"
 ---
 # <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Azure Stream Analytics의 Azure Synapse Analytics 출력
 
@@ -21,7 +21,8 @@ Azure Stream Analytics 작업은 Azure Synapse Analytics의 전용 SQL 풀 테�
 
 먼저 전용 SQL 풀 테이블이 있어야 이를 Stream Analytics 작업의 출력으로 추가할 수 있습니다. 테이블 스키마는 작업 출력의 필드 및 해당 형식과 일치해야 합니다. 
 
-Azure Synapse를 출력으로 사용하려면 스토리지 계정이 구성되어 있는지 확인해야 합니다. 스토리지 계정 설정으로 이동하여 스토리지 계정을 구성합니다. 테이블을 지원하는 스토리지 계정 유형(범용 V2 및 범용 V1)만 허용됩니다. 표준 계층만 선택합니다. 프리미엄 계층은 지원되지 않습니다.
+> [!NOTE] 
+> Azure Synapse Analytics를 출력으로 사용하려면 스토리지 계정이 출력 수준이 아닌 작업 수준에서 구성되어 있는지 확인합니다. 스토리지 계정 설정을 변경하려면 Stream Analytics 작업의 **구성** 메뉴에서 **스토리지 계정 설정** 으로 이동합니다. 테이블을 지원하는 스토리지 계정 유형(범용 V2 및 범용 V1)만 사용합니다. 표준 계층만 선택합니다. 이 시나리오에서는 프리미엄 계층이 지원되지 않습니다.
 
 ## <a name="output-configuration"></a>출력 구성
 

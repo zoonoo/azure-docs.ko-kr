@@ -7,12 +7,13 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: 9a5f64687937479d65f94010bbe4f0a5f1cf5ca2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: dcce15618159b9d6a06a513435f0e091e02a2b2c
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102548226"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411255"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Azure Application Gateway의 Web Application Firewall v2에 대한 사용자 지정 규칙
 
@@ -22,7 +23,7 @@ Azure Application Gateway WAF(Web Application Firewall) v2는 다양한 유형�
 
 예를 들어 192.168.5.4/24 범위의 IP 주소에서 모든 요청을 차단할 수 있습니다. 이 규칙에서 연산자는 *IPMatch* 이고 matchValues는 IP 주소 범위(192.168.5.4/24)이며, 작업은 트래픽을 차단하는 것입니다. 또한 규칙의 이름 및 우선 순위를 설정합니다.
 
-사용자 지정 규칙은 복합 논리를 사용하여 보안 요구 사항을 해결하는 고급 규칙을 지원합니다. 예를 들면 (Condition 1 **및** Condition 2) **또는** Condition 3)입니다. 즉, Condition 1 **및** Condition 2가 충족되는 경우 **또는** Condition 3이 충족되면 WAF는 사용자 지정 규칙에 지정된 작업을 수행해야 합니다.
+사용자 지정 규칙은 복합 논리를 사용하여 보안 요구 사항을 해결하는 고급 규칙을 지원합니다. 예를 들면 ((Condition 1 **및** Condition 2) **또는** Condition 3)입니다. 즉, Condition 1 **및** Condition 2가 충족되는 경우 **또는** Condition 3이 충족되면 WAF는 사용자 지정 규칙에 지정된 작업을 수행해야 합니다.
 
 동일한 규칙 내의 서로 다른 일치 조건은 항상 **및** 을 사용하여 복합됩니다. 예를 들어 특정 IP 주소에서 트래픽을 차단하고, 특정 브라우저를 사용하는 경우에만 트래픽을 차단합니다.
 

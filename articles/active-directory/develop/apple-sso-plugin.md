@@ -13,12 +13,12 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 69df3dc8ef9f2ab4519f5bcb8947da221908f5a7
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: eb9a6e1f3044492b09dac3fb3168a9bd26aeff0f
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126744"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110494615"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Apple 디바이스용 Microsoft Enterprise SSO 플러그 인(미리 보기)
 
@@ -75,7 +75,7 @@ SSO 플러그 인을 사용하도록 설정하는 프로필 설정은 다음에 
 
 ### <a name="manual-configuration-for-other-mdm-services"></a>기타 MDM 서비스의 수동 구성
 
-MDM용 Intune을 사용하지 않는 경우 다음 매개 변수를 사용하여 Apple 디바이스용 Microsoft Enterprise SSO 플러그 인을 구성합니다.
+MDM에 Intune을 사용하지 않는 경우 Apple 디바이스에 대해 Extensible Single Sign On 프로필 페이로드를 구성할 수 있습니다. 다음 매개 변수를 사용하여 Microsoft Enterprise SSO 플러그인 및 해당 구성 옵션을 구성합니다.
 
 iOS 설정:
 

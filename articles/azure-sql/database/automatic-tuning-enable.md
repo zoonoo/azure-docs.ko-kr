@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
+author: NikaKinska
+ms.author: nnikolic
+ms.reviewer: mathoma, wiassaf
 ms.date: 03/03/2021
-ms.openlocfilehash: 1362d8c1f15b64b9d76b28fd354cdae8919504b0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 77dfee73496dda4bf1f6f3616fe9ac5846e6766c
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558281"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591749"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Azure 포털에서 자동 조정을 사용하여 쿼리 모니터링 및 워크로드 성능 향상
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,7 +30,7 @@ Azure SQL Database는 지속적으로 쿼리를 모니터링하고 워크로드�
 - [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true) 명령
 
 > [!NOTE]
-> Azure SQL Managed Instance의 경우 지원되는 옵션 FORCE_LAST_GOOD_PLAN은 [t-sql](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management)을 통해서만 구성할 수 있습니다. 이 문서에 설명된 Azure Portal 기반 구성 및 자동 인덱스 튜닝 옵션은 Azure SQL Managed Instance에 적용되지 않습니다.
+> Azure SQL Managed Instance의 경우 지원되는 옵션 FORCE_LAST_GOOD_PLAN은 [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management)을 통해서만 구성할 수 있습니다. 이 문서에 설명된 Azure Portal 기반 구성 및 자동 인덱스 튜닝 옵션은 Azure SQL Managed Instance에 적용되지 않습니다.
 
 > [!NOTE]
 > ARM(Azure Resource Manager) 템플릿을 통한 자동 조정 옵션 구성은 현재 지원되지 않습니다.

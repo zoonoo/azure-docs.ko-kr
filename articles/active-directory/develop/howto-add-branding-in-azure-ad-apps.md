@@ -1,5 +1,5 @@
 ---
-title: 앱 브랜딩 지침 | Azure
+title: Microsoft에 로그인 브랜딩 지침 | Azure AD
 titleSuffix: Microsoft identity platform
 description: Microsoft ID 플랫폼에 대한 애플리케이션 브랜딩 지침에 대해 알아봅니다.
 services: active-directory
@@ -13,14 +13,14 @@ ms.date: 08/31/2020
 ms.author: ryanwi
 ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 236e82ab97244e1428441f83295f6a5d4ed56350
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: beccbb77f27ef462f8725cf6b2ffb6966c68e23b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99581995"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110471367"
 ---
-# <a name="branding-guidelines-for-applications"></a>애플리케이션에 대한 브랜딩 지침
+# <a name="sign-in-with-microsoft-branding-guidelines-for-applications"></a>Microsoft에 로그인: 애플리케이션에 대한 브랜딩 지침
 
 Microsoft ID 플랫폼을 사용하여 애플리케이션을 개발하는 경우 Azure AD에서 관리되는 해당 회사나 학교 계정 또는 해당 개인 계정을 애플리케이션에 등록 및 로그인에 사용하려는 고객을 안내해야 합니다.
 

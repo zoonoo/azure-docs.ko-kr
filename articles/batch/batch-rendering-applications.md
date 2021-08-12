@@ -3,12 +3,12 @@ title: 렌더링 애플리케이션
 description: Azure Batch를 모든 렌더링 애플리케이션에 사용할 수 있습니다. 그러나 Azure Marketplace VM 이미지는 미리 설치된 일반적인 애플리케이션에 사용할 수 있습니다.
 ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: c98e2e0a81051dad47c201de9eda9f89cc311cf2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7dee2806aafe34edee8dcb3dc3577def9c4c01da
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103496646"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987509"
 ---
 # <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>일괄 처리 렌더링 VM 이미지에 미리 설치된 애플리케이션
 
@@ -19,7 +19,7 @@ Azure Batch를 모든 렌더링 애플리케이션에 사용할 수 있습니다
 일부 애플리케이션은 Windows만 지원하나 대부분 Windows와 Linux를 모두 지원합니다.
 
 > [!IMPORTANT]
-> 렌더링 VM 이미지 및 사용 요금 청구 라이선스는 [더 이상 사용되지 않으며 2024년 2월 29일에 지원이 종료](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/)됩니다. 렌더링에 Batch를 사용하려면 [사용자 지정 VM 이미지와 표준 애플리케이션 라이선싱을 사용해야 합니다.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
+> 렌더링 VM 이미지 및 사용량 지불 라이선스는 [더 이상 사용되지 않으며 2024년 2월 29일부터 사용 중지](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/)됩니다. 렌더링에 Batch를 사용하려면 [사용자 지정 VM 이미지와 표준 애플리케이션 라이선싱을 사용해야 합니다.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 ## <a name="applications-on-latest-centos-7-rendering-image"></a>최신 CentOS 7의 애플리케이션 렌더링 이미지
 

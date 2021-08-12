@@ -1,6 +1,6 @@
 ---
 title: Azure Load Balancer 부동 IP 구성
-description: Azure Load Balancer 부동 IP 개요
+description: Azure Load Balancer 부동 IP의 개요
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
 ms.openlocfilehash: 01cca2f2233ed5cdfb3003bb44c40f481bcf9bda
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94699409"
 ---
 # <a name="azure-load-balancer-floating-ip-configuration"></a>Azure Load Balancer 부동 IP 구성
@@ -36,7 +36,7 @@ ms.locfileid: "94699409"
 
 ## <a name="limitations"></a><a name = "limitations"></a>제한 사항
 
-- 부동 IP는 부하 분산 시나리오에 대 한 보조 IP 구성에서 현재 지원 되지 않습니다.
+- 부동 IP는 현재 부하 분산 시나리오의 보조 IP 구성에서 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

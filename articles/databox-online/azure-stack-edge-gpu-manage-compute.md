@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 06/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 057f80049b13a265925f2d6f24a008d1e1e04c96
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eac9154d4308700eaa6ea8faf0bf94fabc80bce4
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102638503"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982523"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU에서 컴퓨팅 관리
 
@@ -144,4 +144,4 @@ Kubernetes 외부 서비스 IP는 Kubernetes 클러스터 외부에 노출되는
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Stack Edge Pro 문제 해결](azure-stack-edge-gpu-troubleshoot.md) 방법을 알아봅니다.
+- [Azure Stack Edge Pro GPU 디바이스에서 IoT Edge 문제를 해결](azure-stack-edge-gpu-troubleshoot-iot-edge.md)하는 방법을 알아봅니다.

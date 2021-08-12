@@ -35,12 +35,20 @@
           href: performance-oracle-single-volumes.md
         - name: Azure NetApp Files의 성능 참조
           items:
+            - name: Linux 직접 I/O 모범 사례
+              href: performance-linux-direct-io.md
+            - name: Linux filesystem 캐시 모범 사례
+              href: performance-linux-filesystem-cache.md
             - name: Linux NFS 탑재 옵션 모범 사례
               href: performance-linux-mount-options.md
             - name: Linux 동시성 모범 사례
               href: performance-linux-concurrency-session-slots.md
+            - name: Linux NFS 미리 읽기 모범 사례
+              href: performance-linux-nfs-read-ahead.md
             - name: SMB 성능 모범 사례
               href: azure-netapp-files-smb-performance.md
+            - name: Azure 가상 머신 SKU 모범 사례
+              href: performance-virtual-machine-sku.md
     - name: Azure NetApp Files 비용 모델
       href: azure-netapp-files-cost-model.md
     - name: 볼륨 할당량 이해
@@ -211,5 +219,7 @@
       href: 'https://azure.microsoft.com/support/legal/sla/netapp/'
     - name: 동영상
       href: azure-netapp-files-videos.md
+    - name: 'NFS에 대한 액세스를 Azure Blob Storage, Azure Files 및 Azure NetApp Files와 비교'
+      href: ../storage/common/nfs-comparison.md?toc=%2fazure%2fazure-netapp-files%2ftoc.json
     - name: Azure Files 및 Azure NetApp Files 비교
       href: ../storage/files/storage-files-netapp-comparison.md

@@ -1,22 +1,22 @@
 ### YamlMime:Landing
-title: Microsoft 고객 계약 시작
-summary: Microsoft 고객 계약에 따라 청구 및 구독 관리를 시작하세요. 청구 환경에 대한 보안 액세스를 보장하면서 비용을 이해하고 최적화하는 방법을 알아봅니다.
+title: Microsoft 고객 계약 문서
+summary: MCA(Microsoft 고객 계약)에 따라 청구 및 구독 관리를 시작합니다. 청구 환경에 대한 보안 액세스를 보장하면서 비용을 이해하고 최적화하는 방법을 알아봅니다.
 metadata:
-  title: Microsoft 고객 계약 시작
-  description: Microsoft 고객 계약을 시작하는 방법을 알아봅니다.
+  title: Microsoft 고객 계약 문서
+  description: MCA(Microsoft 고객 계약)를 시작하는 방법을 알아봅니다.
   ms.service: cost-management-billing
   ms.subservice: billing
   ms.topic: landing-page
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 05/21/2021
-  ms.openlocfilehash: 5c64dcb1c96357128dc7a1cf86847472edf611e3
-  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+  ms.date: 06/16/2021
+  ms.openlocfilehash: b59028a13d3d7dfcbfdebfef803db36a660b5364
+  ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/26/2021
-  ms.locfileid: "110470713"
+  ms.lasthandoff: 06/17/2021
+  ms.locfileid: "112291532"
 landingContent:
 - title: 시작하기
   linkLists:
@@ -40,6 +40,10 @@ landingContent:
       url: ../costs/migrate-cost-management-api.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
     - text: EA와 MCA의 API 차이점
       url: /rest/api/billing/
+    - text: Cost Management Power BI 커넥터
+      url: /power-bi/connect-data/desktop-connect-azure-cost-management?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Cost Management 데이터 내보내기
+      url: ../costs/tutorial-export-acm-data.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
 - title: 청구 관리
   linkLists:
   - linkListType: concept

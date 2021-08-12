@@ -1,0 +1,61 @@
+### YamlMime:Landing
+title: 사용자를 위한 Azure Virtual Desktop 설명서
+summary: Azure Virtual Desktop에 쉽게 연결합니다.
+metadata:
+  title: Azure Virtual Desktop 사용자 설명서
+  description: Azure Virtual Desktop을 사용하여 클라우드에서 Windows 10 Enterprise를 사용할 수 있습니다.
+  ms.service: virtual-desktop
+  services: virtual-desktop
+  ms.topic: landing-page
+  author: Heidilohr
+  ms.author: helohr
+  ms.date: 06/15/2021
+  ms.openlocfilehash: 09025c9bd7d12791f61496463e02cc8866fa9d37
+  ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/29/2021
+  ms.locfileid: "113034149"
+landingContent:
+- title: Windows Desktop 클라이언트와 연결
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Windows Desktop 클라이언트를 사용하여 연결하는 방법
+      url: connect-windows-7-10.md
+- title: Microsoft Store 클라이언트와 연결
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Microsoft Store 클라이언트를 사용하여 연결하는 방법
+      url: connect-microsoft-store.md
+- title: 웹 클라이언트를 사용하여 연결
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 웹 클라이언트를 사용하여 연결하는 방법
+      url: connect-web.md
+- title: macOS 클라이언트와 연결
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: macOS 클라이언트를 사용하여 연결하는 방법
+      url: connect-macos.md
+- title: iOS 클라이언트와 연결
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: iOS 클라이언트를 사용하여 연결하는 방법
+      url: connect-ios.md
+- title: Android 클라이언트와 연결
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Android 클라이언트를 사용하여 연결하는 방법
+      url: connect-android.md
+- title: Linux 또는 씬 클라이언트를 사용하여 연결
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Linux 또는 씬 클라이언트를 사용하여 연결하는 방법
+      url: linux-overview.md

@@ -9,20 +9,23 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/25/2019
-ms.author: juergent
+ms.date: 05/28/2021
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9caf0a69d2f6caf23edbc35864e1aa560aaf63b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d38953e4ba4a50f1349e99384e31cf0b01f1fab2
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101673010"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409490"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Azure VM을 HANA 큰 인스턴스에 연결
+
+이 문서에서는 Azure VM을 HANA 대규모 인스턴스(BareMetal Infrastructure 인스턴스라고도 함)에 연결하는 작업과 관련된 내용을 살펴봅니다. 
 
 문서 [Azure의 SAP HANA(대규모 인스턴스)란?](./hana-overview-architecture.md) Azure에서 SAP 애플리케이션 레이어를 사용하는 HANA 대규모 인스턴스의 최소 배포가 다음과 같이 나타난다는 점을 언급합니다.
 
@@ -34,7 +37,6 @@ Azure 가상 네트워크 쪽을 자세히 살펴보면 다음이 필요합니�
 - VM이 실제로 배포되는 Azure Virtual Network의 기본 서브넷에 대한 정의입니다.
 - 만들어진 Azure Virtual Network에는 하나 이상의 VM 서브넷과 하나의 Azure ExpressRoute 가상 네트워크 게이트웨이 서브넷이 있어야 합니다. 이러한 서브넷은 다음 섹션에서 지정하고 설명한 대로 IP 주소 범위가 할당되어야 합니다.
 
-
 ## <a name="create-the-azure-virtual-network-for-hana-large-instances"></a>HANA 대규모 인스턴스에 대한 Azure Virtual Network 만들기
 
 >[!Note]
@@ -42,17 +44,17 @@ Azure 가상 네트워크 쪽을 자세히 살펴보면 다음이 필요합니�
 
 Azure Portal, PowerShell, Azure 템플릿 또는 Azure CLI를 사용하여 가상 네트워크를 만들 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 가상 네트워크 만들기](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network)를 참조하세요. 다음 예제에서는 Azure Portal을 사용하여 만든 가상 네트워크를 살펴봅니다.
 
-본 설명서의 **주소 공간** 을 참조하는 경우 Azure 가상 네트워크에서 사용할 수 있는 주소 공간을 참조하세요. 이 주소 공간은 가상 네트워크에서 BGP 경로 전파에 사용할 주소 범위이기도 합니다. 이 **주소 공간** 은 여기에서 볼 수 있습니다.
+본 설명서에서 **주소 공간** 은 Azure 가상 네트워크에서 사용할 수 있는 주소 공간을 참조합니다. 이 주소 공간은 가상 네트워크에서 BGP 경로 전파에 사용할 주소 범위이기도 합니다. 이 **주소 공간** 은 여기에서 볼 수 있습니다.
 
 ![Azure Portal에 표시된 Azure Virtual Network의 주소 공간](./media/hana-overview-connectivity/image1-azure-vnet-address-space.png)
 
-위 예제에서는 상당히 크고 넓은 IP 주소 범위인 10.16.0.0/16이 Azure 가상 네트워크에 제공되었습니다. 따라서 Virtual Network 내의 후속 서브넷의 모든 IP 주소 범위가 주소 공간 내에 자체 범위를 포함할 수 있습니다. 일반적으로 Azure에서는 단일 가상 네트워크에 대해 이러한 대규모 주소 범위를 사용하는 것이 권장되지 않습니다. 하지만 Azure Virtual Network에 정의된 서브넷은 살펴보겠습니다.
+위 예제에서는 상당히 크고 넓은 IP 주소 범위인 10.16.0.0/16이 Azure 가상 네트워크에 제공되었습니다. 이 가상 네트워크 내의 후속 서브넷의 모든 IP 주소 범위가 주소 공간 내에 자체 범위를 포함할 수 있습니다. 일반적으로 Azure에서는 단일 가상 네트워크에 대해 이러한 대규모 주소 범위를 사용하는 것이 권장되지 않습니다. 하지만 Azure 가상 네트워크에 정의된 서브넷은 살펴보겠습니다.
 
 ![Azure Virtual Network 서브넷 및 해당 IP 주소 범위](./media/hana-overview-connectivity/image2b-vnet-subnets.png)
 
 여기서는 첫 번째 VM 서브넷(여기서는 “default”라고 함)과 “GatewaySubnet”이라는 서브넷을 포함하는 가상 네트워크가 표시됩니다.
 
-위의 두 그래픽에서 **가상 네트워크 주소 공간** 은 **Azure VM 서브넷 IP 주소 범위** 와 가상 네트워크 게이트웨이 서브넷 IP 주소 범위를 모두 포괄합니다.
+위의 두 이미지에서 **가상 네트워크 주소 공간** 은 **Azure VM 서브넷 IP 주소 범위** 와 가상 네트워크 게이트웨이 서브넷 IP 주소 범위를 모두 포괄합니다.
 
 **가상 네트워크 주소 공간** 을 각 서브넷에서 사용하는 특정 범위로 제한할 수 있습니다. 또한 가상 네트워크의 **가상 네트워크 주소 공간** 을 다음과 같이 여러 가지 특정 범위로 정의할 수 있습니다.
 
@@ -67,7 +69,7 @@ Azure Portal, PowerShell, Azure 템플릿 또는 Azure CLI를 사용하여 가�
 
 여러 VM 서브넷 및 연속되지 않은 주소 범위를 사용할 수 있습니다. 이러한 주소 범위는 가상 네트워크의 **가상 네트워크 주소 공간** 에 포함되어야 합니다. 이는 집계된 형식일 수 있습니다. 또한 VM 서브넷 및 게이트웨이 서브넷의 정확한 범위 목록일 수도 있습니다.
 
-다음은 HANA 대규모 인스턴스에 연결되는 Azure Virtual Network에 대한 중요한 사실을 요약한 것입니다.
+다음 목록에서는 HANA 대규모 인스턴스에 연결하는 Azure 가상 네트워크에 대한 중요한 사실을 요약해서 설명합니다.
 
 - HANA 대규모 인스턴스의 초기 배포를 수행할 때 Microsoft에 **가상 네트워크 주소 공간** 을 제출해야 합니다. 
 - **가상 네트워크 주소 공간** 은 Azure VM 및 가상 네트워크 게이트웨이의 서브넷 IP 주소 범위를 포괄하는 더 큰 범위일 수 있습니다.
@@ -75,15 +77,15 @@ Azure Portal, PowerShell, Azure 템플릿 또는 Azure CLI를 사용하여 가�
 - 정의된 **가상 네트워크 주소 공간** 은 BGP 라우팅 전파에 사용됩니다.
 - 게이트웨이 서브넷의 이름은 **"GatewaySubnet"** 이어야 합니다.
 - 주소 공간은 Azure에서 HANA 대규모 인스턴스 단위로 트래픽을 허용 또는 차단하기 위해 HANA 대규모 인스턴스 쪽의 필터로 사용됩니다. Azure 가상 네트워크의 BGP 라우팅 정보와 HANA 대규모 인스턴스 측 필터링을 위해 구성된 IP 주소 범위가 서로 일치해야 합니다. 일치하지 않으면 연결 문제가 발생할 수 있습니다.
-- 뒷부분에 나오는 게이트웨이 서브넷에 대한 자세한 내용은 **가상 네트워크를 HANA 대규모 인스턴스 ExpressRoute에 연결** 섹션에서 자세히 설명합니다.
-
-
+- 게이트웨이 서브넷에 대한 중요한 추가 세부 정보가 있습니다. 자세한 내용은 [가상 네트워크를 HANA 대규모 인스턴스에 연결](hana-connect-vnet-express-route.md)을 참조하세요.
 
 ## <a name="different-ip-address-ranges-to-be-defined"></a>다양한 IP 주소 범위 정의 
 
-HANA 대규모 인스턴스를 배포하는 데 필요한 IP 주소 범위에 대해서는 이미 소개했습니다. 하지만 중요한 IP 주소 범위가 몇 가지 더 있습니다. 다음 IP 주소 범위를 모두 Microsoft에 제출해야 하는 것은 아닙니다. 그러나 초기 배포를 위한 요청을 보내기 전에 정의해야 합니다.
+HANA 대규모 인스턴스를 배포하는 데 필요한 일부 IP 주소 범위에 대해서는 이미 소개했습니다. 다른 중요한 IP 주소 범위도 있습니다. 다음 IP 주소 범위를 모두 Microsoft에 제출해야 하는 것은 아닙니다. 그러나 초기 배포를 위한 요청을 보내기 전에 정의해야 합니다.
 
-- **가상 네트워크 주소 공간**: **가상 네트워크 주소 공간** 은 Azure 가상 네트워크에서 사용자가 자신의 주소 공간 매개 변수에 할당하는 IP 주소 범위입니다. 이 네트워크는 SAP HANA 대규모 인스턴스 환경과 연결됩니다. 이 주소 공간 매개 변수는 다중 선 값으로 하는 것이 좋습니다. 이는 Azure VM 서브넷 범위와 Azure 게이트웨이 서브넷 범위로 구성되어야 합니다. 이 서브넷 범위는 이전 그래픽에서 볼 수 있었습니다. 이는 온-프레미스나 서버 IP 풀 또는 ER-P2P 주소 범위와 겹쳐서는 안 됩니다. 이러한 IP 주소 범위는 어떻게 가져오나요? 회사 네트워크 팀 또는 서비스 공급자는 네트워크 내에서 사용되지 않는 하나 이상의 IP 주소 범위를 제공해야 합니다. 예를 들어 Azure VM의 서브넷이 10.0.1.0/24이고 Azure 게이트웨이 서브넷의 서브넷이 10.0.2.0/28입니다.  Azure 가상 네트워크 주소 공간은 10.0.1.0/24 과 10.0.2.0/28로 정의하는 것이 좋습니다. 주소 공간 값을 집계할 수 있지만 서브넷 범위와 일치시키는 것이 좋습니다. 이렇게 하면 사용하지 않는 IP 주소 범위를 네트워크 내 규모가 더 큰 다른 주소 공간에서 실수로 다시 사용하는 문제를 방지할 수 있습니다. **가상 네트워크 주소 공간은 초기 배포를 요청할 때 Microsoft에 제출해야 하는 IP 주소 범위입니다.**
+- **가상 네트워크 주소 공간**: **가상 네트워크 주소 공간** 은 Azure 가상 네트워크에서 사용자가 자신의 주소 공간 매개 변수에 할당하는 IP 주소 범위입니다. 이 네트워크는 SAP HANA 대규모 인스턴스 환경과 연결됩니다. 이 주소 공간 매개 변수는 다중 선 값으로 하는 것이 좋습니다. 이는 Azure VM 서브넷 범위와 Azure 게이트웨이 서브넷 범위로 구성되어야 합니다. 
+    
+    이 서브넷 범위는 이전 그래픽에서 볼 수 있었습니다. 이는 온-프레미스나 서버 IP 풀 또는 ER-P2P 주소 범위와 겹쳐서는 안 됩니다. 이러한 IP 주소 범위는 어떻게 가져오나요? 회사 네트워크 팀 또는 서비스 공급자는 네트워크 내에서 사용되지 않는 하나 이상의 IP 주소 범위를 제공해야 합니다. 예를 들어 Azure VM의 서브넷이 10.0.1.0/24이고 Azure 게이트웨이 서브넷의 서브넷이 10.0.2.0/28입니다.  Azure 가상 네트워크 주소 공간은 10.0.1.0/24 과 10.0.2.0/28로 정의하는 것이 좋습니다. 주소 공간 값을 집계할 수 있지만 서브넷 범위와 일치시키는 것이 좋습니다. 이렇게 하면 IP 주소 범위를 네트워크 내 규모가 더 큰 다른 주소 공간에서 실수로 다시 사용하는 문제를 방지할 수 있습니다. **가상 네트워크 주소 공간은 초기 배포를 요청할 때 Microsoft에 제출해야 하는 IP 주소 범위입니다.**
 - **Azure VM 서브넷 IP 주소 범위:** 이 IP 주소 범위는 사용자가 Azure 가상 네트워크 서브넷 매개 변수에 할당하는 IP 주소 범위입니다. 이 매개 변수는 사용자의 Azure 가상 네트워크에 있으며 SAP HANA 대규모 인스턴스 환경과 연결됩니다. 이 IP 주소 범위는 IP 주소를 Azure VM에 할당하는 데 사용됩니다. 이 범위를 벗어난 IP 주소 범위가 SAP HANA 큰 인스턴스 환경에 연결되도록 허용됩니다. 필요한 경우 여러 Azure VM 서브넷을 사용할 수 있습니다. 각 Azure VM 서브넷에 대해 /24 CIDR 블록이 권장됩니다. 이 주소 범위는 Azure Virtual Network 주소 공간에 사용된 값에 포함되어야 합니다. 이 IP 주소 범위는 어떻게 가져오나요? 회사 네트워크 팀 또는 서비스 공급자는 네트워크 내에서 사용되지 않는 IP 주소 범위를 제공해야 합니다.
 - **가상 네트워크 게이트웨이 서브넷 IP 주소 범위:** 사용 계획인 기능에 따라 권장되는 크기는 다음과 같습니다.
    - Ultra-performance ExpressRoute 게이트웨이: /26 주소 블록 - SKU의 Type II 클래스에 필요함
@@ -92,12 +94,12 @@ HANA 대규모 인스턴스를 배포하는 데 필요한 IP 주소 범위에 �
 - **ER-P2P 연결을 위한 주소 범위:** 이 범위는 SAP HANA 큰 인스턴스 ExpressRoute(ER) P2P 연결을 위한 IP 범위입니다. 이 IP 주소 범위는 /29 CIDR IP 주소 범위여야 합니다. 이 범위는 온-프레미스 또는 기타 Azure IP 주소 범위와 겹치면 안 됩니다. 이 IP 주소 범위는 ExpressRoute 가상 게이트웨이에서 SAP HANA 대규모 인스턴스 서버로 ER 연결을 설정하는 데 사용됩니다. 이 IP 주소 범위는 어떻게 가져오나요? 회사 네트워크 팀 또는 서비스 공급자는 네트워크 내에서 현재 사용되지 않는 IP 주소 범위를 제공해야 합니다. **이 범위는 초기 배포를 요청할 때 Microsoft에 제출해야 하는 IP 주소 범위입니다.**  
 - **서버 IP 풀 주소 범위:** 이 IP 주소 범위는 개별 IP 주소를 HANA 대규모 인스턴스 서버에 할당하는 데 사용됩니다. 권장되는 서브넷 크기는 /24 CIDR 블록입니다. 필요한 경우 64개 IP 주소만큼 더 작은 수도 있습니다. 이 범위에서 처음 30개 IP 주소는 Microsoft에서 사용하도록 예약됩니다. 범위의 크기를 선택할 때 이러한 사실을 고려해야 합니다. 이 범위는 온-프레미스 또는 기타 Azure IP 주소와 겹치면 안 됩니다. 이 IP 주소 범위는 어떻게 가져오나요? 회사 네트워크 팀 또는 서비스 공급자는 네트워크 내에서 현재 사용되지 않는 IP 주소 범위를 제공해야 합니다.  **이 범위는 초기 배포를 요청할 때 Microsoft에 제출해야 하는 IP 주소 범위입니다.**
 
-결국 Microsoft에 제출해야 하는 선택적 IP 주소 범위:
+최종적으로 Microsoft에 제출할 선택적 IP 주소 범위:
 
 - 온-프레미스에서 HANA 대규모 인스턴스 단위로 직접 라우팅하도록 설정하기 위해 [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md)를 사용하기로 한 경우, 다른 /29 IP 주소 범위를 예약해야 합니다. 해당 범위는 이 전에 정의한 다른 IP 주소 범위와 겹치지 않아야 합니다.
 - 어떤 Azure 지역에 있는 HANA 대규모 인스턴스 테넌트를 다른 Azure 지역의 다른 HANA 대규모 인스턴스 테넌트로 직접 라우팅하도록 설정하기 위해 [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md)를 사용하기로 한 경우, 다른 /29 IP 주소 범위를 예약해야 합니다. 해당 범위는 이 전에 정의한 다른 IP 주소 범위와 겹치지 않아야 합니다.
 
-ExpressRoute Global Reach와 HANA 대규모 인스턴스 관련 사용량에 대한 자세한 내용은 다음 문서들을 확인하세요.
+ExpressRoute Global Reach와 HANA 대규모 인스턴스 관련 사용량에 대한 자세한 내용은 다음을 확인하세요.
 
 - [SAP HANA(대규모 인스턴스) 네트워크 아키텍처](./hana-network-architecture.md)
 - [가상 네트워크를 HANA 대규모 인스턴스에 연결](./hana-connect-vnet-express-route.md)
@@ -108,21 +110,21 @@ ExpressRoute Global Reach와 HANA 대규모 인스턴스 관련 사용량에 대
 - ER-P2P 연결에 대한 주소 범위
 - 서버 IP 풀 주소 범위
 
-HANA 대규모 인스턴스에 연결해야 하는 추가 가상 네트워크를 추가하려면 Microsoft에 추가하는 새 Azure Virtual Network 주소 공간을 제출해야 합니다. 
+HANA 대규모 인스턴스에 연결해야 하는 추가 가상 네트워크를 추가하려면 Microsoft에 추가하는 새 Azure 가상 네트워크 주소 공간을 제출해야 합니다. 
 
-다음은 사용자가 구성하여 최종적으로 Microsoft에 제출해야 할 몇 가지 다양한 범위의 예입니다. Azure 가상 네트워크 주소 공간의 값은 첫 번째 예에서는 집계되지 않습니다. 그러나 그 값은 최초 Azure VM 서브넷 IP 주소 및 가상 네트워크 게이트웨이 서브넷 IP 주소의 범위를 통해 정의됩니다. 
+다음 예제는 사용자가 구성하여 최종적으로 Microsoft에 제출해야 할 다양한 범위 및 일부 예제 범위를 보여 줍니다. Azure 가상 네트워크 주소 공간의 값은 첫 번째 예에서는 집계되지 않습니다. 그러나 그 값은 최초 Azure VM 서브넷 IP 주소 및 가상 네트워크 게이트웨이 서브넷 IP 주소의 범위를 통해 정의됩니다. 
 
-Azure Virtual Network 주소 공간의 일부로 추가 VM 서브넷의 추가 IP 주소 범위를 구성하고 제출하면 Azure Virtual Network 내에서 여러 VM 서브넷을 사용할 수 있습니다.
+Azure 가상 네트워크 주소 공간의 일부로 추가 VM 서브넷의 추가 IP 주소 범위를 구성하고 제출하면 Azure 가상 네트워크 내에서 여러 VM 서브넷을 사용할 수 있습니다.
 
 ![Azure(큰 인스턴스)에서 SAP HANA 최소 배포에 필요한 IP 주소 범위](./media/hana-overview-connectivity/image4b-ip-addres-ranges-necessary.png)
 
-그래픽에는 ExpressRoute Global Reach의 선택적 사용에 필요한 추가적인 IP 주소 범위가 표시되지 않습니다.
+위 이미지는 ExpressRoute Global Reach의 선택적 사용에 필요한 추가적인 IP 주소 범위는 표시되지 않습니다.
 
 Microsoft에 제출하는 데이터를 집계할 수도 있습니다. 이 경우 Azure Virtual Network의 주소 공간은 하나의 공간만 포함합니다. 이전 예제의 IP 주소 범위를 사용하면 집계된 가상 네트워크 주소 공간은 다음 이미지와 같을 수 있습니다.
 
 ![Azure(큰 인스턴스)에서 SAP HANA 최소 배포에 필요한 IP 주소 범위의 두 번째 가능성](./media/hana-overview-connectivity/image5b-ip-addres-ranges-necessary-one-value.png)
 
-예제에는 Azure 가상 네트워크의 주소 공간을 정의한 두 개의 작은 범위 대신 4096개의 IP 주소를 포괄하는 하나의 더 큰 범위가 있습니다. 주소 공간의 그러한 큰 정의는 다소 큰 범위를 사용하지 않고 남겨 둡니다. 가상 네트워크 주소 공간 값이 BGP 경로 전파에 사용되므로 온-프레미스 또는 네트워크의 다른 곳에서 사용하지 않는 범위를 사용하면 라우팅 문제가 발생할 수 있습니다. 그래픽에는 ExpressRoute Global Reach의 선택적 사용에 필요한 추가적인 IP 주소 범위가 표시되지 않습니다.
+예제에는 Azure 가상 네트워크의 주소 공간을 정의한 두 개의 작은 범위 대신 4096개의 IP 주소를 포괄하는 하나의 더 큰 범위가 있습니다. 주소 공간의 그러한 큰 정의는 다소 큰 범위를 사용하지 않고 남겨 둡니다. 가상 네트워크 주소 공간 값이 BGP 경로 전파에 사용되므로 온-프레미스 또는 네트워크의 다른 곳에서 사용하지 않는 범위를 사용하면 라우팅 문제가 발생할 수 있습니다. 위 그래픽에는 ExpressRoute Global Reach의 선택적 사용에 필요한 추가적인 IP 주소 범위가 표시되지 않습니다.
 
 주소 공간을 사용된 실제 서브넷 주소 공간과 밀접하게 연계하는 것이 좋습니다. 가상 네트워크에서 가동 중단 시간이 발생하지 않고도 필요할 때 새 주소 공간 값을 나중에 언제든지 추가할 수 있습니다.
  
@@ -144,8 +146,11 @@ IP 주소 범위를 정의한 후에는 다음 작업이 수행되어야 합니�
      - ExpressRoute PeerID
 - ExpressRoute 회로 및 Azure Virtual Network를 설정한 후 HANA 대규모 인스턴스에 액세스하기 위한 데이터.
 
-[Azure(대규모 인스턴스)의 SAP HANA 설정](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/) 문서에서 HANA 대규모 인스턴스를 연결하는 순서를 확인할 수 있습니다. 대다수의 다음 단계는 해당 문서의 배포 예에 표시됩니다. 
+[Azure(대규모 인스턴스)의 SAP HANA 설정](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/) 문서에서 HANA 대규모 인스턴스를 연결하는 순서를 확인할 수 있습니다. 대부분의 단계는 해당 문서의 배포 예에 표시됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [가상 네트워크를 HANA 대규모 인스턴스 ExpressRoute에 연결](hana-connect-vnet-express-route.md)을 참조하세요.
+가상 네트워크를 HANA 대규모 인스턴스 ExpressRoute에 연결에 대해 알아봅니다.
+
+> [!div class="nextstepaction"]
+> [가상 네트워크를 HANA 대규모 인스턴스에 연결](hana-connect-vnet-express-route.md)

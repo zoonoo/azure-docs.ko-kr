@@ -3,12 +3,12 @@ title: 리소스 로그 수집 및 분석
 description: Azure Container Instances의 컨테이너 그룹에서 리소스 로그 및 이벤트 데이터를 Azure Monitor 로그에 보내는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 07/13/2020
-ms.openlocfilehash: e46a1df65a4cfe5d10a58704aff485aa2834b55f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0c95535c80425abb8bdc904132581531b8cdd24e
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763922"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112029066"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 컨테이너 그룹 및 인스턴스 로깅
 
@@ -146,6 +146,53 @@ ContainerInstanceLog_CL
 | where (ContainerGroup_s == "mycontainergroup001")
 | where (TimeGenerated > ago(1h))
 ```
+
+## <a name="log-schema"></a>로그 스키마
+
+> [!NOTE]
+> 아래 나열된 열 중 일부는 스키마의 일부로만 존재하며 내보낸 데이터가 로그에 없습니다. 이 열은 아래에 ‘Empty’의 설명과 함께 표시됩니다.
+
+### <a name="containerinstancelog_cl"></a>ContainerInstanceLog_CL
+
+|Column|형식|Description|
+|-|-|-|
+|Computer|문자열|Empty|
+|ContainerGroup_s|문자열|레코드와 연결된 컨테이너 그룹의 이름입니다.|
+|ContainerID_s|문자열|레코드와 연결된 컨테이너의 고유 식별자입니다.|
+|ContainerImage_s|문자열|레코드와 연결된 컨테이너 이미지의 이름입니다.|
+|Location_s|문자열|레코드와 연결된 리소스의 위치입니다.|
+|메시지|문자열|해당하는 경우 컨테이너의 메시지입니다.|
+|OSType_s|문자열|컨테이너의 기반이 되는 운영 체제의 이름입니다.|
+|RawData|문자열|Empty|
+|ResourceGroup|문자열|레코드가 연결된 리소스 그룹의 이름입니다.|
+|Source_s|문자열|로깅 구성 요소 “LoggingAgent”의 이름입니다.|
+|SubscriptionId|문자열|레코드가 연결된 구독의 고유 식별자입니다.|
+|TimeGenerated|Datetime|이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다.|
+|Type|문자열|테이블의 이름입니다.|
+|_ResourceId|문자열|레코드가 연결된 리소스의 고유 식별자입니다.|
+|_SubscriptionId|문자열|레코드가 연결된 구독의 고유 식별자입니다.|
+
+### <a name="containerevent_cl"></a>ContainerEvent_CL
+
+|Column|형식|Description|
+|-|-|-|
+|Computer|문자열|Empty|
+|ContainerGroupInstanceId_g|문자열|레코드와 연결된 컨테이너 그룹의 고유 식별자입니다.|
+|ContainerGroup_s|문자열|레코드와 연결된 컨테이너 그룹의 이름입니다.|
+|ContainerName_s|문자열|레코드와 연결된 컨테이너의 이름입니다.|
+|Count_d|real|마지막 폴링 이후 이벤트가 발생한 횟수입니다.|
+|FirstTimestamp_t|Datetime|이벤트가 처음 발생한 타임스탬프입니다.|
+|Location_s|문자열|레코드와 연결된 리소스의 위치입니다.|
+|메시지|문자열|해당하는 경우 컨테이너의 메시지입니다.|
+|OSType_s|문자열|컨테이너의 기반이 되는 운영 체제의 이름입니다.|
+|RawData|문자열|Empty|
+|Reason_s|문자열|Empty|
+|ResourceGroup|문자열|레코드가 연결된 리소스 그룹의 이름입니다.|
+|SubscriptionId|문자열|레코드가 연결된 구독의 고유 식별자입니다.|
+|TimeGenerated|Datetime|이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다.|
+|Type|문자열|테이블의 이름입니다.|
+|_ResourceId|문자열|레코드가 연결된 리소스의 고유 식별자입니다.|
+|_SubscriptionId|문자열|레코드가 연결된 구독의 고유 식별자입니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

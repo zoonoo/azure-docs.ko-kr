@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 06/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 442894da23111877f4dd4f67363add0c8e52a4c9
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 921afd13b016e7b03db309623429ee6381058ead
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028981"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111525375"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 GitHub 계정으로 등록 설정 및 로그인
 
@@ -28,11 +28,12 @@ ms.locfileid: "107028981"
 
 ::: zone pivot="b2c-custom-policy"
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+> [!IMPORTANT]
+> 2021년 5월부터 GitHub는 Azure AD B2C 사용자 지정 정책 페더레이션에 영향을 주는 변경 사항을 발표했습니다. 변경으로 인해 `<Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>` 메타데이터를 GitHub 기술 프로필에 추가합니다. 자세한 내용은 [쿼리 매개 변수를 통한 API 인증 사용 중단](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/)을 참조하세요.
 
 ::: zone-end
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -43,7 +44,7 @@ Azure Active Directory B2C(Azure AD B2C)에서 GitHub 계정으로 로그인할 
 1. GitHub 자격 증명을 사용하여 [GitHub Developer](https://github.com/settings/developers)에 로그인합니다.
 1. **OAuth 앱**, **새 OAuth 앱** 을 차례로 선택합니다.
 1. **애플리케이션 이름** 및 **홈페이지 URL** 을 입력합니다.
-1. **권한 부여 콜백 URL**`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. [사용자 지정 도메인](custom-domain.md)을 사용하는 경우 `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-domain-name`을 사용자 지정 도메인으로 바꾸고 `your-tenant-name`을 테넌트의 이름으로 바꿉니다. Azure AD B2C에서 테넌트가 대문자로 정의되어 있더라도 테넌트 이름을 입력할 때는 소문자만 사용합니다.
+1. **권한 부여 콜백 URL**`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. [사용자 지정 도메인](custom-domain.md)을 사용하는 경우 `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-domain-name`을 사용자 지정 도메인으로, `your-tenant-name`를 테넌트의 이름으로 바꿉니다. Azure AD B2C에서 테넌트가 대문자로 정의되어 있더라도 테넌트 이름을 입력할 때는 소문자만 사용합니다.
 1. **Register application(응용 프로그램 등록)** 을 클릭합니다.
 1. **클라이언트 ID** 및 **클라이언트 비밀** 값을 복사합니다. 테넌트에 ID 공급자를 추가하려면 둘 다 필요합니다.
 
@@ -70,7 +71,7 @@ Azure Active Directory B2C(Azure AD B2C)에서 GitHub 계정으로 로그인할 
 1. **소셜 ID 공급자** 에서 **GitHub** 를 선택합니다.
 1. **저장** 을 선택합니다.
 1. 정책을 테스트하려면 **사용자 흐름 실행** 을 선택합니다.
-1. **애플리케이션** 에서 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 의 경우 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **사용자 흐름 실행** 단추를 선택합니다.
 1. 등록 또는 로그인 페이지에서 **GitHub** 를 선택하여 GitHub 계정으로 로그인합니다.
 
@@ -121,6 +122,7 @@ Azure Active Directory B2C(Azure AD B2C)에서 GitHub 계정으로 로그인할 
             <Item Key="HttpBinding">GET</Item>
             <Item Key="scope">read:user user:email</Item>
             <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>  
             <Item Key="UserAgentForClaimsExchange">CPIM-Basic/{tenant}/{policy}</Item>
             <!-- Update the Client ID below to the Application ID -->
             <Item Key="client_id">Your GitHub application ID</Item>

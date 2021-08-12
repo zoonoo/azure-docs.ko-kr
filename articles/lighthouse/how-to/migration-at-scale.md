@@ -1,14 +1,14 @@
 ---
 title: 대규모 Azure Migrate 프로젝트 관리
-description: 위임된 고객 리소스에 대한 Azure Migrate를 효과적으로 사용하는 방법을 알아봅니다.
+description: Azure Lighthouse는 위임된 고객 리소스에서 Azure Migrate를 효과적으로 사용할 수 있도록 지원합니다.
 ms.date: 05/11/2021
 ms.topic: how-to
-ms.openlocfilehash: a449244de1a834b8b85396d716c49415ac32c6f3
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: d93bc9127f59d5ff67424fc967e9126d06a989b2
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784254"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112082049"
 ---
 # <a name="manage-azure-migrate-projects-at-scale-with-azure-lighthouse"></a>Azure Lighthouse를 사용하여 대규모로 Azure Migrate 프로젝트 관리
 

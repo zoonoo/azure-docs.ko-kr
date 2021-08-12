@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: 888afdc2764fed9f0b2c8b548c3e2b1c48e9a31e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ebf502fc2ae83651e8f69472b3b2042cef723d8
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97094679"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537247"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Azure Functions에 대한 Azure Event Grid 출력 바인딩
 
@@ -28,6 +28,8 @@ Event Grid 출력 바인딩을 사용하여 사용자 지정 항목에 이벤트
 ## <a name="example"></a>예제
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="c-2x-and-higher"></a>C#(2.x 이상)
 
 다음 예제에서는 메서드 반환 값을 출력으로 사용하여 Event Grid 사용자 지정 항목에 메시지를 쓰는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
@@ -53,6 +55,64 @@ public static async Task Run(
     {
         var myEvent = new EventGridEvent("message-id-" + i, "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
         await outputEvents.AddAsync(myEvent);
+    }
+}
+```
+
+### <a name="version-3x-preview"></a>버전 3.x(미리 보기)
+
+다음 예제에서는 `CloudEvent`에 바인딩되는 Functions 3.x [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다.
+
+```cs
+using System.Threading.Tasks;
+using Azure.Messaging;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+
+namespace Azure.Extensions.WebJobs.Sample
+{
+    public static class CloudEventBindingFunction
+    {
+        [FunctionName("CloudEventBindingFunction")]
+        public static async Task<IActionResult> RunAsync(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+            [EventGrid(TopicEndpointUri = "EventGridEndpoint", TopicKeySetting = "EventGridKey")] IAsyncCollector<CloudEvent> eventCollector)
+        {
+            CloudEvent e = new CloudEvent("IncomingRequest", "IncomingRequest", await req.ReadAsStringAsync());
+            await eventCollector.AddAsync(e);
+            return new OkResult();
+        }
+    }
+}
+```
+
+다음 예제에서는 `EventGridEvent`에 바인딩되는 Functions 3.x [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다.
+
+```cs
+using System.Threading.Tasks;
+using Azure.Messaging.EventGrid;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+
+namespace Azure.Extensions.WebJobs.Sample
+{
+    public static class EventGridEventBindingFunction
+    {
+        [FunctionName("EventGridEventBindingFunction")]
+        public static async Task<IActionResult> RunAsync(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+            [EventGrid(TopicEndpointUri = "EventGridEndpoint", TopicKeySetting = "EventGridKey")] IAsyncCollector<EventGridEvent> eventCollector)
+        {
+            EventGridEvent e = new EventGridEvent(await req.ReadAsStringAsync(), "IncomingRequest", "IncomingRequest", "1.0.0");
+            await eventCollector.AddAsync(e);
+            return new OkResult();
+        }
     }
 }
 ```
@@ -343,9 +403,15 @@ Python에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
 
 `out EventGridEvent paramName`과 같은 메서드 매개 변수를 사용하여 메시지를 보냅니다. 여러 메시지를 쓰려면 `out EventGridEvent` 대신 `ICollector<EventGridEvent>` 또는 `IAsyncCollector<EventGridEvent>`를 사용할 수 있습니다.
 
+### <a name="additional-types"></a>추가 형식 
+Event Grid 확장의 버전 3.0.0 이상을 사용하는 앱은 [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid.eventgridevent) 네임스페이스의 `EventGridEvent` 유형을 사용합니다. 또한 [Azure.Messaging](/dotnet/api/azure.messaging.cloudevent) 네임스페이스의 `CloudEvent` 유형에 바인딩할 수 있습니다.
+
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 `out EventGridEvent paramName`과 같은 메서드 매개 변수를 사용하여 메시지를 보냅니다. C# 스크립트에서 `paramName`은 *function.json* 의 `name` 속성에 지정된 값입니다. 여러 메시지를 쓰려면 `out EventGridEvent` 대신 `ICollector<EventGridEvent>` 또는 `IAsyncCollector<EventGridEvent>`를 사용할 수 있습니다.
+
+### <a name="additional-types"></a>추가 형식 
+Event Grid 확장의 버전 3.0.0 이상을 사용하는 앱은 [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid.eventgridevent) 네임스페이스의 `EventGridEvent` 유형을 사용합니다. 또한 [Azure.Messaging](/dotnet/api/azure.messaging.cloudevent) 네임스페이스의 `CloudEvent` 유형에 바인딩할 수 있습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 

@@ -223,7 +223,7 @@ Azure Large Instance의 경우 서비스 요청을 시작해 Microsoft 작업 �
                   {
                     "backupName": "shoasnap",
                     "ipAddress": "10.1.1.10",
-                    "volume": "t210_sles_boot_azsollabbl20a31_vol"
+                    "volume&quot;: &quot;t210_sles_boot_azsollabbl20a31_vol"
                   }
                 ]
               }

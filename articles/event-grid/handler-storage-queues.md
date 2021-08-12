@@ -3,12 +3,12 @@ title: Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 스토�
 description: Azure Event Grid 이벤트에 대한 이벤트 처리기로 Azure 스토리지 큐를 사용하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 502b44f276253be69362424c9de0fd516d20ad9a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7c8b7a111c29fe11cc11ee191d78ae2a5f13610
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91270188"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111421737"
 ---
 # <a name="storage-queue-as-an-event-handler-for-azure-event-grid-events"></a>Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 스토리지 큐
 이벤트 처리기는 이벤트가 전송된 위치입니다. 처리기는 이벤트를 처리하기 위한 추가 작업을 수행합니다. 이벤트를 처리하도록 여러 Azure 서비스가 자동으로 구성되며, **Azure Queue Storage** 가 그 중 하나입니다. 
@@ -71,7 +71,7 @@ Queue Storage를 이벤트 처리기로 사용하는 예제는 다음 학습서�
 }
 ```
 
-### <a name="storage-queue-as-a-deadletter-destination"></a>데드레터 대상으로서의 스토리지 큐
+### <a name="storage-queue-as-the-event-handler-with-a-deadletter-destination"></a>배달 못한 대상이 있는 이벤트 처리기로서의 저장소 큐
 
 ```json
 {
@@ -101,7 +101,7 @@ Queue Storage를 이벤트 처리기로 사용하는 예제는 다음 학습서�
 }
 ```
 
-### <a name="storage-queue-as-a-deadletter-destination---managed-identity"></a>데드레터 대상으로서의 스토리지 큐 - 관리 ID
+### <a name="storage-queue-as-the-event-handler-with-a-deadletter-destination---managed-identity"></a>배달 못한 대상이 있는 이벤트 처리기로서의 저장소 큐 - 관리 ID
 
 ```json
 {

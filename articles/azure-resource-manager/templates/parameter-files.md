@@ -2,21 +2,22 @@
 title: 매개 변수 파일 만들기
 description: Azure Resource Manager 템플릿을 배포하는 동안 값을 전달하기 위한 매개 변수 파일 만들기
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: 2b6d942b21594fa608127bb8f403e72295671005
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/11/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8b7d9afc91462ec3dc61b25135460e347b121e5c
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89276663"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960286"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Resource Manager 매개 변수 파일 만들기
 
-매개 변수를 스크립트에 인라인 값으로 전달하는 것보다는, 매개 변수 값이 포함된 JSON 파일을 사용하는 것이 더 쉬울 수 있습니다. 이 문서에서는 매개 변수 파일을 만드는 방법을 설명합니다.
+매개 변수를 스크립트에 인라인 값으로 전달하는 것보다는, 매개 변수 값이 포함된 JSON 파일을 사용할 수 있습니다. 이 문서에서는 JSON 템플릿에서 사용하는 매개 변수 파일을 만드는 방법을 보여 줍니다.
 
 ## <a name="parameter-file"></a>매개 변수 파일
 
-매개 변수 파일의 형식은 다음과 같습니다.
+매개 변수 파일은 다음 형식을 사용합니다.
 
 ```json
 {
@@ -33,9 +34,9 @@ ms.locfileid: "89276663"
 }
 ```
 
-매개 변수 값은 매개 변수 파일에 일반 텍스트로 저장됩니다. 이 접근 방식은 리소스에 대한 SKU를 지정하는 것처럼 중요하지 않은 값에 적용됩니다. 암호와 같이 중요한 값에는 적용되지 않습니다. 중요한 값을 매개 변수로 전달해야 하는 경우 키 자격 증명 모음에 값을 저장하고 매개 변수 파일에서 키 자격 증명 모음을 참조합니다. 중요한 값은 배포 중에 안전하게 검색됩니다.
+매개 변수 파일은 매개 변수 값을 일반 텍스트로 저장합니다. 이 방식은 리소스 SKU와 같이 중요하지 않은 값에 적용됩니다. 일반 텍스트는 암호와 같이 중요한 값에는 적용되지 않습니다. 중요한 값이 포함된 매개 변수를 전달해야 하는 경우 값을 키 자격 증명 모음에 저장합니다. 그런 다음, 매개 변수 파일에서 키 자격 증명 모음을 참조하세요. 중요한 값은 배포 중에 안전하게 검색됩니다.
 
-다음 매개 변수 파일에는 키 자격 증명 모음에 저장된 일반 텍스트 값과 값이 포함됩니다.
+다음 매개 변수 파일에는 키 자격 증명 모음에 저장된 일반 텍스트 값과 중요한 값이 포함됩니다.
 
 ```json
 {
@@ -61,7 +62,7 @@ ms.locfileid: "89276663"
 
 ## <a name="define-parameter-values"></a>매개 변수 값 정의
 
-매개 변수 값을 정의하는 방법을 알아보려면 배포 중인 템플릿을 엽니다. 템플릿의 매개 변수 섹션을 확인합니다. 다음 예제는 템플릿의 매개 변수를 보여 줍니다.
+매개 변수 이름과 값을 정의하는 방법을 결정하려면 JSON 템플릿을 열고 `parameters` 섹션을 검토합니다. 다음 예제는 JSON 템플릿 매개 변수를 보여 줍니다.
 
 ```json
 "parameters": {
@@ -82,7 +83,7 @@ ms.locfileid: "89276663"
 }
 ```
 
-가장 먼저 알 수 있는 세부 정보는 각 매개 변수의 이름입니다. 매개 변수 파일의 값은 이름과 일치해야 합니다.
+매개 변수 파일에서 확인할 첫 번째 세부 사항은 각 매개 변수의 이름입니다. 매개 변수 파일의 매개 변수 이름은 템플릿의 매개 변수 이름과 일치해야 합니다.
 
 ```json
 {
@@ -97,7 +98,7 @@ ms.locfileid: "89276663"
 }
 ```
 
-매개 변수의 형식을 확인합니다. 매개 변수 파일의 값은 형식이 동일해야 합니다. 이 템플릿의 경우 두 매개 변수를 문자열로 제공할 수 있습니다.
+매개 변수 유형을 확인합니다. 매개 변수 파일의 매개 변수 형식은 템플릿과 동일한 형식을 사용해야 합니다. 이 예에서 두 매개 변수 형식은 모두 문자열입니다.
 
 ```json
 {
@@ -114,7 +115,7 @@ ms.locfileid: "89276663"
 }
 ```
 
-그런 다음, 기본값을 찾습니다. 매개 변수에 기본값이 있는 경우 값을 제공할 수는 있지만 반드시 제공할 필요는 없습니다.
+템플릿에서 기본값이 있는 매개 변수를 확인합니다. 매개 변수에 기본값이 있는 경우 매개 변수 파일에 값을 제공할 수 있지만 필수는 아닙니다. 매개 변수 파일 값은 템플릿의 기본값을 재정의합니다.
 
 ```json
 {
@@ -131,7 +132,7 @@ ms.locfileid: "89276663"
 }
 ```
 
-마지막으로, 허용되는 값과 최대 길이 같은 제한 사항을 확인합니다. 이는 매개 변수에 제공할 수 있는 값의 범위를 알려 줍니다.
+템플릿의 허용되는 값과 최대 길이 등의 제한을 확인합니다. 해당 값은 매개 변수에 제공할 수 있는 값의 범위를 지정합니다. 이 예제에서 `storagePrefix`는 최대 11자일 수 있으며 `storageAccountType`은 허용된 값을 지정해야 합니다.
 
 ```json
 {
@@ -148,11 +149,12 @@ ms.locfileid: "89276663"
 }
 ```
 
-매개 변수 파일에는 템플릿에 정의된 매개 변수 값만 포함할 수 있습니다. 매개 변수 파일에 템플릿의 매개 변수와 일치하지 않는 추가 매개 변수가 포함된 경우 오류가 발생합니다.
+> [!NOTE]
+> 매개 변수 파일에는 템플릿에 정의된 매개 변수 값만 포함할 수 있습니다. 매개 변수 파일에 템플릿의 매개 변수와 일치하지 않는 추가 매개 변수가 포함된 경우 오류가 발생합니다.
 
 ## <a name="parameter-type-formats"></a>매개 변수 유형 형식
 
-다음 예제는 다양한 매개 변수 유형의 형식을 보여 줍니다.
+다음 예제에서는 문자열, 정수, 부울, 배열 및 개체와 같은 다양한 매개 변수 형식의 형식을 보여 줍니다.
 
 ```json
 {
@@ -180,13 +182,13 @@ ms.locfileid: "89276663"
         "property2": "value2"
       }
     }
-   }
+  }
 }
 ```
 
 ## <a name="deploy-template-with-parameter-file"></a>매개 변수 파일을 사용하여 템플릿 배포
 
-Azure CLI를 사용하여 로컬 매개 변수 파일을 전달하려면 @ 및 매개 변수 파일의 이름을 사용합니다.
+Azure CLI에서 `@` 및 매개 변수 파일 이름을 사용하여 로컬 매개 변수 파일을 전달합니다. 예들 들어 `@storage.parameters.json`입니다.
 
 ```azurecli
 az deployment group create \
@@ -198,12 +200,12 @@ az deployment group create \
 
 자세한 내용은 [ARM 템플릿 및 Azure CLI를 사용하여 리소스 배포](./deploy-cli.md#parameters)를 참조하세요.
 
-Azure PowerShell을 사용하여 로컬 매개 변수 파일을 전달하려면 `TemplateParameterFile` 매개 변수를 사용합니다.
+Azure PowerShell에서 `TemplateParameterFile` 매개 변수를 사용하여 로컬 매개 변수 파일을 전달합니다.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json `
-  -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+  -TemplateFile C:\MyTemplates\storage.json `
+  -TemplateParameterFile C:\MyTemplates\storage.parameters.json
 ```
 
 자세한 내용은 [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포](./deploy-powershell.md#pass-parameter-values)를 참조하세요.
@@ -211,11 +213,14 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 > [!NOTE]
 > 포털에서 사용자 지정 템플릿 블레이드에 매개 변수 파일을 사용할 수 없습니다.
 
+> [!TIP]
+> [Visual Studio의 Azure 리소스 그룹 프로젝트](create-visual-studio-deployment-project.md)를 사용하는 경우 매개 변수 파일의 **빌드 작업** 이 **콘텐츠** 로 설정되어 있는지 확인합니다.
+
 ## <a name="file-name"></a>파일 이름
 
-매개 변수 파일의 이름을 지정하는 일반적인 규칙은 템플릿 이름에 **.parameters** 를 추가하는 것입니다. 예를 들어, 템플릿의 이름이 **azuredeploy.json** 인 경우 매개 변수 파일의 이름은 **azuredeploy.parameters.json** 이 됩니다. 이 명명 규칙은 템플릿과 매개 변수 간의 연결을 확인하는 데 도움이 됩니다.
+매개 변수 파일의 일반적인 이름 지정 규칙은 템플릿 이름에 _parameters_ 를 포함하는 것입니다. 예를 들어, 템플릿의 이름이 _azuredeploy.json_ 인 경우 매개 변수 파일의 이름은 _azuredeploy.parameters.json_ 이 됩니다. 이 명명 규칙은 템플릿과 매개 변수 간의 연결을 확인하는 데 도움이 됩니다.
 
-다른 환경에 배포하려면 둘 이상의 매개 변수 파일을 만듭니다. 매개 변수 파일의 이름을 지정할 때 용도를 식별할 수 있는 방법을 추가합니다. 예를 들면 **azuredeploy.parameters-dev.json** 과 **azuredeploy.parameters-prod.json** 을 사용합니다.
+다른 환경에 배포하려면 둘 이상의 매개 변수 파일을 만듭니다. 매개 변수 파일의 이름을 지정할 때 개발 및 프로덕션 등의 용도를 확인합니다. 예를 들어 _azuredeploy.parameters-dev.json_ 및 _azuredeploy.parameters-prod.json_ 을 사용하여 리소스를 배포합니다.
 
 ## <a name="parameter-precedence"></a>매개 변수 우선 순위
 
@@ -225,11 +230,9 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 
 ## <a name="parameter-name-conflicts"></a>매개 변수 이름 충돌
 
-템플릿에 PowerShell 명령의 매개 변수 중 하나와 이름이 같은 매개 변수가 포함되어 있으면 PowerShell에서 접미사가 **FromTemplate** 인 템플릿에서 매개 변수를 제공합니다. 예를 들어 템플릿의 **ResourceGroupName** 매개 변수는 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet의 **ResourceGroupName** 매개 변수와 충돌합니다. **ResourceGroupNameFromTemplate** 에 대한 값을 제공하라는 메시지가 표시됩니다. 배포 명령에 사용되지 않은 매개 변수 이름을 이용하면 이와 같은 혼동을 방지할 수 있습니다.
-
+템플릿에 PowerShell 명령의 매개 변수 중 하나와 이름이 같은 매개 변수가 포함되어 있으면 PowerShell에서 접미사가 `FromTemplate`인 템플릿에서 매개 변수를 제공합니다. 예를 들어 템플릿의 `ResourceGroupName`이라는 매개 변수가 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet의 `ResourceGroupName` 매개 변수와 충돌합니다. `ResourceGroupNameFromTemplate`에 대한 값을 제공하라는 메시지가 표시됩니다. 이와 같은 혼동을 방지하려면 배포 명령에 사용되지 않은 매개 변수 이름을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 템플릿에서 매개 변수를 정의하는 방법을 이해하려면 [Azure Resource Manager 템플릿의 매개 변수](template-parameters.md)를 참조하세요.
+- 템플릿의 매개 변수를 정의하는 방법에 대한 자세한 내용은 [ARM 템플릿의 매개 변수](./parameters.md)를 참조하세요.
 - 키 자격 증명 모음에서 값을 사용하는 방법에 대한 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](key-vault-parameter.md)을 참조하세요.
-- 매개 변수에 대한 자세한 내용은 [Azure Resource Manager 템플릿의 매개 변수](template-parameters.md)를 참조하세요.

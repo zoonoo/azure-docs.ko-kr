@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB 쿼리 언어의 형식 검사 함수
 description: Azure Cosmos DB의 형식 검사 SQL 시스템 함수에 대해 알아봅니다.
-author: ginamr
+author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
-ms.author: girobins
+ms.date: 05/26/2021
+ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 2becc9216d847dfe26d8fd3a433993112fff7980
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7555c1a1789cc33a75f78f9f3bf8ff4e5a3e3af2
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96546355"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110539226"
 ---
 # <a name="type-checking-functions-azure-cosmos-db"></a>형식 검사 함수(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,18 +22,18 @@ ms.locfileid: "96546355"
 
 ## <a name="functions"></a>Functions
 
-다음은 지원되는 기본 제공 형식 검사 함수의 표입니다.
+다음 함수는 입력 값에 대한 형식 검사를 지원하며, 각 함수마다 부울 값을 반환합니다. **인덱스 사용** 열은 해당하는 경우, 사용자가 형식 검사 함수를 같음 필터가 있는 다른 값과 비교한다고 가정합니다.
 
-다음 함수는 입력 값에 대한 형식 검사를 지원하며, 각 함수마다 부울 값을 반환합니다.  
-
-* [IS_ARRAY](sql-query-is-array.md)
-* [IS_BOOL](sql-query-is-bool.md)
-* [IS_DEFINED](sql-query-is-defined.md)
-* [IS_NULL](sql-query-is-null.md)
-* [IS_NUMBER](sql-query-is-number.md)
-* [IS_OBJECT](sql-query-is-object.md)
-* [IS_PRIMITIVE](sql-query-is-primitive.md)
-* [IS_STRING](sql-query-is-string.md)
+| 시스템 함수                           | 인덱스 사용량 | [스칼라 집계 함수가 있는 쿼리의 인덱스 사용량](index-overview.md#index-utilization-for-scalar-aggregate-functions) | 설명 |
+| ----------------------------------------- | ----------- | ------------------------------------------------------------ | ------- |
+| [IS_ARRAY](sql-query-is-array.md)         | 전체 검사   | 전체 검사                                                    |         |
+| [IS_BOOL](sql-query-is-bool.md)           | 인덱스 이동  | 인덱스 이동                                                   |         |
+| [IS_DEFINED](sql-query-is-defined.md)     | 인덱스 이동  | 인덱스 이동                                                   |         |
+| [IS_NULL](sql-query-is-null.md)           | 인덱스 이동  | 인덱스 이동                                                   |         |
+| [IS_NUMBER](sql-query-is-number.md)       | 인덱스 이동  | 인덱스 이동                                                   |         |
+| [IS_OBJECT](sql-query-is-object.md)       | 전체 검사   | 전체 검사                                                    |         |
+| [IS_PRIMITIVE](sql-query-is-primitive.md) | 인덱스 이동  | 인덱스 이동                                                   |         |
+| [IS_STRING](sql-query-is-string.md)       | 인덱스 이동  | 인덱스 이동                                                   |         
 
 ## <a name="next-steps"></a>다음 단계
 

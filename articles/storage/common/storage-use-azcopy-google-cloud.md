@@ -1,19 +1,19 @@
 ---
-title: AzCopy를 사용하여 Google Cloud Storage에서 Azure Storage로 데이터 복사 | Microsoft Docs
+title: AzCopy를 사용하여 Google Cloud Storage에서 Azure Storage로 복사 | Microsoft Docs
 description: AzCopy를 사용하여 Google Cloud Storage에서 Azure Storage로 데이터를 복사합니다. AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는 파일을 복사하는 데 사용할 수 있는 명령줄 유틸리티입니다.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: c6a53acd63b6aa882674f6aa29e1f7152f5b0a30
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3b2ad11abb7d1a3e64deef1ca49d9f84f03e5879
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728813"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107498342"
 ---
 # <a name="copy-data-from-google-cloud-storage-to-azure-storage-by-using-azcopy-preview"></a>AzCopy를 사용하여 Google Cloud Storage에서 Azure Storage로 데이터 복사(미리 보기)
 
@@ -36,7 +36,7 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 > [!NOTE] 
 > 이 문서의 예제에서는 Azure AD(Azure Active Directory)를 사용하여 권한 부여 자격 증명을 제공했다고 가정합니다.
 >
-> SAS 토큰을 사용하여 blob 데이터에 대한 액세스 권한을 부여하려면 각 AzCopy 명령에서 해당 토큰을 리소스 URL에 추가할 수 있습니다. 예: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`
+> SAS 토큰을 사용하여 blob 데이터에 대한 액세스 권한을 부여하려면 각 AzCopy 명령에서 해당 토큰을 리소스 URL에 추가할 수 있습니다. 예를 들면 `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`와 같습니다.
 
 ### <a name="authorize-with-google-cloud-storage"></a>Google Cloud Storage를 사용하여 권한 부여
 
@@ -63,22 +63,30 @@ AzCopy는 [URL에서 블록 배치](/rest/api/storageservices/put-block-from-url
 
 계층 구조 네임스페이스가 있는 계정에 같은 URL 구문(`blob.core.windows.net`)을 사용합니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'` |
-| **예제** | `azcopy copy 'https://storage.cloud.google.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
-| **예제**(계층 구조 네임스페이스) | `azcopy copy 'https://storage.cloud.google.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
+**구문**
+
+`azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'`
+
+**예제**
+
+```azcopy
+azcopy copy 'https://storage.cloud.google.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'
+```
 
 
 ### <a name="copy-a-directory"></a>디렉터리 복사
 
 계층 구조 네임스페이스가 있는 계정에 같은 URL 구문(`blob.core.windows.net`)을 사용합니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
-| **예제** | `azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
-| **예제**(계층 구조 네임스페이스)| `azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+**구문**
+
+`azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true`
+
+**예제**
+
+```azcopy
+azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true
+```
 
 > [!NOTE]
 > 이 예제에서는 `--recursive` 플래그를 추가하여 모든 하위 디렉터리의 파일을 복사합니다.
@@ -87,21 +95,29 @@ AzCopy는 [URL에서 블록 배치](/rest/api/storageservices/put-block-from-url
 
 와일드카드 기호(*)를 사용하여 포함하는 디렉터리 자체를 복사하지 않고 디렉터리의 콘텐츠를 복사할 수 있습니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<directory-name>/*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
-| **예제** | `azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
-| **예제**(계층 구조 네임스페이스)| `azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+**구문**
+
+`azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<directory-name>/*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true`
+
+**예제**
+
+```azcopy
+azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true
+```
 
 ### <a name="copy-a-cloud-storage-bucket"></a>클라우드 스토리지 버킷 복사
 
 계층 구조 네임스페이스가 있는 계정에 같은 URL 구문(`blob.core.windows.net`)을 사용합니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
-| **예제** | `azcopy copy 'https://storage.cloud.google.com/mybucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
-| **예제**(계층 구조 네임스페이스)| `azcopy copy 'https://storage.cloud.google.com/mybucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+**구문**
+
+`azcopy copy 'https://storage.cloud.google.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true`
+
+**예제**
+
+```azcopy
+azcopy copy 'https://storage.cloud.google.com/mybucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true
+```
 
 ### <a name="copy-all-buckets-in-a-google-cloud-project"></a>Google Cloud 프로젝트의 모든 버킷 복사 
 
@@ -109,11 +125,15 @@ AzCopy는 [URL에서 블록 배치](/rest/api/storageservices/put-block-from-url
 
 계층 구조 네임스페이스가 있는 계정에 같은 URL 구문(`blob.core.windows.net`)을 사용합니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://storage.cloud.google.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
-| **예제** | `azcopy copy 'https://storage.cloud.google.com/' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
-| **예제**(계층 구조 네임스페이스)| `azcopy copy 'https://storage.cloud.google.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+**구문**
+
+`azcopy copy 'https://storage.cloud.google.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true`
+
+**예제**
+
+```azcopy
+azcopy copy 'https://storage.cloud.google.com/' 'https://mystorageaccount.blob.core.windows.net' --recursive=true
+```
 
 ### <a name="copy-a-subset-of-buckets-in-a-google-cloud-project"></a>Google Cloud 프로젝트에서 버킷 하위 세트 복사 
 
@@ -121,11 +141,15 @@ AzCopy는 [URL에서 블록 배치](/rest/api/storageservices/put-block-from-url
 
 버킷 이름에 와일드카드 기호(*)를 사용하여 버킷의 하위 세트를 복사합니다. 계층 구조 네임스페이스가 있는 계정에 같은 URL 구문(`blob.core.windows.net`)을 사용합니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://storage.cloud.google.com/<bucket*name>' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
-| **예제** | `azcopy copy 'https://storage.cloud.google.com/my*bucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
-| **예제**(계층 구조 네임스페이스)| `azcopy copy 'https://storage.cloud.google.com/my*bucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+**구문**
+
+`azcopy copy 'https://storage.cloud.google.com/<bucket*name>' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true`
+
+**예제**
+
+```azcopy
+azcopy copy 'https://storage.cloud.google.com/my*bucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true
+```
 
 ## <a name="handle-differences-in-bucket-naming-rules"></a>버킷 명명 규칙의 차이점 처리
 
@@ -145,7 +169,7 @@ Google Cloud Storage 및 Azure에서는 개체 키 이름에 다른 문자 세�
 
 AzCopy `copy` 명령의 일부로 파일의 메타데이터에 호환되지 않는 키 이름이 포함된 파일을 처리하는 방법을 지정하는 `s2s-handle-invalid-metadata` 플래그 옵션의 값을 제공할 수 있습니다. 다음 표에서는 각 플래그 값을 설명합니다.
 
-| 플래그 값 | 설명  |
+| 플래그 값 | Description  |
 |--------|-----------|
 | **ExcludeIfInvalid** | (기본 옵션) 메타데이터는 전송된 개체에 포함되지 않습니다. AzCopy에서 경고를 로그합니다. |
 | **FailIfInvalid** | 개체는 복사되지 않습니다. AzCopy는 오류를 로그하고 전송 요약에 표시되는 실패 횟수에 해당 오류를 포함합니다.  |
@@ -171,8 +195,16 @@ AzCopy는 다음 단계를 수행합니다.
 
 다음 문서에서 더 많은 예제를 찾아보세요.
 
-- [AzCopy 시작](storage-use-azcopy-v10.md)
+- [예제: 업로드](storage-use-azcopy-blobs-upload.md)
+- [예제: 다운로드](storage-use-azcopy-blobs-download.md)
+- [예제: 계정 간 복사](storage-use-azcopy-blobs-copy.md)
+- [예제: 동기화](storage-use-azcopy-blobs-synchronize.md)
+- [예제: Amazon S3 버킷](storage-use-azcopy-s3.md)
+- [예: Azure Files](storage-use-azcopy-files.md)
+- [자습서: AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션](storage-use-azcopy-migrate-on-premises-data.md)
 
-- [데이터 전송](storage-use-azcopy-v10.md#transfer-data)
+이러한 문서를 참조하여 설정을 구성하고, 성능을 최적화하고, 문제를 해결하세요.
 
-- [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
+- [AzCopy 구성 설정](storage-ref-azcopy-configuration-settings.md)
+- [AzCopy의 성능 최적화](storage-use-azcopy-optimize.md)
+- [로그 파일을 사용하여 Azure Storage의 AzCopy V10 문제 해결](storage-use-azcopy-configure.md)

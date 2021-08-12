@@ -1,18 +1,18 @@
 ---
-title: 템플릿 함수-비교
-description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 값을 비교 하는 데 사용 하는 함수에 대해 설명 합니다.
+title: 템플릿 함수 - 비교
+description: Azure Resource Manager 템플릿(ARM 템플릿)에서 값을 비교하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 95655a4c92a1de9bb7a7faebcdaa83fb0fa75696
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99834003"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>ARM 템플릿의 비교 함수
 
-리소스 관리자는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 비교를 수행 하기 위한 몇 가지 함수를 제공 합니다.
+Resource Manager는 ARM 템플릿(Azure Resource Manager 템플릿)에서 비교를 수행하기 위한 몇 가지 함수를 제공합니다.
 
 * [coalesce](#coalesce)
 * [equals](#equals)
@@ -31,10 +31,10 @@ ms.locfileid: "99834003"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int, 문자열, 배열 또는 개체 |null인지 테스트할 첫 번째 값입니다. |
-| 추가 인수 |아니요 |int, 문자열, 배열 또는 개체 |null인지 테스트할 추가 값입니다. |
+| 추가 인수 |예 |int, 문자열, 배열 또는 개체 |null인지 테스트할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -117,7 +117,7 @@ output emptyOutput bool =empty(objectToTest.null1 ?? objectToTest.null2)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | stringOutput | String | default |
 | intOutput | Int | 1 |
@@ -129,11 +129,11 @@ output emptyOutput bool =empty(objectToTest.null1 ?? objectToTest.null2)
 
 `equals(arg1, arg2)`
 
-두 값이 서로 일치하는지 여부를 확인합니다. `equals`함수는 Bicep에서 지원 되지 않습니다. 연산자를 `==` 대신 사용 합니다.
+두 값이 서로 일치하는지 여부를 확인합니다. Bicep에서 `equals` 함수는 지원되지 않습니다. 대신 `==` 연산자를 사용하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int, 문자열, 배열 또는 개체 |같은지 확인할 첫 번째 값입니다. |
 | arg2 |예 |int, 문자열, 배열 또는 개체 |같은지 확인할 두 번째 값입니다. |
@@ -166,7 +166,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
 > [!NOTE]
-> `Conditions` 는 Bicep에서 아직 구현 되지 않았습니다. [조건](https://github.com/Azure/bicep/issues/186)을 참조 하세요.
+> `Conditions`는 Bicep에서 아직 구현되지 않았습니다. [조건](https://github.com/Azure/bicep/issues/186)을 참조하세요.
 
 ---
 
@@ -269,7 +269,7 @@ output checkObjects bool = firstObject == secondObject
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | True |
@@ -305,7 +305,7 @@ output checkNotEquals bool = ! (1 == 2)
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | Type | 값 |
+| 이름 | 유형 | 값 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -313,11 +313,11 @@ output checkNotEquals bool = ! (1 == 2)
 
 `greater(arg1, arg2)`
 
-첫 번째 값이 두 번째 값보다 큰지 여부를 확인합니다. `greater`함수는 Bicep에서 지원 되지 않습니다. 연산자를 `>` 대신 사용 합니다.
+첫 번째 값이 두 번째 값보다 큰지 여부를 확인합니다. Bicep에서 `greater` 함수는 지원되지 않습니다. 대신 `>` 연산자를 사용하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int 또는 문자열 |greater 비교에 사용할 첫 번째 값입니다. |
 | arg2 |예 |int 또는 문자열 |greater 비교에 사용할 두 번째 값입니다. |
@@ -385,20 +385,20 @@ output checkStrings bool = firstString > secondString
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
-| checkInts | Bool | 거짓 |
+| checkInts | Bool | False |
 | checkStrings | Bool | True |
 
 ## <a name="greaterorequals"></a>greaterOrEquals
 
 `greaterOrEquals(arg1, arg2)`
 
-첫 번째 값이 두 번째 값보다 크거나 같은지 여부를 확인합니다. `greaterOrEquals`함수는 Bicep에서 지원 되지 않습니다. 연산자를 `>=` 대신 사용 합니다.
+첫 번째 값이 두 번째 값보다 크거나 같은지 여부를 확인합니다. Bicep에서 `greaterOrEquals` 함수는 지원되지 않습니다. 대신 `>=` 연산자를 사용하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int 또는 문자열 |greater 또는 equal 비교에 사용할 첫 번째 값입니다. |
 | arg2 |예 |int 또는 문자열 |greater 또는 equal 비교에 사용할 두 번째 값입니다. |
@@ -466,20 +466,20 @@ output checkStrings bool = firstString >= secondString
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
-| checkInts | Bool | 거짓 |
+| checkInts | Bool | False |
 | checkStrings | Bool | True |
 
 ## <a name="less"></a>less
 
 `less(arg1, arg2)`
 
-첫 번째 값이 두 번째 값보다 작은지 여부를 확인합니다. `less`함수는 Bicep에서 지원 되지 않습니다. 연산자를 `<` 대신 사용 합니다.
+첫 번째 값이 두 번째 값보다 작은지 여부를 확인합니다. Bicep에서 `less` 함수는 지원되지 않습니다. 대신 `<` 연산자를 사용하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int 또는 문자열 |less 비교에 사용할 첫 번째 값입니다. |
 | arg2 |예 |int 또는 문자열 |less 비교에 사용할 두 번째 값입니다. |
@@ -547,20 +547,20 @@ output checkStrings bool = firstString < secondString
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
-| checkStrings | Bool | 거짓 |
+| checkStrings | Bool | False |
 
 ## <a name="lessorequals"></a>lessOrEquals
 
 `lessOrEquals(arg1, arg2)`
 
-첫 번째 값이 두 번째 값보다 작거나 같은지 여부를 확인합니다. `lessOrEquals`함수는 Bicep에서 지원 되지 않습니다. 연산자를 `<=` 대신 사용 합니다.
+첫 번째 값이 두 번째 값보다 작거나 같은지 여부를 확인합니다. Bicep에서 `lessOrEquals` 함수는 지원되지 않습니다. 대신 `<=` 연산자를 사용하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int 또는 문자열 |less 또는 equals 비교에 사용할 첫 번째 값입니다. |
 | arg2 |예 |int 또는 문자열 |less 또는 equals 비교에 사용할 두 번째 값입니다. |
@@ -628,11 +628,11 @@ output checkStrings bool = firstString <= secondString
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
-| checkStrings | Bool | 거짓 |
+| checkStrings | Bool | False |
 
 ## <a name="next-steps"></a>다음 단계
 
-* ARM 템플릿의 섹션에 대 한 설명은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* ARM 템플릿의 섹션에 대한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하십시오.

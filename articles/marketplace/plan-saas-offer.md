@@ -1,5 +1,5 @@
 ---
-title: Microsoft 상업용 Marketplace를 위한 새 SaaS 제품을 계획하는 방법
+title: Microsoft 상업용 Marketplace를 위한 새 SaaS 제품을 계획하는 방법 - Azure Marketplace
 description: Microsoft 파트너 센터의 상업용 Marketplace 프로그램을 사용하여 Microsoft AppSource, Azure Marketplace 또는 CSP(클라우드 솔루션 공급자) 프로그램을 통해 나열 또는 판매할 새 SaaS(Software as a Service) 제품을 계획하는 방법입니다.
 author: mingshen-ms
 ms.author: mingshen
@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/26/2021
-ms.openlocfilehash: b9b2270034853832f6795203dfaa60b6809a89ba
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 05/25/2021
+ms.openlocfilehash: 92edc1e2e2ae1e359cfd951a239e30d506d2452c
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138952"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110692016"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>상업용 Marketplace를 위한 SaaS 제품을 계획하는 방법
 
@@ -49,15 +49,13 @@ _나에게 연락_ 목록 옵션은 기술 요구 사항이 없습니다. CRM(�
 
 _지금 받기(무료)_ , _평가판_ 및 _Microsoft를 통해 판매_ 목록 옵션의 기술 요구 사항은 다음과 같습니다.
 
-- SaaS 애플리케이션은 다중 테넌트 솔루션이어야 합니다.
-- 사용자 인증에 MSA(Microsoft 계정)와 [Azure AD(Azure Active Directory)](https://azure.microsoft.com/services/active-directory/)를 모두 사용할 수 있습니다.
-- 방문 페이지를 만들어야 합니다. 사용자가 제품을 구매하면 방문 페이지로 리디렉션됩니다. 방문 페이지에서 필요한 추가 프로비전 또는 설정을 완료할 수 있습니다. 방문 페이지를 만드는 방법에 대한 지침은 다음 문서를 참조하세요.
+- 사이트에서 구매자 인증에 MSA(Microsoft 계정)와 [Azure AD(Azure Active Directory)](https://azure.microsoft.com/services/active-directory/)를 모두 사용하도록 설정해야 합니다. Azure AD 계정이 있는 구매자에게 SSO(Single Sign-On)가 있는 Azure AD를 사용하여 애플리케이션에 로그인하도록 해야 합니다.
+- 제품을 구매한 고객에게 원활한 로그인 및 온보딩 환경을 제공하는 랜딩 페이지를 만들어야 합니다. 방문 페이지에서 필요한 추가 프로비저닝 또는 설정을 완료할 수 있습니다. 방문 페이지를 만드는 방법에 대한 지침은 다음 문서를 참조하세요.
   - [상업용 Marketplace의 거래 가능 SaaS 제품에 대한 방문 페이지 작성](azure-ad-transactable-saas-landing-page.md)
   - [상업용 Marketplace의 체험판 또는 평가판 SaaS 제품에 대한 방문 페이지 작성](azure-ad-free-or-trial-landing-page.md)
 
 이러한 추가 기술 요구 사항은 _Microsoft를 통해 판매_(거래 가능) 목록 옵션에만 적용됩니다.
 
-- 구매 사용자가 방문 페이지에 액세스하려면 SSO(Single Sign-On) ID 관리 및 인증을 사용하는 Azure AD가 필요합니다. 자세한 지침은 [상업용 Marketplace의 Azure AD 및 거래 가능 SaaS 제품](azure-ad-saas.md)을 참조하세요.
 - [SaaS 처리 API](./partner-center-portal/pc-saas-fulfillment-api-v2.md)를 사용하여 Azure Marketplace 및 Microsoft AppSource와 통합해야 합니다. SaaS 구독과 상호 작용하여 사용자 계정 및 서비스 플랜을 생성, 업데이트 및 삭제할 수 있는 서비스를 노출해야 합니다. 24시간 내에 중요한 API 변경 내용이 지원되어야 합니다. 중요하지 않은 API 변경 내용은 정기적으로 릴리스됩니다. 수집된 필드의 사용법을 보여주는 다이어그램과 설명은 [API](./partner-center-portal/pc-saas-fulfillment-api-v2.md)에 대한 설명서에서 확인할 수 있습니다.
 - 제품에 대한 플랜을 하나 이상 만들어야 합니다. 플랜 가격은 게시하기 전에 선택하는 가격 책정 모델(_정액제_ 또는 _사용자당_)을 기준으로 책정됩니다. [플랜](#plans)에 대한 자세한 내용은 이 문서의 뒷부분에 나와 있습니다.
 - 고객은 언제든지 제품을 취소할 수 있습니다.
@@ -114,7 +112,7 @@ SaaS 제품이 IT 솔루션(Azure Marketplace)인 *동시에* 비즈니스 솔�
 | 종량제 | 공개 플랜 | 프라이빗 플랜 | 제공 위치: |
 |---|---|---|---|
 | 예             | 예         | 아니요           | Azure Marketplace 및 Azure Portal |
-| 예             | 예         | 예          | Azure Marketplace 및 Azure Portal * |
+| 예             | 예         | 예          | Azure Marketplace 및 Azure Portal* |
 | 예             | 아니요          | 예          | Azure Portal만 |
 | 아니요              | 아니요          | 예          | Azure Portal만 |
 |||||
@@ -149,12 +147,13 @@ Microsoft 365와 통합하면 SaaS 제품은 Teams 앱, Office 추가 기능, Sh
 연결된 제품의 경우 AppSource에서 검색하면 SaaS와 연결된 추가 기능이 모두 포함된 하나의 결과가 반환됩니다. 고객은 SaaS 제품과 연결된 추가 기능의 제품 정보 페이지를 탐색할 수 있습니다. IT 관리자는 Microsoft 365 관리 센터 내에서 통합되고 연결된 환경을 통해 동일한 프로세스 내에서 SaaS 및 연결된 추가 기능을 검토하고 배포할 수 있습니다. 자세한 내용은 [Microsoft 365 앱 테스트 및 배포 - Microsoft 365 관리자](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps)를 참조하세요.
 
 ### <a name="microsoft-365-integration-support-limitations"></a>Microsoft 365 통합 지원 제한 사항
+
 어떤 경우에나 AppSource에서 단일 E2E 솔루션으로 검색할 수 있지만, 위에서 설명한 대로 Microsoft 365 관리 센터를 통해 E2E 솔루션을 간단하게 배포하는 방법은 다음 시나리오에서 지원되지 않습니다.
 
+   - "문의하기" 목록 전용 제품입니다. 
    - 동일한 추가 기능이 둘 이상의 SaaS 제품에 연결되어 있습니다.
    - SaaS 제품이 추가 기능에 연결되었지만 Microsoft Graph와 통합되지 않았으며 AAD 앱 ID가 제공되지 않았습니다.
   - SaaS 제품이 추가 기능에 연결되었지만 Microsoft Graph 통합을 위해 제공된 AAD 앱 ID가 여러 SaaS 제품 간에 공유됩니다.
-
  
 ## <a name="offer-listing-details"></a>제품 목록 세부 정보
 
@@ -221,12 +220,12 @@ Microsoft 365와 통합하면 SaaS 제품은 Teams 앱, Office 추가 기능, Sh
 
 - **미디어 - 스크린샷**: 다음 요구 사항에 따라 제품의 작동 방식을 보여주는 스크린샷을 적어도 하나 이상, 최대 5개까지 추가해야 합니다.
   - 1280x720픽셀
-  - .png 파일
+  - PNG 파일 유형
   - 자막 포함
 - **미디어 - 비디오**(선택 사항): 다음 요구 사항에 따라 제품을 설명하는 비디오를 4개까지 추가할 수 있습니다.
   - Name
   - URL: YouTube 또는 Vimeo에만 호스팅해야 합니다.
-  - 썸네일: 1280x720 .png 파일
+  - 썸네일: 1280x720 PNG 파일
 
 > [!Note]
 > 제품이 일반적인 [상업용 Marketplace 인증 정책](/legal/marketplace/certification-policies#100-general) 및 [Software as a Service 정책](/legal/marketplace/certification-policies#1000-software-as-a-service-saas)을 충족해야 합니다.
@@ -321,7 +320,7 @@ Microsoft에서 지원하는 마케팅 및 판매 채널을 옵트인하도록 �
 
 - **CSP를 통한 재판매**: 이 옵션을 사용하면 Microsoft CSP(클라우드 솔루션 공급자) 파트너가 솔루션을 번들 제품의 일부로 재판매할 수 있습니다. 이 프로그램에 대한 자세한 내용은 [클라우드 솔루션 공급자 프로그램](cloud-solution-providers.md)을 참조하세요.
 
-- **Microsoft와 공동 판매**: 이 옵션을 사용하면 Microsoft 영업 팀이 고객의 요구 사항을 평가할 때 IP 공동 판매 적합 솔루션을 고려합니다. 공동 판매 자격에 대한 자세한 내용은 [공동 판매 상태의 요구 사항](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)을 참조하세요. 제품 평가를 준비하는 방법에 대한 자세한 내용은 [파트너 센터의 공동 판매 옵션](./co-sell-configure.md)을 참조하세요.
+- **Microsoft와 공동 판매**: 이 옵션을 사용하면 Microsoft 영업 팀이 고객의 요구 사항을 평가할 때 IP 공동 판매 적합 솔루션을 고려합니다. 공동 판매 자격에 대한 자세한 내용은 [공동 판매 상태의 요구 사항](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)을 참조하세요. 제품 평가를 준비하는 방법에 대한 자세한 내용은 [파트너 센터의 공동 판매 옵션](co-sell-configure.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

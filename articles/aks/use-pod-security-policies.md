@@ -4,17 +4,17 @@ description: AKS(Azure Kubernetes Service)에서 PodSecurityPolicy를 사용하�
 services: container-service
 ms.topic: article
 ms.date: 03/25/2021
-ms.openlocfilehash: d95cdb51136511bdd8529c829c3f680d19e14ba9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 260b7a0811db4e3c33894d1b43d7fbd38c26214f
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611772"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015335"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>미리 보기 - AKS(Azure Kubernetes Service)에서 Pod 보안 정책을 사용하여 클러스터 보호
 
 > [!WARNING]
-> **이 문서에서 설명하는 기능인 Pod 보안 정책(미리 보기)은 Kubernetes 버전 1.21에서 더 이상 사용되지 않으며, 1.25에서는 제거됩니다.** Kubernetes 업스트림이 이 마일스톤에 도달함에 따라 Kubernetes 커뮤니티는 실행 가능한 대안을 문서화하기 위해 노력하고 있습니다. 이전의 사용 중단은 고객에게 실행 가능한 옵션이 없어 당시에 발표되었습니다. 이제 Kubernetes 커뮤니티에서 대안을 찾고 있으므로 더 이상 Kubernetes보다 먼저 사용을 중단해야 할 필요가 없습니다.
+> **이 문서에서 설명하는 기능인 Pod 보안 정책(미리 보기)은 Kubernetes 버전 1.21에서 [더 이상 사용되지](https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/) 않으며, 1.25에서는 제거됩니다.** Kubernetes 업스트림이 이 마일스톤에 도달함에 따라 Kubernetes 커뮤니티는 실행 가능한 대안을 문서화하기 위해 노력하고 있습니다. 이전의 사용 중단은 고객에게 실행 가능한 옵션이 없어 당시에 발표되었습니다. 이제 Kubernetes 커뮤니티에서 대안을 찾고 있으므로 더 이상 Kubernetes보다 먼저 사용을 중단해야 할 필요가 없습니다. 
 >
 > Pod 보안 정책(미리 보기)이 더 이상 사용되지 않는 경우 향후 클러스터 업그레이드를 수행하고 Azure 지원을 유지하려면 더 이상 사용되지 않는 기능을 사용하여 기존 클러스터에서 이 기능을 사용하지 않도록 설정해야 합니다.
 
@@ -460,15 +460,15 @@ Pod 네트워크 트래픽을 제한하는 방법에 대한 자세한 내용은 
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [network-policies]: use-network-policies.md
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
-[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-aks-update]: /cli/azure/aks#az_aks_update
+[az-extension-add]: /cli/azure/extension#az_extension_add
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [policy-samples]: ./policy-reference.md#microsoftcontainerservice
 [azure-policy-add-on]: ../governance/policy/concepts/policy-for-kubernetes.md

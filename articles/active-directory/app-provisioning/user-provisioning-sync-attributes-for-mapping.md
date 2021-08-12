@@ -3,21 +3,22 @@ title: 매핑을 위해 Azure Active Directory에 특성 동기화
 description: Azure Active Directory 및 SaaS 앱을 사용하여 사용자 프로비저닝을 구성하는 경우 디렉터리 확장 기능을 사용하여 기본값으로 동기화되지 않은 원본 특성을 추가합니다.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 03/31/2021
 ms.author: kenwith
-ms.openlocfilehash: 102c0f7363b8d4f635762a33b82825e9ae71dfc6
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.reviewer: arvinh
+ms.openlocfilehash: 2cc6c3ec2b58a64491b0741658db325e808f0fa5
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120795"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784650"
 ---
-# <a name="syncing-extension-attributes-for-app-provisioning"></a>앱 프로비저닝을 위한 확장 특성 동기화
+# <a name="syncing-extension-attributes-for-azure-active-directory-application-provisioning"></a>Azure Active Directory 애플리케이션 프로비저닝을 위한 확장 특성 동기화
 
 Azure AD(Azure Active Directory)에서 사용자 계정을 [SaaS 앱](../saas-apps/tutorial-list.md)으로 프로비저닝할 때 사용자 프로필을 만드는 데 필요한 모든 데이터(특성)를 Azure AD에 포함해야 합니다. 사용자 프로비저닝을 위해 특성 매핑을 사용자 지정할 때 매핑하려는 특성이 **원본 특성** 목록에 나타나지 않을 수 있습니다. 이 문서에서는 누락된 특성을 추가하는 방법을 보여 줍니다.
 
@@ -28,10 +29,10 @@ Azure AD에만 사용되는 사용자의 경우 [PowerShell 또는 Microsoft Gra
 ## <a name="create-an-extension-attribute-on-a-cloud-only-user"></a>클라우드 전용 사용자의 확장 특성 만들기
 Microsoft Graph 및 PowerShell을 사용하여 Azure AD의 사용자를 위한 사용자 스키마를 확장할 수 있습니다. 확장 특성은 대부분의 경우 자동으로 검색됩니다.
 
-서비스 주체가 1000개를 초과하는 경우 원본 특성 목록에 누락된 확장이 있을 수 있습니다. 만들었던 특성이 자동으로 표시되지 않으면 해당 특성이 만들어졌는지 확인하고 스키마에 수동으로 추가합니다. Microsoft Graph 및 [Graph 탐색기](/graph/graph-explorer/graph-explorer-overview.md)를 사용하여 만들어졌는지 확인합니다. 스키마에 수동으로 추가하려면 [지원되는 특성 목록 편집](customize-application-attributes.md#editing-the-list-of-supported-attributes)을 참조하세요.
+서비스 주체가 1000개를 초과하는 경우 원본 특성 목록에 누락된 확장이 있을 수 있습니다. 만들었던 특성이 자동으로 표시되지 않으면 해당 특성이 만들어졌는지 확인하고 스키마에 수동으로 추가합니다. Microsoft Graph 및 [Graph 탐색기](/graph/graph-explorer/graph-explorer-overview)를 사용하여 만들어졌는지 확인합니다. 스키마에 수동으로 추가하려면 [지원되는 특성 목록 편집](customize-application-attributes.md#editing-the-list-of-supported-attributes)을 참조하세요.
 
 ### <a name="create-an-extension-attribute-on-a-cloud-only-user-using-microsoft-graph"></a>Microsoft Graph를 사용하여 클라우드 전용 사용자의 확장 특성 만들기
-[Microsoft Graph](/graph/overview.md)를 사용하여 Azure AD 사용자의 스키마를 확장할 수 있습니다. 
+[Microsoft Graph](/graph/overview)를 사용하여 Azure AD 사용자의 스키마를 확장할 수 있습니다. 
 
 먼저, 작업 중인 앱의 ID를 가져올 수 있도록 테넌트의 앱을 나열합니다. 자세한 정보는 [extensionProperties 나열](/graph/api/application-list-extensionproperty?view=graph-rest-1.0&tabs=http&preserve-view=true)을 참조하세요.
 
@@ -54,7 +55,7 @@ Content-type: application/json
 }
 ```
 
-이전 요청은 `extension_appID_extensionName` 형식으로 확장 특성을 만들었습니다. 이제 이 확장 특성으로 사용자를 업데이트할 수 있습니다. 자세한 내용은 [사용자 업데이트](/graph/api/user-update.md?view=graph-rest-1.0&tabs=http&preserve-view=true)를 참조하세요.
+이전 요청은 `extension_appID_extensionName` 형식으로 확장 특성을 만들었습니다. 이제 이 확장 특성으로 사용자를 업데이트할 수 있습니다. 자세한 내용은 [사용자 업데이트](/graph/api/user-update?view=graph-rest-1.0&tabs=http&preserve-view=true)를 참조하세요.
 ```json
 PATCH https://graph.microsoft.com/v1.0/users/{id}
 Content-type: application/json
@@ -63,7 +64,7 @@ Content-type: application/json
   "extension_inputAppId_extensionName": "extensionValue"
 }
 ```
-마지막으로 사용자의 특성을 확인합니다. 자세한 내용은 [사용자 가져오기](/graph/api/user-get.md?view=graph-rest-1.0&tabs=http#example-3-users-request-using-select&preserve-view=true)를 참조하세요.
+마지막으로 사용자의 특성을 확인합니다. 자세한 내용은 [사용자 가져오기](/graph/api/user-get?view=graph-rest-1.0&tabs=http#example-3-users-request-using-select&preserve-view=true)를 참조하세요.
 
 ```json
 GET https://graph.microsoft.com/v1.0/users/{id}?$select=displayName,extension_inputAppId_extensionName

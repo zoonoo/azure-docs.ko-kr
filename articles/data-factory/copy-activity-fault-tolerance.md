@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 0fe1470661c006399ea176af1112d271524b2a1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb3a7b66d27fcf7669d3d2f863f104a46387e90f
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100390966"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902486"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업 내결함성
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -246,7 +246,7 @@ Timestamp, Level, OperationName, OperationItem, Message
 
 ## <a name="copying-tabular-data-legacy"></a>테이블 형식 데이터 복사(레거시):
 
-다음은 테이블 형식 데이터만 복사하기 위해 내결함성을 설정하는 레거시 방법입니다. 새 파이프라인이나 활동을 만드는 경우에는 [여기](#copying-tabular-data)에서 시작하는 것이 좋습니다.
+다음은 테이블 형식 데이터만 복사하기 위해 내결함성을 설정하는 레거시 방식입니다. 새 파이프라인이나 활동을 만드는 경우에는 [여기](#copying-tabular-data)에서 시작하는 것이 좋습니다.
 
 ### <a name="configuration"></a>구성
 다음 예제에서는 복사 작업에서 호환되지 않는 행을 건너뛰도록 구성하기 위한 JSON 정의를 제공합니다.
