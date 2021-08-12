@@ -1,6 +1,6 @@
 ---
-title: 트래픽 범위 | Microsoft Azure 맵
-description: Azure Maps의 트래픽 범위에 대해 알아봅니다. 트래픽 흐름과 인시던트에 대 한 정보를 전 세계 다양 한 지역에서 사용할 수 있는지 여부를 확인 합니다.
+title: 트래픽 범위 | Microsoft Azure Maps
+description: Azure Maps의 트래픽 범위에 대해 알아봅니다. 트래픽 흐름과 인시던트에 대한 정보를 전 세계 다양한 지역에서 사용할 수 있는지 여부를 확인합니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/22/2018
@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 11aa0eb07ed9cb3a1a785b3155b832f8b447708f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92896874"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps 교통 상황 검사
 
 Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래픽 정보를 제공합니다. 이 데이터는 지도에 시각화되거나, 실제 주행 상태를 고려하는 보다 효율적인 경로를 생성하는 데 사용될 수 있습니다.
 
-그러나 지도에는 모든 국가 또는 지역에 대해 동일한 수준의 정보 및 정확도가 없습니다. 다음 표에서는 각 국가 또는 지역에서 요청할 수 있는 트래픽 정보의 종류에 대 한 정보를 제공 합니다. 
+단, Maps는 모든 지역이나 국가에 동일한 수준의 정보와 정확도를 갖추고 있지는 않습니다. 다음 표에는 각 국가 또는 지역에서 요청할 수 있는 트래픽 정보의 종류에 대한 안내가 나와 있습니다. 
 
 ## <a name="americas"></a>아메리카
 
@@ -110,8 +110,8 @@ Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래�
 |우크라이나     |✓         |✓         |
 |영국     |✓         |✓         |
 |+지브롤터     |✓         |✓         |
-|+ 건지 & Jersey     |✓         |✓         |
-|+ 맨 섬     |✓         |✓         |
+|+건지, 저지     |✓         |✓         |
+|+맨 섬     |✓         |✓         |
 |바티칸 시국   |✓         |✓         |
 
 

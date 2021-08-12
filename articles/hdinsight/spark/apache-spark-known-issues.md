@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: c92b55d3ac7f4476b7b74d25b40150a74c6ea1cf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98930160"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에 대한 알려진 문제
@@ -19,7 +19,7 @@ ms.locfileid: "98930160"
 ## <a name="apache-livy-leaks-interactive-session"></a>Apache Livy 대화형 세션 유출
 [Apache Livy](https://livy.incubator.apache.org/)가 아직 활성 상태인 대화형 세션으로 재시작하는 경우([Apache Ambari](https://ambari.apache.org/)에서 또는 헤드 노드 0 가상 머신 재부팅으로 인해) 대화형 작업 세션이 유출됩니다. 따라서 새 작업은 수락됨 상태에서 멈출 수 있습니다.
 
-**조치**
+**해결 방법:**
 
 다음 절차에 따라 문제를 해결합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "98930160"
    yarn application –list
    ```
 
-    작업이 명시적으로 지정된 이름 없이 Livy 대화형 세션으로 시작된 경우 기본 작업 이름은 Livy가 됩니다. [Jupyter Notebook](https://jupyter.org/)에서 시작 된 Livy 세션의 경우 작업 이름은로 시작 `remotesparkmagics_*` 합니다.
+    작업이 명시적으로 지정된 이름 없이 Livy 대화형 세션으로 시작된 경우 기본 작업 이름은 Livy가 됩니다. [Jupyter Notebook](https://jupyter.org/)을 통해 시작된 Livy 세션의 경우 작업 이름이 `remotesparkmagics_*`로 시작됩니다.
 
 3. 다음 명령을 실행하여 해당 작업을 중지합니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "98930160"
 ## <a name="spark-history-server-not-started"></a>Spark 기록 서버가 시작되지 않음
 클러스터가 만들어진 후 Spark 기록 서버가 자동으로 시작되지 않습니다.  
 
-**조치**
+**해결 방법:**
 
 Ambari에서 기록 서버를 수동으로 시작합니다.
 
@@ -57,7 +57,7 @@ java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permissio
 
 또한 드라이버 로그가 기록되지 않습니다.
 
-**조치**
+**해결 방법:**
 
 1. hdiuser를 Hadoop 그룹에 추가합니다.
 2. 클러스터를 만든 후에 /var/log/spark에 777 권한을 제공합니다.
@@ -68,23 +68,23 @@ java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permissio
 
 HDInsight Spark 클러스터는 Spark-Phoenix 커넥터를 지원하지 않습니다.
 
-**조치**
+**해결 방법:**
 
 대신 Spark-HBase 커넥터를 사용해야 합니다. 자세한 내용은 [Spark-HBase 커넥터 사용 방법](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/)을 참조하세요.
 
-## <a name="issues-related-to-jupyter-notebooks"></a>Jupyter 노트북과 관련 된 문제
+## <a name="issues-related-to-jupyter-notebooks"></a>Jupyter Notebook 관련 문제
 
-다음은 Jupyter 노트북과 관련 된 몇 가지 알려진 문제입니다.
+다음은 Jupyter Notebook과 관련된 몇 가지 알려진 문제입니다.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>파일 이름에 ASCII가 아닌 문자가 있는 Notebook
 
-Jupyter Notebook 파일 이름에 ASCII가 아닌 문자를 사용 하지 마세요. Jupyter UI를 통해 ASCII가 아닌 파일 이름을 갖는 파일을 업로드하려고 하면 오류 메시지 없이 실패합니다. Jupyter에서는 해당 파일을 업로드할 수 없도록 하지만 보이는 오류를 throw하지 않습니다.
+Jupyter Notebook 파일 이름에는 비 ASCII 문자를 사용하지 마세요. Jupyter UI를 통해 ASCII가 아닌 파일 이름을 갖는 파일을 업로드하려고 하면 오류 메시지 없이 실패합니다. Jupyter에서는 해당 파일을 업로드할 수 없도록 하지만 보이는 오류를 throw하지 않습니다.
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>더 큰 Notebook을 로드하는 중 오류
 
-크기가 더 큰 노트북을 로드 하면 오류가 표시 될 수 있습니다 **`Error loading notebook`** .  
+더 큰 Notebook을 로드할 때 **`Error loading notebook`** 오류가 표시될 수 있습니다.  
 
-**조치**
+**해결 방법:**
 
 이 오류가 발생했다고 해서 데이터가 손상되거나 손실된 것은 아닙니다.  Notebook은 여전히 `/var/lib/jupyter`의 디스크에 있으며 클러스터에 대한 SSH를 통해 액세스할 수 있습니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -92,22 +92,22 @@ SSH를 사용하여 클러스터에 연결한 경우 Notebook을 사용자의 �
 
 나중에 이 오류가 발생하지 않도록 하려면 몇 가지 모범 사례를 따라야 합니다.
 
-* 노트북 크기를 작게 유지하는 것이 중요합니다. Jupyter에 다시 전송된 Spark 작업의 출력은 노트북에 보관됩니다.  일반적으로는 Jupyter를 사용 하 여 대량 RDD 또는 데이터 프레임에서 실행 하지 않도록 하는 것이 가장 좋습니다 `.collect()` . 대신 RDD의 내용을 피킹 (peeking) 하려는 경우 `.take()` 출력이 너무 커지지 않도록 또는를 실행 하는 것이 좋습니다 `.sample()` .
+* 노트북 크기를 작게 유지하는 것이 중요합니다. Jupyter에 다시 전송된 Spark 작업의 출력은 노트북에 보관됩니다.  RDD의 데이터 프레임에서 `.collect()`를 실행하지 못하도록 하는 것이 Jupyter의 모범 사례입니다. 그 대신 RDD의 콘텐츠를 살펴보려면 출력이 너무 커지지 않도록 `.take()` 또는 `.sample()`의 실행을 고려합니다.
 * 또한 노트북을 저장할 때 모든 출력을 지워서 크기를 줄입니다.
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>노트북 초기 시작이 예상보다 오래 걸리는 경우
 
-Spark magic을 사용 하 Jupyter Notebook 첫 번째 코드 문은 1 분 이상 걸릴 수 있습니다.  
+Jupyter Notebook에서 Spark 매직을 사용한 첫 번째 코드 문의 경우 1분 이상이 걸릴 수 있습니다.  
 
-**보고**
+**설명:**
 
 이는 첫 번째 코드 셀이 실행될 때 발생합니다. 백그라운드에서 세션 구성이 시작되고 Spark, SQL 및 Hive 컨텍스트가 설정됩니다. 이러한 컨텍스트가 설정된 후 첫 번째 문이 실행되므로 문이 완료되는 데 시간이 오래 걸린 것 같은 느낌이 듭니다.
 
-### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>세션을 만들 때 시간 초과 Jupyter Notebook
+### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>세션 만들기에서 Jupyter Notebook 시간 제한
 
-Spark 클러스터에 리소스가 부족 한 경우 Jupyter Notebook의 Spark 및 PySpark 커널은 세션을 만들려고 시도 하는 시간을 초과 합니다.
+Spark 클러스터에 리소스가 부족할 때 Jupyter Notebook에서 Spark 및 PySpark 커널은 세션을 만들려고 할 때 시간 초과가 됩니다.
 
-**조치**
+**해결 방법:**
 
 1. 다음과 같은 방법으로 Spark 클러스터의 리소스를 확보합니다.
 
@@ -137,8 +137,8 @@ Spark 클러스터에 리소스가 부족 한 경우 Jupyter Notebook의 Spark �
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 애플리케이션 만들기 및 제출](apache-spark-intellij-tool-plugin.md)
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Apache Spark 애플리케이션을 원격으로 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
-* [HDInsight 용 Apache Spark 클러스터의 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
-* [Jupyter 노트북에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)
+* [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
+* [Jupyter Notebook에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>리소스 관리

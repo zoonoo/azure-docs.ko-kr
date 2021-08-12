@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 03/08/2021
-ms.openlocfilehash: e583d39e2eed1b08dfeb17cafc1e12c583176d7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3e509a67eaf4bcc921032e762f54402f650ae3e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103493036"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971221"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>상업용 Marketplace의 지리적 가용성 및 통화 지원
 
@@ -196,14 +196,14 @@ API를 사용하여 개별 가격(설정된 방식에 따라 가격이 저장된
 
 특정 제품 유형의 가격을 입력하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure 애플리케이션 제품 만들기](create-new-azure-apps-offer.md)
-- [Azure 컨테이너 제품 만들기](./create-azure-container-offer.md)
+- [Azure 애플리케이션 제품 만들기](azure-app-offer-setup.md)
+- [Azure 컨테이너 제품 만들기](azure-container-offer-setup.md)
 - [Azure 가상 머신 제품 만들기](azure-vm-create.md)
 - [컨설팅 서비스 제품 만들기](./create-consulting-service-offer.md)
-- [Dynamics 365 for Customer Engagement 및 PowerApps 제품 만들기](partner-center-portal/create-new-customer-engagement-offer.md)
-- [Dynamics 365 for Operations 제품 만들기](partner-center-portal/create-new-operations-offer.md)
-- [Dynamics 365 Business Central 제품 만들기](partner-center-portal/create-new-business-central-offer.md)
-- [IoT Edge 모듈 제품 만들기](partner-center-portal/azure-iot-edge-module-creation.md)
+- [Dynamics 365 for Customer Engagement 및 Power Apps 제품 만들기](dynamics-365-customer-engage-offer-setup.md)
+- [Dynamics 365 for Operations 제품 만들기](dynamics-365-operations-offer-setup.md)
+- [Dynamics 365 Business Central 제품 만들기](dynamics-365-business-central-offer-setup.md)
+- [IoT Edge 모듈 제품 만들기](iot-edge-offer-setup.md)
 - [관리되는 서비스 제품 만들기](./plan-managed-service-offer.md)
-- [Power BI 앱 만들기](partner-center-portal/create-power-bi-app-offer.md)
+- [Power BI 앱 만들기](./power-bi-app-offer-setup.md)
 - [SaaS 제품 만들기](./create-new-saas-offer.md)

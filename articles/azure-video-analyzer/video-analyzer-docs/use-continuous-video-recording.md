@@ -2,13 +2,13 @@
 title: 비디오 연속 녹화 및 재생 자습서 - Azure Video Analyzer
 description: 이 자습서에서는 Azure Video Analyzer를 사용하여 비디오를 클라우드에 연속 녹화하고 재생하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 04/01/2021
-ms.openlocfilehash: d62b9f413f0613d8152d3b0106fd398f89d3b95c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 2f3fc2421a2341974aa7ea7bdafeaf0123ea983e
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110384319"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602927"
 ---
 # <a name="tutorial-continuous-video-recording-and-playback"></a>자습서: 연속 비디오 녹화 및 재생
 
@@ -282,12 +282,11 @@ Azure Portal에 로그인하여 비디오를 살펴보면 라이브 파이프라
 1. 비디오를 선택합니다.
 1. 비디오 세부 정보 페이지가 열리고 재생이 자동으로 시작됩니다.
 
-> [!NOTE]
-> 비디오 원본은 카메라 피드를 시뮬레이션하는 컨테이너이므로 비디오의 타임스탬프는 라이브 파이프라인을 활성화한 시간 및 비활성화한 시간과 관련이 있습니다.
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 자습서를 진행하려면 여기서 만든 리소스를 그대로 둡니다. 다른 자습서를 진행할 생각이 없으면 Azure Portal로 이동하여 해당하는 리소스 그룹을 찾고, 이 자습서를 실행한 리소스 그룹을 선택하고, 리소스 그룹을 삭제합니다.
+[!INCLUDE [prerequisites](./includes/common-includes/clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

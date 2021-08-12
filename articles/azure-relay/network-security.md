@@ -1,13 +1,13 @@
 ---
 title: Azure Relay에 대한 네트워크 보안
-description: 이 문서에서는 Azure Relay에서 IP 방화벽 규칙 및 개인 끝점을 사용 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure Relay에서 IP 방화벽 규칙 및 프라이빗 엔드포인트를 사용하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 735a0b7dc303ad63cb301151e3e14e4488c856b1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98217246"
 ---
 # <a name="network-security-for-azure-relay"></a>Azure Relay에 대한 네트워크 보안 

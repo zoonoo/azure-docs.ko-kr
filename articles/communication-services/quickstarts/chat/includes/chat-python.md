@@ -6,23 +6,21 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 4f0eb345a51091ca354887fd3a798ae6e6da3ec7
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: e0c2deba9bdd69c6a4c9c9c5f0974a181c6c2472
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111429483"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113113410"
 ---
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
+## <a name="sample-code"></a>샘플 코드
+[GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/add-chat)에서 이 빠른 시작에 대한 최종 코드를 찾습니다.
 
-> [!NOTE]
-> [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/add-chat)에서 이 빠른 시작에 대한 최종 코드 칮기
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 다음을 확인해야 합니다.
 
 - 활성 구독이 있는 Azure 계정을 만듭니다. 자세한 내용은 [체험 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)를 참조하세요.

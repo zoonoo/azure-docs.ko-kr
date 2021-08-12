@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/12/2021
 ms.author: alkohli
-ms.openlocfilehash: d20ade0fdf6262c08a4ae961d17b1ec8a9ba39f2
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 68dc83e9954875b5f9b5adab37d7ddd212534eaa
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065806"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113359788"
 ---
 # <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-pro-gpu"></a>자습서: Azure Stack Edge Pro GPU를 사용하여 스토리지 계정을 통해 데이터 전송 
 
@@ -95,7 +95,7 @@ myasetiered1       myasetiered1      DBELocal StandardLRS Storage            11/
 
 액세스 키를 가져오려면 다음 cmdlet을 실행합니다.
 
-`Get-AzureRmStorageAccountAccessKey`
+`Get-AzureRmStorageAccountKey`
 
 샘플 출력은 다음과 같습니다.
 
@@ -136,7 +136,7 @@ https를 통해 Azure Blob 스토리지 REST API에 연결하려면 다음 단�
 
 HTTPS를 통해 Blob 스토리지에 액세스하려면 디바이스에 대한 SSL 인증서가 필요합니다. 또한 이 인증서를 프라이빗 키가 연결된 *.pfx* 파일로 Azure Stack Edge Pro 디바이스에 업로드합니다. 테스트 및 개발 목적으로만 이러한 인증서를 만들고 Azure Stack Edge Pro 디바이스에 업로드하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Blob 엔드포인트 인증서 만들기](azure-stack-edge-gpu-manage-certificates.md#create-certificates-optional)
+- [Blob 엔드포인트 인증서 만들기](azure-stack-edge-gpu-create-certificates-powershell.md#create-certificates)
 - [Blob 엔드포인트 인증서 업로드](azure-stack-edge-gpu-manage-certificates.md#upload-certificates)
 - [디바이스에 액세스하는 클라이언트에서 인증서 가져오기](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)
 

@@ -1,5 +1,5 @@
 ---
-title: 데이터 보안 및 암호화 모범 사례-Microsoft Azure
+title: 데이터 보안 및 암호화 모범 사례 | Microsoft Azure
 description: 이 문서에서는 기본 제공 Azure 기능을 사용한 데이터 보안 및 암호화 모범 사례를 제공합니다.
 services: security
 documentationcenter: na
@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: 414445f90c3be4c55166f6a0ecead25074d6ed74
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98874116"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 데이터 보안 및 암호화 모범 사례
-이 문서에서는 데이터 보안 및 암호화에 대 한 모범 사례를 설명 합니다.
+이 문서에서는 데이터 보안 및 암호화의 모범 사례를 설명합니다.
 
-모범 사례는 의견의 일치를 기반으로 하며 현재 Azure 플랫폼 기능 및 기능 집합과 함께 작동합니다. 의견 및 기술은 시간이 지남에 따라 변경 되며이 문서는 이러한 변경 내용을 반영 하기 위해 정기적으로 업데이트 됩니다.
+모범 사례는 의견의 일치를 기반으로 하며 현재 Azure 플랫폼 기능 및 기능 집합과 함께 작동합니다. 이 문서는 시간이 지남에 따라 변화하는 의견 및 기술을 반영하여 주기적으로 업데이트됩니다.
 
 ## <a name="protect-data"></a>데이터 보호
 클라우드에서 데이터를 보호하려면 데이터에서 발생 가능한 상태 및 해당 상태에 사용 가능한 컨트롤을 고려해야 합니다. Azure 데이터 보안 및 암호화의 모범 사례는 다음과 같은 데이터 상태와 관련이 있습니다.
@@ -46,12 +46,12 @@ Azure Key Vault는 애플리케이션 키와 비밀을 지원하도록 설계되
 Key Vault를 사용하는 보안 모범 사례는 다음과 같습니다.
 
 **모범 사례**: 특정 범위의 사용자, 그룹 및 애플리케이션에 액세스 권한 부여   
-**세부 정보**: 미리 정의 된 Azure RBAC 역할을 사용 합니다. 예를 들어 사용자에 게 키 자격 증명 모음을 관리 하기 위한 액세스 권한을 부여 하려면 특정 범위에서이 사용자에 게 [참여자 Key Vault](../../role-based-access-control/built-in-roles.md) 미리 정의 된 역할을 할당 합니다. 이 경우의 범위는 구독, 리소스 그룹 또는 특정 키 자격 증명 모음입니다. 미리 정의 된 역할이 사용자 요구에 맞지 않는 경우 [고유한 역할을 정의할](../../role-based-access-control/custom-roles.md)수 있습니다.
+**세부 정보**: Azure RBAC 미리 정의된 역할을 사용합니다. 예를 들어 키 자격 증명 모음을 관리하기 위해 사용자에게 액세스 권한을 부여하려면 특정 범위에 속한 해당 사용자에게 미리 정의된 [Key Vault 기여자](../../role-based-access-control/built-in-roles.md) 역할을 할당합니다. 이 경우의 범위는 구독, 리소스 그룹 또는 특정 키 자격 증명 모음입니다. 미리 정의된 역할이 필요에 맞지 않는 경우 [고유한 역할을 정의](../../role-based-access-control/custom-roles.md)할 수 있습니다.
 
 **모범 사례**: 액세스 권한이 있는 사용자 제어   
 **세부 정보**: 키 자격 증명 모음에 대한 액세스는 관리 평면 및 데이터 평면이라는 두 개의 별도 인터페이스를 통해 제어됩니다. 관리 평면과 데이터 평면 액세스 제어는 독립적으로 작동합니다.
 
-Azure RBAC를 사용 하 여 사용자가 액세스할 수 있는 항목을 제어 합니다. 예를 들어 키 자격 증명 모음의 키를 사용하도록 액세스 권한을 애플리케이션에 부여하려면 키 자격 증명 모음 액세스 정책을 사용하여 데이터 평면 액세스 권한만 부여하면 되고, 관리 평면 액세스 권한은 해당 애플리케이션에 필요하지 않습니다. 반대로, 사용자가 자격 증명 모음 속성 및 태그를 읽을 수 있지만 키, 암호 또는 인증서에 대 한 액세스 권한이 없는 경우 Azure RBAC를 사용 하 여이 사용자에 게 읽기 액세스 권한을 부여할 수 있으며, 데이터 평면에 대 한 액세스 권한은 필요 하지 않습니다.
+Azure RBAC를 사용하여 액세스 권한이 있는 사용자를 제어합니다. 예를 들어 키 자격 증명 모음의 키를 사용하도록 액세스 권한을 애플리케이션에 부여하려면 키 자격 증명 모음 액세스 정책을 사용하여 데이터 평면 액세스 권한만 부여하면 되고, 관리 평면 액세스 권한은 해당 애플리케이션에 필요하지 않습니다. 반대로 사용자가 자격 증명 모음 속성과 태그를 읽을 수 있지만 키, 비밀 또는 인증서에 대한 액세스 권한이 없는 경우 Azure RBAC를 사용하여 이 사용자에게 읽기 권한을 부여하면 되고, 데이터 평면에 대한 액세스 권한은 필요하지 않습니다.
 
 **모범 사례**: 키 자격 증명 모음에 인증서 저장 인증서는 가치가 높습니다. 잘못 사용되면 애플리케이션의 보안 또는 데이터의 보안이 손상될 수 있습니다.   
 **세부 정보**: Azure Resource Manager는 VM을 배포할 때 Azure Key Vault에 저장된 인증서를 Azure VM에 안전하게 배포할 수 있습니다. 키 자격 증명 모음에 대한 적절한 액세스 정책을 설정하여 인증서에 대한 액세스 권한이 있는 사용자도 제어합니다. 또 다른 이점은 Azure Key Vault의 한 곳에서 모든 인증서를 관리할 수 있다는 점입니다. 자세한 내용은 [고객 관리 Key Vault에서 VM에 인증서 배포](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault)를 참조하세요.
@@ -60,7 +60,7 @@ Azure RBAC를 사용 하 여 사용자가 액세스할 수 있는 항목을 제�
 **세부 정보**: 키 자격 증명 모음 또는 키 자격 증명 모음 개체를 우발적이나 악의적으로 삭제할 수 있습니다. 특히 미사용 데이터를 암호화하는 데 사용되는 키의 경우 키 자격 증명 모음의 일시 삭제 및 제거 보호 기능을 사용하도록 설정합니다. 이러한 키를 삭제하는 작업은 데이터 손실과 동일합니다. 따라서 필요한 경우 삭제된 자격 증명 모음 및 자격 증명 모음 개체를 복구할 수 있습니다. 정기적으로 Key Vault 복구 작업을 연습합니다.
 
 > [!NOTE]
-> 사용자에 게 주요 자격 증명 모음 관리 평면에 대 한 참가자 권한 (Azure RBAC)이 있는 경우 키 자격 증명 모음 액세스 정책을 설정 하 여 데이터 평면에 대 한 액세스 권한을 자신에 게 부여할 수 있습니다. 권한이 있는 사용자만 키 자격 증명 모음, 키, 비밀 및 인증서에 액세스하고 관리할 수 있도록 하려면 키 자격 증명 모음에 대한 기여자 액세스 권한을 갖는 사용자를 엄격하게 제어하는 것이 좋습니다.
+> 사용자에게 키 자격 증명 모음 관리 평면에 대한 기여자 사용 권한(Azure RBAC)이 있는 경우 이 사용자는 키 자격 증명 모음 액세스 정책을 설정하여 스스로 데이터 평면에 대한 액세스 권한을 부여할 수 있습니다. 권한이 있는 사용자만 키 자격 증명 모음, 키, 비밀 및 인증서에 액세스하고 관리할 수 있도록 하려면 키 자격 증명 모음에 대한 기여자 액세스 권한을 갖는 사용자를 엄격하게 제어하는 것이 좋습니다.
 >
 >
 
@@ -81,12 +81,12 @@ Azure RBAC를 사용 하 여 사용자가 액세스할 수 있는 항목을 제�
 
 ## <a name="protect-data-at-rest"></a>미사용 데이터 보호
 
-[휴지 상태의 데이터 암호화](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) 는 데이터 개인 정보 보호, 규정 준수 및 데이터 주권를 위한 필수 단계입니다.
+[미사용 데이터 암호화](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/)는 데이터 프라이버시, 규정 준수 및 데이터 주권을 위한 필수 단계입니다.
 
 **모범 사례**: 데이터를 보호할 수 있도록 디스크 암호화 적용   
 **세부 정보**: [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md)을 사용합니다. 그러면 IT 관리자가 Windows 및 Linux IaaS VM 디스크를 암호화할 수 있습니다. 디스크 암호화는 업계 표준인 Windows BitLocker 기능과 Linux dm-crypt 기능을 결합하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다.
 
-기본적으로 미사용 Azure Storage 및 Azure SQL Database 데이터 및 많은 서비스는 암호화를 옵션으로 제공합니다. Azure Key Vault를 사용하여 데이터에 액세스하고 암호화하는 키의 제어를 유지 관리할 수 있습니다. [자세히 알아보려면 Azure 리소스 공급자 암호화 모델 지원을](encryption-atrest.md#azure-resource-providers-encryption-model-support)참조 하세요.
+기본적으로 미사용 Azure Storage 및 Azure SQL Database 데이터 및 많은 서비스는 암호화를 옵션으로 제공합니다. Azure Key Vault를 사용하여 데이터에 액세스하고 암호화하는 키의 제어를 유지 관리할 수 있습니다. [자세히 알아보려면 Azure 리소스 공급자 암호화 모델 지원](encryption-atrest.md#azure-resource-providers-encryption-model-support)을 참조하세요.
 
 **모범 사례**: 암호화를 사용하여 권한 없는 데이터 액세스와 관련된 위험 완화   
 **세부 정보**: 중요한 데이터를 작성하기 전에 드라이브를 암호화합니다.
@@ -97,7 +97,7 @@ Azure RBAC를 사용 하 여 사용자가 액세스할 수 있는 항목을 제�
 
 전송 중인 데이터 보호는 데이터 보호 전략의 핵심입니다. 데이터는 여러 위치 간에 앞뒤로 이동하므로 일반적으로는 항상 SSL/TLS 프로토콜을 사용하여 서로 다른 위치에서 데이터를 교환하는 것이 좋습니다. 경우에 따라 VPN을 사용하여 온-프레미스와 클라우드 인프라 간에 전체 통신 채널을 격리하는 것이 좋습니다.
 
-온-프레미스 인프라와 Azure 간에 이동하는 데이터의 경우 HTTPS 또는 VPN과 같은 적절한 안전 장치를 고려합니다. 공용 인터넷을 통해 Azure 가상 네트워크와 온-프레미스 위치 간에 암호화 된 트래픽을 보내는 경우 [azure VPN Gateway](../../vpn-gateway/index.yml)를 사용 합니다.
+온-프레미스 인프라와 Azure 간에 이동하는 데이터의 경우 HTTPS 또는 VPN과 같은 적절한 안전 장치를 고려합니다. 공용 인터넷을 통해 가상 네트워크와 온-프레미스 위치 간에 암호화된 트래픽을 전송하는 경우 [Azure VPN Gateway](../../vpn-gateway/index.yml)를 사용합니다.
 
 Azure VPN Gateway, SSL/TLS 및 HTTPS를 사용하는 데 관련된 모범 사례는 다음과 같습니다.
 
@@ -111,9 +111,9 @@ Azure VPN Gateway, SSL/TLS 및 HTTPS를 사용하는 데 관련된 모범 사례
 **세부 정보**: [ExpressRoute](../../expressroute/expressroute-introduction.md)를 사용합니다. ExpressRoute를 사용하도록 선택한 경우 SSL/TLS 또는 기타 프로토콜을 사용하여 애플리케이션 수준에서 데이터를 암호화하면 보안 수준을 더욱 높일 수 있습니다.
 
 **모범 사례**: Azure Portal을 통해 Azure Storage와 상호 작용   
-**세부 정보**: 모든 트랜잭션은 HTTPS를 통해 발생합니다. HTTPS를 통해 [저장소 REST API](/rest/api/storageservices/) 을 사용 하 여 [Azure Storage](https://azure.microsoft.com/services/storage/)와 상호 작용할 수도 있습니다.
+**세부 정보**: 모든 트랜잭션은 HTTPS를 통해 발생합니다. 또한 HTTPS를 통한 [Storage REST API](/rest/api/storageservices/)를 사용하여 [Azure Storage](https://azure.microsoft.com/services/storage/)와 상호 작용할 수 있습니다.
 
-전송 중인 데이터를 보호 하지 못하는 조직은 메시지 가로채기 ( [man-in-the-middle) 공격](/previous-versions/office/skype-server-2010/gg195821(v=ocs.14)), [도청](/previous-versions/office/skype-server-2010/gg195641(v=ocs.14))및 세션 하이재킹에 더 취약 합니다. 이러한 공격은 기밀 데이터에 액세스하기 위한 첫 번째 단계일 수 있습니다.
+전송 중인 데이터 보호에 실패하는 조직은 [가로채기(man-in-the-middle) 공격](/previous-versions/office/skype-server-2010/gg195821(v=ocs.14)), [도청](/previous-versions/office/skype-server-2010/gg195641(v=ocs.14)) 및 세션 하이재킹에 대해 더 취약합니다. 이러한 공격은 기밀 데이터에 액세스하기 위한 첫 번째 단계일 수 있습니다.
 
 ## <a name="secure-email-documents-and-sensitive-data"></a>이메일, 문서 및 중요한 데이터 보호
 
@@ -121,7 +121,7 @@ Azure VPN Gateway, SSL/TLS 및 HTTPS를 사용하는 데 관련된 모범 사례
 
 데이터가 저장되는 위치 또는 공유 대상에 관계 없이 항상 분류를 식별할 수 있습니다. 레이블에는 헤더, 바닥글 또는 워터마크와 같은 시각적 표시가 포함됩니다. 메타데이터는 일반 텍스트로 파일 및 메일 머리글에 추가됩니다. 일반 텍스트를 사용하면 데이터 손실을 방지하는 솔루션 등 다른 서비스가 분류를 식별하고 적절한 조치를 취할 수 있습니다.
 
-보호 기술은 Azure RMS(Azure Rights Management)를 사용합니다. 이 기술은 Microsoft 365 및 Azure Active Directory와 같은 다른 Microsoft 클라우드 서비스 및 응용 프로그램과 통합 됩니다. 이 보호 기술은 암호화, ID 및 권한 부여 정책을 사용합니다. Azure RMS를 통해 적용되는 보호는 조직, 네트워크, 파일 서버 및 애플리케이션의 내부 또는 외부에 있든 그 위치와 상관없이 문서 및 이메일과 함께 유지됩니다.
+보호 기술은 Azure RMS(Azure Rights Management)를 사용합니다. 이 기술은 Microsoft 365 및 Azure Active Directory와 같은 다른 Microsoft Cloud Services 및 애플리케이션과 통합됩니다. 이 보호 기술은 암호화, ID 및 권한 부여 정책을 사용합니다. Azure RMS를 통해 적용되는 보호는 조직, 네트워크, 파일 서버 및 애플리케이션의 내부 또는 외부에 있든 그 위치와 상관없이 문서 및 이메일과 함께 유지됩니다.
 
 이 정보 보호 솔루션을 통해 데이터를 다른 사용자와 공유하는 경우에도 제어를 유지합니다. 이러한 애플리케이션 및 솔루션이 온-프레미스 또는 클라우드에 위치하는지와 상관 없이 고유한 기간 업무 애플리케이션 및 소프트웨어 공급 업체의 정보 보호 솔루션에서 Azure RMS를 사용할 수도 있습니다.
 

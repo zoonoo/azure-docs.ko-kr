@@ -1,13 +1,13 @@
 ---
 title: Azure Lab Services의 VM 암호 설정 | Microsoft Docs
-description: Azure Lab Services 랩에서 Vm (가상 머신)에 대 한 암호를 설정 하 고 다시 설정 하는 방법에 대해 알아봅니다.
+description: Azure Lab Services의 랩에서 VM(가상 머신)의 암호를 설정 및 재설정하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 6ae577ee4c0c7e31760e0fb12afeaeac1ef8b7e2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96434229"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>가상 머신 풀 설정 및 관리 
@@ -24,7 +24,7 @@ ms.locfileid: "96434229"
 2. 랩에서 원하는 새 **VM 수** 를 입력합니다. 이 숫자는 랩에 등록된 사용자 수보다 크거나 같아야 합니다. 
 3. 그런 다음 **저장** 을 선택합니다. 
 
-    !["랩의 최대 컴퓨터" 및 "저장" 단추가 선택 된 "랩 용량" 창을 보여 주는 스크린샷](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
+    !["랩의 최대 컴퓨터 수" 및 "저장" 단추가 선택된 "랩 용량" 창을 보여주는 스크린샷](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
 4. 용량을 늘린 경우 VM이 생성되는 것을 확인할 수 있습니다. 새 VM이 목록에 표시되지 않으면 페이지를 새로 고칩니다. 
 
     ![생성되는 VM](./media/how-to-set-virtual-machine-passwords/vm-being-created.png)
@@ -102,4 +102,4 @@ ms.locfileid: "96434229"
 ## <a name="next-steps"></a>다음 단계
 랩 소유자가 구성할 수 있는 다른 학생 사용량 옵션에 대해 알아보려면 다음 문서를 참조하세요. [학생 사용량 구성](how-to-configure-student-usage.md)
 
-학생이 자신의 Vm에 대 한 암호를 다시 설정 하는 방법에 대 한 자세한 내용은 [랩의 가상 컴퓨터에 대 한 암호 설정 또는 다시 설정 (학생용)](how-to-set-virtual-machine-passwords-student.md)을 참조 하세요.
+학생이 자신의 VM에 대한 암호를 다시 설정하는 방법에 대한 자세한 내용은 [랩에서 가상 머신의 암호 설정 또는 다시 설정(학생)](how-to-set-virtual-machine-passwords-student.md)을 참조하세요.

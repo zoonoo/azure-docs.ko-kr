@@ -3,12 +3,12 @@ title: Azure Application Insights로 사용 분석 | Microsoft Docs
 description: 어떤 사용자가 앱으로 어떤 작업을 수행하는지 이해합니다.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: d9de1e10363f2100b9dfe557dc12e0be951ce6b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 8be8f6ad5285819d2cdb7e369c98d6e9da9d76c8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102489041"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110082345"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights를 사용하여 사용량 분석
 
@@ -20,13 +20,13 @@ ms.locfileid: "102489041"
 
 앱 서버 코드와 웹 페이지에 모두 Application Insights를 설치하여 최상의 환경을 얻습니다. 앱의 클라이언트 및 서버 구성 요소는 분석을 위해 Azure Portal로 원격 분석을 다시 보냅니다.
 
-1. **서버 코드:** [ASP.NET](./asp-net.md), [Azure](./app-insights-overview.md), [Java](./java-get-started.md), [Node.js](./nodejs.md) 또는 [기타](./platforms.md) 앱에 적합한 모듈을 설치합니다.
+1. **서버 코드:** [ASP.NET](./asp-net.md), [Azure](./app-insights-overview.md), [Java](./java-in-process-agent.md), [Node.js](./nodejs.md) 또는 [기타](./platforms.md) 앱에 적합한 모듈을 설치합니다.
 
     * *서버 코드를 설치하지 않으려면 [Azure Application Insights 리소스를 만들기만](./create-new-resource.md) 하면 됩니다.*
 
 2. **웹 페이지 코드:** ``</head>``를 닫기 전에 다음 스크립트를 웹 페이지에 추가합니다. 계측 키를 Application Insights 리소스에 대한 적절한 값으로 바꿉니다.
     
-    현재 코드 조각 (아래에 나열 됨)은 버전 "5"이 고, 버전은 sv: "#" 이며 [현재 버전은 GitHub 에서도 사용할 수](https://go.microsoft.com/fwlink/?linkid=2156318)있습니다.
+    현재 코드 조각(아래에 나열됨)은 버전 '5'이며 이 버전은 코드 조각에서 sv:"#"으로 인코딩됩니다. [현재 버전은 GitHub에서도 이용할 수 있습니다](https://go.microsoft.com/fwlink/?linkid=2156318).
 
     ```html
     <script type="text/javascript">
@@ -56,7 +56,7 @@ ms.locfileid: "102489041"
 
 사용자 및 세션 보고서는 페이지 또는 사용자 지정 이벤트를 기준으로 데이터를 필터링하고 위치, 환경 및 페이지 등의 속성으로 나눕니다. 필터를 직접 추가할 수도 있습니다.
 
-![화면 캡처는 가상의 회사에 대 한 사용자 개요 페이지를 표시 합니다.](./media/usage-overview/users.png)  
+![화면 캡처에서는 가상 회사에 대한 사용자 개요 페이지를 보여 줍니다.](./media/usage-overview/users.png)  
 
 오른쪽의 자세한 정보에는 데이터 집합에서 주목할 만한 패턴이 나와 있습니다.  
 
@@ -73,7 +73,7 @@ ms.locfileid: "102489041"
 - 실제 사용자 데이터에 따라 가설 세우기 
 - 재방문 주기가 제품에서 문제가 되는지 여부 확인 
 
-![화면 캡처는 사용자가 앱을 사용 하기 위해 반환 하는 빈도에 대 한 정보를 표시 하는 보존 개요 페이지를 표시 합니다.](./media/usage-overview/retention.png) 
+![화면 캡처에서는 사용자가 앱을 사용하기 위해 반환하는 빈도에 대한 정보를 표시하는 보존 개요 페이지를 보여 줍니다.](./media/usage-overview/retention.png) 
 
 상단의 재방문 주기 컨트롤을 사용하여 재방문 주기를 계산할 특정 이벤트 및 시간 범위를 정의할 수 있습니다. 중간에 표시되는 그래프는 지정된 시간 범위별로 전반적인 재방문 주기 비율을 시각적으로 보여 줍니다. 하단의 그래프는 지정된 기간 내의 개별 재방문 주기를 나타냅니다. 이 수준의 세부 정보를 사용하면 사용자가 수행하는 작업과 다시 방문한 사용자에게 영향을 미칠 수 있는 요인을 좀 더 자세히 이해할 수 있습니다.  
 
@@ -83,7 +83,7 @@ ms.locfileid: "102489041"
 
 사용자가 앱으로 수행하는 작업을 명확하게 이해하려는 경우 사용자 지정 이벤트를 로깅하는 코드 줄을 삽입하면 유용합니다. 이러한 이벤트는 특정 단추 클릭과 같은 자세한 사용자 작업부터 구매하기나 게임에서 이기기 등과 같은 좀 더 중요한 비즈니스 이벤트에 이르기까지 모든 사항을 추적할 수 있습니다.
 
-[클릭 분석 자동 수집 플러그 인](javascript-click-analytics-plugin.md) 을 사용 하 여 사용자 지정 이벤트를 수집할 수도 있습니다.
+[클릭 분석 자동 수집 플러그 인](javascript-click-analytics-plugin.md)을 사용하여 사용자 지정 이벤트를 수집할 수도 있습니다.
 
 경우에 따라 페이지 보기에 유용한 이벤트가 표시될 수 있지만 일반적으로는 그렇지 않습니다. 사용자는 제품 페이지를 열기만 하고 제품을 구입하지 않을 수 있습니다. 
 
@@ -114,7 +114,7 @@ ms.locfileid: "102489041"
 ### <a name="slice-and-dice-events"></a>이벤트 분석 및 분할
 
 사용자, 세션 및 이벤트 도구에서 사용자, 이벤트 이름 및 속성별로 사용자 지정 이벤트를 분석 및 분할할 수 있습니다.
-![화면 캡처는 가상의 회사에 대 한 사용자 개요 페이지를 표시 합니다.](./media/usage-overview/users.png)  
+![화면 캡처에서는 가상 회사의 사용자 개요 페이지를 보여 줍니다.](./media/usage-overview/users.png)  
   
 ## <a name="design-the-telemetry-with-the-app"></a>앱을 사용하여 원격 분석 디자인
 

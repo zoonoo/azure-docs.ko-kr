@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/17/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: a0894047db1ed7687a1a0f5f87fc4020ddf7c694
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c9f1294f1d2f80689cdb417ad16357cc5fbcece
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101679519"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089329"
 ---
 # <a name="create-device-groups-in-device-update-for-iot-hub"></a>IoT Hub에 대한 디바이스 업데이트에서 디바이스 그룹 만들기
 IoT Hub에 대한 디바이스 업데이트를 통해 IoT 디바이스 그룹에 업데이트를 배포할 수 있습니다.
@@ -21,6 +21,7 @@ IoT Hub에 대한 디바이스 업데이트를 통해 IoT 디바이스 그룹에
 * [IoT Hub용 디바이스 업데이트를 사용으로 설정하여 IoT Hub에 액세스합니다](create-device-update-account.md). IoT Hub에 대해 S1(표준) 계층 이상을 사용하는 것이 좋습니다. 
 * IoT Hub에서 디바이스 업데이트를 위해 프로비저닝된 IoT 디바이스(또는 시뮬레이터).
 * [프로비전된 디바이스에 대한 업데이트를 하나 이상 가져왔습니다.](import-update.md)
+* IoT 디바이스에 [모듈 또는 디바이스 수준 ID](device-update-agent-provisioning.md)로 디바이스 업데이트 에이전트를 설치하고 시작합니다.
 
 ## <a name="add-a-tag-to-your-devices"></a>디바이스에 태그 추가  
 
@@ -44,20 +45,20 @@ IoT Hub에 대한 디바이스 업데이트를 통해 IoT 디바이스 그룹에
 
 ### <a name="using-jobs"></a>작업 사용
 
-[이러한](../iot-hub/iot-hub-devguide-jobs.md) 예시에 따라 디바이스 업데이트 태그를 추가하거나 업데이트하기 위해 여러 디바이스에서 작업을 예약할 수 있습니다. [자세히 알아보기](../iot-hub/iot-hub-csharp-csharp-schedule-jobs.md).
+[이러한](../iot-hub/iot-hub-devguide-jobs.md) 예시에 따라 디바이스 업데이트 태그를 추가하거나 업데이트하기 위해 여러 디바이스에서 작업을 예약할 수 있습니다. 작업을 사용하여 디바이스 쌍 또는 모듈 쌍(디바이스 업데이트 에이전트가 모듈 ID로 설정된 경우)을 업데이트할 수 있습니다. [자세히 알아봅니다](../iot-hub/iot-hub-csharp-csharp-schedule-jobs.md).
 
   > [!NOTE] 
-  > 이 작업은 현재 IOT Hub 메시지 할당량을 기반으로 하며, 한 번에 최대 5만 개의 디바이스 쌍 태그만 변경하는 것이 좋습니다. 일일 IoT Hub 메시지 할당량을 초과하는 경우, IoT Hub 단위를 추가로 구입해야 할 수 있습니다. 자세한 내용은 [할당량 및 제한](../iot-hub/iot-hub-devguide-quotas-throttling.md#quotas-and-throttling)에서 확인할 수 있습니다.
+  > 이 작업은 현재 IOT Hub 메시지 할당량을 기반으로 하며, 한 번에 최대 5만 개의 디바이스 또는 모듈 쌍 태그만 변경하는 것이 좋습니다. 일일 IoT Hub 메시지 할당량을 초과하는 경우, IoT Hub 단위를 추가로 구입해야 할 수 있습니다. 자세한 내용은 [할당량 및 제한](../iot-hub/iot-hub-devguide-quotas-throttling.md#quotas-and-throttling)에서 확인할 수 있습니다.
 
 ### <a name="direct-twin-updates"></a>직접 쌍 업데이트
 
-디바이스 쌍에서 태그를 직접 추가하거나 업데이트할 수도 있습니다.
+디바이스 쌍 또는 모듈 쌍에서 태그를 직접 추가하거나 업데이트할 수도 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하여 IoT 허브로 이동합니다.
 
-2. 왼쪽 탐색 창의 'IoT 디바이스' 또는 'IoT Edge'에서 IoT 디바이스를 찾아 디바이스 쌍으로 이동합니다.
+2. 왼쪽 탐색 창의 'IoT 디바이스' 또는 'IoT Edge'에서 IoT 디바이스를 찾아 디바이스 쌍 또는 디바이스 업데이트 모듈, 모듈 쌍으로 이동합니다(디바이스 업데이트 에이전트가 모듈 ID로 설정되어 있는 경우 이를 사용할 수 있음).
 
-3. 디바이스 쌍에서 기존 디바이스 업데이트 태그 값을 null로 설정하여 삭제합니다.
+3. 디바이스 쌍 또는 모듈 쌍에서 기존 디바이스 업데이트 태그 값을 null로 설정하여 삭제합니다.
 
 4. 아래와 같이 새 디바이스 업데이트 태그 값을 추가합니다. [태그가 있는 디바이스 쌍 JSON 문서 예시입니다.](../iot-hub/iot-hub-devguide-device-twins.md#device-twins)
 

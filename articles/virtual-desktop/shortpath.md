@@ -1,38 +1,38 @@
 ---
-title: Windows Virtual Desktop RDP Shortpath(미리 보기)
+title: Azure Virtual Desktop RDP Shortpath(미리 보기)
 titleSuffix: Azure
-description: Windows Virtual Desktop에 대한 RDP Shortpath(미리 보기)를 설정하는 방법입니다.
+description: Azure Virtual Desktop에 대한 RDP Shortpath(미리 보기)를 설정하는 방법입니다.
 author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: f52796cd5477ecd692296213e337ded4f52503cd
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: bf4612afa0e75d4a63a13358095027c68c93e6da
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110189598"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755875"
 ---
-# <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows Virtual Desktop RDP Shortpath(미리 보기)
+# <a name="azure-virtual-desktop-rdp-shortpath-preview"></a>Azure Virtual Desktop RDP Shortpath(미리 보기)
 
 > [!IMPORTANT]
 > RDP Shortpath는 현재 퍼블릭 미리 보기로 제공됩니다.
 > RDP는 이 전송을 사용하여 더 나은 안정성과 일관성 있는 대기 시간으로 원격 데스크톱과 RemoteApp을 제공합니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-RDP Shortpath는 원격 데스크톱 클라이언트와 세션 호스트 간에 직접 UDP 기반 전송을 설정하는 Windows Virtual Desktop의 기능입니다. RDP는 이 전송을 사용하여 원격 데스크톱과 RemoteApp을 제공하고 더 나은 안정성과 일관성 있는 대기 시간을 제공합니다.
+RDP Shortpath는 원격 데스크톱 클라이언트와 세션 호스트 간에 직접 UDP 기반 전송을 설정하는 Azure Virtual Desktop의 기능입니다. RDP는 이 전송을 사용하여 원격 데스크톱과 RemoteApp을 제공하고 더 나은 안정성과 일관성 있는 대기 시간을 제공합니다.
 
 ## <a name="key-benefits"></a>주요 이점
 
 * RDP Shortpath 전송은 매우 효율적인 [URCP(Universal Rate Control Protocol)](https://www.microsoft.com/en-us/research/publication/urcp-universal-rate-control-protocol-for-real-time-communication-applications/)를 기반으로 합니다. URCP는 네트워크 상태에 대한 활성 모니터링으로 UDP를 개선하며 공평하고 완전한 링크 사용률을 제공합니다. URCP는 원격 데스크톱의 필요에 따라 낮은 지연 및 손실 수준으로 작동합니다. URCP는 네트워크 매개 변수를 동적으로 학습하고 속도 제어 메커니즘을 사용하는 프로토콜을 제공하여 성능을 극대화합니다.
-* RDP Shortpath는 원격 데스크톱 클라이언트와 세션 호스트 간의 직접 연결을 설정합니다. 직접 연결은 Windows Virtual Desktop 게이트웨이에 대한 종속성을 줄이고, 연결의 안정성을 향상하며, 각 사용자 세션에 사용 가능한 대역폭을 늘립니다.
+* RDP Shortpath는 원격 데스크톱 클라이언트와 세션 호스트 간의 직접 연결을 설정합니다. 직접 연결은 Azure Virtual Desktop 게이트웨이에 대한 종속성을 줄이고, 연결의 안정성을 향상하며, 각 사용자 세션에 사용 가능한 대역폭을 늘립니다.
 * 추가 릴레이를 제거하면 왕복 시간이 줄어들어 대기 시간이 중요한 애플리케이션 및 입력 메서드를 사용하는 환경이 개선됩니다.
 * RDP Shortpath는 DSCP(Differentiated Services Code Point) 표시를 통해 RDP 연결에 대한 [QoS](./rdp-quality-of-service-qos.md)(서비스 품질) 우선 순위를 구성할 수 있도록 지원합니다.
 * RDP Shortpath 전송을 사용하면 각 세션에 대해 스로틀 비율을 지정하여 [아웃바운드 네트워크 트래픽을 제한](./rdp-bandwidth.md#limit-network-bandwidth-use-with-throttle-rate)할 수 있습니다.
 
 ## <a name="connection-security"></a>연결 보안
 
-RDP Shortpath는 RDP 다중 전송 기능을 확장합니다. 역방향 연결 전송을 대체하는 것이 아니라 보완합니다. 모든 초기 세션 중개는 Windows Virtual Desktop 인프라를 통해 관리됩니다.
+RDP Shortpath는 RDP 다중 전송 기능을 확장합니다. 역방향 연결 전송을 대체하는 것이 아니라 보완합니다. 모든 초기 세션 중개는 Azure Virtual Desktop 인프라를 통해 관리됩니다.
 
 UDP 포트 3390은 역방향 연결 전송을 통해 인증된 들어오는 Shortpath 트래픽에만 사용됩니다. RDP Shortpath 수신기는 역방향 연결 세션과 일치하지 않는 모든 수신기 연결 시도를 무시합니다.
 
@@ -55,7 +55,7 @@ RDP Shortpath는 세션 호스트의 인증서를 사용하여 클라이언트�
 
 ## <a name="requirements"></a>요구 사항
 
-RDP Shortpath를 지원하려면 Windows Virtual Desktop 클라이언트에서 세션 호스트에 대한 직접적인 가시선을 사용해야 합니다. 다음 기술 중 하나를 사용하여 직접적인 가시선을 얻을 수 있습니다.
+RDP Shortpath를 지원하려면 Azure Virtual Desktop 클라이언트에서 세션 호스트에 대한 직접적인 가시선을 사용해야 합니다. 다음 기술 중 하나를 사용하여 직접적인 가시선을 얻을 수 있습니다.
 
 * 원격 클라이언트 머신은 Windows 10 또는 Windows 7을 실행하고 있어야 하며 [Windows 데스크톱 클라이언트](/windows-server/remote/remote-desktop-services/clients/windowsdesktop)가 설치되어 있어야 합니다. 현재 웹 클라이언트는 지원되지 않습니다.
 * [ExpressRoute 개인 피어링](../expressroute/expressroute-circuit-peerings.md)
@@ -178,13 +178,13 @@ Save-NetGPO -GPOSession $gpoSession
 
 세션에서 RDP Shortpath 전송을 사용 중인지 확인하려면 다음을 수행합니다.
 
-1. Windows Virtual Desktop 클라이언트를 사용하여 VM의 데스크톱에 연결합니다.
+1. Azure Virtual Desktop 클라이언트를 사용하여 VM의 데스크톱에 연결합니다.
 2. 이벤트 뷰어를 시작하고 다음 노드로 이동합니다. **애플리케이션 및 서비스 로그 > Microsoft > Windows > RemoteDesktopServices-RdpCoreCDV > Microsoft-Windows-RemoteDesktopServices-RdpCoreCDV/Operational**
 3. RDP Shortpath 전송이 사용되는지 확인하려면 이벤트 ID 131을 확인합니다.
 
 ### <a name="using-log-analytics-to-verify-shortpath-connectivity"></a>Log Analytics를 사용하여 Shortpath 연결 확인
 
-[Azure Log Analytics](./diagnostics-log-analytics.md)를 사용하는 경우 [WVDConnections 테이블](/azure/azure-monitor/reference/tables/wvdconnections)을 쿼리하여 연결을 모니터링할 수 있습니다. UdpUse라는 열은 Windows Virtual Desktop RDP 스택에서 현재 사용자 연결에 UDP 프로토콜을 사용하는지 여부를 나타냅니다.
+[Azure Log Analytics](./diagnostics-log-analytics.md)를 사용하는 경우 [WVDConnections 테이블](/azure/azure-monitor/reference/tables/wvdconnections)을 쿼리하여 연결을 모니터링할 수 있습니다. UdpUse라는 열은 Azure Virtual Desktop RDP 스택에서 현재 사용자 연결에 UDP 프로토콜을 사용하는지 여부를 나타냅니다.
 가능한 값은 다음과 같습니다.
 
 * **0** - 사용자 연결에서 RDP Shortpath를 사용하지 않음
@@ -257,5 +257,5 @@ RDP Shortpath 전송을 사용하지 않도록 설정해야 하는 경우도 있
 
 ## <a name="next-steps"></a>다음 단계
 
-* Windows Virtual Desktop 네트워크 연결에 대한 자세한 정보는 [Windows Virtual Desktop 네트워크 연결 이해](network-connectivity.md)를 참조하세요.
-* Windows Virtual Desktop의 QoS(서비스 품질)를 시작하려면 [Windows Virtual Desktop용 QoS(서비스 품질) 구현](rdp-quality-of-service-qos.md)을 참조하세요.
+* Azure Virtual Desktop 네트워크 연결에 대한 자세한 내용은 [Azure Virtual Desktop 네트워크 연결 이해](network-connectivity.md)를 참조하세요.
+* Azure Virtual Desktop용 QoS(서비스 품질)를 시작하려면 [Azure Virtual Desktop용 QoS(서비스 품질) 구현](rdp-quality-of-service-qos.md)을 참조하세요.

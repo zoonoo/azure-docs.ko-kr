@@ -1,25 +1,25 @@
 ---
-title: Windows 가상 데스크톱 (클래식)에 대 한 GPU 구성-Azure
-description: Windows 가상 데스크톱 (클래식)에서 GPU 가속 렌더링 및 인코딩을 사용 하도록 설정 하는 방법입니다.
+title: Azure Virtual Desktop용 GPU 구성(클래식) - Azure
+description: Azure Virtual Desktop(클래식)에서 GPU 가속 렌더링 및 인코딩을 사용하도록 설정하는 방법입니다.
 author: gundarev
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: denisgun
-ms.openlocfilehash: fa7b80b021e00d25dea4f96432ae922c15474058
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 0ae012b1c8084c0f5f518a7e7006d7e5df9cdf4c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95023057"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750068"
 ---
-# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱 (클래식)에 대 한 GPU (그래픽 처리 장치) 가속 구성
+# <a name="configure-graphics-processing-unit-gpu-acceleration-for-azure-virtual-desktop-classic"></a>Azure Virtual Desktop에 대한 GPU(그래픽 처리 장치) 가속 구성(클래식)
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../configure-vm-gpu.md)를 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Azure Virtual Desktop 개체를 관리하려는 경우 [이 문서](../configure-vm-gpu.md)를 참조하세요.
 
-Windows Virtual Desktop은 향상된 앱 성능 및 확장성을 위해 GPU 가속 렌더링 및 인코딩을 지원합니다. GPU 가속은 특히 그래픽이 많은 앱에 매우 중요합니다.
+Azure Virtual Desktop은 향상된 앱 성능 및 확장성을 위해 GPU 가속 렌더링 및 인코딩을 지원합니다. GPU 가속은 특히 그래픽이 많은 앱에 매우 중요합니다.
 
-이 문서의 지침에 따라 GPU에 최적화된 Azure 가상 머신을 만들고, 호스트 풀에 추가하고, 렌더링 및 인코딩에 GPU 가속을 사용하도록 구성합니다. 이 문서에서는 Windows Virtual Desktop 테넌트가 이미 구성되어 있다고 가정합니다.
+이 문서의 지침에 따라 GPU에 최적화된 Azure 가상 머신을 만들고, 호스트 풀에 추가하고, 렌더링 및 인코딩에 GPU 가속을 사용하도록 구성합니다. 이 문서에서는 Azure Virtual Desktop 테넌트가 이미 구성되어 있다고 가정합니다.
 
 ## <a name="select-a-gpu-optimized-azure-virtual-machine-size"></a>GPU에 최적화된 Azure 가상 머신 크기 선택
 
@@ -27,20 +27,20 @@ Azure는 [GPU에 최적화된 다양한 가상 머신 크기](../../virtual-mach
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>호스트 풀 생성, 가상 머신 프로비저닝 및 앱 그룹 구성
 
-선택한 크기의 VM을 사용하여 새 호스트 풀을 만듭니다. 지침은 [자습서: Azure Marketplace 사용 하 여 호스트 풀 만들기](../create-host-pools-azure-marketplace.md)를 참조 하세요.
+선택한 크기의 VM을 사용하여 새 호스트 풀을 만듭니다. 지침은 [자습서: Azure Marketplace를 사용하여 호스트 풀 만들기](../create-host-pools-azure-marketplace.md)를 참조하세요.
 
-Windows Virtual Desktop은 다음과 같은 운영 체제에서 GPU 가속 렌더링 및 인코딩을 지원합니다.
+Azure Virtual Desktop은 다음과 같은 운영 체제에서 GPU 가속 렌더링 및 인코딩을 지원합니다.
 
 * Windows 10 버전 1511 이상
 * Windows Server 2016 이상
 
-또한 앱 그룹을 구성하거나 새 호스트 풀을 만들 때 자동으로 생성되는 기본 데스크톱 앱 그룹(“데스크톱 애플리케이션 그룹”이라고 함)을 사용해야 합니다. 자세한 내용은 [자습서: Windows Virtual Desktop에 대한 앱 그룹 관리](../manage-app-groups.md)를 참조하세요.
+또한 앱 그룹을 구성하거나 새 호스트 풀을 만들 때 자동으로 생성되는 기본 데스크톱 앱 그룹(“데스크톱 애플리케이션 그룹”이라고 함)을 사용해야 합니다. 지침은 [자습서: Azure Virtual Desktop에 대한 앱 그룹 관리](../manage-app-groups.md)를 참조하세요.
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>가상 머신에서 지원되는 그래픽 드라이버 설치
 
-Windows Virtual Desktop에서 Azure N 시리즈 VM의 GPU 기능을 활용하려면 적절한 그래픽 드라이버를 설치해야 합니다. [지원되는 운영 체제 및 드라이버](../../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers)의 지침에 따라 적절한 그래픽 공급 업체의 드라이버를 수동이나 Azure VM 확장을 사용하여 설치합니다.
+Azure Virtual Desktop에서 Azure N 시리즈 VM의 GPU 기능을 활용하려면 적절한 그래픽 드라이버를 설치해야 합니다. [지원되는 운영 체제 및 드라이버](../../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers)의 지침에 따라 적절한 그래픽 공급 업체의 드라이버를 수동이나 Azure VM 확장을 사용하여 설치합니다.
 
-Azure에서 배포된 드라이버만 Windows Virtual Desktop에서 지원됩니다. Additionaly NVIDIA Gpu를 사용 하는 Azure Vm의 경우 Windows 가상 데스크톱에 대해 [NVIDIA 그리드 드라이버만](../../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers) 지원 됩니다.
+Azure에서 배포된 드라이버만 Azure Virtual Desktop에서 지원됩니다. 또한 NVIDIA GPU를 사용하는 Azure VM의 경우 [NVIDIA GRID 드라이버](../../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers)만 Azure Virtual Desktop에 대해 지원됩니다.
 
 드라이버를 설치한 후에는 VM을 다시 시작해야 합니다. 위 지침의 확인 단계에 따라 그래픽 드라이버가 성공적으로 설치되었는지 확인합니다.
 
@@ -82,7 +82,7 @@ Azure에서 배포된 드라이버만 Windows Virtual Desktop에서 지원됩니
 
 원격 데스크톱이 GPU 가속 인코딩을 사용하는지 확인하려면 다음을 수행합니다.
 
-1. Windows Virtual Desktop 클라이언트를 사용하여 VM의 데스크톱에 연결합니다.
+1. Azure Virtual Desktop 클라이언트를 사용하여 VM의 데스크톱에 연결합니다.
 2. 이벤트 뷰어를 시작하고 다음 노드로 이동합니다. **애플리케이션 및 서비스 로그** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**
 3. GPU 가속 인코딩이 사용되는지 확인하려면 이벤트 ID 170을 찾습니다. “AVC 하드웨어 인코더 사용: 1”가 표시된 경우 GPU 인코딩이 사용되는 것입니다.
 4. AVC 444 모드가 사용되는지 확인하려면 이벤트 ID 162를 찾습니다. “AVC 사용 가능: 1 초기 프로필: 2048”이 표시되면 AVC 444가 사용되는 것입니다.

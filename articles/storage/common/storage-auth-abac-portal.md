@@ -10,12 +10,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
 ms.date: 05/06/2021
-ms.openlocfilehash: ce0fab219f49427892f5ffe47c595edb26fea010
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 3e5e46e15a7885eb5e3f4828cb8298355a116fd8
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796015"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112300492"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-the-azure-portal-preview"></a>자습서: Azure Portal을 사용하여 BLOB에 대한 액세스를 제한하는 역할 할당 조건 추가(미리 보기)
 
@@ -40,7 +40,7 @@ ms.locfileid: "110796015"
 
 이 자습서에서는 특정 태그를 사용하여 BLOB에 대한 액세스를 제한합니다. 예를 들어 Chandra에서 Project=Cascade 태그가 있는 파일만 읽을 수 있도록 역할 할당에 조건을 추가합니다.
 
-![조건이 있는 역할 할당의 다이어그램](./media/shared/condition-role-assignment-rg.png)
+![조건이 있는 역할 할당의 다이어그램.](./media/shared/condition-role-assignment-rg.png)
 
 Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스가 허용되지 않습니다.
 
@@ -71,8 +71,6 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
 1. 사용자를 만들거나 기존 사용자를 찾습니다. 이 자습서에서는 Chandra를 예제로 사용합니다.
 
 ## <a name="step-2-set-up-storage"></a>2단계: 스토리지 설정
-
-1. 구독을 아직 등록하지 않은 경우 BLOB 인덱스 태그 사용을 위해 구독을 등록합니다. 자세한 내용은 [구독 등록(미리 보기)](../blobs/storage-manage-find-blobs.md#register-your-subscription-preview)을 참조하세요.
 
 1. 현재 공개 미리 보기인 BLOB 인덱스 태그 기능과 호환되는 스토리지 계정을 만듭니다. 자세한 내용은 [BLOB 인덱스 태그를 사용하여 Azure BLOB 데이터 관리 및 찾기(미리 보기)](../blobs/storage-manage-find-blobs.md#regional-availability-and-storage-account-support)를 참조하세요.
 

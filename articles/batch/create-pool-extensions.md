@@ -3,12 +3,12 @@ title: Batch 풀에서 확장 사용
 description: 확장은 Batch 컴퓨팅 노드에서 프로비저닝 후 구성 및 설치를 용이하게 하는 소규모 애플리케이션입니다.
 ms.topic: how-to
 ms.date: 02/10/2021
-ms.openlocfilehash: 1bf9847af57347c143ee3d790d89988ba7cd48e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 406de8ea1c781ac742e7ca3fff8f84f03727a031
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100417447"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476109"
 ---
 # <a name="use-extensions-with-batch-pools"></a>Batch 풀에서 확장 사용
 
@@ -20,14 +20,14 @@ ms.locfileid: "100417447"
 
 - 확장이 포함된 풀은 [가상 머신 구성](nodes-and-pools.md#virtual-machine-configuration)을 사용해야 합니다.
 - CustomScript 확장 유형은 Azure Batch 서비스에 예약되어 있으므로 재정의할 수 없습니다.
+- 일부 확장은 제대로 기능하기 위해 컴퓨팅 노드의 컨텍스트에서 액세스할 수 있는 풀 수준 관리 ID가 필요할 수 있습니다. 확장에 해당하는 경우 [Batch 풀에서 관리 ID 구성](managed-identity-pools.md)을 참조하세요.
 
 ### <a name="supported-extensions"></a>지원되는 확장
 
-Batch 풀을 만들 때 현재 다음 확장을 설치할 수 있습니다. 
+Batch 풀을 만들 때 현재 다음 확장을 설치할 수 있습니다.
 
 - [Linux](../virtual-machines/extensions/key-vault-linux.md) 및 [Windows](../virtual-machines/extensions/key-vault-windows.md)용 Azure Key Vault 확장
 - [Linux](../virtual-machines/extensions/oms-linux.md) 및 [Windows](../virtual-machines/extensions/oms-windows.md)용 로그 분석 및 모니터링 확장
-- Azure 보안 팩
 
 지원 요청을 개설하여 추가 게시자 및/또는 확장 유형에 대한 지원을 요청할 수 있습니다.
 

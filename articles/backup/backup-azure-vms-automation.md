@@ -3,12 +3,13 @@ title: PowerShell을 사용하여 Azure VM 백업 및 복구
 description: Azure Backup를 PowerShell과 함께 사용하여 Azure VM을 백업 및 복구하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: f59c18aecf577bc7f7d0b1360dd36504305af893
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 44dc53100e44d6d10179b65e0ccd221199661836
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100633192"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111421745"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>PowerShell을 사용하여 Azure VM 백업 및 복원
 
@@ -398,12 +399,23 @@ $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -Workl
 Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID
 ````
 
+### <a name="resume-backup"></a>백업 다시 시작
+
+보호가 중지되고 백업 데이터가 유지되는 경우 보호를 한번 더 시작할 수 있습니다. 갱신된 보호에 대한 정책을 할당해야 합니다. 이 cmdlet은 [백업 항목의 변경 정책](#change-policy-for-backup-items)과 동일합니다.
+
+````powershell
+$TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName> -VaultId $targetVault.ID
+$anotherBkpItem = Get-AzRecoveryServicesBackupItem -WorkloadType AzureVM -BackupManagementType AzureVM -Name "<BackupItemName>" -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $anotherBkpItem -Policy $TargetPol1 -VaultId $targetVault.ID
+````
+
 #### <a name="delete-backup-data"></a>백업 데이터 삭제
 
 자격 증명 모음에 저장된 백업 데이터를 완전히 제거하려면 ['disable' 보호 명령](#retain-data)에 '-RemoveRecoveryPoints' 플래그/스위치를 추가합니다.
 
 ````powershell
 Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID -RemoveRecoveryPoints
+
 ````
 
 ## <a name="restore-an-azure-vm"></a>Azure VM 복원

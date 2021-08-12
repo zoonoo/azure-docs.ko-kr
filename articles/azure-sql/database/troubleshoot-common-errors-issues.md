@@ -3,19 +3,19 @@ title: Azure SQL Database에 대한 일반적인 연결 문제 해결
 description: Azure SQL Database 연결 문제를 해결하고 다른 Azure SQL Database 또는 Azure SQL Managed Instance 특정 문제를 해결하는 단계를 제공합니다.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: development
+ms.subservice: connect
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
 ms.date: 01/14/2021
-ms.openlocfilehash: ec61f2c67576d6e144d8d4bb7e8ecaaa157db0a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5953099567edc3ef0f09ae07fd2708b1ce748dd9
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98233375"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413612"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance 연결 문제 및 기타 오류 문제 해결
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -248,13 +248,13 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 이 오류가 반복적으로 발생하는 경우 다음 단계를 수행하여 문제를 해결해 보세요.
 
-1. Sys.dm_exec_requests 보기를 확인하여 total_elapsed_time 열에서 높은 값이 있는 모든 열린 세션을 확인합니다. 다음 SQL 스크립트를 실행하여 이 검사를 수행합니다.
+1. `sys.dm_exec_requests` 보기를 확인하여 `total_elapsed_time` 열에 높은 값이 있는 열린 세션을 확인하세요. 다음 SQL 스크립트를 실행하여 이 검사를 수행합니다.
 
    ```sql
    SELECT * FROM sys.dm_exec_requests;
    ```
 
-2. [Sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) 동적 관리 함수를 사용하여 헤드 블로커용 **입력 버퍼** 와 잘못된 쿼리의 session_id를 확인합니다. 다음은 그 예제입니다.
+2. [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) 동적 관리 함수를 사용하여 헤드 블로커용 입력 버퍼와 잘못된 쿼리의 `session_id`를 확인합니다. 다음은 그 예제입니다.
 
    ```sql 
    SELECT * FROM sys.dm_exec_input_buffer (100,0);
@@ -262,7 +262,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 3. 쿼리를 조정합니다.
 
-    > [!Note]
+    > [!NOTE]
     > Azure SQL Database 차단 문제 해결에 대한 자세한 내용은 [Azure SQL Database 차단 문제 이해 및 해결](understand-resolve-blocking.md)을 참조하세요.
 
 또한 쿼리는 일괄 처리하는 것이 좋습니다. 일괄 처리에 대한 자세한 내용은 [배치를 사용하여 SQL Database 애플리케이션 성능을 개선하는 방법](../performance-improve-use-batching.md)을 참조하세요.
@@ -289,6 +289,10 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
   > [!NOTE]
   > 인덱스를 다시 빌드하는 경우 업데이트되는 필드의 평균 크기를 평균 인덱스 크기로 대체해야 합니다.
+
+  > [!NOTE]
+  > Azure SQL Database 및 Azure SQL Managed Instance의 전체 트랜잭션 로그 문제 해결에 대한 자세한 내용은 [Azure SQL Database 및 Azure SQL Managed Instance의 트랜잭션 로그 오류 문제 해결](troubleshoot-transaction-log-errors-issues.md)을 참조하세요.
+
 
 ### <a name="error-40553-the-session-has-been-terminated-because-of-excessive-memory-usage"></a>오류 40553: 메모리 사용량이 너무 많아 세션이 종료됨
 
@@ -396,3 +400,8 @@ ClientConnectionId:<Client connection ID>
 
 - [Azure SQL Database 연결 아키텍처](./connectivity-architecture.md)
 - [Azure SQL Database 및 Azure Synapse Analytics 네트워크 액세스 제어](./network-access-controls-overview.md)
+
+## <a name="see-also"></a>참조
+
+- [Azure SQL Database 및 Azure SQL Managed Instance의 트랜잭션 로그 오류 문제 해결](troubleshoot-transaction-log-errors-issues.md)
+- [SQL Database 및 SQL Managed Instance에서 일시적인 연결 오류 문제 해결](troubleshoot-common-connectivity-issues.md)

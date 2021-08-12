@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: 12ab5a9598cc0222f5a3e64985be2e2ea9e7e2fd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96014859"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스에서 하드웨어 구성 요소 교체
@@ -37,9 +37,9 @@ ms.locfileid: "96014859"
 | 아이콘 | 텍스트 | 추가 정보 |
 |:--- |:--- |:--- |
 | ![경고 아이콘](./media/storsimple-hardware-component-replacement/Warning.png) |**위험!** |피하지 않을 경우 사망 또는 심각한 부상을 당하는 위험한 상황을 나타냅니다. 이 위험도 표시는 가장 극단적인 상황으로 제한됩니다. |
-| ![경고 아이콘](./media/storsimple-hardware-component-replacement/Warning.png) |**내용의!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
-| ![주의 아이콘](./media/storsimple-hardware-component-replacement/Caution.png) |**매우!** |피하지 않을 경우 최소 또는 보통 수준의 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
-| ![고지 아이콘](./media/storsimple-hardware-component-replacement/NoticeIcon.png) |**알지** |중요하지만 위험과 관련되지 않은 것으로 간주되는 정보를 나타냅니다. |
+| ![경고 아이콘](./media/storsimple-hardware-component-replacement/Warning.png) |**경고!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
+| ![주의 아이콘](./media/storsimple-hardware-component-replacement/Caution.png) |**주의!** |피하지 않을 경우 최소 또는 보통 수준의 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
+| ![고지 아이콘](./media/storsimple-hardware-component-replacement/NoticeIcon.png) |**고지:** |중요하지만 위험과 관련되지 않은 것으로 간주되는 정보를 나타냅니다. |
 | ![감전 아이콘](./media/storsimple-hardware-component-replacement/Electric.png) |**감전 위험** |높은 전압을 나타냅니다. |
 | ![무거운 무게 아이콘](./media/storsimple-hardware-component-replacement/Weight.png) |**무거운 무게** | |
 | ![사용자 서비스 가능 부품 없음 아이콘](./media/storsimple-hardware-component-replacement/NoUserServiceableParts.png) |**사용자 서비스 가능 부품 없음** |제대로 교육을 받지 않은 경우 액세스하지 마세요. |
@@ -69,7 +69,7 @@ StorSimple 8000 시리즈 디바이스는 기본 및/또는 EBOD 엔클로저의
 
 | 구성 요소 | 현재 개수 | 플러그 인 모듈 여부 | 교체 절차 |
 |:--- |:--- |:--- |:--- |
-| 섀시 |1 |아니요 |[StorSimple 디바이스의 섀시 교체](storsimple-8000-chassis-replacement.md) |
+| 섀시 |1 |예 |[StorSimple 디바이스의 섀시 교체](storsimple-8000-chassis-replacement.md) |
 | 기본 컨트롤러 |2 |예 |[StorSimple 디바이스의 컨트롤러 모듈 교체](storsimple-8000-controller-replacement.md) |
 | 764W PCM(전원 및 냉각 모듈) |2 |예 |[StorSimple 디바이스의 전원 및 냉각 모듈 교체](storsimple-8000-power-cooling-module-replacement.md) |
 | Backup 배터리 |2 |예 |[StorSimple 디바이스의 백업 배터리 모듈 교체](storsimple-8000-battery-replacement.md) |
@@ -81,7 +81,7 @@ StorSimple 8000 시리즈 디바이스는 기본 및/또는 EBOD 엔클로저의
 
 | 구성 요소 | 현재 개수 | 플러그 인 모듈 여부 | 교체 절차 |
 |:--- |:--- |:--- |:--- |
-| 섀시 |1 |아니요 |[StorSimple 디바이스의 섀시 교체](storsimple-8000-chassis-replacement.md) |
+| 섀시 |1 |예 |[StorSimple 디바이스의 섀시 교체](storsimple-8000-chassis-replacement.md) |
 | EBOD 컨트롤러 |2 |예 |[StorSimple 디바이스의 EBOD 컨트롤러 교체](storsimple-8000-ebod-controller-replacement.md) |
 | 580W PCM(전원 및 냉각 모듈) |2 |예 |[StorSimple 디바이스의 전원 및 냉각 모듈 교체](storsimple-8000-power-cooling-module-replacement.md) |
 | 디스크 드라이브 |12 |예 |[StorSimple 디바이스의 디스크 드라이브 교체](storsimple-8000-disk-drive-replacement.md) |
@@ -90,7 +90,7 @@ StorSimple 8000 시리즈 디바이스는 기본 및/또는 EBOD 엔클로저의
 
 디바이스의 플러그 인 모듈은 다음 앞면 및 뒷면 다이어그램에서 강조 표시되어 있습니다. 교체가 필요한 경우 이러한 다이어그램을 사용하여 다양한 플러그 인 모듈의 위치를 확인할 수 있습니다. 앞면 다이어그램에는 디스크 드라이브가 표시되고, EBOD 엔클로저 및 기본 엔클로저의 뒷면 다이어그램에는 플러그 인 모듈이 표시됩니다.
 
-![디스크 드라이브가 있는 장치의 전면 패널](./media/storsimple-hardware-component-replacement/IC741028.png)
+![디스크 드라이브가 포함된 디바이스의 전면 패널](./media/storsimple-hardware-component-replacement/IC741028.png)
 
 **그림 1** 디바이스 앞면
 

@@ -1,28 +1,28 @@
 ---
 title: Apache Kafka Connect와의 통합 - Azure Event Hubs | Microsoft Docs
-description: 이 문서에서는 Kafka에 대해 Azure Event Hubs와 함께 Kafka Connect를 사용 하는 방법에 대 한 정보를 제공 합니다.
+description: 이 문서에서는 Kafka용 Azure Event Hubs에서 Kafka Connect을 사용하는 방법에 대한 정보를 제공합니다.
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.openlocfilehash: f82dcdafa7921f4a994361371536b2f1ace7cbc5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97935158"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs"></a>Azure Event Hubs에 Apache Kafka Connect 지원 통합
-[Apache Kafka 연결](https://kafka.apache.org/documentation/#connect) 은 Kafka 클러스터를 통해 MYSQL, HDFS 및 파일 시스템과 같은 외부 시스템에서 데이터를 연결 하 고 가져오기/내보내기 위한 프레임 워크입니다. 이 자습서에서는 Event Hubs와 함께 Kafka Connect 프레임 워크를 사용 하는 과정을 안내 합니다.
+[Apache Kafka Connect](https://kafka.apache.org/documentation/#connect)는 Kafka 클러스터를 통해 MySQL, HDFS 같은 외부 시스템 및 파일 시스템에 연결하고 데이터를 가져오는/내보내는 프레임워크입니다. 이 자습서에서는 Event hubs와 함께 Kafka Connect 프레임워크를 사용하는 방법을 안내합니다.
 
 > [!WARNING]
-> Apache Kafka 연결 프레임 워크와 해당 커넥터의 사용은 **Microsoft Azure를 통한 제품 지원에 적합 하지 않습니다**.
+> Apache Kafka 연결 프레임 워크와 커넥터의 사용은 **Microsoft Azure를 통한 제품 지원에 적합하지 않습니다**.
 >
-> Apache Kafka 연결에서는 동적 구성이 압축 된 항목으로 유지 되 고 그렇지 않은 경우에는 무제한 보존을 사용 한다고 가정 합니다. Azure Event Hubs는 [브로커 기능으로 압축을 구현 하지](event-hubs-federation-overview.md#log-projections) 않으며 항상 보존 된 이벤트에 시간 기반 보존 제한을 적용 합니다. azure Event Hubs는 장기 데이터 또는 구성 저장소가 아닌 실시간 이벤트 스트리밍 엔진입니다.
+> Apache Kafka Connect에서는 동적 구성이 무제한 보존 방식이 아닌 압축된 토픽에 유지됩니다. Azure Event Hubs는 [압축을 broker 기능으로 구현하지 않으며](event-hubs-federation-overview.md#log-projections), Azure Event Hubs가 장기 데이터 또는 구성 스토리지가 아닌 실시간 이벤트 스트리밍 엔진이라는 원리에 따라 보존된 이벤트에 대해 항상 시간 기반 보존 제한을 적용합니다.
 >
-> Apache Kafka 프로젝트는 이러한 역할을 혼합 하는 데 적합할 수 있지만 Azure는 적절 한 데이터베이스 또는 구성 저장소에서 이러한 정보를 가장 잘 관리 하는 것으로 간주 합니다.
+> Apache Kafka 프로젝트는 이러한 역할에 적합할 수 있지만 Azure는 적절한 데이터베이스 또는 구성 스토리지에서 이러한 정보를 가장 잘 관리할 수 있다고 판단합니다.
 >
-> 많은 Apache Kafka 연결 시나리오는 정상적으로 작동 하지만 Apache Kafka와 Azure Event Hubs의 보존 모델 간의 이러한 개념적 차이로 인해 특정 구성이 예상 대로 작동 하지 않을 수 있습니다. 
+> 많은 Apache Kafka Connect 시나리오는 정상적으로 작동하지만, Apache Kafka와 Azure Event Hubs의 보존 모델 간의 이러한 개념적 차이로 인해 특정 구성이 예상대로 작동하지 않을 수 있습니다. 
 
-이 자습서에서는 Kafka Connect를 이벤트 허브와 통합 하 고 기본 FileStreamSource 및 FileStreamSink 커넥터를 배포 하는 과정을 안내 합니다. 이 기능은 현재 미리 보기로 제공됩니다. 이러한 커넥터는 프로덕션 용도로 제작된 것이 아니지만, Azure Event Hubs가 Kafka broker 역할을 하는 엔드투엔드 Kafka Connect 시나리오를 보여줍니다.
+이 자습서에서는 Kafka Connect를 이벤트 허브와 통합하고 기본 FileStreamSource 및 FileStreamSink 커넥터를 배포하는 방법을 안내합니다. 이 기능은 현재 미리 보기로 제공됩니다. 이러한 커넥터는 프로덕션 용도로 제작된 것이 아니지만, Azure Event Hubs가 Kafka broker 역할을 하는 엔드투엔드 Kafka Connect 시나리오를 보여줍니다.
 
 > [!NOTE]
 > 이 샘플은 [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect)에서 사용할 수 있습니다.
@@ -30,13 +30,13 @@ ms.locfileid: "97935158"
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
-> * Event Hubs 네임스페이스 만들기
+> * Event Hubs 네임스페이스 생성
 > * 프로젝트 예제 복제
 > * Event Hubs에 대해 Kafka Connect 구성
 > * Kafka Connect 실행
 > * 커넥터 만들기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 연습을 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
 - 동작합니다. 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
@@ -45,8 +45,8 @@ ms.locfileid: "97935158"
 - Kafka 릴리스(버전 1.1.1, Scala 버전 2.11), [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)에서 제공
 - [Apache Kafka용 Event Hubs](./event-hubs-for-kafka-ecosystem-overview.md) 지침 문서를 참조하세요.
 
-## <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 만들기
-Event Hubs 서비스와 통신하려면 Event Hubs 네임스페이스가 필요합니다. 네임 스페이스 및 이벤트 허브를 만드는 방법에 대 한 지침은 [이벤트 허브 만들기](event-hubs-create.md) 를 참조 하세요. 나중에 사용할 수 있도록 Event Hubs 연결 문자열 및 FQDN(정규화된 도메인 이름)을 가져옵니다. 자세한 지침은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)를 참조하세요. 
+## <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 생성
+Event Hubs 서비스와 통신하려면 Event Hubs 네임스페이스가 필요합니다. 네임스페이스 및 이벤트 허브를 생성하는 방법에 대한 지침은 [이벤트 허브 생성하기](event-hubs-create.md)를 참조하세요. 나중에 사용할 수 있도록 Event Hubs 연결 문자열 및 FQDN(정규화된 도메인 이름)을 가져옵니다. 자세한 지침은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)를 참조하세요. 
 
 ## <a name="clone-the-example-project"></a>프로젝트 예제 복제
 Azure Event Hubs 리포지토리를 복제하고 자습서/연결 하위 폴더로 이동합니다. 
@@ -165,11 +165,11 @@ Kafka Connect는 Connect 클러스터가 중단된 후에도 유지되는 구성
 
 ## <a name="next-steps"></a>다음 단계
 
-Kafka에 대 한 Event Hubs에 대해 자세히 알아보려면 다음 문서를 참조 하세요.  
+Kafka용 Event Hubs에 대한 자세한 내용은 다음 문서를 참조하세요.  
 
 - [이벤트 허브에서 Kafka broker 미러링](event-hubs-kafka-mirror-maker-tutorial.md)
 - [이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)
 - [이벤트 허브에 Apache Flink 연결](event-hubs-kafka-flink-tutorial.md)
 - [GitHub에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
 - [이벤트 허브에 Akka Streams 연결](event-hubs-kafka-akka-streams-tutorial.md)
-- [Azure Event Hubs에 대 한 Apache Kafka 개발자 가이드](apache-kafka-developer-guide.md)
+- [Azure Event Hubs에 대한 Apache Kafka 개발자 가이드](apache-kafka-developer-guide.md)

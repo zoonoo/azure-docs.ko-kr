@@ -14,12 +14,12 @@ ms.custom:
 - contentperf:fy21q3
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 95247a1485bac7282ffe95ddcc2ddd37883738dd
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 8e491e6fc8d0eb93a3d9696f68f045191c2da20b
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783823"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114400906"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT Hub란?
 
@@ -106,7 +106,7 @@ IoT Hub에는 99.9%의 [IoT Hub에 대한 서비스 수준 계약](https://azure
 * MQTT
 * WebSocket을 통한 MQTT
 
-IoT Hub 및 디바이스 SDK는 디바이스를 연결하기 위한 [Azure IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md) 규칙을 지원합니다. IoT 플러그 앤 플레이 디바이스는 디바이스 모델을 사용하여 IoT 플러그 앤 플레이 지원 애플리케이션에 해당 기능을 보급합니다. 디바이스 모델을 통해 솔루션 빌더가 수동으로 구성하지 않고 스마트 디바이스를 솔루션과 통합할 수 있습니다.
+IoT Hub 및 디바이스 SDK는 디바이스를 연결하기 위한 [Azure IoT 플러그 앤 플레이](../iot-develop/overview-iot-plug-and-play.md) 규칙을 지원합니다. IoT 플러그 앤 플레이 디바이스는 디바이스 모델을 사용하여 IoT 플러그 앤 플레이 지원 애플리케이션에 해당 기능을 보급합니다. 디바이스 모델을 통해 솔루션 빌더가 수동으로 구성하지 않고 스마트 디바이스를 솔루션과 통합할 수 있습니다.
 
 솔루션에서 디바이스 라이브러리를 사용할 수 없는 경우 디바이스에서 기본적으로 MQTT v3.1.1, HTTPS 1.1 또는 AMQP 1.0 프로토콜을 사용하여 허브에 연결할 수 있습니다.
 
@@ -134,7 +134,7 @@ Azure Stack Hub의 IoT Hub는 공개 미리 보기 동안에는 무료로 제공
 
 엔드투엔드 IoT 솔루션을 사용해 보려면 다음 IoT Hub 빠른 시작을 확인해 보세요.
 
-* [빠른 시작: 디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-node.md)
+* [빠른 시작: 디바이스에서 IoT Hub로 원격 분석 데이터 보내기](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
 
 Azure IoT를 사용하여 IoT 솔루션을 빌드 및 배포하는 방법에 대해 자세히 알아보려면
 

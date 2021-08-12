@@ -2,33 +2,15 @@
 title: 디바이스 빌더를 위한 서비스 개요
 description: Defender for IoT 기능 및 서비스에 대해 알아보고, Defender for IoT가 종합적인 IoT 보안을 제공하는 방식을 이해합니다.
 ms.topic: overview
-ms.date: 05/27/2021
-ms.openlocfilehash: 996a3135f769ed10ca4057a8b96bf5f96ab4cc32
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 07/08/2021
+ms.openlocfilehash: 03601eebde5a4da400f760cbdcbe44afb45c202e
+ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011437"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113516550"
 ---
 # <a name="welcome-to-azure-defender-for-iot-for-device-builders"></a>디바이스 빌더용 Azure Defender for IoT 시작
-
-OT(운영 기술) 네트워크는 우리 사회의 가장 중요한 여러 요소를 움직이게 합니다. 그러나 이러한 기술 중 상당수는 설계 당시 보안을 염두에 두지 않았으며 기존의 IT 보안 컨트롤로 보호할 수 없습니다. 한편 IoT(사물 인터넷)는 수십억 개의 연결된 디바이스를 통해 새로운 혁신의 물결을 일으키면서 공격 노출 영역과 위험을 증가시키고 있습니다.  
-
-Azure Defender for IoT는 IoT/OT 디바이스, 취약성 및 위협을 식별하는 통합 보안 솔루션입니다. 기존 IoT/OT 디바이스를 보호해야 하든 아니면 새로운 IoT 혁신의 보안을 구축해야 하든, 이 솔루션은 전체 IoT/OT 환경을 보호합니다.  
-
-Azure Defender for IoT는 고객 환경의 요구 사항에 맞는 두 가지 기능 세트를 제공합니다.
-
-IoT/OT 환경을 사용하는 최종 사용자 조직의 경우 Azure Defender for IoT는 다음과 같은 특징의 에이전트 없는 네트워크 계층 모니터링을 제공합니다.
-
-- 신속하게 배포할 수 있습니다.
-- 다양한 산업용 장비 및 SOC 도구와 쉽게 통합됩니다.
-- IoT/OT 네트워크 성능 또는 안정성에 영향을 주지 않습니다. 
-
-플랫폼 전체를 온-프레미스에 배포할 수도 있고 Azure에 연결된 하이브리드 환경에 배포할 수도 있습니다.  
-
-IoT 디바이스 빌더의 경우 Azure Defender for IoT는 Linux 및 RTOS 같은 표준 IoT 운영 체제를 지원하는 경량 마이크로 에이전트도 제공합니다. 이 경량 에이전트는 Edge부터 클라우드까지 IoT/OT 이니셔티브에 보안을 기본 탑재하도록 도와줍니다. 유연하고 사용자 지정 가능한 배포를 위한 소스 코드를 제공합니다. 
-
-## <a name="agent-based-solution"></a>에이전트 기반 솔루션 
 
 보안은 IoT를 구현하는 거의 모든 사람이 고민하는 문제입니다. IoT 디바이스는 엔드포인트 모니터링, 보안 상태 관리 및 위협 탐지에 대한 고유한 요구 사항이 있으며, 각각 매우 구체적인 성능 요구 사항이 있습니다. 
 
@@ -36,15 +18,15 @@ Azure Defender for IoT 보안 에이전트를 사용하면 새 IoT 디바이스 
 
 Azure Defender for IoT 마이크로 에이전트는 보안 상태 관리, 위협 탐지 및 통합 보안 관리를 위한 기타 Microsoft 보안 도구와의 통합에 대한 엔드포인트 가시성을 제공합니다. 
 
-### <a name="security-posture-management"></a>보안 상태 관리
+## <a name="security-posture-management"></a>보안 상태 관리
 
 IoT 디바이스의 보안 상태를 선제적으로 모니터링합니다. Azure Defender for IoT는 디바이스 관련 권장 사항과 함께 CIS 벤치마크를 기반으로 보안 상태 권장 사항을 제공합니다. OS 구성, 방화벽 구성 및 사용 권한을 비롯한 운영 체제 보안에 대한 가시성을 제공합니다. 
 
-### <a name="endpoint-iotot-threat-detection"></a>엔드포인트 IoT/OT 위협 탐지
+## <a name="endpoint-iotot-threat-detection"></a>엔드포인트 IoT/OT 위협 탐지
 
 봇네트, 무차별 암호 대입 시도, 크립토 마이너, 의심스러운 네트워크 활동 등의 위협을 탐지합니다. 조직 내에서 가장 중요한 위협을 대상으로 하는 사용자 지정 경고를 만듭니다. 
 
-### <a name="flexible-distribution-and-deployment-models"></a>유연한 배급 및 배포 모델 
+## <a name="flexible-distribution-and-deployment-models"></a>유연한 배급 및 배포 모델 
 
 Azure Defender for IoT 마이크로 에이전트에 소스 코드가 포함되어 있으므로 마이크로 에이전트를 펌웨어에 통합하거나 필요한 것만 포함하도록 사용자 지정할 수 있습니다. 이진 패키지로 사용하거나 다른 Azure IoT 솔루션에 직접 통합할 수도 있습니다. 
 

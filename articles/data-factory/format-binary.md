@@ -6,18 +6,18 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jianleishen
-ms.openlocfilehash: 816251e7a27c1b7693ac5fc42ed912135e7a9460
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 1fcc84f5f72bda1aa132ee054c71ad4e1cffbbd4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486632"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110090215"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Azure Data Factory의 이진 형식
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이진 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [SFTP](connector-sftp.md) 커넥터에 적용됩니다.
+이진 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) 및 [SFTP](connector-sftp.md) 커넥터에 적용됩니다.
 
 [복사 작업](copy-activity-overview.md), [GetMetadata 작업](control-flow-get-metadata-activity.md) 또는 [삭제 작업](delete-activity.md)에서 이진 데이터 세트를 사용할 수 있습니다. 이진 데이터 세트를 사용하는 경우 ADF는 파일 콘텐츠를 구문 분석하지 않고 그대로 처리합니다. 
 

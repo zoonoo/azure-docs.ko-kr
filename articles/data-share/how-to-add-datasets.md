@@ -1,35 +1,35 @@
 ---
-title: 기존 Azure 데이터 공유에 데이터 집합 추가
-description: Azure 데이터 공유의 기존 데이터 공유에 데이터 집합을 추가 하 고 같은 받는 사람과 공유 하는 방법에 대해 알아봅니다.
+title: 기존 Azure Data Share에 데이터 세트 추가
+description: Azure Data Share의 기존 데이터 공유에 데이터 세트를 추가하고 같은 수신자와 공유하는 방법을 알아봅니다.
 author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
 ms.openlocfilehash: 3bfa911921e9bacde2649ee8c4f0d4bc31b56f54
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92910545"
 ---
-# <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share"></a>Azure 데이터 공유의 기존 공유에 데이터 집합을 추가 하는 방법
+# <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share"></a>Azure Data Share의 기존 공유에 데이터 세트를 추가하는 방법
 
-이 문서에서는 Azure 데이터 공유를 사용 하 여 기존 데이터 공유에 데이터 집합을 추가 하는 방법을 설명 합니다. 이렇게 하면 새 공유를 만들 필요 없이 동일한 받는 사람에 게 더 많은 데이터를 공유할 수 있습니다.
+이 문서에서는 Azure Data Share를 사용하여 기존 데이터 공유에 데이터 세트를 추가하는 방법을 설명합니다. 이렇게 하면 새 공유를 만들 필요 없이 동일한 수신자와 더 많은 데이터를 공유할 수 있습니다.
 
-공유를 만들 때 데이터 집합을 추가 하는 방법에 대 한 자세한 내용은 [데이터 공유](share-your-data.md) 자습서를 참조 하세요.
+공유를 만들 때 데이터 세트를 추가하는 방법에 대한 자세한 내용은 [데이터 공유](share-your-data.md) 자습서를 참조하세요.
 
-## <a name="navigate-to-a-sent-data-share"></a>전송 된 데이터 공유로 이동 합니다.
+## <a name="navigate-to-a-sent-data-share"></a>전송된 데이터 공유로 이동
 
-Azure 데이터 공유에서 보낸 공유로 이동 하 여 **데이터 집합** 탭을 선택 합니다. **+ 데이터 집합 추가** 단추를 클릭 하 여 데이터 집합을 더 추가 합니다.
+Azure Data Share에서 보낸 공유로 이동하여 **데이터 세트** 탭을 선택합니다. 데이터 세트를 더 추가하려면 **+ 데이터 세트 추가** 단추를 클릭합니다.
 
-![선택한 데이터 집합 추가가 스크린샷에 표시 됩니다.](./media/how-to/how-to-add-datasets/add-datasets.png)
+![도메인 추가가 선택된 모습을 보여 주는 스크린샷](./media/how-to/how-to-add-datasets/add-datasets.png)
 
-오른쪽 패널에서 추가 하려는 데이터 집합 유형을 선택 하 고 **다음** 을 클릭 합니다. 추가 하려는 데이터의 구독 및 리소스 그룹을 선택 합니다. 드롭다운 화살표를 사용 하 여 추가할 데이터 옆의 상자를 찾아 선택 합니다.
+오른쪽 패널에서 추가하려는 데이터 세트 유형을 선택하고 **다음** 을 클릭합니다. 추가하려는 데이터의 구독 및 리소스 그룹을 선택합니다. 드롭다운 화살표를 사용하여 추가할 데이터를 찾은 후 옆에 있는 상자를 선택합니다.
 
-![데이터를 선택할 수 있는 추가 Blob Storage 창이 스크린샷으로 표시 됩니다.](./media/how-to/how-to-add-datasets/add-datasets-side.png)
+![데이터를 선택할 수 있는 Blob Storage 추가 창을 보여 주는 스크린샷](./media/how-to/how-to-add-datasets/add-datasets-side.png)
 
-**데이터 집합 추가** 를 클릭 하면 데이터 집합이 공유에 추가 됩니다. 참고: 새 데이터 집합을 보려면 소비자가 스냅숏을 트리거해야 합니다. 구성 된 스냅숏 설정이 있는 경우 소비자는 다음에 예약 된 스냅숏이 완료 되 면 새 데이터 집합을 볼 수 있습니다. 스냅숏 설정이 구성 되지 않은 경우 소비자는 업데이트를 받기 위해 데이터의 전체 또는 증분 복사본을 수동으로 트리거해야 합니다. 스냅숏에 대 한 자세한 내용은 [스냅숏](terminology.md)을 참조 하십시오.
+**데이터 세트 추가** 를 클릭하면 데이터 세트가 공유에 추가됩니다. 참고: 새 데이터 세트를 보기 위해 소비자는 스냅샷을 트리거해야 합니다. 구성된 스냅샷 설정이 있는 경우 소비자는 다음에 예약된 스냅샷이 완료되면 새 데이터 세트를 볼 수 있습니다. 스냅샷 설정이 구성되지 않은 경우 소비자는 업데이트를 받기 위해 데이터의 전체 또는 증분 복사본을 수동으로 트리거해야 합니다. 스냅샷에 대한 자세한 내용은 [스냅샷](terminology.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[기존 데이터 공유에 받는 사람을 추가](how-to-add-recipients.md)하는 방법에 대해 자세히 알아보세요.
+[기존 데이터 공유에 수신자를 추가](how-to-add-recipients.md)하는 방법을 자세히 알아봅니다.

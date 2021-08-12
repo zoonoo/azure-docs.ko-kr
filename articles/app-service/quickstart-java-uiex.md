@@ -11,12 +11,12 @@ ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 64e4c05e9439c164329dede5d714bec160bc5ae2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 79cf3c2764035ef2e8c4418d172ba991a72bf3ff
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102050378"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113285911"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>빠른 시작: Azure App Service에서 Java 앱 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "102050378"
 
 + [Azure CLI](/cli/azure/install-azure-cli)
 
-+ [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) 버전 8 또는 11.
++ [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure) 버전 8 또는 11.
 
 + [Apache Maven](https://maven.apache.org) 버전 3.0 이상
 
@@ -225,7 +225,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 필요한 경우 `pom.xml`에서 직접 App Service에 대한 구성을 수정할 수 있습니다. 몇 가지 일반적인 사항은 다음과 같습니다.
 
-속성 | 필수 | 설명 | 버전
+속성 | 필수 | Description | 버전
 ---|---|---|---
 `<schemaVersion>` | false | 구성 스키마의 버전을 지정합니다. 지원되는 값은 `v1`, `v2`입니다. | 1.5.2
 `<subscriptionId>` | false | 구독 ID를 지정합니다. | 0.1.0+

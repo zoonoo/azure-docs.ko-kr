@@ -4,12 +4,12 @@ description: Azure Batch 및 기타 Azure 서비스를 통해 클라우드로 �
 ms.date: 02/07/2019
 ms.topic: how-to
 ms.custom: seodec18
-ms.openlocfilehash: 784fd89c3dea88e25a2058713897c7a655c8a3af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: abd67312c9ff8d74cc2a73d9750daca80f28391b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83726522"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481384"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Azure 렌더링 참조 아키텍처
 
@@ -51,9 +51,7 @@ ms.locfileid: "83726522"
 
   ![클라우드 버스트 - 하이브리드 컴퓨팅 및 스토리지](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
-
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Batch를 통해 [렌더링 관리자](batch-rendering-render-managers.md)를 사용하는 방법에 대해 자세히 알아봅니다.
-
-* [Azure의 렌더링](batch-rendering-service.md) 옵션에 대해 자세히 알아봅니다.
+* [Azure의 렌더링](batch-rendering-service.md)에 사용되는 옵션에 대해 자세히 알아봅니다.
+* [Batch를 이용해 렌더링 애플리케이션을 사용](batch-rendering-applications.md)하는 방법에 대해 알아봅니다.

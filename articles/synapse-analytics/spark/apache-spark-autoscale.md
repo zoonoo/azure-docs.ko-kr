@@ -1,6 +1,6 @@
 ---
-title: Apache Spark 인스턴스의 크기를 자동으로 조정
-description: Azure Synapse 자동 크기 조정 기능을 사용 하 여 Apache Spark 인스턴스의 크기를 자동으로 조정
+title: Apache Spark 인스턴스 자동 스케일링
+description: Azure Synapse 자동 스케일링 기능을 사용하여 Apache Spark 인스턴스를 자동으로 스케일링
 author: euangMS
 ms.author: euang
 ms.reviewer: euang
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
 ms.openlocfilehash: f34bcfa8b743fbee6ee3b78fc1a042d1df0abfde
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93313633"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Azure Synapse Analytics Apache Spark 풀 크기 자동 조정
@@ -49,9 +49,9 @@ Azure Synapse Analytics용 Apache Spark 풀의 자동 크기 조정 기능은 �
 
 ## <a name="get-started"></a>시작하기
 
-### <a name="create-a-serverless-apache-spark-pool-with-autoscaling"></a>자동 크기 조정을 사용 하 여 서버를 사용 하지 않는 Apache Spark 풀 만들기
+### <a name="create-a-serverless-apache-spark-pool-with-autoscaling"></a>자동 스케일링을 사용하여 서버리스 Apache Spark 풀 생성
 
-자동 크기 조정 기능을 사용하려면 일반 풀 만들기 프로세스의 일부로 다음을 수행합니다.
+자동 크기 조정 기능을 사용하려면 일반 풀 생성 프로세스의 일부로 다음을 수행합니다.
 
 1. **기본** 탭에서 **자동 크기 조정 사용** 확인란을 선택합니다.
 1. 다음 속성에 대해 원하는 값을 입력합니다.  
@@ -67,9 +67,9 @@ Azure Synapse Analytics용 Apache Spark 풀의 자동 크기 조정 기능은 �
 
 크기 조정 작업을 완료하는 데 1 ~ 5분 정도 걸릴 수 있습니다.
 
-### <a name="prepare-for-scaling-down"></a>규모 축소 준비
+### <a name="prepare-for-scaling-down"></a>스케일 다운 준비
 
-인스턴스 규모를 축소 하는 동안 자동 크기 조정 기능은 노드를 서비스 해제 상태로 전환 하므로 해당 노드에서 새 실행 기를 시작할 수 없습니다.
+인스턴스 스케일 다운을 처리하는 동안 자동 스케일링 기능은 노드를 서비스 해제 상태로 전환하므로 해당 노드에서 새 실행기를 시작할 수 없습니다.
 
 실행 중인 작업이 계속 실행되고 완료됩니다. 보류 중인 작업은 사용 가능한 노드가 더 적은 상태로 정상적으로 예약될 때까지 대기합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure의 Vm에 대 한 격리
-description: Azure에서 VM 격리 작동에 대해 알아봅니다.
+title: Azure의 VM 격리
+description: Azure의 VM 격리 작업에 대해 알아보세요.
 author: styli365
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -9,10 +9,10 @@ ms.date: 11/05/2020
 ms.author: sttsinar
 ms.reviewer: ayshak
 ms.openlocfilehash: dba1e3fa33f489ba4d2f857d078999a874370357
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94413261"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Azure의 가상 머신 격리

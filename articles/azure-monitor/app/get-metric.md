@@ -4,12 +4,12 @@ description: GetMetric() 호출을 효과적으로 사용하여 Azure Monitor Ap
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 22baa1ae9554601a72ffdb848b87d99281067967
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 8efea750ea60c8bb699dac4ffc9aba56241726e1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384292"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070087"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>.NET 및 .NET Core의 사용자 지정 메트릭 컬렉션
 
@@ -32,7 +32,7 @@ Application Insights에서 `TrackMetric()` 및 `GetMetric()`을 통해 수집된
 요약하자면 `GetMetric()`은 사전 집계를 수행하기 때문에 권장되는 방법입니다. 모든 Track() 호출의 값을 누적하고 1분마다 요약/집계를 보냅니다. 이렇게 하면 모든 관련 정보를 수집하는 동안 더 적은 데이터 요소를 보냄으로써 비용 및 성능 오버헤드를 상당히 줄일 수 있습니다.
 
 > [!NOTE]
-> .NET 및 .NET Core SDK만 GetMetric() 메서드를 포함합니다. Java를 사용하는 경우 [마이크로미터 메트릭](./micrometer-java.md) 또는 `TrackMetric()`를 사용할 수 있습니다. JavaScript 및 Node.js의 경우 `TrackMetric()`을 계속 사용할 수 있지만 이전 섹션에서 설명한 주의 사항을 염두에 두어야 합니다. Python의 경우 [OpenCensus.stats](./opencensus-python.md#metrics)를 사용하여 사용자 지정 메트릭을 보낼 수 있지만 메트릭 구현은 다릅니다.
+> .NET 및 .NET Core SDK만 GetMetric() 메서드를 포함합니다. Java를 사용하는 경우 [Micrometer를 사용하여 사용자 지정 메트릭 보내기](./java-in-process-agent.md#send-custom-metrics-using-micrometer)를 참조하세요. JavaScript 및 Node.js의 경우 `TrackMetric()`을 계속 사용할 수 있지만 이전 섹션에서 설명한 주의 사항을 염두에 두어야 합니다. Python의 경우 [OpenCensus.stats](./opencensus-python.md#metrics)를 사용하여 사용자 지정 메트릭을 보낼 수 있지만 메트릭 구현은 다릅니다.
 
 ## <a name="getting-started-with-getmetric"></a>GetMetric 시작
 

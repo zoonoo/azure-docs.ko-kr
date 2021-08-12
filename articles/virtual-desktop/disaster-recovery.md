@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop 재해 복구 계획 설정 - Azure
-description: Windows Virtual Desktop 배포를 위한 비즈니스 연속성 및 재해 복구 계획을 설정하는 방법.
+title: Azure Virtual Desktop 재해 복구 계획 설정 - Azure
+description: Azure Virtual Desktop 배포를 위한 비즈니스 연속성 및 재해 복구 계획을 설정하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 10/09/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 18089bc00e9d02087acb149511fbc2c55077c153
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 91795dbe4e648f12e9a088a5aeffb68bffb46a65
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446930"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757898"
 ---
 # <a name="set-up-a-business-continuity-and-disaster-recovery-plan"></a>비즈니스 연속성 및 재해 복구 계획 설정
 
 조직의 데이터를 안전하게 유지하려면 BCDR(비즈니스 연속성 및 재해 복구) 전략을 채택해야 할 수 있습니다. 안전한 BCDR 전략을 통해 계획되거나 계획되지 않은 서비스 또는 Azure 중단 시에도 애플리케이션과 워크로드를 계속 실행 상태로 유지할 수 있습니다.
 
-Windows Virtual Desktop은 Windows Virtual Desktop 서비스에 BCDR을 제공하여 중단 중에 고객 메타데이터를 보존합니다. 지역에서 중단이 발생하면 서비스 인프라 구성 요소가 보조 위치로 장애 조치(failover)되어 계속 정상적으로 작동합니다. 서비스 관련 메타데이터에 계속 액세스할 수 있으며 사용자는 사용 가능한 호스트에 계속 연결할 수 있습니다. 최종 사용자 연결은 테넌트 환경 또는 호스트에 액세스할 수 있는 한 온라인 상태를 유지합니다.
+Azure Virtual Desktop은 Azure Virtual Desktop 서비스에 BCDR을 제공하여 중단 중에 고객 메타데이터를 보존합니다. 지역에서 중단이 발생하면 서비스 인프라 구성 요소가 보조 위치로 장애 조치(failover)되어 계속 정상적으로 작동합니다. 서비스 관련 메타데이터에 계속 액세스할 수 있으며 사용자는 사용 가능한 호스트에 계속 연결할 수 있습니다. 최종 사용자 연결은 테넌트 환경 또는 호스트에 액세스할 수 있는 한 온라인 상태를 유지합니다.
 
 지역 중단 중에 사용자가 계속 연결할 수 있도록 하려면 사용자의 VM(가상 머신)을 다른 위치에 복제해야 합니다. 중단된 경우, 기본 사이트는 보조 위치에 있는 복제된 VM으로 장애 조치(failover)됩니다. 사용자는 중단 없이 보조 위치에서 앱에 계속 액세스할 수 있습니다. VM 복제 외에도 보조 위치에서 액세스할 수 있는 사용자 ID를 유지해야 합니다. 프로필 컨테이너를 사용하는 경우에도 복제해야 합니다. 마지막으로 기본 위치의 데이터에 의존하는 비즈니스 앱이 나머지 데이터로 장애 조치(failover)될 수 있는지 확인합니다.
 
@@ -40,17 +40,17 @@ Windows Virtual Desktop은 Windows Virtual Desktop 서비스에 BCDR을 제공�
 
 [Azure-to-Azure 재해 복구 아키텍처](../site-recovery/azure-to-azure-architecture.md)에 설명된 대로 [Azure Site Recovery](../site-recovery/site-recovery-overview.md)를 사용하여 다른 Azure 위치에서 VM 복제를 관리하는 것이 좋습니다. Azure Site Recovery는 [서버 기반 및 클라이언트 기반 SKU](../site-recovery/azure-to-azure-support-matrix.md#replicated-machine-operating-systems)를 모두 지원하므로 특히 개인 호스트 풀에 Azure Site Recovery를 사용하는 것이 좋습니다.
 
-Azure Site Recovery를 사용하는 경우 이러한 VM을 수동으로 등록할 필요가 없습니다. 보조 VM의 Windows Virtual Desktop 에이전트는 자동으로 최신 보안 토큰을 사용하여 가장 가까운 서비스 인스턴스에 연결합니다. 보조 위치의 VM(세션 호스트)은 자동으로 호스트 풀의 일부가 됩니다. 최종 사용자는 프로세스 중에 다시 연결해야 하지만, 그 외에는 다른 수동 작업이 없습니다.
+Azure Site Recovery를 사용하는 경우 이러한 VM을 수동으로 등록할 필요가 없습니다. 보조 VM의 Azure Virtual Desktop 에이전트는 자동으로 최신 보안 토큰을 사용하여 가장 가까운 서비스 인스턴스에 연결합니다. 보조 위치의 VM(세션 호스트)은 자동으로 호스트 풀의 일부가 됩니다. 최종 사용자는 프로세스 중에 다시 연결해야 하지만, 그 외에는 다른 수동 작업이 없습니다.
 
 중단 중에 기존 사용자 연결이 있는 경우 관리자가 보조 지역으로 장애 조치(failover)를 시작하기 전에 현재 지역에서 사용자 연결을 종료해야 합니다.
 
-Windows Virtual Desktop(클래식)에서 사용자의 연결을 끊으려면 다음 cmdlet을 실행합니다.
+Azure Virtual Desktop(클래식)에서 사용자의 연결을 끊으려면 다음 cmdlet을 실행합니다.
 
 ```powershell
 Invoke-RdsUserSessionLogoff
 ```
 
-Azure 통합 버전의 Windows Virtual Desktop에서 사용자 연결을 끊으려면 다음 cmdlet을 실행합니다.
+Azure 통합 버전의 Azure Virtual Desktop에서 사용자 연결을 끊으려면 다음 cmdlet을 실행합니다.
 
 ```powershell
 Remove-AzWvdUserSession
@@ -84,7 +84,7 @@ Azure Site Recovery를 사용하여 기본 네트워크의 설정을 유지하�
    - Azure NetApp Files
    - 복제용 클라우드 캐시
 
-자세한 내용은 [Windows Virtual Desktop의 FSLogix 프로필 컨테이너에 대한 스토리지 옵션](store-fslogix-profile.md)을 확인하세요.
+자세한 내용은 [ Virtual Desktop의 FSLogix 프로필 컨테이너에 대한 저장소 옵션](store-fslogix-profile.md)을 확인하세요.
 
 프로필에 대한 재해 복구를 설정하는 경우 다음과 같은 옵션이 있습니다.
 

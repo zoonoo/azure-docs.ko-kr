@@ -1,5 +1,5 @@
 ---
-title: 기술 자료 저장소 개념
+title: 지식 저장소 개념
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search 및 다른 애플리케이션에서 보강된 문서를 보고, 변형시키고, 사용할 수 있는 Azure Storage에 해당 문서를 보냅니다.
 author: HeidiSteen
@@ -8,20 +8,20 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 3ec556c6198a00f217568f6591bd4b43c7fc743e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: a379c6e828a4d3a10dd958ec7f380907b20f7352
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88924302"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559127"
 ---
-# <a name="knowledge-store-in-azure-cognitive-search"></a>Azure Cognitive Search의 기술 자료 저장소
+# <a name="knowledge-store-in-azure-cognitive-search"></a>Azure Cognitive Search의 지식 저장소
 
-지식 저장소는 독립적으로 분석하거나 다운스트림을 처리하기 위해 [AI 보강 파이프라인](cognitive-search-concept-intro.md)의 출력을 유지하는 Azure Cognitive Search의 기능입니다. *보강된 문서* 는 AI 프로세스를 사용하여 추출, 구조화 및 분석된 콘텐츠에서 만든 파이프라인의 출력입니다. 표준 AI 파이프라인에서 보강된 문서는 일시적이며 인덱싱 중에만 사용된 후에 삭제됩니다. 기술 자료 저장소를 만들도록 선택 하면 보강 문서를 유지할 수 있습니다. 
+지식 저장소는 독립적으로 분석하거나 다운스트림을 처리하기 위해 [AI 보강 파이프라인](cognitive-search-concept-intro.md)의 출력을 유지하는 Azure Cognitive Search의 기능입니다. *보강된 문서* 는 AI 프로세스를 사용하여 추출, 구조화 및 분석된 콘텐츠에서 만든 파이프라인의 출력입니다. 표준 AI 파이프라인에서 보강된 문서는 일시적이며 인덱싱 중에만 사용된 후에 삭제됩니다. 지식 저장소를 만들도록 선택하면 보강된 문서를 유지할 수 있습니다. 
 
-과거에 인지 검색을 사용한 적이 있으면 *기술 세트* 를 사용하여 보강 시퀀스를 통해 문서를 이동시킨다는 것을 이미 알고 있을 것입니다. 결과는 검색 인덱스 또는 기술 자료 저장소의 프로젝션이 될 수 있습니다. 검색 인덱스와 지식 저장소의 두 출력은 동일한 파이프라인의 부산물입니다. 동일한 입력에서 파생되지만 매우 다양한 방식으로 구조화, 저장 및 사용되는 출력이 생성됩니다.
+과거에 인지 검색을 사용한 적이 있으면 *기술 세트* 를 사용하여 보강 시퀀스를 통해 문서를 이동시킨다는 것을 이미 알고 있을 것입니다. 결과는 검색 인덱스이거나 지식 저장소의 프로젝션일 수 있습니다. 검색 인덱스와 지식 저장소의 두 출력은 동일한 파이프라인의 부산물입니다. 동일한 입력에서 파생되지만 매우 다양한 방식으로 구조화, 저장 및 사용되는 출력이 생성됩니다.
 
-물리적으로 지식 저장소는 Azure Table 스토리지, Azure Blob 스토리지 또는 둘 다인 [Azure Storage](../storage/common/storage-account-overview.md)입니다. Azure Storage에 연결할 수 있는 모든 도구 또는 프로세스는 지식 저장소의 콘텐츠를 사용할 수 있습니다.
+물리적으로 지식 저장소는 [Azure Storage](../storage/common/storage-account-overview.md)이며 Azure Table Storage, Azure Blob Storage 또는 둘 다 해당합니다. Azure Storage에 연결할 수 있는 모든 도구 또는 프로세스는 지식 저장소의 콘텐츠를 사용할 수 있습니다.
 
 
 > [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=235&end=426]
@@ -74,7 +74,7 @@ AI 보강 파이프라인에서 생성할 수 있는 기능을 확인하는 것�
 
 이 구조에서 지정하는 프로젝션의 형식에 따라 지식 저장소에서 사용하는 스토리지 형식이 결정됩니다.
 
-+ 테이블 스토리지는 `tables`를 정의할 때 사용됩니다. 분석 도구에 입력하기 위해 테이블 형식 보고 구조가 필요하거나 다른 데이터 저장소로 데이터 프레임을 내보낼 경우 테이블 프로젝션을 정의합니다. 여러 `tables`를 지정하여 보강 문서의 일부 또는 단면을 가져올 수 있습니다. 동일한 프로젝션 그룹 내에서 테이블 관계를 사용할 수 있게 보존됩니다.
++ Table Storage는 `tables`를 정의할 때 사용됩니다. 분석 도구에 입력하기 위해 테이블 형식 보고 구조가 필요하거나 다른 데이터 저장소로 데이터 프레임을 내보낼 경우 테이블 프로젝션을 정의합니다. 여러 `tables`를 지정하여 보강 문서의 일부 또는 단면을 가져올 수 있습니다. 동일한 프로젝션 그룹 내에서 테이블 관계를 사용할 수 있게 보존됩니다.
 
 + Blob 스토리지는 `objects` 또는 `files`를 정의할 때 사용됩니다. `object`의 물리적 표현은 보강 문서를 나타내는 계층적 JSON 구조입니다. `file`은 문서에서 추출되어 Blob 스토리지로 그대로 전송되는 이미지입니다.
 
@@ -100,7 +100,7 @@ AI 보강 파이프라인에서 생성할 수 있는 기능을 확인하는 것�
 
 ## <a name="how-to-create-a-knowledge-store"></a>지식 저장소를 만드는 방법
 
-기술 자료 저장소를 만들려면 포털 또는 REST API ()를 사용 합니다 `api-version=2020-06-30` .
+지식 저장소를 만들려면 포털 또는 REST API(`api-version=2020-06-30`)를 사용합니다.
 
 ### <a name="use-the-azure-portal"></a>Azure Portal 사용
 
@@ -114,17 +114,17 @@ AI 보강 파이프라인에서 생성할 수 있는 기능을 확인하는 것�
 
 1. 마법사를 실행합니다. 이 마지막 단계에서 추출, 보강 및 저장이 수행됩니다.
 
-### <a name="use-create-skillset-rest-api"></a>Create 기술 (REST API) 사용
+### <a name="use-create-skillset-rest-api"></a>기술 집합 만들기(REST API) 사용
 
 `knowledgeStore`는 [기술 세트](cognitive-search-working-with-skillsets.md) 내에 정의되며, [인덱서](search-indexer-overview.md)에서 호출됩니다. Azure Cognitive Search는 보강하는 동안 공간을 Azure Storage 계정에 만들고, 구성에 따라 보강된 문서를 Blob 또는 테이블로 프로젝션합니다.
 
-REST API는 프로그래밍 방식으로 기술 자료 저장소를 만들 수 있는 메커니즘 중 하나입니다. 탐색하는 쉬운 방법은 [Postman 및 REST API를 사용하여 첫 번째 정보 저장소를 만드는 것](knowledge-store-create-rest.md)입니다.
+REST API는 프로그래밍 방식으로 지식 저장소를 만들 수 있는 유일한 메커니즘입니다. 탐색하는 쉬운 방법은 [Postman 및 REST API를 사용하여 첫 번째 정보 저장소를 만드는 것](knowledge-store-create-rest.md)입니다.
 
 <a name="tools-and-apps"></a>
 
 ## <a name="how-to-connect-with-tools-and-apps"></a>도구 및 앱과 연결하는 방법
 
-보강이 스토리지에 존재하면 Azure BLOB 또는 테이블 스토리지에 연결하는 도구 또는 기술을 사용하여 콘텐츠를 검색, 분석 또는 사용할 수 있습니다. 다음 목록으로 시작합니다.
+보강이 스토리지에 존재하면 Azure Blob 또는 Table Storage에 연결하는 도구나 기술을 사용하여 콘텐츠를 검색, 분석 또는 사용할 수 있습니다. 다음 목록으로 시작합니다.
 
 + [Storage Explorer](knowledge-store-view-storage-explorer.md) - 보강된 문서 구조 및 콘텐츠를 봅니다. 이 도구를 지식 저장소 콘텐츠를 보기 위한 기준선 도구로 고려합니다.
 
@@ -138,15 +138,15 @@ REST API는 프로그래밍 방식으로 기술 자료 저장소를 만들 수 �
 
 REST API 버전 `2020-06-30`에서는 기술 세트에 대한 추가 정의를 통해 지식 저장소를 제공합니다. API를 호출하는 방법에 대한 자세한 내용은 이 참조 외에 [Postman Man을 사용하여 지식 저장소 만들기](knowledge-store-create-rest.md)를 참조하세요.
 
-+ [Create 기술 (api-version = 2020-06-30)](/rest/api/searchservice/create-skillset)
-+ [기술 업데이트 (api-version = 2020-06-30)](/rest/api/searchservice/update-skillset)
++ [기술 세트 만들기(api-version=2020-06-30)](/rest/api/searchservice/create-skillset)
++ [기술 세트 업데이트(api-version=2020-06-30)](/rest/api/searchservice/update-skillset)
 
 
 ## <a name="next-steps"></a>다음 단계
 
 지식 저장소는 보강된 문서를 지속적으로 유지하므로 기술 세트를 디자인하거나 Azure Storage 계정에 액세스할 수 있는 모든 클라이언트 애플리케이션에서 사용할 새 구조와 콘텐츠를 만들 때 유용합니다.
 
-보강 문서를 만드는 가장 간단한 방법은 [포털](knowledge-store-create-portal.md)을 사용 하는 것 이지만, 개체를 만들고 참조 하는 방법에 대 한 통찰력을 원하는 경우에는 postman과 REST API를 사용할 수도 있습니다.
+보강된 문서를 만드는 가장 간단한 방법은 [포털을 사용하는](knowledge-store-create-portal.md) 것이지만, Postman 및 REST API를 사용할 수도 있습니다. 이는 개체를 만들고 참조하는 방법에 대한 인사이트를 원하는 경우에 더 유용합니다.
 
 > [!div class="nextstepaction"]
 > [Postman 및 REST를 사용하여 지식 저장소 만들기](knowledge-store-create-rest.md)

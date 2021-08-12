@@ -11,14 +11,20 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32ad7199360ca0acc8674f7a4e34bd206f8b335f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0698d07268c416b0a10055ec5480971fc10c142c
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101648768"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854381"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Azure AD 암호 보호 에이전트에 대한 버전 기록
+
+## <a name="121760"></a>1.2.176.0
+
+릴리스 날짜: 2021년 6월 4일
+
+* 특정 환경에서 프록시 및 DC 에이전트가 실행되지 않도록 하는 문제에 대한 사소한 버그를 수정합니다.
 
 ## <a name="121720"></a>1.2.172.0
 
@@ -41,7 +47,7 @@ ms.locfileid: "101648768"
 
 ## <a name="121250"></a>1.2.125.0
 
-릴리스 날짜: 2019년 3월 22일
+릴리스 날짜: 2019년 3월 2일
 
 * 이벤트 로그 메시지에서 사소한 오타 수정
 * EULA 계약을 최종 일반 공급 버전으로 업데이트
@@ -51,7 +57,7 @@ ms.locfileid: "101648768"
 
 ## <a name="121160"></a>1.2.116.0
 
-릴리스 날짜: 2019년 3월 13일
+릴리스 날짜: 2019년 3월 3일
 
 * 이제 Get-AzureADPasswordProtectionProxy 및 Get-AzureADPasswordProtectionDCAgent cmdlet은 소프트웨어 버전 및 현재 Azure 테넌트를 보고하며 다음과 같은 제한 사항이 있습니다.
   * 소프트웨어 버전 및 Azure 테넌트 데이터는 버전 1.2.116.0 이상을 실행하는 DC 에이전트 및 프록시에만 사용할 수 있습니다.

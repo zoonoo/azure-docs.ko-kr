@@ -15,10 +15,10 @@ ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2edc6fb98359c5360836bc369e5ae1928464df92
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96861033"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Azure Active Directory에서 테넌트 삭제
@@ -27,12 +27,12 @@ Azure AD 조직(테넌트)을 삭제하면 해당 조직에 포함된 모든 리
 
 ## <a name="prepare-the-organization"></a>조직 준비
 
-Azure AD의 조직은 여러 가지 검사를 통과한 다음에 삭제할 수 있습니다. 이러한 검사를 통해 azure AD 조직을 삭제 하면 Azure의 Microsoft 365에 로그인 하거나 리소스에 액세스할 수 있는 기능과 같은 사용자 액세스에 부정적인 영향을 줄 수 있습니다. 예를 들어 구독과 연결된 조직이 의도치 않게 삭제된 경우 사용자는 해당 구독에 대한 Azure 리소스에 액세스할 수 없습니다. 다음과 같은 조건을 확인합니다.
+Azure AD의 조직은 여러 가지 검사를 통과한 다음에 삭제할 수 있습니다. 이러한 검사는 Azure AD 조직을 삭제했을 때 Microsoft 365에 로그인하거나 Azure의 리소스에 액세스하는 기능과 같은 사용자 액세스에 부정적인 영향을 주는 위험을 줄일 수 있습니다. 예를 들어 구독과 연결된 조직이 의도치 않게 삭제된 경우 사용자는 해당 구독에 대한 Azure 리소스에 액세스할 수 없습니다. 다음과 같은 조건을 확인합니다.
 
 * Azure AD 조직(테넌트)에는 조직을 삭제할 전역 관리자 한 명을 제외하고 사용자가 없을 수 있습니다. 조직을 삭제하려면 먼저 다른 모든 사용자를 삭제해야 합니다. 사용자가 온-프레미스에서 동기화된 경우 먼저 동기화를 해제해야 하며 Azure Portal 또는 Azure PowerShell cmdlet을 사용하여 클라우드 조직에서 사용자를 삭제해야 합니다.
 * 조직에는 애플리케이션이 없을 수 있습니다. 조직을 삭제하려면 먼저 모든 애플리케이션을 제거해야 합니다.
 * 조직에 연결된 다단계 인증 공급자가 없을 수 있습니다.
-* 조직에 연결 된 Microsoft Azure, Microsoft 365, Azure AD Premium 등의 Microsoft Online Services에 대 한 구독이 없을 수 있습니다. 예를 들어 Azure에서 생성된 기본 Azure AD 조직을 Azure 구독에서 인증에 계속 사용하는 경우 이 조직을 삭제할 수 없습니다. 마찬가지로 다른 사용자가 구독을 연결한 조직은 삭제할 수 없습니다.
+* Microsoft Azure, Microsoft 365 또는 Azure AD Premium 등 Microsoft 온라인 서비스에 대한 구독이 조직과 연결되지 않았을 수도 있습니다. 예를 들어 Azure에서 생성된 기본 Azure AD 조직을 Azure 구독에서 인증에 계속 사용하는 경우 이 조직을 삭제할 수 없습니다. 마찬가지로 다른 사용자가 구독을 연결한 조직은 삭제할 수 없습니다.
 
 ## <a name="delete-the-organization"></a>조직 삭제
 
@@ -52,16 +52,16 @@ Azure AD의 조직은 여러 가지 검사를 통과한 다음에 삭제할 수 
 
 ## <a name="if-you-cant-delete-the-organization"></a>조직을 삭제할 수 없는 경우
 
-Azure AD 조직을 구성할 때 Azure AD Premium P2, Microsoft 365 Business 표준 또는 Enterprise Mobility + Security E5와 같은 조직에 대 한 라이선스 기반 구독을 활성화 했을 수도 있습니다. 실수로 인한 데이터 손실을 방지하기 위해 구독이 완전히 삭제될 때까지 조직을 삭제할 수 없습니다. 조직 삭제를 허용하려면 구독이 **프로비저닝 해제됨** 상태여야 합니다. **만료됨** 또는 **취소됨** 상태의 구독은 **사용 안 함** 상태로 이동되며 최종 단계는 **프로비저닝 해제됨** 상태입니다.
+Azure AD 조직을 구성한 경우 조직에 대해 Azure AD Premium P2, Microsoft 365 Business Standard 또는 Enterprise Mobility + Security E5와 같은 라이선스 기반 구독을 활성화했을 수도 있습니다. 실수로 인한 데이터 손실을 방지하기 위해 구독이 완전히 삭제될 때까지 조직을 삭제할 수 없습니다. 조직 삭제를 허용하려면 구독이 **프로비저닝 해제됨** 상태여야 합니다. **만료됨** 또는 **취소됨** 상태의 구독은 **사용 안 함** 상태로 이동되며 최종 단계는 **프로비저닝 해제됨** 상태입니다.
 
-평가판 Microsoft 365 구독이 만료 될 때 (유료 파트너/CSP, 기업계약 또는 볼륨 라이선싱 포함 안 함), 다음 표를 참조 하세요. 데이터 보존 및 구독 수명 주기에 대 한 자세한 Microsoft 365 내용은 [비즈니스 구독에 대 한 Microsoft 365 종료 되는 경우 데이터 및 액세스의 영향](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3)을 참조 하세요 .를 참조 하세요. 
+평가판 Microsoft 365 구독(유료 파트너/CSP, 기업계약 또는 볼륨 라이선싱 미포함)이 만료될 경우 예상되는 결과는 다음 표를 참조하세요. Microsoft 365 데이터 보존 및 구독 수명 주기에 대한 자세한 정보는 [비즈니스용 Microsoft 365 구독이 종료되면 내 데이터와 액세스 권한에 어떤 변화가 있나요?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3)를 참조하세요. 
 
 구독 상태 | 데이터 | 데이터 액세스
 ----- | ----- | -----
-활성(평가판의 경우 30일) | 모두 데이터에 액세스할 수 있음 | 사용자는 Microsoft 365 파일 또는 앱에 대 한 일반적인 액세스 권한을 가집니다.<br>관리자는 Microsoft 365 관리 센터 및 리소스에 대한 일반 액세스 권한이 있음 
-만료됨(30일) | 모두 데이터에 액세스할 수 있음| 사용자는 Microsoft 365 파일 또는 앱에 대 한 일반적인 액세스 권한을 가집니다.<br>관리자는 Microsoft 365 관리 센터 및 리소스에 대한 일반 액세스 권한이 있음
-사용 안 함(30일) | 관리자만 데이터에 액세스할 수 있음 | 사용자는 Microsoft 365 파일 또는 앱에 액세스할 수 없습니다.<br>관리자는 Microsoft 365 관리 센터에 액세스할 수 있지만 사용자에게 라이선스를 할당하거나 사용자를 업데이트할 수 없음
-프로비전 해제됨(사용 안 함으로 설정된 후 30일) | 데이터가 삭제됨(사용 중인 다른 서비스가 없는 경우 자동으로 삭제됨) | 사용자는 Microsoft 365 파일 또는 앱에 액세스할 수 없습니다.<br>관리자는 Microsoft 365 관리 센터에 액세스하여 다른 구독을 구매하고 관리할 수 있음
+활성(평가판의 경우 30일) | 모두 데이터에 액세스할 수 있음 | 사용자는 Microsoft 365 파일 또는 앱에 대한 기본 액세스 권한이 있음<br>관리자는 Microsoft 365 관리 센터 및 리소스에 대한 일반 액세스 권한이 있음 
+만료됨(30일) | 모두 데이터에 액세스할 수 있음| 사용자는 Microsoft 365 파일 또는 앱에 대한 기본 액세스 권한이 있음<br>관리자는 Microsoft 365 관리 센터 및 리소스에 대한 일반 액세스 권한이 있음
+사용 안 함(30일) | 관리자만 데이터에 액세스할 수 있음 | 사용자는 Microsoft 365 파일 또는 앱에 액세스할 수 없음<br>관리자는 Microsoft 365 관리 센터에 액세스할 수 있지만 사용자에게 라이선스를 할당하거나 사용자를 업데이트할 수 없음
+프로비전 해제됨(사용 안 함으로 설정된 후 30일) | 데이터가 삭제됨(사용 중인 다른 서비스가 없는 경우 자동으로 삭제됨) | 사용자는 Microsoft 365 파일 또는 앱에 액세스할 수 없음<br>관리자는 Microsoft 365 관리 센터에 액세스하여 다른 구독을 구매하고 관리할 수 있음
 
 ## <a name="delete-a-subscription"></a>구독 삭제
 
@@ -97,7 +97,7 @@ Microsoft 365 관리 센터를 통해 구독을 **프로비저닝 해제됨** �
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>삭제를 차단하는 평가판 구독이 있음
 
-Microsoft Power BI, Rights Management 서비스, Microsoft Power Apps 또는 Dynamics 365와 같은 [셀프 서비스 등록 제품이](/office365/admin/misc/self-service-sign-up) 있습니다. 개별 사용자는 Microsoft 365를 통해 등록할 수 있습니다. 그러면 Azure AD 조직에서 인증을 위한 게스트 사용자도 만들어집니다. 이러한 셀프 서비스 제품은 데이터 손실을 방지하기 위해 조직에서 제품이 완전히 삭제될 때까지 디렉터리 삭제를 차단합니다. 또한 사용자가 제품을 개별적으로 등록했거나 할당받았는지 여부와 관계없이 Azure AD 관리자만 삭제할 수 있습니다.
+Microsoft Power BI, Rights Management Services, Microsoft Power Apps, Dynamics 365와 같이 개별 사용자가 Microsoft 365를 통해 등록할 수 있는 [셀프 서비스 등록 제품](/office365/admin/misc/self-service-sign-up)이 있으며, 제품을 등록하면 Azure AD 조직에서 인증을 위한 게스트 사용자도 생성됩니다. 이러한 셀프 서비스 제품은 데이터 손실을 방지하기 위해 조직에서 제품이 완전히 삭제될 때까지 디렉터리 삭제를 차단합니다. 또한 사용자가 제품을 개별적으로 등록했거나 할당받았는지 여부와 관계없이 Azure AD 관리자만 삭제할 수 있습니다.
 
 할당되는 방법에 따라 두 가지 유형의 셀프 서비스 등록 제품이 있습니다. 
 
@@ -108,7 +108,7 @@ Microsoft Power BI, Rights Management 서비스, Microsoft Power Apps 또는 Dyn
 
 현재 사용할 수 있는 셀프 서비스 등록 제품 및 서비스에 대한 자세한 내용은 [사용 가능한 셀프 서비스 프로그램](/office365/admin/misc/self-service-sign-up#available-self-service-programs)을 참조하세요.
 
-평가판 Microsoft 365 구독이 만료 될 때 (유료 파트너/CSP, 기업계약 또는 볼륨 라이선싱 포함 안 함), 다음 표를 참조 하세요. 데이터 보존 및 구독 수명 주기에 대 한 자세한 Microsoft 365 내용은 [비즈니스 구독에 대 한 Microsoft 365 종료 되는 경우 데이터 및 액세스의 영향](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires)을 참조 하세요 .를 참조 하세요.
+평가판 Microsoft 365 구독(유료 파트너/CSP, 기업계약 또는 볼륨 라이선싱 미포함)이 만료될 경우 예상되는 결과는 다음 표를 참조하세요. Microsoft 365 데이터 보존 및 구독 수명 주기에 대한 자세한 정보는 [비즈니스용 Microsoft 365 구독이 종료되면 내 데이터와 액세스 권한에 어떤 변화가 있나요?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires)를 참조하세요.
 
 제품 상태 | 데이터 | 데이터 액세스
 ------------- | ---- | --------------
@@ -123,19 +123,19 @@ Microsoft Power BI 또는 Azure Rights Management Services와 같은 셀프 서�
 
 2. **라이선스** 를 선택한 후 **셀프 서비스 등록 제품** 을 선택합니다. 사용자 기반 구독에서 모든 셀프 서비스 등록 제품을 별도로 볼 수 있습니다. 영구적으로 삭제하려는 제품을 선택합니다. Microsoft Power BI의 예제는 다음과 같습니다.
 
-    !["라이선스-셀프 서비스 등록 제품" 페이지를 보여 주는 스크린샷](./media/directory-delete-howto/licenses-page.png)
+    !["라이선스 - 셀프 서비스 등록 제품" 페이지를 보여주는 스크린샷](./media/directory-delete-howto/licenses-page.png)
 
 3. **삭제** 를 선택하여 제품을 삭제한 다음, 데이터가 영구적으로 즉시 삭제된다는 사용 약관에 동의합니다. 이 삭제 작업은 모든 사용자를 제거하고 제품에 대한 조직 액세스를 제거합니다. ‘예’를 클릭하여 삭제를 진행합니다.  
 
-    !["셀프 서비스 등록 제품 삭제" 창이 열려 있는 "라이선스-셀프 서비스 등록 제품" 페이지를 보여 주는 스크린샷](./media/directory-delete-howto/delete-product.png)
+    !["셀프 서비스 등록 제품 삭제" 창이 열려 있는 "라이선스 - 셀프 서비스 등록 제품" 페이지를 보여주는 스크린샷](./media/directory-delete-howto/delete-product.png)
 
 4. **예** 를 선택하면 셀프 서비스 제품 삭제가 시작됩니다. 진행 중인 삭제를 알려 주는 알림이 표시됩니다.  
 
-    !["삭제가 진행 중입니다." 알림이 표시 된 "라이선스-셀프 서비스 등록 제품" 페이지가 표시 된 스크린샷](./media/directory-delete-howto/progress-message.png)
+    !["삭제 진행 중" 알림이 표시된 "라이선스 - 셀프 서비스 등록 제품" 페이지를 보여주는 스크린샷](./media/directory-delete-howto/progress-message.png)
 
 5. 이제 셀프 서비스 등록 제품 상태가 **삭제됨** 으로 변경되었습니다. 페이지를 새로 고치면 **셀프 서비스 등록 제품** 페이지에서 제품이 제거되어 있습니다.  
 
-    !["라이선스-셀프 서비스 등록 제품" 페이지가 표시 되 고 오른쪽에 "셀프 서비스 등록 제품이 삭제 되었습니다." 창이 표시 되는 스크린샷](./media/directory-delete-howto/product-deleted.png)
+    ![오른쪽에 "셀프 서비스 등록 제품 삭제" 창이 있는 "라이선스 - 셀프 서비스 등록 제품" 페이지를 보여주는 스크린샷](./media/directory-delete-howto/product-deleted.png)
 
 6. 모든 제품을 삭제하면 Azure AD 관리 센터에 다시 로그인할 수 있으며 조직 삭제를 차단하는 제품과 필요한 작업 없이 Azure AD 조직을 성공적으로 삭제할 수 있습니다.
 

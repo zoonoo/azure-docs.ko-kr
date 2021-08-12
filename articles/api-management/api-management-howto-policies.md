@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 37ac6369790ed526fd923819558863ae84432aed
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: c87e436fe7fada8b1e16c18a5fad36c4ef3c872a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94358119"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110096403"
 ---
 # <a name="policies-in-azure-api-management"></a>Azure API Management의 정책
 
@@ -38,7 +38,7 @@ APIM(Azure API Management)에서 정책은 게시자가 구성을 통해 API 동
 > 
 > 
 
-구성은 `inbound`, `backend`, `outbound` 및 `on-error`로 구분됩니다. 지정 된 일련의 정책 문이 요청 및 응답을 위해 실행 됩니다.
+구성은 `inbound`, `backend`, `outbound` 및 `on-error`로 구분됩니다. 지정된 일련의 정책 문이 요청 및 응답을 위해 실행됩니다.
 
 ```xml
 <policies>
@@ -60,7 +60,7 @@ APIM(Azure API Management)에서 정책은 게시자가 구성을 통해 API 동
 
 요청을 처리하는 동안 오류가 발생하는 경우 `inbound`, `backend` 또는 `outbound` 섹션에 남아 있는 모든 단계를 건너뛰고 `on-error` 섹션의 문을 바로 실행합니다. `on-error` 섹션에 정책 문을 배치하면 `context.LastError` 속성을 사용하여 오류를 검토할 수 있으며 `set-body` 정책을 사용하여 오류 응답을 검사하고 사용자 지정할 수 있습니다. 그리고 오류가 발생하면 수행할 작업을 구성할 수 있습니다. 기본 제공 단계에 대한 오류 코드와 정책 문을 처리하는 동안 발생할 수 있는 오류에 대한 오류 코드가 있습니다. 자세한 내용은 [API Management 정책에서 오류 처리](./api-management-error-handling-policies.md)를 참조하세요.
 
-## <a name="how-to-configure-policies"></a><a name="scopes"> </a>정책을 구성 하는 방법
+## <a name="how-to-configure-policies"></a><a name="scopes"> </a>정책을 구성하는 방법
 
 정책을 구성하는 방법에 대한 내용은 [정책 설정 또는 편집](set-edit-policies.md)을 참조하세요.
 
@@ -72,11 +72,11 @@ APIM(Azure API Management)에서 정책은 게시자가 구성을 통해 API 동
 
 자세한 코드 예제는 [정책 샘플](./policy-reference.md)을 참조하세요.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="apply-policies-specified-at-different-scopes"></a>서로 다른 범위에서 지정된 정책 적용
 
-전역 수준의 정책 및 API에 대해 구성된 정책이 있는 경우 특정 API를 사용할 때마다 두 정책이 모두 적용됩니다. API Management는 기본 요소를 통해 결합된 정책 명령문의 결정적인 순서를 허용합니다. 
+전역 수준의 정책 및 API에 대해 구성된 정책이 있는 경우 특정 API를 사용할 때마다 두 정책이 모두 적용됩니다. API Management는 `base` 요소를 통해 결합된 정책 명령문의 결정적인 순서를 허용합니다. 
 
 ```xml
 <policies>

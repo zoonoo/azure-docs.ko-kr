@@ -1,6 +1,6 @@
 ---
 title: StorSimple Virtual Array 문제 해결 | Microsoft Docs
-description: StorSimple 장치 관리자 서비스에서 제공 하는 셀프 서비스 문제 해결 기능에 대해 알아봅니다.
+description: StorSimple 디바이스 관리자 서비스 내에서 제공되는 셀프 서비스 문제 해결 기능에 대해 알아봅니다.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 6cb78a7042ca3acbb27f510207783b97f733cfb0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96005846"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>StorSimple Device Manager 서비스를 사용하여 StorSimple Virtual Array 문제 해결

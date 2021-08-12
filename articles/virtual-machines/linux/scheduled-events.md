@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: 8b4f8b064ab19a578ce5854697a1ed9bb0195759
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 05b51b2edfe7d7abe99835204c8e98197ecdeba0
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102505395"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591173"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata 서비스: Linux VM의 예약된 이벤트
 
@@ -68,16 +68,17 @@ Windows에서 예약된 이벤트에 대한 자세한 내용은 [Windows VM에 �
 ### <a name="endpoint-discovery"></a>엔드포인트 검색
 VNET 사용 VM의 경우 메타데이터 서비스를 정적 경로 조정 불가능 IP `169.254.169.254`에서 사용할 수 있습니다. 예약된 이벤트의 최신 버전에 대한 전체 엔드포인트는 다음과 같습니다. 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01`
 
 클라우드 서비스 및 클래식 VM의 기본 사례처럼 VM이 가상 네트워크에 생성되지 않은 경우 사용할 IP 주소를 검색하려면 추가 논리가 필요합니다. [호스트 엔드포인트를 검색](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)하는 방법을 알아보려면 이 샘플을 참조하세요.
 
 ### <a name="version-and-region-availability"></a>버전 및 지역 가용성
-예약된 이벤트 서비스의 버전이 지정됩니다. 버전은 필수이며 현재 버전은 `2019-08-01`입니다.
+예약된 이벤트 서비스의 버전이 지정됩니다. 버전은 필수이며 현재 버전은 `2020-07-01`입니다.
 
 | 버전 | 릴리스 종류 | 영역 | 릴리스 정보 | 
 | - | - | - | - | 
-| 2019-08-01 | 일반 공급 | 모두 | <li> EventSource에 대한 지원이 추가됨 |
+| 2020-07-01 | 일반 공급 | 모두 | <li> 이벤트 기간에 대한 지원이 추가됨 |
+| 2019-08-01 | 일반 공급 | 모두 | <li> Event Source에 대한 지원이 추가됨 |
 | 2019-04-01 | 일반 공급 | 모두 | <li> Event Description에 대한 지원이 추가됨 |
 | 2019-01-01 | 일반 공급 | 모두 | <li> 가상 머신 확장 집합 EventType 'Terminate'에 대한 지원이 추가됨 |
 | 2017-11-01 | 일반 공급 | 모두 | <li> 스폿 VM 제거 EventType 'Preempt'에 대한 지원이 추가됨<br> | 
@@ -108,7 +109,7 @@ VM을 다시 시작하는 경우 `Reboot` 형식인 이벤트가 예약됩니다
 
 #### <a name="bash"></a>Bash
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01
 ```
 
 응답에는 예약된 이벤트의 배열이 포함됩니다. 빈 배열은 현재 예약된 이벤트가 없음을 의미합니다.
@@ -126,6 +127,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
             "NotBefore": {timeInUTC},       
             "Description": {eventDescription},
             "EventSource" : "Platform" | "User",
+            "DurationInSeconds" : {timeInSeconds},
         }
     ]
 }
@@ -142,6 +144,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 | NotBefore| 이 시간이 지난 후 이 이벤트가 시작될 수 있습니다. <br><br> 예제: <br><ul><li> 2016년 9월 19일 월요일 18:29:47 GMT  |
 | Description | 이 이벤트에 대한 설명. <br><br> 예: <br><ul><li> 호스트 서버가 유지 관리 중입니다. |
 | EventSource | 이벤트의 개시 장치입니다. <br><br> 예: <br><ul><li> `Platform`: 이 이벤트는 플랫폼에 의해 시작됩니다. <li>`User`: 이 이벤트는 사용자에 의해 시작됩니다. |
+| DurationInSeconds | 이벤트로 인해 발생한 중단의 예상 시간입니다.  <br><br> 예제: <br><ul><li> `9`: 이벤트로 인해 발생한 중단이 9초 동안 지속됩니다. <li>`-1`: 영향 지속 시간을 알 수 없거나 적용할 수 없는 경우 사용되는 기본값입니다. |
 
 ### <a name="event-scheduling"></a>이벤트 예약
 각 이벤트는 이벤트 유형에 따라 향후 최소한의 시간으로 예약됩니다. 이 시간은 이벤트의 `NotBefore` 속성에 반영됩니다. 
@@ -178,7 +181,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 #### <a name="bash-sample"></a>Bash 샘플
 ```
-curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01
+curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01
 ```
 
 > [!NOTE] 
@@ -195,7 +198,7 @@ import json
 import socket
 import urllib2
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01"
 this_host = socket.gethostname()
 
 

@@ -6,12 +6,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: fb22ce8e649fe70569f75a77d1a952ed1addd5dd
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: c23512eeb044d07e845de2a24ab6afd3bd190101
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111993327"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112535999"
 ---
 이 빠른 시작에서는 iOS용 Azure Communication Services 통화 SDK를 사용하여 Teams 모임에 조인하는 방법을 알아봅니다.
 
@@ -120,7 +120,6 @@ struct ContentView: View {
         }
     }
 
-
     func leaveMeeting() {
         if let call = call {
             call.hangUp(options: nil, completionHandler: { (error) in
@@ -162,7 +161,6 @@ class CallObserver : NSObject, CallDelegate {
             owner.recordingStatus = ""
         }
     }
-
 
     private static func callStateToString(state: CallState) -> String {
         switch state {

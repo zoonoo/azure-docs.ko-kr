@@ -4,21 +4,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 6897bf9b4ccce71048af88a3108e3d87d17a375d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18d363ba216c43e01e1238ea1200db99703939d0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102434494"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059198"
 ---
 :::row:::
     :::column span="3":::
-        Android용 Java SDK는 필요한 라이브러리와 필요한 Android 권한을 포함하는 <a href="https://developer.android.com/studio/projects/android-library" target="_blank">AAR(Android 라이브러리)</a>로 패키지됩니다. `https://csspeechstorage.blob.core.windows.net/maven/`의 Maven 리포지토리에서 패키지 `com.microsoft.cognitiveservices.speech:client-sdk:1.15.0`로 호스트됩니다.
+        Android용 Java SDK는 필요한 라이브러리와 필요한 Android 권한을 포함하는 <a href="https://developer.android.com/studio/projects/android-library" target="_blank">AAR(Android 라이브러리)</a>로 패키지됩니다. `https://csspeechstorage.blob.core.windows.net/maven/`의 Maven 리포지토리에서 패키지 `com.microsoft.cognitiveservices.speech:client-sdk:1.17.0`로 호스트됩니다. ([GitHub 리포지토리를 검색](https://github.com/Azure-Samples/cognitive-services-speech-sdk/search?q=com.microsoft.cognitiveservices.speech%3Aclient-sdk)하여 1.17.0이 최신 버전인지 확인하세요.)
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Java" src="https://docs.microsoft.com/media/logos/logo_java.svg" width="60px">
+            <img alt="Java" src="/media/logos/logo_java.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
@@ -32,7 +32,7 @@ Android Studio 프로젝트의 패키지를 사용하는 경우 다음과 같이
 
 2. 모듈 수준 *build.gradle* 파일에서 `dependencies` 섹션에 다음을 추가합니다.
   ```gradle
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.15.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.17.0'
   ```
 
 Java SDK는 [Speech Devices SDK](../speech-devices-sdk.md)에도 포함됩니다.

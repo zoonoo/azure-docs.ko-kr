@@ -1,7 +1,7 @@
 ---
 title: 문제 해결 가이드
 titleSuffix: Microsoft Genomics
-description: 오류 메시지 및 문제 해결 방법을 비롯 하 여 Microsoft Genomics 사용에 대 한 문제 해결 전략에 대해 알아봅니다.
+description: 오류 메시지와 해결 방법을 포함하여 Microsoft Genomics 사용을 위한 문제 해결 전략에 관해 알아봅니다.
 keywords: 문제 해결, 오류, 디버깅
 services: genomics
 author: ruchir
@@ -11,10 +11,10 @@ ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.openlocfilehash: c508c10d619cde1a16d89b446c5cfd1a3ce81daf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96023826"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
@@ -29,7 +29,7 @@ Microsoft Genomics 서비스 MSGEN을 사용할 때 발생할 수 있는 일반�
 1. `msgen status` 명령줄 사용 및 입력
 2. standardoutput.txt의 콘텐츠 검사
 
-### <a name="1-using-the-command-line-msgen-status"></a>1. 명령줄 사용 `msgen status`
+### <a name="1-using-the-command-line-msgen-status"></a>1. 명령줄 `msgen status` 사용
 
 ```bash
 msgen status -u URL -k KEY -w ID 
@@ -81,7 +81,7 @@ msgen 실행 파일과 동일한 경로에 있는 config.txt 파일 및 워크�
 msgen status -w 1001 -f "config.txt"
 ```
 
-### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. standardoutput.txt의 내용을 검토 합니다. 
+### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. standardoutput.txt의 콘텐츠 검사 
 질문의 워크플로에 대한 출력 컨테이너를 찾습니다. MSGEN은 모든 워크플로를 실행한 후 `[workflowfilename].logs.zip` 폴더를 만듭니다. 폴더의 압축을 풀어 해당 콘텐츠를 확인합니다.
 
 * outputFileList.txt - 워크플로 중에 생성된 출력 파일의 목록입니다.

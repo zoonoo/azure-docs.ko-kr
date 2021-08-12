@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mathoma
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 9337d1c2767923e6dc7c6b267e0c180b460a116e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.openlocfilehash: 3c58814943d844ec1e644412eef926745e2df620
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359424"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572395"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>하나 이상의 Always On 가용성 그룹 수신기 구성 - Resource Manager
 
@@ -239,10 +239,6 @@ SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자
 
 * 클라우드 감시에 Azure Storage와 함께 표준 부하 분산 장치를 사용하는 경우 서비스 엔드포인트를 만듭니다. 자세한 내용은 [가상 네트워크에서 액세스 권한 얻기](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)를 참조하세요.
 
-## <a name="for-more-information"></a>참조 항목
-
-자세한 내용은 [수동으로 Azure VM의 Always On 가용성 그룹 구성](availability-group-manually-configure-tutorial.md)을 참조하세요.
-
 ## <a name="powershell-cmdlets"></a>PowerShell cmdlet
 
 다음 PowerShell cmdlet을 사용하여 Azure Virtual Machines에 대한 내부 부하 분산 장치를 만듭니다.
@@ -253,3 +249,13 @@ SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자
 * [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerBackendAddressPoolConfig)는 부하 분산 장치에 대한 백 엔드 주소 풀 구성을 만듭니다. 
 * [New-AzLoadBalancerProbeConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerProbeConfig)는 부하 분산 장치에 대한 프로브 구성을 만듭니다.
 * [Remove-AzLoadBalancer](/powershell/module/Azurerm.Network/Remove-AzureRmLoadBalancer)는 Azure 리소스 그룹에서 부하 분산 장치를 제거합니다.
+
+## <a name="next-steps"></a>다음 단계 
+
+
+자세한 내용은 다음을 참조하세요.
+
+- [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
+- [Azure VM에서 SQL Server를 사용하는 Always On 가용성 그룹](availability-group-overview.md)
+- [Always On 가용성 그룹 개요](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Azure VM의 SQL Server에 대한 HADR 설정](hadr-cluster-best-practices.md)

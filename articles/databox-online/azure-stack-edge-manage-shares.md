@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Edge Pro - FPGA 공유 관리 | Microsoft Docs
+title: Azure Stack Edge Pro FPGA 공유 관리
 description: Azure Portal을 사용하여 Azure Stack Edge Pro - FPGA에서 공유를 관리하는 방법을 설명합니다.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 7fbb5ca43d2877e2e14914b71df7cc1bcdf27f88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 03099ad5282f526b83bdb8ee187ef8fd6238e21e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97898380"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460721"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro-fpga"></a>Azure Portal을 사용하여 Azure Stack Edge Pro FPGA에서 공유 관리 
 
@@ -21,7 +21,7 @@ ms.locfileid: "97898380"
 
 ## <a name="about-shares"></a>공유에 대한 정보
 
-Azure에 데이터를 전송하려면 Azure Stack Edge Pro FPGA에 공유를 만들어야 합니다. Azure Stack Edge Pro 디바이스에 추가하는 공유는 로컬 공유 또는 데이터를 클라우드로 푸시하는 공유일 수 있습니다.
+Azure에 데이터를 전송하려면 Azure Stack Edge Pro FPGA에 공유를 만들어야 합니다. Azure Stack Edge Pro FPGA 디바이스에 추가하는 공유는 로컬 공유 또는 데이터를 클라우드로 푸시하는 공유일 수 있습니다.
 
  - **로컬 공유**: 이러한 공유는 데이터를 디바이스에서 로컬로 처리할 경우 사용합니다.
  - **공유**: 이러한 공유는 디바이스 데이터를 클라우드의 스토리지 계정에 자동으로 푸시하려는 경우 사용합니다. **새로 고침** 및 **스토리지 키 동기화** 와 같은 모든 클라우드 기능이 공유에 적용됩니다.
@@ -54,7 +54,7 @@ Azure에 데이터를 전송하려면 Azure Stack Edge Pro FPGA에 공유를 만
 5. 드롭다운 목록의 블록 Blob, 페이지 Blob 또는 파일에서 **스토리지 서비스** 를 선택합니다. 선택하는 서비스 유형은 데이터를 Azure에 저장할 형식에 따라 달라집니다. 예를 들어, 이 인스턴스에서는 Azure에서 데이터가 블록 Blob으로 존재하기를 원하므로 **블록 Blob** 을 선택합니다. **페이지 Blob** 을 선택하는 경우 데이터가 512바이트로 정렬되었는지 확인해야 합니다. 항상 512바이트로 정렬되는 VHD 또는 VHDX에는 **페이지 Blob** 을 사용합니다.
 
    > [!IMPORTANT]
-   > Azure Stack Edge Pro 또는 Data Box Gateway 디바이스에서 사용하는 경우 사용하는 Azure Storage 계정에 불변성 정책을 설정하지 않았는지 확인합니다. 자세한 내용은 [Blob 스토리지에 대한 불변성 정책 설정 및 관리](../storage/blobs/storage-blob-immutability-policies-manage.md)를 참조하세요.
+   > Azure Stack Edge 또는 Data Box Gateway 디바이스에서 사용하는 경우 사용하는 Azure Storage 계정에 불변성 정책을 설정하지 않았는지 확인합니다. 자세한 내용은 [Blob 스토리지에 대한 불변성 정책 설정 및 관리](../storage/blobs/storage-blob-immutability-policies-manage.md)를 참조하세요.
 
 6. 이 단계는 SMB 공유 또는 NFS 공유 중에서 어느 것을 만드는지에 따라 달라집니다.
    - **SMB 공유를 만드는 경우** - **모든 권한 로컬 사용자** 필드에서 **새로 만들기** 또는 **기존 항목 사용** 을 선택합니다. 새 로컬 사용자를 만드는 경우 **사용자 이름**, **암호** 를 입력한 다음, 암호를 확인합니다. 이렇게 하면 로컬 사용자에게 해당 권한이 할당됩니다. 여기에서 권한을 할당한 후에 파일 탐색기를 사용하여 해당 권한을 수정할 수 있습니다.
@@ -100,7 +100,7 @@ Azure에 데이터를 전송하려면 Azure Stack Edge Pro FPGA에 공유를 만
 
 ## <a name="mount-a-share"></a>공유 탑재
 
-Azure Stack Edge Pro 디바이스에서 컴퓨팅을 구성하기 전에 공유를 만든 경우에는 공유를 탑재해야 합니다. 공유를 탑재하려면 다음 단계를 수행합니다.
+Azure Stack Edge 디바이스에서 컴퓨팅을 구성하기 전에 공유를 만든 경우에는 공유를 탑재해야 합니다. 공유를 탑재하려면 다음 단계를 수행합니다.
 
 1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음 **클라우드 스토리지 게이트웨이 > 공유** 로 이동합니다. 공유 목록에서 탑재할 공유를 선택합니다. 선택한 공유에 대해 **컴퓨팅에 사용됨** 열에 **사용 안 함** 으로 상태가 표시됩니다.
 

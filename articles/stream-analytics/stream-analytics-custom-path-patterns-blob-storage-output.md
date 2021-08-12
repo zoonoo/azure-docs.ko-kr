@@ -5,14 +5,14 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 05/30/2021
 ms.custom: seodec18
-ms.openlocfilehash: cb9d8edd24dcc8809f2b207a4db80653b0e140e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91ba1280262a7d13afa71d5dc0e2b7eb0e545ecc
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98014039"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787717"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics 사용자 지정 Blob 출력 분할
 
@@ -62,13 +62,15 @@ Blob의 각 레코드에는 폴더 이름과 일치하는 **client_id** 열이 �
    * cluster1/{date}/{aFieldInMyData}  
    * cluster1/{time}/{aFieldInMyData}  
    * cluster1/{aFieldInMyData}  
-   * cluster1/{date}/{time}/{aFieldInMyData} 
+   * cluster1/{date}/{time}/{aFieldInMyData}
+
+2. 고객이 입력 필드를 두 개 이상 사용하려는 경우 **CONCAT** 를 사용하여 Blob 출력의 사용자 지정 경로 파티션에 대한 쿼리에서 복합 키를 만들 수 있습니다. 예를 들어 **concat(col1, col2)을 입력에서 blobOutput에 compositeColumn으로 선택** 합니다. 그런 다음, **compositeColumn** 을 Blob 저장소의 사용자 지정 경로로 지정할 수 있습니다.
    
-2. 파티션 키는 대/소문자를 구분하지 않으므로 "John"과 "john"은 동일한 파티션 키입니다. 또한 식을 파티션 키로 사용할 수 없습니다. 예를 들어 **{columnA + columnB}** 는 작동하지 않습니다.  
+3. 파티션 키는 대/소문자를 구분하지 않으므로 "John"과 "john"은 동일한 파티션 키입니다. 또한 식을 파티션 키로 사용할 수 없습니다. 예를 들어 **{columnA + columnB}** 는 작동하지 않습니다.  
 
-3. 파티션 키 카디널리티 8000 미만의 레코드로 입력 스트림이 구성되면 레코드가 기존 Blob에 추가되고 필요할 때만 새 Blob을 만듭니다. 카디널리티가 8000을 넘으면 기존 Blob이 작성되고 파티션 키가 동일한 임의의 수의 레코드에 대한 새 Blob이 생성된다는 보장이 없습니다.
+4. 파티션 키 카디널리티 8000 미만의 레코드로 입력 스트림이 구성되면 레코드가 기존 Blob에 추가되고 필요할 때만 새 Blob을 만듭니다. 카디널리티가 8000을 넘으면 기존 Blob이 작성되고 파티션 키가 동일한 임의의 수의 레코드에 대한 새 Blob이 생성된다는 보장이 없습니다.
 
-4. Blob 출력을 [변경 불가능으로 구성](../storage/blobs/storage-blob-immutable-storage.md)하면 데이터를 보낼 때마다 Stream Analytics에서 새 Blob을 만듭니다.
+5. Blob 출력을 [변경 불가능으로 구성](../storage/blobs/storage-blob-immutable-storage.md)하면 데이터를 보낼 때마다 Stream Analytics에서 새 Blob을 만듭니다.
 
 ## <a name="custom-datetime-path-patterns"></a>사용자 지정 날짜/시간 경로 패턴
 

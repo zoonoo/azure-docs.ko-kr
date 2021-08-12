@@ -1,7 +1,7 @@
 ---
 title: Microsoft Threat Modeling Tool 릴리스 9/12/2018
 titleSuffix: Azure
-description: 9/12/2018에서 출시 된 Microsoft Threat Modeling Tool에 대 한 릴리스 정보를 읽습니다. 이 메모에는 기능 변경 내용 및 버그 수정이 포함 되어 있습니다.
+description: 2018년 12월 9일에 릴리스된 Microsoft Threat Modeling Tool에 대한 릴리스 정보를 살펴봅니다. 참고 사항에는 기능 변경 및 버그 수정이 포함되어 있습니다.
 author: jegeib
 ms.author: jegeib
 ms.service: security
@@ -9,15 +9,15 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
 ms.openlocfilehash: 7b0afdd90f2a1413c7f8364fc4518c4d1116454a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92913588"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Threat Modeling Tool GA 릴리스 7.1.50911.2 - 9/12/2018
 
-이제 Microsoft Threat Modeling Tool을 지원되는 GA(일반 공급) 릴리스로 다운로드할 수 있습니다. 이 릴리스에는 버그 수정, 기능 업데이트 및 안정성 개선 사항과 함께 중요한 개인 정보 및 보안 업데이트가 포함되어 있습니다. 2017 Preview 버전의 기존 사용자에게는 클라이언트를 열 때 ClickOnce 기술을 통해 최신 릴리스로 업데이트하라는 메시지가 표시됩니다. 도구의 새 사용자를 위해 [클라이언트를 다운로드할](https://aka.ms/threatmodelingtool)수 있습니다.
+이제 Microsoft Threat Modeling Tool을 지원되는 GA(일반 공급) 릴리스로 다운로드할 수 있습니다. 이 릴리스에는 버그 수정, 기능 업데이트 및 안정성 개선 사항과 함께 중요한 개인 정보 및 보안 업데이트가 포함되어 있습니다. 2017 Preview 버전의 기존 사용자에게는 클라이언트를 열 때 ClickOnce 기술을 통해 최신 릴리스로 업데이트하라는 메시지가 표시됩니다. 도구의 새 사용자의 경우 [클라이언트를 다운로드](https://aka.ms/threatmodelingtool)할 수 있습니다.
 
 이 릴리스와 더불어 2017 Preview에 대한 지원은 종료되며, Preview의 모든 사용자는 GA 릴리스로 업데이트하는 것이 좋습니다. 2018년 10월 15일 이후에는 Threat Modeling Tool에 대한 최소 필수 ClickOnce 버전이 설정되며, 모든 Preview 클라이언트를 업그레이드해야 합니다.
 
@@ -65,17 +65,17 @@ Preview의 “OneDrive에 저장”, “OneDrive에서 열기” 및 “링크 �
 
 Preview 릴리스의 “OneDrive에서 열기” 기능이 제거되었습니다. OneDrive에 저장된 “최근에 열린 모델”이 있는 사용자에게 다음 오류가 표시됩니다.
 
-![스크린샷에서 오류를 표시 합니다. 파일 개체 참조를 열 때 개체의 인스턴스로 설정 되지 않은 오류가 발생 합니다.](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
+![스크린샷은 오류를 보여줍니다. 개체 참조 파일을 열 때 오류가 개체의 인스턴스로 설정되지 않았습니다.](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
 
 #### <a name="workaround"></a>해결 방법
 
 OneDrive 사용자는 Microsoft의 [Windows용 OneDrive](https://onedrive.live.com/about/en-us/download/) 클라이언트를 사용하여 표준 및 “모델 열기” 대화 상자를 통해 OneDrive에 저장된 파일에 액세스하는 것이 좋습니다.
 
-![모델 열기 대화 상자에서 선택한 OneDrive가 스크린샷으로 표시 됩니다.](./media/threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
+![스크린샷은 모델 열기 대화 상자에서 선택한 OneDrive를 보여줍니다.](./media/threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
 
 ### <a name="my-organization-uses-the-2016-version-of-the-tool-can-i-use-the-azure-stencil-set"></a>내 조직에서 도구의 2016 버전을 사용하는데, Azure 스텐실 집합을 사용할 수 있나요?
 
-예, 사용할 수 있습니다. [Azure 스텐실 집합은 GitHub에서 사용할](https://github.com/Microsoft/threat-modeling-templates/)수 있으며 도구의 2016 버전에서 로드할 수 있습니다. Azure 스텐실 집합을 사용하여 새 모델을 만들려면 기본 메뉴 화면에서 “새 모델의 템플릿” 대화 상자를 사용합니다. TMT 2016에서는 Azure 스텐실 집합의 “가능한 완화 방법” 필드에 있는 링크를 렌더링할 수 없으므로 링크가 HTML 태그로 표시될 수도 있습니다.
+예, 사용할 수 있습니다. [Azure 스텐실 집합은 github에서 사용할 수 있으며](https://github.com/Microsoft/threat-modeling-templates/), 도구의 2016 버전에서 로드될 수 있습니다. Azure 스텐실 집합을 사용하여 새 모델을 만들려면 기본 메뉴 화면에서 “새 모델의 템플릿” 대화 상자를 사용합니다. TMT 2016에서는 Azure 스텐실 집합의 “가능한 완화 방법” 필드에 있는 링크를 렌더링할 수 없으므로 링크가 HTML 태그로 표시될 수도 있습니다.
 
 ![2016 클라이언트의 Azure 스텐실 업데이트](./media/threat-modeling-tool-releases-71509112/tmt_azure_stencils-300x212.png)
 

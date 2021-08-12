@@ -3,12 +3,12 @@ title: Azure Functions에 대한 Zip 푸시 배포
 description: Kudu 배포 서비스의 .zip 파일 배포 기능을 사용하여 Azure Functions를 게시합니다.
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.openlocfilehash: fb6867d7719f9650acb00f80ac3a933713ce0e23
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a8a8b6e0ad1cd70ae6fe2f0025afcba6fc9e44a5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777654"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465837"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Azure Functions에 대한 Zip 배포
 
@@ -36,11 +36,11 @@ Azure Functions에는 Azure App Service에서 제공하는 전체 범위의 지�
 
 함수 앱에는 `wwwroot` 디렉터리의 파일 및 폴더가 모두 포함됩니다. .zip 파일 배포에는 디렉터리 자체가 아닌 `wwwroot` 디렉터리의 콘텐츠가 포함됩니다. C# 클래스 라이브러리 프로젝트를 배포하는 경우 .zip 패키지의 `bin` 하위 폴더에 컴파일된 라이브러리 파일 및 종속성을 포함시켜야 합니다.
 
+로컬 컴퓨터에서 개발하는 경우 기본 제공 .zip 압축 기능이나 타사 도구를 사용하여 함수 앱 프로젝트 폴더의 .zip 파일을 수동으로 만들 수 있습니다.
+
 ## <a name="download-your-function-app-files"></a>함수 앱 파일 다운로드
 
-로컬 컴퓨터에서 개발하는 경우 개발 컴퓨터에서 함수 앱 프로젝트 폴더의 .zip 파일을 쉽게 만들 수 있습니다.
-
-그러나 Azure Portal의 편집기를 사용하여 함수를 만들었을 수 있습니다. 다음과 같은 방법 중 하나로 기존 함수 앱 프로젝트를 다운로드할 수 있습니다.
+Azure Portal 편집기를 사용해 함수를 만들었다면 다음 방법 중 하나로 기존 함수 앱 프로젝트를 .zip 파일로 다운로드할 수 있습니다.
 
 + **Azure Portal에서:**
 

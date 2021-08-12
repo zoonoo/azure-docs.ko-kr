@@ -2,14 +2,14 @@
 title: 개발자를 위한 API 및 도구
 description: Azure Batch 서비스를 사용하여 솔루션을 개발하는 데 사용할 수 있는 API 및 도구에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 06/11/2021
 ms.custom: seodec18
-ms.openlocfilehash: b7c68ab16834bbd746cf52708db0cdb3f31c8d4d
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 0c378ae34ca74df7bb639464818f13f86a8f5ec2
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219929"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006638"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Batch API 및 도구 개요
 
@@ -24,8 +24,8 @@ Azure Batch를 통한 병렬 워크로드 처리는 일반적으로 Batch API �
 
 Batch 솔루션을 개발할 경우 Azure 구독에서는 다음 계정을 사용합니다.
 
-- **Batch 계정** - 풀, 컴퓨팅 노드, 작업 및 태스크를 포함하여 Azure Batch 리소스는 Azure [Batch 계정](accounts.md)과 연결됩니다. 애플리케이션에서 Batch 서비스를 요청할 때는 Azure Batch 계정 이름, 계정의 URL 및 액세스 키 또는 Azure Active Directory 토큰을 사용하여 요청을 인증합니다. Azure Portal 또는 프로그래밍 방식으로 [배치 계정을 만들 수 있습니다](batch-account-create-portal.md).
-- **스토리지 계정** - Batch는 [Azure Storage](../storage/index.yml)에서 파일 작업을 기본적으로 지원합니다. 거의 모든 Batch 시나리오에서는 Azure Blob Storage를 사용하여 태스크에서 실행하는 프로그램 및 프로그램에서 처리하는 데이터를 준비하고, 생성되는 출력 데이터를 저장합니다. 일반적으로 각 배치 계정은 하나의 해당 스토리지 계정과 연결됩니다.
+- **Batch 계정**: 풀, 컴퓨팅 노드, 작업 및 태스크를 포함하여 Azure Batch 리소스는 Azure [Batch 계정](accounts.md)과 연결됩니다. 애플리케이션에서 Batch 서비스를 요청할 때는 Azure Batch 계정 이름, 계정의 URL 및 액세스 키 또는 Azure Active Directory 토큰을 사용하여 요청을 인증합니다. Azure Portal 또는 프로그래밍 방식으로 [배치 계정을 만들 수 있습니다](batch-account-create-portal.md).
+- **스토리지 계정**: Batch는 [Azure Storage](../storage/index.yml)에서 파일 작업을 기본적으로 지원합니다. 거의 모든 Batch 시나리오에서는 Azure Blob Storage를 사용하여 태스크에서 실행하는 프로그램 및 프로그램에서 처리하는 데이터를 준비하고, 생성되는 출력 데이터를 저장합니다. 일반적으로 각 배치 계정은 하나의 해당 스토리지 계정과 연결됩니다.
 
 ## <a name="service-level-and-management-level-apis"></a>서비스 수준 및 관리 수준 API
 
@@ -66,16 +66,16 @@ Batch용 Azure Resource Manager API는 Batch 계정에 대한 프로그래밍 �
 이러한 명령줄 도구는 Batch 서비스 및 Batch 관리 API와 동일한 기능을 제공합니다. 
 
 - [Batch PowerShell cmdlet](/powershell/module/az.batch/): [Azure PowerShell](/powershell/azure/) 모듈의 Azure Batch cmdlet을 사용하여 PowerShell로 Batch 리소스를 관리할 수 있습니다.
-- [Azure CLI](/cli/azure): Azure CLI는 Batch 서비스 및 Batch 관리 서비스를 포함하여 여러 Azure 서비스와 상호 작용하기 위한 셸 명령을 제공하는 크로스 플랫폼 도구 세트입니다. Batch에서 Azure CLI를 사용하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Batch 리소스 관리](batch-cli-get-started.md)를 참조하세요.
+- [Azure CLI](/cli/azure): Azure CLI는 Batch 서비스 및 Batch 관리 서비스를 포함하여 여러 Azure 서비스와 상호 작용하기 위한 셸 명령을 제공하는 크로스 플랫폼 도구 세트입니다. 자세한 내용은 [Azure CLI를 사용하여 Batch 리소스 관리](batch-cli-get-started.md)를 참조하세요.
 
 ## <a name="other-tools-for-application-development"></a>애플리케이션 개발을 위한 기타 도구
 
 다음과 같은 추가 도구는 Batch 애플리케이션 및 서비스를 빌드 및 디버그하는 데 도움이 될 수 있습니다.
 
 - [Azure 포털](https://portal.azure.com/): Azure Portal에서 Batch 풀, 작업 및 태스크를 만들고 모니터링하고 삭제할 수 있습니다. 작업을 실행하는 동안 해당하는 리소스 풀 및 다른 리소스 풀에 대한 상태 정보를 보고 풀에 있는 컴퓨팅 노드에서 파일을 다운로드할 수 있습니다. 예를 들어 문제를 해결하는 동안 실패한 작업의 `stderr.txt`를 다운로드할 수 있습니다. 또한 컴퓨팅 노드에 로그인하는 데 사용할 수 있는 RDP(원격 데스크톱) 파일을 다운로드할 수 있습니다.
-- [Azure Batch Explorer](https://azure.github.io/BatchExplorer/): Batch Explorer(이전 이름은 BatchLabs)는 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows의 경우 [설치 패키지](https://azure.github.io/BatchExplorer/)를 다운로드합니다.
+- [Azure Batch Explorer](https://azure.github.io/BatchExplorer/): Batch Explorer는 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있는 다양한 기능을 갖춘 무료 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows의 경우 [설치 패키지](https://azure.github.io/BatchExplorer/)를 다운로드합니다.
 - [Azure Batch Shipyard](https://github.com/Azure/batch-shipyard): Batch Shipyard는 Azure Batch에서 컨테이너 기반 일괄 처리 및 HPC 워크로드를 프로비저닝, 실행 및 모니터링하는 데 도움이 되는 도구입니다.
-- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/): 엄격히 말해 Azure Batch 도구는 아니지만 Storage Explorer는 Batch 솔루션을 개발 및 디버깅하는 동안 유용할 수 있는 또 다른 도구입니다.
+- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/): 엄밀히 말해 Storage Explorer는 Azure Batch 도구가 아니지만 Batch 솔루션을 개발하고 디버깅할 때 유용할 수 있습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

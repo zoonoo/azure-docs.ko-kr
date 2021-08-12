@@ -7,12 +7,12 @@ ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a903622f698107f7f1a593946f083fca1573d53e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8957db7112363e4245e6610890ed6e4644c4a9dd
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99834343"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586476"
 ---
 # <a name="what-are-the-iot-central-government-solutions"></a>IoT Central 정부 솔루션이란?
 
@@ -27,7 +27,7 @@ Azure IoT Central 애플리케이션 템플릿을 사용하여 스마트 시티 
 ![용수 품질 모니터링 앱 템플릿](./media/overview-iotcentral-government/waterqualitymonitoring-dashboard-full.png)
 
 앱 템플릿은 다음으로 구성됩니다.
-* 샘플 작업자 대시보드
+* 샘플 대시보드
 * 샘플 용수 품질 모니터링 디바이스 템플릿
 * 시뮬레이션된 용수 품질 모니터링 디바이스
 * 미리 구성된 규칙 및 작업
@@ -45,7 +45,7 @@ Azure IoT Central 애플리케이션 템플릿을 사용하여 스마트 시티 
   ![용수 사용량 모니터링 앱 템플릿](./media/overview-iotcentral-government/waterconsumptionmonitoring-dashboardfull.png)
 
 용수 사용량 모니터링 앱 템플릿은 미리 구성된 다음의 요소로 구성되어 있습니다.
-* 샘플 작업자 대시보드
+* 샘플 대시보드
 * 샘플 용수 품질 모니터링 디바이스 템플릿
 * 시뮬레이션된 용수 품질 모니터링 디바이스
 * 미리 구성된 규칙 및 작업
@@ -61,7 +61,7 @@ Azure IoT Central 애플리케이션 템플릿을 사용하여 스마트 시티 
 
 
 커넥티드 폐기물 관리 앱 템플릿은 미리 구성된 다음의 요소로 구성되어 있습니다.
-* 샘플 작업자 대시보드
+* 샘플 대시보드
 * 샘플 커넥티드 폐기물 수집통 디바이스 템플릿
 * 시뮬레이션된 커넥티드 폐기물 수집통 디바이스
 * 미리 구성된 규칙 및 작업

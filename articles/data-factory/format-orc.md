@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jianleishen
-ms.openlocfilehash: f274c64e9ab6617315d921e254de7781a4108ce4
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 5e6ae001e626df52896f1e3289c7217e83cabb6f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487550"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110090121"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Azure Data Factory의 ORC 형식
 
@@ -19,7 +19,7 @@ ms.locfileid: "109487550"
 
 **ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면** 이 문서의 내용을 따르세요. 
 
-ORC 형식은 [Amazon S3](connector-amazon-simple-storage-service.md),[Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md),[Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md)File System[, ](connector-file-system.md)[FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) 및 [SFTP](connector-sftp.md) 커넥터에 지원됩니다.
+ORC 형식은 다음 커넥터를 지원합니다. [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) 및 [SFTP](connector-sftp.md).
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
@@ -111,7 +111,7 @@ ORC 데이터 세트나 [인라인 데이터 세트](data-flow-source.md#inline-
 | 파일 이름을 저장할 열 | 원본 파일 이름 및 경로를 사용하여 새 열을 만듭니다. | 아니요 | String | rowUrlColumn |
 | 완료 후 | 처리 후 파일을 삭제하거나 이동합니다. 컨테이너 루트에서 파일 경로가 시작됩니다. | 아니요 | 삭제: `true` 또는 `false` <br> 이동: `[<from>, <to>]` | purgeFiles <br> moveFiles |
 | 마지막으로 수정한 사람으로 필터링 | 마지막으로 변경된 시간에 따라 파일을 필터링하도록 선택합니다. | 아니요 | 타임스탬프 | modifiedAfter <br> modifiedBefore |
-| 파일을 찾을 수 없음 허용 | True면 파일이 없는 경우 오류가 발생하지 않습니다. | 아니요 | `true` 또는 `false` | ignoreNoFilesFound |
+| 파일을 찾을 수 없음 허용 | true이면 파일이 없는 경우 오류가 throw되지 않습니다. | 아니요 | `true` 또는 `false` | ignoreNoFilesFound |
 
 ### <a name="source-example"></a>원본 예
 

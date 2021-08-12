@@ -4,15 +4,15 @@ description: Azure Analysis Services에서 테이블 형식 1200 이상 데이�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 03/29/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 03f4d151fc948e4c060989a7d101ad91aecdecb6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: b51ceb97d607f3082e1e7cc4c94083c9215b2db8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99981496"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731482"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -36,8 +36,8 @@ Analysis Services 프로젝트를 통해 Visual Studio에서 데이터 가져오
 **참고:**
 
 <a name="tab1400a">1</a> - 테이블 형식 1400 이상 모델에만 해당됩니다.  
-<a name="azprovider">2</a> -테이블 형식 1200 이상 모델에서 *공급자* 데이터 원본으로 지정 하는 경우 메모리 내 및 DirectQuery 모델 모두에는 Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (권장) 또는 .NET Framework Data Provider SQL Server가 필요 합니다.  
-<a name="azsqlmanaged">3</a> -Azure SQL Managed Instance 지원 됩니다. SQL Managed Instance 개인 IP 주소를 사용 하 여 Azure VNet 내에서 실행 되기 때문에 인스턴스에 대해 공용 끝점을 사용 하도록 설정 해야 합니다. 사용하도록 설정하지 않으면 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)가 필요합니다.  
+<a name="azprovider">2</a> - 테이블 형식 1200 이상 모델에서 *공급자* 데이터 원본으로 지정되면 메모리 내 및 DirectQuery 모델 모두 Microsoft OLE DB Driver for SQL Server MSOLEDBSQL(권장) 또는 .NET Framework Data Provider for SQL Server가 필요합니다.  
+<a name="azsqlmanaged">3</a> - Azure SQL Managed Instance가 지원됩니다. SQL Managed Instance는 Azure VNet 내에서 개인 IP 주소를 사용하여 실행되므로 인스턴스에서 공용 엔드포인트를 사용하도록 설정해야 합니다. 사용하도록 설정하지 않으면 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)가 필요합니다.  
 <a name="databricks">4</a> - Spark 커넥터를 사용하는 Azure Databricks는 현재 지원되지 않습니다.  
 <a name="gen2">5</a> - ADLS Gen2 커넥터는 현재 지원되지 않지만 Azure Blob Storage 커넥터는 ADLS Gen2 데이터 원본에서 사용할 수 있습니다.
 
@@ -70,7 +70,7 @@ Analysis Services 프로젝트를 통해 Visual Studio에서 데이터 가져오
 |SharePoint 목록      |   예 | 예 | <sup>[6](#tab1400b)</sup>, <sup>[11](#filesSP)</sup> |
 |SQL Server |예   | 예  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> |
 |SQL Server 데이터 웨어하우스 |예   | 예  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> |
-|Sybase 데이터베이스     |  예 | 아니요 |  |
+|Sybase 데이터베이스     |  예 | 예 |  |
 |Teradata | 예  | 예  | <sup>[10](#teradata)</sup> |
 |TXT 파일  |예 | 예 |  |
 |XML 테이블    |  예 | 예 | <sup>[6](#tab1400b)</sup> |
@@ -80,7 +80,7 @@ Analysis Services 프로젝트를 통해 Visual Studio에서 데이터 가져오
 <a name="tab1400b">6</a> - 테이블 형식 1400 이상 모델에만 해당됩니다.  
 <a name="sqlim">7</a> - 테이블 형식 1200 이상 모델에서 *공급자* 데이터 원본으로 지정하는 경우 Microsoft OLE DB Driver for SQL Server MSOLEDBSQL(권장), SQL Server Native Client 11.0 또는 .NET Framework Data Provider for SQL Server를 지정합니다.  
 <a name="instgw">8</a> - MSOLEDBSQL을 데이터 공급자로 지정하는 경우 온-프레미스 데이터 게이트웨이와 동일한 컴퓨터에 [Microsoft OLE DB Driver for SQL Server](/sql/connect/oledb/oledb-driver-for-sql-server)를 다운로드하여 설치해야 할 수 있습니다.  
-<a name="oracle">9</a> - 테이블 형식 1200 모델의 경우 또는 테이블 형식 1400 이상 모델의 *공급자* 데이터 원본으로 Oracle Data Provider for .NET을 지정합니다. 구조적 데이터 원본으로 지정 하는 경우에 [는 Oracle 관리 공급자를 사용 하도록 설정](#enable-oracle-managed-provider)해야 합니다.   
+<a name="oracle">9</a> - 테이블 형식 1200 모델의 경우 또는 테이블 형식 1400 이상 모델의 *공급자* 데이터 원본으로 Oracle Data Provider for .NET을 지정합니다. 구조적 데이터 원본으로 지정하는 경우에는 [Oracle 관리되는 공급자를 사용하도록 설정](#enable-oracle-managed-provider)해야 합니다.   
 <a name="teradata">10</a> - 테이블 형식 1200 모델의 경우 또는 테이블 형식 1400 이상 모델의 *공급자* 데이터 원본으로 Teradata Data Provider for .NET을 지정합니다.  
 <a name="filesSP">11</a> - 온-프레미스 SharePoint의 파일은 지원되지 않습니다.
 
@@ -88,7 +88,7 @@ Analysis Services 프로젝트를 통해 Visual Studio에서 데이터 가져오
 
 ## <a name="understanding-providers"></a>공급자 이해
 
-Visual Studio에서 테이블 형식 1400 이상 모델 프로젝트를 만들 때 기본적으로 **데이터 가져오기** 를 사용하여 데이터 원본에 연결할 경우 데이터 공급자를 지정하지 않습니다. 테이블 형식 1400 이상 모델에서는 [파워 쿼리](/power-query/power-query-what-is-power-query) 커넥터를 사용하여 데이터 원본 및 Analysis Services 간의 연결, 데이터 쿼리 및 매시업을 관리합니다. 이와 같은 경우에는 연결 속성 설정이 사용자에게 맞게 설정되어 *구조적* 데이터 원본 연결이라고도 합니다. 그러나 Visual Studio에서 모델 프로젝트에 대한 레거시 데이터 원본을 사용하도록 설정할 수 있습니다. 설정된 경우 **테이블 가져오기 마법사** 를 사용하여 테이블 형식 1200 이하 모델에서 *레거시* 또는 *공급자* 데이터 원본으로 일반적으로 지원되는 특정 데이터 원본에 연결할 수 있습니다. 공급자 데이터 원본으로 지정하는 경우 특정 데이터 공급자 및 기타 고급 연결 속성을 지정할 수 있습니다. 예를 들어 기존 데이터 원본으로 SQL Server 데이터 웨어하우스 인스턴스 또는 Azure SQL Database에 연결할 수 있습니다. 그런 다음 OLE DB Driver for SQL Server MSOLEDBSQL 데이터 공급자를 선택할 수 있습니다. 이 경우 OLE DB 데이터 공급자를 선택하면 파워 쿼리 커넥터보다 향상된 성능을 제공할 수 있습니다. 
+Visual Studio에서 테이블 형식 1400 이상 모델 프로젝트를 만들 때 기본적으로 **데이터 가져오기** 를 사용하여 데이터 원본에 연결할 경우 데이터 공급자를 지정하지 않습니다. 테이블 형식 1400 이상 모델에서는 [파워 쿼리](/power-query/power-query-what-is-power-query) 커넥터를 사용하여 데이터 원본 및 Analysis Services 간의 연결, 데이터 쿼리 및 매시업을 관리합니다. 이와 같은 경우에는 연결 속성 설정이 사용자에게 맞게 설정되어 *구조적* 데이터 원본 연결이라고도 합니다. 그러나 Visual Studio에서 모델 프로젝트에 대한 레거시 데이터 원본을 사용하도록 설정할 수 있습니다. 설정된 경우 **테이블 가져오기 마법사** 를 사용하여 테이블 형식 1200 이하 모델에서 *레거시* 또는 *공급자* 데이터 원본으로 일반적으로 지원되는 특정 데이터 원본에 연결할 수 있습니다. 공급자 데이터 원본으로 지정하는 경우 특정 데이터 공급자 및 기타 고급 연결 속성을 지정할 수 있습니다. 예를 들어 SQL Server Data Warehouse 인스턴스 또는 Azure SQL Database에도 레거시 데이터 원본으로 연결할 수 있습니다. 그런 다음 OLE DB Driver for SQL Server MSOLEDBSQL 데이터 공급자를 선택할 수 있습니다. 이 경우 OLE DB 데이터 공급자를 선택하면 파워 쿼리 커넥터보다 향상된 성능을 제공할 수 있습니다. 
 
 Visual Studio에서 테이블 가져오기 마법사를 사용하는 경우 데이터 원본에 연결하려면 데이터 공급자가 필요합니다. 기본 데이터 공급자가 선택됩니다. 필요한 경우 데이터 공급자를 변경할 수 있습니다. 선택한 공급자 유형에 따라 성능, 모델의 메모리 내 스토리지 또는 DirectQuery에서 사용 여부 및 모델을 배포하는 Analysis Services 플랫폼이 달라질 수 있습니다.
 
@@ -121,24 +121,24 @@ Visual Studio에서 테이블 가져오기 마법사를 사용하는 경우 데�
 
 ## <a name="oauth-credentials"></a>OAuth 자격 증명
 
-*메모리 내* 모드를 사용 하는 1400 이상 호환성 수준에서 테이블 형식 모델의 경우 Azure SQL Database, Azure Synapse, Dynamics 365 및 SharePoint 목록에서 OAuth 자격 증명을 지원 합니다. 유효한 토큰을 생성 하려면 파워 쿼리를 사용 하 여 자격 증명을 설정 합니다. Azure Analysis Services는 장기 실행 새로 고침 작업에 대한 시간 제한을 방지하기 위해 OAuth 데이터 원본에 대한 토큰 새로 고침을 관리합니다. 
+*메모리 내* 모드를 사용하는 1400 이상 호환성 수준의 테이블 형식 모델의 경우 Azure SQL Database, Azure Synapse, Dynamics 365, SharePoint 목록에서 OAuth 자격 증명을 지원합니다. 유효한 토큰을 생성하려면 Power Query를 사용하여 자격 증명을 설정합니다. Azure Analysis Services는 장기 실행 새로 고침 작업에 대한 시간 제한을 방지하기 위해 OAuth 데이터 원본에 대한 토큰 새로 고침을 관리합니다. 
 > [!NOTE]
-> 게이트웨이를 통해 액세스 하는 데이터 원본에 대해서는 관리 되는 토큰 새로 고침이 지원 되지 않습니다. 예를 들어 하나 이상의 매시업 쿼리 데이터 원본은 게이트웨이를 통해 액세스 되 고/또는 [ASPaaS\AlwaysUseGateway](analysis-services-vnet-gateway.md) 속성은 **true** 로 설정 됩니다. 
+> 게이트웨이를 통해 액세스하는 데이터 원본에 대해서는 관리 토큰 새로 고침이 지원되지 않습니다. 예를 들어, 하나 이상의 매시업 쿼리 데이터 원본은 게이트웨이를 통해 액세스되고 [ASPaaS\AlwaysUseGateway](analysis-services-vnet-gateway.md) 속성은 **true** 로 설정됩니다. 
 
 직접 쿼리 모드는 OAuth 자격 증명에서 지원되지 않습니다.
 
-## <a name="enable-oracle-managed-provider"></a>Oracle 관리 공급자 사용
+## <a name="enable-oracle-managed-provider"></a>Oracle 관리되는 공급자 사용
 
-Oracle 데이터 원본에 대 한 DAX 쿼리가 예기치 않은 결과를 반환할 수 있는 경우도 있습니다. 이는 데이터 원본 연결에 사용 되는 공급자 때문에 발생할 수 있습니다.
+Oracle 데이터 원본에 대한 DAX 쿼리가 예기치 않은 결과를 반환하는 경우도 있습니다. 이는 데이터 원본 연결에 사용되는 공급자 때문에 발생할 수 있습니다.
 
-[공급자 이해](#understanding-providers) 섹션에 설명 된 대로 테이블 형식 모델은 데이터 원본에 *구조화* 된 데이터 원본 또는 *공급자* 데이터 원본으로 연결 합니다. Oracle 데이터 원본이 공급자 데이터 원본으로 지정 된 모델의 경우 지정 된 공급자가 .NET의 Oracle Data Provider (DataAccess) 인지 확인 합니다. 
+[공급자 이해](#understanding-providers) 섹션에 설명된 대로, 테이블 형식 모델은 데이터 원본에 *구조적* 데이터 원본 또는 *공급자* 데이터 원본으로 연결합니다. Oracle 데이터 원본이 공급자 데이터 원본으로 지정된 모델의 경우, 지정된 공급자가 .NET(Oracle.DataAccess.Client)의 Oracle Data Provider인지 확인합니다. 
 
-Oracle 데이터 원본이 구조적 데이터 원본으로 지정 된 경우 **MDataEngine\UseManagedOracleProvider** 서버 속성을 사용 하도록 설정 합니다. 이 속성을 설정 하면 .NET 관리 공급자에 권장 되는 Oracle Data Provider를 사용 하 여 모델이 Oracle 데이터 원본에 연결 됩니다.
+Oracle 데이터 원본이 구조적 데이터 원본으로 지정된 경우, **MDataEngine\UseManagedOracleProvider** 서버 속성을 사용하도록 설정합니다. 이 속성을 설정하면 .NET 관리되는 공급자에 권장되는 Oracle Data Provider를 사용하여 모델이 Oracle 데이터 원본에 연결됩니다.
  
-Oracle 관리 공급자를 사용 하도록 설정 하려면
+Oracle 관리되는 공급자를 사용하도록 설정하는 방법.
 
-1. SQL Server Management Studio에서 서버에 연결 합니다.
-2. 다음 스크립트를 사용 하 여 XMLA 쿼리를 만듭니다. **ServerName** 을 전체 서버 이름으로 바꾸고 쿼리를 실행 합니다.
+1. SQL Server Management Studio에서 서버에 연결합니다.
+2. 다음 스크립트를 사용하여 XMLA 쿼리를 생성합니다. **ServerName** 을 전체 서버 이름으로 바꾸고 쿼리를 실행합니다.
 
     ```xml
     <Alter AllowCreate="true" ObjectExpansion="ObjectProperties" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">

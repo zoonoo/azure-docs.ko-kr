@@ -1,24 +1,25 @@
 ---
-title: Azure Cloud Services (클래식) LoadBalancerProbe 스키마 | Microsoft Docs
-description: 고객 정의 LoadBalancerProbe는 역할 인스턴스의 끝점에 대 한 상태 프로브입니다. 서비스 정의 파일에서 웹 또는 작업자 역할과 결합 됩니다.
+title: Azure Cloud Services(클래식) 정의 LoadBalancerProbe 스키마 | Microsoft Docs
+description: 고객이 정의한 LoadBalancerProbe는 역할 인스턴스에서 엔드포인트의 상태 프로브입니다. 이 기능은 서비스 정의 파일의 웹 또는 작업자 역할과 결합됩니다.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 3dca519f7fb4523ce9d9267f7629c1177cc5e3b6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 1fbbb49918ed83bd38e0c1f879ed31386cfb756b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98739791"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934124"
 ---
-# <a name="azure-cloud-services-classic-definition-loadbalancerprobe-schema"></a>Azure Cloud Services (클래식) 정의 LoadBalancerProbe 스키마
+# <a name="azure-cloud-services-classic-definition-loadbalancerprobe-schema"></a>Azure Cloud Services(클래식) 정의 LoadBalancerProbe 스키마
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 부하 분산 장치 프로브는 UDP 엔드포인트와 역할 인스턴스의 엔드포인트에서 고객이 정의한 상태 프로브입니다. `LoadBalancerProbe`는 독립 실행형 요소가 아닙니다. 서비스 정의 파일의 웹 역할 또는 작업자 역할과 결합됩니다. `LoadBalancerProbe`는 하나 이상의 역할에서 사용할 수 있습니다.
 

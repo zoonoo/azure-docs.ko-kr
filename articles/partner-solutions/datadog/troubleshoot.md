@@ -3,17 +3,17 @@ title: Datadog 문제 해결 - Azure 파트너 솔루션
 description: 이 문서에서는 Azure의 Datadog 문제 해결에 대한 정보를 제공합니다.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 05/28/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 0e3c82f711de4cd9710c9aafe798a986e3403ed4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c23851dc76cb0e012ad8796d361e5c293bc8d99
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563711"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110655156"
 ---
-# <a name="troubleshooting-datadog-on-azure"></a>Azure의 Datadog 문제 해결
+# <a name="fix-common-errors-for-datadog-on-azure"></a>Azure의 Datadog에 대한 일반적인 오류 수정
 
 이 문서에는 Datadog를 사용하는 솔루션 문제 해결에 대한 정보가 포함되어 있습니다.
 
@@ -23,9 +23,9 @@ ms.locfileid: "103563711"
 
   다른 Azure 구독을 사용합니다. 또는 구독에 대한 신용 카드나 결제 방법을 추가하거나 업데이트합니다. 자세한 내용은 [크레딧 및 결제 방법 업데이트](../../cost-management-billing/manage/change-credit-card.md)를 참조하세요.
 
-* EA 구독은 Marketplace 구매를 허용하지 않습니다.
+* EA 구독은 마켓플레이스 구매를 허용하지 않습니다.
 
-  다른 구독을 사용하세요. 또는 Marketplace 구매에 EA 구독을 사용할 수 있는지 확인합니다. 자세한 내용은 [Marketplace 구매 사용](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases)을 참조하세요. 이러한 방법으로 문제가 해결되지 않으면 [Datadog 지원](https://www.datadoghq.com/support)에 문의하세요.
+  다른 구독을 사용하세요. 또는 마켓플레이스 구매에 EA 구독을 사용할 수 있는지 확인합니다. 자세한 내용은 [Marketplace 구매 사용](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases)을 참조하세요. 이러한 방법으로 문제가 해결되지 않으면 [Datadog 지원](https://www.datadoghq.com/support)에 문의하세요.
 
 ## <a name="unable-to-create-datadog-resource"></a>Datadog 리소스를 만들 수 없음
 

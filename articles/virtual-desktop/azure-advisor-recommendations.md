@@ -1,21 +1,21 @@
 ---
-title: Azure Advisor Windows Virtual Desktop 연습 - Azure
-description: Azure Advisor for Windows Virtual Desktop 권장 사항을 해결하는 방법을 알아봅니다.
+title: Azure Advisor Azure Virtual Desktop 연습 - Azure
+description: Azure Virtual Desktop에 대한 Azure Advisor 권장 사항을 해결하는 방법입니다.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 666f882dec6c00b9fe5421485afded1fbd57d961
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: b8bc514f495a46e76ad882720c918824aab0aaac
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448307"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745484"
 ---
 # <a name="how-to-resolve-azure-advisor-recommendations"></a>Azure Advisor 권장 사항 해결 방법
 
-이 문서에서는 Azure Advisor for Windows Virtual Desktop에 표시되는 권장 사항을 해결할 수 있는 방법을 설명합니다.
+이 문서에서는 Azure Advisor for Azure Virtual Desktop에 표시되는 권장 사항을 해결할 수 있는 방법을 설명합니다.
 
 ## <a name="no-validation-environment-enabled"></a>“사용 설정된 유효성 검사 환경이 없음”
 
@@ -24,7 +24,7 @@ ms.locfileid: "106448307"
 
 이 권장 사항은 Operational Excellence 아래에 나타납니다. 권장 사항에 다음과 같은 경고 메시지가 표시되어야 합니다.
 
-"이 구독에서 사용 설정된 유효성 검사 환경이 없습니다. 호스트 풀을 만들 때 속성 탭에서 "유효성 검사 환경"에 대해 **아니요** 를 선택했습니다. Windows Virtual Desktop 서비스 배포를 통해 비즈니스 연속성을 보장하려면 잠재적인 문제를 검사할 수 있는 유효성 검사 환경을 갖춘 호스트 풀이 하나 이상 있어야 합니다.”
+"이 구독에서 사용 설정된 유효성 검사 환경이 없습니다. 호스트 풀을 만들 때 속성 탭에서 "유효성 검사 환경"에 대해 **아니요** 를 선택했습니다. Azure Virtual Desktop 서비스 배포를 통해 비즈니스 연속성을 보장하려면 잠재적인 문제를 검사할 수 있는 유효성 검사 환경을 갖춘 호스트 풀이 하나 이상 있어야 합니다.”
 
 호스트 풀 중 하나에서 유효성 검사 환경을 사용하도록 설정하면 이 경고 메시지가 나타나지 않도록 할 수 있습니다.
 
@@ -75,4 +75,4 @@ VM(가상 머신)이 제대로 작동하는지 확인하려면 특정 URL을 차
 
 ## <a name="next-steps"></a>다음 단계
 
-일반적인 문제를 해결하는 방법에 대한 자세한 가이드를 찾고 있다면 [Windows Virtual Desktop에 대한 문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview.md)을 참조하세요.
+일반적인 문제를 해결하는 방법에 대한 자세한 가이드를 찾는 경우 [ Virtual Desktop에 대한 문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview.md)을 참조하세요.

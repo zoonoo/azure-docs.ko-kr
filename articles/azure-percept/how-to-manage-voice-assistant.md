@@ -1,18 +1,18 @@
 ---
 title: Azure Percept Studio 내에서 음성 도우미 애플리케이션 구성
 description: Azure Percept Studio 내에서 음성 도우미 애플리케이션 구성
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 8f22379049b74428787b738af832802081be7bf8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 764ca28ec6e66d63ffeb98399f654b14eb9b6715
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022894"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754292"
 ---
 # <a name="managing-your-voice-assistant"></a>음성 도우미 관리
 
@@ -22,23 +22,23 @@ ms.locfileid: "105022894"
 
 ## <a name="keyword-configuration"></a>키워드 구성
 
-키워드는 음성 도우미를 활성화하는 데 사용되는 단어 또는 짧은 문구입니다. 예를 들어, “Hey Cortana”는 Cortana 도우미의 키워드입니다. 음성 활성화를 사용하는 경우, 단순히 사용자가 키워드를 말하는 방법으로 제품을 완전히 자유로운 상태에서 조작할 수 있습니다. 제품이 키워드를 지속적으로 수신하는 동안, 모든 오디오는 검색을 수행하여 사용자 데이터가 가능한 한 비공개로 유지되게 만들어질 때까지 디바이스에서 로컬로 처리됩니다.
+키워드는 음성 도우미를 활성화하는 데 사용되는 단어 또는 짧은 문구입니다. 예를 들어, “Hey Cortana”는 Cortana 도우미의 키워드입니다. 음성 활성화를 사용하는 경우 사용자가 키워드를 말하는 방법으로 제품을 핸즈프리로 사용할 수 있습니다. 제품이 키워드를 지속적으로 수신하는 동안, 모든 오디오는 검색을 수행하여 사용자 데이터가 가능한 한 비공개로 유지되게 만들어질 때까지 디바이스에서 로컬로 처리됩니다.
 
 ### <a name="configuration-within-the-voice-assistant-demo-window"></a>음성 도우미 데모 창에서 구성
 
-1. 데모 페이지에서 **사용자 지정 키워드** 옆의 **변경** 을 클릭합니다.
+1. 데모 페이지에서 **사용자 지정 키워드** 옆의 **변경** 을 선택합니다.
 
     :::image type="content" source="./media/manage-voice-assistant/hospitality-demo.png" alt-text="접객 데모 창을 보여 주는 스크린샷":::
 
-    데모 페이지가 열려있지 않는 경우 디바이스 페이지로 이동하고(아래 참조), **작업** 아래에서 **음성 도우미 테스트** 를 클릭하여 데모에 액세스합니다.
+    데모 페이지가 열려있지 않는 경우 디바이스 페이지로 이동하고(아래 참조) **작업** 아래에서 **음성 도우미 테스트** 를 선택하여 데모에 액세스합니다.
 
-1. 사용 가능한 키워드 중 하나를 선택하고 **저장** 을 클릭하여 변경 내용을 적용합니다.
+1. 사용 가능한 키워드 중 하나를 선택하고 **저장** 을 선택하여 변경 내용을 적용합니다.
 
 1. 구성이 완료되어 음성 도우미를 사용할 준비가 되면, Azure Percept Audio 디바이스의 LED 표시등 세 개가 밝은 파란색(깜박이지 않음)으로 변경됩니다.
 
 ### <a name="configuration-within-the-device-page"></a>디바이스 페이지 내 구성
 
-1. [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)의 개요 페이지에 있는 왼쪽 메뉴 창에서 **디바이스** 를 클릭합니다.
+1. [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)의 개요 페이지에 있는 왼쪽 메뉴 창에서 **디바이스** 를 선택합니다.
 
     :::image type="content" source="./media/manage-voice-assistant/portal-overview-devices.png" alt-text="디바이스가 강조 표시된 Azure Percept Studio 개요 페이지의 스크린샷":::
 
@@ -48,11 +48,11 @@ ms.locfileid: "105022894"
 
     :::image type="content" source="./media/manage-voice-assistant/device-page.png" alt-text="음성 탭이 강조 표시된 에지 디바이스 페이지의 스크린샷":::
 
-1. **키워드** 옆의 **변경** 을 클릭합니다.
+1. **키워드** 옆의 **변경** 을 선택합니다.
 
     :::image type="content" source="./media/manage-voice-assistant/change-keyword-device.png" alt-text="사용 가능한 음성 솔루션 작업의 스크린샷":::
 
-1. 사용 가능한 키워드 중 하나를 선택하고 **저장** 을 클릭하여 변경 내용을 적용합니다.
+1. 사용 가능한 키워드 중 하나를 선택하고 **저장** 을 선택하여 변경 내용을 적용합니다.
 
 1. 구성이 완료되어 음성 도우미를 사용할 준비가 되면, Azure Percept Audio 디바이스의 LED 표시등 세 개가 밝은 파란색(깜박이지 않음)으로 변경됩니다.
 
@@ -68,21 +68,21 @@ ms.locfileid: "105022894"
 
 ### <a name="configuration-within-the-voice-assistant-demo-window"></a>음성 도우미 데모 창에서 구성
 
-1. 데모 페이지에서 **사용자 지정 명령** 옆에 있는 **변경** 을 클릭합니다. 데모 페이지가 열려있지 않는 경우 디바이스 페이지로 이동하고(아래 참조), **작업** 아래에서 **음성 도우미 테스트** 를 클릭하여 데모에 액세스합니다.
+1. 데모 페이지에서 **사용자 지정 명령** 옆에 있는 **변경** 을 선택합니다. 데모 페이지가 열려있지 않는 경우 디바이스 페이지로 이동하고(아래 참조) **작업** 아래에서 **음성 도우미 테스트** 를 선택하여 데모에 액세스합니다.
 
-1. 사용 가능한 사용자 지정 명령 중 하나를 선택하고 **저장** 을 클릭하여 변경 내용을 적용합니다.
+1. 사용 가능한 사용자 지정 명령 중 하나를 선택하고 **저장** 을 선택하여 변경 내용을 적용합니다.
 
 ### <a name="configuration-within-the-device-page"></a>디바이스 페이지 내 구성
 
-1. [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)의 개요 페이지에 있는 왼쪽 메뉴 창에서 **디바이스** 를 클릭합니다.
+1. [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)의 개요 페이지에 있는 왼쪽 메뉴 창에서 **디바이스** 를 선택합니다.
 
 1. 음성 도우미 애플리케이션이 배포된 디바이스를 선택합니다.
 
 1. **음성** 탭을 엽니다.
 
-1. **명령** 옆의 **변경** 을 클릭합니다.
+1. **명령** 옆의 **변경** 을 선택합니다.
 
-1. 사용 가능한 사용자 지정 명령 중 하나를 선택하고 **저장** 을 클릭하여 변경 내용을 적용합니다.
+1. 사용 가능한 사용자 지정 명령 중 하나를 선택하고 **저장** 을 선택하여 변경 내용을 적용합니다.
 
 ## <a name="create-custom-commands"></a>사용자 지정 명령 만들기
 

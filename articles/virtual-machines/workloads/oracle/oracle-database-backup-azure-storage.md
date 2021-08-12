@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: a6ce5446bd6470ef7a829925646d486801b28ebc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44d1345a8c02c2cde5d0bc34d1b509af321c42c0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670013"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952274"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-storage"></a>Azure Storage를 사용하여 Azure Linux VM에서 Oracle Database 19c 데이터베이스 백업 및 복구
 
@@ -104,7 +104,7 @@ ms.locfileid: "101670013"
     The command completed successfully
     ```
 
-7.  FRA(빠른 복구 영역) 위치를 만듭니다.
+7.  FRA (빠른 복구 영역) 위치를 만듭니다.
 
     ```bash
     mkdir /u02/fast_recovery_area
@@ -125,7 +125,7 @@ ms.locfileid: "101670013"
 10. 빠른 복구 영역에 대한 데이터베이스 환경 변수를 설정합니다.
 
     ```bash
-    SQL>  system set db_recovery_file_dest_size=4096M scope=both;
+    SQL> alter system set db_recovery_file_dest_size=4096M scope=both;
     SQL> alter system set db_recovery_file_dest='/u02/fast_recovery_area' scope=both;
     ```
     
@@ -368,7 +368,7 @@ Azure Files를 탑재하는 경우 `cache=none`을 사용하여 파일 공유 �
     ORACLE instance shut down.
     ```
 
-2.  데이터 파일 및 백업을 제거합니다.
+2.  데이터베이스 데이터 파일을 제거합니다.
 
     ```bash
     cd /u02/oradata/TEST

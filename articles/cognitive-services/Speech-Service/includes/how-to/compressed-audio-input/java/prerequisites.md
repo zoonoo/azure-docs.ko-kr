@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
-ms.openlocfilehash: 6f7e74a4e3a0ad208ea832798748adf7a15dfc89
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 955e79040f84f395849ab13103fd4c22693a9913
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103417727"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110165434"
 ---
 압축된 오디오 처리는 [GStreamer](https://gstreamer.freedesktop.org)를 사용하여 구현됩니다. 라이선스 때문에 GStreamer 이진 파일이 컴파일되지 않고 Speech SDK로 연결되지 않습니다. 대신, Android용으로 미리 빌드된 이진 파일을 사용해야 합니다. 미리 빌드된 라이브러리를 다운로드하려면 [Android 개발용 설치](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c)를 참조하세요.
 
-`libgstreamer_android.so`은 필수입니다. 아래의 Android.mk 파일에서 모든 GStreamer 플러그 인이 `libgstreamer_android.so`에 연결되어 있어야 합니다. GStreamer 버전 1.18.3에서 최신 Speech SDK(1.16.0 이상)를 사용하는 경우 `libc++_shared.so`가 Android NDK에 있어야 합니다.
+`libgstreamer_android.so`은 필수입니다. 아래의 Android.mk 파일에서 모든 GStreamer 플러그 인이 `libgstreamer_android.so`에 연결되어 있어야 합니다. GStreamer 버전 1.18.3에서 최신 Speech SDK(1.16 이상)를 사용하는 경우 `libc++_shared.so`가 Android NDK에 있어야 합니다.
 
 ```makefile
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \

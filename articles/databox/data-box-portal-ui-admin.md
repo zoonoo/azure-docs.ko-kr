@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box Disk 포털 관리자 가이드 | Microsoft Docs
-description: Azure Portal를 사용 하 여 Data Box Disk를 관리 하는 방법을 알아봅니다. 주문을 관리 하 고, 디스크를 관리 하 고, 진행 중인 주문 상태를 추적 합니다.
+description: Azure Portal 사용하여 Data Box Disk를 관리하는 방법을 알아봅니다. 주문을 관리하고, 디스크를 관리하고, 진행 중인 주문의 상태를 추적합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: 538a650c6063422f89c8ed3d1753981a293693b7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94338172"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Azure Portal을 사용하여 Data Box 관리
@@ -29,15 +29,15 @@ Azure Portal을 통해 Data Box Disk를 관리할 수 있습니다. 이 아티�
 
 1.  **개요 > 취소** 로 이동합니다. 
 
-    ![개요 탭의 주문에 대 한 취소 명령](media/data-box-portal-ui-admin/portal-ui-admin-cancel-command.png)
+    ![개요 탭의 주문에 대한 취소 명령](media/data-box-portal-ui-admin/portal-ui-admin-cancel-command.png)
 
 2.  주문을 취소하는 이유를 채웁니다.  
 
-    ![주문을 취소 하는 이유](media/data-box-portal-ui-admin/portal-ui-admin-cancel-order-reason.png)
+    ![주문을 취소하는 이유](media/data-box-portal-ui-admin/portal-ui-admin-cancel-order-reason.png)
 
 3.  주문이 취소되면 포털은 주문의 상태를 업데이트하고 **취소됨** 으로 표시합니다.
 
-    ![취소 된 순서](media/data-box-portal-ui-admin/portal-ui-admin-canceled-order.png)
+    ![취소된 주문](media/data-box-portal-ui-admin/portal-ui-admin-canceled-order.png)
 
 주문이 취소된 경우 이메일 알림을 받지 않습니다.
 
@@ -49,13 +49,13 @@ Azure Portal을 통해 Data Box Disk를 관리할 수 있습니다. 이 아티�
 
 1.  **개요 > 복제** 로 이동합니다. 
 
-    ![개요 탭의 주문에 대 한 복제 명령](media/data-box-portal-ui-admin/portal-ui-admin-clone-command.png)
+    ![주문에 대한 개요 탭의 복제 명령](media/data-box-portal-ui-admin/portal-ui-admin-clone-command.png)
 
 2.  주문의 모든 세부 사항을 동일하게 유지합니다. 주문 이름은 *-Clone* 으로 추가된 원래 주문 이름입니다. 확인란을 선택하여 개인 정보 취급 방침을 검토한 것을 확인합니다. **만들기** 를 클릭합니다.    
 
 잠시 후에 복제가 생성되고 포털에서 새 주문을 표시하도록 업데이트합니다.
 
-[![복제 된 순서](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png)](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png#lightbox) 
+[![복제된 순서](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png)](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png#lightbox) 
 
 ## <a name="delete-order"></a>주문 삭제
 
@@ -65,7 +65,7 @@ Azure Portal을 통해 Data Box Disk를 관리할 수 있습니다. 이 아티�
 
 1. **모든 리소스** 로 이동합니다. 주문을 검색합니다.
 
-    ![주문 검색](media/data-box-portal-ui-admin/portal-ui-admin-search-data-box-disk-orders.png)
+    ![검색 순서](media/data-box-portal-ui-admin/portal-ui-admin-search-data-box-disk-orders.png)
 
 2. 삭제하려는 주문을 클릭하고 **개요** 로 이동합니다. 명령 모음에서 **삭제** 를 클릭합니다.
 
@@ -111,7 +111,7 @@ Azure Portal을 통해 Data Box Disk를 관리할 수 있습니다. 이 아티�
 
 1. **주문 세부 정보 > 알림 세부 정보 편집** 으로 이동합니다.
 
-    ![알림 세부 정보 명령을 순서 대로 편집](media/data-box-portal-ui-admin/portal-ui-admin-edit-notification-details-command.png)
+    ![주문 세부 정보에서 알림 세부 정보 편집 명령](media/data-box-portal-ui-admin/portal-ui-admin-edit-notification-details-command.png)
 
 2. 이제 알림 세부 정보를 편집한 다음, 변경 내용을 저장할 수 있습니다.
  
@@ -128,7 +128,7 @@ Azure Portal을 통해 Data Box Disk를 관리할 수 있습니다. 이 아티�
 |선택됨     |반송 배송이 선택되었습니다. <br> Azure 데이터 센터에 배송이 수신되면 데이터는 Azure에 자동으로 업로드됩니다.         |
 |수신됨     | Azure 데이터 센터에서 디스크를 받았습니다. 데이터 복사가 곧 시작됩니다.        |
 |데이터가 복사됨     |데이터 복사가 진행 중입니다.<br> 데이터 복사가 완료될 때까지 기다립니다.         |
-|완료됨       |주문이 성공적으로 완료되었습니다.<br> 서버에서 온-프레미스 데이터를 삭제하기 전에 Azure에 데이터가 있는지 확인합니다.         |
+|Completed       |주문이 성공적으로 완료되었습니다.<br> 서버에서 온-프레미스 데이터를 삭제하기 전에 Azure에 데이터가 있는지 확인합니다.         |
 |오류와 함께 완료됨| 데이터 복사가 완료되었지만 오류가 발생했습니다. <br> **개요** 에 제공된 경로를 사용하여 업로드에 대한 오류 로그를 검토합니다. 자세한 내용은 [업로드 오류 로그 다운로드](data-box-disk-troubleshoot-upload.md#download-logs)를 참조하세요.   |
 |취소됨            |주문이 취소되었습니다. <br> 주문을 취소했거나 오류가 발생했고 서비스에서 주문을 취소했습니다.     |
 

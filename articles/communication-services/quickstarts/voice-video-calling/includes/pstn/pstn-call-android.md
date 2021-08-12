@@ -4,19 +4,20 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: nikuklic
-ms.openlocfilehash: 7b8e0e5710b81a5ce332f9a1fb6dc42d40369004
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: acfba31896f7a658e08d5765812c09d78b662b0d
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560359"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112536052"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../../includes/emergency-calling-notice-include.md)]
 
-> [!NOTE]
-> [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Telephone%20Calling)에서 이 빠른 시작에 대한 최종 코드 칮기
+## <a name="sample-code"></a>샘플 코드
 
-## <a name="prerequisites"></a>필수 구성 요소
+[GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Telephone%20Calling)에서 이 빠른 시작에 대한 최종 코드 칮기
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../../create-communication-resource.md).
@@ -34,14 +35,13 @@ ms.locfileid: "111560359"
 
 **MainActivity.java** 를 수정하여 앱에 `PhoneNumber` 유형을 추가합니다.
 
-
 ```java
 import com.azure.android.communication.common.PhoneNumberIdentifier;
 ```
 
 <!--
 > [!TBD]
-> Namespace based on input from Komivi Agbakpem. But it does not correlates with other use namespaces in Calling Quickstart. E.g: "com.azure.communication.calling.CommunicationUserIdentifier" or "com.azure.communication.common.client.CommunicationTokenCredential". Double-chek this.
+> Namespace based on input from Komivi Agbakpem. But it does not correlates with other use namespaces in Calling Quickstart. E.g: "com.azure.communication.calling.CommunicationUserIdentifier" or "com.azure.communication.common.client.CommunicationTokenCredential". Double-check this.
 -->
 
 ## <a name="start-a-call-to-phone"></a>휴대폰에 전화 걸기 시작

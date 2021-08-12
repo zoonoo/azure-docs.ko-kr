@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/08/2021
+ms.date: 05/25/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bbb3bc0e34ad596c39aebb49124bb72d0b3efe6f
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 6298c8483c44472fe6f52f3e48b5c529c2d978a5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103968"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457496"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies"></a>Azure AD B2C 사용자 지정 정책 문제 해결
 
@@ -48,7 +48,7 @@ Azure AD B2C 토큰에 상관 관계 ID를 포함할 수 있습니다. 상관 �
 1. 정책의 확장 파일을 엽니다. 예를 들어 <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>입니다.
 1. [BuildingBlocks](buildingblocks.md) 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
 1. [ClaimsSchema](claimsschema.md) 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
-1. **ClaimsSchema** 요소에 city 클레임을 추가합니다.  
+1. **ClaimsSchema** 요소에 상관 관계 ID 클레임을 추가합니다.  
 
     ```xml
     <!-- 
@@ -63,7 +63,7 @@ Azure AD B2C 토큰에 상관 관계 ID를 포함할 수 있습니다. 상관 �
     </BuildingBlocks>-->
     ```
 
-1. 정책의 신뢰 당사자 파일을 엽니다. 예를 들어 <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> 파일입니다. 사용자 경험이 성공하면 출력 클레임이 토큰에 추가되고 애플리케이션으로 전송됩니다. 신뢰 당사자 섹션에서 기술 프로필 요소를 수정하여 city를 출력 클레임으로 추가합니다.
+1. 정책의 신뢰 당사자 파일을 엽니다. 예를 들어 <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> 파일입니다. 사용자 경험이 성공하면 출력 클레임이 토큰에 추가되고 애플리케이션으로 전송됩니다. 신뢰 당사자 섹션에서 기술 프로필 요소를 수정하여 `correlationId`를 출력 클레임으로 추가합니다.
  
     ```xml
     <RelyingParty>

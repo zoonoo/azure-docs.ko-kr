@@ -2,13 +2,13 @@
 title: Azure Video Analyzer를 사용하여 동작을 감지하고 비디오 녹화
 description: 이 빠른 시작에서는 Azure Video Analyzer 에지 모듈을 사용하여 라이브 비디오 스트림에서 동작을 감지하고 Video Analyzer 계정에 비디오를 녹화하는 방법을 보여줍니다.
 ms.topic: quickstart
-ms.date: 04/03/2021
-ms.openlocfilehash: 9643ed3a7bbcc23757110033be1dbc3780ddafb5
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.date: 06/01/2021
+ms.openlocfilehash: 7772a32a529eeba36378e9ffb7568912ae66c7a2
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565935"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601478"
 ---
 # <a name="quickstart-detect-motion-record-video-to-video-analyzer"></a>빠른 시작: 동작을 감지하고 Video Analyzer에 비디오 녹화
 
@@ -18,8 +18,7 @@ ms.locfileid: "111565935"
 
 * 활성 구독이 있는 Azure 계정. 계정이 아직 없는 경우 [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-    > [!NOTE]    
-    > [기여자](../../role-based-access-control/built-in-roles.md#contributor) 역할 및 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 역할에 모두 액세스할 수 있는 Azure 구독이 필요합니다. 이러한 권한이 없는 경우 계정 관리자에게 적절한 권한을 부여해 달라고 요청합니다.
+    [!INCLUDE [azure-subscription-permissions](./includes/common-includes/azure-subscription-permissions.md)]
 * 다음 확장이 포함된 [Visual Studio Code](https://code.visualstudio.com/)
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
@@ -94,11 +93,7 @@ ms.locfileid: "111565935"
 1. **디바이스** 노드를 펼칩니다.
 1. `avasample-iot-edge-device`를 마우스 오른쪽 단추로 클릭하고, **기본 제공 이벤트 엔드포인트 모니터링 시작** 을 선택합니다.
 
-    > [!NOTE]
-    > IoT Hub에 대한 기본 제공 엔드포인트 정보를 제공하라는 메시지가 표시될 수 있습니다. 해당 정보를 가져오려면 Azure Portal에서 IoT Hub로 이동하여 왼쪽 탐색 창에서 **기본 제공 엔드포인트** 옵션을 찾습니다. 여기를 클릭하고 **Event Hub 호환 엔드포인트** 섹션에서 **Event Hub 호환 엔드포인트** 를 찾습니다. 상자의 텍스트를 복사하여 사용합니다. 엔드포인트는 다음과 같이 표시됩니다.  
-        ```
-        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-        ```
+    [!INCLUDE [provide-builtin-endpoint](./includes/common-includes/provide-builtin-endpoint.md)]
 
 ## <a name="use-direct-method-calls-to-analyze-live-video"></a>직접 메서드 호출을 사용하여 라이브 비디오 분석
 
@@ -1000,9 +995,7 @@ Azure Portal에 로그인하여 비디오를 살펴보면 라이브 파이프라
     <!--TODO: add image -- ![Video playback]() TODO: new screenshot is needed here -->
 
 
-> [!NOTE]
-> 비디오 원본은 카메라 피드를 시뮬레이션하는 컨테이너이므로 비디오의 타임스탬프는 라이브 파이프라인을 활성화한 시간 및 비활성화한 시간과 관련이 있습니다.
-    
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]    
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
