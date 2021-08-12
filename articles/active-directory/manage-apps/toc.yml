@@ -12,8 +12,6 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 앱 보기
-      href: view-applications-portal.md
     - name: 앱 추가
       href: add-application-portal.md
     - name: 앱 구성
@@ -24,6 +22,8 @@
       href: add-application-portal-setup-sso.md
     - name: OIDC 기반 Single Sign On 설정
       href: add-application-portal-setup-oidc-sso.md
+    - name: 앱 보기
+      href: view-applications-portal.md
     - name: 앱 삭제
       href: delete-application-portal.md
 - name: 자습서

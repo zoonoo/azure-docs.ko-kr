@@ -14,10 +14,10 @@ ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 562162e0bd42b0a46b2b0c6d44ca9b37f1841750
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99052863"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Azure Active Directory Premium Edition에 가입
@@ -33,7 +33,7 @@ Active Directory Premium 1 또는 Premium 2에 등록하기 전에 먼저 기존
 
 이전에 구매하고 활성화한 Azure AD 라이선스와 함께 Azure 구독을 사용하여 등록하면 동일 디렉터리에서 라이선스가 자동으로 활성화됩니다. 그렇지 않은 경우에는 라이선스 플랜 및 Azure AD 액세스를 활성화해야 합니다. 라이선스 플랜을 활성화하는 방법에 대한 자세한 내용은 [새 라이선스 플랜 활성화](#activate-your-new-license-plan)를 참조하세요. Azure AD 액세스를 활성화하는 방법에 대한 자세한 내용은 [Azure AD 액세스 활성화](#activate-your-azure-ad-access)를 참조하세요. 
 
-## <a name="sign-up-using-your-existing-azure-or-microsoft-365-subscription"></a>기존 Azure 또는 Microsoft 365 구독을 사용 하 여 등록
+## <a name="sign-up-using-your-existing-azure-or-microsoft-365-subscription"></a>기존 Azure 또는 Microsoft 365 구독을 사용하여 등록
 Azure 또는 Microsoft 365 구독자는 Azure Active Directory Premium 버전을 온라인으로 구매할 수 있습니다. 자세한 단계는 [Azure Active Directory Premium 구매 방법 - 새 고객](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers)을 참조하세요.
 
 ## <a name="sign-up-using-your-enterprise-mobility--security-licensing-plan"></a>Enterprise Mobility + Security 라이선싱 플랜을 사용하여 등록
@@ -52,7 +52,7 @@ Microsoft 볼륨 라이선싱 플랜을 통해 가져오려는 라이선스 수�
 
 - **250개 이상 라이선스.** [Microsoft 기업계약](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
 
-- **5~250개 라이선스.** [볼륨 라이선스 열기](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
+- **5~250개 라이선스.** [오픈 볼륨 라이선스](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
 
 볼륨 라이선싱 구매 옵션에 대한 자세한 내용은 [볼륨 라이선싱을 통해 구매하는 방법](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx)을 참조하세요.
 
@@ -64,9 +64,9 @@ Microsoft 볼륨 라이선싱 플랜을 통해 가져오려는 라이선스 수�
    
     ![로그인 및 가입 링크가 포함된 확인 이메일](media/active-directory-get-started-premium/MOLSEmail.png)
 
-    - **서명하세요.** 기존 테넌트가 있는 경우 이 링크를 선택한 후 기존 관리자 계정을 사용하여 로그인합니다. 라이선스가 활성화되는 테넌트의 글로벌 관리자여야 합니다.
+    - **로그인.** 기존 테넌트가 있는 경우 이 링크를 선택한 후 기존 관리자 계정을 사용하여 로그인합니다. 라이선스가 활성화되는 테넌트의 글로벌 관리자여야 합니다.
 
-    - **등록하세요.** **계정 프로필 만들기** 페이지를 열려면 이 링크를 선택하고 라이선싱 플랜을 위한 새 Azure AD 테넌트를 만듭니다.
+    - **등록.** **계정 프로필 만들기** 페이지를 열려면 이 링크를 선택하고 라이선싱 플랜을 위한 새 Azure AD 테넌트를 만듭니다.
 
         ![샘플 정보를 사용한 계정 프로필 만들기 페이지](media/active-directory-get-started-premium/MOLSAccountProfile.png)
 

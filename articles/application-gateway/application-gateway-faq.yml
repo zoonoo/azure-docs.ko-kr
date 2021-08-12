@@ -9,12 +9,12 @@ metadata:
   ms.date: 06/08/2021
   ms.author: victorh
   ms.custom: references_regions
-  ms.openlocfilehash: afbd0c7fbbe6565a2f8e80c394d8ac608d1aa27a
-  ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+  ms.openlocfilehash: 7bef7a0cbc81f4d72a28d74feb5a526789c0ff59
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/09/2021
-  ms.locfileid: "111907873"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114469719"
 title: Application Gateway에 대한 질문과 대답입니다.
 summary: >
   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -127,7 +127,7 @@ sections:
   - question: Application Gateway 서브넷에서 다른 항목을 배포할 수 있나요?
     answer: 아니요. 그러나 서브넷에 다른 애플리케이션 게이트웨이를 배포할 수 있습니다.
   - question: 기존 Application Gateway의 가상 네트워크 또는 서브넷을 변경할 수 있나요?
-    answer: "동일한 가상 네트워크 내의 서브넷 간에만 Application Gateway를 이동할 수 있습니다. 또한 이 작업을 수행하려면 Application Gateway가 *중지됨* 상태에 있어야 합니다. 이 작업은 다음 명령을 실행하여 Azure PowerShell 및 Azure CLI를 통해서만 수행할 수 있습니다.\n\n**Azure PowerShell**\n\n```azurepowershell-interactive\n$VNet = Get-AzVirtualNetwork -Name \"<VNetName>\" -ResourceGroupName \"<ResourceGroup>\"\n$Subnet = Get-AzVirtualNetworkSubnetConfig -Name \"<NewSubnetName>\" -VirtualNetwork $VNet\n$AppGw = Get-AzApplicationGateway -Name \"<ApplicationGatewayName>\" -ResourceGroupName \"<ResourceGroup>\"\nStop-AzApplicationGateway -ApplicationGateway $AppGw\n$AppGw = Set-AzApplicationGatewayIPConfiguration -ApplicationGateway $AppGw -Name \"<IPConfigurationName>\" -Subnet $Subnet\nSet-AzApplicationGateway -ApplicationGateway $AppGw\n```\n자세한 내용은 [Set-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/Set-AzApplicationGatewayIPConfiguration)을 참조하세요.\n\n**Azure CLI**\n\n```azurecli-interactive\naz network application-gateway stop -g <ResourceGroup> -n <ApplicationGatewayName>\naz network application-gateway update -g <ResourceGroup> -n <ApplicationGatewayName> --set gatewayIpConfigurations[0].subnet.id=<subnetID>\n``` \n"
+    answer: "동일한 가상 네트워크 내의 서브넷 간에만 Application Gateway를 이동할 수 있습니다. 공용 및 프라이빗 프론트엔드가 있는 V1 및 공용 프론트엔드만 있는 V2에서 지원됩니다. 또한 이 작업을 수행하려면 Application Gateway가 *중지됨* 상태에 있어야 합니다. V1을 중지/시작하면 공용 IP가 변경됩니다. 이 작업은 다음 명령을 실행하여 Azure PowerShell 및 Azure CLI를 통해서만 수행할 수 있습니다.\n\n**Azure PowerShell**\n\n```azurepowershell-interactive\n$VNet = Get-AzVirtualNetwork -Name \"<VNetName>\" -ResourceGroupName \"<ResourceGroup>\"\n$Subnet = Get-AzVirtualNetworkSubnetConfig -Name \"<NewSubnetName>\" -VirtualNetwork $VNet\n$AppGw = Get-AzApplicationGateway -Name \"<ApplicationGatewayName>\" -ResourceGroupName \"<ResourceGroup>\"\nStop-AzApplicationGateway -ApplicationGateway $AppGw\n$AppGw = Set-AzApplicationGatewayIPConfiguration -ApplicationGateway $AppGw -Name $AppGw.GatewayIPConfigurations.Name -Subnet $Subnet\n#If you have a private frontend IP configuration, uncomment and run the next line:\n#$AppGw = Set-AzApplicationGatewayFrontendIPConfig -Name $AppGw.FrontendIPConfigurations.Name[1] -Subnet $Subnet -ApplicationGateway $AppGw\nSet-AzApplicationGateway -ApplicationGateway $AppGw\n```\n자세한 내용은 [Set-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/Set-AzApplicationGatewayIPConfiguration)을 참조하세요.\n\n**Azure CLI**\n\n```azurecli-interactive\naz network application-gateway stop -g <ResourceGroup> -n <ApplicationGatewayName>\naz network application-gateway update -g <ResourceGroup> -n <ApplicationGatewayName> --set gatewayIpConfigurations[0].subnet.id=<subnetID>\n``` \n"
   - question: 애플리케이션 게이트웨이 서브넷에서 네트워크 보안 그룹이 지원되나요?
     answer: >
       [Application Gateway 서브넷의 네트워크 보안 그룹](./configuration-infrastructure.md#network-security-groups)을 참조하세요.
@@ -242,7 +242,7 @@ sections:
       여러 가지 방법으로 액세스 로그를 살펴보고 분석할 수 있습니다. Azure Monitor 로그, Excel, Power BI 등을 사용할 수 있습니다.
 
 
-      Application Gateway 액세스 로그에 널리 사용되는 [GoAccess](https://goaccess.io/) 로그 분석기를 설치하고 실행하는 Resource Manager 템플릿을 사용할 수도 있습니다. GoAccess는 고유 방문자, 요청한 파일, 호스트, 운영 체제, 브라우저, HTTP 상태 코드 등의 유용한 HTTP 트래픽 통계를 제공합니다. 자세한 내용은 GitHub에서 [Resource Manager 템플릿 폴더의 Readme 파일](https://aka.ms/appgwgoaccessreadme)을 참조하세요.
+      Application Gateway 액세스 로그에 널리 사용되는 [GoAccess](https://goaccess.io/) 로그 분석기를 설치하고 실행하는 Resource Manager 템플릿을 사용할 수도 있습니다. GoAccess는 고유 방문자, 요청한 파일, 호스트, 운영 체제, 브라우저, HTTP 상태 코드 등의 유용한 HTTP 트래픽 통계를 제공합니다. 자세한 내용은 GitHub에서 [Resource Manager 템플릿 폴더의 Readme 파일](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/application-gateway-logviewer-goaccess)을 참조하세요.
   - question: 백 엔드 상태가 알 수 없는 상태로 돌아가는 이유는 무엇인가요?
     answer: >
       일반적으로 애플리케이션 게이트웨이 서브넷에서 NSG(네트워크 보안 그룹), 사용자 지정 DNS 또는 UDR(사용자 정의 라우팅)에 의해 백 엔드 액세스가 차단되는 경우에 알 수 없음 상태로 표시됩니다. 자세한 내용은 [Application Gateway에 대한 백 엔드 상태, 진단 로깅 및 메트릭](application-gateway-diagnostics.md)을 참조하세요.

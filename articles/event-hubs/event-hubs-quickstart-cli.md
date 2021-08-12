@@ -2,15 +2,15 @@
 title: Azure CLI를 사용하여 이벤트 허브 만들기 - Azure Event Hubs | Microsoft Docs
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 이벤트 허브를 만든 다음, Java를 사용하여 이벤트를 수신하는 방법을 설명합니다.
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 06/18/2021
 ms.author: spelluru
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9a47548fb1f94ac7fe9b561e798b010fa9176e9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 779d83cbf53423c3b4b6c6d8ce2c27c0c9674da7
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94566302"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414812"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 이벤트 허브 만들기
 

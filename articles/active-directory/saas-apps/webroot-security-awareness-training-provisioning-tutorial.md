@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을
 description: 사용자 계정을 Azure AD에서 Webroot Security Awareness Training으로 자동으로 프로비저닝 및 프로비저닝 해제를 하도록 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 455f4396-930e-4db5-a167-d3ea6a860a17
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: Zhchia
-ms.openlocfilehash: f015718c59178b8094f535280edadd641d22a806
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.author: thwimmer
+ms.openlocfilehash: 6f866fed1c313b60384062265dcb6f30013958a1
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98741896"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762437"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Webroot Security Awareness Training 구성
 

@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: seoapr2020, devx-track-azurepowershell
 ms.date: 04/24/2020
-ms.openlocfilehash: 3cf8b53cdabbd9360c3e57e5e633327dd4e8a4ad
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: f652c83a6f218fae34ae75cbc70c12a3c85e5da9
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110698504"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282604"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>자습서: Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터 만들기
 
-[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
 이 자습서에서는 Azure Data Factory를 사용하여 Azure HDInsight에서 주문형 [Apache Hadoop](../hdinsight/hdinsight-overview.md#cluster-types-in-hdinsight) 클러스터를 만드는 방법을 알아봅니다. 그런 후 Azure Data Factory에서 데이터 파이프라인을 사용하여 Hive 작업을 실행하고 클러스터를 삭제합니다. 이 자습서를 마치면 클러스터 생성, 작업 실행 및 클러스터 일정에 따라 삭제가 수행되는 `operationalize` 빅 데이터 작업을 실행하는 방법을 알아봅니다.
 

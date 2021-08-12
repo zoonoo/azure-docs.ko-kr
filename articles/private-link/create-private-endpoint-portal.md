@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: allensu
-ms.openlocfilehash: 395912ae70c5a01bd7de9a80cf8a507dd516028e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02d9ca3ba6a16e06c4357a46a050f8803147aaaf
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96018072"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "114292890"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Private Endpoint 만들기
 
@@ -127,6 +127,8 @@ Azure SQL 및 Azure Storage와 같은 다양한 종류의 Azure 서비스에 대
 5. **검토 + 만들기** 를 선택합니다. 
   
 6. 설정을 검토한 다음, **만들기** 를 선택합니다.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="create-a-private-endpoint"></a>Private Endpoint 만들기
 

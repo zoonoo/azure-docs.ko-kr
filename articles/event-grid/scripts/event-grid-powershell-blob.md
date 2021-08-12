@@ -3,13 +3,13 @@ title: Azure PowerShell - Blob Storage 계정 구독
 description: 이 문서에서는 Blob Storage 계정에 대한 Event Grid 이벤트를 구독하는 방법을 보여주는 샘플 Azure PowerShell 스크립트를 제공합니다.
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 07/08/2020
-ms.openlocfilehash: 15daa9843eb721ebf9caa2ae49e75fadbd0a4be8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/22/2021
+ms.openlocfilehash: 5a224335f0e8eed4707f8123a92de28a6b5c7c61
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87460799"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467365"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-powershell"></a>PowerShell을 사용하여 Blob Storage 계정에 대한 이벤트 구독
 

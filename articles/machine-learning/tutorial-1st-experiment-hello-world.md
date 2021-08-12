@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
 ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: ccc28c5a20fd31d3200f6473210150587fd5b4ad
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 40fdfcec5e74c7b86807f5cd1577d12ed4904632
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028634"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765746"
 ---
 # <a name="tutorial-get-started-with-a-python-script-in-azure-machine-learning-part-1-of-3"></a>자습서: Azure Machine Learning에서 Python 스크립트 시작(1/3부)
 
@@ -77,9 +77,6 @@ print("Hello world!")
 :::image type="content" source="media/tutorial-1st-experiment-hello-world/save-run-in-terminal.png" alt-text="도구 모음의 터미널 도구에서 스크립트를 저장하고 실행하는 것을 보여 주는 스크린샷":::
 
 열린 터미널 창에서 스크립트의 출력을 볼 수 있습니다. 탭을 닫고 **종료** 를 선택하여 세션을 닫습니다.
-
-> [!div class="nextstepaction"]
-> [스크립트를 로컬로 실행했습니다.](?success=run-local#control-script) [문제가 발생했습니다.](https://www.research.net/r/7C2NTH7?issue=run-local)
 
 ## <a name="create-a-control-script"></a><a name="control-script"></a> 제어 스크립트 만들기
 
@@ -149,8 +146,6 @@ print(aml_url)
    :::column-end:::
 :::row-end:::
 
-> [!div class="nextstepaction"]
-> [제어 스크립트를 만들었습니다.](?success=create-control-script#submit) [문제가 발생했습니다.](https://www.research.net/r/7C2NTH7?issue=create-control-script)
 
 ## <a name="submit-and-run-your-code-in-the-cloud"></a><a name="submit"></a> 클라우드에서 코드 제출 및 실행
 
@@ -161,8 +156,6 @@ print(aml_url)
 > [!TIP]
 > 컴퓨팅 클러스터 만들기를 방금 완료한 경우 “UserError: 필요한 Docker 이미지를 찾을 수 없습니다.” 오류가 표시될 수 있습니다. 약 5분 정도 기다린 후 다시 시도하세요.  컴퓨팅 클러스터에서 노드를 실행할 준비를 하려면 시간이 더 필요할 수 있습니다.
 
-> [!div class="nextstepaction"]
-> [클라우드에서 코드를 제출했습니다.](?success=submit-to-cloud#monitor) [문제가 발생했습니다.](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
 
 ## <a name="monitor-your-code-in-the-cloud-in-the-studio"></a><a name="monitor"></a>스튜디오의 클라우드에서 코드 모니터링
 
@@ -204,8 +197,6 @@ print(aml_url)
 
 `70_driver_log.txt` 파일에는 실행의 표준 출력이 포함됩니다. 이 파일은 클라우드에서 원격 실행을 디버그할 때 유용할 수 있습니다.
 
-> [!div class="nextstepaction"]
-> [스튜디오에서 로그를 확인했습니다.](?success=monitor-in-studio#next-steps) [문제가 발생했습니다.](https://www.research.net/r/7C2NTH7?issue=monitor-in-studio)
 
 ## <a name="next-steps"></a>다음 단계
 

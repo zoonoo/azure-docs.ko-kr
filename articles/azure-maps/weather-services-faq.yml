@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-maps
   services: azure-maps
   manager: philmea
-  ms.openlocfilehash: d5942e7f7e027404dd702ecdd8a006dff667625d
-  ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+  ms.openlocfilehash: 4f00c96c62b19fba017b655cc8daeefa34051db5
+  ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/06/2021
-  ms.locfileid: "113310934"
+  ms.lasthandoff: 07/24/2021
+  ms.locfileid: "114666758"
 title: Azure Maps Weather Service FAQ(자주 묻는 질문)
 summary: >
   이 문서에서는 Azure Maps [Weather Service](/rest/api/maps/weather) 데이터 및 기능에 관한 일반적인 질문에 응답합니다. 이 섹션에서 다루는 항목은 다음과 같습니다.
@@ -95,7 +95,7 @@ sections:
   - question: "레이더 및 위성 타일에 사용되는 색은 어떻게 해석하나요? \n"
     answer: "Azure Maps [날씨 개념 문서](./weather-services-concepts.md#radar-and-satellite-imagery-color-scale)에는 레이더 및 위성 타일에 사용되는 색을 해석하는 데 도움이 되는 가이드가 포함됩니다. 이 문서에서는 색 샘플과 16진수 색 코드를 설명합니다.\n \n"
   - question: "레이더 및 위성 타일 애니메이션을 만들 수 있나요? \n"
-    answer: "예. 실시간 레이더 및 위성 타일 외에도 Azure Maps 고객은 과거 및 미래 타일을 요청하여 지도 오버레이를 통해 데이터 시각화를 향상할 수 있습니다. 고객은 [맵 가져오기 타일 v2 API](/rest/api/maps/renderv2/getmaptilepreview)를 호출하거나 Azure Maps 웹 SDK를 통해 타일을 요청할 수 있습니다. 레이더 타일은 과거에는 최대 1.5시간 동안, 향후에는 최대 2시간 동안 사용할 수 있습니다. 타일은 5분 간격으로 제공됩니다. 적외선 타일은 과거 최대 3시간 동안 제공되며 10분 간격으로 사용할 수 있습니다. 자세한 내용은 오픈 소스 날씨 타일 애니메이션 [코드 샘플](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer)을 참조하세요.  \n"
+    answer: "예. 실시간 레이더 및 위성 타일 외에도 Azure Maps 고객은 과거 및 미래 타일을 요청하여 지도 오버레이를 통해 데이터 시각화를 향상할 수 있습니다. 고객은 [맵 가져오기 타일 v2 API](/rest/api/maps/render-v2/get-map-tile)를 호출하거나 Azure Maps 웹 SDK를 통해 타일을 요청할 수 있습니다. 레이더 타일은 과거에는 최대 1.5시간 동안, 향후에는 최대 2시간 동안 사용할 수 있습니다. 타일은 5분 간격으로 제공됩니다. 적외선 타일은 과거 최대 3시간 동안 제공되며 10분 간격으로 사용할 수 있습니다. 자세한 내용은 오픈 소스 날씨 타일 애니메이션 [코드 샘플](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer)을 참조하세요.  \n"
   - question: "다양한 날씨 조건의 아이콘을 제공하나요? \n"
     answer: >
       예. [여기](./weather-services-concepts.md#weather-icons)에서 아이콘 및 해당 코드를 찾을 수 있습니다. [현재 상태 가져오기 API](/rest/api/maps/weather/getcurrentconditions)와 같은 일부 Weather Service(미리 보기) API만 응답으로 *iconCode* 를 반환합니다. 자세한 내용은 현재 WeatherConditions 오픈 소스 [코드 샘플](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)을 참조하세요.

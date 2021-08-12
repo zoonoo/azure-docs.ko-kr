@@ -1,20 +1,22 @@
 ---
 title: Azure Database for MySQL에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Database for MySQL에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 06/11/2021
+ms.date: 07/16/2021
 ms.topic: sample
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: d98e0779a193ace743dae3735efe6f180510f173
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: ce58906af02a1d48dd91df56dde1fb2371dfeb9b
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112031516"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114400599"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대한 Azure Policy 규정 준수 컨트롤
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 [Azure Policy의 규정 준수](../governance/policy/concepts/regulatory-compliance.md)는 서로 다른 규정 준수 표준과 관련된 **규정 준수 도메인** 및 **보안 제어** 에 대해 _기본 제공_ 으로 알려진 Microsoft 생성 및 관리형 이니셔티브 정의를 제공합니다. 이 페이지에는 Azure Database for MySQL에 대한 **규정 준수 도메인** 및 **보안 제어** 가 나열되어 있습니다. **보안 제어** 에 대한 기본 제공 기능을 개별적으로 할당하여 Azure 리소스가 특정 표준을 준수하도록 할 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: contperf-fy21q2
 ms.date: 12/17/2020
-ms.openlocfilehash: 1e26159c07ca551a78ee2f83a0ca64779c60f7b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb13fa39452cac26fac2476b6f102248478b18a5
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98018873"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114689746"
 ---
 # <a name="tutorial-analyze-fraudulent-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>자습서: Stream Analytics를 사용하여 사기 전화 데이터를 분석하고 Power BI 대시보드에 결과 시각화
 
@@ -133,7 +133,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
 
 1. Stream Analytics 작업을 만들려면 [Azure Portal](https://portal.azure.com/)로 이동합니다.
 
-2. **리소스 만들기** 를 선택하고 **Stream Analytics 작업** 을 검색합니다. **Stream Analytics 작업** 타일을 선택하고 *만들기**를 선택합니다.
+2. **리소스 만들기** 를 선택하고 **Stream Analytics 작업** 을 검색합니다. **Stream Analytics 작업** 타일을 선택하고 **만들기** 를 선택합니다.
 
 3. **새 Stream Analytics 작업** 양식을 다음 값으로 채웁니다.
 

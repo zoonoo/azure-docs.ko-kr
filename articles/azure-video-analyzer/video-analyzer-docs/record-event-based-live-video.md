@@ -2,13 +2,13 @@
 title: 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 재생 자습서 - Azure
 description: 이 자습서에서는 Azure Video Analyzer를 사용하여 이벤트 기반 비디오를 클라우드에 녹화하고 클라우드에서 이를 재생하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 04/13/2021
-ms.openlocfilehash: 6ecbaf794530e80837c2d2a5f9f3fca11e3c93ae
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.date: 06/01/2021
+ms.openlocfilehash: 9b5935b9b06a1e48ac106c7736390e39612b0af4
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565665"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602166"
 ---
 # <a name="tutorial-event-based-video-recording-and-playback"></a>자습서: 이벤트 기반 비디오 녹화 및 재생
 
@@ -35,8 +35,7 @@ ms.locfileid: "111565665"
 이 자습서의 필수 구성 요소는 다음과 같습니다.
 * 활성 구독이 있는 Azure 계정. 계정이 아직 없는 경우 [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-    > [!NOTE]    
-    > [기여자](../../role-based-access-control/built-in-roles.md#contributor) 역할 및 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 역할에 모두 액세스할 수 있는 Azure 구독이 필요합니다. 이러한 권한이 없는 경우 계정 관리자에게 적절한 권한을 부여해 달라고 요청합니다.
+    [!INCLUDE [azure-subscription-permissions](./includes/common-includes/azure-subscription-permissions.md)]
 * 머신에 [Docker를 설치](https://docs.docker.com/desktop/#download-and-install)합니다.
 * 다음 확장이 포함된 [Visual Studio Code](https://code.visualstudio.com/)
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
@@ -136,11 +135,7 @@ Visual Studio Code를 사용하여 [이러한 지침](../../iot-edge/tutorial-de
 
 Video Analyzer와 관련된 첫 번째 자습서인 경우 Visual Studio Code에서 IoT Hub 연결 문자열을 입력하라는 메시지를 표시합니다. appsettings.json 파일에서 복사할 수 있습니다.
 
-> [!NOTE]
-> IoT Hub에 대한 기본 제공 엔드포인트 정보를 제공하라는 메시지가 표시될 수 있습니다. 해당 정보를 가져오려면 Azure Portal에서 IoT Hub로 이동하여 왼쪽 탐색 창에서 **기본 제공 엔드포인트** 옵션을 찾습니다. 여기를 클릭하고 **Event Hub 호환 엔드포인트** 섹션에서 **Event Hub 호환 엔드포인트** 를 찾습니다. 상자의 텍스트를 복사하여 사용합니다. 엔드포인트는 다음과 같이 표시됩니다.  
-    ```
-    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-    ```
+[!INCLUDE [provide-builtin-endpoint](./includes/common-includes/provide-builtin-endpoint.md)]
 
 다음으로, Visual Studio Code에서 IoT Hub 디바이스를 선택하라는 메시지를 표시합니다. avasample-iot-edge-device라는 IoT Edge 디바이스를 선택합니다.
 
@@ -170,7 +165,7 @@ Video Analyzer와 관련된 첫 번째 자습서인 경우 Visual Studio Code에
 1. 다음으로, **livePipelineSet** 및 **pipelineTopologyDelete** 노드에서 **topologyName** 값이 이전 파이프라인 토폴로지의 **name** 속성 값과 일치하는지 확인합니다.
 
     `"pipelineTopologyName" : "EVRtoVideosOnObjDetect"`
-1. 브라우저에서 [파이프라인 토폴로지](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-videos/topology.json)를 열고 videoName을 살펴봅니다. `sample-evr-video`로 하드 코딩되었습니다. 자습서에서 이를 허용할 수 있습니다. 프로덕션 환경에서는 고유한 각 RTSP 카메라를 고유한 이름을 가진 비디오 리소스에 녹화하도록 주의해야 합니다.
+1. 브라우저에서 [파이프라인 토폴로지](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-video-sink/topology.json)를 열고 videoName을 살펴봅니다. `sample-evr-video`로 하드 코딩되었습니다. 자습서에서 이를 허용할 수 있습니다. 프로덕션 환경에서는 고유한 각 RTSP 카메라를 고유한 이름을 가진 비디오 리소스에 녹화하도록 주의해야 합니다.
 1. F5 키를 선택하여 디버깅 세션을 시작합니다. **터미널** 창에 일부 메시지가 출력됩니다.
 1. pipelineTopologyList 및 livePipelineList를 호출하면 operations.json 파일이 시작됩니다. 이전 빠른 시작 또는 자습서를 마친 후 리소스를 정리했다면 이 작업은 다음과 같이 빈 목록을 반환하고, 사용자가 **Enter** 키를 선택할 수 있도록 일시 중지됩니다.
     ```
@@ -367,13 +362,11 @@ Azure Portal에 로그인하여 비디오를 살펴보면 라이브 파이프라
 
     <!--TODO: add image -- ![Video playback]() TODO: new screenshot is needed here -->
 
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]
 
-> [!NOTE]
-> 비디오 원본은 카메라 피드를 시뮬레이션하는 컨테이너이므로 비디오의 타임스탬프는 라이브 파이프라인을 활성화한 시간 및 비활성화한 시간과 관련이 있습니다.
-> 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 자습서를 진행하려면 여기서 만든 리소스를 그대로 둡니다. 다른 자습서를 진행할 생각이 없으면 Azure Portal로 이동하여 해당하는 리소스 그룹을 찾고, 이 자습서를 실행한 리소스 그룹을 선택하고, 리소스 그룹을 삭제합니다.
+[!INCLUDE [clean-up-resources](./includes/common-includes/clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

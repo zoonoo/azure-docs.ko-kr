@@ -9,10 +9,10 @@ ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 8e8fed99fe0b1de52d2e2d0018dfd8867b54b63b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94566523"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Azure CLI를 사용하여 URL을 기반으로 웹 트래픽 라우팅
@@ -251,7 +251,7 @@ URL을 http://&lt;ip-address&gt;:8080/images/test.html로 변경하고 &lt;ip-ad
 
 ![애플리케이션 게이트웨이의 이미지 URL 테스트](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
-URL을 http://: 8080/video/test.html로 변경 합니다. ip 주소는 ip 주소를 &lt; &gt; 대체 &lt; &gt; 하며 다음 예제와 같은 내용이 표시 됩니다.
+URL을 http://&lt;ip-address&gt;:8080/video/test.html로 변경하여 &lt;ip-address&gt;를 사용자의 IP 주소로 대체하면 다음 예제와 같은 내용이 표시됩니다.
 
 ![애플리케이션 게이트웨이의 비디오 URL 테스트](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 

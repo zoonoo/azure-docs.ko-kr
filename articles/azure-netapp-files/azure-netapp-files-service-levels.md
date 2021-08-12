@@ -15,68 +15,68 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: b-juche
 ms.openlocfilehash: 7eac6a40476cffe875a03de49c9c9311ffbf4d39
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96017069"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Azure NetApp Files에 대한 서비스 수준
-서비스 수준은 용량 풀의 특성입니다. 서비스 수준은 볼륨에 할당 된 할당량을 기준으로 용량 풀의 볼륨에 허용 되는 최대 처리량으로 정의 되 고 구분 됩니다.
+서비스 수준은 용량 풀의 특성입니다. 서비스 수준은 볼륨에 할당된 할당량에 따라 용량 풀의 볼륨에 허용되는 최대 처리량으로 정의되고 구별됩니다.
 
-## <a name="supported-service-levels"></a>지원 되는 서비스 수준
+## <a name="supported-service-levels"></a>지원되는 서비스 수준
 
-Azure NetApp Files은 *Ultra*, *Premium* 및 *Standard* 의 세 가지 서비스 수준을 지원 합니다. 
+Azure NetApp Files는 *Ultra*, *Premium*, *Standard* 의 세 가지 서비스 수준을 지원합니다. 
 
-* <a name="Ultra"></a>Ultra storage
+* <a name="Ultra"></a>Ultra Storage
 
-    Ultra storage 계층은 프로 비전 된 용량의 TiB 1 개에 대 한 최대 128 MiB/s 처리량을 제공 합니다. 
+    Ultra Storage 계층은 프로비전된 용량 1TiB당 최대 128MiB/s의 처리량을 제공합니다. 
 
-* <a name="Premium"></a>Premium storage
+* <a name="Premium"></a>Premium Storage
 
-    Premium storage 계층은 프로 비전 된 용량의 TiB 1 개에 대 한 최대 64 MiB/s 처리량을 제공 합니다. 
+    Premium Storage 계층은 프로비전된 용량 1TiB당 최대 64MiB/s의 처리량을 제공합니다. 
 
-* <a name="Standard"></a>표준 저장소
+* <a name="Standard"></a>Standard Storage
 
-    표준 저장소 계층은 프로 비전 된 용량의 1 TiB 최대 16 개의 MiB/s를 제공 합니다.
+    Standard Storage 계층은 프로비전된 용량 1TiB당 최대 16MiB/s의 처리량을 제공합니다.
 
 ## <a name="throughput-limits"></a>처리량 한도
 
-볼륨의 처리량 제한은 다음 요소의 조합에 따라 결정 됩니다.
+볼륨 처리량 제한은 다음 요소의 조합에 따라 결정됩니다.
 * 볼륨이 속한 용량 풀의 서비스 수준
-* 볼륨에 할당 된 할당량  
-* 용량 풀의 QoS 유형 (*자동* 또는 *수동*)  
+* 볼륨에 할당된 할당량  
+* 용량 풀의 QoS 유형(*자동* 또는 *수동*)  
 
-### <a name="throughput-limit-examples-of-volumes-in-an-auto-qos-capacity-pool"></a>처리량 제한 자동 QoS 용량 풀의 볼륨 예
+### <a name="throughput-limit-examples-of-volumes-in-an-auto-qos-capacity-pool"></a>자동 QoS 용량 풀의 볼륨 처리량 제한 예제
 
-다음 다이어그램은 자동 QoS 용량 풀에 있는 볼륨의 처리량 한도 예를 보여 줍니다.
+다음 다이어그램은 자동 QoS 용량 풀에 있는 볼륨의 처리량 제한 예제를 보여 줍니다.
 
 ![서비스 수준 그림](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
 
-* 예 1에서 TiB 할당 된 Premium storage 계층이 있는 자동 QoS 용량 풀의 볼륨에는 처리량 제한인 128 MiB/s (2 TiB * 64 MiB/s)가 할당 됩니다. 이 시나리오는 용량 풀 크기나 실제 볼륨 소비에 관계 없이 적용 됩니다.
+* 예제 1에서는 2TiB의 할당량이 할당된 Premium Storage 계층이 있는 자동 QoS 용량 풀의 볼륨에 128MiB/s(2TiB * 64MiB/s)의 처리량 제한이 할당됩니다. 이 시나리오는 용량 풀 크기 또는 실제 볼륨 소비량에 관계없이 적용됩니다.
 
-* 예 2에서 100 GiB 할당 된 Premium storage 계층이 있는 자동 QoS 용량 풀의 볼륨에는 6.25 MiB/s (0.09765625 TiB * 64 MiB/s)의 처리량 한도가 할당 됩니다. 이 시나리오는 용량 풀 크기나 실제 볼륨 소비에 관계 없이 적용 됩니다.
+* 예제 2에서는 할당량 100GiB가 할당된 Premium Storage 계층이 있는 자동 QoS 용량 풀의 볼륨에 6.25MiB/s(0.09765625TiB * 64MiB/s)의 처리량 제한이 할당됩니다. 이 시나리오는 용량 풀 크기 또는 실제 볼륨 소비량에 관계없이 적용됩니다.
 
-### <a name="throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool"></a>수동 QoS 용량 풀의 볼륨에 대 한 처리량 제한 예 
+### <a name="throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool"></a>수동 QoS 용량 풀의 볼륨 처리량 제한 예제 
 
-수동 QoS 용량 풀을 사용 하는 경우 볼륨의 용량과 처리량을 독립적으로 할당할 수 있습니다. 수동 QoS 용량 풀에서 볼륨을 만들 때 처리량 (MiB/S) 값을 지정할 수 있습니다. 수동 QoS 용량 풀의 볼륨에 할당 되는 총 처리량은 풀의 크기와 서비스 수준에 따라 달라 집니다. (TiB x 서비스 수준 처리량/TiB의 용량 풀 크기)에 의해 제한 됩니다. 예를 들어, TiB 용량 풀의 Ultra service 수준이 인 경우 볼륨에 대해 1280 MiB/s (10 TiB x 128 MiB/s/TiB)의 총 처리량 용량이 있습니다.
+수동 QoS 용량 풀을 사용하는 경우 볼륨의 용량과 처리량을 독립적으로 할당할 수 있습니다. 수동 QoS 용량 풀에서 볼륨을 만들 때 처리량(MiB/S) 값을 지정할 수 있습니다. 수동 QoS 용량 풀의 볼륨에 할당되는 총 처리량은 풀의 크기와 서비스 수준에 따라 달라집니다. (TiB x 서비스 수준 처리량/TiB의 용량 풀 크기)에 따라 제한됩니다. 예를 들어, Ultra 서비스 수준인 10TiB 용량 풀에는 해당 볼륨에 사용할 수 있는 총 1280MiB/s(10TiB x 128MiB/s/TiB)의 처리량 용량이 있습니다.
 
-예를 들어 SAP HANA 시스템의 경우이 용량 풀을 사용 하 여 다음 볼륨을 만들 수 있습니다. 각 볼륨은 응용 프로그램 요구 사항을 충족 하기 위해 개별 크기와 처리량을 제공 합니다.
+예컨대 SAP HANA 시스템의 경우 이 용량 풀을 사용하여 다음 볼륨을 만들 수 있습니다. 각 볼륨은 애플리케이션 요구 사항을 충족하기 위한 개별 크기와 처리량을 제공합니다.
 
-* SAP HANA 데이터 볼륨: 크기 4 TiB, 최대 704 MiB/s
-* SAP HANA 로그 볼륨: 최대 256 MiB/s를 사용 하는 크기 0.5 TiB
-* SAP HANA 공유 볼륨: 크기 1 TiB 최대 64 MiB/s
-* SAP HANA 백업 볼륨: 최대 256 MiB/s를 사용 하는 크기 4.5 TiB
+* SAP HANA 데이터 볼륨: 크기 4TiB, 최대 704MiB/s
+* SAP HANA 로그 볼륨: 크기 0.5TiB, 최대 256MiB/s
+* SAP HANA 공유 볼륨: 크기 1TiB, 최대 64MiB/s
+* SAP HANA 백업 볼륨: 크기 4.5TiB, 최대 256MiB/s
 
-다음 다이어그램에서는 SAP HANA 볼륨의 시나리오를 보여 줍니다.
+다음 다이어그램은 SAP HANA 볼륨의 시나리오를 보여 줍니다.
 
 ![QoS SAP HANA 볼륨 시나리오](../media/azure-netapp-files/qos-sap-hana-volume-scenarios.png) 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [가격 책정 페이지 Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
+- [Azure NetApp Files 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/netapp/)
 - [Azure NetApp Files 비용 모델](azure-netapp-files-cost-model.md) 
 - [용량 풀 만들기](azure-netapp-files-set-up-capacity-pool.md)
-- [Azure NetApp Files에 대 한 Service Level Agreement(서비스 수준 약정) (SLA)](https://azure.microsoft.com/support/legal/sla/netapp/)
+- [Azure NetApp Files에 대한 SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/netapp/)
 - [볼륨의 서비스 수준을 동적으로 변경](dynamic-change-volume-service-level.md) 
-- [지역 간 복제에 대 한 서비스 수준 목표](cross-region-replication-introduction.md#service-level-objectives)
+- [지역 간 복제에 대한 서비스 수준 목표](cross-region-replication-introduction.md#service-level-objectives)

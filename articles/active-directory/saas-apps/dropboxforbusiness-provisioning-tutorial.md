@@ -2,8 +2,8 @@
 title: '자습서: Azure Active Directory를 사용하여 자동 사용자 프로비저닝을 수행하도록 Dropbox for Business 구성 | Microsoft Docs'
 description: 사용자 계정을 Dropbox for Business로 자동으로 프로비저닝 및 프로비저닝 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 4e718ef30d029995c49efe36f19a6efcf7de0616
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 75ae106ea3f974fab611ace28ac70ece5c0c7d32
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589604"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768147"
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Dropbox for Business 구성
 

@@ -9,12 +9,12 @@ ms.subservice: cost-management
 ms.topic: quickstart
 ms.date: 07/28/2020
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.openlocfilehash: 879e4425d5cbda5cae01ea8acac0f8d6bed79cc7
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 739ffeb7c94f6c40481cdabfbe83f006cde5d388
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695314"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112457933"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 예산 만들기
 
@@ -24,7 +24,7 @@ Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcreate-budget%2Fazuredeploy.json)
+[![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.consumption%2Fcreate-budget%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -68,7 +68,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/create-budget)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" :::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.consumption/create-budget/azuredeploy.json" :::
 
 템플릿에 다음과 같은 Azure 리소스 하나가 정의되어 있습니다.
 
@@ -78,7 +78,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 이 템플릿은 예산을 만듭니다.
 
-   [![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcreate-budget%2Fazuredeploy.json)
+   [![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.consumption%2Fcreate-budget%2Fazuredeploy.json)
 
 2. 다음 값을 선택하거나 입력합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: .NET을 사용하여 Contentkey 만들기
-description: 이 문서에서는 .NET을 사용 하 여 콘텐츠 키를 만드는 방법을 보여 줍니다. 이러한 키는 자산에 안전 하 게 액세스할 수 있습니다.
+description: 이 문서에서는 .NET을 사용하여 콘텐츠 키를 생성하는 방법을 보여줍니다. 이러한 키는 자산에 안전하게 액세스할 수 있습니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 05bf928490e94f43b755e1958213899e9e1e98e9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103014179"
 ---
 # <a name="create-contentkeys-with-net"></a>.NET을 사용하여 Contentkey 만들기

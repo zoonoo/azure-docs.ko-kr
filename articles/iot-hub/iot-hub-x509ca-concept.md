@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub X.509 보안의 개념 | Microsoft Docs
-description: 개념-IoT 장치 제조의 x.509 인증 기관 인증서 및 인증 값을 이해 합니다.
+description: 개념 - IoT 장치 제조 및 인증에서 X.509 인증 기관 인증서의 가치를 이해합니다.
 author: eustacea
 manager: arjmands
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 877200cbafbe68fa6161025572abfddad651e172
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96490723"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>IoT 업계의 X.509 CA 인증서에 대한 개념적 이해
@@ -41,7 +41,7 @@ X.509 CA 인증의 또 다른 중요한 특성은 공급망 물류의 간소화�
 
 이 문서는 X.509 CA 인증 사용에 대해 공급망 설정에서 디바이스 연결에 이르는 엔드투엔드 관점을 제공하면서 이해를 확고히 하기 위한 실제 사례를 활용합니다.
 
-또한 Azure IoT Hub 장치 프로 비전 서비스 (DPS)에서 등록 그룹을 사용 하 여 허브에 대 한 장치 프로 비전을 처리할 수 있습니다. DPS를 사용 하 여 x.509 인증서 장치를 프로 비전 하는 방법에 대 한 자세한 내용은 [자습서: 등록 그룹을 사용 하 여 여러 X. x.509 장치 프로 비전](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md)을 참조 하세요.
+Azure IoT Hub Device Provisioning Service(DPS)와 함께 등록 그룹을 사용하여 허브에 대한 장치 프로비전을 처리할 수도 있습니다. DPS를 사용한 X.509 인증서 장치 프로비전에 대한 자세한 내용은 [자습서: 등록 그룹을 사용하여 여러 X.509 장치 프로비전](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md)을 참조하세요.
 
 ## <a name="introduction"></a>소개
 
@@ -61,27 +61,27 @@ X.509 CA 사용은 구체적인 예와 관련될 때 가장 이해하기 쉽습�
 
 Company-X는 공용 루트 인증 기관에서 X.509 CA 인증서를 구입하거나 자체 서명된 프로세스를 통해 인증서를 생성할 수 있는 옵션이 있습니다. 애플리케이션 시나리오에 따라 한 가지 옵션이 다른 옵션보다 적합할 수 있습니다. 옵션에 관계없이 프로세스에는 퍼블릭/프라이빗 키 쌍을 생성하고 퍼블릭 키를 인증서에 서명하는 두 가지 기본 단계가 수반됩니다.
 
-![X509CA 인증서를 생성 하기 위한 흐름](./media/iot-hub-x509ca-concept/csr-flow.png)
+![X509CA 인증서를 생성하기 위한 흐름](./media/iot-hub-x509ca-concept/csr-flow.png)
 
 이러한 단계를 수행하는 방법에 대한 자세한 내용은 서비스 공급자마다 다릅니다.
 
 ### <a name="purchasing-an-x509-ca-certificate"></a>X.509 CA 인증서 구입
 
-CA 인증서를 구입하면 디바이스가 연결될 때 잘 알려진 루트 CA를 신뢰할 수 있는 타사로 사용하여 IoT 디바이스의 적법성을 보증할 수 있다는 장점이 있습니다. 회사에서 IoT Hub에 대 한 초기 연결 후에 스마트 X 위젯이 타사 제품 또는 서비스와 상호 작용 하도록 하려는 경우이 옵션을 선택 합니다.
+CA 인증서를 구입하면 디바이스가 연결될 때 잘 알려진 루트 CA를 신뢰할 수 있는 타사로 사용하여 IoT 디바이스의 적법성을 보증할 수 있다는 장점이 있습니다. IoT Hub에 처음 연결한 후 Smart-X-Widget이 타사 제품 또는 서비스와 상호작용해야 하는 경우 Company-X는 이 옵션을 선택합니다.
 
 X.509 CA 인증서를 구입하기 위해 Company-X는 루트 인증서 서비스 공급자를 선택합니다. '루트 CA'라는 문구를 인터넷으로 검색하면 좋은 단서를 얻을 수 있습니다. 루트 CA는 Company-X에 퍼블릭/프라이빗 키 쌍을 만드는 방법과 서비스에 대한 CSR(인증서 서명 요청)을 생성하는 방법을 안내합니다. CSR은 인증 기관의 인증서를 신청하는 공식적인 프로세스입니다. 이러한 구입의 결과물은 기관 인증서로 사용하기 위한 인증서입니다. X.509 인증서의 보편성을 감안할 때 이 인증서는 IETF의 RFC 5280 표준에 맞는 올바른 형식을 갖추었을 가능성이 높습니다.
 
 ### <a name="creating-a-self-signed-x509-ca-certificate"></a>자체 서명된 X.509 CA 인증서 만들기
 
-Self-Signed x.509 CA 인증서를 만드는 프로세스는 루트 인증 기관과 같은 타사 서명자를 포함 하는 것을 제외 하 고는 구매와 비슷합니다. 이 예제에서 Company-X는 루트 인증 기관 대신 자체 기관 인증서에 서명합니다. Company-X는 기관 인증서를 구입할 준비가 될 때까지 이 옵션을 테스트용으로 선택할 수 있습니다. X.509 IoT Hub 외부의 타사 서비스에 연결할 수 없는 경우에도 회사 X는 프로덕션에서 자체 서명 된 CA 인증서를 사용할 수 있습니다.
+자체 서명된 X.509 CA 인증서를 생성하는 프로세스는 루트 인증 기관과 같은 타사 서명자를 필요로 하는 것을 제외하면 구입 프로세스와 유사합니다. 이 예제에서 Company-X는 루트 인증 기관 대신 자체 기관 인증서에 서명합니다. Company-X는 기관 인증서를 구입할 준비가 될 때까지 이 옵션을 테스트용으로 선택할 수 있습니다. Smart-X-Widget이 IoT Hub 외부의 타사 서비스에 연결할 필요가 없는 경우, Company-X는 프로덕션 환경에서 자체 서명된 X.509 CA 인증서를 사용할 수도 있습니다.
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>IoT Hub에 X.509 인증서 등록
 
-Company-X는 Smart-X-Widget을 연결할 때 인증을 수행하는 IoT Hub에 X.509 CA를 등록해야 합니다. 이것은 Smart-X-Widget 디바이스를 원하는 수 만큼 인증하고 관리할 수 있도록 하는 일회성 프로세스입니다. Ca 인증서와 CA 인증서 또는 중간 인증서로 서명 된 장치 인증서 간의 일 대 다 관계로 인 한 일회성 프로세스입니다. 이 관계는 x.509 CA 인증 방법을 사용 하는 주요 이점 중 하나를 구성 합니다. 이렇게 하지 않고 각각의 Smart-X-Widget 디바이스마다 개별 인증서 지문을 업로드하면 운영 비용이 추가됩니다.
+Company-X는 Smart-X-Widget을 연결할 때 인증을 수행하는 IoT Hub에 X.509 CA를 등록해야 합니다. 이것은 Smart-X-Widget 디바이스를 원하는 수 만큼 인증하고 관리할 수 있도록 하는 일회성 프로세스입니다. CA 인증서 또는 중간 인증서로 서명된 장치 인증서와 CA 인증서는 일 대 다 관계이기 때문에, 이는 일회성 프로세스입니다. 이 관계는 X.509 CA 인증 방법을 사용할 때의 주요 이점 중 하나입니다. 이렇게 하지 않고 각각의 Smart-X-Widget 디바이스마다 개별 인증서 지문을 업로드하면 운영 비용이 추가됩니다.
 
 X.509 CA 인증서 등록에는 인증서 업로드 및 인증서 소유 증명이라는 2단계 프로세스가 있습니다.
 
-![X509CA certificate 등록](./media/iot-hub-x509ca-concept/pop-flow.png)
+![X509CA 인증서 등록](./media/iot-hub-x509ca-concept/pop-flow.png)
 
 ### <a name="x509-ca-certificate-upload"></a>X.509 CA 인증서 업로드
 
@@ -89,7 +89,7 @@ X.509 CA 인증서 업로드 프로세스는 CA 인증서를 IoT Hub에 업로�
 
 ### <a name="proof-of-possession-of-the-certificate"></a>인증서의 소유 증명
 
-X.509 CA 인증서는 디지털 인증서와 마찬가지로 도청의 위험이 있는 공개 정보입니다. 따라서 도청자가 인증서를 가로채서 인증서를 자신의 것으로 업로드하려고 시도할 수 있습니다. 이 예에서 IoT Hub는 Company-X가 업로드하는 CA 인증서가 Company-X에 실제 속하는지 확인하려고 합니다. 이를 위해 회사-X가 실제로 사용자가 [PoP (증명 소유) 흐름](https://tools.ietf.org/html/rfc5280#section-3.1)을 통해 인증서를 소유 하 고 있음을 증명 합니다. 소유 증명 흐름에는 IoT Hub에서 Company-X가 자체 프라이빗 키를 사용하여 서명할 난수를 생성하는 단계가 수반됩니다. Company-X가 PKI 모범 사례에 따라 프라이빗 키를 보호한 경우 소유 증명 챌린지에 올바르게 응답할 수 있는 상태가 됩니다. 소유 증명 챌린지에 대한 응답이 성공하면 IoT Hub는 X.509 CA 인증서 등록을 진행합니다.
+X.509 CA 인증서는 디지털 인증서와 마찬가지로 도청의 위험이 있는 공개 정보입니다. 따라서 도청자가 인증서를 가로채서 인증서를 자신의 것으로 업로드하려고 시도할 수 있습니다. 이 예에서 IoT Hub는 Company-X가 업로드하는 CA 인증서가 Company-X에 실제 속하는지 확인하려고 합니다. 이를 위해 [PoP(소유 증명) 흐름](https://tools.ietf.org/html/rfc5280#section-3.1)을 통해서 Company-X가 인증서를 실제로 소유한다는 것을 증명하도록 Company-X에 요구합니다. 소유 증명 흐름에는 IoT Hub에서 Company-X가 자체 프라이빗 키를 사용하여 서명할 난수를 생성하는 단계가 수반됩니다. Company-X가 PKI 모범 사례에 따라 프라이빗 키를 보호한 경우 소유 증명 챌린지에 올바르게 응답할 수 있는 상태가 됩니다. 소유 증명 챌린지에 대한 응답이 성공하면 IoT Hub는 X.509 CA 인증서 등록을 진행합니다.
 
 IoT Hub의 소유 증명 챌린지에 대한 응답이 성공하면 X.509 CA 등록이 완료됩니다.
 
@@ -113,7 +113,7 @@ X.509 CA 인증서 인증은 인증서 체인을 사용하여 위에서 언급�
 
 이 예제에서는 Factory-Y와 Technician-Z가 Smart-X-Widget과 상호 작용합니다. Company-X는 Smart-X-Widget을 소유하고 있지만 실제로는 전체 공급망에서 물리적으로 상호 작용하지 않습니다. 따라서 Smart-X-Widget의 신뢰할 수 있는 인증서 체인에서는 Company-X가 Factory-Y에 서명하고 Factory-Y가 Technician-Z에 서명하면 Smart-X-Widget에 최종 서명이 제공됩니다. Smart-X-Widget 제조 및 설치는 각각의 중간 CA 인증서를 사용하여 모든 Smart-X-Widget에 서명하는 Factory-Y 및 Technician-Z로 구성됩니다. 이러한 전체 프로세스의 최종 결과는 고유한 디바이스 인증서 및 Company-X CA 인증서까지 거슬러 올라가는 신뢰할 수 있는 인증서 체인이 있는 Smart-X-Widget입니다.
 
-![한 회사의 인증서에서 다른 회사의 인증서에 대 한 신뢰 체인](./media/iot-hub-x509ca-concept/cert-mfr-chain.png)
+![한 회사의 인증서에서 다른 회사의 인증서로의 신뢰 체인](./media/iot-hub-x509ca-concept/cert-mfr-chain.png)
 
 X.509 CA 메서드의 가치를 검토하는 것이 좋습니다. 모든 Smart-X-Widget에 대한 인증서를 공급망에 미리 생성하고 전달하는 대신 Company-X에서 Factory-Y에 한 번만 서명해야 했습니다. 이제는 디바이스의 수명 주기 전반에 걸쳐 모든 디바이스를 추적하는 대신 Company-X에서 공급망 프로세스에서 자연스럽게 나오는 그룹을 통해 디바이스(예: 특정 연도의 7월 이후 Technician-Z에서 설치한 디바이스)를 추적하고 관리할 수 있습니다.
 
@@ -131,6 +131,6 @@ X.509 CA 인증용으로 제조된 디바이스에는 디바이스 고유의 인
 
 이 예제에서 각 Smart-X-Widget은 디바이스 고유의 인증서를 Factory-Y 및 Technician-Z X.509 CA 인증서와 함께 업로드한 다음 IoT Hub의 소유 증명 챌린지에 응답합니다.
 
-![한 인증서에서 다른 인증서로 흐름 이동, 허브에서의 pop 챌린지](./media/iot-hub-x509ca-concept/device-pop-flow.png)
+![한 인증서에서 다른 인증서로 흐름, 허브로부터의 팝 챌린지](./media/iot-hub-x509ca-concept/device-pop-flow.png)
 
 신뢰의 기반은 디바이스 프라이빗 키를 비롯한 프라이빗 키를 보호한다는 점에 있습니다. 따라서 디바이스 프라이빗 키 보안에 대한 HSM(Hardware Secure Modules) 형태의 보안 실리콘 칩의 중요성을 아무리 강조해도 지나치지 않으며 하나의 팩터리가 다른 팩터리에 프라이빗 키를 위임하는 것과 같이 프라이빗 키를 절대 공유하지 않는 것이 좋습니다.

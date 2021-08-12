@@ -1,5 +1,5 @@
 ---
-title: 새 Elastic Database 작업으로 마이그레이션 (미리 보기)
+title: 새 Elastic Database 작업으로 마이그레이션(미리 보기)
 description: 새 Elastic Database 작업으로 마이그레이션합니다.
 services: sql-database
 ms.service: sql-database
@@ -12,13 +12,13 @@ ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
 ms.openlocfilehash: e8c222d7cdcdb203cd323cde38818e5b51643159
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91443375"
 ---
-# <a name="migrate-to-the-new-elastic-database-jobs-preview"></a>새 Elastic Database 작업로 마이그레이션 (미리 보기)
+# <a name="migrate-to-the-new-elastic-database-jobs-preview"></a>새 Elastic Database 작업으로 마이그레이션(미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 업그레이드된 버전의 [Elastic Database 작업](elastic-jobs-overview.md)이 지원됩니다.
@@ -93,7 +93,7 @@ Use-AzureSqlJobConnection -CurrentAzureSubscription -Credential (Get-Credential)
 
 이제 이전 및 새로운 탄력적 작업 cmdlet이 모두 설치되었으므로 작업 자격 증명, 대상 및 작업을 새로운 *작업 데이터베이스* 로 마이그레이션합니다.
 
-### <a name="setup"></a>설정
+### <a name="setup"></a>설치 프로그램
 
 ```powershell
 $ErrorActionPreference = "Stop";
@@ -369,7 +369,7 @@ function Setup-TargetGroup ($tgName, $agent) {
 
 대상(서버, 데이터베이스 및 사용자 지정 컬렉션)을 새로운 작업 데이터베이스로 마이그레이션하려면 **Migrate-TargetGroups** cmdlet을 실행하여 다음을 수행합니다.
 
-- 서버 및 데이터베이스인 루트 수준 대상은 \<serverName\> \<databaseName\> 루트 수준 대상만 포함 하는 "(,)" 라는 새 대상 그룹으로 마이그레이션됩니다.
+- 루트 수준 대상(서버 및 데이터베이스)은 루트 수준 대상만이 포함된 "(\<serverName\>\<databaseName\>)"이라는 새로운 대상 그룹으로 마이그레이션됩니다.
 - 사용자 지정 컬렉션은 모든 자식 대상을 포함한 새로운 대상 그룹으로 마이그레이션됩니다.
 
 ```powershell
@@ -565,7 +565,7 @@ function Setup-JobStep ($newJob, $job) {
 
 작업, 작업 콘텐츠, 작업 트리거 및 작업 예약을 새로운 탄력적 작업 에이전트의 데이터베이스로 마이그레이션하려면 에이전트에서 전달되는 **Migrate-Jobs** cmdlet을 실행합니다.
 
-- 일정이 서로 다른 여러 트리거가 있는 작업은 이름 지정 체계가 " \<jobName\> ()" 인 여러 작업으로 구분 됩니다 \<scheduleName\> .
+- 예약이 다른 다중 트리거를 포함한 작업은 "\<jobName\>\<scheduleName\>)"이라는 구성표를 포함한 다중 작업으로 분리됩니다.
 - 연결된 명령 텍스트를 포함한 JobStep이라는 기본 작업 단계를 추가하여 작업 콘텐츠를 작업에 마이그레이션합니다.
 - 작업은 기본적으로 사용하지 않으므로 활성화하기 전에 유효성을 검사할 수 있습니다.
 

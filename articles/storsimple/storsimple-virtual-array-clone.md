@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: b6cc89cb082cd0ed32abd88e3a6683c60a27ba90
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96023043"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>StorSimple 가상 배열의 백업에서 복제
@@ -98,13 +98,13 @@ Azure Portal에서 백업을 복제하려면 공유를 복제하는 경우와 �
    ![볼륨 복제 3](./media/storsimple-virtual-array-clone/clonevolume4.png)
 4. **연결된 호스트** 블레이드에서 기존 ACR에서 선택하거나 새 ACR을 추가합니다. 새 ACR을 추가하려면 ACR 이름 및 호스트 IQN을 제공해야 합니다. **선택** 을 클릭합니다.
    
-   ![볼륨 4 복제](./media/storsimple-virtual-array-clone/clonevolume5.png)
+   ![볼륨 복제 4](./media/storsimple-virtual-array-clone/clonevolume5.png)
 5. **복제** 를 클릭하여 복제 작업을 시작합니다.
    
-   ![볼륨 5 복제](./media/storsimple-virtual-array-clone/clonevolume6.png)  
+   ![볼륨 복제 5](./media/storsimple-virtual-array-clone/clonevolume6.png)  
 6. 복제 작업을 만든 후에 복제가 시작됩니다. 복제본이 만들어지면 디바이스의 볼륨 블레이드에 표시됩니다. 계층화된 볼륨은 계층화된 볼륨으로 복제되고 로컬로 고정된 볼륨은 로컬로 고정된 볼륨으로 복제됩니다.
    
-   ![볼륨 6 복제](./media/storsimple-virtual-array-clone/clonevolume8.png)
+   ![볼륨 복제 6](./media/storsimple-virtual-array-clone/clonevolume8.png)
 7. 볼륨 목록에 볼륨이 온라인 상태로 표시되면 볼륨을 사용할 수 있게 됩니다. iSCSI 초기자 호스트에서 iSCSI 초기자 속성 창의 대상 목록을 새로 고칩니다. 복제된 볼륨 이름이 포함된 새 대상은 상태 열 아래에 '비활성'으로 표시됩니다.
 8. 대상을 선택하고 **연결** 을 클릭합니다. 초기자가 대상에 연결되면 상태가 **연결됨** 으로 변경됩니다.
 9. **디스크 관리** 창에 탑재된 볼륨이 다음 그림과 같이 표시됩니다. 검색된 볼륨을 마우스 오른쪽 단추로 클릭(디스크 이름 클릭)하고 **온라인** 을 클릭합니다.
@@ -127,7 +127,7 @@ Azure Portal에서 백업을 복제하려면 공유를 복제하는 경우와 �
    * **예약된 백업** 의 이름은 &lt;디바이스 이름&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC로 지정됩니다.
    * **수동 백업** 의 이름은 Ad-hoc-YYYYMMDD-HHMMSS-UTC로 지정됩니다.
      
-     ![. 백업 폴더를 보여 주는 파일 탐색기의 스크린샷 해당 폴더 안에 수동 백업 폴더가 선택 됩니다.](./media/storsimple-virtual-array-clone/image14.png)
+     ![.backups 폴더를 보여 주는 파일 탐색기 스크린샷 해당 폴더 내에서 수동 백업 폴더가 선택됩니다.](./media/storsimple-virtual-array-clone/image14.png)
 
 2. 삭제된 파일의 최신 버전을 포함하는 백업을 확인합니다. 앞서 모든 경우에서 폴더 이름에 UTC 타임스탬프가 포함되며, 폴더가 만들어진 시간은 백업이 시작될 당시 디바이스의 실제 시간입니다. 폴더 타임스탬프를 사용하여 백업을 찾고 확인합니다.
 

@@ -1,13 +1,13 @@
 ---
-title: 매개 변수를 사용 하 여 서비스의 포트 번호를 지정 합니다.
+title: 매개 변수를 사용하여 서비스의 포트 번호 지정
 description: 매개 변수를 사용하여 Service Fabric에서 애플리케이션에 대한 포트를 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: ba2fb459dc9c981ad168aca4d0edf969650ccf48
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96576709"
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Service Fabric에서 매개 변수를 사용하여 서비스의 포트 번호를 지정하는 방법

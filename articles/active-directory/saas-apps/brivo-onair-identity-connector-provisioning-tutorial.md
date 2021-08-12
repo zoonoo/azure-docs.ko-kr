@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory를 사용하여 자동 사용자 프로비저닝을 수행하도록 Brivo Onair Identity Connector 구성 | Microsoft Docs'
 description: 사용자 계정을 Brivo Onair Identity Connector로 자동으로 프로비저닝 및 프로비저닝을 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/01/2019
-ms.author: Zhchia
-ms.openlocfilehash: 4f230a70ae87c7c0ec9db347e7cf975c0252bb18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: c44b359c520c8b5ccb7274a9c5c1b154586b3e76
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95998092"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113764520"
 ---
 # <a name="tutorial-configure-brivo-onair-identity-connector-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Brivo Onair Identity Connector 구성
 

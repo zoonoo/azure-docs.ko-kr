@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: allensu
 ms.openlocfilehash: a5f4f6a6e72b57638688069111071a6e0a035c49
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96018667"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>캐싱 규칙을 사용하여 Azure CDN 캐싱 동작 제어
@@ -56,7 +56,7 @@ Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 
 
 - **캐시 무시**: 캐시하지 않고 원본 제공 캐시 지시문 헤더를 무시합니다.
 
-- **재정의**: 원본에서 제공 하는 캐시 기간을 무시 합니다. 제공 된 캐시 기간을 대신 사용 합니다. Cache-control: cache가 재정의 되지 않습니다.
+- **재정의**: 원본 제공 캐시 기간을 무시하고 제공된 캐시 기간을 대신 사용합니다. cache-control: no-cache는 재정의하지 않습니다.
 
 - **누락된 경우 설정**: 원본 제공 캐시 지시문 헤더가 존재하는 경우 해당 헤더를 사용하고 그렇지 않으면 제공된 캐시 기간을 사용합니다.
 
@@ -86,7 +86,7 @@ Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 
 
 - 사용자 지정 캐싱 규칙은 적용되는 위치에서 전역 캐싱 규칙보다 우선합니다. 사용자 지정 캐싱 규칙은 위에서 아래로 순서로 처리됩니다. 즉, 요청이 두 조건과 일치하면 목록 맨 아래에 있는 규칙이 목록 맨 위에 있는 규칙보다 우선합니다. 따라서, 보다 구체적인 규칙을 목록의 아래쪽에 넣어야 합니다.
 
-**예**:
+**예제**:
 - 전역 캐싱 규칙: 
    - 캐싱 동작: **재정의**
    - 캐시 만료 기간: 1일
@@ -103,7 +103,7 @@ Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 
    - 캐싱 동작: **누락된 경우 설정**
    - 캐시 만료 기간: 3일
 
-이러한 규칙을 설정 하는 경우 azureedge.net/home/index.html _&lt; 끝점 &gt;_ 에 대 한 요청은 사용자 지정 캐싱 규칙 #2를 트리거합니다 .이는 **누락 된 경우 설정** , 3 일 경우 설정입니다. 따라서 *index.html* 파일에 `Cache-Control` 또는 `Expires` HTTP 헤더가 있으면 해당 헤더가 사용되고 그렇지 않고 이러한 헤더가 설정되어 있지 않으면 파일은 3일간 캐시됩니다.
+이러한 규칙이 설정되면 _&lt;엔드포인트 호스트 이름&gt;_ .azureedge.net/home/index.html에 대한 요청이 **누락된 경우 설정** 및 3일로 설정된 사용자 지정 캐싱 규칙 #2를 트리거합니다. 따라서 *index.html* 파일에 `Cache-Control` 또는 `Expires` HTTP 헤더가 있으면 해당 헤더가 사용되고 그렇지 않고 이러한 헤더가 설정되어 있지 않으면 파일은 3일간 캐시됩니다.
 
 > [!NOTE] 
 > 규칙을 변경하기 전에 캐시된 파일은 원본 캐시 기간 설정을 유지합니다. 캐시 기간을 다시 설정하려면 [파일을 제거](cdn-purge-endpoint.md)해야 합니다. 

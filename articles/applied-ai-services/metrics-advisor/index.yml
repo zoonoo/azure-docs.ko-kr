@@ -1,0 +1,80 @@
+### YamlMime:Landing
+title: Azure Metrics Advisor 설명서
+summary: Metrics Advisor는 데이터 수집, 변칙 검색 및 진단용 API 세트를 제공하는 시계열 모니터링 플랫폼으로, 기계 학습을 모르는 분도 사용할 수 있습니다.
+metadata:
+  title: Azure Metrics Advisor 설명서 - 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Applied AI Services
+  services: cognitive-services
+  description: Metrics Advisor는 데이터 수집, 변칙 검색 및 진단용 API 세트를 제공하는 시계열 모니터링 플랫폼으로, 기계 학습을 모르는 분도 사용할 수 있습니다.
+  author: mrbullwinkle
+  manager: nitinme
+  ms.service: applied-ai-services
+  ms.subservice: metrics-advisor
+  ms.topic: landing-page
+  ms.date: 08/13/2020
+  ms.author: mbullwin
+  ms.openlocfilehash: bbd4ba2cb2d310dd8ff6a46576173826a91c17b3
+  ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 07/15/2021
+  ms.locfileid: "114340763"
+landingContent:
+- title: Metrics Advisor 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Metrics Advisor란?
+      url: overview.md
+    - text: Azure Applied AI Services는 무엇인가요?
+      url: ../../applied-ai-services/what-are-applied-ai-services.md
+  - linkListType: quickstart
+    links:
+    - text: 웹에서 첫 번째 메트릭 모니터링
+      url: quickstarts/web-portal.md
+    - text: REST API 또는 클라이언트 라이브러리 사용
+      url: quickstarts/rest-api-and-client-library.md
+  - linkListType: video
+    links:
+    - text: Metrics Advisor 소개
+      url: https://www.youtube.com/watch?v=0Y26cJqZMIM
+    - text: Cognitive Services를 처음 사용하는 경우
+      url: https://www.youtube.com/watch?v=7tCLJHdBZgM
+- title: 방법 문서
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 데이터 온보딩
+      url: how-tos/onboard-your-data.md
+    - text: 여러 데이터 피드 원본 연결
+      url: data-feeds-from-different-sources.md
+    - text: 데이터 피드 관리
+      url: how-tos/manage-data-feeds.md
+    - text: 메트릭을 구성하고 검색 구성 미세 조정
+      url: how-tos/configure-metrics.md
+    - text: 후크를 사용하여 경고를 구성하고 알림 가져오기
+      url: how-tos/alerts.md
+    - text: 인시던트 진단
+      url: how-tos/diagnose-an-incident.md
+    - text: 피드백을 사용하여 변칙 검색 조정
+      url: how-tos/anomaly-feedback.md
+    - text: 메트릭 그래프 작성
+      url: how-tos/metrics-graph.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 용어
+      url: glossary.md
+    - text: Metrics Advisor API
+      url: https://go.microsoft.com/fwlink/?linkid=2141634
+    - text: Azure PowerShell
+      url: /powershell/module/az.cognitiveservices
+    - text: Azure CLI
+      url: /cli/azure/cognitiveservices
+- title: 도움말 및 피드백
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 지원 및 도움말 옵션
+      url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/metrics-advisor/context/context

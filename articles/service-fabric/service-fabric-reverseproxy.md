@@ -7,10 +7,10 @@ ms.date: 11/03/2017
 ms.author: bharatn
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 012a49762596adee39988614ed0c1020cd8bc104
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98791107"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric의 역방향 프록시
@@ -33,7 +33,7 @@ Azure Service Fabric에 기본 제공되는 역방향 프록시는 Service Fabri
 ![내부 통신][1]
 
 > [!NOTE]
-> **지원 되는 플랫폼**
+> **지원되는 플랫폼**
 >
 > Service Fabric의 역방향 프록시는 현재 다음 플랫폼을 지원합니다.
 > * *Windows 클러스터*: Windows 8 이상 또는 Windows Server 2012 이상
@@ -79,7 +79,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **TargetReplicaSelector**: 대상 복제본 또는 인스턴스를 선택하는 방법을 지정합니다.
   * 대상 서비스가 상태 저장인 경우 TargetReplicaSelector는 'PrimaryReplica', 'RandomSecondaryReplica' 또는 'RandomReplica' 중 하나일 수 있습니다. 이 매개 변수를 지정하지 않으면 기본값은 'PrimaryReplica'입니다.
   * 대상 서비스가 상태 비저장인 경우 역방향 프록시는 서비스 파티션의 임의 인스턴스를 선택하여 요청을 전달합니다.
-* **Timeout:** 서비스에 대한 역방향 프록시가 클라이언트 요청을 대신하여 만든 HTTP 요청에 대한 시간 제한을 지정합니다. 기본값은 120 초입니다. 선택적 매개 변수입니다.
+* **Timeout:** 서비스에 대한 역방향 프록시가 클라이언트 요청을 대신하여 만든 HTTP 요청에 대한 시간 제한을 지정합니다. 기본값은 120초입니다. 선택적 매개 변수입니다.
 
 ### <a name="example-usage"></a>사용 예
 예를 들어 다음 URL에서 HTTP 수신기를 여는 *fabric:/MyApp/MyService* 서비스를 살펴보겠습니다.

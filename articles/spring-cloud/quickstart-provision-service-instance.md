@@ -1,19 +1,19 @@
 ---
 title: 빠른 시작 - Azure Spring Cloud 서비스 프로비저닝
 description: 앱 배포를 위한 Azure Spring Cloud 서비스 인스턴스를 만드는 방법을 설명합니다.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 779f1bead820af99b7f0bba859518eaa5d0ea2fc
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 243f176fd906ecfe33c38bebc7e7745a7dc15e1e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286650"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114470594"
 ---
 # <a name="quickstart-provision-an-azure-spring-cloud-service"></a>빠른 시작: Azure Spring Cloud 서비스 프로비저닝
 
@@ -78,11 +78,11 @@ az extension add --name spring-cloud
 1. 후속 명령에서 이러한 값을 반복적으로 지정할 필요가 없도록 기본 리소스 그룹 이름과 서비스 인스턴스 이름을 설정합니다.
 
    ```azurecli
-   az configure --defaults group=<resource group name>
+   az config set defaults.group=<resource group name>
    ```
 
    ```azurecli
-   az configure --defaults spring-cloud=<service instance name>
+   az config set defaults.spring-cloud=<service instance name>
    ```
 ::: zone-end
 
@@ -160,7 +160,7 @@ Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud를 인스턴스
 1. 다음 명령을 사용하여 기본 리소스 그룹 이름과 Spring Cloud 서비스 이름을 설정합니다.
 
     ```azurecli
-    az configure --defaults group=<resource group name> spring-cloud=<service name>
+    az config set defaults.group=<resource group name> defaults.spring-cloud=<service name>
     ```
 ---
 ::: zone-end

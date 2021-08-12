@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Fivetran 및 전용 SQL 풀 (이전의 SQL DW)'
-description: Azure Synapse Analytics에서 Fivetran 및 전용 SQL 풀 (이전의 SQL DW)을 시작 합니다.
+title: '빠른 시작: Fivetran 및 전용 SQL 풀(이전 SQL DW)'
+description: Azure Synapse Analytics에서 Fivetran과 전용 SQL 풀(이전 SQL DW)을 시작합니다.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -12,21 +12,21 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: f332c3b0bd53d80d4a8471f53c56ecab611787c1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96456368"
 ---
-# <a name="quickstart-fivetran-with-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>빠른 시작: Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)으로 Fivetran 
+# <a name="quickstart-fivetran-with-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>빠른 시작: Azure Synapse Analytics의 Fivetran과 전용 SQL 풀(이전 SQL DW) 
 
-이 빠른 시작에서는 전용 SQL 풀을 사용 하도록 새 Fivetran 사용자를 설정 하는 방법을 설명 합니다 (이전의 SQL DW). 이 문서에서는 기존 전용 SQL 풀 (이전의 SQL DW)이 있다고 가정 합니다.
+이 빠른 시작에서는 새로운 Fivetran 사용자가 전용 SQL 풀(이전 SQL DW)을 사용하도록 설정하는 방법을 설명합니다. 이 문서에서는 기존 전용 SQL 풀(이전 SQL DW)이 있다고 가정합니다.
 
 ## <a name="set-up-a-connection"></a>연결 설정
 
-1. 전용 SQL 풀에 연결 하는 데 사용 하는 정규화 된 서버 이름 및 데이터베이스 이름 (이전의 SQL DW)을 찾습니다.
+1. 전용 SQL 풀(이전 SQL DW)에 연결하는 데 사용하는 정규화된 서버 이름 및 데이터베이스 이름을 찾습니다.
     
-    이 정보를 찾는 데 도움이 필요 하면 [전용 sql 풀에 연결 (이전의 SQL DW)](sql-data-warehouse-connection-strings.md)을 참조 하세요.
+    이 정보를 찾는 데 도움이 필요하면 [전용 SQL 풀(이전 SQL DW)에 연결](sql-data-warehouse-connection-strings.md)을 참조하세요.
 
 2. 설정 마법사에서 데이터베이스를 직접 연결할지 또는 SSH 터널을 통해 연결할지 선택합니다.
 
@@ -34,13 +34,13 @@ ms.locfileid: "96456368"
 
    SSH 터널을 통한 연결을 선택하면 Fivetran이 네트워크의 별도 서버에 연결합니다. 해당 서버에서 데이터베이스에 대한 SSH 터널을 제공합니다. 데이터베이스가 가상 네트워크에서 액세스할 수 없는 서브넷에 있는 경우 이 방법을 사용해야 합니다.
 
-3. 서버 수준 방화벽에 **52.0.2.4** IP 주소를 추가 하 여 Fivetran에서 전용 sql 풀 (이전의 sql DW) 인스턴스로 들어오는 연결을 허용 합니다.
+3. Fivetran에서 전용 SQL 풀(이전 SQL DW) 인스턴스로의 수신 연결을 허용하도록 서버 수준 방화벽에 IP 주소 **52.0.2.4** 를 추가합니다.
 
    자세한 내용은 [서버 수준 방화벽 규칙 만들기](create-data-warehouse-portal.md#create-a-server-level-firewall-rule)를 참조하세요.
 
 ## <a name="set-up-user-credentials"></a>사용자 자격 증명 설정
 
-1. SSMS (SQL Server Management Studio) 또는 선호 하는 도구를 사용 하 여 전용 SQL 풀 (이전의 SQL DW)에 연결 합니다. 서버 관리 사용자로 로그인합니다. 그런 후에, 다음 SQL 명령을 실행하여 Fivetran의 사용자를 만듭니다.
+1. SSMS(SQL Server Management Studio) 또는 선호하는 도구를 사용하여 전용 SQL 풀(이전 SQL DW)에 연결합니다. 서버 관리 사용자로 로그인합니다. 그런 후에, 다음 SQL 명령을 실행하여 Fivetran의 사용자를 만듭니다.
 
     - master 데이터베이스의 경우: 
     
@@ -48,7 +48,7 @@ ms.locfileid: "96456368"
       CREATE LOGIN fivetran WITH PASSWORD = '<password>'; 
       ```
 
-    - 전용 SQL 풀 (이전의 SQL DW) 데이터베이스에서 다음을 수행 합니다.
+    - 전용 SQL 풀(이전 SQL DW) 데이터베이스의 경우:
 
       ```sql
       CREATE USER fivetran_user_without_login without login;
@@ -56,7 +56,7 @@ ms.locfileid: "96456368"
       GRANT IMPERSONATE on USER::fivetran_user_without_login to fivetran;
       ```
 
-2. 전용 SQL 풀에 대해 Fivetran 사용자에 게 다음 사용 권한을 부여 합니다 (이전의 SQL DW).
+2. 전용 SQL 풀(이전 SQL DW)에 대해 Fivetran 사용자에게 다음 사용 권한을 부여합니다.
 
     ```sql
     GRANT CONTROL to fivetran;
@@ -77,7 +77,7 @@ ms.locfileid: "96456368"
 
 ## <a name="connect-from-fivetran"></a>Fivetran에서 연결
 
-Fivetran 계정에서 전용 SQL 풀 (이전의 SQL DW)에 연결 하려면 전용 SQL 풀에 액세스 하는 데 사용 하는 자격 증명을 입력 합니다 (이전의 SQL DW). 
+Fivetran 계정에서 전용 SQL 풀(이전 SQL DW)에 연결하려면 전용 SQL 풀(이전 SQL DW)에 액세스하는 데 사용하는 자격 증명을 입력합니다. 
 
 * 호스트(서버 이름).
 * 포트.

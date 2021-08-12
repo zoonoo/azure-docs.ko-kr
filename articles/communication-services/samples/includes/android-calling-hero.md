@@ -6,16 +6,16 @@ author: ddematheu2
 manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: 2a573a4df8abcdc2b32204faadbaa0df8c3dac15
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: cc6264e00cb627815f4008f147266357c625b72a
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108313632"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "114200991"
 ---
 Azure Communication Services **Android용 그룹 통화 주인공 샘플** 은 Communication Services 통화 Android SDK를 사용하여 음성 및 비디오가 포함된 그룹 통화 환경을 구축하는 방법을 보여줍니다. 이 샘플 빠른 시작에서는 샘플을 설정하고 실행하는 방법에 대해 알아봅니다. 상황에 맞는 샘플 개요가 제공됩니다.
 
@@ -52,7 +52,7 @@ Azure Communication Services **Android용 그룹 통화 주인공 샘플** 은 C
 
 - 활성 구독이 있는 Azure 계정. 자세한 내용은 [체험 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)를 참조하세요.
 - 컴퓨터에서 실행 중인 [Android Studio](https://developer.android.com/studio)
-- Azure Communication Services 리소스. 자세한 내용은 [Azure Communication 리소스 만들기](../../quickstarts/create-communication-resource.md)를 참조하세요.
+- Azure Communication Services 리소스. 자세한 내용은 [Azure Communication Services 리소스 만들기](../../quickstarts/create-communication-resource.md)를 참조하세요.
 - 액세스 토큰을 가져오기 위해 [인증 엔드포인트](../../tutorials/trusted-service-tutorial.md)를 실행하는 Azure Function
 
 ## <a name="running-sample-locally"></a>로컬로 샘플 실행

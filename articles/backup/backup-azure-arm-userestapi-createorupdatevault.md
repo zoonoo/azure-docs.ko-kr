@@ -1,19 +1,19 @@
 ---
 title: REST API를 사용하여 Recovery Services 자격 증명 모음 만들기
-description: 이 문서에서는 REST API를 사용 하 여 Azure VM 백업의 백업 및 복원 작업을 관리 하는 방법에 대해 알아봅니다.
+description: 이 문서에서는 REST API를 사용하여 Azure VM Backup의 백업 및 복원 작업을 관리하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: a37808548ec58977b7d6af16c75b94b7b5efe446
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96002939"
 ---
-# <a name="create-azure-recovery-services-vault-using-rest-api"></a>REST API를 사용 하 여 Azure Recovery Services 자격 증명 모음 만들기
+# <a name="create-azure-recovery-services-vault-using-rest-api"></a>REST API를 사용하여 Azure Recovery Services 자격 증명 모음 만들기
 
-REST API를 사용 하 여 Azure Recovery Services 자격 증명 모음을 만드는 단계는 [자격 증명 모음 만들기 REST API](/rest/api/recoveryservices/vaults/createorupdate) 설명서에 설명 되어 있습니다. 이 문서를 참조로 사용 하 여 "미국 서 부"에서 "testVault" 라는 자격 증명 모음을 만들 수 있습니다.
+REST API를 사용하여 Azure Recovery Services 자격 증명 모음을 만드는 단계는 [자격 증명 모음 REST API 만들기](/rest/api/recoveryservices/vaults/createorupdate) 설명서에 설명되어 있습니다. 이 문서를 참조하여 "미국 서부"에 "testVault"라는 자격 증명 모음을 만들어 보겠습니다.
 
 Azure Recovery Services 자격 증명 모음을 만들거나 업데이트하려면 다음 *PUT* 작업을 사용합니다.
 
@@ -38,7 +38,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 다음과 같은 일반적인 정의가 요청 본문을 빌드하는 데 사용됩니다.
 
-|Name  |필수  |Type  |설명  |
+|이름  |필수  |Type  |설명  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  선택적 eTag       |
 |위치     |  true       |String         |   리소스 위치      |
@@ -66,7 +66,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Recovery Services 자격 증명 모음을 만들거나 업데이트하는 작업에 대한 성공적인 응답에는 두 가지가 있습니다.
 
-|Name  |Type  |설명  |
+|이름  |유형  |설명  |
 |---------|---------|---------|
 |200 정상     |   [Vault](/rest/api/recoveryservices/vaults/createorupdate#vault)      | 정상        |
 |201 생성됨     | [Vault](/rest/api/recoveryservices/vaults/createorupdate#vault)        |   생성일      |

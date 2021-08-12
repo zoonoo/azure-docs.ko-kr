@@ -6,13 +6,13 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 03/25/2021
-ms.openlocfilehash: 72ab685b58f7d940fe4d682cacba6212fe80ced8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/22/2021
+ms.openlocfilehash: 82f6d69629f397cb5222a82677bf27ed880aa20f
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933086"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988013"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory의 매핑 데이터 흐름 문제 해결
 
@@ -73,7 +73,7 @@ ms.locfileid: "105933086"
 
 ### <a name="error-code-df-executor-invalidtype"></a>오류 코드: DF-Executor-InvalidType
 - **메시지**: 매개 변수 형식이 전달된 값 형식과 일치하는지 확인합니다. 파이프라인에서 부동 매개 변수를 전달하는 기능은 현재 지원되지 않습니다.
-- **원인**: 선언된 형식의 데이터 형식이 실제 매개 변수 값과 호환되지 않습니다.
+- **원인**: 선언된 형식과 실제 매개 변수 값 사이에 데이터 형식이 호환되지 않습니다.
 - **권장 사항**: 데이터 흐름에 전달된 매개 변수 값이 선언된 형식과 일치하는지 확인합니다.
 
 ### <a name="error-code-df-executor-parseerror"></a>오류 코드: DF-Executor-ParseError
@@ -101,7 +101,7 @@ ms.locfileid: "105933086"
 
 - **메시지**: 연결된 서비스의 액세스 키가 올바른지 확인합니다.
 - **원인**: 계정 이름 또는 액세스 키가 잘못되었습니다.
-- **권장 사항**: 연결된 서비스에 지정된 계정 이름 또는 액세스 키가 올바른지 확인합니다. 
+- **권장 사항**: 연결된 서비스에서 지정한 계정 이름 또는 액세스 키가 올바른지 확인합니다. 
 
 ### <a name="error-code-df-executor-columnunavailable"></a>오류 코드: DF-Executor-ColumnUnavailable
 - **메시지**: 식에 사용된 열 이름을 사용할 수 없거나 잘못되었습니다.
@@ -116,7 +116,7 @@ ms.locfileid: "105933086"
 
  ### <a name="error-code-df-executor-storeisnotdefined"></a>오류 코드: DF-Executor-StoreIsNotDefined
 - **메시지**: 저장소 구성이 정의되어 있지 않습니다. 이 오류는 파이프라인의 잘못된 매개 변수 할당 때문에 발생할 수 있습니다.
-- **원인**: 결정되지 않았습니다.
+- **원인**: 제공한 저장소 구성이 올바르지 않습니다.
 - **권장 사항**: 파이프라인에서 매개 변수 값 할당을 확인합니다. 매개 변수 식에 잘못된 문자가 포함되어 있을 수 있습니다.
 
 
@@ -138,185 +138,349 @@ ms.locfileid: "105933086"
 
 ### <a name="error-code-df-xml-invalidvalidationmode"></a>오류 코드: DF-Xml-InvalidValidationMode
 - **메시지**: 잘못된 xml 유효성 검사 모드가 제공되었습니다.
+- **원인**: 제공한 XML 유효성 검사 모드가 올바르지 않습니다.
 - **권장 사항**: 매개 변수 값을 확인하고 올바른 유효성 검사 모드를 지정합니다.
 
 ### <a name="error-code-df-xml-invaliddatafield"></a>오류 코드: DF-Xml-InvalidDataField
 - **메시지**: 손상된 레코드의 필드는 문자열 형식이어야 하며 null을 허용해야 합니다.
-- **권장 사항**: 원본 프로젝트의 `\"_corrupt_record\"` 열에 문자열 데이터 형식이 있는지 확인합니다.
+- **원인**: XML 원본에 제공한 열 `\"_corrupt_record\"`의 데이터 형식이 올바르지 않습니다.
+- **권장 사항**: XML 원본의 `\"_corrupt_record\"` 열에 문자열 데이터 형식이 포함되어 있고 null 허용인지 확인합니다.
 
 ### <a name="error-code-df-xml-malformedfile"></a>오류 코드: DF-Xml-MalformedFile
-- **메시지**: ‘FailFastMode’의 xml 형식이 잘못되었습니다.
+- **메시지**: FAILFAST 모드의 경로가 있는 잘못된 형식의 xml입니다.
+- **원인**: 경로가 있는 잘못된 형식의 XML이 FAILFAST 모드에 있습니다.
 - **권장 사항**: XML 파일의 콘텐츠를 올바른 형식으로 업데이트합니다.
-
-### <a name="error-code-df-xml-invaliddatatype"></a>오류 코드: DF-Xml-InvalidDataType
-- **Message**: XML 요소에 하위 요소 또는 특성이 있기 때문에 이 요소를 변환할 수 없습니다.
 
 ### <a name="error-code-df-xml-invalidreferenceresource"></a>오류 코드: DF-Xml-InvalidReferenceResource
 - **메시지**: xml 데이터 파일의 참조 리소스를 확인할 수 없습니다.
+- **원인**: XML 데이터 파일의 참조 리소스를 확인할 수 없습니다.
 - **권장 사항**: XML 데이터 파일에서 참조 리소스를 확인해야 합니다.
 
 ### <a name="error-code-df-xml-invalidschema"></a>오류 코드: DF-Xml-InvalidSchema
 - **메시지**: 스키마 유효성 검사에 실패했습니다.
+- **원인**: XML 원본에서 제공한 스키마가 잘못되었습니다.
+- **권장 사항**: XML 원본의 스키마 설정을 확인하여 원본 데이터의 스키마 하위 집합인지 확인합니다.
 
 ### <a name="error-code-df-xml-unsupportedexternalreferenceresource"></a>오류 코드: DF-Xml-UnsupportedExternalReferenceResource
 - **메시지**: xml 데이터 파일의 외부 참조 리소스는 지원되지 않습니다.
+- **원인**: XML 데이터 파일의 외부 참조 리소스는 지원되지 않습니다.
 - **권장 사항**: 현재 외부 참조 리소스가 지원되지 않는 경우 XML 파일 콘텐츠를 업데이트합니다.
 
 ### <a name="error-code-df-gen2-invalidaccountconfiguration"></a>오류 코드: DF-GEN2-InvalidAccountConfiguration
 - **Message**: 계정 키, tenant/spnId/spnCredential/spnCredentialType 또는 miServiceUri/miServiceToken 중 하나를 지정해야 합니다.
-- **권장 사항**: 관련 GEN2 연결된 서비스에서 올바른 계정을 구성합니다.
+- **원인**: ADLS Gen2 연결된 서비스에서 제공한 자격 증명이 잘못되었습니다.
+- **권장 사항**: 올바른 자격 증명 구성을 갖도록 ADLS Gen2 연결된 서비스를 업데이트합니다.
 
 ### <a name="error-code-df-gen2-invalidauthconfiguration"></a>오류 코드: DF-GEN2-InvalidAuthConfiguration
-- **메시지**: 세 가지 인증 메서드(Key, ServicePrincipal 및 MI) 중 하나만 지정할 수 있습니다. 
-- **권장 사항**: 관련 GEN2 연결된 서비스에서 올바른 인증 형식을 선택합니다.
+- **메시지**: 세 가지 인증 메서드(Key, ServicePrincipal 및 MI) 중 하나만 지정할 수 있습니다.
+- **원인**: ADLS gen2 연결된 서비스에서 제공한 인증 메서드가 잘못되었습니다.
+- **권장 사항**: 키, ServicePrincipal 및 MI의 세 가지 인증 방법 중 하나를 사용하도록 ADLS Gen2 연결된 서비스를 업데이트합니다.
 
 ### <a name="error-code-df-gen2-invalidserviceprincipalcredentialtype"></a>오류 코드: DF-GEN2-InvalidServicePrincipalCredentialType
-- **메시지**: ServicePrincipalCredentialType이 잘못되었습니다.
-
-### <a name="error-code-df-gen2-invaliddatatype"></a>오류 코드: DF-GEN2-InvalidDataType
-- **메시지**: 클라우드 형식이 잘못되었습니다.
+- **메시지**: 서비스 주체 자격 증명 유형이 잘못되었습니다.
+- **원인**: 서비스 주체 자격 증명 유형이 잘못되었습니다.
+- **권장 사항**: ADLS Gen2 연결된 서비스를 업데이트하여 올바른 서비스 주체 자격 증명 유형을 설정합니다.
 
 ### <a name="error-code-df-blob-invalidaccountconfiguration"></a>오류 코드: DF-Blob-InvalidAccountConfiguration
-- **메시지**: 계정 키 또는 sas_token 중 하나를 지정해야 합니다.
+- **메시지**: 계정 키 또는 sas 토큰 중 하나를 지정해야 합니다.
+- **원인**: Azure Blob 연결된 서비스에서 제공한 자격 증명이 잘못되었습니다.
+- **권장 사항**: Azure Blob 연결된 서비스에 계정 키 또는 SAS 토큰을 사용합니다.
 
 ### <a name="error-code-df-blob-invalidauthconfiguration"></a>오류 코드: DF-Blob-InvalidAuthConfiguration
 - **메시지**: 두 가지 인증 방법(키, SAS) 중 하나만 지정할 수 있습니다.
-
-### <a name="error-code-df-blob-invaliddatatype"></a>오류 코드: DF-Blob-InvalidDataType
-- **메시지**: 클라우드 형식이 잘못되었습니다.
+- **원인**: 연결된 서비스에서 제공한 인증 방법이 잘못되었습니다.
+- **권장 사항**: Azure Blob 연결된 서비스에 키 또는 SAS 인증을 사용합니다.
 
 ### <a name="error-code-df-cosmos-partitionkeymissed"></a>오류 코드: DF-Cosmos-PartitionKeyMissed
 - **메시지**: 업데이트 및 삭제 작업의 파티션 키 경로를 지정해야 합니다.
-- **권장 사항**: Cosmos 싱크 설정에서 제공하는 파티션 키를 사용합니다.
+- **원인**: Azure Cosmos DB 싱크에서 파티션 키 경로가 누락되었습니다.
+- **권장 사항**: Azure Cosmos DB 싱크 설정에서 제공하는 파티션 키를 사용합니다.
 
 ### <a name="error-code-df-cosmos-invalidpartitionkey"></a>오류 코드: DF-Cosmos-InvalidPartitionKey
 - **메시지**: 업데이트 및 삭제 작업의 파티션 키 경로는 비워둘 수 없습니다.
-- **권장 사항**: Cosmos 싱크 설정에서 제공하는 파티션 키를 사용합니다.
+- **원인**: 업데이트 및 삭제 작업의 파티션 키 경로가 비어 있습니다.
+- **권장 사항**: Azure Cosmos DB 싱크 설정에서 제공하는 파티션 키를 사용합니다.
+
 
 ### <a name="error-code-df-cosmos-idpropertymissed"></a>오류 코드: DF-Cosmos-IdPropertyMissed
 - **메시지**: 삭제 및 업데이트 작업의 ‘id’ 속성을 매핑해야 합니다.
-- **권장 사항**: Cosmos 싱크 설정에서 입력 열에 `id` 열이 있는지 확인합니다. 그렇지 않으면 **선택 또는 파생 변환** 을 사용하여 싱크 전에 이 열을 생성합니다.
+- **원인**: 업데이트 및 삭제 작업에 대한 `id` 속성이 누락 되었습니다.
+- **권장 사항**: Cosmos DB 싱크 설정에서 입력 데이터에 `id` 열이 있는지 확인합니다. 그렇지 않으면 **선택 또는 파생 변환** 을 사용하여 싱크 전에 이 열을 생성합니다.
 
 ### <a name="error-code-df-cosmos-invalidpartitionkeycontent"></a>오류 코드: DF-Cosmos-InvalidPartitionKeyContent
 - **메시지**: 파티션 키는 /로 시작해야 합니다.
-- **권장 사항**: Cosmos 싱크 설정에서 파티션 키가 `/`로 시작되는지 확인합니다(예: `/movieId`).
+- **원인**: 제공한 파티션 키가 잘못되었습니다.
+- **권장 사항**: Cosmos DB 싱크 설정에서 파티션 키가 `/`로 시작되는지 확인합니다(예: `/movieId`).
 
 ### <a name="error-code-df-cosmos-invalidpartitionkey"></a>오류 코드: DF-Cosmos-InvalidPartitionKey
-- **메시지**: 삭제 및 업데이트 작업용 싱크에 partitionKey가 매핑되지 않았습니다.
-- **권장 사항**: Cosmos 싱크 설정에서 컨테이너의 파티션 키와 같은 파티션 키를 사용합니다.
+- **메시지**: 삭제 및 업데이트 작업에 대한 싱크에서 파티션 키가 매핑되지 않았습니다.
+- **원인**: 제공한 파티션 키가 잘못되었습니다.
+- **권장 사항**: Cosmos DB 싱크 설정에서 컨테이너의 파티션 키와 동일한 올바른 파티션 키를 사용합니다.
 
 ### <a name="error-code-df-cosmos-invalidconnectionmode"></a>오류 코드: DF-Cosmos-InvalidConnectionMode
-- **메시지**: connectionMode가 잘못되었습니다.
-- **권장 사항**: Cosmos 설정에서 지원되는 모드가 **Gateway** 와 **DirectHttps** 인지 확인합니다.
+- **메시지**: 연결 모드가 잘못되었습니다.
+- **원인**: 제공한 연결 모드가 잘못되었습니다.
+- **권장 사항**: Cosmos DB 설정에서 지원되는 모드가 **Gateway** 및 **DirectHttps** 인지 확인합니다.
 
 ### <a name="error-code-df-cosmos-invalidaccountconfiguration"></a>오류 코드: DF-Cosmos-InvalidAccountConfiguration
 - **메시지**: accountName이나 accountEndpoint를 지정해야 합니다.
+- **원인**: 제공한 계정 정보가 잘못되었습니다.
+- **권장 사항**: Cosmos DB 연결된 서비스에서 계정 이름 또는 계정 엔드포인트를 지정합니다.
 
 ### <a name="error-code-df-github-writenotsupported"></a>오류 코드: DF-Github-WriteNotSupported
 - **메시지**: Github 저장소에서는 쓰기를 허용하지 않습니다.
-
+- **원인**: GitHub 저장소는 읽기 전용입니다.
+- **권장 사항**: 저장소 엔터티 정의를 다른 위치에 둡니다.
+  
 ### <a name="error-code-df-pgsql-invalidcredential"></a>오류 코드: DF-PGSQL-InvalidCredential
 - **메시지**: 사용자/암호를 지정해야 합니다.
-- **권장 사항**: 관련 postgresql 연결된 서비스에 올바른 자격 증명 설정이 있는지 확인합니다.
+- **원인**: 사용자/암호가 누락되었습니다.
+- **권장 사항**: 관련된 PostgreSQL 연결된 서비스의 자격 증명 설정이 올바른지 확인합니다.
 
 ### <a name="error-code-df-snowflake-invalidstageconfiguration"></a>오류 코드: DF-Snowflake-InvalidStageConfiguration
 - **메시지**: blob 스토리지 형식만 snowflake 읽기/쓰기 작업의 스테이지로 사용할 수 있습니다.
+- **원인**: Snowflake에서 제공한 준비 구성이 잘못되었습니다.
+- **권장 사항**: Azure Blob 연결된 서비스만 사용하도록 Snowflake 준비 설정을 업데이트합니다.
 
 ### <a name="error-code-df-snowflake-invalidstageconfiguration"></a>오류 코드: DF-Snowflake-InvalidStageConfiguration
 - **메시지**: Azure blob + sas 인증을 사용하여 snowflake 스테이지 속성을 지정해야 합니다.
+- **원인**: Snowflake에서 제공한 준비 구성이 잘못되었습니다.
+- **권장 사항**: Snowflake 준비 설정에서 Azure BLOB + SAS 인증만 지정합니다.
 
 ### <a name="error-code-df-snowflake-invaliddatatype"></a>오류 코드: DF-Snowflake-InvalidDataType
 - **메시지**: spark 형식은 snowflake에서 지원되지 않습니다.
-- **권장 사항**: **파생 변환** 을 사용하여 snowflake 싱크 전에 입력 데이터의 관련 열을 문자열 형식으로 변경합니다. 
+- **원인**: Snowflake에서 제공한 데이터 형식이 잘못되었습니다.
+- **권장 사항**: Snowflake 싱크를 적용하기 전에 파생 변환을 사용하여 입력 데이터의 관련 열을 문자열 형식으로 업데이트합니다.
 
 ### <a name="error-code-df-hive-invalidblobstagingconfiguration"></a>오류 코드: DF-Hive-InvalidBlobStagingConfiguration
 - **메시지**: Blob Storage 준비 속성을 지정해야 합니다.
+- **원인**: Hive에서 제공한 준비 구성이 잘못되었습니다.
+- **권장 사항**: 준비 프로세스로 사용되는 관련 Blob 연결된 서비스에서 계정 키, 계정 이름 및 컨테이너가 올바르게 설정되었는지 확인합니다.
 
 ### <a name="error-code-df-hive-invalidgen2stagingconfiguration"></a>오류 코드: DF-Hive-InvalidGen2StagingConfiguration
 - **메시지**: ADLS Gen2 스토리지 준비에서는 서비스 주체 키 자격 증명만 지원합니다.
-- **권장 사항**: 준비로 사용되는 ADLS Gen2 연결된 서비스에서 서비스 주체 키 자격 증명을 적용하는지 확인합니다.
+- **원인**: Hive에서 제공한 준비 구성이 잘못되었습니다.
+- **권장 사항**: 준비 프로세스로 사용되는 관련 ADLS Gen2 연결된 서비스를 업데이트합니다. 현재는 서비스 주체 키 자격 증명만 지원됩니다.
 
 ### <a name="error-code-df-hive-invalidgen2stagingconfiguration"></a>오류 코드: DF-Hive-InvalidGen2StagingConfiguration
 - **메시지**: ADLS Gen2 스토리지 준비 속성을 지정해야 합니다. 키, tenant/spnId/spnKey 또는 miServiceUri/miServiceToken 중 하나가 필요합니다.
-- **권장 사항**: 관련 ADLS Gen2 연결된 서비스의 하이브에서 준비로 사용되는 올바른 자격 증명을 적용합니다. 
+- **원인**: Hive에서 제공한 준비 구성이 잘못되었습니다.
+- **권장 사항**: 관련 ADLS Gen2 연결된 서비스를 Hive에서 준비 프로세스로 사용되는 올바른 자격 증명으로 업데이트합니다.
 
 ### <a name="error-code-df-hive-invaliddatatype"></a>오류 코드: DF-Hive-InvalidDataType
 - **메시지**: 지원되지 않는 열입니다.
-- **권장 사항**: 하이브에서 지원되는 데이터 형식과 일치하도록 입력 데이터의 열을 업데이트합니다.
+- **원인**: 제공한 열이 지원되지 않습니다.
+- **권장 사항**: Hive에서 지원되는 데이터 형식과 일치하도록 입력 데이터의 열을 업데이트합니다.
 
 ### <a name="error-code-df-hive-invalidstoragetype"></a>오류 코드: DF-Hive-InvalidStorageType
 - **메시지**: 스토리지 형식은 blob 또는 gen2일 수 있습니다.
+- **원인**: Azure Blob 또는 ADLS Gen2 스토리지 유형만 지원됩니다.
+- **권장 사항**: Azure Blob 또는 ADLS Gen2에서 적합한 스토리지 유형을 선택합니다.
 
 ### <a name="error-code-df-delimited-invalidconfiguration"></a>오류 코드: DF-Delimited-InvalidConfiguration
 - **메시지**: 빈 줄 또는 사용자 지정 헤더 중 하나를 지정해야 합니다.
-- **권장 사항**: CSV 설정에서 빈 줄 또는 사용자 지정 헤더를 지정합니다.
+- **원인**: 제공한 구분 기호 구성이 잘못되었습니다.
+- **권장 사항**: 빈 줄 또는 사용자 지정 헤더 중 하나를 지정하도록 CSV 설정을 업데이트합니다.
 
 ### <a name="error-code-df-delimited-columndelimitermissed"></a>오류 코드: DF-Delimited-ColumnDelimiterMissed
 - **메시지**: 구문 분석에는 열 구분 기호가 필요합니다.
-- **권장 사항**: CSV 설정에 열 구분 기호가 있는지 확인합니다.
+- **원인**: 열 구분 기호가 누락되었습니다.
+- **권장 사항**: CSV 설정에서 구문 분석에 필요한 열 구분 기호가 있는지 확인합니다. 
 
 ### <a name="error-code-df-mssql-invalidcredential"></a>오류 코드: DF-MSSQL-InvalidCredential
 - **메시지**: user/pwd, tenant/spnId/spnKey 또는 miServiceUri/miServiceToken 중 하나를 지정해야 합니다.
-- **권장 사항**: 관련된 MSSQL 연결된 서비스에 올바른 자격 증명을 적용합니다.
+- **원인**: MSSQL 연결된 서비스에서 제공한 자격 증명이 잘못되었습니다.
+- **권장 사항**: 관련된 MSSQL 연결된 서비스를 적절한 자격 증명으로 업데이트하고 **user/pwd**, **tenant/spnId/spnKey** 또는 **miServiceUri/miServiceToken** 중 하나를 지정해야 합니다.
 
 ### <a name="error-code-df-mssql-invaliddatatype"></a>오류 코드: DF-MSSQL-InvalidDataType
 - **메시지**: 지원되지 않는 필드입니다.
+- **원인**: 지원되지 않는 필드를 제공했습니다.
 - **권장 사항**: MSSQL에서 지원하는 데이터 형식과 일치하도록 입력 데이터 열을 수정합니다.
 
 ### <a name="error-code-df-mssql-invalidauthconfiguration"></a>오류 코드: DF-MSSQL-InvalidAuthConfiguration
 - **메시지**: 세 가지 인증 메서드(Key, ServicePrincipal 및 MI) 중 하나만 지정할 수 있습니다.
-- **권장 사항**: 관련 MSSQL 연결된 서비스에서 세 가지 인증 방법(키, serviceprincipal 및 MI) 중 하나만 지정할 수 있습니다.
+- **원인**: MSSQL 연결된 서비스에서 제공한 인증 방법이 잘못되었습니다.
+- **권장 사항**: 관련된 MSSQL 연결된 서비스에서 세 가지 인증 방법(키, ServicePrincipal 및 MI) 중 하나만 지정할 수 있습니다.
 
 ### <a name="error-code-df-mssql-invalidcloudtype"></a>오류 코드: DF-MSSQL-InvalidCloudType
 - **메시지**: 클라우드 형식이 잘못되었습니다.
+- **원인**: 제공한 클라우드 형식이 잘못되었습니다.
 - **권장 사항**: 관련된 MSSQL 연결된 서비스에서 클라우드 형식을 확인합니다.
 
 ### <a name="error-code-df-sqldw-invalidblobstagingconfiguration"></a>오류 코드: DF-SQLDW-InvalidBlobStagingConfiguration
 - **메시지**: Blob Storage 준비 속성을 지정해야 합니다.
+- **원인**: 제공한 Blob 스토리지 준비 설정이 잘못되었습니다.
+- **권장 사항**: 준비에 사용된 Blob 연결된 서비스의 속성이 올바른지 확인합니다.
 
 ### <a name="error-code-df-sqldw-invalidstoragetype"></a>오류 코드: DF-SQLDW-InvalidStorageType
 - **메시지**: 스토리지 형식은 blob 또는 gen2일 수 있습니다.
+- **원인**: 준비를 위해 제공한 스토리지 형식이 잘못되었습니다.
+- **권장 사항**: 준비에 사용되는 연결된 서비스의 스토리지 형식이 Blob 또는 Gen2인지 확인합니다.
 
 ### <a name="error-code-df-sqldw-invalidgen2stagingconfiguration"></a>오류 코드: DF-SQLDW-InvalidGen2StagingConfiguration
 - **메시지**: ADLS Gen2 스토리지 준비에서는 서비스 주체 키 자격 증명만 지원합니다.
+- **원인**: ADLS gen2 스토리지 준비를 위해 제공한 자격 증명이 잘못되었습니다.
+- **권장 사항**: 준비에 사용한 Gen2 연결된 서비스의 서비스 주체 키 자격 증명을 사용합니다.
+ 
 
 ### <a name="error-code-df-sqldw-invalidconfiguration"></a>오류 코드: DF-SQLDW-InvalidConfiguration
 - **메시지**: ADLS Gen2 스토리지 준비 속성을 지정해야 합니다. 키, tenant/spnId/spnCredential/spnCredentialType 또는 miServiceUri/miServiceToken 중 하나가 필요합니다.
+- **원인**: 제공한 ADLS Gen2 준비 속성이 잘못되었습니다.
+- **권장 사항**: **키**, **tenant/spnId/spnCredential/spnCredentialType** 또는 **miServiceUri/miServiceToken** 중 하나를 사용하도록 ADLS Gen2 스토리지 준비 설정을 업데이트합니다.
 
 ### <a name="error-code-df-delta-invalidconfiguration"></a>오류 코드: DF-DELTA-InvalidConfiguration
 - **메시지**: 타임스탬프와 버전은 동시에 설정할 수 없습니다.
+- **원인**: 타임스탬프와 버전은 동시에 설정할 수 없습니다.
+- **권장 사항**: 델타 설정에서 타임스탬프 또는 버전을 설정합니다.
 
 ### <a name="error-code-df-delta-keycolumnmissed"></a>오류 코드: DF-DELTA-KeyColumnMissed
 - **메시지**: 삽입 불가능 작업의 키 열을 지정해야 합니다.
+- **원인**: 삽입이 불가능한 작업의 키 열이 누락되었습니다.
+- **권장 사항**: 삽입이 불가능한 작업을 수행할 수 있도록 델타 싱크에서 키 열을 지정합니다.
 
 ### <a name="error-code-df-delta-invalidtableoperationsettings"></a>오류 코드: DF-DELTA-InvalidTableOperationSettings
 - **메시지**: 다시 만들기 및 자르기 옵션을 둘 다 지정할 수는 없습니다.
+- **원인**: 다시 만들기 및 자르기 옵션을 동시에 지정할 수 없습니다.
+- **권장 사항**: 다시 만들기 또는 자르기 작업을 수행할 수 있도록 델타 설정을 업데이트합니다.
 
 ### <a name="error-code-df-excel-worksheetconfigmissed"></a>오류 코드: DF-Excel-WorksheetConfigMissed
 - **메시지**: Excel 시트 이름이나 인덱스가 필요합니다.
-- **권장 사항**: 매개 변수 값을 확인하고 excel 데이터를 읽을 시트 이름 또는 인덱스를 지정합니다.
+- **원인**: 제공한 Excel 워크시트 구성이 잘못되었습니다.
+- **권장 사항**: 매개 변수 값을 확인하고 Excel 데이터를 읽을 시트 이름 또는 인덱스를 지정합니다.
 
 ### <a name="error-code-df-excel-invalidworksheetconfiguration"></a>오류 코드: DF-Excel-InvalidWorksheetConfiguration
 - **메시지**: Excel 시트 이름과 인덱스는 동시에 존재할 수 없습니다.
-- **권장 사항**: 매개 변수 값을 확인하고 excel 데이터를 읽을 시트 이름 또는 인덱스를 지정합니다.
+- **원인**: Excel 시트 이름과 인덱스가 동시에 제공됩니다.
+- **권장 사항**: 매개 변수 값을 확인하고 Excel 데이터를 읽을 시트 이름 또는 인덱스를 지정합니다.
 
 ### <a name="error-code-df-excel-invalidrange"></a>오류 코드: DF-Excel-InvalidRange
 - **메시지**: 잘못된 범위를 제공했습니다.
+- **원인**: 제공한 범위가 잘못되었습니다.
 - **권장 사항**: 매개 변수 값을 확인하고 올바른 범위를 [Azure Data Factory-Dataset 속성의 Excel 형식](./format-excel.md#dataset-properties) 참조로 지정합니다.
 
 ### <a name="error-code-df-excel-worksheetnotexist"></a>오류 코드: DF-Excel-WorksheetNotExist
 - **메시지**: Excel 워크시트가 없습니다.
-- **권장 사항**: 매개 변수 값을 확인하고 excel 데이터를 읽을 올바른 시트 이름이나 인덱스를 지정합니다.
+- **원인**: 제공한 워크시트 이름 또는 인덱스가 잘못되었습니다.
+- **권장 사항**: 매개 변수 값을 확인하고 Excel 데이터를 읽을 올바른 시트 이름 또는 인덱스를 지정합니다.
 
 ### <a name="error-code-df-excel-differentschemanotsupport"></a>오류 코드: DF-Excel-DifferentSchemaNotSupport
 - **메시지**: 스키마가 다른 읽기 Excel 파일은 현재 지원되지 않습니다.
+- **원인**: 현재는 스키마가 다른 Excel 파일을 읽을 수 없습니다.
+- **권장 사항**: 이 문제를 해결하려면 다음 옵션 중 하나를 적용합니다.
+    1. **ForEach** + **데이터 흐름** 작업을 사용하여 Excel 워크시트를 하나씩 읽습니다. 
+    1. 데이터를 읽기 전에 동일한 열을 갖도록 각 워크시트 스키마를 수동으로 업데이트합니다.
 
 ### <a name="error-code-df-excel-invaliddatatype"></a>오류 코드: DF-Excel-InvalidDataType
 - **메시지**: 데이터 형식이 지원되지 않습니다.
+- **원인**: 지원되지 않는 데이터 형식입니다.
+- **권장 사항**: 관련 입력 데이터 열의 데이터 형식을 **'string'** 으로 변경합니다.
 
 ### <a name="error-code-df-excel-invalidfile"></a>오류 코드: DF-Excel-InvalidFile
 - **메시지**: .xlsx와 .xls만 지원되는 중에 잘못된 excel 파일이 제공되었습니다.
+- **원인**: 제공한 Excel 파일이 잘못되었습니다.
+- **권장 사항**: 와일드카드를 사용하여 데이터를 읽기 전에 `.xls` 및 `.xlsx` Excel 파일을 필터링하여 가져옵니다.
 
+### <a name="error-code-df-executor-outofmemorysparkbroadcasterror"></a>오류 코드: DF-Executor-OutOfMemorySparkBroadcastError
+- **메시지**: 왼쪽/오른쪽 옵션을 사용하여 명시적으로 브로드캐스트된 데이터 세트는 노드의 메모리에 맞게 충분히 작아야 합니다. join/exists/lookup 변환에서 브로드캐스트 옵션 '끄기'를 선택하여 이 문제를 방지하거나 메모리가 더 많은 통합 런타임을 사용하면 됩니다.
+- **원인**: 브로드캐스트된 테이블의 크기가 노드 메모리의 제한을 훨씬 초과합니다.
+- **권장 사항**: 브로드캐스트 왼쪽/오른쪽 옵션은 노드의 메모리 크기에 맞출 수 있는 작은 데이터 세트에만 사용해야 하므로, 노드 크기를 적절하게 구성하거나 브로드캐스트 옵션을 해제해야 합니다.
+
+### <a name="error-code-df-mssql-invalidfirewallsetting"></a>오류 코드: DF-MSSQL-InvalidFirewallSetting
+- **메시지**: 호스트에 TCP/IP 연결을 설정하지 못했습니다. SQL Server 인스턴스가 호스트에서 실행 중이고 포트에서 TCP/IP 연결을 허용하는지 확인하세요. 포트에 대한 TCP 연결이 방화벽에 의해 차단되지 않는지 확인하세요.
+- **원인**: SQL 데이터베이스의 방화벽 설정이 액세스 데이터 흐름을 차단합니다.
+- **권장 사항**: SQL 데이터베이스에 대한 방화벽 설정을 확인하고 Azure 서비스 및 리소스가 이 서버에 액세스하도록 허용합니다.
+
+### <a name="error-code-df-executor-acquirestoragememoryfailed"></a>오류 코드: DF-Executor-AcquireStorageMemoryFailed
+- **메시지**: 언롤 메모리를 스토리지 메모리로 전송하지 못했습니다. 실행하는 동안 클러스터에 메모리가 부족합니다. 더 많은 코어가 있는 통합 런타임 및/또는 메모리 최적화 컴퓨팅 형식을 사용하여 다시 시도하세요.
+- **원인**: 클러스터에 메모리가 부족합니다.
+- **권장 사항**: 더 많은 코어가 있는 통합 런타임 및/또는 메모리 최적화 컴퓨팅 형식을 사용하세요.
+
+### <a name="error-code-df-cosmos-deletedatafailed"></a>오류 코드: DF-Cosmos-DeleteDataFailed
+- **메시지**: 3회 재시도 후에도 cosmos에서 데이터를 삭제하지 못했습니다.
+- **원인**: Cosmos 컬렉션 처리량이 작아서 제한 조건을 충족했거나 행 데이터가 Cosmo에 없습니다.
+- **권장 사항**: 이 문제를 해결하려면 다음 작업을 수행합니다.
+    1. 오류가 404인 경우 관련 행 데이터가 Cosmos 컬렉션에 있는지 확인합니다. 
+    1. 오류가 제한인 경우 Cosmos 컬렉션 처리량을 늘리거나 자동 스케일링으로 설정합니다.
+
+### <a name="error-code-df-sqldw-errorrowsfound"></a>오류 코드: DF-SQLDW-ErrorRowsFound
+- **메시지**: sql 싱크에 쓰는 동안 오류/잘못된 행이 발견되었습니다. 거부된 데이터 스토리지 위치가 구성된 경우 이 위치에 오류/잘못된 행이 기록됩니다.
+- **원인**: SQL 싱크에 쓸 때 오류 또는 잘못된 행이 발견되었습니다.
+- **권장 사항**: 거부된 데이터 스토리지 위치가 구성된 경우 이 위치에서 오류 행을 찾습니다.
+
+### <a name="error-code-df-sqldw-exporterrorrowfailed"></a>오류 코드: DF-SQLDW-ExportErrorRowFailed
+- **메시지**: 스토리지에 오류 행을 쓰는 동안 예외가 발생했습니다.
+- **원인**: 스토리지에 오류 행을 쓰는 동안 예외가 발생했습니다.
+- **권장 사항**: 거부된 데이터 연결된 서비스 구성을 확인합니다.
+
+### <a name="error-code-df-executor-fieldnotexist"></a>오류 코드: DF-Executor-FieldNotExist
+- **메시지**: 구조체의 필드가 없습니다.
+- **원인**: 잘못되었거나 사용할 수 없는 필드 이름이 식에 사용됩니다.
+- **권장 사항**: 식에 사용된 열 이름을 확인합니다.
+
+### <a name="error-code-df-xml-invalidelement"></a>오류 코드: DF-Xml-InvalidElement
+- **메시지**: XML 요소에 변환할 수 없는 하위 요소 또는 특성이 있습니다.
+- **원인**: XML 요소에 변환할 수 없는 하위 요소 또는 특성이 있습니다.
+- **권장 사항**: XML 요소에 올바른 하위 요소 또는 특성이 있도록 XML 파일을 업데이트합니다.
+
+### <a name="error-code-df-gen2-invalidcloudtype"></a>오류 코드: DF-GEN2-InvalidCloudType
+- **메시지**: 클라우드 형식이 잘못되었습니다.
+- **원인**: 제공한 클라우드 형식이 잘못되었습니다.
+- **권장 사항**: 관련 ADLS Gen2 연결된 서비스에서 클라우드 형식을 확인합니다.
+
+### <a name="error-code-df-blob-invalidcloudtype"></a>오류 코드: DF-Blob-InvalidCloudType
+- **메시지**: 클라우드 형식이 잘못되었습니다.
+- **원인**: 제공한 클라우드 형식이 잘못되었습니다.
+- **권장 사항**: 관련 Azure Blob 연결된 서비스에서 클라우드 형식을 확인합니다.
+
+### <a name="error-code-df-cosmos-failtoresetthroughput"></a>오류 코드: DF-Cosmos-FailToResetThroughput
+- **메시지**: 다른 스케일링 작업이 진행 중이므로 Cosmos DB 처리량 스케일링 작업을 수행할 수 없습니다. 잠시 후 다시 시도하세요.
+- **원인**: 다른 스케일링 작업이 진행 중이므로 Cosmos DB 처리량 스케일링 작업을 수행할 수 없습니다.
+- **권장 사항**: Cosmos 계정에 로그인하고, 자동 스케일링되도록 컨테이너 처리량을 수동으로 변경하거나 데이터 흐름 후에 사용자 지정 활동을 추가하여 처리량을 다시 설정합니다.
+
+### <a name="error-code-df-executor-invalidpath"></a>오류 코드: DF-Executor-InvalidPath
+- **메시지**: 경로가 파일로 확인되지 않습니다. 파일/폴더가 존재하고 숨겨져 있지 않은지 확인하세요.
+- **원인**: 제공한 파일/폴더 경로가 잘못되어 찾거나 액세스할 수 없습니다.
+- **권장 사항**: 파일/폴더 경로를 검사하여 존재하는 파일/폴더 경로이며 스토리지에서 액세스할 수 있는지 확인합니다.
+
+### <a name="error-code-df-executor-invalidpartitionfilenames"></a>오류 코드: DF-Executor-InvalidPartitionFileNames
+- **메시지**: 파일 이름 옵션은 파티션별로 설정되지만 파일 이름에 빈 값이 있으면 안 됩니다.
+- **원인**: 제공한 파티션 파일 이름이 잘못되었습니다.
+- **권장 사항**: 싱크 설정의 파일 이름 값이 올바른지 확인합니다.
+
+### <a name="error-code-df-executor-invalidoutputcolumns"></a>오류 코드: DF-Executor-InvalidOutputColumns
+- **메시지**: 결과에 출력 열이 없습니다. 적어도 하나 이상의 열이 매핑되어야 합니다.
+- **원인**: 열이 매핑되지 않았습니다.
+- **권장 사항**: 싱크 스키마를 확인하여 하나 이상의 열이 매핑되도록 합니다.
+
+### <a name="error-code-df-executor-invalidinputcolumns"></a>오류 코드: DF-Executor-InvalidInputColumns
+- **메시지**: 원본 데이터의 스키마에서 원본 구성의 열을 찾을 수 없습니다.
+- **원인**: 원본에 제공한 열이 잘못되었습니다.
+- **권장 사항**: 원본 구성의 열을 검사하여 해당 열이 원본 데이터 스키마의 하위 집합인지 확인합니다.
+
+### <a name="error-code-df-adobeintegration-invalidmaptofilter"></a>오류 코드: DF-AdobeIntegration-InvalidMapToFilter
+- **메시지**: 사용자 지정 리소스의 키/Id 중 하나만 필터에 매핑되어야 합니다.
+- **원인**: 제공한 구성이 잘못되었습니다.
+- **권장 사항**: AdobeIntegration 설정에서 사용자 지정 리소스의 키/Id 중 하나만 필터에 매핑되도록 합니다.
+
+### <a name="error-code-df-adobeintegration-invalidpartitionconfiguration"></a>오류 코드: DF-AdobeIntegration-InvalidPartitionConfiguration
+- **메시지**: 단일 파티션만 지원됩니다. 파티션 스키마는 RoundRobin 또는 Hash일 수 있습니다.
+- **원인**: 제공한 파티션 구성이 잘못되었습니다.
+- **권장 사항**: AdobeIntegration 설정에서 단일 파티션만 설정되었고 파티션 스키마가 RoundRobin 또는 Hash일 수 있는지 확인합니다.
+
+### <a name="error-code-df-adobeintegration-keycolumnmissed"></a>오류 코드: DF-AdobeIntegration-KeyColumnMissed
+- **메시지**: 삽입 불가능 작업의 키 열을 지정해야 합니다.
+- **원인**: 키 열이 누락되었습니다.
+- **권장 사항**: 삽입 불가능 작업에 대한 키 열이 지정되도록 AdobeIntegration 설정을 업데이트합니다.
+
+### <a name="error-code-df-adobeintegration-invalidpartitiontype"></a>오류 코드: DF-AdobeIntegration-InvalidPartitionType
+- **메시지**: 파티션 형식은 roundRobin이어야 합니다.
+- **원인**: 제공한 파티션 형식이 잘못되었습니다.
+- **권장 사항**: 파티션 형식이 RoundRobin이 되도록 AdobeIntegration 설정을 업데이트합니다.
+
+### <a name="error-code-df-adobeintegration-invalidprivacyregulation"></a>오류 코드: DF-AdobeIntegration-InvalidPrivacyRegulation
+- **메시지**: 현재 지원되는 개인 정보 규정은 gdpr이 유일합니다.
+- **원인**: 제공한 개인 정보 구성이 잘못되었습니다.
+- **권장 사항**: 개인 정보 'GDPR'만 지원되므로 AdobeIntegration 설정을 업데이트합니다.
 
 ## <a name="miscellaneous-troubleshooting-tips"></a>기타 문제 해결 팁
 - **이슈**: 예기치 않은 예외가 발생하여 실행에 실패했습니다.

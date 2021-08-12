@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-js
-ms.openlocfilehash: cb9e68efd27deb3bf66d3c286c0cd7a128d8bf59
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 2e3af0068902735c4114893d859c04f6ca9f1829
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430584"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112914304"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>자습서: 단일 페이지 웹앱 만들기
 
@@ -431,4 +431,4 @@ cors-proxy-server
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [Bing News Search API 참조](//docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)
+> [Bing News Search API 참조](/rest/api/cognitiveservices/bing-news-api-v7-reference)

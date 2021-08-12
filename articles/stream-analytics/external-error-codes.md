@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
 ms.openlocfilehash: 9f55a715b11b126ea340e665e008d7245e578190
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98016391"
 ---
 # <a name="azure-stream-analytics-external-error-codes"></a>Azure Stream Analytics 외부 오류 코드
@@ -85,11 +85,11 @@ ms.locfileid: "98016391"
 
 ## <a name="sqldwoutputinitializationerror"></a>SQLDWOutputInitializationError
 
-* **원인**: 전용 SQL 풀 출력을 초기화 하는 동안 오류가 발생 했습니다.
+* **원인**: 전용 SQL 풀 출력을 초기화하는 동안 오류가 발생했습니다.
 
 ## <a name="sqldwoutputwriteerror"></a>SQLDWOutputWriteError
 
-* **원인**: 전용 SQL 풀에 출력을 쓸 때 오류가 발생 했습니다.
+* **원인**: 전용 SQL 풀에 출력을 쓰는 동안 오류가 발생했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

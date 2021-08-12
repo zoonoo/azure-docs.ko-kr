@@ -6,16 +6,16 @@ ms.topic: tutorial
 ms.date: 04/22/2021
 ms.author: jukullam
 ms.custom: github-actions-azure
-ms.openlocfilehash: 5f27a0cbfedd9b5021be2aa54ab5fb021b48d0b2
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: f8048dab26451fea85b52caa3ffdc27d7e0a677a
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110103295"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894149"
 ---
 # <a name="tutorial-use-github-actions-to-deploy-to-app-service-for-containers-and-connect-to-a-database"></a>자습서: GitHub Actions를 사용하여 컨테이너용 App Service에 배포 및 데이터베이스에 연결
 
-이 자습서에서는 [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) 백 엔드를 사용하여 컨테이너화된 ASP.NET Core 애플리케이션을 배포하는 GitHub Actions 워크플로를 설정하는 과정을 안내합니다. 완료되면 ASP.NET 앱이 Azure에서 실행되고 SQL Database에 연결됩니다. 먼저 [ARM 템플릿](/azure/azure-resource-manager/templates/overview) GitHub Actions 워크플로를 사용하여 Azure 리소스를 만듭니다.
+이 자습서에서는 [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) 백 엔드를 사용하여 컨테이너화된 ASP.NET Core 애플리케이션을 배포하는 GitHub Actions 워크플로를 설정하는 과정을 안내합니다. 완료되면 ASP.NET 앱이 Azure에서 실행되고 SQL Database에 연결됩니다. 먼저 [ARM 템플릿](../azure-resource-manager/templates/overview.md) GitHub Actions 워크플로를 사용하여 Azure 리소스를 만듭니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -85,7 +85,7 @@ https://shell.azure.com 에서 Azure Cloud Shell을 엽니다. Azure CLI를 로�
 
 ## <a name="create-azure-resources"></a>Azure 리소스 만들기
 
-Azure 리소스 만들기 워크플로는 [ARM 템플릿](/azure/azure-resource-manager/templates/overview)을 실행하여 Azure에 리소스를 배포합니다. 워크플로는 다음을 수행합니다.
+Azure 리소스 만들기 워크플로는 [ARM 템플릿](../azure-resource-manager/templates/overview.md)을 실행하여 Azure에 리소스를 배포합니다. 워크플로는 다음을 수행합니다.
 
 - [체크 아웃 작업](https://github.com/marketplace/actions/checkout)을 사용하여 소스 코드를 체크 아웃합니다.
 - [Azure 로그인 작업](https://github.com/marketplace/actions/azure-login)을 사용하여 Azure에 로그인하고 환경 및 Azure 리소스 정보를 수집합니다.
@@ -119,7 +119,7 @@ Azure 리소스 만들기 워크플로를 실행하려면 다음을 수행합니
 
 ## <a name="build-push-and-deploy-your-image"></a>이미지 빌드, 푸시 및 배포
 
-빌드, 푸시 및 배포 워크플로는 최신 앱 변경 내용으로 컨테이너를 작성하고, 컨테이너를 [Azure Container Registry](/azure/container-registry/)로 푸시하고, 푸시된 최신 컨테이너를 가리키도록 웹 애플리케이션 스테이징 슬롯을 업데이트합니다. 워크플로 컨테이너 빌드 및 배포 작업:
+빌드, 푸시 및 배포 워크플로는 최신 앱 변경 내용으로 컨테이너를 작성하고, 컨테이너를 [Azure Container Registry](../container-registry/index.yml)로 푸시하고, 푸시된 최신 컨테이너를 가리키도록 웹 애플리케이션 스테이징 슬롯을 업데이트합니다. 워크플로 컨테이너 빌드 및 배포 작업:
 
 - 빌드 작업은 [체크 아웃 작업](https://github.com/marketplace/actions/checkout)을 사용하여 소스 코드를 체크 아웃합니다. 그런 다음, [Docker 로그인 작업](https://github.com/marketplace/actions/docker-login)과 사용자 지정 스크립트를 사용하여 Azure Container Registry로 인증하고, 컨테이너 이미지를 빌드하고, Azure Container Registry에 배포합니다.
 - 배포 작업은 [Azure 로그인 작업](https://github.com/marketplace/actions/azure-login)을 사용하여 Azure에 로그인하고 환경 및 Azure 리소스 정보를 수집합니다. 그런 다음, 작업은 [Azure App Service 설정 작업](https://github.com/marketplace/actions/azure-app-service-settings)을 사용하여 웹앱 설정을 업데이트하고 [Azure 웹 배포 작업](https://github.com/marketplace/actions/azure-webapp)을 사용하여 App Service 스테이징 슬롯에 배포합니다. 마지막으로 작업은 사용자 지정 스크립트를 실행하여 SQL 데이터베이스를 업데이트하고 스테이징 슬롯을 프로덕션으로 교환합니다.

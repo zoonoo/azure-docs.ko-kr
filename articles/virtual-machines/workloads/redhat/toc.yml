@@ -1,13 +1,23 @@
 - name: 개요
   href: overview.md
-- name: Red Hat Enterprise Linux 이미지
+- name: Azure의 Red Hat Enterprise Linux 이미지
   items:
-    - name: RHEL 이미지 개요
-      href: redhat-images.md
+    - name: RHEL 현재 위치 업그레이드
+      href: redhat-in-place-upgrade.md
+    - name: RHEL BYOS 이미지 제품
+      href: byos.md
+    - name: RHEL 확장 수명 주기 지원
+      href: redhat-extended-lifecycle-support.md
     - name: RHEL 이미지 목록
       href: redhat-imagelist.md
-- name: Red Hat Java 빠른 시작
+    - name: RHEL 이미지 개요
+      href: redhat-images.md
+    - name: Azure의 RHUI
+      href: redhat-rhui.md
+- name: Azure의 Red Hat Enterprise Java
   items:
+    - name: Azure의 JBoss EAP
+      href: /azure/developer/java/ee/jboss-on-azure
     - name: VM의 JBoss EAP + RHEL
       href: jboss-eap-on-rhel.md
     - name: JBoss EAP 마켓플레이스 이미지
@@ -17,14 +27,6 @@
     - name: JBoss EAP를 Azure VM으로 마이그레이션
       href: jboss-eap-on-azure-migration.md
     - name: JBoss EAP를 App Service로 마이그레이션
-      href: /azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
+      href: ./overview.md
     - name: VM의 WildFly + CentOS
       href: wildfly-on-centos.md
-- name: Azure의 Red Hat 업데이트 인프라
-  href: redhat-rhui.md
-- name: Red Hat Enterprise Linux BYOS 이미지 제품
-  href: byos.md
-- name: Red Hat Enterprise Linux 연장된 수명 주기 지원
-  href: redhat-extended-lifecycle-support.md
-- name: Azure에서 Red Hat Enterprise 이미지의 현재 위치 업그레이드
-  href: redhat-in-place-upgrade.md

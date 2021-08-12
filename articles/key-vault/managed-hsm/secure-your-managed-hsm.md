@@ -2,19 +2,19 @@
 title: 관리형 HSM에 대한 보안 액세스 - Azure Key Vault 관리형 HSM
 description: Azure RBAC 및 Managed HSM 로컬 RBAC를 사용하여 Managed HSM에 대한 액세스를 보호하는 방법을 알아봅니다.
 services: key-vault
-author: amitbapat
+author: mbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.author: ambapat
-ms.openlocfilehash: 07602bfefbbd38538973c799e2306d21b7a840f1
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.author: mbaldwin
+ms.openlocfilehash: d374df5e0e072fbcc64ddc5e376fb558b3b4fb86
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411992"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440280"
 ---
 # <a name="secure-access-to-your-managed-hsms"></a>관리형 HSM에 대한 보안 액세스
 
@@ -27,7 +27,7 @@ Azure Key Vault 관리형 HSM은 암호화 키를 보호하는 클라우드 서�
 이 문서의 단계를 완료하려면 다음 항목이 있어야 합니다.
 
 * Microsoft Azure에 대한 구독. 아직 구독하지 않은 경우 [평가판](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
-* Azure CLI 버전 2.12.0 이상. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+* Azure CLI 버전 2.25.0 이상 `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 * 구독의 관리형 HSM. [빠른 시작: Azure CLI를 사용하여 관리형 HSM 프로비저닝 및 활성화](quick-create-cli.md)를 참조하여 관리형 HSM을 프로비저닝하고 활성화합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]

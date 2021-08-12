@@ -6,28 +6,25 @@ ms.author: nimag
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: eb0f596a2da9b501f57ca1b2795bffa338e3234c
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: f394448f0b488f468ce09c13d036585db032bda9
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560828"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112535946"
 ---
 이 빠른 시작에서는 JavaScript용 Azure Communication Services Calling SDK를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
 
-> [!NOTE]
-> 이 문서에서는 Calling SDK의 버전 1.1.0-beta.1을 사용합니다.
+## <a name="sample-code"></a>예제 코드
 
-> [!NOTE]
-> [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling)에서 이 빠른 시작에 대한 최종 코드 칮기
+샘플 앱은 [Github](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling)에서 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) 활성 LTS 및 유지 관리 LTS 버전(8.11.1 및 10.14.1 권장)
 - 활성 Communication Services 리소스 [Communication Services 리소스를 만듭니다](../../../create-communication-resource.md).
 - 호출 클라이언트를 인스턴스화하기 위한 사용자 액세스 토큰입니다. [사용자 액세스 토큰 만들기 및 관리](../../../access-tokens.md) 방법에 대해 알아봅니다.
-
 
 [!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
 
@@ -98,10 +95,11 @@ Azure Communication Services Calling SDK의 주요 기능 중 일부를 처리�
 | CallAgent                        | CallAgent는 통화를 시작하고 관리하는 데 사용됩니다.                                                                                            |
 | AzureCommunicationTokenCredential | AzureCommunicationTokenCredential 클래스는 CallAgent를 인스턴스화하는 데 사용되는 CommunicationTokenCredential 인터페이스를 구현합니다. |
 
-
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-텍스트 필드에 리소스에 대한 유효한 사용자 액세스 토큰을 입력하고 '제출'을 클릭해야 합니다. 사용할 수 있는 토큰이 아직 없는 경우 [사용자 액세스 토큰](../../../access-tokens.md) 설명서를 참조하세요. `CallClient`를 사용하여 호출을 수행하고 받을 수 있도록 하는 `CommunicationTokenCredential`을 사용하여 `CallAgent` 인스턴스를 초기화합니다. **client.js** 에 다음 코드를 추가합니다.
+텍스트 필드에 리소스에 대한 유효한 사용자 액세스 토큰을 입력하고 '제출'을 클릭해야 합니다. 사용할 수 있는 토큰이 아직 없는 경우 [사용자 액세스 토큰](../../../access-tokens.md) 설명서를 참조하세요. `CallClient`를 사용하여 호출을 수행하고 받을 수 있도록 하는 `CommunicationTokenCredential`을 사용하여 `CallAgent` 인스턴스를 초기화합니다. 
+
+**client.js** 에 다음 코드를 추가합니다.
 
 ```javascript
 submitToken.addEventListener("click", async () => {
@@ -167,7 +165,3 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 :::image type="content" source="../../media/javascript/calling-javascript-app-2.png" alt-text="완성된 JavaScript 애플리케이션의 스크린샷":::
 
 해당 텍스트 필드에 유효한 사용자 액세스 토큰과 사용자 ID를 제공하고 **호출 시작** 단추를 클릭하여 아웃바운드 VOIP 호출을 수행할 수 있습니다. `8:echo123`에 전화를 걸면 에코 봇과 연결됩니다. 이렇게 하면 통화를 시작하고 오디오 디바이스가 작동하는지 확인하는 데 유용합니다.
-
-## <a name="sample-code"></a>예제 코드
-
-샘플 앱은 [Github](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling)에서 다운로드할 수 있습니다.

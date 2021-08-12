@@ -12,22 +12,22 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 235efc550fd47d4244a5bf081c75d5e824a8e4b4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92793435"
 ---
 # <a name="split-merge-security-configuration"></a>분할-병합 보안 구성
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-분할/병합 서비스를 사용하려면 보안을 올바르게 구성해야 합니다. 이 서비스는 Azure SQL Database의 탄력적 크기 조정 기능에 포함 되어 있습니다. 자세한 내용은 [탄력적인 확장 분할 및 병합 서비스 자습서](elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.
+분할/병합 서비스를 사용하려면 보안을 올바르게 구성해야 합니다. 이 서비스는 Azure SQL Database의 Elastic Scale 기능에 포함되어 있습니다. 자세한 내용은 [탄력적인 확장 분할 및 병합 서비스 자습서](elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.
 
 ## <a name="configuring-certificates"></a>인증서 구성
 
 인증서는 두 가지 방법으로 구성합니다. 
 
-1. [TLS/SSL 인증서를 구성 하려면](#to-configure-the-tlsssl-certificate)
+1. [TLS/SSL 인증서를 구성하는 방법](#to-configure-the-tlsssl-certificate)
 2. [클라이언트 인증서를 구성하려면](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>인증서를 얻으려면
@@ -53,14 +53,14 @@ ms.locfileid: "92793435"
 
 * WDK 가져오기 [Windows 8.1: 키트 및 도구 다운로드](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
-## <a name="to-configure-the-tlsssl-certificate"></a>TLS/SSL 인증서를 구성 하려면
+## <a name="to-configure-the-tlsssl-certificate"></a>TLS/SSL 인증서를 구성하는 방법
 
-통신을 암호화 하 고 서버를 인증 하려면 TLS/SSL 인증서가 필요 합니다. 아래 세 가지 시나리오 중 가장 적합한 시나리오를 선택하고 모든 단계를 실행합니다.
+통신을 암호화하고 서버를 인증하려면 TLS/SSL 인증서가 필요합니다. 아래 세 가지 시나리오 중 가장 적합한 시나리오를 선택하고 모든 단계를 실행합니다.
 
 ### <a name="create-a-new-self-signed-certificate"></a>자체 서명된 새로운 인증서 만들기
 
-1. [Self-Signed 인증서 만들기](#create-a-self-signed-certificate)
-2. [Self-Signed TLS/SSL 인증서에 대 한 PFX 파일 만들기](#create-pfx-file-for-self-signed-tlsssl-certificate)
+1. [자체 서명된 인증서 만들기](#create-a-self-signed-certificate)
+2. [자체 서명된 TLS/SSL 인증서용 PFX 파일 생성하기](#create-pfx-file-for-self-signed-tlsssl-certificate)
 3. [클라우드 서비스에 TLS/SSL 인증서 업로드](#upload-tlsssl-certificate-to-cloud-service)
 4. [서비스 구성 파일에서 TLS/SSL 인증서 업데이트](#update-tlsssl-certificate-in-service-configuration-file)
 5. [TLS/SSL 인증 기관 가져오기](#import-tlsssl-certification-authority)
@@ -85,7 +85,7 @@ ms.locfileid: "92793435"
 2. [클라우드 서비스에 CA 인증서 업로드](#upload-ca-certificate-to-cloud-service)
 3. [서비스 구성 파일의 CA 인증서 업데이트](#update-ca-certificate-in-service-configuration-file)
 4. [클라이언트 인증서 발급](#issue-client-certificates)
-5. [클라이언트 인증서에 대 한 PFX 파일 만들기](#create-pfx-files-for-client-certificates)
+5. [클라이언트 인증서용 PFX 파일 만들기](#create-pfx-files-for-client-certificates)
 6. [클라이언트 인증서 가져오기](#import-client-certificate)
 7. [클라이언트 인증서 지문 복사](#copy-client-certificate-thumbprints)
 8. [서비스 구성 파일에서 허용된 클라이언트 구성](#configure-allowed-clients-in-the-service-configuration-file)
@@ -105,7 +105,7 @@ ms.locfileid: "92793435"
 메타데이터 저장소에 저장된 자격 증명을 암호화하려면 인증서가 필요합니다. 아래 세 가지 시나리오 중 가장 적합한 시나리오를 선택하고 모든 단계를 실행합니다.
 
 ### <a name="use-a-new-self-signed-certificate"></a>자체 서명된 새로운 인증서 사용
-1. [Self-Signed 인증서 만들기](#create-a-self-signed-certificate)
+1. [자체 서명된 인증서 만들기](#create-a-self-signed-certificate)
 2. [자체 서명된 암호화 인증서용 PFX 파일 만들기](#create-pfx-file-for-self-signed-tlsssl-certificate)
 3. [클라우드 서비스에 암호화 인증서 업로드](#upload-encryption-certificate-to-cloud-service)
 4. [서비스 구성 파일에서 암호화 인증서 업데이트](#update-encryption-certificate-in-service-configuration-file)
@@ -124,7 +124,7 @@ ms.locfileid: "92793435"
 기본 구성에서는 HTTPS 엔드포인트에 대한 모든 액세스가 허용됩니다. 이 설정을 추가로 제한할 수 있습니다.
 
 ### <a name="changing-the-configuration"></a>구성 변경
-및 끝점에 적용 되는 액세스 제어 규칙 그룹은 **\<EndpointAcls>** **서비스 구성 파일** 의 섹션에서 구성 됩니다.
+**서비스 구성 파일** 의 **\<EndpointAcls>** 섹션에서 엔드포인트에 적용되는 액세스 제어 규칙 그룹을 구성합니다.
 
 ```xml
 <EndpointAcls>
@@ -210,7 +210,7 @@ makecert ^
 * -n을 서비스 URL로 바꿉니다. 와일드카드("CN=*.cloudapp.net") 및 대체 이름("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net")이 지원됩니다.
 * -e 및 인증서 만료 날짜                 강력한 암호를 만들고 메시지가 표시되면 해당 암호를 지정합니다.
 
-## <a name="create-pfx-file-for-self-signed-tlsssl-certificate"></a>자체 서명 된 TLS/SSL 인증서에 대 한 PFX 파일 만들기
+## <a name="create-pfx-file-for-self-signed-tlsssl-certificate"></a>자체 서명된 TLS/SSL 인증서용 PFX 파일 생성하기
 다음 코드를 실행합니다.
 
 ```console
@@ -230,7 +230,7 @@ pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
   * 가능하면 인증 경로에 있는 인증서 모두 포함 *확장된 속성 모두 내보내기
 
 ## <a name="upload-tlsssl-certificate-to-cloud-service"></a>클라우드 서비스에 TLS/SSL 인증서 업로드
-기존 또는 생성 된를 사용 하 여 인증서를 업로드 합니다. TLS 키 쌍을 사용 하는 PFX 파일:
+TLS 키 쌍이 포함된 기존 또는 생성된 .PFX 파일과 인증서를 업로드합니다.
 
 * 프라이빗 키 정보를 보호하는 암호를 입력합니다.
 
@@ -258,7 +258,7 @@ pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
 <Setting name="SetupWebserverForClientCertificates" value="false" />
 ```
 
-그런 다음 CA 인증서 설정에서 TLS/SSL 인증서와 동일한 지문을 복사 합니다.
+그런 다음 CA 인증서 설정의 TLS/SSL 인증서와 동일한 지문을 복사합니다.
 
 ```xml
 <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
@@ -375,9 +375,9 @@ MyID.pvk and MyID.cer with the filename for the client certificate
 * 표시되는 인증서 대화 상자에서 세부 정보 탭을 선택합니다.
 * 표시가 모두를 나타내는지 확인합니다.
 * 목록에서 지문이라는 필드를 선택합니다.
-* 지문 값을 복사 합니다.
-  * 첫 번째 숫자 앞에 표시 되지 않는 유니코드 문자를 삭제 합니다.
-  * 모든 공백 삭제
+* 지문 값을 복사합니다
+  * 첫 번째 숫자 앞에 표시되지 않는 유니코드 문자를 삭제합니다
+  * 모든 공백을 삭제합니다
 
 ## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>서비스 구성 파일에서 허용된 클라이언트 구성
 서비스 구성 파일에서 다음 설정의 값을 서비스에 대한 액세스가 허용된 클라이언트 인증서의 지문 목록(쉼표로 구분)으로 업데이트합니다.
@@ -444,7 +444,7 @@ MyID.pvk and MyID.cer with the filename for the encryption certificate
 3. **인증서** 를 선택합니다.
 4. **추가** 를 클릭합니다.
 5. 인증서 저장소 위치를 선택합니다.
-6. **마침** 을 클릭합니다.
+6. **Finish** 를 클릭합니다.
 7. **확인** 을 클릭합니다.
 8. **인증서** 를 확장합니다.
 9. 인증서 저장소 노드를 확장합니다.
@@ -482,13 +482,13 @@ MyID.pvk and MyID.cer with the filename for the encryption certificate
 5. 다음 저장소에 인증서 저장을 선택합니다.
 6. **찾아보기** 를 클릭합니다.
 7. 원하는 저장소를 선택합니다.
-8. **마침** 을 클릭합니다.
+8. **Finish** 를 클릭합니다.
    
    * 신뢰할 수 있는 루트 인증 기관 저장소를 선택한 경우 **예** 를 클릭합니다.
 9. 모든 대화 상자 창에서 **확인** 을 클릭합니다.
 
 ## <a name="upload-certificate"></a>인증서 업로드
-[Azure Portal](https://portal.azure.com/)
+[Azure Portal](https://portal.azure.com/)에서
 
 1. **Cloud Services** 를 선택합니다.
 2. 클라우드 서비스를 선택합니다.
@@ -499,7 +499,7 @@ MyID.pvk and MyID.cer with the filename for the encryption certificate
 7. 완료되면 목록의 새 항목에서 인증서 지문을 복사합니다.
 
 ## <a name="other-security-considerations"></a>기타 보안 고려 사항
-이 문서에서 설명 하는 TLS 설정은 HTTPS 끝점을 사용 하는 경우 서비스와 클라이언트 간의 통신을 암호화 합니다. 데이터베이스 액세스에 대한 자격 증명 및 기타 잠재적으로 중요한 정보가 통신에 포함되므로 이러한 암호화가 중요합니다. 그러나 서비스는 Microsoft Azure 구독에서 메타 데이터 저장소에 대해 제공한 Azure SQL Database의 데이터베이스 내부 테이블에 자격 증명을 포함 하 여 내부 상태를 유지 합니다. 해당 데이터베이스는 서비스 구성 파일(.CSCFG 파일)에서 다음 설정의 일부로 정의됩니다. 
+이 문서에 설명된 TLS 설정은 HTTPS 엔드포인트를 사용하는 경우 해당 클라이언트와 서비스 간의 통신을 암호화합니다. 데이터베이스 액세스에 대한 자격 증명 및 기타 잠재적으로 중요한 정보가 통신에 포함되므로 이러한 암호화가 중요합니다. 단, 서비스에서 Microsoft Azure 구독의 메타데이터 스토리지에 대해 제공한 Azure SQL Database의 내부 테이블에 있는 자격 증명을 비롯하여 내부 상태를 유지합니다. 해당 데이터베이스는 서비스 구성 파일(.CSCFG 파일)에서 다음 설정의 일부로 정의됩니다. 
 
 ```xml
 <Setting name="ElasticScaleMetadata" value="Server=…" />

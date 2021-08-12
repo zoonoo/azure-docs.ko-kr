@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: lajanuar
 ms.topic: overview
-ms.openlocfilehash: 07bc3cd9fdda98e6eeb0d7fe4ebefd562aafc47b
-ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
+ms.openlocfilehash: b40aaea15515d29a7cff6fd34c246b29ef9401dd
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107992307"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114361787"
 ---
 # <a name="what-is-custom-translator"></a>Custom Translator란?
 
@@ -22,7 +22,7 @@ ms.locfileid: "107992307"
 
 [Custom Translator](https://portal.customtranslator.azure.ai)를 사용하여 빌드된 번역 시스템은 매일 수십억 건을 번역할 수 있는 동일한 클라우드 기반의 안전하고 성능과 확장성이 우수한 Microsoft Translator [Text API V3](../reference/v3-0-translate.md?tabs=curl)를 통해 사용할 수 있습니다.
 
-Custom Translator는 36개가 넘는 언어를 지원하며, NMT에 제공되는 언어에 직접 매핑됩니다. 전체 목록은 [Microsoft Translator 언어](../language-support.md#customization)를 참조하세요.
+Custom Translator는 36개가 넘는 언어를 지원하며, NMT에 제공되는 언어에 직접 매핑됩니다. 전체 목록은 [Microsoft Translator 언어](../language-support.md)를 참조하세요.
 
 이 설명서에는 다음과 같은 문서 유형이 포함되어 있습니다.
 

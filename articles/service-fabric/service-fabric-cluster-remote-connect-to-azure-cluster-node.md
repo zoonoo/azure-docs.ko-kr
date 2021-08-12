@@ -4,10 +4,10 @@ description: 확장 집합 인스턴스(Service Fabric 클러스터 노드)에 �
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.openlocfilehash: 98d573af4fc2026134e75d4caf24a09e57e52c87
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96012547"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>가상 머신 확장 집합 인스턴스 또는 클러스터 노드에 원격 연결
@@ -19,13 +19,13 @@ Azure에서 실행되는 Service Fabric 클러스터에서 정의한 각 클러�
 
     일반적으로 클러스터에 정의된 각 노드 형식에는 자체 가상 IP 주소와 전용 부하 분산 장치가 있습니다. 기본적으로 노드 형식에 대한 부하 분산 장치는 *LB-{cluster-name}-{node-type}* 형식으로 이름이 지정됩니다(예: *LB-mycluster-FrontEnd*). 
     
-    Azure Portal에서 부하 분산 장치에 대 한 페이지에서 **설정**  >  **인바운드 NAT 규칙** 을 선택 합니다. 
+    Azure Portal의 부하 분산 장치 페이지에서 **설정** > **인바운드 NAT 규칙** 을 선택합니다. 
 
-    ![Azure Portal 부하 분산 장치 페이지의 스크린샷 왼쪽 메뉴의 설정 아래에서 인바운드 NAT 규칙을 선택 합니다.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
+    ![Azure Portal에서 부하 분산 장치 페이지의 스크린샷 왼쪽 메뉴의 설정에서 인바운드 NAT 규칙이 선택됩니다.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
     다음 스크린샷에서는 FrontEnd라는 노드 형식에 대한 인바운드 NAT 규칙을 보여 줍니다. 
 
-    ![부하 분산 장치에 대 한 인바운드 NAT 규칙을 보여 주는 스크린샷 각 규칙에 대해 이름, IP 버전, 대상, 대상 및 서비스가 나열 됩니다.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
+    ![부하 분산 장치의 인바운드 NAT 규칙을 보여 주는 스크린샷 각 규칙의 이름, IP 버전, 대상(Destination), 대상(Target) 및 서비스가 나열됩니다.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
 
     각 노드에 대해 IP 주소가 **대상** 열에 표시되며, **대상** 은 확장 집합 인스턴스를 제공하고 **서비스** 열은 포트 번호를 제공합니다. 원격 연결의 경우 포트 3389부터 오름차순으로 각 노드에 포트가 할당됩니다.
 
@@ -52,7 +52,7 @@ Azure에서 실행되는 Service Fabric 클러스터에서 정의한 각 클러�
 
 다음 단계는 아래 문서를 참조하세요.
 * ["어디에나 배포" 기능의 개요 및 Azure 관리된 클러스터와 비교](service-fabric-deploy-anywhere.md)를 참조하세요.
-* [클러스터 보안](service-fabric-cluster-security.md)에 대해 알아봅니다.
+* [클러스터 보안](service-fabric-cluster-security.md)에 대해 알아보기
 * 배포 후에 클러스터 VM에서 [RDP 포트 범위 값 업데이트](./scripts/service-fabric-powershell-change-rdp-port-range.md)
 * 클러스터 VM에 대한 [관리자 사용자 이름 및 암호 변경](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md)
 

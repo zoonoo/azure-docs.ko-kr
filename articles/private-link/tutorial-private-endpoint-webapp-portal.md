@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/19/2020
-ms.openlocfilehash: 502c48a92f5b41c4434d03139335a0ce05fa451f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67c4b96ebb9e578e6a617b37e5a05084e72c4f56
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92896976"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "114285060"
 ---
 # <a name="tutorial-connect-to-a-web-app-using-an-azure-private-endpoint"></a>자습서: Azure Private Endpoint를 사용하여 웹앱에 연결
 
@@ -109,7 +109,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 리소스 그룹 | **myResourceGroup** 을 선택합니다. |
     | **인스턴스 세부 정보** |  |
     | 가상 머신 이름 | **myVM** 을 입력합니다. |
-    | Azure 지역 | **서유럽** 을 선택합니다. |
+    | 지역 | **서유럽** 을 선택합니다. |
     | 가용성 옵션 | **인프라 중복이 필요하지 않습니다** 를 선택합니다. |
     | 이미지 | **Windows Server 2019 Datacenter - Gen1** 을 선택합니다. |
     | Azure Spot 인스턴스 | **아니요** 를 선택합니다. |
@@ -135,6 +135,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 5. **검토 + 만들기** 를 선택합니다. 
   
 6. 설정을 검토한 다음, **만들기** 를 선택합니다.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="create-web-app"></a>웹앱 만들기
 

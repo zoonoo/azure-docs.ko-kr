@@ -17,10 +17,10 @@ ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d689db4916758e13311ad181fb3b5d7ca9a85260
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101675320"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>SAP NetWeaver에 대한 고가용성 아키텍처 및 시나리오
@@ -344,7 +344,7 @@ Linux에서 WSFC 또는 Pacemaker와 같은 기능을 사용하지 않기로 결
 
 > 이 섹션은 다음에 적용됩니다.
 >
-> ![Windows 로고.][Logo_Windows] Windows 및 ![Linux 로고.][Logo_Linux] Linux
+> ![Windows logo.][Logo_Windows] Windows 및 ![Linux logo.][Logo_Linux] Linux
 >
 
 일반적으로 SAP 애플리케이션 서버 및 대화 상자 인스턴스의 경우 특정 고가용성 솔루션이 필요하지 않습니다. 중복성으로 고가용성을 달성하고 다양한 Azure Virtual Machines 인스턴스에서 여러 대화 상자 인스턴스를 구성합니다. 두 개의 Azure Virtual Machines 인스턴스에 2개 이상의 SAP 애플리케이션 인스턴스가 설치되어 있어야 합니다.
@@ -382,7 +382,7 @@ _**그림 2:** Azure 가용성 집합에서 SAP 애플리케이션 서버의 고
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Windows의 SAP ASCS/SCS 인스턴스에 대한 고가용성 아키텍처
 
-> ![Windows 로고.][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 
 WSFC 솔루션을 사용하여 SAP ASCS/SCS 인스턴스를 보호할 수 있습니다. 솔루션에는 다음 두 가지 변형이 있습니다.
@@ -395,7 +395,7 @@ WSFC 솔루션을 사용하여 SAP ASCS/SCS 인스턴스를 보호할 수 있습
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Linux의 SAP ASCS/SCS 인스턴스에 대한 고가용성 아키텍처
 
-> ![Linux 로고.][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 > 
 > SLES 클러스터 프레임워크를 사용한 SAP ASCS/SCS 인스턴스 클러스터링에 대한 자세한 내용은 [SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성][sap-suse-ascs-ha]을 참조하세요. 고가용성 NFS가 필요하지 않은 SLES의 대체 HA 아키텍처의 경우, [SAP 애플리케이션을 위한 Azure NetAPP 파일을 포함한 SUSE Linux Enterprise Server에서 SAP NetWeaver 고가용성 가이드][sap-suse-ascs-ha-anf]를 참조하세요.
 
@@ -404,7 +404,7 @@ Red Hat 클러스터 프레임워크를 사용한 SAP ASCS/SCS 인스턴스 클�
 
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>클러스터형 SAP ASCS/SCS 인스턴스에 대한 SAP NetWeaver 다중 SID 구성
 
-> ![Windows 로고.][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 > 
 > 다중 SID는 파일 공유와 공유된 디스크사를 사용하여 WSFC로 지원됩니다.
 > 
@@ -414,7 +414,7 @@ Red Hat 클러스터 프레임워크를 사용한 SAP ASCS/SCS 인스턴스 클�
 
 * [Windows Server 장애 조치(failover) 클러스터링 및 공유 디스크에 대한 SAP ASCS/SCS 인스턴스 다중 SID 고가용성][sap-ascs-ha-multi-sid-wsfc-shared-disk]
 
-> ![Linux 로고.][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 > 
 > 다중 SID 클러스터링은 SAP ASCS/ERS를 위한 Linux Pacemaker 클러스터에서 지원되며 동일한 클러스터에서 SAP SID는 **5개** 로 제한됩니다.
 > Linux의 다중 SID 고가용성 아키텍처에 대한 자세한 내용은 다음을 참조하세요.

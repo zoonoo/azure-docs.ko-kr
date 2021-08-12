@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/28/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: b38b5303f21cb31115a2279648c8d631e31aa8bf
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f0f2e63a32c30c807f865a46154123643809de74
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459317"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114442848"
 ---
 # <a name="tutorial-create-logical-data-warehouse-with-serverless-sql-pool"></a>자습서: 서버리스 SQL 풀을 사용하여 Logical Data Warehouse 만들기
 
@@ -41,7 +41,7 @@ CREATE DATABASE Ldw
 
 데이터 원본은 데이터가 배치되는 위치 및 데이터 원본에 인증하는 방법을 설명하는 연결 문자열 정보를 나타냅니다.
 
-다음 예제에는 공용 [ECDC COVID 19 Azure 개방형 데이터 세트](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/)를 참조하는 데이터 원본 정의의 한 가지 예가 나와 있습니다.
+다음 예제에는 공용 [ECDC COVID 19 Azure 개방형 데이터 세트](/azure/open-datasets/dataset-ecdc-covid-cases)를 참조하는 데이터 원본 정의의 한 가지 예가 나와 있습니다.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE ecdc_cases WITH (
@@ -246,4 +246,3 @@ DENY ADMINISTER DATABASE BULK OPERATIONS TO [CovidAnalyst];
 
 - 서버리스 SQL 풀을 Power BI Desktop에 연결하고 보고서를 만드는 방법을 알아보려면 [서버리스 SQL 풀을 Power BI Desktop에 연결하고 보고서 만들기](tutorial-connect-power-bi-desktop.md)를 참조하세요.
 - 서버리스 SQL 풀에서 외부 테이블을 사용하는 방법을 알아보려면 [Synapse SQL에서 외부 테이블 사용](develop-tables-external-tables.md?tabs=sql-pool)을 참조하세요.
-

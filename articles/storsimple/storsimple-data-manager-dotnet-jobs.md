@@ -1,16 +1,16 @@
 ---
 title: Microsoft Azure StorSimple Data Manager 작업에 .NET SDK 사용
-description: StorSimple Data Manager 서비스 내에서 .NET SDK를 사용 하 여 StorSimple 장치 데이터를 변환 하는 방법에 대해 알아봅니다.
+description: StorSimple Data Manager 서비스 내에서 .NET SDK를 사용하여 StorSimple 디바이스 데이터를 변환하는 방법을 알아봅니다.
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: b18627d2806662d6d966af95d51873d5623b2393
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96015539"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>.NET SDK를 사용하여 데이터 변환 시작
@@ -26,7 +26,7 @@ ms.locfileid: "96015539"
  
   이 문서에서는 샘플 .NET 콘솔 애플리케이션을 만들어 데이터 변환 작업을 시작하고 완료하기 위해 추적하는 방법을 자세히 설명합니다. 자동화를 통해 데이터 변환을 시작하는 방법에 대한 자세한 내용을 보려면 [Azure Automation Runbook을 사용하여 데이터 변환 작업 트리거](storsimple-data-manager-job-using-automation.md)로 이동합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목이 있어야 합니다.
 *   다음을 실행하는 컴퓨터:
@@ -36,7 +36,7 @@ ms.locfileid: "96015539"
     - Azure Powershell. [Azure Powershell을 다운로드합니다](/powershell/azure/).
 *   리소스 그룹 내 StorSimple 데이터 관리자에 올바르게 구성된 작업 정의
 *   모든 필수 dll입니다. 이러한 dll을 [GitHub 리포지토리](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls)에서 다운로드합니다.
-*   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) GitHub 리포지토리에서 스크립트를 시작 합니다.
+*   GitHub 리포지토리의 [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) 스크립트입니다.
 
 ## <a name="step-by-step-procedure"></a>단계별 절차
 
@@ -61,7 +61,7 @@ ms.locfileid: "96015539"
 
 3. Visual Studio 2012, 2013 또는 2015를 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
 
-    1. **Visual Studio 2012/2013/2015** 를 시작 합니다.
+    1. **Visual Studio 2012/2013/2015** 을 실행합니다.
     1. **파일 > 새로 만들기 > 프로젝트** 를 선택합니다.
 
         ![프로젝트 1 만들기](media/storsimple-data-manager-dotnet-jobs/create-new-project-7.png)        

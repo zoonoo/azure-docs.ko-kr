@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure StorSimple 가상 배열 백업 자습서 | Microsoft Docs
-description: Microsoft Azure StorSimple 가상 배열에 대 한 예약 된 백업과 수동 백업을 만들고, 항목 수준 복구를 수행 하 여 가상 배열에서 삭제 된 파일을 복원 합니다.
+description: Microsoft Azure StorSimple 가상 배열의 예약된 백업과 수동 백업을 만들고 항목 수준 복구를 수행하여 가상 배열에서 삭제된 파일을 복원합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 99c7f4ab92e4cce3937a933fec97008c281a0eae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96018293"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에서 공유 또는 볼륨 백업

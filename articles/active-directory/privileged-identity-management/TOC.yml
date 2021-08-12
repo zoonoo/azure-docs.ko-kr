@@ -44,7 +44,7 @@
     - name: 승인
       items:
         - name: Azure AD 역할
-          href: pim-how-to-activate-role.md
+          href: azure-ad-pim-approval-workflow.md
         - name: Azure 역할
           href: pim-resource-roles-approval-workflow.md
         - name: 권한 있는 액세스 그룹

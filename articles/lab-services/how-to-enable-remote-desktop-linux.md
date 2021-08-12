@@ -4,10 +4,10 @@ description: Azure Lab Services의 랩에서 Linux 가상 머신에 대해 원�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 34c940fec388bb0e79ab5e1db9be6d52fb223873
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94647956"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Azure Lab Services에서 Linux 가상 머신에 대해 그래픽 원격 데스크톱을 사용하도록 설정
@@ -46,7 +46,7 @@ X2Go는 SSH에 대해 이미 사용하도록 설정된 것과 동일한 포트�
 
 1.  강사는 랩을 만드는 동안 **원격 데스크톱 연결 사용** 옵션을 선택할 수 있습니다.  강사는 이 옵션을 **사용하도록 설정** 하여 RDP 원격 데스크톱 세션에 필요한 Linux VM의 포트를 열어야 합니다.  이 옵션을 **사용하지 않도록 설정한** 상태로 놔두면 SSH의 포트만 열립니다.
   
-    !["원격 데스크톱 연결 사용" 옵션을 사용 하 여 "새 랩" 창을 보여 주는 스크린샷](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+    ![“원격 데스크톱 연결 사용” 옵션이 있는 “새 랩” 창을 보여 주는 스크린샷](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
 2. **원격 데스크톱 연결 활성화** 메시지 상자에서 **원격 데스크톱을 사용하여 계속** 을 선택합니다. 
 

@@ -1,5 +1,5 @@
 ---
-title: PaaS 리소스에 대 한 네트워크 액세스 제한-Azure CLI
+title: PaaS 리소스에 대한 네트워크 액세스 제한 - Azure CLI
 description: 이 문서에서는 Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트를 통해 Azure Storage 및 Azure SQL Database와 같은 Azure 리소스에 대한 네트워크 액세스를 제한하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
@@ -7,7 +7,6 @@ author: KumudD
 manager: mtillman
 editor: ''
 tags: azure-resource-manager
-Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -17,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5c23259a9cb1f3c409ad437a1e91151b5f401129
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 88c7b210e5fde7faafaf99af3fafab7b1cfd026a
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946301"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057306"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트로 PaaS 리소스에 대한 네트워크 액세스 제한
 
@@ -120,7 +119,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-각 네트워크 보안 그룹에는 몇 가지 [기본 보안 규칙이](./network-security-groups-overview.md#default-security-rules)포함 되어 있습니다. 다음 규칙은 모든 공용 IP 주소에 대 한 아웃 바운드 액세스를 허용 하는 기본 보안 규칙을 재정의 합니다. `destination-address-prefix "Internet"`옵션은 모든 공용 IP 주소에 대 한 아웃 바운드 액세스를 거부 합니다. 우선 순위가 더 높은 이전 규칙이 이 규칙을 재정의하여 Azure Storage의 공용 IP 주소에 대한 액세스를 허용합니다.
+각 네트워크 보안 그룹에는 몇 가지 [기본 보안 규칙](./network-security-groups-overview.md#default-security-rules)이 포함되어 있습니다. 모든 공용 IP 주소에 대한 아웃바운드 액세스를 허용하는 기본 보안 규칙을 재정의하는 규칙을 만듭니다. `destination-address-prefix "Internet"` 옵션은 모든 공용 IP 주소에 대한 아웃바운드 액세스를 거부합니다. 우선 순위가 더 높은 이전 규칙이 이 규칙을 재정의하여 Azure Storage의 공용 IP 주소에 대한 액세스를 허용합니다.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -137,7 +136,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-다음 규칙은 어디에서 나 서브넷에 대 한 SSH 트래픽 인바운드를 허용 합니다. 이 규칙은 인터넷의 모든 인바운드 트래픽을 거부하는 기본 보안 규칙을 재정의합니다. 이후 단계에서 연결을 테스트할 수 있도록 서브넷에 SSH를 사용할 수 있습니다.
+다음 규칙은 어디에서나 서브넷에 SSH 트래픽 인바운드를 허용합니다. 이 규칙은 인터넷의 모든 인바운드 트래픽을 거부하는 기본 보안 규칙을 재정의합니다. 이후 단계에서 연결을 테스트할 수 있도록 서브넷에 대한 SSH가 허용됩니다.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -272,7 +271,7 @@ VM을 만드는 데 몇 분이 걸립니다. 만든 후에는 반환된 출력�
 
 ## <a name="confirm-access-to-storage-account"></a>스토리지 계정에 대한 액세스 확인
 
-*myVmPrivate* VM으로 SSH를 수행합니다. *\<publicIpAddress>* 를 *Myvmprivate* VM의 공용 IP 주소로 바꿉니다.
+*myVmPrivate* VM으로 SSH를 수행합니다. *\<publicIpAddress>* 를 *myVmPrivate* VM의 공용 IP 주소로 바꿉니다.
 
 ```bash 
 ssh <publicIpAddress>
@@ -316,7 +315,7 @@ ssh <publicIpAddress>
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-만든 디렉터리에 Azure 파일 공유를 탑재합니다. 이 문서에서는 최신 버전의 Ubuntu를 배포했다고 가정합니다. 이전 버전의 Ubuntu를 사용하는 경우 [Linux에 탑재](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 파일 공유 탑재에 대한 추가 지침을 참조하세요. 다음 명령을 실행 하기 전에을 `<storage-account-name>` 계정 이름으로 바꾸고를 `<storage-account-key>` [저장소 계정 만들기](#create-a-storage-account)에서 검색 한 키로 바꿉니다.
+만든 디렉터리에 Azure 파일 공유를 탑재합니다. 이 문서에서는 최신 버전의 Ubuntu를 배포했다고 가정합니다. 이전 버전의 Ubuntu를 사용하는 경우 [Linux에 탑재](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 파일 공유 탑재에 대한 추가 지침을 참조하세요. 다음 명령을 실행하기 전에 `<storage-account-name>`을 계정 이름으로, `<storage-account-key>`를 [스토리지 계정 만들기](#create-a-storage-account)에서 검색한 키로 바꿉니다.
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino

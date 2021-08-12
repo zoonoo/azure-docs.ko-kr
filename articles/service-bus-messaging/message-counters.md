@@ -3,46 +3,111 @@ title: Azure Service Bus - 메시지 수
 description: Azure Resource Manager와 Azure Service Bus NamespaceManager API를 사용하여 큐 및 구독에 보관된 메시지 수를 검색합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: d0e1a7a5c6eb0b281b4e6ac08135f41f28ecbec8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ef2e50521b57fc45846acecf9e776e3ff24c5d4
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85341269"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987329"
 ---
-# <a name="message-counters"></a>메시지 카운터
+# <a name="get-message-counters"></a>메시지 카운터 가져오기
+이 문서에서는 큐 또는 구독에 대해 다음과 같은 메시지 수를 가져오는 다양한 방법을 보여 줍니다. 활성 메시지 수를 알면 큐가 현재 배포된 것보다 더 많은 리소스를 처리해야 하는 백로그를 빌드하는지 여부를 파악하는 데 유용합니다. 
 
-Azure Resource Manager와 .NET Framework SDK의 Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API를 사용하여 큐 및 구독에 보관된 메시지 수를 검색할 수 있습니다.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-PowerShell로 다음과 같이 수를 얻을 수 있습니다.
-
-```powershell
-(Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue).CountDetails
-```
-
-## <a name="message-count-details"></a>메시지 수 세부 정보
-
-활성 메시지 수를 알면 큐가 현재 배포된 것보다 더 많은 리소스를 처리해야 하는 백로그를 빌드하는지 여부를 파악하는 데 유용합니다. 다음 카운터 세부 정보는 [MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) 클래스에 있습니다.
-
--   [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ActiveMessageCount): 활성 상태에 있고 배달 준비가 된 큐 또는 구독의 메시지입니다.
--   [DeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.deadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_DeadLetterMessageCount): 배달하지 못한 편지 큐의 메시지입니다.
--   [ScheduledMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.scheduledmessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ScheduledMessageCount): 예약된 상태의 메시지입니다.
--   [TransferDeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transferdeadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferDeadLetterMessageCount): 다른 큐 또는 토픽으로 전송하지 못하고 배달하지 못한 편지 큐로 이동된 메시지입니다.
--   [TransferMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transfermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferMessageCount): 다른 큐 또는 토픽으로 전송 대기중인 메시지입니다.
+| 카운터 | Description |
+| ----- | ---------- | 
+| ActiveMessageCount | 활성 상태에 있고 전송 준비가 된 큐 또는 구독의 메시지 수입니다. |
+| ScheduledMessageCount | 예약된 상태의 메시지 수입니다. |
+| DeadLetterMessageCount | 배달 못 한 편지 큐의 메시지 수입니다. |
+| TransferMessageCount | 다른 큐 또는 토픽으로 전송 보류 중인 메시지 수입니다. |
+| TransferDeadLetterMessageCount | 다른 큐 또는 토픽으로 전송하지 못하고 배달 못 한 편지 큐로 이동된 메시지 수입니다. |
 
 애플리케이션이 큐의 길이에 따라 리소스 크기를 조정하려는 경우 정교한 속도로 조정해야 합니다. 메시지 카운터를 확보하는 작업은 메시지 broker 내부에 비용이 많이 소요되며 빈번하게 직접 실행하면 엔터티 성능에 부정적인 영향을 줍니다.
 
 > [!NOTE]
-> Service Bus 토픽으로 송신되는 메시지는 해당 토픽의 구독으로 전달됩니다. 따라서 성공적으로 메시지가 구독으로 전달되면 토픽 자체의 활성 메시지 수는 0입니다. 구독에서 메시지 수를 가져오고 0보다 큰지 확인합니다. 메시지를 확인하는 위치는 구독이지만 메시지가 실제로 저장되는 위치는 토픽 소유의 스토리지입니다. 
+> Service Bus 토픽으로 송신되는 메시지는 해당 토픽의 구독으로 전달됩니다. 따라서 성공적으로 메시지가 구독으로 전달되면 토픽 자체의 활성 메시지 수는 0입니다. 구독에서 메시지 수를 가져오고 0보다 큰지 확인합니다. 메시지를 확인하는 위치는 구독이지만 메시지가 실제로 저장되는 위치는 토픽 소유의 스토리지입니다. 구독을 보면 메시지 수가 0이 아닙니다(전체 엔터티 공간인 323MB까지 합산됨).
 
-구독을 보면 메시지 수가 0이 아닙니다(전체 엔터티 공간인 323MB까지 합산됨).
+
+## <a name="using-azure-portal"></a>Azure Portal 사용
+네임스페이스로 이동하여 큐를 선택합니다. 큐의 **개요** 페이지에 메시지 카운터가 표시됩니다.
+
+:::image type="content" source="./media/message-counters/queue-overview.png" alt-text="큐 개요 페이지의 메시지 카운터":::
+
+네임스페이스로 이동하여 항목을 선택한 다음, 항목에 대한 구독을 선택합니다. 큐의 **개요** 페이지에 메시지 카운터가 표시됩니다.
+
+:::image type="content" source="./media/message-counters/subscription-overview.png" alt-text="구독 개요 페이지의 메시지 카운터":::
+
+## <a name="using-azure-cli"></a>Azure CLI 사용
+[`az servicebus queue show`](/cli/azure/servicebus/queue#az_servicebus_queue_show) 명령을 사용하여 다음 예제와 같이 큐에 대한 메시지 수 세부 정보를 가져옵니다. 
+
+```azurecli-interactive
+az servicebus queue show --resource-group myresourcegroup \
+    --namespace-name mynamespace \
+    --name myqueue \
+    --query countDetails
+```
+
+샘플 출력은 다음과 같습니다.
+
+```bash
+ActiveMessageCount    DeadLetterMessageCount    ScheduledMessageCount    TransferMessageCount    TransferDeadLetterMessageCount
+--------------------  ------------------------  -----------------------  ----------------------  --------------------------------
+0                     0                         0                        0                       0
+```
+
+[`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_show) 명령을 사용하여 다음 예제와 같이 구독에 대한 메시지 수 세부 정보를 가져옵니다. 
+
+```azurecli-interactive
+az servicebus topic subscription show --resource-group myresourcegroup \
+    --namespace-name mynamespace \
+    --topic-name mytopic \
+    --name mysub \
+    --query countDetails
+```
+
+## <a name="using-azure-powershell"></a>Azure PowerShell 사용
+PowerShell을 사용하여 다음과 같이 큐에 대한 메시지 수 세부 정보를 가져올 수 있습니다.
+
+```azurepowershell-interactive
+$queueObj=Get-AzServiceBusQueue -ResourceGroup myresourcegroup `
+                    -NamespaceName mynamespace `
+                    -QueueName myqueue 
+
+$queueObj.CountDetails
+```
+
+샘플 출력은 다음과 같습니다.
+
+```bash
+ActiveMessageCount             : 7
+DeadLetterMessageCount         : 1
+ScheduledMessageCount          : 3
+TransferMessageCount           : 0
+TransferDeadLetterMessageCount : 0
+```
+
+다음과 같이 구독에 대한 메시지 수 세부 정보를 가져올 수 있습니다.
+
+```azurepowershell-interactive
+$topicObj= Get-AzServiceBusSubscription -ResourceGroup myresourcegroup `
+                -NamespaceName mynamespace `
+                -TopicName mytopic `
+                -SubscriptionName mysub
+
+$topicObj.CountDetails
+```
+
+반환된 `MessageCountDetails` 개체에는 `ActiveMessageCount`, `DeadLetterMessageCount`, `ScheduledMessageCount`, `TransferDeadLetterMessageCount`, `TransferMessageCount` 속성이 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
+선택한 언어로 샘플을 사용하여 Azure Service Bus 기능을 살펴봅니다. 
 
-* [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
-* [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
-* [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [.NET용 Azure Service Bus 클라이언트 라이브러리 샘플(최신)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) 
+- [Java용 Azure Service Bus 클라이언트 라이브러리 샘플(최신)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Python용 Azure Service Bus 클라이언트 라이브러리 샘플](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [JavaScript용 Azure Service Bus 클라이언트 라이브러리 샘플](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [TypeScript용 Azure Service Bus 클라이언트 라이브러리 샘플](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+
+이전 .NET 및 Java 클라이언트 라이브러리에 대한 샘플은 다음을 참조하세요.
+- [.NET용 Azure Service Bus 클라이언트 라이브러리 샘플(레거시)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Java용 Azure Service Bus 클라이언트 라이브러리 샘플(레거시)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)

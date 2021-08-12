@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory를 사용하여 자동 사용자 프�
 description: 사용자 계정을 Azure AD에서 Cofense Recipient Sync로 자동으로 프로비저닝 및 프로비저닝을 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 84fe20ef-0de0-4f7c-9b42-6385f3d834db
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
-ms.author: Zhchia
-ms.openlocfilehash: 70766fd93f0a70ecf6b5ee54dbdba3571f783878
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: a2e3ebb1c1062e989e159a69bd08042c269d91f2
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646047"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113764092"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Cofense Recipient Sync 구성
 
@@ -33,7 +33,7 @@ ms.locfileid: "101646047"
 > * Cofense Recipient Sync에서 더 이상 액세스할 필요가 없는 사용자 제거
 > * Azure AD와 Cofense Recipient Sync 간에 사용자 특성을 동기화된 상태로 유지
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 

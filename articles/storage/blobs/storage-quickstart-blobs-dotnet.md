@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f913b33d0bea425a24d2fd336c9d065978606e82
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 08545e4db44c9901ef1059c2115f6677e93ab729
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107869260"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436013"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>빠른 시작: .NET용 Azure Blob Storage 클라이언트 라이브러리 v12
 
@@ -108,7 +108,6 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하는 데 최적�
 * [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): `BlobServiceClient` 클래스를 사용하여 Azure Storage 리소스 및 blob 컨테이너를 조작할 수 있습니다.
 * [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): `BlobContainerClient` 클래스를 사용하여 Azure Storage 컨테이너 및 해당 blob을 조작할 수 있습니다.
 * [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): `BlobClient` 클래스를 사용하여 Azure Storage blob을 조작할 수 있습니다.
-* [BlobDownloadInfo](/dotnet/api/azure.storage.blobs.models.blobdownloadinfo): `BlobDownloadInfo` 클래스는 blob 다운로드에서 반환된 속성 및 콘텐츠를 나타냅니다.
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -148,7 +147,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하는 데 최적�
 
 1. 로컬 *data* 디렉터리에 텍스트 파일을 만듭니다.
 1. [컨테이너 만들기](#create-a-container) 섹션에서 컨테이너에 대해 [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) 메서드를 호출하여 [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) 개체에 대한 참조를 가져옵니다.
-1. [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync#Azure_Storage_Blobs_BlobClient_UploadAsync_System_IO_Stream_System_Boolean_System_Threading_CancellationToken_) 메서드를 호출하여 로컬 텍스트 파일을 Blob에 업로드합니다. 이 메서드는 Blob이 없는 경우 만들고, Blob이 있는 경우 덮어씁니다.
+1. [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync#Azure_Storage_Blobs_BlobClient_UploadAsync_System_String_System_Boolean_System_Threading_CancellationToken_) 메서드를 호출하여 로컬 텍스트 파일을 Blob에 업로드합니다. 이 메서드는 Blob이 없는 경우 만들고, Blob이 있는 경우 덮어씁니다.
 
 이 코드를 `Main` 메서드의 끝에 추가합니다.
 
@@ -164,7 +163,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하는 데 최적�
 
 ### <a name="download-blobs"></a>Blob 다운로드
 
-[DownloadAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) 메서드를 호출하여 이전에 만든 blob을 다운로드합니다. 예제 코드는 로컬 파일 시스템에서 두 파일을 볼 수 있도록 파일 이름에 "DOWNLOADED" 접미사를 추가합니다.
+[DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) 메서드를 호출하여 이전에 만든 blob을 다운로드합니다. 예제 코드는 로컬 파일 시스템에서 두 파일을 볼 수 있도록 파일 이름에 "DOWNLOADED" 접미사를 추가합니다.
 
 이 코드를 `Main` 메서드의 끝에 추가합니다.
 

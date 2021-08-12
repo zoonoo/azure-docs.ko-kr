@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory를 사용하여 PureCloud by Genesys에 대한 자동 사용자 프로비저닝 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 PureCloud by Genesys로 자동으로 프로비저닝 및 프로비저닝을 해제하는 방법을 알아봅니다.
 services: active-directory
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2020
-ms.author: Zhchia
-ms.openlocfilehash: b4643efd197734ff7f12fb7806e474e0419843ed
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.author: thwimmer
+ms.openlocfilehash: 24145b8aa4398b8020fad8ef9e269be3eb70c045
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078571"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766205"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>자습서: PureCloud by Genesys에 대한 자동 사용자 프로비저닝 구성
 

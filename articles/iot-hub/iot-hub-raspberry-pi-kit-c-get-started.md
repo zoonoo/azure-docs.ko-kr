@@ -11,10 +11,10 @@ ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
 ms.openlocfilehash: 52da3c28faa375f8b308e3fe78329fec4f996af9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97804057"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi를 Azure IoT Hub에 연결(C)
@@ -53,7 +53,7 @@ ms.locfileid: "97804057"
 
 * Raspberry Pi 2 또는 Raspberry Pi 3 보드.
 
-* 활성화된 Azure 구독. Azure 계정이 없는 경우 몇 분만에 [무료 azure 평가판 계정을 만듭니다](https://azure.microsoft.com/free/) .
+* 활성화된 Azure 구독. Azure 계정이 없는 경우 몇 분 만에 [Azure 평가판 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
 
 * Pi에 연결할 모니터, USB 키보드 및 마우스.
 
@@ -78,7 +78,7 @@ ms.locfileid: "97804057"
 * 확산형 10mm LED.
 
 > [!NOTE]
-> 코드 샘플에서 시뮬레이션 된 센서 데이터를 지원 하기 때문에 이러한 항목은 선택 사항입니다.
+> 코드 샘플이 시뮬레이션된 센서 데이터를 지원하므로 이러한 항목은 선택 사항입니다.
 >
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
@@ -91,7 +91,7 @@ ms.locfileid: "97804057"
 
 ## <a name="set-up-raspberry-pi"></a>Raspberry Pi 설정
 
-이제 Raspberry Pi를 설정 합니다.
+이제 Raspberry Pi를 설정합니다.
 
 ### <a name="install-the-raspbian-operating-system-for-pi"></a>Pi용 Raspbian 운영 체제 설치
 
@@ -99,13 +99,13 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 1. Raspbian을 다운로드합니다.
 
-   1. 데스크톱 (.zip 파일) [을 사용 하 여 Raspbian Stretch를 다운로드](https://www.raspberrypi.org/software/) 합니다.
+   1. [Raspbian Stretch with Desktop을 다운로드](https://www.raspberrypi.org/software/)합니다(.zip 파일).
 
    2. 컴퓨터의 폴더에 Raspbian 이미지의 압축을 풉니다.
 
 2. microSD 카드에 Raspbian을 설치합니다.
 
-   1. [ETCHER SD 카드 버너 유틸리티를 다운로드 하 여 설치](https://etcher.io/)합니다.
+   1. [Etcher SD 카드 버너 유틸리티를 다운로드하여 설치합니다](https://etcher.io/).
 
    2. Etcher를 실행하고 1단계에서 압축을 푼 Raspbian 이미지를 선택합니다.
 
@@ -119,9 +119,9 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 ### <a name="enable-ssh-and-spi"></a>SSH 및 SPI를 사용하도록 설정
 
-1. Pi를 모니터, 키보드 및 마우스에 연결 하 고 Pi를 시작한 다음 사용자 이름 및를 암호로 사용 하 여 Raspbian에 로그인 `pi` `raspberry` 합니다.
+1. 사용자 이름으로 `pi`, 암호로 `raspberry`를 사용하여 Pi를 모니터, 키보드, 마우스에 연결하고, Pi를 시작한 다음 Raspbian에 로그인합니다.
  
-2. Raspberry 아이콘 > **기본 설정**  >  **Raspberry Pi 구성** 을 클릭 합니다.
+2. Raspberry 아이콘 > **기본 설정** > **Raspberry Pi 구성** 을 클릭합니다.
 
    ![Raspbian 기본 설정 메뉴](./media/iot-hub-raspberry-pi-kit-c-get-started/1-raspbian-preferences-menu.png)
 
@@ -135,7 +135,7 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 ### <a name="connect-the-sensor-to-pi"></a>Pi에 센서 연결
 
-실험용 회로판과 점퍼 와이어를 사용하여 LED 및 BME280 Pi를 다음과 같이 연결합니다. 센서가 없는 경우 [이 섹션을 건너뜁니다](#connect-pi-to-the-network).
+실험용 회로판과 점퍼 와이어를 사용하여 LED 및 BME280 Pi를 다음과 같이 연결합니다. 센서가 없는 경우 [이 섹션을 건너뛰세요](#connect-pi-to-the-network).
 
 ![Raspberry Pi와 센서 연결](./media/iot-hub-raspberry-pi-kit-c-get-started/3-raspberry-pi-sensor-connection.png)
 
@@ -168,7 +168,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 
 ## <a name="run-a-sample-application-on-pi"></a>Pi에서 샘플 애플리케이션 실행
 
-### <a name="sign-into-your-raspberry-pi"></a>Raspberry Pi에 로그인 합니다.
+### <a name="sign-into-your-raspberry-pi"></a>Raspberry Pi에 로그인
 
 1. 호스트 컴퓨터에서 다음 SSH 클라이언트 중 하나를 사용하여 Raspberry Pi에 연결합니다.
    
@@ -230,11 +230,11 @@ IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 �
 
 ![출력 - Raspberry Pi에서 IoT Hub로 전송된 센서 데이터](./media/iot-hub-raspberry-pi-kit-c-get-started/8-run-output.png)
 
-## <a name="read-the-messages-received-by-your-hub"></a>허브에서 받은 메시지 읽기
+## <a name="read-the-messages-received-by-your-hub"></a>허브에서 수신한 메시지 읽기
 
-장치에서 IoT hub가 받은 메시지를 모니터링 하는 한 가지 방법은 Visual Studio Code 용 Azure IoT 도구를 사용 하는 것입니다. 자세한 내용은 [Azure IoT Tools를 사용 하 여 장치와 IoT Hub 간에 메시지 보내기 및 받기 Visual Studio Code](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)을 참조 하세요.
+IoT 허브가 디바이스에서 수신한 메시지를 모니터링하는 한 가지 방법은 Visual Studio Code용 Azure IoT Tools를 사용하는 것입니다. 자세히 알아보려면 [Visual Studio Code용 Azure IoT Tools를 사용하여 디바이스와 IoT Hub 간에 메시지 보내고 받기](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)를 참조하세요.
 
-장치에서 전송 되는 데이터를 처리 하는 방법에 대 한 자세한 내용은 다음 섹션을 계속 진행 하세요.
+디바이스에서 전송되는 데이터를 처리하는 방법에 대한 자세한 내용은 다음 섹션을 계속 진행하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

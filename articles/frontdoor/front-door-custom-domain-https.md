@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/10/2021
+ms.date: 07/14/2021
 ms.author: duau
-ms.openlocfilehash: 7f2a5faebb56cfb12a62a8bdae4e6b7e56e88b57
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 97a96d439773d7332fda3fe545d950dfe0077ad1
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004712"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765418"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>자습서: Front Door 사용자 지정 도메인에서 HTTPS 구성
 
@@ -152,7 +152,7 @@ Front Door의 프런트 엔드 호스트에 사용자 지정 도메인을 추가
 
 CNAME 레코드는 다음 형식이어야 합니다. 여기서 *Name* 은 사용자 지정 도메인 이름이고 *Value* 는 Front Door의 기본 .azurefd.net 호스트 이름입니다.
 
-| 속성            | Type  | 값                 |
+| 속성            | 유형  | 값                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
@@ -181,7 +181,7 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;your-domain-name.com&gt;  
 
-잠시 후 다음 예제와 비슷한 승인 요청 전자 메일을 받게 됩니다. 스팸 필터를 사용하는 경우 admin@digicert.com을 허용 목록에 추가합니다. 24시간 이내에 전자 메일을 받지 못하면 Microsoft 지원에 문의하세요.
+잠시 후 다음 예제와 비슷한 승인 요청 전자 메일을 받게 됩니다. 스팸 필터를 사용하는 경우 no-reply@digitalcertvalidation.com을 허용 목록에 추가합니다. 24시간 이내에 전자 메일을 받지 못하면 Microsoft 지원에 문의하세요.
 
 승인 링크가 선택되면 온라인 승인 양식으로 이동합니다. 양식의 지침을 따르세요. 다음과 같이 두 가지 확인 옵션이 있습니다.
 

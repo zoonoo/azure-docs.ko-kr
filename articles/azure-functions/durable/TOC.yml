@@ -29,7 +29,7 @@
   items:
     - name: 함수 체이닝
       href: durable-functions-sequence.md
-    - name: 팬 인/팬 아웃
+    - name: 팬아웃/팬인
       href: durable-functions-cloud-backup.md
     - name: '모니터(C#, JavaScript)'
       href: durable-functions-monitor.md

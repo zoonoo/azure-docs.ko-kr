@@ -230,7 +230,7 @@ productDirectory:
       imageSrc: ./media/index/metrics-advisor.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/metrics-advisor/index.yml
+      url: applied-ai-services/metrics-advisor/index.yml
     - title: Personalizer
       summary: 맞춤형 사용자 환경을 제공하는 AI 서비스
       imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
@@ -552,11 +552,11 @@ productDirectory:
       url: app-service/index.yml
     - title: Azure Virtual Desktop
       summary: Azure에서 제공되는 최상의 가상 데스크톱 환경
-      imageSrc: 'https://static.docs.com/ui/media/product/azure/windows-virtual-desktop.svg'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/virtual-desktop.svg'
       azureCategories:
         - featured
         - compute
-        - windows-virtual-desktop
+        - azure-virtual-desktop
       url: virtual-desktop/index.yml
     - title: Windows 가상 머신
       summary: 몇 초 내로 Windows 가상 머신 프로비저닝
@@ -571,7 +571,7 @@ productDirectory:
       azureCategories:
         - containers
         - developer-tools
-      url: dev-spaces/index.yml
+      url: /previous-versions/azure/dev-spaces/
     - title: Azure Red Hat OpenShift
       summary: Red Hat과 공동 운영되는 완전 관리형 OpenShift 서비스
       imageSrc: 'https://static.docs.com/ui/media/product/azure/openshift.svg'

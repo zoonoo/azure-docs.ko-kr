@@ -1,6 +1,6 @@
 ---
-title: In-Memory OLTP는 SQL 트랜잭션 성능 향상
-description: In-Memory OLTP를 채택 하 여 Azure SQL Database 및 Azure SQL Managed Instance에서 기존 데이터베이스의 트랜잭션 성능을 향상 시킵니다.
+title: 메모리 내 OLTP이 SQL txn 성능 개선
+description: 메모리 내 OLTP를 채택하여 Azure SQL Database 및 Azure SQL Managed Instance에서 기존 데이터베이스의 트랜잭션 성능을 향상시킵니다.
 services: sql-database
 ms.service: sql-database
 ms.custom: sqldbrb=2
@@ -11,19 +11,19 @@ ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
 ms.openlocfilehash: e17e98e784b7453c87814c5cce5c03568f66b1cb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91619749"
 ---
-# <a name="use-in-memory-oltp-to-improve-your-application-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>In-Memory OLTP를 사용 하 여 Azure SQL Database 및 Azure SQL에서 응용 프로그램 성능을 향상 시킬 수 있습니다 Managed Instance
+# <a name="use-in-memory-oltp-to-improve-your-application-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>메모리 내 OLTP를 사용하여 Azure SQL Database 및 Azure SQL Managed Instance에서 애플리케이션의 성능 향상
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 [메모리 내 OLTP](in-memory-oltp-overview.md)를 사용하면 가격대를 높이지 않고도 [프리미엄 및 중요 비즈니스용 계층](database/service-tiers-vcore.md) 데이터베이스에서 트랜잭션 처리, 데이터 수집 및 일시적인 데이터 시나리오의 성능을 개선할 수 있습니다.
 
 > [!NOTE]
-> [Azure SQL Database를 사용 하 여 DTU를 70%까지 줄이는 동시에 쿼럼에서 키 데이터베이스의 워크 로드를 두 배로 늘리는](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database) 방법
+> [쿼럼이 Azure SQL Database를 사용하여 DTU를 70% 줄이는 동시에 키 데이터베이스의 워크로드를 두 배로 증가시키는 방법](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)에 대해 알아보기
 
 기존 데이터베이스에서 메모리 내 OLTP를 채택하려면 다음 단계를 따르세요.
 
@@ -44,7 +44,7 @@ SSMS는 활성 워크로드를 사용하여 데이터베이스에 대해 실행�
 SSMS에서 보고서를 생성합니다.
 
 * **개체 탐색기** 에서 데이터베이스 노드를 마우스 오른쪽 단추로 클릭합니다.
-* **보고서**  >  **표준 보고서**  >  **트랜잭션 성능 분석 개요** 를 클릭 합니다.
+* **보고서** > **표준 보고서** > **트랜잭션 성능 분석 개요** 를 클릭합니다.
 
 자세한 내용은 [테이블 또는 저장 프로시저가 메모리 내 OLTP로 이식되어야 하는지 결정](/sql/relational-databases/in-memory-oltp/determining-if-a-table-or-stored-procedure-should-be-ported-to-in-memory-oltp)을 참조하세요.
 
@@ -83,8 +83,8 @@ SSMS에서 보고서를 생성합니다.
 3. 마법사에서 **마이그레이션 유효성 검사**(또는 **다음** 단추)를 클릭하여 메모리 최적화 테이블에서 지원하지 않는 지원되지 않는 기능이 테이블에 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
 
    * *메모리 최적화 관리자* 의 [메모리 최적화 검사 목록](/sql/relational-databases/in-memory-oltp/memory-optimization-advisor).
-   * [In-Memory OLTP에서 지원 하지 않는 Transact-sql 구문](/sql/relational-databases/in-memory-oltp/transact-sql-constructs-not-supported-by-in-memory-oltp)입니다.
-   * [In-Memory OLTP로 마이그레이션](/sql/relational-databases/in-memory-oltp/plan-your-adoption-of-in-memory-oltp-features-in-sql-server)
+   * [메모리 내 OLTP에서 지원되지 않는 TRANSACT-SQL 항목](/sql/relational-databases/in-memory-oltp/transact-sql-constructs-not-supported-by-in-memory-oltp).
+   * [메모리 내 OLTP로 마이그레이션](/sql/relational-databases/in-memory-oltp/plan-your-adoption-of-in-memory-oltp-features-in-sql-server).
 4. 테이블에 지원되지 않는 기능이 없는 경우 관리자는 사용자에게 실제 스키마 및 데이터 마이그레이션을 수행할 수 있습니다.
 
 ### <a name="manual-t-sql"></a>수동 T-SQL
@@ -95,7 +95,7 @@ SSMS에서 보고서를 생성합니다.
 2. 테이블 및 해당 인덱스에 대한 완전한 T-SQL 스크립트를 가져옵니다.
 
    * SSMS에서 테이블 노드를 마우스 오른쪽 단추로 클릭합니다.
-   * **테이블 스크립팅**  >  **CREATE**  >  **새 쿼리 창** 을 클릭 합니다.
+   * **테이블 스크립팅** > **CREATE** > **새 쿼리 창** 을 클릭합니다.
 3. 스크립트 창에서 테이블 만들기 문에 WITH (MEMORY_OPTIMIZED = ON)을 추가합니다.
 4. 클러스터형 인덱스가 있을 경우 비클러스터형으로 변경합니다.
 5. SP_RENAME을 사용하여 기존 테이블의 이름을 바꿉니다.
@@ -137,7 +137,7 @@ CREATE PROCEDURE schemaname.procedurename
         END;
 ```
 
-* TRANSACTION_ISOLATION_LEVEL의 경우 스냅샷은 고유하게 컴파일된 저장 프로시저에 대한 가장 일반적인 값입니다. 그러나 다른 값의 하위 집합도 지원 됩니다.
+* TRANSACTION_ISOLATION_LEVEL의 경우 스냅샷은 고유하게 컴파일된 저장 프로시저에 대한 가장 일반적인 값입니다. 그러나 다른 값의 하위 집합에서도 지원됩니다.
   
   * REPEATABLE READ
   * 직렬화 가능
@@ -164,7 +164,7 @@ CREATE PROCEDURE schemaname.procedurename
 * 동시 연결 수.
 * 읽기/쓰기 비율.
 
-테스트 워크 로드를 조정 하 고 실행 하려면 `ostress.exe` 이 [메모리 내](in-memory-oltp-overview.md) 문서에 설명 된 유용한 도구를 사용 하는 것이 좋습니다.
+테스트 워크로드를 조정하고 실행하려면 이 [메모리 내](in-memory-oltp-overview.md) 문서에 설명된 편리한 `ostress.exe` 도구를 사용하는 것이 좋습니다.
 
 네트워크 대기 시간을 최소화하려면 데이터베이스가 있는 동일한 Azure 지리적 지역에 있는 테스트를 실행합니다.
 
@@ -172,8 +172,8 @@ CREATE PROCEDURE schemaname.procedurename
 
 프로덕션에서 메모리 내 구현의 성능 효과를 모니터링하는 것이 좋습니다.
 
-* [In-Memory 저장소를 모니터링](in-memory-oltp-monitor-space.md)합니다.
-* [동적 관리 뷰를 사용 하 여 모니터링](database/monitoring-with-dmvs.md)
+* [메모리 내 스토리지 모니터링](in-memory-oltp-monitor-space.md)
+* [동적 관리 뷰를 사용하여 모니터링](database/monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>관련 링크
 

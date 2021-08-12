@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory를 사용하여 자동으로 사용자를 프로비저닝하도록 SolarWinds Service Desk(이전 명칭은 Samanage) 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 SolarWinds Service Desk(이전 명칭은 Samanage)로 자동으로 프로비저닝 및 프로비저닝을 해제하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2020
-ms.author: Zhchia
-ms.openlocfilehash: d68811c5e7b92698944d7b1b1736eef864d97d20
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.author: thwimmer
+ms.openlocfilehash: 3999575e13a1bb12478f6a9270dafa7c18c22f35
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802304"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113759647"
 ---
 # <a name="tutorial-configure-solarwinds-service-desk-previously-samanage-for-automatic-user-provisioning"></a>자습서: 자동으로 사용자를 프로비저닝하도록 SolarWinds Service Desk(이전 명칭은 Samanage) 구성
 
@@ -156,7 +156,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 ## <a name="change-log"></a>로그 변경
 
-* 2020/09/14 - https://github.com/ravitmorales 에 따라 두 SaaS 자습서의 회사 이름이 Samanage에서 SolarWinds Service Desk로 변경되었습니다(이전 명칭은 Samanage).
+* 2020/09/14 - `https://github.com/ravitmorales` 에 따라 두 SaaS 자습서의 회사 이름이 Samanage에서 SolarWinds Service Desk로 변경되었습니다(이전 명칭은 Samanage).
 * 2020/04/22 - 권한 부여 방법이 기본 인증에서 장기 비밀 토큰으로 업데이트되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스

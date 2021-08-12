@@ -3,13 +3,13 @@ title: Intel OpenVINO™ DL Streamer - Edge AI Extension을 사용하여 gRPC를
 description: 이 자습서에는 Intel의 Intel OpenVINO™ DL Streamer – Edge AI Extension을 사용하여 (시뮬레이션된) IP 카메라의 라이브 비디오 피드를 분석하는 방법을 보여줍니다.
 ms.topic: tutorial
 ms.service: azure-video-analyzer
-ms.date: 05/18/2021
-ms.openlocfilehash: 9f3a313b1dc99fd86bc2ee764a78a151e8d88f96
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.date: 06/01/2021
+ms.openlocfilehash: f666ac772d85fb1501c54001511e25cd941ee7c3
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440561"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604782"
 ---
 # <a name="tutorial-analyze-live-video-with-intel-openvino-dl-streamer--edge-ai-extension"></a>자습서: Intel OpenVINO™ DL Streamer – Edge AI Extension을 사용하여 라이브 비디오 분석 
 
@@ -17,8 +17,7 @@ ms.locfileid: "111440561"
 
 이 자습서에서는 Azure VM을 시뮬레이션된 IoT Edge 디바이스로 사용하고, 시뮬레이션된 라이브 비디오 스트림을 사용합니다. C#으로 작성된 샘플 코드 및 [동작 감지 및 이벤트 내보내기](detect-motion-emit-events-quickstart.md) 빠른 시작을 기반으로 합니다.
 
-> [!NOTE]
-> 이 자습서를 사용하려면 에지 디바이스로 x86-64 컴퓨터를 사용해야 합니다.
+[!INCLUDE [use-x86-64](./includes/common-includes/use-x86-64.md)]
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -64,7 +63,7 @@ OpenVINO™ DL Streamer - Edge AI Extension 모듈은 OpenVINO™ DL Streamer를
 
 - object_tracking for person_vehicle_bike_tracking ![사람 차량 개체 추적](./media/use-intel-openvino-tutorial/object-tracking.png)
 
-미리 로드된 개체 감지, 개체 분류 및 개체 추적 파이프라인을 사용하여 빠르게 시작합니다. 뿐만 아니라 미리 로드된 [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/description/person-vehicle-bike-detection-crossroad-0078.md) 및 [vehicle-attributes-recognition-barrier-0039 모델](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/description/vehicle-attributes-recognition-barrier-0039.md)이 함께 제공됩니다.
+미리 로드된 개체 감지, 개체 분류 및 개체 추적 파이프라인을 사용하여 빠르게 시작합니다. 뿐만 아니라 미리 로드된 [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/README.md) 및 [vehicle-attributes-recognition-barrier-0039 모델](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/README.md)이 함께 제공됩니다.
 
 > [!NOTE]
 > Intel에서 제공하는 Edge 모듈인 OpenVINO™ DL Streamer – Edge AI Extension과 그 안에 포함된 소프트웨어를 다운로드하고 사용하는 것은 [사용권 계약](https://www.intel.com/content/www/us/en/legal/terms-of-use.html)의 사용 약관에 동의하는 것입니다.

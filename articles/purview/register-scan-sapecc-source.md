@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: c4126a99b38021ea7399bb486b8942423f0a809c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 62015554f7e8e17e1443cc85812b3f37ee64f0a4
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067117"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551707"
 ---
 # <a name="register-and-scan-sap-ecc-source"></a>SAP ECC 원본 등록 및 검사
 
@@ -105,6 +105,8 @@ SAP ECC 원본에 대해 유일하게 지원되는 인증은 **기본 인증** �
     e.  **JCo 라이브러리 경로**: JCo 라이브러리가 위치하는 디렉터리 경로입니다.
 
     f.  **사용 가능한 최대 메모리:** 고객의 VM에서 검사 프로세스를 수행하는 데 사용할 수 있는 최대 메모리(GB)입니다. 이는 검사할 SAP ECC 원본의 크기에 따라 달라집니다.
+    > [!Note] 
+    > 일반적으로 1,000개 테이블당 1GB 메모리를 제공하세요.
 
     :::image type="content" source="media/register-scan-sapecc-source/scan-sapecc.png" alt-text="SAPECC 검사" border="true":::
 

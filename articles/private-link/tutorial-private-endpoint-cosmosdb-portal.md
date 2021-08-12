@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 3a7e75641f6bb84b490231fcd06e04c3cbad06d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c7c9caf5bbfd842c635b0cb887540457f15c081f
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822377"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "114297040"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>자습서: Azure Private 엔드포인트를 사용하여 Azure Cosmos 계정에 연결
 
@@ -104,7 +104,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 리소스 그룹 | **myResourceGroup** 을 선택합니다. |
     | **인스턴스 세부 정보** |  |
     | 가상 머신 이름 | **myVM** 을 입력합니다. |
-    | Azure 지역 | **미국 동부** 를 선택합니다. |
+    | 지역 | **미국 동부** 를 선택합니다. |
     | 가용성 옵션 | **인프라 중복이 필요하지 않습니다** 를 선택합니다. |
     | 이미지 | **Windows Server 2019 Datacenter - Gen1** 을 선택합니다. |
     | Azure Spot 인스턴스 | **아니요** 를 선택합니다. |
@@ -130,6 +130,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 5. **검토 + 만들기** 를 선택합니다. 
   
 6. 설정을 검토한 다음, **만들기** 를 선택합니다.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="create-a-cosmos-db-account-with-a-private-endpoint"></a>프라이빗 엔드포인트를 사용하여 Cosmos DB 계정 만들기
 

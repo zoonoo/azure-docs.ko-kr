@@ -4,10 +4,10 @@ description: Azure Application Insights 및 개요 대시보드 기능을 사용
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 1b0708fa70d3a3ecb406f1d974bb1f2b47e55b40
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97504103"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights 개요 대시보드
@@ -36,7 +36,7 @@ Application Insights에는 애플리케이션의 상태 및 성능을 한 눈에
 
 기본 대시보드에 액세스하려면 왼쪽 위 모서리에 있는 _애플리케이션 대시보드_ 를 선택합니다.
 
-![스크린샷 강조 표시 된 응용 프로그램 대시보드 단추를 표시 합니다.](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
+![스크린샷에는 강조 표시된 응용 프로그램 대시보드 단추가 나와 있습니다.](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
 
 대시보드에 처음 액세스하는 경우 기본 보기가 시작됩니다.
 
@@ -53,7 +53,7 @@ Application Insights에는 애플리케이션의 상태 및 성능을 한 눈에
 
 ## <a name="troubleshooting"></a>문제 해결
 
-현재 대시보드에 표시 되는 데이터에 대 한 데이터의 30 일 제한이 있습니다. 30 일이 넘은 시간 필터를 선택 하거나 **타일 설정 구성** 을 선택 하 고 30 일을 초과 하 여 사용자 지정 시간 범위를 설정 하는 경우 기본 데이터 보존 90 일에도 불구 하 고 대시보드는 30 일 이상 데이터를 표시 하지 않습니다. 현재이 동작에 대 한 해결 방법이 없습니다.
+현재 대시보드에 표시되는 데이터에 대한 기간 제한은 30일입니다. 30일을 초과하는 시간 필터를 선택하거나 **타일 설정 구성** 을 선택하고 30일을 초과하는 사용자 지정 시간 범위를 설정하면, 기본 데이터 보존 기간이 90일이라 해도 대시보드에 30일을 초과하는 데이터가 표시되지 않습니다. 현재 이 문제에 대한 해결 방법은 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

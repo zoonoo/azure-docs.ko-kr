@@ -1,15 +1,15 @@
 ---
 title: Azure Functions 가격 책정
-description: Azure Functions 요금 청구 방식에 대해 알아봅니다.
+description: Azure Functions에 대해 요금이 청구되는 방식 알아보기
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.openlocfilehash: cde1c5ee45edb4472bed992ee9ac4075f8ad05ff
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95002188"
 ---
 # <a name="azure-functions-pricing"></a>Azure Functions 가격 책정

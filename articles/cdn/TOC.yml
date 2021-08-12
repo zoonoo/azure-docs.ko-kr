@@ -149,7 +149,7 @@
         - name: 파일 압축
           href: cdn-troubleshoot-compression.md
         - name: 허용된 인증 기관
-          href: cdn-troubleshoot-allowed-ca.md
+          href: 'https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT'
         - name: 구독 제품 및 대역폭 제한
           href: subscription-offerings.md
 - name: 참조

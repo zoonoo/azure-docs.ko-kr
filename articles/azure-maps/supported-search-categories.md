@@ -1,6 +1,6 @@
 ---
 title: 검색 범주 | Microsoft Azure Maps
-description: Azure Maps에서 지원 되는 검색 범주에 대해 알아봅니다. 모든 지원 되는 범주 코드와 각 항목에서 각 항목을 나타내는 관심 지점의 형식을 봅니다.
+description: Azure Maps에서 지원되는 검색 범주에 대해 알아봅니다. 지원되는 모든 범주 코드와 각 항목이 나타내는 관심 지점 유형을 확인합니다.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/14/2018
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: b9cf9e031c73b1412ab9fc20f5ffe94736d28eb4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92896908"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure Maps에서 지원되는 범주

@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB 쿼리 언어의 LOG10
-description: 지정 된 숫자 식의 상용 로그를 반환 하 Azure Cosmos DB의 LOG10 SQL 시스템 함수에 대해 알아봅니다.
+description: 지정된 숫자 식의 밑이 10인 로그를 반환하는 Azure Cosmos DB의 LOG10 SQL 시스템 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,13 +9,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 27f7d916c1a3f84f26674fea6b04597fd9e546bc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93338437"
 ---
-# <a name="log10-azure-cosmos-db"></a>LOG10 (Azure Cosmos DB)
+# <a name="log10-azure-cosmos-db"></a>LOG10(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  지정한 숫자 식의 상용 로그(밑 10)를 반환합니다.  
@@ -37,9 +37,9 @@ LOG10 (<numeric_expr>)
   
 ## <a name="remarks"></a>설명
   
-  LOG10과 POWER 함수는 서로 역함수 관계에 있습니다. 예를 들어 10 ^ LOG10(n) = n입니다. 이 시스템 함수는 인덱스를 활용 하지 않습니다.
+  LOG10과 POWER 함수는 서로 역함수 관계에 있습니다. 예를 들어 10 ^ LOG10(n) = n입니다. 이 시스템 함수는 인덱스를 활용하지 않습니다.
   
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
   다음 예제에서는 변수를 선언하고 지정된 변수 (100)의 LOG10 값을 반환합니다.  
   

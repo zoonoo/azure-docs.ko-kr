@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory를 사용하여 자동 사용자 프로비저닝을 수행하도록 RFPIO 구성 | Microsoft Docs'
 description: 사용자 계정을 RFPIO로 자동으로 프로비저닝 및 프로비저닝을 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
-ms.author: zhchia
-ms.openlocfilehash: ff859e7d77fd19cd006cf45a6faa737297fdb9a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: c42519dc16343ef7d4eb39d83c005d82f8bdb1ae
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96349642"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766256"
 ---
 # <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 RFPIO 구성
 

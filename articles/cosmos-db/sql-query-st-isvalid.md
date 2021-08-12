@@ -9,16 +9,16 @@ ms.date: 11/23/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 1e7c124da91a947a0ac8426ce8c92347396236c4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96004435"
 ---
-# <a name="st_isvalid-azure-cosmos-db"></a>ST_ISVALID (Azure Cosmos DB)
+# <a name="st_isvalid-azure-cosmos-db"></a>ST_ISVALID(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
- 지정 된 GeoJSON Point, Polygon, MultiPolygon 또는 LineString 식이 유효한 지 여부를 나타내는 부울 값을 반환 합니다.  
+ 지정된 GeoJSON Point, Polygon, MultiPolygon, LineString 식이 유효한지 여부를 나타내는 부울 값을 반환합니다.  
   
 ## <a name="syntax"></a>구문
   
@@ -29,7 +29,7 @@ ST_ISVALID(<spatial_expr>)
 ## <a name="arguments"></a>인수
   
 *spatial_expr*  
-   는 GeoJSON Point, Polygon 또는 LineString 식입니다.  
+   GeoJSON Point, Polygon, LineString 개체 식입니다.  
   
 ## <a name="return-types"></a>반환 형식
   

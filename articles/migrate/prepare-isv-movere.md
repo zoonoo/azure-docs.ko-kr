@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.openlocfilehash: 1716db0476169e12822b3f47f7199bf6e2c4ee92
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96753776"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>ISV 도구 또는 Movere로 작업 준비
@@ -43,15 +43,15 @@ Azure 구독에서 Azure AD 앱에 역할을 할당하려면 계정에 **Microso
 
 ## <a name="allow-access-to-urls"></a>URL에 대한 액세스 허용
 
-ISV 도구 및 Azure Database Migration Assistant의 경우 표에 요약 된 공용 클라우드 Url에 대 한 액세스를 허용 합니다. URL 기반 프록시를 사용하여 인터넷에 연결하는 경우 프록시에서 URL을 조회하는 동안 받은 모든 CNAME 레코드를 확인하는지 확인합니다. 
+ISV 도구 및 Azure Database Migration Assistant의 경우 표에 요약된 퍼블릭 클라우드 URL에 대한 액세스를 허용합니다. URL 기반 프록시를 사용하여 인터넷에 연결하는 경우 프록시에서 URL을 조회하는 동안 받은 모든 CNAME 레코드를 확인하는지 확인합니다. 
 
 **URL** | **세부 정보**
 --- | ---
 *.portal.azure.com  | Azure Portal로 이동합니다. 
 *.windows.net<br/> *.msftauth.net<br/> *.msauth.net <br/> *.microsoft.com<br/> *.live.com   | Azure 구독에 로그인합니다. 
 *.microsoftonline.com<br/> *.microsoftonline-p.com | 어플라이언스에서 Azure Migrate와 통신할 수 있도록 Azure AD(Active Directory) 앱을 만듭니다. 
-management.azure.com | Azure Migrate 프로젝트에 대 한 Azure Resource Manager 호출을 수행 합니다.
-\*.servicebus.windows.net | 메시지를 보내기 위한 어플라이언스와 EventHub 간의 통신입니다.
+management.azure.com | Azure Migrate 프로젝트에 대한 Azure Resource Manager 호출을 수행합니다.
+\*.servicebus.windows.net | 메시지를 보내기 위한 어플라이언스와 EventHub 간 통신입니다.
 
 
 ## <a name="start-using-the-tool"></a>도구를 사용하여 시작하기

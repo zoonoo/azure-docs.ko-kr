@@ -9,12 +9,12 @@ ms.author: joseys
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e7a114c5ce31ff4df96648ba2545c2222ba4893d
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 303e6363d7a7abbf933e4a49428158118712aa3e
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111612"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707611"
 ---
 # <a name="record-and-download-calls-with-event-grid"></a>Event Grid를 사용하여 통화 녹화 및 다운로드
 
@@ -71,7 +71,7 @@ public async Task<ActionResult> PostAsync([FromBody] object request)
 2. 아래와 같이 `Event Subscription`을 선택합니다.
 ![Event Grid UI를 보여 주는 스크린샷](./media/call-recording/image1-event-grid.png)
 3. 이벤트 구독을 구성하고 `Call Recording File Status Update`를 `Event Type`으로 선택합니다. `Webhook`를 `Endpoint type`으로 선택합니다.
-![이벤트 구독 만들기](./media/call-recording/image2-create-subscription.png)
+![이벤트 구독 만들기](./media/call-recording/image2-create-event-subscription.png)
 4. 웹후크의 URL을 `Subscriber Endpoint`에 입력합니다.
 ![이벤트 구독](./media/call-recording/image3-subscribe-to-event.png)
 

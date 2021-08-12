@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41d1be35d2add24cbbc171c3da3bd4d06bce4337
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0102ea602cb6e6778940c77aec444d412fa4ed6d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93359666"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114452647"
 ---
 # <a name="configure-a-vm-with-managed-identities-for-azure-resources-using-an-azure-sdk"></a>Azure SDK를 사용하여 Azure 리소스에 대한 관리 ID로 VM 구성
 
@@ -40,8 +40,8 @@ Azure는 일련의 [Azure SDK](https://azure.microsoft.com/downloads)를 통해 
 
 | SDK) | 샘플 |
 | --- | ------ | 
-| .NET   | [Azure 리소스에 대한 관리 ID가 설정된 VM에서 리소스 관리](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
-| Java   | [Azure 리소스에 대한 관리 ID가 설정된 VM에서 스토리지 관리](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
+| .NET   | [Azure 리소스에 대한 관리 ID가 설정된 VM에서 리소스 관리](https://github.com/Azure-Samples/aad-dotnet-manage-resources-from-vm-with-msi) |
+| Java   | [Azure 리소스에 대한 관리 ID가 설정된 VM에서 스토리지 관리](https://github.com/Azure-Samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group)|
 | Node.js| [시스템 할당 관리 ID가 설정된 VM 만들기](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
 | Python | [시스템 할당 관리 ID가 설정된 VM 만들기](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
 | Ruby   | [시스템 할당 ID가 설정된 Azure VM 만들기](https://github.com/Azure-Samples/compute-ruby-msi-vm/) |

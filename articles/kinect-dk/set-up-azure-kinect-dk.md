@@ -14,10 +14,10 @@ audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high
 ms.openlocfilehash: b33565f319de77385c966f742fa52391f4869eed
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77211281"
 ---
 # <a name="quickstart-set-up-your-azure-kinect-dk"></a>빠른 시작: Azure Kinect DK 설정
@@ -62,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. [Azure Kinect 뷰어](azure-kinect-viewer.md)를 시작합니다. 이 도구는 다음 방법 중 하나를 사용하여 시작할 수 있습니다.
    - 뷰어를 명령줄에서 시작하거나 실행 파일을 두 번 클릭하여 시작할 수 있습니다. `k4aviewer.exe` 파일은 SDK 도구 디렉터리에 있습니다(예: `C:\Program Files\Azure Kinect SDK vX.Y.Z\tools\k4aviewer.exe`, 여기서 `X.Y.Z`는 설치된 SDK 버전임).
    - 디바이스 **시작** 메뉴에서 Azure Kinect 뷰어를 시작할 수 있습니다.
-2. Azure Kinect 뷰어에서 **디바이스 열기** > **시작**을 차례로 선택합니다.
+2. Azure Kinect 뷰어에서 **디바이스 열기** > **시작** 을 차례로 선택합니다.
 
     ![Azure Kinect 뷰어](./media/quickstarts/viewer.png)
 
@@ -89,4 +89,4 @@ Azure Kinect DK 설정이 완료되었습니다. 이제 애플리케이션 개�
 
 Azure Kinect DK가 준비되어 작동하면 다음을 수행하는 방법을 알아볼 수도 있습니다.
 > [!div class="nextstepaction"]
-> [파일에 센서 스트림 기록](record-sensor-streams-file.md)
+> [센서 스트림을 파일에 기록](record-sensor-streams-file.md)

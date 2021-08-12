@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 03/29/2021
+ms.date: 06/21/2021
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: 컴퓨터 비전, 컴퓨터 비전 애플리케이션, 컴퓨터 비전 서비스
-ms.openlocfilehash: 875ef961148668a83e94c116622b5e461d2413fa
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: c78f12d484cb1c0e4cda80867af67bc8af7f6c55
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286137"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460246"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
@@ -30,7 +30,7 @@ Azure의 Computer Vision 서비스는 관심 있는 시각적 기능을 기반�
 
 | 서비스|설명|
 |---|---|
-|[OCR(광학 인식)](overview-ocr.md)|OCR(광학 인식) 서비스는 이미지에서 텍스트를 추출합니다. 새 Read API를 사용하여 사진 및 문서에서 인쇄 및 필기 텍스트를 추출할 수 있습니다. 딥 러닝 기반 모델을 사용하고 다양한 표면 및 배경의 텍스트로 작업합니다. 여기에는 비즈니스 문서, 청구서, 영수증, 포스터, 명함, 문자 및 화이트보드가 포함됩니다. OCR API는 [여러 언어](./language-support.md)로 인쇄된 텍스트 추출을 지원합니다. [OCR 빠른 시작](quickstarts-sdk/client-library.md)을 따라 시작하세요.|
+| [OCR(광학 인식)](overview-ocr.md)|OCR(광학 인식) 서비스는 이미지에서 텍스트를 추출합니다. 새 Read API를 사용하여 사진 및 문서에서 인쇄 및 필기 텍스트를 추출할 수 있습니다. 딥 러닝 기반 모델을 사용하고 다양한 표면 및 배경의 텍스트로 작업합니다. 여기에는 비즈니스 문서, 청구서, 영수증, 포스터, 명함, 문자 및 화이트보드가 포함됩니다. OCR API는 [여러 언어](./language-support.md)로 인쇄된 텍스트 추출을 지원합니다. [OCR 빠른 시작](quickstarts-sdk/client-library.md)을 따라 시작하세요.|
 |[이미지 분석](overview-image-analysis.md)| 이미지 분석 서비스는 개체, 면, 성인 콘텐츠, 자동 생성된 텍스트 설명 등 이미지에서 많은 시각적 기능을 추출합니다. [이미지 분석 빠른 시작](quickstarts-sdk/image-analysis-client-library.md)을 따라 시작합니다.|
 | [공간 분석](intro-to-spatial-analysis-public-preview.md)| 공간 분석 서비스는 비디오 피드에 대한 사용자의 현재 상태와 이동을 분석하고 다른 시스템에서 응답할 수 있는 이벤트를 생성합니다. [공간 분석 컨테이너](spatial-analysis-container.md)를 설치하여 시작합니다.|
 

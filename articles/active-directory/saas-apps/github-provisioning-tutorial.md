@@ -2,20 +2,20 @@
 title: '자습서: GitHub에 대한 사용자 프로비저닝 - Azure AD'
 description: 사용자 계정을 GitHub에 자동으로 프로비전하고 프로비전 해제하도록 Azure Active Directory를 구성하는 방법에 대해 알아봅니다.
 services: active-directory
-author: Zhchia
+author: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
-ms.author: Zhchia
-ms.openlocfilehash: 9d9699c564476e116654f700c32dd47b7f6d5b81
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.author: thwimmer
+ms.openlocfilehash: f82d8108292404c3efab3a46cf3635cb19e9f5a2
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504569"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733721"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GitHub 구성
 

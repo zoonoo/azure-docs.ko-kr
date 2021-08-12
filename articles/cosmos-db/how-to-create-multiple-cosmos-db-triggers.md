@@ -1,5 +1,5 @@
 ---
-title: Cosmos DB에 대해 독립적인 Azure Functions 트리거를 여러 개 만듭니다.
+title: 여러 개의 독립적인 Cosmos DB용 Azure Functions 트리거 만들기
 description: 여러 개의 독립적인 Cosmos DB용 Azure Functions 트리거를 구성하여 이벤트 기반 아키텍처를 만드는 방법을 알아봅니다.
 author: ealsur
 ms.service: cosmos-db
@@ -9,10 +9,10 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 78fff48a97965f0b80456cd3e56ed1507bc784fc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93336693"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>여러 개의 Cosmos DB용 Azure Functions 트리거 만들기
@@ -34,8 +34,8 @@ Cosmos DB용 Azure Functions 트리거의 *요구 사항* 을 고려할 때, 상
 
 여기에는 다음 두 가지 옵션이 있습니다.
 
-* **함수 당 하나의 임대 컨테이너** 만들기:이 접근 방식은 [공유 처리량 데이터베이스](./set-throughput.md#set-throughput-on-a-database)를 사용 하지 않는 한 추가 비용으로 변환 될 수 있습니다. 컨테이너 수준의 최소 처리량은 400개 [요청 단위](./request-units.md)이며, 임대 컨테이너의 경우 진행률 검사점을 확인하고 상태를 유지하는 데만 사용됩니다.
-* **하나의 임대 컨테이너를 포함 하 고** 모든 함수를 공유 합니다 .이 두 번째 옵션을 사용 하면 여러 Azure Functions가 프로 비전 된 처리량을 공유 하 고 사용할 수 있으므로 컨테이너에서 프로 비전 된 요청 단위를 더 효율적으로 사용할 수 있습니다.
+* **Function당 하나의 임대 컨테이너 만들기**: 이 방법은 [공유 처리량 데이터베이스](./set-throughput.md#set-throughput-on-a-database)를 사용하지 않으면 추가 비용으로 이어질 수 있습니다. 컨테이너 수준의 최소 처리량은 400개 [요청 단위](./request-units.md)이며, 임대 컨테이너의 경우 진행률 검사점을 확인하고 상태를 유지하는 데만 사용됩니다.
+* **하나의 컨테이너를 임대하여 모든 Function에서 공유**: 이 두 번째 옵션에서는 여러 Azure Function에서 동일한 프로비저닝된 처리량을 공유하고 사용할 수 있으므로 컨테이너에서 프로비저닝된 요청 단위를 더 효율적으로 사용할 수 있습니다.
 
 이 문서의 목표는 두 번째 옵션을 수행하도록 안내하는 것입니다.
 

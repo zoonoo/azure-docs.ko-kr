@@ -1,27 +1,27 @@
 ---
-title: Windows PowerShell 인터페이스를 통해 Microsoft Azure Stack Edge Pro GPU 장치에 연결 하 고 관리 합니다. | Microsoft Docs
-description: Windows PowerShell 인터페이스를 통해에 연결 하 고 Azure Stack Edge Pro GPU를 관리 하는 방법을 설명 합니다.
+title: Windows PowerShell 인터페이스를 통해 Microsoft Azure Stack Edge Pro GPU 디바이스에 연결 및 관리 | Microsoft Docs
+description: Windows PowerShell 인터페이스를 통해 Azure Stack Edge Pro GPU에 연결하고 관리하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 580e5aab7b7ac1edcfee58345291afcb9eb0e977
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: ca3a08cedacce23f9b3086a4bd6d8da98042d7c4
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103562164"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737265"
 ---
-# <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure Stack Edge Pro GPU 장치 관리
+# <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure Stack Edge Pro GPU 디바이스 관리
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Edge Pro 솔루션 Azure Stack 데이터를 처리 하 고 네트워크를 통해 Azure에 보낼 수 있습니다. 이 문서에서는 Azure Stack Edge Pro 장치에 대 한 구성 및 관리 작업을 설명 합니다. Azure Portal, 로컬 웹 UI 또는 Windows PowerShell 인터페이스를 사용 하 여 장치를 관리할 수 있습니다.
+Azure Stack Edge Pro GPU 솔루션을 사용하면 데이터를 처리하고 네트워크를 통해 Azure에 보낼 수 있습니다. 이 문서에서는 Azure Stack Edge Pro GPU 디바이스에 대한 일부 구성 및 관리 작업에 대해 설명합니다. Azure Portal, 로컬 웹 UI 또는 Windows PowerShell 인터페이스를 사용하여 디바이스를 관리할 수 있습니다.
 
-이 문서에서는 장치의 PowerShell 인터페이스와이 인터페이스를 사용 하 여 수행할 수 있는 작업에 연결 하는 방법을 중점적으로 설명 합니다. 
+이 문서에서는 디바이스의 PowerShell 인터페이스에 연결하는 방법과 이 인터페이스를 사용하여 수행할 수 있는 작업에 대해 중점적으로 설명합니다. 
 
 
 ## <a name="connect-to-the-powershell-interface"></a>PowerShell 인터페이스에 연결합니다.
@@ -33,18 +33,18 @@ Edge Pro 솔루션 Azure Stack 데이터를 처리 하 고 네트워크를 통�
 [!INCLUDE [Create a support package](../../includes/data-box-edge-gateway-create-support-package.md)]
 
 
-## <a name="view-device-information"></a>장치 정보 보기
+## <a name="view-device-information"></a>디바이스 정보 보기
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
 ## <a name="view-gpu-driver-information"></a>GPU 드라이버 정보 보기
 
-장치에서 계산 역할이 구성 된 경우 PowerShell 인터페이스를 통해 GPU 드라이버 정보를 가져올 수도 있습니다. 
+디바이스에서 컴퓨팅 역할이 구성된 경우 PowerShell 인터페이스를 통해 GPU 드라이버 정보를 가져올 수도 있습니다. 
 
-1. [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
-2. 를 사용 `Get-HcsGpuNvidiaSmi` 하 여 장치에 대 한 GPU 드라이버 정보를 가져옵니다.
+1. [PowerShell 인터페이스에 연결하세요](#connect-to-the-powershell-interface).
+2. `Get-HcsGpuNvidiaSmi`를 사용하여 디바이스에 대한 GPU 드라이버 정보를 가져옵니다.
 
-    다음 예에서는이 cmdlet을 사용 하는 방법을 보여 줍니다.
+    다음 예제에서는 이 cmdlet의 사용법을 보여줍니다.
 
     ```powershell
     Get-HcsGpuNvidiaSmi
@@ -66,52 +66,110 @@ Edge Pro 솔루션 Azure Stack 데이터를 처리 하 고 네트워크를 통�
     +-------------------------------+----------------------+----------------------+
     ```
 
-## <a name="enable-multi-process-service-mps"></a>MP (다중 프로세스 서비스) 사용
+## <a name="enable-multi-process-service-mps"></a>MPS(다중 프로세스 서비스) 사용
 
-Nvidia Gpu의 MP (다중 프로세스 서비스)는 여러 작업에서 Gpu를 공유할 수 있는 메커니즘을 제공 합니다. 여기에서 각 작업에는 GPU 리소스의 일부 백분율이 할당 됩니다. MP는 Azure Stack Edge Pro GPU 장치의 미리 보기 기능입니다. 장치에서 MP를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
+Nvidia GPU의 MPS(다중 프로세스 서비스)는 여러 작업에서 GPU를 공유할 수 있는 메커니즘을 제공합니다. 여기서는 각 작업에 GPU 리소스의 일부 백분율이 할당됩니다. MPS는 Azure Stack Edge Pro GPU 디바이스의 미리 보기 기능입니다. 디바이스에서 MPS를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
 [!INCLUDE [Enable MPS](../../includes/azure-stack-edge-gateway-enable-mps.md)]
 
+> [!NOTE]
+> 디바이스 소프트웨어와 Kubernetes 클러스터를 업데이트하면 워크로드의 MPS 설정이 유지되지 않습니다. MPS를 다시 사용하도록 설정해야 합니다.
+
+<!--## Enable compute on private network
+
+Use the `Add-HcsNetRoute` cmdlet to enable compute on a private network. This cmdlet lets you add custom routes on Kubernetes master and worker VMs. 
+#### Add new route configuration
+
+IP routing is the process of forwarding a packet based on the destination IP address. For the Kubernetes VMs on your device, you can route the traffic by adding a new route configuration.  
+
+A route configuration is a routing table entry that includes the following fields:
+
+| Parameter | Description  |
+|---------|---------|
+|Destination     | Either an IP address or an IP address prefix.         |
+|Prefix length     | The prefix length corresponding to the address or range of addresses in the destination.        |
+|Next hop     | The IP address to which the packet is forwarded.        |
+|Interface     | The network interface that forwards the IP packet.        |
+|Metric     |Routing metric determines the preferred network interface used to reach the destination.          |
+
+
+Consider the following information before you add these routes:
+
+- The Kubernetes network where you are adding this route is in a private network and not connected to the internet.
+- The device port on which the compute is enabled does not have a gateway configured.
+- If you have a flat subnet, then you don't need to add these routes to the private network. You can (optionally) add these routes when there are multiple subnets on your private network.
+- You can add these routes only to the Kubernetes master and worker VMs and not to the device (Windows host). 
+- The Kubernetes compute need not be configured before you add this route. You can also add or update routes after the Kubernetes compute is configured. You can only add a new route configuration via the PowerShell interface of the device and not through the local UI.
+- Make sure that the network interface that you'll use has a static configuration. 
+
+Consider an example where Port 1 and Port 2 on your device are connected to the internet. Ports 3 to Port 6 are on a private network and is the same network that has the Kubernetes master and worker VMs. None of the ports 3 to 6 have a default gateway configured. There are cameras that are connected to the private network. And the camera feed creates a traffic that flows between the camera and the network interfaces on the Kubernetes VMs. 
+
+To add a new custom route, use the cmdlet as follows:
+
+```powershell
+Add-HcsNetRoute -InterfaceAlias "Port3" -DestinationPrefix "192.168.21.0/24" -NextHop "192.168.20.1" -RouteMetric 100 
+```
+
+Here the compute is enabled on the Port 3 network interface on your device and a virtual switch is created. The above route defines a destination subnet 192.168.21.0/24 and specifies the next hop as 192.168.20.1. This routing configuration has a routing metric of 100. Lower the routing metric, higher the priority assigned to the route.
+ 
+
+#### Check route configuration for an interface 
+
+Use this cmdlet to check for all the custom route configurations that you added on your device. These routes do not include all the system routes or default routes that already exist on the device. 
+
+```powershell
+Get-HcsNetRoute -InterfaceAlias Port3
+```
+
+
+#### Remove a route configuration
+
+Use this cmdlet to remove a route configuration that you added on your device.
+
+```powershell
+Remove-HcsNetRoute -InterfaceAlias "Port3" -DestinationPrefix "192.168.21.0/24"
+```
+-->
 
 ## <a name="reset-your-device"></a>디바이스 재설정
 
 [!INCLUDE [Reset your device](../../includes/data-box-edge-gateway-deactivate-device.md)]
 
-## <a name="get-compute-logs"></a>계산 로그 가져오기
+## <a name="get-compute-logs"></a>컴퓨팅 로그 가져오기
 
-장치에서 계산 역할이 구성 된 경우 PowerShell 인터페이스를 통해 계산 로그를 가져올 수도 있습니다.
+디바이스에서 컴퓨팅 역할이 구성된 경우 PowerShell 인터페이스를 통해 컴퓨팅 로그를 가져올 수도 있습니다.
 
-1. [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
-2. 를 사용 `Get-AzureDataBoxEdgeComputeRoleLogs` 하 여 장치에 대 한 계산 로그를 가져옵니다.
+1. [PowerShell 인터페이스에 연결하세요](#connect-to-the-powershell-interface).
+2. `Get-AzureDataBoxEdgeComputeRoleLogs`를 사용하여 디바이스에 대한 컴퓨팅 로그를 가져옵니다.
 
-    다음 예에서는이 cmdlet을 사용 하는 방법을 보여 줍니다.
+    다음 예제에서는 이 cmdlet의 사용법을 보여줍니다.
 
     ```powershell
     Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username" -FullLogCollection    
     ```
 
-    다음은 cmdlet에 사용 되는 매개 변수에 대 한 설명입니다.
-    - `Path`: 계산 로그 패키지를 만들려는 공유의 네트워크 경로를 제공 합니다.
-    - `Credential`: 네트워크 공유에 대 한 사용자 이름을 제공 합니다. 이 cmdlet을 실행 하는 경우 공유 암호를 제공 해야 합니다.
-    - `FullLogCollection`:이 매개 변수를 사용 하면 로그 패키지에 모든 계산 로그가 포함 됩니다. 기본적으로 로그 패키지에는 로그 하위 집합만 포함 되어 있습니다.
+    cmdlet에 사용되는 매개 변수에 대한 설명은 다음과 같습니다.
+    - `Path`: 컴퓨팅 로그 패키지를 만들려는 공유에 대한 네트워크 경로를 제공합니다.
+    - `Credential`: 네트워크 공유에 대한 사용자 이름을 제공합니다. 이 cmdlet을 실행하는 경우 공유 암호를 제공해야 합니다.
+    - `FullLogCollection`: 이 매개 변수는 모든 컴퓨팅 로그가 로그 패키지에 포함되도록 합니다. 로그 패키지에는 기본적으로 로그의 하위 집합만 포함되어 있습니다.
 
 
 ## <a name="change-kubernetes-pod-and-service-subnets"></a>Kubernetes Pod 및 서비스 서브넷 변경
 
-기본적으로 Azure Stack Edge 장치의 Kubernetes는 172.27.0.0/16 및 172.28.0.0/16의 서브넷을 각각 pod와 service에 사용 합니다. 이러한 서브넷을 네트워크에서 이미 사용 중인 경우에는 cmdlet을 실행 하 여 `Set-HcsKubeClusterNetworkInfo` 이러한 서브넷을 변경할 수 있습니다.
+기본적으로 Azure Stack Edge 디바이스의 Kubernetes는 172.27.0.0/16 및 172.28.0.0/16의 서브넷을 각각 Pod 및 서비스에 사용합니다. 네트워크에서 이러한 서브넷을 이미 사용하고 있는 경우 `Set-HcsKubeClusterNetworkInfo` cmdlet을 실행하여 해당 서브넷을 변경할 수 있습니다.
 
-이 단계에서 Kubernetes 클러스터를 만들 때 Azure Portal에서 compute를 구성 하기 전에이 구성을 수행 하려고 합니다.
+이 단계에서 Kubernetes 클러스터가 만들어지므로 Azure Portal에서 컴퓨팅을 구성하기 전에 이 구성을 수행하려고 합니다.
 
-1. [장치의 PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
-1. 장치의 PowerShell 인터페이스에서 다음을 실행 합니다.
+1. [디바이스의 PowerShell 인터페이스에 연결합니다](#connect-to-the-powershell-interface).
+1. 디바이스의 PowerShell 인터페이스에서 다음을 실행합니다.
 
     `Set-HcsKubeClusterNetworkInfo -PodSubnet <subnet details> -ServiceSubnet <subnet details>`
 
-    을 <subnet details> 사용 하려는 서브넷 범위로 바꿉니다. 
+    <subnet details>를 사용할 사용하려는 서브넷 범위로 바꾸세요. 
 
-1. 이 명령을 실행 한 후에는 명령을 사용 하 여 `Get-HcsKubeClusterNetworkInfo` pod 및 서비스 서브넷이 변경 되었는지 확인할 수 있습니다.
+1. 이 명령이 실행되면 `Get-HcsKubeClusterNetworkInfo` 명령을 사용하여 Pod 및 서비스 서브넷이 변경되었는지 확인할 수 있습니다.
 
-다음은이 명령에 대 한 샘플 출력입니다.
+이 명령의 샘플 출력은 다음과 같습니다.
 
 ```powershell
 [10.100.10.10]: PS>Set-HcsKubeClusterNetworkInfo -PodSubnet 10.96.0.1/16 -ServiceSubnet 10.97.0.1/16
@@ -123,23 +181,23 @@ Id                                   PodSubnet    ServiceSubnet
 [10.100.10.10]: PS>
 ```
 
-## <a name="debug-kubernetes-issues-related-to-iot-edge"></a>IoT Edge와 관련 된 Kubernetes 문제를 디버그 합니다.
+## <a name="debug-kubernetes-issues-related-to-iot-edge"></a>IoT Edge와 관련된 Kubernetes 문제 디버깅
 
-시작 하기 전에 다음이 있어야 합니다.
+시작하기 전에 다음이 필요합니다.
 
-- 계산 네트워크를 구성 했습니다. [자습서: GPU를 사용 하 여 Azure Stack Edge Pro에 대 한 네트워크 구성을](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)참조 하세요.
-- 장치에 구성 된 계산 역할이 있습니다.
+- 구성된 컴퓨팅 네트워크. [자습서: GPU가 있는 Azure Stack Edge Pro에 대한 네트워크 구성](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)을 참조하세요.
+- 디바이스에 구성된 컴퓨팅 역할
     
-계산 역할이 구성 된 Azure Stack Edge Pro 장치에서는 두 개의 다른 명령 집합을 사용 하 여 장치를 문제를 해결 하거나 모니터링할 수 있습니다.
+컴퓨팅 역할이 구성된 Azure Stack Edge Pro GPU 디바이스에서 별도의 두 가지 명령 세트를 사용하여 디바이스 문제를 해결하거나 디바이스를 모니터링할 수 있습니다.
 
-- `iotedge`명령을 사용 합니다. 이러한 명령은 장치에 대 한 기본 작업에 사용할 수 있습니다.
-- `kubectl`명령을 사용 합니다. 이러한 명령은 장치에 대 한 광범위 한 작업 집합에서 사용할 수 있습니다.
+- `iotedge` 명령을 사용. 이러한 명령은 디바이스에 대한 기본 작업에 사용할 수 있습니다.
+- `kubectl` 명령 사용. 이러한 명령은 디바이스에 대한 광범위한 작업 세트에 사용할 수 있습니다.
 
-위의 명령 집합 중 하나를 실행 하려면 [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)해야 합니다.
+위의 명령 세트 중 하나를 실행하려면 [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)해야 합니다.
 
-### <a name="use-iotedge-commands"></a>`iotedge`명령 사용
+### <a name="use-iotedge-commands"></a>`iotedge` 명령 사용
 
-사용 가능한 명령 목록을 보려면 [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface) 하 고 함수를 사용 `iotedge` 합니다.
+사용 가능한 명령 목록을 보려면 [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)하고, `iotedge` 함수를 사용합니다.
 
 ```powershell
 [10.100.10.10]: PS>iotedge -?                                                                                                                           
@@ -153,19 +211,19 @@ Commands:
 [10.100.10.10]: PS>
 ```
 
-다음 표에는에서 사용할 수 있는 명령에 대 한 간략 한 설명이 나와 있습니다 `iotedge` .
+다음 표에서는 `iotedge`에 사용할 수 있는 명령에 대해 간략히 설명합니다.
 
 |명령을 사용합니다.  |Description |
 |---------|---------|
 |`list`     | 모듈 목록 표시         |
-|`logs`     | 모듈의 로그 가져오기        |
-|`restart`     | 모듈을 중지 했다가 다시 시작 합니다.         |
+|`logs`     | 모듈 로그 가져오기        |
+|`restart`     | 모듈 중지 및 다시 시작         |
 
 #### <a name="list-all-iot-edge-modules"></a>모든 IoT Edge 모듈 나열
 
-장치에서 실행 되는 모든 모듈을 나열 하려면 명령을 사용 `iotedge list` 합니다.
+디바이스에서 실행되는 모든 모듈을 나열하려면 `iotedge list` 명령을 사용합니다.
 
-이 명령의 샘플 출력은 다음과 같습니다. 이 명령은 모듈과 연결 된 모든 모듈, 연결 된 구성 및 외부 Ip를 나열 합니다. 예를 **들어에서 웹 서버 앱에** 액세스할 수 있습니다 `https://10.128.44.244` . 
+이 명령의 샘플 출력은 다음과 같습니다. 이 명령은 모든 모듈, 연결된 구성 및 모듈과 연결된 외부 IP를 나열합니다. 예를 들어 `https://10.128.44.244`에서 **webserver** 앱에 액세스할 수 있습니다. 
 
 
 ```powershell
@@ -183,9 +241,9 @@ webserverapp           Running Up 10 days  nginx:stable                         
 ```
 #### <a name="restart-modules"></a>모듈 다시 시작
 
-명령을 사용 하 여 `list` 장치에서 실행 되는 모든 모듈을 나열할 수 있습니다. 그런 다음 다시 시작 하려는 모듈의 이름을 확인 하 고 명령에 사용 `restart` 합니다.
+`list` 명령을 사용하여 디바이스에서 실행되는 모든 모듈을 나열할 수 있습니다. 그런 다음, 다시 시작하려는 모듈의 이름을 확인하고, `restart` 명령에 사용합니다.
 
-모듈을 다시 시작 하는 방법에 대 한 샘플 출력은 다음과 같습니다. 모듈이 실행 되는 시간에 대 한 설명에 따라가 다시 시작 되었음을 확인할 수 있습니다 `cuda-sample1` .
+모듈을 다시 시작하는 방법에 대한 샘플 출력은 다음과 같습니다. 모듈이 실행되는 기간에 대한 설명에 따라 `cuda-sample1`이 다시 시작되었음을 확인할 수 있습니다.
 
 ```powershell
 [10.100.10.10]: PS>iotedge list
@@ -218,9 +276,9 @@ cuda-sample1 Running Up 4 minutes nvidia/samples:nbody
 
 #### <a name="get-module-logs"></a>모듈 로그 가져오기
 
-명령을 사용 `logs` 하 여 장치에서 실행 되는 모든 IoT Edge 모듈의 로그를 가져옵니다. 
+`logs` 명령을 사용하여 디바이스에서 실행되는 IoT Edge 모듈에 대한 로그를 가져옵니다. 
 
-컨테이너 이미지를 만드는 동안 또는 이미지를 끌어오는 동안 오류가 발생 한 경우를 실행 `logs edgeagent` 합니다. `edgeagent` 는 다른 컨테이너의 프로 비전을 담당 하는 IoT Edge 런타임 컨테이너입니다. 는 `logs edgeagent` 모든 로그를 덤프 하므로 최근 오류를 확인 하는 좋은 방법은 옵션 0 '을 사용 하는 것입니다 `--tail ` . 
+컨테이너 이미지를 만들 때 또는 이미지를 끌어오는 동안 오류가 발생한 경우 `logs edgeagent`를 실행합니다. `edgeagent`는 다른 컨테이너를 프로비전해야 하는 IoT Edge 런타임 컨테이너입니다. `logs edgeagent`는 모든 로그를 덤프하므로 최근 오류를 확인할 수 있는 좋은 방법은 `--tail `0` 옵션을 사용하는 것입니다. 
 
 샘플 출력은 다음과 같습니다.
 
@@ -240,9 +298,9 @@ cuda-sample1 Running Up 4 minutes nvidia/samples:nbody
 [10.100.10.10]: PS>
 ```
 
-### <a name="use-kubectl-commands"></a>Kubectl 명령 사용
+### <a name="use-kubectl-commands"></a>kubectl 명령 사용
 
-계산 역할이 구성 된 Azure Stack Edge Pro 장치에서 모든 `kubectl` 명령을 사용 하 여 모듈을 모니터링 하거나 문제를 해결할 수 있습니다. 사용 가능한 명령 목록을 보려면 `kubectl --help` 명령 창에서를 실행 합니다.
+컴퓨팅 역할이 구성된 Azure Stack Edge Pro GPU 디바이스에서 모든 `kubectl` 명령을 사용하여 모듈을 모니터링하거나 문제를 해결할 수 있습니다. 사용 가능한 명령 목록을 보려면 명령 창에서 `kubectl --help`를 실행합니다.
 
 ```PowerShell
 C:\Users\myuser>kubectl --help
@@ -268,16 +326,16 @@ Use "kubectl options" for a list of global command-line options (applies to all 
 C:\Users\myuser>
 ```
 
-전체 `kubectl` 명령 목록은 [ `kubectl` 참고 자료](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)로 이동 합니다.
+`kubectl` 명령의 전체 목록을 보려면[`kubectl` 치트 시트](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)로 이동합니다.
 
 
-#### <a name="to-get-ip-of-service-or-module-exposed-outside-of-kubernetes-cluster"></a>Kubernetes 클러스터 외부에 노출 되는 서비스 또는 모듈의 IP를 가져오려면
+#### <a name="to-get-ip-of-service-or-module-exposed-outside-of-kubernetes-cluster"></a>Kubernetes 클러스터 외부에 공개된 서비스 또는 모듈의 IP 가져오기
 
-Kubernetes 외부에 노출 된 부하 분산 서비스 또는 모듈의 IP를 가져오려면 다음 명령을 실행 합니다.
+Kubernetes 외부에 공개된 부하 분산 서비스의 IP를 가져오려면 다음 명령을 실행합니다.
 
 `kubectl get svc -n iotedge`
 
-다음은 Kubernetes 클러스터 외부에 노출 되는 모든 서비스 또는 모듈의 샘플 출력입니다. 
+Kubernetes 클러스터 외부에 공개된 모든 서비스 또는 모듈에 대한 샘플 출력은 다음과 같습니다. 
 
 
 ```powershell
@@ -289,25 +347,25 @@ webserverapp   LoadBalancer   10.105.186.35   10.128.44.244   8080:30976/TCP    
 
 [10.100.10.10]: PS>
 ```
-외부 IP 열의 IP 주소는 서비스 또는 모듈의 외부 끝점에 해당 합니다. [Kubernetes 대시보드에서 외부 IP를 가져올](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#get-ip-address-for-services-or-modules)수도 있습니다.
+외부 IP 열의 IP 주소는 서비스 또는 모듈의 외부 엔드포인트에 해당합니다. [Kubernetes 대시보드에서 외부 IP를 가져올](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#get-ip-address-for-services-or-modules) 수도 있습니다.
 
 
-#### <a name="to-check-if-module-deployed-successfully"></a>모듈이 성공적으로 배포 되었는지 확인 하려면
+#### <a name="to-check-if-module-deployed-successfully"></a>모듈이 성공적으로 배포되었는지 확인
 
-계산 모듈은 비즈니스 논리를 구현 하는 컨테이너입니다. Kubernetes pod는 여러 컨테이너를 실행할 수 있습니다. 
+컴퓨팅 모듈은 비즈니스 논리가 구현된 컨테이너입니다. Kubernetes Pod는 여러 컨테이너를 실행할 수 있습니다. 
 
-계산 모듈이 성공적으로 배포 되었는지 확인 하려면 장치의 PowerShell 인터페이스에 연결 합니다.
-명령을 실행 `get pods` 하 고 컨테이너 (계산 모듈에 해당)가 실행 중인지 확인 합니다.
+컴퓨팅 모듈이 성공적으로 배포되었는지 확인하려면 디바이스의 PowerShell 인터페이스에 연결합니다.
+`get pods` 명령을 실행하여 컴퓨팅 모듈에 해당하는 컨테이너가 실행 중인지 확인합니다.
 
-특정 네임 스페이스에서 실행 중인 모든 pod 목록을 가져오려면 다음 명령을 실행 합니다.
+특정 네임스페이스에서 실행 중인 모든 Pod의 목록을 가져오려면 다음 명령을 실행합니다.
 
 `get pods -n <namespace>`
 
-IoT Edge를 통해 배포 된 모듈을 확인 하려면 다음 명령을 실행 합니다.
+IoT Edge를 통해 배포된 모듈을 확인하려면 다음 명령을 실행합니다.
 
 `get pods -n iotedge`
 
-다음은 네임 스페이스에서 실행 중인 모든 pod의 샘플 출력입니다 `iotedge` .
+`iotedge` 네임스페이스에서 실행 중인 모든 Pod에 대한 샘플 출력은 다음과 같습니다.
 
 ```
 [10.100.10.10]: PS>kubectl get pods -n iotedge
@@ -320,16 +378,16 @@ iotedged-675d7f4b5f-9nml4   1/1     Running   0          20h
 [10.100.10.10]: PS>
 ```
 
-상태 **상태** 는 네임 스페이스의 모든 pod이 실행 중이 고 **준비** 된는 pod에 배포 된 컨테이너 수를 나타냅니다. 위의 샘플에서는 모든 pod가 실행 되 고 있으며 각 pod에 배포 된 모든 모듈이 실행 중입니다. 
+**Status** 상태는 네임스페이스의 모든 Pod가 실행 중임을 나타내고, **Ready** 상태는 Pod에 배포된 컨테이너 수를 나타냅니다. 이전 샘플에서 모든 Pod가 실행 중이고, 각 Pod에 배포된 모든 모듈이 실행 중입니다. 
 
-Azure Arc를 통해 배포 된 모듈을 확인 하려면 다음 명령을 실행 합니다.
+Azure Arc를 통해 배포된 모듈을 확인하려면 다음 명령을 실행합니다.
 
 `get pods -n azure-arc`
 
-또는 [Kubernetes 대시보드에 연결 하 IoT Edge 또는 Azure Arc 배포를 볼](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#view-module-status)수 있습니다.
+또는 [Kubernetes 대시보드에 연결하여 IoT Edge 또는 Azure Arc 배포를 확인](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#view-module-status)할 수 있습니다.
 
 
-지정 된 네임 스페이스에 대 한 특정 pod의 자세한 출력을 보려면 다음 명령을 실행 하면 됩니다.
+지정된 네임스페이스의 특정 Pod에 대한 더 자세한 출력을 위해 다음 명령을 실행할 수 있습니다.
 
 `kubectl describe pod <pod name> -n <namespace>` 
 
@@ -396,15 +454,15 @@ Events:          <none>
 [10.100.10.10]: PS>
 ```
 
-#### <a name="to-get-container-logs"></a>컨테이너 로그를 가져오려면
+#### <a name="to-get-container-logs"></a>컨테이너 로그 가져오기
 
-모듈에 대 한 로그를 가져오려면 장치의 PowerShell 인터페이스에서 다음 명령을 실행 합니다.
+모듈에 대한 로그를 가져오려면 디바이스의 PowerShell 인터페이스에서 다음 명령을 실행합니다.
 
 `kubectl logs <pod_name> -n <namespace> --all-containers` 
 
-`all-containers`플래그가 모든 컨테이너에 대 한 모든 로그를 덤프 하므로 최근 오류를 확인 하는 좋은 방법은 옵션을 사용 하는 것입니다 `--tail 10` .
+`all-containers` 플래그에서 모든 컨테이너에 대한 모든 로그를 덤프하므로 최근 오류를 확인하는 좋은 방법은 `--tail 10` 옵션을 사용하는 것입니다.
 
-다음은 샘플 출력입니다. 
+샘플 출력은 다음과 같습니다. 
 
 ```
 [10.100.10.10]: PS>kubectl logs filemove-66c49984b7-h8lxc -n iotedge --all-containers --tail 10
@@ -426,16 +484,16 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 [10.100.10.10]: PS>
 ```
 
-### <a name="change-memory-processor-limits-for-kubernetes-worker-node"></a>Kubernetes worker 노드에 대 한 메모리, 프로세서 제한 변경
+### <a name="change-memory-processor-limits-for-kubernetes-worker-node"></a>Kubernetes 작업자 노드에 대한 메모리 및 프로세서 제한 변경
 
-Kubernetes worker 노드에 대 한 메모리 또는 프로세서 제한을 변경 하려면 다음 단계를 수행 합니다.
+Kubernetes 작업자 노드에 대한 메모리 또는 프로세서 제한을 변경하려면 다음 단계를 수행합니다.
 
-1. [장치의 PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
-1. 작업자 노드와 역할 옵션에 대 한 현재 리소스를 가져오려면 다음 명령을 실행 합니다.
+1. [디바이스의 PowerShell 인터페이스에 연결합니다](#connect-to-the-powershell-interface).
+1. 작업자 노드 및 역할 옵션에 대한 현재 리소스를 가져오려면 다음 명령을 실행합니다.
 
     `Get-AzureDataBoxEdgeRole`
 
-    샘플 출력은 다음과 같습니다. `Name`섹션에서 및에 대 한 값을 확인 합니다 `Compute` `Resources` . `MemoryInBytes` 및 `ProcessorCount` 는 Kubernetes worker 노드에 대 한 현재 할당 된 값 메모리와 프로세서 수를 나타냅니다.  
+    샘플 출력은 다음과 같습니다. `Resources` 섹션 아래의 `Name` 및 `Compute` 값을 확인합니다. `MemoryInBytes` 및 `ProcessorCount`는 Kubernetes 작업자 노드에 대해 현재 할당된 값(메모리 및 프로세서 수)을 나타냅니다.  
 
     ```powershell
     [10.100.10.10]: PS>Get-AzureDataBoxEdgeRole
@@ -478,9 +536,9 @@ Kubernetes worker 노드에 대 한 메모리 또는 프로세서 제한을 변�
     [10.100.10.10]: PS>
     ```
     
-1. 작업자 노드에 대 한 메모리 및 프로세서의 값을 변경 하려면 다음 명령을 실행 합니다.
+1. 작업자 노드에 대한 메모리 및 프로세서 수 값을 변경하려면 다음 명령을 실행합니다.
 
-    Set-AzureDataBoxEdgeRoleCompute-이름 <Name value from the output of Get-AzureDataBoxEdgeRole> -메모리 <Value in Bytes> -ProcessorCount <No. 코어>
+    Set-AzureDataBoxEdgeRoleCompute -Name <Name value from the output of Get-AzureDataBoxEdgeRole> -Memory <Value in Bytes> -ProcessorCount <코어 수>
 
     샘플 출력은 다음과 같습니다. 
     
@@ -529,18 +587,18 @@ Kubernetes worker 노드에 대 한 메모리 또는 프로세서 제한을 변�
     [10.100.10.10]: PS>    
     ```
 
-메모리 및 프로세서 사용을 변경 하는 동안 다음 지침을 따르세요.
+메모리 및 프로세서 사용량을 변경하는 동안 다음 지침을 따릅니다.
 
-- 기본 메모리는 장치 사양의 25%입니다.
-- 기본 프로세서 수는 장치 사양의 30%입니다.
-- 메모리 및 프로세서 수에 대 한 값을 변경 하는 경우에는 장치 메모리와 프로세서 수의 15%에서 60% 사이의 값을 변경 하는 것이 좋습니다. 
-- 시스템 구성 요소에 충분 한 리소스가 있도록 60%의 상한을 권장 합니다. 
+- 기본 메모리는 디바이스 사양의 25%입니다.
+- 기본 프로세서 수는 디바이스 사양의 30%입니다.
+- 메모리 및 프로세서 수 값을 변경하는 경우 디바이스 메모리와 프로세서 수의 15%~60%에 해당하는 값으로 변경하는 것이 좋습니다. 
+- 시스템 구성 요소에 대한 충분한 리소스가 있도록 60%의 상한을 권장합니다. 
 
 ## <a name="connect-to-bmc"></a>BMC에 연결
 
-BMC (베이스 보드 관리 컨트롤러)는 장치를 원격으로 모니터링 하 고 관리 하는 데 사용 됩니다. 이 섹션에서는 BMC 구성을 관리 하는 데 사용할 수 있는 cmdlet에 대해 설명 합니다. 이러한 cmdlet을 실행 하기 전에 [장치의 PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
+BMC(베이스보드 관리 컨트롤러)는 디바이스를 원격으로 모니터링하고 관리하는 데 사용됩니다. 이 섹션에서는 BMC 구성을 관리하는 데 사용할 수 있는 cmdlet에 대해 설명합니다. 이러한 cmdlet을 실행하기 전에 [디바이스의 PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
 
-- `Get-HcsNetBmcInterface`:이 cmdlet을 사용 하 여 BMC의 네트워크 구성 속성 (예:,,,)을 가져옵니다 `IPv4Address` `IPv4Gateway` `IPv4SubnetMask` `DhcpEnabled` . 
+- `Get-HcsNetBmcInterface`: 이 cmdlet을 사용하여 BMC의 네트워크 구성 속성(예: `IPv4Address`, `IPv4Gateway`, `IPv4SubnetMask`, `DhcpEnabled`)을 가져옵니다. 
     
     샘플 출력은 다음과 같습니다.
     
@@ -551,9 +609,9 @@ BMC (베이스 보드 관리 컨트롤러)는 장치를 원격으로 모니터�
     10.128.53.186 10.128.52.1 255.255.252.0        False
     [10.100.10.10]: PS>
     ```
-- `Set-HcsNetBmcInterface`:이 cmdlet은 다음 두 가지 방법으로 사용할 수 있습니다.
+- `Set-HcsNetBmcInterface`: 이 cmdlet은 다음 두 가지 방법으로 사용할 수 있습니다.
 
-    - Cmdlet을 사용 하 여 매개 변수에 적절 한 값을 사용 하 여 BMC에 DHCP 구성을 사용 하거나 사용 하지 않도록 설정할 수 `UseDhcp` 있습니다. 
+    - 이 cmdlet에서 적절한 값을 `UseDhcp` 매개 변수에 사용하여 BMC에 대한 DHCP 구성을 사용하거나 사용하지 않도록 설정합니다. 
 
         ```powershell
         Set-HcsNetBmcInterface -UseDhcp $true
@@ -570,10 +628,10 @@ BMC (베이스 보드 관리 컨트롤러)는 장치를 원격으로 모니터�
         [10.100.10.10]: PS>
         ```
 
-    - 이 cmdlet을 사용 하 여 BMC에 대 한 정적 구성을 구성할 수 있습니다. , 및에 대 한 값을 지정할 수 있습니다 `IPv4Address` `IPv4Gateway` `IPv4SubnetMask` . 
+    - 이 cmdlet을 사용하여 BMC에 대한 정적 구성을 구성합니다. `IPv4Address`, `IPv4Gateway` 및 `IPv4SubnetMask`에 대한 값을 지정할 수 있습니다. 
     
         ```powershell
-        Set-HcsNetBmcInterface -IPv4Address "<IPv4 address of the device>" -IPv4Gateway "<IPv4 address of the gateway>" -IPv4SubnetMask "<IPv4 address for the subnet mask>"
+        Set-HcsNetBmcInterface -IPv4Address "<IPv4 address of the device>&quot; -IPv4Gateway &quot;<IPv4 address of the gateway>&quot; -IPv4SubnetMask &quot;<IPv4 address for the subnet mask>"
         ```        
         
         샘플 출력은 다음과 같습니다. 
@@ -587,7 +645,7 @@ BMC (베이스 보드 관리 컨트롤러)는 장치를 원격으로 모니터�
         [10.100.10.10]: PS>
         ```    
 
-- `Set-HcsBmcPassword`:이 cmdlet을 사용 하 여에 대 한 BMC 암호를 수정할 수 `EdgeUser` 있습니다. 사용자 이름- `EdgeUser` -대/소문자를 구분 합니다.
+- `Set-HcsBmcPassword`: 이 cmdlet을 사용하여 `EdgeUser`에 대한 BMC 암호를 수정합니다. 사용자 이름(`EdgeUser`)은 대/소문자를 구분합니다.
 
     샘플 출력은 다음과 같습니다. 
 
@@ -598,8 +656,8 @@ BMC (베이스 보드 관리 컨트롤러)는 장치를 원격으로 모니터�
 
 ## <a name="exit-the-remote-session"></a>원격 세션 종료
 
-원격 PowerShell 세션을 종료 하려면 PowerShell 창을 닫습니다.
+원격 PowerShell 세션을 종료하려면 PowerShell 창을 닫습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Portal에서 [Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md)를 배포합니다.
+- Azure Portal에서 [Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md)를 배포합니다.

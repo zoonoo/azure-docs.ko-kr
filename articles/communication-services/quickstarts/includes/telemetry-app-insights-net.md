@@ -6,23 +6,23 @@ author: peiliu
 manager: vravikumar
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 06/01/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: peiliu
-ms.openlocfilehash: fc76538023af79d84becc1662bf2402a3daadff4
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 983ce28f736bd36255e65073b202ff6c5761b059
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111593138"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292408"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 운영 체제에 대한 최신 버전의 [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)
 - 활성 Communication Services 리소스 및 연결 문자열입니다. [Communication Services 리소스를 만듭니다](../create-communication-resource.md).
-- Azure Portal에서 [Application Insights 리소스](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)를 만듭니다.
+- [Azure Portal](../../../azure-monitor/app/create-new-resource.md)에서 Application Insights 리소스를 만듭니다.
 
 ## <a name="setting-up"></a>설치
 
@@ -124,7 +124,7 @@ public static async Task TracedSample()
         activity?.SetTag("Token value", tokenResponse.Value.Token);
         activity?.SetTag("Expires on", tokenResponse.Value.ExpiresOn);
 
-        Console.WriteLine($"\nIssued an access token with 'chat' scope that expires at {expiresOn}:");
+        Console.WriteLine($"\nIssued an access token with 'chat' scope that expires at {tokenResponse.Value.ExpiresOn}:");
     }
 }
 ```

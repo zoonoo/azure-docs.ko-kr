@@ -1,13 +1,13 @@
 ---
-title: 응용 프로그램 업그레이드 문제 해결
+title: 애플리케이션 업그레이드 문제 해결
 description: 이 문서에서는 서비스 패브릭 애플리케이션 업그레이드에 관한 일반적인 문제와 이를 해결하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96009350"
 ---
 # <a name="troubleshoot-application-upgrades"></a>애플리케이션 업그레이드 문제 해결
@@ -212,20 +212,20 @@ ServiceTypeHealthPolicyMap              :
 
 업그레이드 시간과 제한 시간의 관계에 대해 간단히 정리하면 다음과 같습니다.
 
-업그레이드 도메인에 대 한 업그레이드는 *HealthCheckWaitDuration* HealthCheckStableDuration 보다 빨리 완료할 수 없습니다  +  .
+업그레이드 도메인에 대한 업그레이드는 *HealthCheckWaitDuration* + *HealthCheckStableDuration* 보다 빠르게 완료할 수 없습니다.
 
-*HealthCheckWaitDuration* HealthCheckRetryTimeout 보다는 업그레이드 오류가 발생할 수 없습니다  +  .
+*HealthCheckWaitDuration* + *HealthCheckRetryTimeout* 보다 빠르면 업그레이드 오류가 발생할 수 있습니다.
 
 업그레이드 도메인에 대한 업그레이드 시간은 *UpgradeDomainTimeout* 으로 제한됩니다.  *HealthCheckRetryTimeout* 및 *HealthCheckStableDuration* 이 모두 0이 아니고 애플리케이션이 앞뒤로 전환되는 상태를 유지하는 경우, 업그레이드는 궁극적으로 *UpgradeDomainTimeout* 의 제한 시간이 됩니다. *UpgradeDomainTimeout* 은 현재 업그레이드 도메인에 대한 업그레이드가 일단 시작되면 카운트다운을 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Visual studio를 사용 하 여 응용 프로그램을 업그레이드](service-fabric-application-upgrade-tutorial.md) 하면 visual studio를 사용 하 여 응용 프로그램을 업그레이드할 수 있습니다.
+[Visual Studio를 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial.md)에서는 Visual Studio를 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
 
-[Powershell을 사용 하 여 응용 프로그램을 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md) 하려면 powershell을 사용 하 여 응용 프로그램을 업그레이드 합니다.
+[Powershell을 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)에서는 PowerShell을 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
 
 [업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 애플리케이션 업그레이드 방법을 제어합니다.
 
-[데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)를 사용 하는 방법을 학습 하 여 응용 프로그램 업그레이드를 호환 가능 하 게 만듭니다.
+[데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)사용 방법을 익혀 애플리케이션 업그레이드와 호환되도록 만듭니다.
 
-[고급 항목](service-fabric-application-upgrade-advanced.md)을 참조 하 여 응용 프로그램을 업그레이드 하는 동안 고급 기능을 사용 하는 방법에 대해 알아봅니다.
+[고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 애플리케이션을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.

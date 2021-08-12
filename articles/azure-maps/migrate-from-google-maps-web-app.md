@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: fcb8090427530271600a6699fafa5c488c426784
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f034d5e4edd1e99605f3620cdf99084ae8c4ea86
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97680874"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114437214"
 ---
 # <a name="tutorial-migrate-a-web-app-from-google-maps"></a>자습서: Google Maps에서 웹앱 마이그레이션
 
@@ -40,7 +40,7 @@ Google Maps를 사용하는 대부분의 웹앱은 Google Maps V3 JavaScript SDK
 
 기존 웹 애플리케이션을 마이그레이션하는 경우 오픈 소스 맵 컨트롤 라이브러리를 사용하고 있는지 확인하세요. 오픈 소스 맵 컨트롤 라이브러리의 예로 Cesium, Leaflet 및 OpenLayers가 있습니다. 오픈 소스 맵 컨트롤 라이브러리를 사용하고 Azure Maps 웹 SDK를 사용하지 않으려는 경우에도 애플리케이션을 계속 마이그레이션할 수 있습니다. 이 경우 애플리케이션을 Azure Maps 타일 서비스([도로 타일](/rest/api/maps/render/getmaptile) \| [위성 타일](/rest/api/maps/render/getmapimagerytile))에 연결합니다. 다음은 일반적으로 사용되는 오픈 소스 맵 컨트롤 라이브러리 중 일부에서 Azure Maps를 사용하는 방법에 대해 자세히 설명합니다.
 
-* Cesium - 웹용 3D 지도 컨트롤입니다. [코드 샘플](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [설명서](https://cesiumjs.org/)
+* Cesium - 웹용 3D 지도 컨트롤입니다. [코드 샘플](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [설명서](https://www.cesium.com/)
 * Leaflet – 웹용 경량 2D 지도 컨트롤입니다. [코드 샘플](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [설명서](https://leafletjs.com/)
 * OpenLayers - 프로젝션을 지원하는 웹용 2D 지도 컨트롤입니다. [코드 샘플](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20OpenLayers) \| [설명서](https://openlayers.org/)
 
@@ -253,9 +253,9 @@ Google Maps를 지역화하려면 언어 및 지역 매개 변수를 추가합�
 
 ![Google Maps 지역화](media/migrate-google-maps-web-app/google-maps-localization.png)
 
-#### <a name="after-azure-maps"></a>이후: Azure Maps
+#### <a name="after-azure-maps&quot;></a>이후: Azure Maps
 
-Azure Maps는 맵의 언어 및 지역 보기를 설정하는 두 가지 방법을 제공합니다. 첫 번째 옵션은 이 정보를 글로벌 *atlas* 네임스페이스에 추가하는 것입니다. 그러면 앱의 모든 맵 컨트롤 인스턴스가 이러한 설정으로 기본 설정됩니다. 다음은 언어를 프랑스어("fr-FR")로 설정하고 지역 보기를 "Auto"로 설정합니다.
+Azure Maps는 맵의 언어 및 지역 보기를 설정하는 두 가지 방법을 제공합니다. 첫 번째 옵션은 이 정보를 글로벌 *atlas* 네임스페이스에 추가하는 것입니다. 그러면 앱의 모든 맵 컨트롤 인스턴스가 이러한 설정으로 기본 설정됩니다. 다음은 언어를 프랑스어(&quot;fr-FR")로 설정하고 지역 보기를 "Auto"로 설정합니다.
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -1318,12 +1318,12 @@ map.overlayMapTypes.insertAt(0, new google.maps.ImageMapType({
 
 ![Google Maps 타일 레이어](media/migrate-google-maps-web-app/google-maps-tile-layer.png)
 
-#### <a name="after-azure-maps"></a>이후: Azure Maps
+#### <a name="after-azure-maps&quot;></a>이후: Azure Maps
 
 다른 레이어와 마찬가지로 타일 계층을 맵에 추가합니다. x, y, 확대/축소 자리 표시자, `{x}`, `{y}`, `{z}`가 포함된 형식이 지정된 URL을 사용하여 타일에 액세스할 위치를 레이어에 알려줍니다. Azure Maps 타일 레이어는 `{quadkey}`, `{bbox-epsg-3857}` 및 `{subdomain}` 자리 표시자도 지원합니다.
 
 > [!TIP]
-> Azure Maps에서는 기본 지도 계층을 비롯한 다른 계층 아래에 레이어를 쉽게 렌더링할 수 있습니다. 쉽게 읽을 수 있도록 맵 레이블 아래에 타일 레이어를 렌더링하는 것이 좋은 경우가 많습니다. `map.layers.add` 메서드는 아래에 새 레이어를 삽입할 레이어의 ID인 두 번째 매개 변수를 사용합니다. 타일 계층을 맵 레이블 아래에 삽입하려면 `map.layers.add(myTileLayer, "labels");` 코드를 사용합니다.
+> Azure Maps에서는 기본 지도 계층을 비롯한 다른 계층 아래에 레이어를 쉽게 렌더링할 수 있습니다. 쉽게 읽을 수 있도록 맵 레이블 아래에 타일 레이어를 렌더링하는 것이 좋은 경우가 많습니다. `map.layers.add` 메서드는 아래에 새 레이어를 삽입할 레이어의 ID인 두 번째 매개 변수를 사용합니다. 타일 계층을 맵 레이블 아래에 삽입하려면 `map.layers.add(myTileLayer, &quot;labels");` 코드를 사용합니다.
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.
@@ -1390,7 +1390,7 @@ Azure와 Google 맵 모두, 맵에 지리 좌표화된(georeferenced) 이미지 
 
 #### <a name="before-google-maps"></a>이전: Google Maps
 
-오버레이하려는 이미지의 URL과 맵에서 이미지를 바인딩할 경계 상자를 지정합니다. 이 예제에서는 [뉴저지주 뉴어크의 1922년](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) 맵 이미지를 맵에 오버레이합니다.
+오버레이하려는 이미지의 URL과 맵에서 이미지를 바인딩할 경계 상자를 지정합니다. 이 예제에서는 뉴저지주 뉴어크의 1922년 맵 이미지를 맵에 오버레이합니다.
 
 ```html
 <!DOCTYPE html>

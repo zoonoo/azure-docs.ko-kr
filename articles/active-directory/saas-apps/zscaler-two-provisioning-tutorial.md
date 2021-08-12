@@ -2,8 +2,8 @@
 title: '자습서: Azure Active Directory를 사용하여 Zscaler Two에 대한 자동 사용자 프로비저닝 구성 | Microsoft Docs'
 description: 이 자습서에서는 Zscaler Two에 대한 사용자 계정을 자동으로 프로비저닝하거나 이를 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 1c63639321966cbb73f5c47524f408d17ba46c3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c03804ffa98104bda3e86c16d6b8343c50d97b5a
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97936566"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113760396"
 ---
 # <a name="tutorial-configure-zscaler-two-for-automatic-user-provisioning"></a>자습서: Zscaler Two에 대한 자동 사용자 프로비저닝 구성
 

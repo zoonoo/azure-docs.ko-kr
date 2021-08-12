@@ -1,6 +1,6 @@
 ---
-title: Power BI 통합-Azure Time Series Insights Gen 2 | Microsoft Docs
-description: Azure Time Series insights에서 Power BI 통합에 대해 알아봅니다.
+title: Power BI 통합 - Azure Time Series Insights Gen 2 | Microsoft Docs
+description: Azure Time Series insights의 Power BI 통합에 대해 알아봅니다.
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
@@ -9,19 +9,19 @@ ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.openlocfilehash: 2b6631415c32358cf445fab534b9524c88b6432e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95020881"
 ---
-# <a name="connect-azure-time-series-insights-gen-2-to-power-bi"></a>Power BI에 Azure Time Series Insights Gen 2 연결  
+# <a name="connect-azure-time-series-insights-gen-2-to-power-bi"></a>Azure Time Series Insights Gen 2를 Power BI에 연결  
 
-시계열 데이터를 상호 연결 하 고, 선명한 시각화를 만들고, 조직 전체에서 통찰력을 공유 하는 데 도움이 되는 솔루션을 찾고 있나요?
+시계열 데이터의 상관 관계를 파악하고, 선명한 시각화를 만들고, 조직 전체에서 인사이트를 공유하는 데 도움이 되는 솔루션을 찾고 있나요?
 
-Azure Time Series Insights은 이제 [Power BI](https://powerbi.microsoft.com/)와 원활 하 게 통합 되어 스트리밍 데이터에 대 한 보다 강력한 시각화 및 대시보드 기능을 제공 하 고 조직 전체에서 정보 및 결과를 공유할 수 있습니다.
+Azure Time Series Insights는 이제 [Power BI](https://powerbi.microsoft.com/)와 원활하게 통합되어 스트리밍 데이터에 대한 보다 강력한 시각화 및 대시보드 기능을 제공하고 조직 전체에서 인사이트 및 결과를 공유할 수 있도록 합니다.
 
-## <a name="video"></a>동영상
+## <a name="video"></a>비디오
 
 ### <a name="learn-more-about-integrating-azure-time-series-insights-with-power-bibr"></a>Power BI와 Azure Time Series Insights 통합에 대해 자세히 알아보세요.</br>
 
@@ -29,40 +29,40 @@ Azure Time Series Insights은 이제 [Power BI](https://powerbi.microsoft.com/)�
 
 ## <a name="summary"></a>요약
 
-   [![Azure Time Series Insights 내보내기 옵션](./media/concepts-connect-power-bi/tsi-power-bi-export-example.png)](./media/concepts-connect-power-bi/tsi-power-bi-export-example.png#lightbox)
+   [![Azure Time Series Insights의 내보내기 옵션](./media/concepts-connect-power-bi/tsi-power-bi-export-example.png)](./media/concepts-connect-power-bi/tsi-power-bi-export-example.png#lightbox)
 
-이제 데이터를 Power BI에 연결 하 여 다음과 같은 작업을 수행할 수 있습니다.
+이제 데이터를 Power BI에 연결하여 다음과 같은 작업을 수행할 수 있습니다.
 
-* Power BI에서 지 원하는 다른 데이터 원본과의 상관 관계를 수행 하 고 다양 한 데이터 시각화 옵션의 호스트에 액세스 합니다.
-* 시계열 정보 데이터를 사용 하 여 Power BI 대시보드 및 보고서를 만들고 조직과 공유 합니다.
-* 간단 하 고 사용 하기 쉬운 방식으로 데이터 interop 시나리오를 잠금 해제 하 고 그 어느 때 보다 빠르게 정보를 얻을 수 있습니다.
-* 강력한 고급 편집기를 사용 하 여 Power BI 내의 Azure Time Series Insights 데이터를 수정 합니다.
+* Power BI에서 지원하는 다른 데이터 원본과의 상관 관계를 파악하고 다양한 데이터 시각화 옵션 그룹에 액세스합니다.
+* Time Series Insight 데이터를 사용하여 Power BI 대시보드 및 보고서를 만들고 조직과 공유합니다.
+* 간단하고 사용하기 쉬운 방식으로 데이터 interop 시나리오를 지원하고 이전보다 더 빠르게 인사이트를 얻을 수 있습니다.
+* 강력한 고급 편집기를 사용하여 Power BI 내에서 Azure Time Series Insights 데이터를 수정합니다.
 
-## <a name="native-connector"></a>기본 커넥터
+## <a name="native-connector"></a>네이티브 커넥터
 
-데이터를 연결 하는 데 1 분 미만이 걸립니다. Azure Time Series Insights 탐색기에서 Power BI으로 보기를 신속 하 게 내보내면 조직의 모든 사용자가 데이터를 직관적으로 액세스 하 고 시각적으로 변형할 수 있습니다.
+1분 안에 데이터에 연결할 수 있습니다. Azure Time Series Insights 탐색기에서 Power BI으로 보기를 신속하게 내보내면 조직의 모든 사용자가 데이터를 간편하게 액세스하고 시각적으로 변형할 수 있습니다.
 
-구성 옵션에는 **원시** 및 **집계 수준** 데이터를 선택 하 고 원하는 시간 범위를 선택 하는 작업이 포함 됩니다.
+구성 옵션에는 **원시** 및 **집계 수준** 데이터 중에서 선택하고 원하는 시간 범위를 선택하는 작업이 포함됩니다.
 
-데이터가 연결 된 후에는 Power BI의 다양 한 시각화 및 차트 도구를 사용 하 여 정보 공유 기능을 더욱 향상 시킬 수 있습니다.
+데이터가 연결된 후에는 Power BI의 풍부한 시각화 및 차트 도구를 모두 활용하여 정보 공유 기능을 더욱 향상시킬 수 있습니다.
 
    [![Power BI의 차트 예제](./media/concepts-connect-power-bi/power-bi-tsi-example.png)](./media/concepts-connect-power-bi/power-bi-tsi-example.png#lightbox)
 
-단계별 세부 정보 [는 Power BI에 Azure Time Series Insights 연결 하는 방법](./how-to-connect-power-bi.md) 을 참조 하세요.
+단계별 세부 사항에 대해서는 [Azure Time Series Insights를 Power BI에 연결하는 방법](./how-to-connect-power-bi.md)을 읽어보세요.
 
 ## <a name="flexible-workflow"></a>유연한 워크플로
 
-워크플로의 어디에서 나 커넥터를 사용 합니다.
+워크플로의 어디에서나 커넥터를 사용합니다.
 
-* Azure Time Series Insights 탐색기에 있는 경우 보기를 Power BI으로 신속 하 게 내보낼 수 있습니다.
-* 이미 Power BI에 있는 경우 Azure Time Series Insights를 사용 하 여 데이터를 쿼리 하는 기존 시각화 시나리오를 보강 합니다.
+* Azure Time Series Insights 탐색기에 있는 경우 보기를 Power BI으로 신속하게 내보낼 수 있습니다.
+* 이미 Power BI에 있는 경우 Azure Time Series Insights로 기존 시각화 시나리오를 보강하여 데이터를 쿼리합니다.
 
-Power BI 내의 고급 쿼리 및 편집 기능을 사용 하려면 Power BI의 고급 편집기을 사용 합니다.
+Power BI 내의 고급 쿼리 및 편집 기능은 Power BI의 고급 편집기를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Power BI에 Time Series Insights 연결 하는 방법](./how-to-connect-power-bi.md)을 참조 하세요.
+* [Time Series Insights를 Power BI에 연결하는 방법](./how-to-connect-power-bi.md)을 읽어봅니다.
 
-* [Power BI desktop](https://powerbi.microsoft.com/desktop/) 을 다운로드 하 고 데이터 연결을 시작 합니다.
+* [Power BI 데스크톱](https://powerbi.microsoft.com/desktop/)을 다운로드하고 데이터 연결을 시작합니다.
 
-* [Power BI](/power-bi/)에 대해 자세히 알아보세요.
+* [Power BI](/power-bi/)에 대해 자세히 알아봅니다.

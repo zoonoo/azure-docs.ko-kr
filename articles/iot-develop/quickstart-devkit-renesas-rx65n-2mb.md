@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/04/2021
-ms.openlocfilehash: cf8f9a8e912c0f75abd4466b9efe532b2dbf622a
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 9a509d878729648ee2768d536d9cca586604662e
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903048"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112122022"
 ---
 # <a name="quickstart-connect-a-renesas-starter-kit-for-rx65n-2mb-to-iot-central"></a>빠른 시작: Renesas Starter Kit+ for RX65N-2MB를 IoT Central에 연결
 
@@ -167,7 +167,7 @@ Renesas RX65N을 Azure에 연결하려면 Wi-Fi 및 Azure IoT 설정의 구성 �
 
 **Termite** 앱을 사용하여 통신을 모니터링하고 디바이스가 올바르게 설정되었는지 확인할 수 있습니다.
 > [!TIP]
-> 플래시한 후 디바이스를 초기화하거나 연결하는 데 문제가 있는 경우 [문제 해결](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md)을 참조하세요.
+> 플래시한 후 디바이스를 초기화하거나 연결하는 데 문제가 있는 경우 [문제 해결](troubleshoot-embedded-device-quickstarts.md)을 참조하세요.
 
 1. **Termite** 를 시작합니다.
 1. **설정** 을 선택합니다.
@@ -263,7 +263,7 @@ IoT Central에서 디바이스 정보를 볼 수 있습니다.
 
 ## <a name="troubleshoot"></a>문제 해결
 
-디바이스 코드 빌드, 디바이스 플래시 또는 연결에 문제가 발생하는 경우 [문제 해결](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md)을 참조하세요.
+디바이스 코드 빌드, 디바이스 플래시 또는 연결에 문제가 발생하는 경우 [문제 해결](troubleshoot-embedded-device-quickstarts.md)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -277,10 +277,10 @@ IoT Central에서 디바이스 정보를 볼 수 있습니다.
 
 이 빠른 시작에서는 Azure RTOS 샘플 코드가 포함된 사용자 지정 이미지를 빌드한 다음, 해당 이미지를 Renesas RX65N 디바이스로 플래시했습니다. 또한 IoT Central 포털을 사용하여 Azure 리소스를 만들고, Renesas RX65N을 Azure에 안전하게 연결하고, 원격 분석을 보고, 메시지를 보냈습니다.
 
-다음 단계로, 다음 문서에서 IoT 디바이스 SDK를 사용하여 디바이스를 Azure IoT에 연결하는 방법을 자세히 살펴봅니다. 
+다음 단계로, 다음 문서에서 IoT 디바이스 SDK를 사용하여 디바이스를 Azure IoT 연결하는 방법을 자세히 알아봅니다. 
 
 > [!div class="nextstepaction"]
-> [IoT Central에 시뮬레이션된 디바이스 연결](quickstart-send-telemetry-central.md)
+> [IoT Hub에 시뮬레이션된 디바이스 연결](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
 > [IoT Hub에 시뮬레이션된 디바이스 연결](quickstart-send-telemetry-iot-hub.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Storage Gen2를 지 원하는 오픈 소스 플랫폼 | Microsoft Docs
-description: Azure Data Lake Storage Gen2를 지 원하는 오픈 소스 플랫폼에 대해 알아봅니다.
+title: Azure Data Lake Storage Gen2를 지원하는 오픈 소스 플랫폼 | Microsoft Docs
+description: Azure Data Lake Storage Gen2를 지원하는 오픈 소스 플랫폼에 관한 자세한 정보
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,19 +9,19 @@ ms.date: 02/26/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 30c33f6ec497fd5766dc541b50f341cb30946051
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95912572"
 ---
 # <a name="open-source-platforms-that-support-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2를 지원하는 오픈 소스 플랫폼
 
-이 문서에는 Data Lake Storage Gen2를 지 원하는 오픈 소스 플랫폼이 나열 되어 있습니다.  
+이 문서에는 Data Lake Storage Gen2를 지원하는 오픈 소스 플랫폼이 나와 있습니다.  
 
 ## <a name="supported-open-source-platforms"></a>지원되는 오픈 소스 플랫폼
 
-이 표에는 Data Lake Storage Gen2을 지 원하는 오픈 소스 플랫폼이 나와 있습니다.
+이 표에는 Data Lake Storage Gen2를 지원하는 오픈 소스 플랫폼이 나와 있습니다.
 
 > [!NOTE]
 > 이 표에 나오는 버전만 지원됩니다.

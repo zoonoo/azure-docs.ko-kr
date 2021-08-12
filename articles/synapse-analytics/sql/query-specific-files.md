@@ -10,15 +10,15 @@ ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.openlocfilehash: d24ae1f42c685589309506b2d5e0eab157b2bc42
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96299618"
 ---
-# <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>서버를 사용 하지 않는 SQL 풀 쿼리에서 파일 메타 데이터 사용
+# <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>서버리스 SQL 풀 쿼리에서 파일 메타데이터 사용
 
-서버를 사용 하지 않는 SQL 풀은 [쿼리 폴더 및 여러 파일](query-folders-multiple-csv-files.md) 문서에 설명 된 대로 여러 파일 및 폴더를 처리할 수 있습니다. 이 문서에서는 쿼리에서 파일 및 폴더 이름에 대한 메타데이터 정보를 사용하는 방법에 대해 알아봅니다.
+서버리스 SQL 풀은 [쿼리 폴더 및 여러 파일](query-folders-multiple-csv-files.md) 문서에 설명된 대로 여러 파일과 폴더를 처리할 수 있습니다. 이 문서에서는 쿼리에서 파일 및 폴더 이름에 대한 메타데이터 정보를 사용하는 방법에 대해 알아봅니다.
 
 경우에 따라 결과 집합의 특정 행과 상관 관계가 있는 파일 또는 폴더 원본을 알아야 할 수도 있습니다.
 
@@ -76,7 +76,7 @@ ORDER BY
 
 filepath 함수는 전체 또는 부분 경로를 반환합니다.
 
-- 매개 변수 없이 호출되면 행이 제공되는 전체 파일 경로를 반환합니다. OPENROWSET에 DATA_SOURCE를 사용 하면 DATA_SOURCE에 상대적인 경로가 반환 됩니다. 
+- 매개 변수 없이 호출되면 행이 제공되는 전체 파일 경로를 반환합니다. DATA_SOURCE는 OPENROWSET에서 사용되는 경우 DATA_SOURCE에 대한 상대 경로를 반환합니다. 
 - 매개 변수를 사용하여 호출하면 매개 변수에 지정된 위치에 있는 와일드카드와 일치하는 경로의 일부를 반환합니다. 예를 들어 매개 변수 값 1은 첫 번째 와일드카드와 일치하는 경로의 일부를 반환합니다.
 
 다음 샘플에서는 2017년 마지막 3개월 동안의 NYC Yellow Taxi 데이터 파일을 읽습니다. 파일 경로당 탑승 수를 반환합니다. 쿼리의 OPENROWSET 부분은 읽을 파일을 지정합니다.

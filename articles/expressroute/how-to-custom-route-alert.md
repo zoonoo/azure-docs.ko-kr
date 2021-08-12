@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: 2291d1fa7f890296c59661060f5a823d8eb194ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9dcea1c9f25772d45e6d01e1a6b17635df9cf48
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104654393"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287521"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>보급 경로를 모니터링하기 위해 사용자 지정 경고 구성
 
@@ -271,25 +271,25 @@ Azure Logic Apps는 모든 컬렉션 및 작업 프로세스의 오케스트레�
 
 ### <a name="workflow"></a>워크플로
 
-이 워크플로에서는 ExpressRoute 게이트웨이를 정기적으로 모니터링하는 논리 앱을 빌드합니다. 새 항목이 있으면 논리 앱에서 각 항목에 대한 이메일을 보냅니다. 여기까지 모두 마치면 논리 앱이 이 워크플로와 비슷하게 보입니다.
+이 논리 앱의 경우 ExpressRoute 게이트웨이를 정기적으로 모니터링하는 워크플로를 빌드합니다. 새 항목이 있으면 워크플로에서 각 항목에 대한 이메일을 보냅니다. 여기까지 모두 마치면 워크플로가 고수준의 이 예제와 비슷하게 보입니다.
 
 :::image type="content" source="./media/custom-route-alert-portal/logic-apps-workflow.png" alt-text="Logic Apps 워크플로":::
 
 ### <a name="1-create-a-logic-app"></a>1. 논리 앱 만들기
 
-**논리 앱 디자이너** 에서 **빈 논리 앱** 템플릿을 사용해 논리 앱을 만듭니다. 자세한 단계는 [Logic Apps 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app)를 참조하세요.
+**논리 앱 디자이너** 에서 **빈 논리 앱** 템플릿을 사용하여 논리 앱을 만듭니다. 단계의 경우 [첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
 
 :::image type="content" source="./media/custom-route-alert-portal/blank-template.png" alt-text="새 템플릿":::
 
 ### <a name="2-add-a-trigger"></a>2. 트리거 추가
 
-모든 논리 앱은 트리거로 시작됩니다. 특정 이벤트가 발생하거나 특정 조건이 충족될 때 트리거가 발생합니다. 트리거가 발생될 때마다 Azure Logic Apps 엔진은 워크플로를 시작하고 실행하는 논리 앱 인스턴스를 만듭니다.
+모든 워크플로는 트리거로 시작합니다. 특정 이벤트가 발생하거나 특정 조건이 충족될 때 트리거가 발생합니다. 트리거가 작동할 때마다 Azure Logic Apps는 새 워크플로 인스턴스를 만들고 실행합니다.
 
-미리 정의된 시간 일정을 기반으로 하는 논리 앱을 정기적으로 실행하려면 기본 제공 **되풀이: 일정** 을 워크플로에 추가합니다. 검색 상자에 **일정** 을 입력합니다. **트리거** 를 선택합니다. 트리거 목록에서 **되풀이 일정** 을 선택합니다.
+미리 정의된 시간 일정을 기반으로 하는 워크플로를 정기적으로 실행하려면 기본 제공 **되풀이** 트리거를 워크플로에 추가합니다. 검색 상자에 **일정** 을 입력합니다. **일정** 아이콘을 선택합니다. 트리거 목록에서 **되풀이** 를 선택합니다.
 
 :::image type="content" source="./media/custom-route-alert-portal/schedule.png" alt-text="되풀이: 일정":::
 
-되풀이 일정 트리거에서 표준 시간대와 해당 워크플로를 반복하는 되풀이를 설정할 수 있습니다. 간격과 빈도는 논리 앱의 트리거에 대한 일정을 정의합니다. 적절한 최소 되풀이 빈도를 설정하려면 다음 요소를 고려하세요.
+되풀이 트리거에서 표준 시간대와 해당 워크플로를 반복하는 되풀이를 설정할 수 있습니다. 간격과 빈도는 워크플로의 트리거에 대한 일정을 정의합니다. 적절한 최소 되풀이 빈도를 설정하려면 다음 요소를 고려하세요.
 
 * Automation Runbook의 PowerShell 스크립트를 완료하는 데는 시간이 걸립니다. 런타임은 모니터링할 ExpressRoute 게이트웨이의 수에 따라 달라집니다. 되풀이 빈도가 너무 짧으면 작업 큐가 발생합니다.
 
@@ -303,7 +303,7 @@ Azure Logic Apps는 모든 컬렉션 및 작업 프로세스의 오케스트레�
 
 ### <a name="3-create-a-job"></a><a name="job">3. 작업 만들기</a>
 
-논리 앱은 커넥터를 통해 다른 앱, 서비스 및 플랫폼에 액세스합니다. 이 워크플로의 다음 단계는 커넥터를 선택하여 이전에 정의된 Azure Automation 계정에 액세스하는 것입니다.
+논리 앱 워크플로는 커넥터를 통해 다른 앱, 서비스 및 플랫폼에 액세스합니다. 다음 단계는 커넥터를 선택하여 이전에 정의된 Azure Automation 계정에 액세스하는 것입니다.
 
 1. **Logic Apps 디자이너** 의 **되풀이** 에서 **새 단계** 를 선택합니다. **작업 선택** 및 검색 상자 에서 **모두** 를 선택합니다.
 2. 검색 상자에 **Azure Automation** 을 입력하고 검색합니다. **작업 만들기** 를 선택합니다. **작업 만들기** 를 사용해 앞에서 만든 Automation Runbook을 실행합니다.
@@ -334,7 +334,7 @@ Azure Logic Apps는 모든 컬렉션 및 작업 프로세스의 오케스트레�
 
 ### <a name="5-parse-the-json"></a><a name="parse"></a>5. JSON 구문 분석
 
-‘Azure Automation 작업 만들기 작업’(이전 단계)의 출력에 포함된 정보는 JSON 개체를 생성합니다. Logic Apps **JSON 구문 분석** 은 JSON 콘텐츠의 속성 및 해당 값에서 사용자에게 친숙한 토큰을 만들기 위한 기본 제공 작업입니다. 그 다음 워크플로에서 해당 속성을 사용할 수 있습니다.
+‘Azure Automation 작업 만들기 작업’(이전 단계)의 출력에 포함된 정보는 JSON 개체를 생성합니다. 기본 제공 **JSON 구문 분석** 동작은 JSON 콘텐츠의 속성 및 해당 값에서 사용자에게 친숙한 토큰을 만듭니다. 그 다음 워크플로에서 해당 속성을 사용할 수 있습니다.
 
 1. 작업을 추가합니다. **작업 출력 가져오기 ->작업** 아래에서 **새 단계** 를 선택합니다.
 2. **작업 선택** 검색 상자에 “JSON 구문 분석”을 입력하여 이 작업을 제안하는 커넥터를 검색합니다. **작업** 목록에서 사용하려는 데이터 작업에 대한 **JSON 구문 분석** 작업을 선택합니다.

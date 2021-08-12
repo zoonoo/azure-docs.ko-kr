@@ -1,6 +1,6 @@
 ---
-title: 맵의 셰이프에서 데이터 가져오기 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 지도에 그려진 셰이프 데이터를 가져오는 방법에 대해 알아봅니다.
+title: 맵의 도형에서 데이터 가져오기 | Microsoft Azure Maps
+description: 이 문서에서는 Microsoft Azure Maps Web SDK를 사용하여 맵에 그려진 도형 데이터를 가져오는 방법에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/04/2019
@@ -10,20 +10,20 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: ddb8009e544ede82d1c56d112950ff247a87380c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92890703"
 ---
 # <a name="get-shape-data"></a>도형 데이터 가져오기
 
-이 문서에서는 지도에 그려진 모양의 데이터를 가져오는 방법을 보여 줍니다. **DrawingManager ()** 함수는 [드로잉 관리자](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#getsource--)내에서 사용 됩니다. 그려진 모양의 geojson 데이터를 추출 하 고 다른 곳에서 사용 하려는 경우에는 여러 가지 시나리오가 있습니다.  
+이 문서에서는 맵에 그려진 도형의 데이터를 가져오는 방법을 설명합니다. [드로잉 관리자](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#getsource--) 내의 **drawingManager.getSource()** 함수를 사용합니다. 그려진 도형의 geojson 데이터를 추출하고 다른 곳에서 사용하려는 경우의 시나리오는 다양합니다.  
 
 
-## <a name="get-data-from-drawn-shape"></a>그려지는 도형에서 데이터 가져오기
+## <a name="get-data-from-drawn-shape"></a>그려진 도형에서 데이터 가져오기
 
-다음 함수는 그려지는 셰이프의 소스 데이터를 가져와 화면에 출력 합니다. 
+다음 함수는 그려진 도형의 원본 데이터를 가져와 화면에 출력합니다. 
 
 ```javascript
 function getDrawnShapes() {
@@ -37,7 +37,7 @@ function getDrawnShapes() {
 
 <br/>
 
-<iframe height="686" title="도형 데이터 가져오기" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>CodePen에서 Pen <a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>셰이프 데이터 가져오기</a> Azure Maps ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
+<iframe height="686" title="도형 데이터 가져오기" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true" style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps로 펜 <a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>도형 데이터 가져오기</a>(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 참조하세요.
 </iframe>
 
 
@@ -57,7 +57,7 @@ function getDrawnShapes() {
 > [Map](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [드로잉 관리자](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
+> [그리기 관리자](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
 > [그리기 도구 모음](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.reviewer: cenkdin;anilmur
 ms.openlocfilehash: a736270919f36cb7d4bbd4e686a98ddc57f402fa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103016834"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>단일 비트 전송률 라이브 스트림을 보낼 Wirecast 인코더 사용
@@ -35,9 +35,9 @@ ms.locfileid: "103016834"
 이 자습서에서는 AMSE(Azure Media Services 탐색기) 도구를 사용하여 AMS(Azure Media Services)를 관리하는 방법을 보여 줍니다. 이 도구는 Windows PC에서만 실행됩니다. Mac 또는 Linux에서는 Azure Portal을 사용하여 [채널](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) 및 [프로그램](media-services-portal-creating-live-encoder-enabled-channel.md)을 만듭니다.
 
 > [!NOTE]
-> RTMPS 프로토콜을 사용 하는 경우 인코더는 TLS 1.2를 지원 해야 합니다. TLS 1.2 요구 사항으로 인해 Wirecast 버전 13.0.2 이상을 사용 합니다.
+> RTMPS 프로토콜을 사용하는 경우 인코더는 TLS 1.2를 지원해야 합니다. TLS 1.2를 요구하므로 Wirecast 버전 13.0.2 이상을 사용합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * [Azure Media Services 계정 만들기](media-services-portal-create-account.md)
 * 실행 중인 스트리밍 엔드포인트가 있는지 확인합니다. 자세한 내용은 [Media Services 계정에서 스트리밍 엔드포인트 관리](media-services-portal-manage-streaming-endpoints.md)
 * 최신 버전의 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 도구를 설치합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "103016834"
 ## <a name="create-a-channel"></a>채널 만들기
 1. AMSE 도구에서 **라이브** 탭으로 이동하고 채널 영역 안을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **Create channel...** (채널 만들기...)을 선택합니다.
 
-    ![메뉴에서 선택한 채널 만들기가 스크린샷으로 표시 됩니다.](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
+    ![메뉴에서 선택한 채널 만들기를 보여주는 스크린샷.](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
 2. 채널 이름을 지정합니다. 설명 필드는 선택 사항입니다. [채널 설정]에서 [Live Encoding] 옵션에 대해 **표준** 을 선택하고, [입력 프로토콜]을 **RTMP**.로 설정합니다. 다른 모든 설정은 그대로 유지할 수 있습니다.
 
@@ -59,14 +59,14 @@ ms.locfileid: "103016834"
 
 3. **채널 만들기** 를 클릭합니다.
 
-   ![라이브 채널 만들기 대화 상자를 보여 주는 스크린샷](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
+   ![라이브 채널 만들기 대화 상자를 보여주는 스크린샷.](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
 
 > [!NOTE]
 > 채널을 시작하는 데 20분 정도 걸릴 수 있습니다.
 >
 >
 
-채널이 시작 되는 동안 [인코더를 구성할](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp)수 있습니다.
+채널을 시작하는 동안 [인코더 구성](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp)을 수행할 수 있습니다.
 
 > [!IMPORTANT]
 > 채널이 준비 상태가 되는 즉시 요금이 청구되기 시작합니다. 자세한 내용은 [채널 상태](media-services-manage-live-encoder-enabled-channels.md#states)를 참조하세요.
@@ -100,7 +100,7 @@ ms.locfileid: "103016834"
 
     Encoding 프로필은 **Azure H.264 720p 16:9(1280x720)** 로 미리 선택되어 있습니다. 이 설정을 사용자 지정하려면 드롭다운 오른쪽에 있는 기어 아이콘을 선택한 다음 **새 미리 설정** 을 선택합니다.
 
-    ![스크린샷에는 BlobTrigger가 선택 된 템플릿 선택 대화 상자가 표시 됩니다.](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
+    ![BlobTrigger가 선택된 템플릿 선택 대화 상자를 보여주는 스크린샷.](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 5. 인코더 기본 설정을 구성합니다.
 
     기본 설정의 이름을 지정하고 다음 권장 설정을 확인합니다.
@@ -113,12 +113,12 @@ ms.locfileid: "103016834"
    * 프로필: 기본
    * 키 프레임 간격: 60프레임
 
-     **비디오**
+     **오디오**
 
    * 대상 비트 전송률: 192kbps
    * 샘플 속도: 44.100kHz
 
-     ![AzureTest1에 대 한 인코더 사전 설정을 보여 주는 스크린샷](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
+     ![AzureTest1에 대한 인코더 사전 설정을 보여주는 스크린샷.](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 6. **저장** 을 누릅니다.
 
     새로 만들어진 프로필을 이제 인코딩 필드에서 선택할 수 있게 됩니다.
@@ -130,15 +130,15 @@ ms.locfileid: "103016834"
 
     채널이 실행 중일 때 채널 이름을 마우스 오른쪽 단추로 클릭하고 아래로 이동하여 **입력 URL을 클립보드로 복사** 를 가리킨 다음 **기본 입력 URL** 을 선택합니다.  
 
-    ![기본 입력 U R L에 대 한 입력 U R L에서 클립보드에 복사 옵션을 보여 주는 스크린샷](./media/media-services-wirecast-live-encoder/media-services-wirecast6.png)
+    ![기본 입력 URL에 대한 입력 URL을 클립보드에 복사 옵션을 보여주는 스크린샷.](./media/media-services-wirecast-live-encoder/media-services-wirecast6.png)
 8. Wirecast **출력 설정** 창에서 출력 섹션의 **주소** 필드에 이 정보를 붙여넣고 스트림 이름을 할당합니다.
 
-    ![출력 설정을 보여 주는 스크린샷](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
+    ![출력 설정을 보여주는 스크린샷.](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
 1. **확인** 을 선택합니다.
 2. 기본 **Wirecast** 화면에서 비디오 및 오디오용 입력 원본이 준비되었는지 확인한 다음 왼쪽 위 모서리에 있는 **스트림** 을 누릅니다.
 
-    ![스크린샷 Wirecast 스트림 단추를 표시 합니다.](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
+    ![Wirecast 스트림 단추를 보여주는 스크린샷.](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
 > [!IMPORTANT]
 > **스트림** 을 클릭하기 전에 채널이 준비되었는지 **반드시** 확인합니다.
@@ -148,32 +148,32 @@ ms.locfileid: "103016834"
 
 ## <a name="test-playback"></a>테스트 재생
 
-AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **미리 보기 재생** 을 마우스로 가리키고 **with Azure Media Player** 를 선택 합니다.  
+AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **미리 보기 재생** 을 가리키고 **Azure Media Player 사용** 을 선택합니다.  
 
-![Azure Media Player 표시 된 미리 보기 재생 옵션이 선택 된 스크린샷](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
+![Azure Media Player 옵션이 선택된 미리 보기 재생을 보여주는 스크린샷.](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
 스트림이 플레이어에 나타나면 인코더가 AMS에 연결되도록 제대로 구성된 것입니다.
 
-오류가 수신되면 채널을 다시 설정해서 인코더 설정을 조정해야 합니다. 지침은 [문제 해결](media-services-troubleshooting-live-streaming.md) 문서를 참조 하세요.  
+오류가 수신되면 채널을 다시 설정해서 인코더 설정을 조정해야 합니다. 지침에 대해서는 [문제 해결](media-services-troubleshooting-live-streaming.md) 문서를 참조하세요.  
 
 ## <a name="create-a-program"></a>프로그램 만들기
-1. 채널 재생이 확인되면 프로그램을 만듭니다. AMSE 도구의 **라이브** 탭에서 프로그램 영역 안을 마우스 오른쪽 단추로 클릭 하 고 **새 프로그램 만들기** 를 선택 합니다.  
+1. 채널 재생이 확인되면 프로그램을 만듭니다. AMSE 도구의 **라이브** 탭에서 프로그램 영역 안을 마우스 오른쪽 단추로 클릭하고 **새 프로그램 만들기** 를 선택합니다.  
 
-    ![선택 된 프로그램 만들기 옵션을 보여 주는 스크린샷](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
-2. 프로그램 이름을로 설정 하 고 필요한 경우 **보관 창 길이** (기본값은 4 시간)를 조정 합니다. 또한 스토리지 위치를 지정하거나 기본값을 그대로 둘 수 있습니다.  
-3. **지금 프로그램 시작** 상자를 선택 합니다.
-4. **프로그램 만들기** 를 클릭 합니다.  
+    ![프로그램 생성 옵션이 선택된 스크린샷.](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
+2. 프로그램 이름을 지정하고 필요한 경우 **보관 창 길이**(기본값은 4시간)를 조정합니다. 또한 스토리지 위치를 지정하거나 기본값을 그대로 둘 수 있습니다.  
+3. **지금 프로그램 시작** 상자를 선택합니다.
+4. **프로그램 만들기** 를 클릭합니다.  
 
    >[!NOTE]
    >프로그램 만들기는 채널 만들기보다 시간이 덜 걸립니다.
        
 5. 프로그램이 실행되고 있으면 프로그램을 마우스 오른쪽 단추로 클릭하고 **프로그램 재생** 으로 이동한 다음 **Azure Media Player 사용** 을 선택하여 재생을 확인합니다.  
-6. 확인 되 면 프로그램을 다시 마우스 오른쪽 단추로 클릭 하 고 **출력 URL을 클립보드로 복사를** 선택 하거나 메뉴의 **프로그램 정보 및 설정** 옵션에서이 정보를 검색 합니다.
+6. 확인되었으면 프로그램을 마우스 오른쪽 단추로 다시 클릭하고 **출력 URL을 클립보드로 복사** 를 선택하거나 메뉴의 **프로그램 정보 및 설정** 옵션에서 이 정보를 검색합니다.
 
 이제 스트림을 플레이어에 포함하거나 실시간 보기를 위해 대상 그룹에게 배포할 준비가 되었습니다.  
 
 ## <a name="troubleshooting"></a>문제 해결
-지침은 [문제 해결](media-services-troubleshooting-live-streaming.md) 문서를 참조 하세요.
+지침에 대해서는 [문제 해결](media-services-troubleshooting-live-streaming.md) 문서를 참조하세요.
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

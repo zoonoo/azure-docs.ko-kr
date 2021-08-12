@@ -1,54 +1,54 @@
 ---
-title: Azure IoT Central 솔루션에서 장치 명령을 사용 하는 방법
-description: Azure IoT Central 솔루션에서 장치 명령을 사용 하는 방법을 설명 합니다. 이 자습서에서는 장치 개발자가 클라이언트 앱에서 Azure IoT Central 응용 프로그램에 장치 명령을 사용 하는 방법을 보여 줍니다.
+title: Azure IoT Central 솔루션에서 디바이스 명령을 사용하는 방법
+description: Azure IoT Central 솔루션에서 디바이스 명령을 사용하는 방법입니다. 이 자습서에서는 Azure IoT Central 애플리케이션에 대한 클라이언트 앱의 디바이스 명령을 사용하는 방법을 보여줍니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 01/07/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: e53bf377a7ef8f2293debd288ba25ef8f04ff4fc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: a0a7b24c2d28e27c44a130383e852838950abe49
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98611001"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733196"
 ---
-# <a name="how-to-use-commands-in-an-azure-iot-central-solution"></a>Azure IoT Central 솔루션에서 명령을 사용 하는 방법
+# <a name="how-to-use-commands-in-an-azure-iot-central-solution"></a>Azure IoT Central 솔루션에서 명령을 사용하는 방법
 
-이 방법 가이드에서는 장치 개발자가 장치 템플릿에 정의 된 명령을 사용 하는 방법을 보여 줍니다.
+이 방법 가이드에서는 디바이스 템플릿에 정의된 명령을 사용하는 방법을 보여줍니다.
 
-운영자는 IoT Central UI를 사용 하 여 장치에서 명령을 호출할 수 있습니다. 명령은 장치의 동작을 제어 합니다. 예를 들어 운영자는 명령을 호출 하 여 장치를 다시 부팅 하거나 진단 데이터를 수집할 수 있습니다.
+운영자는 IoT Central UI를 사용하여 디바이스에서 명령을 호출할 수 있습니다. 명령은 디바이스의 동작을 제어합니다. 예를 들어 운영자는 명령을 호출하여 디바이스를 다시 부팅하거나 진단 데이터를 수집할 수 있습니다.
 
 디바이스는 다음을 수행할 수 있습니다.
 
-* 즉시 명령에 응답 합니다.
-* 명령을 받을 때 IoT Central에 응답 한 다음 *장기 실행 명령이* 완료 되 면 나중에 IoT Central에 게 알립니다.
+* 명령에 즉시 응답합니다.
+* 명령을 받으면 IoT Central에 응답하고 장기 실행 명령이 완료되면 IoT Central에 나중에 알립니다.
 
-기본적으로 명령에는 장치가 연결 되 고 장치에 연결할 수 없는 경우 실패할 것으로 간주 됩니다. 장치 템플릿 UI에서 **오프 라인으로 큐** 대기 옵션을 선택 하는 경우 장치가 온라인 상태가 될 때까지 명령이 큐에 대기 될 수 있습니다. 이러한 *오프 라인 명령* 에 대해서는이 문서의 뒷부분에 별도의 섹션에서 설명 합니다.
+기본적으로 명령은 디바이스가 연결된 것으로 예상하며 디바이스에 연결할 수 없으면 실패합니다. 디바이스 템플릿 UI에서 **오프라인 상태인 경우 큐에 넣기** 옵션을 선택하면 디바이스가 온라인 상태가 될 때까지 명령을 큐에 넣을 수 있습니다. 이러한 오프라인 명령은 이 문서의 뒷부분에 있는 별도의 섹션에서 설명합니다.
 
 ## <a name="define-your-commands"></a>명령 정의
 
-장치에 작업을 수행 하도록 지시 하는 표준 명령이 장치에 전송 됩니다. 명령에는 추가 정보를 포함 하는 매개 변수가 포함 될 수 있습니다. 예를 들어 장치에서 밸브를 여는 명령에는 밸브가 열리는 정도를 지정 하는 매개 변수가 있을 수 있습니다. 장치에서 명령을 완료 하는 경우에도 명령에서 반환 값을 받을 수 있습니다. 예를 들어 장치에서 일부 진단을 실행 하도록 요청 하는 명령은 진단 보고서를 반환 값으로 받을 수 있습니다.
+표준 명령은 디바이스에 전송되어 디바이스에 무언가를 하도록 지시합니다. 명령에는 추가 정보가 있는 매개 변수가 포함될 수 있습니다. 예를 들어 디바이스의 밸브를 여는 명령에는 밸브를 여는 정도를 지정하는 매개 변수가 있을 수 있습니다. 명령은 디바이스가 명령을 완료하면 반환 값을 받을 수도 있습니다. 예를 들어 디바이스에 진단을 실행하도록 요청하는 명령은 반환 값으로 진단 보고서를 받을 수 있습니다.
 
-명령은 장치 템플릿의 일부로 정의 됩니다. 다음 스크린샷은 **자동 온도 조절기** 장치 템플릿의 **Max-Min 보고서 가져오기** 명령 정의를 보여 줍니다. 이 명령에는 요청 및 응답 매개 변수가 모두 있습니다. 
+명령은 디바이스 템플릿의 일부로 정의됩니다. 다음 스크린샷은 **Thermostat** 디바이스 템플릿의 **Get Max-Min report** 명령 정의를 보여줍니다. 이 명령에는 요청 및 응답 매개 변수가 모두 있습니다. 
 
-:::image type="content" source="media/howto-use-commands/command-definition.png" alt-text="자동 온도 조절기 장치 템플릿에서 Max Min Report 명령을 표시 하는 스크린샷":::
+:::image type="content" source="media/howto-use-commands/command-definition.png" alt-text="Thermostat 디바이스 템플릿의 Get Max Min Report 명령을 보여주는 스크린샷":::
 
 다음 표에는 명령 기능의 구성 설정이 나와 있습니다.
 
 | 필드             |설명|
 |-------------------|-----------|
-|표시 이름       |대시보드 및 폼에 사용 되는 명령 값입니다.|
-| Name            | 명령 이름입니다. IoT Central은 표시 이름에서 이 필드의 값을 생성하지만, 필요한 경우 사용자 고유의 값을 선택할 수 있습니다. 이 필드는 영숫자여야 합니다. 장치 코드는이 **이름** 값을 사용 합니다.|
+|표시 이름       |대시보드 및 양식에 사용되는 명령 값입니다.|
+| Name            | 명령 이름입니다. IoT Central은 표시 이름에서 이 필드의 값을 생성하지만, 필요한 경우 사용자 고유의 값을 선택할 수 있습니다. 이 필드는 영숫자여야 합니다. 디바이스 코드는 이 **이름** 값을 사용합니다.|
 | 기능 유형 | 명령입니다.|
-| 오프 라인 상태인 경우 큐 | 이 명령을 *오프 라인* 명령으로 만들지 여부를 지정 합니다. |
+| 오프라인 상태인 경우 큐에 넣기 | 이 명령을 오프라인 명령으로 만들지 여부입니다. |
 | 설명     | 명령 기능에 대한 설명입니다.|
 | 의견     | 명령 기능에 대한 주석입니다.|
-| 요청     | 장치 명령의 페이로드입니다.|
-| 응답     | 장치 명령 응답의 페이로드입니다.|
+| 요청     | 디바이스 명령의 페이로드입니다.|
+| 응답     | 디바이스 명령 응답의 페이로드입니다.|
 
-다음 코드 조각은 장치 모델에 있는 명령의 JSON 표현을 보여 줍니다. 이 예제에서 응답 값은 여러 필드를 포함 하는 복잡 한 **개체** 유형입니다.
+다음 코드 조각은 디바이스 모델에 있는 명령의 JSON 표현을 보여줍니다. 이 예에서 응답 값은 여러 필드가 있는 복합 **개체** 유형입니다.
 
 ```json
 {
@@ -100,23 +100,23 @@ ms.locfileid: "98611001"
 ```
 
 > [!TIP]
-> 장치 템플릿 페이지에서 장치 모델을 내보낼 수 있습니다.
+> 디바이스 모델은 디바이스 템플릿 페이지에서 내보낼 수 있습니다.
 
-다음 필드를 사용 하 여이 명령 정의를 UI의 스크린샷과 연결할 수 있습니다.
+이 명령 정의는 다음 필드를 사용하여 UI의 스크린샷과 연결할 수 있습니다.
 
-* `@type` 기능 유형을 지정 하려면 다음을 수행 합니다. `Command`
-* `name` 명령 값에 대 한입니다.
+* `@type` - 기능의 유형을 지정: `Command`
+* `name` - 명령 값
 
-표시 이름, 설명 등의 선택적 필드를 사용 하면 인터페이스 및 기능에 더 많은 세부 정보를 추가할 수 있습니다.
+표시 이름, 설명 등의 선택적 필드를 사용하면 인터페이스 및 기능에 더 많은 세부 정보를 추가할 수 있습니다.
 
 ## <a name="standard-commands"></a>표준 명령
 
-이 섹션에서는 장치에서 명령을 수신 하는 즉시 응답 값을 전송 하는 방법을 보여 줍니다.
+이 섹션에서는 디바이스가 명령을 수신하는 즉시 응답 값을 보내는 방법을 보여줍니다.
 
-다음 코드 조각은 장치에서 성공 코드를 즉시 전송 하는 명령에 응답 하는 방법을 보여 줍니다.
+다음 코드 조각은 디바이스가 성공 코드를 즉시 보내는 명령에 응답하는 방법을 보여줍니다.
 
 > [!NOTE]
-> 이 문서에서는 편의를 위해 Node.js를 사용 합니다. 다른 언어 예제는 [Azure IoT Central 응용 프로그램에 클라이언트 응용 프로그램 만들기 및 연결](tutorial-connect-device.md) 자습서를 참조 하세요.
+> 이 문서에서는 편의를 위해 Node.js를 사용합니다. 다른 언어 예제에 대해서는 [클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결](tutorial-connect-device.md) 자습서를 참조하세요.
 
 ```javascript
 client.onDeviceMethod('getMaxMinReport', commandHandler);
@@ -148,24 +148,24 @@ const sendCommandResponse = async (request, response, status, payload) => {
 };
 ```
 
-에 대 한 호출은 `onDeviceMethod` 메서드를 설정 합니다 `commandHandler` . 이 명령 처리기는 다음과 같습니다.
+`onDeviceMethod`에 대한 호출은 `commandHandler` 메서드를 설정합니다. 이 명령 처리기는 다음을 수행합니다.
 
-1. 명령의 이름을 확인 합니다.
-1. 명령의 경우를 `getMaxMinReport` 호출 하 여 `getMaxMinReportObject` 반환 개체에 포함할 값을 검색 합니다.
-1. 을 호출 하 여 `sendCommandResponse` 응답을 IoT Central으로 다시 보냅니다. 이 응답에는 `200` 성공 여부를 나타내는 응답 코드가 포함 됩니다.
+1. 명령의 이름을 확인합니다.
+1. `getMaxMinReport` 명령의 경우 `getMaxMinReportObject`를 호출하여 반환 개체에 포함할 값을 검색합니다.
+1. `sendCommandResponse`를 호출하여 응답을 IoT Central에 다시 보냅니다. 이 응답에는 성공을 나타내는 `200` 응답 코드가 포함됩니다.
 
-다음 스크린샷은 IoT Central UI에서 성공적인 명령 응답을 표시 하는 방법을 보여 줍니다.
+다음 스크린샷은 성공적인 명령 응답이 IoT Central UI에 어떻게 표시되는지 보여줍니다.
 
-:::image type="content" source="media/howto-use-commands/simple-command-ui.png" alt-text="표준 명령에 대 한 명령 페이로드를 보는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="media/howto-use-commands/simple-command-ui.png" alt-text="표준 명령에 대한 명령 페이로드를 보는 방법을 보여주는 스크린샷":::
 
 ## <a name="long-running-commands"></a>장기 실행 명령
 
-이 섹션에서는 장치에서 명령이 완료 확인 전송을 지연 하는 방법을 보여 줍니다.
+이 섹션에서는 명령이 완료되었다는 확인을 보내는 것을 디바이스에서 지연할 수 있는 방법을 보여줍니다.
 
-다음 코드 조각에서는 장치가 장기 실행 명령을 구현할 수 있는 방법을 보여 줍니다.
+다음 코드 조각은 디바이스가 장기 실행 명령을 구현하는 방법을 보여줍니다.
 
 > [!NOTE]
-> 이 문서에서는 편의를 위해 Node.js를 사용 합니다. 다른 언어 예제는 [Azure IoT Central 응용 프로그램에 클라이언트 응용 프로그램 만들기 및 연결](tutorial-connect-device.md) 자습서를 참조 하세요.
+> 이 문서에서는 편의를 위해 Node.js를 사용합니다. 다른 언어 예제에 대해서는 [클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결](tutorial-connect-device.md) 자습서를 참조하세요.
 
 ```javascript
 client.onDeviceMethod('rundiagnostics', commandHandler);
@@ -200,33 +200,33 @@ const commandHandler = async (request, response) => {
 };
 ```
 
-에 대 한 호출은 `onDeviceMethod` 메서드를 설정 합니다 `commandHandler` . 이 명령 처리기는 다음과 같습니다.
+`onDeviceMethod`에 대한 호출은 `commandHandler` 메서드를 설정합니다. 이 명령 처리기는 다음을 수행합니다.
 
-1. 명령의 이름을 확인 합니다.
-1. 을 호출 하 여 `sendCommandResponse` 응답을 IoT Central으로 다시 보냅니다. 이 응답은 `202` 보류 중인 결과를 나타내는 응답 코드를 포함 합니다.
-1. 장기 실행 작업을 완료 합니다.
-1. 명령과 이름이 같은 보고 된 속성을 사용 하 여 명령이 완료 되었음을 IoT Central 지시 합니다.
+1. 명령의 이름을 확인합니다.
+1. `sendCommandResponse`를 호출하여 응답을 IoT Central에 다시 보냅니다. 이 응답에는 보류 중인 결과를 나타내는 `202` 응답 코드가 포함됩니다.
+1. 장기 실행 작업을 완료합니다.
+1. 명령과 이름이 같은 reported 속성을 사용하여 명령이 완료되었음을 IoT Central에 알립니다.
 
-다음 스크린샷은 202 응답 코드를 받을 때 IoT Central UI에 명령 응답이 표시 되는 방법을 보여 줍니다.
+다음 스크린샷은 202 응답 코드를 수신할 때 IoT Central UI에 명령 응답이 어떻게 표시되는지 보여줍니다.
 
-:::image type="content" source="media/howto-use-commands/long-running-start.png" alt-text="장치의 즉각적인 응답을 보여 주는 스크린샷":::
+:::image type="content" source="media/howto-use-commands/long-running-start.png" alt-text="디바이스의 즉각적인 응답을 보여주는 스크린샷":::
 
-다음 스크린샷은 명령이 완료 되었음을 나타내는 속성 업데이트를 받을 때 IoT Central UI를 보여 줍니다.
+다음 스크린샷은 명령이 완료되었음을 나타내는 속성 업데이트를 받을 때 IoT Central UI를 보여줍니다.
 
-:::image type="content" source="media/howto-use-commands/long-running-finish.png" alt-text="장기 실행 명령이 완료 되었음을 보여 주는 스크린샷":::
+:::image type="content" source="media/howto-use-commands/long-running-finish.png" alt-text="장기 실행 명령이 완료되었음을 보여주는 스크린샷":::
 
-## <a name="offline-commands"></a>오프 라인 명령
+## <a name="offline-commands"></a>오프라인 명령
 
-이 섹션에서는 장치에서 오프 라인 명령을 처리 하는 방법을 보여 줍니다. 장치가 온라인 상태인 경우 수신 되는 즉시 오프 라인 명령을 처리할 수 있습니다. 장치가 오프 라인 상태인 경우 다음에 IoT Central 연결할 때 오프 라인 명령을 처리 합니다. 장치는 오프 라인 명령에 대 한 응답으로 반환 값을 보낼 수 없습니다.
+이 섹션에서는 디바이스에서 오프라인 명령을 처리하는 방식을 보여줍니다. 디바이스가 온라인인 경우 오프라인 명령을 받는 즉시 처리할 수 있습니다. 디바이스가 오프라인 상태이면 다음에 IoT Central에 연결할 때 오프라인 명령을 처리합니다. 디바이스는 오프라인 명령에 대한 응답으로 반환 값을 보낼 수 없습니다.
 
 > [!NOTE]
-> 이 문서에서는 편의를 위해 Node.js를 사용 합니다.
+> 이 문서에서는 편의를 위해 Node.js를 사용합니다.
 
-다음 스크린샷은 **Generatediagnostics** 라는 오프 라인 명령을 보여 줍니다. 요청 매개 변수는 **StartTime** 이라는 Datetime 속성과 **Bank** 라는 정수 열거형 속성을 사용 하는 개체입니다.
+다음 스크린샷은 **GenerateDiagnostics** 라는 오프라인 명령을 보여줍니다. 요청 매개 변수는 **StartTime** 이라는 datetime 속성과 **Bank** 라는 정수 열거형 속성이 있는 개체입니다.
 
-:::image type="content" source="media/howto-use-commands/offline-command.png" alt-text="오프 라인 명령의 UI를 보여 주는 스크린샷":::
+:::image type="content" source="media/howto-use-commands/offline-command.png" alt-text="오프라인 명령의 UI를 보여주는 스크린샷":::
 
-다음 코드 조각에서는 클라이언트가 오프 라인 명령을 수신 대기 하 고 메시지 내용을 표시 하는 방법을 보여 줍니다.
+다음 코드 조각은 클라이언트가 오프라인 명령을 수신 대기하고 메시지 내용을 표시하는 방법을 보여줍니다.
 
 ```javascript
 client.on('message', function (msg) {
@@ -242,7 +242,7 @@ client.on('message', function (msg) {
 });
 ```
 
-이전 코드 조각의 출력에는 **StartTime** 및 **Bank** 값을 사용 하는 페이로드가 표시 됩니다. 속성 목록에는 **메서드 이름** 목록 항목의 명령 이름이 포함 됩니다.
+이전 코드 조각의 출력에는 **StartTime** 및 **Bank** 값이 있는 페이로드가 표시됩니다. 속성 목록에는 **method-name** 목록 항목에 명령 이름이 포함됩니다.
 
 ```output
 Body: {"StartTime":"2021-01-06T06:00:00.000Z","Bank":2}
@@ -250,8 +250,8 @@ Properties: {"propertyList":[{"key":"iothub-ack","value":"none"},{"key":"method-
 ```
 
 > [!NOTE]
-> 오프 라인 명령에 대 한 기본 ttl (time-to-live)은 24 시간 이며, 그 후에는 메시지가 만료 됩니다.
+> 오프라인 명령의 기본 TTL(Time-to-Live)은 24시간이며 이 시간이 지나면 메시지가 만료됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT Central 응용 프로그램에서 명령을 사용 하는 방법을 배웠으므로 이제 [페이로드](concepts-telemetry-properties-commands.md) 를 참조 하 여 명령 매개 변수에 대 한 자세한 내용을 알아보고, [클라이언트 응용 프로그램을 만들어 Azure IoT Central 응용 프로그램에 연결](tutorial-connect-device.md) 하 여 여러 언어로 된 전체 코드 샘플을 확인 하세요.
+Azure IoT Central 애플리케이션에서 명령을 사용하는 방법을 알아봤으면, [페이로드](concepts-telemetry-properties-commands.md)를 참조하여 명령 매개 변수에 대해 자세히 알아보고 [클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결](tutorial-connect-device.md)에서 다른 언어로 된 전체 코드 샘플을 확인합니다.

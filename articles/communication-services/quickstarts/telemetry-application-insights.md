@@ -6,20 +6,20 @@ author: peiliu
 manager: vravikumar
 services: azure-communication-services
 ms.author: peiliu
-ms.date: 06/01/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 8c9468510e68f29816e52e74cb9a311e3834f107
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: cddff62f911339e7b2ddb76535acda09e1793137
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111593133"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292426"
 ---
 # <a name="quickstart-using-azure-opentelemetry-exporter-to-export-sdk-telemetry-data-to-application-insights"></a>빠른 시작: Azure OpenTelemetry 내보내기를 사용하여 SDK 원격 분석 데이터를 Application Insights로 내보내기
 
-Azure OpenTelemetry 내보내기는 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) 내의 SDK입니다. OpenTelemetry를 사용하여 추적 데이터를 내보내고 [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)로 데이터를 보낼 수 있습니다. OpenTelemetry는 애플리케이션 및 프레임워크에서 원격 분석 정보를 수집하는 표준화된 방법을 제공합니다.
+Azure OpenTelemetry 내보내기는 [Azure Monitor](../../azure-monitor/index.yml) 내의 SDK입니다. OpenTelemetry를 사용하여 추적 데이터를 내보내고 [Application Insights](../../azure-monitor/app/app-insights-overview.md)로 데이터를 보낼 수 있습니다. OpenTelemetry는 애플리케이션 및 프레임워크에서 원격 분석 정보를 수집하는 표준화된 방법을 제공합니다.
 
 Azure Application Insights는 라이브 애플리케이션을 모니터링하는 데 사용되는 Azure Monitor의 기능입니다. 또한 Microsoft Azure 리소스에 애플리케이션에 대한 데이터를 표시합니다. 원격 분석 모델은 플랫폼 및 언어 독립적인 모니터링을 만들 수 있도록 표준화되었습니다.
 
@@ -71,4 +71,4 @@ SDK에서 원격 분석 데이터를 분석하기 위해 `Performance` 탭으로
 
 다음을 수행할 수도 있습니다.
 
-- [Application Insights의 데이터 분석에 대한 자세한 정보](https://docs.microsoft.com/powerapps/maker/canvas-apps/application-insights)
+- [Application Insights의 데이터 분석에 대한 자세한 정보](/powerapps/maker/canvas-apps/application-insights)

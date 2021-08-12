@@ -1,6 +1,6 @@
 ---
-title: 상태 프로브 상태 Azure Load Balancer 문제 해결
-description: Azure Load Balancer 상태 프로브 상태와 관련 하 여 알려진 문제를 해결 하는 방법을 알아봅니다.
+title: Azure Load Balancer 상태 프로브 상태 문제 해결
+description: Azure Load Balancer 상태 프로브 상태의 알려진 문제를 해결하는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: allensu
 ms.openlocfilehash: 28823c997cd974d5061829df88680ed52075caa0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98029211"
 ---
-# <a name="troubleshoot-azure-load-balancer-health-probe-status"></a>상태 프로브 상태 Azure Load Balancer 문제 해결
+# <a name="troubleshoot-azure-load-balancer-health-probe-status"></a>Azure Load Balancer 상태 프로브 상태 문제 해결
 
-이 페이지는 일반적인 Azure Load Balancer 상태 프로브 질문에 대 한 문제 해결 정보를 제공 합니다.
+이 페이지에서는 일반적인 Azure Load Balancer 상태 프로브 질문에 대한 문제 해결 정보를 제공합니다.
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>증상: Load Balancer 뒤의 VM이 상태 프로브에 응답하지 않습니다.
 백 엔드 서버가 Load Balancer 집합에 참여하려면 프로브 검사를 통과해야 합니다. 상태 프로브에 대한 자세한 내용은 [Load Balancer 프로브 이해](load-balancer-custom-probe-overview.md)를 참조하세요. 
@@ -45,7 +45,7 @@ VM이 정상 상태인데도 프로브에 응답하지 않을 경우 한 가지 
 **유효성 검사 및 해결**
 
 1. 백 엔드 VM에 로그인합니다.
-2. 명령 프롬프트를 열고 다음 명령을 실행 하 여 프로브 포트에서 수신 대기 하는 응용 프로그램이 있는지 확인 합니다. netstat-an
+2. 명령 프롬프트를 열고 다음 명령을 실행하여 데이터 포트에서 수신 대기하는 애플리케이션이 있는지 확인합니다.          netstat -an
 3. 포트 상태가 **LISTENING** 으로 표시되지 않으면 해당 포트를 구성합니다. 
 4. 또는 **LISTENING** 으로 표시되는 다른 포트를 선택한 후 부하 분산 장치 구성을 적절하게 업데이트합니다.
 

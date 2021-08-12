@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Fuze 구성 | Microsoft Docs'
 description: 사용자 계정을 Fuze에 자동으로 프로비저닝 및 프로비저닝 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/05/2021
-ms.author: zhchia
-ms.openlocfilehash: 809b32fcf6f39ba9dec2980a79e8824e282b54b7
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.author: thwimmer
+ms.openlocfilehash: ab0bb459ca2119dce115f683c04b6a072ca9c4f6
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450092"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113763767"
 ---
 # <a name="tutorial-configure-fuze-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Fuze 구성
 

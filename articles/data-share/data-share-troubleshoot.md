@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 12/16/2020
-ms.openlocfilehash: 3aa1c0b8579bd37d2bb51cbde70997131c696813
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/22/2021
+ms.openlocfilehash: 57b5e5f483ce8076622e4705a3a5b566e2e3aa1f
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97964510"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987887"
 ---
 # <a name="troubleshoot-common-problems-in-azure-data-share"></a>Azure Data Share의 일반적인 문제 해결 
 
@@ -20,11 +20,7 @@ ms.locfileid: "97964510"
 
 ## <a name="azure-data-share-invitations"></a>Azure Data Share 초대 
 
-경우에 따라 새 사용자가 이메일 초대에서 **초대 수락** 을 선택하면 빈 초대 목록이 표시될 수 있습니다. 
-
-:::image type="content" source="media/no-invites.png" alt-text="빈 초대 목록을 보여주는 스크린샷":::입니다.
-
-이 문제는 다음 원인 중 하나 때문일 수 있습니다:
+경우에 따라 새 사용자가 이메일 초대에서 **초대 수락** 을 선택하면 빈 초대 목록이 표시될 수 있습니다. 이 문제는 다음 원인 중 하나 때문일 수 있습니다:
 
 * **Azure Data Share 서비스가 Azure 테넌트의 Azure 구독에 대한 리소스 공급자로 등록되어 있지 않습니다.** 이 문제는 Azure 테넌트에 데이터 공유 리소스가 없는 경우에 발생합니다. 
 
@@ -73,15 +69,35 @@ SQL 기반 공유에는 추가 권한이 필요합니다. 사전 요구 사항�
 
 SQL 원본의 경우 다음과 같은 이유로 스냅샷이 실패할 수 있습니다.
 
-* 데이터 공유 권한을 부여하는 원본 SQL 스크립트 또는 대상 SQL 스크립트가 실행되지 않았습니다. 또는 Azure SQL Database 또는 Azure Synapse Analytics(이전의 Azure SQL Data Warehouse)의 경우 스크립트는 Azure Active Directory 인증이 아닌 SQL 인증을 사용하여 실행됩니다.  
+* 데이터 공유 권한을 부여하는 원본 SQL 스크립트 또는 대상 SQL 스크립트가 실행되지 않았습니다. 또는 Azure SQL Database 또는 Azure Synapse Analytics(이전의 Azure SQL Data Warehouse)의 경우 스크립트는 Azure Active Directory 인증이 아닌 SQL 인증을 사용하여 실행됩니다. 아래 쿼리를 실행하여 Data Share 계정에 SQL 데이터베이스에 대한 적절한 권한이 있는지 확인할 수 있습니다. 원본 SQL 데이터베이스의 경우 쿼리 결과는 Data Share 계정에 *db_datareader* 역할이 있음을 표시해야 합니다. 대상 SQL 데이터베이스의 경우 쿼리 결과는 Data Share 계정에 *db_datareader*, *db_datawriter* 및 *db_dlladmin* 역할이 있음을 표시해야 합니다.
+
+    ```sql
+        SELECT DP1.name AS DatabaseRoleName,
+        isnull (DP2.name, 'No members') AS DatabaseUserName
+        FROM sys.database_role_members AS DRM
+        RIGHT OUTER JOIN sys.database_principals AS DP1
+        ON DRM.role_principal_id = DP1.principal_id
+        LEFT OUTER JOIN sys.database_principals AS DP2
+        ON DRM.member_principal_id = DP2.principal_id
+        WHERE DP1.type = 'R'
+        ORDER BY DP1.name; 
+     ``` 
+
 * 원본 데이터 저장소 또는 대상 SQL 데이터 저장소가 일시 중지되었습니다.
 * 스냅샷 프로세스나 대상 데이터 저장소는 SQL 데이터 형식을 지원하지 않습니다. 자세한 내용은 [SQL 원본에서 공유](how-to-share-from-sql.md#supported-data-types)를 참조하세요.
 * 원본 데이터 저장소 또는 대상 SQL 데이터 저장소가 다른 프로세스에 의해 잠겨 있습니다. Azure Data Share는 이러한 데이터 저장소를 잠그지 않습니다. 그러나 이러한 데이터 저장소에 대한 기존 잠금으로 인해 스냅샷이 실패할 수 있습니다.
 * 대상 SQL 테이블은 외래 키 제약 조건에 의해 참조됩니다. 스냅샷 중에 대상 테이블의 이름이 원본 데이터의 테이블과 동일한 경우 Azure Data Share는 테이블을 삭제하고 새 테이블을 만듭니다. 외래 키 제약 조건에서 대상 SQL 테이블을 참조하는 경우 테이블을 삭제할 수 없습니다.
 * 대상 CSV 파일이 생성되지만 Excel에서 데이터를 읽을 수 없습니다. 원본 SQL 테이블에 영어가 아닌 문자를 포함하는 데이터가 포함된 경우 이 문제가 나타날 수 있습니다. Excel에서 **데이터 가져오기** 탭을 선택하고 CSV 파일을 선택합니다. 파일 원본 **65001: 유니코드(UTF-8)** 를 선택하고 데이터를 로드합니다.
 
-## <a name="updated-snapshot-schedules"></a>스냅샷 일정 업데이트
-데이터 공급자가 전송된 공유에 대한 스냅샷 일정을 업데이트한 후에는 데이터 소비자는 이전 스냅샷 일정을 사용하지 않도록 설정해야 합니다. 그런 다음 받은 공유에 대해 업데이트된 스냅샷 일정을 사용하도록 설정합니다. 
+## <a name="update-snapshot-schedule"></a>스냅샷 일정 업데이트
+데이터 공급자가 전송된 공유에 대한 스냅샷 일정을 업데이트한 후에는 데이터 소비자가 이전 스냅샷 일정을 사용하지 않도록 설정한 다음, 수신된 공유에 대해 업데이트된 스냅샷 일정을 사용하도록 설정해야 합니다. 스냅샷 일정은 UTC로 저장되며, 컴퓨터 현지 시간으로 UI에 표시됩니다. 일광 절약 시간제에 맞게 자동으로 조정되지 않습니다.  
+
+## <a name="in-place-sharing"></a>내부 공유
+다음과 같은 이유로 Azure Data Explorer 클러스터에 대한 데이터 세트 매핑이 실패할 수 있습니다.
+
+* 사용자에게 Azure Data Explorer 클러스터에 대한 *쓰기* 권한이 없습니다. 이 사용 권한은 일반적으로 참가자 역할의 일부입니다. 
+* 원본 또는 대상 Azure Data Explorer 클러스터가 일시 중지됩니다.
+* 원본 Azure Data Explorer 클러스터는 EngineV2이고 대상은 EngineV3이거나 그 반대입니다. 서로 다른 엔진 버전의 Azure Data Explorer 클러스터 간 공유는 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

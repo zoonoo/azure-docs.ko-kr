@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services .NET SDK로 필터 생성
-description: 이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. Media Services .NET SDK는 이러한 선택적 스트리밍을 위해 동적 매니페스트를 만듭니다.
+description: 이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. Media Services .NET SDK는 이러한 선택적 스트리밍을 위해 동적 매니페스트를 생성합니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -17,10 +17,10 @@ ms.author: inhenkel
 ms.reviewer: cenkdin
 ms.custom: devx-track-csharp
 ms.openlocfilehash: bd5435f7a2969c486042c9447a0fffbb745229f9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103014114"
 ---
 # <a name="creating-filters-with-media-services-net-sdk"></a>Media Services .NET SDK로 필터 만들기

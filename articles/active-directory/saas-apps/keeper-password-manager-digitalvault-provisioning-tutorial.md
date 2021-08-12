@@ -2,8 +2,8 @@
 title: '자습서: Azure Active Directory를 사용하여 자동 사용자 프로비저닝을 수행하도록 Keeper Password Manager & Digital Vault 구성 | Microsoft Docs'
 description: 사용자 계정을 Keeper Password Manager & Digital Vault로 자동으로 프로비저닝 및 프로비저닝 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 2670dc0cb56805a2afa966bee1d2aa52b6c8e46a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18d7505eb38ef499e8f0b2651aa3f46345cdb67d
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94358986"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767604"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Keeper Password Manager & Digital Vault 구성
 

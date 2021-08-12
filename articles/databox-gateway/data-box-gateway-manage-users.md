@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 9e941007ddc27f809de7d43cd33e44c5b521a6bd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96581959"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Azure Portal을 사용하여 Azure Data Box Gateway에서 사용자 관리
@@ -39,13 +39,13 @@ ms.locfileid: "96581959"
 
 사용자를 추가하려면 Azure Portal에서 다음 단계를 수행합니다.
 
-1. Azure Portal에서 Data Box Gateway 리소스로 이동한 다음 **개요** 로 이동 합니다. 명령 모음에서 **+ 사용자 추가** 를 클릭합니다.
+1. Azure Portal에서 Data Box Gateway 리소스로 이동한 다음, **개요** 로 이동합니다. 명령 모음에서 **+ 사용자 추가** 를 클릭합니다.
 
     ![사용자 추가 클릭](media/data-box-gateway-manage-users/add-user-1.png)
 
-2. 추가하려는 사용자에 대한 사용자 이름 및 암호를 지정합니다. 암호를 확인 하 고 **추가** 를 클릭 합니다.
+2. 추가하려는 사용자에 대한 사용자 이름 및 암호를 지정합니다. 암호를 확인하고 **추가** 를 클릭합니다.
 
-    ![사용자 추가 2를 클릭 합니다.](media/data-box-gateway-manage-users/add-user-2.png)
+    ![사용자 2 추가 클릭](media/data-box-gateway-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
     > 다음과 같은 사용자는 시스템에 예약되어 있으므로 사용하지 말아야 합니다. Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
@@ -64,17 +64,17 @@ ms.locfileid: "96581959"
 
 사용자를 삭제하려면 Azure Portal에서 다음 단계를 수행합니다.
 
-1. 사용자 목록에서 사용자를 선택 하 고 클릭 한 다음 **삭제** 를 클릭 합니다.  
+1. 사용자 목록에서 사용자를 선택하고 클릭한 다음, **삭제** 를 클릭합니다.  
 
    ![사용자 삭제](media/data-box-gateway-manage-users/delete-user-1.png)
 
 2. 메시지가 표시되면 삭제를 확인합니다. 
 
-   ![사용자 삭제 2](media/data-box-gateway-manage-users/delete-user-2.png)
+   ![사용자 2 삭제](media/data-box-gateway-manage-users/delete-user-2.png)
 
 사용자 목록이 업데이트되어 삭제된 사용자가 반영됩니다.
 
-![사용자 삭제 3](media/data-box-gateway-manage-users/delete-user-3.png)
+![사용자 3 삭제](media/data-box-gateway-manage-users/delete-user-3.png)
 
 
 ## <a name="next-steps"></a>다음 단계

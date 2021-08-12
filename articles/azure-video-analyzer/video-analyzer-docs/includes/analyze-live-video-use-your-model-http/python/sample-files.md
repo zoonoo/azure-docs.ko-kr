@@ -4,12 +4,12 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 04/07/2021
 ms.author: juliako
-ms.openlocfilehash: be49e1b80742fc49a60122de822626ab4c09a1db
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: dfedba441cc4df8436f32d3985182c16ef2cbb5e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371965"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465706"
 ---
 필수 구성 요소의 일부로 샘플 코드를 폴더에 다운로드했습니다. 다음 단계에 따라 샘플 파일을 검사하고 편집합니다.
 
@@ -27,8 +27,8 @@ ms.locfileid: "110371965"
         * 리소스를 정리하는 직접 메서드를 호출합니다.
 1. **operations.json** 파일을 편집합니다.
 
-    * pipelineTopology에 대한 링크 변경<br/>`"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/httpExtension/topology.json"`
-    * livePipelineSet에서 이전 링크의 값과 일치하도록 pipelineTopology의 이름을 편집합니다.<br/>`"pipelineTopologyName" : "InferencingWithHttpExtension"`
-    * PipelineTopologyDelete에서 이름을 편집합니다.<br/>`"name": "InferencingWithHttpExtension"`
+    * pipelineTopology에 대한 링크 변경<br/>`"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/motion-with-httpExtension/topology.json"`
+    * livePipelineSet에서 이전 링크의 값과 일치하도록 pipelineTopology의 이름을 편집합니다.<br/>`"pipelineTopologyName" : "EVROnMotionPlusHttpExtension"`
+    * PipelineTopologyDelete에서 이름을 편집합니다.<br/>`"name": "EVROnMotionPlusHttpExtension"`
 
 

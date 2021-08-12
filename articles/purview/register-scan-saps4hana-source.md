@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: a061f3afbfb3a114ec22bcfba123aa326b6ac3fd
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a0e6a02aed59cbe968abb0df5c3fb612c8f2d3b0
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067099"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551689"
 ---
 # <a name="register-and-scan-a-sap-s4hana-source"></a>SAP S/4HANA 원본 등록 및 검사
 
@@ -103,6 +103,8 @@ SAP S/4HANA 원본에 대해 유일하게 지원되는 인증은 **기본 인증
     e.  **JCo 라이브러리 경로**: JCo 라이브러리가 위치하는 폴더 경로를 지정합니다.
 
     f.  **사용 가능한 최대 메모리:** 고객의 VM에서 검사 프로세스를 수행하는 데 사용할 수 있는 최대 메모리(GB)입니다. 이는 검사할 SAP S/4HANA 원본의 크기에 따라 달라집니다.
+    > [!Note] 
+    > 일반적으로 1,000개 테이블당 1GB 메모리를 제공하세요.
 
     :::image type="content" source="media/register-scan-saps4hana-source/scan-saps-4-hana.png" alt-text="SAP S/4HANA 검사" border="true":::
 

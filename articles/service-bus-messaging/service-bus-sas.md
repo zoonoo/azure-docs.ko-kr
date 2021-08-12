@@ -1,47 +1,47 @@
 ---
-title: 공유 액세스 서명을 사용 하 여 액세스 제어 Azure Service Bus
+title: 공유 액세스 서명을 사용한 Service Bus 액세스 제어
 description: 공유 액세스 서명을 사용한 Azure Service Bus 액세스 제어 개요, Azure Service Bus를 사용한 SAS 권한 부여 상세 정보
 ms.topic: article
-ms.date: 01/19/2021
+ms.date: 04/27/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d210da4b653a20dd273dfce723f0bf9d5dbf743b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 622a1dd877be98053fdb9b21bfbb40a81c749f02
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101737820"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760628"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
 
-이 문서에서는 SAS ( *공유 액세스 서명* ), 작동 방법 및 플랫폼에 상관 없는 방식으로 사용 하는 방법을 설명 합니다.
+이 문서에서는 SAS(*공유 액세스 서명*), 그 작동 방법 및 플랫폼과 상관 없는 방식으로 사용하는 방법에 대해 설명합니다.
 
-SAS는 권한 부여 규칙에 따라 Service Bus에 대한 액세스를 보호합니다. 이러한 항목은 네임 스페이스 또는 메시징 엔터티 (큐 또는 항목)에서 구성 됩니다. 권한 부여 규칙에는 특정 권한과 연결된 이름이 있으며 암호화 키 쌍을 전달합니다. Service Bus SDK를 통해 또는 사용자 고유의 코드에서 규칙의 이름 및 키를 사용하여 SAS 토큰을 생성합니다. 그런 다음, 클라이언트는 토큰을 Service Bus에 전달하여 요청된 작업에 대한 권한 부여를 증명할 수 있습니다.
+SAS는 권한 부여 규칙에 따라 Service Bus에 대한 액세스를 보호합니다. 네임스페이스 또는 메시징 엔터티(큐 또는 토픽)에서 구성됩니다. 권한 부여 규칙에는 특정 권한과 연결된 이름이 있으며 암호화 키 쌍을 전달합니다. Service Bus SDK를 통해 또는 사용자 고유의 코드에서 규칙의 이름 및 키를 사용하여 SAS 토큰을 생성합니다. 그런 다음, 클라이언트는 토큰을 Service Bus에 전달하여 요청된 작업에 대한 권한 부여를 증명할 수 있습니다.
 
 > [!NOTE]
-> Azure Service Bus는 Azure Active Directory (Azure AD)를 사용 하 여 Service Bus 네임 스페이스 및 해당 엔터티에 대 한 액세스 권한을 부여 합니다. Azure AD에서 반환 된 OAuth 2.0 토큰을 사용 하는 사용자 또는 응용 프로그램에 대 한 권한 부여는 SAS (공유 액세스 서명)를 통해 뛰어난 보안과 사용 편의성을 제공 합니다. Azure AD를 사용 하는 경우 코드에 토큰을 저장 하 고 잠재적인 보안 취약점을 초래할 필요가 없습니다.
+> Azure Service Bus는 Azure AD(Azure Active Directory)를 사용하여 Service Bus 네임스페이스 및 해당 엔터티에 대한 액세스 권한 부여를 지원합니다. Azure AD에서 반환된 OAuth 2.0 토큰을 사용하여 사용자 또는 애플리케이션에 권한을 부여하면 SAS(공유 액세스 서명)를 통해 뛰어난 보안과 사용 편의성이 제공됩니다. Azure AD를 사용하면 코드에 토큰을 저장할 필요가 없고 잠재적인 보안 취약성의 위험이 없습니다.
 >
-> 가능 하면 Azure Service Bus 응용 프로그램에서 Azure AD를 사용 하는 것이 좋습니다. 자세한 내용은 다음 아티클을 참조하세요.
-> - [Azure Active Directory를 사용 하 여 응용 프로그램을 인증 하 고 권한을 부여 하 여 Azure Service Bus 엔터티에 액세스](authenticate-application.md)합니다.
-> - [Azure Service Bus 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증](service-bus-managed-service-identity.md)
+> Microsoft에서는 가능하다면 Azure Service Bus 애플리케이션에 Azure AD를 사용하는 것을 권장합니다. 자세한 내용은 다음 문서를 참조하세요.
+> - [Azure Service Bus 엔터티에 액세스하기 위해 Azure Active Directory를 사용하여 애플리케이션을 인증하고 권한을 부여합니다](authenticate-application.md).
+> - [Azure Active Directory로 관리 ID를 인증하여 Azure Service Bus 리소스 액세스](service-bus-managed-service-identity.md)
 
 ## <a name="overview-of-sas"></a>SAS 개요
 
 공유 액세스 서명은 간단한 토큰을 사용하는 클레임 기반 권한 부여 메커니즘입니다. SAS를 사용하여 키는 연결 중에 전달되지 않습니다. 키는 서비스에 의해 나중에 확인될 수 있는 정보를 암호화하여 서명하는 데 사용됩니다. SAS는 클라이언트가 권한 부여 규칙 이름 및 일치 키를 즉시 소유하는 사용자 이름 및 암호 구성표와 유사하게 사용될 수 있습니다. SAS는 또한 클라이언트가 서명 키의 소유 없이 보안 토큰 서비스에서 시간 제한 및 서명된 액세스 토큰을 받는 페더레이션된 보안 모델과 유사하게 사용될 수도 있습니다.
 
-Service Bus에서 SAS 인증은 연결된 액세스 권한 및 기본 및 보조 암호화 키 쌍이 있는 [공유 액세스 권한 부여 규칙](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)으로 구성됩니다. 키는 Base64 표현에서 256비트 값입니다. Service Bus [릴레이](../azure-relay/relay-what-is-it.md), [큐](service-bus-messaging-overview.md#queues) 및 [항목](service-bus-messaging-overview.md#topics)의 네임스페이스 수준에서 규칙을 구성할 수 있습니다.
+Service Bus에서 SAS 인증은 연결된 액세스 권한 및 기본 및 보조 암호화 키 쌍이 있는 [공유 액세스 권한 부여 정책](#shared-access-authorization-policies)으로 구성됩니다. 키는 Base64 표현에서 256비트 값입니다. Service Bus [큐](service-bus-messaging-overview.md#queues) 및 [토픽](service-bus-messaging-overview.md#topics)의 네임스페이스 수준에서 규칙을 구성할 수 있습니다.
 
-[공유 액세스 서명](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) 토큰은 선택한 권한 부여 규칙의 이름, 액세스해야 하는 리소스의 URI, 만료 인스턴트 및 선택한 권한 부여 규칙의 기본 또는 보조 암호화 키를 사용하여 이러한 필드를 통해 계산된 HMAC-SHA256 암호화 서명을 포함합니다.
+공유 액세스 서명 토큰은 선택한 권한 부여 정책의 이름, 액세스해야 하는 리소스의 URI, 만료 인스턴트 및 선택한 권한 부여 규칙의 기본 또는 보조 암호화 키를 사용하여 이러한 필드를 통해 계산된 HMAC-SHA256 암호화 서명을 포함합니다.
 
 ## <a name="shared-access-authorization-policies"></a>공유 액세스 권한 부여 정책
 
 각 Service Bus 네임스페이스와 각 Service Bus 엔터티에는 규칙으로 이루어진 공유 액세스 권한 부여 정책이 있습니다. 네임스페이스 수준에서 정책은 개별 정책 구성에 관계 없이 네임스페이스 내부의 모든 엔터티에 적용됩니다.
 
-각각의 권한 부여 정책 규칙의 경우 **이름**, **범위** 및 **권한** 등, 3가지 정보를 결정합니다. **이름** 은 해당 범위 내에서 고유한 이름입니다. 범위는 아주 쉬운데, 해당 리소스의 URI를 말합니다. Service Bus 네임스페이스의 경우, 범위는 `https://<yournamespace>.servicebus.windows.net/` 등과 같이 정규화된 도메인 이름(FQDN)입니다.
+각각의 권한 부여 정책 규칙의 경우 **이름**, **범위** 및 **권한** 등, 3가지 정보를 결정합니다. **이름** 은 해당 범위 내에서 고유한 이름입니다. 범위는 아주 쉬운데, 해당 리소스의 URI를 말합니다. Service Bus 네임스페이스의 경우 범위는 `https://<yournamespace>.servicebus.windows.net/`과 같은 정규화된 네임스페이스입니다.
 
 정책 규칙에 의해 부여되는 권한은 다음의 조합일 수 있습니다.
 
 * 'Send' - 엔터티에 메시지를 보낼 권한을 부여합니다.
-* ' 수신 대기 '-권한을 부여 (큐, 구독) 모든 관련 메시지 처리를 받을 수 있는 권한입니다.
+* 'Listen' - 수신(큐, 구독) 및 모든 관련된 메시지 처리에 대한 권한을 부여합니다.
 * 'Manage' - 엔터티 만들기 및 삭제를 포함하여 네임스페이스의 토폴로지를 관리하는 권한을 부여합니다.
 
 'Manage' 권한은 'Send' 및 'Receive' 권한을 포함합니다.
@@ -50,25 +50,25 @@ Service Bus에서 SAS 인증은 연결된 액세스 권한 및 기본 및 보조
 
 권한 부여 규칙은 *기본 키* 와 *보조 키* 에 할당됩니다. 이들은 강력한 암호화 키입니다. 잃어 버리거나 누출되지 않도록 하세요. 항상 [Azure Portal][Azure portal]에서 사용할 수 있습니다. 생성된 키 중 하나를 사용할 수 있으며 언제든지 다시 생성할 수 있습니다. 정책에서 키를 다시 생성하거나 변경하는 경우 해당 키에 기반한 이전에 발급된 모든 토큰은 즉시 무효화됩니다. 그러나 이러한 토큰에 따라 생성된 진행 중인 연결은 토큰이 만료될 때까지 작업을 계속합니다.
 
-Service Bus 네임스페이스를 만들 때 **RootManageSharedAccessKey** 라는 정책 규칙이 네임스페이스에 대해 자동으로 만들어집니다. 이 정책은 전체 네임스페이스에 대한 Manage 사용 권한을 갖습니다. 이 규칙을 관리 **루트** 계정과 같이 처리하고 애플리케이션에서 사용하지 않는 것이 좋습니다. PowerShell 또는 Azure CLI를 통해 포털에서 네임 스페이스에 대 한 **구성** 탭에서 추가 정책 규칙을 만들 수 있습니다.
+Service Bus 네임스페이스를 만들 때 **RootManageSharedAccessKey** 라는 정책 규칙이 네임스페이스에 대해 자동으로 만들어집니다. 이 정책은 전체 네임스페이스에 대한 Manage 사용 권한을 갖습니다. 이 규칙을 관리 **루트** 계정과 같이 처리하고 애플리케이션에서 사용하지 않는 것이 좋습니다. PowerShell 또는 Azure CLI를 통해 포털의 해당 네임스페이스에 대한 **Configure** 탭에서 추가 정책 규칙을 만들 수 있습니다.
 
 ## <a name="best-practices-when-using-sas"></a>SAS를 사용하는 경우 모범 사례
 애플리케이션에서 공유 액세스 서명을 사용할 경우 다음과 같은 두 가지 잠재적 위험에 대해 잘 알고 있어야 합니다.
 
-- SAS가 유출 되 면이를 가져오는 모든 사용자가 SAS를 사용 하 여 Service Bus 리소스를 손상 시킬 수 있습니다.
-- 클라이언트 응용 프로그램에 제공 된 SAS가 만료 되 고 응용 프로그램이 서비스에서 새 SAS를 검색할 수 없는 경우 응용 프로그램의 기능이 저하 될 수 있습니다.
+- SAS가 유출된 경우 SAS를 획득한 모든 사용자가 이를 사용하여 Service Bus 리소스를 손상시킬 수 있습니다.
+- 클라이언트 애플리케이션에 제공된 SAS가 만료되고 애플리케이션이 서비스에서 새 SAS를 검색할 수 없는 경우 애플리케이션의 기능이 저하될 수 있습니다.
 
 다음은 공유 액세스 서명을 사용하여 이러한 위험을 완화하는 데 도움이 될 수 있는 권장 사항입니다.
 
-- **필요한 경우 클라이언트가 sas를 자동으로 갱신 하도록** 지정: 클라이언트에서 sas를 제공 하는 서비스를 사용할 수 없는 경우 다시 시도할 수 있도록 만료 되기 전에 sas를 갱신 해야 합니다. SAS가 만료 기간 내에 완료 될 것으로 예상 되는 적은 수의 즉각적인 단기 작업에 사용 될 것으로 예상 되는 경우 SAS가 갱신 되지 않으므로 필요 하지 않을 수 있습니다. 하지만 클라이언트가 SAS를 통해 일상 요청을 수행하는 경우에는 중간에 만료될 수 있습니다. 핵심 고려 사항은, 이전에 설명한 대로 SAS가 정상적으로 갱신을 요청 하 고 있는지 확인 하는 것이 좋습니다 (이전에 언급 한 것 처럼).
-- **Sas 시작 시간을 사용 하 여 주의 해야 합니다**. sas의 시작 시간을 **지금** 으로 설정 하면 클럭 오차 (다른 컴퓨터에 따라 현재 시간의 차이)로 인해 처음 몇 분 동안 오류가 간헐적으로 발생할 수 있습니다. 일반적으로 시작 시간을 최소 15분 이전으로 설정하거나 또는 전혀 설정 하지 마세요. 그러면 모든 경우에 즉시 유효 해 집니다. 이는 만료 시간에도 일반적으로 적용 됩니다. 모든 요청에 대해 어느 방향에서 든 최대 15 분의 클록을 왜곡할 수 있습니다. 
-- **액세스할 리소스와 관련 되어 있어야** 합니다. 보안 모범 사례는 사용자에 게 필요한 최소 권한을 제공 하는 것입니다. 사용자가 단일 엔터티에 대한 읽기 권한만 필요한 경우 해당 엔터티에 대한 읽기 권한만 부여하고 모든 엔터티에 대한 읽기/쓰기/삭제 권한은 부여하지 않습니다. 또한 sas가 공격자의 도움을 줄 수 있기 때문에 SAS가 손상 되 면 손상을 줄일 수 있습니다.
-- **항상 sas를 사용 하지 않음**: Event Hubs에 대해 특정 작업과 관련 된 위험이 sas의 이점 보다 더 큽니다. 이러한 작업의 경우 비즈니스 규칙 유효성 검사, 인증 및 감사 후에 Event Hubs에 기록 하는 중간 계층 서비스를 만듭니다.
-- **항상 https 사용**: 항상 https를 사용 하 여 SAS를 만들거나 배포 합니다. HTTP를 통해 SAS를 전달 하 고 가로채는 경우 메시지 가로채기 (man-in-the-middle) 연결을 수행 하는 공격자가 SAS를 읽은 다음 의도 된 사용자가 보유 하는 것과 마찬가지로, 중요 한 데이터를 손상 시키거나 악의적인 사용자의 데이터 손상을 허용할 수 있습니다.
+- **필요한 경우 클라이언트가 자동으로 SAS를 갱신하도록 함**: 클라이언트는 만료일 이전에 SAS를 갱신하여 SAS를 제공하는 서비스를 사용할 수 없는 경우 다시 시도할 수 있는 시간적 여유를 확보해야 합니다. 만료 기간 내에 완료할 것으로 예상되는 소수의 즉각적인 단기 작업에 SAS를 사용하는 경우에는 SAS 갱신이 예상되지 않으므로 이를 갱신할 필요가 없습니다. 하지만 클라이언트가 SAS를 통해 일상 요청을 수행하는 경우에는 중간에 만료될 수 있습니다. 따라서 이전에 언급한 SAS 단기 실행 요구 사항과 클라이언트가 조기에 갱신을 요청하여 성공적인 갱신 이전에 SAS가 만료되어 가동 중단이 발생하는 것을 방지해야 하는 요구 사항을 적절하게 조율하는 것이 중요합니다.
+- **SAS 시작 시간에 주의**: SAS 시작 시간을 **지금** 으로 설정한 경우 클록 스큐(머신의 차이에 따른 현재 시간의 차이)로 인해 처음 몇 분 동안 간헐적으로 오류가 발생할 수 있습니다. 일반적으로 시작 시간을 최소 15분 이전으로 설정하거나 설정하지 않습니다. 그러면 시작 시간이 즉시 유효해집니다. 이는 일반적으로 만료 시간에도 적용됩니다. 모든 요청에 대해 어떤 방향이든 최대 15분의 클록 스큐가 발생할 수 있습니다. 
+- **액세스할 리소스가 구체적이어야 함**: 보안 모범 사례는 사용자에게 필요한 최소 권한을 제공하는 것입니다. 사용자가 단일 엔터티에 대한 읽기 권한만 필요한 경우 해당 엔터티에 대한 읽기 권한만 부여하고 모든 엔터티에 대한 읽기/쓰기/삭제 권한은 부여하지 않습니다. 또한 SAS가 공격자의 수중에 넘어갈 가능성이 낮아지므로 SAS가 손상될 경우 손해가 줄어듭니다.
+- **항상 SAS를 사용하지 않음**: Event Hubs에 대한 특정 작업 관련 위험이 SAS의 이점을 능가하는 경우도 있습니다. 이러한 작업의 경우 비즈니스 규칙 유효성 검사, 인증, 감사 후에 Event Hubs에 쓰는 중간 계층 서비스를 만듭니다.
+- **항상 HTTP를 사용**: 항상 HTTP를 사용하여 SAS를 만들거나 배포합니다. HTTP를 통해 SAS를 전달하고 가로채면 중간자(man-in-the-middle) 연결을 수행하는 공격자가 SAS를 읽은 후 의도된 사용자처럼 사용할 수 있으므로 잠재적으로 중요한 데이터를 손상하거나 악의적인 사용자가 데이터를 손상하도록 허용할 수 있습니다.
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>공유 액세스 서명 인증을 위한 구성
 
-Service Bus 네임스페이스, 큐 또는 항목에 대한 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 규칙을 구성할 수 있습니다. Service Bus 구독에서 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 의 구성은 현재 지원되지 않지만 네임스페이스 또는 항목에 구성된 규칙을 사용하여 구독에 액세스할 수 있습니다. 이 절차를 설명하는 작업 샘플은 [Service Bus 구독으로 공유 액세스 서명(SAS) 인증 사용](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) 샘플을 참조하세요.
+Service Bus 네임스페이스, 큐 또는 토픽에 대한 공유 액세스 권한 부여 정책을 구성할 수 있습니다. 현재는 Service Bus 구독에서 구성하도록 지원되지는 않지만 네임스페이스 또는 토픽에 구성된 규칙을 사용하여 구독에 대한 액세스를 보호할 수 있습니다. 이 절차를 설명하는 작업 샘플은 [Service Bus 구독으로 공유 액세스 서명(SAS) 인증 사용](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) 샘플을 참조하세요.
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
@@ -84,38 +84,22 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 
 - `se` - 토큰 만료 인스턴트입니다. 토큰이 만료될 때 1970년 1월 1일(UNIX Epoch)의 Epoch `00:00:00 UTC` 이후의 초를 반영하는 정수
 - `skn` - 권한 부여 규칙의 이름입니다.
-- `sr` -액세스 되는 리소스의 URL로 인코딩된 URI입니다.
-- `sig` -URL로 인코딩된 HMACSHA256 signature. 해시 계산은 다음과 같이 의사 코드와 비슷하며 원시 이진 출력의 base64를 반환 합니다.
+- `sr` - 액세스 중인 리소스의 URL로 인코딩된 URI입니다.
+- `sig` - URL로 인코딩된 HMACSHA256 서명입니다. 해시 계산은 다음 의사 코드와 유사하며 원시 이진 출력의 base64를 반환합니다.
 
     ```
     urlencode(base64(hmacsha256(urlencode('https://<yournamespace>.servicebus.windows.net/') + "\n" + '<expiry instant>', '<signing key>')))
     ```
 
-SAS 토큰을 생성 하는 예제 c # 코드는 다음과 같습니다.
-
-```csharp
-private static string createToken(string resourceUri, string keyName, string key)
-{
-    TimeSpan sinceEpoch = DateTime.UtcNow - new DateTime(1970, 1, 1);
-    var week = 60 * 60 * 24 * 7;
-    var expiry = Convert.ToString((int)sinceEpoch.TotalSeconds + week);
-    string stringToSign = HttpUtility.UrlEncode(resourceUri) + "\n" + expiry;
-    HMACSHA256 hmac = new HMACSHA256(Encoding.UTF8.GetBytes(key));
-    var signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
-    var sasToken = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}&skn={3}", HttpUtility.UrlEncode(resourceUri), HttpUtility.UrlEncode(signature), expiry, keyName);
-    return sasToken;
-}
-```
-
 > [!IMPORTANT]
-> 다른 프로그래밍 언어를 사용 하 여 SAS 토큰을 생성 하는 예제는 [sas 토큰 생성](/rest/api/eventhub/generate-sas-token)을 참조 하세요. 
+> 다른 프로그래밍 언어를 사용하여 SAS 토큰을 생성하는 예제는 [SAS 토큰 생성](/rest/api/eventhub/generate-sas-token)을 참조하세요. 
 
 
 토큰은 수신자가 동일한 매개 변수를 사용하여 해시를 다시 계산할 수 있도록 발급자가 유효한 서명 키를 소유하는지 확인하여 해시되지 않은 값을 포함합니다.
 
 리소스 URI은 액세스를 하려는 Service Bus 리소스의 전체 URI입니다. 예를 들면 `http://<namespace>.servicebus.windows.net/<entityPath>` 또는 `sb://<namespace>.servicebus.windows.net/<entityPath>`입니다. 즉, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`과 같습니다. 
 
-**URI는 [%로 인코딩해야](/dotnet/api/system.web.httputility.urlencode)합니다.**
+**URI는 [%로 인코딩](/dotnet/api/system.web.httputility.urlencode)되어야 합니다.**
 
 이 URI로 또는 부모 계층 중 하나에 의해 지정된 엔터티에 서명에 사용된 공유 액세스 권한 부여 규칙을 구성해야 합니다. 예를 들어 이전 예에서 `http://contoso.servicebus.windows.net/contosoTopics/T1` 또는 `http://contoso.servicebus.windows.net`입니다.
 
@@ -124,73 +108,27 @@ SAS 토큰은 `signature-string`에서 사용된 `<resourceURI>`를 접두사로
 
 ## <a name="regenerating-keys"></a>키 다시 생성
 
-[SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체에서 정기적으로 사용되는 키를 다시 생성하는 것이 좋습니다. 기본 및 보조 키 슬롯은 키를 점진적으로 회전할 수 있도록 존재합니다. 애플리케이션에서 일반적으로 기본 키를 사용하는 경우 기본 키를 보조 키 슬롯에 복사한 다음, 기본 키를 다시 생성할 수 있습니다. 그런 다음, 보조 슬롯의 이전 기본 키를 사용하여 계속해서 액세스하는 클라이언트 애플리케이션으로 새 기본 키 값을 구성할 수 있습니다. 모든 클라이언트를 업데이트한 후에 보조 키를 다시 생성하여 마지막으로 이전 기본 키를 사용 중지할 수 있습니다.
+공유 액세스 권한 부여 정책에서 정기적으로 사용되는 키를 다시 생성하는 것이 좋습니다. 기본 및 보조 키 슬롯은 키를 점진적으로 회전할 수 있도록 존재합니다. 애플리케이션에서 일반적으로 기본 키를 사용하는 경우 기본 키를 보조 키 슬롯에 복사한 다음, 기본 키를 다시 생성할 수 있습니다. 그런 다음, 보조 슬롯의 이전 기본 키를 사용하여 계속해서 액세스하는 클라이언트 애플리케이션으로 새 기본 키 값을 구성할 수 있습니다. 모든 클라이언트를 업데이트한 후에 보조 키를 다시 생성하여 마지막으로 이전 기본 키를 사용 중지할 수 있습니다.
 
-키가 손상되었고 키를 해제해야 한다는 것을 알거나 의심이 가는 경우 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)의 [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 및 [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 모두를 새 키로 바꿔 다시 생성할 수 있습니다. 이 절차는 이전 키로 서명된 모든 토큰을 무효화합니다.
+키가 손상되었고 키를 해제해야 한다는 것을 알거나 의심이 가는 경우 공유 액세스 권한 부여 정책의 기본 키와 보조 키 모두를 새 키로 바꿔 다시 생성할 수 있습니다. 이 절차는 이전 키로 서명된 모든 토큰을 무효화합니다.
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Service Bus를 사용한 공유 액세스 서명 인증
 
-아래에 설명 된 시나리오는 권한 부여 규칙의 구성, SAS 토큰의 생성 및 클라이언트 권한 부여를 포함 합니다.
+다음과 같이 설명된 시나리오는 권한 부여 규칙의 구성, SAS 토큰의 생성 및 클라이언트 권한 부여를 포함합니다.
 
-구성을 보여 주고 SAS 권한 부여를 사용 하는 Service Bus 응용 프로그램의 샘플은 [Service Bus를 사용 하 여 공유 액세스 서명 인증](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule)을 참조 하세요.
+구성을 설명하고 SAS 권한 부여를 사용하는 Service Bus 애플리케이션의 샘플은 [Service Bus를 사용하여 공유 액세스 서명 인증](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule)을 참조하세요.
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>엔터티에 대한 공유 액세스 권한 부여 규칙 액세스
 
-Service Bus .NET Framework 라이브러리를 사용하여 해당하는 [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) 또는 [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription)에서 [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) 컬렉션을 통해 Service Bus 큐나 토픽에 구성된 [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체에 액세스할 수 있습니다.
-
-다음 코드는 큐에 대한 권한 부여 규칙을 추가하는 방법을 보여줍니다.
-
-```csharp
-// Create an instance of NamespaceManager for the operation
-NamespaceManager nsm = NamespaceManager.CreateFromConnectionString(
-    <connectionString> );
-QueueDescription qd = new QueueDescription( <qPath> );
-
-// Create a rule with send rights with keyName as "contosoQSendKey"
-// and add it to the queue description.
-qd.Authorization.Add(new SharedAccessAuthorizationRule("contosoSendKey",
-    SharedAccessAuthorizationRule.GenerateRandomKey(),
-    new[] { AccessRights.Send }));
-
-// Create a rule with listen rights with keyName as "contosoQListenKey"
-// and add it to the queue description.
-qd.Authorization.Add(new SharedAccessAuthorizationRule("contosoQListenKey",
-    SharedAccessAuthorizationRule.GenerateRandomKey(),
-    new[] { AccessRights.Listen }));
-
-// Create a rule with manage rights with keyName as "contosoQManageKey"
-// and add it to the queue description.
-// A rule with manage rights must also have send and receive rights.
-qd.Authorization.Add(new SharedAccessAuthorizationRule("contosoQManageKey",
-    SharedAccessAuthorizationRule.GenerateRandomKey(),
-    new[] {AccessRights.Manage, AccessRights.Listen, AccessRights.Send }));
-
-// Create the queue.
-nsm.CreateQueue(qd);
-```
+[Service Bus용 관리 라이브러리](service-bus-management-libraries.md)의 큐 또는 토픽에 대한 가져오기/업데이트 작업을 사용하여 해당 공유 액세스 권한 부여 규칙에 액세스/업데이트합니다. 이러한 라이브러리를 사용하여 큐 또는 토픽을 만들 때 규칙을 추가할 수도 있습니다.
 
 ## <a name="use-shared-access-signature-authorization"></a>공유 액세스 서명 권한 부여 사용
 
-Service Bus.NET 라이브러리로 Azure.NET SDK를 사용하는 애플리케이션은 [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) 클래스를 통해 SAS 권한 부여를 사용할 수 있습니다. 다음 코드에서는 토큰 공급자를 사용하여 Service Bus 큐에 메시지를 보냅니다. 여기에 표시된 사용에 대한 대안으로 이전에 발급된 토큰을 토큰 공급자 팩터리 메서드에 전달할 수도 있습니다.
-
-```csharp
-Uri runtimeUri = ServiceBusEnvironment.CreateServiceUri("sb",
-    <yourServiceNamespace>, string.Empty);
-MessagingFactory mf = MessagingFactory.Create(runtimeUri,
-    TokenProvider.CreateSharedAccessSignatureTokenProvider(keyName, key));
-QueueClient sendClient = mf.CreateQueueClient(qPath);
-
-//Sending hello message to queue.
-BrokeredMessage helloMessage = new BrokeredMessage("Hello, Service Bus!");
-helloMessage.MessageId = "SAS-Sample-Message";
-sendClient.Send(helloMessage);
-```
-
-다른 클라이언트에 전달할 토큰을 발급하는 데 토큰 공급자를 직접 사용할 수도 있습니다.
+.NET, Java, JavaScript 및 Python과 같이 공식적으로 지원되는 언어의 Service Bus SDK를 사용하는 애플리케이션은 클라이언트 생성자에 전달된 연결 문자열을 통해 SAS 권한 부여를 사용할 수 있습니다.
 
 연결 문자열은 규칙 이름(*SharedAccessKeyName*) 및 규칙 키(*SharedAccessKey*) 또는 이전에 발급된 토큰(*SharedAccessSignature*)을 포함할 수 있습니다. 해당 항목이 생성자 또는 연결 문자열을 수락하는 팩터리 메서드에 전달된 연결 문자열에 있는 경우 SAS 토큰 공급자가 자동으로 만들어지고 채워집니다.
 
-Service Bus 릴레이로 SAS 권한 부여를 사용하면 Service Bus 네임 스페이스에 구성된 SAS 키를 사용할 수 있습니다. 네임스페이스([NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager)와 [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription)) 개체에 명시적으로 릴레이를 만들면 해당 릴레이 대한 SAS 규칙을 설정할 수 있습니다. Service Bus 구독으로 SAS 권한 부여를 사용하려면 Service Bus 네임 스페이스 또는 항목에 구성된 SAS 키를 사용할 수 있습니다.
+Service Bus 구독으로 SAS 권한 부여를 사용하려면 Service Bus 네임 스페이스 또는 항목에 구성된 SAS 키를 사용할 수 있습니다.
 
 ## <a name="use-the-shared-access-signature-at-http-level"></a>공유 액세스 서명 사용(HTTP 수준에서)
 
@@ -209,11 +147,11 @@ ContentType: application/atom+xml;type=entry;charset=utf-8
 
 ## <a name="use-the-shared-access-signature-at-amqp-level"></a>공유 액세스 서명(AMQP 수준) 사용
 
-이전 섹션에서는 HTTP POST 요청과 함께 SAS 토큰을 사용하여 데이터를 Service Bus에 보내는 방법을 살펴봤습니다. 아시다시피, Service Bus는 많은 시나리오에서 성능상의 이유로 사용하는 기본 설정 프로토콜인 AMQP(고급 메시지 큐 프로토콜)를 사용하여 액세스할 수 있습니다. AMQP를 사용 하는 SAS 토큰 사용에 대 한 자세한 내용은 2013 이후 초안으로 작동 하는 [Claim-Based 보안 버전 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) 문서에 설명 되어 있지만 현재 Azure에서 지원 됩니다.
+이전 섹션에서는 HTTP POST 요청과 함께 SAS 토큰을 사용하여 데이터를 Service Bus에 보내는 방법을 살펴봤습니다. 아시다시피, Service Bus는 많은 시나리오에서 성능상의 이유로 사용하는 기본 설정 프로토콜인 AMQP(고급 메시지 큐 프로토콜)를 사용하여 액세스할 수 있습니다. AMQP와 함께 SAS 토큰을 사용하는 방법은 2013년 이후 초안 상태이지만 현재 Azure에서 충분한 지원을 받고 있는 문서 [AMQP 클레임 기반 보안 버전 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc)에 설명되어 있습니다.
 
 Service Bus에 데이터의 전송을 시작하기 전에 게시자는 AMQP 메시지 안에 있는 SAS 토큰을 **$cbs**(모든 SAS 토큰을 얻고 유효성을 검사하기 위해 서비스에서 사용하는 "특별" 큐)라는 이름의 정의된 AMQP 노드에 전송해야 합니다. 게시자는 AMQP 메시지 내부에 있는 **ReplyTo** 필드를 지정해야 합니다. 이는 서비스가 토큰 유효성 검사 결과와 함께 게시자에게 응답하는 노드입니다(게시자와 서비스 간의 간단한 요청/응답 패턴). 이 회신 노드는 "즉시" 생성되며 AMQP 1.0 사양에 설명된 것처럼 “원격 노드 동적 생성”에 대해 얘기합니다. SAS 토큰이 유효한지 확인한 후 게시자는 이제 데이터를 서비스에 보내기 시작할 수 있습니다.
 
-다음 단계에서는 [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) 라이브러리를 사용 하 여 amqp 프로토콜을 사용 하 여 SAS 토큰을 보내는 방법을 보여 줍니다. 이는 C에서 개발 하는 공식 Service Bus SDK (예: WinRT, .NET Compact Framework, .NET 마이크로 프레임 워크 및 Mono)를 사용할 수 없는 경우에 유용 합니다 \# . 물론 이 라이브러리는 클레임 기반 보안이 HTTP 수준에서 작동하는 방식을 볼 때처럼 AMQP 수준에서 작동하는 방식을 이해하는 데 유용합니다("권한 부여" 헤더 내에서 전송되는 HTTP POST 요청 및 SAS 토큰과 함께). AMQP에 대 한 이러한 심층 지식이 필요 하지 않은 경우에는 .NET Framework 응용 프로그램에서 공식 Service Bus SDK를 사용할 수 있습니다.
+다음 단계에서는 [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) 라이브러리를 사용하여 AMQP 프로토콜을 통해 SAS 토큰을 보내는 방법을 보여줍니다. 이 방법은 C\#으로 개발하는 공식적인 Service Bus SDK를 사용할 수 없는 경우(예를 들어 WinRT, .NET Compact Framework, .NET Micro Framework 및 Mono)에 유용합니다. 물론 이 라이브러리는 클레임 기반 보안이 HTTP 수준에서 작동하는 방식을 볼 때처럼 AMQP 수준에서 작동하는 방식을 이해하는 데 유용합니다("권한 부여" 헤더 내에서 전송되는 HTTP POST 요청 및 SAS 토큰과 함께). AMQP에 대한 깊은 지식이 필요하지 않은 경우 .NET, Java, JavaScript, Python 및 Go와 같은 지원되는 언어의 공식 Service Bus SDK를 사용할 수 있습니다.
 
 ### <a name="c35"></a>C&#35;
 
@@ -283,7 +221,7 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 
 다음 테이블에서는 Service Bus 리소스의 다양한 작업에 필요한 액세스 권한을 보여줍니다.
 
-| 작업 | 필요한 클레임 | 클레임 범위 |
+| 작업(Operation) | 필요한 클레임 | 클레임 범위 |
 | --- | --- | --- |
 | **네임스페이스** | | |
 | 네임스페이스에서 권한 부여 규칙 구성 |관리 |네임스페이스 주소 |
@@ -304,7 +242,7 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 | 메시지 효력 상실 |수신 대기 |유효한 큐 주소 |
 | 메시지 큐 세션을 사용하여 연결된 상태 가져오기 |수신 대기 |유효한 큐 주소 |
 | 메시지 큐 세션을 사용하여 연결된 상태 설정 |수신 대기 |유효한 큐 주소 |
-| 나중에 배달할 메시지를 예약합니다(예: [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_)). |수신 대기 | 유효한 큐 주소
+| 나중에 배달하도록 메시지 예약 |수신 대기 | 유효한 큐 주소
 | **항목** | | |
 | 토픽 만들기 |관리 |네임스페이스 주소 |
 | 항목 삭제 |관리 |유효한 항목 주소 |

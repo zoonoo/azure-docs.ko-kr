@@ -1,6 +1,6 @@
 ---
 title: Azure Table Storage에서 확장형 및 영구 테이블을 디자인합니다. | Microsoft Docs
-description: Azure 테이블 저장소에서 확장 가능 하 고 성능이 뛰어난 테이블을 설계 하는 방법을 알아봅니다. 테이블 파티션, 엔터티 그룹 트랜잭션, 용량 및 비용 고려 사항을 검토 합니다.
+description: Azure Table Storage에서 확장형 및 영구 테이블을 디자인하는 방법을 알아봅니다. 테이블 파티션, 엔터티 그룹 트랜잭션, 용량 및 비용 고려 사항을 검토합니다.
 services: storage
 ms.service: storage
 author: tamram
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.subservice: tables
 ms.openlocfilehash: 8f3bd2a998066804bfb589e3262ac5e68db601fb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93306943"
 ---
 # <a name="design-scalable-and-performant-tables"></a>확장 가능하고 성능이 우수한 테이블 설계

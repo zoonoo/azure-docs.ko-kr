@@ -3,19 +3,19 @@ title: '빠른 시작: Azure Queue Storage 클라이언트 라이브러리 v12 -
 description: Python용 Azure Queue Storage 클라이언트 라이브러리 v12를 사용하여 큐를 만들고 메시지를 큐에 추가하는 방법을 알아봅니다. 그런 다음, 큐에서 메시지를 읽고 삭제하는 방법을 알아봅니다. 큐를 삭제하는 방법도 알아봅니다.
 author: twooley
 ms.author: twooley
-ms.date: 12/10/2019
+ms.date: 07/23/2021
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom:
 - devx-track-python
 - mode-api
-ms.openlocfilehash: 68f68c32b160757e82d59b1dd5ee4847a06ec698
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: cafd9059139dc4ee1d194bd57696ef204921bcd7
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534355"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114674380"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>빠른 시작: Python용 Azure Queue Storage 클라이언트 라이브러리 v12
 

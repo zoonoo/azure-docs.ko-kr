@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: d6d842a59a184470720da50917726eae069c6b02
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: c2a704d5e87e5b5813a59f9c5951688f5c3b893a
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368512"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113300919"
 ---
 # <a name="tutorial-analyze-live-video-by-using-live-video-analytics-with-intel-openvino-dl-streamer--edge-ai-extension"></a>자습서: Intel OpenVINO™ DL Streamer – Edge AI Extension과 함께 Live Video Analytics를 사용하여 라이브 비디오 분석 
 
@@ -78,7 +78,7 @@ OpenVINO™ DL Streamer - Edge AI Extension 모듈은 OpenVINO™ DL Streamer를
 
 - object_tracking for person_vehicle_bike_tracking ![사람 차량 개체 추적](./media/use-intel-openvino-tutorial/object-tracking.png)
 
-미리 로드된 개체 감지, 개체 분류 및 개체 추적 파이프라인을 사용하여 빠르게 시작합니다. 뿐만 아니라 미리 로드된 [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/description/person-vehicle-bike-detection-crossroad-0078.md) 및 [vehicle-attributes-recognition-barrier-0039 모델](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/description/vehicle-attributes-recognition-barrier-0039.md)이 함께 제공됩니다.
+미리 로드된 개체 감지, 개체 분류 및 개체 추적 파이프라인을 사용하여 빠르게 시작합니다. 뿐만 아니라 미리 로드된 [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/README.md) 및 [vehicle-attributes-recognition-barrier-0039 모델](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/README.md)이 함께 제공됩니다.
 
 > [!NOTE]
 > Intel에서 제공하는 Edge 모듈인 OpenVINO™ DL Streamer – Edge AI Extension과 그 안에 포함된 소프트웨어를 다운로드하고 사용하는 것은 [사용권 계약](https://www.intel.com/content/www/us/en/legal/terms-of-use.html)의 사용 약관에 동의하는 것입니다.

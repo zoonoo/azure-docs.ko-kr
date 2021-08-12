@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: bb8f2d77c04e01c47318042337db819ac2f36d46
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 09b7cf5fcab057dd5f5a98590ed11787df202a00
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107863194"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114286016"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Stream Analytics 작업 만들기
 
@@ -53,7 +53,7 @@ Stream Analytics 작업을 정의하기 전에, 작업의 입력에 사용할 �
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-2. [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device) 명령을 사용하여 IoT Hub에 디바이스를 추가합니다. 이 예제에서는 **MyASAIoTDevice** 라는 디바이스를 만듭니다.
+2. [az iothub device-identity create](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c#create-a-simulated-device) 명령을 사용하여 IoT Hub에 디바이스를 추가합니다. 이 예제에서는 **MyASAIoTDevice** 라는 디바이스를 만듭니다.
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"

@@ -1,6 +1,6 @@
 ---
 title: H264 단일 비트 전송률 4K Media Encoder Standard 사전 설정-Azure | Microsoft Docs
-description: 이 문서에서는 Media Encoder Standard H264 단일 비트 전송률 4K 태스크 미리 설정에 대 한 개요를 제공 합니다.
+description: 이 문서에서는 Media Encoder Standard H264 단일 비트 전송률 4K 작업 미리 설정에 대한 개요를 제공합니다.
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 62984c938a3db67550b36c731e7a5a27de5df7ad
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103012873"
 ---
 # <a name="h264-single-bitrate-4k"></a>H264 단일 비트 전송률 4K

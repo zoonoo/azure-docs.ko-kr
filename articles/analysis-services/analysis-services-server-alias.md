@@ -8,10 +8,10 @@ ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7fb52a0f03fa1f9ab9bc0c6a2c27adf70b4bf2ca
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96491233"
 ---
 # <a name="alias-server-names"></a>별칭 서버 이름
@@ -37,7 +37,7 @@ ms.locfileid: "96491233"
 
 별칭 엔드포인트를 만들려면 유효한 Azure Analysis Services 서버 이름을 반환하는 메서드를 사용할 수 있습니다. 예를 들어 실제 서버 이름을 포함하는 Azure Blob Storage에서 파일을 참조하거나, ASP.NET Web Forms 애플리케이션을 만들고 게시합니다.
 
-이 예제에서 ASP.NET Web Forms 애플리케이션은 Visual Studio에서 만들어집니다. 페이지 참조 및 사용자 정의 컨트롤은 default.aspx 페이지에서 제거 됩니다. Default.aspx의 내용은 단순히 다음 페이지 지시문입니다.
+이 예제에서 ASP.NET Web Forms 애플리케이션은 Visual Studio에서 만들어집니다. 페이지 참조 및 사용자 정의 컨트롤은 Default.aspx 페이지에서 제거됩니다. Default.aspx의 내용은 단순히 다음 페이지 지시문입니다.
 
 ```
 <%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FriendlyRedirect._Default" %>

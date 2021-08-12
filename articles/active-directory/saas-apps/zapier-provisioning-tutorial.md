@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Zapier 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 Zapier로 자동으로 프로비저닝 및 프로비저닝 해제하는 방법을 알아봅니다.
 services: active-directory
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/24/2020
-ms.author: Zhchia
-ms.openlocfilehash: d2c1704182a2a59f8e3f79c2d4e671167ce661d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: e742e323932304da3fd25ad45087c2910490b839
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96183076"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113760531"
 ---
 # <a name="tutorial-configure-zapier-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Zapier 구성
 

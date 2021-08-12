@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: bf60f512416007137e71119fa7474b1393099ebf
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: cffd8e0347f501e82ca6e62d5c120b232869cbc0
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718884"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114653324"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Azure IoT Central UI 둘러보기
 
@@ -22,7 +22,7 @@ ms.locfileid: "107718884"
 
 ## <a name="iot-central-homepage"></a>IoT Central 홈페이지
 
-[IoT Central 홈페이지](https://aka.ms/iotcentral-get-started) 페이지에서는 IoT Central에서 사용할 수 있는 최신 뉴스 및 기능에 대해 자세히 알아보고, 새 애플리케이션을 만들고, 기존 애플리케이션을 살펴보고 시작할 수 있습니다.
+[IoT Central 홈페이지](https://apps.azureiotcentral.com/) 페이지에서는 IoT Central에서 사용할 수 있는 최신 뉴스 및 기능에 대해 자세히 알아보고, 새 애플리케이션을 만들고, 기존 애플리케이션을 살펴보고 시작할 수 있습니다.
 
 :::image type="content" source="media/overview-iot-central-tour/iot-central-homepage.png" alt-text="IoT Central 홈페이지":::
 
@@ -36,7 +36,7 @@ ms.locfileid: "107718884"
 
 ### <a name="launch-your-application"></a>애플리케이션 시작
 
-앱을 만드는 동안 선택한 URL로 이동하여 IoT Central 애플리케이션을 시작합니다. [IoT Central 앱 관리자](https://aka.ms/iotcentral-apps)에서 액세스 권한이 있는 모든 애플리케이션 목록을 볼 수도 있습니다.
+앱을 만드는 동안 선택한 URL로 이동하여 IoT Central 애플리케이션을 시작합니다. [IoT Central 앱 관리자](https://apps.azureiotcentral.com/myapps)에서 액세스 권한이 있는 모든 애플리케이션 목록을 볼 수도 있습니다.
 
 :::image type="content" source="media/overview-iot-central-tour/app-manager.png" alt-text="IoT Central 앱 관리자":::
 
@@ -84,7 +84,7 @@ IoT 애플리케이션 내부로 이동한 후에는 왼쪽 창을 사용하여 
 
 * 디바이스를 검색하려면 **검색** 값을 입력합니다.
 * UI 언어 또는 테마를 변경하려면 **설정** 아이콘을 선택합니다. [애플리케이션 기본 설정 관리](howto-manage-preferences.md)에 대한 자세한 정보
-* 도움말을 보거나 지원을 받으려면 리소스 목록에 대한 **도움말** 드롭다운을 선택합니다. **앱 정보** 링크에서 [애플리케이션에 대한 정보를 가져올](./howto-get-app-info.md) 수 있습니다. 무료 가격 책정 요금제에 대한 애플리케이션에서 지원 리소스에는 [라이브 채팅](howto-show-hide-chat.md)에 대한 액세스가 포함됩니다.
+* 도움말을 보거나 지원을 받으려면 리소스 목록에 대한 **도움말** 드롭다운을 선택합니다. **앱 정보** 링크에서 [애플리케이션에 대한 정보를 가져올](howto-faq.yml#how-do-i-get-information-about-my-application-) 수 있습니다. 무료 가격 책정 요금제에 대한 애플리케이션에서 지원 리소스에는 [라이브 채팅](howto-show-hide-chat.md)에 대한 액세스가 포함됩니다.
 * 애플리케이션에서 로그아웃하려면 **계정** 아이콘을 선택합니다.
 
 UI의 밝은 테마 또는 어두운 테마 중에서 선택할 수 있습니다.
@@ -98,9 +98,9 @@ UI의 밝은 테마 또는 어두운 테마 중에서 선택할 수 있습니다
 
 :::image type="content" source="Media/overview-iot-central-tour/dashboard.png" alt-text="IoT Central 대시보드의 스크린샷.":::
 
-* **대시보드** 는 IoT Central 애플리케이션에 로그인할 때 표시되는 첫 번째 페이지입니다. 여러 애플리케이션 대시보드를 만들고 사용자 지정할 수 있습니다. [대시보드에 타일 추가](howto-add-tiles-to-your-dashboard.md)에 대한 자세한 정보
+* **대시보드** 는 IoT Central 애플리케이션에 로그인할 때 표시되는 첫 번째 페이지입니다. 여러 애플리케이션 대시보드를 만들고 사용자 지정할 수 있습니다. [대시보드에 타일 추가](howto-manage-dashboards.md)에 대한 자세한 정보
 
-* 개인 대시보드를 만들어 관심 있는 항목을 모니터링할 수도 있습니다. 자세한 내용은 [Azure IoT Central 개인 대시보드 만들기](howto-create-personal-dashboards.md) 방법 문서를 참조하세요.
+* 개인 대시보드를 만들어 관심 있는 항목을 모니터링할 수도 있습니다. 자세한 내용은 [Azure IoT Central 개인 대시보드 만들기](howto-manage-dashboards.md) 방법 문서를 참조하세요.
 
 ### <a name="devices"></a>디바이스
 
@@ -110,8 +110,6 @@ UI의 밝은 테마 또는 어두운 테마 중에서 선택할 수 있습니다
 
 * 디바이스 템플릿은 애플리케이션에 연결할 수 있는 디바이스의 유형을 정의합니다.
 * 디바이스는 애플리케이션의 실제 또는 시뮬레이션된 디바이스를 나타냅니다.
-
-자세한 내용은 [디바이스 모니터링](./quick-monitor-devices.md) 빠른 시작을 참조하세요. 
 
 ### <a name="device-groups"></a>디바이스 그룹
 
@@ -134,7 +132,7 @@ UI의 밝은 테마 또는 어두운 테마 중에서 선택할 수 있습니다
 
 :::image type="content" source="Media/overview-iot-central-tour/jobs.png" alt-text="작업 페이지":::
 
-이 페이지에서는 디바이스의 대량 디바이스 관리 작업에 사용할 수 있는 작업을 보고 만들 수 있습니다. 디바이스 속성 및 설정을 업데이트하고 디바이스 그룹에 대해 명령을 실행할 수 있습니다. 자세한 내용은 [작업 실행](howto-run-a-job.md) 문서를 참조하세요.
+이 페이지에서는 디바이스의 대량 디바이스 관리 작업에 사용할 수 있는 작업을 보고 만들 수 있습니다. 디바이스 속성 및 설정을 업데이트하고 디바이스 그룹에 대해 명령을 실행할 수 있습니다. 자세한 내용은 [작업 실행](howto-manage-devices-in-bulk.md) 문서를 참조하세요.
 
 ### <a name="device-templates"></a>디바이스 템플릿
 

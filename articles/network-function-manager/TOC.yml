@@ -25,7 +25,7 @@
     - name: 네트워크 기능 관리자 제품 페이지
       href: 'https://go.microsoft.com/fwlink/?linkid=2166098'
     - name: Azure 프라이빗 MEC 설명서
-      href: 'https://go.microsoft.com/fwlink/?linkid=2165316'
+      href: ../private-multi-access-edge-compute-mec/index.yml
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: 블로그

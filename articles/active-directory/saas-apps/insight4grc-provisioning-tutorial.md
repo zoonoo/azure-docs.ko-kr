@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위해 Insight4GRC 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 Insight4GRC로 자동으로 프로비저닝 및 프로비저닝을 해제하는 방법을 알아봅니다.
 services: active-directory
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2020
-ms.author: Zhchia
-ms.openlocfilehash: 7d5904461d642f47e691d0a1aaa1f1faf439df1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: d3172f571afbcdbac83a527ef1de5e56283b7438
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96178146"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766959"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Insight4GRC 구성
 

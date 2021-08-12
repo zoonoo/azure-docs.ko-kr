@@ -11,12 +11,12 @@ ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.custom: mvc, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: f7c5dbaf30965fdd5f438f0351cfa2cd60e05b70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 607f7921b62540d26b1354c21f3352f5b5b943f4
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92746563"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112376651"
 ---
 # <a name="secure-access-to-application-data"></a>애플리케이션 데이터에 대한 보안 액세스
 
@@ -39,7 +39,19 @@ ms.locfileid: "92746563"
 
 자습서 시리즈의 이 부분에서는 썸네일에 액세스하기 위해 SAS 토큰을 사용합니다. 이 단계에서는 *thumbnails* 컨테이너에 대한 공용 액세스를 `off`로 설정합니다.
 
-```bash
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```powershell
+$blobStorageAccount="<blob_storage_account>"
+
+blobStorageAccountKey=(Get-AzStorageAccountKey -ResourceGroupName myResourceGroup -AccountName $blobStorageAccount).Key1
+
+Set-AzStorageAccount -ResourceGroupName "MyResourceGroup" -AccountName $blobStorageAccount -KeyName $blobStorageAccountKey -AllowBlobPublicAccess $false
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli
 blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
@@ -52,18 +64,7 @@ az storage container set-permission \
     --public-access off
 ```
 
-```powershell
-$blobStorageAccount="<blob_storage_account>"
-
-blobStorageAccountKey=$(az storage account keys list -g myResourceGroup `
-    --account-name $blobStorageAccount --query [0].value --output tsv) 
-
-az storage container set-permission `
-    --account-name $blobStorageAccount `
-    --account-key $blobStorageAccountKey `
-    --name thumbnails `
-    --public-access off
-```
+---
 
 ## <a name="configure-sas-tokens-for-thumbnails"></a>썸네일에 대한 SAS 토큰 구성
 
@@ -73,7 +74,7 @@ az storage container set-permission `
 
 다음 명령에서 `<web-app>`은 웹앱의 이름입니다.
 
-```bash
+```azurecli
 az webapp deployment source delete --name <web-app> --resource-group myResourceGroup
 
 az webapp deployment source config --name <web_app> \

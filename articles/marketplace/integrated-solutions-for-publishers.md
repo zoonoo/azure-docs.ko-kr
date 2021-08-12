@@ -8,10 +8,10 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
 ms.openlocfilehash: 0a3188d5dc2c34c9959ae488ad5a5f962a99f02f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98880273"
 ---
 # <a name="publish-an-integrated-solution"></a>통합 솔루션 게시
@@ -32,8 +32,8 @@ ms.locfileid: "98880273"
 ## <a name="eligibility-criteria"></a>자격 기준
 
 * 참여하는 파트너는 MPN ID가 있어야 합니다.
-* 참여 하는 서비스 공급자는 [공동 판매 준비](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)를 해야 합니다.
-* 참여 소프트웨어 공급 업체는 [IP 공동 판매 준비](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)를 해야 합니다.
+* 참여하는 서비스 공급자는 [공동 판매를 준비](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)해야 합니다.
+* 참여하는 소프트웨어 공급업체는 [IP 공동 판매를 준비](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)해야 합니다.
 * 하나 이상의 참여 파트너는 다음 영역 중 하나에서 골드 역량이 있어야 합니다.
     - 애플리케이션 개발
     - 애플리케이션 통합
@@ -51,7 +51,7 @@ ms.locfileid: "98880273"
 
 ## <a name="submit-a-nomination"></a>추천 제출
 
-프로그램에 참여하려는 파트너는 작업하려는 다른 파트너를 식별해야 합니다. [통합 솔루션 추천 폼](https://aka.ms/AA5qicu)을 완료 해야 합니다. 통합 솔루션 프로그램 팀은 추천을 검토하고 영업일 10일 이내에 수행합니다. 팀에서 승인하고 다음 단계로 진행합니다.
+프로그램에 참여하려는 파트너는 작업하려는 다른 파트너를 식별해야 합니다. [통합 솔루션 추천 양식](https://aka.ms/AA5qicu)을 작성해야 합니다. 통합 솔루션 프로그램 팀은 추천을 검토하고 영업일 10일 이내에 수행합니다. 팀에서 승인하고 다음 단계로 진행합니다.
 
 ## <a name="develop-an-integrated-solution"></a>통합 솔루션 개발
 

@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure에서 보안 응용 프로그램 배포
-description: 이 문서에서는 웹 응용 프로그램 프로젝트의 릴리스 및 응답 단계 중에 고려할 모범 사례를 설명 합니다.
+title: Microsoft Azure에서 보안 애플리케이션 배포
+description: 이 문서에서는 웹 애플리케이션 프로젝트의 릴리스 및 응답 단계에서 고려할 모범 사례를 설명합니다.
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 4c71ddbf1d2b435697b2707acf0b1262f2c5dc31
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94517192"
 ---
-# <a name="deploy-secure-applications-on-azure"></a>Azure에서 보안 응용 프로그램 배포
-이 문서에서는 클라우드의 응용 프로그램을 배포할 때 고려해 야 할 보안 작업 및 제어를 제공 합니다. Microsoft [SDL (보안 개발 수명 주기)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) 의 릴리스 및 응답 단계 중에 고려해 야 하는 보안 질문 및 개념을 다룹니다. 목표는 보다 안전한 응용 프로그램을 배포 하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의 하는 데 도움을 주는 것입니다.
+# <a name="deploy-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 배포
+이 문서에서는 클라우드용 애플리케이션을 배포할 때 고려해야 할 보안 및 제어 작업에 관해 설명합니다. Microsoft [SDL(보안 개발 수명 주기)](/previous-versions/windows/desktop/cc307891(v=msdn.10))의 릴리스 및 응답 단계에서 고려해야 하는 보안 질문과 개념을 다룹니다. 목표는 더 안전한 애플리케이션을 배포하는 데 사용할 수 있는 작업과 Azure 서비스를 정의하도록 돕는 것입니다.
 
 이 문서에서 다루는 SDL 단계는 다음과 같습니다.
 
@@ -29,64 +29,64 @@ ms.locfileid: "94517192"
 - 응답
 
 ## <a name="release"></a>해제
-릴리스 단계의 초점은 공용 릴리스에 대 한 프로젝트를 패키징하여는 것입니다.
-여기에는 릴리스 후 서비스 작업을 효과적으로 수행 하 고 나중에 발생할 수 있는 보안 취약점을 해결 하는 계획 방법이 포함 됩니다.
+릴리스 단계의 초점은 일반 릴리스에 대한 프로젝트를 준비하는 것입니다.
+여기에는 릴리스 후 서비스 작업을 효과적으로 수행하고 나중에 발생할 수 있는 보안 취약성을 해결하는 계획 방법이 포함 됩니다.
 
-### <a name="check-your-applications-performance-before-you-launch"></a>시작 하기 전에 응용 프로그램의 성능을 확인 합니다.
+### <a name="check-your-applications-performance-before-you-launch"></a>시작하기 전에 애플리케이션의 성능을 확인
 
-응용 프로그램을 시작 하기 전에 응용 프로그램의 성능을 확인 하거나 프로덕션 환경에 업데이트를 배포 합니다. Visual Studio를 사용 하 여 클라우드 기반 [부하 테스트](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) 를 실행 하 여 응용 프로그램에서 성능 문제를 찾고, 배포 품질을 향상 하 고, 응용 프로그램이 항상 사용 가능 하며 응용 프로그램에서 시작에 대 한 트래픽을 처리할 수 있는지 확인 합니다.
+시작하거나 프로덕션에 업데이트를 배포하기 전에 애플리케이션의 성능을 확인합니다. 애플리케이션에서 성능 문제를 찾기 위해 Visual Studio를 사용하여 클라우드 기반 [부하 테스트](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing)를 실행하고, 배포 품질을 향상하고 애플리케이션이 항상 사용 가능하며 애플리케이션에서 시작에 트래픽을 처리할 수 있는지 확인합니다.
 
 ### <a name="install-a-web-application-firewall"></a>웹 애플리케이션 방화벽 설치
 
-웹 애플리케이션의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 악용 중에는 SQL 삽입 공격과 사이트 간 스크립팅 공격이 있습니다. 응용 프로그램 코드에서 이러한 공격을 방지 하는 것은 어려울 수 있습니다. 응용 프로그램 토폴로지의 여러 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 WAF를 사용 하면 보안을 보다 간단 하 게 관리할 수 있습니다. WAF 솔루션은 각각의 개별 웹 응용 프로그램에 대 한 보안을 유지 하 고 중앙 위치에서 알려진 취약성을 패치 하 여 보안 위협에 대응할 수도 있습니다.
+웹 애플리케이션의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 익스플로잇 중 일반적인 것은 SQL 삽입 공격과 교차 사이트 스크립팅 공격입니다. 애플리케이션 코드에서 이러한 공격을 방지하는 것은 어려울 수 있습니다. 애플리케이션 토폴로지의 여러 계층에서 엄격한 유지 관리, 패치 및 모니터링이 필요할 수 있습니다. 중앙 집중식 WAF를 사용하면 보안을 보다 간단하게 관리할 수 있습니다. 또한 WAF 솔루션은 각각의 웹 애플리케이션을 보호하는 대신 중앙 위치에서 알려진 취약성에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다.
 
-[Azure 애플리케이션 Gateway WAF](../../web-application-firewall/ag/ag-overview.md) 는 일반적인 악용 및 취약점 으로부터 웹 응용 프로그램에 대 한 중앙 집중식 보호를 제공 합니다. WAF는 [OWASP core 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 또는 2.2.9의 규칙을 기반으로 합니다.
+[Azure Application Gateway WAF](../../web-application-firewall/ag/ag-overview.md)는 일반적인 익스플로잇 및 취약성으로부터 웹 애플리케이션의 중앙 집중식으로 보호합니다. WAF는 [OWASP 핵심 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 또는 2.2.9의 규칙에 기반합니다.
 
 ### <a name="create-an-incident-response-plan"></a>인시던트 대응 계획 만들기
 
-사고 대응 계획을 준비 하는 것은 시간이 지남에 따라 발생할 수 있는 새로운 위협을 해결 하는 데 도움이 됩니다. 인시던트 대응 계획을 준비 하는 경우에는 적절 한 보안 비상 연락처를 식별 하 고 조직의 다른 그룹에서 상속 되는 코드에 대 한 보안 서비스 계획을 설정 하 고 사용이 허가 된 타사 코드를 사용 합니다.
+인시던트 대응 계획을 준비하는 것은 시간이 지남에 따라 발생할 수 있는 새로운 위협을 해결하는 데 도움이 됩니다. 인시던트 대응 계획 준비에는 적절한 보안 긴급 연락처 식별과 조직의 기타 그룹에서 상속되는 코드 및 라이선스가 부여된 제3자 코드에 대한 보안 서비스 계획 수립이 포함됩니다.
 
 ### <a name="conduct-a-final-security-review"></a>최종 보안 검토 수행
 
-수행 된 모든 보안 활동을 의도적으로 검토 하면 소프트웨어 릴리스 또는 응용 프로그램에 대 한 준비 상태를 보장할 수 있습니다. 최종 보안 검토 (FSR)에는 일반적으로 요구 사항 단계에서 정의한 품질 게이트 및 버그 바에 대 한 위협 모델, 도구 출력 및 성능 검사가 포함 되어 있습니다.
+수행된 모든 보안 활동을 의도적으로 검토하면 소프트웨어 릴리스 또는 애플리케이션에 대한 준비 상태를 보장할 수 있습니다. FSR(최종 보안 검토)에는 일반적으로 요구 사항 단계에서 정의된 품질 게이트 및 버그 바에 대한 위협 모델, 도구 출력 및 성능 검사가 포함 되어 있습니다.
 
 ### <a name="certify-release-and-archive"></a>릴리스 및 보관 인증
 
-릴리스 전에 소프트웨어를 인증 하면 보안 및 개인 정보 요구 사항이 충족 됩니다. 모든 관련 데이터를 보관 하는 것은 릴리스 후 서비스 작업을 수행 하는 데 필수적입니다. 또한 보관을 통해 지속적인 소프트웨어 엔지니어링과 관련 된 장기 비용을 낮출 수 있습니다.
+릴리스 전에 소프트웨어를 인증 하면 보안 및 개인 정보 요구 사항이 충족됩니다. 릴리스 후 서비스 작업을 수행 하기 위해서는 모든 관련 데이터를 보관하는 것이 필수적입니다. 또한 보관을 통해 지속적인 소프트웨어 엔지니어링과 관련된 장기 비용을 낮출 수 있습니다.
 
 ## <a name="response"></a>응답
-개발 팀의 응답 후 단계 센터는 새로운 소프트웨어 위협 및 취약성에 대 한 모든 보고서에 적절 하 게 대응 하 고 사용할 수 있습니다.
+개발 팀의 릴리스 후 단계 센터는 새로운 소프트웨어 위협 및 취약성에 대한 모든 보고서에 적절하게 대응하고 사용할 수 있습니다.
 
 ### <a name="execute-the-incident-response-plan"></a>인시던트 응답 계획 실행
 
-릴리스 단계에서 인시던트 대응 계획 instituted를 구현할 수 있는 것은 고객이 소프트웨어 보안 또는 개인 정보 보호 취약점 으로부터 고객을 보호 하는 데 필요 합니다.
+릴리스 단계에서 수립한 인시던트 대응 계획을 구현할 수 있는 것은 소프트웨어 보안 또는 개인 정보 보호 취약성으로부터 고객을 보호 하는 데 필요적입니다.
 
 ### <a name="monitor-application-performance"></a>애플리케이션 성능 모니터링
 
-응용 프로그램이 배포 된 후 지속적으로 모니터링 하면 보안 취약성 뿐만 아니라 성능 문제를 감지 하는 데 도움이 됩니다.
-응용 프로그램 모니터링을 지 원하는 Azure 서비스는 다음과 같습니다.
+애플리케이션을 배포한 후 지속적으로 모니터링하면 성능 문제 및 보안 취약성을 감지하는 데 도움이 될 수 있습니다.
+애플리케이션 모니터링을 지원하는 Azure 서비스는 다음과 같습니다.
 
   - Azure Application Insights
   - Azure Security Center
 
 #### <a name="application-insights"></a>Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) 는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM (응용 프로그램 성능 관리) 서비스입니다. 이를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. Application Insights는 자동으로 성능 이상을 검색합니다. 문제를 진단 하 고 사용자가 앱에서 실제로 수행 하는 작업을 파악 하는 데 도움이 되는 강력한 분석 도구를 포함 합니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md)는 여러 플랫폼의 웹 개발자를 위한 확장성 있는 APM(Application Performance Management) 서비스입니다. 이를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. Application Insights는 자동으로 성능 이상을 검색합니다. 문제를 진단하고 앱을 사용하여 실제로 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](../../security-center/security-center-introduction.md) 를 통해 웹 응용 프로그램을 포함 하 여 Azure 리소스의 보안을 향상 하 고 제어 하 여 위협을 예방, 감지 및 대응 하는 데 도움이 됩니다. Azure Security Center는 다른 방법으로는 알지 못할 수 있는 위협을 검색 하는 데 도움이 됩니다. 다양 한 보안 솔루션에서 작동 합니다.
+[Azure Security Center](../../security-center/security-center-introduction.md)는 웹 애플리케이션을 포함한 Azure 리소스의 보안에 대한 향상된 가시성(및 제어권)을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. Azure Security Center은 달리 발견되지 않을 수 있는 위협을 검색하는 데 도움이 됩니다. 다양한 보안 솔루션에서 작동합니다.
 
-Security Center의 무료 계층에서는 Azure 리소스에만 사용 가능한 제한적 보안 기능이 제공됩니다. [Security Center 표준 계층](../../security-center/security-center-get-started.md) 은 이러한 기능을 온-프레미스 리소스 및 기타 클라우드로 확장 합니다.
-Security Center 표준은 다음을 지원 합니다.
+Security Center의 무료 계층에서는 Azure 리소스에만 사용 가능한 제한적 보안 기능이 제공됩니다. [Security Center 표준 계층](../../security-center/security-center-get-started.md)은 이러한 기능을 온-프레미스 리소스 및 기타 클라우드로 확장합니다.
+Security Center 표준은 다음을 수행하는 데 도움이 됩니다.
 
-  - 보안 취약성을 찾아 해결 합니다.
-  - 액세스 및 응용 프로그램 제어를 적용 하 여 악의적인 활동을 차단 합니다.
-  - 분석 및 인텔리전스를 사용 하 여 위협을 감지 합니다.
-  - 공격을 받을 때 신속 하 게 응답 합니다.
+  - 보안 취약성을 찾아서 수정합니다.
+  - 액세스 및 애플리케이션 제어를 적용하여 악의적인 활동을 차단 합니다.
+  - 분석 및 인텔리전스를 사용하여 위협을 검색합니다.
+  - 공격을 받을 때 신속하게 대응합니다.
 
 ## <a name="next-steps"></a>다음 단계
-다음 문서에서는 보안 응용 프로그램을 디자인 하 고 개발 하는 데 사용할 수 있는 보안 제어 및 작업을 권장 합니다.
+다음 문서에서는 보안 애플리케이션을 디자인하고 개발하는 데 도움이 되는 보안 제어 및 작업을 권장합니다.
 
 - [보안 애플리케이션 디자인](secure-design.md)
 - [보안 애플리케이션 개발](secure-develop.md)

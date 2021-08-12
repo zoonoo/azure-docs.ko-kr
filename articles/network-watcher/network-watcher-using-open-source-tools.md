@@ -1,5 +1,5 @@
 ---
-title: 오픈 소스 도구를 사용 하 여 네트워크 트래픽 패턴 시각화
+title: 오픈 소스 도구를 사용하여 네트워크 트래픽 패턴 시각화
 titleSuffix: Azure Network Watcher
 description: 이 페이지에서는 Capanalysis와 함께 Network Watcher 패킷 캡처를 사용하여 VM과 주고 받는 트래픽을 시각화하는 방법을 설명합니다.
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 0503f6910186b42bf381c662c7942e37c28bfdf0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101709515"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>오픈 소스 도구를 사용하여 VM과 주고 받는 네트워크 트래픽 패턴 시각화
@@ -74,7 +74,7 @@ CapAnalysis는 패킷 캡처를 시각화하는 다양한 옵션을 제공하며
 
 1. 지역 지도
 
-    이 창에서는 각 국가/지역의 트래픽 양에 대 한 색을 조정 하 여 네트워크 트래픽의 지도 보기를 제공 합니다. 강조 표시 된 국가/지역을 선택 하 여 해당 국가/지역의 Ip에서 보내고 받은 데이터의 비율과 같은 추가 흐름 통계를 볼 수 있습니다.
+    이 창에서는 각 국가/지역의 트래픽 볼륨 크기에 따른 색으로 표시된 네트워크 트래픽 맵 보기를 제공합니다. 강조 표시된 국가/지역을 선택하면 해당 국가/지역의 IP에서 주고 받은 데이터 비율 같은 추가 흐름 통계를 볼 수 있습니다.
 
     ![지역 지도][8]
 
@@ -84,7 +84,7 @@ CapAnalysis는 패킷 캡처를 시각화하는 다양한 옵션을 제공하며
 
     ![filters][11]
 
-    [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about)모든 CapAnalysis 기능에 대 한 자세한 내용은을 참조 하세요.
+    모든 CapAnalysis의 기능에 대해 자세히 알아보려면 [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about)을 참조하세요.
 
 ## <a name="conclusion"></a>결론
 

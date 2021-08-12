@@ -4,12 +4,12 @@ description: '빠른 시작: 이 문서에서는 Azure Event Hubs에 이벤트�
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3c2ce58f86fa27544641c0917e96fa3172017232
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0f4f45f46707f6d373f332733464317b449bcd38
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309359"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112413106"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>빠른 시작: .NET Framework를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
@@ -94,7 +94,7 @@ Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사�
 ## <a name="receive-events"></a>이벤트 수신
 이 섹션에서는 [이벤트 프로세서 호스트](event-hubs-event-processor-host.md)를 사용하여 이벤트 허브에서 메시지를 받는 .NET Framework 콘솔 애플리케이션을 작성합니다. [이벤트 프로세서 호스트](event-hubs-event-processor-host.md)는 영구적 검사점을 관리하여 Event Hubs의 이벤트 수신을 간소화하고 이러한 Event Hubs에서 병렬 수신하는 .NET 클래스입니다. 이벤트 프로세서 호스트를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 
 
-[!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
+[!INCLUDE [event-hubs-create-storage](./includes/event-hubs-create-storage.md)]
 
 ### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 

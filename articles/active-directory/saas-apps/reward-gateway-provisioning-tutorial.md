@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory를 통해 자동 사용자 프로비저닝을 위한 Reward Gateway 구성 | Microsoft Docs'
 description: 사용자 계정을 Reward Gateway에 자동으로 프로비저닝 및 프로비저닝 해제를 하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
-ms.author: zhchia
-ms.openlocfilehash: 2d51903aff6f3fd1cd53d85a980f1b5dc2a893e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 7d46c0115f5e9ef3432a188c1f1ffba89c0b04af
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94354328"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766221"
 ---
 # <a name="tutorial-configure-reward-gateway-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Reward Gateway 구성
 

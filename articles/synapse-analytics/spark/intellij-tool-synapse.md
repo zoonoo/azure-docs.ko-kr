@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: a4512a8f75d59f617058a50846d7578a90b9d062
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ccc36bb9f940fd018fe6d96b5338a7178657aa2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675817"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469384"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>자습서: Synapse 작업 영역을 통해 IntelliJ를 사용하여 Apache Spark 애플리케이션 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "101675817"
 > - Apache Spark 애플리케이션 개발
 > - Spark 풀에 애플리케이션 제출
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [IntelliJ IDEA Community 버전](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC).
 - Azure 도구 키트 플러그 인 3.27.0-2019.2 – [IntelliJ 플러그 인 리포지토리](/java/azure/intellij/azure-toolkit-for-intellij-installation)에서 설치
@@ -40,7 +40,7 @@ ms.locfileid: "101675817"
 - 다음 사전 요구 사항은 Windows 사용자에게만 적용됩니다.
 
   Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 동안 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에서 설명한 예외가 발생할 수 있습니다. 이 예외는 Windows에 WinUtils.exe가 없기 때문에 발생합니다.
-  이 오류를 해결하려면 [WinUtils 실행 파일](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)을 **C:\WinUtils\bin** 같은 위치에 저장합니다. 그런 다음 **HADOOP_HOME** 환경 변수를 추가하고 이 변수 값을 **C:\WinUtils** 로 설정합니다.
+  이 오류를 해결하려면 [WinUtils 실행 파일](https://github.com/steveloughran/winutils/releases/download/tag_2017-08-29-hadoop-2.8.1-native/hadoop-2.8.1.zip)을 **C:\WinUtils\bin** 같은 위치에 저장합니다. 그런 다음 **HADOOP_HOME** 환경 변수를 추가하고 이 변수 값을 **C:\WinUtils** 로 설정합니다.
 
 ## <a name="create-a-spark-scala-application-for-a-spark-pool"></a>Spark 풀용 Spark Scala 애플리케이션 만들기
 

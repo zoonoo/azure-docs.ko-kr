@@ -11,14 +11,14 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/31/2020
+ms.date: 07/23/2021
 ms.author: inhenkel
-ms.openlocfilehash: e7c35e079a6f4bf6c40992debace60e10631a8ba
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 9b45671496f114eaf708aad92def220a3b81349e
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105962050"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690208"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - .NET
 
@@ -35,9 +35,10 @@ ms.locfileid: "105962050"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)을 사용할 수 있습니다.
-- [Media Services 계정 만들기](./account-create-how-to.md)<br/>리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
-- [Azure CLI를 사용하여 Azure Media Services API 액세스](./access-api-howto.md)의 단계를 수행하고 자격 증명을 저장합니다. API에 액세스할 때 필요합니다.
+- [Windows/macOS/Linux용 Visual Studio Code](https://code.visualstudio.com/)를 설치하거나 [Windows 또는 Mac용 Visual Studio 2019](https://visualstudio.microsoft.com/)를 설치합니다.
+- [.NET 5.0 SDK](https://dotnet.microsoft.com/download)를 설치합니다.
+- [Media Services 계정 만들기](./account-create-how-to.md) **API 액세스** 세부 정보를 JSON 형식으로 복사하거나 Media Services 계정에 연결하는 데 필요한 값을 이 샘플에 사용된 *.env* 파일 형식으로 저장해야 합니다.
+- [Azure CLI를 사용하여 Azure Media Services API에 액세스](./access-api-howto.md)의 단계를 따르고 자격 증명을 저장합니다. 이 샘플에서 API에 액세스하려면 이를 사용하거나 *.env* 파일 형식으로 입력해야 합니다.
 
 ## <a name="download-and-configure-the-sample"></a>샘플 다운로드 및 구성
 
@@ -49,7 +50,7 @@ ms.locfileid: "105962050"
 
 샘플은 [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles) 폴더에 있습니다.
 
-다운로드한 프로젝트에서 [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/appsettings.json) 파일을 엽니다. 값을 [API 액세스](./access-api-howto.md)에서 가져온 자격 증명으로 바꿉니다.
+[!INCLUDE [appsettings or .env file](./includes/note-appsettings-or-env-file.md)]
 
 샘플은 다음 작업을 수행합니다.
 
