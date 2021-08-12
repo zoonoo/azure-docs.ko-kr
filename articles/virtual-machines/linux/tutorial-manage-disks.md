@@ -1,20 +1,20 @@
 ---
 title: 자습서 - Azure CLI를 사용하여 Azure 디스크 관리
 description: 이 자습서에서는 Azure CLI를 사용하여 가상 머신을 위한 Azure 디스크를 만들고 관리하는 방법을 알아봅니다.
-author: cynthn
-ms.service: virtual-machines
+author: roygara
+ms.author: rogarana
+ms.service: storage
+ms.subservice: disks
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 08/20/2020
-ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.subservice: disks
-ms.openlocfilehash: 56e804bc0d479f09ef2900c42361fbd24eed1d98
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1c4a006a12e9708b35ea15ff68728569822ae26d
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765956"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114390755"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>자습서 - Azure CLI를 사용하여 Azure 디스크 관리
 

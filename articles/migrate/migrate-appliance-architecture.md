@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: f3a94576ef58eabf9d747c6e6c3a6372569d4cf1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 88ed92f4db7037753e93386eea329ab560f0847b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785243"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110464219"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Azure Migrate 어플라이언스 아키텍처
 
@@ -23,9 +23,9 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 
 **시나리오** | **도구** | **용도**
 --- | --- | ---
-**VMware 환경에서 실행 중인 서버 검색 및 평가** | Azure Migrate: 검색 및 평가 | VMware 환경 내에서 실행 중인 서버를 검색합니다.<br/><br/> 소프트웨어 인벤토리, 에이전트 없는 종속성 분석을 수행하고 SQL Server 인스턴스와 데이터베이스를 검색합니다.<br/><br/> 평가를 위해 서버 구성 및 성능 메타데이터를 수집합니다.
-**VMware 환경에서 실행되는 서버에 대한 에이전트 없는 마이그레이션** | Azure Migrate: 서버 마이그레이션 | VMware 환경 내에서 실행 중인 서버를 검색합니다.<br/><br/> 서버에 에이전트를 설치하지 않고 서버를 복제합니다.
-**Hyper-V 환경에서 실행 중인 서버 검색 및 평가** | Azure Migrate: 검색 및 평가 | Hyper-V 환경 내에서 실행 중인 서버를 검색합니다.<br/><br/> 평가를 위해 서버 구성 및 성능 메타데이터를 수집합니다.
+**VMware 환경에서 실행되는 서버 검색 및 평가** | Azure Migrate: 검색 및 평가 | VMware 환경 내에서 실행되는 서버 검색<br/><br/> 설치된 소프트웨어 인벤토리 검색 및 에이전트 없는 종속성 분석을 수행하고 SQL Server 인스턴스와 데이터베이스를 검색합니다.<br/><br/> 평가를 위해 서버 구성 및 성능 메타데이터를 수집합니다.
+**VMware 환경에서 실행되는 에이전트 없는 서버 마이그레이션** | Azure Migrate: 서버 마이그레이션 | VMware 환경 내에서 실행되는 서버를 검색합니다.<br/><br/> 서버에 에이전트를 설치하지 않고 서버를 복제합니다.
+**Hyper-V 환경에서 실행되는 서버 검색 및 평가** | Azure Migrate: 검색 및 평가 | Hyper-V 환경 내에서 실행되는 서버를 검색합니다.<br/><br/> 평가를 위해 서버 구성 및 성능 메타데이터를 수집합니다.
 **온-프레미스에서 물리적 또는 가상화된 서버 검색 및 평가** |  Azure Migrate: 검색 및 평가 |  온-프레미스에서 물리적 또는 가상화된 서버를 검색합니다.<br/><br/> 평가를 위해 서버 구성 및 성능 메타데이터를 수집합니다.
 
 ## <a name="deployment-methods"></a>배포 방법
@@ -33,9 +33,9 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 어플라이언스는 다음과 같은 몇 가지 방법을 사용하여 배포할 수 있습니다.
 
 - VMware 또는 Hyper-V 환경([VMware용 OVA 템플릿](how-to-set-up-appliance-vmware.md) 또는 [Hyper-V용 VHD](how-to-set-up-appliance-hyper-v.md))에서 실행되는 서버용 템플릿을 사용하여 이 어플라이언스를 배포할 수 있습니다.
-- 템플릿을 사용하지 않으려면 [PowerShell 설치 관리자 스크립트](deploy-appliance-script.md)를 사용하여 VMware 또는 Hyper-V용 어플라이언스 환경을 배포할 수 있습니다.
-- Azure Government에서는 PowerShell 설치 관리자 스크립트를 사용하여 어플라이언스를 배포해야 합니다. [여기](deploy-appliance-script-government.md)에서 배포 단계를 참조하세요.
-- 온-프레미스 또는 다른 클라우드의 물리적 또는 가상화된 서버에 대해서는 항상 PowerShell 설치 관리자 스크립트를 사용하여 어플라이언스를 배포합니다. [여기](how-to-set-up-appliance-physical.md)에서 배포 단계를 참조하세요.
+- 템플릿을 사용하지 않으려면 [PowerShell 설치 프로그램 스크립트](deploy-appliance-script.md)를 사용하여 VMware 또는 Hyper-V용 어플라이언스 환경을 배포할 수 있습니다.
+- Microsoft Azure Government에서는 PowerShell 설치 프로그램 스크립트를 사용하여 어플라이언스를 배포해야 합니다. [여기](deploy-appliance-script-government.md)에서 배포 단계를 참조하세요.
+- 온-프레미스 또는 다른 클라우드의 물리적 또는 가상화된 서버에 대해서는 항상 PowerShell 설치 프로그램 스크립트를 사용하여 어플라이언스를 배포합니다. [여기](how-to-set-up-appliance-physical.md)에서 배포 단계를 참조하세요.
 - 다운로드 링크는 아래 표에 나와 있습니다.
 
 ## <a name="appliance-services"></a>어플라이언스 서비스
@@ -51,7 +51,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 - **SQL 검색 및 평가 에이전트**: SQL Server 인스턴스 및 데이터베이스의 구성 및 성능 메타데이터를 Azure에 보냅니다.
 
 > [!Note]
-> 마지막 3가지 서비스는 VMware 환경에서 실행 중인 서버를 검색하고 평가하는 데 사용되는 어플라이언스에서만 사용할 수 있습니다.<br/> VMware 환경에서 실행되는 SQL Server 인스턴스 및 데이터베이스를 검색하고 평가하는 기능은 현재 미리 보기로 제공됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
+> 마지막 3가지 서비스는 VMware 환경에서 실행 중인 서버를 검색하고 평가하는 데 사용되는 어플라이언스에서만 사용할 수 있습니다.
 
 ## <a name="discovery-and-collection-process"></a>검색 및 수집 프로세스
 
@@ -63,7 +63,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 ---|---|---|---
 **검색 시작** | 어플라이언스는 기본적으로 TCP 포트 443에서 vCenter Server와 통신합니다. vCenter Server가 다른 포트에서 수신 대기하는 경우 어플라이언스 구성 관리자에서 구성할 수 있습니다. | 어플라이언스는 WinRM 포트 5985(HTTP)에서 Hyper-V 호스트와 통신합니다. | 어플라이언스는 WinRM 포트 5985(HTTP)를 통해 Windows 서버와 통신하고 포트 22(TCP)를 통해 Linux 서버와 통신합니다.
 **구성 및 성능 메타데이터 수집** | 어플라이언스는 포트 443(기본 포트) 또는 vCenter Server에서 수신 대기하는 다른 포트에서 연결하여 vCenter Server에서 실행되는 서버의 메타데이터를 vSphere API를 사용하여 수집합니다. | 어플라이언스는 포트 5985의 호스트에서 CIM(Common Information Model) 세션을 사용하여 Hyper-V 호스트에서 실행되는 서버의 메타데이터를 수집합니다.| 어플라이언스는 포트 5985의 서버에서 CIM(Common Information Model) 세션을 사용하여 Windows 서버에서 메타데이터를 수집하고, 포트 22에서 SSH 연결을 사용하여 Linux 서버에서 메타데이터를 수집합니다.
-**검색 데이터 보내기** | 어플라이언스는 수집된 데이터를 SSL를 포트 443을 통해 Azure Migrate: 검색 및 평가, Azure Migrate: 서버 마이그레이션으로 보냅니다.<br/><br/> 어플라이언스는 인터넷 또는 ExpressRoute(Microsoft 피어링 필요)를 통해 Azure에 연결할 수 있습니다. | 어플라이언스는 수집된 데이터를 SSL 포트 443을 통해 Azure Migrate: 검색 및 평가로 보냅니다.<br/><br/> 어플라이언스는 인터넷 또는 ExpressRoute(Microsoft 피어링 필요)를 통해 Azure에 연결할 수 있습니다.| 어플라이언스는 수집된 데이터를 SSL 포트 443을 통해 Azure Migrate: 검색 및 평가로 보냅니다.<br/><br/> 어플라이언스는 인터넷 또는 ExpressRoute(Microsoft 피어링 필요)를 통해 Azure에 연결할 수 있습니다.
+**검색 데이터 보내기** | 어플라이언스는 수집된 데이터를 SSL를 포트 443을 통해 Azure Migrate: 검색 및 평가, Azure Migrate: 서버 마이그레이션으로 보냅니다.<br/><br/>  어플라이언스는 인터넷, ExpressRoute 개인 피어링 또는 Microsoft 피어링 서킷을 통해 Azure에 연결할 수 있습니다. | 어플라이언스는 수집된 데이터를 SSL 포트 443을 통해 Azure Migrate: 검색 및 평가로 보냅니다.<br/><br/> 어플라이언스는 인터넷, ExpressRoute 개인 피어링 또는 Microsoft 피어링 서킷을 통해 Azure에 연결할 수 있습니다. | 어플라이언스는 수집된 데이터를 SSL 포트 443을 통해 Azure Migrate: 검색 및 평가로 보냅니다.<br/><br/> 어플라이언스는 인터넷, ExpressRoute 개인 피어링 또는 Microsoft 피어링 서킷을 통해 Azure에 연결할 수 있습니다. 
 **데이터 수집 빈도** | 구성 메타데이터는 30분마다 수집되고 전송됩니다. <br/><br/> 성능 메타데이터는 20초마다 수집되고 10분마다 집계되어 Azure로 데이터 요소가 전송됩니다. <br/><br/> 소프트웨어 인벤토리 데이터는 12시간마다 한 번씩 Azure에 전송됩니다. <br/><br/> 에이전트 없는 종속성 데이터는 5분마다 수집되고, 어플라이언스에 집계되고, 6시간마다 Azure로 전송됩니다. <br/><br/> SQL Server 구성 데이터는 24시간마다 업데이트되고, 성능 데이터는 30초마다 캡처됩니다.| 구성 메타데이터는 30분마다 수집되고 전송됩니다. <br/><br/> 성능 메타데이터는 30초마다 수집되고 10분마다 집계되어 Azure로 데이터 요소가 전송됩니다.|  구성 메타데이터는 30분마다 수집되고 전송됩니다. <br/><br/> 성능 메타데이터는 5분마다 수집되고 10분마다 집계되어 Azure로 데이터 요소가 전송됩니다.
 **평가 및 마이그레이션** | Azure Migrate: 검색 및 평가 도구를 사용하여 어플라이언스에서 수집한 메타데이터에서 평가를 만들 수 있습니다.<br/><br/>또한 Azure Migrate: 서버 마이그레이션 도구를 통해 VMware 환경에서 실행 중인 서버 마이그레이션을 시작함으로써 에이전트 없는 서버 복제를 오케스트레이션할 수 있습니다.| Azure Migrate: 검색 및 평가 도구를 사용하여 어플라이언스에서 수집한 메타데이터에서 평가를 만들 수 있습니다. | Azure Migrate: 검색 및 평가 도구를 사용하여 어플라이언스에서 수집한 메타데이터에서 평가를 만들 수 있습니다.
 

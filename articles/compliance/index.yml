@@ -390,11 +390,11 @@ additionalContent:
         - title: 개인 정보 및 GDPR
           links:
             - text: 검사 목록
-              url: /compliance/regulatory/gdpr-arc-azure-dynamics
+              url: /compliance/regulatory/gdpr-arc-azure-dynamics-windows
             - text: 데이터 주체 요청
               url: /compliance/regulatory/gdpr-dsr-Azure
             - text: 보안 위반 알림
-              url: /compliance/regulatory/gdpr-breach-azure-dynamics
+              url: /compliance/regulatory/gdpr-breach-azure-dynamics-windows
             - text: 데이터 보호 영향 평가
               url: /microsoft-365/compliance/gdpr-dpia-azure
             - text: Azure의 데이터 보존

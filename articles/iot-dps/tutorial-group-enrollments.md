@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 4cfbfe3e3e3ba620d8292767012c9bb866d8a878
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 302d7edff9f4ed815dd4e0fd09675ae59777e27a
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94968097"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288575"
 ---
 # <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>자습서: IoT Hub Device Provisioning Service용 Java 디바이스, 서비스 SDK 및 등록 그룹을 사용하여 시뮬레이션된 X.509 디바이스 만들기 및 프로비전
 
@@ -25,7 +25,7 @@ ms.locfileid: "94968097"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-1. 컴퓨터에 [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)이 설치되어 있는지 확인합니다.
+1. 컴퓨터에 [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure)이 설치되어 있는지 확인합니다.
 
 1. [Maven](https://maven.apache.org/install.html)을 다운로드하고 설치합니다.
 

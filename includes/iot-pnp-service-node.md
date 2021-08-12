@@ -1,19 +1,19 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 7ab17f0d34ba7682778120e11aab562e106b5df7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd296000f95ee6a2bb73567a0de46472a7c05492
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95487813"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114403592"
 ---
 IoT 플러그 앤 플레이를 사용하면 기본 디바이스 구현에 대한 지식이 없어도 디바이스 기능과 상호 작용할 수 있으므로 IoT가 간소화됩니다. 이 빠른 시작에서는 Node.js를 사용하여 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스에 연결하고 제어하는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
@@ -59,7 +59,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 ## <a name="run-the-sample-solution"></a>샘플 솔루션 실행
 
-[IoT 플러그 앤 플레이 빠른 시작 및 자습서](../articles/iot-pnp/set-up-environment.md)에서는 IoT 허브 및 디바이스에 연결하도록 샘플을 구성하는 두 가지 환경 변수를 만들었습니다.
+[IoT 플러그 앤 플레이 빠른 시작 및 자습서](../articles/iot-develop/set-up-environment.md)에서는 IoT 허브 및 디바이스에 연결하도록 샘플을 구성하는 두 가지 환경 변수를 만들었습니다.
 
 * **IOTHUB_CONNECTION_STRING**: 이전에 기록한 IoT 허브 연결 문자열입니다.
 * **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
@@ -156,7 +156,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 이 시나리오에서는 `Model Id: dtmi:com:example:Thermostat;1`을 출력합니다.
 
 > [!NOTE]
-> 이러한 서비스 샘플은 **IoT Hub 서비스 클라이언트** 에서 **Registry** 클래스를 사용합니다. 디지털 쌍 API를 비롯한 API에 대한 자세한 내용은 [서비스 개발자 가이드](../articles/iot-pnp/concepts-developer-guide-service.md)를 참조하세요.
+> 이러한 서비스 샘플은 **IoT Hub 서비스 클라이언트** 에서 **Registry** 클래스를 사용합니다. 디지털 쌍 API를 비롯한 API에 대한 자세한 내용은 [서비스 개발자 가이드](../articles/iot-develop/concepts-developer-guide-service.md)를 참조하세요.
 
 ### <a name="update-a-writable-property"></a>쓰기 가능 속성 업데이트
 

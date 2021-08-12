@@ -15,18 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: abecddb6f5469cb4ef463e65d6c74149bf34dca9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b6ad04afce5fb4ead5575d47333525c0f5f8a13
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100590230"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075201"
 ---
 # <a name="connect-your-domain-name-server"></a>도메인 이름 서버 연결
 
 > [!IMPORTANT]
 > Azure Sentinel의 DNS 데이터 커넥터는 현재 공개 미리 보기로 제공됩니다.
-> 이 기능은 별도의 서비스 수준 계약 없이 제공되며, 프로덕션 작업에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 해당 기능은 별도의 서비스 수준 계약 없이 제공되며, 프로덕션 작업에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+> [!CAUTION]
+> DNS 솔루션을 사용하도록 설정하면 대상 컴퓨터에서 높은 CPU 사용량이 발생할 수 있습니다. 위에서 언급했듯이 이 커넥터는 프로덕션 환경에서 사용하지 않는 것이 좋습니다. 일반 공급을 위해 이 커넥터의 안정적인 버전을 사용하고 있습니다.
 
 Windows에서 실행되는 모든 DNS(도메인 이름 서버)를 Azure Sentinel에 연결할 수 있습니다. 이 작업은 DNS 머신에 에이전트를 설치하여 수행합니다. DNS 로그를 사용하면 DNS 서버에서 분석 및 감사 로그와 기타 관련 데이터를 수집, 분석 및 상호 연결하여 조직의 DNS 인프라에 대한 보안, 성능 및 작업 관련 인사이트를 얻을 수 있습니다.
 

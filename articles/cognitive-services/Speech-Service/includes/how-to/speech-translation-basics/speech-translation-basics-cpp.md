@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: eaf8d8f741c120297e6ae57e8ddb8b62f7c7f534
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 56c1142ace0591543127289ff6228df05420f1f3
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105104234"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110486977"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 다른 언어로 번역하는 기능입니다. 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성 번역을 수행하는 방법을 알아봅니다. 이 빠른 시작에서는 다음 토픽을 다룹니다.
 
@@ -330,6 +330,106 @@ void translateSpeech() {
 ```
 
 음성 합성에 대한 자세한 내용은 [음성 합성의 기본 사항](../../../get-started-text-to-speech.md)을 참조하세요.
+
+## <a name="multi-lingual-translation-with-language-identification"></a>언어 식별을 통한 다국어 번역
+
+대부분의 시나리오에서는 어떤 입력 언어를 지정할지 모를 수 있습니다. 언어 식별을 사용하면 최대 10개의 가능한 입력 언어를 지정하고 자동으로 대상 언어로 번역할 수 있습니다. 
+
+다음 예제에서는 오디오 파일에서 연속 번역을 사용하며, 음성 언어가 변경되더라도 입력 언어를 자동으로 검색합니다. `en-US` 및 `zh-CN`은 `AutoDetectSourceLanguageConfig`에 정의되어 있으므로 샘플을 실행하면 자동으로 검색됩니다. 그런 다음 `AddTargetLanguage()` 호출에 지정된 대로 음성이 `de` 및 `fr`로 번역됩니다.
+
+> [!IMPORTANT]
+> 이 기능은 현재 **미리 보기** 로 제공됩니다.
+
+```cpp
+using namespace std;
+using namespace Microsoft::CognitiveServices::Speech;
+using namespace Microsoft::CognitiveServices::Speech::Audio;
+
+void MultiLingualTranslation()
+{
+    auto region = "<paste-your-region>";
+    // currently the v2 endpoint is required for this design pattern
+    auto endpointString = std::format("wss://{}.stt.speech.microsoft.com/speech/universal/v2", region);
+    auto config = SpeechConfig::FromEndpoint(endpointString, "<paste-your-subscription-key>");
+
+    config->SetProperty(PropertyId::SpeechServiceConnection_ContinuousLanguageIdPriority, "Latency");
+    auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "zh-CN" });
+
+    promise<void> recognitionEnd;
+    // Source lang is required, but is currently NoOp 
+    auto fromLanguage = "en-US";
+    config->SetSpeechRecognitionLanguage(fromLanguage);
+    config->AddTargetLanguage("de");
+    config->AddTargetLanguage("fr");
+
+    auto audioInput = AudioConfig::FromWavFileInput("path-to-your-audio-file.wav");
+    auto recognizer = TranslationRecognizer::FromConfig(config, autoDetectSourceLanguageConfig, audioInput);
+
+    recognizer->Recognizing.Connect([](const TranslationRecognitionEventArgs& e)
+        {
+            std::string lidResult = e.Result->Properties.GetProperty(PropertyId::SpeechServiceConnection_AutoDetectSourceLanguageResult);
+
+            cout << "Recognizing in Language = "<< lidResult << ":" << e.Result->Text << std::endl;
+            for (const auto& it : e.Result->Translations)
+            {
+                cout << "  Translated into '" << it.first.c_str() << "': " << it.second.c_str() << std::endl;
+            }
+        });
+
+    recognizer->Recognized.Connect([](const TranslationRecognitionEventArgs& e)
+        {
+            if (e.Result->Reason == ResultReason::TranslatedSpeech)
+            {
+                std::string lidResult = e.Result->Properties.GetProperty(PropertyId::SpeechServiceConnection_AutoDetectSourceLanguageResult);
+                cout << "RECOGNIZED in Language = " << lidResult << ": Text=" << e.Result->Text << std::endl;
+            }
+            else if (e.Result->Reason == ResultReason::RecognizedSpeech)
+            {
+                cout << "RECOGNIZED: Text=" << e.Result->Text << " (text could not be translated)" << std::endl;
+            }
+            else if (e.Result->Reason == ResultReason::NoMatch)
+            {
+                cout << "NOMATCH: Speech could not be recognized." << std::endl;
+            }
+
+            for (const auto& it : e.Result->Translations)
+            {
+                cout << "  Translated into '" << it.first.c_str() << "': " << it.second.c_str() << std::endl;
+            }
+        });
+
+    recognizer->Canceled.Connect([&recognitionEnd](const TranslationRecognitionCanceledEventArgs& e)
+        {
+            cout << "CANCELED: Reason=" << (int)e.Reason << std::endl;
+            if (e.Reason == CancellationReason::Error)
+            {
+                cout << "CANCELED: ErrorCode=" << (int)e.ErrorCode << std::endl;
+                cout << "CANCELED: ErrorDetails=" << e.ErrorDetails << std::endl;
+                cout << "CANCELED: Did you update the subscription info?" << std::endl;
+
+                recognitionEnd.set_value();
+            }
+        });
+
+    recognizer->Synthesizing.Connect([](const TranslationSynthesisEventArgs& e)
+        {
+            auto size = e.Result->Audio.size();
+            cout << "Translation synthesis result: size of audio data: " << size
+                << (size == 0 ? "(END)" : "");
+        });
+
+    recognizer->SessionStopped.Connect([&recognitionEnd](const SessionEventArgs& e)
+        {
+            cout << "Session stopped.";
+            recognitionEnd.set_value();
+        });
+
+    // Starts continuos recognition. Use StopContinuousRecognitionAsync() to stop recognition.
+    recognizer->StartContinuousRecognitionAsync().get();
+    recognitionEnd.get_future().get();
+    recognizer->StopContinuousRecognitionAsync().get();
+}
+```
 
 [config]: /cpp/cognitive-services/speech/translation-speechtranslationconfig
 [audioconfig]: /cpp/cognitive-services/speech/audio-audioconfig

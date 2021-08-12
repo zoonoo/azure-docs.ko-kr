@@ -1,14 +1,14 @@
 ---
-title: Azure Service Fabric 행위자에서 기능 구현
+title: Azure 서비스 패브릭 행위자에서 기능 구현
 description: StatefulService를 상속하는 경우와 동일한 방식으로 서비스 수준 기능을 구현하는 고유의 행위자 서비스를 작성하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d39ec93e0ad03d6c860bae9d0790e860c95457a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96575570"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>행위자 서비스에서 서비스 수준 기능 구현

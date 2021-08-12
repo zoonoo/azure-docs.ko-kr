@@ -1,13 +1,13 @@
 ---
-title: PowerShell을 사용 하 여 Azure Service Fabric 배포
-description: Azure Service Fabric에서 응용 프로그램을 제거 하 고 배포 하는 방법과 Powershell에서 이러한 작업을 수행 하는 방법에 대해 알아봅니다.
+title: PowerShell을 사용한 Azure Service Fabric 배포
+description: Azure Service Fabric에서 애플리케이션을 제거하고 배포하는 방법과 Powershell에서 이러한 작업을 수행하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: d428a51c0bc224ca8706403ae176d46f1db82a32
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98785450"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>PowerShell을 사용하여 애플리케이션 배포 및 제거
@@ -32,7 +32,7 @@ ms.locfileid: "98785450"
 2. 더 이상 필요하지 않은 경우 애플리케이션 유형을 등록 취소합니다.
 3. 이미지 저장소에서 애플리케이션 패키지를 제거합니다.
 
-로컬 개발 클러스터에서 Visual Studio를 사용하여 애플리케이션을 배포 및 디버그하는 경우 이전의 모든 단계는 PowerShell 스크립트를 통해 자동으로 처리됩니다.  이 스크립트는 응용 프로그램 프로젝트의 *Scripts* 폴더에 있습니다. 이 문서에서는 Visual Studio 외부에서 동일한 작업을 수행할 수 있도록 스크립트에서 수행하는 작업에 대한 배경을 설명합니다. 
+로컬 개발 클러스터에서 Visual Studio를 사용하여 애플리케이션을 배포 및 디버그하는 경우 이전의 모든 단계는 PowerShell 스크립트를 통해 자동으로 처리됩니다.  이 스크립트는 애플리케이션 프로젝트의 *Scripts* 폴더에 있습니다. 이 문서에서는 Visual Studio 외부에서 동일한 작업을 수행할 수 있도록 스크립트에서 수행하는 작업에 대한 배경을 설명합니다. 
 
 애플리케이션을 배포하는 또 다른 방법은 외부 프로비전을 사용하는 것입니다. 애플리케이션 패키지는 [`sfpkg`으로 패키지](service-fabric-package-apps.md#create-an-sfpkg)되거나 외부 저장소에 업로드될 수 있습니다. 이 경우 이미지 저장소에 업로드할 필요가 없습니다. 배포에는 다음 단계가 필요합니다.
 
@@ -64,7 +64,7 @@ Azure Active Directory, X509 인증서 또는 Windows Active Directory를 사용
 
 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) 명령으로 애플리케이션 패키지를 클러스터 이미지 저장소에 업로드합니다.
 
-Visual Studio 2015에서 *MyApplication* 이라는 애플리케이션을 빌드하고 패키지한다고 가정해 보겠습니다. 기본적으로 ApplicationManifest.xml에 나열된 애플리케이션 유형 이름은 "MyApplicationType"입니다.  필요한 응용 프로그램 매니페스트, 서비스 매니페스트 및 코드/구성/데이터 패키지가 포함 된 응용 프로그램 패키지는 *C:\Users \<username\> \Documents\visual Studio 2015 \ Projects\MyApplication\MyApplication\pkg\Debug* 에 있습니다. 
+Visual Studio 2015에서 *MyApplication* 이라는 애플리케이션을 빌드하고 패키지한다고 가정해 보겠습니다. 기본적으로 ApplicationManifest.xml에 나열된 애플리케이션 유형 이름은 "MyApplicationType"입니다.  필요한 애플리케이션 매니페스트, 서비스 매니페스트 및 코드/구성/데이터 패키지가 포함된 애플리케이션 패키지는 *C:\Users\<username\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug* 에 있습니다. 
 
 다음 명령은 애플리케이션 패키지의 내용을 나열합니다.
 
@@ -100,7 +100,7 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 ```
 
 애플리케이션 패키지가 크거나 파일이 많은 경우 [압축할 수 있습니다](service-fabric-package-apps.md#compress-a-package). 압축은 파일의 크기와 수를 줄입니다.
-이로 인해 응용 프로그램 유형의 등록 및 등록 취소 속도가 빨라집니다. 업로드 시간은 현재 느려질 수 있습니다. 패키지를 압축하는 시간이 포함되는 경우 특히 그렇습니다. 
+이렇게 하면 애플리케이션 유형의 등록 및 등록 취소 속도가 빨라집니다. 업로드 시간은 현재 느려질 수 있습니다. 패키지를 압축하는 시간이 포함되는 경우 특히 그렇습니다. 
 
 패키지를 압축하려면 동일한 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) 명령을 사용합니다. 압축은 업로드와 별도로 `SkipCopy` 플래그를 사용하거나 업로드 작업과 함께 수행할 수 있습니다. 압축된 패키지에 압축을 적용하면 아무런 변화가 없습니다.
 압축된 패키지를 풀려면 `UncompressPackage` 스위치와 함께 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) 명령을 사용합니다.
@@ -135,7 +135,7 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 |2048|1000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
-압축된 패키지는 필요에 따라 하나 또는 여러 개의 Service Fabric 클러스터에 업로드할 수 있습니다. 배포 메커니즘은 압축 된 패키지와 압축 되지 않은 패키지에 대해 동일 합니다. 압축된 패키지는 클러스터 이미지 저장소에 저장됩니다. 애플리케이션을 실행하기 전에 패키지는 노드에서 압축되지 않습니다.
+압축된 패키지는 필요에 따라 하나 또는 여러 개의 Service Fabric 클러스터에 업로드할 수 있습니다. 배포 메커니즘은 압축된 패키지와 압축되지 않은 패키지에 대해 모두 동일합니다. 압축된 패키지는 클러스터 이미지 저장소에 저장됩니다. 애플리케이션을 실행하기 전에 패키지는 노드에서 압축되지 않습니다.
 
 
 다음 예제에서는 패키지를 이미지 저장소의 "MyApplicationV1"이라는 폴더에 업로드합니다.
@@ -191,7 +191,7 @@ Register application type succeeded
 
 ### <a name="register-the-application-package-copied-to-an-external-store"></a>외부 저장소에 복사된 애플리케이션 패키지 등록
 
-Service Fabric 버전 6.1부터, 프로비전 기능은 외부 저장소에서 패키지를 다운로드하도록 지원합니다. 다운로드 URI는 HTTP 또는 HTTPS 프로토콜을 사용 하 여 응용 프로그램 패키지를 다운로드할 수 있는 [ `sfpkg` 응용 프로그램 패키지](service-fabric-package-apps.md#create-an-sfpkg) 의 경로를 나타냅니다. 패키지는 이전에 이 외부 위치에 업로드되었을 것입니다. URI는 Service Fabric이 파일을 다운로드할 수 있도록 읽기 액세스를 허용해야 합니다. `sfpkg` 파일 확장명은 ".sfpkg"여야 합니다. 프로비전 작업은 애플리케이션 매니페스트에 나오는 애플리케이션 유형 정보를 포함해야 합니다.
+Service Fabric 버전 6.1부터, 프로비전 기능은 외부 저장소에서 패키지를 다운로드하도록 지원합니다. 다운로드 URI는 HTTP 또는 HTTPS 프로토콜을 사용하여 애플리케이션 패키지를 다운로드할 수 있는 [`sfpkg` 애플리케이션 패키지](service-fabric-package-apps.md#create-an-sfpkg)의 경로를 나타냅니다. 패키지는 이전에 이 외부 위치에 업로드되었을 것입니다. URI는 Service Fabric이 파일을 다운로드할 수 있도록 읽기 액세스를 허용해야 합니다. `sfpkg` 파일 확장명은 ".sfpkg"여야 합니다. 프로비전 작업은 애플리케이션 매니페스트에 나오는 애플리케이션 유형 정보를 포함해야 합니다.
 
 ```powershell
 Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
@@ -223,7 +223,7 @@ Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApp
 
 ## <a name="create-the-application"></a>애플리케이션 만들기
 
-[Get-servicefabricapplication](/powershell/module/servicefabric/new-servicefabricapplication) cmdlet을 사용 하 여 성공적으로 등록 된 모든 응용 프로그램 유형 버전에서 응용 프로그램을 인스턴스화할 수 있습니다. 각 응용 프로그램의 이름은 *"fabric:"* 체계로 시작 하 고 각 응용 프로그램 인스턴스에 대해 고유 해야 합니다. 대상 애플리케이션 형식의 애플리케이션 매니페스트에 정의된 모든 기본 서비스도 만들어집니다.
+[New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication) cmdlet을 사용하여 성공적으로 등록된 모든 애플리케이션 유형 버전에서 애플리케이션을 인스턴스화할 수 있습니다. 각 애플리케이션의 이름은 반드시 *“fabric:”* 체계로 시작하고 각 애플리케이션 인스턴스에 대해 고유해야 합니다. 대상 애플리케이션 형식의 애플리케이션 매니페스트에 정의된 모든 기본 서비스도 만들어집니다.
 
 ```powershell
 New-ServiceFabricApplication fabric:/MyApp MyApplicationType 1.0.0
@@ -353,7 +353,7 @@ ImageStoreConnectionString은 클러스터 매니페스트에 있습니다.
 클라이언트 컴퓨터가 클러스터가 아닌 다른 지역에 있는 경우 해당 클러스터와 가깝거나 동일한 지역에 있는 클라이언트 컴퓨터를 사용하는 것이 좋습니다.
 - 외부 제한에 도달하고 있는지 확인합니다. 예를 들어 Azure Storage를 사용하도록 이미지 스토리지를 구성한 경우 업로드가 제한될 수 있습니다.
 
-문제: 패키지 업로드가 성공적으로 완료 되었지만 [register-servicefabricapplicationtype](/powershell/module/servicefabric/register-servicefabricapplicationtype) 시간이 초과 되었습니다. 하려고
+문제: 패키지 업로드가 성공적으로 완료되었지만 [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype) 시간이 초과되었습니다. 다음을 시도하세요.
 - 이미지 저장소에 복사하기 전에 [패키지를 압축합니다](service-fabric-package-apps.md#compress-a-package).
 압축하면 파일의 크기와 수가 줄어들므로 Service Fabric에서 수행해야 하는 트래픽과 작업량도 줄어듭니다. 업로드 작업이 느려질 수 있지만(특히 압축 시간이 포함되는 경우), 애플리케이션 유형을 더 빠르게 등록 및 등록 취소할 수 있습니다.
 - [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype)에 `TimeoutSec` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다.

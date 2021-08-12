@@ -2,13 +2,13 @@
 title: 배치 계정 및 Azure Storage 계정
 description: 개발 관점에서 Azure Batch 계정 및 이 계정의 사용 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: 83108a265f91c9feef2fab424f1819939c2d58c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/25/2021
+ms.openlocfilehash: 3dd071a55e8605b8b5b1cf72c517c9304878e101
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98896751"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110452052"
 ---
 # <a name="batch-accounts-and-azure-storage-accounts"></a>배치 계정 및 Azure Storage 계정
 
@@ -27,7 +27,7 @@ Azure Batch 계정은 Batch 서비스 내에서 고유하게 식별되는 엔터
 
 ## <a name="azure-storage-accounts"></a>Azure Storage 계정
 
-대부분의 Batch 솔루션은 리소스 파일 및 출력 파일을 저장하기 위해 Azure Storage를 사용합니다. 예를 들어 Batch 태스크(표준 태스크, 시작 태스크, 작업 준비 태스크 및 작업 릴리스 태스크 포함)는 일반적으로 스토리지 계정에 상주하는 리소스 파일을 지정합니다. 스토리지 계정은 처리된 데이터와 생성된 출력 데이터도 저장합니다.
+대부분의 Batch 솔루션은 [리소스 파일](resource-files.md) 및 출력 파일을 저장하기 위해 Azure Storage를 사용합니다. 예를 들어 Batch 태스크(표준 태스크, 시작 태스크, 작업 준비 태스크 및 작업 릴리스 태스크 포함)는 일반적으로 스토리지 계정에 상주하는 리소스 파일을 지정합니다. 스토리지 계정은 처리된 데이터와 생성된 출력 데이터도 저장합니다.
 
 Batch는 다음 유형의 Azure Storage 계정을 지원합니다.
 
@@ -38,6 +38,8 @@ Batch는 다음 유형의 Azure Storage 계정을 지원합니다.
 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.
 
 Batch 계정을 만들 때 또는 나중에 스토리지 계정을 Batch 계정에 연결할 수 있습니다. 스토리지 계정을 선택할 때 비용 및 성능 요구 사항을 고려해야 합니다. 예를 들어 GPv2 및 Blob Storage 계정 옵션은 GPv1보다 큰 [용량 및 확장성 제한](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)을 지원합니다. (스토리지 제한을 늘리려면 Azure 고객 지원팀에 문의하세요.) 이러한 계정 옵션은 스토리지 계정에서 데이터를 읽어 오거나 스토리지 계정에 데이터를 쓰는 다수의 병렬 태스크를 포함하고 있는 Batch 솔루션의 성능을 향상할 수 있습니다.
+
+스토리지 계정이 배치 계정에 연결되면 *autostorage 계정* 으로 간주됩니다. autostorage 계정은 애플리케이션 패키지 .zip 파일을 저장하는 데 사용되므로 [애플리케이션 패키지](batch-application-packages.md) 기능을 사용하려는 계획일 경우에 필요합니다. 해당 계정은 [작업 리소스 파일](resource-files.md#storage-container-name-autostorage)에도 사용할 수 있습니다. autostorage 계정이 배치 계정에 이미 연결되어 있으므로 SAS(공유 액세스 서명) URL이 리소스 파일에 액세스할 필요가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

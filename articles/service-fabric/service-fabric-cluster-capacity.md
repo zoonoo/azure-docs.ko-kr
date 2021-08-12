@@ -4,12 +4,12 @@ description: 노드 형식, 내구성, 안정성 및 Service Fabric 클러스터
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: 9268dfef15d8302eb31cc1b649c7fd713aab6721
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0b04bc99abc2f9864ed22078f809702390d9f547
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732587"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695453"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 
@@ -53,9 +53,9 @@ ms.locfileid: "105732587"
 
 * ***클러스터의 범위가 가용성 영역에 걸쳐 있나요?***
 
-    Service Fabric에서는 특정 영역에 고정된 노드 형식을 배포하여 [가용성 영역](../availability-zones/az-overview.md)에 걸쳐 있는 클러스터를 지원하므로, 애플리케이션의 고가용성을 보장합니다. 가용성 영역에는 추가 노드 형식 계획 및 최소 요구 사항이 있어야 합니다. 자세한 내용은 [가용성 영역에 걸쳐 있는 Service Fabric 클러스터의 주 노드 형식에 권장되는 토폴로지](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones)를 참조하세요. 
+    Service Fabric에서는 특정 영역에 고정된 노드 형식을 배포하여 [가용성 영역](../availability-zones/az-overview.md)에 걸쳐 있는 클러스터를 지원하므로, 애플리케이션의 고가용성을 보장합니다. 가용성 영역에는 추가 노드 형식 계획 및 최소 요구 사항이 있어야 합니다. 자세한 내용은 [가용성 영역에 있는 주 노드 형식에 권장되는 토폴로지](service-fabric-cross-availability-zones.md#recommended-topology-for-spanning-a-primary-node-type-across-availability-zones)를 참조하세요.
 
-클러스터의 초기 생성에 사용할 노드 형식의 수와 속성을 결정할 때, 클러스터가 배포되고 나면 항상 주 노드가 아닌 노드 형식을 추가, 수정 또는 제거할 수 있습니다. 실행 중인 클러스터에서 [주 노드 형식을 수정할 수도 있습니다](service-fabric-scale-up-primary-node-type.md)(해당 작업을 수행하려면 프로덕션 환경에서 상당한 계획과 주의가 필요함).
+클러스터의 초기 생성에 사용할 노드 형식의 수와 속성을 결정할 때, 클러스터가 배포되고 나면 항상 주 노드가 아닌 노드 형식을 추가, 수정 또는 제거할 수 있습니다. 실행 중인 클러스터에서 [주 노드 형식을 확장 또는 축소](service-fabric-scale-up-primary-node-type.md)할 수도 있지만 그러기 위해서는 새 노드 형식을 만들고 워크로드를 이동한 다음, 원래 주 노드 형식을 제거해야 합니다.
 
 노드 형식 속성의 추가 고려 사항은 Azure 인프라 내에서 노드 형식의 VM이 갖는 권한을 결정하는 내구성 수준입니다. 클러스터에 대해 선택하는 VM 크기와 개별 노드 형식에 할당하는 인스턴스 수를 사용하면 다음에 설명된 대로 각 노드 형식에 적합한 내구성 계층을 결정하는 데 도움이 됩니다.
 

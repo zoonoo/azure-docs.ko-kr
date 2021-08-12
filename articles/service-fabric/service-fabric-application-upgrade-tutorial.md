@@ -4,10 +4,10 @@ description: 이 문서는 Visual Studio를 사용하여 서비스 패브릭 애
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: acde2f4e51bee29d2eefb0d5fbb54fbe421a41f1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95996239"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Visual Studio를 사용하여 서비스 패브릭 애플리케이션 업그레이드 자습서
@@ -63,7 +63,7 @@ VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택�
 버전을 변경하고 연습처럼 버전 2.0.0에서 버전 3.0.0으로 바꾸거나 버전 2.0.0에서 버전 1.0.0으로 바꾸려고 할 수 있습니다. 제한 시간과 상태 정책을 변경해 보면서 익숙해지십시오. 로컬 클러스터가 아닌 Azure 클러스터에 배포하는 경우 다른 매개 변수를 사용해야 할 수 있습니다. 제한 시간을 신중하게 설정하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Powershell을 사용 하 여 응용 프로그램을 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md) 하려면 powershell을 사용 하 여 응용 프로그램을 업그레이드 합니다.
+[Powershell을 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)에서는 PowerShell을 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
 
 [업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 애플리케이션 업그레이드 방법을 제어합니다.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 79e3ce8c1605e5d68ff44901f53854d2f5f10abc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96014383"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>StorSimple Device Manager 서비스를 사용하여 StorSimple Virtual Array에서 볼륨 관리
@@ -73,7 +73,7 @@ StorSimple 서비스 요약 블레이드의 **볼륨** 메뉴에서는 지정된
 
 1. StorSimple 서비스 요약 블레이드의 명령 모음에서 **+볼륨 추가** 를 클릭합니다. 그려면 **볼륨 추가** 블레이드가 열립니다.
    
-    ![스크린샷 볼륨 추가 단추 및 볼륨 추가 창을 보여 줍니다.](./media/storsimple-virtual-array-manage-volumes/add-volume.png)
+    ![볼륨 추가 단추와 볼륨 추가 창을 보여 주는 스크린샷](./media/storsimple-virtual-array-manage-volumes/add-volume.png)
 2. **볼륨 추가** 블레이드에서 다음을 수행합니다.
    
    * **볼륨 이름** 필드에서 볼륨의 고유 이름을 입력합니다. 이름은 3~127개의 문자를 포함하는 문자열이어야 합니다.
@@ -82,7 +82,7 @@ StorSimple 서비스 요약 블레이드의 **볼륨** 메뉴에서는 지정된
    * * **호스트 연결** 을 클릭하고 이 볼륨에 연결하려는 iSCSI 초기자에 해당하는 ACR(액세스 제어 레코드)를 선택한 다음 **선택** 을 클릭합니다.
 3. 새롭게 연결된 호스트를 추가하려면 **새로 추가** 를 클릭하고 호스트의 이름 및 해당 IQN(iSCSI 정규화 이름)을 입력한 다음 **추가** 를 클릭합니다.
    
-    ![새를 추가할 수 있는 연결 된 호스트 창을 보여 주는 스크린샷](./media/storsimple-virtual-array-manage-volumes/volume-add-acr.png)
+    ![새로 추가할 수 있는 연결된 호스트 창을 보여 주는 스크린샷](./media/storsimple-virtual-array-manage-volumes/volume-add-acr.png)
 4. 볼륨 구성을 완료했다면 **만들기** 를 클릭합니다. 볼륨이 지정된 설정으로 만들어지면 동일하게 성공적으로 만들었다는 알림이 표시됩니다. 기본적으로 볼륨에 대한 백업을 사용하도록 설정합니다.
 5. 볼륨이 성공적으로 만들어졌는지 확인하려면 **볼륨** 블레이드로 이동합니다. 볼륨이 목록으로 표시되어야 합니다.
    

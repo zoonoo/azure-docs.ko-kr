@@ -4,10 +4,10 @@ description: 클라이언트와 클러스터 간 통신 보호 및 Azure Service
 ms.topic: conceptual
 ms.date: 10/15/2017
 ms.openlocfilehash: d75c644be47ea44f6a8a6ccac91b785af0132833
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98791040"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>X.509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보호
@@ -118,13 +118,13 @@ ms.locfileid: "98791040"
 | --- | --- |
 | ClusterCertificate |테스트 환경에 권장됩니다. 이 인증서는 클러스터에서 노드 간의 통신을 보호해야 합니다. 업그레이드에는 별도의 두 인증서, 기본 및 보조 인증서를 사용할 수 있습니다. 지문 섹션에서 기본 인증서의 지문 및 ThumbprintSecondary 변수에서 보조 인증서의 지문을 설정합니다. |
 | ClusterCertificateCommonNames |프로덕션 환경에 권장됩니다. 이 인증서는 클러스터에서 노드 간의 통신을 보호해야 합니다. 하나 또는 두 개의 클러스터 인증서 일반 이름을 사용할 수 있습니다. CertificateIssuerThumbprint는 이 인증서의 발급자 지문에 해당합니다. 동일한 일반 이름이 포함된 인증서가 둘 이상 사용되더라도 여러 발급자의 지문을 지정할 수 있습니다.|
-| ClusterCertificateIssuerStores |프로덕션 환경에 권장됩니다. 이 인증서는 클러스터 인증서의 발급자에 해당합니다. ClusterCertificateCommonNames에서 발급자 지문을 지정하는 대신 이 섹션에서 발급자 일반 이름 및 해당 저장소 이름을 제공할 수 있습니다.  따라서 클러스터 발급자 인증서를 쉽게 롤오버할 수 있습니다. 둘 이상의 클러스터 인증서를 사용할 경우 여러 발급자를 지정할 수 있습니다. 빈 IssuerCommonName는 X509StoreNames 아래에 지정 된 해당 저장소에 있는 모든 인증서를 허용 합니다.|
+| ClusterCertificateIssuerStores |프로덕션 환경에 권장됩니다. 이 인증서는 클러스터 인증서의 발급자에 해당합니다. ClusterCertificateCommonNames에서 발급자 지문을 지정하는 대신 이 섹션에서 발급자 일반 이름 및 해당 저장소 이름을 제공할 수 있습니다.  따라서 클러스터 발급자 인증서를 쉽게 롤오버할 수 있습니다. 둘 이상의 클러스터 인증서를 사용할 경우 여러 발급자를 지정할 수 있습니다. 빈 IssuerCommonName은 X509StoreNames에 지정된 해당 저장소에 있는 모든 인증서를 허용합니다.|
 | ServerCertificate |테스트 환경에 권장됩니다. 이 인증서가 클러스터에 연결하려고 시도할 때 클라이언트에 표시됩니다. 편의상 ClusterCertificate 및 ServerCertificate에 동일한 인증서를 사용하도록 선택할 수 있습니다. 업그레이드에는 별도의 두 서버 인증서, 기본 및 보조 인증서를 사용할 수 있습니다. 지문 섹션에서 기본 인증서의 지문 및 ThumbprintSecondary 변수에서 보조 인증서의 지문을 설정합니다. |
 | ServerCertificateCommonNames |프로덕션 환경에 권장됩니다. 이 인증서가 클러스터에 연결하려고 시도할 때 클라이언트에 표시됩니다. CertificateIssuerThumbprint는 이 인증서의 발급자 지문에 해당합니다. 동일한 일반 이름이 포함된 인증서가 둘 이상 사용되더라도 여러 발급자의 지문을 지정할 수 있습니다. 편의상 ClusterCertificateCommonNames 및 ServerCertificateCommonNames에 동일한 인증서를 사용하도록 선택할 수 있습니다. 하나 또는 두 개의 서버 인증서 일반 이름을 사용할 수 있습니다. |
-| ServerCertificateIssuerStores |프로덕션 환경에 권장됩니다. 이 인증서는 서버 인증서의 발급자에 해당합니다. ServerCertificateCommonNames에서 발급자 지문을 지정하는 대신 이 섹션에서 발급자 일반 이름 및 해당 저장소 이름을 제공할 수 있습니다.  따라서 서버 발급자 인증서를 쉽게 롤오버할 수 있습니다. 둘 이상의 서버 인증서를 사용하는 경우 여러 발급자를 지정할 수 있습니다. 빈 IssuerCommonName는 X509StoreNames 아래에 지정 된 해당 저장소에 있는 모든 인증서를 허용 합니다.|
-| ClientCertificateThumbprints |이 인증서 집합을 인증된 클라이언트에 설치합니다. 클러스터에 대한 액세스를 허용하려는 컴퓨터에 다양한 클라이언트 인증서가 설치되었을 수도 있습니다. CertificateThumbprint 변수에 각 인증서의 지문을 설정합니다. IsAdmin을 *true* 로 설정하면 이 인증서가 설치된 클라이언트에서 클러스터에 대한 관리자 관리 작업을 수행할 수 있습니다. IsAdmin이 *false* 이면 이 인증서가 있는 클라이언트에서 사용자 액세스 권한(일반적으로 읽기 전용)에 허용되는 작업만 수행할 수 있습니다. 역할에 대 한 자세한 내용은 [역할 기반 액세스 제어 Service Fabric](service-fabric-cluster-security.md#service-fabric-role-based-access-control)를 참조 하세요. |
+| ServerCertificateIssuerStores |프로덕션 환경에 권장됩니다. 이 인증서는 서버 인증서의 발급자에 해당합니다. ServerCertificateCommonNames에서 발급자 지문을 지정하는 대신 이 섹션에서 발급자 일반 이름 및 해당 저장소 이름을 제공할 수 있습니다.  따라서 서버 발급자 인증서를 쉽게 롤오버할 수 있습니다. 둘 이상의 서버 인증서를 사용하는 경우 여러 발급자를 지정할 수 있습니다. 빈 IssuerCommonName은 X509StoreNames에 지정된 해당 저장소에 있는 모든 인증서를 허용합니다.|
+| ClientCertificateThumbprints |이 인증서 집합을 인증된 클라이언트에 설치합니다. 클러스터에 대한 액세스를 허용하려는 컴퓨터에 다양한 클라이언트 인증서가 설치되었을 수도 있습니다. CertificateThumbprint 변수에 각 인증서의 지문을 설정합니다. IsAdmin을 *true* 로 설정하면 이 인증서가 설치된 클라이언트에서 클러스터에 대한 관리자 관리 작업을 수행할 수 있습니다. IsAdmin이 *false* 이면 이 인증서가 있는 클라이언트에서 사용자 액세스 권한(일반적으로 읽기 전용)에 허용되는 작업만 수행할 수 있습니다. 역할에 대한 자세한 내용은 [Service Fabric 역할 기반 액세스 제어](service-fabric-cluster-security.md#service-fabric-role-based-access-control)를 참조하세요. |
 | ClientCertificateCommonNames |CertificateCommonName에 대한 첫 번째 클라이언트 인증서의 일반 이름을 설정합니다. CertificateIssuerThumbprint는 이 인증서의 발급자 지문입니다. 일반 이름과 발급자에 대한 자세한 내용은 [인증서 작업](/dotnet/framework/wcf/feature-details/working-with-certificates)을 참조하세요. |
-| ClientCertificateIssuerStores |프로덕션 환경에 권장됩니다. 이 인증서는 클라이언트 인증서의 발급자에 해당합니다(관리자 및 비관리자 역할 둘 다). ClientCertificateCommonNames에서 발급자 지문을 지정하는 대신 이 섹션에서 발급자 일반 이름 및 해당 저장소 이름을 제공할 수 있습니다.  따라서 클라이언트 발급자 인증서를 쉽게 롤오버할 수 있습니다. 둘 이상의 클라이언트 인증서를 사용하는 경우 여러 발급자를 지정할 수 있습니다. 빈 IssuerCommonName는 X509StoreNames 아래에 지정 된 해당 저장소에 있는 모든 인증서를 허용 합니다.|
+| ClientCertificateIssuerStores |프로덕션 환경에 권장됩니다. 이 인증서는 클라이언트 인증서의 발급자에 해당합니다(관리자 및 비관리자 역할 둘 다). ClientCertificateCommonNames에서 발급자 지문을 지정하는 대신 이 섹션에서 발급자 일반 이름 및 해당 저장소 이름을 제공할 수 있습니다.  따라서 클라이언트 발급자 인증서를 쉽게 롤오버할 수 있습니다. 둘 이상의 클라이언트 인증서를 사용하는 경우 여러 발급자를 지정할 수 있습니다. 빈 IssuerCommonName은 X509StoreNames에 지정된 해당 저장소에 있는 모든 인증서를 허용합니다.|
 | ReverseProxyCertificate |테스트 환경에 권장됩니다. 이 선택적 인증서는 [역방향 프록시](service-fabric-reverseproxy.md)를 보호하려는 경우에 지정할 수 있습니다. 이 인증서를 사용하는 경우 reverseProxyEndpointPort가 nodeTypes로 설정되어 있는지 확인합니다. |
 | ReverseProxyCertificateCommonNames |프로덕션 환경에 권장됩니다. 이 선택적 인증서는 [역방향 프록시](service-fabric-reverseproxy.md)를 보호하려는 경우에 지정할 수 있습니다. 이 인증서를 사용하는 경우 reverseProxyEndpointPort가 nodeTypes로 설정되어 있는지 확인합니다. |
 

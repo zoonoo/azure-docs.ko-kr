@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/17/2021
 tags: azure-synapse
-ms.openlocfilehash: f47303a953dbb06b4c9efdfbbae41715cad81d2a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d6b51d32b691919e0f0947d3ddb58d184424b9ad
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101690807"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110534413"
 ---
 # <a name="data-discovery--classification"></a>데이터 검색 및 분류
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -36,7 +36,7 @@ ms.locfileid: "101690807"
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>데이터 검색 및 분류란?
 
-데이터 검색 및 분류에는 Azure의 일련의 기본 서비스 및 새로운 기능이 도입되었습니다. 데이터베이스뿐만 아니라 데이터를 보호하기 위한 SQL Database, SQL Managed Instance 및 Azure Synapse에 대해 새로운 정보 보호 패러다임을 형성합니다. 패러다임에는 다음이 포함됩니다.
+데이터 검색 및 분류는 데이터베이스뿐만 아니라 데이터를 보호하기 위한 SQL Database, SQL Managed Instance, Azure Synapse에 대해 새로운 정보 보호 패러다임을 형성합니다. 현재는 다음 기능을 지원합니다.
 
 - **검색 및 권장 사항:** 분류 엔진은 데이터베이스를 검사하여 잠재적으로 중요한 데이터가 포함된 열을 확인합니다. 그런 다음, Azure Portal을 통해 권장되는 분류를 검토하고 적용하는 쉬운 방법을 제공합니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "101690807"
 
 ### <a name="define-and-customize-your-classification-taxonomy"></a>분류 체계 정의 및 사용자 지정
 
-데이터 검색 및 분류는 민감도 레이블 집합 및 정보 유형과 검색 논리 집합을 기본적으로 제공합니다. 이제 이 분류법을 사용자 지정하고, 사용자 환경에 맞게 분류 구문 집합과 순위를 정의할 수 있습니다.
+데이터 검색 및 분류는 민감도 레이블 집합 및 정보 유형과 검색 논리 집합을 기본적으로 제공합니다. 이 분류법을 사용자 지정하고, 사용자 환경에 맞게 분류 구문 집합과 순위를 정의할 수 있습니다.
 
 전체 Azure 조직에 대해 중앙의 한 위치에서 분류 체계를 정의하고 사용자 지정합니다. 해당 위치는 보안 정책의 일부로 [Azure Security Center](../../security-center/security-center-introduction.md)에 있습니다. 조직의 루트 관리 그룹에 대한 관리 권한이 있는 사람만이 이 작업을 수행할 수 있습니다.
 

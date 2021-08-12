@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 408e972eb5950baa75fa1bdf33fb2cd507154bcb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 44ef48fe75d7070d3f471b06d548c06dc5d972b6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612843"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479790"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: 버전 릴리스 내역
 Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect Health를 정기적으로 업데이트합니다. 이 문서는 출시된 버전 및 기능을 나열합니다.  
@@ -31,6 +31,12 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 >
 
 동기화용 Azure AD Connect Health는 Azure AD Connect 설치와 통합됩니다. [Azure AD Connect 릴리스 기록](./reference-connect-version-history.md)에 대해 자세히 알아보고 기능 피드백의 경우 [Connect Health 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)에서 투표하세요.
+
+## <a name="may-2021"></a>2021년 5월
+**에이전트 업데이트**
+- AD FS용 Azure AD Connect Health 에이전트(버전 3.1.99.0)
+  - AD FS 애플리케이션 활동 보고서에서 낮은 고유 사용자 수의 값에 대한 수정 사항입니다.
+  - 비어 있거나 기본 GUID CorrelationId를 가진 로그인에 대한 수정 사항입니다.
 
 ## <a name="march-2021"></a>2021년 3월
 **에이전트 업데이트**

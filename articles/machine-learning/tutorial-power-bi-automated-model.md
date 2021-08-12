@@ -10,12 +10,12 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
-ms.openlocfilehash: 6dc99d58f15653e9d3f991622de3bb3388690459
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 4d760f5017c20ac88d3329bb79937c971d4fba75
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814808"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112459427"
 ---
 # <a name="tutorial-power-bi-integration---create-the-predictive-model-by-using-automated-machine-learning-part-1-of-2"></a>자습서: Power BI 통합 - 자동화된 Machine Learning을 사용하여 예측 모델 만들기(1/2부)
 
@@ -39,7 +39,7 @@ Power BI에서 사용할 모델을 만들고 배포하는 방법은 세 가지�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure 구독 구독이 아직 없는 경우 [평가판](https://aka.ms/AMLFree)을 사용할 수 있습니다. 
+- Azure 구독 구독이 아직 없는 경우 [평가판](https://azure.microsoft.com/free/)을 사용할 수 있습니다. 
 - Azure Machine Learning 작업 영역 작업 영역이 아직 없는 경우 [Azure Machine Learning 작업 영역 만들기 및 관리](./how-to-manage-workspace.md#create-a-workspace)를 참조하세요.
 
 ## <a name="create-a-compute-cluster"></a>컴퓨팅 클러스터 만들기

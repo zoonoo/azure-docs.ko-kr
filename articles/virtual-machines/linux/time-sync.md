@@ -1,24 +1,19 @@
 ---
 title: Azure에서 Linux VM의 시간 동기화
 description: Linux 가상 머신의 시간 동기화입니다.
-services: virtual-machines
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/20/2020
+ms.date: 04/30/2021
 ms.author: cynthn
-ms.openlocfilehash: 18c8570a8066985cab5263c4779787062dc32d75
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c50e39db804a18d50f4a6fb594209cc015515a8c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552646"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754742"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Azure에서 Linux VM의 시간 동기화
 
@@ -39,7 +34,7 @@ Azure 호스트는 GPS 안테나가 있는 Microsoft 소유의 Stratum 1 디바�
 
 독립 실행형 하드웨어에서 Linux OS는 부팅 시 호스트 하드웨어 시계만 읽습니다. 그 이후에는 Linux 커널의 인터럽트 타이머를 사용하여 시계를 유지 관리합니다. 이 구성에서 시계는 시간이 지나면서 변경됩니다. Azure의 최신 Linux 배포에서 VM은 LIS(Linux 통합 서비스)에 포함된 VMICTimeSync 공급자를 사용하여 호스트에서 시계 업데이트를 더 자주 쿼리할 수 있습니다.
 
-호스트와 가상 머신의 상호 작용은 시계에도 영향을 줄 수 있습니다. [메모리 보존 유지 관리](../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot) 중에는 VM이 최대 30초 동안 일시 중지됩니다. 예를 들어 유지 관리를 시작하면 먼저 VM 시계는 오전 10:00:00시를 표시한 후, 28초간 지속됩니다. VM이 다시 시작되면 VM 시계는 여전히 오전 10:00:00시를 표시한 다음, 28초가 해제됩니다. 이를 수정하려면 VMICTimeSync 서비스가 호스트에서 발생하는 상황을 모니터링하고 VM에서 발생되는 변경을 보완하도록 요구합니다.
+호스트와 가상 머신의 상호 작용은 시계에도 영향을 줄 수 있습니다. [메모리 보존 유지 관리](../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot) 중에는 VM이 최대 30초 동안 일시 중지됩니다. 예를 들어 유지 관리를 시작하면 먼저 VM 시계는 오전 10:00:00시를 표시한 후, 28초간 지속됩니다. VM이 다시 시작되면 VM 시계는 여전히 오전 10:00:00시를 표시한 다음, 28초가 해제됩니다. 이를 수정하려면 VMICTimeSync 서비스가 호스트에서 발생하는 상황을 모니터링하고 보완하기 위해 Linux VM의 하루 중 시간 시계를 업데이트합니다.
 
 시간 동기화가 작동하지 않으면 VM 시계는 오류를 누적하게 됩니다. 단 하나의 VM이 있는 경우 워크로드가 상당히 정확한 시간 기록을 요구하지 않는 한 영향은 크지 않을 수 있습니다. 하지만 대부분의 경우에 트랜잭션을 추적하는 데 시간을 사용하고 전체 배포 과정에 걸쳐 시간이 일관되어야 하는 상호 연결된 VM이 여러 개 있습니다. VM 간의 시간이 다른 경우 다음과 같은 영향이 표시됩니다.
 
@@ -48,38 +43,27 @@ Azure 호스트는 GPS 안테나가 있는 Microsoft 소유의 Stratum 1 디바�
 - 시계가 꺼지면 청구가 부정확하게 계산될 수 있습니다.
 
 
-
 ## <a name="configuration-options"></a>구성 옵션
 
-일반적으로 Azure에 호스트된 Linux VM의 시간 동기화를 구성할 수 있는 세 가지 방법이 있습니다.
+시간 동기화를 사용하려면 Linux VM에서 시간 동기화 서비스가 실행되어야 하며 동기화할 정확한 시간 정보 원본이 필요합니다.
+일반적으로 ntpd 또는 chronyd는 시간 동기화 서비스로 사용되지만 다른 오픈 소스 시간 동기화 서비스도 사용할 수 있습니다.
+정확한 시간 정보 원본은 Azure 호스트 또는 공용 인터넷을 통해 액세스되는 외부 시간 서비스가 될 수 있습니다.
+VMICTimeSync 서비스는 위 설명대로 호스트 유지 관리를 위해 일시 중지한 후를 제외하고 Azure 호스트와 Linux VM 간에 지속적으로 시간을 동기화하지 않습니다. 
 
-- Azure Marketplace 이미지의 기본 구성은 NTP 시간 및 VMICTimeSync 호스트 시간을 둘 다 사용합니다. 
-- VMICTimeSync를 사용한 호스트 전용.
-- VMICTimeSync 호스트 시간을 사용하거나 사용하지 않고 다른 외부 시간 서버를 사용합니다.
+지금까지 Linux에서 대부분의 Azure Marketplace 이미지를 다음 두 가지 방법 중 하나로 구성했습니다.
+- 기본적으로 실행되는 시간 동기화 서비스가 없습니다.
+- ntpd는 시간 동기화 서비스로 실행되고 네트워크를 통해 액세스되는 외부 NTP 시간 원본 간에 동기화됩니다. 예를 들어 Ubuntu 18.04 LTS Marketplace 이미지는 **ntp.ubuntu.com** 을 사용합니다.
 
+ntpd가 올바르게 동기화하고 있는지 확인하려면 `ntpq -p` 명령을 실행합니다.
 
-### <a name="use-the-default"></a>기본값 사용
+2021년 초부터 Linux를 사용하는 최신 Azure Marketplace 이미지는 시간 동기화 서비스로 chronyd를 사용하도록 변경되고 있으며 chronyd는 외부 NTP 시간 원본이 아닌 Azure 호스트와 동기화하도록 구성됩니다. Azure 호스트 시간은 매우 정확하고 안정적으로 유지 관리되며 공용 인터넷을 통해 외부 NTP 시간 원본에 액세스하는 데 내재된 가변 네트워크 지연 없이 액세스할 수 있으므로 일반적으로 동기화에 가장 좋은 시간 원본입니다.
 
-기본적으로 Linux의 대부분 Azure Marketplace 이미지는 두 가지 원본에서 동기화하도록 구성됩니다. 
+VMICTimeSync는 병렬로 사용되며 다음 두 가지 기능을 제공합니다.
+- 호스트 유지 관리 이벤트 후 Linux VM 하루 중 시간 시계를 즉시 업데이트합니다.
+- IEEE 1588 PTP(Precision Time Protocol) 하드웨어 시계 원본을 Azure 호스트에서 정확한 하루 중 시간을 제공하는 /dev/ptp 디바이스로 인스턴스화합니다.  chronyd는 최신 Linux 이미지의 기본 구성인 이 시간 원본과 동기화하도록 구성될 수 있습니다. 커널 버전 4.11 이상(또는 RHEL/CentOS 7의 경우 버전 3.10.0-693 이상)이 있는 Linux 배포는 /dev/ptp 디바이스를 지원합니다.  Azure 호스트 시간에 /dev/ptp를 지원하지 않는 이전 커널 버전의 경우 외부 시간 원본 간의 동기화만 가능합니다.
 
-- NTP 서버에서 시간을 가져오는 1차로서 NTP. 예를 들어 Ubuntu 16.04 LTS Marketplace 이미지는 **ntp.ubuntu.com** 을 사용합니다.
-- VM이 유지 관리를 위해 일시 중지된 후 VM에 호스트 시간을 통신하고 수정하는 데 사용되는 2차로서 VMICTimeSync 서비스. Azure 호스트는 정확한 시간을 유지하기 위해 Microsoft 소유의 Stratum 1 디바이스를 사용합니다.
+물론 기본 구성을 변경할 수 있습니다. ntpd 및 외부 시간 원본을 사용하도록 구성된 이전 이미지가 Azure 호스트 시간에 chronyd 및 /dev/ptp 디바이스를 사용하도록 변경할 수 있습니다.  마찬가지로, /dev/ptp 디바이스를 통해 Azure 호스트 시간을 사용하는 이미지는 애플리케이션이나 워크로드에 필요한 경우 외부 NTP 시간 원본을 사용하도록 구성될 수 있습니다.
 
-최신 Linux 배포판에서는 VMICTimeSync 서비스는 PTP(Precision Time Protocol) 하드웨어 클록 원본을 제공하지만 이전 배포에서는 이 클록 원본을 제공하지 않을 수 있으며 호스트에서 시간을 가져오기 위해 NTP로 대체합니다.
-
-NTP가 올바르게 동기화하고 있는지 확인하려면 `ntpq -p` 명령을 실행합니다.
-
-### <a name="host-only"></a>호스트 전용 
-
-time.windows.com 및 ntp.ubuntu.com과 같은 NTP 서버는 공용이므로 NTP 서버와 시간을 동기화하려면 인터넷을 통해 트래픽을 보내야 합니다. 패킷 지연의 변화는 시간 동기화의 품질에 부정적인 영향을 줄 수 있습니다. 호스트 전용 동기화로 전환하여 NTP를 제거하면 시간 동기화 결과를 개선할 수 있습니다.
-
-기본 구성을 사용하는 시간 동기화 문제를 겪는 경우 호스트 전용 시간 동기화로 전환하는 것이 합리적입니다. 이 방법이 VM에서 시간 동기화를 향상시키는지 확인하려면 호스트 전용 동기화를 사용해 보세요. 
-
-### <a name="external-time-server"></a>외부 시간 서버
-
-특정 시간 동기화 요구 사항이 있는 경우 외부 시간 서버를 사용할 수도 있습니다. 외부 시간 서버는 테스트 시나리오에 유용할 수 있는 특정 시간을 제공하면서 타사 데이터 센터에 호스트된 머신을 사용하여 시간 일관성을 보장하거나, 특별한 방식으로 윤초를 처리할 수 있습니다.
-
-외부 시간 서버를 VMICTimeSync 서비스와 결합하여 기본 구성과 유사한 결과를 제공할 수 있습니다. 외부 시간 서버를 VMICTimeSync와 결합하는 기능은 유지 관리를 위해 VM이 일시 중지될 때 발생할 수 있는 문제를 처리하는 가장 좋은 옵션입니다. 
 
 ## <a name="tools-and-resources"></a>도구 및 리소스
 
@@ -99,23 +83,10 @@ hv_utils               24418  0
 hv_vmbus              397185  7 hv_balloon,hyperv_keyboard,hv_netvsc,hid_hyperv,hv_utils,hyperv_fb,hv_storvsc
 ```
 
-Hyper-V 통합 서비스 디먼이 실행 중인지 확인합니다.
-
-```bash
-ps -ef | grep hv
-```
-
-다음과 유사한 내용이 표시되어야 합니다.
-
-```
-root        229      2  0 17:52 ?        00:00:00 [hv_vmbus_con]
-root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
-```
-
-
 ### <a name="check-for-ptp-clock-source"></a>PTP 클록 원본 확인
 
-최신 버전의 Linux, PTP(Precision Time Protocol) 시계 원본은 VMICTimeSync 공급자의 일부로 사용할 수 있습니다. 이전 버전의 Red Hat Enterprise Linux 또는 CentOS 7.x에서 [Linux 통합 서비스](https://github.com/LIS/lis-next)를 다운로드하여 업데이트된 드라이버를 설치하는 데 사용할 수 있습니다. PTP 클록 원본을 사용할 수 있는 경우 Linux 디바이스는 /dev/ptp *x* 형식이 됩니다. 
+Azure 호스트에 해당하는 최신 버전의 Linux, PTP(Precision Time Protocol) 시계 원본을 VMICTimeSync 공급자의 일부로 사용할 수 있습니다.
+이전 버전의 Red Hat Enterprise Linux 또는 CentOS 7.x에서 [Linux 통합 서비스](https://github.com/LIS/lis-next)를 다운로드하여 업데이트된 드라이버를 설치하는 데 사용할 수 있습니다. PTP 클록 원본을 사용할 수 있는 경우 Linux 디바이스는 /dev/ptp *x* 형식이 됩니다. 
 
 사용 가능한 PTP 시계 원본을 확인합니다.
 
@@ -129,15 +100,19 @@ ls /sys/class/ptp
 cat /sys/class/ptp/ptp0/clock_name
 ```
 
-`hyperv`을 반환해야 합니다.
+이는 Azure 호스트를 의미하는 `hyperv`를 반환해야 합니다.
+
+가속화된 네트워킹을 사용하는 Linux VM에서 Mellanox mlx5 드라이버가 /dev/ptp 디바이스를 만들므로 PTP 디바이스 여러 개가 나열될 수 있습니다.
+Linux가 부팅될 때마다 초기화 순서가 다를 수 있으므로 Azure 호스트에 해당하는 PTP 디바이스가 /dev/ptp0 또는 /dev/ptp1이 될 수 있으며 이로 인해 올바른 시계 원본을 사용하여 chronyd를 구성하기가 어렵습니다. 이 문제가 해결되도록 최신 Linux 이미지에는 Azure 호스트에 해당하는 /dev/ptp 항목에 대한 symlink /dev/ptp_hyperv를 만드는 udev 규칙이 있습니다. chrony는 /dev/ptp0 또는/dev/ptp1 대신 이 symlink을 사용하도록 구성되어야 합니다.
 
 ### <a name="chrony"></a>chrony
 
-Ubuntu 19.10 이상 버전, Red Hat Enterprise Linux 및 CentOS 8.x, [chrony](https://chrony.tuxfamily.org/)는 PTP 원본 클록을 사용하도록 구성됩니다. Chrony가 아닌 이전 버전의 Linux 릴리스에서는 NTPD(Network Time Protocol Daemon)를 사용하며, 이는 PTP 원본을 지원하지 않습니다. 해당 릴리스에서 PTP를 사용하도록 설정하려면 다음 코드를 사용하여 chrony.conf에서 Chrony를 수동으로 설치하고 구성해야 합니다.
+Ubuntu 19.10 이상 버전, Red Hat Enterprise Linux 및 CentOS 8.x, [chrony](https://chrony.tuxfamily.org/)는 PTP 원본 클록을 사용하도록 구성됩니다. Chrony가 아닌 이전 버전의 Linux 릴리스에서는 NTPD(Network Time Protocol Daemon)를 사용하며, 이는 PTP 원본을 지원하지 않습니다. 해당 릴리스에서 PTP를 사용하도록 설정하려면 다음 문을 사용하여 chrony.conf에서 chrony를 수동으로 설치하고 구성해야 합니다.
 
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 ```
+위 /dev/ptp_hyperv symlink를 사용할 수 있는 경우 /dev/ptp0 대신 이를 사용하여 Mellanox mlx5 드라이버에서 만든 /dev/ptp 디바이스의 혼동을 방지합니다.
 
 Ubuntu 및 NTP에 대한 자세한 내용은 [시간 동기화](https://ubuntu.com/server/docs/network-ntp)를 참조하세요.
 

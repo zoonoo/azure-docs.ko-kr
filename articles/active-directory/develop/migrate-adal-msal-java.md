@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 620f77655f8281919ba0831a7e53af8cd28bc5f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eda9b3a65b4db6b058c0279575c0414285216975
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99583996"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110539967"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>ADAL에서 MSAL로 마이그레이션 가이드(Java)
 
@@ -34,6 +34,8 @@ MSAL은 다음과 같은 이점을 제공합니다.
 - 애플리케이션에서 증분 동의를 설정할 수 있으며 조건부 액세스를 지원하기 더 쉽습니다.
 
 Java용 MSAL은 Microsoft ID 플랫폼과 함께 사용하도록 권장하는 인증 라이브러리입니다. ADAL4J에는 새로운 기능이 구현되지 않습니다. 앞으로 진행되는 모든 작업은 MSAL을 개선하는 데 중점을 두고 있습니다.
+
+MSAL에 대해 자세히 알아보고 [Microsoft 인증 라이브러리 개요](msal-overview.md)를 시작할 수 있습니다.
 
 ## <a name="differences"></a>차이점
 

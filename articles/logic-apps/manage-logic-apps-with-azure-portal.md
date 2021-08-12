@@ -6,15 +6,15 @@ ms.suite: integration
 author: lauradolan
 ms.author: ladolan
 ms.reviewer: estfan, jonfan, logicappspm
-ms.topic: article
+ms.topic: conceptual
 ms.custom: mvc
-ms.date: 07/20/2020
-ms.openlocfilehash: d50f577a7170982be004cc8957114f79675fbc6e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/23/2021
+ms.openlocfilehash: 4c4a3b1e5d165681e921d2fadeadc5dea9633d41
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96006101"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162908"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Azure Portal에서 논리 앱 관리
 
@@ -28,23 +28,15 @@ ms.locfileid: "96006101"
 
 <a name="find-logic-app"></a>
 
-## <a name="find-your-logic-apps"></a>논리 앱 찾기
-
-논리 앱을 찾아서 열려면 다음 단계를 수행합니다.
+## <a name="find-and-open-a-logic-app"></a>논리 앱 찾기 및 열기
 
 1. Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그인합니다.
 
-1. Azure Portal 검색창에 `logic apps`를 입력하고 **Logic Apps** 를 선택합니다.
+1. 포털 검색 상자에 `logic apps`를 입력하고, **논리 앱** 을 선택합니다.
 
-   ![검색창에 Logic Apps를 검색하여 선택된 상태의 Azure Portal 메뉴 스크린샷.](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
+1. 논리 앱 목록에서 목록을 찾아보거나 필터링하여 논리 앱을 찾습니다.
 
-1. **Logic Apps** 페이지에서 관리하려는 논리 앱을 찾아 선택합니다.
-
-   논리 앱의 **개요** 창이 열리면 **Logic Apps** 페이지에 표시되는 목록을 다음과 같은 방식으로 필터링할 수 있습니다.
-
-   * 이름으로 논리 앱 검색
-   * 구독, 리소스 그룹, 위치 및 태그로 논리 앱 필터링
-   * 리소스 그룹, 종류, 구독 및 위치별 논리 앱 그룹화
+1. 논리 앱을 열려면 관리하려는 앱을 선택합니다.
 
 ## <a name="view-logic-app-properties"></a>논리 앱 속성 보기
 
@@ -66,121 +58,80 @@ ms.locfileid: "96006101"
    * **액세스 엔드포인트 IP 주소**
    * **커넥터 발신 IP 주소**
 
+<a name="disable-enable-logic-apps"></a>
+
 ## <a name="disable-or-enable-logic-apps"></a>논리 앱 사용 또는 사용하지 않도록 설정
 
-Azure Portal에서 [단일 논리 앱](#disable-enable-single-logic-app) 또는 [동시에 여러 논리 앱](#disable-or-enable-multiple-logic-apps)을 사용하거나 사용하지 않도록 설정할 수 있습니다. [Visual Studio에서 논리 앱을 사용하거나 사용하지 않도록 설정](manage-logic-apps-with-visual-studio.md#disable-or-enable-logic-app)할 수도 있습니다.
+다음번에 트리거 조건이 충족되더라도 트리거가 발생하지 않게 하려면 논리 앱을 사용하지 않도록 설정합니다. Azure Portal에서 [단일 논리 앱](#disable-enable-single-logic-app) 또는 [동시에 여러 논리 앱](#disable-or-enable-multiple-logic-apps)을 사용하거나 사용하지 않도록 설정할 수 있습니다. 논리 앱을 사용하지 않도록 설정하면 다음과 같은 방식으로 워크플로 인스턴스에 영향을 줍니다.
 
-논리 앱을 사용하지 않도록 설정하면 워크플로 인스턴스에 영향을 주고 다음과 같은 방식으로 실행됩니다.
+* Logic Apps 서비스는 완료될 때까지 진행 중인 실행 및 보류 중인 모든 실행을 계속합니다. 볼륨 또는 백로그에 따라 이 프로세스를 완료하는 데 시간이 걸릴 수 있습니다.
 
-* 진행 중이거나 보류 중인 모든 실행은 완료될 때까지 계속됩니다. 이러한 실행의 수에 따라 이 프로세스에는 시간이 다소 걸릴 수 있습니다.
+* Logic Apps 서비스는 새 워크플로 인스턴스를 만들거나 실행하지 않습니다.
 
-* Logic Apps 엔진은 새 워크플로 인스턴스를 만들거나 실행하지 않습니다.
+* 트리거는 다음에 조건이 충족될 때 발생하지 않습니다. 하지만 트리거 상태는 논리 앱이 중지된 지점을 기억합니다. 따라서 논리 앱을 다시 활성화하면 마지막 실행 이후 처리되지 않은 모든 항목에 대해 트리거가 발생합니다.
 
-* 트리거는 다음에 조건이 충족될 때 발생하지 않습니다.
+  트리거가 마지막 실행 이후 처리되지 않은 항목에서 트리거되지 않도록 하려면 논리 앱을 다시 활성화하기 전에 트리거의 상태를 지웁니다.
 
-* 트리거 상태는 논리 앱이 중지된 지점을 기억합니다. 따라서 논리 앱을 다시 사용하도록 설정하면 마지막 실행 이후 처리되지 않은 모든 항목에 대해 트리거가 발생합니다.
-
-  논리 앱이 마지막 실행 이후 처리되지 않은 항목에서 발생하지 않도록 하려면 논리 앱을 다시 사용하도록 설정하기 전에 트리거의 상태를 지우십시오.
-
-  1. Azure Portal에서 [논리 앱을 찾아서 엽니다](#find-logic-app).
-
-  1. 논리 앱 트리거의 모든 부분을 편집합니다.
-
+  1. 논리 앱에서 워크플로의 트리거 일부를 편집합니다.
   1. 변경 내용을 저장합니다. 이 단계는 트리거의 현재 상태를 다시 설정합니다.
-
-  1. [논리 앱을 다시 사용하도록 설정합니다](#disable-enable-single-logic-app).
+  1. [논리 앱을 다시 활성화](#disable-enable-single-logic-app)합니다.
 
 <a name="disable-enable-single-logic-app"></a>
 
-### <a name="disable-or-enable-single-logic-app"></a>단일 논리 앱을 사용 또는 사용하지 않도록 설정
+### <a name="disable-or-enable-a-single-logic-app"></a>단일 논리 앱을 사용 또는 사용하지 않도록 설정
 
 1. Azure Portal에서 [논리 앱을 찾아서 엽니다](#find-logic-app).
 
-1. 논리 앱 메뉴에서 **개요** 를 선택합니다. 다음 옵션 중에서 선택합니다.
+1. 논리 앱 메뉴에서 **개요** 를 선택합니다.
 
-   * 도구 모음에서 **사용 안 함** 을 선택합니다.
+   * 논리 앱을 사용하지 않도록 설정하려면 개요 창 도구 모음에서 **사용 안 함** 을 선택합니다.
+   * 논리 앱을 사용하도록 설정하려면 개요 창 도구 모음에서 **사용함** 을 선택합니다.
 
-     ![사용 안 함 단추가 선택되어 있는 논리 앱 도구 모음의 스크린샷.](./media/manage-logic-apps-with-azure-portal/disable-single-logic-app.png)
+     > [!NOTE]
+     > 논리 앱이 이미 사용하지 않도록 설정되어 있는 경우 **사용** 옵션만 표시됩니다.
+     > 논리 앱이 이미 사용하도록 설정되어 있는 경우 **사용 안 함** 옵션만 표시됩니다.
 
-     논리 앱이 이미 사용하지 않도록 설정되어 있는 경우 **사용** 옵션만 표시됩니다.
-
-   * 도구 모음에서 **사용** 을 선택합니다.
-
-     ![사용 단추가 선택되어 있는 논리 앱 도구 모음의 스크린샷.](./media/manage-logic-apps-with-azure-portal/enable-single-logic-app.png)
-
-     논리 앱이 이미 사용하도록 설정되어 있는 경우 **사용 안 함** 옵션만 표시됩니다. 
-
-   Azure Portal은 작업의 성공 또는 실패 여부를 확인하는 기본 Azure 도구 모음에 대한 알림을 표시합니다.
-
-   ![작업 상태를 확인하는 알림을 보여주는 Azure Portal의 스크린샷](./media/manage-logic-apps-with-azure-portal/operation-confirmation-notification.png)
+1. 작업의 성공 여부를 확인하려면 주 Azure 도구 모음에서 **알림** 목록(종 모양 아이콘)을 엽니다.
 
 <a name="disable-or-enable-multiple-logic-apps"></a>
 
 ### <a name="disable-or-enable-multiple-logic-apps"></a>여러 논리 앱을 사용 또는 사용하지 않도록 설정
 
-1. Azure Portal에서 사용하지 않도록 설정하거나 사용하도록 설정하려는 [논리 앱을 찾습니다](#find-logic-app).
+1. Azure Portal의 검색 상자에 `logic apps`를 입력하고, **논리 앱** 을 선택합니다.
 
-1. 논리 앱을 현재 사용할 수 있는지 여부를 확인하려면 **Logic Apps** 페이지에서 해당 논리 앱의 **상태** 열을 검토합니다. 
+1. **논리 앱** 페이지에서 논리 앱의 **상태** 열을 검토합니다.
 
-   ![상태 열을 기준으로 정렬된 논리 앱 목록을 보여 주는 Azure Portal Logic Apps 페이지의 스크린샷.](./media/manage-logic-apps-with-azure-portal/view-logic-app-status.png)
+1. 확인란 열에서 중지 또는 시작할 논리 앱을 선택합니다.
 
-   **상태** 열이 표시되지 않는 경우 **Logic Apps** 도구 모음에서 **미리 보기 사용** 을 선택합니다.
+   * 선택한 실행 중 논리 앱을 중지하려면 개요 창 도구 모음에서 **사용 안 함/중지** 를 선택합니다. 선택 사항을 확인합니다.
+   * 선택한 중지된 논리 앱을 시작하려면 개요 창 도구 모음에서 **사용/시작** 을 선택합니다.
 
-   ![미리 보기 사용 단추가 선택되어 있는 Azure Portal Logic Apps 페이지 스크린샷.](./media/manage-logic-apps-with-azure-portal/select-try-preview.png)
+1. 작업의 성공 여부를 확인하려면 주 Azure 도구 모음에서 **알림** 목록(종 모양 아이콘)을 엽니다.
 
-1. 확인란 열에서 사용 또는 사용하지 않도록 설정하려는 논리 앱을 선택합니다. 도구 모음에서 **사용 안 함** 또는 **사용** 을 선택합니다.
+   > [!TIP]
+   > 올바른 상태가 표시되지 않는 경우 페이지를 새로 고칩니다.
 
-   ![여러 논리 앱에 대한 사용 및 사용 안 함 단추를 표시하는 Azure Portal Logic Apps 페이지의 스크린샷.](./media/manage-logic-apps-with-azure-portal/enable-disable-multiple-logic-apps.png)
-
-1. 확인 상자가 표시되면 **예** 를 선택하여 계속합니다.
-
-   Azure Portal은 작업의 성공 또는 실패 여부를 확인하는 기본 Azure 도구 모음에 대한 알림을 표시합니다.
+<a name="delete-logic-apps"></a>
 
 ## <a name="delete-logic-apps"></a>논리 앱 삭제
 
-Azure Portal에서 [단일 논리 앱을 삭제](#delete-single-logic-app)하거나 [동시에 여러 논리 앱을 삭제](#delete-multiple-logic-apps)할 수 있습니다. [Visual Studio에서 논리 앱을 삭제](manage-logic-apps-with-visual-studio.md#delete-your-logic-app)할 수도 있습니다.
+단일 논리 앱 또는 여러 논리 앱을 동시에 삭제할 수 있습니다. 논리 앱을 삭제하면 다음과 같은 방식으로 워크플로 인스턴스에 영향을 줍니다.
 
-논리 앱을 삭제하면 다음과 같은 방식으로 워크플로 인스턴스에 영향을 줍니다.
+* Logic Apps 서비스가 진행 중이거나 보류 중인 실행을 취소하기 위해 전력을 다합니다.
 
-* 진행 중이거나 보류 중인 모든 실행은 완료될 때까지 계속됩니다. 이러한 실행의 수에 따라 이 프로세스에는 시간이 다소 걸릴 수 있습니다.
+  볼륨이나 백로그가 큰 경우에도 대부분의 실행은 완료 또는 시작 전에 취소됩니다. 그러나 취소 프로세스를 완료하는 데 시간이 걸릴 수 있습니다. 서비스가 취소 프로세스를 진행하는 동안 일부 실행을 선택하여 진행할 수 있습니다.
 
-* Logic Apps 엔진은 새 워크플로 인스턴스를 만들거나 실행하지 않습니다.
+* Logic Apps 서비스는 새 워크플로 인스턴스를 만들거나 실행하지 않습니다.
 
-> [!NOTE]
-> 자식 논리 앱을 삭제하고 다시 만드는 경우 부모 논리 앱을 다시 저장해야 합니다. 다시 만들어진 자식 앱은 다른 메타데이터를 포함합니다.
-> 자식을 다시 만든 후 부모 논리 앱을 다시 저장하지 않는 경우 "권한 없음" 오류와 함께 자식 논리 앱에 대한 호출이 실패합니다. 이 동작은 통합 계정에서 아티팩트를 사용하거나 Azure Functions를 호출하는 것과 같은 부모-자식 논리 앱에 적용됩니다.
+* 워크플로를 삭제한 다음, 동일한 워크플로를 다시 만들면 다시 생성된 워크플로에는 삭제된 워크플로와 동일한 메타데이터가 포함되지 않습니다. 삭제된 워크플로를 호출한 모든 워크플로를 다시 저장해야 합니다. 이렇게 하면 호출자가 다시 생성된 워크플로에 대한 올바른 정보를 가져옵니다. 그렇지 않으면 다시 생성된 워크플로에 대한 호출이 `Unauthorized` 오류와 함께 실패합니다. 이 동작은 Azure 함수를 호출하는 워크플로 및 통합 계정에서 아티팩트를 사용하는 워크플로에도 적용됩니다.
 
-<a name="delete-single-logic-app"></a>
+1. Azure Portal의 검색 상자에 `logic apps`를 입력하고, **논리 앱** 을 선택합니다.
 
-### <a name="delete-single-logic-app"></a>단일 논리 앱 삭제
-
-1. Azure Portal에서 [논리 앱을 찾아서 엽니다](#find-logic-app).
-
-1. 논리 앱 메뉴에서 **개요** 를 선택합니다. 논리 앱 도구 모음에서 **삭제** 를 선택합니다.
-
-   ![삭제 단추가 선택되어 있는 논리 앱 도구 모음의 스크린샷.](./media/manage-logic-apps-with-azure-portal/delete-single-logic-app.png)
-
-1. 확인 상자가 표시되면 논리 앱의 이름을 입력하고 **삭제** 를 선택합니다.
-
-   ![단일 논리 앱 삭제를 확인하는 메시지를 표시하는 Logic Apps 스크린샷.](./media/manage-logic-apps-with-azure-portal/delete-confirmation-single-logic-app.png)
-
-   Azure Portal은 작업의 성공 또는 실패 여부를 확인하는 기본 Azure 도구 모음에 대한 알림을 표시합니다.
-
-<a name="delete-multiple-logic-apps"></a>
-
-### <a name="delete-multiple-logic-apps"></a>여러 논리 앱 삭제
-
-1. Azure Portal에서 [삭제하려는 논리 앱을 찾습니다](#find-logic-app).
-
-1. 확인란 열에서 삭제하려는 논리 앱을 선택합니다. 도구 모음에서 **삭제** 를 선택합니다.
-
-   ![삭제하도록 선택한 목록에서 여러 논리 앱을 보여주는 Logic Apps 페이지의 스크린샷.](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
+1. **논리 앱** 목록의 확인란 열에서 삭제할 논리 앱을 하나 또는 여러 개 선택합니다. 도구 모음에서 **삭제** 를 선택합니다.
 
 1. 확인 상자가 표시되면 `yes`를 입력하고 **삭제** 를 선택합니다.
 
-   ![여러 논리 앱 삭제를 확인하는 메시지를 표시하는 Logic Apps 스크린샷.](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
-
-   Azure Portal은 작업의 성공 또는 실패 여부를 확인하는 기본 Azure 도구 모음에 대한 알림을 표시합니다.
+1. 작업의 성공 여부를 확인하려면 주 Azure 도구 모음에서 **알림** 목록(종 모양 아이콘)을 엽니다.
 
 <a name="manage-logic-app-versions"></a>
 
@@ -192,7 +143,7 @@ Azure Portal에서 [단일 논리 앱을 삭제](#delete-single-logic-app)하거
 
 ### <a name="find-and-view-previous-versions"></a>이전 버전 찾기 및 보기
 
-1. Azure Portal에서 [관리하려는 논리 앱을 찾습니다](#find-logic-app).
+1. Azure Portal에서 [논리 앱을 찾아서 엽니다](#find-logic-app).
 
 1. 논리 앱 메뉴의 **개발 도구** 에서 **버전** 을 선택합니다.
 

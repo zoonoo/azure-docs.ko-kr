@@ -3,14 +3,14 @@ title: 자체 gRPC 모델로 라이브 비디오 분석
 description: 이 빠른 시작에서는 Video Analyzer를 통해 자체 gRPC 모델을 사용하여 라이브 비디오를 분석하는 방법을 설명합니다.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 04/21/2021
+ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.openlocfilehash: a9b086f4b2d856e3e534ac2603f61dfbfef31db0
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: cb901ca96cde0d0a113b07429338464e24720650
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371882"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601681"
 ---
 # <a name="quickstart-analyze-live-video-with-your-own-model---grpc"></a>빠른 시작: 자체 모델로 라이브 비디오 분석 - gRPC
 
@@ -76,7 +76,13 @@ Azure 리소스가 설치되면 고속도로 교통에 대한 짧은 비디오�
 
 ## <a name="run-the-sample-program"></a>샘플 프로그램 실행
 
-1. 디버깅 세션을 시작하려면 F5 키를 선택합니다. 터미널 창에 메시지가 출력되어 표시됩니다.
+1. ::: zone pivot="programming-language-csharp"
+    [!INCLUDE [header](includes/common-includes/csharp-run-program.md)]
+    ::: zone-end
+
+    ::: zone pivot="programming-language-python"
+    [!INCLUDE [header](includes/common-includes/python-run-program.md)]
+    ::: zone-end
 1. pipelineTopologyList 및 livePipelineList 직접 메서드를 호출하면 **operations.json** 코드가 시작됩니다. 이전 빠른 시작이 완료된 후에 리소스를 정리한 경우 이 프로세스에서 빈 목록을 반환한 다음, 일시 중지합니다. 계속하려면 Enter 키를 선택합니다.
 
    ```

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3f565f456dde1d802a82faffb4a23f7a6e54d950
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 0c5ae9dd292aeef8aa1e052cf276568e84bdd95d
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105031548"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586873"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>빠른 시작: Unity를 사용하여 모델 렌더링
 
@@ -25,7 +25,7 @@ ARR API 자체 또는 새 Unity 프로젝트를 설정하는 방법은 자세히
 >* Unity용 ARR 빠른 시작 샘플 앱을 가져와서 빌드
 >* ARR 빠른 시작 샘플 앱에서 모델 렌더링
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Remote Rendering 서비스에 액세스하려면 먼저 [계정을 만들어야 합니다](../how-tos/create-an-account.md).
 
@@ -49,7 +49,7 @@ Azure Remote Rendering 서비스에 액세스하려면 먼저 [계정을 만들�
 mkdir ARR
 cd ARR
 git clone https://github.com/Azure/azure-remote-rendering
-powershell azure-remote-rendering\Scripts\DownloadUnityPackages.ps1
+powershell -ExecutionPolicy RemoteSigned -File azure-remote-rendering\Scripts\DownloadUnityPackages.ps1
 ```
 
 마지막 명령은 Azure Remote Rendering에 사용할 다양한 샘플 프로젝트가 들어 있는 하위 디렉터리를 ARR 디렉터리에 만듭니다.

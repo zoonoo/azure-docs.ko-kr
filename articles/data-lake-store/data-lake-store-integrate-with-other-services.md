@@ -1,16 +1,16 @@
 ---
 title: Data Lake Storage Gen1과 다른 Azure 서비스 통합
-description: Azure Data Lake Storage Gen1를 다른 Azure 서비스와 통합할 수 있는 방법을 이해 합니다.
+description: 기타 Azure 서비스와 Azure Data Lake Storage Gen1을 통합하는 방법을 이해합니다.
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 929853f4dbedca7034c8e2a51e6231651a2dd08f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96461656"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Azure Data Lake Storage Gen1을 다른 Azure 서비스와 통합
@@ -21,7 +21,7 @@ Data Lake Storage Gen1을 사용하는 [Azure HDInsight](https://azure.microsoft
 
 Data Lake Storage Gen1을 사용하는 HDInsight 클러스터를 프로비전하는 방법에 대한 지침은 다음을 참조하세요.
 
-* [Azure Portal를 사용 하 여 Data Lake Storage Gen1 HDInsight 클러스터 프로 비전](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Azure Portal을 사용하여 Data Lake Storage Gen1을 사용하는 HDInsight 클러스터 프로비전](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Azure PowerShell을 사용하여 Data Lake Storage Gen1을 기본 스토리지로 사용하는 HDInsight 클러스터 프로비전](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 * [Azure PowerShell을 사용하여 Data Lake Storage Gen1을 추가 스토리지로 사용하는 HDInsight 클러스터 프로비전](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
@@ -39,7 +39,7 @@ Data Lake Storage Gen1과 함께 Azure Data Factory를 사용하는 방법에 �
 Azure Data Lake Storage Gen1에서는 Azure Blob Storage에서 Data Lake Storage Gen1 계정으로 데이터를 복사할 수 있는 명령줄 도구인 AdlCopy를 제공합니다. 자세한 내용은 [Azure Storage Blob에서 Data Lake Storage Gen1로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)를 참조하세요.
 
 ## <a name="copy-data-between-azure-sql-database-and-data-lake-storage-gen1"></a>Azure SQL Database와 Data Lake Storage Gen1 간에 데이터 복사
-Apache Sqoop을 사용하여 Azure SQL Database와 Data Lake Storage Gen1 간에 데이터를 가져오고 내보낼 수 있습니다. 자세한 내용은 [Sqoop를 사용 하 여 Data Lake Storage Gen1와 Azure SQL Database 간에 데이터 복사](data-lake-store-data-transfer-sql-sqoop.md)를 참조 하세요.
+Apache Sqoop을 사용하여 Azure SQL Database와 Data Lake Storage Gen1 간에 데이터를 가져오고 내보낼 수 있습니다. 자세한 정보는 [Sqoop을 사용한 Data Lake Storage Gen1과 Azure SQL Database 간 데이터 복사](data-lake-store-data-transfer-sql-sqoop.md)를 참조하세요.
 
 ## <a name="use-data-lake-storage-gen1-with-stream-analytics"></a>Stream Analytics와 함께 Data Lake Storage Gen1 사용
 Azure Stream Analytics를 사용하여 스트리밍되는 데이터를 저장할 출력 중 하나로 Data Lake Storage Gen1을 사용할 수 있습니다. 자세한 내용은 [Azure Stream Analytics를 사용하여 Azure Storage Blob에서 Data Lake Storage Gen1로 데이터 스트리밍](data-lake-store-stream-analytics.md)을 참조하세요.
@@ -53,8 +53,8 @@ Data Lake Storage Gen1의 데이터를 Azure Data Catalog에 등록하면 조직
 ## <a name="use-data-lake-storage-gen1-with-sql-server-integration-services-ssis"></a>SSIS(SQL Server Integration Services)와 함께 Data Lake Storage Gen1 사용
 SSIS에서 Data Lake Storage Gen1 연결 관리자를 사용하여 SSIS 패키지를 Data Lake Storage Gen1에 연결할 수 있습니다. 자세한 내용은 [SSIS와 함께 Data Lake Storage Gen1 사용](/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager)을 참조하세요.
 
-## <a name="use-data-lake-storage-gen1-with-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Data Lake Storage Gen1 사용
-PolyBase를 사용 하 여 Data Lake Storage Gen1에서 Azure Synapse Analytics로 데이터를 로드할 수 있습니다. 자세한 내용은 [Azure Synapse Analytics에서 Data Lake Storage Gen1 사용을](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)참조 하세요.
+## <a name="use-data-lake-storage-gen1-with-azure-synapse-analytics"></a>Data Lake Storage Gen1을 Azure Synapse Analytics와 함께 사용
+PolyBase를 사용하여 Data Lake Storage Gen1에서 Azure Synapse Analytics로 데이터를 로드할 수 있습니다. 자세한 정보는 [Azure Synapse Analytics와 함께 Data Lake Storage Gen1 사용](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)을 참조하세요.
 
 ## <a name="use-data-lake-storage-gen1-with-azure-event-hubs"></a>Azure Event Hubs와 함께 Data Lake Storage Gen1 사용
 Azure Data Lake Storage Gen1을 사용하여 Azure Event Hubs에서 받은 데이터를 보관하고 캡처할 수 있습니다. 자세한 내용은 [Azure Event Hubs와 함께 Data Lake Storage Gen1 사용](data-lake-store-archive-eventhub-capture.md)을 참조하세요.
@@ -62,4 +62,4 @@ Azure Data Lake Storage Gen1을 사용하여 Azure Event Hubs에서 받은 데�
 ## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [포털을 사용하여 Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)
-* [PowerShell을 사용 하 여 Data Lake Storage Gen1 시작](data-lake-store-get-started-powershell.md)
+* [PowerShell을 사용하여 Data Lake Storage Gen1 시작](data-lake-store-get-started-powershell.md)

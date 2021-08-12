@@ -4,14 +4,14 @@ description: 이 문서에서는 Kafka에 대한 Azure Event Hubs에서 Apache S
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 84184ed3dffee97863b93c592d1cd577df313605
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92913741"
 ---
-# <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Azure Event Hubs를 사용 하 여 Apache Spark 응용 프로그램 연결
-이 자습서에서는 Spark 응용 프로그램을 실시간 스트리밍에 대 한 Event Hubs 연결 하는 과정을 안내 합니다. 이러한 통합을 통해 프로토콜 클라이언트를 변경 하거나 사용자 고유의 Kafka 또는 사육 아웃 클러스터를 실행할 필요 없이 스트리밍을 사용할 수 있습니다. 이 자습서에는 Apache Spark v 2.4 이상 및 Apache Kafka v2.0 이상이 필요 합니다.
+# <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Apache Spark 애플리케이션을 Azure Event Hubs에 연결
+이 자습서에서는 Spark 애플리케이션을 Event Hubs에 연결하여 실시간으로 스트리밍하는 방법을 안내합니다. 이렇게 통합하면 프로토콜 클라이언트를 변경하거나 사용자 고유의 Kafka 또는 Zookeeper 클러스터를 실행할 필요 없이 스트리밍이 가능합니다. 이 자습서에서는 Apache Spark v2.4 이상과 Apache Kafka v2.0 이상이 필요합니다.
 
 > [!NOTE]
 > 이 샘플은 [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/spark/)에서 사용할 수 있습니다.
@@ -24,7 +24,7 @@ ms.locfileid: "92913741"
 > * Kafka용 Event Hubs에서 읽기
 > * Kafka용 Event Hubs에 쓰기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 먼저 다음 사항을 확인해야 합니다.
 -   동작합니다. 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
@@ -36,8 +36,8 @@ ms.locfileid: "92913741"
 > Spark-Kafka 어댑터는 Spark v2.4부터 Kafka v2.0을 지원하도록 업데이트되었습니다. 이전 Spark 릴리스에서는 어댑터가 Kafka v0.10 이상을 지원했지만 Kafka v0.10 API에 의존했습니다. Kafka용 Event Hubs에서 Kafka v0.10을 지원하지 않기 때문에 Spark v2.4 미만 버전의 Spark-Kafka 어댑터는 Kafka 에코시스템용 Event Hubs에서 지원되지 않습니다.
 
 
-## <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 만들기
-Event Hubs 서비스와 통신하려면 Event Hubs 네임스페이스가 필요합니다. 네임 스페이스 및 이벤트 허브를 만드는 방법에 대 한 지침은 [이벤트 허브 만들기](event-hubs-create.md) 를 참조 하세요. 나중에 사용할 수 있도록 Event Hubs 연결 문자열 및 FQDN(정규화된 도메인 이름)을 가져옵니다. 자세한 지침은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)를 참조하세요. 
+## <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 생성
+Event Hubs 서비스와 통신하려면 Event Hubs 네임스페이스가 필요합니다. 네임스페이스 및 이벤트 허브를 만드는 방법에 대한 지침은 [이벤트 허브 만들기](event-hubs-create.md)를 참조하세요. 나중에 사용할 수 있도록 Event Hubs 연결 문자열 및 FQDN(정규화된 도메인 이름)을 가져옵니다. 자세한 지침은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)를 참조하세요. 
 
 ## <a name="clone-the-example-project"></a>프로젝트 예제 복제
 Azure Event Hubs 리포지토리를 복제하고 `tutorials/spark` 하위 폴더로 이동합니다.
@@ -97,8 +97,8 @@ Event Hubs 및 Kafka용 Event Hubs에 대해 자세한 내용은 다음 문서�
 
 - [이벤트 허브에서 Kafka broker 미러링](event-hubs-kafka-mirror-maker-tutorial.md)
 - [이벤트 허브에 Apache Flink 연결](event-hubs-kafka-flink-tutorial.md)
-- [Kafka Connect를 이벤트 허브와 통합](event-hubs-kafka-connect-tutorial.md)
+- [이벤트 허브와 Kafka 연결 통합](event-hubs-kafka-connect-tutorial.md)
 - [GitHub에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
 - [이벤트 허브에 Akka Streams 연결](event-hubs-kafka-akka-streams-tutorial.md)
-- [Azure Event Hubs에 대 한 Apache Kafka 개발자 가이드](apache-kafka-developer-guide.md)
+- [Azure Event Hubs에 대한 Apache Kafka 개발자 가이드](apache-kafka-developer-guide.md)
 

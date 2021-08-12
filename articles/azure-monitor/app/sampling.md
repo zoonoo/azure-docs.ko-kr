@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7b53b0bc8c7cc3df2123d327bf87a85081f88f50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 27aff24abddbca3317e252a76ac11c062f57213a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100589550"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110071599"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -38,7 +38,7 @@ ms.locfileid: "100589550"
 | Java | 예 | [예](#configuring-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 작동하지 않는 경우에만 |
 | Node.JS | 예 | [예](./nodejs.md#sampling) | 다른 샘플링이 작동하지 않는 경우에만
 | Python | 예 | [예](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | 다른 샘플링이 작동하지 않는 경우에만 |
-| 나머지 | 예 | 예 | [예](#ingestion-sampling) |
+| 나머지 | 예 | 아니요 | [예](#ingestion-sampling) |
 
 > [!NOTE]
 > 이 페이지의 정보는 대부분 현재 버전의 Application Insights SDK에 적용됩니다. 이전 버전의 SDK에 대한 자세한 내용은 [아래 섹션을 참조](#older-sdk-versions)하세요.
@@ -184,7 +184,7 @@ public void ConfigureServices(IServiceCollection services)
 아래와 같이 `TelemetryProcessorChainBuilder`의 확장 메서드를 사용하여 샘플링 동작을 사용자 지정합니다.
 
 > [!IMPORTANT]
-> 이 메서드를 사용하여 샘플링을 구성하는 경우 `AddApplicationInsightsTelemetry()`를 호출할 때 `aiOptions.EnableAdaptiveSampling` 속성을 `false`로 설정해야 합니다.
+> 이 메서드를 사용하여 샘플링을 구성하는 경우 `AddApplicationInsightsTelemetry()`를 호출할 때 `aiOptions.EnableAdaptiveSampling` 속성을 `false`로 설정해야 합니다. 이렇게 변경한 후 사용자 지정이 적용된 적응형 샘플링을 다시 사용하려면 아래 코드 블록의 지침을 **정확히** 따라야 합니다. 이에 실패하면 데이터 수집이 과도하게 발생할 수 있습니다. 변경 후 샘플링 설정을 항상 테스트하고 비용 관리에 도움이 되도록 적절한 [일일 데이터 한도](pricing.md#set-the-daily-cap)를 설정합니다.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility
@@ -320,14 +320,14 @@ Java 에이전트 및 SDK에서는 기본적으로 샘플링이 사용되지 않
 ```json
 {
   "sampling": {
-    "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
+    "percentage": 10 //this is just an example that shows you how to enable only 10% of transaction 
   }
 }
 ```
 
-#### <a name="configuring-java-sdk"></a>Java SDK 구성
+#### <a name="configuring-java-2x-sdk"></a>Java 2.x SDK 구성
 
-1. 최신 [Application Insights Java SDK](./java-get-started.md)를 사용하여 웹 애플리케이션을 다운로드하고 구성합니다.
+1. 최신 [Application Insights Java SDK](./java-2x-get-started.md)를 사용하여 웹 애플리케이션을 다운로드하고 구성합니다.
 
 2. 다음 코드 조각을 `ApplicationInsights.xml` 파일에 추가하여 **고정 비율 샘플링 모듈을 사용하도록 설정** 합니다.
 

@@ -1,19 +1,19 @@
 ---
 title: Azure Monitor 리소스 그룹 인사이트 | Microsoft Docs
-description: Azure Monitor를 사용하여 리소스 그룹 수준에서 분산 애플리케이션 및 서비스의 상태 및 성능 이해
+description: Azure Monitor의 리소스 그룹 인사이트 기능을 사용하여 리소스 그룹 수준에서 분산 애플리케이션 및 서비스의 상태 및 성능 이해
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: bfe197befc781548dc41ff389f2d9558af7a8aae
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 466d63f8615d8115c7dcbfacdca2d004cf19621e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567405"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110073813"
 ---
-# <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Azure Monitor(미리 보기)를 사용하여 리소스 그룹 모니터링
+# <a name="monitor-azure-monitor-resource-group-insights-preview"></a>Azure Monitor 리소스 그룹 인사이트 모니터링(미리 보기)
 
 최신 애플리케이션은 서비스를 전달하기 위해 여러 개별 부분이 함께 작동하므로 매우 복잡하고 고도로 분산된 경우가 많습니다. 이러한 복잡성을 인식하고 있으므로 Azure Monitor는 리소스 그룹에 대한 모니터링 인사이트를 제공합니다. 이를 통해 리소스 그룹&mdash;및 애플리케이션의&mdash;상태 및 성능과 관련된 컨텍스트를 전체적으로 제공하면서 개별 리소스에 발생하는 문제를 쉽게 심사하고 전달할 수 있습니다.
 
@@ -43,7 +43,7 @@ Azure Resource Health를 표시하려면 표 위에 있는 **Azure Resource Heal
 
 리소스 그룹 인사이트 페이지는 문제를 진단하는 데 도움을 주기 위해 몇 가지 다른 도구를 범위별로 제공합니다.
 
-   | 도구 | Description |
+   | 도구 | 설명 |
    | ---------------- |:-----|
    | [**경고**](../alerts/alerts-overview.md)      |  경고를 보고, 만들고, 관리합니다. |
    | [**메트릭**](../data-platform.md) | 메트릭 기반 데이터를 시각화하고 탐색합니다.    |
@@ -108,10 +108,10 @@ App Service를 선택하면 Azure Monitor 통합 문서 템플릿 갤러리가 �
 
 ### <a name="enabling-access-to-alerts"></a>경고 액세스 사용
 
-Azure Monitor for Resource Groups에서 경고를 보려면 이 구독에 대한 소유자 또는 기여자 역할이 할당된 누군가가 구독에 속한 리소스 그룹에 대해 Azure Monitor for Resource Groups를 열어야 합니다. 이렇게 하면 읽기 권한이 있는 모든 사람이 Azure Monitor for Resource Groups에서 구독의 모든 리소스 그룹에 대한 경고를 볼 수 있습니다. 소유자 또는 기여자 역할이 할당된 사용자는 몇 분 후 이 페이지를 새로 고치세요.
+리소스 그룹 인사이트에서 경고를 보려면 이 구독에 대한 소유자 또는 기여자 역할이 있는 사용자가 구독의 모든 리소스 그룹에 대한 리소스 그룹 인사이트를 열어야 합니다. 이렇게 하면 읽기 권한이 있는 모든 사람이 리소스 그룹 인사이트에서 구독의 모든 리소스 그룹에 대한 경고를 볼 수 있습니다. 소유자 또는 기여자 역할이 할당된 사용자는 몇 분 후 이 페이지를 새로 고치세요.
 
-Azure Monitor for Resource Groups는 Azure Monitor 경고 관리 시스템을 사용하여 경고 상태를 검색합니다. 경고 관리는 기본적으로 일부 리소스 그룹 및 구독에 대해서만 구성되며, 소유자 또는 기여자 역할이 할당된 사용자만 설정할 수 있습니다. 다음 방법으로 설정할 수 있습니다.
-* 구독 내 아무 리소스 그룹에 대해 Azure Monitor for Resource Groups를 엽니다.
+리소스 그룹 인사이트는 Azure Monitor 경고 관리 시스템을 사용하여 경고 상태를 검색합니다. 경고 관리는 기본적으로 일부 리소스 그룹 및 구독에 대해서만 구성되며, 소유자 또는 기여자 역할이 할당된 사용자만 설정할 수 있습니다. 다음 방법으로 설정할 수 있습니다.
+* 구독의 모든 리소스 그룹에 대한 리소스 그룹 인사이트 열기
 * 또는 구독으로 이동하고 **리소스 공급자** 를 클릭한 다음, **Alerts.Management 등록** 을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계

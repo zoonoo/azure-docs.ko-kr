@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro with FPGA 2101 릴리스 정보 | Microsoft Docs
-description: Azure Stack Edge 2101 릴리스에 대한 주요 미해결 문제 및 해결 방법을 설명합니다.
+title: Azure Stack Edge Pro FPGA 2101 릴리스 정보 | Microsoft Docs
+description: Azure Stack Edge Pro FPGA 2101 릴리스의 중요한 미해결 문제 및 해결 방법에 대해 설명합니다.
 services: databox
 author: v-dalc
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 02/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 5c95da8d6ee88786ff983b4963c1cb96394886cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3c8882706bdbb6719dbc2550df350096a4970fd8
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727552"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461225"
 ---
 # <a name="azure-stack-edge-pro-with-fpga-2101-release-notes"></a>Azure Stack Edge Pro with FPGA 2101 릴리스 정보
 
-다음 릴리스 정보는 FPGA(필드 프로그래머블 게이트 어레이)가 내장된 Azure Stack Edge Pro의 2101 릴리스에 대한 주요 미해결 문제 및 해결된 문제를 소개합니다.
+다음 릴리스 정보는 기본 제공 FPGA(필드 프로그래머블 게이트 어레이)를 사용하여 Azure Stack Edge Pro FPGA의 2101 릴리스에 대한 주요 미해결 문제 및 해결된 문제를 소개합니다.
 
 릴리스 정보는 지속적으로 업데이트됩니다. 해결 방법이 필요한 중요한 문제가 발견되면 추가됩니다. Azure Stack Edge 디바이스를 배포하기 전에 릴리스 정보에 수록된 정보를 주의 깊게 검토하세요.  
 
@@ -42,7 +42,7 @@ ms.locfileid: "101727552"
 
 ## <a name="known-issues-in-this-release"></a>이 릴리스의 알려진 문제
 
-이 릴리스에서는 새로운 문제가 발견되지 않았습니다. 발견된 모든 릴리스 문제는 이전 릴리스에서 넘어온 것입니다. 알려진 문제 목록은 [GA 릴리스의 알려진 문제](../databox-gateway/data-box-gateway-release-notes.md#known-issues-in-ga-release)를 참조하세요.
+이 릴리스에 대해 언급된 새로운 문제는 없습니다. 모든 릴리스 언급된 문제는 이전 릴리스에서 넘어 왔습니다. 알려진 문제 목록을 보려면 [GA 버전의 알려진 문제](../databox-gateway/data-box-gateway-release-notes.md#known-issues-in-ga-release)로 이동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

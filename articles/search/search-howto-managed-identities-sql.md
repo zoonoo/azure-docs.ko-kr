@@ -1,7 +1,7 @@
 ---
-title: 관리 id를 사용 하 여 Azure SQL Database에 대 한 연결 설정
+title: 관리 ID를 사용하여 Azure SQL Database에 대한 연결 설정
 titleSuffix: Azure Cognitive Search
-description: 관리 id를 사용 하 여 Azure SQL Database에 대 한 인덱서 연결을 설정 하는 방법을 알아봅니다.
+description: 관리 ID를 사용하여 Azure SQL Database에 대한 인덱서 연결을 설정하는 방법 알아보기
 manager: luisca
 author: markheff
 ms.author: maheff
@@ -10,15 +10,15 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: b940da2cf754e7e1cac91df6b517ecebe55e8c40
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94358425"
 ---
-# <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>관리 id를 사용 하 여 Azure SQL Database에 대 한 인덱서 연결 설정
+# <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>관리 ID를 사용하여 Azure SQL Database에 대한 인덱서 연결 설정
 
-이 페이지에서는 데이터 원본 개체 연결 문자열에 자격 증명을 제공 하는 대신 관리 되는 id를 사용 하 여 Azure SQL Database에 대 한 인덱서 연결을 설정 하는 방법을 설명 합니다.
+이 페이지에서는 데이터 원본 개체 연결 문자열에 자격 증명을 제공하는 대신 관리 ID를 사용하여 Azure SQL Database에 인덱서 연결을 설정하는 방법을 설명합니다.
 
 이 기능을 학습하기 전에 인덱서가 무엇인지와 데이터 원본에 대해 인덱서를 설정하는 방법을 이해하는 것이 좋습니다. 자세한 내용은 다음 링크에서 확인할 수 있습니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "94358425"
 
 ### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - 시스템 할당 관리 ID 켜기
 
-시스템 할당 관리 ID 사용이 설정되면 Azure는 동일한 테넌트 및 구독 내에서 다른 Azure 서비스에 인증하는 데 사용할 수 있는 검색 서비스 ID를 만듭니다. 그런 다음 인덱싱 중 데이터에 액세스할 수 있도록 하는 azure RBAC (역할 기반 액세스 제어) 할당에서이 id를 사용할 수 있습니다.
+시스템 할당 관리 ID 사용이 설정되면 Azure는 동일한 테넌트 및 구독 내에서 다른 Azure 서비스에 인증하는 데 사용할 수 있는 검색 서비스 ID를 만듭니다. 그런 다음, 인덱싱 중에 데이터 액세스를 허용하는 Azure RBAC(Azure 역할 기반 액세스 제어) 할당에서 이 ID를 사용할 수 있습니다.
 
 ![시스템 할당 관리 ID 켜기](./media/search-managed-identities/turn-on-system-assigned-identity.png "시스템 할당 관리 ID 켜기")
 
@@ -94,14 +94,14 @@ ms.locfileid: "94358425"
 
 ### <a name="5---create-the-data-source"></a>5 - 데이터 원본 만들기
 
-[REST API](/rest/api/searchservice/create-data-source), Azure Portal 및 [.net SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) 는 관리 되는 id 연결 문자열을 지원 합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 되는 id 연결 문자열을 사용 하 여 Azure SQL Database에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법에 대 한 예입니다. 관리 되는 id 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일 합니다.
+[REST API](/rest/api/searchservice/create-data-source), Azure Portal 및 [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)는 관리 ID 연결 문자열을 지원합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 ID 연결 문자열을 사용하여 Azure SQL Database에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법의 예입니다. 관리 ID 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일합니다.
 
-[REST API](/rest/api/searchservice/create-data-source)를 사용 하 여 데이터 원본을 만들 때 데이터 원본에는 다음과 같은 필수 속성이 있어야 합니다.
+[REST API](/rest/api/searchservice/create-data-source)사용하여 데이터 원본을 만들 때 데이터 원본에는 다음과 같은 필수 속성이 있어야 합니다.
 
 * **name** 은 검색 서비스 내 데이터 원본의 고유 이름입니다.
 * **type** 은 `azuresql`입니다.
 * **credentials**
-    * 관리 ID를 사용하여 인증하는 경우 **자격 증명** 형식이 관리 ID를 사용하지 않는 경우와 다릅니다. 여기서는 초기 카탈로그 또는 데이터베이스 이름 및 계정 키 또는 암호가 없는 ResourceID를 제공합니다. ResourceId는 Azure SQL Database 구독 ID, SQL Database 리소스 그룹 및 SQL 데이터베이스의 이름을 포함 해야 합니다. 
+    * 관리 ID를 사용하여 인증하는 경우 **자격 증명** 형식이 관리 ID를 사용하지 않는 경우와 다릅니다. 여기서는 초기 카탈로그 또는 데이터베이스 이름 및 계정 키 또는 암호가 없는 ResourceID를 제공합니다. ResourceID에는 Azure SQL 데이터베이스의 구독 ID, SQL 데이터베이스의 리소스 그룹 및 SQL 데이터베이스의 이름이 포함되어야 합니다. 
     * 관리 ID 연결 문자열 형식:
         * *Initial Catalog|Database=**database name**;ResourceId=/subscriptions/**구독 ID**/resourceGroups/**리소스 그룹 이름**/providers/Microsoft.Sql/servers/**SQL Server 이름**/;Connection Timeout=**connection timeout length**;*
 * **container** 에는 인덱싱할 테이블 또는 뷰의 이름을 지정합니다.

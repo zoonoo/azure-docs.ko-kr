@@ -5,26 +5,49 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 05/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 86e9b13ce56e1924b0e24a7f4971da18620617de
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: 1913b6cf14aaf31d610adcf446dbe91326e02ff1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043634"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742916"
 ---
-# <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>등록 사용자 흐름에 API 커넥터 추가(미리 보기)
+# <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>등록 사용자 흐름에 API 커넥터 추가
+
+개발자 또는 IT 관리자는 API 커넥터를 사용하여 REST API와 등록 사용자 흐름을 통합함으로써 등록 환경을 사용자 지정하고 외부 시스템과 통합할 수 있습니다. 이 연습의 끝부분에서는 [REST API 서비스](api-connectors-overview.md)와 상호 작용하는 Azure AD B2C 사용자 흐름을 만들 수 있습니다. 
+
+::: zone pivot="b2c-user-flow"
+
+이 시나리오에서 REST API는 이메일 주소의 도메인이 fabrikam.com인지 아니면 fabricam.com인지를 확인합니다. 사용자가 제공한 표시 이름이 5자를 초과합니다. 그런 다음, 고정적인 값이 있는 직위를 반환합니다. 
 
 > [!IMPORTANT]
 > 등록을 위한 API 커넥터는 Azure AD B2C의 퍼블릭 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-[API 커넥터](api-connectors-overview.md)를 사용하려면 먼저 API 커넥터를 만든 다음, 사용자 흐름에서 사용하도록 설정합니다.
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+이 시나리오에서는 사용자가 Azure AD B2C 등록 페이지에 전용 번호를 입력할 수 있는 기능을 추가합니다. REST API는 이메일과 전용 번호의 조합이 프로모션 코드에 매핑되는지 여부를 확인합니다. REST API가 이 사용자에 대한 프로모션 코드를 찾은 경우 Azure AD B2C로 반환됩니다. 마지막으로, 프로모션 코드는 애플리케이션이 사용할 토큰 클레임에 삽입됩니다.
+
+또한 상호 작용은 오케스트레이션 단계로도 설계할 수 있습니다. 이는 REST API가 화면에서 데이터의 유효성을 검사하고 항상 클레임을 반환하는 경우에 적합합니다. 자세한 내용은 [연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 오케스트레이션 단계로 통합](custom-policy-rest-api-claims-exchange.md)을 참조하세요.
+
+::: zone-end
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
+::: zone pivot="b2c-user-flow"
 
 ## <a name="create-an-api-connector"></a>API 커넥터 만들기
+
+[API 커넥터](api-connectors-overview.md)를 사용하려면 먼저 API 커넥터를 만든 다음, 사용자 흐름에서 사용하도록 설정합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다.
@@ -51,7 +74,7 @@ HTTP 기본 인증은 [RFC 2617](https://tools.ietf.org/html/rfc2617)에 정의�
 > [!IMPORTANT]
 > 이 기능은 미리 보기 상태이며 서비스 수준 계약 없이 제공됩니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-클라이언트 인증서 인증은 클라이언트에서 해당 ID를 증명하기 위해 클라이언트 인증서를 서버에 제공하는 상호 인증서 기반 인증 방법입니다. 이 경우 Azure AD B2C는 업로드하는 인증서를 API 커넥터 구성의 일부로 사용합니다. 이는 SSL 핸드셰이크의 일부로 발생합니다. 그러면 API 서비스는 적절한 인증서가 있는 서비스로만 액세스를 제한할 수 있습니다. 클라이언트 인증서는 PKCS12(PFX) X.509 디지털 인증서입니다. 프로덕션 환경에서는 인증 기관에서 서명해야 합니다. 
+클라이언트 인증서 인증은 클라이언트에서 해당 ID를 증명하기 위해 클라이언트 인증서를 서버에 제공하는 상호 인증서 기반 인증 방법입니다. 이 경우 Azure AD B2C는 업로드하는 인증서를 API 커넥터 구성의 일부로 사용합니다. 이는 TLS/SSL 핸드셰이크의 일부로 발생합니다. 그러면 API 서비스는 적절한 인증서가 있는 서비스로만 액세스를 제한할 수 있습니다. 클라이언트 인증서는 PKCS12(PFX) X.509 디지털 인증서입니다. 프로덕션 환경에서는 인증 기관에서 서명해야 합니다. 
 
 인증서를 만들려면 자체 서명된 인증서 및 서명된 인증서의 인증서 발급자 공급자와의 통합 옵션이 포함된 [Azure Key Vault](../key-vault/certificates/create-certificate.md)를 사용할 수 있습니다. 권장 설정은 다음과 같습니다.
 - **주체**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
@@ -68,9 +91,10 @@ HTTP 기본 인증은 [RFC 2617](https://tools.ietf.org/html/rfc2617)에 정의�
 API는 API 엔드포인트를 보호하기 위해 전송된 클라이언트 인증서를 기준으로 권한 부여를 구현해야 합니다. Azure App Service 및 Azure Functions의 경우 [TLS 상호 인증 구성](../app-service/app-service-web-configure-tls-mutual-auth.md)을 참조하여 *API 코드에서 인증서를 사용하도록 설정하고 유효성을 검사* 하는 방법을 알아보세요.  Azure API Management를 사용하여 정책 식을 통해 원하는 값을 기준으로 [클라이언트 인증서 속성을 확인](
 ../api-management/api-management-howto-mutual-certificates-for-clients.md)할 수도 있습니다.
 
-인증서가 만료되는 경우에 대한 미리 알림 경고를 설정하는 것이 좋습니다. 새 인증서를 생성하고 위의 단계를 반복해야 합니다. 새 인증서를 배포하는 동안 API 서비스는 일시적으로 이전 인증서와 새 인증서를 계속 사용할 수 있습니다. 기존 API 커넥터에 새 인증서를 업로드하려면 **API 커넥터** 에서 API 커넥터를 선택하고 **새 인증서 업로드** 를 클릭합니다. 만료되지 않고 시작 날짜를 지난 가장 최근에 업로드된 인증서는 Azure Active Directory에서 자동으로 사용됩니다.
+인증서가 만료되는 경우에 대한 미리 알림 경고를 설정하는 것이 좋습니다. 새 인증서를 생성하고 위의 단계를 반복해야 합니다. 새 인증서를 배포하는 동안 API 서비스는 일시적으로 이전 인증서와 새 인증서를 계속 사용할 수 있습니다. 기존 API 커넥터에 새 인증서를 업로드하려면 **API 커넥터** 에서 API 커넥터를 선택하고 **새 인증서 업로드** 를 클릭합니다. 만료되지 않고 시작 날짜가 지난 가장 최근에 업로드된 인증서가 Azure Active Directory에서 자동으로 사용됩니다.
 
 ### <a name="api-key"></a>API 키
+
 일부 서비스는 "API 키" 메커니즘을 사용하여 개발 중에 HTTP 엔드포인트에 대한 액세스 권한을 난독 처리합니다. [Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys)의 경우 `code`을 **엔드포인트 URL** 에 쿼리 매개 변수로 포함하여 이 작업을 수행할 수 있습니다. (예: `https://contoso.azurewebsites.net/api/endpoint`<b>`?code=0123456789`</b>) 
 
 프로덕션 환경에서 단독으로 사용해야 하는 메커니즘이 아닙니다. 따라서 기본 또는 인증서 인증에 대한 구성이 항상 필요합니다. 개발 목적으로 인증 방법을 구현하지 않으려는 경우(권장되지 않음) 기본 인증을 선택하고, API에서 권한 부여를 구현하는 동안 무시할 수 있는 `username` 및 `password`에 대해 임시 값을 사용할 수 있습니다.
@@ -218,7 +242,8 @@ Content-type: application/json
  "ui_locales":"en-US"
 }
 ```
-API로 전송되는 정확한 클레임은 사용자로부터 수집된 정보나 ID 공급자가 제공하는 정보에 따라 달라집니다.
+
+API로 전송되는 클레임은 사용자로부터 수집한 정보나 ID 공급자가 제공하는 정보에 따라 달라집니다.
 
 ### <a name="expected-response-types-from-the-web-api-at-this-step"></a>이 단계에서 웹 API의 예상 응답 유형
 
@@ -323,10 +348,250 @@ Content-type: application/json
 ![유효성 검사 페이지 예](./media/add-api-connector/validation-error-postal-code.png)
 
 
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+
+## <a name="prepare-a-rest-api-endpoint"></a>REST API 엔드포인트 준비
+
+이 연습에서는 이메일 주소가 전용 ID로 백 엔드 시스템에 등록되었는지 여부를 확인하는 REST API가 있어야 합니다. 등록된 경우 REST API는 고객이 애플리케이션 내에서 상품을 구매할 수 있는 등록 프로모션 코드를 반환합니다. 그렇지 않으면 REST API는 HTTP 409 오류 메시지: "전용 ID '{loyalty ID}'가 '{email}' 이메일 주소와 연결되어 있지 않습니다"를 반환합니다.
+
+다음 JSON 코드는 Azure AD B2C가 REST API 엔드포인트로 전송하는 데이터를 보여줍니다. 
+
+```json
+{
+    "email": "User email address",
+    "language": "Current UI language",
+    "loyaltyId": "User loyalty ID"
+}
+```
+
+REST API가 데이터의 유효성을 검사한 후에는 다음 JSON 데이터를 사용하여 HTTP 200(Ok)를 반환해야 합니다.
+
+```json
+{
+    "promoCode": "24534"
+}
+```
+
+유효성 검사에 실패한 경우 REST API는 `userMessage` JSON 요소와 함께 HTTP 409(충돌)를 반환해야 합니다. IEF는 REST API가 반환하는 `userMessage` 클레임을 예상합니다. 유효성 검사에 실패하면 이 클레임은 사용자에게 문자열로 표시됩니다.
+
+```json
+{
+    "version": "1.0.1",
+    "status": 409,
+    "userMessage": "LoyaltyId ID '1234' is not associated with 'david@contoso.com' email address."
+}
+```
+
+REST API 엔드포인트의 설정은 이 문서에서 다루지 않습니다. [Azure Functions](../azure-functions/functions-reference.md) 샘플은 링크를 통해 확인하세요. 전체 Azure 함수 코드는 [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function)에서 액세스할 수 있습니다.
+
+## <a name="define-claims"></a>클레임 정의
+
+클레임은 Azure AD B2C 정책 실행 중에 데이터의 임시 스토리지를 제공합니다. [클레임 스키마](claimsschema.md) 섹션 내에서 클레임을 선언할 수 있습니다. 
+
+1. 정책의 확장 파일을 엽니다. 예를 들어 <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>입니다.
+1. [BuildingBlocks](buildingblocks.md) 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
+1. [ClaimsSchema](claimsschema.md) 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
+1. **ClaimsSchema** 요소에 다음 클레임을 추가합니다.  
+
+```xml
+<ClaimType Id="loyaltyId">
+  <DisplayName>Your loyalty ID</DisplayName>
+  <DataType>string</DataType>
+  <UserInputType>TextBox</UserInputType>
+</ClaimType>
+<ClaimType Id="promoCode">
+  <DisplayName>Your promo code</DisplayName>
+  <DataType>string</DataType>
+  <UserInputType>Paragraph</UserInputType>
+</ClaimType>
+  <ClaimType Id="userLanguage">
+  <DisplayName>User UI language (used by REST API to return localized error messages)</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+```
+
+## <a name="add-the-restful-api-technical-profile"></a>RESTful API 기술 프로필 추가 
+
+[RESTful 기술 프로필](restful-technical-profile.md)은 자체 RESTful 서비스와의 상호 작용을 지원합니다. Azure AD B2C는 `InputClaims` 컬렉션에서 RESTful 서비스로 데이터를 보내고 `OutputClaims` 컬렉션에서 데이터를 다시 수신합니다. **ClaimsProviders** 요소를 찾고 다음과 같이 새 클레임 공급자를 추가합니다.
+
+```xml
+<ClaimsProvider>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="REST-ValidateProfile">
+      <DisplayName>Check loyaltyId Azure Function web hook</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <!-- Set the ServiceUrl with your own REST API endpoint -->
+        <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/ValidateProfile?code=your-code</Item>
+        <Item Key="SendClaimsIn">Body</Item>
+        <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
+        <Item Key="AuthenticationType">None</Item>
+        <!-- REMOVE the following line in production environments -->
+        <Item Key="AllowInsecureAuthInProduction">true</Item>
+      </Metadata>
+      <InputClaims>
+        <!-- Claims sent to your REST API -->
+        <InputClaim ClaimTypeReferenceId="loyaltyId" />
+        <InputClaim ClaimTypeReferenceId="email" />
+        <InputClaim ClaimTypeReferenceId="userLanguage" PartnerClaimType="lang" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
+      </InputClaims>
+      <OutputClaims>
+        <!-- Claims parsed from your REST API -->
+        <OutputClaim ClaimTypeReferenceId="promoCode" />
+      </OutputClaims>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+```
+
+이 예제에서 `userLanguage`는 JSON 페이로드 내에서 `lang`으로 REST 서비스에 전송됩니다. `userLanguage` 클레임의 값은 현재 사용자 언어 ID를 포함합니다. 자세한 내용은 [클레임 해결 프로그램](claim-resolver-overview.md)을 참조하세요.
+
+### <a name="configure-the-restful-api-technical-profile"></a>RESTful API 기술 프로필 구성 
+
+REST API를 배포한 후에는 다음을 포함하여 고유한 REST API를 반영하도록 `REST-ValidateProfile` 기술 프로필 메타데이터를 설정하세요.
+
+- **ServiceUrl**. REST API 엔드포인트 URL을 설정합니다.
+- **SendClaimsIn**. 입력 클레임이 RESTful 클레임 공급자로 전송되는 방법을 지정합니다.
+- **AuthenticationType**. RESTful 클레임 공급자가 수행하는 인증 유형을 설정합니다. 
+- **AllowInsecureAuthInProduction**. 프로덕션 환경에서 이 메타데이터가 `true`로 설정되었는지 확인합니다.
+    
+자세한 구성은 [RESTful 기술 프로필 메타데이터](restful-technical-profile.md#metadata)를 참조하세요.
+
+위의 `AuthenticationType` 및 `AllowInsecureAuthInProduction` 설명은 프로덕션 환경으로 이동할 때 수행해야 하는 변경 내용을 지정합니다. 프로덕션을 위해 RESTful Api를 보호하는 방법을 알아보려면 [Secure RESTful API](secure-rest-api.md)를 참조하세요.
+
+## <a name="validate-the-user-input"></a>사용자 입력 유효성 검사
+
+등록하는 동안 사용자의 전용 번호를 얻으려면 사용자가 화면에 이 데이터를 입력하도록 허용해야 합니다. 기존 등록 기술 프로필 섹션의 `OutputClaims` 요소에 추가하여 등록 페이지에 **loyaltyId** 출력 클레임을 추가합니다. 전체 출력 클레임 목록을 지정하여 화면에 클레임이 표시되는 순서를 제어합니다.  
+
+등록 기술 프로필에 `REST-ValidateProfile`을 호출하는 유효성 검사 기술 프로필 참조를 추가합니다. 새 유효성 검사 기술 프로필은 기본 정책에 정의된 `<ValidationTechnicalProfiles>` 컬렉션의 맨 위에 추가됩니다. 이 동작은 유효성 검사가 성공적으로 수행된 후에만 디렉터리에 계정을 만들도록 Azure AD B2C가 이동한다는 것을 의미합니다.   
+
+1. **ClaimsProviders** 요소를 찾습니다. 다음과 같이 새 클레임 공급자를 추가합니다.
+
+    ```xml
+    <ClaimsProvider>
+      <DisplayName>Local Account</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true"/>
+            <OutputClaim ClaimTypeReferenceId="newPassword" Required="true"/>
+            <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true"/>
+            <OutputClaim ClaimTypeReferenceId="displayName"/>
+            <OutputClaim ClaimTypeReferenceId="givenName"/>
+            <OutputClaim ClaimTypeReferenceId="surName"/>
+            <!-- Required to present the text box to collect the data from the user -->
+            <OutputClaim ClaimTypeReferenceId="loyaltyId"/>
+            <!-- Required to pass the promoCode returned from "REST-ValidateProfile" 
+            to subsequent orchestration steps and token issuance-->
+            <OutputClaim ClaimTypeReferenceId="promoCode" />
+          </OutputClaims>
+          <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="REST-ValidateProfile" />
+          </ValidationTechnicalProfiles>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    <ClaimsProvider>
+      <DisplayName>Self Asserted</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="SelfAsserted-Social">
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="email" />
+          </InputClaims>
+            <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="email" />
+            <OutputClaim ClaimTypeReferenceId="displayName"/>
+            <OutputClaim ClaimTypeReferenceId="givenName"/>
+            <OutputClaim ClaimTypeReferenceId="surname"/>
+            <!-- Required to present the text box to collect the data from the user -->
+            <OutputClaim ClaimTypeReferenceId="loyaltyId"/>
+            <!-- Required to pass the promoCode returned from "REST-ValidateProfile" 
+            to subsequent orchestration steps and token issuance-->
+            <OutputClaim ClaimTypeReferenceId="promoCode" />
+          </OutputClaims>
+          <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="REST-ValidateProfile"/>
+          </ValidationTechnicalProfiles>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
+
+## <a name="include-a-claim-in-the-token"></a>토큰에 클레임 포함하기 
+
+프로모션 코드 클레임을 신뢰 당사자 애플리케이션에 다시 반환하려면 <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> 파일에 출력 클레임을 추가합니다. 출력 클레임은 성공적인 사용자 경험 이후 토큰에 클레임을 추가할 수 있도록 하고 애플리케이션으로 전송됩니다. 신뢰 당사자 섹션 내에서 기술 프로필 요소를 수정하여 `promoCode`를 출력 클레임으로 추가합니다.
+ 
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      <OutputClaim ClaimTypeReferenceId="promoCode" DefaultValue="" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+## <a name="test-the-custom-policy"></a>사용자 지정 정책 테스트
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Azure AD 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, Azure AD 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택한 다음, **앱 등록** 을 검색하여 선택합니다.
+1. **ID 경험 프레임워크** 를 선택합니다.
+1. **사용자 지정 정책 업로드** 를 선택하고 변경한 정책 파일인 *TrustFrameworkExtensions.xml* 및 *SignUpOrSignin.xml* 을 업로드합니다. 
+1. 업로드한 등록 또는 로그인 정책을 선택하고 **지금 실행** 단추를 클릭합니다.
+1. 전자 메일 주소를 사용하여 등록할 수 있습니다.
+1. **지금 등록** 링크를 클릭합니다.
+1. **내 전용 ID** 에 1234를 입력하고 **계속** 을 클릭합니다. 이 시점에서 유효성 검사 오류 메시지가 표시됩니다.
+1. 다른 값으로 변경하고 **계속** 을 클릭합니다.
+1. 애플리케이션으로 다시 전송되는 토큰에는 `promoCode` 클레임이 포함됩니다.
+
+```json
+{
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "X5eXk4xyojNFum1kl2Ytv8dlNP4-c57dO6QGTVBwaNk"
+}.{
+  "exp": 1584295703,
+  "nbf": 1584292103,
+  "ver": "1.0",
+  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
+  "acr": "b2c_1a_signup_signin",
+  "nonce": "defaultNonce",
+  "iat": 1584292103,
+  "auth_time": 1584292103,
+  "name": "Emily Smith",
+  "email": "emily@outlook.com",
+  "given_name": "Emily",
+  "family_name": "Smith",
+  "promoCode": "84362"
+  ...
+}
+```
+
+::: zone-end
+
 ## <a name="best-practices-and-how-to-troubleshoot"></a>모범 사례 및 문제 해결 방법
 
 ### <a name="using-serverless-cloud-functions"></a>서버리스 클라우드 함수 사용
-Azure Functions의 HTTP 트리거와 같은 서버리스 함수는 API 커넥터에서 사용할 API 엔드포인트를 만드는 간단한 방법을 제공합니다. [예를 들어](code-samples.md#api-connectors) 서버리스 클라우드 함수를 사용하여 유효성 검사 논리를 수행하고 등록을 특정 메일 도메인으로 제한할 수 있습니다. 서버리스 클라우드 함수는 보다 복잡한 시나리오에 대해 다른 웹 API, 사용자 저장소 및 기타 클라우드 서비스를 호출할 수도 있습니다.
+
+Azure Functions의 HTTP 트리거와 같은 서버리스 함수는 API 커넥터에서 사용할 API 엔드포인트를 만드는 방법을 제공합니다. [예를 들어](code-samples.md#api-connectors) 서버리스 클라우드 함수를 사용하여 유효성 검사 논리를 수행하고 등록을 특정 메일 도메인으로 제한할 수 있습니다. 서버리스 클라우드 함수는 보다 복잡한 시나리오에 대해 다른 웹 API, 사용자 저장소 및 기타 클라우드 서비스를 호출할 수도 있습니다.
 
 ### <a name="best-practices"></a>모범 사례
 다음 사항을 확인합니다.
@@ -336,8 +601,8 @@ Azure Functions의 HTTP 트리거와 같은 서버리스 함수는 API 커넥터
 * API는 유연하게 사용자 환경을 보장하기 위해 최대한 신속하게 응답합니다.
     * 서버리스 함수 또는 스케일링 가능한 웹 서비스를 사용하는 경우 프로덕션 환경에서 API를 "활성" 또는 "웜" 상태로 유지하는 호스팅 계획을 사용합니다. Azure Functions의 경우 [프리미엄 플랜](../azure-functions/functions-scale.md)을 사용하는 것이 좋습니다.
  
-
 ### <a name="use-logging"></a>로깅 사용
+
 일반적으로 [Application Insights](../azure-functions/functions-monitoring.md)와 같은 웹 API 서비스에서 사용하도록 설정된 로깅 도구를 사용하여 API에서 예기치 않은 오류 코드, 예외 및 성능 저하 문제를 모니터링하는 것이 유용합니다.
 * HTTP 200 또는 400이 아닌 HTTP 상태 코드를 모니터링합니다.
 * 401 또는 403 HTTP 상태 코드는 일반적으로 인증에 문제가 있음을 나타냅니다. API 커넥터에서 API의 인증 계층 및 해당 구성을 한 번 더 확인합니다.
@@ -345,4 +610,18 @@ Azure Functions의 HTTP 트리거와 같은 서버리스 함수는 API 커넥터
 * API에서 긴 응답 시간이 나타나는지 모니터링합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
+::: zone pivot="b2c-user-flow"
+
 - [샘플](code-samples.md#api-connectors)을 시작하세요.
+- [API 커넥터 보호](secure-rest-api.md)
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+- [연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 오케스트레이션 단계로 통합](custom-policy-rest-api-claims-exchange.md)
+- [API 커넥터 보호](secure-rest-api.md)
+- [참조: RESTful 기술 프로필](restful-technical-profile.md)
+
+::: zone-end

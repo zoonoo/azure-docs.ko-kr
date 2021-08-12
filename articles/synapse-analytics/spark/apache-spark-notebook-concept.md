@@ -9,18 +9,18 @@ ms.date: 11/18/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 5efdfcea7b6d727038bad124368179b9395bfafd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dbdfb7e13249de21b890c6f4476cb82a5c91a23e
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97093280"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809907"
 ---
 # <a name="azure-synapse-analytics-notebooks"></a>Azure Synapse Analytics Notebook
 
 Synapse Studio Notebook은 라이브 코드, 시각화 및 이야기 텍스트를 만들 수 있는 웹 인터페이스입니다. Notebook은 아이디어를 검증하고 빠른 실험을 사용하여 데이터를 통해 인사이트를 확보하기 좋은 도구입니다. 
 
-Azure Synapse Studio Notebook을 사용하면 다음이 가능합니다.
+Synapse Studio Notebook을 사용하면 다음이 가능합니다.
 
 * 시작에 필요한 설정 작업이 전혀 없습니다.
 * 기본 제공 엔터프라이즈 보안 기능으로 데이터 보안을 유지합니다.

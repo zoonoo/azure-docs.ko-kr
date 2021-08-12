@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB에서 절 선택
-description: Azure Cosmos DB에 대 한 SQL SELECT 절에 대해 알아봅니다. Azure Cosmos DB JSON 쿼리 언어로 SQL을 사용 합니다.
+title: Azure Cosmos DB의 SELECT 절
+description: Azure Cosmos DB의 SQL SELECT 절에 대해 알아봅니다. SQL을 Azure Cosmos DB JSON 쿼리 언어로 사용합니다.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: 072e17b1c0ea312b4adfa1687e447fd2cadde233
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93335446"
 ---
-# <a name="select-clause-in-azure-cosmos-db"></a>Azure Cosmos DB에서 절 선택
+# <a name="select-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 SELECT 절
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-모든 쿼리는 `SELECT` ANSI SQL 표준에 따라 절과 선택적 [From](sql-query-from.md) 및 [WHERE](sql-query-where.md) 절로 구성 됩니다. 일반적으로 절의 소스는 `FROM` 열거 되며 `WHERE` 절은 소스에 필터를 적용 하 여 JSON 항목의 하위 집합을 검색 합니다. `SELECT`그런 다음 절은 요청 된 JSON 값을 select 목록에 프로젝션 합니다.
+ANSI SQL 표준에 따라 모든 쿼리는 `SELECT` 절과 선택적 [FROM](sql-query-from.md) 및 [WHERE](sql-query-where.md) 절로 구성됩니다. 일반적으로 `FROM` 절의 소스는 열거되고 `WHERE` 절은 소스에 필터를 적용하여 JSON 항목의 하위 세트를 검색합니다. 그런 다음, `SELECT` 절은 요청된 JSON 값을 선택 목록에 프로젝션합니다.
 
 ## <a name="syntax"></a>구문
 
@@ -53,7 +53,7 @@ SELECT <select_specification>
 
 - `DISTINCT`
   
-  프로젝션 된 속성의 중복 항목을 제거 하도록 지정 합니다.  
+  프로젝션된 속성의 중복을 제거해야 함을 지정합니다.  
 
 - `<scalar_expression>`  
 
@@ -77,9 +77,9 @@ SELECT <select_specification>
   
    `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
-다음 SELECT 쿼리 예제에서는 `address` `Families` `id` 와 일치 하는을 반환 합니다 `AndersenFamily` .
+다음 SELECT 쿼리 예제는 `id`가 `AndersenFamily`와 일치하는 `Families`에서 `address`를 반환합니다.
 
 ```sql
     SELECT f.address

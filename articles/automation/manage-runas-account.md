@@ -1,20 +1,27 @@
 ---
 title: Azure Automation 실행 계정 관리
-description: 이 문서에서는 PowerShell 또는 Azure Portal에서 실행 계정을 관리하는 방법을 설명합니다.
+description: 이 문서에서는 PowerShell 또는 Azure Portal에서 Azure Automation 실행 계정을 관리하는 방법을 설명합니다.
 services: automation
 ms.subservice: ''
-ms.date: 01/19/2021
+ms.date: 05/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: f170fc948f136f4f46634e7ae2645ed2eb357afa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d2d615df07e89e1fc2d4e63066d320002718d200
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101096466"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059683"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Azure Automation 실행 계정 관리
 
-Azure Automation의 실행 계정은 Automation Runbook 및 기타 Automation 기능을 사용하여 Azure Resource Manager 또는 Azure 클래식 배포 모델에서 리소스를 관리하기 위한 인증을 제공합니다. 이 문서에서는 실행 계정 또는 클래식 실행 계정을 관리하는 방법에 대한 참고 자료를 제공합니다.
+Azure Automation의 실행 계정은 Automation Runbook 및 기타 Automation 기능을 사용하여 Azure Resource Manager 또는 Azure 클래식 배포 모델에서 리소스를 관리하기 위한 인증을 제공합니다. 
+
+이 문서에서는 다음을 포함하여 실행 계정 또는 클래식 실행 계정을 관리하는 방법을 설명합니다.
+
+   * 자체 서명된 인증서를 갱신하는 방법
+   * 엔터프라이즈 또는 타사 CA(인증 기관)에서 인증서를 갱신하는 방법
+   * 실행 계정에 대한 권한 관리
 
 Azure Automation 계정 인증 및 프로세스 자동화 시나리오 관련 참고 자료에 대한 자세한 정보는 [Automation 계정 인증 개요](automation-security-overview.md)를 참조하세요.
 
@@ -28,7 +35,7 @@ Azure Automation 계정 인증 및 프로세스 자동화 시나리오 관련 �
 >실행 계정이 손상되었다고 생각되면 자체 서명된 인증서를 삭제하고 다시 만들 수 있습니다.
 
 >[!NOTE]
->엔터프라이즈 인증 기관에서 발급한 인증서를 사용하도록 실행 계정을 구성하고 자체 서명된 인증서를 갱신하는 옵션을 사용하는 경우 엔터프라이즈 인증서는 자체 서명된 인증서로 교체됩니다.
+>엔터프라이즈 또는 타사 CA에서 발급한 인증서를 사용하도록 실행 계정을 구성하고 자체 서명된 인증서를 갱신하는 옵션을 사용하는 경우 엔터프라이즈 인증서는 자체 서명된 인증서로 교체됩니다. 이 경우 인증서를 갱신하려면 [엔터프라이즈 또는 타사 인증서 갱신](#renew-an-enterprise-or-third-party-certificate)을 참조하세요.
 
 다음 단계를 사용하여 자체 서명된 인증서를 갱신합니다.
 
@@ -45,6 +52,31 @@ Azure Automation 계정 인증 및 프로세스 자동화 시나리오 관련 �
     :::image type="content" source="media/manage-runas-account/automation-account-renew-runas-certificate.png" alt-text="실행 계정용 인증서 갱신":::
 
 1. 인증서가 갱신되는 동안 메뉴의 **알림** 에서 진행률을 추적할 수 있습니다.
+
+## <a name="renew-an-enterprise-or-third-party-certificate"></a>엔터프라이즈 또는 타사 인증서 갱신
+
+모든 인증서에는 기본 제공 만료 날짜가 있습니다. 실행 계정에 할당한 인증서가 CA(인증 기관)에서 발급된 경우 만료되기 전에 새 인증서를 사용하여 실행 계정을 구성하는 다른 단계를 수행해야 합니다. 만료되기 전에 언제든지 갱신할 수 있습니다.
+
+1. [새 인증서 만들기](./shared-resources/certificates.md#create-a-new-certificate) 단계에 따라 갱신된 인증서를 가져옵니다. 자동화하려면 인증서에 다음 구성이 필요합니다.
+
+   * 공급자 **Microsoft Enhanced RSA 및 AES 암호화 공급자** 지정
+   * 내보낼 수 있음으로 표시
+   * SHA256 알고리즘을 사용하도록 구성됨
+   * `*.pfx` 또는 `*.cer` 형식으로 저장됩니다. 
+
+   인증서를 가져온 후 인증서 **지문** 값을 기록하거나 복사합니다. 이 값은 실행 연결 속성을 새 인증서로 업데이트하는 데 사용됩니다. 
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+
+1. **Automation 계정** 을 검색하여 선택합니다.
+
+1. Automation 계정 페이지의 목록에서 Automation 계정을 선택합니다.
+
+1. 왼쪽 창에서 **연결** 을 선택합니다.
+
+1. **연결** 페이지에서 **AzureRunAsConnection** 을 선택하고 새 인증서 지문으로 **인증서 지문** 을 업데이트합니다.
+
+1. 변경 내용을 적용하려면 **저장** 을 선택합니다.
 
 ## <a name="grant-run-as-account-permissions-in-other-subscriptions"></a>다른 구독의 실행 계정 권한 부여
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB의 매개 변수가 있는 쿼리
-description: SQL 매개 변수가 있는 쿼리를 통해 사용자 입력의 강력한 처리 및 이스케이프를 제공 하 고 SQL 주입을 통해 실수로 데이터가 노출 되는 것을 방지 하는 방법을 알아봅니다.
+description: SQL 매개 변수가 있는 쿼리에서 사용자 입력의 강력한 처리 및 이스케이프를 제공하고 SQL 삽입을 통해 실수로 인한 데이터 공개를 방지하는 방법을 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
 ms.openlocfilehash: dc32aab89e50b500001fd2267f62e3031154be62
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96549160"
 ---
 # <a name="parameterized-queries-in-azure-cosmos-db"></a>Azure Cosmos DB의 매개 변수가 있는 쿼리
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB는 익숙한 @ 표기법으로 표현 된 매개 변수가 있는 쿼리를 지원 합니다. 매개 변수가 있는 SQL은 사용자 입력의 강력한 처리 및 이스케이프를 제공 하 고 SQL 주입을 통해 실수로 데이터가 노출 되는 것을 방지 합니다.
+Azure Cosmos DB는 익숙한 @ 표기법으로 표현된 매개 변수가 있는 쿼리를 지원합니다. 매개 변수가 있는 SQL은 사용자 입력의 강력한 처리 및 이스케이프를 제공하며 SQL 삽입을 통해 실수로 인한 데이터 노출을 방지합니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
-예를 들어 및를 매개 변수로 사용 하는 쿼리를 작성 하 `lastName` `address.state` 고 `lastName` `address.state` 사용자 입력을 기준으로 다양 한 값에 대해 실행할 수 있습니다.
+예를 들어, `lastName` 및 `address.state`를 매개 변수로 사용하는 쿼리를 작성하고 사용자 입력에 따라 `lastName` 및 `address.state`의 다양한 값에 대해 해당 쿼리를 실행합니다.
 
 ```sql
     SELECT *
@@ -29,7 +29,7 @@ Azure Cosmos DB는 익숙한 @ 표기법으로 표현 된 매개 변수가 있�
     WHERE f.lastName = @lastName AND f.address.state = @addressState
 ```
 
-그러면 다음과 같이이 요청을 매개 변수가 있는 JSON 쿼리로 Azure Cosmos DB 보낼 수 있습니다.
+이후 다음과 같이 이 요청을 매개 변수가 있는 JSON 쿼리로 Azure Cosmos DB에 보낼 수 있습니다.
 
 ```sql
     {
@@ -41,7 +41,7 @@ Azure Cosmos DB는 익숙한 @ 표기법으로 표현 된 매개 변수가 있�
     }
 ```
 
-다음 예에서는 매개 변수가 있는 쿼리를 사용 하 여 TOP 인수를 설정 합니다.
+다음 예제에서는 매개 변수가 있는 쿼리를 사용하여 TOP 인수를 설정합니다.
 
 ```sql
     {
@@ -52,9 +52,9 @@ Azure Cosmos DB는 익숙한 @ 표기법으로 표현 된 매개 변수가 있�
     }
 ```
 
-매개 변수 값은 문자열, 숫자, 부울, null, 배열 또는 중첩 된 JSON의 모든 유효한 JSON이 될 수 있습니다. Azure Cosmos DB은 스키마 형식 이므로 모든 형식에 대해 매개 변수의 유효성이 검사 되지 않습니다.
+매개 변수 값은 유효한 JSON(문자열, 숫자, 부울, null, 짝수 배열 또는 중첩된 JSON)일 수 있습니다. Azure Cosmos DB는 스키마가 없으므로 매개 변수는 임의 형식에 대해 유효성이 검사되지 않습니다.
 
-다음은 각 Azure Cosmos DB SDK의 매개 변수가 있는 쿼리에 대 한 예입니다.
+다음은 각 Azure Cosmos DB SDK의 매개 변수가 있는 쿼리에 대한 예제입니다.
 
 - [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L195)
 - [Java](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L392-L421)

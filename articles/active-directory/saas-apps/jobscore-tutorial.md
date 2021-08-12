@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 275f87163e75c3ded7260229d40a61185877a7d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 932e4db2c7a91c1c6ec6133068741f07d3652c35
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92459422"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112460777"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscore"></a>자습서: JobScore와 Azure Active Directory 통합
 
@@ -101,7 +101,7 @@ JobScore에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
     ![JobScore 도메인 및 URL Single Sign-On 정보](common/sp-signonurl.png)
 
-    **로그인 URL** 텍스트 상자에서 `https://hire.jobscore.com/auth/adfs/<company name>` 패턴을 사용하여 URL을 입력합니다.
+    **로그인 URL** 텍스트 상자에서 `https://hire.jobscore.com/auth/adfs/<company id>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [JobScore 클라이언트 지원 팀](mailto:support@jobscore.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

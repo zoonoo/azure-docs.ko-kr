@@ -3,12 +3,13 @@ title: Azure Service Bus 큐 및 토픽에서 분할을 사용하도록 설정
 description: 이 문서에서는 Azure Portal, PowerShell, CLI 및 프로그래밍 언어(C#, Java, Python 및 JavaScript)를 사용하여 Azure Service Bus 큐 및 토픽에서 분할을 사용하도록 설정하는 방법을 설명합니다.
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: fb704f784d490cb73c14fc73b1a6c4368d16acbc
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 786a78cfa86c67ba32675fcee2b03c4e3817fbf6
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107755086"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671395"
 ---
 # <a name="enable-partitioning-for-an-azure-service-bus-queue-or-a-topic"></a>Azure Service Bus 큐 또는 토픽에 대해 분할을 사용하도록 설정
 Service Bus 파티션을 사용하면 큐 및 항목 또는 메시징 엔터티가 여러 메시지 broker 및 메시징 저장소에 분할될 수 있습니다. 분할은 분할된 엔터티의 전체 처리량이 단일 메시지 broker 또는 메시징 저장소의 성능으로 제한되지 않는다는 의미입니다. 또한 메시징 저장소가 일시적으로 중단된 경우에도 분할된 큐 또는 토픽을 계속 사용할 수 있습니다. 분할된 큐 및 항목은 트랜잭션 및 세션에 대한 지원 같은 모든 고급 Service Bus 기능을 포함할 수 있습니다. 자세한 내용은 [분할된 큐 및 토픽](service-bus-partitioning.md)을 참조하세요. 이 문서에서는 Service Bus 큐 또는 토픽에 대해 중복 메시지 검색을 사용하도록 설정하는 다양한 방법을 보여 줍니다. 
@@ -16,6 +17,9 @@ Service Bus 파티션을 사용하면 큐 및 항목 또는 메시징 엔터티�
 > [!IMPORTANT]
 > - 분할은 기본 또는 표준 SKU의 모든 큐와 항목에서 엔터티 생성에 지원됩니다. 프리미엄 메시지 SKU에 지원되지 않지만 프리미엄 네임스페이스에서 기존에 분할된 엔터티는 정상적으로 계속 작동합니다.
 > - 기존 큐 또는 토픽에서는 분할 옵션을 변경할 수 없습니다. 큐 또는 토픽을 만들 때만 옵션을 설정할 수 있습니다. 
+> - **표준** 계층 네임스페이스에서 Service Bus 큐 및 항목은 1, 2, 3, 4 또는 5GB 크기로 만들 수 있습니다(기본값은 1GB). 분할을 사용하는 경우 Service Bus는 엔터티의 16개 사본(16개 파티션)을 각각 지정된 동일한 크기로 만듭니다. 따라서 크기가 5GB인 큐를 만들 경우 16개의 파티션에서 최대 큐 크기는 (5 \* 16) = 80GB가 됩니다. 
+> - **프리미엄** 계층 네임스페이스에서는 엔터티 분할이 지원되지 않습니다. 그러나 Service Bus 큐 및 항목은 1, 2, 3, 4, 5, 10, 20, 40 또는 80GB 크기로 만들 수 있습니다(기본값은 1GB). [Azure Portal](https://portal.azure.com)의 **개요** 페이지에서 분할된 큐 또는 항목의 최대 크기를 확인할 수 있습니다.
+
 
 ## <a name="using-azure-portal"></a>Azure Portal 사용
 Azure Portal에서 **큐** 를 만들 때 다음 이미지에 표시된 것처럼 **분할 사용** 을 선택합니다. 
@@ -179,15 +183,16 @@ New-AzServiceBusTopic -ResourceGroup myresourcegroup `
 ```
 
 
+
 ## <a name="next-steps"></a>다음 단계
 선택한 언어로 샘플을 사용하여 Azure Service Bus 기능을 살펴봅니다. 
 
-- [Java용 Azure Service Bus 클라이언트 라이브러리 샘플](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [.NET용 Azure Service Bus 클라이언트 라이브러리 샘플(최신)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) 
+- [Java용 Azure Service Bus 클라이언트 라이브러리 샘플(최신)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Python용 Azure Service Bus 클라이언트 라이브러리 샘플](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [JavaScript용 Azure Service Bus 클라이언트 라이브러리 샘플](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [TypeScript용 Azure Service Bus 클라이언트 라이브러리 샘플](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-- [.NET용 Azure.Messaging.ServiceBus 샘플](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 
 이전 .NET 및 Java 클라이언트 라이브러리에 대한 샘플은 다음을 참조하세요.
-- [.NET용 Microsoft.Azure.ServiceBus 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
-- [Java용 azure-servicebus 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
+- [.NET용 Azure Service Bus 클라이언트 라이브러리 샘플(레거시)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Java용 Azure Service Bus 클라이언트 라이브러리 샘플(레거시)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)

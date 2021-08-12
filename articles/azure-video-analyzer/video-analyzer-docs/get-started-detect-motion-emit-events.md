@@ -3,13 +3,13 @@ title: Azure Video Analyzer 시작 - Azure
 description: 이 빠른 시작에서는 Azure Video Analyzer를 시작하는 단계를 안내합니다. Azure VM을 IoT Edge 디바이스와 시뮬레이션된 라이브 비디오 스트림으로 사용합니다.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 04/21/2021
-ms.openlocfilehash: 3606442101c8e20173ed3cd18c583fce02a45da1
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 335890f4bb939123290e5dfe9cccbf9f9aef1242
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387085"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114605181"
 ---
 # <a name="quickstart-get-started-with-azure-video-analyzer"></a>빠른 시작: Azure Video Analyzer 시작
 
@@ -24,14 +24,12 @@ ms.locfileid: "110387085"
 
 * 활성 구독이 있는 Azure 계정. 계정이 아직 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
 
-    > [!NOTE]    
-    > [기여자](../../role-based-access-control/built-in-roles.md#contributor) 역할 및 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 역할에 모두 액세스할 수 있는 Azure 구독이 필요합니다. 이러한 권한이 없는 경우 계정 관리자에게 적절한 권한을 부여해 달라고 요청합니다.  
+    [!INCLUDE [azure-subscription-permissions](./includes/common-includes/azure-subscription-permissions.md)]
 * 다음 확장이 포함된 [Visual Studio Code](https://code.visualstudio.com/)
 
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
-> [!TIP] 
-> Azure IoT Tools 확장을 설치하는 동안 Docker를 설치하라는 메시지가 표시될 수 있습니다. 이 메시지는 무시해도 됩니다.
+[!INCLUDE [install-docker-prompt](./includes/common-includes/install-docker-prompt.md)]
 
 ## <a name="set-up-azure-resources"></a>Azure 리소스 설정
 
@@ -40,7 +38,7 @@ ms.locfileid: "110387085"
 배포 프로세스는 약 **20분** 이 걸립니다. 배포 프로세스가 완료되면 Azure 구독에 다음을 비롯한 특정 Azure 리소스가 배포됩니다.
 1. **Video Analyzer 계정** - 이 [클라우드 서비스](overview.md)는 Video Analyzer 에지 모듈을 등록하고 녹화된 비디오 및 비디오 분석을 재생하는 데 사용됩니다.
 1. **스토리지 계정** - 녹화된 비디오 및 비디오 분석을 저장하는 데 사용됩니다.
-1. **관리 ID** - 사용자가 할당한 [관리 ID]../../active-directory/managed-identities-azure-resources/overview.md)로, 위의 스토리지 계정에 대한 액세스를 관리하는 데 사용됩니다.
+1. **관리 ID** - 위의 스토리지 계정에 대한 액세스를 관리하는 데 사용되는 사용자 할당 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)입니다.
 1. **가상 머신** - 시뮬레이션된 에지 디바이스로 작동할 가상 머신입니다.
 1. **IoT Hub** - IoT 애플리케이션, IoT Edge 및 관리하는 디바이스 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다.
 
@@ -89,11 +87,7 @@ ms.locfileid: "110387085"
 1. **디바이스** 노드를 펼칩니다.
 1. `avasample-iot-edge-device`를 마우스 오른쪽 단추로 클릭하고, **기본 제공 이벤트 엔드포인트 모니터링 시작** 을 선택합니다.
 
-    > [!NOTE]
-    > IoT Hub에 대한 기본 제공 엔드포인트 정보를 제공하라는 메시지가 표시될 수 있습니다. 해당 정보를 가져오려면 Azure Portal에서 IoT Hub로 이동하여 왼쪽 탐색 창에서 **기본 제공 엔드포인트** 옵션을 찾습니다. 여기를 클릭하고 **Event Hub 호환 엔드포인트** 섹션에서 **Event Hub 호환 엔드포인트** 를 찾습니다. 상자의 텍스트를 복사하여 사용합니다. 엔드포인트는 다음과 같이 표시됩니다.  
-        ```
-        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-        ```
+    [!INCLUDE [provide-builtin-endpoint](./includes/common-includes/provide-builtin-endpoint.md)]
 
 ## <a name="use-direct-method-calls"></a>직접 메서드 호출 사용
 

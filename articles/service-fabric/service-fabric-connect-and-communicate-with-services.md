@@ -1,14 +1,14 @@
 ---
-title: Azure Service Fabric에서 서비스와 연결 및 통신
+title: Azure Service Fabric 서비스와 연결 및 통신
 description: 서비스 패브릭에서 서비스에 대해 확인, 연결 및 통신하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 11f525eba89dc963deee0ba9a86566361ef644de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96576301"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>서비스 패브릭에서 서비스와 연결 및 통신
@@ -22,13 +22,13 @@ Service Fabric 애플리케이션은 일반적으로 여러 가지 서비스로 
 ![서비스 엔드포인트][1]
 
 ## <a name="service-discovery-and-resolution"></a>서비스 검색 및 확인
-분산 시스템에서는 시간이 지나면 한 컴퓨터에서 다른 컴퓨터로 서비스가 이동할 수 있습니다. 이는 리소스 분산, 업그레이드, 장애 조치 (failover) 또는 스케일 아웃을 포함 한 다양 한 이유로 발생할 수 있습니다. 즉, 서비스가 서로 다른 IP 주소를 가진 노드로 이동할 때 서비스 끝점 주소가 변경 되 고, 서비스가 동적으로 선택 된 포트를 사용 하는 경우 다른 포트에서 열릴 수 있습니다.
+분산 시스템에서는 시간이 지나면 한 컴퓨터에서 다른 컴퓨터로 서비스가 이동할 수 있습니다. 이는 리소스 분산, 업그레이드, 장애 조치(failover) 또는 스케일 아웃을 비롯한 다양한 이유로 인해 발생할 수 있습니다. 즉, 다른 IP 주소를 가진 노드로 서비스가 이동함에 따라 서비스 엔드포인트 주소가 변경되며, 서비스에서 동적으로 선택된 포트를 사용하는 경우 다른 포트에서 열릴 수 있습니다.
 
 ![서비스 배포][7]
 
 서비스 패브릭은 명명 서비스라는 검색 및 확인 서비스를 제공합니다. 명명 서비스는 명명된 서비스 인스턴스를 수신 대기하는 엔드포인트 주소에 매핑하는 테이블을 유지 관리합니다. 서비스 패브릭의 모든 명명된 서비스 인스턴스에는 URI로 나타내는 고유한 이름(예: `"fabric:/MyApplication/MyService"`)이 있습니다. 서비스 이름은 서비스 수명이 지나도 변경되지 않으며 서비스가 이동할 때 엔드포인트 주소만 변경할 수 있습니다. 이는 일정한 URL을 갖는 웹 사이트와 유사하지만 IP 주소는 변경될 수 있습니다. 또한 웹에서 웹 사이트 URL을 IP 주소로 확인하는 DNS와 유사하게, 서비스 패브릭에는 서비스 이름을 해당 엔드포인트 주소에 매핑하는 등록자가 있습니다.
 
-![서비스 이름을 해당 끝점 주소에 매핑하는 등록 자가 Service Fabric에 있음을 보여 주는 다이어그램입니다.][2]
+![Service Fabric 서비스 이름을 끝점 주소에 매핑하는 등록 기관이 있음을 보여주는 다이어그램][2]
 
 서비스를 확인하고 연결하려면 루프에서 다음 단계를 수행해야 합니다.
 
@@ -45,19 +45,19 @@ Service Fabric 애플리케이션은 일반적으로 여러 가지 서비스로 
 
 다음 다이어그램과 같이 Service Fabric 클러스터에서 실행되는 DNS 서비스는 DNS 이름을 서비스 이름에 매핑하며, 명명 서비스는 이 서비스 이름을 확인하여 연결할 엔드포인트 주소를 반환합니다. 서비스의 DNS 이름은 생성 시 제공됩니다. 
 
-![DNS 서비스가 Service Fabric 클러스터에서 실행 될 때 DNS 이름을 서비스 이름에 매핑하는 방법을 보여 주는 다이어그램입니다. 그러면 연결할 끝점 주소를 반환 하기 위해 Naming Service에서 확인 됩니다.][9]
+![Service Fabric 클러스터에서 실행될 때 DNS 서비스가 DNS 이름을 연결할 끝점 주소를 반환하기 위해 Naming Service에 의해 확인되는 서비스 이름에 매핑하는 방법을 보여주는 다이어그램입니다.][9]
 
 DNS 서비스를 사용하는 방법에 대한 자세한 내용은 [Azure Service Fabric의 DNS 서비스](service-fabric-dnsservice.md) 문서를 참조하세요.
 
 ### <a name="reverse-proxy-service"></a>역방향 프록시 서비스
 HTTPS를 포함하여 HTTP 엔드포인트를 노출하는 클러스터의 역방향 프록시 주소 서비스입니다. 역방향 프록시는 특정 URI 형식을 사용하여 다른 서비스와 해당 메서드 호출을 간소화하고 명명 서비스를 사용하여 한 서비스에서 다른 서비스와 통신하는 데 필요한 확인, 연결, 재시도 단계를 처리합니다. 즉, URL 호출처럼 간단한 과정으로 설정하여 다른 서비스를 호출할 때 명명 서비스를 사용자로부터 숨깁니다.
 
-![역방향 프록시가 HTTPS를 포함 하 여 HTTP 끝점을 노출 하는 클러스터의 서비스를 처리 하는 방법을 보여 주는 다이어그램입니다.][10]
+![역방향 프록시가 HTTPS를 포함하여 HTTP 엔드포인트를 노출하는 클러스터의 서비스를 주소로 하는 방법을 보여주는 다이어그램][10]
 
 역방향 프록시 서비스를 사용하는 방법에 대한 자세한 내용은 [Azure Service Fabric의 역방향 프록시](service-fabric-reverseproxy.md) 문서를 참조하세요.
 
 ## <a name="connections-from-external-clients"></a>외부 클라이언트에서 연결
-클러스터의 노드는 동일한 로컬 네트워크에 있으므로 클러스터 내에서 서로 연결하고 있는 서비스는 다른 서비스의 엔드포인트에 직접 액세스할 수 있습니다. 그러나 일부 환경에서는 클러스터가 제한 된 포트 집합을 통해 수신 트래픽을 라우팅하는 부하 분산 장치 뒤에 있을 수 있습니다. 이러한 경우 서비스는 여전히 서로 통신하고 명명 서비스를 사용하여 주소를 확인할 수 있지만 외부 클라이언트가 서비스에 연결할 수 있도록 하는 추가 단계를 수행해야 합니다.
+클러스터의 노드는 동일한 로컬 네트워크에 있으므로 클러스터 내에서 서로 연결하고 있는 서비스는 다른 서비스의 엔드포인트에 직접 액세스할 수 있습니다. 그러나 일부 환경에서는 클러스터가 제한된 포트 집합을 통해 수신 트래픽을 라우팅하는 부하 분산기 뒤에 있을 수 있습니다. 이러한 경우 서비스는 여전히 서로 통신하고 명명 서비스를 사용하여 주소를 확인할 수 있지만 외부 클라이언트가 서비스에 연결할 수 있도록 하는 추가 단계를 수행해야 합니다.
 
 ## <a name="service-fabric-in-azure"></a>Azure의 서비스 패브릭
 Azure의 서비스 패브릭 클러스터는 Azure 부하 분산 장치 뒤에 배치됩니다. 클러스터로의 모든 외부 트래픽은 부하 분산 장치를 통과해야 합니다. 부하 분산 장치는 지정된 포트에서의 인바운드 트래픽을 동일한 포트가 열린 임의 *노드* 에 자동으로 전달합니다. Azure Load Balancer는 *노드* 에서 열린 포트만 알고 있으며 개별 *서비스* 에 의해 열린 포트는 알지 못합니다.
@@ -151,7 +151,7 @@ Azure의 서비스 패브릭 클러스터는 Azure 부하 분산 장치 뒤에 �
     ![노드 형식에서 포트 열기][4]
 3. 클러스터가 만들어지면 트래픽을 포트 80에 전달하도록 클러스터 리소스 그룹에서 Azure 부하 분산 장치를 구성합니다. Azure 포털을 통해 클러스터를 만들 때 구성된 각 사용자 지정 엔드포인트 포트에 대해 자동으로 설정됩니다.
 
-    ![부하 분산 규칙의 백 엔드 포트 필드를 강조 표시 하는 스크린샷][5]
+    ![부하 분산 규칙에서 백엔드 포트 필드를 하이라이트하는 스크린샷][5]
 4. Azure 부하 분산 장치는 프로브를 사용하여 트래픽을 특정 노드에 보낼지 여부를 결정합니다. 프로브는 정기적으로 각 노드의 엔드포인트를 확인하여 노드 응답 여부를 결정합니다. 프로브가 구성된 횟수만큼 응답을 받지 못할 경우 부하 분산 장치는 해당 노드로의 트래픽 전송을 중지합니다. Azure 포털을 통해 클러스터를 만들 때 구성된 각 사용자 지정 엔드포인트 포트에 대해 프로브가 자동으로 설정됩니다.
 
     ![Azure 부하 분산 장치에서 트래픽 전달][8]
@@ -161,7 +161,7 @@ Azure Load Balancer 및 프로브는 *노드* 만 알고 있으며 노드에서 
 ## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services: 기본 제공 통신 API 옵션
 Reliable Services 프레임워크에서는 미리 작성된 여러 통신 옵션을 제공합니다. 그 중에서 가장 적합한 옵션은 프로그래밍 모델, 통신 프레임워크 및 서비스가 작성되는 프로그래밍 언어로 무엇을 선택하는지에 따라 달라집니다.
 
-* **특정 프로토콜 없음:**  특정 한 통신 프레임 워크를 선택 하지는 않지만 신속 하 게 작업을 실행 하려는 경우에는 Reliable Services 및 Reliable Actors에 대 한 강력한 형식의 원격 프로시저 호출을 허용 하는 [서비스 원격](service-fabric-reliable-services-communication-remoting.md)기능을 사용 하는 것이 좋습니다. 이는 서비스 통신을 시작하기에 가장 쉽고 빠른 방법입니다. 서비스 원격은 서비스 주소, 연결, 다시 시도 및 오류 처리의 확인을 처리합니다. 이 기능은 C# 및 Java 애플리케이션에 둘 다 사용할 수 있습니다.
+* **특정 프로토콜이 없는 경우:** 특정 통신 프레임워크를 선택하지는 않지만 항목을 신속하게 실행하고 싶을 때 가장 적합한 옵션은 Reliable Services 및 Reliable Actors에 대한 강력한 형식의 원격 프로시저 호출을 허용하는 [서비스 원격](service-fabric-reliable-services-communication-remoting.md)입니다. 이는 서비스 통신을 시작하기에 가장 쉽고 빠른 방법입니다. 서비스 원격은 서비스 주소, 연결, 다시 시도 및 오류 처리의 확인을 처리합니다. 이 기능은 C# 및 Java 애플리케이션에 둘 다 사용할 수 있습니다.
 * **HTTP**: 언어 중립적 통신의 경우, HTTP는 Service Fabric에서 전적으로 지원하는 다양한 언어로 사용할 수 있는 도구 및 HTTP 서버와 함께 업계 표준 선택을 제공합니다. 서비스는 C# 애플리케이션용 [ASP.NET Web API](./service-fabric-reliable-services-communication-aspnetcore.md)를 포함하여 사용 가능한 모든 HTTP 스택을 사용할 수 있습니다. [서비스 확인, HTTP 연결 및 다시 시도 루프](service-fabric-reliable-services-communication.md)를 위해 C#으로 작성된 클라이언트는 `ICommunicationClient` 및 `ServicePartitionClient` 클래스를 활용할 수 있지만 Java의 경우 `CommunicationClient` 및 `FabricServicePartitionClient` 클래스를 사용합니다.
 * **WCF**: 통신 프레임워크로 WCF를 사용하는 기존 코드가 있는 경우, 서버 쪽에 `WcfCommunicationListener`를 사용하고 클라이언트에 `WcfCommunicationClient` 및 `ServicePartitionClient` 클래스를 사용할 수 있습니다. 그러나 이 기능은 Windows 기반 클러스터의 C# 애플리케이션에만 사용할 수 있습니다. 자세한 내용은 이 문서에서 [WCF 기반 통신 스택 구현](service-fabric-reliable-services-communication-wcf.md)에 대한 부분을 참조하세요.
 

@@ -3,14 +3,14 @@ title: Azure Automation 변경 내용 추적 및 인벤토리 배포 범위 제�
 description: 이 문서에서는 변경 내용 추적 및 인벤토리 배포의 범위를 제한하기 위해 범위 구성을 사용하는 방법을 설명합니다.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/14/2020
+ms.date: 05/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6eb9a20920f0a340491459f0875fc85b90dfa193
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6812a0b0688efdb75d847a36d661ba87017a8b9d
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92209989"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110653198"
 ---
 # <a name="limit-change-tracking-and-inventory-deployment-scope"></a>변경 내용 추적 및 인벤토리 배포 범위 제한
 
@@ -20,33 +20,36 @@ ms.locfileid: "92209989"
 
 범위 구성은 변경 내용 추적 및 인벤토리의 범위를 특정 머신으로 제한하는 데 사용되는 하나 이상의 저장된 검색(쿼리) 그룹입니다. 범위 구성은 사용하도록 설정할 컴퓨터를 대상으로 지정하기 위해 Log Analytics 작업 영역 내에서 사용됩니다. 기능의 변경 내용에 머신을 추가하면 해당 머신이 작업 영역에서 저장된 검색에 추가됩니다.
 
+기본적으로 변경 내용 추적 및 인벤토리는 컴퓨터를 사용하도록 설정한 방법에 따라 **ChangeTracking__MicrosoftDefaultComputerGroup** 이라는 컴퓨터 그룹을 만듭니다.
+
+* Automation 계정에서 **+ Azure VM 추가** 를 선택했습니다.
+* Automation 계정에서 **컴퓨터 관리** 를 선택한 다음, **사용 가능한 컴퓨터에서 사용** 또는 **선택한 컴퓨터에서 사용** 옵션을 선택합니다.
+
+위의 방법 중 하나를 선택하면 이 컴퓨터 그룹이 **MicrosoftDefaultScopeConfig-ChangeTracking** 범위 구성에 추가됩니다. 하나 이상의 사용자 지정 컴퓨터 그룹을 이 범위에 추가하여 관리 요구 사항을 충족하고, 변경 내용 추적 및 인벤토리를 통해 특정 컴퓨터를 관리하도록 설정하는 방법을 제어할 수도 있습니다.
+
+**ChangeTracking__MicrosoftDefaultComputerGroup** 에서 하나 이상의 컴퓨터를 제거하여 변경 내용 추적 및 인벤토리 관리를 중지하려면 [변경 내용 추적 및 인벤토리에서 VM 제거](remove-vms-from-change-tracking.md)를 참조하세요.
+
 ## <a name="set-the-scope-limit"></a>범위 제한 설정
 
 변경 내용 추적 및 인벤토리 배포에 대한 범위를 제한하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. Azure Portal에서 **모든 서비스** 를 선택합니다. 리소스 목록에서 **Automation** 을 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록에서 제안 항목이 필터링됩니다. **Automation 계정** 을 선택합니다.
+2. Azure Portal에서 **Log Analytics 작업 영역** 으로 이동합니다. 목록에서 작업 영역을 선택합니다.
 
-3. Automation 계정 목록에서 변경 내용 추적 및 인벤토리를 사용하도록 설정할 때 선택한 계정을 선택합니다.
+3. Log Analytics 작업 영역의 왼쪽 메뉴에서 **범위 구성(미리 보기)** 을 선택합니다.
 
-4. Automation 계정의 **관련 리소스** 아래에서 **연결된 작업 영역** 을 선택합니다.
+4. **MicrosoftDefaultScopeConfig-ChangeTracking** 범위 구성의 오른쪽에 있는 줄임표를 선택하고 **편집** 을 선택합니다.
 
-5. **작업 영역으로 이동** 을 클릭합니다.
-
-6. **작업 영역 데이터 원본** 에서 **범위 구성(미리 보기)** 을 선택합니다.
-
-7. `MicrosoftDefaultScopeConfig-ChangeTracking` 범위 구성 오른쪽에 있는 줄임표(...)를 선택하고 **편집** 을 클릭합니다.
-
-8. 편집 창에서 **컴퓨터 그룹 선택** 을 선택합니다. 컴퓨터 그룹 창은 범위 구성을 만드는 데 사용되는 저장된 검색을 표시합니다. 변경 내용 추적 및 인벤토리에 사용되는 저장된 검색은 다음과 같습니다.
+5. 편집 창에서 **컴퓨터 그룹 선택** 을 선택합니다. **컴퓨터 그룹** 창에 범위 구성에 추가된 저장된 검색이 표시됩니다. 업데이트 관리에서 사용하는 저장된 검색은 다음과 같습니다.
 
     |속성     |Category  |Alias  |
     |---------|---------|---------|
-    |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
+    |MicrosoftDefaultComputerGroup     | ChangeTracking        | ChangeTracking__MicrosoftDefaultComputerGroup         |
 
-9. 저장된 검색을 선택하여 그룹을 채우는 데 사용된 쿼리를 살펴보고 편집합니다. 다음 이미지에서는 쿼리 및 해당 결과를 보여 줍니다.
+6. 사용자 지정 그룹을 추가한 경우 목록에 표시됩니다. 선택을 취소하려면 항목 왼쪽에 있는 확인란을 선택 취소합니다. 범위에 사용자 지정 그룹을 추가하려면 해당 그룹을 선택한 다음, 변경이 완료되면 **선택** 을 클릭합니다.
 
-    ![저장된 검색](media/manage-scope-configurations/logsearch.png)
+7. **범위 구성 편집** 페이지에서 **확인** 을 클릭하여 변경 내용을 저장합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

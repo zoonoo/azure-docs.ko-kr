@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: d894ce71e0ffa5a0894a1f6b0035efe66271ded8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d403bb00099de4a1fb5f4b9799f45386beb6a9f0
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100591465"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110679256"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Azure 스토리지 계정을 다른 지역으로 이동
 
@@ -55,7 +56,7 @@ Azure Portal을 사용하여 템플릿을 내보내려면:
 
 2. **모든 리소스** 를 선택한 다음 스토리지 계정을 선택합니다.
 
-3. **설정** > **템플릿 내보내기** 를 선택합니다.
+3. >**자동화** > **템플릿 내보내기** 를 선택합니다.
 
 4. **템플릿 내보내기** 블레이드에서 **다운로드** 를 선택합니다.
 

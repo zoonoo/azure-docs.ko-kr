@@ -1,5 +1,5 @@
 ---
-title: 저장소 계정 자격 증명, StorSimple 8000 시리즈 장치 관리
+title: 스토리지 계정 자격 증명 관리, StorSimple 8000 시리즈 디바이스
 description: StorSimple 디바이스 관리자 구성 페이지를 사용하여 스토리지 계정에 대한 보안 키를 추가, 편집, 삭제 또는 회전하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 0df0c12d5942179e2492bfdc932fa25d126a2426
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96016876"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>StorSimple 디바이스 관리자 서비스를 사용하여 스토리지 계정 자격 증명 관리
@@ -33,14 +33,14 @@ StorSimple 디바이스 관리자 서비스 블레이드의 **구성** 섹션에
 
 이 자습서에서는 스토리지 계정 자격 증명을 추가, 편집 또는 삭제하거나, 스토리지 계정에 대한 보안 키를 회전하는 방법에 대해 설명합니다.
 
- ![저장소 계정 자격 증명 목록 1](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
+ ![스토리지 계정 자격 증명 목록 1](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
 
 Storage 계정에는 StorSimple 디바이스가 클라우드 서비스 공급자를 통해 Storage 계정에 액세스하는 데 사용하는 자격 증명이 포함되어 있습니다. Microsoft Azure Storage 계정의 경우 계정 이름 및 기본 액세스 키와 같은 자격 증명이 있습니다. 
 
 **Storage 계정 자격 증명** 블레이드에는 청구 구독에 대해 만들어진 모든 Storage 계정이 다음 정보를 포함하여 테이블 형식으로 표시됩니다.
 
 * **이름** – 계정을 만들 때 계정에 할당된 고유한 이름입니다.
-* **SSL 사용** – TLS를 사용 하도록 설정 하 고 장치-클라우드 통신을 보안 채널을 통해 설정 합니다.
+* **SSL 사용** – TLS를 사용하도록 설정하였고 디바이스와 클라우드 간 통신이 보안 채널을 통해 이루어지는지 여부입니다.
 * **사용 대상** – 저장소 계정을 사용하는 볼륨의 수입니다.
 
 스토리지 계정과 관련하여 수행할 수 있는 가장 일반적인 작업은 다음과 같습니다.
@@ -60,7 +60,7 @@ StorSimple 디바이스에서 사용할 수 있는 스토리지 계정에는 다
 
 ## <a name="add-a-storage-account"></a>스토리지 계정 추가
 
-스토리지 계정(지정된 클라우드 서비스 공급자를 통해)에 연결된 액세스 자격 증명 및 친숙한 고유 이름을 제공하여 스토리지 계정을 추가할 수 있습니다. 또한 TLS (전송 계층 보안) 모드를 사용 하도록 설정 하는 옵션 (이전에는 SSL (SSL(Secure Sockets Layer)))을 사용 하도록 설정 하 여 장치와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만들 수 있습니다.
+스토리지 계정(지정된 클라우드 서비스 공급자를 통해)에 연결된 액세스 자격 증명 및 친숙한 고유 이름을 제공하여 스토리지 계정을 추가할 수 있습니다. 또한 이전에 SSL(Secure Sockets Layer) 모드로 알려진 TLS(전송 계층 보안) 모드를 사용하도록 설정하여 디바이스와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만들 수도 있습니다.
 
 특정 클라우드 서비스 공급자에 대해 여러 계정을 만들 수 있습니다. 하지만 스토리지 계정을 만든 후에는 클라우드 서비스 공급자를 변경할 수 없습니다.
 
@@ -86,7 +86,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
    
     3. **스토리지 계정 선택키** 텍스트 상자에서 Azure Storage 계정 자격 증명의 기본 선택키를 지정합니다. 이 키를 가져오려면 Azure Storage 서비스로 이동하고 스토리지 계정 자격 증명을 선택한 다음 **계정 키 관리** 를 클릭합니다. 이제 기본 선택키를 복사할 수 있습니다.
    
-    4. TLS를 사용 하도록 설정 하려면 **사용** 단추를 클릭 하 여 StorSimple 장치 관리자 서비스와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만듭니다. 프라이빗 클라우드 내에서 작동하는 경우에만 **사용 안 함** 단추를 클릭합니다.
+    4. TLS를 사용하도록 설정하려면 **사용** 단추를 클릭하여 StorSimple 디바이스 관리자 서비스와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만듭니다. 프라이빗 클라우드 내에서 작동하는 경우에만 **사용 안 함** 단추를 클릭합니다.
    
     5. **추가** 를 클릭합니다. 스토리지 계정 자격 증명이 성공적으로 만들어진 후 알림이 표시됩니다.
 
@@ -102,7 +102,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
 
 1. StorSimple 디바이스 관리자 서비스로 이동합니다. **구성** 섹션에서 **Storage 계정 자격 증명** 을 클릭합니다.
 
-    ![저장소 계정 자격 증명 2](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
+    ![스토리지 계정 자격 증명 2](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
 
 2. **Storage 계정 자격 증명** 블레이드의 Storage 계정 자격 증명 목록에서 편집하려는 항목을 선택하고 클릭합니다. 
 

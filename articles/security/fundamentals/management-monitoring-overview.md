@@ -1,5 +1,5 @@
 ---
-title: 관리 및 모니터링 보안 기능-Microsoft Azure | Microsoft Docs
+title: 관리 및 모니터링 보안 기능 - Microsoft Azure | Microsoft Docs
 description: 이 문서에서는 Azure Cloud Services 및 Virtual Machines의 관리 및 모니터링을 지원하기 위해 Azure에서 제공하는 보안 기능 및 서비스에 대한 개요를 제공합니다.
 services: security
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 01/24/2021
 ms.author: terrylan
 ms.openlocfilehash: f87ea1e1c9f43de4e9e0f94d1cd855615a0a880c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101712048"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 보안 관리 및 모니터링 개요
@@ -27,7 +27,7 @@ ms.locfileid: "101712048"
 
 ## <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 
-Azure RBAC (역할 기반 액세스 제어)는 Azure 리소스에 대 한 자세한 액세스 관리를 제공 합니다. Azure RBAC를 사용 하 여 사용자에 게 작업을 수행 하는 데 필요한 액세스 권한만 부여할 수 있습니다. Azure RBAC를 사용 하 여 사용자가 조직을 떠날 때 클라우드의 리소스에 대 한 액세스 권한을 잃게 되도록 할 수도 있습니다.
+Azure RBAC(역할 기반 액세스 제어)는 Azure 리소스에 대한 세부 액세스 관리 기능을 제공합니다. Azure RBAC를 통해 사용자에게 해당 작업을 수행하는 데 필요한 액세스 권한만 부여할 수 있습니다. 또한 Azure RBAC를 사용하여 직원이 퇴사한 후 클라우드 리소스에 액세스하지 못하게 할 수 있습니다.
 
 자세한 정보:
 
@@ -40,7 +40,7 @@ Azure를 통해 Microsoft, Symantec, Trend Micro, McAfee, Kaspersky 등 주요 �
 
 Azure Cloud Services 및 Virtual Machines용 Microsoft 맬웨어 방지는 PaaS 역할 및 가상 머신 모두에 대한 맬웨어 방지 에이전트를 설치할 수 있는 기능을 제공합니다. System Center Endpoint Protection에 기반한 이 기능은 클라우드에 입증된 온-프레미스 보안 기술을 구현합니다.
 
-또한 Azure 플랫폼에서 추세의 [심층 보안과](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) [securecloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) 제품에 대 한 심층 통합을 제공 합니다. DeepSecurity는 바이러스 백신 솔루션이며 SecureCloud는 암호화 솔루션입니다. DeepSecurity는 확장 모델을 통해 VM 내부에 배포됩니다. Azure Portal UI 및 PowerShell을 사용하면 복제하려는 새 VM 내부의 DeepSecurity를 사용하거나 이미 배포된 기존 VM을 사용할지 선택할 수 있습니다.
+또한, Azure 플랫폼에서 Trend의 [Deep Security](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) 및 [SecureCloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) 제품에 대한 심층적인 통합도 제공합니다. DeepSecurity는 바이러스 백신 솔루션이며 SecureCloud는 암호화 솔루션입니다. DeepSecurity는 확장 모델을 통해 VM 내부에 배포됩니다. Azure Portal UI 및 PowerShell을 사용하면 복제하려는 새 VM 내부의 DeepSecurity를 사용하거나 이미 배포된 기존 VM을 사용할지 선택할 수 있습니다.
 
 SEP(Symantec Endpoint Protection)도 Azure에서 지원됩니다. 포털 통합을 통해 VM에서 SEP를 사용할지 지정할 수 있습니다. SEP는 Azure Portal을 통해 새로운 VM에 설치하거나 PowerShell을 통해 기존 VM에 설치할 수 있습니다.
 
@@ -54,7 +54,7 @@ SEP(Symantec Endpoint Protection)도 Azure에서 지원됩니다. 포털 통합�
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Azure AD Multi-Factor Authentication는 둘 이상의 인증 방법을 사용 해야 하는 인증 방법입니다. 사용자 로그인 및 트랜잭션에 중요한 두 번째 보안 계층을 추가합니다.
+Azure AD 다단계 인증은 두 가지 이상의 확인 방법을 사용하도록 요구하는 인증 방법입니다. 사용자 로그인 및 트랜잭션에 중요한 두 번째 보안 계층을 추가합니다.
 
 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 Multi-Factor Authentication을 사용하면 데이터와 애플리케이션에 대한 액세스를 보호합니다. 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OATH 토큰과 같은 다양한 확인 옵션을 통해 강력한 인증을 전달합니다.
 
@@ -66,7 +66,7 @@ Azure AD Multi-Factor Authentication는 둘 이상의 인증 방법을 사용 �
 
 ## <a name="expressroute"></a>ExpressRoute
 
-Azure ExpressRoute를 사용하여 연결 공급자에서 쉽게 처리된 전용 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용 하면 Azure, Microsoft 365 및 CRM Online과 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다. 연결을 설정할 수 있습니다.
+Azure ExpressRoute를 사용하여 연결 공급자에서 쉽게 처리된 전용 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Azure, Microsoft 365, CRM Online 등의 Microsoft 클라우드 서비스에 연결할 수 있습니다. 연결을 설정할 수 있습니다.
 
 * 모든 대상 간(IP VPN) 네트워크
 * 지점 간 이더넷 네트워크
@@ -117,16 +117,16 @@ Azure AD Identity Protection은 의심스러운 로그인 활동 및 잠재적 �
 
 ## <a name="security-center"></a>Security Center
 
-Azure Security Center를 통해 위협을 예방하고 감지하며 대응할 수 있습니다. Security Center를 통해 Azure 리소스와 하이브리드 클라우드 환경에 대 한 보안을 강화 하 고 제어할 수 있습니다. 
+Azure Security Center를 통해 위협을 예방하고 감지하며 대응할 수 있습니다. Security Center로 Azure 리소스와 하이브리드 클라우드 환경의 보안 성능을 더욱 잘 확인하고 제어할 수 있습니다. 
 
-Security Center는 연결 된 리소스에 대 한 지속적인 보안 평가를 수행 하 고 [Azure 보안 벤치 마크](../benchmarks/introduction.md) 에 대 한 구성 및 배포를 비교 하 여 환경에 맞게 조정 된 세부 보안 권장 사항을 제공 합니다.
+Security Center는 연결된 리소스에 대한 보안 평가를 지속적으로 수행하고, [Azure Security 벤치마크](../benchmarks/introduction.md) 에 대한 구성과 배포를 비교함으로써 사용자 환경에 맞게 조정된 세부적인 보안 기능을 추천합니다.
 
 보안 센터는 다음과 같은 방법을 통해 Azure 리소스의 보안을 최적화하고 모니터링하는 데 도움을 줍니다.
 
 - 다음에 따라 Azure 구독 리소스에 대한 정책을 정의할 수 있습니다.
-    - 조직의 보안 요구 사항
+    - 조직의 보안 요구 사항.
     - 각 구독에서 애플리케이션의 유형 또는 데이터의 민감도
-    - 구독에 적용 하는 모든 산업 또는 규제 표준 또는 벤치 마크 
+    - 구독에 적용하는 모든 산업 또는 규제 표준이나 벤치마크. 
 - Azure 가상 머신, 네트워킹 및 애플리케이션의 상태를 모니터링합니다.
 - 통합된 파트너 솔루션에서의 경고를 포함하여 우선 순위가 지정된 보안 경고 목록을 제공합니다. 또한 공격 및 해결 방법에 대한 권장 사항을 신속히 조사하는 데 필요한 정보를 제공합니다.
 
@@ -142,6 +142,6 @@ Intelligent Security Graph는 Microsoft 제품 및 서비스에서 실시간 위
 * [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
 
 ## <a name="next-steps"></a>다음 단계
-[공유 책임 모델](shared-responsibility.md) 및 Microsoft에서 처리 하는 보안 작업과 사용자가 처리 하는 작업에 대해 알아봅니다.
+[공유 책임 모델](shared-responsibility.md) 및 Microsoft에서 처리하는 보안 작업과 사용자가 처리하는 작업에 대해 알아봅니다.
 
 보안 관리에 대한 자세한 내용은 [Azure의 보안 관리](management.md)를 참조하세요.

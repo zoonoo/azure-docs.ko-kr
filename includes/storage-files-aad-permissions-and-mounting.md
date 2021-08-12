@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: include
 ms.date: 08/26/2020
 ms.author: rogara
-ms.custom: include file
-ms.openlocfilehash: 4773446ec0007ffbed99bc01939d1f92f5823d99
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: afd94ba7a91d18ef1bc1321c6fbbb9688bc21255
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95554286"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110721394"
 ---
 ## <a name="assign-access-permissions-to-an-identity"></a>ID에 액세스 권한 할당
 
@@ -93,7 +93,7 @@ Azure Files는 NTFS 기본 및 고급 권한의 전체 집합을 지원합니다
 
 ### <a name="mount-a-file-share-from-the-command-prompt"></a>명령 프롬프트에서 파일 공유 탑재
 
-Windows **net use** 명령을 사용하여 Azure 파일 공유를 탑재합니다. 다음 예제의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다. 파일 공유 탑재에 대한 자세한 내용은 [Windows에서 Azure 파일 공유 사용](../articles/storage/files/storage-how-to-use-files-windows.md)을 참조하세요. 
+Windows **net use** 명령을 사용하여 Azure 파일 공유를 탑재합니다. 다음 예제의 자리 표시자 값을 사용자 고유의 값으로 변경해야 합니다. 파일 공유 탑재에 대한 자세한 내용은 [Windows에서 Azure 파일 공유 사용](../articles/storage/files/storage-how-to-use-files-windows.md)을 참조하세요. 
 
 ```
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
@@ -126,7 +126,7 @@ Azure Files에 연결하는 데 문제가 발생하는 경우 [Windows에서 발
 
 ### <a name="configure-ntfs-permissions-with-icacls"></a>icacls를 사용하여 NTFS 권한 구성
 
-루트 디렉터리를 비롯하여 파일 공유에 있는 모든 디렉터리와 파일에 대한 모든 권한을 부여하려면 다음 Windows 명령을 사용합니다. 예제의 자리 표시자 값은 실제 값으로 바꾸세요.
+루트 디렉터리를 비롯하여 파일 공유에 있는 모든 디렉터리와 파일에 대한 모든 권한을 부여하려면 다음 Windows 명령을 사용합니다. 예제의 자리 표시자 값을 사용자 고유의 값으로 변경해야 합니다.
 
 ```
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
@@ -142,7 +142,7 @@ icacls를 사용하여 NTFS 권한을 설정하는 방법과 지원되는 여러
 
 ![사용자 인증용 Azure AD 로그인 화면이 표시된 스크린샷](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
-다음 명령을 사용하여 Azure 파일 공유를 탑재합니다. 예제의 자리 표시자 값은 실제 값으로 바꾸세요. 인증되었으므로 스토리지 계정 키, 온-프레미스 AD DS 자격 증명 또는 Azure AD DS 자격 증명을 제공할 필요가 없습니다. Single Sign-On 환경은 온-프레미스 AD DS 또는 Azure AD DS 인증에 대해 지원됩니다. AD DS 자격 증명으로 탑재하는 데 문제가 발생하는 경우 [Windows에서 Azure Files 문제 해결](../articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md)을 참조하세요.
+다음 명령을 사용하여 Azure 파일 공유를 탑재합니다. 자리 표시자 값을 사용자 고유의 값으로 변경해야 합니다. 인증되었으므로 스토리지 계정 키, 온-프레미스 AD DS 자격 증명 또는 Azure AD DS 자격 증명을 제공할 필요가 없습니다. Single Sign-On 환경은 온-프레미스 AD DS 또는 Azure AD DS 인증에 대해 지원됩니다. AD DS 자격 증명으로 탑재하는 데 문제가 발생하는 경우 [Windows에서 Azure Files 문제 해결](../articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md)을 참조하세요.
 
 ```
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445

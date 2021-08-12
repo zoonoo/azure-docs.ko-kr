@@ -1,5 +1,5 @@
 ---
-title: Azure Portal를 사용 하 여 리소스에 관리 id 액세스 할당-Azure AD
+title: Azure Portal을 사용하여 리소스에 관리 ID 액세스 권한 할당 - Azure AD
 description: Azure Portal을 사용하여 한 리소스에 관리 ID를 할당하고 다른 리소스에 액세스 권한을 할당하기 위한 단계별 지침을 제공합니다.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6584754edf3ff7ae31c3b9ace72baf16459dbc44
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93359997"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>Azure Portal을 사용하여 리소스에 관리 ID 액세스 권한 할당
@@ -33,9 +33,9 @@ ms.locfileid: "93359997"
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#managed-identity-types)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
 
-## <a name="use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Azure RBAC를 사용 하 여 다른 리소스에 관리 되는 id 액세스 권한 부여
+## <a name="use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Azure RBAC를 사용하여 다른 리소스에 관리 ID 액세스 권한 할당
 
-Azure [VM](qs-configure-portal-windows-vm.md) 또는 azure [virtual machine scale Set](qs-configure-portal-windows-vmss.md)과 같은 azure 리소스에서 관리 id를 사용 하도록 설정한 후 다음을 수행 합니다.
+[Azure VM](qs-configure-portal-windows-vm.md) 또는 [Azure 가상 머신 확장 집합](qs-configure-portal-windows-vmss.md)과 같은 Azure 리소스에서 관리 ID를 사용하도록 설정한 후 다음을 수행합니다.
 
 1. 관리 ID를 구성한 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 

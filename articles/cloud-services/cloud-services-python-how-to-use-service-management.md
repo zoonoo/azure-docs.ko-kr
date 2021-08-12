@@ -9,16 +9,16 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 02993f2b79e37e5e50c20c4ee07220bcbd36edb8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98741403"
 ---
 # <a name="use-service-management-from-python"></a>Python에서 서비스 관리 사용
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 이 가이드에서는 Python에서 프로그래밍 방식으로 일반 서비스 관리 작업을 수행하는 방법을 보여 줍니다. [Python용 Azure SDK](https://github.com/Azure/azure-sdk-for-python)의 **ServiceManagementService** 클래스는 [Azure Portal][management-portal]에서 사용할 수 있는 대부분의 서비스 관리 관련 기능에 대해 프로그래밍 방식의 액세스를 지원합니다. 클라우드 서비스, 배포, 데이터 관리 서비스, 가상 머신 만들기, 업데이트 및 삭제에 이 기능을 사용할 수 있습니다. 이 기능은 서비스 관리에 프로그래밍 방식으로 액세스해야 하는 애플리케이션을 빌드하는 데 유용할 수 있습니다.
 
@@ -28,7 +28,7 @@ Azure Service Management API는 [Azure Portal][management-portal]을 통해 사�
 서비스 관리 API를 사용하려면 [Azure 계정을 만들어야](https://azure.microsoft.com/pricing/free-trial/)합니다.
 
 ## <a name="concepts"></a><a name="Concepts"> </a>개념
-Python용 Azure SDK는 REST API인 [Service Management API][svc-mgmt-rest-api]를 래핑합니다. 모든 API 작업은 TLS를 통해 수행 되며 x.509 v3 인증서를 사용 하 여 상호 인증 됩니다. 관리 서비스는 Azure에서 실행되는 서비스 내에서 액세스할 수 있습니다. HTTPS 요청을 보내고 HTTPS 응답을 받을 수 있는 애플리케이션에서 인터넷을 통해 직접 액세스할 수도 있습니다.
+Python용 Azure SDK는 REST API인 [Service Management API][svc-mgmt-rest-api]를 래핑합니다. 모든 API 작업은 TLS를 통해 수행되고 X.509 v3 인증서를 사용하여 서로 인증됩니다. 관리 서비스는 Azure에서 실행되는 서비스 내에서 액세스할 수 있습니다. HTTPS 요청을 보내고 HTTPS 응답을 받을 수 있는 애플리케이션에서 인터넷을 통해 직접 액세스할 수도 있습니다.
 
 ## <a name="installation"></a><a name="Installation"> </a>설치
 이 문서에서 설명한 모든 기능은 `azure-servicemanagement-legacy` 패키지에서 사용할 수 있으며, 이 패키지는 pip를 사용하여 설치할 수 있습니다. (예를 들어 Python을 처음 사용한다면) 설치에 관한 자세한 내용은 [Python 설치 및 Azure SDK](/azure/developer/python/azure-sdk-install)를 참조하세요.
@@ -54,7 +54,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out myce
 openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 ```
 
-Azure 인증서에 대한 자세한 내용은 [Azure Cloud Services 인증서 개요](cloud-services-certs-create.md)를 참조하세요. OpenSSL 매개 변수에 대 한 자세한 설명은에서 설명서를 참조 [https://www.openssl.org/docs/apps/openssl.html](https://www.openssl.org/docs/apps/openssl.html) 하세요.
+Azure 인증서에 대한 자세한 내용은 [Azure Cloud Services 인증서 개요](cloud-services-certs-create.md)를 참조하세요. OpenSSL 매개 변수에 대한 자세한 설명은 [https://www.openssl.org/docs/apps/openssl.html](https://www.openssl.org/docs/apps/openssl.html)의 자료를 참조하세요.
 
 이러한 파일을 만든 후 `.cer` 파일을 Azure에 업로드합니다. [Azure Portal][management-portal]의 **설정** 탭에서 **업로드** 를 선택합니다. `.pem` 파일을 저장한 위치를 적어 둡니다.
 
@@ -79,7 +79,7 @@ sms = ServiceManagementService(subscription_id, certificate_path)
 makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 ```
 
-이 명령은 파일을 만들어 `.cer` **개인** 인증서 저장소에 설치 합니다. 자세한 내용은 [Azure Cloud Services 인증서 개요](cloud-services-certs-create.md)를 참조하세요.
+이 명령은 `.cer` 파일을 만들고 만든 파일을 **개인** 인증서 저장소에 설치합니다. 자세한 내용은 [Azure Cloud Services 인증서 개요](cloud-services-certs-create.md)를 참조하세요.
 
 인증서를 만든 후 `.cer` 파일을 Azure에 업로드합니다. [Azure Portal][management-portal]의 **설정** 탭에서 **업로드** 를 선택합니다.
 
@@ -115,7 +115,7 @@ for location in result:
 
 * 서유럽
 * 북유럽
-* 동남 아시아
+* 동남아시아
 * 동아시아
 * 미국 중부
 * 미국 중북부
@@ -129,7 +129,7 @@ for location in result:
 * 오스트레일리아 남동부
 
 ## <a name="create-a-cloud-service"></a><a name="CreateCloudService"> </a>클라우드 서비스 만들기
-애플리케이션을 만들고 Azure에서 실행하는 경우 코드와 구성을 총체적으로 Azure [클라우드 서비스][cloud service]라고 합니다. (이전 Azure 릴리스에서는 *호스 티 드 서비스* 라고 했습니다.) **Create \_ hosted \_ service** 메서드를 사용 하 여 새 호스팅된 서비스를 만들 수 있습니다. 호스팅 서비스 이름(Azure에서 고유해야 함), 레이블(base64로 자동 인코딩됨), 설명 및 위치를 제공하여 서비스를 만듭니다.
+애플리케이션을 만들고 Azure에서 실행하는 경우 코드와 구성을 총체적으로 Azure [클라우드 서비스][cloud service]라고 합니다. (이전 Azure 릴리스에서는 *호스티드 서비스* 라고 했음) **create\_hosted\_service** 메서드를 사용하여 새 호스티드 서비스를 만들 수 있습니다. 호스팅 서비스 이름(Azure에서 고유해야 함), 레이블(base64로 자동 인코딩됨), 설명 및 위치를 제공하여 서비스를 만듭니다.
 
 ```python
 from azure import *
@@ -191,7 +191,7 @@ sms.delete_deployment('myhostedservice', 'v1')
 ```
 
 ## <a name="create-a-storage-service"></a><a name="CreateStorageService"> </a>스토리지 서비스 만들기
-[저장소 서비스](../storage/common/storage-account-create.md) 는 Azure [blob](../storage/blobs/storage-quickstart-blobs-python.md), [테이블](../cosmos-db/table-storage-how-to-use-python.md)및 [큐](../storage/queues/storage-python-how-to-use-queue-storage.md)에 대 한 액세스를 제공 합니다. 스토리지 서비스를 만들려면 서비스에 대한 이름이 필요합니다(소문자 3~24자 사이이며 Azure 내에서 고유한). 설명, 레이블(최대 100자, base64로 자동으로 인코딩됨) 및 위치도 필요합니다. 다음 예제에서는 위치를 지정하여 스토리지 서비스를 만드는 방법을 보여 줍니다.
+[스토리지 서비스](../storage/common/storage-account-create.md)로 Azure [Blob](../storage/blobs/storage-quickstart-blobs-python.md), [테이블](../cosmos-db/table-storage-how-to-use-python.md), [큐](../storage/queues/storage-python-how-to-use-queue-storage.md)에 액세스할 수 있습니다. 스토리지 서비스를 만들려면 서비스에 대한 이름이 필요합니다(소문자 3~24자 사이이며 Azure 내에서 고유한). 설명, 레이블(최대 100자, base64로 자동으로 인코딩됨) 및 위치도 필요합니다. 다음 예제에서는 위치를 지정하여 스토리지 서비스를 만드는 방법을 보여 줍니다.
 
 ```python
 from azure import *
@@ -321,7 +321,7 @@ operation_result = sms.get_operation_status(result.request_id)
 print('Operation status: ' + operation_result.status)
 ```
 
-## <a name="create-a-virtual-machine"></a><a name="CreateVM"> </a>가상 컴퓨터 만들기
+## <a name="create-a-virtual-machine"></a><a name="CreateVM"> </a>가상 머신 만들기
 가상 머신을 만들려면 먼저 [클라우드 서비스](#CreateCloudService)를 만들어야 합니다. 그런 다음, **create\_virtual\_machine\_deployment** 메서드를 사용하여 가상 머신 배포를 만듭니다.
 
 ```python

@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: 54ee903b490e10f7ea4ca3bca91f742b5811404d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3420acbccf8066b6a40669103f253a4fc6f06fa
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563305"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113595301"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Azure의 콘텐츠 배달 네트워크란?
 CDN(콘텐츠 배달 네트워크)은 사용자에게 웹 콘텐츠를 효율적으로 제공할 수 있는 서버의 분산 네트워크입니다. CDN은 최종 사용자와 가까운 POP(point-of-presence) 위치의 에지 서버에 캐시된 콘텐츠를 저장하여 대기 시간을 최소화합니다. 
@@ -69,7 +69,7 @@ Azure CDN은 다음과 같은 주요 기능을 제공합니다.
 - [HTTPS 사용자 지정 도메인 지원](cdn-custom-ssl.md)
 - [Azure 진단 로그](cdn-azure-diagnostic-logs.md)
 - [파일 압축](cdn-improve-performance.md)
-- [지역 필터링](cdn-restrict-access-by-country.md)
+- [지역 필터링](cdn-restrict-access-by-country-region.md)
 
 각 Azure CDN 제품이 지원하는 기능의 전체 목록은 [Azure CDN 제품 기능 비교](cdn-features.md)를 참조하세요.
 

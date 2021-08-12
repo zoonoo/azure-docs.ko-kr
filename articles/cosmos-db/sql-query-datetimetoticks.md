@@ -9,16 +9,16 @@ ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: ab81e2b6ef19e7a5dacb80186c5364a5848077f6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93336336"
 ---
-# <a name="datetimetoticks-azure-cosmos-db"></a>DateTimeToTicks (Azure Cosmos DB)
+# <a name="datetimetoticks-azure-cosmos-db"></a>DateTimeToTicks(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-지정 된 날짜/시간을 틱으로 변환 합니다. 단일 틱은 100 나노초 또는 1 10-1 1/1000000 초를 나타냅니다. 
+지정된 DateTime을 틱으로 변환합니다. 틱 하나는 100나노초 또는 1/1000만 초를 나타냅니다. 
 
 ## <a name="syntax"></a>구문
   
@@ -29,21 +29,21 @@ DateTimeToTicks (<DateTime>)
 ## <a name="arguments"></a>인수
   
 *DateTime*  
-   형식의 UTC 날짜 및 시간 ISO 8601 문자열 값 `YYYY-MM-DDThh:mm:ss.fffffffZ`
+   `YYYY-MM-DDThh:mm:ss.fffffffZ` 형식의 UTC 날짜 및 시간 ISO 8601 문자열 값
 
 ## <a name="return-types"></a>반환 형식
 
-부호 있는 숫자 값, Unix epoch 이후 경과한 현재 100 나노초 틱 수를 반환 합니다. 즉, DateTimeToTicks는 00:00:00 목요일부터 1 월 1 1970 일에 경과 된 100 나노초 틱 수를 반환 합니다.
+부호 있는 숫자 값으로, Unix Epoch 이후 경과한 현재 100나노초 틱 수를 반환합니다. 즉, DateTimeToTicks는 1970년 1월 1일 목요일 00:00:00 이후 경과된 100나노초 틱 수를 반환합니다.
 
 ## <a name="remarks"></a>설명
 
-`undefined`Datetime이 유효한 ISO 8601 datetime이 아니면 DateTimeDateTimeToTicks는를 반환 합니다.
+DateTime이 유효한 ISO 8601 DateTime이 아닌 경우 DateTimeDateTimeToTicks는 `undefined`를 반환합니다.
 
-이 시스템 함수는 인덱스를 활용 하지 않습니다.
+이 시스템 함수는 인덱스를 활용하지 않습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
-틱 수를 반환 하는 예는 다음과 같습니다.
+다음은 틱 수를 반환하는 예제입니다.
 
 ```sql
 SELECT DateTimeToTicks("2020-01-02T03:04:05.6789123Z") AS Ticks
@@ -57,7 +57,7 @@ SELECT DateTimeToTicks("2020-01-02T03:04:05.6789123Z") AS Ticks
 ]
 ```
 
-소수 자릿수 초를 지정 하지 않고 틱 수를 반환 하는 예는 다음과 같습니다.
+다음은 소수 자릿수 초 수를 지정하지 않고 틱 수를 반환하는 예제입니다.
 
 ```sql
 SELECT DateTimeToTicks("2020-01-02T03:04:05Z") AS Ticks

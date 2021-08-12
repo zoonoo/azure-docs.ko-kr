@@ -1,24 +1,24 @@
 ---
-title: 서버 관리-Azure Portal-Azure Database for MySQL
-description: Azure Portal에서 Azure Database for MySQL 서버를 관리 하는 방법을 알아봅니다.
+title: 서버 관리 - Azure Portal - Azure Database for MySQL
+description: Azure Portal에서 Azure Database for MySQL 서버를 관리하는 방법을 알아봅니다.
 author: Bashar-MSFT
 ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
 ms.date: 1/26/2021
 ms.openlocfilehash: 83876f77e0d7ffc0ae20bc5a545c1f18f53f4a8f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98897988"
 ---
-# <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL 서버 관리
+# <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL 서버 관리
 
-이 문서에서는 Azure Database for MySQL 서버를 관리 하는 방법을 보여 줍니다. 관리 작업에는 계산 및 저장소 크기 조정, 관리자 암호 재설정 및 서버 세부 정보 보기가 포함 됩니다.
+이 문서에서는 Azure Database for MySQL 서버를 관리하는 방법을 보여 줍니다. 관리 작업에는 컴퓨팅 및 스토리지 스케일링, 관리자 암호 재설정, 서버 세부 정보 보기 등이 포함됩니다.
 
 > [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 _종속_ 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 _slave_ 에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 >
 
 ## <a name="sign-in"></a>로그인
@@ -27,92 +27,92 @@ ms.locfileid: "98897988"
 
 ## <a name="create-a-server"></a>서버 만들기
 
-Azure Database for MySQL 서버를 만들고 시작 하는 방법을 알아보려면 [빠른](quickstart-create-mysql-server-database-using-azure-portal.md) 시작을 참조 하세요.
+Azure Database for MySQL 서버를 만들고 시작하는 방법을 알아보려면 [빠른 시작](quickstart-create-mysql-server-database-using-azure-portal.md)을 참조하세요.
 
-## <a name="scale-compute-and-storage"></a>계산 및 저장소 크기 조정
+## <a name="scale-compute-and-storage"></a>컴퓨팅 및 스토리지 스케일링
 
-서버를 만든 후에는 요구 사항이 변경 됨에 따라 범용 및 메모리 액세스에 최적화 된 계층 사이를 확장할 수 있습니다. VCores를 늘리거나 줄여서 계산 및 메모리를 확장할 수도 있습니다. 저장소를 확장할 수 있습니다 (그러나 저장소 크기를 줄일 수 없음).
+서버를 만든 후에는 요구 사항이 변경됨에 따라 범용과 메모리 최적화 계층 간에 스케일링할 수 있습니다. vCore를 늘리거나 줄여서 컴퓨팅과 메모리를 스케일링할 수도 있습니다. 스토리지는 스케일 업할 수 있습니다(그러나 스토리지 스케일 다운은 불가능함).
 
-### <a name="scale-between-general-purpose-and-memory-optimized-tiers"></a>범용 및 메모리 액세스에 최적화 된 계층 간의 크기 조정
+### <a name="scale-between-general-purpose-and-memory-optimized-tiers"></a>범용 및 메모리 최적화 계층 간 크기 조정
 
-범용에서 메모리 액세스에 최적화 된 메모리 또는 그 반대로 확장할 수 있습니다. 서버를 만든 후 기본 계층에서로의 변경은 지원 되지 않습니다.
+범용에서 메모리 최적화로, 또는 그 반대로 스케일링할 수 있습니다. 서버 만들기가 지원되지 않게 되면 기본 계층을 변경하세요.
 
-1. Azure Portal에서 서버를 선택 합니다. **설정** 섹션에 있는 **가격 책정 계층** 을 선택 합니다.
+1. Azure Portal에서 서버를 선택합니다. **설정** 섹션에 있는 **가격 책정 계층** 을 선택합니다.
 
-2. 크기를 조정 하는 대상에 따라 **범용** 또는 **메모리 최적화** 를 선택 합니다.
+2. 스케일링하는 대상에 따라 **범용** 또는 **메모리 최적화** 를 선택합니다.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/change-pricing-tier.png" alt-text="Azure Database for MySQL에서 기본, 범용 또는 메모리 액세스에 최적화 된 계층을 선택 하는 Azure Portal의 스크린샷":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/change-pricing-tier.png" alt-text="Azure Database for MySQL에서 기본, 범용 또는 메모리 최적화 계층을 선택하는 Azure Portal의 스크린샷":::
 
    > [!NOTE]
-   > 계층을 변경 하면 서버가 다시 시작 됩니다.
+   > 계층을 변경하면 서버가 다시 시작됩니다.
 
-3. **확인** 을 선택 하 여 변경 내용을 저장 합니다.
+3. **확인** 을 선택하여 변경 사항을 저장합니다.
 
 ### <a name="scale-vcores-up-or-down"></a>VCores 확장 또는 축소
 
-1. Azure Portal에서 서버를 선택 합니다. **설정** 섹션에 있는 **가격 책정 계층** 을 선택 합니다.
+1. Azure Portal에서 서버를 선택합니다. **설정** 섹션에 있는 **가격 책정 계층** 을 선택합니다.
 
 2. 슬라이더를 원하는 값으로 이동하여 **vCore** 설정을 변경합니다.
 
-    :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Azure Database for MySQL에서 vCore 옵션을 선택할 Azure Portal의 스크린샷":::
+    :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Azure Database for MySQL에서 vCore 옵션을 선택하는 Azure Portal의 스크린샷":::
 
     > [!NOTE]
-    > VCores 크기를 조정 하면 서버를 다시 시작 합니다.
+    > vCore를 스케일링하면 서버가 다시 시작됩니다.
 
-3. **확인** 을 선택 하 여 변경 내용을 저장 합니다.
+3. **확인** 을 선택하여 변경 사항을 저장합니다.
 
-### <a name="scale-storage-up"></a>저장소 크기 조정
+### <a name="scale-storage-up"></a>스토리지 확장
 
-1. Azure Portal에서 서버를 선택 합니다. **설정** 섹션에 있는 **가격 책정 계층** 을 선택 합니다.
+1. Azure Portal에서 서버를 선택합니다. **설정** 섹션에 있는 **가격 책정 계층** 을 선택합니다.
 
-2. 슬라이더를 원하는 값으로 이동 하 여 **저장소** 설정을 변경 합니다.
+2. 슬라이더를 원하는 값으로 이동하여 **스토리지** 설정을 변경합니다.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Azure Database for MySQL에서 저장소 크기 조정을 선택 Azure Portal의 스크린샷":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Azure Database for MySQL에서 스토리지 스케일링을 선택하는 Azure Portal의 스크린샷":::
 
    > [!NOTE]
-   > 저장소 크기를 축소할 수 없습니다.
+   > 스토리지를 축소할 수는 없습니다.
 
-3. **확인** 을 선택 하 여 변경 내용을 저장 합니다.
+3. **확인** 을 선택하여 변경 사항을 저장합니다.
 
 ## <a name="update-admin-password"></a>관리자 암호 업데이트
 
-Azure Portal를 사용 하 여 관리자 역할의 암호를 변경할 수 있습니다.
+Azure Portal을 사용하여 관리자 역할의 암호를 변경할 수 있습니다.
 
-1. Azure Portal에서 서버를 선택 합니다. **개요** 창에서 **암호 재설정** 을 선택 합니다.
+1. Azure Portal에서 서버를 선택합니다. **개요** 창에서 **암호 재설정** 을 선택합니다.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Azure Database for MySQL에서 암호를 다시 설정 하 Azure Portal의 스크린샷":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Azure Database for MySQL에서 암호를 초기화하는 Azure Portal의 스크린샷":::
 
-2. 새 암호를 입력하고 암호를 확인합니다. 텍스트 상자에 암호 복잡성 요구 사항에 대 한 메시지가 표시 됩니다.
+2. 새 암호를 입력하고 암호를 확인합니다. 텍스트 상자에 암호 복잡성 요구 사항에 대한 메시지가 표시됩니다.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="암호를 다시 설정 하 고 Azure Database for MySQL 저장 하는 Azure Portal의 스크린샷":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Azure Database for MySQL에서 암호를 초기화하고 저장하는 Azure Portal의 스크린샷":::
 
-3. **확인** 을 선택 하 여 새 암호를 저장 합니다.
+3. **확인** 을 클릭하여 새 암호를 저장합니다.
  
 
 > [!IMPORTANT]
-> 서버 관리자 암호를 다시 설정하면 자동으로 서버 관리자 권한이 기본값으로 다시 설정됩니다. 하나 이상의 서버 관리자 권한을 실수로 취소 한 경우 서버 관리자 암호를 다시 설정 하는 것이 좋습니다.
+> 서버 관리자 암호를 다시 설정하면 자동으로 서버 관리자 권한이 기본값으로 다시 설정됩니다. 하나 이상의 서버 관리자 권한을 실수로 취소한 경우 서버 관리자 암호를 다시 설정하는 것이 좋습니다.
    
 > [!NOTE]
-> 서버 관리자 사용자에 게는 기본적으로 SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASE, CREATE 임시 TABLES, LOCK TABLES, EXECUTE, REPLICATION 슬레이브, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE 루틴, ALTER 루틴이, CREATE USER, EVENT, TRIGGER 권한이 있습니다.
+> 서버 관리 사용자는 기본적으로 SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER 권한을 가집니다.
 
 ## <a name="delete-a-server"></a>서버 삭제
 
-서버를 더 이상 필요 하지 않은 경우 삭제할 수 있습니다.
+더 이상 필요하지 않은 경우 서버를 삭제할 수 있습니다.
 
-1. Azure Portal에서 서버를 선택 합니다. **개요** 창에서 **삭제** 를 선택 합니다.
+1. Azure Portal에서 서버를 선택합니다. **개요** 창에서 **삭제** 를 선택합니다.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Azure Database for MySQL에서 서버를 삭제 Azure Portal의 스크린샷":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Azure Database for MySQL에서 서버를 삭제하는 Azure Portal의 스크린샷":::
 
-2. 입력 상자에 서버 이름을 입력 하 여 삭제 하려는 서버 인지 확인 합니다.
+2. 입력 상자에 서버 이름을 입력하여 서버 삭제를 확인합니다.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Azure Database for MySQL에서 서버 삭제를 확인 하는 Azure Portal의 스크린샷":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Azure Database for MySQL에서 서버 삭제를 확인하는 Azure Portal의 스크린샷":::
 
    > [!NOTE]
-   > 서버 삭제는 취소할 수 없습니다.
+   > 서버를 삭제한 후에는 되돌릴 수 없습니다.
 
 3. **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [백업 및 서버 복원](howto-restore-server-portal.md) 에 대 한 자세한 정보
-- [Azure Database for MySQL의 튜닝 및 모니터링 옵션](concepts-monitoring.md) 에 대해 알아봅니다.
+- [백업 및 서버 복원](howto-restore-server-portal.md)에 대한 자세한 정보
+- [Azure Database for MySQL의 튜닝 및 모니터링 옵션](concepts-monitoring.md)에 관한 자세한 정보

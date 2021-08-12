@@ -6,13 +6,13 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/17/2021
-ms.openlocfilehash: a7676dfe6feedc5bb34ab6c96b4c3a03e4feb56c
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 05/18/2021
+ms.openlocfilehash: 36fae5b71e9aa5c2c6c252ad1aa306bb64d9aecb
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483122"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480083"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cosmos DB(SQL API)에서 데이터 복사 및 변환
 
@@ -39,7 +39,7 @@ Azure Cosmos DB(SQL API) 커넥터는 다음과 같은 작업에 대해 지원�
 
 복사 작업의 경우 Azure Cosmos DB(SQL API) 커넥터는 다음을 지원합니다.
 
-- Azure Cosmos DB [SQL API](../cosmos-db/introduction.md) 간에 데이터를 복사합니다.
+- Azure 리소스 인증에 대한 키, 서비스 주체 또는 관리 ID를 사용하여 Azure Cosmos DB [SQL API](../cosmos-db/introduction.md)에서 데이터를 복사합니다.
 - **insert** 또는 **upsert** 로 Azure Cosmos DB에 씁니다.
 - JSON 문서를 있는 그대로 가져오고 내보내거나 데이터를 테이블 형식 데이터 세트 간에 복사합니다. 예로는 SQL 데이터베이스 및 CSV 파일이 있습니다. JSON 파일 간 또는 다른 Azure Cosmos DB 컬렉션 간에 문서를 있는 그대로 복사하려면 [JSON 문서 가져오기 또는 내보내기](#import-and-export-json-documents)를 참조하세요.
 
@@ -56,7 +56,13 @@ Data Factory는 Azure Cosmos DB에 쓸 때 최상의 성능을 제공하기 위�
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
-Azure Cosmos DB(SQL API) 연결된 서비스에 다음 속성이 지원됩니다.
+Azure Cosmos DB(SQL API) 커넥터는 다음과 같은 인증 유형을 지원합니다. 자세한 내용은 해당 섹션을 참조하세요.
+
+- [키 인증](#key-authentication)
+- [서비스 주체 인증(미리 보기)](#service-principal-authentication)
+- [Azure 리소스 인증에 대한 관리 ID(미리 보기)](#managed-identity)
+
+### <a name="key-authentication"></a>키 인증
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
@@ -99,6 +105,133 @@ Azure Cosmos DB(SQL API) 연결된 서비스에 다음 속성이 지원됩니다
                 }, 
                 "secretName": "<secretName>" 
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="service-principal-authentication-preview"></a><a name="service-principal-authentication">서비스 주체 인증(미리 보기)</a>
+
+>[!NOTE]
+>현재 서비스 주체 인증은 데이터 흐름에서 지원되지 않습니다.
+
+서비스 주체 인증을 사용하려면 다음 단계를 수행합니다.
+
+1. [Azure AD(Azure Active Directory) 테넌트에 애플리케이션 등록](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant) 단계에 따라 Azure AD에 애플리케이션 엔터티를 등록합니다. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
+
+    - 애플리케이션 UI
+    - 애플리케이션 키
+    - 테넌트 ID
+
+2. 서비스 주체에게 적절한 사용 권한을 부여합니다. [파일 및 디렉터리에 대한 액세스 제어 목록](../cosmos-db/how-to-setup-rbac.md)에서 Cosmos DB 권한이 작동하는 방식에 대한 예시를 참조하세요. 보다 구체적으로, 역할 정의를 만들고 서비스 주체 개체 ID를 통해 서비스 주체에 역할을 할당합니다. 
+
+연결된 서비스에 지원되는 속성은 다음과 같습니다.
+
+| 속성 | Description | 필수 |
+|:--- |:--- |:--- |
+| type | type 속성은 **CosmosDb** 로 설정해야 합니다. |예 |
+| accountEndpoint | Azure Cosmos DB에 계정 엔드포인트 URL을 지정합니다. | 예 |
+| 데이터베이스 | 데이터베이스의 이름을 지정합니다. | 예 |
+| servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
+| servicePrincipalCredentialType | 서비스 주체 인증에 사용할 자격 증명 유형입니다. 허용되는 값은 **ServicePrincipalKey** 및 **ServicePrincipalCert** 입니다. | 예 |
+| servicePrincipalCredential | 서비스 주체 자격 증명입니다. <br/> **ServicePrincipalKey** 를 자격 증명 유형으로 사용하는 경우 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. <br/> **ServicePrincipalCert** 를 자격 증명으로 사용하는 경우 Azure Key Vault에서 인증서를 참조합니다. | 예 |
+| tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure 포털의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 예 |
+| azureCloudType | 서비스 주체 인증의 경우 Azure Active Directory 애플리케이션이 등록된 Azure 클라우드 환경의 유형을 지정합니다. <br/> 허용되는 값은 **AzurePublic**, **AzureChina**, **AzureUsGovernment**, **AzureGermany** 입니다. 기본적으로 데이터 팩터리의 클라우드 환경이 사용됩니다. | 예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
+
+**예: 서비스 주체 키 인증 사용**
+
+Azure Key Vault에 서비스 주체 키를 저장할 수도 있습니다.
+
+```json
+{
+    "name": "CosmosDbSQLAPILinkedService",
+    "properties": {
+        "type": "CosmosDb",
+        "typeProperties": {
+            "accountEndpoint": "<account endpoint>",
+            "database": "<database name>",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalCredentialType": "ServicePrincipalKey",
+            "servicePrincipalCredential": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**예: 서비스 주체 인증서 인증 사용**
+```json
+{
+    "name": "CosmosDbSQLAPILinkedService",
+    "properties": {
+        "type": "CosmosDb",
+        "typeProperties": {
+            "accountEndpoint": "<account endpoint>",
+            "database": "<database name>", 
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalCredentialType": "ServicePrincipalCert",
+            "servicePrincipalCredential": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<AKV reference>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<certificate name in AKV>" 
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="managed-identities-for-azure-resources-authentication-preview"></a><a name="managed-identity"></a> Azure 리소스 인증에 대한 관리 ID(미리 보기)
+
+>[!NOTE]
+>현재 관리 ID 인증은 데이터 흐름에서 지원되지 않습니다.
+
+특정 데이터 팩터리를 나타내는 [Azure 리소스용 관리 ID](data-factory-service-identity.md)와 데이터 팩터리를 연결할 수 있습니다. 사용자 고유의 서비스 주체를 사용하는 것과 비슷하게 Cosmos DB 인증에 이 관리 ID를 직접 사용할 수 있습니다. 이 지정된 팩터리는 Cosmos DB 간에서 데이터에 액세스하고 복사할 수 있습니다.
+
+Azure 리소스 인증에 관리 ID를 사용하려면 다음 단계를 수행합니다.
+
+1. 팩터리와 함께 생성된 **관리 ID개체 ID** 의 값을 복사하여 [Data Factory 관리 ID 정보를 검색](data-factory-service-identity.md#retrieve-managed-identity)합니다.
+
+2. 적절한 사용 권한을 관리 ID에 부여합니다. [파일 및 디렉터리에 대한 액세스 제어 목록](../cosmos-db/how-to-setup-rbac.md)에서 Cosmos DB 권한이 작동하는 방식에 대한 예시를 참조하세요. 특히 역할 정의를 만들고 관리 ID에 역할을 할당합니다.
+
+연결된 서비스에 지원되는 속성은 다음과 같습니다.
+
+| 속성 | Description | 필수 |
+|:--- |:--- |:--- |
+| type | type 속성은 **CosmosDb** 로 설정해야 합니다. |예 |
+| accountEndpoint | Azure Cosmos DB에 계정 엔드포인트 URL을 지정합니다. | 예 |
+| 데이터베이스 | 데이터베이스의 이름을 지정합니다. | 예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
+
+**예:**
+
+```json
+{
+    "name": "CosmosDbSQLAPILinkedService",
+    "properties": {
+        "type": "CosmosDb",
+        "typeProperties": {
+            "accountEndpoint": "<account endpoint>",
+            "database": "<database name>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -153,7 +286,7 @@ Azure Cosmos DB(SQL API)에서 데이터를 복사하려면 복사 작업의 **s
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성을 **CosmosDbSqlApiSource** 로 설정해야 합니다. |예 |
-| Query |데이터를 읽는 Azure Cosmos DB 쿼리를 지정합니다.<br/><br/>예제:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |예 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
+| Query |데이터를 읽는 Azure Cosmos DB 쿼리를 지정합니다.<br/><br/>예:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |예 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
 | preferredRegions | Cosmos DB에서 데이터를 검색할 때 연결할 지역의 기본 목록입니다. | 예 |
 | pageSize | 쿼리 결과의 페이지당 문서 수입니다. 기본값은 서비스 쪽 동적 페이지 크기를 1000까지 사용함을 의미하는 “-1”입니다. | 예 |
 | detectDatetime | 문서의 문자열 값에서 날짜/시간을 검색할지를 지정합니다. 허용되는 값은 **true**(기본값), **false** 입니다. | 예 |

@@ -1,5 +1,5 @@
 ---
-title: Cloud Services (클래식)에서 역할에 대 한 통신 | Microsoft Docs
+title: Cloud Services(클래식) 역할에 대한 통신 | Microsoft Docs
 description: Cloud Services의 역할 인스턴스에는 다른 역할 인스턴스의 외부 또는 그 사이에서 통신하도록 정의된 엔드포인트(http, https, tcp, udp)가 있을 수 있습니다.
 ms.topic: article
 ms.service: cloud-services
@@ -9,16 +9,16 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 82aa1579a1f7feb36732153341e1eacf266a7218
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98743035"
 ---
-# <a name="enable-communication-for-role-instances-in-azure-cloud-services-classic"></a>Azure Cloud Services에서 역할 인스턴스에 대 한 통신 사용 (클래식)
+# <a name="enable-communication-for-role-instances-in-azure-cloud-services-classic"></a>Azure Cloud Services(클래식) 역할 인스턴스에 대한 통신 사용
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이와 같은 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 새로운 모든 배포에서 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 클라우드 서비스 역할은 내부 및 외부 연결을 통해 통신합니다. 외부 연결을 **입력 엔드포인트** 라고 하고, 내부 연결을 **내부 엔드포인트** 라고 합니다. 이 항목은 [서비스 정의](cloud-services-model-and-package.md#csdef) 를 수정하는 방법을 설명하여 엔드포인트를 만듭니다.
 
@@ -109,7 +109,7 @@ int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].
 > 
 > 
 
-역할 인스턴스의 내부 끝점에 대 한 포트 번호를 확인 하려면 속성을 사용 하 여 [`InstanceEndpoints`](/previous-versions/azure/reference/ee741917(v=azure.100)) 끝점 이름과 해당 IP 주소 및 포트를 포함 하는 사전 개체를 반환할 수 있습니다. [`IPEndpoint`](/previous-versions/azure/reference/ee741919(v=azure.100))속성은 지정 된 끝점에 대 한 IP 주소 및 포트를 반환 합니다. `PublicIPEndpoint`속성은 부하 분산 된 끝점에 대 한 포트를 반환 합니다. 속성의 IP 주소 부분은 `PublicIPEndpoint` 사용 되지 않습니다.
+역할 인스턴스의 내부 엔드포인트용 포트 번호를 확인하려면, [`InstanceEndpoints`](/previous-versions/azure/reference/ee741917(v=azure.100)) 속성을 사용하여 엔드포인트 이름과 해당 IP 주소 및 포트가 포함된 Dictionary 개체를 반환하면 됩니다. [`IPEndpoint`](/previous-versions/azure/reference/ee741919(v=azure.100)) 속성은 지정된 엔드포인트에 대한 IP 주소와 포트를 반환합니다. `PublicIPEndpoint` 속성은 부하 분산된 엔드포인트에 대한 포트를 반환합니다. `PublicIPEndpoint` 속성의 IP 주소 부분은 사용되지 않습니다.
 
 역할 인스턴스를 반복하는 예는 다음과 같습니다.
 

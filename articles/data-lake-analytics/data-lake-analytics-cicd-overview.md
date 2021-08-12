@@ -8,10 +8,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 09/14/2018
 ms.openlocfilehash: 95b638b85e0746d2995488f2a28a5fb2512b1063
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96015267"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대해 CI/CD 파이프라인을 설정하는 방법  
@@ -63,7 +63,7 @@ U-SQL 프로젝트의 U-SQL 스크립트에는 U-SQL 데이터베이스 개체�
 [U-SQL 데이터베이스 프로젝트](data-lake-analytics-data-lake-tools-develop-usql-database.md)에 대해 자세히 알아봅니다.
 
 >[!NOTE]
-> DROP 문은 실수로 삭제를 발생 시킬 수 있습니다. DROP 문을 사용 하려면 MSBuild 인수를 명시적으로 지정 해야 합니다. **Allowdropstatement** 는 drop assembly 및 drop table 값 함수와 같은 비 데이터 관련 삭제 작업을 활성화 합니다. **AllowDataDropStatement** 는 drop table 및 drop schema와 같은 데이터 관련 drop 작업을 사용 하도록 설정 합니다. AllowDataDropStatement를 사용 하기 전에 AllowDropStatement를 사용 하도록 설정 해야 합니다.
+> DROP 문으로 인해 실수로 삭제할 수 있습니다. DROP 문을 사용하도록 설정하려면 MSBuild 인수를 명시적으로 지정해야 합니다. **AllowDropStatement** 는 어셈블리 삭제 및 테이블 값 삭제 함수와 같은 비데이터 관련 DROP 작업을 사용하도록 설정합니다. **AllowDataDropStatement** 는 테이블 삭제 및 스키마 삭제와 같은 데이터 관련 DROP 작업을 사용하도록 설정합니다. AllowDataDropStatement를 사용하기 전에 AllowDropStatement를 사용하도록 설정해야 합니다.
 >
 
 ### <a name="build-a-u-sql-project-with-the-msbuild-command-line"></a>MSBuild 명령줄을 사용하여 U-SQL 프로젝트 빌드
@@ -76,8 +76,8 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 인수 정의 및 값은 다음과 같습니다.
 
-- **USQLSDKPath = \<U-SQL Nuget package> \build\runtime**. 이 매개 변수는 U-SQL 언어 서비스에 대한 NuGet 패키지의 설치 경로를 나타냅니다.
-- **USQLTargetType = Merge 또는 SyntaxCheck**:
+- **USQLSDKPath=\<U-SQL Nuget package>\build\runtime**. 이 매개 변수는 U-SQL 언어 서비스에 대한 NuGet 패키지의 설치 경로를 나타냅니다.
+- **USQLTargetType=Merge 또는 SyntaxCheck**:
 
   - **Merge**. Merge 모드는 코드 숨김 파일을 컴파일합니다. 예로 **.cs**, **.py** 및 **.r** 파일입니다. U-SQL 스크립트로 결과 사용자 정의 코드 라이브러리를 인라인합니다. 예로는 dll 이진, Python 또는 R 코드가 있습니다.
 
@@ -93,7 +93,7 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 ![U-SQL 프로젝트에 대한 MSBuild 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png)
 
-1. MSBuild에서 U-SQL 언어 대상을 찾을 수 있도록 NuGet 복원 작업을 추가하여 `Azure.DataLake.USQL.SDK`를 포함하는 솔루션 참조 NuGet 패키지를 가져옵니다.   >  2 단계에서 직접 MSBuild 인수 예제를 사용 하려면 고급 **대상 디렉터리** 를로 설정 `$(Build.SourcesDirectory)/packages` 합니다.
+1. MSBuild에서 U-SQL 언어 대상을 찾을 수 있도록 NuGet 복원 작업을 추가하여 `Azure.DataLake.USQL.SDK`를 포함하는 솔루션 참조 NuGet 패키지를 가져옵니다. 2단계에서 직접 MSBuild 인수 예제를 사용하려는 경우 **고급** > **대상 디렉터리** 를 `$(Build.SourcesDirectory)/packages`로 설정합니다.
 
    ![U-SQL 프로젝트에 대한 NuGet 복원 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
@@ -110,13 +110,13 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 빌드를 실행한 후, U-SQL 프로젝트의 모든 스크립트가 빌드되고 `USQLProjectName.usqlpack`이라는 zip 파일로 출력됩니다. 프로젝트의 폴더 구조는 zip으로 압축된 빌드 출력으로 유지됩니다.
 
 > [!NOTE]
-> 각 U SQL 스크립트의 코드 숨김이 인라인 문으로 스크립트 빌드 출력에 병합 됩니다.
+> 각 U-SQL 스크립트에 대한 코드 숨김 파일은 스크립트 빌드 출력에 인라인 문으로 병합됩니다.
 
 ## <a name="test-u-sql-scripts"></a>U-SQL 스크립트 테스트
 
 Azure Data Lake는 U-SQL 스크립트 및 C# UDO/UDAG/UDF에 대한 테스트 프로젝트를 제공합니다.
 
-- [U-SQL 스크립트 및 확장 c # 코드에 대 한 테스트 사례를 추가](data-lake-analytics-cicd-test.md#test-u-sql-scripts) 하는 방법을 알아봅니다.
+- [U-SQL 스크립트 및 확장 C# 코드에 대한 테스트 사례 추가](data-lake-analytics-cicd-test.md#test-u-sql-scripts) 방법을 알아봅니다.
 
 - [Azure Pipelines에서 테스트 사례를 실행](data-lake-analytics-cicd-test.md#run-test-cases-in-azure-devops)하는 방법을 알아봅니다.
 
@@ -232,7 +232,7 @@ Main
 ```
 
 >[!NOTE]
-> 명령: `Submit-AzDataLakeAnalyticsJob` 및는 `Wait-AzDataLakeAnalyticsJob` 모두 Azure Resource Manager framework의 Azure Data Lake Analytics에 대 한 Azure PowerShell cmdlet입니다. Azure PowerShell 설치 된 워크스테이션을 다음 작업이 합니다. [명령 목록](/powershell/module/Az.DataLakeAnalytics) 에서 더 많은 명령과 예제를 참조할 수 있습니다.
+> 명령 `Submit-AzDataLakeAnalyticsJob` 및 `Wait-AzDataLakeAnalyticsJob`은 둘 다 Azure Resource Manager 프레임워크의 Azure Data Lake Analytics 대한 Azure PowerShell cmdlet입니다. Azure PowerShell이 설치된 워크스테이션이 필요합니다. 추가 명령 및 예제에 대해서는 [명령 목록](/powershell/module/Az.DataLakeAnalytics)을 참조할 수 있습니다.
 >
 
 ### <a name="deploy-u-sql-jobs-through-azure-data-factory"></a>Azure Data Factory를 통해 U-SQL 작업 배포
@@ -332,7 +332,7 @@ msbuild DatabaseProject.usqldbproj /p:USQLSDKPath=packages\Microsoft.Azure.DataL
 
    ![U-SQL 프로젝트에 대한 CI/CD MSBuild 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png)
 
-1. MSBuild에서 U-SQL 언어 대상을 찾을 수 있도록 NuGet 복원 작업을 추가하여 `Azure.DataLake.USQL.SDK`를 포함하는 솔루션 참조 NuGet 패키지를 가져옵니다.   >  2 단계에서 직접 MSBuild 인수 예제를 사용 하려면 고급 **대상 디렉터리** 를로 설정 `$(Build.SourcesDirectory)/packages` 합니다.
+1. MSBuild에서 U-SQL 언어 대상을 찾을 수 있도록 NuGet 복원 작업을 추가하여 `Azure.DataLake.USQL.SDK`를 포함하는 솔루션 참조 NuGet 패키지를 가져옵니다. 2단계에서 직접 MSBuild 인수 예제를 사용하려는 경우 **고급** > **대상 디렉터리** 를 `$(Build.SourcesDirectory)/packages`로 설정합니다.
 
    ![U-SQL 프로젝트를 위한 CI/CD NuGet 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
@@ -491,6 +491,6 @@ Azure Pipelines에서 데이터베이스 배포 작업을 설정하려면 다음
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Data Lake Analytics 코드를 테스트 하는 방법](data-lake-analytics-cicd-test.md)
+- [Azure Data Lake Analytics 코드를 테스트하는 방법](data-lake-analytics-cicd-test.md).
 - [로컬 머신에서 U-SQL 스크립트 실행](data-lake-analytics-data-lake-tools-local-run.md).
 - [U-SQL 데이터베이스 프로젝트를 사용하여 U-SQL 데이터베이스 개발](data-lake-analytics-data-lake-tools-develop-usql-database.md).

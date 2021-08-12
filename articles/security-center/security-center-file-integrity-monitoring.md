@@ -1,24 +1,18 @@
 ---
-title: Azure Security Center에서 파일 무결성 모니터링 | Microsoft Docs
+title: Azure Security Center에서 파일 무결성 모니터링
 description: 이 연습을 사용하여 Azure Security Center에서 FIM(파일 무결성 모니터링)을 구성하는 방법을 알아봅니다.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/22/2020
+ms.date: 04/25/2021
 ms.author: memildin
-ms.openlocfilehash: 834df2387d037c19672e3287970300f4e84ca34b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e14307207ddbe9f1b89bd05d7015dafd76b10d51
+ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047986"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107992497"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure Security Center에서 파일 무결성 모니터링
 이 연습을 사용하여 Azure Security Center에서 FIM(파일 무결성 모니터링)을 구성하는 방법을 알아봅니다.
@@ -62,6 +56,7 @@ FIM은 Azure 변경 내용 추적 솔루션을 사용하여 환경의 변경 내
 > **변경 내용 추적** 리소스를 제거하면 Security Center에서 파일 무결성 모니터링 기능을 사용하지 않도록 설정합니다.
 
 ## <a name="which-files-should-i-monitor"></a>어떤 파일을 모니터링해야 할까요?
+
 모니터링할 파일을 선택하는 경우 시스템 및 애플리케이션에 중요한 파일을 고려합니다. 계획 없이 변경할 것으로 예상되지 않는 파일을 모니터링합니다. 애플리케이션이나 운영 체제(예: 로그 파일 및 텍스트 파일)에서 자주 변경되는 파일을 선택하면 공격을 식별하기 어렵게 만드는 노이즈가 많이 발생합니다.
 
 Security Center는 알려진 공격 패턴을 기준으로 모니터링할 다음과 같은 권장 항목 목록을 제공합니다.
@@ -168,75 +163,69 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
 - 선택한 기간 동안 발생한 총 변경 횟수
 - 파일 변경 또는 레지스트리 변경으로 인한 총 변경 횟수에 대한 분석
 
-**로그 검색** 은 검색 필드에 머신 이름을 입력하거나 컴퓨터 탭에 나열된 머신을 선택하면 열립니다. 로그 검색은 머신에 대해 선택한 기간 동안 수행된 모든 변경 내용을 표시합니다. 자세한 내용을 확인하려면 변경 내용을 펼칠 수 있습니다.
+머신을 선택하면 선택한 기간 동안의 변경 내용을 식별하는 결과와 함께 쿼리가 나타납니다. 자세한 내용을 확인하려면 변경 내용을 펼칠 수 있습니다.
 
-![로그 검색][8]
+:::image type="content" source="./media/security-center-file-integrity-monitoring/query-machine-changes.png" alt-text="Azure Security Center의 파일 무결성 모니터링으로 식별된 변경 내용을 보여 주는 Log Analytics 쿼리" lightbox="./media/security-center-file-integrity-monitoring/query-machine-changes.png":::
 
 **변경** 탭(아래 그림 참조)에는 선택한 기간 동안 작업 영역에 대한 모든 변경 내용이 나열됩니다. 대시보드에서 변경된 각 엔터티에 대해 나열하는 항목은 다음과 같습니다.
 
-- 변경이 발생한 컴퓨터
+- 변경이 발생한 머신
 - 변경 유형(레지스트리 또는 파일)
 - 변경 범주(수정됨, 추가됨, 제거됨)
 - 변경 날짜 및 시간
 
-![작업 영역에 대한 변경 내용][9]
+:::image type="content" source="./media/security-center-file-integrity-monitoring/changes-tab.png" alt-text="Azure Security Center의 파일 무결성 모니터링 변경 내용 탭" lightbox="./media/security-center-file-integrity-monitoring/changes-tab.png":::
 
 검색 필드에서 변경 내용을 입력하거나 **변경** 탭 아래에 나열된 항목을 선택하면 **변경 세부 정보** 가 열립니다.
 
-![변경 세부 정보][10]
+:::image type="content" source="./media/security-center-file-integrity-monitoring/change-details.png" alt-text="변경에 대한 세부 정보 창을 보여 주는 Azure Security Center의 파일 무결성 모니터링" lightbox="./media/security-center-file-integrity-monitoring/change-details.png":::
 
 ## <a name="edit-monitored-entities"></a>모니터링된 엔터티 수정
 
-1. **파일 무결성 모니터링 대시보드** 로 돌아가서 **설정** 을 선택합니다.
+1. 작업 영역에 대한 **파일 무결성 모니터링 대시보드** 의 도구 모음에서 **설정** 을 선택합니다. 
 
-   ![설정][11]
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-dashboard-settings.png" alt-text="작업 영역에 대한 파일 무결성 모니터링 설정 액세스" lightbox="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-dashboard-settings.png":::
 
-   **Windows 레지스트리**, **Windows 파일** 및 **Linux 파일** 의 세 가지 탭을 표시하는 **작업 영역 구성** 이 열립니다. 각 탭에는 해당 범주에서 편집할 수 있는 엔터티가 나열됩니다. Security Center에서는 나열된 각 엔터티에 대해 FIM을 사용하거나(true) 사용하지 않도록(false) 설정되었는지를 식별합니다.  엔터티를 편집하면 FIM을 사용하거나 사용하지 않도록 설정할 수 있습니다.
+   모니터링할 수 있는 각 요소 유형에 대한 탭이 있는 **작업 영역 구성** 이 열립니다.
 
-   ![작업 영역 구성][12]
+      - Windows 레지스트리
+      - Windows 파일
+      - Linux 파일
+      - 파일 콘텐츠
+      - Windows 서비스
 
-2. ID 보호를 선택합니다. 이 예에서는 Windows 레지스트리에 속한 항목을 선택했습니다. **변경 내용 추적 편집** 에 대한 편집이 열립니다.
+      각 탭에는 해당 범주에서 편집할 수 있는 엔터티가 나열됩니다. Security Center에서는 나열된 각 엔터티에 대해 FIM을 사용하거나(true) 사용하지 않도록(false) 설정되었는지를 식별합니다.  엔터티를 편집하면 FIM을 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
-   ![변경 내용 추적 편집][13]
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-workspace-configuration.png" alt-text="Azure Security Center에서 파일 무결성 모니터링에 대한 작업 영역 구성":::
 
-**변경 내용 추적 편집** 에서 수행할 수 있는 작업은 다음과 같습니다.
+1. 탭 중 하나에서 항목을 선택하고 **변경 내용 추적 편집** 창에서 사용 가능한 필드를 편집합니다. 다음 옵션을 사용할 수 있습니다.
 
-- 파일 무결성 모니터링 사용 설정(True) 또는 해제(False)
-- 엔터티 이름 제공 또는 변경
-- 값 또는 경로 제공 또는 변경
-- 엔터티 삭제, 변경 내용 삭제 또는 변경 내용 저장
+    - 파일 무결성 모니터링 사용 설정(True) 또는 해제(False)
+    - 엔터티 이름 제공 또는 변경
+    - 값 또는 경로 제공 또는 변경
+    - 엔터티 삭제
+
+1. 변경 내용을 삭제하거나 저장합니다.
+
 
 ## <a name="add-a-new-entity-to-monitor"></a>모니터링할 새 엔터티 추가
-1. **파일 무결성 모니터링 대시보드** 로 돌아가서 위쪽에 있는 **설정** 을 선택합니다. **작업 영역 구성** 이 열립니다.
-2. **작업 영역 구성** 아래에서 추가하려는 엔터티의 형식에 대한 탭(Windows 레지스트리, Windows 파일 또는 Linux 파일)을 선택합니다. 이 예에서는 **Linux 파일** 을 선택했습니다.
 
-   ![모니터링할 새 항목 추가][14]
+1. 작업 영역에 대한 **파일 무결성 모니터링 대시보드** 의 도구 모음에서 **설정** 을 선택합니다. 
 
-3. **추가** 를 선택합니다. **변경 내용 추적에 추가** 가 열립니다.
+    **작업 영역 구성** 이 열립니다.
 
-   ![요청된 정보 입력][15]
+1. **작업 영역 구성** 에서:
 
-4. **추가** 페이지에서 요청된 정보를 입력하고, **저장** 을 선택합니다.
+    1. 추가하려는 엔터티의 형식에 대한 탭(Windows 레지스트리, Windows 파일, Linux 파일, 파일 콘텐츠 또는 Windows 서비스)을 선택합니다. 
+    1. **추가** 를 선택합니다. 
 
-## <a name="disable-monitored-entities"></a>모니터링된 엔터티 사용 안 함
-1. **파일 무결성 모니터링** 대시보드로 돌아갑니다.
-2. FIM이 현재 사용되는 작업 영역을 선택합니다. [사용] 단추 또는 [업그레이드 계획] 단추가 없으면 작업 영역을 FIM에 사용할 수 있습니다.
+        이 예에서는 **Linux 파일** 을 선택했습니다.
 
-   ![FIM이 사용되는 작업 영역 선택][16]
+        :::image type="content" source="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-add-element.png" alt-text="Azure Security Center의 파일 무결성 모니터링에서 모니터링할 요소 추가" lightbox="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-add-element.png":::
 
-3. 파일 무결성 모니터링 아래에서 **설정** 을 선택합니다.
+1. **추가** 를 선택합니다. **변경 내용 추적에 추가** 가 열립니다.
 
-   ![설정 선택][17]
-
-4. **작업 영역 구성** 아래에서 **사용** 이 [참]으로 설정된 그룹을 선택합니다.
-
-   ![작업 영역 구성][18]
-
-5. **변경 내용 추적 편집** 창 아래에서 **사용** 을 [거짓]으로 설정합니다.
-
-   ![[거짓]으로 설정된 [사용]][19]
-
-6. **저장** 을 선택합니다.
+1. 필요한 정보를 입력하고 **저장** 을 선택합니다.
 
 ## <a name="folder-and-path-monitoring-using-wildcards"></a>와일드 카드를 사용하여 폴더 및 경로 모니터링
 
@@ -249,13 +238,13 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
 ## <a name="disable-fim"></a>FIM 사용 안 함
 FIM을 사용하지 않도록 설정할 수 있습니다. FIM은 Azure 변경 내용 추적 솔루션을 사용하여 환경의 변경 내용을 추적하고 식별합니다. FIM을 사용하지 않도록 설정하면 선택한 작업 영역에서 변경 내용 추적 솔루션이 제거됩니다.
 
-1. FIM을 사용하지 않도록 설정하려면 **파일 무결성 모니터링** 대시보드로 돌아갑니다.
-2. 작업 영역을 선택합니다.
-3. **파일 무결성 모니터링** 아래에서 **사용 안 함** 을 선택합니다.
+FIM을 사용하지 않도록 설정하려면:
 
-   ![FIM 사용 안 함][20]
+1. 작업 영역에 대한 **파일 무결성 모니터링 대시보드** 에서 **사용 안 함** 을 선택합니다.
 
-4. **제거** 를 선택하여 사용하지 않도록 설정합니다.
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/disable-file-integrity-monitoring.png" alt-text="설정 페이지에서 파일 무결성 모니터링 사용 안 함":::
+
+1. **제거** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Security Center에서 FIM(파일 무결성 모니터링)을 사용하는 방법에 대해 알아보았습니다. Security Center에 대한 자세한 내용은 다음 페이지를 참조하세요.
@@ -265,21 +254,5 @@ FIM을 사용하지 않도록 설정할 수 있습니다. FIM은 Azure 변경 �
 * [Azure 보안 블로그](/archive/blogs/azuresecurity/)-- 최신 Azure 보안 뉴스 및 정보를 가져옵니다.
 
 <!--Image references-->
-[1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png
 [3]: ./media/security-center-file-integrity-monitoring/enable.png
 [4]: ./media/security-center-file-integrity-monitoring/upgrade-plan.png
-[5]: ./media/security-center-file-integrity-monitoring/enable-fim.png
-[7]: ./media/security-center-file-integrity-monitoring/filter.png
-[8]: ./media/security-center-file-integrity-monitoring/log-search.png
-[9]: ./media/security-center-file-integrity-monitoring/changes-tab.png
-[10]: ./media/security-center-file-integrity-monitoring/change-details.png
-[11]: ./media/security-center-file-integrity-monitoring/fim-dashboard-settings.png
-[12]: ./media/security-center-file-integrity-monitoring/workspace-config.png
-[13]: ./media/security-center-file-integrity-monitoring/edit.png
-[14]: ./media/security-center-file-integrity-monitoring/add.png
-[15]: ./media/security-center-file-integrity-monitoring/add-item.png
-[16]: ./media/security-center-file-integrity-monitoring/fim-dashboard-disable.png
-[17]: ./media/security-center-file-integrity-monitoring/fim-dashboard-settings-disabled.png
-[18]: ./media/security-center-file-integrity-monitoring/workspace-config-disable.png
-[19]: ./media/security-center-file-integrity-monitoring/edit-disable.png
-[20]: ./media/security-center-file-integrity-monitoring/disable-fim.png

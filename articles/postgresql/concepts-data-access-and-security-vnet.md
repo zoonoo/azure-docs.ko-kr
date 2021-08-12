@@ -1,21 +1,21 @@
 ---
-title: 가상 네트워크 규칙-Azure Database for PostgreSQL-단일 서버
-description: Vnet (virtual network) 서비스 끝점을 사용 하 여 Azure Database for PostgreSQL 단일 서버에 연결 하는 방법을 알아봅니다.
+title: 가상 네트워크 규칙 - Azure Database for PostgreSQL - 단일 서버
+description: Vnet(가상 네트워크) 서비스 엔드포인트를 사용하여 Azure Database for PostgreSQL - 단일 서버에 연결하는 방법을 알아봅니다.
 author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: b875936e13edfe0eff12f253836b093796951308
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98876329"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 Virtual Network 서비스 끝점 및 규칙 사용
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버에서 가상 네트워크 서비스 엔드포인트와 규칙 사용
 
-*가상 네트워크 규칙* 은 Azure Database for PostgreSQL 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락할지 여부를 제어 하는 하나의 방화벽 보안 기능입니다. 이 아티클에서는 경우에 따라 가상 네트워크 규칙 기능이 Azure Database for PostgreSQL 서버에 대한 통신을 안전하게 허용하기 위한 가장 좋은 옵션인 이유를 설명합니다.
+*가상 네트워크 규칙* 은 Azure Database for PostgreSQL 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락할지 여부를 제어하는 하나의 방화벽 보안 기능입니다. 이 아티클에서는 경우에 따라 가상 네트워크 규칙 기능이 Azure Database for PostgreSQL 서버에 대한 통신을 안전하게 허용하기 위한 가장 좋은 옵션인 이유를 설명합니다.
 
 가상 네트워크 규칙을 만들려면 먼저 참조할 규칙에 대한 VNet([가상 네트워크 서비스 끝점][vm-virtual-network-overview]) 및 [가상 네트워크 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]가 있어야 합니다. 다음 그림에서는 Virtual Network 서비스 엔드포인트가 Azure Database for PostgreSQL에서 작동하는 방법을 보여줍니다.
 
@@ -25,16 +25,16 @@ ms.locfileid: "98876329"
 > 이 기능은 범용 및 메모리 최적화 서버에 대해 Azure Database for PostgreSQL이 배포된 모든 Azure 퍼블릭 클라우드 지역에서 사용할 수 있습니다.
 > VNet 피어링의 경우 서비스 엔드포인트가 있는 공통 VNet 게이트웨이를 통해 트래픽이 이동하며, 피어로 이동되어야 하는 경우 게이트웨이 VNet의 Azure Virtual Machines가 Azure Database for PostgreSQL 서버에 액세스할 수 있도록 허용하는 ACL/VNet 규칙을 만드세요.
 
-연결에 대해 [개인 링크](concepts-data-access-and-security-private-link.md) 를 사용 하는 것을 고려할 수도 있습니다. 개인 링크는 Azure Database for PostgreSQL 서버에 대 한 VNet의 개인 IP 주소를 제공 합니다.
+연결에 [Private Link](concepts-data-access-and-security-private-link.md)를 사용하는 것을 고려할 수도 있습니다. Private Link는 Azure Database for PostgreSQL 서버에 대한 VNet의 개인 IP 주소를 제공합니다.
 
 <a name="anch-terminology-and-description-82f"></a>
 ## <a name="terminology-and-description"></a>용어 및 설명
 
 **가상 네트워크:** Azure 구독과 연결된 가상 네트워크가 있을 수 있습니다.
 
-**서브넷:** 가상 네트워크에 **서브넷** 이 포함됩니다. VNet 내의 모든 Azure Vm (가상 머신)은 서브넷에 할당 됩니다. 서브넷에는 여러 Vm 및/또는 기타 계산 노드가 포함 될 수 있습니다. 액세스를 허용하도록 보안을 구성해야 가상 네트워크 외부의 컴퓨팅 노드가 가상 네트워크에 액세스할 수 있습니다.
+**서브넷:** 가상 네트워크에 **서브넷** 이 포함됩니다. VNet 내의 모든 Azure VM(가상 머신)은 서브넷에 할당됩니다. 서브넷에는 여러 VM 및/또는 다른 컴퓨팅 노드가 포함될 수 있습니다. 액세스를 허용하도록 보안을 구성해야 가상 네트워크 외부의 컴퓨팅 노드가 가상 네트워크에 액세스할 수 있습니다.
 
-**Virtual Network 서비스 엔드포인트:** [Virtual Network 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]는 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함된 서브넷입니다. 이 문서에서는 SQL Database라는 Azure 서비스를 나타내는 **Microsoft.Sql** 의 형식 이름을 살펴봅니다. 이 서비스 태그는 Azure Database for PostgreSQL 및 MySQL 서비스에도 적용됩니다. VNet 서비스 끝점에 **Microsoft .sql** service 태그를 적용 하는 경우 Azure 데이터베이스 서비스에 대 한 서비스 끝점 트래픽 (SQL Database, Azure Synapse Analytics, Azure Database for PostgreSQL 및 서브넷의 Azure Database for MySQL 서버)을 구성 합니다. 
+**Virtual Network 서비스 엔드포인트:** [Virtual Network 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]는 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함된 서브넷입니다. 이 문서에서는 SQL Database라는 Azure 서비스를 나타내는 **Microsoft.Sql** 의 형식 이름을 살펴봅니다. 이 서비스 태그는 Azure Database for PostgreSQL 및 MySQL 서비스에도 적용됩니다. **Microsoft.Sql** 서비스 태그를 VNet 서비스 엔드포인트에 적용하는 경우 서브넷에서 Azure 데이터베이스 서비스(SQL Database, Azure Synapse Analytics, Azure Database for PostgreSQL and Azure Database for MySQL 서버)에 대한 서비스 엔드포인트 트래픽을 구성해야 합니다. 
 
 **가상 네트워크 규칙:** Azure Database for PostgreSQL 서버에 대한 가상 네트워크 규칙은 Azure Database for PostgreSQL 서버의 ACL(액세스 제어 목록)에 나열된 서브넷입니다. Azure Database for PostgreSQL 서버에 대한 ACL에 나열되려면 서브넷에는 **Microsoft.Sql** 형식 이름이 있어야 합니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "98876329"
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>가상 네트워크 규칙의 이점
 
-조치를 취할 때까지 서브넷의 Vm은 Azure Database for PostgreSQL 서버와 통신할 수 없습니다. 통신을 설정하는 한 동작은 가상 네트워크 규칙을 생성하는 것입니다. VNet 규칙 접근 방식을 선택하는 원리에는 방화벽에서 제공된 경쟁 보안 옵션에 관련된 비교-대비 토론이 필요합니다.
+작업을 수행할 때까지 서브넷의 VM은 Azure Database for PostgreSQL 서버와 통신할 수 없습니다. 통신을 설정하는 한 동작은 가상 네트워크 규칙을 생성하는 것입니다. VNet 규칙 접근 방식을 선택하는 원리에는 방화벽에서 제공된 경쟁 보안 옵션에 관련된 비교-대비 토론이 필요합니다.
 
 ### <a name="allow-access-to-azure-services"></a>Azure 서비스에 대한 액세스 허용
 
@@ -82,17 +82,17 @@ Virtual Network 서비스 엔드포인트 관리에는 보안 역할 분리가 �
 - **네트워크 관리자:** &nbsp; 엔드포인트를 켭니다.
 - **데이터베이스 관리자:** &nbsp; ACL(액세스 제어 목록)을 업데이트하여 제공된 서브넷을 Azure Database for PostgreSQL 서버에 추가합니다.
 
-*Azure RBAC 대안:*
+Azure RBAC 대체:
 
 네트워크 관리자 및 데이터베이스 관리자 역할에는 가상 네트워크 규칙을 관리하는 데 필요한 것보다 많은 기능이 포함됩니다. 해당 기능의 하위 집합만 필요합니다.
 
-Azure에서 azure [RBAC (역할 기반 액세스 제어)][rbac-what-is-813s] 를 사용 하 여 필요한 기능 하위 집합만 포함 하는 단일 사용자 지정 역할을 만들 수 있습니다. 네트워크 관리자 또는 데이터베이스 관리자를 포함 하는 대신 사용자 지정 역할을 사용할 수 있습니다. 사용자를 사용자 지정 역할에 추가 하 고 다른 두 개의 주요 관리자 역할에 사용자를 추가 하는 경우 보안 노출의 노출 영역이 낮습니다.
+원하는 경우 Azure에서 [Azure RBAC(Azure 역할 기반 액세스 제어)][rbac-what-is-813s]를 사용하여 기능의 필요한 하위 집합만 포함된 단일 사용자 지정 역할을 만들 수도 있습니다. 네트워크 관리자나 데이터베이스 관리자를 포함하는 대신 사용자 지정 역할을 사용할 수 있습니다. 사용자를 사용자 지정 역할에 추가하면 다른 두 개의 주요 관리자 역할에 사용자를 추가하는 경우보다 보안 노출 영역이 더 적습니다.
 
 > [!NOTE]
 > Azure Database for PostgreSQL 및 VNet 서브넷이 서로 다른 구독에 있는 경우도 있습니다. 이러한 경우에는 다음과 같은 구성을 확인해야 합니다.
 > - 두 구독은 모두 동일한 Azure Active Directory 테넌트에 있어야 합니다.
 > - 서비스 엔드포인트를 사용하도록 설정하고 지정된 서버에 VNet 서브넷을 추가하는 등의 작업을 시작하는 데 필요한 권한이 사용자에게 있습니다.
-> - 두 구독 모두에 **Microsoft .sql** 및 **DBforPostgreSQL** 리소스 공급자가 등록 되어 있는지 확인 합니다. 자세한 내용은 [resource-manager-registration][resource-manager-portal]을 참조하세요.
+> - 두 구독 모두에 **Microsoft.Sql** 및 **Microsoft.DBforPostgreSQL** 리소스 공급자를 등록해야 합니다. 자세한 내용은 [resource-manager-registration][resource-manager-portal]을 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -106,11 +106,11 @@ Azure Database for PostgreSQL의 경우 가상 네트워크 규칙 기능에는 
 
 - 가상 네트워크 규칙은 Azure Resource Manager 가상 네트워크에만 적용되고 [클래식 배포 모델][arm-deployment-model-568f] 네트워크에는 적용되지 않습니다.
 
-- **Microsoft .sql** 서비스 태그를 사용 하 여 가상 네트워크 서비스 끝점을 Azure Database for PostgreSQL로 설정 하면 모든 azure 데이터베이스 서비스에 대 한 끝점 (Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database 및 Azure Synapse Analytics)도 사용할 수 있습니다.
+- **Microsoft.Sql** 서비스 태그를 사용하여 Azure Database for PostgreSQL에 가상 네트워크 서비스 엔드포인트를 설정하면 모든 Azure 데이터베이스 서비스(Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database 및 Azure Synapse Analytics)에 엔드포인트를 사용하도록 설정할 수 있습니다.
 
 - VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
 
-- **Microsoft .sql** 이 서브넷에서 사용 하도록 설정 된 경우에는 VNet 규칙만 사용 하 여 연결 하려고 합니다. 이러한 서브넷에 있는 리소스의 [비 VNet 방화벽 규칙](concepts-firewall-rules.md) 은 작동 하지 않습니다.
+- 서브넷에서 **Microsoft.Sql** 을 사용하도록 설정한다면 VNet 규칙만 사용하여 연결하겠다는 의미입니다. 해당 서브넷에 있는 리소스의 [비 VNet 방화벽 규칙](concepts-firewall-rules.md)은 작동하지 않습니다.
 
 - 방화벽에서 IP 주소 범위는 다음 네트워킹 항목에 적용되지만 가상 네트워크 규칙에는 적용되지 않습니다.
     - [S2S(사이트 간) VPN(가상 사설망)][vpn-gateway-indexmd-608y]
@@ -122,9 +122,9 @@ Azure Database for PostgreSQL의 경우 가상 네트워크 규칙 기능에는 
 
 회로에서 Azure Database for PostgreSQL의 통신을 허용하려면 회로의 공용 IP 주소에 대한 IP 네트워크 규칙을 만들어야 합니다. ExpressRoute 회로의 공용 IP 주소를 찾기 위해 Azure Portal을 사용하여 ExpressRoute에서 지원 티켓을 엽니다.
 
-## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>VNET 서비스 끝점을 설정 하지 않고 서버에 VNET 방화벽 규칙 추가
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>VNET 서비스 엔드포인트를 켜지 않고 서버에 VNET 방화벽 규칙 추가
 
-단지 VNet 방화벽 규칙을 설정 하는 것은 VNet에 대해 서버를 보호 하는 데 도움이 되지 않습니다. 보안이 효력을 나타내려면 VNet 서비스 엔드포인트도 **켜야** 합니다. 서비스 엔드포인트를 **켜면** 전환을 **끈** 상태에서 **켠** 상태로 완료할 때까지 VNet 서브넷에서 가동 중지 시간이 발생합니다. 이는 특히 대규모 VNet의 컨텍스트에 적용됩니다. **IgnoreMissingServiceEndpoint** 플래그를 사용하여 전환 시 가동 중지 시간을 줄이거나 없앨 수 있습니다.
+VNet 방화벽 규칙을 설정하는 것만으로는 VNet에 대해 서버를 보호하는 데 도움이 되지 않습니다. 보안이 효력을 나타내려면 VNet 서비스 엔드포인트도 **켜야** 합니다. 서비스 엔드포인트를 **켜면** 전환을 **끈** 상태에서 **켠** 상태로 완료할 때까지 VNet 서브넷에서 가동 중지 시간이 발생합니다. 이는 특히 대규모 VNet의 컨텍스트에 적용됩니다. **IgnoreMissingServiceEndpoint** 플래그를 사용하여 전환 시 가동 중지 시간을 줄이거나 없앨 수 있습니다.
 
 Azure CLI 또는 Azure Portal을 사용하여 **IgnoreMissingServiceEndpoint** 플래그를 설정할 수 있습니다.
 

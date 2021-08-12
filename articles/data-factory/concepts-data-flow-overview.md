@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 04/14/2021
-ms.openlocfilehash: 826183e09f2aa7f3f22ace8b5ce3e16767d49863
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 05/20/2021
+ms.openlocfilehash: ef0639637736b0a8b4f41d6fd038de81a8e94a69
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515664"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454963"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory의 매핑 데이터 흐름
 
@@ -40,9 +40,9 @@ ms.locfileid: "107515664"
 
 ### <a name="graph"></a>그래프
 
-그래프는 변환 스트림을 표시합니다. 원본 데이터가 하나 이상의 싱크로 이동함에 따라 원본 데이터의 계보를 보여 줍니다. 새 원본을 추가하려면 **원본 추가** 를 선택합니다. 새 변환을 추가하려면 기존 변환의 오른쪽 아래에 있는 더하기 기호를 선택합니다. [데이터 흐름 그래프를 관리](concepts-data-flow-manage-graph.md)하는 방법에 관해 자세히 알아봅니다.
+그래프는 변환 스트림을 표시합니다. 원본 데이터가 하나 이상의 싱크로 이동함에 따라 원본 데이터의 계보를 보여줍니다. 새 원본을 추가하려면 **원본 추가** 를 선택합니다. 새 변환을 추가하려면 기존 변환의 오른쪽 아래에 있는 더하기 기호를 선택합니다. [데이터 흐름 그래프를 관리](concepts-data-flow-manage-graph.md)하는 방법에 관해 자세히 알아봅니다.
 
-![검색 텍스트 상자가 있는 캔버스의 그래프 부분을 보여 주는 스크린샷](media/data-flow/canvas-2.png)
+![검색 텍스트 상자가 있는 캔버스의 그래프 부분을 보여주는 스크린샷입니다.](media/data-flow/canvas-2.png)
 
 ### <a name="configuration-panel"></a>구성 패널
 
@@ -84,7 +84,19 @@ ms.locfileid: "107515664"
 
 ## <a name="data-flow-data-types"></a>데이터 흐름 데이터 형식
 
-array binary boolean complex decimal date float integer long map short string timestamp
+* array
+* binary
+* boolean
+* complex
+* decimal(정밀도 포함)
+* date
+* float
+* 정수
+* long
+* map
+* short
+* 문자열
+* timestamp
 
 ## <a name="data-flow-activity"></a>데이터 흐름 작업
 

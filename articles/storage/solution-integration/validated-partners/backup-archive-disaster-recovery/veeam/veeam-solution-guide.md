@@ -4,23 +4,23 @@ titleSuffix: Azure Storage
 description: Veeam 백업 및 복구에 대한 스토리지 대상 및 복구 위치로 Azure를 사용하기 위해 고려해야 할 요소 및 수행할 단계에 대한 개요를 제공합니다.
 author: karauten
 ms.author: karauten
-ms.date: 03/15/2021
+ms.date: 05/12/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 0b8bc0defd3314fcff691a049323201732644ff3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 334ae28c160a01032d5403e06f40846e8b9d9ed5
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589908"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109839188"
 ---
 # <a name="backup-to-azure-with-veeam"></a>Veeam을 사용하여 Azure에 백업
 
 이 문서는 Veeam 인프라를 Azure Blob Storage와 통합하는 데 도움이 됩니다. 여기에는 필수 구성 요소, 고려 사항, 구현 및 작업 지침이 포함됩니다. 이 문서에서는 Azure를 오프사이트 백업 대상, 기본 사이트 내의 정상적인 작업을 방지하는 재해 발생 시 복구 사이트로 사용하는 방법을 설명합니다.
 
 > [!NOTE]
-> 또한 Veeam은 낮은 RTO(복구 시간 목표) 솔루션인 Veeam 복제를 제공합니다. 이 솔루션을 사용하면 Azure 프로덕션 환경에서 재해가 발생한 경우 보다 신속하게 복구하는 데 도움이 되는 대기 VM을 유지할 수 있습니다. Veeam에는 Azure 및 Office 365 리소스를 백업하기 위한 전용 도구가 포함되어 있습니다. 이러한 기능은 이 문서에서 다루지 않습니다.
+> Veeam은 또한 더 낮은 RTO(복구 시간 목표) 솔루션인 Azure VMware Solution 워크로드를 지원하는 Veeam 백업 및 복제를 제공합니다. 이 솔루션을 사용하면 Azure 프로덕션 환경에서 재해가 발생한 경우 보다 신속하게 복구하는 데 도움이 되는 대기 VM을 유지할 수 있습니다. Veeam은 Microsoft Azure 및 기타 전용 도구를 통해 Azure 및 Office 365 리소스를 백업하는 직접 복원도 제공합니다. 이러한 기능은 이 문서에서 다루지 않습니다.
 
 ## <a name="reference-architecture"></a>참조 아키텍처
 
@@ -39,7 +39,10 @@ ms.locfileid: "104589908"
 | Azure Blob | v10a | v10a | 해당 없음 | 10a<sup>*</sup> |
 | Azure 파일 | v10a | v10a | 해당 없음 | 10a<sup>*</sup> |
 
-<sup>*</sup>Veeam 백업 및 복제는 Azure Data Box에 대해서만 REST API를 지원합니다. 따라서 Azure Data Box Disk는 지원되지 않습니다.
+Veeam은 이전 버전의 제품에서도 위의 Azure 기능을 지원합니다. 최신 제품 버전을 활용하는 것이 최적의 환경을 위해 권장됩니다.
+
+<sup>*</sup>Veeam 백업 및 복제는 Azure Data Box에 대해서만 REST API를 지원합니다. 따라서 Azure Data Box Disk는 지원되지 않습니다. Data Box 지원에 대한 자세한 내용은 [여기](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=110)를 참조하세요.
+
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -78,7 +81,7 @@ Azure에 대한 백업이 사용할 수 있는 여유 대역폭을 확인하려�
 
 - 기존 Azure ExpressRoute 고객인 경우 Azure Portal에서 [회로 사용량](../../../../../expressroute/expressroute-monitoring-metrics-alerts.md#circuits-metrics)을 확인합니다.
 - ISP에 문의합니다. 기존 일별 및 월별 사용률을 표시하는 보고서를 공유할 수 있어야 합니다.
-- 라우터/스위치 수준에서 네트워크 트래픽을 모니터링하여 사용률을 측정할 수 있는 몇 가지 도구가 있습니다. 여기에는 다음이 포함됩니다.
+- 라우터/스위치 수준에서 네트워크 트래픽을 모니터링하여 사용률을 측정할 수 있는 몇 가지 도구가 있습니다. 추가 설정은 다음과 같습니다.
 
   - [Solarwinds Bandwidth Analyzer Pack](https://www.solarwinds.com/network-bandwidth-analyzer-pack?CMP=ORG-BLG-DNS)
   - [Paessler PRTG](https://www.paessler.com/bandwidth_monitoring)
@@ -114,17 +117,17 @@ Azure를 백업 대상으로 사용하는 경우 [Azure Blob Storage](../../../.
 |비용 요소  |월간 비용  |
 |---------|---------|
 |쿨 스토리지에서 100TB의 백업 데이터     |$1556.48         |
-|하루에 작성된 2TB의 새 데이터 x 30일     |트랜잭션의 $72          |
-|월간 예상 합계     |$1628.48         |
+|하루에 작성된 2TB의 새 데이터 x 30일     |트랜잭션의 $42          |
+|월간 예상 합계     |$1598.48         |
 |---------|---------|
 |퍼블릭 인터넷을 통해 온-프레미스로의 5TB 일회성 복원   | $527.26         |
 
 > [!Note]
-> 이러한 추정치는 미국 동부 종량제 가격 책정을 사용하여 Azure 가격 계산기에서 생성되었으며 WAN 전송을 위한 Veeam 기본 256KB 청크 크기를 기준으로 합니다. 이 예는 사용자의 요구 사항과는 맞지 않을 수 있습니다.
+> 이러한 추정치는 미국 동부 종량제 가격 책정을 사용하여 Azure 가격 계산기에서 생성되었으며 WAN 전송을 위한 Veeam 기본 512KB 청크 크기를 기준으로 합니다. 이 예는 사용자의 요구 사항과는 맞지 않을 수 있습니다.
 
 ## <a name="implementation-guidance"></a>구현 지침
 
-이 섹션에서는 온-프레미스 Veeam 배포에 Azure Storage를 추가하는 방법에 대한 간략한 지침을 제공합니다. 자세한 지침 및 계획 고려 사항은 [Veeam 클라우드 연결 백업 가이드](https://helpcenter.veeam.com/docs/backup/cloud/cloud_backup.html?ver=100)를 참조하세요.
+이 섹션에서는 온-프레미스 Veeam 배포에 Azure Storage를 추가하는 방법에 대한 간략한 지침을 제공합니다. 자세한 참고 자료 및 계획 고려 사항은 [용량 등급](https://helpcenter.veeam.com/docs/backup/vsphere/capacity_tier.html?ver=110)에 대한 다음 Veeam 참고 자료를 참조하는 것이 좋습니다.
 
 1. Azure Portal을 열고 **스토리지 계정** 을 검색합니다. 기본 서비스 아이콘을 클릭할 수도 있습니다.
 
@@ -136,11 +139,9 @@ Azure를 백업 대상으로 사용하는 경우 [Azure Blob Storage](../../../.
 
     ![Portal의 스토리지 계정 설정 표시](../media/account-create-1.png)
 
-3. 지금은 기본 네트워킹 옵션을 그대로 유지하고 **데이터 보호** 로 이동합니다. 여기에서 정의된 보존 기간 내에 실수로 삭제된 백업 파일을 복구하고 실수로 인한 삭제 또는 악의적인 삭제로부터 .데이터를 보호할 수 있는 일시 삭제를 사용하도록 선택할 수 있습니다.
+3. 지금은 기본 네트워킹 및 데이터 보호 옵션을 유지합니다. Veeam 용량 계층을 저장하는 스토리지 계정에 대해 일시 삭제를 사용하도록 설정하지 **마세요**.
 
-    ![Portal의 데이터 보호 설정을 보여 줍니다.](../media/account-create-2.png)
-
-4. 다음으로, Azure로의 백업 사용 사례에 대한 **고급** 화면의 기본 설정을 사용하는 것이 좋습니다.
+ 4. 다음으로, Azure로의 백업 사용 사례에 대한 **고급** 화면의 기본 설정을 사용하는 것이 좋습니다.
 
     ![Portal의 고급 설정 탭을 보여 줍니다.](../media/account-create-3.png)
 

@@ -2,25 +2,25 @@
 title: Azure Active Directory의 애플리케이션 관리란?
 description: 클라우드 및 온-프레미스 애플리케이션에 대한 IAM(ID 및 액세스 관리) 시스템으로 Azure AD(Active Directory)를 사용하는 개요입니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 01/22/2021
-ms.author: mtillman
+ms.author: davidmu
 ms.reviewer: ''
-ms.openlocfilehash: 31bfbe1405e1180f8909333da8947d72d68dd7db
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: e483efc2beae5ddf76c135aaa785b32732aa2f62
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079358"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113566411"
 ---
 # <a name="what-is-application-management"></a>애플리케이션 관리란?
 
-Azure AD는 IAM(ID 및 액세스 관리) 시스템입니다. 디지털 ID에 대한 정보를 저장할 수 있는 단일 장소를 제공합니다. 사용자 정보가 저장되는 위치로 Azure AD를 사용하도록 소프트웨어 애플리케이션을 구성할 수 있습니다. 
+Azure AD는 IAM(ID 및 액세스 관리) 시스템입니다. 디지털 ID에 대한 정보를 저장할 수 있는 단일 장소를 제공합니다. 사용자 정보가 저장되는 위치로 Azure AD를 사용하도록 소프트웨어 애플리케이션을 구성할 수 있습니다.
 
 Azure AD는 애플리케이션과 통합되도록 구성되어야 합니다. 즉, ID용으로 사용하는 앱을 알아야 합니다. Azure AD에서 이러한 앱을 인식하고 이를 처리하는 방법을 애플리케이션 관리라고 합니다.
 
@@ -29,6 +29,7 @@ Azure Active Directory 포털의 관리 섹션에 있는 **엔터프라이즈 �
 ![Azure AD 포털의 관리 섹션 아래에서 엔터프라이즈 애플리케이션 옵션을 선택합니다.](media/what-is-application-management/enterprise-applications-in-nav.png)
 
 ## <a name="what-is-an-identity-and-access-management-iam-system"></a>IAM(ID 및 액세스 관리) 시스템이란?
+
 애플리케이션은 일부 용도로 사용되는 소프트웨어의 일부입니다. 대부분의 앱은 사용자가 로그인해야 합니다.
 
 중앙 집중식 ID 시스템은 모든 애플리케이션에서 사용할 수 있는 사용자 정보를 저장하는 단일 장소를 제공합니다. 이러한 시스템은 IAM(ID 및 액세스 관리) 시스템이라고 합니다. Azure Active Directory는 Microsoft 클라우드의 IAM 시스템입니다.
@@ -45,18 +46,18 @@ Azure Active Directory 포털의 관리 섹션에 있는 **엔터프라이즈 �
 
 ## <a name="how-does-azure-ad-work-with-apps"></a>Azure AD는 앱에서 어떻게 작동합니까?
 
-Azure AD는 중간에 위치하며 클라우드 및 온-프레미스 앱에 대한 ID 관리를 제공합니다. 
+Azure AD는 중간에 위치하며 클라우드 및 온-프레미스 앱에 대한 ID 관리를 제공합니다.
 
 ![Azure AD를 통해 페더레이션된 애플리케이션을 보여주는 다이어그램](media/what-is-application-management/app-management-overview.png)
 
 >[!TIP]
->사용자를 회사 HR 시스템에 추가할 때 Azure AD에 자동으로 추가되도록 [사용자 프로비저닝을 자동화](../app-provisioning/user-provisioning.md)하여 관리 비용을 절감합니다. 
+>사용자를 회사 HR 시스템에 추가할 때 Azure AD에 자동으로 추가되도록 [사용자 프로비저닝을 자동화](../app-provisioning/user-provisioning.md)하여 관리 비용을 절감합니다.
 
 ## <a name="what-types-of-applications-can-i-integrate-with-azure-ad"></a>어떤 유형의 애플리케이션을 Azure AD와 통합할 수 있나요?
 
-거의 모든 앱에 대한 ID 시스템으로서 Azure AD를 사용할 수 있습니다. 이미 많은 앱이 미리 구성되어 있으며 최소한의 노력으로 설정할 수 있습니다. 이러한 미리 구성된 앱은 [Azure AD 앱 갤러리](/azure/active-directory/saas-apps/)에 게시됩니다. 
+거의 모든 앱에 대한 ID 시스템으로서 Azure AD를 사용할 수 있습니다. 이미 많은 앱이 미리 구성되어 있으며 최소한의 노력으로 설정할 수 있습니다. 이러한 미리 구성된 앱은 [Azure AD 앱 갤러리](/azure/active-directory/saas-apps/)에 게시됩니다.
 
-앱이 아직 갤러리에 없는 경우 대부분의 앱을 Single Sign-On에 대해 수동으로 구성할 수 있습니다. Azure AD는 몇 가지 SSO 옵션을 제공합니다. 가장 널리 사용되는 것은 SAML 기반 SSO와 OIDC 기반 SSO입니다. SSO를 사용하도록 앱을 통합하는 방법에 대한 자세한 내용은 [Single Sign-On 옵션](sso-options.md)을 참조하세요. 
+앱이 아직 갤러리에 없는 경우 대부분의 앱을 Single Sign-On에 대해 수동으로 구성할 수 있습니다. Azure AD는 몇 가지 SSO 옵션을 제공합니다. 가장 널리 사용되는 것은 SAML 기반 SSO와 OIDC 기반 SSO입니다. SSO를 사용하도록 앱을 통합하는 방법에 대한 자세한 내용은 [Single Sign-On 옵션](sso-options.md)을 참조하세요.
 
 조직에서 온-프레미스 앱을 사용합니까? 앱 프록시를 사용하여 통합할 수 있습니다. 자세한 내용은 [Azure AD의 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 원격 액세스 제공](../app-proxy/application-proxy.md)을 참조하세요.
 
@@ -65,7 +66,7 @@ Azure AD는 중간에 위치하며 클라우드 및 온-프레미스 앱에 대�
 
 ## <a name="manage-risk-with-conditional-access-policies"></a>조건부 액세스 정책을 사용하여 위험 관리
 
-Azure AD SSO(Single Sign-On)를 [조건부 액세스](../conditional-access/concept-conditional-access-cloud-apps.md)와 연결하면 애플리케이션 액세스에 대한 높은 수준의 보안이 제공됩니다. 조건부 액세스 정책은 설정한 조건에 따라 앱을 세부적으로 제어할 수 있습니다. 
+Azure AD SSO(Single Sign-On)를 [조건부 액세스](../conditional-access/concept-conditional-access-cloud-apps.md)와 연결하면 애플리케이션 액세스에 대한 높은 수준의 보안이 제공됩니다. 조건부 액세스 정책은 설정한 조건에 따라 앱을 세부적으로 제어할 수 있습니다.
 
 ## <a name="improve-productivity-with-single-sign-on"></a>Single Sign-On으로 생산성 개선
 

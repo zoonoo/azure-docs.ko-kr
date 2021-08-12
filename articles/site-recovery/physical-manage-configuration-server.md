@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery의 실제 서버에 대 한 구성 서버 관리
+title: Azure Site Recovery에서 물리적 서버의 구성 서버 관리
 description: 이 문서에서는 물리적 서버와 Azure 간 재해 복구를 위한 Azure Site Recovery 구성 서버를 관리하는 방법을 설명합니다.
 services: site-recovery
 author: mayurigupta13
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: ff612b7c052ead5658ea4bbfafd7aace51ba3c02
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96017443"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>물리적 서버 재해 복구용 구성 서버 관리
@@ -20,7 +20,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 아래 표에는 온-프레미스 구성 서버 컴퓨터 배포를 위한 필수 구성 요소가 요약되어 있습니다.
 
@@ -33,7 +33,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 | 사용 가능한 디스크 공간(보존 디스크) | 600GB|
 | 운영 체제  | Windows Server 2012 R2 <br> Windows Server 2016 |
 | 운영 체제 로케일 | 영어(미국)|
-| VMware vSphere PowerCLI 버전 | 필요하지 않음|
+| VMware vSphere PowerCLI 버전 | 필요 없음|
 | Windows Server 역할 | 다음 역할을 사용하지 않도록 설정함: <br> - Active Directory Domain Services <br>- 인터넷 정보 서비스 <br> - Hyper-V |
 | 그룹 정책| 다음 그룹 정책을 사용하지 않도록 설정함: <br> - 명령 프롬프트에 대한 액세스 방지 <br> - 레지스트리 편집 도구에 대한 액세스 방지 <br> - 파일 첨부를 위한 트러스트 논리 <br> - 스크립트 실행 켜기 <br> [자세한 정보](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
 | IIS | - 기존의 기본 웹 사이트 없음 <br> - [익명 인증](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) 사용 <br> - [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) 설정 사용  <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/애플리케이션 없음<br>|
@@ -47,7 +47,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 구성 서버 설치 파일의 최신 버전은 Site Recovery 포털에서 사용할 수 있습니다. 또한 [Microsoft 다운로드 센터](https://aka.ms/unifiedsetup)에서 직접 다운로드할 수 있습니다.
 
 1. Azure Portal에 로그온하고 Recovery Services 자격 증명 모음으로 이동합니다.
-2. **Site Recovery 인프라**  >  **구성 서버** (VMware & 물리적 컴퓨터의 경우)로 이동 합니다.
+2. **Site Recovery 인프라** > **구성 서버**(VMware 및 물리적 컴퓨터용 아래)로 이동합니다.
 3. **+ 서버** 단추를 클릭합니다.
 4. **서버 추가** 페이지에서 다운로드 단추를 클릭하여 등록 키를 다운로드합니다. 구성 서버 설치 동안 Azure Site Recovery 서비스에 등록하기 위해 이 키가 필요합니다.
 5. **Microsoft Azure Site Recovery 통합 설치 다운로드** 링크를 클릭하여 구성 서버의 최신 버전을 다운로드합니다.
@@ -71,7 +71,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
      ![방화벽](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. **필수 조건 확인** 에서 설치 프로그램은 설치가 실행될 수 있는지 확인합니다. **글로벌 시간 동기화 확인** 에 대한 경고가 표시되면 시스템 시계의 시간(**날짜 및 시간** 설정)이 표준 시간대와 같은지 확인합니다.
 
-    ![필수 구성 요소](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![사전 요구 사항](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. **MySQL 구성** 에서 설치된 MySQL 서버 인스턴스에 로그온하기 위한 자격 증명을 만듭니다.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
@@ -108,7 +108,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수 이름| Type | 설명| 값|
+|매개 변수 이름| 유형 | 설명| 값|
 |-|-|-|-|
 | /ServerMode|필수|구성 서버와 프로세스 서버를 모두 설치할지 또는 프로세스 서버만 설치할지 여부를 지정합니다.|CS<br>PS|
 |/InstallLocation|필수|구성 요소가 설치되는 폴더입니다.| 컴퓨터의 모든 폴더|
@@ -118,12 +118,12 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 |/PSIP|필수|복제 데이터 전송에 사용할 NIC의 IP 주소입니다.| 모든 유효한 IP 주소|
 |/CSIP|필수|구성 서버가 수신 대기하는 NIC의 IP 주소입니다.| 모든 유효한 IP 주소|
 |/PassphraseFilePath|필수|암호 파일의 위치에 대한 전체 경로입니다.|유효한 파일 경로|
-|/BypassProxy|선택 사항|구성 서버가 프록시 없이 Azure에 연결되도록 지정합니다.|이렇게 하려면 Venu에서 이 값을 가져옵니다.|
-|/ProxySettingsFilePath|선택 사항|프록시 설정(인증이 필요한 기본 프록시 또는 사용자 지정 프록시)입니다.|파일은 아래에 지정된 형식이어야 합니다.|
-|DataTransferSecurePort|선택 사항|복제 데이터에 사용할 PSIP의 포트 번호입니다.| 유효한 포트 번호(기본값: 9433)|
-|/SkipSpaceCheck|선택 사항|캐시 디스크의 공간 확인을 건너뜁니다.| |
+|/BypassProxy|Optional|구성 서버가 프록시 없이 Azure에 연결되도록 지정합니다.|이렇게 하려면 Venu에서 이 값을 가져옵니다.|
+|/ProxySettingsFilePath|Optional|프록시 설정(인증이 필요한 기본 프록시 또는 사용자 지정 프록시)입니다.|파일은 아래에 지정된 형식이어야 합니다.|
+|DataTransferSecurePort|Optional|복제 데이터에 사용할 PSIP의 포트 번호입니다.| 유효한 포트 번호(기본값: 9433)|
+|/SkipSpaceCheck|Optional|캐시 디스크의 공간 확인을 건너뜁니다.| |
 |/AcceptThirdpartyEULA|필수|플래그는 타사 EULA에 대한 동의를 의미합니다.| |
-|/ShowThirdpartyEULA|선택 사항|타사 EULA를 표시합니다. 입력으로 제공되는 경우 다른 모든 매개 변수가 무시됩니다.| |
+|/ShowThirdpartyEULA|Optional|타사 EULA를 표시합니다. 입력으로 제공되는 경우 다른 모든 매개 변수가 무시됩니다.| |
 
 
 
@@ -158,7 +158,7 @@ ProxyPassword="Password"
    ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. 새 프록시 세부 정보를 제공하고 **등록** 단추를 클릭합니다.
 6. 관리자 PowerShell 명령 창을 엽니다.
-7. 다음 명령을 실행합니다.
+7. 다음 명령 실행:
 
    ```powershell
    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -236,13 +236,13 @@ ProxyPassword="Password"
 
 > [!WARNING]
 > 구성 서버의 서비스 해제를 시작하기 전에 다음 사항을 확인하세요.
-> 1. 이 구성 서버 아래의 모든 가상 머신에 대해 [보호를 사용 하지 않도록 설정](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) 합니다.
-> 2. 구성 서버에서 모든 복제 정책을 [분리 하 고](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) [삭제](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) 합니다.
-> 3. 구성 서버에 연결 된 모든 vCenters/vSphere 호스트를 [삭제](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) 합니다.
+> 1. 이 구성 서버 아래의 모든 가상 머신에 대한 [보호를 사용하지 않도록 설정](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)합니다.
+> 2. 구성 서버에서 모든 복제 정책을 [연결 해제](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) 및 [삭제](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy)합니다.
+> 3. 구성 서버에 연결된 모든 vCenter 서버/vSphere 호스트를 [삭제](vmware-azure-manage-vcenter.md#delete-a-vcenter-server)합니다.
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Azure Portal에서 구성 서버 삭제
-1. Azure Portal   >  자격 증명 모음 메뉴에서 Site Recovery 인프라 **구성 서버** 로 이동 합니다.
+1. Azure Portal의 자격 증명 모음 메뉴에서 **Site Recovery 인프라** > **구성 서버** 로 이동합니다.
 2. 서비스를 해제하려는 구성 서버를 클릭합니다.
 3. 구성 서버의 세부 정보 페이지에서 **삭제** 단추를 클릭합니다.
 4. **예** 를 클릭하여 서버 삭제를 확인합니다.
@@ -267,7 +267,7 @@ ProxyPassword="Password"
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>구성 서버 삭제 또는 등록 취소(PowerShell)
 
-1. [설치](/powershell/azure/install-Az-ps) Azure PowerShell 모듈
+1. Azure PowerShell 모듈 [설치](/powershell/azure/install-Az-ps)
 2. 다음 명령을 사용하여 Azure 계정에 로그인
     
     `Connect-AzAccount`
@@ -288,10 +288,10 @@ ProxyPassword="Password"
     `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> Remove-AzSiteRecoveryFabric의 **-force** 옵션을 사용 하 여 구성 서버를 강제로 제거 하거나 삭제할 수 있습니다.
+> Remove-AzSiteRecoveryFabric의 **-Force** 옵션을 사용하여 구성 서버를 강제로 제거/삭제할 수 있습니다.
 
 ## <a name="renew-tlsssl-certificates"></a>TLS/SSL 인증서 갱신
-구성 서버에는 기본 제공 웹 서버가 있습니다. 이 서버는 모바일 서비스, 프로세스 서버 및 마스터 대상 서버의 작업을 오케스트레이션합니다. 웹 서버는 TLS/SSL 인증서를 사용 하 여 클라이언트를 인증 합니다. 인증서는 3년 후에 만료되며 언제든지 갱신할 수 있습니다.
+구성 서버에는 기본 제공 웹 서버가 있습니다. 이 서버는 모바일 서비스, 프로세스 서버 및 마스터 대상 서버의 작업을 오케스트레이션합니다. 웹 서버는 TLS/SSL 인증서를 사용하여 클라이언트를 인증합니다. 인증서는 3년 후에 만료되며 언제든지 갱신할 수 있습니다.
 
 ### <a name="check-expiry"></a>만료 확인
 
@@ -303,8 +303,8 @@ ProxyPassword="Password"
 
 ### <a name="renew-the-certificate"></a>인증서 갱신
 
-1. 자격 증명 모음에서 **Site Recovery 인프라**  >  **구성 서버** 를 열고 필요한 구성 서버를 클릭 합니다.
-2. 만료 날짜가 **구성 서버 상태** 아래에 나타납니다.
+1. 자격 증명 모음에서 **Site Recovery 인프라** > **구성 서버** 를 열고 필요한 구성 서버를 클릭합니다.
+2. 만료 날짜가 **구성 서버 상태** 아래에 표시됩니다.
 3. **인증서 갱신** 을 클릭합니다. 
 
 

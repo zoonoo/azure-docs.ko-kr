@@ -2,7 +2,6 @@
 title: Azure RBAC 문제 해결
 description: Azure RBAC(역할 기반 액세스 제어)관련 문제를 해결합니다.
 services: azure-portal
-documentationcenter: na
 author: rolyon
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
@@ -11,16 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/10/2020
+ms.date: 04/06/2021
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: d77468619fcd67887273b2fbd452b37add1e19b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: b364e74df7e6069407b0bcc3a6cfccd2ead09eae
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555882"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690848"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Azure RBAC 문제 해결
 
@@ -68,11 +66,16 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+
+- 새 서비스 주체를 만들고 해당 서비스 주체에 역할을 즉시 할당하려고 하면 경우에 따라 해당 역할 할당이 실패할 수 있습니다.
+
+    이 시나리오를 해결하려면 역할 할당을 만들 때 `principalType` 속성을 `ServicePrincipal`로 설정해야 합니다. 또한 역할 할당의 `apiVersion`을 `2018-09-01-preview` 이상으로 설정해야 합니다. 자세한 내용은 [REST API를 사용하여 새 서비스 주체에 Azure 역할 할당](role-assignments-rest.md#new-service-principal) 또는 [Azure Resource Manager 템플릿을 사용하여 새 서비스 주체에 Azure 역할 할당](role-assignments-template.md#new-service-principal)을 참조하세요
+
 - 구독에 대한 마지막 Owner 역할 할당을 제거하려면 ‘마지막 RBAC 관리자 할당을 삭제할 수 없습니다’라는 오류가 표시될 수 있습니다. 구독에 대한 분리를 방지하기 위해 구독의 마지막 Owner 역할 할당은 제거할 수 없습니다. Azure 구독을 취소하려는 경우 [Azure 구독 취소](../cost-management-billing/manage/cancel-azure-subscription.md)를 참조하세요.
 
 ## <a name="problems-with-custom-roles"></a>사용자 지정 역할의 문제
 
-- 사용자 지정 역할을 만드는 방법은 [Azure Portal](custom-roles-portal.md)(현재 미리 보기로 제공), [Azure PowerShell](tutorial-custom-role-powershell.md), 또는 [Azure CLI](tutorial-custom-role-cli.md)를 사용하는 사용자 지정 역할 자습서를 참조하세요.
+- 사용자 지정 역할을 만드는 방법은 [Azure Portal](custom-roles-portal.md), [Azure PowerShell](tutorial-custom-role-powershell.md), 또는 [Azure CLI](tutorial-custom-role-cli.md)를 사용하는 사용자 지정 역할 자습서를 참조하세요.
 - 기존 사용자 지정 역할을 업데이트할 수 없는 경우 현재 `Microsoft.Authorization/roleDefinition/write` 권한이 있는 역할이 할당된 사용자(예: [Owner](built-in-roles.md#owner) 또는 [User Access Administrator](built-in-roles.md#user-access-administrator))로 로그인했는지 확인합니다.
 - 사용자 지정 역할을 삭제할 수 없고 "역할을 참조하는 기존 역할 할당이 있습니다(코드: RoleDefinitionHasAssignments)" 오류 메시지가 표시되면 사용자 지정 역할을 사용하는 역할 할당이 여전히 있는 것입니다. 이 경우 해당 역할 할당을 제거하고 다시 삭제해 봅니다.
 - 새 사용자 지정 역할을 만들려고 할 때 "역할 정의 제한을 초과했습니다. 더 이상 역할 정의를 만들 수 없습니다(코드: RoleDefinitionLimitExceeded)"라는 오류 메시지가 표시되면 사용하지 않는 모든 사용자 지정 역할을 삭제합니다. Azure는 디렉터리에서 최대 **5000** 개의 사용자 지정 역할을 지원합니다. (Azure 독일 및 Azure 중국 21Vianet에는 사용자 지정 역할을 2000개까지 사용할 수 있습니다.)
@@ -135,7 +138,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-마찬가지로 Azure CLI를 사용하여 해당 역할 할당을 나열하는 경우 빈 `principalName`가 표시될 수 있습니다. 예를 들어 [az role 할당 목록](/cli/azure/role/assignment#az-role-assignment-list)은 다음 출력과 유사한 역할 할당을 반환합니다.
+마찬가지로 Azure CLI를 사용하여 해당 역할 할당을 나열하는 경우 빈 `principalName`가 표시될 수 있습니다. 예를 들어 [az role 할당 목록](/cli/azure/role/assignment#az_role_assignment_list)은 다음 출력과 유사한 역할 할당을 반환합니다.
 
 ```
 {

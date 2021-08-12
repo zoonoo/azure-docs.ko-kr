@@ -1,6 +1,6 @@
 ---
-title: 유용한 진단 쿼리-Hyperscale (Citus)-Azure Database for PostgreSQL
-description: 분산 데이터 등에 대 한 자세한 내용 쿼리
+title: 유용한 진단 쿼리 - 하이퍼스케일(Citus)-Azure Database for PostgreSQL
+description: 분산 데이터 등에 대해 알아보기 위한 쿼리
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,19 +8,19 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/5/2021
 ms.openlocfilehash: 4858f650aca1b704ac79482e0158fd83fc0264b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98165244"
 ---
 # <a name="useful-diagnostic-queries"></a>유용한 진단 쿼리
 
-## <a name="finding-which-node-contains-data-for-a-specific-tenant"></a>특정 테 넌 트에 대 한 데이터를 포함 하는 노드 찾기
+## <a name="finding-which-node-contains-data-for-a-specific-tenant"></a>특정 테넌트에 대한 데이터를 포함하는 노드 찾기
 
-다중 테 넌 트 사용 사례에서 특정 테 넌 트에 대 한 행을 포함 하는 작업자 노드를 확인할 수 있습니다.  Citus (hyperscale)는 분산 테이블의 행을 분할로 그룹화 하 고 각 분할 된 서버를 서버 그룹의 작업자 노드에 배치 합니다. 
+다중 테넌트 사용 사례에서 특정 테넌트에 대한 행을 포함하는 작업자 노드를 확인할 수 있습니다.  하이퍼스케일(Citus)은 분산 테이블의 행을 분할하여 그룹화하고 각 분할된 데이터베이스를 서버 그룹의 작업자 노드에 배치합니다. 
 
-응용 프로그램의 테 넌 트가 저장소이 고 상점 ID = 4의 데이터를 보유 하는 작업자 노드를 찾으려고 한다고 가정 합니다.  즉, 배포 열의 값이 4 인 행을 포함 하는 분할 된 데이터베이스가 포함 된 위치를 찾으려고 합니다.
+애플리케이션의 테넌트가 저장소이고 상점 ID=4의 데이터를 보유하는 작업자 노드를 찾으려고 한다고 가정하겠습니다.  즉, 배포 열의 값이 4인 행을 포함하는 분할된 데이터베이스의 위치를 찾으려고 합니다.
 
 ``` postgresql
 SELECT shardid, shardstate, shardlength, nodename, nodeport, placementid
@@ -33,7 +33,7 @@ SELECT shardid, shardstate, shardlength, nodename, nodeport, placementid
    );
 ```
 
-출력에는 작업자 데이터베이스의 호스트와 포트가 포함 됩니다.
+출력에는 작업자 데이터베이스의 호스트와 포트가 포함됩니다.
 
 ```
 ┌─────────┬────────────┬─────────────┬───────────┬──────────┬─────────────┐
@@ -43,11 +43,11 @@ SELECT shardid, shardstate, shardlength, nodename, nodeport, placementid
 └─────────┴────────────┴─────────────┴───────────┴──────────┴─────────────┘
 ```
 
-## <a name="finding-the-distribution-column-for-a-table"></a>테이블에 대 한 배포 열 찾기
+## <a name="finding-the-distribution-column-for-a-table"></a>테이블의 배포 열 찾기
 
-Citus (Hyperscale)의 각 분산 테이블에는 "분포 열"이 있습니다. (자세한 내용은 [분산 데이터 모델링](concepts-hyperscale-choose-distribution-column.md)을 참조 하세요.) 열을 알아야 할 수 있습니다. 예를 들어 테이블을 조인 하거나 필터링 할 때 "배포 열에 필터 추가"와 같은 힌트가 포함 된 오류 메시지가 표시 될 수 있습니다.
+하이퍼스케일(Citus)의 각 분산 테이블에는 "배포 열"이 있습니다. (자세한 내용은 [분산 데이터 모델링](concepts-hyperscale-choose-distribution-column.md)을 참조하세요.) 이것이 어떤 열인지 알아야 할 수 있습니다. 예를 들어 테이블을 조인하거나 필터링할 때 "배포 열에 필터 추가"와 같은 힌트가 포함된 오류 메시지가 표시될 수 있습니다.
 
-`pg_dist_*`코디네이터 노드의 테이블에는 분산 데이터베이스에 대 한 다양 한 메타 데이터가 포함 됩니다. 특히 `pg_dist_partition` 각 테이블의 배포 열에 대 한 정보를 저장 합니다. 편리한 유틸리티 함수를 사용 하 여 메타 데이터의 하위 수준 세부 정보에서 배포 열 이름을 조회할 수 있습니다. 예제 및 해당 출력은 다음과 같습니다.
+코디네이터 노드의 `pg_dist_*` 테이블에는 분산 데이터베이스에 대한 다양한 메타데이터가 포함됩니다. 특히 `pg_dist_partition`은 각 테이블의 배포 열에 대한 정보를 저장합니다. 편리한 유틸리티 함수를 사용하여 메타데이터의 하위 수준 세부 정보에서 배포 열 이름을 조회할 수 있습니다. 예제 및 해당 출력은 다음과 같습니다.
 
 ``` postgresql
 -- create example table
@@ -84,7 +84,7 @@ SELECT column_to_column_name(logicalrelid, partkey) AS dist_col_name
 
 ## <a name="detecting-locks"></a>잠금 검색
 
-이 쿼리는 모든 작업자 노드에서 실행 되며 잠금, 열린 시간 및 잘못 된 쿼리를 식별 합니다.
+이 쿼리는 모든 작업자 노드에서 실행되며 잠금, 열린 시간 및 잘못된 쿼리를 식별합니다.
 
 ``` postgresql
 SELECT run_command_on_workers($cmd$
@@ -134,9 +134,9 @@ $cmd$);
 └───────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-## <a name="querying-the-size-of-your-shards"></a>분할 크기 쿼리
+## <a name="querying-the-size-of-your-shards"></a>분할된 데이터베이스의 크기 쿼리
 
-이 쿼리는 다음과 같은 지정 된 분산 테이블의 모든 분할 된 테이블 크기를 제공 합니다 `my_distributed_table` .
+이 쿼리는 `my_distributed_table`이라고 부르는 지정된 분산 테이블의 모든 분할된 데이터베이스의 크기를 제공합니다.
 
 ``` postgresql
 SELECT *
@@ -163,7 +163,7 @@ $cmd$);
 
 ## <a name="querying-the-size-of-all-distributed-tables"></a>모든 분산 테이블의 크기 쿼리
 
-이 쿼리는 각 분산 테이블의 크기와 해당 인덱스의 크기에 대 한 목록을 가져옵니다.
+이 쿼리는 각 분산 테이블의 크기와 해당 인덱스의 크기에 대한 목록을 가져옵니다.
 
 ``` postgresql
 SELECT
@@ -188,11 +188,11 @@ WHERE schemaname = 'public';
 └───────────────┴────────────┘
 ```
 
-분산 테이블 크기를 쿼리 하기 위한 다른 Citus (Hyperscale) 함수는 [테이블 크기 확인](howto-hyperscale-table-size.md)을 참조 하세요.
+분산 테이블 크기를 쿼리하는 다른 하이퍼스케일(Citus) 함수가 있습니다. [테이블 크기 확인](howto-hyperscale-table-size.md)을 참조하세요.
 
-## <a name="identifying-unused-indices"></a>사용 하지 않는 인덱스 식별
+## <a name="identifying-unused-indices"></a>사용하지 않는 인덱스 식별
 
-다음 쿼리는 지정 된 분산 테이블 ()에 대 한 작업자 노드의 사용 하지 않는 인덱스를 식별 합니다. `my_distributed_table`
+다음 쿼리는 지정된 분산 테이블(`my_distributed_table`)에 대한 작업자 노드에서 사용하지 않는 인덱스를 식별합니다.
 
 ``` postgresql
 SELECT *
@@ -233,7 +233,7 @@ $cmd$);
 
 ## <a name="monitoring-client-connection-count"></a>클라이언트 연결 수 모니터링
 
-다음 쿼리는 코디네이터에서 열린 연결 수를 계산 하 고 유형별로 그룹화 합니다.
+다음 쿼리는 코디네이터에서 열린 연결 수를 계산하고 유형별로 그룹화합니다.
 
 ``` sql
 SELECT state, count(*)
@@ -255,7 +255,7 @@ GROUP BY state;
 
 ## <a name="index-hit-rate"></a>인덱스 적중률
 
-이 쿼리는 모든 노드에 걸쳐 인덱스 적중률을 제공 합니다. 인덱스 적중률은 쿼리할 때 인덱스를 사용 하는 빈도를 결정 하는 데 유용 합니다.
+이 쿼리는 모든 노드에서 인덱스 적중률을 제공합니다. 인덱스 적중률은 쿼리할 때 인덱스가 사용되는 빈도를 결정하는 데 유용합니다.
 
 ``` postgresql
 SELECT nodename, result as index_hit_rate
@@ -281,9 +281,9 @@ $cmd$);
 
 ## <a name="cache-hit-rate"></a>캐시 적중률
 
-대부분의 응용 프로그램은 일반적으로 한 번에 작은 비율의 전체 데이터에 액세스 합니다. PostgreSQL는 디스크에서 읽기 속도가 느려지는 것을 방지 하기 위해 자주 액세스 하는 데이터를 메모리에 유지 합니다. [Pg_statio_user_tables](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STATIO-ALL-TABLES-VIEW) 보기에서 통계를 볼 수 있습니다.
+대부분의 애플리케이션은 일반적으로 전체 데이터의 작은 부분에 한 번에 액세스합니다. PostgreSQL은 자주 액세스하는 데이터를 메모리에 저장하여 디스크에서 느리게 읽지 않도록 합니다. [pg_statio_user_tables](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STATIO-ALL-TABLES-VIEW) 보기에서 해당 통계를 볼 수 있습니다.
 
-중요 한 측정은 메모리 캐시와 워크 로드의 디스크에서 제공 되는 데이터의 비율입니다.
+중요한 측정값은 메모리 캐시와 워크로드의 디스크에서 제공되는 데이터의 비율입니다.
 
 ``` postgresql
 SELECT
@@ -302,8 +302,8 @@ FROM
          1 |      132 | 0.99248120300751879699
 ```
 
-99% 보다 훨씬 낮은 비율을 사용 하는 경우에는 데이터베이스에 사용할 수 있는 캐시의 증가를 고려해 야 할 가능성이 높습니다.
+비율이 99%보다 훨씬 낮은 경우 데이터베이스에 사용할 수 있는 캐시를 늘리는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 진단에 유용한 다른 [시스템 테이블](reference-hyperscale-metadata.md) 에 대해 알아보기
+* 진단에 유용한 다른 [시스템 테이블](reference-hyperscale-metadata.md)에 대해 알아보기

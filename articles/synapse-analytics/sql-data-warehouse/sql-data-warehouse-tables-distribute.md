@@ -1,6 +1,6 @@
 ---
 title: 분산 테이블 디자인 지침
-description: Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대 한 권장 사항입니다.
+description: Azure Synapse Analytics에서 전용 SQL 풀을 사용하여 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대한 권장 사항입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,17 +12,17 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 5aefe869041d9fff8112b6aa380961ca6568ae0b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98673572"
 ---
-# <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 분산 테이블을 디자인 하기 위한 지침
+# <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용하여 분산 테이블을 디자인하기 위한 지침
 
-전용 SQL 풀에서 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대 한 권장 사항입니다.
+전용 SQL 풀의 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대한 권장 사항입니다.
 
-이 문서에서는 전용 SQL 풀의 데이터 배포 및 데이터 이동 개념에 대해 잘 알고 있다고 가정 합니다.  자세한 내용은 [Azure Synapse 분석 아키텍처](massively-parallel-processing-mpp-architecture.md)를 참조 하세요.
+이 문서에서는 사용자가 전용 SQL 풀의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정합니다.  자세한 내용은 [Azure Synapse Analytics 아키텍처](massively-parallel-processing-mpp-architecture.md)를 참조하세요.
 
 ## <a name="what-is-a-distributed-table"></a>분산 테이블이란?
 
@@ -44,7 +44,7 @@ ms.locfileid: "98673572"
 
 ![분산 테이블](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "분산 테이블")  
 
-동일한 값은 항상 동일한 배포를 해시 하므로 SQL Analytics는 행 위치에 대 한 기본 제공 정보를 제공 합니다. 전용 SQL 풀에서이 정보는 쿼리 중 데이터 이동을 최소화 하는 데 사용 되므로 쿼리 성능이 향상 됩니다.
+동일한 값은 항상 동일한 배포를 해시하므로 SQL Analytics는 행 위치에 대한 기본 제공 정보를 제공 합니다. 전용 SQL 풀에서 이 정보는 쿼리 중 데이터 이동을 최소화하여 쿼리 성능을 향상시키는 데 사용됩니다.
 
 해시 분산 테이블은 별모양 스키마의 큰 팩트 테이블에 적합합니다. 행 수가 매우 많은 경우에도 여전히 높은 성능을 유지할 수 있습니다. 물론 분산 시스템이 제공하도록 디자인된 성능을 얻는 데 도움이 되는 디자인 고려 사항이 있습니다. 이 문서에 설명되어 있는 이러한 고려 사항 중 하나는 적합한 배포 열을 선택하는 것입니다.
 
@@ -113,7 +113,7 @@ WITH
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>데이터 이동을 최소화하는 배포 열 선택
 
-올바른 쿼리 결과를 얻기 위해 쿼리에서 데이터를 하나의 컴퓨팅 노드에서 다른 컴퓨팅 노드로 이동할 수 있습니다. 일반적으로 데이터 이동은 분산 테이블에서 쿼리 조인 및 집계 시에 발생합니다. 데이터 이동을 최소화 하는 데 도움이 되는 배포 열을 선택 하는 것은 전용 SQL 풀의 성능을 최적화 하기 위한 가장 중요 한 전략 중 하나입니다.
+올바른 쿼리 결과를 얻기 위해 쿼리에서 데이터를 하나의 컴퓨팅 노드에서 다른 컴퓨팅 노드로 이동할 수 있습니다. 일반적으로 데이터 이동은 분산 테이블에서 쿼리 조인 및 집계 시에 발생합니다. 데이터 이동을 최소화하는 데 도움이 되는 배포 열을 선택하는 것이 전용 SQL 풀의 성능을 최적화하기 위한 가장 중요한 전략 중 하나입니다.
 
 데이터 이동을 최소화하려면 다음과 같은 배포 열을 선택합니다.
 
@@ -225,5 +225,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 분산 테이블을 만들려면 다음 문 중 하나를 사용합니다.
 
-- [CREATE TABLE (전용 SQL 풀)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [CREATE TABLE SELECT (전용 SQL 풀)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CREATE TABLE(전용 SQL 풀)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CREATE TABLE AS SELECT(전용 SQL 풀)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)

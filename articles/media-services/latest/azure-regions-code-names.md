@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services v3의 클라우드 및 지역
-description: 이 문서에서는 영역에 대 한 끝점 및 코드에 사용 되는 Url에 대해 설명 합니다.
+title: Azure Media Services v3를 사용되는 클라우드와 지역
+description: 이 문서에서는 지역의 엔드포인트 및 코드에 사용되는 URL에 대해 설명합니다.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
@@ -9,17 +9,17 @@ ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
 ms.openlocfilehash: 74f30ebb766ea34603c0a30455837c47222967c0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98954330"
 ---
 # <a name="regional-code-names-and-endpoints"></a>지역 코드 이름 및 엔드포인트
 
 ### <a name="region-code-name"></a>Azure 지역 코드 이름
 
-명령 또는 요청에서 **location** 매개 변수를 사용 하는 경우 지역 코드 이름을 **위치** 값으로 제공 해야 합니다. 계정이 있는 지역의 코드 이름을 가져오고 호출을 라우팅해야 하는 경우 Azure CLI에서 다음 줄을 실행할 수 있습니다.
+명령 또는 요청에서 **location** 매개 변수를 사용하는 경우 지역 코드 이름을 **location** 값으로 입력해야 합니다. 계정이 속해 있고 호출을 라우팅해야 하는 Azure 지역의 코드 이름을 가져오려면 Azure CLI에서 다음 줄을 실행합니다.
 
 ```azurecli-interactive
 az account list-locations
@@ -48,7 +48,7 @@ az account list-locations
 
 | 서비스 | 엔드포인트 |
 | ------- | -------- |
-| Azure Resource Manager |  `https://management.azure.com/` |
+| Azure 리소스 관리자 |  `https://management.azure.com/` |
 | 인증 | `https://login.microsoftonline.com/` |
 | 토큰 대상 그룹 | `https://management.core.windows.net/` |
 
@@ -56,7 +56,7 @@ az account list-locations
 
 | 서비스 | 엔드포인트 |
 | ------- | -------- |
-| Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
+| Azure 리소스 관리자 |  `https://management.usgovcloudapi.net/` |
 | 인증 | `https://login.microsoftonline.us/` |
 | 토큰 대상 그룹 | `https://management.core.usgovcloudapi.net/` |
 
@@ -65,11 +65,11 @@ az account list-locations
 ### <a name="azure-germany"></a>Azure 독일
 
 > [!NOTE]
-> Azure 독일 끝점은 독일의 소 버린 클라우드에만 적용 됩니다.
+> Azure 독일 엔드포인트는 독일의 소버린 클라우드에만 적용됩니다.
 
 | 서비스 | 엔드포인트 |
 | ------- | -------- |
-| Azure Resource Manager | `https://management.cloudapi.de/` |
+| Azure 리소스 관리자 | `https://management.cloudapi.de/` |
 | 인증 | `https://login.microsoftonline.de/` |
 | 토큰 대상 그룹 | `https://management.core.cloudapi.de/`|
 
@@ -77,7 +77,7 @@ az account list-locations
 
 | 서비스 | 엔드포인트 |
 | ------- | -------- |
-| Azure Resource Manager | `https://management.chinacloudapi.cn/` |
+| Azure 리소스 관리자 | `https://management.chinacloudapi.cn/` |
 | 인증 | `https://login.chinacloudapi.cn/` |
 | 토큰 대상 그룹 |  `https://management.core.chinacloudapi.cn/` |
 

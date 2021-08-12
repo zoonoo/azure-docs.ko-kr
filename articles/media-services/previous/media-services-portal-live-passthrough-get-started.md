@@ -1,5 +1,5 @@
 ---
-title: Azure Portal를 사용 하는 온-프레미스 인코더를 사용 하는 라이브 스트림 Microsoft Docs
+title: Azure Portal을 사용하여 온-프레미스 인코더로 라이브 스트림 | Microsoft Docs
 description: 이 자습서에서는 통과 배달을 위해 구성된 채널을 만드는 단계를 안내합니다.
 services: media-services
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 6dd2f8a228c582e99f7d7281bd2d31faff8cadda
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103010799"
 ---
-# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Azure Portal를 사용 하 여 온-프레미스 인코더에서 라이브 스트리밍 수행
+# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Azure Portal을 사용하여 온-프레미스 인코더로 라이브 스트리밍 수행
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
@@ -37,7 +37,7 @@ ms.locfileid: "103010799"
 
 이 자습서에서는 Azure 포털을 사용하여 통과 배달을 위해 구성된 **채널** 을 만드는 단계를 안내합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
 * Azure 계정. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
@@ -58,7 +58,7 @@ ms.locfileid: "103010799"
 > 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태에 있는지 확인합니다. 
     
 1. 비디오 카메라를 컴퓨터에 연결합니다. <br/>설치 아이디어는 [간단하고 이동 가능한 이벤트 비디오 기어 설정]( https://link.medium.com/KNTtiN6IeT)을 확인하세요.
-1. 다중 비트 전송률 RTMP 또는 조각화된 MP4 스트림을 출력하는 온-프레미스 라이브 인코더를 실행 및 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](https://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.<br/>또한 [OBS를 사용한 라이브 스트리밍 프로덕션](https://link.medium.com/ttuwHpaJeT)블로그를 확인 하세요.
+1. 다중 비트 전송률 RTMP 또는 조각화된 MP4 스트림을 출력하는 온-프레미스 라이브 인코더를 실행 및 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](https://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.<br/>또한 [OBS를 사용한 라이브 스트리밍 프로덕션](https://link.medium.com/ttuwHpaJeT) 블로그를 확인하세요.
    
     이 단계는 채널을 만든 후에도 수행할 수 있습니다.
 1. 통과 채널을 만들고 시작합니다.
@@ -85,7 +85,7 @@ ms.locfileid: "103010799"
 ## <a name="to-view-notifications-and-errors"></a>알림 및 오류를 보려면
 Azure 포털에서 생성된 알림 및 오류를 보려면 알림 아이콘을 클릭합니다.
 
-![알림](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
+![공지](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
 
 ## <a name="create-and-start-pass-through-channels-and-events"></a>통과 채널 및 이벤트 만들기 및 시작
 채널은 라이브 스트림에서 세그먼트의 게시 및 스토리지를 제어할 수 있는 이벤트/프로그램과 연결되어 있습니다. 채널은 이벤트를 관리합니다. 
@@ -133,7 +133,7 @@ Azure 포털에서 생성된 알림 및 오류를 보려면 알림 아이콘을 
 ## <a name="get-ingest-urls"></a>수집 URL 가져오기
 채널을 만든 후 라이브 인코더에 제공할 수집 URL을 가져올 수 있습니다. 인코더는 이러한 URL을 사용하여 라이브 스트림을 입력합니다.
 
-![채널이 선택 된 "라이브 스트리밍" 페이지와 채널 창이 표시 된 스크린샷](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
+![채널이 선택된 "라이브 스트리밍" 페이지와 채널 창이 표시된 스크린샷](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
 ## <a name="watch-the-event"></a>이벤트 보기
 이벤트를 보려면 Azure 포털에서 **조사식** 을 클릭하거나 스트리밍 URL을 복사하고 선택한 플레이어를 사용합니다. 

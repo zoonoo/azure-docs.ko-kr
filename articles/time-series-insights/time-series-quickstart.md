@@ -3,19 +3,20 @@ title: '빠른 시작: Azure Time Series Insights 탐색기 - Azure Time Series 
 description: Azure Time Series Insights 탐색기를 시작하는 방법을 알아봅니다. 대량의 IoT 데이터를 시각화하고 사용자 환경의 핵심 기능을 살펴봅니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: narmeens
+ms.author: narsam
+manager: cnovak
+ms.reviewer: orspodek
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 09/30/2020
-ms.openlocfilehash: dd5ed52187a7cd23142b59e20c91c6d125946a72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf8e8cac032ab303f39a414afdaba2b4cd730844
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91613784"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112369005"
 ---
 # <a name="quickstart-explore-azure-time-series-insights-gen1"></a>빠른 시작: Azure Time Series Insights Gen1 살펴보기
 

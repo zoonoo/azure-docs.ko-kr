@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/4/2020
-ms.openlocfilehash: 43d616bc82c608918f5e7ee51481a393dd55a284
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8ae2d31bcb6cd17d020bf1602b5280f1db927f3f
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566073"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110496201"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Azure HDInsight 3.6 Hive 워크로드를 HDInsight 4.0으로 마이그레이션
 
@@ -130,6 +130,10 @@ HDInsight는 필요에 따라 ESP(Enterprise Security Package)를 사용하여 A
 * `HiveCLI`이(가) `Beeline`(으)로 바뀝니다.
 
 추가 변경 내용은 [HDInsight 4.0 공지](../hdinsight-version-release.md)를 참조하세요.
+
+## <a name="troubleshooting-guide"></a>문제 해결 가이드
+
+[Hive 워크로드에 대한 HDInsight 3.6~4.0 문제 해결 가이드](./interactive-query-troubleshoot-migrate-36-to-40.md)는 Hive 워크로드를 HDInsight 3.6에서 HDInsight 4.0으로 마이그레이션할 때 발생하는 일반적인 문제에 대한 답변을 제공합니다.
 
 ## <a name="further-reading"></a>추가 참고 자료
 

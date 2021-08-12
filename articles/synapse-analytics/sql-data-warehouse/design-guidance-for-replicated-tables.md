@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 7dcb884d8eafdfa5218e96d63f62a5d462d20cf8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: f4c9326d4893209379bf459ed9fa7b9feff253aa
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98679933"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109837856"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Synapse SQL 풀에서 복제된 테이블을 사용하기 위한 디자인 지침
 
@@ -38,7 +38,7 @@ ms.locfileid: "98679933"
 
 복제 테이블에는 각 Compute 노드에서 액세스할 수 있는 테이블의 전체 복사본이 있습니다. 테이블을 복제하면 조인 또는 집계 전에 Compute 노드 간에 데이터를 전송하지 않아도 됩니다. 테이블에 여러 복사본이 있으므로 복제 테이블은 테이블 크기가 2GB 미만으로 압축되어 있을 때 가장 효과적입니다.  2GB는 하드 제한이 아닙니다.  데이터가 정적이고 변경되지 않는 경우 더 큰 테이블을 복제할 수 있습니다.
 
-다음은 각 Compute 노드에서 액세스할 수 있는 복제 테이블을 보여주는 다이어그램입니다. SQL 풀에서 복제 된 테이블은 각 계산 노드의 배포 데이터베이스로 완전히 복사 됩니다.
+다음은 각 Compute 노드에서 액세스할 수 있는 복제 테이블을 보여주는 다이어그램입니다. SQL 풀에서 복제 테이블은 각 컴퓨팅 노드의 배포 데이터베이스로 완벽하게 복사됩니다.
 
 ![복제 테이블](./media/design-guidance-for-replicated-tables/replicated-table.png "복제 테이블")  
 
@@ -52,7 +52,7 @@ ms.locfileid: "98679933"
 복제 테이블이 최상의 쿼리 성능을 얻을 수 없는 경우:
 
 - 테이블에 삽입, 업데이트 및 삭제 작업이 빈번합니다.  DML(데이터 조작 언어) 작업에는 복제 테이블 다시 빌드가 필요합니다.  다시 빌드가 빈번하면 성능을 저하시킬 수 있습니다.
-- SQL 풀이 자주 확장 됩니다. SQL 풀의 크기를 조정 하면 복제 된 테이블을 다시 작성 하는 계산 노드 수가 변경 됩니다.
+- SQL 풀이 크기 조정되는 경우가 많습니다. SQL 풀의 크기를 조정하면 복제된 테이블을 다시 빌드하는 컴퓨팅 노드 수가 변경됩니다.
 - 테이블에는 다수의 열이 있지만 데이터 작업은 대개 작은 수의 열에만 액세스합니다. 이 시나리오에서는 전체 테이블을 복제하는 대신 테이블을 분산한 다음, 자주 액세스하는 열의 인덱스를 만드는 것이 보다 효과적일 수 있습니다. 쿼리에 데이터 이동이 필요하면 SQL 풀은 요청된 열의 데이터만 이동합니다.
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>단순 쿼리 조건자로 복제 테이블 사용
@@ -84,7 +84,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]
 WITH
   (
-    CLUSTERED COLUMNSTORE INDEX,  
+    HEAP,  
     DISTRIBUTION = REPLICATE  
   )  
 AS SELECT * FROM [dbo].[DimSalesTerritory]
@@ -126,7 +126,7 @@ WHERE d.FiscalYear = 2004
 
 SQL 풀은 테이블의 마스터 버전을 유지하여 복제 테이블을 구현합니다. 마스터 버전을 각 컴퓨팅 노드에 있는 첫 번째 배포 데이터베이스에 복사합니다. 변경 사항이 있는 경우 마스터 버전이 먼저 업데이트된 다음 각 컴퓨팅 노드의 테이블이 다시 작성됩니다. 복제 테이블의 다시 빌드에는 각 Compute 노드로 테이블을 복사한 다음, 인덱스를 빌드하는 것이 포함됩니다.  예를 들어 DW2000c의 복제된 테이블에는 5개의 데이터 복사본이 있습니다.  각 Compute 노드의 마스터 복사본 및 전체 복사본입니다.  모든 데이터는 배포 데이터베이스에 저장됩니다. SQL 풀은 더 빠른 데이터 수정 문 및 유연한 크기 조정 작업을 지원하기 위해 이 모델을 사용합니다.
 
-비동기 재작성은 다음 이후에 복제 된 테이블에 대 한 첫 번째 쿼리에 의해 트리거됩니다.
+비동기 다시 빌드는 다음 이후에 복제된 테이블에 대한 첫 번째 쿼리에 의해 트리거됩니다.
 
 - 데이터가 로드되었거나 수정된 후
 - Synapse SQL 인스턴스가 다른 수준으로 확장됩니다.

@@ -1,16 +1,16 @@
 ---
 title: Azure Service Fabric Reliable Services 구성
-description: Azure Service Fabric 응용 프로그램에서 상태 저장 Reliable Services를 전역적으로 구성 하 고 단일 서비스를 구성 하는 방법에 대해 알아봅니다.
+description: 단일 서비스에 대해 전역적으로 Azure Service Fabric 애플리케이션에서 상태 저장 Reliable Services를 구성하는 방법에 관해 알아봅니다.
 author: sumukhs
 ms.topic: conceptual
 ms.date: 10/02/2017
 ms.author: sumukhs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: cda0a9f988afae58a60bff051885a5eec8afe434
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96023587"
 ---
 # <a name="configure-stateful-reliable-services"></a>상태 저장 Reliable Services 구성
@@ -20,7 +20,7 @@ Reliable Services에는 두 가지 구성 설정 집합이 있습니다. 한 집
 전역 Reliable Service 구성은 KtlLogger 섹션 아래 클러스터에 대한 클러스터 매니페스트에 지정됩니다. 공유 로그 위치 및 크기와 로거에 사용되는 전역 메모리 한도를 구성할 수 있습니다. 클러스터 매니페스트는 클러스터의 모든 노드 및 서비스에 적용할 설정 및 구성을 포함하는 단일 XML 파일입니다. 이 파일을 일반적으로 ClusterManifest.xml이라고 합니다. Get-ServiceFabricClusterManifest powershell 명령을 사용하여 클러스터에 대한 클러스터 매니페스트를 확인할 수 있습니다.
 
 ### <a name="configuration-names"></a>구성 이름
-| Name | 단위 | 기본값 | 설명 |
+| 이름 | 단위 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |킬로바이트 |8388608 |로거 쓰기 버퍼 메모리 풀에 대해 커널 모드에서 할당되는 최소 KB 수입니다. 이 메모리 풀은 디스크에 쓰기 전에 상태 정보를 캐시하는 데 사용됩니다. |
 | WriteBufferMemoryPoolMaximumInKB |킬로바이트 |제한 없음 |로거 쓰기 버퍼 메모리 풀이 증가할 수 있는 최대 크기입니다. |
@@ -103,7 +103,7 @@ ReplicatorConfig
 > 
 
 ### <a name="configuration-names"></a>구성 이름
-| Name | 단위 | 기본값 | 설명 |
+| 이름 | 단위 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |초 |0.015 |작업을 수신한 후 주 복제본에 대한 승인을 다시 보내기 전에 보조 복제본의 복제자가 대기하는 시간. 이 간격 내에서 처리하는 작업에 대해 보낼 나머지 승인은 모두 하나의 응답으로 전송됩니다. |
 | ReplicatorEndpoint |해당 없음 |기본값 없음--필수 매개 변수 |주/보조 복제자가 복제본 세트의 다른 복제자와 통신하는 데 사용할 IP 주소 및 포트. 서비스 매니페스트의 TCP 리소스 엔드포인트를 참조해야 합니다. 서비스 매니페스트에서 엔드포인트 리소스를 정의하는 방법에 대한 자세한 내용은 [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md) 를 참조하세요. |
@@ -119,7 +119,7 @@ ReplicatorConfig
 | SharedLogPath |정규화된 경로 이름 |"" |이 복제본의 공유 로그 파일을 생성할 정규화된 경로를 지정합니다. 일반적으로 서비스는 이 설정을 사용해서는 안 됩니다. 그러나 SharedLogPath가 지정된 경우 SharedLogId도 지정해야 합니다. |
 | SlowApiMonitoringDuration |초 |300 |관리되는 API 호출에 대한 모니터링 간격을 설정합니다. 예: 사용자 제공 백업 콜백 함수. 이 간격이 지나면 상태 경고 보고서가 상태 관리자로 전송됩니다. |
 | LogTruncationIntervalSeconds |초 |0 |각 복제본에서 로그 잘림이 시작되는 구성 가능한 간격입니다. 로그 크기뿐 아니라 시간을 기준으로 로그가 잘리도록 하는 데 사용합니다. 이 설정은 신뢰할 수 있는 디렉터리에서 삭제된 항목을 강제 제거합니다. 따라서 삭제된 항목이 적절한 시기에 제거되게 하는 데 사용할 수 있습니다. |
-| EnableStableReads |부울 |아니요 |안정적인 읽기를 사용 하면 보조 복제본이 내보냄 된 값을 반환 하도록 제한 됩니다. |
+| EnableStableReads |부울 |아니요 |안정적인 읽기를 사용하면 보조 복제본이 쿼럼 승인된 값을 반환하도록 제한됩니다. |
 
 ### <a name="sample-configuration-via-code"></a>코드를 통한 샘플 구성
 ```csharp

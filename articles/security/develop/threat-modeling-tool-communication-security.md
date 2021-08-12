@@ -1,7 +1,7 @@
 ---
-title: Microsoft Threat Modeling Tool에 대 한 통신 보안
+title: Microsoft Threat Modeling Tool에 대한 통신 보안
 titleSuffix: Azure
-description: Threat Modeling Tool에서 노출 되는 통신 보안 위협에 대 한 완화에 대해 알아봅니다. 완화 정보 및 코드 예제 보기를 참조 하십시오.
+description: Threat Modeling Tool에 노출되는 통신 보안 위협 완화에 대해 알아봅니다. 완화 정보를 참조하고 코드 예제를 확인하세요.
 services: security
 documentationcenter: na
 author: jegeib
@@ -18,10 +18,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d9a4eabf37101622ac69ae05f3bec232fb8d2fe6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94517532"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>보안 프레임: 통신 보안 | 완화 
@@ -29,16 +29,16 @@ ms.locfileid: "94517532"
 | --------------- | ------- |
 | **Azure 이벤트 허브** | <ul><li>[SSL/TLS를 사용하여 이벤트 허브 통신 보안](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[서비스 계정 권한을 확인하고 사용자 지정 서비스 또는 ASP.NET 페이지에서 CRM 보안을 준수하는지 확인합니다.](#priv-aspnet)</li></ul> |
-| **Azure Data Factory** | <ul><li>[온-프레미스 SQL Server Azure Data Factory에 연결 하는 동안 데이터 관리 게이트웨이 사용](#sqlserver-factory)</li></ul> |
-| **ID 서버** | <ul><li>[Id 서버에 대 한 모든 트래픽이 HTTPS 연결을 초과 하는지 확인 합니다.](#identity-https)</li></ul> |
-| **웹 애플리케이션** | <ul><li>[X.509 인증서를 사용하여 SSL, TLS 및 DTLS 연결을 인증하는지 확인](#x509-ssltls)</li><li>[Azure App Service에서 사용자 지정 도메인에 대 한 TLS/SSL 인증서 구성](#ssl-appservice)</li><li>[Azure App Service에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용](#appservice-https)</li><li>[HSTS(HTTP 엄격한 전송 보안)를 사용하도록 설정](#http-hsts)</li></ul> |
-| **데이터베이스** | <ul><li>[SQL server 연결 암호화 및 인증서 유효성 검사 확인](#sqlserver-validation)</li><li>[SQL 서버에 암호화된 통신 강제 적용](#encrypted-sqlserver)</li></ul> |
-| **Azure Storage** | <ul><li>[Azure Storage에 대한 통신이 HTTPS를 통과하는지 확인](#comm-storage)</li><li>[HTTPS를 사용 하도록 설정할 수 없는 경우 blob을 다운로드 한 후 MD5 해시 유효성 검사](#md5-https)</li><li>[SMB 3.0 호환 클라이언트를 사용 하 여 Azure 파일 공유에 대 한 전송 중 데이터 암호화 보장](#smb-shares)</li></ul> |
+| **Azure Data Factory** | <ul><li>[온-프레미스 SQL Server를 Azure Data Factory에 연결하는 동안 데이터 관리 게이트웨이 사용](#sqlserver-factory)</li></ul> |
+| **ID 서버** | <ul><li>[Identity Server에 대한 모든 트래픽이 HTTPS 연결을 통과하는지 확인](#identity-https)</li></ul> |
+| **웹 애플리케이션** | <ul><li>[X.509 인증서를 사용하여 SSL, TLS 및 DTLS 연결을 인증하는지 확인](#x509-ssltls)</li><li>[Azure App Service에서 사용자 지정 도메인에 대한 TLS/SSL 인증서 구성](#ssl-appservice)</li><li>[Azure App Service에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용](#appservice-https)</li><li>[HSTS(HTTP 엄격한 전송 보안)를 사용하도록 설정](#http-hsts)</li></ul> |
+| **데이터베이스** | <ul><li>[SQL 서버 연결 암호화 및 인증서 유효성 검사 확인](#sqlserver-validation)</li><li>[SQL 서버에 암호화된 통신 강제 적용](#encrypted-sqlserver)</li></ul> |
+| **Azure Storage** | <ul><li>[Azure Storage에 대한 통신이 HTTPS를 통과하는지 확인](#comm-storage)</li><li>[HTTPS를 사용할 수 없는 경우 Blob을 다운로드한 후 MD5 해시 유효성 검사](#md5-https)</li><li>[SMB 3.0 호환 클라이언트를 사용하여 Azure 파일 공유에 대한 전송 중 데이터 암호화 보장](#smb-shares)</li></ul> |
 | **모바일 클라이언트** | <ul><li>[인증서 고정 구현](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[HTTPS 사용 설정 - 보안 전송 채널](#https-transport)</li><li>[WCF: 메시지 보안 보호 수준을 EncryptAndSign으로 설정](#message-protection)</li><li>[WCF: 최소 권한 계정을 사용하여 WCF 서비스 실행](#least-account-wcf)</li></ul> |
 | **앱 API** | <ul><li>[Web API에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용](#webapi-https)</li></ul> |
-| **Azure Cache for Redis** | <ul><li>[Azure Cache for Redis가 TLS를 통해 통신 하는지 확인 합니다.](#redis-ssl)</li></ul> |
-| **IoT 필드 게이트웨이** | <ul><li>[장치-필드 게이트웨이 통신 보안](#device-field)</li></ul> |
+| **Azure Cache for Redis** | <ul><li>[Azure Cache for Redis에 대한 통신이 TLS를 통과하는지 확인](#redis-ssl)</li></ul> |
+| **IoT 필드 게이트웨이** | <ul><li>[디바이스-필드 게이트웨이 통신 보안](#device-field)</li></ul> |
 | **IoT 클라우드 게이트웨이** | <ul><li>[SSL/TLS를 사용하여 디바이스-클라우드 게이트웨이 통신 보안](#device-cloud)</li></ul> |
 
 ## <a name="secure-communication-to-event-hub-using-ssltls"></a><a id="comm-ssltls"></a>SSL/TLS를 사용하여 이벤트 허브 통신 보안
@@ -63,15 +63,15 @@ ms.locfileid: "94517532"
 | **참조**              | 해당 없음  |
 | **단계** | 서비스 계정 권한을 확인하고 사용자 지정 서비스 또는 ASP.NET 페이지에서 CRM 보안을 준수하는지 확인합니다. |
 
-## <a name="use-data-management-gateway-while-connecting-on-premises-sql-server-to-azure-data-factory"></a><a id="sqlserver-factory"></a>온-프레미스 SQL Server Azure Data Factory에 연결 하는 동안 데이터 관리 게이트웨이 사용
+## <a name="use-data-management-gateway-while-connecting-on-premises-sql-server-to-azure-data-factory"></a><a id="sqlserver-factory"></a>온-프레미스 SQL Server를 Azure Data Factory에 연결하는 동안 데이터 관리 게이트웨이 사용
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure 데이터 팩터리 | 
+| **구성 요소**               | Azure Data Factory | 
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 일반 |
-| **특성**              | 연결 된 서비스 유형-Azure 및 온-프레미스 |
-| **참조**              |[온-프레미스와 Azure Data Factory 간에 데이터 이동](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-gateway), [데이터 관리 게이트웨이](../../data-factory/v1/data-factory-data-management-gateway.md) |
+| **특성**              | 연결된 서비스 유형 - Azure 및 온-프레미스 |
+| **참조**              |[온-프레미스 및 Azure Data Factory 간 데이터 이동](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-gateway), [데이터 관리 게이트웨이](../../data-factory/v1/data-factory-data-management-gateway.md) |
 | **단계** | <p>DMG(데이터 관리 게이트웨이) 도구는 회사 네트워크 또는 방화벽 뒤에서 보호되는 데이터 원본에 연결해야 합니다.</p><ol><li>컴퓨터를 잠그면 DMG 도구가 격리되고 오작동하는 프로그램이 데이터 원본 컴퓨터를 손상시키거나 스누핑하지 않게 됩니다. (예: 최신 업데이트를 설치해야 하고, 필요한 최소 포트를 사용하고, 계정 프로비저닝을 제어하고, 감사를 사용하고, 디스크 암호화를 사용해야 합니다.)</li><li>데이터 게이트웨이 키는 빈번한 간격으로 또는 DMG 서비스 계정 암호가 갱신될 때마다 회전해야 합니다.</li><li>연결 서비스를 통한 데이터 전송은 암호화되어야 합니다.</li></ol> |
 
 ## <a name="ensure-that-all-traffic-to-identity-server-is-over-https-connection"></a><a id="identity-https"></a>Identity Server에 대한 모든 트래픽이 HTTPS 연결을 통과하는지 확인
@@ -83,7 +83,7 @@ ms.locfileid: "94517532"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [IdentityServer3 - 키, 서명 및 암호화](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html)(영문), [IdentityServer3 - 배포](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html)(영문) |
-| **단계** | 기본적으로 IdentityServer에서는 들어오는 모든 연결이 HTTPS를 통과해야 합니다. IdentityServer와의 통신은 반드시 보안 전송을 통해서만 수행되어야 합니다. 이 요구 사항을 완화할 수 있는 TLS 오프 로딩과 같은 특정 배포 시나리오가 있습니다. 자세한 내용은 Identity Server 배포 페이지의 참조 부분을 참조하세요. |
+| **단계** | 기본적으로 IdentityServer에서는 들어오는 모든 연결이 HTTPS를 통과해야 합니다. IdentityServer와의 통신은 반드시 보안 전송을 통해서만 수행되어야 합니다. 이 요구 사항을 완화할 수 있는 TLS 오프로딩과 같은 특정 배포 시나리오가 있습니다. 자세한 내용은 Identity Server 배포 페이지의 참조 부분을 참조하세요. |
 
 ## <a name="verify-x509-certificates-used-to-authenticate-ssl-tls-and-dtls-connections"></a><a id="x509-ssltls"></a>X.509 인증서를 사용하여 SSL, TLS 및 DTLS 연결을 인증하는지 확인
 
@@ -96,7 +96,7 @@ ms.locfileid: "94517532"
 | **참조**              | 해당 없음  |
 | **단계** | <p>SSL, TLS 또는 DTLS를 사용하는 애플리케이션은 연결하는 엔터티의 X.509 인증서를 완전히 확인해야 합니다. 여기에는 다음에 대한 인증서 확인이 포함됩니다.</p><ul><li>도메인 이름</li><li>유효 날짜(시작 날짜와 만료 날짜 모두)</li><li>해지 상태</li><li>사용 현황(예: 서버에 대한 서버 인증, 클라이언트에 대한 클라이언트 인증)</li><li>신뢰 체인 - 인증서는 플랫폼에서 신뢰할 수 있거나 관리자가 명시적으로 구성한 루트 인증 기관(CA)에 연결되어야 합니다.</li><li>인증서 공개 키의 길이는 2,048비트보다 커야 합니다.</li><li>해싱 알고리즘은 SHA256 이상이어야 합니다. |
 
-## <a name="configure-tlsssl-certificate-for-custom-domain-in-azure-app-service"></a><a id="ssl-appservice"></a>Azure App Service에서 사용자 지정 도메인에 대 한 TLS/SSL 인증서 구성
+## <a name="configure-tlsssl-certificate-for-custom-domain-in-azure-app-service"></a><a id="ssl-appservice"></a>Azure App Service에서 사용자 지정 도메인에 대한 TLS/SSL 인증서 구성
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -105,7 +105,7 @@ ms.locfileid: "94517532"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | EnvironmentType - Azure |
 | **참조**              | [Azure App Service에서 앱에 대한 HTTPS를 사용하도록 설정](../../app-service/configure-ssl-bindings.md) |
-| **단계** | 기본적으로 Azure는 *.azurewebsites.net 도메인에 대해 와일드카드 인증서를 사용하는 모든 앱에 대해 HTTPS를 이미 사용하도록 설정합니다. 그러나 모든 와일드카드 도메인과 마찬가지로 자체 인증서로 사용자 지정 도메인을 사용하는 것만큼 안전하지 않습니다([참조](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)). 배포 된 앱이 액세스할 사용자 지정 도메인에 대해 TLS를 사용 하도록 설정 하는 것이 좋습니다.|
+| **단계** | 기본적으로 Azure는 *.azurewebsites.net 도메인에 대해 와일드카드 인증서를 사용하는 모든 앱에 대해 HTTPS를 이미 사용하도록 설정합니다. 그러나 모든 와일드카드 도메인과 마찬가지로 자체 인증서로 사용자 지정 도메인을 사용하는 것만큼 안전하지 않습니다([참조](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)). 배포된 앱에 액세스할 수 있는 사용자 지정 도메인에 대한 TLS를 사용하도록 설정하는 것이 좋습니다.|
 
 ## <a name="force-all-traffic-to-azure-app-service-over-https-connection"></a><a id="appservice-https"></a>Azure App Service에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용
 
@@ -149,7 +149,7 @@ ms.locfileid: "94517532"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [OWASP HSTS(HTTP 엄격한 전송 보안) 참고 자료](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html)(영문) |
-| **단계** | <p>HSTS는 특수 응답 헤더를 사용하여 웹 애플리케이션에서 지정하는 옵트인 보안 고급 기능입니다. 지원되는 브라우저에서 이 헤더를 받으면 브라우저는 HTTP를 통해 지정된 도메인으로 보내는 모든 통신을 차단하고 대신 HTTPS를 통해 모든 통신을 보냅니다. 또한 브라우저에서 프롬프트를 통해 HTTPS를 클릭하지 않도록 방지합니다.</p><p>HSTS를 구현 하려면 코드 또는 구성에서 웹 사이트에 대해 다음 응답 헤더를 전역적으로 구성 해야 합니다. 엄격한 전송-보안: 최대 사용 기간 = 300; includeSubDomains 도메인 HSTS는 다음과 같은 위협을 해결 합니다.</p><ul><li>사용자가 책갈피를 설정하거나 수동으로 `https://example.com`을 입력하고 메시지 가로채기(man-in-the-middle) 공격자가 될 수 있습니다. HSTS는 대상 도메인에 대한 HTTP 요청을 HTTPS로 자동으로 리디렉션합니다.</li><li>순전히 HTTPS로 의도된 웹 애플리케이션은 실수로 HTTP 링크를 포함하거나 HTTP를 통해 콘텐츠를 제공합니다. HSTS는 대상 도메인에 대한 HTTP 요청을 HTTPS로 자동으로 리디렉션합니다.</li><li>메시지 가로채기 공격자가 잘못된 인증서를 사용하여 공격 대상 사용자의 트래픽을 가로채려고 시도하고 사용자가 잘못된 인증서를 받아들이기를 기대합니다. HSTS는 사용자가 잘못된 인증서 메시지를 재정의하도록 허용하지 않습니다.</li></ul>|
+| **단계** | <p>HSTS는 특수 응답 헤더를 사용하여 웹 애플리케이션에서 지정하는 옵트인 보안 고급 기능입니다. 지원되는 브라우저에서 이 헤더를 받으면 브라우저는 HTTP를 통해 지정된 도메인으로 보내는 모든 통신을 차단하고 대신 HTTPS를 통해 모든 통신을 보냅니다. 또한 브라우저에서 프롬프트를 통해 HTTPS를 클릭하지 않도록 방지합니다.</p><p>HSTS를 구현하려면 코드 또는 구성에서 웹 사이트에 대해 다음 응답 헤더를 전역적으로 구성해야 합니다. Strict-Transport-Security: max-age=300; includeSubDomains HSTS는 다음과 같은 위협을 해결합니다.</p><ul><li>사용자가 책갈피를 설정하거나 수동으로 `https://example.com`을 입력하고 메시지 가로채기(man-in-the-middle) 공격자가 될 수 있습니다. HSTS는 대상 도메인에 대한 HTTP 요청을 HTTPS로 자동으로 리디렉션합니다.</li><li>순전히 HTTPS로 의도된 웹 애플리케이션은 실수로 HTTP 링크를 포함하거나 HTTP를 통해 콘텐츠를 제공합니다. HSTS는 대상 도메인에 대한 HTTP 요청을 HTTPS로 자동으로 리디렉션합니다.</li><li>메시지 가로채기 공격자가 잘못된 인증서를 사용하여 공격 대상 사용자의 트래픽을 가로채려고 시도하고 사용자가 잘못된 인증서를 받아들이기를 기대합니다. HSTS는 사용자가 잘못된 인증서 메시지를 재정의하도록 허용하지 않습니다.</li></ul>|
 
 ## <a name="ensure-sql-server-connection-encryption-and-certificate-validation"></a><a id="sqlserver-validation"></a>SQL 서버 연결 암호화 및 인증서 유효성 검사 확인
 
@@ -160,7 +160,7 @@ ms.locfileid: "94517532"
 | **적용 가능한 기술** | SQL Azure  |
 | **특성**              | SQL 버전 - V12 |
 | **참조**              | [SQL Database의 보안 연결 문자열 작성에 대한 모범 사례](https://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
-| **단계** | <p>SQL Database와 클라이언트 응용 프로그램 간의 모든 통신은 TLS (전송 계층 보안)를 사용 하 여 암호화 됩니다 (이전에는 SSL (SSL(Secure Sockets Layer)) 이라고 함). SQL Database는 암호화 되지 않은 연결을 지원 하지 않습니다. 애플리케이션 코드 또는 도구를 사용하여 인증서의 유효성을 검사하려면 명시적으로 암호화된 연결을 요청하고 서버 인증서를 신뢰하지 않습니다. 애플리케이션 코드 또는 도구가 암호화된 연결을 요청하지 않더라도 암호화된 연결을 받습니다.</p><p>그러나 서버 인증서의 유효성을 검사하지 않고 따라서 "메시지 가로채기" 공격에 노출되기 쉽습니다. ADO.NET 애플리케이션 코드를 사용하여 인증서의 유효성을 검사하려면 데이터베이스 연결 문자열에서 `Encrypt=True` 및 `TrustServerCertificate=False`를 설정합니다. SQL Server Management Studio를 통해 인증서의 유효성을 검사하려면 [서버에 연결] 대화 상자를 엽니다. [연결 속성] 탭에서 [연결 암호화]를 클릭합니다.</p>|
+| **단계** | <p>SQL Database와 클라이언트 애플리케이션 간의 모든 통신은 항상 TLS(전송 계층 보안)(이전에는 SSL(Secure Sockets Layer)로 알려짐)를 사용하여 암호화됩니다. SQL Database는 암호화되지 않은 연결을 지원하지 않습니다. 애플리케이션 코드 또는 도구를 사용하여 인증서의 유효성을 검사하려면 명시적으로 암호화된 연결을 요청하고 서버 인증서를 신뢰하지 않습니다. 애플리케이션 코드 또는 도구가 암호화된 연결을 요청하지 않더라도 암호화된 연결을 받습니다.</p><p>그러나 서버 인증서의 유효성을 검사하지 않고 따라서 "메시지 가로채기" 공격에 노출되기 쉽습니다. ADO.NET 애플리케이션 코드를 사용하여 인증서의 유효성을 검사하려면 데이터베이스 연결 문자열에서 `Encrypt=True` 및 `TrustServerCertificate=False`를 설정합니다. SQL Server Management Studio를 통해 인증서의 유효성을 검사하려면 [서버에 연결] 대화 상자를 엽니다. [연결 속성] 탭에서 [연결 암호화]를 클릭합니다.</p>|
 
 ## <a name="force-encrypted-communication-to-sql-server"></a><a id="encrypted-sqlserver"></a>SQL 서버에 암호화된 통신 강제 적용
 
@@ -171,7 +171,7 @@ ms.locfileid: "94517532"
 | **적용 가능한 기술** | OnPrem |
 | **특성**              | SQL 버전 - MsSQL2016, SQL 버전 - MsSQL2012, SQL 버전 - MsSQL2014 |
 | **참조**              | [데이터베이스 엔진에 암호화된 연결 사용](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)  |
-| **단계** | TLS 암호화를 사용 하도록 설정 하면 SQL Server와 응용 프로그램 인스턴스 간에 네트워크를 통해 전송 되는 데이터의 보안이 강화 됩니다. |
+| **단계** | TLS 암호화를 사용하면 SQL Server의 인스턴스와 애플리케이션 간에 네트워크를 통해 전송되는 데이터의 보안이 강화됩니다. |
 
 ## <a name="ensure-that-communication-to-azure-storage-is-over-https"></a><a id="comm-storage"></a>Azure Storage에 대한 통신이 HTTPS를 통과하는지 확인
 
@@ -215,7 +215,7 @@ ms.locfileid: "94517532"
 | **적용 가능한 기술** | 일반, Windows Phone |
 | **특성**              | 해당 없음  |
 | **참조**              | [인증서 및 공개 키 고정](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)(영문) |
-| **단계** | <p>인증서 고정은 MITM(메시지 가로채기) 공격을 방어합니다. 고정은 예상되는 X509 인증서 또는 공개 키와 호스트를 연결하는 프로세스입니다. 호스트에 대한 인증서 또는 공개 키를 알고 있거나 확인하면 해당 인증서 또는 공개 키가 호스트에 연결되거나 '고정'됩니다. </p><p>따라서 악의적 사용자가 TLS MITM 공격을 시도 하면 TLS 핸드셰이크 중에 공격자의 서버에서 키가 고정 된 인증서의 키와 다르므로 요청이 삭제 되므로 ServicePointManager의 대리자를 구현 하 여 MITM 인증서를 고정할 수 없습니다 `ServerCertificateValidationCallback` .</p>|
+| **단계** | <p>인증서 고정은 MITM(메시지 가로채기) 공격을 방어합니다. 고정은 예상되는 X509 인증서 또는 공개 키와 호스트를 연결하는 프로세스입니다. 호스트에 대한 인증서 또는 공개 키를 알고 있거나 확인하면 해당 인증서 또는 공개 키가 호스트에 연결되거나 '고정'됩니다. </p><p>따라서 악의적 사용자가 TLS MITM 공격을 시도하면 TLS 핸드셰이크 중에 공격자 서버의 키가 고정된 인증서 키와 다르고 요청이 무시되므로 ServicePointManager의 `ServerCertificateValidationCallback` 위임을 구현함으로써 MITM 인증서 고정을 방지할 수 있습니다.</p>|
 
 ### <a name="example"></a>예제
 ```csharp
@@ -303,7 +303,7 @@ namespace CertificatePinningExample
 | **적용 가능한 기술** | .NET Framework 3 |
 | **특성**              | 해당 없음  |
 | **참조**              | [MSDN](/previous-versions/msp-n-p/ff650862(v=pandp.10)) |
-| **단계** | <ul><li>**설명:** 보호 수준을 "none"으로 설정하면 메시지 보호를 사용하지 않도록 설정됩니다. 적절한 수준의 설정을 통해 기밀성과 무결성을 보장합니다.</li><li>**관련**<ul><li>`Mode=None`인 경우 - 메시지 보호를 사용하지 않도록 설정</li><li>`Mode=Sign`인 경우 - 메시지를 서명하지만 암호화하지 않습니다. 데이터 무결성이 중요한 경우에 사용해야 합니다.</li><li>`Mode=EncryptAndSign`인 경우 - 메시지를 서명하고 암호화합니다.</li></ul></li></ul><p>기밀성에 대한 우려 없이 정보 무결성의 유효성을 검사하기만 하면 암호화를 해제하고 메시지에 서명하는 것이 좋습니다. 이렇게 하면 원래 보낸 사람의 유효성을 검사해야 하지만 중요한 데이터는 전송되지 않는 작업 또는 서비스 계약에 유용할 수 있습니다. 보호 수준을 낮출 때 메시지에 개인 데이터가 포함 되지 않도록 주의 해야 합니다.</p>|
+| **단계** | <ul><li>**설명:** 보호 수준을 "none"으로 설정하면 메시지 보호를 사용하지 않도록 설정됩니다. 적절한 수준의 설정을 통해 기밀성과 무결성을 보장합니다.</li><li>**권장 사항:**<ul><li>`Mode=None`인 경우 - 메시지 보호를 사용하지 않도록 설정</li><li>`Mode=Sign`인 경우 - 메시지를 서명하지만 암호화하지 않습니다. 데이터 무결성이 중요한 경우에 사용해야 합니다.</li><li>`Mode=EncryptAndSign`인 경우 - 메시지를 서명하고 암호화합니다.</li></ul></li></ul><p>기밀성에 대한 우려 없이 정보 무결성의 유효성을 검사하기만 하면 암호화를 해제하고 메시지에 서명하는 것이 좋습니다. 이렇게 하면 원래 보낸 사람의 유효성을 검사해야 하지만 중요한 데이터는 전송되지 않는 작업 또는 서비스 계약에 유용할 수 있습니다. 보호 수준을 낮출 때는 메시지에 개인 데이터가 포함되지 않도록 주의합니다.</p>|
 
 ### <a name="example"></a>예제
 다음 예제에서는 메시지 서명만 수행하도록 서비스와 작업을 구성합니다. `ProtectionLevel.Sign`의 서비스 계약 예제: 다음은 서비스 계약 수준에서 ProtectionLevel.Sign을 사용합니다. 
@@ -346,7 +346,7 @@ string GetData(int value);
 | **단계** | 애플리케이션에 HTTPS와 HTTP 바인딩이 모두 있는 경우 클라이언트에서 HTTP를 계속 사용하여 사이트에 액세스할 수 있습니다. 이를 방지하려면 작업 필터를 사용하여 보호된 API에 대한 요청이 항상 HTTPS를 통과하도록 합니다.|
 
 ### <a name="example"></a>예제 
-다음 코드에서는 TLS를 확인 하는 Web API 인증 필터를 보여 줍니다. 
+다음 코드에서는 TLS를 확인하는 Web API 인증 필터를 보여 줍니다. 
 ```csharp
 public class RequireHttpsAttribute : AuthorizationFilterAttribute
 {
@@ -366,7 +366,7 @@ public class RequireHttpsAttribute : AuthorizationFilterAttribute
     }
 }
 ```
-TLS가 필요한 모든 웹 API 작업에이 필터를 추가 합니다. 
+TLS가 필요한 모든 Web API 작업에 이 필터를 추가합니다. 
 ```csharp
 public class ValuesController : ApiController
 {
@@ -375,7 +375,7 @@ public class ValuesController : ApiController
 }
 ```
  
-## <a name="ensure-that-communication-to-azure-cache-for-redis-is-over-tls"></a><a id="redis-ssl"></a>Azure Cache for Redis가 TLS를 통해 통신 하는지 확인 합니다.
+## <a name="ensure-that-communication-to-azure-cache-for-redis-is-over-tls"></a><a id="redis-ssl"></a>Azure Cache for Redis에 대한 통신이 TLS를 통과하는지 확인
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -384,7 +384,7 @@ public class ValuesController : ApiController
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [Azure Redis TLS 지원](../../azure-cache-for-redis/cache-faq.md) |
-| **단계** | Redis 서버는 기본적으로 TLS를 지원 하지 않지만 Redis 용 Azure Cache는 지원 합니다. Azure Cache for Redis에 연결하고 클라이언트에서 StackExchange.Redis와 같은 TLS를 지원하는 경우 TLS를 사용해야 합니다. 기본적으로 Redis 인스턴스에 대 한 새 Azure Cache에는 TLS 이외의 포트를 사용할 수 없습니다. Redis client에 대 한 TLS 지원에 대 한 종속성이 없으면 보안 기본값이 변경 되지 않도록 합니다. |
+| **단계** | Redis 서버는 기본적으로 TLS를 지원하지 않지만 Azure Cache for Redis는 지원합니다. Azure Cache for Redis에 연결하고 클라이언트에서 StackExchange.Redis와 같은 TLS를 지원하는 경우 TLS를 사용해야 합니다. 기본적으로 비 TLS 포트는 새 Azure Cache for Redis 인스턴스에 대해 사용하지 않도록 설정됩니다. Redis 클라이언트에 대한 TLS 지원에 대한 종속성이 없으면 보안 기본값이 변경되지 않도록 합니다. |
 
 Redis는 신뢰할 수 있는 환경 내에서 신뢰할 수 있는 클라이언트가 액세스할 수 있도록 설계되었습니다. 즉 일반적으로 Redis 인스턴스를 인터넷에 직접 노출하거나 일반적으로 신뢰할 수 없는 클라이언트를 Redis TCP 포트 또는 UNIX 소켓에 직접 액세스할 수 있는 환경에 직접 노출하지 않는 것이 좋습니다. 
 

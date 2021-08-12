@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro 디바이스 액세스, 전원 및 연결 모드 | Microsoft Docs
-description: Azure로 데이터를 전송하는 데 도움이 되는 Azure Stack Edge Pro 디바이스에 대한 액세스, 전원 및 연결 모드를 관리하는 방법에 대해 설명합니다.
+title: Azure Stack Edge Pro FPGA 디바이스 액세스, 전원 및 연결 모드
+description: Azure로 데이터를 전송하는 데 도움이 되는 Azure Stack Edge Pro FPGA 디바이스에 대한 액세스, 전원 및 연결 모드를 관리하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,17 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 240d3872536e6974d7f65eed22dace6816844e9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a07bf9490332ee829182900b2626dfdf99f00dda
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200200"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110703831"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Azure Stack Edge Pro에 대한 액세스, 전원 및 연결 모드 관리
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-fpga"></a>Azure Stack Edge Pro FPGA에 대한 액세스, 전원 및 연결 모드 관리
 
-이 문서에서는 Azure Stack Edge Pro에 대한 액세스, 전원 및 연결 모드를 관리하는 방법에 대해 설명합니다. 이러한 작업은 로컬 웹 UI 또는 Azure Portal을 통해 수행합니다.
+이 문서에서는 Azure Stack Edge Pro FPGA에 대한 액세스, 전원 및 연결 모드를 관리하는 방법을 설명합니다. 이러한 작업은 로컬 웹 UI 또는 Azure Portal을 통해 수행합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -29,7 +30,7 @@ ms.locfileid: "103200200"
 
 ## <a name="manage-device-access"></a>디바이스 액세스 관리
 
-Azure Stack Edge Pro 디바이스에 대한 액세스는 디바이스 암호를 사용하여 제어됩니다. 로컬 웹 UI를 통해 암호를 변경할 수 있습니다. Azure Portal에서 디바이스 암호를 다시 설정할 수도 있습니다.
+Azure Stack Edge Pro FPGA 디바이스에 대한 액세스는 디바이스 암호를 사용하여 제어됩니다. 로컬 웹 UI를 통해 암호를 변경할 수 있습니다. Azure Portal에서 디바이스 암호를 다시 설정할 수도 있습니다.
 
 ### <a name="change-device-password"></a>디바이스 암호 변경
 
@@ -61,12 +62,12 @@ Azure Stack Edge/Data Box 게이트웨이, IoT Hub 및 Azure Storage 리소스�
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Microsoft Graph API 사용 권한 관리
 
-Azure Stack Edge Pro 디바이스에 대한 활성화 키를 생성하거나 자격 증명이 필요한 작업을 수행하는 경우 Azure Active Directory Graph API 사용 권한이 필요합니다. 자격 증명을 필요로 하는 작업은 다음과 같습니다.
+Azure Stack Edge Pro FPGA 디바이스에 대한 활성화 키를 생성하거나 자격 증명이 필요한 작업을 수행하는 경우, Azure Active Directory Graph API 사용 권한이 필요합니다. 자격 증명을 필요로 하는 작업은 다음과 같습니다.
 
 -  연결된 스토리지 계정을 사용하여 공유 만들기.
 -  디바이스에서 공유에 액세스할 수 있는 사용자 만들기.
 
-`Read all directory objects`가 가능해야 하므로 Active Directory 테넌트에 대한 `User` 액세스 권한이 필요합니다. 게스트 사용자는 `Read all directory objects` 권한이 없으므로 게스트이면 안 됩니다. 게스트인 경우 활성화 키 생성, Azure Stack Edge Pro 디바이스에 대한 공유 만들기, 사용자 만들기, Edge 컴퓨팅 역할 구성, 암호 재설정 등의 작업이 모두 실패합니다.
+`Read all directory objects`가 가능해야 하므로 Active Directory 테넌트에 대한 `User` 액세스 권한이 필요합니다. 게스트 사용자는 `Read all directory objects` 권한이 없으므로 게스트이면 안 됩니다. 게스트인 경우 활성화 키 생성, Azure Stack Edge Pro FPGA 디바이스에 대한 공유 만들기, 사용자 만들기, Edge 컴퓨팅 역할 구성, 디바이스 암호 재설정 등의 작업이 모두 실패합니다.
 
 사용자에게 Microsoft Graph API에 대한 액세스 권한을 제공하는 방법에 대한 자세한 내용은 [Microsoft Graph 권한 참조](/graph/permissions-reference)를 참조하세요.
 
@@ -89,7 +90,7 @@ Azure의 Azure Resource Manager 모델에서 리소스를 프로비저닝하려�
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Azure Stack Edge Pro 디바이스에 대해 `Microsoft.DataBoxEdge`를 등록해야 합니다. `Microsoft.DataBoxEdge`를 등록하려면 구독 관리자가 다음 명령을 실행해야 합니다.
+Azure Stack Edge Pro FPGA 디바이스의 경우 `Microsoft.DataBoxEdge`를 등록해야 합니다. `Microsoft.DataBoxEdge`를 등록하려면 구독 관리자가 다음 명령을 실행해야 합니다.
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

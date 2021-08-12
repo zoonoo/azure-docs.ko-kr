@@ -3,14 +3,15 @@ title: Hybrid Runbook Worker에서 Azure Automation Runbook 실행
 description: 이 문서에서는 Hybrid Runbook Worker를 사용하여 로컬 데이터 센터 또는 기타 클라우드 공급자에 있는 머신에서 Runbook을 실행하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/10/2021
+ms.date: 05/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: 796ac876537aa06253ad6eeec99adaf48de61c79
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b3f7afde2d681c2516d6915e4edd5c291795224d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167263"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481538"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -247,6 +248,9 @@ Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 
 Runbook이 서명되고 나면, Automation 계정으로 Runbook을 가져오고 서명 블록과 함께 게시해야 합니다. Runbook을 가져오는 방법에 대한 자세한 내용은 [Runbook 가져오기](manage-runbooks.md#import-a-runbook)를 참조하세요.
 
+>[!NOTE]
+>Runbook 코드에는 주석을 포함하여 일반 텍스트 문자만 사용합니다. á 또는 ñ과 같이 분음 부호와 함께 문자를 사용하면 오류가 발생합니다. Azure Automation에서 코드를 다운로드하면 문자가 물음표로 바뀌고 “서명 해시 유효성 검사 실패” 메시지와 함께 서명이 실패합니다.
+
 ## <a name="work-with-signed-runbooks-on-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker에서 서명된 Runbook으로 작업
 
 서명된 Runbook으로 작업할 수 있으려면 로컬 머신에서 Linux Hybrid Runbook Worker에 [GPG](https://gnupg.org/index.html) 실행 파일이 있어야 합니다.
@@ -335,4 +339,5 @@ Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Te
 
 * Runbook이 성공적으로 완료되지 않을 경우 [Runbook 실행 실패](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)를 위한 문제 해결 가이드를 검토하세요.
 * 언어 참조 및 학습 모듈을 포함하여 PowerShell에 대한 자세한 내용은 [PowerShell 문서](/powershell/scripting/overview)를 참조하세요.
+* Hybrid Runbook Worker를 통해 [Azure Policy를 사용하여 Runbook 실행을 관리하는 방법](enforce-job-execution-hybrid-worker.md)을 알아봅니다.
 * PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.

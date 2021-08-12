@@ -9,16 +9,16 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 92d06a95dcd32501a05dfd50e81f768f59742bd5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c547f3b2657d31e4d25dbb884a5a75c2c8b9c5f2
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101674335"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112452587"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Synapse SQL에서 인증에 Azure Active Directory 인증 사용
 
-Azure Active Directory 인증은 Azure AD(Azure Active Directory)에서 ID를 사용하여 [Azure Synapse Analytics](../overview-faq.md)에 연결하는 메커니즘입니다.
+Azure Active Directory 인증은 Azure AD(Azure Active Directory)에서 ID를 사용하여 [Azure Synapse Analytics](../overview-faq.yml)에 연결하는 메커니즘입니다.
 
 Azure AD 인증을 사용하면 Azure Synapse에 액세스할 수 있는 사용자의 ID를 중앙에서 관리하여 권한 관리를 간소화할 수 있습니다. 이점은 다음과 같습니다.
 

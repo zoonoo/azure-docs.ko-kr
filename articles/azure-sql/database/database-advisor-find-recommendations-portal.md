@@ -1,6 +1,6 @@
 ---
 title: 성능 권장 사항 적용
-description: Azure Portal를 사용 하 여 데이터베이스의 성능을 최적화할 수 있는 성능 권장 사항을 찾을 수 있습니다.
+description: Azure Portal을 사용하여 데이터베이스의 성능을 최적화하는 성능 권장 사항을 찾을 수 있습니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,30 +12,30 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 12/19/2018
 ms.openlocfilehash: 748ac448ad8bf5c06e5be8b7a4a8b00a9b7af84b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96500889"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Azure Portal를 사용 하 여 Azure SQL Database에서 데이터베이스의 성능을 최적화 하거나 작업에서 식별 된 일부 문제를 해결할 수 있는 성능 권장 사항을 찾을 수 있습니다. Azure Portal의 **성능 권장** 사항 페이지를 사용 하 여 잠재적인 영향에 따라 주요 권장 사항을 찾을 수 있습니다.
+Azure Portal을 사용하여 Azure SQL Database의 데이터베이스 성능을 최적화할 수 있는 성능 권장 사항을 찾거나 워크로드에서 식별된 일부 문제를 수정할 수 있습니다. Azure Portal의 **성능 권장 사항** 페이지에서 잠재적인 영향에 기반하여 가장 적합한 권장 사항을 확인할 수 있습니다.
 
 ## <a name="viewing-recommendations"></a>권장 사항 보기
 
-성능 권장 사항을 보고 적용 하려면 Azure에서 올바른 [AZURE RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 권한이 필요 합니다. 권장 사항을 보려면 **읽기 권한자**, **SQL DB 참가자** 권한이 필요하고, 모든 동작(인덱스 만들기 또는 삭제, 인덱스 만들기 취소)을 실행하려면 **소유자**, **SQL DB 참가자** 권한이 필요합니다.
+성능 권장 사항을 보고 적용하려면 Azure에서 올바른 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 사용 권한이 필요합니다. 권장 사항을 보려면 **읽기 권한자**, **SQL DB 참가자** 권한이 필요하고, 모든 동작(인덱스 만들기 또는 삭제, 인덱스 만들기 취소)을 실행하려면 **소유자**, **SQL DB 참가자** 권한이 필요합니다.
 
-다음 단계를 사용 하 여 Azure Portal에 대 한 성능 권장 사항을 찾을 수 있습니다.
+다음 단계를 통해 Azure Portal에서 성능 권장 사항을 찾을 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **모든 서비스**  >  **SQL 데이터베이스** 로 이동 하 여 데이터베이스를 선택 합니다.
+2. **모든 서비스** > **SQL 데이터베이스** 로 이동한 다음, 데이터베이스를 선택합니다.
 3. **성능 권장 사항** 으로 이동하여 선택된 데이터베이스의 사용 가능한 권장 사항을 봅니다.
 
 성능 권장 사항은 다음 그림에서 보여주는 표와 비슷하게 표시됩니다.
 
-![작업 및 권장 사항을 설명 하는 테이블의 성능 권장 사항을 보여 주는 스크린샷](./media/database-advisor-find-recommendations-portal/recommendations.png)
+![작업 및 권장 사항 설명과 함께 성능 권장 사항을 테이블로 보여주는 스크린샷](./media/database-advisor-find-recommendations-portal/recommendations.png)
 
 권장 사항은 성능의 잠재적 영향 순으로 다음과 같은 카테고리에 정렬됩니다.
 
@@ -48,7 +48,7 @@ Azure Portal를 사용 하 여 Azure SQL Database에서 데이터베이스의 �
 > [!NOTE]
 > Azure SQL Database는 일부 권장 사항을 파악하기 위해 적어도 하루 동안 작업을 모니터링해야 합니다. Azure SQL Database는 임의적이며 폭발적으로 발생하는 작업보다 일관성 있는 쿼리 패턴을 더욱 쉽게 최적화할 수 있습니다. 현재 권장 사항을 사용할 수 없는 경우 **성능 권장** 페이지에서 원인에 대해 설명하는 메시지를 제공합니다.
 
-또한 과거 작업의 상태도 볼 수 있습니다. 추가 정보를 보려면 권장 사항 또는 상태를 선택 합니다.
+또한 과거 작업의 상태도 볼 수 있습니다. 세부 정보를 보려면 권장 사항 또는 상태를 선택합니다.
 
 Azure Portal에서 "인덱스 만들기" 권장 사항의 예는 다음과 같습니다.
 
@@ -71,11 +71,11 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
 권장 구성을 한 번에 하나씩 검토하고 수락할 수 있습니다.
 
 1. **권장 사항** 페이지에서 권장 사항을 선택합니다.
-2. **세부 정보** 페이지에서 **적용** 단추를 클릭 합니다.
+2. **세부 정보** 페이지에서 **적용** 단추를 클릭합니다.
 
    ![권장 구성 적용](./media/database-advisor-find-recommendations-portal/apply.png)
 
-선택한 권장 사항은 데이터베이스에 적용 됩니다.
+선택한 권장 사항은 데이터베이스에 적용됩니다.
 
 ### <a name="removing-recommendations-from-the-list"></a>목록에서 권장 사항 제거
 
@@ -96,25 +96,25 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
 
 ### <a name="enable-automatic-tuning"></a>자동 튜닝 사용
 
-권장 사항을 자동으로 구현 하도록 데이터베이스를 설정할 수 있습니다. 권장 구성은 사용할 수 있을 때 자동으로 적용됩니다. 서비스에서 관리되는 권장 사항처럼 권장 사항이 성능에 좋지 않은 영향을 주는 경우 되돌려집니다.
+권장 사항을 자동으로 구현하도록 데이터베이스를 설정할 수 있습니다. 권장 구성은 사용할 수 있을 때 자동으로 적용됩니다. 서비스에서 관리되는 권장 사항처럼 권장 사항이 성능에 좋지 않은 영향을 주는 경우 되돌려집니다.
 
 1. **권장 사항** 페이지에서 **자동화** 를 클릭합니다.
 
    ![관리자 설정](./media/database-advisor-find-recommendations-portal/settings.png)
 2. 자동화할 작업을 선택합니다.
 
-   ![자동화할 작업을 선택할 수 있는 위치를 보여 주는 스크린샷](./media/database-advisor-find-recommendations-portal/server.png)
+   ![자동화할 작업을 선택할 수 있는 위치를 보여주는 스크린샷](./media/database-advisor-find-recommendations-portal/server.png)
 
 > [!NOTE]
 > **DROP_INDEX** 옵션은 현재 파티션 전환 및 인덱스 힌트를 사용하는 애플리케이션과 호환되지 않습니다.
 
 원하는 구성을 선택한 후 적용을 클릭합니다.
 
-### <a name="manually-apply-recommendations-through-t-sql"></a>T-sql을 통해 수동으로 권장 사항 적용
+### <a name="manually-apply-recommendations-through-t-sql"></a>T-SQL을 통해 수동으로 권장 사항을 적용합니다.
 
 권장 사항을 선택한 다음 **스크립트 보기** 를 클릭합니다. 권장 구성을 수동으로 적용하도록 데이터베이스에 대해 이 스크립트를 실행합니다.
 
-*수동으로 실행된 인덱스는 성능에 미치는 서비스 영향에 대해 모니터링하고 유효성 검사를 실시하지 않으므로* 필요한 경우 인덱스 생성 후 인덱스를 성능을 향상시키거나 조절 또는 삭제하기 위해 모니터링하는 것이 좋습니다. 인덱스 만들기에 대한 세부 정보는 [CREATE INDEX (TRANSACT-SQL)](/sql/t-sql/statements/create-index-transact-sql)를 참조하세요. 또한 수동으로 적용 된 권장 사항은 활성 상태로 유지 되 고 24-48 시간에 대 한 권장 사항 목록에 표시 됩니다. 시스템에서 자동으로 인출 합니다. 권장 사항을 더 일찍 제거 하려면 수동으로 삭제할 수 있습니다.
+*수동으로 실행된 인덱스는 성능에 미치는 서비스 영향에 대해 모니터링하고 유효성 검사를 실시하지 않으므로* 필요한 경우 인덱스 생성 후 인덱스를 성능을 향상시키거나 조절 또는 삭제하기 위해 모니터링하는 것이 좋습니다. 인덱스 만들기에 대한 세부 정보는 [CREATE INDEX (TRANSACT-SQL)](/sql/t-sql/statements/create-index-transact-sql)를 참조하세요. 또한 수동으로 적용된 권장 사항은 시스템에서 자동으로 철회하기 전 24~48시간 동안 활성 상태로 유지되고 권장 사항 목록에 표시됩니다. 권장 사항을 더 일찍 제거하려면 수동으로 버릴 수 있습니다.
 
 ### <a name="canceling-recommendations"></a>권장 사항 취소
 
@@ -133,13 +133,13 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
 | 실행 중 |권장 사항을 적용 중입니다. |
 | 유효성 검사 중 |권장 사항이 성공적으로 적용되면 서비스가 성능을 측정합니다. |
 | Success |권장 사항이 성공적으로 적용되면 성능을 측정합니다. |
-| 오류 |권장 사항을 적용하는 과정 중에 오류가 발생했습니다. 일시적인 문제일 수도 있고, 테이블의 스키마변경 문제일 수도 있고, 스크립트가 더 이상 유효하지 않을 수도 있습니다. |
+| Error |권장 사항을 적용하는 과정 중에 오류가 발생했습니다. 일시적인 문제일 수도 있고, 테이블의 스키마변경 문제일 수도 있고, 스크립트가 더 이상 유효하지 않을 수도 있습니다. |
 | 되돌리기 |권장 사항이 적용되었지만 효율적이지 않은 것으로 간주되어 자동으로 되돌리고 있습니다. |
 | 되돌림 |권장 사항을 되돌렸습니다. |
 
 세부 정보를 보려면 목록에서 In Process 권장 구성을 클릭합니다.
 
-![In-process 권장 사항 목록을 보여 주는 스크린샷](./media/database-advisor-find-recommendations-portal/operations.png)
+![In Process 권장 사항을 보여주는 스크린샷](./media/database-advisor-find-recommendations-portal/operations.png)
 
 ### <a name="reverting-a-recommendation"></a>권장 사항 되돌리기
 
@@ -158,7 +158,7 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
 
 ## <a name="summary"></a>요약
 
-Azure SQL Database는 데이터베이스 성능을 향상 시키기 위한 권장 사항을 제공 합니다. T-SQL 스크립트를 제공하여 데이터베이스를 최적화하고 궁극적으로 쿼리 성능을 향상시키도록 지원합니다.
+Azure SQL Database는 데이터베이스 성능을 향상하기 위한 권장 사항을 제공합니다. T-SQL 스크립트를 제공하여 데이터베이스를 최적화하고 궁극적으로 쿼리 성능을 향상시키도록 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

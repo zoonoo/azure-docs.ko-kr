@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Workteam 구성 | Microsoft Docs'
 description: 사용자 계정을 Workteam으로 자동으로 프로비저닝 및 프로비저닝 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/17/2019
-ms.author: Zhchia
-ms.openlocfilehash: f465438a6be80a1b487a4df7d3ee8bd38be9c102
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: thwimmer
+ms.openlocfilehash: 6020f209e9fa4b59824b268417bc7122ce7691ed
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94354231"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113760763"
 ---
 # <a name="tutorial-configure-workteam--for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workteam 구성
 

@@ -1,5 +1,5 @@
 ---
-title: StorSimple 8000 시리즈에 대 한 지원 티켓 또는 사례 만들기
+title: StorSimple 8000 시리즈용 지원 티켓 또는 사례 만들기
 description: StorSimple 8000 시리즈 디바이스에서 지원 요청을 로깅하고 지원 세션을 시작하는 방법을 알아봅니다.
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: c288f59b1cb9a85ed4bc978d1c3fba18ba30b572
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96017205"
 ---
 # <a name="contact-microsoft-support"></a>Microsoft 지원에 문의
@@ -39,7 +39,7 @@ StorSimple Device Manager는 서비스 요약 블레이드 내에서 **새로운
    3. 구독과 관련된 여러 계획이 있는 경우 드롭다운에서 **지원 계획** 을 선택합니다. 기술 지원을 사용하도록 설정하기 위해 유료 지원 계획이 필요합니다.
    4. **다음** 을 클릭합니다.
 
-       ![새 포털 2를 통한 MS 지원 문의](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
+       ![새 포털을 통한 MS 지원 문의 2](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
 3. **새 지원 요청** 블레이드에서 **2단계 문제** 를 선택합니다. **문제** 블레이드에서 다음 단계를 수행합니다.
     
@@ -51,7 +51,7 @@ StorSimple Device Manager는 서비스 요약 블레이드 내에서 **새로운
     6. **진단 정보 공유** 를 선택합니다.
     7. **다음** 을 클릭합니다.
 
-       ![새 포털 3을 통한 MS 지원 문의](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
+       ![새 포털을 통한 MS 지원 문의 3](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
 4. **새 지원 요청** 블레이드에서 **3단계 연락처 정보** 를 클릭합니다. **연락처 정보** 블레이드에서 다음 단계를 수행합니다.
 
@@ -59,7 +59,7 @@ StorSimple Device Manager는 서비스 요약 블레이드 내에서 **새로운
    2. 연락처 정보에서 이름, 메일, 선택적 연락처, 국가/지역을 지정합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장** 확인란을 선택합니다.
    3. **만들기** 를 클릭합니다.
    
-       ![새 포털 4를 통한 MS 지원 문의](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
+       ![새 포털을 통한 MS 지원 문의 4](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
       Microsoft 기술 지원 서비스는 이 정보를 사용하여 사용자에게 추가 정보, 진단 및 솔루션을 알립니다.
       요청을 제출한 후에 지원 엔지니어가 요청을 계속 진행하기 위해 가능한 한 빨리 연락할 것입니다.

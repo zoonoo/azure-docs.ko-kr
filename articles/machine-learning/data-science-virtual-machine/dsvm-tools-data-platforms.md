@@ -5,16 +5,16 @@ description: Azure Data Science Virtual Machine에서 지원되는 데이터 플
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
 ms.service: data-science-vm
-author: lobrien
-ms.author: laobri
+author: timoklimmer
+ms.author: tklimmer
 ms.topic: conceptual
-ms.date: 12/12/2019
-ms.openlocfilehash: 927e945a0d045abcd1caa2951dbd484224b2f425
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/29/2021
+ms.openlocfilehash: 8e8920d2a2ebbf326c9d5d0aba100ad5352ca6c4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519544"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110071203"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine에서 지원되는 데이터 플랫폼
 
@@ -27,16 +27,21 @@ DSVM(Data Science Virtual Machine)을 사용하여 광범위한 데이터 플랫
 | 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | 로컬 관계형 데이터베이스 인스턴스      |
-| 지원되는 DSVM 버전      | Windows 2016: SQL Server 2017, Windows 2019: SQL Server 2019      |
+| 지원되는 DSVM 버전      | Windows 2019, Ubuntu 18.04(SQL Server 2019)   |
 | 일반적인 사용 용도      | <ul><li>더 작은 데이터 세트를 사용하여 로컬에서 빠른 개발</li><li>In-database R 실행</li></ul> |
 | 샘플에 대한 링크      | <ul><li>뉴욕 시 데이터 세트의 작은 샘플이 다음 SQL 데이터베이스로 로드됩니다.<br/>  `nyctaxi`</li><li>Microsoft Machine Learning Server 및 데이터베이스 내 분석을 보여 주는 Jupyter 샘플은 다음에서 찾을 수 있습니다.<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`</li></ul> |
-| DSVM의 관련 도구       | <ul><li>SQL Server Management Studio</li><li>ODBC/JDBC 드라이버</li><li>pyodbc, RODBC</li><li>Apache Drill</li></ul> |
+| DSVM의 관련 도구       | <ul><li>SQL Server Management Studio</li><li>ODBC/JDBC 드라이버</li><li>pyodbc, RODBC</li></ul> |
 
 > [!NOTE]
 > SQL Server Developer 버전은 개발 및 테스트 목적으로만 사용할 수 있습니다. 프로덕션에서 실행하려면 라이선스나 SQL Server VM 중 하나가 필요합니다.
 
+> [!NOTE]
+> Machine Learning Server 독립 실행형에 대한 지원은 2021년 7월 1일에 종료됩니다. 6월 30일 이후에 DSVM 이미지에서 이를 제거합니다. 기존 배포는 계속해서 소프트웨어에 액세스할 수 있지만, 2021년 7월 1일 이후에는 지원이 종료되기 때문에 이를 지원하지 않습니다.
 
-### <a name="setup"></a>설치 프로그램
+
+### <a name="windows"></a>Windows
+
+#### <a name="setup"></a>설치 프로그램
 
 데이터베이스 서버는 이미 미리 구성되었고 SQL Server와 관련된 Windows 서비스(예: `SQL Server (MSSQLSERVER)`)는 자동으로 실행되도록 설정됩니다. 수동 단계는 Microsoft Machine Learning Server를 사용하여 데이터베이스 내 분석을 사용하도록 설정하는 것뿐입니다. SSMS(SQL Server Management Studio)에서 일회성 작업으로 다음 명령을 실행하여 분석을 사용하도록 설정할 수 있습니다. 컴퓨터 관리자로 로그인한 후 이 명령을 실행하여 SSMS에서 새 쿼리를 열고 선택한 데이터베이스가 `master`인지 확인합니다.
 
@@ -48,15 +53,21 @@ CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS
 
 SQL Server Management Studio를 실행하려면 프로그램 목록에서 'SQL Server Management Studio'를 검색하거나 Windows 검색을 사용하여 그것을 찾아 실행할 수 있습니다. 자격 증명을 묻는 메시지가 나타나면 **Windows 인증** 을 선택하고 **SQL Server 이름** 필드에 컴퓨터 이름 또는 ```localhost```를 사용합니다.
 
-### <a name="how-to-use-and-run-it"></a>사용 및 실행 방법
+#### <a name="how-to-use-and-run-it"></a>사용 및 실행 방법
 
 기본 데이터베이스 인스턴스가 설치된 데이터베이스 서버는 기본적으로 자동 실행됩니다. Microsoft SQL Server 데이터베이스에 로컬로 액세스하려면 VM에서 SQL Server Management Studio와 같은 도구를 사용할 수 있습니다. 로컬 관리자 계정에는 데이터베이스에 대한 관리자 액세스 권한이 있습니다.
 
 또한 DSVM은 Python, Machine Learning Server를 포함하여 여러 언어로 작성된 애플리케이션에서 SQL Server, Azure SQL 데이터베이스, Azure Synapse Analytics와 통신하는 ODBC 및 JDBC 드라이버가 함께 제공됩니다.
 
-### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>DSVM에서 구성 및 설치 방법 
+#### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>DSVM에서 구성 및 설치 방법 
 
  SQL Server는 표준 방식으로 설치됩니다. 그것은 `C:\Program Files\Microsoft SQL Server`에서 찾을 수 있습니다. 데이터베이스 내 Machine Learning Server 인스턴스는 `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES`에 있습니다. 또한 DSVM에는 `C:\Program Files\Microsoft\R Server\R_SERVER`에 설치되는 별도의 독립 실행형 Machine Learning Server 인스턴스가 있습니다. 이러한 두 Machine Learning Server 인스턴스는 라이브러리를 공유하지 않습니다.
+
+
+### <a name="ubuntu"></a>Ubuntu
+
+Ubuntu DSVM에서 SQL Server Developer 버전을 사용하려면 먼저 설치해야 합니다. [빠른 시작: Ubuntu에 SQL Server 설치 및 데이터베이스 만들기](/sql/linux/quickstart-install-connect-ubuntu)를 통해 방법을 알 수 있습니다.
+
 
 
 ## <a name="apache-spark-2x-standalone"></a>Apache Spark 2.x (독립 실행형)

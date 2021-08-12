@@ -7,18 +7,18 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c9412e2adeb9b43b4c61437fb41e68bc96b86afd
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 41610bb956273fa69119d6b87a016072a5e4faa2
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481840"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749882"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>IoT Edge 디바이스, 모듈 및 자식 디바이스용 확장 오프라인 기능을 이해합니다.
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Azure IoT Edge는 IoT Edge 디바이스에서 확장된 오프라인 작업을 지원하고, 비 IoT Edge 자식 디바이스에서도 오프라인 작업을 지원합니다. IoT Edge 디바이스를 IoT Hub에 연결할 수 있는 한, 해당 디바이스 및 자식 디바이스는 일시적으로 인터넷에 연결하여 또는 인터넷 연결 없이 계속 작동할 수 있습니다.
+Azure IoT Edge는 IoT Edge 디바이스에서 확장된 오프라인 작업을 지원하고, 자식 디바이스에서도 오프라인 작업을 지원합니다. IoT Edge 디바이스를 IoT Hub에 연결할 수 있는 한, 해당 디바이스 및 자식 디바이스는 일시적으로 인터넷에 연결하여 또는 인터넷 연결 없이 계속 작동할 수 있습니다.
 
 ## <a name="how-it-works"></a>작동 방법
 
@@ -28,7 +28,7 @@ IoT Edge 디바이스가 오프라인으로 전환되면 IoT Edge 허브는 세 
 
 1. **디바이스 구성**
 
-   IoT Edge 디바이스는 자동으로 오프라인 기능이 설정됩니다. 이 기능을 다른 IoT 디바이스로 확장하려면 IoT Hub의 디바이스 간에 부모-자식 관계를 선언해야 합니다. 그런 다음 할당된 부모 디바이스를 신뢰하도록 자식 디바이스를 구성하고 게이트웨이인 부모 디바이스를 통해 디바이스-클라우드 통신을 라우팅합니다.
+   IoT Edge 디바이스는 자동으로 오프라인 기능이 설정됩니다. 다른 디바이스에 해당 기능을 확장하려면 할당된 부모 디바이스를 신뢰하도록 자식 디바이스를 구성하고 게이트웨이인 부모 디바이스를 통해 디바이스-클라우드 통신을 라우팅해야 합니다.
 
 2. **IoT Hub와 동기화**
 
@@ -36,68 +36,57 @@ IoT Edge 디바이스가 오프라인으로 전환되면 IoT Edge 허브는 세 
 
 3. **오프라인으로 전환**
 
-   IoT Hub와의 연결이 끊어진 동안 IoT Edge 디바이스, 배포된 모듈 및 자식 IoT 디바이스는 무기한 작동할 수 있습니다. 모듈과 자식 디바이스는 오프라인 상태에서 IoT Edge 허브로 인증하여 시작 및 다시 시작할 수 있습니다. IoT Hub에 업스트림 바인딩된 원격 분석 데이터는 로컬로 저장됩니다. 모듈 간 통신 또는 자식 IoT 디바이스 간 통신은 직접 메서드 또는 메시지를 통해 유지됩니다.
+   IoT Hub와의 연결이 끊어진 동안 IoT Edge 디바이스, 배포된 모듈 및 자식 디바이스는 무기한 작동할 수 있습니다. 모듈과 자식 디바이스는 오프라인 상태에서 IoT Edge 허브로 인증하여 시작 및 다시 시작할 수 있습니다. IoT Hub에 업스트림 바인딩된 원격 분석 데이터는 로컬로 저장됩니다. 모듈 간 통신 또는 자식 디바이스 간 통신은 직접 메서드 또는 메시지를 통해 유지됩니다.
 
 4. **IoT Hub와 다시 연결하고 다시 동기화**
 
    IoT Hub와의 연결이 복원되면 IoT Edge 디바이스가 다시 동기화됩니다. 로컬로 저장된 메시지는 IoT Hub로 즉시 전달되지만 연결 속도, IoT Hub 대기 시간 및 관련 요인에 따라 달라집니다. 저장된 순서와 동일한 순서로 전달됩니다.
 
-   모듈 및 디바이스의 desired 속성과 reported 속성 간 차이가 조정됩니다. IoT Edge 디바이스는 할당된 자식 IoT 디바이스에 변경 내용을 업데이트합니다.
+   모듈 및 디바이스의 desired 속성과 reported 속성 간 차이가 조정됩니다. IoT Edge 디바이스는 할당된 자식 디바이스에 변경 내용을 업데이트합니다.
 
 ## <a name="restrictions-and-limits"></a>제한 사항 및 제한
 
 이 문서에서 설명한 확장된 오프라인 기능은 [IoT Edge 버전 1.0.7 이상](https://github.com/Azure/azure-iotedge/releases)에서 사용할 수 있습니다. 이보다 낮은 버전은 오프라인 기능 집합을 갖고 있습니다. 확장된 오프라인 기능이 없는 기존 IoT Edge 디바이스는 런타임 버전을 변경하여 업그레이드할 수 없지만, 새 IoT Edge 디바이스 ID를 사용하여 이러한 기능을 획득하도록 다시 구성해야 합니다.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 비 IoT Edge 디바이스는 오직 한 대만 자식 디바이스로 추가할 수 있습니다.
+
+:::moniker-end
+<!-- end 1.1 -->
 
 IoT Edge 디바이스 및 할당된 자식 디바이스는 초기 일회성 동기화 후 오프라인으로 무기한 작동할 수 있습니다. 그러나 메시지 스토리지는 TTL(Time to Live) 및 메시지 저장에 사용 가능한 디스크 공간에 따라 달라집니다.
 
 ## <a name="set-up-parent-and-child-devices"></a>부모 및 자식 디바이스 설정
 
-확장된 오프라인 기능을 자식 IoT 디바이스로 확장하는 IoT Edge 디바이스의 경우 두 단계를 완료해야 합니다. 먼저 Azure Portal에서 부모-자식 관계를 선언합니다. 두 번째로 부모 디바이스와 모든 자식 디바이스 간에 트러스트 관계를 만든 다음 디바이스-클라우드 통신을 게이트웨이인 부모 디바이스를 통해 이동하도록 구성합니다.
+부모 디바이스는 여러 자식 디바이스를 가질 수 있지만, 자식 디바이스는 한 부모만 가집니다.
 
-### <a name="assign-child-devices"></a>자식 디바이스 할당
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
-동일한 IoT Hub에 등록된 모든 비 IoT Edge 디바이스는 자식 디바이스가 될 수 있습니다. 부모 디바이스는 여러 자식 디바이스를 가질 수 있지만, 자식 디바이스는 한 부모만 가집니다. 에지 디바이스에 대한 자식 디바이스를 설정하는 옵션으로 Azure Portal, Azure CLI 또는 IoT Hub 서비스 SDK를 사용하는 세 가지 옵션이 있습니다.
+동일한 IoT Hub에 등록된 모든 비 IoT Edge 디바이스는 자식 디바이스가 될 수 있습니다.
 
-다음 섹션에서는 기존 IoT 디바이스의 IoT Hub에서 부모/자식 관계를 선언하는 방법에 대한 예를 제공합니다. 자식 디바이스에 대한 새 디바이스 ID를 만드는 경우 자세한 내용은 [Azure IoT Hub에 다운스트림 디바이스 인증](how-to-authenticate-downstream-device.md)을 참조하세요.
+:::moniker-end
+<!-- end 1.1 -->
 
-#### <a name="option-1-iot-hub-portal"></a>옵션 1: IoT Hub 포털
+<!-- 1.2 -->
+:::moniker range="iotedge-2020-11"
 
-새 디바이스를 만들 때 부모-자식 관계를 선언할 수 있습니다. 또는 기존 디바이스의 경우 부모 IoT Edge 디바이스 또는 자식 IoT 디바이스의 디바이스 세부 정보 페이지에서 관계를 선언할 수 있습니다.
+동일한 IoT Hub에 등록된 모든 디바이스, IoT Edge 또는 비 IoT Edge는 자식 디바이스가 될 수 있습니다.
 
-   ![IoT Edge 디바이스 세부 정보 페이지에서 자식 디바이스 관리](./media/offline-capabilities/manage-child-devices.png)
+:::moniker-end
+<!-- end 1.2 -->
 
-#### <a name="option-2-use-the-az-command-line-tool"></a>옵션 2: `az` 명령줄 도구를 사용하세요.
+IoT Edge 디바이스와 IoT 디바이스 간에 부모-자식 관계를 만드는 데 익숙하지 않은 경우 [Azure IoT Hub에 다운스트림 디바이스 인증](how-to-authenticate-downstream-device.md)을 참조하세요. 대칭 키, 자체 서명된 X.509 및 CA 서명된 X.509 섹션에는 Azure Portal 및 Azure CLI를 사용하여 디바이스를 만들 때 부모-자식 관계를 정의하는 방법에 대한 예제가 나와 있습니다. 기존 디바이스의 경우 부모 또는 자식 디바이스의 디바이스 세부 정보 페이지에서 관계를 선언할 수 있습니다.
 
-[IoT 확장](https://github.com/azure/azure-iot-cli-extension)(v 0.7.0 이상)에서 [Azure 명령줄 인터페이스](/cli/azure/)를 사용하면 [device-identity](/cli/azure/iot/hub/device-identity/) 하위 명령으로 부모 자식 관계를 관리할 수 있습니다. 아래 예에서는 쿼리를 사용하여 허브에 있는 모든 비 IoT Edge 디바이스를 IoT Edge 디바이스의 자식 디바이스로 할당합니다.
+<!-- 1.2 -->
+:::moniker range="iotedge-2020-11"
 
-```azurecli
-# Set IoT Edge parent device
-egde_device="edge-device1"
+두 IoT Edge 디바이스 간에 부모-자식 관계를 만드는 방법을 잘 모를 경우 [Azure IoT Edge 게이트웨이에 다운스트림 IoT Edge 디바이스 연결](how-to-connect-downstream-iot-edge-device.md)을 참조하세요.
 
-# Get All IoT Devices
-device_list=$(az iot hub query \
-        --hub-name replace-with-hub-name \
-        --subscription replace-with-sub-name \
-        --resource-group replace-with-rg-name \
-        -q "SELECT * FROM devices WHERE capabilities.iotEdge = false" \
-        --query 'join(`, `, [].deviceId)' -o tsv)
-
-# Add all IoT devices to IoT Edge (as child)
-az iot hub device-identity add-children \
-  --device-id $egde_device \
-  --child-list $device_list \
-  --hub-name replace-with-hub-name \
-  --resource-group replace-with-rg-name \
-  --subscription replace-with-sub-name
-```
-
-[쿼리](../iot-hub/iot-hub-devguide-query-language.md)를 수정하여 다른 디바이스의 하위 집합을 선택할 수 있습니다. 대량의 디바이스 집합을 지정하는 경우 이 명령은 몇 초 정도 소요될 수 있습니다.
-
-#### <a name="option-3-use-iot-hub-service-sdk"></a>옵션 3: IoT Hub 서비스 SDK 사용
-
-마지막으로 C#, Java 또는 Node.js IoT Hub 서비스 SDK를 사용하여 프로그래밍 방식으로 부모 자식 관계를 관리할 수 있습니다. 다음은 C# SDK를 사용하여 [자식 디바이스를 할당하는 예](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs)입니다.
+:::moniker-end
+<!-- end 1.2 -->
 
 ### <a name="set-up-the-parent-device-as-a-gateway"></a>부모 디바이스를 게이트웨이로 설정
 

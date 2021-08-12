@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: d6d497d241a91c0125f5ebe1c8437e90679768b8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 39971500d89ba8cbc1bbaf4938884bf2eba20813
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064993"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536625"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>실행 상태를 모니터링하고, 트리거 기록을 검토하고, Azure Logic Apps에 대한 경고를 설정합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "110064993"
 
 1. [Azure Portal](https://portal.azure.com)의 Logic App Designer에서 논리 앱을 찾아서 엽니다.
 
-   논리 앱을 찾으려면 기본 Azure 검색 상자에 `logic apps`를 입력한 다음 **Logic Apps** 를 선택합니다.
+   논리 앱을 찾으려면 기본 Azure 검색 상자에 `logic apps`를 입력한 다음, **Logic Apps** 를 선택합니다.
 
    ![‘Logic Apps’ 찾기 및 선택](./media/monitor-logic-apps/find-your-logic-app.png)
 
@@ -50,7 +50,7 @@ ms.locfileid: "110064993"
 
    다음은 가능한 실행 상태입니다.
 
-   | 실행 상태 | 설명 |
+   | 실행 상태 | Description |
    |------------|-------------|
    | **중단됨** | 시스템이 중단되거나 Azure 구독이 만료되는 등의 외부 문제로 인해 실행이 중지되었거나 완료되지 않았습니다. |
    | **취소** | 실행이 트리거되고 시작되었지만 취소 요청이 수신되었습니다. |
@@ -124,7 +124,7 @@ ms.locfileid: "110064993"
 
    가능한 트리거 시도 상태는 다음과 같습니다.
 
-   | 트리거 상태 | 설명 |
+   | 트리거 상태 | Description |
    |----------------|-------------|
    | **실패** | 오류가 발생했습니다. 실패한 트리거에 생성된 오류 메시지를 검토하려면 해당 트리거 시도를 선택하고 **출력** 을 선택합니다. 예를 들어 유효하지 않은 입력을 찾을 수 있습니다. |
    | **생략** | 트리거가 엔드포인트를 확인했지만 지정된 기준을 충족하는 데이터를 찾지 못했습니다. |

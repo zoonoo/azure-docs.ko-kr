@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3df08272b352ee789c9879b1118105c435cffbd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa81fdb68e13f7898df060a6d85d8ff05f6d2528
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103011088"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714065"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리에서 새 액세스 패키지 만들기
 
@@ -55,7 +55,7 @@ ms.locfileid: "103011088"
 
 ## <a name="start-new-access-package"></a>새 액세스 패키지 시작
 
-**필수 역할:** 글로벌 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, Identity Governance 관리자, 사용자 관리자, 카탈로그 소유자, 액세스 패키지 관리자
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -75,11 +75,11 @@ ms.locfileid: "103011088"
 
 1. **카탈로그** 드롭다운 목록에서 액세스 패키지를 만들려는 카탈로그를 선택합니다. 예를 들어 요청될 수 있는 모든 마케팅 리소스를 관리하는 카탈로그 소유자가 있을 수 있습니다. 이 경우 마케팅 카탈로그를 선택할 수 있습니다.
 
-    액세스 패키지를 만들 권한이 있는 카탈로그만 표시됩니다. 기존 카탈로그에서 액세스 패키지를 만들려면 전역 관리자 또는 사용자 관리자이거나 해당 카탈로그의 카탈로그 소유자 또는 액세스 패키지 관리자여야 합니다.
+    액세스 패키지를 만들 권한이 있는 카탈로그만 표시됩니다. 기존 카탈로그에서 액세스 패키지를 만들려면 전역 관리자, Identity Governance 관리자 또는 사용자 관리자이거나 해당 카탈로그의 카탈로그 소유자 또는 액세스 패키지 관리자여야 합니다.
 
     ![액세스 패키지 - 기본 사항](./media/entitlement-management-access-package-create/basics.png)
 
-    전역 관리자, 사용자 관리자 또는 카탈로그 작성자이며 목록에 없는 새 카탈로그에 액세스 패키지를 만들려는 경우 **새 카탈로그 만들기** 를 클릭합니다. 카탈로그 이름 및 설명을 입력한 후 **만들기** 를 클릭합니다.
+    전역 관리자, Identity Governance 관리자, 사용자 관리자 또는 카탈로그 작성자이며 목록에 없는 새 카탈로그에 액세스 패키지를 만들려는 경우 **새 카탈로그 만들기** 를 클릭합니다. 카탈로그 이름 및 설명을 입력한 후 **만들기** 를 클릭합니다.
 
     만든 액세스 패키지와 그 안에 포함된 리소스가 새 카탈로그에 추가됩니다. 나중에 카탈로그 소유자를 더 추가할 수도 있습니다.
 
@@ -138,11 +138,11 @@ ms.locfileid: "103011088"
 
 Microsoft Graph를 사용하여 액세스 패키지를 만들 수도 있습니다.  위임된 `EntitlementManagement.ReadWrite.All` 권한이 있는 애플리케이션을 사용하는 적절한 역할의 사용자는 이 API를 호출하여
 
-1. [카탈로그의 accessPackageResources를 나열](/graph/api/accesspackagecatalog-list?tabs=http&view=graph-rest-beta)하고 아직 카탈로그에 없는 리소스에 대한 [accessPackageResourceRequest를 생성](/graph/api/accesspackageresourcerequest-post?tabs=http&view=graph-rest-beta)할 수 있습니다.
-1. accessPackageCatalog에 있는 각 accessPackageResource의 [accessPackageResourceRoles를 나열](/graph/api/accesspackage-list-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta)할 수 있습니다. 그러면 나중에 accessPackageResourceRoleScope를 만들 때 이 역할 목록을 사용하여 역할을 선택할 수 있습니다.
-1. [accessPackage 만들기](/graph/tutorial-access-package-api?view=graph-rest-beta)
-1. [accessPackageAssignmentPolicy 만들기](/graph/api/accesspackageassignmentpolicy-post?tabs=http&view=graph-rest-beta)
-1. 액세스 패키지에 필요한 각 리소스 역할에 대한 [accessPackageResourceRoleScope 만들기](/graph/api/accesspackage-post-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta)
+1. [카탈로그의 accessPackageResources를 나열](/graph/api/accesspackagecatalog-list?tabs=http&view=graph-rest-beta&preserve-view=true)하고 아직 카탈로그에 없는 리소스에 대한 [accessPackageResourceRequest를 생성](/graph/api/accesspackageresourcerequest-post?tabs=http&view=graph-rest-beta&preserve-view=true)할 수 있습니다.
+1. accessPackageCatalog에 있는 각 accessPackageResource의 [accessPackageResourceRoles를 나열](/graph/api/accesspackage-list-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta&preserve-view=true)할 수 있습니다. 그러면 나중에 accessPackageResourceRoleScope를 만들 때 이 역할 목록을 사용하여 역할을 선택할 수 있습니다.
+1. [accessPackage 만들기](/graph/tutorial-access-package-api)
+1. [accessPackageAssignmentPolicy 만들기](/graph/api/accesspackageassignmentpolicy-post?tabs=http&view=graph-rest-beta&preserve-view=true)
+1. 액세스 패키지에 필요한 각 리소스 역할에 대한 [accessPackageResourceRoleScope 만들기](/graph/api/accesspackage-post-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta&preserve-view=true)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/04/2021
-ms.openlocfilehash: ed6106a8967c177428abf7727b43f8fba33d580d
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 38227e47154e280fc34624b4f92a4f75261b7004
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903998"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112121954"
 ---
 # <a name="quickstart-connect-a-renesas-rx65n-cloud-kit-to-iot-central"></a>빠른 시작: Renesas RX65N Cloud Kit를 IoT Central에 연결
 
@@ -157,7 +157,7 @@ Renesas RX65N을 Azure에 연결하려면 Wi-Fi 및 Azure IoT 설정의 구성 �
 
 3. ‘도구 세부 정보’ 단추를 선택하고 ‘설정 다시 설정’ 탭으로 이동합니다. 
 
-4. ‘PIN을 Hi-Z 다시 설정’ 단추를 선택하고 ‘설정 다시 설정’ 탭으로 이동합니다. 
+4. ‘PIN을 Hi-Z로 다시 설정’ 단추를 선택하고 ‘설정 다시 설정’ 탭으로 이동합니다. 
 
     :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/rfp-reset.png" alt-text="Renesas Flash Programmer, 설정 다시 설정의 스크린샷":::
 
@@ -165,7 +165,7 @@ Renesas RX65N을 Azure에 연결하려면 Wi-Fi 및 Azure IoT 설정의 구성 �
 
     :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/rfp-auth.png" alt-text="Renesas Flash Programmer, 인증의 스크린샷":::
 
-6. ‘찾아보기...’ 단추를 선택하고 이전 섹션에서 만든 ‘rx65n_azure_iot.hex’ *rx65n_azure_iot.hex* 파일을 찾습니다.
+6. ‘찾아보기...’ 단추를 선택하고 이전 섹션에서 만든 *rx65n_azure_iot.hex* 파일을 찾습니다.
 
 7. ‘시작’을 누르면 플래시를 시작합니다. 이 프로세스는 10초 정도 걸립니다.
 
@@ -173,7 +173,7 @@ Renesas RX65N을 Azure에 연결하려면 Wi-Fi 및 Azure IoT 설정의 구성 �
 
 **Termite** 앱을 사용하여 통신을 모니터링하고 디바이스가 올바르게 설정되었는지 확인할 수 있습니다.
 > [!TIP]
-> 플래시한후 디바이스를 초기화 또는 연결하는 데 문제가 있는 경우 [문제 해결](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md)을 참조하세요.
+> 플래시한 후 디바이스를 초기화하거나 연결하는 데 문제가 있는 경우 [문제 해결](troubleshoot-embedded-device-quickstarts.md)을 참조하세요.
 
 1. **Termite** 를 시작합니다.
 1. **설정** 을 선택합니다.
@@ -272,7 +272,7 @@ IoT Central에서 디바이스 정보를 볼 수 있습니다.
 
 ## <a name="troubleshoot"></a>문제 해결
 
-디바이스 코드 빌드, 디바이스 플래시 또는 연결에 문제가 발생하는 경우 [문제 해결](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md)을 참조하세요.
+디바이스 코드 빌드, 디바이스 플래시 또는 연결에 문제가 발생하는 경우 [문제 해결](troubleshoot-embedded-device-quickstarts.md)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

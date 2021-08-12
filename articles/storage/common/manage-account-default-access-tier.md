@@ -1,19 +1,20 @@
 ---
 title: Azure Storage 계정의 기본 액세스 계층 관리
 description: GPv2 또는 Blob Storage 계정의 기본 액세스 계층을 변경하는 방법 알아보기
-author: twooley
-ms.author: twooley
+author: tamram
+ms.author: tamram
 ms.date: 01/11/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: klaasl
-ms.openlocfilehash: 026ab6be1fd4ef79f818f796c4725f6613a9bc6d
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ee009c47188e104cfe1d5430be6e68a1c80132cb
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277388"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110666744"
 ---
 # <a name="manage-the-default-access-tier-of-an-azure-storage-account"></a>Azure Storage 계정의 기본 액세스 계층 관리
 
@@ -56,6 +57,19 @@ $accountName = ""
 
 #Change the storage account tier to hot
 Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier Hot
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
+
+다음 Azure CLI 스크립트를 사용하여 계정 계층을 변경할 수 있습니다. `$rgName` 변수는 리소스 그룹 이름으로 초기화해야 합니다. `$accountName` 변수는 스토리지 계정 이름으로 초기화해야 합니다.
+
+```azurecli
+#Initialize the following with your resource group and storage account names
+$rgName = ""
+$accountName = ""
+
+#Change the storage account tier to hot
+az storage account update --resource-group $rgName --name $accountName --access-tier Hot
 ```
 
 ---

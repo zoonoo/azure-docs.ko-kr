@@ -11,12 +11,12 @@ ms.subservice: redhat
 ms.custom:
 - mode-api
 ms.collection: linux
-ms.openlocfilehash: 7c80634e78a8c37551a57fc8597831898646ef8e
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 1f7bc4bcefe7535e531fcd8288a6dce0e93696e0
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111900938"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113486124"
 ---
 # <a name="quickstart-wildfly-on-centos-8"></a>빠른 시작: CentOS 8 기반 WildFly
 
@@ -104,12 +104,12 @@ Azure CentOS 8 이미지는 PAYG(종량제) VM 이미지이며 사용자가 라�
 
 애플리케이션 샘플이 포함된 독립 실행형 RHEL 가상 머신:
 
-*  <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/jboss-eap-standalone-rhel" target="_blank"> RHEL 기반 JBoss EAP(독립 실행형 VM)</a>
+*  <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/jboss/jboss-eap-standalone-rhel" target="_blank"> RHEL 기반 JBoss EAP(독립 실행형 VM)</a>
 
 애플리케이션 샘플이 포함된 클러스터된 RHEL 가상 머신:
 
-* <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/jboss-eap-clustered-multivm-rhel" target="_blank"> RHEL 기반 JBoss EAP(클러스터된 VM)</a>
+* <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/jboss/jboss-eap-clustered-multivm-rhel" target="_blank"> RHEL 기반 JBoss EAP(클러스터된 VM)</a>
 
 애플리케이션 샘플이 포함된 클러스터된 RHEL Virtual Machine Scale Set:
 
-* <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/jboss-eap-clustered-vmss-rhel" target="_blank"> RHEL 기반 JBoss EAP(클러스터된 Virtual Machine Scale Set)</a>
+* <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/jboss/jboss-eap-clustered-vmss-rhel" target="_blank"> RHEL 기반 JBoss EAP(클러스터된 Virtual Machine Scale Set)</a>

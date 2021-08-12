@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Services에 영향을 주는 Azure 서비스 중단 처리 (클래식)
+title: Azure Cloud Services(클래식)에 영향을 주는 Azure 서비스 중단 처리
 description: Azure Cloud Services에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업에 대해 알아봅니다.
 ms.topic: article
 ms.service: cloud-services
@@ -9,16 +9,16 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: cdd6c9da5a1895d4aadd73133734cd4c8204ecf1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98742168"
 ---
-# <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services-classic"></a>Azure Cloud Services (클래식)에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업
+# <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services-classic"></a>Azure Cloud Services(클래식)에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 Microsoft에서는 서비스가 필요할 때 서비스를 항상 사용할 수 있도록 하기 위해 많은 노력을 기울입니다. 다만 경우에 따라 계획되지 않은 서비스 중단이 발생하여 강제적으로 제어 영향을 벗어날 때가 있습니다.
 
@@ -48,7 +48,7 @@ Azure에는 항상 사용 가능한 애플리케이션을 지원하는 많은 �
 
 애플리케이션 데이터 원본에 따라 애플리케이션 데이터 원본에 대한 복구 절차를 확인해야 할 수 있습니다.
 
-* Azure Storage 데이터 원본의 경우 응용 프로그램에 대해 선택한 중복성 모델에 따라 사용할 수 있는 옵션을 확인 하려면 [중복성 Azure Storage](../storage/common/storage-redundancy.md) 를 참조 하세요.
+* Azure Storage 데이터 원본의 경우 애플리케이션에 대해 선택한 중복도 모델을 기반으로 사용할 수 있는 옵션을 확인하려면 [Azure Storage 중복도](../storage/common/storage-redundancy.md)를 참조하세요.
 * SQL Database 원본에 대해서는 [개요: SQL Database를 사용한 클라우드 비즈니스 연속성 및 데이터베이스 재해 복구](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md) 를 참조하여 애플리케이션에 대해 선택한 복제 모델에 따라 사용할 수 있는 옵션을 확인합니다.
 
 

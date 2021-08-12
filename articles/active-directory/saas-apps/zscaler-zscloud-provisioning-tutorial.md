@@ -2,8 +2,8 @@
 title: '자습서: Azure Active Directory를 사용하여 Zscaler ZSCloud에 대한 자동 사용자 프로비저닝 구성 | Microsoft Docs'
 description: 이 자습서에서는 Zscaler ZSCloud에 대한 사용자 계정을 자동으로 프로비저닝하거나 이를 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: fa90cbf1e467416010ae0ba83e9344a84ce52e21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b1997fd23121613010f8465ad895adba9b3c57c
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97936501"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113760369"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>자습서: Zscaler ZSCloud에 대한 자동 사용자 프로비저닝 구성
 

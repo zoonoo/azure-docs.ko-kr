@@ -6,12 +6,12 @@ ms.service: api-management
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: d0420b92fc94e0a1a9c8a4057f419a57a9909223
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c0d24c667d2c7c46f65d8c6f3bf6e6e3b52fd00
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100545159"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669652"
 ---
 # <a name="tutorial-create-and-publish-a-product"></a>자습서: 제품 만들기 및 게시  
 
@@ -163,7 +163,7 @@ az apim product api delete --resource-group apim-hello-word-resource-group \
 ---
 
 > [!TIP]
-> [REST API](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) 또는 PowerShell 명령을 통해 사용자 구독을 만들거나 사용자 지정 구독 키가 포함된 제품으로 업데이트할 수 있습니다.
+> [REST API](/rest/api/apimanagement/2020-12-01/subscription/create-or-update) 또는 PowerShell 명령을 통해 사용자 구독을 만들거나 사용자 지정 구독 키가 포함된 제품으로 업데이트할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

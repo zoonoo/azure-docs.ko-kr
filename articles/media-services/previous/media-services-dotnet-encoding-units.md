@@ -1,6 +1,6 @@
 ---
 title: 인코딩 단위를 추가하여 미디어 처리 크기 조정 - Azure | Microsoft Docs
-description: 이 문서에서는 Azure Media Services .NET을 사용 하 여 인코딩 단위를 추가 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure Media Services .NET을 사용하여 인코딩 단위를 추가하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -17,10 +17,10 @@ ms.author: inhenkel
 ms.reviewer: milangada
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6feb28858271f11bef0933a352f86d7545ee5bd3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103014080"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>.NET SDK를 사용하여 인코딩 크기를 조정하는 방법

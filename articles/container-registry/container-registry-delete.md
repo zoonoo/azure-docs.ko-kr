@@ -2,15 +2,15 @@
 title: 이미지 리소스 삭제
 description: Azure CLI 명령을 사용하여 컨테이너 이미지 데이터를 삭제하고 레지스트리 크기를 효과적으로 관리하는 방법에 대한 세부 정보입니다.
 ms.topic: article
-ms.date: 07/31/2019
-ms.openlocfilehash: af277d0c02960c989b4e9119f2ecbfd8f6d7ce07
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/07/2021
+ms.openlocfilehash: b603645c3b4cef9c4734f1c385bab375a9aec3ff
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783992"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062977"
 ---
-# <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Container Registry에서 컨테이너 이미지 삭제
+# <a name="delete-container-images-in-azure-container-registry"></a>Azure Container Registry에서 컨테이너 이미지 삭제
 
 Azure Container Registry의 크기를 유지하려면 오래된 이미지 데이터를 주기적으로 삭제해야 합니다. 프로덕션 환경에 배포되는 일부 컨테이너 이미지에는 장기 스토리지가 필요할 수 있지만 다른 이미지는 일반적으로 좀 더 빠르게 삭제해도 됩니다. 예를 들어, 자동화된 빌드 및 테스트 시나리오에서 레지스트리는 절대 배포되지 않는 이미지로 빠르게 채워진 후, 빌드 및 테스트 단계가 완료되는 즉시 제거될 수 있습니다.
 
@@ -20,9 +20,10 @@ Azure Container Registry의 크기를 유지하려면 오래된 이미지 데이
 * [태그](#delete-by-tag)에 따라 삭제: 이미지, 태그, 이미지에서 참조하는 모든 고유한 계층과 이미지에 연결된 다른 모든 태그를 삭제합니다.
 * [매니페스트 다이제스트](#delete-by-manifest-digest)에 따라 삭제: 이미지, 이미지에서 참조하는 모든 고유한 계층 및 이미지에 연결된 모든 태그를 삭제합니다.
 
-삭제 작업을 자동화하는 데 도움이 되는 샘플 스크립트가 제공됩니다.
-
 이러한 개념에 대한 소개는 [레지스트리, 리포지토리 및 이미지 정보](container-registry-concepts.md)를 참조하세요.
+
+> [!NOTE]
+> 이미지 데이터를 삭제한 후 Azure Container Registry에 연결된 스토리지에 대한 청구를 즉시 중지합니다. 그러나 레지스트리는 비동기 프로세스를 사용하여 연결된 스토리지 공간을 복구합니다. 레지스트리가 계층을 정리하고 업데이트된 스토리지 사용량을 표시하는 데 다소 시간이 걸립니다.   
 
 ## <a name="delete-repository"></a>리포지토리 삭제
 
@@ -201,81 +202,17 @@ fi
 
 시퀀스의 마지막 단계 출력에서 볼 수 있듯이 이제 해당 `"tags"` 속성이 빈 목록인 분리된 매니페스트가 나타납니다. 이 매니페스트는 참조하는 고유한 계층 데이터와 함께 레지스트리에 내에 계속 존재합니다. **분리된 이미지와 해당 계층 데이터를 삭제하려면 매니페스트 다이제스트에 따라 삭제해야 합니다**.
 
-## <a name="delete-all-untagged-images"></a>태그가 지정되지 않은 모든 이미지 삭제
+## <a name="automatically-purge-tags-and-manifests"></a>태그 및 매니페스트 자동 제거
 
-다음 Azure CLI 명령을 사용하여 리포지토리의 태그가 지정되지 않은 모든 이미지를 나열할 수 있습니다. `<acrName>` 및 `<repositoryName>`을(를) 사용자 환경에 적절한 값으로 바꿉니다.
+Azure Container Registry는 태그 및 매니페스트와 이와 관련된 고유 계층 데이터를 제거하기 위해 다음과 같은 자동화된 방법을 제공합니다.
 
-```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?tags[0]==null].digest"
-```
+* 특정 기간보다 오래되었거나 지정된 이름 필터와 일치하는 모든 태그를 삭제하기 위해 `acr purge` 컨테이너 명령을 실행하는 ACR 작업을 만듭니다. 선택적으로 태그가 지정되지 않은 매니페스트를 삭제하도록 `acr purge`를 구성합니다. 
 
-스크립트에서 해당 명령을 사용하여 리포지토리에서 태그가 지정되지 않은 모든 이미지를 삭제할 수 있습니다.
+  `acr purge` 컨테이너 명령은 현재 미리 보기 상태입니다. 자세한 내용은 [Azure Container Registry에서 자동으로 이미지 제거](container-registry-auto-purge.md)를 참조하세요.
 
-> [!WARNING]
-> 다음 샘플 스크립트는 주의해서 사용하세요. 삭제된 이미지 데이터는 복구 가능하지 않습니다. 시스템에서 매니페스트 다이제스트(이미지 이름 아님)에 의해 이미지를 끌어오는 경우 해당 스크립트를 실행하지 않아야 합니다. 태그가 지정되지 않은 이미지를 삭제하면 해당 시스템은 레지스트리에서 이미지를 끌어올 수 없게 됩니다. 매니페스트에 따라 풀하는 대신 [권장 모범 사례](container-registry-image-tag-version.md)에 해당하는 ‘고유 태그 지정’ 체계를 채택하는 것이 좋습니다.
+* 필요에 따라 각 레지스트리에 대한 [보존 정책](container-registry-retention-policy.md)을 설정하여 태그가 지정되지 않은 매니페스트를 관리합니다. 보존 정책을 사용하도록 설정하면 연결된 태그가 없는 레지스트리의 이미지 매니페스트와 기본 계층 데이터가 설정된 기간이 지나면 자동으로 삭제됩니다. 
 
-**Bash의 Azure CLI**
-
-다음 Bash 스크립트는 리포지토리에서 태그가 지정되지 않은 모든 이미지를 삭제합니다. 여기에는 Azure CLI 및 **xargs** 가 필요합니다. 기본적으로 스크립트는 삭제하지 않고 수행됩니다. 이미지를 삭제하도록 설정하려면 `ENABLE_DELETE` 값을 `true`(으)로 변경합니다.
-
-```bash
-#!/bin/bash
-
-# WARNING! This script deletes data!
-# Run only if you do not have systems
-# that pull images via manifest digest.
-
-# Change to 'true' to enable image delete
-ENABLE_DELETE=false
-
-# Modify for your environment
-REGISTRY=myregistry
-REPOSITORY=myrepository
-
-# Delete all untagged (orphaned) images
-if [ "$ENABLE_DELETE" = true ]
-then
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags[0]==null].digest" -o tsv \
-    | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
-else
-    echo "No data deleted."
-    echo "Set ENABLE_DELETE=true to enable image deletion of these images in $REPOSITORY:"
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY --query "[?tags[0]==null]" -o tsv
-fi
-```
-
-**PowerShell의 Azure CLI**
-
-다음 PowerShell 스크립트는 리포지토리에서 태그가 지정되지 않은 모든 이미지를 삭제합니다. PowerShell 및 Azure CLI가 모두 필요합니다. 기본적으로 스크립트는 삭제하지 않고 수행됩니다. 이미지를 삭제하도록 설정하려면 `$enableDelete` 값을 `$TRUE`(으)로 변경합니다.
-
-```powershell
-# WARNING! This script deletes data!
-# Run only if you do not have systems
-# that pull images via manifest digest.
-
-# Change to '$TRUE' to enable image delete
-$enableDelete = $FALSE
-
-# Modify for your environment
-$registry = "myregistry"
-$repository = "myrepository"
-
-if ($enableDelete) {
-    az acr repository show-manifests --name $registry --repository $repository --query "[?tags[0]==null].digest" -o tsv `
-    | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
-} else {
-    Write-Host "No data deleted."
-    Write-Host "Set `$enableDelete = `$TRUE to enable image deletion."
-    az acr repository show-manifests --name $registry --repository $repository --query "[?tags[0]==null]" -o tsv
-}
-```
-
-
-## <a name="automatically-purge-tags-and-manifests-preview"></a>태그 및 매니페스트 자동 제거(미리 보기)
-
-Azure CLI 명령을 스크립팅하는 대신 주문형 또는 예약된 ACR 작업을 실행하여 특정 기간보다 오래되었거나 지정된 이름 필터와 일치하는 모든 태그를 삭제합니다. 자세한 내용은 [Azure Container Registry에서 자동으로 이미지 제거](container-registry-auto-purge.md)를 참조하세요.
-
-필요에 따라 각 레지스트리에 대한 [보존 정책](container-registry-retention-policy.md)을 설정하여 태그가 지정되지 않은 매니페스트를 관리합니다. 보존 정책을 사용하도록 설정하면 연결된 태그가 없는 레지스트리의 이미지 매니페스트와 기본 계층 데이터가 설정된 기간이 지나면 자동으로 삭제됩니다.
+  보존 정책은 현재 **프리미엄** 컨테이너 레지스트리의 미리 보기 기능입니다. 보존 정책은 정책이 적용된 후에 만들어진 태그가 지정되지 않은 매니페스트에만 적용됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

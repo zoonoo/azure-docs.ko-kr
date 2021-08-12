@@ -68,6 +68,10 @@
       href: tutorial-security-policy.md
     - name: 리소스 상태 조사
       href: investigate-resource-health.md
+- name: 샘플
+  items:
+    - name: Azure Resource Graph 쿼리
+      href: ./resource-graph-samples.md
 - name: 개념
   items:
     - name: 클라우드 보안 태세 관리 개념

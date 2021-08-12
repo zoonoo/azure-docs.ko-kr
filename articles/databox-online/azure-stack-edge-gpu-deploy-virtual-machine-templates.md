@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: cf236396f080af9676f211c42178ddda6a794420
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ef505a5215f4ce7b6e324bd9899f13dafc7a7395
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568344"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110493550"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>템플릿을 통해 Azure Stack Edge Pro GPU 디바이스에 VM 배포
 
@@ -35,7 +35,7 @@ ms.locfileid: "105568344"
 
     1. **디바이스 필수 구성 요소**
 
-        1. 디바이스에서 Azure Resource Manager에 연결합니다.
+        1. 디바이스에서 [Azure Resource Manager에 연결](azure-stack-edge-gpu-connect-resource-manager.md)합니다.
         2. 로컬 UI를 통해 컴퓨팅을 사용하도록 설정합니다.
 
     2. **클라이언트 필수 조건**

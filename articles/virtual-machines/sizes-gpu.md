@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 09d62ea5f2db77c14e8faff44de7fb3ce759c6fe
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5cb1ec88c96a3e73352e71e81ea3489b5f0918de
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709738"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579004"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 최적화 가상 머신 크기
 
@@ -21,7 +21,7 @@ GPU 최적화 VM 크기는 단일, 여러 또는 일부 GPU에서 사용 가능�
 
 - [NCv3 시리즈](ncv3-series.md) 및 [NC T4_v3 시리즈](nct4-v3-series.md) 크기는 컴퓨팅 집약적인 GPU 가속 애플리케이션에 최적화되어 있습니다. CUDA 기반 및 OpenCL 기반 애플리케이션, 시뮬레이션, AI, 딥 러닝 등을 예로 들 수 있습니다. NC T4 v3 시리즈는 NVIDIA의 Tesla T4 GPU 및 AMD EPYC2 Rome 프로세서를 갖춘 유추 작업에 중점을 둡니다. NCv3 시리즈는 NVIDIA의 Tesla V100 GPU를 지원하는 고성능 컴퓨팅과 AI 워크로드에 중점을 둡니다.
 
-- [NDv2 시리즈](ndv2-series.md) 크기는 확장 및 스케일 아웃 딥러닝 학습 애플리케이션에 중점을 둡니다. NDv2 시리즈는 Nvidia Volta V100 및 Intel Xeon Platinum 8168(Skylake) 프로세서를 사용합니다.
+- [ND A100 v4 시리즈](nda100-v4-series.md) 크기는 딥 러닝 학습 및 가속화된 HPC 애플리케이션을 강화하고 스케일 아웃하는 데 중점을 두고 있습니다. ND A100 v4 시리즈는 각각 200기가비트 Mellanox InfiniBand HDR 연결 및 40GB GPU 메모리와 함께 사용할 수 있는 8개의 NVIDIA A100 TensorCore GPU를 사용합니다.
 
 - [NV 시리즈](nv-series.md) 및 [NVv3 시리즈](nvv3-series.md) 크기는 OpenGL 및 DirectX와 같은 프레임워크를 사용하는 원격 시각화, 스트리밍, 게임, 인코딩 및 VDI 시나리오에 맞게 최적화되고 설계되었습니다. 이러한 VM은 NVIDIA Tesla M60 GPU의 지원을 받습니다.
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 03/15/2021
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 19a4c6697c161a78bfb1425009bd0b142dece876
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 0b420b55800d1ef17f3b01d291bec3073b236e3c
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057238"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112200135"
 ---
 # <a name="what-is-azure-private-link"></a>Azure Private Link란? 
 Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다.
@@ -66,7 +66,7 @@ Azure Monitor에서 다음 정보에 액세스할 수 있습니다.
 가격 책정에 대한 자세한 내용은 [Azure Private Link 가격 책정](https://azure.microsoft.com/pricing/details/private-link/)을 참조하세요.
  
 ## <a name="faqs"></a>FAQ  
-FAQ는 [Azure Private Link FAQ](private-link-faq.md)를 참조하세요.
+FAQ는 [Azure Private Link FAQ](private-link-faq.yml)를 참조하세요.
  
 ## <a name="limits"></a>제한  
 제한은 [Azure Private Link 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits)을 참조하세요.

@@ -3,13 +3,13 @@ title: '자습서: Azure Relay를 사용하는 REST 자습서'
 description: '자습서: REST 기반 인터페이스를 표시하는 Azure Relay 호스트 애플리케이션을 빌드합니다.'
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.date: 06/23/2020
-ms.openlocfilehash: 0620f55650d0e4da0cd7a616649df952f3017455
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: ed9068b6105d30d789b848a99325db389b42fec4
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88922330"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669739"
 ---
 # <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>자습서: Azure WCF 릴레이 REST 자습서
 
