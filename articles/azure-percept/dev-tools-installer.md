@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f81f7922431f85cfc2a98261a128ba66d23a984f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 49d5a6ed7b23169e655a02cdbb14df52a6e82231
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608598"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110099788"
 ---
 # <a name="dev-tools-pack-installer-overview"></a>개발 도구 팩 설치 프로그램 개요
 
@@ -22,29 +22,29 @@ ms.locfileid: "105608598"
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Python 3.6 이상](https://www.python.org/)
-* [Docker 19.03](https://www.docker.com/)
-* [PIP3](https://pip.pypa.io/en/stable/user_guide/)
-* [TensorFlow 1.13](https://www.tensorflow.org/)
-* [Azure Machine Learning SDK 1.1](/python/api/overview/azure/ml/)
+* [Docker 20.10](https://www.docker.com/)
+* [PIP3 21.1](https://pip.pypa.io/en/stable/user_guide/)
+* [TensorFlow 2.0](https://www.tensorflow.org/)
+* [Azure Machine Learning SDK 1.2](/python/api/overview/azure/ml/)
 
 ## <a name="optional-tools"></a>선택적 도구
 
-* [Nvidia DeepStream SDK 5](https://developer.nvidia.com/deepstream-sdk)(Nvidia 가속기의 솔루션을 개발하는 도구 키트)
-* [Intel OpenVino toolkit 2020.2](https://docs.openvinotoolkit.org/)(Intel Accelerators용 솔루션 개발 도구 키트)
-* [Lobe.ai](https://lobe.ai/)  
-* [Streamlit](https://www.streamlit.io/)
+* [NVIDIA DeepStream SDK 5](https://developer.nvidia.com/deepstream-sdk)(NVIDIA 가속기의 솔루션을 개발하는 도구 키트)
+* [Intel OpenVINO Toolkit 2021.3](https://docs.openvinotoolkit.org/)(Intel Accelerators용 솔루션 개발 도구 키트)
+* [Lobe.ai 0.9](https://lobe.ai/)  
+* [Streamlit 0.8](https://www.streamlit.io/)
 * [Pytorch 1.4.0(Windows) 또는 1.2.0(Linux)](https://pytorch.org/)
-* [Miniconda3](https://docs.conda.io/en/latest/miniconda.html)
-* [Chainer 5.2](https://chainer.org/)
-* [Caffe](https://caffe.berkeleyvision.org/)
-* [CUDA Toolkit 10.0.130](https://developer.nvidia.com/cuda-toolkit)
+* [Miniconda 4.5](https://docs.conda.io/en/latest/miniconda.html)
+* [Chainer 7.7](https://chainer.org/)
+* [Caffe 1.0](https://caffe.berkeleyvision.org/)
+* [CUDA Toolkit 11.2](https://developer.nvidia.com/cuda-toolkit)
 * [Microsoft Cognitive Toolkit 2.5.1](https://www.microsoft.com/research/product/cognitive-toolkit/?lang=fr_ca)
 
 ## <a name="known-issues"></a>알려진 문제
 
-- Docker가 제대로 실행되지 않으면 선택적 Caffe 설치가 실패할 수 있습니다. Caffe를 설치하려면 개발 도구 팩 설치 프로그램을 통해 Caffe 설치를 시도하기 전에 Docker가 설치되어 실행 중인지 확인합니다.
+- Docker가 제대로 실행되지 않으면 선택적 Caffe, NVIDIA DeepStream SDK 및 Intel OpenVINO Toolkit 설치가 실패할 수 있습니다. 이러한 선택적 도구를 설치하려면 Dev Tools Pack 설치 관리자를 통해 설치를 시도하기 전에 Docker가 설치되어 실행 중인지 확인합니다.
 
-- 호환되지 않는 시스템에서는 선택적 CUDA 설치에 실패합니다. 개발 도구 팩 설치 프로그램을 통해 [CUDA 도구 키트 10.0.130](https://developer.nvidia.com/cuda-toolkit)을 설치하기 전에 시스템 호환성을 확인하세요.
+- Mac 버전에 설치된 선택적 CUDA Toolkit은 10.0.130입니다. CUDA Toolkit 11은 macOSity에서 애플리케이션 개발 또는 실행을 더 이상 지원하지 않습니다.
 
 ## <a name="docker-minimum-requirements"></a>Docker 최소 요구 사항
 

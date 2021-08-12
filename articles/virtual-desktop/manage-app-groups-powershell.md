@@ -1,24 +1,24 @@
 ---
-title: Windows Virtual Desktop PowerShell용 앱 그룹 관리 - Azure
-description: PowerShell을 사용하여 Windows Virtual Desktop 앱 그룹을 관리하는 방법.
+title: Azure Virtual Desktop PowerShell용 앱 그룹 관리 - Azure
+description: PowerShell을 사용하여 Azure Virtual Desktop 앱 그룹을 관리하는 방법.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 1652048da8084007bc86a6793f14f10b4a1f2e0f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: a900d1d92509fab7b777ca5864a51c7699cb294e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446046"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749078"
 ---
 # <a name="manage-app-groups-using-powershell"></a>PowerShell을 사용하여 앱 그룹 관리
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/manage-app-groups-2019.md)를 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 통해 Azure Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Azure Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/manage-app-groups-2019.md)를 참조하세요.
 
-새 Windows Virtual Desktop 호스트 풀에 대해 생성된 기본 앱 그룹도 전체 데스크톱을 게시합니다. 뿐만 아니라 호스트 풀에 대한 하나 이상의 RemoteApp 애플리케이션 그룹을 만들 수 있습니다. 이 자습서에 따라 RemoteApp 앱 그룹을 만들고 개별 **시작** 메뉴 앱을 게시합니다.
+새 Azure Virtual Desktop 호스트 풀에 대해 만든 기본 앱 그룹도 전체 데스크톱을 게시합니다. 뿐만 아니라 호스트 풀에 대한 하나 이상의 RemoteApp 애플리케이션 그룹을 만들 수 있습니다. 이 자습서에 따라 RemoteApp 앱 그룹을 만들고 개별 **시작** 메뉴 앱을 게시합니다.
 
 이 자습서에서는 다음 방법을 알아봅니다.
 

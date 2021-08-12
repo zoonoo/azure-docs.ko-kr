@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bf5c4c39ea8f5705cc9788fdcf2cddd01dcb4087
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d7d637a98a0f250936fa8c9024ae1302d3aaa536
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105034710"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572369"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>가용성 그룹에 대한 DNN 수신기 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,6 +51,7 @@ DNN 수신기를 사용하여 기존 VNN 수신기를 대체하거나, 두 개�
 - [Always On 가용성 그룹](availability-group-overview.md)을 구성했습니다. 
 - 최신 버전의 [PowerShell](/powershell/azure/install-az-ps)을 설치했습니다. 
 - DNN 수신기에 사용할 고유 포트를 식별했습니다. DNN 수신기에 사용되는 포트는 가용성 그룹 또는 장애 조치(failover) 클러스터 인스턴스의 모든 복제본에서 고유해야 합니다.  다른 연결은 동일한 포트를 공유할 수 없습니다.
+- DNN 수신기에 연결하는 클라이언트는 연결 문자열에서 `MultiSubnetFailover=True` 매개 변수를 지원해야 합니다. 
 
 
 
@@ -182,4 +183,12 @@ DNN 수신기는 모든 IP 주소에서 수신 대기하고 특정한 고유 포
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure의 SQL Server HADR 기능에 대한 자세한 정보는 [가용성 그룹](availability-group-overview.md) 및 [장애 조치(Failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)를 참조하세요. 또한 고가용성 및 재해 복구를 위한 환경을 구성하는 [모범 사례](hadr-cluster-best-practices.md)를 배울 수도 있습니다. 
+가용성 그룹이 배포되면 [Azure VM에서 SQL Server에 대한 HADR 설정](hadr-cluster-best-practices.md)을 최적화하는 것이 좋습니다. 
+
+
+자세한 내용은 다음을 참조하세요.
+
+- [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
+- [Azure VM에서 SQL Server를 사용하는 Always On 가용성 그룹](availability-group-overview.md)
+- [Always On 가용성 그룹 개요](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+

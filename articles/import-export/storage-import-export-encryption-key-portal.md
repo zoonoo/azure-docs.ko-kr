@@ -9,10 +9,10 @@ ms.date: 01/14/2021
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 71c322385c9b70eb46e1c478c1322752ee4561e5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98706494"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Azure Key Vault에서 Import/Export 서비스에 고객 관리형 키 사용
@@ -33,13 +33,13 @@ Azure Import/Export 서비스는 암호화 키를 통해 드라이브를 잠그�
     - [파일에 대한 가져오기 작업 만들기](storage-import-export-data-to-files.md)
     - [BLOB에 대한 내보내기 작업 만들기](storage-import-export-data-from-blobs.md)
 
-2. BitLocker 키를 보호하는 데 사용할 수 있는 키가 들어 있는 기존 Azure Key Vault가 있습니다. Azure Portal를 사용 하 여 주요 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: Azure Portal 사용 하 여 Azure Key Vault 만들기](../key-vault/general/quick-create-portal.md)를 참조 하세요.
+2. BitLocker 키를 보호하는 데 사용할 수 있는 키가 들어 있는 기존 Azure Key Vault가 있습니다. Azure Portal을 사용하여 키 자격 증명 모음을 만드는 방법은 [빠른 시작: Azure Portal을 사용하여 Azure Key Vault 만들기](../key-vault/general/quick-create-portal.md)를 참조하세요.
 
     - **일시 삭제** 및 **제거 안 함** 은 기존 Key Vault에서 설정됩니다. 이러한 속성은 기본적으로 사용하도록 설정되지 않습니다. 이러한 속성을 사용하려면 다음 문서 중 하나에서 **일시 삭제를 사용하도록 설정** 및 **제거 보호 활성화** 섹션을 참조하세요.
 
         - [PowerShell에서 일시 삭제를 사용하는 방법](../key-vault/general/key-vault-recovery.md)
         - [CLI에서 일시 삭제를 사용하는 방법](../key-vault/general/key-vault-recovery.md)
-    - 기존 키 자격 증명 모음에는 크기가 2048 이상인 RSA 키가 있어야 합니다. 키에 대 한 자세한 내용은 [키](../key-vault/keys/about-keys.md)정보를 참조 하세요.
+    - 기존 키 자격 증명 모음에는 크기가 2048 이상인 RSA 키가 있어야 합니다. 키에 대한 자세한 내용은 [키 정보](../key-vault/keys/about-keys.md)를 참조하세요.
     - 키 자격 증명 모음은 데이터의 스토리지 계정과 같은 지역에 있어야 합니다.  
     - 기존 Azure Key Vault가 없는 경우 다음 섹션에 설명된 대로 인라인으로 만들 수 있습니다.
 

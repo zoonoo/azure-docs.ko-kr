@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: fb505c42cda53db549cd5187972ad6fabfdf7ca4
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b700cd6a9b17abcd86cfb31b1d2c65fefe226d79
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137096"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237408"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
 
@@ -33,7 +33,7 @@ Azure Security Center는 다음 세 가지의 가장 긴급한 보안 문제를 
 
 -   **점점 더 정교해지는 공격** - 어디서 워크로드를 실행하든, 공격이 점점 더 정교해지고 있습니다. 퍼블릭 클라우드 워크로드의 보안을 유지해야 하는데 이는 사실상 인터넷 연결 워크로드로, 보안 모범 사례를 따르지 않을 경우 훨씬 더 취약해질 수 있습니다.
 
--   **보안 기술의 공급 부족** - 보안 경고 및 경고 시스템 수가 환경을 보호하는 데 필요한 배경 및 경험을 갖춘 관리자 수보다 훨씬 많습니다. 최신 공격을 통해 최신 상태를 유지하는 것은 지속적인 문제로, 보안 업계가 계속 변화하는 동안 이 상태를 유지하는 것은 불가능합니다.
+-   **보안 기술의 공급 부족** - 보안 경고 및 경고 시스템 수가 환경을 보호하는 데 필요한 배경 및 경험을 갖춘 관리자 수보다 훨씬 많습니다. 최신 공격 정보를 유지하는 것은 지속적인 문제로, 보안 환경이 계속 변화하는 동안에는 멈춰 있을 수 없습니다.
 
 이러한 문제로부터 보호하는 데 도움이 되도록 Security Center에서는 다음과 같은 도구를 제공합니다.
 
@@ -64,11 +64,11 @@ Azure Security Center를 사용하여 보안 상태를 강화할 수 있습니�
 
 워크로드가 안전한지 알고 확인하는 것이 보안의 기본 사항이며, 이는 맞춤화된 보안 정책을 구현하는 것에서 시작됩니다. Security Center의 모든 정책은 Azure Policy 제어를 기반으로 빌드되므로 **최고 수준의 정책 솔루션** 이 제공하는 포괄적인 범위와 유연성을 얻을 수 있습니다. Security Center에서는 관리 그룹, 전체 구독 및 전체 테넌트에 대해 실행할 정책까지 설정할 수 있습니다.
 
-:::image type="content" source="./media/security-center-intro/sc-dashboard.png" alt-text="정책 관리 페이지":::
+:::image type="content" source="./media/security-center-intro/sc-dashboard.png" alt-text="정책 관리 페이지.":::
 
 Security Center를 사용하면 **섀도 IT 구독을 확인** 할 수 있습니다. 대시보드에서 **검사되지 않음** 레이블이 표시된 구독을 살펴보면 새로 만든 구독이 있을 때 즉시 알 수 있으며, 해당 구독이 정책에 의해 검사되고 Azure Security Center에서 보호되도록 할 수 있습니다.
 
-:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Security Center 정책 대시보드":::
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Security Center 정책 대시보드.":::
 
 ### <a name="continuous-assessments"></a>연속 평가
 
@@ -76,13 +76,13 @@ Security Center는 워크로드 전체에 배포되는 새 리소스를 지속�
 
 각 권장 사항이 전체 보안 상태에 얼마나 중요한지 이해하는 데 도움이 되도록 Security Center는 권장 사항을 보안 제어에 그룹화하고 각 제어에 **보안 점수** 값을 추가합니다. 이는 **보안 작업의 우선 순위를 지정** 하는 데 중요합니다.
 
-:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Security Center 보안 점수":::
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Security Center 보안 점수.":::
 
 ### <a name="network-map"></a>네트워크 맵
 
 Security Center에서 네트워크의 보안 상태를 지속적으로 모니터링하기 위해 제공하는 가장 강력한 도구 중 하나는 **네트워크 맵** 입니다. 맵을 사용하여 워크로드의 토폴로지를 살펴보고 각 노드가 제대로 구성되었는지 확인할 수 있습니다. 노드가 연결된 방식을 확인할 수 있으며, 이 정보를 통해 공격자가 네트워크를 쉽게 탐색할 수 있게 하는 원치 않는 연결을 차단할 수 있습니다.
 
-:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Security Center 네트워크 맵":::
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Security Center 네트워크 맵.":::
 
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>권장 제어를 구성하여 보안 최적화 및 개선
@@ -93,7 +93,7 @@ Azure Security Center 가치의 핵심은 권장 사항에 있습니다. 권장 
 
 권장 사항은 각 리소스의 공격 표면을 줄이는 데 도움이 됩니다. 여기에는 Azure 가상 머신, 비 Azure 서버 및 SQL, Storage 계정 등의 Azure PaaS 서비스가 포함되며 각 리소스 유형이 다르게 평가되고 고유한 표준을 갖습니다.
 
-:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Security Center 권장 사항 예제":::
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Security Center 권장 사항 예제.":::
 
 ## <a name="protect-against-threats"></a>위협으로부터 보호
 

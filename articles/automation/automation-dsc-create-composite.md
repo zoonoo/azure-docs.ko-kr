@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5833308f03d328d988ac818d83ff5ee618a4c79c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3baf87cc1b14ca4d8d7d3630e777b03801398968
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563575"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737552"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>구성을 복합 리소스로 변환
 
@@ -26,7 +26,7 @@ ms.locfileid: "103563575"
 
 - 웹 서버 만들기
 - DNS 서버 만들기
-- SharePoint 서버 만들기
+- SharePoint를 실행하는 서버 만들기
 - SQL 클러스터 구성
 - 방화벽 설정 관리
 - 암호 설정 관리

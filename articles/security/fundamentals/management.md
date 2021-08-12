@@ -1,6 +1,6 @@
 ---
 title: Azure에서 원격 관리 보안 강화 | Microsoft Docs
-description: 이 문서에서는 cloud services, virtual machines 및 사용자 지정 응용 프로그램을 포함 하 여 Microsoft Azure 환경을 관리 하면서 원격 관리 보안을 향상 하는 단계를 설명 합니다.
+description: 이 문서에서는 클라우드 서비스, 가상 머신, 사용자 지정 애플리케이션 등을 포함하는 Microsoft Azure 환경을 관리하면서 원격 관리 보안을 향상하는 단계에 관해 설명합니다.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,18 +16,18 @@ ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
 ms.openlocfilehash: e9eabc73c244526f0ea15b9c72b5377545f662b2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94844866"
 ---
 # <a name="security-management-in-azure"></a>Azure의 보안 관리
-Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 사용 권한을 가진 최종 사용자 디바이스 등 여러 디바이스에서 자신의 클라우드 환경을 관리할 수 있습니다. 경우에 따라 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)와 같은 웹 기반 콘솔을 통해 관리 기능이 수행 됩니다. 다른 경우, 가상 사설망(VPN), 터미널 서비스, 클라이언트 애플리케이션 프로토콜 또는 (프로그래밍 방식의) Azure 서비스 관리 API(SMAPI)를 통해 온-프레미스 시스템에서 Azure에 직접 연결할 수 있습니다. 또한 클라이언트 엔드포인트는 태블릿이나 스마트폰 같이 조인 또는 격리되고 관리되지 않는 도메인이 될 수 있습니다.
+Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 사용 권한을 가진 최종 사용자 디바이스 등 여러 디바이스에서 자신의 클라우드 환경을 관리할 수 있습니다. 경우에 따라, 관리 기능은 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)과 같은 웹 기반 콘솔을 통해 수행됩니다. 다른 경우, 가상 사설망(VPN), 터미널 서비스, 클라이언트 애플리케이션 프로토콜 또는 (프로그래밍 방식의) Azure 서비스 관리 API(SMAPI)를 통해 온-프레미스 시스템에서 Azure에 직접 연결할 수 있습니다. 또한 클라이언트 엔드포인트는 태블릿이나 스마트폰 같이 조인 또는 격리되고 관리되지 않는 도메인이 될 수 있습니다.
 
 여러 액세스 및 관리 기능은 다양한 옵션을 제공하지만, 이러한 가변성은 클라우드 배포에 상당한 위험을 더할 수 있습니다. 관리 작업을 관리, 추적 및 감사하기 어려울 수 있습니다. 이 가변성은 또한 클라우드 서비스 관리에 사용되는 클라이언트 엔드포인트에 대한 액세스를 규제하지 않음으로써 보안 위협을 들여올 수 있습니다. 인프라를 개발 및 관리하기 위한 일반 또는 개인 워크스테이션을 사용 하면 웹 검색(예: 워터링 홀 공격) 또는 전자 메일(예: 소셜 엔지니어링 및 피싱 공격)와 같이 예측할 수 없는 위협 벡터를 열게 됩니다.
 
-![위협이 공격을 탑재할 수 있는 여러 가지 방법을 보여 주는 다이어그램입니다.](./media/management/typical-management-network-topology.png)
+![위협이 공격을 일으킬 수 있는 다양한 방법을 보여 주는 다이어그램](./media/management/typical-management-network-topology.png)
 
 이러한 유형의 환경에서는 매우 다양한 엔드포인트로부터 Azure 인터페이스(예: SMAPI)에 대한 액세스를 적절하게 관리하기 위해 보안 정책 및 메커니즘을 생성하는 것이 어렵기 때문에 공격 받을 가능성이 높습니다.
 
@@ -43,16 +43,16 @@ Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 
 ### <a name="operational-security-fundamentals"></a>작업 보안 기본 사항
 보다 안전한 관리 및 작업을 위해 진입점의 수를 줄여 클라이언트의 공격 노출 영역을 최소화할 수 있습니다. 이러한 작업은 "의무 분리" 및 "환경의 분리" 보안 원칙을 통해 수행할 수 있습니다.
 
-즉, 다른 기능으로부터 민감한 기능을 격리하면 어떤 한 수준에서의 실수가 다른 수준의 보안 위험으로 이어질 수 있는 가능성을 낮출 수 있습니다. 예제:
+즉, 다른 기능으로부터 민감한 기능을 격리하면 어떤 한 수준에서의 실수가 다른 수준의 보안 위험으로 이어질 수 있는 가능성을 낮출 수 있습니다. 예:
 
 * 관리 작업은 손상으로 이어질 수 있는 작업과 함께 수행하면 안 됩니다(예: 인프라 서버를 감염시키는 관리자의 전자 메일 내의 맬웨어).
 * 매우 민감한 작업에 사용되는 워크스테이션은 인터넷 검색 등 위험도가 높은 용도에 사용하는 시스템으로 사용하면 안 됩니다.
 
-불필요한 소프트웨어를 제거하여 시스템의 공격 노출 영역을 줄입니다. 예제:
+불필요한 소프트웨어를 제거하여 시스템의 공격 노출 영역을 줄입니다. 예:
 
 * 디바이스의 주요 목적이 클라우드 서비스를 관리하는 것인 경우 모든 표준 관리, 지원 또는 개발 워크스테이션은 이메일 클라이언트 또는 기타 생산성 애플리케이션을 설치할 필요가 없습니다.
 
-인프라 구성 요소에 대한 관리자 권한이 있는 클라이언트 시스템은 보안 위험을 줄이기 위하여 가능한 한 가장 엄격한 정책을 적용해야 합니다. 예제:
+인프라 구성 요소에 대한 관리자 권한이 있는 클라이언트 시스템은 보안 위험을 줄이기 위하여 가능한 한 가장 엄격한 정책을 적용해야 합니다. 예:
 
 * 보안 정책은 개방된 인터넷 액세스를 거부하는 그룹 정책 설정과 제한적인 방화벽 구성 사용을 포함할 수 있습니다.
 * 직접 액세스가 필요한 경우 인터넷 프로토콜 보안(IPsec) VPN을 사용합니다.
@@ -66,7 +66,7 @@ Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 
 ### <a name="providing-security-for-azure-remote-management"></a>Azure의 원격 관리를 위한 보안 제공
 Azure는 Azure 클라우드 서비스 및 가상 머신을 관리하는 관리자를 지원하기 위해 보안 메커니즘을 제공합니다. 이러한 메커니즘은 다음을 포함합니다.
 
-* 인증 및 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/role-assignments-portal.md).
+* 인증 및 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md).
 * 모니터링, 로깅 및 보고.
 * 인증서 및 암호화된 통신.
 * 웹 관리 포털.
@@ -112,14 +112,14 @@ Virtual Machine–배포 애플리케이션은 필요에 따라 MMC(Microsoft Ma
 * RD 게이트웨이를 관리자 워크스테이션과 동일한 [관리 도메인](/previous-versions/windows/it-pro/windows-2000-server/bb727085(v=technet.10))에 조인합니다. 이는 사이트 간 IPsec VPN 또는 Azure AD에 단방향 트러스트 관계가 있는 도메인 내의 ExpressRoute를 사용하는 경우 또는 온-프레미스 AD DS 인스턴스와 Azure AD 간의 자격 증명을 페더레이션하는 경우 필요합니다.
 * [클라이언트 연결 권한 부여 정책](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753324(v=ws.11))을 구성하여 RD 게이트웨이가 클라이언트 컴퓨터 이름이 유효하고(도메인에 조인됨) Azure Portal에 액세스할 수 있도록 허용되었는지 확인하도록 합니다.
 * [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/)에 대한 IPsec을 사용하여 도청 및 토큰 도난으로부터 관리 트래픽을 보호하거나 [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)를 통해 격리된 인터넷 링크를 고려합니다.
-* RD 게이트웨이을 통해 로그온 하는 관리자에 대해 multi-factor authentication ( [AZURE AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)를 통해) 또는 스마트 카드 인증을 사용 하도록 설정 합니다.
+* [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)을 통한 다단계 인증 또는 RD 게이트웨이를 통해 로그온하는 관리자를 위한 스마트 카드 인증을 사용 설정합니다.
 * Azure에서 원본 [IP 주소 제한](https://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) 또는 [네트워크 보안 그룹](../../virtual-network/network-security-groups-overview.md)을 구성하여 허용된 관리 엔드포인트의 수를 최소화합니다.
 
 ## <a name="security-guidelines"></a>보안 지침
 일반적으로 클라우드와 함께 사용하기 위해 관리자 워크스테이션의 보안을 강화하는 작업은 모든 워크스테이션 온-프레미스에 적용되는 작업(예: 최소화된 빌드 및 제한적인 권한)과 유사합니다. 클라우드 관리의 몇 가지 고유한 측면은 원격 또는 대역 외 엔터프라이즈 관리와 비슷합니다. 여기에는 자격 증명의 사용 및 감사, 보안 향상된 원격 액세스, 위협 요소 탐지 및 대응이 있습니다.
 
 ### <a name="authentication"></a>인증
-Azure 로그온 제한을 사용하여 관리 도구에 액세스하기 위한 원본 IP 주소를 제한하고 액세스 요청을 감사할 수 있습니다. Azure가 관리 클라이언트 (워크스테이션 및/또는 응용 프로그램)를 식별 하는 데 도움이 되도록 SMAPI (Windows PowerShell cmdlet과 같은 고객이 개발한 도구를 통해) 및 Azure Portal를 구성 하 여 TLS/SSL 인증서 외에도 클라이언트 쪽 관리 인증서가 설치 되도록 할 수 있습니다. 또한 관리자 액세스에 대해 다단계 인증을 요구하는 것이 좋습니다.
+Azure 로그온 제한을 사용하여 관리 도구에 액세스하기 위한 원본 IP 주소를 제한하고 액세스 요청을 감사할 수 있습니다. Azure가 관리 클라이언트(워크스테이션 및/또는 애플리케이션)를 파악하도록 하려면 Windows PowerShell cmdlet과 같은 고객 개발 도구를 통한 SMAPI와 Azure Portal이 TLS/SSL 인증서 외에도 설치할 클라이언트 쪽 관리 인증서를 요구하도록 구성할 수 있습니다. 또한 관리자 액세스에 대해 다단계 인증을 요구하는 것이 좋습니다.
 
 Azure에 배포하는 일부 애플리케이션 또는 서비스는 최종 사용자와 관리자 액세스를 위한 자체 인증 메커니즘이 있을 수 있지만, 다른 것들은 Azure AD를 최대한 활용합니다. Active Directory Federation Services(AD FS)를 통해 자격 증명을 페더레이션할지, 디렉터리 동기화를 사용할지, 클라우드에서 사용자 계정만 관리할지에 따라 [Microsoft Identity Manager](/microsoft-identity-manager/)(Azure AD Premium의 일부)를 사용하면 리소스 간의 ID 수명 주기를 관리할 수 있습니다.
 
@@ -157,12 +157,12 @@ RD 게이트웨이를 통해 Azure에 연결되지 않은 독립 실행형 강�
 
 독립 실행형 강화된 워크스테이션 시나리오에서(아래 참조) Windows 방화벽(또는 비 Microsoft 클라이언트 방화벽)의 로컬 인스턴스는 RDP와 같이 인바운드 연결을 차단하도록 구성됩니다. 관리자는 강화된 워크스테이션에 로그온하여 VPN을 Azure Virtual Network와 연결한 후 Azure에 연결하는 RDP 세션을 시작할 수 있지만, 회사 PC에 로그온할 수 없으며 RDP를 사용하여 강화된 워크스테이션에 연결할 수 있습니다.
 
-![독립 실행형 강화 된 워크스테이션 시나리오를 보여 주는 다이어그램](./media/management/stand-alone-hardened-workstation-topology.png)
+![독립 실행형 강화된 워크스테이션 시나리오를 보여 주는 다이어그램](./media/management/stand-alone-hardened-workstation-topology.png)
 
 ### <a name="corporate-pc-as-virtual-machine"></a>회사 PC의 가상 머신화
 독립 실행형 강화된 워크스테이션이 비용상 제한되거나 불편한 경우, 강화된 워크스테이션은 비 관리 작업을 수행하는 데 가상 머신을 호스팅할 수 있습니다.
 
-![관리 되지 않는 작업을 수행 하기 위해 가상 컴퓨터를 호스트 하는 강화 된 워크스테이션을 보여 주는 다이어그램입니다.](./media/management/hardened-workstation-enabled-with-hyper-v.png)
+![비관리 작업을 수행하기 위해 가상 머신을 호스팅하는 강화된 워크스테이션을 보여 주는 다이어그램](./media/management/hardened-workstation-enabled-with-hyper-v.png)
 
 한 대의 워크스테이션을 사용하여 시스템 관리 및 기타 일상적인 작업을 수행하면서 발생할 수 있는 몇 가지 보안 위험을 방지하기 위해 Windows Hyper-V 가상 머신을 강화된 워크스테이션에 배포할 수 있습니다. 이 가상 머신은 회사 PC로 사용할 수 있습니다. 회사 PC 환경은 호스트로부터 격리할 수 있어, 공격 노출 영역을 줄이고 중요한 관리 작업과 사용자의 일상적인 작업(예: 전자 메일)를 분리할 수 있습니다.
 
@@ -176,7 +176,7 @@ Azure에서 애플리케이션 및 데이터를 관리하는 경우 다음의 �
 
 | 안 함 | 수행 |
 | --- | --- |
-| 관리자 액세스 또는 다른 암호 (예: TLS/SSL 또는 관리 인증서)에 대 한 자격 증명을 전자 메일로 보내지 않습니다. |계정 이름 및 음성 암호(음성 메일에는 저장되지 않음)를 제공하여 기밀성을 유지하거나, 클라이언트/서버 인증서의 원격 설치를 수행하거나(암호화된 세션을 통해), 보호된 네트워크 공유에서 다운로드하거나, 이동식 미디어를 통해 직접 배포합니다. |
+| 관리자 액세스 또는 기타 비밀(예: TLS/SSL 또는 관리 인증서)에 대한 자격 증명을 메일로 보내지 마세요. |계정 이름 및 음성 암호(음성 메일에는 저장되지 않음)를 제공하여 기밀성을 유지하거나, 클라이언트/서버 인증서의 원격 설치를 수행하거나(암호화된 세션을 통해), 보호된 네트워크 공유에서 다운로드하거나, 이동식 미디어를 통해 직접 배포합니다. |
 | - | 관리 인증서 수명 주기를 사전 관리합니다. |
 | 암호화되지 않았거나 해시되지 않은 애플리케이션 스토리지(스프레드시트, SharePoint 사이트 또는 파일 공유 등)에 계정 암호를 저장하지 마세요. |보안 관리 원칙 및 시스템 강화 정책을 설정하고, 이를 개발 환경에 적용합니다. |
 | - | Azure SSL/TLS 사이트에 적절하게 액세스하도록 해주는 [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) 인증서 고정 규칙을 사용합니다. |
@@ -214,4 +214,4 @@ Azure 클라우드 서비스, Virtual Machines 및 애플리케이션을 관리�
 
 * [권한 있는 액세스 보안](/windows-server/identity/securing-privileged-access/securing-privileged-access) - Azure 관리를 위한 보안 관리 워크스테이션의 설계 및 구축에 대한 기술 세부 정보를 가져옵니다.
 * [Microsoft 보안 센터](https://microsoft.com/en-us/trustcenter/cloudservices/azure) - Azure 패브릭 및 Azure에서 실행되는 워크로드를 보호하는 Azure 플랫폼 기능에 대해 알아봅니다.
-* [Microsoft 보안 대응 센터](https://www.microsoft.com/msrc) -Azure와 관련 된 문제를 포함 하 여 microsoft 보안 취약점을 보고 하거나 전자 메일을 통해 다음을 수행할 수 있습니다. [secure@microsoft.com](mailto:secure@microsoft.com)
+* [Microsoft 보안 응답 센터](https://www.microsoft.com/msrc) - Azure와 관련된 문제를 비롯한 Microsoft 보안 취약점을 보고하거나 [secure@microsoft.com](mailto:secure@microsoft.com)로 전자 메일을 보낼 수 있습니다.

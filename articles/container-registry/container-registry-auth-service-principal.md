@@ -3,12 +3,12 @@ title: 서비스 주체를 사용하여 인증
 description: Azure Active Directory 서비스 주체를 사용하여 프라이빗 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공합니다.
 ms.topic: article
 ms.date: 03/15/2021
-ms.openlocfilehash: a32538e5fc5354427bafc5098634becdcedd1239
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 7d64f63de3227394d1f69b2049f0a58dda35e6e6
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285538"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440721"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>서비스 주체로 Azure Container Registry 인증
 
@@ -30,8 +30,10 @@ Azure AD 서비스 주체를 사용하면 프라이빗 컨테이너 레지스트
 
 **헤드리스 시나리오** 에서 레지스트리 액세스를 제공하려면 서비스 주체를 사용해야 합니다. 즉, 자동 또는 무인 방식으로 컨테이너 이미지를 푸시하거나 풀해야 하는 모든 애플리케이션, 서비스 또는 스크립트입니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
-  * *풀*: 레지스트리에서 Kubernetes, DC/OS 및 Docker Swarm을 포함한 오케스트레이션 시스템으로 컨테이너를 배포합니다. 컨테이너 레지스트리에서 관련 Azure 서비스(예: [Azure Kubernetes Service(AKS)](../aks/cluster-container-registry-integration.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](../service-fabric/index.yml) 등)로 풀할 수도 있습니다.
+  * *풀*: 레지스트리에서 Kubernetes, DC/OS 및 Docker Swarm을 포함한 오케스트레이션 시스템으로 컨테이너를 배포합니다. 컨테이너 레지스트리에서 관련 Azure 서비스(예: [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](../service-fabric/index.yml) 등)로 가져올 수도 있습니다.
 
+    > [!TIP]
+    > Azure 컨테이너 레지스트리에서 이미지를 끌어오려면 여러 [Kubernetes 시나리오에서](authenticate-kubernetes-options.md) 서비스 주체를 권장합니다. AKS(Azure Kubernetes Service)를 사용하면 자동화된 메커니즘을 사용해 클러스터의 [관리 ID](../aks/cluster-container-registry-integration.md)를 사용하도록 설정하여 대상 레지스트리를 인증할 수도 있습니다. 
   * *푸시*: 컨테이너 이미지를 빌드하고 Azure Pipelines 또는 Jenkins와 같은 연속 통합 및 배포 솔루션을 사용하여 레지스트리에 푸시합니다.
 
 레지스트리에 개별 액세스하는 경우, 예를 들어 컨테이너 이미지를 개발 워크스테이션에 수동으로 풀하는 경우, 레지스트리 액세스를 위해 [Azure AD ID](container-registry-authentication.md#individual-login-with-azure-ad)(예: [az acr login][az-acr-login])를 사용하는 것이 좋습니다.
@@ -55,7 +57,7 @@ GitHub에서 Azure CLI에 대한 이전 샘플 스크립트 및 Azure PowerShell
 각 값의 형식은 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`입니다. 
 
 > [!TIP]
-> [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) 명령을 실행하여 서비스 주체의 암호를 다시 생성할 수 있습니다.
+> [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset) 명령을 실행하여 서비스 주체의 암호를 다시 생성할 수 있습니다.
 >
 
 ### <a name="use-credentials-with-azure-services"></a>Azure 서비스에서 자격 증명 사용
@@ -95,6 +97,19 @@ az acr login --name myregistry
 
 CLI는 레지스트리로 세션을 인증하기 위해 `az login`을 실행할 때 생성된 토큰을 사용합니다.
 
+## <a name="create-service-principal-for-cross-tenant-scenarios"></a>교차 테넌트 시나리오에 대한 서비스 주체 만들기
+
+한 Azure Active Directory(테넌트)의 컨테이너 레지스트리에서 다른 Azure Active Directory 서비스 또는 앱으로 이미지를 끌어와야 하는 Azure 시나리오에서도 서비스 주체를 사용할 수 있습니다. 예를 들어 조직은 테넌트 B의 공유 컨테이너 레지스트리에서 이미지를 가져와야 하는 테넌트 A의 앱을 실행할 수 있습니다.
+
+테넌트 간 시나리오에서 컨테이너 레지스트리로 인증할 수 있는 서비스 주체를 만들려면 다음을 수행합니다.
+
+*  테넌트 A에서 [다중 테넌트 앱](../active-directory/develop/single-and-multi-tenant-apps.md)(서비스 주체)을 만듭니다. 
+* 테넌트 B에서 앱 프로비전
+* 테넌트 B의 레지스트리에서 끌어올 수 있는 서비스 주체 권한 부여
+* 새 서비스 주체를 사용하여 인증하도록 테넌트 A에서 서비스 또는 앱 업데이트
+
+예제 단계는 [컨테이너 레지스트리에서 다른 AD 테넌트의 AKS 클러스터로 이미지 끌어오기](authenticate-aks-cross-tenant.md)를 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Container Registry로 인증하는 다른 시나리오에 대한 [인증 개요](container-registry-authentication.md)를 참조하세요.
@@ -106,6 +121,6 @@ CLI는 레지스트리로 세션을 인증하기 위해 `az login`을 실행할 
 [acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-login]: /cli/azure/reference-index#az-login
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-login]: /cli/azure/reference-index#az_login
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az_ad_sp_credential_reset

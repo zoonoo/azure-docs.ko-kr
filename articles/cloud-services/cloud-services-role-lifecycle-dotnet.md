@@ -1,6 +1,6 @@
 ---
-title: 클라우드 서비스 (클래식) 수명 주기 이벤트 처리 | Microsoft Docs
-description: 수명 주기 이벤트에 응답 하는 메서드를 제공 하는 RoleEntryPoint를 비롯 하 여 .NET에서 클라우드 서비스 역할의 수명 주기 메서드를 사용 하는 방법에 대해 알아봅니다.
+title: 클라우드 서비스(클래식) 수명 주기 이벤트 처리 | Microsoft Docs
+description: 수명 주기 이벤트에 응답하는 메서드를 제공하는 RoleEntryPoint를 포함하여 .NET에서 클라우드 서비스 역할의 수명 주기 메서드를 사용하는 방법을 알아보세요.
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
@@ -9,16 +9,16 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: b5aa4bd061647f63ebcc70109f0ba21b39e814cc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98741335"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>.NET에서 웹 또는 작업자 역할의 수명 주기 사용자 지정
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 작업자 역할을 만들 때 수명 주기 이벤트에 응답할 수 있게 재정의하도록 메서드를 제공하는 [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) 클래스를 확장합니다. 웹 역할의 경우, 이 클래스는 선택적이므로 수명 주기 이벤트에 응답하는 데 사용합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "98741335"
 
 **RoleEntryPoint** 를 확장하는 경우 메서드의 다음 동작을 알고 있어야 합니다.
 
-* [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) 메서드는 부울 값을 반환 하므로이 메서드에서 **false** 를 반환할 수 있습니다.
+* [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) 메서드는 부울 값을 반환하므로 이 메서드에서 **false** 를 반환할 수 있습니다.
   
    코드가 **false** 를 반환하는 경우, 준비된 모든 종료 시퀀스를 실행하지 않고 역할 프로세스가 갑자기 종료됩니다. 일반적으로, **OnStart** 메서드에서 **false** 를 반환하지 않아야 합니다.
 * **RoleEntryPoint** 메서드의 오버로드 내에서 catch되지 않은 모든 예외는 처리되지 않은 예외로 취급됩니다.

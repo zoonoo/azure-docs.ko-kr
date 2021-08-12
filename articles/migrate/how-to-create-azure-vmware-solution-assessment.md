@@ -6,18 +6,18 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 72372e6365a2535e449681549a515c3f8594f2f1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f7014f8a403614740bdbc05abab4e7024f83c196
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786603"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111570523"
 ---
-# <a name="create-an-azure-vmware-solution-avs-assessment"></a>AVS(Azure VMware Solution) 평가 만들기
+# <a name="create-an-azure-vmware-solution-assessment"></a>Azure VMware Solution 평가 만들기
 
-이 문서에서는 Azure Migrate: 검색 및 평가를 사용하여 VMware 환경에서 온-프레미스 서버에 대한 AVS(Azure VMware Solution) 평가를 만드는 방법을 설명합니다.
+이 문서에서는 Azure Migrate: 검색 및 평가를 사용하여 VMware 환경에서 온-프레미스 서버에 대한 Azure VMware Solution 평가를 만드는 방법을 설명합니다.
 
-[Azure Migrate](migrate-services-overview.md)를 사용하면 Azure로 쉽게 마이그레이션할 수 있습니다. Azure Migrate는 온-프레미스 인프라, 애플리케이션 및 데이터의 검색, 평가 및 Azure로의 마이그레이션을 추적할 수 있는 중앙 허브를 제공합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure 도구뿐만 아니라 타사 ISV(독립 소프트웨어 공급업체) 제품도 제공합니다.
+[Azure Migrate](migrate-services-overview.md)는 Azure로 마이그레이션하는 데 도움이 됩니다. Azure Migrate는 온-프레미스 인프라, 애플리케이션 및 데이터의 검색, 평가 및 Azure로의 마이그레이션을 추적할 수 있는 중앙 허브를 제공합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure 도구뿐만 아니라 타사 ISV(독립 소프트웨어 공급업체) 제품도 제공합니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -31,9 +31,9 @@ ms.locfileid: "104786603"
 
 Azure Migrate: 검색 및 평가를 사용하여 만들 수 있는 평가에는 세 가지 유형이 있습니다.
 
-***평가 유형** | **세부 정보**
+***평가 형식** | **세부 정보**
 --- | --- 
-**Azure VM** | 온-프레미스 서버를 Azure 가상 머신으로 마이그레이션하기 위한 평가. 이 평가 유형을 사용하여 Azure VM으로 마이그레이션하기 위한 [VMware](how-to-set-up-appliance-vmware.md) 및 [Hyper-V](how-to-set-up-appliance-hyper-v.md) 환경과 [물리적 서버](how-to-set-up-appliance-physical.md)에서 의 온-프레미스 서버를 평가할 수 있습니다.
+**Azure VM** | 온-프레미스 서버를 Azure 가상 머신으로 마이그레이션하기 위한 평가. 이 평가 형식을 사용하여 Azure VM으로 마이그레이션하기 위한 [VMware](how-to-set-up-appliance-vmware.md) 및 [Hyper-V](how-to-set-up-appliance-hyper-v.md) 환경과 [물리적 서버](how-to-set-up-appliance-physical.md)에서 의 온-프레미스 서버를 평가할 수 있습니다.
 **Azure SQL** | 온-프레미스 SQL Server를 VMware 환경에서 Azure SQL Database 또는 Azure SQL Managed Instance로 마이그레이션하기 위한 평가.
 **AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [AVS(Azure VMware 솔루션)](../azure-vmware/introduction.md)로 마이그레이션하기 위한 평가. 이 평가 유형을 사용하여 AVS(Azure VMware Solution)로 마이그레이션하기 위한 [VMware 환경](how-to-set-up-appliance-vmware.md)의 온-프레미스 서버를 평가할 수 있습니다. [자세한 정보](concepts-azure-vmware-solution-assessment-calculation.md)
 

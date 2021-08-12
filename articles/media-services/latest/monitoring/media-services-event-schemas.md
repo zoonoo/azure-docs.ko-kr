@@ -1,6 +1,6 @@
 ---
 title: Media Services 이벤트에 대한 Azure Event Grid 스키마
-description: Azure Event Grid를 사용 하 여 Media Services 이벤트에 대해 제공 되는 속성에 대해 알아봅니다.
+description: Azure Event Grid에서 Media Services 이벤트에 제공되는 속성에 대해 알아봅니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 6b502690a62410f1e8d2950074e8b479f7dc7f88
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 6b9d3f6973c210e7bd91c088ee7a276bfbcc48ce
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609738"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121985"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Media Services 이벤트에 대한 Azure Event Grid 스키마
 
@@ -48,11 +48,11 @@ JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있�
 
 ### <a name="monitoring-job-output-state-changes"></a>작업 출력 상태 변경 모니터링
 
-작업에 여러 작업 출력이 포함 될 수 있습니다 (여러 작업 출력이 포함 되도록 변환을 구성한 경우). 개별 작업 출력의 세부 정보를 추적 하려는 경우 작업 출력 변경 이벤트를 수신 대기 합니다.
+작업에 여러 작업 출력이 포함될 수 있습니다(여러 작업 출력이 포함되도록 변환을 구성한 경우). 개별 작업 출력의 세부 정보를 추적하려면 작업 출력 변경 이벤트를 수신 대기합니다.
 
-각 **작업** 은 **joboutput** 보다 더 높은 수준에 있으므로 작업 출력 이벤트는 해당 작업 내에서 발생 합니다. 
+각 **작업** 은 **JobOutput** 보다 더 높은 수준에 있으므로 작업 출력 이벤트는 해당 작업 내에서 실행됩니다. 
 
-의 오류 메시지는 `JobFinished` `JobCanceled` `JobError` 각 작업 출력에 대 한 집계 된 결과를 출력 합니다. 반면 작업 출력 이벤트는 각 태스크가 완료 될 때 발생 합니다. 예를 들어, 인코딩 출력이 있고 그 뒤에 비디오 분석 출력이 있으면 최종 JobFinished 이벤트가 집계 된 데이터로 시작 하기 전에 작업 출력 이벤트로 발생 하는 두 개의 이벤트가 발생 합니다.
+`JobFinished`, `JobCanceled`, `JobError`의 오류 메시지는 모든 작업 출력이 완료되면 각 작업 출력에 대한 집계 결과를 출력합니다. 반면, 작업 출력 이벤트는 각 태스크가 완료될 때 발생합니다. 예를 들어, 인코딩 출력과 그 다음 비디오 분석 출력이 있으면 최종 JobFinished 이벤트가 집계 데이터로 실행되기 전에 두 개의 이벤트가 작업 출력 이벤트로 실행됩니다.
 
 | 이벤트 유형 | 설명 |
 | ---------- | ----------- |
@@ -66,7 +66,7 @@ JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있�
 
 다음에 나오는 [스키마 예제](#event-schema-examples)를 참조하세요.
 
-### <a name="monitoring-job-output-progress"></a>작업 출력 모니터링 진행률
+### <a name="monitoring-job-output-progress"></a>작업 출력 진행률 모니터링
 
 | 이벤트 유형 | 설명 |
 | ---------- | ----------- |
@@ -95,17 +95,17 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 트랙 수준 이벤트는 트랙마다 발생합니다. 
 
 > [!NOTE]
-> 모든 추적 수준 이벤트는 라이브 인코더가 연결 된 후에 발생 합니다.
+> 모든 트랙 수준 이벤트는 라이브 인코더가 연결된 후에 발생합니다.
 
-추적 수준 이벤트 유형은 다음과 같습니다.
+트랙 수준 이벤트 유형은 다음과 같습니다.
 
 | 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | 미디어 서버가 너무 늦거나 타임스탬프가 겹치기 때문에 데이터 청크가 삭제됩니다(새 데이터 청크의 타임스탬프가 이전 데이터 청크의 종료 시간보다 이전임). |
 | Microsoft.Media.LiveEventIncomingStreamReceived | 미디어 서버에서 스트림 또는 연결의 각 트랙에 대한 첫 번째 데이터 청크를 받습니다. |
-| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | 미디어 서버에서 오디오 및 비디오 스트림이 동기화 되지 않은 것을 감지 합니다. 사용자 환경이 영향을 받지 않을 수 있으므로 경고로를 사용 합니다. |
-| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Media server는 외부 인코더에서 들어오는 두 비디오 스트림이 동기화 되지 않은 것을 감지 합니다. 사용자 환경이 영향을 받지 않을 수 있으므로 경고로를 사용 합니다. |
-| Microsoft.Media.LiveEventIngestHeartbeat | 라이브 이벤트가 실행될 때 각 트랙에 대해 20초마다 게시됩니다. 수집 상태 요약을 제공합니다.<br/><br/>인코더가 처음 연결 된 후에는 인코더가 계속 연결 되어 있는지 여부에 상관 없이 하트 비트 이벤트는 20 초 마다 계속 내보냅니다. |
+| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | 미디어 서버는 오디오 및 비디오 스트림이 동기화되지 않은 경우를 탐지합니다. 사용자 환경이 영향을 받지 않을 수 있으므로 이 이벤트를 경고로 사용합니다. |
+| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | 미디어 서버는 외부 인코더에서 들어오는 두 비디오 스트림이 하나라도 동기화되지 않은 경우를 탐지합니다. 사용자 환경이 영향을 받지 않을 수 있으므로 이 이벤트를 경고로 사용합니다. |
+| Microsoft.Media.LiveEventIngestHeartbeat | 라이브 이벤트가 실행될 때 각 트랙에 대해 20초마다 게시됩니다. 수집 상태 요약을 제공합니다.<br/><br/>인코더가 처음 연결된 후에는 인코더가 계속 연결되어 있는지에 관계없이 하트비트 이벤트가 20초마다 계속 발생합니다. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | 미디어 서버에서 들어오는 트랙의 불연속성을 감지합니다. |
 
 다음에 나오는 [스키마 예제](#event-schema-examples)를 참조하세요.
@@ -136,10 +136,10 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 유형 | 설명 |
 | -------- | ---- | ----------- |
 | previousState | 문자열 | 이벤트 전의 작업 상태입니다. |
-| state | 문자열 | 이 이벤트에서 알리는 직업의 새로운 상태입니다. 예를 들어 "예약 됨: 작업을 시작할 준비가 되었습니다." 또는 "완료 됨: 작업이 완료 되었습니다."와 같은 작업을 수행할 수 있습니다.|
+| state | 문자열 | 이 이벤트에서 알리는 직업의 새로운 상태입니다. 예를 들어, “예약됨: 작업을 시작할 준비가 되었습니다.” 또는 “완료됨: 작업이 완료되었습니다.” 등입니다.|
 
 작업 상태는 다음 중 하나일 수 있습니다. *큐에 대기됨*, *예약됨*, *처리 중*, *완료됨*, *오류*, *취소됨*, *취소 중*
 
@@ -206,7 +206,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 유형 | 설명 |
 | -------- | ---- | ----------- |
 | outputs | Array | 작업 출력을 가져옵니다.|
 
@@ -322,7 +322,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 유형 | 설명 |
 | -------- | ---- | ----------- |
 | streamId | 문자열 | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 추가해야 합니다. |  
 | ingestUrl | 문자열 | 라이브 이벤트에서 제공하는 수집 URL입니다. |  
@@ -330,7 +330,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 | encoderPort | 문자열 | 이 스트림이 발생한 인코더의 포트입니다. |
 | resultCode | 문자열 | 연결이 거부된 이유입니다. 결과 코드는 다음 표에 나와 있습니다. |
 
-[라이브 이벤트 오류 코드](../live-event-error-codes.md)에서 오류 결과 코드를 찾을 수 있습니다.
+[라이브 이벤트 오류 코드](../live-event-error-codes-reference.md)에서 오류 결과 코드를 찾을 수 있습니다.
 
 ### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
@@ -358,7 +358,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 유형 | 설명 |
 | -------- | ---- | ----------- |
 | streamId | 문자열 | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 제공해야 합니다. |
 | ingestUrl | 문자열 | 라이브 이벤트에서 제공하는 수집 URL입니다. |
@@ -392,7 +392,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 유형 | 설명 |
 | -------- | ---- | ----------- |
 | streamId | 문자열 | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 추가해야 합니다. |  
 | ingestUrl | 문자열 | 라이브 이벤트에서 제공하는 수집 URL입니다. |  
@@ -400,7 +400,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 | encoderPort | 문자열 | 이 스트림이 발생한 인코더의 포트입니다. |
 | resultCode | 문자열 | 인코더 연결이 끊어진 이유입니다. 정상적인 연결 끊기이거나 오류일 수 있습니다. 결과 코드는 다음 표에 나와 있습니다. |
 
-[라이브 이벤트 오류 코드](../live-event-error-codes.md)에서 오류 결과 코드를 찾을 수 있습니다.
+[라이브 이벤트 오류 코드](../live-event-error-codes-reference.md)에서 오류 결과 코드를 찾을 수 있습니다.
 
 정상적인 연결 끊기 결과 코드는 다음과 같습니다.
 
@@ -442,7 +442,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 유형 | 설명 |
 | -------- | ---- | ----------- |
 | trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | trackName | 문자열 | 트랙의 이름입니다. |
@@ -482,7 +482,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 유형 | 설명 |
 | -------- | ---- | ----------- |
 | trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | trackName | 문자열 | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
@@ -521,7 +521,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 유형 | 설명 |
 | -------- | ---- | ----------- |
 | minLastTimestamp | 문자열 | 모든 트랙(오디오 또는 비디오) 중에서 마지막 타임스탬프의 최솟값입니다. |
 | typeOfTrackWithMinLastTimestamp | 문자열 | 마지막 타임스탬프가 최소인 트랙 유형(오디오 또는 비디오)입니다. |
@@ -557,7 +557,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 유형 | 설명 |
 | -------- | ---- | ----------- |
 | firstTimestamp | 문자열 | 비디오 유형의 트랙/품질 수준 중 하나에 대해 받은 타임스탬프입니다. |
 | firstDuration | 문자열 | 첫 번째 타임스탬프가 있는 데이터 청크의 기간입니다. |
@@ -599,7 +599,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 유형 | 설명 |
 | -------- | ---- | ----------- |
 | trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | trackName | 문자열 | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
@@ -643,7 +643,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 유형 | 설명 |
 | -------- | ---- | ----------- |
 | trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | trackName | 문자열 | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
@@ -657,7 +657,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
 | 토픽 | 문자열 | EventGrid 항목입니다. 이 속성에는 Media Services 계정에 대한 리소스 ID가 있습니다. |
 | subject | 문자열 | Media Services 계정에 속한 Media Services 채널에 대한 리소스 경로입니다. topic과 subject를 연결하면 작업에 대한 리소스 ID가 제공됩니다. |
@@ -676,4 +676,4 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 - [미디어 서비스 이벤트를 포함하는 EventGrid .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Media Services 이벤트의 정의](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
-- [라이브 이벤트 오류 코드](../live-event-error-codes.md)
+- [라이브 이벤트 오류 코드](../live-event-error-codes-reference.md)

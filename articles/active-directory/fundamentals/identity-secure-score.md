@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 06/02/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: guptashi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23832d9f1205105f1f9711cdf3260b74ee4a9bb1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d5c1a1493a7ea2aac0945dae14fc4c547ad86c9
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952278"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409922"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Azure Active Directory의 ID 보안 점수란?
 
@@ -57,6 +57,11 @@ Azure에서는 48시간마다 사용자 보안 구성을 살펴보고 사용자 
 각 권장 사항은 Azure AD 구성에 따라 측정됩니다. 타사 제품을 사용하여 모범 사례 권장 사항을 사용하도록 설정하는 경우 개선 작업의 설정에서 이 구성 권장 사항을 지정할 수 있습니다. 또한 권장 사항이 사용자 환경에 적용되지 않는 경우 이를 무시하도록 설정하는 옵션도 있습니다. 무시된 권장 사항은 점수 계산에 포함되지 않습니다.
 
 ![타사에서 적용되는 동작을 무시하거나 표시](./media/identity-secure-score/identity-secure-score-ignore-or-third-party-reccomendations.png)
+
+- **해결 방법** - 개선 조치가 필요하다는 것을 인식하고 향후 어느 시점에서 이를 해결할 것을 계획합니다. 이 상태는 부분적으로 감지되었지만 완전히 완료되지 않은 작업에도 적용됩니다.
+- **계획** - 개선 조치를 완료하기 위한 구체적인 계획이 있습니다.
+- **위험 허용됨** - 보안은 항상 사용 편의성과 균형을 이루어야 하며 모든 권장 사항이 사용자 환경에 적합한 것은 아닙니다. 이 경우 위험 또는 나머지 위험을 수락하고 개선 조치를 시행하지 않도록 선택할 수 있습니다. 포인트는 제공되지 않지만 개선 조치 목록에 작업이 더 이상 표시되지 않습니다. 기록에서 이 작업을 보거나 언제든지 실행 취소할 수 있습니다.
+- **제3자를 통해 해결됨** 및 **대체 완화를 통해 해결됨** - 개선 조치가 제3자 애플리케이션이나 소프트웨어 또는 내부 도구에서 이미 해결되었습니다. 작업의 가치가 있는 포인트를 얻게 되므로 점수는 전반적인 보안 상태를 더 잘 반영합니다. 제3자 또는 내부 도구가 더 이상 제어를 다루지 않는 경우 다른 상태를 선택할 수 있습니다. 개선 조치가 이러한 상태 중 하나로 표시되는 경우 Microsoft는 구현의 완전성을 확인할 수 없습니다.
 
 ## <a name="how-does-it-help-me"></a>보안 점수가 어떻게 도움이 되나요?
 

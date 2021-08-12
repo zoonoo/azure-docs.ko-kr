@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
-ms.openlocfilehash: 1214cfaa0d534edc47cdcadd98ab0a3ead4d2f46
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 856cef0da55b12e808565d25ffe2ac92db4762eb
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985637"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112238115"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 특정 보안 경고에 대한 자동 응답 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "111985637"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.security%2fsecuritycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
+[![Azure에 배포합니다.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.security%2fsecuritycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -62,7 +62,7 @@ Azure Security Center의 워크플로 자동화 기능을 사용하는 데 필�
 
 - **포털**:
 
-  [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.security%2fsecuritycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
+  [![Azure에 배포합니다.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.security%2fsecuritycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
 
   이 배포 옵션에 대한 자세한 내용은 [배포 단추를 사용하여 GitHub 리포지토리에서 템플릿 배포](../azure-resource-manager/templates/deploy-to-azure-button.md)를 참조하세요.
 
@@ -73,7 +73,7 @@ Azure Portal을 사용하여 워크플로 자동화가 배포되었는지 확인
 1. [Azure Portal](https://portal.azure.com)에서 **Security Center** 를 엽니다.
 1. 상단 메뉴 모음에서 필터 아이콘을 선택하고 새 워크플로 자동화를 배포한 특정 구독을 선택합니다.
 1. Security Center의 사이드바에서 **워크플로 자동화** 를 열고 새 자동화를 확인합니다.
-    :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="구성된 자동화 목록" lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
+    :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="구성된 자동화 목록." lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
     >[!TIP]
     > 구독에 많은 워크플로 자동화가 있는 경우 **이름으로 필터링** 옵션을 사용합니다.
 
@@ -84,7 +84,7 @@ Azure Portal을 사용하여 워크플로 자동화가 배포되었는지 확인
 1. [Azure Portal](https://portal.azure.com)에서 **Security Center** 를 엽니다.
 1. 상단 메뉴 모음에서 필터 아이콘을 선택하고 새 워크플로 자동화를 배포한 특정 구독을 선택합니다.
 1. Security Center의 사이드바에서 **워크플로 자동화** 를 열고 삭제할 자동화를 찾습니다.
-    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="워크플로 자동화를 제거하는 단계" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
+    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="워크플로 자동화를 제거하는 단계입니다." lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
 1. 삭제할 항목의 확인란을 선택합니다.
 1. 도구 모음에서 **삭제** 를 선택합니다.
 

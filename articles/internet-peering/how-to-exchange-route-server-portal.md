@@ -1,7 +1,7 @@
 ---
-title: 포털을 사용 하 여 경로 서버가 있는 Exchange 파트너에 대 한 피어 링 연결
+title: 포털을 사용하여 경로 서버가 있는 Exchange 파트너에 대해 피어링 연결
 titleSuffix: Azure
-description: Azure Portal를 사용 하 여 경로 서버와의 Exchange 피어 링을 만들거나 수정 합니다.
+description: Azure Portal을 사용하여 경로 서버와 Exchange 피어링 만들기 또는 수정
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
 ms.openlocfilehash: 7e10cd91eadd338217845b1504e8e9160bccfc98
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91537194"
 ---
-# <a name="create-or-modify-an-exchange-peering-with-route-server-in-azure-portal"></a>Azure Portal에서 경로 서버를 사용 하 여 Exchange 피어 링 만들기 또는 수정
+# <a name="create-or-modify-an-exchange-peering-with-route-server-in-azure-portal"></a>Azure Portal을 사용하여 경로 서버와 Exchange 피어링 만들기 또는 수정
 
-이 문서에서는 Azure Portal를 사용 하 여 경로 서버와 함께 Microsoft Exchange 피어 링을 만드는 방법을 설명 합니다. 이 문서에는 리소스의 상태 확인, 업데이트 또는 삭제 및 프로비저닝 해제를 수행하는 방법도 나와 있습니다.
+이 문서에서는 Azure Portal을 사용하여 경로 서버와 Microsoft Exchange 피어링을 만드는 방법을 설명합니다. 이 문서에는 리소스의 상태 확인, 업데이트 또는 삭제 및 프로비저닝 해제를 수행하는 방법도 나와 있습니다.
 
 
 ## <a name="before-you-begin"></a>시작하기 전에
@@ -29,7 +29,7 @@ ms.locfileid: "91537194"
 ### <a name="sign-in-to-the-portal-and-select-your-subscription"></a>포털에 로그인하고 구독 선택
 [!INCLUDE [Account](./includes/account-portal.md)]
 
-### <a name="create-an-exchange-peering-with-route-server"></a><a name=create></a>경로 서버를 사용 하 여 Exchange 피어 링 만들기
+### <a name="create-an-exchange-peering-with-route-server"></a><a name=create></a>경로 서버를 사용하여 Exchange 피어링 만들기
 
 
 인터넷 교환 공급자는 [피어링을 만들어]( https://go.microsoft.com/fwlink/?linkid=2129593) Exchange 피어링 요청을 만들 수 있습니다.
@@ -59,59 +59,59 @@ ms.locfileid: "91537194"
 
 #### <a name="configure-connections-and-submit"></a>연결 구성 및 제출
 
-1. 피어 링 만들기 페이지의 구성 탭에서 다음과 같이 상자를 입력 합니다.
+1. 피어링 만들기 페이지의 구성 탭에서 다음과 같이 입력란을 채웁니다.
 
     > [!div class="mx-imgBorder"]
     > ![경로 서버 구성](./media/setup-exchange-conf-tab-routeserver.png)
  
-    * 피어 링 유형으로 **Direct** 를 선택 합니다.
-    * Microsoft 네트워크에 대해 **exchange 경로 서버를 사용 하 여 AS8075** 를 선택 합니다. 
-    * **기본 무료** 로 SKU를 선택 합니다. 특수 응용 프로그램용으로 예약 된 프리미엄 무료를 선택 하지 마세요.
-    * 피어 링을 설정 하려는 **Metro** 위치를 선택 합니다.
+    * 피어링 유형으로 **직접** 을 선택합니다.
+    * Microsoft 네트워크에 대해 **AS8075(Exchange 경로 서버 사용)** 를 선택합니다. 
+    * **기본 무료** 로 SKU를 선택합니다. 프리미엄 무료는 특수 응용 프로그램용으로 예약되어 있으므로 선택하지 마세요.
+    * 피어링을 설정하려는 **메트로** 위치를 선택합니다.
 
-1. **피어 링 연결** 에서 **새로 만들기** 를 선택 합니다.
+1. **피어링 연결** 에서 **새로 만들기** 를 선택합니다.
 
-1.  **직접 피어 링 연결** 에서 다음 BGP 세션 세부 정보를 입력 합니다.
+1.  **직접 피어링 연결** 에서 다음 BGP 세션 세부 정보를 입력합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![스크린샷 추가 된 추가 정보를 포함 하는 직접 피어 링 연결 창을 보여 줍니다.](./media/setup-exchange-conf-tab-direct-route.png)
+    > ![스크린샷은 세부 정보가 추가된 직접 피어링 연결 창을 보여 줍니다.](./media/setup-exchange-conf-tab-direct-route.png)
 
 
-     * 피어 링 기능-피어 링에 적절 한 물리적 위치를 선택 합니다.
+     * 피어링 기능, 피어링에 적절한 물리적 위치 선택
      * 세션 주소 공급자, 피어 선택
-     * Exchange 공급자 피어에서 세션 IPv4 접두사를 제공 합니다.
-     * 피어 세션 IPv4 주소는 해당 IP 접두사 범위에서 경로 서버의 exchange 피어에서 선택 됩니다.
-     * Microsoft session IPv4 주소는 IP 접두사 범위에서 할당 된 라우터 IP입니다.
+     * 세션 IPv4 접두사는 Exchange 공급자 피어에서 제공합니다.
+     * 피어 세션 IPv4 주소는 해당 IP 접두사 범위에서 경로 서버의 Exchange 피어에 의해 선택됩니다.
+     * Microsoft 세션 IPv4 주소는 IP 접두사 범위에서 할당된 라우터 IP입니다.
      * 현재 세션 IPv6은 선택 사항입니다.
-     * 최대 보급 IPv4 접두사는 최대 2만 일 수 있습니다. 
-     * 피어 링 서비스에는 기본적으로 사용 되지 않습니다. Exchange 공급자가 Microsoft와 피어 링 서비스 계약에 서명 하면이 기능을 사용 하도록 설정할 수 있습니다.
+     * 최대 보급 IPv4 접두사는 최대 20000까지 가능합니다. 
+     * 기본적으로 Peering Service용으로는 사용되지 않습니다. Exchange 공급자가 Microsoft와 Peering Service 계약에 서명하면 이 기능을 사용하도록 설정할 수 있습니다.
 
-1. 완료 되 면 **저장** 을 클릭 합니다. 
+1. 완료되면 **저장** 을 클릭합니다. 
 
-1. 피어 링 만들기에서 유효성 검사가 통과 된 것을 볼 수 있습니다. 유효성 검사를 통과 한 후 **만들기** 를 클릭 합니다.
+1. 피어링 만들기에서 유효성 검사가 통과된 것을 볼 수 있습니다. 유효성 검사를 통과한 후 **만들기** 를 클릭합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![설정 유효성 검사](./media/setup-exchange-conf-tab-validation.png)
+    > ![설정의 유효성 검사](./media/setup-exchange-conf-tab-validation.png)
 
     >[!NOTE]
-    >Microsoft 피어 링 서비스 파트너에 해당 하는 일반적인 ISP (인터넷 서비스 공급자)의 경우 고객 IP 접두사 등록이 필요 합니다. 그러나 exchange 파트너가 경로 서버를 사용 하는 경우 접두사를 사용 하는 대신 customer ASNs를 등록 해야 합니다. 고객의 접두사 등록에는 동일한 ASN 키를 사용할 수 있습니다.
+    >Microsoft Peering Service 파트너인 일반적인 ISP(인터넷 서비스 공급자)의 경우 고객 IP 접두사 등록이 필요합니다. 그러나 Exchange 파트너가 경로 서버를 사용하는 경우 접두사를 사용하는 대신 고객 ASN을 등록해야 합니다. 고객의 접두사 등록에 동일한 ASN 키를 사용해도 됩니다.
 
-1. 설정 섹션에서 **등록 된 ASNs** 를 선택 합니다.
-
-    > [!div class="mx-imgBorder"]
-    > ![스크린샷 이라는 등록 된 S Ns 메뉴 항목이 있는 피어 링 창이 표시 됩니다.](./media/setup-exchange-registered-asn.png)
-
-1. **등록 된 Asn 추가** 를 선택 하 여 exchange 구독에서 새 고객 asn을 만듭니다.
+1. 설정 섹션에서 **등록된 ASN** 을 선택합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![이름 및 S N 텍스트 상자를 포함 하는 A S N 창 등록을 보여 주는 스크린샷](./media/setup-exchange-register-new-asn.png)
+    > ![스크린샷은 피어링 창에 등록된 ASN 메뉴 항목이 호출된 것을 보여 줍니다.](./media/setup-exchange-registered-asn.png)
 
-1. ASN 등록에서 이름을 선택 하 고 customer ASN을 채운 다음 저장을 클릭 합니다.
-
-1. 등록 된 ASNs에는 각 ASN에 할당 된 접두사 키가 있습니다. Exchange 공급자는이 접두사 키를 고객에 게 제공 하 여 해당 구독에서 피어 링 서비스를 등록할 수 있도록 해야 합니다.
+1. **등록된 ASN 추가** 를 선택하여 Exchange 구독에서 새 고객 ASN을 만듭니다.
 
     > [!div class="mx-imgBorder"]
-    > ![스크린샷에는 접두사 키가 있는 등록 된 S Ns 창이 표시 됩니다.](./media/setup-exchange-register-asn-prefixkey.png)
+    > ![스크린샷은 이름 및 ASN 텍스트 상자가 있는 ASN 등록 창을 보여 줍니다.](./media/setup-exchange-register-new-asn.png)
+
+1. ASN 등록에서 이름을 선택하고 고객 ASN을 입력한 다음 저장을 클릭합니다.
+
+1. 등록된 ASN에는 각 ASN에 할당되어 연결된 접두사 키가 있습니다. Exchange 공급자는 고객이 각자의 구독에서 Peering Service를 등록할 수 있도록 고객에게 이 접두사 키를 제공해야 합니다.
+
+    > [!div class="mx-imgBorder"]
+    > ![스크린샷은 접두사 키가 있는 등록된 ASN 창을 보여 줍니다.](./media/setup-exchange-register-asn-prefixkey.png)
 
 
 
