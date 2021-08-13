@@ -3,12 +3,12 @@ title: '빠른 시작: cURL 및 REST를 사용하여 기술 자료 관리 - QnA 
 description: 이 빠른 시작에서는 REST API를 사용하여 기술 자료를 만들고, 게시하고, 쿼리하는 방법을 보여 줍니다.
 ms.date: 1/22/2021
 ms.topic: quickstart
-ms.openlocfilehash: 45af4dbe28720a614cc64cb7567ec8f96f3f40cb
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 0467004b8188f0187fa4e565e3637f5e765a510d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110487381"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111993436"
 ---
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -17,7 +17,7 @@ ms.locfileid: "110487381"
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 * 현재 버전의 [cURL](https://curl.haxx.se/). 빠른 시작에는 몇 가지 명령줄 스위치가 사용되며, 이러한 스위치는 [cURL 설명서](https://curl.haxx.se/docs/manpage.html)에 나와 있습니다.
-* 키와 리소스 이름을 사용하려면 [QnA Maker 리소스](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure?tabs=v1#create-a-new-qna-maker-service)가 있어야 합니다. 리소스를 만드는 동안 리소스 **이름** 을 입력한 다음, 키가 생성되었습니다. 리소스 이름은 엔드포인트의 하위 도메인으로 사용됩니다. 키와 리소스 이름을 검색하려면 Azure Portal에서 이 리소스에 대한 **빠른 시작** 을 선택합니다. 리소스 이름은 엔드포인트 URL의 첫 번째 하위 도메인입니다.
+* 키와 리소스 이름을 사용하려면 [QnA Maker 리소스](../how-to/set-up-qnamaker-service-azure.md?tabs=v1#create-a-new-qna-maker-service)가 있어야 합니다. 리소스를 만드는 동안 리소스 **이름** 을 입력한 다음, 키가 생성되었습니다. 리소스 이름은 엔드포인트의 하위 도메인으로 사용됩니다. 키와 리소스 이름을 검색하려면 Azure Portal에서 이 리소스에 대한 **빠른 시작** 을 선택합니다. 리소스 이름은 엔드포인트 URL의 첫 번째 하위 도메인입니다.
 
     `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
 
@@ -27,7 +27,7 @@ ms.locfileid: "110487381"
 # <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
 * 현재 버전의 [cURL](https://curl.haxx.se/). 빠른 시작에는 몇 가지 명령줄 스위치가 사용되며, 이러한 스위치는 [cURL 설명서](https://curl.haxx.se/docs/manpage.html)에 나와 있습니다.
-* 사용자 지정 질문 및 답변에는 API 키 및 엔드포인트를 생성할 수 있는 사용자 지정 질문 답변 기능이 활성화된 [Text Analytics 리소스](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure?tabs=v2#create-a-new-qna-maker-service)가 필요합니다. 리소스를 만들 때 선택한 **이름** 은 엔드포인트의 하위 도메인으로 사용됩니다. 키와 리소스 이름을 검색하려면 Azure Portal에서 리소스에 대한 **빠른 시작** 을 선택합니다. 리소스 이름은 엔드포인트 URL의 첫 번째 하위 도메인입니다.
+* 사용자 지정 질문 및 답변에는 API 키 및 엔드포인트를 생성할 수 있는 사용자 지정 질문 답변 기능이 활성화된 [Text Analytics 리소스](../how-to/set-up-qnamaker-service-azure.md?tabs=v2#create-a-new-qna-maker-service)가 필요합니다. 리소스를 만들 때 선택한 **이름** 은 엔드포인트의 하위 도메인으로 사용됩니다. 키와 리소스 이름을 검색하려면 Azure Portal에서 리소스에 대한 **빠른 시작** 을 선택합니다. 리소스 이름은 엔드포인트 URL의 첫 번째 하위 도메인입니다.
 
     `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2`
 

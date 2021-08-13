@@ -1,30 +1,30 @@
 ---
 title: Azure Active Directory 자격 증명을 사용하여 Linux VM에 로그인
 description: Azure Active Directory 인증을 사용하여 로그인하기 위해 Linux VM을 만들고 구성하는 방법을 알아봅니다.
-author: SanDeo-MSFT
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 11/17/2020
-ms.author: sandeo
-ms.openlocfilehash: 654d47102685c04d6440d7c155e4d6eb931abcae
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/11/2021
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: sandeo
+ms.custom: references_regions
+ms.openlocfilehash: 109e6f9a1cbc39e1382d73acacfb163940e72a0f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788118"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962463"
 ---
-# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>미리 보기: Azure에서 Azure Active Directory 인증을 사용하여 Linux 가상 머신에 로그인
+# <a name="deprecated-login-to-a-linux-virtual-machine-in-azure-with-azure-active-directory-using-device-code-flow-authentication"></a>사용 중단: 디바이스 코드 흐름 인증을 사용하여 Azure Active Directory에서 Azure의 Linux 가상 머신에 로그인합니다.
+
+> [!CAUTION]
+> **이 문서에서 설명하는 퍼블릭 미리 보기 기능은 2021년 8월 15일에 사용 중단될 예정입니다.**
+> 
+> 이 기능은 인증서 기반 인증을 통해 Azure AD 및 SSH를 사용하는 기능으로 대체됩니다. 자세한 내용은 [미리 보기: Azure에서 SSH 인증서 기반 인증을 사용하여 Azure Active Directory로 Linux 가상 머신에 로그인](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md) 문서를 참조하세요. 이전 버전에서 이 버전으로 마이그레이션하려면 [이전 버전에서 마이그레이션 미리 보기](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md#migration-from-previous-preview)를 참조하세요.
 
 Azure에서 Linux VM(가상 머신)의 보안을 강화하려면 Azure AD(Active Directory) 인증으로 통합하면 됩니다. Linux VM에 Azure AD 인증을 사용하면 VM에 대한 액세스를 허용하거나 거부하는 정책을 중앙에서 제어하고 적용할 수 있습니다. 이 아티클에서는 Azure AD 인증을 사용하도록 Linux VM을 만들고 구성하는 방법을 보여줍니다.
-
-
-> [!IMPORTANT]
-> Azure Active Directory 인증은 공개 미리 보기 상태입니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-> 테스트 후에 삭제하려는 테스트 가상 머신에서 이 기능을 사용합니다.
->
-
 
 Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 다음과 같은 많은 혜택이 있습니다.
 
@@ -50,16 +50,10 @@ Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 �
 | SUSE Linux Enterprise Server | SLES 12 |
 | Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 및 Ubuntu Server 18.04 |
 
-
-현재 이 기능의 미리 보기 기간 동안 다음과 같은 Azure 지역이 지원됩니다.
-
-- 전 세계 모든 Azure 지역
-
->[!IMPORTANT]
-> 이 미리 보기 기능을 사용하려면 지원되는 Linux 배포판만을 지원되는 Azure 지역에 배포합니다. Azure Government 또는 소버린 클라우드에서 이 기능이 지원되지 않습니다.
+> [!IMPORTANT]
+> 이 미리 보기는 Azure Government 또는 소버린 클라우드에서 지원되지 않습니다.
 >
 > AKS(Azure Kubernetes Service) 클러스터에서 이 확장을 사용하는 것은 지원되지 않습니다. 자세한 내용은 [AKS 지원 정책](../../aks/support-policies.md)을 참조하세요.
-
 
 CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.31 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
@@ -182,7 +176,6 @@ sudo를 처음 실행하면 두 번째에는 인증이 요청됩니다. sudo를 
 ```bash
 %aad_admins ALL=(ALL) NOPASSWD:ALL
 ```
-
 
 ## <a name="troubleshoot-sign-in-issues"></a>로그인 문제 해결
 

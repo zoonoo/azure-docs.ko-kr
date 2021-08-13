@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57990fda7475b95bd6582fa5a495ac8d24aa55d5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94408535"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 콘텐츠 관리 요구 사항 확인
@@ -28,7 +28,7 @@ ms.locfileid: "94408535"
 
 ID 솔루션은 아래 그림에 표시된 것처럼 콘텐츠 관리를 제공하기 위해 여러 기술적 컨트롤에서 활용합니다.
 
-![보안 제어](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
+![보안 컨트롤](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
 
 **ID 관리 시스템을 활용하는 보안 컨트롤**
 

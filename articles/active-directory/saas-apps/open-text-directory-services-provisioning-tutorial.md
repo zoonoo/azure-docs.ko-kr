@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory를 사용하여 자동 사용자 프�
 description: 사용자 계정을 Azure AD에서 OpenText Directory Services로 자동으로 프로비저닝 및 프로비저닝 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: ad55ba5f-c56c-4ed0-bdfd-163d2883ed80
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/01/2020
-ms.author: Zhchia
-ms.openlocfilehash: 2f31eddab1070d073d3fd5a4761dad597e42a2e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: f82c46c6853f33e2137cd54c03b2bfa1df9dca8a
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181888"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113760261"
 ---
 # <a name="tutorial-configure-opentext-directory-services-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 OpenText Directory Services 구성
 

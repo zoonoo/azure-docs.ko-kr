@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
 ms.date: 09/30/2020
-ms.openlocfilehash: c3ffbba9546ada54a42c3f2c2aa5d98da599b353
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 45f56812f0d6645c9ac75ce62f9f0659acc358fe
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749737"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970073"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>일시 삭제 및 제거 방지를 통한 Azure Key Vault 복구 관리
 
@@ -34,6 +34,8 @@ Key Vault에 대한 자세한 내용은 다음을 참조하세요.
   |---|---|
   |Microsoft.KeyVault/locations/deletedVaults/read|일시 삭제된 한 Key Vault의 속성을 봅니다.|
   |Microsoft.KeyVault/locations/deletedVaults/purge/action|일시 삭제된 Key Vault를 제거합니다.|
+  |Microsoft.KeyVault/locations/operationResults/read| 자격 증명 모음의 제거 상태를 확인하려면|
+  |[키 자격 증명 모음 기여자](../../role-based-access-control/built-in-roles.md#key-vault-contributor)|일시 삭제된 자격 증명 모음을 복구하려면|
 
 
 ## <a name="what-are-soft-delete-and-purge-protection"></a>일시 삭제와 제거 방지 소개
@@ -398,6 +400,5 @@ Key Vault에 대한 자세한 내용은 다음을 참조하세요.
 - [Key Vault Azure CLI commands](/cli/azure/keyvault)(Key Vault Azure CLI 명령)
 - [Azure Key Vault 백업](backup.md)
 - [키 자격 증명 모음 로깅을 사용하는 방법](howto-logging.md)
-- [Key vault에 대한 액세스 보안](security-overview.md)
+- [Azure Key Vault 보안 기능](security-features.md)
 - [Azure Key Vault 개발자 가이드](developers-guide.md)
-- [Best practices to use a key vault](security-overview.md)(키 자격 증명 모음 사용에 관한 모범 사례)

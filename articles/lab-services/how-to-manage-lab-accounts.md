@@ -4,14 +4,14 @@ description: Azure 구독에서 랩 계정을 만들거나 랩 계정을 모두 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 65ff28401b73698e320735613b32c96bf3de58f2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96434093"
 ---
 # <a name="create-and-manage-lab-accounts"></a>랩 계정 만들기 및 관리
-Azure Lab Services에서 랩 계정은 lab과 같은 관리 되는 랩 형식에 대 한 컨테이너입니다. 관리자는 Azure Lab Services를 사용하여 랩 계정을 설정하고 계정에 랩을 만들 수 있는 랩 소유자에게 액세스 권한을 제공합니다. 이 문서는 랩 계정을 만들거나, 모든 랩 계정을 보거나, 랩 계정을 삭제하는 방법을 설명합니다.
+Azure Lab Services에서 랩 계정은 랩과 같은 관리 랩 형식의 컨테이너입니다. 관리자는 Azure Lab Services를 사용하여 랩 계정을 설정하고 계정에 랩을 만들 수 있는 랩 소유자에게 액세스 권한을 제공합니다. 이 문서는 랩 계정을 만들거나, 모든 랩 계정을 보거나, 랩 계정을 삭제하는 방법을 설명합니다.
 
 ## <a name="create-a-lab-account"></a>랩 계정 만들기
 다음 단계는 Azure Portal을 사용하여 Azure DevTest Labs로 랩 계정을 만드는 방법을 설명합니다. 
@@ -43,7 +43,7 @@ Azure Lab Services에서 랩 계정은 lab과 같은 관리 되는 랩 형식에
         ![랩 계정 만들기 -> 고급](./media/how-to-manage-lab-accounts/create-lab-account-advanced.png)  
 6. 완료되면 **다음: 태그** 를 선택하여 **태그** 탭으로 전환합니다. 랩 계정에 연결하려는 태그를 추가합니다. 태그는 동일한 태그를 여러 개의 리소스 및 리소스 그룹에 적용하여 리소스를 범주화하고 통합된 청구를 볼 수 있는 이름/값 쌍입니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md)을 참조하세요.
 
-    ![태그 탭이 강조 표시 된 "랩 계정 만들기" 페이지를 보여 주는 스크린샷](./media/how-to-manage-lab-accounts/create-lab-account-tags.png)
+    ![태그 탭이 강조 표시된 "랩 계정 생성하기" 페이지를 보여주는 스크린샷.](./media/how-to-manage-lab-accounts/create-lab-account-tags.png)
 7. 이 페이지 하단에 있는 **검토 + 만들기** 를 선택하여 **검토 + 만들기** 탭으로 전환합니다. 
 4. 이 페이지에서 요약 정보를 검토하고 **만들기** 를 선택합니다. 
 

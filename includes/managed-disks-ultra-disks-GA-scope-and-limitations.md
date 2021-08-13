@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 05/12/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c8f817ad06742e6f84c3cb87dda0c36866540267
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: a95f83dbfa0574aa88b964538f329c7d9075a50b
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450200"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111593955"
 ---
 현재 울트라 디스크에는 다음과 같은 추가 제한 사항이 있습니다.
 
@@ -62,13 +62,24 @@ ms.locfileid: "106450200"
     - [Dsv4](../articles/virtual-machines/dv4-dsv4-series.md#dsv4-series)
     - [FSv2](../articles/virtual-machines/fsv2-series.md)
     - [LSv2](../articles/virtual-machines/lsv2-series.md)
-    - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
-    - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
+    - [M](../articles/virtual-machines/m-series.md)
+    - [Mv2](../articles/virtual-machines/mv2-series.md)
+    - [HBv2](../articles/virtual-machines/hbv2-series.md)
+    - [HB](../articles/virtual-machines/hb-series.md)
+    - [HC](../articles/virtual-machines/hc-series.md)
+    - [NDv2](../articles/virtual-machines/ndv2-series.md)
+    - [ND](../articles/virtual-machines/nd-series.md)
+    - [NC_T4_v3](../articles/virtual-machines/nct4-v3-series.md)
+    - [NCv2](../articles/virtual-machines/ncv2-series.md)
+    - [NCv3](../articles/virtual-machines/ncv3-series.md)
+    - [NVv3](../articles/virtual-machines/nvv3-series.md)
+    - [NVv4](../articles/virtual-machines/nvv4-series.md)
+    
 - 모든 VM 크기를 울트라 디스크가 있는 지원되는 모든 지역에서 사용할 수 있는 것은 아닙니다.
 - 데이터 디스크로만 사용할 수 있습니다. 
 - 기본적으로 4k 물리적 섹터 크기를 지원합니다. 512E 섹터 크기는 일반적으로 사용할 수 있는 제품(등록 필요 없음)으로 제공됩니다. 대부분의 애플리케이션은 4k 섹터 크기와 호환되지만 일부는 512바이트 섹터 크기가 필요합니다. 한 가지 예는 4k 기본 디스크를 지원하기 위해 릴리스 12.2 이상이 필요한 Oracle Database입니다. 이전 버전의 Oracle DB의 경우 512바이트 섹터 크기가 필요합니다.
 - 빈 디스크로만 만들 수 있습니다.
-- 현재 디스크 스냅샷, VM 이미지, 가용성 집합, Azure 전용 호스트 또는 Azure 디스크 암호화를 지원하지 않습니다.
+- 현재 디스크 스냅샷, 디스크 내보내기, 디스크 형식 변경, VM 이미지, 가용성 집합, Azure 전용 호스트 또는 Azure 디스크 암호화를 지원하지 않습니다.
 - 현재 Azure Backup 또는 Azure Site Recovery와의 통합을 지원하지 않습니다.
 - 캐시되지 않은 읽기와 캐시되지 않은 쓰기만 지원합니다.
 - GA VM의 IOPS에 대한 현재 최대 제한은 80,000입니다.

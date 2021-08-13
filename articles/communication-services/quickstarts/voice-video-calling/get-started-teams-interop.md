@@ -4,16 +4,16 @@ titleSuffix: An Azure Communication Services quickstart
 description: 이 빠른 시작에서는 Azure Communication Calling SDK를 사용하여 Teams 미팅에 참가하는 방법을 알아봅니다.
 author: chpalm
 ms.author: chpalm
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.openlocfilehash: 8f5ba479d96953bf5bc5f56b20eb719c18863ab3
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 1fb7373842e7edfdede482d83fdc7e27da0e6965
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560615"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113107782"
 ---
 # <a name="quickstart-join-your-calling-app-to-a-teams-meeting"></a>빠른 시작: 통화 앱으로 Teams 미팅 참가
 

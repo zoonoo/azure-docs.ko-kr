@@ -1,6 +1,6 @@
 ---
-title: 전용 SQL 풀의 투명한 데이터 암호화 (포털) (이전의 SQL DW)
-description: Azure Synapse Analytics의 전용 SQL 풀 (이전의 SQL DW)에 대 한 TDE (투명한 데이터 암호화)
+title: 전용 SQL 풀(이전 SQL DW)의 투명한 데이터 암호화(포털)
+description: Azure Synapse Analytics에 있는 전용 SQL 풀(이전 SQL DW)의 TDE(투명한 데이터 암호화)
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -12,13 +12,13 @@ ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
 ms.openlocfilehash: da4be6f4bc8335e0976a0a4a87c4d232b2a2285f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98676309"
 ---
-# <a name="get-started-with-transparent-data-encryption-tde-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)에 대 한 TDE (투명한 데이터 암호화) 시작
+# <a name="get-started-with-transparent-data-encryption-tde-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics에 있는 전용 SQL 풀(이전 SQL DW)의 TDE(투명한 데이터 암호화) 시작
 
 > [!div class="op_single_selector"]
 >
@@ -33,25 +33,25 @@ TDE(투명한 데이터 암호화)를 사용하려면 관리자 또는 dbmanager
 
 ## <a name="enabling-encryption"></a>암호화 설정
 
-TDE를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
+TDE를 사용하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com) 에서 데이터베이스를 엽니다.
+1. [Azure 포털](https://portal.azure.com)
 2. 데이터베이스 블레이드에서 **설정** 단추 클릭
-3. **투명 한 데이터 암호화** 옵션 ![ 포털 설정을 선택 합니다.](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
-4. 포털 설정 **설정에서 다음을 선택 합니다.** ![](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-on.png)
-5.  
-    포털 설정 저장 선택 저장을 선택 합니다. ![](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save.png)  
+3. **투명한 데이터 암호화** 옵션 ![포털 설정](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png) 선택
+4. **켜기** 설정 ![포털 설정 켜기](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-on.png) 선택
+5. **저장**
+   ![포털 설정 저장](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save.png) 선택  
 
 ## <a name="disabling-encryption"></a>암호화 비활성화
 
-TDE를 사용 하지 않도록 설정 하려면 다음 단계를 수행 합니다.
+TDE를 사용하지 않으려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com) 에서 데이터베이스를 엽니다.
+1. [Azure 포털](https://portal.azure.com)
 2. 데이터베이스 블레이드에서 **설정** 단추 클릭
-3. **투명 한 데이터 암호화** 옵션 ![ 포털 설정을 선택 합니다.](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
-4. **끄기** 설정 ![ 포털 설정 해제를 선택 합니다.](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-off.png)
-5. **저장** 
-    포털 설정 저장 2를 선택 합니다. ![](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png)  
+3. **투명한 데이터 암호화** 옵션 ![포털 설정](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png) 선택
+4. **끄기** 설정 ![포털 설정 끄기](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-off.png) 선택
+5. **저장**
+   ![포털 설정 저장 2](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png) 선택  
 
 ## <a name="encryption-dmvs"></a>암호화 DMV
 

@@ -6,12 +6,12 @@ ms.author: aurighet
 ms.date: 05/13/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: b26c9ff7a2a7ec2f6898ed1434184e9a016c20d3
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 42735d13eb4a251a702bd486e21f56981e63326f
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560613"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112535746"
 ---
 이 빠른 시작에서는 Windows용 Azure Communication Services 통화 SDK를 사용하여 Teams 모임에 조인하는 방법을 알아봅니다.
 
@@ -19,7 +19,6 @@ ms.locfileid: "111560613"
 
 - 작동하는 [Communication Services 호출 Windows 앱](../../getting-started-with-calling.md).
 - [Teams 배포](/deployoffice/teams-install)
-
 
 ## <a name="add-the-teams-ui-controls-and-enable-the-teams-ui-controls"></a>Teams UI 컨트롤을 추가하고 Teams UI 컨트롤을 사용하도록 설정
 

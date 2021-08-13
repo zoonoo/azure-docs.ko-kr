@@ -1,19 +1,19 @@
 ---
 title: 빠른 시작 - 샘플 앱 소개 - Azure Spring Cloud
 description: Azure Spring Cloud에 배포에 대한 이 빠른 시작 시리즈에 사용되는 샘플 앱을 설명합니다.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 6c1837b6992090f1b02d89720db298fe5714d4c3
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: da3370540a915694f1199e3a8965dbc8aa0450a0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286506"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114470576"
 ---
 # <a name="introduction-to-the-sample-app"></a>샘플 앱 소개
 

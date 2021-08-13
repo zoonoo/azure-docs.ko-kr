@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 7483a097b188b9f96221a13964992c7b02332258
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 240b721d71ef53ad6f43f076f1d5db0e29b556a4
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107892032"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970925"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Azure Function Event Grid 트리거 로컬 디버깅
 
@@ -19,7 +19,7 @@ ms.locfileid: "107892032"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 기존 함수 앱 만들기 또는 사용
-- 기존 스토리지 계정 만들기 또는 사용
+- 기존 스토리지 계정 만들기 또는 사용 Event Grid 알림 구독은 `BlobStorage`, `StorageV2` 또는 [Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)용 Azure Storage 계정에서 설정할 수 있습니다.
 - [ngrok](https://ngrok.com/)를 다운로드하여 Azure에서 로컬 함수를 호출하도록 허용
 
 ## <a name="create-a-new-function"></a>새 함수 만들기

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 48671e7558ea1bd613d33372c96fa3c563407e81
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96017222"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>StorSimple 디바이스에 대한 웹 프록시 구성
@@ -29,7 +29,7 @@ ms.locfileid: "96017222"
 
 이 자습서의 지침은 StorSimple 8000 시리즈 물리적 디바이스에만 적용됩니다. 웹 프록시 구성은 StorSimple Cloud Appliance(8010 및 8020)에서 지원되지 않습니다.
 
-웹 프록시는 StorSimple 장치에 대 한 _선택적_ 구성입니다. StorSimple용 Windows PowerShell을 통해서만 웹 프록시를 구성할 수 있습니다. 구성은 다음과 같은 2단계 프로세스입니다.
+웹 프록시는 StorSimple 디바이스에 대한 _선택적_ 구성입니다. StorSimple용 Windows PowerShell을 통해서만 웹 프록시를 구성할 수 있습니다. 구성은 다음과 같은 2단계 프로세스입니다.
 
 1. 먼저 StorSimple cmdlet용 설치 마법사 또는 Windows PowerShell을 통해 웹 프록시 설정을 구성합니다.
 2. 그런 다음 StorSimple cmdlet용 Windows PowerShell을 통해 구성된 웹 프록시 설정을 사용합니다.
@@ -71,7 +71,7 @@ ms.locfileid: "96017222"
 4. 인증 유형을 **NTLM**, **기본** 또는 **없음** 중에서 선택합니다. 기본은 프록시 서버 구성에 대한 최소한의 보안 인증입니다. NT LAN 관리자(NTLM)는 3방향 메시징 시스템을 사용(추가 무결성이 필요하면 4방향)하여 사용자를 인증하는 안전하고 복잡한 인증 프로토콜입니다. 기본 인증은 NTLM입니다. 자세한 내용은 [기본](https://hc.apache.org/httpclient-3.x/authentication.html) 및 [NTLM 인증](https://hc.apache.org/httpclient-3.x/authentication.html)을 참조하세요. 
    
    > [!IMPORTANT]
-   > **StorSimple 장치 관리자 서비스에서 장치에 대 한 프록시 서버 구성에서 기본 또는 NTLM 인증을 사용 하도록 설정 하면 장치 모니터링 차트가 작동 하지 않습니다. 모니터링 차트가 작동 하려면 인증이 없음으로 설정 되어 있는지 확인 해야 합니다.**
+   > **StorSimple Device Manager 서비스에서 해당 장치에 대한 프록시 서버 구성에서 기본 또는 NTLM 인증이 사용되면 장치 모니터링 차트가 동작하지 않습니다. 작업할 차트를 모니터링하기 위해 인증이 NONE으로 설정되어 있는지 확인해야 합니다.**
   
 5. 인증을 사용하도록 설정한 경우 **웹 프록시 사용자 이름** 및 **웹 프록시 암호** 를 제공합니다. 또한 암호를 확인해야 합니다.
    
@@ -87,7 +87,7 @@ ms.locfileid: "96017222"
 
 #### <a name="to-configure-web-proxy-via-cmdlets"></a>cmdlet를 통해 웹 프록시를 구성하려면
 1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인** 을 선택합니다. 메시지가 표시되면 **디바이스 관리자 암호** 를 제공합니다. 기본 암호는 `Password1`입니다.
-2. 명령 프롬프트에서 다음을 입력합니다.
+2. 명령 프롬프트에 다음을 입력합니다.
    
     `Set-HcsWebProxy -Authentication NTLM -ConnectionURI "<http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
    
@@ -102,14 +102,14 @@ ms.locfileid: "96017222"
 웹 프록시는 기본적으로 사용하지 않도록 설정되어 있습니다. StorSimple 디바이스에서 웹 프록시 설정을 구성한 후에 StorSimple용 Windows PowerShell을 사용하여 웹 프록시 설정을 사용하도록 설정합니다.
 
 > [!NOTE]
-> **설치 마법사를 사용 하 여 웹 프록시를 구성한 경우에는이 단계가 필요 하지 않습니다. 웹 프록시는 설치 마법사 세션 후 기본적으로 자동으로 사용 하도록 설정 됩니다.**
+> **설치 마법사를 사용하여 웹 프록시를 구성하는 경우 이 단계가 필요하지 않습니다. 웹 프록시는 설치 마법사 세션 후 기본적으로 자동으로 사용하도록 설정됩니다.**
 
 
 디바이스에서 웹 프록시를 사용하려면 StorSimple용 Windows PowerShell에서 다음 단계를 수행합니다.
 
 #### <a name="to-enable-web-proxy"></a>웹 프록시를 활성화하려면
 1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인** 을 선택합니다. 메시지가 표시되면 **디바이스 관리자 암호** 를 제공합니다. 기본 암호는 `Password1`입니다.
-2. 명령 프롬프트에서 다음을 입력합니다.
+2. 명령 프롬프트에 다음을 입력합니다.
    
     `Enable-HcsWebProxy`
    

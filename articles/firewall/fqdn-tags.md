@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: c0bd2f6a021baae80dafcc3d544e1062d8e022e8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94653337"
 ---
 # <a name="fqdn-tags-overview"></a>FQDN 태그 개요
@@ -33,11 +33,11 @@ FQDN 태그는 잘 알려진 Microsoft 서비스와 연결된 FQDN(정규화된 
 |Windows Update     |[소프트웨어 업데이트에 대한 방화벽 구성 방법](/mem/configmgr/sum/get-started/install-a-software-update-point)에 설명된 대로 Microsoft 업데이트에 대한 아웃바운드 액세스를 허용합니다.|
 |Windows 진단|모든 [Windows 진단 엔드포인트](/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints)에 대한 아웃바운드 액세스를 허용합니다.|
 |MAPS(Microsoft 활성 보호 서비스)|[MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/)에 대한 아웃바운드 액세스를 허용합니다.|
-|ASE(App Service Environment)|ASE 플랫폼 트래픽에 대한 아웃바운드 액세스를 허용합니다. 이 태그는 ASE에서 만든 고객별 Storage 및 SQL 엔드포인트을 다루지 않습니다. [서비스 끝점](../virtual-network/tutorial-restrict-network-access-to-resources.md) 을 통해 사용 하도록 설정 하거나 수동으로 추가 해야 합니다.<br><br>Azure 방화벽을 ASE와 통합 하는 방법에 대 한 자세한 내용은 [App Service Environment 잠그기](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase)를 참조 하세요.|
+|ASE(App Service Environment)|ASE 플랫폼 트래픽에 대한 아웃바운드 액세스를 허용합니다. 이 태그는 ASE에서 만든 고객별 Storage 및 SQL 엔드포인트을 다루지 않습니다. [서비스 엔드포인트](../virtual-network/tutorial-restrict-network-access-to-resources.md)을 통해 사용하도록 설정되거나 수동으로 추가되어야 합니다.<br><br>Azure Firewall을 ASE와 통합하는 방법에 대한 자세한 내용은 [App Service Environment 잠금](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase)을 참조하세요.|
 |Azure Backup|Azure Backup 서비스에 대한 아웃바운드 액세스를 허용합니다.|
-|Azure HDInsight|HDInsight 플랫폼 트래픽에 대 한 아웃 바운드 액세스를 허용 합니다. 이 태그는 HDInsight의 고객 관련 저장소 또는 SQL 트래픽을 포함 하지 않습니다. [서비스 끝점](../virtual-network/tutorial-restrict-network-access-to-resources.md) 을 사용 하 여 이러한 기능을 사용 하도록 설정 하거나 수동으로 추가 합니다.|
-|WindowsVirtualDesktop (WVD)|아웃 바운드 Windows 가상 데스크톱 플랫폼 트래픽을 허용 합니다. 이 태그는 배포 별 저장소 및 WVD에서 만든 Service Bus 끝점을 포함 하지 않습니다. 또한 DNS 및 KMS 네트워크 규칙이 필요 합니다. Azure 방화벽을 WVD와 통합 하는 방법에 대 한 자세한 내용은 [Azure 방화벽을 사용 하 여 Windows 가상 데스크톱 배포 보호를](protect-windows-virtual-desktop.md)참조 하세요.|
-|Azure Kubernetes Service(AKS)|AKS에 대 한 아웃 바운드 액세스를 허용 합니다. 자세한 내용은 [Azure 방화벽을 사용 하 여 AKS (Azure Kubernetes Service) 배포 보호를](protect-azure-kubernetes-service.md)참조 하세요.|
+|Azure HDInsight|HDInsight 플랫폼 트래픽에 대한 아웃바운드 액세스를 허용합니다. 이 태그는 HDInsight의 고객 관련 스토리지 또는 SQL 트래픽을 포함하지 않습니다. 이 기능은 [서비스 엔드포인트](../virtual-network/tutorial-restrict-network-access-to-resources.md)를 사용하여 사용하도록 설정하거나 수동으로 추가합니다.|
+|WindowsVirtualDesktop(WVD)|아웃바운드 Windows Virtual Desktop 플랫폼 트래픽을 허용합니다. 이 태그는 WVD에서 만든 배포 관련 스토리지 및 Service Bus 엔드포인트를 포함하지 않습니다. 또한 DNS 및 KMS 네트워크 규칙이 필요합니다. Azure Firewall을 WVD와 통합하는 방법에 관한 자세한 내용은 [Azure Firewall을 사용하여 Window Virtual Desktop 배포 보호](protect-windows-virtual-desktop.md)를 참조하세요.|
+|AKS(Azure Kubernetes Service)|AKS에 대한 아웃바운드 액세스를 허용합니다. 자세한 내용은 [Azure Firewall을 사용하여 AKS(Azure Kubernetes Service) 배포 보호](protect-azure-kubernetes-service.md)를 참조하세요.|
 
 > [!NOTE]
 > 애플리케이션 규칙에서 FQDN 태그를 선택하는 경우 protocol:port 필드는 **https** 로 설정되어야 합니다.

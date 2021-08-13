@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6ec05c4160c6502904644bf7035bda0bed66cc33
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94413193"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성
@@ -28,10 +28,10 @@ ms.locfileid: "94413193"
 특성은 관련된 Azure AD 앱으로 그룹화되었습니다.
 
 ## <a name="attributes-to-synchronize"></a>동기화할 특성
-일반적으로 *동기화할 최소 특성 목록* 에 대해 궁금해 합니다. 기본 및 권장 되는 방법은 전체 GAL (전체 주소 목록)을 클라우드에서 생성 하 고 Microsoft 365 작업의 모든 기능을 가져올 수 있도록 기본 특성을 유지 하는 것입니다. 이러한 특성에는 다음 예제와 같이 중요 한 개인 데이터가 포함 되어 있기 때문에 조직에서 클라우드에 동기화 하지 않으려는 몇 가지 특성이 있습니다.  
+일반적으로 *동기화할 최소 특성 목록* 에 대해 궁금해 합니다. 기본 및 권장되는 접근 방법은 클라우드에서 전체 GAL(전체 주소 목록)을 생성하고 Microsoft 365 워크로드의 모든 기능을 사용할 수 있도록 기본 특성을 유지하는 것입니다. 일부 특성에는 이 예제와 같이 중요한 개인 데이터가 포함되어 있으므로, 경우에 따라 조직이 특성을 클라우드에 동기화하지 않고자 할 수 있습니다.  
 ![잘못된 특성](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
 
-이 경우이 항목의 특성 목록에서 시작 하 고 개인 데이터를 포함 하 고 동기화 할 수 없는 특성을 식별 합니다. 그런 다음 [Azure AD 앱 및 특성 필터링](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering)을 사용하여 설치 중에 이러한 특성을 선택 취소합니다.
+이 경우 이 토픽의 특성 목록부터 시작하여 개인 데이터를 포함하고 동기화할 수 없는 특성을 식별합니다. 그런 다음 [Azure AD 앱 및 특성 필터링](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering)을 사용하여 설치 중에 이러한 특성을 선택 취소합니다.
 
 > [!WARNING]
 > 특성을 선택 취소하는 경우 주의해야 하고 동기화가 불가능한 특성만 선택 취소해야 합니다. 다른 특성을 선택 취소하면 기능에 부정적인 영향을 미칠 수도 있습니다.
@@ -64,7 +64,7 @@ ms.locfileid: "94413193"
 | company |X |X | | |
 | countryCode |X |X | | |
 | department |X |X | | |
-| 설명 | | |X | |
+| description | | |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -165,7 +165,7 @@ ms.locfileid: "94413193"
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | |Azure AD에서 exchange online에 한 번만 동기화 된 후에는이 특성에 대 한 기관의 소스가 되 고 이후 변경 내용은 온-프레미스에서 동기화 될 수 없습니다. 자세한 내용은 ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange))를 참조 하세요.|
+| thumbnailphoto |X |X | |Azure AD에서 Exchange Online으로 한 번만 동기화된 후 Exchange Online은 이 특성에 대한 권한의 출처가 되며 이후 변경 내용은 온프레미스에서 동기화할 수 없습니다. 자세한 내용은 ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange))를 참조하세요.|
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다. 라이선스 할당에 사용됩니다. |
@@ -185,7 +185,7 @@ ms.locfileid: "94413193"
 | company |X |X | | |
 | countryCode |X |X | | |
 | department |X |X | | |
-| 설명 |X |X |X | |
+| description |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -247,16 +247,16 @@ ms.locfileid: "94413193"
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | |Azure AD에서 exchange online에 한 번만 동기화 된 후에는이 특성에 대 한 기관의 소스가 되 고 이후 변경 내용은 온-프레미스에서 동기화 될 수 없습니다. 자세한 내용은 ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange))를 참조 하세요.|
+| thumbnailphoto |X |X | |Azure AD에서 Exchange Online으로 한 번만 동기화된 후 Exchange Online은 이 특성에 대한 권한의 출처가 되며 이후 변경 내용은 온프레미스에서 동기화할 수 없습니다. 자세한 내용은 ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange))를 참조하세요.|
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
-| usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다.
+| usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역
 . 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 | wWWHomePage |X |X | | |
 
-## <a name="teams-and-skype-for-business-online"></a>팀 및 비즈니스용 Skype Online
+## <a name="teams-and-skype-for-business-online"></a>Teams 및 비즈니스용 Skype Online
 | 특성 이름 | 사용자 | 연락처 | 그룹 | 의견 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
@@ -265,7 +265,7 @@ ms.locfileid: "94413193"
 | co |X |X | | |
 | company |X |X | | |
 | department |X |X | | |
-| 설명 |X |X |X | |
+| description |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | givenName |X |X | | |
@@ -298,7 +298,7 @@ ms.locfileid: "94413193"
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | |Azure AD에서 exchange online에 한 번만 동기화 된 후에는이 특성에 대 한 기관의 소스가 되 고 이후 변경 내용은 온-프레미스에서 동기화 될 수 없습니다. 자세한 내용은 ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange))를 참조 하세요.|
+| thumbnailphoto |X |X | |Azure AD에서 Exchange Online으로 한 번만 동기화된 후 Exchange Online은 이 특성에 대한 권한의 출처가 되며 이후 변경 내용은 온프레미스에서 동기화할 수 없습니다. 자세한 내용은 ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange))를 참조하세요.|
 | title |X |X | | |
 | usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
@@ -325,7 +325,7 @@ ms.locfileid: "94413193"
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | c |X |X | | |
 | cn |X | |X | |
-| 설명 |X |X |X | |
+| description |X |X |X | |
 | displayName |X |X |X | |
 | mail |X |X |X | |
 | mailNickname |X |X |X | |
@@ -346,7 +346,7 @@ ms.locfileid: "94413193"
 | co |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
-| 설명 |X |X |X | |
+| description |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
@@ -375,7 +375,7 @@ ms.locfileid: "94413193"
 * Yammer(User만 사용됨)
 * [SharePoint와 같은 리소스에서 제공하는 하이브리드 B2B 조직 간 협업 시나리오](/sharepoint/create-b2b-extranet)
 
-이 그룹은 Azure AD 디렉터리를 사용 하 여 Microsoft 365, Dynamics 또는 Intune을 지원 하지 않는 경우 사용할 수 있는 특성 집합입니다. 코어 특성의 작은 집합이 있습니다. 일부 타사 응용 프로그램을 Single Sign-On 또는 프로 비전 하려면 여기에 설명 된 특성과 함께 특성 동기화를 구성 해야 합니다. 응용 프로그램 요구 사항은 각 응용 프로그램에 대 한 [SaaS 앱 자습서](../saas-apps/tutorial-list.md) 에 설명 되어 있습니다.
+이 그룹은 Azure AD Directory가 Microsoft 365, Dynamics, 또는 Intune을 지원하지 않을 때 사용되는 특성의 집합입니다. 코어 특성의 작은 집합이 있습니다. Single Sign-On 또는 일부 타사 애플리케이션에 프로비저닝하려면 여기에 설명된 특성에 더해 특성의 동기화를 구성해야 합니다. 애플리케이션 요구 사항은 각 애플리케이션에 대한 [SaaS 앱 자습서](../saas-apps/tutorial-list.md)에 설명되어 있습니다.
 
 | 특성 이름 | 사용자 | 연락처 | 그룹 | 의견 |
 | --- |:---:|:---:|:---:| --- |
@@ -396,7 +396,7 @@ ms.locfileid: "94413193"
 | usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
-## <a name="windows-10"></a>윈도우 10
+## <a name="windows-10"></a>Windows 10
 Windows 10 도메인에 가입된 컴퓨터(디바이스)는 일부 특성을 Azure AD에 동기화합니다. 이 시나리오에 대한 자세한 내용은 [Windows 10 환경용 Azure AD에 도메인 조인된 디바이스 연결](../devices/hybrid-azuread-join-plan.md)을 참조하세요. 이 특성은 항상 동기화되며 Windows 10은 선택 취소할 수 있는 앱으로 표시되지 않습니다. Windows 10 도메인에 가입된 컴퓨터는 특성 userCertificate를 채우는 것으로 식별됩니다.
 
 | 특성 이름 | 디바이스 | 의견 |
@@ -430,7 +430,7 @@ Windows 10 도메인에 가입된 컴퓨터(디바이스)는 일부 특성을 Az
 | msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |필터링: 온-프레미스 필터링을 다시 쓰고 온라인 보관 및 보낸 사람의 데이터를 클라이어트로부터 차단합니다. |
 | msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |필터링: 온-프레미스 필터링을 다시 쓰고 온라인 보관 및 보낸 사람의 데이터를 클라이어트로부터 차단합니다. |
 | msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |UM(통합 메시징)-온라인 음성 메일 사용: Microsoft Lync Server Intergration 사용자가 온라인 서비스에 음성 메일이 있는지 Lync Server 온-프레미스에 나타내기 위해서 사용합니다. |
-| msExchUserHoldPolicies| UserHoldPolicies |X | | |소송 보류: 어떤 사용자가 소송을 보류 중인지 확인하기 위해 클라우드 서비스를 사용합니다. |
+| msExchUserHoldPolicies| ms-Exch-UserHoldPolicies |X | | |소송 보류: 어떤 사용자가 소송을 보류 중인지 확인하기 위해 클라우드 서비스를 사용합니다. |
 | proxyAddresses| proxyAddresses |X |X |X |Exchange Online의 x500 주소만 삽입됩니다. |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |Exchange Online 사서함에 온-프레미스 Exchange 사서함이 있는 사용자에게 SendOnBehalfTo 권한을 부여할 수 있습니다. Azure AD Connect 빌드 1.1.552.0 이상이 필요합니다. |
 

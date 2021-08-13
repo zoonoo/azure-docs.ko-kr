@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.custom: contperf-fy21q1
 ms.date: 06/21/2019
 ms.openlocfilehash: 7884f8baa24180fcb94f77a45c3457ba62d3f351
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98018142"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에 대한 경고 설정
@@ -47,11 +47,11 @@ Azure Stream Analytics 작업을 모니터링하여 작업이 문제 없이 계�
 
 7. **리소스**, **조건** 및 **작업 그룹** 에 각 항목이 있어야 합니다. 정의된 조건이 경고 발생 순서대로 충족되어야 합니다. 예를 들어 5분마다 지난 15분의 메트릭 평균 값을 측정할 수 있습니다.
 
-   ![스크린샷 리소스, 조건 및 작업 그룹을 포함 하는 규칙 만들기 대화 상자를 표시 합니다.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
+   ![리소스, 조건, 작업 그룹을 포함하는 규칙 만들기 대화 상자를 보여 주는 스크린샷](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
    **경고 규칙 이름**, **설명** 및 **리소스 그룹** 을 **경고 세부 정보** 에 추가하고 **경고 규칙 만들기** 를 클릭하여 Stream Analytics 작업에 대한 규칙을 만듭니다.
 
-   ![스크린샷 경고 정보를 포함 하는 규칙 만들기 대화 상자를 표시 합니다.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
+   ![경고 및 세부 정보를 포함하는 규칙 만들기 대화 상자를 보여 주는 스크린샷](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
    
 ## <a name="scenarios-to-monitor"></a>모니터링할 시나리오
 

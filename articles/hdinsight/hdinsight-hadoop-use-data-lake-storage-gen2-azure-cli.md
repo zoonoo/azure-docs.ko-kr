@@ -1,6 +1,6 @@
 ---
-title: Azure HDInsight 만들기-Azure Data Lake Storage Gen2-Azure CLI
-description: Azure CLI를 사용 하 여 Azure HDInsight 클러스터에서 Azure Data Lake Storage Gen2를 사용 하는 방법을 알아봅니다.
+title: Azure HDInsight 만들기 - Azure Data Lake Storage Gen2 - Azure CLI
+description: Azure CLI를 사용하여 Azure HDInsight 클러스터에서 Azure Data Lake Storage Gen2를 사용하는 방법을 알아봅니다.
 author: guyhay
 ms.author: guyhay
 ms.service: hdinsight
@@ -8,49 +8,49 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 09/17/2020
 ms.openlocfilehash: bbc1cd27d5c16eddd3aaad748c34445e5017e209
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98945498"
 ---
-# <a name="create-a-cluster-with-data-lake-storage-gen2-using-azure-cli"></a>Azure CLI를 사용 하 여 Data Lake Storage Gen2를 사용 하 여 클러스터 만들기
+# <a name="create-a-cluster-with-data-lake-storage-gen2-using-azure-cli"></a>Azure CLI를 사용하여 Data Lake Storage Gen2 클러스터 생성
 
-저장소에 Data Lake Storage Gen2를 사용 하는 HDInsight 클러스터를 만들려면 다음 단계를 수행 합니다.
+스토리지에 Data Lake Storage Gen2를 사용하는 HDInsight 클러스터를 만들려면 다음 단계를 수행합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure Data Lake Storage Gen2에 대해 잘 모르겠으면 [개요 섹션](hdinsight-hadoop-use-data-lake-storage-gen2.md)을 확인 하세요. 
+- Azure Data Lake Storage Gen2에 대해 잘 모르겠으면 [개요 섹션](hdinsight-hadoop-use-data-lake-storage-gen2.md)을 확인하세요. 
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
 - CLI 스크립트 예제는 다음의 세 가지 옵션 중 하나로 실행할 수 있습니다.
     - Azure Portal에서 [Azure Cloud Shell](../cloud-shell/overview.md)을 사용합니다(다음 섹션 참조).
     - 각 코드 블록의 오른쪽 위에 있는 "사용해 보세요." 단추를 통해 포함된 Azure Cloud Shell을 사용합니다.
-    - 로컬 CLI 콘솔을 사용하려는 경우 [Azure CLI의 최신 버전을 설치](/cli/azure/install-azure-cli)합니다(2.0.13 이상). `az login`사용자 할당 관리 id를 배포 하려는 azure 구독과 연결 된 계정을 사용 하 여 azure에 로그인 합니다. Azure CLI. 
+    - 로컬 CLI 콘솔을 사용하려는 경우 [Azure CLI의 최신 버전을 설치](/cli/azure/install-azure-cli)합니다(2.0.13 이상). 사용자 할당 관리 ID를 배포하려는 Azure 구독과 연결된 계정으로 `az login`을 사용하여 Azure에 로그인합니다. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-[샘플 템플릿 파일을 다운로드](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) 하 고 [샘플 매개 변수 파일을 다운로드할](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json)수 있습니다. 템플릿 및 Azure CLI 코드 조각을 사용 하기 전에 다음 자리 표시자를 올바른 값으로 바꿉니다.
+[샘플 템플릿 파일을 다운로드하고](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) [샘플 매개 변수 파일을 다운로드](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json)할 수 있습니다. 아래 템플릿 및 Azure CLI 코드 조각을 사용하기 전에 다음 자리 표시자를 올바른 값으로 바꿉니다.
 
 | 자리 표시자 | Description |
 |---|---|
-| `<SUBSCRIPTION_ID>` | Azure 구독의 ID입니다. |
-| `<RESOURCEGROUPNAME>` | 새 클러스터 및 저장소 계정을 만들 리소스 그룹입니다. |
-| `<MANAGEDIDENTITYNAME>` | Azure Data Lake Storage Gen2 사용 하 여 저장소 계정에 대 한 권한을 부여 받을 관리 id의 이름입니다. |
-| `<STORAGEACCOUNTNAME>` | 생성 될 Azure Data Lake Storage Gen2 있는 새 저장소 계정입니다. |
-| `<FILESYSTEMNAME>`  | 저장소 계정에서이 클러스터가 사용 해야 하는 파일 시스템의 이름입니다. |
+| `<SUBSCRIPTION_ID>` | Azure 구독의 ID |
+| `<RESOURCEGROUPNAME>` | 새 클러스터 및 스토리지 계정을 만들 리소스 그룹입니다. |
+| `<MANAGEDIDENTITYNAME>` | Azure Data Lake Storage Gen2를 사용하여 스토리지 계정에 대한 권한을 부여 받을 관리 ID의 이름입니다. |
+| `<STORAGEACCOUNTNAME>` | 생성될 Azure Data Lake Storage Gen2가 있는 새 스토리지 계정입니다. |
+| `<FILESYSTEMNAME>`  | 스토리지 계정에서 이 클러스터가 사용해야 하는 파일 시스템의 이름입니다. |
 | `<CLUSTERNAME>` | HDInsight 클러스터의 이름입니다. |
-| `<PASSWORD>` | SSH 및 Ambari 대시보드를 사용 하 여 클러스터에 로그인 할 때 선택한 암호입니다. |
+| `<PASSWORD>` | SSH 및 Ambari 대시보드를 사용하여 클러스터에 로그인하기 위해 선택한 암호입니다. |
 
-아래 코드 조각은 다음과 같은 초기 단계를 수행 합니다.
+아래 코드 조각은 다음과 같은 초기 단계를 수행합니다.
 
-1. Azure 계정에 로그인 합니다.
-1. 만들기 작업을 수행할 활성 구독을 설정 합니다.
-1. 새 배포 작업에 대 한 새 리소스 그룹을 만듭니다.
-1. 사용자 할당 관리 id를 만듭니다.
-1. Azure CLI에 확장을 추가 하 여 Data Lake Storage Gen2 기능을 사용 합니다.
-1. 플래그를 사용 하 여 Data Lake Storage Gen2를 사용 하 여 새 저장소 계정을 만듭니다 `--hierarchical-namespace true` .
+1. Azure 계정에 로그인합니다.
+1. 만들기 작업을 수행할 활성 구독을 설정합니다.
+1. 새 배포 작업에 대한 새 리소스 그룹을 만듭니다.
+1. 사용자 할당 관리 ID를 만듭니다.
+1. Data Lake Storage Gen2용 기능을 사용할 수 있도록 Azure CLI에 확장을 추가합니다.
+1. `--hierarchical-namespace true` 플래그를 사용하여 Data Lake Storage Gen2를 사용하여 새 스토리지 계정을 만듭니다.
 
 ```azurecli
 az login
@@ -70,10 +70,10 @@ az storage account create --name <STORAGEACCOUNTNAME> \
     --kind StorageV2 --hierarchical-namespace true
 ```
 
-그런 다음 포털에 로그인 합니다. 저장소 계정의 **저장소 Blob 데이터 참가자** 역할에 새 사용자 할당 관리 id를 추가 합니다. 이 단계는 [Azure Portal 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)의 3 단계에서 설명 합니다.
+다음으로, Portal에 로그인합니다. 스토리지 계정의 **Storage Blob 데이터 기여자** 역할에 새로운 사용자 할당 관리 ID를 추가합니다. 이 단계는 [Azure Portal 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md) 아래의 3단계에 설명되어 있습니다.
 
  > [!IMPORTANT]
- > 저장소 계정에 **저장소 Blob 데이터 참가자** 역할 권한이 있는 사용자 할당 id가 있는지 확인 합니다. 그렇지 않으면 클러스터 만들기가 실패 합니다.
+ > 스토리지 계정에 **Storage Blob 데이터 기여자** 역할 권한이 있는 사용자 할당 ID가 있는지 확인합니다. 그렇지 않으면 클러스터를 만들지 못합니다.
 
 ```azurecli
 az deployment group create --name HDInsightADLSGen2Deployment \

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/06/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 88db4bb2376cbc418d6954e274a18a6c18a280d1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96576046"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>행위자 수명 주기, 자동 가비지 수집 및 수동 삭제
@@ -49,7 +49,7 @@ ms.locfileid: "96576046"
 비활성화에 대한 세부 정보를 살펴보기 전에 다음과 같은 용어를 정의하는 것이 중요합니다.
 
 * *스캔 간격*. 행위자 런타임이 비활성화 및 가비지 수집될 수 있는 행위자에 대해 해당 활성 행위자 테이블을 스캔하는 간격입니다. 기본값은 1분입니다.
-* *유휴 시간 제한* 입니다. 행위자가 비활성화 및 가비지 수집되기 전에 미사용(유휴) 상태를 유지해야 하는 시간입니다. 기본값은 60분입니다.
+* *유휴 시간 제한*. 행위자가 비활성화 및 가비지 수집되기 전에 미사용(유휴) 상태를 유지해야 하는 시간입니다. 기본값은 60분입니다.
 
 일반적으로 이 기본값은 변경할 필요가 없습니다. 그러나 [행위자 서비스](service-fabric-reliable-actors-platform.md)를 등록할 때 필요한 경우 `ActorServiceSettings`를 통해 이러한 간격을 변경할 수 있습니다.
 
@@ -84,7 +84,7 @@ public class Program
     }
 }
 ```
-각 활성 행위자에 대해 행위자 런타임은 유휴 상태였던 시간(사용되지 않은 시간)을 기록합니다. 행위자 런타임은 모든 행위자를 검사 `ScanIntervalInSeconds` 하 여 가비지 수집 될 수 있는지 확인 하 고 유휴 상태 였던 경우 표시 `IdleTimeoutInSeconds` 합니다.
+각 활성 행위자에 대해 행위자 런타임은 유휴 상태였던 시간(사용되지 않은 시간)을 기록합니다. 행위자 런타임은 `ScanIntervalInSeconds`마다 각 행위자를 검사하여 가비지 수집이 가능한지 확인하고 `IdleTimeoutInSeconds` 동안 유휴 상태였는지 표시합니다.
 
 행위자를 사용할 때마다 유휴 시간이 0으로 다시 설정됩니다. 이후부터는 `IdleTimeoutInSeconds`동안 다시 유휴 상태인 경우에만 행위자가 가비지 수집됩니다. 행위자 인터페이스 메서드 또는 행위자 미리 알림 콜백이 실행되는 경우, 행위자가 사용된 것으로 간주됩니다. 타이머 콜백이 실행되는 경우 해당 행위자는 사용된 것으로 간주되지 **않습니다** .
 
@@ -109,10 +109,10 @@ public class Program
 ## <a name="next-steps"></a>다음 단계
 * [행위자 타이머 및 미리 알림](service-fabric-reliable-actors-timers-reminders.md)
 * [행위자 이벤트](service-fabric-reliable-actors-events.md)
-* [행위자 재입력](service-fabric-reliable-actors-reentrancy.md)
+* [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
 * [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
 * [행위자 API 참조 설명서](/previous-versions/azure/dn971626(v=azure.100))
-* [C # 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [C# 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Java 샘플 코드](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->

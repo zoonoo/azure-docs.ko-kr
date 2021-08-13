@@ -1,19 +1,19 @@
 ---
 title: 빠른 시작 - Azure Spring Cloud 구성 서버 설정
 description: 앱 배포를 위한 Azure Spring Cloud 구성 서버 설정에 대해 설명합니다.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java, fasttrack-edit
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 8c71e76213011beaa63deeaadfa3d6d2dc0d4ce2
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 95f4e7e9dcc8c9f16465d2a577d4bdf425dae4a8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286542"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114470558"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>빠른 시작: Azure Spring Cloud 구성 서버 설정
 
@@ -79,41 +79,42 @@ Azure Spring Cloud 구성 서버는 분산 시스템을 위한 중앙 집중식 
 다음 명령을 실행하여 기본 리포지토리를 설정합니다.
 
 ```azurecli
-
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/azure-samples/spring-petclinic-microservices-config
+```
+
 ::: zone-end
 
 > [!TIP]
-> If you are using a private repository for config server, please refer to our [tutorial on setting up authentication](./how-to-config-server.md).
+> 구성 서버용 프라이빗 리포지토리를 사용하는 경우 [인증 설정에 대한 자습서](./how-to-config-server.md)를 참조하세요.
 
-## Troubleshooting of Azure Spring Cloud config server
+## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Azure Spring Cloud 구성 서버 문제 해결
 
-The following procedure explains how to troubleshoot config server settings.
+다음 절차에서는 구성 서버 설정 문제를 해결하는 방법을 설명합니다.
 
-1. In the Azure portal, go to the service **Overview** page and select **Logs**. 
-1. Select **Queries** and **Show the application logs that contain the "error" or "exception" terms"**. 
-1. Click **Run**. 
-1. If you find the error **java.lang.illegalStateException** in logs, this indicates that spring cloud service cannot locate properties from config server.
+1. Azure Portal에서 서비스 **개요** 페이지로 이동하여 **로그** 를 선택합니다. 
+1. **쿼리** 를 선택하고 **"오류" 또는 "예외" 용어"가 포함된 애플리케이션 로그 표시** 를 선택합니다. 
+1. **실행** 을 클릭합니다. 
+1. 로그에서 **java.lang.illegalStateException** 오류가 발견되면 Spring Cloud Service가 구성 서버에서 속성을 찾을 수 없음을 나타냅니다.
 
-    [ ![ASC portal run query](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
+    [ ![ASC 포털 실행 쿼리](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
 
-1. Go to the service **Overview** page.
-1. Select **Diagnose and solve problems**. 
-1. Select **Config Server** detector.
+1. 서비스 **개요** 페이지로 이동합니다.
+1. **문제 진단 및 해결** 을 선택합니다. 
+1. **Config Server** 감지기를 선택합니다.
 
-    [ ![ASC portal diagnose problems](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
+    [ ![ASC 포털 문제 진단](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
 
-3. Click **Config Server Health Check**.
+3. **Config Serve 상태 확인** 을 클릭합니다.
 
-    [ ![ASC portal genie](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
+    [ ![ASC 포털 지니](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
 
-4. Click **Config Server Status** to see more details from the detector.
+4. **Config Server 상태** 를 클릭하여 감지기에서 자세한 정보를 확인합니다.
 
-    [ ![ASC portal health status](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
+    [ ![ASC 포털 상태](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 
-## Next steps
+## <a name="next-steps"></a>다음 단계
 
-In this quickstart, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't intend to continue on to the next quickstart, see [Clean up resources](./quickstart-logs-metrics-tracing.md#clean-up-resources). Otherwise, advance to the next quickstart:
+이 빠른 시작에서는 구독에 남아있는 경우 요금이 계속 청구되는 Azure 리소스를 만들었습니다. 다음 빠른 시작을 계속 진행하지 않으려는 경우 [리소스 정리](./quickstart-logs-metrics-tracing.md#clean-up-resources)를 참조하세요. 그렇지 않으면 다음 빠른 시작으로 이동하세요.
 
 > [!div class="nextstepaction"]
-> [Build and deploy apps](./quickstart-deploy-apps.md)
+> [앱 빌드 및 배포](./quickstart-deploy-apps.md)

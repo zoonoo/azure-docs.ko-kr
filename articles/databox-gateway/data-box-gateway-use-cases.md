@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Box Gateway 사용 사례 | Microsoft Docs
-description: Azure로 데이터를 전송할 수 있도록 하는 가상 어플라이언스 저장소 솔루션인 Azure Data Box Gateway의 사용 사례에 대해 설명 합니다.
+description: Azure로 데이터를 전송할 수 있는 가상 어플라이언스 스토리지 솔루션인 Azure Data Box Gateway에 대한 사용 사례를 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
 ms.openlocfilehash: 3bf137f968082e677f45c20947793232b9181220
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98786615"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Azure Data Box Gateway에 대한 사용 사례
@@ -40,20 +40,20 @@ Data Box Gateway의 주요 장점 중 하나는 데이터 크기에 관계없이
 
 데이터를 클라우드에 장기간 보존하려는 경우 Data Box Gateway를 사용합니다. 장기 보존에 대해 스토리지의 보관 계층을 사용할 수 있습니다.
 
-보관 계층은 최소 180 일 동안 거의 액세스 하지 않는 데이터를 저장 하도록 최적화 되어 있습니다. 보관 계층은 스토리지 비용은 가장 저렴하지만 액세스 비용은 가장 비쌉니다. 자세한 내용은 [보관 액세스 계층](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier)으로 이동하세요.
+보관 계층은 거의 액세스되지 않는 데이터를 최소 180일간 저장하도록 최적화되어 있습니다. 보관 계층은 스토리지 비용은 가장 저렴하지만 액세스 비용은 가장 비쌉니다. 자세한 내용은 [보관 액세스 계층](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier)으로 이동하세요.
 
 ### <a name="move-data-to-the-archive-tier"></a>보관 계층으로 데이터 이동
 
-시작하기 전에 실행 중인 Data Box Gateway 디바이스가 있는지 확인합니다. [자습서: Azure Data Box Gateway 배포 준비](data-box-gateway-deploy-prep.md) 에 설명 된 단계를 수행 하 고, 운영 장치를 사용할 때까지 다음 자습서로 계속 진행 합니다.
+시작하기 전에 실행 중인 Data Box Gateway 디바이스가 있는지 확인합니다. [자습서: Azure Data Box Gateway 배포 준비](data-box-gateway-deploy-prep.md)에 설명된 단계를 따라 운영 디바이스를 갖출 때까지 다음 자습서로 계속 진행합니다.
 
 - Data Box Gateway 디바이스를 사용하여 [Data Box Gateway를 통해 데이터 전송](data-box-gateway-deploy-add-shares.md)에 설명된 일반적인 전송 절차를 통해 Azure에 데이터를 업로드합니다.
-- 데이터가 업로드된 후 보관 계층으로 이동해야 합니다. Azure PowerShell 스크립트 또는 Azure Storage 수명 주기 관리 정책을 사용 하 여 두 가지 방법으로 blob 계층을 설정할 수 있습니다.  
-    - Azure PowerShell 사용 하는 경우 다음 [단계](../databox/data-box-how-to-set-data-tier.md#use-azure-powershell-to-set-the-blob-tier) 에 따라 데이터를 보관 계층으로 이동 합니다.
-    - Azure 수명 주기 관리를 사용 하는 경우 다음 단계에 따라 데이터를 보관 계층으로 이동 합니다.
-        - Blob 수명 주기 관리 서비스의 미리 보기에 [등록](../storage/blobs/storage-lifecycle-management-concepts.md) 하 여 보관 계층을 사용 합니다.
+- 데이터가 업로드된 후 보관 계층으로 이동해야 합니다. Azure PowerShell 스크립트 또는 Azure Storage 수명 주기 관리 정책을 사용하여 Blob 계층을 두 가지 방법으로 설정할 수 있습니다.  
+    - Azure PowerShell을 사용하는 경우, 다음 [단계](../databox/data-box-how-to-set-data-tier.md#use-azure-powershell-to-set-the-blob-tier)에 따라 데이터를 보관 계층으로 이동합니다.
+    - Azure 수명 주기 관리를 사용하는 경우, 다음 단계에 따라 데이터를 보관 계층으로 이동합니다.
+        - 보관 계층을 사용하도록 Blob 수명 주기 관리 서비스의 미리보기를 [등록](../storage/blobs/storage-lifecycle-management-concepts.md)합니다.
         - 다음 정책을 사용하여 [수집 시 데이터를 보관](../storage/blobs/storage-lifecycle-management-concepts.md#archive-data-after-ingest)합니다.
-- Blob이 보관으로 표시 되 면 핫 또는 콜드 계층으로 이동 하지 않는 한 게이트웨이를 통해 더 이상 수정할 수 없습니다. 파일이 로컬 저장소에 있는 경우 로컬 복사본에 대 한 변경 내용 (삭제 포함)은 보관 계층에 업로드 되지 않습니다.
-- 보관 저장소의 데이터를 읽으려면 blob 계층을 핫 또는 쿨로 변경 하 여 데이터를 리하이드레이션 해야 합니다. 게이트웨이에서 [공유를 새로 고치](data-box-gateway-manage-shares.md#refresh-shares)는 것은 Blob을 다시 하이드레이션하지 않습니다.
+- Blob이 보관으로 표시되면, 핫 또는 콜드 계층으로 이동하지 않는 한 게이트웨이에서 더 이상 수정할 수 없습니다. 파일이 로컬 스토리지에 있는 경우 로컬 복사본의 변경 내용(삭제 포함)이 보관 계층으로 업로드되지 않습니다.
+- 보관 스토리지에서 데이터를 읽으려면 Blob 계층을 핫 또는 쿨로 변경하여 데이터를 리하이드레이션해야 합니다. 게이트웨이에서 [공유를 새로 고치](data-box-gateway-manage-shares.md#refresh-shares)는 것은 Blob을 다시 하이드레이션하지 않습니다.
 
 자세한 내용은 [Azure Blob Storage 수명 주기를 관리](../storage/blobs/storage-lifecycle-management-concepts.md)하는 방법에 대해 자세히 알아봅니다.
 

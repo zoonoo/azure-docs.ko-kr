@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell을 사용하여 VM으로 포트 열기
-description: Azure PowerShell를 사용 하 여 VM에 대 한 포트를 열고 끝점을 만드는 방법에 대해 알아봅니다.
+description: Azure PowerShell을 사용하여 VM에 대한 포트를 열고 엔드포인트를 생성하는 방법에 대해 알아봅니다
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: networking
@@ -10,13 +10,13 @@ ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 8390b5c779e6aa053e1af2754c436dd51e410b06
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102550419"
 ---
-# <a name="how-to-open-ports-and-endpoints-to-a-vm-using-powershell"></a>PowerShell을 사용 하 여 VM에 대 한 포트 및 끝점을 여는 방법
+# <a name="how-to-open-ports-and-endpoints-to-a-vm-using-powershell"></a>PowerShell을 사용하여 VM에 대한 포트 및 엔드포인트를 여는 방법
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>빠른 명령

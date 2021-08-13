@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 05/04/2021
 ms.author: jeffme
-ms.openlocfilehash: b4c22f8b6825b2955ba7c50e2ef1ff5f3ee00464
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b4ec1ea076994622e4e687c3f6f4a4f3826ad385
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958186"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114220454"
 ---
 # <a name="what-are-azure-applied-ai-services"></a>Azure Applied AI Services란 무엇인가요?
 
@@ -33,7 +33,7 @@ Form Recognizer는 사용자 지정 문서 처리 모델, 송장, 영수증, ID 
 
 비즈니스, 서비스 및 물리적 자산의 메트릭을 통한 인텔리전스에 따라 올바른 의사 결정을 내릴 수 있도록 하여 조직의 성장을 보호합니다.  Azure Metrics Advisor는 AI를 사용하여 시계열 데이터에서 데이터 모니터링과 변칙 검색을 수행합니다. 이 서비스는 데이터에 모델을 적용하는 프로세스를 자동화하고 데이터 수집, 변칙 검색 및 진단용 API 및 웹 기반 작업 영역 세트를 제공하므로 기계 학습을 몰라도 상관없습니다. 개발자는 이 서비스를 기반으로 AIOps, 예측 유지 관리 및 비즈니스 모니터링 애플리케이션을 빌드할 수 있습니다.  Azure Metrics Advisor는 Azure Cognitive Services의 Anomaly Detector를 사용하여 빌드됩니다.
 
-[Azure Metrics Advisor에 대한 자세한 정보](../cognitive-services/metrics-advisor/index.yml)
+[Azure Metrics Advisor에 대한 자세한 정보](./metrics-advisor/index.yml)
 
 ## <a name="azure-cognitive-search"></a>Azure Cognitive Search
 

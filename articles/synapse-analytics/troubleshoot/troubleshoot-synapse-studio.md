@@ -1,6 +1,6 @@
 ---
 title: Synapse Studio 문제 해결
-description: Azure Synapse Studio 문제 해결
+description: Synapse Studio 문제 해결
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.subservice: troubleshooting
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 362b588112c5027b78285a77bbb556f2497b1892
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 16608f77971c3c19836d8f956512f28f945d3667
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143146"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809061"
 ---
-# <a name="azure-synapse-studio-troubleshooting"></a>Azure Synapse Studio 문제 해결
+# <a name="synapse-studio-troubleshooting"></a>Synapse Studio 문제 해결
 
 이 문제 해결 가이드에서는 네트워크 연결 문제에 대한 지원 티켓을 열 때 제공할 정보를 설명합니다. 적절한 정보를 제공하면 문제를 더 신속하게 해결하는 데 도움이 됩니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "108143146"
 
 ![diagnostic-info](media/troubleshooting-synapse-studio/diagnostic-info-download.png)
 
-문제 해결을 시작하려면 Azure Synapse Studio에서 수행한 작업을 다시 시도합니다.
+문제 해결을 시작하려면 Synapse Studio에서 수행한 작업을 다시 시도합니다.
 
 - 증상 1의 경우, "SQL 스크립트" 탭에서 "데이터베이스 사용" 드롭다운의 오른쪽에 있는 "새로 고침" 단추를 선택하고 "서버리스 SQL 풀"이 나타나는지 확인합니다.
 - 증상 2의 경우, 쿼리를 다시 실행하여 성공적으로 실행되는지 확인합니다.

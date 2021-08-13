@@ -8,25 +8,29 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67e77c2dd08386279beeb06ff9081fa2669afa73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2913665d2cc834bd3b88f23ce81b46ca7a7dfbbe
+ms.sourcegitcommit: 5c136a01bddfccb2cc9f7e7e7741e2cf2651ddbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102487837"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111352753"
 ---
 # <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft Graph API를 사용하여 사용자 지정 관리자 역할 할당 
 
 Microsoft Graph API를 사용하여 사용자 계정에 역할을 할당하는 방법을 자동화할 수 있습니다. 이 문서에서는 roleAssignments에 대한 POST, GET 및 DELETE 작업에 대해 설명합니다.
 
-## <a name="required-permissions"></a>필요한 사용 권한
+## <a name="prerequisites"></a>필수 조건
 
-전역 관리자 또는 권한 있는 역할 관리자 계정을 사용하여 Azure AD 조직에 연결하여 역할을 할당하거나 제거합니다.
+- Azure AD Premium P1 또는 P2 라이선스
+- 권한 있는 역할 관리자 또는 전역 관리자
+- Microsoft Graph API용 Graph 탐색기 사용 시 관리자 동의
+
+자세한 내용은 [PowerShell 또는 Graph 탐색기를 사용하기 위한 필수 구성 요소](prerequisites.md)를 참조하세요.
 
 ## <a name="post-operations-on-roleassignment"></a>RoleAssignment에 대한 POST 작업
 
@@ -305,5 +309,5 @@ HTTP/1.1 400 Bad Request
 ## <a name="next-steps"></a>다음 단계
 
 * 언제든지 [Azure AD 관리 역할 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)에서 경험을 공유하세요.
-* 역할 및 관리자 역할 할당에 대한 자세한 내용은 [관리자 역할 할당](permissions-reference.md)을 참조하세요.
+* 역할 권한에 대한 자세한 내용은 [Azure AD 기본 제공 역할](permissions-reference.md)을 참조하세요.
 * 기본 사용자 권한의 경우 [기본 게스트 및 멤버 사용자 권한 비교](../fundamentals/users-default-permissions.md)를 참조하세요.

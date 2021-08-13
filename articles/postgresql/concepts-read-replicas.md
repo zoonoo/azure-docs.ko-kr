@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/29/2021
-ms.openlocfilehash: 62ef47e7d8f98241009c1c1f3d8c111113be432c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/29/2021
+ms.openlocfilehash: 635a90b70c044e1f8c49518c42b49c521dbb317e
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99220771"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110781891"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버의 읽기 복제본
 
@@ -34,7 +34,10 @@ ms.locfileid: "99220771"
 > [!NOTE]
 > 대부분의 워크로드에서 읽기 복제본은 주 서버에서 거의 실시간 업데이트를 제공합니다. 하지만 지속적인 쓰기 집약적 주 워크로드의 경우 복제 지연이 계속 증가할 수 있으며 주 서버의 속도를 따라잡지 못할 수도 있습니다. WAL 파일은 복제본에서 수신될 때까지 삭제되지 않기 때문에 주 서버에서 스토리지 사용량이 증가할 수도 있습니다. 이 상황이 지속되는 경우 쓰기 집약적인 워크로드가 완료된 후 읽기 복제본을 삭제하고 다시 만드는 것이 지연과 관련하여 복제본을 양호한 상태로 되돌릴 수 있는 옵션입니다.
 > 비동기식 읽기 복제본은 이러한 쓰기가 많은 워크로드에는 적합하지 않습니다. 애플리케이션에 대한 읽기 복제본을 평가할 때 워크로드 주기의 다양한 지점에서 가능한 지연 및 예상 RTO/RPO에 액세스할 수 있도록 사용량이 많은 시간과 사용량이 많지 않은 시간에서 전체 앱 워크로드 주기에 대한 복제본의 지연 시간을 모니터링합니다.
-> 
+
+> [!NOTE]
+> 최대 4TB의 저장소 구성으로 구성된 복제본 서버에 대해 자동 백업이 수행됩니다.
+
 ## <a name="cross-region-replication"></a>지역 간 복제
 주 서버와는 다른 지역에 읽기 복제본을 만들 수 있습니다. 지역 간 복제는 재해 복구 계획 또는 사용자에게 더 가까운 데이터 가져오기 등의 시나리오에 유용할 수 있습니다.
 

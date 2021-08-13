@@ -1,17 +1,17 @@
 ---
-title: Windows Virtual Desktop에 Microsoft Office FSLogix 애플리케이션 컨테이너 설치 - Azure
-description: 앱 규칙 편집기를 사용하여 Windows Virtual Desktop에서 Office로 FSLogix 애플리케이션 컨테이너를 만드는 방법을 알아봅니다.
+title: Azure Virtual Desktop에 Microsoft Office FSLogix 애플리케이션 컨테이너 설치 - Azure
+description: 앱 규칙 편집기를 사용하여 Azure Virtual Desktop에서 Office로 FSLogix 애플리케이션 컨테이너를 만드는 방법을 알아봅니다.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a144adcfbf6c7cefc6b946f95bdb734868de801f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 4e145e8ff578d7e8663e45aa550906a1594f5228
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446811"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757664"
 ---
 # <a name="install-microsoft-office-using-fslogix-application-containers"></a>FSLogix 애플리케이션 컨테이너를 사용하여 Microsoft Office 설치
 
@@ -22,7 +22,7 @@ FSLogix 앱 컨테이너를 사용하면 더 빠르게 설치할 수 있는 이�
 - Office 앱을 앱 컨테이너에 오프로드하면 C 드라이브 크기에 대한 요구 사항이 줄어듭니다.
 - VM의 스냅샷 또는 백업에서 리소스를 더 적게 사용합니다.
 - 단일 이미지 업데이트를 통해 자동화된 파이프라인을 사용하면 VM을 더 쉽게 업데이트할 수 있습니다.
-- Windows Virtual Desktop 배포 시 모든 VM에 Office(및 기타 앱)를 설치하려면 하나의 이미지만 필요합니다.
+- Azure Virtual Desktop 배포 시 모든 VM에 Office(및 기타 앱)를 설치하려면 하나의 이미지만 필요합니다.
 
 이 문서에서는 Office로 FSLogix 애플리케이션 컨테이너를 설정하는 방법을 보여줍니다.
 
@@ -40,7 +40,7 @@ FSLogix 앱 컨테이너를 사용하면 더 빠르게 설치할 수 있는 이�
 VHD 또는 VHDX에 Office를 설치하려면 VM에서 원격 데스크톱 프로토콜을 사용하도록 설정한 다음, [VHD 마스터 이미지에 Office 설치](install-office-on-wvd-master-image.md)의 지침을 따르세요. 설치할 때 [올바른 라이선스](overview.md#requirements)를 사용하고 있어야 합니다.
 
 >[!NOTE]
->Windows Virtual Desktop을 사용하려면 SCA(공유 컴퓨터 인증)가 필요합니다.
+>Azure Virtual Desktop을 사용하려면 SCA(공유 컴퓨터 인증)가 필요합니다.
 
 ## <a name="install-fslogix"></a>FSLogix 설치
 

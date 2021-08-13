@@ -5,13 +5,13 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 03/11/2021
-ms.openlocfilehash: efc1438fdc539af278ebff1f292c5fa0a91b7b91
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/03/2021
+ms.openlocfilehash: 1228f89c2037e1a181fd1f881a1a8d0262b4dbbd
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103016103"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410138"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure Monitor의 메트릭 경고에 대해 지원되는 리소스
 
@@ -29,15 +29,17 @@ ms.locfileid: "103016103"
 
 |리소스 유형  |지원되는 차원 |다중 리소스 경고| 사용 가능한 메트릭|
 |---------|---------|-----|----------|
-|Microsoft.Aadiam/azureADMetrics | 예 | 예 | |
+|Microsoft.Aadiam/azureADMetrics | 예 | 아니요 | [Azure AD](../essentials/metrics-supported.md#microsoftaadiamazureadmetrics) |
 |Microsoft.ApiManagement/service | 예 | 예 | [API Management](../essentials/metrics-supported.md#microsoftapimanagementservice) |
 |Microsoft.AppConfiguration/configurationStores |예 | 예 | [App Configuration](../essentials/metrics-supported.md#microsoftappconfigurationconfigurationstores) |
-|Microsoft.AppPlatform/Spring | 예 | 예 | [Azure Spring Cloud](../essentials/metrics-supported.md#microsoftappplatformspring) |
+|Microsoft.AppPlatform/spring | 예 | 예 | [Azure Spring Cloud](../essentials/metrics-supported.md#microsoftappplatformspring) |
 |Microsoft.Automation/automationAccounts | 예| 예 | [자동화 계정](../essentials/metrics-supported.md#microsoftautomationautomationaccounts) |
 |Microsoft.AVS/privateClouds | 예 | 예 | [Azure VMware 솔루션](../essentials/metrics-supported.md#microsoftavsprivateclouds) |
 |Microsoft.Batch/batchAccounts | 예 | 예 | [일괄 처리 계정](../essentials/metrics-supported.md#microsoftbatchbatchaccounts) |
+|Microsoft.Bing/accounts | 예 | 아니요 | [Bing 계정](../essentials/metrics-supported.md#microsoftbingaccounts) |
 |Microsoft.BotService/botServices | 예 | 예 | [Bot Services](../essentials/metrics-supported.md#microsoftbotservicebotservices) |
-|Microsoft.Cache/Redis | 예 | 예 | [Azure Cache for Redis](../essentials/metrics-supported.md#microsoftcacheredis) |
+|Microsoft.Cache/redis | 예 | 예 | [Azure Cache for Redis](../essentials/metrics-supported.md#microsoftcacheredis) |
+|microsoft.Cdn/profiles | 예 | 아니요 | [CDN 프로필](../essentials/metrics-supported.md#microsoftcdnprofiles) |
 |Microsoft.ClassicCompute/domainNames/slots/roles | 예 | 예 | [클래식 Cloud Services](../essentials/metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
 |Microsoft.ClassicCompute/virtualMachines | 예 | 예 | [클래식 Virtual Machines](../essentials/metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft.ClassicStorage/storageAccounts | 예 | 예 | [스토리지 계정(클래식)](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccounts) |
@@ -49,8 +51,9 @@ ms.locfileid: "103016103"
 |Microsoft.Compute/cloudServices | 예 | 예 |  [Cloud Services](../essentials/metrics-supported.md#microsoftcomputecloudservices) |
 |Microsoft.Compute/cloudServices/roles | 예 | 예 |  [Cloud Service 역할](../essentials/metrics-supported.md#microsoftcomputecloudservicesroles) |
 |Microsoft.Compute/virtualMachines | 예 | 예<sup>1</sup> | [Virtual Machines](../essentials/metrics-supported.md#microsoftcomputevirtualmachines) |
-|Microsoft.Compute/virtualMachineScaleSets | 예 | 예 |[가상 머신 확장 집합](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
-|Microsoft.ContainerInstance/containerGroups | 예| 예 | [컨테이너 그룹](../essentials/metrics-supported.md#microsoftcontainerinstancecontainergroups) |
+|Microsoft.Compute/virtualMachineScaleSets | 예 | 아니요 |[Virtual Machine Scale Sets](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
+|Microsoft.ConnectedVehicle/platformAccounts | 예 | 아니요 |[연결된 차량 플랫폼 계정](../essentials/metrics-supported.md#microsoftconnectedvehicleplatformaccounts) |
+|Microsoft.ContainerInstance/containerGroups | 예| 아니요 | [컨테이너 그룹](../essentials/metrics-supported.md#microsoftcontainerinstancecontainergroups) |
 |Microsoft.ContainerRegistry/registries | 예 | 예 | [컨테이너 레지스트리](../essentials/metrics-supported.md#microsoftcontainerregistryregistries) |
 |Microsoft.ContainerService/managedClusters | 예 | 예 | [관리되는 클러스터](../essentials/metrics-supported.md#microsoftcontainerservicemanagedclusters) |
 |Microsoft.DataBoxEdge/dataBoxEdgeDevices | 예 | 예 | [Data Box](../essentials/metrics-supported.md#microsoftdataboxedgedataboxedgedevices) |

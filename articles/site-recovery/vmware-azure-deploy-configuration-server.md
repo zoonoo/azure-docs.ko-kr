@@ -2,18 +2,18 @@
 title: Azure Site Recovery에서 구성 서버 배포
 description: 이 문서에서는 Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버를 관리하는 방법을 설명합니다.
 services: site-recovery
-author: Rajeswari-Mamilla
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
-ms.topic: article
-ms.date: 10/15/2019
-ms.author: ramamill
-ms.openlocfilehash: a8ceb3df68ebe42f83c70ed62327bf59c0dfc225
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: conceptual
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: 9fd9dd63967dc5fb27b9db6931fdc60d57b405fb
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92359818"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576182"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -185,7 +185,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
     아니요. 구성 서버의 IP 주소를 변경하지 마세요. 구성 서버에 할당된 모든 IP가 DHCP IP가 아닌 고정 IP인지 확인합니다.
 * Azure에서 구성 서버를 설정할 수 있나요?
 
-    데이터 전송 대기 시간을 최소화하기 위해 v-Center에서 직접 볼 수 있는 온-프레미스 환경에 구성 서버를 설정합니다. [장애 복구](vmware-azure-manage-configuration-server.md#failback-requirements)를 위해 구성 서버의 예약된 백업을 수행할 수 있습니다.
+    데이터 전송 대기 시간을 최소화하기 위해 vCenter에서 직접 볼 수 있는 온-프레미스 환경에 구성 서버를 설정합니다. [장애 복구](vmware-azure-manage-configuration-server.md#failback-requirements)를 위해 구성 서버의 예약된 백업을 수행할 수 있습니다.
 
 * 구성 서버 또는 스케일 아웃 프로세스 서버에서 캐시 드라이버를 변경할 수 있나요?
 

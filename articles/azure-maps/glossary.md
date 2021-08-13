@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: 05071be4fc1705787a649d331613e8d9399f983f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92897180"
 ---
 # <a name="glossary"></a>용어
@@ -53,7 +53,7 @@ ms.locfileid: "92897180"
 
 <a name="azure-location-based-services-lbs"></a> **Azure LBS(Location Based Services)** : 미리 보기 상태로 제공되었을 때 Azure Maps의 이전 이름입니다.
 
-<a name="azure-active-directory"></a> **Azure AD(Azure Active Directory)** : Azure AD는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스입니다. Azure Maps Azure AD 통합은 현재 모든 Azure Maps API의 미리 보기에서 사용할 수 있습니다. Azure AD는 azure RBAC (역할 기반 액세스 제어)를 지원 하 여 Azure Maps 리소스에 세분화 되는 액세스를 허용 합니다. Azure Maps Azure AD 통합에 대해 자세히 알아보려면 [Azure Maps 및 Azure AD](azure-maps-authentication.md)와 [Azure Maps에서 인증 관리](how-to-manage-authentication.md)를 참조하세요.
+<a name="azure-active-directory"></a> **Azure AD(Azure Active Directory)** : Azure AD는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스입니다. Azure Maps Azure AD 통합은 현재 모든 Azure Maps API의 미리 보기에서 사용할 수 있습니다. Azure AD는 Azure RBAC(Azure 역할 기반 액세스 제어)를 지원하여 Azure Maps 리소스에 대한 세분화 액세스가 가능합니다. Azure Maps Azure AD 통합에 대해 자세히 알아보려면 [Azure Maps 및 Azure AD](azure-maps-authentication.md)와 [Azure Maps에서 인증 관리](how-to-manage-authentication.md)를 참조하세요.
 
 <a name="azure-maps-key"></a> **Azure Maps 키**: [공유 키 인증](#shared-key-authentication)을 참조하세요.
 

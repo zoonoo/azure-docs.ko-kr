@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Central 애플리케이션 설정 변경 | Microsoft Docs
-description: 관리자로서 애플리케이션 이름 및 URL을 변경하고, 이미지를 업로드하고, 애플리케이션을 삭제하여 Azure IoT Central 애플리케이션을 관리하는 방법
+description: 애플리케이션 이름 및 URL을 변경하고, 이미지를 업로드하고, 애플리케이션을 삭제하여 Azure IoT Central 애플리케이션을 관리하는 방법
 author: viv-liu
 ms.author: viviali
 ms.date: 12/19/2020
@@ -8,18 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 81cd2ca1cb47e6fdfb4858df930b73c1bd10118a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b72fd3c47e6f3013c0f9eb39707a1e55c78cac0
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101091826"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789011"
 ---
 # <a name="change-iot-central-application-settings"></a>IoT Central 애플리케이션 설정 변경
 
-
-
-이 문서에서는 관리자가 애플리케이션 이름 및 URL을 변경하고, 이미지를 업로드하고, Azure IoT Central 애플리케이션에서 애플리케이션을 삭제하여 애플리케이션을 관리하는 방법을 설명합니다.
+이 문서에서는 애플리케이션 이름 및 URL을 변경하고, 이미지를 업로드하고, Azure IoT Central 애플리케이션에서 애플리케이션을 삭제하여 애플리케이션을 관리하는 방법을 설명합니다.
 
 **관리** 섹션에 액세스하여 사용하려면 Azure IoT Central 애플리케이션에서 **관리자** 역할이어야 합니다. Azure IoT Central 애플리케이션을 만드는 사용자에게는 자동으로 해당 애플리케이션의 **관리자** 역할이 할당됩니다.
 
@@ -27,7 +25,7 @@ ms.locfileid: "101091826"
 
 **애플리케이션 설정** 페이지에서 애플리케이션의 이름 및 URL을 변경한 다음, **저장** 을 선택합니다.
 
-![애플리케이션 설정 페이지](media/howto-administer/image0-a.png)
+![애플리케이션 설정 페이지](media/howto-administer/image-a.png)
 
 관리자가 애플리케이션에 대한 사용자 지정 테마를 만들 경우 이 페이지에는 UI에서 **애플리케이션 이름** 을 숨기는 옵션이 포함됩니다. 이 옵션은 사용자 지정 테마의 애플리케이션 로고가 애플리케이션 이름을 포함하는 경우에 유용합니다. 자세한 내용은 [Azure IoT Central UI 사용자 지정](./howto-customize-ui.md)을 참조하세요.
 

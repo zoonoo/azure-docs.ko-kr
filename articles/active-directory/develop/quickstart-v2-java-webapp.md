@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: a7337175241834cef862b4af07c7bcf7c8b845d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ba0052aec7e0938443560f5f0868431907c1b27
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100103773"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580857"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>빠른 시작: Java 웹앱에 Microsoft로 로그인 추가
 
@@ -163,10 +163,7 @@ IDE에서 웹 애플리케이션을 실행하려면 실행을 선택한 다음, 
 
 웹 샘플을 Tomcat에 배포하려면 소스 코드를 몇 가지 변경합니다.
 
-1. *ms-identity-java-webapp/pom.xml* 을 엽니다.
-    - `<name>msal-web-sample</name>`에서 `<packaging>war</packaging>`을 추가합니다.
-
-2. *ms-identity-java-webapp/src/main/java/com.microsoft.azure.msalwebsample/MsalWebSampleApplication* 을 엽니다.
+1. *ms-identity-java-webapp/src/main/java/com.microsoft.azure.msalwebsample/MsalWebSampleApplication* 을 엽니다.
 
     - 모든 소스 코드를 삭제하고 다음 코드로 바꿉니다.
 
@@ -192,7 +189,7 @@ IDE에서 웹 애플리케이션을 실행하려면 실행을 선택한 다음, 
        }
       ```
 
-3.   Tomcat의 기본 HTTP 포트는 8080이지만 포트 8443을 통한 HTTPS 연결이 필요합니다. 이 설정을 구성하려면 다음을 수행합니다.
+2.   Tomcat의 기본 HTTP 포트는 8080이지만 포트 8443을 통한 HTTPS 연결이 필요합니다. 이 설정을 구성하려면 다음을 수행합니다.
         - *tomcat/conf/server.xml* 로 이동합니다.
         - `<connector>` 태그를 검색하고 기존 커넥터를 다음 커넥터로 바꿉니다.
 
@@ -205,13 +202,13 @@ IDE에서 웹 애플리케이션을 실행하려면 실행을 선택한 다음, 
                    clientAuth="false" sslProtocol="TLS"/>
           ```
 
-4. 명령 프롬프트 창을 엽니다. 이 샘플의 루트 폴더(pom.xml 파일이 있는 위치)로 이동하고 `mvn package`를 실행하여 프로젝트를 빌드합니다.
+3. 명령 프롬프트 창을 엽니다. 이 샘플의 루트 폴더(pom.xml 파일이 있는 위치)로 이동하고 `mvn package`를 실행하여 프로젝트를 빌드합니다.
     - 이 명령은 */targets* 디렉터리에 *msal-web-sample-0.1.0.war* 파일을 생성합니다.
     - 이 파일의 이름을 *msal4jsample.war* 로 바꿉니다.
     - Tomcat 또는 기타 J2EE 컨테이너 솔루션을 사용하여 WAR 파일을 배포합니다.
         - msal4jsample.war 파일을 배포하려면 Tomcat 설치의 */webapps/* 디렉터리에 복사한 다음, Tomcat 서버를 시작합니다.
 
-5. 파일이 배포된 후 브라우저를 사용하여 https://localhost:8443/msal4jsample 로 이동합니다.
+4. 파일이 배포된 후 브라우저를 사용하여 https://localhost:8443/msal4jsample 로 이동합니다.
 
 
 > [!IMPORTANT]

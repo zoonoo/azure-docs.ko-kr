@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 444639d9e36b67f25ed9b82bd68102273c66ae00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec614f74a0b7894be8b8d0d867056d0506d3ef9d
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104951235"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113596356"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>빠른 시작: Azure CDN과 Azure Storage 계정 통합
 
@@ -78,7 +78,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 스토리지 계정의 **Azure CDN** 페이지에서 목록에 있는 CDN 엔드포인트를 선택하여 CDN 엔드포인트 구성 창을 엽니다.
 
-이 페이지에서 전송에 대해 [압축](cdn-improve-performance.md), [쿼리 문자열 캐싱](cdn-query-string.md) 및 [지역 필터링](cdn-restrict-access-by-country.md) 등과 같은 추가 CDN 기능을 사용하도록 설정할 수 있습니다. 
+이 페이지에서 전송에 대해 [압축](cdn-improve-performance.md), [쿼리 문자열 캐싱](cdn-query-string.md) 및 [지역 필터링](cdn-restrict-access-by-country-region.md) 등과 같은 추가 CDN 기능을 사용하도록 설정할 수 있습니다. 
     
 ## <a name="enable-sas"></a>SAS 사용
 

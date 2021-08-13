@@ -2,14 +2,14 @@
 title: 가상 네트워크에서 풀 프로비저닝
 description: 컴퓨팅 노드가 파일 서버와 같은 네트워크의 다른 VM과 안전하게 통신할 수 있도록 Azure 가상 네트워크에 Batch 풀을 만드는 방법입니다.
 ms.topic: how-to
-ms.date: 03/26/2021
+ms.date: 06/09/2021
 ms.custom: seodec18
-ms.openlocfilehash: 7213637e89cfccd1352861002c47a696d942d30f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5279e9efb426c327761f14188b436e47387ea1eb
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629311"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111903102"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>가상 네트워크에서 Azure Batch 만들기
 
@@ -53,9 +53,11 @@ VNet을 만들고 서브넷을 할당한 후에는 해당 VNet으로 Batch 풀�
 
 강제 터널링을 사용하는 VNet에서 풀의 노드가 작동하도록 해당 서브넷에 대해 다음 UDR([사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md))을 추가해야 합니다.
 
-- Batch 서비스는 작업 예약을 위해 노드와 통신해야 합니다. 이 통신을 사용하려면 Batch 계정이 존재하는 지역의 Batch 서비스에서 사용하는 각 IP 주소에 대해 UDR을 추가해야 합니다. Batch 서비스의 IP 주소 목록을 가져오려면 [서비스 태그 온-프레미스](../virtual-network/service-tags-overview.md)를 참조하세요.
+- Batch 서비스는 작업 예약을 위해 노드와 통신해야 합니다. 이 통신을 사용하려면 Batch 계정이 존재하는 지역의 Batch 서비스에서 사용하는 각 IP 주소에 대해 UDR을 추가해야 합니다. Batch 서비스의 IP 주소는 `BatchNodeManagement.<region>` 서비스 태그에서 찾을 수 있습니다. IP 주소 목록을 가져오려면 [온-프레미스 서비스 태그](../virtual-network/service-tags-overview.md)를 참조하세요.
 
-- 온-프레미스 네트워크에서 Azure Storage에 대한 아웃바운드 트래픽(특히 `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` 및 `<account>.blob.core.windows.net`)이 차단되지 않는지 확인합니다.
+- 대상 포트 443의 Azure Batch 서비스에 대한 아웃바운드 TCP 트래픽이 온-프레미스 네트워크에 의해 차단되지 않는지 확인합니다. 이러한 Azure Batch 서비스 대상 IP 주소는 위의 경로에 사용된 `BatchNodeManagement.<region>` 서비스 태그에 있는 것과 동일합니다.
+
+- 대상 포트 443(특히 `*.table.core.windows.net`, `*.queue.core.windows.net`, `*.blob.core.windows.net` 형식의 URL)에서 Azure Storage에 대한 아웃바운드 TCP 트래픽이 온-프레미스 네트워크에 의해 차단되지 않는지 확인합니다.
 
 - 가상 파일 탑재를 사용하는 경우 [네트워킹 요구 사항](virtual-file-mount.md#networking-requirements)을 검토하고 필요한 트래픽이 차단되지 않았는지 확인합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/03/2021
 ms.author: jeedes
-ms.openlocfilehash: 5f789baf7467af863c59a44ab9a256c9f6d7fd15
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 84da4c02ec4631e9d9f33ac745c3721894cc5f29
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075247"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469515"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>자습서: LearnUpon과 Azure Active Directory 통합
 
@@ -83,7 +83,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     **회신 URL** 텍스트 상자에 `https://<companyname>.learnupon.com/saml/consumer` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 실제 회신 URL로 값을 업데이트합니다. 값을 얻으려면 [LearnUpon 클라이언트 지원 팀](https://www.learnupon.com/features/support/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이 값은 실제 값이 아닙니다. 실제 회신 URL로 값을 업데이트합니다. 값을 얻으려면 [LearnUpon 클라이언트 지원 팀](https://www.learnupon.com/contact/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지에서 **지문** 을 찾습니다. 지문은 LearnUpon SAML 설정에 추가됩니다.
 
@@ -101,7 +101,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -159,7 +159,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-learnupon-test-user"></a>LearnUpon 테스트 사용자 만들기
 
-이 섹션에서는 LearnUpon에서 Britta Simon이라는 사용자를 만듭니다. LearnUpon은 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. LearnUpon에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다. 사용자를 수동으로 만들어야 하는 경우 [LearnUpon 지원 팀](https://www.learnupon.com/features/support/)에 문의해야 합니다.
+이 섹션에서는 LearnUpon에서 Britta Simon이라는 사용자를 만듭니다. LearnUpon은 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. LearnUpon에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다. 사용자를 수동으로 만들어야 하는 경우 [LearnUpon 지원 팀](https://www.learnupon.com/contact/)에 문의해야 합니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 

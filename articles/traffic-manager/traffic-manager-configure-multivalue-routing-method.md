@@ -1,5 +1,5 @@
 ---
-title: 다중값 트래픽 라우팅 구성-Azure Traffic Manager
+title: 다중값 트래픽 라우팅 구성 - Azure Traffic Manager
 description: 이 문서에서는 A/AAAA 엔드포인트로 트래픽을 라우팅하도록 Traffic Manager를 구성하는 방법을 설명합니다.
 services: traffic-manager
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: duau
 ms.openlocfilehash: 85e088dda767a6f6c80ac0a9f6eed84e8802e5ee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95994930"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Traffic Manager에서 다중값 라우팅 방법 구성
@@ -62,7 +62,7 @@ Traffic Manager 프로필에 대한 리소스 그룹을 만듭니다.
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | Type                    | 외부 엔드포인트                                   |
-    | Name           | myEndpoint1                                        |
+    | 이름           | myEndpoint1                                        |
     | FQDN(정규화된 도메인 이름) 또는 IP           | 이 Traffic Manager 프로필에 추가하려는 엔드포인트의 공용 IP 주소를 입력합니다.                         |
     |        |           |
 

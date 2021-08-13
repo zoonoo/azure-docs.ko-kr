@@ -8,12 +8,12 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: c1de8ebbd9ad381628cfeb19413baa295b42b3db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4b2bf97b684ff83b2a4071ca676d30ffb28b87e
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91739836"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721758"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Private Endpoint 및 VNet 통합으로 안전하게 연결된 두 개의 웹앱 만들기
 
@@ -38,8 +38,15 @@ ms.locfileid: "91739836"
 이 파일을 사용하려면 frontwebapp 및 backwebapp 리소스의 이름 속성을 변경해야 합니다(웹앱 이름은 전 세계적으로 고유한 DNS 이름이어야 함). 
 
 ```hcl
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "~>2.0"
+    }
+  }
+}
 provider "azurerm" {
-  version = "~>2.0"
   features {}
 }
 

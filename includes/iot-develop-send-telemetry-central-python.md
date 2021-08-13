@@ -7,13 +7,17 @@ ms.topic: include
 ms.date: 04/28/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 984849cddceb2476bd9d0870da47a33770c4a36a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d4a571e1553e3a9e3dd9f5df63c8ecc16fa07abf
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776862"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114713021"
 ---
+[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/pnp)
+
+이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. 먼저 디바이스 호스트를 위한 Azure IoT Central 애플리케이션을 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 IoT Central에 안전하게 연결하고 원격 분석을 전송합니다.
+
 ## <a name="prerequisites"></a>사전 요구 사항
 - [Python](https://www.python.org/downloads/) 버전 3.7 이상 Python 버전을 확인하려면 `python --version`을 실행합니다.
 - [Git](https://git-scm.com/downloads)

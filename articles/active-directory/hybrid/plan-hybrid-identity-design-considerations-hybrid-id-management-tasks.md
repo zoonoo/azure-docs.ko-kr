@@ -1,6 +1,6 @@
 ---
 title: Azure의 하이브리드 ID 디자인 - 관리 작업 | Microsoft Docs
-description: Azure AD는 사용자를 인증할 때와 조건부 액세스 제어를 사용 하 여 응용 프로그램에 대 한 액세스를 허용 하기 전에 선택한 특정 조건을 확인 합니다.
+description: Azure AD는 사용자를 인증할 때와, 조건부 액세스 제어를 사용하여 애플리케이션에 대한 액세스를 허용하기 전에 선택한 특정 조건을 확인합니다.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c416bf19acb1736eeed679c16dbd87de1cc98537
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90986530"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>하이브리드 ID 수명 주기에 대한 계획
@@ -32,7 +32,7 @@ ID는 엔터프라이즈 이동성 및 애플리케이션 액세스 전략의 �
 ## <a name="determine-hybrid-identity-management-tasks"></a>하이브리드 ID 관리 작업 결정
 조직에서 관리 작업을 배포하면 관리의 정확성 및 효율성이 향상되고 조직의 워크로드 균형을 향상시킵니다. 다음은 강력한 ID 관리 시스템을 정의하는 피벗입니다.
 
- ![id 관리 고려 사항](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
+ ![ID 관리 고려 사항](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
 
 하이브리드 ID 관리 작업을 정의하려면 하이브리드 ID를 채택하는 조직의 필수 특징 일부를 이해해야 합니다. ID 원본에 사용되는 현재 리포지토리를 이해하는 것이 중요합니다. 이러한 핵심 요소를 파악하여 기본적인 요구 사항을 얻고 이를 기반으로 ID 솔루션에 대한 더 나은 설계를 결정하게 할 수 있는 보다 세부적인 질문을 던져야 합니다.  
 
@@ -61,10 +61,10 @@ ID는 엔터프라이즈 이동성 및 애플리케이션 액세스 전략의 �
 ## <a name="synchronization-management"></a>동기화 관리
 ID 관리자의 목표 중 하나는 모든 ID 공급자를 가져오고 동기화 상태를 유지할 수 있는 것입니다. 권한이 있는 마스터 ID 공급자에 기반하여 데이터 동기화를 유지합니다. 동기화된 관리 모델을 사용하는 하이브리드 ID 시나리오에서 온-프레미스 서버에 있는 모든 사용자 및 디바이스 ID를 관리하고 계정 및 필요에 따라 암호를 클라우드로 동기화합니다. 로그인에서 사용자는 클라우드에서 입력한 동일한 온-프레미스 암호를 입력하고 암호는 ID 솔루션에서 확인합니다. 이 모델은 디렉터리 동기화 도구를 사용합니다.
 
-![디렉터리 동기화 ](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) 하이브리드 id 솔루션의 동기화를 적절히 설계 하려면 다음 질문에 대 한 답변을 확인 해야 합니다.
-*    하이브리드 id 솔루션에 사용할 수 있는 동기화 솔루션은 무엇 인가요?
-*    사용할 수 있는 single sign on 기능은 무엇입니까?
-*    B2B 및 B2C 간의 id 페더레이션에 대 한 옵션은 무엇 인가요?
+![디렉터리 동기화](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) 하이브리드 ID 솔루션의 동기화를 적절히 설계하려면 다음 질문에 대답하도록 합니다.
+*    하이브리드 ID 솔루션에 사용할 수 있는 동기화 솔루션은 무엇입니까?
+*    사용할 수는 Single sign-on 기능은 무엇입니까?
+*    B2B 및 B2C 간의 ID 페더레이션에 대한 옵션은 무엇입니까?
 
 ## <a name="next-steps"></a>다음 단계
 [하이브리드 ID 관리 채택 전략 결정](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)

@@ -1,20 +1,20 @@
 ---
-title: Azure VPN 클라이언트용 Intune 프로필 만들기
+title: Azure VPN Client에 대한 Intune 프로필 만들기
 titleSuffix: Azure VPN Gateway
-description: Intune 사용자 지정 프로필을 만들어 Azure VPN 클라이언트 프로필을 배포 하는 방법을 알아봅니다.
+description: Intune 사용자 지정 프로필을 만들어 Azure VPN Client 프로필을 배포하는 방법을 알아봅니다.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/04/2021
+ms.date: 04/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: ed4da521ccba44d7b4792fa341ff6244eb3736a1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 92e534eae6b97ba259cc414c1833a78a2d3fe0ad
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99576162"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018292"
 ---
-# <a name="create-custom-intune-profiles-to-deploy-vpn-client-profiles"></a>VPN 클라이언트 프로필을 배포 하는 사용자 지정 Intune 프로필 만들기
+# <a name="create-custom-intune-profiles-to-deploy-vpn-client-profiles"></a>VPN 클라이언트 프로필을 배포하는 사용자 지정 Intune 프로필 만들기
 
 [!INCLUDE [Intune profile](../../includes/vpn-gateway-virtual-wan-vpn-profile-intune.md)]
  

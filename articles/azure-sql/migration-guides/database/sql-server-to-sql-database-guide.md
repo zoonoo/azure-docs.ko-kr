@@ -8,46 +8,47 @@ ms.devlang: ''
 ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: MashaMSFT
+ms.reviewer: cawrites
 ms.date: 03/19/2021
-ms.openlocfilehash: e2de694a153276dcace1070d35af44dec1056e03
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 437b7bd6e919cd6b462cb8653354631fbeb438ed
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564928"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110785574"
 ---
 # <a name="migration-guide-sql-server-to-azure-sql-database"></a>마이그레이션 가이드: SQL Server를 Azure SQL Database로
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
-이 가이드는 SQL Server 인스턴스를 Azure SQL Database로 마이그레이션하는 데 도움이 됩니다. 
+이 가이드에서는 SQL Server 인스턴스를 Azure SQL Database로 [마이그레이션하는 방법](https://azure.microsoft.com/migration/migration-journey)을 알아봅니다. 
 
 온-프레미스 또는 다음에서 실행 중인 SQL Server를 마이그레이션할 수 있습니다. 
 
 - Virtual Machines의 SQL Server  
 - AWS(Amazon Web Services) EC2 
 - AWS RDS(Amazon Relational Database Service) 
-- 컴퓨팅 엔진(Google Cloud Platform - GCP)  
+- Compute Engine(Google Cloud Platform - GCP)  
 - SQL Server용 Cloud SQL(Google Cloud Platform - GCP) 
 
-마이그레이션에 대한 자세한 내용은 [마이그레이션 개요](sql-server-to-sql-database-overview.md)를 참조하세요. 다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](https://docs.microsoft.com/data-migration)을 참조하세요. 
+마이그레이션에 대한 자세한 내용은 [마이그레이션 개요](sql-server-to-sql-database-overview.md)를 참조하세요. 다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](/data-migration)을 참조하세요. 
 
 :::image type="content" source="media/sql-server-to-database-overview/migration-process-flow-small.png" alt-text="마이그레이션 프로세스 흐름":::
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 
-SQL Server를 Azure SQL Database로 마이그레이션하려면 다음 필수 구성 요소가 있어야 합니다. 
+Azure SQL Database로 [SQL Server 마이그레이션](https://azure.microsoft.com/en-us/migration/sql-server/)을 수행하려면 다음을 확인합니다. 
 
-- 선택한 [마이그레이션 방법](sql-server-to-sql-database-overview.md#compare-migration-options) 및 해당 도구
-- 원본 SQL Server에 연결할 수 있는 컴퓨터에 설치된 [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)
-- 대상 [Azure SQL Database](../../database/single-database-create-quickstart.md) 
-- 원본과 대상 모두에 액세스할 수 있도록 연결 및 적합한 권한 필요 
+- [마이그레이션 방법](sql-server-to-sql-database-overview.md#compare-migration-options) 및 해당 도구를 선택했는지 확인합니다.
+- 원본 SQL Server에 연결할 수 있는 머신에 [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)가 설치되어 있는지 확인합니다.
+- [Azure SQL Database](../../database/single-database-create-quickstart.md) 대상을 만들었는지 확인합니다. 
+- 원본과 대상 모두에 액세스할 수 있도록 연결 및 적합한 권한을 구성했는지 확인합니다. 
+- [Azure SQL Database에서 사용할 수 있는](../../database/features-comparison.md) 데이터베이스 엔진 기능을 검토했는지 확인합니다. 
 
 
 
 ## <a name="pre-migration"></a>사전 마이그레이션
 
-원본 환경이 지원되는지 확인한 후에 마이그레이션 전 단계부터 시작합니다. 모든 기존 데이터 원본을 검색하고, 마이그레이션 적합성을 평가하고, 마이그레이션을 방해할 수 있는 차단 문제를 식별합니다. 
+원본 환경이 지원되는지 확인한 후에 마이그레이션 전 단계부터 시작합니다. 모든 기존 데이터 원본을 검색하고, 마이그레이션 가능성을 평가하고, [Azure 클라우드 마이그레이션](https://azure.microsoft.com/migration)을 방해할 수 있는 차단 문제를 식별합니다.
 
 ### <a name="discover"></a>검색
 
@@ -55,7 +56,7 @@ SQL Server를 Azure SQL Database로 마이그레이션하려면 다음 필수 �
 
 [Azure Migrate](../../../migrate/migrate-services-overview.md)를 사용하여 온-프레미스 서버의 마이그레이션 적합성을 평가하고, 성능 기반 크기 조정을 수행하고, Azure에서의 해당 작업에 대한 비용 예측을 제공합니다. 
 
-또는  [Microsoft Assessment and Planning Toolkit (MAP Toolkit)](https://www.microsoft.com/download/details.aspx?id=7826)를 사용하여 현재 IT 인프라를 평가합니다. 이 도구 키트는 강력한 인벤토리, 평가 및 보고 도구를 제공하여 마이그레이션 계획 프로세스를 간소화합니다. 
+또는  [Microsoft Assessment and Planning Toolkit (MAP Toolkit)](https://www.microsoft.com/download/details.aspx?id=7826)를 사용하여 현재 IT 인프라를 평가합니다. 도구 키트는 강력한 인벤토리, 평가, 보고 도구를 제공하여 마이그레이션 계획 프로세스를 간소화합니다. 
 
 검색 단계에서 사용할 수 있는 도구에 대한 자세한 내용은 [데이터 마이그레이션 시나리오에 사용할 수 있는 서비스 및 도구](../../../dms/dms-tools-matrix.md)를 참조하세요. 
 
@@ -72,12 +73,12 @@ Data Migration Assistant(버전 4.1 이상)를 사용하여 다음 데이터베�
 
 Database Migration Assessment를 사용하여 환경을 평가하려면 다음 단계를 수행합니다. 
 
-1. [Data Migration Assistant(DMA)](https://www.microsoft.com/download/details.aspx?id=53595)를 엽니다. 
+1. [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)를 엽니다. 
 1. **파일** 을 선택한 다음, **새 평가** 를 선택합니다. 
 1. 프로젝트 이름을 지정하고, 원본 서버 유형으로 SQL Server를 선택한 다음, 대상 서버 유형으로 Azure SQL Database 를 선택합니다. 
 1. 생성하려는 평가 보고서의 유형을 선택합니다. 예를 들면 데이터베이스 호환성 및 기능 패리티입니다. 평가 유형에 따라 원본 SQL Server에 필요한 권한이 다를 수 있습니다.  DMA가 평가를 실행하기 전에 선택한 관리자에 필요한 권한을 강조 표시합니다.
     - **기능 패리티** 범주는 전체 권장 사항 집합, Azure에서 사용 가능한 대체 방법 및 마이그레이션 프로젝트에 대한 작업을 계획하는 데 도움이 되는 완화 단계를 제공합니다. (sysadmin 권한 필요)
-    - **호환성 문제** 범주는 마이그레이션을 차단할 수 있는 부분적으로 지원되거나 지원되지 않는 기능 호환성 문제와 해당 문제를 해결하기 위한 권장 사항을 확인합니다(`CONNECT SQL`, `VIEW SERVER STATE` 및 `VIEW ANY DEFINITION` 권한 필요).
+    - **호환성 문제** 범주는 마이그레이션을 차단할 수 있는 부분적으로 지원되거나 지원되지 않는 기능 호환성 문제와 해당 문제를 해결하기 위한 권장 사항을 확인합니다(`CONNECT SQL`, `VIEW SERVER STATE`, `VIEW ANY DEFINITION` 권한 필요).
 1. SQL Server에 대한 원본 연결의 세부 정보를 지정하고 원본 데이터베이스에 연결합니다.
 1. **평가 시작** 을 선택합니다. 
 1. 프로세스가 완료되면 마이그레이션 차단 및 기능 패리티 문제에 대한 평가 보고서를 선택하고 검토합니다. 평가 보고서를 조직의 다른 팀 또는 직원과 공유할 수 있는 파일로 내보낼 수도 있습니다. 
@@ -200,14 +201,19 @@ SQL Database에서 제공하는 고급 클라우드 기반 기능(예:[기본 �
 
 - 다양한 데이터베이스 및 데이터 마이그레이션 시나리오와 특수 작업을 지원하는 데 사용할 수 있는 Microsoft와 타사의 서비스 및 도구 표는 [데이터 마이그레이션에 사용할 수 있는 서비스 및 도구](../../../dms/dms-tools-matrix.md)를 참조하세요.
 
+
+- [Azure Migrate](https://azure.microsoft.com/services/azure-migrate)에 대해 자세히 알아보려면 다음을 참조하세요.
+   - [Azure Migrate](../../../migrate/migrate-services-overview.md)
+
 - SQL Database에 대해 자세히 알아보려면 다음을 참조하세요.
     - [Azure SQL Database 개요](../../database/sql-database-paas-overview.md)
    - [Azure 총 소유 비용 계산기](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
-- 클라우드 마이그레이션의 프레임워크 및 채택 주기에 관해 자세히 알아보려면 다음을 참조하세요.
+- 클라우드 마이그레이션의 프레임워크 및 채택 주기에 대해 자세히 알아보려면 다음을 참조하세요.
    -  [Azure용 클라우드 채택 프레임워크](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [Azure로 마이그레이션된 워크로드의 비용 계산 및 크기 조정 모범 사례](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Azure로 마이그레이션하기 위한 워크로드의 비용 계산 및 크기 조정 모범 사례](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [클라우드 마이그레이션 리소스](https://azure.microsoft.com/migration/resources)
 
 - 애플리케이션 액세스 레이어를 평가하려면 [Data Access Migration Toolkit(미리 보기)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)을 참조하세요.
 - 데이터 액세스 레이어 A/B 테스트를 수행하는 방법에 관한 자세한 내용은 [데이터베이스 실험 도우미](/sql/dea/database-experimentation-assistant-overview)를 참조하세요.

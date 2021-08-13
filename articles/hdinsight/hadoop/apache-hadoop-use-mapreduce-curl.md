@@ -6,18 +6,18 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
 ms.openlocfilehash: e90dc2c7220caf5bd72b7086adc275934652e150
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98939698"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업 실행
 
-Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache Hadoop에서 MapReduce 작업을 실행 하는 방법에 대해 알아봅니다. Curl은 MapReduce 작업 실행을 원시 HTTP 요청을 사용하여 HDInsight와 함께 작용하는 방법을 설명하기 위해 사용됩니다.
+HDInsight 클러스터의 Apache Hadoop에서 Apache Hive WebHCat REST API를 사용하여 MapReduce 작업을 실행하는 방법을 알아봅니다. Curl은 MapReduce 작업 실행을 원시 HTTP 요청을 사용하여 HDInsight와 함께 작용하는 방법을 설명하기 위해 사용됩니다.
 
 > [!NOTE]  
-> Linux 기반 Hadoop 서버를 사용 하는 방법을 이미 잘 알고 있지만 HDInsight를 처음 사용 하는 경우 [hdinsight의 linux 기반 Apache Hadoop](../hdinsight-hadoop-linux-information.md) 에 대해 알아야 할 사항 문서를 참조 하세요.
+> Linux 기반 Hadoop 서버를 익숙하게 사용하지만 HDInsight는 처음인 경우 [HDInsight의 Linux 기반 Apache Hadoop에 대해 알아야 할 정보](../hdinsight-hadoop-linux-information.md) 문서를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -25,7 +25,7 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache 
 
 다음 중 하나
   * Windows PowerShell 또는
-  * [Jq](https://stedolan.github.io/jq/) 로 [말아 넘기기](https://curl.haxx.se/)
+  * [Curl](https://curl.haxx.se/)([jq](https://stedolan.github.io/jq/) 사용)
 
 ## <a name="run-a-mapreduce-job"></a>MapReduce 작업 실행
 
@@ -36,7 +36,7 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache 
 
 ### <a name="curl"></a>Curl
 
-1. 사용 편의성을 위해 아래 변수를 설정 합니다. 이 예제는 Windows 환경을 기반으로 하며, 사용자 환경에 필요한 대로 수정 합니다.
+1. 사용 편의성을 위해 아래 변수를 설정합니다. 이 예제는 Windows 환경을 기준으로 하므로 환경의 필요에 따라 수정하세요.
 
     ```cmd
     set CLUSTERNAME=
@@ -62,7 +62,7 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache 
     {"version":"v1","status":"ok"}
     ```
 
-1. MapReduce 작업을 제출 하려면 다음 명령을 사용 합니다. 필요에 따라 **jq** 경로를 수정 합니다.
+1. MapReduce 작업을 제출하려면 다음 명령을 사용합니다. 필요에 따라 **jq** 경로를 수정합니다.
 
     ```cmd
     curl -u admin:%PASSWORD% -d user.name=admin ^
@@ -74,15 +74,15 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache 
 
     URI(/mapreduce/jar)의 끝부분은 WebHCat에 이 요청이 jar 파일의 클래스에서 MapReduce 작업을 시작함을 알려줍니다. 이 명령에서 사용된 매개 변수는 다음과 같습니다.
 
-   * **-d**:가 `-G` 사용 되지 않으므로 요청은 POST 메서드로 기본 설정 됩니다. `-d` 는 요청과 함께 전송되는 데이터 값을 지정합니다.
+   * **-d**: `-G`가 사용되지 않으므로 요청은 POST 메서드로 기본 설정됩니다. `-d` 는 요청과 함께 전송되는 데이터 값을 지정합니다.
      * **user.name**: 명령을 실행하는 사용자입니다.
      * **jar**: 실행할 클래스가 포함된 jar 파일의 위치입니다.
      * **class**: MapReduce 논리가 포함된 클래스입니다.
      * **arg**: MapReduce 작업에 전달할 인수. 이 경우는 출력에 사용되는 입력 텍스트 파일과 디렉터리입니다.
 
-    이 명령은 작업 상태를 확인 하는 데 사용할 수 있는 작업 ID를 반환 `job_1415651640909_0026` 해야 합니다.
+    이 명령은 작업 상태를 확인하는데 사용할 수 있는 작업 ID를 반환해야 합니다. `job_1415651640909_0026`.
 
-1. 작업 상태를 확인하려면 다음 명령을 사용합니다. 의 값을 `JOBID` 이전 단계에서 반환 된 **실제** 값으로 바꿉니다. 필요에 따라 **jq** 의 위치를 수정 합니다.
+1. 작업 상태를 확인하려면 다음 명령을 사용합니다. `JOBID`의 값을 이전 단계에서 반환된 **실제** 값으로 바꿉니다. 필요에 따라 **jq** 의 위치를 수정합니다.
 
     ```cmd
     set JOBID=job_1415651640909_0026
@@ -93,14 +93,14 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache 
 
 ### <a name="powershell"></a>PowerShell
 
-1. 사용 편의성을 위해 아래 변수를 설정 합니다. `CLUSTERNAME`을 실제 클러스터 이름으로 바꿉니다. 명령을 실행 하 고 메시지가 표시 되 면 클러스터 로그인 암호를 입력 합니다.
+1. 사용 편의성을 위해 아래 변수를 설정합니다. `CLUSTERNAME`을 실제 클러스터 이름으로 바꿉니다. 명령을 실행하고 클러스터 로그인 암호를 입력하라는 메시지가 표시되면 입력합니다.
 
     ```powershell
     $clusterName="CLUSTERNAME"
     $creds = Get-Credential -UserName admin -Message "Enter the cluster login password"
     ```
 
-1. 다음 명령을 사용 하 여 HDInsight 클러스터에 연결할 수 있는지 확인 합니다.
+1. 다음 명령을 사용하여 HDInsight 클러스터에 연결할 수 있는지 확인합니다.
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clustername.azurehdinsight.net/templeton/v1/status" `
@@ -141,7 +141,7 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache 
     * **class**: MapReduce 논리가 포함된 클래스입니다.
     * **arg**: MapReduce 작업에 전달할 인수. 이 경우는 출력에 사용되는 입력 텍스트 파일과 디렉터리입니다.
 
-   이 명령은 작업 상태를 확인 하는 데 사용할 수 있는 작업 ID를 반환 `job_1415651640909_0026` 해야 합니다.
+   이 명령은 작업 상태를 확인하는데 사용할 수 있는 작업 ID를 반환해야 합니다. `job_1415651640909_0026`.
 
 1. 작업 상태를 확인하려면 다음 명령을 사용합니다.
 
@@ -164,7 +164,7 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache 
 
 1. 작업 상태가 `SUCCEEDED`로 변경되면 Azure Blob Storage에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달되는 `statusdir` 매개 변수에는 출력 파일의 위치가 포함됩니다. 이 예제에서 위치는 `/example/curl`입니다. 이 주소는 작업의 출력을 클러스터 기본 스토리지인 `/example/curl`에 저장합니다.
 
-[Azure CLI](/cli/azure/install-azure-cli)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. Azure CLI를 사용 하 여 Azure Blob storage로 작업 하는 방법에 대 한 자세한 내용은 [빠른 시작: Azure CLI를 사용 하 여 Blob 만들기, 다운로드 및 나열](../../storage/blobs/storage-quickstart-blobs-cli.md)을 참조 하세요.
+[Azure CLI](/cli/azure/install-azure-cli)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. Azure CLI를 사용하여 Azure Blob Storage로 작업하는 방법에 대한 자세한 내용은 [빠른 시작: Azure CLI를 사용하여 Blob 생성, 다운로드 및 나열](../../storage/blobs/storage-quickstart-blobs-cli.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

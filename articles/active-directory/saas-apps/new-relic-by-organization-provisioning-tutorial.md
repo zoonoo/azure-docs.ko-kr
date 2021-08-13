@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 New Relic by Organization 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 New Relic by Organization으로 자동으로 프로비저닝 및 프로비저닝 해제를 하도록 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2020
-ms.author: Zhchia
-ms.openlocfilehash: 6d196f7037fe9c0209e66e9d6e9ab25bdf807b59
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: c7dc59049e96b5ac178d8da4ba5a16833ad61a90
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181907"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768934"
 ---
 # <a name="tutorial-configure-new-relic-by-organization-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 New Relic by Organization 구성
 

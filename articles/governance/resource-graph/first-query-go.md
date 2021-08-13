@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 첫 번째 Go 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 Go용 Resource Graph 패키지를 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
-ms.date: 05/01/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
-ms.openlocfilehash: 42e2ee9b5fc5c34fab2785d32b8b2de55dee0d71
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c6e647682ef7e76c809d93071d483d1b697efedb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751790"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459948"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-go"></a>빠른 시작: Go를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -41,7 +41,7 @@ Go를 사용하도록 설정하여 Azure Resource Graph를 쿼리하려면 해�
 
    ```bash
    # Add the Resource Graph package for Go
-   go get -u github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
+   go get -u github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2021-03-01/resourcegraph
 
    # Add the Azure auth package for Go
    go get -u github.com/Azure/go-autorest/autorest/azure/auth
@@ -61,7 +61,7 @@ Go 패키지가 선택한 환경에 추가되었으므로 간단한 Resource Gra
       "os"
       "context"
       "strconv"
-      arg "github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph"
+      arg "github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2021-03-01/resourcegraph"
       "github.com/Azure/go-autorest/autorest/azure/auth"
    )
 

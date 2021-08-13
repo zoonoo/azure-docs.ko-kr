@@ -1,15 +1,15 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: b7b0cfa20257ad07d8418c39af68724d613adf41
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: b858916f9a359994eb04bc79728ede46566114f7
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107820953"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114403790"
 ---
 이 빠른 시작에서는 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 빌드하고, IoT 허브에 연결하고, Azure IoT 탐색기 도구를 사용하여 전송되는 원격 분석을 확인하는 방법을 보여줍니다. 샘플 애플리케이션은 C#으로 작성되었으며 C#용 Azure IoT 샘플에 포함되어 있습니다. 솔루션 빌더는 디바이스 코드를 볼 필요 없이 Azure IoT 탐색기 도구를 사용하여 IoT 플러그 앤 플레이 디바이스의 기능을 이해할 수 있습니다.
 
@@ -46,9 +46,9 @@ git clone  https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     | ---- | ----- |
     | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
     | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
-    | IOTHUB_DEVICE_DPS_ID_SCOPE | [환경 설정](../articles/iot-pnp/set-up-environment.md)을 완료했을 때 기록한 값 |
+    | IOTHUB_DEVICE_DPS_ID_SCOPE | [환경 설정](../articles/iot-develop/set-up-environment.md)을 완료했을 때 기록한 값 |
     | IOTHUB_DEVICE_DPS_DEVICE_ID | my-pnp-device |
-    | IOTHUB_DEVICE_DPS_DEVICE_KEY | [환경 설정](../articles/iot-pnp/set-up-environment.md)을 완료했을 때 기록한 값 |
+    | IOTHUB_DEVICE_DPS_DEVICE_KEY | [환경 설정](../articles/iot-develop/set-up-environment.md)을 완료했을 때 기록한 값 |
 
 이제 Visual Studio에서 샘플을 빌드하고 디버그 모드에서 실행할 수 있습니다.
 
@@ -66,7 +66,7 @@ Windows의 Visual Studio에서 코드 실행을 추적하려면 program.cs 파�
 
 ## <a name="review-the-code"></a>코드 검토
 
-이 샘플은 간단한 IoT 플러그 앤 플레이 온도 조절 디바이스를 구현합니다. 이 샘플에서 구현하는 모델은 IoT 플러그 앤 플레이 [구성 요소](../articles/iot-pnp/concepts-modeling-guide.md)를 사용하지 않습니다. [자동 온도 조절기 디바이스용 DTDL(Digital Twins 정의 언어) 모델 파일](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json)은 디바이스에서 구현하는 원격 분석, 속성 및 명령을 정의합니다.
+이 샘플은 간단한 IoT 플러그 앤 플레이 온도 조절 디바이스를 구현합니다. 이 샘플에서 구현하는 모델은 IoT 플러그 앤 플레이 [구성 요소](../articles/iot-develop/concepts-modeling-guide.md)를 사용하지 않습니다. [자동 온도 조절기 디바이스용 DTDL(Digital Twins 정의 언어) 모델 파일](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json)은 디바이스에서 구현하는 원격 분석, 속성 및 명령을 정의합니다.
 
 디바이스 코드는 표준 `CreateFromConnectionString` 메서드를 사용하여 IoT 허브에 연결합니다. 디바이스는 연결 요청에서 구현하는 DTDL 모델의 모델 ID를 보냅니다. 모델 ID를 보내는 디바이스는 IoT 플러그 앤 플레이 디바이스입니다.
 

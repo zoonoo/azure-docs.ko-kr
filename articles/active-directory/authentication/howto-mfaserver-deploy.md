@@ -1,5 +1,5 @@
 ---
-title: Azure MFA 서버를 시작 하는 중-Azure Active Directory
+title: Azure MFA 서버 시작 - Azure Active Directory
 description: Azure MFA 서버 온-프레미스 단계별 시작
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d7bd9913cccbe077a4deed9a7c5bfdc601f3dd5e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96742343"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버로 시작하기
@@ -27,11 +27,11 @@ ms.locfileid: "96742343"
 이 페이지에서는 서버를 새롭게 설치하고 이를 온-프레미스 Active Directory를 사용하여 설정하는 것을 다룹니다. MFA 서버가 이미 설치되어 있고 업그레이드를 고려하는 경우 [최신 Azure Multi-Factor Authentication 서버로 업그레이드](howto-mfaserver-deploy-upgrade.md)를 참조하세요. 웹 서비스만 설치하는 정보는 [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스 배포](howto-mfaserver-deploy-mobileapp.md)를 참조하세요.
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공 하지 않습니다. 로그인 이벤트 중에 MFA (multi-factor authentication)를 요구 하려는 신규 고객은 클라우드 기반 Azure AD Multi-Factor Authentication를 사용 해야 합니다.
+> 2019년 7월 1일부터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공하지 않습니다. 로그인 이벤트 중에 MFA(Multi-Factor Authentication)를 요구하려는 신규 고객은 클라우드 기반 Azure AD Multi-Factor Authentication을 사용해야 합니다.
 >
-> 클라우드 기반 MFA를 시작 하려면 [자습서: AZURE AD Multi-Factor Authentication를 사용 하 여 보안 사용자 로그인 이벤트](tutorial-enable-azure-mfa.md)를 참조 하세요.
+> 클라우드 기반 MFA를 시작하려면 [자습서: Azure AD Multi-Factor Authentication으로 사용자 로그인 이벤트 보안](tutorial-enable-azure-mfa.md)을 참조하세요.
 >
-> 2019 년 7 월 1 일 이전에 MFA 서버를 정품 인증 한 기존 고객은 평소와 같이 최신 버전, 향후 업데이트 및 활성화 자격 증명 생성을 다운로드할 수 있습니다.
+> 2019년 7월 1일 이전에 MFA 서버를 활성화한 기존 고객은 종전과 같이 최신 버전 및 이후 업데이트를 다운로드하고 활성화 자격 증명을 생성할 수 있습니다.
 
 ## <a name="plan-your-deployment"></a>배포 계획
 
@@ -58,7 +58,7 @@ Azure Multi-Factor Authentication에 사용 중인 서버가 다음 요구 사�
 | Azure Multi-Factor Authentication 서버 요구 사항 | 설명 |
 |:--- |:--- |
 | 하드웨어 |<li>200MB의 하드 디스크 공간</li><li>x32 또는 x64 지원 프로세서</li><li>1GB 이상 RAM</li> |
-| 소프트웨어 |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008/R2 ( [Esu](/lifecycle/faq/extended-security-updates) 만)</li><li>윈도우 10</li><li>Windows 8.1, 모든 버전</li><li>Windows 8, 모든 버전</li><li>Windows 7, 모든 버전 ( [Esu](/lifecycle/faq/extended-security-updates) 만 있음)</li><li>Microsoft .NET 4.0 Framework</li><li>사용자 포털 또는 웹 서비스 SDK를 설치하는 경우 IIS 7.0 이상</li> |
+| 소프트웨어 |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008/R2([ESU](/lifecycle/faq/extended-security-updates)만 포함)</li><li>Windows 10</li><li>Windows 8.1, 모든 버전</li><li>Windows 8, 모든 버전</li><li>Windows 7, 모든 버전([ESU](/lifecycle/faq/extended-security-updates)만 포함)</li><li>Microsoft .NET 4.0 Framework</li><li>사용자 포털 또는 웹 서비스 SDK를 설치하는 경우 IIS 7.0 이상</li> |
 | 권한 | Active Directory에 등록할 도메인 관리자 또는 엔터프라이즈 관리자 계정 |
 
 ### <a name="azure-mfa-server-components"></a>Azure MFA 서버 구성 요소
@@ -112,15 +112,15 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 다음 단계를 따라 Azure Portal에서 Azure Multi-Factor Authentication 서버를 다운로드합니다.
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공 하지 않습니다. 사용자 로부터 MFA (multi-factor authentication)를 요구 하려는 새 고객은 클라우드 기반 Azure AD Multi-Factor Authentication를 사용 해야 합니다.
+> 2019년 7월 1일부터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공하지 않습니다. 사용자의 MFA(다단계 인증)이 필요한 신규 고객은 클라우드 기반 Azure AD Multi-Factor Authentication을 사용하여야 합니다.
 >
-> 클라우드 기반 MFA를 시작 하려면 [자습서: AZURE AD Multi-Factor Authentication를 사용 하 여 보안 사용자 로그인 이벤트](tutorial-enable-azure-mfa.md)를 참조 하세요.
+> 클라우드 기반 MFA를 시작하려면 [자습서: Azure AD Multi-Factor Authentication으로 사용자 로그인 이벤트 보안](tutorial-enable-azure-mfa.md)을 참조하세요.
 >
-> 2019 년 7 월 1 일 이전에 MFA 서버를 정품 인증 한 기존 고객은 평소와 같이 최신 버전, 향후 업데이트 및 활성화 자격 증명 생성을 다운로드할 수 있습니다. 다음 단계는 기존 MFA 서버 고객 인 경우에만 작동 합니다.
+> 2019년 7월 1일 이전에 MFA 서버를 활성화한 기존 고객은 종전과 같이 최신 버전 및 이후 업데이트를 다운로드하고 활성화 자격 증명을 생성할 수 있습니다. 다음 단계는 기존 MFA 서버 고객인 경우에만 작동합니다.
 
 1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. *Azure Active Directory* 를 검색하고 선택합니다. **보안**  >  **MFA** 를 선택 합니다.
-3. **관리자 MFA 서버** 에서 **서버 설정** 을 선택 합니다.
+2. *Azure Active Directory* 를 검색하고 선택합니다. **보안** > **MFA** 를 선택합니다.
+3. **관리자 MFA 서버** 에서 **서버 설정** 을 선택합니다.
 4. **다운로드** 를 선택하고 다운로드 페이지의 지침을 따라 설치 관리자를 저장합니다. 
 
    ![Azure Portal에서 MFA 서버 다운로드](./media/howto-mfaserver-deploy/downloadportal.png)
@@ -132,7 +132,7 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 서버를 다운로드했으므로 이제 서버를 설치하고 구성할 수 있습니다. 설치하려는 서버가 계획 섹션에 나열된 요구 사항을 충족하는지 확인합니다.
 
 1. 실행 파일을 두 번 클릭합니다.
-2. 설치 폴더 선택 화면에서 해당 폴더가 올바른지 확인 하 고 **다음** 을 클릭 합니다.
+2. 설치 폴더 선택 화면에서 해당 폴더가 정확한지 확인하고 **다음** 을 클릭합니다.
 3. 설치가 완료되면 **마침** 을 클릭합니다. 구성 마법사가 시작됩니다.
 4. 구성 마법사 시작 화면에서 **인증 구성 마법사를 사용하여 건너뛰기** 에 체크 표시하고 **다음** 을 클릭합니다. 마법사가 닫히고 서버가 시작됩니다.
 
@@ -159,7 +159,7 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 
 전자 메일 내용 탭에서 선택할 수 있는 전자 메일 템플릿을 확인할 수 있습니다. 사용자가 2단계 인증을 수행하도록 구성한 방법에 따라 가장 적합한 템플릿을 선택합니다.
 
-![콘솔의 MFA 서버 전자 메일 템플릿](./media/howto-mfaserver-deploy/email2.png)
+![콘솔의 MFA 서버 메일 템플릿](./media/howto-mfaserver-deploy/email2.png)
 
 ## <a name="import-users-from-active-directory"></a>Active Directory에서 사용자 가져오기
 
@@ -184,7 +184,7 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 
 ## <a name="how-the-azure-multi-factor-authentication-server-handles-user-data"></a>Azure Multi-Factor Authentication 서버에서 사용자 데이터를 처리하는 방법
 
-온-프레미스에서 MFA (Multi-Factor Authentication) 서버를 사용 하는 경우 사용자의 데이터는 온-프레미스 서버에 저장 됩니다. 영구 사용자 데이터는 클라우드에 저장되지 않습니다. 사용자가 2단계 인증을 수행하면 MFA 서버가 인증을 수행할 Azure MFA 클라우드 서비스에 데이터를 보냅니다. 이러한 인증 요청이 클라우드 서비스에 전송되면 다음 필드가 요청 및 로그에 전송되어 고객의 인증/사용 보고서에서 사용할 수 있게 됩니다. 일부 필드는 선택 사항이므로 Multi-Factor Authentication 서버 내에서 사용하거나 사용하지 않도록 설정할 수 있습니다. MFA 서버에서 MFA 클라우드 서비스로의 통신은 포트 443 아웃바운드를 통해 연결된 SSL/TLS를 사용합니다. 이러한 필드는 다음과 같습니다.
+MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용자의 데이터가 온-프레미스 서버에 저장됩니다. 영구 사용자 데이터는 클라우드에 저장되지 않습니다. 사용자가 2단계 인증을 수행하면 MFA 서버가 인증을 수행할 Azure MFA 클라우드 서비스에 데이터를 보냅니다. 이러한 인증 요청이 클라우드 서비스에 전송되면 다음 필드가 요청 및 로그에 전송되어 고객의 인증/사용 보고서에서 사용할 수 있게 됩니다. 일부 필드는 선택 사항이므로 Multi-Factor Authentication 서버 내에서 사용하거나 사용하지 않도록 설정할 수 있습니다. MFA 서버에서 MFA 클라우드 서비스로의 통신은 포트 443 아웃바운드를 통해 연결된 SSL/TLS를 사용합니다. 이러한 필드는 다음과 같습니다.
 
 * 고유 ID - 사용자 이름 또는 내부 MFA 서버 ID
 * 이름과 성(선택 사항)
@@ -227,5 +227,5 @@ MFA 서버 버전 8.x 이상으로 업그레이드하거나 해당 버전을 설
 - 사용자 셀프 서비스를 위해 [사용자 포털](howto-mfaserver-deploy-userportal.md)을 설정 및 구성합니다.
 - [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md), [RADIUS 인증](howto-mfaserver-dir-radius.md) 또는 [LDAP 인증](howto-mfaserver-dir-ldap.md)을 사용하여 Azure MFA 서버를 설정하고 구성합니다.
 - [RADIUS를 사용하여 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버](howto-mfaserver-nps-rdg.md)를 설정 및 구성합니다.
-- [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스를 배포](howto-mfaserver-deploy-mobileapp.md)합니다.
+- [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스 배포](howto-mfaserver-deploy-mobileapp.md)
 - [Azure Multi-Factor Authentication 및 타사 VPN을 사용한 고급 시나리오](howto-mfaserver-nps-vpn.md)

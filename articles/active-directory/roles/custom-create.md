@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e0e1543f18c18c7fdf97c39f35ba38ded658392
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: bef0dc016b2b216d51a4844c469d14a24e11068b
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103007820"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111437769"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 역할 만들기 및 할당
 
@@ -26,11 +26,20 @@ ms.locfileid: "103007820"
 
 사용자 지정 역할은 Azure AD 개요 페이지의 [역할 및 관리자](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) 탭에서 만들 수 있습니다.
 
+## <a name="prerequisites"></a>사전 요구 사항
+
+- Azure AD Premium P1 또는 P2 라이선스
+- 권한 있는 역할 관리자 또는 전역 관리자
+- PowerShell 사용 시 AzureADPreview 모듈
+- Microsoft Graph API용 Graph 탐색기 사용 시 관리자 동의
+
+자세한 내용은 [PowerShell 또는 Graph Explorer를 사용하기 위한 필수 구성 요소](prerequisites.md)를 참조하세요.
+
 ## <a name="create-a-role-in-the-azure-portal"></a>Azure Portal에서 역할 만들기
 
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>앱 등록 관리에 대한 액세스 권한을 부여하는 새 사용자 지정 역할 만들기
 
-1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [AZURE ad 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
+1. [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 1. **Azure Active Directory** > **역할 및 관리자** > **새 사용자 지정 역할** 을 선택합니다.
 
    ![역할 및 관리자 페이지에서 역할 만들기 또는 편집](./media/custom-create/new-custom-role.png)
@@ -51,30 +60,9 @@ ms.locfileid: "103007820"
 
 ## <a name="create-a-role-using-powershell"></a>PowerShell을 사용하여 역할 만들기
 
-### <a name="prepare-powershell"></a>PowerShell 준비
-
-먼저 [Azure AD 미리 보기 PowerShell 모듈을 다운로드](https://www.powershellgallery.com/packages/AzureADPreview)해야 합니다.
-
-Azure AD PowerShell 모듈을 설치하려면 다음 명령을 사용합니다.
-
-``` PowerShell
-Install-Module -Name AzureADPreview 
-Import-Module -Name AzureADPreview 
-```
-
-모듈을 사용할 수 있는지 확인하려면 다음 명령을 사용합니다.
-
-``` PowerShell
-Get-Module -Name AzureADPreview 
-
-  ModuleType Version      Name                         ExportedCommands 
-  ---------- ---------    ----                         ---------------- 
-  Binary     2.0.0.115    AzureADPreview               {Add-AzureADAdministrati...} 
-```
-
 ### <a name="connect-to-azure"></a>Azure에 연결
 
-Azure Active Directory에 연결 하려면 다음 명령을 사용 합니다.
+Azure Active Directory에 연결하려면 다음 명령을 사용합니다.
 
 ``` PowerShell
 Connect-AzureAD
@@ -102,7 +90,7 @@ $rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
 $customAdmin = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
 
-### <a name="assign-the-custom-role-using-azure-ad-powershell"></a>Azure AD PowerShell을 사용하여 사용자 지정 역할 할당
+### <a name="assign-the-custom-role-using-powershell"></a>PowerShell을 사용하여 사용자 지정 역할 할당
 
 아래 PowerShell 스크립트를 사용하여 역할을 할당합니다.
 
@@ -119,7 +107,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-## <a name="create-a-role-with-graph-api"></a>Graph API를 사용하여 역할 만들기
+## <a name="create-a-role-with-the-microsoft-graph-api"></a>Microsoft Graph API를 사용하여 역할 만들기
 
 1. 역할 정의를 만듭니다.
 
@@ -151,7 +139,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     ```
 
     > [!Note]
-    > 는 `"templateId": "GUID"` 요구 사항에 따라 본문에 전송 되는 선택적 매개 변수입니다. 공통 매개 변수를 사용 하 여 서로 다른 여러 사용자 지정 역할을 만들어야 하는 경우 템플릿을 만들고 값을 정의 하는 것이 가장 좋습니다 `templateId` . `templateId`PowerShell cmdlet을 사용 하 여 미리 값을 생성할 수 있습니다 `(New-Guid).Guid` . 
+    > `"templateId": "GUID"`는 요구 사항에 따라 본문에 전송되는 선택적 매개 변수입니다. 공통 매개 변수를 사용하여 서로 다른 사용자 지정 역할을 여러 개 만들어야 하는 경우 템플릿을 만들고 `templateId` 값을 정의하는 것이 가장 좋습니다. PowerShell cmdlet `(New-Guid).Guid`를 사용하여 미리 `templateId` 값을 생성할 수 있습니다. 
 
 1. 역할 할당을 만듭니다.
 
@@ -175,9 +163,9 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 
 ## <a name="assign-a-custom-role-scoped-to-a-resource"></a>리소스에 범위가 지정된 사용자 지정 역할 할당
 
-기본 제공 역할과 마찬가지로 사용자 지정 역할은 기본적으로 조직 전체의 기본 범위에서 할당되어 조직의 모든 앱 등록에 대한 액세스 권한을 부여합니다. 그러나 기본 제공 역할과 달리 사용자 지정 역할은 단일 Azure AD 리소스의 범위에서 할당될 수도 있습니다. 이를 통해 두 번째 사용자 지정 역할을 만들지 않고도 단일 앱의 자격 증명 및 기본 속성을 업데이트할 수 있는 권한을 사용자에게 부여할 수 있습니다.
+기본 제공 역할과 마찬가지로 사용자 지정 역할은 기본적으로 조직 전체의 기본 범위에서 할당되어 조직의 모든 앱 등록에 대한 액세스 권한을 부여합니다. 또한 Azure AD 리소스의 유형에 따라 사용자 지정 역할 및 일부 관련 기본 제공 역할은 단일 Azure AD 리소스의 범위에서 할당될 수도 있습니다. 이를 통해 두 번째 사용자 지정 역할을 만들지 않고도 단일 앱의 자격 증명 및 기본 속성을 업데이트할 수 있는 권한을 사용자에게 부여할 수 있습니다.
 
-1. Azure ad 조직에서 응용 프로그램 개발자 권한으로 [AZURE ad 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
+1. 애플리케이션 개발자 권한으로 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 1. **앱 등록** 을 선택합니다.
 1. 관리 권한을 부여하는 앱 등록을 선택합니다. Azure AD 조직에서 앱 등록의 전체 목록을 보려면 **모든 애플리케이션** 을 선택해야 할 수도 있습니다.
 
@@ -190,6 +178,6 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD 관리 역할 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)에서 경험을 자유롭게 공유하세요.
-- 역할 및 관리자 역할 할당에 대한 자세한 내용은 [관리자 역할 할당](permissions-reference.md)을 참조하세요.
+- 언제든지 [Azure AD 관리 역할 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)에서 경험을 공유하세요.
+- 역할 권한에 대한 자세한 내용은 [Azure AD 기본 제공 역할](permissions-reference.md)을 참조하세요.
 - 기본 사용자 권한의 경우 [기본 게스트 및 멤버 사용자 권한 비교](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context)를 참조하세요.

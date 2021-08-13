@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory를 사용하여 자동 사용자 프�
 description: 사용자 계정을 Azure AD에서 Global Relay Identity Sync로 자동으로 프로비저닝 및 프로비저닝 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 0c4a3bf0-d0a6-4eab-909b-6cf9f9234e4c
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/22/2020
-ms.author: Zhchia
-ms.openlocfilehash: d003a512ebde626b8726dfccc58110e53f1cd467
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: f8aec55ac9c17880956b571b6d9d354d6578e467
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96180917"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767780"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Global Relay Identity Sync 구성
 
@@ -129,7 +129,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |userType|String|
    |locale|String|
    |timezone|String|
-   |emails[type eq "home"].value|String|
+   |emails[type eq "home"].value|문자열|
    |emails[type eq "other"].value|String|
    |phoneNumbers[type eq "home"].value|String|
    |phoneNumbers[type eq "other"].value|String|

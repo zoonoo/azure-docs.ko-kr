@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 2d3c7026fd221b1a17b8efe56b03b2a26358c7ab
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 09fa626e77e20feff55f7b17807754ac1d2b873f
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364406"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111568849"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Java Bulk Executor 라이브러리: 정보 다운로드
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -49,6 +49,26 @@ ms.locfileid: "107364406"
 |**지원되는 최소 런타임**|[JDK(Java Development Kit) 7 이상](/java/azure/jdk/)|
 
 ## <a name="release-notes"></a>릴리스 정보
+### <a name="2123"></a><a name="2.12.3"></a>2.12.3
+
+* `GoneException`이 `IllegalStateException`에 래핑될 때 재시도 정책 수정 - 이 변경은 410에서 게이트웨이 캐시를 새로 고쳐서 Spark 커넥터(Spark 2.4용)가 사용자 지정 재시도 정책을 사용하여 파티션 분할 중에 쿼리가 성공할 수 있도록 하는 데 필요합니다.
+
+### <a name="2122"></a><a name="2.12.2"></a>2.12.2
+
+* 일시적인 오류로 인해 문서를 항상 가져오지 않는 문제를 해결합니다.
+
+### <a name="2121"></a><a name="2.12.1"></a>2.12.1
+
+* 최신 Cosmos Core SDK 버전을 사용하도록 업그레이드합니다.
+
+### <a name="2120"></a><a name="2.12.0"></a>2.12.0
+
+* 대량 작업을 위해 Spark 커넥터를 통해 제공되는 RU 예산 처리를 개선합니다. baseBatchSize가 있는 Spark 커넥터에서 초기 일회성 대량 가져오기가 수행되고 위의 대량 가져오기에 대한 RU 사용량이 수집됩니다.
+  위의 RU 사용량을 기반으로 miniBatchSizeAdjustmentFactor를 계산하고, 이를 기반으로 미니 일괄 처리 크기를 조정합니다. 경과 시간 및 각 일괄 처리 가져오기에 사용된 RU를 기반으로 절전 기간이 계산되어 초당 RU 사용량을 제한하고 다음 일괄 처리 가져오기 전에 스레드를 일시 중지하는 데 사용됩니다.
+
+### <a name="2110"></a><a name="2.11.0"></a>2.11.0
+
+* 중첩 파티션 키를 사용할 때 대량 업데이트를 차단하는 버그 수정
 
 ### <a name="2100"></a><a name="2.10.0"></a>2.10.0
 

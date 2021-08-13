@@ -6,12 +6,12 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
-ms.openlocfilehash: f02643ee28d76d4f90206a1aa2879b4672da2a38
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f2ec995334069dc707c8eb09fae3601f58c6c549
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179462"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287261"
 ---
 # <a name="create-your-first-kotlin-function-in-azure-using-intellij"></a>IntelliJ를 사용하여 Azure에서 첫 번째 Kotlin 함수 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "102179462"
 
 IntelliJ를 사용하여 Kotlin 함수를 만들고 Azure에 게시하려면 다음 소프트웨어를 설치합니다.
 
-- [JDK(Java Developer Kit)](/azure/developer/java/fundamentals/java-jdk-long-term-support) 버전 8
+- [JDK(Java Developer Kit)](/azure/developer/java/fundamentals/java-support-on-azure) 버전 8
 - [Apache Maven](https://maven.apache.org) 버전 3.0 이상
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download) Community 또는 Ultimate 버전(Maven 포함)
 - [Azure CLI](/cli/azure)

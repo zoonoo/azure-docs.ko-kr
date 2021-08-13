@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용 하 여 피어 링 서비스 미리 보기 연결 등록
-description: Azure CLI를 사용 하 여 피어 링 서비스 연결을 등록 하는 방법에 대해 알아봅니다.
+title: Azure CLI을 사용하여 Peering Service 미리 보기 연결 등록
+description: Azure CLI을 사용하여 Peering Service 연결을 등록하는 방법 알아보기
 services: peering-service
 author: derekolo
 ms.service: peering-service
@@ -11,15 +11,15 @@ ms.workload: Infrastructure-services
 ms.date: 05/2/2020
 ms.author: derekol
 ms.openlocfilehash: e7b696ba052b2aca9e14628327c07275845607ad
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94540589"
 ---
-# <a name="register-a-peering-service-connection-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 피어 링 서비스 연결을 등록 합니다.
+# <a name="register-a-peering-service-connection-by-using-the-azure-cli"></a>Azure CLI을 사용하여 Peering Service 연결 등록
 
-Azure Peering Service는 Microsoft 365, Dynamics 365, SaaS(Software as a Service) 서비스, Azure 또는 공용 인터넷을 통해 액세스할 수 있는 Microsoft 서비스와 같은 Microsoft 클라우드 서비스에 대한 고객의 연결을 향상시키는 네트워킹 서비스입니다. 이 문서에서는 Azure CLI를 사용 하 여 피어 링 서비스 연결을 등록 하는 방법에 대해 알아봅니다.
+Azure Peering Service는 Microsoft 365, Dynamics 365, SaaS(Software as a Service) 서비스, Azure 또는 공용 인터넷을 통해 액세스할 수 있는 Microsoft 서비스와 같은 Microsoft 클라우드 서비스에 대한 고객의 연결을 향상시키는 네트워킹 서비스입니다. 이 문서에서는 Azure CLI을 사용하여 Peering Service 연결을 등록하는 방법을 알아봅니다.
 
 - 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요합니다. [az version](/cli/azure/reference-index#az_version)을 실행하여 설치된 버전과 종속 라이브러리를 찾습니다. 최신 버전으로 업그레이드하려면 [az upgrade](/cli/azure/reference-index#az_upgrade)를 실행합니다.
 
@@ -41,23 +41,23 @@ Azure Peering Service는 Microsoft 365, Dynamics 365, SaaS(Software as a Service
 
 - 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
-### <a name="1-select-your-subscription"></a>1. 구독을 선택 합니다.
+### <a name="1-select-your-subscription"></a>1. 구독 선택
 
-피어 링 서비스 연결을 등록 하려는 구독을 선택 합니다.
+Peering Service 연결을 등록할 구독을 선택합니다.
 
 ```azurecli-interactive
 az account set --subscription "<subscription ID>"
 ```
 
-리소스 그룹이 아직 없는 경우 피어 링 서비스 연결을 등록 하기 전에 먼저 리소스 그룹을 만들어야 합니다. 다음 명령을 실행하여 리소스 그룹을 만들 수 있습니다.
+아직 리소스 그룹이 없는 경우 Peering Service 연결을 등록하기 전에 먼저 리소스 그룹을 만들어야 합니다. 다음 명령을 실행하여 리소스 그룹을 만들 수 있습니다.
 
 ```azurecli-interactive
 az group create -n MyResourceGroup -l "West US"
 ```
 
-### <a name="2-register-your-subscription-with-the-resource-provider-and-feature-flag"></a>2. 리소스 공급자 및 기능 플래그를 사용 하 여 구독을 등록 합니다.
+### <a name="2-register-your-subscription-with-the-resource-provider-and-feature-flag"></a>2. 리소스 공급자 및 기능 플래그에 구독 등록
 
-Azure CLI를 사용 하 여 피어 링 서비스 연결을 등록 하는 단계를 진행 하기 전에 Azure CLI를 사용 하 여 리소스 공급자 및 기능 플래그를 사용 하 여 구독을 등록 합니다. Azure CLI 명령은 다음과 같이 지정 됩니다.
+Azure CLI를 사용하여 Peering Service 연결을 등록하는 단계를 진행하기 전에 Azure CLI를 사용하여 리소스 공급자 및 기능 플래그에 구독을 등록합니다. Azure CLI 명령은 다음과 같이 지정됩니다.
 
 ```azurecli-interactive
 
@@ -65,9 +65,9 @@ az feature register --namespace Microsoft.Peering --name AllowPeeringService
 
 ```
 
-### <a name="3-register-the-peering-service-connection"></a>3. 피어 링 서비스 연결을 등록 합니다.
+### <a name="3-register-the-peering-service-connection"></a>3. Peering Service 연결 등록
 
-Azure CLI를 통해 다음 명령 집합을 사용 하 여 피어 링 서비스 연결을 등록 합니다. 이 예제에서는 myPeeringService 라는 피어 링 서비스 연결을 등록 합니다.
+Azure CLI를 통해 다음 명령 집합을 사용하여 Peering Service 연결을 등록합니다. 이 예제에서는 myPeeringService라는 이름의 Peering Service 연결을 등록합니다.
 
 ```azurecli-interactive
 az peering service create : Create peering service\
@@ -79,9 +79,9 @@ az peering service create : Create peering service\
   --tags
 ```
 
-### <a name="4-register-the-prefix"></a>4. 접두사를 등록 합니다.
+### <a name="4-register-the-prefix"></a>4. 접두사 등록
 
-Azure CLI를 통해 다음 명령을 실행 하 여 연결 공급자가 제공 하는 접두사를 등록 합니다. 이 예제에서는 myPrefix라는 접두사를 등록합니다.
+Azure CLI를 통해 다음 명령을 실행하여 연결 공급자가 제공하는 접두사를 등록합니다. 이 예제에서는 myPrefix라는 접두사를 등록합니다.
 
 ```azurecli-interactive
 az peering service prefix create \
@@ -92,8 +92,8 @@ az peering service prefix create \
 
 ## <a name="next-steps"></a>다음 단계
 
-- 피어 링 서비스 연결에 대해 자세히 알아보려면 [피어 링 서비스 연결](connection.md)을 참조 하세요.
+- Peering Service 연결에 대해 알아보려면 [Peering Service 연결](connection.md)을 참조하세요.
 - Peering Service 연결 원격 분석에 대해 알아보려면 [Peering Service 연결 원격 분석](connection-telemetry.md)을 참조하세요.
 - 원격 분석을 측정하려면 [연결 원격 분석 측정](measure-connection-telemetry.md)을 참조하세요.
 - Azure PowerShell을 사용하여 연결을 등록하려면 [Peering Service 연결 등록 - Azure PowerShell](powershell.md)을 참조하세요.
-- Azure Portal를 사용 하 여 연결을 등록 하려면 [피어 링 서비스 연결 등록-Azure Portal](azure-portal.md)을 참조 하세요.
+- Azure Portal을 사용하여 연결을 등록하려면 [Peering Service 연결 등록 - Azure Portal](azure-portal.md)을 참조하세요.
