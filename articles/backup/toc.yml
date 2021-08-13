@@ -324,7 +324,7 @@
       items:
         - name: 보호 매트릭스
           items:
-            - name: MABS V3 UR1 보호 매트릭스
+            - name: MABS V3 UR1(이상) 보호 매트릭스
               href: backup-mabs-protection-matrix.md
             - name: MABS V3 RTM 보호 매트릭스
               href: microsoft-azure-backup-server-protection-v3.md
@@ -338,12 +338,16 @@
               href: backup-mabs-whats-new-mabs.md
             - name: 릴리스 정보 MABS
               href: backup-mabs-release-notes-v3.md
+            - name: 원격 분석 설정 켜기/끄기
+              href: manage-telemetry.md
             - name: 무인 설치
               href: backup-mabs-unattended-install.md
         - name: 워크로드 보호
           items:
             - name: Hyper-V 가상 머신 백업
               href: back-up-hyper-v-virtual-machines-mabs.md
+            - name: Azure Stack HCI 가상 머신 백업
+              href: back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md
             - name: VMware 서버
               href: backup-azure-backup-server-vmware.md
             - name: Exchange

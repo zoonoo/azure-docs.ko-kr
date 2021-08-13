@@ -21,6 +21,8 @@
       href: work-remotely-support.md
     - name: Bastion FAQ
       href: bastion-faq.md
+    - name: 구성 설정
+      href: configuration-settings.md
     - name: Bastion 및 VNet 피어링
       href: vnet-peering.md
     - name: 보안
@@ -43,6 +45,10 @@
           href: bastion-connect-vm-ssh.md
         - name: RDP(Windows)
           href: bastion-connect-vm-rdp.md
+    - name: SKU 업그레이드
+      href: upgrade-sku.md
+    - name: 호스트 크기 조정 구성
+      href: configure-host-scaling.md
     - name: 가상 머신 확장 집합에 연결
       href: bastion-connect-vm-scale-set.md
     - name: DevTest Labs 가상 머신에 연결
@@ -79,6 +85,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: 블로그
       href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/azure-bastion'
     - name: Microsoft Q&A 질문 페이지
       href: /answers/topics/azure-virtual-network.html
     - name: SLA 미리 보기

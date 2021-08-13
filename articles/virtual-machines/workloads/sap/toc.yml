@@ -4,7 +4,7 @@
       href: get-started.md
     - name: 인증서
       href: sap-certifications.md
-- name: Azure(큰 인스턴스)에서 SAP HANA 사용
+- name: Azure의 SAP 대규모 인스턴스
   items:
     - name: 개요
       items:
@@ -92,263 +92,260 @@
           href: hana-large-instance-virtual-machine-migration.md
         - name: SAP HANA(대규모 인스턴스) 예약 구입
           href: ../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
-- name: Azure Virtual Machines의 SAP HANA
+- name: 계획 및 배포(Azure VM)
   items:
-    - name: Azure VM에 SAP HANA 설치
-      href: hana-get-started.md
-    - name: S/4 HANA 또는 BW/4 HANA SAP CAL 배포 가이드
-      href: cal-s4h.md
-    - name: Azure에서 SAP HANA 인프라 구성 및 작업
-      href: hana-vm-operations.md
-    - name: SAP HANA Azure 가상 머신 스토리지 구성
-      href: hana-vm-operations-storage.md
-    - name: SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨
-      href: hana-vm-operations-netapp.md
-    - name: Azure Virtual Machines의 SAP HANA 가용성
-      items:
-        - name: Azure의 SAP HANA 가용성 개요
-          href: sap-hana-availability-overview.md
-        - name: 단일 Azure 지역 내 Azure의 SAP HANA 가용성
-          href: sap-hana-availability-one-region.md
-        - name: Azure 지역 간 Azure의 SAP HANA 가용성
-          href: sap-hana-availability-across-regions.md
-        - name: SLES에서 SAP HANA 시스템 복제 설정
-          href: sap-hana-high-availability.md
-        - name: RHEL에서 SAP HANA 시스템 복제 설정
-          href: sap-hana-high-availability-rhel.md
-        - name: RHEL에서 ANF를 사용하여 SAP HANA 시스템 복제 설정
-          href: sap-hana-high-availability-netapp-files-red-hat.md
-        - name: SLES의 Pacemaker를 사용하는 SAP HANA 스케일 아웃 HSR
-          href: sap-hana-high-availability-scale-out-hsr-suse.md
-        - name: SLES에서 SAP HANA 스케일 아웃 및 Pacemaker 문제 해결
-          href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
-        - name: RHEL의 Pacemaker를 사용하는 SAP HANA 스케일 아웃 HSR
-          href: sap-hana-high-availability-scale-out-hsr-rhel.md
-        - name: SLES에서 Azure NetApp Files를 사용하여 대기 노드를 통한 SAP HANA 스케일 아웃
-          href: sap-hana-scale-out-standby-netapp-files-suse.md
-        - name: RHEL에서 Azure NetApp Files를 사용하여 대기 노드를 통한 SAP HANA 스케일 아웃
-          href: sap-hana-scale-out-standby-netapp-files-rhel.md
-    - name: Azure Backup을 사용하여 SAP HANA 데이터베이스 백업
-      items:
-        - name: Azure VM의 SAP HANA 데이터베이스 백업
-          href: ../../../backup/sap-hana-db-about.md
-        - name: Azure VM에서 SAP HANA 데이터베이스 백업
-          href: ../../../backup/backup-azure-sap-hana-database.md
-        - name: Azure VM에서 SAP HANA 데이터베이스 복원
-          href: ../../../backup/sap-hana-db-restore.md
-        - name: 관리 및 모니터링
-          href: ../../../backup/sap-hana-db-manage.md
-        - name: SAP HANA 데이터베이스 백업에 대한 지원 매트릭스
-          href: ../../../backup/sap-hana-backup-support-matrix.md
-        - name: FAQ - Azure VM의 SAP HANA 데이터베이스 백업
-          href: ../../../backup/sap-hana-faq-backup-azure-vm.yml
-        - name: Azure의 SAP HANA 데이터베이스 백업 문제 해결
-          href: ../../../backup/backup-azure-sap-hana-database-troubleshoot.md
-        - name: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
-          href: ../../../backup/tutorial-backup-sap-hana-db.md
-- name: 'Azure Virtual Machines의 SAP NetWeaver, S/4HANA 및 Business One'
-  items:
-    - name: SAP 워크로드 계획 및 배포 검사 목록
+    - name: 지원되는 시나리오
+      href: sap-planning-supported-configurations.md
+    - name: Azure 배포에 지원되는 SAP 소프트웨어
+      href: sap-supported-product-on-azure.md
+    - name: Azure에서 SAP 워크로드를 배포하기 위한 검사 목록
       href: sap-deployment-checklist.md
+    - name: SAP NetWeaver 애플리케이션 배포
+      href: deployment-guide.md
     - name: Azure에서 SAP NetWeaver 계획 및 구현
       href: planning-guide.md
-      items:
-        - name: SAP 워크로드에 대한 Azure Storage 형식
-          href: planning-guide-storage.md
-        - name: Azure 가상 머신의 SAP 워크로드 지원 시나리오
-          href: sap-planning-supported-configurations.md
-        - name: Azure 배포를 지원하는 SAP 소프트웨어
-          href: sap-supported-product-on-azure.md
-    - name: SAP NetWeaver 배포 가이드
-      href: deployment-guide.md
-    - name: SAP 워크로드에 대한 DBMS 배포 가이드
-      items:
-        - name: SAP 워크로드에 대한 일반적인 Azure Virtual Machines DBMS 배포
-          href: dbms_guide_general.md
-        - name: SAP 워크로드용 SQL Server Azure Virtual Machines DBMS 배포
-          href: dbms_guide_sqlserver.md
-        - name: SAP 워크로드용 Oracle Azure Virtual Machines DBMS 배포
-          href: dbms_guide_oracle.md
-        - name: SAP 워크로드용 IBM DB2 Azure Virtual Machines DBMS 배포
-          href: dbms_guide_ibm.md
-        - name: SUSE Linux Enterprise Server의 Azure VM에서 IBM DB2 LUW의 고가용성
-          href: dbms-guide-ha-ibm.md
-        - name: Red Hat Enterprise Linux Server의 Azure VM에서 IBM DB2 LUW의 고가용성
-          href: high-availability-guide-rhel-ibm-db2-luw.md
-        - name: SAP 워크로드에 대한 SAP ASE Azure Virtual Machines DBMS 배포
-          href: dbms_guide_sapase.md
-        - name: 'Azure에서 SAP MaxDB, liveCache 및 Content Server 배포'
-          href: dbms_guide_maxdb.md
-        - name: Azure Virtual Machines의 SAP HANA 가용성
-          items:
-            - name: Azure의 SAP HANA 가용성 개요
-              href: sap-hana-availability-overview.md
-            - name: 단일 Azure 지역 내 Azure의 SAP HANA 가용성
-              href: sap-hana-availability-one-region.md
-            - name: Azure 지역 간 Azure의 SAP HANA 가용성
-              href: sap-hana-availability-across-regions.md
-    - name: Azure Virtual Machines의 SAP Business One
+    - name: Azure VM의 SAP Business One
       href: business-one-azure.md
-    - name: Windows/SQL Server SAP CAL에 SAP IDES 배포 가이드
-      href: cal-ides-erp6-erp7-sp3-sql.md
-    - name: Azure용 SAP LaMa 커넥터
+    - name: SAP LaMa에 연결
       href: lama-installation.md
-    - name: Windows 및 Linux의 HA(고가용성)
+    - name: SAP 클라우드 어플라이언스 라이브러리를 통해 배포
+      href: cal-s4h.md
+    - name: Windows/SQL Server SAP CAL의 SAP IDES
+      href: cal-ides-erp6-erp7-sp3-sql.md
+    - name: Azure의 SAP BOBI 플랫폼
       items:
-        - name: 개요
-          href: sap-high-availability-guide-start.md
-        - name: 고가용성 아키텍처
+        - name: Azure에 대한 SAPI BOBI 계획 및 구현 가이드
+          href: businessobjects-deployment-guide.md
+        - name: Azure에서 Windows용 배포
+          href: businessobjects-deployment-guide-windows.md
+        - name: Azure에서 Linux용 배포
+          href: businessobjects-deployment-guide-linux.md
+- name: Storage(Azure VM)
+  items:
+    - name: SAP용 Azure Storage 유형
+      href: planning-guide-storage.md
+    - name: Azure VM 스토리지 구성
+      href: hana-vm-operations-storage.md
+    - name: Azure NetApp Files를 사용하는 SAP HANA
+      href: hana-vm-operations-netapp.md
+- name: DBMS 가이드(Azure VM)
+  items:
+    - name: 일반 DBMS 배포
+      href: dbms_guide_general.md
+    - name: Azure VM의 SQL Server
+      href: dbms_guide_sqlserver.md
+    - name: Azure VM의 Oracle
+      href: dbms_guide_oracle.md
+    - name: Azure VM의 IBM Db2
+      href: dbms_guide_ibm.md
+    - name: Azure VM의 SAP ASE
+      href: dbms_guide_sapase.md
+    - name: 'Azure의 SAP MaxDB, liveCache 및 Content Server'
+      href: dbms_guide_maxdb.md
+    - name: HANA -
+      items:
+        - name: Azure VM에서 SAP HANA 설치
+          href: hana-get-started.md
+        - name: Azure VM에서 SAP HANA 구성
+          href: hana-vm-operations.md
+        - name: HANA 백업
           items:
-            - name: HA 아키텍처 및 시나리오
-              href: sap-high-availability-architecture-scenarios.md
-            - name: 고가용성 아키텍처 및 시나리오
-              href: sap-higher-availability-architecture-scenarios.md
-            - name: Azure 가용성 영역을 사용하는 SAP 워크로드 구성
-              href: sap-ha-availability-zones.md
-            - name: (A)SCS 인스턴스에 공유 디스크를 사용하는 Windows의 HA
-              href: sap-high-availability-guide-wsfc-shared-disk.md
-            - name: (A)SCS 인스턴스에 SOFS 파일 공유를 사용하는 Windows의 HA
-              href: sap-high-availability-guide-wsfc-file-share.md
-            - name: Azure NetApp Files(SMB)로 Windows에 SAP NetWeaver HA 설치하기
-              href: high-availability-guide-windows-netapp-files-smb.md
-            - name: (A)SCS 인스턴스의 SUSE Linux에 대한 HA
-              href: high-availability-guide-suse.md
-            - name: Azure NetApp Files를 사용하는 (A)SCS 인스턴스의 SUSE Linux에 대한 HA
-              href: high-availability-guide-suse-netapp-files.md
-            - name: (A)SCS 인스턴스에 Red Hat Enterprise Linux의 HA
-              href: high-availability-guide-rhel.md
-            - name: Azure NetApp Files를 사용하는 (A)SCS 인스턴스의 Red Hat Enterprise Linux에 대한 HA
-              href: high-availability-guide-rhel-netapp-files.md
-        - name: Azure 인프라 준비
-          items:
-            - name: (A)SCS 인스턴스에 공유 디스크를 사용하는 Windows
-              href: sap-high-availability-infrastructure-wsfc-shared-disk.md
-            - name: (A)SCS 인스턴스에 SOFS 파일 공유를 사용하는 Windows
-              href: sap-high-availability-infrastructure-wsfc-file-share.md
-            - name: SLES의 Azure VM에서 NFS에 대한 고가용성
-              href: high-availability-guide-suse-nfs.md
-            - name: SAP NetWeaver에 대한 Red Hat Enterprise Linux에 있는 Azure VM의 GlusterFS
-              href: high-availability-guide-rhel-glusterfs.md
-            - name: SLES의 Pacemaker
-              href: high-availability-guide-suse-pacemaker.md
-            - name: RHEL의 Pacemaker
-              href: high-availability-guide-rhel-pacemaker.md
-            - name: SAP 고가용성 시나리오에서 Azure Standard Load Balancer를 사용하는 VM에 대한 퍼블릭 엔드포인트 연결
-              href: high-availability-guide-standard-load-balancer-outbound-connections.md
-        - name: SAP 설치
-          items:
-            - name: (A)SCS 인스턴스에 공유 디스크를 사용하는 Windows
-              href: sap-high-availability-installation-wsfc-shared-disk.md
-            - name: (A)SCS 인스턴스에 SOFS 파일 공유를 사용하는 Windows
-              href: sap-high-availability-installation-wsfc-file-share.md
-            - name: Azure NetApp Files(SMB)로 Windows에 SAP NetWeaver HA 설치하기
-              href: high-availability-guide-windows-netapp-files-smb.md
-            - name: (A)SCS 인스턴스에 NFS를 사용하는 SUSE Linux
-              href: high-availability-guide-suse.md
-            - name: Azure NetApp Files를 사용하는 (A)SCS 인스턴스에 NFS를 사용하는 SUSE Linux
-              href: high-availability-guide-suse-netapp-files.md
-            - name: Red Hat Enterprise Linux에서 SAP NetWeaver에 대한 고가용성
-              href: high-availability-guide-rhel.md
-            - name: Azure NetApp Files를 사용하는 (A)SCS 인스턴스의 NFS를 사용하는 Red Hat Enterprise Linux
-              href: high-availability-guide-rhel-netapp-files.md
-        - name: SAP 다중 SID
-          items:
-            - name: (A)SCS 인스턴스에 Azure Shared Disk를 사용하는 Windows
-              href: sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md
-            - name: (A)SCS 인스턴스에 공유 디스크를 사용하는 Windows
-              href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
-            - name: (A)SCS 인스턴스에 SOFS 파일 공유를 사용하는 Windows
-              href: sap-ascs-ha-multi-sid-wsfc-file-share.md
-            - name: A(SCS) 인스턴스에 Pacemaker 다중 SID를 사용하는 SLES
-              href: high-availability-guide-suse-multi-sid.md
-            - name: A(SCS) 인스턴스에 Pacemaker 다중 SID를 사용하는 RHEL
-              href: high-availability-guide-rhel-multi-sid.md
-    - name: SAP 재해 복구를 위한 Azure Site Recovery
-      href: ../../../site-recovery/site-recovery-workload.md#protect-sap
+            - name: Azure VM의 SAP HANA 데이터 백업 정보
+              href: ../../../backup/sap-hana-db-about.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+            - name: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
+              href: ../../../backup/tutorial-backup-sap-hana-db.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+            - name: 데이터베이스 백업에 대한 FAQ
+              href: ../../../backup/sap-hana-faq-backup-azure-vm.yml?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+            - name: 데이터베이스 백업
+              href: ../../../backup/backup-azure-sap-hana-database.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+            - name: 대화 상자의
+              href: ../../../backup/sap-hana-db-restore.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+            - name: 백업 관리 및 모니터링
+              href: ../../../backup/sap-hana-db-manage.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+            - name: 백업 매트릭스 지원
+              href: ../../../backup/sap-hana-backup-support-matrix.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+            - name: 백업 문제 해결
+              href: ../../../backup/backup-azure-sap-hana-database-troubleshoot.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+- name: 고가용성(Azure VM)
+  items:
+    - name: Azure VM의 HA 정보
+      href: sap-high-availability-guide-start.md
+    - name: HA 아키텍처 및 시나리오
+      href: sap-high-availability-architecture-scenarios.md
+    - name: 고가용성을 위해 Azure VM 다시 시작
+      href: sap-higher-availability-architecture-scenarios.md
+    - name: SAP 워크로드를 위한 Azure 가용성 영역
+      href: sap-ha-availability-zones.md
     - name: SAP 애플리케이션 네트워크 대기 시간을 최소화하는 Azure Proximity Placement Group
       href: sap-proximity-placement-scenarios.md
-- name: Azure의 SAP BusinessObjects 비즈니스 인텔리전스 플랫폼
-  items:
-    - name: Azure의 SAP BusinessObjects BI 플랫폼 계획 및 구현 가이드
-      href: businessobjects-deployment-guide.md
-    - name: Azure의 Windows용 SAP BusinessObjects BI 플랫폼 배포 가이드
-      href: businessobjects-deployment-guide-windows.md
-    - name: Azure의 Linux용 SAP BusinessObjects BI 플랫폼 배포 가이드
-      href: businessobjects-deployment-guide-linux.md
-- name: SAP 애플리케이션과 Azure AD 통합
-  items:
-    - name: SAP SuccessFactors에서 Active Directory로 사용자 프로비전
-      href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md
-    - name: SAP SuccessFactors에서 Azure AD로 사용자 프로비전
-      href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md
-    - name: Azure AD에서 SAP SuccessFactors로 사용자 쓰기 저장
-      href: ../../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md
-    - name: SAP Cloud Platform Identity Authentication Service로 사용자 프로비전
-      href: ../../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md
-    - name: SAP Cloud Platform Identity Authentication Service를 사용하여 SSO 구성
-      href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md
-    - name: SAP SuccessFactors를 사용하여 SSO 구성
-      href: ../../../active-directory/saas-apps/successfactors-tutorial.md
-    - name: SAP Analytics Cloud를 사용하여 SSO 구성
-      href: ../../../active-directory/saas-apps/sapboc-tutorial.md
-    - name: SAP Fiori를 사용하여 SSO 구성
-      href: ../../../active-directory/saas-apps/sap-fiori-tutorial.md
-    - name: SAP Qualtrics를 사용하여 SSO 구성
-      href: ../../../active-directory/saas-apps/qualtrics-tutorial.md
-    - name: SAP Ariba를 사용하여 SSO 구성
-      href: ../../../active-directory/saas-apps/ariba-tutorial.md
-    - name: SAP Concur Travel 및 Expense를 사용하여 SSO 구성
-      href: ../../../active-directory/saas-apps/concur-travel-and-expense-tutorial.md
-    - name: SAP Cloud Platform을 사용하여 SSO 구성
-      href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md
-    - name: SAP NetWeaver를 사용하여 SSO 구성
-      href: ../../../active-directory/saas-apps/sap-netweaver-tutorial.md
-    - name: SAP Business ByDesign을 사용하여 SSO 구성
-      href: ../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md
-    - name: SAP HANA를 사용하여 SSO 구성
-      href: ../../../active-directory/saas-apps/saphana-tutorial.md
-    - name: SAP Cloud for Customer를 사용하여 SSO 구성
-      href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md
-    - name: SAP Fiori Launchpad를 사용하여 SSO 구성
-      href: 'https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad'
-- name: SAP에 Azure 서비스 통합
-  items:
-    - name: Power BI Desktop에서 SAP HANA 사용
-      href: /power-bi/desktop-sap-hana
-    - name: DirectQuery 및 SAP HANA
-      href: /power-bi/desktop-directquery-sap-hana
-    - name: Power BI Desktop에서 SAP BW 커넥터 사용
-      href: /power-bi/desktop-sap-bw-connector
-    - name: Azure Data Factory는 SAP HANA 및 Business Warehouse 데이터 통합을 제공합니다.
-      href: 'https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration'
-- name: SAP용 Azure Sentinel 및 지속적인 위협 모니터링
-  items:
-    - name: SAP용 Azure Sentinel 솔루션 배포
-      href: ../../../sentinel/sap-deploy-solution.md#deploy-sap-security-content
-    - name: 자세한 요구 사항
-      href: ../../../sentinel/sap-solution-detailed-requirements.md
-    - name: 사용 가능한 SAP 로그 참조
-      href: ../../../sentinel/sap-solution-log-reference.md
-    - name: SAP 보안 콘텐츠 참조
-      href: ../../../sentinel/sap-solution-security-content.md
+    - name: Azure Load Balancer를 사용한 퍼블릭 엔드포인트 연결
+      href: high-availability-guide-standard-load-balancer-outbound-connections.md
+    - name: DBMS - HANA
+      items:
+        - name: Azure VM의 SAP HANA 고가용성 정보
+          href: sap-hana-availability-overview.md
+        - name: 한 Azure 지역의 가용성 시나리오
+          href: sap-hana-availability-one-region.md
+        - name: 여러 Azure 지역의 가용성 시나리오
+          href: sap-hana-availability-across-regions.md
+        - name: SLES(SUSE Linux Enterprise Server)
+          items:
+            - name: HSR 및 Pacemaker로 스케일 업
+              href: sap-hana-high-availability.md
+            - name: Azure NetApp Files에서 대기 노드로 스케일 아웃
+              href: sap-hana-scale-out-standby-netapp-files-suse.md
+            - name: HSR 및 Pacemaker로 스케일 아웃
+              href: sap-hana-high-availability-scale-out-hsr-suse.md
+            - name: HSR 및 Pacemaker로 스케일 아웃의 문제 해결
+              href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
+            - name: Pacemaker 클러스터 설정
+              href: high-availability-guide-suse-pacemaker.md
+        - name: RHEL(Red Hat Enterprise Linux)
+          items:
+            - name: HSR 및 Pacemaker로 스케일 업
+              href: sap-hana-high-availability-rhel.md
+            - name: Azure NetApp Files에서 HSR 및 Pacemaker로 스케일 업
+              href: sap-hana-high-availability-netapp-files-red-hat.md
+            - name: Azure NetApp Files를 사용하여 대기 노드로 스케일 아웃
+              href: sap-hana-scale-out-standby-netapp-files-rhel.md
+            - name: HSR 및 Pacemaker로 스케일 아웃
+              href: sap-hana-high-availability-scale-out-hsr-rhel.md
+            - name: Pacemaker 클러스터 설정
+              href: high-availability-guide-rhel-pacemaker.md
+    - name: DBMS - Db2
+      items:
+        - name: SLES - IBM Db2 HA
+          href: dbms-guide-ha-ibm.md
+        - name: RHEL - IBM Db2 HA
+          href: high-availability-guide-rhel-ibm-db2-luw.md
+    - name: SAP 애플리케이션 계층 - SLES
+      items:
+        - name: Azure NetApp Files를 사용하여 HA SAP NetWeaver 설치
+          href: high-availability-guide-suse-netapp-files.md
+        - name: HA SAP NetWeaver 설치
+          href: high-availability-guide-suse.md
+        - name: HA NFS 서버 설치
+          href: high-availability-guide-suse-nfs.md
+        - name: Pacemaker로 다중 SID 클러스터 배포
+          href: high-availability-guide-suse-multi-sid.md
+        - name: Pacemaker 클러스터 설정
+          href: high-availability-guide-suse-pacemaker.md
+    - name: SAP 애플리케이션 계층 - RHEL
+      items:
+        - name: Azure NetApp Files를 사용하여 HA SAP NetWeaver 시스템 설치
+          href: high-availability-guide-rhel-netapp-files.md
+        - name: HA SAP NetWeaver 설치
+          href: high-availability-guide-rhel.md
+        - name: SAP NetWeaver용 Azure VM에 GlusterFS 설치
+          href: high-availability-guide-rhel-glusterfs.md
+        - name: Pacemaker로 다중 SID 클러스터 배포
+          href: high-availability-guide-rhel-multi-sid.md
+        - name: Pacemaker 클러스터 설정
+          href: high-availability-guide-rhel-pacemaker.md
+    - name: SAP 애플리케이션 계층 - Windows
+      items:
+        - name: 공유 디스크가 있는 SAP
+          items:
+            - name: WSFC를 사용하는 SAP ASCS/SCS 인스턴스
+              href: sap-high-availability-guide-wsfc-shared-disk.md
+            - name: WSFC를 사용하여 SAP HA용 Azure 인프라 준비
+              href: sap-high-availability-infrastructure-wsfc-shared-disk.md
+            - name: WSFC로 HA SAP NetWeaver 설치
+              href: sap-high-availability-installation-wsfc-shared-disk.md
+            - name: WSFC 및 Azure 공유 디스크가 있는 다중 SID
+              href: sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md
+            - name: WSFC 및 공유 디스크가 있는 다중 SID
+              href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
+        - name: 파일 공유 기능이 있는 SAP
+          items:
+            - name: Azure NetApp Files(SMB)를 사용하여 HA SAP NetWeaver 설치
+              href: high-availability-guide-windows-netapp-files-smb.md
+            - name: WSFC 및 SOFS 파일 공유 기능이 있는 SAP ASCS/SCS 인스턴스
+              href: sap-high-availability-guide-wsfc-file-share.md
+            - name: SAP HA(SOFS)용 Azure 인프라 준비
+              href: sap-high-availability-infrastructure-wsfc-file-share.md
+            - name: WSFC 및 SOFS 파일 공유 기능을 사용하여 HA SAP NetWeaver 설치
+              href: sap-high-availability-installation-wsfc-file-share.md
+            - name: WSFC 및 파일 공유 기능이 있는 다중 SID
+              href: sap-ascs-ha-multi-sid-wsfc-file-share.md
 - name: SAP 솔루션을 위한 Azure Monitor
   items:
-    - name: SAP 솔루션을 위한 Azure Monitor 개요
+    - name: AMS 개요
       href: azure-monitor-overview.md
-    - name: SAP 솔루션 공급자를 위한 Azure Monitor
+    - name: AMS 공급자
       href: azure-monitor-providers.md
-    - name: SAP 솔루션을 위한 Azure Monitor 구성 - Portal
+    - name: AMS 구성 - 포털
       href: azure-monitor-sap-quickstart.md
-    - name: SAP 솔루션을 위한 Azure Monitor 구성 - Azure PowerShell
+    - name: AMS에서 경고 구성 - 포털
+      href: azure-monitor-alerts-portal.md
+    - name: AMS 구성 - Azure PowerShell
       href: azure-monitor-sap-quickstart-powershell.md
-    - name: SAP 솔루션을 위한 Azure Monitor FAQ
-      href: azure-monitor-faq.md
+    - name: AMS FAQ
+      href: azure-monitor-faq.yml
 - name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure/hanainstance
     - name: Azure PowerShell
       href: /powershell/module/az.hanaonazure/#sap-hana-on-azure
+    - name: SAP 재해 복구를 위한 Azure Site Recovery
+      href: ../../../site-recovery/site-recovery-workload.md#protect-sap
+    - name: Azure AD 통합
+      items:
+        - name: SAP SuccessFactors에서 Active Directory로 사용자 프로비전
+          href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md
+        - name: SAP SuccessFactors에서 Azure AD로 사용자 프로비전
+          href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md
+        - name: Azure AD에서 SAP SuccessFactors로 사용자 쓰기 저장
+          href: ../../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md
+        - name: SAP Cloud Platform Identity Authentication Service로 사용자 프로비전
+          href: ../../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md
+        - name: SAP Cloud Platform Identity Authentication Service를 사용하여 SSO 구성
+          href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md
+        - name: SAP SuccessFactors를 사용하여 SSO 구성
+          href: ../../../active-directory/saas-apps/successfactors-tutorial.md
+        - name: SAP Analytics Cloud를 사용하여 SSO 구성
+          href: ../../../active-directory/saas-apps/sapboc-tutorial.md
+        - name: SAP Fiori를 사용하여 SSO 구성
+          href: ../../../active-directory/saas-apps/sap-fiori-tutorial.md
+        - name: SAP Qualtrics를 사용하여 SSO 구성
+          href: ../../../active-directory/saas-apps/qualtrics-tutorial.md
+        - name: SAP Ariba를 사용하여 SSO 구성
+          href: ../../../active-directory/saas-apps/ariba-tutorial.md
+        - name: SAP Concur Travel 및 Expense를 사용하여 SSO 구성
+          href: ../../../active-directory/saas-apps/concur-travel-and-expense-tutorial.md
+        - name: SAP Cloud Platform을 사용하여 SSO 구성
+          href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md
+        - name: SAP NetWeaver를 사용하여 SSO 구성
+          href: ../../../active-directory/saas-apps/sap-netweaver-tutorial.md
+        - name: SAP Business ByDesign을 사용하여 SSO 구성
+          href: ../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md
+        - name: SAP HANA를 사용하여 SSO 구성
+          href: ../../../active-directory/saas-apps/saphana-tutorial.md
+        - name: SAP Cloud for Customer를 사용하여 SSO 구성
+          href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md
+        - name: SAP Fiori Launchpad를 사용하여 SSO 구성
+          href: 'https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad'
+    - name: Azure Services 통합
+      items:
+        - name: Power BI Desktop에서 SAP HANA 사용
+          href: /power-bi/desktop-sap-hana
+        - name: DirectQuery 및 SAP HANA
+          href: /power-bi/desktop-directquery-sap-hana
+        - name: Power BI Desktop에서 SAP BW 커넥터 사용
+          href: /power-bi/desktop-sap-bw-connector
+        - name: Azure Data Factory는 SAP HANA 및 Business Warehouse 데이터 통합을 제공합니다.
+          href: 'https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration'
+    - name: Azure Sentinel 위협 모니터링
+      items:
+        - name: SAP용 Azure Sentinel 솔루션 배포
+          href: ../../../sentinel/sap-deploy-solution.md#deploy-sap-security-content
+        - name: 자세한 요구 사항
+          href: ../../../sentinel/sap-solution-detailed-requirements.md
+        - name: 사용 가능한 SAP 로그 참조
+          href: ../../../sentinel/sap-solution-log-reference.md
+        - name: SAP 보안 콘텐츠 참조
+          href: ../../../sentinel/sap-solution-security-content.md
 - name: 리소스
   items:
     - name: Azure 로드맵

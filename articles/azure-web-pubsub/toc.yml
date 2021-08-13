@@ -28,6 +28,12 @@
       items:
         - name: 액세스 키 보호
           href: howto-secure-rotate-access-key.md
+        - name: Azure 프라이빗 엔드포인트 사용
+          href: howto-secure-private-endpoints.md
+        - name: 네트워크 액세스 제어 관리
+          href: howto-secure-network-access-control.md
+        - name: 공유 프라이빗 엔드포인트를 통해 아웃바운드 트래픽 보호
+          href: howto-secure-shared-private-endpoints.md
     - name: 문제 해결
       items:
         - name: 네트워크 추적 수집

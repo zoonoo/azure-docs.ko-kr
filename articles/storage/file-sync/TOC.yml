@@ -25,7 +25,7 @@
           href: file-sync-choose-cloud-tiering-policies.md
         - name: 클라우드 계층화 모니터링
           href: file-sync-monitor-cloud-tiering.md
-    - name: 확장성 및 성능 대상
+    - name: 확장 및 성능 목표
       href: ../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
     - name: 실수로 인한 데이터 삭제 방지
       href: ../files/storage-files-prevent-file-share-deletion.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
@@ -70,17 +70,17 @@
         - name: Azure 파일 동기화로 서버 등록
           href: file-sync-server-registration.md
         - name: Azure 파일 동기화 서버 엔드포인트 추가
-          href: file-sync-server-endpoint.md
+          href: file-sync-server-endpoint-create.md
         - name: Azure 독립 클라우드에서 스토리지 관리
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
-        - name: 계정 장애 조치(failover) 시작
-          href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
         - name: 계층화 파일 관리
           href: file-sync-how-to-manage-tiered-files.md
         - name: '다른 리소스 그룹, 구독 및 AAD 테넌트로 리소스 이동'
           href: file-sync-resource-move.md
-        - name: Azure 파일 동기화 서버 엔드포인트 추가
-          href: file-sync-deprovision-server-endpoint.md
+        - name: Azure 파일 동기화 서버 엔드포인트 삭제
+          href: file-sync-server-endpoint-delete.md
+        - name: 계정 장애 조치(failover) 시작
+          href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
         - name: Azure 파일 동기화 토폴로지 수정
           href: file-sync-modify-sync-topology.md
     - name: 데이터 보호
@@ -140,11 +140,11 @@
     - name: 마이그레이션
       items:
         - name: Azure 파일 공유로 마이그레이션
-          href: ../files/storage-files-migration-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+          href: ../files/storage-files-migration-overview.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
         - name: 하이브리드 배포 대상
           items:
             - name: Azure Data Box를 사용하여 대량 데이터를 Azure 파일 동기화로 마이그레이션
-              href: file-sync-offline-data-transfer.md
+              href: ../files/storage-files-migration-server-hybrid-databox.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
             - name: Azure 파일 동기화를 사용하여 Linux에서 하이브리드 파일 서버로 마이그레이션
               href: ../files/storage-files-migration-linux-hybrid.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
             - name: Azure 파일 동기화를 사용하여 온-프레미스 NAS에서 하이브리드 파일 서버로 마이그레이션
@@ -158,7 +158,7 @@
             - name: StorSimple 1200 마이그레이션 가이드
               href: ../files/storage-files-migration-storsimple-1200.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
     - name: 대량 파일 공유 사용
-      href: ../files/storage-files-how-to-create-large-file-share.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+      href: ../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
     - name: 보안
       items:
         - name: 스토리지 계정에 대한 암호화 키 관리
@@ -194,7 +194,7 @@
         - name: Azure 파일 동기화 문제 해결
           href: file-sync-troubleshoot.md
         - name: Azure 파일 공유 삭제 문제 해결
-          href: ../files/storage-troubleshoot-cannot-delete-files-azure-file-share.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+          href: ../files/storage-troubleshoot-windows-file-connection-problems.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json#unable-to-modify-moverename-or-delete-a-file-or-directory
         - name: 파일 공유 백업 문제 해결
           href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
 - name: 참조

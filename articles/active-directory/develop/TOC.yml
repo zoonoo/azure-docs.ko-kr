@@ -137,6 +137,11 @@
         - name: Microsoft Identity Web 라이브러리
           href: microsoft-identity-web.md
           displayName: 'auth, library, .NET Core, msal'
+    - name: 권한 부여 기본 사항
+      displayName: AuthZ basics
+      items:
+        - name: 앱 개발자용 RBAC
+          href: custom-rbac-for-developers.md
     - name: 앱 시나리오 및 인증 흐름
       displayName: Auth flows
       href: authentication-flows-app-scenarios.md
@@ -149,6 +154,8 @@
       items:
         - name: 앱에 대한 최소 권한 액세스 모범 사례
           href: secure-least-privileged-access.md
+        - name: Azure AD 애플리케이션 등록에 대한 보안 모범 사례
+          href: security-best-practices-for-app-registration.md
         - name: 조건부 액세스
           href: v2-conditional-access-dev-guide.md
         - name: 인증 컨텍스트
@@ -692,7 +699,7 @@
         - name: 일반적인 프로비전 시나리오
           href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: MS Graph를 사용하여 구성 자동화
-          href: /azure/active-directory/app-provisioning/application-provisioning-configuration-api?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
+          href: ../app-provisioning/application-provisioning-configuration-api.md?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
 - name: 리소스
   items:
     - name: 동영상

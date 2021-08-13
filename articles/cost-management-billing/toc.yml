@@ -4,6 +4,8 @@
   items:
     - name: Cost Management 및 청구란?
       href: cost-management-billing-overview.md
+    - name: 새로운 기능
+      href: 'https://azure.microsoft.com/blog/tag/cost-management/'
 - name: 빠른 시작
   items:
     - name: 비용 분석 시작
@@ -112,6 +114,8 @@
           href: understand/mca-understand-your-invoice.md
         - name: Microsoft 고객 계약 가격표 약관
           href: manage/mca-understand-pricesheet.md
+        - name: Microsoft 고객 계약 FAQ
+          href: understand/mca-faq.md
         - name: Microsoft 파트너 계약 청구서 약관
           href: understand/mpa-invoice-terms.md
         - name: 업데이트된 종량제 청구 계정에 대한 변경 내용
@@ -454,20 +458,3 @@
           href: manage/review-enterprise-billing.md
         - name: 구독 용도 검토
           href: manage/review-subscription-billing.md
-- name: Cloudyn
-  items:
-    - name: 개요
-    - name: 빠른 시작
-    - name: 자습서
-    - name: 개념
-    - name: 방법 가이드
-    - name: 리소스
-      items:
-        - name: Azure 로드맵
-          href: 'https://azure.microsoft.com/roadmap/'
-        - name: Cloudyn 가격 책정
-          href: 'https://azure.microsoft.com/pricing/details/cost-management'
-        - name: Cloudyn 지역별 가용성
-          href: 'https://azure.microsoft.com/regions/services/'
-        - name: Cloudyn 고객 지원팀에 문의
-          href: ./costs/open-support-request.md

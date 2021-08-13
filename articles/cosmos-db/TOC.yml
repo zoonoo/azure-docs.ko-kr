@@ -745,6 +745,14 @@
               href: migrate-dotnet-v3.md
             - name: .NET V2 SDK로 마이그레이션
               href: migrate-dotnet-v2.md
+        - name: 커넥터
+          items:
+            - name: Kafka 연결
+              href: kafka-connector.md
+            - name: Kafka 연결 - 원본
+              href: kafka-connector-source.md
+            - name: Kafka 연결 - 싱크
+              href: kafka-connector-sink.md
         - name: 문제 해결
           items:
             - name: 일반 오류
@@ -867,6 +875,10 @@
               href: certificate-based-authentication.md
             - name: Always Encrypted 사용
               href: how-to-always-encrypted.md
+        - name: 클라이언트 쪽 개발
+          items:
+            - name: 세션 상태 및 캐시 공급자
+              href: session-state-and-caching-provider.md
         - name: 다른 Azure 서비스와 통합
           items:
             - name: 변경 피드 전자 상거래 솔루션
@@ -1017,7 +1029,7 @@
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge-cassandra.md
         - name: Spring 데이터 저장 및 관리
-          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: configure-spring-data-apache-cassandra-with-cosmos-db.md
         - name: 일반적인 문제 해결
           href: cassandra-troubleshoot.md
         - name: 진단 로그를 사용하여 모니터링
@@ -1371,6 +1383,10 @@
           href: /rest/api/storageservices/table-service-rest-api
         - name: Azure CLI
           href: /cli/azure/azure-cli-reference-for-cosmos-db
+- name: 샘플
+  items:
+    - name: Azure Resource Graph 쿼리
+      href: ./resource-graph-samples.md
 - name: 방법 가이드
   items:
     - name: 무료 계층

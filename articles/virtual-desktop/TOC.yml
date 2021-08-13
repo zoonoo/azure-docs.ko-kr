@@ -10,6 +10,10 @@
       href: whats-new-azure-monitor.md
     - name: Azure Virtual Desktop(클래식) 설명서
       href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
+- name: 빠른 시작
+  items:
+    - name: Azure Virtual Desktop 시작
+      href: getting-started-feature.md
 - name: 자습서
   items:
     - name: 1. Azure Portal로 호스트 풀 만들기
@@ -48,6 +52,8 @@
       items:
         - name: PowerShell
           href: create-host-pools-powershell.md
+        - name: Azure AD 조인 세션 호스트 배포
+          href: deploy-azure-ad-joined-vm.md
         - name: Windows 7 가상 머신 배포
           href: deploy-windows-7-virtual-machine.md
         - name: GPU 기반 세션 호스트 배포
@@ -175,7 +181,7 @@
     - name: FSLogix 프로필 컨테이너에 대한 스토리지 옵션
       href: store-fslogix-profile.md
     - name: Azure Virtual Desktop FAQ
-      href: faq.md
+      href: faq.yml
     - name: Windows 10 Enterprise 다중 세션 FAQ
       href: windows-10-multisession-faq.yml
     - name: MSIX 앱 연결
@@ -185,7 +191,7 @@
         - name: 용어
           href: app-attach-glossary.md
         - name: FAQ
-          href: app-attach-faq.md
+          href: app-attach-faq.yml
     - name: Azure Monitor 용어집
       href: azure-monitor-glossary.md
     - name: 데이터 위치
@@ -204,20 +210,22 @@
       href: troubleshoot-set-up-issues.md
     - name: 세션 호스트 가상 머신 구성
       href: troubleshoot-vm-configuration.md
-    - name: 원격 데스크톱 서비스 연결
-      href: troubleshoot-service-connection.md
-    - name: Azure Virtual Desktop 에이전트
-      href: troubleshoot-agent.md
-    - name: 원격 데스크톱 클라이언트 문제
-      href: troubleshoot-client.md
-    - name: Azure Virtual Desktop PowerShell
-      href: troubleshoot-powershell.md
-    - name: 그래픽 성능 문제 진단
-      href: remotefx-graphics-performance-counters.md
-    - name: Azure Monitor
-      href: troubleshoot-azure-monitor.md
     - name: 관리 문제
       href: troubleshoot-management-issues.md
+    - name: Azure Virtual Desktop PowerShell
+      href: troubleshoot-powershell.md
+    - name: Azure Virtual Desktop 에이전트
+      href: troubleshoot-agent.md
+    - name: 원격 데스크톱 서비스 연결
+      href: troubleshoot-service-connection.md
+    - name: 원격 데스크톱 클라이언트 문제
+      href: troubleshoot-client.md
+    - name: 그래픽 성능 문제 진단
+      href: remotefx-graphics-performance-counters.md
+    - name: Azure AD 조인 VM에 연결
+      href: troubleshoot-azure-ad-connections.md
+    - name: Azure Monitor
+      href: troubleshoot-azure-monitor.md
 - name: 참조
   items:
     - name: 보안 모범 사례

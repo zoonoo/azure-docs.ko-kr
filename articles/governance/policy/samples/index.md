@@ -1,14 +1,14 @@
 ---
 title: 정책 샘플의 인덱스
 description: Azure Policy에 대한 기본 제공 인덱스입니다. 범주 태그, 규정 준수, Key Vault, Kubernetes, 게스트 구성 등이 있습니다.
-ms.date: 05/04/2021
+ms.date: 07/16/2021
 ms.topic: sample
-ms.openlocfilehash: cee8810655016669e289053abdcfe9e52771b513
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3156c992ba0914fc5f244515b0027438567310a5
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743546"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114387579"
 ---
 # <a name="azure-policy-samples"></a>Azure Policy 샘플
 
@@ -47,6 +47,7 @@ ms.locfileid: "108743546"
 - [IRS 1075 2016년 9월](./irs-1075-sept2016.md)
 - [ISO 27001:2013](./iso-27001.md)
 - [뉴질랜드 ISM 제한됨](./new-zealand-ism.md)
+- [NIST SP 800-53 R5](./nist-sp-800-53-r5.md)
 - [NIST SP 800-53 R4](./nist-sp-800-53-r4.md)
 - [NIST SP 800-171 R2](./nist-sp-800-171-r2.md)
 - [영국 공식 및 영국 NHS](./ukofficial-uknhs.md)

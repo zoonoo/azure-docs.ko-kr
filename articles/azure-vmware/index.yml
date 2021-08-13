@@ -8,211 +8,211 @@ metadata:
   ms.topic: landing-page
   author: shortpatti
   ms.author: v-patsho
-  ms.date: 07/02/2021
-  ms.openlocfilehash: 6e221829fae0423ccf9f13970cc6b71136bb10c2
-  ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/06/2021
-  ms.locfileid: "113301891"
+  ms.date: 07/16/2021
 landingContent:
-- title: Azure VMware Solution 정보
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Azure VMware Solution이란?
-      url: introduction.md
-    - text: 플랫폼 업데이트
-      url: azure-vmware-solution-platform-updates.md
-  - linkListType: concept
-    links:
-    - text: 프라이빗 클라우드 및 클러스터
-      url: concepts-private-clouds-clusters.md
-    - text: 네트워킹 및 상호 연결
-      url: concepts-networking.md
-    - text: 스토리지
-      url: concepts-storage.md
-    - text: 액세스 및 ID
-      url: concepts-identity.md
-    - text: 모니터 및 보호
-      url: concepts-monitor-protection.md
-    - text: API Management
-      url: concepts-api-management.md
-    - text: 허브 및 스포크
-      url: concepts-hub-and-spoke.md
-- title: FAQ
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: 일반
-      url: ./faq.yml
-    - text: 고객 커뮤니케이션
-      url: /azure/azure-vmware/faq#customer-communication
-    - text: 구성 및 설정
-      url: /azure/azure-vmware/faq#configuration-and-setup
-    - text: VMware 소프트웨어
-      url: /azure/azure-vmware/faq#vmware-software
-    - text: 컴퓨팅
-      url: /azure/azure-vmware/faq#compute
-    - text: 네트워킹 및 상호 연결
-      url: /azure/azure-vmware/faq#networking-and-interconnectivity
-    - text: 스토리지
-      url: /azure/azure-vmware/faq#storage
-    - text: 호스트, 클러스터 및 프라이빗 클라우드
-      url: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
-    - text: ID 관리
-      url: /azure/azure-vmware/faq#identity-management
-    - text: 청구 및 지원
-      url: /azure/azure-vmware/faq#billing-and-support
-- title: 시작
-  linkLists:
-  - linkListType: deploy
-    links:
-    - text: 1 - 배포 계획
-      url: production-ready-deployment-steps.md
-    - text: 2 - Azure VMware Solution 배포
-      url: deploy-azure-vmware-solution.md
-    - text: 3 - 온-프레미스에 연결
-      url: tutorial-expressroute-global-reach-private-cloud.md
-    - text: 4 - HCX 배포 및 구성
-      url: tutorial-deploy-vmware-hcx.md
-  - linkListType: tutorial
-    links:
-    - text: 네트워크 계획 검사 목록
-      url: tutorial-network-checklist.md
-    - text: 프라이빗 클라우드 만들기
-      url: tutorial-create-private-cloud.md
-    - text: 프라이빗 클라우드에 액세스
-      url: tutorial-access-private-cloud.md
-    - text: 네트워킹 구성
-      url: tutorial-configure-networking.md
-    - text: NSX-T 네트워크 세그먼트 만들기
-      url: tutorial-nsx-t-network-segment.md
-    - text: 온-프레미스에서 프라이빗 클라우드로 피어링
-      url: tutorial-expressroute-global-reach-private-cloud.md
-    - text: 프라이빗 클라우드에서 클러스터 확장 또는 축소
-      url: tutorial-scale-private-cloud.md
-    - text: 프라이빗 클라우드 삭제
-      url: tutorial-delete-private-cloud.md
-- title: ID 관리
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: 프라이빗 클라우드의 액세스 및 ID
-      url: concepts-identity.md
-    - text: cloudadmin 자격 증명 회전
-      url: rotate-cloudadmin-credentials.md
-- title: Azure VMware Solution 확장
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: Azure VMware Solution 평가 만들기
-      url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-    - text: Azure VMware Solution에 대한 호스트 할당량 요청
-      url: request-host-quota-azure-vmware-solution.md
-    - text: 예약 인스턴스로 비용 절감
-      url: reserved-instance.md
-  - linkListType: how-to-guide
-    links:
-    - text: DHCP 구성
-      url: configure-dhcp-azure-vmware-solution.md
-    - text: L2 확장 VMware HCX 네트워크에서 DHCP 구성
-      url: configure-l2-stretched-vmware-hcx-networks.md
-    - text: Azure를 사용하여 NSX 구성 요소 구성
-      url: configure-nsx-network-components-azure-portal.md
-    - text: GitHub Enterprise 서버 구성
-      url: ./configure-github-enterprise-server.md
-    - text: 공용 인터넷 액세스 사용
-      url: enable-public-internet-access.md
-    - text: vWAN에서 사이트 간 VPN 구성
-      url: configure-site-to-site-vpn-gateway.md
-    - text: Windows Server 장애 조치(Failover) 클러스터 구성
-      url: configure-windows-server-failover-cluster.md
-    - text: 동일한 지역에 여러 프라이빗 클라우드 연결
-      url: connect-multiple-private-clouds-same-region.md
-- title: Azure 네이티브 통합
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: VM 보호, 모니터링 및 관리
-      url: integrate-azure-native-services.md
-    - text: Azure Security Center 통합
-      url: azure-security-integration.md
-    - text: Azure NetApp Files 통합
-      url: netapp-files-with-azure-vmware-solution.md
-    - text: Azure Application Gateway로 웹앱 보호
-      url: protect-azure-vmware-solution-with-application-gateway.md
-    - text: 워크로드를 분산하는 Traffic Manager 배포
-      url: deploy-traffic-manager-balance-workloads.md
-    - text: 경고 구성 및 메트릭 작업
-      url: configure-alerts-for-azure-vmware-solution.md
-- title: Azure Backup Server를 사용하여 백업
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Backup 서버 설정
-      url: set-up-backup-server-for-azure-vmware-solution.md
-    - text: Backup 서버를 사용하여 프라이빗 클라우드 VM 백업
-      url: backup-azure-vmware-solution-virtual-machines.md
-- title: VMware 솔루션
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: vRealize 작업 구성
-      url: vrealize-operations-for-azure-vmware-solution.md
-    - text: VMware Horizon 배포
-      url: azure-vmware-solution-horizon.md
-    - text: 콘텐츠 라이브러리에서 VM 배포
-      url: deploy-vm-content-library.md
-    - text: VMware HCX를 사용하여 재해 복구 배포
-      url: deploy-disaster-recovery-using-vmware-hcx.md
-    - text: VMware HCX 어플라이언스 업그레이드
-      url: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html
-- title: VMware 에코시스템
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: VM용 백업 솔루션
-      url: ecosystem-back-up-vms.md
-    - text: VM용 마이그레이션 솔루션
-      url: ecosystem-migration-vms.md
-- title: 리소스
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: REST API
-      url: /rest/api/avs
-    - text: Azure CLI
-      url: /cli/azure/vmware
-    - text: Azure PowerShell
-      url: /powershell/module/az.vmware
-    - text: Terraform Azure 공급자
-      url: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
-  - linkListType: video
-    links:
-    - text: 재생 목록
-      url: https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
-    - text: Azure 서비스와 통합
-      url: https://youtu.be/m26iLu6DHbU
-    - text: Azure Application Gateway와 통합
-      url: https://youtu.be/BoQYvqzb6Y8
-    - text: 마이그레이션 및 용량 계획
-      url: https://youtu.be/NoNG-hkksrA
-    - text: Azure Logic App을 사용하여 vCenter 및 NSX-T 암호 회전
-      url: https://youtu.be/cK1qY3knj88
-- title: Azure VMware Solution 리소스 이동
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: Azure VMware solution 구독 이동
-      url: move-ea-csp-subscriptions.md
-    - text: 지역간 Azure VMware Solution 이동
-      url: move-azure-vmware-solution-across-regions.md
-- title: 문제 해결
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: 배포 실패에 대한 지원 요청 열기
-      url: fix-deployment-provisioning-failures.md
-    - text: VMware 도구 vix 오류 코드 = 21009
-      url: https://kb.vmware.com/s/article/2129927
+  - title: Azure VMware Solution 정보
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure VMware Solution이란?
+            url: introduction.md
+          - text: 플랫폼 업데이트
+            url: azure-vmware-solution-platform-updates.md
+      - linkListType: concept
+        links:
+          - text: 프라이빗 클라우드 및 클러스터
+            url: concepts-private-clouds-clusters.md
+          - text: 네트워킹 및 상호 연결
+            url: concepts-networking.md
+          - text: 스토리지
+            url: concepts-storage.md
+          - text: 액세스 및 ID
+            url: concepts-identity.md
+          - text: 모니터 및 보호
+            url: concepts-monitor-protection.md
+          - text: API Management
+            url: concepts-api-management.md
+          - text: 허브 및 스포크
+            url: concepts-hub-and-spoke.md
+  - title: FAQ
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: 일반
+            url: /azure/azure-vmware/faq
+          - text: 고객 커뮤니케이션
+            url: /azure/azure-vmware/faq#customer-communication
+          - text: 구성 및 설정
+            url: /azure/azure-vmware/faq#configuration-and-setup
+          - text: VMware 소프트웨어
+            url: /azure/azure-vmware/faq#vmware-software
+          - text: 컴퓨팅
+            url: /azure/azure-vmware/faq#compute
+          - text: 네트워킹 및 상호 연결
+            url: /azure/azure-vmware/faq#networking-and-interconnectivity
+          - text: 스토리지
+            url: /azure/azure-vmware/faq#storage
+          - text: '호스트, 클러스터 및 프라이빗 클라우드'
+            url: '/azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds'
+          - text: ID 관리
+            url: /azure/azure-vmware/faq#identity-management
+          - text: 청구 및 지원
+            url: /azure/azure-vmware/faq#billing-and-support
+  - title: 시작
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: 1 - 배포 계획
+            url: production-ready-deployment-steps.md
+          - text: 2 - Azure VMware Solution 배포
+            url: deploy-azure-vmware-solution.md
+          - text: 3 - 온-프레미스에 연결
+            url: tutorial-expressroute-global-reach-private-cloud.md
+          - text: 4 - HCX 배포 및 구성
+            url: tutorial-deploy-vmware-hcx.md
+      - linkListType: tutorial
+        links:
+          - text: 네트워크 계획 검사 목록
+            url: tutorial-network-checklist.md
+          - text: 프라이빗 클라우드 만들기
+            url: tutorial-create-private-cloud.md
+          - text: 프라이빗 클라우드에 액세스
+            url: tutorial-access-private-cloud.md
+          - text: 네트워킹 구성
+            url: tutorial-configure-networking.md
+          - text: 네트워크 세그먼트 만들기
+            url: tutorial-nsx-t-network-segment.md
+          - text: 온-프레미스에서 프라이빗 클라우드로 피어링
+            url: tutorial-expressroute-global-reach-private-cloud.md
+          - text: 프라이빗 클라우드에서 클러스터 확장 또는 축소
+            url: tutorial-scale-private-cloud.md
+          - text: 프라이빗 클라우드 삭제
+            url: tutorial-delete-private-cloud.md
+  - title: ID 관리
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: 프라이빗 클라우드의 액세스 및 ID
+            url: concepts-identity.md
+          - text: cloudadmin 자격 증명 회전
+            url: rotate-cloudadmin-credentials.md
+  - title: Azure VMware Solution 확장
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure VMware Solution 평가 만들기
+            url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+          - text: Azure VMware Solution에 대한 호스트 할당량 요청
+            url: request-host-quota-azure-vmware-solution.md
+          - text: 예약 인스턴스로 비용 절감
+            url: reserved-instance.md
+      - linkListType: how-to-guide
+        links:
+          - text: DHCP 서버 또는 릴레이 구성
+            url: configure-dhcp-azure-vmware-solution.md
+          - text: L2 확장 네트워크에서 DHCP 구성
+            url: configure-l2-stretched-vmware-hcx-networks.md
+          - text: DNS 전달자 구성
+            url: configure-dns-azure-vmware-solution.md
+          - text: 포트 미러링 구성
+            url: configure-port-mirroring-azure-vmware-solution.md
+          - text: GitHub Enterprise 서버 구성
+            url: ./configure-github-enterprise-server.md
+          - text: 공용 인터넷 액세스 사용
+            url: enable-public-internet-access.md
+          - text: vWAN에서 사이트 간 VPN 구성
+            url: configure-site-to-site-vpn-gateway.md
+          - text: Windows Server 장애 조치(Failover) 클러스터 구성
+            url: configure-windows-server-failover-cluster.md
+          - text: 동일한 지역에 여러 프라이빗 클라우드 연결
+            url: connect-multiple-private-clouds-same-region.md
+  - title: Azure 네이티브 통합
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: 'VM 보호, 모니터링 및 관리'
+            url: integrate-azure-native-services.md
+          - text: Azure Security Center 통합
+            url: azure-security-integration.md
+          - text: Azure NetApp Files 통합
+            url: netapp-files-with-azure-vmware-solution.md
+          - text: Azure Application Gateway로 웹앱 보호
+            url: protect-azure-vmware-solution-with-application-gateway.md
+          - text: 워크로드를 분산하는 Traffic Manager 배포
+            url: deploy-traffic-manager-balance-workloads.md
+          - text: 경고 구성 및 메트릭 작업
+            url: configure-alerts-for-azure-vmware-solution.md
+          - text: Azure VMware Solution 호스트에 디스크 풀 연결
+            url: attach-disk-pools-to-azure-vmware-solution-hosts.md
+  - title: Azure Backup Server를 사용하여 백업
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Backup 서버 설정
+            url: set-up-backup-server-for-azure-vmware-solution.md
+          - text: Backup 서버를 사용하여 프라이빗 클라우드 VM 백업
+            url: backup-azure-vmware-solution-virtual-machines.md
+  - title: VMware 솔루션
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: vRealize 작업 구성
+            url: vrealize-operations-for-azure-vmware-solution.md
+          - text: VMware Horizon 배포
+            url: azure-vmware-solution-horizon.md
+          - text: 콘텐츠 라이브러리에서 VM 배포
+            url: deploy-vm-content-library.md
+          - text: VMware SRM을 사용하여 재해 복구 배포
+            url: disaster-recovery-using-vmware-site-recovery-manager.md
+          - text: VMware HCX를 사용하여 재해 복구 배포
+            url: deploy-disaster-recovery-using-vmware-hcx.md
+          - text: VMware HCX 어플라이언스 업그레이드
+            url: 'https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html'
+  - title: VMware 에코시스템
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: VM용 백업 솔루션
+            url: ecosystem-back-up-vms.md
+          - text: VM용 마이그레이션 솔루션
+            url: ecosystem-migration-vms.md
+  - title: 리소스
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: REST API
+            url: /rest/api/avs
+          - text: Azure CLI
+            url: /cli/azure/vmware
+          - text: Azure PowerShell
+            url: /powershell/module/az.vmware
+          - text: Terraform Azure 공급자
+            url: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud'
+      - linkListType: video
+        links:
+          - text: 재생 목록
+            url: 'https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin'
+          - text: Azure 서비스와 통합
+            url: 'https://youtu.be/m26iLu6DHbU'
+          - text: Azure Application Gateway와 통합
+            url: 'https://youtu.be/BoQYvqzb6Y8'
+          - text: 마이그레이션 및 용량 계획
+            url: 'https://youtu.be/NoNG-hkksrA'
+          - text: Azure Logic App을 사용하여 vCenter 및 NSX-T 암호 회전
+            url: 'https://youtu.be/cK1qY3knj88'
+  - title: Azure VMware Solution 리소스 이동
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure VMware solution 구독 이동
+            url: move-ea-csp-subscriptions.md
+          - text: 지역간 Azure VMware Solution 이동
+            url: move-azure-vmware-solution-across-regions.md
+  - title: 문제 해결
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: 배포 실패에 대한 지원 요청 열기
+            url: fix-deployment-failures.md
+          - text: VMware 도구 vix 오류 코드 = 21009
+            url: 'https://kb.vmware.com/s/article/2129927'

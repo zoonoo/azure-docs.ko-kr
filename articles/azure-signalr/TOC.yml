@@ -106,6 +106,8 @@
           href: howto-private-endpoints.md
         - name: 네트워크 액세스 제어 관리
           href: howto-network-access-control.md
+        - name: 공유 프라이빗 엔드포인트를 통해 아웃바운드 트래픽 보호
+          href: howto-shared-private-endpoints.md
         - name: 관리 ID 사용
           href: howto-use-managed-identity.md
     - name: 통합

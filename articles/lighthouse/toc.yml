@@ -50,7 +50,7 @@
         - name: 서비스 공급자 보기 및 관리
           displayName: 'customer, update, visibility, control'
           href: ./how-to/view-manage-service-providers.md
-        - name: 서비스 공급자 작업 보기
+        - name: 서비스 공급자 작업 모니터링
           displayName: 'monitor, log, customer, visibility, transparency, control'
           href: ./how-to/view-service-provider-activity.md
     - name: 온보딩 및 위임 관리
@@ -127,8 +127,8 @@
   items:
     - name: Azure Lighthouse에 대한 Microsoft Q&A
       href: /answers/topics/azure-lighthouse.html
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Azure 업데이트
+      href: 'https://azure.microsoft.com/updates/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 국가별 가용성

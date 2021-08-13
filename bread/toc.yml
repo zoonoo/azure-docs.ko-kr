@@ -193,9 +193,6 @@
     - name: Azure Remote Rendering
       tocHref: /azure/remote-rendering/
       topicHref: /azure/remote-rendering/
-    - name: Azure 개체 이해
-      tocHref: /azure/object-understanding/
-      topicHref: /azure/object-understanding/
     - name: Container Registry
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/
@@ -240,6 +237,9 @@
         - name: Azure Percept
           tocHref: /azure/azure-percept/
           topicHref: /azure/azure-percept/
+        - name: 디바이스 개발
+          tocHref: /azure/iot-develop/
+          topicHref: /azure/iot-develop/
         - name: IoT Hub용 디바이스 업데이트 문서
           tocHref: /azure/iot-hub-device-update/
           topicHref: /azure/iot-hub-device-update/
@@ -252,9 +252,6 @@
         - name: IoT Edge
           tocHref: /azure/iot-edge/
           topicHref: /azure/iot-edge/
-        - name: IoT 플러그 앤 플레이
-          tocHref: /azure/iot-pnp/
-          topicHref: /azure/iot-pnp/
         - name: Azure Digital Twins
           tocHref: /azure/digital-twins/
           topicHref: /azure/digital-twins/

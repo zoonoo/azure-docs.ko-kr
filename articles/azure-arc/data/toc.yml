@@ -10,8 +10,8 @@
       href: privacy-data-collection-and-reporting.md
 - name: 빠른 시작
   items:
-    - name: 데이터 컨트롤러 만들기
-      href: create-data-controller.md
+    - name: Azure Arc 지원 데이터 서비스 배포 계획
+      href: plan-azure-arc-data-services.md
 - name: 개념
   items:
     - name: 연결 모드 및 요구 사항
@@ -26,42 +26,30 @@
       items:
         - name: 클라이언트 도구 설치
           href: install-client-tools.md
-        - name: Azure Data CLI(azdata)
-          items:
-            - name: 설치
-              href: /sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-            - name: macOS
-              href: /sql/azdata/install/deploy-install-azdata-macos?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-            - name: Windows
-              href: /sql/azdata/install/deploy-install-azdata-installer?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-            - name: Apt를 사용하는 Linux
-              href: /sql/azdata/install/deploy-install-azdata-linux-package?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-            - name: yum을 사용하는 Linux
-              href: /sql/azdata/install/deploy-install-azdata-yum?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-            - name: zypper를 사용하는 Linux
-              href: /sql/azdata/install/deploy-install-azdata-zypper?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-            - name: pip를 사용하는 Linux
-              href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arcdata 확장(Azure CLI) 설치
+          href: install-arcdata-extension.md
+    - name: 사용자 지정 구성 프로필 만들기
+      href: create-custom-configuration-template.md
     - name: 데이터 컨트롤러 만들기
       items:
         - name: 간접 연결 모드
           items:
             - name: Azure Data Studio
-              href: create-data-controller-azure-data-studio.md
-            - name: 포털
-              href: create-data-controller-resource-in-azure-portal.md
-            - name: Azure Data CLI(azdata)
-              href: create-data-controller-using-azdata.md
+              href: create-data-controller-indirect-azure-data-studio.md
+            - name: Azure portal
+              href: create-data-controller-indirect-azure-portal.md
+            - name: azdata CLI
+              href: create-data-controller-indirect-cli.md
             - name: Kubernetes 도구
               href: create-data-controller-using-kubernetes-native-tools.md
-            - name: SCC(OpenShift) 적용
-              href: how-to-apply-security-context-constraint.md
         - name: 직접 연결 모드
           items:
             - name: 필수 구성 요소
-              href: deploy-data-controller-direct-mode-prerequisites.md
-            - name: 배포
-              href: deploy-data-controller-direct-mode.md
+              href: create-data-controller-direct-prerequisites.md
+            - name: Azure portal
+              href: create-data-controller-direct-azure-portal.md
+            - name: az CLI
+              href: create-data-controller-direct-cli.md
     - name: Azure Arc 지원 데이터 서비스 간의 공통 환경
       items:
         - name: 대시보드를 사용하여 모니터링(Azure Data Studio)
@@ -130,6 +118,24 @@
           href: postgresql-hyperscale-server-group-placement-on-kubernetes-cluster-nodes.md
     - name: 방법
       items:
+        - name: 도구 설치
+          items:
+            - name: Azure Data CLI(azdata)
+              items: null
+            - name: 설치
+              href: /sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+            - name: macOS
+              href: /sql/azdata/install/deploy-install-azdata-macos?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+            - name: Windows
+              href: /sql/azdata/install/deploy-install-azdata-installer?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+            - name: Apt를 사용하는 Linux
+              href: /sql/azdata/install/deploy-install-azdata-linux-package?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+            - name: yum을 사용하는 Linux
+              href: /sql/azdata/install/deploy-install-azdata-yum?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+            - name: zypper를 사용하는 Linux
+              href: /sql/azdata/install/deploy-install-azdata-zypper?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+            - name: pip를 사용하는 Linux
+              href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
         - name: 관리
           items:
             - name: 백업 및 복원
@@ -194,6 +200,8 @@
               href: monitoring-log-analytics-azure-portal-managed-instance.md
             - name: 고가용성
               href: managed-instance-high-availability.md
+            - name: 특정 시점 복원
+              href: point-in-time-restore.md
             - name: 삭제
               href: delete-managed-instance.md
         - name: 마이그레이션
@@ -212,20 +220,6 @@
           href: /sql/azdata/reference/reference-azdata-notebook?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
         - name: postgres
           href: /sql/azdata/reference/reference-azdata-postgres?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-        - name: sql
-          href: /sql/azdata/reference/reference-azdata-sql?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-        - name: azdata-arc
-          href: /sql/azdata/reference/reference-azdata-arc?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-        - name: arc-dc
-          href: /sql/azdata/reference/reference-azdata-arc-dc?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-        - name: arc-dc-config
-          href: /sql/azdata/reference/reference-azdata-arc-dc-config?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-        - name: arc-dc-debug
-          href: /sql/azdata/reference/reference-azdata-arc-dc-debug?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-        - name: arc-dc-endpoint
-          href: /sql/azdata/reference/reference-azdata-arc-dc-endpoint?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-        - name: arc-dc-status
-          href: /sql/azdata/reference/reference-azdata-arc-dc-status?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
         - name: arc-postgres
           href: /sql/azdata/reference/reference-azdata-arc-postgres?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
         - name: arc-postgres-backup
@@ -242,15 +236,9 @@
           href: /sql/azdata/reference/reference-azdata-arc-resource?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
         - name: arc-resource-kind
           href: /sql/azdata/reference/reference-azdata-arc-resource-kind?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-        - name: arc-sql
-          href: /sql/azdata/reference/reference-azdata-arc-sql?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-        - name: arc-sql-endpoint
-          href: /sql/azdata/reference/reference-azdata-arc-sql-endpoint?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-        - name: arc-sql-mi
-          href: /sql/azdata/reference/reference-azdata-arc-sql-mi?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-        - name: arc-sql-mi-config
-          href: /sql/azdata/reference/reference-azdata-arc-sql-mi-config?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
 - name: 리소스
   items:
+    - name: 배포 계획
+      href: plan-azure-arc-data-services.md
     - name: Azure Arc 빠른 시작
       href: 'https://azurearcjumpstart.io'

@@ -9,49 +9,57 @@ metadata:
   ms.topic: landing-page
   author: timlt
   ms.author: timlt
-  ms.date: 01/11/2021
-  ms.openlocfilehash: 14587a7e9748c7df799ef798ff03ee2380b76cdc
-  ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/30/2021
-  ms.locfileid: "113112062"
+  ms.date: 07/15/2021
 landingContent:
-- title: IoT 디바이스 개발 정보
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Azure IoT 디바이스 개발이란?
-      url: about-iot-develop.md
-    - text: IoT 디바이스 유형 검토
-      url: concepts-iot-device-types.md
-    - text: 어떤 SDK를 사용해야 하는가?
-      url: about-iot-sdks.md
-- title: 디바이스 애플리케이션 개발 시작
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: IoT Central로 디바이스 원격 분석 전송
-      url: quickstart-send-telemetry-central.md
-    - text: IoT Hub로 디바이스 원격 분석 전송
-      url: quickstart-send-telemetry-iot-hub.md
-- title: 임베디드 디바이스 개발 시작
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: MXCHIP AZ3166을 Azure IoT에 연결
-      url: quickstart-devkit-mxchip-az3166.md
-    - text: MXCHIP AZ3166을 Azure IoT Hub에 연결
-      url: quickstart-devkit-mxchip-az3166-iot-hub.md
-    - text: Microchip ATSAME54-XPro를 Azure IoT에 연결
-      url: quickstart-devkit-microchip-atsame54-xpro.md
-    - text: NXP MIMXRT1050-EVKB를 Azure IoT에 연결
-      url: quickstart-devkit-nxp-mimxrt1050-evkb.md
-    - text: NXP MIMXRT1060-EVK를 Azure IoT에 연결
-      url: quickstart-devkit-nxp-mimxrt1060-evk.md
-    - text: Renesas RX65N-2MB를 Azure IoT에 연결
-      url: quickstart-devkit-renesas-rx65n-2mb.md
-    - text: Renesas RX65N Cloud Kit를 Azure IoT에 연결
-      url: quickstart-devkit-renesas-rx65n-cloud-kit.md
-    - text: STMicroelectronics B-L475E/L4S5I-IOT01A를 Azure IoT에 연결
-      url: quickstart-devkit-stm-b-l475e.md
+  - title: IoT 디바이스 개발 정보
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure IoT 디바이스 개발이란?
+            url: about-iot-develop.md
+          - text: IoT 디바이스 유형 검토
+            url: concepts-iot-device-types.md
+          - text: IoT 플러그 앤 플레이란?
+            url: overview-iot-plug-and-play.md
+  - title: 디바이스 애플리케이션 개발 시작
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: IoT Central로 디바이스 원격 분석 전송
+            url: quickstart-send-telemetry-central.md
+          - text: IoT Hub로 디바이스 원격 분석 전송
+            url: quickstart-send-telemetry-iot-hub.md
+  - title: 임베디드 디바이스 개발 시작
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: MXCHIP AZ3166을 Azure IoT에 연결
+            url: quickstart-devkit-mxchip-az3166.md
+          - text: MXCHIP AZ3166을 Azure IoT Hub에 연결
+            url: quickstart-devkit-mxchip-az3166-iot-hub.md
+          - text: Microchip ATSAME54-XPro를 Azure IoT에 연결
+            url: quickstart-devkit-microchip-atsame54-xpro.md
+          - text: STMicroelectronics B-L475E/L4S5I-IOT01A를 Azure IoT에 연결
+            url: quickstart-devkit-stm-b-l475e.md
+  - title: 디바이스 솔루션 빌드
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: IoT Hub에 샘플 디바이스 연결
+            url: tutorial-connect-device.md
+          - text: IoT 디바이스를 클라우드에 안전하게 연결
+            url: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
+  - title: 디바이스 개발 프레임워크
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: 디바이스 유형 개요
+            url: concepts-iot-device-types.md
+          - text: 개발자 가이드
+            url: concepts-developer-guide-device.md
+          - text: 모델링 가이드
+            url: concepts-modeling-guide.md
+          - text: IoT 플러그 앤 플레이 규칙
+            url: concepts-convention.md
+          - text: IoT 플러그 앤 플레이 브리지
+            url: concepts-iot-pnp-bridge.md

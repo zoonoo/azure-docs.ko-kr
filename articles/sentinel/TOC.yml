@@ -25,6 +25,14 @@
       href: powerbi.md
 - name: 개념
   items:
+    - name: 모범 사례
+      items:
+        - name: 배포 전 모범 사례
+          href: prerequisites.md
+        - name: 일반적인 유용한 정보
+          href: best-practices.md
+        - name: 데이터 수집 모범 사례
+          href: best-practices-data.md
     - name: Architecture
       items:
         - name: 역할 및 권한
@@ -32,7 +40,7 @@
         - name: 비용 및 청구
           href: azure-sentinel-billing.md
         - name: 보안 기준
-          href: 'https://docs.microsoft.com/security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json'
+          href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=%2fazure%2fsentinel%2fTOC.json
     - name: 데이터 수집 및 분석
       items:
         - name: 정규화 및 ASIM(Azure Sentinel 정보 모델)
@@ -47,8 +55,8 @@
           href: sentinel-solutions-catalog.md
     - name: 위협 인텔리전스
       items:
-        - name: Azure Sentinel로 위협 인텔리전스 가져오기
-          href: import-threat-intelligence.md
+        - name: Azure Sentinel의 위협 인텔리전스 이해
+          href: understand-threat-intelligence.md
         - name: 위협 인텔리전스 통합
           href: threat-intelligence-integration.md
     - name: 위협 탐지
@@ -59,8 +67,6 @@
           href: soc-ml-anomalies.md
         - name: 다단계 공격(Fusion)
           href: fusion.md
-        - name: 관심 목록
-          href: watchlists.md
     - name: 위협 헌팅
       href: hunting.md
     - name: SOAR
@@ -280,7 +286,13 @@
     - name: 솔루션 검색 및 배포
       href: sentinel-solutions-deploy.md
     - name: 위협 인텔리전스 연결
-      href: connect-threat-intelligence.md
+      items:
+        - name: 위협 인텔리전스 플랫폼 연결
+          href: connect-threat-intelligence-tip.md
+        - name: STIX/TAXII 피드에 연결
+          href: connect-threat-intelligence-taxii.md
+    - name: 위협 지표 작업
+      href: work-with-threat-indicators.md
     - name: 데이터 모니터링 및 시각화
       items:
         - name: 수집된 데이터 시각화
@@ -313,6 +325,8 @@
           href: false-positives.md
         - name: Microsoft 보안 경고에서 인시던트 생성
           href: create-incidents-from-alerts.md
+        - name: 관심 목록 사용
+          href: watchlists.md
     - name: 위협에 대한 헌팅
       items:
         - name: Jupyter Notebook을 사용하여 헌팅
@@ -385,7 +399,7 @@
               href: ../role-based-access-control/built-in-roles.md#all
             - name: Azure Sentinel 역할
               href: ../role-based-access-control/built-in-roles.md#security
-    - name: 데이터 커넥터 참조
+    - name: 데이터 수집 참조
       items:
         - name: 데이터 원본 스키마 참조
           href: data-source-schema-reference.md
@@ -425,8 +439,10 @@
               href: hunting-with-rest-api.md
             - name: REST API를 사용하여 관심 목록 관리
               href: watchlist-with-rest-api.md
+            - name: REST-API를 사용하여 지리적 위치 데이터로 엔터티 강화
+              href: geolocation-data-api.md
         - name: Microsoft 365 Defender에 온보딩되지 않은 MCAS 경고
-          href: microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md
+          href: ./microsoft-365-defender-sentinel-integration.md#microsoft-365-defender-incidents-and-microsoft-incident-creation-rules
 - name: 리소스
   items:
     - name: 유용한 리소스

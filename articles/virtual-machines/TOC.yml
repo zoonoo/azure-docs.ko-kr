@@ -67,6 +67,40 @@
           href: ./windows/tutorial-load-balancer.md
         - name: 8 - 네트워킹 관리
           href: ./windows/tutorial-virtual-network.md
+- name: 개발
+  items:
+    - name: REST API
+      href: /rest/api/compute/virtual-machines?context=/azure/virtual-machines/context/context
+    - name: Python
+      items:
+        - name: Python SDK
+          href: 'https://github.com/Azure/azure-sdk-for-python'
+        - name: 샘플
+          href: /samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/?context=/azure/virtual-machines/context/context
+    - name: .NET
+      items:
+        - name: .NET SDK
+          href: 'https://github.com/Azure/azure-sdk-for-net'
+        - name: 참조
+          href: /dotnet/api/overview/azure/virtualmachines?view=azure-dotnet?context=/azure/virtual-machines/context/context
+    - name: Java
+      items:
+        - name: Java SDK
+          href: 'https://github.com/Azure/azure-sdk-for-java'
+        - name: 참조
+          href: /java/api/com.azure.resourcemanager.compute?view=azure-java-stable?context=/azure/virtual-machines/context/context
+    - name: Go
+      items:
+        - name: Go SDK
+          href: 'https://github.com/Azure/azure-sdk-for-go'
+        - name: 참조
+          href: /developer/go/azure-sdk-qs-vm?context=/azure/virtual-machines/context/context
+    - name: Azure CLI 샘플 리포지토리
+      href: 'https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine'
+    - name: PowerShell 샘플 리포지토리
+      href: 'https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine'
+    - name: Azure Resource Graph 쿼리
+      href: ./resource-graph-samples.md
 - name: 워크로드
   items:
     - name: Red Hat
@@ -800,8 +834,6 @@
               href: 'https://azure.microsoft.com/resources/templates/sig-image-definition-create/'
             - name: 공유 이미지 갤러리에서 이미지 버전 만들기
               href: 'https://azure.microsoft.com/resources/templates/sig-image-version-create/'
-            - name: 이미지 버전에서 VM 만들기
-              href: 'https://azure.microsoft.com/resources/templates/vm-from-sig/'
         - name: Ansible
           href: /azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible
         - name: 공유 이미지 문제 해결
@@ -964,10 +996,29 @@
       href: disks-types.md
     - name: 디스크 중복 옵션
       href: disks-redundancy.md
+    - name: ZRS 디스크 배포
+      href: disks-deploy-zrs.md
     - name: 공유 디스크
       href: disks-shared.md
     - name: 공유 디스크 사용
       href: disks-shared-enable.md
+    - name: 디스크 풀
+      items:
+        - name: 개요
+          displayName: Disk pools overview
+          href: disks-pools.md
+        - name: 디스크 풀 계획
+          href: disks-pools-planning.md
+        - name: 디스크 풀 배포
+          href: disks-pools-deploy.md
+        - name: 다른 구독으로 디스크 풀 이동
+          href: disks-pools-move-resource.md
+        - name: 디스크 풀 관리
+          href: disks-pools-manage.md
+        - name: 디스크 풀 프로비전 해제
+          href: disks-pools-deprovision.md
+        - name: 디스크 풀 문제 해결
+          href: disks-pools-troubleshoot.md
     - name: 암호화
       items:
         - name: 디스크 암호화 개요
@@ -1306,7 +1357,7 @@
     - name: 네트워크 처리량 최적화
       href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
     - name: 모범 사례
-      href: /azure/virtual-network/concepts-and-best-practices
+      href: ../virtual-network/concepts-and-best-practices.md
     - name: 가상 네트워크 만들기
       href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
     - name: 네트워크 트래픽 필터링
@@ -1711,7 +1762,7 @@
               href: ../azure-monitor/vm/vminsights-ga-release-faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: FAQ
               displayName: Azure monitor for VMs
-              href: /azure/azure-monitor/faq?context=/azure/virtual-machines/context/context
+              href: ../azure-monitor/faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: 모니터링 사용
               items:
                 - name: 모니터링 사용 개요
@@ -1743,7 +1794,7 @@
               href: ../azure-monitor/vm/vminsights-workbooks.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: 경고 규칙 만들기
               displayName: 'Azure monitor, monitoring'
-              href: ../azure-monitor/vm/vminsights-alerts.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+              href: ../azure-monitor/vm/monitor-virtual-machine-alerts.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: 종속성 에이전트 업그레이드
               displayName: 'Azure monitor, monitoring'
               href: ../azure-monitor/vm/vminsights-dependency-agent-maintenance.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
@@ -1882,8 +1933,6 @@
       href: /azure/developer/jenkins/
     - name: Azure DevOps
       href: ./linux/tutorial-azure-devops-blue-green-strategy.md
-- name: 지원 및 문제 해결
-  href: vm-support-help.md
 - name: 리소스
   items:
     - name: 클라우드 채택 프레임워크
@@ -1906,12 +1955,6 @@
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: 샘플
-      items:
-        - name: Azure CLI 샘플 리포지토리
-          href: 'https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine'
-        - name: PowerShell 샘플 리포지토리
-          href: 'https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine'
     - name: 일반 CLI 명령
       href: ./linux/cli-manage.md
     - name: 일반 PowerShell 명령
@@ -1932,3 +1975,5 @@
           href: ./linux/faq.yml
         - name: Windows
           href: ./windows/faq.yml
+- name: 지원 및 문제 해결
+  href: vm-support-help.md

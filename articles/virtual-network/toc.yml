@@ -230,8 +230,10 @@
           items:
             - name: 공용 IP 접두사 만들기 - 포털
               href: create-public-ip-prefix-portal.md
-            - name: 공용 IPv6 접두사 만들기
-              href: ipv6-reserve-public-ip-address-prefix.md
+            - name: 공용 IP 접두사 만들기 - PowerShell
+              href: create-public-ip-prefix-powershell.md
+            - name: 공용 IP 접두사 만들기 - Azure CLI
+              href: create-public-ip-prefix-cli.md
         - name: 공용 IP 주소 업그레이드
           items:
             - name: 공용 IP 주소 업그레이드 - 포털
@@ -256,12 +258,10 @@
               items:
                 - name: IPv6를 사용하는 표준 내부 Load Balancer - PowerShell
                   href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
-            - name: 기본 공용
-              items:
-                - name: IPv6를 사용하는 기본 공용 Load Balancer - PowerShell
-                  href: ipv6-add-to-existing-vnet-powershell.md
-                - name: IPv6를 사용하는 기본 공용 Load Balancer - Azure CLI
-                  href: ipv6-add-to-existing-vnet-cli.md
+            - name: IPv4 애플리케이션에 IPv6 추가 - PowerShell
+              href: ipv6-add-to-existing-vnet-powershell.md
+            - name: IPv4 애플리케이션에 IPv6 추가 - Azure CLI
+              href: ipv6-add-to-existing-vnet-cli.md
         - name: 라우팅 기본 설정
           items:
             - name: 공용 IP 주소 만들기

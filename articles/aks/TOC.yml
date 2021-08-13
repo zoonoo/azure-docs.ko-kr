@@ -26,6 +26,8 @@
       items:
         - name: Helm으로 개발
           href: quickstart-helm.md
+    - name: Event Grid를 사용하여 AKS 이벤트 구독(미리 보기)
+      href: quickstart-event-grid.md
 - name: 자습서
   items:
     - name: 1 - AKS를 위한 애플리케이션 준비
@@ -403,7 +405,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/aks
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/aks
     - name: PowerShell
       href: /powershell/module/az.aks#aks

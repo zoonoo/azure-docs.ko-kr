@@ -1,0 +1,89 @@
+- name: Azure 독일 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure 독일이란?
+      href: germany-welcome.md
+    - name: 데이터 트러스티 원칙
+      href: germany-overview-data-trustee.md
+- name: 시작
+  items:
+    - name: 개발자 가이드
+      href: germany-developer-guide.md
+    - name: Azure 독일 포털에 로그인
+      href: germany-get-started-connect-with-portal.md
+    - name: Azure PowerShell을 사용하여 연결
+      href: germany-get-started-connect-with-ps.md
+    - name: CLI를 사용하여 연결
+      href: germany-get-started-connect-with-cli.md
+    - name: Azure 독일용 Visual Studio 설정
+      href: germany-get-started-connect-with-vs.md
+    - name: 웹앱 프로비전
+      href: germany-howto-deploy-webandmobile.md
+    - name: 사용 가능한 서비스
+      href: germany-services.md
+- name: 방법
+  items:
+    - name: 관리
+      items:
+        - name: Subscription
+          href: germany-manage-subscriptions.md
+    - name: Migrate
+      href: germany-migration-main.md
+      items:
+        - name: Compute
+          href: germany-migration-compute.md
+        - name: 네트워킹
+          href: germany-migration-networking.md
+        - name: Storage
+          href: germany-migration-storage.md
+        - name: 웹
+          href: germany-migration-web.md
+        - name: 데이터베이스
+          href: germany-migration-databases.md
+        - name: 분석
+          href: germany-migration-analytics.md
+        - name: 사물 인터넷
+          href: germany-migration-iot.md
+        - name: 통합
+          href: germany-migration-integration.md
+        - name: ID
+          href: germany-migration-identity.md
+        - name: 보안
+          href: germany-migration-security.md
+        - name: 관리 도구
+          href: germany-migration-management-tools.md
+        - name: 미디어
+          href: germany-migration-media.md
+- name: 참조
+  items:
+    - name: 이미지
+      href: germany-image-gallery.md
+    - name: 서비스
+      items:
+        - name: 컴퓨팅
+          href: germany-services-compute.md
+        - name: 스토리지
+          href: germany-services-storage.md
+        - name: 데이터베이스
+          href: germany-services-database.md
+        - name: 네트워킹
+          href: germany-services-networking.md
+        - name: 보안 및 ID
+          href: germany-services-securityandidentity.md
+        - name: 웹 및 모바일
+          href: germany-services-webandmobile.md
+        - name: IoT(사물 인터넷)
+          href: germany-services-iot.md
+- name: 리소스
+  items:
+    - name: Azure 독일 웹 사이트
+      href: 'https://azure.microsoft.com/overview/clouds/germany/'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 블로그
+      href: /archive/blogs/azuregermany/
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/'
+    - name: 평가판
+      href: 'https://azure.microsoft.com/free/germany'

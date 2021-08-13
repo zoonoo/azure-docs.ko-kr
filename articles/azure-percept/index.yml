@@ -10,118 +10,112 @@ metadata:
   author: mimcco
   ms.author: mimcco
   ms.date: 03/25/2021
-  ms.openlocfilehash: 193f3a17263ff0c3f164d04fe6a6a766208dd5bc
-  ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/29/2021
-  ms.locfileid: "113031484"
 landingContent:
-- title: Azure Percept란?
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Azure Percept 개요
-      url: overview-azure-percept.md
-    - text: Azure Percept DK 개요
-      url: overview-azure-percept-dk.md
-    - text: Azure Percept Audio 개요
-      url: overview-azure-percept-audio.md
-    - text: Azure Percept Studio 개요
-      url: overview-azure-percept-studio.md
-    - text: Azure Percept 보안 개요
-      url: overview-percept-security.md
-    - text: 80/20 통합
-      url: overview-8020-integration.md
-    - text: Azure Percept AI 모델
-      url: overview-ai-models.md
-- title: Azure Percept DK 시작
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Azure Percept DK 언박싱 및 조립
-      url: quickstart-percept-dk-unboxing.md
-    - text: Azure Percept DK를 Azure에 연결
-      url: quickstart-percept-dk-set-up.md
-  - linkListType: reference
-    links:
-    - text: Azure Percept DK 데이터시트
-      url: azure-percept-dk-datasheet.md
-    - text: Azure Percept Vision 데이터시트
-      url: azure-percept-vision-datasheet.md
-    - text: 일반적인 Azure Percept DK 문제 해결
-      url: troubleshoot-dev-kit.md
-    - text: 설치 환경 문제 해결
-      url: how-to-troubleshoot-setup.md
-- title: Azure Percept Audio 시작
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Azure Percept Audio 설정
-      url: quickstart-percept-audio-setup.md
-  - linkListType: reference
-    links:
-    - text: Azure Percept Audio 데이터시트
-      url: azure-percept-audio-datasheet.md
-    - text: Azure Percept Audio 문제 해결
-      url: troubleshoot-audio-accessory-speech-module.md
-    - text: Azure Percept Audio LED 및 단추 동작
-      url: audio-button-led-behavior.md
-- title: 코드 없는 비전 솔루션 빌드
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: 코드 없는 비전 솔루션 만들기
-      url: tutorial-nocode-vision.md
-  - linkListType: how-to-guide
-    links:
-    - text: Devkit의 비디오 스트림 보기
-      url: how-to-view-video-stream.md
-    - text: Devkit에 AI 모델 배포
-      url: how-to-deploy-model.md
-    - text: 비전 프로젝트에 대한 이미지 캡처
-      url: how-to-capture-images.md
-    - text: Devkit의 원격 분석 데이터 보기
-      url: how-to-view-telemetry.md
-  - linkListType: reference
-    links:
-    - text: 비전 솔루션 문제 해결
-      url: vision-solution-troubleshooting.md
-- title: 코드 없는 음성 솔루션 빌드
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: 코드 없는 음성 도우미 만들기
-      url: tutorial-no-code-speech.md
-  - linkListType: how-to-guide
-    links:
-    - text: Azure Percept Studio에서 음성 도우미 구성
-      url: how-to-manage-voice-assistant.md
-    - text: IoT Hub에서 음성 도우미 구성
-      url: how-to-configure-voice-assistant.md
-- title: Azure Percept를 사용한 고급 개발
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: 고급 개발 개요
-      url: overview-advanced-code.md
-  - linkListType: how-to-guide
-    links:
-    - text: Dev Tools Pack 설치 관리자
-      url: dev-tools-installer.md
-- title: Azure Percept DK를 최신 상태로 유지
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Azure Percept DK 업데이트 환경 개요
-      url: overview-update-experience.md
-  - linkListType: how-to-guide
-    links:
-    - text: 업데이트 패키지 선택
-      url: how-to-select-update-package.md
-    - text: OTA(무선) 업데이트 설정
-      url: how-to-set-up-over-the-air-updates.md
-    - text: OTA(무선)로 디바이스 업데이트
-      url: how-to-update-over-the-air.md
-    - text: USB-C 케이블 연결을 통해 디바이스 업데이트
-      url: how-to-update-via-usb.md
+  - title: Azure Percept란?
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Percept 개요
+            url: overview-azure-percept.md
+          - text: Azure Percept DK 개요
+            url: overview-azure-percept-dk.md
+          - text: Azure Percept Audio 개요
+            url: overview-azure-percept-audio.md
+          - text: Azure Percept Studio 개요
+            url: overview-azure-percept-studio.md
+          - text: Azure Percept 보안 개요
+            url: overview-percept-security.md
+          - text: 80/20 통합
+            url: overview-8020-integration.md
+          - text: Azure Percept AI 모델
+            url: overview-ai-models.md
+  - title: Azure Percept DK 시작
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Azure Percept DK 언박싱 및 조립
+            url: quickstart-percept-dk-unboxing.md
+          - text: Azure Percept DK를 Azure에 연결
+            url: quickstart-percept-dk-set-up.md
+      - linkListType: reference
+        links:
+          - text: Azure Percept DK 데이터시트
+            url: azure-percept-dk-datasheet.md
+          - text: Azure Percept Vision 데이터시트
+            url: azure-percept-vision-datasheet.md
+          - text: 일반적인 Azure Percept DK 문제 해결
+            url: troubleshoot-dev-kit.md
+          - text: 설치 환경 문제 해결
+            url: how-to-troubleshoot-setup.md
+  - title: Azure Percept Audio 시작
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Azure Percept Audio 설정
+            url: quickstart-percept-audio-setup.md
+      - linkListType: reference
+        links:
+          - text: Azure Percept Audio 데이터시트
+            url: azure-percept-audio-datasheet.md
+          - text: Azure Percept Audio 문제 해결
+            url: troubleshoot-audio-accessory-speech-module.md
+          - text: Azure Percept Audio LED 및 단추 동작
+            url: audio-button-led-behavior.md
+  - title: 코드 없는 비전 솔루션 빌드
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: 코드 없는 비전 솔루션 만들기
+            url: tutorial-nocode-vision.md
+      - linkListType: how-to-guide
+        links:
+          - text: Devkit의 비디오 스트림 보기
+            url: how-to-view-video-stream.md
+          - text: Devkit에 AI 모델 배포
+            url: how-to-deploy-model.md
+          - text: 비전 프로젝트에 대한 이미지 캡처
+            url: how-to-capture-images.md
+          - text: Devkit의 원격 분석 데이터 보기
+            url: how-to-view-telemetry.md
+      - linkListType: reference
+        links:
+          - text: 비전 솔루션 문제 해결
+            url: vision-solution-troubleshooting.md
+  - title: 코드 없는 음성 솔루션 빌드
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: 코드 없는 음성 도우미 만들기
+            url: tutorial-no-code-speech.md
+      - linkListType: how-to-guide
+        links:
+          - text: Azure Percept Studio에서 음성 도우미 구성
+            url: how-to-manage-voice-assistant.md
+          - text: IoT Hub에서 음성 도우미 구성
+            url: how-to-configure-voice-assistant.md
+  - title: Azure Percept를 사용한 고급 개발
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure Percept의 고급 개발
+            url: overview-advanced-code.md
+      - linkListType: how-to-guide
+        links:
+          - text: Dev Tools Pack 설치 관리자
+            url: dev-tools-installer.md
+  - title: Azure Percept DK를 최신 상태로 유지
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure Percept DK 업데이트 환경
+            url: overview-update-experience.md
+      - linkListType: how-to-guide
+        links:
+          - text: 업데이트 패키지 선택
+            url: how-to-select-update-package.md
+          - text: OTA(무선) 업데이트 설정
+            url: how-to-set-up-over-the-air-updates.md
+          - text: OTA(무선)로 디바이스 업데이트
+            url: how-to-update-over-the-air.md
+          - text: USB-C 케이블 연결을 통해 디바이스 업데이트
+            url: how-to-update-via-usb.md

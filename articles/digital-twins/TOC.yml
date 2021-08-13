@@ -76,11 +76,7 @@
             - name: 설치 스크립트 샘플
               href: how-to-set-up-instance-scripted.md
         - name: Private Link를 통한 프라이빗 액세스 사용
-          items:
-            - name: 포털
-              href: how-to-enable-private-link-portal.md
-            - name: CLI
-              href: how-to-enable-private-link-cli.md
+          href: how-to-enable-private-link.md
         - name: 앱 인증 코드 쓰기
           href: how-to-authenticate-client.md
         - name: 앱 등록 만들기
@@ -105,7 +101,7 @@
           href: how-to-use-azure-digital-twins-explorer.md
         - name: Digital Twins 관리
           href: how-to-manage-twin.md
-        - name: 관계를 사용하여 쌍 그래프 관리
+        - name: 쌍 그래프 및 관계 관리
           href: how-to-manage-graph.md
         - name: 데이터 처리를 위한 Azure 함수 설정
           href: how-to-create-azure-function.md
@@ -130,11 +126,7 @@
     - name: 연결 출력
       items:
         - name: 엔드포인트 및 경로 관리
-          items:
-            - name: 포털
-              href: how-to-manage-routes-portal.md
-            - name: API 및 CLI
-              href: how-to-manage-routes-apis-cli.md
+          href: how-to-manage-routes.md
         - name: 관리 ID를 사용하여 이벤트 라우팅
           href: how-to-route-with-managed-identity.md
         - name: Azure Maps와 통합

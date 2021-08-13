@@ -190,7 +190,7 @@
           items:
             - name: 고객 관리형 키
               href: search-security-manage-encryption-keys.md
-            - name: 암호화 정보
+            - name: 암호화된 개체 찾기
               href: search-security-get-encryption-keys.md
         - name: 인바운드 보안
           items:

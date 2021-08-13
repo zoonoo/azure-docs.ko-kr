@@ -1,0 +1,264 @@
+- name: Azure Virtual Desktop 원격 앱 스트리밍
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure Virtual Desktop 원격 앱 스트리밍이란 무엇인가요?
+      href: overview.md
+    - name: Azure Virtual Desktop이란?
+      href: ../overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+- name: 자습서
+  items:
+    - name: 1. Azure Portal로 호스트 풀 만들기
+      href: ../create-host-pools-azure-marketplace.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: 2. 앱 액세스 관리
+      href: ../manage-app-groups.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: 3. 서비스 업데이트의 유효성을 검사하기 위한 호스트 풀 만들기
+      href: ../create-validation-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: 4. 서비스 경고 설정
+      href: ../set-up-service-alerts.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+- name: 빠른 시작
+  items:
+    - name: Azure Virtual Desktop 시작
+      href: ../getting-started-feature.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+- name: 방법 가이드
+  items:
+    - name: 원격 앱 스트리밍의 필수 요소
+      items:
+        - name: MSIX 앱 연결로 앱 배포
+          href: msix-app-attach.md
+        - name: 사용자 지정 앱 호스트
+          href: custom-apps.md
+        - name: 사용자별 액세스 가격 책정에 등록
+          href: per-user-access-pricing.md
+        - name: 총 배포 비용 예측
+          href: total-costs.md
+        - name: 사용자별 앱 스트리밍 비용 예측
+          href: streaming-costs.md
+        - name: Microsoft Intune을 사용하여 앱 배포
+          href: /mem/intune/apps/apps-windows-10-app-deploy?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Intune 관리형 엔드포인트 클라이언트 제공
+          href: /mem/intune/fundamentals/windows-10-virtual-machines?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Azure Monitor 사용
+          href: ../azure-monitor.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 재해 복구 시나리오 처리
+          href: ../disaster-recovery.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 배포 확장
+          href: ../set-up-scaling-script.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 범용 인쇄 사용
+          href: /universal-print/fundamentals/universal-print-getting-started?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: 다른 항목
+      items:
+        - name: Azure Virtual Desktop 리소스에 연결
+          items:
+            - name: Windows Desktop 클라이언트와 연결
+              href: ../user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: 웹 클라이언트를 사용하여 연결
+              href: ../user-documentation/connect-web.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Android 클라이언트와 연결
+              href: ../user-documentation/connect-android.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: macOS 클라이언트와 연결
+              href: ../user-documentation/connect-macos.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: iOS 클라이언트와 연결
+              href: ../user-documentation/connect-ios.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Microsoft Store 클라이언트와 연결
+              href: ../user-documentation/connect-microsoft-store.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: 씬 클라이언트와 연결
+              href: ../user-documentation/linux-overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 호스트 풀 및 세션 호스트 만들기
+          items:
+            - name: PowerShell
+              href: ../create-host-pools-powershell.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Windows 7 가상 머신 배포
+              href: ../deploy-windows-7-virtual-machine.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: GPU 기반 세션 호스트 배포
+              href: ../configure-vm-gpu.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: 기존 호스트 풀 확장
+              href: ../expand-existing-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: PowerShell로 앱 그룹 관리
+              href: ../manage-app-groups-powershell.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 호스트 풀 삭제
+          href: ../delete-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 호스트 풀 설정 구성
+          items:
+            - name: RDP 속성
+              href: ../customize-rdp-properties.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: 풀링된 호스트 풀에 대한 부하 분산
+              href: ../configure-host-pool-load-balancing.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: 개인 데스크톱 할당 유형
+              href: ../configure-host-pool-personal-desktop-assignment-type.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 세션 호스트 이미지 사용자 지정
+          items:
+            - name: 마스터 VHD 이미지 설정
+              href: ../set-up-customize-master-image.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: 마스터 VHD 이미지에 Office 설치
+              href: ../install-office-on-wvd-master-image.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 자동으로 세션 호스트 크기 조정
+          href: ../set-up-scaling-script.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 피드 사용자 지정
+          href: ../customize-feed-for-virtual-desktop-users.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 서비스 진단 사용
+          items:
+            - name: Log Analytics에서 진단 사용
+              href: ../diagnostics-log-analytics.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: MSIX 앱 연결 사용
+          items:
+            - name: Azure Portal을 사용하여 MSIX 앱 연결 설정
+              href: ../app-attach-azure-portal.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: PowerShell을 사용하여 MSIX 앱 연결 설정
+              href: ../app-attach-powershell.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: PowerShell 스크립트 만들기
+              href: ../app-attach.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: MSIX 이미지 준비
+              href: ../app-attach-image-prep.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: 파일 공유 설정
+              href: ../app-attach-file-share.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: MSIXMGR 도구 설정
+              href: ../app-attach-msixmgr.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 자동 업데이트 구성
+          href: ../configure-automatic-updates.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Azure Advisor 사용
+          href: ../azure-advisor.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 해결 권장 사항
+          href: ../azure-advisor-recommendations.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Azure Monitor for Azure Virtual Desktop 사용
+          href: ../azure-monitor.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 재해 복구 계획 설정
+          href: ../disaster-recovery.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 연결 시 VM 시작
+          items:
+            - name: 연결 시 VM 시작 설정
+              href: ../start-virtual-machine-connect.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: 연결 시 VM 시작 FAQ
+              href: ../start-virtual-machine-connect-faq.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 드레이닝 모드 설정
+          href: ../drain-mode.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+- name: 개념
+  items:
+    - name: 원격 앱 스트리밍의 필수 요소
+      items:
+        - name: 아키텍처 권장 사항
+          href: architecture-recs.md
+        - name: 보안 지침
+          href: security.md
+        - name: 라이선스 및 사용자별 액세스 가격 책정 이해
+          href: licensing.md
+    - name: 보안
+      items:
+        - name: Azure 보안 기준
+          href: ../security-baseline.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: 다른 항목
+      items:
+        - name: Azure Monitor 용어집
+          href: ../azure-monitor-glossary.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 기본 제공 역할
+          href: ../rbac.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 인증
+          href: ../authentication.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Azure Virtual Desktop 환경
+          href: ../environment-setup.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Azure Virtual Desktop 에이전트
+          href: ../agent-overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 네트워크 연결
+          items:
+            - name: 네트워크 연결 이해
+              href: ../network-connectivity.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: RDP Shortpath
+              href: ../shortpath.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: QoS(서비스 품질) 구현
+              href: ../rdp-quality-of-service-qos.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: 필수 URL 목록
+              href: ../safe-url-list.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: 대역폭 고려 사항
+              href: ../rdp-bandwidth.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: 프록시 지원 지침
+              href: ../proxy-server-support.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: 사용자 연결 대기 시간 확인
+              href: ../connection-latency.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Azure Virtual Desktop에서 위임된 액세스
+          href: ../delegated-access-virtual-desktop.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 호스트 풀 부하 분산 메서드
+          href: ../host-pool-load-balancing.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: FSLogix 프로필 컨테이너 및 Azure Files
+          href: ../fslogix-containers-azure-files.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: FSLogix 프로필 컨테이너에 대한 스토리지 옵션
+          href: ../store-fslogix-profile.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Azure Virtual Desktop FAQ
+          href: ../faq.yml?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Windows 10 Enterprise 다중 세션 FAQ
+          href: ../windows-10-multisession-faq.yml
+        - name: MSIX 앱 연결
+          items:
+            - name: MSIX 앱 연결이란?
+              href: ../what-is-app-attach.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: 용어
+              href: ../app-attach-glossary.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: FAQ
+              href: ../app-attach-faq.yml?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: 데이터 위치
+          href: ../data-locations.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+- name: 문제 해결
+  items:
+    - name: '문제 해결 개요, 피드백 및 지원'
+      href: ../troubleshoot-set-up-overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: 문제 식별 및 진단
+      href: ../diagnostics-role-service.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: 호스트 풀 만들기
+      href: ../troubleshoot-set-up-issues.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: 세션 호스트 가상 머신 구성
+      href: ../troubleshoot-vm-configuration.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: 원격 데스크톱 서비스 연결
+      href: ../troubleshoot-service-connection.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Azure Virtual Desktop 에이전트
+      href: ../troubleshoot-agent.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: 원격 데스크톱 클라이언트 문제
+      href: ../troubleshoot-client.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Azure Virtual Desktop PowerShell
+      href: ../troubleshoot-powershell.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: 그래픽 성능 문제 진단
+      href: ../remotefx-graphics-performance-counters.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Azure Monitor
+      href: ../troubleshoot-azure-monitor.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: 관리 문제
+      href: ../troubleshoot-management-issues.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+- name: 참조
+  items:
+    - name: 보안 모범 사례
+      href: ../security-guide.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Azure CLI
+      href: /cli/azure/desktopvirtualization
+    - name: Azure Monitor 비용 예측
+      href: ../azure-monitor-costs.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: 지원되는 RDP 파일 설정
+      href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
+    - name: 가상 머신 크기 조정 지침
+      href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
+    - name: Azure CLI(명령줄 인터페이스)
+      href: /cli/azure/
+    - name: Azure 예제 시나리오
+      href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
+    - name: 이메일 검색
+      href: /windows-server/remote/remote-desktop-services/rds-email-discovery
+- name: 리소스
+  items:
+    - name: PowerShell
+      href: /powershell/module/az.desktopvirtualization/#desktopvirtualization
+    - name: REST API 참조
+      href: /rest/api/desktopvirtualization/
+    - name: 환경 측정기
+      href: 'https://azure.microsoft.com/services/virtual-desktop/assessment/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 학습 경로
+      href: /learn/paths/m365-wvd/
+    - name: 사용 방법 비디오
+      href: 'https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop'
+    - name: 기술 커뮤니티 지원 그룹
+      href: 'https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop'
+    - name: Microsoft 365 로드맵
+      href: 'https://aka.ms/wvdroadmap'
+    - name: Azure 리소스 관리자 템플릿
+      href: 'https://github.com/Azure/RDS-Templates/tree/master/wvd-templates'
+    - name: Azure 규정 준수 제품
+      href: 'https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/'
+    - name: Azure Advisor
+      href: ../../advisor/advisor-overview.md

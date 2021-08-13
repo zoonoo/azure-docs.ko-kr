@@ -6,7 +6,7 @@ items:
     items:
       - name: Azure Communication Services란?
         href: overview.md
-      - name: 지원 및 도움말 옵션
+      - name: 도움말 및 지원 옵션
         href: support.md
   - name: 빠른 시작
     expanded: true
@@ -17,10 +17,12 @@ items:
         items:
           - name: 액세스 토큰 만들기 및 관리
             href: quickstarts/access-tokens.md
-          - name: 관리 ID 사용
-            href: quickstarts/managed-identity.md
-          - name: CLI에서 관리 ID 설정
-        href: quickstarts/managed-identity-from-cli.md
+          - name: Azure AD를 사용하여 인증
+            href: quickstarts/identity/service-principal.md
+          - name: Azure AD를 사용하여 인증(Azure CLI)
+            href: quickstarts/identity/service-principal-from-cli.md
+          - name: 테스트를 위한 빠른 ID 생성
+            href: quickstarts/identity/quick-create-identity.md
       - name: 채팅
         items:
           - name: 앱에 채팅 추가
@@ -29,9 +31,9 @@ items:
             href: quickstarts/chat/meeting-interop.md
       - name: 전화 통신 및 SMS
         items:
-          - name: 전화 번호 가져오기
+          - name: 전화 번호 가져오기 및 관리
             href: quickstarts/telephony-sms/get-phone-number.md
-          - name: Azure로 전화 번호 이식
+          - name: Azure로 전화 번호 포트
             href: quickstarts/telephony-sms/port-phone-number.md
           - name: 앱에 전화 통화 추가
             href: quickstarts/voice-video-calling/pstn-call.md
@@ -51,7 +53,7 @@ items:
             href: quickstarts/voice-video-calling/calling-client-samples.md
           - name: 통화 클라이언트 앱으로 Teams 미팅 참가
             href: quickstarts/voice-video-calling/get-started-teams-interop.md
-          - name: 통화에 서비스 조인
+          - name: 호출 자동화 API 사용
             href: quickstarts/voice-video-calling/call-automation-api-sample.md
           - name: 통화 녹음
             href: quickstarts/voice-video-calling/call-recording-sample.md
@@ -76,7 +78,7 @@ items:
         href: tutorials/building-app-start.md
       - name: C#을 사용하여 HMAC 서명으로 HTTP 요청에 서명
         href: tutorials/hmac-header-tutorial.md
-      - name: Postman을 사용하여 ACS의 SMS API에 서명 및 요청 만들기
+      - name: Postman을 사용하여 SMS API에 서명하고 요청하기
         href: tutorials/postman-tutorial.md
   - name: 개념
     expanded: false

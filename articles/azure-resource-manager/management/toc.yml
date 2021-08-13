@@ -111,10 +111,12 @@
           href: /azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json
         - name: 태그 사용
           href: tag-resources.md
-        - name: 정책 - 규정 준수
+        - name: Azure Policy 정의 - 규정 준수
           href: tag-policies.md
         - name: 지원되는 리소스 유형
           href: tag-support.md
+        - name: Azure Resource Graph 쿼리
+          href: ./resource-graph-samples.md
     - name: 리소스 그룹 관리
       items:
         - name: Azure portal

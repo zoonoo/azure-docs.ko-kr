@@ -1,0 +1,40 @@
+### YamlMime:Landing
+title: Azure 독일 설명서
+summary: 'Azure 독일은 독일 데이터 개인 정보 보호 규정에 중요한 세계적 수준의 보안 및 규정 준수 서비스를 사용하는 물리적으로 격리된 Microsoft Azure 인스턴스입니다. 2018년 8월 이후로 당사는 새로운 고객을 받아들이거나 원래 Microsoft 클라우드 독일 위치에 새로운 기능과 서비스를 배포하지 않았습니다. 고객 요구의 진화에 따라 당사는 최근 독일의 두 지역에 새로운 데이터 센터를 출범하여 고객 데이터 보존, Microsoft의 글로벌 클라우드 네트워크에 대한 완전한 연결, 경쟁력 있는 가격을 제공하고 있습니다.'
+metadata:
+  title: Azure 독일 설명서
+  description: Azure 독일은 독일 데이터 개인 정보 보호 규정에 중요한 세계적 수준의 보안 및 규정 준수 서비스를 사용하는 물리적으로 격리된 Microsoft Azure 인스턴스입니다.
+  ms.service: germany
+  ms.topic: landing-page
+  author: rolyon
+  ms.author: rolyon
+  ms.date: 03/05/2020
+landingContent:
+  - title: Azure 독일 정보
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure 독일이란?
+            url: germany-welcome.md
+      - linkListType: concept
+        links:
+          - text: 사용 가능한 서비스
+            url: germany-services.md
+  - title: 시작
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: 개발자 가이드
+            url: germany-developer-guide.md
+      - linkListType: how-to-guide
+        links:
+          - text: Azure Portal을 사용하여 연결
+            url: germany-get-started-connect-with-portal.md
+  - title: 관리 및 마이그레이션
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: 구독 관리 및 연결
+            url: germany-manage-subscriptions.md
+          - text: 마이그레이션 지침
+            url: germany-migration-main.md

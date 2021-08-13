@@ -59,7 +59,9 @@
           href: /security/benchmark/azure/baselines/private-link-security-baseline?toc=/azure/private-link/toc.json
 - name: 방법
   items:
-    - name: 프라이빗 엔드포인트에 대한 네트워크 정책 사용 안 함
+    - name: 프라이빗 엔드포인트 DNS 레코드 내보내기
+      href: private-endpoint-export-dns.md
+    - name: 프라이빗 엔드포인트에 대한 네트워크 정책을 사용하지 않도록 설정
       href: disable-private-endpoint-network-policy.md
     - name: Private Link Service에 대한 네트워크 정책 사용 안 함
       href: disable-private-link-service-network-policy.md

@@ -1,206 +1,202 @@
 ### YamlMime:Landing
 title: App Service 설명서
-summary: Azure App Service를 사용하면 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹앱, 모바일 백 엔드 및 RESTful API를 빌드하고 호스트할 수 있습니다. 여기서는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 모두 지원하며, GitHub, Azure DevOps 또는 Git 리포지토리에서 자동화된 배포를 사용합니다. 빠른 시작, 자습서 및 샘플을 통해 Azure App Service를 사용하는 방법을 알아봅니다.
+summary: 'Azure App Service를 사용하면 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹앱, 모바일 백 엔드 및 RESTful API를 빌드하고 호스트할 수 있습니다. 여기서는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 모두 지원하며, GitHub, Azure DevOps 또는 Git 리포지토리에서 자동화된 배포를 사용합니다. 빠른 시작, 자습서 및 샘플을 통해 Azure App Service를 사용하는 방법을 알아봅니다.'
 metadata:
   title: Azure App Service 설명서
-  description: Azure App Service에서 웹 사이트, 웹앱, RESTful API 및 모바일 백 엔드를 호스트합니다. App Service를 성공적으로 완료하는 데 도움이 되는 빠른 시작, 자습서 및 샘플을 찾습니다.
+  description: 'Azure App Service에서 웹 사이트, 웹앱, RESTful API 및 모바일 백 엔드를 호스트합니다. App Service를 성공적으로 완료하는 데 도움이 되는 빠른 시작, 자습서 및 샘플을 찾습니다.'
   ms.topic: landing-page
   ms.service: app-service
   ms.date: 08/06/2020
-  ms.openlocfilehash: 9ed958c7656d6101824a14ed8e39f41df2ce63e5
-  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/25/2021
-  ms.locfileid: "110375236"
 landingContent:
-- title: App Service 정보
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: App Service란?
-      url: overview.md
-    - text: App Service Environment
-      url: environment/intro.md
-    - text: 호스팅 옵션 비교
-      url: /azure/architecture/guide/technology-choices/compute-decision-tree
-  - linkListType: whats-new
-    links:
-    - text: 서비스 업데이트
-      url: https://azure.microsoft.com/updates/?product=app-service
-- title: 시작하기
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: 첫 번째 ASP.NET 웹앱
-      url: quickstart-dotnetcore.md
-    - text: 첫 번째 Node.js 앱
-      url: quickstart-nodejs.md
-    - text: 첫 번째 PHP 앱
-      url: quickstart-php.md
-    - text: 첫 번째 Java 앱
-      url: quickstart-java.md
-    - text: 첫 번째 Python Flask 앱(Linux만 해당)
-      url: quickstart-python.md
-    - text: 첫 번째 Ruby 앱(Linux만 해당)
-      url: quickstart-ruby.md
-- title: 일반 작업
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: 사용자 지정 도메인을 앱에 매핑
-      url: app-service-web-tutorial-custom-domain.md
-    - text: SSL 바인딩으로 사용자 지정 도메인 보호
-      url: configure-ssl-bindings.md
-    - text: 스테이징 환경에서 앱 실행
-      url: deploy-staging-slots.md
-    - text: 스토리지 및 Microsoft Graph에 안전하게 액세스
-      url: scenario-secure-app-overview.md
-  - linkListType: how-to-guide
-    links:
-    - text: SSH를 통해 Linux 컨테이너에 연결
-      url: configure-linux-open-ssh-session.md
-    - text: App Service로 활성 도메인 마이그레이션
-      url: manage-custom-dns-migrate-domain.md
-- title: 사용자 지정 컨테이너 실행
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: 사용자 지정 컨테이너 실행
-      url: quickstart-custom-container.md
-  - linkListType: tutorial
-    links:
-    - text: Docker Compose 앱 실행(Linux만 해당)
-      url: tutorial-multi-container-app.md
-    - text: 컨테이너에서 사용자 지정 소프트웨어를 Azure로 마이그레이션
-      url: tutorial-custom-container.md
-  - linkListType: how-to-guide
-    links:
-    - text: 사용자 지정 컨테이너에 대한 CI/CD
-      url: deploy-ci-cd-custom-container.md
-    - text: 컨테이너를 스토리지 파일에 연결
-      url: configure-connect-to-azure-storage.md
-    - text: GitHub 작업을 사용하여 배포
-      url: deploy-container-github-action.md
-- title: 데이터베이스를 사용하는 CRUD 앱
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: SQL Database를 사용하는 ASP.NET 앱
-      url: app-service-web-tutorial-dotnet-sqldatabase.md
-    - text: SQL Database를 사용하는 ASP.NET Core 앱
-      url: tutorial-dotnetcore-sqldb-app.md
-    - text: Azure MySQL을 사용하는 PHP(Laravel) 앱
-      url: tutorial-php-mysql-app.md
-    - text: MongoDB를 사용하는 Node.js(MEAN.js) 앱
-      url: tutorial-nodejs-mongodb-app.md
-    - text: Cosmos DB를 사용하는 Java(Spring Boot) 앱
-      url: tutorial-java-spring-cosmosdb.md
-    - text: PostgreSQL을 사용하는 Python(Django) 앱
-      url: tutorial-python-postgresql-app.md
-    - text: PostgreSQL을 사용하는 Ruby(Rails) 앱
-      url: tutorial-ruby-postgres-app.md
-- title: 관리 및 통합
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: App Service 계획 관리
-      url: overview-hosting-plans.md
-  - linkListType: tutorial
-    links:
-    - text: 관리 ID를 사용하여 리소스 액세스 보안
-      url: app-service-web-tutorial-connect-msi.md
-    - text: 사용자 인증
-      url: tutorial-auth-aad.md
-    - text: CORS를 통한 RESTful API 호스팅
-      url: app-service-web-tutorial-rest-api.md
-    - text: 애플리케이션에 CDN 추가
-      url: ../cdn/cdn-add-to-web-app.md
-  - linkListType: how-to-guide
-    links:
-    - text: Virtual Network와 통합
-      url: web-sites-integrate-with-vnet.md
-    - text: 온-프레미스에 대한 하이브리드 연결 만들기
-      url: app-service-hybrid-connections.md
-    - text: Traffic Manager를 사용하여 부하 분산
-      url: configure-domain-traffic-manager.md
-    - text: Storage Blob에 앱 백업
-      url: manage-backup.md
-- title: 코드 또는 콘텐츠 업로드
-  linkLists:
-  - linkListType: deploy
-    links:
-    - text: FTP를 사용하여 콘텐츠 업로드
-      url: deploy-ftp.md
-    - text: zip 패키지로 콘텐츠 업로드
-      url: deploy-zip.md
-    - text: 로컬 머신에서 Git 푸시
-      url: deploy-local-git.md
-    - text: OneDrive 또는 Dropbox와 콘텐츠 동기화
-      url: deploy-content-sync.md
-    - text: GitHub, BitBucket 등이 포함된 CI/CD
-      url: deploy-continuous-deployment.md
-    - text: 패키지에서 실행
-      url: deploy-run-package.md
-- title: 앱 모니터링
-  linkLists:
-  - linkListType: whats-new
-    links:
-    - text: Azure Monitor와 App Service 통합(미리 보기)
-      url: https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html
-    - text: Azure Monitor 통합을 위한 로그 유형(미리 보기)
-      url: https://azure.github.io/AppService/2020/06/25/New-Logs-Available-for-Azure-Monitor-Integration.html
-  - linkListType: tutorial
-    links:
-    - text: Azure Monitor로 오류 문제 해결(미리 보기)
-      url: tutorial-troubleshoot-monitor.md
-  - linkListType: how-to-guide
-    links:
-    - text: 진단 로그 활성화
-      url: troubleshoot-diagnostic-logs.md
-    - text: 리소스 이벤트 가져오기
-      url: get-resource-events.md
-    - text: 상태 확인
-      url: monitor-instances-health-check.md
-  - linkListType: reference
-    links:
-    - text: 할당량 및 경고
-      url: web-sites-monitor.md
-- title: 추가 리소스
-  linkLists:
-  - linkListType: video
-    links:
-    - text: App Service 비디오 라이브러리
-      url: https://azure.microsoft.com/resources/videos/index/?services=app-service
-    - text: Pluralsight 동영상 교육
-      url: https://www.pluralsight.com/search?q=azure%20app%20service
-  - linkListType: sample
-    links:
-    - text: Azure CLI 샘플
-      url: samples-cli.md
-    - text: Azure PowerShell 샘플
-      url: samples-powershell.md
-  - linkListType: reference
-    links:
-    - text: Azure CLI
-      url: /cli/azure/appservice
-    - text: Azure PowerShell
-      url: /powershell/module/az.websites/#app_service
-    - text: REST API
-      url: /rest/api/appservice/
-    - text: 리소스 관리자
-      url: /azure/templates/microsoft.web/allversions
-- title: Azure Arc의 App Service(미리 보기)
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Azure Arc의 App Service, Functions 및 Logic Apps(미리 보기)
-      url: overview-arc-integration.md
-  - linkListType: tutorial
-    links:
-    - text: Azure Arc 지원 Kubernetes 클러스터를 설정하여 App Service, Functions 및 Logic Apps 실행(미리 보기)
-      url: manage-create-arc-environment.md
-  - linkListType: quickstart
-    links:
-    - text: Azure Arc의 App Service 앱 만들기(미리 보기)
-      url: quickstart-arc.md
+  - title: App Service 정보
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: App Service란?
+            url: overview.md
+          - text: App Service 계획의 정의
+            url: overview-hosting-plans.md
+          - text: App Service Environment
+            url: environment/intro.md
+          - text: 웹앱에 대한 Azure 호스팅 옵션 비교
+            url: /azure/architecture/guide/technology-choices/compute-decision-tree
+      - linkListType: whats-new
+        links:
+          - text: 서비스 업데이트
+            url: 'https://azure.microsoft.com/updates/?product=app-service'
+  - title: 시작하기
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: 첫 번째 ASP.NET 웹앱
+            url: quickstart-dotnetcore.md
+          - text: 첫 번째 Node.js 앱
+            url: quickstart-nodejs.md
+          - text: 첫 번째 PHP 앱
+            url: quickstart-php.md
+          - text: 첫 번째 Java 앱
+            url: quickstart-java.md
+          - text: 첫 번째 Python Flask 앱(Linux만 해당)
+            url: quickstart-python.md
+          - text: 첫 번째 Ruby 앱(Linux만 해당)
+            url: quickstart-ruby.md
+  - title: 일반 작업
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: 사용자 지정 도메인을 앱에 매핑
+            url: app-service-web-tutorial-custom-domain.md
+          - text: TLS/SSL 바인딩으로 사용자 지정 도메인 보호
+            url: configure-ssl-bindings.md
+          - text: 스테이징 환경에서 앱 실행
+            url: deploy-staging-slots.md
+          - text: 스토리지 및 Microsoft Graph에 안전하게 액세스
+            url: scenario-secure-app-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: SSH를 통해 Linux 컨테이너에 연결
+            url: configure-linux-open-ssh-session.md
+          - text: App Service로 활성 도메인 마이그레이션
+            url: manage-custom-dns-migrate-domain.md
+  - title: 사용자 지정 컨테이너 실행
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: 사용자 지정 컨테이너 실행
+            url: quickstart-custom-container.md
+      - linkListType: tutorial
+        links:
+          - text: Docker Compose 앱 실행(Linux만 해당)
+            url: tutorial-multi-container-app.md
+          - text: 컨테이너에서 사용자 지정 소프트웨어를 Azure로 마이그레이션
+            url: tutorial-custom-container.md
+      - linkListType: how-to-guide
+        links:
+          - text: 사용자 지정 컨테이너에 대한 CI/CD
+            url: deploy-ci-cd-custom-container.md
+          - text: 컨테이너를 스토리지 파일에 연결
+            url: configure-connect-to-azure-storage.md
+          - text: GitHub 작업을 사용하여 배포
+            url: deploy-container-github-action.md
+  - title: 데이터베이스를 사용하는 CRUD 앱
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: SQL Database를 사용하는 ASP.NET 앱
+            url: app-service-web-tutorial-dotnet-sqldatabase.md
+          - text: SQL Database를 사용하는 ASP.NET Core 앱
+            url: tutorial-dotnetcore-sqldb-app.md
+          - text: Azure MySQL을 사용하는 PHP(Laravel) 앱
+            url: tutorial-php-mysql-app.md
+          - text: MongoDB를 사용하는 Node.js(MEAN.js) 앱
+            url: tutorial-nodejs-mongodb-app.md
+          - text: Cosmos DB를 사용하는 Java(Spring Boot) 앱
+            url: tutorial-java-spring-cosmosdb.md
+          - text: PostgreSQL을 사용하는 Python(Django) 앱
+            url: tutorial-python-postgresql-app.md
+          - text: PostgreSQL을 사용하는 Ruby(Rails) 앱
+            url: tutorial-ruby-postgres-app.md
+  - title: 관리 및 통합
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: App Service 계획 관리
+            url: app-service-plan-manage.md
+      - linkListType: tutorial
+        links:
+          - text: 관리 ID를 사용하여 리소스 액세스 보안
+            url: app-service-web-tutorial-connect-msi.md
+          - text: 사용자 인증
+            url: tutorial-auth-aad.md
+          - text: CORS를 통한 RESTful API 호스팅
+            url: app-service-web-tutorial-rest-api.md
+          - text: 애플리케이션에 CDN 추가
+            url: ../cdn/cdn-add-to-web-app.md
+      - linkListType: how-to-guide
+        links:
+          - text: Virtual Network와 통합
+            url: web-sites-integrate-with-vnet.md
+          - text: 온-프레미스에 대한 하이브리드 연결 만들기
+            url: app-service-hybrid-connections.md
+          - text: Traffic Manager를 사용하여 부하 분산
+            url: configure-domain-traffic-manager.md
+          - text: Storage Blob에 앱 백업
+            url: manage-backup.md
+  - title: 코드 또는 콘텐츠 업로드
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: FTP를 사용하여 콘텐츠 업로드
+            url: deploy-ftp.md
+          - text: zip 패키지로 콘텐츠 업로드
+            url: deploy-zip.md
+          - text: 로컬 머신에서 Git 푸시
+            url: deploy-local-git.md
+          - text: OneDrive 또는 Dropbox와 콘텐츠 동기화
+            url: deploy-content-sync.md
+          - text: 'GitHub, BitBucket 등이 포함된 CI/CD'
+            url: deploy-continuous-deployment.md
+          - text: 패키지에서 실행
+            url: deploy-run-package.md
+  - title: 앱 모니터링
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: Azure Monitor와 App Service 통합(미리 보기)
+            url: 'https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html'
+          - text: Azure Monitor 통합을 위한 로그 유형(미리 보기)
+            url: 'https://azure.github.io/AppService/2020/06/25/New-Logs-Available-for-Azure-Monitor-Integration.html'
+      - linkListType: tutorial
+        links:
+          - text: Azure Monitor로 오류 문제 해결(미리 보기)
+            url: tutorial-troubleshoot-monitor.md
+      - linkListType: how-to-guide
+        links:
+          - text: 진단 로그 활성화
+            url: troubleshoot-diagnostic-logs.md
+          - text: 리소스 이벤트 가져오기
+            url: get-resource-events.md
+          - text: 상태 확인
+            url: monitor-instances-health-check.md
+      - linkListType: reference
+        links:
+          - text: 할당량 및 경고
+            url: web-sites-monitor.md
+  - title: 추가 리소스
+    linkLists:
+      - linkListType: video
+        links:
+          - text: App Service 비디오 라이브러리
+            url: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
+          - text: Pluralsight 동영상 교육
+            url: 'https://www.pluralsight.com/search?q=azure%20app%20service'
+      - linkListType: sample
+        links:
+          - text: Azure CLI 샘플
+            url: samples-cli.md
+          - text: Azure PowerShell 샘플
+            url: samples-powershell.md
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/appservice
+          - text: Azure PowerShell
+            url: /powershell/module/az.websites/#app_service
+          - text: REST API
+            url: /rest/api/appservice/
+          - text: 리소스 관리자
+            url: /azure/templates/microsoft.web/allversions
+  - title: Azure Arc의 App Service(미리 보기)
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: 'Azure Arc의 App Service, Functions 및 Logic Apps(미리 보기)'
+            url: overview-arc-integration.md
+      - linkListType: quickstart
+        links:
+          - text: Azure Arc의 App Service 앱 만들기(미리 보기)
+            url: quickstart-arc.md
+      - linkListType: tutorial
+        links:
+          - text: 'Azure Arc 지원 Kubernetes 클러스터를 설정하여 App Service, Functions 및 Logic Apps 실행(미리 보기)'
+            url: manage-create-arc-environment.md

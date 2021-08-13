@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: c36c2fd86252f41af0e722445dca78d870c255e2
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9a1c0494d14c6bc5dad43e73fbf9a55cc8985445
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969893"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112290020"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>자습서: Azure Arc 지원 Kubernetes 클러스터를 사용하여 GitOps로 CI/CD 구현
 
@@ -180,7 +180,8 @@ Pod마다 imagePullSecret을 설정하지 않으려면 `dev` 및 `stage` 네임�
 | AZURE_VOTE_IMAGE_REPO | Azure Vote 앱 리포지토리의 전체 경로. 예: azurearctest.azurecr.io/azvote |
 | ENVIRONMENT_NAME | 개발 |
 | MANIFESTS_BRANCH | `master` |
-| MANIFESTS_REPO | GitOps 리포지토리의 Git 연결 문자열 |
+| MANIFESTS_FOLDER | `azure-vote-manifests` |
+| MANIFESTS_REPO | `azure-cicd-demo-gitops` |
 | ORGANIZATION_NAME | Azure DevOps 조직의 이름 |
 | PROJECT_NAME | Azure DevOps의 GitOps 프로젝트 이름 |
 | REPO_URL | GitOps 리포지토리의 전체 URL |

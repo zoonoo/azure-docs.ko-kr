@@ -48,7 +48,11 @@
     - name: 테넌트 정리 및 삭제
       href: tutorial-delete-tenant.md
 - name: 샘플
-  href: code-samples.md
+  items:
+    - name: Azure AD B2C와 애플리케이션 통합
+      href: integrate-with-app-code-samples.md
+    - name: API 커넥터를 사용하여 사용자 흐름 수정
+      href: api-connector-samples.md
 - name: 개념
   items:
     - name: External Identities용 솔루션 비교
@@ -285,6 +289,8 @@
               href: multi-factor-authentication.md
             - name: 파트너 통합
               items:
+                - name: BlokSec
+                  href: partner-bloksec.md
                 - name: HYPR
                   href: partner-hypr.md
                 - name: Keyless
@@ -392,6 +398,8 @@
           href: custom-domain.md
         - name: 웹 애플리케이션 방화벽 파트너
           items:
+            - name: Akamai
+              href: partner-akamai.md
             - name: Cloudflare
               href: partner-cloudflare.md
         - name: 웹 API 도메인 구성

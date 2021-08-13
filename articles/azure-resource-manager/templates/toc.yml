@@ -313,7 +313,7 @@
           href: template-expressions.md
         - name: 매개 변수
           href: parameters.md
-        - name: variables
+        - name: 변수
           href: variables.md
         - name: 사용자 정의 함수
           href: user-defined-functions.md
@@ -411,10 +411,14 @@
       items:
         - name: 테스트 도구 키트
           href: test-toolkit.md
-        - name: 테스트 사례
-          href: test-cases.md
+        - name: 템플릿 테스트 사례
+          href: template-test-cases.md
+        - name: 매개 변수 파일 테스트 사례
+          href: parameter-file-test-cases.md
         - name: CreateUiDefinition 테스트 사례
           href: createuidefinition-test-cases.md
+        - name: 모든 파일 테스트 사례
+          href: all-files-test-cases.md
     - name: 템플릿 사양
       items:
         - name: 템플릿 사양 만들기 및 배포

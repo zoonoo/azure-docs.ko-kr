@@ -7,9 +7,9 @@
       href: overview.md
     - name: 어떤 MySQL 옵션을 선택해야 하나요?
       href: select-right-deployment-type.md
-    - name: 단일 서버의 새로운 기능은 무엇인가요?
+    - name: 단일 서버의 새로운 기능
       href: single-server-whats-new.md
-    - name: 유연한 서버의 새로운 기능은 무엇인가요?
+    - name: 유연한 서버의 새로운 기능
       href: flexible-server/whats-new.md
     - name: 버전 지원 정책
       href: concepts-version-policy.md
@@ -424,6 +424,8 @@
               href: flexible-server/connect-java.md
             - name: .NET
               href: flexible-server/connect-csharp.md
+            - name: VNET의 서버에 연결
+              href: flexible-server/quickstart-create-connect-server-vnet.md
         - name: TLS/SSL을 사용하여 연결
           href: flexible-server/how-to-connect-tls-ssl.md
         - name: 서버 매개 변수 구성

@@ -8,7 +8,9 @@
       href: deploy-to-desktop.md
 - name: 네이티브 C++
   items:
-    - name: HoloLens에 네이티브 C++ 샘플 배포
+    - name: HoloLens에 OpenXR 기반 네이티브 C++ 샘플 배포
+      href: native-cpp/hololens/deploy-native-cpp-openxr-tutorial.md
+    - name: HoloLens에 WMR 기반 네이티브 C++ 샘플 배포
       href: native-cpp/hololens/deploy-native-cpp-tutorial.md
 - name: 렌더링을 위해 모델 변환
   href: convert-model.md

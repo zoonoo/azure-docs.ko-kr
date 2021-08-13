@@ -22,6 +22,12 @@
           href: quickstarts/get-started-unity-hololens.md
         - name: MRTK를 사용한 HoloLens
           href: quickstarts/get-started-unity-hololens-mrtk.md
+        - name: 심층 MRTK 연습
+          href: quickstarts/in-depth-mrtk-walkthrough.md
+        - name: Unity 2020으로 업그레이드
+          href: quickstarts/upgrade-unity-quickstart-to-2020.md
+        - name: 새 Unity HoloLens 앱 시작
+          href: quickstarts/new-unity-hololens-app.md
     - name: HoloLens DirectX 앱 만들기
       href: quickstarts/get-started-hololens-directx.md
 - name: 샘플

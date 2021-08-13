@@ -284,6 +284,8 @@
       href: migrate-v1-v2.md
 - name: 참조
   items:
+    - name: 일반적인 Key Vault 오류
+      href: application-gateway-key-vault-common-errors.md
     - name: 데이터 모니터링
       href: monitor-application-gateway-reference.md
     - name: AKS 주석 수신

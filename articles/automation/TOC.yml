@@ -68,10 +68,14 @@
           href: quickstart-create-automation-account-template.md
         - name: 관리 ID
           items:
-            - name: 관리 ID 사용
+            - name: 시스템이 할당한 관리 ID 사용
               href: enable-managed-identity-for-automation.md
-            - name: 관리 ID 사용 안 함
+            - name: 사용자가 할당한 관리 ID 사용
+              href: add-user-assigned-identity.md
+            - name: 시스템이 할당한 관리 ID 사용 안 함
               href: disable-managed-identity-for-automation.md
+            - name: 사용자가 할당한 관리 ID 제거
+              href: remove-user-assigned-identity.md
             - name: 관리 ID 문제 해결
               href: troubleshoot/managed-identity.md
         - name: 실행 계정

@@ -27,6 +27,22 @@
       items:
         - name: 보안 기준
           href: /security/benchmark/azure/baselines/aad-security-baseline?toc=/azure/active-directory/fundamentals/toc.json
+        - name: 보안 운영 가이드
+          items:
+            - name: 보안 운영 개요
+              href: security-operations-introduction.md
+            - name: 사용자 계정에 대한 보안 작업
+              href: security-operations-user-accounts.md
+            - name: 권한 있는 계정에 대한 보안 작업
+              href: security-operations-privileged-accounts.md
+            - name: PIM에 대한 보안 작업
+              href: security-operations-privileged-identity-management.md
+            - name: 애플리케이션에 대한 보안 작업
+              href: security-operations-applications.md
+            - name: 디바이스에 대한 보안 작업
+              href: security-operations-devices.md
+            - name: 인프라에 대한 보안 작업
+              href: security-operations-infrastructure.md
         - name: 온-프레미스 공격으로부터 Microsoft 365 보호
           href: protect-m365-from-on-premises-attacks.md
         - name: 보안 외부 협업
@@ -179,6 +195,8 @@
           href: active-directory-deployment-checklist-p2.md
         - name: Azure Active Directory 배포 계획
           href: active-directory-deployment-plans.md
+        - name: Azure Active Directory B2C 배포 계획
+          href: azure-active-directory-b2c-deployment-plans.md
     - name: 데이터 스토리지
       items:
         - name: 유럽에 대한 ID 데이터 스토리지
@@ -255,5 +273,3 @@
   items:
     - name: Azure Active Directory에 대한 지원 받기
       href: active-directory-troubleshooting-support-howto.md
-    - name: Azure Active Directory FAQ
-      href: active-directory-faq.yml

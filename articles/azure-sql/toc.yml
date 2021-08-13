@@ -744,6 +744,8 @@
           href: database/arm-templates-content-guide.md?tabs=single-database
         - name: 코드 샘플
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
+        - name: Azure Resource Graph 쿼리
+          href: database/resource-graph-samples.md
 - name: SQL Managed Instance(SQL MI)
   items:
     - name: 설명서
@@ -1067,8 +1069,8 @@
               href: managed-instance/management-endpoint-verify-built-in-firewall.md
         - name: 마이그레이션
           items:
-            - name: SQL Managed Instance로 마이그레이션
-              href: managed-instance/migrate-to-instance-from-sql-server.md
+            - name: SQL Server를 Azure SQL Managed Instance로 마이그레이션 가이드
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
             - name: 로그 재생 서비스를 사용하여 데이터베이스 마이그레이션
               href: managed-instance/log-replay-service-migrate.md
             - name: TDE 인증서 마이그레이션
@@ -1185,12 +1187,12 @@
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
                 - name: 스토리지를 UltraSSD로 마이그레이션
                   href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-                - name: SQL IaaS 에이전트 확장 설치
+                - name: SQL IaaS 에이전트 확장
                   displayName: 'resource provider, registration, sql vm rp'
                   items:
                     - name: 자동 등록
                       href: virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms.md
-                    - name: 단일 VM
+                    - name: 단일 VM 등록
                       href: virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md
                     - name: 여러 VM 대량 등록
                       href: virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md

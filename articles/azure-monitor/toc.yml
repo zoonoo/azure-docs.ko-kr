@@ -277,7 +277,7 @@
               href: logs/query-audit.md
             - name: 쿼리 최적화
               href: logs/query-optimization.md
-            - name: Functions
+            - name: 함수
               href: logs/functions.md
             - name: 텍스트 데이터 구문 분석
               href: logs/parse-text.md
@@ -393,6 +393,9 @@
             - name: 대규모 배포
               displayname: Deploy Azure Monitor agent at scale
               href: deploy-scale.md#azure-monitor-agent
+            - name: 레거시 에이전트에서 마이그레이션
+              displayname: Migrate to Azure Monitor agent
+              href: agents/azure-monitor-agent-migration.md
             - name: FAQ
               displayname: Azure Monitor agent FAQ
               href: /azure/azure-monitor/faq#azure-monitor-agent
@@ -804,9 +807,11 @@
           items:
             - name: 개요
               href: app/availability-overview.md
-            - name: URL 테스트
+            - name: URL ping 테스트
               displayname: 'ping, ping tests, availability, GSM, up/down'
               href: app/monitor-web-app-availability.md
+            - name: 표준 테스트
+              href: app/availability-standard-tests.md
             - name: 다단계 테스트
               displayname: 'availability, GSM, visual studio web test, web test'
               href: app/availability-multistep.md
@@ -1159,7 +1164,7 @@
           href: insights/redis-cache-insights-overview.md
         - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
-        - name: Azure Data Explorer(미리 보기)
+        - name: Azure Data Explorer
           href: insights/data-explorer.md
         - name: Log Analytics 작업 영역
           href: logs/log-analytics-workspace-insights-overview.md
@@ -1181,7 +1186,7 @@
               href: insights/sql-insights-troubleshoot.md
         - name: 스토리지
           displayname: 'storage, monitor, insights, storage accounts, azure storage'
-          href: insights/storage-insights-overview.md
+          href: ../storage/common/storage-insights-overview.md?toc=/azure/azure-monitor/toc.json
         - name: 리소스 그룹
           href: insights/resource-group-insights.md
         - name: 인사이트 문제 해결
@@ -1220,7 +1225,7 @@
                         - name: ExpressRoute
                           href: insights/network-performance-monitor-expressroute.md
                         - name: 가격 책정
-                          href: insights/network-performance-monitor-pricing-faq.md
+                          href: insights/network-performance-monitor-pricing-faq.yml
                         - name: FAQ
                           href: insights/network-performance-monitor-faq.yml
                 - name: Office 365
@@ -1489,13 +1494,11 @@
               href: visualize/view-designer-filters.md
 - name: 리소스
   items:
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Azure 업데이트
+      href: 'https://azure.microsoft.com/en-us/updates/?category=management-tools'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/log-analytics/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/?products=monitor&regions=all'
-    - name: 뉴스
-      href: 'https://azure.microsoft.com/updates/?product=monitor'

@@ -6,6 +6,8 @@
   items:
     - name: Data Factory 소개
       href: introduction.md
+    - name: Azure Data Factory의 새로운 기능
+      href: whats-new.md
     - name: 현재 버전을 버전 1과 비교합니다.
       href: compare-versions.md
       displayName: timeout
@@ -759,7 +761,7 @@
           href: configure-azure-ssis-integration-runtime-performance.md
         - name: Azure-SSIS IR을 위한 재해 복구 구성
           href: configure-bcdr-azure-ssis-integration-runtime.md
-        - name: Elastic Database 작업을 사용하여 SSISDB 로그 정리
+        - name: SSISDB 로그를 자동으로 정리
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
         - name: Azure-SSIS IR에서 Azure SQL Managed Instance 사용
           href: how-to-use-sql-managed-instance-with-ir.md

@@ -101,6 +101,9 @@ conceptualContent:
         - itemType: how-to-guide
           text: LUIS 및 C#을 통해 음성 의도 인식
           url: how-to-recognize-intents-from-speech-csharp.md
+        - itemType: how-to-guide
+          text: '간단한 패턴 일치를 통해 음성 의도 인식, C++'
+          url: how-to-use-simple-language-pattern-matching.md
         - itemType: reference
           text: LUIS(Language Understanding) 포털
           url: 'https://www.luis.ai'
