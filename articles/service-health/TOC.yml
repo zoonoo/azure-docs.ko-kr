@@ -13,6 +13,10 @@
         - name: ARM 템플릿
           displayName: Resource Manager
           href: alerts-activity-log-service-notifications-arm.md
+- name: 샘플
+  items:
+    - name: Azure Resource Graph 쿼리
+      href: ./resource-graph-samples.md
 - name: 개념
   items:
     - name: Azure 상태 페이지

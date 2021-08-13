@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory를 사용하여 자동 사용자 프로비저닝을 수행하도록 myPolicies 구성 | Microsoft Docs'
 description: 사용자 계정을 myPolicies로 자동으로 프로비저닝 및 프로비저닝을 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
-ms.author: zhchia
-ms.openlocfilehash: 221f63ab9a7eb3f71a4c730a11565dda64c9edc9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: d8d0bc83ec763d9c32ff9d90419a7b163b261144
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96353588"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762147"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 myPolicies 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "96353588"
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
 * Azure AD 테넌트.
-* [myPolicies 테넌트](https://mypolicies.com/index.html#section10)
+* [myPolicies 테넌트](https://mypolicies.com/)
 * 관리자 권한이 있는 myPolicies의 사용자 계정
 
 ## <a name="assigning-users-to-mypolicies"></a>myPolicies에 사용자 할당

@@ -8,12 +8,12 @@ ms.date: 01/07/2021
 ms.topic: quickstart
 ms.service: network-watcher
 ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
-ms.openlocfilehash: 9d541294ff20047f9041b58b3ce971c76adb6737
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 953e61febcd965786f2a53f2769c1d52c85f83a3
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982685"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112452677"
 ---
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 네트워크 보안 그룹 흐름 로그 구성
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/networkwatcher-flowlogs-create)에서 가져온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/networkwatcher-flowlogs-create/)에서 가져온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/networkwatcher-flowLogs-create/azuredeploy.json":::
 

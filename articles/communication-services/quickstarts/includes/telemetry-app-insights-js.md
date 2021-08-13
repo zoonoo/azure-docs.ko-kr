@@ -6,23 +6,23 @@ author: orwatson
 manager: vravikumar
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 06/01/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: orwatson
-ms.openlocfilehash: f044b23d26bee71fc3f6a28f96a42c42a01f4d02
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 8ad763ed5f0213569682599aaa0fc3cba4651939
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111593141"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292402"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) 활성 LTS 및 유지 관리 LTS 버전.
 - 활성 Communication Services 리소스 및 연결 문자열입니다. [Communication Services 리소스를 만듭니다](../create-communication-resource.md).
-- Azure Portal에서 [Application Insights 리소스](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)를 만듭니다.
+- [Azure Portal](../../../azure-monitor/app/create-new-resource.md)에서 Application Insights 리소스를 만듭니다.
 
 ## <a name="setting-up"></a>설치
 

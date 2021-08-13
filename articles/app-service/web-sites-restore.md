@@ -1,15 +1,15 @@
 ---
 title: 백업에서 앱 복원
-description: 백업에서 앱을 복원하는 방법에 대해 알아봅니다. 특정 연결 된 데이터베이스는 하나의 작업으로 앱과 함께 복원할 수 있습니다.
+description: 백업에서 앱을 복원하는 방법에 대해 알아봅니다. 특정 연결된 데이터베이스는 하나의 작업으로 앱과 함께 복원할 수 있습니다.
 ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: c1b0ce62905424032c2100a1a032fa43ba97578f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95999402"
 ---
 # <a name="restore-an-app-in-azure"></a>Azure에서 앱 복원
@@ -29,14 +29,14 @@ ms.locfileid: "95999402"
     ![지금 복원 선택][ChooseRestoreNow]
 2. **복원** 페이지에서 먼저 백업 원본을 선택합니다.
    
-    ![백업 원본을 선택할 수 있는 위치를 보여 주는 스크린샷](./media/web-sites-restore/021ChooseSource1.png)
+    ![백업 원본을 선택할 수 있는 위치를 보여주는 스크린샷.](./media/web-sites-restore/021ChooseSource1.png)
    
     **앱 백업** 옵션에는 현재 앱의 모든 기존 백업을 표시하며 백업 중 하나를 쉽게 선택할 수 있습니다.
     **스토리지** 옵션을 사용하면 구독의 기존 Azure Storage 계정 및 컨테이너에서 백업 ZIP 파일을 선택할 수 있습니다.
     다른 앱의 백업을 복원하려는 경우 **스토리지** 옵션을 사용합니다.
 3. 그런 다음 **복원 대상** 에서 앱 복원 대상을 지정합니다.
    
-    ![앱 복원 대상을 지정할 위치를 보여 주는 스크린샷](./media/web-sites-restore/022ChooseDestination1.png)
+    ![앱 복원 대상을 지정할 위치를 보여주는 스크린샷.](./media/web-sites-restore/022ChooseDestination1.png)
    
    > [!WARNING]
    > **덮어쓰기** 를 선택하면 현재 앱의 기존 데이터를 모두 지우고 덮어씁니다. **확인** 을 클릭하기 전에 수행하려는 작업이 정확히 맞는지 확인하세요.

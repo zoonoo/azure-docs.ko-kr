@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: a32811b439a569a8f8f82fcc046e0f4b89e47a38
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a2441b64d730064c0678eb9fc85945d956448248
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94966703"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288692"
 ---
 # <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>대칭 키를 사용하여 IoT Hub에 시뮬레이션된 디바이스 프로비전
 
@@ -34,7 +34,7 @@ ms.locfileid: "94966703"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 머신에 [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) 이상이 설치되어 있는지 확인합니다.
+* 머신에 [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure) 이상이 설치되어 있는지 확인합니다.
 
 * [Maven](https://maven.apache.org/install.html)을 다운로드하고 설치합니다.
 

@@ -6,12 +6,12 @@ ms.author: timlt
 ms.service: iot-develop
 ms.topic: include
 ms.date: 01/14/2021
-ms.openlocfilehash: 45a9a0821dec98637ade4940bee915483d5e9aa1
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 324e1d3c9d86f8c17581665507ebe52b946bd006
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112042037"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114407503"
 ---
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 이 섹션에서는 Azure CLI를 사용하여 IoT 허브 및 리소스 그룹을 만듭니다.  Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. IoT 허브는 IoT 애플리케이션과 디바이스 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다.
@@ -22,7 +22,7 @@ IoT 허브 및 리소스 그룹을 만들려면 다음을 수행합니다.
     - Cloud Shell을 사용하려면 CLI 명령에서 **사용해 보기** 단추를 선택하여 분할 브라우저 창에서 Cloud Shell을 시작합니다. 또는 별도의 브라우저 탭에서 [Cloud Shell](https://shell.azure.com/bash)을 열 수 있습니다.
     - Azure CLI를 로컬에서 사용하고 있는 경우 CLI 콘솔 앱을 시작하고 Azure CLI에 로그인합니다.
 
-1. [az extension add](/cli/azure/extension?view=azure-cli-latest#az_extension_add)를 실행하여 *azure-iot* 확장을 현재 버전으로 설치하거나 업그레이드합니다.
+1. [az extension add](/cli/azure/extension#az_extension_add)를 실행하여 *azure-iot* 확장을 현재 버전으로 설치하거나 업그레이드합니다.
 
     ```azurecli-interactive
     az extension add --upgrade --name azure-iot
@@ -44,7 +44,7 @@ IoT 허브 및 리소스 그룹을 만들려면 다음을 수행합니다.
     az iot hub create --resource-group MyResourceGroup --name {YourIoTHubName}
     ```
     > [!TIP]
-    > IoT 허브를 만든 후 빠른 시작의 나머지 부분에서 CLI 명령을 계속 사용하여 허브와 상호 작용할 수 있습니다. 선택적으로 CLI 명령 대신 Azure IoT Explorer를 사용할 수 있습니다. IoT Explorer는 기존 IoT 허브에 연결하고 디바이스를 추가, 관리 및 모니터링할 수 있는 GUI 애플리케이션입니다. 자세히 알아보려면 [Azure IoT 탐색기 설치 및 사용](../articles/iot-pnp/howto-use-iot-explorer.md)을 참조하세요.
+    > IoT 허브를 만든 후 빠른 시작의 나머지 부분에서 CLI 명령을 계속 사용하여 허브와 상호 작용할 수 있습니다. 선택적으로 CLI 명령 대신 Azure IoT Explorer를 사용할 수 있습니다. IoT Explorer는 기존 IoT 허브에 연결하고 디바이스를 추가, 관리 및 모니터링할 수 있는 GUI 애플리케이션입니다. 자세히 알아보려면 [Azure IoT 탐색기 설치 및 사용](../articles/iot-fundamentals/howto-use-iot-explorer.md)을 참조하세요.
 
 ## <a name="create-a-simulated-device"></a>시뮬레이션된 디바이스 만들기
 이 섹션에서는 IoT 허브에 연결되어 시뮬레이션된 IoT 디바이스를 만듭니다. 

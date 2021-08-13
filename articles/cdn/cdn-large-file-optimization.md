@@ -1,6 +1,6 @@
 ---
 title: Azure CDN을 통해 대용량 파일 다운로드 최적화
-description: Azure Content Delivery Network에서 대량 파일 다운로드를 최적화 하는 방법에 대해 알아봅니다. 이 문서에는 몇 가지 시나리오가 포함 되어 있습니다.
+description: Azure Content Delivery Network에서 얼마나 큰 파일 다운로드를 최적화할 수 있는지 알아봅니다. 이 문서에는 몇 가지 시나리오가 포함되어 있습니다.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: ed5768e89482d32bb140e9ba7064de2d20809892
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96020724"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Azure CDN을 통해 대용량 파일 다운로드 최적화
@@ -44,7 +44,7 @@ ms.locfileid: "96020724"
 
 바이트 범위 요청에 대한 자세한 내용은 [RFC 7233](https://tools.ietf.org/html/rfc7233)을 참조하세요.
 
-CDN은 받은 청크를 모두 캐시합니다. CDN 캐시에서 전체 파일을 캐시할 필요는 없습니다. 파일 또는 바이트 범위에 대한 후속 요청은 CDN 캐시에서 제공됩니다. 모든 청크가 CDN에 캐시되지 않으면 프리페치를 사용하여 원본에서 청크를 요청합니다. 이러한 최적화는 원본 서버에서 바이트 범위 요청을 지 원하는 기능에 의존 합니다. 원본 서버에서 바이트 범위 요청을 지원 하지 않으면 크기가 8mb 보다 큰 데이터를 다운로드 하는 요청이 실패 합니다. 
+CDN은 받은 청크를 모두 캐시합니다. CDN 캐시에서 전체 파일을 캐시할 필요는 없습니다. 파일 또는 바이트 범위에 대한 후속 요청은 CDN 캐시에서 제공됩니다. 모든 청크가 CDN에 캐시되지 않으면 프리페치를 사용하여 원본에서 청크를 요청합니다. 이 최적화는 원본 서버의 기능을 사용하여 바이트 범위 요청을 지원합니다. 원본 서버가 바이트 범위 요청을 지원하지 않으면, 크기가 8mb보다 큰 데이터를 다운로드하는 요청에 실패합니다. 
 
 ### <a name="conditions-for-large-file-optimization"></a>대용량 파일 최적화에 대한 조건
 최대 파일 크기에는 제한이 없습니다.

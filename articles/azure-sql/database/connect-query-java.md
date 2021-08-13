@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.devlang: java
 ms.date: 06/26/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: badf6b8887c356c2a7fc7308f6aa15f551e4bb67
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a24d07e2ccf97727ff0eb7c703aa0a82ee33c4c
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95972677"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287225"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>Azure SQL Database에서 Java 및 JDBC 사용
 
@@ -27,7 +27,7 @@ JDBC는 기존 관계형 데이터베이스에 연결하는 표준 Java API입�
 
 - Azure 계정. 계정이 없으면 [체험 계정을 얻습니다](https://azure.microsoft.com/free/).
 - [Azure Cloud Shell](../../cloud-shell/quickstart.md) 또는 [Azure CLI](/cli/azure/install-azure-cli). 자동으로 로그인되고 필요한 모든 도구에 액세스할 수 있는 Azure Cloud Shell을 권장합니다.
-- 지원되는 [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) 버전 8(Azure Cloud Shell에 포함됨)입니다.
+- 지원되는 [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure) 버전 8(Azure Cloud Shell에 포함됨)입니다.
 - [Apache Maven](https://maven.apache.org/) 빌드 도구.
 
 ## <a name="prepare-the-working-environment"></a>작업 환경 준비

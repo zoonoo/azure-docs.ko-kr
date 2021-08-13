@@ -2,18 +2,18 @@
 title: '자습서: Azure Static Web Apps에서 서버에 렌더링된 Nuxt.js 웹 사이트 배포'
 description: Azure Static Web Apps를 사용하여 Nuxt.js 동적 사이트를 생성하고 배포합니다.
 services: static-web-apps
-author: christiannwamba
+author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.author: chnwamba
+ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: 7654546ba52406aed5659cc736bb9a538a73ac7f
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: a413b5e59ff5d44f9227f5a546232984a7db1ab9
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109813239"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112454153"
 ---
 # <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps"></a>Azure Static Web Apps에서 서버에 렌더링된 Nuxt.js 웹 사이트 배포
 
@@ -131,7 +131,7 @@ Azure Static Web Apps는 GitHub 리포지토리에서 앱을 배포하고 지정
     | _리소스 그룹_ | **my-nuxtjs-group**  |
     | _이름_ | **my-nuxtjs-app** |
     | _플랜 유형_ | **Free** |
-    | _Azure Functions API 및 스테이징 환경을 위한 지역_ | 가장 가까운 지역을 선택합니다. |
+    | _Azure Functions API 및 스테이징 환경을 위한 영역_ | 가장 가까운 지역을 선택합니다. |
     | _원본_ | **GitHub** |
 
 1. **GitHub로 로그인** 을 선택하고 GitHub로 인증합니다.

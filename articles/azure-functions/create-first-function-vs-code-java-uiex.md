@@ -4,12 +4,12 @@ description: Java 함수를 만든 다음, Visual Studio Code의 Azure Functions
 ms.topic: quickstart
 ms.date: 11/03/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 6c84bf4ebc73857fa0280ffbcbf46b68c2da630f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 27268e53f86dd5cc25baac11a11f903f0d4c47eb
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031721"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287758"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure에서 Java 함수 만들기
 
@@ -27,7 +27,7 @@ Visual Studio Code가 선호하는 개발 도구가 아닌 경우 [Maven](create
 
 + 활성 상태인 Azure 계정 <abbr title="Azure에서 리소스를 관리하는 기본 조직 구조이며 일반적으로 조직 내의 개인 또는 부서와 연결됩니다.">subscription</abbr>. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) 버전 8 또는 11.
++ [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure) 버전 8 또는 11.
 
 + [Apache Maven](https://maven.apache.org) 버전 3.0 이상
 

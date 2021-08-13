@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 11/19/2020
 ms.author: cshoe
 zone_pivot_groups: programming-languages-set-functions-lang-workers
-ms.openlocfilehash: 77d370b895c777278d3136c7d2c511e7f9e23b36
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 559703401fa87980a5937e81eeab27ef44769c20
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179258"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113651467"
 ---
 # <a name="getting-started-with-azure-functions"></a>Azure Functions 시작
 
@@ -66,7 +66,7 @@ ms.locfileid: "102179258"
 ::: zone pivot="programming-language-python"
 | 작업 | 리소스 |
 | --- | --- |
-| **첫 번째 기능 만들기** | 다음 도구 중 하나를 사용합니다.<br><br><li>[Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)<li>[터미널/명령 프롬프트](./create-first-function-cli-csharp.md?pivots=programming-language-python) |
+| **첫 번째 기능 만들기** | 다음 도구 중 하나를 사용합니다.<br><br><li>[Visual Studio Code](./create-first-function-vs-code-python.md)<li>[터미널/명령 프롬프트](./create-first-function-cli-python.md) |
 | **실행 중인 함수 보기** | <li>[Azure 샘플 브라우저](/samples/browse/?expanded=azure&languages=python&products=azure-functions)<li>[Azure 커뮤니티 라이브러리](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=Python) |
 | **대화형 자습서 살펴보기** | <li>[Azure 서버리스 기술 검토 및 비즈니스 시나리오에 적합한 서비스 선택](/learn/modules/serverless-fundamentals/)<li>[잘 설계된 프레임워크 - 성능 효율성](/learn/modules/azure-well-architected-performance-efficiency/)<li>[Azure Functions를 사용하여 서버리스 API 빌드](/learn/modules/build-api-azure-functions/)<li>[Azure Functions를 사용하여 서버리스 논리 만들기](/learn/modules/create-serverless-logic-with-azure-functions/) <br><br>[대화형 자습서의 전체 목록](/learn/browse/?expanded=azure&products=azure-functions)은 Microsoft Learn을 참조하세요.|
 | **모범 사례 검토** |<li>[성능 및 안정성](./functions-best-practices.md)<li>[연결 관리](./manage-connections.md)<li>[오류 처리 및 함수 재시도](./functions-bindings-error-pages.md?tabs=python)<li>[보안](./security-concepts.md)<li>[처리량 성능 향상](./python-scale-performance-reference.md)|

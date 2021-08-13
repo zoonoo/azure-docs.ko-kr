@@ -10,13 +10,13 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 06/10/2021
 adobe-target: true
-ms.custom: contperf-fy21q4
-ms.openlocfilehash: d12b9229fdf4b8cfe32a9db375b9c0943ce53507
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: 0d4c85ec1075e3925fa5657783ffce618faaa6ea
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112033458"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113760142"
 ---
 # <a name="quickstart-create-workspace-resources-you-need-to-get-started-with-azure-machine-learning"></a>빠른 시작: Azure Machine Learning을 시작하는 데 필요한 작업 영역 리소스 만들기
 
@@ -37,10 +37,6 @@ ms.locfileid: "112033458"
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
-> [!div class="nextstepaction"]
-> [작업 영역을 만들었습니다.](?success=create-workspace#instance) [문제가 발생했습니다.](https://www.research.net/r/7C8Z3DN?issue=create-workspace)
-
-
 ## <a name="create-compute-instance"></a><a name="instance"></a> 컴퓨팅 인스턴스 만들기
 
 자신의 컴퓨터에 Azure Machine Learning을 설치할 수 있습니다.  그러나 이 빠른 시작에서는 이미 설치되어 바로 사용 가능한 개발 환경이 있는 온라인 컴퓨팅 리소스를 만들게 됩니다.  개발 환경에서 Python 스크립트 및 Jupyter Notebook의 코드를 작성하고 실행하는 데 도움이 되는 이 온라인 컴퓨터, 즉 *컴퓨팅 인스턴스* 를 사용합니다.
@@ -54,9 +50,6 @@ ms.locfileid: "112033458"
 1. 이름을 제공하고 **만들기** 를 선택합니다.
  
 약 2분 후에 컴퓨팅 인스턴스 변경의 **상태** 가 *만드는 중* 에서 *실행 중* 으로 표시됩니다.  이제 모든 준비가 되었습니다.  
-
-> [!div class="nextstepaction"]
-> [컴퓨팅 인스턴스를 만들었습니다.](?success=create-instance#cluster) [문제가 발생했습니다.](https://www.research.net/r/7C8Z3DN?issue=create-instance)
 
 ## <a name="create-compute-clusters"></a><a name="cluster"></a> 컴퓨팅 클러스터 만들기
 
@@ -77,9 +70,6 @@ ms.locfileid: "112033458"
 
 > [!NOTE]
 > 클러스터가 만들어지면 0개의 노드가 프로비저닝됩니다. 작업을 제출할 때까지 클러스터에 대한 비용이 *발생하지 않습니다*. 이 클러스터가 2,400초(40분) 동안 유휴 상태이면 축소됩니다.  이렇게 하면 다시 스케일 업하기까지 기다리지 않고 필요에 따라 몇 가지 자습서에서 사용해 볼 수 있습니다.
-
-> [!div class="nextstepaction"]
-> [컴퓨팅 클러스터를 만들었습니다.](?success=create-compute-cluster#clean-up) [문제가 발생했습니다.](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
 
 ## <a name="quick-tour-of-the-studio"></a><a name="studio"></a> 스튜디오 빠른 둘러보기
 

@@ -7,13 +7,17 @@ ms.topic: include
 ms.date: 05/06/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: b82976a3b40a4c927d095c40fe6652613e66274f
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 9ba8a90dcd2043fc0f54278a3f1b807add819c66
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109716185"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114712965"
 ---
+[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/pnp/pnp_temperature_controller)
+
+이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. 먼저 디바이스 호스트를 위한 Azure IoT Central 애플리케이션을 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 IoT Central에 안전하게 연결하고 원격 분석을 전송합니다.
+
 ## <a name="prerequisites"></a>필수 구성 요소
 - Linux 또는 Windows에서 이 빠른 시작을 실행할 수 있습니다. 셸 명령은 표준 Linux 경로 구분 기호 `/`를 사용합니다. Windows를 사용하는 경우 이 구분 기호를 Windows 경로 구분 기호 `\`로 바꿉니다.
 

@@ -39,6 +39,8 @@
   items:
     - name: Key Vault 코드 샘플
       href: /samples/browse/?expanded=azure&products=azure-key-vault
+    - name: Azure Resource Graph 쿼리
+      href: ../resource-graph-samples.md
 - name: 개념
   items:
     - name: 기본 개념
@@ -172,7 +174,7 @@
       href: /javascript/api/overview/azure/key-vault-index
     - name: Python
       href: /python/api/overview/azure/key-vault-index
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/keyvault
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.keyvault/allversions
