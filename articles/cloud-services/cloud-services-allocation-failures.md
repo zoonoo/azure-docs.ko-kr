@@ -1,24 +1,24 @@
 ---
-title: 클라우드 서비스 (클래식) 할당 오류 문제 해결 | Microsoft Docs
-description: Azure Cloud Services을 배포 하는 경우 할당 오류 문제 해결 할당이 어떻게 작동 하 고 할당이 실패할 수 있는 이유에 대해 알아보세요.
-ms.topic: article
+title: Cloud Service(클래식) 할당 실패 문제 해결 | Microsoft Docs
+description: Azure Cloud Services 배포 시 할당 실패 문제를 해결합니다. 할당이 작동하는 방식과 할당이 실패할 수 있는 이유를 알아봅니다.
+ms.topic: troubleshooting
 ms.service: cloud-services
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 95fe4a8e1f6c6ee5f519311f8e756be89a09acf8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: b9cfb7e2d57d194e9f9317d0dcbff3e87318ac9f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738313"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736202"
 ---
-# <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-classic-in-azure"></a>Azure에서 Cloud Services (클래식)을 배포 하는 경우 할당 오류 문제 해결
+# <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-classic-in-azure"></a>Azure에서 Cloud Services(클래식) 배포 시 할당 실패 문제 해결
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(확장 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품에 대한 새로운 Azure Resource Manager 기반 배포 모델입니다.해당 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌고 모든 새로운 배포는 [Cloud Services(확장된 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 
 ## <a name="summary"></a>요약
@@ -43,21 +43,21 @@ Azure 데이터 센터의 서버는 클러스터로 분할되어 있습니다. �
 
 ### <a name="error-message"></a>오류 메시지
 
-Azure Portal에서 클라우드 서비스로 이동 하 고 사이드바에서 *작업 로그 (클래식)* 를 선택 하 여 로그를 확인 합니다.
+Azure Portal에서 클라우드 서비스로 이동하여 사이드바에서 *작업 로그(클래식)* 를 선택하고 로그를 확인합니다.
 
-아래 예외에 대 한 추가 솔루션을 참조 하십시오.
+아래 예외에 대한 추가 솔루션을 참조하세요.
 
-|예외 유형  |오류 메시지  |솔루션  |
+|예외 유형  |오류 메시지  |해결 방법  |
 |---------|---------|---------|
-|FabricInternalServerError     |서버에서 내부 오류가 발생 하 여 작업에 실패 했습니다 (오류 코드 ' InternalError ' 및 errorMessage). 요청을 다시 시도 하세요. '.|[FabricInternalServerError 문제 해결](cloud-services-troubleshoot-fabric-internal-server-error.md)|
-|ServiceAllocationFailure     |서버에서 내부 오류가 발생 하 여 작업에 실패 했습니다 (오류 코드 ' InternalError ' 및 errorMessage). 요청을 다시 시도 하세요. '.|[ServiceAllocationFailure 문제 해결](cloud-services-troubleshoot-fabric-internal-server-error.md)|
-|LocationNotFoundForRoleSize     |' ' 작업이 `{Operation ID}` 실패 했습니다. ' 요청 된 VM 계층은 현재 `{Region ID}` 이 구독에 대해 지역 ()에서 사용할 수 없습니다. 다른 계층을 시도 하거나 다른 위치에 배포 하세요. '.|[LocationNotFoundForRoleSize 문제 해결](cloud-services-troubleshoot-location-not-found-for-role-size.md)|
-|ConstrainedAllocationFailed     |Azure 작업 ' `{Operation ID}` '이 (가) ConstrainedAllocationFailed 코드와 함께 실패 했습니다. 세부 정보: 할당 하지 못했습니다. 요청에서 제약 조건을 충족할 수 없습니다. 요청된 새로운 서비스 배포가 선호도 그룹에 바인딩되어 있거나 가상 네트워크를 대상으로 하거나 호스티드 서비스에 기존 배포가 있습니다. 이러한 조건이 특정 Azure 리소스에 대한 새로운 배포를 제한합니다. 나중에 다시 시도하거나, VM 크기를 줄이거나 역할 인스턴스의 수를 줄입니다. 가능하다면 앞서 말한 제약 조건을 제거하거나 다른 지역에 배포를 시도합니다.|[ConstrainedAllocationFailed 문제 해결](cloud-services-troubleshoot-constrained-allocation-failed.md)|
-|OverconstrainedAllocationRequest     |배포 요청 제약 조건으로 인해이 배포에 필요한 VM 크기 (또는 VM 크기의 조합)를 프로 비전 할 수 없습니다. 가능 하면 가상 네트워크 바인딩과 같은 제약 조건을 완화 하 여 다른 배포 없이 호스팅된 서비스에 배포 하거나 다른 선호도 그룹이 나 선호도 그룹을 사용 하지 않거나 다른 지역에 배포 해 보십시오.|[OverconstrainedAllocationRequest 문제 해결](cloud-services-troubleshoot-overconstrained-allocation-request.md)|
+|FabricInternalServerError     |오류 코드 'InternalError' 및 errorMessage '서버에서 내부 오류가 발생했습니다. 요청을 다시 시도하세요.'를 나타내며 작업이 실패했습니다.|[FabricInternalServerError 문제 해결](cloud-services-troubleshoot-fabric-internal-server-error.md)|
+|ServiceAllocationFailure     |오류 코드 'InternalError' 및 errorMessage '서버에서 내부 오류가 발생했습니다. 요청을 다시 시도하세요.'를 나타내며 작업이 실패했습니다.|[ServiceAllocationFailure 문제 해결](cloud-services-troubleshoot-fabric-internal-server-error.md)|
+|LocationNotFoundForRoleSize     |'`{Operation ID}`' 작업 실패: '요청한 VM 계층은 현재 이 구독의 지역(`{Region ID}`)에서 사용할 수 없습니다. 다른 계층을 시도하거나 다른 위치에 배포하세요.'|[LocationNotFoundForRoleSize 문제 해결](cloud-services-troubleshoot-location-not-found-for-role-size.md)|
+|ConstrainedAllocationFailed     |Azure 작업 ‘`{Operation ID}`’가 실패하고 Compute.ConstrainedAllocationFailed 코드가 반환되었습니다. 세부 정보: 할당에 실패했습니다. 요청의 제약 조건을 충족할 수 없습니다. 요청된 새로운 서비스 배포가 선호도 그룹에 바인딩되어 있거나 가상 네트워크를 대상으로 하거나 호스티드 서비스에 기존 배포가 있습니다. 이러한 조건이 특정 Azure 리소스에 대한 새로운 배포를 제한합니다. 나중에 다시 시도하거나, VM 크기를 줄이거나 역할 인스턴스의 수를 줄입니다. 가능하다면 앞서 말한 제약 조건을 제거하거나 다른 지역에 배포를 시도합니다.|[ConstrainedAllocationFailed 문제 해결](cloud-services-troubleshoot-constrained-allocation-failed.md)|
+|OverconstrainedAllocationRequest     |배포 요청 제약 조건으로 인해 배포에 요구되는 VM 크기(또는 VM 크기의 조합)를 프로비전할 수 없습니다. 가능한 경우, 가상 네트워크 바인딩 같은 제약 조건을 해제하고 다른 배포를 포함하지 않는 호스트된 서비스에 배포를 시도하거나 다른 선호도 그룹 또는 선호도 그룹 없이 배포를 시도하거나 다른 지역으로 배포를 시도합니다.|[OverconstrainedAllocationRequest 문제 해결](cloud-services-troubleshoot-overconstrained-allocation-request.md)|
 
-오류 메시지 예:
+예제 오류 메시지:
 
-> "ConstrainedAllocationFailed 코드를 사용 하 여 Azure 작업 ' {operation id} '이 (가) 실패 했습니다. 세부 정보: 할당 하지 못했습니다. 요청에서 제약 조건을 충족할 수 없습니다. 요청된 새로운 서비스 배포가 선호도 그룹에 바인딩되어 있거나 가상 네트워크를 대상으로 하거나 호스티드 서비스에 기존 배포가 있습니다. 이러한 조건이 특정 Azure 리소스에 대한 새로운 배포를 제한합니다. 나중에 다시 시도하거나, VM 크기를 줄이거나 역할 인스턴스의 수를 줄입니다. 가능하다면 앞서 말한 제약 조건을 제거하거나 다른 지역에 배포를 시도합니다.”
+> "Azure 작업 '{operation id}'가 실패하고 Compute.ConstrainedAllocationFailed 코드가 반환되었습니다. 세부 정보: 할당에 실패했습니다. 요청의 제약 조건을 충족할 수 없습니다. 요청된 새로운 서비스 배포가 선호도 그룹에 바인딩되어 있거나 가상 네트워크를 대상으로 하거나 호스티드 서비스에 기존 배포가 있습니다. 이러한 조건이 특정 Azure 리소스에 대한 새로운 배포를 제한합니다. 나중에 다시 시도하거나, VM 크기를 줄이거나 역할 인스턴스의 수를 줄입니다. 가능하다면 앞서 말한 제약 조건을 제거하거나 다른 지역에 배포를 시도합니다.”
 
 ### <a name="common-issues"></a>일반적인 문제
 
@@ -81,7 +81,7 @@ Azure Portal에서 클라우드 서비스로 이동 하 고 사이드바에서 *
    * 기존 클라우드 서비스에서 새 배포를 만듭니다. 영역의 모든 클러스터에서 할당이 다시 시도됩니다. 클라우드 서비스가 선호도 그룹에 연결되지 않았는지 확인합니다.
 3. 예약된 IP - 이 솔루션은 기존 IP 주소를 유지하지만 애플리케이션 가동 중지 시간이 발생합니다.  
 
-   * PowerShell을 사용 하 여 기존 배포에 대 한 ReservedIP 만들기
+   * PowerShell을 사용하여 기존 배포에 대한 ReservedIP 만들기
 
      ```azurepowershell
      New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}

@@ -7,14 +7,14 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/02/2020
-ms.custom: references_regions
-ms.openlocfilehash: 9679157e7871b043711fff688a8cbb69cf9bb4d8
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 05/28/2021
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: 3e45a2ff5db3a3ebbc0f9e2c5d9c66af43915463
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813617"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786842"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Azure Cognitive Search에서 데이터 암호화에 사용할 고객 관리형 키 구성
 
@@ -31,15 +31,18 @@ Azure Cognitive Search는 [서비스 관리형 키](../security/fundamentals/enc
 
 ## <a name="double-encryption"></a>이중 암호화
 
-2020년 8월 1일 이후에 생성된 서비스의 경우, 특정 지역에서의 고객 관리형 키 암호화의 범위는 임시 디스크를 포함하여 [전체 이중 암호화](search-security-overview.md#double-encryption)를 제공하며, 이 지역에서는 현재 제공 가능합니다. 
+이중 암호화는 CMK(고객 관리형 키)의 확장입니다. 이중 암호화(CMK를 통해 한 번 및 서비스 관리형 키를 통해 다시 한 번)로 이해되며, 데이터 디스크에 기록되는 장기 스토리지 및 임시 디스크에 기록되는 단기 스토리지를 포함하는 포괄적인 범위로 이해됩니다. 구성이 필요 없습니다. 개체에 CMK를 적용하면 이중 암호화가 자동으로 호출됩니다.
 
-+ 미국 서부 2
-+ 미국 동부
-+ 미국 중남부
-+ US Gov 버지니아
-+ US Gov 애리조나
+이중 암호화는 모든 지역에서 사용할 수 있지만 지원은 두 단계로 롤아웃되었습니다. 첫 번째 롤아웃은 2020년 8월이었으며 아래에 나열된 5개 지역이 포함되었습니다. 2021년 5월 두 번째 롤아웃에서는 이중 암호화를 나머지 모든 지역으로 확대했습니다. 이전 서비스에서 CMK를 사용하고 이중 암호화를 사용하려는 경우 원하는 지역에 새 검색 서비스를 만들어야 합니다.
 
-다른 지역 또는 8월 1일 이전에 만든 서비스를 사용하는 경우 관리형 키 암호화는 서비스에서 사용하는 임시 디스크를 제외하고 데이터 디스크로만 제한됩니다.
+| 지역 | 서비스 생성 날짜 |
+|--------|-----------------------|
+| 미국 서부 2 | 2020년 8월 1일 이후 |
+| 미국 동부 | 2020년 8월 1일 이후 |
+| 미국 중남부  | 2020년 8월 1일 이후 |
+| US Gov 버지니아  | 2020년 8월 1일 이후 |
+| US Gov 애리조나  | 2020년 8월 1일 이후 |
+| [지원되는 기타 모든 지역](https://azure.microsoft.com/global-infrastructure/services/?products=search#select-product) | 2021년 5월 13일 이후 |
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

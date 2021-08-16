@@ -10,12 +10,12 @@ ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7e951de46b5220e5c2edde2fcd84673c9a16cebc
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: bdd0c8a3ddacd3a99627bfc29c41e61a165350c6
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110477709"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111812371"
 ---
 # <a name="manage-and-restore-soft-deleted-blobs"></a>일시 삭제된 Blob 관리 및 복원
 
@@ -78,7 +78,7 @@ Azure Storage 클라이언트 라이브러리를 사용하여 일시 삭제된 B
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverDeletedBlobs":::
 
-특정 버전을 복원하려면 먼저 기본 Blob 또는 버전에서 **Blob 삭제 취소** 작업을 호출한 다음, 기본 Blob을 통해 원하는 버전을 복사합니다. 다음 예제에서는 블록 Blob을 가장 최근에 저장된 버전으로 복원합니다.
+일시적으로 삭제된 특정 스냅샷을 복원하려면 먼저 기본 Blob에서 **Blob 삭제 취소** 작업을 호출한 다음, 기본 Blob에 원하는 스냅샷을 복사합니다. 다음 예제에서는 블록 Blob을 가장 최근에 생성된 스냅샷으로 복원합니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobSnapshot":::
 
@@ -96,7 +96,7 @@ foreach (CloudBlob blob in container.ListBlobs(useFlatBlobListing: true, blobLis
 }
 ```
 
-특정 스냅샷을 복원하려면 먼저 기본 Blob 또는 버전에서 **Blob 삭제 취소** 작업을 호출한 다음, 기본 Blob을 통해 원하는 스냅샷을 복사합니다. 다음 예제에서는 블록 Blob을 가장 최근에 생성된 스냅샷으로 복원합니다.
+일시적으로 삭제된 특정 스냅샷을 복원하려면 먼저 기본 Blob에서 **Blob 삭제 취소** 작업을 호출한 다음, 기본 Blob에 원하는 스냅샷을 복사합니다. 다음 예제에서는 블록 Blob을 가장 최근에 생성된 스냅샷으로 복원합니다.
 
 ```csharp
 // Restore the block blob.
@@ -130,6 +130,6 @@ blockBlob.StartCopy(copySource);
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Blob Storage에 대한 일시 삭제](./soft-delete-blob-overview.md)
+- [Blob Storage에 대한 일시 삭제](soft-delete-blob-overview.md)
 - [Blob에 일시 삭제를 사용하도록 설정](soft-delete-blob-enable.md)
 - [Blob 버전 관리](versioning-overview.md)

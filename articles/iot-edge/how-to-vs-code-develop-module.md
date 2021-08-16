@@ -9,12 +9,12 @@ ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
-ms.openlocfilehash: eae6f1ec8cb6917d0d51deca8c9e88725c9b01a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 496a1225d5e9554fc661e0c93ce82a13f6aa11d5
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200626"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904031"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 모듈 개발 및 디버그
 
@@ -47,7 +47,7 @@ Windows, macOS 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 �
 
 또한 모듈을 개발하기 위해 몇 가지 추가적인 언어 특정 도구를 설치해야 합니다.
 
-- Azure Functions를 포함한 C#: [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
+- Azure Functions를 포함한 C#: [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1)
 
 - Python: Python 패키지 설치를 위한 [Python](https://www.python.org/downloads/) 및 [Pip](https://pip.pypa.io/en/stable/installing/#installation)(일반적으로 Python 설치와 함께 포함됨).
 
@@ -143,7 +143,7 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
 
 개발 머신에서 IoT Edge 보안 디먼을 설치하는 대신 IoT Edge 시뮬레이터를 시작하여 IoT Edge 솔루션을 실행할 수 있습니다.
 
-1. 왼쪽의 디바이스 탐색기에서 IoT Edge 디바이스 ID를 마우스 오른쪽 단추로 클릭한 후 **Setup IoT Edge Simulator**(IoT Edge 시뮬레이터 설치)를 선택하여 디바이스 연결 문자열을 사용하여 시뮬레이터를 시작합니다.
+1. 왼쪽의 **탐색기** 탭에서 **Azure IoT Hub** 섹션을 확장합니다. IoT Edge 디바이스 ID를 마우스 오른쪽 단추로 클릭한 다음, **IoT Edge 시뮬레이터 설치** 를 선택하여 디바이스 연결 문자열을 사용해 시뮬레이터를 시작합니다.
 1. 통합 터미널에서 진행 세부 정보를 검토하여 IoT Edge 시뮬레이터가 설치되었는지 확인할 수 있습니다.
 
 ### <a name="set-up-iot-edge-simulator-for-single-module-app"></a>단일 모듈 앱에 대한 IoT Edge 시뮬레이터 설치
@@ -224,7 +224,7 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
 
 개발 머신에서 IoT Edge 보안 디먼을 설치하는 대신 IoT Edge 시뮬레이터를 시작하여 IoT Edge 솔루션을 실행할 수 있습니다.
 
-1. 왼쪽의 디바이스 탐색기에서 IoT Edge 디바이스 ID를 마우스 오른쪽 단추로 클릭한 후 **Setup IoT Edge Simulator**(IoT Edge 시뮬레이터 설치)를 선택하여 디바이스 연결 문자열을 사용하여 시뮬레이터를 시작합니다.
+1. 왼쪽의 **탐색기** 탭에서 **Azure IoT Hub** 섹션을 확장합니다. IoT Edge 디바이스 ID를 마우스 오른쪽 단추로 클릭한 다음, **IoT Edge 시뮬레이터 설치** 를 선택하여 디바이스 연결 문자열을 사용해 시뮬레이터를 시작합니다.
 
 1. 통합 터미널에서 진행 세부 정보를 검토하여 IoT Edge 시뮬레이터가 설치되었는지 확인할 수 있습니다.
 

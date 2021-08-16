@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 65883d34a6161a0bd0faf2a11a0ab528c7e12191
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 80976d3c73a20f7f152f33a8d70cbbd4687a7bd9
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107883961"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111810358"
 ---
 # <a name="manage-public-ip-addresses"></a>공용 IP 주소 관리
 
@@ -65,7 +65,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
    |계층|Yes|IP 주소가 지역(**지역**)에 연결되어 있는지 여러 지역의 "애니캐스트"(**전체**)인지를 표시합니다. *"전체 계층" IP는 표준 IP의 미리 보기 기능이며 현재는 지역간 부하 분산 장치에서만 사용됩니다*.|
    |이름|예|이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
    |IP 주소 할당|Yes|**동적:** 동적 주소는 공용 IP 주소가 Azure 리소스에 연결되고 리소스를 처음 시작한 후에만 할당됩니다. 동적 주소는 가상 머신과 같은 리소스에 할당되고 가상 머신이 중지(할당 취소)되었다 다시 시작된 경우 변경될 수 있습니다. 가상 머신을 다시 부팅하거나 중지하는 경우(하지만 할당 취소하지 않은 경우) 주소가 동일하게 유지됩니다. 동적 주소는 공용 IP 주소 리소스가 연결된 리소스에서 분리될 때 해제됩니다. **고정:** 공용 IP 주소가 생성되면 고정 주소가 할당됩니다. 고정 주소는 공용 IP 주소 리소스가 삭제될 때까지 해제되지 않습니다. 주소가 리소스에 연결되지 않은 경우에는 주소가 생성된 후 할당 방법을 변경할 수 있습니다. 주소가 리소스에 연결된 경우에는 할당 방법을 변경할 수 없습니다. **IP 버전** 에 *IPv6* 를 선택한 경우, 기본 SKU에 대한 할당 메서드는 반드시 *동적* 이어야 합니다.  IPv4와 IPv6 모두에게 있어 표준 SKU 주소는 *고정적* 입니다. |
-   |유휴 제한 시간(분)|No|연결 유지 메시지를 보내는 데 클라이언트를 사용하지 않고 TCP 또는 HTTP 연결을 유지하는 데 걸리는 시간(분)입니다. **IP 버전** 으로 IPv6을 선택하는 경우에는 이 값을 변경할 수 없습니다. |
+   |유휴 제한 시간(분)|예|연결 유지 메시지를 보내는 데 클라이언트를 사용하지 않고 TCP 또는 HTTP 연결을 유지하는 데 걸리는 시간(분)입니다. **IP 버전** 으로 IPv6을 선택하는 경우에는 이 값을 변경할 수 없습니다. |
    |DNS 이름 레이블|No|이름을 만드는 Azure 위치 내에서(모든 구독 및 모든 고객에서) 고유해야 합니다. Azure는 해당 DNS에서 이름과 IP 주소를 자동으로 등록하므로 해당 이름을 사용하는 리소스에 연결할 수 있습니다. Azure에서는 정규화된 DNS 이름을 만드는 데 제공하는 이름에 *location.cloudapp.azure.com*(여기서 location은 선택한 위치임)과 같은 기본 서브넷을 추가합니다. 두 주소 버전을 모두 만드는 경우 IPv4 및 IPv6 주소 둘 다에 같은 DNS 이름이 할당됩니다. Azure의 기본 DNS는 IPv4 A 및 IPv6 AAAA 이름 레코드를 모두 포함하며, DNS 이름을 조회할 때 응답으로 두 레코드를 모두 전송합니다. 클라이언트는 어떤 주소(IPv4 또는 IPv6)와 통신할지 선택합니다. 기본 접미사로 DNS 이름 레이블을 사용하는 것 대신 또는 그 외에 Azure DNS 서비스를 사용하여 공용 IP 주소로 확인하는 사용자 지정 접미사로 DNS 이름을 구성할 수 있습니다. 자세한 내용은 [Azure 공용 IP 주소로 Azure DNS 사용](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)을 참조하세요.|
    |이름(IP 버전을 **양쪽 모두** 로 선택한 경우에만 표시됨)|예, IP 버전을 **양쪽 모두** 로 선택한 경우|이름은 이 목록의 첫 번째 **이름** 으로 입력하는 이름과 달라야 합니다. IPv4 주소와 IPv6 주소를 모두 만들도록 선택하면 Portal에서는 각 IP 주소 버전이 할당된 개별 공용 IP 주소 리소스 두 개를 만듭니다.|
    |IP 주소 할당(IP 버전을 **양쪽 모두** 로 선택한 경우에만 표시됨)|예, IP 버전을 **양쪽 모두** 로 선택한 경우|위의 IP 주소 할당과 동일한 제한 사항|
@@ -81,7 +81,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
    >[!WARNING]
    >공용 IP 주소 할당을 고정에서 동적으로 변경하려면 반드시 해당되는 모든 IP 구성으로부터 해당 주소를 먼저 분리해야 합니다(**삭제** 섹션을 참조하세요).  또한, 할당 방법을 고정에서 동적으로 변경하면 공용 IP 주소에 할당된 IP 주소가 손실됩니다. Azure 공용 DNS 서버는 고정 또는 동적 주소와 모든 DNS 이름 레이블(사용자가 정의한 경우) 간의 매핑을 유지하지만, 가상 머신을 중지(할당 취소)된 상태에서 시작할 때 동적 IP 주소가 변경될 수 있습니다. 주소가 변경되지 않도록 하려면 고정 IP 주소를 할당합니다.
    
-|작업|Azure portal|Azure PowerShell|Azure CLI|
+|작업|Azure Portal|Azure PowerShell|Azure CLI|
 |---|---|---|---|
 |보기 | 공용 IP의 **개요** 섹션에서 |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하면 공용 IP 주소 개체를 검색하고 그 설정을 확인합니다.| [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)를 사용하면 설정을 표시합니다.|
 |목록 | **공용 IP 주소** 범주에서 |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하면 하나 이상의 공용 IP 주소 개체를 검색하고 그 설정을 확인합니다.|[az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_list)를 사용하면 공용 IP 주소를 나열합니다.|
@@ -97,7 +97,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 
 ## <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
 
-공용 IP를 사용하는 가상 머신 확장 집합을 이용하는 경우, 개별 가상 머신 인스턴스와 연결된 별도의 공용 IP 개체는 없습니다. 그렇지만, 공용 IP 접두사 개체를 [사용해 인스턴스 IP를 생성할 수는 있습니다](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
+공용 IP를 사용하는 가상 머신 확장 집합을 이용하는 경우, 개별 가상 머신 인스턴스와 연결된 별도의 공용 IP 개체는 없습니다. 그렇지만, 공용 IP 접두사 개체를 [사용해 인스턴스 IP를 생성할 수는 있습니다](https://azure.microsoft.com/resources/templates/vmms-with-public-ip-prefix/).
 
 가상 머신 확장 집합에서 공용 IP를 나열하려면, PowerShell([Get-AzPublicIpAddress -VirtualMachineScaleSetName](/powershell/module/az.network/get-azpublicipaddress))이나 CLI([az vmss list-instance-public-ips](/cli/azure/vmss#az_vmss_list_instance_public_ips))를 사용할 수 있습니다.
 

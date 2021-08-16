@@ -5,12 +5,12 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2910ea3f896ba3920126737965ca9c9dbabcfeb3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2862919f89f6b14d4b3d3287e1b967bba8ccefe9
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101709107"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110670621"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Traffic Manager 통합을 사용하여 Azure App Service에서 사용자 지정 도메인 이름 구성
 
@@ -77,7 +77,7 @@ App Service 앱이 지원되는 가격 책정 계층에 있으면 엔드포인�
 
 Traffic Manager는 CNAME 레코드를 사용하는 사용자 지정 도메인 매핑만 지원하고 DNS 표준은 루트 도메인(예: **contoso.com**) 매핑을 위한 CNAME 레코드를 지원하지 않으므로 Traffic Manager 루트 도메인에 대한 매핑을 지원하지 않습니다. 이 문제를 해결하려면 앱 수준에서 URL 리디렉션을 사용합니다. 예를 들어 ASP.NET Core에서 [URL 다시 쓰기](/aspnet/core/fundamentals/url-rewriting)를 사용할 수 있습니다. 그런 다음 Traffic Manager를 사용하여 하위 도메인(**www.contoso.com**)의 부하를 분산합니다. [도메인 이름 apex에 대한 별칭 레코드를 만들어 Azure Traffic Manager 프로필을 참조](../dns/tutorial-alias-tm.md)할 수도 있습니다. 예를 들어 contoso.com이 있습니다. 리디렉션 서비스를 사용하는 대신, 영역에서 직접 Traffic Manager 프로필을 참조하도록 Azure DNS를 구성할 수 있습니다. 
 
-고가용성 시나리오의 경우 루트 도메인에서 각 앱 복사본의 IP 주소로 향하는 여러 ‘A 레코드’를 만들어 Traffic Manager 없이도 부하 분산 DNS 설정을 구현할 수 있습니다. 그런 다음 [동일한 루트 도메인을 모든 앱 복사본에 매핑](app-service-web-tutorial-custom-domain.md#map-an-a-record)합니다. 동일한 도메인 이름이 동일한 지역에 있는 두 개의 다른 앱에 매핑될 수 없으므로 이 설정은 앱 복사본이 다른 지역에 있는 경우에만 작동합니다.
+고가용성 시나리오의 경우 루트 도메인에서 각 앱 복사본의 IP 주소로 향하는 여러 ‘A 레코드’를 만들어 Traffic Manager 없이도 부하 분산 DNS 설정을 구현할 수 있습니다. 그런 다음 [동일한 루트 도메인을 모든 앱 복사본에 매핑](app-service-web-tutorial-custom-domain.md#4-create-the-dns-records)합니다. 동일한 도메인 이름이 동일한 지역에 있는 두 개의 다른 앱에 매핑될 수 없으므로 이 설정은 앱 복사본이 다른 지역에 있는 경우에만 작동합니다.
 
 ## <a name="enable-custom-domain"></a>사용자 지정 도메인 사용
 도메인 이름의 레코드가 전파된 후 브라우저를 사용하여 사용자 지정 도메인 이름이 App Service 앱에 대해 해석되었는지 확인합니다.

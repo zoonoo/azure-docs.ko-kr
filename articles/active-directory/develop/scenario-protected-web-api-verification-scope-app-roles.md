@@ -1,7 +1,7 @@
 ---
 title: 범위 및 앱 역할 확인 보호된 웹 API | Azure
 titleSuffix: Microsoft identity platform
-description: 올바른 범위를 가진 사용자를 대신 하 여 응용 프로그램에서 API를 호출 하 고 적절 한 응용 프로그램 역할이 있는 디먼 앱을 호출 하는지 확인 합니다.
+description: API가 올바른 범위를 가진 사용자와 적절한 애플리케이션 역할이 있는 디먼 앱을 대신하여 애플리케이션에서만 호출되는지 확인합니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,10 +13,10 @@ ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 6d737f107e7a9b1476fdf86ac0320931ea137671
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94442908"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>보호된 웹 API: 범위 및 앱 역할 확인
@@ -27,9 +27,9 @@ ms.locfileid: "94442908"
 - 올바른 애플리케이션 역할이 있는 디먼 앱
 
 > [!NOTE]
-> 이 문서의 코드 조각은 GitHub의 다음 코드 샘플에서 추출 됩니다.
+> 이 문서의 코드 조각은 GitHub의 다음 코드 샘플에서 추출됩니다.
 >
-> - [ASP.NET Core web API 증분 자습서](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs)
+> - [ASP.NET Core 웹 API 증분 자습서](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs)
 > - [ASP.NET Web API 샘플](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/master/TodoListService/Controllers/TodoListController.cs)
 
 ASP.NET 또는 ASP.NET Core 웹 API를 보호하려면 `[Authorize]` 특성을 다음 항목 중 하나에 추가해야 합니다.
@@ -86,9 +86,9 @@ public class TodoListController : Controller
 - 클레임에 API에서 예상하는 범위를 포함하는 값이 있는지 확인합니다.
 
 
-#### <a name="verify-the-scopes-more-globally"></a>전체적으로 범위 확인
+#### <a name="verify-the-scopes-more-globally"></a>더 전역적으로 범위 확인
 
-웹 API에 대 한 세분화 된 범위를 정의 하 고 각 컨트롤러 작업의 범위를 확인 하는 것이 권장 되는 방법입니다. 그러나 ASP.NET Core를 사용 하 여 응용 프로그램 또는 컨트롤러 수준에서 범위를 확인할 수도 있습니다. 자세한 내용은 ASP.NET core 설명서에서 [클레임 기반 권한 부여](/aspnet/core/security/authorization/claims) 를 참조 하세요.
+웹 API에 대해 세분화된 범위를 정의하고 각 컨트롤러 작업에서 범위를 확인하는 것이 좋습니다. ASP.NET Core를 사용하여 애플리케이션 또는 컨트롤러 수준에서 범위를 확인할 수도 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [클레임 기반 권한 부여](/aspnet/core/security/authorization/claims)를 참조하세요.
 
 ### <a name="net-mvc"></a>.NET MVC
 
@@ -113,7 +113,7 @@ public class TodoListController : ApiController
     }
 ```
 
-`ValidateAppRole`메서드는 [역할](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RolesRequiredHttpContextExtensions.cs#L28)의 Microsoft. Identity. 웹에 정의 되어 있습니다.
+`ValidateAppRole` 메서드는 [RolesRequiredHttpContextExtensions.cs](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RolesRequiredHttpContextExtensions.cs#L28)의 Microsoft.Identity.Web에 정의되어 있습니다.
 
 ### <a name="aspnet-mvc"></a>ASP.NET MVC
 
@@ -152,4 +152,4 @@ bool isAppOnlyToken = oid == sub;
 
 ## <a name="next-steps"></a>다음 단계
 
-이 시나리오에서 다음 문서로 이동 하 여 [프로덕션으로 이동](scenario-protected-web-api-production.md)합니다.
+이 시나리오의 다음 문서인 [프로덕션으로 이동](scenario-protected-web-api-production.md)으로 이동합니다.

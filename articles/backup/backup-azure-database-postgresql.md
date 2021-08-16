@@ -2,14 +2,14 @@
 title: Azure Database for PostgreSQL 백업
 description: 장기 보존(미리 보기)을 사용한 Azure Database for PostgreSQL 백업에 대해 알아보기
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.custom: references_regions
-ms.openlocfilehash: 1e2d83d4a5e21ed747ec9d4dcf2fa03d1e3935cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.custom: references_regions , devx-track-azurecli
+ms.openlocfilehash: 4f8e44bbaba87581b3c988602a436ed18b1a1a20
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98737575"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061771"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>장기 보존(미리 보기)을 사용한 Azure Database for PostgreSQL 백업
 
@@ -135,10 +135,9 @@ Azure Backup 및 Azure Database Services는 최대 10년 동안 백업을 유지
 
 1. **보존** 설정을 정의합니다. 하나 이상의 보존 규칙을 추가할 수 있습니다. 각 보존 규칙은 특정 백업에 대한 입력과 해당 백업에 대한 데이터 저장소 및 보존 기간을 가정합니다.
 
-1. 두 개의 데이터 백업 저장소(또는 계층) 즉 **백업 데이터 저장소**(표준 계층) 또는 **보관 데이터 저장소**(미리 보기) 중 하나에 백업을 저장하도록 선택할 수 있습니다. 두 개의 데이터 저장소에서 백업이 계층화되는 경우를 정의하는 **두 개의 계층화 옵션** 중에서 선택할 수 있습니다.
+1. 두 개의 데이터 백업 저장소(또는 계층) 즉 **백업 데이터 저장소**(표준 계층) 또는 **보관 데이터 저장소**(미리 보기) 중 하나에 백업을 저장하도록 선택할 수 있습니다.
 
-    - 백업과 보관 데이터 저장소 둘 다에서 백업 복사본을 사용하려는 경우 **즉시** 복사를 선택합니다.
-    - 백업 데이터 저장소에서 만료될 때 백업을 보관 데이터 저장소로 이동하려는 경우에는 **만료 날짜** 를 이동하도록 선택합니다.
+   **만료 시** 를 선택하여 백업 데이터 저장소의 만료 시 보관 데이터 저장소로 백업을 이동할 수 있습니다.
 
 1. **기본 보존 규칙** 은 다른 보존 규칙이 없을 때 적용되며 기본값은 3개월입니다.
 
@@ -197,7 +196,21 @@ Azure Backup 및 Azure Database Services는 최대 10년 동안 백업을 유지
 
     ![파일로 복원](./media/backup-azure-database-postgresql/restore-as-files.png)
 
+1. 복구 지점이 보관 계층에 있는 경우 복원하기 전에 복구 지점을 리하이드레이션해야 합니다.
+   
+   ![리하이드레이션 설정](./media/backup-azure-database-postgresql/rehydration-settings.png)
+   
+   리하이드레이션에 필요한 다음과 같은 추가 매개 변수를 제공합니다.
+   - **리하이드레이션 우선 순위:** 기본값은 **표준** 입니다.
+   - **리하이드레이션 기간:** 최대 리하이드레이션 기간은 30일이고 최소 리하이드레이션 기간은 10일입니다. 기본값은 **15** 입니다.
+   
+   복구 지점은 지정된 리하이드레이션 기간 동안 **백업 데이터 저장소** 에 저장됩니다.
+
+
 1. 정보를 검토하고 **복원** 을 선택합니다. 이렇게 하면 **백업 작업** 에서 추적할 수 있는 해당 복원 작업이 트리거됩니다.
+
+>[!NOTE]
+>Azure Database for PostgreSQL에 대한 보관 지원은 제한된 공개 미리 보기로 제공됩니다.
 
 ## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>백업 및 복원을 구성하기 위한 필수 조건 권한
 
@@ -220,7 +233,7 @@ Azure Backup은 엄격한 보안 지침을 따릅니다. 네이티브 Azure 서�
 
 ### <a name="stop-protection"></a>보호 중지
 
-백업 항목에 대한 보호를 중지할 수 있습니다. 그러면 해당 백업 항목에 대한 연결된 복구 지점도 삭제됩니다. 기존 복구 지점을 유지하면서 보호 중지 옵션을 아직 제공하지 않습니다.
+백업 항목에 대한 보호를 중지할 수 있습니다. 그러면 해당 백업 항목에 대한 연결된 복구 지점도 삭제됩니다. 복구 지점이 최소 6개월 동안 보관 계층에 없는 경우 해당 복구 지점을 삭제하면 초기 삭제 비용이 발생합니다. 기존 복구 지점을 유지하면서 보호 중지 옵션을 아직 제공하지 않습니다.
 
 ![보호 중지](./media/backup-azure-database-postgresql/stop-protection.png)
 
@@ -260,15 +273,11 @@ PostgreSQL 데이터베이스에 대한 보안 연결을 설정하기 위해 Azu
 
 1. 열리는 오른쪽 컨텍스트 창에서 다음을 입력합니다.<br>
 
-    **역할**: Reader<br>
-    **액세스 권한을 할당:** **백업 자격 증명 모음** 선택<br>
-    드롭다운 목록에서 **Backup 자격 증명 모음** 옵션을 찾을 수 없는 경우 **Azure AD 사용자, 그룹 또는 서비스 사용자 옵션** 을 선택합니다<br>
+   - **역할:** 드롭다운 목록에서 **읽기 권한자** 역할을 선택합니다.<br>
+   - **액세스 할당:** 드롭다운 목록에서 **사용자, 그룹 또는 서비스 주체** 옵션을 선택합니다.<br>
+   - **선택:** 이 서버 및 해당 데이터베이스를 백업하려는 백업 자격 증명 모음 이름을 입력합니다.<br>
 
-    ![직무 선택](./media/backup-azure-database-postgresql/select-role.png)
-
-    **선택:** 이 서버 및 해당 데이터베이스를 백업하려는 백업 자격 증명 모음 이름을 입력합니다.<br>
-
-    ![백업 자격 증명 모음 이름](./media/backup-azure-database-postgresql/enter-backup-vault-name.png)
+    ![직무 선택](./media/backup-azure-database-postgresql/select-role-and-enter-backup-vault-name.png)
 
 ### <a name="usererrorbackupuserauthfailed"></a>UserErrorBackupUserAuthFailed
 
@@ -325,4 +334,4 @@ OSS 서버에 Active Directory 관리자를 추가합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Backup 자격 증명 모음 개요](backup-vault-overview.md)
+[Backup 자격 증명 모음 개요](backup-vault-overview.md)

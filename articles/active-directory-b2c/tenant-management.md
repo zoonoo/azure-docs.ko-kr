@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/03/2021
+ms.date: 06/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 47947945759faee9f38393f06f7ec9396d9c715b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 17be85bd21a61ced7772786bb1fdaad1c947e4d1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749108"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962269"
 ---
 # <a name="manage-your-azure-active-directory-b2c-tenant"></a>Azure Active Directory B2C 테넌트 관리
 
@@ -29,11 +29,13 @@ Azure AD B2C는 Azure AD 플랫폼을 사용합니다. Azure AD B2C 테넌트에
 
 |기능  |Azure AD  | Azure AD B2C |
 |---------|---------|---------|
-| [그룹](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) | 그룹은 관리 및 사용자 계정을 관리하는 데 사용할 수 있습니다.| 그룹은 관리 계정을 관리하는 데 사용할 수 있습니다. [소비자 계정](user-overview.md#consumer-user)은 그룹을 지원하지 않습니다. |
+| [그룹](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) | 그룹은 관리 및 사용자 계정을 관리하는 데 사용할 수 있습니다.| 그룹은 관리 계정을 관리하는 데 사용할 수 있습니다. [소비자 계정](user-overview.md#consumer-user)은 어떤 그룹에도 속할 수 없습니다. |
 | [외부 ID 게스트 초대](../active-directory//external-identities/add-users-administrator.md)| 게스트 사용자를 초대하고, Facebook 및 Google 계정을 사용하여 페더레이션 및 로그인과 같은 외부 ID 기능을 구성할 수 있습니다. | 애플리케이션에 액세스하거나 테넌트를 관리하기 위해 Microsoft 계정 또는 Azure AD 사용자만 게스트로 Azure AD 테넌트에 초대할 수 있습니다. [소비자 계정](user-overview.md#consumer-user)의 경우 Azure AD B2C 사용자 흐름과 사용자 지정 정책을 사용하여 사용자를 관리하고, Google 또는 Facebook과 같은 외부 ID 공급자에 가입하거나 로그인합니다. |
 | [역할 및 관리자](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)| 관리 및 사용자 계정에 대해 완벽하게 지원됩니다. | 역할은 [소비자 계정](user-overview.md#consumer-user)에서 지원되지 않습니다. 소비자 계정에는 Azure 리소스에 대한 액세스 권한이 없습니다.|
-| [사용자 지정 도메인 이름](../active-directory/roles/permissions-reference.md#) |  Azure AD 사용자 지정 도메인은 관리 계정에만 사용할 수 있습니다. | [소비자 계정](user-overview.md#consumer-user)은 사용자 이름, 전화 번호 또는 모든 이메일 주소를 사용하여 로그인할 수 있습니다. [사용자 지정 도메인](custom-domain.md)은 리디렉션 URL에서 사용할 수 있습니다.|
-| [조건부 액세스](../active-directory/roles/permissions-reference.md#) | 관리 및 사용자 계정에 대해 완벽하게 지원됩니다. | Azure AD 조건부 액세스 기능의 하위 집합은 [소비자 계정](user-overview.md#consumer-user)에서 지원됩니다. Azure AD B2C [사용자 지정 도메인](conditional-access-user-flow.md)을 구성하는 방법에 대해 알아보세요.|
+| [사용자 지정 도메인 이름](../active-directory/fundamentals/add-custom-domain.md) |  Azure AD 사용자 지정 도메인은 관리 계정에만 사용할 수 있습니다. | [소비자 계정](user-overview.md#consumer-user)은 사용자 이름, 전화 번호 또는 모든 이메일 주소를 사용하여 로그인할 수 있습니다. [사용자 지정 도메인](custom-domain.md)은 리디렉션 URL에서 사용할 수 있습니다.|
+| [조건부 액세스](../active-directory/conditional-access/overview.md) | 관리 및 사용자 계정에 대해 완벽하게 지원됩니다. | Azure AD 조건부 액세스 기능의 하위 집합은 [소비자 계정](user-overview.md#consumer-user)에서 지원됩니다. Azure AD B2C [조건부 액세스](conditional-access-user-flow.md)를 구성하는 방법을 알아봅니다.|
+| [Premium P1](https://azure.microsoft.com/pricing/details/active-directory) | Azure AD Premium P1 기능에 대해 완벽하게 지원됩니다. 예: [암호 보호](../active-directory/authentication/concept-password-ban-bad.md), [하이브리드 ID](../active-directory/hybrid/whatis-hybrid-identity.md), [조건부 액세스](../active-directory/roles/permissions-reference.md#), [동적 그룹](../active-directory/enterprise-users/groups-create-rule.md) 등. | Azure AD 조건부 액세스 기능의 하위 집합은 [소비자 계정](user-overview.md#consumer-user)에서 지원됩니다. Azure AD B2C [조건부 액세스](conditional-access-user-flow.md)를 구성하는 방법을 알아봅니다.|
+| [Premium P2](https://azure.microsoft.com/pricing/details/active-directory.md) | Azure AD Premium P2 기능에 대해 완벽하게 지원됩니다. 예: [ID 보호](../active-directory/identity-protection/overview-identity-protection.md) 및 [ID 거버넌스](../active-directory/governance/identity-governance-overview.md).  | Azure AD ID 보호 기능의 하위 집합은 [소비자 계정](user-overview.md#consumer-user)에서 지원됩니다. [ID 보호로 위험을 조사](identity-protection-investigate-risk.md)하고 Azure AD B2C [조건부 액세스](conditional-access-user-flow.md)를 구성하는 방법을 알아봅니다. |
 
 ## <a name="other-azure-resources-in-your-tenant"></a>테넌트의 다른 Azure 리소스
 
@@ -179,7 +181,27 @@ Azure AD B2C 테넌트에는 [Azure Active Directory B2C의 사용자 계정 개
 
 [Azure AD 보안 기본값](../active-directory/fundamentals/concept-fundamentals-security-defaults.md)을 사용하도록 설정하여 모든 관리 계정에서 MFA를 사용하도록 적용할 수 있습니다.
 
+## <a name="get-your-tenant-name"></a>테넌트 이름 가져오기
 
+Azure AD B2C 테넌트 이름을 얻으려면 다음 단계를 수행합니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
+1. **개요** 에서 **도메인 이름** 을 복사합니다.
+
+![이 스크린샷은 Azure AD B2C 테넌트 이름을 얻는 방법을 보여 줍니다.](./media/tenant-management/get-azure-ad-b2c-tenant-name.png)  
+
+## <a name="get-your-tenant-id"></a>테넌트 ID 가져오기
+
+Azure AD B2C 테넌트 ID를 얻으려면 다음 단계를 수행합니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 검색하고 선택합니다.
+1. **개요** 에서 **테넌트 ID** 를 복사합니다.
+
+![이 스크린샷은 Azure AD B2C 테넌트 ID를 얻는 방법을 보여 줍니다.](./media/tenant-management/get-azure-ad-b2c-tenant-id.png)  
 
 ## <a name="next-steps"></a>다음 단계
 

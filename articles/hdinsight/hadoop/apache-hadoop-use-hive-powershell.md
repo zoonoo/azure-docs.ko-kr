@@ -1,22 +1,22 @@
 ---
 title: HDInsight에서 PowerShell과 Apache Hive 사용 - Azure
-description: PowerShell을 사용 하 여 Azure HDInsight의 Apache Hadoop에서 Apache Hive 쿼리 실행
+description: PowerShell을 사용하여 Azure HDInsight의 Apache Hadoop에서 Apache Hive 쿼리를 실행합니다.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurepowershell
 ms.date: 12/24/2019
-ms.openlocfilehash: 43cac81717027b39210d6cd9cb9ad0baa596f50d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 9334a5dfcdc305efb69b1ba77925d44ff0ba1843
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98943177"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706811"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>PowerShell을 사용하여 Apache Hive 쿼리 실행
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-이 문서에서는 Azure PowerShell를 사용 하 여 HDInsight 클러스터의 Apache Hadoop에서 Apache Hive 쿼리를 실행 하는 예를 제공 합니다.
+이 문서에서는 Azure PowerShell을 사용하여 HDInsight의 Apache Hadoop 클러스터에서 Apache Hive 쿼리를 실행하는 예제를 보여 줍니다.
 
 > [!NOTE]  
 > 이 문서에는 예제에 사용된 HiveQL 문이 수행하는 작업에 대해 자세한 설명을 제공하지 않습니다. 이 예제에서 사용된 HiveQL에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop과 Apache Hive 사용](hdinsight-use-hive.md)을 참조하세요.
@@ -53,7 +53,7 @@ Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 �
     .\hivejob.ps1
     ```
 
-    스크립트가 실행 되 면 클러스터 이름과 HTTPS/Cluster Admin 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다. Azure 구독에 로그인 하 라는 메시지가 표시 될 수도 있습니다.
+    스크립트를 실행할 때 클러스터 이름 및 HTTPS/클러스터 관리자 계정 자격 증명을 입력하라는 메시지가 표시됩니다. Azure 구독에 로그인하라는 메시지도 표시될 수 있습니다.
 
 3. 작업이 완료되면 다음 텍스트와 유사한 정보가 반환됩니다.
 
@@ -81,7 +81,7 @@ Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 �
    >
    > `Invoke-AzHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
-   > **여기** 에 대 한 자세한 내용은 문자열을 참조 [하세요.](/powershell/module/microsoft.powershell.core/about/about_quoting_rules#here-strings)
+   > **Here-Strings** 에 대한 자세한 내용은 [HERE-STRINGS](/powershell/module/microsoft.powershell.core/about/about_quoting_rules#here-strings)를 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

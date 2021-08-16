@@ -1,7 +1,7 @@
 ---
 title: 'MLOps: ML 모델 관리'
 titleSuffix: Azure Machine Learning
-description: 'Azure Machine Learning(MLOps)을 통한 모델 관리에 대해 알아봅니다. 모델을 배포, 관리, 모니터링하여 지속적으로 개선합니다. '
+description: 'Azure Machine Learning(MLOps)을 통한 모델 관리에 대해 알아봅니다. 모델을 배포, 관리, 계보 추적 및 모니터링하여 지속적으로 개선합니다. '
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 32777d9f8313457036b103777f251329687b3997
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 88a2dc2e38861cff540cfa1fcdc0b3f6e9651b04
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508013"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439911"
 ---
-# <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 통한 모델 관리, 배포, 모니터링
+# <a name="mlops-model-management-deployment-lineage-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 통한 모델 관리, 배포, 계보 추적 및 모니터링
 
 이 문서에서는 Azure Machine Learning 사용하여 모델의 수명 주기를 관리하는 방법을 알아봅니다. Azure Machine Learning은 Machine Learning Operations(MLOps) 방식을 사용합니다. MLOps는 기계 학습 솔루션의 품질 및 일관성을 개선합니다. 
 
@@ -27,14 +27,14 @@ Machine Learning Operations(MLOps)는 워크플로의 효율성을 향상시키�
 
 * 모델의 실험 및 개발 속도 향상
 * 프로덕션 단계로의 모델 배포 속도 향상
-* 품질 보증
+* 품질 보증 및 엔드 투 엔드 계보 추적
 
 Azure Machine Learning은 다음과 같은 MLOps 기능을 제공합니다.
 
 - **재현 가능한 ML 파이프라인을 만듭니다**. Machine Learning 파이프라인을 사용하면 데이터 준비, 학습, 채점 프로세스에 대해 반복 및 재사용이 가능한 단계를 정의할 수 있습니다.
 - 모델 학습 및 배포를 위해 **재사용 가능한 소프트웨어 환경을 만듭니다**.
 - **어디에서나 모델을 등록, 패키징, 배포** 합니다. 또한 모델을 사용하는 데 필요한 연결된 메타데이터를 추적할 수 있습니다.
-- **ML 수명 주기 전체에 걸쳐 거버넌스 데이터를 캡처합니다**. 로그된 정보에는 모델을 게시하는 주체, 변경 사유, 프로덕션 환경에서 모델이 배포 또는 사용된 시점 등이 포함될 수 있습니다.
+- **ML 수명 주기 전체에 걸쳐 거버넌스 데이터를 캡처합니다**. 로그된 계보 정보에는 모델을 게시하는 주체, 변경 사유, 프로덕션 환경에서 모델이 배포 또는 사용된 시점 등이 포함될 수 있습니다.
 - **ML 수명 주기 중 이벤트를 알림 및 경고** 합니다. 예를 들면 실험 완료, 모델 등록, 모델 배포, 데이터 드리프트 검색이 있습니다.
 - **ML 애플리케이션을 모니터링하여 운영 및 ML 관련 문제를 해결** 합니다. 학습 및 추론 간에 모델 입력을 비교하고, 모델별 메트릭을 탐색하고, ML 인프라에 대한 모니터링 및 경고를 제공합니다.
 - **Azure Machine Learning 및 Azure Pipelines를 통해 ML 수명 주기 전체를 자동화** 합니다. 파이프라인을 사용하면 모델을 자주 업데이트하고, 새 모델을 테스트하고, 다른 애플리케이션 및 서비스와 함께 새 ML 모델을 지속적으로 배포할 수 있습니다.

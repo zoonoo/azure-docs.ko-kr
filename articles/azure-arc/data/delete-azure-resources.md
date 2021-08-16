@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: ce46b7afe7344fabde03805dc2a0977411be5811
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: bde1b1f84847c3ebf05f14312b89ae8227908948
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107716082"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411182"
 ---
 # <a name="delete-resources-from-azure"></a>Azure에서 리소스 삭제
 
@@ -22,6 +22,18 @@ ms.locfileid: "107716082"
 
 > [!WARNING]
 > 이 문서에 설명된 대로 리소스를 삭제하면 이러한 작업은 되돌릴 수 없습니다.
+
+## <a name="before"></a>이전
+
+Azure Arc SQL Managed Instance 또는 Azure Arc 데이터 컨트롤러와 같은 리소스를 삭제하기 전에 [Azure에 청구 데이터 업로드](view-billing-data-in-azure.md#upload-billing-data-to-azure)에 설명된 지침에 따라 정확한 청구 계산을 위해 사용량 정보를 Azure로 내보내고 업로드해야 합니다.
+
+## <a name="direct-connectivity-mode"></a>직접 연결 모드
+
+클러스터가 직접 연결 모드로 Azure에 연결된 경우 Azure Portal을 사용하여 리소스를 관리합니다. 데이터 컨트롤러, Managed Instance 및 PostgreSQL 그룹에 대한 모든 만들기, 읽기, 업데이트 및 삭제(CRUD) 작업에 포털을 사용합니다.
+
+[Azure Portal을 사용하여 Azure 리소스 관리](../../azure-resource-manager/management/manage-resources-portal.md)를 참조하세요.
+
+## <a name="indirect-connectivity-mode"></a>간접 연결 모드
 
 간접 연결 모드에서는 Kubernetes에서 인스턴스를 삭제해도 Azure에서는 인스턴스가 제거되지 않으며 반대로 Azure에서 인스턴스를 삭제해도 Kubernetes에서는 제거되지 않습니다. 간접 연결 모드의 경우 리소스를 삭제하는 과정은 두 단계로 진행되며 나중에 개선될 예정입니다. Kubernetes는 신뢰할 수 있는 원본이 되며 포털은 이를 반영하도록 업데이트됩니다.
 

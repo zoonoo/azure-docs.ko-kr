@@ -1,7 +1,7 @@
 ---
 title: 원격 모델 배포 문제 해결
 titleSuffix: Azure Machine Learning
-description: Azure Kubernetes Service 및 Azure Container Instances에서 몇 가지 일반적인 Docker 배포 오류를 해결 하 고 해결 하 고 해결 하는 방법에 대해 알아봅니다.
+description: Azure Kubernetes Service 및 Azure Container Instances와 관련된 일반적인 일부 Docker 배포 오류를 해결하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,24 +10,24 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 8bec083e62bec6a0311487c1e64e780ad14f451b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.openlocfilehash: 4d1bffd39fa474a5c973ca2b6fd45e9f59964e39
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518266"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110098293"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>원격 모델 배포 문제 해결 
 
-Azure Machine Learning를 사용 하 여 Azure Container Instances (ACI) 및 Azure Kubernetes 서비스 (AKS)에 모델을 배포할 때 발생할 수 있는 일반적인 오류를 해결 하 고 해결 하거나 해결 하는 방법에 대해 알아봅니다.
+Azure Machine Learning을 사용하여 ACI(Azure Container Instances) 및 AKS(Azure Kubernetes Service)에 모델을 배포할 때 발생할 수 있는 일반적인 오류를 해결하거나 방법을 알아봅니다.
 
 > [!NOTE]
-> Azure Kubernetes Service (AKS)에 모델을 배포 하는 경우 해당 클러스터에 대 한 [Azure Monitor](../azure-monitor/containers/container-insights-enable-existing-clusters.md) 를 사용 하도록 설정 하는 것이 좋습니다. 이를 통해 전반적인 클러스터 상태와 리소스 사용을 이해할 수 있습니다. 또한 다음과 같은 리소스를 유용 하 게 사용할 수 있습니다.
+> AKS(Azure Kubernetes Service)에 모델을 배포하는 경우 해당 클러스터에 대해 [Azure Monitor](../azure-monitor/containers/container-insights-enable-existing-clusters.md)를 사용하도록 설정하는 것이 좋습니다. 이렇게 하면 전반적인 클러스터 상태와 리소스 사용을 해석할 수 있습니다. 다음 리소스도 유용할 수 있습니다.
 >
 > * [AKS 클러스터에 영향을 주는 Resource Health 이벤트 확인](../aks/aks-resource-health.md)
 > * [Azure Kubernetes Service 진단](../aks/concepts-diagnostics.md)
 >
-> 비정상 또는 오버 로드 된 클러스터에 모델을 배포 하려는 경우 문제가 발생할 수 있습니다. AKS 클러스터 문제를 해결 하는 데 도움이 필요한 경우 AKS 지원에 문의 하세요.
+> 비정상 또는 오버로드 상태인 클러스터에 모델 배포를 시도하면 문제가 발생하게 됩니다. AKS 클러스터 문제 해결에 도움이 필요한 경우 AKS 고객 지원팀에 문의하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -38,35 +38,35 @@ Azure Machine Learning를 사용 하 여 Azure Container Instances (ACI) 및 Azu
 
 ## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>기계 학습 모델의 Docker 배포 단계
 
-Azure Machine Learning에서 로컬이 아닌 계산에 모델을 배포 하는 경우 다음 작업이 수행 됩니다.
+Azure Machine Learning에서 로컬이 아닌 컴퓨팅에 모델을 배포하는 경우 다음 작업이 수행됩니다.
 
-1. InferenceConfig의 환경 개체에서 지정한 Dockerfile은 원본 디렉터리의 내용과 함께 클라우드로 전송 됩니다.
-1. 컨테이너 레지스트리에서 이전에 빌드된 이미지를 사용할 수 없는 경우 새 Docker 이미지가 클라우드에 빌드되고 작업 영역의 기본 컨테이너 레지스트리에 저장 됩니다.
-1. 컨테이너 레지스트리의 Docker 이미지가 계산 대상으로 다운로드 됩니다.
-1. 작업 영역의 기본 Blob 저장소가 계산 대상에 탑재 되어 등록 된 모델에 대 한 액세스를 제공 합니다.
-1. 웹 서버는 사용자의 입력 스크립트 함수를 실행 하 여 초기화 됩니다. `init()`
-1. 배포 된 모델에서 요청을 받으면 `run()` 함수는 해당 요청을 처리 합니다.
+1. InferenceConfig의 환경 개체에서 지정한 Dockerfile은 원본 디렉터리의 내용과 함께 클라우드로 전송됩니다.
+1. 이전에 빌드한 이미지를 컨테이너 레지스트리에서 사용할 수 없는 경우 새 Docker 이미지가 클라우드에 빌드되고 작업 영역의 기본 컨테이너 레지스트리에 저장됩니다.
+1. 컨테이너 레지스트리의 Docker 이미지가 컴퓨팅 대상에 다운로드됩니다.
+1. 작업 영역의 기본 Blob 저장소가 컴퓨팅 대상에 탑재되어 등록된 모델에 대한 액세스 권한을 부여합니다.
+1. 웹 서버는 입력 스크립트의 `init()` 함수를 실행하여 초기화됩니다.
+1. 배포된 모델이 요청을 받으면 `run()` 함수가 해당 요청을 처리합니다.
 
-로컬 배포를 사용할 때의 주요 차이점은 컨테이너 이미지가 로컬 컴퓨터에 구축 된다는 것입니다. 따라서 로컬 배포를 위해 Docker를 설치 해야 합니다.
+로컬 배포를 사용할 때의 주요 차이점은 컨테이너 이미지가 로컬 컴퓨터에 빌드된다는 것입니다. 따라서 로컬 배포를 위해 Docker를 설치해야 합니다.
 
-이러한 개략적인 단계를 이해 하면 오류가 발생 하는 위치를 이해 하는 데 도움이 됩니다.
+이러한 상위 수준 단계를 이해하면 오류가 발생하는 위치를 이해하는 데 도움이 됩니다.
 
 ## <a name="get-deployment-logs"></a>배포 로그 가져오기
 
-디버깅 오류에 대 한 첫 번째 단계는 배포 로그를 가져오는 것입니다. 먼저 [여기에 설명 된 지침](how-to-deploy-and-where.md#connect-to-your-workspace) 에 따라 작업 영역에 연결 합니다.
+디버깅 오류에 대한 첫 번째 단계는 배포 로그를 가져오는 것입니다. 먼저 [여기의 지침](how-to-deploy-and-where.md#connect-to-your-workspace)에 따라 작업 영역에 연결합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
-배포 된 웹 서비스에서 로그를 가져오려면 다음을 수행 합니다.
+배포된 웹 서비스에서 로그를 가져오려면 다음을 수행합니다.
 
-```bash
+```azurecli
 az ml service get-logs --verbose --workspace-name <my workspace name> --name <service name>
 ```
 
 # <a name="python"></a>[Python](#tab/python)
 
 
-라는 형식의 개체가 있다고 가정 하면 `azureml.core.Workspace` 다음을 `ws` 수행할 수 있습니다.
+`ws`라는 `azureml.core.Workspace` 유형의 개체가 있다고 가정하면 다음을 수행할 수 있습니다.
 
 ```python
 print(ws.webservices)
@@ -83,19 +83,19 @@ print(service.get_logs())
 
 ## <a name="debug-locally"></a>로컬에서 디버그
 
-ACI 또는 AKS에 모델을 배포할 때 문제가 발생 하는 경우 로컬 웹 서비스로 배포 합니다. 로컬 웹 서비스를 사용하면 문제를 더 쉽게 해결할 수 있습니다. 로컬로 배포 문제를 해결 하려면 [로컬 문제 해결 문서](./how-to-troubleshoot-deployment-local.md)를 참조 하세요.
+ACI 또는 AKS에 모델을 배포할 때 문제가 있는 경우 로컬 웹 서비스로 배포합니다. 로컬 웹 서비스를 사용하면 문제를 더 쉽게 해결할 수 있습니다. 로컬 배포 문제를 해결하려면 [로컬 문제 해결 문서](./how-to-troubleshoot-deployment-local.md)를 참조하세요.
 
 ## <a name="container-cannot-be-scheduled"></a>컨테이너를 예약할 수 없음
 
-서비스를 Azure Kubernetes Service 컴퓨팅 대상에 배포하는 경우 Azure Machine Learning에서 서비스를 요청된 리소스의 양으로 예약하려고 합니다. 5 분 후에 적절 한 양의 리소스를 사용 하 여 클러스터에서 사용할 수 있는 노드가 없으면 배포에 실패 합니다. 실패 메시지는 `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` 입니다. 노드를 더 추가 하거나, 노드의 SKU를 변경 하거나, 서비스의 리소스 요구 사항을 변경 하 여이 오류를 해결할 수 있습니다. 
+서비스를 Azure Kubernetes Service 컴퓨팅 대상에 배포하는 경우 Azure Machine Learning에서 서비스를 요청된 리소스의 양으로 예약하려고 합니다. 5분 후에 적절한 양의 리소스가 있는 클러스터에서 사용할 수 있는 노드가 없으면 배포가 실패합니다. 실패 메시지는 `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`입니다. 이 오류는 더 많은 노드를 추가하거나 노드의 SKU를 변경하거나 서비스의 리소스 요구 사항을 변경하여 해결할 수 있습니다. 
 
-오류 메시지는 일반적으로 필요한 리소스를 나타냅니다. 즉, `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` 서비스에 gpu가 필요 하 고 사용 가능한 gpu가 없는 클러스터에 3 개의 노드가 있음을 나타내는 오류 메시지가 표시 됩니다. 이는 GPU SKU를 사용하는 경우 더 많은 노드를 추가하거나, 사용하지 않는 경우 GPU 지원 SKU로 전환하거나, GPU가 필요하지 않도록 환경을 변경하여 해결할 수 있습니다.  
+오류 메시지는 일반적으로 더 필요한 리소스를 나타냅니다. 예를 들어 `0/3 nodes are available: 3 Insufficient nvidia.com/gpu`를 나타내는 오류 메시지가 표시되면 서비스에 GPU가 필요하며 사용 가능한 GPU가 없는 클러스터에 세 개의 노드가 있음을 의미합니다. 이는 GPU SKU를 사용하는 경우 더 많은 노드를 추가하거나, 사용하지 않는 경우 GPU 지원 SKU로 전환하거나, GPU가 필요하지 않도록 환경을 변경하여 해결할 수 있습니다.  
 
 ## <a name="service-launch-fails"></a>서비스 시작 실패
 
 이미지가 성공적으로 빌드되면 시스템에서 배포 구성을 사용하여 컨테이너를 시작하려고 합니다. 컨테이너 시작 프로세스의 일부로, 시스템에서 채점 스크립트의 `init()` 함수를 호출합니다. `init()` 함수에 catch되지 않은 예외가 있는 경우 오류 메시지에 **CrashLoopBackOff** 오류가 표시될 수 있습니다.
 
-[Docker 로그 검사](how-to-troubleshoot-deployment-local.md#dockerlog) 문서에서 정보를 사용 합니다.
+[Docker 로그 검사](how-to-troubleshoot-deployment-local.md#dockerlog) 문서의 정보를 사용하세요.
 
 ## <a name="function-fails-get_model_path"></a>함수 실패: get_model_path()
 
@@ -137,9 +137,9 @@ def run(input_data):
 
 ## <a name="http-status-code-503"></a>503 HTTP 상태 코드
 
-Azure Kubernetes Service 배포는 자동 크기 조정을 지원하므로 추가 로드를 지원하기 위해 복제본을 추가할 수 있습니다. Autoscaler는 부하의 **점진적** 변화를 처리 하도록 설계 되었습니다. 초당 요청 수가 크게 급증하면 클라이언트에서 503 HTTP 상태 코드를 받을 수 있습니다. Autoscaler가 빠르게 반응 하더라도 추가 컨테이너를 만드는 데 상당한 시간이 소요 됩니다.
+Azure Kubernetes Service 배포는 자동 크기 조정을 지원하므로 추가 로드를 지원하기 위해 복제본을 추가할 수 있습니다. 자동 크기 조정기는 **점진적** 로드 변경을 처리하도록 설계되었습니다. 초당 요청 수가 크게 급증하면 클라이언트에서 503 HTTP 상태 코드를 받을 수 있습니다. 자동 크기 조정기가 빠르게 반응하더라도 추가 컨테이너를 만드는 데 상당한 시간이 소요됩니다.
 
-수직 확장/축소 결정은 현재 컨테이너 복제본의 사용률을 기준으로 합니다. 현재 복제본의 총 수로 나눈 사용 중인 복제본 수 (요청 처리)가 현재 사용량입니다. 이 수가 초과 `autoscale_target_utilization` 되 면 더 많은 복제본이 생성 됩니다. 이보다 낮으면 복제본이 줄어듭니다. 복제본 추가에 대 한 결정은 신속 하 고 빠르게 진행 됩니다 (약 1 초). 복제본 제거에 대 한 결정은 매우 보수적인 결정입니다 (약 1 분). 기본적으로 자동 크기 조정 대상 사용률은 **70%** 로 설정 됩니다. 즉, 서비스가 **최대 30%** 의 초당 급증 하는 요청 수 (RPS)를 처리할 수 있습니다.
+스케일 업/다운 결정은 현재 컨테이너 복제본의 사용률에 기반합니다. 사용 중인(요청을 처리하는) 복제본 수를 현재 복제본의 총 수로 나눈 값이 현재 사용률입니다. 이 수가 `autoscale_target_utilization`을 초과하면 더 많은 복제본이 생성됩니다. 이보다 낮으면 복제본이 감소됩니다. 복제본 추가에 대한 결정은 열성적이고 빠릅니다(약 1초). 복제본 제거에 대한 결정은 보수적입니다(약 1분). 기본적으로 자동 크기 조정 목표 사용률은 **70%** 로 설정됩니다. 즉 서비스에서 RPS(초당 요청 수)의 급증을 **최대 30%** 까지 처리할 수 있습니다.
 
 503 상태 코드를 방지하는 데 도움이 되는 두 가지 방법이 있습니다.
 
@@ -183,23 +183,23 @@ Azure Kubernetes Service 배포는 자동 크기 조정을 지원하므로 추�
 
 504 상태 코드는 요청 시간이 초과되었음을 나타냅니다. 기본 시간 제한은 1분입니다.
 
-불필요한 호출을 제거하도록 score.py를 수정하여 시간 제한을 늘리거나 서비스 속도를 높일 수 있습니다. 이러한 작업으로도 문제가 해결되지 않으면 이 문서의 정보를 사용하여 score.py 파일을 디버그합니다. 이 코드는 응답성이 아닌 상태나 무한 루프에 있을 수 있습니다.
+불필요한 호출을 제거하도록 score.py를 수정하여 시간 제한을 늘리거나 서비스 속도를 높일 수 있습니다. 이러한 작업으로도 문제가 해결되지 않으면 이 문서의 정보를 사용하여 score.py 파일을 디버그합니다. 코드가 응답하지 않는 상태이거나 무한 루프일 수 있습니다.
 
 ## <a name="other-error-messages"></a>기타 오류 메시지
 
-다음 오류에 대해이 작업을 수행 합니다.
+다음 오류에 대해 이 작업을 수행합니다.
 
-|오류  | 해결 방법  |
+|Error  | 해결 방법  |
 |---------|---------|
-|웹 서비스 배포 시 이미지 작성 오류     |  이미지 구성을 위해 "pConda acl = = 1.2.1"을 파일에 대 한 pip 종속성으로 추가 합니다.       |
-|`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   배포에 사용 되는 Vm의 SKU를 메모리를 더 많이 포함 하는 Vm으로 변경 합니다. |
-|FPGA 오류     |  요청을 하고 FPGA 할당량의 승인을 받을 때까지 FPGA에 모델을 배포할 수 없습니다. 액세스를 요청하려면 할당량 요청 양식 https://aka.ms/aml-real-time-ai를 작성합니다.       |
+|웹 서비스를 배포할 때 이미지 빌드가 실패했습니다.     |  이미지 구성을 위해 Conda 파일에 "pynacl == 1.2.1"을 pip 종속성으로 추가합니다.       |
+|`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   배포에 사용되는 VM의 SKU를 메모리를 더 많이 포함하는 SKU로 변경합니다. |
+|FPGA 실패     |  요청을 하고 FPGA 할당량의 승인을 받을 때까지 FPGA에 모델을 배포할 수 없습니다. 액세스를 요청하려면 할당량 요청 양식 https://aka.ms/aml-real-time-ai를 작성합니다.       |
 
 ## <a name="advanced-debugging"></a>고급 디버깅
 
-모델 배포에 포함된 Python 코드를 대화형으로 디버그해야 할 수도 있습니다. 예를 들어 항목 스크립트가 실패하고 추가 로깅으로 이유를 확인할 수 없는 경우입니다. Visual Studio Code 및 debugpy를 사용 하 여 Docker 컨테이너 내에서 실행 되는 코드에 연결할 수 있습니다.
+모델 배포에 포함된 Python 코드를 대화형으로 디버그해야 할 수도 있습니다. 예를 들어 항목 스크립트가 실패하고 추가 로깅으로 이유를 확인할 수 없는 경우입니다. Visual Studio Code 및 debugpy를 사용하여 Docker 컨테이너 내부에서 실행되는 코드에 연결할 수 있습니다.
 
-자세한 내용은 [VS Code의 대화형 디버깅 가이드](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments)를 참조 하세요.
+자세한 내용은 [VS Code의 대화형 디버깅 가이드](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments)를 참조하세요.
 
 ## <a name="model-deployment-user-forum"></a>[모델 배포 사용자 포럼](/answers/topics/azure-machine-learning-inference.html)
 
@@ -209,4 +209,4 @@ Azure Kubernetes Service 배포는 자동 크기 조정을 지원하므로 추�
 
 * [배포 방법 및 위치](how-to-deploy-and-where.md)
 * [자습서: 모델 학습 및 배포](tutorial-train-models-with-aml.md)
-* [로컬에서 실험을 실행 하 고 디버그 하는 방법](./how-to-debug-visual-studio-code.md)
+* [로컬에서 실험을 실행하고 디버그하는 방법](./how-to-debug-visual-studio-code.md)

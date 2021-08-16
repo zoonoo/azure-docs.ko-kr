@@ -1,20 +1,20 @@
 ---
 title: Azure Marketplace의 CSP(클라우드 솔루션 공급자)를 통해 제품 재판매
-description: Azure Marketplace의 CSP(클라우드 솔루션 공급자)를 통해 제품을 재판매하는 방법을 알아봅니다.
+description: Azure Marketplace의 CSP(클라우드 솔루션 공급자)를 통해 제품 재판매
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 11/05/2020
-ms.openlocfilehash: 4f243ca5be0878cde3b28f5b7a7c3eea0cf9b8d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd02ae6a9c58979c9d4747e67948df69748f3f1a
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94631589"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111525069"
 ---
-# <a name="how-to-resell-your-offer-through-csp"></a>CSP를 통해 제품을 재판매하는 방법
+# <a name="resell-your-offer-through-csp"></a>CSP를 통해 제품 재판매
 
 ## <a name="resell-through-csp"></a>CSP를 통한 재판매
 

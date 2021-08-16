@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop MSIX 앱 연결 - Azure
+title: Azure Virtual Desktop MSIX 앱 연결 용어집 - Azure
 description: MSIX 앱 연결 용어 및 개념의 용어집입니다.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: c5c596735ad91f38d5ba4217135a9373d2856182
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 66f3cc71c27ff80991f3cded1957f90e622f447f
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538460"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745676"
 ---
 # <a name="msix-app-attach-glossary"></a>MSIX 앱 연결 용어집
 
@@ -65,15 +65,15 @@ MSIX 패키지를 확장하려면:
 
 MSIX 패키지를 업로드하려면 확장된 MSIX 패키지를 포함하는 VHD(x) 또는 [CIM](#cim)을 MSIX 공유에 업로드해야 합니다.
 
-Windows Virtual Desktop에서 업로드는 MSIX 공유당 한 번 수행됩니다. 패키지를 업로드하면 동일한 구독의 모든 호스트 풀이 해당 패키지를 참조할 수 있습니다.
+Azure Virtual Desktop에서 업로드는 MSIX 공유당 한 번 수행됩니다. 패키지를 업로드하면 동일한 구독의 모든 호스트 풀이 해당 패키지를 참조할 수 있습니다.
 
 ## <a name="add-an-msix-package"></a>MSIX 패키지 추가
 
-Windows Virtual Desktop에서 MSIX 패키지를 추가하면 해당 패키지가 호스트 풀에 연결됩니다.
+Azure Virtual Desktop에서 MSIX 패키지를 추가하면 해당 패키지가 호스트 풀에 연결됩니다.
 
 ## <a name="publish-an-msix-package"></a>MSIX 패키지 게시 
 
-Windows Virtual Desktop에서 게시된 MSIX 패키지는 AD DS(Active Directory Domain Service) 또는 Azure AD(Azure Active Directory) 사용자 또는 사용자 그룹에 할당해야 합니다.
+Azure Virtual Desktop에서 게시된 MSIX 패키지는 AD DS(Active Directory Domain Service) 또는 Azure AD(Azure Active Directory) 사용자 또는 사용자 그룹에 할당해야 합니다.
 
 ## <a name="staging"></a>스테이징
 
@@ -90,11 +90,11 @@ Windows Virtual Desktop에서 게시된 MSIX 패키지는 AD DS(Active Directory
 
 ### <a name="regular-registration"></a>일반 등록
 
-일반 등록에서는 사용자에게 할당된 각 애플리케이션이 완전히 등록됩니다. 등록은 사용자가 세션에 로그인하는 동안 수행되므로 Windows Virtual Desktop 사용을 시작하는 데 걸리는 시간에 영향을 줄 수 있습니다.
+일반 등록에서는 사용자에게 할당된 각 애플리케이션이 완전히 등록됩니다. 등록은 사용자가 세션에 로그인하는 동안 수행되므로 Azure Virtual Desktop 사용을 시작하는 데 걸리는 시간에 영향을 줄 수 있습니다.
 
 ### <a name="delayed-registration"></a>지연 등록
 
-지연 등록에서는 사용자에게 할당된 각 애플리케이션이 부분적으로만 등록됩니다. 부분 등록은 시작 메뉴 타일 및 두 번 클릭 파일 연결이 등록됨을 의미합니다. 등록은 사용자가 세션에 로그인하는 동안 수행되므로 Windows Virtual Desktop 사용을 시작하는 데 걸리는 시간에 미치는 영향을 최소화합니다. 등록은 사용자가 MSIX 패키지에서 애플리케이션을 실행할 때만 완료됩니다.
+지연 등록에서는 사용자에게 할당된 각 애플리케이션이 부분적으로만 등록됩니다. 부분 등록은 시작 메뉴 타일 및 두 번 클릭 파일 연결이 등록됨을 의미합니다. 등록은 사용자가 세션에 로그인하는 동안 수행되므로 Azure Virtual Desktop 사용을 시작하는 데 걸리는 시간에 미치는 영향을 최소화합니다. 등록은 사용자가 MSIX 패키지에서 애플리케이션을 실행할 때만 완료됩니다.
 
 지연 등록은 현재 MSIX 앱 연결의 기본 구성입니다.
 
@@ -110,7 +110,7 @@ Windows Virtual Desktop에서 게시된 MSIX 패키지는 AD DS(Active Directory
 
 .CIM은 CimFS(Composite Image Files System)와 연결된 새 파일 확장명입니다. CIM 파일 탑재 및 분리는 VHD 파일보다 더 빠릅니다. 또한 CIM은 VHD보다 더 적은 CPU와 메모리를 사용합니다.
 
-CIM 파일은 메타데이터와 함께 실제 파일이 포함된 6개 이상 추가 파일을 포함하는 .CIM 확장명이 있는 파일입니다. CIM 파일 내의 파일에는 확장명이 없습니다. 다음 표는 CIM 내에서 찾을 예제 파일 목록입니다.
+CIM 파일은 메타데이터와 함께 실제 파일이 포함된 2개 이상의 추가 파일을 포함하는 .CIM 확장명이 있는 파일입니다. CIM 파일 내의 파일에는 확장명이 없습니다. 다음 표는 CIM 내에서 찾을 예제 파일 목록입니다.
 
 | 파일 이름 | 내선 번호 | 크기 |
 |-----------|-----------|------|

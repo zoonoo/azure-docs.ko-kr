@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: zarhoads
-ms.openlocfilehash: e293d0c58f265b25f3df0a218f84888467468f59
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 248b91be60f4da3ce7dd10212a9db69377651ccb
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767496"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110071545"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>빠른 시작: Helm을 사용하여 AKS (Azure Kubernetes Service) 개발
 
@@ -88,7 +88,7 @@ Kubernetes 클러스터를 로컬로 연결하려면 Kubernetes 명령줄 클라
 
 ## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
 
-이 빠른 시작에서는 [Azure Dev Spaces 샘플 리포지토리의 예제 Node.js 애플리케이션][example-nodejs]을 사용합니다. GitHub에서 애플리케이션을 복제하고 `dev-spaces/samples/nodejs/getting-started/webfrontend` 디렉터리로 이동합니다.
+이 빠른 시작에서는 [Node.js 애플리케이션 예][example-nodejs]를 사용합니다. GitHub에서 애플리케이션을 복제하고 `dev-spaces/samples/nodejs/getting-started/webfrontend` 디렉터리로 이동합니다.
 
 ```console
 git clone https://github.com/Azure/dev-spaces

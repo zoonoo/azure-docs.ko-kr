@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0620304de1866d24719b137836419502cd25bee9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b03b93c09ebe1c8361379dba018d7c756f409d4
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98682240"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745154"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Azure Active Directory의 셀프 서비스 비밀번호 재설정 쓰기 저장 문제 해결
 
@@ -147,7 +147,8 @@ Azure AD Connect를 다시 설치하면 Azure AD와 로컬 Active Directory Doma
 | 페더레이션되었거나 통과 인증 또는 암호 해시 동기화된 사용자가 자신의 암호를 재설정하려고 하면 암호 제출을 시도한 후에 오류가 나타납니다. 이 오류는 서비스 문제가 있음을 나타냅니다. <br ><br> 이 문제 외에도 암호 재설정 작업 중 관리 에이전트와 관련한 오류가 온-프레미스 이벤트 로그에서 거부된 액세스를 표시할 수 있습니다 | 이러한 오류를 이벤트 로그에 표시한 경우 구성 시 마법사에서 지정된 ADMA(Active Directory Management Agent) 계정이 비밀번호 쓰기 저장에 필요한 권한이 있는지 확인합니다. <br> <br> 이 권한이 부여되면 DC(도메인 컨트롤러)에서 `sdprop` 백그라운드 작업을 통해 권한을 주는 데 최대 1시간이 걸릴 수 있습니다. <br> <br> 암호 재설정을 작동하기 위해 해당 암호를 재설정하는 사용자 개체의 보안 설명자에 사용 권한을 스탬프해야 합니다. 사용자 개체에 이 사용 권한이 표시될 때까지 암호 재설정은 액세스 거부 메시지를 표시하며 실패하게 됩니다. |
 | 페더레이션되었거나 통과 인증 또는 암호 해시 동기화된 사용자가 자신의 암호를 재설정하려고 하면 암호를 제출한 후에 오류가 나타납니다. 이 오류는 서비스 문제가 있음을 나타냅니다. <br> <br> 이 문제 외에도 암호 재설정 작업 중에 “개체를 찾을 수 없습니다”라는 Azure AD Connect 서비스에서 이벤트 로그에 오류가 보일 수 있습니다. | 이 오류는 일반적으로 동기화 엔진이 Azure AD 커넥터 공간 또는 연결된 MV(메타버스)에서 사용자 개체 또는 Azure AD 커넥터 공간 개체를 찾을 수 없음을 나타냅니다. <br> <br> 이 문제를 해결하려면 Azure AD Connect의 현재 인스턴스를 통해 사용자가 온-프레미스에서 Azure AD에 실제로 동기화되었는지 확인하고 커넥터 공간 및 MV에서 개체의 상태를 검사합니다. AD CS(Active Directory 인증서 서비스) 개체가 "Microsoft.InfromADUserAccountEnabled.xxx" 규칙을 통한 MV 개체에 연결되어 있는지 확인합니다.|
 | 페더레이션되었거나 통과 인증 또는 암호 해시 동기화된 사용자가 자신의 암호를 재설정하려고 하면 암호를 제출한 후에 오류가 나타납니다. 이 오류는 서비스 문제가 있음을 나타냅니다. <br> <br> 이 문제 외에도 암호 재설정 작업 중에 Azure AD Connect 서비스에서 이벤트 로그에 "여러 에러를 찾았습니다"라는 오류가 나타날 수 있습니다. | 이는 MV 개체가 "Microsoft.InfromADUserAccountEnabled.xxx"를 통해 둘 이상의 연결된 AD CS 개체라는 점을 동기화 엔진이 감지했음을 나타냅니다. 이는 사용자에게 둘 이상의 포리스트에 활성화된 계정이 있음을 의미합니다. 이 시나리오는 비밀번호 쓰기 저장을 지원하지 않습니다. |
-| 구성 오류가 있으면 암호 작업은 실패합니다. 애플리케이션 이벤트 로그는 텍스트와 함께 Azure AD Connect 오류 6329를 포함합니다. “0x8023061f (이 관리 에이전트에서 암호 동기화를 사용하지 않기 때문에 작업이 실패했습니다.)” | 이 오류는 비밀번호 쓰기 저장 기능이 이미 설정된 후에 Azure AD Connect 구성이 새 Active Directory 포리스트를 추가(또는 기존 포리스트를 제거하고 다시 추가)하여 변경된 경우 발생합니다. 이렇게 최근에 추가된 포리스트에서 사용자에 대한 암호 작업은 실패합니다. 이 문제를 해결하려면 포리스트 구성이 변경된 후에 비활성화 및 재활성화된 비밀번호 쓰기 저장 기능을 완료합니다. |
+| 구성 오류가 있으면 암호 작업은 실패합니다. 애플리케이션 이벤트 로그는 텍스트와 함께 Azure AD Connect 오류 6329를 포함합니다. “0x8023061f (이 관리 에이전트에서 암호 동기화를 사용하지 않기 때문에 작업이 실패했습니다.)” | 이 오류는 비밀번호 쓰기 저장 기능이 이미 설정된 후에 Azure AD Connect 구성이 새 Active Directory 포리스트를 추가(또는 기존 포리스트를 제거하고 다시 추가)하여 변경된 경우 발생합니다. 이렇게 최근에 추가된 포리스트에서 사용자에 대한 암호 작업은 실패합니다. 이 문제를 해결하려면 포리스트 구성이 변경된 후에 비활성화 및 재활성화된 비밀번호 쓰기 저장 기능을 완료합니다.
+| SSPR_0029: 온-프레미스 구성의 오류로 인해 암호를 다시 설정할 수 없습니다. 관리자에게 문의하고 조사하도록 요청하세요. | 문제: 필요한 모든 단계에 따라 비밀번호 쓰기 저장이 활성화되었지만 암호를 변경하려고 할 때 "SSPR_0029: 조직에서 암호 재설정에 대한 온-프레미스 구성을 제대로 설정하지 않았습니다."라는 메시지가 표시됩니다. Azure AD Connect 시스템에서 이벤트 로그를 확인하면 관리 에이전트 자격 증명의 액세스가 거부된 것으로 표시됩니다. 가능한 솔루션: Azure AD Connect 시스템 및 도메인 컨트롤러에서 RSOP를 사용하여 컴퓨터 구성 > Windows 설정 > 보안 설정 > 로컬 정책 >보안 옵션에 있는 "네트워크 액세스: SAM에 대한 원격 호출을 허용하는 클라이언트 제한" 정책이 활성화되어 있는지 확인합니다. MSOL_XXXXXXX 관리 계정을 허용된 사용자로 포함하도록 정책을 편집합니다. |
 
 ## <a name="password-writeback-event-log-error-codes"></a>비밀번호 쓰기 저장 이벤트 로그 오류 코드
 
@@ -223,7 +224,7 @@ Azure AD 및 셀프 서비스 암호 재설정에 대한 일반적인 질문이 
 * **지원 코드**: 사용자가 오류를 확인했을 때 생성된 지원 코드는 무엇이었나요?
    * 이 코드를 찾으려면 오류를 재현한 후 화면 아래에서 **지원 코드** 링크를 선택하고 지원 엔지니어에게 결과로 표시된 GUID를 보내세요.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="지원 코드는 웹 브라우저 창의 오른쪽 하단에 있습니다.":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="지원 코드는 웹 브라우저 창의 오른쪽 아래에 있습니다.":::
 
   * 아래에서 지원 코드 없이 페이지에서 F12 키를 선택하고 SID 및 CID를 검색한 후 지원 엔지니어에게 이러한 두 개의 결과를 보냅니다.
 * **날짜, 시간 및 표준 시간대**: 오류가 발생한 *표준 시간대와* 정확한 날짜 및 시간을 포함해주세요.
@@ -237,4 +238,4 @@ Azure AD 및 셀프 서비스 암호 재설정에 대한 일반적인 질문이 
 
 ## <a name="next-steps"></a>다음 단계
 
-SSPR에 대해 더 알아보려면 [작동 방식: Azure AD 셀프 서비스 암호 재설정](concept-sspr-howitworks.md) 또는 [Azure AD에서 셀프 서비스 암호 재설정 쓰기 저장이 작동하는 방식](concept-sspr-writeback.md)을 참조하세요.
+SSPR에 대한 자세한 내용은 [작동 방식: Azure AD 셀프 서비스 암호 재설정](concept-sspr-howitworks.md) 또는 [Azure AD에서 셀프 서비스 암호 재설정 쓰기 저장이 작동하는 방식](concept-sspr-writeback.md)을 참조하세요.

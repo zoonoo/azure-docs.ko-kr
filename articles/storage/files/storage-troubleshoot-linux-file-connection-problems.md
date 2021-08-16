@@ -1,27 +1,27 @@
 ---
 title: Linux에서 Azure Files 문제 해결 | Microsoft Docs
-description: Linux에서 Azure Files 문제 해결 Linux 클라이언트에서 연결할 때 Azure Files와 관련 된 일반적인 문제를 확인 하 고 가능한 해결 방법을 참조 하세요.
+description: Linux에서 Azure Files 문제 해결 Linux 클라이언트에서 연결할 때 Azure Files와 관련된 일반적인 문제를 참조하고 가능한 해결 방법을 참조하세요.
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e680ba10c507ef83591b56652ee8e95c4d665dda
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 4c618fad5b1e85df1ffa19fa2aa0e8621ae2bdd9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96492066"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094459"
 ---
-# <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Linux (SMB)의 Azure Files 문제 해결
+# <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Linux에서 Azure Files 문제 해결(SMB)
 
 이 문서에서는 Linux 클라이언트에서 연결할 때 Azure Files와 관련하여 발생하는 일반적인 문제를 보여 줍니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 제공합니다. 
 
 이 문서의 문제 해결 단계 외에도 [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux)를 사용하여 Linux 클라이언트에서 올바른 필수 구성 요소를 갖출 수 있도록 해야 합니다. AzFileDiagnostics는 이 문서에 언급된 대부분의 증상을 자동으로 검색합니다. 또한 최적의 성능을 얻기 위해 환경을 설정하는 데 도움이 됩니다. 이 정보는 [Azure 파일 공유 문제 해결사](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)에서도 발견할 수 있습니다. 문제 해결사는 Azure Files 공유를 연결, 매핑 및 탑재하는 문제를 해결하기 위한 단계를 제공합니다.
 
 > [!IMPORTANT]
-> 이 문서의 내용은 SMB 공유에만 적용 됩니다. NFS 공유에 대 한 자세한 내용은 [AZURE nfs 파일 공유 문제 해결](storage-troubleshooting-files-nfs.md)을 참조 하세요.
+> 이 문서의 내용은 SMB 공유에만 적용됩니다. NFS 공유에 대한 자세한 내용은 [Azure NFS 파일 공유 문제 해결](storage-troubleshooting-files-nfs.md)을 참조하세요.
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Azure 파일 공유에 연결하거나 탑재할 수 없음
 
@@ -29,25 +29,15 @@ ms.locfileid: "96492066"
 
 이 문제에 대한 일반적인 원인은 다음과 같습니다.
 
-- 호환되지 않는 Linux 배포 클라이언트를 사용하고 있습니다. 다음 Linux 배포를 사용하여 Azure 파일 공유에 연결하는 것이 좋습니다.
-
-|   | SMB 2.1 <br>(동일한 Azure 지역 내에서 VM에 탑재) | SMB 3.0 <br>(온-프레미스 및 지역 간 탑재) |
-| --- | :---: | :---: |
-| **Ubuntu Server** | 14.04+ | 16.04+ |
-| **RHEL** | 7+ | 7.5+ |
-| **CentOS** | 7+ |  7.5+ |
-| **Debian** | 8+ |   |
-| **openSUSE** | 13.2+ | 42.3+ |
-| **SUSE Linux Enterprise Server** | 12 | 12 SP3+ |
-
-- CIFS 유틸리티 (cifs-유틸리티)가 클라이언트에 설치 되어 있지 않습니다.
-- 최소 SMB/CIFS 버전 2.1은 클라이언트에 설치되지 않았습니다.
-- SMB 3.0 암호화는 클라이언트에서 지원되지 않습니다. 위의 표에서는 암호화를 사용 하 여 온-프레미스 및 지역 간 탑재를 지 원하는 Linux 배포판 목록을 제공 합니다. 기타 배포에는 커널 4.11 이상 버전이 필요합니다.
+- 오래된 SMB 클라이언트와 함께 Linux 배포를 사용하고 있습니다. 호환되는 클라이언트가 있는 Azure에서 사용할 수 있는 일반적인 Linux 배포에 대한 자세한 내용은 [Linux에서 Azure Files 사용](storage-how-to-use-files-linux.md)을 참조하세요.
+- SMB 유틸리티(cifs-utils)가 클라이언트에 설치되어 있지 않습니다.
+- 최소 SMB 버전 2.1은 클라이언트에서 사용할 수 없습니다.
+- SMB 3.x 암호화는 클라이언트에서 지원되지 않습니다. 위의 표에서는 암호화를 사용하여 온-프레미스 및 지역 간 탑재를 지원하는 Linux 배포 목록을 제공합니다. 기타 배포에는 커널 4.11 이상 버전이 필요합니다.
 - 지원되지 않는 TCP 포트 445를 통해 스토리지 계정에 연결하려고 합니다.
 - Azure VM에서 Azure 파일 공유에 연결하려고 하며, VM이 스토리지 계정과 동일한 지역에 있지 않습니다.
-- 스토리지 계정에서 [보안 전송 필요]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 설정을 사용하도록 설정한 경우 Azure Files에서는 암호화 기능이 포함된 SMB 3.0을 사용하는 연결만 허용합니다.
+- 스토리지 계정에서 [보안 전송 필요](../common/storage-require-secure-transfer.md) 설정을 사용하도록 설정한 경우 Azure Files에서는 암호화 기능이 포함된 SMB 3.x를 사용하는 연결만 허용합니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 이 문제를 해결하려면 [Linux에서 Azure Files 탑재 오류에 대한 문제 해결 도구](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux)를 사용합니다. 이 도구는 다음과 같은 작업을 수행합니다.
 
@@ -57,7 +47,7 @@ ms.locfileid: "96492066"
 * 진단 추적을 수집합니다.
 
 <a id="mounterror13"></a>
-## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>Azure 파일 공유를 탑재할 때 "탑재 오류 (13): 사용 권한 거부"
+## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>Azure 파일 공유를 탑재하면 "탑재 오류(13): 사용 권한 거부됨" 오류 발생
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>원인 1: 암호화되지 않은 통신 채널
 
@@ -70,7 +60,7 @@ ms.locfileid: "96492066"
 1. SMB 암호화를 지원하는 클라이언트에서 연결하거나, Azure 파일 공유에 사용되는 Azure Storage 계정과 동일한 데이터 센터에 있는 가상 머신에서 연결합니다.
 2. 클라이언트가 SMB 암호화를 지원하지 않는 경우 스토리지 계정에서 [보안 전송 필요](../common/storage-require-secure-transfer.md) 설정이 사용하지 않도록 설정되었는지 확인합니다.
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>원인 2: 저장소 계정에서 가상 네트워크 또는 방화벽 규칙이 사용 됩니다. 
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>원인 2: 가상 네트워크 또는 방화벽 규칙이 스토리지 계정에서 사용하도록 설정됨 
 
 가상 네트워크(VNET) 및 방화벽 규칙이 스토리지 계정에 구성된 경우, 클라이언트 IP 주소 또는 가상 네트워크에 액세스가 허용되지 않았다면 네트워크 트래픽이 거부됩니다.
 
@@ -83,98 +73,98 @@ ms.locfileid: "96492066"
 
 Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
 
-**\<filename> [사용 권한 거부 됨] 디스크 할당량 초과**
+**\<filename> [사용 권한 거부됨] 디스크 할당량이 초과됨**
 
 ### <a name="cause"></a>원인
 
-파일이 나 디렉터리에 대해 허용 되는 동시 열린 핸들의 상한에 도달 했습니다.
+파일 또는 디렉터리에 허용되는 동시 열린 핸들의 상한에 도달했습니다.
 
-단일 파일이 나 디렉터리에 2000 열린 핸들의 할당량이 있습니다. 2000개의 열린 핸들이 있는 경우 할당량에 도달했다는 오류 메시지가 표시됩니다.
+단일 파일 또는 디렉터리에 대한 열린 핸들 할당량은 2000개입니다. 2000개의 열린 핸들이 있는 경우 할당량에 도달했다는 오류 메시지가 표시됩니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 일부 핸들을 닫아 동시 열린 핸들 수를 줄인 후 작업을 다시 시도하세요.
 
-파일 공유, 디렉터리 또는 파일에 대 한 열린 핸들을 보려면 [AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet을 사용 합니다.  
+파일 공유, 디렉터리 또는 파일에 대한 열린 핸들을 보려면 [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet을 사용합니다.  
 
-파일 공유, 디렉터리 또는 파일에 대 한 열린 핸들을 닫으려면 [AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet을 사용 합니다.
+파일 공유, 디렉터리 또는 파일에 대한 열린 핸들을 닫으려면 [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet을 사용합니다.
 
 > [!Note]  
-> Get-AzStorageFileHandle 및 Close-AzStorageFileHandle cmdlet은 Az PowerShell module version 2.4 이상에 포함 되어 있습니다. 최신 Az PowerShell module을 설치 하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조 하세요.
+> Get-AzStorageFileHandle 및 Close-AzStorageFileHandle cmdlet에는 Az PowerShell 모듈 버전 2.4 이상에 포함되어 있습니다. 최신 Az PowerShell 모듈을 설치하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Linux에서 Azure Files와 서로 파일을 복사하는 속도 느림
 
 - 최소 I/O 크기에 대한 특정 요구 사항이 없을 경우 최적 성능을 위해 I/O 크기로 1MiB를 사용하는 것이 좋습니다.
 - copy 메서드를 다음과 같이 올바르게 사용합니다.
-    - 두 파일 공유 간의 전송에는 [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 를 사용 합니다.
-    - Cp 또는 dd를 병렬로 사용 하 여 복사 속도를 향상 시킬 수 있습니다. 스레드 수는 사용 사례 및 워크 로드에 따라 달라 집니다. 다음 예에서는 6을 사용 합니다. 
-    - cp 예 (cp는 파일 시스템의 기본 블록 크기를 청크 크기로 사용): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` 를 사용 합니다.
-    - dd 예 (이 명령은 명시적으로 청크 크기를 1 MiB로 설정): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
-    - 오픈 소스 타사 도구:
-        - [GNU Parallel](https://www.gnu.org/software/parallel/).
-        - [Fpart](https://github.com/martymac/fpart) -파일을 정렬 하 고 파티션으로 압축 합니다.
-        - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -fpart와 복사 도구를 사용 하 여 src_dir에서 dst_url로 데이터를 마이그레이션하는 여러 인스턴스를 생성 합니다.
-        - GNU coreutils를 기반으로 하는 [다중](https://github.com/pkolano/mutil) 다중 스레드 cp 및 md5sum.
-- 모든 쓰기를 확장 하는 대신 파일 크기를 미리 설정 하면 파일 크기가 알려져 있는 시나리오에서 복사 속도를 향상 시키는 데 도움이 됩니다. 쓰기 확장을 피해 야 하는 경우 명령을 사용 하 여 대상 파일 크기를 설정할 수 있습니다 `truncate - size <size><file>` . `dd if=<source> of=<target> bs=1M conv=notrunc`그러면 대상 파일의 크기를 반복 해 서 업데이트 하지 않고 원본 파일이 복사 됩니다. 예를 들어 복사 하려는 모든 파일의 대상 파일 크기를 설정할 수 있습니다 (공유가/mnt/share 아래에 탑재 되어 있다고 가정).
+    - 두 파일 공유 간의 전송에는 [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 사용합니다.
+    - cp 또는 dd를 병렬로 사용하면 복사 속도가 향상될 수 있으며 스레드 수는 사용 사례 및 워크로드에 따라 달라집니다. 다음 예에서는 6개를 사용합니다. 
+    - cp 예(cp는 파일 시스템의 기본 블록 크기를 청크 크기로 사용): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - dd 예(이 명령은 명시적으로 청크 크기를 1MiB로 설정): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
+    - 다음과 같은 오픈 소스 타사 도구:
+        - [GNU 병렬](https://www.gnu.org/software/parallel/).
+        - [Fpart](https://github.com/martymac/fpart) - 파일을 정렬하고 파티션으로 압축합니다.
+        - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) - Fpart 및 복사 도구를 사용하여 여러 인스턴스를 생성하고 src_dir에서 dst_url로 데이터를 마이그레이션합니다.
+        - [Multi](https://github.com/pkolano/mutil) - GNU coreutils를 기반으로 하는 다중 스레드 cp 및 md5sum입니다.
+- 모든 쓰기를 확장 쓰기로 설정하는 대신 파일 크기를 미리 설정하면 파일 크기가 알려진 시나리오에서 복사 속도를 향상시키는 데 도움이 됩니다. 쓰기 확장을 피해야 하는 경우 `truncate - size <size><file>` 명령을 사용하여 대상 파일 크기를 설정할 수 있습니다. 그 후 `dd if=<source> of=<target> bs=1M conv=notrunc` 명령은 대상 파일의 크기를 반복적으로 업데이트하지 않고도 원본 파일을 복사합니다. 예를 들어 복사하려는 모든 파일에 대해 대상 파일 크기를 설정할 수 있습니다(공유가 /mnt/share 아래에 탑재된 것으로 가정).
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
-    - 그런 다음 쓰기를 병렬로 확장 하지 않고 파일을 복사 합니다. `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
+    - 그런 다음 - 쓰기를 병렬로 확장하지 않고 파일을 복사합니다. `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
-## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>SMB 3.0을 사용하여 Azure Files를 탑재할 때 “Mount 오류(115): 작업이 진행되고 있습니다”
+## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-3x"></a>SMB 3.x를 사용하여 Azure Files를 탑재할 때 “Mount 오류(115): 작업이 진행되고 있습니다”
 
 ### <a name="cause"></a>원인
 
-일부 Linux 배포는 아직 SMB 3.0의 암호화 기능을 지원하지 않습니다. 사용자는 SMB 3.0을 사용하여 Azure Files를 탑재할 경우 기능 누락으로 인해 “115” 오류 메시지를 수신할 수 있습니다. 전체 암호화가 적용된 SMB 3.0은 Ubuntu 16.04 이상을 사용할 때만 지원됩니다.
+일부 Linux 배포는 아직 SMB 3.x의 암호화 기능을 지원하지 않습니다. 사용자는 SMB 3.x를 사용하여 Azure Files를 탑재할 경우 기능 누락으로 인해 “115” 오류 메시지를 수신할 수 있습니다. 전체 암호화가 적용된 SMB 3.x는 Ubuntu 16.04 이상을 사용할 때만 지원됩니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
-Linux용 SMB 3.0의 암호화 기능이 4.11 커널에 도입되었습니다. 이 기능을 사용하면 온-프레미스에서 또는 다른 Azure 지역에서 Azure 파일 공유를 탑재할 수 있습니다. 일부 Linux 배포판은 4.11 커널에서 유지 관리 하는 Linux 커널의 이전 버전으로 변경 될 수 있습니다. Linux 버전에서 암호화를 사용 하 여 SMB 3.0을 지원 하는지 확인 하는 데 도움이 되도록 [linux에서 Azure Files 사용](storage-how-to-use-files-linux.md)을 참조 하세요. 
+Linux용 SMB 3.x의 암호화 기능은 4.11 커널에서 도입되었습니다. 이 기능을 사용하면 온-프레미스에서 또는 다른 Azure 지역에서 Azure 파일 공유를 탑재할 수 있습니다. 일부 Linux 배포판은 4.11 커널에서 유지 관리되는 이전 버전의 Linux 커널로의 변경 내용을 백포트할 수 있습니다. 사용 중인 Linux 버전이 암호화와 함께 SMB 3.x를 지원하는지 확인하려면 [Linux에서 Azure Files 사용](storage-how-to-use-files-linux.md)을 참조하세요. 
 
-Linux SMB 클라이언트가 암호화를 지원하지 않는 경우 파일 공유와 같은 데이터 센터의 Azure Linux VM에서 SMB 2.1을 사용하여 Azure Files를 탑재합니다. 스토리지 계정에서 [보안 전송 필요]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 설정을 사용하지 않도록 설정했는지 확인합니다. 
+Linux SMB 클라이언트가 암호화를 지원하지 않는 경우 파일 공유와 같은 데이터 센터의 Azure Linux VM에서 SMB 2.1을 사용하여 Azure Files를 탑재합니다. 스토리지 계정에서 [보안 전송 필요](../common/storage-require-secure-transfer.md) 설정을 사용하지 않도록 설정했는지 확인합니다. 
 
 <a id="noaaccessfailureportal"></a>
-## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>Azure 파일 공유에 액세스 하거나 삭제 하려고 할 때 "액세스 없음" 오류 발생  
-포털에서 Azure 파일 공유에 액세스 하거나 삭제 하려고 하면 다음과 같은 오류가 표시 될 수 있습니다.
+## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>Azure 파일 공유에 액세스하거나 삭제하려고 할 때 "액세스 권한 없음" 오류 발생  
+포털에서 Azure 파일 공유에 액세스하거나 삭제하려고 할 때 다음 오류가 발생할 수 있습니다.
 
 액세스 권한 없음  
 오류 코드: 403 
 
-### <a name="cause-1-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>원인 1: 저장소 계정에서 가상 네트워크 또는 방화벽 규칙을 사용할 수 있습니다.
+### <a name="cause-1-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>원인 1: 가상 네트워크 또는 방화벽 규칙이 스토리지 계정에서 사용하도록 설정됨
 
 ### <a name="solution-for-cause-1"></a>원인 1의 해결 방법
 
 가상 네트워크 및 방화벽 규칙이 스토리지 계정에 제대로 구성되어 있는지 확인합니다. 가상 네트워크 또는 방화벽 규칙에서 문제가 발생하는지 테스트하려면 일시적으로 스토리지 계정의 설정을 **모든 네트워크에서 액세스 허용** 으로 변경합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../common/storage-network-security.md)을 참조하세요.
 
-### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>원인 2: 사용자 계정에 저장소 계정에 대 한 액세스 권한이 없습니다.
+### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>원인 2: 사용자 계정에 스토리지 계정에 대한 액세스 권한이 없음
 
 ### <a name="solution-for-cause-2"></a>원인 2의 해결 방법
 
-Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(IAM)** 를 클릭한 다음, 사용자 계정에 스토리지 계정에 대한 액세스 권한이 있는지 확인합니다. 자세히 알아보려면 [azure 역할 기반 액세스 제어를 사용 하 여 저장소 계정을 보호 하는 방법 (AZURE RBAC)](../blobs/security-recommendations.md#data-protection)을 참조 하세요.
+Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(IAM)** 를 클릭한 다음, 사용자 계정에 스토리지 계정에 대한 액세스 권한이 있는지 확인합니다. 자세한 내용은 [Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 스토리지 계정을 보호하는 방법](../blobs/security-recommendations.md#data-protection)을 참조하세요.
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Azure 파일 공유의 파일 또는 디렉터리를 삭제할 수 없음
 
 ### <a name="cause"></a>원인
-이 문제는 일반적으로 파일 또는 디렉터리에 열린 핸들이 있는 경우에 발생 합니다. 
+이 문제는 일반적으로 파일 또는 디렉터리에 열린 핸들이 있는 경우에 발생합니다. 
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
-SMB 클라이언트에서 열려 있는 모든 핸들을 닫고 문제가 계속 발생 하면 다음을 수행 합니다.
+SMB 클라이언트가 열려 있는 모든 핸들을 닫았고 문제가 계속 발생하는 경우 다음을 수행합니다.
 
-- [AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet을 사용 하 여 열린 핸들을 볼 수 있습니다.
+- 열린 핸들을 보려면 [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet을 사용합니다.
 
-- [AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet을 사용 하 여 열린 핸들을 닫습니다. 
+- [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet을 사용하여 열린 핸들을 닫습니다. 
 
 > [!Note]  
-> Get-AzStorageFileHandle 및 Close-AzStorageFileHandle cmdlet은 Az PowerShell module version 2.4 이상에 포함 되어 있습니다. 최신 Az PowerShell module을 설치 하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조 하세요.
+> Get-AzStorageFileHandle 및 Close-AzStorageFileHandle cmdlet에는 Az PowerShell 모듈 버전 2.4 이상에 포함되어 있습니다. 최신 Az PowerShell 모듈을 설치하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Linux VM에 탑재된 Azure 파일 공유의 성능 저하
 
 ### <a name="cause-1-caching"></a>원인 1: 캐싱
 
-성능 저하의 한 가지 가능한 원인은 캐싱 비활성화입니다. 캐시는 반복적으로 파일에 액세스 하는 경우에 유용할 수 있습니다. 그렇지 않으면 오버 헤드가 발생할 수 있습니다. 캐시를 사용 하지 않도록 설정 하기 전에 사용 하는지 확인 합니다.
+성능 저하의 한 가지 가능한 원인은 캐싱 비활성화입니다. 캐시는 반복적으로 파일에 액세스하는 경우에 유용할 수 있습니다. 그렇지 않으면 오버헤드가 발생할 수 있습니다. 캐시를 사용하지 않도록 설정하기 전에 사용하는지 확인합니다.
 
 ### <a name="solution-for-cause-1"></a>원인 1의 해결 방법
 
@@ -182,7 +172,7 @@ SMB 클라이언트에서 열려 있는 모든 핸들을 닫고 문제가 계속
 
 **cache=none** 은 캐싱이 비활성화되었음을 나타냅니다. 기본 캐싱이나 “엄격한” 캐싱 모드를 활성화하는 명령을 탑재하기 위해 기본 탑재 명령을 사용하거나 명시적으로 **cache=strict** 옵션을 추가하여 공유를 다시 탑재하세요.
 
-일부 시나리오에서는 **serverino** 탑재 옵션으로 **ls** 명령을 유도하여 모든 디렉터리 항목에 대해 stat를 실행할 수 있습니다. 이 동작으로 인해 규모가 많은 디렉터리를 나열할 때 성능이 저하 됩니다. **/Etc/fstab** 항목에서 탑재 옵션을 확인할 수 있습니다.
+일부 시나리오에서는 **serverino** 탑재 옵션으로 **ls** 명령을 유도하여 모든 디렉터리 항목에 대해 stat를 실행할 수 있습니다. 이 동작으로 인해 큰 디렉터리를 나열할 때 성능이 저하됩니다. **/etc/fstab** 항목에서 탑재 옵션을 확인할 수 있습니다.
 
 `//azureuser.file.core.windows.net/cifs /cifs cifs vers=2.1,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
@@ -196,11 +186,11 @@ SMB 클라이언트에서 열려 있는 모든 핸들을 닫고 문제가 계속
 
 ### <a name="cause-2-throttling"></a>원인 2: 제한
 
-제한이 발생 하 고 요청이 큐로 전송 되는 중일 수 있습니다. [Azure Monitor에서 Azure Storage 메트릭을](../blobs/monitor-blob-storage.md)활용 하 여이를 확인할 수 있습니다.
+제한이 발생하고 요청이 큐로 전송되는 중일 수 있습니다. [Azure Monitor의 Azure Storage 메트릭](../blobs/monitor-blob-storage.md)을 활용하여 이를 확인할 수 있습니다.
 
 ### <a name="solution-for-cause-2"></a>원인 2의 해결 방법
 
-앱이 [Azure Files 크기 조정 대상](storage-files-scale-targets.md#azure-files-scale-targets)내에 있는지 확인 합니다.
+앱이 [Azure Files 크기 조정 대상](storage-files-scale-targets.md#azure-files-scale-targets) 내에 있는지 확인합니다.
 
 <a id="timestampslost"></a>
 ## <a name="time-stamps-were-lost-in-copying-files-from-windows-to-linux"></a>Windows에서 Linux로 파일을 복사할 때 타임 스탬프 손실됨
@@ -209,7 +199,7 @@ Linux/Unix 플랫폼에서 파일 1 및 파일 2의 소유자가 다른 경우 *
 
 ### <a name="cause"></a>원인
 
-COPYFILE의 force 플래그 **f** 는 Unix에서 **cp-p-f** 를 실행 하는 결과입니다. 이 명령은 또한 소유하지 않은 파일의 타임 스탬프를 유지하지 않습니다.
+COPYFILE에서 force 플래그 **f** 로 인해 Unix에서 **cp -p -f** 가 실행됩니다. 이 명령은 또한 소유하지 않은 파일의 타임 스탬프를 유지하지 않습니다.
 
 ### <a name="workaround"></a>해결 방법
 
@@ -227,7 +217,7 @@ ls 명령을 사용하여 Azure 파일 공유에서 파일을 나열하려는 �
 **ls: '&lt;path&gt;'에 액세스할 수 없음: 입력/출력 오류**
 
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 이 문제를 수정하는 다음 버전으로 Linux 커널을 업그레이드합니다.
 
 - 4.4.87+
@@ -243,7 +233,7 @@ ls 명령을 사용하여 Azure 파일 공유에서 파일을 나열하려는 �
 ln -s linked -n t
 ln: failed to create symbolic link 't': Operation not supported
 ```
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 Linux CIFS 클라이언트는 SMB 2 또는 3 프로토콜을 통한 Windows 스타일의 심볼 링크 생성을 지원하지 않습니다. 현재 Linux 클라이언트는 만들기 및 따르기 작업 모두에 대해 [Mishall+French symlinks](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks)라는 다른 스타일의 심볼 링크를 지원합니다. 심볼 링크가 필요한 고객은 "mfsymlinks" 탑재 옵션을 사용할 수 있습니다. Mac이 사용하는 형식이기도 하므로 "mfsymlinks"를 사용하는 것이 좋습니다.
 
 symlink를 사용하려면 CIFS 탑재 명령 끝에 다음을 추가합니다.
@@ -274,7 +264,7 @@ Linux 클라이언트에서 클라이언트가 장시간 유휴 상태일 경우
 -   기본 "소프트" 탑재 옵션을 사용하는 경우 서버에 TCP 연결을 다시 설정하지 않는 네트워크 통신 오류입니다.
 -   이전 커널에 존재하지 않는 최근 재연결 수정
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 Linux 커널의 이러한 재연결 문제는 현재 다음 변경의 일부로 수정되었습니다.
 
@@ -283,7 +273,7 @@ Linux 커널의 이러한 재연결 문제는 현재 다음 변경의 일부로 
 - [CIFS: 재연결 동안 가능한 메모리 손상 수정](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
 - [CIFS: 재연결 동안 가능한 뮤텍스 이중 잠금 해결(커널 v4.9 이상)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
-그러나 이 변경 내용이 모든 Linux 배포판에 아직 이식되지 않은 것일 수 있습니다. 널리 사용 되는 Linux 배포를 사용 하는 경우 [linux에서 Azure Files 사용](storage-how-to-use-files-linux.md) 을 확인 하 여 필요한 커널이 변경 된 배포 버전을 확인할 수 있습니다.
+그러나 이 변경 내용이 모든 Linux 배포판에 아직 이식되지 않은 것일 수 있습니다. 널리 사용되는 Linux 배포를 사용하는 경우 [Linux에서 Azure Files 사용](storage-how-to-use-files-linux.md)을 확인하여 필요한 커널 변경 사항이 있는 배포 버전을 확인할 수 있습니다.
 
 ### <a name="workaround"></a>해결 방법
 
@@ -291,34 +281,34 @@ Linux 커널의 이러한 재연결 문제는 현재 다음 변경의 일부로 
 
 최신 커널 버전으로 업그레이드할 수 없는 경우 매 30초 이하 간격으로 쓰는 Azure 파일 공유에 파일을 보관하여 이 문제를 해결할 수 있습니다. 이 작업은 만든 또는 수정된 날짜를 파일에 다시 쓰는 등의 쓰기 작업이어야 합니다. 그렇지 않으면 캐시된 결과를 얻을 수 있고 작업이 재연결을 트리거하지 않을 수 있습니다.
 
-## <a name="cifs-vfs-error--22-on-ioctl-to-get-interface-list-when-you-mount-an-azure-file-share-by-using-smb-30"></a>SMB 3.0를 사용 하 여 Azure 파일 공유를 탑재 하는 경우 "CIFS VFS: 오류-ioctl에서 인터페이스 목록 가져오기"
+## <a name="cifs-vfs-error--22-on-ioctl-to-get-interface-list-when-you-mount-an-azure-file-share-by-using-smb-3x"></a>SMB 3.x를 사용하여 Azure 파일 공유를 탑재할 때 "CIFS VFS: ioctl에서 인터페이스 목록을 가져오는 데 오류 -22" 발생
 
 ### <a name="cause"></a>원인
-[현재 Azure Files에서 SMB 다중 채널을 지원 하지](/rest/api/storageservices/features-not-supported-by-the-azure-file-service)않기 때문에이 오류가 기록 됩니다.
+이 오류는 Azure Files가 [현재 SMB 다중 채널을 지원하지 않기 때문에](/rest/api/storageservices/features-not-supported-by-the-azure-file-service) 기록됩니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 이 오류는 무시해도 됩니다.
 
 
 ### <a name="unable-to-access-folders-or-files-which-name-has-a-space-or-a-dot-at-the-end"></a>이름에 공백이 있거나 끝에 점이 있는 폴더 또는 파일에 액세스할 수 없습니다.
 
-Linux에 탑재 된 상태에서 Azure 파일 공유의 폴더 또는 파일에 액세스할 수 없으며, 공유에 액세스 하는 동안 du, ls 및/또는 타사 응용 프로그램과 같은 명령이 실패 하 고 해당 폴더에 파일을 업로드할 수 있습니다.
+Linux에 탑재된 동안 Azure 파일 공유에서 폴더 또는 파일에 액세스할 수 없습니다. du 및 ls 및/또는 타사 애플리케이션과 같은 명령이 공유에 액세스하는 동안 "해당하는 파일이나 디렉터리가 없습니다." 오류와 함께 실패할 수 있지만 포털을 통해 해당 폴더에 파일을 업로드할 수 있습니다.
 
 ### <a name="cause"></a>원인
 
-이름 끝의 문자를 다른 문자로 인코딩하는 시스템에서 폴더 또는 파일을 업로드 했습니다. Macintosh 컴퓨터에서 업로드 한 파일에는 0x20 (space) 또는 0X2E (점) 대신 "0xF028" 또는 "0Xf028" 문자가 있을 수 있습니다.
+폴더 또는 파일은 이름 끝에 있는 문자를 다른 문자로 인코딩하는 시스템에서 업로드되었습니다. Macintosh 컴퓨터에서 업로드된 파일은 0x20(공백) 또는 0X2E(마침표) 대신 "0xF028" 또는 "0xF029" 문자를 가질 수 있습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
-Linux에서 공유를 탑재 하는 동안 공유에서 mapchars 옵션을 사용 합니다. 
+Linux에서 공유를 탑재하는 동안 공유에서 mapchars 옵션을 사용합니다. 
 
-대신에:
+다음을 사용하지 않습니다.
 
 ```bash
 sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
 ```
 
-사용
+다음을 사용합니다.
 
 ```bash
 sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,mapchars

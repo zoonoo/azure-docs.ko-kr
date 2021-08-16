@@ -1,33 +1,34 @@
 ---
-title: SQL Server 간 데이터 복사
-description: Azure Data Factory를 사용하여 온-프레미스 또는 Azure VM에 있는 SQL Server 데이터베이스 간에 데이터를 이동하는 방법을 알아봅니다.
+title: SQL Server 간 데이터 복사 및 변환
+description: Azure Data Factory를 사용하여 온-프레미스 또는 Azure VM에 있는 SQL Server 데이터베이스 간에 데이터를 복사하고 변환하는 방법을 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/17/2021
-ms.openlocfilehash: c6996a5e3f20a3c71fc5a49f9650955ce9c41683
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 05/26/2021
+ms.openlocfilehash: 084af91fe294ab52591bc5ef9bf22ffe941637ea
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486794"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110781806"
 ---
-# <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SQL Server 간 데이터 복사
+# <a name="copy-and-transform-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SQL Server 간 데이터 복사 및 변환
 
 > [!div class="op_single_selector" title1="사용 중인 Azure Data Factory 버전을 선택하세요."]
 > * [버전 1](v1/data-factory-sqlserver-connector.md)
 > * [현재 버전](connector-sql-server.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 데이터를 SQL Server 데이터베이스에 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SQL Server 데이터베이스 간에 데이터를 복사하고 Data Flow를 사용하여 SQL Server 데이터베이스에서 데이터를 변환하는 방법을 설명합니다.  Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
 이 SQL Server 커넥터에서 지원하는 작업은 다음과 같습니다.
 
 - [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
+- [매핑 데이터 흐름](concepts-data-flow-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 - [GetMetadata 작업](control-flow-get-metadata-activity.md)
 
@@ -552,6 +553,66 @@ END
         }
     }
     ```
+
+## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
+
+매핑 데이터 흐름에서 데이터를 변환하는 경우 SQL Server 데이터베이스에서 테이블에 대한 읽기 및 쓰기를 수행할 수 있습니다. 자세한 내용은 매핑 데이터 흐름에서 [원본 변환](data-flow-source.md) 및 [싱크 변환](data-flow-sink.md)을 참조하세요.
+
+> [!NOTE]
+> 온-프레미스 SQL Server에 액세스하려면 프라이빗 엔드포인트를 사용하여 Azure Data Factory [관리되는 가상 네트워크](managed-virtual-network-private-endpoint.md)를 사용해야 합니다. 자세한 단계는 이 [자습서](tutorial-managed-virtual-network-on-premise-sql-server.md)를 참조하세요.
+
+### <a name="source-transformation"></a>원본 변환
+
+다음 표에는 SQL Server 원본에서 지원하는 속성이 나와 있습니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
+
+| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| 테이블 | 테이블을 입력으로 선택하는 경우 데이터 흐름은 데이터 세트에 지정된 테이블에서 모든 데이터를 가져옵니다. | 예 | - |- |
+| 쿼리 | 쿼리를 입력으로 선택하는 경우 원본에서 데이터를 가져올 SQL 쿼리를 지정하면 데이터 세트에서 지정한 테이블이 재정의됩니다. 쿼리를 사용하면 테스트 또는 조회를 위한 행을 줄일 수 있습니다.<br><br>**Order By** 절은 지원되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * from udfGetData()** 는 데이터 흐름에서 사용할 수 있는 테이블을 반환하는 SQL의 UDF입니다.<br>쿼리 예: `Select * from MyTable where customerId > 1000 and customerId < 2000`| 예 | String | Query |
+| Batch 크기 | 일괄 처리 크기를 지정하여 대량 데이터를 읽기로 청크 처리합니다. | 예 | 정수 | batchSize |
+| 격리 수준 | 다음 격리 수준 중 하나를 선택합니다.<br>- 커밋된 읽기<br>- 커밋되지 않은 읽기(기본값)<br>- 반복 읽기<br>- 직렬화 가능<br>- 없음(격리 수준 무시) | 예 | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>직렬화 가능<br/>없음</small> |isolationLevel |
+
+#### <a name="sql-server-source-script-example"></a>SQL Server 원본 스크립트 예제
+
+SQL Server를 원본 유형으로 사용하는 경우 연결된 데이터 흐름 스크립트는 다음과 같습니다.
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    isolationLevel: 'READ_UNCOMMITTED',
+    query: 'select * from MYTABLE',
+    format: 'query') ~> SQLSource
+```
+
+### <a name="sink-transformation"></a>싱크 변환
+
+다음 표에는 SQL Server 싱크에서 지원하는 속성이 나와 있습니다. 해당 속성은 **싱크 옵션** 탭에서 편집할 수 있습니다.
+
+| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Update 메서드 | 데이터베이스 대상에서 허용되는 작업을 지정합니다. 기본값은 삽입만 허용하는 것입니다.<br>행을 업데이트, upsert 또는 삭제하려면 해당 작업을 위해 행에 태그를 지정하는 데 [행 변경 변환](data-flow-alter-row.md)이 필요합니다. | 예 | `true` 또는 `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
+| 키 열 | 업데이트, upsert, 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다.<br>키로 선택한 열 이름은 후속 업데이트, upsert, 삭제의 일부로 사용됩니다. 따라서 싱크 매핑에 있는 열을 선택해야 합니다. | 예 | Array | 키 |
+| 키 열 쓰기 건너뛰기 | 키 열에 값을 쓰지 않으려면 “키 열 작성 건너뛰기”를 선택합니다. | 예 | `true` 또는 `false` | skipKeyWrites |
+| 테이블 작업 |쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지 여부를 결정합니다.<br>- **None**: 테이블에 대한 작업이 수행되지 않습니다.<br>- **Recreate**: 테이블이 삭제되고 다시 생성됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **Truncate**: 대상 테이블의 모든 행이 제거됩니다. | 아니요 | `true` 또는 `false` | recreate<br/>truncate |
+| Batch 크기 | 각 일괄 처리에 작성되는 행 수를 지정합니다. 일괄 처리 크기가 클수록 압축 및 메모리 최적화가 향상되지만 데이터를 캐시할 때 메모리 부족 예외가 발생할 위험이 있습니다. | 예 | 정수 | batchSize |
+| 사전 및 사후 SQL 스크립트 | 데이터를 싱크 데이터베이스에 기록하기 전(사전 처리)과 후(사후 처리)에 실행할 여러 줄 SQL 스크립트를 지정합니다. | 예 | String | preSQLs<br>postSQLs |
+
+#### <a name="sql-server-sink-script-example"></a>SQL Server 싱크 스크립트 예제
+
+SQL Server를 싱크 유형으로 사용하는 경우 연결된 데이터 흐름 스크립트는 다음과 같습니다.
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:false,
+    insertable:true,
+    updateable:true,
+    upsertable:true,
+    keys:['keyColumn'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SQLSink
+```
 
 ## <a name="data-type-mapping-for-sql-server"></a>SQL Server에 대한 데이터 형식 매핑
 

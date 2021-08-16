@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: de113e3c005e11bd2bcd13ec6c1554664ba8fbaf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e4e4701b535e5363d0eb64f377fe4dccc3a3dd7d
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878256"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110653599"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>서비스용 Spring Cloud Config 서버 인스턴스 설정
 
@@ -24,7 +24,7 @@ Spring Cloud Config는 분산 시스템에서 구체화된 구성에 대한 서�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
-* 이미 프로비저닝되어 실행되는 Azure Spring Cloud 서비스. Azure Spring Cloud 서비스를 설정하고 시작하려면 [빠른 시작: Azure CLI를 사용하여 Java Spring 애플리케이션 시작](spring-cloud-quickstart.md)을 참조하세요.
+* 이미 프로비저닝되어 실행되는 Azure Spring Cloud 서비스. Azure Spring Cloud 서비스를 설정하고 시작하려면 [빠른 시작: Azure CLI를 사용하여 Java Spring 애플리케이션 시작](./quickstart.md)을 참조하세요.
 
 ## <a name="restriction"></a>제한
 
@@ -242,12 +242,46 @@ Azure Spring Cloud는 퍼블릭 Git 리포지토리, SSH로 보호된 Git 리포
 
    ![Spring Cloud 구성 서버](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 
-## <a name="delete-your-app-configuration"></a>앱 구성 삭제
+## <a name="delete-your-configuration"></a>구성 삭제
 
-구성 파일이 저장되면 **구성** 탭에 **앱 구성 삭제** 단추가 표시됩니다. 이 단추를 선택하면 기존 설정이 완전히 지워집니다. GitHub에서 Azure DevOps로 이동하는 것처럼 Config 서버 인스턴스를 다른 원본에 연결하려면 이 단추를 선택해야 합니다.
+**Config Server** 탭에 표시되는 **다시 설정** 단추를 선택하여 기존 설정을 완전히 지울 수 있습니다. GitHub에서 Azure DevOps로 이동하는 것처럼 Config Server 인스턴스를 다른 원본에 연결하려면 Config Server 설정을 삭제합니다.
 
+## <a name="config-server-refresh"></a>Config Server 새로 고침
+속성이 변경되면 변경 내용이 적용되기 전에 해당 속성을 사용하는 서비스에 알려야 합니다. Spring Cloud Config의 기본 솔루션은 [새로 고침 이벤트](https://spring.io/guides/gs/centralized-configuration/)를 수동으로 트리거하는 것으로, 많은 앱 인스턴스가 있는 경우에는 적합하지 않을 수 있습니다. 또는 Azure Spring Cloud에서 구성 클라이언트가 내부 새로 고침을 기반으로 변경 내용을 폴링하도록 하여 Config Server에서 값을 자동으로 새로 고칠 수 있습니다.
+
+- 먼저 pom.xml의 종속성 섹션에 spring-cloud-starter-azure-spring-cloud-client를 포함합니다.
+
+  ```xml
+  <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+      <version>2.4.0</version>
+  </dependency>
+  ```
+
+- 그런 다음, 자동 새로 고침을 사용하도록 설정하고 application.yml에서 적절한 새로 고침 간격을 설정합니다. 이 예제에서 클라이언트는 새로 고침 간격에 대해 설정할 수 있는 최소값인 5초마다 구성 변경 내용을 폴링합니다.
+기본적으로 자동 새로 고침은 false로 설정되고 새로 고침 간격은 60초로 설정됩니다.
+
+  ``` yml
+  spring:
+    cloud:
+      config:
+        auto-refresh: true
+        refresh-interval: 5
+  ```
+
+- 마지막으로 코드에 @refreshScope를 추가합니다. 이 예제에서는 변수 connectTimeout이 5초마다 자동으로 새로 고쳐집니다.
+
+  ``` java
+  @RestController
+  @RefreshScope
+  public class HelloController {
+      @Value("${timeout:4000}")
+      private String connectTimeout;    
+  }
+  ```
 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Spring Cloud Config Server 인스턴스를 사용하도록 설정하고 구성하는 방법을 알아보았습니다. 애플리케이션을 관리하는 방법에 대한 자세한 내용은 [Azure Spring Cloud의 애플리케이션 크기 조정](spring-cloud-howto-scale-manual.md)을 참조하세요.
+이 문서에서는 Spring Cloud Config Server 인스턴스를 사용하도록 설정하고 구성하는 방법을 알아보았습니다. 애플리케이션을 관리하는 방법에 대한 자세한 내용은 [Azure Spring Cloud의 애플리케이션 크기 조정](./how-to-scale-manual.md)을 참조하세요.

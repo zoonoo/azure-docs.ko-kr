@@ -8,18 +8,18 @@ author: ejarvi
 ms.author: ejarvi
 ms.collection: windows
 ms.date: 03/19/2020
-ms.openlocfilehash: 10268f8041f21f74e8ebcfaee41d207a53618260
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 62ad5ca5d3b150aef5a83eaa4d5231e7bb5a6a62
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566246"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110100183"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Windows용 Azure Disk Encryption(Microsoft.Azure.Security.AzureDiskEncryption)
 
 ## <a name="overview"></a>개요
 
-Azure Disk Encryption은 BitLocker를 활용하여 Windows를 실행하는 Azure 가상 머신에서 전체 디스크 암호화를 제공합니다.  이 솔루션은 Azure Key Vault와 통합되어 키 자격 증명 모음 구독의 디스크 암호화 키와 비밀을 관리합니다. 
+Azure Disk Encryption은 BitLocker를 활용하여 Windows를 실행하는 Azure 가상 머신에서 전체 디스크 암호화를 제공합니다.  이 솔루션은 Azure Key Vault와 통합되어 키 자격 증명 모음 구독의 디스크 암호화 키와 비밀을 관리합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -33,7 +33,7 @@ Azure Disk Encryption은 BitLocker를 활용하여 Windows를 실행하는 Azure
 
 Azure Disk Encryption(ADE)에는 두 가지 버전의 확장 스키마가 있습니다.
 - v2.2 - AAD(Azure Active Directory) 속성을 사용하지 않는 최신 권장 스키마
-- v1.1 - AAD(Azure Active Directory) 속성이 필요한 이전 스키마 
+- v1.1 - AAD(Azure Active Directory) 속성이 필요한 이전 스키마
 
 대상 스키마를 선택하려면 `typeHandlerVersion` 속성을 사용하려는 스키마 버전과 동일하게 설정해야 합니다.
 
@@ -67,7 +67,7 @@ V 2.2 스키마는 모든 새 VM에 권장되며, Azure Active Directory 속성�
 ```
 
 
-### <a name="schema-v11-with-aad"></a>Schema v1.1: AAD 사용 
+### <a name="schema-v11-with-aad"></a>Schema v1.1: AAD 사용
 
 1\.1 스키마는 `aadClientID` 및 `aadClientSecret`와 `AADClientCertificate` 중 하나가 필요하며, 새 VM에는 권장되지 않습니다.
 
@@ -82,7 +82,7 @@ V 2.2 스키마는 모든 새 VM에 권장되며, Azure Active Directory 속성�
   "properties": {
     "protectedSettings": {
       "AADClientSecret": "[aadClientSecret]"
-    },    
+    },
     "publisher": "Microsoft.Azure.Security",
     "type": "AzureDiskEncryption",
     "typeHandlerVersion": "1.1",
@@ -112,7 +112,7 @@ V 2.2 스키마는 모든 새 VM에 권장되며, Azure Active Directory 속성�
   "properties": {
     "protectedSettings": {
       "AADClientCertificate": "[aadClientCertificate]"
-    },    
+    },
     "publisher": "Microsoft.Azure.Security",
     "type": "AzureDiskEncryption",
     "typeHandlerVersion": "1.1",
@@ -140,10 +140,10 @@ V 2.2 스키마는 모든 새 VM에 권장되며, Azure Active Directory 속성�
 | publisher | Microsoft.Azure.Security | 문자열 |
 | type | AzureDiskEncryption | 문자열 |
 | typeHandlerVersion | 2.2, 1.1 | 문자열 |
-| (0.1 스키마) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| (0.1 스키마) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid |
 | (1.1 스키마) AADClientSecret | password | 문자열 |
 | (1.1 스키마) AADClientCertificate | thumbprint | 문자열 |
-| EncryptionOperation | EnableEncryption | 문자열 | 
+| EncryptionOperation | EnableEncryption | 문자열 |
 | (선택 사항 - 기본 RSA-OAEP) KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | 문자열 |
 | KeyVaultURL | url | 문자열 |
 | KeyVaultResourceId | url | 문자열 |
@@ -154,12 +154,12 @@ V 2.2 스키마는 모든 새 VM에 권장되며, Azure Active Directory 속성�
 
 ## <a name="template-deployment"></a>템플릿 배포
 
-스키마 v2.2를 기반으로 하는 템플릿 배포의 예는 Azure 빠른 시작 템플릿 [201-encrypt-running-windows-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)를 참조하세요.
+스키마 v2.2를 기반으로 하는 템플릿 배포의 예는 Azure 빠른 시작 템플릿 [encrypt-running-windows-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm-without-aad)를 참조하세요.
 
 스키마 v1.1을 기반으로 하는 템플릿 배포의 예는 Azure 빠른 시작 템플릿 [201-encrypt-running-windows-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)를 참조하세요.
 
 >[!NOTE]
-> 또한 `VolumeType` 매개 변수를 All로 설정하면 데이터 디스크는 형식이 올바르게 지정된 경우에만 암호화됩니다. 
+> 또한 `VolumeType` 매개 변수를 All로 설정하면 데이터 디스크는 형식이 올바르게 지정된 경우에만 암호화됩니다.
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원
 
@@ -169,7 +169,7 @@ V 2.2 스키마는 모든 새 VM에 권장되며, Azure Active Directory 속성�
 
 ### <a name="support"></a>지원
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/community/)에서 Azure 전문가에게 문의할 수 있습니다. 
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/community/)에서 Azure 전문가에게 문의할 수 있습니다.
 
 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원](https://azure.microsoft.com/support/options/)으로 이동하여 지원받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 

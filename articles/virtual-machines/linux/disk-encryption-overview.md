@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a1ea83dc62c2752e34584b89de2cdb6dbde3dfa0
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 5b84526f6f3193fc47bc211fcdec71bb5e27390f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443921"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077683"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Linux VM용 Azure Disk Encryption 
 
@@ -68,7 +68,7 @@ Azure에서 보증되지 않는 Linux 서버 배포판은 Azure Disk Encryption�
 | Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | OS 및 데이터 디스크 |
 | Canonical | Ubuntu 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | OS 및 데이터 디스크 |
 | Canonical | Ubuntu 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | OS 및 데이터 디스크 |
-| RedHat | RHEL 8-LVM | 8-LVM | RedHat:RHEL:8-LVM:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
+| RedHat | RHEL 8-LVM | 8-LVM | RedHat:RHEL:8-LVM:8.2.20200905 | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 8.2 | 8.2 | RedHat:RHEL:8.2:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 8.1 | 8.1 | RedHat:RHEL:8.1:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 7-LVM | 7-LVM | RedHat:RHEL:7-LVM:7.9.2020111202 | OS 및 데이터 디스크(아래 참고 사항 참조) |
@@ -102,9 +102,13 @@ Azure에서 보증되지 않는 Linux 서버 배포판은 Azure Disk Encryption�
 | SUSE | SLES HPC 12-SP3 | 12-SP3 | SUSE:SLES-HPC:12-SP3:latest | 데이터 디스크만 |
 
 > [!NOTE]
-> 새 Azure Disk Encryption 구현은 RHEL OS 및 RHEL7 종량제 이미지용 데이터 디스크에서 지원됩니다.  
+> 새 Azure Disk Encryption 구현은 RHEL OS 및 RHEL7 종량제 이미지용 데이터 디스크에서 지원됩니다.
 >
 > 또한 ADE는 RHEL Bring-Your-Own-Subscription 골드 이미지에서도 지원되지만 반드시 **먼저** 구독에 등록해야 합니다. 자세한 내용은 [Azure의 Red Hat Enterprise Linux Bring-Your-Own-Subscription 골드 이미지](../workloads/redhat/byos.md#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)를 참조하세요.
+> 
+> 특정 제품 유형에 대한 ADE 지원은 게시자가 제공한 수명 종료 날짜를 초과하지 않습니다. 
+> 
+> 레거시 ADE 솔루션(AAD 자격 증명 사용)은 새 VM에 권장되지 않으며 RHEL 7.8 이후의 RHEL 버전과 호환되지 않습니다.
 
 ## <a name="additional-vm-requirements"></a>추가 VM 요구 사항
 

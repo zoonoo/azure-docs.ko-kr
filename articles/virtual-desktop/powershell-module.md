@@ -1,28 +1,29 @@
 ---
-title: PowerShell 모듈 Windows Virtual Desktop - Azure
-description: Windows Virtual Desktop용 PowerShell 모듈을 설치하고 설정하는 방법입니다.
+title: PowerShell 모듈 Azure Virtual Desktop - Azure
+description: Azure Virtual Desktop용 PowerShell 모듈을 설치하고 설정하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: fdd74a09e49a352d18cf4ceccf406a25bf6dffb3
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 029034cd4c4e118cca532509208f08843ca8b7fd
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445842"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753128"
 ---
-# <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Windows Virtual Desktop에 대한 PowerShell 모듈 설정
+# <a name="set-up-the-powershell-module-for-azure-virtual-desktop"></a>Azure Virtual Desktop에 대한 PowerShell 모듈 설정
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager 통합이 포함된 Windows Virtual Desktop에 적용됩니다.
+>이 콘텐츠는 Azure Resource Manager 통합이 포함된 Azure Virtual Desktop에 적용됩니다.
 
-Windows Virtual Desktop PowerShell 모듈은 Azure PowerShell 모듈에 통합되어 있습니다. 이 문서에서는 Windows Virtual Desktop에 대한 cmdlet을 실행할 수 있도록 PowerShell 모듈을 설정하는 방법을 설명합니다.
+Azure Virtual Desktop PowerShell 모듈은 Azure PowerShell 모듈에 통합되어 있습니다. 이 문서에서는 Azure Virtual Desktop에 대한 cmdlet을 실행할 수 있도록 PowerShell 모듈을 설정하는 방법을 설명합니다.
 
 ## <a name="set-up-your-powershell-environment"></a>PowerShell 환경 설정
 
-모듈 사용을 시작하려면 먼저 [최신 버전의 PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core)를 설치합니다. Windows Virtual Desktop cmdlet은 현재 PowerShell Core에서만 작동합니다.
+모듈 사용을 시작하려면 먼저 [최신 버전의 PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core)를 설치합니다. Azure Virtual Desktop cmdlet은 현재 PowerShell Core에서만 작동합니다.
 
 다음으로 PowerShell 세션에서 사용할 DesktopVirtualization 모듈을 설치해야 합니다.
 
@@ -136,11 +137,11 @@ New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -W
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 PowerShell 모듈을 설정했으므로 Windows Virtual Desktop에서 모든 종류의 작업을 수행하는 cmdlet을 실행할 수 있습니다. 모듈을 사용할 수 있는 몇 가지 위치는 다음과 같습니다.
+이제 PowerShell 모듈을 설정했으므로 Azure Virtual Desktop에서 모든 종류의 작업을 수행하는 cmdlet을 실행할 수 있습니다. 모듈을 사용할 수 있는 몇 가지 위치는 다음과 같습니다.
 
-- [Windows Virtual Desktop 자습서]()를 실행하여 자신의 Windows Virtual Desktop 환경을 설정합니다.
+- [Azure Virtual Desktop 자습서]()를 실행하여 자신의 Azure Virtual Desktop 환경을 설정합니다.
 - [PowerShell을 사용한 호스트 풀 만들기](create-host-pools-powershell.md)
-- [Windows Virtual Desktop 부하 분산 방법 구성](configure-host-pool-load-balancing.md)
+- [Azure Virtual Desktop 부하 분산 방법 구성](configure-host-pool-load-balancing.md)
 - [개인 데스크톱 호스트 풀 할당 유형 구성](configure-host-pool-personal-desktop-assignment-type.md)
 - 이 외에도 많은 기능이 있습니다.
 

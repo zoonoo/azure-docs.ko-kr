@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 04/22/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b2baff33d9e91e1b5259d79eca0a22535c00f419
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 48d6f6fc983de3f9a98b81011db1a8843f678939
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555236"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896264"
 ---
 # <a name="set-up-the-local-account-identity-provider"></a>로컬 계정 ID 공급자 설정
 
@@ -47,7 +47,7 @@ Azure AD B2C는 사용자가 사용자를 인증할 수 있는 다양한 방법�
 
 ![사용자 이름 등록 또는 로그인 환경](./media/identity-provider-local/local-account-username-experience.png)
 
-## <a name="phone-sign-in-preview"></a>전화 로그인(미리 보기)
+## <a name="phone-sign-in"></a>전화 로그인
 
 암호 없는 인증은 사용자가 암호를 사용하여 로그인하지 않아도 되는 인증 유형입니다. 전화 등록 및 로그인을 사용하여 사용자는 전화 번호를 기본 로그인 식별자로 사용하여 앱에 등록할 수 있습니다. 사용자가 등록 및 로그인할 때 다음과 같은 환경이 제공됩니다.
 
@@ -81,9 +81,9 @@ Azure AD B2C는 사용자가 사용자를 인증할 수 있는 다양한 방법�
 ![전화 복구 사용자 흐름](./media/identity-provider-local/local-account-change-phone-flow.png)
 
 
-## <a name="phone-or-email-sign-in-preview"></a>전화 또는 이메일 로그인(미리 보기)
+## <a name="phone-or-email-sign-in"></a>전화 또는 이메일 로그인
 
-[전화 로그인](#phone-sign-in-preview)과 [이메일 로그인](#email-sign-in)을 결합하도록 선택할 수 있습니다. 등록 또는 로그인 페이지에서 사용자가 전화 번호 또는 이메일 주소를 입력할 수 있습니다. 사용자 입력에 따라 Azure AD B2C가 사용자를 해당 흐름으로 이동합니다. 
+[전화 로그인](#phone-sign-in)과 [이메일 로그인](#email-sign-in)을 결합하도록 선택할 수 있습니다. 등록 또는 로그인 페이지에서 사용자가 전화 번호 또는 이메일 주소를 입력할 수 있습니다. 사용자 입력에 따라 Azure AD B2C가 사용자를 해당 흐름으로 이동합니다. 
 
 ![전화 또는 이메일 등록 또는 로그인 환경](./media/identity-provider-local/local-account-phone-and-email-experience.png)
 
@@ -143,7 +143,7 @@ Azure AD B2C는 사용자가 사용자를 인증할 수 있는 다양한 방법�
 
 1. 각 파일에서 `yourtenant` 문자열을 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예를 들어 B2C 테넌트의 이름이 *contosob2c* 인 경우 모든 `yourtenant.onmicrosoft.com` 인스턴스는 `contosob2c.onmicrosoft.com`이 됩니다.
 
-1. [Azure Active Directory B2C에서 사용자 지정 정책 시작](custom-policy-get-started.md)의 [사용자 지정 정책에 애플리케이션 ID 추가](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) 섹션에 설명된 단계를 수행합니다. 예를 들어 필수 구성 요소 *IdentityExperienceFramework* 및 *ProxyIdentityExperienceFramework* 를 완료할 때 등록한 두 애플리케이션의 **애플리케이션(클라이언트) ID** 로 `/phone-number-passwordless/`**`Phone_Email_Base.xml`** 을 업데이트합니다.
+1. [Azure Active Directory B2C에서 사용자 지정 정책 시작](tutorial-create-user-flows.md?pivots=b2c-custom-policy)의 [사용자 지정 정책에 애플리케이션 ID 추가](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-application-ids-to-the-custom-policy) 섹션에 설명된 단계를 수행합니다. 예를 들어 필수 구성 요소 *IdentityExperienceFramework* 및 *ProxyIdentityExperienceFramework* 를 완료할 때 등록한 두 애플리케이션의 **애플리케이션(클라이언트) ID** 로 `/phone-number-passwordless/`**`Phone_Email_Base.xml`** 을 업데이트합니다.
 1. 정책 파일을 업로드합니다.
 
 ::: zone-end

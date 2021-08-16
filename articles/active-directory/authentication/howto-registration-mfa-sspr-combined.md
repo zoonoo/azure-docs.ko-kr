@@ -1,6 +1,6 @@
 ---
-title: 결합 된 보안 정보 등록 사용-Azure Active Directory
-description: Azure AD Multi-Factor Authentication와 셀프 서비스 암호 재설정 등록을 결합 하 여 최종 사용자 환경을 간소화 하는 방법을 알아봅니다.
+title: Azure Active Directory에서 결합된 보안 정보 등록 사용
+description: Azure AD Multi-Factor Authentication과 셀프 서비스 암호 재설정 등록을 결합하여 최종 사용자 환경을 간소화하는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,27 +11,27 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcfaef2f518028762958477a5b0d326acc237d1f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: e6eba5ac4ed61847596e12f56544e6d07dca8075
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98938435"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829578"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Azure Active Directory에서 결합된 보안 정보 등록 사용
 
-결합 된 등록 전에 사용자는 Azure AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정 (SSPR)에 대 한 인증 방법을 별도로 등록 했습니다. 사람들은 Azure AD Multi-Factor Authentication 및 SSPR에도 유사한 방법이 사용 되었지만 두 기능 모두에 등록 해야 했습니다. 이제는 결합 된 등록을 통해 사용자가 한 번 등록 하 고 Azure AD Multi-Factor Authentication 및 SSPR의 이점을 얻을 수 있습니다.
+결합된 등록 전에는 사용자가 Azure AD Multi-Factor Authentication 및 SSPR(셀프 서비스 암호 재설정)에 대한 인증 방법을 별도로 등록했습니다. 당황스럽지만 Azure AD Multi-Factor Authentication 및 SSPR에 유사한 방법이 사용되지만 두 기능을 모두 등록해야 했습니다. 이제는 결합된 등록을 통해 한 번 등록하고 Azure AD Multi-Factor Authentication 및 SSPR의 이점을 모두 활용할 수 있습니다.
 
 > [!NOTE]
-> 2020 년 8 월 15 일부터 모든 새 Azure AD 테 넌 트가 결합 된 등록에 대해 자동으로 사용 하도록 설정 됩니다. 
+> 2020년 8월 15일부터 모든 새 Azure AD 테넌트가 결합된 등록을 자동으로 사용하도록 설정됩니다. 이 날짜 이후에 생성되는 테넌트는 레거시 등록 워크플로를 사용할 수 없습니다.
 
-새 환경을 사용 하기 전에 기능 및 효과를 이해 하려면 [결합 된 보안 정보 등록 개념](concept-registration-mfa-sspr-combined.md)을 참조 하세요.
+새 환경을 사용하도록 설정하기 전에 기능과 효과를 이해하려면 [결합된 보안 정보 등록 개념](concept-registration-mfa-sspr-combined.md)을 참조하세요.
 
 ![결합된 보안 정보 등록 고급 환경](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
 
 ## <a name="enable-combined-registration"></a>결합 등록 사용
 
-결합 된 등록을 사용 하도록 설정 하려면 다음 단계를 완료 합니다.
+결합된 등록을 사용하도록 설정하려면 다음 단계를 완료합니다.
 
 1. 사용자 관리자 또는 전역 관리자로 Azure Portal에 로그인합니다.
 2. **Azure Active Directory** > **사용자 설정** > **사용자 기능 미리 보기 설정 관리** 로 이동합니다.
@@ -40,11 +40,11 @@ ms.locfileid: "98938435"
    ![사용자에 대해 결합된 보안 정보 환경 사용](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info.png)
 
 > [!NOTE]
-> 결합 된 등록을 사용 하도록 설정 하면 Azure AD Multi-Factor Authentication 및 SSPR 정책에서 해당 메서드를 사용할 수 있는 경우 새 환경을 통해 전화 번호 또는 모바일 앱을 등록 하거나 확인 하는 사용자가 Azure AD Multi-Factor Authentication 및 SSPR에 사용할 수 있습니다.
+> 결합된 등록을 사용하도록 설정한 후에는 새로운 환경을 통해 전화 번호나 모바일 앱을 등록한 사용자는 Azure AD Multi-Factor Authentication 및 SSPR 정책에서 해당 방법을 사용하도록 설정된 경우 Azure AD Multi-Factor Authentication 및 SSPR을 사용할 수 있습니다.
 >
-> 이 환경을 사용 하지 않도록 설정 하는 경우의 이전 SSPR 등록 페이지로 이동 하는 사용자 `https://aka.ms/ssprsetup` 는 multi-factor authentication을 수행 해야 페이지에 액세스할 수 있습니다.
+> 그런 다음, 이 환경을 비활성화하면 이전 SSPR 등록 페이지(`https://aka.ms/ssprsetup`)로 이동하는 사용자에게 페이지에 액세스하려면 다단계 인증을 수행해야 한다는 메시지가 표시됩니다.
 
-Internet Explorer에서 사이트 간 *할당 목록을* 구성한 경우 다음 사이트가 동일한 영역에 있어야 합니다.
+Internet Explorer에서 *사이트-영역 할당 목록* 을 구성한 경우 다음 사이트가 동일한 영역에 있어야 합니다.
 
 * *[https://login.microsoftonline.com](https://login.microsoftonline.com)*
 * *[https://mysignins.microsoft.com](https://mysignins.microsoft.com)*
@@ -52,18 +52,18 @@ Internet Explorer에서 사이트 간 *할당 목록을* 구성한 경우 다음
 
 ## <a name="conditional-access-policies-for-combined-registration"></a>결합된 등록에 대한 조건부 액세스 정책
 
-사용자가 Azure AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정에 등록 하는 시기와 방법을 보호 하려면 조건부 액세스 정책에서 사용자 작업을 사용할 수 있습니다. 이 기능은 사용자가 HR 등록 중에 신뢰할 수 있는 네트워크 위치와 같은 중앙 위치에서 SSPR 및 Azure AD Multi-Factor Authentication에 등록 하도록 하려는 조직에서 사용 하도록 설정할 수 있습니다.
+사용자가 Azure AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정에 등록하는 시기와 방법을 보호하기 위해 조건부 액세스 정책에서 사용자 작업을 사용할 수 있습니다. 이 기능은 HR 온보딩 중에 신뢰할 수 있는 네트워크 위치와 같은 중앙 위치에서 Azure AD Multi-Factor Authentication 및 SSPR에 사용자를 등록하려는 조직에서 사용하도록 설정할 수 있습니다.
 
 > [!NOTE]
-> 이 정책은 사용자가 결합 된 등록 페이지에 액세스 하는 경우에만 적용 됩니다. 이 정책은 사용자가 다른 응용 프로그램에 액세스할 때 MFA 등록을 적용 하지 않습니다.
+> 이 정책은 사용자가 결합된 등록 페이지에 액세스하는 경우에만 적용됩니다. 이 정책은 사용자가 다른 애플리케이션에 액세스할 때 MFA 등록을 적용하지 않습니다.
 >
-> [Azure Id 보호-Mfa 정책 구성](../identity-protection/howto-identity-protection-configure-mfa-policy.md)을 사용 하 여 mfa 등록 정책을 만들 수 있습니다.
+> [Azure Identity Protection - MFA 정책 구성](../identity-protection/howto-identity-protection-configure-mfa-policy.md)을 사용하여 MFA 등록 정책을 만들 수 있습니다.
 
-조건부 액세스에서 신뢰할 수 있는 위치를 만드는 방법에 대 한 자세한 내용은 [Azure Active Directory 조건부 액세스의 위치 조건 이란?](../conditional-access/location-condition.md#named-locations) 을 참조 하세요.
+조건부 액세스에서 신뢰할 수 있는 위치를 만드는 방법에 대한 자세한 내용은 [Azure Active Directory 조건부 액세스의 위치 조건이란?](../conditional-access/location-condition.md#named-locations)을 참조하세요.
 
 ### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>신뢰할 수 있는 위치에서 등록을 요구하는 정책 만들기
 
-다음 단계를 완료 하 여 결합 된 등록 환경을 사용 하 여 등록 하려고 하는 선택한 모든 사용자에 게 적용 되는 정책을 만들고, 신뢰할 수 있는 네트워크로 표시 된 위치에서 연결 하지 않는 한 액세스를 차단 합니다.
+결합된 등록 환경을 사용하여 등록을 시도하고 신뢰할 수 있는 네트워크로 표시된 위치에서 연결하지 않는 한 액세스를 차단하는 모든 선택된 사용자에게 적용되는 정책을 만들려면 다음 단계를 완료합니다.
 
 1. **Azure Portal** 에서 **Azure Active Directory** > **보안** > **조건부 액세스** 로 이동합니다.
 1. **+ 새 정책** 을 선택합니다.
@@ -88,8 +88,8 @@ Internet Explorer에서 사이트 간 *할당 목록을* 구성한 경우 다음
 
 ## <a name="next-steps"></a>다음 단계
 
-도움이 필요한 경우 [결합 된 보안 정보 등록 문제 해결](howto-registration-mfa-sspr-combined-troubleshoot.md) 또는 [Azure AD 조건부 액세스의 위치 조건](../conditional-access/location-condition.md) 알아보기를 참조 하세요.
+도움이 필요한 경우 [결합된 보안 정보 등록 문제 해결](howto-registration-mfa-sspr-combined-troubleshoot.md)을 참조하거나 [Azure Active Directory 조건부 액세스의 위치 조건이란?](../conditional-access/location-condition.md)을 살펴보세요.
 
-사용자가 결합 된 등록을 사용 하도록 설정한 후에는 [셀프 서비스 암호 재설정을 사용](tutorial-enable-sspr.md) 하도록 설정 하 고 [Azure AD Multi-Factor Authentication를 사용](tutorial-enable-azure-mfa.md)하도록 설정할 수 있습니다.
+사용자가 결합된 등록을 사용하도록 설정하면 [셀프 서비스 암호 재설정을 사용하도록 설정](tutorial-enable-sspr.md)하고 [Azure AD Multi-Factor Authentication을 사용하도록 설정](tutorial-enable-azure-mfa.md)할 수 있습니다.
 
-필요한 경우 [사용자가 인증 방법을 다시 등록](howto-mfa-userdevicesettings.md#manage-user-authentication-options)하도록 하는 방법에 대해 알아봅니다.
+필요한 경우 [강제로 사용자가 인증 방법을 다시 등록하도록 하는 방법](howto-mfa-userdevicesettings.md#manage-user-authentication-options)에 대해 알아봅니다.

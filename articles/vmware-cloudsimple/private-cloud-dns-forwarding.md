@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution - 프라이빗 클라우드에서 온-프레미스로 DNS 전달
 description: CloudSimple 프라이빗 클라우드 DNS 서버를 활성화하여 온-프레미스 리소스의 조회를 전달하는 방법을 설명합니다.
-author: shortpatti
-ms.author: v-patsho
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 02/29/2020
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: eed8addcf9064bddf761fabb7db22e7bcecc7a71
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 3481e21a93fbf5f658c5ca00513ea179c8f95400
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108185255"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "97899204"
 ---
 # <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>CloudSimple 프라이빗 클라우드 DNS 서버를 활성화하여 온-프레미스 리소스의 DNS 조회를 DNS 서버로 전달합니다.
 

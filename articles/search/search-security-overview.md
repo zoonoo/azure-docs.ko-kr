@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: d4310c724707548cd55df5591504736d8f3c3857
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 48aa91d4ba68b1a69e46019ced7c5bbb69d9029f
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460055"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786794"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Azure Cognitive Search에 대한 보안 개요
 
@@ -146,15 +146,7 @@ Azure Cognitive Search에서 암호화는 연결 및 전송에서 시작하여 �
 
 ### <a name="double-encryption"></a>이중 암호화
 
-Azure Cognitive Search에서 이중 암호화는 CMK의 확장입니다. 이중 암호화(CMK를 통해 한 번 및 서비스 관리형 키를 통해 다시 한 번)로 이해되며, 데이터 디스크에 기록되는 장기 스토리지 및 임시 디스크에 기록되는 단기 스토리지를 포함하는 포괄적인 범위로 이해됩니다. 2020년 8월 1일 이전 및 이후의 CMK와 Azure Cognitive Search에서 CMK를 이중 암호화 기능으로 만드는 것의 차이점 및 임시 디스크의 미사용 데이터에 추가 암호화입니다.
-
-이중 암호화는 현재 8월 1일 이후에 다음 지역에서 만든 새 서비스에서 사용할 수 있습니다.
-
-+ 미국 서부 2
-+ 미국 동부
-+ 미국 중남부
-+ US Gov 버지니아
-+ US Gov 애리조나
+Azure Cognitive Search에서 이중 암호화는 CMK의 확장입니다. 이중 암호화(CMK를 통해 한 번 및 서비스 관리형 키를 통해 다시 한 번)로 이해되며, 데이터 디스크에 기록되는 장기 스토리지 및 임시 디스크에 기록되는 단기 스토리지를 포함하는 포괄적인 범위로 이해됩니다. 이중 암호화는 특정 날짜 이후에 만든 서비스에서 구현됩니다. 자세한 내용은 [이중 암호화](search-security-manage-encryption-keys.md#double-encryption)를 참조하세요.
 
 ## <a name="security-management"></a>보안 관리
 

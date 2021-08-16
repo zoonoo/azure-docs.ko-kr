@@ -12,23 +12,18 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 382cdf87016044748685e5e64ff04ebac53f018d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cdc7ce9fbb24dc593ebd4dedc7c2c4ce82afa3f0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199131"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094824"
 ---
-# <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>다운스트림 IoT Edge 디바이스를 Azure IoT Edge 게이트웨이에 연결(미리 보기)
+# <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>다운스트림 IoT Edge 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
 [!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 이 문서에서는 IoT Edge 게이트웨이와 다운스트림 IoT Edge 디바이스 간에 신뢰할 수 있는 연결을 설정하는 방법에 대한 지침을 제공합니다.
-
->[!NOTE]
->이 기능에는 Linux 컨테이너를 실행하는 IoT Edge 버전 1.2(공개 미리 보기로 제공됨)가 필요합니다.
->
->이 문서에서는 IoT Edge 버전 1.2의 최신 미리 보기 릴리스를 반영합니다. 디바이스가 [1.2.0-rc4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc4) 이상의 버전을 실행하고 있는지 확인합니다. 디바이스에서 최신 미리 보기 버전을 가져오기 위한 단계는 [Linux용 Azure IoT Edge 설치(버전 1.2)](how-to-install-iot-edge.md) 또는 [IoT Edge 버전 1.2로 업데이트](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12)를 참조하세요.
 
 게이트웨이 시나리오에서 IoT Edge 디바이스는 게이트웨이자 다운스트림 디바이스일 수 있습니다. 여러 IoT Edge 게이트웨이를 계층화하여 디바이스 계층 구조를 만들 수 있습니다. 다운스트림(또는 자식) 디바이스는 게이트웨이(또는 부모) 디바이스를 통해 메시지를 인증하고 보내거나 받을 수 있습니다.
 
@@ -83,15 +78,20 @@ Azure Portal에서 새 디바이스 ID를 만들 때, 또는 기존 디바이스
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI에 대한 [azure-iot](/cli/azure/ext/azure-iot) 확장은 IoT 리소스를 관리하는 명령을 제공합니다. 새 디바이스 ID를 만들거나 기존 디바이스를 편집하여 IoT 및 IoT Edge 디바이스의 부모/자식 관계를 관리할 수 있습니다.
+Azure CLI에 대한 [azure-iot](/cli/azure/iot) 확장은 IoT 리소스를 관리하는 명령을 제공합니다. 새 디바이스 ID를 만들거나 기존 디바이스를 편집하여 IoT 및 IoT Edge 디바이스의 부모/자식 관계를 관리할 수 있습니다.
 
-[az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 명령 집합을 사용하여 지정된 디바이스에 대한 부모/자식 관계를 관리할 수 있습니다.
+[az iot hub device-identity](/cli/azure/iot/hub/device-identity) 명령 집합을 사용하여 지정된 디바이스에 대한 부모/자식 관계를 관리할 수 있습니다.
 
 이 `create` 명령에는 디바이스를 만들 때 자식 디바이스를 추가하고 부모 디바이스를 설정하기 위한 매개 변수가 포함되어 있습니다.
 
 `add-children`,`list-children`, 및 `remove-children` 또는 `get-parent`와 `set-parent`를 비롯한 추가 디바이스-ID 명령을 사용하여 기존 디바이스에 대한 부모/자식 관계를 관리할 수 있습니다.
 
 ---
+
+>[!NOTE]
+>프로그래밍 방식으로 상위-하위 관계를 설정하려는 경우 C#, Java 또는 Node.js [IoT Hub 서비스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용할 수 있습니다.
+>
+>다음은 C# SDK를 사용하여 [자식 디바이스를 할당하는 예](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs)입니다. `RegistryManager_AddAndRemoveDeviceWithScope()` 작업은 프로그래밍 방식으로 3-계층 구조를 작성하는 방법을 보여 줍니다. IoT Edge 디바이스는 부모로 계층 1에 있습니다. 또 다른 IoT Edge 디바이스는 계층 2에 있으며 자식 및 부모 역할을 합니다. 마지막으로, IoT 디바이스는 가장 낮은 계층 자식 디바이스로 계층 3에 있습니다.
 
 ## <a name="prepare-certificates"></a>인증서 준비
 
@@ -130,7 +130,7 @@ Azure CLI에 대한 [azure-iot](/cli/azure/ext/azure-iot) 확장은 IoT 리소�
 1. 이 IoT Edge 디바이스에 **루트 CA 인증서** 를 설치합니다.
 
    ```bash
-   sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem
+   sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
    ```
 
 1. 인증서 저장소 업데이트
@@ -162,13 +162,13 @@ Azure CLI에 대한 [azure-iot](/cli/azure/ext/azure-iot) 확장은 IoT 리소�
 
 1. **트러스트 번들 인증서** 섹션을 찾습니다. 디바이스에서 루트 CA 인증서에 대한 파일 URI를 사용하여 `trust_bundle_cert` 매개 변수의 주석 처리를 제거하고 업데이트합니다.
 
-1. 이 기능이 퍼블릭 미리 보기에 있는 동안 시작 시 IoT Edge 에이전트의 퍼블릭 미리 보기 버전을 사용하도록 IoT Edge 디바이스를 구성해야 합니다.
+1. IoT Edge 디바이스가 시작될 때 올바른 버전의 IoT Edge 에이전트를 사용하는지 확인합니다.
 
-   기본에 **기본 에지 에이전트** 섹션을 찾고 이미지 값을 퍼블릭 미리 보기 이미지로 업데이트합니다.
+   **기본 Edge 에이전트** 섹션을 찾아 이미지 값이 IoT Edge 버전 1.2인지 확인합니다. 그렇지 않은 경우 업데이트합니다.
 
    ```toml
    [agent.config]
-   image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4"
+   image: "mcr.microsoft.com/azureiotedge-agent:1.2"
    ```
 
 1. 구성 파일에서 **에지 CA 인증서** 섹션을 찾습니다. 이 섹션에서 줄의 주석 처리를 제거하고 IoT Edge 디바이스의 인증서 및 키 파일에 대한 파일 URI 경로를 제공합니다.
@@ -200,21 +200,6 @@ Azure CLI에 대한 [azure-iot](/cli/azure/ext/azure-iot) 확장은 IoT 리소�
 
    >[!TIP]
    >IoT Edge 검사 도구는 컨테이너를 사용하여 일부 진단 검사를 수행합니다. 다운스트림 IoT Edge 디바이스에서 이 도구를 사용하려면, `mcr.microsoft.com/azureiotedge-diagnostics:latest`에 엑세스하거나 또는 개인 컨테이너 레지스트리에 컨테이너 이미지를 포함할 수 있는지 확인합니다.
-
-## <a name="configure-runtime-modules-for-public-preview"></a>퍼블릭 미리 보기용 런타임 모듈 구성
-
-이 기능이 퍼블릭 미리 보기에 있을 때는 IoT Edge 런타임 모듈의 퍼블릭 미리 보기 버전을 사용하도록 IoT Edge 디바이스를 구성해야 합니다. 이전 섹션에서는 시작 시 edgeAgent를 구성하는 단계에 관해 설명합니다. 또한 디바이스 배포에서 런타임 모듈을 구성해야 합니다.
-
-1. 퍼블릭 미리 보기 이미지를 사용하도록 edgeHub 모듈을 구성합니다. `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4`
-
-1. EdgeHub 모듈에 대해 다음과 같은 환경 변수를 구성합니다.
-
-   | 이름 | 값 |
-   | - | - |
-   | `experimentalFeatures__enabled` | `true` |
-   | `experimentalFeatures__nestedEdgeEnabled` | `true` |
-
-1. 퍼블릭 미리 보기 이미지를 사용하도록 edgeAgent 모듈을 구성합니다. `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4`
 
 ## <a name="network-isolate-downstream-devices"></a>네트워크 분리 다운스트림 디바이스
 
@@ -250,6 +235,8 @@ ISA-95 표준을 따르는 것과 같은 일부 네트워크 아키텍처는 인
 게이트웨이 계층 구조의 최상위 계층에 있는 IoT Edge 디바이스에는 디바이스에서 실행할 수 있는 워크로드 모듈 외에도 배포해야 하는 필수 모듈 집합이 있습니다.
 
 API 프록시 모듈은 대부분의 일반 게이트웨이 시나리오를 처리하기 위해 사용자 지정할 수 있도록 설계되었습니다. 이 문서에서는 기본 구성에서 모듈을 설정하는 방법과 예제를 제공합니다. 자세한 내용 및 예제는 [게이트웨이 계층 구조 시나리오에 대한 API 프록시 모듈 구성](how-to-configure-api-proxy-module.md)을 참조하세요.
+
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT Hub로 이동합니다.
 1. 탐색 메뉴에서 **IoT Edge** 를 선택합니다.
@@ -337,6 +324,109 @@ API 프록시 모듈은 대부분의 일반 게이트웨이 시나리오를 처�
 1. **검토 + 만들기** 를 선택하여 마지막 단계로 이동합니다.
 1. **만들기** 를 선택하여 디바이스에 배포합니다.
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+1. [Azure Cloud Shell](https://shell.azure.com/)에서 배포 JSON 파일을 만듭니다. 예를 들면 다음과 같습니다.
+
+   ```json
+   {
+       "modulesContent": {
+           "$edgeAgent": {
+               "properties.desired": {
+                   "modules": {
+                       "dockerContainerRegistry": {
+                           "settings": {
+                               "image": "registry:latest",
+                               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5000/tcp\":[{\"HostPort\":\"5000\"}]}}}"
+                           },
+                           "type": "docker",
+                           "version": "1.0",
+                           "env": {
+                               "REGISTRY_PROXY_REMOTEURL": {
+                                   "value": "The URL for the container registry you want this registry module to map to. For example, https://myregistry.azurecr"
+                               },
+                               "REGISTRY_PROXY_USERNAME": {
+                                   "value": "Username to authenticate to the container registry."
+                               },
+                               "REGISTRY_PROXY_PASSWORD": {
+                                   "value": "Password to authenticate to the container registry."
+                               }
+                           },
+                           "status": "running",
+                           "restartPolicy": "always"
+                       },
+                       "IoTEdgeAPIProxy": {
+                           "settings": {
+                               "image": "mcr.microsoft.com/azureiotedge-api-proxy:1.0",
+                               "createOptions": "{\"HostConfig\": {\"PortBindings\": {\"443/tcp\": [{\"HostPort\":\"443\"}]}}}"
+                           },
+                           "type": "docker",
+                           "env": {
+                               "NGINX_DEFAULT_PORT": {
+                                   "value": "443"
+                               },
+                               "DOCKER_REQUEST_ROUTE_ADDRESS": {
+                                   "value": "registry:5000"
+                               }
+                           },
+                           "status": "running",
+                           "restartPolicy": "always",
+                           "version": "1.0"
+                       }
+                   },
+                   "runtime": {
+                       "settings": {
+                           "minDockerVersion": "v1.25"
+                       },
+                       "type": "docker"
+                   },
+                   "schemaVersion": "1.1",
+                   "systemModules": {
+                       "edgeAgent": {
+                           "settings": {
+                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2",
+                               "createOptions": ""
+                           },
+                           "type": "docker"
+                       },
+                       "edgeHub": {
+                           "settings": {
+                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2",
+                               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
+                           },
+                           "type": "docker",
+                           "env": {},
+                           "status": "running",
+                           "restartPolicy": "always"
+                       }
+                   }
+               }
+           },
+           "$edgeHub": {
+               "properties.desired": {
+                   "routes": {
+                       "route": "FROM /messages/* INTO $upstream"
+                   },
+                   "schemaVersion": "1.1",
+                   "storeAndForwardConfiguration": {
+                       "timeToLiveSecs": 7200
+                   }
+               }
+           }
+       }
+   }
+   ```
+
+   이 배포 파일은 포트 443에서 수신 대기하도록 API 프록시 모듈을 구성합니다. 포트 바인딩 충돌을 방지하기 위해 파일은 포트 443에서 수신하지 않도록 edgeHub 모듈을 구성합니다. 대신, API 프록시 모듈은 포트 443에서 모든 edgeHub 트래픽을 라우팅합니다.
+
+1. 다음 명령을 입력하여 IoT Edge 디바이스에 대한 배포를 만듭니다.
+
+   ```azurecli
+   az iot edge set-modules --device-id <device_id> --hub-name <iot_hub_name> --content ./<deployment_file_name>.json
+   ```
+
+---
+
 ### <a name="deploy-modules-to-lower-layer-devices"></a>하위 계층 디바이스에 모듈 배포
 
 게이트웨이 계층 구조의 하위 계층에 있는 IoT Edge 디바이스에는 디바이스에서 실행하는 워크로드 모듈 외에도 배포해야 하는 필수 모듈이 하나 있습니다.
@@ -347,7 +437,7 @@ API 프록시 모듈은 대부분의 일반 게이트웨이 시나리오를 처�
 
 하위 계층 디바이스를 클라우드에 연결할 수 없지만, 평소처럼 모듈 이미지를 풀하려면 게이트웨이 계층 구조의 최상위 계층 디바이스가 이러한 요청을 처리하도록 구성해야 합니다. 최상위 계층 디바이스는 컨테이너 레지스트리에 매핑되는 Docker **레지스트리** 모듈을 실행해야 합니다. 그런 다음 컨테이너 요청을 라우팅하도록 API 프록시 모듈을 구성합니다. 이에 관한 세부 정보는 이 문서의 이전 섹션에서 참고하세요. 이 구성에서 하위 계층 디바이스는 클라우드 컨테이너 레지스트리가 아닌 최상위 계층에서 실행되는 레지스트리를 가리켜야 합니다.
 
-예를 들어 `mcr.microsoft.com/azureiotedge-api-proxy:latest`를 호출하는 대신 하위 계층 디바이스는 `$upstream:443/azureiotedge-api-proxy:latest`를 호출해야 합니다.
+예를 들어 `mcr.microsoft.com/azureiotedge-api-proxy:1.0`를 호출하는 대신 하위 계층 디바이스는 `$upstream:443/azureiotedge-api-proxy:1.0`를 호출해야 합니다.
 
 **$upstream** 매개 변수는 하위 계층 디바이스의 부모 디바이스를 가리키며 요청은 레지스트리 모듈에 컨테이너 요청을 라우팅하는 프록시 환경을 포함하는 최상위 계층에 도달할 때까지 모든 계층에 걸쳐 라우팅합니다. 이 예제의 `:443` 포트는 부모 디바이스의 API 프록시 모듈이 수신 대기 중인 포트로 대체되어야 합니다.
 
@@ -369,7 +459,7 @@ name = "edgeAgent"
 type = "docker"
 
 [agent.config]
-image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc4"
+image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2"
 ```
 
 로컬 컨테이너 레지스트리를 사용하거나 디바이스에서 수동으로 컨테이너 이미지를 제공하는 경우 구성 파일을 적절하게 업데이트합니다.

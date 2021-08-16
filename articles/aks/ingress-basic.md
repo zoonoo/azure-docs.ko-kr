@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터에 기본 NGINX 수신 �
 services: container-service
 ms.topic: article
 ms.date: 04/23/2021
-ms.openlocfilehash: 3abd39d35142dac158b208e69a4c24ddbd4eae2a
-ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
+ms.openlocfilehash: 79267ce3a6a126caa46eb8445551d85c67f7b976
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108007307"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565683"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 수신 컨트롤러 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "108007307"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 [Helm 3][helm]을 사용하여 NGINX 수신 컨트롤러를 설치합니다. 최신 릴리스 Helm을 사용하고 있으며 *ingress-nginx* Helm 리포지토리에 액세스할 수 있는지 확인합니다.
+이 문서에서는 [Helm 3][helm]을 사용하여 [지원되는 Kubernetes 버전][aks-supported versions]에 NGINX 수신 컨트롤러를 설치합니다. Helm의 최신 릴리스를 사용하고 있으며 *ingress-nginx* Helm 리포지토리에 액세스할 수 있는지 확인합니다. 이 문서에 설명된 단계는 이전 버전의 Helm 차트, NGINX 수신 컨트롤러 또는 Kubernetes와 호환되지 않을 수 있습니다.
 
 또한 이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
@@ -38,7 +38,7 @@ ms.locfileid: "108007307"
 수신 컨트롤러도 Linux 노드에서 예약해야 합니다. Windows Server 노드가 수신 컨트롤러를 실행해서는 안 됩니다. `--set nodeSelector` 매개 변수를 사용하여 노드 선택기를 지정하면 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행하도록 Kubernetes 스케줄러에 지시할 수 있습니다.
 
 > [!TIP]
-> 다음 예에서는 *ingress-basic* 이라는 수신 리소스에 대한 Kubernetes 네임스페이스를 만듭니다. 필요에 따라 사용자 환경에 대한 네임스페이스를 지정합니다.
+> 다음 예제에서는 *ingress-basic* 이라는 수신 리소스에 대한 Kubernetes 네임스페이스를 만듭니다. 필요에 따라 사용자 환경에 대한 네임스페이스를 지정합니다.
 
 > [!TIP]
 > 클러스터의 컨테이너에 대한 요청에 대해 [클라이언트 원본 IP 유지][client-source-ip]를 사용하도록 설정하려면 `--set controller.service.externalTrafficPolicy=Local`을 Helm 설치 명령에 추가합니다. 클라이언트 원본 IP가 *X-Forwarded-For* 아래 요청 헤더에 저장됩니다. 클라이언트 원본 IP 유지를 사용하는 수신 컨트롤러를 사용하는 경우 SSL 통과는 작동하지 않습니다.
@@ -150,7 +150,7 @@ spec:
     app: aks-helloworld-two
 ```
 
-`kubectl apply`을 사용하여 두 개의 데모 애플리케이션을 실행합니다.
+`kubectl apply`를 사용하여 두 개의 데모 애플리케이션을 실행합니다.
 
 ```console
 kubectl apply -f aks-helloworld-one.yaml --namespace ingress-basic
@@ -170,7 +170,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-world-ingress
-  namespace: ingress-basic
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
@@ -206,7 +205,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-world-ingress-static
-  namespace: ingress-basic
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
@@ -228,7 +226,7 @@ spec:
 `kubectl apply -f hello-world-ingress.yaml` 명령을 사용하여 수신 리소스를 만듭니다.
 
 ```
-$ kubectl apply -f hello-world-ingress.yaml
+$ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 
 ingress.extensions/hello-world-ingress created
 ingress.extensions/hello-world-ingress-static created
@@ -246,7 +244,7 @@ ingress.extensions/hello-world-ingress-static created
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 문서에서는 Helm을 사용하여 수신 구성 요소 및 샘플 앱을 설치했습니다. Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 해당 리소스를 정리하려면 전체 샘플 네임스페이스 또는 개별 리소스를 삭제할 수 있습니다.
+이 문서에서는 Helm을 사용하여 수신 구성 요소 및 샘플 앱을 설치했습니다. Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 해당 리소스를 정리하려면 전체 샘플 네임스페이스 또는 개별 리소스를 삭제하면 됩니다.
 
 ### <a name="delete-the-sample-namespace-and-all-resources"></a>샘플 네임스페이스 및 모든 리소스 삭제
 
@@ -258,7 +256,7 @@ kubectl delete namespace ingress-basic
 
 ### <a name="delete-resources-individually"></a>리소스를 개별적으로 삭제하거나
 
-또는 보다 세분화된 접근 방식으로서 생성된 개별 리소스를 삭제합니다. `helm list` 명령을 사용하여 Helm 릴리스를 나열합니다. 다음 예제 출력과 같이 이름이 *nginx-ingress* 및 *aks-helloworld* 인 차트를 찾습니다.
+또는 생성된 개별 리소스를 삭제하는 것이 보다 세분화된 접근 방식입니다. `helm list` 명령을 사용하여 Helm 릴리스를 나열합니다. 다음 예제 출력과 같이 이름이 *nginx-ingress* 및 *aks-helloworld* 인 차트를 찾습니다.
 
 ```
 $ helm list --namespace ingress-basic
@@ -275,7 +273,7 @@ $ helm uninstall nginx-ingress --namespace ingress-basic
 release "nginx-ingress" uninstalled
 ```
 
-다음으로 두 개의 샘플 애플리케이션을 제거합니다.
+다음으로, 두 개의 샘플 애플리케이션을 제거합니다.
 
 ```console
 kubectl delete -f aks-helloworld-one.yaml --namespace ingress-basic
@@ -322,3 +320,4 @@ kubectl delete namespace ingress-basic
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [client-source-ip]: concepts-network.md#ingress-controllers
+[aks-supported versions]: supported-kubernetes-versions.md

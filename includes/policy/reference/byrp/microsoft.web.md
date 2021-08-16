@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/14/2021
+ms.date: 06/11/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 37295a6fc1014be8cdf961d8fc258dc8b60aef64
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4e74b848df66f06d41187298da8ecf875f345ad7
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070241"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112021209"
 ---
 |이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -19,6 +19,7 @@ ms.locfileid: "110070241"
 |[App Service 앱은 Azure Virtual Network에 대한 아웃바운드 비 RFC 1918 트래픽을 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33228571-70a4-4fa1-8ca1-26d0aba8d6ef) |기본적으로 지역 Azure VNET(Virtual Network) 통합을 사용하는 경우 앱은 RFC1918 트래픽만 해당 가상 네트워크로 라우팅합니다. API를 사용하여 'vnetRouteAllEnabled'를 true로 설정하면 모든 아웃바운드 트래픽이 Azure Virtual Network로 설정됩니다. 이 설정을 사용하면 네트워크 보안 그룹 및 사용자 정의 경로와 같은 기능을 App Service 앱의 모든 아웃바운드 트래픽에 사용할 수 있습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_VnetRouteAllEnabled_Audit.json) |
 |[App Service Environment는 TLS 1.0 및 1.1을 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd6545c6b-dd9d-4265-91e6-0b451e2f1c50) |TLS 1.0 및 1.1은 최신 암호화 알고리즘을 지원하지 않는 오래된 프로토콜입니다. 인바운드 TLS 1.0 및 1.1 트래픽을 사용하지 않도록 설정하면 App Service Environment에서 앱을 보호하는 데 도움이 됩니다. |감사, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_HostingEnvironment_DisableTls_Audit.json) |
 |[App Service Environment에서 내부 암호화를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb74e86f-d351-4b8d-b034-93da7391c01f) |InternalEncryption을 true로 설정하면 App Service Environment의 프런트 엔드와 작업자 간의 페이지 파일, 작업자 디스크 및 내부 네트워크 트래픽이 암호화됩니다. 자세히 알아보려면 [https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-custom-settings#enable-internal-encryption](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-custom-settings#enable-internal-encryption)을 참조하세요. |감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_HostingEnvironment_InternalEncryption_Audit.json) |
+|[App Service는 공용 네트워크 액세스를 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd79ab062-dffd-4318-8344-f70de714c0bc) |공용 네트워크 액세스를 사용하지 않도록 설정하면 앱 서비스가 퍼블릭 인터넷에 노출되지 않으므로 보안이 강화됩니다. 프라이빗 엔드포인트를 만들면 앱 서비스의 노출을 제한할 수 있습니다. [https://aka.ms/app-service-private-endpoint](https://aka.ms/app-service-private-endpoint)에서 자세히 알아보세요. |감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_App_PrivateEndpoint_Audit.json) |
 |[App Service는 가상 네트워크 서비스 엔드포인트를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d21331d-a4c2-4def-a9ad-ee4e1e023beb) |이 정책은 가상 네트워크 서비스 엔드포인트를 사용하도록 구성되지 않은 모든 App Service를 감사합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_AppService_AuditIfNotExists.json) |
 |[API 앱에서 인증을 사용하도록 설정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4ebc54a-46e1-481a-bee2-d4411e95d828) |Azure App Service 인증은 익명 HTTP 요청이 API 앱에 도달하는 것을 방지하거나 API 앱에 도달하기 전에 토큰이 있는 요청을 인증할 수 있는 기능입니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Authentication_ApiApp_Audit.json) |
 |[함수 앱에서 인증을 사용하도록 설정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc75248c1-ea1d-4a9c-8fc9-29a6aabd5da8) |Azure App Service 인증은 익명 HTTP 요청이 함수 앱에 도달하는 것을 방지하거나 함수 앱에 도달하기 전에 토큰이 있는 요청을 인증할 수 있는 기능입니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Authentication_functionapp_Audit.json) |

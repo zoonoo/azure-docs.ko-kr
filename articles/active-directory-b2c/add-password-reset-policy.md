@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 05/24/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f451d08dfbde643d91705f54296e9757a51c9d88
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 81bdc8550f57a7c1c4992825cd231a9bb3cad4ce
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104798396"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457479"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 암호 재설정 흐름 설정
 
@@ -28,8 +28,13 @@ ms.locfileid: "104798396"
 
 [가입 및 로그인 경험](add-sign-up-and-sign-in-policy.md)을 통해 사용자는 **암호를 잊으셨나요?** 링크를 사용하여 자신의 암호를 재설정할 수 있습니다. 암호 재설정 흐름에는 다음 단계가 포함됩니다.
 
-1. 가입 및 로그인 페이지에서 사용자가 **암호를 잊으셨나요?** 링크를 클릭합니다. Azure AD B2C가 암호 재설정 흐름을 시작합니다. 
-2. 사용자가 이메일 주소를 제공하고 확인하여 시간이 제한된 일회성 암호를 받습니다.
+1. 가입 및 로그인 페이지에서 사용자가 **암호를 잊으셨나요?** 링크를 클릭합니다. Azure AD B2C가 암호 재설정 흐름을 시작합니다.
+2. 사용자가 이메일 주소를 입력하고 **확인 코드 보내기** 를 선택합니다. 그러면 Azure AD B2C가 사용자에게 확인 코드를 보냅니다.
+
+* 사용자는 메일함을 열고 확인 코드를 복사해야 합니다. 그런 다음 Azure AD B2C 암호 재설정 페이지에서 확인 코드를 입력하고 **코드 확인** 을 선택합니다.
+
+> [!NOTE]
+> 이메일이 확인된 후에도 사용자는 여전히 **이메일 변경** 을 선택하여 다른 이메일을 입력하고 처음부터 이메일 확인을 반복할 수 있습니다.
 3. 그런 다음 사용자는 새 암호를 입력할 수 있습니다.
 
 ![암호 재설정 흐름](./media/add-password-reset-policy/password-reset-flow.png)
@@ -61,17 +66,17 @@ ms.locfileid: "104798396"
 1. **사용자 흐름** 을 선택합니다.
 1. 사용자 지정하려는 가입 또는 로그인 사용자 흐름(**권장** 형식)을 선택합니다.
 1. 왼쪽 메뉴의 **설정** 에서 **속성** 을 선택합니다.
-1. **암호 복잡성** 에서 **셀프 서비스 암호 재설정** 을 선택합니다.
+1. **암호 구성** 에서 **셀프 서비스 암호 재설정** 을 선택합니다.
 1. **저장** 을 선택합니다.
 1. 왼쪽 메뉴의 **사용자 지정** 에서 **페이지 레이아웃** 을 선택합니다.
-1. **페이지 레이아웃 버전** 에서 **2.1.2 - 현재** 이상을 선택합니다.
+1. **페이지 레이아웃 버전** 에서 **2.1.3** 이상을 선택합니다.
 1. **저장** 을 선택합니다.
 
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
 
-다음 섹션에서는 사용자 지정 정책에 셀프 서비스 암호 환경을 추가하는 방법에 대해 설명합니다. 이 샘플은 [사용자 지정 정책 시작 팩](./custom-policy-get-started.md)에 포함된 정책 파일을 기반으로 합니다. 
+다음 섹션에서는 사용자 지정 정책에 셀프 서비스 암호 환경을 추가하는 방법에 대해 설명합니다. 이 샘플은 [사용자 지정 정책 시작 팩](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack)에 포함된 정책 파일을 기반으로 합니다. 
 
 > [!TIP]
 > [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/embedded-password-reset)에서 “암호 재설정으로 가입 또는 로그인” 정책의 전체 샘플을 찾을 수 있습니다.
@@ -316,7 +321,7 @@ ms.locfileid: "104798396"
 
 ### <a name="create-a-password-reset-policy"></a>암호 재설정 정책 만들기
 
-사용자 지정 정책은 사용자 경험을 정의하기 위해 Azure AD B2C 테넌트에 업로드하는 XML 파일 집합입니다. 당사는 가입 및 로그인, 암호 재설정 및 프로필 편집 정책 등 미리 빌드된 몇 가지 정책으로 시작 팩을 제공합니다. 자세한 내용은 [Azure AD B2C에서 사용자 지정 정책 시작하기](custom-policy-get-started.md)를 참조하세요.
+사용자 지정 정책은 사용자 경험을 정의하기 위해 Azure AD B2C 테넌트에 업로드하는 XML 파일 집합입니다. 당사는 가입 및 로그인, 암호 재설정 및 프로필 편집 정책 등 미리 빌드된 몇 가지 정책으로 시작 팩을 제공합니다. 자세한 내용은 [Azure AD B2C에서 사용자 지정 정책 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)를 참조하세요.
 
 ::: zone-end
 

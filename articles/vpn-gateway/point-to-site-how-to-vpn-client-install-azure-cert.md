@@ -6,22 +6,26 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 06/03/2021
 ms.author: cherylmc
-ms.openlocfilehash: faa2d1924b0953bbf8da660ac7702c959fe7b272
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: d4ab1009b38d250a39455a9e8a470cd7f1156793
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292237"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111527114"
 ---
 # <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>P2S 인증서 인증 연결용 클라이언트 인증서 설치
 
-지점 및 사이트 간 Azure 인증서 인증을 사용하여 가상 네트워크에 연결하는 모든 클라이언트에는 클라이언트 인증서가 필요합니다. 이 문서에서는 P2S를 사용하여 VNet에 연결할 때 인증에 사용되는 클라이언트 인증서를 설치합니다.
+P2S VPN 게이트웨이가 인증서 인증을 요구하도록 구성된 경우 각 클라이언트에는 로컬로 설치된 클라이언트 인증서가 있어야 합니다. 자체 서명된 루트 인증서에서 또는 엔터프라이즈 CA 솔루션을 사용하여 생성된 루트 인증서에서 클라이언트 인증서를 생성할 수 있습니다. 
 
-## <a name="acquire-a-client-certificate"></a><a name="generate"></a>클라이언트 인증서 획득
+클라이언트 인증서를 생성하면 일반적으로 인증서가 생성된 클라이언트 컴퓨터에 인증서가 자동으로 설치됩니다. 다른 클라이언트 컴퓨터에서 VNet에 연결하려면 연결하는 컴퓨터에 클라이언트 인증서를 설치해야 합니다. 이는 해당 컴퓨터에서 VPN 클라이언트를 구성하는 것 외에 추가됩니다.
 
-연결하려는 클라이언트 운영 체제에 관계없이 항상 클라이언트 인증서가 있어야 합니다. 엔터프라이즈 CA 솔루션을 사용하여 생성된 루트 인증서 또는 자체 서명된 루트 인증서에서 클라이언트 인증서를 생성할 수 있습니다. 클라이언트 인증서를 생성하는 단계에 대해 알아보려면 [PowerShell](vpn-gateway-certificates-point-to-site.md), [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) 또는 [Linux](vpn-gateway-certificates-point-to-site-linux.md)지침을 참조하세요. 
+여러 메서드를 사용하여 자체 서명된 인증서를 생성하고 내보낼 수 있습니다. 자세한 내용은 다음 아티클을 참조하세요.
+
+* [PowerShell](vpn-gateway-certificates-point-to-site.md)
+* [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
+* [Linux](vpn-gateway-certificates-point-to-site-linux.md) 
 
 ## <a name="windows"></a><a name="installwin"></a>Windows
 

@@ -4,12 +4,12 @@ description: ASP.NET Core 웹 애플리케이션의 가용성, 성능 및 사용
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: be4cbe5f95fa6901ae4299662750c232d4700a8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 488203b9b2e9a45cd85e72a1516418401502eb20
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101711504"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110082579"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 애플리케이션용 Application Insights
 
@@ -25,7 +25,7 @@ ms.locfileid: "101711504"
 * **배포 방법**: 프레임워크 종속 또는 자체 포함
 * **웹 서버**: IIS(Internet Information Server) 또는 Kestrel
 * **호스팅 플랫폼**: Azure App Service, Azure VM, Docker, AKS(Azure Kubernetes Service) 등의 Web Apps 기능
-* **.NET Core 버전**: 공식적으로 [지원](https://dotnet.microsoft.com/download/dotnet-core)되는 모든 .NET Core 버전
+* **.NET Core 버전**: 공식적으로 [지원되는 모든 .NET Core 버전](https://dotnet.microsoft.com/download/dotnet-core)이며 미리 보기에는 없습니다.
 * **IDE**: Visual Studio, VS Code 또는 명령줄
 
 > [!NOTE]
@@ -37,7 +37,7 @@ ms.locfileid: "101711504"
 - 유효한 Application Insights 계측 키. 이 키는 원격 분석을 Application Insights에 보내는 데 필요합니다. 계측 키를 가져오기 위해 새 Application Insights 리소스를 만들어야 하는 경우 [Application Insights 리소스 만들기](./create-new-resource.md)를 참조하세요.
 
 > [!IMPORTANT]
-> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 **사용해야 합니다**. [연결 문자열](./sdk-connection-string.md?tabs=net)은 원격 분석 데이터를 연결할 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
+> 계측 키보다 [연결 문자열](./sdk-connection-string.md?tabs=net)이 권장됩니다. 새 Azure 지역에서는 계측 키 대신 연결 문자열을 **사용해야 합니다**. 연결 문자열은 원격 분석 데이터를 연결할 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
 
 
 ## <a name="enable-application-insights-server-side-telemetry-visual-studio"></a>Application Insights 서버 쪽 원격 분석 사용(Visual Studio 사용)

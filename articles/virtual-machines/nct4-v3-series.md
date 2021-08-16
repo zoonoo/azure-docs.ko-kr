@@ -7,12 +7,12 @@ author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: 2e10177de1a40bf7ece7acde43a91686bd4c98e5
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e023eacd173ce23e3f88fa97f8c0127132c953ea
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306452"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108744536"
 ---
 # <a name="ncast4_v3-series"></a>NCasT4_v3 시리즈 
 
@@ -28,7 +28,7 @@ NCasT4_v3 시리즈 가상 머신은 [NVIDIA Tesla T4](https://www.nvidia.com/en
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
-[임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨([미리 보기](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
 NVIDIA NVLink Interconnect: 지원되지 않음<br>
 <br>
 

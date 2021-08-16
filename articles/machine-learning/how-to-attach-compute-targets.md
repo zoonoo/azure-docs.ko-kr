@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 00fbf0fe3340dc0c14f8cd55098c1e20990a3207
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 9388a6e01885e4a3a0c5aa95c254910c96a4e36a
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368027"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902360"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>모델 학습 및 배포를 위한 컴퓨팅 대상 설정
 
@@ -26,11 +26,13 @@ Azure 컴퓨팅 리소스를 Azure Machine Learning 작업 영역에 연결하�
 
 * 로컬 컴퓨터
 * 원격 가상 머신
+* Apache Spark 풀(Azure Synapse Analytics에서 제공)
 * Azure HDInsight
 * Azure Batch
 * Azure Databricks
 * Azure 데이터 레이크 분석
 * Azure Container Instance
+
 
 Azure Machine Learning에서 관리하는 컴퓨팅 대상을 사용하려면 다음을 참조하세요.
 
@@ -128,6 +130,10 @@ Azure Machine Learning은 Azure 가상 머신 연결도 지원합니다. VM은 A
 >
 > Azure Machine Learning은 VM을 자동으로 삭제하지 않습니다. Azure Portal, CLI 또는 Azure VM 용 SDK를 사용하여 VM을 수동으로 삭제해야 합니다.
 
+## <a name="apache-spark-pools"></a><a id="synapse"></a>Apache Spark 풀
+
+Azure Machine Learning과 Azure Synapse Analytics를 통합(미리 보기)하면 대화형 데이터 탐색 및 준비를 위해 Azure Synapse에서 지원하는 Apache Spark 풀을 연결할 수 있습니다. 이러한 통합을 통해 대규모 데이터 랭글링을 위한 전용 컴퓨팅을 사용할 수 있습니다. 자세한 내용은 [Azure Synapse Analytics에서 제공하는 Apache Spark 풀을 연결하는 방법](how-to-link-synapse-ml-workspaces.md#attach-synapse-spark-pool-as-a-compute)을 참조하세요.
+
 ## <a name="azure-hdinsight"></a><a id="hdinsight"></a>Azure HDInsight 
 
 Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니다. 플랫폼은 모델을 학습하는 데 사용할 수 있는 Apache Spark를 제공합니다.
@@ -221,11 +227,14 @@ print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 > [!WARNING]
 > 작업 영역에서 동일한 Azure Batch에 대한 여러 개의 동시 첨부 파일을 만들지 마세요. 각 새 첨부 파일은 이전의 기존 첨부 파일을 중단합니다.
 
-### <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
+## <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
 
 Azure Databricks는 Azure 클라우드의 Apache Spark 기반 환경입니다. 이 환경은 Azure Machine Learning 파이프라인 사용 시 컴퓨팅 대상으로 사용할 수 있습니다.
 
-> [!중요} Azure Machine Learning은 Azure Databricks 컴퓨팅 대상을 만들 수 없습니다. 대신 Azure Databricks 작업 영역을 만든 다음 이를 Azure Machine Learning 작업에 연결해야 합니다. 작업 영역 리소스를 만들려면 [Azure Databricks에서 Spark 작업 실행](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) 문서를 참조하세요.
+> [!IMPORTANT]
+> Azure Machine Learning은 Azure Databricks 컴퓨팅 대상을 만들 수 없습니다. 대신 Azure Databricks 작업 영역을 만든 다음 이를 Azure Machine Learning 작업에 연결해야 합니다. 작업 영역 리소스를 만들려면 [Azure Databricks에서 Spark 작업 실행](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) 문서를 참조하세요.
+> 
+> __다른 Azure 구독__ 에서 Azure Databricks 작업 영역을 연결하려면 사용자(Azure AD 계정)에게 Azure Databricks 작업 영역에 대한 **기여자** 역할이 부여되어야 합니다. [Azure Portal](https://ms.portal.azure.com/)에서 액세스를 확인합니다.
 
 Azure Databricks를 컴퓨팅 대상으로 연결하려면 다음 정보를 제공합니다.
 
@@ -233,7 +242,7 @@ Azure Databricks를 컴퓨팅 대상으로 연결하려면 다음 정보를 제�
 * __Databricks 작업 영역 이름__: Azure Databricks 작업 영역의 이름입니다.
 * __Databricks 액세스 토큰__: Azure Databricks에서 인증을 받는 데 사용하는 액세스 토큰입니다. 액세스 토큰을 생성하려면 [인증](/azure/databricks/dev-tools/api/latest/authentication) 문서를 참조하세요.
 
-다음 코드는 Azure Machine Learning SDK를 사용하여 Azure Databricks를 컴퓨팅 대상으로 연결하는 방법을 보여 줍니다(__Databricks 작업 영역은 AML 작업 영역과 동일한 구독에 있어야 함__).
+다음 코드는 Azure Machine Learning SDK를 사용하여 Azure Databricks를 컴퓨팅 대상으로 연결하는 방법을 보여줍니다.
 
 ```python
 import os
@@ -277,7 +286,7 @@ except ComputeTargetException:
 > [!WARNING]
 > 작업 영역에서 동일한 Azure Databricks에 대한 여러 개의 동시 첨부 파일을 만들지 마세요. 각 새 첨부 파일은 이전의 기존 첨부 파일을 중단합니다.
 
-### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure 데이터 레이크 분석
+## <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure 데이터 레이크 분석
 
 Azure Data Lake Analytics는 Azure 클라우드의 빅 데이터 분석 플랫폼입니다. 이 환경은 Azure Machine Learning 파이프라인 사용 시 컴퓨팅 대상으로 사용할 수 있습니다.
 

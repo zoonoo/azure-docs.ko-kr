@@ -1,29 +1,25 @@
 ---
 title: Azure Security Center의 규정 준수 대시보드 사용
 description: Security Center의 규정 준수 대시보드에서 규정 표준을 추가하고 제거하는 방법을 알아봅니다.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/04/2021
+ms.date: 04/21/2021
 ms.author: memildin
-ms.openlocfilehash: 768f686889663d9b1af4b88d84b361ac9460a5a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1fe1f15d2a2a2a3da7a7978b2d7645db65beae1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100381735"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146692"
 ---
 # <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>규정 준수 대시보드의 표준 집합 사용자 지정
 
 Azure Security Center는 리소스 구성을 업계 표준, 규정 및 벤치마크의 요구 사항과 지속적으로 비교합니다. **규정 준수 대시보드** 는 특정 규정 준수 요구 사항을 충족하는 방법에 따라 규정 준수 상태에 대한 인사이트를 제공합니다.
 
+> [!TIP]
+> [질문과 대답](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard)에서 Security Center의 규정 준수 대시보드에 대해 자세히 알아봅니다.
 
 ## <a name="how-are-regulatory-compliance-standards-represented-in-security-center"></a>Security Center에서 규정 준수 표준은 어떻게 표시되나요?
 
@@ -38,15 +34,17 @@ Microsoft는 규정 표준 자체를 추적하고 시간이 지남에 따라 일
 
 ## <a name="what-regulatory-compliance-standards-are-available-in-security-center"></a>Security Center에서 사용할 수 있는 규정 준수 표준은 무엇인가요?
 
-기본적으로 모든 구독에는 **Azure Security Benchmark** 가 할당되어 있습니다. 이는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침입니다. [Azure 보안 벤치마크에 대해 자세히 알아보세요](../security/benchmarks/introduction.md).
+기본적으로 모든 구독에는 **Azure Security Benchmark** 가 할당되어 있습니다. 이는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침입니다. [Azure 보안 벤치마크에 대해 자세히 알아보세요](/security/benchmark/azure/introduction).
 
 다음과 같은 표준을 추가할 수도 있습니다.
 
-- NIST SP 800-53 R4
+- NIST SP 800-53
 - SWIFT CSP CSCF-v2020
 - 영국 공식 및 영국 NHS
 - 캐나다 연방 PBMM
-- Azure CIS 1.1.0
+- Azure CIS 1.3.0
+- CMMC Level 3
+- 뉴질랜드 ISM 제한됨
 
 표준은 사용할 수 있게 되면 대시보드에 추가됩니다.
 
@@ -71,13 +69,15 @@ Microsoft는 규정 표준 자체를 추적하고 시간이 지남에 따라 일
 
 1. **규정 준수 표준 추가** 페이지에서 다음과 같은 사용 가능한 표준에 대한 패키지를 검색할 수 있습니다.
 
-    - **NIST SP 800-53 R4**
-    - **NIST SP 800 171 R2**
+    - **NIST SP 800-53**
+    - **NIST SP 800 171**
     - **SWIFT CSP CSCF v2020**
     - **UKO 및 영국 NHS**
     - **캐나다 연방 PBMM**
     - **HIPAA HITRUST**
-    - **Azure CIS 1.1.0**
+    - **Azure CIS 1.3.0**
+    - **CMMC Level 3**
+    - **뉴질랜드 ISM 제한됨**
     
     ![Azure Security Center의 규정 준수 대시보드에 규정 표준 추가](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
@@ -122,6 +122,6 @@ Microsoft는 규정 표준 자체를 추적하고 시간이 지남에 따라 일
 
 관련 자료는 다음 페이지를 참조하세요.
 
-- [Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Azure Security Benchmark](/security/benchmark/azure/introduction)
 - [Security Center 규정 준수 대시보드](security-center-compliance-dashboard.md) - Security Center 및 외부 도구를 사용하여 규정 준수 데이터를 추적하고 내보내는 방법을 알아봅니다.
 - [보안 정책 작업](tutorial-security-policy.md)

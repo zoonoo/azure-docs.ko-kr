@@ -3,12 +3,12 @@ title: Azure VM 백업 관리 및 모니터링
 description: Azure Backup 서비스를 사용하여 Azure VM 백업을 관리하고 모니터링하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 51ce88bb67d64ce129a3479d38db9a66dfe65d0a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70ce8ababcb596c3eb804e429156000ff7d64ecc
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100635080"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372575"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Azure Backup 서비스를 사용하여 Azure VM 백업 관리
 
@@ -21,7 +21,7 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
 * 모든 백업 스냅샷의 총 크기
 * 백업을 사용할 수 있는 VM의 수
 
-대시보드를 사용하고 개별 VM으로 드릴다운하여 백업을 관리할 수 있습니다. 머신 백업을 시작하려면 대시보드에서 자격 증명 모음을 엽니다.
+대시보드를 사용하고 개별 VM으로 드릴다운하여 백업을 관리할 수 있습니다. 컴퓨터 백업을 시작하려면 대시보드에서 자격 증명 모음을 엽니다.
 
 ![슬라이더로 전체 대시보드 보기](./media/backup-azure-manage-vms/bottom-slider.png)
 
@@ -93,7 +93,7 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
 보호를 설정한 후에 VM의 주문형 백업을 실행할 수 있습니다. 다음 세부 사항을 기억해 두세요.
 
 * 초기 백업이 보류 중인 경우, 주문형 백업은 Recovery Services 자격 증명 모음에 VM의 전체 복사본을 만듭니다.
-* 초기 백업이 완료되면 주문형 백업은 이전 스냅샷에서 Recovery Services 자격 증명 모음에 변경 내용만 보냅니다. 즉, 이후의 백업은 항상 증분형입니다.
+* 초기 백업이 완료되면 주문형 백업은 이전 스냅샷에서 Recovery Services 자격 증명 모음에 변경 내용만 보냅니다. 즉, 이후 백업은 항상 증분형입니다.
 * 주문형 백업의 보존 범위는 백업을 트리거할 때 지정하는 보존 값입니다.
 
 > [!NOTE]

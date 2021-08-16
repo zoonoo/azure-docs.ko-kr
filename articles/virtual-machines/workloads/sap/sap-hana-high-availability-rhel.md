@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/16/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: daa0a6b15d4c187efdea96fd8067b08c89fa0e82
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 435528f7338657bc7e7d486a481cdf0ce48f4d38
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599870"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142894"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux의 Azure VM에 있는 SAP HANA의 고가용성
 
@@ -559,6 +559,71 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 [Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정](high-availability-guide-rhel-pacemaker.md) 단계에 따라 이 HANA 서버용 기본 Pacemaker 클러스터를 만듭니다.
 
+## <a name="implement-the-python-system-replication-hook-saphanasr"></a>Python 시스템 복제 후크 SAPHanaSR 구현
+
+이는 클러스터와의 통합을 최적화하고 클러스터 장애 조치(failover)가 필요할 때 검색 기능을 향상시키는 중요한 단계입니다. SAPHanaSR python 후크를 구성하는 것이 좋습니다.    
+
+1. **[A]** HANA "시스템 복제 후크"를 설치합니다. 후크는 두 개의 HANA DB 노드에 모두 설치해야 합니다.           
+
+   > [!TIP]
+   > Python 후크는 HANA 2.0에서만 구현할 수 있습니다.        
+
+   1. 후크를 `root`로 준비합니다.  
+
+    ```bash
+     mkdir -p /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR/srHook/SAPHanaSR.py /hana/shared/myHooks
+     chown -R hn1adm:sapsys /hana/shared/myHooks
+    ```
+
+   2. 두 노드에서 HANA를 중지합니다. <sid\>adm으로 실행합니다.  
+   
+    ```bash
+    sapcontrol -nr 03 -function StopSystem
+    ```
+
+   3. 각 클러스터 노드에서 `global.ini`를 조정합니다.  
+ 
+    ```bash
+    # add to global.ini
+    [ha_dr_provider_SAPHanaSR]
+    provider = SAPHanaSR
+    path = /hana/shared/myHooks
+    execution_order = 1
+    
+    [trace]
+    ha_dr_saphanasr = info
+    ```
+
+2. **[A]** 클러스터에서 <sid\>adm용 각 클러스터 노드에 sudoers 구성을 요구합니다. 이 예에서는 새 파일을 만들어 수행합니다. 명령을 `root`로 실행합니다.    
+    ```bash
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR python hook
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    EOF
+    ```
+
+3. **[A]** 두 노드에서 SAP HANA를 시작합니다. <sid\>adm으로 실행합니다.  
+
+    ```bash
+    sapcontrol -nr 03 -function StartSystem 
+    ```
+
+4. **[1]** 후크 설치를 확인합니다. 활성 HANA 시스템 복제 사이트에서 <sid\>adm으로 실행합니다.   
+
+    ```bash
+     cdtrace
+     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+     # Example output
+     # 2021-04-12 21:36:16.911343 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:36:29.147808 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:37:04.898680 ha_dr_SAPHanaSR SOK
+
+    ```
+
+SAP HANA 시스템 복제 후크 구현에 대한 자세한 내용은 [SAP HA/DR 공급자 후크 사용](https://access.redhat.com/articles/3004101#enable-srhook)을 참조하세요.  
+ 
 ## <a name="create-sap-hana-cluster-resources"></a>SAP HANA 클러스터 리소스 만들기
 
 **모든 노드** 에 SAP HANA 리소스 에이전트를 설치합니다. 패키지가 포함된 리포지토리를 사용하도록 설정해야 합니다. RHEL 8.x HA 사용 이미지를 사용하는 경우 추가 리포지토리를 사용하도록 설정할 필요가 없습니다.  
@@ -661,7 +726,7 @@ SAP HANA 2.0 SPS 01부터 SAP는 SAP HANA 시스템 복제를 위한 활성/읽�
 
 ### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>활성/읽기 사용 설정의 Azure Load Balancer의 추가 설정
 
-두 번째 가상 IP를 프로비저닝하는 추가 단계를 진행하려면 [수동 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#manual-deployment) 섹션에 설명된 대로 Azure Load Balancer를 구성했는지 확인합니다.
+두 번째 가상 IP를 프로비저닝하는 추가 단계를 진행하려면 [수동 배포](#manual-deployment) 섹션에 설명된 대로 Azure Load Balancer를 구성했는지 확인합니다.
 
 1. **표준** 부하 분산 장치의 경우 이전 섹션에서 만든 것과 동일한 부하 분산 장치에서 아래 추가 단계를 수행합니다.
 
@@ -669,30 +734,29 @@ SAP HANA 2.0 SPS 01부터 SAP는 SAP HANA 시스템 복제를 위한 활성/읽�
 
    - 부하 분산 장치를 열고, **프런트 엔드 IP 풀** 을 선택하고, **추가** 를 선택합니다.
    - 두 번째 프런트 엔드 IP 풀의 이름을 입력합니다(예: **hana-secondaryIP**).
-   - **할당** 을 **정적** 으로 설정하고 IP 주소 입력(예: **10.0.0.14**)
+   - **할당** 을 **정적** 으로 설정하고 IP 주소(예: **10.0.0.14**)를 입력합니다.
    - **확인** 을 선택합니다.
    - 새 프런트 엔드 IP 풀을 만든 후, 풀 IP 주소를 적어 둡니다.
 
    b. 다음으로, 상태 프로브를 만듭니다.
 
    - 부하 분산 장치를 열고, **상태 프로브** 를 선택한 다음, **추가** 를 선택합니다.
-   - 새 상태 프로브의 이름을 입력합니다(예: **hana-secondaryhp**).
+   - 새 상태 프로브의 이름(예: **hana-secondaryhp**)을 입력합니다.
    - 프로토콜 및 포트 **62603** 으로 **TCP** 를 선택합니다. 5로 설정된 **간격** 값, 2로 설정된 **비정상 임계값** 값을 유지합니다.
    - **확인** 을 선택합니다.
 
    다. 다음으로 부하 분산 규칙을 만듭니다.
 
    - 부하 분산 장치를 열고, **부하 분산 규칙** 을 선택한 다음, **추가** 를 선택합니다.
-   - 새 부하 분산 장치 규칙의 이름을 입력합니다(예: **hana-secondarylb**).
-   - 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브를 선택합니다(예: **hana-secondaryIP**, **hana-backend** 및 **hana-secondaryhp**).
+   - 새 부하 분산 장치 규칙의 이름(예: **hana-secondarylb**)을 입력합니다.
+   - 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀, 상태 프로브를 선택합니다(예: **hana-secondaryIP**, **hana-backend** 및 **hana-secondaryhp**).
    - **HA 포트** 를 선택합니다.
-   - **유휴 상태 시간 제한** 을 30분으로 증가시킵니다.
    - **부동 IP를 사용하도록 설정** 했는지 확인합니다.
    - **확인** 을 선택합니다.
 
 ### <a name="configure-hana-activeread-enabled-system-replication"></a>HANA 활성/읽기 사용 시스템 복제 구성
 
-HANA 시스템 복제를 구성하는 단계는 [SAP HANA 2.0 시스템 복제 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-sap-hana-20-system-replication) 섹션에 설명되어 있습니다. 읽기 사용 보조 시나리오를 배포하는 경우 두 번째 노드에서 시스템 복제를 구성하는 동안 **hanasid** adm으로 다음 명령을 실행합니다.
+HANA 시스템 복제를 구성하는 단계는 [SAP HANA 2.0 시스템 복제 구성](#configure-sap-hana-20-system-replication) 섹션에 설명되어 있습니다. 읽기 사용 보조 시나리오를 배포하는 경우 두 번째 노드에서 시스템 복제를 구성하는 동안 **hanasid** adm으로 다음 명령을 실행합니다.
 
 ```
 sapcontrol -nr 03 -function StopWait 600 10 

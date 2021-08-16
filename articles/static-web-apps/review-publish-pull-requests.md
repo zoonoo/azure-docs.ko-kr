@@ -7,20 +7,20 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: 1cb5f2f9ac941001efb18301f4a54bd0092920ba
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: d061eed42280fffa1ff7f53e43adb7b85a94ae0d
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102172743"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109813221"
 ---
-# <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps-preview"></a>Azure Static Web Apps의 사전 프로덕션 환경에서 끌어오기 요청 검토 미리 보기
+# <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps"></a>Azure Static Web Apps의 사전 프로덕션 환경에서 끌어오기 요청 검토
 
 이 문서에서는 사전 프로덕션 환경을 사용하여 [Azure Static Web Apps](overview.md)와 함께 배포된 애플리케이션에 대한 변경 내용을 검토하는 방법을 보여 줍니다.
 
 사전 프로덕션(스테이징) 환경은 프로덕션에서 사용할 수 없는 변경 내용을 포함하는 애플리케이션의 완벽하게 작동하는 스테이징된 버전입니다.
 
-Azure Static Web Apps는 리포지토리에서 GitHub Actions 워크플로를 생성합니다. 워크플로가 감시 하는 분기에 대해 끌어오기 요청을 만들면 프리 프로덕션 환경이 빌드됩니다. 사전 프로덕션 환경에서 앱을 단계별로 실행하여 프로덕션으로 푸시하기 전에 검토를 수행할 수 있습니다.
+Azure Static Web Apps는 리포지토리에서 GitHub Actions 워크플로를 생성합니다. 워크플로가 감시하는 분기에 대해 끌어오기 요청을 만들면 사전 프로덕션 환경이 빌드됩니다. 사전 프로덕션 환경에서 앱을 단계별로 실행하여 프로덕션으로 푸시하기 전에 검토를 수행할 수 있습니다.
 
 Azure Static Web Apps를 사용하는 동시에 여러 사전 프로덕션 환경이 동시에 존재할 수 있습니다. 조사되는 분기에 대해 끌어오기 요청을 만들 때마다 변경 내용으로 스테이징된 버전이 고유한 사전 프로덕션 환경에 배포됩니다.
 
@@ -33,7 +33,7 @@ Azure Static Web Apps를 사용하는 동시에 여러 사전 프로덕션 환�
 - 프로덕션 환경에 배포하기 전에 온전성 검사를 수행합니다.
 
 > [!NOTE]
-> 미리 보기 중에는 한 번에 [최대 3 개의 스테이징 환경을](quotas.md) 사용할 수 있습니다.
+> 한 번에 허용되는 [최대 3개의 스테이징 환경](quotas.md)이 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -109,7 +109,7 @@ URL을 자세히 살펴보면 다음과 같이 구성된 것을 볼 수 있습�
 > [!WARNING]
 > 사전 프로덕션 환경에 대한 액세스는 제한되지 않으므로 중요한 콘텐츠를 스테이징된 버전에 게시할 때는 주의해야 합니다.
 
-Static Web Apps로 배포된 각 앱에 사용할 수 있는 사전 프로덕션 환경 수는 사용 중인 SKU 계층에 따라 달라집니다. 예를 들어 무료 계층을 사용 하는 경우 프로덕션 환경 외에도 3 프리 프로덕션 환경을 사용할 수 있습니다.
+Static Web Apps로 배포된 각 앱에 사용할 수 있는 사전 프로덕션 환경 수는 사용 중인 SKU 계층에 따라 달라집니다. 예를 들어 무료 계층을 사용하는 경우 프로덕션 환경 외에도 세 개의 사전 프로덕션 환경을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

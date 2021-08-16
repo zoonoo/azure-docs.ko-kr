@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: db55a29e53c53e26fbb04d96ddf1864946bafbfd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: a32e5a417dc54ae77785adfa46610d1fbf83f470
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99581281"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110455696"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -41,7 +41,7 @@ Blob API와 Data Lake Storage Gen2 API는 동일한 데이터에서 작업할 �
 
 이 섹션에서는 Blob API와 Data Lake Storage Gen2 API를 사용하여 동일한 데이터에서 작업하는 경우의 문제점과 제한 사항에 대해 설명합니다.
 
-* Blob API 및 Data Lake Storage Api를 사용 하 여 파일의 동일한 인스턴스에 쓸 수는 없습니다. Data Lake Storage Gen2 API를 사용하여 파일에 쓰면 해당 파일의 블록은 [블록 목록 가져오기](/rest/api/storageservices/get-block-list) Blob API에 대한 호출에 보이지 않습니다. 유일한 예외는를 사용 하 여 덮어쓰는 것입니다. 두 API를 사용 하 여 파일/b a s e/blob을 덮어쓸 수 있습니다.
+* BLOB API 및 Data Lake Storage API를 사용하여 한 파일의 동일한 인스턴스에 작성할 수는 없습니다. Data Lake Storage Gen2 API를 사용하여 파일에 쓰면 해당 파일의 블록은 [블록 목록 가져오기](/rest/api/storageservices/get-block-list) Blob API에 대한 호출에 보이지 않습니다. 오직 덮어쓰기를 사용할 때만 허용됩니다. API를 사용하여 파일/BLOB을 덮어쓰면 됩니다.
 
 * 구분 기호를 지정하지 않고 [Blob 나열](/rest/api/storageservices/list-blobs) 작업을 사용하면 결과에 디렉터리와 Blob이 모두 포함됩니다. 구분 기호를 사용하려면 슬래시(`/`)만 사용합니다. 이것이 유일하게 지원되는 구분 기호입니다.
 
@@ -54,14 +54,15 @@ Blob API와 Data Lake Storage Gen2 API는 동일한 데이터에서 작업할 �
 * [페이지 범위 가져오기](/rest/api/storageservices/get-page-ranges)
 * [Blob 증분 복사](/rest/api/storageservices/incremental-copy-blob)
 * [URL에서 페이지 배치](/rest/api/storageservices/put-page-from-url)
+* [블록 목록 배치](/rest/api/storageservices/put-block-list)
 
 비관리형 VM 디스크는 계층 구조 네임스페이스가 있는 계정에서 지원되지 않습니다. 스토리지 계정에서 계층 구조 네임스페이스를 활성화하려면, 계층 구조 네임스페이스 기능을 활성화하지 않은 스토리지 계정에 비관리형 VM 디스크를 배치합니다.
 
 <a id="api-scope-data-lake-client-library"></a>
 
-## <a name="support-for-setting-access-control-lists-acls-recursively"></a>재귀적으로 Acl (access control 목록) 설정 지원
+## <a name="support-for-setting-access-control-lists-acls-recursively"></a>ACL(액세스 제어 목록)을 재귀적으로 설정하기 위한 지원
 
-부모 디렉터리에서 자식 항목으로 ACL 변경 내용을 재귀적으로 적용 하는 기능을 일반적으로 사용할 수 있습니다. 이 기능의 현재 릴리스에서는 PowerShell, Azure CLI, .NET, Java 및 Python SDK를 사용 하 여 ACL 변경 내용을 적용할 수 있습니다. Azure Portal 또는 Azure Storage 탐색기에 대 한 지원은 아직 제공 되지 않습니다.
+ACL 변경 내용을 상위 디렉터리에서 하위 항목으로 재귀적으로 적용하는 기능을 일반적으로 사용할 수 있습니다. 이 기능은 현재 릴리스에서는 PowerShell, Azure CLI 및 .NET, Java 및 Python SDK를 사용하여 ACL 변경 내용을 적용할 수 있습니다. Azure Portal 또는 Azure Storage Explorer에서는 아직 지원되지 않습니다.
 
 <a id="known-issues-tools"></a>
 
@@ -73,7 +74,7 @@ Blob API와 Data Lake Storage Gen2 API는 동일한 데이터에서 작업할 �
 
 ## <a name="azure-storage-explorer"></a>Azure Storage Explorer
 
-이상 버전만 사용 `1.6.0` 합니다.
+버전 `1.6.0` 이상에서만 사용 가능합니다.
 
 <a id="explorer-in-portal"></a>
 
@@ -85,7 +86,8 @@ ACL은 아직 지원되지 않습니다.
 
 ## <a name="third-party-applications"></a>타사 애플리케이션
 
-REST API를 사용하여 작동하는 타사 애플리케이션은 Blob API를 호출하는 Data Lake Storage Gen2 애플리케이션과 함께 사용하는 경우 계속 작동합니다.
+REST API를 사용하는 제3자 애플리케이션은 Data Lake Storage Gen2를 사용하는 경우 계속 사용 가능합니다.
+BLOB API를 호출하는 애플리케이션은 일반적으로 작동합니다.
 
 ## <a name="access-control-lists-acl-and-anonymous-read-access"></a>ACL(액세스 제어 목록) 및 익명 읽기 액세스
 
@@ -93,15 +95,11 @@ REST API를 사용하여 작동하는 타사 애플리케이션은 Blob API를 �
 
 ## <a name="diagnostic-logs"></a>진단 로그
 
-보존 기간 (일)의 설정은 아직 지원 되지 않지만 Azure Storage 탐색기, REST 또는 SDK와 같은 지원 되는 도구를 사용 하 여 수동으로 로그를 삭제할 수 있습니다.
+보존 기간 설정은 아직 지원되지 않지만 Azure Storage Explorer, REST 또는 SDK처럼 지원되는 도구를 사용하여 로그를 수동으로 삭제할 수 있습니다.
 
-## <a name="lifecycle-management-policies-with-premium-tier-for-azure-data-lake-storage"></a>Azure Data Lake Storage에 대 한 프리미엄 계층을 사용 하는 수명 주기 관리 정책
+## <a name="lifecycle-management-policies-with-premium-tier-for-azure-data-lake-storage"></a>Azure Data Lake Storage 프리미엄 계층 수명 주기 관리 정책
 
-프리미엄 계층에 저장 된 데이터는 핫, 쿨 및 보관 계층 간에 이동할 수 없습니다. 그러나 프리미엄 계층에서 다른 계정의 핫 액세스 계층으로 데이터를 복사할 수 있습니다.
-
-## <a name="dremio-support-with-premium-performance-blockblobstorage-storage-accounts"></a>프리미엄-성능 블록 Blobstorage storage 계정을 사용한 Dremio 지원
-
-Dremio는 계층 구조 네임스페이스 기능이 활성화된 BlockBlobStorage 계정에 아직 연결되지 않습니다. 
+프리미엄 계층에 저장된 데이터는 핫, 쿨, 그리고 보관 계층 간에 이동할 수 없습니다. 그러나 프리미엄 계층에서 다른 계정의 핫 액세스 계층으로 데이터를 복사할 수 있습니다.
 
 ## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>WASB(Windows Azure Storage Blob) 드라이버(Data Lake Storage Gen2에서 지원되지 않음)
 

@@ -8,12 +8,12 @@ ms.date: 11/18/2020
 ms.custom: devx-track-java
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 115c55a5833906aa0dcc616a5b1b659468647282
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 2fd9ac25d08cf4439278565f90258a230eeedb50
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814553"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109627765"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Java를 사용하여 Azure Files 개발
 
@@ -259,7 +259,7 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 
 # <a name="azure-java-sdk-v12"></a>[Azure Java SDK v12](#tab/java)
 
-다음 코드에서는 [ShareFileClient.uploadFromFile](/java/api/com.azure.storage.file.share.sharefileclient.uploadfromfile) 메서드를 호출하여 로컬 파일을 Azure File 스토리지로 업로드합니다. 다음 예제 메서드는 지정된 파일이 성공적으로 업로드됐는지 여부를 나타내는 `Boolean` 값을 반환합니다.
+다음 코드에서는 [ShareFileClient.uploadFromFile](/java/api/com.azure.storage.file.share.sharefileclient.uploadfromfile) 메서드를 호출하여 로컬 파일을 Azure Files에 업로드합니다. 다음 예제 메서드는 지정된 파일이 성공적으로 업로드됐는지 여부를 나타내는 `Boolean` 값을 반환합니다.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_uploadFile":::
 

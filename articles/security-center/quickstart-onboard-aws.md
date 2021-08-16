@@ -7,12 +7,12 @@ ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 563d8f3035eb889a2b9d25d563ef57373e4e3aff
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 8721b9d25ce8d512dae31352db343af6385dadda
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537177"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113005531"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Azure Security Center에 AWS 계정 연결
 
@@ -42,7 +42,7 @@ AWS 계정을 Security Center에 온보딩하면 AWS Security Hub와 Azure Secur
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md) 필요|
 |필요한 역할 및 권한:|관련 Azure 구독의 **소유자**<br>소유자가 서비스 주체 세부 정보를 제공하는 경우에는 **기여자** 를 AWS 계정에 연결할 수도 있습니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(US Gov, Azure 중국)|
 |||
 
 
@@ -73,7 +73,7 @@ Security Center에서 AWS에 인증하도록 허용하는 두 가지 방법이 �
 
 #### <a name="create-an-iam-role-for-security-center"></a>Security Center에 대한 IAM 역할 만들기
 1. Amazon Web Services 콘솔의 **보안, ID 및 규정 준수** 에서 **IAM** 을 선택합니다.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="AWS 서비스":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="AWS 서비스.":::
 
 1. **역할** 을 선택하고 **역할 만들기** 를 선택합니다.
 1. 다음 페이지에서 **다른 AWS 계정** 을 선택합니다.
@@ -138,7 +138,7 @@ AWS Systems Manager는 AWS 리소스의 작업을 자동화하는 데 필요합�
     1. 구독이 올바른지 확인합니다. 커넥터 및 AWS Security Hub 권장 사항을 포함할 구독입니다.
     1. 인증 옵션에 따라 [2단계. AWS에서 Security Center 인증 설정](#step-2-set-up-authentication-for-security-center-in-aws)에서 선택했습니다.
         - **역할 맡기** 를 선택하고 [Security Center의 IAM 역할 만들기](#create-an-iam-role-for-security-center)에서 ARN을 붙여넣습니다.
-            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Azure Portal에서 AWS 연결 마법사의 관련 필드에 ARN 파일 붙여넣기":::
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Azure Portal에서 AWS 연결 마법사의 관련 필드에 ARN 파일 붙여넣기.":::
 
             또는
 

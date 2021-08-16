@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 03/09/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 3f94b22d4f439769b27d38943603f7c726bfc40d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f0f75a305a411e49a29124599dfa90aa0aee9056
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110468411"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004281"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상업용 Marketplace 혜택
 
 Microsoft 상업용 Marketplace에 게시했으므로 이제 제품이 성공적으로 표시되는지 확인하려고 합니다. 제품 성장 가속화에 필요한 판매, 기술 및 마케팅 혜택을 제공합니다.
 
-제품이 Microsoft AppSource 또는 Azure Marketplace에 게시되면 [파트너 센터](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace)로 이동하여 적합한 마케팅, 영업, 기술 혜택에 액세스하고 이를 활성화합니다. Marketplace Rewards 혜택은 상업용 Marketplace 참여와 매출액에 따라 발생됩니다. 더 많이 참여할수록 더 많이 돌려받습니다.
+제품이 Microsoft AppSource 또는 Azure Marketplace에 게시되면 [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165457)로 이동하여 적합한 마케팅, 영업, 기술 혜택에 액세스하고 이를 활성화합니다. Marketplace Rewards 혜택은 상업용 Marketplace 참여와 매출액에 따라 발생됩니다. 더 많이 참여할수록 더 많이 돌려받습니다.
 
 ## <a name="marketplace-rewards"></a>Marketplace Rewards
 
@@ -41,7 +41,7 @@ Transact 파트너의 경우 상업용 Marketplace 플랫폼을 통해 청구된
 ## <a name="getting-started-is-easy"></a>시작하기 쉽습니다.
 
 1. Microsoft AppSource 또는 Azure Marketplace에 제품을 게시합니다.
-2. 파트너 센터의 [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace)으로 이동하여 **Marketplace Rewards 프로그램에 등록** 을 선택합니다.
+2. 파트너 센터의 [Marketplace Rewards](https://go.microsoft.com/fwlink/?linkid=2165388)으로 이동하여 **Marketplace Rewards 프로그램에 등록** 을 선택합니다.
 3. 영업 및 마케팅 혜택을 활성화하려면 먼저 회사 마케팅 담당자를 할당해야 합니다. 이 담당자는 Marketplace Rewards에 대한 추가 연락을 받게 됩니다.
 4. 마케팅 담당자 정보를 추가하거나 업데이트하려면 Marketplace Rewards 페이지의 영업 및 마케팅 혜택 탭 맨 위로 이동한 다음 **추가, 업데이트 또는 변경** 을 선택합니다.  다음으로, 아래 작업을 수행합니다.
     1. 목록에서 사용자를 선택합니다. 할당하려는 사용자가 목록에 없는 경우 **계정 설정** 에서 새 사용자를 추가할 수 있습니다.
@@ -50,7 +50,7 @@ Transact 파트너의 경우 상업용 Marketplace 플랫폼을 통해 청구된
     1. 마케팅 담당자를 업데이트했으면 사용하려는 혜택에 대해 **활성화** 를 선택합니다. 혜택을 활성화하면 1주일 내에 Rewards 팀의 구성원이 마케팅 담당자께 연락을 드립니다.
 
 > [!NOTE]
-> 제품이 4주 넘게 게시되었는데 메시지를 받지 못한 경우, 파트너 센터를 방문하여 해당 제품의 소유자인 조직 내에서 확인하세요. 연락을 취하고 다음 단계를 수행해야 합니다.<br><br>소유자를 확인할 수 없거나 소유자가 퇴사한 경우, [도움말 및 지원](https://aka.ms/marketplacepublishersupport)에서 지원 티켓을 제출할 수 있습니다.
+> 제품이 4주 넘게 게시되었는데 메시지를 받지 못한 경우, 파트너 센터를 방문하여 해당 제품의 소유자인 조직 내에서 확인하세요. 연락을 취하고 다음 단계를 수행해야 합니다.<br><br>소유자를 확인할 수 없거나 소유자가 퇴사한 경우, [도움말 및 지원](https://go.microsoft.com/fwlink/?linkid=2165533)에서 지원 티켓을 제출할 수 있습니다.
 
 상업용 Marketplace에서 제품을 확장함에 따라 사용 가능한 활동 범위도 확장됩니다. 모든 목록은 리소스 및 모범 사례에 대한 셀프 서비스 전자 메일의 일부로 기본 수준의 최적화 권장 사항과 프로모션 정보를 받게 됩니다.
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 04/30/2021
 ms.author: Zhchia
-ms.openlocfilehash: 7b4dd01b74f81318338196a40949d339f13d16da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9608a3a9e086cc6c03dc80f0666becbcbc06290
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97673304"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110688391"
 ---
 # <a name="tutorial-configure-adobe-identity-management-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Adobe Identity Management 구성
 
@@ -42,6 +42,7 @@ ms.locfileid: "97673304"
 * [Azure AD 테넌트](../develop/quickstart-create-new-tenant.md)
 * 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
 * 확인된 도메인이 있는 [Adobe 관리 콘솔](https://adminconsole.adobe.com/)의 페더레이션된 디렉터리입니다.
+* 사용자 프로비전에 대한 [adobe 설명서](https://helpx.adobe.com/enterprise/admin-guide.html/enterprise/using/add-azure-sync.ug.html) 검토 
 
 > [!NOTE]
 > 조직에서 사용자 동기화 도구나 UMAPI 통합을 사용하는 경우 먼저 통합을 일시 중지해야 합니다. 그런 다음 Azure AD 자동 프로비저닝을 추가하여 Azure Portal에서 사용자 관리를 자동화합니다. Azure AD 자동 프로비저닝이 구성되고 실행되면 사용자 동기화 도구 또는 UMAPI 통합을 완전히 제거할 수 있습니다.

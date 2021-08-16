@@ -8,27 +8,36 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 11/05/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 816009abb688525cd7663311c79300a6d12cf146
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e585624cac534634f4927fcbb61993ca98aab4a6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98742950"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085891"
 ---
 # <a name="assign-a-role-to-a-cloud-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹에 역할 할당
 
 이 섹션에서는 IT 관리자가 Azure AD 그룹에 Azure AD (Azure Active Directory) 역할을 할당할 수 있는 방법에 대해 설명합니다.
 
-## <a name="using-azure-ad-admin-center"></a>Azure AD 관리 센터 사용
+## <a name="prerequisites"></a>필수 구성 요소
+
+- Azure AD Premium P1 또는 P2 라이선스
+- 권한 있는 역할 관리자 또는 전역 관리자
+- PowerShell 사용 시 AzureADPreview 모듈
+- Microsoft Graph API용 Graph 탐색기 사용 시 관리자 동의
+
+자세한 내용은 [PowerShell 또는 Graph 탐색기를 사용하기 위한 필수 구성 요소](prerequisites.md)를 참조하세요.
+
+## <a name="azure-portal"></a>Azure portal
 
 Azure AD 역할에 그룹을 할당하는 것은 역할을 할당할 수 있는 그룹만 사용할 수 있다는 점을 제외하고 사용자 및 서비스 사용자를 할당하는 것과 비슷합니다. Azure Portal에서는 역할을 할당할 수 있는 그룹만 표시됩니다.
 
-1. Azure AD 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [Azure AD 관리 센터](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)에 로그인합니다.
+1. [Azure AD 관리 센터](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)에 로그인합니다.
 
 1. **Azure Active Directory** >  **역할 및 관리자** 를 선택하고, 할당 하려는 역할을 선택합니다.
 
@@ -44,7 +53,7 @@ Azure AD 역할에 그룹을 할당하는 것은 역할을 할당할 수 있는 
 
 역할 권한 할당에 관한 자세한 내용은 [사용자에게 관리자 역할 및 관리자가 아닌 역할 할당](../fundamentals/active-directory-users-assign-role-azure-portal.md)을 참조하세요.
 
-## <a name="using-powershell"></a>PowerShell 사용
+## <a name="powershell"></a>PowerShell
 
 ### <a name="create-a-group-that-can-be-assigned-to-role"></a>역할에 할당할 수 있는 그룹 만들기
 
@@ -64,7 +73,7 @@ $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Helpdesk 
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id 
 ```
 
-## <a name="using-microsoft-graph-api"></a>Microsoft Graph API 사용
+## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 ### <a name="create-a-group-that-can-be-assigned-azure-ad-role"></a>Azure AD 역할 할당이 가능한 그룹 만들기
 

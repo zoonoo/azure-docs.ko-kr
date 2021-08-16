@@ -3,12 +3,12 @@ title: 컨테이너 인사이트로 Azure Red Hat OpenShift v4.x 구성 | Micros
 description: 이 문서에서는 Azure Red Hat OpenShift 버전 4 이상에서 호스트되는 Azure Monitor를 사용하여 Kubernetes 클러스터에 대한 모니터링을 구성하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 11c702d1f46725a12e90a01dc1b38467344a1123
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7c44a7c6eea6182316d626e3e8501f9aa63eef78
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784644"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221520"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-container-insights"></a>컨테이너 인사이트로 Azure Red Hat OpenShift v4.x 구성
 
@@ -20,7 +20,7 @@ ms.locfileid: "107784644"
 
 이 문서에 설명된 지원되는 메서드를 사용하여 Azure Red Hat OpenShift v4.x의 하나 이상의 기존 배포에 대한 컨테이너 인사이트를 사용하도록 설정할 수 있습니다.
 
-기존 클러스터의 경우 [Azure CLI에서 이 Bash 스크립트](/cli/azure/openshift#az_openshift_create&preserve-view=true)를 실행합니다.
+기존 클러스터의 경우 [Azure CLI에서 이 Bash 스크립트](/cli/azure/openshift#az-openshift-create&preserve-view=true)를 실행합니다.
 
 ## <a name="supported-and-unsupported-features"></a>지원되는/지원되지 않는 기능
 
@@ -29,7 +29,7 @@ ms.locfileid: "107784644"
 - 라이브 데이터(미리 보기)
 - 클러스터 노드 및 Pod에서 [메트릭 수집](container-insights-update-metrics.md) 및 Azure Monitor 메트릭 데이터베이스에 저장
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure CLI 버전 2.0.72 이상  
 
@@ -129,7 +129,7 @@ ms.locfileid: "107784644"
 export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
 ```
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId 
 

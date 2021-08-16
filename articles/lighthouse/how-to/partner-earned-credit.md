@@ -1,14 +1,14 @@
 ---
 title: 파트너 ID를 연결하여 위임된 리소스에 대한 영향 추적
-description: Azure Lighthouse를 통해 관리하는 고객 리소스에서 파트너 ID를 연결하여 PEC(파트너 획득 크레딧)를 받는 방법에 대해 알아봅니다.
+description: Azure Lighthouse를 통해 관리하는 고객 리소스에서 파트너 ID를 연결하여 PEC(파트너 획득 크레딧)를 받습니다.
 ms.date: 02/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 4c18aae38570ab3fd84df7d45fb18e35404158be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e21fc641f421580e6f00de8036f88632cc860060
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100372096"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075622"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>파트너 ID를 연결하여 위임된 리소스에 대한 영향 추적 
 

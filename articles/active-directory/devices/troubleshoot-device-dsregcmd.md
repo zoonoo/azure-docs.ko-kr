@@ -1,6 +1,6 @@
 ---
-title: Dsregcmd.exe 명령을 사용 하 여 문제 해결-Azure Active Directory
-description: Dsregcmd.exe의 출력을 사용 하 여 Azure AD의 장치 상태 이해
+title: dsregcmd 명령을 사용하여 문제 해결 - Azure Active Directory
+description: dsregcmd의 출력을 사용하여 Azure AD의 디바이스 상태 이해
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,37 +11,37 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 614b3f927dc22bc534168f8fe95cc2f97031b621
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: ea502deee0caf5418bf5554473180eb405792567
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98725526"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287053"
 ---
-# <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Dsregcmd.exe 명령을 사용 하 여 장치 문제 해결
+# <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>dsregcmd 명령을 사용하여 디바이스 문제 해결
 
-Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해야 합니다.
+dsregcmd/status 유틸리티는 도메인 사용자 계정으로 실행해야 합니다.
 
 ## <a name="device-state"></a>디바이스 상태
 
-이 섹션에는 장치 연결 상태 매개 변수가 나열 됩니다. 다음 표에서는 다양 한 조인 상태에 있는 장치에 대 한 조건을 나열 합니다.
+이 섹션에는 디바이스 조인 상태 매개 변수가 나열됩니다. 다음 표에서는 다양한 조인 상태에 있는 디바이스에 대한 조건을 나열합니다.
 
-| AzureAdJoined | EnterpriseJoined 됨 | DomainJoined | 디바이스 상태 |
+| AzureAdJoined | EnterpriseJoined | DomainJoined | 디바이스 상태 |
 | ---   | ---   | ---   | ---   |
-| YES | 아니요 | 아니요 | Azure AD 조인 됨 |
+| YES | 아니요 | 아니요 | Azure AD 조인됨 |
 | 아니요 | 아니요 | YES | 도메인 조인 |
-| YES | 아니요 | YES | 하이브리드 AD 조인 됨 |
-| 아니요 | YES | YES | 온-프레미스 DRS 조인 됨 |
+| YES | 아니요 | YES | Hybrid AD 조인됨 |
+| 아니요 | YES | YES | 온-프레미스 DRS 조인됨 |
 
 > [!NOTE]
-> "사용자 상태" 섹션에 Workplace Join (Azure AD 등록 됨) 상태가 표시 됩니다.
+> “사용자 상태” 섹션에 Workplace Join(Azure AD 등록됨) 상태가 표시됩니다.
 
-- **AzureAdJoined:** -장치가 Azure AD에 가입 되어 있는 경우 "예"로 설정 합니다. 그렇지 않으면 "NO"입니다.
-- **Enterprisejoined 됨:** 장치가 온-프레미스 DRS에 가입 되어 있는 경우 "예"로 설정 합니다. 장치는 EnterpriseJoined 되 고 AzureAdJoined 수 없습니다.
-- **Domainjoined:** -장치가 도메인 (AD)에 가입 되어 있는 경우 "예"로 설정 합니다.
-- **DomainName:** -장치가 도메인에 가입 되어 있는 경우 도메인의 이름으로 설정 합니다.
+- **AzureAdJoined:** 디바이스가 Azure AD에 조인되어 있는 경우 “YES”로 설정합니다. 그렇지 않은 경우 “NO”입니다.
+- **EnterpriseJoined:** 디바이스가 온-프레미스 DRS에 조인되어 있는 경우 “YES”로 설정합니다. 디바이스는 EnterpriseJoined와 AzureAdJoined 둘 다일 수는 없습니다.
+- **DomainJoined:** 디바이스가 도메인(AD)에 조인되어 있는 경우 “YES”로 설정합니다.
+- **DomainName:** 디바이스가 도메인에 조인되어 있는 경우 도메인의 이름으로 설정합니다.
 
-### <a name="sample-device-state-output"></a>샘플 장치 상태 출력
+### <a name="sample-device-state-output"></a>샘플 디바이스 상태 출력
 
 ```
 +----------------------------------------------------------------------+
@@ -56,16 +56,16 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 
 ## <a name="device-details"></a>디바이스 세부 정보
 
-장치가 Azure AD에 가입 된 경우 또는 하이브리드 Azure AD에 가입 된 경우에만 표시 됩니다 (Azure AD가 등록 되지 않음). 이 섹션에는 클라우드에 저장 된 장치 식별 정보가 나열 됩니다.
+디바이스가 Azure AD에 조인된 경우 또는 하이브리드 Azure AD에 조인된 경우에만 표시됩니다(Azure AD 등록됨이 아님). 이 섹션에는 클라우드에 저장된 디바이스 식별 정보가 나열됩니다.
 
-- **DeviceId:** -Azure AD 테 넌 트에서 장치의 고유 ID
-- **지문:** -장치 인증서의 지문 
-- **DeviceCertificateValidity:** -장치 인증서의 유효성을 검사 합니다.
-- **Keycontainerid:** -장치 인증서와 연결 된 장치 개인 키의 ContainerId
-- **Keyprovider:** -Keyprovider (하드웨어/소프트웨어) 장치 개인 키를 저장 하는 데 사용 됩니다.
-- **Tpmprotected:** -"예"를 입력 하면 장치 개인 키가 하드웨어 TPM에 저장 됩니다.
+- **DeviceId:** Azure AD 테넌트에서 디바이스의 고유 ID입니다.
+- **Thumbprint:** 디바이스 인증서의 지문입니다.
+- **DeviceCertificateValidity:** 디바이스 인증서의 유효성을 검사합니다.
+- **KeyContainerId:** - 디바이스 인증서와 연결된 디바이스 프라이빗 키의 ContainerId입니다.
+- **KeyProvider:** 디바이스 프라이빗 키를 저장하는 데 사용되는 KeyProvider(하드웨어/소프트웨어)입니다.
+- **TpmProtected:** 디바이스 프라이빗 키가 하드웨어 TPM에 저장되는 경우 “YES”입니다.
 
-### <a name="sample-device-details-output"></a>샘플 장치 세부 정보 출력
+### <a name="sample-device-details-output"></a>샘플 디바이스 세부 정보 출력
 
 ```
 +----------------------------------------------------------------------+
@@ -83,15 +83,15 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 
 ## <a name="tenant-details"></a>테넌트 세부 정보
 
-장치가 Azure AD에 가입 된 경우 또는 하이브리드 Azure AD에 가입 된 경우에만 표시 됩니다 (Azure AD가 등록 되지 않음). 이 섹션에서는 장치가 Azure AD에 가입 된 경우 일반적인 테 넌 트 세부 정보를 나열 합니다.
+디바이스가 Azure AD에 조인된 경우 또는 하이브리드 Azure AD에 조인된 경우에만 표시됩니다(Azure AD 등록됨이 아님). 이 섹션에서는 디바이스가 Azure AD에 조인된 경우 일반적인 테넌트 세부 정보를 나열합니다.
 
 > [!NOTE]
-> 이 섹션에서 MDM Url이 비어 있으면 MDM이 구성 되지 않았거나 현재 사용자가 MDM 등록 범위에 있지 않음을 나타냅니다. Azure AD의 모바일 설정을 확인 하 여 MDM 구성을 검토 합니다.
+> 이 섹션에서 MDM URL이 비어 있으면 MDM이 구성되지 않았거나 현재 사용자가 MDM 등록 범위에 있지 않음을 나타냅니다. Azure AD의 모바일 설정을 확인하여 MDM 구성을 검토합니다.
 
 > [!NOTE]
-> MDM Url이 표시 되는 경우에도 장치가 MDM에서 관리 되는 것을 의미 하지는 않습니다. 장치 자체를 관리 하지 않는 경우에도 테 넌 트에 자동 등록에 대 한 MDM 구성이 있으면 정보가 표시 됩니다. 
+> MDM URL이 표시되는 경우라도 디바이스가 MDM에서 관리되는 것을 의미하지는 않습니다. 디바이스 자체가 관리되지 않더라도 테넌트에 자동 등록에 대한 MDM 구성이 있으면 정보가 표시됩니다.
 
-### <a name="sample-tenant-details-output"></a>샘플 테 넌 트 세부 정보 출력
+### <a name="sample-tenant-details-output"></a>샘플 테넌트 세부 정보 출력
 
 ```
 +----------------------------------------------------------------------+
@@ -124,20 +124,20 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 
 ## <a name="user-state"></a>사용자 상태
 
-이 섹션에는 현재 장치에 로그인 한 사용자에 대 한 다양 한 특성의 상태가 나열 됩니다.
+이 섹션에는 현재 디바이스에 로그인한 사용자에 대한 다양한 특성의 상태가 나열됩니다.
 
 > [!NOTE]
-> 유효한 상태를 검색 하려면 명령을 사용자 컨텍스트에서 실행 해야 합니다.
+> 유효한 상태를 검색하려면 명령을 사용자 컨텍스트에서 실행해야 합니다.
 
-- **NgcSet:** -현재 로그온 한 사용자에 대해 Windows Hello 키가 설정 된 경우 "예"로 설정 합니다.
-- **NgcKeyId:** -현재 로그온 한 사용자에 대해 설정 된 Windows Hello 키의 ID입니다.
-- **Canreset:** -사용자가 Windows Hello 키를 다시 설정할 수 있는지 여부를 나타냅니다. 
-- **가능한 값은 다음과 같습니다.** -DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive 또는 Unknown (오류가 발생 한 경우). 
-- **WorkplaceJoined:** -Azure AD 등록 된 계정이 현재 ntuser.man 파일 컨텍스트의 장치에 추가 된 경우 "예"로 설정 합니다.
-- **WamDefaultSet:** -로그인 한 사용자에 대해 WAM default WebAccount가 생성 되 면 "예"로 설정 합니다. 관리자 권한 명령 프롬프트에서 dsreg/status를 실행 하는 경우이 필드에 오류가 표시 될 수 있습니다. 
-- **WamDefaultAuthority:** -Azure AD의 "조직"으로 설정 합니다.
-- **WamDefaultId:** -Azure AD의 경우-항상 " https://login.microsoft.com "입니다.
-- **고 wamdefaultguid:** -기본 WAM WebAccount에 대 한 WAM 공급자의 (Azure AD/MICROSOFT 계정) GUID입니다. 
+- **NgcSet:** 현재 로그온한 사용자에 대해 Windows Hello 키가 설정된 경우 “YES”로 설정합니다.
+- **NgcKeyId:** 현재 로그온한 사용자에 대해 설정된 경우 Windows Hello 키의 ID입니다.
+- **CanReset:** 사용자가 Windows Hello 키를 다시 설정할 수 있는지 여부를 나타냅니다.
+- **가능한 값:** 오류가 발생한 경우 DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive 또는 Unknown입니다.
+- **WorkplaceJoined:** Azure AD 등록된 계정이 현재 NTUSER 컨텍스트의 디바이스에 추가된 경우 “YES”로 설정합니다.
+- **WamDefaultSet:** 로그인한 사용자에 대해 WAM default WebAccount가 생성되면 “YES”로 설정합니다. 관리자 권한 명령 프롬프트에서 dsreg /status를 실행하는 경우 이 필드에 오류가 표시될 수 있습니다.
+- **WamDefaultAuthority:** Azure AD의 “조직”으로 설정합니다.
+- **WamDefaultId:** Azure AD의 경우 항상 “https://login.microsoft.com”입니다.
+- **WamDefaultGUID:** 기본 WAM WebAccount에 대한 WAM 공급자(Azure AD/Microsoft 계정)의 GUID입니다.
 
 ### <a name="sample-user-state-output"></a>샘플 사용자 상태 출력
 
@@ -160,19 +160,19 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 
 ## <a name="sso-state"></a>SSO 상태
 
-이 섹션은 Azure AD 등록 장치에 대해 무시할 수 있습니다.
+이 섹션은 Azure AD 등록 디바이스에 대해 무시할 수 있습니다.
 
 > [!NOTE]
-> 해당 사용자에 대 한 유효한 상태를 검색 하려면 명령을 사용자 컨텍스트에서 실행 해야 합니다.
+> 해당 사용자에 대해 유효한 상태를 검색하려면 명령을 사용자 컨텍스트에서 실행해야 합니다.
 
-- **AzureAdPrt:** -로그온 한 사용자의 장치에 PRT가 있는 경우 "예"로 설정 합니다.
-- **AzureAdPrtUpdateTime:** -PRT가 마지막으로 업데이트 된 UTC 시간으로 설정 합니다.
-- **AzureAdPrtExpiryTime:** -갱신 되지 않은 경우 PRT가 만료 되는 시간 (UTC)으로 설정 합니다.
-- **AzureAdPrtAuthority:** -Azure AD 기관 URL
-- **Enterpriseprt:** -장치에 온-프레미스 ADFS의 PRT가 있는 경우 "예"로 설정 합니다. 하이브리드 Azure AD 가입 장치의 경우 장치는 Azure AD와 온-프레미스 AD의 PRT를 동시에 가질 수 있습니다. 온-프레미스에 가입 된 장치에는 Enterprise PRT만 있습니다.
-- **EnterprisePrtUpdateTime:** -Enterprise PRT가 마지막으로 업데이트 된 UTC 시간으로 설정 합니다.
-- **EnterprisePrtExpiryTime:** -갱신 되지 않은 경우 PRT가 만료 되는 시간 (UTC)으로 설정 합니다.
-- **EnterprisePrtAuthority:** -ADFS 기관 URL
+- **AzureAdPrt:** 로그온한 사용자의 디바이스에 PRT가 있는 경우 “YES”로 설정합니다.
+- **AzureAdPrtUpdateTime:** PRT가 마지막으로 업데이트된 시간을 UTC로 설정합니다.
+- **AzureAdPrtExpiryTime:** 갱신되지 않은 경우 PRT가 만료되는 시간을 UTC로 설정합니다.
+- **AzureAdPrtAuthority:** Azure AD 기관 URL입니다.
+- **EnterprisePrt:** 디바이스에 온-프레미스 ADFS의 PRT가 있는 경우 “YES”로 설정합니다. 하이브리드 Azure AD 조인 디바이스의 경우 디바이스는 Azure AD와 온-프레미스 AD의 PRT를 동시에 가질 수 있습니다. 온-프레미스 조인 디바이스는 Enterprise PRT만 갖습니다.
+- **EnterprisePrtUpdateTime:** Enterprise PRT가 마지막으로 업데이트된 시간을 UTC로 설정합니다.
+- **EnterprisePrtExpiryTime:** 갱신되지 않은 경우 PRT가 만료되는 시간을 UTC로 설정합니다.
+- **EnterprisePrtAuthority:** ADFS 기관 URL입니다.
 
 ### <a name="sample-sso-state-output"></a>샘플 SSO 상태 출력
 
@@ -197,41 +197,43 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 
 ### <a name="pre-join-diagnostics"></a>사전 조인 진단
 
-이 섹션은 장치가 도메인에 가입 되어 있으며 Azure AD 조인을 하이브리드 할 수 없는 경우에만 표시 됩니다.
+이 섹션은 디바이스가 도메인에 조인되어 있고 하이브리드 Azure AD 조인을 할 수 없는 경우에만 표시됩니다.
 
-이 섹션에서는 조인 실패를 진단 하는 데 도움이 되는 다양 한 테스트를 수행 합니다. 또한이 섹션에는 이전 (?)의 세부 정보가 포함 되어 있습니다. 이 정보에는 오류 단계, 오류 코드, 서버 요청 ID, 서버 응답 http 상태, 서버 응답 오류 메시지가 포함 됩니다.
+이 섹션에서는 조인 실패를 진단하는 데 유용한 다양한 테스트를 수행합니다. 또한 이 섹션에는 이전 (?)의 세부 정보가 포함되어 있습니다. 이 정보에는 오류 단계, 오류 코드, 서버 요청 ID, 서버 응답 http 상태, 서버 응답 오류 메시지가 포함됩니다.
 
-- **사용자 컨텍스트:** 진단이 실행 되는 컨텍스트입니다. 가능한 값: 시스템, 관리자 권한 없는 사용자, 관리자 권한 
+- **사용자 컨텍스트:** 진단이 실행되는 컨텍스트입니다. 가능한 값: SYSTEM, UN-ELEVATED User, ELEVATED User입니다.
 
    > [!NOTE]
-   > 실제 조인은 시스템 컨텍스트에서 수행 되므로 시스템 컨텍스트에서 진단 실행은 실제 조인 시나리오와 가장 가깝습니다. 시스템 컨텍스트에서 진단을 실행 하려면 관리자 권한 명령 프롬프트에서 dsregcmd.exe/status 명령을 실행 해야 합니다.
+   > 실제 조인은 SYSTEM 컨텍스트에서 수행되므로 SYSTEM 컨텍스트에서 진단 실행은 실제 조인 시나리오와 가장 가깝습니다. SYSTEM 컨텍스트에서 진단을 실행하려면 관리자 권한 명령 프롬프트에서 dsregcmd/status 명령을 실행해야 합니다.
 
-- **클라이언트 시간:** 시스템 시간 (UTC)입니다.
-- **AD 연결 테스트:** -테스트는 도메인 컨트롤러에 대 한 연결 테스트를 수행 합니다. 이 테스트에 오류가 발생 하면 사전 검사 단계에서 조인 오류가 발생할 수 있습니다.
-- **AD 구성 테스트:** -테스트는 SCP 개체가 온-프레미스 AD 포리스트에서 올바르게 구성 되었는지 여부를 읽고 확인 합니다. 이 테스트의 오류는 검색 단계에서 오류 코드 0x801c001d와 함께 조인 오류가 발생할 수 있습니다.
-- **DRS 검색 테스트:** -테스트는 검색 메타 데이터 끝점에서 DRS 끝점을 가져오고 사용자 영역 요청을 수행 합니다. 이 테스트의 오류는 검색 단계에서 조인 오류가 발생할 수 있습니다.
-- **Drs 연결 테스트:** -테스트는 DRS 끝점에 대 한 기본 연결 테스트를 수행 합니다.
-- **토큰 획득 테스트:** -테스트 사용자 테 넌 트가 페더레이션 된 경우 Azure AD 인증 토큰을 가져오려고 시도 합니다. 이 테스트에서 오류가 발생 하면 인증 단계에서 조인 오류가 발생할 수 있습니다. 아래의 레지스트리 키 설정을 사용 하 여 대체 (fallback)가 명시적으로 비활성화 되지 않은 경우 인증 실패 동기화 조인이 대체 (fallback)로 시도 됩니다.
+- **클라이언트 시간:** UTC로 나타낸 시스템 시간입니다.
+- **AD 연결 테스트:** 테스트는 도메인 컨트롤러에 대한 연결 테스트를 수행합니다. 이 테스트에 오류가 발생하면 사전 검사 단계에서 조인 오류가 발생할 수 있습니다.
+- **AD 구성 테스트:** 테스트는 SCP 개체가 온-프레미스 AD 포리스트에서 올바르게 구성되었는지 여부를 읽고 확인합니다. 이 테스트의 오류는 검색 단계에서 오류 코드 0x801c001d와 함께 조인 오류가 발생할 수 있습니다.
+- **DRS 검색 테스트:** 테스트는 검색 메타데이터 엔드포인트에서 DRS 엔드포인트를 가져오고 사용자 영역 요청을 수행합니다. 이 테스트의 오류는 검색 단계에서 조인 오류가 발생할 수 있습니다.
+- **DRS 연결 테스트:** 테스트는 DRS 엔드포인트에 대한 기본 연결 테스트를 수행합니다.
+- **토큰 획득 테스트:** 테스트는 사용자 테넌트가 페더레이션된 경우 Azure AD 인증 토큰을 가져오려고 시도합니다. 이 테스트의 오류는 인증 단계에서 조인 오류가 발생할 수 있습니다. 인증에 실패한 경우 아래 레지스트리 키 설정에서 대체(fallback)를 명시적으로 사용하지 않도록 설정하지 않으면 대체(fallback)로 동기화 조인이 시도됩니다.
+
 ```
-    Keyname: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ
-    Value: FallbackToSyncJoin
-    Type:  REG_DWORD
-    Value: 0x0 -> Disabled
-    Value: 0x1 -> Enabled
-    Default (No Key): Enabled
- ```
-- **Sync로 대체-조인:** -위의 레지스트리 키가 인증 실패와의 동기화 조인을 방지 하기 위해 "사용"으로 설정 되어 있지 않습니다. 이 옵션은 Windows 10 1803 이상에서 사용할 수 있습니다.
-- **이전 등록:** -이전 조인 시도가 발생 한 시간입니다. 실패 한 조인 시도만 로깅됩니다.
-- **오류 단계:** -중단 된 조인의 단계입니다. 가능한 값은 사전 검사, 검색, 인증, 조인입니다.
-- **클라이언트 ErrorCode:** -클라이언트 오류 코드가 반환 되었습니다 (HRESULT).
-- **서버 ErrorCode:** -서버에 요청을 보내고 서버에서 오류 코드와 함께 응답 한 경우 서버 오류 코드입니다. 
-- **서버 메시지:** -오류 코드와 함께 반환 되는 서버 메시지입니다.
-- **Https 상태:** -서버에서 반환 된 Http 상태입니다.
-- **요청 ID:** -서버에 전송 되는 클라이언트 requestId입니다. 서버 쪽 로그와의 상관 관계를 파악 하는 데 유용 합니다.
+Keyname: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ
+Value: FallbackToSyncJoin
+Type:  REG_DWORD
+Value: 0x0 -> Disabled
+Value: 0x1 -> Enabled
+Default (No Key): Enabled
+```
+
+- **동기화 조인으로 대체(fallback):** 대체(fallback)가 인증 실패로 동기화 조인되지 않도록 하기 위해 위의 레지스트리 키가 존재하지 않는 경우 “사용”으로 설정합니다. 이 옵션은 Windows 10 1803 이상에서 사용할 수 있습니다.
+- **이전 등록:** 이전 조인 시도가 발생한 시간입니다. 실패한 조인 시도만 로깅됩니다.
+- **오류 단계:** 중단된 조인의 단계입니다. 가능한 값은 사전 검사, 검색, 인증, 조인입니다.
+- **Client ErrorCode:** 클라이언트 오류 코드가 반환되었습니다(HRESULT).
+- **Server ErrorCode:** 서버에 요청을 보내고 서버에서 오류 코드와 함께 응답한 경우 서버 오류 코드입니다.
+- **Server Message:** 오류 코드와 함께 반환되는 서버 메시지입니다.
+- **Https Status:** 서버에서 반환된 Http 상태입니다.
+- **Request ID:** 서버에 전송되는 클라이언트 requestId입니다. 서버쪽 로그와의 상관 관계를 파악하는 데 유용합니다.
 
 ### <a name="sample-pre-join-diagnostics-output"></a>샘플 사전 조인 진단 출력
 
-다음 예제에서는 검색 오류로 인해 진단 테스트가 실패 하는 것을 보여 줍니다.
+다음 예제에서는 검색 오류로 인해 진단 테스트가 실패하는 것을 보여 줍니다.
 
 ```
 +----------------------------------------------------------------------+
@@ -255,7 +257,7 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 +----------------------------------------------------------------------+
 ```
 
-다음 예에서는 진단 테스트가 통과 하지만 동기화 조인에 필요한 디렉터리 오류로 인해 등록 시도가 실패 한 경우를 보여 줍니다. Azure AD Connect 동기화 작업이 완료 되 면 장치를 조인할 수 있습니다.
+다음 예제에서는 진단 테스트가 통과하지만 동기화 조인에 필요한 디렉터리 오류로 인해 등록 시도가 실패한 경우를 보여 줍니다. Azure AD Connect 동기화 작업이 완료되면 디바이스를 조인할 수 있습니다.
 
 ```
 +----------------------------------------------------------------------+
@@ -286,10 +288,10 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 
 ### <a name="post-join-diagnostics"></a>사후 조인 진단
 
-이 섹션에는 클라우드에 연결 된 장치에서 수행 된 온전성 검사의 출력이 표시 됩니다.
+이 섹션에는 클라우드에 조인된 디바이스에서 수행된 온전성 검사의 출력이 표시됩니다.
 
-- **AadRecoveryEnabled:** -"YES" 인 경우 장치에 저장 된 키를 사용할 수 없으며 장치가 복구 하도록 표시 됩니다. 다음에 로그인 하면 복구 흐름이 트리거되고 장치를 다시 등록 합니다.
-- **Keysigntest:** -"통과" 장치 키의 상태가 정상입니다. KeySignTest가 실패 하면 장치는 일반적으로 복구를 위해 표시 됩니다. 다음에 로그인 하면 복구 흐름이 트리거되고 장치를 다시 등록 합니다. 하이브리드 Azure AD 조인 장치의 경우 복구는 자동입니다. Azure AD 조인 또는 Azure AD가 등록 되는 동안 장치는 필요한 경우 장치를 복구 하 고 다시 등록 하기 위해 사용자 인증을 요청 합니다. **KeySignTest에는 상승 된 권한이 필요 합니다.**
+- **AadRecoveryEnabled:** “YES”인 경우 디바이스에 저장된 키를 사용할 수 없으며 디바이스는 복구를 위해 표시됩니다. 다음에 로그인하면 복구 흐름이 트리거되고 디바이스를 다시 등록합니다.
+- **KeySignTest:** “PASSED”인 경우 디바이스 키의 상태가 정상입니다. KeySignTest가 실패하면 디바이스는 일반적으로 복구를 위해 표시됩니다. 다음에 로그인하면 복구 흐름이 트리거되고 디바이스를 다시 등록합니다. 하이브리드 Azure AD 조인 디바이스의 경우 복구는 자동입니다. Azure AD 조인 또는 Azure AD 등록되는 동안 디바이스는 필요한 경우 디바이스를 복구하고 다시 등록하기 위해 사용자 인증을 요청하는 메시지를 표시합니다. **KeySignTest를 수행하려면 상승된 권한이 필요합니다.**
 
 #### <a name="sample-post-join-diagnostics-output"></a>샘플 사후 조인 진단 출력
 
@@ -305,22 +307,22 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 
 ## <a name="ngc-prerequisite-check"></a>NGC 필수 구성 요소 확인
 
-이 섹션에서는 비즈니스용 Windows Hello (WHFB)를 프로 비전 하기 위한 필수 구성 요소 확인을 수행 합니다. 
+이 섹션에서는 WHFB(비즈니스용 Windows Hello)를 프로비전하기 위한 필수 구성 요소 확인을 수행합니다.
 
 > [!NOTE]
-> 사용자가 이미 WHFB를 구성한 경우 dsregcmd.exe/status에서 NGC 필수 구성 요소 확인 세부 정보를 볼 수 없습니다.
+> 사용자가 이미 WHFB를 구성한 경우 dsregcmd/status에서 NGC 필수 구성 요소 확인 세부 정보를 볼 수 없습니다.
 
-- **Isdevicejoined:** -장치가 Azure AD에 가입 되어 있는 경우 "예"로 설정 합니다.
-- **IsUserAzureAD:** -로그인 한 사용자가 Azure AD에 있는 경우 "예"로 설정 합니다.
-- **Policyenabled:** -WHFB 정책이 장치에서 사용 되는 경우 "예"로 설정 합니다.
-- **Postlogonenabled:** -WHFB 등록이 플랫폼에 의해 기본적으로 트리거되는 경우 "YES"로 설정 합니다. "아니요"로 설정 된 경우 비즈니스용 Windows Hello 등록이 사용자 지정 메커니즘에 의해 트리거됨을 나타냅니다.
-- **Deviceeligible:** -장치가 WHFB를 사용 하 여 등록 하기 위한 하드웨어 요구 사항을 충족 하는 경우 "예"로 설정 합니다.
-- **Sessionisnotremote:** -현재 사용자가 원격이 아닌 장치에 직접 로그인 한 경우 "예"로 설정 합니다.
-- **Certenrollment:** -WHFB 인증서 신뢰 배포와 관련 하 여 WHFB에 대 한 인증서 등록 기관을 나타냅니다. WHFB policy의 소스가 그룹 정책 경우 "등록 기관"으로 설정 하 고, 원본이 MDM 인 경우 "모바일 장치 관리"로 설정 합니다. 그렇지 않으면 "none"입니다.
-- **AdfsRefreshToken:** -WHFB 인증서 신뢰 배포에만 적용 됩니다. CertEnrollment "등록 기관" 인 경우에만 표시 됩니다. 장치에 사용자에 대 한 엔터프라이즈 PRT가 있는지 여부를 나타냅니다.
-- **AdfsRaIsReady:** -WHFB 인증서 신뢰 배포에만 적용 됩니다.  CertEnrollment "등록 기관" 인 경우에만 표시 됩니다. ADFS가 WHFB을 지원 하 *고* 로그온 인증서 템플릿을 사용할 수 있는 경우 "예"로 설정 합니다.
-- **LogonCertTemplateReady:** -WHFB 인증서 신뢰 배포에만 적용 됩니다. CertEnrollment "등록 기관" 인 경우에만 표시 됩니다. 로그온 인증서 템플릿의 상태가 유효 하 고 ADFS RA 문제를 해결 하는 데 도움이 되는 경우 "예"로 설정 합니다.
-- **PreReqResult:** -모든 WHFB 필수 구성 요소 평가의 결과를 제공 합니다. 사용자가 다음에 로그인 할 때 WHFB 등록을 사후 로그온 작업으로 시작 하는 경우 "프로 비전"으로 설정 합니다.
+- **IsDeviceJoined:** 디바이스가 Azure AD에 조인되어 있는 경우 “YES”로 설정합니다.
+- **IsUserAzureAD:** 로그인한 사용자가 Azure AD에 있는 경우 “YES”로 설정합니다.
+- **PolicyEnabled:** WHFB 정책이 디바이스에서 사용되도록 설정된 경우 “YES”로 설정합니다.
+- **PostLogonEnabled:** WHFB 등록이 플랫폼에 의해 기본적으로 트리거되는 경우 “YES”로 설정합니다. “NO”로 설정된 경우 비즈니스용 Windows Hello 등록이 사용자 지정 메커니즘에 의해 트리거됨을 나타냅니다.
+- **DeviceEligible:** 디바이스가 WHFB를 사용하여 등록하기 위한 하드웨어 요구 사항을 충족하는 경우 “YES”로 설정합니다.
+- **SessionIsNotRemote:** 현재 사용자가 원격이 아닌 디바이스에 직접 로그인한 경우 “YES”로 설정합니다.
+- **CertEnrollment:** WHFB 인증서 신뢰 배포와 관련하여 WHFB에 대한 인증서 등록 기관을 나타냅니다. WHFB 정책의 원본이 그룹 정책 경우 “enrollment authority”로 설정하고, 원본이 MDM인 경우 “mobile device management”로 설정합니다. 그렇지 않으면 “none”입니다.
+- **AdfsRefreshToken:** WHFB 인증서 신뢰 배포에만 적용됩니다. CertEnrollment가 “enrollment authority”인 경우에만 표시됩니다. 디바이스에 사용자에 대한 엔터프라이즈 PRT가 있는지 여부를 나타냅니다.
+- **AdfsRaIsReady:** WHFB 인증서 신뢰 배포에 적용됩니다.  CertEnrollment가 “enrollment authority”인 경우에만 표시됩니다. ADFS가 검색 메타데이터에서 WHFB를 지원한다고 표시되고, *그리고* 로그온 인증서 템플릿을 사용할 수 있는 경우 “YES”로 설정합니다.
+- **LogonCertTemplateReady:** WHFB 인증서 신뢰 배포에 적용됩니다. CertEnrollment가 “enrollment authority”인 경우에만 표시됩니다. 로그온 인증서 템플릿의 상태가 유효하고 ADFS RA 문제를 해결하는 데 도움이 되는 경우 “YES”로 설정합니다.
+- **PreReqResult:** 모든 WHFB 필수 구성 요소 평가의 결과를 제공합니다. 사용자가 다음에 로그인할 때 WHFB 등록을 사후 로그온 작업으로 시작하는 경우 “Will Provision”으로 설정합니다.
 
 ### <a name="sample-ngc-prerequisite-check-output"></a>샘플 NGC 필수 구성 요소 검사 출력
 
@@ -345,4 +347,4 @@ Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해�
 
 ## <a name="next-steps"></a>다음 단계
 
-질문은 [디바이스 관리 FAQ](faq.md)를 참조하세요.
+- [Microsoft 오류 조회 도구](/windows/win32/debug/system-error-code-lookup-tool)

@@ -1,24 +1,24 @@
 ---
 title: 마스터 VHD 이미지 준비 및 사용자 지정 - Azure
-description: Windows Virtual Desktop 마스터 이미지를 준비, 사용자 지정하고 Azure에 업로드하는 방법을 알아봅니다.
+description: Azure Virtual Desktop 마스터 이미지를 준비, 사용자 지정하고 Azure에 업로드하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 654b5b293397af9737813d759a7c784d90629942
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 576a791ee8c252a8bc1fa73cd98174e6958cf606
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445808"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751436"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
 
-이 문서에서는 VM(가상 머신)을 만들고 여기에 소프트웨어를 설치하는 방법을 포함하여 Azure에 업로드할 마스터 VHD(가상 하드 디스크) 이미지를 준비하는 방법을 설명합니다. 이러한 지침은 조직의 기존 프로세스에 사용할 수 있는 Windows Virtual Desktop 관련 구성에 대한 것입니다.
+이 문서에서는 VM(가상 머신)을 만들고 여기에 소프트웨어를 설치하는 방법을 포함하여 Azure에 업로드할 마스터 VHD(가상 하드 디스크) 이미지를 준비하는 방법을 설명합니다. 이러한 지침은 조직의 기존 프로세스에 사용할 수 있는 Azure Virtual Desktop 관련 구성에 대한 것입니다.
 
 >[!IMPORTANT]
->Azure 이미지 갤러리의 이미지를 사용하는 것이 좋습니다. 하지만 사용자 지정된 이미지를 사용해야 할 경우 VM에 Windows Virtual Desktop 에이전트를 아직 설치하지 않았는지 확인합니다. Windows Virtual Desktop 에이전트에 사용자 지정 이미지를 사용하면 등록 차단 및 사용자 세션 연결 방해와 같은 문제가 이미지에 발생할 수 있습니다.  
+>Azure 이미지 갤러리의 이미지를 사용하는 것이 좋습니다. 하지만 사용자 지정된 이미지를 사용해야 할 경우 VM에 Azure Virtual Desktop 에이전트를 아직 설치하지 않았는지 확인합니다. Azure Virtual Desktop 에이전트에 사용자 지정 이미지를 사용하면 등록 차단 및 사용자 세션 연결 방해와 같은 문제가 이미지에 발생할 수 있습니다.  
 
 ## <a name="create-a-vm"></a>VM 만들기
 
@@ -128,7 +128,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 
 ### <a name="disable-storage-sense"></a>스토리지 센스 사용 안 함
 
-Windows 10 Enterprise 또는 Windows 10 Enterprise 다중 세션을 사용하는 Windows Virtual Desktop 세션 호스트의 경우 저장 공간 센스를 사용하지 않도록 설정하는 것이 좋습니다. 다음 스크린샷에 표시된 것처럼 설정 메뉴에서 **스토리지** 아래의 스토리지 센스를 사용하지 않도록 설정할 수 있습니다.
+Windows 10 Enterprise 또는 Windows 10 Enterprise 다중 세션을 사용하는 Azure Virtual Desktop 세션 호스트의 경우 저장 공간 센스를 사용하지 않도록 설정하는 것이 좋습니다. 다음 스크린샷에 표시된 것처럼 설정 메뉴에서 **스토리지** 아래의 스토리지 센스를 사용하지 않도록 설정할 수 있습니다.
 
 > [!div class="mx-imgBorder"]
 > ![설정 아래의 스토리지 메뉴의 스크린샷입니다. “스토리지 센스” 옵션이 해제되어 있습니다.](media/storagesense.png)
@@ -215,6 +215,6 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-s
 - [자습서: Azure Marketplace를 사용하여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)
 - [PowerShell을 사용한 호스트 풀 만들기](create-host-pools-powershell.md)
 - [파일 공유를 사용하여 호스트 풀에 대한 프로필 컨테이너 만들기](create-host-pools-user-profile.md)
-- [Windows Virtual Desktop 부하 분산 방법 구성](configure-host-pool-load-balancing.md)
+- [Azure Virtual Desktop 부하 분산 방법 구성](configure-host-pool-load-balancing.md)
 
 VHD 이미지를 준비하거나 사용자 지정한 후 연결 문제가 발생하면 [문제 해결 가이드](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved)를 참조하세요.

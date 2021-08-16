@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure 리소스의 액세스 관리를 사용�
 keywords: 자동화 rbac, 역할 기반 액세스 제어, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 07/21/2020
+ms.date: 05/17/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0727d3342c73d9aa4d15e84aacb82bd8fea01d65
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 943fa65f114e46c80c8c1ef576f784f9117c9f79
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833583"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083803"
 ---
 # <a name="manage-role-permissions-and-security"></a>역할 권한 및 보안 관리
 
@@ -262,14 +262,19 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 
 업데이트 관리는 여러 서비스에서 해당 서비스를 제공합니다. 다음 표에서는 업데이트 관리 배포를 관리하는 데 필요한 사용 권한을 보여줍니다.
 
-|**리소스**  |**역할**  |**범위**  |
+|**리소스** |**역할** |**범위** |
 |---------|---------|---------|
-|Automation 계정     | Log Analytics 참가자       | Automation 계정        |
-|Automation 계정    | 가상 머신 참가자        | 계정의 리소스 그룹        |
-|Log Analytics 작업 영역     | Log Analytics 참가자| Log Analytics 작업 영역        |
-|Log Analytics 작업 영역 |Log Analytics 독자| Subscription|
-|해결 방법     |Log Analytics 참가자         | 해결 방법|
-|Virtual Machine     | 가상 머신 참가자        | Virtual Machine        |
+|Automation 계정 |Log Analytics 참가자 |Automation 계정 |
+|Automation 계정 |가상 머신 참가자  |계정의 리소스 그룹  |
+|Log Analytics 작업 영역 Log Analytics 기여자|Log Analytics 작업 영역 |
+|Log Analytics 작업 영역 |Log Analytics 독자|Subscription|
+|해결 방법 |Log Analytics 참가자 |해결 방법|
+|Virtual Machine |가상 머신 참가자 |Virtual Machine |
+|**가상 머신에 대한 작업** | | |
+|업데이트 일정 실행 기록 보기([소프트웨어 업데이트 구성 시스템 실행](/rest/api/automation/softwareupdateconfigurationmachineruns)) |읽기 권한자 |Automation 계정 |
+|**가상 머신에 대한 작업** |**사용 권한** | |
+|업데이트 일정 만들기([소프트웨어 업데이트 구성](/rest/api/automation/softwareupdateconfigurations)) |Microsoft.Compute/virtualMachines/write |정적 VM 목록 및 리소스 그룹인 경우 |
+|업데이트 일정 만들기([소프트웨어 업데이트 구성](/rest/api/automation/softwareupdateconfigurations)) |Microsoft.OperationalInsights/workspaces/analytics/query/action |비 Azure 동적 목록을 사용할 때 작업 영역 리소스 ID인 경우|
 
 ## <a name="configure-azure-rbac-for-your-automation-account"></a>Automation 계정에 Azure RBAC 구성
 

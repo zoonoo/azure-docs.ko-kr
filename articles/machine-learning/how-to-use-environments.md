@@ -9,14 +9,14 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 10491733d7473932a3eeb0e93dabe74a71d99fc8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: devx-track-python
+ms.openlocfilehash: d4260b5c981c6b4f199fca88894abafbbb02e4a1
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889045"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110577860"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Azure Machine Learning에서 소프트웨어 환경 만들기 및 사용
 
@@ -85,6 +85,12 @@ for env in envs:
 > [!WARNING]
 >  _AzureML_ 접두사로 자체 환경 이름을 시작하지 마세요. 이 접두사는 큐레이팅된 환경용으로 예약되어 있습니다.
 
+큐레이팅된 환경을 사용자 지정하려면 환경을 복제하고 이름을 바꿉니다. 
+```python 
+env = Environment.get(workspace=ws, name="AzureML-Minimal")
+curated_clone = env.clone("customize_curated")
+```
+
 ### <a name="use-conda-dependencies-or-pip-requirements-files"></a>Conda 종속성 또는 pip 요구 사항 파일 사용
 
 Conda 사양 또는 pip 요구 사항 파일에서 환경을 만들 수 있습니다. [`from_conda_specification()`](/python/api/azureml-core/azureml.core.environment.environment#from-conda-specification-name--file-path-) 메서드 또는 [`from_pip_requirements()`](/python/api/azureml-core/azureml.core.environment.environment#from-pip-requirements-name--file-path-) 메서드를 사용합니다. 메서드 인수에 사용자 환경 이름과 원하는 파일의 파일 경로를 포함합니다. 
@@ -127,6 +133,7 @@ myenv.docker.base_image_registry="your_registry_location"
 > * Ubuntu 16.04 이상.
 > * Conda 4.5.# 이상.
 > * Python 3.6 이상.
+> * /bin/sh에서 사용할 수 있는 POSIX 규격 셸은 학습에 사용되는 모든 컨테이너 이미지에 필요합니다. 
 
 #### <a name="use-your-own-dockerfile"></a>자체 Dockerfile 사용 
 
@@ -399,7 +406,9 @@ service = Model.deploy(
 
 ## <a name="notebooks"></a>Notebooks
 
-이 [문서](./how-to-access-terminal.md#add-new-kernels)는 노트북에 커널로 Conda 환경을 설치하는 방법에 대한 정보를 제공합니다.
+이 문서의 코드 예제는 [환경 Notebook 사용](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/using-environments/using-environments.ipynb)에도 포함되어 있습니다.
+
+ Conda 환경을 Notebook에 커널로 설치하려면 [새 Jupyter 커널 추가](./how-to-access-terminal.md#add-new-kernels)를 참조하세요.
 
 [사용자 지정 Docker 기본 이미지를 사용한 모델 배포](how-to-deploy-custom-docker-image.md)는 사용자 지정 Docker 기본 이미지를 사용하여 모델을 배포하는 방법을 보여 줍니다.
 

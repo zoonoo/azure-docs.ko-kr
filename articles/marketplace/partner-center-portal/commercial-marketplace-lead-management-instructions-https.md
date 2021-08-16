@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 04/14/2021
-ms.openlocfilehash: b523b20a3d7f22cfd5e608c6793c55583050028f
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.date: 05/21/2021
+ms.openlocfilehash: f4ef8d7d29b65af4876912e6dbbd3827693737c6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109635286"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110450425"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>HTTPS 엔드포인트를 사용하여 상업용 Marketplace 잠재 고객 관리
 
@@ -25,23 +25,23 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
 
 ## <a name="create-a-flow-by-using-power-automate"></a>Power Automate를 사용하여 흐름 만들기
 
-1. [Power Automate](https://flow.microsoft.com/) 웹 페이지를 엽니다. **로그인** 을 선택합니다. 계정이 아직 없는 경우 **체험판 가입** 을 선택하여 체험판 Power Automate 계정을 만듭니다.
+1. [Power Automate](https://flow.microsoft.com/) 웹 페이지를 엽니다. **로그인** 을 선택합니다. 아직 계정이 없는 경우 **무료 가입** 을 선택하여 계정을 만드세요.
 
-1. 로그인하고 메뉴에서 **내 흐름** 을 선택합니다.
+1. 로그인하고 **내 흐름** 을 선택한 다음 환경을 **Microsoft(기본값)** 에서 Dataverse(CRM) 환경으로 전환합니다.
 
-    ![내 흐름에 로그인](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png" alt-text="'내 흐름'에 로그인하는 방법을 보여 줍니다.":::
 
 1. **+ 새로 만들기** 에서 **+ Instant cloud flow**(+ 인스턴트 클라우드 흐름)를 선택합니다.
 
-    ![내 흐름 + 자동 - 새로 시작](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-create-from-blank.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/https-my-flows-create-from-blank.png" alt-text="내 흐름을 선택한 다음 인스턴트 클라우드 흐름을 선택하는 방법을 보여 줍니다.":::
 
 1. 흐름의 이름을 지정한 다음, **이 흐름을 트리거하는 방법** 을 선택하고 **HTTP 요청을 받을 때** 를 선택합니다.
 
-    ![자동화된 흐름 창 건너뛰기 단추 빌드](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-pick-request-trigger.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/https-my-flows-pick-request-trigger.png" alt-text="자동화된 흐름 창 건너뛰기 단추를 빌드하는 방법을 표시합니다.":::
 
 1. 흐름 단계를 클릭하여 확장합니다.
 
-    ![흐름 단계 확장](./media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png" alt-text="흐름 단계를 확장하는 방법을 보여 줍니다.":::
 
 1. 다음 방법 중 하나를 사용하여 **요청 본문 JSON 스키마** 를 구성합니다.
 
@@ -137,25 +137,25 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
 ### <a name="connect-to-a-crm-system"></a>CRM 시스템에 연결
 
 1. **+ 새 단계** 를 선택합니다.
-1. **커넥터 및 작업 검색** 이 표시된 곳에서 검색하여 선택한 CRM 시스템을 선택합니다. 다음 화면에서는 새 레코드 만들기(Common Data Service)를 예제로 보여 줍니다.
+1. **검색 커넥터 및 작업** 상자에서 CRM 시스템을 검색하고 선택합니다. 다음 화면은 **새 레코드 만들기(Microsoft Dataverse)** 를 예로 보여 줍니다.
 
-    ![새 레코드 만들기](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/create-new-record.png" alt-text="새 레코드를 만드는 방법을 보여 줍니다.":::
 
-1. **새 레코드 만들기** 작업이 있는 **작업 탭** 을 선택합니다.
+1. **새 행 추가** 작업이 있는 **작업 탭** 을 선택합니다.
 
-    ![새 레코드 만들기 선택](./media/commercial-marketplace-lead-management-instructions-https/select-create-new-record.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/select-create-new-record.png" alt-text="'새 레코드 만들기'를 선택하는 방법을 보여 줍니다.":::
 
-1. CRM 시스템과 연결된 **조직 이름** 을 입력합니다. **엔터티 이름** 드롭다운 목록에서 **잠재 고객** 을 선택합니다.
+1. **테이블 이름** 드롭다운 목록에서 **잠재 고객** 을 선택합니다.
 
-    ![잠재 고객 선택](./media/commercial-marketplace-lead-management-instructions-https/select-leads.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/select-leads.png" alt-text="잠재 고객 선택 방법을 보여 줍니다.":::
 
 1. Power Automate에는 잠재 고객 정보를 입력하기 위한 양식이 나와 있습니다. 동적 콘텐츠 추가하도록 선택하여 입력 요청의 항목을 매핑할 수 있습니다. 다음 화면에는 **OfferTitle** 이 예제로 나와 있습니다.
 
-    ![동적 콘텐츠 추가](./media/commercial-marketplace-lead-management-instructions-https/add-dynamic-content.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/add-dynamic-content.png" alt-text="동적 콘텐츠를 추가하는 방법을 보여 줍니다.":::
 
 1. 원하는 필드를 매핑한 다음, **저장** 을 선택하여 흐름을 저장합니다. HTTP POST URL이 만들어지고 **HTTP 요청을 받은 경우** 창에 액세스할 수 있습니다. HTTP POST URL의 오른쪽에 있는 복사 컨트롤을 사용하여 이 URL을 복사합니다. 전체 URL의 일부를 누락하지 않도록 하려면 복사 컨트롤을 사용하는 것이 중요합니다. 게시 포털에서 잠재 고객 관리를 구성할 때 필요하므로 이 URL을 저장합니다.
 
-    ![HTTP 요청을 받은 경우](./media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png" alt-text="HTTP 요청을 받는 시기를 표시합니다.":::
 
 ### <a name="set-up-email-notification"></a>이메일 알림 설정
 
@@ -222,7 +222,7 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
 
    ![결과 확인](./media/commercial-marketplace-lead-management-instructions-https/my-flow-check-results.png)
 
-1. 또한 이메일을 수신해야 합니다. 이메일 수신함을 확인합니다. 
+1. 또한 이메일을 수신해야 합니다. 이메일 수신함을 확인합니다.
 
     >[!NOTE] 
     >테스트에서 이메일을 확인할 수 없는 경우 스팸 및 정크 폴더를 확인합니다. 다음 화면에서는 이메일 알림을 구성할 때 추가한 필드 레이블만 확인할 수 있습니다. 제품에서 생성된 실제 잠재 고객인 경우 본문 및 제목 줄에서 잠재 고객 연락처의 실제 정보를 볼 수도 있습니다.

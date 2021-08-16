@@ -21,7 +21,7 @@
         - name: 클라이언트 라이브러리 또는 REST API
           href: Quickstarts/quickstart-sdk.md
 - name: 샘플
-  href: /samples/browse/?products=azure&term=face&terms=qna-maker
+  href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=face&terms=qna-maker'
 - name: AI의 책임 있는 사용
   items:
     - name: 투명성 메모

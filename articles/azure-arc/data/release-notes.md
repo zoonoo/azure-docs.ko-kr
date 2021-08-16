@@ -1,5 +1,5 @@
 ---
-title: Azure Arc 사용 데이터 서비스-릴리스 정보
+title: Azure Arc 지원 데이터 서비스 - 릴리스 정보
 description: 최신 릴리스 정보
 author: twright-msft
 ms.author: twright
@@ -7,175 +7,300 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 03/02/2021
+ms.date: 06/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6b4d5c1372a8351f1fe5a6608aff38bf232aabd8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: fc4dd4bcdb18b33fa9c6098c32e0aefecb7c46ee
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121952"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439641"
 ---
-# <a name="release-notes---azure-arc-enabled-data-services-preview"></a>릴리스 정보-Azure Arc 사용 데이터 서비스 (미리 보기)
+# <a name="release-notes---azure-arc-enabled-data-services-preview"></a>릴리스 정보 - Azure Arc 지원 데이터 서비스(미리 보기)
 
-이 문서에서는 Azure Arc 사용 데이터 서비스의 기능, 기능 및 향상 된 기능, 기능 및 향상 된 기능을 중점적으로 설명 합니다. 
+이 문서에서는 Azure Arc 지원 데이터 서비스의 기능, 특징, 최근에 릴리스된 기능 향상 및 개선된 기능을 중점적으로 설명합니다. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+## <a name="may-2021"></a>2021년 5월
+
+이 미리 보기 릴리스는 2021년 6월 2일에 게시됩니다.
+
+미리 보기 기능으로, 이 문서에 제시된 기술에는 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)이 적용됩니다.
+
+### <a name="breaking-change"></a>주요 변경 내용
+
+- Kubernetes 네이티브 배포 템플릿이 수정되었습니다. .yml 템플릿을 업데이트합니다.
+    - 데이터 컨트롤러, 부트스트래퍼 및 SQL 관리형 인스턴스의 업데이트된 템플릿: [GitHub microsoft/azure-arc pr 574](https://github.com/microsoft/azure_arc/pull/574)
+    - PostgreSQL 하이퍼스케일의 업데이트된 템플릿: [GitHub microsoft/azure-arc pr 574](https://github.com/microsoft/azure_arc/pull/574)
+
+### <a name="whats-new"></a>새로운 기능
+
+#### <a name="platform"></a>플랫폼
+
+- Azure Portal에서 데이터 컨트롤러, SQL 관리형 인스턴스 및 PostgreSQL 하이퍼스케일 서버 그룹을 만들고 삭제합니다. 
+- Azure Arc 데이터 서비스를 삭제할 때 포털 작업의 유효성을 검사합니다. 예를 들어 데이터 컨트롤러를 사용하여 배포된 SQL Managed Instance가 있는 경우 포털은 데이터 컨트롤러를 삭제하려고 할 때 경고를 표시합니다.
+- Azure Portal을 사용하여 Arc 지원 데이터 컨트롤러를 배포할 때 사용자 지정 설정을 지원하도록 사용자 지정 구성 프로필을 만듭니다.
+- 필요에 따라 직접 연결된 모드에서 Azure Log Analytics 작업 영역에 로그를 자동으로 업로드합니다.
+
+####    <a name="azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일
+
+이 릴리스에는 다음 기능이 추가되었습니다.
+
+- 데이터 컨트롤러가 직접 연결 모드로 구성된 경우 Azure Portal에서 Azure Arc PostgreSQL 하이퍼스케일을 삭제합니다.
+- Azure Portal의 Postgres 배포 페이지에 대한 Azure 데이터베이스에서 Azure Arc 지원 PostgreSQL 하이퍼스케일을 배포합니다. [Azure Database for PostgreSQL 배포 옵션 선택 - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer)를 참조하세요.
+- Azure Portal에서 Azure Arc 지원 PostgreSQL 하이퍼스케일을 배포할 때 스토리지 클래스 및 Postgres 확장을 지정합니다.
+- Azure Arc 지원 PostgreSQL 하이퍼스케일의 작업자 노드 수를 줄입니다. `azdata` 명령줄에서 이 작업을 수행할 수 있습니다(작업자 노드 수를 늘릴 때 스케일 아웃과 반대로 스케일 인이라고 함).
+
+#### <a name="azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance
+
+- Arc 지원 SQL Managed Instance에 대한 새 [Azure CLI 확장](/cli/azure/azure-cli-extensions-overview)은 `azdata arc sql mi <command>`와 동일한 명령을 사용합니다. 모든 Arc 지원 SQL Managed Instance 명령은 `az sql mi-arc`에 있습니다. 모든 Arc 관련 `azdata` 명령은 더 이상 사용되지 않으며 이후 릴리스에서 Azure CLI로 이동됩니다.
+
+   확장을 추가하려면 다음을 수행합니다.
+  
+   ```azurecli
+   az extension add --source https://azurearcdatacli.blob.core.windows.net/cli-extensions/arcdata-0.0.1-py2.py3-none-any.whl -y
+   az sql mi-arc --help
+   ```
+
+- Transact-SQL을 사용하여 장애 조치(failover)를 수동으로 트리거합니다. 다음 명령을 순서대로 실행합니다.
+
+   1. 주 복제본 엔드포인트 연결에서:
+   
+      ```sql
+       ALTER AVAILABILITY GROUP current SET (ROLE = SECONDARY);
+      ```
+
+   1. 보조 복제본 엔드포인트 연결에서:
+   
+      ```sql
+      ALTER AVAILABILITY GROUP current SET (ROLE = PRIMARY);
+      ```
+    
+- `COPY_ONLY` 설정을 사용하지 않는 경우 Transact-SQL `BACKUP` 명령이 차단됩니다. 특정 시점 복원 기능을 지원합니다.
+
+### <a name="known-issues"></a>알려진 문제
+
+#### <a name="platform"></a>플랫폼
+
+- Azure Portal을 사용하여 연결된 클러스터에서 데이터 컨트롤러, SQL 관리형 인스턴스 또는 PostgreSQL 하이퍼스케일 서버 그룹을 만들 수 있습니다. 다른 Azure Arc 지원 데이터 서비스 도구를 사용한 배포는 지원되지 않습니다. 특히 이 릴리스 중에 다음 도구를 사용하여 직접 연결 모드에서 데이터 컨트롤러를 배포할 수 없습니다.
+   - Azure Data Studio
+   - Azure Data CLI(`azdata`)
+   - Kubernetes 네이티브 도구(`kubectl`)
+
+   [Azure Arc 데이터 컨트롤러 배포 | 직접 연결 모드](deploy-data-controller-direct-mode.md)에서는 포털에서 데이터 컨트롤러를 만드는 방법을 설명합니다. 
+
+- `kubectl`을 사용하여 Kubernetes 클러스터에서 직접 리소스를 만들 수 있지만 Azure Portal에는 반영되지 않습니다.
+
+- 직접 연결 모드에서는 `azdata arc dc upload`를 사용한 사용량, 메트릭 및 로그의 업로드가 현재 차단되어 있습니다. 사용량은 자동으로 업로드됩니다. 간접 연결 모드에서 만든 데이터 컨트롤러에 대한 업로드는 계속 작동합니다.
+- 직접 연결 모드에서 사용량 현황 데이터의 자동 업로드는 `–proxy-cert <path-t-cert-file>`을 통해 프록시를 사용하는 경우 실패합니다.
+- Azure Arc 지원 SQL Managed Instance 및 Azure Arc 지원 PostgreSQL 하이퍼스케일은 GB18030 인증되지 않았습니다.
+- 현재 kubernetes 클러스터당 직접 연결 모드에서는 Azure Arc 데이터 컨트롤러 하나만 지원됩니다.
+
+#### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일
+
+- 현재 NFS 스토리지에서는 특정 시점 복원이 지원되지 않습니다.
+- `pg_cron` 확장을 동시에 사용하도록 설정하고 구성할 수는 없습니다. 이 경우 두 개의 명령을 사용해야 합니다. 사용하도록 설정하는 명령 하나와 구성하는 명령 하나를 사용해야 합니다. 예를 들면 다음과 같습니다.
+
+   1. 확장 사용:
+   
+      ```console
+      azdata arc postgres server edit -n myservergroup --extensions pg_cron 
+      ```
+
+   1. 서버 그룹을 다시 시작합니다.
+
+   1. 확장 구성:
+   
+      ```console
+      azdata arc postgres server edit -n myservergroup --engine-settings cron.database_name='postgres'
+      ```
+
+   다시 시작이 완료되기 전에 두 번째 명령을 실행하면 명령이 실패합니다. 이 경우 잠시 기다린 후 두 번째 명령을 다시 실행하면 됩니다.
+
+- 추가 확장을 사용하도록 서버 그룹의 구성을 편집할 때 `--extensions` 매개 변수에 잘못된 값을 전달하면 사용되는 확장 목록이 서버 그룹을 만든 시간의 상태로 다시 설정되며 사용자가 추가 확장을 만들 수 없습니다. 이 문제가 발생할 때 사용할 수 있는 유일한 해결 방법은 서버 그룹을 삭제하고 다시 배포하는 것입니다.
+
+## <a name="april-2021"></a>2021년 4월
+
+이 미리 보기 릴리스는 2021년 4월 29일에 게시됩니다.
+
+### <a name="whats-new"></a>새로운 기능
+
+이 섹션에서는 이 릴리스에 대해 도입되거나 사용되는 새로운 기능에 대해 설명합니다. 
+
+#### <a name="platform"></a>플랫폼
+
+- 직접 연결된 클러스터는 원격 분석 정보를 자동으로 Azure에 업로드합니다. 
+
+####    <a name="azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일
+
+- Azure Arc 지원 PostgreSQL 하이퍼스케일은 이제 직접 연결 모드에서 지원됩니다. 이제 Azure Portal의 Azure Market Place에서 Azure Arc 지원 PostgreSQL 하이퍼스케일을 배포할 수 있습니다. 
+- Azure Arc 지원 PostgreSQL 하이퍼스케일은 칼럼 형식 테이블 스토리지 기능을 제공하는 Citus 10.0 확장과 함께 제공됩니다.
+- Azure Arc 지원 PostgreSQL 하이퍼스케일은 이제 전체 사용자/역할 관리를 지원합니다.
+- Azure Arc 지원 PostgreSQL 하이퍼스케일은 이제 `Tdigest` 및 `pg_partman`을 사용하여 추가 확장을 지원합니다.
+- 이제 Azure Arc 지원 PostgreSQL 하이퍼스케일에서 서버 그룹의 PostgreSQL 인스턴스 역할당 vCore 및 메모리 설정 구성을 지원합니다.
+- 이제 Azure Arc 지원 PostgreSQL 하이퍼스케일에서 서버 그룹의 PostgreSQL 인스턴스 역할당 데이터베이스 엔진/서버 설정 구성을 지원합니다.
+
+#### <a name="azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance
+
+- 3개의 복제본을 사용하여 SQL Managed Instance로 데이터베이스를 복원하면 데이터베이스가 가용성 그룹에 자동으로 추가됩니다. 
+- 3개의 복제본과 함께 배포된 SQL Managed Instance에서 보조 읽기 전용 엔드포인트에 연결합니다. `azdata arc sql endpoint list`를 사용하여 보조 읽기 전용 연결 엔드포인트를 확인합니다.
+
+## <a name="march-2021"></a>2021년 3월
+
+2021년 3월 릴리스는 2021년 4월 5일에 처음 도입되었으며, 최종 릴리스 단계는 2021년 4월 9일에 완료되었습니다.
+
+Azure Data CLI(`azdata`) 버전 번호: 20.3.2. [Azure Data CLI(`azdata`) 설치](/sql/azdata/install/deploy-install-azdata)에서 `azdata`를 설치할 수 있습니다.
+
+### <a name="data-controller"></a>데이터 컨트롤러
+
+- 포털의 직접 연결 모드에서 Azure Arc 지원 데이터 서비스 데이터 컨트롤러를 배포합니다. [데이터 컨트롤러 배포 - 직접 연결 모드 - 필수 구성 요소](deploy-data-controller-direct-mode-prerequisites.md)에서 시작합니다.
+
+### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일
+
+PostgreSQL에 대한 CRD(사용자 지정 리소스 정의)가 모두 단일 CRD로 통합되었습니다. 다음 표를 참조하세요.
+
+|Release |CRD |
+|-----|-----|
+|2021년 2월 이전| postgresql-11s.arcdata.microsoft.com<br/>postgresql-12s.arcdata.microsoft.com |
+|2021년 3월부터 | postgresqls.arcdata.microsoft.com
+
+이전 설치를 정리할 때 이전 CRD를 삭제합니다. [이전 설치에서 정리](create-data-controller-using-kubernetes-native-tools.md#cleanup-from-past-installations)를 참조하세요.
+
+### <a name="azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance
+
+- 이제 직접 연결 모드의 Azure Portal에서 SQL Managed Instance를 만들 수 있습니다.
+
+- 이제 3개의 복제본을 사용하여 SQL Managed Instance로 데이터베이스를 복원할 수 있습니다. 그러면 데이터베이스가 가용성 그룹에 자동으로 추가됩니다. 
+
+- 이제 3개의 복제본과 함께 배포된 SQL Managed Instance에서 보조 읽기 전용 엔드포인트에 연결할 수 있습니다. `azdata arc sql endpoint list`를 사용하여 보조 읽기 전용 연결 엔드포인트를 확인합니다.
 
 ## <a name="february-2021"></a>2021년 2월
 
-### <a name="new-capabilities-and-features"></a>새 기능 및 기능
+### <a name="new-capabilities-and-features"></a>새로운 기능 및 특징
 
-Azure Data CLI ( `azdata` ) 버전 번호: 20.3.1. 에서 다운로드 [https://aka.ms/azdata](https://aka.ms/azdata) 합니다. `azdata` [AZURE Data CLI 설치 ( `azdata` )](/sql/azdata/install/deploy-install-azdata)에서를 설치할 수 있습니다.
+Azure Data CLI(`azdata`) 버전 번호: 20.3.1. [Azure Data CLI(`azdata`) 설치](/sql/azdata/install/deploy-install-azdata)에서 `azdata`를 설치할 수 있습니다.
 
 추가 업데이트는 다음과 같습니다.
 
 - Azure Arc 지원 SQL Managed Instance
-   - Always On 가용성 그룹를 통한 고가용성
+   - Always On 가용성 그룹을 사용한 고가용성
 
-- Azure Arc enabled PostgreSQL Hyperscale Azure Data Studio: 
-   - 이제 개요 페이지에 노드당 항목별 서버 그룹의 상태가 표시 됩니다.
-   - 이제 새 속성 페이지를 사용 하 여 서버 그룹에 대 한 자세한 정보를 표시할 수 있습니다.
+- Azure Arc 지원 PostgreSQL 하이퍼스케일 Azure Data Studio: 
+   - 개요 페이지에 노드당 항목별로 작성된 서버 그룹의 상태 표시
+   - 새 속성 페이지에 서버 그룹에 대한 자세한 정보 표시
    - **노드 매개 변수** 페이지에서 Postgres 엔진 매개 변수 구성
-
-이 릴리스와 관련 된 문제는 [알려진 문제-Azure Arc 사용 데이터 서비스 (미리 보기)](known-issues.md) 를 참조 하세요.
 
 ## <a name="january-2021"></a>2021년 1월
 
-### <a name="new-capabilities-and-features"></a>새 기능 및 기능
+### <a name="new-capabilities-and-features"></a>새로운 기능 및 특징
 
-Azure Data CLI ( `azdata` ) 버전 번호: 20.3.0. 에서 다운로드 [https://aka.ms/azdata](https://aka.ms/azdata) 합니다. `azdata` [AZURE Data CLI 설치 ( `azdata` )](/sql/azdata/install/deploy-install-azdata)에서를 설치할 수 있습니다.
+Azure Data CLI(`azdata`) 버전 번호: 20.3.0. [Azure Data CLI(`azdata`) 설치](/sql/azdata/install/deploy-install-azdata)에서 `azdata`를 설치할 수 있습니다.
 
 추가 업데이트는 다음과 같습니다.
-- 17 개 새로운 언어에 사용할 수 있는 지역화 된 포털
-- Kube 파일에 대 한 사소한 변경 내용
+- 17가지 새로운 언어에서 사용할 수 있도록 지역화된 포털
+- Kube 네이티브 .yaml 파일의 사소한 변경
 - Grafana 및 Kibana의 새 버전
-- Azure Data Studio 해결 된 노트북에서 azdata를 사용 하는 경우 Python 환경 문제
-- 이제 PostgreSQL Hyperscale에 pg_audit 확장을 사용할 수 있습니다.
-- PostgreSQL Hyperscale 데이터베이스를 전체 복원 하는 경우 백업 ID가 더 이상 필요 하지 않습니다.
-- 서버 그룹을 구성 하는 각 PostgreSQL 인스턴스에 대해 상태 (상태)가 보고 됩니다.
+- Azure Data Studio의 Notebook에서 azdata를 사용할 때 발생하는 Python 환경 문제가 해결됨
+- pg_audit 확장을 PostgreSQL 하이퍼스케일에 사용할 수 있음
+- PostgreSQL 하이퍼스케일 데이터베이스의 전체 복원을 수행할 때 백업 ID가 더 이상 필요하지 않음
+- 서버 그룹을 구성하는 각 PostgreSQL 인스턴스에 대한 상태(성능 상태)가 보고됨
 
-   이전 릴리스에서는 상태가 서버 그룹 수준에서 집계 되었으며 PostgreSQL 노드 수준에서 항목별로 수집 되지 않았습니다.
+   이전 릴리스에서는 상태가 서버 그룹 수준에서 집계되었으며 PostgreSQL 노드 수준에서 항목별로 작성되지 않았습니다.
 
-- PostgreSQL 배포는 이제 create 명령에 지정 된 볼륨 크기 매개 변수를 인식 합니다.
-- 이제 서버 그룹을 편집할 때 엔진 버전 매개 변수가 적용 됩니다.
-- Pod for Azure Arc enabled PostgreSQL Hyperscale의 명명 규칙이 변경 되었습니다.
+- PostgreSQL 배포가 create 명령에 표시된 볼륨 크기 매개 변수를 적용함
+- 서버 그룹을 편집할 때 엔진 버전 매개 변수가 적용됨
+- Azure Arc 지원 PostgreSQL 하이퍼스케일에 대한 Pod의 명명 규칙이 변경됨
 
-    이제 형식으로 되어 `ServergroupName{c, w}-n` 있습니다. 예를 들어 세 개의 노드가 있는 서버 그룹 1 개 및 두 개의 작업자 노드는 다음과 같이 표시 됩니다.
-   - `Postgres01c-0` (코디네이터 노드)
-   - `Postgres01w-0` (작업자 노드)
-   - `Postgres01w-1` (작업자 노드)
+    이제 `ServergroupName{c, w}-n` 형식으로 표시됩니다. 예를 들어 세 개의 노드(하나의 코디네이터 노드와 두 개의 작업자 노드)가 있는 서버 그룹은 다음과 같이 표시됩니다.
+   - `Postgres01c-0`(코디네이터 노드)
+   - `Postgres01w-0`(작업자 노드)
+   - `Postgres01w-1`(작업자 노드)
 
 ## <a name="december-2020"></a>2020년 12월
 
-### <a name="new-capabilities--features"></a>& 기능을 제공 하는 새로운 기능
+### <a name="new-capabilities--features"></a>새로운 기능 및 특징
 
-Azure Data CLI ( `azdata` ) 버전 번호: 20.2.5. 에서 다운로드 [https://aka.ms/azdata](https://aka.ms/azdata) 합니다.
+Azure Data CLI(`azdata`) 버전 번호: 20.2.5. [Azure Data CLI(`azdata`) 설치](/sql/azdata/install/deploy-install-azdata)에서 `azdata`를 설치할 수 있습니다.
 
-및 명령과 함께 Azure Data CLI ()를 사용 하 여 SQL Managed Instance 및 PostgreSQL Hyperscale의 끝점을 확인 `azdata` `azdata arc sql endpoint list` `azdata arc postgres endpoint list` 합니다.
+`azdata arc sql endpoint list` 및 `azdata arc postgres endpoint list` 명령과 함께 Azure Data CLI(`azdata`)를 사용하여 SQL Managed Instance 및 PostgreSQL 하이퍼스케일의 엔드포인트를 확인합니다.
 
-Azure Data Studio를 사용 하 여 SQL Managed Instance 리소스 (CPU 코어 및 메모리) 요청 및 제한을 편집 합니다.
+Azure Data Studio를 사용하여 SQL Managed Instance 리소스(CPU 코어 및 메모리) 요청 및 한도를 편집합니다.
 
-이제 Azure Arc enabled PostgreSQL Hyperscale은 버전 11 및 12 PostgreSQL 모두에 대 한 전체 백업 복원과 더불어 지정 시간 복원을 지원 합니다. 지정 시간 복원 기능을 사용 하 여 복원할 특정 날짜와 시간을 지정할 수 있습니다.
+Azure Arc 지원 PostgreSQL 하이퍼스케일은 PostgreSQL의 버전 11과 12에 대해 전체 백업 복원뿐만 아니라 특정 시점 복원을 지원합니다. 특정 시점 복원 기능을 사용하여 복원할 특정 날짜 및 시간을 나타낼 수 있습니다.
 
-Pod for Azure Arc enabled PostgreSQL Hyperscale의 명명 규칙이 변경 되었습니다. 이제 ServergroupName {r, s}-_n_ 형식으로 되어 있습니다. 예를 들어 세 개의 노드가 있는 서버 그룹 1 개 및 두 개의 작업자 노드는 다음과 같이 표시 됩니다.
-- `postgres02r-0` (코디네이터 노드)
-- `postgres02s-0` (작업자 노드)
-- `postgres02s-1` (작업자 노드)
+Azure Arc 지원 PostgreSQL 하이퍼스케일에 대한 Pod의 명명 규칙이 변경되었습니다. 이제 ServergroupName{r, s}-_n_ 형식으로 표시됩니다. 예를 들어 세 개의 노드(하나의 코디네이터 노드와 두 개의 작업자 노드)가 있는 서버 그룹은 다음과 같이 표시됩니다.
+- `postgres02r-0`(코디네이터 노드)
+- `postgres02s-0`(작업자 노드)
+- `postgres02s-1`(작업자 노드)
 
 ### <a name="breaking-change"></a>주요 변경 내용
 
 #### <a name="new-resource-provider"></a>새 리소스 공급자
 
-이 릴리스에는 `Microsoft.AzureArcData`라는 업데이트된 [리소스 공급자](../../azure-resource-manager/management/azure-services-resource-providers.md)가 도입됩니다. 이 기능을 사용 하려면 먼저이 리소스 공급자를 등록 해야 합니다. 
+이 릴리스에는 `Microsoft.AzureArcData`라는 업데이트된 [리소스 공급자](../../azure-resource-manager/management/azure-services-resource-providers.md)가 도입됩니다. 이 기능을 사용하려면 먼저 이 리소스 공급자를 등록해야 합니다. 
 
-이 리소스 공급자를 등록 하려면: 
+리소스 공급자를 등록하려면 다음을 수행합니다. 
 
-1. Azure Portal에서 **구독** 을 선택 합니다. 
+1. Azure Portal에서 **구독** 을 선택합니다. 
 2. 구독 선택
 3. **설정** 아래에서 **리소스 공급자** 를 선택합니다. 
 4. `Microsoft.AzureArcData`를 검색하고 **등록** 을 선택합니다. 
 
-[Azure 리소스 공급자 및 형식](../../azure-resource-manager/management/resource-providers-and-types.md)에서 자세한 단계를 검토할 수 있습니다. 이렇게 변경 하면 Azure Portal에 업로드 한 기존 Azure 리소스도 모두 제거 됩니다. 리소스 공급자를 사용 하기 위해 데이터 컨트롤러를 업데이트 하 고 최신 CLI를 사용 해야 합니다 `azdata` .  
+[Azure 리소스 공급자 및 종류](../../azure-resource-manager/management/resource-providers-and-types.md)에서 자세한 단계를 검토할 수 있습니다. 이렇게 변경하면 Azure Portal에 업로드한 기존 Azure 리소스도 모두 제거됩니다. 리소스 공급자를 사용하려면 데이터 컨트롤러를 업데이트하고 최신 `azdata` CLI를 사용해야 합니다.  
 
 ### <a name="platform-release-notes"></a>플랫폼 릴리스 정보
 
 #### <a name="direct-connectivity-mode"></a>직접 연결 모드
 
-이 릴리스에는 직접 연결 모드가 도입 되었습니다. 직접 연결 모드를 사용 하면 데이터 컨트롤러가 사용 정보를 Azure에 자동으로 업로드할 수 있습니다. 사용 현황 업로드의 일부로, Arc 데이터 컨트롤러 리소스가 이미 업로드를 통해 생성 되지 않은 경우 포털에 자동으로 만들어집니다 `azdata` .  
+이 릴리스에서는 직접 연결 모드가 도입되었습니다. 직접 연결 모드를 사용하면 데이터 컨트롤러에서 사용량 현황 정보를 Azure에 자동으로 업로드할 수 있습니다. 사용량 현황 업로드의 일부로 Arc 데이터 컨트롤러 리소스는 `azdata` 업로드를 통해 이미 만들어지지 않은 경우 포털에서 자동으로 만들어집니다.  
 
-데이터 컨트롤러를 만들 때 직접 연결을 지정할 수 있습니다. 다음 예에서는 `azdata arc dc create` `arc` 직접 연결 모드 ()를 사용 하 여 라는 데이터 컨트롤러를 만듭니다 `connectivity-mode direct` . 예제를 실행 하기 전에를 `<subscription id>` 구독 ID로 바꾸십시오.
+데이터 컨트롤러를 만들 때 직접 연결을 지정할 수 있습니다. 다음 예제에서는 `azdata arc dc create`를 사용하여 직접 연결 모드(`connectivity-mode direct`)를 사용하는 `arc`라는 데이터 컨트롤러를 만듭니다. 예제를 실행하려면 먼저 `<subscription id>`를 구독 ID로 바꿉니다.
 
 ```console
 azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group my-resource-group --location eastus --connectivity-mode direct
 ```
 
-### <a name="known-issues"></a>알려진 문제
-
-- AKS (Azure Kubernetes Service)에서 Kubernetes 버전 1.19은 지원 되지 않습니다.
-- Kubernetes 1.19 `containerd` 는 지원 되지 않습니다.
-- Azure의 데이터 컨트롤러 리소스는 현재 Azure 리소스입니다. Delete와 같은 모든 업데이트는 kubernetes 클러스터로 다시 전파 되지 않습니다.
-- 인스턴스 이름은 13 자를 초과할 수 없습니다.
-- Azure Arc 데이터 컨트롤러 또는 데이터베이스 인스턴스에 대 한 전체 업그레이드를 수행 하지 않습니다.
-- Arc 지원 데이터 서비스 컨테이너 이미지가 서명되지 않았습니다.  서명되지 않은 컨테이너 이미지를 끌어올 수 있도록 Kubernetes 노드를 구성해야 할 수 있습니다.  예를 들어, Docker를 컨테이너 런타임으로 사용 하는 경우 DOCKER_CONTENT_TRUST = 0 환경 변수를 설정 하 고 다시 시작할 수 있습니다.  다른 컨테이너 런타임에는 [OpenShift](https://docs.openshift.com/container-platform/4.5/openshift_images/image-configuration.html#images-configuration-file_image-configuration)와 같은 유사한 옵션이 있습니다.
-- Azure Portal에서 Azure Arc 사용 SQL 관리 되는 인스턴스 또는 PostgreSQL Hyperscale 서버 그룹을 만들 수 없습니다.
-- 지금은 NFS를 사용 하는 경우 `allowRunAsRoot` `true` Azure Arc 데이터 컨트롤러를 만들기 전에 배포 프로필 파일에서를로 설정 해야 합니다.
-- SQL 및 PostgreSQL 로그인 인증만.  Azure Active Directory 또는 Active Directory는 지원 되지 않습니다.
-- OpenShift를 사용 하 여 데이터 컨트롤러를 만들려면 완화 된 보안 제약 조건이 필요 합니다.  자세한 내용은 설명서를 참조하십시오.
-- Azure Arc 데이터 컨트롤러 및 데이터베이스 인스턴스를 사용 하는 Azure Stack 허브에서 AKS (Azure Kubernetes Service) 엔진을 사용 하는 경우 최신 Kubernetes 버전으로 업그레이드할 수 없습니다. Kubernetes 클러스터를 업그레이드 하기 전에 Azure Arc data controller 및 모든 데이터베이스 인스턴스를 제거 합니다.
-- [여러 가용성 영역](../../aks/availability-zones.md) 에 걸쳐 있는 AKS 클러스터는 현재 Azure Arc 사용 데이터 서비스에서 지원 되지 않습니다. 이 문제를 방지 하려면 Azure Portal에서 AKS 클러스터를 만들 때 영역을 사용할 수 있는 지역을 선택 하는 경우 선택 컨트롤에서 모든 영역을 선택 취소 합니다. 다음 이미지를 참조하세요.
-
-   :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="없음을 지정 하려면 각 영역에 대 한 확인란의 선택을 취소 합니다.":::
-
-#### <a name="postgresql"></a>PostgreSQL
-
-- Azure Arc enabled PostgreSQL Hyperscale은 지정 된 상대 시점으로 복원할 수 없는 경우 부정확 한 오류 메시지를 반환 합니다. 예를 들어 백업에 포함 된 것 보다 오래 된 복원 시점을 지정한 경우 오류: (404)와 같은 오류 메시지와 함께 복원이 실패 합니다. 이유:를 찾을 수 없습니다. HTTP 응답 본문: {"code": 404, "internalStatus": "NOT_FOUND", "이유": "서버에 대 한 백업 복원 실패 ...}
-이 경우 백업이 있는 날짜 범위 내에 있는 특정 시점을 표시 한 후에 명령을 다시 시작 합니다. 백업을 나열 하 고이를 수행한 날짜를 확인 하 여이 범위를 확인 합니다.
-- 특정 시점 복원은 서버 그룹에서 지원 됩니다. 지정 시간 복원 작업의 대상 서버는 백업을 수행한 서버 일 수 없습니다. 다른 서버 그룹 이어야 합니다. 그러나 전체 복원은 동일한 서버 그룹에 대해 지원 됩니다.
-- 전체 복원을 수행할 때 백업 id가 필요 합니다. 기본적으로 백업 id를 표시 하지 않는 경우 최신 백업이 사용 됩니다. 이 릴리스에서는이 작업을 수행할 수 없습니다.
-
 ## <a name="october-2020"></a>2020년 10월 
 
-Azure Data CLI ( `azdata` ) 버전 번호: 20.2.3. 에서 다운로드 [https://aka.ms/azdata](https://aka.ms/azdata) 합니다.
+Azure Data CLI(`azdata`) 버전 번호: 20.2.3. [Azure Data CLI(`azdata`) 설치](/sql/azdata/install/deploy-install-azdata)에서 `azdata`를 설치할 수 있습니다.
 
 ### <a name="breaking-changes"></a>주요 변경 내용
 
-이 릴리스에는 다음과 같은 주요 변경 사항이 도입 되었습니다. 
+이 릴리스에는 다음과 같은 호환성이 손상되는 변경이 포함되었습니다. 
 
-* PostgreSQL 사용자 지정 리소스 정의 (CRD)에서 용어의 `shards` 이름이로 바뀝니다 `workers` . 이 용어 ( `workers` )는 명령줄 매개 변수 이름과 일치 합니다.
+* PostgreSQL CRD(사용자 지정 리소스 정의)에서 `shards`라는 용어의 이름이 `workers`로 바뀌었습니다. 이 용어(`workers`)는 명령줄 매개 변수 이름과 일치합니다.
 
-* `azdata arc postgres server delete` postgres 인스턴스를 삭제 하기 전에 확인 메시지를 표시 합니다.  `--force`프롬프트를 건너뛰려면를 사용 합니다.
+* `azdata arc postgres server delete`는 postgres 인스턴스를 삭제하기 전에 확인 메시지를 표시합니다.  프롬프트를 건너뛰려면 `--force`를 사용하세요.
 
 ### <a name="additional-changes"></a>추가 변경 내용
 
-* 새 선택적 매개 변수가 호출 된에 추가 되었습니다 `azdata arc postgres server create` `--volume-claim mounts` . 값은 볼륨 클레임 탑재를 쉼표로 구분한 목록입니다. 볼륨 클레임 탑재는 볼륨 유형 및 PVC 이름 쌍입니다. 현재 지원 되는 볼륨 유형은 뿐입니다 `backup` .  PostgreSQL에서 볼륨 형식이 이면 `backup` PVC가에 탑재 됩니다 `/mnt/db-backups` .  이렇게 하면 한 PostgresSQL 인스턴스의 백업을 다른 인스턴스에서 복원할 수 있도록 PostgresSQL 인스턴스 간에 백업을 공유할 수 있습니다.
+* 새로운 선택적 매개 변수가 `--volume-claim mounts`라는 `azdata arc postgres server create`에 추가되었습니다. 값은 쉼표로 구분된 볼륨 클레임 탑재 목록입니다. 볼륨 클레임 탑재는 볼륨 유형 및 PVC 이름의 쌍입니다. 현재 지원되는 유일한 볼륨 유형은 `backup`입니다.  PostgreSQL에서 볼륨 유형이 `backup`이면 PVC가 `/mnt/db-backups`에 탑재됩니다.  따라서 PostgresSQL 인스턴스 간에 백업을 공유하여 한 PostgresSQL 인스턴스의 백업을 다른 인스턴스에서 복원할 수 있습니다.
 
-* PostgresSQL 사용자 지정 리소스 정의에 대 한 새 짧은 이름: 
+* PostgresSQL 사용자 지정 리소스 정의의 새로운 짧은 이름은 다음과 같습니다. 
   * `pg11` 
   * `pg12`
-* 원격 분석 업로드는 사용자에 게 다음 중 하나를 제공 합니다.
-   * Azure에 업로드 된 지점의 수 또는 
-   * Azure에 로드 된 데이터가 없으면 다시 시도 하 라는 메시지가 표시 됩니다.
-* `azdata arc dc debug copy-logs` 이제 폴더에서 읽고 `/var/opt/controller/log` Linux에서 PostgreSQL 엔진 로그를 수집 합니다.
-*   PostgreSQL Hyperscale을 사용 하 여 백업을 만들고 복원 하는 동안 작업 표시기를 표시 합니다.
-* `azdata arc postrgres backup list` 에는 이제 백업 크기 정보가 포함 됩니다.
-* Azure Portal에서 SQL Managed Instance admin name 속성이 개요 블레이드의 오른쪽 열에 추가 되었습니다.
-* Azure Data Studio는 PostgreSQL Hyperscale의 작업자 노드 수, vCore 및 메모리 설정 구성을 지원 합니다. 
-* Preview는 Postgres 버전 11 및 12에 대 한 백업/복원을 지원 합니다.
+* 원격 분석 업로드에서는 다음 중 하나를 사용자에게 제공합니다.
+   * Azure에 업로드된 지점 수 또는 
+   * Azure에 로드된 데이터가 없는 경우 다시 시도하라는 프롬프트
+* 또한 `azdata arc dc debug copy-logs`는 `/var/opt/controller/log` 폴더에서 읽고 Linux에서 PostgreSQL 엔진 로그를 수집합니다.
+*   PostgreSQL 하이퍼스케일을 사용하여 백업을 만들고 복원하는 동안 작업 표시기를 표시합니다.
+* `azdata arc postrgres backup list`에 백업 크기 정보가 포함됩니다.
+* SQL Managed Instance 관리자 이름 속성이 Azure Portal에서 개요 블레이드의 오른쪽 열에 추가되었습니다.
+* Azure Data Studio는 PostgreSQL 하이퍼스케일에 대한 작업자 노드 수, vCore 및 메모리 설정 구성을 지원합니다. 
+* 미리 보기는 Postgres 버전 11 및 12의 백업/복원을 지원합니다.
 
 ## <a name="september-2020"></a>2020년 9월
 
-Azure Arc 사용 데이터 서비스는 공개 미리 보기에 대해 릴리스됩니다. Arc 사용 데이터 서비스를 사용 하면 어디서 나 데이터 서비스를 관리할 수 있습니다.
+Azure Arc 지원 데이터 서비스는 퍼블릭 미리 보기용으로 릴리스되었습니다. Arc 지원 데이터 서비스를 사용하면 어디서나 데이터 서비스를 관리할 수 있습니다.
 
 - SQL Managed Instance
 - PostgreSQL 하이퍼스케일
 
-자세한 지침은 [Azure Arc에서 사용할 수 있는 데이터 서비스는 무엇 인가요?](overview.md)
+해당 지침은 [What are Azure Arc 지원 데이터 서비스란?](overview.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 > **작업을 시도해보시겠습니까?**  
-> AKS, EKS (AWS 탄력적 Kubernetes Service), Google Cloud Kubernetes Engine (GKE) 또는 Azure VM에서 [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) 를 빠르게 시작 하세요.
+> AKS, AWS EKS(Elastic Kubernetes Service), GKE(Google Cloud Kubernetes Engine) 또는 Azure VM에서 [Azure Arc 빠른 시작](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)으로 빠르게 시작합니다.
 
 - [클라이언트 도구 설치](install-client-tools.md)
 - [Azure Arc 데이터 컨트롤러 만들기](create-data-controller.md)(먼저 클라이언트 도구를 설치해야 함)

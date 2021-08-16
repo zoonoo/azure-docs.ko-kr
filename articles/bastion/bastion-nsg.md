@@ -1,18 +1,18 @@
 ---
 title: Azure Bastion에서 VM 및 NSGs 사용하기
-description: Azure Bastion으로 네트워크 보안 그룹을 사용할 수 있습니다. 이 구성에 필요한 서브넷에 대하여 알아봅니다.
+description: Azure Bastion으로 네트워크 보안 그룹을 사용하는 방법을 알아봅니다.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: b6a0dee4c3fef1be4f4b9f910b4c6256b4924a2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84f32755a4838fbcb29b3d85d8308b5288d746ea
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101700221"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537908"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>NSG 액세스 및 Azure Bastion을 통하여 작업하기
 

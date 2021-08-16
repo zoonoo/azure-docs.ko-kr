@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74bfa4987f584bbd3490bc5f4f187dee5bc1bd87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5c6611b7437bdaf873caaaf4722e30fb644b5f13
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646285"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617246"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>B2B 협업 사용자에 대한 조건부 액세스
 
@@ -28,7 +28,7 @@ ms.locfileid: "101646285"
 
 다음 다이어그램은 흐름을 보여 줍니다. ![외부 디렉터리에서 B2B 게스트 사용자에 대한 인증 흐름을 보여 주는 이미지](./media/conditional-access-b2b/authentication-flow-b2b-guests.png)
 
-| 단계 | 설명 |
+| 단계 | Description |
 |--------------|-----------------------|
 | 1. | B2B 게스트 사용자가 리소스에 대한 액세스를 요청합니다. 리소스는 사용자를 해당 리소스 테넌트(신뢰할 수 있는 IdP)로 리디렉션합니다.|
 | 2. | 리소스 테넌트가 사용자를 외부로 식별하고 사용자를 B2B 게스트 사용자의 IdP으로 리디렉션합니다. 사용자는 IdP에서 기본 인증을 수행합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "101646285"
 
 다음 다이어그램은 흐름을 보여 줍니다. ![일회용 암호를 사용하는 B2B 게스트 사용자에 대한 인증 흐름을 보여 주는 이미지.](./media/conditional-access-b2b/authentication-flow-b2b-guests-otp.png)
 
-| 단계 | 설명 |
+| 단계 | Description |
 |--------------|-----------------------|
 | 1. |사용자가 다른 테넌트의 리소스에 대한 액세스를 요청합니다. 리소스는 사용자를 해당 리소스 테넌트(신뢰할 수 있는 IdP)로 리디렉션합니다.|
 | 2. | 리소스 테넌트는 사용자를 [외부 메일 OTP(일회용 암호) 사용자](./one-time-passcode.md)로 식별하고 OTP를 사용하여 사용자에게 메일을 보냅니다.|
@@ -67,7 +67,7 @@ ms.locfileid: "101646285"
 6. Fabrikam은 Azure AD Multi-Factor Authentication을 충분히 지원하는 프리미엄 Azure AD 라이선스를 보유해야 합니다. Contoso의 사용자는 Fabrikam의 이 라이선스를 사용합니다. B2B 라이선스에 관한 자세한 내용은 [Azure AD External Identities에 대한 청구 모델](./external-identities-pricing.md)을 참조하세요.
 
 >[!NOTE]
->Azure AD Multi-Factor Authentication은 예측 가능성을 보장하기 위해 리소스 테넌트에서 수행됩니다.
+>Azure AD Multi-Factor Authentication은 예측 가능성을 보장하기 위해 리소스 테넌트에서 수행됩니다. 게스트 사용자가 로그인하면 백그라운드에 표시되는 리소스 테넌트 로그인 페이지와 포그라운드에 표시되는 자신의 홈 테넌트 로그인 페이지 및 회사 로고를 볼 수 있습니다.
 
 ### <a name="set-up-azure-ad-multi-factor-authentication-for-b2b-users"></a>B2B 사용자에 대한 Azure AD Multi-Factor Authentication 설정
 
@@ -154,4 +154,4 @@ B2B 게스트 사용자가 권한 부여 컨트롤을 충족하는 경우 [로�
 - [Azure AD B2B 협업이란?](./what-is-b2b.md)
 - [ID 보호 및 B2B 사용자](../identity-protection/concept-identity-protection-b2b.md)
 - [외부 ID 가격](https://azure.microsoft.com/pricing/details/active-directory/)
-- [FAQ(질문과 대답)](./faq.md)
+- [FAQ(질문과 대답)](./faq.yml)

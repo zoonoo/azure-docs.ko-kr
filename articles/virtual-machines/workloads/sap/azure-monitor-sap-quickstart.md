@@ -6,12 +6,12 @@ ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.date: 08/17/2020
-ms.openlocfilehash: 908de54ee66772f3eb648895529c843675c3bf15
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: a9208101777cd88f0237e661a414550759a069b0
+ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538648"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108007384"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Azure Portal을 사용하여 SAP 솔루션을 위한 Azure Monitor 배포
 
@@ -147,7 +147,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 1. 드롭다운에서 OS(Linux) 선택 
 
    >[!IMPORTANT]
-   > OS(Linux) 공급자를 구성하려면 모니터링하려는 각 호스트(BareMetal 또는 VM)에 최신 버전의 Node_Exporter가 설치되어 있는지 확인합니다. 이 [링크](https://prometheus.io/download/#node_exporter)를 사용하여 최신 버전을 찾습니다. 자세한 내용은  [Node_Exporter](https://github.com/prometheus/node_exporter)를 참조하세요.
+   > OS(Linux) 공급자를 구성하려면 모니터링하려는 각 호스트(BareMetal 또는 VM)에 최신 버전의 Node_Exporter가 설치되어 있는지 확인합니다. [Node Exporter의 최신 버전](https://prometheus.io/download/#node_exporter)을 설치하세요. 자세한 내용은 [자세히 알아보기](https://github.com/prometheus/node_exporter)를 참조하세요.
 
 2. BareMetal 인스턴스의 식별자가 될 이름을 입력합니다.
 3. http://IP:9100/metrics 형식으로 노드 내보내기 엔드포인트를 입력합니다.

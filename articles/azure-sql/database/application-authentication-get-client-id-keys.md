@@ -1,6 +1,6 @@
 ---
-title: 앱 인증에 대 한 값 가져오기
-description: 코드에서 Azure SQL Database 액세스 하기 위한 서비스 주체를 만듭니다.
+title: 앱 인증에 대한 값을 얻습니다
+description: 코드에서 Azure SQL Database에 액세스하기 위한 서비스 주체를 만듭니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,25 +12,25 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: d264ee022d2833b092948ac0d1f3fef537bea943
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94841327"
 ---
-# <a name="get-the-required-values-for-authenticating-an-application-to-access-azure-sql-database-from-code"></a>코드에서 Azure SQL Database 액세스 하기 위해 응용 프로그램을 인증 하는 데 필요한 값 가져오기
+# <a name="get-the-required-values-for-authenticating-an-application-to-access-azure-sql-database-from-code"></a>코드에서 Azure SQL Database에 액세스하는 응용 프로그램을 인증하기 위한 필요한 값 가져오기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-코드에서 Azure SQL Database를 만들고 관리 하려면 Azure 리소스가 생성 된 구독의 Azure Active Directory (Azure AD) 도메인에 앱을 등록 해야 합니다.
+코드에서 Azure SQL Database를 만들고 관리하여 Azure 리소스가 생성된 구독의 Azure AD(Azure Active Directory) 도메인에 앱을 등록해야 합니다.
 
 ## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>애플리케이션에서 리소스에 액세스하는 서비스 주체 만들기
 
-다음 예에서는 c # 앱을 인증 하는 데 필요한 AD (Active Directory) 응용 프로그램 및 서비스 주체를 만듭니다. 스크립트는 이전 C# 샘플에 필요한 값을 출력합니다. 자세한 내용은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)를 참조하세요.
+다음 예시는 AD(Active Directory) 응용 프로그램 및 C# 앱을 인증해야 하는 서비스 주체를 만듭니다. 스크립트는 이전 C# 샘플에 필요한 값을 출력합니다. 자세한 내용은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)를 참조하세요.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
-> SQL Database에서 RM (PowerShell Azure Resource Manager) 모듈을 계속 사용할 수 있지만 향후의 모든 개발은 Az. Sql 모듈에 대 한 것입니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 계속 수신할 예정입니다.  Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 호환성에 대한 자세한 내용은 [새로운 Azure PowerShell Az 모듈 소개](/powershell/azure/new-azureps-module-az)를 참조하세요.
+> PowerShell Azure Resource Manager (RM) 모듈은 여전히 SQL Database에서 지원되지만 향후 모든 개발은 Az.Sql 모듈을 지원합니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 계속 수신할 예정입니다.  Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 호환성에 대한 자세한 내용은 [새로운 Azure PowerShell Az 모듈 소개](/powershell/azure/new-azureps-module-az)를 참조하세요.
 
 ```powershell
 # sign in to Azure
@@ -102,5 +102,5 @@ Write-Output "_applicationSecret:" $secret
 
 ## <a name="see-also"></a>참고 항목
 
-[C를 사용 하 여 Azure SQL Database에서 데이터베이스 만들기 #](design-first-database-csharp-tutorial.md)  
-[Azure Active Directory 인증을 사용 하 여 Azure SQL Database에 연결](authentication-aad-overview.md)
+[C#로 Azure SQL Database에 데이터베이스 만들기](design-first-database-csharp-tutorial.md)  
+[Azure Active Directory 인증을 사용하여 Azure SQL Database에 연결](authentication-aad-overview.md)

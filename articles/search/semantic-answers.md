@@ -7,44 +7,44 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/12/2021
-ms.openlocfilehash: 9bb62544887e0bc0269b98cd98fbf97fc477352f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/27/2021
+ms.openlocfilehash: d0390bd70080ea0174a81cce9538396321dec658
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104722432"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111539360"
 ---
 # <a name="return-a-semantic-answer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 의미 체계 대답 반환
 
 > [!IMPORTANT]
-> 의미 체계 검색은 퍼블릭 미리 보기로 제공되며 미리 보기 REST API를 통해서만 이용할 수 있습니다. 미리 보기 기능은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 나와 있는 그대로 제공되며, 일반 공급 시 동일하게 구현된다는 보장은 없습니다. 해당 기능에는 비용이 청구될 수 있습니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조하세요.
+> 의미 체계 검색은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 공개 미리 보기로 제공됩니다. Azure Portal, 미리 보기 REST API 및 베타 SDK를 통해 사용할 수 있습니다. 이러한 기능에는 비용이 청구될 수 있습니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조하세요.
 
-[의미 체계 쿼리](semantic-how-to-query-request.md)를 작성할 때는 필요에 따라 쿼리에 직접 “답변”하는 상위 일치 문서에서 콘텐츠를 추출할 수 있습니다. 응답에는 하나 이상의 답변이 포함될 수 있으며, 이후 이를 검색 페이지에 렌더링하여 앱의 사용자 환경을 개선할 수 있습니다.
+[의미 체계 순위 지정 및 캡션](semantic-how-to-query-request.md)을 호출할 때 쿼리에 직접 "답변"하는 최상위 일치 문서에서 콘텐츠를 선택적으로 추출할 수 있습니다. 응답에는 하나 이상의 답변이 포함될 수 있으며, 이후 이를 검색 페이지에 렌더링하여 앱의 사용자 환경을 개선할 수 있습니다.
 
 이 문서에서는 의미 체계 대답을 요청하고 응답의 압축을 푸는 방법과 높은 품질의 답변을 생성하는 데 가장 도움이 되는 콘텐츠 특성이 무엇인지에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-[의미 체계 쿼리](semantic-how-to-query-request.md)에 적용되는 모든 필수 구성 요소는 답변에도 적용되며, 여기에는 서비스 계층 및 지역도 포함됩니다.
+[의미 체계 쿼리](semantic-how-to-query-request.md#prerequisites)에 적용되는 모든 필수 구성 요소는 답변에도 적용되며, 여기에는 [서비스 계층 및 지역](semantic-search-overview.md#availability-and-pricing)도 포함됩니다.
 
-+ 쿼리 논리는 의미 체계 쿼리 매개 변수와 “답변” 매개 변수를 포함해야 합니다. 이 문서에서는 필수 매개 변수를 설명합니다.
++ 쿼리 논리는 의미 체계 쿼리 매개 변수 "queryType=semantic"과 “답변” 매개 변수를 포함해야 합니다. 이 문서에서는 필수 매개 변수를 설명합니다.
 
-+ 사용자가 입력한 쿼리 문자열은 질문의 특성(무엇을, 어디서, 언제, 어떻게)을 가지는 언어로 작성되어야 합니다.
++ 사용자가 입력한 쿼리 문자열은 질문(무엇을, 어디서, 언제, 어떻게)으로 인식할 수 있어야 합니다.
 
-+ 검색 문서는 답변의 특성을 가지는 텍스트를 포함해야 하며, 해당 텍스트는 “searchFields”에 나열된 필드 중 하나에 존재해야 합니다. 예를 들어 “해시 테이블이란 무엇인가요”라는 쿼리에서 “해시 테이블은...”을 포함하는 구절을 가진 searchFields가 없는 경우 답변은 반환되지 않을 가능성이 큽니다.
++ 인덱스에서 문서 검색은 답변의 특성을 가지는 텍스트를 포함해야 하며, 해당 텍스트는 “searchFields”에 나열된 필드 중 하나에 존재해야 합니다. 예를 들어 "what is a hash table"이라는 쿼리가 주어지면 searchFields에 "A hash table is ..."가 포함된 구절이 포함되어 있지 않으면 답변이 반환되지 않을 것입니다.
 
 ## <a name="what-is-a-semantic-answer"></a>의미 체계 대답이란 무엇인가요?
 
 의미 체계 대답은 [의미 체계 쿼리 응답](semantic-how-to-query-request.md)의 하위 구조입니다. 검색 문서의 축자 구절 하나 이상으로 구성되며 질문의 형태를 가진 쿼리에 대한 답변으로 작성됩니다. 답변이 반환되려면 구절 또는 문장이 답변의 언어 특성을 가지는 검색 문서에 존재해야 하며, 쿼리 자체는 질문의 형태를 하고 있어야 합니다.
 
-Cognitive Search는 머신 리딩 이해력 모델을 사용하여 최선의 답을 선택합니다. 이 모델은 사용 가능한 콘텐츠를 통해 잠재적인 답변의 집합을 생성하고, 충분한 신뢰 수준에 도달하는 경우 답변을 제안합니다.
+Cognitive Search는 머신 리딩 이해력 모델을 사용하여 최선의 답을 선택합니다. 이 모델은 사용 가능한 콘텐츠를 통해 잠재적인 답변의 집합을 생성하고, 충분한 신뢰 수준에 도달하는 경우 답변 중 하나를 제안합니다.
 
 답변은 검색 페이지에서 검색 결과와 동시에 렌더링할 수 있는 쿼리 응답 페이로드의 독립적인 최고 수준 개체로 반환됩니다. 구조적으로 이는 텍스트, 문서 키, 신뢰도 점수로 구성된 응답 내의 배열 요소입니다.
 
 <a name="query-params"></a>
 
-## <a name="how-to-request-semantic-answers-in-a-query"></a>쿼리에서 의미 체계 대답을 요청하는 방법
+## <a name="how-to-specify-answers-in-a-query-request"></a>쿼리 요청에서 "답변"을 지정하는 방법
 
 의미 체계 대답을 반환하려면 쿼리에 “queryType”, “queryLanguage”, “searchFields”, “answers” 매개 변수를 포함해야 합니다. “answers” 매개 변수를 지정한다고 해서 답변이 반환된다는 보장은 없지만, 답변 처리를 호출하려면 요청에 해당 매개 변수가 꼭 포함되어야 합니다.
 
@@ -61,11 +61,15 @@ Cognitive Search는 머신 리딩 이해력 모델을 사용하여 최선의 답
 }
 ```
 
-+ 쿼리 문자열은 Null이 아니어야 하며 질문 형태로 작성되어야 합니다. 이 미리 보기에서 “queryType” 및 “queryLanguage”는 예제에 나와 있는 대로 정확히 설정해야 합니다.
++ 쿼리 문자열은 Null이 아니어야 하며 질문 형태로 작성되어야 합니다.
 
-+ “searchFields” 매개 변수는 추출 모델에 토큰을 제공하는 문자열 필드를 결정합니다. 캡션을 생성하는 필드가 답변 또한 생성합니다. 이 필드가 캡션 및 답변 모두에 대해 작동하도록 설정하는 방법에 대한 정확한 참고 자료는 [searchFields 설정](semantic-how-to-query-request.md#searchfields)을 참조하세요. 
++ "queryType"은 "semantic"으로 설정해야 합니다.
 
-+ “답변”의 경우 매개 변수 생성은 `"answers": "extractive"`이며 반환되는 답변의 수는 기본적으로 1개입니다. 위의 예제에 나와 있는 것과 같이 답변을 추가하여 답변 수를 최대 5개까지 늘릴 수 있습니다.  답변이 2개 이상 필요한지는 앱의 사용자 환경 및 결과 렌더링 방법에 따라 달라집니다.
++ "queryLanguage"는 [지원되는 언어 목록(REST API)](/rest/api/searchservice/preview-api/search-documents#queryLanguage)의 값 중 하나여야 합니다.
+
++ “searchFields”는 추출 모델에 토큰을 제공하는 문자열 필드를 결정합니다. 캡션을 생성하는 필드가 답변 또한 생성합니다. 이 필드가 캡션 및 답변 모두에 대해 작동하도록 설정하는 방법에 대한 정확한 참고 자료는 [searchFields 설정](semantic-how-to-query-request.md#searchfields)을 참조하세요. 
+
++ “답변”의 경우 매개 변수 생성은 `"answers": "extractive"`이며 반환되는 답변의 수는 기본적으로 1개입니다. 위의 예와 같이 `count`를 추가하여 최대 5개까지 답변 수를 늘릴 수 있습니다.  답변이 2개 이상 필요한지는 앱의 사용자 환경 및 결과 렌더링 방법에 따라 달라집니다.
 
 ## <a name="deconstruct-an-answer-from-the-response"></a>응답에서 답변 분해
 
@@ -108,7 +112,10 @@ Cognitive Search는 머신 리딩 이해력 모델을 사용하여 최선의 답
                 "North America",
                 "Vancouver"
             ]
+    ]
         }
+}
+
 ```
 
 ## <a name="tips-for-producing-high-quality-answers"></a>고품질 답변을 생성하기 위한 팁

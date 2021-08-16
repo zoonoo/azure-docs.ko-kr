@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 11/15/2020
+ms.date: 05/11/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 04c9bc429d9663f7ac36b6ba8f40abf225eb71c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 329ddb32282d91ec5e990753057aea606622a266
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359118"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110535188"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 회사 또는 학교 계정 추가
 
@@ -35,7 +35,7 @@ ms.locfileid: "97359118"
 ### <a name="sign-in-with-your-credentials"></a>자격 증명으로 로그인
 
 >[!Note]
->이 기능은 관리자가 Authenticator 앱을 사용하여 휴대폰 로그인을 사용하도록 설정한 사용자만 사용할 수 있습니다.
+>이제 Microsoft Authenticator 앱에 로그인하여 회사 또는 학교 계정을 추가할 수 있습니다.
 
 자격 증명을 사용하여 회사 또는 학교 계정에 로그인하여 계정을 추가하려면
 
@@ -45,13 +45,13 @@ ms.locfileid: "97359118"
 
    - 계정에 대해 강력한 인증 토큰을 얻기 위한 충분한 인증 방법이 없는 경우에는 계정을 계속 추가하지 못할 수 있습니다.
 
-   - 메시지 `You might be signing in from a location that is restricted by your admin`이 표시되면 차단되므로 관리자가 [보안 정보](https://mysignins.microsoft.com/security-info)에서 사용자의 차단을 해제해야 합니다.
+   - `You might be signing in from a location that is restricted by your admin` 메시지를 받으면 관리자가 이 기능을 활성화하지 않은 것입니다. **추가 보안 확인** 페이지 또는  [보안 정보](https://mysignins.microsoft.com/security-info)에서 QR 코드를 검사하여 계정 설정을 시도할 수 있습니다.
 
-   - 관리자가 Authenticator 앱을 사용하는 휴대폰 로그인을 차단하지 않은 경우 사용자는 디바이스 등록을 통해 암호 없는 휴대폰 로그인 및 Azure MFA(Multi-Factor Authentication)를 설정할 수 있습니다.
+1. 관리자가 Authenticator 앱을 사용하는 휴대폰 로그인을 허용한 경우 사용자는 디바이스 등록을 통해 암호 없는 휴대폰 로그인 및 Azure MFA(Multi-Factor Authentication)를 설정할 수 있습니다. 그러나 전화 로그인을 사용하도록 설정했는지 여부에 관계없이 MFA를 설정할 수 있습니다.
 
 1. 이 경우 조직에서 제공한 QR 코드를 스캔하여 앱에서 온-프레미스 Multi-Factor Authentication 계정을 설정하라는 메시지가 표시될 수 있습니다. 조직에서 온-프레미스 MFA 서버를 사용하는 경우에만 이 작업을 수행하도록 요구됩니다.
 
-1. 디바이스에서 계정을 탭하고 전체 화면 보기에서 계정이 올바른지와 연결된 6자리 확인 코드가 있는지 확인합니다. 보안 수준을 높이기 위해 확인 코드는 30초마다 변경되므로 코드 하나를 여러 번 사용할 수 없습니다.
+1. 디바이스에서 계정을 탭하고 전체 화면 보기에서 계정이 올바른지 확인합니다. 보안 수준을 높이기 위해 확인 코드는 30초마다 변경되므로 코드 하나를 여러 번 사용할 수 없습니다.
 
 ## <a name="sign-in-with-a-qr-code"></a>QR 코드를 사용하여 로그인
 
@@ -71,7 +71,17 @@ QR 코드를 스캔하여 계정을 추가하려면 다음을 수행합니다.
 
 카메라를 사용하여 QR 코드를 스캔하라는 메시지가 표시되지 않으면 휴대폰의 설정에서 Authenticator 앱이 휴대폰 카메라에 액세스할 수 있는지 확인합니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="sign-in-on-a-remote-computer"></a>원격 컴퓨터에서 로그인
+
+많은 앱에서 PC와 같은 다른 디바이스에 코드를 입력하여 인증할 수 있습니다. 원격 컴퓨터에 로그인하여 Microsoft Authenticator 앱을 설치하려는 경우:
+
+1. Microsoft Authenticator 앱을 열고 **+** 단추 &gt; **회사 또는 학교 계정 추가** &gt; **로그인** 을 선택합니다.
+1. **다른 디바이스에서 로그인** 을 선택합니다.
+1. 원격 화면에서 [**계정에 로그인** 페이지](https://microsoft.com/devicelogin)를 열고 Authenticator 앱에 표시되는 코드를 입력합니다.
+1. 원격 화면에서 회사 또는 학교 계정 자격 증명을 사용하여 로그인합니다. TAP(임시 액세스 패스)가 있는 경우 로그인하는 데 사용할 수 있습니다.
+1. 원격 화면에서 인증을 완료한 후 Authenticator 앱으로 돌아가 설정을 완료합니다.
+
+ ## <a name="next-steps"></a>다음 단계
 
 - 앱에 계정을 추가한 후에는 디바이스에서 Authenticator 앱을 사용하여 로그인할 수 있습니다. 자세한 내용은 [앱을 사용하여 로그인](user-help-auth-app-sign-in.md)을 참조하세요.
 

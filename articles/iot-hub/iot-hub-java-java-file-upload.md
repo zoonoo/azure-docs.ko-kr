@@ -13,22 +13,18 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 3529361cacf0890b7c4752bbd745a9240020b4f3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: dc87ad0af7eac71d7f2835b2b0d582fe8d1ec1b9
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217825"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985385"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>IoT Hub를 사용하여 디바이스에서 클라우드로 파일 업로드(Java)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-이 자습서에서는 [IoT Hub를 사용하여 클라우드-디바이스 메시지 보내기](iot-hub-java-java-c2d.md) 자습서의 코드를 기반으로 작성되었으며 [IoT Hub의 파일 업로드 기능](iot-hub-devguide-file-upload.md)을 사용하여 [Azure Blob Storage](../storage/index.yml)에 파일을 업로드하는 방법을 보여 줍니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
-
-* 파일을 업로드하기 위한 Azure blob URI를 디바이스에 안전하게 제공합니다.
-
-* IoT Hub 파일 업로드 알림을 사용하여 앱 백 엔드에서 파일 처리를 트리거합니다.
+이 자습서는 Java를 사용하여 IoT Hub의 파일 업로드 기능을 사용하는 방법을 보여 줍니다. 파일 업로드 프로세스에 대한 개요는 [IoT Hub를 사용하여 파일 업로드](iot-hub-devguide-file-upload.md)를 참조하세요.
 
 [디바이스에서 IoT Hub로 원격 분석 보내기](quickstart-send-telemetry-java.md) 빠른 시작 및 [IoT Hub를 사용하여 클라우드-디바이스 메시지 보내기](iot-hub-java-java-c2d.md) 자습서는 IoT Hub의 기본적인 디바이스-클라우드 및 클라우드-디바이스 메시징 기능을 보여 줍니다. [IoT Hub로 메시지 라우팅 구성](tutorial-routing.md) 자습서에서는 디바이스-클라우드 메시지를 Azure Blob Storage에 안정적으로 저장하는 방법에 대해 설명합니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예를 들면 다음과 같습니다.
 
@@ -37,13 +33,7 @@ ms.locfileid: "102217825"
 * 자주 샘플링되는 진동 데이터
 * 특정 형태의 전처리된 데이터
 
-이러한 파일은 일반적으로 [Azure Data Factory](../data-factory/introduction.md) 또는 [Hadoop](../hdinsight/index.yml) 스택과 같은 도구를 사용하여 클라우드에서 배치 방식으로 처리됩니다. 디바이스에서 파일을 업로드해야 할 때 IoT Hub의 보안 및 안정성을 여전히 사용할 수 있습니다.
-
-이 자습서의 끝 부분에서는 다음 두 개의 Java 콘솔 앱을 실행합니다.
-
-* **simulated-device** - [IoT Hub를 사용하여 클라우드-디바이스 메시지 보내기] 자습서에서 만든 앱의 수정된 버전입니다. 이 앱은 IoT Hub에서 제공하는 SAS URI를 사용하여 스토리지에 파일을 업로드합니다.
-
-* **read-file-upload-notification** - IoT Hub에서 파일 업로드 알림을 받습니다.
+이러한 파일은 일반적으로 [Azure Data Factory](../data-factory/introduction.md) 또는 [Hadoop](../hdinsight/index.yml) 스택과 같은 도구를 사용하여 클라우드에서 배치 방식으로 처리됩니다. 그러나 디바이스에서 파일을 업로드해야 하는 경우에도 IoT Hub의 보안 및 안정성을 사용할 수 있습니다. 이 샘플에서는 방법을 보여 줍니다. 또한 GitHub의 [https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/file-upload-sample/src/main/java/samples/com/microsoft/azure/sdk/iot](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/file-upload-sample/src/main/java/samples/com/microsoft/azure/sdk/iot)에는 두 가지 샘플이 제공되어 있습니다.
 
 > [!NOTE]
 > IoT Hub는 Azure IoT 디바이스 SDK를 통해 많은 디바이스 플랫폼 및 언어(C, .NET 및 Javascript 포함)를 지원합니다. Azure IoT Hub에 디바이스를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터](https://azure.microsoft.com/develop/iot)를 참조하세요.
@@ -60,100 +50,374 @@ ms.locfileid: "102217825"
 
 * 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 문서의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
+## <a name="create-an-iot-hub"></a>IoT Hub 만들기
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
-## <a name="upload-a-file-from-a-device-app"></a>디바이스 앱에서 파일 업로드
+## <a name="create-a-project-using-maven"></a>Maven을 사용하여 프로젝트 만들기
 
-이 섹션에서는 [IoT Hub를 사용하여 클라우드-디바이스 메시지 보내기](iot-hub-java-java-c2d.md)에서 만든 디바이스 앱을 수정하여 IoT Hub에서 파일을 업로드하도록 만듭니다.
+프로젝트의 디렉터리를 만들고 해당 디렉터리에서 셸을 시작합니다. 명령줄에서 다음을 실행합니다.
 
-1. 이미지 파일을 `simulated-device` 폴더에 복사하고 파일 이름을 `myimage.png`로 바꿉니다.
+```cmd/sh
+mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+```
 
-2. 텍스트 편집기를 사용하여 `simulated-device\src\main\java\com\mycompany\app\App.java` 파일을 엽니다.
+그러면 *artifactId* 이름이 같은 디렉터리와 표준 프로젝트 구조가 생성됩니다.
 
-3. **App** 클래스에 변수 선언을 추가합니다.
+```
+  my-app
+  |-- pom.xml
+   -- src
+      -- main
+         -- java
+            -- com
+               -- mycompany
+                  -- app
+                     --App.Java
+```
 
-    ```java
-    private static String fileName = "myimage.png";
-    ```
+텍스트 편집기를 사용하여 pom.xml 파일을 다음으로 바꿉니다.
 
-4. 파일 업로드 상태 콜백 메시지를 처리하려면 다음 중첩 클래스를 **App** 클래스에 추가합니다.
+```xml
 
-    ```java
-    // Define a callback method to print status codes from IoT Hub.
-    protected static class FileUploadStatusCallBack implements IotHubEventCallback {
-      public void execute(IotHubStatusCode status, Object context) {
-        System.out.println("IoT Hub responded to file upload for " + fileName
-            + " operation with status " + status.name());
-      }
-    }
-    ```
+<?xml version="1.0" encoding="UTF-8"?>
 
-5. 이미지를 IoT Hub에 업로드하려면 IoT Hub에 이미지를 업로드하도록 다음 메서드를 **App** 클래스에 추가합니다.
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-    ```java
-    // Use IoT Hub to upload a file asynchronously to Azure blob storage.
-    private static void uploadFile(String fullFileName) throws FileNotFoundException, IOException
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>my-app</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>my-app</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+      <dependency>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
+      <artifactId>iot-device-client</artifactId>
+      <version>1.30.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.29</version>
+    </dependency>    
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.3</version>
+            <configuration>
+              <source>1.7</source>
+              <target>1.7</target>
+            </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>2.4</version>
+          <executions>
+              <execution>
+                  <phase>package</phase>
+                  <goals>
+                    <goal>shade</goal>
+                  </goals>
+                  <configuration>
+                      <filters>
+                          <filter>
+                              <artifact>*:*</artifact>
+                              <excludes>
+                                  <exclude>META-INF/*.SF</exclude>
+                                  <exclude>META-INF/*.RSA</exclude>
+                              </excludes>
+                          </filter>
+                      </filters>
+                      <shadedArtifactAttached>true</shadedArtifactAttached>
+                      <shadedClassifierName>with-deps</shadedClassifierName>
+                  </configuration>
+              </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
+
+```
+
+
+## <a name="upload-a-file"></a>파일 업로드
+
+프로젝트 트리의 `my-app` 폴더에 업로드할 파일을 복사합니다. 텍스트 편집기를 사용하여 App.java를 다음 코드로 바꿉니다. 명시된 연결 문자열 및 파일 이름을 입력합니다.
+
+```java
+package com.mycompany.app;
+
+import com.azure.storage.blob.BlobClient;
+import com.azure.storage.blob.BlobClientBuilder;
+import com.microsoft.azure.sdk.iot.deps.serializer.FileUploadCompletionNotification;
+import com.microsoft.azure.sdk.iot.deps.serializer.FileUploadSasUriRequest;
+import com.microsoft.azure.sdk.iot.deps.serializer.FileUploadSasUriResponse;
+import com.microsoft.azure.sdk.iot.device.DeviceClient;
+import com.microsoft.azure.sdk.iot.device.IotHubClientProtocol;
+
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.Scanner;
+
+public class App 
+{
+    /**
+     * Upload a single file to blobs using IoT Hub.
+     *
+     */
+    public static void main(String[] args)throws IOException, URISyntaxException
     {
-      File file = new File(fullFileName);
-      InputStream inputStream = new FileInputStream(file);
-      long streamLength = file.length();
+        String connString = "Your device connection string here";
+        String fullFileName = "Path of the file to upload";
 
-      client.uploadToBlobAsync(fileName, inputStream, streamLength, new FileUploadStatusCallBack(), null);
+        System.out.println("Starting...");
+        System.out.println("Beginning setup.");
+
+        // File upload will always use HTTPS, DeviceClient will use this protocol only
+        //   for the other services like Telemetry, Device Method and Device Twin.
+        IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
+
+        System.out.println("Successfully read input parameters.");
+
+        DeviceClient client = new DeviceClient(connString, protocol);
+
+        System.out.println("Successfully created an IoT Hub client.");
+
+        try
+        {
+            File file = new File(fullFileName);
+            if (file.isDirectory())
+            {
+                throw new IllegalArgumentException(fullFileName + " is a directory, please provide a single file name, or use the FileUploadSample to upload directories.");
+            }
+
+            System.out.println("Retrieving SAS URI from IoT Hub...");
+            FileUploadSasUriResponse sasUriResponse = client.getFileUploadSasUri(new FileUploadSasUriRequest(file.getName()));
+
+            System.out.println("Successfully got SAS URI from IoT Hub");
+            System.out.println("Correlation Id: " + sasUriResponse.getCorrelationId());
+            System.out.println("Container name: " + sasUriResponse.getContainerName());
+            System.out.println("Blob name: " + sasUriResponse.getBlobName());
+            System.out.println("Blob Uri: " + sasUriResponse.getBlobUri());
+
+            System.out.println("Using the Azure Storage SDK to upload file to Azure Storage...");
+
+            try
+            {
+                BlobClient blobClient =
+                    new BlobClientBuilder()
+                        .endpoint(sasUriResponse.getBlobUri().toString())
+                        .buildClient();
+
+                blobClient.uploadFromFile(fullFileName);
+            }
+            catch (Exception e)
+            {
+                System.out.println("Exception encountered while uploading file to blob: " + e.getMessage());
+
+                System.out.println("Failed to upload file to Azure Storage.");
+
+                System.out.println("Notifying IoT Hub that the SAS URI can be freed and that the file upload failed.");
+
+                // Note that this is done even when the file upload fails. IoT Hub has a fixed number of SAS URIs allowed active
+                // at any given time. Once you are done with the file upload, you should free your SAS URI so that other
+                // SAS URIs can be generated. If a SAS URI is not freed through this API, then it will free itself eventually
+                // based on how long SAS URIs are configured to live on your IoT Hub.
+                FileUploadCompletionNotification completionNotification = new FileUploadCompletionNotification(sasUriResponse.getCorrelationId(), false);
+                client.completeFileUpload(completionNotification);
+
+                System.out.println("Notified IoT Hub that the SAS URI can be freed and that the file upload was a failure.");
+
+                client.closeNow();
+                return;
+            }
+
+            System.out.println("Successfully uploaded file to Azure Storage.");
+
+            System.out.println("Notifying IoT Hub that the SAS URI can be freed and that the file upload was a success.");
+            FileUploadCompletionNotification completionNotification = new FileUploadCompletionNotification(sasUriResponse.getCorrelationId(), true);
+            client.completeFileUpload(completionNotification);
+            System.out.println("Successfully notified IoT Hub that the SAS URI can be freed, and that the file upload was a success");
+        }
+        catch (Exception e)
+        {
+            System.out.println("On exception, shutting down \n" + " Cause: " + e.getCause() + " \nERROR: " +  e.getMessage());
+            System.out.println("Shutting down...");
+            client.closeNow();
+        }
+
+        System.out.println("Press any key to exit...");
+
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
+        System.out.println("Shutting down...");
+        client.closeNow();
     }
-    ```
+}
+```
+## <a name="get-the-device-connection-string"></a>디바이스 연결 문자열 가져오기
 
-6. 다음 코드 조각에 나와 있는 것처럼, **uploadFile** 메서드를 호출하도록 **main** 메서드를 수정합니다.
+Azure Cloud Shell에서 다음 명령을 실행하여 디바이스의 _디바이스 연결 문자열_ 을 가져옵니다. 아래 자리 표시자를 IoT Hub에 대해 선택한 이름 및 디바이스 이름으로 바꿉니다.
 
-    ```java
-    client.open();
+```azurecli-interactive
+az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id {YourDevice} --output table
+```
+    
+다음과 같은 디바이스 연결 문자열을 복사하고 명시된 대로 코드 샘플에 추가합니다.
+  
+```cmd/sh
+HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDotnetDevice;SharedAccessKey={YourSharedAccessKey}
+```
 
-    try
-    {
-      // Get the filename and start the upload.
-      String fullFileName = System.getProperty("user.dir") + File.separator + fileName;
-      uploadFile(fullFileName);
-      System.out.println("File upload started with success");
-    }
-    catch (Exception e)
-    {
-      System.out.println("Exception uploading file: " + e.getCause() + " \nERROR: " + e.getMessage());
-    }
+업로드할 파일 경로를 명시된 대로 코드 샘플에 추가합니다.
+    
+## <a name="build-and-run-the-application"></a>애플리케이션 빌드 및 실행
 
-    MessageSender sender = new MessageSender();
-    ```
+`my-app` 폴더의 명령 프롬프트에서 다음 명령을 실행합니다.
 
-7. 다음 명령을 사용하여 **simulated-device** 앱을 작성하고 오류가 있는지 확인합니다.
+```cmd/sh
+mvn clean package -DskipTests
+```
 
-    ```cmd/sh
-    mvn clean package -DskipTests
-    ```
+빌드가 완료된 후 다음 명령을 사용하여 애플리케이션을 실행합니다.
 
-## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
+```cmd/sh
+mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+```
 
-이 문서에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-java.md)에서 만든 IoT Hub에서 파일 업롣 알림 메시지를 수신하는 백 엔드 서비스를 만듭니다. 파일 업로드 알림 메시지를 수신하려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service** 라는 공유 액세스 정책을 사용하여 만듭니다.
+포털을 사용하면 구성한 스토리지 컨테이너에 업로드된 파일을 볼 수 있습니다.
 
-[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+![업로드된 파일](media/iot-hub-java-java-upload/uploaded-file.png)
 
 ## <a name="receive-a-file-upload-notification"></a>파일 업로드 알림 수신
 
 이 섹션에서는 IoT Hub에서 파일 업로드 알림 메시지를 수신하는 Java 콘솔 앱을 만듭니다.
 
-1. 명령 프롬프트에서 다음 명령을 사용하여 **read-file-upload-notification** 이라는 Maven 프로젝트를 만듭니다. 이 명령은 긴 단일 명령입니다.
+1. 프로젝트의 디렉터리를 만들고 해당 디렉터리에서 셸을 시작합니다. 명령줄에서 다음을 실행합니다.
 
     ```cmd/sh
-    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-file-upload-notification -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
     ```
 
-2. 명령 프롬프트에서 새 `read-file-upload-notification` 폴더로 이동합니다.
+2. 명령 프롬프트에서 새 `my-app` 폴더로 이동합니다.
 
-3. 텍스트 편집기를 사용하여 `read-file-upload-notification` 폴더에서 `pom.xml` 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 의존성을 추가하면 IoT Hub 서비스와 통신하기 위해 애플리케이션에서 **iothub-java-service-client** 패키지를 사용할 수 있습니다.
+3. 텍스트 편집기를 사용하여 `my-app` 폴더의 `pom.xml` 파일을 다음으로 바꿉니다. 서비스 클라이언트 종속성을 추가하면 IoT Hub 서비스와 통신하기 위해 애플리케이션에서 **iothub-java-service-client** 패키지를 사용할 수 있습니다.
 
     ```xml
-    <dependency>
-      <groupId>com.microsoft.azure.sdk.iot</groupId>
-      <artifactId>iot-service-client</artifactId>
-      <version>1.7.23</version>
-    </dependency>
+    <?xml version="1.0" encoding="UTF-8"?>
+
+    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+      <modelVersion>4.0.0</modelVersion>
+
+      <groupId>com.mycompany.app</groupId>
+      <artifactId>my-app</artifactId>
+      <version>1.0-SNAPSHOT</version>
+
+      <name>my-app</name>
+      <!-- FIXME change it to the project's website -->
+      <url>http://www.example.com</url>
+
+      <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+      </properties>
+
+      <dependencies>
+          <dependency>
+          <groupId>com.microsoft.azure.sdk.iot</groupId>
+          <artifactId>iot-device-client</artifactId>
+          <version>1.30.1</version>
+        </dependency>
+        <dependency>
+          <groupId>com.microsoft.azure.sdk.iot</groupId>
+          <artifactId>iot-service-client</artifactId>
+          <version>1.7.23</version>
+        </dependency>
+        <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+          <version>1.7.29</version>
+        </dependency>    
+        <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.11</version>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
+
+      <build>
+        <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                  <source>1.7</source>
+                  <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+              <artifactId>maven-shade-plugin</artifactId>
+              <version>2.4</version>
+              <executions>
+                  <execution>
+                      <phase>package</phase>
+                      <goals>
+                        <goal>shade</goal>
+                      </goals>
+                      <configuration>
+                          <filters>
+                              <filter>
+                                  <artifact>*:*</artifact>
+                                  <excludes>
+                                      <exclude>META-INF/*.SF</exclude>
+                                      <exclude>META-INF/*.RSA</exclude>
+                                  </excludes>
+                              </filter>
+                          </filters>
+                          <shadedArtifactAttached>true</shadedArtifactAttached>
+                          <shadedClassifierName>with-deps</shadedClassifierName>
+                      </configuration>
+                  </execution>
+              </executions>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </project>
     ```
 
     > [!NOTE]
@@ -161,116 +425,74 @@ ms.locfileid: "102217825"
 
 4. `pom.xml` 파일을 저장하고 닫습니다.
 
-5. 텍스트 편집기를 사용하여 `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` 파일을 엽니다.
+5. IoT Hub 서비스 연결 문자열을 가져옵니다.
+    [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-6. 파일에 다음 **import** 문을 추가합니다.
+6. 텍스트 편집기를 사용하여 `my-app\src\main\java\com\mycompany\app\App.java` 파일을 열고 코드를 다음으로 바꿉니다.
 
     ```java
+    package com.mycompany.app;
+
     import com.microsoft.azure.sdk.iot.service.*;
     import java.io.IOException;
     import java.net.URISyntaxException;
     import java.util.concurrent.ExecutorService;
     import java.util.concurrent.Executors;
-    ```
 
-7. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. `{Your IoT Hub connection string}` 자리 표시자 값을 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT Hub 연결 문자열로 바꿉니다.
 
-    ```java
-    private static final String connectionString = "{Your IoT Hub connection string}";
-    private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
-    private static FileUploadNotificationReceiver fileUploadNotificationReceiver = null;
-    ```
+    public class App 
+    {
+        private static final String connectionString = "{Your service connection string here}";
+        private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
 
-8. 콘솔에 파일을 업로드하는 정보를 인쇄하려면 다음 중첩 클래스를 **App** 클래스에 추가합니다.
+        public static void main(String[] args) throws Exception
+        {
+            ServiceClient sc = ServiceClient.createFromConnectionString(connectionString, protocol);
 
-    ```java
-    // Create a thread to receive file upload notifications.
-    private static class ShowFileUploadNotifications implements Runnable {
-      public void run() {
-        try {
-          while (true) {
-            System.out.println("Receive file upload notifications...");
-            FileUploadNotification fileUploadNotification = fileUploadNotificationReceiver.receive();
-            if (fileUploadNotification != null) {
-              System.out.println("File Upload notification received");
-              System.out.println("Device Id : " + fileUploadNotification.getDeviceId());
-              System.out.println("Blob Uri: " + fileUploadNotification.getBlobUri());
-              System.out.println("Blob Name: " + fileUploadNotification.getBlobName());
-              System.out.println("Last Updated : " + fileUploadNotification.getLastUpdatedTimeDate());
-              System.out.println("Blob Size (Bytes): " + fileUploadNotification.getBlobSizeInBytes());
-              System.out.println("Enqueued Time: " + fileUploadNotification.getEnqueuedTimeUtcDate());
+            FileUploadNotificationReceiver receiver = sc.getFileUploadNotificationReceiver();
+            receiver.open();
+            FileUploadNotification fileUploadNotification = receiver.receive(2000);
+    
+            if (fileUploadNotification != null)
+            {
+                System.out.println("File Upload notification received");
+                System.out.println("Device Id : " + fileUploadNotification.getDeviceId());
+                System.out.println("Blob Uri: " + fileUploadNotification.getBlobUri());
+                System.out.println("Blob Name: " + fileUploadNotification.getBlobName());
+                System.out.println("Last Updated : " + fileUploadNotification.getLastUpdatedTimeDate());
+                System.out.println("Blob Size (Bytes): " + fileUploadNotification.getBlobSizeInBytes());
+                System.out.println("Enqueued Time: " + fileUploadNotification.getEnqueuedTimeUtcDate());
             }
-          }
-        } catch (Exception ex) {
-          System.out.println("Exception reading reported properties: " + ex.getMessage());
+            else
+            {
+                System.out.println("No file upload notification");
+            }
+    
+            receiver.close();
         }
-      }
+    
     }
     ```
 
-9. 파일 업로드 알림을 수신하는 스레드를 시작하려면 다음 코드를 **main** 메서드에 추가합니다.
 
-    ```java
-    public static void main(String[] args) throws IOException, URISyntaxException, Exception {
-      ServiceClient serviceClient = ServiceClient.createFromConnectionString(connectionString, protocol);
+7. `my-app\src\main\java\com\mycompany\app\App.java` 파일을 저장한 후 닫습니다.
 
-      if (serviceClient != null) {
-        serviceClient.open();
-
-        // Get a file upload notification receiver from the ServiceClient.
-        fileUploadNotificationReceiver = serviceClient.getFileUploadNotificationReceiver();
-        fileUploadNotificationReceiver.open();
-
-        // Start the thread to receive file upload notifications.
-        ShowFileUploadNotifications showFileUploadNotifications = new ShowFileUploadNotifications();
-        ExecutorService executor = Executors.newFixedThreadPool(1);
-        executor.execute(showFileUploadNotifications);
-
-        System.out.println("Press ENTER to exit.");
-        System.in.read();
-        executor.shutdownNow();
-        System.out.println("Shutting down sample...");
-        fileUploadNotificationReceiver.close();
-        serviceClient.close();
-      }
-    }
-    ```
-
-10. `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` 파일을 저장하고 닫습니다.
-
-11. 다음 명령을 사용하여 **read-file-upload-notification** 앱을 작성하고 오류가 있는지 확인합니다.
-
+8. 다음 명령을 사용하여 앱을 빌드하고 오류가 있는지 확인합니다.
     ```cmd/sh
     mvn clean package -DskipTests
     ```
-
-## <a name="run-the-applications"></a>애플리케이션 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 이제 애플리케이션을 실행할 준비가 되었습니다.
 
-`read-file-upload-notification` 폴더의 명령 프롬프트에서 다음 명령을 실행합니다.
+`my-app` 폴더의 명령 프롬프트에서 다음 명령을 실행합니다.
 
 ```cmd/sh
 mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 ```
-
-`simulated-device` 폴더의 명령 프롬프트에서 다음 명령을 실행합니다.
-
-```cmd/sh
-mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
-```
-
-다음 스크린샷은 **simulated-device** 앱의 출력을 보여 줍니다.
-
-![simulated-device 앱의 출력](media/iot-hub-java-java-upload/simulated-device.png)
-
 다음 스크린샷은 **read-file-upload-notification** 앱의 출력을 보여 줍니다.
 
 ![read-file-upload-notification 앱의 출력](media/iot-hub-java-java-upload/read-file-upload-notification.png)
-
-포털을 사용하면 구성한 스토리지 컨테이너에 업로드된 파일을 볼 수 있습니다.
-
-![업로드된 파일](media/iot-hub-java-java-upload/uploaded-file.png)
 
 ## <a name="next-steps"></a>다음 단계
 

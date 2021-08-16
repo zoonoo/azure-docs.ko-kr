@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 82dcd8c59c55a2866b51fd6dee896ea1298b6cf6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps
+ms.openlocfilehash: 0921c3d9bf254e3d486ec381c3243a8035bb6f50
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878247"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750356"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>가상 네트워크에 Azure Spring Cloud 배포
 
@@ -88,16 +88,7 @@ Azure Spring Cloud에는 추가 배포 및 유지 관리를 위해 가상 네트
 
     ![액세스 제어 화면을 보여 주는 스크린샷](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. **역할 할당 추가** 대화 상자에서 다음 정보를 입력하거나 선택합니다.
-
-    |설정  |값                                             |
-    |---------|--------------------------------------------------|
-    |역할     |**소유자** 를 선택합니다.                                 |
-    |선택   |**Azure Spring Cloud 리소스 공급자** 를 입력합니다.   |
-
-    그런 다음, **Azure Spring Cloud 리소스 공급자** 를 선택하고, **저장** 을 선택합니다.
-
-    ![Azure Spring Cloud 리소스 공급자 선택을 보여 주는 스크린샷](./media/spring-cloud-v-net-injection/grant-azure-spring-cloud-resource-provider-to-vnet.png)
+1. **Azure Spring Cloud 리소스 공급자** 에 *소유자* 역할을 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 또한 다음 Azure CLI 명령을 실행하여 이 단계를 수행할 수도 있습니다.
 
@@ -196,7 +187,7 @@ Azure Spring Cloud는 기존 서브넷 및 경로 테이블 사용을 지원합�
 
 * 새 Azure Spring Cloud 서비스 인스턴스를 만드는 경우에만 Azure 경로 테이블을 vnet과 연결할 수 있습니다. Azure Spring Cloud를 만든 후에는 다른 경로 테이블을 사용하도록 변경할 수 없습니다.
 * 마이크로서비스 애플리케이션 서브넷과 서비스 런타임 서브넷은 모두 다른 경로 테이블과 연결되거나 둘 다에 연결되지 않아야 합니다.
-* 인스턴스를 만들기 전에 권한을 할당해야 합니다. Azure *Spring Cloud 소유자* 권한을 경로 테이블에 부여해야 합니다.
+* 인스턴스를 만들기 전에 권한을 할당해야 합니다. **Azure Spring Cloud 리소스 공급자** 에 라우팅 테이블에 대한 *소유자* 권한을 부여해야 합니다.
 * 클러스터를 만든 후에는 연결된 경로 테이블 리소스를 업데이트할 수 없습니다. 경로 테이블 리소스를 업데이트할 수 없지만 경로 테이블에서 사용자 지정 규칙을 수정할 수 있습니다.
 * 잠재적으로 충돌하는 라우팅 규칙으로 인해 여러 인스턴스에서 경로 테이블을 재사용할 수 없습니다.
 

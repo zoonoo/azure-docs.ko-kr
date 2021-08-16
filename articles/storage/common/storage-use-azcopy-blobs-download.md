@@ -4,18 +4,18 @@ description: 이 문서에는 Azure Blob Storage에서 blob을 다운로드하�
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: aa9a415e7bf33409e804fb5503d7b608430098fb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 56bb36cfda9d0cf1a8882950c862a73ad1e77898
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728915"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502949"
 ---
-# <a name="download-blobs-from-azure-blob-storage-by-using-azcopy-v10"></a>AzCopy v10을 사용하여 Azure Blob Storage에서 blbo 다운로드
+# <a name="download-blobs-from-azure-blob-storage-by-using-azcopy"></a>AzCopy를 사용하여 Azure Blob Storage에서 Blob 다운로드
 
 AzCopy v10 명령줄 유틸리티를 사용하여 Blob Storage에서 blob과 디렉터리를 다운로드할 수 있습니다. 
 
@@ -28,7 +28,7 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 > [!NOTE] 
 > 이 문서의 예제에서는 Azure AD(Azure Active Directory)를 사용하여 권한 부여 자격 증명을 제공했다고 가정합니다.
 >
-> SAS 토큰을 사용하여 Blob 데이터에 대한 액세스 권한을 부여하려면 각 AzCopy 명령에서 해당 토큰을 리소스 URL에 추가할 수 있습니다. 예: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`
+> SAS 토큰을 사용하여 blob 데이터에 대한 액세스 권한을 부여하려면 각 AzCopy 명령에서 해당 토큰을 리소스 URL에 추가할 수 있습니다. 예를 들면 `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`와 같습니다.
 
 ## <a name="download-a-blob"></a>Blob 다운로드
 
@@ -37,11 +37,21 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 > [!TIP]
 > 이 예에서는 경로 인수를 작은따옴표(‘’)로 묶습니다. Windows 명령 셸(cmd.exe)을 제외하고 모든 명령 셸에서 작은따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 작은따옴표(‘’) 대신 큰따옴표(“”)로 경로 인수를 묶습니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-file-path>'` |
-| **예제** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt'` |
-| **예제**(계층 구조 네임스페이스) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt'` |
+**구문**
+
+``azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-file-path>'``
+
+**예제**
+
+```azcopy
+azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt'
+```
+
+**예제(계층 구조 네임스페이스)**
+
+```azcopy
+azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt'
+```
 
 > [!NOTE]
 > Blob의 `Content-md5` 속성 값에 해시가 포함된 경우 AzCopy는 다운로드된 데이터의 MD5 해시를 계산하고 Blob의 `Content-md5` 속성에 저장된 MD5 해시가 계산된 해시와 일치하는지 확인합니다. 이 값이 일치하지 않는 경우 copy 명령에 `--check-md5=NoCheck` 또는 `--check-md5=LogOnly`를 추가하여 이 동작을 재정의하지 않으면 다운로드에 실패합니다.
@@ -53,11 +63,21 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 > [!TIP]
 > 이 예에서는 경로 인수를 작은따옴표(‘’)로 묶습니다. Windows 명령 셸(cmd.exe)을 제외하고 모든 명령 셸에서 작은따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 작은따옴표(‘’) 대신 큰따옴표(“”)로 경로 인수를 묶습니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>' '<local-directory-path>' --recursive` |
-| **예제** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
-| **예제**(계층 구조 네임스페이스) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
+**구문**
+
+`azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>' '<local-directory-path>' --recursive`
+
+**예제**
+
+```azcopy
+azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive
+```
+
+**예제(계층 구조 네임스페이스)**
+
+```azcopy
+azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive
+```
 
 이 예에서는 다운로드한 모든 blob을 포함하는 `C:\myDirectory\myBlobDirectory`라는 디렉터리를 생성합니다.
 
@@ -71,10 +91,15 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 > [!NOTE]
 > 현재 이 시나리오는 계층 구조 네임스페이스가 없는 계정에만 지원됩니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://<storage-account-name>.blob.core.windows.net/<container-name>/*' '<local-directory-path>/'` |
-| **예제** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory/*' 'C:\myDirectory'` |
+**구문**
+
+`azcopy copy 'https://<storage-account-name>.blob.core.windows.net/<container-name>/*' '<local-directory-path>/'`
+
+**예제**
+
+```azcopy
+azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory/*' 'C:\myDirectory'
+```
 
 모든 하위 디렉터리에 파일을 다운로드하려면 `--recursive` 플래그를 추가합니다.
 
@@ -89,11 +114,21 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 
 `--include-path` 옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용합니다. 세미콜론(`;`)을 사용하여 개별 blob 이름을 구분합니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>' '<local-directory-path>'  --include-path <semicolon-separated-file-list>` |
-| **예제** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive` |
-| **예제**(계층 구조 네임스페이스) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt'--recursive` |
+**구문**
+
+`azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>' '<local-directory-path>'  --include-path <semicolon-separated-file-list>`
+
+**예제**
+
+```azcopy
+azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive
+```
+
+**예제(계층 구조 네임스페이스)**
+
+```azcopy
+azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt'--recursive
+```
 
 이 예에서 AzCopy는 `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` 디렉터리와 `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/documents/myFile.txt` 파일을 전송합니다. `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` 디렉터리의 모든 blob을 전송하려면 `--recursive` 옵션을 포함합니다.
 
@@ -103,11 +138,21 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 
 `--include-pattern` 옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용합니다. 와일드카드 문자를 포함하는 부분 이름을 지정합니다. 세미콜론(`;`)을 사용하여 이름을 구분합니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>' '<local-directory-path>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
-| **예제** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'` |
-| **예제**(계층 구조 네임스페이스) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'` |
+**구문**
+
+`azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>' '<local-directory-path>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>`
+
+**예제**
+
+```azcopy
+azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'
+```
+
+**예제(계층 구조 네임스페이스)**
+
+```azcopy
+azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'
+```
 
 `--exclude-pattern` 옵션을 사용하여 blob을 제외할 수도 있습니다. 자세히 알아보려면 [azcopy copy](storage-ref-azcopy-copy.md) 참조 문서를 확인하세요.
 
@@ -119,11 +164,21 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 
 다음 예에서는 지정한 날짜 또는 그 이후에 수정된 파일을 다운로드합니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>/*' '<local-directory-path>' --include-after <Date-Time-in-ISO-8601-format>` |
-| **예제** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
-| **예제**(계층 구조 네임스페이스) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+**구문**
+
+`azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>/*' '<local-directory-path>' --include-after <Date-Time-in-ISO-8601-format>`
+
+**예제**
+
+```azcopy
+azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'
+```
+
+**예제(계층 구조 네임스페이스)**
+
+```azcopy
+azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'
+```
 
 자세한 참조는 [azcopy copy](storage-ref-azcopy-copy.md) 참조 문서를 확인하세요.
 
@@ -145,14 +200,24 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 
 Blob 스냅샷의 **DateTime** 값을 참조하여 [blob 스냅샷을](../blobs/snapshots-overview.md) 다운로드할 수 있습니다. 
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>?sharesnapshot=<DateTime-of-snapshot>' '<local-file-path>'` |
-| **예제** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt'` |
-| **예제**(계층 구조 네임스페이스) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt?sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt'` |
+**구문**
+
+`azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>?sharesnapshot=<DateTime-of-snapshot>' '<local-file-path>'`
+
+**예제**
+
+```azcopy
+azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt'
+```
+
+**예제(계층 구조 네임스페이스)**
+
+```azcopy
+azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt?sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt'
+```
 
 > [!NOTE]
-> SAS 토큰을 사용하여 blob 데이터에 대한 액세스 권한을 부여하는 경우 SAS 토큰 뒤에 스냅샷 **DateTime** 을 추가합니다. 예: `'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z'`
+> SAS 토큰을 사용하여 blob 데이터에 대한 액세스 권한을 부여하는 경우 SAS 토큰 뒤에 스냅샷 **DateTime** 을 추가합니다. 예를 들면 `'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z'`와 같습니다.
 
 ## <a name="download-with-optional-flags"></a>선택적 플래그를 사용하여 다운로드
 
@@ -174,6 +239,12 @@ Blob 스냅샷의 **DateTime** 값을 참조하여 [blob 스냅샷을](../blobs/
 - [예제: 계정 간 복사](storage-use-azcopy-blobs-copy.md)
 - [예제: 동기화](storage-use-azcopy-blobs-synchronize.md)
 - [예제: Amazon S3 버킷](storage-use-azcopy-s3.md)
+- [예: Google Cloud Storage](storage-use-azcopy-google-cloud.md)
 - [예: Azure Files](storage-use-azcopy-files.md)
 - [자습서: AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션](storage-use-azcopy-migrate-on-premises-data.md)
-- [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
+
+이러한 문서를 참조하여 설정을 구성하고, 성능을 최적화하고, 문제를 해결하세요.
+
+- [AzCopy 구성 설정](storage-ref-azcopy-configuration-settings.md)
+- [AzCopy의 성능 최적화](storage-use-azcopy-optimize.md)
+- [로그 파일을 사용하여 Azure Storage의 AzCopy V10 문제 해결](storage-use-azcopy-configure.md)

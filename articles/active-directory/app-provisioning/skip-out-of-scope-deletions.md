@@ -1,24 +1,24 @@
 ---
-title: 범위를 벗어나는 사용자 삭제 건너뛰기
-description: 범위를 벗어나는 사용자를 프로비저닝 해제하는 기본 동작을 재정의하는 방법을 알아봅니다.
+title: Azure Active Directory 애플리케이션 프로비저닝에서 범위를 벗어난 사용자 삭제 건너뛰기
+description: Azure Active Directory에서 범위를 벗어나는 사용자를 프로비저닝 해제하는 기본 동작을 재정의하는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/10/2019
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: celested
-ms.openlocfilehash: a6cbabe35b223020528d1cf48aa9e0ef9b9f7c05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: arvinh
+ms.openlocfilehash: 37196dafd094f997bc5fe2ea165cefb9099562a0
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99256122"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784884"
 ---
-# <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>범위를 벗어나는 사용자 계정 삭제 건너뛰기
+# <a name="skip-deletion-of-user-accounts-that-go-out-of-scope-in-azure-active-directory"></a>Azure Active Directory에서 범위를 벗어나는 사용자 계정 삭제 건너뛰기
 
 기본적으로 Azure AD 프로비저닝 엔진은 범위를 벗어나는 사용자를 일시 삭제하거나 비활성화합니다. 그러나 Workday에서 AD로 사용자 인바운드 프로비저닝과 같은 특정 시나리오의 경우 이 동작이 예상과 다를 수 있으며 이 기본 동작을 재정의하는 것이 좋습니다.  
 

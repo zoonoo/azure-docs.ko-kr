@@ -1,18 +1,19 @@
 ---
-title: '경로 기반 Azure VPN Gateway 만들기: CLI'
-description: Azure CLI을 사용하여 온-프레미스 네트워크에 대한 VPN 연결이나 가상 네트워크 연결을 위한 경로 기반 Azure VPN 게이트웨이를 빠르게 만들 수 있습니다.
+title: '경로 기반 가상 네트워크 게이트웨이 만들기: CLI'
+titleSuffix: Azure VPN Gateway
+description: 온-프레미스 네트워크에 대한 VPN 연결을 위한 경로 기반 가상 네트워크 게이트웨이를 만들거나 가상 네트워크를 연결하는 방법에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 2bbd7e39ee65ba304ec62697b6fcc77bea133b41
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 239cc90b49cc4b13762a02fe136a5b77a15544ee
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94737254"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325682"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>CLI를 사용하여 경로 기반 VPN 게이트웨이 만들기
 
@@ -74,7 +75,7 @@ az network public-ip create \
 
 ## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>VPN 게이트웨이 만들기
 
-[az network vnet-gateway create](/cli/azure/group) 명령을 사용하여 VPN Gateway를 만듭니다.
+[az network vnet-gateway create](/cli/azure/network/vnet-gateway) 명령을 사용하여 VPN Gateway를 만듭니다.
 
 `--no-wait` 매개 변수를 사용하여 이 명령을 실행하면 피드백 또는 출력이 보이지 않습니다. `--no-wait` 매개 변수는 백그라운드에서 게이트웨이를 만드는 것을 허용합니다. VPN 게이트웨이가 즉시 만들어진다는 것을 의미하지는 않습니다.
 

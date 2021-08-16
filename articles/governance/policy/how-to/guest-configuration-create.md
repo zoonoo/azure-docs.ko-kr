@@ -3,17 +3,17 @@ title: Windows용 게스트 구성 정책을 만드는 방법
 description: Windows용 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 6eaefdbc28b8efc53dc7c4d46eb5d8a56d5be141
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 8fbe3528f998a70ad489174274bda0a54b5e2455
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096600"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733520"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Windows용 게스트 구성 정책을 만드는 방법
 
 사용자 지정 정책 정의를 만들기 전에 [Azure Policy 게스트 구성](../concepts/guest-configuration.md) 페이지에서 개념 개요 정보를 읽는 것이 좋습니다.
- 
+
 Linux용 게스트 구성 정책을 만드는 방법에 대한 자세한 내용은 [Linux용 게스트 구성 정책을 만드는 방법](./guest-configuration-create-linux.md) 페이지를 참조하세요.
 
 Windows를 감사할 때 게스트 구성은 DSC([Desired State Configuration](/powershell/scripting/dsc/overview/overview)) 리소스 모듈을 사용하여 구성 파일을 만듭니다. DSC 구성은 컴퓨터가 충족해야 하는 조건을 정의합니다. 구성 평가에 실패하는 경우 정책 효과 **auditIfNotExists** 가 트리거되고 컴퓨터를 **비준수** 로 간주합니다.
@@ -23,10 +23,10 @@ Windows를 감사할 때 게스트 구성은 DSC([Desired State Configuration](/
 다음 작업을 사용하여 Azure 또는 비 Azure 컴퓨터 상태의 유효성을 검사하는 고유한 구성을 만듭니다.
 
 > [!IMPORTANT]
-> Azure Government 및 Azure 중국 환경에서 게스트 구성을 사용하는 사용자 지정 정책 정의는 미리 보기 기능입니다.
+> Azure Government 및 Azure 중국 21Vianet 환경에서 게스트 구성을 사용하는 사용자 지정 정책 정의는 미리 보기 기능입니다.
 >
 > 게스트 구성 확장은 Azure Virtual Machines에서 감사를 수행하는 데 필요합니다. 모든 Windows 컴퓨터에서 확장을 대규모로 배포하려면 정책 정의(`Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`)를 할당합니다.
-> 
+>
 > 사용자 지정 콘텐츠 패키지에서 비밀 또는 기밀 정보를 사용하지 마세요.
 
 ## <a name="install-the-powershell-module"></a>PowerShell 모듈 설치
@@ -122,7 +122,7 @@ return @{
 Reasons 속성을 리소스를 위한 스키마 MOF에 포함된 클래스로 추가해야 합니다.
 
 ```mof
-[ClassVersion("1.0.0.0")] 
+[ClassVersion("1.0.0.0")]
 class Reason
 {
     [Read] String Phrase;
@@ -214,9 +214,9 @@ Configuration AuditBitLocker
 AuditBitLocker
 ```
 
-PowerShell 터미널에서 이 스크립트를 실행하거나 프로젝트 폴더에 `config.ps1` 이름을 사용하여 이 파일을 저장합니다. 터미널에서 `./config.ps1`을 실행하여 PowerShell에서 실행합니다. 새 mof 파일이 생성됩니다.
+PowerShell 터미널에서 이 스크립트를 실행하거나 프로젝트 폴더에 `config.ps1` 이름을 사용하여 이 파일을 저장합니다. 터미널에서 `./config.ps1`을 실행하여 PowerShell에서 실행합니다. 새 MOF 파일이 생성됩니다.
 
-`Node AuditBitlocker` 명령은 기술적으로 필요하지 않지만 기본값 `localhost.mof`가 아닌 `AuditBitlocker.mof`라는 파일을 생성합니다. .mof 파일 이름을 구성에 따라 지정하면 대규모 작업을 수행할 때 많은 파일을 쉽게 구성할 수 있습니다.
+`Node AuditBitlocker` 명령은 기술적으로 필요하지 않지만, 기본값 `localhost.mof`가 아닌 `AuditBitlocker.mof`라는 파일을 생성합니다. .MOF 파일 이름을 구성에 따라 지정하면 대규모 작업을 수행할 때 많은 파일을 쉽게 구성할 수 있습니다.
 
 MOF가 컴파일되면 지원 파일을 함께 패키지해야 합니다. 완성된 패키지는 게스트 구성에서 Azure Policy 정의를 만드는 데 사용됩니다.
 
@@ -257,7 +257,7 @@ cmdlet은 PowerShell 파이프라인의 입력도 지원합니다. `New-GuestCon
 New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./AuditBitlocker/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
-다음 단계는 Azure Blob Storage에 파일을 게시하는 과정입니다. 스토리지 계정에 특별한 요구 사항은 없지만, 컴퓨터 근처 지역에서 파일을 호스트하는 것이 좋습니다. 스토리지 계정이 없는 경우 다음 예제를 사용합니다. `Publish-GuestConfigurationPackage`을 포함하여 아래 명령에는 `Az.Storage` 모듈이 필요합니다.
+다음 단계는 Azure Blob Storage에 파일을 게시하는 과정입니다. 스토리지 계정에 특별한 요구 사항은 없지만, 컴퓨터 근처 지역에서 파일을 호스트하는 것이 좋습니다. 스토리지 계정이 없는 경우 다음 예제를 사용합니다. `Publish-GuestConfigurationPackage`를 포함한 다음 명령에는 `Az.Storage` 모듈이 필요합니다.
 
 ```azurepowershell-interactive
 # Creates a new resource group, storage account, and container
@@ -273,7 +273,7 @@ New-AzStorageAccount -ResourceGroupName myResourceGroupName -Name myStorageAccou
 - **StorageContainerName**: (기본값: _guestconfiguration_) 스토리지 계정의 스토리지 컨테이너 이름
 - **Force**: 스토리지 계정에서 이름이 같은 기존 패키지를 덮어씁니다.
 
-아래 예제에서는 패키지를 스토리지 컨테이너 이름 ' guestconfiguration'에 게시합니다.
+다음 예제에서는 패키지를 스토리지 컨테이너 이름 'guestconfiguration'에 게시합니다.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
@@ -283,7 +283,7 @@ Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName 
 
 `New-GuestConfigurationPolicy` cmdlet의 매개 변수는 다음과 같습니다.
 
-- **ContentUri**: 게스트 구성 콘텐츠 패키지의 공용 http(s) uri입니다.
+- **ContentUri**: 게스트 구성 콘텐츠 패키지의 공용 HTTP(s) URI입니다.
 - **DisplayName**: 정책 표시 이름입니다.
 - **설명**: 정책 설명입니다.
 - **Parameter**: hashtable 형식으로 제공되는 정책 매개 변수입니다.
@@ -317,18 +317,18 @@ cmdlet 출력은 정책 파일의 이니셔티브 표시 이름과 경로가 포
 게시 명령을 실행하려면 Azure에서 정책을 만들기 위한 액세스 권한이 필요합니다. 특정 권한 부여 요구 사항은 [Azure Policy 개요](../overview.md) 페이지에 설명되어 있습니다. 가장 적합한 기본 제공 역할은 **리소스 정책 기여자** 입니다.
 
 ```azurepowershell-interactive
-Publish-GuestConfigurationPolicy -Path '.\policyDefinitions'
+Publish-GuestConfigurationPolicy -Path '.\policies'
 ```
 
 `Publish-GuestConfigurationPolicy` cmdlet은 PowerShell 파이프라인의 경로를 허용합니다. 이 기능은 정책 파일을 만들어 단일 파이프 명령 집합에 게시할 수 있음을 의미합니다.
 
 ```azurepowershell-interactive
 New-GuestConfigurationPolicy `
- -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
+  -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
   -DisplayName 'Audit BitLocker service.' `
   -Description 'Audit if the BitLocker service is not enabled on Windows machine.' `
   -Path './policies' `
- | Publish-GuestConfigurationPolicy
+| Publish-GuestConfigurationPolicy
 ```
 
 Azure에서 만든 정책을 사용하는 마지막 단계는 정의를 할당하는 과정입니다. [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md) 및 [Azure PowerShell](../assign-policy-powershell.md)을 사용하여 정의를 할당하는 방법을 참조하세요.
@@ -396,7 +396,7 @@ New-GuestConfigurationPolicy
     -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
     -DisplayName 'Audit Windows Service.' `
     -Description 'Audit if a Windows Service is not enabled on Windows machine.' `
-    -Path '.\policyDefinitions' `
+    -Path '.\policies' `
     -Parameter $PolicyParameterInfo `
     -Version 1.0.0
 ```
@@ -415,7 +415,7 @@ New-GuestConfigurationPolicy
 커뮤니티 솔루션이 아직 없는 경우 DSC 리소스에 사용자 지정 개발이 필요합니다.
 커뮤니티 솔루션은 PowerShell 갤러리에서 [GuestConfiguration](https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22) 태그를 검색하여 찾을 수 있습니다.
 
-> [!Note]
+> [!NOTE]
 > 게스트 구성 확장성은 "사용자 라이선스 필요" 시나리오입니다. 사용하기 전에 타사 도구의 사용 약관을 충족하는지 확인합니다.
 
 DSC 리소스를 개발 환경에 설치한 후에는 `New-GuestConfigurationPackage`에 대한 **FilesToInclude** 매개 변수를 사용하여 콘텐츠 아티팩트의 타사 플랫폼에 대한 콘텐츠를 포함합니다.
@@ -429,7 +429,7 @@ DSC 리소스를 개발 환경에 설치한 후에는 `New-GuestConfigurationPac
 
 먼저, `New-GuestConfigurationPackage`를 실행할 때, 이전 버전과는 차별되는 고유한 패키지의 이름을 지정합니다. 이름에 버전 번호를 포함할 수 있습니다(예: `PackageName_1.0.0`). 이 예의 숫자는 패키지를 고유하게 만드는 데만 사용되며 패키지를 다른 패키지보다 최신 버전 또는 이전 버전으로 간주하도록 지정하기 위한 것은 아닙니다.
 
-그런 다음 아래 설명에 따라 `New-GuestConfigurationPolicy` cmdlet에 사용된 매개 변수를 업데이트합니다.
+둘째, 다음 각 설명에 따라 `New-GuestConfigurationPolicy` cmdlet에 사용된 매개 변수를 업데이트합니다.
 
 - **버전**: `New-GuestConfigurationPolicy` cmdlet을 실행할 때 현재 게시된 것보다 큰 버전 번호를 지정해야 합니다.
 - **contentUri**: `New-GuestConfigurationPolicy` cmdlet을 실행할 때 패키지의 위치에 대한 URI를 지정해야 합니다. 패키지 버전을 파일 이름에 포함하면 각 릴리스에서 속성의 값이 변경됩니다.
@@ -471,5 +471,5 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ## <a name="next-steps"></a>다음 단계
 
 - [게스트 구성](../concepts/guest-configuration.md)을 사용하여 VM을 감사하는 방법을 알아봅니다.
-- [프로그래밍 방식으로 정책을 만드는](./programmatically-create.md) 방법을 이해합니다.
+- [프로그래밍 방식으로 정책을 생성](./programmatically-create.md)하는 방법을 이해합니다.
 - [규정 준수 데이터를 가져오는](./get-compliance-data.md) 방법을 알아봅니다.

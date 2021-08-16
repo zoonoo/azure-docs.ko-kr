@@ -1,33 +1,31 @@
 ---
-title: Azure Service Bus에 대 한 가상 네트워크 서비스 끝점 구성
-description: 이 문서에서는 가상 네트워크에 ServiceBus 서비스 끝점을 추가 하는 방법에 대 한 정보를 제공 합니다.
+title: Azure Service Bus에 대한 가상 네트워크 서비스 엔드포인트 구성
+description: 이 문서에서는 가상 네트워크에 Microsoft.ServiceBus 서비스 엔드포인트를 추가하는 방법에 대한 정보를 제공합니다.
 ms.topic: article
-ms.date: 02/12/2021
+ms.date: 03/29/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2e00c9429ab3e39f95bc5ce6df072a99e4f02b86
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 9b5aba6c5ad4e1e6d0c90b99ebcdf441bb35cc39
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100559573"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960455"
 ---
-# <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>특정 가상 네트워크에서 Azure Service Bus 네임 스페이스에 대 한 액세스 허용
-Service Bus와 [VNet (Virtual Network) 서비스 끝점][vnet-sep] 을 통합 하면 가상 네트워크에 바인딩된 가상 머신과 같은 워크 로드에서 메시지 기능에 안전 하 게 액세스할 수 있으며, 두 쪽 모두에서 네트워크 트래픽 경로를 안전 하 게 보호할 수 있습니다.
+# <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>특정 가상 네트워크에서 Azure Service Bus 네임스페이스에 대한 액세스 허용
+[VNet(Virtual Network) 서비스 엔드포인트][vnet-sep]와 Service Bus를 통합하면 양쪽 끝에서 네트워크 트래픽 경로를 보호하여 가상 네트워크에 바인딩된 가상 머신과 같은 워크로드의 메시징 기능에 대한 액세스를 보호할 수 있습니다.
 
-하나 이상의 가상 네트워크 서브넷 서비스 끝점에 바인딩되도록 구성 된 경우 해당 Service Bus 네임 스페이스는 더 이상 권한이 있는 가상 네트워크 및 선택적으로 특정 인터넷 IP 주소 로부터의 트래픽을 허용 하지 않습니다. 가상 네트워크 큐브 뷰에서 Service Bus 네임스페이스를 서비스 엔드포인트에 바인딩하면 가상 네트워크 서브넷에서 메시징 서비스로 격리된 네트워킹 터널을 구성합니다.
+적어도 하나의 가상 네트워크 서브넷 서비스 엔드포인트에 바인딩되도록 구성하면 해당하는 Service Bus 네임스페이스는 권한이 부여된 가상 네트워크 및 필요한 경우 특정 인터넷 IP 주소를 제외한 곳의 트래픽을 더 이상 허용하지 않습니다. 가상 네트워크 큐브 뷰에서 Service Bus 네임스페이스를 서비스 엔드포인트에 바인딩하면 가상 네트워크 서브넷에서 메시징 서비스로 격리된 네트워킹 터널을 구성합니다.
 
 메시징 서비스 엔드포인트의 관찰 가능한 네트워크 주소가 공용 IP 범위에 있음에도 서브넷에 바인딩된 워크로드와 해당하는 Service Bus 네임스페이스 간에 격리된 프라이빗 관계가 생성됩니다.
 
-Virtual Networks 통합을 구현하면 다른 Azure 서비스가 Service Bus와 상호 작용하지 않도록 방지할 수 있습니다. 단, 네트워크 서비스 끝점을 사용 하도록 설정한 경우에도 신뢰할 수 있는 특정 서비스의 리소스 Service Bus에 대 한 액세스를 허용할 수 있습니다. 신뢰할 수 있는 서비스 목록은 [신뢰할 수 있는 서비스](#trusted-microsoft-services)를 참조 하세요.
+## <a name="important-points"></a>중요 사항
+- Virtual Network는 [프리미엄 계층](service-bus-premium-messaging.md) Service Bus 네임스페이스에서만 지원됩니다. Service Bus에서 VNet 서비스 엔드포인트를 사용할 경우 표준 및 프리미엄 계층 Service Bus 네임스페이스를 혼합하는 애플리케이션에서는 이 엔드포인트를 사용하지 않아야 합니다. 표준 계층은 VNet을 지원하지 않기 때문입니다. 엔드포인트는 프리미엄 계층 네임스페이스로만 제한됩니다.
+- Virtual Networks 통합을 구현하면 다른 Azure 서비스가 Service Bus와 상호 작용하지 않도록 방지할 수 있습니다. 예외적으로 네트워크 서비스 엔드포인트가 사용되는 경우에도 특정 **신뢰할 수 있는 서비스** 에서 Service Bus 리소스에 대한 액세스를 허용할 수 있습니다. 신뢰할 수 있는 서비스 목록은 [신뢰할 수 있는 서비스](#trusted-microsoft-services)를 참조하세요.
 
-다음 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
-- Azure App Service
-- Azure 기능
-
-Virtual Network는 [프리미엄 계층](service-bus-premium-messaging.md) Service Bus 네임스페이스에서만 지원됩니다. Service Bus에서 VNet 서비스 끝점을 사용 하는 경우 표준 및 프리미엄 계층 Service Bus 네임 스페이스를 혼합 하는 응용 프로그램에서 이러한 끝점을 사용 하도록 설정 하면 안 됩니다. 표준 계층은 Vnet를 지원 하지 않습니다. 끝점은 프리미엄 계층 네임 스페이스로만 제한 됩니다.
-
-> [!IMPORTANT]
-> 가상 네트워크의 지정 된 IP 주소 또는 서브넷 에서만 트래픽을 허용 하는 네임 스페이스에 대 한 IP 규칙 또는 가상 네트워크 규칙을 하나 이상 지정 합니다. IP 및 가상 네트워크 규칙이 없는 경우 액세스 키를 사용 하 여 공용 인터넷을 통해 네임 스페이스에 액세스할 수 있습니다.  
+    다음 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
+    - Azure App Service
+    - Azure 기능
+- 지정된 IP 주소 또는 가상 네트워크의 서브넷에서만 트래픽을 허용하도록 네임스페이스에 대해 **하나 이상의 IP 규칙 또는 가상 네트워크 규칙** 을 지정합니다. IP 및 가상 네트워크 규칙이 없는 경우 액세스 키를 사용하여 퍼블릭 인터넷을 통해 네임스페이스에 액세스할 수 있습니다.  
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet 통합에서 사용하도록 설정한 고급 보안 시나리오 
 
@@ -41,60 +39,60 @@ TCP/IP에서 HTTPS를 수행하는 경로를 비롯한 구획 간의 즉시 IP �
 
 *가상 네트워크 규칙* 은 Azure Service Bus 서버가 특정 가상 네트워크 서브넷의 연결을 수락할지 여부를 제어하는 방화벽 보안 기능입니다.
 
-Virtual Networks에 Service Bus를 바인딩하는 작업은 2단계 프로세스입니다. 먼저 Virtual Network 서브넷에 **Virtual Network 서비스 끝점** 을 만들고 [서비스 끝점 개요][vnet-sep]에 설명 된 대로 **ServiceBus** 에 대해 사용 하도록 설정 해야 합니다. 서비스 엔드포인트를 추가했다면 여기에 **가상 네트워크 규칙** 을 사용하여 Service Bus 네임스페이스를 바인딩합니다.
+Virtual Networks에 Service Bus를 바인딩하는 작업은 2단계 프로세스입니다. 먼저 Virtual Network 서브넷에서 **Virtual Network 서비스 엔드포인트** 를 만들고 [서비스 엔드포인트 개요][vnet-sep]에서 설명한 대로 **Microsoft.ServiceBus** 에 사용하도록 설정해야 합니다. 서비스 엔드포인트를 추가했다면 여기에 **가상 네트워크 규칙** 을 사용하여 Service Bus 네임스페이스를 바인딩합니다.
 
 가상 네트워크 규칙은 가상 네트워크 서브넷을 사용하는 Service Bus 네임스페이스의 연결입니다. 규칙이 있는 한 서브넷에 바인딩된 모든 워크로드는 Service Bus 네임스페이스에 대한 액세스 권한이 부여됩니다. Service Bus 자체는 아웃바운드 연결을 설정하지 않고, 액세스 권한을 가져올 필요도 없습니다. 따라서 이 규칙을 사용하여 서브넷에 대한 액세스 권한이 부여되지 않습니다.
 
 > [!NOTE]
-> 네트워크 서비스 끝점은 가상 네트워크에서 실행 되는 응용 프로그램에 Service Bus 네임 스페이스에 대 한 액세스를 제공 합니다. 가상 네트워크는 끝점의 연결을 제어 하지만 Service Bus 엔터티 (큐, 토픽 또는 구독)에서 수행할 수 있는 작업은 제공 하지 않습니다. Azure AD (Azure Active Directory)를 사용 하 여 응용 프로그램이 네임 스페이스 및 해당 엔터티에 대해 수행할 수 있는 작업에 권한을 부여 합니다. 자세한 내용은 [Service Bus 엔터티에 액세스 하기 위해 AZURE AD를 사용 하 여 응용 프로그램 인증 및 권한 부여](authenticate-application.md)를 참조 하세요.
+> 네트워크 서비스 엔드포인트는 가상 네트워크에서 실행되는 애플리케이션에 Service Bus 네임스페이스에 대한 액세스를 제공합니다. 가상 네트워크는 엔드포인트의 연결 가능성을 제어하지만 Service Bus 엔터티(큐, 토픽 또는 구독)에서 수행할 수 있는 작업은 제어하지 않습니다. Azure AD(Azure Active Directory)를 사용하여 애플리케이션이 네임스페이스 및 해당 엔터티에서 수행할 수 있는 작업에 권한을 부여합니다. 자세한 내용은 [Azure Service Bus 엔터티에 액세스하기 위해 Azure Active Directory를 사용하여 애플리케이션 인증 및 권한 부여](authenticate-application.md)를 참조하세요.
 
 
 ## <a name="use-azure-portal"></a>Azure Portal 사용
-이 섹션에서는 Azure Portal를 사용 하 여 가상 네트워크 서비스 끝점을 추가 하는 방법을 보여 줍니다. 액세스를 제한 하려면이 Event Hubs 네임 스페이스에 대 한 가상 네트워크 서비스 끝점을 통합 해야 합니다.
+이 섹션에서는 Azure Portal을 사용하여 가상 네트워크 서비스 엔드포인트를 추가하는 방법을 보여 줍니다. 액세스를 제한하려면 이 Event Hubs 네임스페이스에 대한 가상 네트워크 서비스 엔드포인트를 통합해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **Service Bus 네임스페이스** 로 이동합니다.
-2. 왼쪽 메뉴의 **설정** 에서 **네트워킹** 옵션을 선택 합니다.  
+2. 왼쪽 메뉴의 **설정** 아래에서 **네트워킹** 옵션을 선택합니다.  
 
     > [!NOTE]
-    > **프리미엄** 네임 스페이스에 대 한 **네트워킹** 탭만 표시 됩니다.  
+    > **프리미엄** 네임스페이스에 대해서만 **네트워킹** 탭이 표시됩니다.  
     
-    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="네트워킹 페이지-기본값" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="네트워킹 페이지 - 기본값" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
     
-    **모든 네트워크** 옵션을 선택 하는 경우 Service Bus 네임 스페이스는 모든 IP 주소의 연결을 허용 합니다. 이러한 기본 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다. 
+    **모든 네트워크** 옵션을 선택하면 Service Bus 네임스페이스가 모든 IP 주소의 연결을 허용합니다. 이러한 기본 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다. 
 
     ![방화벽 - 모든 네트워크 옵션 선택됨](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
-2. 특정 가상 네트워크에 대 한 액세스를 제한 하려면 **선택한 네트워크** 옵션이 선택 되어 있지 않은 경우 선택 합니다.
-1. 페이지의 **Virtual Network** 섹션에서 **+ 기존 가상 네트워크 추가** 를 선택 합니다. 
+2. 특정 가상 네트워크에 대한 액세스를 제한하려면 아직 선택하지 않은 경우 **선택한 네트워크** 옵션을 선택합니다.
+1. 페이지의 **가상 네트워크** 섹션에서 **+기존 가상 네트워크 추가** 를 선택합니다. 
 
     ![기존 가상 네트워크 추가](./media/service-endpoints/add-vnet-menu.png)
 
     >[!WARNING]
-    > **선택한 네트워크** 옵션을 선택 하 고이 페이지에 하나 이상의 IP 방화벽 규칙 또는 가상 네트워크를 추가 하지 않는 경우 액세스 키를 사용 하 여 공용 인터넷을 통해 네임 스페이스에 액세스할 수 있습니다.
-3. 가상 네트워크 목록에서 가상 네트워크를 선택 하 고 **서브넷** 을 선택 합니다. 목록에 가상 네트워크를 추가 하기 전에 서비스 끝점을 사용 하도록 설정 해야 합니다. 서비스 끝점이 사용 되도록 설정 되지 않은 경우 포털에서 사용 하도록 설정 하 라는 메시지를 표시 합니다.
+    > **선택한 네트워크** 옵션을 선택하고 이 페이지에 하나 이상의 IP 방화벽 규칙이나 가상 네트워크를 추가하지 않으면 액세스 키를 사용하여 퍼블릭 인터넷을 통해 네임스페이스에 액세스할 수 있습니다.
+3. 가상 네트워크 목록에서 가상 네트워크를 선택하고 **서브넷** 을 선택합니다. 가상 네트워크 목록에 추가하기 전에 서비스 엔드포인트를 사용하도록 설정해야 합니다. 서비스 엔드포인트를 사용하지 않는 경우 포털에서는 설정하라는 메시지가 나타납니다.
    
    ![서브넷 선택](./media/service-endpoints/select-subnet.png)
 
-4. **ServiceBus** 에 대 한 서브넷에 대 한 서비스 끝점을 사용 하도록 설정한 후 다음과 같은 성공적인 메시지가 표시 됩니다. 페이지 맨 아래에서 **추가** 를 선택 하 여 네트워크를 추가 합니다. 
+4. 서브넷의 서비스 엔드포인트를 **Microsoft.ServiceBus** 에 사용하도록 설정하고 나면 다음과 같은 성공 메시지가 표시되어야 합니다. 페이지 맨 아래에서 **추가** 를 선택하여 네트워크를 추가합니다. 
 
     ![서브넷 선택 및 엔드포인트 설정](./media/service-endpoints/subnet-service-endpoint-enabled.png)
 
     > [!NOTE]
-    > 서비스 끝점을 사용 하도록 설정할 수 없는 경우 리소스 관리자 템플릿을 사용 하 여 누락 된 가상 네트워크 서비스 끝점을 무시할 수 있습니다. 이 기능은 포털에서 사용할 수 없습니다.
-6. 도구 모음에서 **저장** 을 선택하여 설정을 저장합니다. 확인이 포털 알림에서 표시 될 때까지 몇 분 정도 기다립니다. **저장** 단추를 사용 하지 않도록 설정 해야 합니다. 
+    > 서비스 엔드포인트를 사용하도록 설정할 수 없는 경우 Resource Manager 템플릿을 사용하여 누락된 가상 네트워크 서비스 엔드포인트를 무시할 수 있습니다. 이 기능은 포털에서 사용할 수 없습니다.
+6. 도구 모음에서 **저장** 을 선택하여 설정을 저장합니다. 포털 알림에 확인이 표시될 때까지 몇 분 정도 기다립니다. **저장** 단추가 사용하지 않도록 설정됩니다. 
 
     ![네트워크 저장](./media/service-endpoints/save-vnet.png)
 
     > [!NOTE]
-    > 특정 IP 주소 또는 범위에서 액세스를 허용 하는 방법에 대 한 지침은 [특정 ip 주소 또는 범위에서 액세스 허용](service-bus-ip-filtering.md)을 참조 하세요.
+    > 특정 IP 주소나 범위에서 액세스를 허용하는 방법에 관한 지침은 [특정 IP 주소 또는 범위에서 액세스 허용](service-bus-ip-filtering.md)을 참조하세요.
 
 [!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용
-다음 샘플 리소스 관리자 템플릿에서는 기존 Service Bus 네임 스페이스에 가상 네트워크 규칙을 추가 합니다. 네트워크 규칙의 경우 가상 네트워크에 있는 서브넷의 ID를 지정 합니다. 
+다음과 같은 샘플 Resource Manager 템플릿을 사용하면 기존 Service Bus 네임스페이스에 가상 네트워크 규칙을 추가할 수 있습니다. 네트워크 규칙의 경우 가상 네트워크에 있는 서브넷의 ID를 지정합니다. 
 
-ID는 가상 네트워크 서브넷의 정규화 된 리소스 관리자 경로입니다. 예를 들어 `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` 가상 네트워크의 기본 서브넷에 대해입니다.
+ID는 가상 네트워크 서브넷의 정규화된 Resource Manager 경로입니다. 예를 들어 가상 네트워크의 기본 서브넷인 경우 `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default`입니다.
 
-가상 네트워크 또는 방화벽 규칙을 추가할 때의 값을 `defaultAction` 로 설정 `Deny` 합니다.
+가상 네트워크나 방화벽 규칙을 추가할 `defaultAction`의 값을 `Deny`로 설정합니다.
 
 템플릿:
 
@@ -200,7 +198,7 @@ ID는 가상 네트워크 서브넷의 정규화 된 리소스 관리자 경로�
 템플릿을 배포하려면 [Azure Resource Manager][lnk-deploy]에 대한 지침을 따르세요.
 
 > [!IMPORTANT]
-> IP 및 가상 네트워크 규칙이 없는 경우를로 설정 하더라도 모든 트래픽이 네임 스페이스로 흐릅니다 `defaultAction` `deny` .  공용 인터넷을 통해 네임 스페이스에 액세스할 수 있습니다 (액세스 키 사용). 가상 네트워크의 지정 된 IP 주소 또는 서브넷 에서만 트래픽을 허용 하는 네임 스페이스에 대 한 IP 규칙 또는 가상 네트워크 규칙을 하나 이상 지정 합니다.  
+> IP와 가상 네트워크 규칙이 없으면 `defaultAction`을 `deny`로 설정하더라도 모든 트래픽 흐름이 네임스페이스로 이동합니다.  퍼블릭 인터넷을 통해 네임스페이스에 액세스할 수 있습니다(액세스 키 사용). 지정된 IP 주소 또는 가상 네트워크의 서브넷에서만 트래픽을 허용하도록 네임스페이스에 대해 하나 이상의 IP 규칙 또는 가상 네트워크 규칙을 지정합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

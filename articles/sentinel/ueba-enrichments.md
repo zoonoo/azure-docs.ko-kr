@@ -13,30 +13,68 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/04/2021
+ms.date: 05/10/2021
 ms.author: yelevin
-ms.openlocfilehash: daba8fc1f645b51dc8668c806be63744b6ae0842
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f782228866d73c84409f394a014bad519d988a9
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97901728"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809637"
 ---
 # <a name="azure-sentinel-ueba-enrichments-reference"></a>Azure Sentinel UEBA 보강 참조
 
-이 표는 보안 인시던트 조사에 집중하고 강화하는 데 사용할 수 있는 엔터티 보강을 나열하고 설명합니다.
+이 문서에서는 **로그** 에 있는 Azure Sentinel **BehaviorAnalytics** 테이블([엔터티 세부 정보 페이지](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages)에 언급됨)에 대해 설명하며 해당 테이블의 엔터티 보강 필드에 대한 세부 정보를 제공합니다. 이 내용은 보안 인시던트 조사에 집중하고 강화하는 데 사용할 수 있습니다.
 
-처음 두 표, **사용자 인사이트** 및 **디바이스 인사이트** 에는 Active Directory/Azure AD 및 Microsoft 위협 인텔리전스 원본의 엔터티 정보가 포함되어 있습니다.
+BehaviorAnalytics 테이블의 다음 세 가지 동적 필드는 [아래 표](#entity-enrichments-dynamic-fields)에 설명되어 있습니다.
 
-<a name="baseline-explained"></a>**활동 인사이트 표** 아래의 나머지 표에는 Azure Sentinel의 엔터티 동작 분석에 의해 구축된 동작 프로필을 기반으로 하는 엔터티 정보가 포함되어 있습니다. 활동은 사용될 때마다 동적으로 컴파일되는 기준에 대해 분석됩니다. 각 활동에는 이 동적 기준이 파생되는 정의된 되돌아보기 기간이 있습니다. 이 기간은 이 표의 [**기준**](#activity-insights-tables) 열에 지정됩니다.
+[UsersInsights](#usersinsights-field) 및 [DevicesInsights](#devicesinsights-field) 필드에는 Active Directory/Azure AD 및 Microsoft 위협 인텔리전스 원본의 엔터티 정보가 포함되어 있습니다.
+
+[ActivityInsights](#activityinsights-field) 필드에는 Azure Sentinel의 엔터티 동작 분석에 의해 구축된 동작 프로필을 기반으로 하는 엔터티 정보가 포함됩니다. 
+
+<a name="baseline-explained"></a>사용자 활동은 사용될 때마다 동적으로 컴파일되는 기준에 따라 분석됩니다. 각 활동에는 동적 기준이 파생되는 정의된 되돌아보기 기간이 있습니다. 되돌아보기 기간은 이 표의 [**기준**](#activityinsights-field) 열에 지정되어 있습니다.
 
 > [!NOTE] 
-> 세 표 모두 **보강 이름** 필드에는 두 행의 정보가 표시됩니다. 첫 번째는 보강의 "식별 이름"(**굵게**)입니다. 두 번째는 [**행동 분석 표**](identify-threats-with-entity-behavior-analytics.md#data-schema)에 저장된 보강의 필드 이름 *(기울임꼴 및 괄호)* 입니다.
+> 모든 [엔터티 보강 필드](#entity-enrichments-dynamic-fields) 표의 **보강 이름** 열에는 두 행의 정보가 표시됩니다. 
+> 
+> - 첫 번째는 보강의 "식별 이름"(**굵게**)입니다.
+> - 두 번째는 [**행동 분석 표**](#behavioranalytics-table)에 저장된 보강의 필드 이름 *(기울임꼴 및 괄호)* 입니다.
 
-## <a name="user-insights-table"></a>사용자 인사이트 표
+## <a name="behavioranalytics-table"></a>BehaviorAnalytics 테이블
+
+다음 표에서는 Azure Sentinel의 각 [엔터티 세부 정보 페이지](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages)에 표시되는 동작 분석 데이터를 설명합니다.
+
+| 필드                     | Type | Description                                                  |
+|---------------------------|------|--------------------------------------------------------------|
+| **TenantId**              | 문자열 | 테넌트의 고유한 ID 번호                             |
+| **SourceRecordId**        | 문자열 | EBA 이벤트의 고유한 ID 번호                          |
+| **TimeGenerated**         | Datetime | 활동 발생의 타임스탬프                   |
+| **TimeProcessed**         | Datetime | EBA 엔진에서 활동을 처리하는 타임스탬프 |
+| **ActivityType**          | 문자열 | 활동의 상위 수준 범주                        |
+| **ActionType**            | 문자열 | 활동의 정규화된 이름                            |
+| **UserName**              | 문자열 | 활동을 시작한 사용자의 사용자 이름           |
+| **UserPrincipalName**     | 문자열 | 활동을 시작한 사용자의 전체 사용자 이름      |
+| **EventSource**           | 문자열 | 원래 이벤트를 제공한 데이터 원본               |
+| **SourceIPAddress**       | 문자열 | 활동이 시작된 IP 주소               |
+| **SourceIPLocation** | 문자열 | 활동이 시작된 국가이며, IP 주소에서 보강됨 |
+| **SourceDevice**          | 문자열 | 활동을 시작한 디바이스의 호스트 이름         |
+| **DestinationIPAddress**  | 문자열 | 활동 대상의 IP 주소                   |
+| **DestinationIPLocation** | 문자열 | 활동 대상의 국가이며, IP 주소에서 보강됨 |
+| **DestinationDevice**     | 문자열 | 대상 디바이스의 이름                                  |
+| **UsersInsights**         | 동적 | 참여하는 사용자의 상황별 보강([아래 세부 정보](#usersinsights-field)) |
+| **DevicesInsights**       | 동적 | 참여하는 디바이스의 상황별 보강([아래 세부 정보](#devicesinsights-field)) |
+| **ActivityInsights**      | 동적 | 프로파일링을 기반으로 하는 활동의 상황별 분석([아래 세부 정보](#activityinsights-field)) |
+| **InvestigationPriority** | int | 변칙 점수, 0-10 사이(0=무해, 10=매우 비정상)   |
+|
+
+## <a name="entity-enrichments-dynamic-fields"></a>엔터티 보강 동적 필드
+
+### <a name="usersinsights-field"></a>UsersInsights 필드
+
+다음 표에서는 BehaviorAnalytics 테이블의 **UsersInsights** 동적 필드에 제공되는 보강에 대해 설명합니다.
 
 | 보강 이름 | Description | 샘플 값 |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **계정 표시 이름**<br>*(AccountDisplayName)* | 사용자의 계정 표시 이름입니다. | 관리자, Hayden Cook |
 | **계정 도메인**<br>*(AccountDomain)* | 사용자의 계정 도메인 이름입니다. |  |
 | **계정 개체 ID**<br>*(AccountObjectID)* | 사용자의 계정 개체 ID입니다. | a58df659-5cab-446c-9dd0-5a3af20ce1c2 |
@@ -47,10 +85,12 @@ ms.locfileid: "97901728"
 | **온-프레미스 SID**<br>*(OnPremisesSID)* | 작업과 관련된 사용자의 온-프레미스 SID입니다. | S-1-5-21-1112946627-1321165628-2437342228-1103 |
 |
 
-## <a name="device-insights-table"></a>디바이스 인사이트 표
+### <a name="devicesinsights-field"></a>DevicesInsights 필드
+
+다음 표에서는 BehaviorAnalytics 테이블의 **DevicesInsights** 동적 필드에 제공되는 보강에 대해 설명합니다.
 
 | 보강 이름 | Description | 샘플 값 |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **브라우저**<br>*(Browser)* | 작업에 사용되는 브라우저입니다. | Edge, Chrome |
 | **디바이스 패밀리**<br>*(DeviceFamily)* | 작업에 사용되는 디바이스 패밀리입니다. | Windows |
 | **디바이스 유형**<br>*(DeviceType)* | 작업에 사용되는 클라이언트 디바이스 유형입니다. | 데스크톱 |
@@ -62,7 +102,9 @@ ms.locfileid: "97901728"
 | **사용자 에이전트 패밀리**<br>*(UserAgentFamily)* | 작업에 사용되는 사용자 에이전트 패밀리입니다. | Chrome, Edge, Firefox |
 |
 
-## <a name="activity-insights-tables"></a>활동 인사이트 표
+### <a name="activityinsights-field"></a>ActivityInsights 필드
+
+다음 표에서는 BehaviorAnalytics 테이블의 **ActivityInsights** 동적 필드에 제공되는 보강에 대해 설명합니다.
 
 #### <a name="action-performed"></a>수행한 작업
 
@@ -162,3 +204,10 @@ ms.locfileid: "97901728"
 | **비정상적인 수의 디바이스 삭제**<br>*(UnusualNumberOfDevicesDeleted)* | 5 | 사용자가 비정상적인 수의 디바이스를 삭제했습니다. | True, False |
 | **비정상적인 수의 사용자가 그룹에 추가됨**<br>*(UnusualNumberOfUsersAddedToGroup)* | 5 | 비정상적인 수의 사용자가 그룹에 추가되었습니다. | True, False |
 |
+
+## <a name="next-steps"></a>다음 단계
+
+이 문서에서는 Azure Sentinel 엔터티 동작 분석 테이블 스키마에 대해 설명했습니다.
+
+- [엔터티 동작 분석](identify-threats-with-entity-behavior-analytics.md)에 대해 자세히 알아봅니다.
+- 조사에 [사용할 UEBA를 준비](investigate-with-ueba.md)합니다.

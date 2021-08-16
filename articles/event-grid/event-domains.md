@@ -3,12 +3,12 @@ title: Azure Event Grid의 이벤트 도메인
 description: 이 문서에서는 이벤트 도메인을 사용하여 다양한 비즈니스 조직, 고객 또는 애플리케이션에 대한 사용자 지정 이벤트의 흐름을 관리하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 04/13/2021
-ms.openlocfilehash: 32c06ac55f667ec9807c7952127c2cf0f0384024
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 78a785d3f1ee0431b11e8c14c3e48f4a156b5fd4
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374712"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537788"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Event Grid 토픽을 관리하는 이벤트 도메인 이해
 
@@ -45,7 +45,7 @@ Event Grid에는 Azure RBAC를 이벤트 도메인 작업에 보다 쉽게 적�
 이벤트 도메인 내에서 토픽의 이벤트를 구독하는 것은 [사용자 지정 토픽에 이벤트 구독 만들기](./custom-event-quickstart.md) 또는 Azure 서비스에서 이벤트를 구독하는 것과 동일합니다.
 
 > [!IMPORTANT]
-> 도메인 토픽은 Event Grid에서 **auto-managed** 로 간주됩니다. 도메인 토픽을 만들지 않고 도메인 토픽 범위에서 이벤트 구독을 만들 수 있습니다. 이 경우 Event Grid는 도메인 토픽을 사용자 대신 자동으로 만듭니다. 물론 도메인 토픽을 수동으로 만들도록 선택할 수도 있습니다. 이 동작은 많은 수의 도메인 토픽을 처리할 때 걱정할 리소스를 하나 더 줄여 줍니다. 도메인 토픽에 대한 마지막 구독이 삭제되면 도메인 토픽도 수동으로 만들어졌든 자동으로 생성되었든 삭제됩니다. 
+> 도메인 토픽은 Event Grid에서 **auto-managed** 로 간주됩니다. 도메인 토픽을 만들지 않고도 [도메인 범위](#domain-scope-subscriptions)에서 이벤트 구독을 만들 수 있습니다. 이 경우 Event Grid는 도메인 토픽을 사용자 대신 자동으로 만듭니다. 물론 도메인 토픽을 수동으로 만들도록 선택할 수도 있습니다. 이 동작은 많은 수의 도메인 토픽을 처리할 때 걱정할 리소스를 하나 더 줄여 줍니다. 도메인 토픽에 대한 마지막 구독이 삭제되면 도메인 토픽도 수동으로 만들어졌든 자동으로 생성되었든 삭제됩니다. 
 
 ### <a name="domain-scope-subscriptions"></a>도메인 범위 구독
 

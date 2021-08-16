@@ -9,23 +9,28 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 05/27/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ea087513cf628c42362a295c51913b0a31c6db3f
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 6f344496bab8f2864c8ccbdff4f98b57e1d6f432
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285703"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613261"
 ---
-# <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-active-directory-domain-services-managed-domain"></a>약한 암호화 및 암호 해시 동기화를 사용하지 않도록 설정하여 Azure Active Directory Domain Services 관리되는 도메인 보호
+# <a name="harden-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리되는 도메인 확정
 
 기본적으로 Azure Active Directory Domain Services(Azure AD DS)는 NTLM v1및 TLS v1과 같은 암호를 사용할 수 있도록 합니다. 이러한 암호화는 일부 레거시 애플리케이션에 필요할 수 있지만 약한 암호화로 간주되며 필요하지 않은 경우 사용하지 않도록 설정할 수 있습니다. Azure AD Connect를 사용하여 온-프레미스 하이브리드 연결을 사용하는 경우 NTLM 암호 해시의 동기화를 사용하지 않도록 설정할 수도 있습니다.
 
-이 문서에서는 NTLM v1및 TLS v1암호화를 사용하지 않도록 설정하고 NTLM 암호 해시 동기화를 사용하지 않도록 설정하는 방법을 보여줍니다.
+이 문서에서는 다음과 같은 설정을 사용하여 관리되는 도메인을 강화하는 방법을 보여 줍니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+- NTLM v1 및 TLS v1 암호화 사용 안 함
+- NTLM 암호 해시 동기화 사용 안 함
+- RC4 암호화를 사용하여 암호를 변경하는 기능 사용 안 함
+- Kerberos 아머링(armoring) 사용
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음 리소스가 필요합니다.
 
@@ -36,20 +41,31 @@ ms.locfileid: "108285703"
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 [Azure Active Directory Domain Services 관리형 도메인을 만들고 구성합니다][create-azure-ad-ds-instance].
 
-## <a name="use-security-settings-to-disable-weak-ciphers-and-ntlm-password-hash-sync"></a>보안 설정을 사용하여 약한 암호화 및 NTLM 암호 해시 동기화를 사용하지 않도록 설정
+## <a name="use-security-settings-to-harden-your-domain"></a>보안 설정을 사용하여 도메인 강화
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Azure AD Domain Services** 를 검색하여 선택합니다.
 1. 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
 1. 왼쪽에서 **보안 설정** 을 선택합니다.
-1. 다음 설정에 대해 **사용 안 함** 을 클릭합니다.
+1. 다음 설정에 대해 **사용** 또는 **사용 안 함** 을 클릭합니다.
    - **TLS 1.2 전용 모드**
    - **NTLM 인증**
    - **온-프레미스에서 NTLM 암호 동기화**
+   - **RC4 암호화**
+   - **Kerberos armoring**
 
    ![약한 암호화 및 NTLM 암호 해시 동기화를 사용하지 않도록 설정하는 보안 설정의 스크린샷](media/secure-your-domain/security-settings.png)
 
-## <a name="use-powershell-to-disable-weak-ciphers-and-ntlm-password-hash-sync"></a>PowerShell을 사용하여 약한 암호화 및 NTLM 암호 해시 동기화를 사용하지 않도록 설정
+## <a name="assign-azure-policy-compliance-for-tls-12-usage"></a>TLS 1.2 사용에 대한 Azure Policy 규정 준수 할당
+
+**보안 설정** 외에도 Microsoft Azure Policy에는 TLS 1.2 사용을 적용하는 **규정 준수** 설정이 있습니다. 정책은 할당될 때까지 영향을 주지 않습니다. 정책이 할당되면 **규정 준수** 에 나타납니다.
+
+- 할당이 **감사** 인 경우 규정 준수는 Azure AD DS 인스턴스가 규정을 준수하는지 보고합니다.
+- 할당이 **거부** 인 경우 규정 준수는 TLS 1.2가 필요하지 않으면 Azure AD DS 인스턴스가 생성되지 않도록 하고 TLS 1.2가 필요할 때까지 Azure AD DS 인스턴스에 대한 업데이트를 방지합니다.
+
+![규정 준수 설정 스크린샷](media/secure-your-domain/policy-tls.png)
+
+## <a name="use-powershell-to-harden-your-domain"></a>PowerShell을 사용하여 도메인 강화
 
 필요한 경우 [Azure PowerShell을 설치 및 구성](/powershell/azure/install-az-ps)하세요. [Connect-AzAccount][Connect-AzAccount] cmdlet을 사용하여 Azure 구독에 로그인합니다. 
 
@@ -76,13 +92,13 @@ $DomainServicesResource = Get-AzResource -ResourceType "Microsoft.AAD/DomainServ
 > Azure AD DS 관리되는 도메인에서 NTLM 암호 해시 동기화를 사용하지 않도록 설정한 경우 사용자 및 서비스 계정은 LDAP 단순 바인딩을 수행할 수 없습니다. LDAP 단순 바인딩을 수행해야하는 경우 다음 명령에서 *"SyncNtlmPasswords"="Disabled";* 보안 구성옵션을 설정하지 마십시오.
 
 ```powershell
-$securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPasswords"="Disabled";"TlsV1"="Disabled"}}
+$securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPasswords"="Disabled";"TlsV1"="Disabled";"KerberosRc4Encryption"="Disabled";"KerberosArmoring"="Disabled"}}
 ```
 
 마지막으로 [Set-AzResource][Set-AzResource] cmdlet을 사용하여 관리되는 도메인에 정의된 보안 설정을 적용합니다. 첫 번째 단계에서 Azure AD DS 리소스를 지정하고 이전 단계의 보안 설정을 지정합니다.
 
 ```powershell
-Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
+Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -ApiVersion “2021-03-01” -Verbose -Force
 ```
 
 보안 설정이 관리되는 도메인에 적용되는 데 몇 분 정도 걸립니다.

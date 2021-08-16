@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2e77bbd6e82d0d4a48b72e13e60b60608f2d7674
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68186c5294c0a3a2f376a93ef1902307780f48bb
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419594"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538288"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>AI 보강 시나리오의 이미지에서 정보를 처리하고 추출하는 방법
 
@@ -90,7 +90,7 @@ Azure Cognitive Search에는 이미지 및 이미지 파일에서 작동하는 �
 
 ## <a name="image-related-skills"></a>이미지 관련 기술
 
-입력으로 이미지를 사용하는 [OCR](cognitive-search-skill-ocr.md) 및 [이미지 분석](cognitive-search-skill-image-analysis.md)이라는 두 개의 기본 제공 인식 기술이 있습니다. 
+이미지를 입력으로 허용하려면 사용자 지정 기술 또는 기본 제공 기술을 사용할 수 있습니다. 기본 제공 기술에는 [OCR](cognitive-search-skill-ocr.md) 및 [이미지 분석](cognitive-search-skill-image-analysis.md)이 포함됩니다. 
 
 현재 이러한 기술은 문서 해독 단계에서 생성된 이미지에서만 작동합니다. 따라서 지원되는 입력은 `"/document/normalized_images"`입니다.
 
@@ -102,6 +102,21 @@ Azure Cognitive Search에는 이미지 및 이미지 파일에서 작동하는 �
 
 [OCR 기술](cognitive-search-skill-ocr.md)은 JPG, PNG 및 비트맵 이미지와 같은 파일에서 텍스트를 추출합니다. 레이아웃 정보뿐만 아니라 텍스트도 추출할 수 있습니다. 레이아웃 정보는 식별된 문자열 각각에 대한 경계 상자를 제공합니다.
 
+### <a name="custom-skills"></a>사용자 지정 기술
+
+이미지를 사용자 지정 기술로 전달하고 반환할 수도 있습니다. 기술 세트는 사용자 지정 기술에 전달되는 이미지를 base64로 인코딩합니다. 사용자 지정 기술 내에서 이미지를 사용하려면 `/document/normalized_images/*/data`를 사용자 지정 기술에 대한 입력으로 설정합니다. 사용자 지정 기술 코드 내에서, 문자열을 이미지로 변환하기 전에 base64로 디코딩합니다. 이미지를 기술 세트로 반환하려면 반환하기 전에 base64로 인코딩합니다.
+
+ 이미지는 다음 속성을 가진 개체로서 반환됩니다.
+
+```json
+ { 
+  "$type": "file", 
+  "data": "base64String" 
+ }
+```
+
+[Azure Search Python 샘플](https://github.com/Azure-Samples/azure-search-python-samples) 리포지토리에는 이미지를 보강하는 사용자 지정 기술의 Python에서 구현된 전체 샘플이 있습니다.
+
 ## <a name="embedded-image-scenario"></a>포함된 이미지 시나리오
 
 일반적인 시나리오에서는 다음 단계를 수행하여 텍스트와 이미지 원본 텍스트를 비롯한 모든 파일 콘텐츠를 포함하는 단일 문자열을 만듭니다.  
@@ -112,7 +127,8 @@ Azure Cognitive Search에는 이미지 및 이미지 파일에서 작동하는 �
 
 다음 예제 기술 집합은 문서의 텍스트 콘텐츠를 포함하는 *merged_text* 필드를 만듭니다. 또한 포함된 이미지 각각에서 OCRed 텍스트를 포함합니다. 
 
-#### <a name="request-body-syntax"></a>요청 본문 구문
+### <a name="request-body-syntax"></a>요청 본문 구문
+
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -213,13 +229,15 @@ merged_text 필드가 있으므로 인덱서 정의에서 검색 가능한 필�
             return original;
         }
 ```
+
 ## <a name="passing-images-to-custom-skills"></a>사용자 지정 기술에 이미지 전달
 
 이미지 작업에 사용자 지정 기술이 필요한 시나리오의 경우, 사용자 지정 기술에 이미지를 전달하여 텍스트 또는 이미지를 반환할 수 있습니다. [Python 샘플](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) 이미지 처리로 워크플로를 보여 줍니다. 다음 기술 세트는 샘플에서 가져온 것입니다.
 
 다음 기술 세트는 정규화된 이미지(문서를 크래킹하는 동안 가져옴)를 사용하며 이미지 조각을 출력합니다.
 
-#### <a name="sample-skillset"></a>샘플 기술 세트
+### <a name="sample-skillset"></a>샘플 기술 세트
+
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -253,7 +271,7 @@ merged_text 필드가 있으므로 인덱서 정의에서 검색 가능한 필�
 }
 ```
 
-#### <a name="custom-skill"></a>사용자 지정 기술
+### <a name="custom-skill"></a>사용자 지정 기술
 
 사용자 지정 기술 자체는 기술 세트 외부에 있습니다. 이 경우에는 Python 코드가 먼저 사용자 지정 기술 형식의 요청 레코드 일괄 처리를 반복한 다음 base64로 인코딩된 문자열을 이미지로 변환하게 됩니다.
 
@@ -268,6 +286,7 @@ for value in values:
   jpg_as_np = np.frombuffer(inputBytes, dtype=np.uint8)
   # you now have an image to work with
 ```
+
 마찬가지로 이미지를 반환하려면, `file`의 `$type` 속성을 사용하여 JSON 개체 내에 base64 인코딩 문자열을 반환합니다.
 
 ```python
@@ -286,6 +305,7 @@ def base64EncodeImage(image):
 ```
 
 ## <a name="see-also"></a>참고 항목
+
 + [인덱서 만들기(REST)](/rest/api/searchservice/create-indexer)
 + [이미지 분석 기술](cognitive-search-skill-image-analysis.md)
 + [OCR 기술](cognitive-search-skill-ocr.md)

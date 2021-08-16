@@ -7,24 +7,36 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
-ms.openlocfilehash: 8461a77d06a63c2ac319323a91b5577ca4dce1cf
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: c56bb7030b2ebc12e3afc24e2d8cb29ce2dda0bf
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567033"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "74079486"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Visual Studio용 클라우드 탐색기를 사용하여 디바이스와 IoT Hub 간에 메시지 보내고 받기
 
 ![엔드투엔드 다이어그램](./media/iot-hub-visual-studio-cloud-device-messaging/e-to-e-diagram.png)
 
-이 문서에서는 Visual Studio용 클라우드 탐색기를 사용하여 디바이스-클라우드 메시지를 모니터링하고 클라우드-디바이스 메시지를 보내는 방법을 알아봅니다. 디바이스-클라우드 메시지는 디바이스에서 수집한 다음, IoT Hub로 보내는 센서 데이터일 수 있습니다. 클라우드-디바이스 메시지는 IoT Hub에서 디바이스로 보내는 명령일 수 있습니다. 예를 들어 디바이스에 연결된 LED를 깜박입니다.
-
 [클라우드 탐색기](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS)는 Azure 리소스를 보고, 해당 속성을 검사하고, Visual Studio 내에서 핵심 개발자 작업을 수행할 수 있는 유용한 Visual Studio 확장입니다. 이 문서에서는 클라우드 탐색기를 사용하여 디바이스와 허브 간에 메시지를 보내고 받는 방법에 중점을 둡니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="what-you-learn"></a>학습 내용
+
+이 문서에서는 Visual Studio용 클라우드 탐색기를 사용하여 디바이스-클라우드 메시지를 모니터링하고 클라우드-디바이스 메시지를 보내는 방법을 알아봅니다. 디바이스-클라우드 메시지는 디바이스에서 수집한 다음, IoT Hub로 보내는 센서 데이터일 수 있습니다. 클라우드-디바이스 메시지는 IoT Hub에서 디바이스로 보내는 명령일 수 있습니다. 예를 들어 디바이스에 연결된 LED를 깜박입니다.
+
+## <a name="what-you-do"></a>수행할 작업
+
+이 문서에서는 다음 작업을 수행합니다.
+
+- Visual Studio용 클라우드 탐색기를 사용하여 디바이스-클라우드 메시지를 모니터링합니다.
+
+- Visual Studio용 클라우드 탐색기를 사용하여 클라우드-디바이스 메시지를 보냅니다.
+
+## <a name="what-you-need"></a>필요한 작업
+
+다음 필수 조건이 필요합니다.
 
 - 활성화된 Azure 구독.
 
@@ -36,7 +48,7 @@ ms.locfileid: "107567033"
 
 ## <a name="update-cloud-explorer-to-latest-version"></a>최신 버전으로 클라우드 탐색기 업데이트
 
-Visual Studio 2017용 Visual Studio 설치 관리자의 클라우드 탐색기 구성 요소는 디바이스-클라우드 및 클라우드-디바이스 메시지 모니터링만 지원합니다. Visual Studio 2017을 사용하려면 최신 [클라우드 탐색기](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS)를 다운로드하여 설치합니다.
+Visual Studio 2017용 Visual Studio 설치 관리자의 클라우드 탐색기 구성 요소는 디바이스-클라우드 및 클라우드-디바이스 메시지 모니터링만을 지원합니다. Visual Studio 2017을 사용하려면 최신 [클라우드 탐색기](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS)를 다운로드하여 설치합니다.
 
 ## <a name="sign-in-to-access-your-hub"></a>로그인하여 허브에 액세스
 

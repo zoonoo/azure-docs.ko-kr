@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2021
-ms.openlocfilehash: 85a3505dd347b96036c28c85c089afa04e3e3bd5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35aa53def1a72f98309e7616ce64194dd77c5a4d
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104609830"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331289"
 ---
 # <a name="troubleshooting-sql-insights-preview"></a>SQL 인사이트 문제 해결(미리 보기)
 SQL 인사이트의 데이터 수집 문제를 해결하려면 **프로필 관리** 탭에서 모니터링 컴퓨터의 상태를 확인합니다. 상태는 다음 중 하나입니다.
@@ -26,9 +26,12 @@ SQL 인사이트의 데이터 수집 문제를 해결하려면 **프로필 관�
 ## <a name="not-collecting-state"></a>수집 중 아님 상태 
 최근 10분 동안 SQL의 *InsightsMetrics* 에 데이터가 없으면 모니터링 컴퓨터의 상태는 *수집 중 아님* 입니다. 
 
+> [!NOTE]
+> 지원되는 [SQL 버전](sql-insights-overview.md#supported-versions)에서 데이터를 수집하려고 하는지 확인하세요. 예를 들어 유효한 프로필 및 연결 문자열을 사용하여 데이터를 수집하려고 하지만 지원되지 않는 Azure SQL Database 버전에서 데이터를 수집하려고 하면 수집하지 않음 상태가 됩니다.
+
 SQL 인사이트는 다음 쿼리를 사용하여 이 정보를 검색합니다.
 
-```
+```kusto
 InsightsMetrics 
     | extend Tags = todynamic(Tags) 
     | extend SqlInstance = tostring(Tags.sql_instance) 
@@ -163,18 +166,21 @@ Key Vault에 대한 액세스 권한은 모니터링 가상 머신의 관리 서
 
 SQL 인사이트는 다음 쿼리를 사용하여 이 정보를 검색합니다.
 
-```
+```kusto
 InsightsMetrics 
     | extend Tags = todynamic(Tags) 
     | extend SqlInstance = tostring(Tags.sql_instance) 
     | where TimeGenerated > ago(240m) and isnotempty(SqlInstance) and Namespace == 'sqlserver_server_properties' and Name == 'uptime' 
 ```
 
+```kusto
+WorkloadDiagnosticLogs
+| summarize Errors = countif(Status == 'Error')
 ```
-Operation 
- | where OperationCategory == "WorkloadInsights" 
- | summarize Errors = countif(OperationStatus == 'Error') 
-```
+
+> [!NOTE]
+> 'WorkloadDiagnosticLogs' 데이터 형식에 데이터가 표시되지 않는 경우에는 모니터링 프로필을 업데이트하여 이 데이터를 저장해야 할 수 있습니다.  SQL 인사이트 UX 내에서 '프로필 관리', '프로필 편집', '모니터링 프로필 업데이트'를 차례로 선택합니다.
+
 
 일반적인 경우에는 로그 보기에서 문제 해결 정보를 제공합니다. 
 

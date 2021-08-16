@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: Zhchia
-ms.openlocfilehash: 24c8e2aafed6ee7b8823effc350dee4edb5e4873
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db33cc43419b4228ca270d3a69c0e88de2c05638
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101650834"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752051"
 ---
 # <a name="tutorial-configure-hoxhunt-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Hoxhunt 구성
 
@@ -34,7 +34,7 @@ ms.locfileid: "101650834"
 > * Azure AD와 Hoxhunt 간에 사용자 특성을 동기화된 상태로 유지
 > * Hoxhunt에 대한 [Single sign-on](hoxhunt-tutorial.md)(권장)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "101650834"
 
 ## <a name="step-2-configure-hoxhunt-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD에서 프로비저닝을 지원하도록 Hoxhunt 구성
 SCIM API 키와 SCIM 엔드포인트 URL을 받아 Azure AD를 통한 프로비저닝 지원에 Hoxhunt를 구성하려면 [Hoxhunt 지원](mailto:support@hoxhunt.com)에 문의하세요.
-## <a name="step-3-add-hoxhunt-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 애플리케이션 갤러리에서 Hoxhunt 추가
+## <a name="step-3-add-hoxhunt-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 애플리케이션 갤러리에서 Hoxhunt 추가
 
 Azure AD 애플리케이션 갤러리에서 Hoxhunt를 추가하여 Hoxhunt에 대한 프로비저닝 관리를 시작합니다. 이전에 SSO용 Hoxhunt를 설정했다면 동일한 애플리케이션을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
@@ -130,6 +130,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 * [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
 * [진행률 표시줄](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 * 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](../app-provisioning/application-provisioning-quarantine-status.md)를 참조하세요.  
+
+## <a name="change-log"></a>로그 변경
+* 2021/04/20 - "preferredLanguage" 및 엔터프라이즈 확장 특성 "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division"에 대한 지원이 추가되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

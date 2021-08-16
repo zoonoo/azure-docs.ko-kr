@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae575aa6544a174a70eb8ea4749566e8660280e2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94873270"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect 및 Azure AD Connect Health 설치 로드맵
@@ -25,7 +25,7 @@ ms.locfileid: "94873270"
 ## <a name="install-azure-ad-connect"></a>Azure AD Connect 설치
 
 > [!IMPORTANT]
-> Microsoft는 공식적으로 문서화된 작업 외의 Azure AD Connect 동기화에 대한 수정 또는 작업을 지원하지 않습니다. 이러한 작업을 수행 하면 Azure AD Connect 동기화 상태가 일치 하지 않거나 지원 되지 않는 상태가 될 수 있습니다. 따라서 Microsoft는 이러한 배포에 대 한 기술 지원을 제공할 수 없습니다.
+> Microsoft는 공식적으로 문서화된 작업 외의 Azure AD Connect 동기화에 대한 수정 또는 작업을 지원하지 않습니다. 이러한 작업으로 인해 Azure AD Connect 동기화가 일치하지 않거나 지원되지 않는 상태가 될 수 있으며 결과적으로 Microsoft는 해당 배포에 대한 기술 지원을 제공할 수 없습니다.
 
 [Microsoft 다운로드 센터](https://go.microsoft.com/fwlink/?LinkId=615771)에서 Azure AD Connect를 다운로드할 수 있습니다 .
 
@@ -53,8 +53,8 @@ ms.locfileid: "94873270"
 
 |항목 |링크|  
 | --- | --- |
-|지원되는 토폴로지 | [Azure AD Connect에 대 한 토폴로지](plan-connect-topologies.md)|
-|설계 개념 | [Azure AD Connect 디자인 개념](plan-connect-design-concepts.md)|
+|지원되는 토폴로지 | [Azure AD Connect에 대한 토폴로지](plan-connect-topologies.md)|
+|설계 개념 | [Azure AD Connect 설계 개념](plan-connect-design-concepts.md)|
 |설치에 사용되는 계정 | [Azure AD Connect 자격 증명 및 사용 권한에 대한 자세한 정보](reference-connect-accounts-permissions.md)|
 |운영 계획 | [Azure AD Connect Sync: 운영 작업 및 고려 사항](./how-to-connect-sync-staging-server.md)|
 |사용자 로그인 옵션 | [Azure AD Connect 사용자 로그인 옵션](plan-connect-user-signin.md)|
@@ -68,7 +68,7 @@ Azure AD Connect는 필요에 따라 기본적으로 키거나 사용할 수 있
 
 [비밀번호 쓰기 저장](../authentication/tutorial-enable-sspr.md) 을 사용하면 사용자가 클라우드에서 암호를 변경하고 다시 설정할 수 있으며 온-프레미스 암호 정책을 적용합니다.
 
-[장치 쓰기 저장](how-to-connect-device-writeback.md) 은 Azure AD에 등록 된 장치를 온-프레미스 Active Directory에 다시 쓸 수 있도록 하 여 조건부 액세스에 사용할 수 있도록 합니다.
+[디바이스 쓰기 저장](how-to-connect-device-writeback.md)을 사용하면 Azure AD에 등록된 디바이스가 온-프레미스 Active Directory에 다시 씁니다. 따라서 조건부 액세스에 사용할 수 있습니다.
 
 [실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md) 기능은 기본적으로 켜지고 동시에 클라우드 디렉터리가 수없이 많이 삭제되지 않도록 보호합니다. 기본적으로 실행 당 삭제 500회를 허용합니다. 조직의 규모에 따라서 이 설정을 변경할 수 있습니다.
 
@@ -77,7 +77,7 @@ Azure AD Connect는 필요에 따라 기본적으로 키거나 사용할 수 있
 ### <a name="next-steps-to-configure-sync-features"></a>동기화 기능을 구성하는 다음 단계
 |항목 |링크|  
 | --- | --- |
-|필터링 구성 | [Azure AD Connect 동기화: 필터링 구성](how-to-connect-sync-configure-filtering.md)|
+|필터링 구성 | [Azure AD Connect 동기화 구성 필터링](how-to-connect-sync-configure-filtering.md)|
 |암호 해시 동기화 | [암호 해시 동기화](how-to-connect-password-hash-synchronization.md)|
 |통과 인증 | [통과 인증](how-to-connect-pta.md)
 |비밀번호 쓰기 저장 | [암호 관리 시작](../authentication/tutorial-enable-sspr.md)|
@@ -98,17 +98,17 @@ Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작
 |항목 |링크|  
 | --- | --- |
 |모든 Azure AD Connect Sync 문서 | [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)|
-|기술 개념 | [Azure AD Connect 동기화: 기술 개념](how-to-connect-sync-technical-concepts.md)|
+|기술 개념 | [Azure AD Connect Sync: 기술 개념](how-to-connect-sync-technical-concepts.md)|
 |기본 구성 이해 | [Azure AD Connect 동기화: 기본 구성 이해](concept-azure-ad-connect-sync-default-configuration.md)|
 |사용자 및 연락처 이해 | [Azure AD Connect Sync: 사용자 및 연락처 이해](concept-azure-ad-connect-sync-user-and-contacts.md)|
-|선언적 프로비전 | [Azure AD Connect 동기화: 선언적 프로 비전 식 이해](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)|
+|선언적 프로비전 | [Azure AD Connect Sync: 선언적 프로비전 식 이해](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)|
 |기본 구성 변경 | [기본 구성 변경에 대한 모범 사례](how-to-connect-sync-best-practices-changing-default-configuration.md)|
 
 ## <a name="configure-federation-features"></a>페더레이션 기능 구성
 
 Azure AD Connect는 페더레이션 트러스트를 관리하고 AD FS를 사용하여 Azure AD와의 페더레이션을 간소화하는 몇 가지 기능을 제공합니다. Azure AD Connect는 Windows Server 2012R2 이상에서 AD FS를 지원합니다.
 
-Azure AD Connect를 사용 하 여 페더레이션 트러스트를 관리 하지 않는 경우 [에도 AD FS 팜의 TLS/SSL 인증서를 업데이트](how-to-connect-fed-ssl-update.md) 합니다.
+Azure AD Connect를 사용하여 페더레이션 트러스트를 관리하지 않는 경우에도 [AD FS 팜의 TLS/SSL 인증서를 업데이트](how-to-connect-fed-ssl-update.md)하세요.
 
 팜에 [AD FS 서버를 추가](how-to-connect-fed-management.md#addadfsserver)하여 필요에 따라 팜을 확장합니다.
 
@@ -116,7 +116,7 @@ Azure AD Connect를 사용 하 여 페더레이션 트러스트를 관리 하지
 
 ADFS는 [복수 도메인](how-to-connect-install-multiple-domains.md)을 지원하도록 구성될 수 있습니다. 예를 들어 페더레이션 사용에 필요한 복수의 최상위 도메인을 가질 수 있습니다.
 
-ADFS 서버가 Azure AD에서 인증서를 자동으로 업데이트 하도록 구성 되지 않았거나 비 ADFS 솔루션을 사용 하는 경우 [인증서를 업데이트](how-to-connect-fed-o365-certs.md)해야 할 때 알림이 표시 됩니다.
+ADFS 서버가 Azure AD에서 인증서를 자동으로 업데이트하도록 구성되지 않았거나 비 ADFS 솔루션을 사용하는 경우에는 [인증서를 업데이트](how-to-connect-fed-o365-certs.md)해야 하는 경우 알림이 표시됩니다.
 
 ### <a name="next-steps-to-configure-federation-features"></a>페더레이션 기능을 구성하는 다음 단계
 |항목 |링크|  
@@ -124,15 +124,15 @@ ADFS 서버가 Azure AD에서 인증서를 자동으로 업데이트 하도록 �
 |모든 AD FS 문서 | [Azure AD Connect 및 페더레이션](how-to-connect-fed-whatis.md)|
 |ADFS에 하위 도메인 구성 | [Azure AD로 페더레이션에 대한 여러 도메인 지원](how-to-connect-install-multiple-domains.md)|
 |AD FS 팜 관리 | [Azure AD Connect를 사용한 AD FS 관리 및 사용자 지정](how-to-connect-fed-management.md)|
-|페더레이션 인증서를 수동으로 업데이트 | [Microsoft 365 및 Azure AD에 대 한 페더레이션 인증서 갱신](how-to-connect-fed-o365-certs.md)|
+|페더레이션 인증서를 수동으로 업데이트 | [Microsoft 365 및 Azure AD에 대한 페더레이션 인증서 갱신](how-to-connect-fed-o365-certs.md)|
 
 
 ## <a name="get-started-with-azure-ad-connect-health"></a>Azure AD Connect Health 시작
 Azure AD Connect Health를 시작하려면 다음 단계를 수행하세요.
 
-1. [Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) 을 가져오거나 [평가판을 시작](https://azure.microsoft.com/trial/get-started-active-directory/)합니다.
+1. [Azure AD Premium을 다운로드](../fundamentals/active-directory-get-started-premium.md)하거나 [평가판을 시작](https://azure.microsoft.com/trial/get-started-active-directory/)합니다.
 2. [Azure AD Connect Health 에이전트](#download-and-install-azure-ad-connect-health-agent)를 다운로드하여 ID 서버에 설치합니다.
-3. 에서 Azure AD Connect Health 대시보드를 봅니다 [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth) .
+3. [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth)에서 Azure AD Connect Health 대시보드를 봅니다.
 
 > [!NOTE]
 > Azure AD Connect Health 대시보드에 데이터를 표시하려면 대상 서버에 Azure AD Connect Health 에이전트를 설치해야 합니다.
@@ -143,16 +143,16 @@ Azure AD Connect Health를 시작하려면 다음 단계를 수행하세요.
 * Azure AD Connect Health에 대한 [요구 사항을 충족](how-to-connect-health-agent-install.md#requirements)해야 합니다.
 * AD FS용 Azure AD Connect Health 사용 시작
     * [AD FS용 Azure AD Connect Health Agent 다운로드.](https://go.microsoft.com/fwlink/?LinkID=518973)
-    * [설치 지침을 참조](how-to-connect-health-agent-install.md#install-the-agent-for-ad-fs)하세요.
+    * [설치 지침 참조](how-to-connect-health-agent-install.md#install-the-agent-for-ad-fs).
 * 동기화용 Azure AD Connect Health 사용 시작
     * [최신 버전의 Azure AD Connect 다운로드 및 설치](https://go.microsoft.com/fwlink/?linkid=615771). 동기화용 Health 에이전트는 Azure AD Connect의 일부로 설치됩니다(버전 1.0.9125.0 이상).
 * AD DS용 Azure AD Connect Health 사용 시작
-    * [AD DS에 대 한 Azure AD Connect Health 에이전트를 다운로드](https://go.microsoft.com/fwlink/?LinkID=820540)합니다.
-    * [설치 지침을 참조](how-to-connect-health-agent-install.md#install-the-agent-for-azure-ad-ds)하세요.
+    * [AD DS용 Azure AD Connect Health 에이전트 다운로드](https://go.microsoft.com/fwlink/?LinkID=820540).
+    * [설치 지침 참조](how-to-connect-health-agent-install.md#install-the-agent-for-azure-ad-ds).
 
 
 ## <a name="azure-ad-connect-health-portal"></a>Azure AD Connect Health 포털
-Azure AD Connect Health 포털에서 경고 보기, 성능 모니터링 및 사용량 현황 분석을 볼 수 있습니다. https://aka.ms/aadconnecthealth URL에서 Azure AD Connect Health의 주 블레이드로 이동합니다. 블레이드를 창으로 생각할 수 있습니다. 주 블레이드에 **빠른 시작**, Azure AD Connect Health 내의 서비스 및 추가 구성 옵션이 표시 됩니다. 다음 스크린샷과 스크린샷 뒤에 이어지는 간략한 설명을 참조하세요. 에이전트를 배포하면 상태 서비스는 Azure AD Connect Health가 모니터링하는 서비스를 자동으로 식별합니다.
+Azure AD Connect Health 포털에서 경고 보기, 성능 모니터링 및 사용량 현황 분석을 볼 수 있습니다. https://aka.ms/aadconnecthealth URL에서 Azure AD Connect Health의 주 블레이드로 이동합니다. 블레이드를 창으로 생각할 수 있습니다. 기본 블레이드에는 **빠른 시작**, Azure AD Connect Health 내 서비스 및 추가 구성 옵션이 표시됩니다. 다음 스크린샷과 스크린샷 뒤에 이어지는 간략한 설명을 참조하세요. 에이전트를 배포하면 상태 서비스는 Azure AD Connect Health가 모니터링하는 서비스를 자동으로 식별합니다.
 
 > [!NOTE]
 > 라이선스 정보는 [Azure AD Connect Health FAQ](reference-connect-health-faq.md) 또는 [Azure AD 가격 책정 페이지](https://aka.ms/aadpricing)를 참조하세요.
@@ -165,8 +165,8 @@ Azure AD Connect Health 포털에서 경고 보기, 성능 모니터링 및 사�
 * **Active Directory Domain Services**: 이 옵션은 Azure AD Connect Health에서 현재 모니터링하는 모든 AD DS 포리스트를 표시합니다. 포리스트를 선택하면 열리는 블레이드에 해당 포리스트에 대한 정보가 표시됩니다. 이 정보에는 중요한 정보의 개요, 도메인 컨트롤러 대시보드, 복제 상태 대시보드, 경고 및 모니터링이 포함됩니다. [AD DS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adds.md)에서 기능에 대해 자세히 알아보세요.
 * **구성**: 이 섹션에는 다음 기능을 켜거나 끄는 옵션이 포함되어 있습니다.
 
-   - Azure AD Connect Health 에이전트를 최신 버전으로 **자동 업데이트** : Azure AD Connect Health 에이전트가 새 버전을 사용할 수 있을 때마다 자동으로 업데이트 됩니다. 기본적으로 이 옵션은 사용하도록 설정됩니다.
-   - 문제 해결을 위해 Microsoft에서 제공 하는 Azure AD 디렉터리 무결성의 **데이터에** 대 한 액세스:이 옵션을 사용 하도록 설정 하면 microsoft는 사용자가 본 동일한 데이터에 액세스할 수 있습니다. 이 정보는 문제를 해결 하 고 필요한 지원을 제공 하는 데 유용할 수 있습니다. 이 옵션은 기본적으로 사용 되지 않습니다.
+   - Azure AD Connect Health 에이전트를 최신 버전으로 **자동 업데이트**: 새 버전을 사용할 수 있게 되면 Azure AD Connect Health 에이전트를 자동으로 업데이트합니다. 기본적으로 이 옵션은 사용하도록 설정됩니다.
+   - 문제 해결 목적으로만 Microsoft의 Azure AD 디렉터리 무결성에서 **데이터에 액세스**: 이 옵션을 사용하는 경우 Microsoft는 사용자가 본 것과 동일한 데이터에 액세스할 수 있습니다. 이 정보는 문제를 해결하고 필요한 지원을 제공하는 데 유용할 수 있습니다. 이 옵션은 기본적으로 사용하지 않도록 설정됩니다.
 * **역할 기반 액세스 제어(IAM)** 섹션은 기본 역할에서 Connect Health 데이터에 대한 액세스를 관리합니다. 
 
 ## <a name="next-steps"></a>다음 단계

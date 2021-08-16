@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.custom: references_regions
-ms.openlocfilehash: 7980ea5811fe77bc80d97e31e3b852766debd31a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: ffff2c1831aab09a1c622ced98cfe180fe0ec5d7
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107796454"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110679204"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 
@@ -59,10 +59,10 @@ Azure 파일 동기화 배포에는 다음과 같은 세 가지 기본 관리 �
 
 다음과 같은 경우에만 여러 스토리지 동기화 서비스를 만듭니다.
 * 서로 데이터를 교환해서는 안 되는 고유한 서버 집합이 있는 경우. 이 경우 다른 스토리지 동기화 서비스의 동기화 그룹에서 클라우드 엔드포인트로 이미 사용 중인 Azure 파일 공유와 동기화할 특정 서버 집합을 제외하도록 시스템을 디자인하려고 합니다. 다른 스토리지 동기화 서비스에 등록된 Windows Server는 동일한 Azure 파일 공유와 동기화할 수 없습니다.
-* 단일 스토리지 동기화 서비스에서 지원할 수 있는 것보다 더 많은 서버 또는 동기화 그룹을 등록해야 하는 경우. 자세한 내용은 [Azure 파일 동기화 크기 조정 목표](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#azure-file-sync-scale-targets)를 검토합니다.
+* 단일 스토리지 동기화 서비스에서 지원할 수 있는 것보다 더 많은 서버 또는 동기화 그룹을 등록해야 하는 경우. 자세한 내용은 [Azure 파일 동기화 스케일링 목표](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#azure-file-sync-scale-targets)를 검토합니다.
 
 ## <a name="plan-for-balanced-sync-topologies"></a>균형 있는 동기화 토폴로지 계획
-리소스를 배포하기 전에 Azure 파일을 공유하는 로컬 서버에서 동기화할 항목을 계획하는 것이 중요합니다. 계획을 세우면 필요한 스토리지 계정 수, Azure 파일 공유 수 및 동기화 리소스 수를 결정하는 데 도움이 됩니다. 데이터가 현재 Windows Server 또는 장기간 사용하려는 서버에 있지 않더라도 이러한 고려 사항은 여전히 중요합니다. [마이그레이션 섹션](#migration)의 내용을 참조하면 상황에 적합한 마이그레이션 경로를 결정하는 데 도움이 될 수 있습니다.
+리소스를 배포하기 전에 Azure 파일을 공유하는 로컬 서버에서 동기화할 항목을 계획하는 것이 중요합니다. 계획을 세우면 필요한 스토리지 계정 수, Azure 파일 공유 수, 동기화 리소스 수를 결정하는 데 도움이 됩니다. 데이터가 현재 Windows Server 또는 장기간 사용하려는 서버에 있지 않더라도 이러한 고려 사항은 여전히 중요합니다. [마이그레이션 섹션](#migration)의 내용을 참조하면 상황에 적합한 마이그레이션 경로를 결정하는 데 도움이 될 수 있습니다.
 
 [!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
 
@@ -247,11 +247,11 @@ sysprep은 Azure 파일 동기화 에이전트가 설치된 서버에서 사용�
 
 Azure 파일 동기화 에이전트가 Azure 파일 공유에 연결된 Windows Server 컴퓨터에서 실행되므로 유효한 동기화 성능은 인프라에 포함된 많은 요소(Windows Server 및 기본 디스크 구성,서버와 Azure Storage 간의 네트워크 대역폭, 파일 크기, 데이터 세트의 총 크기 및 데이터 세트의 작업 등)에 따라 달라집니다. Azure 파일 동기화가 파일 수준에서 작동하므로 Azure 파일 동기화 기반 솔루션의 성능 특성은 초당 처리된 개체(예: 파일 및 디렉터리)의 수에서 정확하게 측정됩니다.
 
-Azure Portal 또는 SMB를 사용하여 Azure 파일 공유에서 변경한 사항은 즉시 검색되지 않고 서버 엔드포인트의 변경 사항처럼 복제됩니다. Azure Files에는 아직 변경 알림/저널링이 없어서 파일이 변경될 때 동기화 세션을 자동으로 시작할 방법이 없습니다. Windows Server에서 Azure 파일 동기화는 [Windows USN 저널링](/windows/win32/fileio/change-journals)을 사용하여 파일이 변경될 때 자동으로 동기화 세션 시작
+Azure Portal 또는 SMB를 사용하여 Azure 파일 공유에서 변경한 사항은 즉시 검색되지 않고 서버 엔드포인트의 변경 사항처럼 복제됩니다. Azure Files에는 아직 변경 알림/저널링이 없어서 파일이 변경될 때 동기화 세션을 자동으로 시작할 방법이 없습니다. Windows Server에서 Azure 파일 동기화는 [Windows USN 저널링](/windows/win32/fileio/change-journals)을 사용하여 파일이 변경될 때 자동으로 동기화 세션을 시작합니다.
 
 Azure 파일 공유의 변경 사항을 검색하기 위해 Azure 파일 동기화에는 변경 검색 작업이라는 예약된 작업이 있습니다. 변경 검색 작업은 파일 공유의 모든 파일을 열거한 다음 해당 파일의 동기화 버전과 비교합니다. 변경 검색 작업에서 파일이 변경된 것으로 판단되면 Azure 파일 동기화는 동기화 세션을 시작합니다. 변경 검색 작업은 24시간마다 시작됩니다. 변경 검색 작업은 Azure 파일 공유의 모든 파일을 열거하여 작동하므로 변경 검색은 큰 네임스페이스가 작은 네임스페이스보다 오래 걸립니다. 큰 네임스페이스의 경우 변경된 파일을 확인하는 것이 24시간마다 한 번 이상이 걸릴 수 있습니다.
 
-자세한 내용은 [Azure 파일 동기화 성능 메트릭](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#azure-file-sync-performance-metrics) 및 [Azure 파일 동기화 크기 조정 목표](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#azure-file-sync-scale-targets)를 참조하세요.
+자세한 내용은 [Azure 파일 동기화 성능 메트릭](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#azure-file-sync-performance-metrics) 및 [Azure 파일 동기화 스케일링 목표](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#azure-file-sync-scale-targets)를 참조하세요.
 
 ## <a name="identity"></a>ID
 Azure 파일 동기화는 동기화 설정 이외의 특별한 설정 없이 표준 AD 기반 ID를 사용하여 작동합니다. Azure 파일 동기화를 사용하는 경우 일반적으로 대부분의 액세스에서 Azure 파일 공유가 아니라 Azure 파일 동기화 캐싱 서버를 통과합니다. 서버 엔드포인트는 Windows Server에 있고 Windows Server는 오랫동안 AD 및 Windows 스타일 ACL을 지원했으므로 스토리지 동기화 서비스에 등록된 Windows 파일 서버가 도메인에 조인되어 있는지 확인하는 것 외에는 아무 작업도 필요하지 않습니다. Azure 파일 동기화는 ACL을 Azure 파일 공유의 파일에 저장하고 이를 모든 서버 엔드포인트에 복제합니다.
@@ -270,6 +270,9 @@ Azure 파일 동기화 에이전트는 항상 443 포트에서 HTTPS를 사용�
 - Azure Files 및 Azure 네트워킹 기능(예: 서비스 엔드포인트 및 프라이빗 엔드포인트)을 활용합니다.
 - 사용자 환경에서 프록시를 지원하도록 Azure 파일 동기화를 구성합니다.
 - Azure 파일 동기화에서 네트워크 활동을 제한합니다.
+
+> [!Important]  
+> Azure 파일 동기화는 인터넷 라우팅을 지원 하지 않습니다. 기본 네트워크 라우팅 옵션인 Microsoft 라우팅은 Azure 파일 동기화에서 지원됩니다.
 
 Azure 파일 동기화 및 네트워킹에 대한 자세한 내용은 [Azure 파일 동기화 네트워킹 고려 사항](file-sync-networking-overview.md)을 참조하세요.
 
@@ -335,7 +338,7 @@ Azure 스토리지 계정에는 전송 중 암호화를 요구하는 스위치�
 > 지역 중복 및 지리적 영역 중복 스토리지는 스토리지를 보조 지역에 수동으로 장애 조치할 수 있습니다. Azure 파일 동기화를 사용하는 경우 데이터를 손실할 가능성이 높으므로 재해 발생 시 이 작업을 수행하지 않는 것이 좋습니다. 스토리지의 수동 장애 조치를 시작하려는 재해가 발생하는 경우 Microsoft에서 지원 사례를 열어 Azure 파일 동기화에서 보조 엔드포인트와의 동기화를 다시 시작하도록 해야 합니다.
 
 ## <a name="migration"></a>마이그레이션
-기존 Windows 파일 서버 2012R2 이상이 있는 경우 데이터를 새 서버로 이동할 필요 없이 Azure 파일 동기화를 직접 설치할 수 있습니다. Azure 파일 동기화 채택의 일부로 새 Windows 파일 서버로 마이그레이션할 계획이거나 데이터가 현재 NAS(Network Attached Storage)에 있는 경우 이 데이터와 함께 Azure 파일 동기화를 사용하는 몇 가지 가능한 마이그레이션 방법이 있습니다. 선택해야 하는 마이그레이션 방법은 현재 데이터가 있는 위치에 따라 달라집니다. 
+기존 Windows 파일 서버 2012R2 이상이 있는 경우 데이터를 새 서버로 이동할 필요 없이 Azure 파일 동기화를 직접 설치할 수 있습니다. Azure 파일 동기화 채택의 일부로서 새 Windows 파일 서버로 마이그레이션할 계획이거나 데이터가 현재 NAS(Network Attached Storage)에 있는 경우 이 데이터와 함께 Azure 파일 동기화를 사용하는 몇 가지 가능한 마이그레이션 방법이 있습니다. 선택해야 하는 마이그레이션 방법은 현재 데이터가 있는 위치에 따라 달라집니다. 
 
 시나리오에 대한 자세한 지침은 [Azure 파일 동기화 및 Azure 파일 공유 마이그레이션 개요](../files/storage-files-migration-overview.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json) 문서를 참조하세요.
 
@@ -348,7 +351,7 @@ Microsoft의 사내 바이러스 백신 솔루션, Windows Defender 및 SCEP(Sys
 > 바이러스 백신 공급업체는 Microsoft 다운로드 센터에서 다운로드할 수 있는 [Azure 파일 동기화 바이러스 백신 호환성 테스트 도구 모음](https://www.microsoft.com/download/details.aspx?id=58322)을 사용하여 제품과 Azure 파일 동기화 간의 호환성을 확인할 수 있습니다.
 
 ## <a name="backup"></a>Backup 
-클라우드 계층화를 사용하는 경우 서버 엔드포인트 또는 서버 엔드포인트가 있는 VM을 직접 백업하는 솔루션을 사용해서는 안 됩니다. 클라우드 계층화를 사용하면 전체 데이터 세트가 Azure 파일 공유에 상주하면서 데이터의 하위 집합만 서버 엔드포인트에 저장됩니다. 사용된 백업 솔루션에 따라 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS 속성으로 인해 계층화된 파일을 건너뛰고 백업하지 않거나 이러한 파일이 디스크로 회수되어 높은 송신 요금이 발생합니다. 클라우드 백업 솔루션을 사용하여 Azure 파일 공유를 직접 백업하는 것이 좋습니다. 자세한 내용은 [Azure 파일 공유 백업 정보](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하거나 백업 공급자에게 문의하여 Azure 파일 공유 백업을 지원하는지 확인하세요.
+클라우드 계층화를 사용하는 경우 서버 엔드포인트 또는 서버 엔드포인트가 있는 VM을 직접 백업하는 솔루션을 사용해서는 안 됩니다. 클라우드 계층화를 사용하면 전체 데이터 세트가 Azure 파일 공유에 상주하면서 데이터의 하위 집합만 서버 엔드포인트에 저장됩니다. 사용된 백업 솔루션에 따라 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS 특성 집합으로 인해 계층화된 파일을 건너뛰고 백업하지 않거나 이러한 파일이 디스크로 회수되어 높은 송신 요금이 발생합니다. 클라우드 백업 솔루션을 사용하여 Azure 파일 공유를 직접 백업하는 것이 좋습니다. 자세한 내용은 [Azure 파일 공유 백업 정보](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하거나 백업 공급자에게 문의하여 Azure 파일 공유 백업을 지원하는지 확인하세요.
 
 온-프레미스 백업 솔루션을 사용하려는 경우 클라우드 계층화를 사용하지 않도록 설정된 동기화 그룹의 서버에서 백업을 수행해야 합니다. 복원을 수행할 때 볼륨 수준 또는 파일 수준 복원 옵션을 사용합니다. 파일 수준 복원 옵션을 사용하여 복원된 파일은 동기화 그룹의 모든 엔드포인트에 동기화되고 기존 파일은 백업에서 복원된 버전으로 대체됩니다.  볼륨 수준 복원은 Azure 파일 공유 또는 기타 서버 엔드포인트의 최신 파일 버전을 대체하지 않습니다.
 

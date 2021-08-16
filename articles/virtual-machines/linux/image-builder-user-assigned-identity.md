@@ -1,5 +1,5 @@
 ---
-title: 가상 머신 이미지를 만들고 사용자 할당 관리형 ID를 사용하여 Azure Storage의 파일에 액세스하기(미리 보기)
+title: 가상 머신 이미지를 만들고 사용자 할당 관리형 ID를 사용하여 Azure Storage의 파일에 액세스하기
 description: 사용자 할당 관리형 ID를 사용하여 Azure Storage에 저장한 파일에 액세스할 수 있는 Azure Image Builder를 사용하여 가상 머신 이미지를 만듭니다.
 author: cynthn
 ms.author: cynthn
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: 9bcb7a94cdf1d5478db32a22ba6e612a90c53ed9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94bde3351f74c3388e137cc738f2b970654416bd
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101695382"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439605"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>이미지를 만들고 사용자 할당 관리형 ID를 사용하여 Azure Storage의 파일에 액세스하기 
 
@@ -24,12 +24,8 @@ Azure Image Builder는 GitHub 및 Azure Storage 등 다양한 위치에서 스�
 아래 예제에서는 사용자 지정 이미지에 사용할 리소스 그룹 하나와 Azure Storage 계정을 호스트할, 스크립트 파일이 들어 있는 리소스 그룹 하나로 된 총 두 개의 리소스 그룹을 만듭니다. Image Builder 외부에 위치한 각기 다른 스토리지 계정에 빌드 아티팩트나 이미지 파일이 있는 경우의 실제 시나리오를 시뮬레이션합니다. 사용자 할당 ID를 만든 뒤 여기에 스크립트 파일에 대한 읽기 권한을 주되 해당 파일에 대한 퍼블릭 액세스는 설정하지 않습니다. 이후, 셸 사용자 지정자를 사용하여 해당 스크립트를 해당 스토리지 계정에서 다운로드하여 실행합니다.
 
 
-> [!IMPORTANT]
-> Azure Image Builder는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
 ## <a name="register-the-features"></a>기능 등록
-미리 보기 중에 Azure Image Builder를 사용하려면 이 새 기능을 등록해야 합니다.
+Azure Image Builder를 사용하려면 해당 기능을 등록해야 합니다.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview

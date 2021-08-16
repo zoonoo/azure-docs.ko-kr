@@ -9,14 +9,14 @@ ms.author: laobri
 author: lobrien
 manager: cgronlun
 ms.date: 02/28/2020
-ms.topic: how-to
-ms.custom: devx-track-python, automl
-ms.openlocfilehash: 22b8126ffcb573f2ec276e589a261ac14ec72c99
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python, automl
+ms.openlocfilehash: 0de3c9a7cf464f38a1a12d8bc19451fb1158a5ad
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110191603"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102520509"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Python의 Azure Machine Learning 파이프라인에서 자동화된 ML 사용
 
@@ -248,7 +248,7 @@ prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
 |`OutputTabularDatasetConfig`| 성능 향상 | 
 || `OutputFileDatasetConfig`의 일반 경로 | 
 || 파이프라인 실행 후 데이터가 유지되지 않음 |
-||  |
+|| [`OutputTabularDatasetConfig` 기술을 보여 주는 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |
 | 등록된 `Dataset` | 낮은 성능 |
 | | 다양한 방법으로 생성할 수 있음 | 
 | | 데이터가 유지되고 작업 영역 전체에서 표시됨 |
@@ -260,7 +260,7 @@ prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
 `AutoMLStep`의 출력은 고성능 모델과 해당 모델 자체의 최종 메트릭 점수입니다. 추가 파이프라인 단계에서 이러한 출력을 사용하려면 출력을 받을 `OutputFileDatasetConfig` 개체를 준비합니다.
 
 ```python
-from azureml.pipeline.core import TrainingOutput, PipelineData
+from azureml.pipeline.core import TrainingOutput
 
 metrics_data = PipelineData(name='metrics_data',
                             datastore=datastore,
@@ -450,7 +450,7 @@ with open(model_filename, "rb" ) as f:
 # ... inferencing code not shown ...
 ```
 
-기존 모델을 로드하고 사용하는 방법에 대한 자세한 내용은 [ Azure Machine Learning에서 기존 모델 사용](how-to-deploy-and-where.md)을 참조하세요.
+기존 모델을 로드하고 사용하는 방법에 대한 자세한 내용은 [ Azure Machine Learning에서 기존 모델 사용](how-to-deploy-existing-model.md)을 참조하세요.
 
 ### <a name="download-the-results-of-an-automated-ml-run"></a>자동화된 ML 실행 결과 다운로드
 

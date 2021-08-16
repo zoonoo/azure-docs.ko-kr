@@ -1,18 +1,19 @@
 ---
-title: 'Azure VPN Gateway: 구성 설정'
-description: 리소스 관리자 배포 모델에서 생성된 가상 네트워크의 VPN Gateway 리소스 및 설정에 대해 알아보세요.
+title: Azure VPN Gateway 구성 설정
+description: VPN Gateway 리소스 및 구성 설정에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 1aba87b2139fb8a7d395fb3180d2074e47310fa9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3829202dab08b2f0a18db7d6092623cccd336e6a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96010875"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110662073"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway 구성 설정 정보
 

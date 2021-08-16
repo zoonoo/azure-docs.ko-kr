@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 05/17/2021
 ms.author: b-juche
-ms.openlocfilehash: e0b86a7014af42f2ffb067c2de797f270a5b1855
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: effca5e663f91489bc534934d26faec8c18e7460
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967475"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110090626"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 클라이언트 구성
 
@@ -81,7 +81,26 @@ ms.locfileid: "105967475"
     
     `default_realm`이 `/etc/krb5.conf`에서 제공된 보안영역으로 설정되어 있는지 확인합니다.  그렇지 않은 경우 다음 예제와 같이 파일의 `[libdefaults]` 섹션 아래에 추가합니다.
     
-    `default_realm = CONTOSO.COM`
+    ```
+    [libdefaults]
+        default_realm = CONTOSO.COM
+        default_tkt_enctypes = aes256-cts-hmac-sha1-96
+        default_tgs_enctypes = aes256-cts-hmac-sha1-96
+        permitted_enctypes = aes256-cts-hmac-sha1-96
+    [realms]
+        CONTOSO.COM = {
+            kdc = dc01.contoso.com
+            admin_server = dc01.contoso.com
+            master_kdc = dc01.contoso.com
+            default_domain = contoso.com
+        }
+    [domain_realm]
+        .contoso.com = CONTOSO.COM
+        contoso.com = CONTOSO.COM
+    [logging]
+        kdc = SYSLOG:INFO
+        admin_server = FILE=/var/kadm5.log
+    ```
 
 7. 모든 NFS 서비스를 다시 시작합니다.  
  
@@ -239,9 +258,42 @@ ms.locfileid: "105967475"
 `root@cbs-k8s-varun4-04:/home/cbs# getent passwd hari1`   
 `hari1:*:1237:1237:hari1:/home/hari1:/bin/bash`   
 
+## <a name="configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes"></a>NFSv 4.1 볼륨에 액세스하도록 호스트 이름이 같은 두 VM 구성 
+
+이 섹션에서는 Azure NetApp Files NFSv4.1 볼륨에 액세스하도록 호스트 이름이 같은 두 개의 VM을 구성하는 방법을 설명합니다. 이 절차는 DR(재해 복구) 테스트를 수행하고 기본 DR 시스템과 동일한 호스트 이름의 테스트 시스템을 필요로 하는 경우에 유용할 수 있습니다. 이 절차는 동일한 Azure NetApp Files 볼륨에 액세스하는 두 VM에 동일한 호스트 이름이 있는 경우에만 필요합니다.  
+
+NFSv4.x에서는 각 클라이언트가 *고유* 문자열로 서버에 대해 자신을 식별해야 합니다. 한 클라이언트와 한 서버 간에 공유되는 파일 열기 및 잠금 상태는 이 ID와 연결됩니다. 강력한 NFSv4.x 상태 복구 및 투명 상태 마이그레이션을 지원하려면 이 ID 문자열이 클라이언트를 다시 부팅하는 동안 변경되지 않아야 합니다.
+
+1. 다음 명령을 사용하여 VM 클라이언트에 `nfs4_unique_id` 문자열을 표시합니다.
+    
+    `# systool -v -m nfs | grep -i nfs4_unique`     
+    `    nfs4_unique_id      = ""`
+
+    동일한 호스트 이름(예: DR 시스템)을 사용하여 추가 VM에 동일한 볼륨을 탑재하려면 Azure NetApp Files NFS 서비스에 대해 고유하게 식별할 수 있도록 `nfs4_unique_id`를 만듭니다.  이 단계를 통해 서비스는 동일한 호스트 이름으로 두 VM을 구분하고 두 VM 모두에서 NFSv 4.1 볼륨을 탑재할 수 있습니다.  
+
+    테스트 DR 시스템에서만 이 단계를 수행해야 합니다. 일관성을 위해 관련된 각 가상 머신에 고유한 설정을 적용하는 것이 좋습니다.
+
+2. 테스트 DR 시스템에서 일반적으로 `/etc/modprobe.d/`에 있는 `nfsclient.conf` 파일에 다음 행을 추가합니다.
+
+    `options nfs nfs4_unique_id=uniquenfs4-1`  
+
+    `uniquenfs4-1` 문자열은 서비스에 연결할 VM 전체에서 고유하다면 영숫자 문자열이 될 수 있습니다.
+
+    NFS 클라이언트 설정을 구성하는 방법에 대한 배포 설명서를 확인합니다.
+
+    변경 사항을 적용하려면 VM을 다시 부팅합니다.
+
+3. 테스트 DR 시스템에서 VM 다시 부팅 후 `nfs4_unique_id`가 설정되었는지 확인합니다.       
+
+    `# systool -v -m nfs | grep -i nfs4_unique`   
+    `   nfs4_unique_id      = "uniquenfs4-1"`   
+
+4. 정상적으로 두 VM에 [NFSv4.1 볼륨을 탑재](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)합니다.
+
+    이제 호스트 이름이 같은 두 VM이 모두 NFSv 4.1 볼륨을 탑재하고 액세스할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계  
 
 * [Azure NetApp Files에 대한 NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)
 * [Azure NetApp Files에 대한 이중 프로토콜 볼륨 만들기](create-volumes-dual-protocol.md)
-
+* [Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) 

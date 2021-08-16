@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 484dd8313710332660bb20d55f3dac2aa21bbc61
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29f8e1e3b89ef68c3ead4841cfba7b5e44f09a36
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98232525"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744650"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>기존 NPS(네트워크 정책 서버) 인프라와 Azure AD Multi-Factor Authentication 통합
 
@@ -72,7 +72,7 @@ NPS 확장은 기존 인프라와 함께 사용할 수 있습니다. 시작하�
 
 ### <a name="licenses"></a>라이선스
 
-Azure AD Multi-Factor Authentication의 NPS 확장은 [Azure AD Multi-Factor Authentication 라이선스](./concept-mfa-howitworks.md)가 있는 고객이 사용할 수 있습니다. 사용자 기준 또는 인증 기준 라이선스와 같은 Azure AD Multi-Factor Authentication에 대한 사용량 기반 라이선스는 NPS 확장과 호환되지 않습니다.
+Azure AD Multi-Factor Authentication용 NPS 확장은 [Azure AD Multi-Factor Authentication 라이선스](./concept-mfa-howitworks.md)가 있는 고객에게 제공됩니다(Azure AD Premium P1 및 Premium P2 또는 Enterprise Mobility + Security에 포함됨). 사용자 기준 또는 인증 기준 라이선스와 같은 Azure AD Multi-Factor Authentication에 대한 사용량 기반 라이선스는 NPS 확장과 호환되지 않습니다.
 
 ### <a name="software"></a>소프트웨어
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Bastion을 사용하여 Windows VM에 연결
-description: 이 문서에서는 Azure Bastion을 사용하여 Windows를 실행하는 Azure 가상 머신에 연결하는 방법을 알아봅니다.
+description: Azure Bastion을 사용하여 Windows를 실행하는 Azure VM에 연결하는 방법을 알아봅니다.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: 708bd1f61da2f3973333f8e68cabdceee0717bee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fac6d5a0b7d7c8817dadead7e2a9269027140991
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92521540"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110535307"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Azure Bastion을 사용하여 Windows 가상 머신에 연결
 

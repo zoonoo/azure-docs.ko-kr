@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: b10d2e10f95470cadf67af762a0d7320bc09b7e0
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 7a660b6da0d391e7e2671302432c937b5142f4b0
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075698"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747728"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -42,9 +42,6 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 
 다음 표에는 VMware에 대한 Azure Migrate 어플라이언스 요구 사항이 요약되어 있습니다.
 
-> [!Note]
-> VMware 환경에서 실행되는 SQL Server 인스턴스 및 데이터베이스를 검색하고 평가하는 기능은 현재 미리 보기로 제공됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
-
 **요구 사항** | **VMware**
 --- | ---
 **권한** | 어플라이언스 구성 관리자를 로컬로 또는 원격으로 액세스하려면 어플라이언스 서버에 대한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
@@ -56,7 +53,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 **OVA 확인** | 해시 값을 확인하여 프로젝트에서 다운로드한 OVA 템플릿을 [확인](tutorial-discover-vmware.md#verify-security)합니다.
 **PowerShell 스크립트** | PowerShell 설치 프로그램 스크립트를 사용하여 어플라이언스를 배포하는 방법은 이 [문서](./deploy-appliance-script.md#set-up-the-appliance-for-vmware)를 참조하세요.<br/><br/> 
 **하드웨어 및 네트워크 요구 사항** |  어플라이언스는 Windows Server 2016, 32GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지 및 외부 가상 스위치가 있는 서버에서 실행해야 합니다.<br/> 어플라이언스는 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> OVA 템플릿을 사용하여 어플라이언스를 배포하는 경우 vCenter Server에 충분한 리소스가 있어야 하드웨어 요구 사항을 충족하는 서버를 만들 수 있습니다.<br/><br/> 기존 서버에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하며 하드웨어 요구 사항을 충족하는지 확인합니다.<br/>_(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_
-**VMware 요구 사항** | VCenter Server에서 어플라이언스를 서버로 배포하는 경우 5.5, 6.0, 6.5 또는 6.7 버전을 실행하는 vCenter Server 및 5.5 버전 이상을 실행하는 ESXi 호스트에 배포해야 합니다.<br/><br/> 
+**VMware 요구 사항** | VCenter Server에서 어플라이언스를 서버로 배포하는 경우 5.5, 6.0, 6.5, 6.7 또는 7.0 버전을 실행하는 vCenter Server 및 5.5 버전 이상을 실행하는 ESXi 호스트에 배포해야 합니다.<br/><br/> 
 **VDDK(에이전트 없는 마이그레이션)** | 서버의 에이전트 없는 마이그레이션을 위한 어플라이언스를 활용하려면 VMware vSphere VDDK를 어플라이언스 서버에 설치해야 합니다.
 
 ## <a name="appliance---hyper-v"></a>어플라이언스 - Hyper-V
@@ -128,7 +125,24 @@ download.microsoft.com/download | Microsoft 다운로드 센터에서 다운로�
 *.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Azure Migrate 서비스 URL에 연결합니다.
 *. hypervrecoverymanager.windowsazure.us | **VMware 에이전트 없는 마이그레이션에 사용** 됩니다.<br/><br/> Azure Migrate 서비스 URL에 연결합니다.
 *.blob.core.usgovcloudapi.net  |  **VMware 에이전트 없는 마이그레이션에 사용** 됩니다.<br/><br/>마이그레이션을 위해 데이터를 스토리지에 업로드합니다.
-*.applicationinsights.us | 내부 모니터링에 사용되는 어플라이언스 로그를 업로드합니다.
+*.applicationinsights.us | 내부 모니터링에 사용되는 어플라이언스 로그를 업로드합니다.  
+
+### <a name="public-cloud-urls-for-private-link-connectivity"></a>프라이빗 링크 연결에 대한 퍼블릭 클라우드 URL
+
+어플라이언스는 프라이빗 링크 액세스를 통해 다음 URL(직접 또는 프록시를 통해)에 액세스해야 합니다. 
+
+**URL** | **세부 정보**  
+--- | --- | 
+*.portal.azure.com  | Azure Portal로 이동합니다.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com | Azure 구독에 로그인합니다.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | 어플라이언스에서 Azure Migrate와 통신할 수 있도록 Azure AD(Active Directory) 앱을 만듭니다.
+management.azure.com | 어플라이언스에서 Azure Migrate와 통신할 수 있도록 Microsoft Azure AD 앱을 만듭니다.
+*.services.visualstudio.com(선택 사항) | 내부 모니터링에 사용되는 어플라이언스 로그를 업로드합니다.
+aka.ms/*(선택 사항) | aka 링크에 대한 액세스를 허용합니다. 어플라이언스 서비스의 최신 업데이트를 다운로드 및 설치하는 데 사용됩니다.
+download.microsoft.com/download | Microsoft 다운로드 센터에서 다운로드할 수 있습니다.
+\*.servicebus.windows.net | **VMware 에이전트 없는 마이그레이션에 사용** 됩니다.<br/><br/> 어플라이언스와 Azure Migrate 서비스 간의 통신입니다.
+\*.hypervrecoverymanager.windowsazure.com | **VMware 에이전트 없는 마이그레이션에 사용** 됩니다.<br/><br/> Azure Migrate 서비스 URL에 연결합니다.
+\*.blob.core.windows.net |  **VMware 에이전트 없는 마이그레이션에 사용** 됩니다.<br/><br/>마이그레이션을 위해 데이터를 스토리지에 업로드합니다. <br/>이는 선택 사항이며 스토리지 계정(캐시 스토리지 계정 및 게이트웨이 스토리지 계정 모두)에 연결된 프라이빗 엔드포인트가 있는 경우에는 필요하지 않습니다.
 
 ## <a name="collected-data---vmware"></a>수집되는 데이터 - VMware
 
@@ -267,9 +281,6 @@ Architecture | uname
 ### <a name="sql-server-instances-and-databases-data"></a>SQL Server 인스턴스 및 데이터베이스 데이터
 
 어플라이언스는 SQL Server 인스턴스 및 데이터베이스에서 데이터를 수집합니다.
-
-> [!Note]
-> VMware 환경에서 실행되는 SQL Server 인스턴스 및 데이터베이스를 검색하고 평가하는 기능은 현재 미리 보기로 제공됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
 
 #### <a name="sql-database-metadata"></a>SQL 데이터베이스 메타데이터
 
@@ -468,13 +479,13 @@ NIC MAC 주소 | Win32_NetworkAdapterConfiguration | MACAddress
 **Data** | **명령**
 --- | ---
 FQDN | cat /proc/sys/kernel/hostname, hostname -f
-프로세서 코어 수 |  /proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l
+프로세서 코어 수 |  cat/proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l
 할당된 메모리 | cat /proc/meminfo \| grep MemTotal \| awk '{printf "%.0f", $2/1024}'
 BIOS 일련 번호 | lshw \| grep "serial:" \| head -n1 \| awk '{print $2}' <br/> /usr/sbin/dmidecode -t 1 \| grep 'Serial' \| awk '{ $1="" ; $2=""; print}'
 BIOS GUID | cat /sys/class/dmi/id/product_uuid
 부팅 유형 | [ -d /sys/firmware/efi ] && echo EFI \|\| echo BIOS
 OS 이름/버전 | OS 버전 및 이름에 대해 다음 파일에 액세스합니다.<br/><br/> /etc/os-release<br/> /usr/lib/os-release <br/> /etc/enterprise-release <br/> /etc/redhat-release<br/> /etc/oracle-release<br/>  /etc/SuSE-release<br/>  /etc/lsb-release  <br/> /etc/debian_version
-OS 아키텍처 | Uname -m
+OS 아키텍처 | uname -m
 디스크 수 | fdisk -l \| egrep 'Disk.*bytes' \| awk '{print $2}' \| cut -f1 -d ':'
 부팅 디스크 | df /boot \| sed -n 2p \| awk '{print $1}'
 디스크 크기 | fdisk -l \| egrep 'Disk.*bytes' \| egrep $disk: \| awk '{print $5}'

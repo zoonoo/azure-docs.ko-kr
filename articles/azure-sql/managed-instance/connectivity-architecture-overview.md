@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Managed Instance
 description: Azure SQL Managed Instance 통신과 연결 아키텍처 및 구성 요소가 트래픽을 관리되는 인스턴스로 전송하기 위해 작동하는 방식에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
-ms.date: 10/22/2020
-ms.openlocfilehash: c91b0231271c6cbcf9ec92c7ad6d25f1bc0f9136
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.date: 04/29/2021
+ms.openlocfilehash: 259bd0128a4c5ce677e4d01f44b114aaba0cb977
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105960472"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111889159"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 연결 아키텍처
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -87,7 +87,7 @@ Azure는 관리 엔드포인트를 사용하여 SQL Managed Instance를 관리�
 
 고객 보안 및 관리 효율성 요구 사항에 따라 SQL Managed Instance가 수동에서 서비스 지원 서브넷 구성으로 전환됩니다.
 
-서비스 지원 서브넷 구성을 통해 사용자는 데이터(TDS) 트래픽을 완전히 제어할 수 있지만, SQL Managed Instance는 SLA 준수를 위해 중단 없는 관리 트래픽 흐름을 보장해야 합니다.
+서비스 지원 서브넷 구성을 통해 고객은 데이터(TDS) 트래픽을 완전히 제어할 수 있지만, SQL Managed Instance 컨트롤 플레인은 SLA 준수를 위해 중단 없는 관리 트래픽 흐름을 보장해야 합니다.
 
 서비스 지원 서브넷 구성은 가상 네트워크 [서브넷 위임](../../virtual-network/subnet-delegation-overview.md) 기능 위에 구축되어 자동 네트워크 구성 관리를 제공하고 서비스 엔드포인트를 사용하도록 설정합니다. 
 
@@ -100,16 +100,17 @@ Azure는 관리 엔드포인트를 사용하여 SQL Managed Instance를 관리�
 
 가상 네트워크 내의 전용 서브넷에 SQL Managed Instance를 배포합니다. 서브넷에는 다음과 같은 특징이 있어야 합니다.
 
-- **전용 서브넷:** SQL Managed Instance의 서브넷은 연결된 다른 클라우드 서비스를 포함할 수 없으며 게이트웨이 서브넷이 될 수 없습니다. 서브넷에는 SQL Managed Instance 이외의 리소스가 포함될 수 없으며 나중에 서브넷에 다른 종류의 리소스를 추가할 수 없습니다.
+- **전용 서브넷:** 관리되는 인스턴스의 서브넷은 연결된 다른 클라우드 서비스를 포함할 수 없지만 다른 관리되는 인스턴스는 허용되며, 게이트웨이 서브넷이 될 수 없습니다. 서브넷에는 관리되는 인스턴스 이외의 리소스가 포함될 수 없으며 나중에 서브넷에 다른 유형의 리소스를 추가할 수 없습니다.
 - **서브넷 위임:** SQL Managed Instance 서브넷을 `Microsoft.Sql/managedInstances` 리소스 공급자에게 위임해야 합니다.
 - **NSG(네트워크 보안 그룹):** NSG를 SQL Managed Instance의 서브넷과 연결해야 합니다. SQL Managed Instance가 리디렉션 연결에 대해 구성된 경우 NSG를 통해 포트 1433 및 포트 11000~11999에서 트래픽을 필터링하여 SQL Managed Instance의 데이터 엔드포인트에 대한 액세스를 제어할 수 있습니다. 서비스는 중단 없는 관리 트래픽 흐름을 허용하는 데 필요한 현재 [규칙](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration)을 자동으로 프로비저닝하고 유지합니다.
-- **UDR(사용자 정의 경로) 테이블:** UDR 테이블은 SQL Managed Instance의 서브넷과 연결해야 합니다. 경로 테이블에 항목을 추가하여 가상 네트워크 게이트웨이 또는 NVA(가상 네트워크 어플라이언스)를 통해 온-프레미스 프라이빗 IP 범위를 대상으로 하는 트래픽을 라우팅할 수 있습니다. 서비스는 중단 없는 관리 트래픽 흐름을 허용하는 데 필요한 현재 [항목](#user-defined-routes-with-service-aided-subnet-configuration)을 자동으로 프로비닝하고 유지합니다.
+- **UDR(사용자 정의 경로) 테이블:** UDR 테이블은 SQL Managed Instance의 서브넷과 연결해야 합니다. 경로 테이블에 항목을 추가하여 가상 네트워크 게이트웨이 또는 NVA(가상 네트워크 어플라이언스)를 통해 온-프레미스 프라이빗 IP 범위를 대상으로 하는 트래픽을 라우팅할 수 있습니다. 서비스는 중단 없는 관리 트래픽 흐름을 허용하는 데 필요한 현재 [항목](#mandatory-user-defined-routes-with-service-aided-subnet-configuration)을 자동으로 프로비닝하고 유지합니다.
 - **충분한 IP 주소:** SQL Managed Instance 서브넷에는 최소 32개의 IP 주소가 있어야 합니다. 자세한 내용은 [SQL Managed Instance의 서브넷 크기 결정](vnet-subnet-determine-size.md)을 참조하세요. [SQL Managed Instance의 네트워킹 요구 사항](#network-requirements)을 충족하도록 구성한 후 [기존 네트워크](vnet-existing-add-subnet.md)에 관리되는 인스턴스를 배포할 수 있습니다. 그러지 않으면 [새 네트워크 및 서브넷](virtual-network-subnet-create-arm-template.md)을 만듭니다.
 
 > [!IMPORTANT]
 > 관리되는 인스턴스가 만들어지면 네트워크 설정에 대한 호환되지 않는 변경을 방지하기 위해 네트워크 의도 정책이 서브넷에 적용됩니다. 마지막 인스턴스가 서브넷에서 제거되면 네트워크 의도 정책도 제거됩니다. 아래 규칙은 정보 제공 전용이며, ARM 템플릿 / PowerShell / CLI를 사용하여 배포하지 않아야 합니다. 최신 공식 템플릿을 사용하려는 경우 언제든지 [포털에서 검색](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)할 수 있습니다.
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>서비스 보조 서브넷 구성을 사용하는 필수 인바운드 보안 규칙
+이러한 규칙은 인바운드 관리 트래픽 흐름을 보장하는 데 필요합니다. 연결 아키텍처 및 관리 트래픽에 대한 자세한 내용은 [위 단락](#high-level-connectivity-architecture)을 참조하세요.
 
 | Name       |포트                        |프로토콜|원본           |대상|작업|
 |------------|----------------------------|--------|-----------------|-----------|------|
@@ -120,13 +121,15 @@ Azure는 관리 엔드포인트를 사용하여 SQL Managed Instance를 관리�
 |health_probe|모두                         |모두     |AzureLoadBalancer|MI SUBNET  |허용 |
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>서비스 보조 서브넷 구성을 사용하는 필수 아웃바운드 보안 규칙
+이러한 규칙은 아웃바운드 관리 트래픽 흐름을 보장하는 데 필요합니다. 연결 아키텍처 및 관리 트래픽에 대한 자세한 내용은 [위 단락](#high-level-connectivity-architecture)을 참조하세요.
 
 | Name       |포트          |프로토콜|원본           |대상|작업|
 |------------|--------------|--------|-----------------|-----------|------|
 |관리  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |허용 |
 |mi_subnet   |모두           |모두     |MI SUBNET        |MI SUBNET  |허용 |
 
-### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>서비스 보조 서브넷 구성을 사용하는 사용자 정의 경로
+### <a name="mandatory-user-defined-routes-with-service-aided-subnet-configuration"></a>서비스 보조 서브넷 구성을 사용하는 필수 사용자 정의 경로
+관리 트래픽이 대상으로 직접 라우팅되도록 하려면 이러한 경로가 필요합니다. 연결 아키텍처 및 관리 트래픽에 대한 자세한 내용은 [위 단락](#high-level-connectivity-architecture)을 참조하세요.
 
 |이름|주소 접두사|다음 홉|
 |----|--------------|-------|
@@ -142,6 +145,7 @@ Azure는 관리 엔드포인트를 사용하여 SQL Managed Instance를 관리�
 |mi-storage-internet|스토리지|인터넷|
 |mi-storage-REGION-internet|Storage.REGION|인터넷|
 |mi-storage-REGION_PAIR-internet|Storage.REGION_PAIR|인터넷|
+|mi-azureactivedirectory-internet|AzureActiveDirectory|인터넷|
 ||||
 
 \* MI SUBNET은 x.x.x.x/y 형식의 서브넷용 IP 주소 범위를 지칭합니다. 이 정보는 Azure Portal의 서브넷 속성에서 찾을 수 있습니다.
@@ -163,6 +167,8 @@ Azure는 관리 엔드포인트를 사용하여 SQL Managed Instance를 관리�
 - **AzurePlatformDNS**: AzurePlatformDNS [서비스 태그](../../virtual-network/service-tags-overview.md)를 사용하여 플랫폼 DNS 확인을 차단하면 SQL Managed Instance를 사용할 수 없게 됩니다. SQL Managed Instance는 엔진 내에서 DNS 확인을 위해 고객 정의 DNS를 지원하지만, 플랫폼 작업을 위해 플랫폼 DNS를 사용합니다.
 - **NAT 게이트웨이**: [Azure Virtual Network NAT](../../virtual-network/nat-overview.md)를 사용하여 특정 공용 IP 주소와의 아웃바운드 연결을 제어하면 SQL Managed Instance를 사용할 수 없게 됩니다. 현재 SQL Managed Instance 서비스는 가상 네트워크 NAT와 인바운드 및 아웃바운드 흐름을 동시 사용을 지원하지 않는 기본 부하 분산 장치를 사용하도록 제한되어 있습니다.
 - **Azure Virtual Network의 IPv6**: SQL Managed Instance를 [이중 스택 IPv4/IPv6 가상 네트워크](../../virtual-network/ipv6-overview.md)에 배포하는 작업은 실패할 것으로 예상됩니다. IPv6 주소 접두사가 포함된 NSG(네트워크 보안 그룹) 또는 UDR(라우팅 테이블)을 SQL Managed Instance 서브넷에 연결하거나 이미 Managed Instance 서브넷과 연결된 NSG 또는 UDR에 IPv6 주소 접두사를 추가하면 SQL Managed Instance를 사용할 수 없게 됩니다. 이미 IPv6 접두사가 있는 NSG와 UDR이 포함된 서브넷에 SQL Managed Instance 배포는 실패할 것으로 예상됩니다.
+- **Microsoft 서비스용으로 예약된 이름을 갖는 Azure DNS 프라이빗 영역**: 다음은 예약된 이름 목록입니다. windows.net, database.windows.net, core.windows.net, blob.core.windows.net, table.core.windows.net, management.core.windows.net, monitoring.core.windows.net, queue.core.windows.net, graph.windows.net, login.microsoftonline.com, login.windows.net, servicebus.windows.net, vault.azure.net. Microsoft 서비스용으로 예약된 이름을 갖는 연결된 [Azure DNS 프라이빗 영역](../../dns/private-dns-privatednszone.md)을 포함하는 가상 네트워크로는 SQL Managed Instance를 배포할 수 없습니다. 예약된 이름을 갖는 Azure DNS 프라이빗 영역을 관리되는 인스턴스를 포함하는 가상 네트워크에 연결하면 SQL Managed Instance를 사용할 수 없게 됩니다. 적절한 Private Link 구성을 위해서는 [Azure 프라이빗 엔드포인트 DNS 구성](../../private-link/private-endpoint-dns.md)을 따르세요.
+- **Azure Storage에 대한 서비스 엔드포인트 정책**: 연결된 [서비스 엔드포인트 정책](../../virtual-network/virtual-network-service-endpoint-policies-overview.md)이 있는 서브넷에 SQL Managed Instance를 배포할 수 없습니다. 서비스 엔드포인트 정책을 Managed Instance를 호스트하는 서브넷에 연결할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -172,5 +178,5 @@ Azure는 관리 엔드포인트를 사용하여 SQL Managed Instance를 관리�
 - 관리되는 인스턴스를 만드는 방법을 알아봅니다.
   - [Azure Portal](instance-create-quickstart.md)
   - [PowerShell](scripts/create-configure-managed-instance-powershell.md) 사용
-  - [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/) 사용
-  - [Azure Resource Manager 템플릿(SSMS가 포함된 JumpBox 사용)](https://azure.microsoft.com/resources/templates/201-sqlmi-new-vnet-w-jumpbox/) 사용
+  - [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/sqlmi-new-vnet/) 사용
+  - [Azure Resource Manager 템플릿(SSMS가 포함된 JumpBox 사용)](https://azure.microsoft.com/resources/templates/sqlmi-new-vnet-w-jumpbox/) 사용

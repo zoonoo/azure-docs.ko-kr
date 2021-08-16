@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2021
+ms.date: 04/27/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a51f874d09aebfcb2c0b73e0b484f68042d1bb6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9cde810bb9f612b0dc84fb4dd7593761b057e722
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103496204"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142858"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Azure에서 파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링
 
@@ -32,10 +32,24 @@ Windows Server 장애 조치(Failover) 클러스터링은 Windows에서 고가�
 
 장애 조치 클러스터는 함께 작동하여 애플리케이션 및 서비스의 가용성을 높이는 1+n개 독립 서버(노드) 그룹입니다. 노드에 장애가 발생하는 경우 Windows Server 장애 조치(Failover) 클러스터링은 애플리케이션 및 서비스를 제공하기 위해 발생할 수 있으며 정상 클러스터를 유지 관리하는 장애 횟수를 계산합니다. 장애 조치 클러스터링을 달성하기 위해 여러 다른 쿼럼 모드 중에서 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
-이 문서에서 설명하는 작업을 시작하기 전에 먼저 다음 문서를 검토하세요.
+## <a name="prerequisites"></a>사전 요구 사항
+이 문서에서 설명하는 작업을 시작하기 전에 다음 문서 및 SAP Note를 검토합니다.
 
 * [SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 아키텍처 및 시나리오][sap-high-availability-architecture-scenarios]
+* 다음을 포함하는 SAP Note [1928533][1928533]:  
+  * SAP 소프트웨어 배포에 지원되는 Azure VM 크기 목록
+  * Azure VM 크기에 대한 중요한 용량 정보
+  * 지원되는 SAP 소프트웨어 및 운영 체제(OS)와 데이터베이스 조합
+  * Microsoft Azure에서 Windows에 필요한 SAP 커널 버전
+* SAP Note [2015553][2015553]는 Azure에서 SAP을 지원하는 SAP 소프트웨어 배포에 대한 필수 구성 요소를 나열합니다.
+* SAP Note [2178632][2178632]는 Azure에서 SAP에 대해 보고된 모든 모니터링 메트릭에 대한 자세한 정보를 포함하고 있습니다.
+* SAP Note [1999351][1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
+* SAP Note [2287140](https://launchpad.support.sap.com/#/notes/2287140)은 SMB 3.x 프로토콜의 SAP 지원 CA 기능에 대한 필수 조건을 나열합니다.
+* SAP Note [2802770](https://launchpad.support.sap.com/#/notes/2802770)에는 Windows 2012 및 2016에서 느리게 실행되는 SAP 트랜잭션 AL11에 대한 문제 해결 정보가 있습니다.
+* SAP Note [1911507](https://launchpad.support.sap.com/#/notes/1911507)에는 SMB 3.0 프로토콜을 사용하는 Windows Server의 파일 공유에 대한 투명한 장애 조치(failover) 기능에 대한 정보가 있습니다.
+* SAP Note [662452](https://launchpad.support.sap.com/#/notes/662452)에는 데이터 액세스 중 열악한 파일 시스템 성능/오류를 해결하기 위한 권장 사항(8.3 이름 생성 비활성화)이 있습니다.
+* [Azure에서 SAP ASCS/SCS 인스턴스의 Windows 장애 조치(Failover) 클러스터 및 파일 공유에 SAP NetWeaver 고가용성 설치](./sap-high-availability-installation-wsfc-file-share.md) 
+* [장애 조치(failover) 클러스터에 (A)SCS 인스턴스 설치](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
 
 > [!IMPORTANT]
 > 파일 공유를 사용한 SAP ASCS/SCS 인스턴스의 클러스터링은 SAP 커널 7.49 이상이 적용된 SAP NetWeaver 7.40 이상에서 지원됩니다.

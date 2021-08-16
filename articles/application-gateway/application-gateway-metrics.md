@@ -2,17 +2,17 @@
 title: Application Gateway에 대한 Azure Monitor 메트릭
 description: 메트릭을 사용하여 애플리케이션 게이트웨이의 성능을 모니터링하는 방법을 알아봅니다.
 services: application-gateway
-author: surajmb
+author: azhar2005
 ms.service: application-gateway
 ms.topic: article
-ms.date: 06/06/2020
-ms.author: surmb
-ms.openlocfilehash: 9faa3a284aa7151880526c1ee70cfadc3dbf3089
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/19/2021
+ms.author: azhussai
+ms.openlocfilehash: 615db7e8d53e397755ae318d171dab1eab9ec6c6
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100576112"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727811"
 ---
 # <a name="metrics-for-application-gateway"></a>Application Gateway에 대한 메트릭
 
@@ -24,7 +24,7 @@ Application Gateway는 메트릭이라는 데이터 요소를 [Azure Monitor](..
 
 Application Gateway는 모두 밀리초 단위로 측정되는 요청 및 응답과 관련된 몇 가지 기본 제공 타이밍 메트릭을 제공합니다. 
 
-![Application Gateway에 대한 타이밍 메트릭의 다이어그램입니다.](./media/application-gateway-metrics/application-gateway-metrics.png)
+:::image type="content" source="./media/application-gateway-metrics/application-gateway-metrics.png" alt-text="[Application Gateway에 대한 타이밍 메트릭의 다이어그램" border="false":::
 
 > [!NOTE]
 >

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: f11b31ba698c193029834caada2e5c4cf3ef2902
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e1621acb66e62b03418b59f184ba4e7fa031a164
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104866644"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472113"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>규모에 맞게 ETL(추출, 변환 및 로드)
 
@@ -63,7 +63,7 @@ Azure Storage에는 여러 가지 유형의 Blob이 있습니다. *추가 Blob* 
 
 Azure Storage에는 Blob Storage를 위한 WebHDFS API 계층이 있습니다. 모든 HDInsight 서비스는 HDFS(Hadoop 분산 파일 시스템)를 사용하는 방식과 비슷하게 데이터 정리 및 데이터 처리를 위해 Azure Blob Storage의 파일에 액세스할 수 있습니다.
 
-데이터는 일반적으로 PowerShell, Azure Storage SDK 또는 AZCopy를 사용하여 Azure Storage로 수집됩니다.
+데이터는 일반적으로 PowerShell, Azure Storage SDK 또는 AzCopy를 사용하여 Azure Storage로 수집됩니다.
 
 ### <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 32b00e031e3cf865093c267084117a8704b6e272
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 87007d3df3fe44ab04a330b09b8e495ec4b47e54
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107799804"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "97866069"
 ---
 ## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Azure CLI에서 Azure Container Instance 리소스 만들기
 
@@ -77,7 +77,7 @@ az container create -g <resource-group> -f my-aci.yaml
 > [!TIP]
 > YAML은 위치와 일치하도록 적절히 조정해야 하므로 공개 미리 보기 Azure Cognitive Service 제품의 위치에 주의하세요.
 
-[azure-container-create]: /cli/azure/container#az_container_create
+[azure-container-create]: /cli/azure/container#az-container-create
 [template-format]: /azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format
 [aci-yaml-ref]: ../../../container-instances/container-instances-reference-yaml.md
 [repositories-and-images]: ../container-image-tags.md

@@ -68,8 +68,6 @@ items:
         href: concept-insights.md
       - name: 지원되는 브라우저
         href: supported-browsers.md
-      - name: 자산 정규화
-        href: concept-asset-normalization.md
       - name: 질문과 대답
         href: frequently-asked-questions.md
   - name: 방법 가이드
@@ -106,12 +104,6 @@ items:
               - name: Azure Cosmos DB
                 href: register-scan-azure-cosmos-database.md
                 displayName: Register and scan Azure Cosmos DB
-              - name: Azure Database for MySQL
-                href: register-scan-azure-mysql-database.md
-                displayName: Register and scan an Azure database for MySQL
-              - name: Azure Database for PostgreSQL
-                href: register-scan-azure-postgresql.md
-                displayName: Register and scan an Azure database for PostgreSQL
               - name: Azure Data Explorer
                 href: register-scan-azure-data-explorer.md
                 displayName: Register and scan Azure Data Explorer Kusto
@@ -129,14 +121,8 @@ items:
                 displayName: Register and scan Azure SQL DB Managed Instance
               - name: Azure 전용 SQL 풀(이전 SQL DW)
                 href: register-scan-azure-synapse-analytics.md
-              - name: Erwin
-                href: register-scan-erwin-source.md
-              - name: Google BigQuery
-                href: register-scan-google-bigquery-source.md
               - name: Hive 메타스토어 데이터베이스
                 href: register-scan-hive-metastore-source.md
-              - name: Looker
-                href: register-scan-looker-source.md
               - name: 온-프레미스 SQL Server
                 href: register-scan-on-premises-sql-server.md
               - name: Oracle

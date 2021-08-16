@@ -4,16 +4,16 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Linux Data Science Virtual Machine을 사용하여 몇 가지 일반적인 데이터 과학 작업을 수행하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: data-science-vm
-author: lobrien
-ms.author: laobri
+author: timoklimmer
+ms.author: tklimmer
 ms.topic: conceptual
-ms.date: 09/17/2020
-ms.openlocfilehash: 42136d0d58dbc318aab0e111fcef46f80751ca88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.openlocfilehash: 453b7558ac4f26395186a6aabc54ce831b5ef9b5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100517674"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110071887"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Azure에서 Ubuntu Data Science Virtual Machine을 사용하는 데이터 과학
 
@@ -29,7 +29,6 @@ Linux DSVM을 사용하려면 먼저 다음과 같은 필수 구성 요소가 �
 
 * [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). 가상 머신을 프로비전하는 방법에 대한 자세한 내용은 [Ubuntu Data Science Virtual Machine 프로비저닝](./release-notes.md)을 참조하세요.
 * 열린 XFCE 세션을 사용하여 컴퓨터에 설치된 [**X2Go**](https://wiki.x2go.org/doku.php). 자세한 내용은 [X2Go 클라이언트 설치 및 구성](dsvm-ubuntu-intro.md#x2go)을 참조하세요.
-* 더 부드러운 스크롤 경험을 원할 경우 DSVM의 Firefox 웹 브라우저에서 `about:config`의 `gfx.xrender.enabled` 플래그를 전환합니다. [자세히 알아보기](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). 또한 `mousewheel.enable_pixel_scrolling`을 `False`로 설정하는 것이 좋습니다. [자세히 알아보기](https://support.mozilla.org/questions/981140).
 
 ## <a name="download-the-spambase-dataset"></a>spambase 데이터 세트 다운로드
 
@@ -70,7 +69,7 @@ mv headers spambaseHeaders.data
 
 ## <a name="explore-the-dataset-by-using-r-open"></a>R Open을 사용하여 데이터 세트 탐색
 
-R을 사용하여 데이터를 검토하고 몇 가지 기본 기계 학습을 수행해 보겠습니다. DSVM은 [Microsoft R Open](https://mran.revolutionanalytics.com/open/)가 사전 설치되어 제공됩니다. 이 사전 설치된 R 버전의 다중 스레드 수학 라이브러리는 단일 스레드 버전보다 나은 성능을 제공합니다. 또한 R Open은 CRAN 패키지 리포지토리의 스냅샷을 통해 재현 가능성을 제공합니다.
+R을 사용하여 데이터를 검토하고 몇 가지 기본 기계 학습을 수행해 보겠습니다. DSVM은 CRAN R이 사전 설치되어 제공됩니다.
 
 이 연습에서 사용되는 코드 샘플의 복사본을 가져오려면 git를 사용하여 Azure-Machine-Learning-Data-Science 리포지토리를 복제합니다. Git는 DSVM에 사전 설치되어 있습니다. Git 명령줄에서 다음을 실행합니다.
 

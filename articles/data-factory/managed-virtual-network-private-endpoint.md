@@ -1,122 +1,191 @@
 ---
-title: 관리 되는 가상 네트워크 & 관리 되는 전용 끝점
-description: Azure Data Factory에서 관리 되는 가상 네트워크 및 관리 되는 개인 끝점에 대해 알아봅니다.
-ms.author: abnarain
-author: nabhishek
+title: 관리형 가상 네트워크 및 관리형 프라이빗 엔드포인트
+description: Azure Data Factory의 관리형 가상 네트워크 및 관리형 프라이빗 엔드포인트에 대해 알아봅니다.
+ms.author: lle
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: b6000d8ff3eb35d678a94adc021efcadf8a77f81
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 7804279f3d5d95e36918a7c5d3cae543d59e6d9c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101699637"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470767"
 ---
-# <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory 관리 Virtual Network (미리 보기)
+# <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory 관리형 가상 네트워크(미리 보기)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory에서 관리 되는 Virtual Network 및 관리 되는 개인 끝점을 설명 합니다.
+이 문서에서는 Azure Data Factory의 관리형 가상 네트워크 및 관리형 프라이빗 엔드포인트에 대해 설명합니다.
 
 
 ## <a name="managed-virtual-network"></a>관리형 가상 네트워크
 
-Azure Data Factory 관리 되는 Virtual Network (VNET) 내에서 IR (Azure Integration Runtime)을 만들면 Integration Runtime이 관리 되는 Virtual Network 프로 비전 되 고 개인 끝점을 활용 하 여 지원 되는 데이터 저장소에 안전 하 게 연결 됩니다. 
+Azure Data Factory 관리형 가상 네트워크(VNET) 내에 Azure IR(Integration Runtime)을 만들면 통합 런타임은 관리형 가상 네트워크로 프로비저닝되며 프라이빗 엔드포인트를 활용하여 지원되는 데이터 저장소에 안전하게 연결합니다. 
 
-관리 되는 Virtual Network 내 Azure IR를 만들면 데이터 통합 프로세스가 격리 되 고 안전 하 게 유지 됩니다. 
+관리형 가상 네트워크 내에 Azure IR을 만들면 데이터 통합 프로세스가 격리되고 보호됩니다. 
 
-관리 되는 Virtual Network 사용의 이점:
+관리형 가상 네트워크 사용의 이점
 
-- 관리 되는 Virtual Network을 사용 하면 Virtual Network를 관리 하는 부담을 Azure Data Factory으로 오프 로드할 수 있습니다. 궁극적으로 Virtual Network에서 많은 개인 Ip를 사용 하 고 이전 네트워크 인프라를 계획 해야 하는 Azure Integration Runtime에 대 한 서브넷을 만들 필요가 없습니다. 
-- 데이터 통합을 안전 하 게 수행 하기 위해 심층 Azure 네트워킹 정보는 필요 하지 않습니다. 대신 보안 ETL을 시작 하는 것은 데이터 엔지니어에 게 매우 간단 합니다. 
-- 관리 되는 Virtual Network는 관리 되는 개인 끝점과 함께 데이터 exfiltration을 방지 합니다. 
+- 관리형 가상 네트워크를 사용하면 Azure Data Factory에 대한 가상 네트워크를 관리하는 부담에서 벗어날 수 있습니다. 결과적으로 가상 네트워크에서 많은 개인 IP를 사용할 수 있고 사전 네트워크 인프라 계획이 필요한 Azure Integration Runtime에 대해 서브넷을 만들 필요가 없습니다. 
+- Azure 네트워킹에 대한 깊이 있는 지식이 없어도 데이터 통합을 안전하게 수행할 수 있습니다. 대신 보안 ETL을 시작하는 것이 데이터 엔지니어에게 훨씬 간단합니다. 
+- 관리형 프라이빗 엔드포인트와 함께 관리형 가상 네트워크는 데이터 반출을 방지합니다. 
 
 > [!IMPORTANT]
->현재 관리 되는 VNet은 Azure Data Factory 지역과 동일한 지역 에서만 지원 됩니다.
+>현재, 관리형 Virtual Network는 Azure Data Factory 지역과 동일한 지역에서만 지원됩니다.
+
+> [!Note]
+>Azure Data Factory 관리형 Virtual Network는 아직 공개 미리 보기 상태이므로 SLA는 보장되지 않습니다.
+
+> [!Note]
+>기존 퍼블릭 Azure Integration Runtime은 Azure Data Factory 관리형 가상 네트워크에서 Azure Integration Runtime으로 전환할 수 없으며 그 반대의 경우도 마찬가지입니다.
  
 
-![ADF 관리 Virtual Network 아키텍처](./media/managed-vnet/managed-vnet-architecture-diagram.png)
+![ADF 관리형 가상 네트워크 아키텍처](./media/managed-vnet/managed-vnet-architecture-diagram.png)
 
 ## <a name="managed-private-endpoints"></a>관리형 프라이빗 엔드포인트
 
-관리 되는 개인 끝점은 Azure 리소스에 대 한 개인 링크를 설정 하는 Virtual Network Azure Data Factory 관리 되는 전용 끝점입니다. Azure Data Factory는 사용자 대신 이러한 프라이빗 엔드포인트를 관리합니다. 
+관리형 프라이빗 엔드포인트는 Azure Data Factory 관리형 가상 네트워크에 생성되는 프라이빗 엔드포인트이며, Azure 리소스에 대한 프라이빗 링크를 설정합니다. Azure Data Factory는 사용자 대신 이러한 프라이빗 엔드포인트를 관리합니다. 
 
 ![새 관리형 프라이빗 엔드포인트](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory은 개인 링크를 지원 합니다. 개인 링크를 사용 하면 Azure (PaaS) 서비스 (예: Azure Storage, Azure Cosmos DB, Azure Synapse Analytics)에 액세스할 수 있습니다.
+Azure Data Factory는 프라이빗 링크를 지원합니다. 프라이빗 링크를 사용하면 Azure(PaaS) 서비스(예: Azure Storage, Azure Cosmos DB, Azure Synapse Analytics)에 액세스할 수 있습니다.
 
-개인 링크를 사용 하는 경우 데이터 저장소와 관리 되는 Virtual Network 간의 트래픽이 Microsoft 백본 네트워크를 통해 완전히 트래버스 됩니다. Private Link는 데이터 반출 위험을 방지합니다. 프라이빗 엔드포인트를 만들어 리소스에 대한 프라이빗 링크를 설정합니다.
+프라이빗 링크를 사용하면 데이터 저장소와 관리형 가상 네트워크 간의 트래픽이 전적으로 Microsoft 백본 네트워크를 통해 트래버스됩니다. Private Link는 데이터 반출 위험을 방지합니다. 프라이빗 엔드포인트를 만들어 리소스에 대한 프라이빗 링크를 설정합니다.
 
-개인 끝점은 관리 되는 Virtual Network에서 개인 IP 주소를 사용 하 여 서비스를 효과적으로 가져옵니다. 프라이빗 엔드포인트는 전체 서비스가 아닌 Azure의 특정 리소스에 매핑됩니다. 고객은 연결 범위를 조직에서 승인한 특정 리소스로 제한할 수 있습니다. [프라이빗 링크 및 프라이빗 엔드포인트](../private-link/index.yml)에 대해 자세히 알아보세요.
+프라이빗 엔드포인트는 관리형 가상 네트워크의 개인 IP 주소를 사용하여 서비스를 효과적으로 가져옵니다. 프라이빗 엔드포인트는 전체 서비스가 아닌 Azure의 특정 리소스에 매핑됩니다. 고객은 연결 범위를 조직에서 승인한 특정 리소스로 제한할 수 있습니다. [프라이빗 링크 및 프라이빗 엔드포인트](../private-link/index.yml)에 대해 자세히 알아보세요.
 
 > [!NOTE]
 > 모든 Azure 데이터 원본에 연결하는 관리형 프라이빗 엔드포인트를 만드는 것이 좋습니다. 
  
 > [!WARNING]
-> PaaS 데이터 저장소 (Blob, ADLS Gen2, Azure Synapse Analytics)에 이미이에 대해 만들어진 개인 끝점이 있고 모든 네트워크에서 액세스할 수 있는 경우에도 ADF는 관리 되는 개인 끝점을 사용 하 여 액세스할 수 있습니다. 이러한 시나리오에서는 개인 끝점을 만들어야 합니다. 
+> PaaS 데이터 저장소(Blob, ADLS Gen2, Azure Synapse Analytics)에 프라이빗 엔드포인트가 이미 만들어져 있고 모든 네트워크의 액세스를 허용하는 경우에도 ADF는 관리형 프라이빗 엔드포인트를 통해서만 액세스할 수 있습니다. 프라이빗 엔드포인트가 아직 없는 경우 해당되는 시나리오로 하나 생성해야 합니다. 
 
-Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 상태로 개인 끝점 연결이 생성 됩니다. 승인 워크플로가 시작됩니다. 프라이빗 링크 리소스 소유자가 연결을 승인 또는 거부합니다.
+프라이빗 엔드포인트 연결은 Azure Data Factory에서 관리형 프라이빗 엔드포인트를 만들 때 “보류 중” 상태로 생성됩니다. 승인 워크플로가 시작됩니다. 프라이빗 링크 리소스 소유자가 연결을 승인 또는 거부합니다.
 
 ![프라이빗 엔드포인트 관리](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png)
 
 소유자가 연결을 승인하면 프라이빗 링크가 설정됩니다. 거부하면 프라이빗 링크가 설정되지 않습니다. 어떤 경우든 관리형 프라이빗 엔드포인트는 연결 상태로 업데이트 됩니다.
 
-![관리 되는 개인 끝점 승인](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
+![관리형 프라이빗 엔드포인트 승인](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
 
 승인된 상태의 관리형 프라이빗 엔드포인트만이 지정된 프라이빗 링크 리소스에 트래픽을 보낼 수 있습니다.
 
-## <a name="interactive-authoring"></a>대화형 제작
-대화형 제작 기능은 연결 테스트, 폴더 목록 및 테이블 목록 찾아보기, 스키마 가져오기, 데이터 미리 보기 등의 기능에 사용 됩니다. ADF로 관리 되는 가상 네트워크에 있는 Azure Integration Runtime을 만들거나 편집할 때 대화형 작성을 사용 하도록 설정할 수 있습니다. 백 엔드 서비스는 대화형 제작 기능을 위해 계산을 미리 할당 합니다. 그렇지 않은 경우에는 더 많은 시간이 소요 되는 대화형 작업이 수행 될 때마다 계산이 할당 됩니다. 대화형 작성에 대 한 TTL (Time To Live)은 60 분입니다. 즉, 마지막 대화형 작성 작업의 60 분 후에 자동으로 사용 하지 않도록 설정 됩니다.
+## <a name="interactive-authoring"></a>대화형 작성
+대화형 작성 기능은 연결 테스트, 폴더 목록 및 테이블 목록 찾아보기, 스키마 가져오기, 데이터 미리 보기 등의 기능에 사용됩니다. ADF 관리형 가상 네트워크에 있는 Azure Integration Runtime을 만들거나 편집할 때 대화형 작성을 사용하도록 설정할 수 있습니다. 백 엔드 서비스는 대화형 작성 기능에 대한 컴퓨팅을 미리 할당합니다. 그러지 않으면 대화형 작업이 수행될 때마다 컴퓨팅이 할당되어 더 많은 시간이 걸립니다. 대화형 작성의 TTL(Time To Live)은 60분입니다. 즉, 마지막 대화형 작성 작업 60분 후에 자동으로 사용하지 않도록 설정됩니다.
 
 ![대화형 작성](./media/managed-vnet/interactive-authoring.png)
 
+## <a name="activity-execution-time-using-managed-virtual-network"></a>관리형 가상 네트워크를 사용한 작업 실행 시간
+기본적으로 관리형 가상 네트워크의 Azure Integration Runtime은 데이터 팩터리당 하나의 컴퓨팅 노드를 예약하지 않으므로 퍼블릭 Azure Integration Runtime보다 시간이 더 오래 걸립니다. 따라서 각 작업을 시작하기 위해 준비가 필요하며, 이는 Azure Integration Runtime보다는 가상 네트워크 조인에서 주로 발생합니다. 파이프라인 작업 및 외부 작업을 포함한 복사가 아닌 작업의 경우 처음 트리거할 때 60분의 TTL(Time To Live)이 있습니다. TTL 내에서는 노드가 이미 준비되어 있으므로 큐 시간이 훨씬 단축됩니다. 
+> [!NOTE]
+> 복사 작업은 아직 TTL을 지원하지 않습니다.
+
+## <a name="create-managed-virtual-network-via-azure-powershell"></a>Azure PowerShell을 통해 관리형 가상 네트워크 만들기
+```powershell
+$subscriptionId = ""
+$resourceGroupName = ""
+$factoryName = ""
+$managedPrivateEndpointName = ""
+$integrationRuntimeName = ""
+$apiVersion = "2018-06-01"
+$privateLinkResourceId = ""
+
+$vnetResourceId = "subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/managedVirtualNetworks/default"
+$privateEndpointResourceId = "subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/managedVirtualNetworks/default/managedprivateendpoints/${managedPrivateEndpointName}"
+$integrationRuntimeResourceId = "subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/integrationRuntimes/${integrationRuntimeName}"
+
+# Create managed Virtual Network resource
+New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${vnetResourceId}"
+
+# Create managed private endpoint resource
+New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${privateEndpointResourceId}" -Properties @{
+        privateLinkResourceId = "${privateLinkResourceId}"
+        groupId = "blob"
+    }
+
+# Create integration runtime resource enabled with VNET
+New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeResourceId}" -Properties @{
+        type = "Managed"
+        typeProperties = @{
+            computeProperties = @{
+                location = "AutoResolve"
+                dataFlowProperties = @{
+                    computeType = "General"
+                    coreCount = 8
+                    timeToLive = 0
+                }
+            }
+        }
+        managedVirtualNetwork = @{
+            type = "ManagedVirtualNetworkReference"
+            referenceName = "default"
+        }
+    }
+
+```
+
 ## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
 ### <a name="supported-data-sources"></a>지원되는 데이터 원본
-아래 데이터 원본은 ADF 관리 Virtual Network에서 개인 링크를 통해 연결할 수 있습니다.
-- Azure Blob Storage
-- Azure Table Storage
-- Azure 파일
+아래 데이터 원본은 네이티브 프라이빗 엔드포인트를 지원하며 ADF 관리형 가상 네트워크 프라이빗 링크를 통해 연결할 수 있습니다.
+- Azure Blob Storage(스토리지 계정 V1 포함 안 함)
+- Azure Table Storage(스토리지 계정 V1 포함 안 함)
+- Azure Files(스토리지 계정 V1 포함 안 함)
 - Azure Data Lake Gen2
-- Azure SQL Database (Azure SQL Managed Instance를 포함 하지 않음)
+- Azure SQL Database(Azure SQL Managed Instance 포함 안 함)
 - Azure Synapse Analytics
 - Azure CosmosDB SQL
 - Azure Key Vault
-- Azure 개인 링크 서비스
+- Azure Private Link 서비스
 - Azure Search
 - Azure Database for MySQL
 - Azure Database for PostgreSQL
 - Azure Database for MariaDB
 
-### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>Azure Data Factory 관리 Virtual Network는 다음 Azure 지역에서 사용할 수 있습니다.
-- 미국 동부
-- 미국 동부 2
-- 미국 중서부
-- 미국 서부
-- 미국 서부 2
-- 미국 중남부
-- 미국 중부
-- 북유럽
-- 서유럽
-- 영국 남부
-- 동남 아시아
+### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>Azure Data Factory 관리형 가상 네트워크는 다음 Azure 지역에서 사용할 수 있습니다.
 - 오스트레일리아 동부
 - 오스트레일리아 남동부
+- 브라질 남부
+- 캐나다 중부
+- 캐나다 동부
+- 인도 중부
+- 미국 중부
+- 미국 동부
+- 미국 동부2
+- 프랑스 중부
+- 일본 동부
+- 일본 서부
+- 한국 중부
+- 북유럽
+- 노르웨이 동부
+- 남아프리카 북부
+- 미국 중남부
+- 동남아시아
+- 스위스 북부
+- 아랍에미리트 북부
+- 영국 남부
+- 영국 서부
+- 미국 중서부
+- 서유럽
+- 미국 서부
+- 미국 서부2
 
-### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>ADF 관리 Virtual Network에서 공용 끝점을 통한 아웃 바운드 통신
-- 아웃 바운드 통신용 포트 443만 열립니다.
+
+### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>ADF 관리형 가상 네트워크의 퍼블릭 엔드포인트를 통한 아웃바운드 통신
+- 아웃바운드 통신을 위해 모든 포트가 열립니다.
 - Azure Storage 및 Azure Data Lake Gen2는 ADF 관리형 가상 네트워크에서 공용 엔드포인트를 통해 연결할 수 없습니다.
 
-### <a name="linked-service-creation-of-azure-key-vault"></a>Azure Key Vault 연결 된 서비스 만들기 
-- Azure Key Vault에 대한 연결된 서비스를 만들 때 Azure Integration Runtime 참조가 없습니다. 따라서 연결 된 서비스를 만드는 동안에는 Azure Key Vault 개인 끝점을 만들 수 없습니다. 그러나 Azure Key Vault 연결 된 서비스를 참조 하는 데이터 저장소에 대 한 연결 된 서비스를 만들 때이 연결 된 서비스에서 관리 되는 Virtual Network를 사용 하도록 설정 된 Azure Integration Runtime 참조 하는 경우 생성 하는 동안 Azure Key Vault 연결 된 서비스에 대 한 개인 끝점을 만들 수 있습니다. 
-- 연결 된 Azure Key Vault 서비스에 대 한 **연결 테스트** 작업은 URL 형식의 유효성만 검사 하지만 네트워크 작업은 수행 하지 않습니다.
-- Azure Key Vault에 대 한 개인 끝점을 만드는 경우에도 **개인 끝점을 사용 하** 는 열은 항상 빈 상태로 표시 됩니다.
-![AKV에 대 한 개인 끝점](./media/managed-vnet/akv-pe.png)
+### <a name="linked-service-creation-of-azure-key-vault"></a>Azure Key Vault의 연결된 서비스 만들기 
+- Azure Key Vault에 대한 연결된 서비스를 만들 때 Azure Integration Runtime 참조가 없습니다. 따라서 Azure Key Vault의 연결된 서비스를 만드는 동안에는 프라이빗 엔드포인트를 만들 수 없습니다. 그러나 Azure Key Vault 연결된 서비스를 참조하는 데이터 저장소에 대한 연결된 서비스를 만들 때 이 연결된 서비스는 관리형 가상 네트워크가 사용하도록 설정된 Azure Integration Runtime을 참조하면 만드는 동안 Azure Key Vault 연결된 서비스에 대한 프라이빗 엔드포인트를 만들 수 있습니다. 
+- Azure Key Vault의 연결된 서비스에 대한 **연결 테스트** 작업은 URL 형식에 대해서만 유효성을 검사하고 네트워크 작업은 수행하지 않습니다.
+- **프라이빗 엔드포인트 사용** 열은 Azure Key Vault의 프라이빗 엔드포인트를 만드는 경우에도 항상 빈 값으로 표시됩니다.
+![AKV의 프라이빗 엔드포인트](./media/managed-vnet/akv-pe.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자습서: [관리 되는 Virtual Network 및 개인 끝점을 사용 하 여 복사 파이프라인 빌드](tutorial-copy-data-portal-private.md) 
-- 자습서: [관리 되는 Virtual Network 및 개인 끝점을 사용 하 여 데이터 흐름 파이프라인 빌드 매핑](tutorial-data-flow-private.md)
+- 자습서: [관리형 가상 네트워크 및 프라이빗 엔드포인트를 사용하여 복사 파이프라인 빌드](tutorial-copy-data-portal-private.md) 
+- 자습서: [관리형 가상 네트워크 및 프라이빗 엔드포인트를 사용하여 매핑 데이터 흐름 파이프라인 빌드](tutorial-data-flow-private.md)

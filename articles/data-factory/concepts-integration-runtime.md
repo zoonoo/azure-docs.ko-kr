@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 455a9b2061dcf92297c99e9d8fa8cee677ca3891
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 27bd310b48be2c20c5014ba9e2f93a98751baae0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483140"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110086485"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 
 
@@ -171,6 +171,8 @@ Azure SSIS IR에 적합한 위치 선택은 ETL(추출-변환-로드) 워크플�
 ![통합 런타임 위치](media/concepts-integration-runtime/integration-runtime-location.png)
 
 ## <a name="determining-which-ir-to-use"></a>사용할 IR 결정
+하나의 Data Factory 작업이 둘 이상의 통합 런타임 유형과 연결되는 경우 그중 하나로 확인합니다. 자체 호스팅 통합 런타임은 Azure Data Factory 관리되는 가상 네트워크의 Azure Integration Runtime보다 우선적으로 적용됩니다. 그리고 후자는 공용 Azure Integration Runtime보다 우선적으로 적용됩니다.
+예를 들어 하나의 복사 작업은 원본에서 싱크로 데이터를 복사하는 데 사용됩니다. 공용 Azure Integration Runtime은 원본에 연결된 서비스와 연결되고 Azure Data Factory 관리 가상 네트워크의 Azure Integration Runtime은 싱크에 대해 연결된 서비스와 연결되며, 결과적으로 원본 및 싱크 연결된 서비스 모두 Azure Data Factory 관리 가상 네트워크에서 Azure Integration Runtime을 사용합니다. 그러나 자체 호스팅 통합 런타임이 원본에 대해 연결된 서비스를 연결하는 경우 원본 및 싱크 연결된 서비스 모두 자체 호스팅 통합 런타임을 사용합니다.
 
 ### <a name="copy-activity"></a>복사 활동
 

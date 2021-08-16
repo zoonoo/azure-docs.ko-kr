@@ -2,22 +2,22 @@
 title: Azure AD를 사용하여 최종 사용자가 애플리케이션에 동의하는 방법 구성
 description: 사용자가 조직의 데이터에 액세스할 수 있는 애플리케이션에 동의하는 방법 및 시기를 관리하는 방법을 알아봅니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: mtillman
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/01/2020
-ms.author: kenwith
+ms.date: 06/01/2021
+ms.author: mtillman
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 68bb846ebb0199691161bc501441df908eb8ad87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 59a7799ce7c0c1fd8261324351f425e76e3b4d44
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643612"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075973"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>최종 사용자가 애플리케이션에 동의하는 방법 구성
 
@@ -81,7 +81,7 @@ Azure Portal을 통해 사용자 동의 설정을 구성하려면 다음을 수�
 
 `{consent-policy-id}`를 적용할 정책의 ID로 바꿉니다. 만든 [사용자 지정 앱 동의 정책](manage-app-consent-policies.md#create-a-custom-app-consent-policy)을 선택하거나 다음 기본 제공 정책 중에서 선택할 수 있습니다.
 
-| ID | 설명 |
+| ID | Description |
 |:---|:------------|
 | microsoft-user-default-low | **선택한 권한에 대해 확인된 게시자의 앱에 대한 사용자 동의를 허용**<br /> 확인된 게시자의 앱 및 테넌트에 등록된 앱에 대한 제한적 사용자 동의를 '낮은 영향'으로 분류한 권한에 한해 허용합니다. (사용자가 동의할 수 있는 권한을 선택하려면 [권한을 분류](configure-permission-classifications.md)해야 합니다.) |
 | microsoft-user-default-legacy | **앱에 대한 사용자 동의 허용**<br /> 이 옵션을 사용하면 모든 사용자가 모든 애플리케이션에 대해 관리자 동의가 필요하지 않은 모든 권한에 동의할 수 있습니다. |
@@ -101,7 +101,7 @@ Set-AzureADMSAuthorizationPolicy `
 
 ## <a name="risk-based-step-up-consent"></a>위험 기반 상향 동의
 
-위험 기반 상향 동의는 [불법 동의 요청](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants)을 보내는 악성 앱에 대한 사용자 노출을 줄이는 데 도움이 됩니다. Microsoft가 위험한 최종 사용자 동의 요청을 감지하면 이 요청에서 관리자 동의로의 상향을 대신 요구합니다. 이 기능은 기본적으로 사용하도록 설정되어 있지만 최종 사용자 동의가 허용된 경우에만 동작이 변경됩니다.
+위험 기반 상향 동의는 [불법 동의 요청](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants)을 보내는 악성 앱에 대한 사용자 노출을 줄이는 데 도움이 됩니다. 예를 들어 [게시자가 확인](../develop/publisher-verification-overview.md)되지 않았고 기본이 아닌 권한이 필요한 새로 등록된 다중 테넌트 앱에 대한 동의 요청은 위험한 것으로 간주됩니다. Microsoft가 위험한 최종 사용자 동의 요청을 감지하면 이 요청에서 관리자 동의로의 상향을 대신 요구합니다. 이 기능은 기본적으로 사용하도록 설정되어 있지만 최종 사용자 동의가 허용된 경우에만 동작이 변경됩니다.
 
 위험한 동의 요청이 감지되면 동의 프롬프트에 관리자 승인이 필요함을 나타내는 메시지가 표시됩니다. [관리자 동의 요청 워크플로](configure-admin-consent-workflow.md)가 설정된 경우 사용자는 동의 프롬프트에서 직접 관리자에게 추가 검토가 필요한 요청을 보낼 수 있습니다. 사용하도록 설정되어 있지 않으면 다음 메시지가 표시됩니다.
 
@@ -145,7 +145,7 @@ Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](/powershell/module/azu
 
 1. 다음 설정 값을 이해합니다.
 
-    | 설정       | 유형         | Description  |
+    | 설정       | Type         | Description  |
     | ------------- | ------------ | ------------ |
     | _BlockUserConsentForRiskyApps_   | 부울 |  위험한 요청이 감지될 때 사용자 동의가 차단되는지 나타내는 플래그입니다. |
 

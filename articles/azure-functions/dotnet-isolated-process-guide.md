@@ -3,14 +3,15 @@ title: Azure Functions의 .NET 5.0에 대한 .NET 격리 프로세스 가이드
 description: .NET 격리 프로세스를 사용하여 Azure의 .NET 5.0 Out of Process에서 C# 함수를 실행하는 방법에 대해 알아봅니다.
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 06/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: 4da685c247427e78297df1753779ee9b5c7866b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+recommendations: false
+ms.openlocfilehash: 34a4a37d351f144d00d926de0544c8ae56e9a314
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023200"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901464"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Azure의 .NET 5.0에서 함수를 실행하는 방법에 대한 가이드
 
@@ -36,9 +37,7 @@ Out of Process를 실행하는 경우 .NET 함수는 다음과 같은 이점을 
 + 프로세스에 대한 완전한 제어: 앱의 시작을 제어하고 사용된 구성과 시작된 미들웨어를 제어할 수 있습니다.
 + 종속성 주입: 프로세스를 완전하게 제어하므로 종속성 주입과 미들웨어와 함수 앱의 통합을 위해 현재 .NET 동작을 사용할 수 있습니다. 
 
-## <a name="supported-versions"></a>지원되는 버전
-
-Out of Process 실행을 위해 현재 지원되는 유일한 .NET 버전은 .NET 5.0입니다.
+[!INCLUDE [functions-dotnet-supported-versions](../../includes/functions-dotnet-supported-versions.md)]
 
 ## <a name="net-isolated-project"></a>.NET 격리 프로젝트
 
@@ -74,6 +73,8 @@ Out of Process를 실행하는 경우 .NET 프로젝트는 핵심 기능 및 바
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_startup":::
 
+이 코드에는 `using Microsoft.Extensions.DependencyInjection;`이 필요합니다. 
+
 [Hostbuilder]는 함수 앱을 시작하기 위해 비동기적으로 실행하는 완전히 초기화된 [IHost] 인스턴스를 빌드하고 반환하는 데 사용됩니다. 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
@@ -103,7 +104,7 @@ Out of Process를 실행하는 경우 .NET 프로젝트는 핵심 기능 및 바
  
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_dependency_injection" :::
 
-자세히 알아보려면 [ASP.NET Core의 종속성 주입](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true)을 참조하세요.
+이 코드에는 `using Microsoft.Extensions.DependencyInjection;`이 필요합니다. 자세히 알아보려면 [ASP.NET Core의 종속성 주입](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true)을 참조하세요.
 
 ### <a name="middleware"></a>미들웨어
 
@@ -224,4 +225,4 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 함수에 전달되는 [
 [HttpResponseData]: /dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata?view=azure-dotnet&preserve-view=true
 [HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0&preserve-view=true
 [ObjectResult]: /dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true
-[JsonSerializerOptions]: /api/system.text.json.jsonserializeroptions?view=net-5.0&preserve-view=true
+[JsonSerializerOptions]: /dotnet/api/system.text.json.jsonserializeroptions?view=net-5.0&preserve-view=true

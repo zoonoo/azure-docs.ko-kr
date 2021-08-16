@@ -3,16 +3,16 @@ title: 리소스, 구독, 관리 그룹 및 보안 점수에서 Azure Security C
 description: 구독 또는 관리 그룹에서 보안 권장 사항을 제외하 고 보안 점수에 영향을 주지 않도록 규칙을 만드는 방법을 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 03/11/2021
+ms.date: 05/12/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 5ab729f5aa94c7137203c25319a5b830448d00a7
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 01be1037b38e2991a2266c37dfd3ca026ca874ff
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968206"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109846431"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>보안 점수에서 리소스 및 권장 사항 제외 
 
@@ -34,8 +34,8 @@ Azure Security Center에서 보안 권장 사항을 조사할 때 검토하는 �
 |---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 릴리스 상태:                  | 미리 보기<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
 | 가격 책정:                        | 추가 비용 없이 Azure Defender 고객에게 제공되는 프리미엄 Azure Policy 기능입니다. 다른 사용자에게는 나중에 요금이 부과될 수 있습니다.                                                                                                                                                                 |
-| 필요한 역할 및 권한: | 예외를 만들기 위한 **구독 소유자** 또는 **정책 참가자**<br>규칙을 만들려면 Azure Policy에서 정책을 편집할 수 있는 권한이 필요합니다.<br>[Azure Policy에서 Azure RBAC 사용 권한](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy)에 대해 자세히 알아보세요.                                            |
-| 제한 사항:                    | 예외는 Security Center의 기본 이니셔티브, Azure 보안 벤치마크 또는 제공된 규제 표준 이니셔티브에 포함된 권장 사항에 대해서만 만들 수 있습니다. 사용자 지정 이니셔티브에서 생성된 권장 사항은 제외될 수 없습니다. [정책, 이니셔티브 및 권장 사항](security-policy-concept.md) 간의 관계에 대해 자세히 알아보세요. |
+| 필요한 역할 및 권한: | 예외를 만들기 위한 **소유자** 또는 **리소스 정책 기여자**<br>규칙을 만들려면 Azure Policy에서 정책을 편집할 수 있는 권한이 필요합니다.<br>[Azure Policy에서 Azure RBAC 사용 권한](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy)에 대해 자세히 알아보세요.                                            |
+| 제한 사항:                    | 예외는 Security Center의 기본 이니셔티브, [Azure 보안 벤치마크](/security/benchmark/azure/introduction) 또는 제공된 규제 표준 이니셔티브에 포함된 권장 사항에 대해서만 만들 수 있습니다. 사용자 지정 이니셔티브에서 생성된 권장 사항은 제외될 수 없습니다. [정책, 이니셔티브 및 권장 사항](security-policy-concept.md) 간의 관계에 대해 자세히 알아보세요. |
 | 클라우드:                         | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)                                                                                                                                                                                         |
 |                                 |                                                                                                                                                                                                                                                                                                                                    |
 
@@ -118,6 +118,14 @@ Security Center에서 구독, 관리 그룹 또는 리소스에 대해 제공하
 - [Azure Security Center GitHub 리포지토리에서](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption) ARM 템플릿을 찾을 수 있습니다.
 - 모든 필수 구성 요소를 배포하려면 [자동화된 이 프로세스를 사용](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json)합니다.
 
+## <a name="use-the-inventory-to-find-resources-that-have-exemptions-applied"></a>인벤토리를 사용하여 예외가 적용된 리소스 찾기
+
+Azure Security Center의 자산 인벤토리 페이지는 Security Center에 연결한 리소스의 보안 상태를 확인할 수 있는 단일 페이지를 제공합니다. [자산 인벤토리로 리소스 탐색 및 관리](asset-inventory.md)에서 자세히 알아보세요.
+
+인벤토리 페이지에는 리소스 목록을 지정된 시나리오에서 가장 관심 있는 항목으로 좁힐 수 있는 여러 필터가 포함되어 있습니다. 이러한 필터 중 하나가 **예외 포함** 입니다. 이 필터를 사용하여 하나 이상의 권장 사항에서 제외된 모든 리소스를 찾습니다.
+
+:::image type="content" source="media/exempt-resource/inventory-filter-exemptions.png" alt-text="보안 센터의 자산 인벤토리 페이지 및 예외가 있는 리소스를 찾는 필터":::
+
 
 ## <a name="find-recommendations-with-exemptions-using-azure-resource-graph"></a>Azure Resource Graph를 사용하여 예외에 대한 권장 사항 찾기
 
@@ -167,6 +175,9 @@ ARG(Azure Resource Graph)의 강력한 필터링, 그룹화 및 정렬 기능을
 
 ## <a name="faq---exemption-rules"></a>FAQ - 예외 규칙
 
+- [하나의 권장 사항이 여러 정책 이니셔티브에 있으면 어떻게 되나요?](#what-happens-when-one-recommendation-is-in-multiple-policy-initiatives)
+- [예외를 지원하지 않는 권장 사항이 있나요?](#are-there-any-recommendations-that-dont-support-exemption)
+
 ### <a name="what-happens-when-one-recommendation-is-in-multiple-policy-initiatives"></a>하나의 권장 사항이 여러 정책 이니셔티브에 있으면 어떻게 되나요?
 
 보안 권장 사항이 둘 이상의 정책 이니셔티브에 표시되는 경우도 있습니다. 같은 구독에 할당된 동일한 권장 사항의 여러 인스턴스가 있고 권장 사항에 대한 예외를 만드는 경우 편집 권한이 있는 모든 이니셔티브에 영향을 줍니다. 
@@ -182,6 +193,24 @@ ARG(Azure Resource Graph)의 강력한 필터링, 그룹화 및 정렬 기능을
 - 두 이니셔티브에 대한 권한이 부족한 경우 이 메시지가 대신 표시됩니다.
 
     *모든 정책 이니셔티브에 예외를 적용하는 데 제한된 권한을 가지고 있습니다. 권한이 있는 이니셔티브에만 예외가 생성됩니다.*
+
+### <a name="are-there-any-recommendations-that-dont-support-exemption"></a>예외를 지원하지 않는 권장 사항이 있나요?
+
+이러한 권장 사항은 예외를 지원하지 않습니다.
+
+- 컨테이너 CPU 및 메모리 한도를 적용해야 함
+- 권한 있는 컨테이너를 피해야 함
+- 신뢰할 수 있는 레지스트리의 컨테이너 이미지만 배포해야 함
+- 컨테이너는 허용되는 포트에서만 수신 대기해야 함
+- 서비스는 허용되는 포트에서만 수신 대기해야 함
+- 최소 권한 Linux 기능을 컨테이너에 적용해야 합니다.
+- 변경 불가능한(읽기 전용) 루트 파일 시스템을 컨테이너에 적용해야 함
+- 권한 상승을 포함하는 컨테이너를 사용하지 않아야 함
+- 컨테이너를 루트 사용자로 실행하지 않아야 함
+- 호스트 네트워킹 및 포트 사용을 제한해야 함
+- 중요한 호스트 네임스페이스를 공유하는 컨테이너를 사용하지 않아야 함
+- 손상된 컨테이너에서 노드 액세스를 제한하려면 Pod HostPath 볼륨 탑재 사용을 알려진 목록으로 제한해야 함
+- 컨테이너 AppArmor 프로필의 재정의 또는 비활성화를 제한해야 함
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,21 +1,21 @@
 ---
 title: 테넌트 간 관리 환경
-description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-ms.date: 03/29/2021
+description: Azure Lighthouse는 여러 Azure 서비스에서 테넌트 간 환경을 사용하도록 설정하고 개선합니다.
+ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 12c4aaa4dda159862344675c802603fcbda2f254
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f482c4738fd0bec8f32eaeb540b2d0ef2e0d4b15
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934328"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790436"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
-서비스 공급자는 [Azure Lighthouse](../overview.md)를 사용하여 자체 Azure AD(Azure Active Directory)의 테넌트 내에서 여러 고객의 리소스를 관리할 수 있습니다. [Azure 위임 리소스 관리](../concepts/azure-delegated-resource-management.md)를 사용하여 여러 작업 및 서비스를 관리되는 테넌트에서 수행할 수 있습니다.
+서비스 공급자는 [Azure Lighthouse](../overview.md)를 사용하여 자체 Azure AD(Azure Active Directory)의 테넌트 내에서 여러 고객의 리소스를 관리할 수 있습니다. [Azure 위임 리소스 관리](../concepts/architecture.md)를 사용하여 여러 작업 및 서비스를 관리되는 테넌트에서 수행할 수 있습니다.
 
 > [!TIP]
-> 테넌트 간 관리를 간소화하기 위해 [자체 Azure AD 테넌트가 여러 개 있는 엔터프라이즈 내에서](enterprise.md) Azure 위임 리소스 관리를 사용할 수도 있습니다.
+> Azure Lighthouse는 테넌트 간 관리를 간소화하기 위해 [자체 Azure AD 테넌트가 여러 개 있는 엔터프라이즈 내](enterprise.md)에서도 사용할 수 있습니다.
 
 ## <a name="understanding-tenants-and-delegation"></a>테넌트 및 위임 이해
 
@@ -35,7 +35,7 @@ Azure Lighthouse를 사용하면 다른 테넌트의 다른 계정에 로그인�
 
 Azure PowerShell [Get-AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSubscription)은 기본적으로 관리 테넌트에 대한 `TenantId`를 표시합니다. 각 구독에 대해 `HomeTenantId` 및 `ManagedByTenantIds` 특성을 사용하여 반환된 구독이 관리되는 테넌트에 속하는지 관리하는 테넌트에 속하는지 식별할 수 있습니다.
 
-마찬가지로 [az account list](/cli/azure/account#az-account-list)와 같은 Azure CLI 명령은 `homeTenantId` 및 `managedByTenants` 특성 표시합니다. Azure CLI를 사용하는 경우 이러한 값이 표시되지 않으면 `az account clear`를 실행하고 `az login --identity`를 실행하여 캐시를 지워봅니다.
+마찬가지로 [az account list](/cli/azure/account#az_account_list)와 같은 Azure CLI 명령은 `homeTenantId` 및 `managedByTenants` 특성 표시합니다. Azure CLI를 사용하는 경우 이러한 값이 표시되지 않으면 `az account clear`를 실행하고 `az login --identity`를 실행하여 캐시를 지워봅니다.
 
 Azure REST API의 [Subscriptions-Get](/rest/api/resources/subscriptions/get) 및 [Subscriptions-List](/rest/api/resources/subscriptions/list) 명령에는 `ManagedByTenant`가 포함됩니다.
 
@@ -75,7 +75,7 @@ Azure REST API의 [Subscriptions-Get](/rest/api/resources/subscriptions/get) 및
 
 - Azure Blueprints를 사용하여 리소스 템플릿 및 기타 아티팩트의 배포 오케스트레이션(고객 구독을 준비하려면 [추가 액세스](https://www.wesleyhaakman.org/preparing-azure-lighthouse-customer-subscriptions-for-azure-blueprints/) 필요)
 
-3[Azure Cost Management + Billing](../../cost-management-billing/index.yml):
+[Azure Cost Management + Billing](../../cost-management-billing/index.yml):
 
 - 관리 테넌트에서 CSP 파트너는 Azure 플랜을 사용하는 고객에 대한 세전 소비 비용(구매 제외)을 조회, 관리, 분석할 수 있습니다. 비용은 소매 요금 및 고객의 구독에 대해 파트너가 보유한 Azure RBAC(Azure 역할 기반 액세스 제어) 액세스를 기반으로 결정됩니다. 현재 Azure RBAC 액세스를 기반으로 각 개별 고객 구독에 대한 소매 요금으로 사용 비용을 조회할 수 있습니다.
 
@@ -88,7 +88,7 @@ Azure REST API의 [Subscriptions-Get](/rest/api/resources/subscriptions/get) 및
 
 - 호스트된 Kubernetes 환경 관리 및 고객 테넌트 내 컨테이너화된 애플리케이션을 배포 및 관리합니다.
 - 고객 테넌트에서 클러스터 배포 및 관리합니다.
--   컨테이너에 Azure Monitor를 사용하여 고객 테넌트 간 성능을 모니터링합니다.
+- 컨테이너에 Azure Monitor를 사용하여 고객 테넌트 간 성능을 모니터링합니다.
 
 [Azure Migrate](../../migrate/index.yml):
 
@@ -104,7 +104,7 @@ Azure REST API의 [Subscriptions-Get](/rest/api/resources/subscriptions/get) 및
 - 고객 테넌트에서 [진단 설정](../..//azure-monitor/essentials/diagnostic-settings.md)을 만들어 관리 테넌트의 작업 영역으로 리소스 로그를 보냅니다.
 - SAP 워크로드의 경우 [고객 테넌트 전체에서 집계된 보기를 사용하여 SAP 솔루션 메트릭을 모니터링](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)합니다.
 
-[Azure 네트워킹](../../networking/networking-overview.md):
+[Azure 네트워킹](../../networking/fundamentals/networking-overview.md):
 
 - 관리 테넌트 내에서 [Azure Virtual Network](../../virtual-network/index.yml) 및 vNIC(가상 네트워크 인터페이스 카드)를 배포하고 관리합니다.
 - [Azure Firewall](../../firewall/overview.md)을 배포하고 구성하여 고객의 Virtual Network 리소스를 보호합니다.
@@ -175,7 +175,7 @@ Azure REST API의 [Subscriptions-Get](/rest/api/resources/subscriptions/get) 및
 모든 시나리오에서 다음과 같은 현재 제한 사항을 알고 있어야 합니다.
 
 - Azure Resource Manager에서 처리되는 요청은 Azure Lighthouse를 사용하여 수행할 수 있습니다. 이러한 요청에 대한 작업 URI는 `https://management.azure.com`으로 시작합니다. 그러나 리소스 유형의 인스턴스가 처리하는 요청(예: KeyVault 비밀 액세스 또는 스토리지 데이터 액세스)은 Azure Lighthouse에서 지원되지 않습니다. 이러한 요청에 대한 작업 URI는 일반적으로 `https://myaccount.blob.core.windows.net` 또는 `https://mykeyvault.vault.azure.net/`과 같이 사용자 인스턴스에 고유한 주소로 시작합니다. 후자는 일반적으로 관리 작업이 아니라 데이터 작업입니다.
-- 역할 할당은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 사용해야 합니다. 현재, 소유자 또는 [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) 권한이 있는 기본 제공 역할을 제외한 모든 기본 제공 역할이 Azure 위임 리소스 관리에서 지원됩니다. 사용자 액세스 관리자 역할은 [관리 ID에 역할 할당](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)에서 제한된 용도로만 지원됩니다.  사용자 지정 역할 및 [클래식 구독 관리자 역할](../../role-based-access-control/classic-administrators.md)은 지원되지 않습니다.
+- 역할 할당은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 사용해야 합니다. 현재는 소유자 또는 [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) 권한이 있는 기본 제공 역할을 제외한 모든 기본 제공 역할이 Azure Lighthouse에서 지원됩니다. 사용자 액세스 관리자 역할은 [관리 ID에 역할 할당](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)에서 제한된 용도로만 지원됩니다.  사용자 지정 역할 및 [클래식 구독 관리자 역할](../../role-based-access-control/classic-administrators.md)은 지원되지 않습니다.
 - Azure Databricks를 사용하는 구독을 온보딩할 수 있지만 관리 테넌트의 사용자는 현재 위임된 구독에서 Azure Databricks 작업 영역을 시작할 수 없습니다.
 - 리소스 잠금이 있는 구독 및 리소스 그룹을 온보드할 수 있지만 이러한 잠금으로 인해 관리 테넌트의 사용자가 작업을 수행할 수 없습니다. Azure 관리 애플리케이션 또는 Azure Blueprints(시스템이 할당한 거부 할당)에서 만든 것과 같이 시스템 관리 리소스를 보호하는 [거부 할당](../../role-based-access-control/deny-assignments.md)은 관리 테넌트의 사용자가 해당 리소스에 대해 작업을 수행하지 못하도록 합니다. 그러나 현재 고객 테넌트의 사용자는 자신의 거부 할당(사용자가 할당한 거부 할당)을 만들 수 없습니다.
 - [국가별 클라우드](../../active-directory/develop/authentication-national-cloud.md) 및 Azure 퍼블릭 클라우드 또는 별도의 두 국가별 클라우드 간에 구독을 위임하는 것은 지원되지 않습니다.

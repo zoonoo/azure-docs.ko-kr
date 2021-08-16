@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 3c8dd5cd9da2fd1e741635a6471c0662066d147e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f0d85f056cfaaa58fcc72eb9c2182b3e1a78affb
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709942"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581610"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Azure Cognitive Search에 대한 로그 데이터를 수집 및 분석
 
-진단 또는 운영 로그는 Azure Cognitive Search의 자세한 작업에 대한 통찰력을 제공하고 서비스 및 워크로드 프로세스를 모니터링하는 데 유용합니다. 내부적으로 Microsoft는 지원 티켓을 제출하는 경우 조사 및 분석에 충분한 정도의 짧은 시간 동안(약 30일) 백 엔드에 대한 시스템 정보를 유지합니다. 그러나, 작동 데이터에 대한 소유권을 원할 경우 로깅 정보가 수집되는 위치를 지정하는 진단 설정을 구성해야 합니다.
+진단 또는 운영 로그는 Azure Cognitive Search의 자세한 작업에 대한 인사이트를 제공하고 서비스 상태 및 프로세스를 모니터링하는 데 유용합니다. 내부적으로 Microsoft는 지원 티켓을 제출하는 경우 조사 및 분석에 충분한 정도의 짧은 시간 동안(약 30일) 백 엔드에 대한 시스템 정보를 유지합니다. 그러나, 작동 데이터에 대한 소유권을 원할 경우 로깅 정보가 수집되는 위치를 지정하는 진단 설정을 구성해야 합니다.
 
 진단 로깅은 [Azure Monitor](../azure-monitor/index.yml)와의 통합을 통해 사용하도록 설정됩니다. 
 
@@ -120,7 +120,7 @@ AzureDiagnostics
 
 Azure Monitor에서 캡처한 기록된 이벤트에는 인덱싱 및 쿼리와 관련된 이벤트가 포함됩니다. Log Analytics의 **AzureDiagnostics** 테이블은 쿼리 및 인덱싱과 관련된 작동 데이터를 수집합니다.
 
-| OperationName | 설명 |
+| OperationName | Description |
 |---------------|-------------|
 | ServiceStats | 이 작업은 로드되거나 새로 고쳐질 때 포털 개요 페이지를 채우도록 직접 또는 암시적으로 호출되는 [서비스 통계 가져오기](/rest/api/searchservice/get-service-statistics)에 대한 루틴 호출입니다. |
 | Query.Search |  인덱스에 대한 요청을 쿼리합니다. 기록된 쿼리에 대한 자세한 내용은 [쿼리 모니터링](search-monitor-queries.md)을 참조하세요.|
@@ -138,7 +138,7 @@ Azure Monitor에서 캡처한 기록된 이벤트에는 인덱싱 및 쿼리와 
 
 다음 표는 리소스 로깅에 공통적인 필드의 일부 목록입니다.
 
-| 이름 | Type | 예제 | 참고 |
+| Name | Type | 예제 | 메모 |
 | --- | --- | --- | --- |
 | timeGenerated |Datetime |"2018-12-07T00:00:43.6872559Z" |작업 타임스탬프 |
 | resourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
@@ -154,7 +154,7 @@ Azure Monitor에서 캡처한 기록된 이벤트에는 인덱싱 및 쿼리와 
 
 아래 속성은 Azure Cognitive Search에만 적용됩니다.
 
-| 이름 | Type | 예제 | 참고 |
+| Name | Type | 예제 | 메모 |
 | --- | --- | --- | --- |
 | Description_s |문자열 |"GET /indexes('content')/docs" |작업의 엔드포인트 |
 | Documents_d |int |42 |처리된 문서 수 |
@@ -165,7 +165,7 @@ Azure Monitor에서 캡처한 기록된 이벤트에는 인덱싱 및 쿼리와 
 
 메트릭은 쿼리 요청에 대해 캡처되고 1분 간격으로 측정됩니다. 각 메트릭은 분당 최소, 최대 및 평균 값을 표시합니다. 자세한 내용은 [쿼리 요청 모니터링](search-monitor-queries.md)을 참조하세요.
 
-| 이름 | Type | 예제 | 참고 |
+| Name | Type | 예제 | 메모 |
 | --- | --- | --- | --- |
 | resourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |리소스 ID |
 | metricName |문자열 |"Latency" |메트릭 이름 |

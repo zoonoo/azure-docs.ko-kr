@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 6644f495f28fb76503948c18354a5af0fcf832e5
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: fcac9eee73f509de5903030b77d567cbe11ee043
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364756"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787563"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Java SDK: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -54,6 +54,13 @@ ms.locfileid: "107364756"
 |**지원되는 최소 런타임**|[JDK(Java Development Kit) 7 이상](/java/azure/jdk/)|
 
 ## <a name="release-notes"></a>릴리스 정보
+### <a name="263"></a><a name="2.6.3"></a>2.6.3
+* `GoneException`이 `IllegalStateException`에 래핑될 때 재시도 정책 수정 - 이 변경은 410에서 게이트웨이 캐시를 새로 고쳐서 Spark 커넥터(Spark 2.4용)가 사용자 지정 재시도 정책을 사용하여 파티션 분할 중에 쿼리가 성공할 수 있도록 하는 데 필요합니다.
+
+### <a name="262"></a><a name="2.6.2"></a>2.6.2
+* 읽기 시간 제한 시 다시 시도하기 위한 새 재시도 정책이 추가됨
+* 종속성을 `com.fasterxml.jackson.core/jackson-databind` 2.9.10.8로 업그레이드함
+* 종속성을 `org.apache.httpcomponents/httpclient` 4.5.13으로 업그레이드함
 
 ### <a name="261"></a><a name="2.6.1"></a>2.6.1
 * 서비스 interop를 통해 쿼리를 처리할 때 발생하는 버그가 수정되었습니다.

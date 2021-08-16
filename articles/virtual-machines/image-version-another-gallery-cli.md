@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e2cd885d886a0f13783e61a04c7243efdf12967e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bc4af87ca560c19af47a877d05a34a33c74a67bb
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784986"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111437931"
 ---
 # <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Azure CLI를 사용하여 다른 갤러리에서 이미지 복사
 
@@ -154,13 +154,13 @@ az sig image-version create \
 > [!NOTE]
 > 동일한 관리형 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
 >
-> 또한 이미지 버전을 만들 때 `--storage-account-type  premium_lrs`를 추가하여 Premium Storage에 이미지를 저장하거나, `--storage-account-type  standard_zrs`를 추가하여 [영역 중복 스토리지](../storage/common/storage-redundancy.md)에 이미지를 저장할 수도 있습니다.
+> 또한 이미지 버전을 만들 때 `--storage-account-type  premium_lrs`를 추가하여 프리미엄 스토리지에 추가하거나 `--storage-account-type  standard_zrs`를 추가하여 [영역 중복 스토리지](../storage/common/storage-redundancy.md)를 추가하여 이미지를 저장할 수도 있습니다.
 >
 
 ## <a name="next-steps"></a>다음 단계
 
 [일반화](vm-generalized-image-version-cli.md)된 이미지 버전 또는 [특화](vm-specialized-image-version-cli.md)된 이미지 버전에서 VM을 만듭니다.
 
-[Azure Image Builder(미리 보기)](./image-builder-overview.md)는 이미지 버전 생성 자동화에 도움이 되며, [기존 이미지 버전에서 새 이미지 버전을 만들고](./linux/image-builder-gallery-update-image-version.md) 업데이트하는 데에도 사용할 수 있습니다. 
+[Azure Image Builder](./image-builder-overview.md)는 이미지 버전 생성 자동화에 도움이 되며, [기존 이미지 버전에서 새 이미지 버전을 만들고](./linux/image-builder-gallery-update-image-version.md) 업데이트하는 데에도 사용할 수 있습니다. 
 
-구매 계획 정보에 대한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](marketplace-images.md)을 참조하세요.
+구매 계획 정보를 제공하는 방법에 대한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](marketplace-images.md)을 참조하세요.

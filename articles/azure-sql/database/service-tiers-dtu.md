@@ -3,20 +3,20 @@ title: 서비스 계층 - DTU 기반 구매 모델
 description: 컴퓨팅 및 스토리지 크기를 제공하기 위한 Azure SQL Database에 대한 DTU 기반 구매 모델의 서비스 계층에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.date: 10/15/2020
-ms.reviewer: ''
-ms.openlocfilehash: 19178359d1eeb935499a01828f7c53b123e17571
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
+ms.date: 5/4/2021
+ms.openlocfilehash: c5413918923ebb4e613ecb48e86dbccfcc60889b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92793180"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110693286"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 |**작동 시간 SLA**|99.99%|99.99%|99.99%|
 |**최대 백업 보존**|7 일|35일|35일|
 |**CPU**|낮음|낮음, 보통, 높음|보통, 높음|
-|**IOPS(대략적인 크기)** \* |DTU당 1-4 IOPS| DTU당 1-4 IOPS | DTU당 25 IOPS|
+|**IOPS(대략적인 크기)** \* |DTU당 1-4 IOPS| DTU당 1-4 IOPS | DTU당 25 IOPS 초과|
 |**IO 대기 시간(근사치)**|5ms(읽기), 10ms(쓰기)|5ms(읽기), 10ms(쓰기)|2ms(읽기/쓰기)|
 |**Columnstore 인덱싱** |해당 없음|S3 이상|지원됨|
 |**메모리 내 OLTP**|해당 없음|해당 없음|지원됨|

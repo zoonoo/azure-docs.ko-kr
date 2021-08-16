@@ -2,13 +2,13 @@
 title: 지리적 재해 복구 - Azure Event Hubs| Microsoft Docs
 description: 지리적 지역을 사용하여 장애 조치(Failover)하고 Azure Event Hubs에서 재해 복구를 수행하는 방법
 ms.topic: article
-ms.date: 02/10/2021
-ms.openlocfilehash: f3b74b89f47582fbb3f1640f315f413ab86b26b5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/14/2021
+ms.openlocfilehash: b2cf2b0ebef2b460b626e45d6b52309c9281d6ce
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104602641"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739245"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - 지리적 재해 복구 
 
@@ -118,14 +118,6 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 
 예를 들어 초기 설정 작업 중에 잘못된 지역을 페어링하는 실수가 발생한 경우 언제든지 두 네임스페이스의 페어링을 해제할 수 있습니다. 일반 네임스페이스와 페어링된 네임스페이스를 사용하려는 경우 별칭을 삭제합니다.
 
-## <a name="samples"></a>샘플
-
-[GitHub의 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient)에서는 장애 조치를 설정하고 시작하는 방법을 보여줍니다. 이 샘플은 다음과 같은 개념을 보여줍니다.
-
-- Event Hubs에서 Azure Resource Manager를 사용하는 데 필요한 Azure Active Directory의 설정 
-- 샘플 코드를 실행하는 데 필요한 단계 
-- 현재 기본 네임스페이스에서 전달 및 수신 
-
 ## <a name="considerations"></a>고려 사항
 
 다음 고려 사항에 유의하세요.
@@ -194,19 +186,17 @@ Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영
 > 가상 네트워크의 지리적 재해 복구에 대한 지침은 [Virtual Network - 비즈니스 연속성](../virtual-network/virtual-network-disaster-recovery-guidance.md)을 참조하세요.
  
 ## <a name="next-steps"></a>다음 단계
-
-* [GitHub의 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient)은 지리적 페어링을 만들고 재해 복구 시나리오에 대한 장애 조치(Failover)를 시작하는 간단한 워크플로를 진행합니다.
-* [REST API 참조](/rest/api/eventhub/)에서는 지리적 재해 복구 구성을 수행하기 위한 API에 대해 설명합니다.
-
-Event Hubs에 대한 자세한 내용은 다음 링크를 방문하세요.
-
-- Event Hubs 시작
-    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
-    - [Java](event-hubs-java-get-started-send.md)
-    - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-node-get-started-send.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
-* [Event Hubs를 사용하는 샘플 애플리케이션](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+다음 샘플 또는 참조 설명서를 검토합니다. 
+- [.NET GeoDR 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/DotNet/GeoDRClient) 
+- [Java GeoDR 샘플](https://github.com/Azure-Samples/eventhub-java-manage-event-hub-geo-disaster-recovery)
+- [.NET - Azure.Messaging.EventHubs 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
+- [.NET - Microsoft.Azure.EventHubs 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet)
+- [Java - azure-messaging-eventhubs 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
+- [Java - azure-eventhubs 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java)
+- [Python 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples)
+- [JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/javascript)
+- [TypeScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/typescript)
+- [REST API 참조](/rest/api/eventhub/)
 
 [1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png

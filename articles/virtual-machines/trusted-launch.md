@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: 5e500eca601d21f106dbe31236e9b5c2aa76b0d2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2483a207344894489992f38d08b37126d7eded22
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104801930"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652241"
 ---
 # <a name="trusted-launch-for-azure-virtual-machines-preview"></a>Azure 가상 머신에 대한 신뢰할 수 있는 시작(미리 보기)
 
@@ -38,13 +38,17 @@ Azure는 [2세대](generation-2.md) VM의 보안을 향상시키기 위한 원�
 
 ## <a name="public-preview-limitations"></a>공용 미리 보기 제한 사항
 
-**크기 지원**: 다음을 제외한 모든 [2 세대](generation-2.md) VM 크기를 지원합니다.
-
-- Lsv2 시리즈 
-- M 시리즈 
-- Mv2 시리즈 
-- NDv4 시리즈 
-- NVv4 시리즈
+**크기 지원**:
+- B 시리즈
+- Dav4 시리즈, Dasv4 시리즈
+- DCsv2 시리즈
+- Dv4 시리즈, Dsv4 시리즈, Dsv3 시리즈, Dsv2 시리즈
+- Ddv4 시리즈, Ddsv4 시리즈
+- Fsv2 시리즈
+- Eav4 시리즈, Easv4 시리즈
+- Ev4 시리즈, Esv4 시리즈, Esv3 시리즈
+- Edv4 시리즈, Edsv4 시리즈
+- Lsv2 시리즈
 
 **OS 지원**:
 - Redhat Enterprise Linux 8.3
@@ -58,8 +62,11 @@ Azure는 [2세대](generation-2.md) VM의 보안을 향상시키기 위한 원�
 - Windows 10 Enterprise 다중 세션
 
 **지역**: 
+- 미국 중부
+- 미국 동부 2
 - 미국 중남부
 - 북유럽
+- 서유럽
 
 **가격 책정**: 기존 VM 가격 책정에 대한 추가 비용은 없습니다.
 

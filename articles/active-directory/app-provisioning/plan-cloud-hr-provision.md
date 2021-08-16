@@ -3,20 +3,20 @@ title: Azure Active Directory 사용자 프로비저닝을 위한 클라우드 H
 description: 이 문서에서는 Workday 또는 SuccessFactors와 같은 클라우드 HR 시스템을 Azure Active Directory와 통합하는 배포 프로세스를 설명합니다. Azure AD를 클라우드 HR 시스템과 통합하면 완전한 ID 수명 주기 관리 시스템이 구현됩니다.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/22/2019
+ms.date: 06/07/2021
 ms.author: kenwith
-ms.reviewer: arvindha, celested
-ms.openlocfilehash: 9c896d4cccf898b8818b4c363c5bc891a8734ca5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: arvinh
+ms.openlocfilehash: fb2f36e1b51ed5fbb7c3f2c002760d07f3723645
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99256714"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590471"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Azure Active Directory 사용자 프로비저닝을 위한 클라우드 HR 애플리케이션 계획
 
@@ -85,7 +85,7 @@ HR 기반 IT 프로비저닝의 이 기능은 다음과 같은 중요한 비즈�
 - Azure Portal에서 프로비저닝 앱을 구성하기 위한 Azure AD [애플리케이션 관리자](../roles/permissions-reference.md#application-administrator) 역할
 - 클라우드 HR 앱의 테스트 및 프로덕션 인스턴스
 - 테스트 목적으로 시스템 통합 사용자를 만들고 직원 데이터를 변경하기 위한 클라우드 HR 앱 관리자 권한
-- Active Directory에 대한 사용자 프로비저닝의 경우 Azure AD Connect 프로비저닝 에이전트를 호스트하려면 .NET 4.7.1 이상 런타임과 함께 Windows Server 2012 이상을 실행하는 서버 필요
+- Active Directory에 대한 사용자 프로비저닝의 경우 Azure AD Connect 프로비저닝 에이전트를 호스트하려면 Windows Server 2016 이상을 실행하는 서버 필요 이 서버는 Active Directory 관리 계층 모델을 기준으로 계층 0 서버여야 합니다.
 - Active Directory와 Azure AD 간 사용자 동기화를 위한 [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md)
 
 ### <a name="training-resources"></a>학습 리소스
@@ -182,7 +182,7 @@ Azure AD Connect 프로비저닝 에이전트 배포 토폴로지는 통합하�
 |:-|:-|
 |배포할 Azure AD Connect 프로비저닝 에이전트 수|2개(고가용성 및 장애 조치(failover))
 |구성할 프로비저닝 커넥터 앱 수|자식 도메인당 앱 1개|
-|Azure AD Connect 프로비저닝 에이전트용 서버 호스트|지리적으로 배치된 Active Directory 도메인 컨트롤러 찾을 수 있는 Windows 2012 R2 이상</br>Azure AD Connect 서비스와 함께 사용할 수 있음|
+|Azure AD Connect 프로비저닝 에이전트용 서버 호스트|지리적으로 배치된 Active Directory 도메인 컨트롤러 찾을 수 있는 Windows Server 2016</br>Azure AD Connect 서비스와 함께 사용할 수 있음|
 
 ![온-프레미스 에이전트로의 흐름](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img4.png)
 
@@ -196,24 +196,133 @@ Azure AD Connect 프로비저닝 에이전트 배포 토폴로지는 통합하�
 |:-|:-|
 |온-프레미스로 배포할 Azure AD Connect 프로비저닝 에이전트 수|비연속 Active Directory 포리스트당 2개|
 |구성할 프로비저닝 커넥터 앱 수|자식 도메인당 앱 1개|
-|Azure AD Connect 프로비저닝 에이전트용 서버 호스트|지리적으로 배치된 Active Directory 도메인 컨트롤러 찾을 수 있는 Windows 2012 R2 이상</br>Azure AD Connect 서비스와 함께 사용할 수 있음|
+|Azure AD Connect 프로비저닝 에이전트용 서버 호스트|지리적으로 배치된 Active Directory 도메인 컨트롤러 찾을 수 있는 Windows Server 2016</br>Azure AD Connect 서비스와 함께 사용할 수 있음|
 
 ![단일 클라우드 HR 앱 테넌트 비연속 Active Directory 포리스트](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img5.png)
 
 ### <a name="azure-ad-connect-provisioning-agent-requirements"></a>Azure AD Connect 프로비저닝 에이전트 요구 사항
 
-클라우드 HR 앱에서 Active Directory로 사용자 프로비저닝 솔루션을 사용하려면 Windows 2012 R2 이상을 실행하는 서버에 하나 이상의 Azure AD Connect 프로비저닝 에이전트를 배포해야 합니다. 서버에는 최소 4GB RAM 및 .NET 4.7.1 이상 런타임이 있어야 합니다. 호스트 서버에 대상 Active Directory 도메인에 대한 네트워크 액세스 권한이 있어야 합니다.
+클라우드 HR 앱에서 Active Directory로 사용자 프로비저닝 솔루션을 사용하려면 Windows Server 2016 이상을 실행하는 서버에 하나 이상의 Azure AD Connect 프로비저닝 에이전트를 배포해야 합니다. 서버에는 최소 4GB RAM 및 .NET 4.7.1 이상 런타임이 있어야 합니다. 호스트 서버에 대상 Active Directory 도메인에 대한 네트워크 액세스 권한이 있어야 합니다.
 
-온-프레미스 환경을 준비하기 위해, Azure AD Connect 프로비저닝 에이전트 구성 마법사는 Azure AD 테넌트에 에이전트를 등록하고, [포트를 열고](../manage-apps/application-proxy-add-on-premises-application.md#open-ports), [URL에 대한 액세스를 허용하고](../manage-apps/application-proxy-add-on-premises-application.md#allow-access-to-urls), [아웃바운드 HTTPS 프록시 구성](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication)을 지원합니다.
+온-프레미스 환경을 준비하기 위해, Azure AD Connect 프로비저닝 에이전트 구성 마법사는 Azure AD 테넌트에 에이전트를 등록하고, [포트를 열고](../app-proxy/application-proxy-add-on-premises-application.md#open-ports), [URL에 대한 액세스를 허용하고](../app-proxy/application-proxy-add-on-premises-application.md#allow-access-to-urls), [아웃바운드 HTTPS 프록시 구성](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication)을 지원합니다.
 
-프로비저닝 에이전트는 서비스 계정을 사용하여 Active Directory 도메인과 통신합니다. 에이전트를 설치하기 전에 다음 요구 사항을 충족하는 Active Directory 사용자 및 컴퓨터에 서비스 계정을 만듭니다.
-
-- 만료되지 않는 암호
-- 사용자 계정을 읽고, 만들고, 삭제하고, 관리하기 위한 위임된 제어 권한
+프로비저닝 에이전트는 Active Directory 도메인과 통신하도록 [GMSA(전역 관리 서비스 계정)](../cloud-sync/how-to-prerequisites.md#group-managed-service-accounts)를 구성합니다. 비 GMSA 서비스 계정을 프로비저닝에 사용하려는 경우 [GMSA 구성을 건너뛰고](../cloud-sync/how-to-manage-registry-options.md#skip-gmsa-configuration) 구성 중에 서비스 계정을 지정할 수 있습니다. 
 
 프로비저닝 요청을 처리할 도메인 컨트롤러를 선택할 수 있습니다. 지리적으로 분산된 도메인 컨트롤러가 여러 개 있는 경우 기본 설정된 도메인 컨트롤러와 동일한 사이트에 프로비저닝 에이전트를 설치합니다. 이렇게 위치를 지정하면 엔드투엔드 솔루션의 안정성 및 성능이 향상됩니다.
 
 고가용성을 위해 둘 이상의 Azure AD Connect 프로비저닝 에이전트를 배포할 수 있습니다. 동일한 온-프레미스 Active Directory 도메인 집합을 처리하도록 에이전트를 등록합니다.
+
+## <a name="design-hr-provisioning-app-deployment-topology"></a>HR 프로비저닝 앱 배포 토폴로지 디자인
+
+인바운드 사용자 프로비저닝 구성과 관련된 Active Directory 도메인 수에 따라 다음 배포 토폴로지 중 하나를 고려할 수 있습니다. 각 토폴로지 다이어그램은 예제 배포 시나리오를 사용하여 구성 측면을 강조해서 보여 줍니다. 배포 요구 사항과 매우 유사한 예제를 사용하여 요구 사항을 충족하는 구성을 결정합니다. 
+
+### <a name="deployment-topology-1-single-app-to-provision-all-users-from-cloud-hr-to-single-on-premises-active-directory-domain"></a>배포 토폴로지 1: 클라우드 HR의 모든 사용자를 단일 온-프레미스 Active Directory 도메인으로 프로비저닝하는 단일 앱
+
+가장 일반적인 배포 토폴로지입니다. 클라우드 HR의 모든 사용자를 단일 AD 도메인으로 프로비저닝해야 하고 모든 사용자에게 동일한 프로비저닝 규칙이 적용되는 경우 이 토폴로지를 사용합니다. 
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-1-single-app-with-single-ad-domain.png" alt-text="클라우드 HR에서 단일 AD 도메인으로 사용자를 프로비저닝하는 단일 앱 스크린샷" lightbox="media/plan-cloud-hr-provision/topology-1-single-app-with-single-ad-domain.png":::
+
+**주요 구성 측면**
+* 고가용성 및 장애 조치(failover)를 위해 두 개의 프로비저닝 에이전트 노드를 설정합니다. 
+* [프로비저닝 에이전트 구성 마법사](../cloud-sync/how-to-install.md#install-the-agent)를 사용하여 Azure AD 테넌트에서 AD 도메인을 등록합니다. 
+* 프로비저닝 앱을 구성할 때 등록된 도메인 드롭다운에서 AD 도메인을 선택합니다. 
+* 범위 지정 필터를 사용하는 경우 실수로 계정을 비활성화하는 것을 방지하도록 [범위 외 삭제 건너뛰기 플래그](skip-out-of-scope-deletions.md)를 구성합니다. 
+
+### <a name="deployment-topology-2-separate-apps-to-provision-distinct-user-sets-from-cloud-hr-to-single-on-premises-active-directory-domain"></a>배포 토폴로지 2: 클라우드 HR에서 단일 온-프레미스 Active Directory 도메인으로 고유한 사용자 세트를 프로비저닝하는 별도의 앱
+
+이 토폴로지는 사용자 유형(직원/계약자), 사용자 위치 또는 사용자의 사업부에 따라 특성 매핑 및 프로비저닝 논리가 다른 비즈니스 요구 사항을 지원합니다. 또한 이 토폴로지로 부서 또는 국가에 따라 인바운드 사용자 프로비저닝의 관리 및 유지 관리를 위임할 수 있습니다.
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-2-separate-apps-with-single-ad-domain.png" alt-text="클라우드 HR에서 단일 AD 도메인으로 사용자를 프로비저닝하는 별도의 앱 스크린샷" lightbox="media/plan-cloud-hr-provision/topology-2-separate-apps-with-single-ad-domain.png":::
+
+**주요 구성 측면**
+* 고가용성 및 장애 조치를 위해 두 개의 프로비저닝 에이전트 노드를 설정합니다. 
+* 프로비저닝하려는 각 고유 사용자 집합에 대해 HR2AD 프로비저닝 앱을 만듭니다. 
+* 프로비저닝 앱에서 [범위 지정 필터](define-conditional-rules-for-provisioning-user-accounts.md)를 사용하여 각 앱에서 처리할 사용자를 정의합니다. 
+* 개별 사용자 집합에서 관리자 참조를 확인해야 하는 시나리오(예: 직원인 관리자에게 보고하는 계약자)를 처리하려면 *관리자* 특성만 업데이트하기 위한 별도의 HR2AD 프로비저닝 앱을 만들 수 있습니다. 이 앱의 범위를 모든 사용자로 설정합니다. 
+* 실수로 계정을 비활성화하는 것을 방지하도록 [범위 외 삭제 건너뛰기 플래그](skip-out-of-scope-deletions.md)를 구성합니다. 
+
+> [!NOTE] 
+> 테스트 AD 도메인이 없으며 AD에서 TEST OU 컨테이너를 사용하는 경우 이 토폴로지에서 두 개의 개별 앱 *HR2AD(프로덕션)* 및 *HR2AD(테스트)* 를 만들 수 있습니다. *HR2AD(테스트)* 앱을 사용하여 먼저 테스트를 거친 후 특성 매핑 변경 내용을 *HR2AD(프로덕션)* 앱으로 승격합니다.  
+
+### <a name="deployment-topology-3-separate-apps-to-provision-distinct-user-sets-from-cloud-hr-to-multiple-on-premises-active-directory-domains-no-cross-domain-visibility"></a>배포 토폴로지 3: 클라우드 HR에서 여러 온-프레미스 Active Directory 도메인으로 고유한 사용자 집합을 프로비저닝하는 별도의 앱(도메인 간 가시성 없음)
+
+관리자가 항상 사용자와 동일한 도메인에 있고 *userPrincipalName*, *samAccountName* 및 *mail* 과 같은 특성에 대한 고유 ID 생성 규칙에 포리스트 전체 조회가 필요하지 않은 경우 이 토폴로지에서 동일한 포리스트에 속하는 여러 독립적인 자식 AD 도메인을 관리할 수 있습니다. 또한 도메인 경계별로 각 프로비저닝 작업의 관리를 유연하게 위임할 수 있습니다. 
+
+예를 들어 아래 다이어그램에서 프로비저닝 앱은 NA(북아메리카), 유럽, 중동 및 아프리카(EMEA) 및 APAC(아시아 태평양)와 같은 각 지리적 지역에 대해 설정됩니다. 위치에 따라 사용자는 해당 AD 도메인에 프로비저닝됩니다. *EMEA 관리자* 가 EMEA 지역에 속한 사용자의 프로비저닝 구성을 독립적으로 관리할 수 있도록 프로비저닝 앱의 위임된 관리가 가능합니다.  
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-3-separate-apps-with-multiple-ad-domains-no-cross-domain.png" alt-text="클라우드 HR에서 여러 AD 도메인으로 사용자를 프로비저닝하는 별도의 앱 스크린샷" lightbox="media/plan-cloud-hr-provision/topology-3-separate-apps-with-multiple-ad-domains-no-cross-domain.png":::
+
+**주요 구성 측면**
+* 고가용성 및 장애 조치를 위해 두 개의 프로비저닝 에이전트 노드를 설정합니다. 
+* [프로비저닝 에이전트 구성 마법사](../cloud-sync/how-to-install.md#install-the-agent)를 사용하여 Azure AD 테넌트에서 모든 자식 AD 도메인을 등록합니다. 
+* 각 대상 도메인에 대해 별도의 HR2AD 프로비저닝 앱을 만듭니다. 
+* 프로비저닝 앱을 구성할 때 사용 가능한 AD 도메인 드롭다운에서 해당 자식 AD 도메인을 선택합니다. 
+* 프로비저닝 앱에서 [범위 지정 필터](define-conditional-rules-for-provisioning-user-accounts.md)를 사용하여 각 앱에서 처리할 사용자를 정의합니다. 
+* 실수로 계정을 비활성화하는 것을 방지하도록 [범위 외 삭제 건너뛰기 플래그](skip-out-of-scope-deletions.md)를 구성합니다. 
+
+
+### <a name="deployment-topology-4-separate-apps-to-provision-distinct-user-sets-from-cloud-hr-to-multiple-on-premises-active-directory-domains-with-cross-domain-visibility"></a>배포 토폴로지 4: 클라우드 HR에서 여러 온-프레미스 Active Directory 도메인으로 고유한 사용자 집합을 프로비저닝하는 별도의 앱(도메인 간 가시성 있음)
+
+사용자의 관리자가 다른 도메인에 있을 수 있고 *userPrincipalName*, *samAccountName* 및 *Mail* 과 같은 특성에 대한 고유 ID 생성 규칙에 포리스트 전체 조회가 필요한 경우 이 토폴로지에서 동일한 포리스트에 속하는 여러 독립적인 자식 AD 도메인을 관리할 수 있습니다. 
+
+예를 들어 아래 다이어그램에서 프로비저닝 앱은 NA(북아메리카), 유럽, 중동 및 아프리카(EMEA) 및 APAC(아시아 태평양)와 같은 각 지리적 지역에 대해 설정됩니다. 위치에 따라 사용자는 해당 AD 도메인에 프로비저닝됩니다. 도메인 간 관리자 참조 및 포리스트 전체 조회는 프로비저닝 에이전트에서 조회 추적을 사용하도록 설정하여 처리됩니다. 
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-4-separate-apps-with-multiple-ad-domains-cross-domain.png" alt-text="클라우드 HR에서 도메인 간 지원이 있는 여러 AD 도메인으로 사용자를 프로비저닝하는 별도의 앱 스크린샷" lightbox="media/plan-cloud-hr-provision/topology-4-separate-apps-with-multiple-ad-domains-cross-domain.png":::
+
+**주요 구성 측면**
+* 고가용성 및 장애 조치를 위해 두 개의 프로비저닝 에이전트 노드를 설정합니다. 
+* 프로비저닝 에이전트에서 [조회 추적](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing)을 구성합니다. 
+* [프로비저닝 에이전트 구성 마법사](../cloud-sync/how-to-install.md#install-the-agent)를 사용하여 부모 AD 도메인 및 모든 자식 AD 도메인을 Azure AD 테넌트에 등록합니다. 
+* 각 대상 도메인에 대해 별도의 HR2AD 프로비저닝 앱을 만듭니다. 
+* 각 프로비저닝 앱을 구성할 때 사용 가능한 AD 도메인 드롭다운에서 부모 AD 도메인을 선택합니다. 이렇게 하면 *userPrincipalName*, *samAccountName* 및 *mail* 과 같은 특성에 대한 고유한 값을 생성할 때 포리스트 전체 조회가 보장됩니다.
+* 식 매핑과 함께 *parentDistinguishedName* 을 사용하여 올바른 자식 도메인 및 [OU 컨테이너](#configure-active-directory-ou-container-assignment)에서 사용자를 동적으로 만듭니다. 
+* 프로비저닝 앱에서 [범위 지정 필터](define-conditional-rules-for-provisioning-user-accounts.md)를 사용하여 각 앱에서 처리할 사용자를 정의합니다. 
+* 도메인 간 관리자 참조를 확인하려면 *관리자* 특성만 업데이트하기 위한 별도의 HR2AD 프로비저닝 앱을 만듭니다. 이 앱의 범위를 모든 사용자로 설정합니다. 
+* 실수로 계정을 비활성화하는 것을 방지하도록 [범위 외 삭제 건너뛰기 플래그](skip-out-of-scope-deletions.md)를 구성합니다. 
+
+### <a name="deployment-topology-5-single-app-to-provision-all-users-from-cloud-hr-to-multiple-on-premises-active-directory-domains-with-cross-domain-visibility"></a>배포 토폴로지 5: 클라우드 HR의 모든 사용자를 여러 온-프레미스 Active Directory 도메인으로 프로비저닝하는 단일 앱(도메인 간 가시성 있음)
+
+단일 프로비저닝 앱을 사용하여 모든 부모 및 자식 AD 도메인에 속한 사용자를 관리하려면 이 토폴로지를 사용합니다. 이 토폴로지는 프로비저닝 규칙이 모든 도메인에서 일관되고 프로비저닝 작업의 위임된 관리를 위한 요구 사항이 없는 경우에 권장됩니다. 이 토폴로지는 도메인 간 관리자 참조를 확인하도록 지원하며 포리스트 전체의 고유성 검사를 수행할 수 있습니다. 
+
+예를 들어 아래 다이어그램에서 단일 프로비저닝 앱은 지역별, 즉 NA(북아메리카), 유럽, EMEA(중동 및 아프리카) 및 APAC(아시아 태평양)에 따라 그룹화되는 세 가지 자식 도메인에 있는 사용자를 관리합니다. *parentDistinguishedName* 에 대한 특성 매핑은 적절한 자식 도메인에서 사용자를 동적으로 만드는 데 사용됩니다. 도메인 간 관리자 참조 및 포리스트 전체 조회는 프로비저닝 에이전트에서 조회 추적을 사용하도록 설정하여 처리됩니다. 
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-5-single-app-with-multiple-ad-domains-cross-domain.png" alt-text="클라우드 HR에서 도메인 간 지원이 있는 여러 AD 도메인으로 사용자를 프로비저닝하는 단일 앱 스크린샷" lightbox="media/plan-cloud-hr-provision/topology-5-single-app-with-multiple-ad-domains-cross-domain.png":::
+
+**주요 구성 측면**
+* 고가용성 및 장애 조치를 위해 두 개의 프로비저닝 에이전트 노드를 설정합니다. 
+* 프로비저닝 에이전트에서 [조회 추적](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing)을 구성합니다. 
+* [프로비저닝 에이전트 구성 마법사](../cloud-sync/how-to-install.md#install-the-agent)를 사용하여 부모 AD 도메인 및 모든 자식 AD 도메인을 Azure AD 테넌트에 등록합니다. 
+* 전체 포리스트에 대한 단일 HR2AD 프로비저닝 앱을 만듭니다. 
+* 프로비저닝 앱을 구성할 때 사용 가능한 AD 도메인 드롭다운에서 부모 AD 도메인을 선택합니다. 이렇게 하면 *userPrincipalName*, *samAccountName* 및 *mail* 과 같은 특성에 대한 고유한 값을 생성할 때 포리스트 전체 조회가 보장됩니다.
+* 식 매핑과 함께 *parentDistinguishedName* 을 사용하여 올바른 자식 도메인 및 [OU 컨테이너](#configure-active-directory-ou-container-assignment)에서 사용자를 동적으로 만듭니다. 
+* 범위 지정 필터를 사용하는 경우 실수로 계정을 비활성화하는 것을 방지하도록 [범위 외 삭제 건너뛰기 플래그](skip-out-of-scope-deletions.md)를 구성합니다. 
+
+### <a name="deployment-topology-6-separate-apps-to-provision-distinct-users-from-cloud-hr-to-disconnected-on-premises-active-directory-forests"></a>배포 토폴로지 6: 클라우드 HR에서 연결이 끊긴 온-프레미스 Active Directory 포리스트로 고유한 사용자를 프로비저닝하는 별도의 앱
+
+IT 인프라에서 AD 포리스트의 연결이 끊어지고/가입이 취소되고 비즈니스 소속에 따라 다른 포리스트에 사용자를 프로비저닝해야 하는 경우 이 토폴로지를 사용합니다. 예를 들어 자회사 Fabrikam에서 근무하는 사용자는 fabrikam.com 도메인으로 프로비저닝해야 하지만, 자회사 Contoso에 근무하는 사용자는 contoso.com에 프로비저닝해야 합니다.    
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-6-separate-apps-with-disconnected-ad-forests.png" alt-text="클라우드 HR에서 연결이 끊긴 AD 포리스트로 사용자를 프로비저닝하는 별도의 앱 스크린샷" lightbox="media/plan-cloud-hr-provision/topology-6-separate-apps-with-disconnected-ad-forests.png":::
+
+**주요 구성 측면**
+* 고가용성 및 장애 조치를 위해 포리스트마다 하나씩 2개의 프로비저닝 에이전트 집합을 설정합니다. 
+* 포리스트마다 하나씩 두 개의 서로 다른 프로비저닝 앱을 만듭니다. 
+* 포리스트 내에서 도메인 간 참조를 확인해야 하는 경우 프로비저닝 에이전트에서 [조회 추적](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing)을 사용하도록 설정합니다. 
+* 연결이 끊긴 각 포리스트에 대해 별도의 HR2AD 프로비저닝 앱을 만듭니다. 
+* 각 프로비저닝 앱을 구성할 때 사용 가능한 AD 도메인 이름 드롭다운에서 해당 부모 AD 도메인을 선택합니다. 
+* 실수로 계정을 비활성화하는 것을 방지하도록 [범위 외 삭제 건너뛰기 플래그](skip-out-of-scope-deletions.md)를 구성합니다. 
+
+### <a name="deployment-topology-7-separate-apps-to-provision-distinct-users-from-multiple-cloud-hr-to-disconnected-on-premises-active-directory-forests"></a>배포 토폴로지 7: 여러 클라우드 HR에서 연결이 끊긴 온-프레미스 Active Directory 포리스트로 고유한 사용자를 프로비저닝하는 별도의 앱
+
+대규모 조직에서는 여러 HR 시스템이 있는 것이 일반적입니다. 비즈니스 M&amp;A(합병 및 인수) 시나리오 중에 온-프레미스 Active Directory를 여러 HR 원본에 연결해야 할 수 있습니다. 여러 HR 원본이 있고 채널을 통해 이러한 HR 원본의 ID 데이터를 동일하거나 다른 온-프레미스 Active Directory 도메인에 연결하려는 경우 아래 토폴로지가 권장됩니다.  
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-7-separate-apps-from-multiple-hr-to-disconnected-ad-forests.png" alt-text="여러 클라우드 HR에서 연결이 끊긴 AD 포리스트로 사용자를 프로비저닝하는 별도의 앱 스크린샷" lightbox="media/plan-cloud-hr-provision/topology-7-separate-apps-from-multiple-hr-to-disconnected-ad-forests.png":::
+
+**주요 구성 측면**
+* 고가용성 및 장애 조치를 위해 포리스트마다 하나씩 2개의 프로비저닝 에이전트 집합을 설정합니다. 
+* 포리스트 내에서 도메인 간 참조를 확인해야 하는 경우 프로비저닝 에이전트에서 [조회 추적](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing)을 사용하도록 설정합니다. 
+* 각 HR 시스템 및 온-프레미스 Active Directory 조합에 대해 별도의 HR2AD 프로비저닝 앱을 만듭니다.
+* 각 프로비저닝 앱을 구성할 때 사용 가능한 AD 도메인 이름 드롭다운에서 해당 부모 AD 도메인을 선택합니다. 
+* 실수로 계정을 비활성화하는 것을 방지하도록 [범위 외 삭제 건너뛰기 플래그](skip-out-of-scope-deletions.md)를 구성합니다. 
 
 ## <a name="plan-scoping-filters-and-attribute-mapping"></a>범위 지정 필터 및 특성 매핑 계획
 
@@ -295,7 +404,7 @@ Joiners 프로세스를 시작할 때 CN, samAccountName, UPN 같은 특성을 �
 Azure AD 함수 [SelectUniqueValues](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue)는 각 규칙을 평가한 다음 대상 시스템에서 고유성이 생성된 값을 확인합니다. 예제를 보려면 [userPrincipalName(UPN) 특성에 대한 고유 값 생성](../app-provisioning/functions-for-customizing-application-data.md#generate-unique-value-for-userprincipalname-upn-attribute)을 참조하세요.
 
 > [!NOTE]
-> 이 함수는 현재 Workday에서 Active Directory로 사용자 프로비저닝에만 지원됩니다. 다른 프로비저닝 앱에서는 사용할 수 없습니다.
+> 이 함수는 현재 Active Directory에 대한 Workday 및 Active Directory 사용자 프로비저닝에 대한 SAP SuccessFactors에서만 지원됩니다. 다른 프로비저닝 앱에서는 사용할 수 없습니다.
 
 ### <a name="configure-active-directory-ou-container-assignment"></a>Active Directory OU 컨테이너 할당 구성
 
@@ -315,7 +424,7 @@ Switch([Municipality], "OU=Default,OU=Users,DC=contoso,DC=com", "Dallas", "OU=Da
 
 Joiners 프로세스를 시작하는 경우 새 사용자 계정의 임시 암호를 설정하고 전달해야 합니다. 클라우드 HR에서 Azure AD로 사용자 프로비저닝을 사용하면 첫 번째 날에 사용자에게 Azure AD [SSPR(셀프 서비스 암호 재설정)](../authentication/tutorial-enable-sspr.md) 기능을 롤아웃할 수 있습니다.
 
-SSPR은 사용자가 암호를 재설정하거나 계정을 잠금 해제할 수 있도록 IT 관리자가 사용할 수 있는 간단한 수단입니다. 클라우드 HR 앱에서 Active Directory로 **휴대폰 번호** 특성을 프로비저닝하고 Azure AD와 동기화할 수 있습니다. **모바일 번호** 특성이 Azure AD에 프로비저닝된 후에는 사용자 계정에 대해 SSPR을 사용하도록 설정할 수 있습니다. 그러면 새 사용자가 첫 날부터 인증을 위해 휴대폰 번호를 등록하고 확인될 수 있습니다.
+SSPR은 사용자가 암호를 재설정하거나 계정을 잠금 해제할 수 있도록 IT 관리자가 사용할 수 있는 간단한 수단입니다. 클라우드 HR 앱에서 Active Directory로 **휴대폰 번호** 특성을 프로비저닝하고 Azure AD와 동기화할 수 있습니다. **모바일 번호** 특성이 Azure AD에 프로비저닝된 후에는 사용자 계정에 대해 SSPR을 사용하도록 설정할 수 있습니다. 그러면 새 사용자가 첫 날부터 인증을 위해 휴대폰 번호를 등록하고 확인될 수 있습니다. 인증 연락처 정보를 미리 채우는 방법에 대한 자세한 내용은 [SSPR 설명서](../authentication/howto-sspr-authenticationdata.md)를 참조하세요. 
 
 ## <a name="plan-for-initial-cycle"></a>초기 주기 계획
 
@@ -417,5 +526,5 @@ Azure AD 프로비저닝 서비스는 30일 이상 데이터를 저장, 처리 �
 
 - [특성 매핑에 대한 식 작성](functions-for-customizing-application-data.md)
 - [Azure AD 동기화 API 개요](/graph/api/resources/synchronization-overview)
-- [범위를 벗어나는 사용자 계정 삭제 건너뛰기](skip-out-of-scope-deletions.md)
+- [범위를 벗어난 사용자 계정 삭제 건너뛰기](skip-out-of-scope-deletions.md)
 - [Azure AD Connect 프로비저닝 에이전트: 버전 릴리스 기록](provisioning-agent-release-version-history.md)

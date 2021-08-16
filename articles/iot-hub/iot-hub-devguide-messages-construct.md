@@ -6,17 +6,17 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 05/07/2021
 ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 21f22f9aa31210b1690d0be562643d94901ce58a
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 547152e5c74d8953ae206d9ff3b6076013b0ade1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079049"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091633"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub 메시지 만들기 및 읽기
 
@@ -61,8 +61,30 @@ IoT Hub를 사용한 디바이스-클라우드 메시징의 특징은 다음과 
 | iothub-connection-module-id |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 디바이스의 **moduleId** 를 포함합니다. | 예 | connectionModuleId |
 | iothub-connection-auth-generation-id |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 디바이스의 **connectionDeviceGenerationId**([디바이스 ID 속성](iot-hub-devguide-identity-registry.md#device-identity-properties)당)를 포함합니다. | 예 |connectionDeviceGenerationId |
 | iothub-connection-auth-method |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 인증 방법입니다. 이 속성에는 메시지를 보내는 디바이스를 인증하는 데 사용되는 인증 방법에 대한 정보가 포함됩니다.| 예 | connectionAuthMethod |
-| dt-dataschema | 이 값은 디바이스-클라우드 메시지의 IoT 허브에 의해 설정됩니다. 디바이스 연결에 설정된 디바이스 모델 ID 세트를 포함합니다. | 예 | 해당 없음 |
-| dt-subject | 디바이스-클라우드 메시지를 전송하는 구성 요소의 이름입니다. | 예 | 해당 없음 |
+| dt-dataschema | 이 값은 디바이스-클라우드 메시지의 IoT 허브에 의해 설정됩니다. 디바이스 연결에 설정된 디바이스 모델 ID 세트를 포함합니다. | 예 | $dt-dataschema |
+| dt-subject | 디바이스-클라우드 메시지를 전송하는 구성 요소의 이름입니다. | 예 | $dt-subject |
+
+## <a name="application-properties-of-d2c-iot-hub-messages"></a>**D2C** IoT Hub 메시지의 애플리케이션 속성
+
+애플리케이션 속성의 일반적인 용도는 `iothub-creation-time-utc` 속성을 사용하여 디바이스에서 메시지를 보낸 시간을 기록하는 타임스탬프를 디바이스에서 보내는 것입니다. 이 타임스탬프의 형식은 표준 시간대 정보가 없는 UTC여야 합니다. 예를 들어 `2021-04-21T11:30:16Z`는 유효하고 `2021-04-21T11:30:16-07:00`은 잘못된 것입니다.
+
+```json
+{
+  "applicationId":"5782ed70-b703-4f13-bda3-1f5f0f5c678e",
+  "messageSource":"telemetry",
+  "deviceId":"sample-device-01",
+  "schema":"default@v1",
+  "templateId":"urn:modelDefinition:mkuyqxzgea:e14m1ukpn",
+  "enqueuedTime":"2021-01-29T16:45:39.143Z",
+  "telemetry":{
+    "temperature":8.341033560421833
+  },
+  "messageProperties":{
+    "iothub-creation-time-utc":"2021-01-29T16:45:39.021Z"
+  },
+  "enrichments":{}
+}
+```
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>**C2D** IoT Hub 메시지의 시스템 속성
 

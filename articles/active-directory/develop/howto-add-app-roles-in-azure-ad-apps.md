@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 05/06/2021
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: fce963bd9ffdc6f768d7b3de4a9e4870add06136
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf1ca72d7afaace847fb1b8321723f57fbe133f6
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100104249"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108802176"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>방법: 애플리케이션에서 앱 역할을 추가하고 토큰에서 수신하기
 
@@ -37,15 +37,12 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 
 Azure Portal을 사용하여 앱 역할을 선언하는 방법에는 두 가지가 있습니다.
 
-* [앱 역할 UI](#app-roles-ui--preview) | 미리 보기
-* [앱 매니페스트 편집기](#app-manifest-editor)
+- [앱 역할 UI](#app-roles-ui)
+- [앱 매니페스트 편집기](#app-manifest-editor)
 
 추가하는 역할 수는 Azure Active Directory에 적용된 애플리케이션 매니페스트 제한에 따라 계산됩니다. 이러한 제한에 대한 자세한 내용은 [Azure Active Directory 앱 매니페스트 참조](reference-app-manifest.md)의 [매니페스트 제한](./reference-app-manifest.md#manifest-limits) 섹션을 참조하세요.
 
-### <a name="app-roles-ui--preview"></a>앱 역할 UI | 미리 보기
-
-> [!IMPORTANT]
-> 앱 역할 포털 UI 기능 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
+### <a name="app-roles-ui"></a>앱 역할 UI
 
 Azure Portal의 사용자 인터페이스를 사용하여 앱 역할을 만들려면 다음을 수행합니다.
 
@@ -53,20 +50,21 @@ Azure Portal의 사용자 인터페이스를 사용하여 앱 역할을 만들�
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 후 앱 역할을 추가하려는 앱 등록이 포함된 Azure Active Directory 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 에서 **앱 등록** 을 선택한 후 앱 역할을 정의하려는 애플리케이션을 선택합니다.
-1. **앱 역할 | 미리 보기** 를 선택한 다음 **앱 역할 생성** 를 선택합니다.
+1. **앱 역할** 을 선택한 다음, **앱 역할 만들기** 를 선택합니다.
 
    :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/app-roles-overview-pane.png" alt-text="Azure Portal의 앱 등록의 앱 역할 창":::
+
 1. **앱 역할 만들기** 창에서 역할에 대한 설정을 입력합니다. 이미지 다음 표는 각 설정 및 해당 매개 변수를 설명합니다.
 
-    :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/app-roles-create-context-pane.png" alt-text="Azure Portal의 앱 등록의 앱 역할 만들기 컨텍스트 창":::
+   :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/app-roles-create-context-pane.png" alt-text="Azure Portal의 앱 등록의 앱 역할 만들기 컨텍스트 창":::
 
-    | 필드 | 설명 | 예제 |
-    |-------|-------------|---------|
-    | **표시 이름** | 관리자 승인 및 앱 할당 환경에 표시되는 앱 역할의 표시 이름입니다. 이 값에는 공백이 포함될 수 있습니다. | `Survey Writer` |
-    | **허용된 멤버 유형** | 이 앱 역할을 사용자, 애플리케이션 또는 둘 다에 할당할 수 있는지 여부를 지정합니다.<br/><br/>`applications`에 제공되는 경우 앱 등록의 **관리** 섹션 > **API 권한 > 권한 추가 > 내 API > API 선택 > 애플리케이션 권한** 에서 앱 역할이 애플리케이션 권한으로 표시됩니다. | `Users/Groups` |
-    | **값** | 애플리케이션이 토큰에서 예상하는 역할 클레임의 값을 지정합니다. 값은 애플리케이션 코드에 참조된 문자열과 정확하게 일치해야 합니다. 값은 공백을 포함할 수 없습니다. | `Survey.Create` |
-    | **설명** | 관리 앱 할당 및 동의 환경 중에 표시되는 앱 역할에 대한 자세한 설명입니다. | `Writers can create surveys.` |
-    | **이 앱 역할을 사용하도록 설정하시겠습니까?** | 앱 역할 사용 여부를 지정합니다. 앱 역할을 삭제하려면 삭제 작업을 시도하기 전 이 확인란을 선택 취소하고 변경 사항을 적용합니다. | *선택됨* |
+   | 필드                                    | Description                                                                                                                                                                                                                                                                                                       | 예제                       |
+   | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+   | **표시 이름**                         | 관리자 승인 및 앱 할당 환경에 표시되는 앱 역할의 표시 이름입니다. 이 값에는 공백이 포함될 수 있습니다.                                                                                                                                                                                    | `Survey Writer`               |
+   | **허용된 멤버 유형**                 | 이 앱 역할을 사용자, 애플리케이션 또는 둘 다에 할당할 수 있는지 여부를 지정합니다.<br/><br/>`applications`에 제공되는 경우 앱 등록의 **관리** 섹션 > **API 권한 > 권한 추가 > 내 API > API 선택 > 애플리케이션 권한** 에서 앱 역할이 애플리케이션 권한으로 표시됩니다. | `Users/Groups`                |
+   | **값**                                | 애플리케이션이 토큰에서 예상하는 역할 클레임의 값을 지정합니다. 값은 애플리케이션 코드에 참조된 문자열과 정확하게 일치해야 합니다. 값은 공백을 포함할 수 없습니다.                                                                                                          | `Survey.Create`               |
+   | **설명**                          | 관리 앱 할당 및 동의 환경 중에 표시되는 앱 역할에 대한 자세한 설명입니다.                                                                                                                                                                                                        | `Writers can create surveys.` |
+   | **이 앱 역할을 사용하도록 설정하시겠습니까?** | 앱 역할 사용 여부를 지정합니다. 앱 역할을 삭제하려면 삭제 작업을 시도하기 전 이 확인란을 선택 취소하고 변경 사항을 적용합니다.                                                                                                                                                             | _선택_                     |
 
 1. **적용** 을 선택하여 변경 내용을 저장합니다.
 
@@ -154,7 +152,7 @@ Azure Portal을 사용하여 사용자 및 그룹을 역할에 할당하려면 �
 
 애플리케이션에 앱 역할을 추가했으면 Azure Portal을 사용하여 또는 [Microsoft Graph](/graph/api/user-post-approleassignments)를 사용하여 프로그래밍 방식으로 클라이언트 앱에 앱 역할을 할당할 수 있습니다.
 
-애플리케이션에 앱 역할을 할당할 때 *애플리케이션 권한* 을 만듭니다. 애플리케이션 권한은 일반적으로 인증을 수행하고 사용자의 상호 작용 없이 자체적으로 권한 부여된 API 호출을 수행해야 하는 데몬 앱 또는 백엔드 서비스에서 사용됩니다.
+애플리케이션에 앱 역할을 할당할 때 _애플리케이션 권한_ 을 만듭니다. 애플리케이션 권한은 일반적으로 인증을 수행하고 사용자의 상호 작용 없이 자체적으로 권한 부여된 API 호출을 수행해야 하는 데몬 앱 또는 백엔드 서비스에서 사용됩니다.
 
 Azure Portal을 사용하여 애플리케이션에 앱 역할을 할당하려면 다음을 수행합니다.
 
@@ -172,7 +170,7 @@ Azure Portal을 사용하여 애플리케이션에 앱 역할을 할당하려면
 
 #### <a name="grant-admin-consent"></a>관리자 동의 허용
 
-이 권한은 위임된 권한이 아니라 *애플리케이션 권한* 이기 때문에 관리자가 애플리케이션에 할당된 앱 역할을 사용하도록 동의해야 합니다.
+이 권한은 위임된 권한이 아니라 _애플리케이션 권한_ 이기 때문에 관리자가 애플리케이션에 할당된 앱 역할을 사용하도록 동의해야 합니다.
 
 1. 앱 등록의 **API 권한** 창에서 **\<tenant name\>에 대한 관리자 동의 허용** 을 선택합니다.
 1. 요청된 권한에 대해 동의를 허용하라는 메시지가 표시되면 **예** 를 선택합니다.
@@ -189,11 +187,11 @@ Azure Portal을 사용하여 애플리케이션에 앱 역할을 할당하려면
 
 권한 부여를 위해 앱 역할 또는 그룹을 사용할 수 있지만, 시나리오에 사용할 항목을 결정할 때 둘 사이의 주요 차이점을 고려해야 합니다.
 
-| 앱 역할                                                                          | 그룹                                                      |
-|------------------------------------------------------------------------------------|-------------------------------------------------------------|
+| 앱 역할                                                                                                    | 그룹                                                      |
+| ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------- |
 | 애플리케이션에 따라 다르며, 앱 등록에 정의됩니다. 애플리케이션과 함께 이동합니다. | 앱을 따르지 않지만, Azure AD 테넌트에 따라 다릅니다. |
-| 앱 역할은 앱 등록이 제거될 때 제거됩니다.                      | 그룹은 앱이 제거되어도 그대로 유지됩니다.            |
-| `roles` 클레임에 제공됩니다.                                                     | `groups` 클레임에 제공됩니다.                                 |
+| 앱 역할은 앱 등록이 제거될 때 제거됩니다.                                                | 그룹은 앱이 제거되어도 그대로 유지됩니다.            |
+| `roles` 클레임에 제공됩니다.                                                                               | `groups` 클레임에 제공됩니다.                                 |
 
 개발자는 앱 역할을 사용하여 사용자가 앱에 로그인할 수 있는지 또는 앱이 웹 API에 대해 액세스 토큰을 가져올 수 있는지 제어할 수 있습니다. 이 보안 제어를 그룹을 확장하기 위해 개발자 및 관리자는 보안 그룹을 앱 역할에 할당할 수도 있습니다.
 
@@ -203,12 +201,12 @@ Azure Portal을 사용하여 애플리케이션에 앱 역할을 할당하려면
 
 앱 역할에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
 
-* GitHub의 코드 샘플
-  * [그룹 및 그룹 클레임을 사용하여 ASP.NET Core 웹 앱에 권한 부여 추가](https://aka.ms/groupssample)
-  * [.NET Core 웹 API를 호출하고 앱 역할 및 보안 그룹을 사용하는 Angular SPA(단일 페이지 애플리케이션)](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups/blob/master/README.md)
-* 참조 설명서
-  * [Azure AD 앱 매니페스트](./reference-app-manifest.md)
-  * [Azure AD 액세스 토큰](access-tokens.md)
-  * [Azure AD ID 토큰](id-tokens.md)
-  * [앱에 선택적인 클레임 제공](active-directory-optional-claims.md)
-* 동영상: [Microsoft ID 플랫폼을 사용하여 애플리케이션에서 권한 부여 구현](https://www.youtube.com/watch?v=LRoc-na27l0)(1:01:15)
+- GitHub의 코드 샘플
+  - [그룹 및 그룹 클레임을 사용하여 ASP.NET Core 웹 앱에 권한 부여 추가](https://aka.ms/groupssample)
+  - [.NET Core 웹 API를 호출하고 앱 역할 및 보안 그룹을 사용하는 Angular SPA(단일 페이지 애플리케이션)](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups/blob/master/README.md)
+- 참조 설명서
+  - [Azure AD 앱 매니페스트](./reference-app-manifest.md)
+  - [Azure AD 액세스 토큰](access-tokens.md)
+  - [Azure AD ID 토큰](id-tokens.md)
+  - [앱에 선택적인 클레임 제공](active-directory-optional-claims.md)
+- 동영상: [Microsoft ID 플랫폼을 사용하여 애플리케이션에서 권한 부여 구현](https://www.youtube.com/watch?v=LRoc-na27l0)(1:01:15)

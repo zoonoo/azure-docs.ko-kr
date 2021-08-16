@@ -1,26 +1,26 @@
 ---
-title: 서버 다시 시작-Azure Portal-Azure Database for MySQL 유연한 서버
-description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Database for MySQL 유연한 서버를 다시 시작 하는 방법을 설명 합니다.
+title: 서버 다시 시작 - Azure Portal - Azure Database for MySQL - 유연한 서버
+description: 이 문서에서는 Azure Portal을 사용하여 Azure Database for MySQL 유연한 서버를 다시 시작하는 방법에 관해 설명합니다.
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.openlocfilehash: 88a1524875f168b49f50f1684c650d5bc178bf38
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94542663"
 ---
-# <a name="restart-azure-database-for-mysql-flexible-server-using-azure-portal"></a>Azure Portal를 사용 하 여 유연한 서버를 다시 시작 Azure Database for MySQL
-이 항목에서는 Azure Database for MySQL 유연한 서버를 다시 시작 하는 방법에 대해 설명 합니다. 유지 관리를 위해 서버를 다시 시작해야 할 수 있지만 이 경우 서버가 해당 작업을 수행할 때 잠깐 가동이 중단됩니다.
+# <a name="restart-azure-database-for-mysql-flexible-server-using-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL 유연한 서버 다시 시작
+이 항목에서는 Azure Database for MySQL 유연한 서버를 다시 시작하는 방법에 관해 설명합니다. 유지 관리를 위해 서버를 다시 시작해야 할 수 있지만 이 경우 서버가 해당 작업을 수행할 때 잠깐 가동이 중단됩니다.
 
 서비스가 다른 작업 중이면 서버가 다시 시작되지 않습니다. 예를 들어, 서비스가 vCore 크기를 조정하는 것과 같이 이전에 요청된 작업을 처리할 수 있습니다.
 
 다시 시작을 완료하는 데 필요한 시간은 MySQL 복구 프로세스에 따라 달라집니다. 다시 시작 시간을 줄이려면 다시 시작 전에 서버에서 발생하는 작업의 양을 최소화하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 - [Azure Database for MySQL 유연한 서버](quickstart-create-server-portal.md)
 
@@ -28,7 +28,7 @@ ms.locfileid: "94542663"
 
 다음 단계에서는 MySQL 서버를 다시 시작합니다.
 
-1. Azure Portal에서 Azure Database for MySQL 유연한 서버를 선택 합니다.
+1. Azure Portal에서 Azure Database for MySQL 유연한 서버를 선택합니다.
 
 2. 서버 **개요** 페이지의 도구 모음에서 **다시 시작** 을 클릭합니다.
 
@@ -48,4 +48,4 @@ ms.locfileid: "94542663"
 
 ## <a name="next-steps"></a>다음 단계
 
-[빠른 시작: Azure Portal를 사용 하 여 Azure Database for MySQL 유연한 서버 만들기](quickstart-create-server-portal.md)
+[빠른 시작: Azure Portal을 사용하여 Azure Database for MySQL 유연한 서버 만들기](quickstart-create-server-portal.md)
