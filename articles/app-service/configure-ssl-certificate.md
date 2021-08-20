@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c087533958665eb71e046d3bab1f03265adbd3ba
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 011461b1ecba9c5ce8cf636980a97d26f2228a98
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111853571"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113128843"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 인증서 추가
 
@@ -341,6 +341,9 @@ IIS 또는 _Certreq.exe_ 를 사용하여 인증서 요청을 생성한 경우 �
 
 ### <a name="renew-certificate"></a>인증서 갱신
 
+> [!NOTE]
+> 갱신 프로세스를 수행하려면 [App Service의 잘 알려진 서비스 주체에게 키 자격 증명 모음에 대한 필수 권한이 있어야 합니다](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). 이 권한은 포털을 통해 App Service Certificate를 가져올 때 구성되며 키 자격 증명 모음에서 제거하면 안 됩니다.
+
 언제든 인증서 자동 갱신을 켜려면 [App Service Certificate](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, 왼쪽 탐색 영역에서 **자동 갱신 설정** 을 클릭합니다. 기본적으로 App Service 인증서의 유효 기간은 1년입니다.
 
 **켜기** 를 선택하고 **저장** 을 클릭합니다. 자동 갱신을 켜 놓으면 인증서가 만료 30일 전에 자동으로 갱신됩니다.
@@ -389,11 +392,11 @@ App Service 인증서를 삭제하면 다시 되돌릴 수 없습니다. App Ser
 
 이제 App Service 인증서를 삭제할 수 있습니다. 왼쪽 탐색 영역에서 **개요** > **삭제** 를 선택합니다. 확인 대화 상자에서 인증서 이름을 입력하고 **확인** 을 선택합니다.
 
-## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
+## <a name="automate-with-scripts&quot;></a>스크립트를 사용하여 자동화
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name=&quot;azure-cli&quot;></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 &quot;Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
@@ -405,4 +408,4 @@ App Service 인증서를 삭제하면 다시 되돌릴 수 없습니다. App Ser
 * [HTTPS 적용](configure-ssl-bindings.md#enforce-https)
 * [TLS 1.1/1.2 적용](configure-ssl-bindings.md#enforce-tls-versions)
 * [Azure App Service의 코드에서 TLS/SSL 인증서 사용](configure-ssl-certificate-in-code.md)
-* [FAQ: App Service Certificate](./faq-configuration-and-management.md)
+* [FAQ: App Service Certificate](./faq-configuration-and-management.yml)

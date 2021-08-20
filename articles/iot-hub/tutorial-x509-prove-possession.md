@@ -6,22 +6,24 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 02/26/2021
+ms.date: 06/25/2021
 ms.author: robinsh
 ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: b7740fa1f6a54dcfcc1181dddedcdd5fdb50402c
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 0140166ac173e51f9b9d4e9617de3b70d24e1474
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378230"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113215068"
 ---
 # <a name="tutorial-proving-possession-of-a-ca-certificate"></a>자습서: CA 인증서 소유 증명
 
-루트 CA(인증 기관) 인증서 또는 하위 CA 인증서를 IoT 허브에 업로드한 후에는 인증서를 소유하고 있음을 증명해야 합니다.
+루트 CA(인증 기관) 인증서 또는 하위 CA 인증서를 IoT 허브에 업로드할 때 자동으로 확인되도록 설정하거나 인증서를 소유하고 있음을 수동으로 증명할 수 있습니다.
+
+## <a name="verify-certificate-automatically"></a>자동으로 인증서 확인 
 
 1. Azure Portal에서 IoT Hub로 이동하고, **설정 > 인증서** 를 차례로 선택합니다.
 
@@ -29,17 +31,25 @@ ms.locfileid: "107378230"
 
 3. **인증서 이름** 필드에 표시 이름을 입력하고 추가할 PEM 인증서를 선택합니다.
 
-4. **저장** 을 선택합니다. 인증서가 **확인되지 않음** 상태로 인증서 목록에 표시됩니다. 이 확인 프로세스는 인증서를 소유하고 있음을 증명합니다.
+4. 인증서를 자동으로 확인하려면 **업로드 시 인증서 상태를 확인하도록 설정** 옆에 있는 상자를 선택합니다.
 
-5. 인증서를 선택하여 **인증서 세부 정보** 대화 상자를 표시합니다.
+  :::image type="content" source="media/tutorial-x509-prove-possession/skip-pop.png" alt-text="소유 증명 건너뛰기 확인란이 있는 위치를 보여주는 스크린샷":::
 
-6. 대화 상자에서 **확인 코드 생성** 을 선택합니다.
+5. **저장** 을 선택합니다.  인증서가 인증서에 **확인됨** 상태로 표시됩니다.
+
+## <a name="verify-certificate-manually-after-upload"></a>업로드 후 수동으로 인증서 확인
+
+1. 업로드하는 동안 인증서를 자동으로 확인하도록 선택하지 않은 경우 인증서가 인증서 목록에 **확인되지 않음** 상태로 표시됩니다. 
+
+2. 인증서를 선택하여 **인증서 세부 정보** 대화 상자를 표시합니다.
+
+3. 대화 상자에서 **확인 코드 생성** 을 선택합니다.
 
   :::image type="content" source="media/tutorial-x509-prove-possession/certificate-details.png" alt-text="{인증서 세부 정보 대화 상자}":::
 
-7. 확인 코드를 클립보드에 복사합니다. 인증 코드를 인증서 주체로 설정해야 합니다. 예를 들어 확인 코드가 75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3인 경우 다음 단계에 표시된 대로 인증서의 주체로 추가합니다.
+4. 확인 코드를 클립보드에 복사합니다. 인증 코드를 인증서 주체로 설정해야 합니다. 예를 들어 확인 코드가 75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3인 경우 다음 단계에 표시된 대로 인증서의 주체로 추가합니다.
 
-8. 확인 인증서를 생성하는 방법에는 다음 세 가지가 있습니다.
+5. 확인 인증서를 생성하는 방법에는 다음 세 가지가 있습니다.
 
     * Microsoft에서 제공하는 PowerShell 스크립트를 사용하는 경우 `New-CACertsVerificationCert "75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3"`을 실행하여 `VerifyCert4.cer`이라는 인증서를 만듭니다. 자세한 내용은 [Microsoft 제공 스크립트 사용](tutorial-x509-scripts.md)을 참조하세요.
 
@@ -77,6 +87,6 @@ ms.locfileid: "107378230"
 
     자세한 내용은 [OpenSSL을 사용하여 테스트 인증서 만들기](tutorial-x509-openssl.md)를 참조하세요.
 
-10. **인증서 세부 정보** 보기에서 새 인증서를 선택합니다.
+6. **인증서 세부 정보** 보기에서 새 인증서를 선택합니다.
 
-11. 인증서를 업로드한 후 **확인** 을 선택합니다. CA 인증서 상태를 **확인됨** 으로 변경해야 합니다.
+7. 인증서를 업로드한 후 **확인** 을 선택합니다. CA 인증서 상태를 **확인됨** 으로 변경해야 합니다.

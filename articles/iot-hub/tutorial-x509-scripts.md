@@ -6,18 +6,18 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 02/26/2021
+ms.date: 06/26/2021
 ms.author: robinsh
 ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: ff4b63f49a87dd9ca6b0ef458bdcf1c285a34a18
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 8170b6529ca38c54d3030514a79948678861f3bd
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378213"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113214909"
 ---
 # <a name="tutorial-using-microsoft-supplied-scripts-to-create-test-certificates"></a>자습서: Microsoft에서 제공하는 스크립트를 사용하여 테스트 인증서 만들기
 
@@ -61,13 +61,15 @@ Windows용 OpenSSL을 가져옵니다. 다운로드하는 위치는 <https://www
 
 1. CA 인증서의 표시 이름을 입력합니다.
 
+1. 소유 증명을 건너뛰려면 **업로드 시 인증서 상태를 확인으로 설정** 옆에 있는 상자를 선택합니다.
+
 1. CA 인증서를 업로드합니다.
 
 1. **저장** 을 선택합니다.
 
-### <a name="step-3---prove-possession"></a>3단계 - 소유 증명
+### <a name="optional-step-3---prove-possession"></a>(선택 사항) 3단계 - 소유 증명
 
-이제 CA 인증서를 IoT Hub에 업로드했으므로 해당 인증서를 실제로 소유하고 있음을 증명해야 합니다.
+업로드하는 동안 인증서를 자동으로 확인하도록 선택하지 않은 경우 소유를 수동으로 증명합니다.
 
 1. 새 CA 인증서를 선택합니다.
 

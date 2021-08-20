@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 07/14/2021
 ms.author: alkohli
-ms.openlocfilehash: b56b79c29838c00fd79a0ed91a1c3ff0686c56ce
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: a307fd2e2504e3c11c96fb56c7ab4f55db9508ff
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109737981"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114221267"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>GPU가 있는 Azure Stack Edge Pro란?
 
@@ -51,6 +51,7 @@ Azure Stack Edge Pro GPU의 기능은 다음과 같습니다.
 |데이터 새로 고침     | 클라우드의 최신 데이터로 로컬 파일을 새로 고칠 수 있습니다.|
 |암호화    | *https* 를 통해 클라우드로 안전하게 데이터를 전송하고 로컬에서 데이터를 암호화할 수 있도록 BitLocker가 지원됩니다.|
 |대역폭 제한| 사용량이 많은 시간 동안 대역폭 사용을 제한하는 데 사용됩니다.|
+|특수 네트워크 함수|Azure Network Function Manager의 Marketplace 환경을 사용하여 모바일 패킷 코어, SD-WAN 에지 및 VPN 서비스 등의 네트워크 기능을 온-프레미스 환경에서 실행되는 Azure Stack Edge 디바이스에 신속하게 배포합니다. 자세한 내용은 [Azure Network Function Manager란?(미리 보기)](../network-function-manager/overview.md)을 참조하세요.|
 
 <!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).|-->
 
@@ -87,4 +88,5 @@ Azure Stack Edge 서비스는 비 지역 서비스입니다. 자세한 내용은
 - [Azure Stack Edge Pro GPU 시스템 요구 사항](azure-stack-edge-gpu-system-requirements.md)을 검토합니다.
 
 - [Azure Stack Edge Pro GPU 제한](azure-stack-edge-limits.md)을 이해합니다.
+
 - Azure Portal에서 [Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md)를 배포합니다.

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 6241f6156b01c3c90f00578ae5416e4e77270930
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2263b27cd2f505bc76f02f24e17d54ec5f6475b2
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386801"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112578850"
 ---
 # <a name="tutorial-migrate-from-google-maps-to-azure-maps"></a>자습서: Google Maps에서 Azure Maps로 마이그레이션
 
@@ -34,7 +34,7 @@ ms.locfileid: "100386801"
 
 ## <a name="azure-maps-platform-overview"></a>Azure Maps 플랫폼 개요
 
-Azure Maps는 모든 산업의 개발자에게 강력한 지리 공간적 기능을 제공합니다. 기능은 웹 및 모바일 애플리케이션에 지리적 컨텍스트를 제공하기 위해 정기적으로 업데이트되는 맵 데이터로 압축됩니다. Azure Maps에는 REST API의 Azure One API 호환 세트가 있습니다. REST API는 맵 렌더링, 검색, 라우팅, 트래픽, 표준 시간대, 지리적 위치, 지오펜싱, 맵 데이터, 날씨, 이동성 및 공간 작업을 제공합니다. 웹 및 Android SDK 모두가 함께 제공되는 작업은 여러 플랫폼에서 개발이 쉽고 유연하며 이식이 가능합니다.
+Azure Maps는 모든 산업의 개발자에게 강력한 지리 공간적 기능을 제공합니다. 기능은 웹 및 모바일 애플리케이션에 지리적 컨텍스트를 제공하기 위해 정기적으로 업데이트되는 맵 데이터로 압축됩니다. Azure Maps에는 REST API의 Azure One API 호환 세트가 있습니다. REST API는 맵 렌더링, 검색, 라우팅, 트래픽, 표준 시간대, 지리적 위치, 지오펜싱, 맵 데이터, 날씨 및 공간 작업을 제공합니다. 웹 및 Android SDK 모두가 함께 제공되는 작업은 여러 플랫폼에서 개발이 쉽고 유연하며 이식이 가능합니다.
 
 ## <a name="high-level-platform-comparison"></a>상위 수준 플랫폼 비교
 

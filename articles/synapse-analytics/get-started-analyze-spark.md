@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: de48f906f4dc86bf6297cfb3b76f406df49feec3
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 1c6f676ba6f4c689a34baf2119a4179e3a5200ad
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363855"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113038267"
 ---
 # <a name="analyze-with-apache-spark"></a>Apache Spark를 사용하여 분석
 
@@ -75,7 +75,7 @@ ms.locfileid: "107363855"
    ```
 
 1. 셀을 실행하여 **nyctaxi** Spark 데이터베이스에 로드한 NYC 택시 데이터를 표시합니다.
-1. 새 코드 셀을 만들고, 다음 코드를 입력합니다. 이 데이터를 분석하고 결과를 **nyctaxi.paulnercountstats** 라는 테이블에 저장합니다.
+1. 새 코드 셀을 만들고, 다음 코드를 입력합니다. 이 데이터를 분석하고 결과를 **nyctaxi.passengercountstats** 라는 테이블에 저장합니다.
 
    ```py
    %%pyspark

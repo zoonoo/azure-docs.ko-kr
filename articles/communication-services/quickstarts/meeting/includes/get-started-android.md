@@ -3,17 +3,21 @@ title: 빠른 시작 - Azure Communication Services를 사용하여 Android 앱�
 description: 이 빠른 시작에서는 Android용 Azure Communication Services Teams Embed 라이브러리를 사용하는 방법을 알아봅니다.
 author: palatter
 ms.author: palatter
-ms.date: 01/25/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: cbf56f6567c3c7857afcd71ed9f6dc67be48f9d1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0340135bf17f31ccc1dd00507a1c57426a3c641d
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108791563"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113218155"
 ---
 이 빠른 시작에서는 Android용 Azure Communication Services Teams Embed 라이브러리를 사용하여 Microsoft Teams 미팅에 참가하는 방법을 알아봅니다.
+
+## <a name="sample-code"></a>샘플 코드
+
+샘플 앱은 [GitHub](https://github.com/Azure-Samples/teams-embed-android-getting-started)에서 다운로드할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -55,7 +59,7 @@ android {
 ```groovy
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-common:1.0.0-beta.8'
+    implementation 'com.azure.android:azure-communication-common:1.0.0'
     ...
 }
 ```
@@ -76,7 +80,7 @@ dependencies {
 
 ### <a name="install-the-teams-embed-package"></a>Teams Embed 패키지 설치
 
-[`MicrosoftTeamsSDK` 패키지](https://github.com/Azure/communication)를 다운로드합니다.
+`MicrosoftTeamsSDK` 패키지를 다운로드합니다.
 
 그런 다음, 사용자 프로젝트 앱 폴더에 `MicrosoftTeamsSDK` 폴더 압축을 풉니다. 예: `TeamsEmbedAndroidGettingStarted/app/MicrosoftTeamsSDK`.
 
@@ -86,7 +90,7 @@ dependencies {
 
 ```groovy
 apply from: 'MicrosoftTeamsSDK/MicrosoftTeamsSDK.gradle'
-```
+ ```
 
 gradle 파일을 사용하여 프로젝트를 동기화합니다.
 
@@ -158,7 +162,7 @@ public class TeamsEmbedAndroidGettingStarted extends TeamsSDKApplication {
 
 ### <a name="set-up-the-layout-for-the-app"></a>앱 레이아웃 설정
 
-`join_meeting`의 ID가 포함된 단추를 만듭니다. 레이아웃 파일(`app/src/main/res/layout/activity_main.xml`)로 이동하고 파일 콘텐츠를 다음으로 바꿉니다.
+`join_meeting`의 ID가 포함된 단추를 만듭니다. 레이아웃 파일(`app/src/main/res/layout/activity_main.xml`)로 이동하고 파일 콘텐츠를 다음 코드로 바꿉니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -185,7 +189,7 @@ public class TeamsEmbedAndroidGettingStarted extends TeamsSDKApplication {
 
 레이아웃이 만들어지면 바인딩과 활동의 기본 스캐폴딩을 추가할 수 있습니다. 이 활동은 단추가 눌러지면 런타임 권한 요청, 미팅 클라이언트 만들기 및 미팅 조인을 처리합니다. 각각에 대해 해당 섹션에서 설명합니다. 
 
-`onCreate` 메서드는 `getAllPermissions` 및 `createAgent`를 호출하고 `Join Meeting` 단추에 바인딩을 추가하도록 재정의됩니다. 이는 활동이 만들어질 때 한 번만 발생합니다. `onCreate`에 대한 자세한 내용은 [활동 수명 주기에 관한 이해](https://developer.android.com/guide/components/activities/activity-lifecycle) 가이드를 참조하세요.
+`onCreate` 메서드는 `Join Meeting` 단추에 바인딩을 추가하도록 재정의됩니다. 이는 활동이 만들어질 때 한 번만 발생합니다. `onCreate`에 대한 자세한 내용은 [활동 수명 주기에 관한 이해](https://developer.android.com/guide/components/activities/activity-lifecycle) 가이드를 참조하세요.
 
 **MainActivity.java** 로 이동하고, 내용을 다음 코드로 바꿉니다.
 
@@ -214,29 +218,21 @@ public class MainActivity extends AppCompatActivity {
 
     private final String displayName = "John Smith";
 
-    private MeetingUIClient meetingUIClient;
-    private MeetingUIClientJoinOptions meetingJoinOptions;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
         
-        getAllPermissions();
-        createMeetingClient();
-
-        Button joinMeeting = findViewById(R.id.join_meeting);
-        joinMeeting.setOnClickListener(l -> joinMeeting());
+        Button joinMeetingButton = findViewById(R.id.join_meeting);
+        joinMeetingButton.setOnClickListener(l -> joinMeeting());
     }
-
-    private void createMeetingClient() {
-        // See section on creating meeting client
-    }
-
+    
     private void joinMeeting() {
-        // See section on joining a meeting
+    // See section on joining a meeting
+    }
+
+    private MeetingUIClient createMeetingUIClient() {
+        // See section on creating meeting ui client
     }
 
     private void getAllPermissions() {
@@ -247,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
 
 ### <a name="request-permissions-at-runtime"></a>런타임에 권한 요청
 
-Android 6.0 이상(API 수준 23) 및 `targetSdkVersion` 23 이상에서는 앱이 설치될 때가 아니라 런타임에 권한이 부여됩니다. 이를 지원하기 위해 필요한 권한마다 `ActivityCompat.checkSelfPermission` 및 `ActivityCompat.requestPermissions`를 호출하도록 `getAllPermissions`를 구현할 수 있습니다.
+Android 6.0 이상(API 수준 23) 및 `targetSdkVersion` 23 이상에서는 앱이 설치될 때가 아니라 런타임에 권한이 부여됩니다. 권한을 요청하기 위해 필요한 권한마다 `ActivityCompat.checkSelfPermission` 및 `ActivityCompat.requestPermissions`를 호출하도록 `getAllPermissions`를 구현할 수 있습니다.
 
 ```java
 /**
@@ -274,34 +270,39 @@ private void getAllPermissions() {
 
 Azure Communication Services Teams 포함 라이브러리의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
-| Name                                  | 설명                                                  |
-| ------------------------------------- | ------------------------------------------------------------ |
-| MeetingUIClient| MeetingUIClient는 Teams 포함 라이브러리의 주 진입점입니다. |
-| MeetingUIClientJoinOptions | MeetingUIClientJoinOptions는 표시 이름과 같은 구성 가능한 옵션에 사용됩니다. |
-| MeetingUIClientTeamsMeetingLinkLocator | MeetingUIClientTeamsMeetingLinkLocator는 미팅에 참가할 수 있도록 미팅 URL을 설정하는 데 사용됩니다. |
-| MeetingUIClientGroupCallLocator | MeetingUIClientGroupCallLocator는 가입할 수 있는 그룹 ID를 설정하는 데 사용됩니다. |
-| MeetingUIClientCallState | MeetingUIClientCallState는 통화 상태 변경사항을 보고하는 데 사용됩니다. 옵션은 다음과 같습니다. `connecting`, `waitingInLobby`, `connected` 및 `ended`. |
-| MeetingUIClientEventListener | MeetingUIClientEventListener는 통화 상태 변경사항과 같은 이벤트를 받는 데 사용됩니다. |
-| MeetingUIClientIdentityProvider | MeetingUIClientIdentityProvider는 사용자 세부 정보를 미팅 중인 사용자에게 매핑하는 데 사용됩니다. |
-| MeetingUIClientUserEventListener | MeetingUIClientUserEventListener는 UI에 사용자 동작에 대한 정보를 제공하는 데 사용됩니다. |
+| Name                                    | 설명                                                                                                                                                       |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MeetingUIClient                         | MeetingUIClient는 Teams 포함 라이브러리의 주 진입점입니다.                                                                                           |
+| MeetingUIClientJoinOptions              | MeetingUIClientJoinOptions는 표시 이름과 같은 구성 가능한 옵션에 사용됩니다.                                                                                |
+| MeetingUIClientTeamsMeetingLinkLocator  | MeetingUIClientTeamsMeetingLinkLocator는 미팅에 참가할 수 있도록 미팅 URL을 설정하는 데 사용됩니다.                                                                      |
+| MeetingUIClientGroupCallLocator         | MeetingUIClientGroupCallLocator는 가입할 수 있는 그룹 ID를 설정하는 데 사용됩니다.                                                                                         |
+| MeetingUIClientIconType                 | MeetingUIClientIconType은 앱별 아이콘으로 바꿀 수 있는 아이콘을 지정하는 데 사용됩니다.                                                                  |
+| MeetingUIClientCall                     | MeetingUIClientCall은 호출을 설명하고 이를 제어하는 API를 제공합니다.                                                                                           |
+| MeetingUIClientCallState                | MeetingUIClientCallState는 통화 상태 변경사항을 보고하는 데 사용됩니다. 옵션은 다음과 같습니다. `CONNECTING`, `WAITING_IN_LOBBY`, `CONNECTED` 및 `ENDED`. |
+| MeetingUIClientAudioRoute               | MeetingUIClientAudioRoute는 `Earpiece` 또는 `SpeakerOn` 같은 로컬 오디오 경로에 사용됩니다.                                                                          |
+| MeetingUIClientLayoutMode               | MeetingUIClientLayoutMode는 호출 UI 모드에서 다른 선택을 허용하는 데 사용됩니다.                                                                              |
+| MeetingUIClientAvatarSize               | MeetingUIClientAvatarSize는 MeetingUIClientCallIdentityProvider에서 요청할 수 있는 다양한 아바타 크기를 나타내는 열거형입니다.                                |
+| MeetingUIClientCallEventListener        | MeetingUIClientCallEventListener는 통화 상태 변경과 같은 이벤트를 받는 데 사용됩니다.                                                                    |
+| MeetingUIClientCallIdentityProvider     | MeetingUIClientCallIdentityProvider는 사용자 세부 정보를 미팅 중인 사용자에게 매핑하는 데 사용됩니다.                                                                    |
+| MeetingUIClientCallUserEventListener    | MeetingUIClientCallUserEventListener는 UI에 사용자 작업에 대한 정보를 제공합니다.                                                                       |
 
 ## <a name="create-a-meetingclient-from-the-user-access-token"></a>사용자 액세스 토큰에서 MeetingClient 만들기
 
 사용자 액세스 토큰을 사용하여 인증된 미팅 클라이언트를 인스턴스화할 수 있습니다. 이 토큰은 애플리케이션과 관련된 인증을 사용하는 서비스에서 생성됩니다. 사용자 액세스 토큰에 대해 자세히 알아보려면 [사용자 액세스 토큰](../../access-tokens.md) 가이드를 확인하세요. 빠른 시작에서는 `<USER_ACCESS_TOKEN>`을 Azure Communication Services 리소스에 대해 생성된 사용자 액세스 토큰으로 바꿉니다.
 
 ```java
-private void createMeetingClient() { 
+private MeetingUIClient createMeetingUIClient() { 
     try {
         CommunicationTokenRefreshOptions refreshOptions = new CommunicationTokenRefreshOptions(tokenRefresher, true, "<USER_ACCESS_TOKEN>");
         CommunicationTokenCredential credential = new CommunicationTokenCredential(refreshOptions);
-        meetingUIClient = new MeetingUIClient(credential);
+        return new MeetingUIClient(credential);
     } catch (Exception ex) {
-        Toast.makeText(getApplicationContext(), "Failed to create meeting client: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Failed to create meeting ui client: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }
 ```
 
-## <a name="setup-token-refreshing"></a>토큰 새고 고침 설정
+### <a name="setup-token-refreshing"></a>토큰 새고 고침 설정
 
 호출 가능 `tokenRefresher` 메서드를 만듭니다. 그런 다음, 사용자 토큰을 가져오는 `fetchToken` 메서드를 만듭니다. [수행 방법에 대한 지침은 여기서 확인할 수 있습니다.](../../access-tokens.md?pivots=programming-language-java)
 
@@ -316,28 +317,35 @@ public String fetchToken() {
 }
 ```
 
-## <a name="get-the-teams-meeting-link"></a>Teams 미팅 링크 가져오기
-
-Teams 미팅 링크는 Graph API를 사용하여 검색할 수 있습니다. 자세한 내용은 [Graph 설명서](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)에서 설명하고 있습니다.
-Communication Services Calling SDK는 전체 Teams 미팅 링크를 수락합니다. 이 링크는 [`joinWebUrl` 속성](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)에서 액세스할 수 있는 `onlineMeeting` 리소스의 일부로 반환됩니다. Teams 미팅 초대 자체의 **미팅 조인** URL에서 필요한 미팅 정보를 가져올 수도 있습니다.
-
 ## <a name="start-a-meeting-using-the-meeting-client"></a>미팅 클라이언트를 사용하여 미팅 시작
 
-`MeetingUIClient`를 통해 미팅에 조인할 수 있습니다. `MeetingUIClientTeamsMeetingLinkLocator` 및 `MeetingUIClientJoinOptions`만 필요합니다. `<MEETING_URL>`을 Teams 미팅 URL로 바꿉니다.
+`joinMeeting` 메서드는 *미팅 참가* 단추를 탭하면 수행되는 작업으로 설정됩니다. `MeetingUIClient`를 통해 미팅에 조인할 수 있습니다. `MeetingUIClientTeamsMeetingLinkLocator` 및 `MeetingUIClientJoinOptions`만 필요합니다.
+`<MEETING_URL>`을 Microsoft Teams 모임 링크로 바꿉니다.
 
 ```java
 /**
  * Join a meeting with a meetingURL.
  */
 private void joinMeeting() {
+    getAllPermissions();
+    MeetingUIClient meetingUIClient = createMeetingUIClient();
+    
+    MeetingUIClientTeamsMeetingLinkLocator meetingUIClientTeamsMeetingLinkLocator = new MeetingUIClientTeamsMeetingLinkLocator(<MEETING_URL>);
+    
+    MeetingUIClientJoinOptions meetingJoinOptions = new MeetingUIClientJoinOptions(displayName, false);
+    
     try {
-        MeetingUIClientTeamsMeetingLinkLocator meetingUIClientTeamsMeetingLinkLocator = new MeetingUIClientTeamsMeetingLinkLocator(<MEETING_URL>);
         meetingUIClient.join(meetingUIClientTeamsMeetingLinkLocator, meetingJoinOptions);
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to join meeting: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }
 ```
+
+### <a name="get-a-microsoft-teams-meeting-link"></a>Microsoft Teams 미팅 링크 가져오기
+
+Graph API를 사용하여 Microsoft Teams 미팅 링크를 검색할 수 있습니다. 미팅 링크를 검색하는 단계는 [Graph 설명서](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)에 자세히 설명되어 있습니다.
+Communication Services Calling SDK는 전체 Teams 미팅 링크를 수락합니다. 이 링크는 [`joinWebUrl` 속성](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)에서 액세스할 수 있는 `onlineMeeting` 리소스의 일부로 반환됩니다. Teams 미팅 초대 자체의 **미팅 조인** URL에서 필요한 미팅 정보를 가져올 수도 있습니다.
 
 ## <a name="launch-the-app-and-join-a-meeting"></a>앱을 시작하고 미팅에 조인
 
@@ -347,6 +355,12 @@ private void joinMeeting() {
 
 :::image type="content" source="../media/android/quickstart-android-joined-meeting.png" alt-text="미팅에 조인한 후 완료된 애플리케이션을 보여 주는 스크린샷":::
 
-## <a name="sample-code"></a>샘플 코드
+## <a name="add-localization-support-based-on-your-app"></a>앱에 따라 지역화 지원 추가
 
-샘플 앱은 [GitHub](https://github.com/Azure-Samples/teams-embed-android-getting-started)에서 다운로드할 수 있습니다.
+Microsoft Teams SDK는 50개가 넘는 언어로 100개가 넘는 문자열을 지원합니다. 기본적으로 영어만 사용됩니다. 나머지는 gradle 파일에서 사용할 수 있습니다.
+
+#### <a name="add-localizations-to-the-sdk-based-on-what-your-app-supports"></a>앱에서 지원하는 항목에 따라 SDK에 지역화 추가
+
+1. 앱에서 지원하는 언어 목록 확인
+2. MicrosoftTeamsSDK.gradle 파일 열기
+3. defaultConfig 블록에서 resConfigs 속성은 기본적으로 "en"으로 설정됩니다. 앱에 필요한 언어를 추가합니다. 참조: [Android 설명서](https://developer.android.com/studio/build/shrink-code#unused-alt-resources)

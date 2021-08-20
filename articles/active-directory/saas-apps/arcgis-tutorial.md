@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/08/2021
+ms.date: 06/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 7a445eefa31e741562105e89fa105d404ccc0c7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 97b8efe9ad614e3b243954eee4a319da778b82c8
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646353"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112457219"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>자습서: ArcGIS Online과 Azure Active Directory 통합
 
@@ -103,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -123,29 +123,29 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. ArcGIS Online을 수동으로 설치하려는 경우 새 웹 브라우저 창을 열고 ArcGIS 회사 사이트에 관리자로 로그인한 후에 다음 단계를 수행합니다.
 
-2. **설정 편집** 을 클릭합니다.
+2. **Organization(조직)**  -> **Settings(설정)** 로 차례로 이동합니다. 
 
     ![설정 편집](./media/arcgis-tutorial/settings.png "설정 편집")
 
-3. **보안** 을 클릭합니다.
+3. 왼쪽 메뉴에서 **보안** 을 클릭하고 로그인 탭에서 **새 SAML 로그인** 을 선택합니다.
 
-    ![보안](./media/arcgis-tutorial/secure.png "보안")
+    ![보안에 대한 스크린샷](./media/arcgis-tutorial/security.png)
 
-4. **회사 로그인** 에서 **ID 공급자 설정** 을 클릭합니다.
+4. **SAML 로그인 설정** 창에서 구성을 **하나의 ID 공급자** 로 선택하고 **다음** 을 클릭합니다.
 
-    ![회사 로그인](./media/arcgis-tutorial/enterprise.png "회사 로그인")
+    ![회사 로그인](./media/arcgis-tutorial/identity-provider.png "회사 로그인")
 
-5. **ID 공급자 설정** 구성 페이지에서 다음 단계를 수행합니다.
+5. **속성 지정** 탭에서 다음 단계를 수행합니다.
 
-    ![ID 공급자 설정](./media/arcgis-tutorial/identity-provider.png "ID 공급자 설정")
+    ![ID 공급자 설정](./media/arcgis-tutorial/set-saml-login.png "ID 공급자 설정")
 
     a. **이름** 텍스트 상자에 조직의 이름을 입력합니다.
 
-    b. **회사 ID 공급자에 대한 메타데이터를 다음을 사용하여 제공합니다** 에서 **파일** 을 선택합니다.
+    b. **Enterprise ID 공급자에 대한 메타데이터 원본** 에서 **파일** 을 선택합니다.
 
-    다. 다운로드한 메타데이터 파일을 업로드하려면 **파일 선택** 을 클릭합니다.
+    c. **파일 선택** 을 클릭하여 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 파일을 업로드합니다.
 
-    d. **ID 공급자 설정** 을 클릭합니다.
+    d. **저장** 을 클릭합니다.
 
 ### <a name="create-arcgis-online-test-user"></a>ArcGIS Online 테스트 사용자 만들기
 
@@ -156,22 +156,25 @@ ArcGIS Online의 경우 프로비전은 수동 작업입니다.
 
 1. **ArcGIS** 테넌트에 로그인합니다.
 
-2. **멤버 초대** 를 클릭합니다.
+2. **조직** -> **멤버** 로 이동하여 **멤버 초대** 를 클릭합니다.
 
     ![멤버 초대](./media/arcgis-tutorial/invite.png "멤버 초대")
 
-3. **전자 메일을 보내지 않고 멤버를 자동으로 추가** 를 선택하고 **다음** 을 클릭합니다.
+3. **초대를 보내지 않고 멤버 추가** 방법을 선택한 후, **다음** 을 클릭합니다.
 
-    ![멤버를 자동으로 추가](./media/arcgis-tutorial/members.png "멤버를 자동으로 추가")
+    ![멤버를 자동으로 추가](./media/arcgis-tutorial/add-members.png "멤버를 자동으로 추가")
 
-4. **멤버** 대화 상자 페이지에서 다음 단계를 수행합니다.
+1. **컴파일 멤버 목록** 에서 **새 멤버** 를 선택하고 **다음** 을 클릭합니다.
+
+4. 다음 페이지에서 필수 필드를 채우고 **다음** 을 클릭합니다.
 
     ![추가 및 검토](./media/arcgis-tutorial/review.png "추가 및 검토")
 
-     a. 프로비저닝하려는 유효한 Azure AD의 계정 **이메일**, **이름** 및 **성** 을 입력합니다.
+5. 다음 페이지에서 추가할 멤버를 선택하고 **다음** 을 클릭합니다. 
 
-     b. **추가 및 검토** 를 클릭합니다.
-5. 입력한 데이터를 검토한 다음 **멤버 추가** 를 클릭합니다.
+1. 다음 페이지에서 필요한 멤버 속성을 설정하고 **다음** 을 클릭합니다.
+
+1. **확인 및 완료** 탭에서 **멤버 추가** 를 클릭합니다.
 
     ![멤버 추가](./media/arcgis-tutorial/add.png "멤버 추가")
 

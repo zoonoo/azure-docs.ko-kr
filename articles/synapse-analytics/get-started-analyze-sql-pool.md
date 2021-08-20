@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: 0def1f957842417c3936e3f1c7bb5bc023109818
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 56115e977603e1f2148f84569373dcf4d351e0c4
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536338"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113038213"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>전용 SQL 풀을 사용하여 데이터 분석
 
@@ -94,7 +94,7 @@ ms.locfileid: "107536338"
     )
     ```
 1. 실행 단추를 클릭하여 스크립트를 실행합니다.
-1. 이 스크립트는 60초 이내에 완료됩니다. 2백만 행의 NYC Taxi 데이터를 **dbo.Trip** 이라는 테이블에 로드합니다.
+1. 이 스크립트는 60초 이내에 완료됩니다. 2백만 행의 NYC Taxi 데이터를 **dbo.NYCTaxiTripSmall** 이라는 테이블에 로드합니다.
 
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>전용 SQL 풀에서 NYC Taxi 데이터 검색
 

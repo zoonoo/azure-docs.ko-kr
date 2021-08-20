@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: f5f931ce1aa6c06f151241b6136470d494dbcd48
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 3c3dae7cb64dd6c2e13c77c061c770bd787e2f06
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106218756"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113438137"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-using-linux-containers"></a>자습서: Linux 컨테이너를 사용하여 Java IoT Edge 모듈 개발
 
@@ -50,7 +50,7 @@ ms.locfileid: "106218756"
 이 자습서를 시작하려면 이전 자습서를 진행하여 Linux 컨테이너 개발을 위한 개발 환경이 설정되어 있어야 합니다. [Linux 디바이스를 위한 IoT Edge 모듈을 개발합니다](tutorial-develop-for-linux.md). 이러한 자습서 중 하나를 완료하여 다음과 같은 필수 구성 요소를 갖추어야 합니다.
 
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
-* Linux 컨테이너가 있는 Azure IoT Edge를 실행하는 디바이스 빠른 시작을 사용하여 [Linux 디바이스](quickstart-linux.md) 또는 [Windows 디바이스](quickstart.md)를 설정할 수 있습니다.
+* Linux 컨테이너가 있는 Azure IoT Edge를 실행하는 디바이스. 빠른 시작을 사용하여 [Linux 디바이스](quickstart-linux.md) 또는 [Windows 디바이스](quickstart.md)를 설정할 수 있습니다.
 * [Azure Container Registry](../container-registry/index.yml)와 같은 컨테이너 레지스트리
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 구성된 [Visual Studio Code](https://code.visualstudio.com/)
 * Linux 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)
@@ -58,7 +58,7 @@ ms.locfileid: "106218756"
 Java에서 IoT Edge 모듈을 개발하려면 다음 추가 필수 구성 요소를 개발 머신에 설치합니다.
 
 * Visual Studio Code용 [Java 확장 팩](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
-* [Java SE Development Kit 11](/azure/developer/java/fundamentals/java-jdk-long-term-support)(JDK 설치를 가리키도록 [`JAVA_HOME` 환경 변수 설정](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)).
+* [Java SE Development Kit 11](/azure/developer/java/fundamentals/java-support-on-azure)(JDK 설치를 가리키도록 [`JAVA_HOME` 환경 변수 설정](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)).
 * [Maven](https://maven.apache.org/)
 
    >[!TIP]
@@ -106,6 +106,9 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
 1. VS Code 탐색기에서 .env 파일을 엽니다.
 2. 필드를 Azure 컨테이너 레지스트리에서 복사한 **사용자 이름** 및 **암호** 값으로 업데이트합니다.
 3. 이 파일을 저장합니다.
+
+>[!NOTE]
+>이 자습서에서는 개발 및 테스트 시나리오에 편리하게 사용할 수 있는 Azure Container Registry에 대해 관리자 로그인 자격 증명을 사용합니다. 프로덕션 시나리오에 사용할 준비가 되면 서비스 주체 같은 최소 권한 인증 옵션을 사용하는 것이 좋습니다. 자세한 내용은 [컨테이너 레지스트리에 대한 액세스 관리](production-checklist.md#manage-access-to-your-container-registry)를 참조하세요.
 
 ### <a name="select-your-target-architecture"></a>대상 아키텍처 선택
 

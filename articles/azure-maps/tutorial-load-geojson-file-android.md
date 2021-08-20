@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 8300a7c120ce816c8068a88fa69f4f978fa664ca
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 66214dc3a21389b779cfb5172747be0700e9d0e9
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034509"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113091243"
 ---
 # <a name="tutorial-load-geojson-data-into-azure-maps-android-sdk"></a>자습서: GeoJSON 데이터를 Azure Maps Android SDK로 로드
 
@@ -24,6 +24,7 @@ ms.locfileid: "102034509"
 > * Android 애플리케이션에 Azure Maps를 추가합니다.
 > * 로컬 파일 또는 웹에서 데이터 원본을 만들고 GeoJSON 파일에 로드합니다.
 > * 지도에 데이터를 표시합니다.
+> * 맵의 데이터와 상호 작용하여 세부 정보를 봅니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -32,7 +33,7 @@ ms.locfileid: "102034509"
 
 ### <a name="import-geojson-data-from-web-or-assets-folder"></a>웹 또는 자산 폴더에서 GeoJSON 데이터 가져오기
 
-대부분의 GeoJSON 파일은 `FeatureCollection` 내에 모든 데이터를 래핑합니다. 이로 인해 GeoJSON 파일이 애플리케이션에 문자열로 로드되면 맵에 추가할 수 있는 GeoJSON `FeatureCollection` 개체로 문자열을 역직렬화하는 기능 컬렉션의 정적 `fromJson` 메서드로 전달될 수 있습니다.
+대부분의 GeoJSON 파일은 `FeatureCollection` 내에 모든 데이터를 래핑합니다. 이 시나리오로 인해 GeoJSON 파일이 애플리케이션에 문자열로 로드되면 맵에 추가할 수 있는 GeoJSON `FeatureCollection` 개체로 문자열을 역직렬화하는 기능 컬렉션의 정적 `fromJson` 메서드로 전달될 수 있습니다.
 
 다음 단계에서는 GeoJSON 파일을 애플리케이션으로 가져와서 GeoJSON `FeatureCollection` 개체로 역직렬화하는 방법을 보여 줍니다.
 
@@ -42,346 +43,211 @@ ms.locfileid: "102034509"
 
 ::: zone pivot="programming-language-java-android"
 
-4. **Utils.java** 라는 새 파일을 만들고, 다음 코드를 해당 파일에 추가합니다. 이 코드는 애플리케이션의 `assets` 폴더 또는 웹(문자열로 된 URL 사용)에서 비동기적으로 파일을 가져오는 `importData`라는 정적 메서드를 제공하고, 간단한 콜백 메서드를 사용하여 UI 스레드로 다시 반환합니다.
+4. **MainActivity.java** 파일로 이동하여 `onCreate` 메서드 내부에 있는 `mapControl.onReady` 이벤트에 대한 콜백 내부에 다음 코드를 추가합니다. 이 코드는 `importDataFromUrl` 메서드를 사용하여 **SamplePoiDataSet.json** 파일을 자산 폴더에서 데이터 원본으로 로드한 다음, 맵에 추가합니다.
 
-    ```java
-    //Modify the package name as needed to align with your application.
-    package com.example.myapplication;
-    
-    import android.content.Context;
-    import android.os.Handler;
-    import android.os.Looper;
-    import android.webkit.URLUtil;
-    
-    import java.io.BufferedReader;
-    import java.io.IOException;
-    import java.io.InputStream;
-    import java.io.InputStreamReader;
-    import java.net.URL;
-    import java.util.concurrent.ExecutorService;
-    import java.util.concurrent.Executors;
-    
-    import javax.net.ssl.HttpsURLConnection;
-    
-    public class Utils {
-    
-        interface SimpleCallback {
-            void notify(String result);
-        }
-    
-        /**
-         * Imports data from a web url or asset file name and returns it to a callback.
-         * @param urlOrFileName A web url or asset file name that points to data to load.
-         * @param context The context of the app.
-         * @param callback The callback function to return the data to.
-         */
-        public static void importData(String urlOrFileName, Context context, SimpleCallback callback){
-            importData(urlOrFileName, context, callback, null);
-        }
-        
-        /**
-         * Imports data from a web url or asset file name and returns it to a callback.
-         * @param urlOrFileName A web url or asset file name that points to data to load.
-         * @param context The context of the app.
-         * @param callback The callback function to return the data to.
-         * @param error A callback function to return errors to.
-         */
-        public static void importData(String urlOrFileName, Context context, SimpleCallback callback, SimpleCallback error){
-            if(urlOrFileName != null && callback != null) {
-                ExecutorService executor = Executors.newSingleThreadExecutor();
-                Handler handler = new Handler(Looper.getMainLooper());
-    
-                executor.execute(() -> {
-                    String data = null;
-    
-                    try {
-    
-                        if(URLUtil.isNetworkUrl(urlOrFileName)){
-                            data = importFromWeb(urlOrFileName);
-                        } else {
-                            //Assume file is in assets folder.
-                            data = importFromAssets(context, urlOrFileName);
-                        }
-    
-                        final String result = data;
-    
-                        handler.post(() -> {
-                            //Ensure the resulting data string is not null or empty.
-                            if (result != null && !result.isEmpty()) {
-                                callback.notify(result);
-                            } else {
-                                error.notify("No data imported.");
-                            }
-                        });
-                    } catch(Exception e) {
-                        if(error != null){
-                            error.notify(e.getMessage());
-                        }
-                    }
-                });
-            }
-        }
-    
-        /**
-         * Imports data from an assets file as a string.
-         * @param context The context of the app.
-         * @param fileName The asset file name.
-         * @return
-         * @throws IOException
-         */
-        private static String importFromAssets(Context context, String fileName) throws IOException {
-            InputStream stream = null;
-    
-            try {
-                stream = context.getAssets().open(fileName);
-    
-                if(stream != null) {
-                    return readStreamAsString(stream);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                // Close Stream and disconnect HTTPS connection.
-                if (stream != null) {
-                    stream.close();
-                }
-            }
-    
-            return null;
-        }
-    
-        /**
-         * Imports data from the web as a string.
-         * @param url URL to the data.
-         * @return
-         * @throws IOException
-         */
-        private static String importFromWeb(String url) throws IOException {
-            InputStream stream = null;
-            HttpsURLConnection connection = null;
-            String result = null;
-    
-            try {
-                connection = (HttpsURLConnection) new URL(url).openConnection();
-    
-                //For this use case, set HTTP method to GET.
-                connection.setRequestMethod("GET");
-    
-                //Open communications link (network traffic occurs here).
-                connection.connect();
-    
-                int responseCode = connection.getResponseCode();
-                if (responseCode != HttpsURLConnection.HTTP_OK) {
-                    throw new IOException("HTTP error code: " + responseCode);
-                }
-    
-                //Retrieve the response body as an InputStream.
-                stream = connection.getInputStream();
-    
-                if (stream != null) {
-                    return readStreamAsString(stream);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                // Close Stream and disconnect HTTPS connection.
-                if (stream != null) {
-                    stream.close();
-                }
-                if (connection != null) {
-                    connection.disconnect();
-                }
-            }
-    
-            return result;
-        }
-    
-        /**
-         * Reads an input stream as a string.
-         * @param stream Stream to convert.
-         * @return
-         * @throws IOException
-         */
-        private static String readStreamAsString(InputStream stream) throws IOException {
-            //Convert the contents of an InputStream to a String.
-            BufferedReader in = new BufferedReader(new InputStreamReader(stream, "UTF-8"));
-    
-            String inputLine;
-            StringBuffer response = new StringBuffer();
-    
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
-            }
-    
-            in.close();
-    
-            return response.toString();
-        }
-    }
-    ```
+```java
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
 
-5. **MainActivity.java** 파일로 이동하고 `mapControl.onReady` 이벤트에 대한 콜백 내부에 다음 코드를 추가합니다. 이는 `onCreate` 메서드 내부에 있습니다. 이 코드는 import 유틸리티를 사용하여 **SamplePoiDataSet.json** 파일을 문자열로 읽은 다음, `FeatureCollection` 클래스의 정적 `fromJson` 메서드를 사용하여 기능 컬렉션으로 역직렬화합니다. 또한 이 코드는 기능 컬렉션에 있는 모든 데이터의 경계 상자 영역을 계산하고 이를 사용하여 지도의 카메라를 데이터에 집중하도록 설정합니다.
+//Import the geojson data and add it to the data source.
+source.importDataFromUrl("asset://SamplePoiDataSet.json");
 
-    ```java
-    //Create a data source and add it to the map.
-    DataSource source = new DataSource();
-    map.sources.add(source);
-    
-    //Import the GeoJSON data and add it to the data source.
-    Utils.importData("SamplePoiDataSet.json",
-        this,
-        (String result) -> {
-            //Parse the data as a GeoJSON Feature Collection.
-            FeatureCollection fc = FeatureCollection.fromJson(result);
-    
-            //Add the feature collection to the data source.
-            source.add(fc);
-    
-            //Optionally, update the maps camera to focus in on the data.
-    
-            //Calculate the bounding box of all the data in the Feature Collection.
-            BoundingBox bbox = MapMath.fromData(fc);
-    
-            //Update the maps camera so it is focused on the data.
-            map.setCamera(
-                bounds(bbox),
-
-                //Padding added to account for pixel size of rendered points.
-                padding(20)
-            );
-        });
-    ```
-
-6. 이제 코드를 사용해 GeoJSON 데이터를 데이터 원본으로 로드하여 해당 데이터를 맵에 표시하는 방법을 지정해야 합니다. 점 데이터의 렌더링 레이어는 여러 가지가 있습니다. 가장 일반적으로 사용되는 레이어는 [거품형 레이어](map-add-bubble-layer-android.md), [기호 레이어](how-to-add-symbol-to-android-map.md) 및 [열 지도 레이어](map-add-heat-map-layer-android.md)입니다. `mapControl.onReady` 이벤트에 대한 콜백에서 데이터를 가져오는 코드 뒤에 데이터를 거품형 레이어에 렌더링하는 다음 코드를 추가합니다.
-
-    ```java
-    //Create a layer and add it to the map.
-    BubbleLayer layer = new BubbleLayer(source);
-    map.layers.add(layer);
-    ```
+//Add data source to the map.
+map.sources.add(source);
+```
 
 ::: zone-end
 
 ::: zone pivot="programming-language-kotlin"
 
-4. **Utils.kt** 라는 새 파일을 만들고 다음 코드를 해당 파일에 추가합니다. 이 코드는 애플리케이션의 `assets` 폴더 또는 웹(문자열로 된 URL 사용)에서 비동기적으로 파일을 가져오는 `importData`라는 정적 메서드를 제공하고, 간단한 콜백 메서드를 사용하여 UI 스레드로 다시 반환합니다.
+4. **MainActivity.kt** 파일로 이동하여 `onCreate` 메서드 내부에 있는 `mapControl.onReady` 이벤트에 대한 콜백 내부에 다음 코드를 추가합니다. 이 코드는 `importDataFromUrl` 메서드를 사용하여 **SamplePoiDataSet.json** 파일을 자산 폴더에서 데이터 원본으로 로드한 다음, 맵에 추가합니다.
 
-    ```kotlin
-    //Modify the package name as needed to align with your application.
-    package com.example.myapplication;
+```kotlin
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
 
-    import android.content.Context
-    import android.os.Handler
-    import android.os.Looper
-    import android.webkit.URLUtil
-    import java.net.URL
-    import java.util.concurrent.ExecutorService
-    import java.util.concurrent.Executors
-    
-    class Utils {
-        companion object {
-    
-            /**
-             * Imports data from a web url or asset file name and returns it to a callback.
-             * @param urlOrFileName A web url or asset file name that points to data to load.
-             * @param context The context of the app.
-             * @param callback The callback function to return the data to.
-             */
-            fun importData(urlOrFileName: String?, context: Context, callback: (String?) -> Unit) {
-                importData(urlOrFileName, context, callback, null)
-            }
-    
-            /**
-             * Imports data from a web url or asset file name and returns it to a callback.
-             * @param urlOrFileName A web url or asset file name that points to data to load.
-             * @param context The context of the app.
-             * @param callback The callback function to return the data to.
-             * @param error A callback function to return errors to.
-             */
-            public fun importData(urlOrFileName: String?, context: Context, callback: (String?) -> Unit, error: ((String?) -> Unit)?) {
-                if (urlOrFileName != null && callback != null) {
-                    val executor: ExecutorService = Executors.newSingleThreadExecutor()
-                    val handler = Handler(Looper.getMainLooper())
-                    executor.execute {
-                        var data: String? = null
-                        
-                        try {
-                            data = if (URLUtil.isNetworkUrl(urlOrFileName)) {
-                                URL(urlOrFileName).readText()
-                            } else { //Assume file is in assets folder.
-                                context.assets.open(urlOrFileName).bufferedReader().use{
-                                    it.readText()
-                                }
-                            }
-    
-                            handler.post {
-                                //Ensure the resulting data string is not null or empty.
-                                if (data != null && !data.isEmpty()) {
-                                    callback(data)
-                                } else {
-                                    error!!("No data imported.")
-                                }
-                            }
-                        } catch (e: Exception) {
-                            error!!(e.message)
-                        }
-                    }
-                }
-            }
-        }
-    }
-    ```
+//Import the geojson data and add it to the data source.
+source.importDataFromUrl("asset://SamplePoiDataSet.json");
 
-5. **MainActivity.kt** 파일로 이동하고 `mapControl.onReady` 이벤트에 대한 콜백 내부에 다음 코드를 추가합니다. 이는 `onCreate` 메서드 내부에 있습니다. 이 코드는 import 유틸리티를 사용하여 **SamplePoiDataSet.json** 파일을 문자열로 읽은 다음, `FeatureCollection` 클래스의 정적 `fromJson` 메서드를 사용하여 기능 컬렉션으로 역직렬화합니다. 또한 이 코드는 기능 컬렉션에 있는 모든 데이터의 경계 상자 영역을 계산하고 이를 사용하여 지도의 카메라를 데이터에 집중하도록 설정합니다.
-
-    ```kotlin
-    //Create a data source and add it to the map.
-    DataSource source = new DataSource();
-    map.sources.add(source);
-    
-    //Import the GeoJSON data and add it to the data source.
-    Utils.importData("SamplePoiDataSet.json", this) { 
-        result: String? ->
-            //Parse the data as a GeoJSON Feature Collection.
-             val fc = FeatureCollection.fromJson(result!!)
-    
-            //Add the feature collection to the data source.
-            source.add(fc)
-    
-            //Optionally, update the maps camera to focus in on the data.
-    
-            //Calculate the bounding box of all the data in the Feature Collection.
-            val bbox = MapMath.fromData(fc);
-
-            //Update the maps camera so it is focused on the data.
-            map.setCamera(
-                bounds(bbox),
-
-                //Padding added to account for pixel size of rendered points.
-                padding(20)
-            )
-        }
-    ```
-
-6. 이제 코드를 사용해 GeoJSON 데이터를 데이터 원본으로 로드하여 해당 데이터를 맵에 표시하는 방법을 지정해야 합니다. 점 데이터의 렌더링 레이어는 여러 가지가 있습니다. 가장 일반적으로 사용되는 레이어는 [거품형 레이어](map-add-bubble-layer-android.md), [기호 레이어](how-to-add-symbol-to-android-map.md) 및 [열 지도 레이어](map-add-heat-map-layer-android.md)입니다. `mapControl.onReady` 이벤트에 대한 콜백에서 데이터를 가져오는 코드 뒤에 데이터를 거품형 레이어에 렌더링하는 다음 코드를 추가합니다.
-
-    ```kotlin
-    //Create a layer and add it to the map.
-    val layer = new BubbleLayer(source)
-    map.layers.add(layer)
-    ```
+//Add data source to the map.
+map.sources.add(source);
+```
 
 ::: zone-end
 
-7. 애플리케이션을 실행합니다. 미국을 중심으로 GeoJSON 파일의 각 위치에 원이 오버레이된 지도가 표시됩니다.
+5. 이제 코드를 사용해 GeoJSON 데이터를 데이터 원본으로 로드하여 해당 데이터를 맵에 표시하는 방법을 지정해야 합니다. 점 데이터의 렌더링 레이어는 여러 가지가 있습니다. 가장 일반적으로 사용되는 레이어는 [거품형 레이어](map-add-bubble-layer-android.md), [기호 레이어](how-to-add-symbol-to-android-map.md) 및 [열 지도 레이어](map-add-heat-map-layer-android.md)입니다. `mapControl.onReady` 이벤트에 대한 콜백에서 데이터를 가져오는 코드 뒤에 데이터를 거품형 레이어에 렌더링하는 다음 코드를 추가합니다.
 
-    ![GeoJSON 파일의 데이터가 표시된 미국 지도](media/tutorial-load-geojson-file-android/android-import-geojson.png)
+::: zone pivot="programming-language-java-android"
+
+```java
+//Create a layer and add it to the map.
+BubbleLayer layer = new BubbleLayer(source);
+map.layers.add(layer);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a layer and add it to the map.
+val layer = new BubbleLayer(source)
+map.layers.add(layer)
+```
+
+::: zone-end
+
+6. Android Studio의 프로젝트 패널에서 경로 `app > res > layout` 아래의 **레이아웃** 폴더를 마우스 오른쪽 단추로 클릭하고 `New > File`로 이동합니다. **popup_text.xml** 이라는 새 파일을 만듭니다.
+7. **popup_text.xml** 파일을 엽니다. 디자이너 보기에서 파일이 열리면 화면을 마우스 오른쪽 단추로 클릭하고 "XML로 이동"을 선택합니다. 다음 XML을 복사하여 이 파일에 붙여넣습니다. 이 XML은 팝업과 함께 사용할 수 있고 텍스트 뷰를 포함하는 간단한 레이아웃을 만듭니다.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:layout_margin="8dp"
+    android:padding="10dp"
+
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:text=""
+        android:textSize="18dp"
+        android:textColor="#222"
+        android:layout_height="wrap_content"
+        android:width="200dp"/>
+
+</RelativeLayout>
+```
+
+::: zone pivot="programming-language-java-android"
+
+8. **MainActivity.java** 파일로 돌아가기 거품형 레이어에 대한 코드 뒤에 다음 코드를 추가하여 재사용 가능한 팝업을 만듭니다.
+
+```java
+//Create a popup and add it to the map.
+Popup popup = new Popup();
+map.popups.add(popup);
+
+//Close it initially.
+popup.close();
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+8. **MainActivity.kt** 파일로 돌아가기 거품형 레이어에 대한 코드 뒤에 다음 코드를 추가하여 재사용 가능한 팝업을 만듭니다.
+
+```kotlin
+//Create a popup and add it to the map.
+val popup = Popup()
+map.popups.add(popup)
+    
+//Close it initially.
+popup.close()
+```
+
+::: zone-end
+
+9. 다음 코드를 추가하여 거품형 레이어에 클릭 이벤트를 연결합니다. 거품형 레이어의 거품을 탭하면 이벤트가 실행되어 선택한 기능의 속성에서 일부 세부 정보를 검색하고, **popup_text.xml** 레이아웃 파일을 사용하여 보기를 만들고, 콘텐츠로 팝업에 전달한 다음, 기능 위치에 팝업을 표시합니다.
+
+::: zone pivot="programming-language-java-android"
+
+```java
+//Add a click event to the layer.
+map.events.add((OnFeatureClick)(feature) -> {
+    //Get the first feature and it's properties.
+    Feature f = feature.get(0);
+    JsonObject props = f.properties();
+
+    //Retrieve the custom layout for the popup.
+    View customView = LayoutInflater.from(this).inflate(R.layout.popup_text, null);
+
+    //Display the name and entity type information of the feature into the text view of the popup layout.
+    TextView tv = customView.findViewById(R.id.message);
+    tv.setText("%s\n%s",
+        f.getStringProperty("Name"),
+        f.getStringProperty("EntityType")
+    );
+
+    //Get the position of the clicked feature.
+    Position pos = MapMath.getPosition((Point)f.geometry());
+
+    //Set the options on the popup.
+    popup.setOptions(
+            //Set the popups position.
+            position(pos),
+
+            //Set the anchor point of the popup content.
+            anchor(AnchorType.BOTTOM),
+
+            //Set the content of the popup.
+            content(customView)
+    );
+
+    //Open the popup.
+    popup.open();
+
+    //Return a boolean indicating if event should be consumed or continue to bubble up.
+    return false;
+}, layer);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Add a click event to the layer.
+map.events.add(OnFeatureClick { feature: List<Feature> ->
+    //Get the first feature and it's properties.
+    val f = feature[0]
+    val props = f.properties()
+
+    //Retrieve the custom layout for the popup.
+    val customView: View = LayoutInflater.from(this).inflate(R.layout.popup_text, null)
+
+    //Display the name and entity type information of the feature into the text view of the popup layout.
+    val tv = customView.findViewById<TextView>(R.id.message)
+    tv.text = String.format(
+        "%s\n%s",
+        f.getStringProperty("Name"),
+        f.getStringProperty("EntityType")
+    )
+
+    //Get the position of the clicked feature.
+    val pos = MapMath.getPosition(f.geometry() as Point?)
+
+    //Set the options on the popup.
+    popup.setOptions( //Set the popups position.
+        position(pos),  //Set the anchor point of the popup content.
+        anchor(AnchorType.BOTTOM),  //Set the content of the popup.
+        content(customView)
+    )
+
+    //Open the popup.
+    popup.open()
+
+    //Return a boolean indicating if event should be consumed or continue to bubble up.
+    false
+} as OnFeatureClick, layer)
+```
+
+::: zone-end
+
+10. 애플리케이션을 실행합니다. GeoJSON 파일의 각 위치에 거품이 오버레이된 지도가 표시됩니다. 거품을 탭하면 터치한 기능의 이름 및 엔터티 유형이 포함된 팝업이 표시됩니다.
+
+    ![위치를 탭할 때 열리는 팝업과 함께 표시되는 GeoJSON 파일의 데이터 맵](media/tutorial-load-geojson-file-android/android-import-geojson.gif)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 이 자습서의 리소스를 정리하려면 다음 단계를 수행합니다.
 
-1. Android Studio를 닫고 자신이 만든 애플리케이션을 삭제합니다.
+1. Android Studio를 닫고 사용자가 만든 애플리케이션을 삭제합니다.
 2. 외부 디바이스에서 애플리케이션을 테스트한 경우 해당 디바이스에서 애플리케이션을 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계

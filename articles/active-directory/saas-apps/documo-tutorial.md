@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/05/2021
 ms.author: jeedes
-ms.openlocfilehash: a7536cd637339cd7a73541ddee89e8d2e11df3e6
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: b73c760185e8b5d97ab03fbbee75fd399e0b0c16
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889143"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112466540"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-documo"></a>자습서: Documo와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -78,11 +78,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. 앱이 Azure와 이미 사전 통합되었으므로 사용자는 **기본 SAML 구성** 섹션에서 아무 단계도 수행할 필요가 없습니다.
+1. 앱이 Azure와 이미 사전 통합되었으므로 사용자는 **기본 SAML 구성** 섹션에서 아무 단계도 수행할 필요가 없습니다. Documo 계정에 사용자 지정 도메인이 있는 경우 SSO가 작동하려면 사용자 지정 API 도메인도 있어야 합니다. 기본값을 사용자 지정 API 도메인(예: `https://mycustomapidomain.com` 및 `https://mycustomapidomain.com/assert`)으로 바꿉니다.
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
-    **로그온 URL** 텍스트 상자에 `https://app.documo.com/sso` URL을 입력합니다.
+    **로그온 URL** 텍스트 상자에  URL을 입력합니다.  
+    `https://app.documo.com/sso`
 
 1. **저장** 을 클릭합니다.
 
@@ -102,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -142,7 +143,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     d. **ID 이메일을 포함하는 SAML 토큰의 필드 이름** 텍스트 상자에 값을 입력합니다.
 
-    e. Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 을 메모장에서 열고, **서명자 인증서 지문** 텍스트 상자에 콘텐츠를 붙여넣습니다.
+    e. Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 을 메모장으로 엽니다. `<X509Certificate>` 태그를 찾아서 콘텐츠를 **서명자 인증서** 텍스트 상자에 붙여넣습니다.
 
     f. **제출** 을 클릭합니다.
 

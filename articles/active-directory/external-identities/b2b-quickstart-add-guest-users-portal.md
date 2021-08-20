@@ -6,7 +6,7 @@ author: msmimart
 ms.author: mimart
 manager: celestedg
 ms.reviewer: mal
-ms.date: 08/05/2020
+ms.date: 06/18/2020
 ms.topic: quickstart
 ms.service: active-directory
 ms.subservice: B2B
@@ -15,12 +15,12 @@ ms.custom:
 - seo-update-azuread-jan
 - mode-portal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7326a35d07715eae75f70f2f33763f82946c589c
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 242f5a721959246b8d0159598cc86ab3b5194641
+ms.sourcegitcommit: 5a27d9ba530aee0e563a1b0159241078e8c7c1e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529854"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112422609"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 디렉터리에 게스트 사용자 추가
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 자습서의 시나리오를 완료하려면 다음이 필요합니다.
 
- - 전역 관리자 역할 또는 제한된 관리자 디렉터리 역할과 같이 테넌트 디렉터리에서 사용자를 만들 수 있는 역할.
+ - 전역 관리자 역할이나 게스트 초대자 또는 사용자 관리자와 같은 제한된 관리자 디렉터리 역할과 같이 테넌트 디렉터리에서 사용자를 만들 수 있는 역할.
  - 테넌트 디렉터리에 추가할 수 있고 테스트 초대 메일을 수신하는 데 사용할 수 있는 유효한 메일 계정.
 
 ## <a name="add-a-new-guest-user-in-azure-ad"></a>Azure AD에서 새 게스트 사용자 추가

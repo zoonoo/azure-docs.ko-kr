@@ -6,12 +6,12 @@ metadata:
   ms.topic: article
   ms.date: 03/15/2021
   ms.author: sajaya
-  ms.openlocfilehash: 4220d2e2bd1163703cbc071a4584299c6f3d2ecb
-  ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+  ms.openlocfilehash: ef541e23c2ad3142c4e5b50ccc5351a569727905
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/15/2021
-  ms.locfileid: "114342406"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114438897"
 title: 자주 묻는 질문 - Azure Container Registry
 summary: >
   이 문서에서는 Azure Container Registry에 대한 질문과 대답 및 알려진 문제에 대해 설명합니다.
@@ -380,6 +380,8 @@ sections:
       * 네트워크 연결 부족
 
       * 방화벽
+
+      * 프라이빗 액세스만 허용하는 레지스트리에 대해 공용 네트워크의 포털 사용
 
       * 광고 차단
 

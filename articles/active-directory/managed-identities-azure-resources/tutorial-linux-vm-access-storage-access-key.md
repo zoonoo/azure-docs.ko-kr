@@ -6,6 +6,7 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: daveba
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.workload: identity
 ms.date: 05/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 084a934c347a628e775ae9890e7ee705d2863a0d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: d554e5cc535975ad7c9f2ccb4c228e33e489645e
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080438"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113038034"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 액세스 키를 통해 Azure Storage에 액세스
 
@@ -64,7 +65,7 @@ ms.locfileid: "112080438"
 
 Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  그러나 VM의 시스템 할당 관리 ID를 사용하여 Resource Manager에서 스토리지 SAS를 검색한 다음, 해당 SAS를 사용하여 스토리지에 액세스할 수 있습니다.  이 단계에서 스토리지 계정 SAS에 대한 VM의 시스템 할당 관리 ID 액세스 권한을 부여합니다. 스토리지 계정이 포함된 리소스 그룹의 범위에서 관리 ID에 [스토리지 계정 기여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor) 역할을 할당하여 액세스 권한을 부여합니다.
  
-자세한 단계는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.”
+세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 >[!NOTE]
 > 스토리지에 대한 권한을 부여하는 데 사용할 수 있는 다양한 역할에 대한 자세한 내용은 [Azure Active Directory를 사용하여 Blob 및 큐에 대한 액세스 권한 부여](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)를 검토하세요.

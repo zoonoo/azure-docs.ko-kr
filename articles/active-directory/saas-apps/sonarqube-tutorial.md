@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/29/2020
+ms.date: 06/25/2021
 ms.author: jeedes
-ms.openlocfilehash: f756e738989775bf9c06b44a03f002c14f42e3ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85c59b42532b56d2f61cbd3a7f7e2f9e7aeb557a
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96182352"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112988160"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sonarqube"></a>자습서: Sonarqube와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -42,7 +42,7 @@ ms.locfileid: "96182352"
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
-## <a name="adding-sonarqube-from-the-gallery"></a>갤러리에서 Sonarqube 추가
+## <a name="add-sonarqube-from-the-gallery"></a>갤러리에서 Sonarqube 추가
 
 Sonarqube의 Azure AD 통합을 구성하려면 갤러리의 Sonarqube를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
@@ -72,13 +72,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **Sonarqube** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
+1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다.
+    a. **회신 URL** 텍스트 상자에서 `https://servicessonar.<YOUR_ORGANIZATION>.com` 패턴을 사용하여 URL을 입력합니다.
+
+    b. **로그온 URL** 텍스트 상자에서 다음 URL 중 하나를 입력합니다.
 
     * **프로덕션 환경의 경우**
 
@@ -87,6 +89,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     * **개발 환경의 경우**
 
         `https://servicescode-dev.westus.cloudapp.azure.com`
+
+    > [!NOTE]
+    > 이 값은 실제 값이 아닙니다. 이 자습서 뒷부분에서 설명하는 실제 회신 URL로 값을 업데이트합니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
@@ -104,7 +109,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -118,7 +123,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
-
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ## <a name="configure-sonarqube-sso"></a>Sonarqube SSO 구성
@@ -131,12 +135,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     1. IdP 엔터티 ID
     2. 로그인 URL
     3. X.509 인증서 
+
 1. 모든 세부 정보를 저장합니다.
-    ![saml 플러그 인 IDP](./media/sonarqube-tutorial/sso-idp-metadata.png)
+
+    ![saml 플러그 인 IDP](./media/sonarqube-tutorial/metadata.png)
 
 1. **SAML** 페이지에서 다음 단계를 수행합니다.
 
-    ![Sonarqube 구성](./media/sonarqube-tutorial/config01.png)
+    ![Sonarqube 구성](./media/sonarqube-tutorial/configuration.png)
 
     a. **사용** 옵션을 **예** 로 설정합니다.
 
@@ -166,11 +172,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-1. Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Sonarqube 로그온 URL로 리디렉션됩니다. 
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Sonarqube 로그온 URL로 리디렉션됩니다. 
 
-2. Sonarqube 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
+* Sonarqube 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Sonarqube 타일을 클릭하면 Sonarqube 로그온 URL로 리디렉션됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Sonarqube 타일을 클릭하면 Sonarqube 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

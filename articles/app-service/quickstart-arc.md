@@ -3,12 +3,12 @@ title: '빠른 시작: Azure Arc에서 웹 앱 만들기'
 description: Azure Arc의 App Service를 사용하여 첫 번째 웹 앱을 배포하세요.
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: b9292af90c50712ef99496ce6078c4c34b5e5d01
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 4002ef3d66eaae05881da0dd8d95cc82ffeb916d
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984881"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112377011"
 ---
 # <a name="create-an-app-service-app-on-azure-arc-preview"></a>Azure Arc의 App Service 앱 만들기(미리 보기)
 
@@ -49,7 +49,7 @@ az appservice plan create -g myResourceGroup -n myPlan \
 
 ```azurecli-interactive
  az webapp create \
-    --plan myPlan
+    --plan myPlan \
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \
@@ -75,7 +75,7 @@ az webapp deployment source config-zip --resource-group myResourceGroup --name <
 > [!NOTE]
 > Log Analytics를 사용하려면 [App Service 확장을 설치](manage-create-arc-environment.md#install-the-app-service-extension)할 때 Log Analytics를 사용하도록 설정했어야 합니다. Log Analytics 없이 확장을 설치했다면 이 단계를 건너뜁니다.
 
-[App Service 확장을 이용해 구성한 Log Analytics 작업 영역](manage-create-arc-environment.md#install-the-app-service-extension)으로 이동한 다음 왼쪽 탐색 메뉴에서 Logs를 클릭합니다. 다음 샘플 쿼리를 실행하여 지난 72시간 동안의 로그를 표시합니다. `<app-name>`을 웹 앱 이름으로 바꿉니다. 
+[App Service 확장을 이용해 구성한 Log Analytics 작업 영역](manage-create-arc-environment.md#install-the-app-service-extension)으로 이동한 다음 왼쪽 탐색 메뉴에서 Logs를 클릭합니다. 다음 샘플 쿼리를 실행하여 지난 72시간 동안의 로그를 표시합니다. `<app-name>`을 웹 앱 이름으로 바꿉니다. 쿼리를 실행할 때 오류가 발생하면 10~15분 후에 다시 시도합니다(Log Analytics가 애플리케이션에서 로그 수신을 시작하는 데 지연이 있을 수 있음). 
 
 ```kusto
 let StartTime = ago(72h);
@@ -98,7 +98,8 @@ Kubernetes 클러스터에서 호스트되는 모든 앱에 대한 애플리케�
 예를 들어 다음을 시도해 보세요.
 
 ```azurecli-interactive
-az webapp create 
+az webapp create \
+    --plan myPlan \
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \

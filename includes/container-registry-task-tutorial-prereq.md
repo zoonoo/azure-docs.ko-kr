@@ -4,14 +4,14 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
-ms.openlocfilehash: 79e2ca71d6b8178be63c3429edba89cf3bb523e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 929bcb52f724162454fc7c65939a4cec2ffd7ca6
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96029995"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112255194"
 ---
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="get-sample-code"></a>샘플 코드 가져오기
 
@@ -23,7 +23,7 @@ ms.locfileid: "96029995"
 
 ### <a name="create-a-github-personal-access-token"></a>GitHub 개인용 액세스 토큰 만들기
 
-Git 리포지토리에 커밋할 때 작업을 트리거하려면 ACR 작업에서 리포지토리에 액세스하기 위해 PAT가 필요합니다. PAT가 아직 없는 경우 다음 단계에 따라 GitHub에서 하나를 생성합니다.
+Git 리포지토리에 커밋할 때 작업을 트리거하려면 ACR 작업에서 리포지토리에 액세스하기 위해 [PAT(개인 액세스 토큰)](../articles/container-registry/container-registry-tasks-overview.md#personal-access-token)가 필요합니다. PAT가 아직 없는 경우 다음 단계에 따라 GitHub에서 하나를 생성합니다.
 
 1. [https://github.com/settings/tokens/new](https://github.com/settings/tokens/new)에 있는 GitHub의 PAT 만들기 페이지로 이동합니다.
 1. 토큰에 대한 짧은 **설명** 을 입력합니다(예: "ACR 작업 데모").

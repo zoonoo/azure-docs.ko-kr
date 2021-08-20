@@ -7,14 +7,17 @@ ms.topic: quickstart
 ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: be936bf8799d3e16679cf337e2425543163fe8f3
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 331a91f645c64f0b70ff6c4de922b455eb344ce2
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110063301"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433259"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>내부 Load Balancer App Service Environment 만들기 및 사용 
+> [!NOTE]
+> 이 문서에서는 격리된 App Service 요금제와 함께 사용되는 App Service Environment v2에 관해 설명합니다.
+> 
 
 Azure App Service Environment는 Azure App Service를 Azure VNet(가상 네트워크)의 서브넷에 배포한 것입니다. ASE(App Service Environment)에는 두 가지 배포 방법이 있습니다. 
 
@@ -40,7 +43,7 @@ ILB ASE를 사용하는 경우 수행할 수 있는 작업은 다음과 같습�
 
 ILB ASE를 사용하는 경우 수행할 수 없는 작업도 있습니다.
 
--   IP 기반 SSL 사용
+-   IP 기반 TLS/SSL 바인딩을 사용합니다.
 -   특정 앱에 IP 주소 할당
 -   Azure Portal을 통해 앱에서 인증서 구매 및 사용 직접 인증 기관에서 직접 인증서를 가져와서 앱에서 사용할 수 있습니다. Azure Portal을 통해 가져올 수 없습니다.
 
@@ -119,7 +122,7 @@ Azure DNS 프라이빗 영역에서 DNS를 구성하려면 다음을 수행합�
 
 ASE 기본 도메인 접미사에 대한 DNS 설정은 해당 이름으로만 액세스할 수 있도록 앱을 제한하지 않습니다. ILB ASE의 앱에 대한 유효성 검사 없이 사용자 지정 도메인 이름을 설정할 수 있습니다. 그런 다음, contoso.net이라는 영역을 만들려는 경우 이를 수행하고 ILB IP 주소를 가리킬 수 있습니다. 사용자 지정 도메인 이름은 앱 요청에 대해서는 작동하지만 scm 사이트의 경우에는 작동하지 않습니다. scm 사이트는 &lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net에서만 사용할 수 있습니다.
 
-.&lt;asename&gt;.appserviceenvironment.net이라는 영역은 전역적으로 고유합니다. 2019년 5월 이전에는 고객이 ILB ASE의 도메인 접미사를 지정할 수 있었습니다. 도메인 접미사에 대해 .contoso.com을 사용하려는 경우 이 작업을 수행할 수 있었으며 scm 사이트를 포함합니다. 이 모델에는 기본 SSL 인증서 관리, scm 사이트에 Single Sign-On 부족 및 와일드카드 인증서를 사용하기 위한 요구 사항을 비롯한 과제가 있었습니다. ILB ASE 기본 인증서 업그레이드 프로세스도 중단되어 애플리케이션을 다시 시작했습니다. 이러한 문제를 해결하기 위해 ILB ASE 동작은 ASE 이름 및 Microsoft 소유의 접미사에 따라 도메인 접미사를 사용하도록 변경되었습니다. ILB ASE 동작에 대한 변경 사항은 2019년 5월 이후 만들어진 ILB ASE에 적용됩니다. 기존 ILB ASE는 여전히 ASE의 기본 인증서와 해당 DNS 구성을 관리해야 합니다.
+.&lt;asename&gt;.appserviceenvironment.net이라는 영역은 전역적으로 고유합니다. 2019년 5월 이전에는 고객이 ILB ASE의 도메인 접미사를 지정할 수 있었습니다. 도메인 접미사에 대해 .contoso.com을 사용하려는 경우 이 작업을 수행할 수 있었으며 scm 사이트를 포함합니다. 이 모델에는 기본 TLS/SSL 인증서 관리, scm 사이트에 Single Sign-On 부족 및 와일드카드 인증서를 사용하기 위한 요구 사항을 비롯한 과제가 있었습니다. ILB ASE 기본 인증서 업그레이드 프로세스도 중단되어 애플리케이션을 다시 시작했습니다. 이러한 문제를 해결하기 위해 ILB ASE 동작은 ASE 이름 및 Microsoft 소유의 접미사에 따라 도메인 접미사를 사용하도록 변경되었습니다. ILB ASE 동작에 대한 변경 사항은 2019년 5월 이후 만들어진 ILB ASE에 적용됩니다. 기존 ILB ASE는 여전히 ASE의 기본 인증서와 해당 DNS 구성을 관리해야 합니다.
 
 ## <a name="publish-with-an-ilb-ase"></a>ILB ASE로 게시
 

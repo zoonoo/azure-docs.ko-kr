@@ -1,17 +1,17 @@
 ---
 title: '빠른 시작: 첫 번째 JavaScript 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 JavaScript용 Resource Graph 라이브러리를 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
-ms.date: 05/01/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
 ms.custom:
 - devx-track-js
 - mode-api
-ms.openlocfilehash: c958d4dc0662756e2f60a62b6a777a8dd031fe53
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 9dc5068232e6ad19715535ba8e41cff213e23311
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324962"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459966"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>빠른 시작: JavaScript를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -65,16 +65,13 @@ JavaScript에서 Azure Resource Graph를 쿼리하도록 설정하려면 환경�
    const authenticator = require("@azure/ms-rest-nodeauth");
    const resourceGraph = require("@azure/arm-resourcegraph");
 
-   if (argv.query && argv.subs) {
-       const subscriptionList = argv.subs.split(",");
-
+   if (argv.query) {
        const query = async () => {
           const credentials = await authenticator.interactiveLogin();
           const client = new resourceGraph.ResourceGraphClient(credentials);
           const result = await client.resources(
              {
-                 query: argv.query,
-                 subscriptions: subscriptionList,
+                 query: argv.query
              },
              { resultFormat: "table" }
           );
@@ -86,21 +83,22 @@ JavaScript에서 Azure Resource Graph를 쿼리하도록 설정하려면 환경�
    }
    ```
 
+   > [!NOTE]
+   > 이 코드는 테넌트 기반 쿼리를 만듭니다. 쿼리를 [관리 그룹](../management-groups/overview.md) 또는 구독으로 제한하려면 `client.resources` 호출에 [쿼리 요청](/javascript/api/@azure/arm-resourcegraph/queryrequest)을 정의 및 추가하고 `managementGroups` 또는 `subscriptions`를 지정합니다.
+
 1. 터미널에서 다음 명령을 입력합니다.
 
    ```bash
-   node index.js --query "Resources | project name, type | limit 5" --subs <YOUR_SUBSCRIPTION_ID_LIST>
+   node index.js --query "Resources | project name, type | limit 5"
    ```
-
-   `<YOUR_SUBSCRIPTION_ID_LIST>` 자리 표시자를 Azure 구독 ID의 쉼표로 구분된 목록으로 바꾸어야 합니다.
 
    > [!NOTE]
    > 이 쿼리 예제에서는 `order by`와 같은 정렬 한정자를 제공하지 않으므로 이 쿼리를 여러 번 실행하면 요청마다 다른 리소스 세트가 생성될 수 있습니다.
 
-1. 첫 번째 매개 변수를 `index.js`로 변경하고 **Name** 속성을 `order by`하도록 쿼리를 변경합니다. `<YOUR_SUBSCRIPTION_ID_LIST>`를 사용자의 구독 ID로 바꿉니다.
+1. 첫 번째 매개 변수를 `index.js`로 변경하고 **Name** 속성을 `order by`하도록 쿼리를 변경합니다.
 
    ```bash
-   node index.js --query "Resources | project name, type | limit 5 | order by name asc" --subs "<YOUR_SUBSCRIPTION_ID_LIST>"
+   node index.js --query "Resources | project name, type | limit 5 | order by name asc"
    ```
 
    스크립트가 인증을 시도할 때 다음 메시지와 유사한 메시지가 터미널에 표시됩니다.
@@ -112,10 +110,10 @@ JavaScript에서 Azure Resource Graph를 쿼리하도록 설정하려면 환경�
    > [!NOTE]
    > 첫 번째 쿼리와 마찬가지로 이 쿼리를 여러 번 실행하면 요청마다 다른 리소스 집합이 생성될 수 있습니다. 쿼리 명령의 순서는 중요합니다. 이 예제에서 `order by`는 `limit` 뒤에 옵니다. 이 명령 순서는 먼저 쿼리 결과를 제한한 다음, 정렬합니다.
 
-1. 첫 번째 매개 변수를 `index.js`로 변경하고 **Name** 속성에 먼저 `order by`를 수행한 다음, 상위 5개 결과로 `limit`하도록 쿼리를 변경합니다. `<YOUR_SUBSCRIPTION_ID_LIST>`를 사용자의 구독 ID로 바꿉니다.
+1. 첫 번째 매개 변수를 `index.js`로 변경하고 **Name** 속성에 먼저 `order by`를 수행한 다음, 상위 5개 결과로 `limit`하도록 쿼리를 변경합니다.
 
    ```bash
-   node index.js --query "Resources | project name, type | order by name asc | limit 5" --subs "<YOUR_SUBSCRIPTION_ID_LIST>"
+   node index.js --query "Resources | project name, type | order by name asc | limit 5"
    ```
 
 최종 쿼리가 여러 번 실행될 때 환경이 전혀 변경되지 않는다고 가정하면 반환되는 결과는 **Name** 속성을 기준으로 일관되고 정렬되지만 여전히 상위 5개 결과로 제한됩니다.

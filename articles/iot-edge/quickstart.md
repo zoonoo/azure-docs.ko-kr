@@ -1,23 +1,24 @@
 ---
 title: '빠른 시작: Windows에서 Azure IoT Edge 디바이스 만들기 | Microsoft Docs'
 description: 이 빠른 시작에서는 IoT Edge 디바이스를 만든 다음, Azure Portal에서 원격으로 미리 빌드된 코드를 배포하는 방법을 알아봅니다.
-author: rsameser
-manager: kgremban
-ms.author: riameser
-ms.date: 01/20/2021
+author: kgremban
+manager: lizross
+ms.author: kgremban
+ms.reviewer: fcabrera
+ms.date: 06/18/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 9f0562d4471ac1129bf9bc7ecfee058cddac7c61
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: dc0e8b0affcb89058e95bc7ce1c3cafb5882921f
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533130"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112552807"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device-preview"></a>빠른 시작: Windows 디바이스에 첫 번째 IoT Edge 모듈 배포(미리 보기)
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device"></a>빠른 시작: Windows 디바이스에 첫 번째 IoT Edge 모듈 배포
 
 [!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
@@ -35,9 +36,6 @@ ms.locfileid: "107533130"
 이 빠른 시작에서는 Windows 디바이스에서 Linux용 Azure IoT Edge를 설정하는 방법에 대해 설명합니다. 그런 다음, Azure Portal에서 디바이스로 모듈을 배포합니다. 여기서 사용하는 모듈은 온도, 습도 및 압력 데이터를 생성하는 시뮬레이션된 센서입니다. 다른 Azure IoT Edge 자습서는 비즈니스 인사이트를 획득하기 위해 시뮬레이션된 데이터를 분석하는 모듈을 배포하는 과정을 설명하므로 여기서 수행하는 작업을 토대로 진행됩니다.
 
 활성 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만드세요.
-
->[!NOTE]
->Windows의 Linux용 IoT Edge는 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -63,7 +61,7 @@ IoT Edge 디바이스가 다음 요구 사항을 충족하는지 확인합니다
   * 사용 가능한 최소 디스크 공간: 10GB
 
 >[!NOTE]
->이 빠른 시작에서는 Windows Admin Center를 사용하여 Windows의 Linux용 IoT Edge 배포판을 만듭니다. PowerShell을 사용할 수도 있습니다. PowerShell을 사용하여 배포판을 만들려면 [Windows 디바이스에 Linux용 Azure IoT Edge 설치 및 프로비저닝](how-to-install-iot-edge-on-windows.md) 방법 가이드의 단계를 따르세요.
+>이 빠른 시작에서는 PowerShell을 사용하여 Windows에서 Linux용 IoT Edge 배포판을 만듭니다. Windows Admin Center를 사용할 수도 있습니다. Windows Admin Center를 사용하여 배포판을 만들려면 [Windows 디바이스에 Linux용 Azure IoT Edge 설치 및 프로비저닝](how-to-install-iot-edge-on-windows.md?tabs=windowsadmincenter)하는 방법 가이드의 단계를 따르세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -115,65 +113,51 @@ IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며
 
 ![IoT Edge 런타임을 시작하는 단계를 보여주는 다이어그램](./media/quickstart/start-runtime.png)
 
-1. [Windows Admin Center를 다운로드합니다](https://aka.ms/wacdownload).
+Windows에서 Linux용 Azure IoT Edge를 배포하려는 대상 디바이스에서 다음 PowerShell 명령을 실행합니다. PowerShell을 사용하여 원격 대상 디바이스에 배포하려면 [Remote PowerShell](/powershell/module/microsoft.powershell.core/about/about_remote)을 사용하여 원격 디바이스에 대한 연결을 설정하고 해당 디바이스에서 이러한 명령을 원격으로 실행합니다.
 
-1. 설치 마법사의 지시에 따라 디바이스에 Windows Admin Center를 설치합니다.
+1. 관리자 권한 PowerShell 세션에서 다음 명령을 각각 실행하여 IoT Edge for Linux on Windows를 다운로드합니다.
 
-1. Windows Admin Center를 엽니다.
+   ```powershell
+   $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+   $ProgressPreference = 'SilentlyContinue'
+   Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
+   ```
 
-1. 오른쪽 상단 모서리에서 **설정 기어** 아이콘을 선택한 다음, **확장** 을 선택합니다.
+1. IoT Edge for Linux on Windows를 디바이스에 설치합니다.
 
-1. **피드** 탭에서 **추가** 를 선택합니다.
+   ```powershell
+   Start-Process -Wait msiexec -ArgumentList "/i","$([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))","/qn"
+   ```
 
-1. 텍스트 상자에 `https://aka.ms/wac-insiders-feed`를 입력하고 **추가** 를 선택합니다.
+1. 대상 디바이스의 실행 정책이 아직 설정되지 않은 경우 `AllSigned`로 설정합니다. 다음을 사용하여 관리자 권한 PowerShell 프롬프트에서 현재 실행 정책을 확인할 수 있습니다.
 
-1. 피드가 추가된 후에는 **사용 가능한 확장** 탭으로 이동하여 확장 목록이 업데이트될 때까지 기다립니다.
+   ```powershell
+   Get-ExecutionPolicy -List
+   ```
 
-1. **사용 가능한 확장** 목록에서 **Azure IoT Edge** 를 선택합니다.
+   `local machine`의 실행 정책이 `AllSigned`가 아닌 경우 다음을 사용하여 실행 정책을 설정할 수 있습니다.
 
-1. 확장을 설치합니다.
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
+   ```
 
-1. 확장이 설치되면 왼쪽 위 모서리에서 **Windows Admin Center** 를 선택하여 기본 대시보드 페이지로 이동합니다.
+1. IoT Edge for Linux on Windows 배포를 만듭니다.
 
-     **localhost** 연결은 Windows Admin Center를 실행하는 PC를 나타냅니다.
+   ```powershell
+   Deploy-Eflow
+   ```
 
-     :::image type="content" source="media/quickstart/windows-admin-center-start-page.png" alt-text="Windows Admin Start 페이지의 스크린샷":::
+1. 'Y'를 입력하여 사용 조건에 동의합니다.
 
-1. **추가** 를 선택합니다.
+1. 기본 설정에 따라 'O' 또는 'R'을 입력하여 **선택적 진단 데이터** 를 설정하거나 해제합니다. 성공적인 배포는 다음과 같습니다.
 
-     :::image type="content" source="media/quickstart/windows-admin-center-start-page-add.png" alt-text="Windows Admin Center에서 [추가] 단추를 선택하는 모습을 보여주는 스크린샷":::
+   ![성공적으로 배포되면 메시지 끝에 '배포 성공'이라고 표시됨](./media/how-to-install-iot-edge-on-windows/successful-powershell-deployment-2.png)
 
-1. Azure IoT Edge 타일에서 **새로 만들기** 를 선택하여 설치 마법사를 시작합니다.
+1. 이전 섹션에서 검색한 디바이스 연결 문자열을 사용하여 디바이스를 프로비전합니다. 자리 표시자 텍스트를 고유한 값으로 바꿉니다.
 
-     :::image type="content" source="media/quickstart/select-tile-screen.png" alt-text="Azure IoT Edge 타일에서 새 배포 만들기를 보여주는 스크린샷":::
-
-1. 설치 마법사를 계속 진행하여 Microsoft 소프트웨어 사용 조건에 동의하고, **다음** 을 선택합니다.
-
-     :::image type="content" source="media/quickstart/wizard-welcome-screen.png" alt-text="[다음]을 선택하여 설치 마법사를 계속 진행하는 스크린샷":::
-
-1. **선택적 진단 데이터** 를 선택하고 **다음: 배포** 로 이동합니다. 이렇게 선택하면 Microsoft에서 서비스 품질을 모니터링하고 유지하는 데 도움이 되는 확장된 진단 데이터가 제공됩니다.
-
-     :::image type="content" source="media/quickstart/diagnostic-data-screen.png" alt-text="진단 데이터 옵션을 보여주는 스크린샷":::
-
-1. **대상 디바이스 선택** 화면에서 원하는 대상 디바이스를 선택하여 최소 요구 사항을 충족하는지 확인합니다. 이 빠른 시작에서는 로컬 디바이스에 IoT Edge를 설치하므로 **localhost** 연결을 선택합니다. 대상 디바이스가 요구 사항을 충족하면 **다음** 을 선택하여 계속합니다.
-
-     :::image type="content" source="media/quickstart/wizard-select-target-device-screen.png" alt-text="대상 디바이스 목록을 보여주는 스크린샷":::
-
-1. **다음** 을 선택하여 기본 설정을 수락합니다. 배포 화면에는 패키지 다운로드, 패키지 설치, 호스트 구성 및 Linux VM(가상 머신) 최종 설정 프로세스가 표시됩니다. 배포가 성공하면 다음과 같은 화면이 표시됩니다.
-
-     :::image type="content" source="media/quickstart/wizard-deploy-success-screen.png" alt-text="성공한 배포의 스크린샷":::
-
-1. 완료되면 **다음: 연결** 을 클릭하여 IoT 허브 인스턴스의 디바이스 ID로 Azure IoT Edge 디바이스를 프로비저닝하는 마지막 단계를 계속합니다.
-
-1. [이 빠른 시작의 앞부분](#register-an-iot-edge-device)에서 복사한 연결 문자열을 **디바이스 연결 문자열** 필드에 붙여넣습니다. 그런 다음, **선택한 방법으로 프로비저닝** 을 선택합니다.
-
-     :::image type="content" source="media/quickstart/wizard-provision.png" alt-text="[디바이스 연결 문자열] 필드의 연결 문자열을 보여주는 스크린샷":::
-
-1. 프로비저닝이 완료되면 **마침** 을 선택하여 완료하고 Windows Admin Center 시작 화면으로 돌아갑니다. 이제 디바이스가 IoT Edge 디바이스로 나열될 것입니다.
-
-     :::image type="content" source="media/quickstart/windows-admin-center-device-screen.png" alt-text="Windows Admin Center의 모든 연결을 보여주는 스크린샷":::
-
-1. 대시보드를 보려면 Azure IoT Edge 디바이스를 선택합니다. Azure IoT Hub에서 디바이스 쌍의 워크로드가 배포되었는지 확인해야 합니다. **IoT Edge 모듈 목록** 에는 실행 중인 한 개의 모듈(**edgeAgent**)이 표시되고, **IoT Edge 상태** 는 **활성(실행 중)** 이어야 합니다.
+   ```powershell
+   Provision-EflowVm -provisioningType ManualConnectionString -devConnString "<CONNECTION_STRING_HERE>"
+   ```
 
 IoT Edge 디바이스가 구성되었습니다. 클라우드 배포 모듈을 실행할 준비가 완료된 것입니다.
 
@@ -241,36 +225,33 @@ Azure Marketplace에서 첫 번째 모듈을 배포하려면 다음 단계를 �
 
 여기서 푸시한 모듈은 나중에 테스트에 사용할 수 있는 샘플 환경 데이터를 생성합니다. 시뮬레이션된 센서는 머신과 머신 주변의 환경을 모니터링합니다. 예를 들어 이 센서가 서버실, 공장 또는 풍력 터빈에 장착될 수 있습니다. 센서에서 보내는 메시지에는 주변 온도 및 습도, 머신 온도 및 압력, 타임스탬프가 포함됩니다. IoT Edge 자습서는 이 모듈에서 만든 데이터를 분석용 테스트 데이터로 사용합니다.
 
-Windows Admin Center의 명령 셸에서, 클라우드에서 배포한 모듈이 IoT Edge 디바이스에서 실행되고 있는지 확인합니다.
+1. PowerShell 세션에서 다음 명령을 사용하여 IoT Edge for Linux on Windows 가상 머신에 로그인합니다.
 
-1. 새로 만든 IoT Edge 디바이스에 연결합니다.
+   ```powershell
+   Connect-EflowVm
+   ```
 
-     :::image type="content" source="media/quickstart/connect-edge-screen.png" alt-text="Windows Admin Center에서 [연결]을 선택하는 모습을 보여주는 스크린샷":::
+   >[!NOTE]
+   >SSH를 가상 머신에 허용하는 유일한 계정은 가상 머신을 만든 사용자입니다.
 
-     **개요** 페이지에 **IoT Edge 모듈 목록** 및 **IoT Edge 상태** 가 표시됩니다. 배포된 모듈과 디바이스 상태를 볼 수 있습니다.  
+1. 로그인하면 다음 Linux 명령을 사용하여 실행되는 IoT Edge 모듈의 목록을 확인할 수 있습니다.
 
-1. **도구** 에서 **명령 셸** 을 선택합니다. 명령 셸은 자동으로 SSH(보안 셸)를 사용하여 Windows PC에서 Azure IoT Edge 디바이스의 Linux VM에 연결하는 PowerShell 터미널입니다.
+   ```bash
+   sudo iotedge list
+   ```
 
-     :::image type="content" source="media/quickstart/command-shell-screen.png" alt-text="명령 셸을 여는 것을 보여주는 스크린샷":::
+   ![온도 센서, 에이전트 및 허브가 실행 중인지 확인합니다.](./media/quickstart/iotedge-list-screen.png)
 
-1. 디바이스에 있는 세 개의 모듈을 확인하려면 다음 Bash 명령을 실행합니다.
+1. 다음 Linux 명령을 사용하여 온도 센서 모듈에서 클라우드로 전송되는 메시지를 봅니다.
 
-     ```bash
-     sudo iotedge list
-     ```
+   ```bash
+   sudo iotedge logs SimulatedTemperatureSensor -f
+   ```
 
-    :::image type="content" source="media/quickstart/iotedge-list-screen.png" alt-text="명령 셸 IoT Edge 목록 출력을 보여주는 스크린샷":::
+   >[!IMPORTANT]
+   >IoT Edge 명령은 모듈 이름을 참조할 때 대/소문자를 구분합니다.
 
-1. 온도 센서 모듈에서 클라우드로 전송되는 메시지를 봅니다.
-
-     ```bash
-     iotedge logs SimulatedTemperatureSensor -f
-     ```
-
-    >[!Important]
-    >IoT Edge 명령은 모듈 이름을 참조할 때 대/소문자를 구분합니다.
-
-    :::image type="content" source="media/quickstart/temperature-sensor-screen.png" alt-text="모듈에서 클라우드로 전송된 메시지 목록을 보여주는 스크린샷":::
+   ![시뮬레이션된 온도 센서 모듈의 출력 로그를 봅니다.](./media/quickstart/temperature-sensor-screen.png)
 
 [Visual Studio Code용 Azure IoT Hub 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 메시지가 IoT 허브에 도착하는 것을 확인할 수도 있습니다.
 
@@ -304,7 +285,7 @@ Windows Admin Center의 대시보드 확장을 사용하여 Windows의 Linux용 
 1. **제거** 를 선택합니다. Azure IoT Edge가 제거되면 Windows Admin Center는 **시작** 페이지에서 Azure IoT Edge 디바이스 연결 항목을 제거합니다.
 
 >[!Note]
->Windows 시스템에서 Azure IoT Edge를 제거하는 또 다른 방법은 IoT Edge 디바이스에서 **시작** > **설정** > **앱** > **Azure IoT Edge** > **제거** 를 선택하는 것입니다. 이 방법은 IoT Edge 디바이스에서 Azure IoT Edge를 제거하지만, Windows Admin Center에서는 연결이 유지됩니다. 제거를 완료하려면 **설정** 메뉴에서도 Windows Admin Center를 제거합니다.
+>Windows 시스템에서 Azure IoT Edge를 제거하는 또 다른 방법은 IoT Edge 디바이스에서 **시작** > **설정** > **앱** > **Azure IoT Edge LTS** > **제거** 를 선택하는 것입니다. 이 방법은 IoT Edge 디바이스에서 Azure IoT Edge를 제거하지만, Windows Admin Center에서는 연결이 유지됩니다. 제거를 완료하려면 **설정** 메뉴에서도 Windows Admin Center를 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 3dbb6ca64451cb60d5a8ec67ecdc528865a4438c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff3486ae1ff34485dbae47d33d089367515664f8
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719086"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964305"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>자습서: 스마트 재고 관리 애플리케이션 템플릿 배포 및 살펴보기
 
@@ -57,7 +57,7 @@ ms.locfileid: "101719086"
 대시보드는 서로 다른 두 게이트웨이 디바이스 관리 작업 사이에서 논리적으로 분할됩니다. 
    * 도매점에서는 더 큰 시설에서 재고를 추적하기 위해 화물 운반대에 고정된 BLE 게이트웨이 및 BLE 태그를 배치합니다.
    * 소매점에서는 추적할 항목 수준에서 개별적으로 고정 RFID 게이트웨이 및 RFID 태그를 배치하여 소매 아울렛의 재고를 추적합니다.
-   * 게이트웨이 위치, 상태 및 관련 세부 정보 보기 
+   * 게이트웨이 [위치](../core/howto-use-location-data.md), 상태 및 관련 세부 정보 보기 
 
 > [!div class="mx-imgBorder"]
 > ![스마트 재고 관리 대시보드의 상단 절반을 보여주는 스크린샷](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard1.png)

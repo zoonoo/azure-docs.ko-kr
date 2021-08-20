@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/22/2021
-ms.openlocfilehash: 89988579c847250938db71844b1bbafa4965e7df
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: fa1ac05766a95754631c5a6c78f80b9abdc4e3a7
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004568"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112573673"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache HBase 사용
 
@@ -209,7 +209,7 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
 HBase 데이터에 액세스하는 Hive 쿼리는 HBase 클러스터에서 실행할 필요가 없습니다. 다음 단계가 완료되면 Hive와 함께 제공되는 클러스터(Spark, Hadoop, HBase 또는 Interactive Query 포함)를 사용하여 HBase 데이터를 쿼리할 수 있습니다.
 
 1. 두 클러스터는 모두 동일한 가상 네트워크 및 서브넷에 연결되어야 합니다.
-2. `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml`을 HBase 클러스터 헤드 노드에서 Hive 클러스터 헤드 노드로 복사합니다.
+2. `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml`을 HBase 클러스터 헤드 노드에서 Hive 클러스터 헤드 노드 및 작업자 노드로 복사합니다.
 
 ### <a name="secure-clusters"></a>보안 클러스터
 
@@ -217,7 +217,7 @@ HBase 데이터는 ESP 사용 HBase를 사용하여 Hive에서 쿼리할 수도 
 
 1. 다중 클러스터 패턴을 따르는 경우 두 클러스터에서 모두 ESP를 사용하도록 설정해야 합니다. 
 2. Hive에서 HBase 데이터를 쿼리할 수 있도록 하려면 `hive` 사용자에게 Hbase Apache Ranger 플러그 인을 통해 HBase 데이터에 액세스할 수 있는 권한이 부여되었는지 확인합니다.
-3. 별도의 ESP 사용 클러스터를 사용하는 경우 HBase 클러스터 헤드 노드에 있는 `/etc/hosts`의 콘텐츠를 Hive 클러스터 헤드 노드의 `/etc/hosts`에 추가해야 합니다. 
+3. 별도의 ESP 사용 클러스터를 사용하는 경우 HBase 클러스터 헤드 노드에 있는 `/etc/hosts`의 콘텐츠를 Hive 클러스터 헤드 노드 및 작업자 노드의 `/etc/hosts`에 추가해야 합니다. 
 > [!NOTE]
 > 클러스터 중 하나의 크기가 조정되면 `/etc/hosts`를 다시 추가해야 합니다.
 

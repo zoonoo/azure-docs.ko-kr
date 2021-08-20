@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/11/2021
+ms.date: 06/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 9200c669df4e9ca756a037f7dd05823e9caf21df
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 56918491f2fad1357f565ed5c07942d0c65c4114
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112062709"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112552445"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>자습서: Procore SSO와 Azure Active Directory 통합
 
@@ -32,6 +32,9 @@ Procore SSO와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 
 * Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Procore SSO Single Sign-On이 설정된 구독
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -91,7 +94,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -115,7 +118,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![스크린샷은 디렉터리가 선택된 Procore 회사 사이트를 보여줍니다.](./media/procoresso-tutorial/admin.png)
 
-3. 아래 설명에 따라 값을 상자에 붙여 넣습니다.
+3. 아래 설명에 따라 값을 상자에 붙여넣습니다.
 
     ![스크린샷은 사용자 추가 대화 상자를 보여줍니다.](./media/procoresso-tutorial/setting.png)   
 

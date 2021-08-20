@@ -6,19 +6,20 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: dadc8bd00e87b149b32515551886b2a8129b78d4
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 18ac7ba882f82e1c5de29367e3cd27f0f5a260c0
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560829"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114339629"
 ---
 이 빠른 시작에서는 Android용 Azure Communication Services Calling SDK를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
 
-> [!NOTE]
-> [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Voice%20Calling)에서 이 빠른 시작에 대한 최종 코드 칮기
+## <a name="sample-code"></a>샘플 코드
 
-## <a name="prerequisites"></a>필수 구성 요소
+샘플 앱은 [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Voice%20Calling)에서 다운로드할 수 있습니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android 스튜디오](https://developer.android.com/studio)(Android 애플리케이션 만들기용)
@@ -175,9 +176,10 @@ package com.contoso.acsquickstart;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
+import android.media.AudioManager;
 import android.Manifest;
 import android.content.pm.PackageManager;
+
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -207,6 +209,8 @@ public class MainActivity extends AppCompatActivity {
         // Bind call button to call `startCall`
         Button callButton = findViewById(R.id.call_button);
         callButton.setOnClickListener(l -> startCall());
+        
+        setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
     }
 
     /**
@@ -271,7 +275,9 @@ Azure Communication Services Calling SDK의 주요 기능 중 일부를 처리�
 
 ## <a name="create-an-agent-from-the-user-access-token"></a>사용자 액세스 토큰에서 에이전트 만들기
 
-사용자 토큰을 사용하면 인증된 통화 에이전트를 인스턴스화할 수 있습니다. 일반적으로 이 토큰은 애플리케이션과 관련된 인증을 사용하는 서비스에서 생성됩니다. 사용자 액세스 토큰에 대한 자세한 내용은 [사용자 액세스 토큰](../../../access-tokens.md) 가이드를 확인하세요. 빠른 시작에서는 `<User_Access_Token>`을 Azure Communication Services 리소스에 대해 생성된 사용자 액세스 토큰으로 바꿉니다.
+사용자 토큰을 사용하면 인증된 통화 에이전트를 인스턴스화할 수 있습니다. 일반적으로 이 토큰은 애플리케이션과 관련된 인증을 사용하는 서비스에서 생성됩니다. 사용자 액세스 토큰에 대한 자세한 내용은 [사용자 액세스 토큰](../../../access-tokens.md) 가이드를 확인하세요. 
+
+빠른 시작에서는 `<User_Access_Token>`을 Azure Communication Services 리소스에 대해 생성된 사용자 액세스 토큰으로 바꿉니다.
 
 ```java
 
@@ -318,7 +324,3 @@ private void startCall() {
 이제 도구 모음의 "앱 실행" 단추(Shift+F10)를 사용하여 앱을 시작할 수 있습니다. `8:echo123`을 호출하여 전화를 걸 수 있는지 확인합니다. 미리 기록된 메시지가 재생된 다음, 해당 메시지를 사용자에게 다시 반복합니다.
 
 :::image type="content" source="../../media/android/quickstart-android-call-echobot.png" alt-text="완료된 애플리케이션을 보여 주는 스크린샷":::
-
-## <a name="sample-code"></a>샘플 코드
-
-샘플 앱은 [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Voice%20Calling)에서 다운로드할 수 있습니다.

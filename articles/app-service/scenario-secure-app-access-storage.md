@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/30/2020
+ms.date: 06/16/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a37b189ae98332b2d6c557b6bdfad98266002e9e
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
+ms.openlocfilehash: b6d04053d4b63552c2329a675c2557e6f1cd8fee
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833907"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114290028"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>자습서: 웹앱에서 Azure Storage 액세스
 
@@ -172,11 +172,9 @@ Blob을 만들거나 읽거나 삭제하려면 먼저 스토리지 계정에 대
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-[Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동하여 웹앱에 액세스 권한을 부여합니다. 왼쪽 창에서 **액세스 제어(IAM)** 를 선택한 다음, **역할 할당** 을 선택합니다. 스토리지 계정에 액세스할 수 있는 사용자 목록이 표시됩니다. 이제 스토리지 계정에 액세스해야 하는 앱 서비스인 로봇에 역할 할당을 추가해야 합니다. **추가** > **역할 할당 추가** 를 선택합니다.
+[Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동하여 웹앱에 액세스 권한을 부여합니다. 왼쪽 창에서 **액세스 제어(IAM)** 를 선택한 다음, **역할 할당** 을 선택합니다. 스토리지 계정에 액세스할 수 있는 사용자 목록이 표시됩니다. 이제 스토리지 계정에 액세스해야 하는 앱 서비스인 로봇에 역할 할당을 추가해야 합니다. **추가** > **역할 할당 추가** 를 선택하여 **역할 할당 추가** 페이지를 엽니다.
 
-**역할** 에서 **스토리지 Blob 데이터 기여자** 를 선택하여 웹앱에 스토리지 Blob을 읽을 수 있는 액세스 권한을 부여합니다. **다음에 대한 액세스 할당** 에서 **App Service** 를 선택합니다. **구독** 에서 해당 구독을 선택합니다. 그런 다음, 액세스 권한을 제공하려는 앱 서비스를 선택합니다. **저장** 을 선택합니다.
-
-:::image type="content" alt-text="역할 할당 추가 화면을 보여주는 스크린샷." source="./media/scenario-secure-app-access-storage/add-role-assignment.png":::
+구독 범위에서 **App Service** 에 **Storage Blob 데이터 기여자** 역할을 할당합니다.  세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 이제 웹앱이 스토리지 계정에 액세스할 수 있습니다.
 

@@ -1,19 +1,19 @@
 ---
-title: Apache Kafka for Confluent Cloud 만들기 - Azure 파트너 솔루션
+title: Azure Portal을 통해 Apache Kafka for Confluent Cloud 만들기 - Azure 파트너 솔루션
 description: 이 문서에서는 Azure Portal을 사용하여 Apache Kafka for Confluent Cloud 인스턴스를 만드는 방법을 설명합니다.
 ms.service: partner-services
 ms.topic: quickstart
-ms.date: 01/15/2021
+ms.date: 06/07/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: f4c6dacf63b1be44e826fe6841c87ccec4bf9b1a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d2326d330dca9111a68edcc81c8c45f7525c1b0
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98253693"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112521041"
 ---
-# <a name="quickstart-get-started-with-apache-kafka-for-confluent-cloud"></a>빠른 시작: Apache Kafka for Confluent Cloud 시작
+# <a name="quickstart-get-started-with-apache-kafka-for-confluent-cloud---azure-portal"></a>빠른 시작: Apache Kafka for Confluent Cloud 시작 - Azure Portal
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Apache Kafka for Confluent Cloud 인스턴스를 만듭니다.
 

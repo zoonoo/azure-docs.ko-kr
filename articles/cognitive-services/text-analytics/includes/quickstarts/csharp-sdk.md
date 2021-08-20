@@ -6,21 +6,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 06/11/2021
+ms.date: 07/15/2021
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 31a7eccb1f4b0c26640af1321b9779014f663fb4
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 8ccfcf4dbf2b93d4cf4bddc27575269cc1f36fc4
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112083596"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114593505"
 ---
 <a name="HOLTop"></a>
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
-[v3.1 참조 설명서](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet-preview) | [v3.1 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [v3.1 패키지(NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0-beta.7) | [v3.1 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
+[v3.1 참조 설명서](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet-preview) | [v3.1 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [v3.1 패키지(NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0) | [v3.1 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
@@ -43,9 +43,9 @@ ms.locfileid: "112083596"
 
 Visual Studio IDE를 사용하여 새 .NET Core 콘솔 앱을 만듭니다. 이렇게 하면 *program.cs* 라는 단일 C# 원본 파일이 포함된 "Hello World" 프로젝트가 생성됩니다.
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
-**솔루션 탐색기** 에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리** 를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기** 를 선택하고 `Azure.AI.TextAnalytics`를 검색합니다. **사전 출시 포함** 상자를 선택하고 버전 `5.1.0-beta.7`을 선택한 다음, **설치** 를 선택합니다. [패키지 관리자 콘솔](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)을 사용할 수도 있습니다.
+**솔루션 탐색기** 에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리** 를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기** 를 선택하고 `Azure.AI.TextAnalytics`를 검색합니다. `5.1.0` 버전, **설치** 를 차례로 선택합니다. [패키지 관리자 콘솔](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)을 사용할 수도 있습니다.
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
@@ -57,7 +57,7 @@ Visual Studio IDE를 사용하여 새 .NET Core 콘솔 앱을 만듭니다. 이�
 
 ---
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 *program.cs* 파일을 열고 다음 `using` 지시문을 추가합니다.
 
@@ -154,7 +154,7 @@ Text Analytics 클라이언트는 키를 사용하여 Azure를 인증하고 텍�
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 이전의 main 메서드에서 엔드포인트와 자격 증명을 사용하여 새 클라이언트 개체를 만들었는지 확인합니다.
 
@@ -174,7 +174,7 @@ var client = new TextAnalyticsClient(endpoint, credentials);
 
 ## <a name="sentiment-analysis"></a>정서 분석
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 앞에서 만든 클라이언트를 사용하고 해당 `AnalyzeSentiment()` 함수를 호출하는 `SentimentAnalysisExample()`이라는 새 함수를 만듭니다. 반환된 `Response<DocumentSentiment>` 개체에는 전체 입력 문서의 감정 레이블과 점수가 포함되며, 성공하는 경우 각 문장에 대한 감정 분석도 포함됩니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다.
 
@@ -344,7 +344,7 @@ Document sentiment: Positive
 
 ## <a name="language-detection"></a>언어 검색
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 
 앞에서 만든 클라이언트를 사용하고 해당 `DetectLanguage()` 함수를 호출하는 `LanguageDetectionExample()`이라는 새 함수를 만듭니다. 반환된 `Response<DetectedLanguage>` 개체에는 해당 이름 및 ISO-6391 코드와 함께 검색된 언어가 포함됩니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다.
@@ -397,7 +397,7 @@ Language:
 
 ## <a name="named-entity-recognition-ner"></a>NER(명명된 엔터티 인식)
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 
 앞에서 만든 클라이언트를 사용하는 `EntityRecognitionExample()`이라는 새 함수를 만들고, `RecognizeEntities()` 함수를 호출하여 결과를 반복합니다. 반환된 `Response<CategorizedEntityCollection>` 개체에는 검색된 엔터티 `CategorizedEntity`의 컬렉션이 포함됩니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다.
@@ -429,7 +429,7 @@ Named Entities:
                 Score: 0.80,    Length: 9,      Offset: 34
 ```
 
-### <a name="personally-identifiable-information-recognition"></a>개인 식별 정보 인식
+## <a name="personally-identifiable-information-pii-recognition"></a>PII(개인 식별 정보) 인식
 
 앞에서 만든 클라이언트를 사용하는 `RecognizePIIExample()`이라는 새 함수를 만들고, `RecognizePiiEntities()` 함수를 호출하여 결과를 반복합니다. 반환된 `PiiEntityCollection`은 검색된 PII 엔터티의 목록을 나타냅니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다.
 
@@ -500,7 +500,7 @@ Named Entities:
 
 ## <a name="entity-linking"></a>엔터티 연결
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 앞에서 만든 클라이언트를 사용하는 `EntityLinkingExample()`이라는 새 함수를 만들고, `RecognizeLinkedEntities()` 함수를 호출하여 결과를 반복합니다. 반환된 `Response<LinkedEntityCollection>` 개체에는 검색된 엔터티 `LinkedEntity`의 컬렉션이 포함됩니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다. 연결된 엔터티가 고유하게 식별되므로 동일한 엔터티의 발생은 `LinkedEntity` 개체 아래에서 `LinkedEntityMatch` 개체 목록으로 그룹화됩니다.
 
@@ -658,7 +658,7 @@ Linked Entities:
 
 ## <a name="key-phrase-extraction"></a>핵심 문구 추출
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 앞에서 만든 클라이언트를 사용하고 해당 `ExtractKeyPhrases()` 함수를 호출하는 `KeyPhraseExtractionExample()`이라는 새 함수를 만듭니다. 반환된 `<Response<KeyPhraseCollection>` 개체에는 검색된 핵심 구의 목록이 포함됩니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다.
 
@@ -714,64 +714,71 @@ Key phrases:
 
 ---
 
-## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Analyze(분석) 작업을 통해 비동기적으로 API 사용
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+## <a name="extract-health-entities"></a>상태 엔터티 추출
 
-분석 작업을 사용하여 NER, 핵심 구 추출, 감정 분석 및 PII 검색에 대한 비동기 일괄 처리 요청을 수행할 수 있습니다. 아래 샘플에서는 하나의 작업에 대한 기본 예제를 보여줍니다. [GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeActions.md)에서 더 많은 고급 샘플을 찾을 수 있습니다.
+[!INCLUDE [health operation pricing](../health-operation-pricing-caution.md)]
 
-[!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
+Text Analytics를 사용해 비동기 요청을 수행하여 텍스트에서 의료 엔터티를 추출할 수 있습니다. 아래 샘플은 기본적인 예를 보여줍니다. [GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample7_AnalyzeHealthcareEntities.md)에서 더 많은 고급 샘플을 찾을 수 있습니다.
 
-앞에서 만든 클라이언트를 사용하고 해당 `StartAnalyzeBatchActionsAsync()` 함수를 호출하는 `AnalyzeOperationExample()`이라는 새 함수를 만듭니다. 반환된 `AnalyzeBatchActionsOperation` 개체는 `Operation` 인터페이스 개체를 포함합니다. 장기 실행 작업이므로 업데이트할 값의 `operation.WaitForCompletionAsync()`에 `await`를 지정합니다. `WaitForCompletionAsync()`가 완료되면 `operation.Value`에서 컬렉션을 업데이트해야 합니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다.
-
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 ```csharp
-static async Task AnalyzeOperationExample(TextAnalyticsClient client)
+static async Task healthExample(TextAnalyticsClient client)
 {
-    string inputText = "Microsoft was founded by Bill Gates and Paul Allen.";
+    string document = "Prescribed 100mg ibuprofen, taken twice daily.";
 
-    var batchDocuments = new List<string> { inputText };
-
-
-    TextAnalyticsActions actions = new TextAnalyticsActions()
+    List<string> batchInput = new List<string>()
     {
-        RecognizeEntitiesOptions = new List<RecognizeEntitiesOptions>() { new RecognizeEntitiesOptions() },
-        DisplayName = "Analyze Operation Quick Start Example"
+        document
     };
+    AnalyzeHealthcareEntitiesOperation healthOperation = await client.StartAnalyzeHealthcareEntitiesAsync(batchInput);
+    await healthOperation.WaitForCompletionAsync();
 
-    AnalyzeBatchActionsOperation operation = await client.StartAnalyzeBatchActionsAsync(batchDocuments, actions);
-
-    await operation.WaitForCompletionAsync();
-
-    Console.WriteLine($"Status: {operation.Status}");
-    Console.WriteLine($"Created On: {operation.CreatedOn}");
-    Console.WriteLine($"Expires On: {operation.ExpiresOn}");
-    Console.WriteLine($"Last modified: {operation.LastModified}");
-    if (!string.IsNullOrEmpty(operation.DisplayName))
-        Console.WriteLine($"Display name: {operation.DisplayName}");
-    Console.WriteLine($"Total actions: {operation.TotalActions}");
-    Console.WriteLine($"  Succeeded actions: {operation.ActionsSucceeded}");
-    Console.WriteLine($"  Failed actions: {operation.ActionsFailed}");
-    Console.WriteLine($"  In progress actions: {operation.ActionsInProgress}");
-
-    await foreach (AnalyzeBatchActionsResult documentsInPage in operation.Value)
+    await foreach (AnalyzeHealthcareEntitiesResultCollection documentsInPage in healthOperation.Value)
     {
-        RecognizeEntitiesResultCollection entitiesResult = documentsInPage.RecognizeEntitiesActionsResults.FirstOrDefault().Result;
+        Console.WriteLine($"Results of Azure Text Analytics \"Healthcare Async\" Model, version: \"{documentsInPage.ModelVersion}\"");
+        Console.WriteLine("");
 
-        Console.WriteLine("Recognized Entities");
-
-        foreach (RecognizeEntitiesResult result in entitiesResult)
+        foreach (AnalyzeHealthcareEntitiesResult entitiesInDoc in documentsInPage)
         {
-            Console.WriteLine($"  Recognized the following {result.Entities.Count} entities:");
-
-            foreach (CategorizedEntity entity in result.Entities)
+            if (!entitiesInDoc.HasError)
             {
-                Console.WriteLine($"  Entity: {entity.Text}");
-                Console.WriteLine($"  Category: {entity.Category}");
-                Console.WriteLine($"  Offset: {entity.Offset}");
-                Console.WriteLine($"  Length: {entity.Length}");
-                Console.WriteLine($"  ConfidenceScore: {entity.ConfidenceScore}");
-                Console.WriteLine($"  SubCategory: {entity.SubCategory}");
+                foreach (var entity in entitiesInDoc.Entities)
+                {
+                    // view recognized healthcare entities
+                    Console.WriteLine($"  Entity: {entity.Text}");
+                    Console.WriteLine($"  Category: {entity.Category}");
+                    Console.WriteLine($"  Offset: {entity.Offset}");
+                    Console.WriteLine($"  Length: {entity.Length}");
+                    Console.WriteLine($"  NormalizedText: {entity.NormalizedText}");
+                }
+                Console.WriteLine($"  Found {entitiesInDoc.EntityRelations.Count} relations in the current document:");
+                Console.WriteLine("");
+
+                // view recognized healthcare relations
+                foreach (HealthcareEntityRelation relations in entitiesInDoc.EntityRelations)
+                {
+                    Console.WriteLine($"    Relation: {relations.RelationType}");
+                    Console.WriteLine($"    For this relation there are {relations.Roles.Count} roles");
+
+                    // view relation roles
+                    foreach (HealthcareEntityRelationRole role in relations.Roles)
+                    {
+                        Console.WriteLine($"      Role Name: {role.Name}");
+
+                        Console.WriteLine($"      Associated Entity Text: {role.Entity.Text}");
+                        Console.WriteLine($"      Associated Entity Category: {role.Entity.Category}");
+                        Console.WriteLine("");
+                    }
+                    Console.WriteLine("");
+                }
+            }
+            else
+            {
+                Console.WriteLine("  Error!");
+                Console.WriteLine($"  Document error code: {entitiesInDoc.Error.ErrorCode}.");
+                Console.WriteLine($"  Message: {entitiesInDoc.Error.Message}");
             }
             Console.WriteLine("");
         }
@@ -779,11 +786,153 @@ static async Task AnalyzeOperationExample(TextAnalyticsClient client)
 }
 ```
 
-애플리케이션에 이 예제를 추가한 후 `main()` 메서드에서 `await`를 사용하여 호출합니다.
+```console
+Results of Azure Text Analytics "Healthcare Async" Model, version: "2021-05-15"
+
+  Entity: 100mg
+  Category: Dosage
+  Offset: 11
+  Length: 5
+  NormalizedText:
+  Entity: ibuprofen
+  Category: MedicationName
+  Offset: 17
+  Length: 9
+  NormalizedText: ibuprofen
+  Entity: twice daily
+  Category: Frequency
+  Offset: 34
+  Length: 11
+  NormalizedText:
+  Found 2 relations in the current document:
+
+    Relation: DosageOfMedication
+    For this relation there are 2 roles
+      Role Name: Dosage
+      Associated Entity Text: 100mg
+      Associated Entity Category: Dosage
+
+      Role Name: Medication
+      Associated Entity Text: ibuprofen
+      Associated Entity Category: MedicationName
+
+
+    Relation: FrequencyOfMedication
+    For this relation there are 2 roles
+      Role Name: Medication
+      Associated Entity Text: ibuprofen
+      Associated Entity Category: MedicationName
+
+      Role Name: Frequency
+      Associated Entity Text: twice daily
+      Associated Entity Category: Frequency
+```
+
+# <a name="version-30"></a>[버전 3.0](#tab/version-3)
+
+이 기능은 버전 3.0에서 사용할 수 없습니다.
+
+---
+
+## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Analyze(분석) 작업을 통해 비동기적으로 API 사용
+
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
+
+분석 작업을 사용하여 NER, 핵심 구 추출, 감정 분석 및 PII 검색에 대한 비동기 일괄 처리 요청을 수행할 수 있습니다. 아래 샘플에서는 하나의 작업에 대한 기본 예제를 보여줍니다. [GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeActions.md)에서 더 많은 고급 샘플을 찾을 수 있습니다.
+
+[!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
+
+다음 using 문을 C# 파일에 추가합니다.
 
 ```csharp
-await AnalyzeOperationExample(client).ConfigureAwait(false);
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
 ```
+
+앞에서 만든 클라이언트를 사용하고 해당 `StartAnalyzeBatchActionsAsync()` 함수를 호출하는 `AnalyzeOperationExample()`이라는 새 함수를 만듭니다. 반환된 작업에는 `AnalyzeBatchActionsResult` 개체가 포함됩니다. 장기 실행 작업이므로 업데이트할 값의 `operation.WaitForCompletionAsync()`에 `await`를 지정합니다. `WaitForCompletionAsync()`가 완료되면 `operation.Value`에서 컬렉션을 업데이트해야 합니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다.
+
+
+```csharp
+static async Task AnalyzeOperationExample(TextAnalyticsClient client)
+    {
+        string inputText = "Microsoft was founded by Bill Gates and Paul Allen.";
+
+        var batchDocuments = new List<string> { inputText };
+
+
+        TextAnalyticsActions actions = new TextAnalyticsActions()
+        {
+            RecognizeEntitiesActions = new List<RecognizeEntitiesAction>() { new RecognizeEntitiesAction() },
+            ExtractKeyPhrasesActions = new List<ExtractKeyPhrasesAction>() { new ExtractKeyPhrasesAction() },
+            DisplayName = "Analyze Operation Quick Start Example"
+        };
+
+        AnalyzeActionsOperation operation = await client.StartAnalyzeActionsAsync(batchDocuments, actions);
+
+        await operation.WaitForCompletionAsync();
+
+        Console.WriteLine($"Status: {operation.Status}");
+        Console.WriteLine($"Created On: {operation.CreatedOn}");
+        Console.WriteLine($"Expires On: {operation.ExpiresOn}");
+        Console.WriteLine($"Last modified: {operation.LastModified}");
+        if (!string.IsNullOrEmpty(operation.DisplayName))
+            Console.WriteLine($"Display name: {operation.DisplayName}");
+        //Console.WriteLine($"Total actions: {operation.TotalActions}");
+        Console.WriteLine($"  Succeeded actions: {operation.ActionsSucceeded}");
+        Console.WriteLine($"  Failed actions: {operation.ActionsFailed}");
+        Console.WriteLine($"  In progress actions: {operation.ActionsInProgress}");
+
+        await foreach (AnalyzeActionsResult documentsInPage in operation.Value)
+        {
+            RecognizeEntitiesResultCollection entitiesResult = documentsInPage.RecognizeEntitiesResults.FirstOrDefault().DocumentsResults;
+            ExtractKeyPhrasesResultCollection keyPhrasesResults = documentsInPage.ExtractKeyPhrasesResults.FirstOrDefault().DocumentsResults;
+
+            Console.WriteLine("Recognized Entities");
+
+            foreach (RecognizeEntitiesResult result in entitiesResult)
+            {
+                Console.WriteLine($"  Recognized the following {result.Entities.Count} entities:");
+
+                foreach (CategorizedEntity entity in result.Entities)
+                {
+                    Console.WriteLine($"  Entity: {entity.Text}");
+                    Console.WriteLine($"  Category: {entity.Category}");
+                    Console.WriteLine($"  Offset: {entity.Offset}");
+                    Console.WriteLine($"  Length: {entity.Length}");
+                    Console.WriteLine($"  ConfidenceScore: {entity.ConfidenceScore}");
+                    Console.WriteLine($"  SubCategory: {entity.SubCategory}");
+                }
+                Console.WriteLine("");
+            }
+
+            Console.WriteLine("Key Phrases");
+            
+            foreach (ExtractKeyPhrasesResult documentResults in keyPhrasesResults)
+            {
+                Console.WriteLine($"  Recognized the following {documentResults.KeyPhrases.Count} Keyphrases:");
+
+                foreach (string keyphrase in documentResults.KeyPhrases)
+                {
+                    Console.WriteLine($"  {keyphrase}");
+                }
+                Console.WriteLine("");
+            }
+            
+        }
+    }
+```
+
+애플리케이션에 이 예제를 추가한 후 `main()` 메서드에서 `await`를 사용하여 호출합니다. 분석 작업은 비동기식이므로 `Main()` 메서드를 `async Task` 유형으로 업데이트해야 합니다.
+
+```csharp
+static async Task Main(string[] args)
+{
+    var client = new TextAnalyticsClient(endpoint, credentials);
+    await AnalyzeOperationExample(client).ConfigureAwait(false);
+}
+```
+
 ### <a name="output"></a>출력
 
 ```console

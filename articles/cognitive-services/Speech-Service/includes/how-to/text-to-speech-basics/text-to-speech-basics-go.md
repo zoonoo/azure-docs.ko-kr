@@ -2,14 +2,14 @@
 author: yulin-li
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/17/2021
+ms.date: 07/02/2021
 ms.author: yulili
-ms.openlocfilehash: 759fca1d323c72fe5e336a3211a9fb68fc1804b9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 54647867ab0a0d2c1333f80121aeab49a2efc959
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085507"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113279777"
 ---
 이 빠른 시작에서는 Speech SDK를 사용하여 텍스트 음성 변환을 수행하기 위한 일반적인 디자인 패턴에 대해 알아봅니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "110085507"
 ## <a name="text-to-speech-to-speaker"></a>화자로 텍스트 음성 변환
 
 다음 코드 샘플을 사용하여 기본 오디오 출력 디바이스에 음성 합성을 실행합니다.
-변수 `subscription` 및 `region`은 구독 및 지역 키로 바꿉니다.
+`subscription` 및 `region` 변수를 음성 키와 위치/지역으로 바꿉니다.
 스크립트를 실행하면 입력 텍스트가 기본 화자로 표시됩니다.
 
 ```go
@@ -68,8 +68,8 @@ func cancelledHandler(event speech.SpeechSynthesisEventArgs) {
 }
 
 func main() {
-    subscription :=  "YOUR_SUBSCRIPTION_KEY"
-    region := "YOUR_SUBSCRIPTIONKEY_REGION"
+    subscription := "<paste-your-speech-key-here>"
+    region := "<paste-your-speech-location/region-here>"
 
     audioConfig, err := audio.NewAudioConfigFromDefaultSpeakerOutput()
     if err != nil {
@@ -167,7 +167,7 @@ go run quickstart
 `AudioData` 속성은 출력 데이터의 `[]byte`를 반환합니다. 이 `[]byte`를 수동으로 사용하거나 [`AudioDataStream`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#AudioDataStream) 클래스를 사용하여 메모리 내 스트림을 관리할 수 있습니다.
 다음 예제에서는 `NewAudioDataStreamFromSpeechSynthesisResult()` 정적 함수를 사용하여 결과에서 스트림을 가져옵니다.
 
-변수 `subscription` 및 `region`은 구독 및 지역 키로 바꿉니다.
+`subscription` 및 `region` 변수를 음성 키와 위치/지역으로 바꿉니다.
 
 ```go
 package main
@@ -184,8 +184,8 @@ import (
 )
 
 func main(subscription string, region string) {
-    subscription :=  "YOUR_SUBSCRIPTION_KEY"
-    region := "YOUR_SUBSCRIPTIONKEY_REGION"
+    subscription := "<paste-your-speech-key-here>"
+    region := "<paste-your-speech-location/region-here>"
 
     config, err := speech.NewSpeechConfigFromSubscription(subscription, region)
     if err != nil {

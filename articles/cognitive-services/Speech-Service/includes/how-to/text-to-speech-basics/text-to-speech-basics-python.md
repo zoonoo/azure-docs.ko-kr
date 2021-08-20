@@ -2,14 +2,14 @@
 author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/25/2020
+ms.date: 07/02/2021
 ms.author: trbye
-ms.openlocfilehash: 9d6d6ec36d5ab7d29b3050dafda5fd711b01f1f4
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: f7e57b90b7d81c27d8e8fa2eda63203968f641d7
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107108893"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113280087"
 ---
 이 빠른 시작에서는 Speech SDK를 사용하여 텍스트 음성 변환을 수행하기 위한 일반적인 디자인 패턴에 대해 알아봅니다. 먼저 기본 구성 및 합성을 수행하고 다음과 같은 사용자 지정 애플리케이션 개발을 위한 고급 예제로 이동합니다.
 
@@ -49,22 +49,22 @@ from azure.cognitiveservices.speech.audio import AudioOutputConfig
 
 ## <a name="create-a-speech-configuration"></a>음성 구성 만들기
 
-음성 SDK를 사용하여 음성 서비스를 호출하려면 [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig)를 만들어야 합니다. 이 클래스에는 키 및 연결된 지역, 엔드포인트, 호스트 또는 권한 부여 토큰과 같은 구독에 대한 정보가 포함됩니다.
+음성 SDK를 사용하여 음성 서비스를 호출하려면 [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig)를 만들어야 합니다. 이 클래스에는 음성 키 및 관련 위치/지역, 엔드포인트, 호스트 또는 권한 부여 토큰과 같은 구독에 대한 정보가 포함됩니다.
 
 > [!NOTE]
 > 음성 인식, 음성 합성, 번역 또는 의도 인식을 수행하고 있는지 여부에 관계없이 항상 구성을 만들게 됩니다.
 
 [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig)를 초기화하는 다음과 같은 방법이 있습니다.
 
-* 구독 사용: 키 및 연결된 영역을 전달합니다.
-* 엔드포인트 사용: 음성 서비스 엔드포인트를 전달합니다. 키 또는 권한 부여 토큰은 선택 사항입니다.
-* 호스트 사용: 호스트 주소를 전달합니다. 키 또는 권한 부여 토큰은 선택 사항입니다.
-* 권한 부여 토큰 사용: 권한 부여 토큰 및 연결된 영역을 전달합니다.
+* 구독 사용: 음성 키 및 관련 위치/지역을 전달합니다.
+* 엔드포인트 사용: 음성 서비스 엔드포인트를 전달합니다. 음성 키 또는 권한 부여 토큰은 선택 사항입니다.
+* 호스트 사용: 호스트 주소를 전달합니다. 음성 키 또는 권한 부여 토큰은 선택 사항입니다.
+* 권한 부여 토큰 사용: 권한 부여 토큰 및 관련 위치/지역을 전달합니다.
 
-이 예제에서는 구독 키와 지역을 사용하여 [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig)를 만듭니다. [음성 서비스 무료로 사용해 보기](../../../overview.md#try-the-speech-service-for-free)의 단계를 따라 이러한 자격 증명을 가져오세요.
+이 예제에서는 음성 키와 위치/지역을 사용하여 [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig)를 만듭니다. [음성 서비스 무료로 사용해 보기](../../../overview.md#try-the-speech-service-for-free)의 단계를 따라 이러한 자격 증명을 가져오세요.
 
 ```python
-speech_config = SpeechConfig(subscription="YourSubscriptionKey", region="YourServiceRegion")
+speech_config = SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
 ```
 
 ## <a name="synthesize-speech-to-a-file"></a>음성을 파일로 합성

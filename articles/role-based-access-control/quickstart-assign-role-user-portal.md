@@ -11,14 +11,15 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/22/2019
+ms.date: 06/07/2021
 ms.author: rolyon
-ms.openlocfilehash: fcba9cad208c2ac170f91cc06a6db22e271f2a70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 5df6b591cc7ba3795104957b9cd11de814e2472a
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100559323"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591905"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여
 
@@ -40,53 +41,52 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 1. 탐색 목록에서 **리소스 그룹** 을 클릭합니다.
 
-1. **추가** 를 선택하여 **리소스 그룹** 블레이드를 엽니다.
+1. **새로 만들기** 를 클릭하여 **리소스 그룹 만들기** 페이지를 엽니다.
 
-   ![새 리소스 그룹 추가](./media/quickstart-assign-role-user-portal/resource-group.png)
+   ![새 리소스 그룹 페이지를 만듭니다.](./media/quickstart-assign-role-user-portal/resource-group.png)
 
-1. **리소스 그룹 이름** 으로 **rbac-resource-group** 을 입력합니다.
+1. 구독을 선택합니다.
 
-1. 구독 및 위치를 선택합니다.
+1. **리소스 그룹** 이름에 **example-group** 또는 다른 이름을 입력합니다.
 
-1. **만들기** 를 클릭하여 리소스 그룹을 만듭니다.
+1. **검토 + 만들기** 를 클릭한 다음, **만들기** 를 클릭하여 리소스 그룹을 만듭니다.
 
 1. **새로 고침** 을 클릭하여 리소스 그룹 목록을 새로 고칩니다.
 
    새 리소스 그룹이 리소스 그룹 목록에 나타납니다.
 
-   ![리소스 그룹 목록](./media/quickstart-assign-role-user-portal/resource-group-list.png)
-
 ## <a name="grant-access"></a>액세스 권한 부여
 
 Azure RBAC에서 액세스 권한을 부여하기 위해 Azure 역할을 할당합니다.
 
-1. **리소스 그룹** 목록에서 새 **rbac-resource-group** 리소스 그룹을 클릭합니다.
+1. **리소스 그룹** 목록에서 새 **example-group** 리소스 그룹을 엽니다.
 
-1. **액세스 제어(IAM)** 를 클릭합니다.
+1. 탐색 메뉴에서 **액세스 제어(IAM)** 를 클릭합니다.
 
 1. **역할 할당** 탭을 클릭하여 현재의 역할 할당 목록을 봅니다.
 
-   ![리소스 그룹의 액세스 제어(IAM) 블레이드](./media/quickstart-assign-role-user-portal/access-control.png)
+   ![리소스 그룹에 대한 액세스 제어(IAM) 페이지.](./media/shared/rg-role-assignments.png)
 
-1. **추가** > **역할 할당 추가** 를 클릭하여 역할 할당 추가 창을 엽니다.
+
+1. **추가** > **역할 할당 추가(미리 보기)** 를 클릭합니다.
 
    역할을 할당할 수 있는 권한이 없으면 역할 할당 추가 옵션이 비활성화됩니다.
 
-   ![역할 할당 추가 메뉴](./media/shared/add-role-assignment-menu.png)
+   ![역할 할당 추가 메뉴가 열려 있는 액세스 제어(IAM) 페이지.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
 
-    역할 할당 추가 창이 열립니다.
+1. **역할** 탭에서 **Virtual Machine 기여자** 역할을 선택합니다.
 
-   ![역할 할당 추가 창](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
+    ![역할 탭이 선택된 역할 할당 페이지를 추가합니다.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
 
-1. **역할** 드롭다운 목록에서 **가상 머신 기여자** 를 선택합니다.
+1. **멤버** 탭에서 자신 또는 다른 사용자를 선택합니다.
 
-1. **선택** 목록에서 자신 또는 다른 사용자를 선택합니다.
+1. **검토 + 할당** 탭에서 역할 할당 설정을 검토합니다.
 
-1. **저장** 을 클릭하여 역할을 할당합니다.
+1. **검토 + 할당** 을 클릭하여 역할을 할당합니다.
 
-   몇 분 후에 rbac-resource-group 리소스 그룹 범위에 속한 사용자에게 Virtual Machine 기여자 역할이 할당됩니다.
+   몇 분 후에 example-group 리소스 그룹 범위에 속한 사용자에게 Virtual Machine 기여자 역할이 할당됩니다.
 
-   ![가상 머신 기여자 역할 할당](./media/quickstart-assign-role-user-portal/vm-contributor-assignment.png)
+   ![Virtual Machine 기여자 역할 할당.](./media/quickstart-assign-role-user-portal/vm-contributor-assignment.png)
 
 ## <a name="remove-access"></a>액세스 권한 제거
 
@@ -96,7 +96,7 @@ Azure RBAC에서 액세스 권한을 제거하려면 역할 할당을 제거해�
 
 1. **제거** 를 클릭합니다.
 
-   ![역할 할당 제거 메시지](./media/quickstart-assign-role-user-portal/remove-role-assignment.png)
+   ![역할 할당 메시지를 제거합니다.](./media/quickstart-assign-role-user-portal/remove-role-assignment.png)
 
 1. 표시되는 역할 할당 제거 메시지에서 **예** 를 클릭합니다.
 
@@ -104,15 +104,11 @@ Azure RBAC에서 액세스 권한을 제거하려면 역할 할당을 제거해�
 
 1. 탐색 목록에서 **리소스 그룹** 을 클릭합니다.
 
-1. **rbac-resource-group** 을 클릭하여 리소스 그룹을 엽니다.
+1. **example-group** 을 클릭하여 리소스 그룹을 엽니다.
 
 1. **리소스 그룹 삭제** 를 클릭하여 리소스 그룹을 삭제합니다.
 
-   ![리소스 그룹 삭제](./media/quickstart-assign-role-user-portal/delete-resource-group.png)
-
-1. **삭제하시겠습니까?** 블레이드에서 리소스 그룹 이름으로 **rbac-resource-group** 을 입력합니다.
-
-1. **삭제** 를 클릭하여 리소스 그룹을 삭제합니다.
+1. **삭제하시겠습니까?** 창에서 리소스 그룹 이름을 입력한 다음, **삭제** 를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18, devx-track-azurecli
-ms.openlocfilehash: 4c617c9bb5e45df1ebf3f6274ed88e05f28cfe4c
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 8317db1b7c4e71f05694ab902738dca87925a4d6
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751962"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112992192"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>자습서: Azure App Service에서 CORS를 통해 RESTful API 호스팅
 
@@ -170,6 +170,9 @@ az webapp cors add --resource-group myResourceGroup --name <app-name> --allowed-
 
 > [!NOTE]
 > 앱에서 쿠키나 인증 토큰과 같은 자격 증명을 전송하도록 요구하는 경우 브라우저의 응답에 `ACCESS-CONTROL-ALLOW-CREDENTIALS` 헤더가 필요할 수 있습니다. App Service에서 이를 사용하도록 설정하려면 CORS 구성에서 `properties.cors.supportCredentials`를 `true`로 설정합니다. `allowedOrigins`에 `'*'`가 포함된 경우에는 이를 사용하도록 설정할 수 없습니다.
+
+> [!NOTE]
+> `AllowAnyOrigin` 및 `AllowCredentials`를 지정하는 것은 안전하지 않은 구성이며 사이트 간 요청이 위조될 수 있습니다. 앱이 두 가지 방법으로 구성된 경우 CORS 서비스는 잘못된 CORS 응답을 반환합니다.
 
 ### <a name="test-cors-again"></a>CORS 다시 테스트
 

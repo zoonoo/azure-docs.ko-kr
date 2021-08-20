@@ -2,20 +2,19 @@
 title: 에이전트 없는 솔루션 아키텍처란
 description: Azure Defender for IoT 에이전트 없는 아키텍처 및 정보 흐름에 대해 알아봅니다.
 ms.topic: overview
-ms.date: 1/25/2021
-ms.author: shhazam
-ms.openlocfilehash: bd639ca2656b901bd87fccf36fb4a5d90d3bf918
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 07/19/2021
+ms.openlocfilehash: cec373f3848e264b7c9f4b9753315189da77bc0b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011456"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114455231"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Azure Defender for IoT 아키텍처
 
 이 문서에서는 Defender for IoT 에이전트 없는 솔루션의 기능적 시스템 아키텍처를 설명합니다. Azure Defender for IoT는 사용자 환경의 요구 사항에 맞는 두 가지 기능 세트, 조직을 위한 에이전트 없는 솔루션 및 디바이스 빌더를 위한 에이전트 기반 솔루션을 제공합니다.
 
-## <a name="agentless-solution-for-organizations"></a>조직을 위한 에이전트 없는 솔루션
+## <a name="agentless-solution-architecture-for-organizations"></a>조직을 위한 에이전트 없는 솔루션 아키텍처
 ### <a name="defender-for-iot-components"></a>Defender for IoT 구성 요소
 
 Defender for IoT는 Azure 클라우드와 온-프레미스 구성 요소에 모두 연결됩니다. 이 솔루션은 여러 원격 위치가 포함된 방대하고 지리적으로 분산된 환경에서 우수한 확장성을 제공하도록 설계되었습니다. 이 솔루션을 사용하면 국가, 지역, 사업부 또는 영역별로 다중 계층 분산 아키텍처를 구현할 수 있습니다. 

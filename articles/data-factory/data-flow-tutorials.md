@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 05/18/2021
-ms.openlocfilehash: 6f101d31e7268eb8f58d236bc214f322c71336df
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: e63e45026be6bb315a9bc520680eb40253654975
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075019"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112539928"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>데이터 흐름 매핑 비디오 자습서
 
@@ -38,6 +38,8 @@ ms.locfileid: "110075019"
 [타이밍 벤치마크](http://youtu.be/6CSbWm4lRhw?hd=1)
 
 [데이터 흐름에 대한 워크플로 디버깅](https://youtu.be/y3suL7UsWVw)
+
+[업데이트된 모니터링 보기](https://www.youtube.com/watch?v=FWCBslsk6KE)
 
 ## <a name="transformation-overviews"></a>변환 개요
 

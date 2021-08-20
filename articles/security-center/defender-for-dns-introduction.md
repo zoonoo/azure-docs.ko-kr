@@ -3,16 +3,16 @@ title: Azure Defender for DNS - 이점 및 기능
 description: Azure Defender for DNS의 이점 및 기능에 대한 자세한 정보
 author: memildin
 ms.author: memildin
-ms.date: 05/12/2021
+ms.date: 07/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 976ffc86fd82bb85fefb16b4f442111a07d1f652
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 48306c8ec46274bc123ada4f7c8f748a230edf30
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113003605"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690834"
 ---
 # <a name="introduction-to-azure-defender-for-dns"></a>Azure Defender for DNS 소개
 
@@ -29,7 +29,7 @@ Azure Defender for DNS는 다음과 같은 방법으로 Azure DNS에 연결된 �
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|**Azure Defender for DNS** 는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 표시된 대로 요금이 청구됩니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(US Gov, Azure 중국)|
+|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure 중국<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-dns"></a>Azure Defender for DNS의 이점은?

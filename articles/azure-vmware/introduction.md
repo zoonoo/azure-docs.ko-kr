@@ -3,12 +3,12 @@ title: 소개
 description: Azure에서 VMware 기반 워크로드를 배포하고 관리하는 Azure VMware 솔루션의 기능과 이점에 대해 알아봅니다. Azure VMware Solution SLA는 Azure VMware 관리 도구(vCenter Server 및 NSX Manager)를 99.9% 이상 사용할 수 있도록 보장합니다.
 ms.topic: overview
 ms.date: 04/20/2021
-ms.openlocfilehash: 8a75038d9552e62b1bc67265ff2965fea9d8b8d6
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 79739f230b057b030da7a90501e9fb3fb2630eba
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950877"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433583"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Azure VMware Solution이란?
 
@@ -18,7 +18,7 @@ Azure VMware 솔루션은 향상된 기능과 업그레이드에 대해 지속�
 
 다이어그램에서는 Azure, Azure 서비스 및 온-프레미스 환경에서 프라이빗 클라우드와 VNet 간의 인접성을 보여줍니다. 프라이빗 클라우드에서 Azure 서비스 또는 VNet으로의 네트워크 액세스는 Azure 서비스 엔드포인트의 SLA 기반 통합을 제공합니다. ExpressRoute Global Reach는 온-프레미스 환경을 Azure VMware Solution 프라이빗 클라우드에 연결합니다. 
 
-![Azure 및 온-프레미스와 Azure VMware 솔루션 프라이빗 클라우드의 인접성에 대한 이미지](./media/adjacency-overview-drawing-final.png)
+:::image type="content" source="media/adjacency-overview-drawing-final.png" alt-text="Azure 및 온-프레미스에 대한 Azure VMware 솔루션 프라이빗 클라우드 인접성의 다이어그램." border="false":::
 
 ## <a name="hosts-clusters-and-private-clouds"></a>호스트, 클러스터 및 프라이빗 클라우드
 
@@ -66,5 +66,4 @@ Azure VMware Solution 내의 모니터링 패턴은 IaaS 플랫폼 내의 Azure 
 
 <!-- LINKS - internal -->
 [concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
-
 

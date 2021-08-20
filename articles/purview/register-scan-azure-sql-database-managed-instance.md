@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 05/08/2021
-ms.openlocfilehash: 3ead96a49e2bacca526cd9ee3b8c8e00abbba426
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 655314720975738ebdbddb009d6d31ad7a322e72
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656293"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112552289"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance 등록 및 검사
 
@@ -25,10 +25,6 @@ Azure SQL Database Managed Instance 데이터 원본에서 지원하는 기능�
 - **전체 및 증분 검사** - Azure SQL Database Managed Instance에서 메타데이터 및 분류를 캡처합니다.
 
 - **계보** - ADF 복사 및 데이터 흐름 작업에 대한 데이터 자산 간의 계보입니다.
-
-### <a name="known-limitations"></a>알려진 제한 사항
-
-Azure Purview는 Azure SQL Managed Instance의 [보기](/sql/relational-databases/views/views?view=azuresqldb-mi-current&preserve-view=true)에 대한 검사를 지원하지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -125,7 +121,35 @@ Purview에서 서비스 주체를 사용하여 Azure SQL Database Managed Instan
 
     예를 들어 `foobar.public.123.database.windows.net,3342`
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## <a name="creating-and-running-a-scan"></a>검사 만들기 및 실행
+
+새 검색을 만들고 실행하려면 다음을 수행합니다.
+
+1. Purview Studio의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
+
+1. 등록한 Azure SQL Database Managed Instance 원본을 선택합니다.
+
+1. **새 검사** 를 선택합니다.
+
+1. 데이터 원본에 연결할 자격 증명을 선택합니다.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/set-up-scan-sql-mi.png" alt-text="검사 설정":::
+
+1. 목록에서 적절한 항목을 선택하여 검사 범위를 특정 테이블로 지정할 수 있습니다.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/scope-your-scan.png" alt-text="검사 범위 지정":::
+
+1. 그런 다음, 검사 규칙 집합을 선택합니다. 시스템 기본값, 기존 사용자 지정 규칙 집합 중 하나를 선택하거나 새 규칙 집합을 인라인으로 만들 수 있습니다.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/scan-rule-set.png" alt-text="검사 규칙 집합":::
+
+1. 검사 트리거를 선택합니다. 일정을 설정하거나 검사를 한 번 실행할 수 있습니다.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/trigger-scan.png" alt-text="트리거":::
+
+1. 검사를 검토하고 **저장 및 실행** 을 선택합니다.
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 > [!NOTE]
 > 검사를 삭제해도 이전 Azure SQL Database Managed Instance 검사에서 자산이 삭제되지 않습니다.

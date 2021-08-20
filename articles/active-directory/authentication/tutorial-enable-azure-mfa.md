@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 06/29/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2e8bf2ccbf7a53563013c7ba653a6f6e8905337
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a91010f100aa0a464ec61f763b38150ebb4efcf4
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97881313"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090352"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-ad-multi-factor-authentication"></a>자습서: Azure AD Multi-Factor Authentication을 사용하여 사용자 로그인 이벤트 보호
 
@@ -41,7 +41,7 @@ Azure AD Multi-Factor Authentication 및 조건부 액세스 정책은 특정 �
 
 * Azure AD Premium P1 또는 평가판 이상의 라이선스를 사용하도록 설정되어 작동하는 Azure AD 테넌트.
     * 필요한 경우, [체험 계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* *글로벌 관리자* 권한이 있는 계정
+* *글로벌 관리자* 권한이 있는 계정 일부 MFA 설정은 인증 정책 관리자가 관리할 수도 있습니다. 자세한 내용은 [인증 정책 관리자](../roles/permissions-reference.md#authentication-policy-administrator)를 참조하세요.
 * 알고 있는 암호가 있는 관리자가 아닌 사용자(예: *testuser*). 이 자습서에서는 이 계정을 사용하여 최종 사용자 Azure AD Multi-Factor Authentication 환경을 테스트합니다.
     * 사용자를 만들어야 하는 경우 [빠른 시작: Azure Active Directory에 새 사용자 추가](../fundamentals/add-users-azure-active-directory.md)의 정보를 사용할 수 있습니다.
 * 관리자가 아닌 사용자가 멤버인 그룹(예: *MFA-Test-Group*). 이 자습서에서는 이 그룹에 Azure AD Multi-Factor Authentication을 사용하도록 설정합니다.

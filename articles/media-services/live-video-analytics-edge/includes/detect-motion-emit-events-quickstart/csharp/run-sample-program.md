@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 766dd13f58268c044435a22fb30c1de816d4d151
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b173a5fe639ff21cc8a475edd16d0e3885dacef
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97531970"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113279858"
 ---
 샘플 코드를 실행하려면 다음 단계를 수행합니다.
 
@@ -26,6 +26,14 @@ ms.locfileid: "97531970"
     `"topologyName" : "MotionDetection"`
     
 1. F5 키를 선택하여 디버깅 세션을 시작합니다. **터미널** 창에 몇 가지 메시지가 표시됩니다.
+
+    F5를 사용하여 디버깅 세션을 시작하면 환경 유형 및 프로젝트를 묻는 메시지가 처음 표시됩니다. 이는 폴더에 launch.json 파일을 만들고 구성하는 것입니다. 이 데모의 목적을 위해 다음을 사용합니다.
+    * 환경 - .Net Core
+    * 프로젝트 - c2d-console-app
+    
+    launch.json 파일이 생성된 후 편집합니다. 콘솔 구성을 'integratedTeminal'로 변경합니다.
+    
+    `"console": "integratedTerminal"`
 1. *operations.json* 파일은 `GraphTopologyList` 및 `GraphInstanceList`에 대한 호출로 시작됩니다. 이전 빠른 시작을 완료한 후에 리소스를 정리한 경우 이 프로세스에서 빈 목록을 반환한 다음, 일시 중지합니다. 계속하려면 Enter 키를 선택합니다.
 
     ```

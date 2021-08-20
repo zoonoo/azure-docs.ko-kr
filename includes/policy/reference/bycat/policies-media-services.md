@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/11/2021
+ms.date: 07/16/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 887d2784d4949a70763e6c08ce3ec72aaddd0bcd
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 4d6757b85e248562a5af845b5748fbeb99b0f4b8
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112019772"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114388967"
 ---
 |이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -18,3 +18,6 @@ ms.locfileid: "112019772"
 |[레거시 v2 API에 대한 액세스를 허용하는 Azure Media Services 계정은 차단되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fccf93279-9c91-4143-a841-8d1f21505455) |Media Services 레거시 v2 API는 Azure Policy를 사용하여 관리할 수 없는 요청을 허용합니다. 2020-05-01 API 이상을 사용하여 만든 Media Services 리소스는 레거시 v2 API에 대한 액세스를 차단합니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Media%20Services/MediaServices_BlockRestV2_Audit.json) |
 |[Azure Media Services 콘텐츠 키 정책은 토큰 인증을 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdaccf7e4-9808-470c-a848-1c5b582a1afb) |콘텐츠 키 정책은 콘텐츠 키에 액세스하기 위해 충족해야 하는 조건을 정의합니다. 토큰 제한을 사용하면 인증 서비스에서 유효한 토큰(예: Azure Active Directory)을 가진 사용자만 콘텐츠 키에 액세스할 수 있습니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Media%20Services/ContentKeyPolicies_RequireTokenAuth_Audit.json) |
 |[HTTPS 입력이 있는 Azure Media Services 작업은 입력 URI를 허용된 URI 패턴으로 제한해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe9914afe-31cd-4b8a-92fa-c887f847d477) |Media Services 작업에서 사용하는 HTTPS 입력을 알려진 엔드포인트로 제한합니다. 허용되는 작업 입력 패턴의 빈 목록을 설정하여 HTTPS 엔드포인트의 입력을 완전히 비활성화할 수 있습니다. 작업 입력에서 'baseUri'를 지정하는 경우 패턴은 이 값과 일치합니다. 'baseUri'가 설정되지 않은 경우 패턴은 'files' 속성과 일치합니다. |거부, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Media%20Services/Jobs_RestrictHttpInputs.json) |
+|[Azure Media Services는 프라이빗 링크를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4a591bf5-918e-4a5f-8dad-841863140d61) |Azure Private Link를 사용하면 원본 또는 대상에 공용 IP 주소가 없어도 가상 네트워크를 Azure 서비스에 연결할 수 있습니다. Private Link 플랫폼은 Azure 백본 네트워크를 통해 소비자와 서비스 간의 연결을 처리합니다. 프라이빗 엔드포인트를 Media Services에 매핑하면 데이터 유출 위험을 줄일 수 있습니다. [https://aka.ms/mediaservicesprivatelinkdocs](../../../../articles/media-services/latest/security-private-link-how-to.md)에서 프라이빗 링크에 대해 자세히 알아보세요. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Media%20Services/MediaServices_PrivateLink_AuditIfNotExists.json) |
+|[프라이빗 DNS 영역을 사용하도록 Azure Media Services 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4a7f6c1-585e-4177-ad5b-c2c93f4bb991) |프라이빗 DNS 영역을 사용하여 프라이빗 엔드포인트에 대한 DNS 확인을 재정의합니다. 프라이빗 DNS 영역은 가상 네트워크에 연결되어 Media Services 계정으로 확인됩니다. [https://aka.ms/mediaservicesprivatelinkdocs](../../../../articles/media-services/latest/security-private-link-how-to.md)에서 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Media%20Services/MediaServices_PrivateLinkDns_DeployIfNotExists.json) |
+|[프라이빗 엔드포인트를 사용하여 Azure Media Services 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5632066-946d-4766-9544-cd79bcc1286e) |프라이빗 엔드포인트는 원본 또는 대상에서 공용 IP 주소 없이 Azure 서비스에 가상 네트워크를 연결합니다. 프라이빗 엔드포인트를 Media Services에 매핑하면 데이터 유출 위험을 줄일 수 있습니다. [https://aka.ms/mediaservicesprivatelinkdocs](../../../../articles/media-services/latest/security-private-link-how-to.md)에서 프라이빗 링크에 대해 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Media%20Services/MediaServices_PrivateLink_DeployIfNotExists.json) |

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: dadf457c2fc3f617e2473a853e802fe863709ac5
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: f673c506411898788b35886dea741604e885e7a3
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072292"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112461678"
 ---
 # <a name="register-and-scan-oracle-source"></a>Oracle 원본 등록 및 검사
 
@@ -61,6 +61,7 @@ Oracle 원본은 Oracle 데이터베이스에서 메타데이터를 추출할 �
         grant select on dba\_arguments to \[user\];\
         grant select on dba\_sequences to \[user\];\
         grant select on dba\_dependencies to \[user\];\
+        grant select on dba\_type\_attrs to \[user\];\
         grant select on V\_\$INSTANCE to \[user\];\
         grant select on v\_\$database to \[user\];
     

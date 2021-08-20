@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 06/29/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 13fee0b418a295fb47c5eb44f12190c7655b5934
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: b101603577324200c348a7522596b44db8049a05
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113092720"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114457846"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-its-subscriptions-net"></a>Azure Service Bus 토픽에 메시지 보내기 및 구독에서 메시지 받기(.NET)
 이 빠른 시작에서는 [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) .NET 라이브러리를 사용하여 Service Bus 토픽에 메시지를 보내고 해당 토픽에 대한 구독에서 메시지를 받는 방법을 보여 줍니다.
@@ -55,10 +55,10 @@ ms.locfileid: "113092720"
 
 1. **Program.cs** 의 코드를 다음 코드로 바꿉니다. 다음은 코드의 중요한 단계입니다.  
     1. 네임스페이스에 대한 연결 문자열을 사용하여 [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) 개체를 만듭니다. 
-    1. `ServiceBusClient` 개체에서 [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) 메서드를 호출하여 특정 Service Bus 토픽에 대한 [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) 개체를 만듭니다.     
-    1. [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync)를 사용하여 [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) 개체를 만듭니다.
-    1. [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage)를 사용하여 일괄 처리에 메시지를 추가합니다. 
-    1. [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync) 메서드를 사용하여 메시지 일괄 처리를 Service Bus 토픽에 보냅니다.
+    1. `ServiceBusClient` 개체에서 `CreateSender` 메서드를 호출하여 특정 Service Bus 토픽에 대한 [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) 개체를 만듭니다.     
+    1. `ServiceBusSender.CreateMessageBatchAsync` 메서드를 사용하여 `ServiceBusMessageBatch` 개체를 만듭니다.
+    1. `ServiceBusMessageBatch.TryAddMessage` 메서드를 사용하여 일괄 처리에 메시지를 추가합니다. 
+    1. `ServiceBusSender.SendMessagesAsync` 메서드를 사용하여 메시지 일괄 처리를 Service Bus 토픽에 보냅니다.
     
         자세한 내용은 코드 주석을 참조하세요.
         ```csharp
@@ -172,10 +172,10 @@ ms.locfileid: "113092720"
 1. **Program.cs** 의 코드를 다음 코드로 바꿉니다. 다음은 코드의 중요한 단계입니다.
     다음은 코드의 중요한 단계입니다.
     1. 네임스페이스에 대한 연결 문자열을 사용하여 [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) 개체를 만듭니다. 
-    1. `ServiceBusClient` 개체에서 [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) 메서드를 호출하여 지정된 Service Bus 큐에 대한 [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) 개체를 생성합니다. 
-    1. `ServiceBusProcessor` 개체의 [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) 및 [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) 이벤트에 대한 처리기를 지정합니다. 
-    1. `ServiceBusProcessor` 개체에서 [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync)를 호출하여 메시지 처리를 시작합니다. 
-    1. 사용자가 키를 눌러 처리를 종료하면 `ServiceBusProcessor` 객체에서 [StopProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.stopprocessingasync)를 호출합니다. 
+    1. `ServiceBusClient` 개체에서 `CreateProcessor` 메서드를 호출하여 지정된 Service Bus 큐에 대한 [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) 개체를 생성합니다. 
+    1. `ServiceBusProcessor` 개체의 `ProcessMessageAsync` 및 `ProcessErrorAsync` 이벤트에 대한 처리기를 지정합니다. 
+    1. `ServiceBusProcessor` 개체에서 `StartProcessingAsync`를 호출하여 메시지 처리를 시작합니다. 
+    1. 사용자가 키를 눌러 처리를 종료하면 `ServiceBusProcessor` 객체에서 `StopProcessingAsync`를 호출합니다. 
 
         자세한 내용은 코드 주석을 참조하세요.
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 06/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 8c1c0131a2771c843cbd636c4a80a8cb7e4d6c08
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65c743f57b715b2be89e6c5d627571b9597b8c83
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649398"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112552985"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ibmid"></a>자습서: IBMid와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -40,7 +40,10 @@ ms.locfileid: "101649398"
 * IBMid에서 **SP 및 IDP** 시작 SSO를 지원합니다.
 * IBMid에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
 
-## <a name="adding-ibmid-from-the-gallery"></a>갤러리에서 IBMid 추가
+> [!NOTE]
+> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
+
+## <a name="add-ibmid-from-the-gallery"></a>갤러리에서 IBMid 추가
 
 IBMid가 Azure AD에 통합되도록 구성하려면 갤러리에서 IBMid를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
@@ -50,7 +53,6 @@ IBMid가 Azure AD에 통합되도록 구성하려면 갤러리에서 IBMid를 �
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **IBMid** 를 입력합니다.
 1. 결과 패널에서 **IBMid** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-ibmid"></a>IBMid에 대한 Azure AD SSO 구성 및 테스트
 
@@ -75,30 +77,31 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
+1. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     a. **식별자** 텍스트 상자에서 다음 URL 중 하나를 입력합니다.
 
     | ID |
     | ---------- |
-    | `https://idaas.iam.ibm.com/idaas/mtfim/sps/idaas/saml20` |
+    | 프로덕션: |
     | `https://ibmlogin.ice.ibmcloud.com/saml/sps/saml20sp/saml20` |
+    | 사전 프로덕션: |
     | `https://prepiam.ice.ibmcloud.com/saml/sps/saml20sp/saml20` |
     |
 
-    a. **회신 URL** 텍스트 상자에서 다음 URL 중 하나를 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 다음 URL 중 하나를 입력합니다.
 
     | 회신 URL |
     | ---------- |
-    | `https://idaas.iam.ibm.com/idaas/mtfim/sps/idaas/saml20/login` |
+    | 프로덕션: |
     | `https://login.ibm.com/saml/sps/saml20sp/saml20/login` |
+    | 사전 프로덕션: |
     | `https://prepiam.ice.ibmcloud.com/saml/sps/saml20sp/saml20/login` |
     |
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
     **로그온 URL** 텍스트 상자에 `https://myibm.ibm.com/` URL을 입력합니다.
-
 
 1. **저장** 을 클릭합니다.
 
@@ -108,7 +111,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 IBMid 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
     
-    | Name |  원본 특성|
+    | 속성 |  원본 특성|
     | ----------- | --------- |
     | country | user.country |
     | firstName | user.givenname |
@@ -132,7 +135,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

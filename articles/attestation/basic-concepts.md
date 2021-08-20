@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 3cd7d2541cb980fc5ca6a1a9c42a430eac1ecb1b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47231ecab14ab9d1705d1015c0de4a035a10a02e
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99429282"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112417310"
 ---
 # <a name="basic-concepts"></a>기본 개념
 
@@ -129,10 +129,25 @@ SGX enclave에 대해 생성된 JWT의 예제는 다음과 같습니다.
   "x-ms-sgx-mrsigner": <SGX enclave msrigner value>, 
   "x-ms-sgx-product-id": 1, 
   "x-ms-sgx-svn": 1,
-  "x-ms-ver": "1.0"
+  "x-ms-ver": "1.0",
+  "x-ms-sgx-config-id": "000102030405060708090a0b0c0d8f99000102030405060708090a0b0c860e9a000102030405060708090a0b7d0d0e9b000102030405060708090a740c0d0e9c",
+  "x-ms-sgx-config-svn": 3451,
+  "x-ms-sgx-isv-extended-product-id": "8765432143211234abcdabcdef123456",
+  "x-ms-sgx-isv-family-id": "1234567812344321abcd1234567890ab"
 }.[Signature]
 ```
+
 위에서 사용된 클레임 중 일부는 사용되지 않는 것으로 간주되지만 완전히 지원됩니다.  이후 모든 코드 및 도구는 더 이상 사용되지 않는 클레임 이름을 사용하는 것이 좋습니다. 자세한 내용은 [Azure Attestation을 통해 발급된 클레임](claim-sets.md)을 참조하세요.
+
+아래 클레임은 Intel® Xeon® 확장 가능한 프로세서 기반 서버 플랫폼용으로 생성된 증명 토큰에만 표시됩니다. SGX enclave가 [키 구분 및 공유 지원](https://github.com/openenclave/openenclave/issues/3054)으로 구성되어 있지 않으면 클레임이 표시되지 않습니다.
+
+**x-ms-sgx-config-id**
+
+**x-ms-sgx-config-svn**
+
+**x-ms-sgx-isv-extended-product-id**
+
+**x-ms-sgx-isv-family-id**
 
 ## <a name="encryption-of-data-at-rest"></a>미사용 데이터 암호화
 

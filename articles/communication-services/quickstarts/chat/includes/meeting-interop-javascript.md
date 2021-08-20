@@ -2,20 +2,20 @@
 title: 빠른 시작 - Teams 모임 참가
 author: askaur
 ms.author: askaur
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 2fb04acd75d607772b6582882b98f9ed222f070c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 04ee9f19f23d16af9070d3366981b0690ba9ef27
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111430558"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113113113"
 ---
 이 빠른 시작에서는 JavaScript용 Azure Communication Services 채팅 SDK를 사용하여 Teams 모임에서 채팅하는 방법을 알아봅니다.
 
-> [!NOTE]
-> [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting)에서 이 빠른 시작에 대한 최종 코드 칮기
+## <a name="sample-code"></a>샘플 코드
+[GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting)에서 이 빠른 시작에 대한 최종 코드를 찾습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항 
 
@@ -325,6 +325,12 @@ sendMessageButton.addEventListener("click", async () =>
     });
 ```
 
+채팅 스레드 참가자의 표시 이름은 Teams 클라이언트에서 설정하지 않습니다. 이름이 참가자 나열을 위한 API, `participantsAdded` 이벤트 및 `participantsRemoved` 이벤트에서 null로 반환됩니다. 채팅 참가자의 표시 이름은 `call` 개체의 `remoteParticipants` 필드에서 검색할 수 있습니다. 명단 변경에 대한 알림을 받으면 이 코드를 사용하여 추가되거나 제거된 사용자의 이름을 검색할 수 있습니다.
+
+```
+var displayName = call.remoteParticipants.find(p => p.identifier.communicationUserId == '<REMOTE_USER_ID>').displayName;
+```
+
 ## <a name="get-a-teams-meeting-chat-thread-for-a-communication-services-user"></a>Communication Services 사용자를 위한 Teams 미팅 채팅 스레드 가져오기
 
 Teams 모임 링크 및 채팅은 [그래프 문서](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)에 자세히 설명된 Graph API를 사용하여 검색할 수 있습니다. Communication Services Calling SDK는 전체 Teams 미팅 링크를 수락합니다. 이 링크는 [`joinWebUrl` 속성](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)에서 액세스할 수 있는 `onlineMeeting` 리소스의 일부로 반환됩니다. [Graph API](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)를 사용하면 `threadId`를 얻을 수도 있습니다. 응답에는 `threadID`를 포함하는 `chatInfo` 개체가 포함됩니다. 
@@ -348,4 +354,4 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 텍스트 상자에 Teams 모임 링크와 스레드 ID를 삽입합니다. Teams 모임에 참가하려면 *팀 모임 참가* 를 누릅니다. Communication Services 사용자가 모임에 입장한 후 Communication Services 애플리케이션에서 채팅할 수 있습니다. 페이지 맨 아래에 있는 상자로 이동하여 채팅을 시작합니다.
 
 > [!NOTE] 
-> 현재는 Teams와의 상호 운용성 시나리오에 대해서만 메시지를 보내고 받고 편집할 수 있습니다. 입력 표시기 및 Communication Services 사용자와 같은 다른 기능에서는 아직 Teams 미팅에서 다른 사용자를 추가하거나 제거할 수 없습니다.
+> 현재는 Teams와의 상호 운용성 시나리오에 대해서만 메시지 전송, 수신, 편집 및 타이핑 알림 보내기가 지원됩니다. 읽음 확인 및 Communication Services 사용자와 같은 다른 기능에서는 아직 Teams 미팅에서 다른 사용자를 추가하거나 제거할 수 없습니다.

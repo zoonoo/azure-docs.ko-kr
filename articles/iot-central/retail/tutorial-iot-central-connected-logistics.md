@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 7c6c50b6fd8200726aa11f120d9748cc1b40aa22
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 156764372d530935332d4343dfdfcb48fd1ebe3a
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99831623"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964323"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>자습서: 커넥티드 물류 애플리케이션 템플릿 배포 및 살펴보기
 
@@ -41,7 +41,7 @@ ms.locfileid: "99831623"
 
     :::image type="content" source="media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png" alt-text="연결된 물류 템플릿":::
 
-1. **커넥티드 물류 애플리케이션** 에서 **앱 만들기** 를 선택합니다.
+1. **연결된 물류** 에서 **앱 만들기** 를 선택합니다.
 
 1. **앱 만들기** 에서 **새 애플리케이션** 양식이 열립니다. 다음 세부 정보를 입력합니다.
 
@@ -57,37 +57,26 @@ ms.locfileid: "99831623"
 
 ## <a name="walk-through-the-application"></a>애플리케이션 살펴보기
 
-다음은 연결된 물류 애플리케이션 템플릿을 선택하는 방법을 보여 주는 스크린샷입니다.
-
-> [!div class="mx-imgBorder"]
-> ![연결된 물류 애플리케이션 템플릿을 선택하는 방법을 보여 주는 스크린샷](./media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png)
-
 다음 섹션에서는 애플리케이션의 주요 기능을 안내합니다.
 
 ### <a name="dashboard"></a>대시보드
 
 애플리케이션 템플릿을 배포하면 기본 대시보드는 커넥티드 물류 운영자 중심 포털이 됩니다. Northwind Trader는 해상이나 육지에서 화물 차량을 관리하는 가상 물류 공급자입니다. 이 대시보드에서는 관련된 명령, 직무 및 작업과 함께 배송의 원격 분석을 제공하는 두 개의 다른 게이트웨이를 볼 수 있습니다.
 
-> [!div class="mx-imgBorder"]
-> ![연결된 물류 애플리케이션 템플릿에서 앱을 만드는 방법을 보여 주는 스크린샷](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png)
-
-> [!div class="mx-imgBorder"]
-> ![애플리케이션을 만들 때 청구 옵션을 보여 주는 스크린샷](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png)
-
 이 대시보드는 중요한 물류 디바이스 작업 활동을 보여 주기 위해 미리 구성되어 있습니다.
 
 대시보드는 서로 다른 두 게이트웨이 디바이스 관리 작업을 사용하도록 설정합니다.
 
-* 트럭 배송에 대한 물류 경로 및 해상 배송의 위치 세부 정보를 확인합니다.
+* 트럭 배송에 대한 물류 경로 및 해상 배송의 [위치](../core/howto-use-location-data.md) 세부 정보를 확인합니다.
 * 게이트웨이 상태 및 기타 관련 정보를 확인합니다.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png" alt-text="연결된 물류 대시보드":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard-1.png" alt-text="연결된 물류 대시보드":::
 
 * 게이트웨이, 활성 및 알 수 없는 태그의 총 수를 추적할 수 있습니다.
 * 펌웨어 업데이트, 센서 사용 안 함, 센서 사용, 센서 임계값 업데이트, 원격 분석 간격 업데이트, 디바이스 서비스 계약 업데이트 등의 디바이스 관리 작업을 수행할 수 있습니다.
 * 디바이스 배터리 사용량을 확인합니다.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png" alt-text="연결된 물류 대시보드 상태":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard-2.png" alt-text="연결된 물류 대시보드 상태":::
 
 #### <a name="device-template"></a>디바이스 템플릿
 
@@ -95,11 +84,11 @@ ms.locfileid: "99831623"
 
 **게이트웨이 원격 분석 및 속성** - 이 인터페이스는 센서, 위치 및 디바이스 정보와 관련된 모든 원격 분석을 정의합니다. 또한 이 인터페이스는 센서 임계값 및 업데이트 간격과 같은 디바이스 쌍 속성 기능을 정의합니다.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png" alt-text="원격 분석 및 속성 인터페이스":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-device-template-1.png" alt-text="원격 분석 및 속성 인터페이스":::
 
 **게이트웨이 명령** - 이 인터페이스는 모든 게이트웨이 명령 기능을 구성합니다.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png" alt-text="게이트웨이 명령 인터페이스":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-device-template-2.png" alt-text="게이트웨이 명령 인터페이스":::
 
 ### <a name="rules"></a>규칙
 
@@ -107,13 +96,13 @@ ms.locfileid: "99831623"
 
 **게이트웨이 도난 경고**: 이 규칙은 진행 중에 센서가 예기치 않은 광원을 감지할 때 트리거됩니다. 잠재적 도난을 조사할 수 있도록 운영자에게 즉시 알림을 제공해야 합니다.
 
-**응답하지 않는 게이트웨이**: 이 규칙은 게이트웨이가 장기간 클라우드에 보고하지 않는 경우에 트리거됩니다. 배터리 부족, 연결 손실 또는 디바이스 손상으로 인해 게이트웨이가 응답하지 않을 수 있습니다.
+**게이트웨이 분실 경고**: 이 규칙은 게이트웨이가 장기간 클라우드에 보고하지 않는 경우에 트리거됩니다. 배터리 부족, 연결 손실 또는 디바이스 손상으로 인해 게이트웨이가 응답하지 않을 수 있습니다.
 
 :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png" alt-text="규칙 정의":::
 
 ### <a name="jobs"></a>작업
 
-**작업** 탭을 선택하여 이 애플리케이션의 작업을 표시합니다.
+**작업** 탭을 선택하여 이 애플리케이션에서 작업을 만듭니다. 다음 스크린샷은 생성된 작업의 예를 보여줍니다.
 
 :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png" alt-text="실행할 작업":::
 

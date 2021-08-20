@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 18d944cd2b3bfde1a0ee5fc53e83e4016b11b01f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1501d682de61b52a3933f6f849b4eac6d9f33b87
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100379219"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766845"
 ---
 # <a name="azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 단일 서버
 
@@ -26,7 +26,7 @@ PostgreSQL 커뮤니티 버전에서 제공하는 [Azure Database for PostgreSQL
 
 ## <a name="overview"></a>개요
 
-단일 서버는 데이터베이스 사용자 지정을 최소화한 완전 관리형 데이터베이스 서비스입니다. 단일 서버 플랫폼은 최소한의 사용자 구성과 제어를 통해 패치, 백업, 고가용성, 보안 등 대부분의 데이터베이스 관리 기능을 처리하도록 설계되었습니다. 아키텍처는 단일 가용성 영역에서 99.99%의 가용성을 제공하도록 최적화되었습니다. PostgreSQL 커뮤니티 버전 9.5, 9.6, 10 및 11을 지원합니다. 이 서비스는 현재 다양한 [Azure 지역](https://azure.microsoft.com/global-infrastructure/services/)에서 일반 공급됩니다.
+단일 서버는 데이터베이스 사용자 지정을 최소화한 완전 관리형 데이터베이스 서비스입니다. 단일 서버 플랫폼은 최소한의 사용자 구성과 제어를 통해 패치, 백업, 고가용성, 보안 등 대부분의 데이터베이스 관리 기능을 처리하도록 설계되었습니다. 아키텍처는 단일 가용성 영역에서 99.99%의 가용성을 제공하도록 최적화되었습니다. PostgreSQL 커뮤니티 버전 9.6, 10 및 11을 지원합니다. 이 서비스는 현재 다양한 [Azure 지역](https://azure.microsoft.com/global-infrastructure/services/)에서 일반 공급됩니다.
 
 단일 서버는 패치 일정 및 사용자 지정 PostgreSQL 구성 설정에 대한 세부적인 제어 없이 자동화된 패치를 처리하도록 설계된 클라우드 네이티브 애플리케이션에 가장 적합합니다.
 

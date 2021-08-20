@@ -8,12 +8,12 @@ ms.subservice: personalizer
 ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
 ms.date: 03/23/2021
-ms.openlocfilehash: e772182cfd1ba656c730f423a7b4b8f0a5d709a7
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: da6a271275c0b3b4f8d412bf622e6171609b3128
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382335"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112255098"
 ---
 [다중 슬롯 개념](..\concept-multi-slot-personalization.md) | [샘플](https://aka.ms/personalizer/ms-python)
 
@@ -31,6 +31,8 @@ ms.locfileid: "110382335"
 
 [!INCLUDE [Change model frequency](change-model-frequency.md)]
 
+[!INCLUDE [Change reward wait time](change-reward-wait-time.md)]
+
 ### <a name="create-a-new-python-application"></a>새 Python 애플리케이션 만들기
 
 새 Python 파일을 만들고 리소스의 엔드포인트 및 구독 키에 대한 변수를 만듭니다.
@@ -38,20 +40,20 @@ ms.locfileid: "110382335"
 [!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
 
 ```python
-import datetime, json, os, time, uuid, requests
+import json, uuid, requests
 
 # The endpoint specific to your personalization service instance; 
 # e.g. https://<your-resource-name>.cognitiveservices.azure.com
-PERSONALIZATION_BASE_URL = "https://<REPLACE-WITH-YOUR-PERSONALIZER-ENDPOINT>.cognitiveservices.azure.com"
+PERSONALIZATION_BASE_URL = "<REPLACE-WITH-YOUR-PERSONALIZER-ENDPOINT>"
 # The key specific to your personalization service instance; e.g. "0123456789abcdef0123456789ABCDEF"
 RESOURCE_KEY = "<REPLACE-WITH-YOUR-PERSONALIZER-KEY>"
 ```
 
 ## <a name="object-model"></a>개체 모델
 
-각 슬롯에 대한 콘텐츠의 가장 적합한 단일 항목을 요청하려면 [rank_request]를 만든 다음, 게시 요청을 [multislot/rank] 엔드포인트(https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/Rank) 로 보냅니다. 그러면 응답이 [rank_response]로 구문 분석됩니다.
+각 슬롯에 대한 콘텐츠의 가장 적합한 단일 항목을 요청하려면 **rank_request** 를 만든 다음, 게시 요청을 [multislot/rank](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/MultiSlot_Rank)에 보냅니다. 그러면 응답이 **rank_response** 로 구문 분석됩니다.
 
-Personalizer에 보상 점수를 보내려면 [rewards]를 만든 다음, 게시 요청을 [multislot/events/{eventId}/reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/Events_Reward)로 보냅니다.
+Personalizer에 보상 점수를 보내려면 **rewards** 를 만든 다음, 게시 요청을 [multislot/events/{eventId}/reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/MultiSlot_Events_Reward)에 보냅니다.
 
 이 빠른 시작에서 보상 점수를 결정하는 방법은 간단합니다. 프로덕션 시스템에서 [보상 점수](../concept-rewards.md)에 영향을 주는 요소와 크기를 결정하는 것은 복잡한 프로세스일 수 있으며, 시간이 지남에 따라 변경될 수 있습니다. 이 설계 결정은 Personalizer 아키텍처에서 기본 설계 결정 중 하나여야 합니다.
 
@@ -65,17 +67,13 @@ Personalizer에 보상 점수를 보내려면 [rewards]를 만든 다음, 게시
 
 ## <a name="create-base-urls"></a>기본 URL 만들기
 
-이 섹션에서는 다음과 같은 두 가지 작업을 수행합니다.
-* 순위 및 보상 URL 생성
-* 순위/보상 요청 헤더 생성
-
-기본 URL을 사용하는 순위/보상 URL 및 리소스 키를 사용하는 요청 헤더를 생성합니다.
+이 섹션에서는 기본 URL을 사용하는 순위/보상 URL 및 리소스 키를 사용하는 요청 헤더를 구성합니다.
 
 ```python
 MULTI_SLOT_RANK_URL = '{0}personalizer/v1.1-preview.1/multislot/rank'.format(PERSONALIZATION_BASE_URL)
 MULTI_SLOT_REWARD_URL_BASE = '{0}personalizer/v1.1-preview.1/multislot/events/'.format(PERSONALIZATION_BASE_URL)
 HEADERS = {
-    'ocp-apim-subscription-key.': RESOURCE_KEY,
+    'ocp-apim-subscription-key': RESOURCE_KEY,
     'Content-Type': 'application/json'
 }
 ```
@@ -201,12 +199,14 @@ def get_slots():
 
 ## <a name="make-http-requests"></a>HTTP 요청 만들기
 
-다중 슬롯 순위 및 보상 호출에 대한 게시 요청을 Personalizer 엔드포인트로 보냅니다.
+이러한 함수를 추가하여 다중 슬롯 순위 및 보상 호출에 대한 게시 요청을 Personalizer 엔드포인트에 보냅니다.
 
 ```python
 def send_multi_slot_rank(rank_request):
-    multi_slot_response = requests.post(MULTI_SLOT_RANK_URL, data=json.dumps(rank_request), headers=HEADERS )
-    return json.loads(multi_slot_response.text)
+multi_slot_response = requests.post(MULTI_SLOT_RANK_URL, data=json.dumps(rank_request), headers=HEADERS)
+if multi_slot_response.status_code != 201:
+    raise Exception(multi_slot_response.text)
+return json.loads(multi_slot_response.text)
 ```
 
 ```python
@@ -289,7 +289,7 @@ while run_loop:
 
 ## <a name="request-the-best-action"></a>최상의 작업 요청
 
-프로그램에서는 순위 요청을 수행하기 위해 사용자의 기본 설정에서 콘텐츠 선택 항목을 만들도록 요청합니다. 요청 본문에는 응답을 받을 수 있는 컨텍스트 기능, 작업 및 해당 기능, 슬롯 및 해당 기능과 고유한 이벤트 ID가 포함됩니다. `send_multi_slot_rank` 메서드에서 다중 슬롯 순위 요청을 보내려면 rank_equest가 필요합니다.
+프로그램에서는 순위 요청을 수행하기 위해 사용자의 기본 설정에서 콘텐츠 선택 항목을 만들도록 요청합니다. 요청 본문에는 해당 기능이 있는 컨텍스트, 작업 및 슬롯이 포함됩니다. `send_multi_slot_rank` 메서드는 rankRequest를 가져오고 다중 슬롯 순위 요청을 실행합니다.
 
 이 빠른 시작에는 시간 및 사용자 디바이스에 대한 간단한 컨텍스트 기능이 있습니다. 프로덕션 시스템에서 [작업 및 기능](../concepts-features.md)을 결정하고 [평가](../concept-feature-evaluation.md)하는 것은 간단한 문제가 아닐 수 있습니다.
 
@@ -313,7 +313,7 @@ multi_slot_rank_response = send_multi_slot_rank(rank_request)
 
 ## <a name="send-a-reward"></a>보상 보내기
 
-보상 요청에서 보낼 보상 점수를 가져오기 위해 프로그램은 명령줄을 통해 각 슬롯에 대한 사용자의 선택 사항을 가져와서 숫자 값을 각 선택 항목에 할당한 다음, 고유한 이벤트 ID, 슬롯 ID 및 보상 점수를 숫자 값으로 `send_multi_slot_reward` 메서드에 보냅니다. 각 슬롯에 대해 보상을 정의할 필요가 없습니다.
+보상 요청에 대한 보상 점수를 가져오기 위해 프로그램은 명령줄을 통해 각 슬롯에 대한 사용자의 선택 사항을 가져와서 숫자 값(보상 점수)을 각 선택 항목에 할당한 다음, 고유한 이벤트 ID, 슬롯 ID 및 보상 점수를 `send_multi_slot_reward` 메서드에 보냅니다. 각 슬롯에 대해 보상을 정의할 필요가 없습니다.
 
 이 빠른 시작에서는 0 또는 1의 간단한 숫자를 보상 점수로 할당합니다. 프로덕션 시스템에서 특정 요구 사항에 따라 [보상](../concept-rewards.md) 호출에 보내는 시기와 대상을 결정하는 것은 간단한 문제가 아닐 수 있습니다.
 
@@ -343,4 +343,4 @@ python sample.py
 ![빠른 시작 프로그램은 기능으로 알려진 사용자 기본 설정을 수집하기 위해 몇 가지 질문을 합니다.](../media/csharp-quickstart-commandline-feedback-loop/multislot-quickstart-program-feedback-loop-example-1.png)
 
 
-[이 빠른 시작의 소스 코드](https://aka.ms/personalizer/ms-python)가 제공됩니다.
+[이 빠른 시작의 소스 코드](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer/multislot-quickstart)가 제공됩니다.

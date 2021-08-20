@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 0759a3fce2d056bbe5d9234e25b45525874faf4e
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c67dfe6295a62a464d1a7a5eeb7a9ba7afd88ced
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670567"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113128771"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호
 
@@ -129,11 +129,11 @@ ms.locfileid: "110670567"
 
 기본적으로 누구나 HTTP를 사용하여 앱에 액세스할 수 있습니다. HTTPS 포트에 모든 HTTP 요청을 리디렉션할 수 있습니다.
 
-앱 페이지의 왼쪽 탐색 영역에서 **SSL 설정** 을 선택합니다. 그런 다음 **HTTPS에만 해당** 에서 **켜기** 를 선택합니다.
+앱 페이지의 왼쪽 탐색 영역에서 **TLS/SSL 설정** 을 선택합니다. 그런 다음 **HTTPS에만 해당** 에서 **켜기** 를 선택합니다.
 
 ![HTTPS 적용](./media/configure-ssl-bindings/enforce-https.png)
 
-작업이 완료되면 앱을 가리키는 HTTP URL 중 하나로 이동합니다. 다음은 그 예입니다.
+작업이 완료되면 앱을 가리키는 HTTP URL 중 하나로 이동합니다. 다음은 그 예입니다. 
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
@@ -143,7 +143,7 @@ ms.locfileid: "110670567"
 
 앱에는 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)와 같이 업계 표준에서 권장되는 TLS 수준인 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2가 기본적으로 허용됩니다. 다른 TLS 버전을 적용하려면 다음 단계를 수행합니다.
 
-앱 페이지의 왼쪽 탐색 영역에서 **SSL 설정** 을 선택합니다. 그런 다음, **TLS 버전** 에서 원하는 최소 TLS 버전을 선택합니다. 이 설정은 인바운드 호출만 제어합니다. 
+앱 페이지의 왼쪽 탐색 영역에서 **TLS/SSL 설정** 을 선택합니다. 그런 다음, **TLS 버전** 에서 원하는 최소 TLS 버전을 선택합니다. 이 설정은 인바운드 호출만 제어합니다. 
 
 ![TLS 1.1 또는 1.2 적용](./media/configure-ssl-bindings/enforce-tls1-2.png)
 
@@ -168,4 +168,4 @@ App Service에서, [TLS 종료](https://wikipedia.org/wiki/TLS_termination_proxy
 ## <a name="more-resources"></a>추가 리소스
 
 * [Azure App Service의 코드에서 TLS/SSL 인증서 사용](configure-ssl-certificate-in-code.md)
-* [FAQ: App Service Certificate](./faq-configuration-and-management.md)
+* [FAQ: App Service Certificate](./faq-configuration-and-management.yml)

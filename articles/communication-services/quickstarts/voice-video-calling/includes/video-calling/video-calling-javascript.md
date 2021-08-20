@@ -4,21 +4,20 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 2bbff7c68b76b82bb834528124271eff69b8ad87
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: e8a00161e9619a27b371ed80a61d7b3ea5d3e9c6
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111896442"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112536178"
 ---
 Communication Services Calling SDK를 사용하여 앱에 1:1 영상 통화를 추가하여 Azure Communication Services를 시작하세요. JavaScript용 Azure Communication Services Calling SDK를 사용하여 영상 통화를 시작하고 응답하는 방법에 대해 알아봅니다.
 
+## <a name="sample-code"></a>샘플 코드
 
-> [!NOTE]
-> [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling)에서 이 빠른 시작에 대한 최종 코드 칮기
+끝으로 건너뛰려면 [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling)에서 이 빠른 시작을 샘플로 다운로드할 수 있습니다.
 
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 - 활성 구독이 있는 Azure 계정을 얻습니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/en/) 활성 LTS 및 유지 관리 LTS 버전(8.11.1 및 10.14.1)
 - 활성 Communication Services 리소스를 만듭니다. [Communication Services 리소스를 만듭니다](../../../create-communication-resource.md?pivots=platform-azp&tabs=windows).
@@ -135,7 +134,11 @@ Azure Communication Services Calling SDK의 주요 기능 중 일부를 처리�
 
 ## <a name="authenticate-the-client-and-access-devicemanager"></a>클라이언트 인증 및 DeviceManager 액세스
 
-<[USER_ACCESS_TOKEN](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/access-tokens-quickstart)>을 리소스에 대한 유효한 사용자 액세스 토큰으로 바꿔야 합니다. 사용할 수 있는 토큰이 아직 없는 경우 사용자 액세스 토큰 설명서를 참조하세요. `CallClient`를 사용하여 호출을 수행하고 받을 수 있도록 하는 `CommunicationUserCredential`을 사용하여 `CallAgent` 인스턴스를 초기화합니다. `DeviceManager`에 액세스하려면 먼저 callAgent 인스턴스를 만들어야 합니다. 그런 다음, `CallClient` 인스턴스에서 `getDeviceManager` 메서드를 사용하여 `DeviceManager`를 가져올 수 있습니다.
+리소스의 경우 **<USER_ACCESS_TOKEN>을 유효한 사용자 액세스 토큰으로 바꿔야 합니다**. 사용할 수 있는 토큰이 아직 없는 경우 [사용자 액세스 토큰 설명서](../../../access-tokens.md)를 참조하세요. 
+
+`CallClient`를 사용하여 호출을 수행하고 받을 수 있도록 하는 `CommunicationUserCredential`을 사용하여 `CallAgent` 인스턴스를 초기화합니다. 
+
+`DeviceManager`에 액세스하려면 먼저 callAgent 인스턴스를 만들어야 합니다. 그런 다음, `CallClient` 인스턴스에서 `getDeviceManager` 메서드를 사용하여 `DeviceManager`를 가져올 수 있습니다.
 
 다음 코드를 `client.js`에 추가합니다.
 
@@ -294,7 +297,7 @@ hangUpButton.addEventListener("click", async () => {
 
 ## <a name="start-and-end-video-during-the-call"></a>통화 중 비디오 시작 및 종료
 현재 통화 중에 이벤트 수신기를 비디오 중지 단추에 추가하여 `localVideoStream`의 렌더러를 삭제하여 비디오를 중지할 수 있습니다. 
- ```JavaScript       
+ ```JavaScript
 stopVideoButton.addEventListener("click", async () => {
     await call.stopVideo(localVideoStream);
     rendererLocal.dispose();
@@ -321,7 +324,4 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 :::image type="content" source="../../media/javascript/1-on-1-video-calling.png" alt-text="1대1 영상 통화 페이지":::
 
-텍스트 필드에서 사용자 ID를 제공하고 호출 시작 단추를 클릭하여 1:1 발신 영상 통화를 수행할 수 있습니다. 
-
-## <a name="sample-code"></a>예제 코드
-샘플 앱은 [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling)에서 다운로드할 수 있습니다.
+텍스트 필드에서 사용자 ID를 제공하고 호출 시작 단추를 클릭하여 1:1 발신 영상 통화를 수행할 수 있습니다.

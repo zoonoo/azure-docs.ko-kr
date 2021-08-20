@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd215f0c10f8aebd2a7494ecb5894484ce7bedb9
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: e0558be2ea1defb2a09e6461ba838e328cb293d6
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714047"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112201719"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD Identity Governance란?
 
@@ -108,13 +108,13 @@ ID 거버넌스에서 관리 작업을 수행할 때 최소 권한 역할을 사
 
 | 기능 | 최소 권한 역할 |
 | ------- | --------------------- |
-| 권한 관리 | 사용자 관리자(카탈로그에 SharePoint Online 사이트를 추가하는 권한 제외. 이 작업은 전역 관리자 권한이 필요) |
+| 권한 관리 | Identity Governance 관리자 |
 | 액세스 검토 | 사용자 관리자(Azure 또는 Azure AD 역할의 액세스 검토 제외. 이 작업은 권한 있는 역할 관리자가 필요) |
 |Privileged Identity Management | 권한 있는 역할 관리자 |
 | 사용 약관 | 보안 관리자 또는 조건부 액세스 관리자 |
 
 >[!NOTE]
->권한 관리에 대한 최소 권한 있는 역할은 사용자 관리자 역할에서 ID 거버넌스 관리자 역할로 변경됩니다.
+>권한 관리에 대한 최소 권한 있는 역할은 사용자 관리자 역할에서 ID 거버넌스 관리자 역할로 변경되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

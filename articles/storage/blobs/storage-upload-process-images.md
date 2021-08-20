@@ -9,12 +9,12 @@ ms.date: 06/24/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: a2a73c081a24d0efc8197a2d6808f4dfee94481a
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 9aa776b52d3303d7721d900476f606c3ab38d7a5
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591677"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112378712"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>자습서: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
@@ -41,7 +41,7 @@ ms.locfileid: "111591677"
 > * 앱 설정 구성
 > * 웹앱과 상호 작용
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 Azure 구독이 필요합니다. 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
@@ -51,26 +51,48 @@ CLI를 로컬로 설치하고 사용하려면 Azure CLI 버전 2.0.4 이상을 �
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.  
-
 다음 예제에서는 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
+
+```powershell
+New-AzResourceGroup -Name myResourceGroup -Location southeastasia
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
 ```azurecli
 az group create --name myResourceGroup --location southeastasia
 ```
 
-```powershell
-az group create --name myResourceGroup --location southeastasia
-```
+---
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-이 샘플은 Azure 스토리지 계정의 Blob 컨테이너에 이미지를 업로드합니다. 스토리지 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다. [az storage account create](/cli/azure/storage/account) 명령을 사용하여 만든 리소스 그룹에 스토리지 계정을 만듭니다.
+이 샘플은 Azure 스토리지 계정의 Blob 컨테이너에 이미지를 업로드합니다. 스토리지 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다.
 
 > [!IMPORTANT]
 > 자습서의 2부에서는 Blob 스토리지에서 Azure Event Grid를 사용합니다. 스토리지 계정은 Event Grid를 지원하는 Azure 지역에 만듭니다. 지원되는 지역 목록은 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all)을 참조하세요.
 
 다음 명령에서 `<blob_storage_account>` 자리 표시자가 표시되는 Blob Storage 계정에 대해 글로벌로 고유한 이름으로 바꿉니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+만든 리소스 그룹에 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) 명령을 사용하여 스토리지 계정을 만듭니다.
+
+```powershell
+$blobStorageAccount="<blob_storage_account>"
+
+New-AzStorageAccount -ResourceGroupName myResourceGroup -Name $blobStorageAccount -SkuName Standard_LRS -Location southeastasia -Kind StorageV2 -AccessTier Hot
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[az storage account create](/cli/azure/storage/account) 명령을 사용하여 만든 리소스 그룹에 스토리지 계정을 만듭니다.
 
 ```azurecli
 blobStorageAccount="<blob_storage_account>"
@@ -79,22 +101,31 @@ az storage account create --name $blobStorageAccount --location southeastasia \
   --resource-group myResourceGroup --sku Standard_LRS --kind StorageV2 --access-tier hot
 ```
 
-```powershell
-$blobStorageAccount="<blob_storage_account>"
-
-az storage account create --name $blobStorageAccount --location southeastasia `
-  --resource-group myResourceGroup --sku Standard_LRS --kind StorageV2 --access-tier hot
-```
+---
 
 ## <a name="create-blob-storage-containers"></a>Blob 스토리지 컨테이너 만들기
 
-앱은 Blob Storage 계정에서 두 컨테이너를 사용합니다. 컨테이너는 폴더와 비슷하며 Blob을 저장합니다. *images* 컨테이너는 앱이 고해상도 이미지를 업로드하는 위치입니다. 시리즈의 뒷부분에서 Azure 함수 앱은 크기가 조정된 이미지 썸네일을 *썸네일* 컨테이너에 업로드합니다.
-
-[az storage account keys list](/cli/azure/storage/account/keys) 명령을 사용하여 스토리지 계정 키를 가져옵니다. 그런 다음, 이 키를 사용하여 [az storage container create](/cli/azure/storage/container) 명령으로 두 개의 컨테이너를 만듭니다.
+앱은 Blob Storage 계정에서 두 컨테이너를 사용합니다. 컨테이너는 폴더와 비슷하며 Blob을 저장합니다. *images* 컨테이너는 앱이 고해상도 이미지를 업로드하는 위치입니다. 시리즈의 뒷부분에서 Azure 함수 앱은 크기가 조정된 이미지 썸네일을 *썸네일로 업로드합니다.
 
 *images* 컨테이너의 공용 액세스는 `off`로 설정되고, *thumbnails* 컨테이너의 공용 액세스는 `container`로 설정됩니다. `container` 공용 액세스 설정을 사용하면 웹 페이지를 방문하는 사용자가 썸네일을 볼 수 있습니다.
 
-```bash
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+[Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) 명령을 사용하여 스토리지 계정 키를 가져옵니다. 그런 다음, 이 키를 사용하여 [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) 명령으로 두 개의 컨테이너를 만듭니다.
+
+```powershell
+$blobStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName myResourceGroup -Name $blobStorageAccount).Key1
+$blobStorageContext = New-AzStorageContext -StorageAccountName $blobStorageAccount -StorageAccountKey $blobStorageAccountKey
+
+New-AzStorageContainer -Name images -Context $blobStorageContext
+New-AzStorageContainer -Name thumbnails -Permission Container -Context $blobStorageContext
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[az storage account keys list](/cli/azure/storage/account/keys) 명령을 사용하여 스토리지 계정 키를 가져옵니다. 그런 다음, 이 키를 사용하여 [az storage container create](/cli/azure/storage/container) 명령으로 두 개의 컨테이너를 만듭니다.
+
+```azurecli
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
   -n $blobStorageAccount --query "[0].value" --output tsv)
 
@@ -107,18 +138,7 @@ az storage container create --name thumbnails \
   --account-key $blobStorageAccountKey --public-access container
 ```
 
-```powershell
-$blobStorageAccountKey=$(az storage account keys list -g myResourceGroup `
-  -n $blobStorageAccount --query "[0].value" --output tsv)
-
-az storage container create --name images `
-  --account-name $blobStorageAccount `
-  --account-key $blobStorageAccountKey
-
-az storage container create --name thumbnails `
-  --account-name $blobStorageAccount `
-  --account-key $blobStorageAccountKey --public-access container
-```
+---
 
 Blob 스토리지 계정 이름과 키를 적어 두세요. 샘플 앱에서 이러한 설정을 통해 스토리지 계정에 연결하여 이미지를 업로드합니다. 
 
@@ -126,23 +146,45 @@ Blob 스토리지 계정 이름과 키를 적어 두세요. 샘플 앱에서 이
 
 [App Service 계획](../../app-service/overview-hosting-plans.md)은 위치, 크기 및 앱을 호스트하는 웹 서버 팜의 기능을 지정합니다.
 
-[az appservice plan create](/cli/azure/appservice/plan) 명령으로 App Service 계획을 만듭니다.
-
 다음 예에서는 **체험** 가격 책정 계층에서 `myAppServicePlan`이라는 App Service 계획을 만듭니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+[New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) 명령으로 App Service 요금제를 만듭니다.
+
+```powershell
+New-AzAppServicePlan -ResourceGroupName myResourceGroup -Name myAppServicePlan -Tier "Free"
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[az appservice plan create](/cli/azure/appservice/plan) 명령으로 App Service 계획을 만듭니다.
 
 ```azurecli
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
 ```
 
-```powershell
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
-```
+---
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
-웹앱은 GitHub 샘플 리포지토리에서 배포되는 샘플 앱 코드에 대한 호스팅 공간을 제공합니다. [az webapp create](/cli/azure/webapp) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../../app-service/overview.md)을 만듭니다.  
+웹앱은 GitHub 샘플 리포지토리에서 배포되는 샘플 앱 코드에 대한 호스팅 공간을 제공합니다.
 
 다음 명령에서 `<web_app>`을 고유한 이름으로 바꿉니다. 유효한 문자는 `a-z`, `0-9` 및 `-`입니다. `<web_app>`이 고유하지 않으면 다음 오류 메시지가 표시됩니다. *이름이 `<web_app>`인 웹 사이트가 이미 있습니다.* 웹앱의 기본 URL은 `https://<web_app>.azurewebsites.net`입니다.  
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+[New-AzWebApp](/powershell/module/az.websites/new-azwebapp) 명령을 사용하여 `myAppServicePlan` App Service 요금제에서 [웹앱](../../app-service/overview.md)을 만듭니다.  
+
+```powershell
+$webapp="<web_app>"
+
+New-AzWebApp -ResourceGroupName myResourceGroup -Name $webapp -AppServicePlan myAppServicePlan
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[az webapp create](/cli/azure/webapp) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../../app-service/overview.md)을 만듭니다.  
 
 ```azurecli
 webapp="<web_app>"
@@ -150,11 +192,7 @@ webapp="<web_app>"
 az webapp create --name $webapp --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
-```powershell
-$webapp="<web_app>"
-
-az webapp create --name $webapp --resource-group myResourceGroup --plan myAppServicePlan
-```
+---
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>GitHub 리포지토리에서 샘플 앱 배포
 
@@ -198,7 +236,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 # <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
-샘플 웹앱은 [.NET용 Azure Storage API](/dotnet/api/overview/azure/storage)를 사용하여 이미지를 업로드합니다. 스토리지 계정 자격 증명은 웹앱에 대한 앱 설정에 설정됩니다. [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) 명령을 사용하여 배포된 앱에 앱 설정을 추가합니다.
+샘플 웹앱은 [.NET용 Azure Storage API](/dotnet/api/overview/azure/storage)를 사용하여 이미지를 업로드합니다. 스토리지 계정 자격 증명은 웹앱에 대한 앱 설정에 설정됩니다. [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) 또는 [New-AzStaticWebAppSetting](/powershell/module/az.websites/new-azstaticwebappsetting) 명령을 사용하여 배포된 앱에 앱 설정을 추가합니다.
 
 ```azurecli
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
@@ -218,7 +256,7 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
 
 # <a name="javascript-v12-sdk"></a>[JavaScript v12 SDK](#tab/javascript)
 
-샘플 웹앱은 [JavaScript용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage)를 사용하여 이미지를 업로드합니다. 스토리지 계정 자격 증명은 웹앱에 대한 앱 설정에서 설정됩니다. [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) 명령을 사용하여 배포된 앱에 앱 설정을 추가합니다.
+샘플 웹앱은 [JavaScript용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage)를 사용하여 이미지를 업로드합니다. 스토리지 계정 자격 증명은 웹앱에 대한 앱 설정에서 설정됩니다. [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) 또는 [New-AzStaticWebAppSetting](/powershell/module/az.websites/new-azstaticwebappsetting) 명령을 사용하여 배포된 앱에 앱 설정을 추가합니다.
 
 ```azurecli
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \

@@ -2,15 +2,15 @@
 author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/25/2020
+ms.date: 07/02/2021
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: cb1c6588dc6c770c809b786982ece1c9f0b1b1b5
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: f5f5ab8d353e0f20405a6cc4dccda38dbb0625a8
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107108915"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113280234"
 ---
 이 빠른 시작에서는 Speech SDK를 사용하여 텍스트 음성 변환을 수행하기 위한 일반적인 디자인 패턴에 대해 알아봅니다. 먼저 기본 구성 및 합성을 수행하고 다음과 같은 사용자 지정 애플리케이션 개발을 위한 고급 예제로 이동합니다.
 
@@ -52,25 +52,25 @@ import java.util.Scanner;
 
 ## <a name="create-a-speech-configuration"></a>음성 구성 만들기
 
-음성 SDK를 사용하여 음성 서비스를 호출하려면 [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig)를 만들어야 합니다. 이 클래스에는 키 및 연결된 지역, 엔드포인트, 호스트 또는 권한 부여 토큰과 같은 구독에 대한 정보가 포함됩니다.
+음성 SDK를 사용하여 음성 서비스를 호출하려면 [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig)를 만들어야 합니다. 이 클래스에는 음성 키 및 관련 위치/지역, 엔드포인트, 호스트 또는 권한 부여 토큰과 같은 구독에 대한 정보가 포함됩니다.
 
 > [!NOTE]
 > 음성 인식, 음성 합성, 번역 또는 의도 인식을 수행하고 있는지 여부에 관계없이 항상 구성을 만들게 됩니다.
 
 [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig)를 초기화하는 다음과 같은 방법이 있습니다.
 
-* 구독 사용: 키 및 연결된 영역을 전달합니다.
-* 엔드포인트 사용: 음성 서비스 엔드포인트를 전달합니다. 키 또는 권한 부여 토큰은 선택 사항입니다.
-* 호스트 사용: 호스트 주소를 전달합니다. 키 또는 권한 부여 토큰은 선택 사항입니다.
-* 권한 부여 토큰 사용: 권한 부여 토큰 및 연결된 영역을 전달합니다.
+* 구독 사용: 음성 키 및 관련 위치/지역을 전달합니다.
+* 엔드포인트 사용: 음성 서비스 엔드포인트를 전달합니다. 음성 키 또는 권한 부여 토큰은 선택 사항입니다.
+* 호스트 사용: 호스트 주소를 전달합니다. 음성 키 또는 권한 부여 토큰은 선택 사항입니다.
+* 권한 부여 토큰 사용: 권한 부여 토큰 및 관련 위치/지역을 전달합니다.
 
-이 예제에서는 구독 키와 지역을 사용하여 [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig)를 만듭니다. [음성 서비스 무료로 사용해 보기](../../../overview.md#try-the-speech-service-for-free)의 단계를 따라 이러한 자격 증명을 가져오세요. 또한 이 문서의 나머지 부분에 사용할 몇 가지 기본 상용구 코드를 만들 수 있습니다. 이 문서의 나머지 부분에서는 사용자 지정을 위해 수정합니다.
+이 예제에서는 음성 키와 위치/지역을 사용하여 [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig)를 만듭니다. [음성 서비스 무료로 사용해 보기](../../../overview.md#try-the-speech-service-for-free)의 단계를 따라 이러한 자격 증명을 가져오세요. 또한 이 문서의 나머지 부분에 사용할 몇 가지 기본 상용구 코드를 만들 수 있습니다. 이 문서의 나머지 부분에서는 사용자 지정을 위해 수정합니다.
 
 ```java
 public class Program
 {
     public static void main(String[] args) {
-        SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+        SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     }
 }
 ```
@@ -83,7 +83,7 @@ public class Program
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     AudioConfig audioConfig = AudioConfig.fromWavFileOutput("path/to/write/file.wav");
 }
 ```
@@ -92,7 +92,7 @@ public static void main(String[] args) {
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     AudioConfig audioConfig = AudioConfig.fromWavFileOutput("path/to/write/file.wav");
 
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
@@ -108,7 +108,7 @@ public static void main(String[] args) {
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     AudioConfig audioConfig = AudioConfig.fromDefaultSpeakerOutput();
 
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
@@ -133,7 +133,7 @@ public static void main(String[] args) {
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
 
     SpeechSynthesisResult result = synthesizer.SpeakText("Getting the response as an in-memory stream.");
@@ -160,7 +160,7 @@ public static void main(String[] args) {
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
 
     // set the output format
     speechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
@@ -211,7 +211,7 @@ private static String xmlToString(String filePath) {
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
 
     String ssml = xmlToString("ssml.xml");

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 41f96202bffc0169be9705cd7e67c1eedbecbc05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d11384a3a1cab1ef5145a8e29a64e26552862da
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102453447"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236880"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>자습서: 보안 경고 심사, 조사 및 대응
 Security Center는 고급 분석 및 위협 인텔리전스를 사용하여 하이브리드 클라우드 워크로드를 지속적으로 분석하여 클라우드 리소스에서 잠재적으로 악의적인 활동에 대해 경고합니다. 다른 보안 제품 및 서비스의 경고를 Security Center에 통합할 수도 있습니다. 경고가 발생하면 잠재적인 보안 문제를 조사하고 수정하기 위한 신속한 조치가 필요합니다. 
@@ -60,7 +60,7 @@ Security Center는 모든 보안 경고에 대해 통일된 보기를 제공합�
 1. 경고 개요 페이지에서 먼저 조사할 리소스를 선택합니다.
 1. 왼쪽 창에서 조사를 시작합니다. 이 창에는 보안 경고에 대한 간략한 정보가 표시됩니다.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="간략한 정보가 강조 표시된 경고 정보 페이지의 왼쪽 창":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="간략한 정보가 강조 표시된 경고 정보 페이지의 왼쪽 창.":::
 
     이 창에는 다음 정보가 표시됩니다.
     - 경고 심각도, 상태 및 활동 시간
@@ -80,7 +80,7 @@ Security Center는 모든 보안 경고에 대해 통일된 보기를 제공합�
 
 1.  **조치 수행** 탭을 열고 권장 대응을 확인합니다.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="보안 경고 조치 수행 탭" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="보안 경고 조치 수행 탭." lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
 1.  문제를 완화하는 데 필요한 수동 조사 단계에 대한 **위협 완화** 섹션을 검토합니다.
 1.  리소스를 강화하고 추후 이러한 종류의 공격을 방지하려면 **추후 공격 방지** 섹션에서 보안 권장 사항에 따라 수정하세요.
@@ -97,7 +97,7 @@ Security Center는 모든 보안 경고에 대해 통일된 보기를 제공합�
     1. 경고를 **유용함** 또는 **유용하지 않음** 으로 표시합니다.
     1. 이유를 선택하고 설명을 추가합니다.
 
-        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Microsoft에 경고의 유용성에 대한 피드백 제공":::
+        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Microsoft에 경고의 유용성에 대한 피드백을 제공합니다.":::
 
     > [!TIP]
     > 보내주신 피드백은 알고리즘을 개선하고 보다 나은 보안 경고를 제공하는 데 사용됩니다.

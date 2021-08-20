@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 02/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 05c131abf23ac060db24b19b6affbeb5e632468b
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: eee130b0736c87b118b38f19e7523c07a431e5c9
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004766"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114202889"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-cwinrt-and-directx"></a>빠른 시작: C++/WinRT 및 DirectX로 Azure Object Anchors를 사용하여 HoloLens 앱 만들기
 
@@ -37,13 +37,29 @@ ms.locfileid: "112004766"
 * 최신 상태이고 [개발자 모드](/windows/mixed-reality/using-visual-studio#enabling-developer-mode)가 사용하도록 설정된 HoloLens 2 디바이스.
   * HoloLens의 최신 릴리스로 업데이트하려면 **설정** 앱을 열고 **업데이트 및 보안** 으로 이동한 다음, **업데이트 확인** 을 선택합니다.
 
+[!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
+
 ## <a name="open-the-sample-project"></a>샘플 프로젝트 열기
 
 [!INCLUDE [Clone Sample Repo](../../../includes/object-anchors-clone-sample-repository.md)]
 
 Visual Studio에서 `quickstarts/apps/directx/DirectXAoaSampleApp.sln`을 엽니다.
 
-**솔루션 구성** 을 **릴리스** 로 변경하고 **솔루션 플랫폼** 을 **ARM64** 로 변경하고 배포 대상 옵션에서 **디바이스** 를 선택합니다. 그런 다음 프로젝트를 마우스 오른쪽 단추로 클릭하고 **빌드** 를 선택하여 **AoaSampleApp** 프로젝트를 빌드합니다.
+**솔루션 구성** 을 **릴리스** 로 변경하고 **솔루션 플랫폼** 을 **ARM64** 로 변경하고 배포 대상 옵션에서 **디바이스** 를 선택합니다.
+
+## <a name="configure-the-account-information"></a>계정 정보 구성
+
+다음 단계는 계정 정보를 사용하도록 앱을 구성하는 것입니다. ["Object Anchors 계정 만들기"](#create-an-object-anchors-account) 섹션에서 **계정 키**, **계정 ID** 및 **계정 도메인** 값을 기록해 두었습니다.
+
+`Assets\ObjectAnchorsConfig.json`를 엽니다.
+
+`AccountId` 필드를 찾아 `Set me`를 계정 ID로 바꿉니다.
+
+`AccountKey` 필드를 찾아 `Set me`를 계정 키로 바꿉니다.
+
+`AccountDomain` 필드를 찾아 `Set me`를 계정 도메인으로 바꿉니다.
+
+이제 프로젝트를 마우스 오른쪽 단추로 클릭하고 **빌드** 를 선택하여 **AoaSampleApp** 프로젝트를 빌드합니다.
 
 :::image type="content" source="./media/vs-deploy-to-device.png" alt-text="배포할 Visual Studio 프로젝트 구성":::
 

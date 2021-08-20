@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: d9b5af45ab9a1003cc25e8b1ea2059b83bc715c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42e88d322bd4d2b174d7a52e4892970caf5b1a5e
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99833306"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112963242"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>자습서: 스마트 미터 모니터링 앱 템플릿 만들기 및 연습 
 
@@ -63,7 +63,7 @@ ms.locfileid: "99833306"
 앱 템플릿을 성공적으로 배포한 후에는 앱과 함께 샘플 스마트 미터 디바이스, 디바이스 모델 및 대시보드가 제공됩니다. 
 
 Adatum은 스마트 미터를 모니터링 및 관리하는 가상의 에너지 회사입니다. 스마트 미터 모니터링 대시보드에는 스마트 미터 속성, 데이터 및 샘플 명령이 표시됩니다. 운영자와 지원 팀은 지원 인시던트가 발생하기 전에 다음 작업을 선제적으로 수행할 수 있습니다. 
-* 맵의 최신 미터 정보 및 설치된 위치 검토
+* 맵의 최신 미터 정보 및 설치된 [위치](../core/howto-use-location-data.md) 검토
 * 미터 네트워크 및 연결 상태를 사전에 확인 
 * 네트워크 상태의 최소 및 최대 전압 판독값 모니터링 
 * 에너지, 전력 및 전압 추세를 검토하여 비정상적인 패턴 파악 

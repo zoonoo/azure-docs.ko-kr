@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 4b7251be220c012ca51970863ac2eed55d46d711
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: cb00337446df3062fe640127a37adfb522e45345
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751151"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113300991"
 ---
 # <a name="creating-a-synapse-workspace"></a>Synapse 작업 영역 만들기
 
@@ -65,8 +65,14 @@ ms.locfileid: "107751151"
 
 Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Synapse Studio를 열 수 있습니다.
 
-* [Azure Portal](https://portal.azure.com)에서 Synapse 작업 영역을 열고, Synapse 작업 영역의 **개요** 섹션에 있는 Synapse Studio 열기 상자에서 **열기** 를 선택합니다.
-* `https://web.azuresynapse.net`(으)로 이동하여 작업 영역에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에서 Synapse 작업 영역을 열고, Synapse 작업 영역의 **개요** 섹션에 있는 Synapse Studio 열기 상자에서 **열기** 를 선택합니다.
+1. `https://web.azuresynapse.net`(으)로 이동하여 작업 영역에 로그인합니다.
+
+    ![작업 영역에 로그인](./security/media/common/login-workspace.png)
+
+> [!NOTE]
+> 작업 영역에 로그인하기 위한 두 가지 **계정 선택 방법** 이 있습니다. 하나는 **Azure 구독** 에서 가져온 것이고 다른 하나는 **수동으로 입력** 에서 가져온 것입니다. Synapse Azure 역할 또는 더 높은 수준의 Azure 역할이 있는 경우 두 가지 방법을 모두 사용하여 작업 영역에 로그인할 수 있습니다. 관련 Azure 역할이 없고 Synapse RBAC 역할로 부여된 경우 **수동으로 입력** 이 작업 영역에 로그인하는 유일한 방법입니다. Synapse RBAC에 대한 자세한 내용은 [Synapse RBAC(역할 기반 액세스 제어)란?](./security/synapse-workspace-synapse-rbac.md)을 참조합니다.
+
 
 ## <a name="place-sample-data-into-the-primary-storage-account"></a>기본 스토리지 계정에 샘플 데이터 배치
 이 시작 가이드의 많은 예제에 대해 NYX Taxi Cab 데이터의 작은 100K 행 샘플 데이터 세트를 사용할 것입니다. 작업 영역에 대해 만든 기본 스토리지 계정에 배치하여 시작합니다.
@@ -78,7 +84,7 @@ Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Sy
 * **사용자(기본)** 라는 컨테이너를 선택합니다.
 * **업로드** 를 선택하고 다운로드한 `NYCTripSmall.parquet` 파일을 선택합니다.
 
-하나의 Parquet 파일이 업로드되면 두 개의 동등한 URI를 통해 사용할 수 있습니다.
+parquet 파일이 업로드되면 두 개의 동등한 URI를 통해 사용할 수 있습니다.
 * `https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet` 
 * `abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet`
 

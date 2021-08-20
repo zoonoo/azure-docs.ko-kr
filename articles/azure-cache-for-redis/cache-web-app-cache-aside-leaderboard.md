@@ -7,20 +7,21 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: 90e60044e227ea1a18ea032d302b29abda1ea2e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c274ffa263ac2313171ac7adc08f2ea2120c57c
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92536847"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112234666"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>자습서: ASP.NET에서 캐시 배제 순위표 만들기
 
-이 자습서에서는 Azure Cache for Redis로 [캐시 배제 패턴](/azure/architecture/patterns/cache-aside)을 사용하는 순위표를 포함시키기 위해 [Azure Cache for Redis를 위한 ASP.NET 빠른 시작](cache-web-app-howto.md)에서 만든 *ContosoTeamStats* ASP.NET 웹앱을 업데이트합니다. 샘플 애플리케이션은 성능 개선을 위해 데이터베이스에서 팀 통계 목록을 표시하고 Azure Cache for Redis를 사용하여 캐시에서 데이터를 저장하고 검색하는 여러 가지 방법을 보여줍니다. 이 자습서를 완료하면 데이터베이스에 읽고 쓰는 웹앱을 실행하고, Azure Cache for Redis에 최적화되고, Azure에서 호스팅하게 됩니다.
+이 자습서에서는 Azure Cache for Redis에서 [캐시 배제 패턴](/azure/architecture/patterns/cache-aside)을 사용하는 순위표를 포함하도록 [Azure Cache for Redis에 대한 ASP.NET 빠른 시작](cache-web-app-howto.md)에서 만든 *ContosoTeamStats* ASP.NET 웹앱을 업데이트합니다. 샘플 애플리케이션은 데이터베이스의 팀 통계 목록을 표시합니다. 또한 Azure Cache for Redis를 사용하여 캐시에서 데이터를 저장하고 검색하는 여러 가지 방법을 보여 줍니다. 이 자습서를 완료하면 Azure Cache for Redis에 최적화되고 Azure에서 호스트되는 데이터베이스를 읽고 쓰는 실행 중인 웹앱이 있습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
+>
 > * Azure Cache for Redis를 사용하는 데이터를 저장하고 검색하여 데이터 처리량을 개선하고 데이터베이스 부하를 줄입니다.
 > * Redis 정렬된 집합을 사용하여 상위 5개 팀을 검색합니다.
 > * Resource Manager 템플릿을 사용하여 애플리케이션에 대한 Azure 리소스를 프로비전합니다.
@@ -34,9 +35,9 @@ ms.locfileid: "92536847"
 
 * 이 자습서는 [Azure Cache for Redis를 위한 ASP.NET 빠른 시작](cache-web-app-howto.md)에서 중단된 부분부터 계속됩니다. 아직 수행하지 않은 경우 먼저 빠른 시작을 수행합니다.
 * 다음 워크로드로 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
-    * ASP.NET 및 웹 개발
-    * Azure 개발
-    * SQL Server Express LocalDB 또는 [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express)을 통한 .NET 데스크톱 개발.
+  * ASP.NET 및 웹 개발
+  * Azure 개발
+  * SQL Server Express LocalDB 또는 [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express)을 통한 .NET 데스크톱 개발.
 
 ## <a name="add-a-leaderboard-to-the-project"></a>프로젝트에 순위표 추가
 
@@ -45,7 +46,7 @@ ms.locfileid: "92536847"
 ### <a name="add-the-entity-framework-to-the-project"></a>프로젝트에 Entity Framework 추가
 
 1. Visual Studio에서, [Azure Cache for Redis를 위한 ASP.NET 빠른 시작](cache-web-app-howto.md)에서 만든 *ContosoTeamStats* 솔루션을 엽니다.
-2. **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔** 을 클릭합니다.
+2. **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔** 을 차례로 선택합니다.
 3. **패키지 관리자 콘솔** 창에서 다음 명령을 실행하여 EntityFramework를 설치합니다.
 
     ```powershell
@@ -58,7 +59,7 @@ ms.locfileid: "92536847"
 
 1. **솔루션 탐색기** 에서 **모델** 을 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스** 를 선택합니다.
 
-1. 클래스 이름으로 `Team` 을 입력하고 **추가** 를 클릭합니다.
+1. 클래스 이름으로 `Team`을 입력하고, **추가** 를 선택합니다.
 
     ![모델 클래스 추가](./media/cache-web-app-cache-aside-leaderboard/cache-model-add-class-dialog.png)
 
@@ -71,7 +72,7 @@ ms.locfileid: "92536847"
     using System.Data.Entity.SqlServer;
     ```
 
-1. `Team` 클래스의 정의를 업데이트된 `Team` 클래스 정의뿐만 아니라 몇몇 다른 Entity Framework 도우미 클래스도 포함하고 있는 다음 코드 조각으로 바꿉니다. 이 자습서는 Entity Framework를 통해 코드의 첫 번째 방법을 사용하고 있습니다. Entity Framework는 이 방법으로 사용자 코드에서 데이터베이스를 만들 수 있습니다. 이 자습서에 사용되는 Entity Framework에 대한 Code First 접근방식에 대한 자세한 내용은 [새 데이터베이스에 대한 Code First](/ef/ef6/modeling/code-first/workflows/new-database)를 참조하세요.
+1. `Team` 클래스의 정의를 업데이트된 `Team` 클래스 정의 및 몇 가지 다른 Entity Framework 도우미 클래스가 포함된 다음 코드 조각으로 바꿉니다. 이 자습서는 Entity Framework를 통해 코드의 첫 번째 방법을 사용하고 있습니다. Entity Framework는 이 방법으로 사용자 코드에서 데이터베이스를 만들 수 있습니다. 이 자습서에 사용되는 Entity Framework에 대한 Code First 접근방식에 대한 자세한 내용은 [새 데이터베이스에 대한 Code First](/ef/ef6/modeling/code-first/workflows/new-database)를 참조하세요.
 
     ```csharp
     public class Team
@@ -148,7 +149,7 @@ ms.locfileid: "92536847"
 
 1. `configuration` 섹션 내에 다음 `connectionStrings` 섹션을 추가합니다. 연결 문자열의 이름은 `TeamContext`인 Entity Framework 데이터베이스 컨텍스트 클래스의 이름과 일치해야 합니다.
 
-    이 연결 문자열은 사용자가 [필수 구성 요소](#prerequisites)를 충족하며 Visual Studio 2019와 함께 설치된 *.NET 데스크톱 개발* 워크로드의 일부인 SQL Server Express LocalDB를 설치했다고 가정합니다.
+    이 연결 문자열은 사용자가 [필수 구성 요소](#prerequisites)를 충족하고, Visual Studio 2019와 함께 설치된 *.NET 데스크톱 개발* 워크로드의 일부인 SQL Server Express LocalDB를 설치했다고 가정합니다.
 
     ```xml
     <connectionStrings>
@@ -171,15 +172,15 @@ ms.locfileid: "92536847"
 
 ### <a name="add-the-teamscontroller-and-views"></a>TeamsController 및 뷰 추가
 
-1. Visual Studio에서 프로젝트를 빌드합니다. 
+1. Visual Studio에서 프로젝트를 빌드합니다.
 
 1. **솔루션 탐색기** 에서 **컨트롤러** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**, **컨트롤러** 를 클릭합니다.
 
-1. **Entity Framework를 사용하여 보기가 포함된 MVC 5 컨트롤러** 를 선택하고 **추가** 를 클릭합니다. **추가** 를 클릭한 후 오류가 발생하면 먼저 프로젝트를 빌드했는지 확인합니다.
+1. **Entity Framework를 사용하며 보기가 포함된 MVC 5 컨트롤러** 를 선택하고, **추가** 를 선택합니다. **추가** 를 선택한 후 오류가 발생하면 먼저 프로젝트를 빌드했는지 확인합니다.
 
     ![컨트롤러 클래스 추가](./media/cache-web-app-cache-aside-leaderboard/cache-add-controller-class.png)
 
-1. **모델 클래스** 드롭다운 목록에서 **팀(ContosoTeamStats.Models)** 을 선택합니다. **데이터 컨텍스트 클래스** 드롭다운 목록에서 **TeamContext(ContosoTeamStats.Models)** 를 선택합니다. **컨트롤러** 이름 텍스트 상자에 `TeamsController`를 입력합니다(자동으로 채워지지 않은 경우). **추가** 를 클릭하여 컨트롤러 클래스를 만들고 기본 보기를 추가합니다.
+1. **모델 클래스** 드롭다운 목록에서 **팀(ContosoTeamStats.Models)** 을 선택합니다. **데이터 컨텍스트 클래스** 드롭다운 목록에서 **TeamContext(ContosoTeamStats.Models)** 를 선택합니다. **컨트롤러** 이름 텍스트 상자에서 `TeamsController`를 입력합니다(자동으로 채워지지 않은 경우). **추가** 를 선택하여 컨트롤러 클래스를 만들고 기본 보기를 추가합니다.
 
     ![컨트롤러 구성](./media/cache-web-app-cache-aside-leaderboard/cache-configure-controller.png)
 
@@ -216,7 +217,7 @@ ms.locfileid: "92536847"
 
 ### <a name="configure-the-layout-view"></a>레이아웃 뷰 구성
 
-1. **솔루션 탐색기** 에서 **보기** 폴더, **공유** 폴더를 차례로 확장하고 **_Layout.cshtml** 를 두 번 클릭합니다. 
+1. **솔루션 탐색기** 에서 **보기** 폴더, **공유** 폴더를 차례로 확장하고 **_Layout.cshtml** 를 두 번 클릭합니다.
 
     ![_Layout.cshtml](./media/cache-web-app-cache-aside-leaderboard/cache-layout-cshtml.png)
 
@@ -234,7 +235,7 @@ ms.locfileid: "92536847"
 
     ![코드 변경 내용](./media/cache-web-app-cache-aside-leaderboard/cache-layout-cshtml-code.png)
 
-1. **Ctrl+F5** 키를 눌러 애플리케이션을 빌드 및 실행합니다. 이 버전의 애플리케이션이 데이터베이스에서 직접 결과를 읽습니다. 참고로 **새로 만들기**, **편집**, **세부 정보** 및 **삭제** 작업은 애플리케이션에 **Entity Framework를 사용하는 보기 포함 MVC 5 컨트롤러** 스캐폴드에 의해 자동으로 추가되었습니다. 자습서의 다음 섹션에서는 데이터 액세스를 최적화하고 애플리케이션에 추가 기능을 제공하기 위해 Azure Cache for Redis를 추가합니다.
+1. **Ctrl+F5** 키를 눌러 애플리케이션을 빌드 및 실행합니다. 이 버전의 애플리케이션이 데이터베이스에서 직접 결과를 읽습니다. 참고로 **새로 만들기**, **편집**, **세부 정보** 및 **삭제** 작업은 애플리케이션에 **Entity Framework를 사용하는 보기 포함 MVC 5 컨트롤러** 스캐폴드에 의해 자동으로 추가되었습니다. 자습서의 다음 섹션에서는 데이터 액세스를 최적화하고 더 많은 기능을 애플리케이션에 제공하기 위해 Azure Cache for Redis를 추가합니다.
 
     ![시작 애플리케이션](./media/cache-web-app-cache-aside-leaderboard/cache-starter-application.png)
 
@@ -278,9 +279,9 @@ ms.locfileid: "92536847"
 
 ### <a name="update-the-teamscontroller-to-read-from-the-cache-or-the-database"></a>캐시 또는 데이터베이스에서 읽도록 TeamsController 업데이트
 
-이 샘플에서는 데이터베이스 또는 캐시에서 팀 통계를 검색할 수 있습니다. 팀 통계는 직렬화된 `List<Team>`으로 캐시에 저장되며 Redis 데이터 유형을 사용하여 정렬된 집합으로도 저장됩니다. 정렬된 집합에서 항목을 검색하는 경우 일부 또는 모두 검색하거나 특정 항목을 쿼리할 수 있습니다. 이 샘플에서는 정렬된 집합에서 승리 횟수 순으로 상위 5개 팀을 쿼리합니다.
+이 샘플에서는 데이터베이스 또는 캐시에서 팀 통계를 검색할 수 있습니다. 팀 통계는 직렬화된 `List<Team>`으로 캐시에 저장되며 Redis 데이터 유형을 사용하여 정렬된 집합으로도 저장됩니다. 정렬된 집합에서 항목을 검색하는 경우 일부 또는 모두 검색하거나 특정 항목을 쿼리할 수 있습니다. 이 샘플에서는 정렬된 집합에서 승리 횟수로 순위가 지정된 상위 5개 팀을 쿼리합니다.
 
-Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으로 캐시에 저장할 필요가 없습니다. 이 자습서에서는 여러 형식을 사용하여 데이터를 캐시하는 데 사용할 수 있는 몇 가지 방법 및 여러 가지 데이터 형식을 보여 줍니다.
+Azure Cache for Redis를 사용하기 위해 팀 통계를 여러 형식으로 캐시에 저장할 필요가 없습니다. 이 자습서에서는 여러 형식을 사용하여 데이터를 캐시하는 데 사용할 수 있는 몇 가지 방법 및 여러 가지 데이터 형식을 보여 줍니다.
 
 1. 다음 `using` 문을 다른 `using` 문과 함께 위쪽의 `TeamsController.cs` 파일에 추가합니다.
 
@@ -396,6 +397,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 1. 캐시 및 데이터베이스에서 팀 통계를 검색하는 여러 가지 방법을 구현하기 위해 다음 네 가지 메서드를 `TeamsController` 클래스에 추가합니다. 이러한 각 메서드는 `List<Team>`을 반환하며 이는 뷰를 기준으로 표시됩니다.
 
     `GetFromDB` 메서드는 팀 통계를 데이터베이스에서 읽습니다.
+
     ```csharp
     List<Team> GetFromDB()
     {
@@ -408,7 +410,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
     }
     ```
 
-    `GetFromList` 메서드는 팀 통계를 직렬화된 `List<Team>`으로 캐시에서 읽습니다. 통계가 캐시에 없는 경우 캐시 누락이 발생합니다. 캐시 누락의 경우 팀 통계를 데이터베이스에서 읽은 다음, 다음 요청에 대한 캐시에 저장합니다. 이 샘플에서는 .NET 개체를 캐시에 대해 직렬화하는 데 JSON.NET 직렬화를 사용합니다. 자세한 내용은 [Azure Cache for Redis에서 .NET 개체로 작업하는 방법](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache)을 참조하세요.
+    `GetFromList` 메서드는 팀 통계를 직렬화된 `List<Team>`으로 캐시에서 읽습니다. 통계가 캐시에 없으면 캐시 누락이 발생합니다. 캐시 누락의 경우 팀 통계를 데이터베이스에서 읽은 다음, 다음 요청에 대한 캐시에 저장합니다. 이 샘플에서는 .NET 개체를 캐시에 대해 직렬화하는 데 JSON.NET 직렬화를 사용합니다. 자세한 내용은 [Azure Cache for Redis에서 .NET 개체로 작업하는 방법](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache)을 참조하세요.
 
     ```csharp
     List<Team> GetFromList()
@@ -436,7 +438,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
     }
     ```
 
-    `GetFromSortedSet` 메서드는 캐시된 정렬된 집합에서 팀 통계를 읽습니다. 캐시 누락이 있는 경우 팀 통계를 데이터베이스에서 읽은 후 정렬된 집합으로 캐시에 저장합니다.
+    `GetFromSortedSet` 메서드는 캐시된 정렬된 집합에서 팀 통계를 읽습니다. 캐시 누락이 있는 경우 팀 데이터베이스에서 통계를 읽고 정렬된 집합으로 캐시에 저장합니다.
 
     ```csharp
     List<Team> GetFromSortedSet()
@@ -473,7 +475,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
     }
     ```
 
-    `GetFromSortedSetTop5` 메서드는 캐시된 정렬된 집합에서 상위 5개 팀을 읽습니다. 먼저 캐시에서 `teamsSortedSet` 키의 유무를 확인합니다. 이 키가 없는 경우 `GetFromSortedSet` 메서드를 호출하여 팀 통계를 읽고 캐시에 저장합니다. 그런 다음, 캐시된 정렬된 집합에 대해 반환된 상위 5개 팀을 쿼리합니다.
+    `GetFromSortedSetTop5` 메서드는 캐시된 정렬된 집합에서 상위 5개 팀을 읽습니다. 먼저 캐시에서 `teamsSortedSet` 키의 유무를 확인합니다. 이 키가 없으면 `GetFromSortedSet` 메서드를 호출하여 팀 통계를 읽고 캐시에 저장합니다. 그런 다음, 캐시된 정렬된 집합에 대해 반환된 상위 5개 팀을 쿼리합니다.
 
     ```csharp
     List<Team> GetFromSortedSetTop5()
@@ -585,10 +587,10 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
     이 링크는 새 팀을 만듭니다. 단락 요소를 다음 테이블로 바꿉니다. 이 테이블에는 새 게임 시즌 실행, 캐시 지우기, 여러 형식의 캐시에서 팀 검색, 데이터베이스에서 팀 검색 및 새 샘플 데이터를 사용하여 데이터베이스 다시 빌드를 수행할 수 있는 작업 링크가 있습니다.
 
     ```html
-    <table class="table">
+    <table class="table&quot;>
         <tr>
             <td>
-                @Html.ActionLink("Create New", "Create")
+                @Html.ActionLink(&quot;Create New&quot;, &quot;Create")
             </td>
             <td>
                 @Html.ActionLink("Play Season", "Index", new { actionType = "playGames" })
@@ -615,12 +617,13 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
     </table>
     ```
 
-1. **Index.cshtml** 파일의 아래쪽으로 스크롤하고 다음 `tr` 요소를 파일의 마지막 테이블에서 마지막 행이 되도록 추가합니다.
+1. **Index.cshtml** 파일의 아래쪽으로 스크롤하고, 파일의 마지막 테이블에서 마지막 행이 되도록 다음 `tr` 요소를 추가합니다.
 
     ```html
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
     ```
-    이 행은 현재 작업에 대한 상태 보고서를 포함하는 `ViewBag.Msg` 값을 표시합니다. `ViewBag.Msg`은 이전 단계에서 작업 링크를 클릭할 때 설정됩니다.
+
+    이 행에는 현재 작업에 대한 상태 보고서를 포함하는 `ViewBag.Msg` 값이 표시됩니다. `ViewBag.Msg`는 이전 단계에서 작업 링크를 선택할 때 설정됩니다.
 
     ![상태 메시지](./media/cache-web-app-cache-aside-leaderboard/cache-status-message.png)
 
@@ -630,7 +633,9 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
 팀을 지원하기 위해 추가된 기능을 확인하려면 사용자 컴퓨터에 애플리케이션을 로컬로 실행합니다.
 
-이 테스트에서 애플리케이션 및 데이터베이스는 모두 로컬로 실행됩니다. 단, Azure Cache for Redis는 Azure에서 원격으로 호스팅됩니다. 따라서 캐시는 데이터베이스의 성능을 약간 저하시킬 가능성이 있습니다. 최상의 성능을 위해 클라이언트 애플리케이션 및 Azure Cache for Redis 인스턴스가 동일한 위치에 있어야 합니다. 다음 섹션에서는 모든 리소스를 Azure에 배포하여 캐시를 사용한 성능 향상을 확인합니다.
+이 테스트에서 애플리케이션 및 데이터베이스는 모두 로컬로 실행됩니다. Azure Cache for Redis는 로컬이 아닙니다. Azure에서 원격으로 호스트됩니다. 이는 캐시로 인해 데이터베이스의 성능이 약간 저하될 가능성이 있습니다. 최상의 성능을 위해 클라이언트 애플리케이션 및 Azure Cache for Redis 인스턴스가 동일한 위치에 있어야 합니다. 
+
+다음 섹션에서는 모든 리소스를 Azure에 배포하여 캐시 사용에 따른 향상된 성능을 확인합니다.
 
 로컬로 앱을 실행하려면 다음을 수행합니다.
 
@@ -646,9 +651,9 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
 이 섹션에서는 Azure에서 호스팅되는 동안 사용할 앱을 위해 SQL Database의 새 데이터베이스를 프로비저닝합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 왼쪽 위 모서리에서 **리소스 만들기** 를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)의 왼쪽 위 모서리에서 **리소스 만들기** 를 선택합니다.
 
-1. **새로 만들기** 페이지에서 **데이터베이스** > **SQL Database** 를 클릭합니다.
+1. **새로 만들기** 페이지에서 **데이터베이스** > **SQL Database** 를 선택합니다.
 
 1. 새 SQL Database에 대한 다음 설정을 사용합니다.
 
@@ -656,10 +661,10 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
    | ------------ | ------------------ | ------------------------------------------------- |
    | **데이터베이스 이름** | *ContosoTeamsDatabase* | 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
    | **구독** | *구독*  | 캐시를 만들고 App Service를 호스팅하는 데 사용한 것과 동일한 구독을 선택합니다. |
-   | **리소스 그룹**  | *TestResourceGroup* | **기존 항목 사용** 을 클릭하고 캐시와 App Service를 배치한 위치와 동일한 리소스 그룹을 사용합니다. |
+   | **리소스 그룹**  | *TestResourceGroup* | **기존 항목 사용** 을 선택하고, 캐시 및 App Service를 배치한 동일한 리소스 그룹을 사용합니다. |
    | **원본 선택** | **빈 데이터베이스** | 빈 데이터베이스에서 시작합니다. |
 
-1. **서버** 에서 **필요한 설정 구성** > **새 서버 만들기** 를 클릭하고 다음 정보를 입력한 다음, **선택** 단추를 클릭합니다.
+1. **서버** 아래에서 **필수 설정 구성** > **새 서버 만들기** 를 차례로 선택하고, 다음 정보를 제공한 다음, **선택** 단추를 사용합니다.
 
    | 설정       | 제안 값 | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
@@ -668,32 +673,32 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
    | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 포함해야 합니다. |
    | **위치** | *미국 동부* | 캐시와 App Service를 만든 것과 동일한 지역을 선택합니다. |
 
-1. **대시보드에 고정** 을 클릭한 다음, **만들기** 를 클릭하여 새 데이터베이스와 서버를 만듭니다.
+1. **대시보드에 고정** 을 선택한 다음, **만들기** 를 선택하여 새 데이터베이스와 서버를 만듭니다.
 
-1. 새 데이터베이스가 생성되면 **데이터베이스 연결 문자열 표시** 를 클릭하고 **ADO.NET** 연결 문자열을 복사합니다.
+1. 새 데이터베이스가 만들어지면 **데이터베이스 연결 문자열 표시** 를 선택하고, **ADO.NET** 연결 문자열을 복사합니다.
 
     ![연결 문자열 표시](./media/cache-web-app-cache-aside-leaderboard/cache-show-connection-strings.png)
 
-1. Azure Portal에서 App Service로 이동하고 **애플리케이션 설정** 을 클릭한 다음, 연결 문자열 섹션에서 **새 연결 문자열 추가** 를 클릭합니다.
+1. Azure Portal에서 App Service로 이동하고, **애플리케이션 설정** 을 선택한 다음, [연결 문자열] 섹션 아래에서 **새 연결 문자열 추가** 를 선택합니다.
 
-1. Entity Framework 데이터베이스 컨텍스트 클래스와 일치하도록 *TeamContext* 라는 새 연결 문자열을 추가합니다. 새 데이터베이스에 대한 연결 문자열을 값으로 붙여넣습니다. 연결 문자열에서 다음과 같은 자리 표시자를 바꾸었는지 확인하고 **저장** 을 클릭합니다.
+1. Entity Framework 데이터베이스 컨텍스트 클래스와 일치하도록 *TeamContext* 라는 새 연결 문자열을 추가합니다. 새 데이터베이스에 대한 연결 문자열을 값으로 붙여넣습니다. 연결 문자열에서 다음 자리 표시자를 바꾸고 **저장** 을 선택해야 합니다.
 
     | 자리 표시자 | 제안 값 |
     | --- | --- |
     | *{your_username}* | 방금 만든 서버에 대한 **서버 관리자 로그인** 을 사용합니다. |
     | *{your_password}* | 방금 만든 서버에 대한 암호를 사용합니다. |
 
-    애플리케이션 설정으로 사용자 이름 및 암호를 추가하면 사용자 이름 및 암호가 코드에 포함되지 않습니다. 이 방법은 해당 자격 증명을 보호하는 데 유용합니다.
+    사용자 이름과 암호를 애플리케이션 설정으로 추가하면 사용자 이름과 암호가 코드에 포함되지 않습니다. 이 방법은 해당 자격 증명을 보호하는 데 유용합니다.
 
 ### <a name="publish-the-application-updates-to-azure"></a>애플리케이션 업데이트를 Azure에 게시
 
 자습서의 이 단계에서는 Azure에 애플리케이션 업데이트를 게시하고 클라우드에서 실행합니다.
 
-1. Visual Studio에서 **ContosoTeamStats** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.
+1. Visual Studio에서 마우스 오른쪽 단추로 **ContosoTeamStats** 프로젝트를 선택하고, **게시** 를 선택합니다.
 
     ![게시](./media/cache-web-app-cache-aside-leaderboard/cache-publish-app.png)
 
-2. 빠른 시작에서 만든 것과 동일한 게시 프로필을 사용하려면 **게시** 를 클릭합니다.
+2. **게시** 를 선택하여 빠른 시작에서 만든 것과 동일한 게시 프로필을 사용합니다.
 
 3. 게시가 완료되면 Visual Studio는 사용자의 기본 웹 브라우저에서 앱을 시작합니다.
 
@@ -706,30 +711,30 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
     | 새로 만들기 |새 팀을 만듭니다. |
     | 시즌 재생 |게임 시즌을 재생하고 팀 통계를 업데이트하고 만료된 팀 데이터를 캐시에서 지웁니다. |
     | 캐시 지우기 |캐시에서 팀 통계를 지웁니다. |
-    | 캐시에서 목록 |캐시에서 팀 통계를 검색합니다. 캐시 누락이 있는 경우 데이터베이스에서 통계를 로드하고 다음에 캐시에 저장합니다. |
+    | 캐시에서 목록 |캐시에서 팀 통계를 검색합니다. 캐시 누락이 있는 경우 데이터베이스에서 통계를 로드하고 다음을 위해 캐시에 저장합니다. |
     | 캐시에서 정렬된 집합 |정렬된 집합을 사용하여 캐시에서 팀 통계를 검색합니다. 캐시 누락이 있는 경우 데이터베이스에서 통계를 로드하고 정렬된 집합을 사용하여 캐시에 저장합니다. |
     | 캐시에서 상위 5개 팀 |정렬된 집합을 사용하여 캐시에서 상위 5개 팀을 검색합니다. 캐시 누락이 있는 경우 데이터베이스에서 통계를 로드하고 정렬된 집합을 사용하여 캐시에 저장합니다. |
     | DB에서 로드 |데이터베이스에서 팀 통계를 검색합니다. |
     | DB 다시 빌드 |데이터베이스를 다시 빌드하고 샘플 팀 데이터와 함께 다시 로드합니다. |
     | 편집 / 세부 정보 / 삭제 |팀을 편집하고 팀에 대한 세부 정보를 보고 팀을 삭제합니다. |
 
-일부 작업을 클릭하고 다른 출처의 데이터 검색을 실험합니다. 데이터베이스 및 캐시에서 데이터를 검색하는 여러 방법을 완료하는 데 걸리는 시간 차이는 없습니다.
+작업 중 일부를 선택하고, 다른 원본에서 데이터를 검색하는 실험을 수행합니다. 데이터베이스 및 캐시에서 데이터를 검색하는 여러 방법을 완료하는 데 걸리는 시간 차이는 없습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-샘플 자습서 애플리케이션을 마쳤을 때 비용 및 리소스를 절감하기 위해 사용한 Azure 리소스를 삭제할 수 있습니다. 모든 리소스는 동일한 리소스 그룹에 포함되어야 합니다. 리소스 그룹을 삭제하면 한 번에 모두 삭제할 수 있습니다. 이 항목의 지침에서는 *TestResources* 라는 리소스 그룹을 사용했습니다.
+샘플 자습서 애플리케이션이 완료되면 Azure 리소스를 삭제하여 비용과 리소스를 절감할 수 있습니다. 모든 리소스는 동일한 리소스 그룹에 포함되어 있습니다. 리소스 그룹을 삭제하여 모든 리소스를 한 번의 작업으로 삭제할 수 있습니다. 이 문서의 지침에서는 *TestResources* 라는 리소스 그룹을 사용했습니다.
 
 > [!IMPORTANT]
-> 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스팅하기 위한 리소스를 만든 경우 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.
+> 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에서 이 샘플을 호스트하기 위한 리소스를 만든 경우 왼쪽에서 각 리소스를 개별적으로 삭제할 수 있습니다.
 >
 
-1. [Azure 포털](https://portal.azure.com) 에 로그인하고 **리소스 그룹** 을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 **리소스 그룹** 을 선택합니다.
 2. **항목 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다.
-3. 리소스 그룹의 오른쪽에 있는 **...** 을 클릭하여 **리소스 그룹 삭제** 를 클릭합니다.
+3. 리소스 그룹의 오른쪽에 있는 **...** 를 선택하고, **리소스 그룹 삭제** 를 선택합니다.
 
     ![DELETE](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
 
-4. 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제** 를 클릭합니다.
+4. 리소스 그룹 삭제를 확인하는 메시지가 표시됩니다. 확인할 리소스 그룹의 이름을 입력하고 **삭제** 를 선택합니다.
 
     잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 

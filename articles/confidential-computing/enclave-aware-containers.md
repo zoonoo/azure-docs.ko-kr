@@ -7,12 +7,12 @@ ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 0c9e7f98a9df7bfea6b0c6dd6d3c2cf1f6090ab0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 74c0ea83d5792083993c6ce9c5dab88684234928
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932641"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469585"
 ---
 # <a name="enclave-aware-containers"></a>Enclave 인식 컨테이너
 
@@ -52,10 +52,9 @@ CCF(기밀 컨소시엄 프레임워크)는 다자간 컴퓨팅 및 데이터에
 
 ML 모델 리프트를 시작하고 [여기](https://aka.ms/confidentialinference)에서 ONNX 런타임으로 전환
 
-### <a name="edgeless-rt"></a>Edgeless RT
+### <a name="ego"></a>EGo
 
-Edgeless RT는 오픈 Enclave SDK를 기반으로 하는 오픈 소스 프로젝트입니다. Go 및 추가 C++ 기능에 대한 지원을 추가합니다. [여기](https://github.com/edgelesssys/edgelessrt)에서 익숙한 VS Code 환경을 사용하여 간단한 기밀 Go 애플리케이션을 시작하세요. AKS에 있는 Edgeless 애플리케이션의 경우 [여기](https://github.com/edgelesssys/edgelessrt/blob/master/docs/ERTAzureAKSDeployment.md)의 지침을 따르세요.
-
+오픈 소스 [EGo SDK](https://www.ego.dev)는 Go 프로그래밍 언어를 enclave에 지원합니다. EGo는 Open Enclave SDK를 기반으로 합니다. 기밀 마이크로서비스를 쉽게 빌드할 수 있도록 하는 것을 목표로 합니다. 이 [단계별 가이드](https://github.com/edgelesssys/ego/tree/master/samples/aks)에 따라 AKS에 EGo 기반 서비스를 배포합니다.
 
 ## <a name="container-based-sample-implementations"></a>컨테이너 기반 샘플 구현
 

@@ -3,17 +3,17 @@ title: Azure Virtual Desktop의 새로운 기능 - Azure
 description: Azure Virtual Desktop에 대한 새로운 기능 및 제품 업데이트.
 author: Heidilohr
 ms.topic: overview
-ms.date: 06/02/2021
+ms.date: 07/07/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: bd8af603e8e9d9b7a6c59004092ba2a8c59bc4e2
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d597e4c33652cb5a7106943ebd9f4e8b23b496ef
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753830"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730229"
 ---
 # <a name="whats-new-in-azure-virtual-desktop"></a>Azure Virtual Desktop의 새로운 기능
 
@@ -42,24 +42,60 @@ Azure Virtual Desktop 에이전트는 한 달에 한 번 이상 업데이트됩�
 
 Azure Virtual Desktop 에이전트에서 변경된 내용은 다음과 같습니다.
 
-- 프로덕션용 버전 1.0.2944.1400 및 모든 유효성 검사 호스트 풀용 버전 1.0.2990.800: 이 업데이트는 2021년 4월 27일에 출시되었습니다.
-- 버전 1.0.2990.800: 이 업데이트는 2021년 4월 13일에 릴리스되었으며 다음과 같이 변경되었습니다.
+- 버전 1.0.3130.1200: 이 업데이트는 유효성 검사 풀용으로 2021년 5월에 릴리스되었으며 다음 변경 사항이 있습니다.
+    - 일반 개선 사항 및 버그 수정
+    - Intune 등록을 위한 호스트 풀 경로를 가져오는 문제를 해결합니다.
+    - 에이전트 문제를 더 잘 진단하기 위해 로깅이 추가되었습니다.
+- 버전 1.0.3050.1200: 이 업데이트는 유효성 검사 풀용으로 2021년 5월에 릴리스되었으며 다음 변경 사항이 있습니다.
+    - 에이전트 상태에 대한 내부 모니터가 업데이트되었습니다.
+    - 스택 상태에 대한 재시도 논리가 업데이트되었습니다.
+- 버전 1.0.2990.1500: 이 업데이트는 2021년 4월에 릴리스되었으며 다음과 같이 변경되었습니다.
     - 에이전트 오류 메시지가 업데이트되었습니다.
-    - Windows 7 VM에 비 Windows 7 에이전트를 설치할 수 없도록 하는 예외를 추가합니다.
+    - Windows 7 VM에 비 Windows 7 에이전트를 설치할 수 없도록 하는 예외를 추가했습니다.
     - 하트비트 서비스 논리를 업데이트했습니다.
-- 버전 1.0.2944.1400: 이 업데이트는 2021년 4월 7일에 릴리스되었으며 다음과 같이 변경되었습니다.
+- 버전 1.0.2944.1400: 이 업데이트는 2021년 4월에 릴리스되었으며 다음과 같이 변경되었습니다.
     - 에이전트 오류에 대한 이벤트 뷰어 로그에 Azure Virtual Desktop 에이전트 문제 해결 가이드에 대한 링크를 배치했습니다.
     - 더 나은 오류 처리를 위해 추가 예외를 추가했습니다.
     - 고객이 액세스할 수 있는 필수 URL을 확인할 수 있는 WVDAgentUrlTool.exe가 추가되었습니다.
-- 버전 1.0.2866.1500: 이 업데이트는 2021년 3월 26일에 릴리스되었으며 스택 상태 검사와 관련된 문제를 해결합니다.
-- 버전 1.0.2800.2802: 이 업데이트는 2021년 3월 10일에 릴리스되었으며 일반적인 개선 사항과 버그 수정이 있습니다.
-- 버전 1.0.2800.2800: 이 업데이트는 2021년 3월 2일에 릴리스되었으며 역방향 연결 문제를 해결합니다.
-- 버전 1.0.2800.2700: 이 업데이트는 2021년 2월 10일에 릴리스되었으며 일반적인 개선 사항과 버그 수정이 있습니다.
-- 버전 1.0.2800.2700: 이 업데이트는 2021년 2월 4일에 릴리스되었으며 액세스 거부 오케스트레이션 문제를 해결합니다.
+-   버전 1.0.2866.1500: 이 업데이트는 2021년 3월에 릴리스되었으며 스택 상태 검사와 관련된 문제를 해결합니다.
+-   버전 1.0.2800.2802: 이 업데이트는 2021년 3월에 릴리스되었으며 일반적인 개선 사항과 버그 수정이 있습니다.
+-   버전 1.0.2800.2800: 이 업데이트는 2021년 3월에 릴리스되었으며 역방향 연결 문제를 해결합니다.
+-   버전 1.0.2800.2700: 이 업데이트는 2021년 2월에 릴리스되었으며 액세스 거부 오케스트레이션 문제를 해결합니다.
 
 ## <a name="fslogix-updates"></a>FSLogix 업데이트
 
 FSLogix의 최신 업데이트가 궁금하신가요? [FSLogix의 새로운 기능](/fslogix/whats-new)을 확인하세요.
+
+## <a name="june-2021"></a>2021년 6월
+
+2021년 6월에 변경된 내용은 다음과 같습니다.
+
+### <a name="windows-virtual-desktop-is-now-azure-virtual-desktop"></a>Windows Virtual Desktop은 이제 Azure Virtual Desktop입니다.
+
+유연한 클라우드 데스크톱 및 원격 애플리케이션 플랫폼이라는 당사의 비전에 더 잘 부합하기 위해 Windows Virtual Desktop의 이름을 Azure Virtual Desktop으로 변경했습니다. [블로그의 공지 게시물](https://azure.microsoft.com/blog/azure-virtual-desktop-the-desktop-and-app-virtualization-platform-for-the-hybrid-workplace/)에서 자세히 알아보세요.
+
+### <a name="eu-uk-and-canada-geographies-are-now-generally-available"></a>EU, 영국 및 캐나다 지역은 이제 일반 공급됩니다.
+
+유럽 연합, 영국 및 캐나다를 위한 메타데이터 서비스가 이제 일반 공급됩니다. 이러한 신규 위치는 미국 외부의 데이터 주권에 매우 중요합니다. 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-public-preview-of-azure-virtual-desktop-service/m-p/2478401#M7314)을 참조하세요.
+
+### <a name="the-getting-started-tool-is-now-in-public-preview"></a>이제 시작 도구는 공개 미리 보기로 제공됩니다.
+
+처음 사용하는 사용자가 배포 프로세스를 보다 쉽게 수행할 수 있도록 Azure Virtual Desktop 시작 도구를 만들었습니다. 배포 프로세스를 단순화하고 자동화함으로써 이 도구를 통해 다양한 사용자가 Azure Virtual Desktop을 더 빠르고 쉽게 채택할 수 있기를 바랍니다. [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/getting-started-wizard-in-azure-virtual-desktop/m-p/2451385)에서 자세히 알아보세요.
+
+### <a name="azure-virtual-desktop-pricing-calculator-updates"></a>Azure Virtual Desktop 가격 계산기 업데이트
+
+Azure 가격 계산기에서 Azure Virtual Desktop 가격 책정 환경을 개선하기 위해 다음과 같은 몇 가지 중요한 업데이트를 수행했습니다.  
+  
+- 서비스 이름을 Azure Virtual Desktop으로 업데이트했습니다.  
+- 또한 다음과 같은 새 항목으로 레이아웃을 업데이트했습니다.  
+   - 관리 디스크 및 파일 스토리지 대역폭이 모두 포함된 Storage 섹션  
+   - 사용자당 비용을 표시하는 사용자 지정 섹션
+
+[이 페이지](https://azure.microsoft.com/pricing/calculator/)에서 가격 계산기에 액세스할 수 있습니다.
+
+### <a name="single-sign-on-sso-using-active-directory-federation-services-ad-fs"></a>AD FS(Active Directory Federation Services)를 사용하는 SSO(Single Sign-On)
+
+AD FS Single Sign-On 기능이 이제 일반 공급됩니다. 이 기능을 통해 고객은 AD FS를 사용하여 Windows 및 웹 클라이언트의 사용자에게 Single Sign-On 환경을 제공할 수 있습니다. 자세한 내용은 [Azure Virtual Desktop에 대한 AD FS Single Sign-On 구성](configure-adfs-sso.md)을 참조하세요.
 
 ## <a name="may-2021"></a>2021년 5월
 
@@ -453,7 +489,7 @@ Log Analytics 작업 영역에 대해 미리 작성된 새로운 쿼리를 릴�
 
 ### <a name="teams-update"></a>팀 업데이트
 
-Azure Virtual Desktop에 대한 Microsoft Teams에 개선 사항이 있습니다. 가장 중요한 점은 Azure Virtual Desktop은 이제 Windows 데스크톱 클라이언트에 대한 오디오 및 비디오 최적화를 지원한다는 것입니다. 리디렉션은 통화 및 모임에서 오디오 또는 비디오를 사용할 때 사용자 간에 직접 경로를 만들어 대기 시간을 단축시킵니다. 거리를 줄이면 홉 수가 줄어들기 때문에 호출 모양과 소리가 더 부드러워집니다. [Azure Virtual Desktop에서 Teams 사용](teams-on-wvd.md)에서 자세히 알아보세요.
+Azure Virtual Desktop에 대한 Microsoft Teams에 개선 사항이 있습니다. 가장 중요한 점은 Azure Virtual Desktop은 이제 Windows 데스크톱 클라이언트에 대한 오디오 및 비디오 최적화를 지원한다는 것입니다. 리디렉션은 통화 및 모임에서 오디오 또는 비디오를 사용할 때 사용자 간에 직접 경로를 만들어 대기 시간을 단축시킵니다. 거리를 줄이면 홉 수가 줄어들기 때문에 호출 모양과 소리가 더 부드러워집니다. [Azure Virtual Desktop에서 Teams 사용](./teams-on-avd.md)에서 자세히 알아보세요.
 
 ## <a name="june-2020"></a>2020년 6월
 

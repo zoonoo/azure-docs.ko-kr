@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: apedward
-ms.openlocfilehash: 393b8857b3602d914143787cc9ea46074ff59c05
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: 17a41bd64f1bba4a5ae4d6d9d497c03afae037e7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109813905"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114444229"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>자습서: Azure DevOps를 사용하여 Azure Static Web Apps 게시
 
@@ -21,20 +21,21 @@ ms.locfileid: "109813905"
 이 자습서에서는 다음에 대해 알아봅니다.
 
 - Azure Static Web Apps 사이트 설정
-- Azure DevOps 파이프라인을 만들어 정적 웹앱 빌드 및 게시
+- Azure 파이프라인을 만들어 정적 웹앱 빌드 및 게시
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - **활성 Azure 계정:** 계정이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/) 수 있습니다.
 - **Azure DevOps 프로젝트:** 프로젝트가 없으면 [프로젝트를 무료로 만들](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/) 수 있습니다.
-- **Azure DevOps 파이프라인:** 시작하는 데 도움이 필요한 경우 [첫 번째 파이프라인 만들기](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops)를 참조하세요.
+  - Azure DevOps에는 **Azure Pipelines** 가 포함됩니다. Azure Pipelines를 시작하는 데 도움이 필요한 경우 [첫 번째 파이프라인 만들기](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops)를 참조하세요.
+  - Static Web App 파이프라인 작업은 현재 **Linux** 머신에서만 작동합니다. 아래에 언급된 파이프라인을 실행하는 경우 Linux VM에서 실행 중인지 확인하세요.
 
-## <a name="create-a-static-web-app-in-an-azure-devops-repository"></a>Azure DevOps 리포지토리에 정적 웹앱 만들기
+## <a name="create-a-static-web-app-in-an-azure-devops"></a>Azure DevOps에서 정적 웹앱 만들기
 
   > [!NOTE]
   > 리포지토리에 기존 앱이 있는 경우 다음 섹션으로 건너뛸 수 있습니다.
 
-1. Azure DevOps 리포지토리로 이동합니다.
+1. Azure Repos의 리포지토리로 이동합니다.
 
 1. **가져오기** 를 선택하여 샘플 애플리케이션 가져오기를 시작합니다.
   
@@ -56,7 +57,7 @@ ms.locfileid: "109813905"
 
 1. **만들기** 를 선택합니다.
 
-1. _배포 세부 정보_ 아래에서 **기타** 를 선택했는지 확인합니다. 이렇게 하면 Azure DevOps 리포지토리에서 코드를 사용할 수 있습니다.
+1. _배포 세부 정보_ 아래에서 **기타** 를 선택했는지 확인합니다. 이렇게 하면 Azure Repos 내에서 코드를 사용할 수 있습니다.
 
     :::image type="content" source="media/publish-devops/create-resource.png" alt-text="배포 세부 정보 - 기타":::
 
@@ -73,7 +74,7 @@ ms.locfileid: "109813905"
 
 ## <a name="create-the-pipeline-task-in-azure-devops"></a>Azure DevOps에서 파이프라인 작업 만들기
 
-1. 이전에 만든 Azure DevOps 리포지토리로 이동합니다.
+1. 이전에 만든 Azure Repos의 리포지토리로 이동합니다.
 
 1. **빌드 설정** 을 선택합니다.
 
@@ -87,7 +88,7 @@ ms.locfileid: "109813905"
 
     ```yaml
     trigger:
-    - main
+      - main
 
     pool:
       vmImage: ubuntu-latest
@@ -100,7 +101,6 @@ ms.locfileid: "109813905"
           app_location: '/'
           api_location: 'api'
           output_location: ''
-        env:
           azure_static_web_apps_api_token: $(deployment_token)
     ```
 

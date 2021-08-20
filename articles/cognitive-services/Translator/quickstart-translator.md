@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 07/06/2021
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: Translator, Translator 서비스, 텍스트 번역, 텍스트 음역, 언어 감지
-ms.openlocfilehash: 6d10b954bbb5663d5e63f4b38fc49d8a3953f10a
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 10e879df320d527ab6c853a03e9eb49d1b4d50de
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537544"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113355905"
 ---
 # <a name="quickstart-get-started-with-translator"></a>빠른 시작: Translator 시작
 
@@ -33,8 +33,11 @@ ms.locfileid: "111537544"
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * Azure 구독이 있으면 Azure Portal에서 [Translator 리소스를 만들어](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 선택합니다.
-  * 만든 리소스의 키와 엔드포인트는 애플리케이션을 Translator 서비스에 연결하는 데 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
-  * 체험 가격 책정 계층(F0)을 통해 서비스를 사용해 보고, 나중에 프로덕션을 위한 유료 계층으로 업그레이드할 수 있습니다.
+  * 만든 리소스의 키와 엔드포인트는 애플리케이션을 Translator 서비스에 연결하는 데 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다. Azure Portal **키 및 엔드포인트** 페이지에서 다음 값을 찾을 수 있습니다.
+
+    :::image type="content" source="media/keys-and-endpoint-portal.png" alt-text="스크린샷: Azure Portal 키 및 엔드포인트 페이지.":::
+
+* 체험 가격 책정 계층(F0)을 통해 서비스를 사용해 보고, 나중에 프로덕션을 위한 유료 계층으로 업그레이드할 수 있습니다.
 
 ## <a name="platform-setup"></a>플랫폼 설정
 
@@ -2820,9 +2823,19 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 
 ## <a name="troubleshooting"></a>문제 해결
 
+### <a name="common-http-status-codes"></a>일반 HTTP 상태 코드
+
+| HTTP 상태 코드 | Description | 가능한 원인 |
+|------------------|-------------|-----------------|
+| 200 | 확인 | 요청이 성공했습니다. |
+| 400 | 잘못된 요청 | 필수 매개 변수가 없거나 비어 있거나 null입니다. 또는 필수 또는 선택적 매개 변수에 전달된 값이 올바르지 않습니다. 일반적인 문제는 헤더가 너무 긴 경우입니다. |
+| 401 | 권한 없음 | 요청에 권한이 없습니다. 구독 키 또는 토큰이 유효하고 올바른 영역에 있는지 확인하세요. *참고 항목* [인증](reference/v3-0-reference.md#authentication).|
+| 429 | 너무 많은 요청 | 구독에 허용되는 요청의 할당량 또는 속도가 초과되었습니다. |
+| 502 | 잘못된 게이트웨이    | 네트워크 또는 서버 쪽 문제입니다. 잘못된 헤더를 나타낼 수도 있습니다. |
+
 ### <a name="java-users"></a>Java 사용자
 
-연결 문제가 발생하는 경우 SSL 인증서가 만료된 것일 수 있습니다. 이 문제를 해결하려면 프라이빗 저장소에 [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt)를 설치합니다. 
+연결 문제가 발생하는 경우 SSL 인증서가 만료된 것일 수 있습니다. 이 문제를 해결하려면 프라이빗 저장소에 [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt)를 설치합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 11/23/2020
-ms.openlocfilehash: 5d69aacb6e3f25e3414aa446c4c5ae7852cabdfc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e1825f80b5b2b185d5cf9d9ea75ea4e80ea0ef9
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101720905"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114653459"
 ---
 # <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>ARO(Azure Red Hat OpenShift)에 대한 네트워크 개념
 
@@ -108,7 +108,7 @@ OpenShift 4.5을 지원하기 때문에 Azure Red Hat OpenShift는 몇 가지 �
 
 위의 다이어그램에 포함된 것처럼 몇 가지 변경 내용을 확인할 수 있습니다.
 * 이전에는 ARO가 두 개의 공용 LoadBalancer를 사용했습니다. 하나는 API 서버용이고 하나는 작업자 노드 풀입니다. 이 아키텍처 업데이트를 사용하여 단일 LoadBalancer로 통합되었습니다. 
-* 복잡성을 줄이기 위해 전용 outboard IP 주소 리소스가 제거되었습니다.
+* 복잡성을 줄이기 위해 전용 아웃바운드 IP 주소 리소스가 제거되었습니다.
 * 이제 ARO 컨트롤 플레인은 동일한 네트워크 보안 그룹을 ARO 작업자 노드와 공유합니다.
 
 OpenShift 4.5에 대한 자세한 내용은 [OpenShift 4.5 릴리스 정보](https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html)를 참조하세요.

@@ -8,19 +8,19 @@ ms.subservice: personalizer
 ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
 ms.date: 08/27/2020
-ms.openlocfilehash: 14c1ddca63ebb9928a86c7a56be016e58eae8d40
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d084625994312c111e90c8da4d74dd8a00e5085e
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110486767"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112255533"
 ---
 [참조 설명서](/javascript/api/@azure/cognitiveservices-personalizer) |[라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [패키지(NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Personalizer)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
-* 현재 버전의 [Node.js](https://nodejs.org) 및 NPM.
+* [Node.js](https://nodejs.org) 및 NPM을 설치합니다(Node.js v14.16.0 및 NPM 6.14.11로 확인됨).
 * Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Personalizer 리소스 만들기"  target="_blank">Personalizer 리소스 </a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 애플리케이션을 Personalizer API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
@@ -28,6 +28,8 @@ ms.locfileid: "110486767"
 ## <a name="setting-up"></a>설치
 
 [!INCLUDE [Change model frequency](change-model-frequency.md)]
+
+[!INCLUDE [Change reward wait time](change-reward-wait-time.md)]
 
 ### <a name="create-a-new-nodejs-application"></a>새 Node.js 애플리케이션 만들기
 

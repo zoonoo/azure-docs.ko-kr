@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 7eadec693c1ec1adee4b6a6dffdf5ce211dfce91
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 41a0b65133b438908548881b0e16c612c4496bd4
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112083518"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112361957"
 ---
 <a name="HOLTop"></a>
 
@@ -104,11 +104,9 @@ OCR Node.js SDK의 주요 기능 중 일부를 처리하는 클래스와 인터�
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_client)]
 
-그런 다음, `computerVision` 함수를 정의하고 기본 함수 및 콜백 함수를 사용하여 비동기 계열을 선언합니다. 기본 함수에 빠른 시작 코드를 추가하고, 스크립트의 맨 아래에 있는 `computerVision`을 호출합니다. 이 빠른 시작의 나머지 코드는 `computerVision` 함수 안으로 이동합니다.
+그런 다음, `computerVision` 함수를 정의하고 기본 함수 및 콜백 함수를 사용하여 비동기 계열을 선언합니다. 스크립트의 끝에서 이 함수 정의를 완료하고 호출합니다.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_begin)]
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_end)]
 
 > [!div class="nextstepaction"]
 > [클라이언트를 인증했습니다.](?success=authenticate-client#read-printed-and-handwritten-text) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Javascript&Section=authenticate-client&product=computer-vision&page=node-sdk)
@@ -148,6 +146,12 @@ OCR 서비스는 이미지에서 보이는 텍스트를 추출하여 문자 스�
 
 > [!div class="nextstepaction"]
 > [텍스트를 읽었습니다.](?success=read-printed-handwritten-text#run-the-application) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Javascript&Section=read-printed-handwritten-text&product=computer-vision&page=node-sdk)
+
+## <a name="close-the-function"></a>함수 닫기
+
+`computerVision` 함수를 닫고 호출합니다.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_end)]
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 

@@ -4,23 +4,22 @@ description: 이 자습서에서는 Service Bus 큐에서 메시지를 보내고
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 06/29/2021
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: 3225b04ea99b300967353975bb92ab76804ed58a
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.custom: contperf-fy21q4
+ms.openlocfilehash: b2b2fc806020c665e7658226cb11c086aa816127
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113108402"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433434"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Azure Service Bus 큐에서 메시지 보내기 및 받기(.NET)
 이 빠른 시작에서는 [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) .NET 라이브러리를 사용하여 Service Bus 큐에 메시지를 보내고 받는 방법을 보여 줍니다.
 
 
-## <a name="prerequisites"></a>필수 조건
-이 서비스를 처음 사용하는 경우 이 빠른 시작 전에 [Service Bus 개요](service-bus-messaging-overview.md)를 참조하세요. 
+## <a name="prerequisites"></a>사전 요구 사항
 
 - **Azure 구독**. Azure Service Bus를 비롯한 Azure 서비스를 사용하려면 구독이 필요합니다. 기존 Azure 계정이 없으면 [평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
-- **Microsoft Visual Studio 2019** Azure Service Bus 클라이언트 라이브러리는 C# 8.0에 도입된 새 기능을 사용합니다.  이전 C# 언어 버전으로 라이브러리를 계속 사용할 수 있지만 새 구문은 사용할 수 없습니다. 전체 구문을 사용하려면 .NET Core SDK 3.0 이상 및 `latest`로 설정된 언어 버전으로 컴파일하는 것이 좋습니다. Visual Studio를 사용하는 경우 Visual Studio 2019 이전 버전은 C# 8.0 프로젝트를 빌드하는 데 필요한 도구와 호환되지 않습니다. 체험 Community 버전을 비롯한 Visual Studio 2019는 [여기](https://visualstudio.microsoft.com/vs/)서 다운로드할 수 있습니다.
+- **Microsoft Visual Studio 2019** Azure Service Bus 클라이언트 라이브러리는 C# 8.0에 도입된 새 기능을 사용합니다.  이전 C# 언어 버전으로 라이브러리를 계속 사용할 수 있지만 새 구문은 사용할 수 없습니다. 전체 구문을 사용하려면 .NET Core SDK 3.0 이상 및 `latest`로 설정된 언어 버전으로 컴파일하는 것이 좋습니다. Visual Studio를 사용하는 경우 Visual Studio 2019 이전 버전은 C# 8.0 프로젝트를 빌드하는 데 필요한 도구와 호환되지 않습니다.
 - **Service Bus 네임스페이스 및 큐 만들기**. [Azure Portal을 사용하여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 Service Bus 네임스페이스 및 큐를 만듭니다. 
 
     > [!IMPORTANT]
@@ -59,10 +58,10 @@ ms.locfileid: "113108402"
 
 1. **Program.cs** 의 코드를 다음 코드로 바꿉니다. 다음은 코드의 중요한 단계입니다.  
     1. 네임스페이스에 대한 연결 문자열을 사용하여 [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) 개체를 만듭니다. 
-    1. `ServiceBusClient` 개체에서 [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) 메서드를 호출하여 특정 Service Bus 큐에 대한 [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) 개체를 만듭니다.     
-    1. [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync)를 사용하여 [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) 개체를 만듭니다.
-    1. [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage)를 사용하여 일괄 처리에 메시지를 추가합니다. 
-    1. [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync) 메서드를 사용하여 메시지 일괄 처리를 Service Bus 큐에 보냅니다.
+    1. `ServiceBusClient` 개체에서 `CreateSender` 메서드를 호출하여 특정 Service Bus 큐에 대한 `ServiceBusSender` 개체를 만듭니다.     
+    1. `ServiceBusSender.CreateMessageBatchAsync` 메서드를 사용하여 `ServiceBusMessageBatch` 개체를 만듭니다.
+    1. `ServiceBusMessageBatch.TryAddMessage`를 사용하여 일괄 처리에 메시지를 추가합니다. 
+    1. `ServiceBusSender.SendMessagesAsync` 메서드를 사용하여 메시지 일괄 처리를 Service Bus 큐에 보냅니다.
     
         자세한 내용은 코드 주석을 참조하세요.
     
@@ -182,10 +181,10 @@ ms.locfileid: "113108402"
 1. **Program.cs** 의 코드를 다음 코드로 바꿉니다. 다음은 코드의 중요한 단계입니다.
     다음은 코드의 중요한 단계입니다.
     1. 네임스페이스에 대한 연결 문자열을 사용하여 [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) 개체를 만듭니다. 
-    1. `ServiceBusClient` 개체에서 [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) 메서드를 호출하여 지정된 Service Bus 큐에 대한 [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) 개체를 생성합니다. 
-    1. `ServiceBusProcessor` 개체의 [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) 및 [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) 이벤트에 대한 처리기를 지정합니다. 
-    1. `ServiceBusProcessor` 개체에서 [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync)를 호출하여 메시지 처리를 시작합니다. 
-    1. 사용자가 키를 눌러 처리를 종료하면 `ServiceBusProcessor` 객체에서 [StopProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.stopprocessingasync)를 호출합니다. 
+    1. `ServiceBusClient` 개체에서 `CreateProcessor` 메서드를 호출하여 지정된 Service Bus 큐에 대한 `ServiceBusProcessor` 개체를 생성합니다. 
+    1. `ServiceBusProcessor` 개체의 `ProcessMessageAsync` 및 `ProcessErrorAsync` 이벤트에 대한 처리기를 지정합니다. 
+    1. `ServiceBusProcessor` 개체에서 `StartProcessingAsync`를 호출하여 메시지 처리를 시작합니다. 
+    1. 사용자가 키를 눌러 처리를 종료하면 `ServiceBusProcessor` 객체에서 `StopProcessingAsync`를 호출합니다. 
 
         자세한 내용은 코드 주석을 참조하세요.
 
@@ -273,7 +272,7 @@ ms.locfileid: "113108402"
         ```
 1. `<NAMESPACE CONNECTION STRING>`을 Service Bus 네임스페이스에 대한 연결 문자열로 바꿉니다. 그런 후 `<QUEUE NAME>`을 큐의 이름으로 바꿉니다. 
 1. 프로그램을 빌드하고 오류가 없는지 확인합니다.
-1. 수신기 애플리케이션을 실행합니다. 수신된 메시지가 표시됩니다. 아무 키나 눌러 수신기와 애플리케이션을 중지합니다. 
+1. 수신기 애플리케이션을 실행합니다. 받은 메시지가 표시됩니다. 아무 키나 눌러 수신기와 애플리케이션을 중지합니다. 
 
     ```console
     Wait for a minute and then press any key to end the processing
@@ -297,4 +296,4 @@ ms.locfileid: "113108402"
 
 - [.NET용 Azure Service Bus 클라이언트 라이브러리 - 추가 정보](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [GitHub 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
-- [.NET API 참조](/dotnet/api/azure.messaging.servicebus?preserve-view=true)
+- [.NET API 참조](/dotnet/api/azure.messaging.servicebus)

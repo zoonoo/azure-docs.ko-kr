@@ -1,15 +1,15 @@
 ---
 title: Bicep 파일 만들기 - Visual Studio Code
 description: Azure 리소스 배포를 위해 Visual Studio Code 및 Bicep 파일에 대한 Bicep 확장 사용
-ms.date: 06/01/2021
+ms.date: 06/25/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8369d0185977ae85e561b809200f1e7d733ea556
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 8167516a41943ea17fdeb47bce84767178593e85
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027263"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112970106"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Bicep 파일 만들기
 
@@ -154,7 +154,7 @@ resource exampleStorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 
 거의 완료되었습니다. 해당 속성의 값을 제공하면 됩니다.
 
-다시, Intellisense가 도움이 됩니다. `name`의 경우 스토리지 계정의 이름을 포함하는 매개 변수를 제공합니다. `location`의 경우 `eastus`로 설정합니다. SKU 이름 및 종류를 추가할 때 Intellisense는 유효한 옵션을 제공합니다. 
+다시, Intellisense가 도움이 됩니다. `name`의 경우 스토리지 계정의 이름을 포함하는 매개 변수를 제공합니다. `location`의 경우 `eastus`로 설정합니다. SKU 이름 및 종류를 추가할 때 Intellisense는 유효한 옵션을 제공합니다.
 
 완료되면 다음을 사용할 수 있습니다.
 
@@ -232,6 +232,9 @@ New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.
 ```
 
 ---
+
+> [!NOTE]
+> **{your-unique-name}** (중괄호 포함)을 고유한 스토리지 계정 이름으로 바꿉니다.
 
 배포가 완료되면 배포에 성공했음을 나타내는 메시지가 표시됩니다. 스토리지 계정이 이미 사용되었음을 나타내는 오류 메시지가 표시되면 입력한 스토리지 이름이 사용 중입니다. 고유할 가능성이 높은 이름을 제공합니다.
 

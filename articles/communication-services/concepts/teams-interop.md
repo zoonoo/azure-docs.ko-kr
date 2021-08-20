@@ -9,55 +9,89 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 142b4635bed6361987c21173245bb4d4e7557f90
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: e884079bc159dbbc76d6443dc0e095c4d8f596ab
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113108102"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668099"
 ---
 # <a name="teams-interoperability"></a>Teams 상호 운용성
 
-[!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
-
 > [!IMPORTANT]
-> [Teams 테넌트 상호 운용성](../concepts/teams-interop.md)을 사용/사용하지 않도록 설정하려면 [이 양식](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u)을 작성합니다.
+> BYOI 상호 운용성은 공개 미리 보기에 있으며, 요청 시 광범위하게 사용할 수 있습니다. [Teams 테넌트 상호 운용성](../concepts/teams-interop.md)을 사용/사용하지 않도록 설정하려면 [이 양식](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u)을 작성합니다.
+>
+> Microsoft 365의 인증된 상호 운용성은 프라이빗 미리 보기에 있으며, 서비스 제어 사용을 Azure Communication Services 얼리어답터로 제한합니다. 미리 이용 프로그램에 참가하려면 [이 양식](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8MfnD7fOYZEompFbYDoD4JUMkdYT0xKUUJLR001ODdQRk1ITTdOMlRZNSQlQCN0PWcu)을 작성하세요.
+>
+> 미리 보기 API 및 SDK는 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 추천되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-> [!NOTE]
-> Azure Communication Services와 Microsoft Teams 간의 상호 운용성을 통해 애플리케이션과 사용자가 Teams 통화, 회의 및 채팅에 참여할 수 있습니다. Teams 통화 또는 회의에서 기록 또는 전사를 사용하도록 설정할 때 애플리케이션 사용자에게 알림을 제공하는 것은 귀하의 책임입니다. Microsoft는 기록 또는 전사가 시작되었음을 Azure Communication Services API를 통해 사용자에게 알리며, 애플리케이션의 사용자 인터페이스 내에서 사용자에게 실시간으로 이 사실을 전달해야 합니다. 귀하는 이 의무를 준수하지 않아 발생한 모든 비용 및 손해에 대해 Microsoft를 면책하는 데 동의합니다.
+Azure Communication Services는 Microsoft Teams와 상호 작용하는 사용자 지정 애플리케이션을 빌드하는 데 사용할 수 있습니다. Communication Services 애플리케이션의 최종 사용자는 음성, 비디오, 채팅 및 화면 공유를 통해 Teams 참가자와 상호 작용할 수 있습니다. 다음 비디오에서는 이 기능을 보여 줍니다.
 
-> [!NOTE]
-> VoIP 및 채팅 사용량은 Azure API 및 SDK를 사용하는 경우에만 Azure 리소스에 청구됩니다. Azure Communication Services 애플리케이션과 상호 작용하는 Teams 클라이언트는 무료입니다.
 
-Azure Communication Services는 Microsoft Teams와 상호 작용하는 사용자 지정 모임 환경을 구축하는 데 사용할 수 있습니다. Communication Services 솔루션의 사용자는 음성, 비디오, 채팅 및 화면 공유를 통해 Teams 참가자와 상호 작용할 수 있습니다.
+<br>
+<br>
 
-Teams 상호 운용성을 통해 사용자를 Teams 모임에 연결하는 사용자 지정 애플리케이션을 만들 수 있습니다. 사용자 지정 애플리케이션의 사용자는 이 기능을 사용하기 위해 Azure Active Directory ID 또는 Teams 라이선스를 보유할 필요가 없습니다. 이는 직원(Teams에 익숙할 수 있는 사용자)과 외부 사용자(사용자 지정 애플리케이션 환경 사용자)를 원활한 모임 환경으로 끌어들이는 데 적합합니다. 다음은 그 예입니다. 
 
-1. 직원이 Teams를 사용하여 모임을 예약합니다. 
-1. 사용자 지정 애플리케이션을 통해 모임 세부 정보를 외부 사용자와 공유합니다.
-   * **Graph API 사용** 사용자 지정 Communication Services 애플리케이션에서 Microsoft Graph API를 사용하여 공유할 모임 세부 정보에 액세스합니다. 
-   * **다른 옵션 사용** 예를 들어 Microsoft Teams의 일정에서 모임 링크를 복사할 수 있습니다.
-1. 외부 사용자가 사용자 지정 애플리케이션을 사용하여 Teams 모임에 참가합니다(Communication Services 통화 및 채팅 SDK를 통해).
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWGTqQ]
 
-이 사용 사례에 대한 개략적인 아키텍처는 다음과 같습니다. 
 
-![Teams interop 아키텍처](./media/call-flows/teams-interop.png)
+Azure Communication Services는 최종 사용자의 ID에 따라 다음 두 가지 유형의 Teams 상호 운용성을 지원합니다.
 
-[모임 설정](/microsoftteams/meeting-settings-in-teams)에서 익명 참가를 사용하도록 설정되는 한 Communication Services 사용자는 예약된 Teams 모임에 참가할 수 있습니다. 
+- **사용자 고유의 ID 가져오기.** 사용자 인증을 제어하고, 사용자 지정 애플리케이션의 사용자는 Azure Active Directory ID 또는 Teams 라이선스가 없어도 Teams 모임에 참가할 수 있습니다. Teams는 애플리케이션을 익명의 외부 사용자로 처리합니다.
+- **Microsoft 365 Teams ID.** 애플리케이션은 최종 사용자의 Microsoft 365 ID 및 Teams에서 구성한 리소스를 대신하여 작동합니다. 이러한 인증된 애플리케이션은 Microsoft 365 사용자를 대신하여 원활하게 호출하고 모임에 참가할 수 있습니다.
 
-손 들기, 전체 보기 모드 및 소회의실과 같은 특정 Teams 모임 기능은 Teams 사용자에게만 제공되지만, 사용자 지정 애플리케이션은 모임의 핵심 오디오, 비디오, 채팅 및 화면 공유 기능에 액세스할 수 있습니다. 사용자 지정 애플리케이션 사용자가 통화 중인 동안 모임 채팅에 액세스할 수 있습니다. 통화에 참여하기 전이나 나간 후에는 메시지를 보내거나 받을 수 없습니다. 모임이 채널에 대해 예약된 경우 Communication Services 사용자는 채팅에 참여하거나 메시지를 보내고 받을 수 없습니다.
+애플리케이션은 두 인증 체계를 모두 구현하고 최종 사용자에게 인증 선택을 맡길 수 있습니다.
 
-Communication Services 사용자가 Teams 모임에 참가하면 Calling SDK를 통해 제공되는 표시 이름이 Teams 사용자에게 표시됩니다. 그렇지 않으면 Communication Services 사용자가 Teams에서 익명 사용자로 간주됩니다.  사용자 지정 애플리케이션은 Teams 모임을 보호하기 위해 사용자 인증 및 기타 보안 조치를 고려해야 합니다. 익명 사용자가 모임에 참가하도록 설정하는 경우 보안에 미치는 영향을 고려하고, [Teams 보안 가이드](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings)를 사용하여 익명 사용자가 사용할 수 있는 기능을 구성합니다.
+## <a name="bring-your-own-identity"></a>사용자 고유의 ID 가져오기
+BYOI(사용자 고유의 ID 가져오기)는 Azure Communication Services 및 Teams 상호 운용성을 사용하기 위한 일반적인 모델입니다. 모든 ID 공급자 및 인증 체계를 지원합니다. 앱은 Microsoft Teams 모임에 참가할 수 있으며, Teams는 이러한 사용자를 익명의 외부 계정으로 처리합니다. Teams에 표시되는 Communication Services 사용자의 이름은 Communication Services 통화 SDK를 통해 구성할 수 있습니다.
+
+이 기능은 직원(Teams에 익숙)과 외부 사용자(사용자 지정 애플리케이션 환경 사용)를 모임 환경에 결합하는 B2C(business-to-customer) 애플리케이션에 적합합니다. 애플리케이션의 외부 사용자와 공유해야 하는 모임 세부 정보는 Graph API를 통하거나 Microsoft Teams의 일정에서 검색할 수 있습니다.
+
+외부 사용자는 Azure Communication Services SDK를 통해 핵심 오디오, 비디오, 화면 공유 및 채팅 기능을 사용할 수 있습니다. 올린 손, 함께 모드 및 소회의실과 같은 기능은 Teams 사용자만 사용할 수 있습니다. Communication Services 사용자는 Teams 모임에 있는 동안 및 모임이 채널에 대해 예약되지 않은 경우에만 메시지를 보내고 받을 수 있습니다.
+
+사용자 지정 애플리케이션은 Teams 모임을 보호하기 위해 사용자 인증 및 기타 보안 조치를 고려해야 합니다. 익명 사용자가 모임에 참가하도록 설정하는 경우 보안에 미치는 영향을 고려하고, [Teams 보안 가이드](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings)를 사용하여 익명 사용자가 사용할 수 있는 기능을 구성합니다.
+
+Teams 모임에 참가하는 데 필요한 데이터 흐름에 대한 추가 정보는 [클라이언트 및 서버 아키텍처 페이지](client-and-server-architecture.md)에서 사용할 수 있습니다. [그룹 통화 주인공 샘플](../samples/calling-hero-sample.md)은 웹 애플리케이션에서 Teams 모임에 참여하기 위한 예제 코드를 제공합니다.
+
+## <a name="microsoft-365-teams-identity"></a>Microsoft 365 Teams ID
+Azure Communication Services 통화 SDK는 Microsoft 365 Teams ID와 함께 사용하여 Teams 상호 운용성을 위한 Teams와 유사한 환경을 지원할 수 있습니다. Microsoft 365 Teams ID는 Azure Active Directory에서 제공하고 인증합니다. 앱은 일반적인 Microsoft 365 ID를 사용하여 호출을 수행하거나 수락할 수 있습니다. 사용자에 대한 모든 특성과 세부 정보는 Azure Active Directory 사용자에게 바인딩됩니다.
+
+이 ID 모델은 사용자 지정 사용자 인터페이스가 필요하거나, 플랫폼에서 Teams 클라이언트를 사용할 수 없거나, Teams 클라이언트에서 충분한 수준의 사용자 지정을 지원하지 않는 사용 사례에 적합합니다. 예를 들어 애플리케이션을 사용하여 Teams에서 프로비전한 최종 사용자의 PSTN 번호를 대신하여 전화 통화에 응답하고, 접수원 또는 콜 센터 비즈니스 프로세스에 최적화된 사용자 인터페이스를 포함할 수 있습니다.  
+
+통화 및 화면 공유 기능은 Communication Services 통화 SDK를 통해 사용할 수 있습니다. 통화 관리는 Graph API, Teams 클라이언트의 구성 또는 Teams 관리 포털을 통해 사용할 수 있습니다. 채팅 기능은 Graph API를 통해 사용할 수 있습니다.
+
+Teams 사용자는 MSAL 라이브러리를 통해 클라이언트 애플리케이션의 Azure Active Directory에 대해 인증됩니다. 인증 토큰은 Communication Services ID SDK를 통해 Microsoft 365 Teams 토큰으로 교환됩니다. 교환 요청이 Azure Communication Services에 대한 자격 증명으로 서명되므로 백 엔드 서비스에서 토큰 교환을 구현하는 것이 좋습니다. 백 엔드 서비스에서는 추가 인증을 요구할 수 있습니다.
+
+기능에 대해 자세히 알아보려면 [이 양식](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8MfnD7fOYZEompFbYDoD4JUMkdYT0xKUUJLR001ODdQRk1ITTdOMlRZNSQlQCN0PWcu)을 작성하여 미리 이용하기 위한 TAP 프로그램에 참가하세요.
+
+## <a name="comparison"></a>비교
+
+|조건|사용자 고유의 ID 가져오기| Microsoft 365 Teams ID|
+|---|---|---|
+|적용 가능| 소비자 애플리케이션에 대한 B2C(business-to-consumer) 시나리오에서 | 비즈니스 애플리케이션에 대한 B2B(business-to-business) 또는 B2C(business-to-consumer) 시나리오에서 |
+|ID 공급자|모두|Azure Active Directory|
+|인증 및 권한 부여|사용자 지정*| Azure Active Directory 및 사용자 지정*|
+|통화에 사용 가능한 수단 | Azure Communication Services 통화 SDK | Azure Communication Services 통화 SDK |
+|채팅에 사용 가능한 수단 | Communication Services 채팅 SDK | 그래프 API |
+|PSTN 지원| 아웃바운드 음성 통화, 아웃바운드 직접 라우팅, [세부 정보](./telephony-sms/telephony-concept.md) | Teams ID에 할당된 인바운드 통화, 통화 플랜을 사용하는 아웃바운드 통화|
+
+\* 액세스 토큰을 발급하는 서버 논리는 요청의 모든 사용자 지정 인증 및 권한 부여를 수행할 수 있습니다.
+
+## <a name="privacy"></a>개인 정보 취급 방침
+Azure Communication Services와 Microsoft Teams 간의 상호 운용성을 통해 애플리케이션과 사용자가 Teams 통화, 회의 및 채팅에 참여할 수 있습니다. Teams 통화 또는 회의에서 기록 또는 전사를 사용하도록 설정할 때 애플리케이션 사용자에게 알림을 제공하는 것은 귀하의 책임입니다.
+
+Microsoft는 기록 또는 전사가 시작되었음을 Azure Communication Services API를 통해 사용자에게 알리며, 애플리케이션의 사용자 인터페이스 내에서 사용자에게 실시간으로 이 사실을 전달해야 합니다. 귀하는 이 의무를 준수하지 않아 발생한 모든 비용 및 손해에 대해 Microsoft를 면책하는 데 동의합니다.
+
+## <a name="pricing"></a>가격 책정
+Azure Communication Service API 및 SDK의 모든 사용량은 [Azure Communication Service 청구 미터](https://azure.microsoft.com/pricing/details/communication-services/)를 증가시킵니다. 모임에 참가하거나 할당된 번호를 사용하여 전화 통화를 시작하는 것과 같은 Microsoft Teams와의 상호 작용은 이러한 미터를 증가시키지만, Teams 상호 운용성 기능 자체에 대한 추가 요금이 없으며 BYOI와 Microsoft 365 인증 옵션 간에 가격 책정 차이가 없습니다.
+
+Azure 애플리케이션에서 최종 사용자가 Microsoft Teams 사용자와의 모임에서 10분을 소비하는 경우 이 두 사용자를 합쳐 20분의 통화가 소요되었습니다. Azure API 및 SDK를 사용하여 사용자 지정 애플리케이션을 통해 10분 동안 연습한 경우 리소스에 대한 요금이 청구됩니다. 그러나 기본 Teams 애플리케이션에서 최종 사용자가 소비하는 10분은 해당 Teams 라이선스의 적용을 받으며 Azure에서 계량되지 않습니다.
 
 ## <a name="teams-in-government-clouds-gcc"></a>정부 클라우드(GCC)의 팀
-Azure Communication Services 상호 운영성은 현재 [Microsoft 365 정부 클라우드(GCC)](/MicrosoftTeams/plan-for-government-gcc)를 사용하는 Teams 배포와 호환되지 않습니다. 
+Azure Communication Services 상호 운영성은 현재 [Microsoft 365 정부 클라우드(GCC)](/MicrosoftTeams/plan-for-government-gcc)를 사용하는 Teams 배포와 호환되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [통화 앱으로 Teams 미팅 참가](../quickstarts/voice-video-calling/get-started-teams-interop.md)
-
-자세한 내용은 다음 문서를 참조하세요.
-
-- [UI 라이브러리](./ui-library/ui-library-overview.md)에 대해 알아보기
-- [UI 라이브러리 기능](./ui-library/ui-library-use-cases.md)에 대해 알아보기
+> [BYOI 통화 앱을 Teams 모임에 참가](../quickstarts/voice-video-calling/get-started-teams-interop.md)
+> [Microsoft 365 사용자 인증](../quickstarts/manage-teams-identity.md)

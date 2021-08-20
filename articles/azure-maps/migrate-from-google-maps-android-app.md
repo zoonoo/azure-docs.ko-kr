@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 3d160649008199233fa0b676d938470569a27853
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 95f24173f584cd6ac6e97ccae053706ff5b8f2cf
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102101497"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113091468"
 ---
 # <a name="tutorial-migrate-an-android-app-from-google-maps"></a>자습서: Google Maps에서 Android 앱 마이그레이션
 
@@ -258,7 +258,7 @@ Android용 Azure Maps SDK를 사용하여 맵을 표시하려면 다음 단계�
     3. 종속성 블록을 업데이트합니다. 최신 Azure Maps Android SDK에 대한 새 구현 종속성 줄을 추가합니다.
 
         ```gradel
-        implementation "com.microsoft.azure.maps:mapcontrol:0.7"
+        implementation "com.azure.android:azure-maps-control:1.0.0"
         ```
 
         > [!Note]
@@ -277,7 +277,7 @@ Android용 Azure Maps SDK를 사용하여 맵을 표시하려면 다음 단계�
         android:layout_height="match_parent"
         >
 
-        <com.microsoft.azure.maps.mapcontrol.MapControl
+        <com.azure.android.maps.control.MapControl
             android:id="@+id/mapcontrol"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -312,11 +312,11 @@ Android용 Azure Maps SDK를 사용하여 맵을 표시하려면 다음 단계�
     package com.example.myapplication;
     
     import androidx.appcompat.app.AppCompatActivity;
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-    import com.microsoft.azure.maps.mapcontrol.MapControl;
-    import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
-    import com.microsoft.azure.maps.mapcontrol.options.MapStyle;
-    import com.microsoft.azure.maps.mapcontrol.source.DataSource;
+    import com.azure.android.maps.control.AzureMaps;
+    import com.azure.android.maps.control.MapControl;
+    import com.azure.android.maps.control.layer.SymbolLayer;
+    import com.azure.android.maps.control.options.MapStyle;
+    import com.azure.android.maps.control.source.DataSource;
     
     public class MainActivity extends AppCompatActivity {
     
@@ -418,10 +418,10 @@ Android용 Azure Maps SDK를 사용하여 맵을 표시하려면 다음 단계�
 
     import androidx.appcompat.app.AppCompatActivity
     import android.os.Bundle
-    import com.microsoft.azure.maps.mapcontrol.AzureMap
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps
-    import com.microsoft.azure.maps.mapcontrol.MapControl
-    import com.microsoft.azure.maps.mapcontrol.events.OnReady
+    import com.azure.android.maps.control.AzureMap
+    import com.azure.android.maps.control.AzureMaps
+    import com.azure.android.maps.control.MapControl
+    import com.azure.android.maps.control.events.OnReady
     
     class MainActivity : AppCompatActivity() {
     
@@ -542,16 +542,16 @@ baseContext.resources.updateConfiguration(
 
 ![Google Maps 지역화](media/migrate-google-maps-android-app/google-maps-localization.png)
 
-### <a name="after-azure-maps"></a>이후: Azure Maps
+### <a name="after-azure-maps&quot;></a>이후: Azure Maps
 
-Azure Maps는 맵의 언어 및 지역 보기를 설정하는 세 가지 방법을 제공합니다. 첫 번째 옵션은 언어 및 지역 보기 정보를 `AzureMaps` 클래스에 전달하는 것입니다. 이 옵션은 정적 `setLanguage` 및 `setView` 메서드를 전역적으로 사용합니다. 즉, 앱에 로드된 모든 Azure Maps 컨트롤에서 기본 언어 및 지역 보기가 설정됩니다. 다음 예제에서는 "fr-FR" 언어 코드를 사용하여 프랑스어를 설정합니다.
+Azure Maps는 맵의 언어 및 지역 보기를 설정하는 세 가지 방법을 제공합니다. 첫 번째 옵션은 언어 및 지역 보기 정보를 `AzureMaps` 클래스에 전달하는 것입니다. 이 옵션은 정적 `setLanguage` 및 `setView` 메서드를 전역적으로 사용합니다. 즉, 앱에 로드된 모든 Azure Maps 컨트롤에서 기본 언어 및 지역 보기가 설정됩니다. 다음 예제에서는 &quot;fr-FR&quot; 언어 코드를 사용하여 프랑스어를 설정합니다.
 
-::: zone pivot="programming-language-java-android"
+::: zone pivot=&quot;programming-language-java-android&quot;
 
 ```java
 static {
     //Set your Azure Maps Key.
-    AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");
+    AzureMaps.setSubscriptionKey(&quot;<Your Azure Maps Key>");
 
     //Set the language to be used by Azure Maps.
     AzureMaps.setLanguage("fr-FR");
@@ -585,12 +585,12 @@ companion object {
 두 번째 옵션은 언어 및 보기 정보를 지도 컨트롤 XML 코드에 전달하는 것입니다.
 
 ```xml
-<com.microsoft.azure.maps.mapcontrol.MapControl
+<com.azure.android.maps.control.MapControl
     android:id="@+id/myMap"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:mapcontrol_language="fr-FR"
-    app:mapcontrol_view="Auto"
+    app:azure_maps_language="fr-FR"
+    app:azure_maps_view="Auto"
     />
 ```
 
@@ -675,14 +675,14 @@ public override fun onMapReady(googleMap: GoogleMap) {
 초기 맵 보기는 지도 컨트롤의 XML 특성에서 설정할 수 있습니다.
 
 ```xml
-<com.microsoft.azure.maps.mapcontrol.MapControl
+<com.azure.android.maps.control.MapControl
     android:id="@+id/myMap"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:mapcontrol_cameraLat="35.0272"
-    app:mapcontrol_cameraLng="-111.0225"
-    app:mapcontrol_zoom="14"
-    app:mapcontrol_style="satellite"
+    app:azure_maps_cameraLat="35.0272"
+    app:azure_maps_cameraLng="-111.0225"
+    app:azure_maps_zoom="14"
+    app:azure_maps_style="satellite"
     />
 ```
 
@@ -1216,12 +1216,12 @@ public override fun onMapReady(googleMap: GoogleMap) {
 
 ![Google Maps 타일 레이어](media/migrate-google-maps-android-app/google-maps-tile-layer.png)
 
-### <a name="after-azure-maps"></a>이후: Azure Maps
+### <a name="after-azure-maps&quot;></a>이후: Azure Maps
 
 타일 레이어를 다른 레이어와 비슷한 방식으로 맵에 추가할 수 있습니다. x, y 및 확대/축소 자리 표시자가 있는 형식이 지정된 URL `{x}`, `{y}`, `{z}`는 각각 타일에 액세스할 위치를 레이어에 알리는 데 사용됩니다. 또한 Azure Maps의 타일 계층은 `{quadkey}`, `{bbox-epsg-3857}` 및 `{subdomain}` 자리 표시자를 지원합니다. 타일 레이어를 반투명하게 만들기 위해 불투명도 값 0.8이 사용됩니다. 불투명도와 투명도는 비슷하지만 반전된 값을 사용합니다. 두 옵션 사이를 변환하려면 숫자 1에서 해당 값을 뺍니다.
 
 > [!TIP]
-> Azure Maps에서는 기본 지도 계층을 포함하여 다른 레이어 아래에 레이어를 렌더링하는 것이 편리합니다. 또한 쉽게 읽을 수 있도록 맵 레이블 아래에 타일 레이어를 렌더링하는 것이 좋은 경우가 많습니다. `map.layers.add` 메서드는 아래에 새 레이어를 삽입할 레이어의 ID인 두 번째 매개 변수를 사용합니다. 타일 계층을 맵 레이블 아래에 삽입하려면 `map.layers.add(myTileLayer, "labels");` 코드를 사용할 수 있습니다.
+> Azure Maps에서는 기본 지도 계층을 포함하여 다른 레이어 아래에 레이어를 렌더링하는 것이 편리합니다. 또한 쉽게 읽을 수 있도록 맵 레이블 아래에 타일 레이어를 렌더링하는 것이 좋은 경우가 많습니다. `map.layers.add` 메서드는 아래에 새 레이어를 삽입할 레이어의 ID인 두 번째 매개 변수를 사용합니다. 타일 계층을 맵 레이블 아래에 삽입하려면 `map.layers.add(myTileLayer, &quot;labels");` 코드를 사용할 수 있습니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -1326,7 +1326,7 @@ mapControl!!.onReady { map: AzureMap ->
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Maps 마이그레이션에 대한 자세한 정보:
+Azure Maps Android SDK에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [Android 앱 마이그레이션](migrate-from-google-maps-android-app.md)
+> [Azure Maps Android SDK 시작](how-to-use-android-map-control-library.md)

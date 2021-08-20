@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: bb53dfe1978e11f1025e66d598f199bc5bd4aa33
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 12a0becf7cec5dea032d6038aa5c09fdcf58de59
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112084037"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112362391"
 ---
 <a name="HOLTop"></a>
 
@@ -54,7 +54,7 @@ gradle init --type basic
 
 이 빠른 시작에서는 Gradle 종속성 관리자를 사용합니다. 다른 종속성 관리자에 대한 클라이언트 라이브러리 및 정보는 [Maven 중앙 리포지토리](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision)에서 찾을 수 있습니다.
 
-*build.gradle.kts* 를 찾고, 원하는 IDE 또는 텍스트 편집기에서 엽니다. 그런 다음, 다음 빌드 구성을 복사합니다. 이 구성은 프로젝트를 Java 애플리케이션(진입점이 **ComputerVisionQuickstart** 클래스임)으로 정의합니다. Computer Vision 라이브러리를 가져옵니다.
+*build.gradle.kts* 를 찾고, 원하는 IDE 또는 텍스트 편집기에서 엽니다. 그런 다음, 다음 빌드 구성을 복사합니다. 이 구성은 프로젝트를 Java 애플리케이션(진입점이 **ImageAnalysisQuickstart** 클래스임)으로 정의합니다. Computer Vision 라이브러리를 가져옵니다.
 
 ```kotlin
 plugins {
@@ -62,13 +62,13 @@ plugins {
     application
 }
 application { 
-    mainClassName = "ComputerVisionQuickstart"
+    mainClass.set("ImageAnalysisQuickstart")
 }
 repositories {
     mavenCentral()
 }
 dependencies {
-    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.4-beta")
+    implementation(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.6-beta")
 }
 ```
 
@@ -80,22 +80,22 @@ dependencies {
 mkdir -p src/main/java
 ```
 
-새 폴더로 이동하여 *ComputerVisionQuickstart.java* 라는 파일을 만듭니다. 원하는 편집기 또는 IDE에서 이 파일을 열고, 다음 `import` 문을 추가합니다.
+새 폴더로 이동하여 *ImageAnalysisQuickstart.java* 라는 파일을 만듭니다. 원하는 편집기 또는 IDE에서 이 파일을 열고, 다음 `import` 문을 추가합니다.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imports)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_imports)]
 
 > [!TIP]
-> 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
+> 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
 
-**ComputerVisionQuickstart** 클래스를 정의합니다.
+**ImageAnalysisQuickstart** 클래스를 정의합니다.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_classdef_1)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_classdef_1)]
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_classdef_2)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_classdef_2)]
 
-**ComputerVisionQuickstart** 클래스 내에서 리소스의 키 및 엔드포인트에 대한 변수를 만듭니다.
+**ImageAnalysisQuickstart** 클래스 내에서 리소스의 키 및 엔드포인트에 대한 변수를 만듭니다.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_creds)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_creds)]
 
 
 > [!IMPORTANT]
@@ -105,7 +105,7 @@ mkdir -p src/main/java
 
 애플리케이션의 **main** 메서드에서 이 빠른 시작에서 사용되는 메서드에 대한 호출을 추가합니다. 나중에 이를 정의합니다.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_main)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_main)]
 
 
 > [!div class="nextstepaction"]
@@ -132,7 +132,7 @@ mkdir -p src/main/java
 
 새 메서드에서 엔드포인트와 키를 사용하여 [ComputerVisionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) 개체를 인스턴스화합니다.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_auth)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_auth)]
 
 > [!div class="nextstepaction"]
 > [클라이언트를 인증했습니다.](?success=authenticate-client#analyze-an-image) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=authenticate-client&product=computer-vision&page=image-analysis-java-sdk)
@@ -142,24 +142,24 @@ mkdir -p src/main/java
 다음 코드에서는 클라이언트 개체를 사용하여 로컬 이미지를 분석하고 결과를 출력하는 `AnalyzeLocalImage` 메서드를 정의합니다. 이 메서드는 텍스트 설명, 분류, 태그 목록, 감지된 얼굴, 성인 콘텐츠 플래그, 기본 색 및 이미지 형식을 반환합니다.
 
 > [!TIP]
-> URL을 사용하여 원격 이미지를 분석할 수도 있습니다. [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision) 메서드(예: **AnalyzeImage**)를 참조하세요. 또는 원격 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java)의 샘플 코드를 참조하세요.
+> URL을 사용하여 원격 이미지를 분석할 수도 있습니다. [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision) 메서드(예: **AnalyzeImage**)를 참조하세요. 또는 원격 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java)의 샘플 코드를 참조하세요.
 
 ### <a name="set-up-test-image"></a>테스트 이미지 설정
 
-먼저, **resources/** 폴더를 프로젝트의 **src/main/** 폴더에 만들고, 분석하려는 이미지를 추가합니다. 그런 다음, 다음 메서드 정의를 **ComputerVisionQuickstart** 클래스에 추가합니다. 이미지 파일과 일치하도록 `pathToLocalImage`의 값을 변경합니다. 
+먼저, **resources/** 폴더를 프로젝트의 **src/main/** 폴더에 만들고, 분석하려는 이미지를 추가합니다. 그런 후, 다음 메서드 정의를 **ImageAnalysisQuickstart** 클래스에 추가합니다. 이미지 파일과 일치하도록 `pathToLocalImage`의 값을 변경합니다. 
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_refs)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_refs)]
 
 ### <a name="specify-visual-features"></a>시각적 기능 지정
 
 다음으로, 분석에서 추출하려는 시각적 기능을 지정합니다. 전체 목록은 [VisualFeatureTypes](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes) 열거형을 참조하세요.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_features)]
 
 ### <a name="analyze"></a>분석
 이 블록은 각 이미지 분석 범위에 대한 자세한 결과를 콘솔에 출력합니다. **analyzeImageInStream** 메서드는 추출된 모든 정보가 포함된 **ImageAnalysis** 개체를 반환합니다.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_analyze)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_analyze)]
 
 다음 섹션에서는 이 정보를 자세히 구문 분석하는 방법을 보여줍니다.
 
@@ -167,38 +167,38 @@ mkdir -p src/main/java
 
 다음 코드는 이미지에 대해 생성된 캡션 목록을 가져옵니다. 자세한 내용은 [이미지 설명](../../concept-describing-images.md)을 참조하세요.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_captions)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_captions)]
 
 ### <a name="get-image-category"></a>이미지 범주 가져오기
 
 다음 코드는 검색된 이미지 범주를 가져옵니다. 자세한 내용은 [범주 이미지](../../concept-categorizing-images.md)를 참조하세요.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_category)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_category)]
 
 ### <a name="get-image-tags"></a>이미지 태그 가져오기
 
 다음 코드는 이미지에서 검색된 범주 세트를 가져옵니다. 자세한 내용은 [콘텐츠 태그](../../concept-tagging-images.md)를 참조하세요.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_tags)]
 
 ### <a name="detect-faces"></a>얼굴 감지
 
 다음 코드는 사각형 좌표를 사용하여 이미지에서 검색된 얼굴을 반환하고 얼굴 특성을 선택합니다. 자세한 내용은 [얼굴 감지](../../concept-detecting-faces.md)를 참조하세요.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_faces)]
 
 ### <a name="detect-objects"></a>개체 감지
 
 다음 코드는 이미지에서 검색된 개체를 해당 좌표와 함께 반환합니다. 자세한 내용은 [개체 감지](../../concept-object-detection.md)를 참조하세요.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_objects)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_objects)]
 
 
 ### <a name="detect-brands"></a>브랜드 감지
 
 다음 코드는 이미지에서 검색된 브랜드 로고를 해당 좌표와 함께 반환합니다. 자세한 내용은 [브랜드 검색](../../concept-brand-detection.md)을 참조하세요.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_brands)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_brands)]
 
 
 
@@ -206,13 +206,13 @@ mkdir -p src/main/java
 
 다음 코드는 이미지에 있는 성인 콘텐츠의 검색된 상태를 출력합니다. 자세한 내용은 [성인, 외설, 폭력 콘텐츠](../../concept-detecting-adult-content.md)를 참조하세요.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_adult)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_adult)]
 
 ### <a name="get-image-color-scheme"></a>이미지 색 구성표 가져오기
 
 다음 코드는 주조색 및 강조 색과 같이 이미지에서 검색된 색 특성을 출력합니다. 자세한 내용은 [색 구성표](../../concept-detecting-color-schemes.md)를 참조하세요.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_colors)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_colors)]
 
 ### <a name="get-domain-specific-content"></a>도메인 특정 콘텐츠 가져오기
 
@@ -220,17 +220,17 @@ mkdir -p src/main/java
 
 다음 코드는 이미지에서 검색된 유명인에 대한 데이터를 구문 분석합니다.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_celebrities)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_celebrities)]
 
 다음 코드는 이미지에서 검색된 랜드마크에 대한 데이터를 구문 분석합니다.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_landmarks)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyzelocal_landmarks)]
 
 ### <a name="get-the-image-type"></a>이미지 형식 가져오기
 
 다음 코드는 이미지 형식이 클립 아트인지 아니면 선 그리기인지 여부에 관계없이 이미지 형식에 대한 정보를 출력합니다.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imagetype)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_imagetype)]
 
 > [!div class="nextstepaction"]
 > [이미지를 분석했습니다.](?success=analyze-image#run-the-application) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=analyze-image&product=computer-vision&page=image-analysis-java-sdk)
@@ -239,7 +239,7 @@ mkdir -p src/main/java
 
 try/catch 블록을 완료하고 메서드를 닫습니다.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyze_catch)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyze_catch)]
 
 
 ## <a name="run-the-application"></a>애플리케이션 실행
@@ -277,4 +277,4 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 >[Analyze API 호출](../../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
 
 * [이미지 분석 개요](../../overview-image-analysis.md)
-* 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java)에서 확인할 수 있습니다.
+* 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java)에서 확인할 수 있습니다.

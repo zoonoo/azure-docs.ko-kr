@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/11/2021
+ms.date: 06/24/2021
 ms.author: jeedes
-ms.openlocfilehash: 04d93913711dc8f03e35ac811b46158dfd038c61
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: cc996384570b20d536f06bae2101987d40b1f3fc
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108750698"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114363201"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>자습서: Google Cloud (G Suite) Connector와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -30,17 +30,17 @@ ms.locfileid: "108750698"
 
 시작하려면 다음 항목이 필요합니다.
 
-- Azure AD 구독
-- Google Cloud (G Suite) Connector SSO(Single Sign-On)를 사용하도록 설정된 구독
-- Google Apps 구독 또는 Google Cloud Platform 구독.
+* Azure AD 구독
+* Google Cloud (G Suite) Connector SSO(Single Sign-On)를 사용하도록 설정된 구독
+* Google Apps 구독 또는 Google Cloud Platform 구독.
 
 > [!NOTE]
 > 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다. 이 문서는 새 사용자 Single Sign-On 환경을 사용하여 만들어졌습니다. 이전 환경을 계속 사용하고 있으면 설정이 다르게 표시됩니다. G Suite 애플리케이션의 Single Sign-On 설정에서 새로운 환경을 설정할 수 있습니다. **Azure AD, 엔터프라이즈 애플리케이션** 으로 이동하고, **Google Cloud (G Suite) Connector** 를 선택하고, **Single Sign-On** 을 선택한 다음, **새 환경 사용해 보기** 를 클릭합니다.
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
-- 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 마세요.
-- 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 마세요.
+* 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -118,51 +118,53 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 **Gmail** 에 대해 구성하려는 경우 다음 단계를 수행합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. **식별자** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+    | **식별자** |
+    |----|
+    | `google.com/a/<yourdomain.com>` |
+    | `google.com` |
+    | `https://google.com` | 
+    | `https://google.com/a/<yourdomain.com>` |
 
-    ```http
-    google.com/a/<yourdomain.com>
-    google.com
-    https://google.com
-    https://google.com/a/<yourdomain.com>
-    ```
+    b. **회신 URL** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다. 
 
-    다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. 
-
-    ```http
-    https://www.google.com/acs
-    https://www.google.com/a/<yourdomain.com>/acs
-    ```
+    | **회신 URL** |
+    |-----|
+    | `https://www.google.com/acs` |
+    | `https://www.google.com/a/<yourdomain.com>/acs` |
+    
+    c. **로그온 URL** 텍스트 상자에서 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
 1. **기본 SAML 구성** 섹션에서 **Google Cloud Platform** 에 대해 구성하려는 경우 다음 단계를 수행합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
-
-    b. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
     
-    ```http
-    google.com/a/<yourdomain.com>
-    google.com
-    https://google.com
-    https://google.com/a/<yourdomain.com>
-    ```
+    | **식별자** |
+    |-----|
+    | `google.com/a/<yourdomain.com>` |
+    | `google.com` |
+    | `https://google.com` |
+    | `https://google.com/a/<yourdomain.com>` |
     
-    다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. 
+    b. **회신 URL** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다. 
     
-    ```http
-    https://www.google.com/acs
-    https://www.google.com/a/<yourdomain.com>/acs
-    ```
+    | **회신 URL** |
+    |-----|
+    | `https://www.google.com/acs` |
+    | `https://www.google.com/a/<yourdomain.com>/acs` |
+    
+    c. **로그온 URL** 텍스트 상자에서 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. Google Cloud (G Suite) Connector는 Single Sign-On 구성에서 엔터티 ID/식별자 값을 제공하지 않으므로 **도메인 특정 발급자** 옵션의 선택을 취소하면 식별자 값은 `google.com`이 됩니다. **도메인 특정 발급자** 옵션을 선택하면 `google.com/a/<yourdomainname.com>`이 됩니다. **도메인 특정 발급자** 옵션을 선택/선택 취소하려면 자습서의 뒷부분에서 설명하는 **Google Cloud (G Suite) Connector SSO 구성** 섹션으로 이동해야 합니다. 자세한 내용은 [Google Cloud (G Suite) Connector 클라이언트 지원 팀](https://www.google.com/contact/)에 문의하세요.
+    > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. Google Cloud (G Suite) Connector는 Single Sign-On 구성에서 엔터티 ID/식별자 값을 제공하지 않으므로 **도메인 특정 발급자** 옵션의 선택을 취소하면 식별자 값은 `google.com`이 됩니다. **도메인 특정 발급자** 옵션을 선택하면 `google.com/a/<yourdomainname.com>`이 됩니다. **도메인 특정 발급자** 옵션을 선택/선택 취소하려면 자습서의 뒷부분에서 설명하는 **Google Cloud (G Suite) Connector SSO 구성** 섹션으로 이동해야 합니다. 자세한 내용은 [Google Cloud (G Suite) Connector 클라이언트 지원 팀](https://www.google.com/contact/)에 문의하세요.
 
 1. Google Cloud (G Suite) Connector 애플리케이션에는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 하는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. **고유한 사용자 ID** 의 기본값은 **user.userprincipalname** 이지만, 이 사용자 ID는 Google Cloud (G Suite) Connector에서 사용자의 이메일 주소와 매핑되어야 합니다. 목록에서 **user.mail** 특성을 사용하거나 조직 구성을 기반으로 적절한 특성 값을 사용할 수 있기 위해서입니다.
 
     ![이미지](common/default-attributes.png)
 
+    > [!NOTE]
+    > SAML 응답에 DisplayName 및 Surname 특성에 비표준 ASCII 문자가 포함되지 않았는지 확인합니다.    
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
@@ -184,7 +186,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -206,30 +208,27 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **보안** 을 클릭합니다. 링크가 보이지 않으면 화면 아래쪽에 있는 **기타 컨트롤** 메뉴에 숨겨져 있을 수 있습니다.
 
-    ![보안을 클릭합니다.][10]
+    ![보안을 클릭합니다.](./media/google-apps-tutorial/gapps-security.png)
 
 3. **보안** 페이지에서 **SSO(Single Sign-On) 설정** 을 클릭합니다.
 
-    ![SSO를 클릭합니다.][11]
+    ![SSO를 클릭합니다.](./media/google-apps-tutorial/security-gapps.png)
 
 4. 다음 구성을 변경합니다.
 
-    ![SSL 구성][12]
+    ![SSO를 구성합니다.](./media/google-apps-tutorial/configuration.png)
 
     a. **Setup SSO with third party identity provider**(타사 ID 공급자로 SSO 설정)을 선택합니다.
 
     b. Azure Portal에서 복사한 **로그인 URL** 값을 Google Cloud (G Suite) Connector의 **Sign-in page URL(로그인 페이지 URL)** 필드에 붙여넣습니다.
 
-    다. Azure Portal에서 복사한 **로그인 URL** 값을 Google Cloud(G Suite) Connector의 **로그인 아웃 페이지 URL** 필드에 붙여넣습니다.
-
-    > [!NOTE]
-    > Google 클라우드(G Suite)는 SAML 로그 아웃 프로토콜을 기반으로 합니다. 따라서 **로그 아웃 페이지 URL** 필드에서 SAML 로그 아웃 URL(예: 로그인 URL)을 동일한 값으로 사용해야 합니다.
+    다. Azure Portal에서 복사한 **로그아웃 URL** 값을 Google Cloud (G Suite) Connector의 **Sign-out page URL(로그아웃 페이지 URL)** 필드에 붙여넣습니다.
 
     d. Google Cloud (G Suite) Connectors에서 **Verification certificate(확인 인증서)** 에 대해 Azure Portal에서 다운로드한 인증서를 업로드합니다.   
 
     e. Azure AD에서 위의 **기본 SAML 구성** 에 설명된 참고 사항에 따라 **도메인 특정 발급자 사용** 옵션을 선택/선택 취소합니다.
 
-    f. Azure Portal에서 복사한 **암호 변경 URL** 값을 Google Cloud (G Suite) Connector의 **암호 변경 URL** 필드에 붙여넣습니다.
+    f. Google Cloud(G Suite) 커넥터의 **암호 변경 URL** 필드에 값을 `https://account.activedirectory.windowsazure.com/changepassword.aspx`로 입력합니다.
 
     g. **저장** 을 클릭합니다.
 
@@ -255,13 +254,6 @@ Google Cloud (G Suite) Connector는 자동 사용자 프로비저닝도 지원�
 
 * Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Google Cloud(G Suite) Connector 타일을 클릭하면 Google Cloud(G Suite) Connector 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
-
 ## <a name="next-steps"></a>다음 단계
 
 Google Cloud(G Suite) Connector가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).
-
-<!--Image references-->
-
-[10]: ./media/google-apps-tutorial/gapps-security.png
-[11]: ./media/google-apps-tutorial/security-gapps.png
-[12]: ./media/google-apps-tutorial/gapps-sso-config.png

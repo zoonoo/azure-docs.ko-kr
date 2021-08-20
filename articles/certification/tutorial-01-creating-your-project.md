@@ -5,14 +5,14 @@ author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: tutorial
-ms.date: 03/01/2021
+ms.date: 06/22/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 11c0a621375cfa57c8b25f0bdd5ed4651dffa853
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f634cb35590a428613858a88a71db1d0792ceb06
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949414"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112967505"
 ---
 # <a name="tutorial-create-your-project"></a>자습서: 프로젝트 만들기
 
@@ -26,7 +26,6 @@ Azure Certified Device 프로그램을 통해 디바이스를 인증하기로 �
 > * 프로젝트의 기본 디바이스 세부 정보 지정
 
 ## <a name="prerequisites"></a>필수 구성 요소
-
 
 - 유효한 회사/학교 [Azure Active Directory 계정](../active-directory/fundamentals/active-directory-whatis.md).
 - 확인된 MPN(Microsoft 파트너 네트워크) 계정. MPN 계정이 없는 경우 시작하기 전에 [파트너 네트워크에 가입](https://partner.microsoft.com/)합니다. 
@@ -65,6 +64,10 @@ Azure Certified Device 프로그램을 통해 디바이스를 인증하기로 �
     | 디바이스 유형            | 완성된 제품 또는 솔루션 지원 개발자 키트의 사양입니다.     용어에 대한 자세한 내용은 [인증 용어집](./resources-glossary.md)을 참조하세요.                                                                     |
     | 디바이스 클래스           | 게이트웨이, 센서 또는 기타.  용어에 대한 자세한 내용은 [인증 용어집](./resources-glossary.md)을 참조하세요.                                                                    |
     | 디바이스 소스 코드 URL | 솔루션 지원 개발 키트를 인증하는 경우 필요합니다. 그렇지 않은 경우 선택 사항입니다. URL은 디바이스 코드에 대한 GitHub 위치여야 합니다. |
+
+    > [!Note]
+    > Microsoft 서비스(예: Azure Sphere)를 마케팅하는 경우 디바이스 이름이 Microsoft [브랜딩 지침](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks)을 준수하는지 확인하세요.
+
 1. `Next` 단추를 선택하여 `Certifications` 탭을 계속 진행합니다.
 
     ![새 프로젝트 만들기 양식, 인증 탭의 이미지](./media/images/create-new-project-certificationswindow.png)

@@ -7,14 +7,19 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6fff19498e9ca70991d3190165df70a48136f502
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 990d1ca07d4cf9e66c50a22f213817dda3ae029c
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92631141"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432917"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>App Service Environment 소개 #
+> [!NOTE]
+> 이 문서에서는 격리된 App Service 요금제와 함께 사용되는 App Service Environment v2에 관해 설명합니다.
+> 
+
+
 ## <a name="overview"></a>개요 ##
 
 Azure App Service Environment는 Azure App Service 앱을 매우 높은 확장성으로 안전하게 실행하기 위해 완전히 격리된 전용 환경을 제공하는 Azure App Service 기능입니다. 이 기능은 다음을 호스트할 수 있습니다.
@@ -76,7 +81,7 @@ ASE가 가상 네트워크 및 온-프레미스 네트워크와 함께 어떻게
 
 App Service Environment에는 ASEv1 및 ASEv2라는 두 가지 버전이 있습니다. 위의 정보는 ASEv2를 기준으로 작성된 것입니다. 이 섹션은 ASEv1과 ASEv2의 차이를 보여줍니다. 
 
-ASEv1에서는 모든 리소스를 수동으로 관리해야 합니다. 여기에는 IP 기반 SSL에 사용되는 프런트 엔드, 작업자 및 IP 주소가 포함됩니다. App Service 계획을 스케일 아웃하기 전에 호스트할 작업자 풀을 먼저 스케일 아웃해야 합니다.
+ASEv1에서는 모든 리소스를 수동으로 관리해야 합니다. 여기에는 IP 기반 TLS/SSL 바인딩에 사용되는 프런트 엔드, 작업자 및 IP 주소가 포함됩니다. App Service 계획을 스케일 아웃하기 전에 호스트할 작업자 풀을 먼저 스케일 아웃해야 합니다.
 
 ASEv1은 ASEv2와는 다른 가격 책정 모델을 사용합니다. ASEv1에서는 할당된 각 vCPU에 대한 비용을 지불합니다. 여기에는 워크로드를 호스트하지 않는 프런트 엔드 또는 작업자에 사용된 vCPU가 포함됩니다. ASEv1에서 ASE의 기본 최대 규모 크기는 총 55개의 호스트입니다. 여기에는 작업자 및 프런트 엔드가 포함됩니다. ASEv1의 한 가지 장점은 클래식 가상 네트워크 및 Resource Manager 가상 네트워크에 배포할 수 있다는 것입니다. ASEv1에 대해 자세히 알아보려면 [App Service Environment v1 소개][ASEv1Intro]를 참조하세요.
 

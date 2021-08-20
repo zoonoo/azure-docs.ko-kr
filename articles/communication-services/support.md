@@ -5,15 +5,15 @@ author: ProbablePrime
 manager: chpalm
 services: azure-communication-services
 ms.author: rifox
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e403fb8bcd25d1274eda287bc62465bacdb9b613
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 84a0722a85e08de34841fef752ac8bb36c32f8b9
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045470"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113357067"
 ---
 # <a name="help-and-support-options-for-azure-communication-services"></a>Azure Communication Services에 대한 도움말 및 지원 옵션
 
@@ -31,3 +31,15 @@ Microsoft 엔지니어, Azure Mvp (가장 귀중한 전문가) 또는 커뮤니�
 ## <a name="post-a-question-on-stack-overflow"></a>Stack Overflow에 질문 게시
 
 대규모 커뮤니티 개발자 커뮤니티 및 에코시스템을 갖추고 있는 Stack Overflow에서 질문을 할 수도 있습니다. Azure Communication Services에도 [전용 태그](https://stackoverflow.com/questions/tagged/azure-communication-services)가 있습니다.
+
+## <a name="provide-feedback"></a>피드백 제공
+
+Azure Communication Services가 Azure Portal에서 제공하는 특정 기능에 대한 피드백을 제공하려면 :::image type="content" source="./media/give-feedback-icon.png" alt-text="피드백 보내기 아이콘 이미지":::가 있는 단추 또는 링크를 통해 피드백을 제출합니다. 
+
+몇 가지 예제는 다음과 같습니다. 
+- 전화 번호에 대한 피드백을 제공하려면 전화 번호 블레이드의 명령 모음에서 "피드백 제공" 단추를 클릭합니다.
+:::image type="content" source="./media/give-feedback-in-command-bar.png" alt-text="전화 번호 블레이드의 명령 모음에 있는 피드백 제공 단추의 이미지.":::
+- 알림 허브에 대한 연결 환경에 관한 피드백을 제공하려면 아래와 같이 다음 링크를 클릭하세요.  
+:::image type="content" source="./media/give-feedback-in-page.png" alt-text="Notification Hub 블레이드의 피드백 제공 링크 이미지.":::
+
+서비스를 개선하는 데 도움을 주신 피드백과 에너지에 감사드립니다. 이 [설문 조사](https://aka.ms/ACS_CAT_Survey)를 통해 Azure Communication Services에 만족하는지 알려주세요. 
