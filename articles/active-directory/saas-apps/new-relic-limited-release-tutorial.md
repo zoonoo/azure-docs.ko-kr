@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/13/2021
 ms.author: jeedes
-ms.openlocfilehash: ba6a06b51a9fd3a4efec98d5a713d1a791e9a321
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 96794d2ab07f9fe352f611c7d0cf511067928bee
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136916"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413198"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic"></a>자습서: New Relic과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,12 +26,12 @@ ms.locfileid: "108136916"
 * 사용자가 해당 Azure AD 계정으로 New Relic에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* SSO(Single Sign-On)를 사용하도록 설정된 New Relic 구독
+* [New Relic One 계정/사용자 모델](https://docs.newrelic.com/docs/accounts/original-accounts-billing/original-product-based-pricing/overview-changes-pricing-user-model/#user-models) 및 Pro 또는 엔터프라이즈 버전에 대한 New Relic 조직입니다. 자세한 내용은 [New Relic 요구사항](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/authentication-domains-saml-sso-scim-more)을 참조하세요.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -76,11 +76,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 **식별자** 및 **회신 URL** 에 대한 값을 입력합니다.
 
-   * 이러한 값은 New Relic **My Organization** 애플리케이션을 사용하여 검색합니다. 이 애플리케이션을 사용하려면 다음을 수행합니다.
-      1. [New Relic](https://login.newrelic.com/)에 로그인합니다.
-      1. 위쪽 메뉴에서 **Apps(앱)** 를 선택합니다.
-      1. **Your apps(앱)** 섹션에서 **My Organization(내 조직)**  > **Authentication domains(인증 도메인)** 를 차례로 선택합니다.
-      1. Azure AD SSO에서 연결하도록 하려는 인증 도메인을 선택합니다(둘 이상의 인증 도메인이 있는 경우). 대부분의 회사에는 **Default(기본)** 라는 하나의 인증 도메인만 있습니다. 하나의 인증 도메인만 있으면 선택할 필요가 없습니다.
+   * [New Relic 인증 도메인 UI](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/authentication-domains-saml-sso-scim-more/#ui)에서 이러한 값을 검색합니다. 여기에서: 
+      1. 인증 도메인이 둘 이상이 있는 경우 Azure AD SSO를 연결할 도메인을 선택합니다. 대부분의 회사에는 **Default(기본)** 라는 하나의 인증 도메인만 있습니다. 하나의 인증 도메인만 있으면 선택할 필요가 없습니다.
       1. **Authentication(인증)** 섹션의 **Assertion consumer URL(인증 소비자 URL)** 에는 **회신 URL** 에 사용할 값이 포함되어 있습니다.
       1. **Authentication** 섹션의 **Our entity ID(엔터티 ID)** 에는 **식별자** 에 사용할 값이 포함되어 있습니다.
 
@@ -101,7 +98,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -119,13 +116,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-new-relic-sso"></a>New Relic SSO 구성
 
-New Relic에서 다음 단계에 따라 SSO를 구성합니다.
+New Relic에서 다음 단계에 따라 SSO를 구성합니다. 
 
 1. [New Relic](https://login.newrelic.com/)에 로그인합니다.
 
-1. 위쪽 메뉴에서 **Apps(앱)** 를 선택합니다.
-
-1. **Your apps(앱)** 섹션에서 **My Organization(내 조직)**  > **Authentication domains(인증 도메인)** 를 차례로 선택합니다.
+1. [인증 도메인 UI](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/authentication-domains-saml-sso-scim-more/#ui)로 이동합니다. 
 
 1. Azure AD SSO에서 연결하도록 하려는 인증 도메인을 선택합니다(둘 이상의 인증 도메인이 있는 경우). 대부분의 회사에는 **Default(기본)** 라는 하나의 인증 도메인만 있습니다. 하나의 인증 도메인만 있으면 선택할 필요가 없습니다.
 
@@ -143,9 +138,7 @@ New Relic에서 다음 단계에 따라 SSO를 구성합니다.
 
 1. [New Relic](https://login.newrelic.com/)에 로그인합니다.
 
-1. 위쪽 메뉴에서 **Apps(앱)** 를 선택합니다.
-
-1. **Your apps(앱)** 섹션에서 **User Management(사용자 관리)** 를 선택합니다.
+1. [**사용자 관리** UI](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/add-manage-users-groups-roles/#where)로 이동합니다.
 
 1. **사용자 추가** 를 선택합니다.
 
@@ -153,7 +146,7 @@ New Relic에서 다음 단계에 따라 SSO를 구성합니다.
    
    1. **Email(이메일)** 에 대해 Azure AD SSO에서 보낼 값을 입력합니다.
    
-   1. 사용자에 대한 사용자 **Type(유형)** 및 사용자 **Group(그룹)** 을 선택합니다. 테스트 사용자의 경우 Type에 대해 **Basic User(기본 사용자)** 를 선택하고 Group에 대해 **User(사용자)** 를 선택하는 것이 좋습니다.
+   1. 사용자에 대한 사용자 **Type(유형)** 및 사용자 **Group(그룹)** 을 선택합니다. 테스트 사용자의 경우 Type에 대해 **기본 사용자** 를 선택하고 Group에 대해 **사용자** 를 선택하는 것이 좋습니다.
    
    1. 사용자를 저장하려면 **Add User(사용자 추가)** 를 선택합니다.
 
@@ -175,4 +168,8 @@ Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테�
 
 ## <a name="next-steps"></a>다음 단계
 
-New Relic이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+완료되면 [**사용자 관리** UI](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/add-manage-users-groups-roles/#where)로 이동하여 사용자가 New Relic에 추가되었는지 확인할 수 있습니다. 
+
+다음으로, 사용자를 특정 New Relic 계정 또는 역할에 할당하는 것이 좋습니다. 이에 대한 자세한 내용은 [사용자 관리 개념](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/add-manage-users-groups-roles/#understand-concepts)을 참조하세요. 
+
+New Relic의 인증 도메인 UI에서 세션 제어와 같은 [다른 설정](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/authentication-domains-saml-sso-scim-more/#session-mgmt)을 구성하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
