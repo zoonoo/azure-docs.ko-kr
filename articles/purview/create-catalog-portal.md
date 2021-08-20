@@ -9,12 +9,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 158eed6d287fa384023defbb20a7a1c39ea3d838
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 7c75e550c1987302559fb07e3785686244d128a0
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728593"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060987"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Purview 계정 만들기
 
@@ -87,7 +87,7 @@ ms.locfileid: "107728593"
 
     1. 만든 사용자 지정 정책을 사용하여 [정책 할당을 만듭니다](../governance/policy/assign-policy-portal.md).
 
-        [ ![정책 할당을 만드는 방법을 보여 주는 스크린샷](./media/create-catalog-portal/policy-assignment.png)](./media/create-catalog-portal/policy-assignment.png#lightbox)
+       :::image type="content" source="./media/create-catalog-portal/policy-assignment.png" alt-text="정책 할당을 만드는 방법을 보여 주는 스크린샷" lightbox="./media/create-catalog-portal/policy-assignment.png":::
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -125,8 +125,12 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
     1. **리소스 그룹** 을 선택합니다.
     1. 카탈로그에 대한 **Purview 계정 이름** 을 입력합니다. 공백과 기호는 허용되지 않습니다.
     1. **위치** 를 선택하고, **다음: 구성** 을 선택합니다.
-1. **구성** 탭에서 원하는 **플랫폼 크기** 를 선택합니다. 허용되는 값은 4CU(용량 단위) 및 16CU입니다. 완료되면 **다음: 태그** 를 선택합니다.
-1. **태그** 탭에서 필요에 따라 하나 이상의 태그를 추가할 수 있습니다. 이러한 태그는 Azure Purview가 아니라 Azure Portal에서만 사용할 수 있습니다. 
+1. **구성** 탭에서 원하는 **플랫폼 크기** 를 선택합니다. 허용되는 값은 4CU(용량 단위) 및 16CU입니다. 필요에 따라 Azure Purview 관리형 리소스 그룹에 대해 다른 이름을 제공합니다. 완료되면 **다음: 태그** 를 선택합니다.
+
+    > [!Note] 
+    > [관리형 리소스 그룹](create-catalog-portal.md#azure-purview-managed-resources)에는 Azure Purview의 계정에 전용 및 사용되는 관리형 Storage 계정 및 EventHub 네임스페이스가 포함됩니다.
+
+3. **태그** 탭에서 필요에 따라 하나 이상의 태그를 추가할 수 있습니다. 이러한 태그는 Azure Purview가 아니라 Azure Portal에서만 사용할 수 있습니다. 
 
     > [!Note] 
     > **Azure Policy** 가 있고 **사전 요구 사항** 에서와 같이 예외를 추가해야 하는 경우 올바른 태그를 추가해야 합니다. 예를 들어 `resourceBypass` 태그를 추가할 수 있습니다. :::image type="content" source="./media/create-catalog-portal/add-purview-tag.png" alt-text="Purview 계정에 태그 추가":::
@@ -167,6 +171,13 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 1. **선택** 에 대해 할당하려는 사용자, Azure Active Directory 그룹 또는 서비스 주체의 이름을 입력한 다음, 결과 창에서 해당 이름을 클릭합니다.
 
 1. **Save** 를 클릭합니다.
+
+## <a name="azure-purview-managed-resources"></a>Azure Purview 관리형 리소스
+Azure Purview 계정을 배포하는 동안 새 Azure Storage 계정 및 새 EventHub 네임스페이스가 있는 새 관리형 리소스 그룹도 Azure 구독 내에 있는 Azure Purview 계정과 함께 배포됩니다. 배포 중에 관리형 리소스 그룹에 대해서는 필요에 따라 다른 명명 규칙을 선택할 수 있습니다.
+
+이러한 리소스는 Azure Purview의 계정 작업에 필수적이며 정보를 Azure Purview의 데이터 카탈로그로 수집할 때까지 임시 데이터를 포함하는 데 사용됩니다. 
+
+리소스 그룹 내에서 리소스(스토리지 계정, 이벤트 허브 네임스페이스)를 관리하도록 허용하는 유일한 제외 사항으로서 Azure Purview의 관리형 ID를 사용하여 모든 보안 주체에 대한 관리형 리소스 그룹에 거부 할당이 자동으로 추가됩니다. 따라서 관리형 리소스 그룹, 관리형 리소스 또는 그 콘텐츠를 데이터 평면에서 제거하거나 수정할 수 없습니다. 그러나 Purview 계정이 삭제되면 관리형 리소스 그룹과 그 콘텐츠가 자동으로 삭제됩니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

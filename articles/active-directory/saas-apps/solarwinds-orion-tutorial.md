@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/01/2021
+ms.date: 06/29/2021
 ms.author: jeedes
-ms.openlocfilehash: b503697972bfe7fbd8fc18b77d6e0206dc055b67
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: ae73974a65ca13c76fc374bf0544d67fa2a524c3
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206136"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113107319"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-solarwinds-orion"></a>자습서: SolarWinds Orion과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -93,11 +93,22 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 SolarWinds Orion 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
     
-    | Name |  원본 특성|
+    | 속성 |  원본 특성|
     | ----------- | --------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
     | Email |user.mail |
+
+1. **사용자 특성 및 클레임** 섹션에서 연필 아이콘을 클릭하여 편집하고 **그룹 클레임 추가** 를 클릭합니다.
+
+    ![사용자 특성 및 클레임의 스크린샷](./media/solarwinds-orion-tutorial/group-claim.png)
+
+1. **보안 그룹** 을 선택합니다.
+1. Azure AD가 온-프레미스 AD와 동기화되는 경우 **원본 특성** 을 **sAMAccountName** 으로 변경합니다. 동기화되지 않는 경우에는 그룹 ID로 그대로 둡니다.
+
+1. **고급 옵션** 에서 **그룹 클레임 이름 사용자 지정** 확인란을 선택하고 이름으로 OrionGroups를 지정합니다.
+
+1. **저장** 을 클릭합니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
@@ -115,7 +126,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

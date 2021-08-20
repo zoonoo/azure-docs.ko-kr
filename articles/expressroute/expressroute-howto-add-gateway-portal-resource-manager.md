@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: f81446111ab87b280d50caceb93beefc7aedef3b
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 0ab04c21cb904baf7ede72fd69f6d6b8375b07cc
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110328"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114289885"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
@@ -89,7 +89,7 @@ ms.locfileid: "106110328"
     | 공용 IP 주소 이름 | 공용 IP 주소의 이름을 입력합니다. |
 
     > [!IMPORTANT]
-    > ExpressRoute를 통해 IPv6 기반 프라이빗 피어링을 사용하려는 경우 **SKU** 에 대해 AZ SKU(ErGw1AZ, ErGw2AZ, ErGw3AZ)를 선택해야 합니다.
+    > ExpressRoute를 통해 IPv6 기반 프라이빗 피어링을 사용할 계획인 경우 표준, 정적 형식의 공용 IP 주소를 사용하여 게이트웨이를 만드는 방법에 대한 [PowerShell 설명서](./expressroute-howto-add-gateway-resource-manager.md)를 참조하세요.
     > 
     > 
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 5c3ae5c7b1c45d170548f6fa00481094117e1737
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: acae0362d664567bb15b964f396f0c300135ed1c
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937365"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114726757"
 ---
 # <a name="what-is-azure-front-door-standardpremium-preview"></a>Azure Front Door 표준/프리미엄(미리 보기)이란?
 
@@ -28,7 +28,7 @@ Azure Front Door 표준/프리미엄을 사용하면 글로벌 소비자 및 엔
 
 Azure Front Door 표준/프리미엄은 Layer 7(HTTP/HTTPS 계층)에서 작동하며, TCP가 분할된 애니캐스트 프로토콜과 Microsoft의 글로벌 네트워크를 사용하여 글로벌 연결을 개선합니다. 규칙 집합을 사용하여 사용자 지정된 라우팅 방법에 따라 Azure Front Door가 클라이언트 요청을 가장 빠르고 가장 가용성이 높은 원본으로 라우팅하도록 할 수 있습니다. 애플리케이션 원본은 Azure의 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스입니다. Azure Front Door 표준/프리미엄은 다양한 애플리케이션 요구와 자동 장애 조치(failover) 시나리오에 맞는 트래픽 라우팅 방법 및 원본 상태 모니터링 옵션을 제공합니다. Traffic Manager와 유사한 Front Door는 전체 Azure 지역에 대한 오류를 포함한, 오류에 대해 복원력을 갖습니다.
 
-또한 Azure Front Door는 통합된 웹 애플리케이션 방화벽 보호, 봇 보호 및 기본 제공 계층 3/계층 4 DDoS(분산 서비스 거부) 보호를 통해 가장자리에서 앱을 보호합니다. 또한 프라이빗 링크 서비스로 프라이빗 백 엔드를 보호합니다. Azure Front Door는 글로벌 규모에서 Microsoft의 최상의 보안을 제공합니다.  
+또한 Azure Front Door는 통합된 Web Application Firewall 보호, 봇 보호, 기본 제공 계층 3/계층 4 DDoS(분산형 서비스 거부) 보호를 사용하여 에지에서 앱을 보호합니다. 또한 프라이빗 링크 서비스로 프라이빗 백 엔드를 보호합니다. Azure Front Door는 글로벌 규모에서 Microsoft의 최상의 보안을 제공합니다.  
 
 >[!NOTE]
 > Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다.

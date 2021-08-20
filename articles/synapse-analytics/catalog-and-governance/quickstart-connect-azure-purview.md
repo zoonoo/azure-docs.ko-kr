@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/16/2020
 ms.author: jejiang
 ms.reviewer: jrasnick
-ms.openlocfilehash: f0af3b571b1a6d793668c33d0c76e19a3d0c9e62
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 827f1a4cd518d33ea67749482349cad9d4540c82
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109716063"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112117374"
 ---
 # <a name="quickstartconnect-an-azure-purview-account-to-a-synapse-workspace"></a>빠른 시작: Synapse 작업 영역에 Azure Purview 계정 연결 
 
@@ -22,7 +22,7 @@ ms.locfileid: "109716063"
 
 Synapse에서는 다음과 같은 작업을 수행할 수 있습니다. 
 - 위쪽의 검색 상자에서 키워드를 사용하여 Purview 자산 찾기 
-- 메타데이터, 계보, 주석을 기반으로 데이터 이해 
+- 메타데이터, [계보](../../purview/catalog-lineage-user-guide.md), 주석을 기반으로 데이터 이해 
 - 연결된 서비스 또는 통합 데이터 세트를 사용하여 해당 데이터를 작업 영역에 연결 
 - Synapse Apache Spark, Synapse SQL 및 Data Flow를 사용하여 이러한 데이터 세트 분석 
 
@@ -50,3 +50,9 @@ Synapse에서는 다음과 같은 작업을 수행할 수 있습니다.
 [Azure Purview에서 Azure Synapse 자산 등록 및 검사](../../purview/register-scan-azure-synapse-analytics.md)
 
 [Azure Purview를 사용하여 Synapse에서 데이터 검색, 연결 및 탐색](how-to-discover-connect-analyze-azure-purview.md)   
+
+[Azure Data Factory와 Azure Purview 연결](../../purview/how-to-link-azure-data-factory.md)
+
+[Azure Data Share 및 Azure Purview 연결](../../purview/how-to-link-azure-data-share.md)
+
+[Power BI의 계보를 Azure Purview로 가져오기](../../purview/how-to-lineage-powerbi.md)

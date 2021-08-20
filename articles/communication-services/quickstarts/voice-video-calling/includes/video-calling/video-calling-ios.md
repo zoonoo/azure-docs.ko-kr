@@ -4,22 +4,20 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: a302cdacb7943e81f884b7f83a03c8b72ce3e197
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: e134173fdcd72c637be990b92a278d848ce6527b
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560709"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112535958"
 ---
 Communication Services Calling SDK를 사용하여 앱에 1:1 영상 통화를 추가하여 Azure Communication Services를 시작하세요. iOS용 Azure Communication Services Calling SDK를 사용하여 영상 통화를 시작하고 응답하는 방법에 대해 알아봅니다.
 
-> [!NOTE]
-> 이 문서에서는 Calling SDK의 버전 1.0.0을 사용합니다.
+## <a name="sample-code"></a>샘플 코드
 
-> [!NOTE]
-> [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Video%20Calling)에서 이 빠른 시작에 대한 최종 코드 칮기
+끝으로 건너뛰려면 [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Video%20Calling)에서 이 빠른 시작을 샘플로 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 - 활성 구독이 있는 Azure 계정을 얻습니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 키 집합에 설치된 유효한 개발자 인증서와 함께 [Xcode](https://developer.apple.com/xcode/)를 실행하는 Mac
 - 활성 Communication Services 리소스를 만듭니다. [Communication Services 리소스를 만듭니다](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp).
@@ -76,12 +74,12 @@ import AVFoundation
 ## <a name="object-model"></a>개체 모델
 iOS용 Azure Communication Services Calling SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
-| Name      | 설명 | 
-| :---        |    :----   |
-| CallClient  | CallClient는 Calling SDK의 주 진입점입니다.      |
-| CallAgent  | CallAgent는 통화를 시작하고 관리하는 데 사용됩니다.        |
-| CommunicationTokenCredential| CommunicationTokenCredential은 CallAgent를 인스턴스화하기 위한 토큰 자격 증명으로 사용됩니다.    |
-| CommunicationIdentifier | CommunicationIdentifier는 사용자의 ID를 나타내는 데 사용되며 CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication 중 하나일 수 있습니다.        |
+| Name                         | 설명                                                                                                                                                                        |
+| :--------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CallClient                   | CallClient는 Calling SDK의 주 진입점입니다.                                                                                                                         |
+| CallAgent                    | CallAgent는 통화를 시작하고 관리하는 데 사용됩니다.                                                                                                                                   |
+| CommunicationTokenCredential | CommunicationTokenCredential은 CallAgent를 인스턴스화하기 위한 토큰 자격 증명으로 사용됩니다.                                                                                     |
+| CommunicationIdentifier      | CommunicationIdentifier는 사용자의 ID를 나타내는 데 사용되며 CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication 중 하나일 수 있습니다. |
 
 ## <a name="create-the-call-agent"></a>통화 에이전트 만들기
 ContentView 구문의 구현을 간단한 UI 컨트롤로 바꿉니다. 이를 통해 사용자가 통화를 시작하고 종료할 수 있습니다. 이 빠른 시작에서는 비즈니스 논리를 이러한 컨트롤에 연결합니다.
@@ -228,7 +226,9 @@ struct ContentView_Previews: PreviewProvider {
 ```
 
 ### <a name="authenticate-the-client"></a>클라이언트 인증
-CallAgent 인스턴스를 초기화하려면 통화를 주고받을 사용자 액세스 토큰이 필요합니다. 다음 코드를 `ContentView.swift`의 `onAppear` 콜백에 추가합니다.
+CallAgent 인스턴스를 초기화하려면 통화를 주고받을 사용자 액세스 토큰이 필요합니다. 사용할 수 있는 토큰이 아직 없는 경우 [사용자 액세스 토큰](../../../access-tokens.md?pivots=programming-language-csharp) 설명서를 참조하세요.
+
+토큰이 있으면 `ContentView.swift`의 `onAppear` 콜백에 다음 코드를 추가합니다. `<USER ACCESS TOKEN>`을 리소스의 유효한 사용자 액세스 토큰**으로 바꿔야 합니다.
 
 ```Swift
 var userCredential: CommunicationTokenCredential?
@@ -239,8 +239,6 @@ do {
     return
 }
 ```
-
-`<USER ACCESS TOKEN>`을 리소스에 대한 유효한 사용자 액세스 토큰으로 바꿉니다. 사용할 수 있는 토큰이 아직 없는 경우 [사용자 액세스 토큰](../../../access-tokens.md?pivots=programming-language-csharp) 설명서를 참조하세요.
 
 ### <a name="initialize-the-callagent-and-access-device-manager"></a>CallAgent 초기화 및 디바이스 관리자 액세스
 CallClient에서 CallAgent 인스턴스를 만들려면 초기화된 후 비동기적으로 CallAgent 개체를 반환하는 `callClient.createCallAgent` 메서드를 사용합니다. DeviceManager를 사용하여 오디오/비디오 스트림을 전송하는 호출에 사용 가능한 로컬 디바이스를 열거할 수 있습니다. 또한 사용자에게 마이크/카메라 액세스 권한을 요청할 수 있습니다. 
@@ -617,7 +615,3 @@ public class RemoteParticipantObserver : NSObject, RemoteParticipantDelegate {
 
 ## <a name="run-the-code"></a>코드 실행
 제품 > 실행을 선택하거나 (⌘-R) 키보드 단축키를 사용하여 iOS 시뮬레이터에서 앱을 빌드하고 실행할 수 있습니다.
-
-## <a name="sample-code"></a>샘플 코드
-
-샘플 앱은 [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Video%20Calling)에서 다운로드할 수 있습니다.

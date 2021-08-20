@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/14/2020
+ms.date: 06/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 20f49c174dde90bc7f1a9b34f3dea3132e9b177e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de00b869aef2d1429740d75829da9a5c3e79de15
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644700"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112465946"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-splan-visitor"></a>자습서: Splan Visitor와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -33,11 +33,14 @@ ms.locfileid: "101644700"
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Splan Visitor SSO(Single Sign-On)를 사용하도록 설정된 구독
 
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
+
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-Splan Visitor에서 IdP 시작 SSO를 지원합니다.
+* Splan Visitor에서 IdP 시작 SSO를 지원합니다.
 
 ## <a name="add-splan-visitor-from-the-gallery"></a>갤러리에서 Splan Visitor 추가
 
@@ -69,7 +72,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **Splan Visitor** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 다음, **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 **편집/펜** 아이콘을 선택하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 **연필** 아이콘을 선택하여 설정을 편집합니다.
 
    ![기본 SAML 구성에 대한 편집 아이콘을 강조 표시하는 스크린샷](common/edit-urls.png)
 

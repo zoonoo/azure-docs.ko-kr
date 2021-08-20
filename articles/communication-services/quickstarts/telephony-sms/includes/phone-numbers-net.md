@@ -1,15 +1,15 @@
 ---
-ms.openlocfilehash: d840d2ea518ede320990eb8da23b96129310bcbc
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 6e470aaaad9879116460180b15f45b1419f51418
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111429631"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "114201196"
 ---
 > [!NOTE]
 > [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/PhoneNumbers)에서 이 빠른 시작에 대한 최종 코드 칮기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 운영 체제에 대한 최신 버전의 [.NET Core 클라이언트 라이브러리](https://dotnet.microsoft.com/download/dotnet-core)
@@ -64,10 +64,10 @@ static async Task Main(string[] args)
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-전화 번호 클라이언트는 [Azure Portal] [azure_portal]의 Azure Communication Resources에서 가져온 연결 문자열을 사용하여 인증할 수 있습니다.
+전화 번호 클라이언트는 [Azure Portal][azure_portal]의 Azure Communication Services 리소스에서 가져온 연결 문자열을 사용하여 인증할 수 있습니다.
 
 ```csharp
-// Get a connection string to our Azure Communication resource.
+// Get a connection string to our Azure Communication Services resource.
 var connectionString = "<connection_string>";
 var client = new PhoneNumbersClient(connectionString);
 ```
@@ -75,7 +75,7 @@ var client = new PhoneNumbersClient(connectionString);
 전화 번호 클라이언트는 Azure Active Directory 인증을 사용하여 인증하는 옵션도 있습니다. 이 옵션을 사용하는 경우 인증을 위해 `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` 및 `AZURE_TENANT_ID` 환경 변수를 설정해야 합니다.
 
 ```csharp
-// Get an endpoint to our Azure Communication resource.
+// Get an endpoint to our Azure Communication Services resource.
 var endpoint = new Uri("<endpoint_url>");
 TokenCredential tokenCredential = new DefaultAzureCredential();
 client = new PhoneNumbersClient(endpoint, tokenCredential);

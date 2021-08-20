@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 04b0ee4feb74553fc3b24910da338ba02864ec28
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 3d40705b5dc2b1fb3649c9acea33fc500add1c91
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113109165"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768820"
 ---
 # <a name="quickstart-handle-sms-events-for-delivery-reports-and-inbound-messages"></a>빠른 시작: 배달 보고서 및 인바운드 메시지에 대한 SMS 이벤트 처리
 
@@ -29,7 +29,7 @@ Communication Services SMS 이벤트를 처리하기 위해 Azure Event Grid를 
 ## <a name="prerequisites"></a>사전 요구 사항
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure Communication Services 리소스. 자세한 내용은 [Azure Communication Services 리소스 만들기](../create-communication-resource.md) 빠른 시작에서 확인할 수 있습니다.
-- SMS 사용 전화 번호. [전화 번호를 가져옵니다](./get-phone-number.md).
+- SMS 지원 전화 번호입니다. [전화 번호를 가져옵니다](./get-phone-number.md).
 
 ## <a name="setting-up"></a>설치
 

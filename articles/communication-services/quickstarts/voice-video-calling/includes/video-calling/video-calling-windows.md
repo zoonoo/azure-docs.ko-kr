@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 05d7ac0fc46ddbe279208e9d60fb9f039985ad06
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 5fa934ea2dc29004057ffbd3bad7c5f7b5afe935
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560712"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114593290"
 ---
 이 빠른 시작에서는 Windows용 Azure Communication Services Calling SDK를 사용하여 1:1 화상 통화를 시작하는 방법에 대해 알아봅니다.
 
@@ -27,15 +27,15 @@ Visual Studio에서 **비어 있는 앱(유니버설 Windows)** 템플릿을 사
 
 ### <a name="install-the-package"></a>패키지 설치
 
-프로젝트를 마우스 오른쪽 단추로 클릭하고`Manage Nuget Packages`로 이동하여 `Azure.Communication.Calling`을 설치합니다. 
+프로젝트를 마우스 오른쪽 단추로 클릭하고`Manage Nuget Packages`로 이동하여 `[Azure.Communication.Calling](https://www.nuget.org/packages/Azure.Communication.Calling)`을 설치합니다. 시험판 포함이 선택되어 있고 패키지 원본이 https://www.nuget.org/api/v2/ 에서 온 것인지 확인합니다. 
 
 ### <a name="request-access"></a>액세스 요청
 
 `Package.appxmanifest`로 이동하여 `Capabilities`를 클릭합니다.
 인터넷에 대한 인바운드 및 아웃바운드 액세스 권한을 얻으려면 `Internet (Client & Server)`을 선택합니다. 마이크의 오디오 피드에 액세스하려면 `Microphone`을 선택합니다. 디바이스의 카메라에 액세스하려면 `WebCam`을 선택합니다. 
 
-`Package.appxmanifest`에 다음 코드를 추가합니다. 
-```
+마우스 오른쪽 단추를 클릭하고 코드 보기를 선택하여 `Package.appxmanifest`에 다음 코드를 추가합니다. 
+```XML
 <Extensions>
 <Extension Category="windows.activatableClass.inProcessServer">
 <InProcessServer>
@@ -63,25 +63,35 @@ Visual Studio에서 **비어 있는 앱(유니버설 Windows)** 템플릿을 사
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <StackPanel>
-        <TextBox Text="Who would you like to call?" TextWrapping="Wrap" x:Name="CalleeTextBox" Margin="10,10,10,10"></TextBox>
-        <Button Content="Start Call" Click="CallButton_ClickAsync" x:Name="CallButton" Margin="10,10,10,10"></Button>
-        <Button Content="Hang Up" Click="HangupButton_Click" x:Name="HangupButton" Margin="10,10,10,10"></Button>
+        <StackPanel>
+            <TextBox Text="Who would you like to call?" TextWrapping="Wrap" x:Name="CalleeTextBox" Margin="10,10,10,10"></TextBox>
+            <Button Content="Start Call" Click="CallButton_ClickAsync" x:Name="CallButton" Margin="10,10,10,10"></Button>
+            <Button Content="Hang Up" Click="HangupButton_Click" x:Name="HangupButton" Margin="10,10,10,10"></Button>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <MediaElement x:Name="RemoteVideo" AutoPlay="True" Stretch="UniformToFill"/>
+            <MediaElement x:Name="LocalVideo" AutoPlay="True"  Stretch="UniformToFill" HorizontalAlignment="Right"  VerticalAlignment="Bottom"/>
+        </StackPanel>
     </StackPanel>
-    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-        <MediaElement x:Name="RemoteVideo" AutoPlay="True" Stretch="UniformToFill"/>
-        <MediaElement x:Name="LocalVideo" AutoPlay="True"  Stretch="UniformToFill" HorizontalAlignment="Right"  VerticalAlignment="Bottom"/>
-    </StackPanel>   
 </Page>
 ```
 
-`MainPage.xaml.cs`를 열고 콘텐츠를 다음 구현으로 바꿉니다. 
+`App.xaml.cs`를 열고(마우스 오른쪽 단추를 클릭하고 코드 보기 선택) 이 줄을 맨 위에 추가합니다.
+```C#
+using CallingQuickstart;
+```
+
+`MainPage.xaml.cs`를 열고(마우스 오른쪽 단추로 클릭하고 코드 보기 선택) 콘텐츠를 다음 구현으로 바꿉니다. 
 ```C#
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-using Azure.Communication;
+using Azure.WinRT.Communication;
 using Azure.Communication.Calling;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace CallingQuickstart
 {
@@ -138,7 +148,11 @@ Azure Communication Services Calling SDK의 주요 기능 중 일부를 처리�
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-사용자 액세스 토큰으로 `CallAgent` 인스턴스를 초기화하면 전화를 걸고 받을 수 있습니다. 디바이스의 카메라에 액세스하려면 디바이스 관리자 인스턴스도 가져와야 합니다. 
+`CallAgent`를 초기화하려면 사용자 액세스 토큰이 필요합니다. 일반적으로 이 토큰은 애플리케이션과 관련된 인증을 사용하는 서비스에서 생성됩니다. 사용자 액세스 토큰에 대한 자세한 내용은 [사용자 액세스 토큰](../../../access-tokens.md) 가이드를 확인하세요. 
+
+빠른 시작에서는 `<USER_ACCESS_TOKEN>`을 Azure Communication Services 리소스에 대해 생성된 사용자 액세스 토큰으로 바꿉니다.
+
+토큰이 있으면 이 토큰으로 `CallAgent` 인스턴스를 초기화하여 전화를 걸고 받을 수 있습니다. 디바이스의 카메라에 액세스하려면 디바이스 관리자 인스턴스도 가져와야 합니다. 
 
 ```C#
 private async void InitCallAgentAndDeviceManager()
@@ -226,7 +240,7 @@ private async void Agent_OnIncomingCall(object sender, IncomingCall incomingcall
     AcceptCallOptions acceptCallOptions = new AcceptCallOptions();
     acceptCallOptions.VideoOptions = new VideoOptions(localVideoStream);
 
-    call = await incomingcall.Accept(acceptCallOptions);
+    call = await incomingcall.AcceptAsync(acceptCallOptions);
 }
 ```
 
@@ -297,7 +311,7 @@ private async void Call_OnStateChanged(object sender, PropertyChangedEventArgs a
             });
             break;
         default:
-            System.Console.WriteLine(((Call)sender).State);
+            Debug.WriteLine(((Call)sender).State);
             break;
     }
 }
@@ -311,7 +325,7 @@ private async void Call_OnStateChanged(object sender, PropertyChangedEventArgs a
 private async void HangupButton_Click(object sender, RoutedEventArgs e)
 {
     var hangUpOptions = new HangUpOptions();
-    await call.HangUp(hangUpOptions);
+    await call.HangUpAsync(hangUpOptions);
 }
 ```
 
@@ -320,3 +334,5 @@ private async void HangupButton_Click(object sender, RoutedEventArgs e)
 Visual Studio에서 코드를 빌드하고 실행할 수 있습니다. 솔루션 플랫폼의 경우 `ARM64`, `x64` 및 `x86`이 지원됩니다. 
 
 텍스트 필드에 사용자 ID를 지정하고 `Start Call` 단추를 클릭하여 아웃바운드 비디오 호출을 수행할 수 있습니다. 
+
+사용자 ID에 대한 자세한 내용은 [사용자 액세스 토큰](../../../access-tokens.md) 가이드를 확인하세요. 

@@ -1,15 +1,15 @@
 ---
-ms.openlocfilehash: 61648bc0eab3aba4806cf4594e6fe222ac77f93f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: d07614d79410c388c5b93d635564e2720de7e11e
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111993584"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113659371"
 ---
 > [!NOTE]
 > [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/phone-numbers-quickstart)에서 이 빠른 시작에 대한 최종 코드 칮기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python](https://www.python.org/downloads/) 2.7, 3.5 이상.
@@ -57,7 +57,7 @@ pip install azure-identity
 
 `DefaultAzureCredential` 개체를 만들려면 등록된 Azure AD 애플리케이션에서 `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET` 및 `AZURE_TENANT_ID`가 해당 값을 사용하여 환경 변수로 이미 등록되어 있어야 합니다.
 
-이러한 환경 변수를 가져오는 방법을 빠르게 확인하려면 [CLI에서 관리 ID 설정 빠른 시작](../../managed-identity-from-cli.md)을 따를 수 있습니다.
+환경 변수를 가져오는 방법을 빠르게 확인하려면 [CLI에서 서비스 주체 설정 빠른 시작](../../identity/service-principal-from-cli.md)을 따를 수 있습니다.
 
 `azure-identity` 라이브러리를 설치했으면 클라이언트를 계속 인증할 수 있습니다.
 

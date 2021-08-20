@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/07/2020
+ms.date: 07/14/2021
 ms.author: alkohli
-ms.openlocfilehash: 8e88fb2f6f2fc9ad50911bfda2245cd95ae33236
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: fe1397b2853e95af715e4feb8423f7db3cf548f0
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058751"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219971"
 ---
 # <a name="tutorial-activate-azure-stack-edge-pro-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge Pro 활성화
 
@@ -92,6 +92,26 @@ Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 �
 디바이스 활성화가 완료되었습니다. 이제 디바이스에서 공유를 추가할 수 있습니다.
 
 활성화하는 동안 문제가 발생하는 경우 [활성화 및 Azure Key Vault 오류 문제 해결](azure-stack-edge-gpu-troubleshoot-activation.md#activation-errors)로 이동합니다.
+
+
+
+## <a name="deploy-workloads"></a>워크로드 배포
+
+디바이스를 활성화한 후 다음 단계는 워크로드를 배포하는 것입니다.
+
+- VM 워크로드를 배포하려면 [Azure Stack Edge의 VM이란?](azure-stack-edge-gpu-virtual-machine-overview.md) 및 관련 VM 배포 설명서를 참조하세요.
+- 네트워크 기능을 관리되는 애플리케이션으로 배포하려면 다음 단계를 따릅니다.
+    - Azure Stack Edge 리소스에 연결된 Azure NFM(네트워크 기능 관리자)에 대한 디바이스 리소스를 만들었는지 확인합니다. 디바이스 리소스는 Azure Stack Edge 디바이스에 배포된 모든 네트워크 기능을 집계합니다. 자세한 지침은 [자습서: 네트워크 기능 관리자 디바이스 리소스 만들기(미리 보기)](../network-function-manager/create-device.md)를 참조하세요. 
+    - 그런 다음 [자습서: Azure Stack Edge에서 네트워크 기능 배포(미리 보기)](../network-function-manager/deploy-functions.md)의 지침에 따라 네트워크 기능 관리자를 배포하면 됩니다.
+- IoT Edge 및 Kubernetes 워크로드를 배포하려면 다음 단계를 따릅니다.
+    - [자습서: Azure Stack Edge Pro GPU 디바이스의 컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)에 설명된 대로 컴퓨팅을 먼저 구성해야 합니다. 이 단계에서는 디바이스에 IoT Edge의 호스팅 플랫폼 역할을 하는 Kubernetes 클러스터를 만듭니다. 
+    - Azure Stack Edge 디바이스에서 Kubernetes 클러스터를 만든 후에는 다음 방법 중 하나를 통해 이 클러스터에 애플리케이션 워크로드를 배포할 수 있습니다.
+
+        - `kubectl`을 통한 네이티브 액세스
+        - IoT Edge
+        - Azure Arc
+        
+        워크로드 배포에 대한 자세한 내용은 [Azure Stack Edge 디바이스의 Kubernetes 워크로드 관리](azure-stack-edge-gpu-kubernetes-workload-management.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

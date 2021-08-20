@@ -6,15 +6,15 @@ ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.reviewer: jrasnick, garye
-ms.date: 11/20/2020
+ms.date: 07/01/2021
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: c54300bf37f6f4526c525b1502d902e5f4336ed7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed86453b76d7f7afa0ba7fcccd2e4d7519621fb8
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821818"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362075"
 ---
 # <a name="tutorial-anomaly-detection-with-cognitive-services-preview"></a>자습서: Cognitive Services를 사용하여 변칙 검색(미리 보기)
 
@@ -56,7 +56,7 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 ## <a name="open-the-cognitive-services-wizard"></a>Cognitive Services 마법사 열기
 
-1. 이전 단계에서 만든 Spark 테이블을 마우스 오른쪽 단추로 클릭합니다. **Machine Learning** > **기존 모델을 사용하여 보강** 을 차례로 선택하여 마법사를 엽니다.
+1. 이전 단계에서 만든 Spark 테이블을 마우스 오른쪽 단추로 클릭합니다. **Machine Learning** > **모델을 사용하여 예측** 을 선택하여 마법사를 엽니다.
 
    ![점수 매기기 마법사 열기 선택을 보여 주는 스크린샷](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00g.png)
 

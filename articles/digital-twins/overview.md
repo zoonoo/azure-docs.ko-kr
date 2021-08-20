@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 8213bd8e819e3a6c4a84a95f7c996912ac28ec2b
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 519a64ac9e921624f4e8c03fc91f842eacd2672c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539424"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472958"
 ---
 # <a name="what-is-azure-digital-twins"></a>Azure Digital Twins란?
 
@@ -40,7 +40,7 @@ Azure Digital Twins에서 [모델](concepts-models.md)이라는 사용자 지정
 * 모델은 엔터티 간에 의미 체계 **관계** 를 정의하여 해당 상호 작용을 반영하는 그래프에 트윈을 연결할 수 있도록 합니다. 모델을 세계 설명에서 명사로, 관계를 동사로 간주할 수 있습니다.
 * 또한 모델 상속을 사용하여 쌍을 특수화할 수도 있습니다. 한 모델은 다른 모델에서 상속할 수 있습니다.
 
-DTDL은 [IoT PnP(플러그 앤 플레이)](../iot-pnp/overview-iot-plug-and-play.md) 및 [TSI(Time Series Insights)](../time-series-insights/overview-what-is-tsi.md)를 비롯한 다른 Azure IoT 서비스 전체에서 데이터 모델에 사용됩니다. 이렇게 하면 Azure Digital Twins 솔루션을 Azure 에코시스템의 다른 부분과 연결하고 호환되도록 유지할 수 있습니다.
+DTDL은 [IoT PnP(플러그 앤 플레이)](../iot-develop/overview-iot-plug-and-play.md) 및 [TSI(Time Series Insights)](../time-series-insights/overview-what-is-tsi.md)를 비롯한 다른 Azure IoT 서비스 전체에서 데이터 모델에 사용됩니다. 이렇게 하면 Azure Digital Twins 솔루션을 Azure 에코시스템의 다른 부분과 연결하고 호환되도록 유지할 수 있습니다.
 
 ### <a name="live-execution-environment"></a>라이브 실행 환경
 
@@ -101,6 +101,6 @@ Azure Digital Twins를 사용하는 완전한 솔루션은 다음과 같은 부�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: Azure Digital Twins Explorer 시작](quickstart-azure-digital-twins-explorer.md)에서 Azure Digital Twins 작업을 알아봅니다.
+* [Azure Digital Twins Explorer 시작](quickstart-azure-digital-twins-explorer.md)에서 Azure Digital Twins 작업을 알아봅니다.
 
-* 또는 Azure Digital Twins 개념에 대해 [개념: 사용자 지정 모델](concepts-models.md)에서 자세히 알아보세요.
+* 또는 Azure Digital Twins 개념에 대해 [사용자 지정 모델](concepts-models.md)에서 자세히 알아보세요.

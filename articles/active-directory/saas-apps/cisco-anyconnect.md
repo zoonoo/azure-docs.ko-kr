@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: a89ab7f2304fa51d3e8c7a968d445c9b40a457a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36740e7b135309524b70a74e0f92ceb7e2ac1238
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92456091"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112461818"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-anyconnect"></a>자습서: Cisco AnyConnect와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -73,14 +73,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **SAML로 Single Sign-On 설정** 페이지에서 다음 필드에 값을 입력합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 다음 필드에 값을 입력합니다(값은 대/소문자를 구분함).
 
-    a. **식별자** 텍스트 상자에서 `< YOUR CISCO ANYCONNECT VPN VALUE >` 패턴을 사용하여 URL을 입력합니다.
+   1. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.  
+      `https://*.YourCiscoServer.com/saml/sp/metadata/TGTGroup`
 
-    b. **회신 URL** 텍스트 상자에서 `< YOUR CISCO ANYCONNECT VPN VALUE >` 패턴을 사용하여 URL을 입력합니다.
+   1. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.  
+      `https://YOUR_CISCO_ANYCONNECT_FQDN/+CSCOE+/saml/sp/acs?tgname=TGTGroup`
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 해당 값을 얻으려면 [Cisco AnyConnect 클라이언트 지원 팀](https://www.cisco.com/c/en/us/support/index.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값에 대한 자세한 내용은 Cisco TAC 지원에 문의하세요. Cisco TAC에서 제공하는 실제 식별자와 회신 URL로 값을 업데이트합니다. 해당 값을 얻으려면 [Cisco AnyConnect 클라이언트 지원 팀](https://www.cisco.com/c/en/us/support/index.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾고, **다운로드** 를 선택하여 인증서 파일을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -101,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/18/2021
+ms.date: 06/17/2021
 ms.author: yelevin
-ms.openlocfilehash: af5e0e6a8f019d0b35d73b49f6efb45c2195d62d
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: a9411d044a8c176387d8b9900ca56a7512c4a0de
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072634"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112458329"
 ---
 # <a name="tutorial-use-playbooks-with-automation-rules-in-azure-sentinel"></a>자습서: Azure Sentinel에서 자동화 규칙으로 플레이북 사용
 
@@ -123,7 +123,15 @@ Azure Sentinel에서 [자동화 규칙](automate-incident-handling-with-automati
 
    만들고 있는 플레이북의 유형과 일치하는 트리거를 선택합니다.
 
+    > [!NOTE]
+    > **인시던트 트리거** 를 기반으로 하는 플레이북만 자동화 규칙을 통해 호출할 수 있습니다. **경고 트리거** 를 기반으로 하는 플레이북은 [분석 규칙](tutorial-detect-threats-custom.md#set-automated-responses-and-create-the-rule)에서 직접 실행되도록 정의해야 하며 수동으로 실행할 수도 있습니다.
+    > 
+    > 사용할 트리거에 대한 자세한 내용은 [**Azure Sentinel 플레이북에서 트리거 및 작업 사용**](playbook-triggers-actions.md)을 참조하세요.
+
     :::image type="content" source="./media/tutorial-respond-threats-playbook/choose-trigger.png" alt-text="플레이북의 트리거 선택":::
+
+> [!NOTE]
+> 트리거 또는 후속 작업을 선택하면 조작하는 리소스 공급자에 인증하라는 메시지가 표시됩니다. 이 경우 공급자는 Azure Sentinel입니다. 인증에 사용할 수 있는 몇 가지 방법이 있습니다. 자세한 내용과 지침은 [**Azure Sentinel에 플레이북 인증**](authenticate-playbooks-to-sentinel.md)을 참조하세요.
 
 ### <a name="add-actions"></a>작업 추가
 

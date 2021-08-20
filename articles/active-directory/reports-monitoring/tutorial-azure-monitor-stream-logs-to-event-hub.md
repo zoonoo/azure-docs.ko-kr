@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 06/23/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f7a35faa75af5a6205609e7afd40225d960d132
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: cff544e3d9ba2851db02e0e4440ba9f97b240e68
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964606"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580839"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>자습서: Azure 이벤트 허브로 Azure Active Directory 로그 스트리밍
 
@@ -59,13 +59,19 @@ ms.locfileid: "111964606"
 
 7. **확인** 을 선택하여 이벤트 허브 구성을 종료합니다.
 
-8. 다음 중 하나 또는 둘 모두를 수행합니다.
-    * 이벤트 허브에 감사 로그를 보내려면 **AuditLogs** 확인란을 선택합니다. 
-    * 이벤트 허브에 로그인 로그를 보내려면 **SignInLogs** 확인란을 선택합니다.
+8. 다음을 조합하여 사용할 수 있습니다.
+    - 이벤트 허브에 감사 로그를 보내려면 **AuditLogs** 확인란을 선택합니다. 
+    - 이벤트 허브에 대화형 사용자 로그인 로그를 보내려면 **SignInLogs** 확인란을 선택합니다.
+    - 비대화형 사용자 로그인 로그를 이벤트 허브로 보내려면 **NonInteractiveUserSignInLogs** 확인란을 선택합니다. 
+    - 서비스 주체 로그인 로그를 이벤트 허브로 보내려면 **ServicePrincipalSignInLogs** 확인란을 선택합니다.
+    - 관리 ID 로그인 로그를 이벤트 허브로 보내려면 **ManagedIdentitySignInLogs** 확인란을 선택합니다.
+    - 프로비저닝 로그를 이벤트 허브로 보내려면 **ProvisioningLogs** 확인란을 선택합니다.
+    - AD FS Connect Health 에이전트에서 Azure AD로 로그인을 보내려면 **ADFSSignInLogs** 확인란을 선택합니다.
+
+    >[!Note]
+    >일부 로그인 범주에는 테넌트 구성에 따라 많은 양의 로그 데이터가 포함되어 있습니다. 일반적으로 비대화형 사용자 로그인 및 서비스 주체 로그인은 대화형 사용자 로그인보다 5~10배 더 클 수 있습니다.
 
 9. **저장** 을 선택하여 설정을 저장합니다.
-
-    ![진단 설정](./media/quickstart-azure-monitor-stream-logs-to-event-hub/DiagnosticSettings.png)
 
 10. 약 15분 후 이벤트 허브에 이벤트가 표시되는지 확인합니다. 포털에서 이벤트 허브로 이동하여 **들어오는 메시지** 수가 0보다 큰지 확인하면 됩니다. 
 

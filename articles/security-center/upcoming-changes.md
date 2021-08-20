@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 07/01/2021
+ms.date: 07/25/2021
 ms.author: memildin
-ms.openlocfilehash: cff1215fadcd26f18b75c33bba6794c625729e5d
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
+ms.openlocfilehash: 2770c3532dd83051f9c2c7dcc770850e85aeae4b
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113225591"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114689582"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Azure Security Center에 예정된 중요한 변경
 
@@ -28,29 +28,13 @@ ms.locfileid: "113225591"
 
 | 계획된 변경                                                                                                                                                                                          | 변경 예상 날짜 |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [20MB로 제한되는 CSV 내보내기](#csv-exports-to-be-limited-to-20-mb)                                                                                                                               | 2021년 7월                 |
 | [ISO 27001의 레거시 구현이 새 ISO 27001:2013으로 대체되고 있습니다.](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                                            | 2021년 7월                 |
 | ['머신에서 Log Analytics 에이전트 상태 문제를 해결해야 함' 권장 사항이 사용 중단됨](#deprecating-recommendation-log-analytics-agent-health-issues-should-be-resolved-on-your-machines) | 2021년 7월                 |
-| [SQL 데이터 분류 권장 사항 향상](#enhancements-to-sql-data-classification-recommendation)                                                                                       | 2021년 3분기                   |
+| [Resource Manager 경고에 대한 Azure Defender의 논리적 재구성](#logical-reorganization-of-azure-defender-for-resource-manager-alerts)                                                           | 2021년 8월               |
+| [20MB로 제한되는 CSV 내보내기](#csv-exports-to-be-limited-to-20-mb)                                                                                                                               | 2021년 8월               |
 | [보안 점수에 포함할 Azure Defender 보안 컨트롤을 사용하도록 설정](#enable-azure-defender-security-control-to-be-included-in-secure-score)                                                         | 2021년 3분기                   |
-|                                                                                                                                                                                                         |                           |
+| [SQL 데이터베이스의 중요한 데이터 분류에 대한 개선된 권장 사항](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                                               | 2022년 1분기                   ||                                                                                                                                                                                                         |                           |
 
-
-### <a name="csv-exports-to-be-limited-to-20-mb"></a>20MB로 제한되는 CSV 내보내기
-
-**변경 예상 날짜:** 2021년 7월
-
-Security Center 권장 사항 데이터를 내보낼 때 현재 다운로드할 수 있는 데이터 양에 제한이 없습니다.
-
-:::image type="content" source="media/upcoming-changes/download-csv-report.png" alt-text="권장 사항 데이터를 내보내는 Security Center의 'CSV 보고서 다운로드' 단추입니다.":::
-
-이 변경으로 인해 20MB로 제한됩니다.
-
-더 많은 양의 데이터를 내보내야 하는 경우 선택하기 전에 사용 가능한 필터를 사용하거나 구독의 하위 집합을 선택하고 데이터를 일괄 처리로 다운로드합니다.
-
-:::image type="content" source="media/upcoming-changes/filter-subscriptions.png" alt-text="Azure Portal에서 구독 필터링.":::
-
-[보안 권장 사항의 CSV 내보내기를 수행하는 방법](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations)에 대해 자세히 알아봅니다.
 
 ### <a name="legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013"></a>ISO 27001의 레거시 구현이 새 ISO 27001:2013으로 대체되고 있습니다.
 
@@ -77,11 +61,62 @@ ISO 27001의 레거시 구현은 Security Center의 규정 준수 대시보드�
 > [!TIP]
 > 또한 [자산 인벤토리](asset-inventory.md) 페이지는 머신이 모니터링되는지, 모니터링되지 않거나 부분적으로 모니터링되는지(상태 문제가 있는 에이전트를 나타내는 상태)에 대한 정보도 표시하기 때문에 이 변경의 영향을 받습니다. 
 
-### <a name="enhancements-to-sql-data-classification-recommendation"></a>SQL 데이터 분류 권장 사항 향상
 
-**변경 예상 날짜:** Q3 2021
+### <a name="logical-reorganization-of-azure-defender-for-resource-manager-alerts"></a>Resource Manager 경고에 대한 Azure Defender의 논리적 재구성
 
-**데이터 분류 적용** 보안 제어에서 **SQL 데이터베이스의 중요 데이터를 분류해야 함** 권장 사항은 Microsoft의 데이터 분류 전략에 맞춰 향상된 새 버전으로 대체됩니다. 그 결과 권장 사항의 ID도 변경됩니다(현재 b0df6f56-862d-4730-8597-38c0fd4ebd59임).
+**변경 예상 날짜:** 2021년 8월
+
+아래에 나열된 경고는 현재 [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) 플랜의 일부로 제공됩니다.
+
+일부 Azure Defender 플랜에 대한 논리적 재구성의 일환으로 **Azure Defender for Resource Manager** 에서 **서버용 Azure Defender** 로 일부 경고를 이동하고 있습니다.
+
+경고는 다음과 같은 두 가지 주요 원칙에 따라 구성됩니다.
+
+- 여러 Azure 리소스 유형에서 제어 평면 보호를 제공하는 경고는 Azure Defender for Resource Manager에 포함될 예정입니다.
+- 특정 워크로드를 보호하는 경고는 해당 워크로드와 관련된 해당 Azure Defender 플랜으로 이동됩니다.
+
+이러한 경고는 현재 Azure Defender for Resource Manager에 속하며, 이러한 변경의 결과로 서버용 Azure Defender로 이동됩니다.
+
+- ARM_AmBroadFilesExclusion
+- ARM_AmDisablementAndCodeExecution
+- ARM_AmDisablement
+- ARM_AmFileExclusionAndCodeExecution
+- ARM_AmTempFileExclusionAndCodeExecution
+- ARM_AmTempFileExclusion
+- ARM_AmRealtimeProtectionDisabled
+- ARM_AmTempRealtimeProtectionDisablement
+- ARM_AmRealtimeProtectionDisablementAndCodeExec
+- ARM_AmMalwareCampaignRelatedExclusion
+- ARM_AmTemporarilyDisablement
+- ARM_UnusualAmFileExclusion
+- ARM_CustomScriptExtensionSuspiciousCmd
+- ARM_CustomScriptExtensionSuspiciousEntryPoint
+- ARM_CustomScriptExtensionSuspiciousPayload
+- ARM_CustomScriptExtensionSuspiciousFailure
+- ARM_CustomScriptExtensionUnusualDeletion
+- ARM_CustomScriptExtensionUnusualExecution
+- ARM_VMAccessUnusualConfigReset
+- ARM_VMAccessUnusualPasswordReset
+- ARM_VMAccessUnusualSSHReset
+
+[Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) 및 [서버용 Azure Defender](defender-for-servers-introduction.md)에 대해 자세히 알아봅니다.
+
+
+### <a name="csv-exports-to-be-limited-to-20-mb"></a>20MB로 제한되는 CSV 내보내기
+
+**변경 예상 날짜:** 2021년 8월
+
+Security Center 권장 사항 데이터를 내보낼 때 현재 다운로드할 수 있는 데이터 양에 제한이 없습니다.
+
+:::image type="content" source="media/upcoming-changes/download-csv-report.png" alt-text="권장 사항 데이터를 내보내는 Security Center의 'CSV 보고서 다운로드' 단추입니다.":::
+
+이 변경으로 인해 20MB로 제한됩니다.
+
+더 많은 양의 데이터를 내보내야 하는 경우 선택하기 전에 사용 가능한 필터를 사용하거나 구독의 하위 집합을 선택하고 데이터를 일괄 처리로 다운로드합니다.
+
+:::image type="content" source="media/upcoming-changes/filter-subscriptions.png" alt-text="Azure Portal에서 구독 필터링.":::
+
+[보안 권장 사항의 CSV 내보내기를 수행하는 방법](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations)에 대해 자세히 알아봅니다.
 
 ### <a name="enable-azure-defender-security-control-to-be-included-in-secure-score"></a>보안 점수에 포함할 Azure Defender 보안 컨트롤을 사용하도록 설정
 
@@ -96,6 +131,12 @@ Azure Defender를 사용하도록 설정하면 Security Center의 무료 모드 
 이 변경이 수행되면 Azure Defender로 보호되지 않는 구독의 보안 점수에 영향을 줍니다. 이러한 변경이 발생하기 전에 Azure Defender를 사용하도록 설정하여 점수에 영향을 주지 않도록 하는 것이 좋습니다. 
 
 [빠른 시작: Azure Defender 사용](enable-azure-defender.md)에서 자세히 알아보세요.
+
+### <a name="enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases"></a>SQL 데이터베이스의 중요한 데이터 분류에 대한 개선된 권장 사항
+
+**변경 예상 날짜:** 2022년 1분기
+
+**데이터 분류 적용** 보안 제어에서 **SQL 데이터베이스의 중요 데이터를 분류해야 함** 권장 사항은 Microsoft의 데이터 분류 전략에 맞춰 향상된 새 버전으로 대체됩니다. 그 결과 권장 사항의 ID도 변경됩니다(현재 b0df6f56-862d-4730-8597-38c0fd4ebd59임).
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -9,12 +9,13 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 5caa41b852bf55a11489db6c0bab871b20720e05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: c0be8241b438a010a44c4b9dbabbb05d5ac290b3
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670662"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217092"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>자습서: Apache Spark MLlib 및 Azure Synapse Analytics를 사용하여 기계 학습 앱 빌드
 
@@ -195,9 +196,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 이제 두 개의 DataFrame이 있으므로 다음 작업은 모델 수식을 만들어 학습 DataFrame에 대해 실행하는 것입니다. 그런 다음, 테스트 DataFrame에 대해 유효성을 검사할 수 있습니다. 여러 버전의 모델 수식을 실험하여 다양한 조합의 영향을 확인합니다.
 
 > [!Note]
-> 모델을 저장하려면 *Storage Blob 데이터 기여자* Azure 역할이 필요합니다. 스토리지 계정 아래에서 **액세스 제어(IAM)** 로 이동하여 **역할 할당 추가** 를 선택합니다. Storage Blob 데이터 기여자 역할을 Azure SQL Database 서버에 할당합니다. 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. 
->
->다양한 Azure 기본 제공 역할은 [이 가이드](../../role-based-access-control/built-in-roles.md)를 참조하세요.
+> 모델을 저장하려면 Azure SQL Database 서버 리소스 범위에 *Storage Blob 데이터 기여자* 역할을 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요. 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다.
 
 ```python
 ## Create a new logistic regression object for the model

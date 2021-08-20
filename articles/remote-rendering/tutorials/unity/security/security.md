@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e133de6b4f7f67439734254686d388b9abe71ea0
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: a08516a1cdf968cb5bcfa76228cab88ecacec167
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412028"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112970074"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>자습서: Azure Remote Rendering 및 모델 스토리지 보안
 
@@ -178,16 +178,16 @@ AAD 인증을 사용하면 보다 제어된 방식으로 ARR을 사용하는 개
 
 **RemoteRenderingCoordinator** 스크립트에는 원격 세션 관리를 구성하는 데 사용되는 **SessionConfiguration** 개체를 반환하는 메서드가 포함된 **ARRCredentialGetter** 라는 대리자가 있습니다. **ARRCredentialGetter** 에 다른 메서드를 할당하여 Azure 로그인 흐름을 사용하도록 허용하고, Azure 액세스 토큰을 포함하는 **SessionConfiguration** 개체를 생성할 수 있습니다. 이 액세스 토큰은 로그인하는 사용자에게 적용됩니다.
 
-1. [방법: 인증 구성 - 배포된 애플리케이션에 대한 인증](../../../how-tos/authentication.md#authentication-for-deployed-applications)을 따르세요. 특히, Azure Spatial Anchors 설명서 [Azure AD 사용자 인증](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication)에 나열된 지침을 따릅니다. 여기에는 새 Azure Active Directory 애플리케이션을 등록하고 ARR 인스턴스에 대한 액세스를 구성하는 작업이 포함됩니다.
+1. 새 Azure Active Directory 애플리케이션을 등록하고 ARR 인스턴스에 대한 액세스 구성하는 작업이 포함된 [방법: 인증 구성 - 배포된 애플리케이션에 대한 인증](../../../how-tos/authentication.md#authentication-for-deployed-applications)을 따릅니다.
 1. 새 AAD 애플리케이션을 구성한 후에는 AAD 애플리케이션이 다음 이미지와 비슷한지 확인합니다.
 
-    **AAD 애플리케이션 -> 인증** ![앱 인증](./media/app-authentication-public.png)
+    **AAD 애플리케이션 -> 인증** :::image type="content" source="./../../../how-tos/media/azure-active-directory-app-setup.png" alt-text="앱 인증":::
 
-    **AAD 애플리케이션 -> API 권한** ![App API](./media/request-api-permissions-step-five.png)
+    **AAD 애플리케이션 -> API 권한** :::image type="content" source="./media/azure-active-directory-api-permissions-granted.png" alt-text="App API":::    
 
 1. Remote Rendering 계정을 구성한 후에는 구성이 다음 이미지와 비슷한지 확인합니다.
 
-    **AAR -> AccessControl(IAM)** ![ARR 역할](./media/azure-remote-rendering-role-assignment-complete.png)
+    **AAR -> AccessControl(IAM)** :::image type="content" source="./../../../how-tos/media/azure-remote-rendering-role-assignments.png" alt-text="ARR 역할":::       
 
     >[!NOTE]
     > *소유자* 역할은 클라이언트 애플리케이션을 통해 세션을 관리하기에 충분하지 않습니다. 세션 관리 기능을 부여하려는 모든 사용자에게 **Remote Rendering 클라이언트** 역할을 제공해야 합니다. 세션을 관리하고 모델을 변환하는 기능을 부여하려는 모든 사용자에게 **Remote Rendering 관리자** 역할을 제공해야 합니다.
@@ -255,9 +255,9 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
         string authority => "https://login.microsoftonline.com/" + AzureTenantID;
     
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
-    
-        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountDomain + "/mixedreality.signin" };
-    
+
+        string[] scopes => new string[] { "https://sts.mixedreality.azure.com/mixedreality.signin" };
+
         public void OnEnable()
         {
             RemoteRenderingCoordinator.ARRCredentialGetter = GetAARCredentials;
@@ -375,9 +375,12 @@ return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccoun
 
 Unity 편집기에서 AAD 인증이 활성화되면 애플리케이션을 시작할 때마다 인증해야 합니다. 디바이스에서 인증 단계가 처음으로 수행되며, 토큰이 만료되거나 무효화될 때에만 다시 인증이 필요합니다.
 
-1. **AADAuthentication** 구성 요소를 **RemoteRenderingCoordinator** GameObject에 추가합니다.
+1. **AAD 인증** 구성 요소를 **RemoteRenderingCoordinator** GameObject에 추가합니다.
 
     ![AAD 인증 구성 요소](./media/azure-active-directory-auth-component.png)
+
+> [!NOTE]
+> [ARR 샘플 리포지토리](https://github.com/Azure/azure-remote-rendering)에서 완료된 프로젝트를 사용하는 경우 제목 옆에 있는 확인란을 클릭하여 **AAD 인증** 구성 요소를 사용하도록 설정해야 합니다.
 
 1. 클라이언트 ID 및 테넌트 ID의 값을 입력합니다. 두 값은 앱 등록의 개요 페이지에서 찾을 수 있습니다.
 
@@ -387,10 +390,10 @@ Unity 편집기에서 AAD 인증이 활성화되면 애플리케이션을 시작
     * **Azure Remote Rendering 계정 ID** 는 **RemoteRenderingCoordinator** 에 사용했던 것과 동일한 **계정 ID** 입니다.
     * **Azure Remote Rendering 계정 도메인** 은 **RemoteRenderingCoordinator** 에서 사용한 것과 동일한 **계정 도메인** 입니다.
 
-    ![애플리케이션(클라이언트) ID 및 디렉터리(테넌트) ID를 강조 표시하는 스크린샷.](./media/app-overview-data.png)
+    :::image type="content" source="./media/azure-active-directory-app-overview.png" alt-text="애플리케이션(클라이언트) ID 및 디렉터리(테넌트) ID를 강조 표시하는 스크린샷.":::
 
 1. Unity 편집기에서 재생을 누르고 세션 실행에 동의합니다.
-    **AADAuthentication** 구성 요소에는 보기 컨트롤러가 있으므로, 세션 권한 부여 모달 패널 뒤에 프롬프트를 표시하도록 자동으로 연결됩니다.
+    **AAD 인증** 구성 요소에는 보기 컨트롤러가 있으므로, 세션 권한 부여 모달 패널 뒤에 프롬프트를 표시하도록 자동으로 연결됩니다.
 1. **AppMenu** 의 오른쪽 패널에 있는 지침을 따르세요.
     다음과 유사한 내용이 표시되어야 합니다. ![AppMenu 오른쪽에 표시되는 명령 패널을 보여주는 그림.](./media/device-flow-instructions.png)
     

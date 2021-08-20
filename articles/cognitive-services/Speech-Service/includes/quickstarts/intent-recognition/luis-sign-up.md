@@ -5,14 +5,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 05/04/2021
 ms.author: trbye
-ms.openlocfilehash: 4ac14a82fa5698faf6f79c97cd1cdd729f1966a8
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 2ffcb79bb2bb192566e7f6b7e0f933cacce84a77
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769458"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114594565"
 ---
-의도 인식 빠른 시작을 완료하려면 LUIS 미리 보기 포털을 사용하여 LUIS 계정 및 프로젝트를 만들어야 합니다. 이 빠른 시작에서는 LUIS 구독만 필요합니다. Speech Service 구독은 필요하지 *않습니다*.
+의도 인식 빠른 시작을 완료하려면 LUIS 미리 보기 포털을 사용하여 LUIS 계정 및 프로젝트를 만들어야 합니다. 이 빠른 시작을 사용하려면 [의도 인식 기능을 사용할 수 있는 지역](/azure/cognitive-services/speech-service/regions#intent-recognition)에서 LUIS 구독이 필요합니다. Speech Service 구독은 필요하지 *않습니다*.
 
 가장 먼저 해야 할 일은 LUIS 미리 보기 포털을 사용하여 LUIS 계정 및 앱을 만드는 것입니다. 만든 LUIS 앱은 의도, 엔터티 및 예제 발화를 제공하는 홈 자동화에 대해 미리 빌드된 도메인을 사용합니다. 마치면 클라우드에서 Speech SDK를 사용하여 호출할 수 있는 LUIS 엔드포인트를 실행하게 됩니다. 
 

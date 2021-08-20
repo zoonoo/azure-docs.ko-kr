@@ -4,17 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 7589190f29e7d85bfb49a868dde9b261882d28b0
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: a85246e9c60af6363ddd59066f55941da04cfe1c
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111593417"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112535726"
 ---
 이 빠른 시작에서는 Windows용 Azure Communication Services Calling SDK를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
 
-> [!NOTE]
-> [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/VoiceCalling)에서 이 빠른 시작에 대한 최종 코드 칮기
+## <a name="sample-code"></a>샘플 코드
+
+샘플 앱은 [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/VoiceCalling)에서 다운로드할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -123,7 +124,11 @@ Azure Communication Services Calling SDK의 주요 기능 중 일부를 처리�
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-사용자 액세스 토큰으로 `CallAgent` 인스턴스를 초기화하면 전화를 걸고 받을 수 있습니다. `InitCallAgent` 함수에 다음 코드를 추가합니다. 
+사용자 액세스 토큰으로 `CallAgent` 인스턴스를 초기화하면 전화를 걸고 받을 수 있습니다. 
+
+다음 코드에서 `<USER_ACCESS_TOKEN>`을 사용자 액세스 토큰으로 바꿉니다. 사용할 수 있는 토큰이 아직 없는 경우 [사용자 액세스 토큰](../../../access-tokens.md) 설명서를 참조하세요.
+
+`InitCallAgent` 함수에 다음 코드를 추가합니다. 
 
 ```C#
 CommunicationTokenCredential token_credential = new CommunicationTokenCredential("<USER_ACCESS_TOKEN>");
@@ -167,7 +172,3 @@ Visual Studio에서 코드를 빌드하고 실행할 수 있습니다. 솔루션
 텍스트 필드에 사용자 ID를 지정하고 `Start Call` 단추를 클릭하여 아웃바운드 호출을 수행할 수 있습니다. `8:echo123`에 전화를 걸면 에코 봇과 연결됩니다. 이렇게 하면 통화를 시작하고 오디오 디바이스가 작동하는지 확인하는 데 유용합니다.
 
 :::image type="content" source="../../media/windows/run-the-app.png" alt-text="빠른 시작 앱 실행을 보여 주는 스크린샷":::
-
-## <a name="sample-code"></a>샘플 코드
-
-샘플 앱은 [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/VoiceCalling)에서 다운로드할 수 있습니다.

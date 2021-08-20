@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 06/08/2021
-ms.openlocfilehash: da265e1be47a7ee1a98f6e8169f2531110b5c772
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: f4fa21c99a17111b1045b66713490b86592e04bf
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756602"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467119"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Azure SQL Database 등록 및 검사
 
@@ -120,7 +120,14 @@ Purview에서 서비스 주체 또는 Purview의 **관리 ID** 를 사용하여 
 
 ### <a name="firewall-settings"></a>방화벽 설정
 
-데이터베이스 서버에서 Azure 연결이 사용되도록 허용해야 합니다. 이렇게 하면 Azure Purview에서 서버에 도달하여 연결할 수 있습니다. [Azure 내부에서 연결](../azure-sql/database/firewall-configure.md#connections-from-inside-azure)에 대한 방법 가이드를 따를 수 있습니다.
+데이터베이스 서버에서 방화벽을 사용하도록 설정한 경우 다음 두 가지 방법 중 하나로 액세스를 허용하도록 방화벽을 업데이트해야 합니다.
+
+1. 방화벽을 통해 Azure 연결을 허용합니다.
+1. 자체 호스팅 통합 런타임을 설치하고 방화벽을 통해 액세스 권한을 부여합니다.
+
+#### <a name="allow-azure-connections"></a>Azure 연결 허용
+
+Azure 연결을 사용하도록 설정하면 방화벽 자체를 업데이트하지 않고도 Azure Purview가 서버에 도달하고 연결할 수 있습니다. [Azure 내부에서 연결](../azure-sql/database/firewall-configure.md#connections-from-inside-azure)에 대한 방법 가이드를 따를 수 있습니다.
 
 1. 데이터베이스 계정으로 이동합니다.
 1. **개요** 페이지에서 서버 이름을 선택합니다.
@@ -128,9 +135,14 @@ Purview에서 서비스 주체 또는 Purview의 **관리 ID** 를 사용하여 
 1. **Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용** 에 대해 **예** 를 선택합니다.
 
     :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용합니다." border="true":::
-    
-> [!Note]
-> 현재 Azure Purview는 VNET 구성을 지원하지 않습니다. 따라서 IP 기반 방화벽 설정을 수행할 수 없습니다.
+
+#### <a name="self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임
+
+개인 네트워크의 리소스에 연결하기 위해 머신에 SHIR(자체 호스팅 통합 런타임)을 설치할 수 있습니다.
+
+1. 개인용 머신이나 데이터베이스 서버와 동일한 VNet 내의 머신에 [자체 호스팅 통합 런타임을 만들고 설치](/azure/purview/manage-integration-runtimes)합니다.
+1. 데이터베이스 서버 방화벽을 검사하여 SHIR 머신이 방화벽을 통해 액세스할 수 있는지 확인합니다. 아직 액세스할 수 없는 경우 머신의 IP를 추가합니다.
+1. Azure SQL Server가 프라이빗 엔드포인트 뒤에 있거나 VNet에 있는 경우, 엔드투엔드 네트워크 격리를 보장하기 위해 [수집 프라이빗 엔드포인트](catalog-private-link.md#ingestion-private-endpoints-and-scanning-sources)를 사용할 수 있습니다.
 
 ## <a name="register-an-azure-sql-database-data-source"></a>Azure SQL Database 데이터 원본 등록
 

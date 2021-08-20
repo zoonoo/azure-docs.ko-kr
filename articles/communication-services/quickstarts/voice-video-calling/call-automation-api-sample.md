@@ -10,14 +10,18 @@ ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-csharp-java
-ms.openlocfilehash: 72f567603cbe012bd20c881a5bfd725a2f319ef9
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 94adf38e2fac5a57f26d6a3a88c5c4b2f71cc995
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113107641"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114473196"
 ---
-# <a name="call-automation-api-quickstart"></a>Call Automation API 빠른 시작
+# <a name="quickstart-use-the-call-automation-apis"></a>빠른 시작: 호출 자동화 API 사용
+
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+
+
 자동화된 통화 라우팅 솔루션을 빌드하는 Communication Services 통화 서버 SDK를 사용하여 Azure Communication Services를 시작하세요.
 
 ::: zone pivot="programming-language-csharp"

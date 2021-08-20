@@ -5,14 +5,14 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/14/2021
+ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: 555316ddf722e857914d5e99d7fadcd6539e1b8b
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 0159226abb904d73262011e16fbc52fe760be123
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482582"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436823"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>프라이빗 엔드포인트를 사용하여 Azure Blob 스토리지에서 SQL 데이터베이스로 안전하게 데이터 복사
 
@@ -94,7 +94,7 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
 1. 만들기가 완료되면 알림 센터에 알림이 표시됩니다. **리소스로 이동** 을 선택하여 **Data Factory** 페이지로 이동합니다.
 
-1. **작성 및 모니터링** 을 선택하여 별도의 탭에서 Data Factory UI를 선택합니다.
+1. **Azure Data Factory Studio 열기** 타일에서 **열기** 를 선택하여 별도의 탭에서 Data Factory UI를 시작합니다.
 
 ## <a name="create-an-azure-integration-runtime-in-data-factory-managed-virtual-network"></a>Data Factory Managed Virtual Network에서 Azure 통합 런타임 만들기
 이 단계에서는 Azure 통합 런타임을 만들고 Data Factory Managed Virtual Network를 사용하도록 설정합니다.
@@ -120,9 +120,9 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
 이 자습서에서는 파이프라인을 만드는 것으로 시작합니다. 그런 다음, 파이프라인을 구성해야 할 때 연결된 서비스와 데이터 세트를 만듭니다.
 
-1. **시작** 페이지에서 **파이프라인 만들기** 를 선택합니다.
+1. 홈페이지에서 **오케스트레이션** 을 선택합니다.
 
-   ![파이프라인 만들기를 보여주는 스크린샷](./media/doc-common-process/get-started-page.png)
+   ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
 1. 파이프라인의 속성 창에서 파이프라인 이름에 **CopyPipeline** 을 입력합니다.
 
 1. **활동** 도구 상자에서 **이동 및 변환** 범주를 펼치고, **데이터 복사** 활동을 도구 상자에서 파이프라인 디자이너 화면으로 끌어옵니다. 이름에 **CopyFromBlobToSql** 을 입력합니다.

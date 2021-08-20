@@ -1,6 +1,6 @@
 ---
 title: 빠른 시작 - ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Spring Cloud 프로비저닝
-description: 이 빠른 시작에서는 기존 가상 네트워크에 Spring Cloud 클러스터를 배포하는 방법을 보여 줍니다.
+description: 이 빠른 시작에서는 ARM 템플릿을 사용하여 기존 가상 네트워크에 Spring Cloud 클러스터를 배포하는 방법을 보여 줍니다.
 services: azure-resource-manager
 author: ryhud
 ms.service: spring-cloud
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-java
 ms.author: rhudson
 ms.date: 05/27/2021
-ms.openlocfilehash: f57e3d6d1f3f562e35d38e45a3e0ca1703730d04
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 73c24f62e2c4333cb1e8ea826792626591aa1c68
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949224"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895889"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Spring Cloud 프로비저닝
 
@@ -103,8 +103,8 @@ Write-Host "Press [ENTER] to continue..."
 이 빠른 시작에서는 ARM 템플릿을 사용하여 기존 가상 네트워크에 Azure Spring Cloud 인스턴스를 배포한 후 배포의 유효성을 검사했습니다. Azure Spring Cloud 및 Azure Resource Manager에 대해 자세히 알아보려면 다음 리소스를 계속 진행하세요.
 
 - 아래 위치에서 다음 샘플 애플리케이션 중 하나를 배포합니다.
-   * [MySQL 통합을 사용하는 펫 클리닉 앱 ](https://github.com/azure-samples/spring-petclinic-microservices)(MySQL 백 엔드를 사용하는 마이크로 서비스).
-   * [간단한 Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI).
+   - [MySQL 통합을 사용하는 펫 클리닉 앱 ](https://github.com/azure-samples/spring-petclinic-microservices)(MySQL 백 엔드를 사용하는 마이크로 서비스).
+   - [간단한 Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI).
 - Azure Spring Cloud에서 [사용자 지정 도메인](tutorial-custom-domain.md)을 사용합니다.
 - [Azure Application Gateway](expose-apps-gateway-azure-firewall.md)를 사용하여 Azure Spring Cloud 애플리케이션을 인터넷에 노출합니다.
 - [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)를 기반으로 하는 안전한 엔드투엔드 [Azure Spring Cloud 참조 아키텍처](reference-architecture.md)를 확인합니다.

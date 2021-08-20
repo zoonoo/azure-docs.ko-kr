@@ -3,14 +3,14 @@ title: Azure의 Kubernetes 자습서 - 애플리케이션 크기 조정
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Kubernetes에서 노드 및 Pod 크기를 조정하고 수평 방향 Pod 자동 크기 조정을 구현하는 방법을 알아봅니다.
 services: container-service
 ms.topic: tutorial
-ms.date: 01/12/2021
-ms.custom: mvc
-ms.openlocfilehash: a268d39ec514fc7b88b555221ece7dc044ca49ba
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/24/2021
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 0c577a316e5034e4a21599b0806be534c5f6888a
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767514"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110697780"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정
 
@@ -27,7 +27,15 @@ ms.locfileid: "107767514"
 
 이전 자습서에서 애플리케이션은 컨테이너 이미지로 패키징되었습니다. 이 이미지는 Azure Container Registry로 업로드되었고, AKS 클러스터를 만들었습니다. 그런 다음, 애플리케이션은 AKS 클러스터에 배포되었습니다. 이러한 단계를 아직 수행하지 않았으나 수행하려는 경우 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 시작합니다.
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.53 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+이 자습서를 사용하려면 Azure PowerShell 버전 5.9.0 이상을 실행해야 합니다. `Get-InstalledModule -Name Az`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 설치][azure-powershell-install]를 참조하세요.
+
+---
 
 ## <a name="manually-scale-pods"></a>수동으로 Pod 크기 조정
 
@@ -67,15 +75,27 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Pod 자동 크기 조정
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 Kubernetes는 [수평 Pod 자동 크기 조정][kubernetes-hpa]을 지원하여 CPU 사용률 또는 다른 선택 메트릭에 따라 배포에서 Pod 수를 조정할 수 있게 해줍니다. [메트릭 서버][metrics-server]는 Kubernetes에 리소스 사용률을 제공하는 데 사용되며, AKS 클러스터 버전 1.10 이상에서 자동으로 배포됩니다. AKS 클러스터 버전을 확인하려면 다음 예제처럼 [az aks show][az-aks-show] 명령을 사용합니다.
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion --output table
 ```
 
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Kubernetes는 [수평 Pod 자동 크기 조정][kubernetes-hpa]을 지원하여 CPU 사용률 또는 다른 선택 메트릭에 따라 배포에서 Pod 수를 조정할 수 있게 해줍니다. [메트릭 서버][metrics-server]는 Kubernetes에 리소스 사용률을 제공하는 데 사용되며, AKS 클러스터 버전 1.10 이상에서 자동으로 배포됩니다. AKS 클러스터 버전을 확인하려면 다음 예제처럼 [Get-AzAksCluster][get-azakscluster] cmdlet을 사용합니다.
+
+```azurepowershell
+(Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster).KubernetesVersion
+```
+
+---
+
 > [!NOTE]
 > AKS 클러스터가 *1.10* 보다 작으면 메트릭 서버가 자동으로 설치되지 않습니다. 메트릭 서버 설치 매니페스트는 메트릭 서버 릴리스에서 `components.yaml` 자산으로 사용할 수 있으므로 URL을 통해 설치할 수 있습니다. 이러한 YAML 정의에 대해 자세히 알아보려면 추가 정보의 [배포][metrics-server-github] 섹션을 참조하세요.
-> 
+>
 > 설치 예제:
 > ```console
 > kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
@@ -152,6 +172,8 @@ Azure Vote 앱에 최소 부하를 적용한 상태로 몇 분이 지나면 Pod 
 
 다음 예제에서는 *myAKSCluster* 라는 Kubernetes 클러스터의 노드 수를 3개로 늘립니다. 이 명령은 완료되는 데 2~3분이 걸립니다.
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 ```
@@ -173,6 +195,43 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
     "vnetSubnetId": null
   }
 ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster | Set-AzAksCluster -NodeCount 3
+```
+
+클러스터가 성공적으로 크기 조정되면 출력은 다음 예제와 비슷합니다.
+
+```output
+ProvisioningState       : Succeeded
+MaxAgentPools           : 100
+KubernetesVersion       : 1.19.9
+DnsPrefix               : myAKSCluster
+Fqdn                    : myakscluster-000a0aa0.hcp.eastus.azmk8s.io
+PrivateFQDN             :
+AgentPoolProfiles       : {default}
+WindowsProfile          : Microsoft.Azure.Commands.Aks.Models.PSManagedClusterWindowsProfile
+AddonProfiles           : {}
+NodeResourceGroup       : MC_myresourcegroup_myAKSCluster_eastus
+EnableRBAC              : True
+EnablePodSecurityPolicy :
+NetworkProfile          : Microsoft.Azure.Commands.Aks.Models.PSContainerServiceNetworkProfile
+AadProfile              :
+ApiServerAccessProfile  :
+Identity                :
+LinuxProfile            : Microsoft.Azure.Commands.Aks.Models.PSContainerServiceLinuxProfile
+ServicePrincipalProfile : Microsoft.Azure.Commands.Aks.Models.PSContainerServiceServicePrincipalProfile
+Id                      : /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myresourcegroup/providers/Micros
+                          oft.ContainerService/managedClusters/myAKSCluster
+Name                    : myAKSCluster
+Type                    : Microsoft.ContainerService/ManagedClusters
+Location                : eastus
+Tags                    : {}
+```
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -202,3 +261,5 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 [az-aks-scale]: /cli/azure/aks#az_aks_scale
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az_aks_show
+[azure-powershell-install]: /powershell/azure/install-az-ps
+[get-azakscluster]: /powershell/module/az.aks/get-azakscluster

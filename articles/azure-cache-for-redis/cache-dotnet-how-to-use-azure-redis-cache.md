@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: effab14316c4a959f22467b9cc50984b6571da55
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: f01b75cac9fba9e0975882560920f6c6ceee7dc7
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107872158"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136646"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>빠른 시작: .NET Framework에서 Azure Cache for Redis 사용
 
@@ -51,9 +51,9 @@ ms.locfileid: "107872158"
 
 ## <a name="create-a-console-app"></a>콘솔 앱 만들기
 
-Visual Studio에서 **파일** > **새로 만들기** > **프로젝트** 를 클릭합니다.
+Visual Studio에서 **파일** > **새로 만들기** > **프로젝트** 를 선택합니다.
 
-**콘솔 앱(.NET Framework)** 을 선택하고 **다음** 을 선택하여 앱을 구성합니다. **프로젝트 이름** 을 입력하고 **.NET Framework 4.6.1** 이상이 선택되어 있는지 확인한 다음, **만들기** 를 클릭하여 새 콘솔 애플리케이션을 만듭니다.
+**콘솔 앱(.NET Framework)** 을 선택하고 **다음** 을 선택하여 앱을 구성합니다. **프로젝트 이름** 을 입력하고 **.NET Framework 4.6.1** 이상이 선택되어 있는지 확인한 다음, **만들기** 를 선택하여 새 콘솔 애플리케이션을 만듭니다.
 
 <a name="configure-the-cache-clients"></a>
 
@@ -61,7 +61,7 @@ Visual Studio에서 **파일** > **새로 만들기** > **프로젝트** 를 클
 
 이 섹션에서는 .NET용 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 클라이언트를 사용하도록 콘솔 애플리케이션을 구성합니다.
 
-Visual Studio에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 을 클릭하고, 패키지 관리자 콘솔 창에서 다음 명령을 실행합니다.
+Visual Studio에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 을 선택하고, 패키지 관리자 콘솔 창에서 다음 명령을 실행합니다.
 
 ```powershell
 Install-Package StackExchange.Redis
@@ -85,7 +85,7 @@ Visual Studio에서 *App.config* 파일을 열고 *CacheSecrets.config* 파일�
 </configuration>
 ```
 
-솔루션 탐색기에서 **참조** 를 마우스 오른쪽 단추로 클릭하고 **참조 추가** 를 클릭합니다. **System.Configuration** 어셈블리에 참조를 추가합니다.
+솔루션 탐색기에서 **참조** 를 마우스 오른쪽 단추로 클릭하고 **참조 추가** 를 선택합니다. **System.Configuration** 어셈블리에 참조를 추가합니다.
 
 *Program.cs* 에 다음 `using` 문을 추가합니다.
 
@@ -325,7 +325,7 @@ static void Main(string[] args)
 }
 ```
 
-Azure Cache for Redis에는 Azure Cache for Redis 내에서 데이터를 논리적으로 분리하는 데 사용할 수 있는 구성 가능한 수의 데이터베이스(기본값 16)가 있습니다. 이 코드에서는 기본 데이터베이스인 DB 0에 연결합니다. 자세한 내용은 [Redis 데이터베이스란?](cache-development-faq.md#what-are-redis-databases) 및 [기본 Redis 서버 구성](cache-configure.md#default-redis-server-configuration)을 참조하세요.
+Azure Cache for Redis에는 Azure Cache for Redis 내에서 데이터를 논리적으로 분리하는 데 사용할 수 있는 구성 가능한 수의 데이터베이스(기본값 16)가 있습니다. 이 코드에서는 기본 데이터베이스인 DB 0에 연결합니다. 자세한 내용은 [Redis 데이터베이스란?](cache-development-faq.yml#what-are-redis-databases-) 및 [기본 Redis 서버 구성](cache-configure.md#default-redis-server-configuration)을 참조하세요.
 
 캐시 항목은 `StringSet` 및 `StringGet` 메서드를 사용하여 저장하고 검색할 수 있습니다.
 
@@ -344,7 +344,7 @@ Azure Cache for Redis는 .NET 개체 및 기본 데이터 유형을 캐시할 �
 
 개체를 직렬화하는 간단한 방법 중 하나는 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)에서 `JsonConvert` 직렬화 메서드를 사용하고 JSON 간에 직렬화하는 것입니다. 이 섹션에서는 .NET 개체를 캐시에 추가합니다.
 
-Visual Studio에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 을 클릭하고, 패키지 관리자 콘솔 창에서 다음 명령을 실행합니다.
+Visual Studio에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 을 선택하고, 패키지 관리자 콘솔 창에서 다음 명령을 실행합니다.
 
 ```powershell
 Install-Package Newtonsoft.Json
@@ -402,16 +402,16 @@ class Employee
 그렇지 않고, 빠른 시작 샘플 애플리케이션 사용이 끝나면 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다. 
 
 > [!IMPORTANT]
-> 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스트하기 위한 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.
+> 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내서에 이 샘플을 호스팅하는 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 완쪽에서 각 리소스를 개별적으로 삭제할 수 있습니다.
 >
 
-[Azure Portal](https://portal.azure.com) 에 로그인하고 **리소스 그룹** 을 클릭합니다.
+[Azure Portal](https://portal.azure.com)에 로그인하고 **리소스 그룹** 을 선택합니다.
 
-**이름을 기준으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *TestResources* 라는 리소스 그룹을 사용했습니다. 결과 목록의 리소스 그룹에서 **...** 를 클릭한 다음, **리소스 그룹 삭제** 를 클릭합니다.
+**이름을 기준으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *TestResources* 라는 리소스 그룹을 사용했습니다. 결과 목록의 리소스 그룹에서 **...** 를 선택한 다음, **리소스 그룹 삭제** 를 선택합니다.
 
 ![DELETE](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
 
-리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제** 를 클릭합니다.
+리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 확인할 리소스 그룹의 이름을 입력하고 **삭제** 를 선택합니다.
 
 잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 

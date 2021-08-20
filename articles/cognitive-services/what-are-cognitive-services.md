@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/16/2021
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 09279e476f2d130c4938937e2c9e60df863c688d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4badad1f7e22fcb82e122a56e219fc61973634a2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110450609"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114451267"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Cognitive Services란?
 
@@ -25,7 +25,7 @@ Azure Cognitive Services는 애플리케이션에 인식 인텔리전스를 빌�
 
 ## <a name="categories-of-cognitive-services"></a>Cognitive Services의 범주
 
-인지적 이해를 제공하는 인식 서비스 카탈로그는 크게 5가지로 분류됩니다.
+인지적 이해를 제공하는 Cognitive Services 카탈로그는 5개 주 범주로 분류됩니다.
 
 * 시각
 * 음성
@@ -33,7 +33,7 @@ Azure Cognitive Services는 애플리케이션에 인식 인텔리전스를 빌�
 * 의사 결정
 * 검색
 
-이 문서의 다음 섹션에서는 이러한 5가지 핵심 요소의 일부인 서비스 목록을 제공합니다.
+이 문서의 다음 섹션에서는 5개 범주에 속하는 서비스 목록을 제공합니다.
 
 ## <a name="vision-apis"></a>Vision API
 

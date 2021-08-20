@@ -5,14 +5,14 @@ services: static-web-apps
 author: petender
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 05/10/2021
+ms.date: 07/13/2021
 ms.author: petender
-ms.openlocfilehash: 95b2bd71b59a8ef14274928428624fe52e923fe1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b7b75fcf6f7ef1d6f2444a8fe59421bdb64c1890
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968899"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765863"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-using-an-arm-template"></a>자습서: ARM 템플릿을 사용하여 Azure Static Web Apps 게시
 
@@ -38,7 +38,7 @@ ms.locfileid: "111968899"
 
 ## <a name="create-a-github-personal-access-token"></a>GitHub 개인용 액세스 토큰 만들기
 
-ARM 템플릿의 필수 매개 변수 중 하나는 `repositoryToken`이며, 이를 통해 ARM 배포 프로세스가 정적 사이트 소스 코드를 보유하고 있는 GitHub 리포지토리와 상호 작용할 수 있습니다. 
+ARM 템플릿의 매개 변수 중 하나는 `repositoryToken`이며, 이를 통해 ARM 배포 프로세스가 정적 사이트 소스 코드를 보유하고 있는 GitHub 리포지토리와 상호 작용할 수 있습니다. 
 
 1. GitHub 계정 프로필(오른쪽 위 모서리에 있음)에서 **설정** 을 선택합니다.
 
@@ -57,7 +57,7 @@ ARM 템플릿의 필수 매개 변수 중 하나는 `repositoryToken`이며, 이
 1. 토큰 값을 복사하여 나중에 사용할 수 있도록 텍스트 편집기에 붙여넣습니다.
 
 > [!IMPORTANT]
-> 이 토큰을 복사하여 안전한 곳에 보관해야 합니다. 이 토큰을 [Azure KeyVault](../azure-resource-manager/templates/template-tutorial-use-key-vault.md)에 저장하고 ARM 템플릿에서 액세스하는 것이 좋습니다.
+> 이 토큰을 복사하여 안전한 곳에 보관해야 합니다. 이 토큰을 [Azure Key Vault](../azure-resource-manager/templates/template-tutorial-use-key-vault.md)에 저장하고 ARM 템플릿에서 액세스하는 것이 좋습니다.
 
 ## <a name="create-a-github-repo"></a>GitHub 리포지토리 만들기
 
@@ -122,11 +122,14 @@ ARM 템플릿의 필수 매개 변수 중 하나는 `repositoryToken`이며, 이
                 },
                 "resourceTags": {
                     "type": "object"
+                },
+                "appSettings": {
+                    "type": "object"
                 }
             },
             "resources": [
                 {
-                    "apiVersion": "2019-12-01-preview",
+                    "apiVersion": "2021-01-15",
                     "name": "[parameters('name')]",
                     "type": "Microsoft.Web/staticSites",
                     "location": "[parameters('location')]",
@@ -144,7 +147,19 @@ ARM 템플릿의 필수 매개 변수 중 하나는 `repositoryToken`이며, 이
                     "sku": {
                         "Tier": "[parameters('sku')]",
                         "Name": "[parameters('skuCode')]"
-                    }
+                    },
+                    "resources":[
+                        {
+                            "apiVersion": "2021-01-15",
+                            "name": "appsettings",
+                            "type": "config",
+                            "location": "[parameters('location')]",
+                            "properties": "[parameters('appSettings')]",
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Web/staticSites', parameters('name'))]"
+                            ]
+                        }
+                    ]
                 }
             ]
         }
@@ -163,9 +178,8 @@ ARM 템플릿의 필수 매개 변수 중 하나는 `repositoryToken`이며, 이
                 "name": {
                     "value": "myfirstswadeployment"
                 },
-                "location": {
-                "type": "string",
-                "defaultValue": "Central US"
+                "location": { 
+                    "value": "Central US"
                 },   
                 "sku": {
                     "value": "Free"
@@ -196,6 +210,12 @@ ARM 템플릿의 필수 매개 변수 중 하나는 `repositoryToken`이며, 이
                         "Environment": "Development",
                         "Project": "Testing SWA with ARM",
                         "ApplicationName": "myfirstswadeployment"
+                    }
+                },
+                "appSettings": {
+                    "value": {
+                        "MY_APP_SETTING1": "value 1",
+                        "MY_APP_SETTING2": "value 2"
                     }
                 }
             }

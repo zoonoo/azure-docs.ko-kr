@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 11/30/2020
-ms.openlocfilehash: 3fadfa9d4467209ddbe997afabba27a3752f685d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a4ca7c318dc1ac9d135c43c6d063a0f8a45276fe
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419935"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729763"
 ---
 # <a name="what-is-azure-purview"></a>Azure Purview란?
 
@@ -71,7 +71,7 @@ Azure Purview는 데이터 원본을 등록할 수 있는 클라우드 기반 �
 이와 동시에, 사용자는 이미 등록된 데이터 원본에 태그를 지정하고 관련 문서를 작성하며 주석을 추가하여 카탈로그에 기여할 수 있습니다. 또한 카탈로그 사용자 커뮤니티에서 검색, 이해 및 사용하는 새 데이터 원본을 등록할 수도 있습니다.
 
 ## <a name="in-region-data-residency"></a>지역 내 데이터 보존
-Azure Purview는 배포된 지역 외부로 고객 데이터를 이동하거나 저장하지 않습니다.
+Azure Purview의 경우 특정 테이블 이름, 파일 경로 및 개체 경로 정보가 미국에 저장됩니다. 앞서 언급한 예외를 제외하고 단일 지역에 다른 모든 고객 데이터를 저장할 수 있는 기능은 현재 모든 지역에서 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

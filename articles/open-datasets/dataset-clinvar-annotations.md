@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: 384eb565882cf5f62cec1c6d38769647a82ec712
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: e5bad3f24d5692bbebb668e29b5ea229294b46f9
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112039115"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982747"
 ---
 # <a name="clinvar-annotations"></a>ClinVar Annotations
 
@@ -36,9 +36,9 @@ ms.locfileid: "112039115"
 
 ## <a name="data-access"></a>데이터 액세스
 
-미국 서부 2: https://datasetclinvar.blob.core.windows.net/dataset
+미국 서부 2: ‘ https://datasetclinvar.blob.core.windows.net/dataset ’
 
-미국 중서부: https://datasetclinvar-secondary.blob.core.windows.net/dataset
+미국 중서부: ‘ https://datasetclinvar-secondary.blob.core.windows.net/dataset ’
 
 [SAS 토큰](../storage/common/storage-sas-overview.md): sv=2019-02-02&se=2050-01-01T08%3A00%3A00Z&si=prod&sr=c&sig=qFPPwPba1RmBvaffkzkLuzabYU5dZstSTgMwxuLNME8%3D
 
@@ -64,7 +64,7 @@ ms.locfileid: "112039115"
 
 여러 가지 퍼블릭 유전체학 데이터가 Azure Open Datasets로 [여기](https://azure.microsoft.com/services/open-datasets/catalog/)에 업로드되었습니다. 이 개방형 데이터 세트에 연결된 Blob 서비스를 만듭니다. 아래에서 `ClinVar` 데이터 세트에 대한 Azure Open Datasets의 데이터 호출 프로시저 예제를 찾을 수 있습니다.
 
-사용자는 이 Notebook을 통해 다음 경로를 호출하고 다운로드할 수 있습니다. https://datasetclinvar.blob.core.windows.net/dataset/ClinVarFullRelease_00-latest.xml.gz.md5
+사용자는 이 Notebook을 통해 다음 경로를 호출하고 다운로드할 수 있습니다. ‘ https://datasetclinvar.blob.core.windows.net/dataset/ClinVarFullRelease_00-latest.xml.gz.md5 ’
 
 > [!NOTE]
 > 사용자가 Azure ML SDK를 사용하여 데이터를 보려면 Azure CLI를 통해 Azure 계정에 로그인해야 합니다. 반면, 데이터를 다운로드하기 위해 어떤 작업도 수행할 필요가 없습니다.

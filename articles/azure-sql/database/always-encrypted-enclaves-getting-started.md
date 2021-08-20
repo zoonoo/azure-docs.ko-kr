@@ -1,7 +1,6 @@
 ---
-title: '자습서: Azure SQL Database의 보안 Enclave를 사용한 Always Encrypted 시작'
+title: '자습서: 보안 Enclave를 사용한 Always Encrypted 시작'
 description: 이 자습서에서는 Azure SQL Database에서 보안 enclave를 사용한 Always Encrypted에 대한 기본 환경을 만드는 방법과 현재 위치에서 데이터를 암호화하고, SSMS(SQL Server Management Studio)를 사용하여 암호화된 열에 대해 풍부한 기밀 쿼리를 실행하는 방법을 설명합니다.
-keywords: 데이터 암호화, SQL 암호화, 데이터베이스 암호화, 중요한 데이터, Always Encrypted, 보안 enclave, SGX, 증명
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,20 +9,17 @@ ms.topic: tutorial
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 05/01/2021
-ms.openlocfilehash: 71e90e0afc3bc976ed65eb0ef59c76781490bdc1
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 07/14/2021
+ms.openlocfilehash: dd8fc18b8f24a6164830dda6044c1b03151eb180
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457187"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727355"
 ---
 # <a name="tutorial-getting-started-with-always-encrypted-with-secure-enclaves-in-azure-sql-database"></a>자습서: Azure SQL Database의 보안 Enclave를 사용한 Always Encrypted 시작
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
-
-> [!NOTE]
-> Azure SQL Database용 보안 enclave를 사용한 Always Encrypted는 현재 **공개 미리 보기** 상태입니다.
 
 이 자습서는 Azure SQL Database에서 [보안 enclave를 사용한 Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-enclaves)를 시작하는 방법을 설명합니다. 다음이 설명됩니다.
 
@@ -71,7 +67,7 @@ PowerShell 갤러리와 계속 상호 작용하려면 Install-Module 명령을 �
 
 ## <a name="step-1-create-and-configure-a-server-and-a-dc-series-database"></a>1단계: 서버 및 DC 시리즈 데이터베이스 만들기 및 구성
 
-이 단계에서는 보안 enclave를 사용한 Always Encrypted에 필요한 DC 시리즈 하드웨어 생성을 사용하여 새 Azure SQL Database 논리 서버와 새 데이터베이스를 만듭니다. 자세한 내용은 [DC 시리즈](service-tiers-vcore.md#dc-series)를 참조하세요.
+이 단계에서는 보안 enclave를 사용한 Always Encrypted에 필요한 DC 시리즈 하드웨어 생성을 사용하여 새 Azure SQL Database 논리 서버와 새 데이터베이스를 만듭니다. 자세한 내용은 [DC 시리즈](service-tiers-sql-database-vcore.md#dc-series)를 참조하세요.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -90,7 +86,7 @@ PowerShell 갤러리와 계속 상호 작용하려면 Install-Module 명령을 �
    - **암호**: 요구 사항을 충족하는 암호를 입력하고, **암호 확인** 필드에서 다시 입력합니다.
    - **위치**: 드롭다운 목록에서 위치를 선택합니다.
       > [!IMPORTANT]
-      > DC 시리즈 하드웨어 생성과 Microsoft Azure Attestation을 모두 지원하는 위치(Azure 지역)를 선택해야 합니다. DC 시리즈를 지원하는 지역 목록은 [DC 시리즈 가용성](service-tiers-vcore.md#dc-series-1)을 참조하세요. Microsoft Azure Attestation의 지역별 가용성은 [다음](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation)과 같습니다.
+      > DC 시리즈 하드웨어 생성과 Microsoft Azure Attestation을 모두 지원하는 위치(Azure 지역)를 선택해야 합니다. DC 시리즈를 지원하는 지역 목록은 [DC 시리즈 가용성](service-tiers-sql-database-vcore.md#dc-series)을 참조하세요. Microsoft Azure Attestation의 지역별 가용성은 [다음](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation)과 같습니다.
 
    **확인** 을 선택합니다.
 1. **SQL 탄력적 풀을 사용하나요?** 를 **아니요** 로 설정된 상태로 둡니다.
@@ -135,7 +131,7 @@ PowerShell 갤러리와 계속 상호 작용하려면 Install-Module 명령을 �
 1. 새 리소스 그룹 만들기
 
    > [!IMPORTANT]
-   > DC 시리즈 하드웨어 생성과 Microsoft Azure Attestation을 모두 지원하는 지역(위치)에 리소스 그룹을 만들어야 합니다. DC 시리즈를 지원하는 지역 목록은 [DC 시리즈 가용성](service-tiers-vcore.md#dc-series-1)을 참조하세요. Microsoft Azure Attestation의 지역별 가용성은 [다음](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation)과 같습니다.
+   > DC 시리즈 하드웨어 생성과 Microsoft Azure Attestation을 모두 지원하는 지역(위치)에 리소스 그룹을 만들어야 합니다. DC 시리즈를 지원하는 지역 목록은 [DC 시리즈 가용성](service-tiers-sql-database-vcore.md#dc-series)을 참조하세요. Microsoft Azure Attestation의 지역별 가용성은 [다음](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation)과 같습니다.
 
    ```powershell
    $resourceGroupName = "<your new resource group name>"

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 848f5f13218fde513bf48575c2f9bb298521d3ad
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: f6f653478dea84ecb3951b4c313f0f7604733b88
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113214752"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292902"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>서버리스 SQL 풀에 대한 자가 진단
 
@@ -42,7 +42,7 @@ Synapse Studio가 서버리스 SQL 풀에 대한 연결을 설정할 수 없는 
 ### <a name="query-fails-because-file-cannot-be-opened"></a>파일을 열 수 없어 쿼리가 실패
 
 '파일이 없거나 다른 프로세스에서 사용되고 있어서 파일을 열 수 없습니다.'라는 내용의 오류 메시지와 함께 쿼리가 실패하고, 두 파일이 모두 존재하며 다른 프로세스에서 사용되고 있지 않다는 것이 확실한 경우에는 서버리스 SQL 풀이 파일에 액세스할 수 없다는 의미입니다. 이 문제는 일반적으로 Azure Active Directory ID에 파일에 대한 액세스 권한이 없거나 방화벽이 파일에 대한 액세스를 차단하고 있기 때문에 발생합니다. 기본적으로 서버리스 SQL 풀은 Azure Active Directory ID를 사용하여 파일에 액세스하려고 시도합니다. 이 이슈를 해결하려면 파일에 액세스할 수 있는 적절한 권한이 있어야 합니다. 가장 쉬운 방법은 쿼리하려는 스토리지 계정에 대한 'Storage Blob 데이터 기여자' 역할을 자신에게 부여하는 것입니다. 
-- [자세한 내용은 스토리지에 대한 Azure Active Directory 액세스 제어 전체 가이드를 참조하세요](../../storage/common/storage-auth-aad-rbac-portal.md). 
+- [자세한 내용은 스토리지에 대한 Azure Active Directory 액세스 제어 전체 가이드를 참조하세요](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어 방문](develop-storage-files-storage-access-control.md)
 
 #### <a name="alternative-to-storage-blob-data-contributor-role"></a>Storage Blob 데이터 기여자 역할의 대체 기능
@@ -86,6 +86,12 @@ Storage Blob 데이터 기여자를 부여하는 대신 파일 하위 세트에 
 - 쿼리 대상이 CSV 파일인 경우 [통계 만들기](develop-tables-statistics.md#statistics-in-serverless-sql-pool)를 고려해 보세요. 
 
 - 쿼리를 최적화하려면 [서버리스 SQL 풀의 성능 모범 사례](./best-practices-serverless-sql-pool.md)를 참조하세요.  
+
+### <a name="could-not-allocate-tempdb-space-while-transferring-data-from-one-distribution-to-another"></a>한 배포에서 다른 배포로 데이터를 전송하는 동안 tempdb 공간을 할당할 수 없습니다.
+
+이 오류는 일반 [현재 리소스 제약 조건으로 인해 실행할 수 없어 쿼리가 실패](#query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints)하는 오류의 특수한 경우입니다. 이 오류는 `tempdb` 데이터베이스에 할당된 리소스가 쿼리를 실행하기에 충분하지 않을 때 반환됩니다. 
+
+지원 티켓을 제출하기 전에 동일한 완화 및 모범 사례를 적용합니다.
 
 ### <a name="query-fails-with-error-while-handling-an-external-file"></a>외부 파일을 처리하는 동안 오류를 나타내며 쿼리가 실패합니다. 
 
@@ -446,6 +452,25 @@ WITH ( FORMAT_TYPE = PARQUET)
 
 ## <a name="cosmos-db"></a>Cosmos DB
 
+가능한 오류 및 문제 해결 작업은 다음 표에 나와 있습니다.
+
+| 오류 | 근본 원인 |
+| --- | --- |
+| 구문 오류:<br/> - `Openrowset` 근처의 구문이 잘못되었습니다.<br/> - `...`가 인식할 수 있는 `BULK OPENROWSET` 공급자 옵션이 아닙니다.<br/> - `...` 근처의 구문이 잘못되었습니다. | 가능한 근본 원인:<br/> - 첫 번째 매개 변수로 CosmosDB를 사용하지 않음.<br/> - 세 번째 매개 변수에서 식별자 대신 문자열 리터럴을 사용함.<br/> - 세 번째 매개 변수(컨테이너 이름)를 지정하지 않음. |
+| CosmosDB 연결 문자열에 오류가 발생했습니다. | - 계정, 데이터베이스 또는 키가 지정되지 않음. <br/> - 인식되지 않는 연결 문자열에는 몇 가지 옵션이 있음.<br/> - 세미콜론(`;`)은 연결 문자열의 끝에 배치됩니다. |
+| "잘못된 계정 이름" 또는 "잘못된 데이터베이스 이름" 오류로 인해 CosmosDB 경로를 확인하지 못했습니다. | 지정된 계정 이름, 데이터베이스 이름 또는 컨테이너를 찾을 수 없거나 지정된 컬렉션에 대해 분석 스토리지를 사용하도록 설정하지 않았습니다.|
+| "잘못된 비밀 값" 또는 "비밀이 Null이거나 비어 있습니다." 오류로 인해 CosmosDB 경로를 확인하지 못했습니다. | 계정 키가 잘못되었거나 없습니다. |
+| `type name` 유형의 `column name` 열이 외부 데이터 유형 `type name`과 호환되지 않습니다. | `WITH` 절에서 지정된 열 유형이 Azure Cosmos DB 컨테이너의 유형과 일치하지 않습니다. [Azure Cosmos DB에서 SQL 형식 매핑](query-cosmos-db-analytical-store.md#azure-cosmos-db-to-sql-type-mappings) 섹션에 설명된 바와 같이 열 형식을 변경하거나 `VARCHAR` 형식을 사용하십시오. |
+| 열이 모든 셀의 `NULL` 값을 포함합니다. | `WITH` 절에 잘못된 열 이름 또는 경로 식이 있을 수 있습니다. `WITH` 절에서 열 이름(또는 열 유형 뒤의 경로 식)은 Azure Cosmos DB 컬렉션의 일부 속성 이름과 일치해야 합니다. 비교 시 *대/소문자가 구분* 됩니다. 예를 들어 `productCode`와 `ProductCode`는 서로 다른 속성입니다. |
+
+[Azure Synapse Analytics 피드백 페이지](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862)에서 제안과 문제를 보고할 수 있습니다.
+
+### <a name="utf-8-collation-warning-is-returned-while-reading-cosmosdb-string-types"></a>CosmosDB 문자열 형식을 읽는 동안 UTF-8 데이터 정렬 경고가 반환됩니다.
+
+서버리스 SQL 풀은 `OPENROWSET` 열 데이터 정렬에 UTF-8 인코딩이 없으면 컴파일 시간 경고를 반환합니다. T-SQL 문 `alter database current collate Latin1_General_100_CI_AS_SC_UTF8`을 사용하여 현재 데이터베이스에서 실행되는 모든 `OPENROWSET` 함수에 대한 기본 데이터 정렬을 쉽게 변경할 수 있습니다.
+
+[Latin1_General_100_BIN2_UTF8 데이터 정렬](best-practices-serverless-sql-pool.md#use-proper-collation-to-utilize-predicate-pushdown-for-character-columns)은 문자열 조건자를 사용하여 데이터를 필터링할 때 최상의 성능을 제공합니다.
+
 ### <a name="some-rows-are-not-returned"></a>일부 행이 반환되지 않음
 
 - 트랜잭션 저장소와 분석 저장소 간에 동기화 지연이 발생합니다. Cosmos DB 트랜잭션 저장소에 입력한 문서가 2-3분 후에 분석 저장소에 표시될 수 있습니다.
@@ -464,7 +489,7 @@ Synapse SQL 다음과 같은 경우 트랜잭션 저장소에 표시되는 값 �
 
 `WITH` 절에 지정된 값이 분석 스토리지의 기본 Cosmos DB 형식과 일치하지 않아 암시적으로 변환할 수 없습니다. 스키마에서 `VARCHAR` 형식을 사용합니다.
 
-### <a name="performance-issues"></a>성능 문제
+### <a name="cosmosdb-performance-issues"></a>CosmosDB 성능 문제
 
 예기치 않은 성능 문제가 발생하는 경우 다음과 같은 모범 사례를 적용했는지 확인합니다.
 - 클라이언트 애플리케이션, 서버리스 풀 및 Cosmos DB 분석 스토리지를 [동일한 지역](best-practices-serverless-sql-pool.md#colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool)에 배치했는지 확인합니다.
@@ -480,8 +505,8 @@ Delta Lake 지원은 현재 서버리스 SQL 풀에서 퍼블릭 미리 보기�
   - 파티션 스키마를 설명하는 와일드카드를 지정하지 마세요. Delta Lake 쿼리는 Delta Lake 파티션을 자동으로 식별합니다. 
 - Apache Spark 풀에서 만든 Delta Lake 테이블은 서버리스 SQL 풀에서 동기화되지 않습니다. T-SQL 언어를 사용하여 Apache Spark 풀에서 Delta Lake 테이블을 쿼리할 수 없습니다.
 - 외부 테이블은 분할을 지원하지 않습니다. Delta Lake 폴더에서 [분할된 뷰](create-use-views.md#delta-lake-partitioned-views)를 사용하여 파티션 제거를 활용합니다. 아래에서 알려진 문제 및 해결 방법을 참조하세요.
-- 서버리스 SQL 풀은 시간 이동 쿼리를 지원하지 않습니다. [Azure 피드백 사이트](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake)에서 이 기능에 대해 투표할 수 있습니다.
-- 서버리스 SQL 풀은 Delta Lake 파일 업데이트를 지원하지 않습니다. 서버리스 SQL 풀을 사용하여 최신 버전의 Delta Lake를 쿼리할 수 있습니다. Azure Synapse Analytics에서 Apache Spark 풀을 사용하여 [Delta Lake를 업데이트](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data)하거나 [기록 데이터를 읽습니다](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
+- 서버리스 SQL 풀은 시간 이동 쿼리를 지원하지 않습니다. [Azure 피드백 사이트](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake)에서 이 기능에 대해 투표할 수 있습니다. Azure Synapse Analytics에서 Apache Spark 풀을 사용하여 [기록 데이터를 읽습니다](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
+- 서버리스 SQL 풀은 Delta Lake 파일 업데이트를 지원하지 않습니다. 서버리스 SQL 풀을 사용하여 최신 버전의 Delta Lake를 쿼리할 수 있습니다. Azure Synapse Analytics에서 Apache Spark 풀을 사용하여 [Delta Lake를 업데이트](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data)합니다.
 - Delta Lake 지원은 전용 SQL 풀에서 사용할 수 없습니다. 서버리스 풀을 사용하여 Delta Lake 파일을 쿼리하고 있는지 확인합니다.
 
 [Azure Synapse 피드백 사이트](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048)에서 아이디어와 향상된 기능을 제안할 수 있습니다.
@@ -509,14 +534,34 @@ FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b', ROWTERMINATOR = '0x0
 이 쿼리가 실패하면 호출자는 기본 스토리지 파일을 읽을 수 있는 권한이 없습니다. 
 
 가장 쉬운 방법은 쿼리하려는 스토리지 계정에 대한 'Storage Blob 데이터 기여자' 역할을 자신에게 부여하는 것입니다. 
-- [자세한 내용은 스토리지에 대한 Azure Active Directory 액세스 제어 전체 가이드를 참조하세요](../../storage/common/storage-auth-aad-rbac-portal.md). 
+- [자세한 내용은 스토리지에 대한 Azure Active Directory 액세스 제어 전체 가이드를 참조하세요](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어 방문](develop-storage-files-storage-access-control.md)
 
 ### <a name="partitioning-column-returns-null-values"></a>분할 열이 NULL 값을 반환합니다.
 
-분할된 Delta Lake 폴더를 읽는 `OPENROWSET` 함수에 대한 보기를 사용하는 경우 분할 열에 대한 실제 열 값 대신 `NULL` 값을 가져올 수 있습니다. 알려진 문제로 인해 `WITH` 절이 있는 `OPENROWSET` 함수는 분할 열을 읽을 수 없습니다. Delta Lake의 [분할된 뷰](create-use-views.md#delta-lake-partitioned-views)에는 `OPENROWSET` 절이 있는 `WITH` 함수가 없어야 합니다. 명시적으로 지정된 스키마가 없는 `OPENROWSET` 함수를 사용해야 합니다.
+분할된 Delta Lake 폴더를 읽는 `OPENROWSET` 함수에 대한 보기를 사용하는 경우 분할 열에 대한 실제 열 값 대신 `NULL` 값을 가져올 수 있습니다. `Year` 및 `Month` 분할 열을 참조하는 보기의 예는 다음 예에 나와 있습니다.
 
-**해결 방법:** 보기에 사용되는 `OPENROWSET` 함수에서 `WITH` 절을 제거합니다.
+```sql
+create or alter view test as
+select top 10 * 
+from openrowset(bulk 'https://storageaccount.blob.core.windows.net/path/to/delta/lake/folder',
+                format = 'delta') 
+     with (ID int, Year int, Month int, Temperature float) 
+                as rows
+```
+
+알려진 문제로 인해 `WITH` 절이 있는 `OPENROWSET` 함수는 분할 열에서 값을 읽을 수 없습니다. Delta Lake의 [분할된 뷰](create-use-views.md#delta-lake-partitioned-views)에는 `OPENROWSET` 절이 있는 `WITH` 함수가 없어야 합니다. 명시적으로 지정된 스키마가 없는 `OPENROWSET` 함수를 사용해야 합니다.
+
+**해결 방법:** 보기에 사용되는 `OPENROWSET` 함수에서 `WITH` 절을 제거합니다. 예:
+
+```sql
+create or alter view test as
+select top 10 * 
+from openrowset(bulk 'https://storageaccount.blob.core.windows.net/path/to/delta/lake/folder',
+                format = 'delta') 
+   --with (ID int, Year int, Month int, Temperature float) 
+                as rows
+```
 
 ### <a name="query-failed-because-of-a-topology-change-or-compute-container-failure"></a>토폴로지 변경 또는 컴퓨팅 컨테이너 오류로 인해 쿼리 실패
 
@@ -527,7 +572,7 @@ CREATE DATABASE mydb
     COLLATE Latin1_General_100_BIN2_UTF8;
 ```
 
-master 데이터베이스를 통해 실행되는 쿼리는 이 문제의 영향을 받습니다.
+master 데이터베이스를 통해 실행되는 쿼리는 이 문제의 영향을 받습니다. 분할된 데이터를 읽는 모든 쿼리에 적용되는 것은 아닙니다. 문자열 열로 분할된 데이터 세트는 이 문제의 영향을 받습니다.
 
 **해결 방법:** `Latin1_General_100_BIN2_UTF8` 데이터베이스 데이터 정렬을 통해 사용자 지정 데이터베이스에서 쿼리를 실행합니다.
 
@@ -535,7 +580,7 @@ master 데이터베이스를 통해 실행되는 쿼리는 이 문제의 영향�
 
 WITH 절을 지정하지 않고 일부 중첩 형식 열이 포함된 Delta Lake 파일을 읽으려고 합니다(자동 스키마 유추 사용). 자동 스키마 유추는 Delta Lake의 중첩 열에서 작동하지 않습니다.
 
-**해결 방법:** `WITH` 절을 사용하고 `VARCHAR` 형식을 중첩 열에 명시적으로 할당합니다.
+**해결 방법:** `WITH` 절을 사용하고 `VARCHAR` 형식을 중첩 열에 명시적으로 할당합니다. `WITH` 절이 파티션 열에 대해 `NULL`을 반환하는 또 다른 알려진 문제로 인해 데이터 세트가 분할된 경우에는 작동하지 않습니다. 복합 유형 열이 있는 분할된 데이터 세트는 현재 지원되지 않습니다.
 
 ### <a name="cannot-find-value-of-partitioning-column-in-file"></a>파일에서 분할 열 값을 찾을 수 없음 
 
@@ -548,6 +593,31 @@ Cannot find value of partitioning column '<column name>' in file
 ```
 
 **해결 방법:** Apache Spark 풀을 사용하여 Delta Lake 데이터 세트를 업데이트하고 분할 열에 `null` 대신 일부 값(빈 문자열 또는 `"null"`)을 사용합니다.
+
+### <a name="json-text-is-not-properly-formatted"></a>JSON 텍스트의 형식이 잘못되었습니다.
+
+이 오류는 서버리스 SQL 풀이 Delta Lake 트랜잭션 로그를 읽을 수 없음을 나타냅니다. 다음 오류와 같은 오류가 표시될 수 있습니다.
+
+```
+Msg 13609, Level 16, State 4, Line 1
+JSON text is not properly formatted. Unexpected character '{' is found at position 263934.
+Msg 16513, Level 16, State 0, Line 1
+Error reading external metadata.
+```
+먼저 Delta Lake 데이터 세트가 손상되지 않았는지 확인합니다.
+- Synapse 또는 Databricks 클러스터에서 Apache Spark 풀을 사용하여 Delta Lake 폴더의 콘텐츠를 읽을 수 있는지 확인합니다. 이렇게 하면 `_delta_log` 파일이 손상되지 않도록 할 수 있습니다.
+- `FORMAT='PARQUET'`를 지정하고 URI 경로 끝에 재귀 와일드카드 `/**`를 사용하여 데이터 파일의 내용을 읽을 수 있는지 확인합니다. 모든 Parquet 파일을 읽을 수 있는 경우 문제는 `_delta_log` 트랜잭션 로그 폴더에 있습니다.
+
+**해결 방법:** 이 문제는 일부 `_UTF8` 데이터베이스 데이터 정렬을 사용하는 경우 발생할 수 있습니다. `master` 데이터베이스 또는 UTF8이 아닌 데이터 정렬이 있는 다른 데이터베이스에서 쿼리를 실행해 보세요. 이 해결 방법으로 문제가 해결되면 `_UTF8` 데이터 정렬이 없는 데이터베이스를 사용합니다.
+
+데이터 세트가 유효하고 해결 방법이 도움이 되지 않는 경우 지원 티켓을 보고하고 Azure 지원에 재현을 제공합니다.
+- 열 추가/제거 또는 테이블 최적화와 같은 변경을 수행하지 마세요. 이렇게 하면 Delta Lake 트랜잭션 로그 파일의 상태가 변경될 수 있습니다.
+- `_delta_log` 폴더의 콘텐츠를 새 빈 폴더에 복사합니다. `.parquet data` 파일을 복사하지 **마세요**.
+- 새 폴더에 복사한 내용을 읽고 동일한 오류가 발생하는지 확인합니다.
+- 이제 Spark 풀과 함께 Delta Lake 폴더를 계속 사용할 수 있습니다. 이를 공유할 수 있는 경우 복사된 데이터를 Microsoft 지원에 제공합니다.
+- 복사한 `_delta_log` 파일의 콘텐츠를 Azure 지원에 보냅니다.
+
+Azure 팀은 `delta_log` 파일의 콘텐츠를 조사하고 가능한 오류 및 해결 방법에 대한 추가 정보를 제공합니다.
 
 ## <a name="constraints"></a>제약 조건
 

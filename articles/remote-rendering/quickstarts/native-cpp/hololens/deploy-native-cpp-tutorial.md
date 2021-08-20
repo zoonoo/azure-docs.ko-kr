@@ -1,20 +1,20 @@
 ---
-title: HoloLens에 네이티브 C++ 자습서 배포
-description: HoloLens에서 네이티브 C++ 자습서를 실행하는 방법을 보여 주는 빠른 시작
+title: HoloLens에 네이티브 C++ WMR 자습서 배포
+description: HoloLens에서 네이티브 C++ HolographicApp 자습서를 실행하는 방법을 보여 주는 빠른 시작
 author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: b340a180927b3df9ad51295383b09b03dbbb2d98
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: eabade94b06d8689026548d6e09d6098e8da9f59
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530589"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113666810"
 ---
-# <a name="quickstart-deploy-native-c-sample-to-hololens"></a>빠른 시작: HoloLens에 네이티브 C++ 샘플 배포
+# <a name="quickstart-deploy-native-c-wmr-sample-to-hololens"></a>빠른 시작: HoloLens에 네이티브 C++ WMR 샘플 배포
 
-이 빠른 시작에서는 HoloLens 2에서 네이티브 C++ 자습서 애플리케이션을 배포하고 실행하는 방법을 다룹니다.
+이 빠른 시작에서는 HoloLens 2에서 네이티브 C++ WMR(Windows Mixed Reality) 자습서 애플리케이션을 배포하고 실행하는 방법을 다룹니다.
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
@@ -51,11 +51,11 @@ git clone https://github.com/Azure/azure-remote-rendering
 
 마지막 명령은 Azure Remote Rendering에 사용할 다양한 샘플 프로젝트가 들어 있는 하위 디렉터리를 ARR 디렉터리에 만듭니다.
 
-C++ Hololens 자습서는 하위 디렉터리 *NativeCpp/HoloLens* 에서 찾을 수 있습니다.
+C++ Hololens 자습서는 하위 디렉터리 *NativeCpp/HoloLens-Wmr* 에서 찾을 수 있습니다.
 
 ## <a name="build-the-project"></a>프로젝트 빌드
 
-Visual Studio 2019를 사용하여 *NativeCpp/HoloLens* 하위 디렉터리에 있는 *HolographicApp.sln* 솔루션 파일을 엽니다.
+Visual Studio 2019를 사용하여 *NativeCpp/HoloLens-Wmr* 하위 디렉터리에 있는 *HolographicApp.sln* 솔루션 파일을 엽니다.
 
 빌드 구성을 *디버그*(또는 *릴리스*) 및 *ARM64* 로 전환합니다. 또한 디버거 모드가 *원격 머신* 과는 반대로 *디바이스* 로 설정되어 있는지 확인합니다.
 
@@ -80,7 +80,7 @@ Visual Studio 2019를 사용하여 *NativeCpp/HoloLens* 하위 디렉터리에 �
 
 구체적으로 다음 값을 변경합니다.
 * 계정 데이터를 사용할 `init.AccountId`, `init.AccountKey` 및 `init.AccountDomain`. [계정 정보 검색](../../../how-tos/create-an-account.md#retrieve-the-account-information) 방법에 대한 단락을 참조하세요.
-* `westus2` 이외에 지역에 대한 `init.RemoteRenderingDomain` 문자열의 지역 부분을 수정하여 원격 렌더링 세션을 만들 위치를 지정합니다(예: `"westeurope.mixedreality.azure.com"`).
+* `westus2` 이외에 [지역](../../../reference/regions.md)에 대한 `init.RemoteRenderingDomain` 문자열의 지역 부분을 수정하여 원격 렌더링 세션을 만들 위치를 지정합니다(예: `"westeurope.mixedreality.azure.com"`).
 * 또한 기존 세션 ID로 `m_sessionOverride`를 변경할 수 있습니다. 이 샘플 외부에서 세션을 만들 수 있습니다. 예를 들어 [PowerShell 스크립트](../../../samples/powershell-example-scripts.md#script-renderingsessionps1)를 사용하거나 [세션 REST API](../../../how-tos/session-rest-api.md)를 직접 사용할 수 있습니다.
 샘플을 여러 번 실행해야 하는 경우 샘플 외부에서 세션을 만드는 것이 좋습니다. 세션이 전달되지 않은 경우 이 샘플은 시작될 때마다 새 세션을 만듭니다. 이 세션은 몇 분 정도 걸릴 수 있습니다.
 

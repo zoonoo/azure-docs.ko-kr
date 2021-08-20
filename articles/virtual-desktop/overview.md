@@ -3,15 +3,15 @@ title: Azure Virtual Desktop이란? - Azure
 description: Azure Virtual Machines 개요입니다.
 author: Heidilohr
 ms.topic: overview
-ms.date: 09/14/2020
+ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 76d6574be61b7d1cd92733496d335c64d64bf7a1
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+ms.openlocfilehash: 773e0053512026f6a92a2981d43340b68e708186
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113031394"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113757708"
 ---
 # <a name="what-is-azure-virtual-desktop"></a>Azure Virtual Desktop이란?
 
@@ -38,7 +38,7 @@ Azure Virtual Desktop에 대한 자세한 비디오는 [재생 목록](https://w
 
 Azure Virtual Desktop을 사용하면 다음과 같이 확장 가능하고 유연한 환경을 설정할 수 있습니다.
 
-* 추가 게이트웨이 서버를 실행할 필요 없이 Azure 구독에 완전한 데스크톱 가상화 환경을 만듭니다.
+* 게이트웨이 서버를 실행하지 않고 Azure 구독에서 전체 데스크톱 가상화 환경을 만듭니다.
 * 다양한 워크로드를 수용하는 데 필요한 만큼 호스트 풀을 게시합니다.
 * Azure 갤러리에서 프로덕션 워크로드 또는 테스트에 사용할 사용자 고유의 이미지를 가져옵니다.
 * 풀링된 다중 세션 리소스를 사용하여 비용을 줄입니다. Windows Server의 Azure Virtual Desktop 및 RDSH(원격 데스크톱 세션 호스트) 역할에만 제공되는 새 Windows 10 Enterprise 다중 세션 기능을 사용하면 가상 머신의 수와 OS(운영 체제) 오버헤드를 대폭 줄이면서도 사용자에게 동일한 리소스를 제공할 수 있습니다.
@@ -54,7 +54,7 @@ Azure Virtual Desktop을 사용하면 다음과 같이 확장 가능하고 유�
 
 다음과 같이 가상 데스크톱에 사용자를 할당하고 연결할 수도 있습니다.
 
-* 할당된 사용자는 아무 Azure Virtual Desktop 클라이언트를 실행하여 사용자를 게시된 Windows 데스크톱 및 애플리케이션에 연결할 수 있습니다. 사용 중인 디바이스의 네이티브 애플리케이션 또는 Azure Virtual Desktop HTML5 웹 클라이언트를 통해 모든 디바이스에서 연결 가능합니다.
+* 할당된 사용자는 아무 Azure Virtual Desktop 클라이언트를 실행하여 게시된 Windows 데스크톱 및 애플리케이션에 연결할 수 있습니다. 사용 중인 디바이스의 네이티브 애플리케이션 또는 Azure Virtual Desktop HTML5 웹 클라이언트를 통해 모든 디바이스에서 연결 가능합니다.
 * 역방향 연결을 통해 사용자를 서비스에 안전하게 연결하므로 인바운드 포트를 계속 열어 둘 필요가 없습니다.
 
 ## <a name="requirements"></a>요구 사항
@@ -85,7 +85,7 @@ Azure Virtual Desktop에 연결하기 위한 사용자 요구 사항:
 
 Azure Virtual Desktop에 대해 만드는 Azure 가상 머신은 다음과 같아야 합니다.
 
-* [표준 도메인에 조인](../active-directory-domain-services/compare-identity-solutions.md) 또는 [하이브리드 AD에 조인](../active-directory/devices/hybrid-azuread-join-plan.md). 가상 머신이 Azure AD에 조인되면 안 됩니다.
+* [표준 도메인에 조인](../active-directory-domain-services/compare-identity-solutions.md) 또는 [하이브리드 AD에 조인](../active-directory/devices/hybrid-azuread-join-plan.md). [Azure AD 조인](deploy-azure-ad-joined-vm.md) 가상 머신은 미리 보기로 제공됩니다.
 * 다음 [지원되는 OS 이미지](#supported-virtual-machine-os-images) 중 하나를 실행합니다.
 
 >[!NOTE]
@@ -93,7 +93,7 @@ Azure Virtual Desktop에 대해 만드는 Azure 가상 머신은 다음과 같�
 
 Azure Virtual Desktop 배포가 의도한 대로 작동하게 하려면 차단해야 하는 URL 목록은 [필수 URL 목록](safe-url-list.md)을 참조하세요.
 
-Azure Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스크톱과 앱, 그리고 Microsoft가 Azure에 서비스로 호스팅하는 관리 솔루션으로 구성됩니다. 데스크톱과 앱을 모든 Azure 지역의 VM(가상 머신)에 배포할 수 있으며, 이러한 VM의 관리 솔루션과 데이터는 미국에 상주합니다. 따라서 미국으로 데이터가 전송될 수 있습니다.
+Azure Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스크톱과 앱, 그리고 Microsoft가 Azure에 서비스로 호스팅하는 관리 솔루션을 포함합니다. 데스크톱과 앱을 모든 Azure 지역의 VM(가상 머신)에 배포할 수 있으며, 이러한 VM의 관리 솔루션과 데이터는 미국에 상주합니다. 따라서 미국으로 데이터가 전송될 수 있습니다.
 
 최적의 성능을 얻을 수 있도록 네트워크가 다음 요구 사항을 충족하는지 확인합니다.
 
@@ -138,10 +138,10 @@ Azure Virtual Desktop은 x86(32비트), Windows 10 Enterprise N, Windows 10 LTSB
 |--------------------------------------|:------:|:------:|:------:|:------:|
 |Windows 10 Enterprise 다중 세션, 버전 1909 이상|예|예|예|예|
 |Windows 10 Enterprise, 버전 1909 이상|예|예|예|예|
-|Windows 7 Enterprise|예|예|아니요|아니요|
-|Windows Server 2019|예|예|아니요|예|
+|Windows 7 Enterprise|예|예|예|예|
+|Windows Server 2019|예|예|예|예|
 |Windows Server 2016|예|예|예|예|
-|Windows Server 2012 R2|예|예|아니요|아니요|
+|Windows Server 2012 R2|예|예|예|예|
 
 ## <a name="next-steps"></a>다음 단계
 

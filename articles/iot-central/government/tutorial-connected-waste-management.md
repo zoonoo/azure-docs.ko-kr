@@ -7,12 +7,12 @@ ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 42a82a59483a582e0d395092558665b12e1cd5a3
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: bc83af43fab3871bf693635ddbdd446c2f4bb2e2
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684364"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586512"
 ---
 # <a name="tutorial-create-a-connected-waste-management-app"></a>자습서: 연결된 폐기물 관리 앱 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "109684364"
 
 > [!div class="checklist"]
 > * Azure IoT Central *연결된 폐기물 관리* 템플릿을 사용하여 앱을 만듭니다.
-> * 운영자 대시보드를 살펴보기 및 사용자 지정합니다. 
+> * 대시보드를 살펴보고 사용자 지정합니다. 
 > * 연결된 폐기물 수집통 디바이스 템플릿을 살펴봅니다.
 > * 시뮬레이션된 디바이스를 살펴봅니다.
 > * 규칙을 살펴보고 구성합니다.
@@ -47,7 +47,7 @@ Azure 구독이 권장됩니다. 대신 무료 7일 평가판을 사용할 수 �
 
     ![Azure IoT Central 빌드 페이지의 스크린샷.](./media/tutorial-connectedwastemanagement/iotcentral-government-tab-overview.png)
 
-1. **연결된 폐기물 관리** 애플리케이션 템플릿을 선택합니다. 이 템플릿에는 연결된 폐기물 수집통 디바이스 템플릿 샘플, 시뮬레이션된 디바이스, 운영자 대시보드 및 미리 구성된 모니터링 규칙이 포함되어 있습니다.    
+1. **연결된 폐기물 관리** 애플리케이션 템플릿을 선택합니다. 이 템플릿에는 연결된 폐기물 수집통 디바이스 템플릿 샘플, 시뮬레이션된 디바이스, 대시보드, 미리 구성된 모니터링 규칙 등이 포함됩니다.    
 
 1. **앱 만들기** 를 선택하면 **새 애플리케이션** 대화 상자가 열립니다. 다음 필드에 대한 정보를 입력합니다.
     * **애플리케이션 이름**. 기본적으로 이 애플리케이션에는 Azure IoT Central이 생성하는 고유한 ID 문자열 다음에 오는 **연결된 폐기물 관리** 가 사용됩니다. 필요에 따라 친숙한 애플리케이션 이름을 선택할 수 있습니다. 애플리케이션 이름은 나중에 변경할 수도 있습니다.
@@ -62,7 +62,7 @@ Azure 구독이 권장됩니다. 대신 무료 7일 평가판을 사용할 수 �
 
  
 새로 만든 애플리케이션은 다음 항목이 미리 구성된 상태로 제공됩니다.
-* 작업자 대시보드 샘플.
+* 샘플 대시보드.
 * 미리 정의된 연결된 폐기물 수집통 디바이스 샘플 템플릿.
 * 시뮬레이션된 연결된 폐기물 수집통 디바이스.
 * 규칙 및 작업.
@@ -70,7 +70,7 @@ Azure 구독이 권장됩니다. 대신 무료 7일 평가판을 사용할 수 �
 
 빌드 중인 애플리케이션이므로 언제든지 수정할 수 있습니다. 이제 애플리케이션을 살펴보고 일부 사용자 지정을 수행합니다.  
 
-## <a name="explore-and-customize-the-operator-dashboard"></a>운영자 대시보드 살펴보기 및 사용자 지정 
+## <a name="explore-and-customize-the-dashboard"></a>대시보드를 살펴보고 사용자 지정합니다. 
 
 앱을 만든 후 표시되는 **Wide World Waste 관리 대시보드** 를 살펴봅니다.
 
@@ -89,7 +89,7 @@ Azure 구독이 권장됩니다. 대신 무료 7일 평가판을 사용할 수 �
 
 * **수집량 수준 KPI 타일**: 이 타일은 폐기물 수집통의 *수집량 수준* 센서로 보고되는 값을 표시합니다. 수집량 수준과 폐기물 수집통의 *냄새 측정기* 또는 *중량* 과 같은 기타 센서도 원격으로 모니터링할 수 있습니다. 운영자는 폐기물 수거 트럭 파견과 같은 작업을 수행할 수 있습니다. 
 
-* **폐기물 모니터링 영역 지도**: 이 타일은 Azure IoT Central에서 직접 구성할 수 있는 Azure Maps를 사용합니다. 지도 타일에는 디바이스 위치가 표시됩니다. 지도 위로 커서를 이동하고 확대, 축소 또는 확장 등을 조작해보세요.
+* **폐기물 모니터링 영역 지도**: 이 타일은 Azure IoT Central에서 직접 구성할 수 있는 Azure Maps를 사용합니다. 지도 타일에는 디바이스 [위치](../core/howto-use-location-data.md)가 표시됩니다. 지도 위로 커서를 이동하고 확대, 축소 또는 확장 등을 조작해보세요.
 
      ![연결된 폐기물 관리 템플릿 대시보드 지도의 스크린샷](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 

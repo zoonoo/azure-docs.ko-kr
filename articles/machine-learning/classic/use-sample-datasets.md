@@ -9,21 +9,21 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 8a848f6589902c2eabf5b4e14a4d000dc4ed081e
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 815b43e88118a67f4e1c0f86ab0e7a10dcc70407
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518439"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583489"
 ---
-# <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio(클래식)에서 샘플 데이터 세트 사용
+# <a name="use-the-sample-datasets-in-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)에서 샘플 데이터 세트 사용
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Machine Learning Studio(클래식)  ](../../../includes/media/aml-applies-to-skus/yes.png)적용되지 않는 대상:![Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [top]: #machine-learning-sample-datasets
 
-Azure Machine Learning Studio(클래식)에서 새 작업 영역을 만들 때 다양한 샘플 데이터 세트 및 실험이 기본적으로 포함됩니다. 이 샘플 데이터 세트 중 다수는 [Azure AI 갤러리](https://gallery.azure.ai/)의 샘플 모델에서 사용됩니다. 나머지는 Machine Learning에서 일반적으로 사용되는 다양한 유형의 데이터 예로 포함됩니다.
+Machine Learning Studio(클래식)에서 새 작업 영역을 만들 때 다양한 샘플 데이터 세트 및 실험이 기본적으로 포함됩니다. 이 샘플 데이터 세트 중 다수는 [Azure AI 갤러리](https://gallery.azure.ai/)의 샘플 모델에서 사용됩니다. 나머지는 Machine Learning에서 일반적으로 사용되는 다양한 유형의 데이터 예로 포함됩니다.
 
 일부 데이터 세트는 Azure Blob Storage에서 사용할 수 있습니다. 이러한 데이터 세트의 경우 다음 표에서 직접 링크가 제공됩니다. [데이터 가져오기][import-data] 모듈을 사용하여 이 데이터 세트를 실험에 사용할 수 있습니다.
 
@@ -172,7 +172,7 @@ KDD Cup 2009 고객 관계 예측 챌린지의 레이블(<a href="http://www.sig
   <td>
 미국 운수부 TranStats 데이터 컬렉션에서 가져온 여객기 운항정시성 데이터(<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">정시</a>)
 <p></p>
-데이터 세트는 2013년 4월-10월 기간에 해당합니다. Azure Machine Learning Studio(클래식)로 업로드하기 전에 데이터 세트가 다음과 같이 처리됩니다.
+데이터 세트는 2013년 4월-10월 기간에 해당합니다. Machine Learning Studio(클래식)로 업로드하기 전에 데이터 세트가 다음과 같이 처리됩니다.
 <ul>
   <li>데이터 세트는 미국 본토에서 비행이 가장 많은 공항 70곳만을 포함하도록 필터링되었습니다.</li>
   <li>취소된 비행은 15분 초과 지연으로 레이블이 지정되었습니다.</li>
@@ -332,7 +332,7 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
   <td>
 NOAA에서 제공한 시간별 지상 기상 관측(<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">201304부터 201310까지의 병합된 데이터</a>).
 <p></p>
-기상 데이터는 2013년 4월-10월 기간에 공항 기상 관측소에서 수행된 관측을 포함합니다. Azure Machine Learning Studio(클래식)로 업로드하기 전에 데이터 세트가 다음과 같이 처리됩니다.
+기상 데이터는 2013년 4월-10월 기간에 공항 기상 관측소에서 수행된 관측을 포함합니다. Machine Learning Studio(클래식)로 업로드하기 전에 데이터 세트가 다음과 같이 처리됩니다.
 <ul>
   <li>기상 관측소 ID가 해당 공항 ID에 매핑되었습니다.</li>
   <li>비행이 가장 많은 공항 70곳과 연계되지 않은 기상 관측소가 필터링되었습니다.</li>
@@ -347,7 +347,7 @@ NOAA에서 제공한 시간별 지상 기상 관측(<a href="https://az754797.vo
   <td>
 데이터는 XML 데이터로 저장되는 각 S&P 500 회사의 자료에 따라 Wikipedia(<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>)에서 파생됩니다.
 <p></p>
-Azure Machine Learning Studio(클래식)로 업로드하기 전에 데이터 세트가 다음과 같이 처리됩니다.
+Machine Learning Studio(클래식)로 업로드하기 전에 데이터 세트가 다음과 같이 처리됩니다.
 <ul>
   <li>각 특정 회사에 대한 텍스트 콘텐츠 추출</li>
   <li>위치 형식 지정 제거</li>

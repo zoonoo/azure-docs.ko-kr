@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/07/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29fc4028308d2d1fd9a23aa37d635f6b9fb0e68c
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 7fb3dcb07b8b868dda7bfef587b930765c4f661e
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111570644"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112199241"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Azure Active Directory B2C의 기술 및 기능 개요
 
@@ -28,14 +28,14 @@ Azure AD B2C(Azure Active Directory B2C)에서 *테넌트* 는 조직을 나타�
 Azure AD B2C 테넌트에서 사용하는 기본 리소스는 다음과 같습니다.
 
 * **디렉터리** - *디렉터리* 는 Azure AD B2C에서 사용자의 자격 증명, 프로필 데이터 및 애플리케이션 등록 내용을 저장하는 위치입니다.
-* **애플리케이션 등록** - ID 관리를 사용하도록 설정하기 위해 웹, 모바일 및 네이티브 애플리케이션을 Azure AD B2C에 등록합니다. 또한 Azure AD B2C를 사용하여 보호하려는 API도 있습니다.
-* **사용자 흐름** 및 **사용자 지정 정책** - 애플리케이션에 대한 기본 제공(사용자 흐름) 및 완전히 사용자 지정 가능한(사용자 지정 정책) ID 환경입니다.
-  * 가입, 로그인 및 프로필 편집과 같은 일반적인 ID 작업을 빠르게 구성하고 사용하도록 설정하려면 *사용자 흐름* 을 사용합니다.
-  * 조직, 고객, 직원, 파트너 및 시민에게 고유한 복잡한 ID 워크플로에는 *사용자 지정 정책* 을 사용합니다.
-* **ID 공급자** - 다음 항목에 대한 페더레이션 설정입니다.
-  * 애플리케이션에서 지원하려는 *소셜* ID 공급자(예: Facebook, LinkedIn 또는 Twitter).
-  * 표준 ID 프로토콜을 지원하는 *외부* ID 공급자(예: OAuth 2.0, OpenID Connect 등).
-  * 사용자 이름(이메일 주소 또는 다른 ID)과 암호를 사용하여 가입하고 로그인할 수 있게 하는 *로컬* 계정.
+* **애플리케이션 등록** - ID 관리를 사용하도록 설정하기 위해 웹, 모바일 및 네이티브 애플리케이션을 Azure AD B2C에 등록합니다. Azure AD B2C를 사용하여 보호하려는 API를 등록할 수도 있습니다.
+* **사용자 흐름** 및 **사용자 지정 정책** - 기본 제공 사용자 흐름과 완전히 구성 가능한 사용자 지정 정책을 사용하여 애플리케이션의 ID 환경을 만듭니다.
+  * **사용자 흐름** 을 사용하면 등록, 로그인, 프로필 편집과 같은 일반적인 ID 작업을 빠르게 사용하도록 설정할 수 있습니다.
+  * **사용자 지정 정책** 을 사용하면 조직, 고객, 직원, 파트너, 시민에게 고유한 복잡한 ID 워크플로를 빌드할 수 있습니다.
+* **로그인 옵션** - Azure AD B2C는 애플리케이션 사용자에게 다양한 [등록 및 로그인 옵션](sign-in-options.md)을 제공합니다.
+  * **사용자 이름, 메일, 전화 로그인** - 사용자 이름, 메일 주소, 전화 번호 또는 여러 방법의 조합을 사용하여 등록 및 로그인할 수 있도록 Azure AD B2C 로컬 계정을 구성합니다.
+  * **소셜 ID 공급자** - Facebook, LinkedIn 또는 Twitter와 같은 소셜 공급자와 페더레이션됩니다.
+  * **외부 ID 공급자** - OAuth 2.0, OpenID Connect 등의 표준 ID 프로토콜과 페더레이션됩니다.
 * **키** - 토큰, 클라이언트 암호, 인증서 및 암호에 서명 및 유효성 검사를 위한 암호화 키를 추가하고 관리합니다.
 
 Azure AD B2C 테넌트는 Azure AD B2C를 시작하기 위해 만들어야 하는 첫 번째 리소스입니다. 방법 배우기:
@@ -72,7 +72,7 @@ Azure AD B2C는 여러 유형의 사용자 계정을 정의합니다. Azure Acti
 
 Azure AD B2C는 사용자가 사용자를 인증할 수 있는 다양한 방법을 제공합니다. 사용자는 사용자 이름 및 암호, 전화 확인(암호 없는 인증이라고도 함)을 사용하여 로컬 계정에 로그인할 수 있습니다. 이메일 등록은 로컬 계정 ID 공급자 설정에서 기본적으로 사용하도록 설정됩니다.
 
-자세한 내용은 [로컬 계정 ID 공급자 설정](identity-provider-local.md)을 참조하세요.
+[로그인 옵션](sign-in-options.md) 또는 [로컬 계정 ID 공급자를 설정](identity-provider-local.md)하는 방법을 자세히 알아봅니다.
 
 ## <a name="user-profile-attributes"></a>사용자 프로필 특성
 

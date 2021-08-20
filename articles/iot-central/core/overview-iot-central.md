@@ -7,13 +7,13 @@ ms.date: 04/19/2021
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc, contperf-fy21q2
-ms.openlocfilehash: ed15d75836f3642622f963ac8c0185c1520bce2b
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.custom: mvc, contperf-fy21q2, contperf-fy22q1
+ms.openlocfilehash: eb61a41cb7c7425c336145130cc61c76173f4ceb
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112281308"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652376"
 ---
 # <a name="what-is-azure-iot-central"></a>Azure IoT Central이란?
 
@@ -26,16 +26,16 @@ IoT Central은 엔터프라이즈급 IoT 솔루션의 개발, 관리 및 유지 
 - 프로젝트와 관련된 일반적인 사용자 역할
 - 애플리케이션을 만드는 방법.
 - 디바이스를 애플리케이션에 연결하는 방법
-- 애플리케이션을 관리하는 방법.
-- IoT Central의 Azure IoT Edge 기능.
-- Azure IoT Edge 런타임 기반 디바이스를 애플리케이션에 연결하는 방법을 설명합니다.
+- 애플리케이션을 다른 서비스와 통합하는 방법
+- 애플리케이션을 관리하는 방법
+- 가격 책정 옵션
 
 ## <a name="user-roles"></a>사용자 역할
 
 IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 네 개의 사용자 역할을 나타냅니다.
 
 - _솔루션 작성기_ 는 [애플리케이션 생성](quick-deploy-iot-central.md), [규칙 및 작업 구성](quick-configure-rules.md), [다른 서비스와의 통합 정의](quick-export-data.md) 및 운영자와 디바이스 개발자를 위해 애플리케이션을 추가로 사용자 지정하는 작업을 담당합니다.
-- _운영자_ 는 애플리케이션에 연결된 [디바이스를 관리](howto-manage-devices.md)합니다.
+- _운영자_ 는 애플리케이션에 연결된 [디바이스를 관리](howto-manage-devices-individually.md)합니다.
 - _관리자_ 는 애플리케이션 내 [사용자 및 권한](howto-administer.md) 관리와 같은 관리 작업을 담당합니다.
 - _디바이스 개발자_ 는 애플리케이션에 연결된 [디바이스에서 실행되는 코드를 만들](concepts-telemetry-properties-commands.md)거나 [IoT Edge 모듈](concepts-iot-edge.md)을 만듭니다.
 
@@ -70,13 +70,13 @@ IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 �
   - IoT Central에서 호출되는 명령입니다.
 
 - 디바이스에 저장되지 않는 클라우드 속성
-- IoT Central 애플리케이션의 일부인 사용자 지정, 대시보드 및 양식
+- IoT Central 애플리케이션의 일부인 사용자 지정, 양식 및 디바이스 보기
 
 디바이스 템플릿을 만들 수 있는 몇 가지 옵션이 있습니다.
 
 - IoT Central에서 디바이스 템플릿을 디자인한 다음, 디바이스 코드에서 디바이스 모델을 구현합니다.
 - Visual Studio Code를 사용하여 디바이스 모델을 만들고 모델을 리포지토리에 게시합니다. 모델에서 디바이스 코드를 구현하고, 디바이스를 IoT Central 애플리케이션에 연결합니다. IoT Central은 자동으로 리포지토리에서 디바이스 모델을 찾아서 간단한 디바이스 템플릿을 만듭니다.
-- Visual Studio Code를 사용하여 디바이스 모델을 만듭니다. 모델에서 디바이스 코드를 구현합니다. 디바이스 모델을 IoT Central 애플리케이션으로 수동으로 가져온 다음, IoT Central 애플리케이션에 필요한 클라우드 속성, 사용자 지정 및 대시보드를 추가합니다.
+- Visual Studio Code를 사용하여 디바이스 모델을 만듭니다. 모델에서 디바이스 코드를 구현합니다. 디바이스 모델을 IoT Central 애플리케이션으로 수동으로 가져온 다음, IoT Central 애플리케이션에 필요한 클라우드 속성, 사용자 지정 및 보기를 추가합니다.
 
 ### <a name="customize-the-ui"></a>UI 사용자 지정
 
@@ -88,7 +88,7 @@ IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 �
 
 ## <a name="manage-your-devices"></a>디바이스 관리
 
-운영자는 IoT Central 애플리케이션을 사용하여 IoT Central 솔루션의 [디바이스를 관리](howto-manage-devices.md)합니다. 운영자는 다음과 같은 작업을 수행합니다.
+운영자는 IoT Central 애플리케이션을 사용하여 IoT Central 솔루션의 [디바이스를 관리](howto-manage-devices-individually.md)합니다. 운영자는 다음과 같은 작업을 수행합니다.
 
 - 애플리케이션에 연결된 디바이스 모니터링.
 - 디바이스 관련 문제 해결 및 수정.
@@ -100,7 +100,7 @@ IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 �
 
 ### <a name="dashboards"></a>대시보드
 
-기본 제공 [대시보드](./howto-set-up-template.md#generate-default-views)는 디바이스 상태 및 원격 분석을 모니터링하는 사용자 지정 가능한 UI를 제공합니다. [애플리케이션 템플릿](howto-use-app-templates.md)의 미리 작성된 대시보드로 시작하거나, 운영자의 요구 사항에 맞는 맞춤형 대시보드를 만들어 보세요. 애플리케이션의 모든 사용자와 대시보드를 공유할 수도 있고, 대시보드를 비공개로 유지할 수도 있습니다.
+애플리케이션 템플릿의 미리 작성된 대시보드로 시작하거나, 운영자의 요구 사항에 맞는 맞춤형 대시보드를 만들어 보세요. 애플리케이션의 모든 사용자와 대시보드를 공유할 수도 있고, 대시보드를 비공개로 유지할 수도 있습니다.
 
 ### <a name="rules-and-actions"></a>규칙 및 동작
 
@@ -108,7 +108,7 @@ IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 �
 
 ### <a name="jobs"></a>작업
 
-[작업](howto-run-a-job.md)을 사용하면 속성을 설정하거나 명령을 호출하여 디바이스에 단일 또는 대량 업데이트를 적용할 수 있습니다.
+[작업](howto-manage-devices-in-bulk.md)을 사용하면 속성을 설정하거나 명령을 호출하여 디바이스에 단일 또는 대량 업데이트를 적용할 수 있습니다.
 
 ## <a name="integrate-with-other-services"></a>다른 서비스와 통합
 
@@ -136,19 +136,6 @@ IoT Central 애플리케이션은 Microsoft에서 완벽하게 호스트하므�
 
 - *무료* 플랜을 사용하여 만든 애플리케이션은 7일 동안 무료로 제공되며 최대 5대의 디바이스를 지원합니다. 만료되기 전에 언제든지 표준 가격 책정 플랜을 사용하도록 변환할 수 있습니다.
 - *표준* 플랜을 사용하여 만든 애플리케이션은 디바이스별로 청구되며, 처음 두 디바이스가 무료로 사용 가능한 상태에서 **표준 0**, **표준 1** 또는 **표준 2** 가격 책정 플랜을 선택할 수 있습니다. [IoT Central 가격 책정](https://aka.ms/iotcentral-pricing)에 대해 자세히 알아보세요.
-
-## <a name="quotas"></a>할당량
-
-각 Azure 구독에는 IoT 솔루션의 범위에 영향을 줄 수 있는 기본 할당량이 있습니다. 현재 IoT Central은 구독 시 배포할 수 있는 애플리케이션 수를 10개로 제한합니다. 이 제한을 늘려야 하는 경우 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
-
-## <a name="known-issues"></a>알려진 문제
-
-- 연속 데이터 내보내기는 Avro 형식을 지원하지 않습니다(비호환).
-- GeoJSON은 현재 지원되지 않습니다.
-- 지도 타일은 현재 지원되지 않습니다.
-- 배열 스키마 형식은 지원되지 않습니다.
-- C 디바이스 SDK와 Node.js 디바이스 및 서비스 SDK만 지원됩니다.
-- IoT Central은 현재 미국, 유럽, 아시아 태평양, 오스트레일리아, 영국 및 일본 위치에서 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

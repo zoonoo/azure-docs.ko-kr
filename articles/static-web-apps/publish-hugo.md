@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/11/2021
 ms.author: aapowell
-ms.openlocfilehash: ccc9089493dd8502997d7095c368c0edb83d2b70
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: cc117859c911d9b2c1df6c03fc6cd9738e5de1ec
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110586512"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112988322"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps"></a>자습서: Azure Static Web Apps에 Hugo 사이트 게시
 
@@ -28,7 +28,7 @@ ms.locfileid: "110586512"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. 계정이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/) 수 있습니다.
 - GitHub 계정. 계정이 없는 경우 [체험 계정을 만들](https://github.com/join) 수 있습니다.
@@ -56,7 +56,13 @@ Hugo CLI(명령줄 인터페이스)를 사용하여 Hugo 앱을 만듭니다.
 1. Git 리포지토리를 초기화합니다.
 
    ```bash
-    git init
+   git init
+   ```
+
+1. 분기 이름이 `main`인지 확인합니다.
+
+   ```bash
+   git branch -M main
    ```
 
 1. 다음으로, 테마를 git 하위 모듈로 설치한 다음, Hugo 구성 파일에서 테마를 지정하여 사이트에 테마를 추가합니다.
@@ -100,7 +106,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 1. **리소스 만들기** 선택
 1. **Static Web Apps** 를 검색합니다.
-1. **Static Web Apps** 선택
+1. **Static Web Apps** 를 선택합니다.
 1. **만들기** 를 선택합니다.
 1. _기본_ 탭에서 다음 값을 입력합니다.
 

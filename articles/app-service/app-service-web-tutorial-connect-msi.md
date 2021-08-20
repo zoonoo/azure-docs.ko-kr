@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 465e5c3c1f95004ec8fc3e46bd24274f18330e2a
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: dcdb702cb3c4c4dfb26f4ad1c21bbc89373227a6
+ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110576505"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113516298"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
@@ -144,29 +144,63 @@ SQL Database에 연결하는 데 필요한 모든 항목입니다. Visual studio
 Visual Studio에서 패키지 관리자 콘솔을 열고, [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet 패키지를 추가합니다.
 
 ```powershell
-Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
+Install-Package Microsoft.Data.SqlClient -Version 2.1.2
+Install-Package Azure.Identity -Version 1.4.0
 ```
 
 [ASP.NET Core 및 SQL Database 자습서](tutorial-dotnetcore-sqldb-app.md)에서는 로컬 개발 환경에서 Sqlite 데이터베이스 파일을 사용하고 Azure 프로덕션 환경에서 App Service의 연결 문자열을 사용하기 때문에 `MyDbConnection` 연결 문자열은 전혀 사용되지 않습니다. Active Directory 인증을 사용하여 두 환경에서 동일한 연결 문자열을 사용하려고 합니다. *appsettings.json* 에서 연결 문자열 `MyDbConnection`의 값을 다음으로 바꿉니다.
 
 ```json
-"Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"
+"Server=tcp:<server-name>.database.windows.net;Authentication=Active Directory Device Code Flow; Database=<database-name>;"
 ```
 
-다음으로, SQL Database에 대한 액세스 토큰을 사용하여 Entity Framework 데이터베이스 컨텍스트를 제공합니다. *Data\MyDatabaseContext.cs* 에서 다음 코드를 빈 `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` 생성자의 중괄호 내에 추가합니다.
+> [!NOTE]
+> 사용자 지정 옵션에 가장 가깝기 때문에 `Active Directory Device Code Flow` 인증 유형을 사용합니다. `Custom Authentication` 유형을 사용할 수 있을 것입니다. 현재 더 나은 이용 약관이 없으면 `Device Code Flow`를 사용합니다.
+>
+
+그 다음에는 사용자 지정 인증 공급자 클래스를 만들어 Entity Framework 데이터베이스 컨텍스트를 획득하고 SQL Database 대한 액세스 토큰을 제공해야 합니다. *데이터\\* 디렉터리에서 다음 코드가 포함된 새 클래스 `CustomAzureSQLAuthProvider.cs`를 추가합니다.
 
 ```csharp
-var connection = (SqlConnection)Database.GetDbConnection();
-connection.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
+public class CustomAzureSQLAuthProvider : SqlAuthenticationProvider
+{
+    private static readonly string[] _azureSqlScopes = new[]
+    {
+        "https://database.windows.net//.default"
+    };
+
+    private static readonly TokenCredential _credential = new DefaultAzureCredential();
+
+    public override async Task<SqlAuthenticationToken> AcquireTokenAsync(SqlAuthenticationParameters parameters)
+    {
+        var tokenRequestContext = new TokenRequestContext(_azureSqlScopes);
+        var tokenResult = await _credential.GetTokenAsync(tokenRequestContext, default);
+        return new SqlAuthenticationToken(tokenResult.Token, tokenResult.ExpiresOn);
+    }
+
+    public override bool IsSupported(SqlAuthenticationMethod authenticationMethod) => authenticationMethod.Equals(SqlAuthenticationMethod.ActiveDirectoryDeviceCodeFlow);
+}
+```
+
+*Startup.cs* 에서 `ConfigureServices()` 메서드를 다음 코드로 업데이트합니다.
+
+```csharp
+services.AddControllersWithViews();
+services.AddDbContext<MyDatabaseContext>(options =>
+{
+    SqlAuthenticationProvider.SetProvider(
+        SqlAuthenticationMethod.ActiveDirectoryDeviceCodeFlow, 
+        new CustomAzureSQLAuthProvider());
+    var sqlConnection = new SqlConnection(Configuration.GetConnectionString("MyDatabaseContext"));
+    options.UseSqlServer(sqlConnection);
+});
 ```
 
 > [!NOTE]
 > 이 데모 코드는 명확성과 단순성을 위해 동기식입니다.
 
-SQL Database에 연결하는 데 필요한 모든 항목입니다. Visual studio에서 디버깅하는 경우 코드는 [Visual Studio 설정](#set-up-visual-studio)에서 구성한 Azure AD 사용자를 사용합니다. App Service 앱의 관리 ID에서 연결할 수 있도록 SQL Database를 나중에 설정합니다. `AzureServiceTokenProvider` 클래스는 메모리에서 토큰을 캐시하여 만료 직전에 Azure AD에서 검색합니다. 토큰을 새로 고치는 데 사용자 지정 코드는 필요하지 않습니다.
+앞 코드는 코드가 실행되는 위치에 관계없이 데이터베이스에 대한 액세스 토큰을 인증하고 검색할 수 있도록 `Azure.Identity` 라이브러리를 사용합니다. 로컬 컴퓨터에서 실행하는 경우 `DefaultAzureCredential()`이 여러 옵션을 반복하여 로그인된 유효한 계정을 찾습니다. [DefaultAzureCredential 클래스](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)에 대해 자세히 읽어볼 수 있습니다.
 
-> [!TIP]
-> 구성한 Azure AD 사용자가 여러 테넌트에 액세스할 수 있는 경우 원하는 테넌트 ID로 `GetAccessTokenAsync("https://database.windows.net/", tenantid)`를 호출하여 적절한 액세스 토큰을 검색합니다.
+이것만 있으면 SQL Database에 연결할 수 있습니다. Visual studio에서 디버깅하는 경우 코드는 [Visual Studio 설정](#set-up-visual-studio)에서 구성한 Azure AD 사용자를 사용합니다. App Service 앱의 관리 ID에서 연결할 수 있도록 SQL Database를 나중에 설정합니다. `DefaultAzureCredential` 클래스는 메모리에서 토큰을 캐시하여 만료 직전에 Azure AD에서 검색합니다. 토큰을 새로 고치는 데 사용자 지정 코드는 필요하지 않습니다.
 
 `Ctrl+F5`를 입력하여 앱을 다시 실행합니다. 이제 브라우저에서 동일한 CRUD 앱이 Azure AD 인증을 사용하여 Azure SQL Database에 직접 연결합니다. 이 설정을 사용하면 Visual Studio에서 데이터베이스 마이그레이션을 실행할 수 있습니다.
 

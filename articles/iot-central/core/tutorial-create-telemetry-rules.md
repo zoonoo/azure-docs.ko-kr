@@ -7,12 +7,12 @@ ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 0d59f50d6fa4f21676cef01ffe0dde8ed1fa4441
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ce10143be81da9ad797ba0ccd68837b647aeb7a7
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768772"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113301975"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에서 규칙 생성 및 알림 설정
 
@@ -31,11 +31,50 @@ Azure IoT Central을 사용하여 원격으로 연결된 디바이스를 모니�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-시작하기 전에 [Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md) 및 [IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가](./quick-create-simulated-device.md) 빠른 시작을 완료하여 작업할 **센서 컨트롤러** 디바이스 템플릿을 만듭니다.
+이 자습서를 완료하려면 다음이 필요합니다.
+
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
+
+## <a name="add-and-customize-a-device-template"></a>디바이스 템플릿 추가 및 사용자 지정
+
+디바이스 카탈로그에서 디바이스 템플릿을 추가합니다. 이 자습서에서는 **ESP32-Azure IoT Kit** 디바이스 템플릿을 사용합니다.
+
+1. 새 디바이스 템플릿을 추가하려면 **디바이스 템플릿** 페이지에서 **+ 새로 만들기** 를 선택합니다.
+
+1. **유형 선택** 페이지의 **미리 구성된 디바이스 템플릿 사용** 섹션에서 **ESP32-Azure IoT Kit** 타일을 찾을 때까지 아래로 스크롤합니다.
+
+1. **ESP32-Azure IoT Kit** 타일, **다음: 검토** 를 차례로 선택합니다.
+
+1. **검토** 페이지에서 **만들기** 를 선택합니다.
+
+생성한 템플릿 이름은 **센서 컨트롤러** 입니다. 모델에는 **센서 조절기**, **SensorTemp** 및 **디바이스 정보 인터페이스** 와 같은 구성 요소가 포함되어 있습니다. 구성 요소는 ESP32 디바이스의 기능을 정의합니다. 기능에는 원격 분석, 속성 및 명령이 포함됩니다.
+
+두 개의 클라우드 속성을 **센서 컨트롤러** 디바이스 템플릿에 추가합니다.
+
+1. **클라우드 속성**, **+ 클라우드 속성 추가** 를 차례로 선택합니다. 다음 표의 정보를 사용하여 디바이스 템플릿에 두 가지 클라우드 속성을 추가합니다.
+
+    | 표시 이름      | 의미 체계 유형 | 스키마 |
+    | ----------------- | ------------- | ------ |
+    | 마지막 서비스 날짜 | None          | Date   |
+    | 고객 이름     | None          | String |
+
+1. **저장** 을 선택하여 변경 내용을 저장합니다.
+
+디바이스 템플릿에 새 양식을 추가하여 디바이스를 관리합니다.
+
+1. **보기** 노드를 선택하고 **디바이스 및 클라우드 데이터 편집** 타일을 선택하여 새 보기를 추가합니다.
+
+1. 양식 이름을 **디바이스 관리** 로 변경합니다.
+
+1. **고객 이름** 및 **마지막 서비스 날짜** 클라우드 속성과 **대상 온도** 속성을 선택합니다. 그런 다음, **섹션 추가** 를 선택합니다.
+
+1. **저장** 을 선택하여 새 양식을 저장합니다.
+
+이제 디바이스 템플릿을 게시합니다.
 
 ## <a name="create-a-rule"></a>규칙 만들기
 
-원격 분석 규칙을 만들려면 디바이스 템플릿에 하나 이상의 원격 분석 값이 포함되어야 합니다. 이 자습서에서는 온도 및 습도 원격 분석 데이터를 전송하는 시뮬레이션된 **센서 컨트롤러** 디바이스를 사용합니다. [IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가](./quick-create-simulated-device.md) 빠른 시작에서는 이 디바이스 템플릿을 추가하고 시뮬레이션된 디바이스를 만들었습니다. 이 규칙은 디바이스에서 보고한 온도를 모니터링하다가 온도가 70도를 초과하면 이메일을 보냅니다.
+원격 분석 규칙을 만들려면 디바이스 템플릿에 하나 이상의 원격 분석 값이 포함되어야 합니다. 이 자습서에서는 온도 및 습도 원격 분석 데이터를 전송하는 시뮬레이션된 **센서 컨트롤러** 디바이스를 사용합니다. 이 규칙은 디바이스에서 보고한 온도를 모니터링하다가 온도가 70도를 초과하면 이메일을 보냅니다.
 
 > [!NOTE]
 > 애플리케이션당 규칙은 50개로 제한됩니다.
@@ -120,4 +159,4 @@ Azure IoT Central을 사용하여 원격으로 연결된 디바이스를 모니�
 임계값 기반 규칙을 정의했으므로, 그 다음으로 권장하는 단계는 다음과 같습니다.
 
 > [!div class="nextstepaction"]
-> [규칙에서 웹후크 만들기](./howto-create-webhooks.md)
+> [규칙 구성](howto-configure-rules.md)

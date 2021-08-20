@@ -4,16 +4,16 @@ description: Azure CLI를 사용한 프라이빗 Docker 컨테이너 레지스�
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.custom: seodec18, H1Hack27Feb2017, mvc, devx-track-azurecli
-ms.openlocfilehash: 5c313ab43fd3dc18acf8261730686a4d6657291d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: ba0bb7ec21a26603db261a949566186e3c4469e7
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783794"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112894251"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 프라이빗 컨테이너 레지스트리 만들기
 
-Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장하는 데 사용되는 관리되는 Docker 컨테이너 레지스트리 서비스입니다. 이 가이드에서는 Azure CLI를 사용하여 Azure Container Registry 인스턴스 만들기에 대해 자세히 설명합니다. 그런 다음, Docker 명령을 사용하여 컨테이너 이미지를 레지스트리로 푸시하고, 마지막으로 레지스트리에서 이미지를 끌어와서 실행합니다.
+Azure Container Registry는 컨테이너 이미지 및 관련 아티팩트를 빌드, 저장 및 관리하기 위한 프라이빗 레지스트리 서비스입니다. 이 빠른 시작에서는 Azure CLI를 사용하여 Azure Container Registry 인스턴스를 만들었습니다. 그런 다음, Docker 명령을 사용하여 컨테이너 이미지를 레지스트리로 푸시하고, 마지막으로 레지스트리에서 이미지를 끌어와서 실행합니다.
 
 이 빠른 시작을 수행하려면 Azure CLI를 실행해야 합니다(버전 2.0.55 이상 권장). `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
@@ -67,9 +67,11 @@ az acr create --resource-group myResourceGroup \
 
 정규화된 레지스트리 이름(모두 소문자)인 출력의 `loginServer`를 기록해 둡니다. 이 빠른 시작의 나머지 부분에서 `<registry-name>`은 컨테이너 레지스트리 이름의 자리 표시자이고 `<login-server>`는 레지스트리의 로그인 서버 이름에 대한 자리 표시자입니다.
 
+[!INCLUDE [container-registry-quickstart-sku](../../includes/container-registry-quickstart-sku.md)]
+
 ## <a name="log-in-to-registry"></a>레지스트리에 로그인
 
-컨테이너 이미지를 푸시하고 끌어오려면 레지스트리에 로그인해야 합니다. 이렇게 하려면 [az acr login][az-acr-login] 명령을 사용합니다. Azure CLI를 사용하여 로그인할 때 레지스트리 이름만 지정합니다. `azurecr.io`와 같은 도메인 접미사가 포함된 로그인 서버 이름은 사용하지 마세요. 
+컨테이너 이미지를 푸시하고 끌어오려면 레지스트리에 로그인해야 합니다. 이렇게 하려면 [az acr login][az-acr-login] 명령을 사용합니다. Azure CLI를 사용하여 로그인할 때 레지스트리 리소스 이름만 지정합니다. 정규화된 로그인 서버 이름을 사용하지 마세요. 
 
 ```azurecli
 az acr login --name <registry-name>

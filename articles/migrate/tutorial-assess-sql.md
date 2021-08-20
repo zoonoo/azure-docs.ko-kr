@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
-ms.openlocfilehash: d4078d1403df01475c6055dded2bd012e97af98e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 33c4b7f00bcba89c973838c7382397c447d3464c
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557992"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204562"
 ---
 # <a name="tutorial-assess-sql-instances-for-migration-to-azure-sql"></a>자습서: Azure SQL로 마이그레이션할 SQL 인스턴스 평가
 
@@ -26,6 +26,8 @@ Azure로 마이그레이션하는 과정의 일환으로 온-프레미스 워크
 > [!NOTE]
 > 이 자습서에서는 시나리오를 시도할 수 있는 가장 빠른 경로를 보여 주며, 가능한 경우 기본 옵션을 사용합니다. 
 
+> [!NOTE]
+> SQL 서버가 비 VMware 플랫폼에서 실행되는 경우 [Data Migration Assistant를 사용하여 Azure SQL Database로 마이그레이션하는 SQL Server 데이터 자산의 준비 상태 평가](/sql/dma/dma-assess-sql-data-estate-to-sqldb).
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

@@ -4,12 +4,12 @@ description: Visual Studio를 사용하여 기존.NET 애플리케이션을 컨�
 ms.topic: tutorial
 ms.date: 07/08/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b0e75d4054bc814c3e826db4519f9e882964ef4e
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: ae7069b155266b8fc8049b9660d38acbb1103d6c
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677373"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236426"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너로 .NET 애플리케이션 배포
 
@@ -32,14 +32,14 @@ ms.locfileid: "110677373"
 2. Windows 기능 **Hyper-V** 및 **컨테이너** 를 사용하도록 설정합니다.
 3. Windows 10에서 컨테이너를 실행할 수 있도록 [Windows용 Docker Desktop](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)을 설치합니다.
 4. [Service Fabric 런타임 버전 6.2 이상](service-fabric-get-started.md) 및 [Service Fabric SDK 버전 3.1](service-fabric-get-started.md) 이상을 설치합니다.
-5. **Azure 개발** 과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2019 버전 16.1](https://www.visualstudio.com/) 이상을 설치합니다.
+5. [Visual Studio](https://www.visualstudio.com/)를 설치하고 **Azure 개발** 워크로드와 **ASP.NET 및 웹 개발** 워크로드를 사용하도록 설정합니다.
 6. [Azure Powershell][link-azure-powershell-install] 설치
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Fabrikam Fiber CallCenter를 다운로드하여 실행
 
-1. [Fabrikam Fiber CallCenter][link-fabrikam-github] 샘플 애플리케이션을 다운로드합니다.  **다운로드 보관** 링크를 클릭합니다.  *fabrikam.zip* 파일의 *sourceCode* 디렉터리에서 *sourceCode.zip* 파일을 추출한 다음, 컴퓨터에 *VS2015* 디렉터리를 추출합니다.
+1. GitHub에서 [Fabrikam Fiber CallCenter][link-fabrikam-github] 샘플 애플리케이션을 다운로드합니다.
 
-2. Fabrikam Fiber CallCenter 애플리케이션이 오류 없이 빌드되고 실행되는지 확인합니다.  **관리자** 권한으로 Visual Studio를 시작하고 [FabrikamFiber.CallCenter.sln][link-fabrikam-github] 파일을 엽니다.  F5 키를 눌러 애플리케이션을 디버그하고 실행합니다.
+2. Fabrikam Fiber CallCenter 애플리케이션이 오류 없이 빌드되고 실행되는지 확인합니다.  **관리자** 권한으로 Visual Studio를 시작하고 [VS2015\FabrikamFiber.CallCenter.sln][link-fabrikam-github] 파일을 엽니다. F5 키를 눌러 애플리케이션을 실행하고 디버그합니다.
 
    ![로컬 호스트에서 실행되는 Fabrikam Fiber CallCenter 애플리케이션 홈 페이지의 스크린샷. 이 페이지에는 지원 호출 목록이 포함된 대시보드가 표시됩니다.][fabrikam-web-page]
 
@@ -309,7 +309,7 @@ Remove-AzResourceGroup -Name $clusterresourcegroupname
 
 자습서의 다음 부분에서 [Service Fabric 클러스터에 CI/CD로 컨테이너 애플리케이션 배포](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md) 방법을 알아봅니다.
 
-[link-fabrikam-github]: https://aka.ms/fabrikamcontainer
+[link-fabrikam-github]: https://github.com/Azure-Samples/service-fabric-dotnet-containerize
 [link-azure-powershell-install]: /powershell/azure/install-Az-ps
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
 [link-visualstudio-cd-extension]: https://aka.ms/cd4vs

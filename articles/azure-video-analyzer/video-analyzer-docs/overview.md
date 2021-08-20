@@ -3,16 +3,16 @@ title: Azure Video Analyzer란?
 description: 이 항목에서는 Azure Video Analyzer의 개요를 제공합니다.
 ms.service: azure-video-analyzer
 ms.topic: overview
-ms.date: 03/11/2021
-ms.openlocfilehash: c1d556662794de6127b0c455ac812b94b5a05742
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 35f13e8cd87e7e633b6836105f2d4c16911be663
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387933"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604800"
 ---
 # <a name="what-is-azure-video-analyzer-preview"></a>Azure Video Analyzer란? (미리 보기)
-
+ 
 Azure Video Analyzer는 Edge 및 클라우드를 포괄하는 인텔리전트 비디오 애플리케이션을 빌드하기 위한 플랫폼을 제공합니다. 플랫폼은 IoT Edge 모듈과 연결된 Azure 서비스로 구성됩니다. 비디오 및/또는 비디오 분석 결과를 게시할 뿐만 아니라 라이브 비디오를 캡처, 녹화 및 분석하는 기능도 제공합니다. 비디오는 에지 또는 Video Analyzer 클라우드 서비스에 게시할 수 있지만, 비디오 분석은 Azure 서비스(클라우드 및/또는 에지)에 게시할 수 있습니다. 이 플랫폼을 사용하여 비디오 분석을 통해 IoT 솔루션을 개선할 수 있습니다. Video Analyzer 기능을 Stream Analytics on IoT Edge, Cognitive Services on IoT Edge와 같은 다른 Azure IoT Edge 모듈은 물론 이벤트 허브, Cognitive Services 등과 같은 클라우드의 Azure 서비스와 결합하여 강력한 하이브리드(예: 에지 + 클라우드) 애플리케이션을 빌드할 수 있습니다.
 
 Video Analyzer 에지 모듈은 확장 가능한 플랫폼으로 설계되었기 때문에 복잡하게 라이브 비디오 파이프라인을 구축하고 실행할 필요 없이 다양한 비디오 분석 에지 모듈(예: Cognitive 서비스 컨테이너, 오픈 소스 기계 학습 모델 또는 사용자 고유의 데이터로 학습된 사용자 지정 모델을 사용하여 제작된 사용자 지정 에지 모듈)을 연결하여 라이브 비디오를 분석하는 데 사용할 수 있습니다. Video Analyzer 클라우드 서비스를 사용하면 이러한 워크플로에서 비디오 및 비디오 분석을 재생할 수 있습니다.
@@ -43,5 +43,5 @@ Video Analyzer의 규정 준수, 개인 정보 보호 및 보안에 대해 알�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 라이브 비디오 피드에서 동작 감지를 실행하는 방법에 대해서는 [빠른 시작: 시작 - Azure Video Analyzer](get-started-detect-motion-emit-events.md) 문서를 따르세요.
+* 라이브 비디오 피드에서 동작 감지를 실행하는 방법에 대해서는 [빠른 시작: Azure Video Analyzer 시작](get-started-detect-motion-emit-events.md) 문서를 따르세요.
 * [용어](terminology.md) 검토

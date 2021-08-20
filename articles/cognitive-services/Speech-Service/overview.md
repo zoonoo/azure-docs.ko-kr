@@ -3,19 +3,19 @@ title: Speech Service란?
 titleSuffix: Azure Cognitive Services
 description: Speech Service는 음성 텍스트 변환, 텍스트 음성 변환 및 음성 번역을 단일 Azure 구독에 통합한 것입니다. Speech SDK, Speech Devices SDK 또는 REST API를 사용하여 애플리케이션, 도구 및 디바이스에 음성을 추가합니다.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
-ms.author: trbye
-ms.openlocfilehash: 766f49588e6b163c19f0c044d746eca97d3f90cb
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.author: nitinme
+ms.openlocfilehash: 8e173f8f11f45fc61ee412c7241a5f9297c807bb
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110497748"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114708228"
 ---
 # <a name="what-is-the-speech-service"></a>Speech Service란?
 
@@ -33,6 +33,7 @@ Speech Service 기능 중 일부는 다음과 같습니다. 이 표의 링크를
 | | [다중 디바이스 대화](multi-device-conversation.md) | 대화의 다중 디바이스 또는 클라이언트를 연결하여 음성 또는 텍스트 기반 메시지를 전송하고 전사 및 번역을 간편하게 지원합니다.| 예 | 예 |
 | | [대화 전사](./conversation-transcription.md) | 실시간 음성 인식, 화자 식별 및 다이어리화를 가능하게 해줍니다. 화자를 구별하는 기능을 사용하여 직접 만남을 전사하는 데 이상적입니다. | 예 | 예 |
 | | [Custom Speech 모델 만들기](#customize-your-speech-experience) | 고유한 환경에서 인식 및 기록을 위해 음성 텍스트 변환을 사용하는 경우 사용자 지정 음향, 언어 및 발음 모델을 만들고 학습하여 주변 소음 또는 산업용 어휘를 처리할 수 있습니다. | 예 | [예](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
+| | [발음 평가](./how-to-pronunciation-assessment.md) | 발음 평가는 음성 발음을 평가하고 음성 오디오의 정확도와 능숙도에 대한 피드백을 발표자에게 제공합니다. 발음 평가를 통해 언어 학습자는 자신 있게 말하고 발표할 수 있도록 연습하고, 즉각적인 피드백을 받고, 발음을 개선할 수 있습니다. | [예](./how-to-pronunciation-assessment.md) | [예](./rest-speech-to-text.md#pronunciation-assessment-parameters) |
 | [텍스트 음성 변환](text-to-speech.md) | 텍스트 음성 변환 | 텍스트 음성 변환은 [SSML(Speech Synthesis Markup Language)](speech-synthesis-markup.md)을 사용하여 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다. 심층 신경망에 의해 구동되는 인간과 유사한 음성인 인공신경망을 사용합니다. [언어 지원](language-support.md)을 참조하세요. | [예](./speech-sdk.md) | [예](#reference-docs) |
 | | [사용자 지정 음성 만들기](#customize-your-speech-experience) | 브랜드 또는 제품에 고유한 사용자 지정 음성 글꼴을 만듭니다. | 예 | [예](#reference-docs) |
 | [Speech Translation](speech-translation.md) | 음성 번역 | 음성 번역을 사용하면 음성에 대한 실시간 엔드투엔드 다중 언어 번역을 애플리케이션, 도구 및 디바이스에 추가할 수 있습니다. 이 서비스는 음성을 음성으로 변환 및 음성을 텍스트로 변환을 위해 사용합니다. | [예](./speech-sdk.md) | 예 |
@@ -81,9 +82,9 @@ Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추�
 -->
 새 Speech 리소스를 배포하는 데 몇 분 정도 걸립니다. 
 
-### <a name="find-keys-and-region"></a>키 및 지역 찾기
+### <a name="find-keys-and-locationregion"></a>키 및 위치/지역 찾기
 
-완료된 배포의 키와 지역을 찾으려면 다음 단계를 수행합니다.
+완료된 배포의 키와 위치/지역을 찾으려면 다음 단계를 수행합니다.
 
 1. Microsoft 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -131,7 +132,7 @@ Speech Service는 기본 제공 모델에서 효율적으로 작동하지만, �
 
 | Speech Service | 플랫폼 | Description |
 | -------------- | -------- | ----------- |
-| 음성 텍스트 변환 | [Custom Speech](https://aka.ms/customspeech) | 사용자의 요구 사항과 사용 가능한 데이터에 맞게 음성 인식 모델을 사용자 지정합니다. 말하기 스타일, 어휘 및 배경 소음과 같은 음성 인식 장벽을 해결하세요. |
+| 음성 텍스트 변환 | [Custom Speech](./custom-speech-overview.md) | 사용자의 요구 사항과 사용 가능한 데이터에 맞게 음성 인식 모델을 사용자 지정합니다. 말하기 스타일, 어휘 및 배경 소음과 같은 음성 인식 장벽을 해결하세요. |
 | 텍스트 음성 변환 | [Custom Voice](https://aka.ms/customvoice) | 사용 가능한 발언 데이터를 사용하여 텍스트 음성 변환 앱에 대한 다양한 종류의 음성을 만듭니다. 음성 매개 변수 세트를 조정하여 음성 출력을 세밀하게 조정할 수 있습니다. |
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Docker 컨테이너를 사용하여 온-프레미스 배포

@@ -7,13 +7,13 @@ ms.reviewer: douglasl, jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
-ms.date: 02/18/2021
-ms.openlocfilehash: 182d9d08041b2d32253b935a5171be6d399c80a6
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.date: 07/05/2021
+ms.openlocfilehash: ae7f83e397822eb52a9fdfca7011d4228cb3b625
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679067"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436346"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>SQL Server의 여러 테이블에서 PowerShell을 사용해 Azure SQL Database로 데이터 증분 로드
 
@@ -815,10 +815,11 @@ END
 
 3. 데이터 팩터리 목록에서 데이터 팩터리를 검색하고 선택하여 **데이터 팩터리** 페이지를 시작합니다. 
 
-4. **Data Factory** 페이지에서 **작성 및 모니터링** 을 선택하여 별도의 탭에서 Azure Data Factory를 선택합니다.
+4. **데이터 팩터리** 페이지의 **Azure Data Factory Studio 열기** 타일에서 **열기** 를 선택하여 별도 탭에서 Azure Data Factory를 시작합니다.
 
-5. **같이 시작해 볼까요?** 페이지의 왼쪽에서 **모니터링** 을 선택합니다. 
-![스크린샷은 Azure Data Factory의 시작 페이지를 보여줍니다.](media/doc-common-process/get-started-page-monitor-button.png)    
+5. Azure Data Factory 홈페이지의 왼쪽에서 **모니터링** 을 선택합니다. 
+
+    ![Azure Data Factory 홈페이지를 보여 주는 스크린샷](media/doc-common-process/get-started-page-monitor-button.png)    
 
 6. 모든 파이프라인 실행과 해당 상태를 볼 수 있습니다. 다음 예제에서 파이프라인 실행의 상태는 **성공** 입니다. 파이프라인에 전달된 매개 변수를 확인하려면 **매개 변수** 열의 링크를 선택합니다. 오류가 발생하면 **오류** 열에 링크가 표시됩니다.
 

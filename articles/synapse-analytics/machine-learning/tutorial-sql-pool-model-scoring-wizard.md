@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: d8db9257ad6eed98b39cd2c9a52351f013453365
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f21fb2d35dc7cb7383d756b4177924420961945f
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821230"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113506380"
 ---
 # <a name="tutorial-machine-learning-model-scoring-wizard-preview-for-dedicated-sql-pools"></a>자습서: 전용 SQL 풀을 위한 기계 학습 모델 점수 매기기 마법사(미리 보기)
 
@@ -28,7 +28,7 @@ ms.locfileid: "99821230"
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure Synapse Analytics 작업 영역](../get-started-create-workspace.md)(기본 스토리지로 구성된 Azure Data Lake Storage Gen2 스토리지 계정이 있음). 사용하는 Data Lake Storage Gen2 파일 시스템의 *Storage Blob 데이터 기여자* 여야 합니다.
 - Azure Synapse Analytics 작업 영역의 전용 SQL 풀. 자세한 내용은 [전용 SQL 풀 만들기](../quickstart-create-sql-pool-studio.md)를 참조하세요.
@@ -119,7 +119,7 @@ Notebook의 모든 셀을 실행하기 전에 컴퓨팅 인스턴스가 실행 �
 
    ![전용 SQL 풀에 데이터 로드](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
 
-1. **데이터** > **작업 영역** 으로 이동합니다. 전용 SQL 풀 테이블을 마우스 오른쪽 단추로 클릭하여 SQL 점수 매기기 마법사를 엽니다. **Machine Learning** > **기존 모델 보강** 을 선택합니다.
+1. **데이터** > **작업 영역** 으로 이동합니다. 전용 SQL 풀 테이블을 마우스 오른쪽 단추로 클릭하여 SQL 점수 매기기 마법사를 엽니다. **Machine Learning** > **모델을 사용하여 예측** 을 선택합니다.
 
    > [!NOTE]
    > Azure Machine Learning에 대해 연결된 서비스가 생성되지 않은 경우 기계 학습 옵션이 표시되지 않습니다. 이 자습서의 시작 부분에 나오는 [필수 구성 요소](#prerequisites)를 참조하세요.

@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a8080720480beaeb7bc8692f2dcddddad5da0e3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b534924be82d7ab6118f0b01b42bfd5e7242082
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102548464"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460592"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics 공유 메타데이터 테이블
 
@@ -48,7 +48,7 @@ Spark는 Azure Synapse를 통해 SQL에서 자동으로 공개되는 두 가지 
 
   Spark는 `LOCATION` 옵션을 제공하거나 Hive 형식을 사용하여 기존 데이터에 대한 외부 테이블을 만드는 방법도 제공합니다. 이러한 외부 테이블은 Parquet를 포함하여 다양한 데이터 형식일 수 있습니다.
 
-Azure Synapse는 현재 데이터를 Parquet 형식으로 저장하는 관리형 테이블 및 외부 Spark 테이블만 SQL 엔진과 공유합니다. 다른 형식으로 지원되는 테이블은 자동으로 동기화되지 않습니다. SQL 엔진에서 테이블의 기본 형식을 지원하는 경우 이러한 테이블을 사용자의 SQL 데이터베이스에 있는 외부 테이블로 명시적으로 동기화할 수 있습니다.
+Azure Synapse는 현재 데이터를 Parquet 또는 CSV 형식으로 저장하는 관리형 테이블과 외부 Spark 테이블만 SQL 엔진과 공유합니다. 다른 형식으로 지원되는 테이블은 자동으로 동기화되지 않습니다. SQL 엔진에서 테이블의 기본 형식을 지원하는 경우 이러한 테이블을 사용자의 SQL 데이터베이스에 있는 외부 테이블로 명시적으로 동기화할 수 있습니다.
 
 ### <a name="share-spark-tables"></a>Spark 테이블 공유
 

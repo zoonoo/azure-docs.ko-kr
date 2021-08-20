@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가 | Azure'
+title: '빠른 시작: 사용자를 로그인하는 ASP.NET 웹앱'
 titleSuffix: Microsoft identity platform
-description: 이 빠른 시작에서는 OpenID Connect를 사용하여 ASP.NET 웹앱에서 Microsoft 로그인을 구현하는 방법을 알아봅니다.
+description: ASP.NET 웹앱에서 Azure AD 사용자가 로그인하는 방법을 보여 주는 코드 샘플을 다운로드하고 실행합니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,23 +12,23 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: 87948ed04f7b50820d94993d4c4fbcf2dfd94b31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08c53f816b151026c03068451aa440f12a2cbc15
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104578688"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112677807"
 ---
-# <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft ID 플랫폼 로그인 추가
+# <a name="quickstart-aspnet-web-app-that-signs-in-azure-ad-users"></a>빠른 시작: Azure AD 사용자가 로그인하는 ASP.NET 웹앱
 
-이 빠른 시작에서는 ASP.NET 웹앱이 모든 Azure AD(Azure Active Directory) 조직에서 사용자를 로그인하는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다. 
+이 빠른 시작에서는 Azure AD(Azure Active Directory) 계정이 있는 사용자가 로그인할 수 있는 ASP.NET 웹 애플리케이션을 보여 주는 코드 샘플을 다운로드하고 실행합니다.
 
 > [!div renderon="docs"]
 > 다음 다이어그램에서는 샘플 앱의 작동 방식을 보여 줍니다.
 >
 > ![샘플 앱에서 웹 브라우저, 웹앱 및 Microsoft ID 플랫폼 간의 상호 작용에 대한 다이어그램](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
 >
-> ## <a name="prerequisites"></a>필수 구성 요소
+> ## <a name="prerequisites"></a>사전 요구 사항
 >
 > * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)

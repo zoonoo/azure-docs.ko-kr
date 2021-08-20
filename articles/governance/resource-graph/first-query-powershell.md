@@ -1,16 +1,16 @@
 ---
 title: '빠른 시작: 첫 번째 PowerShell 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 Azure PowerShell에 대한 Resource Graph 모듈을 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
-ms.date: 05/11/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
 ms.custom:
 - mode-api
-ms.openlocfilehash: dd620ec63547b0b9fdba41da3cd2dcf6daa9dea0
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 20b595a52b238d701b8ec54bdec99d07e7f57fcb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750918"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463445"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -47,7 +47,7 @@ PowerShell용 Resource Graph 모듈은 **Az.ResourceGraph** 입니다.
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. 모듈을 가져왔으며 최신 버전(`0.10.0`)인지 확인합니다.
+1. 모듈을 가져왔으며 최신 버전(`0.11.0`)인지 확인합니다.
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
@@ -56,7 +56,7 @@ PowerShell용 Resource Graph 모듈은 **Az.ResourceGraph** 입니다.
 
 ## <a name="run-your-first-resource-graph-query"></a>첫 번째 Resource Graph 실행
 
-Azure PowerShell 모듈이 선택한 환경에 추가되었으므로 간단한 Resource Graph 쿼리를 시도해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식** 과 함께 처음 5개 Azure 리소스를 반환합니다.
+Azure PowerShell 모듈이 선택한 환경에 추가되었으므로 이제 간단한 테넌트 기반 Resource Graph 쿼리를 시도해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식** 과 함께 처음 5개 Azure 리소스를 반환합니다. [관리 그룹](../management-groups/overview.md) 또는 구독별로 쿼리하려면 `-ManagementGroup` 또는 `-Subscription` 매개 변수를 사용합니다.
 
 1. `Search-AzGraph` cmdlet을 사용하여 첫 번째 Azure Resource Graph 쿼리를 실행합니다.
 
@@ -64,7 +64,7 @@ Azure PowerShell 모듈이 선택한 환경에 추가되었으므로 간단한 R
    # Login first with Connect-AzAccount if not using Cloud Shell
 
    # Run Azure Resource Graph query
-   (Search-AzGraph -Query 'Resources | project name, type | limit 5').Data
+   Search-AzGraph -Query 'Resources | project name, type | limit 5'
    ```
 
    > [!NOTE]
@@ -74,7 +74,7 @@ Azure PowerShell 모듈이 선택한 환경에 추가되었으므로 간단한 R
 
    ```azurepowershell-interactive
    # Run Azure Resource Graph query with 'order by'
-   (Search-AzGraph -Query 'Resources | project name, type | limit 5 | order by name asc').Data
+   Search-AzGraph -Query 'Resources | project name, type | limit 5 | order by name asc'
    ```
 
    > [!NOTE]
@@ -84,7 +84,7 @@ Azure PowerShell 모듈이 선택한 환경에 추가되었으므로 간단한 R
 
    ```azurepowershell-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`
-   (Search-AzGraph -Query 'Resources | project name, type | order by name asc | limit 5').Data
+   Search-AzGraph -Query 'Resources | project name, type | order by name asc | limit 5'
    ```
 
 최종 쿼리가 여러 번 실행될 때 환경이 전혀 변경되지 않는다고 가정하면 반환되는 결과는 **Name** 속성을 기준으로 일관되고 정렬되지만 여전히 상위 5개 결과로 제한됩니다.

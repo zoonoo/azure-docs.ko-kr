@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 41b627259d84539c868f95eb3cf33db5dbdab52c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8562acbf0b7dc6cac0ef03e6d0ca41691f752cdf
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97862394"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729799"
 ---
 # <a name="introduction-to-azure-functions"></a>Azure Functions 소개
 
@@ -46,7 +46,7 @@ Azure Functions는 더 적은 코드를 쓰고, 인프라를 적게 유지하고
 | **파일 업로드 처리** | [Blob 스토리지](./functions-bindings-storage-blob.md)에서 파일이 업로드되거나 변경될 때 코드를 실행합니다. |
 | **서버리스 워크플로 빌드** | [지속성 함수](./durable/durable-functions-overview.md)를 사용하여 일련의 함수를 모두 연결합니다. |
 | **데이터베이스 변경에 응답** | [Cosmos DB](./functions-bindings-cosmosdb-v2.md)에서 문서를 만들거나 업데이트할 때 사용자 지정 논리를 실행합니다. |
-| **예약된 작업 실행** | 코드를 [설정 시간](./functions-bindings-timer.md)에 실행합니다. |
+| **예약된 작업 실행** | [사전 정의된 시간 간격](./functions-bindings-timer.md)으로 코드 실행 |
 | **안정적인 메시지 큐 시스템 만들기** | [Queue Storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md) 또는 [Event Hubs](./functions-bindings-event-hubs.md)를 사용하여 메시지 큐를 처리합니다. |
 | **IoT 데이터 스트림 분석** | [IoT 디바이스](./functions-bindings-event-iot.md)에서 데이터를 수집하고 처리합니다. |
 | **실시간 데이터 처리** | [Functions 및 SignalR](./functions-bindings-signalr-service.md)을 사용하여 현재 데이터에 응답합니다. |

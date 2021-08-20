@@ -3,20 +3,20 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 06/11/2021
+ms.date: 07/15/2021
 ms.author: aahi
-ms.openlocfilehash: b94aaff50547830c796e3461a55126b3d54d905a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: c66a17c1591f9a0070af1f6fc6b0ec6127292f6b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112083951"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114593489"
 ---
 <a name="HOLTop"></a>
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
-[v3.1 참조 설명서](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python-preview) | [v3.1 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics) | [v3.1 패키지(PiPy)](https://pypi.org/project/azure-ai-textanalytics/5.1.0b7/) | [v3.1 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+[v3.1 참조 설명서](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python-preview) | [v3.1 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [v3.1 패키지(PiPy)](https://pypi.org/project/azure-ai-textanalytics/5.1.0/) | [v3.1 샘플](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
@@ -39,10 +39,10 @@ ms.locfileid: "112083951"
 
 Python을 설치한 후, 다음을 사용하여 클라이언트 라이브러리를 설치할 수 있습니다.
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 ```console
-pip install azure-ai-textanalytics==5.1.0b7
+pip install azure-ai-textanalytics==5.1.0
 ```
 
 > [!TIP]
@@ -74,7 +74,7 @@ endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 ## <a name="object-model"></a>개체 모델
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 Text Analytics 클라이언트는 Azure에 인증하는 `TextAnalyticsClient` 개체입니다. 이 클라이언트는 텍스트를 분석하는 여러 메서드를 제공합니다. 
 
@@ -96,14 +96,14 @@ Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 `Tex
 
 여기에 나와 있는 코드 조각은 Python용 Text Analytics 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여줍니다.
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 * [클라이언트 인증](#authenticate-the-client)
 * [감정 분석](#sentiment-analysis)
 * [오피니언 마이닝](#opinion-mining)
 * [언어 감지](#language-detection)
 * [명명된 엔터티 인식](#named-entity-recognition-ner) 
-* [개인 식별 정보 인식](#personally-identifiable-information-recognition) 
+* [개인 식별 정보 인식](#personally-identifiable-information-pii-recognition) 
 * [엔터티 연결](#entity-linking)
 * [핵심 구 추출](#key-phrase-extraction)
 
@@ -121,7 +121,7 @@ Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 `Tex
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 위에서 만든 `key` 및 `endpoint`를 사용하여 `TextAnalyticsClient` 개체를 인스턴스화하는 기능을 만듭니다. 그런 다음, 새 클라이언트를 만듭니다. 
 
@@ -180,7 +180,7 @@ client = authenticate_client()
 
 ## <a name="sentiment-analysis"></a>정서 분석
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 클라이언트를 인수로 사용하는 `sentiment_analysis_example()`이라는 새 함수를 만든 다음, `analyze_sentiment()` 함수를 호출합니다. 반환된 응답 개체에는 전체 입력 문서의 감정 레이블과 점수뿐 아니라 각 문장의 감정 분석도 포함됩니다.
 
@@ -283,7 +283,7 @@ Negative=0.02
 
 ## <a name="opinion-mining"></a>의견 마이닝
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 
 오피니언 마이닝을 사용하여 감정 분석을 수행하려면 클라이언트를 인수로 사용하는 `sentiment_analysis_with_opinion_mining_example()`이라는 새 함수를 만든 다음, 옵션 플래그 `show_opinion_mining=True`를 사용하여 `analyze_sentiment()` 함수를 호출합니다. 반환된 응답 개체에는 각 문장의 감정 분석이 포함된 전체 입력 문서의 감정 레이블과 점수뿐 아니라 양상 및 의견 수준 감정 분석도 포함됩니다.
@@ -391,7 +391,7 @@ Press any key to continue . . .
 
 ```
 
-# <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+# <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 이 기능은 버전 3.0에서 사용할 수 없습니다.
 
@@ -399,7 +399,7 @@ Press any key to continue . . .
 
 ## <a name="language-detection"></a>언어 검색
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 클라이언트를 인수로 사용하는 `language_detection_example()`이라는 새 함수를 만든 다음, `detect_language()` 함수를 호출합니다. 반환된 응답 개체에는 성공하면 `primary_language`에서 검색된 언어가 포함되고, 그렇지 않으면 `error`가 포함됩니다.
 
@@ -456,7 +456,7 @@ Language:  French
 
 ## <a name="named-entity-recognition-ner"></a>NER(명명된 엔터티 인식)
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 > [!NOTE]
 > 버전 `3.1`에서 다음을 수행합니다. 
@@ -496,7 +496,7 @@ Named Entities:
         Confidence Score:        0.8    Length:          9      Offset:          34
 ```
 
-### <a name="personally-identifiable-information-recognition"></a>개인 식별 정보 인식
+## <a name="personally-identifiable-information-pii-recognition"></a>PII(개인 식별 정보) 인식
 
 클라이언트를 인수로 사용하는 `pii_recognition_example`이라는 새 함수를 만든 다음, `recognize_pii_entities()` 함수를 호출하여 결과를 반복합니다. 반환된 응답 개체에는 성공하면 `entity`에서 검색된 엔티티 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 검색된 각 엔터티에 대해 해당 범주 및 하위 범주(있는 경우)를 인쇄합니다.
 
@@ -577,7 +577,7 @@ Named Entities:
 
 ## <a name="entity-linking"></a>엔터티 연결
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 클라이언트를 인수로 사용하는 `entity_linking_example()`이라는 새 함수를 만든 다음, `recognize_linked_entities()` 함수를 호출하여 결과를 반복합니다. 반환된 응답 개체에는 성공하면 `entities`에서 검색된 엔티티 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 연결된 엔터티가 고유하게 식별되므로 동일한 엔터티의 발생은 `entity` 개체 아래에서 `match` 개체 목록으로 그룹화됩니다.
 
@@ -739,7 +739,7 @@ Linked Entities:
 
 ## <a name="key-phrase-extraction"></a>핵심 문구 추출
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 클라이언트를 인수로 사용하는 `key_phrase_extraction_example()`이라는 새 함수를 만든 다음, `extract_key_phrases()` 함수를 호출합니다. 결과에는 성공하면 `key_phrases`에서 검색된 핵심 구 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 검색된 핵심 구를 출력합니다.
 
@@ -810,9 +810,73 @@ key_phrase_extraction_example(client)
 
 ---
 
+## <a name="extract-health-entities"></a>건강 엔터티 추출
+
+Text Analytics를 사용해 비동기 요청을 수행하여 텍스트에서 의료 엔터티를 추출할 수 있습니다. 아래 샘플은 기본적인 예를 보여 줍니다. [GitHub](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_healthcare_entities.py)에서 더 많은 고급 샘플을 찾을 수 있습니다.
+
+[!INCLUDE [health operation pricing](../health-operation-pricing-caution.md)]
+
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
+
+``` python
+def health_example(client):
+    documents = [
+        """
+        Patient needs to take 50 mg of ibuprofen.
+        """
+    ]
+
+    poller = client.begin_analyze_healthcare_entities(documents)
+    result = poller.result()
+
+    docs = [doc for doc in result if not doc.is_error]
+
+    for idx, doc in enumerate(docs):
+        for entity in doc.entities:
+            print("Entity: {}".format(entity.text))
+            print("...Normalized Text: {}".format(entity.normalized_text))
+            print("...Category: {}".format(entity.category))
+            print("...Subcategory: {}".format(entity.subcategory))
+            print("...Offset: {}".format(entity.offset))
+            print("...Confidence score: {}".format(entity.confidence_score))
+        for relation in doc.entity_relations:
+            print("Relation of type: {} has the following roles".format(relation.relation_type))
+            for role in relation.roles:
+                print("...Role '{}' with entity '{}'".format(role.name, role.entity.text))
+        print("------------------------------------------")
+health_example(client)
+```
+
+### <a name="output"></a>출력
+
+```console
+Entity: 50 mg
+...Normalized Text: None
+...Category: Dosage
+...Subcategory: None
+...Offset: 31
+...Confidence score: 1.0
+Entity: ibuprofen
+...Normalized Text: ibuprofen
+...Category: MedicationName
+...Subcategory: None
+...Offset: 40
+...Confidence score: 1.0
+Relation of type: DosageOfMedication has the following roles
+...Role 'Dosage' with entity '50 mg'
+...Role 'Medication' with entity 'ibuprofen'
+```
+
+# <a name="version-30"></a>[버전 3.0](#tab/version-3)
+
+이 기능은 버전 3.0에서 사용할 수 없습니다.
+
+---
+
+
 ## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Analyze(분석) 작업을 통해 비동기적으로 API 사용
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 분석 작업을 사용하여 NER, 핵심 구 추출, 감정 분석 및 PII 검색에 대한 비동기 일괄 처리 요청을 수행할 수 있습니다. 아래 샘플에서는 하나의 작업에 대한 기본 예제를 보여줍니다. [GitHub](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_actions.py)에서 더 많은 고급 샘플을 찾을 수 있습니다.
 
@@ -822,7 +886,8 @@ key_phrase_extraction_example(client)
 
 ```python
 from azure.ai.textanalytics import (
-    RecognizeEntitiesAction
+    RecognizeEntitiesAction,
+    ExtractKeyPhrasesAction
 )
 
 def analyze_batch_example(client):
@@ -833,24 +898,28 @@ def analyze_batch_example(client):
         poller = client.begin_analyze_actions(
             documents,
             display_name="Sample Text Analysis",
-            actions=[RecognizeEntitiesAction()]
+            actions=[RecognizeEntitiesAction(), ExtractKeyPhrasesAction()]
         )
 
         result = poller.result()
-        action_results = [action_result for action_result in list(result) if not action_result.is_error]
-
-        entities_recognition_task_result = action_results[0]
+        action_results = [action_result for action_result in list(result)]
+        first_action_result = action_results[0][0]
         print("Results of Entities Recognition action:")
-        docs = [doc for doc in entities_recognition_task_result.document_results if not doc.is_error]
 
-        for idx, doc in enumerate(docs):
-            print("\nDocument text: {}".format(documents[idx]))
-            for entity in doc.entities:
-                print("Entity: {}".format(entity.text))
-                print("...Category: {}".format(entity.category))
-                print("...Confidence Score: {}".format(entity.confidence_score))
-                print("...Offset: {}".format(entity.offset))
-            print("------------------------------------------")
+        for entity in first_action_result.entities:
+            print("Entity: {}".format(entity.text))
+            print("...Category: {}".format(entity.category))
+            print("...Confidence Score: {}".format(entity.confidence_score))
+            print("...Offset: {}".format(entity.offset))
+            print("...Length: {}".format(entity.length))
+        print("------------------------------------------")
+
+        second_action_result = action_results[0][1]
+        print("Results of Key Phrase Extraction action:")
+        
+        for key_phrase in second_action_result.key_phrases:
+            print("Key Phrase: {}\n".format(key_phrase))
+        print("------------------------------------------")
 
 analyze_batch_example(client)
 ```
@@ -858,20 +927,30 @@ analyze_batch_example(client)
 ### <a name="output"></a>출력
 
 ```console
-Results of Entities Recognition task:
-Document text: Microsoft was founded by Bill Gates and Paul Allen.
+Results of Entities Recognition action:
 Entity: Microsoft
 ...Category: Organization
-...Confidence Score: 0.83
+...Confidence Score: 1.0
 ...Offset: 0
+...Length: 9
 Entity: Bill Gates
 ...Category: Person
-...Confidence Score: 0.85
+...Confidence Score: 1.0
 ...Offset: 25
+...Length: 10
 Entity: Paul Allen
 ...Category: Person
-...Confidence Score: 0.9
+...Confidence Score: 1.0
 ...Offset: 40
+...Length: 10
+------------------------------------------
+Results of Key Phrase Extraction action:
+Key Phrase: Bill Gates
+
+Key Phrase: Paul Allen
+
+Key Phrase: Microsoft
+
 ------------------------------------------
 ```
 

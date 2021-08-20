@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 01/28/2021
+ms.date: 06/21/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: 3413c1a3f27b48c60ae730ad230c653928702faa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff35dc6211992bd3d89161dede2745c2e366ee8f
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821539"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463822"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>자습서: 보안 앱에서 사용자로 Microsoft Graph에 액세스
 
@@ -58,19 +58,76 @@ Azure App Service에서 실행되는 웹앱에서 Microsoft Graph에 액세스�
 > [!IMPORTANT]
 > 사용 가능한 액세스 토큰을 반환하도록 App Service를 구성하지 않으면 코드에서 Microsoft Graph API를 호출할 때 ```CompactToken parsing failed with error code: 80049217``` 오류가 발생합니다.
 
-[Azure Resource Explorer](https://resources.azure.com/)로 이동하고 리소스 트리를 사용하여 웹앱을 찾습니다. 리소스 URL은 `https://resources.azure.com/subscriptions/subscription-id/resourceGroups/SecureWebApp/providers/Microsoft.Web/sites/SecureWebApp20200915115914`와 유사해야 합니다.
+# <a name="azure-resource-explorer"></a>[Azure Resource Explorer](#tab/azure-resource-explorer)
+[Azure Resource Explorer](https://resources.azure.com/)로 이동하고 리소스 트리를 사용하여 웹앱을 찾습니다. 리소스 URL은 `https://resources.azure.com/subscriptions/subscriptionId/resourceGroups/SecureWebApp/providers/Microsoft.Web/sites/SecureWebApp20200915115914`와 유사해야 합니다.
 
 이제 Azure Resource Explorer가 리소스 트리에서 웹앱이 선택된 상태로 열립니다. 페이지의 위쪽에서 **읽기/쓰기** 를 선택하여 Azure 리소스 편집이 가능하도록 설정합니다.
 
-왼쪽 브라우저에서 **구성** > **authsettings** 로 드릴다운합니다.
+왼쪽 브라우저에서 **구성** > **authsettingsV2** 로 드릴다운합니다.
 
-**authsettings** 보기에서 **편집** 을 선택합니다. 복사한 클라이언트 ID를 사용하여 ```additionalLoginParams```를 다음 JSON 문자열로 설정합니다.
+**authsettingsV2** 보기에서 **편집** 을 선택합니다. **identityProviders** -> **azureActiveDirectory** 의 **login** 섹션을 찾아 다음 **loginParameters** 설정을 추가합니다. `"loginParameters":[ "response_type=code id_token","resource=00000003-0000-0000-c000-000000000000" ]`
 
 ```json
-"additionalLoginParams": ["response_type=code id_token","resource=00000003-0000-0000-c000-000000000000"],
+"identityProviders": {
+    "azureActiveDirectory": {
+      "enabled": true,
+      "login": {
+        "loginParameters":[
+          "response_type=code id_token",
+          "resource=00000003-0000-0000-c000-000000000000"
+        ]
+      }
+    }
+  }
+},
 ```
 
 **PUT** 을 선택하여 설정을 저장합니다. 이 설정이 적용되려면 몇 분 정도 걸릴 수 있습니다. 이제 웹앱이 적절한 액세스 토큰을 사용하여 Microsoft Graph에 액세스하도록 구성되었습니다. 그렇지 않으면 Microsoft Graph에서 압축 토큰의 형식이 올바르지 않다는 오류를 반환합니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI를 사용하여 App Service Web App REST API를 호출하여 웹앱이 Microsoft Graph를 호출할 수 있도록 인증 구성 설정을 [가져오고](/rest/api/appservice/web-apps/get-auth-settings) [업데이트](/rest/api/appservice/web-apps/update-auth-settings)합니다. 명령 창을 열고 Azure CLI에 로그인합니다.
+
+```azurecli
+az login
+```
+
+기존 'config/authsettingsv2' 설정을 가져와서 로컬 *authsettings.json* 파일에 저장합니다.
+
+```azurecli
+az rest --method GET --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Web/sites/{WEBAPP_NAME}/config/authsettingsv2/list?api-version=2020-06-01' > authsettings.json
+```
+
+원하는 텍스트 편집기를 사용하여 authsettings.json 파일을 엽니다. **identityProviders** -> **azureActiveDirectory** 의 **login** 섹션을 찾아 다음 **loginParameters** 설정을 추가합니다. `"loginParameters":[ "response_type=code id_token","resource=00000003-0000-0000-c000-000000000000" ]`
+
+```json
+"identityProviders": {
+    "azureActiveDirectory": {
+      "enabled": true,
+      "login": {
+        "loginParameters":[
+          "response_type=code id_token",
+          "resource=00000003-0000-0000-c000-000000000000"
+        ]
+      }
+    }
+  }
+},
+```
+
+변경 사항을 *authsettings.json* 파일에 저장하고 로컬 설정을 웹앱에 업로드합니다.
+
+```azurecli
+az rest --method PUT --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Web/sites/{WEBAPP_NAME}/config/authsettingsv2?api-version=2020-06-01' --body @./authsettings.json
+```
+---
+
+## <a name="update-the-issuer-url"></a>발급자 URL 업데이트
+[Azure Portal](https://portal.azure.com)에서 App Service로 이동한 다음 **인증** 블레이드로 이동합니다.
+
+Microsoft ID 공급자 옆에 있는 **편집** 링크를 클릭합니다.
+
+**기본 사항** 탭에서 **발급자 URL** 을 확인합니다. **발급자 URL** 끝에 "/v2.0"이 포함되어 있으면 이를 제거하고 **저장** 을 클릭합니다. "/v2.0"을 제거하지 않으면 웹앱에 로그인할 때 *AADSTS901002: 'resource' 요청 매개 변수가 지원되지 않음* 이라는 메시지가 표시됩니다.
 
 ## <a name="call-microsoft-graph-net"></a>Microsoft Graph(.NET) 호출
 

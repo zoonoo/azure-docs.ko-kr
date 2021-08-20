@@ -11,12 +11,12 @@ ms.date: 06/07/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: fb04dbe5cdfab523e8af9a057cc4477f58b1b525
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.openlocfilehash: 26bd2a4e39f2698f47a27a08716dc3049c7b70f8
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565341"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113106824"
 ---
 # <a name="tutorial-create-user-flows-and-custom-policies-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 및 사용자 지정 정책 만들기
 
@@ -53,7 +53,7 @@ ms.locfileid: "111565341"
 
 - Azure 구독에 연결된 [Azure AD B2C 테넌트](tutorial-create-tenant.md)가 아직 없으면 만듭니다.
 - [웹 애플리케이션을 등록](tutorial-register-applications.md)하고 [ID 토큰 암시적 부여를 사용하도록 설정](tutorial-register-applications.md#enable-id-token-implicit-grant)합니다.
-- [Facebook 애플리케이션을 만듭니다](identity-provider-facebook.md#create-a-facebook-application). [Facebook 계정으로 등록 및 로그인 설정](identity-provider-facebook.md) 문서의 필수 구성 요소 및 초기화 단계를 건너뜁니다. Facebook 애플리케이션은 사용자 지정 정책을 사용하는 데 필요하지 않지만 이 연습에서 사용자 지정 정책에 소셜 로그인을 사용하도록 설정하는 방법을 보여 주기 위해 사용되었습니다.
+- [Facebook 애플리케이션을 만듭니다](identity-provider-facebook.md#create-a-facebook-application). [Facebook 계정으로 가입 및 로그인 설정](identity-provider-facebook.md) 문서의 필수 조건과 나머지 단계를 건너뜁니다. Facebook 애플리케이션은 사용자 지정 정책을 사용하는 데 필요하지 않지만 이 연습에서 사용자 지정 정책에 소셜 로그인을 사용하도록 설정하는 방법을 보여 주기 위해 사용되었습니다.
 
 ::: zone-end
 

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: mathoma, vanto
 ms.date: 01/14/2021
-ms.openlocfilehash: c0d199678aefbf2aa08f8fcbcb27376762dd39b5
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6f47e9d43008f004bc529b0a3251bf252e0039b9
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110707269"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690793"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Azure SQL Managed Instance란?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -155,7 +155,7 @@ Azure SQL Managed Instance는 데이터를 보호하는 데 사용할 수 있는
 - [행 수준 보안](/sql/relational-databases/security/row-level-security)(RLS)을 통해 쿼리를 실행하는 사용자의 특성(예: 그룹 멤버 자격 또는 실행 컨텍스트)을 기반으로 하여 데이터베이스 테이블의 행에 대한 액세스를 제어할 수 있습니다. RLS는 애플리케이션에서 보안의 설계 및 코딩을 간소화합니다. RLS를 사용하면 데이터 행 액세스에 대한 제한을 구현할 수 있습니다. 예를 들어 작업자가 소속 부서와 관련된 데이터 행에만 액세스하게 하거나 데이터 액세스를 관련 데이터로 제한할 수 있습니다.
 - [TDE(투명한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)는 SQL Managed Instance 데이터 파일을 암호화하며, 이를 저장 데이터 암호화라고 합니다. TDE는 데이터 및 로그 파일에 대한 실시간 I/O 암호화 및 암호 해독을 수행합니다. 암호화에는 복구 중에 사용 가능하도록 데이터베이스 부트 레코드에 저장된 DEK(데이터베이스 암호화 키)가 사용됩니다. 투명한 데이터 암호화를 사용하여 Managed Instance의 모든 데이터베이스를 보호할 수 있습니다. TDE는 스토리지 미디어의 도용으로부터 보호하기 위해 많은 규정 준수 표준에 필요한 정지된 암호화 기술로써 SQL Server에서 입증되었습니다.
 
-암호화된 데이터베이스를 SQL Managed Instance로 마이그레이션하는 작업은 Azure Database Migration Service 또는 네이티브 복원을 통해 지원됩니다. 네이티브 복원을 사용하여 암호화된 데이터베이스를 마이그레이션하려면 SQL Server 인스턴스에서 SQL Managed Instance로 기존 TDE 인증서를 마이그레이션해야 합니다. 마이그레이션 옵션에 대한 자세한 내용은 [SQL Server를 SQL Managed Instance로 마이그레이션](migrate-to-instance-from-sql-server.md)을 참조하세요.
+암호화된 데이터베이스를 SQL Managed Instance로 마이그레이션하는 작업은 Azure Database Migration Service 또는 네이티브 복원을 통해 지원됩니다. 네이티브 복원을 사용하여 암호화된 데이터베이스를 마이그레이션하려면 SQL Server 인스턴스에서 SQL Managed Instance로 기존 TDE 인증서를 마이그레이션해야 합니다. 마이그레이션 옵션에 대한 자세한 내용은 [SQL Server를 Azure SQL Managed Instance로 마이그레이션 가이드](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md)를 참조하세요.
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory 통합
 

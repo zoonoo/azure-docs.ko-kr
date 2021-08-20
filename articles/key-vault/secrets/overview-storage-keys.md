@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 573e4c9d8db3f07f223826ab648f2ef57e1d9c58
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5a73b98f31fb7c2f8979f977138ca7f836fe5a34
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766320"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114221807"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Key Vault 및 Azure CLI를 사용하여 스토리지 계정 키 관리
 > [!IMPORTANT]
@@ -66,7 +66,7 @@ az login
 Azure CLI [az role assignment create](/cli/azure/role/assignment) 명령을 사용하여 스토리지 계정에 대한 Key Vault 액세스를 제공합니다. 명령에 다음 매개 변수 값을 입력합니다.
 
 - `--role`: "스토리지 계정 키 운영자 서비스 역할" Azure 역할을 전달합니다. 이 역할은 액세스 범위를 스토리지 계정으로 제한합니다. 클래식 스토리지 계정의 경우 이 역할 대신 "클래식 스토리지 계정 키 운영자 서비스 역할"을 전달합니다.
-- `--assignee`: "https://vault.azure.net" 값을 전달합니다. 이 값은 Azure 퍼블릭 클라우드의 Key Vault URL입니다. (Azure Goverment 클라우드의 경우 '--asingee-object-id'를 대신 사용합니다. [서비스 주체 애플리케이션 ID](#service-principal-application-id)를 참조하세요.)
+- `--assignee`: "https://vault.azure.net" 값을 전달합니다. 이 값은 Azure 퍼블릭 클라우드의 Key Vault URL입니다. Azure Goverment 클라우드의 경우 ‘--assignee-object-id’를 대신 사용합니다. [서비스 주체 애플리케이션 ID](#service-principal-application-id)를 참조하세요.
 - `--scope`: `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>` 형식의 스토리지 계정 리소스 ID를 전달합니다. 구독 ID를 찾으려면 Azure CLI [az account list](/cli/azure/account?#az_account_list) 명령을 사용하고, 스토리지 계정 이름 및 스토리지 계정 리소스 그룹을 찾으려면 Azure CLI [az storage account list](/cli/azure/storage/account?#az_storage_account_list) 명령을 사용합니다.
 
 ```azurecli-interactive

@@ -1,14 +1,14 @@
 ---
 title: Azure 정책 개요
 description: Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다.
-ms.date: 05/01/2021
+ms.date: 07/27/2021
 ms.topic: overview
-ms.openlocfilehash: b9cd2becc0c1241c34b7cd887a274088296150ba
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 387c52eb1337f6d3aa7046b122fa66ff93be5e64
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733493"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114726688"
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
@@ -61,7 +61,7 @@ Azure Policy의 다음 개요는 Build 2018에서부터 시작됩니다. 슬라�
 
 ### <a name="azure-policy-and-azure-rbac"></a>Azure Policy 및 Azure RBAC
 
-Azure Policy 및 Azure RBAC(Azure 역할 기반 액세스 제어) 간에는 몇 가지 주요 차이점이 있습니다. Azure Policy는 Resource Manager에 표시되는 리소스의 속성 및 일부 리소스 공급자의 속성을 검사하여 상태를 평가합니다. Azure Policy는 작업(_동작_ 이라고도 함)을 제한하지 않습니다. Azure Policy를 사용하면 변경한 사용자 또는 변경 권한이 있는 사용자에 대한 걱정 없이 리소스 상태에서 비즈니스 규칙을 준수하는지 확인할 수 있습니다.
+Azure Policy 및 Azure RBAC(Azure 역할 기반 액세스 제어) 간에는 몇 가지 주요 차이점이 있습니다. Azure Policy는 Resource Manager에 표시되는 리소스의 속성 및 일부 리소스 공급자의 속성을 검사하여 상태를 평가합니다. Azure Policy는 작업(_동작_ 이라고도 함)을 제한하지 않습니다. Azure Policy를 사용하면 변경한 사용자 또는 변경 권한이 있는 사용자에 대한 걱정 없이 리소스 상태에서 비즈니스 규칙을 준수하는지 확인할 수 있습니다. [정책 정의](#policy-definition), [이니셔티브 정의](#initiative-definition) 및 [할당](#assignments)과 같은 일부 Azure Policy 리소스는 모든 사용자에게 표시됩니다. 이 디자인을 통해 해당 환경에 설정된 정책 규칙이 모든 사용자 및 서비스에 투명하게 표시됩니다.
 
 Azure RBAC는 다양한 범위에서 사용자 [작업](../../role-based-access-control/resource-provider-operations.md)을 관리하는 데 중점을 둡니다. 작업을 제어해야 하는 경우 Azure RBAC가 사용하는 데 적합한 도구입니다. 개인에게 작업을 수행할 수 있는 액세스 권한이 있더라도 결과가 비준수 리소스이면 Azure Policy에서 만들기 또는 업데이트를 계속 차단합니다.
 

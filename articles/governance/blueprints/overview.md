@@ -1,16 +1,19 @@
 ---
 title: Azure Blueprints 개요
 description: Azure Blueprints 서비스를 통해 Azure 환경에서 아티팩트를 만들고 정의하고 배포하는 방법을 알아봅니다.
-ms.date: 05/01/2021
+ms.date: 06/21/2021
 ms.topic: overview
-ms.openlocfilehash: 00fd2732f1a1176bd231675361e65ad451fd6de9
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 445ecce12c9900dbae2eb4d7a3c1278c979d6cd9
+ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108761294"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112427859"
 ---
 # <a name="what-is-azure-blueprints"></a>Azure Blueprints란?
+
+> [!IMPORTANT]
+> Azure Blueprints는 현재 미리 보기로 제공됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
 
 엔지니어나 설계자가 청사진을 통해 프로젝트의 설계 매개 변수를 스케치하는 것과 마찬가지로, 클라우드 설계자와 중앙 정보 기술 그룹은 Azure Blueprints를 통해 조직의 표준, 패턴 및 요구 사항을 구현하고 준수하는 반복 가능한 Azure 리소스 집합을 정의할 수 있습니다. Azure Blueprints를 사용하면 개발 팀에서 네트워킹과 같은 기본 제공 구성 요소 세트를 사용하여 조직의 규정을 준수하는 신뢰할 수 있는 새 환경을 빠르게 빌드하고 구축함으로써 개발 및 배포 속도를 높일 수 있습니다.
 
@@ -126,10 +129,10 @@ Blueprints에서는 정책/이니셔티브 또는 ARM 템플릿에 매개 변수
 
 |Object|필드|허용되는 문자|최대 길이|
 |-|-|-|-|
-|청사진|Name|문자, 숫자, 하이픈 및 마침표|48|
+|청사진|속성|문자, 숫자, 하이픈 및 마침표|48|
 |청사진|버전|문자, 숫자, 하이픈 및 마침표|20|
-|청사진 할당|Name|문자, 숫자, 하이픈 및 마침표|90|
-|청사진 아티팩트|Name|문자, 숫자, 하이픈 및 마침표|48|
+|청사진 할당|속성|문자, 숫자, 하이픈 및 마침표|90|
+|청사진 아티팩트|속성|문자, 숫자, 하이픈 및 마침표|48|
 
 ## <a name="video-overview"></a>비디오 개요
 

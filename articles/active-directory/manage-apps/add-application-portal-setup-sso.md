@@ -1,23 +1,25 @@
 ---
-title: '빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 SAML 기반 SSO(Single Sign-On) 설정'
+title: '빠른 시작: 애플리케이션에 대한 SAML 기반 Single Sign-On 설정'
+titleSuffix: Azure AD
 description: 이 빠른 시작에서는 Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 SAML 기반 SSO(Single Sign-On)를 설정하는 과정을 안내합니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/01/2020
-ms.author: mtillman
-ms.openlocfilehash: 81a1d2eeeb1b82c488598bc081453193e360d6d5
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 07/23/2020
+ms.author: davidmu
+ms.reviewer: ergleenl
+ms.openlocfilehash: cded1a874c48cab43e24a19acc6707aa8de7d1e7
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077522"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669406"
 ---
-# <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 SAML 기반 SSO(Single Sign-On) 설정
+# <a name="quickstart-set-up-saml-based-single-sign-on-for-an-application"></a>빠른 시작: 애플리케이션에 대한 SAML 기반 Single Sign-On 설정
 
 Azure AD(Azure Active Directory) 테넌트에 추가한 애플리케이션에 대한 SSO(Single Sign-On)를 설정하여 간단한 사용자 로그인을 시작합니다. SSO를 설정한 후 사용자는 해당 Azure AD 자격 증명을 사용하여 애플리케이션에 로그인할 수 있습니다. SSO는 Azure AD 평가판에 포함되어 있습니다.
 
@@ -32,7 +34,6 @@ Azure AD 테넌트에 추가한 애플리케이션에 대한 SSO를 설정하려
 - 선택 사항: [앱 추가](add-application-portal.md) 완료.
 - 선택 사항: [앱 구성](add-application-portal-configure.md) 완료.
 - 선택 사항: [앱에 사용자 할당](add-application-portal-assign-users.md) 완료.
-
 
 >[!IMPORTANT]
 >비 프로덕션 환경을 사용하여 이 빠른 시작의 단계를 테스트합니다.
@@ -49,8 +50,6 @@ Azure AD 테넌트에 애플리케이션 추가를 완료하면 개요 페이지
     > [!IMPORTANT]
     > 앱이 SSO에 OIDC(OpenID Connect) 표준을 사용하는 경우 탐색에 Single Sign-On 옵션이 표시되지 않습니다. 설정 방법을 알아보려면 OIDC 기반 SSO의 빠른 시작을 참조하세요.
 
-    :::image type="content" source="media/add-application-portal-setup-sso/configure-sso.png" alt-text="스크린샷이 Azure AD Portal의 Single Sign-On 구성 페이지를 표시합니다.":::
-
 1. **SAML** 을 선택하여 SSO 구성 페이지를 엽니다. 이 예제에서 SSO를 구성할 애플리케이션은 GitHub입니다. GitHub가 설정되면 사용자는 Azure AD 테넌트에서 자신의 자격 증명을 사용하여 GitHub에 로그인할 수 있습니다.
 
     :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="스크린샷이 GitHub의 Single Sign-On 구성 페이지를 표시합니다.":::
@@ -60,11 +59,8 @@ Azure AD 테넌트에 애플리케이션 추가를 완료하면 개요 페이지
     > [!TIP]
     > SAML 구성 옵션에 대한 자세한 내용은 [SAML 기반 Single Sign-On 구성](configure-saml-single-sign-on.md)을 참조하세요.
 
-    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="스크린샷이 GitHub 가격 책정 페이지의 엔터프라이즈 구독에 있는 Single Sign-On 옵션을 표시합니다.":::
-
 > [!TIP]
 > Graph API를 사용하여 앱 관리를 자동화할 수 있습니다. [Microsoft Graph API를 사용하여 앱 관리 자동화](/graph/application-saml-sso-configure-api)를 참조하세요.
-
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

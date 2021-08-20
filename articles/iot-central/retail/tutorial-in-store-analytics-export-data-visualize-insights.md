@@ -11,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: 2695b34745ff02d55f18cebbe87a468f807ca77a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d94b3e56b3b8f70a03b6a3872b085e450043ab70
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99831691"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113585954"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>자습서: Azure IoT Central에서 데이터 내보내기 및 Power BI에서 인사이트 시각화
 
@@ -33,7 +33,7 @@ ms.locfileid: "99831691"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 이전의 두 자습서를 완료하려면 [Azure IoT Central에서 스토어 내 분석 애플리케이션을 만들고](./tutorial-in-store-analytics-create-app.md), [Azure IoT Central에서 운영자 대시보드를 사용자 지정하고 디바이스를 관리합니다](./tutorial-in-store-analytics-customize-dashboard.md).
+* 이전의 두 자습서를 완료하려면 [Azure IoT Central에서 스토어 내 분석 애플리케이션을 만들고](./tutorial-in-store-analytics-create-app.md), [Azure IoT Central에서 대시보드를 사용자 지정하고 디바이스를 관리합니다](./tutorial-in-store-analytics-customize-dashboard.md).
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * Power BI 계정 Power BI 계정이 없는 경우 시작하기 전에 [Power BI Pro 평가판](https://app.powerbi.com/signupredirect?pbi_source=web)에 가입합니다.
 

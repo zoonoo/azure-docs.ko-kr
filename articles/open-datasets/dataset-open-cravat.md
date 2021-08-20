@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: 31a9d9bed9342470d3dc5c06516de27c3a07b0e9
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 2047b5f5071f6166a7f30e7a04b79fa711c95624
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112038983"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982131"
 ---
 # <a name="opencravat-open-custom-ranked-analysis-of-variants-toolkit"></a>OpenCravat: 변이의 순위가 지정된 개방형 사용자 지정 분석 도구 키트
 
@@ -36,9 +36,9 @@ OpenCRAVAT는 변이 영향, 주석, 점수를 비롯한 게놈 변이 해석을
 
 ## <a name="data-access"></a>데이터 액세스
 
-미국 서부 2: https://datasetopencravat.blob.core.windows.net/dataset
+미국 서부 2: 'https://datasetopencravat.blob.core.windows.net/dataset '
 
-미국 중서부: https://datasetopencravat-secondary.blob.core.windows.net/dataset
+미국 중서부: 'https://datasetopencravat-secondary.blob.core.windows.net/dataset '
 
 [SAS 토큰](../storage/common/storage-sas-overview.md): sv=2020-04-08&st=2021-03-11T23%3A50%3A01Z&se=2025-07-26T22%3A50%3A00Z&sr=c&sp=rl&sig=J9J9wnJOXsmEy7TFMq9wjcxjXDE%2B7KhGpCUL4elsC14%3D
 

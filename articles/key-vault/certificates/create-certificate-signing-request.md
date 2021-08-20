@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: a4d079855e5aa05adb84b62d686d9f386608f7bb
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 77a46beceda451d456dfc4f576f855ebf7312e50
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752141"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463516"
 ---
 # <a name="create-and-merge-a-csr-in-key-vault"></a>Key Vault에서 CSR 만들기 및 병합
 
@@ -140,6 +140,8 @@ CSR을 만들 때 추가 정보를 추가하려는 경우 **SubjectName** 에서
 
      **SubjectName** 에 특수 문자가 포함되어 있는 경우 이 오류가 발생할 수 있습니다. Azure Portal 및 PowerShell 지침의 메모를 참조하세요.
 
+- 오류 유형 **인증서를 가져오는 데 사용된 CSR이 이미 사용되었습니다. 새 CSR로 새 인증서를 생성해 보세요.**
+     인증서의 '고급 정책' 섹션으로 이동하여 '갱신 시 키 다시 사용' 옵션이 해제되어 있는지 확인합니다.
 ---
 
 ## <a name="next-steps"></a>다음 단계

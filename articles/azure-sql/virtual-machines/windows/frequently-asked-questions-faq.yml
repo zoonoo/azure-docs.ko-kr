@@ -15,12 +15,12 @@ metadata:
   ms.workload: iaas-sql-server
   ms.date: 08/05/2019
   ms.author: mathoma
-  ms.openlocfilehash: 426a1e7fa481f31d279870368ff5616c6ead0c4b
-  ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+  ms.openlocfilehash: afc126a44fec520f4451787c0e8b350a292c2fca
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/14/2021
-  ms.locfileid: "112082836"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114440694"
 title: Azure VM의 SQL Server에 대해 자주 묻는 질문
 summary: >
   [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -117,22 +117,6 @@ sections:
   - question: >
       어떤 구독이 DR(재해 복구) 혜택을 지원하나요?
     answer: "Software Assurance와 동등한 구독 권한을 고정 혜택으로 제공하는 종합적인 프로그램은 DR 혜택을 지원합니다. 여기에는 OV(오픈 밸류), OVS(오픈 밸류 정기가입), EA(기업계약), EAS(기업계약 정기가입) 및 SCE(서버 및 클라우드 등록)를 포함하되 이에 제한되지 않습니다. 자세한 내용은 [제품 약관](https://www.microsoft.com/licensing/product-licensing/products)을 참조하고 라이선스 연락처나 계정 관리자에게 문의하세요. \n"
-- name: 내선 번호
-  questions:
-  - question: >
-      내 VM을 새 SQL IaaS 에이전트 확장에 등록하면 추가 비용이 발생하나요?
-    answer: 아니요. SQL IaaS 에이전트 확장에 등록하면 추가 비용 없이 Azure VM에서 SQL Server에 대한 추가 관리 기능을 사용할 수 있습니다.
-  - question: >
-      모든 고객이 SQL IaaS 에이전트 확장을 사용할 수 있나요?
-    answer: "예. 클래식 모델이 아닌 Resource Manager 모델을 사용하여 공용 클라우드에서 SQL Server VM을 배포한 경우에는 가능합니다. 그 밖의 모든 고객은 새 SQL IaaS 에이전트 확장에 등록할 수 있습니다. 그러나 [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) 혜택이 있는 고객만 SQL Server VM에서 [AHB(Azure 하이브리드 혜택)](https://azure.microsoft.com/pricing/hybrid-benefit/)를 활성화하여 자신의 라이선스를 사용할 수 있습니다. \n"
-  - question: "VM 리소스가 이동되거나 삭제되면 확장('Microsoft.SqlVirtualMachine') 리소스는 어떻게 되나요? \n"
-    answer: Microsoft.Compute/VirtualMachine 리소스가 삭제되거나 이동되면 연결된 Microsoft.SqlVirtualMachine 리소스에 작업을 비동기적으로 복제하도록 통지됩니다.
-  - question: >
-      확장('Microsoft.SqlVirtualMachine') 리소스가 삭제되면 VM은 어떻게 되나요?
-    answer: Microsoft.Compute/VirtualMachine 리소스는 Microsoft.SqlVirtualMachine 리소스가 삭제되어도 영향을 받지 않습니다. 단, 라이선싱 변경 내용은 기본적으로 원본 이미지 소스로 다시 돌아갑니다.
-  - question: >
-      자체 배포된 SQL Server VM을 SQL IaaS 에이전트 확장에 등록할 수 있나요?
-    answer: "예. SQL Server를 자체 미디어로 배포하고 SQL IaaS 확장을 설치한 경우에는 SQL Server VM을 확장에 등록하여 SQL IaaS 확장에 제공되는 관리 효율성의 이점을 누릴 수 있습니다.    \n"
 - name: 관리
   questions:
   - question: >
@@ -259,4 +243,20 @@ sections:
   - question: >
       확장을 제거하려면 어떻게 해야 하나요?
     answer: "SQL Server VM을 SQL IaaS 에이전트 확장에서 [등록 취소](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension)하면 확장이 제거됩니다. \n"
+  - question: >
+      내 VM을 새 SQL IaaS 에이전트 확장에 등록하면 추가 비용이 발생하나요?
+    answer: 아니요. SQL IaaS 에이전트 확장에 등록하면 추가 비용 없이 Azure VM에서 SQL Server에 대한 추가 관리 기능을 사용할 수 있습니다.
+  - question: >
+      모든 고객이 SQL IaaS 에이전트 확장을 사용할 수 있나요?
+    answer: "예. 클래식 모델이 아닌 Resource Manager 모델을 사용하여 공용 클라우드에서 SQL Server VM을 배포한 경우에는 가능합니다. 그 밖의 모든 고객은 새 SQL IaaS 에이전트 확장에 등록할 수 있습니다. 그러나 [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) 혜택이 있는 고객만 SQL Server VM에서 [AHB(Azure 하이브리드 혜택)](https://azure.microsoft.com/pricing/hybrid-benefit/)를 활성화하여 자신의 라이선스를 사용할 수 있습니다. \n"
+  - question: "VM 리소스가 이동되거나 삭제되면 확장('Microsoft.SqlVirtualMachine') 리소스는 어떻게 되나요? \n"
+    answer: Microsoft.Compute/VirtualMachine 리소스가 삭제되거나 이동되면 연결된 Microsoft.SqlVirtualMachine 리소스에 작업을 비동기적으로 복제하도록 통지됩니다.
+  - question: >
+      확장('Microsoft.SqlVirtualMachine') 리소스가 삭제되면 VM은 어떻게 되나요?
+    answer: Microsoft.Compute/VirtualMachine 리소스는 Microsoft.SqlVirtualMachine 리소스가 삭제되어도 영향을 받지 않습니다. 단, 라이선싱 변경 내용은 기본적으로 원본 이미지 소스로 다시 돌아갑니다.
+  - question: >
+      자체 배포된 SQL Server VM을 SQL IaaS 에이전트 확장에 등록할 수 있나요?
+    answer: "예. SQL Server를 자체 미디어로 배포하고 SQL IaaS 확장을 설치한 경우에는 SQL Server VM을 확장에 등록하여 SQL IaaS 확장에 제공되는 관리 효율성의 이점을 누릴 수 있습니다.    \n"
+  - question: "SQL IaaS 에이전트 확장을 복구할 수 있나요? \n"
+    answer: "예. SQL Server VM에 대한 **SQL 가상 머신** 리소스로 이동하고 **지원 및 문제 해결** 에서 **복구** 를 선택하여 [복구](sql-agent-extension-manually-register-single-vm.md#repair-extension) 페이지를 열고 확장을 복구하세요. \n"
 additionalContent: "\n## <a name=\"resources\"></a>리소스\n\n**Windows VM**:\n\n* [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)\n* [Windows VM에 SQL Server 프로비저닝](create-sql-vm-portal.md)\n* [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](migrate-to-vm-from-sql-server.md)\n* [Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구](business-continuity-high-availability-disaster-recovery-hadr-overview.md)\n* [Azure 가상 머신의 SQL Server에 대한 성능 모범 사례](./performance-guidelines-best-practices-checklist.md)\n* [Azure Virtual Machines의 SQL Server에 대한 애플리케이션 패턴 및 개발 전략](application-patterns-development-strategies.md)\n\n**Linux VM**:\n\n* [Linux VM의 SQL Server 개요](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)\n* [Linux VM에 SQL Server 프로비저닝](../linux/sql-vm-create-portal-quickstart.md)\n* [FAQ(Linux)](../linux/frequently-asked-questions-faq.yml)\n* [Linux의 SQL Server 설명서](/sql/linux/sql-server-linux-overview)"

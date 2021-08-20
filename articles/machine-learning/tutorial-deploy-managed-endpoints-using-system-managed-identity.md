@@ -1,7 +1,6 @@
 ---
-title: 관리형 온라인 엔드포인트를 사용하여 Azure 리소스에 액세스
-titleSuffix: Azure Machine Learning
-description: 관리형 온라인 엔드포인트와 시스템 할당 관리 ID를 사용하여 기계 학습 모델 배포를 위한 Azure 리소스에 안전하게 액세스합니다.
+title: '자습서: 리소스에 액세스하기 위한 관리형 온라인 엔드포인트'
+description: 관리형 온라인 엔드포인트와 시스템이 할당한 관리 ID를 사용하여 기계 학습 모델 배포용 Azure 리소스에 안전하게 액세스합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +9,17 @@ ms.reviewer: laobri
 author: rsethur
 ms.date: 05/25/2021
 ms.topic: tutorial
-ms.custom: tutorial
-ms.openlocfilehash: 731d9a64c9ef144e8e51e9bce319a031056958ae
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.custom: tutorial, devplatv2
+ms.openlocfilehash: 78cbec0c8f4805794062b6fd525567f8aebcb2b6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071554"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448839"
 ---
-# <a name="tutorial-access-azure-resources-with-a-managed-online-endpoint-and-system-managed-identity-preview"></a>자습서: 관리형 온라인 엔드포인트 및 시스템 관리 ID를 사용하여 Azure 리소스에 액세스(미리 보기)
+# <a name="tutorial-access-resources-with-managed-online-endpoints-and-identity-preview"></a>자습서: 관리형 온라인 엔드포인트와 ID(미리 보기)를 사용하여 리소스 액세스
 
-이 자습서에서는 관리형 온라인 엔드포인트와 시스템 할당 관리 ID를 사용하여 채점 스크립트에서 Azure 리소스에 안전하게 액세스하는 방법을 알아봅니다.
+이 자습서에서는 관리형 온라인 엔드포인트와 시스템이 할당한 관리 ID를 사용하여 채점 스크립트에서 Azure 리소스에 안전하게 액세스하는 방법을 알아봅니다.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 이 자습서에서는 Azure CLI 및 ML 확장을 사용하여 다음 작업을 수행하는 방법을 보여줍니다.
@@ -36,7 +35,7 @@ ms.locfileid: "112071554"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 기계 학습을 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* Azure 기계 학습을 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 
 * Azure CLI 및 ML 확장을 설치하고 구성해야 합니다. 자세한 내용은 [2.0 CLI(미리 보기) 설치, 설정 및 사용](how-to-configure-cli.md)을 참조하세요. 
 
@@ -73,6 +72,7 @@ az configure --defaults workspace=<azureml workspace name> group=<resource group
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml":::
 
+YAML 참조는 [관리형 온라인 엔드포인트(미리 보기) YAML 참조](reference-online-endpoint-yaml.md)를 참조하세요.
 
 ## <a name="configure-variables-for-your-deployment"></a>배포에 대한 변수 구성
 
@@ -120,6 +120,7 @@ az configure --defaults workspace=<azureml workspace name> group=<resource group
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_endpoint_Status" :::
 
+문제가 발생하는 경우 [관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결](how-to-troubleshoot-managed-online-endpoints.md)을 참조하세요.
 
 ## <a name="give-storage-permission-to-system-assigned-managed-identity"></a>시스템 할당 관리 ID에 스토리지 권한 부여
 
@@ -193,3 +194,8 @@ init 메서드 출력을 확인하려면 다음 코드를 사용하여 배포 �
 * CLI 사용에 대한 자세한 내용은 [Azure Machine Learning용 CLI 확장 사용](reference-azure-machine-learning-cli.md)을 참조하세요.
 * 특정 데이터만 반환하도록 JSON 쿼리를 구체화하려면 [Azure CLI 명령 출력 쿼리](/cli/azure/query-azure-cli)를 참조하세요.
 * YAML 스키마에 대한 자세한 내용은 [온라인 엔드포인트 YAML 참조](reference-online-endpoint-yaml.md) 문서를 참조하세요.
+* 사용할 수 있는 컴퓨팅 리소스를 확인하려면 [관리형 온라인 엔드포인트 SKU 목록(미리 보기)](reference-managed-online-endpoints-vm-sku-list.md)을 참조하세요.
+* 비용에 대한 자세한 내용은 [Azure Machine Learning 관리형 온라인 엔드포인트(미리 보기)의 비용 보기](how-to-view-online-endpoints-costs.md)를 참조하세요.
+* 배포에 대한 자세한 내용은 [온라인 엔드포인트(미리 보기)의 안전한 출시](how-to-safely-rollout-managed-endpoints.md)를 참조하세요.
+* 엔드포인트 모니터링에 대한 자세한 내용은 [관리형 온라인 엔드포인트(미리 보기) 모니터링](how-to-monitor-online-endpoints.md)을 참조하세요.
+* 관리 엔드포인트의 제한 사항에 대한 자세한 내용은 [Azure Machine Learning을 사용하여 리소스 할당량 관리 및 증대](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)를 참조하세요.

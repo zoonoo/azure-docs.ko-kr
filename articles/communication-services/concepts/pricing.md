@@ -6,15 +6,15 @@ author: nmurav
 manager: nmurav
 services: azure-communication-services
 ms.author: nmurav
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 038b4df78ca7f10b0ec0e9dfe224f6aca2430e82
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: ba47fd528882e1d7de45470f00316c57b966ddb5
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111986303"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762884"
 ---
 # <a name="pricing-scenarios"></a>가격 책정 시나리오
 
@@ -26,7 +26,7 @@ Azure Communication Services를 사용하면 애플리케이션에 음성/영상
 
 ### <a name="pricing"></a>가격 책정
 
-통화 및 화면 공유 서비스는 그룹 통화의 경우 참가자별로 분당 $0.004의 요금이 청구됩니다. 가능한 여러 통화 흐름을 이해하려면 [이 페이지](./call-flows.md)를 참조하세요.
+통화 및 화면 공유 서비스는 그룹 통화의 경우 참가자별로 분당 $0.004의 요금이 청구됩니다. Azure Communication Services는 데이터 송신 요금을 청구하지 않습니다. 가능한 여러 통화 흐름을 이해하려면 [이 페이지](./call-flows.md)를 참조하세요.
 
 통화의 각 참가자에게는 통화에 연결된 시간만큼 분당 요금이 청구됩니다. 사용자가 영상 통화, 음성 통화 또는 화면 공유 중 무엇을 사용하든 관계없이 적용됩니다.
 
@@ -58,12 +58,31 @@ Alice는 `+1-425`로 시작하는 미국 전화 번호로 Bob에게 앱으로 PS
 - 앱에서 Communication Services 서버로 VoIP 레그(Alice)의 참가자 1명 x 10분 x 참가자 레그당(분당) $0.004 = $0.04
 - Communication Services 서버에서 미국 전화 번호로 PSTN 아웃바운드 레그(Bob)의 참가자 1명 x 10분 x 참가자 레그당(분당) $0.013 = $0.13.
 
-참고: `+1-425`에 대한 미국 혼합 요금은 $0.013입니다. 자세한 내용은 https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv) 링크를 참조하세요.
+> [!Note]
+> `+1-425`의 미국 혼합 요금은 $0.013입니다. 자세한 내용은 https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv) 링크를 참조하세요.
+
 
 **총 통화 비용**: $0.04 + $0.13 = $0.17
 
+### <a name="pricing-example-outbound-call-from-app-using-js-sdk-via-azure-communication-services-direct-routing"></a>가격 책정 예: Azure Communication Services 직접 라우팅을 통해 JS SDK를 사용하는 앱에서 아웃바운드 호출
 
-### <a name="pricing-example-group-audio-call-using-js-sdk-and-1-pstn-leg"></a>가격 책정 예: JS SDK 및 PSTN 레그 1개를 사용하여 그룹 음성 통화
+Alice는 Azure Communication Services 직접 라우팅을 통해 Azure Communication Services 앱에서 전화 번호(Bob)로 발신 전화를 겁니다.
+- Alice는 JS SDK를 사용하여 앱을 빌드했습니다.
+- Communication Services 직접 라우팅을 통해 연결된 SBC(Session Border Controller)로 호출이 연결됩니다.
+- 통화는 총 10분 동안 진행되었습니다. 
+
+**비용 계산**
+
+- 앱에서 Communication Services 서버로 VoIP 레그(Alice)의 참가자 1명 x 10분 x 참가자 레그당(분당) $0.004 = $0.04
+- Communication Services 서버에서 SBC로 Communication Services 직접 라우팅 아웃바운드 레그의 참가자 1명(Bob) x 10분 x 참가자 레그당(분당) $0.004 = $0.04.
+
+**총 통화 비용**: $0.04 + $0.04 = $0.08
+
+> [!Note]
+> Azure Communication Services 직접 라우팅 레그는 2021년 8월 1일까지 요금이 청구되지 않습니다.
+
+
+### <a name="pricing-example-group-audio-call-using-js-sdk-and-one-pstn-leg"></a>가격 책정 예: JS SDK 및 PSTN 레그 1개를 사용하는 그룹 음성 통화
 
 Alice와 Bob은 VOIP 통화 중입니다. Bob은 `+1-425`로 시작하는 미국 전화 번호인 Charlie의 PSTN 번호로 Charlie에게 통화를 에스컬레이션했습니다.
 

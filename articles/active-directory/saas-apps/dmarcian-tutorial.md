@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 07/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 4a5ea47352bfbe86fe194821da0b6bf10818caf9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: da30a92d8aa5b0f85478ffd175898d967717d3e9
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92454731"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114605837"
 ---
 # <a name="tutorial-integrate-dmarcian-with-azure-active-directory"></a>자습서: Azure Active Directory와 dmarcian 통합
 
@@ -26,9 +26,7 @@ ms.locfileid: "92454731"
 * 사용자가 해당 Azure AD 계정으로 dmarcian에 자동으로 로그인되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -41,38 +39,37 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * dmarcian은 **SP 및 IDP** 시작 SSO를 지원합니다.
 
-## <a name="adding-dmarcian-from-the-gallery"></a>갤러리에서 dmarcian 추가
+## <a name="add-dmarcian-from-the-gallery"></a>갤러리에서 dmarcian 추가
 
 dmarcian의 Azure AD 통합을 구성하려면 갤러리의 dmarcian을 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+1. Azure Portal에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
 1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **dmarcian** 을 입력합니다.
 1. 결과 패널에서 **dmarcian** 을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso-for-dmarcian"></a>dmarcian에 대한 Azure AD SSO 구성 및 테스트
 
 **B.Simon** 이라는 테스트 사용자를 사용하여 dmarcian에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 dmarcian의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-dmarcian에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
+dmarcian에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[dmarcian SSO 구성](#configure-dmarcian-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-5. **[dmarcian 테스트 사용자 만들기](#create-dmarcian-test-user)** - B. Simon의 Azure AD 표현과 연결된 해당 사용자를 dmarcian에 만듭니다.
-6. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
+    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+1. **[dmarcian SSO 구성](#configure-dmarcian-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+    1. **[dmarcian 테스트 사용자 만들기](#create-dmarcian-test-user)** - B. Simon의 Azure AD 표현과 연결된 해당 사용자를 dmarcian에 만듭니다.
+1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **dmarcian** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 후 **Single Sign-On** 을 선택합니다.
+1. Azure Portal의 **dmarcian** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 후 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -80,29 +77,31 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
 
-    ```http
-    https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml
-    https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml
-    https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml
-    ```
+    | **식별자** |
+    |-----|
+    | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
+    | `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
+    | `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
+    
 
     b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    ```http
-    https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/
-    https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/
-    https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/
-    ```
+    | **회신 URL** |
+    |----|
+    | `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
+    | `https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/` |
+    | `https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/` |
+   
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
     **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
     
-    ```http
-    https://us.dmarcian.com/login/<ACCOUNT_ID>
-    https://dmarcian-eu.com/login/<ACCOUNT_ID>
-    https://dmarciam-ap.com/login/<ACCOUNT_ID>
-    ```
+    | **로그온 URL** |
+    |-----|
+    | `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
+    | `https://dmarcian-eu.com/login/<ACCOUNT_ID>` |
+    | `https://dmarciam-ap.com/login/<ACCOUNT_ID>` |
      
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 실제 식별자, 응답 URL 및 로그온 URL로 이 값을 업데이트하게 됩니다.
@@ -111,7 +110,31 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![인증서 다운로드 링크](common/copy-metadataurl.png)
 
-### <a name="configure-dmarcian-sso"></a>dmarcian SSO 구성
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+
+이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
+
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
+1. **사용자** 속성에서 다음 단계를 수행합니다.
+   1. **이름** 필드에 `B.Simon`을 입력합니다.  
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
+   1. **만들기** 를 클릭합니다.
+
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 dmarcian에 대한 액세스 권한을 부여합니다.
+
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 애플리케이션 목록에서 **dmarcian** 을 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
+1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+
+## <a name="configure-dmarcian-sso"></a>dmarcian SSO 구성
 
 1. dmarcian 내에서 구성을 자동화하려면 **확장 설치** 를 클릭하여 **내 앱 보안 로그인 브라우저 확장** 을 설치해야 합니다.
 
@@ -125,60 +148,30 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. 오른쪽 위 모서리에서 **프로필** 을 클릭하고 **기본 설정** 으로 이동합니다.
 
-    ![기본 설정](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
+    ![기본 설정](./media/dmarcian-tutorial/profile.png)
 
 5. 아래로 스크롤하여 **Single Sign On** 섹션을 클릭한 다음, **구성** 을 클릭합니다.
 
-    ![단일](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
+    ![단일](./media/dmarcian-tutorial/configure.png)
 
 6. **SAML Single Sign-On** 페이지에서 **상태** 를 **사용** 으로 설정하고 다음 단계를 수행합니다.
 
-    ![인증](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
+    ![인증](./media/dmarcian-tutorial/status.png)
 
-    * **ID 공급자에 dmarcian 추가** 섹션 아래에서 **복사** 를 클릭하여 인스턴스에 대한 **Assertion Consumer Service URL** 을 복사하고, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **회신 URL** 텍스트 상자에 붙여넣습니다.
+    a. **ID 공급자에 dmarcian 추가** 섹션 아래에서 **복사** 를 클릭하여 인스턴스에 대한 **Assertion Consumer Service URL** 을 복사하고, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
-    * **ID 공급자에 dmarcian 추가** 섹션에서 **복사** 를 클릭하여 인스턴스에 대한 **엔터티 ID** 를 복사하고, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **식별자** 텍스트 상자에 붙여넣습니다.
+    b. **ID 공급자에 dmarcian 추가** 섹션에서 **복사** 를 클릭하여 인스턴스에 대한 **엔터티 ID** 를 복사하고, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **식별자** 텍스트 상자에 붙여넣습니다.
 
-    * **인증 설정** 섹션의 **Identity Provider Metadata** 텍스트 상자에 Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 을 붙여넣습니다.
+    c. **인증 설정** 섹션의 **Identity Provider Metadata** 텍스트 상자에 Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 을 붙여넣습니다.
 
-    * `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` URL을 **인증 설정** 섹션 아래의 **특성 문** 텍스트 상자에 붙여넣습니다.
+    d. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` URL을 **인증 설정** 섹션 아래의 **특성 문** 텍스트 상자에 붙여넣습니다.
 
-    * **로그인 URL 설정** 섹션 아래에서 인스턴스에 대한 **로그인 URL** 을 복사하고, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **로그온 URL** 텍스트 상자에 붙여넣습니다.
+    e. **로그인 URL 설정** 섹션 아래에서 인스턴스에 대한 **로그인 URL** 을 복사하고, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **로그온 URL** 텍스트 상자에 붙여넣습니다.
 
-        > [!Note]
-        > 조직에 따라 **로그인 URL** 을 수정할 수 있습니다.
+    > [!Note]
+    > 조직에 따라 **로그인 URL** 을 수정할 수 있습니다.
 
-    * **저장** 을 클릭합니다.
-
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
-
-이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
-
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
-1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
-1. **사용자** 속성에서 다음 단계를 수행합니다.
-   1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
-   1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-   1. **만들기** 를 클릭합니다.
-
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
-
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 dmarcian에 대한 액세스 권한을 부여합니다.
-
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
-1. 애플리케이션 목록에서 **dmarcian** 을 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
-
-   !["사용자 및 그룹" 링크](common/users-groups-blade.png)
-
-1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![사용자 추가 링크](common/add-assign-user.png)
-
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
-1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+    f. **저장** 을 클릭합니다.
 
 ### <a name="create-dmarcian-test-user"></a>dmarcian 테스트 사용자 만들기
 
@@ -190,15 +183,15 @@ Azure AD 사용자가 dmarcian에 로그인할 수 있도록 하려면 dmarcian�
 
 2. 오른쪽 위 모서리에서 **프로필** 을 클릭하고 **사용자 관리** 로 이동합니다.
 
-    ![사용자](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
+    ![사용자](./media/dmarcian-tutorial/user.png)
 
 3. **SSO 사용자** 섹션의 오른쪽에서 **새 사용자 추가** 를 클릭합니다.
 
-    ![사용자 추가](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
+    ![사용자 추가](./media/dmarcian-tutorial/new-user.png)
 
 4. **새 사용자 추가** 팝업에서 다음 단계를 수행합니다.
 
-    ![새 사용자](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
+    ![새 사용자](./media/dmarcian-tutorial/save-user.png)
 
     a. **새 사용자 이메일** 텍스트 상자에 사용자의 메일 주소(예: **brittasimon\@contoso.com**)를 입력합니다.
 
@@ -206,16 +199,22 @@ Azure AD 사용자가 dmarcian에 로그인할 수 있도록 하려면 dmarcian�
 
     다. **사용자 추가** 를 클릭합니다.
 
-### <a name="test-sso"></a>SSO 테스트 
+## <a name="test-sso"></a>SSO 테스트 
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-액세스 패널에서 dmarcian 타일을 클릭하면 SSO를 설정한 dmarcian에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+#### <a name="sp-initiated"></a>SP 시작:
 
-## <a name="additional-resources"></a>추가 리소스
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 dmarcian 로그온 URL로 리디렉션됩니다.  
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
+* dmarcian 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>IDP 시작:
 
-- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 dmarcian에 자동으로 로그인됩니다. 
+
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 dmarcian 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 dmarcian에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+dmarcian이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

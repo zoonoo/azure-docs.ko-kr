@@ -1,24 +1,31 @@
 ---
-title: Windows VM에서 Azure Files 공유 만들기 및 사용
+title: Windows VM에서 Azure 파일 공유 만들기 및 사용
 description: Azure Portal에서 Azure Files 공유를 만들고 사용합니다. Windows VM에 연결하여 파일 공유에 연결하고, 파일 공유에 파일을 업로드합니다.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/15/2021
+ms.date: 07/27/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5a3c664f6c6c0532ef915357cfbcbc8228202502
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 3cb97d40008a103d9de6d76018f7881764813e3c
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718238"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727189"
 ---
-# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>빠른 시작: Windows 가상 머신에서 Azure Files 공유 만들기 및 관리
+# <a name="quickstart-create-and-manage-azure-file-shares-with-windows-virtual-machines"></a>빠른 시작: Windows 가상 머신에서 Azure Files 공유 만들기 및 관리
 
 이 문서에서는 Azure Files 공유를 만들고 사용하기 위한 기본 단계를 설명합니다. 이 빠른 시작에서는 서비스의 작동 원리를 확인할 수 있도록 Azure Files 공유를 신속하게 설정하는 것에 중점을 둡니다. 고유한 환경에서 Azure 파일 공유를 만들고 사용하기 위한 자세한 지침이 필요한 경우 [Windows로 Azure 파일 공유 사용](storage-how-to-use-files-windows.md)를 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -63,13 +70,14 @@ Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만�
 ### <a name="deploy-a-vm"></a>VM 배포
 
 1. 이제 포털 왼쪽의 메뉴를 확장하고 Azure Portal 왼쪽 위 모서리에 있는 **리소스 만들기** 를 선택합니다.
-1. **Azure Marketplace** 리소스 목록 위에 있는 검색 상자에서 **Windows Server 2016 Datacenter** 를 검색하고 선택합니다.
+1. **인기 있는 서비스** 에서 **가상 머신** 을 선택합니다.
 1. **기본** 탭의 **프로젝트 세부 정보** 에서 이 빠른 시작용으로 만든 리소스 그룹을 선택합니다.
 
    ![포털 블레이드에서 VM에 대한 기본 정보를 입력합니다.](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
 
 1. **인스턴스 세부 정보** 에서 VM 이름을 *qsVM* 으로 지정합니다.
-1. **지역**, **가용성 옵션**, **이미지** 및 **크기** 는 기본 설정을 그대로 둡니다.
+1. **이미지** 에 대해 **Windows Server 2016 Datacenter - Gen2** 를 선택합니다.
+1. **지역**, **가용성 옵션** 및 **크기** 는 기본 설정을 그대로 둡니다.
 1. **관리자 계정** 에서 **사용자 이름** 을 추가하고 VM에 사용할 **암호** 를 입력합니다.
 1. **인바운드 포트 규칙** 에서 **선택한 포트 허용** 을 선택한 다음, 드롭다운에서 **RDP(3389)** 및 **HTTP** 를 선택합니다.
 1. **검토 + 만들기** 를 선택합니다.

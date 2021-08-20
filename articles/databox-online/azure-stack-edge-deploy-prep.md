@@ -1,19 +1,20 @@
 ---
-title: 데이터 센터에서 Azure Portal을 통해 Azure Stack Edge Pro FPGA 배포를 준비하는 자습서
+title: 데이터 센터에서 Azure Portal을 통해 Azure Stack Edge Pro FPGA 배포를 준비하기 위한 자습서
 description: Azure Stack Edge Pro FPGA 배포에 대한 첫 번째 자습서에는 Azure Portal을 준비하는 작업이 포함됩니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/16/2021
+ms.date: 07/23/2021
 ms.author: alkohli
-ms.openlocfilehash: 1cab6f6f9db0650cee51b3863d521089b500bee9
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: eecdead171e68915430aefe9aebeb24833485789
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110461312"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114688978"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-fpga"></a>자습서: Azure Stack Edge Pro FPGA 배포 준비  
 
@@ -54,16 +55,32 @@ Azure Stack Edge Pro FPGA를 배포하려면 다음 자습서를 지정된 순�
 
 * Data Stack Edge 리소스에 대해 Microsoft Azure 구독이 활성화되어 있습니다. [Microsoft EA(기업계약)](https://azure.microsoft.com/overview/sales-number/), [CSP(클라우드 솔루션 공급자)](/partner-center/azure-plan-lp) 또는 [Microsoft Azure 스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/)과 같은 지원되는 구독을 사용했는지 확인합니다. 종량제 구독은 지원되지 않습니다.
 
-* Azure Stack Edge/Data Box Gateway, IoT Hub 및 Azure Storage 리소스에 대한 리소스 그룹 수준의 소유자 또는 기여자 액세스 권한이 있습니다.
+* RBAC 역할: Azure RBAC(역할 기반 액세스 제어)에는 다음과 같은 역할 할당이 있습니다.
 
-  * 기여자 액세스 권한을 부여하려면 구독 수준에서 **소유자** 여야 합니다. 다른 사용자에게 기여자 권한을 부여하려면 Azure Portal에서 **모든 서비스** > **구독** > **액세스 제어(IAM)**  >  **+추가** > **역할 할당 추가** 로 이동합니다. 자세한 내용은 [자습서: Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여](../role-based-access-control/quickstart-assign-role-user-portal.md)를 참조하세요.
+  * Azure Stack Edge, IoT Hub, Azure Storage 리소스를 만들려면 리소스 그룹 범위에서 사용자에게 기여자 또는 소유자 역할이 있어야 합니다.
 
-  * Azure Stack Edge/Data Box Gateway 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정된 기여자(또는 그 이상) 권한이 있어야 합니다. 또한 `Microsoft.DataBoxEdge` 리소스 공급자가 등록되어 있는지 확인해야 합니다. 리소스 공급자를 등록하는 방법에 대한 정보는 [리소스 공급자 등록](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)을 참조하세요.
-  * IoT Hub 리소스를 만들려면 해당 Microsoft.Devices 공급자가 등록되어 있는지 확인합니다. 등록 방법에 대한 정보는 [리소스 공급자 등록](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)으로 이동하세요.
-  * 스토리지 계정 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정되는 기여자 이상의 액세스 권한이 다시 필요합니다. Azure Storage는 기본적으로 등록된 리소스 공급자입니다.
+  * 리소스 그룹 범위에서 사용자에게 기여자 역할을 할당하려면 구독 범위에서 소유자 역할이 있어야 합니다.
+
+  세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+
+* 리소스 공급자: 다음 리소스 공급자가 등록되어 있습니다. 
+
+  * Azure Stack Edge/Data Box Gateway 리소스를 만들려면 `Microsoft.DataBoxEdge` 공급자가 등록되어 있는지 확인합니다.
+
+  * IoT Hub 리소스를 만들려면 `Microsoft.Devices` 공급자가 등록되어 있는지 확인합니다.
+
+  * Azure Storage 리소스를 만들려면 Azure Storage가 등록되어 있는지 확인합니다. Azure SRP(Storage 리소스 공급자)는 기본적으로 등록된 리소스 공급자이지만 경우에 따라 등록해야 할 수도 있습니다.
+
+  **리소스 공급자를 등록하려면 위의 관련 RBAC 역할이 할당되어 있어야 합니다.**
+
+  등록 방법에 대한 자세한 내용은 [리소스 공급자 등록](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)을 참조하세요.
+
 * Azure Active Directory Graph API에 대한 관리자 또는 사용자 액세스 권한이 있습니다. 자세한 내용은 [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)를 참조하세요.
+
 * 액세스 자격 증명이 있는 Microsoft Azure Storage 계정이 있습니다.
+
 * 시스템 관리자가 설정한 Azure 정책에 의해 차단되지 않습니다. 정책에 대한 자세한 내용은 [빠른 시작: 비규격 리소스를 식별하는 정책 할당 만들기](../governance/policy/assign-policy-portal.md)를 참조하세요.
+
 
 ### <a name="for-the-azure-stack-edge-pro-fpga-device"></a>Azure Stack Edge Pro FPGA 디바이스
 

@@ -3,16 +3,16 @@ title: Azure Database for PostgreSQL - 유연한 서버 릴리스 정보
 description: Azure Database for PostgreSQL 릴리스 정보 - 유연한 서버
 author: sr-msft
 ms.author: srranga
-ms.custom: mvc
+ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
-ms.date: 05/25/2021
-ms.openlocfilehash: 4ed84ab94173961412a7769da89136c39413a92e
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.date: 06/23/2021
+ms.openlocfilehash: 87af6f9764c2ab01b0e0d02d8eb4a6c7342ca31c
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111983081"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112894629"
 ---
 # <a name="release-notes---azure-database-for-postgresql---flexible-server"></a>릴리스 정보 - Azure Database for PostgreSQL - 유연한 서버
 
@@ -21,13 +21,25 @@ ms.locfileid: "111983081"
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
 
-## <a name="release-may-25-2021"></a>릴리스: 2021년 5월 25일
+## <a name="release-june-2021"></a>릴리스: 2021년 6월
+
+* 새 서버를 만들어 [최신 PostgreSQL 부](./concepts-supported-versions.md) 13.3, 12.7 및 11.12 지원<sup>$</sup>
+* 오스트레일리아 남동부, 브라질 남부, 한국 중부, 노르웨이 동부, 남아프리카 공화국 북부, 스위스 북부, 아랍에미리트 북부, 미국 서부 등을 포함하여 [새 지역](overview.md#azure-regions) 지원
+* 영역 중복 고가용성 배포를 위한 강제 장애 조치(failover) 및 계획된 장애 조치를 포함하여 [주문형 장애 조치](./concepts-high-availability.md#on-demand-failover) 기능 지원
+* 새 서버를 만들어 모든 주 버전에 대한 [SCRAM 인증](how-to-connect-scram.md) 지원<sup>$</sup>
+* 새 서버를 만들어 `shared_preload_libraries`를 통해 미리 로드할 `pg_prewarm` 지원<sup>$</sup>
+* lo 확장 지원. 각 주 버전에서 지원되는 버전은 [확장 페이지](./concepts-extensions.md)를 참조하세요<sup>$</sup>.
+* 여러 버그 수정, 안정성 및 성능 향상<sup>$</sup>
+  
+<sup> **$** </sup> 기존 서버는 지원되는 최신 부 버전으로 자동으로 업그레이드되며 새로운 기능도 서버의 향후 유지 관리 기간 중에 사용하도록 설정됩니다.
+
+## <a name="release-may-2021"></a>릴리스: 2021년 5월
 
 * [PostgreSQL 주 버전 13](./concepts-supported-versions.md) 지원
 * pg_partman, pg_cron, pgaudit를 포함한 확장 지원. 각 주 버전에서 지원되는 버전은 [확장 페이지](./concepts-extensions.md)를 참조하세요.
 * 여러 버그 수정, 안정성 및 성능 향상
 
-## <a name="release-april-26-2021"></a>릴리스: 2021년 4월 26일
+## <a name="release-april-2021"></a>릴리스: 2021년 4월
 
 * 새 서버를 만들어 [최신 PostgreSQL 부](./concepts-supported-versions.md) 12.6 및 11.11 지원
 * VNET(Virtual Network) [프라이빗 DNS 영역](./concepts-networking.md#private-access-vnet-integration) 지원

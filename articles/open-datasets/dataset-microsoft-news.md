@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: ecbad0a8c23bd2781373923ffa470a06509ee852
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 29a7865a06fd96ce4d27892775fb5af728633a02
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112038989"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982477"
 ---
 # <a name="microsoft-news-recommendation"></a>Microsoft 뉴스 권장 사항
 
@@ -102,7 +102,7 @@ entity_embedding.vec 및 relation_embedding.vec 파일에는 TransE 메서드를
 
 ## <a name="storage-location"></a>스토리지 위치
 
-데이터는 미국 서부/동부 데이터 센터에 있는 https://mind201910small.blob.core.windows.net/release/ Blob 컨테이너의 Blob에 저장됩니다.
+데이터는 미국 서부/동부 데이터 센터에 있는 'https://mind201910small.blob.core.windows.net/release/ ' Blob 컨테이너의 Blob에 저장됩니다.
 
 컨테이너 내에서 학습 및 유효성 검사 세트는 각각 MINDlarge_train.zip 및 MINDlarge_dev.zip으로 압축됩니다.
 

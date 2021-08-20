@@ -2,18 +2,18 @@
 title: Azure CLI - Private Links를 사용하여 관리 디스크에 대한 가져오기/내보내기 액세스 제한
 description: Azure CLI를 사용하여 관리 디스크에 대한 Private Links를 사용하도록 설정합니다. 가상 네트워크 내에서만 디스크를 안전하게 내보내고 가져올 수 있습니다.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: overview
-ms.date: 08/11/2020
+ms.date: 07/15/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: e1b1852521164b264376f10ce8ade85f415a0a91
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 05cff1385ee4e606a3d5ecae3f04139a67be699a
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026600"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114289250"
 ---
 # <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure CLI - Private Links를 사용하여 관리 디스크에 대한 가져오기/내보내기 액세스 제한
 
@@ -154,5 +154,7 @@ az snapshot create -n $snapshotNameSecuredWithPL \
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Private Links에 대한 FAQ](/azure/virtual-machines/faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
+- Azure에 VHD를 업로드하거나 관리 디스크를 다른 지역에 복사 - [Azure CLI](disks-upload-vhd-to-managed-disk-cli.md) 또는 [Azure PowerShell 모듈](../windows/disks-upload-vhd-to-managed-disk-powershell.md)
+- VHD 다운로드- [Windows](../windows/download-vhd.md) 또는 [Linux](download-vhd.md)
+- [Private Links에 대한 FAQ](/azure/virtual-machines//faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
 - [CLI를 사용하여 관리 스냅샷을 다른 지역의 스토리지 계정에 VHD로 내보내기/복사](/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd)

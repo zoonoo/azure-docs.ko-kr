@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/28/2021
 ms.author: v-demjoh
-ms.openlocfilehash: 32f28a6fa056819081804a3ccb919436c3f50bae
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 268f248c879d1a6872713159bfb1aa44879d21ad
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112039706"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730344"
 ---
 ## <a name="download-and-install"></a>다운로드 및 설치
 
@@ -44,7 +44,7 @@ Windows에서 Speech CLI는 로컬 컴퓨터에서 명령 프롬프트에 사용
 * CentOS 7/8
 * Debian 9/10 
 * RHEL(Red Hat Enterprise Linux) 7/8
-* Ubuntu 16.04/18.04/20.04
+* Ubuntu 16.04(9월까지), Ubuntu 18.04/20.04
 
 > [!NOTE]
 > 추가 아키텍처는 Speech CLI가 아닌 Speech SDK에서 지원됩니다. 자세한 내용은 [Speech SDK 정보](../speech-sdk.md)를 참조하세요.

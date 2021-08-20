@@ -1,18 +1,18 @@
 ---
 title: Azure Migrate 검색 및 평가를 통해 VMware 환경에서 실행되는 서버 검색
 description: Azure Migrate 검색 및 평가 도구를 사용하여 VMware 환경에서 온-프레미스 서버, 애플리케이션 및 종속성을 검색하는 방법을 알아봅니다.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: 42140e61146d8682d193f89b2a691b8a13260533
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: d2b71b227500644a63eb116493abeba7576eb7eb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803700"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464953"
 ---
 # <a name="tutorial-discover-servers-running-in-a-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>자습서: Azure Migrate 검색 및 평가를 통해 VMware 환경에서 실행 중인 서버 검색
 
@@ -302,22 +302,20 @@ OVA 파일을 배포하기 전에 파일이 안전한지 확인합니다.
 
 ### <a name="start-discovery"></a>검색 시작
 
-vCenter Server 검색을 시작하려면 **3단계: 소프트웨어 인벤토리, 에이전트 없는 종속성 분석, SQL Server 인스턴스 및 데이터베이스 검색을 수행하기 위해 서버 자격 증명 제공** 에서 **검색 시작** 을 선택합니다. 검색이 성공적으로 시작되면 원본 테이블에서 vCenter Server IP 주소/FQDN에 대한 검색 상태를 확인할 수 있습니다.
-
-> [!NOTE]
-> [TrustServerCertificate](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) 속성이 `true`로 설정된 경우 Azure Migrate 어플라이언스와 원본 SQL Server 인스턴스 간의 통신이 암호화됩니다. 전송 계층은 SSL을 사용하여 채널을 암호화하고 인증서 체인을 건너뛰어 신뢰 유효성을 검사합니다. 어플라이언스 서버는 [인증서의 루트 인증 기관을 신뢰](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)하도록 설정되어야 합니다.
->
-> 서버에 인증서가 프로비전되어 있지 않으면 시작할 때 SQL Server에서 로그인 패킷 암호화에 사용되는 자체 서명된 인증서를 생성합니다. [자세히 알아봅니다](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
->
+vCenter Server 검색을 시작하려면 **검색 시작** 을 선택합니다. 검색이 성공적으로 시작되면 원본 테이블에서 vCenter Server IP 주소/FQDN에 대한 검색 상태를 확인할 수 있습니다.
 
 ## <a name="how-discovery-works"></a>검색의 작동 원리
 
 * 검색된 서버의 인벤토리가 Azure Portal에 표시되는 데 약 15분 정도 걸립니다.
 * 서버 자격 증명을 제공한 경우 vCenter Server를 실행하는 서버의 검색이 완료된 후 소프트웨어 인벤토리(설치된 애플리케이션의 검색)가 자동으로 시작됩니다. 소프트웨어 인벤토리는 12시간마다 한 번씩 수행됩니다.
 * [소프트웨어 인벤토리](how-to-discover-applications.md)는 서버에서 실행되는 SQL Server 인스턴스를 식별합니다. 어플라이언스는 수집한 정보를 사용하여 어플라이언스에서 제공된 SQL Server 인증 자격 증명 또는 Windows 인증 자격 증명을 통해 SQL Server 인스턴스에 연결하려고 시도합니다. 그런 다음, SQL Server 데이터베이스 및 해당 속성에 대한 데이터를 수집합니다. SQL 검색은 24시간마다 한 번씩 수행됩니다.
+* 어플라이언스는 네트워크에 대한 가시성이 확보된 SQL Server에만 연결할 수 있지만, 소프트웨어 인벤토리 자체에는 네트워크에 대한 가시성이 필요하지 않을 수 있습니다.
 * 설치된 애플리케이션을 검색하는 데 15분 이상 걸릴 수 있습니다. 소요 시간은 검색할 서버 수에 따라 달라집니다. 서버가 500개인 경우 검색된 인벤토리가 포털의 Azure Migrate 프로젝트에 표시될 때까지 약 1시간 정도 걸립니다.
-* 소프트웨어 인벤토리 중에 추가된 서버 자격 증명은 서버에 대해 반복되고, 에이전트 없는 종속성 분석을 위해 유효성이 검사됩니다. 서버 검색이 완료되면 포털에서 서버에 에이전트 없는 종속성 분석을 사용하도록 설정할 수 있습니다. 유효성 검사에 성공한 서버만 선택하여 에이전트 없는 종속성 분석을 사용하도록 설정할 수 있습니다.
+* 소프트웨어 인벤토리 중에 추가된 서버 자격 증명은 서버에 대해 반복되고, 에이전트 없는 종속성 분석을 위해 유효성이 검사됩니다. 서버 검색이 완료되면 포털에서 서버에 에이전트 없는 종속성 분석을 사용하도록 설정할 수 있습니다. 유효성 검사에 성공한 서버만 선택하여 [에이전트 없는 종속성 분석](how-to-create-group-machine-dependencies-agentless.md)을 사용하도록 설정할 수 있습니다.
 * SQL Server 인스턴스 및 데이터베이스 데이터는 검색을 시작한 후 24시간 이내에 포털에 표시되기 시작합니다.
+* 기본적으로 Azure Migrate는 SQL 인스턴스에 연결하는 가장 안전한 방법을 사용합니다. 즉, Azure Migrate는 TrustServerCertificate 속성을 `true`로 설정하여 Azure Migrate 어플라이언스와 원본 SQL Server 인스턴스 간의 통신을 암호화합니다. 또한 전송 계층은 SSL을 사용하여 채널을 암호화하고 인증서 체인을 건너뛰어 신뢰 유효성을 검사합니다. 따라서 어플라이언스 서버는 인증서의 루트 인증 기관을 신뢰하도록 설정되어야 합니다. 그러나 어플라이언스에서 **SQL Server 연결 속성 편집** 을 선택하여 연결 설정을 수정할 수 있습니다. 선택할 항목을 이해하는 방법에 대해 [자세히 알아보세요](https://go.microsoft.com/fwlink/?linkid=2158046).
+
+    :::image type="content" source="./media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="SQL Server 연결 속성을 편집하는 방법을 보여 주는 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 

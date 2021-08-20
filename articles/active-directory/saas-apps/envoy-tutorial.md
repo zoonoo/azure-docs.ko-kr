@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/01/2021
+ms.date: 06/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 643ab787e07cdb1f3a61d1028838a2fc68a169f2
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3342198600c3549a7ce5e1e52111233d4fa920d8
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108148022"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110184"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-envoy"></a>자습서: Envoy와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "108148022"
 * 사용자가 자신의 Azure AD 계정으로 Envoy에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -78,7 +78,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
+1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     **로그인 URL** 텍스트 상자에서 `https://app.envoy.com/a/saml/auth/<company-ID-from-Envoy>` 패턴을 사용하여 URL을 입력합니다.
 
@@ -105,7 +105,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -127,27 +127,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![내 앱 확장](common/install-myappssecure-extension.png)
 
-2. 브라우저에 확장을 추가한 후 **Envoy 설정** 을 클릭하면 Envoy 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 Envoy에 로그인합니다. 브라우저 확장에서 애플리케이션을 자동으로 구성하고 3-7단계를 자동화합니다.
+2. 브라우저에 확장을 추가한 후 **Envoy 설정** 을 클릭하면 Envoy 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 Envoy에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-5단계를 자동으로 수행합니다.
 
     ![설정 구성](common/setup-sso.png)
 
 3. Envoy를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Envoy 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
 
-4. 위쪽에 도구 모음에서 **설정** 을 클릭합니다.
+4. **통합** > **모든 통합** 으로 이동한 다음, **Single Sign-On** 에서 **설치** 를 클릭하여 SAML을 설치합니다.
 
-    ![Envoy](./media/envoy-tutorial/envoy-1.png "Envoy")
+    ![SAML 인증](./media/envoy-tutorial/integrations.png "SAML 인증")
 
-5. **회사** 를 클릭합니다.
+5. **사용하도록 설정된 통합** 섹션으로 이동하여 다음 단계를 수행합니다.
 
-    ![회사](./media/envoy-tutorial/envoy-2.png "회사")
-
-6. **SAML** 을 클릭합니다.
-
-    ![SAML](./media/envoy-tutorial/envoy-3.png "SAML")
-
-7. **SAML 인증** 구성 섹션에서 다음 단계를 수행합니다.
-
-    ![SAML 인증](./media/envoy-tutorial/envoy-4.png "SAML 인정")
+    ![Single Sign-On](./media/envoy-tutorial/configuration.png "SSO(Single sign-on)")
     
     >[!NOTE]
     >HQ 위치 ID에 대한 값은 애플리케이션에서 자동으로 생성됩니다.
@@ -156,7 +148,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     
     b. Azure Portal에서 복사한 **로그인 URL** 값을 **ID 공급자 HTTP SAML URL** 텍스트 상자에 붙여넣습니다.
     
-    c. **변경 내용 저장** 을 클릭합니다.
+    c. **저장** 을 클릭합니다.
 
 ### <a name="create-envoy-test-user"></a>Envoy 테스트 사용자 만들기
 

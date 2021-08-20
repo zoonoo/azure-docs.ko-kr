@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial , devx-track-azurecli
-ms.openlocfilehash: 9f6fe063faa9abfa59d7999da17940aae9ccd264
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1c639c323fcd0dd0ed9f417070d679defeb4cf1e
+ms.sourcegitcommit: 20abee54e48f9b40b83d39c5b970bd0193812cb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110463183"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113632433"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>자습서: Azure Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 구성 배포 
 
@@ -39,15 +39,17 @@ ms.locfileid: "110463183"
     >[!TIP]
     > `k8s-configuration` 확장이 이미 설치되어 있는 경우 다음 명령 - `az extension update --name k8s-configuration`을 사용하여 최신 버전으로 업데이트할 수 있습니다.
 
+- Git 리포지토리가 방화벽 외부에 있고 git 프로토콜이 구성 리포지토리 매개 변수와 함께 사용되는 경우 방화벽에서 송신 액세스를 위해 포트 9418(`git://:9418`)의 TCP를 사용하도록 설정해야 합니다.
+
 ## <a name="create-a-configuration"></a>구성 만들기
 
 이 문서에 사용된 [예제 리포지토리](https://github.com/Azure/arc-k8s-demo)는 클러스터 연산자의 가상 사용자를 중심으로 구성됩니다. 이 리포지토리의 매니페스트는 몇 가지 네임스페이스를 프로비저닝하고, 워크로드를 배포하고, 몇 가지 팀 특정 구성을 제공합니다. GitOps와 함께 이 리포지토리를 사용하면 클러스터에 다음 리소스가 만들어집니다.
 
 * 네임스페이스: `cluster-config`, `team-a`, `team-b`
-* 배포: `cluster-config/azure-vote`
+* 배포: `arc-k8s-demo`
 * ConfigMap: `team-a/endpoints`
 
-`config-agent`는 새 구성 또는 업데이트된 구성에 대해 Azure를 폴링합니다. 이 작업에는 최대 30초가 소요됩니다.
+`config-agent`는 새 구성 또는 업데이트된 구성에 대해 Azure를 폴링합니다. 이 작업에는 최대 5분이 소요됩니다.
 
 프라이빗 리포지토리를 구성과 연결하는 경우 [프라이빗 Git 리포지토리에서 구성 적용](#apply-configuration-from-a-private-git-repository)의 아래 단계를 완료해야 합니다.
 

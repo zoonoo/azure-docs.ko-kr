@@ -6,13 +6,13 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 01/04/2018
-ms.openlocfilehash: 4c8ae67720cf6ac9d577286898b95cdd10f38152
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/07/2021
+ms.openlocfilehash: 90166f1a6716d9ed6b30ca002836d03d26c1ee3b
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377961"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113215904"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory-using-the-azure-portal"></a>Azure Portal을 통해 Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
 
@@ -99,9 +99,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    
     ![데이터 팩터리 홈페이지](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
 10. **작성 및 모니터링** 을 클릭하여 별도의 탭에서 Data Factory UI(사용자 인터페이스)를 시작합니다.
-11. **시작** 페이지에서 다음 이미지와 같이 왼쪽 패널의 **편집** 탭으로 전환합니다. 
+11. 다음 이미지와 같이 홈페이지에서 왼쪽 패널의 **관리** 탭으로 전환합니다. 
 
-    ![편집 탭](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
+    ![관리 탭을 보여 주는 스크린샷.](media/doc-common-process/get-started-page-manage-button.png)
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 만들기
 Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 네트워크에 자체 호스팅 IR(통합 런타임)을 설치해야 합니다. 이 섹션에서는 새 VM을 만들고, 동일한 가상 네트워크에 조인하고, 자체 호스팅 IR을 설치합니다. 자체 호스팅 IR을 통해 Data Factory 서비스에서 처리 요청을 가상 네트워크 내의 HDInsight와 같은 컴퓨팅 서비스에 디스패치할 수 있습니다. 또한 가상 네트워크 내의 데이터 저장소에서 Azure로 데이터를 이동할 수 있습니다. 데이터 저장소 또는 컴퓨팅이 온-프레미스 환경에 있는 경우에도 자체 호스팅 IR을 사용합니다. 

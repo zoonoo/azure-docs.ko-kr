@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory를 사용하여 자동 사용자 프로비저닝을 수행하도록 Oracle Cloud Infrastructure Console 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 Oracle Cloud Infrastructure Console로 자동으로 프로비저닝 및 프로비저닝 해제하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/16/2021
-ms.author: Zhchia
-ms.openlocfilehash: 84024ad57af3ca650c69bfda0eda672aee313793
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.author: thwimmer
+ms.openlocfilehash: 748e32a929e9681bb75a8d627eb9de11807c7c41
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109814661"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114709972"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Oracle Cloud Infrastructure Console 구성
 > [!NOTE]
@@ -71,7 +71,7 @@ ms.locfileid: "109814661"
 
     ![Oracle 토큰 생성](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/general-information.png)
 
-6. 비밀 토큰을 생성하려면 클라이언트 ID와 클라이언트 암호를 **클라이언트 ID:클라이언트 암호** 형식으로 Base64 인코딩합니다. 비밀 토큰을 저장합니다. 이 값은 Azure Portal에 있는 Oracle Cloud Infrastructure Console 애플리케이션에 대한 [프로비저닝] 탭의 **비밀 토큰** 필드에 입력됩니다.
+6. 비밀 토큰을 생성하려면 클라이언트 ID와 클라이언트 암호를 **클라이언트 ID:클라이언트 암호** 형식으로 Base64로 인코딩합니다. 참고 - 이 값은 줄 바꿈을 사용하지 않도록 설정하고 생성해야 합니다(base64 -w 0). 비밀 토큰을 저장합니다. 이 값은 Azure Portal에 있는 Oracle Cloud Infrastructure Console 애플리케이션에 대한 [프로비저닝] 탭의 **비밀 토큰** 필드에 입력됩니다.
 
 ## <a name="step-3-add-oracle-cloud-infrastructure-console-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 애플리케이션 갤러리에서 Oracle Cloud Infrastructure Console 추가
 

@@ -4,12 +4,12 @@ description: 이 자습서에서는 Yeoman을 사용하여 Azure Service Fabric 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 995291a783d14a6d2db8ed8319c720f55c009d91
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 611409b7588f231bb09c3fe57ef4fc29199e0367
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92738852"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112202493"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>자습서: Yeoman을 사용하여 Service Fabric 애플리케이션으로 컨테이너 패키징 및 배포
 
@@ -83,7 +83,7 @@ Yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 애플리�
 1. 디렉터리를 **TestContainer** 디렉터리로 한 수준 변경(예: *./TestContainer*)
 2. `yo azuresfcontainer:AddService`을 실행합니다.
 3. 'azurevoteback' 서비스 이름 지정
-4. Redis - 'alpine:redis'에 대한 컨테이너 이미지 경로 제공
+4. Redis - ‘redis:alpine’의 컨테이너 이미지 경로 제공
 5. 명령 섹션을 비워 두려면 Enter 키 누름
 6. "1"이라는 인스턴스 수를 지정합니다.
 
@@ -91,7 +91,7 @@ Yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 애플리�
 
 ```bash
 ? Name of the application service: azurevoteback
-? Input the Image Name: alpine:redis
+? Input the Image Name: redis:alpine
 ? Commands:
 ? Number of instances of guest container application: 1
    create TestContainer/azurevotebackPkg/ServiceManifest.xml
@@ -270,7 +270,7 @@ sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azu
 ./install.sh
 ```
 
-브라우저를 열고 http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer에서 Service Fabric Explorer로 이동합니다. 애플리케이션 노드를 확장하면 애플리케이션 유형에 대한 항목 및 인스턴스에 대한 다른 항목이 만들어집니다.
+브라우저를 열고 Service Fabric Explorer(https:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer)로 이동합니다. 애플리케이션 노드를 확장하면 애플리케이션 유형에 대한 항목 및 인스턴스에 대한 다른 항목이 만들어집니다.
 
 ![Service Fabric Explorer][sfx]
 
@@ -375,7 +375,6 @@ sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azu
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>alpine:redis</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>

@@ -1,5 +1,5 @@
 ---
-title: '자습서: Bing Maps에서 웹 서비스 마이그레이션 | Microsoft Azure Maps'
+title: '자습서: 웹 서비스를 Bing Maps에서 Microsoft Azure Maps로 마이그레이션'
 description: Bing Maps에서 Microsoft Azure Maps로 웹 서비스를 마이그레이션하는 방법에 대한 자습서.
 author: rbrundritt
 ms.author: richbrun
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 07fbe0cff104c25eca6db2750c2db692429ada65
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 605d30a6e209b8da9e772a95f6318a4aa679c704
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110786517"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112578940"
 ---
 # <a name="tutorial-migrate-web-service-from-bing-maps"></a>자습서: Bing Maps에서 웹 서비스 마이그레이션
 
@@ -199,7 +199,6 @@ Azure Maps 라우팅 서비스는 경로 계산을 위한 다음 API를 제공�
 
 -   [경로 계산](/rest/api/maps/route/getroutedirections): 경로를 계산하고 요청을 즉시 처리합니다. 이 API는 GET 및 POST 요청을 모두 지원합니다. POST 요청은 많은 수의 중간 지점을 지정할 때 또는 URL 요청이 너무 길어서 문제가 발생하지 않도록 많은 경로 옵션을 사용할 때 추천하는 방법입니다.
 -   [일괄 처리 경로](/rest/api/maps/route/postroutedirectionsbatchpreview): 최대 1,000개의 경로 요청을 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터가 서버에서 병렬로 처리되며, 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
--   [Mobility Services(미리 보기)](/rest/api/maps/mobility): 대중 교통을 사용하여 경로 및 방향을 계산합니다.
 
 다음 표에서는 Bing Maps API 매개 변수와 Azure Maps의 비슷한 API 매개 변수를 상호 참조합니다.
 
@@ -451,7 +450,7 @@ Azure Maps에서는 URL에 *path* 매개 변수를 지정하여 정적 맵 이�
 
 > `&path=pathStyles||pathLocation1|pathLocation2|...`
 
-경로 위치와 관련하여 Azure Maps에서는 좌표가 `longitude latitude` 형식이어야 하는 반면, Bing Maps에서는 `latitude,longitude` 형식을 사용합니다. 또한 Azure Maps에서는 **쉼표로 분리된 경도 및 위도가 아니라 공백** 이 있습니다. Azure Maps는 현재 인코딩된 경로를 지원하지 않습니다. [여기](./how-to-render-custom-data.md#get-data-from-azure-maps-data-storage)에 설명된 것처럼 큰 데이터 세트를 Azure Maps 데이터 스토리지 API에 GeoJSON 채우기로 업로드할 수 있습니다.
+경로 위치와 관련하여 Azure Maps에서는 좌표가 `longitude latitude` 형식이어야 하는 반면, Bing Maps에서는 `latitude,longitude` 형식을 사용합니다. 또한 Azure Maps에서는 **쉼표로 분리된 경도 및 위도가 아니라 공백** 이 있습니다. Azure Maps는 현재 인코딩된 경로를 지원하지 않습니다. [여기](./how-to-render-custom-data.md#upload-pins-and-path-data)에 설명된 것처럼 큰 데이터 세트를 Azure Maps 데이터 스토리지 API에 GeoJSON 채우기로 업로드할 수 있습니다.
 
 Azure Maps의 경로 스타일은 `optionNameValue` 형식으로 추가되며, `optionName1Value1|optionName2Value2`처럼 여러 스타일이 파이프(`|`) 문자로 구분됩니다. 옵션 이름과 값은 구분되지 않습니다. 다음 스타일 옵션 이름을 사용하여 Azure Maps에서 스타일 경로를 지정할 수 있습니다.
 

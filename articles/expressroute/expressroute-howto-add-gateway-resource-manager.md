@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: c49409472c8ce9c5b9dab25cbb66df8e1b30f410
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: e8bc2d0ed29cbac171e1d03bc9a6806b1ef64f1f
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695152"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112465315"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>자습서: PowerShell을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ ms.locfileid: "110695152"
 | 게이트웨이 이름 | *GW* |   
 | 게이트웨이 IP 이름 | *GWIP* |
 | 게이트웨이 IP 구성 이름 | *gwipconf* |
-| Type | *ExpressRoute* |
+| 유형 | *ExpressRoute* |
 | 게이트웨이 공용 IP 이름  | *gwpip* |
 
 > [!IMPORTANT]
@@ -102,6 +102,12 @@ ms.locfileid: "110695152"
    ```azurepowershell-interactive
    $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
    ```
+      
+   ExpressRoute를 통해 IPv6 기반 프라이빗 피어링을 사용하려는 경우 IP SKU를 표준으로 설정하고 AllocationMethod를 정적으로 설정하세요.
+   ```azurepowershell-interactive
+   $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Static -SKU Standard
+   ```
+   
 1. 게이트웨이에 대한 구성을 만듭니다. 게이트웨이 구성은 사용할 공용 IP 주소 및 서브넷을 정의합니다. 이 단계에서 게이트웨이를 만들 때 사용되는 구성을 지정합니다. 다음 샘플을 사용하여 게이트웨이 구성을 만듭니다.
 
    ```azurepowershell-interactive
@@ -113,7 +119,7 @@ ms.locfileid: "110695152"
    New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
    ```
 > [!IMPORTANT]
-> ExpressRoute를 통해 IPv6 기반 프라이빗 피어링을 사용하려는 경우 **-GatewaySku** 에 대해 AZ SKU(ErGw1AZ, ErGw2AZ, ErGw3AZ)를 선택해야 합니다.
+> ExpressRoute를 통해 IPv6 기반 프라이빗 피어링을 사용하려는 경우 **-GatewaySku** 에 대해 AZ SKU(ErGw1AZ, ErGw2AZ, ErGw3AZ)를 선택하거나 표준 및 고정 공용 IP로 설정된 -GatewaySKU에 대해 비 AZ SKU(Standard, HighPerformance, UltraPerformance)를 사용해야 합니다.
 > 
 > 
 

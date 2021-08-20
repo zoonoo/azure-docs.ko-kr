@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: 618074d696804171ee5e05655c1e15557789fac9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3c624a9dcdf61796dc4ce4396a0b309f84ceddaf
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110164166"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113280224"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
@@ -27,7 +27,7 @@ Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 �
 
 ## <a name="speech-to-text-from-microphone"></a>마이크에서 음성을 텍스트로 변환
 
-다음 코드 샘플을 사용하여 기본 디바이스 마이크에서 음성 인식을 실행할 수 있습니다. 변수 `subscription` 및 `region`은 구독 및 지역 키로 바꿉니다. 스크립트를 실행하면 기본 마이크 및 출력 텍스트에서 인식 세션이 시작됩니다.
+다음 코드 샘플을 사용하여 기본 디바이스 마이크에서 음성 인식을 실행할 수 있습니다. `subscription` 및 `region` 변수를 음성 키와 위치/지역으로 바꿉니다. 키-위치/지역 쌍을 찾으려면 [키 및 위치/지역 찾기](../../../overview.md#find-keys-and-locationregion) 페이지를 참조하세요. 스크립트를 실행하면 기본 마이크 및 출력 텍스트에서 인식 세션이 시작됩니다.
 
 ```go
 package main
@@ -67,8 +67,8 @@ func cancelledHandler(event speech.SpeechRecognitionCanceledEventArgs) {
 }
 
 func main() {
-    subscription :=  "YOUR_SUBSCRIPTION_KEY"
-    region := "YOUR_SUBSCRIPTIONKEY_REGION"
+    subscription :=  "<paste-your-speech-key-here>"
+    region := "<paste-your-speech-location/region-here>"
 
     audioConfig, err := audio.NewAudioConfigFromDefaultMicrophoneInput()
     if err != nil {
@@ -117,7 +117,7 @@ go run quickstart
 
 ## <a name="speech-to-text-from-audio-file"></a>오디오 파일에서 음성을 텍스트로 변환
 
-오디오 파일에서 음성 인식을 실행하려면 다음 샘플을 사용합니다. 변수 `subscription` 및 `region`은 구독 및 지역 키로 바꿉니다. 또한 변수 `file`을 .wav 파일의 경로로 바꿉니다. 스크립트를 실행하면 파일에서 음성이 인식되고 텍스트 결과가 출력됩니다.
+오디오 파일에서 음성 인식을 실행하려면 다음 샘플을 사용합니다. `subscription` 및 `region` 변수를 음성 키와 위치/지역으로 바꿉니다. 키-위치/지역 쌍을 찾으려면 [키 및 위치/지역 찾기](../../../overview.md#find-keys-and-locationregion) 페이지를 참조하세요. 또한 변수 `file`을 .wav 파일의 경로로 바꿉니다. 스크립트를 실행하면 파일에서 음성이 인식되고 텍스트 결과가 출력됩니다.
 
 ```go
 package main
@@ -131,8 +131,8 @@ import (
 )
 
 func main() {
-    subscription :=  "YOUR_SUBSCRIPTION_KEY"
-    region := "YOUR_SUBSCRIPTIONKEY_REGION"
+    subscription :=  "<paste-your-speech-key-here>"
+    region := "<paste-your-speech-location/region-here>"
     file := "path/to/file.wav"
 
     audioConfig, err := audio.NewAudioConfigFromWavFileInput(file)

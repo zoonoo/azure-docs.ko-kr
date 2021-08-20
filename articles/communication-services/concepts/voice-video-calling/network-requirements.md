@@ -6,23 +6,19 @@ author: nmurav
 manager: jken
 services: azure-communication-services
 ms.author: nmurav
-ms.date: 3/23/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 2fa9cbba571fa5603607c5efea7f49a5822726e9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3a4f842f096f6f8c283934b67808bb33b20f8fc1
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110089419"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113360202"
 ---
-# <a name="ensure-high-quality-media-in-azure-communication-services"></a>Azure Communication Services에서 고품질 미디어 보장
+# <a name="network-recommendations"></a>네트워크 권장 사항
 
-이 문서에서는 Azure Communication Services를 사용하여 고품질 멀티미디어 통신 환경을 구축할 때 고려해야 하는 요소 및 모범 사례에 대해 간략히 설명합니다.
-
-## <a name="factors-that-affect-media-quality-and-reliability"></a>미디어 품질 및 안정성에 영향을 주는 요소
-
-Azure Communication Services 실시간 미디어(오디오, 비디오 및 애플리케이션 공유) 품질에 영향을 주는 여러 가지 요소가 있습니다. 여기에는 네트워크 품질, 대역폭, 방화벽, 호스트 및 디바이스 구성이 포함됩니다.
+이 문서에서는 네트워크 환경이 음성 및 영상 통화 품질에 미치는 영향을 요약합니다. Azure Communication Services 실시간 미디어(오디오, 비디오 및 애플리케이션 공유) 품질에 영향을 주는 여러 가지 요소가 있습니다. 여기에는 네트워크 품질, 대역폭, 방화벽, 호스트 및 디바이스 구성이 포함됩니다.
 
 
 ### <a name="network-quality"></a>네트워크 품질

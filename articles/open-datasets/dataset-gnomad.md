@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: 52fc504135e77ef9e32cd1b83f1186d7ddb18fcd
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: fe194101c42974e4822c088f7255bfcec5e7a65d
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112039079"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982639"
 ---
 # <a name="genome-aggregation-database-gnomad"></a>gnomAD(Genome Aggregation Database)
 
@@ -34,7 +34,7 @@ ms.locfileid: "112039079"
 
 ## <a name="data-access"></a>데이터 액세스
 
-스토리지 계정: https://azureopendatastorage.blob.core.windows.net/gnomad
+스토리지 계정: ‘ https://azureopendatastorage.blob.core.windows.net/gnomad ’
 
 이 데이터는 제한 없이 공개적으로 사용할 수 있으며, 대량 작업에는 azcopy 도구를 사용하는 것이 좋습니다. 예를 들어 gnomAD 릴리스 3.0에서 VCF를 보려면:
 

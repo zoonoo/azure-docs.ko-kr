@@ -1,15 +1,15 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 4308dd2b63b33604af83b360e5c1c0f02a3dec27
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1716bafa93359c61781d9981bffabe9ba46067dc
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95487816"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114403599"
 ---
 IoT 플러그 앤 플레이를 사용하면 기본 디바이스 구현에 대한 지식이 없어도 디바이스 기능과 상호 작용할 수 있으므로 IoT가 간소화됩니다. 이 빠른 시작에서는 C#을 사용하여 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스에 연결하고 제어하는 방법을 보여 줍니다.
 
@@ -24,7 +24,7 @@ Windows에서 이 빠른 시작을 완료하려면 개발 머신에 다음과 �
 
 ### <a name="clone-the-sdk-repository-with-the-sample-code"></a>샘플 코드를 사용하여 SDK 리포지토리 복제
 
-[빠른 시작: Windows에서 실행되는 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 IoT Hub(C#)에 연결](../articles/iot-pnp/quickstart-connect-device.md)을 완료한 경우 이미 리포지토리를 복제한 것입니다.
+[자습서: Windows에서 실행되는 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 IoT Hub(C#)에 연결](../articles/iot-develop/tutorial-connect-device.md)을 완료한 경우 이미 리포지토리를 복제한 것입니다.
 
 C#용 Azure IoT 샘플 GitHub 리포지토리에서 샘플을 복제합니다. 선택한 폴더에서 명령 프롬프트를 엽니다. 다음 명령을 실행하여 [.NET용 Microsoft Azure IoT 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub 리포지토리를 복제합니다.
 
@@ -44,9 +44,9 @@ git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     | ---- | ----- |
     | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
     | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
-    | IOTHUB_DEVICE_DPS_ID_SCOPE | [환경 설정](../articles/iot-pnp/set-up-environment.md)을 완료했을 때 기록한 값 |
+    | IOTHUB_DEVICE_DPS_ID_SCOPE | [환경 설정](../articles/iot-develop/set-up-environment.md)을 완료했을 때 기록한 값 |
     | IOTHUB_DEVICE_DPS_DEVICE_ID | my-pnp-device |
-    | IOTHUB_DEVICE_DPS_DEVICE_KEY | [환경 설정](../articles/iot-pnp/set-up-environment.md)을 완료했을 때 기록한 값 |
+    | IOTHUB_DEVICE_DPS_DEVICE_KEY | [환경 설정](../articles/iot-develop/set-up-environment.md)을 완료했을 때 기록한 값 |
 
 1. 이제 Visual Studio에서 샘플을 빌드하고 디버그 모드에서 실행할 수 있습니다.
 
@@ -54,7 +54,7 @@ git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
 
 ## <a name="run-the-sample-solution"></a>샘플 솔루션 실행
 
-[IoT 플러그 앤 플레이 빠른 시작 및 자습서](../articles/iot-pnp/set-up-environment.md)에서는 IoT 허브 및 디바이스에 연결하도록 샘플을 구성하는 두 가지 환경 변수를 만들었습니다.
+[IoT 플러그 앤 플레이 빠른 시작 및 자습서](../articles/iot-develop/set-up-environment.md)에서는 IoT 허브 및 디바이스에 연결하도록 샘플을 구성하는 두 가지 환경 변수를 만들었습니다.
 
 * **IOTHUB_CONNECTION_STRING**: 이전에 기록한 IoT 허브 연결 문자열입니다.
 * **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
@@ -68,7 +68,7 @@ git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     | Name | 값 |
     | ---- | ----- |
     | IOTHUB_DEVICE_ID | my-pnp-device |
-    | IOTHUB_CONNECTION_STRING | [환경 설정](../articles/iot-pnp/set-up-environment.md)을 완료했을 때 기록한 값 |
+    | IOTHUB_CONNECTION_STRING | [환경 설정](../articles/iot-develop/set-up-environment.md)을 완료했을 때 기록한 값 |
 
 1. 이제 Visual Studio에서 샘플을 빌드하고 디버그 모드에서 실행할 수 있습니다.
 
@@ -83,7 +83,7 @@ s_logger.LogDebug($"Model Id of this Twin is: {twin.ModelId}");
 ```
 
 > [!NOTE]
-> 이 샘플에서는 **IoT Hub 서비스 클라이언트** 에서 **Microsoft.Azure.Devices.Client** 네임스페이스를 사용합니다. 디지털 쌍 API를 비롯한 API에 대한 자세한 내용은 [서비스 개발자 가이드](../articles/iot-pnp/concepts-developer-guide-service.md)를 참조하세요.
+> 이 샘플에서는 **IoT Hub 서비스 클라이언트** 에서 **Microsoft.Azure.Devices.Client** 네임스페이스를 사용합니다. 디지털 쌍 API를 비롯한 API에 대한 자세한 내용은 [서비스 개발자 가이드](../articles/iot-develop/concepts-developer-guide-service.md)를 참조하세요.
 
 이 코드는 다음과 같은 출력을 생성합니다.
 

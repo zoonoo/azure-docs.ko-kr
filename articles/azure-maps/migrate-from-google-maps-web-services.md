@@ -3,18 +3,18 @@ title: 자습서 - Google Maps에서 웹 서비스 마이그레이션 | Microsof
 description: Google Maps에서 Microsoft Azure Maps로 웹 서비스를 마이그레이션하는 방법에 대한 자습서
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/19/2020
+ms.date: 06/23/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: caed40f91ef6a6c1e8bdb353c6548aee699dbc07
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: f1220d7368eb0bca48364dc239944a95d29be276
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110795431"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112578886"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>자습서: Google Maps에서 웹 서비스 마이그레이션
 
@@ -60,7 +60,7 @@ Azure 및 Google Maps 둘 다 REST 웹 서비스를 통해 공간 API에 액세�
 - 가장 가까운 도로 - [여기](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic)에 표시된 것처럼 Web SDK를 사용하여 달성할 수 있지만 현재 서비스로는 사용할 수 없습니다.
 - 정적 주소 보기
 
-Azure Maps에는 다음과 같은 몇 가지 흥미로운 추가 REST 웹 서비스가 있습니다.
+Azure Maps에는 다음과 같은 몇 가지 흥미로운 다른 REST 웹 서비스가 있습니다.
 
 - [공간 작업](/rest/api/maps/spatial): 복잡한 공간 계산과 작업(예: 지오펜싱)을 서비스로 오프로드합니다.
 - [트래픽](/rest/api/maps/traffic): 실시간 트래픽 흐름 및 인시던트 데이터에 액세스합니다.
@@ -121,7 +121,7 @@ Azure Maps는 다음과 같은 여러 가지 역방향 지오코딩 방법을 �
 
 [검색 관련 모범 사례](how-to-use-best-practices-for-search.md)를 검토하세요.
 
-Azure Maps 역방향 지오코딩 API에는 Google Maps에서 사용할 수 없는 몇 가지 추가 기능이 있습니다. 이러한 기능은 앱을 마이그레이션 할 때 애플리케이션과 통합하는 데 유용할 수 있습니다.
+Azure Maps 역방향 지오코딩 API에는 Google Maps에서 사용할 수 없는 몇 가지 다른 기능이 있습니다. 이러한 기능은 앱을 마이그레이션 할 때 애플리케이션과 통합하는 데 유용할 수 있습니다.
 
 * 속도 제한 데이터 검색
 * 지방 도로, 간선 도로, 진입 금지, 경사로 등의 도로 사용 정보 검색
@@ -203,7 +203,6 @@ Azure Maps 라우팅 서비스는 경로 계산을 위한 다음 API를 제공�
 
 - [**경로 계산**](/rest/api/maps/route/getroutedirections): 경로를 계산하고 요청을 즉시 처리합니다. 이 API는 GET 및 POST 요청을 모두 지원합니다. POST 요청은 많은 수의 중간 지점을 지정할 때 또는 URL 요청이 너무 길어서 문제가 발생하지 않도록 많은 경로 옵션을 사용할 때 권장되는 방법입니다. Azure Maps의 POST 경로 방향에는 수천 개의 [지원 요소](/rest/api/maps/route/postroutedirections#supportingpoints)를 사용할 수 있는 옵션이 있으며 이를 사용하여 둘 사이의 논리적 경로를 다시 만들 수 있습니다(도로에 맞춤). 
 - [**일괄 처리 경로**](/rest/api/maps/route/postroutedirectionsbatchpreview): 최대 1,000개의 경로 요청을 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터가 서버에서 병렬로 처리되며, 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
-- [**Mobility Services(미리 보기)** ](/rest/api/maps/mobility): 대중 교통을 사용하여 경로 및 방향을 계산합니다.
 
 다음 표에서는 Google Maps API 매개 변수와 Azure Maps의 비슷한 API 매개 변수를 상호 참조합니다.
 
@@ -221,28 +220,26 @@ Azure Maps 라우팅 서비스는 경로 계산을 위한 다음 API를 제공�
 | `origin`                       | `query`                            |
 | `region`                       | *해당 없음* - 이 기능은 지오코딩과 관련이 있습니다. Azure Maps 지오코딩 API를 사용하는 경우 *countrySet* 매개 변수를 사용합니다.  |
 | `traffic_model`               | *해당 없음* – *traffic* 매개 변수에 트래픽 데이터를 사용해야 하는 경우에만 지정할 수 있습니다. |
-| `transit_mode`                | [Mobility Services(미리 보기) 설명서](/rest/api/maps/mobility) 참조 |
-| `transit_routing_preference` | [Mobility Services(미리 보기) 설명서](/rest/api/maps/mobility) 참조 |
 | `units`                        | *해당 없음* – Azure Maps는 메트릭 시스템만 사용합니다.  |
 | `waypoints`                    | `query`                            |
 
 > [!TIP]
 > 기본적으로 Azure Maps Route API는 요약만 반환합니다. 경로의 거리와 시간 및 좌표를 반환합니다. `instructionsType` 매개 변수를 사용하여 턴바이턴 지침을 검색합니다. `routeRepresentation` 매개 변수를 사용하여 요약 정보 및 경로를 필터링합니다.
 
-Azure Maps 라우팅 API에는 Google Maps에서 사용할 수 없는 추가 기능이 있습니다. 앱을 마이그레이션할 때 이러한 기능을 사용하면 유용할 수 있습니다.
+Azure Maps 라우팅 API에는 Google Maps에서 사용할 수 없는 다른 기능이 있습니다. 앱을 마이그레이션할 때 이러한 기능을 사용하면 유용할 수 있습니다.
 
 * 경로 유형 지원: 최단거리, 최단시간, 선회 및 최고연비.
-* 추가 이동 모드 지원: 버스, 오토바이, 택시, 트럭, 승합차.
+* 기타 이동 모드 지원: 버스, 오토바이, 택시, 트럭, 승합차.
 * 150개 중간 지점을 지원합니다.
 * 단일 요청에서 여러 이동 시간(기록 트래픽, 실시간 트래픽, 트래픽 없음)을 계산합니다.
-* 회피할 도로 유형(카풀 도로, 비포장 도로, 이미 사용한 도로)을 추가합니다.
+* 기타 도로 유형(카풀 도로, 비포장 도로, 이미 사용한 도로)을 회피합니다.
 * 회피할 사용자 지정 영역을 지정합니다.
 * 경로가 상승할 수 있는 고도를 제한합니다.
 * 엔진 사양에 따른 경로. 엔진 사양과 남은 연료 또는 충전량을 기반으로 내연 기관 차량이나 전기차의 경로를 계산합니다.
 * 상용 차량 경로 매개 변수를 지원합니다. 예: 차량 치수, 무게, 차축 수 및 화물 유형.
 * 최대 차량 속도를 지정합니다.
 
-이 외에도 Azure Maps의 경로 서비스는 [라우팅할 수 있는 범위 계산](/rest/api/maps/route/getrouterange)을 지원합니다. 라우팅 가능 범위를 계산하는 것을 동시선(isochrone)이라고도 합니다. 이를 위해서는 원점에서 어느 방향으로든 이동할 수 있는 영역을 포함하는 다각형을 생성해야 합니다. 모두 지정된 길이의 시간 또는 지정된 양의 연료 또는 충전량 하에서 고려해야 합니다.
+추가적으로 Azure Maps의 경로 서비스는 [라우팅할 수 있는 범위 계산](/rest/api/maps/route/getrouterange)을 지원합니다. 라우팅 가능 범위를 계산하는 것을 동시선(isochrone)이라고도 합니다. 이를 위해서는 원점에서 어느 방향으로든 이동할 수 있는 영역을 포함하는 다각형을 생성해야 합니다. 모두 지정된 길이의 시간 또는 지정된 양의 연료 또는 충전량 하에서 고려해야 합니다.
 
 [라우팅 모범 사례](how-to-use-best-practices-for-routing.md) 설명서를 검토하세요.
 
@@ -294,7 +291,7 @@ URL에서 `markers` 매개 변수를 사용하여 표식을 추가합니다. `ma
 &markers=markerStyles|markerLocation1|markerLocation2|...
 ```
 
-스타일을 더 추가하려면 다른 스타일과 위치 세트로 URL에 `markers` 매개 변수를 사용합니다.
+다른 스타일을 추가하려면 다른 스타일과 위치 세트로 URL에 `markers` 매개 변수를 사용합니다.
 
 "위도,경도" 형식으로 표식 위치를 지정합니다.
 
@@ -325,7 +322,7 @@ URL에 `pins` 매개 변수를 지정하여 정적 맵 이미지에 표식을 �
 &pins=iconType|pinStyles||pinLocation1|pinLocation2|...
 ```
 
-추가 스타일을 사용하려면 다른 스타일과 위치 세트로 URL에 `pins` 매개 변수를 더 추가합니다.
+다른 스타일을 사용하려면 다른 스타일과 위치 세트로 URL에 `pins` 매개 변수를 더 추가합니다.
 
 Azure Maps에서 핀 위치는 "경도 위도" 형식이어야 합니다. Google Maps는 "위도,경도" 형식을 사용합니다. Azure Maps 형식에는 쉼표가 아닌 공백이 경도와 위도를 구분합니다.
 
@@ -375,7 +372,7 @@ URL에 `path` 매개 변수를 사용하여 정적 맵 이미지에 선과 다�
 &path=pathStyles|pathLocation1|pathLocation2|...
 ```
 
-다른 스타일과 위치 세트를 사용하여 URL에 `path` 매개 변수를 추가하여 추가 스타일을 사용합니다.
+다른 스타일과 위치 세트를 사용하여 URL에 `path` 매개 변수를 더 추가하여 다른 스타일을 사용합니다.
 
 경로 위치는 `latitude1,longitude1|latitude2,longitude2|…` 형식으로 지정됩니다. 경로는 인코딩할 수도 있고, 지점의 주소를 포함할 수도 있습니다.
 
@@ -402,7 +399,7 @@ URL에 `path` 매개 변수를 지정하여 정적 맵 이미지에 선과 다�
 &path=pathStyles||pathLocation1|pathLocation2|...
 ```
 
-경로 위치의 경우, Azure Maps에서는 좌표가 "경도 위도" 형식이어야 합니다. Google Maps는 "위도,경도" 형식을 사용합니다. Azure Maps 형식에는 쉼표가 아닌 공백이 경도와 위도를 구분합니다. Azure Maps는 지점에 대해 인코딩된 경로 또는 주소를 지원하지 않습니다. [여기](how-to-render-custom-data.md#get-data-from-azure-maps-data-storage)에 설명된 대로 더 큰 데이터 세트는 Azure Maps 데이터 스토리지 API에 GeoJSON 파일로 업로드합니다.
+경로 위치의 경우, Azure Maps에서는 좌표가 "경도 위도" 형식이어야 합니다. Google Maps는 "위도,경도" 형식을 사용합니다. Azure Maps 형식에는 쉼표가 아닌 공백이 경도와 위도를 구분합니다. Azure Maps는 지점에 대해 인코딩된 경로 또는 주소를 지원하지 않습니다. [여기](how-to-render-custom-data.md#upload-pins-and-path-data)에 설명된 대로 더 큰 데이터 세트는 Azure Maps 데이터 스토리지 API에 GeoJSON 파일로 업로드합니다.
 
 `optionNameValue` 형식으로 경로 스타일을 추가합니다. 여러 스타일은 파이프(\|) 문자로 구분합니다(예: `optionName1Value1|optionName2Value2`). 옵션 이름과 값은 분리되지 않습니다. 다음 스타일 옵션 이름을 사용하여 Azure Maps에서 경로 스타일을 지정합니다.
 
@@ -468,7 +465,7 @@ Azure Maps는 좌표의 표준 시간대를 검색할 수 있는 API를 제공�
 | `location`                  | `query`             |
 | `timestamp`                 | `timeStamp`         |
 
-이 API 외에도 Azure Maps는 다수의 표준 시간대 API를 제공합니다. 이러한 API는 표준 시간대의 이름이나 ID를 기반으로 시간을 변환합니다.
+이 API 외에도 Azure Maps는 많은 표준 시간대 API를 제공합니다. 이러한 API는 표준 시간대의 이름이나 ID를 기반으로 시간을 변환합니다.
 
 - [**ID 기준 표준 시간대**](/rest/api/maps/timezone/gettimezonebyid): 지정된 IANA 표준 시간대 ID의 현재, 과거 및 미래 표준 시간대 정보를 반환합니다.
 - [**표준 시간대 Enum IANA**](/rest/api/maps/timezone/gettimezoneenumiana): IANA 표준 시간대 ID 전체 목록을 반환합니다. IANA 서비스 업데이트는 하루 이내에 시스템에 반영됩니다.

@@ -1,15 +1,15 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 9dc3c9154eeacb452d3df72e43d8fa773f282c65
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: fb054bf82e6f4e55dfcd6f23575fa35e40400845
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110487243"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114400142"
 ---
 이 자습서에서는 구성 요소를 사용하여 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 빌드하고, IoT 허브에 연결하고, Azure IoT 탐색기 도구를 사용하여 허브로 전송된 정보를 확인하는 방법을 보여 줍니다. 샘플 애플리케이션은 C로 작성되었으며 C용 Azure IoT 디바이스 SDK에 포함되어 있습니다. 솔루션 빌더는 디바이스 코드를 볼 필요 없이 Azure IoT 탐색기 도구를 사용하여 IoT 플러그 앤 플레이 디바이스의 기능을 이해할 수 있습니다.
 
@@ -61,7 +61,7 @@ Windows에서 이 자습서를 완료하려면 로컬 Windows 환경에 다음 �
 
 ## <a name="download-the-code"></a>코드 다운로드
 
-[빠른 시작: Linux 또는 Windows에서 실행되는 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 IoT Hub(C)에 연결](../articles/iot-pnp/quickstart-connect-device.md)을 완료한 경우 이미 코드를 다운로드한 것입니다.
+[자습서: Linux 또는 Windows에서 실행되는 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 IoT Hub(C)에 연결](../articles/iot-develop/tutorial-connect-device.md)을 완료한 경우 이미 코드를 다운로드한 것입니다.
 
 이 자습서에서는 Azure IoT Hub Device C SDK를 복제하고 빌드하는 데 사용할 수 있는 개발 환경을 준비합니다.
 
@@ -84,7 +84,7 @@ Visual Studio를 사용하거나 명령줄에서 `cmake`를 사용하여 코드�
 1. 복제된 리포지토리의 루트 폴더를 엽니다. 몇 초 후에 Visual Studio에서 **CMake** 지원은 프로젝트를 실행하고 디버그하는 데 필요한 모든 작업을 만듭니다.
 1. Visual Studio가 준비되면 **솔루션 탐색기** 에서 *iothub_client/samples/pnp/pnp_temperature_controller/* 샘플로 이동합니다.
 1. *pnp_temperature_controller.c* 파일을 마우스 오른쪽 단추로 클릭하고 **디버그 구성 추가** 를 선택합니다. **기본값** 을 선택합니다.
-1. Visual Studio에서 *launch.vs.json* 파일을 엽니다. 필요한 환경 변수를 설정하려면 다음 코드 조각에 나와 있는 것처럼 이 파일을 편집합니다. [IoT 플러그 앤 플레이 빠른 시작 및 자습서에 대한 환경 설정](../articles/iot-pnp/set-up-environment.md)을 완료할 때 범위 ID 및 등록 기본 키를 적어 두었습니다.
+1. Visual Studio에서 *launch.vs.json* 파일을 엽니다. 필요한 환경 변수를 설정하려면 다음 코드 조각에 나와 있는 것처럼 이 파일을 편집합니다. [IoT 플러그 앤 플레이 빠른 시작 및 자습서에 대한 환경 설정](../articles/iot-develop/set-up-environment.md)을 완료할 때 범위 ID 및 등록 기본 키를 적어 두었습니다.
 
     ```json
     {
@@ -162,7 +162,7 @@ Visual Studio를 사용하거나 명령줄에서 `cmake`를 사용하여 코드�
 
 ## <a name="review-the-code"></a>코드 검토
 
-이 샘플은 IoT 플러그 앤 플레이 온도 컨트롤러 디바이스를 구현합니다. 이 샘플에서는 [여러 구성 요소](../articles/iot-pnp/concepts-modeling-guide.md)를 사용하여 모델을 구현합니다. [온도 디바이스용 DTDL(Digital Twins 정의 언어) 모델 파일](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json)은 디바이스에서 구현하는 원격 분석, 속성 및 명령을 정의합니다.
+이 샘플은 IoT 플러그 앤 플레이 온도 컨트롤러 디바이스를 구현합니다. 이 샘플에서는 [여러 구성 요소](../articles/iot-develop/concepts-modeling-guide.md)를 사용하여 모델을 구현합니다. [온도 디바이스용 DTDL(Digital Twins 정의 언어) 모델 파일](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json)은 디바이스에서 구현하는 원격 분석, 속성 및 명령을 정의합니다.
 
 ### <a name="iot-plug-and-play-helper-functions"></a>IoT 플러그 앤 플레이 도우미 함수
 

@@ -2,13 +2,13 @@
 title: 자습서 - 네트워크 계획 검사 목록
 description: Azure VMware Solution의 네트워크 연결 및 네트워크 포트에 대한 네트워크 요구 사항에 대해 알아봅니다.
 ms.topic: tutorial
-ms.date: 06/08/2021
-ms.openlocfilehash: 5719ec1a2495c6a225c35ec46cdf19506a10ba6f
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.date: 07/01/2021
+ms.openlocfilehash: 42400011d1dab9b1e5d869a5d96255cf67ea632c
+ms.sourcegitcommit: 75ad40bab1b3f90bb2ea2a489f8875d4b2da57e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112017274"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113640576"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Azure VMware Solution에 대한 네트워킹 계획 검사 목록 
 
@@ -23,7 +23,7 @@ Azure VMware 솔루션은 온-프레미스 및 Azure 기반 환경 또는 리소
 > * Azure VMware Solution의 DHCP 및 DNS 고려 사항
 
 ## <a name="prerequisite"></a>필수 조건
-ExpressRoute 공급자의 서비스를 포함한 모든 게이트웨이가 4바이트 ASN(자율 시스템 번호)을 지원하는지 확인합니다. Azure VMware Solution은 경고를 알리는 데 4바이트 공용 ASN을 사용합니다.
+ExpressRoute 공급자 서비스를 포함한 모든 게이트웨이가 4바이트 ASN(자율 시스템 번호)을 지원하는지 확인합니다. Azure VMware Solution은 경고를 알리는 데 4바이트 공용 ASN을 사용합니다.
 
 ## <a name="virtual-network-and-expressroute-circuit-considerations"></a>가상 네트워크 및 ExpressRoute 회로 고려 사항
 구독에서 가상 네트워크 연결을 만들 때 ExpressRoute 회로는 피어링을 통해 설정되며, 권한 부여 키, 그리고 Azure Portal에서 요청하는 피어링 ID를 사용합니다. 피어링은 프라이빗 클라우드와 가상 네트워크 간의 일대일 연결입니다.
@@ -34,6 +34,9 @@ ExpressRoute 공급자의 서비스를 포함한 모든 게이트웨이가 4바�
 프라이빗 클라우드를 배포할 때 vCenter 및 NSX-T Manager에 대한 IP 주소를 수신합니다. 이러한 관리 인터페이스에 액세스하려면 구독의 가상 네트워크에 더 많은 리소스를 만들어야 합니다. 자습서에서 이러한 리소스를 만들고 [ExpressRoute 프라이빗 피어링](tutorial-expressroute-global-reach-private-cloud.md)을 설정하는 절차를 찾을 수 있습니다.
 
 프라이빗 클라우드 논리 네트워킹에는 미리 프로비저닝된 NSX-T가 제공됩니다. 계층-0 게이트웨이 및 계층-1 게이트웨이는 사용자를 위해 미리 프로비저닝됩니다. 세그먼트를 만들고 기존 계층-1 게이트웨이에 연결하거나 정의한 새 계층-1 게이트웨이에 연결할 수 있습니다. NSX-T 논리 네트워킹 구성 요소는 워크로드 간에 동-서 연결을 제공하고 인터넷 및 Azure 서비스에 대한 북-남 연결을 제공합니다.
+
+>[!IMPORTANT]
+>[!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)] 
 
 ## <a name="routing-and-subnet-considerations"></a>라우팅 및 서브넷 고려 사항
 Azure VMware Solution 프라이빗 클라우드는 Azure ExpressRoute 연결을 사용하여 Azure 가상 네트워크에 연결됩니다. 높은 대역폭이 높고 대기 시간이 짧은 이 연결을 사용하면 프라이빗 클라우드 환경의 Azure 구독에서 실행되는 서비스에 액세스할 수 있습니다. 라우팅은 BGP(Border Gateway Protocol) 기반이며, 자동으로 프로비저닝되며, 각 프라이빗 클라우드 배포에 대해 기본적으로 사용하도록 설정됩니다. 

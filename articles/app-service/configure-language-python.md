@@ -5,18 +5,18 @@ ms.topic: quickstart
 ms.date: 06/11/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: db1650c61ae9e70955fd945527ff049e2663a174
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 333f9572e9bf5a24e7c9ac230b10f74adf5be7de
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112018066"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112963801"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Azure App Service용 Linux Python 앱 구성
 
 이 문서에서는 [Azure App Service](overview.md)에서 Python 앱을 실행하는 방법, 기존 앱을 Azure로 마이그레이션하는 방법 및 필요한 경우 App Service의 동작을 사용자 지정하는 방법에 대해 설명합니다. Python 앱을 배포할 때 모든 필수 [pip](https://pypi.org/project/pip/) 모듈을 함께 배포해야 합니다.
 
-사용자가 [Git 리포지토리](deploy-local-git.md) 또는 [Zip 패키지](deploy-zip.md)를 배포하면 App Service 배포 엔진은 자동으로 가상 환경을 활성화하고 사용자 대신 `pip install -r requirements.txt`를 실행합니다.
+사용자가 [Git 리포지토리](deploy-local-git.md) 또는 [빌드 자동화가 설정된](deploy-zip.md#enable-build-automation) [zip 패키지](deploy-zip.md)를 배포하면 App Service 배포 엔진이 자동으로 가상 환경을 활성화하고 `pip install -r requirements.txt`를 실행합니다.
 
 이 가이드에서는 App Service의 기본 제공 Linux 컨테이너를 사용하는 Python 개발자를 위한 주요 개념과 지침을 제공합니다. Azure App Service를 사용한 경험이 없는 경우 먼저 [Python 빠른 시작](quickstart-python.md) 및 [PostgreSQL을 사용하는 Python 자습서](tutorial-python-postgresql-app.md)를 수행해야 합니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "112018066"
 
 ## <a name="customize-build-automation"></a>빌드 자동화 사용자 지정
 
-사용자가 Git 또는 Zip 패키지를 사용하여 앱을 배포할 때 Oryx라고 하는 App Service의 빌드 시스템은 다음 단계를 수행합니다.
+앱 설정 `SCM_DO_BUILD_DURING_DEPLOYMENT`가 `1`로 설정된 경우 사용자가 앱을 배포하면 Oryx라는 App Service의 빌드 시스템이 다음 단계를 수행합니다.
 
 1. `PRE_BUILD_COMMAND` 설정을 통해 지정한 경우 사용자 지정 빌드 전 스크립트를 실행합니다. (스크립트는 다른 Python 및 Node.js 스크립트, pip 및 npm 명령, yarn과 같은 노드 기반 도구(예: `yarn install` 및 `yarn build`)를 실행할 수 있습니다.)
 
@@ -326,7 +326,7 @@ db_server = os.environ['DATABASE_SERVER']
 
 ## <a name="detect-https-session"></a>HTTPS 세션 검색
 
-App Service에서, [SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)(wikipedia.org)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 앱 논리에서 사용자 요청의 암호화 여부를 확인해야 하는 경우 `X-Forwarded-Proto` 헤더를 검사합니다.
+App Service에서, [TLS/SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)(wikipedia.org)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 앱 논리에서 사용자 요청의 암호화 여부를 확인해야 하는 경우 `X-Forwarded-Proto` 헤더를 검사합니다.
 
 ```python
 if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto'] == 'https':
@@ -440,4 +440,4 @@ Django 앱을 사용하여 데이터베이스 마이그레이션을 실행하려
 > [자습서: 프라이빗 컨테이너 리포지토리에서 배포](tutorial-custom-container.md?pivots=container-linux)
 
 > [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.md)
+> [App Service Linux FAQ](faq-app-service-linux.yml)

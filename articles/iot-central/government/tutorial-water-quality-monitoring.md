@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: bdebe0d29f6ef781cc4b4747ff80010eeac9ff7e
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: fdab861cc122fe738cce4da049154ecb4039ca65
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684256"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588978"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>자습서: Azure IoT Central에서 용수 품질 모니터링 애플리케이션 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "109684256"
 
 > [!div class="checklist"]
 > * **용수 품질 모니터링** 템플릿을 사용하여 용수 품질 모니터링 애플리케이션을 만듭니다.
-> * 운영자 대시보드를 살펴보고 사용자 지정합니다.
+> * 대시보드를 탐색하고 사용자 지정합니다.
 > * 용수 품질 모니터링 디바이스 템플릿을 살펴봅니다.
 > * 시뮬레이션된 디바이스를 살펴봅니다.
 > * 규칙을 살펴보고 구성합니다.
@@ -48,7 +48,7 @@ ms.locfileid: "109684256"
 
     ![정부 애플리케이션 템플릿](./media/tutorial-waterqualitymonitoring/iotcentral-government-tab-overview1.png)
 
-1. **용수 품질 모니터링** 애플리케이션 템플릿을 선택합니다. 이 애플리케이션 템플릿에는 용수 품질 디바이스 템플릿, 시뮬레이션된 디바이스, 운영자 대시보드 및 미리 구성된 모니터링 규칙이 포함되어 있습니다.
+1. **용수 품질 모니터링** 애플리케이션 템플릿을 선택합니다. 이 애플리케이션 템플릿에는 용수 품질 디바이스 템플릿, 시뮬레이션된 디바이스, 대시보드 및 미리 구성된 모니터링 규칙이 포함되어 있습니다.
 
 1. **앱 만들기** 를 선택합니다. **새 애플리케이션** 창이 열리고 다음 요소가 표시됩니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "109684256"
 
 새 애플리케이션에서 제공하는 미리 구성된 구성 요소는 다음과 같습니다.
 
-* 운영자 대시보드
+* 대시보드
 * 용수 품질 모니터링 디바이스 템플릿
 * 시뮬레이션된 용수 품질 모니터링 디바이스
 * 규칙 및 작업
@@ -76,7 +76,7 @@ ms.locfileid: "109684256"
 
 다음으로, 애플리케이션을 살펴보고 일부 사용자 지정을 수행합니다.
 
-## <a name="explore-and-customize-the-operator-dashboard"></a>운영자 대시보드 살펴보기 및 사용자 지정
+## <a name="explore-and-customize-the-dashboard"></a>대시보드 탐색 및 사용자 지정
 
 애플리케이션이 만들어지면 **Wide World 용수 품질 대시보드** 창이 열립니다.
 
@@ -92,7 +92,7 @@ ms.locfileid: "109684256"
 
 * **평균 pH KPI 타일**: **지난 30분 동안 평균 pH** 와 같은 KPI 타일은 대시보드 창의 위쪽에 있습니다. KPI 타일을 사용자 지정하고, 각 타일을 다른 유형 및 시간 범위로 설정할 수 있습니다.
 
-* **용수 모니터링 영역 지도**: Azure IoT Central은 애플리케이션에서 직접 설정하여 디바이스 위치를 표시할 수 있는 Azure Maps를 사용합니다. 또한 애플리케이션의 위치 정보를 디바이스에 매핑한 다음, Azure Maps를 사용하여 정보를 지도에 표시할 수도 있습니다. 마우스로 지도 위를 가리키며 컨트롤을 사용해 보세요.
+* **용수 모니터링 영역 지도**: Azure IoT Central은 애플리케이션에서 직접 설정하여 디바이스 [위치](../core/howto-use-location-data.md)를 표시할 수 있는 Azure Maps를 사용합니다. 또한 애플리케이션의 위치 정보를 디바이스에 매핑한 다음, Azure Maps를 사용하여 정보를 지도에 표시할 수도 있습니다. 마우스로 지도 위를 가리키며 컨트롤을 사용해 보세요.
 
 * **평균 pH 분포 열 지도 차트**: 다양한 시각화 차트를 선택하여 디바이스 원격 분석을 애플리케이션에 가장 적합한 방식으로 표시할 수 있습니다.
 

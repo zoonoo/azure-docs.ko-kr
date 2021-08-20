@@ -3,12 +3,12 @@ title: '자습서: 사용자 지정 정책 정의 만들기'
 description: 이 자습서에서는 Azure Policy에 대한 사용자 지정 정책 정의를 만들어 사용자 지정 비즈니스 규칙을 Azure 리소스에 적용합니다.
 ms.date: 03/31/2021
 ms.topic: tutorial
-ms.openlocfilehash: 1cd88481e84fd334b95a5969fb7f4fa268e30cf5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 51b1f71985bde3a405b56514078e905042340321
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752132"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362155"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>자습서: 사용자 지정 정책 정의 만들기
 
@@ -66,7 +66,7 @@ Azure 리소스의 속성을 확인하는 방법은 여러 가지가 있습니�
 
 ### <a name="arm-templates"></a>ARM 템플릿
 
-관리하려는 속성이 포함된 [ARM](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md)을 찾는 여러 가지 방법이 있습니다.
+관리하려는 속성이 포함된 [ARM 템플릿](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md)을 찾는 여러 가지 방법이 있습니다.
 
 #### <a name="existing-resource-in-the-portal"></a>포털의 기존 리소스
 

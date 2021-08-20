@@ -5,13 +5,13 @@ author: dcstwh
 ms.author: weetok
 ms.service: data-factory
 ms.topic: overview
-ms.date: 09/30/2019
-ms.openlocfilehash: f5259294734b3b0c33835759beadb2ad4e1089a9
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 06/08/2021
+ms.openlocfilehash: 0a11f8954637fe93aa8d0dc5ee8266347d822ded
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744722"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362472"
 ---
 # <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요?
 
@@ -37,11 +37,11 @@ Azure Data Factory는 그러한 데이터 시나리오를 해결하는 플랫폼
 
 Data Factory에는 데이터 엔지니어에게 완벽한 엔드투엔드 플랫폼을 제공하는 일련의 상호 연결된 시스템이 포함되어 있습니다.
 
-이 시각적 개체 가이드에서는 Data Factory 아키텍처에 대한 개략적인 개요를 제공합니다.
+이 시각적 개체 가이드에서는 Data Factory 아키텍처에 대해 간략하게 설명합니다.
 
 :::image type="content" source="media\introduction\data-factory-visual-guide-small.png" alt-text="단일 고해상도 이미지로 제공되는 Azure Data Factory의 전체 시스템 아키텍처에 대한 자세한 시각적 가이드입니다." lightbox="media\introduction\data-factory-visual-guide.png":::
 
-자세한 내용을 보려면 위의 이미지를 클릭하여 확대하거나 [고해상도 이미지](/azure/data-factory/media/introduction/data-factory-visual-guide.png#lightbox)로 이동하세요. 
+자세한 내용을 보려면 위의 이미지를 클릭하여 확대하거나 [고해상도 이미지](/azure/data-factory/media/introduction/data-factory-visual-guide.png)로 이동하세요. 
 
 ### <a name="connect-and-collect"></a>연결 및 수집
 
@@ -96,6 +96,9 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 데�
 - SQL Server 데이터베이스, Oracle 데이터베이스, 파일 공유 또는 Azure Blob 스토리지 계정을 포함하지만 여기에 국한되지 않는 **데이터 저장소** 를 나타내기 위해 사용됩니다. 지원되는 데이터 저장소 목록은 [복사 작업](copy-activity-overview.md) 문서를 참조하세요.
 
 - 활동의 실행을 호스팅할 수 있는 **컴퓨팅 리소스** 를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 변환 작업 및 지원되는 컴퓨팅 환경 목록은 [데이터 변환](transform-data.md) 문서를 참조하세요.
+
+### <a name="integration-runtime"></a>통합 런타임
+Data Factory에서 작업은 수행할 작업을 정의합니다. 연결된 서비스는 대상 데이터 저장소 또는 컴퓨팅 서비스를 정의합니다. 통합 런타임은 작업과 연결된 서비스 간의 브리지를 제공합니다.  연결된 서비스 또는 작업에서 참조되며 작업이 실행되거나 디스패치되는 컴퓨팅 환경을 제공합니다. 이러한 방식으로 보안 및 준수 요구를 충족하면서 가장 성능이 뛰어난 방법으로 대상 데이터 저장소 또는 컴퓨팅 서비스에 가능하면 가장 가까운 영역에서 작업을 수행할 수 있습니다.
 
 ### <a name="triggers"></a>트리거
 트리거는 파이프라인 실행을 시작해야 하는 시기를 결정하는 처리 단위를 나타냅니다. 다양한 유형의 이벤트에 대한 다른 종류의 트리거가 있습니다.

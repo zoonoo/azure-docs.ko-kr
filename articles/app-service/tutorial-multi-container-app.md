@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/31/2020
 ms.author: msangapu
 ms.custom: cli-validate, devx-track-azurecli
-ms.openlocfilehash: dee00c6f733cfbebf68276ee4b54f91b8e2cb35b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: b9a3880c88224906e68054475233e8d8ce02476a
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765542"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964971"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>자습서: Web App for Containers에서 다중 컨테이너(미리 보기) 앱 만들기
 
@@ -203,7 +203,7 @@ az mysql db create --resource-group myResourceGroup --server-name <mysql-server-
 
 ### <a name="configure-database-variables-in-wordpress"></a>WordPress의 데이터베이스 변수 구성
 
-WordPress 앱을 이 새 MySQL 서버에 연결하려면 `MYSQL_SSL_CA`에서 정의된 SSL CA 경로를 포함하여 몇 가지 WordPress 관련 환경 변수를 구성합니다. [DigiCert](https://www.digicert.com/)의 [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm)는 아래의 [사용자 지정 이미지](#use-a-custom-image-for-mysql-ssl-and-other-configurations)에서 제공됩니다.
+WordPress 앱을 이 새 MySQL 서버에 연결하려면 `MYSQL_SSL_CA`에서 정의된 SSL CA 경로를 포함하여 몇 가지 WordPress 관련 환경 변수를 구성합니다. [DigiCert](https://www.digicert.com/)의 [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm)는 아래의 [사용자 지정 이미지](#use-a-custom-image-for-mysql-tlsssl-and-other-configurations)에서 제공됩니다.
 
 이렇게 변경하려면 Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) 명령을 사용합니다. 앱 설정은 대/소문자를 구분하고 공백으로 구분합니다.
 
@@ -245,9 +245,9 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
 
 환경 변수에 대한 자세한 내용은 [환경 변수 구성](configure-custom-container.md#configure-environment-variables)을 참조하세요.
 
-### <a name="use-a-custom-image-for-mysql-ssl-and-other-configurations"></a>MySQL SSL 및 기타 구성에 사용자 지정 이미지 사용
+### <a name="use-a-custom-image-for-mysql-tlsssl-and-other-configurations"></a>MySQL TLS/SSL 및 기타 구성에 사용자 지정 이미지 사용
 
-SSL은 기본적으로 Azure Database for MySQL에서 사용됩니다. WordPress에는 MySQL에서 SSL을 사용하기 위한 추가 구성이 필요합니다. WordPress '공식 이미지'는 추가 구성을 제공하지 않지만, 사용자의 편의를 위해 [사용자 지정 이미지](https://github.com/Azure-Samples/multicontainerwordpress)가 준비되어 있습니다. 실제로 원하는 변경 내용을 자신의 이미지에 추가합니다.
+TLS/SSL은 기본적으로 Azure Database for MySQL에서 사용됩니다. WordPress에는 MySQL에서 TLS/SSL을 사용하기 위한 추가 구성이 필요합니다. WordPress '공식 이미지'는 추가 구성을 제공하지 않지만, 사용자의 편의를 위해 [사용자 지정 이미지](https://github.com/Azure-Samples/multicontainerwordpress)가 준비되어 있습니다. 실제로 원하는 변경 내용을 자신의 이미지에 추가합니다.
 
 사용자 지정 이미지는 [Docker 허브의 WordPress](https://hub.docker.com/_/wordpress/) '공식 이미지'를 기반으로 합니다. Azure Database for MySQL에 대한 이 사용자 지정 이미지는 다음과 같이 변경되었습니다.
 

@@ -8,16 +8,16 @@ ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: danimir
-ms.author: danil
+author: misliplavo
+ms.author: mlazic
 ms.reviewer: mathoma
 ms.date: 12/14/2018
-ms.openlocfilehash: 492f7b505d87c56a8ec41d6ee7c31a12795b1ca7
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 31cdd093db7f687ecf1e35e655cff469a03a8fec
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110692890"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690370"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>빠른 시작: SSMS를 사용하여 Azure SQL Managed Instance로 데이터베이스 복원
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,10 +27,10 @@ ms.locfileid: "110692890"
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
-> Azure Database Migration Service를 사용하여 마이그레이션하는 방법에 대한 자세한 내용은 [Database Migration Service를 사용한 SQL Managed Instance 마이그레이션](../../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
-> 다양한 마이그레이션 방법에 대한 자세한 내용은 [SQL Server를 Azure SQL Managed Instance로 마이그레이션](migrate-to-instance-from-sql-server.md)을 참조하세요.
+> Azure Database Migration Service를 사용하여 마이그레이션하는 방법에 대한 자세한 내용은 [자습서: Database Migration Service를 사용하여 SQL Server를 Azure Managed Instance로 마이그레이션](../../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
+> 다양한 마이그레이션 방법에 대한 자세한 내용은 [SQL Server를 Azure SQL Managed Instance로 마이그레이션 가이드](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작의 특징은 다음과 같습니다.
 

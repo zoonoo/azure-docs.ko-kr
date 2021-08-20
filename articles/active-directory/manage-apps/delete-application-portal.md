@@ -1,23 +1,25 @@
 ---
-title: '빠른 시작: Azure AD(Azure Active Directory) 테넌트에서 애플리케이션 삭제'
+title: '빠른 시작: 테넌트에서 애플리케이션 삭제'
+titleSuffix: Azure AD
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure AD(Azure Active Directory) 테넌트에서 애플리케이션을 삭제합니다.
 services: active-directory
-author: mtillman
+author: davidmu
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 1/5/2021
-ms.author: mtillman
-ms.openlocfilehash: 70129123a842ef123992df4614fa7b9a35a774b9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 07/23/2021
+ms.author: davidmu
+ms.reviewer: alamaral
+ms.openlocfilehash: 04e4e011773426b5be7f6ef9c00f7969c35d20fd
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075901"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668427"
 ---
-# <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트에서 애플리케이션 삭제
+# <a name="quickstart-delete-an-application-from-your-tenant"></a>빠른 시작: 테넌트에서 애플리케이션 삭제
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure AD(Azure Active Directory) 테넌트에 추가된 애플리케이션을 삭제합니다.
 
@@ -38,13 +40,18 @@ Azure AD 테넌트에서 애플리케이션을 삭제하려면 다음이 필요�
 >[!IMPORTANT]
 >비 프로덕션 환경을 사용하여 이 빠른 시작의 단계를 테스트합니다.
 
+> [!NOTE]
+>Azure AD에서 애플리케이션을 삭제하려면 사용자에게 글로벌 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 관리자 또는 서비스 주체 소유자 역할 중 하나를 할당해야 합니다.
+
 ## <a name="delete-an-application-from-your-azure-ad-tenant"></a>Azure AD 테넌트에서 애플리케이션 삭제
 
 Azure AD 테넌트에서 애플리케이션을 삭제하려면 다음을 수행합니다.
 
-1. Azure AD Portal에서 **엔터프라이즈 애플리케이션** 을 선택합니다. 그런 다음, 삭제하려는 애플리케이션을 찾아서 선택합니다. 이 경우 이전 빠른 시작에서 추가한 **GitHub_test** 애플리케이션이 삭제됩니다.
+1. Azure AD Portal에서 **엔터프라이즈 애플리케이션** 을 선택합니다. 그런 다음, 삭제하려는 애플리케이션을 찾아서 선택합니다. 이 경우 **360 Online** 을 삭제하려고 합니다.
 1. 왼쪽 창의 **관리** 섹션에서 **속성** 을 선택합니다.
 1. **삭제** 를 선택한 다음, **예** 를 선택하여 Azure AD 테넌트에서 앱을 삭제할지 확인합니다.
+
+:::image type="content" source="media/add-application-portal/delete-application.png" alt-text="로고를 변경하는 방법을 보여 주는 속성 화면의 스크린샷.":::
 
 > [!TIP]
 > Graph API를 사용하여 앱 관리를 자동화할 수 있습니다. [Microsoft Graph API를 사용하여 앱 관리 자동화](/graph/application-saml-sso-configure-api)를 참조하세요.

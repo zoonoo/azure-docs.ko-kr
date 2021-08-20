@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 30abc4a5a1431800cef2bcbda6f5eeedf9a216a3
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: ee3825a7c93396eca4ba6fd6a65b90eddb5b4c8c
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107874642"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113438299"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>자습서: IoT Edge 모듈로 Azure Functions 배포
 
@@ -77,7 +77,7 @@ Azure Functions를 사용하여 IoT Edge 모듈을 개발하려면 다음과 같
 
    ![Docker 이미지 리포지토리 제공](./media/tutorial-deploy-function/repository.png)
 
-### <a name="add-your-registry-credentials&quot;></a>레지스트리 자격 증명 추가
+### <a name="add-your-registry-credentials"></a>레지스트리 자격 증명 추가
 
 환경 파일은 컨테이너 레지스트리의 자격 증명을 저장하고 IoT Edge 런타임과 공유합니다. 이러한 자격 증명은 런타임에서 프라이빗 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다.
 
@@ -87,7 +87,10 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
 2. 필드를 Azure 컨테이너 레지스트리에서 복사한 **사용자 이름** 및 **암호** 값으로 업데이트합니다.
 3. 이 파일을 저장합니다.
 
-### <a name=&quot;select-your-target-architecture&quot;></a>대상 아키텍처 선택
+>[!NOTE]
+>이 자습서에서는 개발 및 테스트 시나리오에 편리하게 사용할 수 있는 관리자 로그인 자격 증명을 Azure Container Registry에 사용합니다. 프로덕션 시나리오에 사용할 준비가 되면 서비스 주체 같은 최소 권한 인증 옵션을 사용하는 것이 좋습니다. 자세한 내용은 [컨테이너 레지스트리에 대한 액세스 관리](production-checklist.md#manage-access-to-your-container-registry)를 참조하세요.
+
+### <a name="select-your-target-architecture"></a>대상 아키텍처 선택
 
 현재, Visual Studio Code에서는 Linux AMD64 및 Linux ARM32v7 디바이스용 C 모듈을 개발할 수 있습니다. 컨테이너는 아키텍처 유형별로 다르게 빌드되고 실행되므로 각 솔루션에서 대상으로 지정할 대상 아키텍처를 선택해야 합니다. 기본값은 Linux AMD64입니다.
 
@@ -95,7 +98,7 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
 
 2. 명령 팔레트의 옵션 목록에서 대상 아키텍처를 선택합니다. 이 자습서에서는 Ubuntu 가상 머신을 IoT Edge 디바이스로 사용할 예정이므로 기본값인 **amd64** 를 그대로 둡니다.
 
-### <a name=&quot;update-the-module-with-custom-code&quot;></a>사용자 지정 코드를 사용하여 모듈 업데이트
+### <a name="update-the-module-with-custom-code"></a>사용자 지정 코드를 사용하여 모듈 업데이트
 
 IoT Hub에 전달하기 전에 모듈이 에지에서 메시지를 처리하도록 몇 가지 추가 코드를 추가해보겠습니다.
 
@@ -120,7 +123,7 @@ IoT Hub에 전달하기 전에 모듈이 에지에서 메시지를 처리하도�
    {
        public static class CSharpFunction
        {
-           [FunctionName(&quot;CSharpFunction")]
+           [FunctionName("CSharpFunction")]
            public static async Task FilterMessageAndSendMessage(
                [EdgeHubTrigger("input1")] Message messageReceived,
                [EdgeHub(OutputName = "output1")] IAsyncCollector<Message> output,

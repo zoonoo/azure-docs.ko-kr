@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: d9ea89d63582a460fcbde2f5568801d41729f5bf
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ab791fbbedbcb18df6a43b00a40fe6fb0fbd8181
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110163861"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113279807"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
@@ -31,7 +31,7 @@ Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 �
 
 ## <a name="create-a-speech-configuration"></a>음성 구성 만들기
 
-음성 SDK를 사용하여 음성 서비스를 호출하려면 [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig)를 만들어야 합니다. 이 클래스에는 키 및 연결된 지역, 엔드포인트, 호스트 또는 권한 부여 토큰과 같은 구독에 대한 정보가 포함됩니다. 키와 지역을 사용하여 [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig)를 만듭니다. 키-지역 쌍을 찾으려면 [키 및 지역 찾기](../../../overview.md#find-keys-and-region) 페이지를 참조하세요.
+음성 SDK를 사용하여 음성 서비스를 호출하려면 [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig)를 만들어야 합니다. 이 클래스에는 키 및 관련 위치/지역, 엔드포인트, 호스트 또는 권한 부여 토큰과 같은 구독 정보가 포함됩니다. 키와 위치/지역을 사용하여 [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig)를 만듭니다. 키-위치/지역 쌍을 찾으려면 [키 및 위치/지역 찾기](../../../overview.md#find-keys-and-locationregion) 페이지를 참조하세요.
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;
@@ -248,7 +248,7 @@ config.setSpeechRecognitionLanguage("fr-FR");
 > [!IMPORTANT]
 > 구문 목록 기능은 en-US, de-DE, en-AU, en-CA, en-GB, en-IN, es-ES, fr-FR, it-IT, ja-JP, pt-BR, zh-CN의 언어로 제공됩니다.
 >
-> 다른 로캘의 경우 및 구문이 많은 경우 [사용자 지정 모델을 학습](../../../custom-speech-overview.md)하는 것이 정확도를 개선하는 더 나은 선택일 수 있습니다.
+> 구 목록 기능에서 사용하는 구를 수백 개 이하로 제한해야 합니다. 현재 지원되지 않는 더 큰 목록이나 언어의 경우 [사용자 지정 모델을 학습](../../../custom-speech-overview.md)하는 것이 정확도를 향상시키는 더 나은 선택일 수 있습니다.
 >
 > 사용자 지정 엔드포인트에는 구문 목록 기능을 사용하지 마세요. 대신 구를 포함하는 사용자 지정 모델을 학습하세요.
 

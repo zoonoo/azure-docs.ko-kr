@@ -1,97 +1,59 @@
 ---
 title: Azure Active Directory의 디바이스 ID란?
-description: 디바이스 ID 관리가 사용자 환경의 리소스에 액세스하는 디바이스를 관리하는 데 어떻게 도움이 되는지 알아봅니다.
+description: 디바이스 ID 및 관련 사용 사례
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 07/20/2020
+ms.date: 06/09/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: sandeo
+ms.reviewer: sandeo, ravenn, spunukol, jogro, jploegert
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8399f7101697af429b8c073c101dbfea203e98ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ccb47e7600b50223ea0247c678a73ced4c86be3
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87025594"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302982"
 ---
 # <a name="what-is-a-device-identity"></a>디바이스 ID란?
 
-모든 형태와 크기의 디바이스 및 BYOD(Bring Your Own Device) 개념이 확산됨에 따라 IT 전문가는 다음 두 가지 대립되는 목표에 직면하고 있습니다.
-
-- 최종 사용자가 언제 어디서나 생산성을 높일 수 있도록 허용
-- 조직의 자산 보호
-
-이와 같은 자산을 보호하려면 IT 직원이 먼저 디바이스 ID를 관리해야 합니다. IT 직원은 Microsoft Intune 같은 도구를 통해 디바이스 ID를 기반으로 빌드하여 보안 및 규정 준수의 표준을 충족하는지 확인할 수 있습니다. Azure AD(Azure Active Directory)에서는 이 디바이스를 통해 어디에서든지 디바이스, 앱 및 서비스에 대해 Single Sign-On을 수행할 수 있습니다.
-
-- 사용자가 필요한 조직 자산에 액세스할 수 있습니다. 
-- IT 직원은 조직을 보호하는 데 필요한 컨트롤을 얻습니다.
-
-디바이스 ID 관리는 [디바이스 기반의 조건부 액세스](../conditional-access/require-managed-devices.md)에 대한 기반입니다. 디바이스 기반의 조건부 액세스 정책을 사용할 경우 관리 디바이스를 통해서만 환경의 리소스에 액세스하도록 할 수 있습니다.
-
-## <a name="getting-devices-in-azure-ad"></a>Azure AD에서 디바이스 가져오기
-
-Azure AD에서 디바이스를 가져올 수 있는 여러 가지 옵션이 있습니다.
-
-- **Azure AD 등록**
-   - Azure AD 등록 상태의 디바이스는 일반적으로 개인 소유이거나 모바일 디바이스이며 개인 Microsoft 계정 또는 다른 로컬 계정으로 로그인됩니다.
-      - 윈도우 10
-      - iOS
-      - Android
-      - MacOS
-- **Azure AD 조인**
-   - Azure AD 조인 디바이스는 조직이 소유하며 조직에 속한 Azure AD 계정으로 로그인됩니다. 이 디바이스는 클라우드에만 존재합니다.
-      - 윈도우 10 
-      - [Azure에서 실행되는 Windows Server 2019 Virtual Machines](howto-vm-sign-in-azure-ad-windows.md)(서버 코어는 지원되지 않음)
-- **하이브리드 Azure AD 조인**
-   - 하이브리드 Azure AD 조인 디바이스는 조직이 소유하며 해당 조직에 속한 Active Directory Domain Services 계정으로 로그인됩니다. 이 디바이스는 클라우드와 온-프레미스에 존재합니다.
-      - Windows 7, 8.1 또는 10
-      - Windows Server 2008 이상
+[디바이스 ID](/graph/api/resources/device?view=graph-rest-1.0)는 Azure AD(Azure Active Directory)의 개체입니다. 이 디바이스 개체는 사용자, 그룹 또는 애플리케이션과 비슷합니다. 디바이스 ID는 액세스 또는 구성 결정을 내릴 때 사용할 수 있는 정보를 관리자에게 제공합니다.
 
 ![Azure AD 디바이스 블레이드에 표시된 디바이스](./media/overview/azure-active-directory-devices-all-devices.png)
 
-> [!NOTE]
-> 하이브리드 상태는 디바이스 상태를 초과하는 것을 나타냅니다. 하이브리드 상태가 유효하려면 유효한 Azure AD 사용자도 필요합니다.
+디바이스 ID를 가져오는 세 가지 방법은 다음과 같습니다.
 
-## <a name="device-management"></a>디바이스 관리
+- Azure AD 등록
+- Azure AD 조인
+- 하이브리드 Azure AD 조인
 
-Azure AD의 디바이스는 Microsoft Intune, Microsoft Endpoint Configuration Manager, 그룹 정책(하이브리드 Azure AD 조인), MAM(모바일 애플리케이션 관리) 도구 또는 기타 타사 도구와 같은 MDM(모바일 디바이스 관리) 도구를 사용하여 관리할 수 있습니다.
+디바이스 ID는 [디바이스 기반 조건부 액세스 정책](../conditional-access/require-managed-devices.md) 및 [Microsoft Endpoint Manager를 사용한 모바일 디바이스 관리](/mem/endpoint-manager-overview) 같은 시나리오의 필수 조건입니다.
+
+## <a name="modern-device-scenario"></a>최신 디바이스 시나리오
+
+최신 디바이스 시나리오는 다음 두 가지 방법에 중점을 둡니다. 
+
+- [Azure AD 등록](concept-azure-ad-register.md) 
+   - BYOD(Bring Your Own Device)
+   - 모바일 디바이스(휴대폰 및 태블릿)
+- [Azure AD 조인](concept-azure-ad-register.md)
+   - 조직이 소유한 Windows 10 디바이스
+   - [Azure에서 VM에서 실행되는 조직의 Windows Server 2019 이상 서버](howto-vm-sign-in-azure-ad-windows.md)
+
+[하이브리드 Azure AD 조인](concept-azure-ad-join-hybrid.md)은 Azure AD 조인을 수행하는 과정의 중간 단계입니다. 하이브리드 Azure AD 조인은 하위 수준 Windows 버전을 Windows 7 및 Server 2008로 되돌리는 지원을 조직에 제공합니다. 세 가지 시나리오는 모두 단일 조직에서 공존할 수 있습니다.
 
 ## <a name="resource-access"></a>리소스 액세스
 
-디바이스를 Azure AD에 등록하고 조인하면 사용자에게 클라우드 리소스에 대한 SSO(Seamless Sign-on)가 제공됩니다. 또한 이 프로세스를 통해 액세스하는 디바이스에 따라 리소스에 조건부 액세스 정책을 적용할 수 있습니다. 
+디바이스를 Azure AD에 등록하고 조인하면 클라우드 기반 리소스에 대한 SSO(Seamless Sign-on)가 사용자에게 제공됩니다.
 
-> [!NOTE]
-> 디바이스 기반 조건부 액세스 정책에는 하이브리드 Azure AD 조인 디바이스 또는 호환되는 Azure AD 조인 디바이스 또는 Azure AD 등록 디바이스가 필요합니다.
-
-PRT(기본 새로 고침 토큰)는 디바이스에 대한 정보를 포함하며 SSO에 필요합니다. PRT 없이 애플리케이션에 디바이스 기반 조건부 액세스 정책이 설정된 경우 액세스가 거부됩니다. 하이브리드 조건부 액세스 정책에는 하이브리드 상태 디바이스 및 로그인한 유효한 사용자가 필요합니다.
-
-Azure AD 조인 디바이스 또는 하이브리드 Azure AD 조인 디바이스는 클라우드 리소스뿐 아니라 조직의 온-프레미스 리소스에 SSO를 이용할 수 있습니다. 자세한 내용은 [온-프레미스 리소스에 대한 SSO가 Azure AD 조인 디바이스에서 작동하는 방식](azuread-join-sso.md) 문서를 참조하세요.
-
-## <a name="device-security"></a>디바이스 보안
-
-- **Azure AD 등록 디바이스** 는 최종 사용자가 관리하는 계정을 사용하며, 이 계정은 Microsoft 계정이거나 다음 중 하나 이상으로 보안이 지정된 다른 로컬 관리형 자격 증명입니다.
-   - 암호
-   - PIN
-   - 패턴
-   - Windows Hello
-- **Azure AD 조인 디바이스 또는 하이브리드 Azure AD 조인 디바이스** 는 다음 중 하나 이상으로 보안이 지정된 Azure AD의 조직 계정을 사용합니다.
-   - 암호
-   - 비즈니스용 Windows Hello
+Azure AD 조인된 디바이스는 [조직의 온-프레미스 리소스에 대한 SSO](azuread-join-sso.md)를 활용합니다.
 
 ## <a name="provisioning"></a>프로비전
 
-디바이스를 Azure AD로 가져오는 작업은 셀프 서비스 방식으로 수행하거나 관리자가 제어하는 프로비저닝 프로세스로 수행할 수 있습니다.
-
-## <a name="summary"></a>요약
-
-Azure AD의 디바이스 ID 관리를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
-
-- Azure AD에서 디바이스 가져오기 및 관리 프로세스 간소화
-- 사용자가 조직의 클라우드 기반 리소스에 대한 액세스를 편리하게 사용할 수 있도록 제공
+디바이스를 Azure AD로 가져오는 작업은 셀프 서비스 방식으로 수행하거나 관리자가 관리하는 제어된 프로세스로 수행할 수 있습니다.
 
 ## <a name="license-requirements"></a>라이선스 요구 사항
 

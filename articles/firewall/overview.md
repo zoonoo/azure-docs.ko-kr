@@ -6,14 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 07/01/2021
+ms.date: 07/15/2021
 ms.author: victorh
-ms.openlocfilehash: e87953217fe44fedc8d693a40a1f3ae942a06a39
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 0b5812b5a562b20d1e0224a038e3572767130333
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113216372"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441222"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -27,14 +27,14 @@ Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 �
 
 Azure Firewall 기능에 대해 알아보려면 [Azure Firewall 기능](features.md)을 참조하세요.
 
-## <a name="azure-firewall-premium-preview"></a>Azure Firewall 프리미엄 미리 보기
+## <a name="azure-firewall-premium"></a>Azure Firewall 프리미엄
 
-Azure Firewall 프리미엄 미리 보기는 매우 중요하고 규정을 준수하는 환경에 필요한 기능을 갖춘 차세대 방화벽입니다. 이러한 기능에는 TLS 검사, IDPS, URL 필터링 및 웹 범주가 포함됩니다.
+Azure Firewall 프리미엄은 매우 민감하고 통제된 환경에 필요한 기능을 갖춘 차세대 방화벽입니다. 이러한 기능에는 TLS 검사, IDPS, URL 필터링 및 웹 범주가 포함됩니다.
 
-Azure Firewall 프리미엄 미리 보기 기능에 대해 알아보려면 [Azure Firewall 프리미엄 미리 보기 기능](premium-features.md)을 참조하세요.
+Azure Firewall 프리미엄에 관해 알아보려면 [Azure Firewall 프리미엄 기능](premium-features.md)을 참조하세요.
 
 
-Azure Portal에서 방화벽 프리미엄 미리 보기를 구성하는 방법을 보려면 [Azure Portal에서 Azure Firewall 프리미엄 미리 보기](premium-portal.md)를 참조하세요.
+Azure Portal에서 Firewall 프리미엄을 구성하는 방법을 확인하려면 [Azure Portal에서 Azure Firewall 프리미엄](premium-portal.md)을 참조하세요.
 
 
 ## <a name="pricing-and-sla"></a>가격 및 SLA
@@ -52,7 +52,7 @@ Azure Firewall의 새로운 기능을 알아보려면 [Azure 업데이트](https
 
 Azure Firewall의 알려진 문제는 다음과 같습니다.
 
-|문제  |설명  |완화 방법  |
+|문제  |Description  |완화 방법  |
 |---------|---------|---------|
 |TCP/UDP 프로토콜이 아닌 프로토콜(예: ICMP)에 대한 네트워크 필터링 규칙은 인터넷 바운드 트래픽에 작동하지 않습니다.|TCP/UDP 프로토콜이 아닌 프로토콜에 대한 네트워크 필터링 규칙은 공용 IP 주소에 대한 SNAT에 작동하지 않습니다. TCP/UDP 프로토콜이 아닌 프로토콜은 스포크 서브넷과 VNet 간에 지원됩니다.|Azure Firewall은 표준 Load Balancer를 사용하기 때문에 [현재 IP 프로토콜을 위한 SNAT를 지원하지 않습니다](../load-balancer/load-balancer-overview.md). 향후 릴리스에서 이 시나리오를 지원할 수 있는 옵션을 모색하고 있습니다.|
 |ICMP에 대한 PowerShell 및 CLI 지원 누락|Azure PowerShell 및 CLI는 네트워크 규칙에 유효한 프로토콜로 ICMP를 지원하지 않습니다.|여전히 포털 및 REST API를 통해 ICMP를 프로토콜로 사용할 수 있습니다. PowerShell 및 CLI에 ICMP를 조만간 추가하기 위해 노력 중입니다.|
@@ -81,10 +81,11 @@ Azure Firewall의 알려진 문제는 다음과 같습니다.
 |ARM 템플릿을 사용한 RuleCollectionGroups 제거는 지원되지 않습니다.|ARM 템플릿을 사용한 RuleCollectionGroup 제거는 지원되지 않으며 실패합니다.|이 작업은 지원되지 않습니다.|
 |*임의*(*) 허용에 대한 DNAT 규칙은 SNAT트래픽을 발생시킵니다.|DNAT 규칙이 원본 IP 주소로 *임의*(*)를 허용하는 경우 암시적 네트워크 규칙은 VNet-VNet 트래픽과 일치하고 항상 SNAT 트래픽을 발생시킵니다.|이 문제가 현재 제한 사항입니다.|
 |보안 공급자가 있는 보안 가상 허브에 DNAT 규칙을 추가하는 것은 지원되지 않습니다.|이로 인해 보안 공급자로 이동하는 DNAT 트래픽을 반환하는 비동기 경로가 생성됩니다.|지원 안 됨|
-
+| 2,000개를 초과하는 규칙 컬렉션을 만드는 동안 오류가 발생했습니다. | NAT/애플리케이션 또는 네트워크 규칙 컬렉션의 최대 수는 2,000개(리소스 관리자 한도)입니다. | 이 문제가 현재 제한 사항입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 - [빠른 시작: Azure Firewall 및 방화벽 정책 만들기 - ARM 템플릿](../firewall-manager/quick-firewall-policy.md)
 - [빠른 시작: 가용성 영역을 사용하여 Azure Firewall 배포 - ARM 템플릿](deploy-template.md)
 - [자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성](tutorial-firewall-deploy-portal.md)
+- [학습 모듈: Azure Firewall 소개](/learn/modules/introduction-azure-firewall/)

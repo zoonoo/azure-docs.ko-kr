@@ -2,24 +2,22 @@
 title: 빠른 시작 - Azure Portal에서 Azure 기밀 컴퓨팅 가상 머신 만들기
 description: Azure Portal에서 기밀 컴퓨팅 가상 머신을 빠르게 만드는 방법을 학습하여 배포를 시작합니다.
 author: JBCook
-ms.author: JenCook
-ms.date: 04/23/2020
-ms.topic: quickstart
 ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.subservice: workloads
 ms.workload: infrastructure
-ms.custom:
-- mode-portal
-ms.openlocfilehash: 1ae6631c3f6ee71d7a09832956c7e687ceca22b6
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.topic: quickstart
+ms.date: 06/13/2021
+ms.author: JenCook
+ms.openlocfilehash: 8fb93b7697e2dd9077995572fc91b6e82a7d8512
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107819055"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113107221"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure 기밀 컴퓨팅 VM 배포
 
-Azure Portal을 통해 Intel SGX에서 지원하는 VM(가상 머신)을 만들어 Azure 기밀 컴퓨팅을 시작합니다. 그런 다음, Open Enclave SDK(소프트웨어 개발 키트)를 설치하여 개발 환경을 설정합니다. 
+Azure Portal을 통해 Intel SGX에서 지원하는 VM(가상 머신)을 만들어 Azure 기밀 컴퓨팅을 시작합니다. 그런 다음 enclave 애플리케이션을 실행할 수 있습니다.
 
 사용자 지정 구성을 사용하여 기밀 컴퓨팅 가상 머신을 배포하는 데 관심이 있는 경우 이 자습서를 사용하는 것이 좋습니다. 그렇지 않으면 [Microsoft 상업용 마켓플레이스를 위한 기밀 컴퓨팅 가상 머신 배포 단계](quick-create-marketplace.md)를 수행하는 것이 좋습니다.
 
@@ -62,7 +60,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 
 1. 가상 머신에 사용할 운영 체제 이미지를 구성합니다.
 
-    * **이미지 선택**: 이 자습서에서는 Ubuntu 18.04 LTS를 선택합니다. Windows Server 2019, Windows Server 2016 또는 Ubuntu 20.04 LTS를 선택할 수도 있습니다. 이 작업을 수행하도록 선택하면 이에 따라 이 자습서에서 적절하게 리디렉션됩니다.
+    * **이미지 선택**: 이 자습서에서는 Ubuntu 18.04 LTS를 선택합니다. Windows Server 2019, Windows Server 2016 또는 Ubuntu 16.04 LTS를 선택할 수도 있습니다. 이 작업을 수행하도록 선택하면 이에 따라 이 자습서에서 적절하게 리디렉션됩니다.
     
     * **2세대 이미지 전환**: 기밀 컴퓨팅 가상 머신은 [2세대](../virtual-machines/generation-2.md) 이미지에서만 실행됩니다. 선택한 이미지가 2세대 이미지인지 확인합니다. 가상 머신을 구성하고 있는 위의 **고급** 탭을 클릭합니다. "VM 세대"라는 섹션을 찾을 때까지 아래로 스크롤합니다. [2세대]를 선택한 다음, **기본** 탭으로 돌아갑니다.
     
@@ -79,7 +77,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
     ![DCsv2 시리즈 VM](media/quick-create-portal/dcsv2-virtual-machines.png)
 
     > [!TIP]
-    > **DC1s_v2**, **DC2s_v2**, **DC4s_V2** 및 **DC8_v2** 크기가 표시됩니다. 이러한 크기는 현재 Intel SGX 기밀 컴퓨팅을 지원하는 유일한 가상 머신 크기입니다. [자세히 알아보기](virtual-machine-solutions.md).
+    > **DC1s_v2**, **DC2s_v2**, **DC4s_V2** 및 **DC8_v2** 크기가 표시됩니다. 이러한 크기는 현재 기밀 컴퓨팅을 지원하는 유일한 가상 머신 크기입니다. [자세히 알아보기](virtual-machine-solutions.md).
 
 1. 다음 정보를 입력합니다.
 
@@ -94,7 +92,10 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
     
     * **암호**: 해당하는 경우 인증 암호를 입력합니다.
 
-    * **공용 인바운드 포트**: **선택한 포트 허용** 을 선택하고, **공용 인바운드 포트 선택** 목록에서 **SSH(22)** 및 **HTTP(80)** 를 선택합니다. Windows VM을 배포하는 경우 **HTTP(80)** 및 **RDP(3389)** 를 선택합니다. 이 빠른 시작에서 이 단계는 VM에 연결하고 Open Enclave SDK 구성을 완료하는 데 필요합니다. 
+    * **공용 인바운드 포트**: **선택한 포트 허용** 을 선택하고, **공용 인바운드 포트 선택** 목록에서 **SSH(22)** 및 **HTTP(80)** 를 선택합니다. Windows VM을 배포하는 경우 **HTTP(80)** 및 **RDP(3389)** 를 선택합니다.  
+
+    >[!Note]
+    > 프로덕션 배포에는 RDP/SSH 포트를 허용하지 않는 것이 좋습니다.  
 
      ![인바운드 포트](media/quick-create-portal/inbound-port-virtual-machine.png)
 
@@ -146,58 +147,16 @@ Linux VM에 연결하는 방법에 대한 자세한 내용은 [포털을 사용�
 > [!NOTE]
 > 레지스트리에서 캐시되지 않은 서버의 호스트 키에 대한 PuTTY 보안 경고가 표시되는 경우 다음 옵션 중에서 선택합니다. 이 호스트를 신뢰하는 경우 **예** 를 선택하여 PuTTy의 캐시에 키를 추가하여 연결을 계속합니다. 한 번만 연결을 수행하려는 경우 캐시에 키를 추가하지 않고 **아니요** 를 선택합니다. 이 호스트를 신뢰하지 않는 경우 **취소** 를 선택하여 연결을 중단합니다.
 
-## <a name="install-the-open-enclave-sdk-oe-sdk"></a>OE SDK(Open Enclave SDK) 설치 <a id="Install"></a>
+## <a name="intel-sgx-drivers"></a>Intel SGX 드라이버
+
+> [!NOTE]
+> Intel SGX 드라이버는 이미 Ubuntu 및 Microsoft Azure 갤러리 이미지에 포함됩니다. 특별한 드라이버 설치가 필요하지 않습니다. 필요에 따라 [Intel SGX DCAP 드라이버 목록](https://01.org/intel-software-guard-extensions/downloads)으로 이동하여 이미지에 포함되어 제공되는 기존 드라이버를 업데이트할 수도 있습니다.
+
+## <a name="optional-testing-enclave-apps-built-with-open-enclave-sdk-oe-sdk"></a>선택 사항: OE SDK(Open Enclave SDK)를 사용하여 빌드된 enclave 앱 테스트 <a id="Install"></a>
 
 단계별 지침에 따라 Ubuntu 18.04 LTS 2세대 이미지를 실행하는 DCsv2 시리즈 가상 머신에 [OE SDK](https://github.com/openenclave/openenclave)를 설치합니다. 
 
 가상 머신이 Ubuntu 18.04 LTS Gen 2에서 실행되는 경우 [Ubuntu 18.04 설치 지침](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md)을 따라야 합니다.
-
-#### <a name="1-configure-the-intel-and-microsoft-apt-repositories"></a>1. Intel 및 Microsoft APT 리포지토리 구성
-
-```bash
-echo 'deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu bionic main' | sudo tee /etc/apt/sources.list.d/intel-sgx.list
-wget -qO - https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key | sudo apt-key add -
-
-echo "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-7 main" | sudo tee /etc/apt/sources.list.d/llvm-toolchain-bionic-7.list
-wget -qO - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
-
-echo "deb [arch=amd64] https://packages.microsoft.com/ubuntu/18.04/prod bionic main" | sudo tee /etc/apt/sources.list.d/msprod.list
-wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-```
-
-#### <a name="2-install-the-intel-sgx-dcap-driver"></a>2. Intel SGX DCAP 드라이버 설치
-일부 Ubuntu 버전에는 이미 Intel SGX 드라이버가 설치되어 있을 수 있습니다. 다음 명령을 사용하여 확인합니다. 
-
-```bash
-dmesg | grep -i sgx
-[  106.775199] sgx: intel_sgx: Intel SGX DCAP Driver {version}
-``` 
-출력이 비어 있으면 드라이버를 설치합니다. 
-
-```bash
-sudo apt update
-sudo apt -y install dkms
-wget https://download.01.org/intel-sgx/sgx-dcap/1.7/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.35.bin -O sgx_linux_x64_driver.bin
-chmod +x sgx_linux_x64_driver.bin
-sudo ./sgx_linux_x64_driver.bin
-```
-
-> [!WARNING]
-> [Intel의 SGX 사이트](https://01.org/intel-software-guard-extensions/downloads)에 있는 최신 Intel SGX DCAP 드라이버를 사용하세요.
-
-#### <a name="3-install-the-intel-and-open-enclave-packages-and-dependencies"></a>3. Intel 및 Open Enclave 패키지 및 종속성 설치
-
-
-```bash
-sudo apt -y install clang-8 libssl-dev gdb libsgx-enclave-common libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
-```
-
-> [!NOTE] 
-> 이 단계에서는 Azure에서 원격 증명을 수행하는 데 필요한 [az-dcap-client](https://github.com/microsoft/azure-dcap-client) 패키지도 설치합니다.
-
-#### <a name="4-verify-the-open-enclave-sdk-install"></a>4. **Open Enclave SDK 설치 확인**
-
-설치된 SDK를 확인하고 사용하려면 GitHub의 [Open Enclave SDK 사용](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/Linux_using_oe_sdk.md)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

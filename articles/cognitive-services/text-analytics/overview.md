@@ -12,18 +12,18 @@ ms.date: 04/14/2021
 ms.author: aahi
 keywords: 텍스트 마이닝, 감정 분석, 텍스트 분석
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 66b5918b945c8f098e52b115f2fc74c75d953ff5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: bf148645ebdd762b65d59c86e5453b83423201e9
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110072355"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113550609"
 ---
 # <a name="what-is-the-text-analytics-api"></a>텍스트 분석 API란?
 
 Text Analytics API는 감성 분석, 오피니언 마이닝, 핵심 구 추출, 언어 감지 및 명명된 엔터티 인식을 포함하는 텍스트 마이닝 및 텍스트 분석을 위한 NLP(자연어 처리) 기능을 제공하는 클라우드 기반 서비스입니다.
 
-이 API는 개발 프로젝트를 위한 클라우드의 기계 학습 및 AI 알고리즘 모음인 [Azure Cognitive Services](../index.yml)의 일부입니다. REST API [버전 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/), [버전 3.1 미리 보기](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/) 또는 [클라이언트 라이브러리](quickstarts/client-libraries-rest-api.md)에서 이러한 기능을 사용할 수 있습니다.
+이 API는 개발 프로젝트를 위한 클라우드의 기계 학습 및 AI 알고리즘 모음인 [Azure Cognitive Services](../index.yml)의 일부입니다. REST API [버전 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/), [버전 3.1](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1) 또는 [클라이언트 라이브러리](quickstarts/client-libraries-rest-api.md)에서 이러한 기능을 사용할 수 있습니다.
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 
@@ -35,15 +35,15 @@ Text Analytics API는 감성 분석, 오피니언 마이닝, 핵심 구 추출, 
 
 ## <a name="sentiment-analysis"></a>정서 분석
 
-[감정 분석](how-tos/text-analytics-how-to-sentiment-analysis.md)을 사용하면 텍스트에서 긍정적 또는 부정적 감정에 대한 단서를 찾아서 사람들이 브랜드 또는 주제에 대해 어떻게 생각하는지 알아볼 수 있습니다. 
+[감정 분석](how-tos/text-analytics-how-to-sentiment-analysis.md)(SA)을 사용하면 텍스트에서 긍정적 또는 부정적 감정에 대한 단서를 찾아서 사람들이 브랜드 또는 주제에 대해 어떻게 생각하는지 알아볼 수 있습니다. 
 
 이 기능은 문장 및 문서 수준에서 서비스가 찾은 가장 높은 신뢰도 점수에 따라 감정 레이블(예: "부정", "중립" 및 "긍정")을 제공합니다. 또한 이 기능은 긍정, 중립, 부정 감정에 대한 각 문서 및 그 안의 문장에 대해 0과 1 사이의 신뢰도 점수를 반환합니다. [컨테이너를 사용](how-tos/text-analytics-how-to-install-containers.md)하여 온-프레미스에서 서비스를 실행할 수도 있습니다.
 
-v3.1 미리 보기부터 오피니언 마이닝은 감정 분석의 기능입니다. NLP(자연어 처리)의 양상 기반 감정 분석이라고도 하는 이 기능은 텍스트의 단어와 관련된 의견에 대한 더 세부적인 정보(예: 제품 또는 서비스의 특성)를 제공합니다.
+v3.1부터 오피니언 마이닝(OM)은 감정 분석의 기능입니다. NLP(자연어 처리)의 양상 기반 감정 분석이라고도 하는 이 기능은 텍스트의 단어와 관련된 의견에 대한 더 세부적인 정보(예: 제품 또는 서비스의 특성)를 제공합니다.
 
 ## <a name="key-phrase-extraction"></a>핵심 문구 추출
 
-[핵심 구 추출](how-tos/text-analytics-how-to-keyword-extraction.md)을 사용하여 텍스트의 주요 개념을 빠르게 식별합니다. 예를 들어, "음식이 맛있었고 훌륭한 직원이 있었습니다"라는 텍스트에서 핵심 구 추출은 "음식"과 "훌륭한 직원"이라는 주요 논점을 반환합니다.
+[핵심 구 추출](how-tos/text-analytics-how-to-keyword-extraction.md)(KPE)을 사용하여 텍스트의 주요 개념을 빠르게 식별합니다. 예를 들어, "음식이 맛있었고 훌륭한 직원이 있었습니다"라는 텍스트에서 핵심 구 추출은 "음식"과 "훌륭한 직원"이라는 주요 논점을 반환합니다.
 
 ## <a name="language-detection"></a>언어 검색
 
@@ -53,6 +53,10 @@ v3.1 미리 보기부터 오피니언 마이닝은 감정 분석의 기능입니
 
 NER(명명된 엔터티 인식)은 사람, 장소, 조직, 수량으로 텍스트의 [엔터티를 식별하고 분류](how-tos/text-analytics-how-to-entity-linking.md)할 수 있습니다. 잘 알려진 엔터티도 인식되고 웹에서 더 많은 정보에 연결됩니다.
 
+## <a name="text-analytics-for-health"></a>의료 분야 Text Analytics
+
+의료 분야 Text Analytics는 의사의 메모, 퇴원 요약, 임상 문서 및 전자 의료 레코드 같은 구조화되지 않은 텍스트에서 관련 의료 정보를 추출하고 레이블을 지정하는 Text Analytics API 서비스 기능입니다. 
+
 ## <a name="deploy-on-premises-using-docker-containers"></a>Docker 컨테이너를 사용하여 온-프레미스 배포
 
 [Text Analytics 컨테이너를 사용](how-tos/text-analytics-how-to-install-containers.md)하여 온-프레미스에 API 기능을 배포합니다. 이러한 Docker 컨테이너는 규정 준수, 보안 또는 기타 운영상의 이유로 서비스를 데이터에 더 가깝게 가져올 수 있습니다. Text Analytics는 다음과 같은 컨테이너를 제공합니다.
@@ -60,11 +64,11 @@ NER(명명된 엔터티 인식)은 사람, 장소, 조직, 수량으로 텍스�
 * 감정 분석
 * 핵심 구 추출(미리 보기)
 * 언어 감지(미리 보기)
-* Text Analytics for health(미리 보기)
+* 의료 분야 Text Analytics
 
 ## <a name="asynchronous-operations"></a>비동기 작업
 
-`/analyze` 엔드포인트를 사용하면 NER 및 키 구문 추출과 같은 Text Analytics API의 선택 기능을 [비동기적으로](how-tos/text-analytics-how-to-call-api.md) 사용할 수 있습니다.
+`/analyze` 엔드포인트를 사용하면 Text Analytics API의 다양한 기능을 [비동기적](how-tos/text-analytics-how-to-call-api.md)으로 사용할 수 있습니다. NER(명명된 엔터티 인식), KPE(핵심 문구 추출), SA(감정 분석), OM(오피니언 마이닝)은 `/analyze` 엔드포인트의 일부로 사용할 수 있습니다. 단일 호출에서 이러한 기능의 clubbing이 허용됩니다. 문서당 최대 125,000자를 보낼 수 있습니다. 가격은 일반 Text Analytics와 동일합니다.
 
 ## <a name="typical-workflow"></a>일반적인 워크플로
 

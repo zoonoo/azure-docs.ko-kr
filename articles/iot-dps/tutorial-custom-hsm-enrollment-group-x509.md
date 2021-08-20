@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 8e7d024d4d5b1e058e7a0b895faae5d2e7425f44
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f2e6918e6cdc6eb87fe80e9110183ed5a0a3693b
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110472130"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113106716"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>자습서: 등록 그룹을 사용하여 여러 X.509 디바이스 프로비저닝
 
@@ -248,6 +248,10 @@ Azure IoT Device Provisioning Service는 디바이스 프로비저닝에 대해 
 
 ## <a name="verify-ownership-of-the-root-certificate"></a>루트 인증서의 소유권 확인
 
+> [!NOTE]
+> 2021년 7월 1일부터 [자동 확인](how-to-verify-certificates.md#automatic-verification-of-intermediate-or-root-ca-through-self-attestation)을 통해 인증서 자동 확인을 수행할 수 있습니다.
+>
+
 1. [X.509 인증서의 공개 부분 등록 및 확인 코드 가져오기](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code)의 지침에 따라 루트 인증서(`./certs/azure-iot-test-only.root.ca.cert.pem`)를 업로드하고 DPS에서 확인 코드를 가져옵니다.
 
 2. DPS의 루트 인증서 확인 코드를 얻은 후에는 인증서 스크립트 작업 디렉터리에서 다음 명령을 실행하여 확인 인증서를 생성합니다.
@@ -328,7 +332,7 @@ Windows 기반 디바이스에서 인증서 저장소에 서명 인증서를 추
     | **증명 유형** | **인증서** 선택 |
     | **IoT Edge 디바이스** | **False** 선택 |
     | **인증서 종류** | **중간 인증서** 선택 |
-    | **기본 인증서 .pem 또는 .cer 파일** | 앞에서 만든 중간 인증서( *./certs/azure-iot-test-only.intermediate.cert.pem*)로 이동 |
+    | **기본 인증서 .pem 또는 .cer 파일** | 앞에서 만든 중간 인증서( *./certs/azure-iot-test-only.intermediate.cert.pem*)로 이동합니다. 이 중간 인증서는 이미 업로드하여 확인한 루트 인증서를 통해 서명되었습니다. 확인되면 DPS에서 해당 루트를 신뢰합니다. DPS는 이 등록 그룹과 함께 제공된 중간 인증서가 신뢰할 수 있는 루트에서 실제로 서명되었는지 확인할 수 있습니다. DPS는 실제로 해당 루트 인증서를 통해 서명된 각 중간 인증서를 신뢰하므로 중간 인증서를 통해 서명된 리프 인증서도 확인하고 신뢰할 수 있습니다.  |
 
 
 ## <a name="configure-the-provisioning-device-code"></a>프로비저닝 디바이스 코드 구성

@@ -7,12 +7,12 @@ ms.author: jastenze
 ms.date: 04/20/2021
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: 747551dcc400f399e5c36e6a851fdb0f25aaf65b
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: e47e4e9f784e51c646da22063ee954d9b60a4e11
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109755096"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114202674"
 ---
 # <a name="model-conversion-error-codes"></a>모델 변환 오류 코드
 
@@ -34,3 +34,10 @@ ms.locfileid: "109755096"
 | ASSET_CANNOT_BE_CONVERTED | 제공된 자산이 손상되었거나, 형식이 잘못되었거나, 제공된 형식으로 변환할 수 없습니다. | 자산이 지정된 유형의 유효하게 생성된 파일인지 확인하고 변환을 위해 자산을 제출하기 전에 자산 크기 지침을 참조하여 적합성을 확인합니다. aka.ms/aoa/faq |
 
 실제 자산 변환 작업 외부에서 발생하는 모든 오류는 예외로 throw됩니다. 특히, `Azure.RequestFailedException`은 실패한(4xx 또는 5xx) 또는 예기치 않은 HTTP 응답 코드를 수신하는 서비스 호출에 대해 throw될 수 있습니다. 이러한 예외에 대한 자세한 내용은 예외의 `Status`, `ErrorCode` 또는 `Message` 필드를 검사합니다.
+
+| 예외                  | 원인                       |
+| ---                      | ---                               |
+| ArgumentException |  <ul><li>잘못 생성되었거나 모두 0개의 계정 ID를 사용하여 ObjectAnchorsConversionClient로 요청을 생성할 때 발생합니다.</li><li>잘못된 공백 계정 도메인을 사용하여 ObjectAnchorsConversionClient를 초기화하려고 할 때 발생합니다.</li><li>지원되지 않는 서비스 버전이 ObjectAnchorsConversionClientOptions를 통해 ObjectAnchorsConversionClient에 제공될 때 발생합니다.</li></ul> |
+| ArgumentNullException | <ul><li>잘못된 null 계정 도메인을 사용하여 ObjectAnchorsConversionClient를 초기화하려고 할 때 발생합니다.</li><li>잘못된 null 자격 증명을 사용하여 ObjectAnchorsConversionClient를 초기화하려고 할 때 발생합니다.</li></ul> |
+| RequestFailedException | <ul><li>계정을 찾을 수 없는 경우, 프런트 엔드 서비스 오류로 인해 잘못된 업로드 URI가 검색되는 등 (실행됨/실행 중인/실행할 작업의 상태와 관련이 없는) 잘못된 HTTP 상태 코드로 인해 나타나는 그 밖의 모든 문제에 대해 발생합니다.</li></ul> |
+| UnsupportedAssetFileTypeException | <ul><li>Azure Object Anchors Conversion 서비스에서 지원되지 않는 확장명 또는 지정된 파일 형식의 자산이 있는 작업을 제출하려고 할 때 발생합니다.</li></ul> |

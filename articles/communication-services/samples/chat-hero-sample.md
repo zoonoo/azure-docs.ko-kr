@@ -9,16 +9,14 @@ ms.author: dademath
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 02246f02226aaac1b7d9dbfd035a0479908f52cc
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: ef518b5dd3ee0e3657be1bf01873763eafdd221b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111549"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471841"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>그룹 채팅 주인공 샘플 시작
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include-chat.md)]
 
 > [!IMPORTANT]
 > [이 샘플은 **GitHub** 에서 사용할 수 있습니다.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
@@ -59,7 +57,7 @@ Azure Communication Services **그룹 채팅 주인공 샘플** 은 Communicatio
 - [Node.js(8.11.2 이상)](https://nodejs.org/en/download/)
 - [Visual Studio(2017 이상)](https://visualstudio.microsoft.com/vs/)
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)(Visual Studio 인스턴스에 따라 32비트 또는 64비트 버전을 설치해야 함)
-- Azure Communication Services 리소스를 만듭니다. 자세한 내용은 [Azure Communication 리소스 만들기](../quickstarts/create-communication-resource.md)를 참조하세요. 이 빠른 시작에 대한 **연결 문자열** 리소스를 기록해야 합니다.
+- Azure Communication Services 리소스를 만듭니다. 자세한 내용은 [Azure Communication Services 리소스 만들기](../quickstarts/create-communication-resource.md)를 참조하세요. 이 빠른 시작에 대한 **연결 문자열** 리소스를 기록해야 합니다.
 
 ## <a name="locally-deploying-the-service--client-app"></a>서비스 및 클라이언트 앱을 로컬로 배포
 
@@ -73,7 +71,7 @@ chat.csproj에서 Visual Studio를 열고 디버그 모드로 실행합니다. �
 
 1. PowerShell, Windows 터미널, 명령 프롬프트 또는 그에 상응하는 인스턴스를 열고 샘플을 복제할 디렉터리로 이동합니다.
 2. `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
-3. Azure Portal에서 `Connection String`을 가져옵니다. 연결 문자열에 대한 자세한 내용은 [Azure Communication 리소스 만들기](../quickstarts/create-communication-resource.md)를 참조하세요.
+3. Azure Portal에서 `Connection String`을 가져옵니다. 연결 문자열에 대한 자세한 내용은 [Azure Communication Services 리소스 만들기](../quickstarts/create-communication-resource.md)를 참조하세요.
 4. `Connection String`을 가져온 후에는 Chat 폴더 아래에 있는 **Chat/appsettings.json** 파일에 연결 문자열을 추가합니다. `ResourceConnectionString` 변수에 연결 문자열을 입력합니다.
 
 ### <a name="local-run"></a>로컬 실행

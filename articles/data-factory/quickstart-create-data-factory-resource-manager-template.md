@@ -8,13 +8,13 @@ ms.author: susabat
 ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.date: 05/10/2021
-ms.openlocfilehash: 1fa01b628bb8c630716d2051a644d1e2225530f9
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.date: 07/05/2021
+ms.openlocfilehash: 1979e5c832225483aa5309c84d3c2ce491e77f3c
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372076"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436924"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Data Factory 만들기
 
@@ -132,9 +132,9 @@ Jane, Doe
 
 1. **데이터 팩터리** 페이지로 이동하여 이전에 만든 데이터 팩터리를 선택합니다.
 
-2. **작성자 & 모니터** 타일을 선택합니다.
+2. **Azure Data Factory Studio 열기** 타일에서 **열기** 를 선택합니다.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="작성자 및 모니터":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-open-tile.png" alt-text="작성자 및 모니터":::
 
 2. **작성자** 탭 :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author.png" border="false":::을 선택합니다.
 

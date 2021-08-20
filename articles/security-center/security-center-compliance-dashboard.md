@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 04/21/2021
 ms.author: memildin
-ms.openlocfilehash: 06a42629df1f22eeb7a90ef5ce4da2ef53162391
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 970329753d6dd6c6175c26da4288c304e27e3982
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108123162"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237619"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>자습서: 규정 준수 개선
 
@@ -71,11 +71,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1.  특정 리소스를 선택하여 자세한 세부 정보를 보고 해당 리소스에 대한 권장 사항을 해결합니다. <br>예를 들어 **Azure CIS 1.1.0** 표준에서 **가상 머신에서 디스크 암호화를 적용해야 합니다.** 권장 사항을 선택합니다.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="표준에서 권장 사항을 선택하면 권장 사항 세부 정보 페이지로 바로 연결됩니다.":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="표준에서 권장 사항을 선택하면 권장 사항 세부 정보 페이지로 바로 연결됨":::
 
 1. 다음 예에서 권장 사항 세부 정보 페이지에서 **작업 수행** 을 선택하면 Azure Portal의 Azure Virtual Machine 페이지가 표시됩니다. 여기서는 **보안** 탭에서 암호화를 사용하도록 설정할 수 있습니다.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="권장 사항 세부 정보 페이지의 작업 가져오기 단추를 클릭하면 수정 옵션으로 연결됩니다.":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="권장 사항 세부 정보 페이지의 작업 가져오기 단추를 클릭하면 수정 옵션으로 연결됨":::
 
     권장 사항을 적용하는 방법에 대한 자세한 내용은 [Azure Security Center에서 보안 권장 사항 구현](security-center-recommendations.md)을 참조하세요.
 
@@ -112,7 +112,7 @@ Security Center의 워크플로 자동화 기능은 규정 준수 평가 중 하
 
 예를 들어 규정 준수 평가가 실패하는 경우 Security Center에서 특정 사용자에게 이메일을 보내도록 할 수 있습니다. 먼저 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하여 논리 앱을 만든 다음, [Security Center 트리거에 대한 응답 자동화](workflow-automation.md)에서 설명한 대로 새 워크플로 자동화에서 트리거를 설정해야 합니다.
 
-:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="규정 준수 평가 변경 사항을 사용하여 워크플로 자동화 트리거" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
+:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="규정 준수 평가에 대한 변경 사항을 사용하여 워크플로 자동화를 트리거합니다." lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
 
 

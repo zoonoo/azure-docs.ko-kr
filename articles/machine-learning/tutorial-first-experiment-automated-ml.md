@@ -9,28 +9,28 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 06/11/2021
-ms.custom: automl
-ms.openlocfilehash: e088184cadea64b769faf75c6455b720f45d91cc
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.date: 07/01/2021
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: 69cbb3923f3a29085b0999bdce44efe99245b3eb
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028724"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113491374"
 ---
 # <a name="tutorial-train-a-classification-model-with-no-code-automl-in-the-azure-machine-learning-studio"></a>자습서: Azure Machine Learning 스튜디오에서 코드가 없는 AutoML을 사용하여 분류 모델 학습
 
 Azure Machine Learning 스튜디오에서 Azure Machine Learning 자동화된 ML을 사용하여 코드 없는 AutoML을 통해 분류 모델을 학습하는 방법에 대해 알아봅니다. 이 분류 모델은 클라이언트가 금융 기관의 정기 예금을 구독할지 예측합니다.
 
-자동화된 기계 학습을 사용하면 시간이 많이 걸리는 작업을 자동화할 수 있습니다. 자동화된 기계 학습은 사용자가 선택한 성공 메트릭을 기반으로 최상의 모델을 발견할 수 있도록 알고리즘과 하이퍼 매개 변수의 여러 조합을 빠르게 반복합니다.
+자동화된 ML을 사용하면 시간이 많이 걸리는 작업을 자동화할 수 있습니다. 자동화된 기계 학습은 사용자가 선택한 성공 메트릭을 기반으로 최상의 모델을 발견할 수 있도록 알고리즘과 하이퍼 매개 변수의 여러 조합을 빠르게 반복합니다.
 
 이 자습서에서는 코드를 작성하지 않고 스튜디오 인터페이스를 사용하여 학습을 수행합니다.  다음 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Machine Learning 작업 영역을 만듭니다.
 > * 자동화된 기계 학습 실험을 실행합니다.
-> * 실험 세부 정보를 봅니다.
-> * 모델을 배포합니다.
+> * 모델 세부 정보를 살펴봅니다.
+> * 권장된 모델을 배포합니다.
 
 또한 다음과 같은 다른 모델 유형에 대해 자동화된 기계 학습을 시도해 보세요.
 
@@ -39,7 +39,7 @@ Azure Machine Learning 스튜디오에서 Azure Machine Learning 자동화된 ML
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독 Azure 구독이 아직 없는 경우 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
+* Azure 구독 Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 * [**bankmarketing_train.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) 데이터 파일을 다운로드합니다. **y** 열은 고객이 정기 예금에 가입했는지 여부를 나타내며, 뒷부분에서 이 자습서의 예측에 대한 대상 열로 식별됩니다. 
 
@@ -92,7 +92,7 @@ Azure Machine Learning 작업 영역은 기계 학습 모델을 실험하고, �
 
     1. 왼쪽 아래에서 **다음** 을 선택하여 작업 영역을 만드는 동안 자동으로 설정된 기본 컨테이너에 데이터 세트를 업로드합니다.  
     
-       업로드가 완료되면, 설정 및 미리 보기 양식이 파일 형식에 따라 미리 채워집니다. 
+       업로드가 완료되면, **설정 및 미리 보기** 양식이 파일 형식에 따라 미리 채워집니다. 
        
     1. **설정 및 미리 보기** 양식이 다음과 같이 채워졌는지 확인하고 **다음** 을 선택합니다.
         
@@ -142,7 +142,7 @@ Azure Machine Learning 작업 영역은 기계 학습 모델을 실험하고, �
             ----|---|---
             컴퓨팅 이름 |  컴퓨팅 컨텍스트를 식별하는 고유한 이름입니다. | automl-compute
             최소 / 최대 노드| 데이터를 프로파일링하려면 하나 이상의 노드를 지정해야 합니다.|최소 노드: 1<br>최대 노드: 6
-            규모 축소 전 유휴 시간(초) | 클러스터가 최소 노드 수까지 자동으로 축소되기 전의 유휴 시간입니다.|120(기본값)
+            규모 축소 전 유휴 시간(초) | 클러스터가 최소 노드 수까지 자동으로 축소되기 전의 유휴 시간입니다.|1800(기본값)
             고급 설정 | 실험에 사용할 가상 네트워크를 구성하고 권한을 부여하는 설정입니다.| None               
 
         1. **만들기** 를 선택하여 컴퓨팅 대상을 만듭니다. 
@@ -155,7 +155,7 @@ Azure Machine Learning 작업 영역은 기계 학습 모델을 실험하고, �
 
     1. **다음** 을 선택합니다.
 
-1. **작업 유형 및 설정** 양식에서 기계 학습 작업 유형 및 구성 설정을 지정하여 자동화된 ML 실험의 설정을 완료합니다.
+1. **작업 및 설정 선택** 양식에서 기계 학습 작업 유형 및 구성 설정을 지정하여 자동화된 ML 실험의 설정을 완료합니다.
     
     1.  기계 학습 작업 유형으로 **분류** 를 선택합니다.
 

@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 994dc02b0d61eff715b1368e8ea7bd592cc79d70
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 69bc44fcffd760b0c98264c43c02f8dfffd8b853
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133640"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448463"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>IoT Hub에 대한 디바이스 업데이트(미리 보기) 개요
 
@@ -52,7 +52,7 @@ IoT Hub에 대한 디바이스 업데이트 기능은 다음을 비롯하여 강
 * 많은 이기종 디바이스에 대한 업데이트 준수 및 상태 요약 보기
 * 원활한 롤백을 제공하기 위한 복원력 디바이스 업데이트(A/B) 지원
 * Azure.com 포털을 통해 사용할 수 있는 구독 및 역할 기반 액세스 제어
-* 클라우드에 연결되지 않은 디바이스를 업데이트할 수 있도록 온-프레미스 콘텐츠 캐시 및 중첩된 Edge 지원
+* 클라우드에 연결되지 않은 디바이스를 업데이트할 수 있도록 온-프레미스 콘텐츠 캐시 및 중첩된 에지 지원
 * 자세한 업데이트 관리 및 보고 도구 
 
 사용자는 IoT Hub에 대한 디바이스 업데이트 관리 및 배포 제어를 사용하여 생산성을 극대화하고 귀중한 시간을 절약할 수 있습니다. IoT Hub에 대한 디바이스 업데이트에는 디바이스를 그룹화하고 업데이트를 배포해야 하는 디바이스를 지정하는 기능이 포함되어 있습니다. 또한 사용자는 업데이트 배포 상태를 확인하고 각 디바이스가 업데이트를 성공적으로 적용하는지 확인할 수 있습니다.

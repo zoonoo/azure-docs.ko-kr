@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 770e0469f9c9cf8c20f0abf826a42c0584108cd9
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: b3e9332706c3bcc9d4f4cabd20d10fa099271d69
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109845945"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285321"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Azure Key Vault 방화벽 및 가상 네트워크 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "109845945"
 
 ### <a name="key-vault-firewall-disabled-default"></a>Key Vault 방화벽 사용 안 함(기본값)
 
-기본적으로 새 키 자격 증명 모음을 만들 때 Azure Key Vault 방화벽이 사용하지 않도록 설정됩니다. 모든 애플리케이션 및 Azure 서비스는 키 자격 증명 모음에 액세스하고 키 자격 증명 모음으로 요청을 보낼 수 있습니다. 이 구성은 모든 사용자가 키 자격 증명 모음에 대한 작업을 수행할 수 있다는 의미는 아닙니다. 키 자격 증명 모음은 Azure Active Directory 인증 및 액세스 정책 권한을 요구하는 방식으로 키 자격 증명 모음에 저장된 비밀, 키 및 인증서로 제한합니다. 키 자격 증명 모음 인증에 대한 자세한 내용은 [여기](./authentication-fundamentals.md)서 키 자격 증명 모음 인증 기본 문서를 참조하세요. 자세한 내용은 [방화벽 뒤에 있는 Azure Key Vault에 액세스](./access-behind-firewall.md)를 참조하세요.
+기본적으로 새 키 자격 증명 모음을 만들 때 Azure Key Vault 방화벽이 사용하지 않도록 설정됩니다. 모든 애플리케이션 및 Azure 서비스는 키 자격 증명 모음에 액세스하고 키 자격 증명 모음으로 요청을 보낼 수 있습니다. 이 구성은 모든 사용자가 키 자격 증명 모음에 대한 작업을 수행할 수 있다는 의미는 아닙니다. 키 자격 증명 모음은 Azure Active Directory 인증 및 액세스 정책 권한을 요구하는 방식으로 키 자격 증명 모음에 저장된 비밀, 키 및 인증서로 제한합니다. 키 자격 증명 모음 인증에 대한 자세한 내용은 [여기](./authentication.md)서 키 자격 증명 모음 인증 기본 문서를 참조하세요. 자세한 내용은 [방화벽 뒤에 있는 Azure Key Vault에 액세스](./access-behind-firewall.md)를 참조하세요.
 
 ### <a name="key-vault-firewall-enabled-trusted-services-only"></a>Key Vault 방화벽 사용(신뢰할 수 있는 서비스만 해당)
 
@@ -72,7 +72,7 @@ Key Vault 방화벽을 통해 전체 Azure 서비스를 허용하려면 [여기]
 
 > [!NOTE]
 > 다음과 같은 구성 제한 사항을 고려해야 합니다.
-> * 최대한 127개 가상 네트워크 규칙 및 127개 IPv4 규칙이 허용됩니다. 
+> * 최대 200개 가상 네트워크 규칙 및 1,000개 IPv4 규칙이 허용됩니다. 
 > * IP 네트워크 규칙은 공용 IP 주소에 대해서만 허용됩니다. 프라이빗 네트워크용으로 예약된 IP 주소 범위(RFC 1918에 정의)는 IP 규칙에서 허용되지 않습니다. 개인 네트워크에는 **10.** , **172.16-31** 및 **192.168.** 로 시작하는 주소가 포함됩니다. 
 > * 현재 IPv4 주소만 지원됩니다.
 

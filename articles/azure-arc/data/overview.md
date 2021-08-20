@@ -1,6 +1,6 @@
 ---
 title: Azure Arc 지원 데이터 서비스란?
-description: Azure Arc 지원 데이터 서비스 소개
+description: Azure Arc 지원 데이터 서비스를 소개합니다.
 ms.custom: references_regions
 author: twright-msft
 ms.author: twright
@@ -8,14 +8,14 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 03/31/2021
+ms.date: 07/13/2021
 ms.topic: overview
-ms.openlocfilehash: 2d866dcb5b2a0be9e6468b3d40258e37ac93834e
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: cb905bd3e8ceb7012415a65bda1928b25da3037b
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107716100"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113760990"
 ---
 # <a name="what-are-azure-arc-enabled-data-services-preview"></a>Azure Arc 지원 데이터 서비스(미리 보기)란?
 
@@ -42,7 +42,7 @@ Azure Arc 지원 SQL 관리형 인스턴스 및 Azure Arc 지원 PostgreSQL 하�
 
 ## <a name="unified-management"></a>통합 관리
 
-이제 Azure Portal, Azure Data Studio 및 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]와 같은 익숙한 도구를 사용하여 Azure Arc로 배포된 모든 데이터 자산에 대한 통합된 보기를 얻을 수 있습니다. 사용자 환경 및 Azure에서 다양한 관계형 데이터베이스를 보고 관리할 수 있을 뿐만 아니라, 기본 인프라 용량과 상태를 분석하기 위해 Kubernetes API에서 로그 및 원격 분석을 가져올 수 있습니다. 이제는 지역화된 로그 분석 및 성능 모니터링 외에도 전체 자산 전반에 걸친 종합적인 운영 인사이트에도 Azure Monitor를 활용할 수 있습니다.
+이제 Azure Portal, Azure Data Studio, Azure CLI(`az`)(`arcdata` 확장 포함)와 같은 익숙한 도구를 사용하여 Azure Arc로 배포된 모든 데이터 자산에 대한 통합된 보기를 얻을 수 있습니다. 사용자 환경 및 Azure에서 다양한 관계형 데이터베이스를 보고 관리할 수 있을 뿐만 아니라, 기본 인프라 용량과 상태를 분석하기 위해 Kubernetes API에서 로그와 원격 분석을 가져올 수 있습니다. 이제는 지역화된 로그 분석 및 성능 모니터링 외에도 전체 자산 전반에 걸친 종합적인 운영 인사이트에도 Azure Monitor를 활용할 수 있습니다.
 
 ## <a name="disconnected-scenario-support"></a>연결되지 않은 시나리오 지원
 
@@ -55,17 +55,30 @@ Azure Arc 지원 SQL 관리형 인스턴스 및 Azure Arc 지원 PostgreSQL 하�
 |Azure 지역  |직접 연결 모드  |간접 연결 모드  |
 |---------|---------|---------|
 |미국 동부|사용 가능|사용 가능
+|미국 동부 2|사용 가능|사용 가능
+|미국 서부 2|사용 가능|사용 가능
+|미국 중부|사용할 수 없음|사용 가능
+|미국 중남부|사용 가능|사용 가능
+|영국 남부|사용 가능|사용 가능
+|프랑스 중부|사용 가능|사용 가능
 |서유럽 |사용 가능 |사용 가능
 |북유럽|사용 가능|사용 가능
+|일본 동부|사용할 수 없음|사용 가능
+|한국 중부|사용할 수 없음|사용 가능
+|동아시아|사용할 수 없음|사용 가능
+|동남아시아|사용 가능|사용 가능
+|오스트레일리아 동부|사용 가능|사용 가능
 
 ## <a name="next-steps"></a>다음 단계
 
 > **작업을 시도해보시겠습니까?**  
 > AKS(Azure Kubernetes Service), AWS EKS(Elastic Kubernetes Service), GKE(Google Cloud Kubernetes Engine) 또는 Azure VM에서 [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)를 사용하여 빠르게 시작하세요.
+>
+>또한 배포하기 쉬운 모든 Azure Arc 관련 항목의 샌드박스인 [Jumpstart ArcBox](https://azurearcjumpstart.io/azure_jumpstart_arcbox/)를 배포합니다. ArcBox는 단일 Azure 구독 및 리소스 그룹 내에서 완전히 자체 포함되도록 설계되었으므로 사용 가능한 Azure 구독을 초과하지 않고 사용 가능한 모든 Azure Arc 지원 기술을 쉽게 실습할 수 있습니다.
 
 [클라이언트 도구 설치](install-client-tools.md)
 
-[Azure Arc 데이터 컨트롤러 만들기](create-data-controller.md)(먼저 클라이언트 도구를 설치해야 함)
+[Azure Arc 데이터 서비스 배포 계획](plan-azure-arc-data-services.md)(먼저 클라이언트 도구를 설치해야 함)
 
 [Azure Arc에서 Azure SQL 관리형 인스턴스 만들기](create-sql-managed-instance.md)(먼저 Azure Arc 데이터 컨트롤러를 만들어야 함)
 

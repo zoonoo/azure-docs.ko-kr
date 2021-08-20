@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 04/01/2020
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: 31b46475af345ec4eed3a8d5787bf859918048ef
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: cb64f2be26abc1d3ccaf80b90a85f279c7930c94
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985853"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114710721"
 ---
 # <a name="frequently-asked-questions-about-azure-object-anchors"></a>Azure Object Anchors FAQ
 
@@ -99,7 +99,7 @@ Azure Object Anchors를 사용하면 애플리케이션이 3D 모델을 사용�
 
 **Q: Object Anchors가 개체 이동을 처리할 수 있나요?**
 
-**A:** **연속 이동** 또는 **동적** 개체는 지원하지 않습니다.
+**A:** **연속 이동** 또는 **동적** 개체는 지원하지 않습니다. 물리적으로 이동한 후에는 공간의 완전히 새로운 위치에 있는 개체를 지원하지만 이동되는 동안에는 추적할 수 없습니다.
 
 **Q: Object Anchors가 변형 또는 굴절을 처리할 수 있나요?**
 

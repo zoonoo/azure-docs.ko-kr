@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 038d62573b491325adc60647debf17fa87e06cfe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b71b6867221a2cae6bf5b8751a848413b6f8d20a
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92743688"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112963783"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Azure App Service용 Linux Ruby 앱 구성
 
@@ -63,7 +63,7 @@ ENV['WEBSITE_SITE_NAME']
 
 ## <a name="customize-deployment"></a>배포 사용자 지정
 
-빌드 프로세스가 작동하는 상태에서 [Git 리포지토리](deploy-local-git.md) 또는 [Zip 패키지](deploy-zip.md)를 배포하면 기본적으로 배포 엔진(Kudu)에서 다음과 같은 배포 후 단계를 자동으로 실행합니다.
+[Git 리포지토리](deploy-local-git.md)를 배포하거나 [빌드 자동화가 사용](deploy-zip.md#enable-build-automation)되는 [Zip 패키지](deploy-zip.md)를 배포하면 배포 엔진(Kudu)은 기본적으로 다음 배포 후 단계를 자동으로 실행합니다.
 
 1. *Gemfile* 이 있는지 확인합니다.
 1. `bundle clean`을 실행합니다. 
@@ -155,4 +155,4 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 > [자습서: PostgreSQL을 사용하는 Rails 앱](tutorial-ruby-postgres-app.md)
 
 > [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.md)
+> [App Service Linux FAQ](faq-app-service-linux.yml)

@@ -1,19 +1,19 @@
 ---
 title: Azure Spring Cloud 소개
 description: Azure에서 Java Spring 애플리케이션을 배포 및 관리하는 Azure Spring Cloud의 기능 및 이점을 알아봅니다.
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: overview
-ms.date: 12/02/2020
-ms.author: brendm
+ms.date: 03/09/2021
+ms.author: karler
 ms.custom: devx-track-java, contperf-fy21q2
 customer intent: As an Azure Cloud user, I want to deploy, run, and monitor Spring Boot microservices.
-ms.openlocfilehash: 119128fcc2b2f08ba101c5c44768281cf7e6e600
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: dd6ade0e3cd1ff442ec6f5f46a28b35a6b6cb108
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132812"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114473561"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Azure Spring Cloud란?
 
@@ -28,7 +28,7 @@ Azure Spring Cloud에 애플리케이션을 배포하면 많은 이점이 있습
 * 컨테이너화 종속성 없이 빠르게 개발하고 배포합니다.
 * 프로덕션 워크로드를 효율적이고 손쉽게 모니터링합니다.
 
-Azure Spring Cloud는 Java [Spring Boot](https://spring.io/projects/spring-boot) 및 ASP.NET Core [Steeltoe](https://steeltoe.io/) 앱을 모두 지원합니다. Steeltoe 지원은 현재 공개 미리 보기로 제공됩니다. 공개 미리 보기 제품을 통해 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다. 퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다. 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 참조하거나 [지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 제출하세요.
+Azure Spring Cloud는 Java [Spring Boot](https://spring.io/projects/spring-boot) 및 ASP.NET Core [Steeltoe](https://steeltoe.io/) 앱을 모두 지원합니다. Steeltoe 지원은 현재 공개 미리 보기로 제공됩니다. 공개 미리 보기 제품을 통해 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.
 
 ## <a name="service-overview"></a>서비스 개요
 
@@ -38,7 +38,7 @@ Azure 에코시스템의 일부인 Azure Spring Cloud를 사용하면 스토리�
 
 * Azure Spring Cloud는 인프라를 관리할 필요 없이 앱을 빌드 및 실행하는 데 집중할 수 있도록 하는 Spring Boot 앱을 위한 완전 관리형 서비스입니다.
 
-* JAR 또는 코드를 배포하기만 하면 Azure Spring Cloud가 자동으로 앱을 Spring 서비스 런타임 및 기본 제공 앱 수명 주기와 연결합니다.
+* Spring Boot 앱을 위한 JAR 또는 코드나 Steeltoe 앱을 위한 Zip을 배포하기만 하면 Azure Spring Cloud가 자동으로 앱을 Spring 서비스 런타임 및 기본 제공 앱 수명 주기와 연결합니다.
 
 * 모니터링은 간단합니다. 배포 후 애플리케이션 성능을 모니터링하고, 오류를 수정하고, 애플리케이션을 신속하게 개선할 수 있습니다. 
 

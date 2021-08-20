@@ -1,21 +1,22 @@
 ---
 title: 빠른 시작 - 포털에서 레지스트리 만들기
 description: Azure Portal을 사용하여 프라이빗 Azure 컨테이너 레지스트리를 만드는 방법을 빠르게 알아봅니다.
-ms.date: 08/04/2020
+ms.date: 06/23/2021
 ms.topic: quickstart
 ms.custom:
 - mvc
 - mode-portal
-ms.openlocfilehash: 4618a83a43d9c27f44432d5d346fdb053cee7054
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+- contperf-fy21q4
+ms.openlocfilehash: 51531b6af5babe256ec89079c7705cfea71ef52a
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773588"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895943"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure 컨테이너 레지스트리 만들기
 
-Azure 컨테이너 레지스트리는 프라이빗 Docker 컨테이너 이미지 및 관련 아티팩트를 저장하고 관리할 수 있는 Azure의 프라이빗 Docker 레지스트리입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Container Registry를 만듭니다. 그런 다음, Docker 명령을 사용하여 컨테이너 이미지를 레지스트리로 푸시하고, 마지막으로 레지스트리에서 이미지를 끌어와서 실행합니다.
+Azure Container Registry는 컨테이너 이미지 및 관련 아티팩트를 빌드, 저장 및 관리하기 위한 프라이빗 레지스트리 서비스입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Container Registry 인스턴스를 만들었습니다. 그런 다음, Docker 명령을 사용하여 컨테이너 이미지를 레지스트리로 푸시하고, 마지막으로 레지스트리에서 이미지를 끌어와서 실행합니다.
 
 레지스트리에 로그인하여 컨테이너 이미지를 사용할 수 있도록 이 빠른 시작에서는 Azure CLI(버전 2.0.55 이상 권장)를 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
@@ -37,17 +38,17 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 나머지 설정에 대해 기본값을 그대로 적용합니다. 그런 다음, **검토 + 만들기** 를 선택합니다. 설정을 검토한 후 **만들기** 를 선택합니다.
 
-이 빠른 시작에서는 Azure Container Registry에 대해 배우기 시작하는 개발자를 위해 비용 최적화된 옵션인 *기본* 레지스트리를 만듭니다. 사용 가능한 서비스 계층(SKU)에 대한 자세한 내용은 [컨테이너 레지스트리 서비스 계층][container-registry-skus]을 참조하세요.
+[!INCLUDE [container-registry-quickstart-sku](../../includes/container-registry-quickstart-sku.md)]
 
 **배포 성공** 메시지가 표시되면 포털에서 컨테이너 레지스트리를 선택합니다. 
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="포털의 컨테이너 레지스트리 개요":::
 
-레지스트리 이름과 **로그인 서버** 의 값을 기록해 둡니다. Docker를 사용하여 이미지를 밀어넣고 끌어올 때 다음 단계에서 이러한 값을 사용합니다.
+레지스트리 이름 및 **로그인 서버** 값(Azure 클라우드에서 `azurecr.io`로 끝나는 정규화된 이름)을 기록해 둡니다. Docker를 사용하여 이미지를 밀어넣고 끌어올 때 다음 단계에서 이러한 값을 사용합니다.
 
 ## <a name="log-in-to-registry"></a>레지스트리에 로그인
 
-컨테이너 이미지를 푸시하고 끌어오려면 레지스트리 인스턴스에 로그인해야 합니다. 로컬 머신에서 [Azure CLI에 로그인][get-started-with-azure-cli]한 다음, [az acr login][az-acr-login] 명령을 실행합니다. Azure CLI를 사용하여 로그인할 때 레지스트리 이름만 지정합니다. `azurecr.io`와 같은 도메인 접미사가 포함된 로그인 서버 이름은 사용하지 마세요.
+컨테이너 이미지를 푸시하고 끌어오려면 레지스트리 인스턴스에 로그인해야 합니다. 로컬 머신에서 [Azure CLI에 로그인][get-started-with-azure-cli]한 다음, [az acr login][az-acr-login] 명령을 실행합니다. Azure CLI를 사용하여 로그인할 때 레지스트리 리소스 이름만 지정합니다. 정규화된 로그인 서버 이름을 사용하지 마세요.
 
 ```azurecli
 az acr login --name <registry-name>

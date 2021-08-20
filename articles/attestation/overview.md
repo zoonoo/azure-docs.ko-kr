@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 020ba74948a062d23d61272ee912eb3364180f1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe025fad4955095ef16b546b7d326d80b4aea15c
+ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102618001"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112427572"
 ---
 # <a name="microsoft-azure-attestation"></a>Microsoft Azure Attestation 
 
@@ -34,6 +34,11 @@ Azure Attestation은 여러 환경 및 고유한 사용 사례에 대한 포괄�
 SGX는 특정 Intel CPU 모델에서 지원되는 하드웨어 등급 격리를 나타냅니다. SGX를 사용하면 코드를 SGX enclave라는 삭제된 구획에서 실행할 수 있습니다. 그런 다음, 하드웨어에서 액세스 및 메모리 권한을 관리하여 적절한 격리를 통해 공격 노출 영역을 최소화합니다.
 
 클라이언트 애플리케이션은 보안에 중요한 작업을 SGX enclave 내에서 수행하도록 위임하여 이러한 enclave를 활용하도록 설계할 수 있습니다. 그런 다음, 이러한 애플리케이션은 Azure Attestation을 사용하여 enclave에서 정기적으로 트러스트를 설정하고 중요한 데이터에 액세스할 수 있습니다.
+
+Intel® Xeon® 스케일러블 프로세서는 [ECDSA 기반 증명 솔루션](https://software.intel.com/content/www/us/en/develop/topics/software-guard-extensions/attestation-services.html#Elliptic%20Curve%20Digital%20Signature%20Algorithm%20(ECDSA)%20Attestation)을 사용한 SGX enclave 원격 증명만 지원합니다. ECDSA 기반 증명 모델을 활용하여 Azure Attestation은 Intel® Xeon® E3 프로세서 및 Intel® Xeon® 스케일러블 프로세서 기반 서버 플랫폼의 유효성 검사를 지원합니다. 
+
+> [!NOTE]
+> Azure Attestation을 사용하여 Intel® Xeon® 스케일러블 프로세서 기반 서버 플랫폼 증명을 수행하려면 사용자가 [Azure DCAP 버전 1.10.0](https://github.com/microsoft/Azure-DCAP-Client) 이상을 설치해야 합니다.
 
 ### <a name="open-enclave"></a>Open Enclave
 [OE(Open Enclave)](https://openenclave.io/sdk/)는 개발자가 TEE 기반 애플리케이션을 빌드하는 데 사용할 수 있는 단일 통합 enclave 추상화를 만들기 위한 라이브러리의 컬렉션입니다. 플랫폼 특정성을 최소화하는 범용 보안 앱 모델을 제공합니다. Microsoft는 이를 SGX와 같은 하드웨어 기반 enclave 기술을 대중화하고 Azure에서 더 많이 활용할 수 있도록 하기 위한 필수적인 디딤돌로 보고 있습니다.
@@ -66,7 +71,7 @@ Azure Attestation 고객은 Microsoft에서 운영상 TCB(신뢰할 수 있는 �
 Azure Attestation은 다음과 같은 이점을 제공하므로 TEE를 증명하는 데 기본적으로 선택됩니다. 
 
 - TPM, SGX enclave 및 VBS enclave와 같은 여러 환경을 증명하기 위한 통합 프레임워크 
-- 사용자 지정 증명 공급자 및 정책을 구성하여 토큰 생성을 제한할 수 있는 다중 테넌트 서비스입니다.
+- 사용자 지정 증명 공급자를 만들고 정책을 구성하여 토큰 생성을 제한할 수 있음
 - 사용자의 구성 없이 증명할 수 있는 지역 공유 공급자를 제공합니다.
 - SGX enclave에서 구현을 통해 사용하는 동안 데이터를 보호합니다.
 - 고가용성 서비스 

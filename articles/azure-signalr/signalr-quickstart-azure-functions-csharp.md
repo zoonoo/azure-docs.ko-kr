@@ -1,35 +1,38 @@
 ---
 title: Azure SignalR Service Serverless 빠른 시작 - C#
-description: Azure SignalR Service와 Azure Functions를 통해 C#을 사용하여 대화방을 만드는 빠른 시작.
+description: C#을 사용하여 Azure SignalR Service와 Azure Functions로 GitHub 별모양 개수를 표시하는 앱을 만들기 위한 빠른 시작입니다.
 author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.date: 09/25/2020
+ms.date: 06/09/2021
 ms.author: zhshang
-ms.openlocfilehash: 1f28058a766144ada3326b3ee4ce09ca503d1896
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1856f6e012c2b90e173162f055d64402f0c4c908
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94873882"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112462112"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>빠른 시작: C\#을 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
+# <a name="quickstart-create-an-app-showing-github-star-count-with-azure-functions-and-signalr-service-using-c"></a>빠른 시작: C를 사용하여 SignalR Service와 Azure Functions로 GitHub 별모양 개수를 표시하는 앱 만들기\#
 
-Azure SignalR Service를 사용하면 애플리케이션에 실시간 기능을 쉽게 추가할 수 있습니다. Azure Functions는 인프라를 관리하지 않고 코드를 실행할 수 있는 서버리스 플랫폼입니다. 이 빠른 시작에서는 SignalR Serivces와 Functions를 사용하여 서버리스, 실시간 대화 애플리케이션을 빌드하는 방법에 대해 알아봅니다.
+Azure SignalR Service를 사용하면 애플리케이션에 실시간 기능을 쉽게 추가할 수 있습니다. Azure Functions는 인프라를 관리하지 않고 코드를 실행할 수 있는 서버리스 플랫폼입니다. 이 빠른 시작에서는 C#을 사용하여 SignalR Service와 Azure Functions로 서버리스 애플리케이션을 빌드하고 클라이언트에 메시지를 브로드캐스트하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+> [!NOTE]
+> 문서에 언급된 모든 코드는 [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/csharp)에서 얻을 수 있습니다.
 
-Visual Studio 2019가 아직 설치되지 않은 경우 **평가판** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발** 을 사용하도록 설정합니다.
+## <a name="prerequisites"></a>필수 조건
 
-[Azure Functions Core Tools(v2)](https://github.com/Azure/azure-functions-core-tools#installing), [.NET Core SDK](https://dotnet.microsoft.com/download) 및 즐겨 찾는 코드 편집기를 사용하여 명령줄(macOS, Windows 또는 Linux)에서 이 자습서를 실행할 수도 있습니다.
+Visual Studio Code가 아직 설치되어 있지 않다면 무료로 다운로드하여 사용할 수 있습니다(https://code.visualstudio.com/Download).
+
+[Azure Functions Core Tools)](../azure-functions/functions-run-local.md?tabs=windows%2Ccsharp%2Cbash#v2)를 사용하여 명령줄(macOS, Windows 또는 Linux)에서 이 가이드를 실행할 수도 있습니다. 또한 [.NET Core SDK](https://dotnet.microsoft.com/download)와 선호하는 코드 편집기를 실행할 수도 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 구독을 만듭니다](https://azure.microsoft.com/free/dotnet).
 
 문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qscsharp).
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="log-in-to-azure-and-create-signalr-service-instance"></a>Azure에 로그인하고 SignalR Service 인스턴스 만들기
 
 Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 로그인합니다.
 
@@ -39,55 +42,155 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
 문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qscsharp).
 
-[!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+## <a name="setup-and-run-the-azure-function-locally"></a>Azure Function을 로컬로 설정 및 실행
 
-문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qscsharp).
+1. Azure Function Core Tools가 설치되어 있는지 확인합니다. 그리고 빈 디렉터리를 만들고 명령줄을 사용하여 디렉터리로 이동합니다.
 
-## <a name="configure-and-run-the-azure-function-app"></a>Azure 함수 앱을 구성하고 실행합니다.
+    ```bash
+    # Initialize a function project
+    func init --worker-runtime dotnet
+    
+    # Add SignalR Service package reference to the project
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService
+    ```
 
-1. Visual Studio(또는 다른 코드 편집기)를 시작하고 복제된 리포지토리의 *src/chat/csharp* 폴더에서 솔루션을 엽니다.
+2. 프로젝트를 초기화한 후. 이름이 *Function.cs* 인 새 파일을 만듭니다. *Function.cs* 에 다음 코드를 추가합니다.
+   
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Net.Http;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Azure.WebJobs.Extensions.Http;
+    using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+    using Newtonsoft.Json;
+    
+    namespace CSharp
+    {
+        public static class Function
+        {
+            private static HttpClient httpClient = new HttpClient();
+    
+            [FunctionName("index")]
+            public static IActionResult Index([HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req, ExecutionContext context)
+            {
+                var path = Path.Combine(context.FunctionAppDirectory, "content", "index.html");
+                return new ContentResult
+                {
+                    Content = File.ReadAllText(path),
+                    ContentType = "text/html",
+                };
+            }
+    
+            [FunctionName("negotiate")]
+            public static SignalRConnectionInfo Negotiate( 
+                [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req,
+                [SignalRConnectionInfo(HubName = "serverlessSample")] SignalRConnectionInfo connectionInfo)
+            {
+                return connectionInfo;
+            }
+    
+            [FunctionName("broadcast")]
+            public static async Task Broadcast([TimerTrigger("*/5 * * * * *")] TimerInfo myTimer,
+            [SignalR(HubName = "serverlessSample")] IAsyncCollector<SignalRMessage> signalRMessages)
+            {
+                var request = new HttpRequestMessage(HttpMethod.Get, "https://api.github.com/repos/azure/azure-signalr");
+                request.Headers.UserAgent.ParseAdd("Serverless");
+                var response = await httpClient.SendAsync(request);
+                var result = JsonConvert.DeserializeObject<GitResult>(await response.Content.ReadAsStringAsync());
+                await signalRMessages.AddAsync(
+                    new SignalRMessage
+                    {
+                        Target = "newMessage",
+                        Arguments = new[] { $"Current start count of https://github.com/Azure/azure-signalr is: {result.StartCount}" }
+                    });
+            }
+    
+            private class GitResult
+            {
+                [JsonRequired]
+                [JsonProperty("stargazers_count")]
+                public string StartCount { get; set; }
+            }
+        }
+    }
+    ```
+    이 코드에는 세 가지 함수가 있습니다. `Index`는 웹사이트를 클라이언트로 가져오는 데 사용됩니다. `Negotiate`는 클라이언트가 액세스 토큰을 가져오는 데 사용됩니다. `Broadcast`는 주기적으로 GitHub에서 시작 카운트를 가져오고 모든 클라이언트에 메시지를 브로드캐스트합니다.
 
-1. Azure Portal이 열리는 브라우저에서, 포털의 맨 위에 있는 검색 상자에서 해당 이름을 검색하여 이전에 배포한 SignalR Service 인스턴스를 성공적으로 만들었는지 확인합니다. 인스턴스를 선택하여 엽니다.
+3. 이 샘플의 클라이언트 인터페이스는 웹 페이지입니다. `GetHomePage` 함수에서 `content/index.html`의 HTML 콘텐츠를 읽은 것으로 간주하여 `content` 디렉터리에 새 파일 `index.html`을 만듭니다. 그리고 다음 내용을 복사합니다.
+    ```html
+    <html>
+    
+    <body>
+      <h1>Azure SignalR Serverless Sample</h1>
+      <div id="messages"></div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.7/signalr.min.js"></script>
+      <script>
+        let messages = document.querySelector('#messages');
+        const apiBaseUrl = window.location.origin;
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl(apiBaseUrl + '/api')
+            .configureLogging(signalR.LogLevel.Information)
+            .build();
+          connection.on('newMessage', (message) => {
+            document.getElementById("messages").innerHTML = message;
+          });
+    
+          connection.start()
+            .catch(console.error);
+      </script>
+    </body>
+    
+    </html>
+    ```
 
-    ![SignalR Service 인스턴스를 검색합니다.](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
+4. 이제 거의 완료되었습니다. 마지막 단계는 Azure Function 설정에 SignalR Service의 연결 문자열을 설정하는 것입니다.
 
-1. SignalR Service 인스턴스의 연결 문자열을 보려면 **키** 를 선택합니다.
+    1. Azure Portal이 열리는 브라우저에서, 포털의 맨 위에 있는 검색 상자에서 해당 이름을 검색하여 이전에 배포한 SignalR Service 인스턴스를 성공적으로 만들었는지 확인합니다. 인스턴스를 선택하여 엽니다.
 
-1. 기본 연결 문자열을 선택하여 복사합니다.
+        ![SignalR Service 인스턴스를 검색합니다.](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
-1. Visual Studio - **솔루션 탐색기** 로 돌아가서 *local.settings.sample.json* 의 이름을 *local.settings.json* 으로 바꿉니다.
+    1. SignalR Service 인스턴스의 연결 문자열을 보려면 **키** 를 선택합니다.
+    
+        ![기본 연결 문자열을 강조 표시하는 스크린샷.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. *local.settings.json* 에서 연결 문자열을 **AzureSignalRConnectionString** 설정 값에 붙여넣습니다. 파일을 저장합니다.
-
-1. *Functions.cs* 를 엽니다. 이 함수 앱에서는 두 개의 HTTP 트리거 함수가 있습니다.
-
-    - **GetSignalRInfo** - `SignalRConnectionInfo` 입력 바인딩을 사용하여 올바른 연결 정보를 생성하고 리턴합니다.
-    - **SendMessage** - 요청 본문에서 대화 메시지를 수신하고 *SignalR* 출력 바인딩을 사용하여 모든 연결된 클라이언트 애플리케이션으로 메시지를 브로드캐스트합니다.
-
-1. 다음 옵션 중 하나를 사용하여 Azure 함수 앱을 로컬로 시작합니다.
-
-    - **Visual Studio**: *디버그* 메뉴에서 *디버깅 시작* 을 선택하여 애플리케이션을 실행합니다.
-
-        ![애플리케이션 디버그](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
-
-    - **명령줄**: 다음 명령을 실행하여 함수 호스트를 시작합니다.
-
+    1. 기본 연결 문자열을 복사합니다. 그런 다음 아래의 명령을 실행합니다.
+    
         ```bash
-        func start
+        func settings add AzureSignalRConnectionString '<signalr-connection-string>'
         ```
-문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qscsharp).
+    
+5. 로컬에서 Azure Function 실행:
 
-[!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
+    ```bash
+    func start
+    ```
+
+    로컬로 Azure Function을 실행한 후 브라우저에서 `http://localhost:7071/api/index`를 방문하면 현재 시작 횟수를 볼 수 있습니다. 그리고 GitHub에서 별모양을 표시하거나 표시 해제하면 몇 초마다 시작 횟수가 새로 고쳐집니다.
+
+    > [!NOTE]
+    > SignalR 바인딩에는 Azure Storage가 필요하지만 함수가 로컬에서 실행 중일 때 로컬 스토리지 에뮬레이터를 사용할 수 있습니다.
+    > `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.`과 같은 오류가 발생한 경우 [Storage Emulator](../storage/common/storage-use-emulator.md)를 다운로드하여 사용하도록 설정해야 합니다.
 
 문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qscsharp).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qscsharp).
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qspython).
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Visual Studio에서 실시간 서버리스 애플리케이션을 빌드하고 실행했습니다. 그런 다음 Visual Studio를 사용하여 Azure Functions를 개발하고 배포하는 방법에 대해 자세히 알아보세요.
+이 빠른 시작에서는 로컬에서 실시간 서버리스 애플리케이션을 빌드하고 실행했습니다. Azure Functions에 대해 SignalR Service 바인딩을 사용하는 방법에 대해 자세히 알아봅니다.
+다음으로 SignalR Service를 사용하여 클라이언트와 Azure Function 간의 양방향 통신 방법에 대해 자세히 알아봅니다.
+
+> [!div class="nextstepaction"]
+> [Azure Functions의 SignalR Service 바인딩](../azure-functions/functions-bindings-signalr-service.md)
+
+> [!div class="nextstepaction"]
+> [서버리스에서 양방향 통신](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat)
 
 > [!div class="nextstepaction"]
 > [Visual Studio를 사용하여 Azure Functions 개발](../azure-functions/functions-develop-vs.md)

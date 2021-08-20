@@ -6,13 +6,13 @@ author: dearandyxu
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/18/2021
-ms.openlocfilehash: 1fad6274b1dbbc4bf255caabd79352b3c836e352
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 07/05/2021
+ms.openlocfilehash: b003a6efba93e35d39601a33449cadb212f17c28
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606710"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436454"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Azure Portal을 사용하여 SQL Server의 여러 테이블에서 Azure SQL Database의 데이터베이스로 데이터를 증분 로드
 
@@ -253,13 +253,14 @@ END
 8. **만들기** 를 클릭합니다.      
 9. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
    
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="작성자 및 모니터링 타일이 있는 Azure Data Factory의 홈페이지.":::
-10. **작성 및 모니터링** 타일을 클릭하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스)를 시작합니다.
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Azure Data Factory Studio 열기 타일이 있는 Azure Data Factory 홈페이지":::
+
+10. **Azure Data Factory Studio 열기** 타일에서 **열기** 를 선택하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스)를 시작합니다.
 
 ## <a name="create-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기
 프라이빗 네트워크(온-프레미스)의 데이터 저장소에서 Azure 데이터 저장소로 데이터를 이동할 때 온-프레미스 환경에 자체 호스팅 IR(통합 런타임)을 설치합니다. 자체 호스팅 IR은 프라이빗 네트워크와 Azure 간에 데이터를 이동합니다. 
 
-1. Azure Data Factory UI의 **시작하기** 페이지의 맨 왼쪽 창에서 [관리 탭](./author-management-hub.md)을 선택합니다.
+1. Azure Data Factory UI의 홈페이지에서 맨 왼쪽 창에 있는 [관리 탭](./author-management-hub.md)을 선택합니다.
 
    ![홈 페이지 관리 단추](media/doc-common-process/get-started-page-manage-button.png)
 
@@ -473,7 +474,7 @@ END
     1. **가져오기 매개 변수** 를 선택합니다. 
     1. 매개 변수에 대해 다음 값을 지정합니다. 
 
-        | Name | Type | 값 | 
+        | Name | 유형 | 값 | 
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |

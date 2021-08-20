@@ -3,16 +3,16 @@ title: Azure Database for PostgreSQL - 유연한 서버
 description: Azure Database for PostgreSQL - 유연한 서버에 대한 개요를 제공합니다.
 author: sunilagarwal
 ms.author: sunila
-ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 04/22/2021
-ms.openlocfilehash: efa5502c89a68be05ef8f7dc1d3d57c57e732caa
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 06/14/2021
+ms.custom: mvc, references_regions
+ms.openlocfilehash: 25b2788591c44cb4b75c89ca020825d16884224b
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987077"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112116163"
 ---
 # <a name="overview---azure-database-for-postgresql---flexible-server"></a>개요 - Azure Database for PostgreSQL - 유연한 서버
 
@@ -92,24 +92,32 @@ Azure Database for PostgreSQL - 유연한 서버는 데이터베이스 관리 �
 
 ## <a name="azure-regions"></a>Azure 지역
 
-Azure에서 워크로드를 실행하는 이점 중 하나는 글로벌 연결입니다. 유연한 서버는 현재 다음 Azure 지역에서 사용할 수 있습니다.
+Azure에서 워크로드를 실행하는 이점 중 하나는 글로벌 연결입니다. 유연한 서버는 현재 다음과 같은 Azure 지역에서 사용할 수 있습니다.
 
 | 지역 | 가용성 | 영역 중복 HA | 
 | --- | --- | --- |
-| 서유럽 | :heavy_check_mark: | :heavy_check_mark: |
-| 북유럽 | :heavy_check_mark: | :heavy_check_mark: |
-| 영국 남부 | :heavy_check_mark: | :heavy_check_mark: | 
-| 미국 동부 2 | :heavy_check_mark: | :heavy_check_mark: |
-| 미국 서부 2 | :heavy_check_mark: | :heavy_check_mark: |
+| 오스트레일리아 동부 | :heavy_check_mark: | :heavy_check_mark: | 
+| 오스트레일리아 남동부 | :heavy_check_mark: | :x: | 
+| 브라질 남부 | :heavy_check_mark: | :x: |
+| 캐나다 중부 | :heavy_check_mark: | :heavy_check_mark: | 
 | 미국 중부 | :heavy_check_mark: | :heavy_check_mark: | 
 | 미국 동부 | :heavy_check_mark: | :heavy_check_mark: | 
-| 동남 아시아 | :heavy_check_mark: | :heavy_check_mark: |
-| 일본 동부 | :heavy_check_mark: | :heavy_check_mark: | 
-| 오스트레일리아 동부 | :heavy_check_mark: | :heavy_check_mark: | 
-| 캐나다 중부 | :heavy_check_mark: | :heavy_check_mark: | 
+| 미국 동부 2 | :heavy_check_mark: | :heavy_check_mark: |
 | 프랑스 중부 | :heavy_check_mark: | :heavy_check_mark: | 
+| 일본 동부 | :heavy_check_mark: | :heavy_check_mark: | 
+| 한국 중부 | :heavy_check_mark: | :x: | 
+| 북유럽 | :heavy_check_mark: | :heavy_check_mark: |
+| 노르웨이 동부 | :heavy_check_mark: | :x: |
+| 남아프리카 북부 | :heavy_check_mark: | :x: |
+| 동남 아시아 | :heavy_check_mark: | :heavy_check_mark: |
+| 스위스 북부 | :heavy_check_mark: | :x: |
+| 아랍에미리트 북부 | :heavy_check_mark: | :x: |
+| 영국 남부 | :heavy_check_mark: | :heavy_check_mark: | 
+| 서유럽 | :heavy_check_mark: | :heavy_check_mark: |
+| 미국 서부 | :heavy_check_mark: | :x: |
+| 미국 서부 2 | :heavy_check_mark: | :heavy_check_mark: |
 
-유연한 서버를 위한 영역을 계속 추가하고 있습니다.
+<!-- We continue to add more regions for flexible server. -->
 
 ## <a name="migration"></a>마이그레이션
 

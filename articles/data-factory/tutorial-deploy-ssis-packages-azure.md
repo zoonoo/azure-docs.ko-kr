@@ -4,15 +4,15 @@ description: Azure에 SSIS 패키지를 배포하고 실행할 수 있도록 Azu
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/02/2021
+ms.date: 07/19/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 6007ce4b4c54d795ff2cc3188504db11c29219cc
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 6b2f1f796c7a3c41aa28040e023be6cc86bc21f8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256423"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447804"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS 통합 런타임 프로비저닝
 
@@ -53,7 +53,7 @@ Azure-SSIS IR의 개념 정보는 [Azure-SSIS 통합 런타임 개요](concepts-
 
   - 클라이언트 머신의 IP 주소 또는 이러한 주소가 포함된 IP 주소의 범위를 데이터베이스 서버에 대한 방화벽 설정의 클라이언트 IP 주소 목록에 추가합니다. 자세한 내용은 [Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙 구성](../azure-sql/database/firewall-configure.md)을 참조하세요.
 
-  - 서버 관리자 자격 증명을 통한 SQL 인증을 사용하거나 데이터베이스 서버에 연결하거나 데이터 팩터리의 관리 ID를 통한 Azure AD 인증을 사용하여 데이터베이스 서버에 연결할 수 있습니다. 후자의 경우 데이터 팩터리의 관리 ID를 데이터베이스 서버에 대한 액세스 권한이 있는 Azure AD 그룹에 추가해야 합니다. 자세한 내용은 [Azure AD 인증을 사용하여 Azure-SSIS IR 만들기](./create-azure-ssis-integration-runtime.md)를 참조하세요.
+  - 서버 관리자 자격 증명으로 SQL 인증을 사용하여 데이터베이스 서버에 연결하거나 데이터 팩터리의 지정된 시스템/사용자 할당 관리 ID로 Azure AD(Azure Active Directory) 인증을 사용하여 데이터베이스 서버에 연결할 수 있습니다. 후자의 경우 데이터 팩터리의 지정된 시스템/사용자 할당 관리 ID를 데이터베이스 서버에 대한 액세스 권한이 있는 Azure AD 그룹에 추가해야 합니다. 자세한 내용은 [Azure AD 인증을 사용하여 Azure-SSIS IR 만들기](./create-azure-ssis-integration-runtime.md)를 참조하세요.
 
   - 데이터베이스 서버에 SSISDB 인스턴스가 아직 없는지 확인합니다. Azure-SSIS IR 프로비저닝은 기존 SSISDB 인스턴스 사용을 지원하지 않습니다.
 
@@ -70,9 +70,9 @@ Azure Portal을 통해 데이터 팩터리를 만들려면 [UI를 통해 데이�
 
 ### <a name="from-the-data-factory-overview"></a>Data Factory 개요에서
 
-1. **시작하기** 페이지에서 **SSIS Integration 구성** 타일을 선택합니다. 
+1. 홈페이지에서 **SSIS 구성** 타일을 선택합니다. 
 
-   !["SSIS Integration Runtime 구성" 타일](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
+   ![Azure Data Factory 홈페이지를 보여주는 스크린샷.](./media/doc-common-process/get-started-page.png)
 
 1. Azure-SSIS IR을 설정하기 위한 나머지 단계는 [Azure SSIS 통합 런타임 프로비전](#provision-an-azure-ssis-integration-runtime) 섹션을 참조하세요. 
 
@@ -142,13 +142,13 @@ Azure Portal을 통해 데이터 팩터리를 만들려면 [UI를 통해 데이�
 
       IP 방화벽 규칙/가상 네트워크 서비스 엔드포인트가 있는 Azure SQL Database 서버 또는 프라이빗 엔드포인트가 있는 관리형 인스턴스를 선택하여 SSISDB를 호스팅하거나 자체 호스팅 IR을 구성하지 않고 온-프레미스 데이터에 액세스해야 하는 경우 Azure-SSIS IR을 가상 네트워크에 조인해야 합니다. 자세한 내용은 [가상 네트워크에서 Azure-SSIS IR 만들기](./create-azure-ssis-integration-runtime.md)를 참조하세요.
 
-   1. SSISDB를 호스팅할 데이터베이스 서버의 인증 방법을 선택하려면 **ADF의 관리 ID를 통한 Azure AD 인증 사용** 확인란을 선택합니다. 데이터 팩터리의 관리 ID를 통한 SQL 인증 또는 Azure AD 인증을 선택합니다.
+   1. **데이터 팩터리의 시스템 관리 ID로 AAD 인증 사용** 또는 **데이터 팩터리의 사용자 할당 관리 ID로 AAD 인증 사용** 확인란을 선택하여 SSISDB를 호스트하는 데이터베이스에 액세스할 Azure-SSIS IR에 대한 Azure AD 인증 방법을 선택합니다. 대신 SQL 인증 방법을 선택하려면 아무 확인란도 선택하지 마세요.
 
-      확인란을 선택하면 데이터 팩터리의 관리 ID를 데이터베이스 서버에 대한 액세스 권한이 있는 Azure AD 그룹에 추가해야 합니다. 자세한 내용은 [Azure AD 인증을 사용하여 Azure-SSIS IR 만들기](./create-azure-ssis-integration-runtime.md)를 참조하세요.
-   
-   1. **관리 사용자 이름** 에 대해 SSISDB를 호스팅할 데이터베이스 서버의 SQL 인증 사용자 이름을 입력합니다. 
+      이 확인란 중 하나를 선택하면 데이터 팩터리의 지정된 시스템/사용자 할당 관리 ID를 데이터베이스 서버에 대한 액세스 권한이 있는 Azure AD 그룹에 추가해야 합니다. **데이터 팩터리의 사용자 할당 관리 ID로 AAD 인증 사용** 확인란을 선택하면 지정된 사용자 할당 관리 ID를 사용하여 만든 기존 자격 증명을 선택하거나 새 자격 증명을 만들 수 있습니다. 자세한 내용은 [Azure AD 인증을 사용하여 Azure-SSIS IR 만들기](./create-azure-ssis-integration-runtime.md)를 참조하세요.
 
-   1. **관리자 암호** 에 대해 SSISDB를 호스팅할 데이터베이스 서버의 SQL 인증 암호를 입력합니다. 
+   1. **관리 사용자 이름** 에 대해 SSISDB를 호스트하는 데이터베이스 서버의 SQL 인증 사용자 이름을 입력합니다. 
+
+   1. **관리자 암호** 에 대해 SSISDB를 호스트하는 데이터베이스 서버의 SQL 인증 암호를 입력합니다. 
 
    1. BCDR(비즈니스 연속성 및 재해 복구)을 위해 Azure SQL Database/Managed Instance 장애 조치(failover) 그룹과 동기화되는 이중 대기 Azure SSIS IR 쌍을 구성하려면 **SSISDB 장애 조치(failover)에서 이중 대기 Azure-SSIS 통합 런타임 쌍 사용** 확인란을 선택합니다.
    
@@ -207,13 +207,15 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
 
                 1. **데이터베이스 이름** 으로 `msdb`를 입력합니다.
                
-            1. **인증 형식** 으로 **SQL 인증**, **관리 ID** 또는 **서비스 주체** 를 선택합니다.
+            1. **인증 유형** 에 대해 **SQL 인증**, **관리 ID**, **서비스 주체** 또는 **사용자 할당 관리 ID** 를 선택합니다.
 
                 - **SQL 인증** 을 선택하는 경우 관련 **사용자 이름** 및 **암호** 를 입력하거나 비밀로 저장된 **Azure Key Vault** 를 선택합니다.
 
-                -  **관리 ID** 를 선택하는 경우 Azure SQL Managed Instance에 대한 액세스 권한을 ADF 관리 ID에 부여합니다.
+                -  **관리 ID** 를 선택하는 경우 Azure SQL Managed Instance에 대한 액세스 권한을 ADF에 대한 시스템 관리 ID에 부여합니다.
 
                 - **서비스 주체** 를 선택하는 경우 관련 **서비스 주체 ID** 및 **서비스 주체 키** 를 입력하거나 비밀로 저장된 **Azure Key Vault** 를 선택합니다.
+                
+                -  **사용자 할당 관리 ID** 를 선택하는 경우 Azure SQL Managed Instance에 대한 액세스 권한을 ADF에 대한 지정된 사용자 할당 관리 ID에 부여합니다. 그런 다음, 지정된 사용자 할당 관리 ID를 사용하여 만든 기존 자격 증명을 선택하거나 새 자격 증명을 만들 수 있습니다.
 
       1. **파일 시스템** 을 선택하는 경우 패키지가 배포되는 폴더의 UNC 경로를 **호스트** 로 입력하고, 관련 **사용자 이름** 및 **암호** 을 입력하거나, 비밀로 저장된 **Azure Key Vault** 를 선택합니다.
 

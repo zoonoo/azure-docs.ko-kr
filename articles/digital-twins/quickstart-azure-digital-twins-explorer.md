@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/27/2021
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: d4315ff04235e4b555a201e9da7287339b0de125
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 26063c9d0c02079b2c40eb85330be499b4bb624e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110450739"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462009"
 ---
 # <a name="quickstart---get-started-with-a-sample-scenario-in-azure-digital-twins-explorer"></a>빠른 시작 - Azure Digital Twins Explorer에서 샘플 시나리오 시작
 
@@ -43,23 +43,36 @@ Azure Digital Twins를 사용하면 실제 환경의 라이브 모델을 만들�
 
     :::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png" alt-text="GitHub의 digital-twins-explorer/client/examples/buildingScenario.xlsx 파일 스크린샷. 다운로드 단추에 강조 표시가 있습니다." lightbox="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png":::
 
-## <a name="set-up-azure-digital-twins-and-azure-digital-twins-explorer"></a>Azure Digital Twins 및 Azure Digital Twins Explorer 설정
+## <a name="set-up-azure-digital-twins"></a>Azure Digital Twins 설정
 
-Azure Digital Twins를 사용하는 첫 번째 단계는 Azure Digital Twins 인스턴스를 설정하는 것입니다. 서비스 인스턴스를 만든 후 Azure Digital Twins Explorer에서 인스턴스에 연결하고 나중에 빠른 시작에서 인스턴스에 샘플 데이터를 채울 수 있습니다.
+Azure Digital Twins를 사용하는 첫 번째 단계는 Azure Digital Twins 인스턴스를 만드는 것입니다. 서비스 인스턴스를 만든 후 빠른 시작 전체에서 인스턴스 작업에 사용하게 되는 Azure Digital Twins Explorer에서 인스턴스에 연결할 수 있습니다.
 
 이 섹션의 나머지 부분에서는 이러한 단계를 안내합니다.
 
-### <a name="set-up-an-azure-digital-twins-instance"></a>Azure Digital Twins 인스턴스 설정
+### <a name="create-an-azure-digital-twins-instance"></a>Azure Digital Twins 인스턴스 만들기
 
-이 문서에서 Azure Digital Twins를 사용하려면 먼저 *Azure Digital Twins 인스턴스를 설정* 해야 합니다. 이를 사용하는 데 필요한 권한도 필요합니다.
+[!INCLUDE [digital-twins-setup-portal.md](../../includes/digital-twins-setup-portal.md)]
 
-[인스턴스 및 인증 설정](how-to-set-up-instance-portal.md)의 지침을 따릅니다. 지침에는 각 단계를 성공적으로 완료했는지 확인하는 데 도움이 되는 정보가 포함되어 있습니다.
+3. 설정의 **기본 사항** 탭에서 새 인스턴스의 구독, 리소스 그룹, 위치, 리소스 이름 등을 포함한 필드를 입력합니다. **Azure Digital Twins 데이터 소유자 역할 할당** 상자를 선택하여 인스턴스에서 데이터를 관리할 권한을 자신에게 부여합니다.
+
+    >[!NOTE]
+    > Azure Digital Twins 데이터 소유자 역할 할당 상자가 회색으로 표시되면 Azure 구독에서 리소스에 대한 사용자 액세스를 관리할 권한이 없는 것입니다. 이 섹션에서 인스턴스를 계속 만들 수 있습니다. 이 경우 빠른 시작의 나머지 부분을 완료하기 전에 필요한 권한이 있는 누군가가 [인스턴스에서 사용자에게 이 역할을 할당](how-to-set-up-instance-portal.md#assign-the-role-using-azure-identity-management-iam)해야 합니다.
+    >
+    > 이 요구 사항을 충족하는 일반적인 역할은 **소유자**, **계정 관리자** 또는 **사용자 액세스 관리자** 와 **기여자** 의 조합입니다.  
+
+4. **검토 + 만들기** 를 선택하여 인스턴스 만들기를 완료합니다.
+
+    :::image type="content" source= "media/quickstart-azure-digital-twins-explorer/create-azure-digital-twins-basics.png" alt-text="Azure Portal의 Azure Digital Twins에 대한 리소스 만들기 프로세스의 스크린샷. 설명된 값이 채워져 있습니다.":::
+    
+5. 입력한 세부 정보를 보여 주는 요약 페이지가 표시됩니다. **만들기** 를 선택하여 인스턴스를 확인하고 만듭니다.
+
+그러면 인스턴스의 배포 상태를 추적하는 개요 페이지로 이동됩니다.
 
 ### <a name="open-instance-in-azure-digital-twins-explorer"></a>Azure Digital Twins Explorer에서 인스턴스 열기
 
-다음으로 [Azure Portal](https://portal.azure.com)에서 인스턴스에 대한 Azure Digital Twins Explorer를 엽니다. 
+인스턴스 배포가 완료되면 **리소스로 이동** 단추를 사용하여 포털에서 인스턴스의 개요 페이지로 이동합니다.
 
-이렇게 하려면 Azure Portal로 이동하고 포털 검색 창에서 이름을 검색하여 새 Azure Digital Twins 인스턴스로 이동합니다.
+:::image type="content" source= "media/quickstart-azure-digital-twins-explorer/deployment-complete.png" alt-text="Azure Portal에서 Azure Digital Twins 배포 페이지의 스크린샷. 이 페이지는 배포가 완료되었음을 나타냄":::
 
 그런 다음, **Azure Digital Twins Explorer 열기(미리 보기)** 단추를 선택합니다.
 
@@ -288,4 +301,4 @@ Azure Digital Twins Explorer를 사용하여 그래프에 표시된 쌍의 속�
 다음으로, Azure Digital Twins 자습서로 계속 진행하여 사용자 고유의 Azure Digital Twins 시나리오와 상호 작용 도구를 빌드합니다.
 
 > [!div class="nextstepaction"]
-> [자습서: 클라이언트 앱 코딩](tutorial-code.md)
+> [클라이언트 앱 코딩](tutorial-code.md)

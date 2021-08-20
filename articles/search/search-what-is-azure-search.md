@@ -7,36 +7,34 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/26/2021
+ms.date: 07/21/2021
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: b08fe34e7ac5eede8d1435e3de3817224fafdbc6
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 803916184fb79c1db249b195dde0ed0b95c5c547
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560172"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459646"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Azure Cognitive Search란?
 
-Azure Cognitive Search([이전의 “Azure Search”](whats-new.md#new-service-name))는 웹, 모바일 및 엔터프라이즈 애플리케이션의 프라이빗 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가할 수 있는 아키텍처, API 및 도구를 개발자에게 제공하는 클라우드 검색 서비스입니다. 
+Azure Cognitive Search([이전의 “Azure Search”](whats-new.md#new-service-name))는 웹, 모바일 및 엔터프라이즈 애플리케이션의 프라이빗 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가할 수 있는 인프라, API 및 도구를 개발자에게 제공하는 클라우드 검색 서비스입니다.
 
-검색은 카탈로그 또는 문서 검색, 전자 상거래 사이트 또는 데이터 과학을 위한 기술 자료 등을 비롯한 일반적인 시나리오를 통해 사용자에게 콘텐츠를 표시하는 모든 앱에 기반이 됩니다.
+검색은 카탈로그 또는 문서 검색, 소매 제품 또는 데이터 과학을 위한 기술 자료 등을 비롯한 일반적인 시나리오를 통해 사용자에게 텍스트 콘텐츠를 표시하는 모든 앱에 기반이 됩니다.
 
 검색 서비스를 만들 때 다음 기능을 사용합니다.
 
-+ 전체 텍스트 검색을 위한 검색 엔진
-+ 검색 인덱스에서 사용자 소유 콘텐츠의 영구 스토리지
-+ 텍스트 분석과 함께 콘텐츠 추출 및 변환을 위한 선택적 [AI 보강](cognitive-search-concept-intro.md)을 사용한 풍부한 인덱싱
++ 검색 인덱스에 사용자 소유 콘텐츠를 저장할 수 있는 전체 텍스트 검색용 검색 엔진
++ 텍스트 분석과 함께 고급 콘텐츠 추출 및 변환을 위한 선택적 [AI 보강](cognitive-search-concept-intro.md)을 사용한 풍부한 인덱싱
 + 간단한 구문, 전체 Lucene 구문 및 자동 완성 검색을 비롯한 풍부한 쿼리 기능
 + .NET, Python, Java 및 JavaScript용 Azure SDK의 REST API 및 클라이언트 라이브러리를 통한 프로그래밍 기능
 + 데이터 계층, 기계 학습 계층 및 AI(Cognitive Services)에서 Azure 통합
-+ [의미 체계 검색(미리 보기)](semantic-search-overview.md)을 통한 최첨단 순위 지정 알고리즘
 
 구조적으로 검색 서비스는 인덱싱되지 않은 데이터를 포함하는 외부 데이터 저장소와 검색 인덱스에 쿼리 요청을 보내고 응답을 처리하는 클라이언트 앱 사이에 배치됩니다.
 
 ![Azure Cognitive Search 아키텍처](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Cognitive Search 아키텍처")
 
-외부적으로 검색은 Azure 데이터 원본에서 데이터 수집/검색을 자동화하는 *인덱서* 의 형태로 통합됩니다. 또한 이미지와 텍스트 분석과 같은 Cognitive Services의 소모성 AI 또는 Azure Machine Learning에서 생성하거나 Azure Functions 내부에서 래핑하는 사용자 지정 AI를 통합하는 *기술 세트* 의 형태로도 통합할 수 있습니다.
+Cognitive Search는 Azure 데이터 원본에서 데이터 수집/검색을 자동화하는 *인덱서* 의 형태로 통합됩니다. 또한 이미지와 텍스트 분석과 같은 Cognitive Services의 소모성 AI 또는 Azure Machine Learning에서 생성하거나 Azure Functions 내부에서 래핑하는 사용자 지정 AI를 통합하는 *기술 세트* 의 형태로도 통합할 수 있습니다.
 
 ## <a name="inside-a-search-service"></a>검색 서비스 내부
 
@@ -52,11 +50,11 @@ Azure Cognitive Search([이전의 “Azure Search”](whats-new.md#new-service-n
 
 기능은 정보 검색의 내재된 복잡성을 표시하는 간단한 [REST API](/rest/api/searchservice/) 또는 [.NET SDK](search-howto-dotnet-sdk.md)를 통해 표시됩니다. 또한 Azure Portal을 통해 인덱스와 기술 세트의 프로토타입 생성과 쿼리 수행을 위한 도구로 서비스 관리 및 컨텐츠 관리를 수행할 수 있습니다. 이 서비스는 클라우드에서 실행되므로 인프라 및 가용성은 Microsoft에서 관리합니다.
 
-## <a name="why-use-cognitive-search"></a>Cognitive Search를 사용하는 이유
+## <a name="why-use-cognitive-search"></a>Cognitive Search를 사용하는 이유는 무엇인가요?
 
 Azure Cognitive Search가 적합한 애플리케이션 시나리오는 다음과 같습니다.
 
-+ 이기종 콘텐츠를 프라이빗 사용자 정의 검색 인덱스로 통합합니다.
++ 이기종 콘텐츠를 프라이빗 사용자 정의 검색 인덱스로 통합합니다. 인덱싱 및 쿼리 워크로드를 전용 검색 서비스로 오프로드합니다.
 
 + 관련성 튜닝, 패싯 탐색, 필터(지리 공간 검색 포함), 동의어 매핑 및 자동 완성과 같은 관련 기능을 쉽게 구현합니다.
 
@@ -108,6 +106,6 @@ Azure Cognitive Search에서 가장 광범위한 기능을 활용할 수 있는 
 
 ## <a name="watch-this-video"></a>이 동영상 시청
 
-15분 분량의 이 비디오에서 Luis Cabrera(프로그램 관리자)가 Azure Cognitive Search를 소개합니다.
+이 15분 길이의 동영상에서 Azure Cognitive Search의 주요 기능을 검토합니다.
 
 >[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3]

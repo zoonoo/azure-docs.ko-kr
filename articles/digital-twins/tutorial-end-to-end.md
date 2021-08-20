@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 82c24a38d8b693bb931be75b3be5d3bfaaa2d38f
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 641a2f902cd0cf0540cd4cd217f720beaa70a7d2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110615664"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460991"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>자습서: 엔드투엔드 솔루션 빌드
 
@@ -117,24 +117,85 @@ NuGet 패키지 관리자가 열립니다. *업데이트* 탭을 선택하고 �
 
 ### <a name="publish-the-app"></a>앱 게시
 
-_**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창으로 돌아가서 *솔루션 탐색기* 창에서 _**SampleFunctionsApp**_ 프로젝트를 찾습니다.
+Azure에 함수 앱을 게시하려면 먼저 스토리지 계정을 만든 다음, Azure에서 함수 앱을 만들고, 마지막으로 함수를 Azure 함수 앱에 게시해야 합니다. 이 섹션에서는 Azure CLI를 사용하여 이러한 작업을 완료합니다.
 
-[!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
+1. 다음 명령을 입력하여 **Azure Storage 계정** 을 만듭니다.
 
-함수 앱이 Azure Digital Twins에 액세스할 수 있으려면 Azure Digital Twins 인스턴스 및 인스턴스의 호스트 이름에 액세스할 수 있는 권한이 있어야 합니다. 다음을 구성합니다.
+    ```azurecli-interactive
+    az storage account create --name <name-for-new-storage-account> --location <location> --resource-group <resource-group> --sku Standard_LRS
+    ```
+
+1. 다음 명령을 실행하여 **Azure 함수 앱** 을 만듭니다.
+
+    ```azurecli-interactive
+    az functionapp create --name <name-for-new-function-app> --storage-account <name-of-storage-account-from-previous-step> --consumption-plan-location <location> --runtime dotnet --resource-group <resource-group>
+    ```
+
+1. 다음으로 함수를 **압축** 하고 새 Azure 함수 앱에 **게시** 합니다.
+
+    1. 로컬 머신에서 PowerShell과 같은 터미널을 열고 자습서의 앞부분에서 다운로드한 [Digital Twins 샘플 리포지토리](https://github.com/azure-samples/digital-twins-samples/tree/master/)로 이동합니다. 다운로드한 리포지토리 폴더 내에서 *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp* 으로 이동합니다.
+    
+    1. 터미널에서 다음 명령을 실행하여 프로젝트를 게시합니다.
+
+        ```powershell
+        dotnet publish -c Release
+        ```
+
+        이 명령은 *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* 디렉터리에 프로젝트를 게시합니다.
+
+    1. *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* 디렉터리에 있는 게시된 파일의 zip을 만듭니다. 
+        
+        PowerShell을 사용하는 경우 해당 *\publish* 디렉터리의 전체 경로를 복사하여 다음 명령에 붙여넣는 방법으로 이 작업을 수행할 수 있습니다.
+    
+        ```powershell
+        Compress-Archive -Path <full-path-to-publish-directory>\* -DestinationPath .\publish.zip
+        ```
+
+        이 cmdlet은 *bin*, *ProcessDTRoutedData* 및 *ProcessHubToDTEvents* 디렉터리 뿐만 아니라 *host.json* 파일을 포함하는 **publish.zip** 파일을 터미널의 디렉터리 위치에 만듭니다.
+
+        PowerShell을 사용하지 않으며 `Compress-Archive` cmdlet에 대한 액세스 권한이 없는 경우 파일 탐색기 또는 다른 방법을 사용하여 파일을 압축해야 합니다.
+
+1. Azure CLI에서 다음 명령을 실행하여 게시된 함수 및 압축된 함수를 Azure 함수 앱에 배포합니다.
+
+    ```azurecli-interactive
+    az functionapp deployment source config-zip --resource-group <resource-group> --name <name-of-your-function-app> --src "<full-path-to-publish.zip>"
+    ```
+
+    > [!NOTE]
+    > Azure CLI를 로컬로 사용하는 경우 머신의 해당 경로를 사용하여 컴퓨터의 ZIP 파일에 직접 액세스할 수 있습니다.
+    > 
+    >Azure Cloud Shell을 사용하는 경우 명령을 실행하기 전에 이 단추를 사용하여 ZIP 파일을 Cloud Shell에 업로드합니다.
+    >
+    > :::image type="content" source="media/tutorial-end-to-end/azure-cloud-shell-upload.png" alt-text="파일 업로드 방법을 강조 표시하는 Azure Cloud Shell 스크린샷":::
+    >
+    > 이 경우 파일은 Cloud Shell 스토리지의 루트 디렉터리에 업로드되므로 명령의 `--src` 매개 변수에 대해 해당 파일을 이름으로 직접 참조할 수 있습니다(예: `--src publish.zip`).
+
+    배포가 성공하면 상태 코드 202를 사용하여 응답하고 새 함수의 세부 정보를 포함하는 JSON 개체를 출력합니다. 결과에서 이 필드를 검색하여 배포가 성공적으로 수행되었는지 확인할 수 있습니다.
+
+    ```json
+    {
+      ...
+      "provisioningState": "Succeeded",
+      ...
+    }
+    ```
+
+이제 함수를 Azure의 함수 앱에 게시했습니다.
+
+다음으로, 함수 앱이 Azure Digital Twins에 액세스할 수 있으려면 Azure Digital Twins 인스턴스에 액세스할 수 있는 권한이 있어야 합니다. 이 액세스 권한은 다음 섹션에서 구성합니다.
 
 ### <a name="configure-permissions-for-the-function-app"></a>함수 앱에 대한 권한 구성
 
-Azure Digital Twins 인스턴스에 액세스하기 위해 함수 앱에 대해 설정해야 하는 두 가지 설정이 있습니다. 이러한 작업은 모두 [Azure Cloud Shell](https://shell.azure.com)의 명령을 통해 수행할 수 있습니다. 
+Azure Digital Twins 인스턴스에 액세스하기 위해 함수 앱에 대해 설정해야 하는 두 가지 설정이 있습니다. 이러한 작업은 모두 Azure CLI를 사용하여 수행할 수 있습니다. 
 
 #### <a name="assign-access-role"></a>액세스 역할 할당
 
-첫 번째 설정은 Azure Digital Twins 인스턴스의 **Azure Digital Twins 데이터 소유자** 역할을 함수 앱에 부여합니다. 이 역할은 인스턴스에서 여러 데이터 평면 활동을 수행하려는 모든 사용자 또는 함수에 필요합니다. 보안 및 역할 할당에 대해 [개념: Azure Digital Twins 솔루션 보안](concepts-security.md)에서 자세히 알아보세요. 
+첫 번째 설정은 Azure Digital Twins 인스턴스의 **Azure Digital Twins 데이터 소유자** 역할을 함수 앱에 부여합니다. 이 역할은 인스턴스에서 여러 데이터 평면 활동을 수행하려는 모든 사용자 또는 함수에 필요합니다. 보안 및 역할 할당에 대해 [Azure Digital Twins 솔루션 보안](concepts-security.md)에서 자세히 알아보세요. 
 
 1. 다음 명령을 사용하여 함수에 대한 시스템 관리 ID의 세부 정보를 확인합니다. 출력에서 **principalId** 필드를 기록해 둡니다.
 
     ```azurecli-interactive 
-    az functionapp identity show -g <your-resource-group> -n <your-App-Service-function-app-name>   
+    az functionapp identity show --resource-group <your-resource-group> --name <your-App-Service-function-app-name> 
     ```
 
     >[!NOTE]
@@ -439,4 +500,4 @@ ObserveProperties thermostat67 Temperature room21 Temperature
 다음으로, 개념 설명서를 통해 자습서에서 작업한 요소에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [개념: 사용자 지정 모델](concepts-models.md)
+> [사용자 지정 모델](concepts-models.md)

@@ -1,18 +1,18 @@
 ---
 title: Azure Migrate 검색 및 평가를 사용하여 물리적 서버 검색
 description: Azure Migrate 검색 및 평가를 사용하여 온-프레미스 물리적 서버를 검색하는 방법을 알아봅니다.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: 7ff8a7739c0018d415ad503e888d63d04e641153
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 0878911bdd3caa2202ef993142aa89e4eabfe33c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751206"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464880"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>자습서: Azure Migrate: 검색 및 평가를 사용하여 물리적 서버 검색
 
@@ -79,11 +79,42 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 
 어플라이언스가 물리적 서버에 액세스하는 데 사용할 수 있는 계정을 설정합니다.
 
-- **Windows 서버** 의 경우 도메인에 조인된 서버에는 도메인 계정을 사용하고, 도메인에 조인되지 않은 서버에는 로컬 계정을 사용합니다. 사용자 계정은 다음 그룹에 추가되어야 합니다. 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자.
-    > [!Note]
-    > Windows Server 2008 및 2008 R2의 경우 서버에 WMF 3.0이 설치되어 있고 서버에 액세스하는 데 사용되는 도메인/로컬 계정이 성능 모니터 사용자, 성능 로그 사용자 및 WinRMRemoteWMIUsers 그룹에 추가되어 있는지 확인합니다.
+**Windows 서버**
 
-- **Linux 서버** 의 경우, 검색하려는 Linux 서버의 루트 계정이 필요합니다. 또는 다음 명령을 사용하여 필요한 기능이 있는 비루트 계정을 설정할 수 있습니다.
+- Windows 서버의 경우 도메인 조인된 서버에는 도메인 계정을 사용하고, 도메인 조인이 아닌 서버에는 로컬 계정을 사용합니다. 
+- 사용자 계정은 다음 그룹에 추가되어야 합니다. 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자. 
+- 원격 관리 사용자 그룹이 없는 경우 **WinRMRemoteWMIUsers_** 그룹에 사용자 계정을 추가합니다.
+- 어플라이언스가 서버에 대한 CIM 연결을 만들고 여기에 나열된 WMI 클래스에서 필요한 구성 및 성능 메타데이터를 가져오려면 계정에 이러한 권한이 필요합니다.
+- 계정이 [UAC](/windows/win32/wmisdk/user-account-control-and-wmi)에서 필터링될 수 있으므로 그룹에 계정을 추가해도 WMI 클래스에서 필요한 데이터가 반환되지 않는 경우도 있습니다. UAC 필터링을 방지하려면 대상 서버의 CIMV2 네임스페이스와 하위 네임스페이스에서 사용자 계정에 필요한 권한이 있어야 합니다. [여기](troubleshoot-appliance.md)에 설명된 단계를 수행하면 필요한 권한을 사용하도록 설정할 수 있습니다.
+
+    > [!Note]
+    > Windows Server 2008과 2008 R2의 경우 서버에 WMF 3.0이 설치되어 있는지 확인합니다.
+
+**Linux 서버**
+
+- 검색하려는 서버의 루트 계정이 필요합니다. 또는 sudo 권한이 있는 사용자 계정을 제공할 수 있습니다.
+- sudo 액세스 권한이 있는 사용자 계정 추가 지원은 2021년 7월 20일 이후에 포털에서 다운로드한 새 어플라이언스 설치 관리자 스크립트를 통해 기본적으로 제공됩니다.
+- 이전 어플라이언스의 경우 다음 단계를 수행하여 기능을 사용하도록 설정할 수 있습니다.
+    1. 어플라이언스를 실행하는 서버에서 레지스트리 편집기를 엽니다.
+    1. HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance로 이동합니다.
+    1. DWORD 값이 1인 ‘isSudo’ 레지스트리 키를 만듭니다.
+
+    :::image type="content" source="./media/tutorial-discover-physical/issudo-reg-key.png" alt-text="sudo 지원을 사용하도록 설정하는 방법을 보여 주는 스크린샷":::
+
+- 대상 서버에서 구성 및 성능 메타데이터를 검색하려면 [여기](migrate-appliance.md#linux-server-metadata)에 나열된 명령에 대한 sudo 액세스를 사용하도록 설정해야 합니다. sudo 명령이 호출될 때마다 암호를 묻는 메시지를 표시하지 않고 필수 명령을 실행하려면 계정에 대해 ‘NOPASSWD’를 사용하도록 설정했는지 확인합니다.
+- 다음 Linux OS 배포에서는 sudo 액세스 권한이 있는 계정을 사용한 Azure Migrate 검색이 지원됩니다.
+
+    운영 체제 | 버전 
+    --- | ---
+    Red Hat Enterprise Linux | 6, 7, 8
+    Cent OS | 6.6, 8.2
+    Ubuntu | 14.04, 16.04, 18.04
+    SUSE Linux | 11.4, 12.4
+    Debian | 7, 10
+    Amazon Linux | 2.0.2021
+    CoreOS Container | 2345.3.0
+
+- 루트 계정이나 sudo 액세스 권한이 있는 사용자 계정을 제공할 수 없는 경우 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance 레지스트리에서 ‘isSudo’ 레지스트리 키를 값 ‘0’으로 설정하고 다음 명령을 사용하여 필요한 기능을 포함하는 루트가 아닌 계정을 제공할 수 있습니다.
 
 **명령** | **용도**
 --- | --- |
@@ -91,7 +122,6 @@ setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEA
 setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br>cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br>cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | 디스크 성능 데이터를 수집하려면 다음을 수행합니다.
 setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | BIOS 일련 번호를 수집하려면 다음을 수행합니다.
 chmod a+r /sys/class/dmi/id/product_uuid | BIOS GUID를 수집하려면 다음을 수행합니다.
-
 
 ## <a name="set-up-a-project"></a>프로젝트 설정
 
@@ -122,7 +152,7 @@ Azure Migrate 어플라이언스는 서버 검색을 수행하고, 서버 구성
 1. 포털에서 어플라이언스 이름을 제공하고, 프로젝트 키를 생성합니다.
 2. Azure Portal에서 Azure Migrate 설치 프로그램 스크립트가 포함된 압축 파일을 다운로드합니다.
 3. 압축 파일의 콘텐츠를 추출합니다. 관리자 권한으로 PowerShell 콘솔을 시작합니다.
-4. PowerShell 스크립트를 실행하여 어플라이언스 웹 애플리케이션을 시작합니다.
+4. PowerShell 스크립트를 실행하여 어플라이언스 구성 관리자를 시작합니다.
 5. 어플라이언스를 처음으로 구성하고, 프로젝트 키를 사용하여 어플라이언스를 프로젝트에 등록합니다.
 
 ### <a name="1-generate-the-project-key"></a>1. 프로젝트 키 생성
@@ -133,6 +163,8 @@ Azure Migrate 어플라이언스는 서버 검색을 수행하고, 서버 구성
 1. **키 생성** 을 클릭하여 필요한 Azure 리소스 만들기를 시작합니다. 리소스를 만드는 동안 [서버 검색] 페이지를 닫지 마세요.
 1. Azure 리소스가 성공적으로 만들어지면 **프로젝트 키** 가 생성됩니다.
 1. 어플라이언스를 구성하는 동안 어플라이언스 등록을 완료하는 데 필요하므로 키를 복사합니다.
+
+  [ ![키 생성 선택](./media/tutorial-assess-physical/generate-key-physical-inline-1.png)](./media/tutorial-assess-physical/generate-key-physical-expanded-1.png#lightbox)
 
 ### <a name="2-download-the-installer-script"></a>2. 설치 프로그램 스크립트 다운로드
 
@@ -145,50 +177,45 @@ Azure Migrate 어플라이언스는 서버 검색을 수행하고, 서버 구성
 1. 파일을 다운로드한 서버에서 관리자 명령 창을 엽니다.
 2. 다음 명령을 실행하여 압축된 파일의 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - 퍼블릭 클라우드의 사용 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
-    - 정부 클라우드의 사용 예: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256 ```
+    - 사용 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 3.  최신 어플라이언스 버전 및 해시 값을 확인합니다.
-    - 퍼블릭 클라우드의 경우:
 
-        **시나리오** | **다운로드** _ | _ *해시 값**
-        --- | --- | ---
-        물리적(85.8MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51dd39c3bd23099bc9baaabe29
+    **다운로드** | **해시 값**
+    --- | ---
+    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140334) | 15a94b637a39c53ac91a2d8b21cc3cca8905187e4d9fb4d895f4fa6fd2f30b9f
 
-    - Azure Government의 경우:
+> [!NOTE]
+> 동일한 스크립트를 사용하여 퍼블릭 또는 프라이빗 엔드포인트 연결로 Azure 퍼블릭 또는 Azure Government 클라우드용 물리적 어플라이언스를 설정할 수 있습니다.
 
-        **시나리오** | **다운로드** _ | _ *해시 값**
-        --- | --- | ---
-        물리적(85.8MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
- 
 
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Azure Migrate 설치 프로그램 스크립트 실행
-설치 프로그램 스크립트는 다음을 수행합니다.
-
-- 물리적 서버 검색 및 평가를 위한 에이전트와 웹 애플리케이션을 설치합니다.
-- Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
-- IIS 재작성 모듈을 다운로드하여 설치합니다.
-- Azure Migrate에 대한 영구적인 설정 세부 정보를 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
-- 지정된 경로에 다음 파일을 만듭니다.
-    - **구성 파일**: %Programdata%\Microsoft Azure\Config
-    - **로그 파일**: %Programdata%\Microsoft Azure\Logs
-
-스크립트를 다음과 같이 실행합니다.
 
 1. 어플라이언스를 호스팅할 서버의 폴더에 압축 파일을 추출합니다.  기존 Azure Migrate 어플라이언스가 있는 서버에서 스크립트를 실행하지 않아야 합니다.
 2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
 3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
 4. 다음 명령을 실행하여 **AzureMigrateInstaller.ps1** 이라는 스크립트를 실행합니다.
 
-    - 퍼블릭 클라우드의 경우: 
     
-        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
-    - Azure Government의 경우: 
-    
-        ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
 
-    스크립트가 성공적으로 완료되면 어플라이언스 웹 애플리케이션이 시작됩니다.
+5. 시나리오, 클라우드, 연결 옵션 중에서 선택하여 원하는 구성으로 어플라이언스를 배포합니다. 예를 들어 아래와 같이 선택하면 **Azure 퍼블릭 클라우드** 에서 **기본 ‘(퍼블릭 엔드포인트)’ 연결** 이 있는 Azure Migrate 프로젝트에 대한 **물리적 서버**‘(또는 AWS, GCP, Xen 등의 다른 클라우드에서 실행되는 서버)’를 검색하고 평가하도록 어플라이언스가 설정됩니다. 
 
-문제가 발생하는 경우 문제 해결을 위해 C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그에 액세스할 수 있습니다.
+    :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-inline.png" alt-text="원하는 구성으로 어플라이언스를 설정하는 방법을 보여 주는 스크린샷" lightbox="./media/tutorial-discover-physical/script-physical-default-expanded.png":::
+
+6. 설치 프로그램 스크립트는 다음을 수행합니다.
+
+ - 에이전트 및 웹 애플리케이션을 설치합니다.
+ - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
+ - IIS 재작성 모듈을 다운로드하여 설치합니다.
+ - Azure Migrate에 대한 영구적인 설정 세부 정보를 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
+ - 지정된 경로에 다음 파일을 만듭니다.
+    - **구성 파일**: %Programdata%\Microsoft Azure\Config
+    - **로그 파일**: %Programdata%\Microsoft Azure\Logs
+
+스크립트를 성공적으로 실행하면 어플라이언스 구성 관리자가 자동으로 시작됩니다.
+
+> [!NOTE]
+> 문제가 발생하는 경우 문제 해결을 위해 C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그에 액세스할 수 있습니다.
 
 ### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 

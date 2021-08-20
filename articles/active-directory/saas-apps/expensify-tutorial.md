@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/02/2021
+ms.date: 06/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 5c68453f7f7d638877683920a17022cf3d29bdc5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9bba6c33dafb04be0cec0eb74be3b7211bc1b0ed
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104597813"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112466477"
 ---
 # <a name="tutorial-integrate-expensify-with-azure-active-directory"></a>자습서: Azure Active Directory와 Expensify 통합
 
@@ -78,11 +78,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에 `https://www.expensify.com/authentication/saml/login` URL을 입력합니다.
+    a. **식별자(엔터티 ID)** 텍스트 상자에 `https://www.expensify.com` URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에 `https://www.expensify.com` URL을 입력합니다.
-
-    다. b. **회신 URL** 텍스트 상자에서 `https://www.expensify.com/authentication/saml/loginCallback?domain=<yourdomain>` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://www.expensify.com/authentication/saml/loginCallback?domain=<yourdomain>` 패턴을 사용하여 URL을 입력합니다.
+    
+    다. **로그온 URL** 텍스트 상자에 `https://www.expensify.com/authentication/saml/login` URL을 입력합니다.
 
     > [!NOTE]
     > [회신 URL] 값은 실제 값이 아닙니다. 실제 회신 URL로 이 값을 업데이트하세요. 이 값을 얻으려면 [Expensify 클라이언트 지원 팀](mailto:help@expensify.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -103,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -127,7 +127,7 @@ Expensify에서 SSO를 사용하도록 설정하려면 먼저 애플리케이션
 
 1. Expensify 애플리케이션에 로그인합니다.
 
-2. 왼쪽 패널에서 **설정** 을 클릭한 다음 **SAML** 로 이동합니다.
+2. 왼쪽 패널에서 설정을 가리킨 다음, 도메인을 클릭하고, **SAML** 로 이동합니다.
 
 3. **SAML 로그인** 옵션을 **사용** 으로 전환합니다.
 
@@ -135,7 +135,7 @@ Expensify에서 SSO를 사용하도록 설정하려면 먼저 애플리케이션
 
 ### <a name="create-expensify-test-user"></a>Expensify 테스트 사용자 만들기
 
-이 섹션에서는 Expensify에 B.Simon이라는 사용자를 만듭니다. Expensify 플랫폼에서 사용자를 추가하려면 [Expensify 클라이언트 지원 팀](mailto:help@expensify.com)에 문의하세요.
+이 섹션에서는 Expensify에서 B.Simon라는 동일한 사용자를 만듭니다(예: B.Simon@contoso.com). [여기](https://community.expensify.com/discussion/4869/how-to-manage-domain-members)에서 가이드를 확인하여 멤버를 초대하거나, [Expensify 클라이언트 지원 팀](mailto:help@expensify.com)에 문의하여 Expensify 플랫폼에서 사용자를 추가합니다.
 
 ## <a name="test-sso"></a>SSO 테스트
 

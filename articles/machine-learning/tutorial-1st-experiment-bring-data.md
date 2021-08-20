@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/29/2021
 ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: dbbd71a40419ee3472b01be11c101567e6945634
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 4d4c7fcb824d57b46df1353f30d3136e129af293
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028220"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765797"
 ---
 # <a name="tutorial-upload-data-and-train-a-model-part-3-of-3"></a>자습서: 데이터 업로드 및 모델 학습(3/3부)
 
@@ -161,9 +161,6 @@ optimizer = optim.SGD(
 )
 ```
 
-> [!div class="nextstepaction"]
-> [학습 스크립트를 조정했습니다.](?success=adjust-training-script#upload) [문제가 발생했습니다.](https://www.research.net/r/7C6W7BQ?issue=adjust-training-script)
-
 
 ## <a name="upload-the-data-to-azure"></a><a name="upload"></a> Azure에 데이터 업로드
 
@@ -203,9 +200,6 @@ Azure Machine Learning에서 이 스크립트를 실행하려면 Azure에서 학
     Uploaded ./data\cifar-10-batches-py\data_batch_5, 9 files out of an estimated total of 9
     Uploaded 9 files
     ```
-
-> [!div class="nextstepaction"]
-> [데이터를 업로드했습니다.](?success=upload-data#control-script) [문제가 발생했습니다.](https://www.research.net/r/7C6W7BQ?issue=upload-data)
 
 ## <a name="create-a-control-script"></a><a name="control-script"></a> 제어 스크립트 만들기
 
@@ -271,17 +265,12 @@ if __name__ == "__main__":
    :::column-end:::
 :::row-end:::
 
-> [!div class="nextstepaction"]
-> [제어 스크립트를 만들었습니다.](?success=control-script#submit-to-cloud) [문제가 발생했습니다.](https://www.research.net/r/7C6W7BQ?issue=control-script)
-
 ## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit-to-cloud"></a> Azure Machine Learning에 실행 제출
 
 **터미널에서 스크립트 저장 및 실행** 을 선택하여 *run-pytorch-data.py* 스크립트를 실행합니다.  이 실행은 업로드한 데이터를 사용하여 컴퓨팅 클러스터에서 모델을 학습합니다.
 
 그러면 Azure Machine Learning 스튜디오에서 실험에 대한 URL이 출력됩니다. 해당 링크로 이동하면 코드가 실행되는 것을 확인할 수 있습니다.
 
-> [!div class="nextstepaction"]
-> [실행을 다시 제출했습니다.](?success=submit-to-cloud#inspect-log) [문제가 발생했습니다.](https://www.research.net/r/7C6W7BQ?issue=submit-to-cloud)
 
 ### <a name="inspect-the-log-file"></a><a name="inspect-log"></a> 로그 파일 검사
 
@@ -324,8 +313,6 @@ LIST FILES IN DATA PATH...
 - Azure Machine Learning에서 자동으로 Blob Storage를 컴퓨팅 클러스터에 탑재했습니다.
 - 제어 스크립트에 사용된 ``dataset.as_named_input('input').as_mount()``가 탑재 지점으로 확인됩니다.
 
-> [!div class="nextstepaction"]
-> [로그 파일을 검사했습니다.](?success=inspect-log#clean-up-resources) [문제가 발생했습니다.](https://www.research.net/r/7C6W7BQ?issue=inspect-log)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -355,4 +342,5 @@ LIST FILES IN DATA PATH...
 
 이제 모델이 있으므로 다음을 알아봅니다.
 
-* [Azure Machine Learning을 사용하여 모델을 배포](how-to-deploy-and-where.md)하는 방법
+> [!div class="nextstepaction"]
+> [Azure Machine Learning을 사용하여 모델을 배포하는 방법](how-to-deploy-and-where.md)

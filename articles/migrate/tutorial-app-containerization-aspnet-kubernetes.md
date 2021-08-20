@@ -5,14 +5,14 @@ services: ''
 author: rahugup
 manager: bsiva
 ms.topic: tutorial
-ms.date: 3/2/2021
+ms.date: 6/30/2021
 ms.author: rahugup
-ms.openlocfilehash: 24fd5cb0abbf36df74d6e2300c570e7e39b875ad
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: fcb86290012a2888c926e335fb6169b43e0898b1
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108180575"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114291985"
 ---
 # <a name="aspnet-app-containerization-and-migration-to-azure-kubernetes-service"></a>ASP.NET 웹앱 컨테이너화 및 Azure Kubernetes Service로 마이그레이션
 
@@ -20,9 +20,10 @@ ms.locfileid: "108180575"
 
 Azure Migrate: 앱 컨테이너화 도구는 현재 다음과 같은 작업을 지원합니다.
 
-- ASP.NET 앱을 컨테이너화하여 AKS의 Windows 컨테이너에 배포.
-- Apache Tomcat(Linux 서버)의 Java 웹앱을 컨테이너화하여 AKS의 Linux 컨테이너에 배포. [자세히 알아보기](./tutorial-containerize-java-kubernetes.md)
-
+- ASP.NET 앱을 컨테이너화하여 Azure Kubernetes Service의 Windows 컨테이너에 배포
+- ASP.NET 앱을 컨테이너화하여 Azure App Service의 Windows 컨테이너에 배포. [자세히 알아보기](./tutorial-app-containerization-aspnet-app-service.md)
+- Apache Tomcat(Linux 서버)의 Java 웹앱을 컨테이너화하여 AKS의 Linux 컨테이너에 배포. [자세히 알아보기](./tutorial-app-containerization-java-kubernetes.md)
+- Apache Tomcat(Linux 서버에 있는)의 Java 웹앱을 컨테이너화하고 App Service의 Linux 컨테이너에 배포. [자세히 알아보기](./tutorial-app-containerization-java-app-service.md)
 
 Azure Migrate: 앱 컨테이너화 도구를 사용하면 다음 작업을 수행할 수 있습니다.
 
@@ -36,9 +37,9 @@ Azure Migrate: 앱 컨테이너화 도구를 사용하면 다음 작업을 수�
 모든 애플리케이션을 상당한 재설계 없이 컨테이너로 직접 이동할 수 있는 것은 아니지만 기존 앱을 다시 작성하지 않고 컨테이너로 이동하면 다음과 같은 몇 가지 이점을 얻을 수 있습니다.
 
 - **향상된 인프라 사용률:** 컨테이너를 사용하면 여러 애플리케이션이 리소스를 공유하고 동일한 인프라에서 호스트될 수 있습니다. 이를 통해 인프라를 통합하고 사용률을 향상할 수 있습니다.
-- **간소화된 관리:** AKS와 같은 현대적인 관리형 인프라 플랫폼에서 애플리케이션을 호스트하여 인프라에 대한 제어를 유지하면서 관리 작업을 단순화할 수 있습니다. 이는 일반적으로 소유한 인프라를 사용하여 수행하는 인프라 유지 관리 및 관리 프로세스를 사용 중지하거나 축소하는 방식으로 달성할 수 있습니다.
-- **애플리케이션 이식성:** 컨테이너 사양 형식 및 오케스트레이션 플랫폼의 도입 및 표준화가 증가하면서 애플리케이션 이식성은 더 이상 문제가 되지 않습니다.
-- **DevOps를 사용하는 현대적 관리 방식 도입:** 코드로서의 인프라 및 DevOps로의 전환을 통해 관리 및 보안을 위한 최신 모범 사례를 도입하고 이를 기반으로 표준화하는 데 도움이 됩니다.
+- **간소화된 관리:** AKS, App Service 같은 최신 관리형 플랫폼에서 애플리케이션을 호스트하여 관리 방식을 간소화할 수 있습니다. 이는 일반적으로 소유한 인프라를 사용하여 수행하는 인프라 유지 관리 및 관리 프로세스를 사용 중지하거나 축소하는 방식으로 달성할 수 있습니다.
+- **애플리케이션 이식성:** 컨테이너 사양 형식 및 플랫폼의 도입과 표준화가 증가하면서 애플리케이션 이식성은 더 이상 문제가 되지 않습니다.
+- **DevOps를 사용하여 최신 관리 도입:** 관리와 보안 및 DevOps로 전환을 위한 최신 방식을 도입하고 표준화하는 데 도움이 됩니다.
 
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
@@ -60,7 +61,7 @@ Azure Migrate: 앱 컨테이너화 도구를 사용하면 다음 작업을 수�
 **요구 사항** | **세부 정보**
 --- | ---
 **도구를 설치할 컴퓨터를 식별** | Azure Migrate: 앱 컨테이너화 도구를 설치하고 실행하는 Windows 컴퓨터입니다. Windows 컴퓨터는 서버(Windows Server 2016 이상) 또는 클라이언트(Windows 10) 운영 체제일 수 있습니다. 즉, 도구가 데스크톱에서도 실행될 수 있습니다. <br/><br/> 도구를 실행하는 Windows 컴퓨터에는 컨테이너화될 수 있는 ASP.NET 애플리케이션을 호스트하는 서버/가상 머신에 대한 네트워크 연결이 있어야 합니다.<br/><br/> 애플리케이션 아티팩트를 저장하기 위해 Azure Migrate: 앱 컨테이너화 도구를 실행하는 Windows 컴퓨터에서 6GB의 공간을 사용할 수 있어야 합니다. <br/><br/> Windows 컴퓨터에서 직접 또는 프록시를 통해 인터넷에 액세스할 수 있어야 합니다. <br/> <br/>앱 컨테이너화 도우미 도구 및 애플리케이션 서버를 실행하는 컴퓨터에 Microsoft 웹 배포 도구를 설치합니다(아직 설치하지 않은 경우). 이 도구는 [여기](https://aka.ms/webdeploy3.6)에서 다운로드할 수 있습니다.
-**애플리케이션 서버** | 애플리케이션 서버에서 PowerShell 원격 기능을 사용하도록 설정: 애플리케이션 서버에 로그인하고 [다음](/powershell/module/microsoft.powershell.core/enable-psremoting) 지침에 따라 PowerShell 원격 기능을 켭니다. <br/><br/> 애플리케이션 서버가 Windows Server 2008 R2에서 실행되는 경우 애플리케이션 서버에 PowerShell 5.1이 설치되어 있어야 합니다. 애플리케이션 서버에 PowerShell 5.1을 다운로드하여 설치하려면 [여기](/powershell/scripting/windows-powershell/wmf/setup/install-configure)의 지침을 따르세요. <br/><br/> 앱 컨테이너화 도우미 도구 및 애플리케이션 서버를 실행하는 컴퓨터에 Microsoft 웹 배포 도구를 설치합니다(아직 설치하지 않은 경우). 이 도구는 [여기](https://aka.ms/webdeploy3.6)에서 다운로드할 수 있습니다.
+**애플리케이션 서버** | 애플리케이션 서버에서 PowerShell 원격 기능을 사용하도록 설정: 애플리케이션 서버에 로그인하고 [이](/powershell/module/microsoft.powershell.core/enable-psremoting) 지침에 따라 PowerShell 원격 기능을 켭니다. <br/><br/> 애플리케이션 서버가 Windows Server 2008 R2에서 실행되는 경우 애플리케이션 서버에 PowerShell 5.1이 설치되어 있어야 합니다. 애플리케이션 서버에 PowerShell 5.1을 다운로드하여 설치하려면 [여기](/powershell/scripting/windows-powershell/wmf/setup/install-configure)의 지침을 따르세요. <br/><br/> 앱 컨테이너화 도우미 도구 및 애플리케이션 서버를 실행하는 컴퓨터에 Microsoft 웹 배포 도구를 설치합니다(아직 설치하지 않은 경우). 이 도구는 [여기](https://aka.ms/webdeploy3.6)에서 다운로드할 수 있습니다.
 **ASP.NET 응용 프로그램** | 이 도구는 현재 다음 애플리케이션을 지원합니다. <br/><br/> - Microsoft .NET Framework 3.5 이상을 사용하는 ASP.NET 애플리케이션<br/> - Windows Server 2008 R2 이상을 실행하는 애플리케이션 서버(애플리케이션 서버가 PowerShell 버전 5.1을 실행해야 함) <br/> -IIS(인터넷 정보 서비스) 7.5 이상에서 실행되는 애플리케이션 <br/><br/> 이 도구는 현재 다음 애플리케이션을 지원하지 않습니다. <br/><br/> - Windows 인증이 필요한 애플리케이션(AKS는 현재 gMSA를 지원하지 않음) <br/> - IIS 외부에서 호스트되는 다른 Windows 서비스를 사용하는 애플리케이션
 
 
@@ -97,7 +98,6 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 
 10. '앱 등록' 설정이 '아니요'로 설정된 경우 테넌트/전역 관리자에게 필요한 권한을 할당하도록 요청합니다. 또는 테넌트/전역 관리자가 **애플리케이션 개발자** 역할을 계정에 할당하여 Azure Active Directory 앱 등록을 허용할 수 있습니다. [자세히 알아보기](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
-
 ## <a name="download-and-install-azure-migrate-app-containerization-tool"></a>Azure Migrate: 앱 컨테이너화 도구 다운로드 및 설치
 
 1. Windows 컴퓨터에서 Azure Migrate: 앱 컨테이너화 설치 프로그램을 [다운로드](https://go.microsoft.com/fwlink/?linkid=2134571)합니다.
@@ -115,11 +115,11 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
    또는 바탕 화면에서 앱 바로 가기를 선택하여 앱을 열 수 있습니다.
 
 2. 연결이 비공개가 아님을 나타내는 경고가 표시되는 경우 고급을 클릭하고 웹 사이트로 이동하도록 선택합니다. 이 경고는 웹 인터페이스가 자체 서명된 TLS/SSL 인증서를 사용하기 때문에 표시되는 것입니다.
-3. 로그인 화면에서 컴퓨터의 로컬 관리자 계정을 사용하여 로그인합니다.
-4. 애플리케이션 유형 지정에서 컨테이너화하려는 애플리케이션의 유형으로 **ASP.NET 웹앱** 을 선택합니다.
+3. 로그인 화면에서 머신의 로컬 관리자 계정을 사용하여 로그인합니다.
+4. 컨테이너화하려는 애플리케이션 유형으로 **ASP.NET 웹앱** 을 선택합니다.
+5. 대상 Azure 서비스를 지정하려면 **Azure Kubernetes Service의 컨테이너** 를 선택합니다.
 
     ![앱 컨테이너화 도구에 대한 기본 로드입니다.](./media/tutorial-containerize-apps-aks/tool-home.png)
-
 
 ### <a name="complete-tool-pre-requisites"></a>전체 도구 필수 구성 요소
 1. **사용 조건** 에 동의하고 타사 정보를 읽습니다.
@@ -134,12 +134,12 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
    - **PowerShell 원격 기능을 사용하도록 설정**: 도구가 컨테이너화할 ASP.NET 애플리케이션을 실행하는 애플리케이션 서버에서 PowerShell 원격 기능이 켜졌는지 확인하라는 메시지를 표시합니다.
 
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
 **로그인** 을 클릭하여 Azure 계정에 로그인합니다.
 
 1. Azure로 인증하려면 디바이스 코드가 필요합니다. 로그인을 클릭하면 디바이스 코드가 포함된 모달이 열립니다.
-2. **코드 복사 및 로그인** 을 클릭하여 디바이스 코드를 복사하고 새 브라우저 탭에서 Azure 로그인 프롬프트를 엽니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
+2. **코드 복사 및 로그인** 을 클릭하여 디바이스 코드를 복사하고 새 브라우저 탭에서 Azure 로그인 프롬프트를 엽니다. 프롬프트가 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
 
     ![디바이스 코드를 보여주는 모달.](./media/tutorial-containerize-apps-aks/login-modal.png)
 
@@ -158,13 +158,13 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 
 2. **유효성 검사** 를 클릭하여 도구를 실행하는 컴퓨터에서 애플리케이션 서버에 연결할 수 있는지, 자격 증명이 유효한지 확인합니다. 유효성 검사가 성공적으로 완료되면 상태 열에서 상태가 **매핑됨** 으로 표시됩니다.  
 
-    ![서버 IP 및 자격 증명을 보여 주는 스크린샷.](./media/tutorial-containerize-apps-aks/discovery-credentials.png)
+    ![서버 IP 및 자격 증명을 보여 주는 스크린샷.](./media/tutorial-containerize-apps-aks/discovery-credentials-asp.png)
 
 3. **계속** 을 클릭하여 선택한 애플리케이션 서버에서 애플리케이션 검색을 시작합니다.
 
 4. 애플리케이션 검색이 성공적으로 완료되면 컨테이너화할 애플리케이션의 목록을 선택할 수 있습니다.
 
-    ![검색된 ASP.NET 애플리케이션을 보여 주는 스크린샷.](./media/tutorial-containerize-apps-aks/discovered-app.png)
+    ![검색된 ASP.NET 애플리케이션을 보여 주는 스크린샷.](./media/tutorial-containerize-apps-aks/discovered-app-asp.png)
 
 
 4. 확인란을 사용하여 컨테이너화할 애플리케이션을 선택합니다.
@@ -176,7 +176,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 2. 검색된 애플리케이션 구성을 매개 변수화하는 확인란을 선택합니다.
 3. 매개 변수화할 구성을 선택한 후 **적용** 을 클릭합니다.
 
-   ![앱 구성 매개 변수화 ASP.NET 애플리케이션을 보여 주는 스크린샷.](./media/tutorial-containerize-apps-aks/discovered-app-configs.png)
+   ![앱 구성 매개 변수화 ASP.NET 애플리케이션을 보여 주는 스크린샷.](./media/tutorial-containerize-apps-aks/discovered-app-configs-asp.png)
 
 ### <a name="externalize-file-system-dependencies"></a>파일 시스템 종속성 외부화
 
@@ -188,7 +188,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 3. 동일한 볼륨에 여러 폴더를 추가하려면 쉼표(`,`)로 구분된 값을 제공합니다.
 4. 폴더를 컨테이너 외부의 영구 볼륨에 저장하려면 스토리지 옵션으로 **영구 볼륨** 을 선택합니다.
 5. 애플리케이션 폴더를 검토한 후 **저장** 을 클릭합니다.
-   ![앱 볼륨 스토리지 선택을 보여 주는 스크린샷.](./media/tutorial-containerize-apps-aks/discovered-app-volumes.png)
+   ![앱 볼륨 스토리지 선택을 보여 주는 스크린샷.](./media/tutorial-containerize-apps-aks/discovered-app-volumes-asp.png)
 
 6. **계속** 을 클릭하여 컨테이너 이미지 빌드 단계로 이동합니다.
 
@@ -225,12 +225,18 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
      - AKS 클러스터가 없거나 새 AKS 클러스터를 만들어 애플리케이션을 배포하려는 경우 **새 AKS 클러스터 만들기** 를 클릭하여 도구에서 만들도록 선택할 수 있습니다.      
           - 도구를 사용하여 만든 AKS 클러스터는 Windows 노드 풀을 사용하여 생성됩니다. 클러스터가 이전에 만든 Azure Container Registry에서 이미지를 끌어올 수 있도록 구성됩니다(새 레지스트리 만들기 옵션을 선택한 경우).
      - AKS 클러스터를 선택한 후 **계속** 을 클릭합니다.
+2. **비밀 저장소 지정**: 애플리케이션 구성을 매개 변수화하도록 선택한 경우 애플리케이션에 사용할 비밀 저장소를 지정합니다. 애플리케이션 비밀을 관리하기 위해 Azure Key Vault 또는 App Service 애플리케이션 설정을 선택할 수 있습니다. [자세한 정보](../app-service/configure-common.md#configure-connection-strings)
 
-2. **Azure 파일 공유 지정**: 더 많은 폴더를 추가했고 영구 볼륨 옵션을 선택한 경우 배포 프로세스 중에 Azure Migrate: 앱 컨테이너화 도구에서 사용할 Azure 파일 공유를 지정합니다. 이 도구는 이 Azure 파일 공유에 영구 볼륨 스토리지로 구성된 새 디렉터리를 만들어 애플리케이션 폴더를 복사합니다. 애플리케이션 배포가 완료되면 도구는 앞서 만든 디렉터리를 삭제하여 Azure 파일 공유를 정리합니다.
+     - 비밀 관리를 위해 App Service 애플리케이션 설정을 선택한 경우 **계속** 을 클릭합니다.
+     - Azure Key Vault를 사용하여 애플리케이션 비밀을 관리하려는 경우 사용할 Azure Key Vault를 지정합니다.     
+         - Azure Key Vault가 없거나 새 Key Vault를 만들려는 경우 **새 Azure Key Vault 만들기** 를 클릭하여 도구에서 만들도록 선택할 수 있습니다.
+         - 이 도구는 Key Vault를 통해 비밀을 관리하는 데 필요한 권한을 자동으로 할당합니다.
+
+3. **Azure 파일 공유 지정**: 더 많은 폴더를 추가했고 영구 볼륨 옵션을 선택한 경우 배포 프로세스 중에 Azure Migrate: 앱 컨테이너화 도구에서 사용할 Azure 파일 공유를 지정합니다. 이 도구는 이 Azure 파일 공유에 영구 볼륨 스토리지로 구성된 새 디렉터리를 만들어 애플리케이션 폴더를 복사합니다. 애플리케이션 배포가 완료되면 도구는 앞서 만든 디렉터리를 삭제하여 Azure 파일 공유를 정리합니다.
 
      - Azure 파일 공유가 없거나 새 Azure 파일 공유를 만들려는 경우 **새 스토리지 계정 및 파일 공유 만들기** 를 클릭하여 도구에서 만들도록 선택할 수 있습니다.  
 
-3. **애플리케이션 배포 구성**: 위의 단계를 완료한 후에는 애플리케이션에 대한 배포 구성을 지정해야 합니다. **구성** 을 클릭하여 애플리케이션 배포를 사용자 지정합니다. 구성 단계에서 다음과 같은 사용자 지정을 구성할 수 있습니다.
+4. **애플리케이션 배포 구성**: 위의 단계를 완료한 후에는 애플리케이션에 대한 배포 구성을 지정해야 합니다. **구성** 을 클릭하여 애플리케이션 배포를 사용자 지정합니다. 구성 단계에서 다음과 같은 사용자 지정을 구성할 수 있습니다.
      - **접두사 문자열**: AKS 클러스터에서 컨테이너화된 애플리케이션에 대해 생성되는 모든 리소스의 이름에 사용할 접두사 문자열을 지정합니다.
      - **SSL 인증서**: 애플리케이션에 https 사이트 바인딩이 필요한 경우 바인딩에 사용할 인증서가 포함된 PFX 파일을 지정합니다. PFX 파일은 암호로 보호되지 않아야 하며 원본 사이트에는 여러 개의 바인딩이 없어야 합니다.
      - **복제본 세트**: 컨테이너 내에서 실행해야 하는 애플리케이션 인스턴스(Pod)의 수를 지정합니다.
@@ -240,14 +246,14 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
      - **적용** 을 클릭하여 배포 구성을 저장합니다.
      - **계속** 을 클릭하여 애플리케이션을 배포합니다.
 
-    ![배포 앱 구성을 보여 주는 스크린샷.](./media/tutorial-containerize-apps-aks/deploy-aspnet-app-config.png)
+    ![배포 앱 구성을 보여 주는 스크린샷.](./media/tutorial-containerize-apps-aks/deploy-aspnet-app-config-aks.png)
 
 4. **애플리케이션 배포**: 애플리케이션 배포 구성이 저장되면 도구는 애플리케이션에 대한 Kubernetes 배포 YAML을 생성합니다.
-     - **편집** 을 클릭하여 애플리케이션에 대한 Kubernetes 배포 YAML을 검토하고 사용자 지정합니다.
+     - **편집** 을 클릭하여 애플리케이션의 Kubernetes 배포 YAML을 검토하고 사용자 지정합니다.
      - 배포할 애플리케이션을 선택합니다.
      - **배포** 를 클릭하여 선택한 애플리케이션의 배포를 시작합니다.
 
-         ![앱 배포 구성을 보여 주는 스크린샷.](./media/tutorial-containerize-apps-aks/deploy-aspnet-app-deploy.png)
+         ![앱 배포 구성을 보여 주는 스크린샷.](./media/tutorial-containerize-apps-aks/deploy-aspnet-app-deploy-aks.png)
 
      - 애플리케이션이 배포되면 ‘배포 상태’ 열을 클릭하여 애플리케이션에 대해 배포된 리소스를 추적할 수 있습니다.
 
@@ -263,4 +269,6 @@ Dockerfile 및 Kubernetes YAML 사양 파일을 포함하여 애플리케이션�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Apache Tomcat(Linux 서버)의 Java 웹앱을 컨테이너화하여 AKS의 Linux 컨테이너에 배포. [자세히 알아보기](./tutorial-containerize-java-kubernetes.md)
+- ASP.NET 웹앱을 컨테이너화하고 App Service의 Windows 컨테이너에 배포. [자세한 정보](./tutorial-app-containerization-aspnet-app-service.md)
+- Apache Tomcat(Linux 서버에 있는)의 Java 웹앱을 컨테이너화하고 AKS의 Linux 컨테이너에 배포. [자세한 정보](./tutorial-app-containerization-java-kubernetes.md)
+- Apache Tomcat(Linux 서버에 있는)의 Java 웹앱을 컨테이너화하고 App Service의 Linux 컨테이너에 배포. [자세한 정보](./tutorial-app-containerization-java-app-service.md)

@@ -1,25 +1,26 @@
 ---
-title: '빠른 시작: ID 관리를 위해 Azure AD(Azure Active Directory) 테넌트를 사용하는 애플리케이션 목록 보기'
-description: 이 빠른 시작에서는 Azure Portal을 사용하여 ID 관리를 위해 Azure AD(Azure Active Directory) 테넌트를 사용하도록 등록된 애플리케이션 목록을 확인합니다.
+title: '빠른 시작: 테넌트의 애플리케이션 목록 보기'
+titleSuffix: Azure AD
+description: 이 빠른 시작에서는 Azure AD(Azure Active Directory) 테넌트를 ID 관리에 사용하기 위해 등록된 애플리케이션 목록을 Azure Portal에서 확인합니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 04/09/2019
-ms.author: mtillman
-ms.reviewer: arvinh
+ms.date: 07/22/2021
+ms.author: davidmu
+ms.reviewer: alamaral
 ms.custom: it-pro
-ms.openlocfilehash: c1022ddae7fdd00731f17a1e62e024a6ebfaebcb
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: b5b9c84a5cbadd7d3661a2109223c43dbff7da7a
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080600"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114605707"
 ---
-# <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>빠른 시작: ID 관리를 위해 Azure AD(Azure Active Directory) 테넌트를 사용하는 애플리케이션 목록 보기
+# <a name="quickstart-view-the-list-of-applications-in-your-tenant"></a>빠른 시작: 테넌트의 애플리케이션 목록 보기
 
 조직에서 사용하는 애플리케이션의 IAM(Identity and Access Management) 시스템으로 Azure AD를 사용하세요. 이 빠른 시작에서는 Azure AD 테넌트를 IdP(ID 공급자)로 사용하도록 이미 설정된 애플리케이션(앱이라고도 함)을 확인합니다.
 
@@ -34,7 +35,7 @@ Azure AD 테넌트에 등록된 애플리케이션을 보려면 다음이 필요
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하고 사용하려면 Azure CLI 버전 2.0.4 이상을 실행합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하고 사용하려면 Azure CLI 버전 2.0.4 이상을 실행합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="find-the-list-of-applications-in-your-tenant"></a>테넌트에서 애플리케이션 목록 찾기
 
@@ -45,10 +46,9 @@ CLI를 로컬로 설치하고 사용하려면 Azure CLI 버전 2.0.4 이상을 �
 Azure AD 테넌트에 등록된 애플리케이션은 Azure Portal의 **엔터프라이즈 앱** 섹션에서 볼 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 탐색 패널에서 **Azure Active Directory** 를 선택합니다.
-3. **Azure Active Directory** 창에서 **엔터프라이즈 애플리케이션** 을 선택합니다.
-4. **애플리케이션 종류** 드롭다운 메뉴에서 **모든 애플리케이션** 을 선택하고 **적용** 을 선택합니다. 테넌트 애플리케이션의 무작위 샘플이 나타납니다.
-5. 더 많은 애플리케이션을 보려면 목록 아래에서 **추가 로드** 를 클릭합니다. 테넌트에 많은 애플리케이션이 있는 경우 목록을 스크롤하는 것보다 특정 애플리케이션을 검색하는 것이 더 쉬울 수 있습니다. 특정 애플리케이션에 대한 검색은 이 빠른 시작의 뒷부분에서 설명합니다.
+2. **Azure 서비스** 창에서 **엔터프라이즈 애플리케이션** 을 선택합니다.
+3. **애플리케이션 종류** 드롭다운 메뉴에서 **모든 애플리케이션** 을 선택하고 **적용** 을 선택합니다. 테넌트 애플리케이션의 무작위 샘플이 나타납니다.
+4. 더 많은 애플리케이션을 보려면 목록 아래에서 **추가 로드** 를 클릭합니다. 테넌트에 많은 애플리케이션이 있는 경우 목록을 스크롤하는 것보다 특정 애플리케이션을 검색하는 것이 더 쉬울 수 있습니다. 특정 애플리케이션에 대한 검색은 이 빠른 시작의 뒷부분에서 설명합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -94,7 +94,7 @@ az ad app list --filter "displayname eq 'test' and servicePrincipalType eq 'Appl
 1. **애플리케이션 종류** 메뉴에서 **모든 애플리케이션** 을 선택하고 **적용** 을 선택합니다.
 2. 찾으려는 애플리케이션의 이름을 입력합니다. 애플리케이션이 Azure AD 테넌트에 추가되면 검색 결과에 나타납니다. 이 예제는 GitHub가 테넌트 애플리케이션에 추가되지 않은 것을 보여줍니다.
     ![앱이 테넌트에 추가되지 않았음을 보여주는 예](media/view-applications-portal/search-for-tenant-application.png)
-3. 애플리케이션 이름의 처음 몇 글자를 입력해 보세요. 이 예제는 **Sales** 로 시작하는 모든 애플리케이션을 보여줍니다.
+3. 애플리케이션 이름의 처음 몇 글자를 입력해 보세요. 이 예제는 **Office** 로 시작하는 모든 애플리케이션을 보여 줍니다.
     ![Sales로 시작하는 모든 앱을 보여주는 예](media/view-applications-portal/search-by-prefix.png)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)

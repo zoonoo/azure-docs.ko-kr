@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 05/19/2021
 ms.author: aahi
-ms.openlocfilehash: e8ce559b180169468a5c53e5aa1d742dd4cdfc83
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: a1c093f1933da96ec866280cf3583162891d5068
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110450878"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113550267"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>자습서: Text Analytics Cognitive Service와 Power BI 통합
 
@@ -45,7 +45,7 @@ Microsoft Power BI Desktop은 데이터에 연결하고, 데이터를 변환 및
 시작하려면 Power BI Desktop을 열고 [필수 구성 요소](#Prerequisites)에서 다운로드한 CSV(쉼표로 구분된 값) 파일 `FabrikamComments.csv`를 로드합니다. 이 파일은 작은 가상 회사의 지원 포럼에서 하루 동안 벌어지는 가상의 작업을 보여줍니다.
 
 > [!NOTE]
-> Power BI는 Facebook 또는 SQL 데이터베이스 같은 다양한 소스의 데이터를 사용할 수 있습니다. 자세한 내용은 [Power BI와 Facebook 통합](https://powerbi.microsoft.com/integrations/facebook/) 및 [Power BI와 SQL Server 통합](https://powerbi.microsoft.com/integrations/sql-server/)을 참조하세요.
+> Power BI는 SQL 데이터베이스 같은 다양한 웹 기반 소스의 데이터를 사용할 수 있습니다. 자세한 내용은 [파워 쿼리 설명서](/power-query/connectors/)를 참조하세요.
 
 기본 Power BI Desktop 창에서 **홈** 리본을 선택합니다. 리본의 **외부 데이터** 그룹에서 **데이터 가져오기** 드롭다운 메뉴를 열고 **Text/CSV** 를 선택합니다.
 
@@ -89,7 +89,7 @@ Power BI Desktop에서 **홈** 리본을 선택합니다. **외부 데이터** �
 ## <a name="understand-the-api"></a>API 이해
 <a name="UnderstandingAPI"></a>
 
-Text Analytics 서비스의 [핵심 구 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/operations/KeyPhrases)는 HTTP 요청마다 최대 천 개의 텍스트 문서를 처리할 수 있습니다. Power BI는 레코드를 한 번에 하나씩 처리하는 것을 선호하므로 이 자습서에서 API 호출에는 각각 단일 문서만 포함됩니다. 핵심 구 API는 처리할 각 문서에 대한 다음 필드가 필요합니다.
+Text Analytics 서비스의 [핵심 구 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-1/operations/KeyPhrases)는 HTTP 요청마다 최대 천 개의 텍스트 문서를 처리할 수 있습니다. Power BI는 레코드를 한 번에 하나씩 처리하는 것을 선호하므로 이 자습서에서 API 호출에는 각각 단일 문서만 포함됩니다. 핵심 구 API는 처리할 각 문서에 대한 다음 필드가 필요합니다.
 
 | 필드 | Description |
 | - | - |
@@ -225,7 +225,7 @@ Microsoft Azure에서 제공하는 Cognitive Services 중 하나인 Text Analyti
 // Returns the sentiment label of the text, for example, positive, negative or mixed.
 (text) => let
     apikey = "YOUR_API_KEY_HERE",
-    endpoint = "<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1-preview.5/sentiment",
+    endpoint = "<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1/sentiment",
     jsontext = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody = Text.ToBinary(jsonbody),
@@ -242,7 +242,7 @@ Microsoft Azure에서 제공하는 Cognitive Services 중 하나인 Text Analyti
 // Returns the two-letter language code (for example, 'en' for English) of the text
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.0/languages",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -255,7 +255,7 @@ Microsoft Azure에서 제공하는 Cognitive Services 중 하나인 Text Analyti
 // Returns the name (for example, 'English') of the language in which the text is written
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.0/languages",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -274,7 +274,7 @@ Microsoft Azure에서 제공하는 Cognitive Services 중 하나인 Text Analyti
 // Returns key phrases from the text as a list object
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.0/keyPhrases",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1/keyPhrases",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -291,7 +291,7 @@ in  keyphrases
 Text Analytics 서비스, 파워 쿼리 M 수식 언어 또는 Power BI에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [텍스트 분석 API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0)
+> [텍스트 분석 API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1)
 
 > [!div class="nextstepaction"]
 > [파워 쿼리 M 참조](/powerquery-m/power-query-m-reference)

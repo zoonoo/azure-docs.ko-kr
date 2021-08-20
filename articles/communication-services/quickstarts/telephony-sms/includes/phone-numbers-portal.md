@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: 82e475c97aa2c68a33a48b04fe3e45fb13728b88
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fc175bdad79bbb01bd0686dcdbf314d8d6ee47fb
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629403"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "114201000"
 ---
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [활성 Communication Services 리소스](../../create-communication-resource.md)
@@ -77,7 +77,7 @@ ms.locfileid: "105629403"
 
 ## <a name="find-your-phone-numbers-on-the-azure-portal"></a>Azure Portal에서 전화 번호 찾기
 
-다음과 같이 [Azure Portal](https://portal.azure.com)에서 Azure Communication 리소스로 이동합니다.
+[Azure Portal](https://portal.azure.com)에서 Azure Communication Services 리소스로 이동합니다.
 
 :::image type="content" source="../../media/manage-phone-azure-portal-start.png" alt-text="Communication Services 리소스의 기본 페이지를 보여주는 스크린샷":::
 

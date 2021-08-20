@@ -12,12 +12,12 @@ metadata:
   ms.author: dfurman
   ms.reviewer: mathoma
   ms.date: 03/31/2021
-  ms.openlocfilehash: 993254f838af70c62292844991ba72c6977dfd99
-  ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
+  ms.openlocfilehash: b173b2ce8de29a4a605e7223bc46130155b81b3d
+  ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/24/2021
-  ms.locfileid: "112574798"
+  ms.lasthandoff: 07/24/2021
+  ms.locfileid: "114668765"
 title: Azure SQL Database 하이퍼스케일 FAQ
 summary: >
   [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -126,10 +126,10 @@ sections:
   - question: >
       하이퍼스케일은 어떤 종류의 워크로드를 위해 설계되었나요?
     answer: >
-      하이퍼스케일은 모든 SQL Server 워크로드를 지원하지만, 주로 OLTP에 최적화되어 있습니다. 하이브리드(HTAP) 및 분석(데이터 마트) 워크로드도 가져올 수 있습니다.
+      하이퍼스케일은 OLTP, 하이브리드(HTAP) 및 분석(데이터 마트) 워크로드를 포함한 모든 워크로드 유형을 지원합니다.
   - question: >
       Azure Synapse Analytics와 Azure SQL Database 하이퍼스케일 중에서 선택하려면 어떻게 해야 하나요?
-    answer: "현재 SQL Server를 데이터 웨어하우스로 사용하여 대화형 분석 쿼리를 실행하는 경우 하이퍼스케일이 가장 적합한 옵션입니다. 왜냐하면 중소 규모(예: 수 TB에서 최대 100TB까지)의 데이터 웨어하우스를 저렴한 비용으로 호스트할 수 있고, T-SQL 코드 변경을 최소화하면서 SQL Server 데이터 웨어하우스 워크로드를 하이퍼스케일로 마이그레이션할 수 있기 때문입니다.\n\n복잡한 쿼리와 100MB/s를 초과하는 지속적인 수집 속도를 사용하여 데이터 분석을 대규모로 실행하거나 PDW(병렬 데이터 웨어하우스), Teradata 또는 기타 MPP(대규모 병렬 처리) 데이터 웨어하우스를 사용하는 경우 Azure Synapse Analytics를 선택하는 것이 가장 좋습니다.\n  \n"
+    answer: "현재 SQL Server를 데이터 웨어하우스로 사용하여 대화형 분석 쿼리를 실행하는 경우 하이퍼스케일이 가장 적합한 옵션입니다. 왜냐하면 중소 규모(예: 수 TB에서 최대 100TB까지)의 데이터 웨어하우스를 저렴한 비용으로 호스트할 수 있고, T-SQL 코드 변경을 최소화하면서 SQL Server 데이터 웨어하우스 워크로드를 하이퍼스케일로 마이그레이션할 수 있기 때문입니다.\n\n복잡한 쿼리와 100MB/초보다 높은 수집 속도를 사용하여 대규모 데이터 분석을 실행하고 있거나 PDW(병렬 데이터 웨어하우스), Teradata 또는 다른 MPP(대규모 병렬 처리) 데이터 웨어하우스를 사용하는 경우 Azure Synapse Analytics를 선택하는 것이 가장 적합할 수 있습니다.\n  \n"
 - name: 하이퍼스케일 컴퓨팅 질문
   questions:
   - question: >
@@ -143,11 +143,11 @@ sections:
   - question: >
       크기가 다른 여러 개의 컴퓨팅 복제본을 프로비전할 수 있나요?
     answer: >
-      아니요.
+      예. 이는 [명명된 복제본](service-tier-hyperscale-replicas.md#named-replica-in-preview)을 사용하여 수행할 수 있습니다.
   - question: >
       지원되는 읽기 확장 복제본의 수는 얼마인가요?
     answer: >
-      하이퍼스케일 데이터베이스는 기본적으로 하나의 읽기 확장 복제본(주 복제본을 포함하여 2개 복제본)으로 만들어집니다. [Azure Portal](https://portal.azure.com) 또는 [REST API](/rest/api/sql/databases/createorupdate)를 사용하여 읽기 전용 복제본 수를 0~4로 조정할 수 있습니다.
+      하이퍼스케일 데이터베이스는 기본적으로 하나의 읽기 확장 복제본(주 복제본을 포함하여 2개 복제본)으로 만들어집니다. [Azure Portal](https://portal.azure.com) 또는 [REST API](/rest/api/sql/databases/createorupdate)를 사용하여 읽기 전용 복제본 수를 0~4로 조정할 수 있습니다. 또한 [명명된 복제본](service-tier-hyperscale-replicas.md#named-replica-in-preview)을 사용하여 많은 읽기 스케일 아웃 시나리오를 사용하도록 설정할 수 있습니다.
   - question: >
       고가용성을 위해 추가 컴퓨팅 복제본을 프로비전해야 하나요?
     answer: >
@@ -170,7 +170,7 @@ sections:
   - question: >
       내 데이터베이스가 확장됨에 따라 내 `tempdb`도 확장되나요?
     answer: >
-      `tempdb` 데이터베이스는 로컬 SSD 스토리지에 있으며 프로비전하는 컴퓨팅 크기에 비례하여 크기 조정됩니다. `tempdb`는 성능을 최대로 활용할 수 있도록 최적화됩니다. `tempdb` 크기는 구성할 수 없으며 사용자를 대신하여 관리됩니다.
+      `tempdb` 데이터베이스는 로컬 SSD 스토리지에 있으며 프로비전하는 컴퓨팅 크기에 비례하여 크기 조정됩니다. `tempdb`는 성능을 최대로 활용할 수 있도록 최적화됩니다. `tempdb` 크기는 구성할 수 없으며 사용자를 대신하여 관리됩니다. 데이터베이스의 최대 `tempdb` 크기를 결정하려면 [하이퍼스케일 스토리지 및 컴퓨팅 크기](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5)를 참조하세요.
   - question: >
       데이터베이스 크기가 자동으로 확장되나요? 아니면 데이터 파일의 크기를 관리해야 하나요?
     answer: >
@@ -222,7 +222,7 @@ sections:
   - question: >
       하이퍼스케일 서비스 계층으로 마이그레이션하면 기능이 손실되나요?
     answer: >
-      예. 장기 백업 보존을 포함하지만 이에 국한되지 않는 일부 Azure SQL Database 기능은 아직 하이퍼스케일에서 지원되지 않습니다. 하이퍼스케일로 데이터베이스를 마이그레이션한 후에는 해당 기능이 작동을 중지합니다.  이러한 제한은 일시적일 것으로 간주됩니다.
+      예. 장기 백업 보존을 포함하지만 이에 국한되지 않는 일부 Azure SQL Database 기능은 아직 하이퍼스케일에서 지원되지 않습니다. 하이퍼스케일로 데이터베이스를 마이그레이션한 후에는 해당 기능이 작동을 중지합니다.  이러한 제한은 일시적일 것으로 간주됩니다. 자세한 내용은 [알려진 제한 사항](service-tier-hyperscale.md#known-limitations)을 참조하세요.
   - question: >
       온-프레미스 SQL Server 데이터베이스 또는 클라우드 가상 머신의 SQL Server 데이터베이스를 하이퍼스케일로 이동할 수 있나요?
     answer: >
@@ -272,7 +272,7 @@ sections:
   - question: >
       데이터베이스 백업이 얼마나 자주 수행되나요?
     answer: >
-      하이퍼스케일 데이터베이스에는 기존의 전체, 차등 및 로그 백업이 없습니다. 대신 데이터 파일의 일반 스토리지 스냅샷이 있습니다. 생성된 로그는 구성된 보존 기간 동안 그대로 유지되므로 보존 기간 내의 특정 시점으로 복원할 수 있습니다.
+      하이퍼스케일 데이터베이스에는 기존의 전체, 차등 및 로그 백업이 없습니다. 대신 데이터 파일의 일반 스토리지 스냅샷이 있습니다. 생성된 로그는 구성된 보존 기간 동안 그대로 유지되어 보존 기간 내의 모든 시점으로 복원할 수 있습니다.
   - question: >
       하이퍼스케일에서 특정 시점 복원을 지원하나요?
     answer: >
@@ -280,7 +280,7 @@ sections:
   - question: >
       하이퍼스케일에서 데이터베이스 복원에 대한 RPO(복구 지점 목표)/RTO(복구 시간 목표)는 무엇인가요?
     answer: >
-      RPO는 0분입니다. 대부분의 복원 작업은 데이터베이스 크기에 관계없이 60분 내에 완료됩니다. 더 큰 데이터베이스의 경우 복원 시간이 더 길어질 수 있으며, 복원 시점 이전 및 복원 시점까지 데이터베이스에서 상당한 쓰기 작업이 발생했을 수 있습니다.
+      특정 시점 복원의 RPO는 0분입니다. 대부분의 특정 시점 복원 작업은 데이터베이스 크기에 관계없이 60분 이내에 완료됩니다. 더 큰 데이터베이스의 경우 복원 시간이 더 길어질 수 있으며, 복원 시점 이전 및 복원 시점까지 데이터베이스에서 상당한 쓰기 작업이 발생했을 수 있습니다.
   - question: >
       데이터베이스 백업이 주 또는 보조 복제본의 컴퓨팅 성능에 영향을 주나요?
     answer: >
@@ -292,7 +292,7 @@ sections:
   - question: >
       하이퍼스케일 데이터베이스를 사용하여 지역 복제를 설정할 수 있나요?
     answer: >
-      하이퍼스케일 데이터베이스에 대한 [지역 복제](active-geo-replication-overview.md)는 공개 미리 보기에 있습니다.
+      예. 하이퍼스케일 데이터베이스에 대한 [지역 복제](active-geo-replication-overview.md)는 공개 미리 보기에 있습니다.
   - question: >
       하이퍼스케일 데이터베이스 백업을 가져와서 온-프레미스 서버 또는 VM의 SQL Server에 복원할 수 있나요?
     answer: >
@@ -302,7 +302,7 @@ sections:
   - question: >
       하이퍼스케일 서비스 계층으로 마이그레이션하면 기능이 손실되나요?
     answer: >
-      예. 장기 백업 보존을 포함하지만 이에 국한되지 않는 일부 Azure SQL Database 기능은 하이퍼스케일에서 지원되지 않습니다. 하이퍼스케일로 데이터베이스를 마이그레이션한 후에는 해당 기능이 작동을 중지합니다.
+      예. 장기 백업 보존을 포함하지만 이에 국한되지 않는 일부 Azure SQL Database 기능은 하이퍼스케일에서 지원되지 않습니다. 하이퍼스케일로 데이터베이스를 마이그레이션한 후에는 해당 기능이 작동을 중지합니다. 자세한 내용은 [알려진 제한 사항](service-tier-hyperscale.md#known-limitations)을 참조하세요.
   - question: >
       PolyBase는 하이퍼스케일에서 작동하나요?
     answer: >
@@ -324,7 +324,7 @@ sections:
   - question: >
       가장 큰 컴퓨팅에서 달성할 수 있는 IOPS는 얼마인가요?
     answer: >
-      IOPS 및 IO 대기 시간은 워크로드 패턴에 따라 달라집니다. 액세스되는 데이터가 컴퓨팅 복제본에 캐시되면 로컬 SSD를 사용하는 것과 비슷한 IO 성능을 확인할 수 있습니다.
+      IOPS 및 IO 대기 시간은 워크로드 패턴에 따라 달라집니다. 액세스 중인 데이터가 컴퓨팅 복제본의 RBPEX에 캐시되는 경우 중요 비즈니스용 또는 프리미엄 서비스 계층에서와 유사한 IO 성능을 볼 수 있습니다.
   - question: >
       내 처리량이 백업의 영향을 받나요?
     answer: >
@@ -350,14 +350,14 @@ sections:
   - question: >
       크기 조정 작업을 진행하고 있을 때 연결이 끊어질 수 있나요?
     answer: >
-      스케일 업하거나 스케일 다운하는 경우 크기 조정 작업이 끝날 때 장애 조치(failover)가 발생하면 기존 연결이 끊어집니다. 보조 복제본을 추가하면 연결이 끊어지지 않습니다.
+      스케일 업하거나 스케일 다운하는 경우 크기 조정 작업이 끝날 때 장애 조치(failover)가 발생하면 기존 연결이 끊어집니다. 보조 복제본을 추가하거나 제거해도 주 복제본에서 연결이 끊어지지 않습니다.
   - question: >
       컴퓨팅 복제본의 스케일 업 및 스케일 다운은 자동인가요? 아니면 최종 사용자가 트리거하는 작업인가요?
     answer: "최종 사용자가 트리거합니다. 자동이 아닙니다.  \n"
   - question: >
       컴퓨팅이 스케일 업됨에 따라 내 `tempdb` 데이터베이스와 RBPEX 캐시의 크기도 증가하나요?
     answer: >
-      예. 코어 수가 증가함에 따라 컴퓨팅 노드의 `tempdb` 데이터베이스 및 [RBPEX 캐시](service-tier-hyperscale.md#distributed-functions-architecture) 크기도 자동으로 스케일 업됩니다.
+      예. 코어 수가 증가함에 따라 컴퓨팅 노드의 `tempdb` 데이터베이스 및 [RBPEX 캐시](service-tier-hyperscale.md#distributed-functions-architecture) 크기도 자동으로 스케일 업됩니다. 자세한 내용은 [하이퍼스케일 스토리지 및 컴퓨팅 크기](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5)를 참조하세요.
   - question: >
       여러 주 컴퓨팅 헤드에서 더 높은 수준의 동시성을 구동할 수 있는 다중 마스터 시스템과 같은 여러 주 컴퓨팅 복제본을 프로비전할 수 있나요?
     answer: >

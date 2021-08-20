@@ -2,13 +2,13 @@
 title: Azure Video Analyzer를 사용하여 라이브 비디오에서 개체가 가상의 선과 교차할 때 감지
 description: 이 빠른 시작에서는 Azure Video Analyzer를 사용하여 (시뮬레이션된) IP 카메라의 라이브 비디오 피드에서 개체가 선과 교차할 때 감지하는 방법을 보여줍니다.
 ms.topic: tutorial
-ms.date: 05/18/2021
-ms.openlocfilehash: 8cca0aca44f2cb2ebdbee7869d189b0cd2b2451f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 06/01/2021
+ms.openlocfilehash: 0b87d80c5dcc7a72bf940cac3573ee5e68964022
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465663"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604662"
 ---
 # <a name="tutorial-detect-when-objects-cross-a-virtual-line-in-a-live-video"></a>자습서: 라이브 비디오에서 개체가 가상의 선과 교차할 때 감지
 
@@ -98,11 +98,11 @@ Visual Studio Code에서 src/cloud-to-device-console-app 폴더로 이동합니�
 1. operations.json 파일을 편집합니다.
     
     * 파이프라인 토폴로지의 링크를 변경합니다.
-    * "pipelineTopologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/line-crossing/topology.json"
-    * livePipelineSet에서 이전 링크의 값과 일치하도록 토폴로지의 이름을 편집합니다.
-    * "topologyName": "LineCrossingWithHttpExtension"
+    * `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/line-crossing/topology.json"`
+    * `livePipelineSet` 아래에서 이전 링크의 값과 일치하도록 토폴로지의 이름을 편집합니다.
+    * `"topologyName" : "LineCrossingWithHttpExtension"`
     * `pipelineTopologyDelete` 아래에서 이름을 편집합니다.
-    * "name": "LineCrossingWithHttpExtension"
+    * `"name" : "LineCrossingWithHttpExtension"`
     
 브라우저에서 파이프라인 토폴로지의 URL을 열고 HTTP 확장 노드에 대한 설정을 검사합니다.
 
@@ -113,7 +113,7 @@ Visual Studio Code에서 src/cloud-to-device-console-app 폴더로 이동합니�
    }
 ```
 
-여기서는 확장 노드가 추론 결과의 포함 여부에 관계 없이 모든 프레임을 다운스트림 개체 추적기 노드에 전달해야 하므로 `skipSamplesWithoutAnnotation`이 `false`로 설정되었습니다. 개체 추적기는 약 15프레임 넘게 개체를 추적할 수 있습니다. 라이브 비디오의 프레임 속도가 초당 30프레임이면 매 초마다 추론을 위해 두 개 이상의 프레임을 HTTP 서버로 보내야 하므로 `maximumSamplesPerSecond`는 2로 설정됩니다. 이는 사실상 초당 15프레임입니다.
+여기서는 확장 노드가 추론 결과의 포함 여부에 관계 없이 모든 프레임을 다운스트림 개체 추적기 노드에 전달해야 하므로 `skipSamplesWithoutAnnotation`이 `false`로 설정되었습니다. 개체 추적기는 약 15프레임 넘게 개체를 추적할 수 있습니다. 라이브 비디오의 프레임 속도가 초당 30프레임이면 매 초마다 추론을 위해 두 개 이상의 프레임을 HTTP 서버로 보내야 합니다. AI 모델에는 처리를 위한 최대 FPS가 있으며, 이는 `maximumSamplesPerSecond`에 설정해야 하는 가장 높은 값입니다.
 
 선 교차 노드 매개 변수 자리 표시자 `linecrossingName` 및 `lineCoordinates`도 살펴봅니다. 두 매개 변수의 기본값이 제공되었지만 operations.json을 사용하여 기본값을 덮어쓰겠습니다. operations.json 파일의 다른 매개 변수(예: rtsp url)를 토폴로지에 전달하는 방법을 살펴봅니다.  
 

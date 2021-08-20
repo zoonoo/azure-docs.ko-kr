@@ -3,18 +3,18 @@ title: 자습서 - Azure Cost Management에서 내보낸 데이터 만들기 및
 description: 이 문서에서는 내보낸 Azure Cost Management 데이터를 외부 시스템에서 사용할 수 있도록 만들고 관리하는 방법을 보여줍니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/06/2021
+ms.date: 07/26/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 9f9afe0b7c27fb2199f9bdcd1fa5edbe4da01602
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 592ef54b359c84309da350bf53da6bb0a4152374
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517643"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114708633"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터 만들기 및 관리
 
@@ -32,7 +32,7 @@ Azure Storage로의 Azure 비용 데이터 예약된 내보내기를 만드는 �
 > * 일일 내보내기 만들기
 > * 데이터가 수집되는지 확인
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 데이터 내보내기는 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 및 [Microsoft 고객 계약](get-started-partners.md) 고객을 비롯한 다양한 종류의 Azure 계정에 사용할 수 있습니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 다음 Azure 사용 권한 또는 범위는 사용자 및 그룹별 데이터 내보내기에 대해 구독별로 지원됩니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
@@ -247,7 +247,7 @@ Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-00
 
 #### <a name="create-an-export-for-multiple-subscriptions"></a>여러 구독에 대한 내보내기 만들기
 
-기업계약을 보유한 경우 관리 그룹을 사용하여 단일 컨테이너의 구독 비용 정보를 집계할 수 있습니다. 그런 다음, 관리 그룹에 대한 비용 관리 데이터를 내보낼 수 있습니다.
+기업계약을 보유한 경우 관리 그룹을 사용하여 단일 컨테이너의 구독 비용 정보를 집계할 수 있습니다. 그런 다음, 관리 그룹에 대한 비용 관리 데이터를 내보낼 수 있습니다. 관리 그룹에 대한 내보내기는 실제 비용만 지원합니다.
 
 다른 구독 유형의 관리 그룹에 대한 내보내기는 지원되지 않습니다.
 

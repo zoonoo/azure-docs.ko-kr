@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1a39b963fa88866e02e9813c68d1b6504d3e98c7
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: c8a93ce59927144ce02edb8c1193406a29b18530
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956533"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913782"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 OPENROWSET를 사용하는 방법
 
@@ -189,7 +189,10 @@ ROWTERMINATOR ='row_terminator'`
 
 사용할 행 종결자를 지정합니다. 행 종결자를 지정하지 않으면 기본 종결자 중 하나가 사용됩니다. PARSER_VERSION = '1.0'의 기본 종결자는 \r\n, \n 및 \r입니다. PARSER_VERSION = '2.0'의 기본 종결자는 \r\n 및 \n입니다.
 
-ESCAPECHAR = 'char'
+> [!NOTE]
+> PARSER_VERSION=‘1.0’을 사용하고 \n(줄 바꿈)을 행 종결자로 지정하면 \r(캐리지 리턴) 문자가 접두사로 자동 지정되므로 \r\n이 행 종결자가 됩니다.
+
+ESCAPE_CHAR = 'char'
 
 자체 및 파일의 모든 구분 기호 값을 이스케이프하는 데 사용되는 파일의 문자를 지정합니다. 이스케이프 문자 뒤에 자체 또는 구분 기호 값 이외의 값이 있으면 값을 읽을 때 이스케이프 문자가 삭제됩니다. 
 
@@ -221,6 +224,8 @@ CSV 파서 버전 1.0이 기본값이며 기능이 풍부합니다. 버전 2.0�
 CSV 파서 버전 1.0 세부 정보:
 
 - 다음 옵션은 지원되지 않습니다. HEADER_ROW
+- 기본 종결자는 \r\n, \n, \r입니다. 
+- \n(줄 바꿈)을 행 종결자로 지정하면 \r(캐리지 리턴) 문자가 접두사로 자동 지정되므로 \r\n이 행 종결자가 됩니다.
 
 CSV 파서 버전 2.0 세부 정보:
 
@@ -233,6 +238,7 @@ CSV 파서 버전 2.0 세부 정보:
 - DATE 데이터 형식에 지원되는 형식: YYYY-MM-DD
 - TIME 데이터 형식에 지원되는 형식: HH:MM:SS[.fractional seconds]
 - DATETIME2 데이터 형식에 지원되는 형식: YYYY-MM-DD HH:MM:SS[.fractional seconds]
+- 기본 종결자는 \r\n, \n입니다.
 
 HEADER_ROW = { TRUE | FALSE }
 

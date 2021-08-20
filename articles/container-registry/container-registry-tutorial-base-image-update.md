@@ -4,12 +4,12 @@ description: 이 자습서에서는 기본 이미지가 동일한 레지스트�
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 6d83fb7796cecab686d52d561266bd41daef9e01
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 18716171b72fd266fda1aff06b67850159627b34
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780806"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112983665"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>자습서: Azure Container Registry에서 기본 이미지가 업데이트될 때 컨테이너 이미지 빌드 자동화 
 
@@ -222,7 +222,11 @@ docker stop updatedapp
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 이미지의 기본 이미지가 업데이트되었을 때 작업을 사용하여 컨테이너 이미지 빌드를 자동으로 트리거하는 방법을 알아보았습니다. 이제 다음 자습서로 이동하여 정의된 일정에 따라 작업을 트리거하는 방법을 알아봅니다.
+이 자습서에서는 이미지의 기본 이미지가 업데이트되었을 때 작업을 사용하여 컨테이너 이미지 빌드를 자동으로 트리거하는 방법을 알아보았습니다.
+
+퍼블릭 원본에서 제공되는 기본 이미지를 관리하는 전체 워크플로에 대해서는 [Azure Container Registry 작업을 사용하여 퍼블릭 콘텐츠를 사용하고 유지 관리하는 방법](tasks-consume-public-content.md)을 참조하세요. 
+
+이제 다음 자습서로 이동하여 정의된 일정에 따라 작업을 트리거하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [일정에 따라 작업 실행](container-registry-tasks-scheduled.md)

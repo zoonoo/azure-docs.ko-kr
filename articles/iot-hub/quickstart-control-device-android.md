@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure IoT Hub 빠른 시작(Android)에서 디바이스 제어 | Microsoft Docs
+title: Azure IoT Hub(Android)에서 디바이스 제어 | Microsoft Docs
 description: 이 빠른 시작에서는 두 개의 Java 애플리케이션 샘플을 실행합니다. 그 중 한 애플리케이션은 허브에 연결된 디바이스를 원격으로 제어할 수 있는 서비스 애플리케이션입니다. 또 다른 애플리케이션은 원격으로 제어할 수 있는 허브에 연결된 물리적 디바이스 또는 시뮬레이션된 디바이스에서 실행됩니다.
 author: wesmc7777
 manager: philmea
@@ -14,16 +14,14 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 5946220a688206a35d0d68cd4efd4c356d27d7ee
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 9225c53d4271622b0276dadb1d0a526199602d62
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868546"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727942"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>빠른 시작: IoT 허브(Android)에 연결된 디바이스 제어
-
-[!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
+# <a name="control-a-device-connected-to-an-iot-hub-android"></a>IoT 허브(Android)에 연결된 디바이스 제어
 
 이 빠른 시작에서는 직접 메서드를 사용하여 Azure IoT Hub에 연결된 시뮬레이션된 디바이스를 제어합니다. IoT Hub는 클라우드에서 IoT 디바이스를 관리하고, 스토리지 또는 처리를 위해 클라우드로 다량의 디바이스 원격 분석 데이터를 수집할 수 있는 Azure 서비스입니다. 직접 메서드를 사용하여 IoT 허브에 연결된 디바이스의 동작을 원격으로 변경할 수 있습니다. 이 빠른 시작에서는 백 엔드 서비스 애플리케이션에서 호출된 직접 메서드에 응답하는 시뮬레이션된 디바이스 애플리케이션과 Android 디바이스에서 직접 메서드를 호출하는 서비스 애플리케이션인 두 개의 애플리케이션을 사용합니다.
 
@@ -47,13 +45,13 @@ ms.locfileid: "107868546"
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
-이전 [빠른 시작: 원격 분석을 디바이스에서 IoT 허브로 전송](quickstart-send-telemetry-android.md)을 완료한 경우 이 단계를 건너뛰고 이미 생성된 IoT 허브를 사용할 수 있습니다.
+이전 [빠른 시작: 원격 분석을 디바이스에서 IoT 허브로 전송](../iot-develop/quickstart-send-telemetry-iot-hub.md)을 완료한 경우 이 단계를 건너뛰고 이미 생성된 IoT 허브를 사용할 수 있습니다.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>디바이스 등록
 
-이전 [빠른 시작: 원격 분석을 디바이스에서 IoT 허브로 전송](quickstart-send-telemetry-android.md)을 완료한 경우 이 단계를 건너뛰고 이전 빠른 시작에서 등록한 것과 동일한 디바이스를 사용할 수 있습니다.
+이전 [빠른 시작: 원격 분석을 디바이스에서 IoT 허브로 전송](../iot-develop/quickstart-send-telemetry-iot-hub.md)을 완료한 경우 이 단계를 건너뛰고 이전 빠른 시작에서 등록한 것과 동일한 디바이스를 사용할 수 있습니다.
 
 연결을 위해 디바이스를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
 

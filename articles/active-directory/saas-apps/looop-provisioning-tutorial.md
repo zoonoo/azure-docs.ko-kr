@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory를 사용하여 자동 사용자 프로비저닝을 수행하도록 Looop 구성 | Microsoft Docs'
 description: 사용자 계정을 Looop에 자동으로 프로비저닝 및 프로비저닝 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
-ms.author: Zhchia
-ms.openlocfilehash: 528003ac482da6f254bf437321c70c389d23844b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: c17c56651dda65d5bd151f0f274af6ed377fb7df
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94835070"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114229797"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Looop 구성
 
@@ -45,7 +45,7 @@ Azure Active Directory는 할당이라는 개념을 사용하여 어떤 사용�
 
 ### <a name="important-tips-for-assigning-users-to-looop"></a>사용자를 Looop에 할당하기 위한 주요 팁
 
-* 단일 Azure AD 사용자를 Looop에 할당하여 자동 사용자 프로비저닝 구성을 테스트하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
+* 단일 Azure AD 사용자를 Looop에 할당하여 자동 사용자 프로비저닝 구성을 테스트하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수 있습니다.
 
 * 사용자를 Looop에 할당할 때 할당 대화 상자에서 유효한 애플리케이션 특정 역할(사용 가능한 경우)을 선택해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로비전에서 제외됩니다.
 
@@ -53,13 +53,13 @@ Azure Active Directory는 할당이라는 개념을 사용하여 어떤 사용�
 
 Azure AD를 사용하여 자동 사용자 프로비저닝을 수행하도록 Looop를 구성하려면 먼저 Looop에서 일부 프로비저닝 정보를 검색해야 합니다.
 
-1. [Looop Directory 관리 콘솔](https://app.looop.co/#/login)에 로그인하고, **Account(계정)** 를 선택합니다. **Account Settings(계정 설정)** 아래에서 **Authentication(인증)** 을 선택합니다.
+1. [Looop Directory 관리 콘솔](https://app.looop.co/#/login)에 로그인하고, **Account(계정)** 를 선택합니다. **Account Settings(계정 설정)** 에서 **Authentication(인증)** 을 선택합니다.
 
-    :::image type="content" source="media/looop-provisioning-tutorial/admin.png" alt-text="Looop 관리 콘솔의 스크린샷. Account 탭이 강조 표시되어 열려 있습니다. Account Settings 아래에서 Authentication이 강조 표시되어 있습니다." border="false":::
+    ![Looop 관리자](media/looop-provisioning-tutorial/admin.png)
 
 2. **SCIM Integration(SCIM 통합)** 아래에서 **Reset Token(토큰 재설정)** 을 클릭하여 새 토큰을 생성합니다.
 
-    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Looop 관리 콘솔 페이지의 SCIM Integration 섹션에 대한 스크린샷. Reset Token 단추가 강조 표시되어 있습니다." border="false":::
+    ![Looop 토큰](media/looop-provisioning-tutorial/resettoken.png)
 
 3. **SCIM Endpoint(SCIM 엔드포인트)** 및 **Token(토큰)** 을 복사합니다. 이러한 값은 Azure Portal에 있는 Looop 애플리케이션에 대한 [프로비저닝] 탭의 **테넌트 URL** 및 **비밀 토큰** 필드에 입력됩니다. 
 
@@ -143,12 +143,13 @@ Azure AD를 사용하여 자동 사용자 프로비저닝을 수행하도록 Loo
    |name.givenName|String|
    |name.familyName|String|
    |externalId|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:area|문자열|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_1|문자열|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_2|문자열|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_3|문자열|
-   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:department|문자열|
-   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:employee_id|문자열|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:location|문자열|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:position|문자열|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:startAt|문자열|
@@ -184,7 +185,12 @@ Azure AD를 사용하여 자동 사용자 프로비저닝을 수행하도록 Loo
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="change-log"></a>로그 변경
+
+* 2021/07/15 - 엔터프라이즈 확장 사용자 특성 **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department**, **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber**, **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager** 가 추가되었습니다.
+* 2021/07/15 - 사용자 지정 확장 사용자 특성 **urn:ietf:params:scim:schemas:extension:Looop:2.0:User:department**, **urn:ietf:params:scim:schemas:extension:Looop:2.0:User:employee_id** 가 제거되었습니다.
+
+## <a name="more-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

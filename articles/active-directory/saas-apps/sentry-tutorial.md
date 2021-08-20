@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: jeedes
-ms.openlocfilehash: c95ab589917979bd718011aa15cfaf12ba05e45b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f639c656207f94b37bbf2768b6c39fc69eb8603
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96182376"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114454610"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sentry"></a>자습서: Sentry와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -86,11 +86,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     **로그인 URL** 텍스트 상자에서 `https://sentry.io/organizations/<ORGANIZATION_SLUG>/` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Sentry 클라이언트 지원 팀](mailto:support@sentry.io)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 식별자, 회신 URL 및 로그온 URL에 대한 실제 값으로 업데이트합니다. 이러한 값을 찾는 방법에 대한 자세한 내용은 [Sentry 설명서](https://docs.sentry.io/product/accounts/sso/azure-sso/#installation)를 참조하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL** 을 복사한 후 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 아이콘을 클릭하여 **앱 메타데이터 URL** 값을 복사한 후 컴퓨터에 저장합니다.
 
-    ![인증서 다운로드 링크](common/copy-metadataurl.png)
+   ![인증서 다운로드 링크](common/copy-metadataurl.png)
+    
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
@@ -99,7 +100,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -117,11 +118,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-sentry-sso"></a>Sentry SSO 구성
 
-**Sentry** 쪽에서 Single Sign-On을 구성하려면 **앱 페더레이션 메타데이터 URL** 을 [Sentry 지원 팀](mailto:support@sentry.io)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Sentry** 쪽에서 Single Sign-On을 구성하려면 **조직 설정** > **인증** 으로 이동하고(또는 `https://sentry.io/settings/<YOUR_ORG_SLUG>/auth/`로 이동) Active Directory에 대해 **구성** 을 선택합니다. Azure SAML 구성에서 앱 페더레이션 메타데이터 URL을 붙여넣습니다.
 
 ### <a name="create-sentry-test-user"></a>Sentry 테스트 사용자 만들기
 
-이 섹션에서는 Sentry에서 Britta Simon이라는 사용자를 만듭니다. Sentry는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. Sentry에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
+이 섹션에서는 Sentry에서 B.Simon이라는 사용자를 만듭니다. Sentry는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. Sentry에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 
@@ -129,15 +130,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 #### <a name="sp-initiated"></a>SP 시작:
 
-1. Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Sentry 로그온 URL로 리디렉션됩니다.  
+1. Azure Portal에서 **이 애플리케이션 테스트** 를 선택합니다. 로그인 흐름을 시작할 수 있는 Sentry 로그온 URL로 리디렉션됩니다.  
 
 1. Sentry 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
 #### <a name="idp-initiated"></a>IDP 시작:
 
-* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Sentry에 자동으로 로그인됩니다. 
+* Azure Portal에서 **이 애플리케이션 테스트** 를 선택합니다. SSO를 설정한 Sentry 애플리케이션에 자동으로 로그인됩니다. 
 
-Microsoft 액세스 패널을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 액세스 패널에서 Sentry 타일을 클릭할 때 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Sentry에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+#### <a name="either-mode"></a>두 모드 중 하나에서 다음을 수행합니다.
+
+내 앱 포털을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱 Portal에서 Sentry 타일을 클릭하면 SP 모드로 구성된 경우 애플리케이션 로그온 페이지로 리디렉션되어 로그인 흐름이 시작됩니다. IDP 모드로 구성된 경우 SSO를 설정한 Sentry 애플리케이션에 자동으로 로그인됩니다. [내 앱] 포털에 대한 자세한 내용은 [[내 앱] 포털에서 앱에 로그인하여 시작](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

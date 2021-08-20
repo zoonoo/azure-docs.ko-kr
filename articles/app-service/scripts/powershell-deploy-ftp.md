@@ -4,18 +4,18 @@ description: Azure PowerShell을 사용하여 App Service의 배포 및 관리�
 tags: azure-service-management
 ms.assetid: b7d46d6f-44fd-454c-8008-87dab6eefbc1
 ms.topic: sample
-ms.date: 03/20/2017
+ms.date: 06/23/2021
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 90c4a30243569c07e1a70ad46c8b2f7e70d493b2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 83ec2fad8d4f3ec6efb1b88e1e765ebcfa0d260d
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97005582"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112575265"
 ---
 # <a name="upload-files-to-a-web-app-using-ftp"></a>FTP를 사용하여 웹앱에 파일 업로드
 
-이 샘플 스크립트는 관련된 리소스를 사용하여 App Service에서 웹앱을 만든 다음 FTP([WebClient.UploadFile()](/dotnet/api/system.net.webclient.uploadfile)을 통해)를 사용하여 웹앱 코드를 배포합니다.
+이 샘플 스크립트에서는 관련 리소스를 사용하여 App Service에서 웹앱을 만든 다음, FTPS를 사용하여 파일을 배포합니다([System.Net.FtpWebRequest](/dotnet/api/system.net.ftpwebrequest)를 통해).
 
 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다.
 

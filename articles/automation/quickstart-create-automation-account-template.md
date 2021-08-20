@@ -4,19 +4,19 @@ titleSuffix: Azure Automation
 description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Automation 계정을 만드는 방법을 보여 줍니다.
 services: automation
 ms.author: magoedte
-ms.date: 01/07/2021
+ms.date: 07/20/2021
 ms.topic: quickstart
 ms.workload: infrastructure-services
 ms.custom:
 - mvc
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: effdb8ec511a6060fffb571864273a1f84901ab6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 17183bffcfe9607a774d1205180c284d49cd7503
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110081301"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652013"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Automation 계정 만들기
 
@@ -95,6 +95,18 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정�
     [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json)
 
 2. 값을 입력합니다.
+
+    PowerShell, CLI 또는 Portal의 템플릿 기능에서 ARM 템플릿을 실행하려고 할 때 `_artifactsLocation` 매개 변수가 올바르게 설정되지 않은 경우 다음과 유사한 오류 메시지가 표시됩니다.
+
+    `"message": "Deployment template validation failed: 'The template resource '_artifactsLocation' at line '96' and column '31' is not valid: The language expression property 'templateLink' doesn't exist, available properties are 'template, templateHash, parameters, mode, debugSetting, provisioningState'.. Please see https://aka.ms/arm-template-expressions for usage details.'."`
+
+    이를 방지하려면 Portal의 템플릿 기능에서 실행하는 경우 `_artifactsLocation` 매개 변수에 대해 다음을 지정합니다. `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+
+    PowerShell에서를 실행하는 경우 매개 변수 및 해당 `-TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json` 값을 포함합니다.
+
+    Azure CLI에서를 실행하는 경우 매개 변수 및 해당 `--template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json` 값을 포함합니다.
+
+    PowerShell/CLI에 대한 참조는 **템플릿 사용** 섹션에서 다음 [Azure Automation 계정 만들기(microsoft.com)](https://azure.microsoft.com/resources/templates/101-automation/)를 참조하세요.
 
 3. 배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 완료되면 다음과 유사하게 출력됩니다.
 

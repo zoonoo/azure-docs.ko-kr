@@ -1,20 +1,20 @@
 ---
 title: NSX-T 네트워크 세그먼트 추가
-description: Azure VMware Solution에 대한 NSX-T 네트워크 세그먼트를 추가하는 단계입니다.
+description: NSX-T Manager에서 Azure VMware Solution의 NSX-T 네트워크 세그먼트를 추가하는 단계입니다.
 ms.topic: include
 ms.date: 03/13/2021
-ms.openlocfilehash: 10b04c8000b8ef440a2a729be671630b4382f3a8
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: ad02977e422a3bdbe0158dd92761ae91a6260fd5
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110794957"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114229335"
 ---
 <!-- Used in configure-dhcp-azure-vmware-solution.md and tutorial-nsx-t-network-segment.md -->
 
 1. NSX-T 관리자에서 **네트워킹** > **세그먼트** 를 선택한 다음, **세그먼트 추가** 를 선택합니다. 
 
-   :::image type="content" source="../media/nsxt/nsxt-segments-overview.png" alt-text="새 세그먼트 추가 방법을 보여 주는 스크린샷":::
+   :::image type="content" source="../media/nsxt/nsxt-segments-overview.png" alt-text="NSX-T Manager에서 새 세그먼트를 추가하는 방법을 보여 주는 스크린샷":::
 
 1. 세그먼트의 이름을 입력합니다.
 
@@ -22,27 +22,17 @@ ms.locfileid: "110794957"
 
 1. 미리 구성된 오버레이 **전송 영역**(TNTxx-OVERLAY-TZ)을 선택한 다음, **서브넷 설정** 을 선택합니다. 
 
-   :::image type="content" source="../media/nsxt/nsxt-create-segment-specs.png" alt-text="세그먼트 이름, 연결된 게이트웨이 및 유형, 전송 영역을 설정한 다음, 서브넷 설정을 선택합니다.":::
+   :::image type="content" source="../media/nsxt/nsxt-create-segment-specs.png" alt-text="새 NSX-T 네트워크 세그먼트를 추가하기 위한 세그먼트 세부 정보를 보여 주는 스크린샷":::
 
 1. 게이트웨이 IP 주소를 입력한 다음, **추가** 를 선택합니다. 
 
    >[!IMPORTANT]
    >IP 주소는 겹치지 않는 RFC1918 주소 블록에 있어야 합니다. 그래야 새 세그먼트의 VM에 대한 연결을 보장합니다.
 
-   :::image type="content" source="../media/nsxt/nsxt-create-segment-gateway.png" alt-text="새 세그먼트에 대한 게이트웨이의 IP 주소를 설정한 다음, 추가를 선택합니다.":::
+   :::image type="content" source="../media/nsxt/nsxt-create-segment-gateway.png" alt-text="새 세그먼트에 대한 게이트웨이의 IP 주소를 보여 주는 스크린샷":::
 
 1. **적용** 을 선택한 다음, **저장** 을 선택합니다.
 
 1. 세그먼트를 계속 구성하는 옵션을 거부하려면 **아니요** 를 선택합니다. 
 
-   :::image type="content" source="../media/nsxt/nsxt-create-segment-continue-no.png" alt-text="[아니요]를 선택하여 새로 만든 네트워크 세그먼트를 추가적으로 구성하는 것을 거부합니다.":::
 
-1. 새 네트워크 세그먼트가 있는지 확인합니다. 이 예제에서 **ls01** 은 새 네트워크 세그먼트입니다.
-
-   1. NSX-T Manager에서 **네트워킹** > **세그먼트** 를 선택합니다. 
-
-      :::image type="content" source="../media/nsxt/nsxt-new-segment-overview-2.png" alt-text="NSX에 새 네트워크 세그먼트가 있는지 확인합니다.":::
-
-   1. vCenter **네트워킹 > SDDC-Datacenter** 를 선택합니다.
-
-      :::image type="content" source="../media/nsxt/vcenter-with-ls01-2.png" alt-text="vCenter에 새 네트워크 세그먼트가 있는지 확인합니다.":::

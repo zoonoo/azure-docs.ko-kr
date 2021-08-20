@@ -8,12 +8,12 @@ ms.topic: overview
 ms.workload: infrastructure-services
 ms.date: 03/09/2021
 ms.author: duau
-ms.openlocfilehash: 0ba34b298fad21656a63c813057ed0c69db6c7f1
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 11e01d9d61a3a446be1135a212ae6cadcd1eea42
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064888"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113595276"
 ---
 # <a name="what-is-azure-front-door"></a>Azure Front Door란?
 
@@ -75,5 +75,6 @@ RSS 피드를 구독하고 [Azure 업데이트](https://azure.microsoft.com/upda
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아봅니다.
+- [빠른 시작: Front Door 만들기](quickstart-create-front-door.md)
+- [학습 모듈: Azure Front Door 소개](/learn/modules/intro-to-azure-front-door/)
 - [Front Door의 작동 원리](front-door-routing-architecture.md)를 알아봅니다.

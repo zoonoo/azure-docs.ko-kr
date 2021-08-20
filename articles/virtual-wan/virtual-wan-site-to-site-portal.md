@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 05/26/2021
+ms.date: 07/15/2021
 ms.author: cherylmc
-ms.openlocfilehash: 2752d437800840181062f7a9c07d37620e06677a
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 8fb3734e1975254442fa2aff57ba60847bbfac04
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110578317"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362269"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기
 
@@ -23,6 +23,7 @@ ms.locfileid: "110578317"
 > [!div class="checklist"]
 > * 가상 WAN 만들기
 > * 허브 만들기
+> * 사이트 간 VPN 게이트웨이 만들기
 > * 사이트 만들기
 > * 허브에 사이트 연결
 > * 허브에 VPN 사이트 연결
@@ -48,9 +49,13 @@ ms.locfileid: "110578317"
 
 ## <a name="create-a-hub"></a><a name="hub"></a>허브 만들기
 
-허브는 사이트 간, Express 경로 또는 지점 및 사이트 간 기능을 위한 게이트웨이를 포함할 수 있는 가상 네트워크입니다. 허브가 생성되면 사이트를 연결하지 않아도 허브 요금이 청구됩니다. 가상 허브에서 사이트 간 VPN 게이트웨이를 만드는 데 30분이 소요됩니다.
+허브는 사이트 간, Express 경로 또는 지점 및 사이트 간 기능을 위한 게이트웨이를 포함할 수 있는 가상 네트워크입니다. 허브가 생성되면 사이트를 연결하지 않아도 허브 요금이 청구됩니다.
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
+
+## <a name="create-a-site-to-site-vpn-gateway"></a><a name="gateway"></a>사이트 간 VPN 게이트웨이 만들기
+
+[!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
 ## <a name="create-a-site"></a><a name="site"></a>사이트 만들기
 

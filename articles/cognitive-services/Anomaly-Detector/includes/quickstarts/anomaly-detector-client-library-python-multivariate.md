@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2021
 ms.author: mbullwin
-ms.openlocfilehash: 0cbd7415f3b6f79a6c7231c7caa7ed947b9bdc24
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1d5c77ff37d2585161009f1b023634cde2876110
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110164629"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114339822"
 ---
 Python용 Anomaly Detector 다변량 클라이언트 라이브러리를 시작합니다. 서비스에서 제공하는 알고리즘을 사용하여 패키지 시작을 설치하려면 다음 단계를 따르세요. 새로운 다변량 변칙 검색 API를 통해 개발자는 기계 학습 기술 또는 레이블이 지정된 데이터 없이도 메트릭 그룹에서 변칙을 검색하는 고급 AI를 쉽게 통합할 수 있습니다. 서로 다른 신호 간의 종속성 및 상호 상관 관계는 자동으로 주요 요소로 계산됩니다. 이를 통해 복잡한 시스템의 오류를 사전에 보호할 수 있습니다.
 
@@ -23,9 +23,9 @@ Python용 Anomaly Detector 다변량 클라이언트 라이브러리를 사용�
 * 개별 시계열이 많은 것을 알 수 없는 경우 문제를 감지하기 위해 모든 신호를 확인해야 합니다.
 * 시스템 상태의 다양한 양상을 측정하는 수천 개 유형의 센서를 사용하여 고가의 물리적 자산을 사전 예방적으로 유지 관리.
 
-[라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector) | [패키지(PyPi)](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/) | [샘플 코드](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_multivariate_detect.py)
+[라이브러리 참조 설명서](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector) | [패키지(PyPi)](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/) | [샘플 코드](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_multivariate_detect.py)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Python 3.x](https://www.python.org/)
 * [Pandas 데이터 분석 라이브러리](https://pandas.pydata.org/)
@@ -270,4 +270,4 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 ## <a name="next-steps"></a>다음 단계
 
 * [Anomaly Detector API란?](../../overview-multivariate.md)
-* [Anomaly Detector API를 사용하는 경우의 모범 사례입니다.](../../concepts/best-practices-multivariate.md) 
+* [Anomaly Detector API를 사용하는 경우의 모범 사례입니다.](../../concepts/best-practices-multivariate.md)

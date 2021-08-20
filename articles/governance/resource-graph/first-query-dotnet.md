@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: 첫 번째 .NET Core 쿼리'
 description: 이 빠른 시작에서는 .NET Core용 Resource Graph NuGet 패키지를 사용하도록 설정하고 첫 번째 쿼리를 실행하는 단계를 수행합니다.
-ms.date: 05/01/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b0c1b7165702d00426f3459907a5558a08b12d84
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 4cc21a3f73991b3f1177a9bbc16491a18be51489
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751844"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460696"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-net-core"></a>빠른 시작: .NET Core를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -65,8 +65,7 @@ Azure Resource Graph를 사용하는 첫 번째 단계는 .NET Core에 필요한
                string strTenant = args[0];
                string strClientId = args[1];
                string strClientSecret = args[2];
-               string strSubscriptionId = args[3];
-               string strQuery = args[4];
+               string strQuery = args[3];
 
                AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/" + strTenant);
                AuthenticationResult authResult = await authContext.AcquireTokenAsync("https://management.core.windows.net", new ClientCredential(strClientId, strClientSecret));
@@ -74,7 +73,6 @@ Azure Resource Graph를 사용하는 첫 번째 단계는 .NET Core에 필요한
 
                ResourceGraphClient argClient = new ResourceGraphClient(serviceClientCreds);
                QueryRequest request = new QueryRequest();
-               request.Subscriptions = new List<string>(){ strSubscriptionId };
                request.Query = strQuery;
 
                QueryResponse response = argClient.Resources(request);
@@ -85,6 +83,9 @@ Azure Resource Graph를 사용하는 첫 번째 단계는 .NET Core에 필요한
    }
    ```
 
+   > [!NOTE]
+   > 이 코드는 테넌트 기반 쿼리를 만듭니다. [관리 그룹](../management-groups/overview.md) 또는 구독으로 쿼리를 제한하려면 `QueryRequest` 개체에 대해 `ManagementGroups` 또는 `Subscriptions` 속성을 설정합니다.
+
 1. `argQuery` 콘솔 애플리케이션을 빌드하고 게시합니다.
 
    ```dotnetcli
@@ -94,21 +95,20 @@ Azure Resource Graph를 사용하는 첫 번째 단계는 .NET Core에 필요한
 
 ## <a name="run-your-first-resource-graph-query"></a>첫 번째 Resource Graph 실행
 
-.NET Core 콘솔 애플리케이션을 빌드하고 게시한 후에는 간단한 Resource Graph 쿼리를 시도해 봅니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식** 과 함께 처음 5개 Azure 리소스를 반환합니다.
+.NET Core 콘솔 애플리케이션을 빌드하고 게시한 후에는 간단한 테넌트 기반 Resource Graph 쿼리를 시도해 봅니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식** 과 함께 처음 5개 Azure 리소스를 반환합니다.
 
 `argQuery`를 호출할 때마다 다음 변수를 각자 해당하는 값으로 바꿔야 합니다.
 
 - `{tenantId}` - 테넌트 ID로 대체
 - `{clientId}` - 서비스 주체의 클라이언트 ID로 대체
 - `{clientSecret}` - 서비스 주체의 클라이언트 암호로 대체
-- `{subscriptionId}` - 사용자의 구독 ID로 대체
 
 1. 디렉터리를 이전에 `dotnet publish` 명령을 사용하여 정의한 `{run-folder}`로 변경합니다.
 
 1. 다음과 같이 컴파일된 .NET Core 애플리케이션을 사용하여 첫 번째 Azure Resource Graph 쿼리를 실행합니다.
 
    ```bash
-   argQuery "{tenantId}" "{clientId}" "{clientSecret}" "{subscriptionId}" "Resources | project name, type | limit 5"
+   argQuery "{tenantId}" "{clientId}" "{clientSecret}" "Resources | project name, type | limit 5"
    ```
 
    > [!NOTE]
@@ -117,7 +117,7 @@ Azure Resource Graph를 사용하는 첫 번째 단계는 .NET Core에 필요한
 1. 마지막 매개 변수를 `argQuery.exe`로 변경하고, **Name** 속성을 기준으로 `order by`하도록 쿼리를 변경합니다.
 
    ```bash
-   argQuery "{tenantId}" "{clientId}" "{clientSecret}" "{subscriptionId}" "Resources | project name, type | limit 5 | order by name asc"
+   argQuery "{tenantId}" "{clientId}" "{clientSecret}" "Resources | project name, type | limit 5 | order by name asc"
    ```
 
    > [!NOTE]
@@ -126,7 +126,7 @@ Azure Resource Graph를 사용하는 첫 번째 단계는 .NET Core에 필요한
 1. 마지막 매개 변수를 `argQuery.exe`로 변경하고, 먼저 **Name** 속성을 기준으로 `order by`한 후 상위 5개 결과로 `limit`하도록 쿼리를 변경합니다.
 
    ```bash
-   argQuery "{tenantId}" "{clientId}" "{clientSecret}" "{subscriptionId}" "Resources | project name, type | order by name asc | limit 5"
+   argQuery "{tenantId}" "{clientId}" "{clientSecret}" "Resources | project name, type | order by name asc | limit 5"
    ```
 
 최종 쿼리가 여러 번 실행될 때 환경이 전혀 변경되지 않는다고 가정하면 반환되는 결과는 **Name** 속성을 기준으로 일관되고 정렬되지만 여전히 상위 5개 결과로 제한됩니다.

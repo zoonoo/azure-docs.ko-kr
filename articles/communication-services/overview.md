@@ -8,12 +8,12 @@ ms.author: mikben
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: da099fe09b44a8c7aeecdfd7118e936ce3f0ff91
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 12e0c9c277bbf162797d52692add208ce921569b
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113113070"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113360922"
 ---
 # <a name="what-is-azure-communication-services"></a>Azure Communication Services란?
 
@@ -23,9 +23,9 @@ Azure Communication Services는 애플리케이션에 통신을 통합하는 데
 1. 서식 있는 텍스트 채팅
 1. sms
 
-음성 및 영상 통화 애플리케이션은 공개적으로 전환된 PSTN(전화 통신 네트워크)과 상호 작용할 수 있습니다. Azure Communication Services REST API, SDK 또는 Azure Portal을 통해 직접 전화 번호를 얻을 수 있습니다. Azure Communication Services 직접 라우팅을 사용하면 SIP 및 세션 테두리 컨트롤러를 사용하여 사용자 고유의 PSTN 통신 사업자를 연결하고 사용자 고유의 전화 번호를 가져올 수 있습니다.
+사용자 지정 클라이언트 엔드포인트, 사용자 지정 서비스, PSTN(Publicly Switched Telephony Network) 등을 통신 애플리케이션에 연결할 수 있습니다. Azure Communication Services REST API, SDK 또는 Azure Portal을 통해 직접 전화 번호를 획득하고 SMS 또는 통화 애플리케이션에 해당 번호를 사용합니다. Azure Communication Services 직접 라우팅을 사용하면 SIP 및 세션 테두리 컨트롤러를 사용하여 사용자 고유의 PSTN 통신 사업자를 연결하고 사용자 고유의 전화 번호를 가져올 수 있습니다.
 
-[Azure Communication Services 클라이언트 라이브러리](./concepts/sdk-options.md)는 REST API 외에도 웹 브라우저(JavaScript), iOS(Swift), Java(Android), Windows(.NET)를 비롯한 다양한 플랫폼 및 언어에 사용할 수 있습니다. Azure Communication Services는 ID와 관련이 없으며, 최종 사용자를 식별하고 인증하는 방법을 제어합니다.
+[Azure Communication Services 클라이언트 라이브러리](./concepts/sdk-options.md)는 REST API 외에도 웹 브라우저(JavaScript), iOS(Swift), Java(Android), Windows(.NET)를 비롯한 다양한 플랫폼 및 언어에 사용할 수 있습니다. [웹 브라우저의 UI 라이브러리](https://aka.ms/acsstorybook)를 사용하여 모바일 및 데스크톱 브라우저의 개발을 가속화할 수 있습니다. Azure Communication Services는 ID와 관련이 없으며, 최종 사용자를 식별하고 인증하는 방법을 제어합니다.
 
 Azure Communication Services 시나리오는 다음과 같습니다.
 

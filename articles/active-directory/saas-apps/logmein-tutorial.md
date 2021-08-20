@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/14/2021
+ms.date: 06/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 09c46efab8eea797b10b2724c3c19c7b1b34c87f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 907b627a260bf552555dca63936af6495fb987c6
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467707"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112453757"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-logmein"></a>자습서: LogMeIn과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -50,7 +50,6 @@ LogMeIn이 Azure AD에 통합되도록 구성하려면 갤러리에서 LogMeIn�
 1. **갤러리에서 추가** 섹션의 검색 상자에 **LogMeIn** 을 입력합니다.
 1. 결과 패널에서 **LogMeIn** 을 선택한 후 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-logmein"></a>LogMeIn에 대한 Azure AD SSO 구성 및 테스트
 
 **B.Simon** 이라는 테스트 사용자를 사용하여 LogMeIn에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 LogMeIn의 관련 사용자 간에 연결 관계를 설정해야 합니다.
@@ -70,7 +69,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **LogMeIn** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -92,7 +91,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
@@ -101,7 +99,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -119,7 +117,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-logmein-sso"></a>LogMeIn SSO 구성
 
-1. 다른 웹 브라우저 창에서 LogMeIn 웹 사이트에 관리자 권한으로 로그인합니다.
+1. LogMeIn 내에서 구성을 자동화하려면 **확장 설치** 를 클릭하여 **내 앱 보안 로그인 브라우저 확장** 을 설치해야 합니다.
+
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+1. 브라우저에 확장을 추가한 후 **LogMeIn 설정** 을 클릭하면 LogMeIn 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 LogMeIn에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-5단계를 자동으로 수행합니다.
+
+    ![설정 구성](common/setup-sso.png)
+
+1. LogMeIn를 수동으로 설정하려면 다른 웹 브라우저 창에서 관리자 권한으로 LogMeIn 회사 사이트에 로그인합니다.
 
 1. **ID 공급자** 탭의 **메타데이터 url** 텍스트 상자에 Azure Portal에서 복사한 **페더레이션 메타데이터 URL** 을 붙여 넣습니다.
 

@@ -2,21 +2,21 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 TeamViewer 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 TeamViewer로 자동으로 프로비저닝 및 프로비저닝 해제하는 방법을 알아봅니다.
 services: active-directory
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2020
-ms.author: Zhchia
-ms.openlocfilehash: 0362f0d69581c252170b4f37f8564caa7acd3d29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 76d5ad2e1e025583b122fbb117ccc0d5eb4e2a63
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96182243"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113759049"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 TeamViewer 구성
 
@@ -97,7 +97,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![자동 옵션이 호출된 프로비저닝 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래에서 **테넌트 URL** 필드에 `ttps://webapi.teamviewer.com/scim/v2`를 입력하고 **비밀 토큰** 에 이전에 만든 스크립트 토큰을 입력합니다. **연결 테스트** 를 클릭하여 Azure AD가 TeamViewer에 연결할 수 있는지 확인합니다. 연결에 실패하면 TeamViewer 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
+5. **관리자 자격 증명** 섹션의 **테넌트 URL** 필드에 `https://webapi.teamviewer.com/scim/v2`를 입력하고 **비밀 토큰** 에 이전에 만든 스크립트 토큰을 입력합니다. **연결 테스트** 를 클릭하여 Azure AD가 TeamViewer에 연결할 수 있는지 확인합니다. 연결에 실패하면 TeamViewer 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 
     ![스크린샷은 테넌트 URL 및 비밀 토큰을 입력할 수 있는 관리자 자격 증명 대화 상자를 보여 줍니다.](./media/teamViewer-provisioning-tutorial/provisioning.png)
 

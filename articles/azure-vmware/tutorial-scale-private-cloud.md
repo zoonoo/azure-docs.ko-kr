@@ -3,12 +3,12 @@ title: 자습서 - 프라이빗 클라우드의 클러스터 확장 또는 축�
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure VMware Solution 프라이빗 클라우드의 크기를 조정합니다.
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: 23fa38f41a1effab212896e59118978202ef17a7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 79368483c7edd3ebf6811eeca1853b4bcb4ecec9
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769294"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433997"
 ---
 # <a name="tutorial-expand-or-shrink-clusters-in-a-private-cloud"></a>자습서: 프라이빗 클라우드의 클러스터 확장 또는 축소
 
@@ -28,11 +28,11 @@ Azure VMware Solution 프라이빗 클라우드 환경을 최대한 활용하려
 
 1. 기존 프라이빗 클라우드의 개요 페이지의 **관리** 에서 **프라이빗 클라우드 스케일링** 을 선택합니다. 다음으로 **+ 클러스터 추가** 를 선택합니다.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" alt-text="클러스터 추가 선택" border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" alt-text="Azure VMware Solution 프라이빗 클라우드에 클러스터를 추가하는 방법을 보여 주는 스크린샷" border="true":::
 
 1. **클러스터 추가** 페이지에서 슬라이더를 사용하여 호스트 수를 선택합니다. **저장** 을 선택합니다.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="클러스터 추가 페이지에서 슬라이더를 사용하여 호스트 수를 선택합니다. 저장을 선택합니다." border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="새 클러스터를 구성하는 방법을 보여 주는 스크린샷" border="true":::
 
    새 클러스터의 배포가 시작됩니다.
 
@@ -40,11 +40,9 @@ Azure VMware Solution 프라이빗 클라우드 환경을 최대한 활용하려
 
 1. 기존 프라이빗 클라우드의 개요 페이지에서 **프라이빗 클라우드 스케일링** 을 선택하고 연필 아이콘을 선택하여 클러스터를 편집합니다.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="개요에서 프라이빗 클라우드 스케일링 선택" border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="기존 클러스터를 편집할 위치를 보여 주는 스크린샷" border="true":::
 
 1. **클러스터 편집** 페이지에서 슬라이더를 사용하여 호스트 수를 선택합니다. **저장** 을 선택합니다.
-
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss5-scale-cluster.png" alt-text="클러스터 편집 페이지에서 슬라이더를 사용하여 호스트 수를 선택합니다. 저장을 선택합니다." border="true":::
 
    클러스터에 호스트 추가가 시작됩니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - PowerShell을 사용하여 Key Vault에서 비밀 설정 및 검색"
+title: 빠른 시작 - PowerShell을 사용하여 Key Vault에서 비밀 설정 및 검색
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Azure Key Vault에서 비밀을 생성, 검색 및 삭제하는 방법을 알아봅니다.
 services: key-vault
 author: msmbaldwin
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 6d4864252aef5ea241c88abfd2fb4eee35f8c6ae
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 2e51e781ca988a496e3f1ba61d8b6a4fcc3d7095
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770752"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443507"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 

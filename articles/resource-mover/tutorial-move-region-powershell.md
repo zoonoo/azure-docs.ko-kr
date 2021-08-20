@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/21/2021
 ms.author: raynew
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3489d7359b7557f0a2305a30ff3d28f05863504d
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 865b4e7f93d70b9ba77e773dd3a599e8eed01376
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110702244"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112467017"
 ---
 # <a name="move-resources-across-regions-in-powershell"></a>PowerShell에서 지역 간 리소스 이동
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 대부분의 리소스 이동 작업은 몇 가지 예외를 제외하고 Azure Portal 또는 PowerShell을 사용하는지 여부와 관계없이 동일합니다.
 
-**연산** | **PowerShell** | **포털**
+**연산** | **포털** | **PowerShell**
 --- | --- | ---
 **이동 컬렉션 만들기** | 이동 컬렉션(이동하는 모든 리소스의 목록)이 자동으로 만들어집니다. 필수 ID 권한이 포털을 통해 백 엔드에 할당됩니다. | PowerShell cmdlet을 사용하여 다음을 수행합니다.<br/><br/> - 이동 컬렉션에 대한 리소스 그룹을 만들고 해당 위치를 지정합니다.<br/><br/> - 관리 ID를 컬렉션에 할당합니다.<br/><br/> - 리소스를 컬렉션에 추가합니다.
 **이동 컬렉션 제거** | 포털에서 이동 컬렉션을 직접 제거할 수 없습니다. | PowerShell cmdlet을 사용하여 이동 컬렉션을 제거합니다.

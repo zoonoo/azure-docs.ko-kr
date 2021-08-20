@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/22/2021
 ms.custom: cog-serv-seo-aug-2020
 keywords: qna maker, 낮은 코드 채팅 봇, 멀티 턴 대화
-ms.openlocfilehash: 84678e0472284f6a9acfec53fbe31ff550775446
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b3e780393b911697d17ca1873201720c0bc628be
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292669"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112322605"
 ---
 # <a name="what-is-qna-maker"></a>QnA Maker란?
 
@@ -21,6 +21,13 @@ QnA Maker는 데이터를 통해 자연스러운 대화형 계층을 만들 수 
 QnA Maker는 소셜 미디어 애플리케이션, 채팅 봇 및 음성 지원 데스크톱 애플리케이션을 포함하는 대화형 클라이언트 애플리케이션을 빌드하는 데 주로 사용됩니다.
 
 QnA Maker는 고객 데이터를 저장하지 않습니다. 모든 고객 데이터(질문과 대답 및 채팅 로그)는 고객이 종속 서비스 인스턴스를 배포하는 지역에 저장됩니다. 종속 서비스에 대한 자세한 내용은 [여기](../concepts/plan.md?tabs=v1)를 참조하세요.
+
+이 설명서에는 다음과 같은 문서 유형이 포함되어 있습니다.
+
+* [빠른 시작](../quickstarts/create-publish-knowledge-base.md)은 서비스를 호출하고 짧은 시간 내에 결과를 얻을 수 있는 단계별 지침입니다. 
+* [방법 가이드](../how-to/set-up-qnamaker-service-azure.md)에는 보다 구체적이거나 사용자 지정된 방식으로 서비스를 사용하기 위한 지침이 포함되어 있습니다.
+* [개념 문서](../concepts/plan.md)에서는 서비스의 기능 및 기능에 대한 자세한 설명을 제공합니다.
+* [**자습서**](../tutorials/create-faq-bot-with-azure-bot-service.md)는 보다 광범위한 비즈니스 솔루션에서 서비스를 구성 요소로 사용하는 방법을 보여주는 긴 가이드입니다.
 
 ## <a name="when-to-use-qna-maker"></a>QnA Maker를 사용하는 경우
 

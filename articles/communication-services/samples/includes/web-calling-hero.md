@@ -6,16 +6,16 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: a015ba06be6a10985a4771e842a6d910dd4cd9ab
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a6fc7a8419c3c4b6173771c898a1a4331d3c5874
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108157501"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "114200965"
 ---
 Azure Communication Services **그룹 통화 주인공 샘플** 은 Communication Services 통화 웹 SDK를 사용하여 그룹 통화 환경을 만드는 방법을 보여줍니다.
 
@@ -23,7 +23,7 @@ Azure Communication Services **그룹 통화 주인공 샘플** 은 Communicatio
 
 ## <a name="download-code"></a>코드 다운로드
 
-[GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)에서 이 샘플에 대한 프로젝트를 찾습니다. [Teams 상호 운용성](../../concepts/teams-interop.md)을 사용하는 샘플 버전은 별도의 [분기](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/teams-interop)에서 찾을 수 있습니다.
+[GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)에서 이 샘플에 대한 프로젝트를 찾습니다. [Teams 상호 운용성](../../concepts/teams-interop.md) 및 [통화 녹음/녹화](../../concepts/voice-video-calling/call-recording.md)와 같이 현재 공개 미리 보기의 기능이 포함된 샘플 버전은 별도의 [분기](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview)에서 찾을 수 있습니다.
 
 ## <a name="overview"></a>개요
 
@@ -58,7 +58,7 @@ Azure Communication Services **그룹 통화 주인공 샘플** 은 Communicatio
 - [Node.js(12.18.4 이상)](https://nodejs.org/en/download/)
 - [Visual Studio(2019 이상)](https://visualstudio.microsoft.com/vs/)
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)(Visual Studio 인스턴스에 따라 32비트 또는 64비트 버전을 설치해야 함)
-- Azure Communication Services 리소스. 자세한 내용은 [Azure Communication 리소스 만들기](../../quickstarts/create-communication-resource.md)를 참조하세요. 이 빠른 시작에 대한 **연결 문자열** 리소스를 기록해야 합니다.
+- Azure Communication Services 리소스. 자세한 내용은 [Azure Communication Services 리소스 만들기](../../quickstarts/create-communication-resource.md)를 참조하세요. 이 빠른 시작에 대한 **연결 문자열** 리소스를 기록해야 합니다.
 
 ## <a name="locally-deploy-the-service--client-applications"></a>클라이언트 애플리케이션 및 서비스를 로컬로 배포
 
@@ -72,7 +72,7 @@ Azure Communication Services **그룹 통화 주인공 샘플** 은 Communicatio
 
 1. PowerShell, Windows 터미널, 명령 프롬프트 또는 그에 상응하는 인스턴스를 열고 샘플을 복제할 디렉터리로 이동합니다.
 2. `git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`
-3. Azure Portal에서 `Connection String`을 가져옵니다. 연결 문자열에 대한 자세한 내용은 [Azure Communication 리소스 만들기](../../quickstarts/create-communication-resource.md)를 참조하세요.
+3. Azure Portal에서 `Connection String`을 가져옵니다. 연결 문자열에 대한 자세한 내용은 [Azure Communication Services 리소스 만들기](../../quickstarts/create-communication-resource.md)를 참조하세요.
 4. `Connection String`을 가져온 후 Service .NET 폴더 아래에 있는 **Calling/appsetting.json** 파일에 연결 문자열을 추가합니다. `ResourceConnectionString` 변수에 연결 문자열을 입력합니다.
 
 ### <a name="local-run"></a>로컬 실행

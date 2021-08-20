@@ -1,23 +1,23 @@
 ---
-title: '빠른 시작: Azure Bastion을 구성하고 개인 IP 주소 및 브라우저를 통해 VM에 연결'
+title: '빠른 시작: VM 설정에서 Bastion 구성'
 titleSuffix: Azure Bastion
-description: 가상 머신에서 Azure Bastion 호스트를 만들고 브라우저와 개인 IP 주소를 통해 안전하게 VM에 연결하는 방법을 알아봅니다.
+description: 가상 머신 설정에서 Azure Bastion 호스트를 만들고 브라우저와 개인 IP 주소를 통해 안전하게 VM에 연결하는 방법을 알아봅니다.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 06/29/2021
+ms.date: 07/13/2021
 ms.author: cherylmc
-ms.openlocfilehash: 67211215b3dac9ad8774dc4e3c67a869bd031646
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 7598b2908365061ae789ce2ffafb6088dc5c2a68
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111270"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733361"
 ---
-# <a name="quickstart-connect-to-a-vm-securely-through-a-browser-via-private-ip-address"></a>빠른 시작: 브라우저와 개인 IP 주소를 통해 안전하게 VM에 연결
+# <a name="quickstart-configure-azure-bastion-from-vm-settings"></a>빠른 시작: VM 설정에서 Azure Bastion 구성
 
-Azure Portal 및 Azure Bastion을 사용하여 브라우저를 통해 VM(가상 머신)에 연결할 수 있습니다. 이 빠른 시작 문서에서는 VM 설정에 따라 Azure Bastion을 구성하는 방법을 보여줍니다. 서비스가 프로비저닝되면 동일한 가상 네트워크의 모든 가상 머신에서 RDP/SSH 환경을 사용할 수 있습니다. VM에는 공용 IP 주소, 클라이언트 소프트웨어, 에이전트 또는 특별한 구성이 필요 없습니다. 다른 용도로 VM의 공용 IP 주소가 필요하지 않은 경우 제거할 수 있습니다. 그런 다음, 개인 IP 주소를 사용하여 포털을 통해 VM에 연결합니다. Azure Bastion에 대한 자세한 내용은 [Azure Bastion이란?](bastion-overview.md)을 참조하세요.
+이 빠른 시작 문서에서는 Azure Portal에서 VM 설정에 따라 Azure Bastion을 구성한 다음, 개인 IP 주소를 통해 VM에 연결하는 방법을 보여 줍니다. 서비스가 프로비저닝되면 동일한 가상 네트워크의 모든 가상 머신에서 RDP/SSH 환경을 사용할 수 있습니다. VM에는 공용 IP 주소, 클라이언트 소프트웨어, 에이전트 또는 특별한 구성이 필요 없습니다. 다른 용도로 VM의 공용 IP 주소가 필요하지 않은 경우 제거할 수 있습니다. 그런 다음, 개인 IP 주소를 사용하여 포털을 통해 VM에 연결합니다. Azure Bastion에 대한 자세한 내용은 [Azure Bastion이란?](bastion-overview.md)을 참조하세요.
 
 ## <a name="prerequisites"></a><a name="prereq"></a>필수 조건
 
@@ -62,7 +62,8 @@ Azure Portal 및 Azure Bastion을 사용하여 브라우저를 통해 VM(가상 
 | --- | --- |
 | 속성 | VNet1-bastion |
 | + 서브넷 이름 | AzureBastionSubnet |
-| AzureBastionSubnet 주소 | VNet 주소 공간 내에서 /27 서브넷 마스크를 사용하는 서브넷입니다. 예: 10.1.1.0/27.  |
+| AzureBastionSubnet 주소 | 서브넷 마스크가 /27 이상인 VNet 주소 공간 내의 서브넷입니다.<br> 예: 10.1.1.0/26  |
+| 계층/SKU | 표준 |
 | 공용 IP 주소 |  새로 만들기 |
 | 공용 IP 주소 이름 | VNet1-ip  |
 | 공용 IP 주소 SKU |  Standard  |
@@ -72,7 +73,9 @@ Azure Portal 및 Azure Bastion을 사용하여 브라우저를 통해 VM(가상 
 
 몇 가지 방법으로 Bastion 호스트를 구성할 수 있습니다. 다음 단계에서는 VM에서 직접 Azure Portal에 Bastion 호스트를 만듭니다. VM에서 호스트를 만들 때 다양한 설정이 가상 머신 및/또는 가상 네트워크의 해당 설정을 자동으로 채웁니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
+
+1. Azure Portal에 로그인합니다.
 1. 연결하려는 VM으로 이동한 다음, **연결** 을 선택합니다.
 
    :::image type="content" source="./media/quickstart-host-portal/vm-connect.png" alt-text="가상 머신 설정의 스크린 샷." lightbox="./media/quickstart-host-portal/vm-connect.png":::
@@ -83,25 +86,26 @@ Azure Portal 및 Azure Bastion을 사용하여 브라우저를 통해 VM(가상 
 
    :::image type="content" source="./media/quickstart-host-portal/select-bastion.png" alt-text="Bastion 사용의 스크린샷.":::
 
-1. **Azure Bastion을 사용하여 연결** 페이지에서 값을 구성합니다.
+1. **Azure Bastion을 사용하여 연결** 페이지, **1단계** 에서는 VM에서 직접 베스천 호스트를 만들기 때문에 값이 미리 채워져 있습니다.
 
-   * **1단계:** VM에서 직접 베스천 호스트를 만들기 때문에 값이 미리 채워져 있습니다.
+   :::image type="content" source="./media/quickstart-host-portal/create-step-1.png" alt-text="미리 채워진 1단계 설정 스크린샷" lightbox="./media/quickstart-host-portal/create-step-1.png":::
 
-   * **2단계:** 주소 공간은 제안된 주소 공간으로 미리 채워집니다. AzureBastionSubnet의 주소 공간은 /27 이상(/26, /25 등)이어야 합니다.
+1. **Azure Bastion을 사용하여 연결** 페이지, **2단계** 에서 서브넷 값을 구성합니다. AzureBastionSubnet 주소 공간은 제안된 주소 공간으로 미리 채워져 있습니다. AzureBastionSubnet 주소 공간은 /27 이상(/26, /25 등)이어야 합니다. 호스트 스케일링이 제한되지 않도록 /26을 사용하는 것이 좋습니다. 이 설정 구성을 마치면 **서브넷 만들기** 를 클릭하여 AzureBastionSubnet을 만듭니다.
 
-   :::image type="content" source="./media/quickstart-host-portal/create-subnet.png" alt-text="Bastion 서브넷 만들기의 스크린샷.":::
+     :::image type="content" source="./media/quickstart-host-portal/create-subnet.png" alt-text="Bastion 서브넷 만들기의 스크린샷.":::
 
-1. **서브넷 만들기** 를 클릭하여 AzureBastionSubnet을 만듭니다.
 1. 서브넷이 생성되면 페이지가 자동으로 **3단계** 로 이동합니다. 3단계의 경우 다음 값을 사용합니다.
 
    * **이름**: 베스천 호스트의 이름을 지정합니다.
+   * **계층:** 계층은 SKU입니다. 이 연습의 경우 드롭다운에서 **표준** 을 선택합니다. 표준 SKU를 선택하면 호스트 스케일링 인스턴스 수를 구성할 수 있습니다. 기본 SKU는 호스트 스케일링을 지원하지 않습니다. 자세한 내용은 [구성 설정 - SKU](configuration-settings.md#skus)를 참조하세요. 표준 SKU는 미리 보기로 제공됩니다.
+   * **인스턴스 수:** 호스트 스케일링 설정입니다. 슬라이더를 사용하여 구성합니다. 기본 계층 SKU를 지정하는 경우 2개의 인스턴스로 제한되며 이 설정을 구성할 수 없습니다. 자세한 내용은 [구성 설정 - 호스트 스케일링](configuration-settings.md#instance)을 참조하세요. 인스턴스 수는 미리 보기로 제공되며 표준 SKU에만 적용됩니다. 이 빠른 시작에서는 모든 배율 단위 [가격 책정](https://azure.microsoft.com/pricing/details/azure-bastion) 고려 사항을 염두에 두고 원하는 인스턴스 수를 선택할 수 있습니다.
    * **공용 IP 주소:****새로 만들기** 를 선택합니다.
    * **공용 IP 주소 이름**: 공용 IP 주소 리소스의 이름입니다.
    * **공용 IP 주소 SKU:** **표준** 으로 미리 구성됩니다.
    * **할당:** **정적** 으로 미리 구성됩니다. Azure Bastion에는 동적 할당을 사용할 수 없습니다.
    * **리소스 그룹**: VM과 동일한 리소스 그룹입니다.
 
-   :::image type="content" source="./media/quickstart-host-portal/create-bastion.png" alt-text="3단계의 스크린샷.":::
+   :::image type="content" source="./media/quickstart-host-portal/create-step-3.png" alt-text="3단계의 스크린샷.":::
 1. 값을 완료한 후에는 **기본값을 사용하여 Azure Bastion 만들기** 를 선택합니다. Azure에서 설정의 유효성을 검사한 다음, 호스트를 만듭니다. 호스트와 해당 리소스를 만들고 및 배포하는 데 약 5분 정도 걸립니다.
 
 ## <a name="remove-vm-public-ip-address"></a><a name="remove"></a> VM 공용 IP 주소 제거
@@ -115,7 +119,7 @@ Bastion이 가상 네트워크에 배포되면 화면이 연결 페이지로 바
 1. 가상 머신의 사용자 이름과 암호를 입력합니다. 그런 다음, **연결** 을 선택합니다.
 
    :::image type="content" source="./media/quickstart-host-portal/connect.png" alt-text="Azure Bastion을 사용하여 연결 대화 상자를 보여 주는 스크린샷":::
-1. 이 가상 머신에 대한 RDP 연결은 포트 443 및 Bastion 서비스를 사용하여 Azure Portal에서 직접 열립니다(HTML5를 통해). 
+1. 이 가상 머신에 대한 RDP 연결은 포트 443 및 Bastion 서비스를 사용하여 Azure Portal에서 직접 열립니다(HTML5를 통해). 클립보드에 대한 권한을 묻는 메시지가 표시되면 **허용** 을 클릭합니다. 이렇게 하면 화면 왼쪽에 있는 원격 클립보드 화살표를 사용할 수 있습니다.
 
    * 연결할 때 VM의 바탕 화면이 예제 스크린샷과 다르게 보일 수 있습니다. 
    * VM에 연결된 상태에서 바로 가기 키를 사용하면 로컬 컴퓨터의 바로 가기 키와 동일한 동작이 수행되지 않을 수 있습니다. 예를 들어 Windows 클라이언트에서 Windows VM에 연결된 경우 CTRL+ALT+END는 로컬 컴퓨터에서 CTRL+ALT+Delete의 바로 가기 키입니다. Windows VM에 연결된 동안 Mac에서 이 작업을 수행하려면 바로 가기 키는 Fn+CTRL+ALT+Backspace입니다.

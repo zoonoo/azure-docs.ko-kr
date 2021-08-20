@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: b30fee5d269a633173b8524ed6c902517063b2a2
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: d4139ddc0d0befce228e18a65ecfb83065c740dc
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985997"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443162"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>빠른 시작: Azure Sentinel 온보딩
 
@@ -26,7 +26,7 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
 데이터 원본을 연결한 후 데이터에 따른 인사이트를 제공하는 전문가가 만든 통합 문서 갤러리 중에서 선택합니다. 이러한 통합 문서는 사용자의 요구에 맞게 쉽게 사용자 지정할 수 있습니다.
 
 >[!IMPORTANT] 
-> Azure Sentinel 사용 시 발생하는 요금에 대한 자세한 내용은 [Azure Sentinel 가격 책정](https://azure.microsoft.com/pricing/details/azure-sentinel/)을 참조하세요.
+> Azure Sentinel을 사용할 때 발생하는 요금에 대한 자세한 내용은 [Azure Sentinel 가격 책정](https://azure.microsoft.com/pricing/details/azure-sentinel/) 및 [Azure Sentinel 비용 및 청구](azure-sentinel-billing.md)를 참조하세요.
 
 ## <a name="global-prerequisites"></a>전역 전제 조건
 
@@ -47,13 +47,20 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
 
     | 작업 영역 지리/지역 | Azure Sentinel 생성 데이터 지리/지역 |
     | --- | --- |
-    | 미국<br>인도<br>브라질<br>아프리카<br>한국<br>아랍에미리트연합국 | 미국 |
-    | 유럽<br>프랑스<br>스위스 | 유럽 |
+    | 미국<br>인도<br>아프리카 | 미국 |
+    | 유럽<br>프랑스 | 유럽 |
     | 오스트레일리아 | 오스트레일리아 |
     | United Kingdom | United Kingdom |
     | Canada | Canada |
     | 일본 | 일본 |
     | 동남 아시아(싱가포르) | 동남 아시아(싱가포르)* |
+    | 브라질 | 브라질 |
+    | 노르웨이 | 노르웨이 |
+    | 남아프리카 공화국 | 남아프리카 공화국 |
+    | 한국 | 한국 |
+    | 독일 | 독일 |
+    | 아랍에미리트연합국 | 아랍에미리트연합국 |
+    | 스위스 | 스위스 |
     |
     
     \* 동남 아시아에는 쌍으로 연결된 지역이 없습니다.
@@ -103,7 +110,17 @@ Azure Sentinel은 서비스에 연결하고 이벤트 및 로그를 Azure Sentin
 데이터 원본이 연결된 후 데이터는 Azure Sentinel로 스트리밍되기 시작하고 작업을 시작할 준비가 됩니다. [기본 제공 통합 문서](quickstart-get-visibility.md)에서 로그를 확인하고 Log Analytics에서 쿼리를 작성하여 [데이터를 조사](tutorial-investigate-cases.md)할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Sentinel에 데이터 원본을 온보딩 및 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
-- [일반적인 이벤트 형식 어플라이언스](connect-common-event-format.md)의 데이터를 Azure Sentinel로 스트리밍합니다.
+
+자세한 내용은 다음을 참조하세요.
+
+- **대체 배포 옵션**:
+
+    - [API를 통해 Azure Sentinel 배포](/rest/api/securityinsights/)
+    - [PowerShell을 통해 Azure Sentinel 배포](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)
+    - [ARM 템플릿을 통해 Azure Sentinel 배포](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-all-in-one-accelerator/ba-p/1807933)
+
+- **시작**:
+    - [Azure Sentinel 시작](quickstart-get-visibility.md)
+    - [위협 탐지를 위한 사용자 지정 분석 규칙 만들기](tutorial-detect-threats-custom.md)
+    - [Common Event Format을 사용하여 외부 솔루션 연결](connect-common-event-format.md)
+

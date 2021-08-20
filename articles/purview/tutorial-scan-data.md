@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: fb11033e0f4fcff171825d579e62e071f66b1cea
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: e389992b04556107d5c22c56fa39a5912b949b38
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745892"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459005"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>자습서: Azure Purview(미리 보기)를 사용하여 데이터 스캔
 
@@ -147,6 +147,9 @@ Azure Purview 계정을 직접 만든 경우 자동으로 액세스 권한이 �
    ```
 
    명령을 실행하면 Azure Active Directory 자격 증명을 사용하여 로그인하는 팝업 창이 표시될 수 있습니다.
+
+    > [!TIP]
+    > 테넌트에서 MFA를 사용하도록 설정한 경우 이 단계에서 MFA 오류가 발생할 수 있습니다. 이 경우 이 스크립트를 실행하는 계정에 대해 MFA를 잠시 사용하지 않도록 설정합니다. 그런 다음 다시 실행합니다.
 
 
 1. 다음 명령을 사용하여 시작 키트를 실행합니다. `CatalogName`, `TenantID`, `SubscriptionID`, `NewResourceGroupName` 및 `CatalogResourceGroupName` 자리 표시자를 바꿉니다. `NewResourceGroupName`의 경우 데이터 자산을 포함할 리소스 그룹에 고유한 이름(소문자 영숫자만 포함)을 사용합니다.

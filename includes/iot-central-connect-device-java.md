@@ -1,25 +1,25 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 03/31/2021
-ms.openlocfilehash: b198e64ccec82647d5b49b4b8c51e64f889e983a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 86329b17a437846c3a5c4a29dd901ac1b1ca5902
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110486317"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114407547"
 ---
 [![코드 찾아보기](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음 리소스가 필요합니다.
 
 [!INCLUDE [iot-central-prerequisites-basic](iot-central-prerequisites-basic.md)]
 
-- Java SE Development Kit 8 이상이 포함된 개발 머신. 여러 플랫폼용 Java 8(LTS) JDK는 [OpenJDK의 Zulu 빌드 다운로드](https://www.azul.com/downloads/zulu-community/)에서 다운로드할 수 있습니다.
+- Java SE Development Kit 8 이상이 포함된 개발 머신. 자세한 내용은 [JDK 설치](/azure/developer/java/fundamentals/java-jdk-install)를 참조하세요.
 
 - [Apache Maven 3](https://maven.apache.org/download.cgi).
 

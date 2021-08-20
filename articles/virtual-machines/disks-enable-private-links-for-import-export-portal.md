@@ -2,18 +2,18 @@
 title: Azure Portal - Private Links를 사용하여 관리 디스크에 대한 가져오기/내보내기 액세스 제한
 description: Azure Portal을 사용하여 관리 디스크에 대한 Private Links를 사용하도록 설정합니다. 가상 네트워크 내에서 디스크를 안전하게 내보내고 가져올 수 있습니다.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: overview
-ms.date: 08/24/2020
+ms.date: 07/15/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: b686eac137a0531befea6fe42c31112c46b18cc9
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: af8b44cbd229fc2bdf28d2885356e219b3a8198a
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028652"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114288306"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure Portal을 사용하여 Private Links로 관리 디스크에 대한 가져오기/내보내기 액세스를 제한합니다.
 
@@ -60,13 +60,13 @@ ms.locfileid: "112028652"
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="프라이빗 엔드포인트 만들기 워크플로(첫 번째 블레이드)의 스크린샷. 적절한 지역을 선택하지 않으면 나중에 문제가 발생할 수 있습니다.":::
 
-1. **리소스** 블레이드에서 **내 디렉터리에서 Azure 리소스에 연결합니다.** 를 선택합니다.
+1. **리소스** 창에서 **내 디렉터리의 Azure 리소스에 연결** 을 선택합니다.
 1. **리소스 종류** 에 대해 **Microsoft.Compute/diskAccesses** 를 선택합니다.
 1. **리소스** 에 대해 이전에 만든 디스크 액세스 리소스를 선택합니다.
 1. **대상 하위 리소스** 를 **디스크** 로 유지합니다.
 1. **다음: 구성 >** 을 클릭합니다.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="프라이빗 엔드포인트 만들기 워크플로(두 번째 블레이드)의 스크린샷. 모든 값(리소스 종류, 리소스, 대상 하위 리소스)이 강조 표시되어 있습니다.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="프라이빗 엔드포인트 만들기 워크플로의 두 번째 창 스크린샷. 모든 값(리소스 종류, 리소스, 대상 하위 리소스)이 강조 표시되어 있습니다.":::
 
 1. 디스크 내보내기를 제한하려는 가상 네트워크를 선택합니다. 그러면 다른 가상 네트워크에서 디스크를 내보낼 수 없습니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "112028652"
 1. 적절한 서브넷을 선택합니다.
 1. **검토 + 만들기** 를 선택합니다.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="프라이빗 엔드포인트 만들기 워크플로(세 번째 블레이드)의 스크린샷. 가상 네트워크 및 서브넷이 강조 표시되어 있습니다.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="프라이빗 엔드포인트 만들기 워크플로의 세 번째 창 스크린샷. 가상 네트워크와 서브넷이 강조 표시되어 있습니다.":::
 
 ## <a name="enable-private-endpoint-on-your-disk"></a>디스크에서 프라이빗 엔드포인트 사용
 
@@ -85,11 +85,13 @@ ms.locfileid: "112028652"
 1. **프라이빗 엔드포인트(디스크 액세스를 통해)** 를 선택하고, 이전에 만든 디스크 액세스를 선택합니다.
 1. **저장** 을 선택합니다.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="관리 디스크 네트워킹 블레이드의 스크린샷. 프라이빗 엔드포인트 선택 항목 및 선택한 디스크 액세스가 강조 표시되어 있습니다. 이를 저장하면 이 액세스에 대한 디스크가 구성됩니다.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="관리 디스크 네트워킹 창 스크린샷. 프라이빗 엔드포인트 선택 항목과 선택한 디스크 액세스가 강조 표시되어 있습니다. 저장하면 이 액세스를 위해 디스크가 구성됩니다.":::
 
 이제 관리 디스크를 가져오거나 내보낼 때 사용할 수 있는 Private Link를 구성하는 작업이 완료되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
+- Azure에 VHD를 업로드하거나 관리 디스크를 다른 지역에 복사 - [Azure CLI](linux/disks-upload-vhd-to-managed-disk-cli.md) 또는 [Azure PowerShell 모듈](windows/disks-upload-vhd-to-managed-disk-powershell.md)
+- VHD 다운로드 - [Windows](windows/download-vhd.md) 또는 [Linux](linux/download-vhd.md)
 - [Private Link에 대한 FAQ](/azure/virtual-machines/faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
 - [PowerShell을 사용하여 관리 스냅샷을 VHD로 다른 지역의 스토리지 계정에 내보내기/복사](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account)

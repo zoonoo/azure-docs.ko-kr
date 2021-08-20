@@ -5,29 +5,30 @@ ms.topic: overview
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 05/20/2021
-ms.openlocfilehash: 7359be792d8a832f6dcddc2c4d3caaf000930e83
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 06/20/2021
+ms.openlocfilehash: 267109bcacd8fcb9ff7d44ca6f9a74ca4dc39fda
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453565"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582945"
 ---
 # <a name="what-is-document-translation"></a>문서 번역이란?
 
-문서 번역은 [Azure Translator](../translator-info-overview.md) 서비스의 클라우드 기반 기능이며 REST API의 Azure Cognitive Service 제품군의 일부입니다. 문서 번역 API는 문서 구조와 데이터 형식을 유지하면서 90개 언어와 방언으로 문서를 번역합니다.
+문서 번역은 [Azure Translator](../translator-info-overview.md) 서비스의 클라우드 기반 기능이며 REST API의 Azure Cognitive Service 제품군의 일부입니다. 문서 번역 API는 문서 구조와 데이터 형식을 유지하면서 [지원되는 모든 언어와 방언](../../language-support.md)으로 문서를 번역합니다. 
 
 이 설명서에는 다음과 같은 문서 유형이 포함되어 있습니다.  
 
 * [**빠른 시작**](get-started-with-document-translation.md)은 서비스에 대한 요청을 수행하는 과정을 안내하는 시작 지침입니다.
-* [**방법 가이드**](create-sas-tokens.md)에는 보다 구체적이거나 사용자 지정된 방식으로 기능을 사용하기 위한 지침이 포함되어 있습니다.  
+* [**방법 가이드**](create-sas-tokens.md)에는 보다 구체적이거나 사용자 지정된 방식으로 기능을 사용하기 위한 지침이 포함되어 있습니다. 
+* [**참조**](reference/rest-api-guide.md)에서는 REST API 설정, 값, 키워드, 구성을 제공합니다.
 
 ## <a name="document-translation-key-features"></a>문서 번역 주요 기능
 
 | 기능 | Description |
 | ---------| -------------|
 | **대용량 파일 번역**| 전체 문서를 비동기적으로 번역합니다.|
-|**대용량 파일 번역**|90개 언어 및 방언으로 여러 파일을 번역합니다.|
+|**대용량 파일 번역**|문서 구조와 데이터 형식을 유지하면서 지원되는 모든 언어와 방언으로 여러 파일을 번역합니다.|
 |**원본 파일 프레젠테이션 보존**| 원래 레이아웃과 형식을 유지하면서 파일을 번역합니다.|
 |**사용자 지정 번역 적용**| 일반 및 [사용자 지정 번역](../customization.md#custom-translator) 모델을 사용하여 문서를 번역합니다.|
 |**사용자 지정 글로서리 적용**|사용자 지정 글로서리를 사용하여 문서를 번역합니다.|
@@ -54,6 +55,8 @@ ms.locfileid: "110453565"
 |쉼표로 구분된 값 |.csv| 스프레드시트 프로그램에서 사용하는 쉼표로 구분된 원시 데이터 파일입니다.|
 |HTML|.html, .htm|Hyper Text Markup Language|
 |지역화 교환 파일 형식|.xlf. , xliff| 번역 메모리 시스템에서 내보낸 병렬 문서 형식입니다. 사용되는 언어는 파일 안에 정의되어 있습니다.|
+|Markdown| .markdown, .mdown, .mkdn, .md, .mkd, .mdwn, .mdtxt, .mdtext, .rmd| 서식이 지정된 텍스트를 만들기 위한 간단한 태그 언어입니다.|
+|MHTML|.mthml, .mht| HTML 코드와 포함 리소스를 결합하는 데 사용되는 웹 페이지 보관 형식입니다.|
 |Microsoft Excel|.xls, .xlsx|데이터 분석 및 설명서에 대한 스프레드 시트 파일입니다.|
 |Microsoft Outlook|.msg|Microsoft Outlook 내에서 만들어지거나 저장된 이메일 메시지입니다.|
 |Microsoft PowerPoint|.ppt, .pptx| 슬라이드 쇼 형식으로 콘텐츠를 표시하는 데 사용되는 프레젠테이션 파일입니다.|
@@ -71,8 +74,9 @@ ms.locfileid: "110453565"
 
 | 파일 형식| 파일 확장명|Description|
 |---|---|--|
+|쉼표로 구분된 값| .csv |스프레드시트 프로그램에서 사용하는 쉼표로 구분된 원시 데이터 파일입니다.|
 |지역화 교환 파일 형식|.xlf. , xliff| 번역 메모리 시스템에서 내보낸 병렬 문서 형식입니다. 사용되는 언어는 파일 안에 정의되어 있습니다.|
-|탭으로 구분된 값/TAB|.tsv/.tab| 스프레드시트 프로그램에서 사용하는 탭으로 구분된 원시 데이터 파일입니다.|
+|탭으로 구분된 값/TAB|.tsv, .tab| 스프레드시트 프로그램에서 사용하는 탭으로 구분된 원시 데이터 파일입니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,13 +5,13 @@ author: Juliako
 ms.author: juliako
 ms.service: azure-video-analyzer
 ms.topic: tutorial
-ms.date: 04/01/2021
-ms.openlocfilehash: 82edf5b282f7b68a7d4d1d7909cfe653a65c175b
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 06/01/2021
+ms.openlocfilehash: 0f0ee0a7288a3ef07f0aa8fa3c04660cac1ad0b5
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746569"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604170"
 ---
 # <a name="tutorial-live-video-with-computer-vision-for-spatial-analysis-preview"></a>자습서: Computer Vision과 함께 라이브 비디오를 사용하여 공간 분석(미리 보기)
 
@@ -49,7 +49,7 @@ ms.locfileid: "111746569"
 
 ## <a name="set-up-azure-resources"></a>Azure 리소스 설정
 
-1. 공간 분석 컨테이너를 실행하려면 [NVIDIA Tesla T4 GPU](https://www.nvidia.com/data-center/tesla-t4/)가 있는 컴퓨팅 디바이스가 필요합니다. GPU 가속과 함께 [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/)를 사용하는 것이 좋습니다. 그러나 컨테이너는 호스트 컴퓨터에 [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/)가 설치된 다른 데스크톱 머신에서 실행됩니다.
+1. 공간 분석 컨테이너를 실행하려면 [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/)가 있는 컴퓨팅 디바이스가 필요합니다. GPU 가속과 함께 [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/)를 사용하는 것이 좋습니다. 그러나 컨테이너는 호스트 컴퓨터에 [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/)가 설치된 다른 데스크톱 머신에서 실행됩니다.
 
    #### <a name="azure-stack-edge-device"></a>[Azure Stack Edge 디바이스](#tab/azure-stack-edge)
 
@@ -125,7 +125,7 @@ ms.locfileid: "111746569"
 
 ## <a name="create-the-computer-vision-resource"></a>Computer Vision 리소스 만들기
 
-[Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) 또는 Azure CLI를 통해 Computer Vision 유형의 Azure 리소스를 만들어야 합니다. 컨테이너에 대한 액세스 요청을 승인하고 Azure 구독 ID를 등록한 후에 리소스를 만들 수 있습니다.  https://aka.ms/csgate 로 이동하여 사용 사례와 Azure 구독 ID를 제출합니다. 액세스 양식 요청에서 제공된 것과 동일한 Azure 구독을 사용하여 Azure 리소스를 만들어야 합니다.
+[Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) 또는 Azure CLI를 통해 Computer Vision 유형의 Azure 리소스를 만들어야 합니다. 
 
 ### <a name="gathering-required-parameters"></a>필수 매개 변수 수집
 
@@ -434,7 +434,7 @@ pipelineTopology가 인스턴스화되면 "MediaSessionEstablished" 이벤트(�
 
 #### <a name="parameters"></a>매개 변수
 
-| 이름                      | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| 이름                      | 유형    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 영역                     | list    | 영역 목록입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | name                      | 문자열  | 이 영역에 대한 식별 이름입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -492,15 +492,22 @@ pipelineTopology가 인스턴스화되면 "MediaSessionEstablished" 이벤트(�
 ```
 
 ### <a name="more-operations"></a>추가 작업:
+`spatialAnalysis` 모듈에서 제공하는 여러 작업은 다음과 같습니다.
 
+- **personCount**
+- **personDistance**
+- **personCrossingLine**
+- **personZoneCrossing**
+- **customOperation**
+<br></br>
 <details>
-  <summary>클릭하여 확장</summary>
+  <summary>클릭하여 확장한 후 각 작업에 대한 다양한 구성 옵션을 확인합니다.</summary>
 
 ### <a name="person-line-crossing"></a>사람 줄 교차
 
 #### <a name="parameters"></a>매개 변수
 
-| 이름                      | Type    | Description                                                                                                                                                                                                                                                                   |
+| 이름                      | 유형    | Description                                                                                                                                                                                                                                                                   |
 | ------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | lines                     | list    | 선 목록입니다.                                                                                                                                                                                                                                                                |
 | name                      | 문자열  | 이 선에 대한 식별 이름입니다.                                                                                                                                                                                                                                                  |
@@ -561,7 +568,7 @@ pipelineTopology가 인스턴스화되면 "MediaSessionEstablished" 이벤트(�
 
 #### <a name="parameters"></a>매개 변수
 
-| 이름                      | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| 이름                      | 유형    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 영역                     | list    | 영역 목록입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | name                      | 문자열  | 이 영역에 대한 식별 이름입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -606,7 +613,7 @@ pipelineTopology가 인스턴스화되면 "MediaSessionEstablished" 이벤트(�
 
 #### <a name="parameters"></a>매개 변수
 
-| 이름                      | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| 이름                      | 유형    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 영역                     | list    | 영역 목록입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | name                      | 문자열  | 이 영역에 대한 식별 이름입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -666,7 +673,7 @@ pipelineTopology가 인스턴스화되면 "MediaSessionEstablished" 이벤트(�
 
 #### <a name="parameters"></a>매개 변수
 
-| 이름                   | Type   | Description                           |
+| 이름                   | 유형   | Description                           |
 | ---------------------- | ------ | ------------------------------------- |
 | extensionConfiguration | 문자열 | 작업의 JSON 표현입니다. |
 
@@ -734,8 +741,7 @@ Azure Portal에 로그인하여 비디오를 살펴보면 라이브 파이프라
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/record-stream-inference-data-with-video/bounding-box.png" alt-text="경계 상자 아이콘":::
 
-> [!NOTE]
-> 비디오 원본은 카메라 피드를 시뮬레이션하는 컨테이너이므로 비디오의 타임스탬프는 라이브 파이프라인을 활성화한 시간 및 비활성화한 시간과 관련이 있습니다.
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -819,7 +825,7 @@ spatialanalysis는 큰 컨테이너이며 시작하는 데 최대 30초가 걸�
 `spatialAnalysis` 모듈에서 제공하는 다른 작업을 시도해 봅니다. 다음 pipelineTopologies를 참조하세요.
 
 - [personCount](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json)
-- [personDistance](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-distance-pperation-topology.json)
+- [personDistance](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-distance-operation-topology.json)
 - [personCrossingLine](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-line-crossing-operation-topology.json)
 - [personZoneCrossing](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-zone-crossing-operation-topology.json)
 - [customOperation](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/custom-operation-topology.json)

@@ -3,18 +3,18 @@ title: 자습서 - Azure 예산 만들기 및 관리
 description: 이 자습서는 사용자가 소비하는 Azure 서비스 비용을 계획하고 설명하는 데 도움이 됩니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2021
+ms.date: 06/17/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 916abcb702f46e5b18a403369bd2ed4dfe5b8473
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 1531b6bf591d2fb859dbd680c41d51a5835347a1
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695290"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112320733"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -165,7 +165,12 @@ Azure EA 구독의 경우 예산을 보는 읽기 권한이 있어야 합니다.
 
 ## <a name="create-and-edit-budgets-with-powershell"></a>PowerShell을 사용하여 예산 만들기 및 편집
 
-EA 고객은 Azure PowerShell 모듈을 사용하여 프로그래밍 방식으로 예산을 만들고 편집할 수 있습니다. 최신 버전의 Azure PowerShell을 다운로드하려면 다음 명령을 실행합니다.
+EA 고객은 Azure PowerShell 모듈을 사용하여 프로그래밍 방식으로 예산을 만들고 편집할 수 있습니다. 
+
+>[!Note]
+>PowerShell 및 CLI가 아직 지원되지 않으므로 Microsoft 고객 계약을 보유한 고객은 [예산 REST API](/rest/api/consumption/budgets/create-or-update)를 사용하여 프로그래밍 방식으로 예산을 만들어야 합니다.
+
+최신 버전의 Azure PowerShell을 다운로드하려면 다음 명령을 실행합니다.
 
 ```azurepowershell-interactive
 install-module -name Az
@@ -189,6 +194,7 @@ $ActionGroupId = (Set-AzActionGroup -ResourceGroupName YourResourceGroup -Name T
 
 #Create a monthly budget that sends an email and triggers an Action Group to send a second email. Make sure the StartDate for your monthly budget is set to the first day of the current month. Note that Action Groups can also be used to trigger automation such as Azure Functions or Webhooks.
 
+Get-AzContext
 New-AzConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
 ```
 

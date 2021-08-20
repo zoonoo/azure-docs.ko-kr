@@ -1,21 +1,21 @@
 ---
 title: Azure Files 소개 | Microsoft Docs
-description: 업계 표준 SMB 프로토콜을 사용하여 클라우드에서 네트워크 파일 공유를 만들고 사용할 수 있게 해주는 서비스인 Azure Files를 간략히 설명합니다.
+description: SMB 또는 NFS 프로토콜을 이용하여 클라우드에서 네트워크 파일 공유를 만들고 사용할 수 있는 서비스인 Azure Files에 관해 간략하게 설명합니다.
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 09/15/2020
+ms.date: 07/23/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7279c5578d969db9178ce85734e3a43f9eccdf8d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c47d68dbaef7cbd154a0ac9af7ad582c1e94b640
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780050"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114673958"
 ---
 # <a name="what-is-azure-files"></a>Azure Files란?
-Azure Files는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 또는 [NFS(네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System)을 통해 액세스할 수 있는, 클라우드에서 완전 관리형 파일 공유를 제공합니다. Azure File 공유는 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. Azure Files SMB 파일 공유는 Windows, Linux 및 macOS 클라이언트에서 액세스할 수 있습니다. Azure Files NFS 파일 공유는 Linux 또는 macOS 클라이언트에서 액세스할 수 있습니다. 또한 데이터가 사용되는 위치 근처에서 빠르게 액세스하기 위해 Azure 파일 동기화를 사용하여 Azure Files SMB 파일 공유를 Windows Server에서 캐시할 수 있습니다.
+Azure Files는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 또는 [NFS(네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System)을 통해 액세스할 수 있는, 클라우드에서 완전 관리형 파일 공유를 제공합니다. Azure Files 파일 공유는 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. SMB Azure 파일 공유는 Windows, Linux, macOS 클라이언트에서 액세스할 수 있습니다. NFS Azure Files 공유는 Linux 또는 macOS 클라이언트에서 액세스할 수 있습니다. 또한 데이터가 사용되는 위치 근처에서 빠르게 액세스하기 위해 [Azure 파일 동기화](../file-sync/file-sync-introduction.md)를 사용하여 SMB Azure 파일 공유를 Windows Server에서 캐시할 수 있습니다.
 
 Azure Files의 일반적인 사용 사례에 대한 몇 가지 비디오는 다음과 같습니다.
 * [파일 서버를 서버리스 Azure 파일 공유로 바꾸기](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
@@ -25,7 +25,7 @@ Azure Files의 일반적인 사용 사례에 대한 몇 가지 비디오는 다�
 Azure 파일 공유를 사용하여 다음을 수행할 수 있습니다.
 
 * **온-프레미스 파일 서버 바꾸기 또는 보완**:  
-    Azure Files는 기존의 온-프레미스 파일 서버 또는 NAS 디바이스를 완전히 바꾸거나 보완하는 데 사용할 수 있습니다. Windows, macOS 및 Linux와 같이 자주 사용되는 운영 체제는 전세계 어디서나 Azure File 공유를 직접 탑재할 수 있습니다. Azure Files SMB 파일 공유는 사용되는 데이터의 성능 및 분산 캐싱을 위해 Azure 파일 동기화를 사용하여 온-프레미스 또는 클라우드의 Windows Server에 복제될 수도 있습니다. [Azure Files AD 인증](storage-files-active-directory-overview.md)의 최신 릴리스를 사용하여 Azure Files SMB 파일 공유는 액세스 제어를 위해 온-프레미스에서 호스트되는 AD와 계속 작동할 수 있습니다. 
+    Azure Files는 기존의 온-프레미스 파일 서버 또는 NAS 디바이스를 완전히 바꾸거나 보완하는 데 사용할 수 있습니다. Windows, macOS 및 Linux와 같이 자주 사용되는 운영 체제는 전세계 어디서나 Azure File 공유를 직접 탑재할 수 있습니다. SMB Azure 파일 공유는 사용되는 데이터의 성능 및 분산 캐싱을 위해 Azure 파일 동기화를 사용하여 온-프레미스 또는 클라우드의 Windows Server에 복제될 수도 있습니다. [Azure Files AD 인증](storage-files-active-directory-overview.md)의 최신 릴리스를 사용하면 SMB Azure 파일 공유가 온-프레미스에 호스트된 AD를 액세스 제어에 계속 사용할 수 있습니다. 
 
 * **애플리케이션 "리프트 앤 시프트"** :  
     Azure Files를 사용하면 파일 애플리케이션 또는 사용자 데이터를 저장하기 위해 파일 공유를 사용하는 클라우드로 애플리케이션을 쉽게 "전환"할 수 있습니다. Azure Files를 사용하면 애플리케이션 및 데이터를 모두 Azure로 이동시키는 “클래식” 전환 시나리오 및 애플리케이션 데이터를 Azure Files로 이동시키는 “하이브리드” 전환 시나리오를 모두 사용하고 애플리케이션이 계속 온-프레미스에서 실행됩니다. 
@@ -51,9 +51,9 @@ Azure 파일 공유를 사용하여 다음을 수행할 수 있습니다.
 * **친숙한 프로그래밍** - Azure에서 실행 중인 애플리케이션은 [파일 시스템 I/O API](/dotnet/api/system.io.file)를 통해 공유 데이터에 액세스할 수 있습니다. 따라서 개발자는 기존의 코드와 기술을 이용하여 기존 애플리케이션을 마이그레이션할 수 있습니다. 시스템 IO API 외에도 [Azure Storage 클라이언트 라이브러리](/previous-versions/azure/dn261237(v=azure.100)) 또는 [Azure Storage REST API](/rest/api/storageservices/file-service-rest-api)를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [사용 가능한 파일 공유 프로토콜에 대한 자세한 정보](storage-files-compare-protocols.md)
+* [Azure 파일 배포에 대한 계획](storage-files-planning.md)
 * [Azure 파일 공유 만들기](storage-how-to-create-file-share.md)
 * [Windows에서 SMB 공유 연결 및 탑재](storage-how-to-use-files-windows.md)
 * [Linux에서 SMB 공유 연결 및 탑재](storage-how-to-use-files-linux.md)
 * [macOS에서 SMB 공유 연결 및 탑재](storage-how-to-use-files-mac.md)
-* [NFS 공유를 만드는 방법](storage-files-how-to-create-nfs-shares.md)
+* [Linux에서 NFS 공유 연결 및 탑재](storage-files-how-to-mount-nfs-shares.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: jeedes
-ms.openlocfilehash: b943be684d84e1e193d9318e9f1c6423dcd38795
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2fb9d5be9068731607550eb904a8bf3d43044510
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101648943"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469550"
 ---
 # <a name="tutorial-integrate-jfrog-artifactory-with-azure-active-directory"></a>자습서: Azure Active Directory와 JFrog Artifactory 통합
 
@@ -76,29 +76,29 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 
-    a. **식별자** 텍스트 상자에서 `<servername>.jfrog.io` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에 Artifactory URL을 반영하는 URL을 입력합니다.
 
     b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
     
-    - Artifactory 6.x의 경우: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse`
-    - Artifactory 7.x의 경우: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
+    - Artifactory 자체 호스팅의 경우: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse`
+    - Artifactory SaaS의 경우: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
     **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
-    - Artifactory 6.x의 경우: `https://<servername>.jfrog.io/<servername>/webapp/`
-    - Artifactory 7.x의 경우: `https://<servername>.jfrog.io/ui/login`
+    - Artifactory 자체 호스팅의 경우: `https://<servername>.jfrog.io/<servername>/webapp/`
+    - Artifactory SaaS의 경우: `https://<servername>.jfrog.io/ui/login`
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [JFrog Artifactory 클라이언트 지원 팀](https://support.jfrog.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. JFrog Artifactory 애플리케이션에는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 하는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 사용하여 사용자 특성 대화 상자를 엽니다.
+1. JFrog Artifactory 애플리케이션에는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 하는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 사용자 특성 및 클레임 대화 상자를 엽니다.
 
     ![스크린샷은 편집 컨트롤이 호출된 사용자 특성을 보여줍니다.](common/edit-attribute.png)
 
-1. 위에서 언급한 특성 외에도 JFrog Artifactory는 SAML 응답에서 여러 특성이 다시 전달될 것으로 예상합니다. **그룹 클레임(미리 보기)** 대화 상자의 **사용자 특성 및 클레임** 섹션에서 다음 단계를 수행합니다.
+1. 위에서 언급한 특성 외에도 JFrog Artifactory는 SAML 응답에서 여러 특성이 다시 전달될 것으로 예상합니다. **사용자 특성 및 클레임** 섹션에서 **그룹 클레임 추가** 를 클릭하고 다음 단계를 수행합니다.
 
-    a. **클레임에서 반환되는 그룹** 옆에 있는 **펜** 을 클릭합니다.
+    a. **클레임에 반환되는 그룹** 옆에 있는 **열기** 를 클릭합니다.
 
     ![스크린샷은 편집 아이콘이 선택된 사용자 특성 및 크레임을 보여줍니다.](./media/jfrog-artifactory-tutorial/configuration-4.png)
 
@@ -114,8 +114,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 6. 'Identifier' 필드를 사용하여 Artifactory(SAML 서비스 공급자 이름)를 구성합니다(4단계 참조). **JFrog Artifactory 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
-   - Artifactory 6.x의 경우: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse` 
-   - Artifactory 7.x의 경우: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
+   - Artifactory 자체 호스팅의 경우: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse` 
+   - Artifactory SaaS의 경우: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
@@ -127,7 +127,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

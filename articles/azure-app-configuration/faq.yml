@@ -1,0 +1,158 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure App Configuration FAQ
+  description: Azure Key Vault와 어떻게 다른가 등의 Azure App Configuration 관련 FAQ(자주 묻는 질문)와 대답을 확인합니다.
+  services: azure-app-configuration
+  author: AlexandraKemperMS
+  ms.service: azure-app-configuration
+  ms.topic: conceptual
+  ms.date: 02/19/2020
+  ms.author: alkemper
+  ms.custom: references_regions
+  ms.openlocfilehash: 2c7df8ee7ea6947165157e43f79ecca7afd8a118
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114447540"
+title: Azure App Configuration FAQ
+summary: 이 문서에는 Azure App Configuration에 대해 자주 묻는 질문과 대답이 나와 있습니다.
+sections:
+- name: 무시됨
+  questions:
+  - question: App Configuration은 Azure Key Vault와 어떻게 다른가요?
+    answer: >
+      App Configuration을 사용하면 개발자가 애플리케이션 설정을 관리하고 기능 가용성을 제어하는 데 도움이 됩니다. App Configuration은 복잡한 구성 데이터를 사용하는 많은 작업의 간소화를 목표로 합니다.
+
+
+      App Configuration은 다음을 지원합니다.
+
+
+      - 계층 구조 네임스페이스
+
+      - 레이블 지정
+
+      - 광범위한 쿼리
+
+      - 일괄 처리 검색
+
+      - 특수 관리 작업
+
+      - 기능 관리 사용자 인터페이스
+
+
+      App Configuration은 Key Vault를 보완하며, 대부분의 애플리케이션 배포에서 두 가지를 함께 사용해야 합니다.
+  - question: App Configuration에 비밀을 저장해야 하나요?
+    answer: >
+      App Configuration은 강화된 보안을 제공하지만 애플리케이션 비밀을 저장하기에 가장 좋은 장소는 여전히 Key Vault입니다. Key Vault는 하드웨어 수준 암호화, 세부적인 액세스 정책, 인증서 회전과 같은 관리 작업을 제공합니다.
+
+
+      Key Vault에 저장된 비밀을 참조하는 App Configuration 값을 만들 수 있습니다. 자세한 내용은 [ASP.NET Core 앱에서 Key Vault 참조 사용](./use-key-vault-references-dotnet-core.md)을 참조하세요.
+  - question: App Configuration은 내 데이터를 암호화하나요?
+    answer: 예. App Configuration은 보유하고 있는 모든 키 값을 암호화하고 네트워크 통신을 암호화합니다. 키 이름과 레이블은 구성 데이터를 검색하기 위한 인덱스로 사용되며 암호화되지 않습니다.
+  - question: App Configuration은 Azure App Service 설정과 어떻게 다른가요?
+    answer: >
+      Azure App Service를 사용하면 각 App Service 인스턴스의 앱 설정을 정의할 수 있습니다. 해당 설정은 애플리케이션 코드에 환경 변수로 전달됩니다. 원하는 경우 특정 배포 슬롯에 설정을 연결할 수 있습니다. 자세한 내용은 [앱 설정 구성](../app-service/configure-common.md#configure-app-settings)을 참조하세요.
+
+
+      반면, Azure App Configuration을 사용하면 여러 앱에서 공유할 수 있는 설정을 정의할 수 있습니다. 여기에는 App Service와 기타 플랫폼에서 실행되는 앱이 포함됩니다. 애플리케이션 코드는 .NET 및 Java용 구성 공급자, Azure SDK 또는 REST API를 통해 직접 이 설정에 액세스합니다.
+
+
+      App Service와 App Configuration 간에 설정을 가져오고 내보낼 수도 있습니다. 이 기능을 사용하면 기존 App Service 설정에 따라 새로운 App Configuration 저장소를 신속하게 설정할 수 있습니다. App Service 설정을 사용하는 기존 앱과 구성을 공유할 수도 있습니다.
+  - question: App Configuration에 저장되는 키와 값에 대한 크기 제한이 있나요?
+    answer: 단일 키-값 항목은 10KB로 제한됩니다.
+  - question: 여러 환경(테스트, 스테이징, 프로덕션 등)의 구성을 저장하려면 어떻게 해야 하나요?
+    answer: >
+      저장소별 수준에서 App Configuration에 액세스할 수 있는 사람을 제어합니다. 서로 다른 권한이 필요한 각 환경에 별도의 저장소를 사용합니다. 이 방법은 최상의 보안 격리를 제공합니다.
+
+
+      환경 간 보안 격리가 필요하지 않은 경우에는 레이블을 사용하여 구성 값을 구분할 수 있습니다. [다른 환경에 대해 각기 다른 구성을 설정하도록 레이블 사용](./howto-labels-aspnet-core.md)은 전체 예제를 제공합니다.
+  - question: App Configuration을 사용하는 권장 방법은 무엇인가요?
+    answer: >
+      [모범 사례](./howto-best-practices.md)를 참조하세요.
+  - question: App Configuration 비용은 얼마인가요?
+    answer: >
+      가격 책정 계층에는 다음 두 가지가 있습니다.
+
+
+      - 무료 계층
+
+      - 표준 계층
+
+
+      표준 계층이 도입되기 전에 저장소를 만든 경우 일반 공급 시 자동으로 무료 계층으로 이동되었습니다. 표준 계층으로 업그레이드하거나 무료 계층을 유지할 수 있습니다.
+
+
+      저장소를 표준 계층에서 무료 계층으로 다운그레이드할 수는 없습니다. 무료 계층에 새 저장소를 만든 후 구성 데이터를 해당 저장소로 가져올 수 있습니다.
+  - question: 어떤 App Configuration 계층을 사용해야 하나요?
+    answer: >
+      두 가지 App Configuration 계층 모두 구성 설정, 기능 플래그, Key Vault 참조, 기본 관리 작업, 메트릭, 로그를 포함한 핵심 기능을 제공합니다.
+
+
+      계층을 선택할 때는 다음을 고려해야 합니다.
+
+
+      - **구독당 리소스**: 리소스는 단일 구성 저장소로 구성됩니다. 무료 계층에서는 각 구독이 하나의 구성 저장소로 제한됩니다. 표준 계층의 구독은 무제한 개수의 구성 저장소를 사용할 수 있습니다.
+
+      - **리소스당 스토리지**: 무료 계층에서는 각 구성 저장소가 10MB 스토리지로 제한됩니다. 표준 계층의 각 구성 저장소는 최대 1GB 스토리지를 사용할 수 있습니다.
+
+      - **수정 기록**: App Configuration은 키에 대한 모든 변경 내용의 기록을 저장합니다. 무료 계층에서는 이 기록이 7일 동안 저장됩니다. 표준 계층에서는 이 기록이 30일 동안 저장됩니다.
+
+      - **요청 할당량**: 무료 계층 저장소는 일일 1,000개 요청으로 제한됩니다. 저장소가 1,000개 요청에 도달하면 자정(UTC)까지 모든 요청에 대해 HTTP 상태 코드 429가 반환됩니다.
+
+          표준 계층 저장소는 시간당 20,000개 요청으로 제한됩니다. 할당량이 모두 사용되면 해당 시간이 끝날 때까지 모든 요청에 대해 HTTP 상태 코드 429가 반환됩니다.
+
+      - **서비스 수준 약정**: 표준 계층의 SLA는 99.9% 가용성입니다. 무료 계층에는 SLA가 없습니다.
+
+      - **보안 기능**: 두 계층 모두 Microsoft 관리형 키를 사용한 암호화, HMAC 또는 Azure Active Directory를 통한 인증, Azure RBAC 지원, 관리 ID, 서비스 태그 등의 기본 보안 기능을 포함합니다. 표준 계층은 Private Link 지원, 고객 관리형 키를 사용한 암호화를 비롯한 고급 보안 기능을 제공합니다.
+
+      - **비용**: 표준 계층 저장소에는 일일 사용 요금이 청구됩니다. 매일 처음 200,000개 요청이 일일 요금에 포함됩니다. 일일 할당을 초과하는 요청에 대한 초과분 요금도 부과됩니다. 무료 계층 저장소를 사용하기 위한 비용은 없습니다.
+  - question: 저장소를 무료 계층에서 표준 계층으로 업그레이드할 수 있나요? 저장소를 표준 계층에서 무료 계층으로 다운그레이드할 수 있나요?
+    answer: >
+      언제든지 무료 계층에서 표준 계층으로 업그레이드할 수 있습니다.
+
+
+      저장소를 표준 계층에서 무료 계층으로 다운그레이드할 수는 없습니다. 무료 계층에 새 저장소를 만든 후 [구성 데이터를 해당 저장소로 가져올](howto-import-export-data.md) 수 있습니다.
+  - question: App Configuration에 저장된 데이터는 어디에 있나요?
+    answer: >
+      App Configuration에 저장된 고객 데이터는 고객의 App Configuration 저장소가 생성된 지역에 상주합니다. 이 규정은 사용 가능한 모든 지역에 적용됩니다. 고객과 최종 사용자는 전 세계 어디에서든 고객 데이터를 이동, 복사 또는 액세스할 수 있습니다.
+  - question: App Configuration은 높은 데이터 가용성을 어떻게 보장하나요?
+    answer: "\nAzure App Configuration은 단일 데이터 센터 오류로부터 애플리케이션과 데이터를 보호하기 위해 Azure 가용성 영역을 지원합니다.가용성 영역을 지원하는 모든 지역은 최소 3개의 가용성 영역으로 구성되고, 각 가용성 영역은 물리적으로 독립된 데이터 센터입니다.복원력을 위해 App Configuration의 이 지원은 추가 비용 없이 모든 고객에 대해 사용하도록 설정됩니다. App Configuration에서 가용성 영역이 사용하도록 설정된 지역은 미국 동부, 미국 동부 2, 미국 중부, 미국 서부 2, 북유럽, 서유럽, 프랑스 중부, 영국 남부, 동남아시아, 일본 동부입니다. 자세한 내용은  [Azure의 지역 및 가용성 영역](../availability-zones/az-overview.md)을 참조하세요.\n\n \n"
+  - question: App Configuration에 대한 요청 수에 제한이 있나요?
+    answer: >
+      무료 계층의 구성 저장소는 일일 1,000개 요청으로 제한됩니다. 표준 계층의 구성 저장소는 요청 속도가 시간당 20,000개 요청을 초과할 때 일시적으로 제한될 수 있습니다.
+
+
+      저장소가 해당 한도에 도달하면 기간이 만료될 때까지 모든 요청에 대해 HTTP 상태 코드 429가 반환됩니다. 응답의 `retry-after-ms` 헤더는 요청을 다시 시도하기 전 대기 시간(밀리초)을 제안합니다.
+
+
+      애플리케이션에서 HTTP 상태 코드 429 응답이 주기적으로 발생하는 경우 요청 수를 줄이도록 다시 설계하는 것이 좋습니다. 자세한 내용은 [App Configuration에 대한 요청 줄이기](./howto-best-practices.md#reduce-requests-made-to-app-configuration)를 참조하세요.
+  - question: 내 애플리케이션이 HTTP 상태 코드 429 응답을 수신합니다. 이유가 무엇일까요?
+    answer: >
+      HTTP 상태 코드 429 응답이 수신되는 경우는 다음과 같습니다.
+
+
+      * 무료 계층에서 저장소의 일일 요청 한도를 초과한 경우
+
+      * 표준 계층에서 저장소의 높은 요청 속도로 인해 일시적으로 제한된 경우
+
+      * 대역폭 사용량이 과도한 경우
+
+      * 스토리지 할당량을 초과한 상태에서 키를 만들거나 수정하려고 한 경우
+
+
+      요청이 실패한 특정 이유는 429 응답의 본문을 확인합니다.
+  - question: 방금 삭제한 저장소와 동일한 이름으로 App Configuration 저장소를 만들 수 없는 이유는 무엇인가요?
+    answer: >
+      표준 계층 App Configuration 저장소를 삭제한 경우 삭제 후 3일 동안 이름이 예약됩니다. 예약 기간이 경과하기 전에 동일한 이름으로 저장소를 다시 만들 수 있지만 원래 저장소와 동일한 구독, 리소스 그룹, 지역에 있어야 합니다. 저장소가 포함된 리소스 그룹을 삭제한 경우 먼저 동일한 구독에서 리소스 그룹을 다시 만든 후 그룹 내에 저장소를 다시 만들어야 합니다.
+  - question: 실수로 삭제한 App Configuration 저장소를 복원하려면 어떻게 해야 하나요?
+    answer: >
+      표준 계층 App Configuration 저장소는 삭제 후 3일 이내에 복구할 수 있습니다. 실수로 삭제한 App Configuration 저장소를 복구하려면 Microsoft 지원에 문의하세요.
+  - question: 새 릴리스 알림과 기타 App Configuration 관련 정보를 받으려면 어떻게 해야 하나요?
+    answer: >
+      [GitHub 알림 리포지토리](https://github.com/Azure/AppConfiguration-Announcements)를 구독합니다.
+  - question: 문제를 보고하거나 제안 사항을 제공하려면 어떻게 해야 하나요?
+    answer: >
+      [GitHub](https://github.com/Azure/AppConfiguration/issues)에서 직접 연락할 수 있습니다.
+  - question: 다음 단계
+    answer: '* [Azure App Configuration 정보](./overview.md)'

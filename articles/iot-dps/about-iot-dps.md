@@ -11,12 +11,12 @@ manager: eliotgra
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e58028495da409df00db8e25adf68945a008bc9e
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 1c5fd2416c37743dc48544da4bcfd23fc6928cdd
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107228302"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112539013"
 ---
 # <a name="what-is-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service란?
 Microsoft Azure는 IoT 솔루션 요구를 위해 통합된 퍼블릭 클라우드 서비스의 다양한 집합을 제공합니다. IoT Hub DPS(Device Provisioning Service)는 IoT Hub용 도우미 서비스로, 사용자 개입 없이 적합한 IoT 허브에 자동 Just-In-Time 프로비저닝을 수행할 수 있습니다. DPS를 사용하면 수백만 대의 디바이스를 확장 가능한 방식으로 안전하게 프로비저닝할 수 있습니다.
@@ -110,13 +110,13 @@ DPS는 여러 지역에서 사용할 수 있습니다. 모든 서비스의 기�
 ## <a name="availability"></a>가용성
 DPS의 서비스 수준 계약은 99.9%이며, [SLA를 확인](https://azure.microsoft.com/support/legal/sla/iot-hub/)할 수 있습니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 
-## <a name="quotas"></a>할당량
+## <a name="quotas-and-limits"></a>할당량 및 한도
 각 Azure 구독에는 IoT 솔루션의 범위에 영향을 줄 수 있는 기본 할당량 한도가 있습니다. 구독당 현재 한도 기준은 구독당 10개 Device Provisioning Service입니다.
+
+할당량 한도에 관한 자세한 내용은 [Azure 구독 서비스 한도](../azure-resource-manager/management/azure-subscription-service-limits.md)를 참조하세요.
 
 [!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
-할당량 제한에 대한 자세한 내용은 다음을 참조하세요.
-* [Azure 구독 서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>관련 Azure 구성 요소
 DPS는 Azure IoT Hub로 디바이스 프로비저닝을 자동화합니다. [IoT Hub](../iot-hub/index.yml)에 대해 자세히 알아보세요.

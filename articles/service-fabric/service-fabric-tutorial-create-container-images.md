@@ -4,12 +4,12 @@ description: 이 자습서에서는 다중 컨테이너 Service Fabric 애플리
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 0bbe5bbe8ed12902541e40e9d78a7e7cdd21f9f1
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 831d96534bbdb0a90c89d0e76fc1aeb48ce2f69e
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413143"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112201503"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>자습서: Linux Service Fabric 클러스터에서 컨테이너 이미지 만들기
 
@@ -59,19 +59,10 @@ docker build -t azure-vote-front .
 > [!Note]
 > 사용 권한이 거부된 경우 sudo 없이 Docker를 사용하는 방법에 대해 [이](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) 설명서를 따릅니다.
 
-이 명령은 필요한 모든 종속성을 Docker 허브에서 가져와야 하므로 다소 시간이 걸릴 수 있습니다. 완료되면 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 명령을 사용하여 만든 이미지를 확인합니다.
+이 명령은 필요한 모든 종속성을 Docker 허브에서 가져와야 하므로 다소 시간이 걸릴 수 있습니다. 완료되면 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 명령을 사용하여 방금 만든 *azure-vote-front* 이미지를 확인합니다.
 
 ```bash
 docker images
-```
-
-두 개의 이미지가 다운로드되거나 생성되었는지 확인합니다. *azure-vote-front* 이미지는 애플리케이션을 포함합니다. Docker 허브의 *python* 이미지에서 파생되었습니다.
-
-```bash
-REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-mcr.microsoft.com/azuredocs/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
-
 ```
 
 ## <a name="deploy-azure-container-registry"></a>Azure Container Registry 배포
@@ -128,8 +119,7 @@ docker images
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-mcr.microsoft.com/azuredocs/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
+azure-vote-front             latest              052c549a75bf        About a minute ago   913MB
 ```
 
 loginServer 이름을 가져오려면 다음 명령을 실행합니다.
@@ -158,15 +148,14 @@ docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 
 ```output
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
-<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
-mcr.microsoft.com/azuredocs/uwsgi-nginx-flask             python3.6           590e17342131        5 days ago          707MB
+azure-vote-front                       latest              052c549a75bf        23 minutes ago      913MB
+<acrName>.azurecr.io/azure-vote-front  v1                  052c549a75bf        23 minutes ago      913MB
 
 ```
 
 ## <a name="push-images-to-registry"></a>레지스트리에 이미지 푸시
 
-레지스트리에 *azure-vote-front* 이미지를 밀어넣습니다. 
+레지스트리에 *azure-vote-front* 이미지를 밀어넣습니다.
 
 다음 예제를 사용하여 ACR loginServer 이름을 해당 환경의 loginServer로 바꿉니다.
 

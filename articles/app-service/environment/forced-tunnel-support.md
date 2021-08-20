@@ -7,14 +7,17 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 95a4d00a27a0da363561f469b4c5e9e2ad16463c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d05b4f8e69023e1ecec7002f394141fff008f0d
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97510501"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432971"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>강제 터널링으로 App Service Environment 구성
+> [!NOTE]
+> 이 문서에서는 격리된 App Service 요금제와 함께 사용되는 App Service Environment v2에 관해 설명합니다.
+> 
 
 ASE(App Service Environment)는 고객의 Azure 가상 네트워크에 Azure App Service를 배포한 것입니다. 많은 고객이 VPN 또는 Azure ExpressRoute 연결을 통해 자사의 온-프레미스 네트워크의 확장이 되도록 Azure 가상 네트워크를 구성합니다. 인터넷 바인딩된 트래픽이 VPN 또는 가상 어플라이언스로 리디렉션하는 경우 강제 터널링됩니다. 가상 어플라이언스는 아웃바운드 네트워크 트래픽을 검사하고 감사하는 데 보통 사용됩니다. 
 

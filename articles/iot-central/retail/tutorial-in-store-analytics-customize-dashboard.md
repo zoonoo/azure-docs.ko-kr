@@ -1,6 +1,6 @@
 ---
-title: 자습서 - Azure IoT Central에서 운영자 대시보드 사용자 지정
-description: 이 자습서에서는 IoT Central 애플리케이션에서 운영자 대시보드를 사용자 지정하고 디바이스를 관리하는 방법을 보여 줍니다.
+title: 자습서 - Azure IoT Central에서 대시보드 사용자 지정
+description: 이 자습서에서는 IoT Central 애플리케이션에서 대시보드를 사용자 지정하고 디바이스를 관리하는 방법을 보여 줍니다.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -11,17 +11,17 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: cea5ed5d75bbba4e2e6cdc8793bf5ce7503a5912
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d8655251d22f82b6ff6171514cdd48506c5cc895
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755354"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113585979"
 ---
-# <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>자습서:  Azure IoT Central에서 운영자 대시보드 사용자 지정 및 디바이스 관리
+# <a name="tutorial-customize-the-dashboard-and-manage-devices-in-azure-iot-central"></a>자습서: Azure IoT Central에서 대시보드 사용자 지정 및 디바이스 관리
 
 
-이 자습서에서는 Azure IoT Central 매장 내 분석 애플리케이션에서 운영자 대시보드를 사용자 지정하는 방법을 알아봅니다. 애플리케이션 운영자는 사용자 지정된 대시보드를 사용하여 애플리케이션을 실행하고 연결된 디바이스를 관리할 수 있습니다.
+이 자습서에서는 Azure IoT Central 매장 내 분석 애플리케이션에서 대시보드를 사용자 지정하는 방법을 알아봅니다. 애플리케이션 운영자는 사용자 지정된 대시보드를 사용하여 애플리케이션을 실행하고 연결된 디바이스를 관리할 수 있습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -39,7 +39,7 @@ ms.locfileid: "108755354"
 * [Azure IoT Central에서 스토어 내 분석 애플리케이션 만들기](./tutorial-in-store-analytics-create-app.md)(필수)
 
 ## <a name="change-the-dashboard-name"></a>대시보드 이름 변경
-운영자 대시보드를 사용자 지정하려면 애플리케이션에서 기본 대시보드를 편집해야 합니다. 또한 새 대시보드를 추가로 만들 수 있습니다. 애플리케이션에서 대시보드를 사용자 지정하는 첫 번째 단계는 이름을 변경하는 것입니다.
+대시보드를 사용자 지정하려면 애플리케이션에서 기본 대시보드를 편집해야 합니다. 또한 새 대시보드를 추가로 만들 수 있습니다. 애플리케이션에서 대시보드를 사용자 지정하는 첫 번째 단계는 이름을 변경하는 것입니다.
 
 1. [Azure IoT Central 애플리케이션 관리자](https://aka.ms/iotcentral) 웹 사이트로 이동합니다.
 

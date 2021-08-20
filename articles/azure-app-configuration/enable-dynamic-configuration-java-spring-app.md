@@ -9,27 +9,27 @@ ms.topic: tutorial
 ms.date: 12/09/2020
 ms.custom: devx-track-java
 ms.author: mametcal
-ms.openlocfilehash: 590f221b0a4980d462267dd8c3a73ca7d02583fd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 22214c6113d182363ccd86d9e79dac971eb0e432
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625520"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465819"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>자습서: Java Spring 앱에서 동적 구성 사용
 
-앱 구성에는 Spring을 위한 두 개의 라이브러리가 있습니다. `spring-cloud-azure-appconfiguration-config`에는 Spring Boot가 필요하며 `spring-cloud-context`에 종속되어 있습니다. `spring-cloud-azure-appconfiguration-config-web`에는 Spring Boot.와 함께 Spring 웹이 필요합니다. 두 라이브러리는 새로 고침된 구성 값을 확인하는 수동 트리거를 지원합니다. `spring-cloud-azure-appconfiguration-config-web`은 구성 새로 고침의 자동 확인을 위한 지원도 추가합니다.
+앱 구성에는 Spring을 위한 두 개의 라이브러리가 있습니다. `azure-spring-cloud-appconfiguration-config`에는 Spring Boot가 필요하며 `spring-cloud-context`에 종속되어 있습니다. `azure-spring-cloud-appconfiguration-config-web`에는 Spring Boot.와 함께 Spring 웹이 필요합니다. 두 라이브러리는 새로 고침된 구성 값을 확인하는 수동 트리거를 지원합니다. `azure-spring-cloud-appconfiguration-config-web`은 구성 새로 고침의 자동 확인을 위한 지원도 추가합니다.
 
 새로 고침을 사용하면 애플리케이션을 다시 시작하지 않고도 구성 값을 새로 고칠 수 있지만 `@RefreshScope`의 모든 빈이 다시 생성될 수 있습니다. 클라이언트 라이브러리는 현재 로드된 구성의 해시 ID를 캐시하여 구성 저장소에 대해 너무 많은 호출을 방지합니다. 캐시된 값이 만료될 때까지 새로 고침 작업은 구성 저장소에서 값이 변경된 경우에도 값을 업데이트하지 않습니다. 각 요청에 대한 기본 만료 시간은 30초입니다. 이는 필요한 경우 재정의할 수 있습니다.
 
-`spring-cloud-azure-appconfiguration-config-web`의 자동 새로 고침은 작업(특히 스프링 웹의 `ServletRequestHandledEvent`)에 따라 트리거됩니다. `ServletRequestHandledEvent`가 트리거되지 않은 경우 `spring-cloud-azure-appconfiguration-config-web`의 자동 새로 고침은 캐시 만료 시간이 만료된 경우에도 새로 고침을 트리거하지 않습니다.
+`azure-spring-cloud-appconfiguration-config-web`의 자동 새로 고침은 작업(특히 스프링 웹의 `ServletRequestHandledEvent`)에 따라 트리거됩니다. `ServletRequestHandledEvent`가 트리거되지 않은 경우 `azure-spring-cloud-appconfiguration-config-web`의 자동 새로 고침은 캐시 만료 시간이 만료된 경우에도 새로 고침을 트리거하지 않습니다.
 
 ## <a name="use-manual-refresh"></a>수동 새로 고침 사용
 
 앱 구성은 캐시가 만료되었는지 여부를 확인하는 데 사용할 수 있는 `AppConfigurationRefresh`가 노출되어 새로 고침을 트리거합니다.
 
 ```java
-import com.microsoft.azure.spring.cloud.config.AppConfigurationRefresh;
+import com.azure.spring.cloud.config.AppConfigurationRefresh;
 
 ...
 
@@ -49,29 +49,37 @@ public void myConfigurationRefreshCheck() {
 
 자동화된 새로 고침을 사용하려면 [App Configuration에 대한 Spring Boot 빠른 시작](quickstart-java-spring-app.md)을 따라 만든 앱과 같은 App Configuration을 사용하는 Spring Boot 앱부터 시작합니다.
 
-그런 다음, 텍스트 편집기에서 *pom.xml* 파일을 열고 `spring-cloud-azure-appconfiguration-config-web`에 대해 `<dependency>`를 추가합니다.
+그런 다음, 텍스트 편집기에서 *pom.xml* 파일을 열고 다음 코드를 사용하여 `azure-spring-cloud-appconfiguration-config-web`에 대해 `<dependency>`를 추가합니다.
 
-**Spring Cloud 1.1.x**
-
-```xml
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.1.5</version>
-</dependency>
-```
-
-**Spring Cloud 1.2.x**
+**Spring Boot**
 
 ```xml
 <dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.2.7</version>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
+    <version>2.0.0</version>
 </dependency>
 ```
 
-## <a name="run-and-test-the-app-locally"></a>로컬로 앱 실행 및 테스트
+> [!NOTE]
+> 이전 종속성에 대한 지원이 필요한 경우 [이전 라이브러리](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md)를 참조하세요.
+
+1. 새로 고침을 사용하도록 `bootstrap.properties` 업데이트
+
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled=true
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key=sentinel
+    ```
+
+1. **Azure Portal** 을 열고 애플리케이션과 연결된 앱 구성 리소스로 이동합니다. **작업** 아래에서 **구성 탐색기** 를 선택하고 + 키-값 **+ 만들기** > **키-값** 을 선택한 후 다음 매개 변수를 추가하여 새 키-값 쌍을 만듭니다.
+
+    | 키 | 값 |
+    |---|---|
+    | sentinel | 1 |
+
+    지금은 **레이블** 과 **콘텐츠 형식** 을 비워 두세요.
+
+1. **적용** 을 선택합니다.
 
 1. Maven을 사용하여 Spring Boot 애플리케이션을 빌드하고 실행합니다.
 
@@ -82,8 +90,8 @@ public void myConfigurationRefreshCheck() {
 
 1. 새 브라우저 창을 열고 URL(`http://localhost:8080`)로 이동합니다.  키와 연결된 메시지가 표시됩니다.
 
-    *curl* 을 사용하여 애플리케이션을 테스트할 수도 있습니다. 예를 들면 다음과 같습니다. 
-    
+    *curl* 을 사용하여 애플리케이션을 테스트할 수도 있습니다. 예를 들면 다음과 같습니다.
+
     ```cmd
     curl -X GET http://localhost:8080/
     ```
@@ -92,7 +100,13 @@ public void myConfigurationRefreshCheck() {
 
     | 키 | 값 |
     |---|---|
-    | application/config.message | Hello - 업데이트됨 |
+    | /application/config.message | Hello - 업데이트됨 |
+
+1. 이전에 만든 sentinel 키를 새 값으로 업데이트합니다. 이렇게 변경하면 새로 고침 간격이 지나면 모든 구성 키를 새로 고치도록 애플리케이션이 트리거됩니다.
+
+    | 키 | 값 |
+    |---|---|
+    | sentinel | 2 |
 
 1. 표시되는 새 메시지를 확인하려면 브라우저 페이지를 새로 고칩니다.
 

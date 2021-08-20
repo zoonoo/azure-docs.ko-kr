@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-python-uiex
-ms.openlocfilehash: b006f006c9fb45c9a7d80e815f95bec812e5ec3f
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: f08a035b9d095035fb108140af7c010bc9f049ea
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831837"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112573961"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Python 함수 만들기
 
@@ -191,6 +191,18 @@ HTTP 트리거의 경우 함수는 *function.json* 에 정의된 `req` 변수에
     [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet은 Azure 계정에 로그인합니다.
 
     ---
+    
+1. Azure CLI를 사용할 때 만들어진 리소스의 이름을 자동으로 추적하는 `param-persist` 옵션을 켤 수 있습니다. 자세한 내용은 [Azure CLI 지속형 매개 변수](/cli/azure/param-persist-howto)를 참조하세요.  
+
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+    ```azurecli
+    az config param-persist on
+    ```
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
+    
+    이 기능은 Azure PowerShell에서 사용할 수 없습니다.
+    
+    ---
 
 1. `westeurope` 지역에 `AzureFunctionsQuickstart-rg`라는 리소스 그룹을 만듭니다. 
 
@@ -220,7 +232,7 @@ HTTP 트리거의 경우 함수는 *function.json* 에 정의된 `req` 변수에
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
+    az storage account create --name <STORAGE_NAME> --sku Standard_LRS
     ```
 
     [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령은 스토리지 계정을 만듭니다. 
@@ -244,7 +256,7 @@ HTTP 트리거의 경우 함수는 *function.json* 에 정의된 `req` 변수에
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
         
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime python --runtime-version 3.8 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME> --os-type linux
+    az functionapp create --consumption-plan-location westeurope --runtime python --runtime-version 3.8 --functions-version 3 --name <APP_NAME> --os-type linux
     ```
     
     [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 명령은 Azure에서 함수 앱을 만듭니다. Python 3.7 또는 3.6을 사용하는 경우 `--runtime-version`을 `3.7` 또는 `3.6`으로 각각 변경합니다.
@@ -259,7 +271,7 @@ HTTP 트리거의 경우 함수는 *function.json* 에 정의된 `req` 변수에
 
     ---
     
-    이전 예제에서는 `<STORAGE_NAME>`을 이전 단계에서 사용한 계정의 이름으로 바꾸고, `<APP_NAME>`을 적절하고 전역적으로 고유한 이름으로 바꿉니다.  `<APP_NAME>`은 함수 앱의 기본 DNS 도메인이기도 합니다. 
+    이전 예에서 `<APP_NAME>`을 적절하고 전역적으로 고유한 이름으로 바꿉니다.  `<APP_NAME>`은 함수 앱의 기본 DNS 도메인이기도 합니다. 
     
     이 명령은 [Azure Functions 소비 계획](consumption-plan.md)에 따라 지정된 언어 런타임을 실행하는 함수 앱을 만듭니다. 여기서 발생하는 사용량에 대한 비용은 무료입니다. 또한 이 명령은 동일한 리소스 그룹에 연결된 Azure Application Insights 인스턴스를 프로비저닝하여 함수 앱을 모니터링하고 로그를 볼 수 있습니다. 자세한 내용은 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요. 인스턴스를 활성화할 때까지 비용이 발생하지 않습니다.
 

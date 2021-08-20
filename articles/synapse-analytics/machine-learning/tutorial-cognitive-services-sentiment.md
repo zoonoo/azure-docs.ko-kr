@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 4199e82ee5b32fe3e34df421a9ca54136b8cbfb7
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: c9f738f95e11ab29fc5163b69812037410e79e8a
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846395"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114361108"
 ---
 # <a name="tutorial-sentiment-analysis-with-cognitive-services-preview"></a>자습서: Cognitive Services를 사용하여 감정 분석(미리 보기)
 
@@ -30,7 +30,7 @@ Azure Synapse의 사용자는 감정을 사용하여 보강할 텍스트 열이 
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure Synapse Analytics 작업 영역](../get-started-create-workspace.md)(기본 스토리지로 구성된 Azure Data Lake Storage Gen2 스토리지 계정이 있음). 사용하는 Data Lake Storage Gen2 파일 시스템의 *Storage Blob 데이터 기여자* 여야 합니다.
 - Azure Synapse Analytics 작업 영역의 Spark 풀. 자세한 내용은 [Azure Synapse에서 Spark 풀 만들기](../quickstart-create-sql-pool-studio.md)를 참조하세요.
@@ -69,7 +69,7 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 ## <a name="open-the-cognitive-services-wizard"></a>Cognitive Services 마법사 열기
 
-1. 마우스 오른쪽 단추로 이전 절차에서 만든 Spark 테이블을 클릭합니다. **Machine Learning** > **기존 모델을 사용하여 보강** 을 차례로 선택하여 마법사를 엽니다.
+1. 마우스 오른쪽 단추로 이전 절차에서 만든 Spark 테이블을 클릭합니다. **Machine Learning** > **모델을 사용하여 예측** 을 선택하여 마법사를 엽니다.
 
    ![점수 매기기 마법사 열기 선택을 보여 주는 스크린샷](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00d.png)
 

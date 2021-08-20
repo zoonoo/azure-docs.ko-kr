@@ -10,16 +10,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: edb21287b30f8ba77d6312ec6b456e20aa260598
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca9585ab1b6d02cec5e9addbbd8ca230745a5838
+ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94358215"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114370897"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Concur 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Concur로 자동으로 프로비전 및 프로비전 해제하도록 Concur 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
+
+> [!WARNING]
+> 이 프로비저닝 통합은 더 이상 지원되지 않습니다. 이로 인해 Azure Active Directory 엔터프라이즈 앱 갤러리에서 SAP Concur 애플리케이션의 프로비저닝 기능이 곧 제거됩니다. 애플리케이션의 SSO 기능은 그대로 유지됩니다. Microsoft는 SAP Concur를 사용하여 새 현대화된 프로비저닝 통합을 빌드했지만, 현재 이 작업이 언제 완료될지에 대한 ETA는 없습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 7a095cee6b2af93358b0e76c39cfc0c04ad454fa
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: ae8016251926e8afab10f1bccee8f53e204c7a7a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408050"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461111"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>자습서: Blazor WebAssembly 앱에서 사용자를 로그인하고 보호된 API 호출
 
@@ -44,12 +44,14 @@ ms.locfileid: "111408050"
 
 등록된 후 **관리** 에서 **인증** > **암시적 허용 및 하이브리드 흐름** 을 선택합니다. **액세스 토큰** 및 **ID 토큰** 을 선택한 다음, **저장** 을 선택합니다.
 
+> 참고: .NET 6 이상을 사용하는 경우 암시적 허용을 사용할 필요가 없습니다. 최신 템플릿은 MSAL Browser 2.0을 사용하고 PKCE로 인증 코드 흐름을 지원합니다.
+
 ## <a name="create-the-app-using-the-net-core-cli"></a>.NET Core CLI를 사용하여 앱 만들기
 
 앱을 만들려면 최신 Blazor 템플릿이 필요합니다. 다음 명령을 사용하여 .NET Core CLI용 템플릿을 설치할 수 있습니다.
 
 ```dotnetcli
-dotnet new -i Microsoft.Identity.Web.ProjectTemplates::1.6.0
+dotnet new -i Microsoft.Identity.Web.ProjectTemplates::1.9.1
 ```
 
 그 후 다음 명령을 실행하여 애플리케이션을 만듭니다. 명령의 자리 표시자를 앱의 개요 페이지에 있는 적절한 정보로 바꾸고 명령 셸에서 명령을 실행합니다. `-o|--output` 옵션으로 지정된 출력 위치는 프로젝트 폴더가 없는 경우 폴더를 하나 만들고 앱 이름의 일부가 됩니다.

@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-java-uiex
-ms.openlocfilehash: 69c4129feacf36b6b98cdcd7c2f4f5f36d7839b2
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 8f52ba7008b2a7b3f7734f652c92014e110e3df4
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831927"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287801"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Java 함수 만들기
 
@@ -24,10 +24,12 @@ ms.locfileid: "107831927"
 
 이 문서에서는 명령줄 도구를 사용하여 HTTP 요청에 응답하는 Java 함수를 만듭니다. 코드를 로컬로 테스트한 후 서버리스 Azure Functions 환경에 배포합니다.
 
-이 빠른 시작을 완료하면 Azure 계정에서 USD 센트 이하의 작은 비용이 발생합니다.
+Maven이 선호하는 개발 도구가 아닌 경우 Java 개발자를 위한 유사한 자습서를 확인하세요.
++ [Gradle](./functions-create-first-java-gradle.md)
++ [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions)
++ [Visual Studio Code](create-first-function-vs-code-java.md)
 
-> [!NOTE]
-> Maven이 선호하는 개발 도구가 아닌 경우 [Gradle](./functions-create-first-java-gradle.md), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) 및 [Visual Studio Code](create-first-function-vs-code-java.md)를 사용하여 Java 개발자를 위한 비슷한 자습서를 확인하세요.
+이 빠른 시작을 완료하면 Azure 계정에서 약간의 비용(몇 USD 센트)이 발생합니다.
 
 ## <a name="configure-your-local-environment"></a>로컬 환경 구성
 
@@ -39,7 +41,7 @@ ms.locfileid: "107831927"
 
 + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.4 이상.
 
-+ [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) 버전 8 또는 11. `JAVA_HOME` 환경 변수는 올바른 버전의 JDK 설치 위치로 설정해야 합니다.     
++ [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure) 버전 8 또는 11. `JAVA_HOME` 환경 변수는 올바른 버전의 JDK 설치 위치로 설정해야 합니다.     
 
 + [Apache Maven](https://maven.apache.org) 버전 3.0 이상
 

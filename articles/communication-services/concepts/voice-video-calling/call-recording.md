@@ -10,20 +10,16 @@ ms.date: 06/30/2021
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 292210c12589bed6075378ba4fd38153c4fe10f1
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 898346d69b656656c93889002109bae0f15b2dbc
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113105348"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464340"
 ---
 # <a name="calling-recording-overview"></a>통화 녹화 개요
 
-> [!NOTE]
-> 대부분의 국가 및 주에는 사용자가 통신 녹화에 동의해야 하는 PSTN, 음성, 비디오 통화 녹화에 적용되는 법률 및 규정이 있습니다. 법률을 준수하면서 통화 녹화 기능을 사용하는 것은 사용자의 책임입니다. 각 참가자에게 적용되는 법률을 준수하면서 녹화되는 통신의 당사자로부터 동의를 받아야 합니다.
-
-> [!NOTE]
-> 개인 데이터의 유지 관리에 대한 규정에 따라 사용자 데이터를 내보낼 수 있어야 합니다. 이러한 요구 사항을 지원하기 위해 녹화 메타데이터 파일에는 `participants` 배열의 각 통화 참가자에 대한 participantId가 포함됩니다. 내부 사용자 ID가 있는 `participants` 배열의 MRI를 상호 참조하여 통화에서 참가자를 식별할 수 있습니다. 녹화 메타데이터 파일의 예는 아래에 참조용으로 제공됩니다.
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 > [!NOTE]
 > 통화 녹음/녹화는 현재 미국 지역에서 만든 Communication Services 리소스에만 사용할 수 있습니다.
@@ -86,6 +82,11 @@ Event Grid 알림 `Microsoft.Communication.RecordingFileStatusUpdated`는 녹음
     "eventTime": string // ISO 8601 date time for when the event was created
 }
 ```
+## <a name="regulatory-and-privacy-concerns"></a>규정 및 프라이버시 문제
+
+대부분의 국가 및 주에는 사용자가 통신 녹화에 동의해야 하는 PSTN, 음성, 비디오 통화 녹화에 적용되는 법률 및 규정이 있습니다. 법률을 준수하면서 통화 녹화 기능을 사용하는 것은 사용자의 책임입니다. 각 참가자에게 적용되는 법률을 준수하면서 녹화되는 통신의 당사자로부터 동의를 받아야 합니다.
+
+개인 데이터의 유지 관리에 대한 규정에 따라 사용자 데이터를 내보낼 수 있어야 합니다. 이러한 요구 사항을 지원하기 위해 녹화 메타데이터 파일에는 `participants` 배열의 각 통화 참가자에 대한 participantId가 포함됩니다. 내부 사용자 ID가 있는 `participants` 배열의 MRI를 상호 참조하여 통화에서 참가자를 식별할 수 있습니다. 녹화 메타데이터 파일의 예는 아래에 참조용으로 제공됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [통화 녹음/녹화 빠른 시작 샘플](../../quickstarts/voice-video-calling/call-recording-sample.md)을 확인하세요.

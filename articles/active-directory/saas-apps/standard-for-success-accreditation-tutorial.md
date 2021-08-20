@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2021
+ms.date: 06/18/2021
 ms.author: jeedes
-ms.openlocfilehash: a9ecec2456354c2d766d528d2c29ceb1833a7ad9
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d43e9c784a24e6a751d97eb4deeaffec381d124e
+ms.sourcegitcommit: 5a27d9ba530aee0e563a1b0159241078e8c7c1e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481774"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112423131"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-standard-for-success-accreditation"></a>자습서: Standard for Success Accreditation과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -24,7 +24,6 @@ ms.locfileid: "110481774"
 
 * Standard for Success Accreditation에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어합니다.
 * 사용자가 자신의 Azure AD 계정으로 Standard for Success Accreditation에 자동으로 로그인되도록 설정합니다.
-* 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -39,10 +38,7 @@ ms.locfileid: "110481774"
 
 * Standard for Success Accreditation에서 **SP 및 IDP** 시작 SSO를 지원합니다.
 
-> [!NOTE]
-> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
-
-## <a name="adding-standard-for-success-accreditation-from-the-gallery"></a>갤러리에서 Standard for Success Accreditation 추가
+## <a name="add-standard-for-success-accreditation-from-the-gallery"></a>갤러리에서 Standard for Success Accreditation 추가
 
 Standard for Success Accreditation이 Azure AD에 통합되도록 구성하려면 갤러리의 Standard for Success Accreditation을 관리형 SaaS 앱 목록에 추가해야 합니다.
 
@@ -52,7 +48,6 @@ Standard for Success Accreditation이 Azure AD에 통합되도록 구성하려�
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Standard for Success Accreditation** 을 입력합니다.
 1. 결과 패널에서 **Standard for Success Accreditation** 을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-standard-for-success-accreditation"></a>Standard for Success Accreditation에 대한 Azure AD SSO 구성 및 테스트
 
@@ -77,18 +72,20 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
+1. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    **회신 URL** 텍스트 상자에 `https://edu.sfsed.com/access/saml_consume?did=<INSTITUTIONID>` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에 `api://<ApplicationId>` 패턴을 사용하여 값을 입력합니다.
+
+    b. **회신 URL** 텍스트 상자에서 `https://edu.sfsed.com/access/saml_consume?did=<INSTITUTION-ID>` 패턴을 사용하여 URL을 입력합니다.
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 을 클릭하고 다음 단계를 수행합니다.
 
-    a. **로그인 URL** 텍스트 상자에서 `https://edu.sfsed.com/access/saml_int?did=<INSTITUTIONID>` 패턴을 사용하여 URL을 입력합니다.
+    a. **로그인 URL** 텍스트 상자에서 `https://edu.sfsed.com/access/saml_int?did=<INSTITUTION-ID>` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **릴레이 상태** 텍스트 상자에서 `https://edu.sfsed.com/access/saml_consume?did=<INSTITUTIONID>` 패턴을 사용하는 URL을 입력합니다.
+    b. **릴레이 상태** 텍스트 상자에서 `https://edu.sfsed.com/access/saml_consume?did=<INSTITUTION-ID>` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL, 로그온 URL, 릴레이 상태로 값을 업데이트합니다. 이러한 값을 얻으려면 [Standard for Success Accreditation 클라이언트 지원 팀](mailto:help_he@standardforsuccess.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL, 로그온 URL 및 릴레이 상태로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Standard for Success Accreditation 클라이언트 지원 팀](mailto:help_he@standardforsuccess.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. **SAML 서명 인증서** 섹션에서 **편집** 단추를 클릭하여 **SAML 서명 인증서** 대화 상자를 엽니다.
 
@@ -101,6 +98,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **Standard for Success Accreditation 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
@@ -109,7 +107,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@institutiondomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -133,13 +131,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **Single Sign On 설정** 까지 아래로 스크롤하여 **Microsoft Azure Single Sign On** 링크를 클릭하고 다음 단계를 수행합니다.
 
-    ![Microsoft Azure Single Sign On 페이지](./media/standard-for-success-accreditation-tutorial/configuration.png)
+    :::image type="content" source="./media/standard-for-success-accreditation-tutorial/configuration.png" alt-text="Standard for Success Accreditation에서 Azure Single Sign-On을 사용하도록 설정하는 방법을 보여 주는 스크린샷":::
 
     a. **Azure Single Sign-On 사용** 확인란을 선택합니다.
 
-    b. **Azure 테넌트 ID** 텍스트 상자를 Azure Portal의 테넌트 ID 값으로 채웁니다.
+    b. URL 및 식별자 필드를 Azure Portal SAML 설정에서 복사한 적절한 URL로 채웁니다.
 
-    다. **애플리케이션 ID** 텍스트 상자에 애플리케이션 ID를 입력합니다.
+    c. **애플리케이션 ID** 텍스트 상자에 애플리케이션 ID를 입력합니다.
 
     d. **인증서 지문** 텍스트 상자에 Azure Portal에서 복사한 **지문 값** 을 붙여넣습니다.
 
@@ -149,7 +147,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1.  Standard for Success Accreditation에 슈퍼 사용자 권한이 있는 관리자로 로그인합니다.
 
-1. 메뉴에서 **Admin Portal -> Create New Evaluatee**(관리 포털-> 새 평가자 만들기)를 클릭하고 다음 단계를 수행합니다.
+1. 메뉴에서 **관리 포털** > **새 평가 대상 만들기** 를 클릭하고 다음 단계를 수행합니다.
 
     ![테스트 사용자를 만드는 중입니다.](./media/standard-for-success-accreditation-tutorial/new-user.png)
 
@@ -157,10 +155,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **성** 텍스트 상자에 Simon을 입력합니다.
 
-    다. **대학 이메일** 텍스트 상자에 기관 이메일 주소를 입력합니다.
+    다. **대학교 메일** 텍스트 상자에 Azure 내에서 B.Simon에 대해 추가한 메일 주소를 입력합니다.
 
     d. 맨 아래로 스크롤하여 **사용자 만들기를** 클릭합니다.
-
 
 ## <a name="test-sso"></a>SSO 테스트 
 
@@ -178,9 +175,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Standard for Success Accreditation 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Standard for Success Accreditation에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
-
 ## <a name="next-steps"></a>다음 단계
 
 Standard for Success Accreditation이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
-
-

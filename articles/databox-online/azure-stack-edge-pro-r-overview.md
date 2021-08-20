@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Stack Edge Pro R 개요 | Microsoft Docs
-description: 물리적 디바이스를 사용하여 네트워크를 통해 Azure로 데이터를 전송하는 군용 애플리케이션을 위한 스토리지 솔루션인 Azure Stack Edge Pro R에 대해 설명합니다.
+description: Azure에 대한 네트워크 기반 전송에 물리적 디바이스를 사용하며 가혹한 환경에 배포될 수 있는 스토리지 솔루션인 Azure Stack Edge Pro R 디바이스를 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 04/19/2021
 ms.author: alkohli
-ms.openlocfilehash: b07fe5ad07cca8c8e151e8232e3ab165dc476be2
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: becd3c0994007b06c74b1bfbd2c88660464d6622
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732680"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112575517"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>Azure Stack Edge Pro R이란?
 

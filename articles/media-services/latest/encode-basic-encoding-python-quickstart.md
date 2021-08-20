@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.workload: ''
 ms.topic: quickstart
-ms.date: 2/26/2021
+ms.date: 7/2/2021
 ms.author: inhenkel
-ms.openlocfilehash: adaf18e4cbeed18bcf33a8d3ce191abca78b3ca6
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: a0534bc562d20f96cc1c12a8b4dbe0adfc8f9282
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111248"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284412"
 ---
 # <a name="media-services-basic-encoding-with-python"></a>Python을 사용한 Media Services 기본 인코딩
 
@@ -40,6 +40,57 @@ ms.locfileid: "106111248"
 
 계정에서 값을 가져와 *.env* 파일을 만듭니다. 이름 없이 확장만 저장하세요.  *sample.env* 를 템플릿으로 사용한 다음, *.env* 파일을 BasicEncoder 폴더에 저장합니다.
 
+## <a name="use-python-virtual-environments"></a>Python 가상 환경 사용
+샘플을 위해 다음 단계에 따라 항상 Python 가상 환경을 만들고 활성화하는 것이 좋습니다.
+
+1. VSCode 또는 다른 편집기에서 sample 폴더를 엽니다.
+2. 가상 환경 만들기
+
+    ``` bash
+      # py -3 uses the global python interpreter. You can also use python -m venv .venv.
+      py -3 -m venv .venv
+    ```
+
+   이 명령은 Python venv 모듈을 실행하고 .venv라는 폴더에 가상 환경을 만듭니다.
+
+3. 다음과 같이 가상 환경을 활성화합니다.
+
+    ``` bash
+      .venv\scripts\activate
+    ```
+
+  가상 환경은 특정 Python 인터프리터의 복사본을 격리하는 프로젝트 내의 폴더입니다. 환경을 활성화한 후(Visual Studio Code에서는 자동으로 활성화됨) pip install을 실행하면 해당 환경에만 라이브러리가 설치됩니다. 그런 다음, Python 코드를 실행하면 모든 라이브러리의 특정 버전을 사용하여 환경의 정확한 컨텍스트에서 코드가 실행됩니다. pip freeze를 실행하면 해당 라이브러리의 정확한 목록이 표시됩니다. 여러 샘플에서는 필요한 라이브러리에 대한 requirements.txt 파일을 만든 다음, pip install -r requirements.txt를 사용합니다. 요구 사항 파일은 일반적으로 Azure에 코드를 배포할 때 필요합니다.
+
+## <a name="set-up"></a>설정
+
+[Azure용 로컬 Python 개발 환경을 설정하고 구성](/azure/developer/python/configure-local-development-environment)합니다.
+
+Python용 azure-identity 라이브러리를 설치합니다. 이 모듈은 Azure Active Directory 인증에 필요합니다. 자세한 내용은 [Python용 Azure ID 클라이언트 라이브러리](/python/api/overview/azure/identity-readme#environment-variables)를 참조하세요.
+
+  ``` bash
+  pip install azure-identity
+  ```
+
+[Azure Media Services](/python/api/overview/azure/media-services)용 Python SDK를 설치합니다.
+
+최신 버전 세부 정보가 포함된 Media Services Python SDK의 Pypi 페이지는 [azure-mgmt-media](https://pypi.org/project/azure-mgmt-media/)에 있습니다.
+
+  ``` bash
+  pip install azure-mgmt-media
+  ```
+
+[Python용 Azure Storage SDK](https://pypi.org/project/azure-storage-blob/)를 설치합니다.
+
+  ``` bash
+  pip install azure-storage-blob
+  ```
+
+필요에 따라 samples 폴더에 있는 “requirements.txt” 파일을 사용하여 지정된 샘플의 모든 요구 사항을 설치할 수 있습니다.
+
+  ``` bash
+  pip install -r requirements.txt
+  ```
+
 ## <a name="try-the-code"></a>코드 사용해 보기
 
 아래 코드는 충분히 주석으로 처리되어 있습니다.  전체 스크립트를 사용하거나 일부를 자신의 스크립트에 사용합니다.
@@ -48,180 +99,7 @@ ms.locfileid: "106111248"
 
 이 샘플의 입력 자산에 대해 SAS URL을 사용하지 않습니다.
 
-```python
-import adal
-from msrestazure.azure_active_directory import AdalAuthentication
-from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
-from azure.mgmt.media import AzureMediaServices
-from azure.mgmt.media.models import (
-  Asset,
-  Transform,
-  TransformOutput,
-  BuiltInStandardEncoderPreset,
-  Job,
-  JobInputAsset,
-  JobOutputAsset)
-import os, uuid, sys
-from azure.identity import DefaultAzureCredential
-from azure.storage.blob import BlobServiceClient, BlobClient
-
-#Timer for checking job progress
-import time
-
-#This is only necessary for the random number generation
-import random
-
-# Set and get environment variables
-# Open sample.env, edit the values there and save the file as .env
-# (Not all of the values may be used in this sample code, but the .env file is reusable.)
-# Use config to use the .env file.
-print("Getting .env values")
-client_id = os.getenv('AADCLIENTID','default_val')
-key = os.getenv('AADSECRET','default_val')
-tenant_id = os.getenv('AADTENANTID','default_val')
-tenant_domain = os.getenv('AADTENANTDOMAIN','default_val') 
-account_name = os.getenv('ACCOUNTNAME','default_val')
-location = os.getenv('LOCATION','default_val')
-resource_group_name = os.getenv('RESOURCEGROUP','default_val')
-subscription_id = os.getenv('SUBSCRIPTIONID','default_val')
-arm_audience = os.getenv('ARMAADAUDIENCE','default_val') 
-arm_endpoint = os.getenv('ARMENDPOINT','default_val') 
-
-#### STORAGE ####
-# Values from .env and the blob url
-# For this sample you will use the storage account key to create and access assets
-# The SAS URL is not used here
-storage_account_name = os.getenv('STORAGEACCOUNTNAME','default_val')
-storage_account_key = os.getenv('STORAGEACCOUNTKEY','default_val')
-storage_blob_url = 'https://' + storage_account_name + '.blob.core.windows.net/'
-
-# Active Directory
-LOGIN_ENDPOINT = AZURE_PUBLIC_CLOUD.endpoints.active_directory
-RESOURCE = AZURE_PUBLIC_CLOUD.endpoints.active_directory_resource_id
-
-# Establish credentials
-context = adal.AuthenticationContext(LOGIN_ENDPOINT + '/' + tenant_id)
-credentials = AdalAuthentication(
-    context.acquire_token_with_client_credentials,
-    RESOURCE,
-    client_id,
-    key
-)
-
-# The file you want to upload.  For this example, put the file in the same folder as this script. 
-# The file ignite.mp4 has been provided for you. 
-source_file = "ignite.mp4"
-
-# Generate a random number that will be added to the naming of things so that you don't have to keep doing this during testing.
-thisRandom = random.randint(0,9999)
-
-# Set the attributes of the input Asset using the random number
-in_asset_name = 'inputassetName' + str(thisRandom)
-in_alternate_id = 'inputALTid' + str(thisRandom)
-in_description = 'inputdescription' + str(thisRandom)
-# Create an Asset object
-# From the SDK
-# Asset(*, alternate_id: str = None, description: str = None, container: str = None, storage_account_name: str = None, **kwargs) -> None
-# The asset_id will be used for the container parameter for the storage SDK after the asset is created by the AMS client.
-input_asset = Asset(alternate_id=in_alternate_id,description=in_description)
-
-# Set the attributes of the output Asset using the random number
-out_asset_name = 'outputassetName' + str(thisRandom)
-out_alternate_id = 'outputALTid' + str(thisRandom)
-out_description = 'outputdescription' + str(thisRandom)
-# From the SDK
-# Asset(*, alternate_id: str = None, description: str = None, container: str = None, storage_account_name: str = None, **kwargs) -> None
-output_asset = Asset(alternate_id=out_alternate_id,description=out_description)
-
-# The AMS Client
-print("Creating AMS client")
-# From SDK
-# AzureMediaServices(credentials, subscription_id, base_url=None)
-client = AzureMediaServices(credentials, subscription_id)
-
-# Create an input Asset
-print("Creating input asset " + in_asset_name)
-# From SDK
-# create_or_update(resource_group_name, account_name, asset_name, parameters, custom_headers=None, raw=False, **operation_config)
-inputAsset = client.assets.create_or_update(resource_group_name, account_name, in_asset_name, input_asset)
-
-# An AMS asset is a container with a specfic id that has "asset-" prepended to the GUID.
-# So, you need to create the asset id to identify it as the container
-# where Storage is to upload the video (as a block blob)
-in_container = 'asset-' + inputAsset.asset_id
-
-# create an output Asset
-print("Creating output asset " + out_asset_name)
-# From SDK
-# create_or_update(resource_group_name, account_name, asset_name, parameters, custom_headers=None, raw=False, **operation_config)
-outputAsset = client.assets.create_or_update(resource_group_name, account_name, out_asset_name, output_asset)
-
-### Use the Storage SDK to upload the video ###
-print("Uploading the file " + source_file)
-# From SDK
-# BlobServiceClient(account_url, credential=None, **kwargs)
-blob_service_client = BlobServiceClient(account_url=storage_blob_url, credential=storage_account_key)
-# From SDK
-# get_blob_client(container, blob, snapshot=None)
-blob_client = blob_service_client.get_blob_client(in_container,source_file)
-# Upload the video to storage as a block blob
-with open(source_file, "rb") as data:
-  # From SDK
-  # upload_blob(data, blob_type=<BlobType.BlockBlob: 'BlockBlob'>, length=None, metadata=None, **kwargs)
-    blob_client.upload_blob(data, blob_type="BlockBlob")
-
-### Create a Transform ###
-transform_name='MyTrans' + str(thisRandom)
-# From SDK
-# TransformOutput(*, preset, on_error=None, relative_priority=None, **kwargs) -> None
-transform_output = TransformOutput(preset=BuiltInStandardEncoderPreset(preset_name="AdaptiveStreaming"))
-print("Creating transform " + transform_name)
-# From SDK
-# Create_or_update(resource_group_name, account_name, transform_name, outputs, description=None, custom_headers=None, raw=False, **operation_config)
-transform = client.transforms.create_or_update(resource_group_name=resource_group_name,account_name=account_name,transform_name=transform_name,outputs=[transform_output])
-
-### Create a Job ###
-job_name = 'MyJob'+ str(thisRandom)
-print("Creating job " + job_name)
-files = (source_file)
-# From SDK
-# JobInputAsset(*, asset_name: str, label: str = None, files=None, **kwargs) -> None
-input = JobInputAsset(asset_name=in_asset_name)
-# From SDK
-# JobOutputAsset(*, asset_name: str, **kwargs) -> None
-outputs = JobOutputAsset(asset_name=out_asset_name)
-# From SDK
-# Job(*, input, outputs, description: str = None, priority=None, correlation_data=None, **kwargs) -> None
-theJob = Job(input=input,outputs=[outputs])
-# From SDK
-# Create(resource_group_name, account_name, transform_name, job_name, parameters, custom_headers=None, raw=False, **operation_config)
-job: Job = client.jobs.create(resource_group_name,account_name,transform_name,job_name,parameters=theJob)
-
-### Check the progress of the job ### 
-# From SDK
-# get(resource_group_name, account_name, transform_name, job_name, custom_headers=None, raw=False, **operation_config)
-job_state = client.jobs.get(resource_group_name,account_name,transform_name,job_name)
-# First check
-print("First job check")
-print(job_state.state)
-
-# Check the state of the job every 10 seconds. Adjust time_in_seconds = <how often you want to check for job state>
-def countdown(t):
-    while t: 
-        mins, secs = divmod(t, 60) 
-        timer = '{:02d}:{:02d}'.format(mins, secs) 
-        print(timer, end="\r") 
-        time.sleep(1) 
-        t -= 1
-    job_state = client.jobs.get(resource_group_name,account_name,transform_name,job_name)
-    if(job_state.state != "Finished"):
-      print(job_state.state)
-      countdown(int(time_in_seconds))
-    else:
-      print(job_state.state)
-time_in_seconds = 10
-countdown(int(time_in_seconds))
-```
+[!code-python[Main](../../../media-services-v3-python/BasicEncoding/basic-encoding.py)]
 
 ## <a name="delete-resources"></a>리소스 삭제
 
@@ -230,3 +108,14 @@ countdown(int(time_in_seconds))
 ## <a name="next-steps"></a>다음 단계
 
 [Media Services Python SDK](/python/api/azure-mgmt-media/)에 대해 알아보기
+
+## <a name="resources"></a>리소스
+
+- Azure Media Services [관리 API](/python/api/overview/azure/mediaservices/management)를 참조하세요.
+- [Python에서 스토리지 API](/azure/developer/python/azure-sdk-example-storage-use?tabs=cmd)를 사용하는 방법을 알아봅니다.
+- [Python용 Azure ID 클라이언트 라이브러리](/python/api/overview/azure/identity-readme#environment-variables)에 대해 자세히 알아봅니다.
+- [Azure Media Services v3](./media-services-overview.md)에 대해 자세히 알아봅니다.
+- [Azure Python SDK](/azure/developer/python)에 대해 알아봅니다.
+- [Azure Python SDK의 사용 패턴](/azure/developer/python/azure-sdk-library-usage-patterns)에 대해 자세히 알아봅니다.
+- [Azure Python SDK 인덱스](/azure/developer/python/azure-sdk-library-package-index)에서 더 많은 Azure Python SDK를 찾아봅니다.
+- [Azure Storage Blob Python SDK 참조](/python/api/azure-storage-blob/)

@@ -5,13 +5,13 @@ ms.service: data-factory
 ms.topic: tutorial
 author: nabhishek
 ms.author: abnarain
-ms.date: 01/10/2018
-ms.openlocfilehash: 2e2a50a96402f01fe914c79d5257fc5bb4dc57a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/07/2021
+ms.openlocfilehash: 7e4ad47f933757c4ebce66acd7ddc5e0033b601e
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377791"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113215842"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 클라우드의 데이터 변환
 
@@ -118,9 +118,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="create-an-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 
-1. **시작하기** 페이지에서 왼쪽 패널의 **편집** 탭으로 전환합니다. 
+1. 홈페이지에서 왼쪽 패널의 **관리** 탭으로 전환합니다. 
 
-   !["시작하기" 페이지](./media/tutorial-transform-data-spark-portal/get-started-page.png)
+   ![관리 탭을 보여 주는 스크린샷.](media/doc-common-process/get-started-page-manage-button.png)
 
 1. 창의 아래쪽에서 **연결**, **+ 새로 만들기** 를 차례로 클릭합니다. 
 

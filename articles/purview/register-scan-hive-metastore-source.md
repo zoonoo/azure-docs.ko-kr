@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 5/17/2021
-ms.openlocfilehash: b259ef022d2fca8f6531a35eca619ef890019ff3
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: c289ab60973c0e907deb97c0e8520f8b608099eb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072804"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467084"
 ---
 # <a name="register-and-scan-hive-metastore-database"></a>Hive 메타스토어 데이터베이스 등록 및 검색
 
@@ -85,79 +85,81 @@ Hive 메타스토어 데이터베이스에 대해 유일하게 지원되는 인�
 
 5.  아래 세부 정보를 제공합니다.
 
-    a.  **이름**: 검사 이름
+    1. **이름**: 검사 이름
 
-    b.  **통합 런타임을 통해 연결**: 구성된 자체 호스팅 통합 런타임을 선택합니다.
+    1. **통합 런타임을 통해 연결**: 구성된 자체 호스팅 통합 런타임을 선택합니다.
 
-    다.  **자격 증명**: 데이터 원본에 연결할 자격 증명을 선택합니다. 다음을 수행해야 합니다.
+    1. **자격 증명**: 데이터 원본에 연결할 자격 증명을 선택합니다. 다음을 수행해야 합니다.
 
-    -   자격 증명을 만드는 동안 기본 인증을 선택합니다.
-    -   사용자 이름 입력 필드에 메타스토어 사용자 이름을 입력합니다.
-    -   비밀 키에 메타스토어 암호를 저장합니다.
+       - 자격 증명을 만드는 동안 기본 인증을 선택합니다.
+       - 사용자 이름 입력 필드에 메타스토어 사용자 이름을 입력합니다.
+       - 비밀 키에 메타스토어 암호를 저장합니다.
 
-    자격 증명에 대한 자세한 내용은 [여기](manage-credentials.md)에 있는 링크를 참조하세요. 
+       자격 증명에 대한 자세한 내용은 [여기](manage-credentials.md)에 있는 링크를 참조하세요. 
 
-    **Databricks 사용법**: Databricks 클러스터 -> 앱 -> 웹 터미널 시작으로 이동합니다. cmdlet **cat/databricks/hive/conf/hive-site.xml** 을 실행합니다.
+       **Databricks 사용법**: Databricks 클러스터 -> 앱 -> 웹 터미널 시작으로 이동합니다. cmdlet **cat/databricks/hive/conf/hive-site.xml** 을 실행합니다.
 
-    사용자 이름 및 암호는 아래와 같이 두 가지 속성에서 액세스할 수 있습니다.
+       사용자 이름 및 암호는 아래와 같이 두 가지 속성에서 액세스할 수 있습니다.
 
-    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-credentials.png" alt-text="databricks-username-password-details" border="true":::
+       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-credentials.png" alt-text="databricks-username-password-details" border="true":::
 
-    d. **메타스토어 JDBC 드라이버 위치**: VM에서 자체 호스팅 통합 런타임이 실행 중인 JDBC 드라이버 위치의 경로를 지정합니다. 이 경로는 유효한 JAR 폴더 위치에 대한 경로여야 합니다.
+    1. **메타스토어 JDBC 드라이버 위치**: VM에서 자체 호스팅 통합 런타임이 실행 중인 JDBC 드라이버 위치의 경로를 지정합니다. 이 경로는 유효한 JAR 폴더 위치에 대한 경로여야 합니다.
 
-    Databricks를 검색하는 경우 아래 Databricks에 대한 섹션을 참조하세요.
+       Databricks를 검색하는 경우 아래 Databricks에 대한 섹션을 참조하세요.
 
-    > [!Note]
-    > VM의 모든 계정에서 드라이버에 액세스할 수 있어야 합니다. 사용자 계정에는 설치하지 마세요.
+       > [!Note]
+       > VM의 모든 계정에서 드라이버에 액세스할 수 있어야 합니다. 사용자 계정에는 설치하지 마세요.
 
-    e.  **메타스토어 JDBC 드라이버 클래스**: 연결 드라이버 클래스 이름을 제공합니다. 예를 들면 \com.microsoft.sqlserver.jdbc.SQLServerDriver와 같습니다.
+    1. **메타스토어 JDBC 드라이버 클래스**: 연결 드라이버 클래스 이름을 제공합니다. 예를 들면 \com.microsoft.sqlserver.jdbc.SQLServerDriver와 같습니다.
     
-    **Databricks 사용법**: Databricks 클러스터 -> 앱 -> 웹 터미널 시작으로 이동합니다. cmdlet **cat/databricks/hive/conf/hive-site.xml** 을 실행합니다.
+       **Databricks 사용법**: Databricks 클러스터 -> 앱 -> 웹 터미널 시작으로 이동합니다. cmdlet **cat/databricks/hive/conf/hive-site.xml** 을 실행합니다.
     
-    드라이버 클래스는 아래와 같이 속성에서 액세스할 수 있습니다.
+       드라이버 클래스는 아래와 같이 속성에서 액세스할 수 있습니다.
     :::image type="content" source="media/register-scan-hive-metastore-source/databricks-driver-class-name.png" alt-text="databricks-driver-class-details" border="true":::
 
-    f.  **메타스토어 JDBC URL**: 연결 URL 값을 제공하고 메타스토어 DB 서버 URL에 대한 연결을 정의합니다. 예를 들면 jdbc:sqlserver://hive.database.windows.net;database=hive;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300과 같습니다.
+    1. **메타스토어 JDBC URL**: 연결 URL 값을 제공하고 메타스토어 DB 서버 URL에 대한 연결을 정의합니다. 예: `jdbc:sqlserver://hive.database.windows.net;database=hive;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300`.
 
-    **Databricks 사용법**: Databricks 클러스터 -> 앱 -> 웹 터미널 시작으로 이동합니다. cmdlet **cat/databricks/hive/conf/hive-site.xml** 을 실행합니다.
+       **Databricks 사용법**: Databricks 클러스터 -> 앱 -> 웹 터미널 시작으로 이동합니다. cmdlet **cat/databricks/hive/conf/hive-site.xml** 을 실행합니다.
     
-    JDBC URL은 아래와 같이 연결 URL 속성에서 액세스할 수 있습니다.
-    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="databricks-jdbc-url-details" border="true":::
-
-    이 URL에 대해 VM에서 SSL 인증서가 배치된 위치에 경로를 추가합니다. SSL 인증서는 [여기](../mysql/howto-configure-ssl.md)에서 다운로드할 수 있습니다.
-
-    따라서 메타스토어 JDBC URL은 다음과 같습니다.
+       JDBC URL은 아래와 같이 연결 URL 속성에서 액세스할 수 있습니다.
+       
+       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="databricks-jdbc-url-details" border="true":::
     
-    jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organization1829255636414785?trustServerCertificate=true&amp;useSSL=true&sslCA=D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem
+       > [!NOTE]
+       > *hive-site.xml* 에서 URL을 복사할 때 문자열에서 `amp;`를 제거해야 합니다. 그렇지 않으면 검사가 실패합니다.
 
-    g.  **메타스토어 데이터베이스 이름**: Hive 메타스토어 데이터베이스 이름을 제공합니다.
+       이 URL에 대해 VM에서 SSL 인증서가 배치된 위치에 경로를 추가합니다. SSL 인증서는 [여기](../mysql/howto-configure-ssl.md)에서 다운로드할 수 있습니다.
+
+       메타스토어 JDBC URL은 다음과 같습니다.
     
-    Databricks를 검색하는 경우 아래 Databricks에 대한 섹션을 참조하세요.
+       `jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organization1829255636414785?trustServerCertificate=true&amp;useSSL=true&sslCA=D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem`
 
-    **Databricks 사용법**: Databricks 클러스터 -> 앱 -> 웹 터미널 시작으로 이동합니다. cmdlet **cat/databricks/hive/conf/hive-site.xml** 을 실행합니다.
-
-    다음과 같이 JDBC URL 속성에서 데이터베이스 이름에 액세스할 수 있습니다. 예: organization1829255636414785 :::image type="content" source="media/register-scan-hive-metastore-source/databricks-data-base-name.png" alt-text="databricks-database-name-details" border="true":::
-
-    h.  **스키마**: 가져올 Hive 스키마 목록을 지정합니다. 예: schema1; schema2. 
+    1. **메타스토어 데이터베이스 이름**: Hive 메타스토어 데이터베이스 이름을 제공합니다.
     
-    목록이 비어 있으면 모든 사용자 스키마를 가져옵니다. 모든 시스템 스키마(예: SysAdmin) 및 개체는 기본적으로 무시됩니다. 
+       Databricks를 검색하는 경우 아래 Databricks에 대한 섹션을 참조하세요.
 
-    목록이 비어 있는 경우 모든 사용 가능한 스키마를 가져옵니다.
-    SQL LIKE 식 구문을 사용하는 허용되는 스키마 이름 패턴에는 %가 포함됩니다. 예를 들어 A%, %B, %C%, D입니다.
+       **Databricks 사용법**: Databricks 클러스터 -> 앱 -> 웹 터미널 시작으로 이동합니다. cmdlet **cat/databricks/hive/conf/hive-site.xml** 을 실행합니다.
 
-    -   A로 시작합니다. 또는    
-    -   B로 끝납니다. 또는    
-    -   C를 포함합니다. 또는    
-    -   D와 같습니다.
+       다음과 같이 JDBC URL 속성에서 데이터베이스 이름에 액세스할 수 있습니다. 예: organization1829255636414785
+       
+       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-data-base-name.png" alt-text="databricks-database-name-details" border="true":::
 
-    NOT 및 특수 문자는 허용되지 않습니다.
+    1. **스키마**: 가져올 Hive 스키마 목록을 지정합니다. 예: schema1; schema2. 
+    
+        목록이 비어 있으면 모든 사용자 스키마를 가져옵니다. 모든 시스템 스키마(예: SysAdmin) 및 개체는 기본적으로 무시됩니다. 
 
-    i.  **사용 가능한 최대 메모리**: 고객의 VM에서 검사 프로세스를 수행하는 데 사용할 수 있는 최대 메모리(GB)입니다. 검색할 Hive 메타스토어 데이터베이스의 크기에 따라 달라집니다.
-    > [!Note]
-    > **Databricks 메타스토어를 검색하는 경우**
-    >
+        목록이 비어 있는 경우 모든 사용 가능한 스키마를 가져옵니다. SQL LIKE 식 구문을 사용하는 허용되는 스키마 이름 패턴에는 %가 포함됩니다. 예를 들어 A%, %B, %C%, D입니다.
 
-    :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="Hive 원본 검색" border="true":::
+        - A로 시작합니다. 또는    
+        - B로 끝납니다. 또는    
+        - C를 포함합니다. 또는    
+        - D와 같습니다.
+
+        NOT 및 특수 문자는 허용되지 않습니다.
+
+     1. **사용 가능한 최대 메모리**: 고객의 VM에서 검사 프로세스를 수행하는 데 사용할 수 있는 최대 메모리(GB)입니다. 검색할 Hive 메타스토어 데이터베이스의 크기에 따라 달라집니다.
+
+        :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="Hive 원본 검색" border="true":::
 
 6.  **계속** 을 클릭합니다.
 

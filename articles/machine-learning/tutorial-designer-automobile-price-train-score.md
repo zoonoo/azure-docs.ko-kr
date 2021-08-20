@@ -1,26 +1,27 @@
 ---
-title: '자습서: 디자이너를 사용하여 자동차 가격 예측'
+title: '자습서: 디자이너 - 코드 없는 회귀 모델 학습'
 titleSuffix: Azure Machine Learning
-description: 선형 회귀를 사용하여 자동차 가격을 예측하도록 기계 학습 모델을 학습합니다. 이 자습서는 2부로 구성된 시리즈 중 제1부입니다.
+description: Azure Machine Learning 디자이너를 사용하여 자동차 가격을 예측하는 회귀 모델을 학습시킵니다.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 09/28/2020
-ms.custom: designer
-ms.openlocfilehash: 7f602f82063e2a8092eecf533a75449231c1e900
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.date: 06/11/2021
+ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: f8e544681f940e649e1d04d148caafb875c69952
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660987"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472923"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer"></a>자습서: 디자이너를 사용하여 자동차 가격 예측
+# <a name="tutorial-designer---train-a-no-code-regression-model"></a>자습서: 디자이너 - 코드 없는 회귀 모델 학습
 
+Azure Machine Learning 디자이너를 사용하여 자동차 가격을 예측하는 선형 회귀 모델을 학습시킵니다. 이 자습서는 2부로 구성된 시리즈 중 제1부입니다.
 
-2부로 구성된 이 자습서에서는 Azure Machine Learning 디자이너를 사용하여 자동차 가격을 예측하는 기계 학습 모델을 학습하고 배포하는 방법을 알아봅니다. 디자이너는 코드 한 줄 없이 기계 학습 모델을 만들 수 있는 끌어서 놓기 도구입니다.
+이 자습서에서는 Azure Machine Learning 디자이너를 사용합니다. 자세한 내용은 [Azure Machine Learning 디자이너란?](concept-designer.md)을 참조하세요.
 
 이 자습서의 1부에서는 다음 방법에 대해 알아봅니다.
 

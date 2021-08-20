@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 1cee1a33f74b11793d9b12db0b8bc6f65fda29a3
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 1d4faa9ad8bce084fdd011fb9a79fd867f02aa27
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787696"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446910"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-a-sample-client-app"></a>자습서: 샘플 클라이언트 앱을 사용하여 Azure Digital Twins 그래프 만들기
 
 [!INCLUDE [digital-twins-tutorial-selector.md](../../includes/digital-twins-tutorial-selector.md)]
 
-이 자습서에서는 모델, 트윈 및 관계를 사용하여 Azure Digital Twins에서 그래프를 작성합니다. 이 자습서의 도구는 Azure Digital Twins 인스턴스와 상호 작용하기 위한 **샘플 명령줄 클라이언트 애플리케이션** 입니다. 클라이언트 앱은 [자습서: 클라이언트 앱 코딩](tutorial-code.md)에서 작성한 앱과 비슷합니다.
+이 자습서에서는 모델, 트윈 및 관계를 사용하여 Azure Digital Twins에서 그래프를 작성합니다. 이 자습서의 도구는 Azure Digital Twins 인스턴스와 상호 작용하기 위한 **샘플 명령줄 클라이언트 애플리케이션** 입니다. 클라이언트 앱은 [클라이언트 앱 코딩](tutorial-code.md)에서 작성한 것과 비슷합니다.
 
 이 샘플을 사용하여 모델 업로드, 트윈 생성 및 수정, 관계 생성과 같은 필수 Azure Digital Twins 작업을 수행할 수 있습니다. 또한 [샘플 코드](https://github.com/Azure-Samples/digital-twins-samples/tree/master/)를 보고 Azure Digital Twins API에 대해 배우고 원하는 대로 샘플 프로젝트를 수정하여 명령을 직접 구현해 볼 수 있습니다.
 
@@ -40,7 +40,6 @@ ms.locfileid: "109787696"
 :::image type="content" source="media/tutorial-command-line/app/start-button-sample.png" alt-text="Visual Studio 시작 단추(SampleClientApp 프로젝트) 스크린샷." lightbox="media/tutorial-command-line/app/start-button-sample.png":::
 
 콘솔 창이 열리고 인증을 수행하고 명령을 기다립니다. 
-* 브라우저를 통해 인증이 처리됩니다. 인증 프롬프트와 함께 기본 웹 브라우저가 열립니다. 이 프롬프트를 사용하여 Azure 자격 증명에 로그인합니다. 그런 다음, 브라우저 탭이나 창을 닫을 수 있습니다.
 
 프로젝트 콘솔은 다음 스크린샷과 같습니다.
 
@@ -49,7 +48,7 @@ ms.locfileid: "109787696"
 > [!TIP]
 > 이 프로젝트에서 사용할 수 있는 모든 명령 목록을 보려면 프로젝트 콘솔에 `help`를 입력하고 Return 키를 누릅니다.
 
-이 자습서의 나머지 단계를 위해 프로젝트 콘솔을 계속 실행합니다.
+앱이 성공적으로 실행되고 있는지 확인했으면 콘솔 창을 닫아 앱 실행을 중지합니다. 자습서 뒷부분에서 다시 실행하게 됩니다.
 
 ## <a name="model-a-physical-environment-with-dtdl"></a>DTDL로 물리적 환경 모델링
 
@@ -71,6 +70,8 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창에서 *솔루
 ### <a name="upload-models-to-azure-digital-twins"></a>Azure Digital Twins에 모델 업로드
 
 모델을 설계한 후에는 Azure Digital Twins 인스턴스에 업로드해야 합니다. 그러면 고유의 사용자 지정 도메인 어휘로 Azure Digital Twins 서비스 인스턴스가 구성됩니다. 모델을 업로드한 후에는 이를 사용하는 트윈 인스턴스를 만들 수 있습니다.
+
+1. 이전 섹션에서 파일의 Room.json 파일을 편집한 후 콘솔 앱 실행을 다시 시작합니다.
 
 1. 프로젝트 콘솔 창에서 다음 명령을 실행하여 업데이트된 Room 모델과 다음 섹션에서도 사용할 Floor 모델을 업로드하여 여러 유형의 트윈을 만듭니다.
 
@@ -95,7 +96,7 @@ CreateModels Room
 ```
 
 모델을 덮어쓸 수 없으므로 이제 서비스 오류가 반환됩니다.
-기존 모델을 삭제하는 방법에 대한 자세한 내용은 [방법: DTDL 모델 관리](how-to-manage-model.md)를 참조하세요.
+기존 모델을 삭제하는 방법에 대한 자세한 내용은 [DTDL 모델 관리](how-to-manage-model.md)를 참조하세요.
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
@@ -219,7 +220,7 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
     :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="room0 및 floor1을 포함하여 쌍 쿼리의 부분적인 결과를 보여주는 스크린샷.":::
 
     >[!NOTE]
-    >샘플 프로젝트에서 추가 인수가 없는 명령 `Query`는 `Query SELECT * FROM DIGITALTWINS`와 같습니다. [쿼리 API](/rest/api/digital-twins/dataplane/query) 또는 [CLI 명령](concepts-cli.md)을 사용하여 인스턴스의 모든 쌍을 쿼리하려면 더 긴(전체) 쿼리를 사용합니다.
+    >샘플 프로젝트에서 추가 인수가 없는 명령 `Query`는 `Query SELECT * FROM DIGITALTWINS`와 같습니다. [쿼리 API](/rest/api/digital-twins/dataplane/query) 또는 [CLI 명령](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)을 사용하여 인스턴스의 모든 쌍을 쿼리하려면 더 긴(전체) 쿼리를 사용합니다.
 
 1. **내 환경의 모든 room은 무엇인가요?** (모델로 쿼리)
 
@@ -279,4 +280,4 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
 
 다음 자습서에서 Azure Digital Twins와 다른 Azure 서비스를 결합하여 데이터 기반의 엔드투엔드 시나리오를 완성하세요.
 > [!div class="nextstepaction"]
-> [자습서: 엔드투엔드 솔루션 연결](tutorial-end-to-end.md)
+> [엔드투엔드 솔루션 연결](tutorial-end-to-end.md)

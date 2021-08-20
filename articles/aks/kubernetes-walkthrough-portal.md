@@ -4,14 +4,14 @@ titleSuffix: Azure Kubernetes Service
 description: Azure Portal을 사용하여 Kubernetes 클러스터를 빠르게 만들고 애플리케이션을 배포하고 AKS(Azure Kubernetes Service)의 성능을 모니터링하는 방법을 알아봅니다.
 services: container-service
 ms.topic: quickstart
-ms.date: 03/15/2021
+ms.date: 07/01/2021
 ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3
-ms.openlocfilehash: 28ba2ffd2007aeb45081cf66b05395a2b8456bf7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4c695b3214cebb601e53810ea8d6f3402bcf2e94
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779708"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463134"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -41,13 +41,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         * Azure **구독** 을 선택합니다.
         * Azure **리소스 그룹**(예: *myResourceGroup*)을 선택하거나 만듭니다.
     - **클러스터 세부 정보**: 
+        * **사전 설정 구성** 이 ‘표준($$)’인지 확인합니다. 사전 설정 구성에 관한 자세한 내용은 [Azure Portal의 클러스터 구성 사전 설정][preset-config]을 참조하세요.
         * *myAKSCluster* 같은 **Kubernetes 클러스터 이름** 을 입력합니다. 
         * AKS 클러스터에 대한 **지역** 및 **Kubernetes 버전** 을 선택합니다.
     - **주 노드 풀**: 
-        * AKS 노드의 VM **노드 크기** 를 선택합니다. AKS 클러스터를 배포한 후에는 VM 크기를 변경할 수 *없습니다*.
-        * 클러스터에 배포할 노드 수를 선택합니다. 이 빠른 시작에서는 **노드 수** 를 *1* 로 설정합니다. 클러스터를 배포한 후에 노드 수를 조정할 수 *있습니다*.
+        * 선택된 기본값을 유지합니다.
     
     ![AKS 클러스터 만들기 - 기본 정보를 입력합니다.](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
+
+    > [!NOTE]
+    > ‘모든 사전 설정 구성 보기’를 선택하고 다른 옵션을 선택하여 클러스터를 만들면 사전 설정 구성을 변경할 수 있습니다.
+    > ![AKS 클러스터 만들기 - 포털 사전 설정 옵션](media/kubernetes-walkthrough-portal/cluster-preset-options.png)
 
 4. 완료되면 **다음: 노드 풀** 을 선택합니다.
 
@@ -103,8 +107,9 @@ Kubernetes 클러스터를 관리하려면 Kubernetes 명령줄 클라이언트�
     출력은 이전 단계에서 만든 단일 노드를 보여줍니다. 노드 상태가 *준비* 인지 확인합니다.
 
     ```output
-    NAME                       STATUS    ROLES     AGE       VERSION
-    aks-agentpool-14693408-0   Ready     agent     15m       v1.11.5
+    NAME                                STATUS   ROLES   AGE   VERSION
+    aks-agentpool-12345678-vmss000000   Ready    agent   23m   v1.19.11
+    aks-agentpool-12345678-vmss000001   Ready    agent   24m   v1.19.11
     ```
 
 ## <a name="run-the-application"></a>애플리케이션 실행
@@ -273,7 +278,7 @@ Azure Vote 앱이 실제로 작동하는 모습을 보려면 웹 브라우저를
 
 ![AKS에서 실행 중인 컨테이너의 상태 보기](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-`azure-vote-front` Pod에 대한 로그를 보려면 컨테이너 목록 드롭다운에서 **컨테이너 로그 보기** 를 선택합니다. 이러한 로그는 컨테이너의 *stdout* 및 *stderr* 스트림을 포함합니다.
+`azure-vote-front` Pod의 로그를 보려면 오른쪽에 있는 ‘azure-vote-front | 개요’ 영역 위쪽에서 **Log Analytics에서 보기** 를 선택합니다. 이러한 로그는 컨테이너의 *stdout* 및 *stderr* 스트림을 포함합니다.
 
 ![AKS에서 컨테이너 로그 보기](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
@@ -318,4 +323,5 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 [aks-network]: ./concepts-network.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
+[preset-config]: ./quotas-skus-regions.md#cluster-configuration-presets-in-the-azure-portal
 [sp-delete]: kubernetes-service-principal.md#additional-considerations

@@ -1,19 +1,19 @@
 ---
 title: 빠른 시작 - Azure Spring Cloud에 앱 빌드 및 배포
 description: Azure Spring Cloud에 앱 배포에 대해 설명합니다.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: fc005e8d94a0c6ddb7f21de05872f12bdb7f2177
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b82e36b798611aad20044592cd3bec60cdf2e871
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965139"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469260"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>빠른 시작: Azure Spring Cloud에 앱 빌드 및 배포
 
@@ -213,7 +213,6 @@ Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud�
 
     ```azurecli
     az configure --defaults group=<resource group name> spring-cloud=<service name>  
-    az spring-cloud config-server git set -n <service instance name> --uri https://github.com/azure-samples/spring-petclinic-microservices-config
     ```
 
 1. PetClinic을 위한 2개의 코어 마이크로 서비스(API 게이트웨이 및 고객 서비스)를 만듭니다.
@@ -245,7 +244,7 @@ Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud�
 
 ## <a name="verify-the-services"></a>서비스 확인
 
-위에 표시된 "https://<service name>-api-gateway.azuremicroservices.io" 형식의 **공용 URL** 을 사용하여 브라우저에서 앱 게이트웨이 및 고객 서비스에 액세스합니다.
+`https://<service name>-api-gateway.azuremicroservices.io` 형식으로 위에 표시된 **공개 URL** 을 사용하여 브라우저에서 앱 게이트웨이 및 고객 서비스에 액세스합니다.
 
 ![petclinic 고객 서비스에 액세스](media/build-and-deploy/access-customers-service.png)
 
@@ -282,7 +281,7 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
 1. 부모 POM을 포함하는 Pet Clinic의 루트 폴더에서 다음 명령을 실행하여 구성을 생성합니다. Azure CLI를 사용하여 이미 로그인한 경우 이 명령은 자격 증명을 자동으로 선택합니다. 그렇지 않으면 프롬프트 명령을 사용하여 로그인합니다. 자세한 내용은 [wiki 페이지](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication)를 참조하세요.
 
     ```azurecli
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.5.0:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.6.0:config
     ```
     
     다음 중 선택하라는 메시지가 표시됩니다.
@@ -298,7 +297,7 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
             <plugin>
                 <groupId>com.microsoft.azure</groupId>
                 <artifactId>azure-spring-cloud-maven-plugin</artifactId>
-                <version>1.5.0</version>
+                <version>1.6.0</version>
                 <configuration>
                     <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                     <clusterName>v-spr-cld</clusterName>
@@ -317,7 +316,7 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
     
 ## <a name="verify-the-services"></a>서비스 확인
 
-배포 명령이 성공하면 "https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io" 형식의 URL이 반환됩니다. 이를 사용하여 실행 중인 서비스로 이동합니다.
+성공적인 배포 명령은 `https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io` 형식의 URL을 반환합니다. 이를 사용하여 실행 중인 서비스로 이동합니다.
 
 ![Pet Clinic 액세스](media/build-and-deploy/access-customers-service.png)
 

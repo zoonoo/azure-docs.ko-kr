@@ -6,13 +6,13 @@ ms.topic: tutorial
 ms.author: abnarain
 author: nabhishek
 ms.custom: seo-lt-2019
-ms.date: 03/12/2018
-ms.openlocfilehash: 20253954035798187f28c18c8207c114d27bc9c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/07/2021
+ms.openlocfilehash: e9b4d075832fde6aec81a7f8440756b4d6f32834
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100374085"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113215994"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory에서 Databricks Notebook 작업으로 Databricks Notebook 실행
 
@@ -82,9 +82,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="create-an-azure-databricks-linked-service"></a>Azure Databricks 연결된 서비스 만들기
 
-1.  **시작하기** 페이지에서 왼쪽 패널의 **편집** 탭으로 전환합니다.
+1.  홈페이지에서 왼쪽 패널의 **관리** 탭으로 전환합니다.
 
-    ![새 연결된 서비스 편집](media/transform-data-using-databricks-notebook/get-started-page.png)
+    ![새 연결된 서비스 편집](media/doc-common-process/get-started-page-manage-button.png)
 
 1.  창의 아래쪽에서 **연결**, **+ 새로 만들기** 를 차례로 클릭합니다.
     

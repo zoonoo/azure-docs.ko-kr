@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 75d9c649b245878e1f10c1aca9b9dd9956741fca
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 4ab8f3eb36e254a9b98444ecf85904fc574bcc65
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113002636"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113487384"
 ---
 # <a name="protect-your-web-apps-and-apis"></a>웹앱 및 API 보호
 
@@ -36,7 +36,7 @@ Azure Defender for App Service를 사용하여 Azure App Service 요금제를 �
 | 릴리스 상태:               | GA(일반 공급)                                                                                                                                                                      |
 | 가격 책정:                     | [Azure Defender for App Service](azure-defender.md)는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 표시된 대로 요금이 청구됩니다.<br>모든 요금제의 총 컴퓨팅 인스턴스에 따라 청구됩니다.       |
 | 지원되는 App Service 요금제: | [소비 계획에 대한 Azure Functions](../azure-functions/functions-scale.md)를 제외한 [모든 App Service 요금제](https://azure.microsoft.com/pricing/details/app-service/plans/)가 지원됩니다. |
-| 클라우드:                      | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(US Gov, Azure 중국)                                                     |
+| 클라우드:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/no-icon.png"::: 국가/소버린(US Gov, Azure 중국)                                                     |
 |                              |                                                                                                                                                                                                |
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-app-service"></a>Azure Defender for App Service의 이점은?

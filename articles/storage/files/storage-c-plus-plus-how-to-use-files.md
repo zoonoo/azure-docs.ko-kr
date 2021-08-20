@@ -1,18 +1,18 @@
 ---
-title: C++를 사용하여 Azure Files 개발 | Microsoft Docs
-description: Azure Files를 사용하여 파일 데이터를 저장하는 C++ 애플리케이션 및 서비스를 개발하는 방법을 알아봅니다.
-author: roygara
+title: '빠른 시작: Azure Storage 파일 공유 라이브러리 v12 - C++'
+description: 이 빠른 시작에서는 C++용 Azure Storage 파일 공유 클라이언트 라이브러리 버전 12를 사용하여 파일 공유와 파일을 만드는 방법을 알아봅니다. 다음으로, 메타데이터를 설정하고 검색한 다음, 로컬 컴퓨터에 파일을 다운로드하는 방법을 알아봅니다.
+author: kyle-patterson
+ms.author: kylepa
+ms.date: 06/22/2021
 ms.service: storage
-ms.topic: how-to
-ms.date: 09/19/2017
-ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bb74ab16e51fbb3a157757353d5743e889f993dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.openlocfilehash: 4da02f46ef793ae03a11fa4895471488f78d0db1
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629702"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112894309"
 ---
 # <a name="develop-for-azure-files-with-c"></a>C++를 사용하여 Azure Files 개발
 
@@ -20,354 +20,168 @@ ms.locfileid: "94629702"
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+
 ## <a name="about-this-tutorial"></a>이 자습서 정보
 
-이 자습서는 Azure Files에서 기본 작업을 수행하는 방법을 알려줍니다. C++로 작성된 샘플을 통해 공유 및 디렉터리 만들기, 업로드, 목록 및 파일을 삭제하는 방법을 배웁니다. Azure Files를 처음 접하는 경우 다음 섹션에 있는 개념들을 살펴보면 샘플에 대한 이해를 높이는 데 유용할 것입니다.
+이 자습서에서는 C++를 사용하여 Azure Files에서 기본 작업을 수행하는 방법을 알아봅니다. Azure Files를 처음 사용하는 경우 다음 섹션에 있는 개념들을 살펴보면 샘플에 대한 이해를 높이는 데 유용할 것입니다. 설명된 샘플 중 일부는 다음과 같습니다.
 
 * Azure 파일 공유 만들기 및 삭제
 * 디렉터리 만들기 및 삭제
-* Azure 파일 공유의 파일 및 디렉터리 열거
 * 파일 업로드, 다운로드 및 삭제
-* Azure 파일 공유에 대한 할당량(최대 크기) 설정
-* 공유에 정의된 공유 액세스 정책을 사용하는 파일에 대해 공유 액세스 서명(SAS 키) 만들기
+* 파일의 메타데이터 설정 및 나열
 
 > [!Note]  
 > Azure Files는 SMB를 통해 액세스할 수 있기 때문에 표준 C++ I/O 클래스 및 함수를 사용하여 Azure 파일 공유에 액세스하는 간단한 애플리케이션을 작성할 수 있습니다. 이 문서에서는 [File REST API](/rest/api/storageservices/file-service-rest-api)를 사용하여 Azure Files와 통신하는 Azure Storage C++ SDK를 사용하는 애플리케이션을 작성하는 방법에 대해 설명합니다.
 
-## <a name="create-a-c-application"></a>C++ 애플리케이션 만들기
 
-샘플을 빌드하려면 Azure Storage Client Library 2.4.0 for C++를 설치해야 합니다. Azure Storage 계정도 만들었어야 합니다.
+## <a name="prerequisites"></a>필수 구성 요소
 
-Azure Storage Client 2.4.0 for C++를 설치하려면 다음 방법 중 하나를 사용할 수 있습니다.
+- [Azure 구독](https://azure.microsoft.com/free/)
+- [Azure Storage 계정](../common/storage-account-create.md)
+- [C++ 컴파일러](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms)
+- [CMake](https://cmake.org/)
+- [Vcpkg - C 및 C++ 패키지 관리자](https://github.com/microsoft/vcpkg/blob/master/docs/README.md)
 
-* **Linux:**[Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.
-* **Windows:** Visual Studio에서 **도구 &gt; NuGet 패키지 관리자 &gt; 패키지 관리자 콘솔** 을 클릭합니다. [NuGet 패키지 관리자 콘솔](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 에 다음 명령을 입력하고 **ENTER** 를 누릅니다.
-  
+## <a name="setting-up"></a>설치
 
-```powershell
-Install-Package wastorage
+이 섹션에서는 C++용 Azure Blob Storage 클라이언트 라이브러리 v12를 사용하는 프로젝트를 준비하는 과정을 안내합니다.
+
+### <a name="install-the-packages"></a>패키지 설치
+
+`vcpkg install` 명령은 C++용 Azure Storage Blob SDK 및 필요한 종속성을 설치합니다.
+
+```console
+vcpkg.exe install azure-storage-files-shares-cpp:x64-windows
 ```
 
-## <a name="set-up-your-application-to-use-azure-files"></a>Azure Files를 사용하도록 애플리케이션 설정
+자세한 내용을 보려면 GitHub를 방문하여 [C++용 Azure SDK](https://github.com/Azure/azure-sdk-for-cpp/)를 다운로드하고 빌드합니다.
 
-Azure Files를 조작하려는 C++ 소스 파일의 맨 위에 다음 include 문을 추가합니다.
+### <a name="create-the-project"></a>프로젝트를 만듭니다.
 
-```cpp
-#include <was/storage_account.h>
-#include <was/file.h>
-```
+Visual Studio에서 *FilesShareQuickstartV12* 라는 Windows용 새 C++ 콘솔 애플리케이션을 만듭니다.
 
-## <a name="set-up-an-azure-storage-connection-string"></a>Azure Storage 연결 문자열 설정
+:::image type="content" source="./media/quickstart-files-c-plus-plus/visual-studio-create-project.png" alt-text="새 C++ Windows 콘솔 앱을 구성하기 위한 Visual Studio 대화 상자":::
 
-File Storage를 사용하려면 Azure 스토리지 계정에 연결해야 합니다. 첫 번째 단계는 스토리지 계정에 연결하는 데 사용할 연결 문자열을 구성하는 것입니다. 이를 위해 정적 변수를 정의해 보겠습니다.
+[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
-```cpp
-// Define the connection-string with your values.
-const utility::string_t
-storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
-```
+## <a name="code-examples"></a>코드 예제
 
-## <a name="connecting-to-an-azure-storage-account"></a>Azure Storage 계정에 연결
+이 예제 코드 조각에서는 C++용 Azure Files 공유 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
 
-**cloud_storage_account** 클래스를 사용하여 Storage 계정 정보를 나타낼 수 있습니다. 스토리지 연결 문자열에서 스토리지 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.
+- [포함 파일 추가](#add-include-files)
+- [연결 문자열 가져오기](#get-the-connection-string)
+- [파일 공유 만들기](#create-a-files-share)
+- [파일 공유에 파일 업로드](#upload-files-to-a-files-share)
+- [파일의 메타데이터 설정](#set-the-metadata-of-a-file)
+- [파일의 메타데이터 나열](#list-the-metadata-of-a-file)
+- [파일 다운로드](#download-files)
+- [파일 삭제](#delete-a-file)
+- [파일 공유 삭제](#delete-a-files-share)
 
-```cpp
-// Retrieve storage account from connection string.
-azure::storage::cloud_storage_account storage_account =
-  azure::storage::cloud_storage_account::parse(storage_connection_string);
-```
+### <a name="add-include-files"></a>포함 파일 추가
 
-## <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
+프로젝트 디렉터리에서 다음을 수행합니다.
 
-Azure Files의 모든 파일 및 디렉터리는 **공유** 라는 이름의 컨테이너 안에 있습니다. 스토리지 계정은 계정 용량이 허용하는 만큼의 공유를 가질 수 있습니다. 공유 및 해당 콘텐츠에 액세스하려면 Azure Files 클라이언트를 사용해야 합니다.
+1. Visual Studio에서 *FilesShareQuickstartV12.sln* 솔루션 파일을 엽니다.
+1. Visual Studio 내에서 *FilesShareQuickstartV12.cpp* 원본 파일을 엽니다.
+1. `main` 내에서 자동 생성된 코드를 모두 제거합니다.
+1. `#include` 문을 추가합니다.
 
-```cpp
-// Create the Azure Files client.
-azure::storage::cloud_file_client file_client =
-  storage_account.create_cloud_file_client();
-```
+:::code language="cpp" source="~/azure-storage-snippets/files/quickstarts/C++/V12/FilesShareQuickStartV12/FilesShareQuickStartV12/FilesShareQuickStartV12.cpp" ID="Snippet_Includes":::
 
-Azure Files 클라이언트를 사용하면 공유에 대한 참조를 가져올 수 있습니다.
+### <a name="get-the-connection-string"></a>연결 문자열 가져오기
 
-```cpp
-// Get a reference to the file share
-azure::storage::cloud_file_share share =
-  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
-```
+아래 코드에서는 [스토리지 연결 문자열 구성](#configure-your-storage-connection-string)에서 만든 환경 변수에서 스토리지 계정에 대한 연결 문자열을 검색합니다.
 
-공유를 만들려면 **cloud_file_share** 개체의 **create_if_not_exists** 메서드를 사용합니다.
+이 코드를 `main()` 내에 추가합니다.
 
-```cpp
-if (share.create_if_not_exists()) {
-    std::wcout << U("New share created") << std::endl;
-}
-```
+:::code language="cpp" source="~/azure-storage-snippets/files/quickstarts/C++/V12/FilesShareQuickStartV12/FilesShareQuickStartV12/FilesShareQuickStartV12.cpp" ID="Snippet_ConnectionString":::
 
-이 시점에서 **공유** 는 **my-sample-share** 라는 이름의 공유에 대해 참조를 포함합니다.
+### <a name="create-a-files-share"></a>파일 공유 만들기
 
-## <a name="delete-an-azure-file-share"></a>Azure 파일 공유 삭제
+[CreateFromConnectionString](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_client.html#a7462bcad8a9144f84b0acc70735240e2) 함수를 호출하여 [ShareClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_client.html) 클래스의 인스턴스를 만듭니다. 그런 다음, [CreateIfNotExists](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_client.html#a6432b4cc677ac03257c7bf234129ec5b)를 호출하여 스토리지 계정에 실제 파일 공유를 만듭니다.
 
-공유 삭제는 cloud_file_share 개체에서 **delete_if_exists** 메서드를 호출하여 수행할 수 있습니다. 다음이 샘플 코드입니다.
+다음 코드를 `main()`의 끝에 추가합니다.
 
-```cpp
-// Get a reference to the share.
-azure::storage::cloud_file_share share =
-  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
+:::code language="cpp" source="~/azure-storage-snippets/files/quickstarts/C++/V12/FilesShareQuickStartV12/FilesShareQuickStartV12/FilesShareQuickStartV12.cpp" ID="Snippet_CreateFilesShare":::
 
-// delete the share if exists
-share.delete_share_if_exists();
-```
+### <a name="upload-files-to-a-files-share"></a>파일 공유에 파일 업로드
 
-## <a name="create-a-directory"></a>디렉터리 만들기
+다음 코드 조각을 실행합니다.
 
-루트 디렉터리에 이들 모두를 포함하는 대신 하위 디렉터리 내에서 파일을 배치하여 스토리지를 구성할 수 있습니다. Azure Files를 사용하면 계정이 허용하는 만큼 많은 디렉터리를 만들 수 있습니다. 아래 코드에서는 루트 디렉터리 아래 **my-sample-directory** 를 만들고 **my-sample-subdirectory** 라는 하위 디렉터리를 만듭니다.
+1. "Hello Azure!"가 포함된 문자열을 선언합니다.
+1. 루트 [ShareDirectoryClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_directory_client.html)를 가져온 후 [파일 공유 만들기](#create-a-files-share) 섹션의 파일 공유에서 [GetFileClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_directory_client.html#a93545b8d82ee94f9de183c4d277059d8)를 호출하여 [ShareFileClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_file_client.html) 개체에 대한 참조를 가져옵니다.
+1. [UploadFrom](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_file_client.html#aa80c1f0da6e6784aa0a67cff03d128ba) 함수를 호출하여 문자열을 파일에 업로드합니다. 이 함수는 파일이 없는 경우 파일을 만들고, 있는 경우 파일을 업데이트합니다.
 
-```cpp
-// Retrieve a reference to a directory
-azure::storage::cloud_file_directory directory = share.get_directory_reference(_XPLATSTR("my-sample-directory"));
+다음 코드를 `main()`의 끝에 추가합니다.
 
-// Return value is true if the share did not exist and was successfully created.
-directory.create_if_not_exists();
+:::code language="cpp" source="~/azure-storage-snippets/files/quickstarts/C++/V12/FilesShareQuickStartV12/FilesShareQuickStartV12/FilesShareQuickStartV12.cpp" ID="Snippet_UploadFile":::
 
-// Create a subdirectory.
-azure::storage::cloud_file_directory subdirectory =
-  directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
-subdirectory.create_if_not_exists();
-```
+### <a name="set-the-metadata-of-a-file"></a>파일의 메타데이터 설정
 
-## <a name="delete-a-directory"></a>디렉터리 삭제
+[ShareFileClient.SetMetadata](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_file_client.html#a2f5a40b71040003e41ba8495101f67bb) 함수를 호출하여 파일의 메타데이터 속성을 설정합니다.
 
-디렉터리의 삭제는 간단한 작업입니다. 단, 여전히 파일 또는 기타 디렉터리가 포함된 디렉터리는 삭제할 수 없습니다.
+다음 코드를 `main()`의 끝에 추가합니다.
 
-```cpp
-// Get a reference to the share.
-azure::storage::cloud_file_share share =
-  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
+:::code language="cpp" source="~/azure-storage-snippets/files/quickstarts/C++/V12/FilesShareQuickStartV12/FilesShareQuickStartV12/FilesShareQuickStartV12.cpp" ID="Snippet_SetFileMetadata":::
 
-// Get a reference to the directory.
-azure::storage::cloud_file_directory directory =
-  share.get_directory_reference(_XPLATSTR("my-sample-directory"));
+### <a name="list-the-metadata-of-a-file"></a>파일의 메타데이터 나열
 
-// Get a reference to the subdirectory you want to delete.
-azure::storage::cloud_file_directory sub_directory =
-  directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
+[ShareFileClient.GetProperties](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_file_client.html#a220017815847877cfe8f244b482fb45c) 함수를 호출하여 파일의 메타데이터 속성을 가져옵니다. 메타데이터는 반환된 `Value`의 `Metadata` 필드 아래에 있습니다. 메타데이터는 [파일의 메타데이터 설정](#set-the-metadata-of-a-file)에 있는 예제와 비슷한 키-값 쌍입니다.
 
-// Delete the subdirectory and the sample directory.
-sub_directory.delete_directory_if_exists();
+:::code language="cpp" source="~/azure-storage-snippets/files/quickstarts/C++/V12/FilesShareQuickStartV12/FilesShareQuickStartV12/FilesShareQuickStartV12.cpp" ID="Snippet_GetFileMetadata":::
 
-directory.delete_directory_if_exists();
-```
+### <a name="download-files"></a>파일 다운로드
 
-## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Azure 파일 공유의 파일 및 디렉터리 열거
+[파일의 메타데이터 나열](#list-the-metadata-of-a-file)에서 파일 속성을 검색한 경우 업로드된 파일의 속성을 사용하여 새 `std::vector<uint8_t>` 개체가 생성됩니다. [ShareFileClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_file_client.html) 기본 클래스에서 [DownloadTo](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_file_client.html#a256e7b317fbf762c4f8f5023a2cd8cb9) 함수를 호출하여 이전에 만든 파일을 새 `std::vector<uint8_t>` 개체로 다운로드합니다. 마지막으로, 다운로드한 파일 데이터를 표시합니다.
 
-공유 내에서 파일 및 디렉터리 목록을 가져오는 것은 **cloud_file_directory** 참조에서 **list_files_and_directories** 를 호출하여 쉽게 수행할 수 있습니다. 반환된 **list_file_and_directory_item** 의 메서드 및 다양한 속성에 액세스하려면 **cloud_file** 개체를 가져오는 **list_file_and_directory_item.as_file** 메서드를 호출하거나, **cloud_file_directory** 개체를 가져오는 **list_file_and_directory_item.as_directory** 메서드를 호출해야 합니다.
+다음 코드를 `main()`의 끝에 추가합니다.
 
-다음 코드는 공유의 루트 디렉터리에 있는 각 항목의 URI를 검색하고 출력하는 방법을 보여 줍니다.
+:::code language="cpp" source="~/azure-storage-snippets/files/quickstarts/C++/V12/FilesShareQuickStartV12/FilesShareQuickStartV12/FilesShareQuickStartV12.cpp" ID="Snippet_DownloadFile":::
 
-```cpp
-//Get a reference to the root directory for the share.
-azure::storage::cloud_file_directory root_dir =
-  share.get_root_directory_reference();
+### <a name="delete-a-file"></a>파일 삭제
 
-// Output URI of each item.
-azure::storage::list_file_and_directory_result_iterator end_of_results;
+다음 코드에서는 [ShareFileClient.Delete](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_file_client.html#a86036b445dce67a96f7bf6c45f163f59) 함수를 호출하여 Azure Storage 파일 공유에서 Blob을 삭제합니다.
 
-for (auto it = directory.list_files_and_directories(); it != end_of_results; ++it)
-{
-    if(it->is_directory())
-    {
-        ucout << "Directory: " << it->as_directory().uri().primary_uri().to_string() << std::endl;
-    }
-    else if (it->is_file())
-    {
-        ucout << "File: " << it->as_file().uri().primary_uri().to_string() << std::endl;
-    }
-}
-```
+:::code language="cpp" source="~/azure-storage-snippets/files/quickstarts/C++/V12/FilesShareQuickStartV12/FilesShareQuickStartV12/FilesShareQuickStartV12.cpp" ID="Snippet_DeleteFile":::
 
-## <a name="upload-a-file"></a>파일 업로드
+### <a name="delete-a-files-share"></a>파일 공유 삭제
 
-Azure 파일 공유에는 파일이 상주할 수 있는 최소한의 루트 디렉터리가 포함되어 있습니다. 이 섹션에서는 로컬 스토리지에서 공유의 루트 디렉터리로 파일을 업로드하는 방법을 배웁니다.
+다음 코드에서는 [ShareClient.Delete](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-files-shares/12.0.0/class_azure_1_1_storage_1_1_files_1_1_shares_1_1_share_client.html#a9915630503f1675b5f49eb9c01ca2601)를 통해 전체 파일 공유를 삭제하여 앱에서 만든 리소스를 정리합니다.
 
-파일을 업로드하는 첫 번째 단계는 상주해야 하는 디렉터리에 대한 참조를 가져오는 것입니다. 공유 개체의 **get_root_directory_reference** 메서드를 호출하여 가져올 수 있습니다.
+다음 코드를 `main()`의 끝에 추가합니다.
 
-```cpp
-//Get a reference to the root directory for the share.
-azure::storage::cloud_file_directory root_dir = share.get_root_directory_reference();
-```
+:::code language="cpp" source="~/azure-storage-snippets/files/quickstarts/C++/V12/FilesShareQuickStartV12/FilesShareQuickStartV12/FilesShareQuickStartV12.cpp" ID="Snippet_DeleteFilesShare":::
 
-이제 공유의 루트 디렉터리에 대한 참조를 가졌으므로 파일을 업로드할 수 있습니다. 이 예제에서는 파일, 텍스트 및 스트림에서 업로드합니다.
+## <a name="run-the-code"></a>코드 실행
 
-```cpp
-// Upload a file from a stream.
-concurrency::streams::istream input_stream =
-  concurrency::streams::file_stream<uint8_t>::open_istream(_XPLATSTR("DataFile.txt")).get();
-
-azure::storage::cloud_file file1 =
-  root_dir.get_file_reference(_XPLATSTR("my-sample-file-1"));
-file1.upload_from_stream(input_stream);
-
-// Upload some files from text.
-azure::storage::cloud_file file2 =
-  root_dir.get_file_reference(_XPLATSTR("my-sample-file-2"));
-file2.upload_text(_XPLATSTR("more text"));
-
-// Upload a file from a file.
-azure::storage::cloud_file file4 =
-  root_dir.get_file_reference(_XPLATSTR("my-sample-file-3"));
-file4.upload_from_file(_XPLATSTR("DataFile.txt"));
-```
-
-## <a name="download-a-file"></a>파일 다운로드
-
-파일을 다운로드하려면 먼저 파일 참조를 검색한 다음 **download_to_stream** 메서드를 호출하여 파일 콘텐츠를 스트림 개체로 전송하며 이 개체를 로컬 파일에 저장할 수 있습니다. 또는 **download_to_file** 메서드를 사용하여 로컬 파일에 파일 콘텐츠를 다운로드할 수 있습니다. **download_text** 메서드를 사용하여 파일 콘텐츠를 텍스트 문자열로 다운로드할 수 있습니다.
-
-다음 예제에서는 **download_to_stream** 및 **download_text** 메서드를 사용하여 이전 섹션에서 만든 파일을 다운로드하는 방법을 보여 줍니다.
-
-```cpp
-// Download as text
-azure::storage::cloud_file text_file =
-  root_dir.get_file_reference(_XPLATSTR("my-sample-file-2"));
-utility::string_t text = text_file.download_text();
-ucout << "File Text: " << text << std::endl;
-
-// Download as a stream.
-azure::storage::cloud_file stream_file =
-  root_dir.get_file_reference(_XPLATSTR("my-sample-file-3"));
-
-concurrency::streams::container_buffer<std::vector<uint8_t>> buffer;
-concurrency::streams::ostream output_stream(buffer);
-stream_file.download_to_stream(output_stream);
-std::ofstream outfile("DownloadFile.txt", std::ofstream::binary);
-std::vector<unsigned char>& data = buffer.collection();
-outfile.write((char *)&data[0], buffer.size());
-outfile.close();
-```
-
-## <a name="delete-a-file"></a>파일 삭제
-
-다른 일반적인 Azure Files 작업은 파일 삭제입니다. 다음 코드는 루트 디렉터리 아래 저장된 my-sample-file-3이라는 파일을 삭제합니다.
-
-```cpp
-// Get a reference to the root directory for the share.
-azure::storage::cloud_file_share share =
-  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
-
-azure::storage::cloud_file_directory root_dir =
-  share.get_root_directory_reference();
-
-azure::storage::cloud_file file =
-  root_dir.get_file_reference(_XPLATSTR("my-sample-file-3"));
-
-file.delete_file_if_exists();
-```
-
-## <a name="set-the-quota-maximum-size-for-an-azure-file-share"></a>Azure 파일 공유에 대한 할당량(최대 크기) 설정
-
-파일 공유를 위한 할당량(또는 최대 크기)을 기가바이트 단위로 설정할 수 있습니다. 또한 공유에 현재 저장된 데이터의 양도 확인할 수 있습니다.
-
-공유에 대한 할당량을 설정하여 공유에 저장되는 파일의 전체 크기를 제한할 수 있습니다. 공유에 있는 파일의 총 크기가 공유에 대해 설정된 할당량을 초과하면 클라이언트는 해당 파일이 비어 있지 않는 한, 기존 파일의 크기를 늘리거나 새 파일을 만들 수 없습니다.
-
-아래 예제에서는 공유에 대한 현재 사용량을 확인하고 공유에 대해 할당량을 설정하는 방법을 보여 줍니다.
-
-```cpp
-// Parse the connection string for the storage account.
-azure::storage::cloud_storage_account storage_account =
-  azure::storage::cloud_storage_account::parse(storage_connection_string);
-
-// Create the file client.
-azure::storage::cloud_file_client file_client =
-  storage_account.create_cloud_file_client();
-
-// Get a reference to the share.
-azure::storage::cloud_file_share share =
-  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
-if (share.exists())
-{
-    std::cout << "Current share usage: " << share.download_share_usage() << "/" << share.properties().quota();
-
-    //This line sets the quota to 2560GB
-    share.resize(2560);
-
-    std::cout << "Quota increased: " << share.download_share_usage() << "/" << share.properties().quota();
-
-}
-```
-
-## <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>파일 또는 파일 공유에 대한 공유 액세스 서명 생성
-
-파일 공유 또는 개별 파일에 대한 SAS(공유 액세스 서명)를 생성할 수 있습니다. 또한 파일 공유에 대해 공유 액세스 정책을 만들어 공유 액세스 서명을 관리할 수도 있습니다. 공유 액세스 정책을 만들면 노출된 SAS를 해지할 수 있으므로 권장됩니다.
-
-다음 예제에서는 공유에 대해 공유 액세스 정책을 만들고 해당 정책을 사용하여 공유의 파일에 대해 SAS에 대한 제약 조건을 제공합니다.
-
-```cpp
-// Parse the connection string for the storage account.
-azure::storage::cloud_storage_account storage_account =
-  azure::storage::cloud_storage_account::parse(storage_connection_string);
-
-// Create the file client and get a reference to the share
-azure::storage::cloud_file_client file_client =
-  storage_account.create_cloud_file_client();
-
-azure::storage::cloud_file_share share =
-  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
-
-if (share.exists())
-{
-    // Create and assign a policy
-    utility::string_t policy_name = _XPLATSTR("sampleSharePolicy");
-
-    azure::storage::file_shared_access_policy sharedPolicy =
-      azure::storage::file_shared_access_policy();
-
-    //set permissions to expire in 90 minutes
-    sharedPolicy.set_expiry(utility::datetime::utc_now() +
-       utility::datetime::from_minutes(90));
-
-    //give read and write permissions
-    sharedPolicy.set_permissions(azure::storage::file_shared_access_policy::permissions::write | azure::storage::file_shared_access_policy::permissions::read);
-
-    //set permissions for the share
-    azure::storage::file_share_permissions permissions;
-
-    //retrieve the current list of shared access policies
-    azure::storage::shared_access_policies<azure::storage::file_shared_access_policy> policies;
-
-    //add the new shared policy
-    policies.insert(std::make_pair(policy_name, sharedPolicy));
-
-    //save the updated policy list
-    permissions.set_policies(policies);
-    share.upload_permissions(permissions);
-
-    //Retrieve the root directory and file references
-    azure::storage::cloud_file_directory root_dir =
-        share.get_root_directory_reference();
-    azure::storage::cloud_file file =
-      root_dir.get_file_reference(_XPLATSTR("my-sample-file-1"));
-
-    // Generate a SAS for a file in the share
-    //  and associate this access policy with it.
-    utility::string_t sas_token = file.get_shared_access_signature(sharedPolicy);
-
-    // Create a new CloudFile object from the SAS, and write some text to the file.
-    azure::storage::cloud_file file_with_sas(azure::storage::storage_credentials(sas_token).transform_uri(file.uri().primary_uri()));
-    utility::string_t text = _XPLATSTR("My sample content");
-    file_with_sas.upload_text(text);
-
-    //Download and print URL with SAS.
-    utility::string_t downloaded_text = file_with_sas.download_text();
-    ucout << downloaded_text << std::endl;
-    ucout << azure::storage::storage_credentials(sas_token).transform_uri(file.uri().primary_uri()).to_string() << std::endl;
-
-}
+이 앱은 컨테이너를 만들고, 텍스트 파일을 Azure Blob Storage에 업로드합니다. 그런 다음, 예제에서 컨테이너의 Blob을 나열하고, 파일을 다운로드하고, 파일 내용을 표시합니다. 마지막으로 앱에서 Blob 및 컨테이너를 삭제합니다.
+
+앱의 출력은 다음 예제 출력과 유사합니다.
+
+```output
+Azure Files Shares storage v12 - C++ quickstart sample
+Creating files share: sample-share
+Uploading file: sample-file
+Listing file metadata...
+key1:value1
+key2:value2
+Downloaded file contents: Hello Azure!
+Deleting file: sample-file
+Deleting files share: sample-share
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Storage에 대한 자세한 내용은 다음 리소스를 살펴보세요.
+이 빠른 시작에서는 C++를 사용하여 파일을 업로드, 다운로드 및 나열하는 방법을 알아보았습니다. 또한 Azure Storage 파일 공유를 만들고 삭제하는 방법을 알아보았습니다.
 
-* [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
-* [C++ 형식의 Azure Storage 파일 서비스 샘플](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
-* [Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
-* [Azure Storage 설명서](https://azure.microsoft.com/documentation/services/storage/)
+Blob Storage 샘플을 보려면 다음으로 계속 진행하세요.
+
+> [!div class="nextstepaction"]
+> [C++용 Azure Storage 파일 공유 SDK v12 샘플](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage/azure-storage-files-shares/sample)

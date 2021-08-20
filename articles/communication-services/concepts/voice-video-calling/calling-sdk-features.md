@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7173c625ef56ea9e4d4d43d90adc18ba4fe167ab
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 320ef1b523615894910d277fcc155104b4b297bc
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113109290"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766546"
 ---
 # <a name="calling-sdk-overview"></a>통화 SDK 개요
 
@@ -111,7 +111,7 @@ Communication Services 통화 SDK에는 다음 제한 시간이 적용됩니다.
 | 플랫폼     | Chrome | Safari | Edge(Chromium) | 참고                                                                                                                                                                                                       |
 | ------------ | ------ | ------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Android      | ✔️      | ❌      | ❌               | 보내는 화면 공유는 지원되지 않습니다.                                                                                                                                                                   |
-| iOS          | ❌      | ✔️      | ❌               | Safari의 iOS 앱은 마이크 및 스피커 디바이스(예: Bluetooth)를 열거/선택할 수 없습니다. 이는 OS의 제한 사항이며 항상 하나의 디바이스만 있습니다. 보내는 화면 공유는 지원되지 않습니다. |
+| iOS          | ❌      | ✔️      | ❌               | [Safari의 iOS 앱은 마이크 및 스피커 디바이스(예: Bluetooth)를 열거/선택할 수 없습니다](https://docs.microsoft.com/azure/communication-services/concepts/known-issues#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados). 이는 OS의 제한 사항이며, 항상 하나의 디바이스만 있고, OS가 기본 디바이스 선택을 제어합니다. 보내는 화면 공유는 지원되지 않습니다. |
 | macOS        | ✔️      | ✔️      | ❌               | 발신 비디오 지원에 Safari 14+/macOS 11+가 필요합니다.                                                                                                                                                     |
 | Windows      | ✔️      | ❌      | ✔️               |                                                                                                                                                                                                             |
 | Ubuntu/Linux | ✔️      | ❌      | ❌               |                                                                                                                                                                                                             |

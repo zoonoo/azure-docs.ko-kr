@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 단계에 따라 Azure CLI에 대한 Res
 ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3cf4b75d3e2ade6803d2950fa13ee2e01d99de6d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: cbcd4185507423d488f1ffc348740647881fda81
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751934"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114457414"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -48,7 +48,7 @@ Azure CLI를 사용하도록 설정하여 Azure Resource Graph를 쿼리하려�
 
 ## <a name="run-your-first-resource-graph-query"></a>첫 번째 Resource Graph 실행
 
-Azure CLI 확장이 선택한 환경에 추가되었으므로 간단한 Resource Graph 쿼리를 시도해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식** 와 함께 처음 5개 Azure 리소스를 반환합니다.
+Azure CLI 확장이 선택한 환경에 추가되었으므로 간단한 테넌트 기반 Resource Graph 쿼리를 시도해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식** 과 함께 처음 5개 Azure 리소스를 반환합니다. [관리 그룹](../management-groups/overview.md) 또는 구독별로 쿼리하려면 `--managementgroups` 또는 `--subscriptions` 인수를 사용합니다.
 
 1. `graph` 확장 및 `query` 명령을 사용하여 첫 번째 Azure Resource Graph 쿼리를 실행합니다.
 

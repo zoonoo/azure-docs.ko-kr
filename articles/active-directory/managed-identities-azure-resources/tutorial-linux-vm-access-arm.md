@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 07/26/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 653159c2e40d3375a422f0da14274f57130de1fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 13d427ea5cc73f9cbd4176332c351453891b2e7a
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93359683"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707570"
 ---
 # <a name="use-a-linux-vm-system-assigned-managed-identity-to-access-azure-resource-manager"></a>Linux VM 시스템 할당 관리 ID를 사용하여 Azure Resource Manager에 액세스
 
@@ -36,7 +36,7 @@ ms.locfileid: "93359683"
 
 - 관리 ID에 대한 이해. Azure 리소스에 대한 관리 ID 기능이 익숙하지 않은 경우 [개요](overview.md)를 참조하세요. 
 - Azure 계정, [체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
-- 시스템 할당 관리 ID가 활성화된 Linux 가상 머신도 필요합니다.
+- 시스템 할당 관리 ID가 활성화된 Linux 가상 머신도 필요합니다. VM이 있지만 [시스템이 할당한 관리 ID](qs-configure-portal-windows-vm.md)를 사용하도록 설정해야 하는 경우 가상 머신 속성의 ID 섹션에서 수행할 수 있습니다. 
   - 이 자습서에 대한 가상 머신을 만들어야 하는 경우 [Azure Portal을 사용하여 Linux 가상 머신 만들기](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)라는 제목의 문서를 수행하면 됩니다.
 
 ## <a name="grant-access"></a>액세스 권한 부여

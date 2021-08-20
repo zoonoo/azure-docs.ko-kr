@@ -8,12 +8,12 @@ ms.service: firewall-manager
 ms.date: 10/22/2020
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9161eee3fe892092d06080a3a5ce1e11c4fa1764
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 0a8973887f179f2b05f2694e932f50cafa26c69c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701905"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469402"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 허브 보호
 
@@ -33,9 +33,6 @@ ms.locfileid: "110701905"
 - PowerShell 7
 
    이 자습서에서는 PowerShell 7에서 Azure PowerShell을 로컬로 실행해야 합니다. PowerShell 7을 설치하려면 [Windows PowerShell 5.1에서 PowerShell 7로 마이그레이션](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7&preserve-view=true)을 참조하세요.
-- Az.Network 버전 3.2.0
-
-    Az.Network 버전 3.4.0 이상이 있는 경우 이 자습서의 일부 명령을 사용하려면 다운그레이드해야 합니다. Az.Network 모듈의 버전은 `Get-InstalledModule -Name Az.Network` 명령을 사용하여 확인할 수 있습니다. Az.Network 모듈을 제거하려면 `Uninstall-Module -name az.network`를 실행합니다. Az.Network 3.2.0 모듈을 설치하려면 `Install-Module az.network -RequiredVersion 3.2.0 -force`를 실행합니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -67,8 +64,8 @@ $Hub = New-AzVirtualHub -Name $HubName -ResourceGroupName $RG -VirtualWan $Vwan 
 $Spoke1 = New-AzVirtualNetwork -Name "spoke1" -ResourceGroupName $RG -Location $Location -AddressPrefix "10.1.1.0/24"
 $Spoke2 = New-AzVirtualNetwork -Name "spoke2" -ResourceGroupName $RG -Location $Location -AddressPrefix "10.1.2.0/24"
 # Connect Virtual Network to Virtual WAN
-$Spoke1Connection = New-AzVirtualHubVnetConnection -ResourceGroupName $RG -ParentResourceName  $HubName -Name "spoke1" -RemoteVirtualNetwork $Spoke1
-$Spoke2Connection = New-AzVirtualHubVnetConnection -ResourceGroupName $RG -ParentResourceName  $HubName -Name "spoke2" -RemoteVirtualNetwork $Spoke2
+$Spoke1Connection = New-AzVirtualHubVnetConnection -ResourceGroupName $RG -ParentResourceName  $HubName -Name "spoke1" -RemoteVirtualNetwork $Spoke1 -EnableInternetSecurityFlag $True
+$Spoke2Connection = New-AzVirtualHubVnetConnection -ResourceGroupName $RG -ParentResourceName  $HubName -Name "spoke2" -RemoteVirtualNetwork $Spoke2 -EnableInternetSecurityFlag $True
 ```
 
 이 시점에서 모든 기능을 갖춘 Virtual WAN을 통해 임의 연결을 제공합니다. 보안을 강화하려면 Azure Firewall을 각 가상 허브에 배포해야 합니다. 방화벽 정책을 사용하여 가상 WAN Azure Firewall 인스턴스를 효율적으로 관리할 수 있습니다. 따라서 방화벽 정책도 다음 예제에서 만들어집니다.
@@ -125,9 +122,11 @@ $Spoke2Connection = Update-AzVirtualHubVnetConnection -ResourceGroupName $RG -Pa
 ```azurepowershell
 # Create static routes in default Route table
 $AzFWId = $(Get-AzVirtualHub -ResourceGroupName $RG -name  $HubName).AzureFirewall.Id
-$AzFWRoute = New-AzVHubRoute -Name "private-traffic" -Destination @("0.0.0.0/0", "10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16") -DestinationType "CIDR" -NextHop $AzFWId -NextHopType "ResourceId"
+$AzFWRoute = New-AzVHubRoute -Name "all_traffic" -Destination @("0.0.0.0/0", "10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16") -DestinationType "CIDR" -NextHop $AzFWId -NextHopType "ResourceId"
 $DefaultRT = Update-AzVHubRouteTable -Name "defaultRouteTable" -ResourceGroupName $RG -VirtualHubName  $HubName -Route @($AzFWRoute)
 ```
+> [!NOTE]
+> 위의 New-AzVHubRoute 명령에서 매개 변수 "-Name"에 대한 값으로 "***all_traffic***" 문자열은 특별한 의미가 있습니다. 이 정확한 문자열을 사용하면 이 문서에 적용된 구성이 Azure Portal(Firewall Manager --> 가상 허브 --> [사용자 허브] --> 보안 구성)에 제대로 반영됩니다. 다른 이름을 사용하는 경우 원하는 구성이 적용되지만 Azure Portal에는 반영되지 않습니다. 
 
 ## <a name="test-connectivity"></a>연결 테스트
 

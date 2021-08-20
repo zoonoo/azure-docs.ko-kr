@@ -1,11 +1,10 @@
 ---
 title: Azure Kinect DK 하드웨어 사양
 description: Azure Kinect DK의 구성 요소, 사양 및 기능을 살펴봅니다.
-author: tesych
-ms.author: tesych
-ms.reviewer: jarrettr
+author: qm13
+ms.author: quentinm
 ms.prod: kinect-dk
-ms.date: 02/14/2020
+ms.date: 03/18/2021
 ms.topic: article
 keywords: Azure, Kinect, 사양, 하드웨어, DK, 기능, 깊이, 색, RGB, IMU, 마이크, 어레이, 깊이
 ms.custom:
@@ -14,12 +13,12 @@ ms.custom:
 audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high
-ms.openlocfilehash: e0d42a3ce1dd9deb5e73500371c367134ca852e1
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: b5ec67537fe0bd8732b4068c0ed52861ed8f2c1a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77619955"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "116986087"
 ---
 # <a name="azure-kinect-dk-hardware-specifications"></a>Azure Kinect DK 하드웨어 사양
 
@@ -27,7 +26,7 @@ ms.locfileid: "77619955"
 
 ![Azure Kinect DK](./media/resources/hardware-specs-media/device-wire.png)
 
-## <a name="terms"></a>용어
+## <a name="terms"></a>항
 
 이 문서 전체에서 사용되는 약어는 다음과 같습니다.
 
@@ -47,11 +46,13 @@ Azure Kinect 디바이스에 구성되는 크기와 무게 치수는 다음과 �
 
 ![Azure Kinect DK 치수](./media/resources/hardware-specs-media/dimensions.png)
 
-## <a name="operating-environment"></a>작동 환경
+Azure Kinect 디바이스에 대한 STEP 파일은 [여기](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/assets)에서 사용할 수 있습니다. 
+
+## <a name="operating-environment"></a>운영 환경
 
 Azure Kinect DK는 다음과 같은 주변 조건에서 운영하는 개발자 및 상용 비즈니스를 위한 것입니다.
 
-- **Temperature**: 10-25⁰C
+- **온도**: 10-25<sup>0</sup>C
 - **습도**: 8-90%(비응축) 상대 습도
 
 > [!NOTE]
@@ -61,9 +62,9 @@ Azure Kinect DK는 다음과 같은 주변 조건에서 운영하는 개발자 �
 
 ## <a name="depth-camera-supported-operating-modes"></a>깊이 카메라 지원 작동 모드
 
-Azure Kinect DK는 [ISSCC 2018에 제시된 이미지 센서](https://docs.microsoft.com/windows/mixed-reality/ISSCC-2018)를 사용하여 Microsoft에서 설계한 1메가픽셀 ToF(Time-of-Flight) 깊이 카메라를 통합합니다. 깊이 카메라에서 지원하는 모드는 아래에 나와 있습니다.
+Azure Kinect DK는 [ISSCC 2018에 제시된 이미지 센서](/windows/mixed-reality/ISSCC-2018)를 사용하여 Microsoft에서 설계한 1메가픽셀 ToF(Time-of-Flight) 깊이 카메라를 통합합니다. 깊이 카메라에서 지원하는 모드는 아래에 나와 있습니다.
 
- | Mode            | 해결 방법 | FoI       | FPS                | 작동 범위* | 노출 시간 |
+ | 모드            | 해결 방법 | FoI       | FPS                | 작동 범위* | 노출 시간 |
 |-----------------|------------|-----------|--------------------|------------------|---------------|
 | NFOV Unbinned   | 640 x 576    | 75° x 65°   | 0, 5, 15, 30       | 0.5-3.86m       | 12.8ms        |
 | NFOV 2x2 Binned(SW) | 320 x 288    | 75° x 65°   | 0, 5, 15, 30       | 0.5 - 5.46m       | 12.8ms        |
@@ -84,9 +85,9 @@ Azure Kinect DK에는 OV12A10 12MP CMOS 센서 롤링 셔터 센서가 포함되
 |       1920 x 1080                          |          16:9          |          MJPEG            |          0, 5, 15, 30       |          90° x 59°                              |
 |       1280 x 720                           |          16:9          |          MJPEG/YUY2/NV12  |          0, 5, 15, 30       |          90° x 59°                              |
 |       4096 x 3072                          |          4:3           |          MJPEG             |          0, 5, 15           |          90° x 74.3°                            |
-|       2048 x 1536                          |          4:3           |          MJPEG             |          0, 5, 15, 30       |          90° x 74.3°                            |
+|       2048x1536                          |          4:3           |          MJPEG             |          0, 5, 15, 30       |          90° x 74.3°                            |
 
-RGB 카메라는 USB 비디오 클래스와 호환되며 센서 SDK 없이 사용할 수 있습니다. RGB 카메라 색 공간은 BT.601 전체 범위[0..255]입니다. 
+RGB 카메라는 USB 비디오 클래스와 호환되며 센서 SDK 없이 사용할 수 있습니다. RGB 카메라 색 공간: BT.601 전체 범위 [0..255]. MJPEG [색도 하위 샘플링](https://en.wikipedia.org/wiki/Chroma_subsampling)은 4:2:2입니다.
 
 > [!NOTE]
 > 센서 SDK는 BGRA 픽셀 형식의 컬러 이미지를 제공할 수 있습니다. 이는 디바이스에서 지원하는 기본 모드가 아니므로 사용 시 추가 CPU 로드가 발생합니다. 호스트 CPU는 디바이스에서 받는 MJPEG 이미지를 변환하는 데 사용됩니다.
@@ -113,7 +114,7 @@ RGB 카메라는 USB 비디오 클래스와 호환되며 센서 SDK 없이 사�
 
 ## <a name="depth-sensor-raw-timing"></a>깊이 센서 원시 타이밍
 
-깊이 모드 | IR <br>펄스 | 펄스 <br>너비  | 유휴 상태 <br>기간| 유휴 시간 | 노출 <br> Time
+깊이 모드 | IR <br>펄스 | 펄스 <br>너비  | 유휴 상태 <br>마침표| 유휴 시간 | 노출 <br> 시간
 -|-|-|-|-|-
 NFOV Unbinned <br>  NFOV 2xx Binned <br> WFOV 2x2 Binned | 9 | 125us | 8 | 1450us | 12.8ms 
 WFOV Unbinned                                            | 9 | 125us | 8 | 2390us | 20.3ms
@@ -136,7 +137,7 @@ WFOV Unbinned                                            | 9 | 125us | 8 | 2390u
 
 내장형 IMU(관성 측정 장치)는 LSM6DSMUS이며, 가속도계와 자이로스코프를 모두 포함하고 있습니다. 가속도계와 자이로스코프는 1.6kHz로 동시에 샘플링됩니다. 샘플은 208Hz로 호스트에 보고됩니다.
 
-## <a name="microphone-array"></a>마이크 어레이
+## <a name="microphone-array"></a>마이크 배열
 
 Azure Kinect DK에는 표준 USB 오디오 클래스 2.0 디바이스로 식별되는 7개의 고품질 마이크 순환 어레이가 포함되어 있습니다. 7개 채널 모두에 액세스할 수 있습니다. 성능 사양은 다음과 같습니다.
 
@@ -150,7 +151,7 @@ Azure Kinect DK에는 표준 USB 오디오 클래스 2.0 디바이스로 식별�
 
 Azure Kinect DK는 다음 하드웨어 엔드포인트를 운영 체제에 공개하는 USB3 복합 디바이스입니다.
 
-공급업체 ID는 0x045E(Microsoft)이며, 제품 ID는 다음 표와 같습니다.
+공급업체 ID는 0x045E(Microsoft)입니다. 아래는 제품 ID 표입니다.
 
 |    USB 인터페이스        |    PNP IP    |     메모            |
 |-------------------------|--------------|----------------------|
@@ -177,7 +178,7 @@ Azure Kinect DK는 다음 하드웨어 엔드포인트를 운영 체제에 공�
 
 디바이스에 전원을 공급하는 두 가지 방법은 다음과 같습니다.
 
-1. 기본 제공 전원 공급 장치를 사용합니다. 데이터는 별도의 C형-A형 USB 케이블로 연결됩니다.
+1. 기본 제공 전원 공급 장치를 사용합니다. 전원 커넥터는 3.0mm ID와 0.6mm의 핀 직경을 가진 4.5mm OD입니다.
 2. 전원 및 데이터는 모두 C형-C형 케이블을 사용합니다.
 
 C형-C형 케이블은 Azure Kinect DK에 포함되어 있지 않습니다.
@@ -190,7 +191,7 @@ C형-C형 케이블은 Azure Kinect DK에 포함되어 있지 않습니다.
 > 효율적인 C형-C형 케이블을 선택하는 경우 다음 사항을 고려하세요.
 > - [USB 인증 케이블](https://www.usb.org/products)에서 전원과 데이터를 모두 지원해야 합니다.
 > - 패시브 케이블의 길이는 1.5m 미만이어야 합니다. 더 긴 경우 액티브 케이블을 사용합니다. 
-> - 케이블에서 1.5A 이상을 지원해야 합니다. 그렇지 않으면 외부 전원 공급 장치를 연결해야 합니다.
+> - 케이블은 최소 1.5A를 지원해야 합니다. 그렇지 않으면 외부 전원 공급 장치를 연결해야 합니다.
 
 다음과 같이 케이블을 확인합니다.
 
@@ -227,7 +228,7 @@ C형-C형 케이블은 Azure Kinect DK에 포함되어 있지 않습니다.
 |황색 깜박임 |디바이스가 작동하는 데 필요한 전원이 부족합니다. |원형 전원 커넥터 케이블이 디바이스 및 USB 전원 어댑터에 연결되어 있는지 확인합니다.<br /><br />C형 USB 케이블이 디바이스 및 PC에 연결되어 있는지 확인합니다. |
 |황색, 다음으로 흰색 깜박임 |디바이스가 켜져 있고, 펌웨어 업데이트를 받고 있거나 디바이스에서 공장 설정을 복원하고 있습니다. |전원 표시등이 흰색으로 고정될 때까지 기다립니다. 자세한 내용은 [Azure Kinect DK 다시 설정](reset-azure-kinect-dk.md)을 참조하세요. |
 
-## <a name="power-consumption"></a>전원 소비
+## <a name="power-consumption"></a>전력 소비
 
 Azure Kinect DK는 최대 5.9W의 전력을 소비합니다. 특정 전력 소비량은 사용 사례에 따라 달라집니다.
 

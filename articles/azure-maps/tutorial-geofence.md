@@ -3,22 +3,24 @@ title: '자습서: Microsoft Azure Map에서 지오펜스 만들기 및 디바�
 description: 지오펜스를 설정하는 방법에 대한 자습서. Azure Maps Spatial 서비스를 사용하여 지오펜스와 관련된 디바이스를 추적하는 방법을 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 8/20/2020
+ms.date: 7/06/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 3b9833035aa83f739b2edad7cfea9fd6cd959a69
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 89988d6cac66e347dc131f67003a69e5a91eb220
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112032342"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113358231"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 지오펜스 설정
 
-이 자습서에서는 Azure Maps 지오펜스 서비스를 만들고 사용하는 방법에 대한 기본 사항을 안내합니다. 다음과 같은 시나리오 컨텍스트에서 알아볼 것입니다.
+이 자습서에서는 Azure Maps 지오펜스 서비스를 만들고 사용하는 방법에 대한 기본 사항을 안내합니다. 
+
+다음 시나리오를 고려하세요.
 
 *건설 분야의 현장 관리자는 건설 구역의 경계를 출입하는 장비를 추적해야 합니다. 일부 장비가 이러한 경계에 들어가거나 나갈 때마다 운영 관리자에게 이메일 알림을 보냅니다.*
 
@@ -35,7 +37,7 @@ Azure Maps는 건설 구역을 출입하는 장비의 추적을 지원하는 다
 1. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
 2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
-이 자습서에서는 [Postman](https://www.postman.com/) 애플리케이션을 사용하지만, 다른 API 개발 환경을 선택해도 됩니다.
+이 자습서에서는 [Postman](https://www.postman.com/) 애플리케이션을 사용하지만, 다른 API 개발 환경을 사용할 수 있습니다.
 
 ## <a name="upload-geofencing-geojson-data"></a>지오펜싱 GeoJSON 데이터 업로드
 
@@ -44,11 +46,17 @@ Azure Maps는 건설 구역을 출입하는 장비의 추적을 지원하는 다
 >[!TIP]
 >지오펜싱 데이터는 언제든지 업데이트할 수 있습니다. 자세한 내용은 [데이터 업로드 API](/rest/api/maps/data-v2/upload-preview)를 참조하세요.
 
-1. Postman 앱을 엽니다. 위쪽 근처에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **컬렉션** 을 선택합니다. 컬렉션 이름을 지정하고, **만들기** 를 선택합니다.
+지오펜싱 GeoJSON 데이터를 업로드하려면 다음을 수행합니다.
 
-2. 요청을 만들려면 **새로 만들기** 를 다시 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 단계에서 만든 컬렉션을 선택한 다음, **저장** 을 선택합니다.
+1. Postman 앱에서 **새로 만들기** 를 선택합니다.
 
-3. 작성기 탭에서 **POST** HTTP 메서드를 선택하고, 다음 URL을 입력하여 지오펜싱 데이터를 Azure Maps에 업로드합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
+2. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다.
+
+3. 요청에 대한 **요청 이름**(예:  *데이터 업로드*)을 입력합니다.
+
+4. **POST** HTTP 메서드를 선택합니다.
+
+5. 다음 URL을 입력합니다. 요청은 다음 URL과 같습니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿈).
 
     ```HTTP
     https://us.atlas.microsoft.com/mapData?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&dataFormat=geojson
@@ -56,7 +64,11 @@ Azure Maps는 건설 구역을 출입하는 장비의 추적을 지원하는 다
 
     URL 경로의 `geojson` 매개 변수는 업로드되는 데이터의 데이터 형식을 나타냅니다.
 
-4. **본문** 탭을 선택합니다. 입력 형식으로 **raw**, **JSON** 을 차례로 선택합니다. 다음 GeoJSON 데이터를 복사하여 **Body** 텍스트 영역에 붙여넣습니다.
+6. **본문** 탭을 선택합니다.
+
+7. 드롭다운 목록에서 **원시** 및 **JSON** 을 선택합니다.
+
+8. 다음 GeoJSON 데이터를 복사한 다음, **본문** 창에 붙여넣습니다.
 
    ```JSON
    {
@@ -144,29 +156,63 @@ Azure Maps는 건설 구역을 출입하는 장비의 추적을 지원하는 다
    }
    ```
 
-5. **보내기** 를 선택하고, 요청이 처리될 때까지 기다립니다. 요청이 완료되면 응답의 **헤더** 탭으로 이동합니다. **Operation-Location** 키의 값인 `status URL`을 복사합니다.
+9. **보내기** 를 선택합니다.
+
+10. 응답 창에서 **헤더** 탭을 선택합니다.
+
+11. **Operation-Location** 키의 값인 `status URL`을 복사합니다. `status URL`을 사용하여 GeoJSON 데이터 업로드의 상태를 확인합니다.
 
     ```http
     https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0
     ```
 
-6. API 호출의 상태를 확인하려면 `status URL`에 대한 **GET** HTTP 요청을 만듭니다. 인증을 위해 기본 구독 키를 URL에 추가해야 합니다. **GET** 요청은 다음 URL과 같습니다.
+### <a name="check-the-geojson-data-upload-status"></a>GeoJSON 데이터 업로드 상태 확인
+
+GeoJSON 데이터의 상태를 확인하고 고유 ID(`udid`)를 검색하려면 다음을 수행합니다.
+
+1. **새로 만들기** 를 선택합니다.
+
+2. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다.
+
+3. 요청에 대한 **요청 이름**(예: *GET 데이터 업로드 상태*)을 입력합니다.
+
+4. **GET** HTTP 메서드를 선택합니다.
+
+5. 복사한 `status URL`을 [지오펜싱 GeoJSON 데이터 업로드](#upload-geofencing-geojson-data)에 입력합니다. 요청은 다음 URL과 같습니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿈).
 
    ```HTTP
    https://us.atlas.microsoft.com/mapData/<operationId>?api-version=2.0&subscription-key={Subscription-key}
    ```
 
-7. 요청이 성공적으로 완료되면 응답 창에서 **헤더** 탭을 선택합니다. **Resource-Location** 키의 값인 `resource location URL`을 복사합니다.  `resource location URL`에는 업로드된 데이터의 고유 식별자(`udid`)가 포함됩니다. 이 자습서의 마지막 섹션에서 지오펜스 가져오기 API를 쿼리할 수 있도록 `udid`를 저장합니다. 필요에 따라 다음 단계에서 `resource location URL`을 사용하여 이 리소스에서 메타데이터를 검색할 수 있습니다.
+6. **보내기** 를 선택합니다.
+
+7. 응답 창에서 **헤더** 탭을 선택합니다.
+
+8. **Resource-Location** 키의 값인 `resource location URL`을 복사합니다. `resource location URL`에는 업로드된 데이터의 고유 식별자(`udid`)가 포함됩니다. 이 자습서의 마지막 섹션에서 지오펜스 가져오기 API를 쿼리할 수 있도록 `udid`를 저장합니다.
 
     :::image type="content" source="./media/tutorial-geofence/resource-location-url.png" alt-text="리소스 위치 URL을 복사합니다.":::
 
-8. 콘텐츠 메타데이터를 검색하려면 7단계에서 검색된 `resource location URL`에 대한 **GET** HTTP 요청을 만듭니다. 인증을 위해 기본 구독 키를 URL에 추가해야 합니다. **GET** 요청은 다음 URL과 같습니다.
+### <a name="optional-retrieve-geojson-data-metadata"></a>(선택 사항) GeoJSON 데이터 메타데이터 검색
+
+업로드된 데이터에서 메타데이터를 검색할 수 있습니다. 메타데이터에는 리소스 위치 URL, 만든 날짜, 업데이트한 날짜, 크기 및 업로드 상태와 같은 정보가 포함됩니다.
+
+콘텐츠 메타데이터를 검색하려면 다음을 수행합니다.
+
+1. **새로 만들기** 를 선택합니다.
+
+2. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다.
+
+3. 요청에 대한 **요청 이름**(예: *GET 데이터 업로드 메타데이터*)을 입력합니다.
+
+4. **GET** HTTP 메서드를 선택합니다.
+
+5. 복사한 `resource Location URL`을 [GeoJSON 데이터 업로드 상태 확인](#check-the-geojson-data-upload-status)에 입력합니다. 요청은 다음 URL과 같습니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿈).
 
     ```http
     https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-9. 요청이 성공적으로 완료되면 응답 창에서 **헤더** 탭을 선택합니다. 메타데이터는 다음 JSON 조각과 같아야 합니다.
+6. 응답 창에서 **본문** 탭을 선택합니다. 메타데이터는 다음 JSON 조각과 같습니다.
 
     ```json
     {
@@ -181,7 +227,9 @@ Azure Maps는 건설 구역을 출입하는 장비의 추적을 지원하는 다
 
 ## <a name="create-workflows-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 만들기
 
-다음으로, 이메일 알림을 트리거하는 두 개의 [논리 앱](../event-grid/handler-webhooks.md#logic-apps) 엔드포인트를 만듭니다. 첫 번째 논리 앱 엔드포인트를 만드는 방법은 다음과 같습니다.
+다음으로, 메일 알림을 트리거하는 두 개의 [논리 앱](../event-grid/handler-webhooks.md#logic-apps) 엔드포인트를 만듭니다. 
+
+논리 앱을 만들려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -189,7 +237,7 @@ Azure Maps는 건설 구역을 출입하는 장비의 추적을 지원하는 다
 
 3. **Marketplace 검색** 상자에서 **Logic App** 을 입력합니다.
 
-4. 결과에서 **논리 앱** > **만들기** 를 선택합니다.
+4. 결과에서 **논리 앱** 을 선택합니다. 그런 다음 **만들기** 를 선택합니다.
 
 5. **Logic App** 페이지에서 다음 값을 입력합니다.
     * 이 논리 앱에 사용하려는 **구독**
@@ -200,46 +248,57 @@ Azure Maps는 건설 구역을 출입하는 장비의 추적을 지원하는 다
 
     :::image type="content" source="./media/tutorial-geofence/logic-app-create.png" alt-text="논리 앱 만들기 스크린샷":::
 
-6. **검토 + 만들기** 를 선택합니다. 설정을 검토하고, **만들기** 를 선택하여 배포를 제출합니다. 배포가 성공적으로 완료되면 **리소스로 이동** 을 선택합니다. 그러면 **논리 앱 디자이너** 로 이동됩니다.
+6. **검토 + 만들기** 를 선택합니다. 설정을 검토하고 **만들기** 를 선택합니다.
 
-7. 트리거 형식을 선택합니다. **일반적인 트리거로 시작** 섹션이 나올 때까지 아래로 스크롤합니다. **HTTP 요청을 수신한 경우** 를 선택합니다.
+7. 배포가 성공적으로 완료되면 **리소스로 이동** 을 선택합니다.
+
+8. **논리 앱 디자이너** 에서 **일반적인 트리거로 시작** 섹션이 나올 때까지 아래로 스크롤합니다. **HTTP 요청을 수신한 경우** 를 선택합니다.
 
      :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="논리 앱 HTTP 트리거 만들기 스크린샷":::
 
-8. 논리 앱 디자이너의 오른쪽 위 모서리에서 **저장** 을 선택합니다. **HTTP POST URL** 이 자동으로 생성됩니다. URL을 저장합니다. 다음 섹션에서 이벤트 엔드포인트를 만드는 데 필요합니다.
+9. 논리 앱 디자이너의 오른쪽 위 모서리에서 **저장** 을 선택합니다. **HTTP POST URL** 이 자동으로 생성됩니다. URL을 저장합니다. 다음 섹션에서 이벤트 엔드포인트를 만드는 데 필요합니다.
 
     :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="논리 앱 HTTP 요청 URL 및 JSON의 스크린샷":::
 
-9. **+ 새 단계** 를 선택합니다. 이제 작업을 선택합니다. 검색 상자에 `outlook.com email`를 입력합니다. **작업** 목록에서 아래로 스크롤하여 **이메일 보내기(V2)** 를 선택합니다.
+10. **+ 새 단계** 를 선택합니다.
+
+11. 검색 상자에서 `outlook.com email`를 입력합니다. **작업** 목록에서 아래로 스크롤하여 **이메일 보내기(V2)** 를 선택합니다.
   
     :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="논리 앱 만들기 디자이너의 스크린샷":::
 
-10. Outlook 계정에 로그인합니다. 논리 앱이 계정에 액세스할 수 있도록 **예** 를 선택합니다. 이메일을 보내기 위한 필드를 채웁니다.
+12. Outlook 계정에 로그인합니다. 논리 앱이 계정에 액세스할 수 있도록 **예** 를 선택합니다. 이메일을 보내기 위한 필드를 채웁니다.
 
     :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="논리 앱 만들기 이메일 보내기 단계의 스크린샷":::
 
     >[!TIP]
     > 이메일 알림에서 `geometryId` 또는 `deviceId`와 같은 GeoJSON 응답 데이터를 검색할 수 있습니다. Event Grid에서 보낸 데이터를 읽도록 Logic Apps를 구성할 수 있습니다. 이벤트 데이터를 사용하고 이메일 알림에 전달하도록 Logic App을 구성하는 방법에 대한 자세한 내용은 [자습서: Event Grid 및 Logic Apps를 사용하여 Azure IoT Hub 이벤트에 대한 이메일 알림 보내기](../event-grid/publish-iot-hub-events-to-logic-apps.md)를 참조하세요.
 
-11. 논리 앱 디자이너의 왼쪽 위 모서리에서 **저장** 을 선택합니다.
+13. **논리 앱 디자이너** 의 왼쪽 위 모서리에서 **저장** 을 선택합니다.
 
-장비가 건설 현장을 출입할 때 관리자에게 알리는 두 번째 논리 앱을 만들려면 3~11단계를 반복합니다. 논리 앱 이름을 `Equipment-Exit`로 지정합니다.
+14. 장비가 건설 현장을 출입할 때 관리자에게 알리는 두 번째 논리 앱을 만들려면 동일한 프로세스를 반복합니다. 논리 앱 이름을 `Equipment-Exit`로 지정합니다.
 
 ## <a name="create-azure-maps-events-subscriptions"></a>Azure Maps 이벤트 구독 만들기
 
-Azure Maps는 [세 가지 이벤트 유형](../event-grid/event-schema-azure-maps.md)을 지원합니다. 여기서는 두 개의 서로 다른 이벤트 구독을 만들어야 합니다. 하나는 지오펜스 입장 이벤트이고, 다른 하나는 지오펜스 퇴장 이벤트입니다.
+Azure Maps는 [세 가지 이벤트 유형](../event-grid/event-schema-azure-maps.md)을 지원합니다. 이 자습서에서는 다음 두 이벤트에 대한 구독을 만듭니다.
 
-다음 단계에서는 지오펜스 입장 이벤트에 대한 이벤트 구독을 만드는 방법을 보여줍니다. 비슷한 방식으로 단계를 반복하여 지오펜스 퇴장 이벤트를 구독할 수 있습니다.
+* 지오펜스 입력 이벤트
+* 지오펜스 종료 이벤트
 
-1. Azure Maps 계정으로 이동합니다. 대시보드에서 **구독** 을 선택합니다. 구독 이름을 선택하고, 설정 메뉴에서 **이벤트** 를 선택합니다.
+지오펜스 종료를 만들고 이벤트 구독을 입력하려면 다음을 수행합니다.
+
+1. Azure Maps 계정에서 **구독** 을 선택합니다.
+
+2. 구독 이름을 선택합니다.
+
+3. 설정 메뉴에서 **이벤트** 를 선택합니다.
 
     :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Azure Maps 계정 이벤트로 이동 스크린샷":::
 
-2. 이벤트 구독을 만들려면 이벤트 페이지에서 **+ 이벤트 구독** 을 선택합니다.
+4. 이벤트 페이지에서 **+ 이벤트 구독** 을 선택합니다.
 
     :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Azure Maps 이벤트 구독 만들기 스크린샷":::
 
-3. **이벤트 구독 만들기** 페이지에서 다음 값을 입력합니다.
+5. **이벤트 구독 만들기** 페이지에서 다음 값을 입력합니다.
     * 이벤트 구독의 **이름**
     * **이벤트 스키마** 는 *Event Grid 스키마* 여야 합니다.
     * 이 이벤트 구독의 **시스템 토픽 이름** 으로, 여기서는 `Contoso-Construction`입니다.
@@ -249,13 +308,13 @@ Azure Maps는 [세 가지 이벤트 유형](../event-grid/event-schema-azure-map
 
     :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Azure Maps 이벤트 구독 세부 정보 스크린샷":::
 
-4. **만들기** 를 선택합니다.
+6. **만들기** 를 선택합니다.
 
-이전 섹션에서 만든 논리 앱 퇴장 엔드포인트에 대해 1~4단계를 반복합니다. 3단계에서 이벤트 유형으로 `Geofence Exited`를 선택해야 합니다.
+7. 지오펜스 종료 이벤트에 대해 동일한 프로세스를 반복합니다. 이벤트 유형으로 `Geofence Exited`를 선택해야 합니다.
 
 ## <a name="use-spatial-geofence-get-api"></a>Spatial Geofence Get API 사용
 
-[Spatial Geofence Get API](/rest/api/maps/spatial/getgeofence)를 사용하여 장비가 지오펜스를 출입할 때 운영 관리자에게 이메일 알림을 보냅니다.
+다음으로, [Spatial Geofence Get API](/rest/api/maps/spatial/getgeofence)를 사용하여 일부 장비가 지오펜스에서 들어오거나 나갈 때 메일 알림을 Operations Manager에 보냅니다.
 
 각 장비에는 `deviceId`가 있습니다. 이 자습서에서는 고유 ID가 `device_1`인 단일 장비를 추적합니다.
 
@@ -269,15 +328,23 @@ Azure Maps는 [세 가지 이벤트 유형](../event-grid/event-schema-azure-map
 
 ### <a name="equipment-location-1-47638237-122132483"></a>장비 위치 1(47.638237,-122.132483)
 
-1. Postman 앱의 위쪽 근처에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. *위치 1* 로 지정합니다. [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 만든 컬렉션을 선택한 다음, **저장** 을 선택합니다.
+1. Postman 앱에서 **새로 만들기** 를 선택합니다.
 
-2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고, 다음 URL을 입력합니다. `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고, `{udid}`를 [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 저장한 `udid`로 바꿔야 합니다.
+2. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다.
+
+3. 요청에 대한 **요청 이름**(예: *위치 1*)을 입력합니다.
+
+4. **GET** HTTP 메서드를 선택합니다.
+
+5. 다음 URL을 입력합니다. 요청은 다음 URL과 비슷합니다. `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고, `{udid}`를 [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 저장한 `udid`로 바꿉니다.
 
    ```HTTP
    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
-3. **보내기** 를 선택합니다. 응답 창에 다음과 같은 GeoJSON이 표시됩니다.
+6. **보내기** 를 선택합니다.
+
+7. 다음 GeoJSON 조각과 유사한 응답이 표시됩니다.
 
     ```json
     {
@@ -309,15 +376,23 @@ Azure Maps는 [세 가지 이벤트 유형](../event-grid/event-schema-azure-map
 
 ### <a name="location-2-4763800-122132531"></a>위치 2(47.63800,-122.132531)
 
-1. Postman 앱의 위쪽 근처에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. *위치 2* 로 지정합니다. [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 만든 컬렉션을 선택한 다음, **저장** 을 선택합니다.
+1. Postman 앱에서 **새로 만들기** 를 선택합니다.
 
-2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고, 다음 URL을 입력합니다. `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고, `{udid}`를 [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 저장한 `udid`로 바꿔야 합니다.
+2. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다.
+
+3. 요청에 대한 **요청 이름**(예: *위치 2*)을 입력합니다.
+
+4. **GET** HTTP 메서드를 선택합니다.
+
+5. 다음 URL을 입력합니다. 요청은 다음 URL과 비슷합니다. `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고, `{udid}`를 [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 저장한 `udid`로 바꿉니다.
 
    ```HTTP
    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
-3. **보내기** 를 선택합니다. 응답 창에 다음과 같은 GeoJSON이 표시됩니다.
+6. **보내기** 를 선택합니다.
+
+7. 다음 GeoJSON 조각과 유사한 응답이 표시됩니다.
 
     ```json
     {
@@ -349,15 +424,23 @@ Azure Maps는 [세 가지 이벤트 유형](../event-grid/event-schema-azure-map
 
 ### <a name="location-3-4763810783315048-12213336020708084"></a>위치 3(47.63810783315048,-122.13336020708084)
 
-1. Postman 앱의 위쪽 근처에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. *위치 3* 으로 지정합니다. [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 만든 컬렉션을 선택한 다음, **저장** 을 선택합니다.
+1. Postman 앱에서 **새로 만들기** 를 선택합니다.
 
-2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고, 다음 URL을 입력합니다. `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고, `{udid}`를 [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 저장한 `udid`로 바꿔야 합니다.
+2. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다.
+
+3. 요청에 대한 **요청 이름**(예: *위치 3*)을 입력합니다.
+
+4. **GET** HTTP 메서드를 선택합니다.
+
+5. 다음 URL을 입력합니다. 요청은 다음 URL과 비슷합니다. `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고, `{udid}`를 [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 저장한 `udid`로 바꿉니다.
 
     ```HTTP
       https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
       ```
 
-3. **보내기** 를 선택합니다. 응답 창에 다음과 같은 GeoJSON이 표시됩니다.
+6. **보내기** 를 선택합니다.
+
+7. 다음 GeoJSON 조각과 유사한 응답이 표시됩니다.
 
     ```json
     {
@@ -392,15 +475,23 @@ Azure Maps는 [세 가지 이벤트 유형](../event-grid/event-schema-azure-map
 
 ### <a name="location-4-47637988-1221338344"></a>위치 4(47.637988,-122.1338344)
 
-1. Postman 앱의 위쪽 근처에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. *위치 4* 로 지정합니다. [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 만든 컬렉션을 선택한 다음, **저장** 을 선택합니다.
+1. Postman 앱에서 **새로 만들기** 를 선택합니다.
 
-2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고, 다음 URL을 입력합니다. `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고, `{udid}`를 [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 저장한 `udid`로 바꿔야 합니다.
+2. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다.
+
+3. 요청에 대한 **요청 이름**(예: *위치 4*)을 입력합니다.
+
+4. **GET** HTTP 메서드를 선택합니다.
+
+5. 다음 URL을 입력합니다. 요청은 다음 URL과 비슷합니다. `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고, `{udid}`를 [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 저장한 `udid`로 바꿉니다.
 
     ```HTTP
     https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
-3. **보내기** 를 선택합니다. 응답 창에 다음과 같은 GeoJSON이 표시됩니다.
+6. **보내기** 를 선택합니다.
+
+7. 다음 GeoJSON 조각과 유사한 응답이 표시됩니다.
 
     ```json
     {
@@ -426,15 +517,23 @@ Azure Maps는 [세 가지 이벤트 유형](../event-grid/event-schema-azure-map
 
 ### <a name="location-5-4763799--122134505"></a>위치 5(47.63799, -122.134505)
 
-1. Postman 앱의 위쪽 근처에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. *위치 5* 로 지정합니다. [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 만든 컬렉션을 선택한 다음, **저장** 을 선택합니다.
+1. Postman 앱에서 **새로 만들기** 를 선택합니다.
 
-2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고, 다음 URL을 입력합니다. `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고, `{udid}`를 [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 저장한 `udid`로 바꿔야 합니다.
+2. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다.
+
+3. 요청에 대한 **요청 이름**(예: *위치 5*)을 입력합니다.
+
+4. **GET** HTTP 메서드를 선택합니다.
+
+5. 다음 URL을 입력합니다. 요청은 다음 URL과 비슷합니다. `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고, `{udid}`를 [지오펜싱 GeoJSON 데이터 업로드 섹션](#upload-geofencing-geojson-data)에서 저장한 `udid`로 바꿉니다.
 
     ```HTTP
     https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
-3. **보내기** 를 선택합니다. 응답 창에 다음과 같은 GeoJSON이 표시됩니다.
+6. **보내기** 를 선택합니다.
+
+7. 다음 GeoJSON 조각과 유사한 응답이 표시됩니다.
 
     ```json
     {
@@ -463,7 +562,6 @@ Azure Maps는 [세 가지 이벤트 유형](../event-grid/event-schema-azure-map
     ````
 
 이전 GeoJSON 응답에서 장비가 주 사이트 지오펜스에서 나갔습니다. 따라서 `isEventPublished` 매개 변수가 `true`로 설정되고 운영 관리자는 장비가 지오펜스에서 나갔다는 이메일 알림을 받습니다.
-
 
 [Event Grid 및 Logic Apps를 사용하여 이메일 알림을 보내](../event-grid/publish-iot-hub-events-to-logic-apps.md)고 Azure Maps를 사용하여 [Event Grid에서 지원되는 이벤트 처리기](../event-grid/event-handlers.md)를 확인할 수도 있습니다.
 

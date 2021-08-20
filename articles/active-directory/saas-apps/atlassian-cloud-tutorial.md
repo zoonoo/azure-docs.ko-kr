@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/17/2021
+ms.date: 07/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 7b76f5ec2cffde60379b12a0ad7d623ebe9a06c2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 06df04167cd39b8909528b600319be810e549730
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110473192"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114449196"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>자습서: Azure Active Directory와 Atlassian Cloud 통합
 
@@ -30,7 +30,7 @@ ms.locfileid: "110473192"
 
 시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 구독이 없는 경우 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 다운로드할 수 있습니다.
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Atlassian Cloud SSO(Single Sign-On)를 사용하도록 설정된 구독
 * Atlassian Cloud 제품에 SAML(Security Assertion Markup Language) Single Sign-On을 사용하도록 설정하려면 Atlassian Access를 설정해야 합니다. [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager)에 대해 자세히 알아보세요.
 
@@ -44,7 +44,7 @@ ms.locfileid: "110473192"
 * Atlassian Cloud에서 **SP 및 IDP** 시작 SSO를 지원합니다.
 * Atlassian Cloud에서 [자동 사용자 프로비저닝 및 프로비저닝 해제](atlassian-cloud-provisioning-tutorial.md)를 지원합니다.
 
-## <a name="adding-atlassian-cloud-from-the-gallery"></a>갤러리에서 Atlassian Cloud 추가
+## <a name="add-atlassian-cloud-from-the-gallery"></a>갤러리에서 Atlassian Cloud 추가
 
 Azure AD에 Atlassian Cloud와 Azure AD를 통합하도록 구성하려면 갤러리의 Atlassian Cloud를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
@@ -61,13 +61,13 @@ Azure AD에 Atlassian Cloud와 Azure AD를 통합하도록 구성하려면 갤�
 
 Atlassian Cloud에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
-1. **[Atlassian Cloud로 Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 Atlassian Cloud로 Azure AD 기반 SAML SSO를 사용할 수 있도록 합니다.
+1. **[Atlassian Cloud로 Azure AD SSO 구성](#configure-azure-ad-with-atlassian-cloud-sso)** - 사용자가 Atlassian Cloud로 Azure AD 기반 SAML SSO를 사용할 수 있도록 합니다.
     1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
     1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[Atlassian Cloud 테스트 사용자 만들기](#create-atlassian-cloud-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Atlassian Cloud에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-with-atlassian-cloud-sso"></a>Atlassian Cloud SSO로 Azure AD 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
@@ -81,80 +81,69 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Atlassian Cloud를 수동으로 설정하려면 Atlassian Cloud 회사 사이트에 관리자로 로그인하고 다음 단계를 수행합니다.
 
-1. 시작 하기 전에 Atlassian 제품 인스턴스로 이동하여 인스턴스 URL을 복사/저장합니다.
+1. 시작하기 전에 Atlassian 제품 인스턴스로 이동하여 인스턴스 URL을 복사/저장합니다.
    > [!NOTE]
-   > url은 `https://<instancename>.atlassian.net` 패턴에 맞아야 합니다.
+   > URL은 `https://<INSTANCE>.atlassian.com` 패턴에 맞아야 합니다.
 
-   ![인스턴스 이름](./media/atlassian-cloud-tutorial/get-atlassian-instance-name.png)
+   ![인스턴스 이름](./media/atlassian-cloud-tutorial/instance.png)
 
 1. [Atlassian 관리 포털](https://admin.atlassian.com/)을 열고 조직 이름을 클릭합니다.
 
-   ![organization](./media/atlassian-cloud-tutorial/click-on-organization-in-atlassian-access.png)
+   ![관리 포털](./media/atlassian-cloud-tutorial/organization.png)
 
 1. Single Sign-On을 구성하기 전에 도메인을 확인해야 합니다. 자세한 내용은 [Atlassian 도메인 확인](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) 문서를 참조하세요.
-1. Atlassian 관리 포털 화면에서 왼쪽 서랍의 **보안** 을 선택합니다.
 
-   ![security](./media/atlassian-cloud-tutorial/click-on-security-in-atlassian-access.png)
+1. **ATLASSIAN 관리** 포털에서 **보안** 탭으로 이동하여 **SAML Single Sign-On** 을 선택하고 **SAML 구성 추가** 를 클릭합니다.
 
-1. Atlassian 관리 포털 보안 화면에서 왼쪽 서랍의 **SAML single sign** 을 선택합니다.
+   ![보안](./media/atlassian-cloud-tutorial/admin.png)
 
-   ![saml sso](./media/atlassian-cloud-tutorial/click-on-saml-sso-in-atlassian-access-security.png)
+1. **SAML 구성 추가** 섹션에서, Azure Portal에서 복사한 필수 필드를 채우고 **구성 저장** 을 클릭합니다.
 
-1. **SAML 구성 추가** 를 클릭하고 페이지를 열어 둡니다.
-
-   ![SAML 구성 추가](./media/atlassian-cloud-tutorial/saml-configuration-in-atlassian-access-security-saml-sso.png)
-
-   ![SAML 구성 2 추가](./media/atlassian-cloud-tutorial/add-saml-configuration.png)
+   ![SAML 구성 추가](./media/atlassian-cloud-tutorial/configuration.png)
 
 1. Azure Portal의 **Atlassian Cloud** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On 설정** 을 선택합니다.
 
-   ![sso 설정](./media/atlassian-cloud-tutorial/set-up-sso.png)
+   ![SSO 설정](./media/atlassian-cloud-tutorial/set-up.png)
 
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
 
-   ![azure의 saml](./media/atlassian-cloud-tutorial/saml-in-azure.png)
+   ![Azure의 SAML](./media/atlassian-cloud-tutorial/azure.png)
 
 1. **SAML로 Single Sign-On 설정** 페이지에서 **Atlassian Cloud 설정** 으로 아래로 스크롤합니다.
    
    a. **구성 URL** 을 클릭합니다.
 
-   ![urls](./media/atlassian-cloud-tutorial/configuration-urls.png)
+   ![Single Sign-On](./media/atlassian-cloud-tutorial/configure.png)
    
    b. Azure Portal에서 **Azure AD 식별자** 값을 복사하여 Atlassian의 **ID 공급자 엔터티 ID** 텍스트 상자에 붙여넣습니다.
    
    c. Azure Portal에서 **로그인 URL** 값을 복사하여 Atlassian의 **ID 공급자 SSO URL** 텍스트 상자에 붙여넣습니다.
 
-   ![ID 공급자 SSO URL](./media/atlassian-cloud-tutorial/configuration-urls-azure.png)
+   ![ID 공급자 SSO URL](./media/atlassian-cloud-tutorial/configuration-azure.png)
 
-   ![엔터티 ID 및 ss](./media/atlassian-cloud-tutorial/entity-id-and-ss.png)
+   ![엔터티 ID](./media/atlassian-cloud-tutorial/login.png)
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드하고 본인의 컴퓨터에 저장합니다.
 
    ![서명 인증서](./media/atlassian-cloud-tutorial/certificate.png)
 
-   ![인증서 1](./media/atlassian-cloud-tutorial/certificate-1.png)
+   ![인증서 1](./media/atlassian-cloud-tutorial/certificate-download.png)
 
-1. Atlassian에서 SAML 구성을 **추가/저장** 합니다.
+1. Atlassian에서 SAML 구성을 **추가** 및 **저장** 합니다.
 
-1. **IDP** 시작 모드에서 애플리케이션을 구성하려는 경우 Azure의 **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 섹션을 편집하고 Atlassian 관리 포털에서 **SAML Single Sign-On 페이지** 를 엽니다.
+1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
    a. Atlassian에서 **SP 엔터티 ID** 값을 복사하여 Azure의 **식별자(엔터티 ID)** 상자에 붙여넣고 기본값으로 설정합니다.
    
    b. Atlassian에서 **SP Assertion Consumer Service URL** 값을 복사하여 Azure의 **회신 URL(Assertion Consumer Service URL)** 상자에 붙여넣고 기본값으로 설정합니다.
    
-   c. 1단계에서 복사한 **인스턴스 URL** 값을 복사하여 Azure의 **릴레이 상태** 상자에 붙여넣습니다.
+   c. 4단계에서 복사한 **인스턴스 URL** 값을 복사하여 Azure의 **릴레이 상태** 상자에 붙여넣습니다.
 
-   ![url 복사](./media/atlassian-cloud-tutorial/copy-urls.png)
+   ![URL 복사](./media/atlassian-cloud-tutorial/values.png)
 
-   ![편집 단추](./media/atlassian-cloud-tutorial/edit-button.png)
+   ![단추](./media/atlassian-cloud-tutorial/edit-button.png)
 
-   ![url 이미지](./media/atlassian-cloud-tutorial/urls.png)
-   
-1. **SP** 시작 모드에서 애플리케이션을 구성하려는 경우 Azure의 **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 섹션을 편집합니다. **인스턴스 URL**(1단계)을 복사하여 Azure의 **로그온 URL** 상자에 붙여넣습니다.
-
-   ![url의 편집 단추](./media/atlassian-cloud-tutorial/edit-button.png)
-
-   ![로그온 url](./media/atlassian-cloud-tutorial/sign-on-URL.png)
+   ![URL 이미지](./media/atlassian-cloud-tutorial/image.png)
    
 1. Atlassian Cloud 애플리케이션은 특정 형식의 SAML 어설션을 예상하며, 따라서 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. **편집** 아이콘을 클릭하여 특성 매핑을 편집할 수 있습니다. 
 
@@ -172,25 +161,37 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
       
       c. 최종 특성 매핑은 다음과 같습니다.
 
-      ![이미지 2](./media/atlassian-cloud-tutorial/default-attributes-1.png)
+      ![이미지 2](./media/atlassian-cloud-tutorial/attributes.png)
       
    1. Microsoft 365 라이선스가 없는 Azure AD 테넌트에 대한 특성 매핑 
 
       a. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` 클레임을 클릭합니다.
 
-      ![이미지 3](./media/atlassian-cloud-tutorial/email-address.png)
+      ![이미지 3](./media/atlassian-cloud-tutorial/claims.png)
          
       b. Azure는 Microsoft 365 라이선스가 없는 Azure AD 테넌트에서 만든 사용자에 대한 **user.mail** 특성을 채우지 않으며 이러한 사용자에 대한 이메일을 **userprincipalname** 특성에 저장합니다. Atlassian Cloud에는 **nameidentifier**(**고유한 사용자 식별자**)가 사용자의 이메일(**user.userprincipalname**)에 매핑될 것으로 예상됩니다.  **원본 특성** 을 편집하고 **user.userprincipalname** 으로 변경합니다. 변경 내용을 클레임에 저장합니다.
 
-      ![이메일 설정](./media/atlassian-cloud-tutorial/set-email.png)
+      ![이메일 설정](./media/atlassian-cloud-tutorial/save-claims.png)
          
       c. 최종 특성 매핑은 다음과 같습니다.
 
-      ![이미지 4](./media/atlassian-cloud-tutorial/default-attributes-2.png)
+      ![이미지 4](./media/atlassian-cloud-tutorial/final-attributes.png)
 
- > [!NOTE]
- > 왼쪽 서랍에서 **인증 정책** 옵션을 선택하여 여러 보안 정책을 설정할 수 있습니다. 인증 정책을 사용하면 조직의 여러 사용자 및 구성 세트에 대해 인증 설정을 지정할 수 있습니다. Atlassian 조직에 액세스하는 사용자가 진짜인지 확인합니다. 자세한 내용은 [인증 정책](https://support.atlassian.com/security-and-access-policies/docs/understand-authentication-policies/)을 참조하세요.
-     
+1. 인증 정책에서 SAML Single Sign-On을 적용하려면 다음 단계를 수행합니다.
+
+   a.   **Atlassian 관리** 포털에서 **보안** 탭을 선택하고 **인증 정책** 을 클릭합니다.
+
+   b.   적용하려는 정책에 대해 **편집** 을 선택합니다. 
+
+   c.   **설정** 에서 성공적인 SAML 리디렉션을 위해 관리 사용자에 대해 **Single Sign-On 적용** 을 사용하도록 설정합니다. 
+
+   d.   **업데이트** 를 클릭합니다. 
+
+      ![인증 정책](./media/atlassian-cloud-tutorial/policy.png) 
+
+   > [!NOTE]
+   > 관리자는 별도의 인증 정책에서 먼저 일부 사용자에 대해서만 적용된 SSO를 사용하도록 설정한 다음 문제가 없는 경우 모든 사용자에 대해 정책을 사용하도록 설정하여 SAML 구성을 테스트할 수 있습니다.
+
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
@@ -199,7 +200,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -217,24 +218,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-atlassian-cloud-test-user"></a>Atlassian Cloud 테스트 사용자 만들기
 
-Azure AD 사용자가 Atlassian Cloud에 로그인하도록 하려면 Atlassian Cloud에서 다음을 수행하여 사용자 계정을 수동으로 프로비전합니다.
+Azure AD 사용자가 Atlassian Cloud에 로그인하도록 하려면 Atlassian Cloud에서 다음 단계를 수행하여 사용자 계정을 수동으로 프로비저닝합니다.
 
-1. **관리** 창에서 **사용자** 를 선택합니다.
+1. **제품** 탭으로 이동하여 **사용자** 를 선택한 다음 **사용자 초대** 를 클릭합니다.
 
-    ![Atlassian Cloud 사용자 링크](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-14.png)
+    ![Atlassian Cloud 사용자 링크](./media/atlassian-cloud-tutorial/users.png)
 
-1. Atlassian Cloud에서 사용자를 만들려면 **사용자 초대** 를 선택합니다.
+1. **이메일 주소** 텍스트 상자에 사용자의 이메일 주소를 입력한 다음 **사용자 초대** 를 클릭합니다.
 
-    ![Atlassian Cloud 사용자 만들기](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-15.png)
-
-1. **메일 주소** 상자에 사용자의 메일 주소를 입력한 다음 애플리케이션 액세스 권한을 할당합니다.
-
-    ![Atlassian Cloud 사용자](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-16.png)
-
-1. 사용자에게 메일 초대를 보내려면 **사용자 초대** 를 선택합니다. 사용자에게 메일 초대가 전송되고 사용자가 초대를 수락하면 시스템에서 활성화됩니다.
-
-> [!NOTE]
-> **사용자** 섹션에서 **대량 만들기** 단추를 선택하여 사용자를 대량으로 만들 수도 있습니다.
+    ![Atlassian Cloud 사용자 만들기](./media/atlassian-cloud-tutorial/invite-users.png)
 
 ### <a name="test-sso"></a>SSO 테스트
 
@@ -251,7 +243,6 @@ Azure AD 사용자가 Atlassian Cloud에 로그인하도록 하려면 Atlassian 
 * Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Atlassian Cloud에 자동으로 로그인됩니다. 
 
 Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Atlassian Cloud 타일을 클릭할 때 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Atlassian Cloud에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
-
 
 ## <a name="next-steps"></a>다음 단계
 

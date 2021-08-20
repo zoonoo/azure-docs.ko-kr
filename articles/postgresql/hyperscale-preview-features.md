@@ -7,13 +7,13 @@ ms.custom: mvc
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
-ms.date: 04/07/2021
-ms.openlocfilehash: 5f0552e09464a6b571a665cfe3895f48c3aa8c41
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.date: 07/09/2021
+ms.openlocfilehash: 1e0f7c133a0ac0091355cba20d251333e6402212
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258455"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463542"
 ---
 # <a name="preview-features-for-postgresql---hyperscale-citus"></a>PostgreSQL - 하이퍼스케일(Citus)의 미리 보기 기능
 
@@ -32,9 +32,11 @@ Azure Database for PostgreSQL - 하이퍼스케일(Citus)은 출시되지 않은
   선택한 테이블의 열(행이 아님)을 디스크에 연속적으로 저장합니다. 온디스크 압축을 지원합니다. 분석 및 데이터 웨어하우징 워크로드에 적합합니다.
 * **[읽기 복제본](howto-hyperscale-read-replicas-portal.md)** (현재 동일한 지역에만 해당) 주 서버 그룹에 발생하는 모든 변경 내용은 해당 복제본에 반영되고, 복제본에 대한 쿼리는 원본에 추가 로드를 발생시키지 않습니다.
   복제본은 읽기 전용 작업의 성능을 개선하는 데 유용한 도구입니다.
-* **[관리되는 PgBouncer](concepts-hyperscale-limits.md#managed-pgbouncer-preview)** .
+* **[관리되는 PgBouncer](concepts-hyperscale-connection-pool.md)** .
   여러 클라이언트에서 동시에 서버 그룹에 연결할 수 있도록 하고 활성 연결 수를 제한하는 연결 풀러. 코디네이터 노드를 원활하게 실행하면서 연결 요청을 충족합니다.
 * **[pgAudit](concepts-hyperscale-audit.md)** . 표준 PostgreSQL 로깅 기능을 통해 자세한 세션 및 개체 감사 로깅을 제공합니다. 특정 정부, 금융 또는 ISO 인증 감사를 전달하는 데 필요한 감사 로그를 생성합니다.
+* **[create_extension() UDF](concepts-hyperscale-extensions.md#use-postgresql-extensions)** .
+  설치하려면 관리 액세스 권한이 필요한 확장을 만들 수 있습니다.
 
 ### <a name="available-regions-for-preview-features"></a>미리 보기 기능을 사용할 수 있는 지역
 

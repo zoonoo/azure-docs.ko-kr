@@ -7,12 +7,12 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 2d4e22c58fd45edc4beb58b4b1b9ae7c835e8fa9
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: e6c2a452441b268adc52ef3d9337aa5e604fe1e6
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113215456"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729868"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Azure에서 사용자 지정 컨테이너 실행
 
@@ -208,7 +208,7 @@ App Service on Linux는 .NET, PHP, Node.js 등의 언어 지원을 통해 Linux�
 
     ![Azure에 로그인](./media/quickstart-docker/sign-in.png)
 
-1. 아래쪽의 [상태 표시줄](https://code.visualstudio.com/docs/getstarted/userinterface)에서 Azure 계정 이메일 주소를 확인합니다. **APP SERVICE** 탐색기에 사용자의 구독이 표시되어야 합니다.
+1. 아래쪽의 [상태 표시줄](https://code.visualstudio.com/docs/getstarted/userinterface)에서 Azure 계정 메일 주소를 확인합니다. **APP SERVICE** 탐색기에 사용자의 구독이 표시되어야 합니다.
 
 1. 작업 표시줄에서 **Docker** 로고를 선택합니다. **REGISTRIES** 탐색기에서 만든 컨테이너 레지스트리가 나타나는지 확인합니다.
 

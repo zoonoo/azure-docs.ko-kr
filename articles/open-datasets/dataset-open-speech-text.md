@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: 7dc004de8b4c01fca8eebf54332a9fa5c177ae13
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 4c0ec200fa3506dd0b251903954240eff5132dd4
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112039055"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982513"
 ---
 # <a name="russian-open-speech-to-text"></a>러시아어 음성 텍스트로 열기
 
@@ -97,7 +97,7 @@ store_path = Path(root_folder,
 이 데이터 세트는 다음과 같은 2가지 형식으로 제공됩니다.
 
 - Azure Blob Storage 및/또는 직접 링크를 통해 사용할 수 있는 보관
-- Azure Blob Storage를 통해 사용할 수 있는 원본 파일. 모든 파일은 https://azureopendatastorage.blob.core.windows.net/openstt/ 에 저장됨
+- Azure Blob Storage를 통해 사용할 수 있는 원본 파일. 모든 파일은 ‘ https://azureopendatastorage.blob.core.windows.net/openstt/ ’에 저장됨
 
 폴더 구조:
 

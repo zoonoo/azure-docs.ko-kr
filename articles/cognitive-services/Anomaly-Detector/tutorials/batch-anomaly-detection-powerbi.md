@@ -10,14 +10,14 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: fc2667dfddf4442acaf39f6783190e8640b22a89
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6b95e471d3ac003991a131cf1e04b1384a7454e3
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561732"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113296616"
 ---
-# <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>자습서: 일괄 처리 검색 및 Power BI를 사용하여 변칙 시각화
+# <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi-univariate"></a>자습서: 일괄 처리 검색 및 Power BI를 사용하여 변칙 시각화(일변량)
 
 이 자습서에서는 시계열 데이터 세트 내의 변칙을 일괄 처리 방식으로 찾습니다. Power BI Desktop을 사용하면 Excel 파일을 가져와서 Anomaly Detector API에 대한 데이터를 준비하고 통계적 변칙을 시각화할 수 있습니다.
 
@@ -171,8 +171,3 @@ Power BI 창의 오른쪽에 있는 **필드** 창 아래에서 마우스 오른
 **서식** 도구 및 **데이터 색** 을 클릭하여 차트에 색을 적용합니다. 차트가 다음과 같이 표시됩니다.
 
 ![최종 차트의 이미지](../media/tutorials/final-chart.png)
-
-## <a name="next-steps"></a>다음 단계
-
-> [!div class="nextstepaction"]
->[Azure Databricks를 사용하여 스트리밍 변칙 검색](../overview.md)

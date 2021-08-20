@@ -6,16 +6,16 @@ author: lakshmans
 manager: ankita
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/11/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: lakshmans
-ms.openlocfilehash: 86f26e7fbe96284dee5eb606ede22ae63701f309
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 9e44cc1f631a56d1948c744a1ecb912208bad11e
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111429682"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113659533"
 ---
 Communication Services Python SMS SDK를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작합니다.
 
@@ -24,7 +24,7 @@ Communication Services Python SMS SDK를 사용하여 SMS 메시지를 보내 Az
 > [!NOTE]
 > [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-sms-quickstart)에서 이 빠른 시작에 대한 최종 코드 칮기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python](https://www.python.org/downloads/) 2.7 또는 3.6 이상
@@ -84,8 +84,7 @@ pip install azure-communication-sms
 # Create the SmsClient object which will be used to send SMS messages
 sms_client = SmsClient.from_connection_string(<connection_string>)
 ```
-간단한 설명을 위해 이 빠른 시작에서 연결 문자열을 사용하지만 프로덕션 환경에서는 대규모로 더 안전하고 관리하기 쉬운 [관리 ID](../../../quickstarts/managed-identity.md)를 사용하는 것이 좋습니다.
-
+간단한 설명을 위해 이 빠른 시작에서 연결 문자열을 사용하지만 프로덕션 환경에서는 [서비스 주체](../../../quickstarts/identity/service-principal.md)를 사용하는 것이 좋습니다.
 
 ## <a name="send-a-11-sms-message"></a>1:1 SMS 메시지 보내기
 

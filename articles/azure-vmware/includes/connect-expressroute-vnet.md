@@ -3,12 +3,12 @@ title: 가상 네트워크 게이트웨이에 ExpressRoute 연결
 description: ExpressRoute를 가상 네트워크 게이트웨이에 연결하는 단계입니다.
 ms.topic: include
 ms.date: 12/08/2020
-ms.openlocfilehash: 115e8829723c25fb1644f3f5652fbace529a05cb
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: a3e759c12496613848f6f0bc8de596a5099b904b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107945690"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438214"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
 
@@ -30,8 +30,8 @@ ms.locfileid: "107945690"
    | **인증 키**  | 이전에 복사한 권한 부여 키를 붙여 넣습니다. |
    | **피어 회로 URI**  | 이전에 복사한 ExpressRoute ID를 붙여 넣습니다.  |
 
-   :::image type="content" source="../media/expressroute-global-reach/expressroute-add-connection.png" alt-text="가상 네트워크 게이트웨이에 ExpressRoute를 연결하기 위한 연결 추가 페이지의 스크린샷.":::
+   :::image type="content" source="../media/tutorial-configure-networking/add-connection.png" alt-text="가상 네트워크 게이트웨이에 ExpressRoute를 연결하기 위한 연결 추가 페이지를 보여 주는 스크린샷.":::
 
 ExpressRoute 회로와 Virtual Network 간의 연결이 만들어집니다.
 
-:::image type="content" source="../media/expressroute-global-reach/virtual-network-gateway-connections.png" alt-text="가상 네트워크 게이트웨이 연결의 스크린샷.":::
+:::image type="content" source="../media/expressroute-global-reach/virtual-network-gateway-connections.png" alt-text="성공적인 가상 네트워크 게이트웨이 연결을 보여 주는 스크린샷.":::

@@ -7,12 +7,12 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 12/10/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9315e6fd7dd9880d20108e3f0ed28cd32904f1a3
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4cea156f52538a58ba5eea86ace6272848a05ae9
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791538"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467173"
 ---
 # <a name="tutorial-deploy-django-app-on-aks-with-azure-database-for-postgresql---flexible-server"></a>자습서: Azure Database for PostgreSQL - 유연한 서버를 사용하여 AKS에 Django 앱 배포
 
@@ -27,20 +27,12 @@ ms.locfileid: "107791538"
 ## <a name="pre-requisites"></a>필수 구성 요소
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-- Bash 환경을 통해 [Azure Cloud Shell](../../cloud-shell/quickstart.md)을 사용합니다.
-
-   [![Embed 시작](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)  
-- 원하는 경우 Azure CLI를 [설치](/cli/azure/install-azure-cli)하여 CLI 참조 명령을 실행합니다.
-  - local install을 사용하는 경우 [az login](/cli/azure/reference-index#az_login) 명령을 사용하여 Azure CLI에 로그인합니다.  인증 프로세스를 완료하려면 터미널에 표시되는 단계를 수행합니다.  추가 로그인 옵션은 [Azure CLI를 사용하여 로그인](/cli/azure/authenticate-azure-cli)을 참조하세요.
-  - 메시지가 표시되면 처음 사용할 때 Azure CLI 확장을 설치합니다.  확장에 대한 자세한 내용은 [Azure CLI에서 확장 사용](/cli/azure/azure-cli-extensions-overview)을 참조하세요.
-  - [az version](/cli/azure/reference-index?#az_version)을 실행하여 설치된 버전과 종속 라이브러리를 찾습니다. 최신 버전으로 업그레이드하려면 [az upgrade](/cli/azure/reference-index?#az_upgrade)를 실행합니다. 이 문서에는 최신 버전의 Azure CLI가 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
-
-> [!NOTE]
-> 이 빠른 시작의 명령을 로컬로(Azure Cloud Shell 대신) 실행하는 경우 관리자 권한으로 명령을 실행해야 합니다.
+- 새 브라우저 창에서 [Azure Cloud Shell](https://shell.azure.com)을 시작합니다. 로컬 머신에서 [Azure CLI도 설치](/cli/azure/install-azure-cli#install)할 수 있습니다. local install을 사용하는 경우 [az login](/cli/azure/reference-index#az_login) 명령을 사용하여 Azure CLI에 로그인합니다.  인증 프로세스를 완료하려면 터미널에 표시되는 단계를 수행합니다. 
+- [az version](/cli/azure/reference-index?#az_version)을 실행하여 설치된 버전과 종속 라이브러리를 찾습니다. 최신 버전으로 업그레이드하려면 [az upgrade](/cli/azure/reference-index?#az_upgrade)를 실행합니다. 이 문서에는 최신 버전의 Azure CLI가 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. *eastus* 위치에서 [az group create][az-group-create] 명령을 사용하여 *django-project* 리소스 그룹을 만들어 보겠습니다.
+Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. *eastus* 위치에서 [az-group-create](/cli/azure/group#az_group_create) 명령을 사용하여 *django-project* 리소스 그룹을 만들어 보겠습니다.
 
 ```azurecli-interactive
 az group create --name django-project --location eastus
@@ -80,20 +72,16 @@ az aks create --resource-group django-project --name djangoappcluster --node-cou
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 
-Kubernetes 클러스터를 관리하려면 [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) Kubernetes 명령줄 클라이언트를 사용합니다. Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다. `kubectl`을 로컬로 설치하려면 [az aks install-cli](/cli/azure/aks#az_aks_install_cli) 명령을 사용합니다.
+Kubernetes 클러스터를 관리하려면 [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) Kubernetes 명령줄 클라이언트를 사용합니다. Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다. 
 
-```azurecli-interactive
-az aks install-cli
-```
+> [!NOTE] 
+> Azure CLI를 로컬로 실행하는 경우 [az aks install-cli](/cli/azure/aks#az_aks_install_cli) 명령을 실행하여 `kubectl`을 설치합니다.
 
 Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials) 명령을 사용합니다. 이 명령은 자격 증명을 다운로드하고 Kubernetes CLI가 해당 자격 증명을 사용하도록 구성합니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group django-project --name djangoappcluster
 ```
-
-> [!NOTE]
-> 위의 명령은 [Kubernetes 구성 파일](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)의 기본 위치인 `~/.kube/config`를 사용합니다. *--file* 을 사용하여 Kubernetes 구성 파일의 다른 위치를 지정할 수 있습니다.
 
 클러스터에 대한 연결을 확인하려면 [kubectl get]( https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 명령을 사용하여 클러스터 노드 목록을 반환합니다.
 
@@ -112,20 +100,22 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 [az postgreSQL flexible-server create](/cli/azure/postgres/flexible-server#az_postgres_flexible_server_create) 명령을 사용하여 유연한 서버를 만듭니다. 다음 명령은 Azure CLI의 로컬 컨텍스트에 있는 서비스 기본값 및 값을 사용하여 서버를 만듭니다.
 
 ```azurecli-interactive
-az postgres flexible-server create --public-access <YOUR-IP-ADDRESS>
+az postgres flexible-server create --public-access all
 ```
 
 생성된 서버에는 다음과 같은 특성이 있습니다.
 - 새 빈 데이터베이스(```postgres```): 서버를 처음 프로비저닝하면 이 데이터베이스가 만들어집니다. 이 빠른 시작에서는 이 데이터베이스를 사용합니다.
 - 자동 생성된 서버 이름, 관리 사용자 이름, 관리자 암호, 리소스 그룹 이름(로컬 컨텍스트에서 아직 지정되지 않은 경우): 리소스 그룹과 동일한 위치에 있음
-- 나머지 서버 구성에 대한 서비스 기본값: 컴퓨팅 계층(범용), 컴퓨팅 크기/SKU(2개 vCore를 사용하는 Standard_D2s_v3), 백업 보존 기간(7일) 및 PostgreSQL 버전(12)
-- 퍼블릭 액세스 인수를 사용하면 방화벽 규칙으로 보호되는 퍼블릭 액세스 권한이 있는 서버를 만들 수 있습니다. 클라이언트 컴퓨터에서 액세스를 허용하는 방화벽 규칙을 추가할 IP 주소를 제공합니다.
+- 퍼블릭 액세스 인수를 사용하면 올바른 사용자 이름과 암호를 사용하는 모든 클라이언트에 대해 퍼블릭 액세스 권한이 있는 서버를 만들 수 있습니다.
 - 명령에서 로컬 컨텍스트를 사용하므로 ```django-project``` 리소스 그룹 및 ```eastus``` 지역에 서버를 만듭니다.
 
 
 ## <a name="build-your-django-docker-image"></a>Django docker 이미지 빌드
 
-새 [Django 애플리케이션](https://docs.djangoproject.com/en/3.1/intro/)을 만들거나 기존 Django 프로젝트를 사용합니다. 코드가 이 폴더 구조에 있는지 확인합니다.
+새 [Django 애플리케이션](https://docs.djangoproject.com/en/3.1/intro/)을 만들거나 기존 Django 프로젝트를 사용합니다. 코드가 이 폴더 구조에 있는지 확인합니다. 
+
+> [!NOTE] 
+> 애플리케이션이 없는 경우 [**Kubernetes 매니페스트 파일**](./tutorial-django-aks-database.md#create-kubernetes-manifest-file)로 직접 이동하여 샘플 이미지 [mksuni/django-aks-app:latest](https://hub.docker.com/r/mksuni/django-aks-app)를 사용할 수 있습니다. 
 
 ```
 └───my-djangoapp
@@ -223,12 +213,11 @@ docker build --tag myblog:latest .
 
 ## <a name="create-kubernetes-manifest-file"></a>Kubernetes 매니페스트 파일 만들기
 
-Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. ```djangoapp.yaml```이라는 매니페스트 파일을 만들고, 다음 YAML 정의에 복사해 보겠습니다.
+Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. ```djangoapp.yaml```이라는 매니페스트 파일을 만들고, 다음 YAML 정의에 복사해 보겠습니다. 
 
 >[!IMPORTANT]
-> - ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]```를 실제 Django docker 이미지 이름 및 태그(예: ```docker-hub-user/myblog:latest```)로 바꿉니다.
+> - ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]```를 실제 Django docker 이미지 이름 및 태그(예: ```docker-hub-user/myblog:latest```)로 바꿉니다.  매니페스트 파일에서 데모 샘플 앱 ```mksuni/django-aks-app:latest```를 사용할 수 있습니다.
 > - 아래 ```env``` 섹션을 postgres 유연한 서버의 ```SERVERNAME```, ```YOUR-DATABASE-USERNAME```, ```YOUR-DATABASE-PASSWORD```로 업데이트합니다.
-
 
 ```yaml
 apiVersion: apps/v1

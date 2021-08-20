@@ -4,13 +4,13 @@ description: Azure Monitor 로그 쿼리 경고를 배포하기 위한 Azure Res
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 09/22/2020
-ms.openlocfilehash: 6d76631313f425785b692c34629a6d408278e76b
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/12/2021
+ms.openlocfilehash: 0da91eedca9bbe1d44e129bf3d3e9574524b8f65
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949434"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687536"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Azure Monitor의 로그 경고 규칙에 대한 Resource Manager 템플릿 샘플
 이 문서에는 Azure Monitor에서 로그 쿼리 경로를 만들고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일과 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
@@ -204,7 +204,7 @@ ms.locfileid: "111949434"
 }
 ```
 
-## <a name="template-for-all-resource-types-from-version-2020-05-01-preview"></a>모든 리소스 종류에 대한 템플릿(버전 2020-05-01-preview)
+## <a name="template-for-all-resource-types-from-version-2021-02-01-preview"></a>모든 리소스 종류에 대한 템플릿(버전 2021-02-01-preview)
 다음 샘플에서는 모든 리소스를 대상으로 지정할 수 있는 규칙을 만듭니다.
 
 ```json
@@ -252,6 +252,20 @@ ms.locfileid: "111949434"
             "defaultValue": true,
             "metadata": {
                 "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "autoMitigate": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert will automatically resolve"
+            }
+        },
+        "checkWorkspaceAlertsStorageConfigured": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "Specifies whether to check linked storage and fail creation if the storage was not found"
             }
         },
         "resourceId": {
@@ -332,7 +346,7 @@ ms.locfileid: "111949434"
         },
         "windowSize": {
             "type": "string",
-            "defaultValue": "PT5M",
+            "defaultValue": null,
             "allowedValues": [
                 "PT1M",
                 "PT5M",
@@ -390,7 +404,7 @@ ms.locfileid: "111949434"
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/scheduledQueryRules",
             "location": "[parameters('location')]",
-            "apiVersion": "2020-05-01-preview",
+            "apiVersion": "2021-02-01-preview",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -417,11 +431,15 @@ ms.locfileid: "111949434"
                     ]
                 },
                 "muteActionsDuration": "[parameters('muteActionsDuration')]",
-                "actions": [
-                    {
-                        "actionGroupId": "[parameters('actionGroupId')]"
+                "autoMitigate": "[parameters('autoMitigate')]",
+                "checkWorkspaceAlertsStorageConfigured": "[parameters('checkWorkspaceAlertsStorageConfigured')]",
+                "actions": {
+                    "actionGroups": "[parameters('actionGroupId')]",
+                    "customProperties": {
+                        "key1": "value1",
+                        "key2": "value2"
                     }
-                ]
+                }
             }
         }
     ]

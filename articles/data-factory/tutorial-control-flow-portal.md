@@ -7,13 +7,13 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/11/2018
-ms.openlocfilehash: a1e30bb59d81e949720560f2ce5da796a2c7fbe2
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 06/07/2021
+ms.openlocfilehash: 3891cf49f536cea11049e4bcea05f90eb7892ac2
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905345"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217002"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Azure Portal을 사용한 Azure Data Factory 파이프라인 분기 및 연결 작업
 
@@ -166,9 +166,9 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 - 하나의 활동을 다른 활동과 연결(성공 및 실패 시)
 - 작업의 출력을 후속 작업에 대한 입력으로 사용
 
-1. Data Factory UI의 **시작** 페이지에서 **파이프라인 만들기** 타일을 클릭합니다.  
+1. Data Factory UI 홈페이지에서 **오케스트레이션** 타일을 클릭합니다.  
 
-   ![시작 페이지](./media/tutorial-control-flow-portal/get-started-page.png)
+   ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
 3. 파이프라인에 대한 속성 창에서 **매개 변수** 탭으로 전환하고, **새로 만들기** 단추를 사용하여 문자열 형식의 세 매개 변수인 sourceBlobContainer, sinkBlobContainer 및 receiver를 추가합니다.
 
     - **sourceBlobContainer** - 원본 Blob 데이터 세트에서 사용하는 파이프라인의 매개 변수입니다.

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: da026012c4084783d30f548cbdffc8951d74bcd6
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d1b7f941fbd7d9c6a6b654992e86ab0379e11e28
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751220"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113303817"
 ---
 # <a name="create-and-use-views-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 뷰 만들기 및 사용
 
@@ -81,6 +81,8 @@ from openrowset(
            ) as rows
 ```
 
+Delta Lake는 퍼블릭 미리 보기 상태이며 몇 가지 알려진 와 제한 사항이 있습니다. [Synapse 서버리스 SQL 풀 자가 진단 페이지](resources-self-help-sql-on-demand.md#delta-lake)에서 알려진 문제를 검토합니다.
+
 ## <a name="partitioned-views"></a>분할 뷰
 
 계층 폴더 구조로 분할된 파일 세트가 있는 경우 파일 경로에 와일드 카드를 사용하여 파티션 패턴을 설명할 수 있습니다. `FILEPATH` 함수를 사용하여 폴더 경로의 일부를 분할 열로 노출합니다.
@@ -120,7 +122,9 @@ FROM
 > [!div class="mx-imgBorder"]
 >![Yellow Taxi Delta Lake 폴더](./media/shared/yellow-taxi-delta-lake.png)
 
-분할된 Delta Lake 데이터를 쿼리할 때는 `OPENROWSET` 함수에 `WITH` 절을 사용하지 마세요. 미리 보기의 알려진 문제로 인해 `WITH` 절은 기본 분할 열의 값을 올바르게 반환하지 않습니다. `WITH` 절(뷰 없음)에 `OPENROWSET` 함수를 직접 사용하는 경우 파티션 제거가 제대로 작동합니다.  
+분할된 Delta Lake 데이터를 쿼리할 때는 `OPENROWSET` 함수에 `WITH` 절을 사용하지 마세요. 미리 보기의 알려진 문제로 인해 `WITH` 절은 [기본 분할 열의 값을 올바르게 반환하지 않습니다](resources-self-help-sql-on-demand.md#partitioning-column-returns-null-values). `WITH` 절(뷰 없음)에 `OPENROWSET` 함수를 직접 사용하는 경우 파티션 제거가 제대로 작동합니다.  
+
+Delta Lake는 퍼블릭 미리 보기 상태이며 몇 가지 알려진 와 제한 사항이 있습니다. [Synapse 서버리스 SQL 풀 자가 진단 페이지](resources-self-help-sql-on-demand.md#delta-lake)에서 알려진 문제를 검토합니다.
 
 ## <a name="use-a-view"></a>뷰 사용
 

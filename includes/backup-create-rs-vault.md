@@ -6,15 +6,15 @@ author: v-amallick
 manager: carmonm
 ms.service: backup
 ms.topic: include
-ms.date: 10/18/2018
+ms.date: 06/01/2021
 ms.author: v-amallick
 ms.custom: include file
-ms.openlocfilehash: c126c349897016a00753b402b696c60fdd7b1b2e
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: 7d354ce3e69f075d2f523a75ba96f9a6efb7d797
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106294170"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110783615"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -24,23 +24,21 @@ Recovery Services 자격 증명 모음을 만들려면 다음 단계를 따릅�
 
 1. [Azure Portal](https://portal.azure.com/)에서 구독에 로그인합니다.
 
-1. 왼쪽 메뉴에서 **모든 서비스** 를 선택합니다.
+1. Azure Portal에서 **Backup 센터** 를 검색하고 **Backup 센터** 대시보드로 이동합니다.
 
-    ![모든 서비스 선택](./media/backup-create-rs-vault/click-all-services.png)
+    ![Backup 센터 선택](../includes/media/backup-create-rs-vault/backup-center-search-backup-center.png)
 
-1. **모든 서비스** 대화 상자에서 *Recovery Services* 를 입력합니다. 입력 내용에 따라 리소스 목록이 필터링됩니다. 리소스 목록에서 **Recovery Services 자격 증명 모음** 을 선택합니다.
+1. **개요** 탭에서 **+자격 증명 모음** 을 선택합니다.
 
-    ![Recovery Services 자격 증명 모음 입력 및 선택](./media/backup-create-rs-vault/all-services.png)
+    ![자격 증명 모음 만들기](./media/backup-create-rs-vault/backup-center-create-vault.png) 
 
-    구독의 Recovery Services 자격 증명 모음 목록이 표시됩니다.
+1. **Recovery Services 자격 증명 모음** 을 선택하고 **연결** 을 클릭합니다.
 
-1. **Recovery Services 자격 증명 모음** 대시보드에서 **추가** 를 선택합니다.
+    ![Recovery Services 자격 증명 모음 선택](./media/backup-create-rs-vault/backup-center-select-recovery-services-vault.png) 
 
-    ![Recovery Services 자격 증명 모음 추가](./media/backup-create-rs-vault/add-button-create-vault.png)
+1. **Recovery Services 자격 증명 모음** 대화 상자가 열립니다. **이름**, **구독**, **리소스 그룹** 및 **이름** 에 대한 값을 입력합니다.
 
-    **Recovery Services 자격 증명 모음** 대화 상자가 열립니다. **이름**, **구독**, **리소스 그룹** 및 **이름** 에 대한 값을 입력합니다.
-
-    ![Recovery Services 자격 증명 모음 구성](./media/backup-create-rs-vault/create-new-vault-dialog.png)
+    ![Recovery Services 자격 증명 모음 구성](./media/backup-create-rs-vault/backup-center-add-vault-details.png)
 
    - **Name**: 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이름은 Azure 구독에 고유해야 합니다. 2자 이상 50자 이하의 이름을 지정합니다. 이름은 문자로 시작해야 하며, 문자, 숫자, 하이픈만 포함할 수 있습니다.
    - **구독**: 사용할 구독을 선택합니다. 단일 구독의 멤버인 경우 해당 이름이 표시됩니다. 사용할 구독을 잘 모르는 경우 기본(제안된) 구독을 사용합니다. 회사 또는 학교 계정이 둘 이상의 Azure 구독과 연결된 경우에만 여러 항목을 선택할 수 있습니다.

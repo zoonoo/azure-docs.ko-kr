@@ -9,12 +9,12 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 9f25e7ce9580ab967d1625a6ab1550bd3f535225
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 2764eede3aebd0110e2cc2de8a1813bc1f28cb86
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113109016"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114444348"
 ---
 # <a name="quickstart-send-sms-messages-in-azure-logic-apps-with-azure-communication-services"></a>빠른 시작: Azure Communication Services를 사용하여 Azure Logic Apps에서 SMS 메시지 보내기
 
@@ -52,14 +52,40 @@ Azure Communication Services SMS 커넥터를 사용하여 워크플로의 새 �
    :::image type="content" source="./media/logic-app/select-send-sms-action.png" alt-text="SMS 보내기 작업이 선택된 Logic Apps 디자이너 및 Azure Communication Services 커넥터를 보여 주는 스크린샷입니다.":::
 
 1. 이제 Communication Services 리소스에 대한 연결을 만듭니다.
+    1. 동일한 구독 내에서:
 
-   1. 연결 이름을 제공합니다.
+       1. 연결 이름을 제공합니다.
 
-   1. Azure Communication Services 리소스를 선택합니다.
+       1. Azure Communication Services 리소스를 선택합니다.
 
-   1. **만들기** 를 선택합니다.
+       1. **만들기** 를 선택합니다.
 
-   :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="샘플 정보가 포함된 SMS 보내기 작업 구성을 보여 주는 스크린샷입니다.":::
+       :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="샘플 정보가 포함된 SMS 보내기 작업 구성을 보여 주는 스크린샷입니다.":::
+
+    1. Communication Services 리소스의 연결 문자열 사용:
+        
+        1. 연결 이름을 제공합니다.
+        
+        1. 드롭다운 옵션에서 ConnectionString 인증을 선택합니다.
+        
+        1. Communication Services 리소스의 연결 문자열을 입력합니다.
+        
+        1. **만들기** 를 선택합니다.
+        
+        :::image type="content" source="./media/logic-app/connection-string-auth.png" alt-text="연결 문자열 인증 구성을 보여 주는 스크린샷":::
+        
+    1. 서비스 주체 사용([서비스 주체 만들기 참조](../identity/service-principal-from-cli.md)):
+        1. 연결 이름을 제공합니다.
+        
+        1. 드롭다운 옵션에서 서비스 주체(Azure AD 애플리케이션) 인증을 선택합니다.
+        
+        1. 서비스 주체의 테넌트 ID, 클라이언트 ID 및 클라이언트 비밀을 입력합니다.
+        
+        1. Communication Services 리소스의 Communication Services 엔드포인트 URL 값을 입력합니다.
+        
+        1. **만들기** 를 선택합니다.
+        
+        :::image type="content" source="./media/logic-app/service-principal-auth.png" alt-text="서비스 주체 인증 구성을 보여 주는 스크린샷":::     
 
 1. **SMS 보내기** 작업에서 다음 정보를 제공합니다. 
 

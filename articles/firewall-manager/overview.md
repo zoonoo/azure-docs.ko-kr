@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 04/29/2021
+ms.date: 06/21/2021
 ms.author: victorh
-ms.openlocfilehash: a9f63b41afebc12566c8cc2e04664850203f1e5a
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: c5ba8ed36bc59b9b26dc854a0c1a1757f1c47266
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279931"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113595330"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Azure Firewall Manager란?
 
@@ -82,7 +82,6 @@ Azure Firewall Manager에는 다음과 같이 알려진 문제가 있습니다.
 |지역당 하나의 보안 가상 허브|지역당 둘 이상의 보안 가상 허브를 가질 수 없습니다.|한 지역에 여러 가상 WAN을 만듭니다.|
 |기본 정책은 로컬 정책과 동일한 지역에 있어야 합니다.|기본 정책과 동일한 지역에 모든 로컬 정책을 만듭니다. 보안 허브의 한 지역에 생성된 정책을 다른 지역에서 계속 적용할 수 있습니다.|조사|
 |보안 가상 허브 배포에서 허브 간 트래픽 필터링|보안 Virtual Hub 간 통신 필터링은 아직 지원되지 않습니다. 그러나 Azure Firewall을 통한 프라이빗 트래픽 필터링을 사용하지 않는 경우 허브 간 통신은 계속 작동합니다.|조사|
-|가상 허브와 다른 지역의 스포크|가상 허브와 다른 지역의 스포크는 지원되지 않습니다.|조사<br><br>지역별 허브를 만들고 허브와 동일한 지역에 피어 Vnet을 만듭니다.|
 |프라이빗 트래픽 필터링이 활성화된 분기 간 트래픽|프라이빗 트래픽 필터링이 활성화된 경우 분기 간 트래픽이 지원되지 않습니다. |조사 중입니다.<br><br>분기 간 연결이 중요한 경우 프라이빗 트래픽을 보호하지 마세요.|
 |동일한 가상 WAN을 공유하는 모든 보안 Virtual Hubs는 동일한 리소스 그룹에 있어야 합니다.|이 동작은 현재 Virtual WAN Hubs에 맞춰 조정됩니다.|여러 Virtual WAN을 만들어 다른 리소스 그룹에서 보안 Virtual Hubs를 만들 수 있도록 합니다.|
 |대량 IP 주소 추가 실패|여러 공용 IP 주소를 추가하면 보안 허브 방화벽이 실패한 상태가 됩니다.|더 작은 공용 IP 주소 증분을 추가합니다. 예를 들어 한 번에 10개를 추가합니다.|
@@ -91,5 +90,6 @@ Azure Firewall Manager에는 다음과 같이 알려진 문제가 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
+- [학습 모듈: Azure Firewall Manager 소개](/learn/modules/intro-to-azure-firewall-manager/)
 - [Azure Firewall Manager 배포 개요](deployment-overview.md) 검토
 - [보안 가상 허브](secured-virtual-hub.md)에 대해 알아보기

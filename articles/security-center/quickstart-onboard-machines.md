@@ -3,17 +3,17 @@ title: 비 Azure 컴퓨터를 Azure Security Center에 연결
 description: 비 Azure 컴퓨터를 Security Center에 연결하는 방법 알아보기
 author: memildin
 ms.author: memildin
-ms.date: 11/16/2020
+ms.date: 07/12/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 8ca3f7c9104fa655536762ac38f50c78cb96ad3a
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 3bda35f3973a5125a3e780448b651425bc054cce
+ms.sourcegitcommit: 75ad40bab1b3f90bb2ea2a489f8875d4b2da57e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112237941"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113641452"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>비 Azure 컴퓨터를 Security Center에 연결
 
@@ -30,11 +30,17 @@ Security Center는 비 Azure 컴퓨터의 보안 태세를 모니터링할 수 �
 
 ## <a name="add-non-azure-machines-with-azure-arc"></a>Azure Arc를 사용하여 비 Azure 머신 추가
 
-Azure Arc 사용 서버는 비 Azure 컴퓨터를 Azure Security Center에 추가하는 권장 방법입니다.
+비 Azure 컴퓨터를 Azure Security Center에 추가하려면 [Azure Arc 사용 서버](../azure-arc/servers/overview.md)를 사용하는 것이 좋습니다.
 
-Azure Arc 사용 서버가 있는 컴퓨터는 Azure 리소스가 되며 Security Center에 다른 Azure 리소스와 마찬가지로 권장 사항과 함께 표시됩니다.
+Azure Arc 지원 서버가 있는 컴퓨터는 Azure 리소스가 되며, 여기에 Log Analytics 에이전트를 설치하면 Security Center에 다른 Azure 리소스와 같은 권장 사항과 함께 나타납니다.
 
-또한 Azure Arc 사용 서버는 컴퓨터에서 게스트 구성 정책을 사용하도록 설정하고, Log Analytics 에이전트를 확장으로 배포하고, 다른 Azure 서비스를 사용하여 배포를 간소화하는 옵션 등과 같은 향상된 기능을 제공합니다. 혜택에 대한 개요는 [지원되는 시나리오](../azure-arc/servers/overview.md#supported-scenarios)를 참조하세요.
+또한 Azure Arc 사용 서버는 컴퓨터에서 게스트 구성 정책을 사용하도록 설정하고 다른 Azure 서비스를 사용하여 배포를 간소화하는 옵션 등과 같은 향상된 기능을 제공합니다. 혜택에 대한 개요는 [지원되는 시나리오](../azure-arc/servers/overview.md#supported-scenarios)를 참조하세요.
+
+> [!NOTE]
+> Log Analytics 에이전트를 배포하기 위한 Security Center의 자동 배포 도구는 Azure Arc를 실행하는 컴퓨터를 지원하지 않습니다. Azure Arc를 사용하여 컴퓨터를 연결한 경우 관련 Security Center 권장 사항을 사용하여 에이전트를 배포하고 Security Center에서 제공하는 전체 보호 기능을 활용하세요.
+>
+> - [Linux 기반 Azure Arc 컴퓨터에 Log Analytics 에이전트를 설치해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/720a3e77-0b9a-4fa9-98b6-ddf0fd7e32c1)
+> - [Windows 기반 Azure Arc 컴퓨터에 Log Analytics 에이전트를 설치해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/27ac71b1-75c5-41c2-adc2-858f5db45b08)
 
 [Azure Arc 사용 서버](../azure-arc/servers/overview.md)에 대해 자세히 알아보세요.
 
@@ -44,7 +50,7 @@ Azure Arc 사용 서버가 있는 컴퓨터는 Azure 리소스가 되며 Securit
 - 여러 컴퓨터를 대규모로 Arc 사용 서버에 연결하려면 [Azure에 하이브리드 컴퓨터를 대규모로 연결](../azure-arc/servers/onboard-service-principal.md)을 참조하세요.
 
 > [!TIP]
-> AWS에서 실행되는 컴퓨터를 온보딩하는 경우 Security Center의 AWS용 커넥터에서 Azure Arc 배포를 투명하게 자동으로 처리합니다. [Azure Security Center에 AWS 계정 연결](quickstart-onboard-aws.md)에서 자세히 알아보세요.
+> AWS(Amazon Web Services)에서 실행되는 컴퓨터를 온보딩하는 경우 Security Center의 AWS용 커넥터에서 Azure Arc 배포를 투명하게 자동으로 처리합니다. [Azure Security Center에 AWS 계정 연결](quickstart-onboard-aws.md)에서 자세히 알아보세요.
 
 ::: zone-end
 

@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 57abbeefe8e3f2abe527f2b282d643db766b9dc9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e02ac9d6abd3358218f268fb3da1e99b90fac7c5
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775748"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113568085"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 Key Vault 참조 사용
 
@@ -51,20 +51,20 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 1. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 옵션을 선택합니다.
 
     ![스크린샷은 Azure Portal의 리소스 만들기 옵션을 보여줍니다.](./media/quickstarts/search-services.png)
-1. 검색 상자에 **Key Vault** 를 입력합니다.
+1. 검색 상자에 **Key Vault** 를 입력하고 드롭다운에서 **Key Vault** 를 선택합니다.
 1. 결과 목록의 왼쪽에서 **Key Vault** 를 선택합니다.
 1. **Key Vault** 에서 **추가** 를 선택합니다.
 1. 오른쪽에 있는 **Key Vault 만들기** 에서 다음 정보를 제공합니다.
     - **구독** 을 선택하여 구독을 선택합니다.
-    - **리소스 그룹** 에서 **새로 만들기** 를 선택하고 리소스 그룹 이름을 입력합니다.
-    - **Key Vault 이름** 에는 고유한 이름이 필요합니다. 이 자습서에서는 **Contoso-vault2** 를 입력합니다.
+    - **리소스 그룹** 에서 기존 리소스 그룹 이름을 입력하거나 **새로 만들기** 를 선택하고 리소스 그룹 이름을 입력합니다.
+    - **Key Vault 이름** 에는 고유한 이름이 필요합니다.
     - **지역** 드롭다운 목록에서 위치를 선택합니다.
 1. 다른 **Key Vault 만들기** 옵션은 기본값 그대로 둡니다.
-1. **만들기** 를 선택합니다.
+1. **검토 + 만들기** 를 클릭합니다.
+1. 시스템에서 유효성을 검사하고 입력된 데이터를 표시합니다. **만들기** 를 클릭합니다.
 
 이때 사용자의 Azure 계정은 이 새 자격 증명 모음에 액세스할 권한이 있는 유일한 계정입니다.
 
-![스크린샷은 키 자격 증명 모음을 보여줍니다.](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>Key Vault에 비밀 추가
 
@@ -91,68 +91,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
     - **구독**, **리소스 그룹** 및 **Key Vault**: 이전 섹션에서 만든 Key Vault의 값에 해당하는 값을 입력합니다.
     - **비밀**: 이전 섹션에서 만든 **Message** 라는 비밀을 선택합니다.
 
-## <a name="connect-to-key-vault"></a>Key Vault에 연결
-
-1. 이 자습서에서는 Key Vault에 대한 인증에 서비스 주체를 사용합니다. 서비스 주체를 만들려면 Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) 명령을 사용합니다.
-
-    ```azurecli
-    az ad sp create-for-rbac -n "http://mySP" --sdk-auth
-    ```
-
-    이 작업을 수행하면 일련의 키/값 쌍이 반환됩니다.
-
-    ```console
-    {
-    "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
-    "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
-    "subscriptionId": "443e30da-feca-47c4-b68f-1636b75e16b3",
-    "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
-    "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-    "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-    "galleryEndpointUrl": "https://gallery.azure.com/",
-    "managementEndpointUrl": "https://management.core.windows.net/"
-    }
-    ```
-
-1. 다음 명령을 실행하여 서비스 주체가 키 자격 증명 모음에 액세스하도록 허용합니다.
-
-    ```cmd
-    az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
-    ```
-
-1. 환경 변수를 추가하여 *clientId*, *clientSecret* 및 *tenantId* 값을 저장합니다.
-
-    #### <a name="windows-command-prompt"></a>[Windows 명령 프롬프트](#tab/cmd)
-
-    ```cmd
-    setx AZURE_CLIENT_ID <clientId-of-your-service-principal>
-    setx AZURE_CLIENT_SECRET <clientSecret-of-your-service-principal>
-    setx AZURE_TENANT_ID <tenantId-of-your-service-principal>
-    ```
-
-    #### <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-    ```PowerShell
-    $Env:AZURE_CLIENT_ID = <clientId-of-your-service-principal>
-    $Env:AZURE_CLIENT_SECRET = <clientSecret-of-your-service-principal>
-    $Env:AZURE_TENANT_ID = <tenantId-of-your-service-principal>
-    ```
-
-    #### <a name="bash"></a>[Bash](#tab/bash)
-
-    ```bash
-    export AZURE_CLIENT_ID = <clientId-of-your-service-principal>
-    export AZURE_CLIENT_SECRET = <clientSecret-of-your-service-principal>
-    export AZURE_TENANT_ID = <tenantId-of-your-service-principal>
-    ```
-
-    ---
-
-    > [!NOTE]
-    > Key Vault 자격 증명은 애플리케이션 내에서만 사용됩니다. 애플리케이션은 이러한 자격 증명을 사용하여 Key Vault에 직접 인증합니다. App Configuration 서비스로 절대 전달되지 않습니다.
-
-1. 터미널을 다시 시작하여 이러한 새 환경 변수를 로드합니다.
+![새 Key Vault 참조 양식 만들기의 스크린샷](./media/create-key-vault-reference.png)
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Key Vault 참조를 사용하도록 코드 업데이트
 
@@ -170,12 +109,13 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
 1. `config.AddAzureAppConfiguration` 메서드를 호출하여 App Configuration을 사용하도록 `CreateWebHostBuilder` 메서드를 업데이트합니다. `ConfigureKeyVault` 옵션을 포함하고 올바른 자격 증명을 Key Vault에 전달합니다.
 
-    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+     #### <a name="net-core-5x"></a>[.NET Core 5.x](#tab/core5x)
 
     ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((hostingContext, config) =>
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
 
@@ -188,7 +128,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
                             });
                 });
             })
-            .UseStartup<Startup>();
+            .UseStartup<Startup>());
     ```
 
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
@@ -211,6 +151,27 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
                 });
             })
             .UseStartup<Startup>());
+    ```
+    
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
+    ```csharp
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                var settings = config.Build();
+
+                config.AddAzureAppConfiguration(options =>
+                {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                            .ConfigureKeyVault(kv =>
+                            {
+                                kv.SetCredential(new DefaultAzureCredential());
+                            });
+                });
+            })
+            .UseStartup<Startup>();
     ```
 
 1. 앱 구성에 대한 연결을 초기화하는 경우 `ConfigureKeyVault` 메서드를 호출하여 Key Vault에 대한 연결을 설정합니다. 초기화한 후 일반적인 App Configuration 키 값에 액세스하는 것과 동일한 방식으로 Key Vault 참조의 값에 액세스할 수 있습니다.
@@ -237,6 +198,15 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
     **TestApp:Settings:Message** 구성 값과 동일한 방식으로 Key Vault 참조 **TestApp:Settings:KeyVaultMessage** 의 값에 액세스합니다.
 
+
+## <a name="grant-your-app-access-to-key-vault"></a>Key Vault에 앱 액세스 권한 부여
+
+Azure App Configuration은 키 자격 증명 모음에 액세스하지 않습니다. 앱은 Key Vault에서 직접 읽기 때문에 키 자격 증명 모음의 비밀에 대한 읽기 권한을 앱에 부여해야 합니다. 이렇게 하면 비밀은 항상 앱에 유지됩니다. [Key Vault 액세스 정책](../key-vault/general/assign-access-policy-portal.md) 또는 [Azure 역할 기반 액세스 제어](../key-vault/general/rbac-guide.md)를 사용하여 액세스 권한을 부여할 수 있습니다.
+
+위 코드에서는 `DefaultAzureCredential`을 사용합니다. 이는 `EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, `VisualStudioCredential` 등의 다양한 자격 증명 유형을 자동으로 시도하는 집계된 토큰 자격 증명입니다. 자세한 내용은 [DefaultAzureCredential 클래스](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)를 참조하세요. 명시적으로 `DefaultAzureCredential`을 임의 자격 증명 유형으로 바꿀 수 있습니다. 그러나 `DefaultAzureCredential`을 사용하면 로컬 및 Azure 환경에서 둘 다 동일한 코드를 실행할 수 있습니다. 예를 들어, 키 자격 증명 모음에 대한 고유한 자격 증명 액세스 권한을 부여합니다. 로컬 개발에 Visual Studio를 사용하는 경우 `DefaultAzureCredential`은 자동으로 `SharedTokenCacheCredential` 또는 `VisualStudioCredential`로 대체됩니다.
+
+또는 AZURE_TENANT_ID, AZURE_CLIENT_ID 및 AZURE_CLIENT_SECRET 환경 변수를 설정할 수 있습니다. 그러면 `DefaultAzureCredential`은 `EnvironmentCredential`을 통해 소유한 클라이언트 비밀을 사용하여 키 자격 증명 모음으로 인증합니다. 관리 ID가 사용되는 Azure 서비스(예: Azure App Service, Azure Kubernetes Service 또는 Azure Container Instance)에 앱이 배포된 후, 키 자격 증명 모음에 액세스할 권한을 Azure 서비스의 관리 ID에 부여합니다. 앱이 Azure에서 실행되는 경우 `DefaultAzureCredential`은 자동으로 `ManagedIdentityCredential`을 사용합니다. 동일한 관리 ID를 사용하여 App Configuration과 Key Vault로 둘 다 인증할 수 있습니다. 자세한 내용은 [관리 ID를 사용하여 App Configuration에 액세스하는 방법](howto-integrate-azure-managed-service-identity.md)을 참조하세요.
+
 ## <a name="build-and-run-the-app-locally"></a>로컬로 앱 빌드 및 실행
 
 1. .NET Core CLI를 사용하여 앱을 빌드하려면 명령 셸에서 다음 명령을 실행합니다.
@@ -255,13 +225,21 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
     ![로컬 앱 빠른 시작](./media/key-vault-reference-launch-local.png)
 
+
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Key Vault에 저장된 값을 참조하는 App Configuration 키를 만들었습니다. App Configuration 및 Key Vault에 대한 액세스를 간소화하는 Azure 관리 서비스 ID를 추가하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
+이 자습서에서는 Key Vault에 저장된 비밀을 참조하는 키를 App Configuration에 만들었습니다.
+Key Vault에서 비밀과 인증서를 자동으로 다시 로드하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
+
+> [!div class="nextstepaction"]
+> [Key Vault에서 자동으로 비밀 및 인증서 다시 로드](./reload-key-vault-secrets-dotnet.md)
+
+관리 ID를 사용하여 App Configuration과 Key Vault에 대한 액세스를 간소화하는 방법을 알아보려면 다음 자습서를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [관리 ID 통합](./howto-integrate-azure-managed-service-identity.md)

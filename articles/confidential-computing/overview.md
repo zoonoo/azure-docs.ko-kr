@@ -8,12 +8,12 @@ ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 09/22/2020
 ms.author: JenCook
-ms.openlocfilehash: c3ef6a764123f52583f081a3b152651b9bb8b8b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef92a0f8c560dd20edf8711fba36cdf005ef15be
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554193"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443697"
 ---
 # <a name="confidential-computing-on-azure"></a>Azure의 기밀 컴퓨팅
 
@@ -85,7 +85,7 @@ Azure에서 기밀 컴퓨팅 IaaS 제품을 기반으로 애플리케이션을 �
 ### <a name="azure-security"></a>Azure Security 
 확인 방법 및 하드웨어 바인딩 키 관리를 통해 워크로드의 보안을 유지합니다. 
 - 증명: [Microsoft Azure Attestation(미리 보기)](../attestation/overview.md)
-- 키 관리: 관리형 HSM(미리 보기)
+- 키 관리: 관리형 HSM
 
 ### <a name="develop"></a>개발
 enclave 인식 애플리케이션 개발 사용을 시작하고 기밀 추론 프레임워크를 사용하여 비밀 알고리즘을 배포합니다.

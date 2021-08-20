@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/01/2021
 ms.author: justinha
-ms.openlocfilehash: d0386368b0e6e65f35ad408efc2c420aaf8f1986
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 3ff8ffe39a84f9a1eeddd7de01ad8db44f73d52c
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438489"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112199181"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리형 도메인 만들기 및 구성
 
@@ -158,7 +158,7 @@ Azure AD DS가 성공적으로 배포되면 이제 연결된 다른 VM과 애플
 >
 > 나중에 관리되는 도메인을 만드는 경우 Azure AD에서 동기화된 자격 증명 정보는 다시 사용할 수 없습니다. 암호 해시를 다시 저장하도록 암호 해시 동기화를 다시 구성해야 합니다. 이전에는 도메인 조인 VM 또는 사용자가 즉시 인증할 수 없었으므로 Azure AD에서 암호 해시를 새 관리되는 도메인에 생성하고 저장해야 합니다.
 >
-> 자세한 내용은 [Azure AD DS 및 Azure AD Connect에 대한 암호 해시 동기화 프로세스][password-hash-sync-process]를 참조하세요.
+> [Azure AD Connect 클라우드 동기화는 Azure AD DS에서 지원 되지 않음][/azure/active-directory/cloud-sync/what-is-cloud-sync#comparison-between-azure-ad-connect-and-cloud-sync]. 도메인 조인 VM에 액세스하려면 Azure AD Connect를 사용하여 온-프레미스 사용자를 동기화해야 합니다. 자세한 내용은 [Azure AD DS 및 Azure AD Connect에 대한 암호 해시 동기화 프로세스][password-hash-sync-process]를 참조하세요.
 
 이러한 암호 해시를 생성하고 저장하는 단계는 Azure AD에서 만든 클라우드 전용 사용자 계정과 Azure AD Connect를 사용하여 온-프레미스 디렉터리에서 동기화된 사용자 계정에 대해 서로 다릅니다.
 

@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 85fa79cdfc7036be5b0ab20e49986a1d075152c5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3258bc59146d6e5fbdb3532005d9b9da5334af5c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86254659"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468538"
 ---
 # <a name="about-api-management"></a>API Management 정보
 
@@ -105,7 +105,7 @@ API는 API Management 서비스 인스턴스의 기반입니다. 각 API는 개�
 정책이 다르게 지정하지 않는 한 정책 식은 어떤 API Management 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름](./api-management-advanced-policies.md#choose) 및 [변수 설정](./api-management-advanced-policies.md#set-variable) 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책](./api-management-advanced-policies.md#AdvancedPolicies) 및 [정책 식](./api-management-policy-expressions.md)을 참조하세요.
 
 
-API Management 정책의 전체 목록을 보려면 [정책 참조][Policy reference](영문)를 참조하세요. 정책 사용 및 구성에 대한 자세한 내용은 [API Management 정책][API Management policies]을 참조하세요. 속도 제한 및 할당량 정책을 사용하여 제품을 만드는 방법에 대한 자습서는 [고급 제품 설정을 만들고 구성하는 방법][How create and configure advanced product settings]을 참조하세요.
+API Management 정책의 전체 목록을 보려면 [정책 참조][Policy reference](영문)를 참조하세요. 정책 사용 및 구성에 대한 자세한 내용은 [API Management 정책][API Management policies]을 참조하세요. 속도 제한 및 할당량 정책을 사용하여 제품을 만드는 방법에 대한 자습서는 [고급 제품 설정을 만들고 구성하는 방법][How to create and configure advanced product settings]을 참조하세요.
 
 
 ## <a name="developer-portal"></a><a name="developer-portal"> </a> 개발자 포털
@@ -140,7 +140,7 @@ API Management에 대해 자세히 알아보려면 Microsoft Ignite 2017 confere
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
-[How create and configure advanced product settings]: transform-api.md
+[How to create and configure advanced product settings]: transform-api.md
 [How to create or invite developers]: api-management-howto-create-or-invite-developers.md
 [Policy reference]: ./api-management-policies.md
 [API Management policies]: api-management-howto-policies.md

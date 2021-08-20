@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 06/10/2021
+ms.date: 07/07/2021
 ms.author: aahi
-ms.openlocfilehash: a8645552cba0bb687b5d9a9dc93bc917d7ee38af
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 00ffe7d9911e10dad26976b36954be5fe61c3474
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969333"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113549691"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>방법: 감정 분석 및 오피니언 마이닝
 
@@ -25,7 +25,7 @@ API에서 사용하는 AI 모델은 서비스를 통해 제공되며, 분석 용
 
 ## <a name="sentiment-analysis-versions-and-features"></a>감정 분석 버전 및 기능
 
-| 기능                                   | 감정 분석 v3 | 감정 분석 v3.1(미리 보기) |
+| 기능                                   | 감정 분석 v3.0 | 감정 분석 v3.1 |
 |-------------------------------------------|-----------------------|-----------------------------------|
 | 단일 및 일괄 처리 요청을 위한 메서드    | X                     | X                                 |
 | 감정 분석 점수 및 레이블 지정             | X                     | X                                 |
@@ -49,7 +49,7 @@ API에서 사용하는 AI 모델은 서비스를 통해 제공되며, 분석 용
 
 ## <a name="opinion-mining"></a>오피니언 마이닝
 
-오피니언 마이닝은 버전 3.1 미리 보기부터 감정 분석에 도입된 기능입니다. NLP(자연어 처리)의 양상 기반 감정 분석이라고도 하는 이 기능은 텍스트의 제품 또는 서비스 특성과 관련된 의견에 대한 더 세부적인 정보를 제공합니다. API는 의견을 대상(명사 또는 동사) 및 평가(형용사)로 표시합니다.
+오피니언 마이닝은 버전 3.1부터 감정 분석에 도입된 기능입니다. NLP(자연어 처리)의 양상 기반 감정 분석이라고도 하는 이 기능은 텍스트의 제품 또는 서비스 특성과 관련된 의견에 대한 더 세부적인 정보를 제공합니다. API는 의견을 대상(명사 또는 동사) 및 평가(형용사)로 표시합니다.
 
 예를 들어 고객이 호텔에 대한 피드백을 "객실은 훌륭했어요. 그런데 직원이 불친절했어요"라고 남기면 오피니언 마이닝은 텍스트의 대상(양상)과 관련 평가(의견) 및 감정을 찾습니다. 감정 분석은 부정적인 감정만 보고할 수 있습니다.
 
@@ -64,7 +64,7 @@ API에서 사용하는 AI 모델은 서비스를 통해 제공되며, 분석 용
 
 감정 분석에서는 사용할 텍스트를 더 작은 크기로 제공하면 더 높은 품질의 결과를 얻을 수 있습니다. 이는 구 블록이 클수록 더 잘 수행되는 핵심 구 추출과는 반대입니다. 두 작업에서 최상의 결과를 얻으려면 이에 따라 입력을 다시 구성하는 것이 좋습니다.
 
-다음 형식의 JSON 문서가 있어야 합니다. ID, 텍스트 및 언어. 감정 분석은 다양한 언어를 지원하며 미리 보기로 제공됩니다. 자세한 내용은 [지원되는 언어](../language-support.md)를 참조하세요.
+다음 형식의 JSON 문서가 있어야 합니다. ID, 텍스트 및 언어. 감정 분석은 다양한 언어를 지원합니다. 자세한 내용은 [지원되는 언어](../language-support.md)를 참조하세요.
 
 문서 크기는 문서당 5,120자 미만이어야 합니다. 컬렉션에 허용되는 최대 문서 수는 개념 아래의 [데이터 제한](../concepts/data-limits.md?tabs=version-3) 문서를 참조하세요. 컬렉션은 요청 본문에 제출됩니다.
 
@@ -72,9 +72,9 @@ API에서 사용하는 AI 모델은 서비스를 통해 제공되며, 분석 용
 
 POST 요청을 만듭니다. [Postman](text-analytics-how-to-call-api.md) 또는 다음 참조 링크의 **API 테스트 콘솔** 을 사용하여 신속하게 요청을 만들어서 보낼 수 있습니다. 
 
-#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+#### <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
-[감정 분석 v3.1 참조](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Sentiment)
+[감정 분석 v3.1 참조](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment)
 
 #### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
@@ -89,17 +89,17 @@ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨�
 > [!NOTE]
 > Azure Portal에서 Text Analytics 리소스에 대한 키와 엔드포인트를 찾을 수 있습니다. 리소스의 **빠른 시작** 페이지의 **리소스 관리** 아래에 있습니다. 
 
-#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+#### <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 **감정 분석**
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/sentiment`
 
 **오피니언 마이닝**
 
 오피니언 마이닝 결과를 얻으려면 `opinionMining=true` 매개 변수를 포함해야 합니다. 예를 들면 다음과 같습니다.
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/sentiment?opinionMining=true`
 
 기본적으로 이 매개 변수는 `false`로 설정됩니다. 
 
@@ -117,7 +117,7 @@ Text Analytics API 키를 포함하도록 요청 헤더를 설정합니다. 이 
 
 ### <a name="example-request-for-sentiment-analysis-and-opinion-mining"></a>감정 분석 및 오피니언 마이닝에 대한 예제 요청  
 
-감정 분석을 위해 제출할 수 있는 콘텐츠의 예제는 다음과 같습니다. `v3.0` 및 `v3.1-preview`의 요청 형식은 동일합니다.
+감정 분석을 위해 제출할 수 있는 콘텐츠의 예제는 다음과 같습니다. `v3.0` 및 `v3.1`의 요청 형식은 동일합니다.
     
 ```json
 {
@@ -142,7 +142,7 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 
 출력은 즉시 반환됩니다. JSON을 수락하거나 로컬 시스템의 파일에 출력을 저장하는 애플리케이션에 결과를 스트리밍할 수 있습니다. 그런 다음, 데이터를 정렬, 검색 및 조작하는 데 사용할 수 있는 애플리케이션으로 출력을 가져옵니다. 다국어 지원 및 emoji 지원으로 인해 응답에 텍스트 오프셋이 포함될 수 있습니다. 자세한 내용은 [오프셋 처리 방법](../concepts/text-offsets.md)을 참조하세요.
 
-#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+#### <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-and-opinion-mining-example-response"></a>감정 분석 및 오피니언 마이닝 예제 응답
 

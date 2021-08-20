@@ -5,24 +5,28 @@ services: storage
 author: twooley
 ms.service: storage
 ms.topic: include
-ms.date: 11/23/2019
+ms.date: 07/23/2021
 ms.author: twooley
 ms.custom: include file
-ms.openlocfilehash: 9e6b2dfaaccfc7d305f672a9b7d74daf3a6227b7
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 463d251cc46e0a5735b1b5146bac30b3bc506f46
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109805184"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114674379"
 ---
 ### <a name="copy-your-credentials-from-the-azure-portal"></a>Azure Portal에서 자격 증명 복사
 
-샘플 애플리케이션이 Azure Storage에 대한 요청을 수행하는 경우 권한이 있어야 합니다. 요청에 권한을 부여하려면 스토리지 계정 자격 증명을 연결 문자열로 애플리케이션에 추가합니다. 다음 단계를 수행하여 스토리지 계정 자격 증명을 봅니다.
+샘플 애플리케이션이 Azure Storage에 대한 요청을 수행하는 경우 권한이 있어야 합니다. 요청에 권한을 부여하려면 스토리지 계정 자격 증명을 연결 문자열로 애플리케이션에 추가합니다. 스토리지 계정 자격 증명을 보려면 다음 단계를 따릅니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 스토리지 계정을 찾습니다.
-3. 스토리지 계정 개요의 **보안 + 네트워킹** 섹션에서 **액세스 키** 를 선택합니다. 여기에서 계정 액세스 키 및 각 키의 전체 연결 문자열을 볼 수 있습니다.
-4. **key1** 아래에서 **연결 문자열** 값을 찾고, **복사** 단추를 선택하여 연결 문자열을 복사합니다. 다음 단계에서 연결 문자열 값을 환경 변수에 추가합니다.
+3. 스토리지 계정 메뉴 창의 **보안 + 네트워킹** 에서 **액세스 키** 를 선택합니다. 여기에서 계정 액세스 키 및 각 키의 전체 연결 문자열을 볼 수 있습니다.
+
+    ![Azure Portal에서 액세스 키 설정이 있는 위치를 보여 주는 스크린샷](./media/storage-access-keys-portal/portal-access-key-settings.png)
+ 
+1. **액세스 키** 창에서 **키 표시** 를 선택합니다.
+1. **key1** 섹션에서 **연결 문자열** 값을 찾습니다. **클립보드에 복사** 아이콘을 선택하여 연결 문자열을 복사합니다. 다음 단계에서 연결 문자열 값을 환경 변수에 추가합니다.
 
     ![Azure Portal에서 연결 문자열을 복사하는 방법을 보여주는 스크린샷](./media/storage-copy-connection-string-portal/portal-connection-string.png)
 

@@ -4,16 +4,14 @@ description: 이 자습서에서는 PHP 애플리케이션에서 Azure Service B
 ms.devlang: PHP
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 706f523fdfb3c710bb16b048cfc68ce98875adb1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7cdb6ca30b2c9abf2c2525057a90888b2c5d1c78
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88066205"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302539"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>빠른 시작: PHP에서 Service Bus 토픽 및 구독을 사용하는 방법
-
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 이 문서에서는 Service Bus 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었으며 [PHP용 Azure SDK](https://github.com/Azure/azure-sdk-for-php)를 사용합니다. 다루는 시나리오는 다음과 같습니다.
 
@@ -23,7 +21,11 @@ ms.locfileid: "88066205"
 - 구독에서 메시지 받기
 - 토픽 및 구독 삭제
 
-## <a name="prerequisites"></a>사전 요구 사항
+> [!IMPORTANT]
+> 2021년 2월부터 PHP용 Azure SDK는 사용 중지 단계로 전환되었으며 더 이상 Microsoft에서 공식적으로 지원되지 않습니다. 자세한 내용은 GitHub의 [공지](https://github.com/Azure/azure-sdk-for-php#important-annoucement)를 참조하세요. 이 문서는 곧 사용 중지됩니다. 
+ 
+
+## <a name="prerequisites"></a>필수 조건
 1. Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 2. [빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 해당 토픽에 대한 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md)의 단계에 따라 Service Bus **네임스페이스** 를 만들고 **연결 문자열** 을 가져옵니다.
 

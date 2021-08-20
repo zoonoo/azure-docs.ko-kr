@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 07/26/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: ddc50ab8c72017160a7032e35a69eedf85ebac95
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 11cb3ada0449559eda080cad3e9c528d60a02660
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784812"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707922"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint-in-azure-active-directory"></a>자습서: Azure Active Directory에서 SCIM 엔드포인트에 대한 프로비저닝 개발 및 계획
 
@@ -192,8 +192,6 @@ SCIM 2.0 사용자 관리 API를 지원하기 위해 이 섹션에서는 AAD SCI
 |PATCH 요청을 사용하여 사용자 또는 그룹 수정|[섹션 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). 지원을 통해 그룹 및 사용자가 수행 가능한 방식으로 프로비저닝됩니다.|
 |이전에 만든 사용자 또는 그룹에 대해 알려진 리소스 검색|[섹션 3.4.1](https://tools.ietf.org/html/rfc7644#section-3.4.1)|
 |사용자 또는 그룹 쿼리|[섹션 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2).  기본적으로 사용자는 `id`로 검색되고 `username` 및 `externalId`에 의해 쿼리되며 그룹은 `displayName`에 의해 쿼리됩니다.|
-|ID 및 관리자별 사용자 쿼리|섹션 3.4.2|
-|ID 및 멤버별 그룹 쿼리|섹션 3.4.2|
 |그룹 리소스를 쿼리하는 경우 [excludedAttributes=members](#get-group) 필터|섹션 3.4.2.5|
 |애플리케이션에 대한 AAD 인증 및 권한 부여에 단일 전달자 토큰 허용||
 |사용자 `active=false` 일시 삭제 및 사용자 `active=true` 복원|사용자가 활성 상태인지 여부에 관계없이 요청에서 사용자 개체를 반환해야 합니다. 애플리케이션에서 영구 삭제될 때만 사용자가 반환되지 않습니다.|
@@ -201,22 +199,37 @@ SCIM 2.0 사용자 관리 API를 지원하기 위해 이 섹션에서는 AAD SCI
 
 AAD와의 호환성을 보장하려면 SCIM 엔드포인트를 구현할 때 다음과 같은 일반적인 지침을 사용합니다.
 
+##### <a name="general"></a>일반: 
 * `id`는 모든 리소스에 대한 필수 속성입니다. 리소스를 반환하는 모든 응답은 멤버가 0인 `ListResponse`를 제외하고 각 리소스에 이 속성이 있는지 확인해야 합니다.
-* 쿼리/필터 요청에 대한 응답은 항상 `ListResponse`여야 합니다.
-* 그룹은 선택 사항이지만 SCIM 구현에서 **PATCH** 요청을 지원하는 경우에만 지원됩니다.
+* 전송된 값은 전송될 때와 같은 형식으로 저장해야 합니다. 잘못된 값은 설명이 포함된 실행 가능한 오류 메시지를 사용하여 거부해야 합니다. Azure AD에서 전송되는 데이터와 SCIM 애플리케이션에 저장되는 데이터 사이에서는 데이터 변환이 발생하면 안 됩니다. 예를 들어 55555555555로 보낸 전화 번호는 + 5 (555) 555-5555로 저장/반환되면 안 됩니다.
 * **PATCH** 응답에서 전체 리소스를 포함할 필요가 없습니다.
-* Microsoft AAD는 `eq`, `and` 연산자만 사용합니다.
 * [섹션 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2)에서 정의한 대로 SCIM의 구조적 요소, 특히 **PATCH** `op` 작업 값에서 대/소문자를 구분할 필요가 없습니다. AAD는 `op` 값을 **Add**, **Replace**, **Remove** 로 내보냅니다.
 * Microsoft AAD는 엔드포인트 및 자격 증명이 유효한지 확인하기 위해 임의의 사용자 및 그룹을 가져오도록 요청합니다. 또한 [Azure Portal](https://portal.azure.com)에서 **연결 테스트** 흐름의 일부로 수행됩니다. 
-* 리소스를 쿼리할 수 있는 특성은 [Azure Portal](https://portal.azure.com)의 애플리케이션에서 일치하는 특성으로 설정해야 합니다. [사용자 프로비저닝 특성 매핑 사용자 지정](customize-application-attributes.md)을 참조하세요.
-* 자격 특성은 지원되지 않습니다.
 * SCIM 엔드포인트에서 HTTPS를 지원합니다.
-* [스키마 검색](#schema-discovery)
-  * 스키마 검색은 현재 사용자 지정 애플리케이션에서 지원되지 않지만 특정 갤러리 애플리케이션에서 사용되고 있습니다. 앞으로 스키마 검색은 기존 커넥터에 특성을 추가하는 유일한 방법으로 사용됩니다. 
-  * 값이 없으면 null 값을 보내지 마세요.
-  * 속성 값은 camel 대/소문자를 지정해야 합니다(예: readWrite).
-  * 목록 응답을 반환해야 합니다.
-  * /schemas 요청은 누군가가 Azure Portal에서 프로비저닝 구성을 저장할 때마다 또는 사용자가 Azure Portal의 프로비저닝 편집 페이지에 도달할 때마다 Azure AD SCIM 클라이언트에서 수행됩니다. 검색된 추가 특성은 대상 특성 목록 아래의 특성 매핑에서 고객에게 표시됩니다. 스키마 검색에서는 추가 대상 특성만 추가됩니다. 특성이 제거되지 않습니다. 
+* 사용자 지정 복합 및 다중 값 특성이 지원되지만 이 경우 AAD에는 데이터를 끌어올 복잡한 데이터 구조가 많지 않습니다. 단순 쌍의 이름/값 유형 복합 특성은 쉽게 매핑될 수 있지만, 이 경우에는 세 개 이상의 하위 특성을 가진 복합 특성으로의 데이터 흐름이 잘 지원되지 않습니다.
+
+##### <a name="retrieving-resources"></a>리소스 검색:
+* 쿼리/필터 요청에 대한 응답은 항상 `ListResponse`여야 합니다.
+* Microsoft AAD는 `eq`, `and` 연산자만 사용합니다.
+* 리소스를 쿼리할 수 있는 특성은 [Azure Portal](https://portal.azure.com)의 애플리케이션에서 일치하는 특성으로 설정해야 합니다. [사용자 프로비저닝 특성 매핑 사용자 지정](customize-application-attributes.md)을 참조하세요.
+
+##### <a name="users"></a>/Users:
+* 자격 특성은 지원되지 않습니다.
+* 사용자 고유성을 고려하는 모든 특성은 필터링된 쿼리의 일부로 사용할 수 있어야 합니다. (예: userName 및 emails[type eq "work"] 둘 다에 대해 사용자 고유성이 평가되는 경우 필터를 사용한 /Users에 대한 GET은 _userName eq "user@contoso.com"_ 및 _emails[type eq "work"] eq "user@contoso.com"_ 쿼리를 둘 다 허용해야 합니다.
+
+##### <a name="groups"></a>/Groups:
+* 그룹은 선택 사항이지만 SCIM 구현에서 **PATCH** 요청을 지원하는 경우에만 지원됩니다.
+* Azure Active Directory와 SCIM 애플리케이션 간의 일치를 위해 그룹에는 'displayName' 값에 대한 고유성이 있어야 합니다. 이는 SCIM 프로토콜의 요구 사항이 아니지만 Azure Active Directory와 SCIM 서비스를 통합하기 위한 요구 사항입니다.
+
+##### <a name="schemas-schema-discovery"></a>/Schemas(스키마 검색):
+
+* [샘플 요청/응답](#schema-discovery)
+* 스키마 검색은 현재 사용자 지정 비갤러리 SCIM 애플리케이션에서 지원되지 않지만 특정 갤러리 애플리케이션에서 사용되고 있습니다. 앞으로 스키마 검색은 기존 갤러리 SCIM 애플리케이션의 스키마에 특성을 추가하는 유일한 방법으로 사용됩니다. 
+* 값이 없으면 null 값을 보내지 마세요.
+* 속성 값은 camel 대/소문자를 지정해야 합니다(예: readWrite).
+* 목록 응답을 반환해야 합니다.
+* /schemas 요청은 누군가가 Azure Portal에서 프로비저닝 구성을 저장할 때마다 또는 사용자가 Azure Portal의 프로비저닝 편집 페이지에 도달할 때마다 Azure AD SCIM 클라이언트에서 수행됩니다. 검색된 추가 특성은 대상 특성 목록 아래의 특성 매핑에서 고객에게 표시됩니다. 스키마 검색에서는 추가 대상 특성만 추가됩니다. 특성이 제거되지 않습니다. 
+
   
 ### <a name="user-provisioning-and-deprovisioning"></a>사용자 프로비저닝 및 프로비저닝 해제
 
@@ -888,6 +901,8 @@ TLS 1.2 암호 도구 모음 최소 막대:
 ### <a name="ip-ranges"></a>IP 범위
 Azure AD 프로비저닝 서비스는 현재 [여기](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all)에 나열된 AzureActiveDirectory의 IP 범위에서 작동합니다. AzureActiveDirectory 태그 아래에 나열된 IP 범위를 추가하면 Azure AD 프로비저닝 서비스에서 애플리케이션으로의 트래픽을 허용할 수 있습니다. 계산된 주소에 대해 IP 범위 목록을 신중하게 검토해야 합니다. '40.126.25.32'와 같은 주소는 IP 범위 목록에 '40.126.0.0/18'로 표시될 수 있습니다. 또한 다음 [API](/rest/api/virtualnetwork/servicetags/list)를 사용하여 IP 범위 목록을 프로그래밍 방식으로 검색할 수도 있습니다.
 
+또한 Azure AD는 프라이빗 네트워크(온-프레미스, Azure에서 호스트, AWS에서 호스트 등)의 애플리케이션에 대한 연결을 제공하는 에이전트 기반 솔루션을 지원합니다. 고객은 프라이빗 네트워크의 서버에서 인바운드 포트를 열지 않고 Azure AD에 대한 연결을 제공하는 경량 에이전트를 배포할 수 있습니다. [여기](/app-provisioning/on-premises-scim-provisioning)를 참조하세요.
+
 ## <a name="build-a-scim-endpoint"></a>SCIM 엔드포인트 빌드
 
 스키마를 디자인하고 Azure AD SCIM 구현을 이해했으므로 이제 SCIM 엔드포인트 개발을 시작할 수 있습니다. 처음부터 시작하여 구현을 완전히 빌드하지 않고도 SCIM 커뮤니티에서 게시한 여러 오픈 소스 SCIM 라이브러리를 사용할 수 있습니다.
@@ -1339,7 +1354,7 @@ SCIM 사양에서는 인증 및 권한 부여에 대한 SCIM 관련 체계를 �
 
 |권한 부여 방법|장점|단점|지원|
 |--|--|--|--|
-|사용자 이름 및 비밀번호(Azure AD에서 권장되지 않거나 지원되지 않음)|쉬운 구현|안전하지 않음 - [암호는 중요하지 않습니다.](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|갤러리 앱에 대해 사례별로 지원됩니다. 비갤러리 앱에는 지원되지 않습니다.|
+|사용자 이름 및 비밀번호(Azure AD에서 권장되지 않거나 지원되지 않음)|쉬운 구현|안전하지 않음 - [암호는 중요하지 않습니다.](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|새 갤러리 또는 비갤러리 앱에는 지원되지 않습니다.|
 |수명이 긴 전달자 토큰|수명이 긴 토큰에는 사용자가 없어도 됩니다. 프로비저닝을 설정할 때 관리자가 쉽게 사용할 수 있습니다.|수명이 간 토큰은 메일처럼 안전하지 않은 방법을 사용하지 않으면 관리자와 공유하기 어려울 수 있습니다. |갤러리 및 비갤러리 앱에 지원됩니다. |
 |OAuth 인증 코드 부여|액세스 토큰은 비밀번호보다 수명이 훨씬 짧으며 수명이 긴 전달자 토큰에 없는 자동화된 새로 고침 메커니즘이 있습니다.  책임 수준을 추가하는 초기 권한 부여 중에 실제 사용자가 있어야 합니다. |사용자가 있어야 합니다. 사용자가 조직을 떠나면 토큰이 유효하지 않으므로 권한 부여를 다시 완료해야 합니다.|갤러리 앱은 지원되지만 비갤러리 앱은 지원되지 않습니다. 그러나 단기 테스트 목적으로 UI에서 액세스 토큰을 비밀 토큰으로 제공할 수 있습니다. 갤러리 앱에서 구성 가능한 권한 부여/토큰 URL을 지원하는 것 외에도 비갤러리에서 OAuth 코드 권한 부여를 지원하는 것은 백로그에 있습니다.|
 |OAuth 클라이언트 자격 증명 부여|액세스 토큰은 비밀번호보다 수명이 훨씬 짧으며 수명이 긴 전달자 토큰에 없는 자동화된 새로 고침 메커니즘이 있습니다. 인증 코드 부여 및 클라이언트 자격 증명 부여는 모두 동일한 유형의 액세스 토큰을 만들기 때문에 이러한 메서드 간에 이동하는 것은 API에 인식됩니다.  프로비저닝은 완전히 자동화할 수 있으며 사용자 개입 없이도 새 토큰을 자동으로 요청할 수 있습니다. ||갤러리 앱 및 비갤러리 앱에는 지원되지 않습니다. 지원은 백로그에 있습니다.|

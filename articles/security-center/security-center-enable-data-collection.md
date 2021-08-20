@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: f7b09c47d94443edc81a66028fa687aa48e843e7
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 3f7663c62b514cb002b4de3df59d2185cfa815d3
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113002345"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284217"
 ---
 # <a name="configure-auto-provisioning-for-agents-and-extensions-from-azure-security-center"></a>Azure Security Center에서 에이전트 및 확장에 대한 자동 프로비저닝 구성
 
@@ -27,8 +27,8 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 |-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 릴리스 상태:          | **기능**: 자동 프로비저닝은 GA(일반 공급)입니다.<br>**에이전트 및 확장**: Azure VM용 Log Analytics 에이전트는 GA이고, Microsoft 종속성 에이전트는 미리 보기로 제공되며, Kubernetes용 정책 추가 기능은 GA입니다.                |
 | 가격 책정:                | Free                                                                                                                                                                                                                         |
-| 지원되는 대상: | ![예](./media/icons/yes-icon.png) Azure 머신<br>![아니요](./media/icons/no-icon.png) Azure Arc 머신<br>![아니요](./media/icons/no-icon.png) Kubernetes 노드<br>![예](./media/icons/no-icon.png) Virtual Machine Scale Sets |
-| 클라우드:                 | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov, Azure 중국                                                                                                      |
+| 지원되는 대상: | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure 머신<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Arc 머신<br>:::image type="icon" source="./media/icons/no-icon.png"::: Kubernetes 노드<br>:::image type="icon" source="./media/icons/no-icon.png":::Virtual Machine Scale Sets |
+| 클라우드:                 | :::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: US Gov, Azure 중국                                                                                                      |
 |                         |                                                                                                                                                                                                                              |
 
 ## <a name="how-does-security-center-collect-data"></a>Security Center에서 데이터를 수집하는 방법은 무엇인가요?
@@ -86,9 +86,9 @@ Log Analytics 에이전트를 자동으로 프로비저닝하도록 설정하려
         > [!TIP]
         > 기본 작업 영역에 대한 질문은 다음을 참조하세요.
         >
-        > - [Security Center에서 만든 작업 영역에서 Azure Monitor 로그에 대한 요금을 청구하나요?](/azure/security-center/faq-data-collection-agents#am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center-)
-        > - [기본 Log Analytics 작업 영역은 어디에서 생성되나요?](/azure/security-center/faq-data-collection-agents#where-is-the-default-log-analytics-workspace-created-)
-        > - [Security Center에서 만든 기본 작업 영역을 삭제할 수 있나요?](/azure/security-center/faq-data-collection-agents#can-i-delete-the-default-workspaces-created-by-security-center-)
+        > - [Security Center에서 만든 작업 영역에서 Azure Monitor 로그에 대한 요금을 청구하나요?](./faq-data-collection-agents.yml#am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center-)
+        > - [기본 Log Analytics 작업 영역은 어디에서 생성되나요?](./faq-data-collection-agents.yml#where-is-the-default-log-analytics-workspace-created-)
+        > - [Security Center에서 만든 기본 작업 영역을 삭제할 수 있나요?](./faq-data-collection-agents.yml#can-i-delete-the-default-workspaces-created-by-security-center-)
 
     - **다른 작업 영역에 Azure VM 연결** - 드롭다운 목록에서 수집된 데이터를 저장할 작업 영역을 선택합니다. 드롭다운 목록에는 모든 구독에 대한 모든 작업 영역이 포함됩니다. 이 옵션을 사용하여 서로 다른 구독에서 실행되는 가상 머신에서 데이터를 수집하고 선택한 작업 영역에 모두 저장할 수 있습니다.  
 
@@ -181,7 +181,7 @@ Azure Sentinel 사용자: 단일 작업 영역의 컨텍스트 내에서 보안 
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 > [!NOTE]
-> - GPO(그룹 정책 개체)를 사용하는 경우 감사 정책인 프로세스 만들기 이벤트 4688과 *CommandLine* 필드 내부 이벤트 4688을 사용하는 것이 좋습니다. 프로세스 만들기 이벤트 4688에 대한 자세한 내용은 Security Center의 [FAQ](/azure/security-center/faq-data-collection-agents#what-happens-when-data-collection-is-enabled-)를 참조하세요. 감사 정책에 대한 자세한 내용은 [감사 정책 권장 사항](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations)을 참조하세요.
+> - GPO(그룹 정책 개체)를 사용하는 경우 감사 정책인 프로세스 만들기 이벤트 4688과 *CommandLine* 필드 내부 이벤트 4688을 사용하는 것이 좋습니다. 프로세스 만들기 이벤트 4688에 대한 자세한 내용은 Security Center의 [FAQ](./faq-data-collection-agents.yml#what-happens-when-data-collection-is-enabled-)를 참조하세요. 감사 정책에 대한 자세한 내용은 [감사 정책 권장 사항](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations)을 참조하세요.
 > -  [적응형 애플리케이션 제어](security-center-adaptive-application.md)에 데이터 수집을 사용하기 위해 Security Center는 모든 애플리케이션을 허용하도록 감사 모드에서 로컬 AppLocker 정책을 구성합니다. 이렇게 하면 AppLocker가 이벤트를 생성하게 되고, 이 이벤트를 Security Center에서 수집하여 활용합니다. 이 정책은 이미 AppLocker 정책이 구성된 컴퓨터에서는 구성할 수 없습니다. 
 > - Windows 필터링 플랫폼 [이벤트 ID 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156)을 수집하려면 [감사 필터링 플랫폼 연결](/windows/security/threat-protection/auditing/audit-filtering-platform-connection)을 사용하도록 설정해야 합니다(Auditpol /set /subcategory:"Filtering Platform Connection" /Success:Enable).
 >
@@ -271,7 +271,7 @@ Log Analytics 에이전트를 수동으로 설치하려면 다음을 수행합�
 
 
 > [!NOTE]
->  자동 프로비저닝을 해제해도 에이전트가 프로비저닝된 Azure VM에서 Log Analytics 에이전트가 제거되지는 않습니다. OMS 확장을 제거하는 방법은 [Security Center가 설치한 OMS 확장을 제거하는 방법](/azure/security-center/faq-data-collection-agents#how-do-i-remove-oms-extensions-installed-by-security-center-)을 참조하세요.
+>  자동 프로비저닝을 해제해도 에이전트가 프로비저닝된 Azure VM에서 Log Analytics 에이전트가 제거되지는 않습니다. OMS 확장을 제거하는 방법은 [Security Center가 설치한 OMS 확장을 제거하는 방법](./faq-data-collection-agents.yml#how-do-i-remove-oms-extensions-installed-by-security-center-)을 참조하세요.
 >
 
 

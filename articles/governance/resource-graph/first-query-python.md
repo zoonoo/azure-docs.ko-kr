@@ -1,17 +1,17 @@
 ---
 title: '빠른 시작: 첫 번째 Python 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 Python용 Resource Graph 라이브러리를 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
-ms.date: 05/01/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - mode-api
-ms.openlocfilehash: ffb58b301e850c3887b0a554788b243f2cf262f6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: aa64fb646e45c950dcade38ee7cec189b3501f9e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751664"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114457418"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>빠른 시작: Python을 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -19,7 +19,7 @@ Azure Resource Graph를 사용하는 첫 번째 단계는 Python에 필요한 �
 
 이 과정이 끝나면 Python 설치에 라이브러리가 추가되고 첫 번째 Resource Graph 쿼리를 실행할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -67,7 +67,7 @@ Python을 사용하도록 설정하여 Azure Resource Graph를 쿼리하려면 �
 
 ## <a name="run-your-first-resource-graph-query"></a>첫 번째 Resource Graph 실행
 
-Python 라이브러리가 선택한 환경에 추가되었으므로 간단한 Resource Graph 쿼리를 시도해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식** 과 함께 처음 5개 Azure 리소스를 반환합니다.
+원하는 환경에 Python 라이브러리가 추가되었으므로, 이제 간단한 구독 기반 Resource Graph 쿼리를 시도해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식** 과 함께 처음 5개 Azure 리소스를 반환합니다. [관리 그룹](../management-groups/overview.md)을 기준으로 쿼리하려면 `management_groups`매개 변수를 `QueryRequest`와 함께 사용합니다.
 
 1. 설치된 라이브러리 및 `resources` 메서드를 사용하여 첫 번째 Azure Resource Graph 쿼리를 실행합니다.
 

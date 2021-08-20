@@ -6,15 +6,15 @@ ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.reviewer: jrasnick, garye
-ms.date: 11/20/2020
+ms.date: 7/9/2021
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: aaf0aab2ef600b269b9b47182aeb096ca13c7a87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1472336e5244103175ec2ad837d4b503a1e5348
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821589"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721615"
 ---
 # <a name="tutorial-train-a-machine-learning-model-without-code"></a>자습서: 코드를 사용하지 않고 기계 학습 모델 학습
 
@@ -29,7 +29,7 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure Synapse Analytics 작업 영역](../get-started-create-workspace.md). 기본 스토리지로 구성된 Azure Data Lake Storage Gen2 스토리지 계정이 있어야 합니다. 작업하는 Data Lake Storage Gen2 파일 시스템의 경우 *Storage Blob 데이터 기여자* 인지 확인합니다.
-- Azure Synapse Analytics 작업 영역의 Apache Spark 풀. 자세한 내용은 [빠른 시작: Synapse Studio를 사용하여 전용 SQL 풀 만들기](../quickstart-create-sql-pool-studio.md)를 참조하세요.
+- Azure Synapse Analytics 작업 영역의 Apache Spark 풀(버전 2.4) 자세한 내용은 [빠른 시작: Synapse Studio를 사용하여 서버리스 Apache Spark 풀 만들기](../quickstart-create-apache-spark-pool-studio.md)를 참조하세요.
 - Azure Synapse Analytics 작업 영역의 Azure Machine Learning 연결 서비스. 자세한 내용은 [빠른 시작: Azure Synapse Analytics에서 새 Azure Machine Learning 연결된 서비스 만들기](quickstart-integrate-azure-machine-learning.md)를 참조하세요.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
@@ -55,8 +55,8 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 마법사를 열려면 다음을 수행합니다.
 
-1. 이전 단계에서 만든 Spark 테이블을 마우스 오른쪽 단추로 클릭합니다. 그런 다음, **Machine Learning** > **Enrich with new model(새 모델로 보강)** 을 선택합니다.
-![Machine Learning 및 새 모델로 보강이 강조 표시된 Spark 테이블의 스크린샷.](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
+1. 이전 단계에서 만든 Spark 테이블을 마우스 오른쪽 단추로 클릭합니다. 그런 다음, **Machine Learning** > **새 모델 학습** 을 선택합니다.
+![Machine Learning 및 새 모델 학습이 강조 표시된 Spark 테이블 스크린샷](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
 
 1. Azure Machine Learning에서 실행되는 자동화된 Machine Learning 실험을 만들기 위한 구성 세부 정보를 제공합니다. 이 실행은 여러 모델을 학습시킵니다. 성공한 실행 중 최상의 모델은 Azure Machine Learning 모델 레지스트리에 등록됩니다.
 
@@ -80,7 +80,7 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 답변하려는 질문에 따라 실험에 대한 기계 학습 모델 유형을 선택합니다. `fareAmount`는 대상 열이고 숫자 값이므로 여기에서 **회귀** 를 선택하는 것이 좋습니다. 그런 다음, **계속** 을 선택합니다.
 
-![회귀가 강조 표시된 새 모델로 보강의 스크린샷.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00b.png)
+![회귀가 강조 표시된 새 모델 학습 스크린샷](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00b.png)
 
 ## <a name="additional-configurations"></a>추가 구성
 
@@ -114,7 +114,7 @@ Notebook을 생성하려면 **Notebook에서 열기** 를 선택합니다. 그�
 ![모두 실행이 강조 표시된 Notebook의 스크린샷](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00e.png)
 
 실행이 성공적으로 제출되면 Notebook 출력의 Azure Machine Learning 작업 영역에 실험 실행 링크가 표시됩니다. 링크를 클릭하여 Azure Machine Learning에서 자동화된 실행을 모니터링합니다.
-![링크가 강조 표시된 Azure Synapse Analytics의 스크린샷](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00f.png))
+![링크가 강조 표시된 Azure Synapse Analytics 스크린샷](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00f.png)
 
 ## <a name="next-steps"></a>다음 단계
 

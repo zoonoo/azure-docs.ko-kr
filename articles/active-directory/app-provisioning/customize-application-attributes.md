@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 07/07/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 78e2b01da1b47a51309a9e26500514aea396190b
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 79f001ef1483ccdc8b9a4f2e2bfde9ca87db705f
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783012"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113507075"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>자습서 - Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정
 
@@ -151,15 +151,14 @@ SCIM 애플리케이션의 경우 특성 이름이 아래 예제에 표시된 �
 
 이러한 지침은 SCIM 사용 애플리케이션에만 적용 됩니다. ServiceNow 및 Salesforce와 같은 애플리케이션은 SCIM을 사용하여 Azure AD와 통합되지 않으므로 사용자 지정 특성을 추가할 때 특정 네임스페이스가 필요하지 않습니다.
 
-사용자 지정 특성은 참조 특성, 다중값 또는 복합 형식 특성일 수 없습니다. 사용자 지정 다중값 및 복합 형식 확장 특성은 현재 갤러리의 애플리케이션에 대해서만 지원됩니다.  
+사용자 지정 특성은 참조 특성, 다중값 또는 복합 형식 특성일 수 없습니다. 사용자 지정 다중값 및 복합 형식 확장 특성은 현재 갤러리의 애플리케이션에 대해서만 지원됩니다. 사용자 지정 확장 스키마 헤더는 Azure AD SCIM 클라이언트의 요청에서 전송되지 않기 때문에 아래 예제에서 생략됩니다. 해당 문제는 나중에 해결될 예정이며 헤더가 요청에서 전송됩니다.  
  
 **확장 특성이 있는 사용자 표현 예:**
 
 ```json
    {
      "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
-      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
-      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
+     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
      "userName":"bjensen",
      "id": "48af03ac28ad4fb88478",
      "externalId":"bjensen",

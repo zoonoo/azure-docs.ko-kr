@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/04/2021
+ms.date: 07/07/2021
 ms.author: alkohli
-ms.openlocfilehash: 406e31320e8f7d0d95bfef44f620505989b3ae9f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 488b6d791afe477bb1aecacd0ecb15d54dcb43da
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746702"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114221321"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge Pro 설치
 
@@ -228,6 +228,7 @@ Azure Stack Edge Pro 디바이스에서 다음을 수행합니다.
 
     - PORT 2를 연결하는 경우 1-GbE RJ-45 네트워크 케이블을 사용합니다.
     - 10/25-GbE 네트워크 인터페이스의 경우 SFP+ 동선 케이블 또는 파이버를 사용합니다. 파이버를 사용하는 경우에는 광학 SFP 어댑터를 사용합니다.
+    - Network Function Manager 배포를 위해 포트 5 및 포트 6이 연결되어 있는지 확인합니다. 자세한 내용은 [자습서: Azure Stack Edge에 네트워크 기능 배포(미리 보기)](../network-function-manager/deploy-functions.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

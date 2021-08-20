@@ -5,19 +5,22 @@ services: service-bus-messaging
 ms.devlang: PHP
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: a7e0d1fa321f1b7c1295b5a640fe78b46adf1c72
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 46f2f4a532b8b2e3001ec7f0411498f74919a36b
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85341116"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302569"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>빠른 시작: PHP에서 Service Bus 큐를 사용하는 방법
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+[!INCLUDE [service-bus-selector-queues](./includes/service-bus-selector-queues.md)]
 
 이 자습서에서는 Service Bus 큐와 메시지를 주고 받는 PHP 애플리케이션을 만드는 방법에 대해 알아봅니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+> [!IMPORTANT]
+> 2021년 2월부터 PHP용 Azure SDK는 사용 중지 단계로 전환되었으며 더 이상 Microsoft에서 공식적으로 지원되지 않습니다. 자세한 내용은 GitHub의 [공지](https://github.com/Azure/azure-sdk-for-php#important-annoucement)를 참조하세요. 이 문서는 곧 사용 중지됩니다. 
+
+## <a name="prerequisites"></a>필수 조건
 1. Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 2. 작업할 큐가 없는 경우 [Azure Portal을 사용하여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 큐를 만듭니다.
     1. Service Bus **큐** 의 빠른 **개요** 를 읽습니다. 

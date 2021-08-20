@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 05/19/2021
+ms.date: 07/26/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: e6d89bdfca268a02c1f58bdceb4e4485dc3851a6
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: ff3c052e2e9e745c59947cda43d12b46786fbd62
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438381"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707596"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>자습서: 온-프레미스 환경에 Azure Active Directory 셀프 서비스 암호 재설정 쓰기 저장 사용
 
@@ -36,7 +36,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사�
 > * Azure AD Connect에서 비밀번호 쓰기 저장 옵션 사용
 > * Azure AD SSPR에서 비밀번호 쓰기 저장 사용
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -109,6 +109,7 @@ SSPR 쓰기 저장을 사용하도록 설정하려면 먼저 Azure AD Connect에
 
     ![Azure AD Connect의 비밀번호 쓰기 저장 구성](media/tutorial-enable-sspr-writeback/enable-password-writeback.png)
 
+1. **디렉터리 확장** 페이지에서 **다음** 을 선택합니다.
 1. **구성 준비 완료** 페이지에서 **구성** 을 선택하고 프로세스가 완료될 때까지 기다립니다.
 1. 구성이 완료된 것이 확인되면 **마침** 을 선택합니다.
 

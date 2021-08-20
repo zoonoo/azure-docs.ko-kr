@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/21/2021
+ms.date: 07/26/2021
 ms.author: justinha
-ms.openlocfilehash: e381c80dddc4484d541f5f81de6b5df712cff69b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 027217ab5963f084fca7678c9e51f7188d39a191
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821673"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707893"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>자습서: Azure Active Directory Domain Services에서 온-프레미스 도메인에 대한 아웃바운드 포리스트 트러스트 만들기
 
@@ -51,7 +51,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-이 자습서에서는 Azure Portal을 사용하여 Azure AD DS에서 아웃바운드 포리스트 트러스트를 만들고 구성합니다. 시작하려면 먼저 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+이 자습서에서는 Azure Portal을 사용하여 Azure AD DS에서 아웃바운드 포리스트 트러스트를 만들고 구성합니다. 시작하려면 먼저 [Azure Portal](https://portal.azure.com)에 로그인합니다. Azure AD DS 인스턴스를 수정하려면 전역 관리자 권한이 필요합니다. 
 
 ## <a name="networking-considerations"></a>네트워킹 고려 사항
 

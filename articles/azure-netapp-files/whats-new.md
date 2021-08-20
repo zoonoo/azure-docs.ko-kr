@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/14/2021
+ms.date: 07/12/2021
 ms.author: b-juche
-ms.openlocfilehash: 768b2f4a9b993e4824fbcebe7a96d7f62a90c934
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: a50b8eee5a45fdd496aa0e063272c1c32cf0e5a7
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078315"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113664452"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Azure NetApp Files의 새로운 기능
 
@@ -29,15 +29,13 @@ Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는
 
 * [Azure NetApp Files 스토리지 서비스 추가 기능](storage-service-add-ons.md)
 
-    새 Azure NetApp Files **스토리지 서비스 추가 기능** 메뉴 옵션은 Azure NetApp Files 스토리지 서비스에 대해 지원되는 타사 에코시스템 추가 기능을 위한 Azure Portal "실행 공간"을 제공합니다. 이 새 포털 메뉴 옵션을 사용하면 추가 기능 타일을 클릭한 후 방문 페이지에 들어가 추가 기능에 빠르게 액세스할 수 있습니다.  
+    새 Azure NetApp Files **스토리지 서비스 추가 기능** 메뉴 옵션은 Azure NetApp Files 스토리지 서비스에 대해 사용 가능한 타사 에코시스템 추가 기능을 위한 Azure Portal "실행 공간"을 제공합니다. 이 새 포털 메뉴 옵션을 사용하면 추가 기능 타일을 클릭한 후 방문 페이지에 들어가 추가 기능에 빠르게 액세스할 수 있습니다.  
 
     **NetApp 추가 기능** 은 **스토리지 서비스 추가 기능** 아래에 도입된 추가 기능의 첫 번째 범주입니다. 여기서 **NetApp Cloud Compliance** 에 액세스할 수 있습니다. **NetApp Cloud Compliance** 타일을 클릭하면 새 브라우저가 열리고 추가 기능 설치 페이지로 이동됩니다. 
 
-* 기능이 이제 GA(일반 공급) 방식으로 제공됨   
+* [수동 QoS 용량 풀](manual-qos-capacity-pool-introduction.md)은 이제 GA(일반 공급)로 제공됨   
 
-    이제 다음 Azure NetApp Files 기능이 일반 공급 방식으로 제공됩니다. 기능을 사용하기 전에 더 이상 등록할 필요가 없습니다.
-    * [스냅샷 정책](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)
-    * [수동 QoS 용량 풀](manual-qos-capacity-pool-introduction.md)
+    이제 수동 QoS 용량 풀 기능이 일반 공급됩니다. 이 기능을 사용하기 전에 더 이상 등록할 필요가 없습니다. 
 
 * [구독당 지역별로 하나의 Active Directory에 대해 여러 계정에 대한 공유 AD 지원](create-active-directory-connections.md#shared_ad)(미리 보기)   
 

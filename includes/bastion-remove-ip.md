@@ -1,17 +1,17 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 04/27/2021
+ms.date: 06/29/2021
 ms.service: bastion
 ms.topic: include
-ms.openlocfilehash: 34ea04bd786829316f2ead69a0a0b4f1006520c9
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f0585ca5bc2a76cb7f969f8a599ee98152b872cf
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128277"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108240"
 ---
-Azure Bastion을 사용하여 VM에 연결하는 경우 VM의 공용 IP 주소가 필요하지 않음 VM의 공용 IP 주소를 분리하려면 다음 단계를 수행합니다.
+Azure Bastion을 사용하여 VM에 연결하는 경우 VM의 공용 IP 주소가 필요하지 않음 공용 IP 주소를 사용하지 않는 경우 VM에서 연결을 끊을 수 있습니다. VM에서 공용 IP 주소의 연결을 끊으려면 다음 단계를 사용합니다.
 
 1. 가상 머신으로 이동하고 **네트워킹** 을 선택합니다. **NIC 공용 IP** 를 선택하여 공용 IP 주소 페이지를 엽니다.
 

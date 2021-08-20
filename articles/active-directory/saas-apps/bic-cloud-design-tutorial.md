@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 06/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 7a706eb120f45fcd08febd0bda9aaaa54a82135a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1f8e47235cff2e23e45dcba535caf92ca6da0e4
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821861"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112199578"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bic-cloud-design"></a>자습서: BIC Cloud Design과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -42,7 +42,7 @@ ms.locfileid: "99821861"
 
 * BIC Cloud Design은 **SP** 시작 SSO를 지원합니다.
 
-## <a name="adding-bic-cloud-design-from-the-gallery"></a>갤러리에서 BIC Cloud Design 추가
+## <a name="add-bic-cloud-design-from-the-gallery"></a>갤러리에서 BIC Cloud Design 추가
 
 BIC Cloud Design과 Azure AD의 통합을 구성하려면 갤러리에서 BIC Cloud Design을 관리형 SaaS 앱 목록에 추가해야 합니다.
 
@@ -53,7 +53,6 @@ BIC Cloud Design과 Azure AD의 통합을 구성하려면 갤러리에서 BIC Cl
 1. **갤러리에서 추가** 섹션의 검색 상자에 **BIC Cloud Design** 을 입력합니다.
 1. 결과 패널에서 **BIC Cloud Design** 을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-bic-cloud-design"></a>BIC Cloud Design에 대한 Azure AD SSO 구성 및 테스트
 
 **B.Simon** 이라는 테스트 사용자를 사용하여 BIC Cloud Design에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 BIC Cloud Design의 관련 사용자 간에 연결 관계를 설정해야 합니다.
@@ -61,10 +60,10 @@ BIC Cloud Design과 Azure AD의 통합을 구성하려면 갤러리에서 BIC Cl
 BIC Cloud Design에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-    * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-    * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[BIC Cloud Design SSO 구성](#configure-bic-cloud-design-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    * **[BIC Cloud Design 테스트 사용자 만들기](#create-bic-cloud-design-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 BIC Cloud Design에 만듭니다.
+    1. **[BIC Cloud Design 테스트 사용자 만들기](#create-bic-cloud-design-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 BIC Cloud Design에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -89,15 +88,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     다. 메타데이터 파일이 성공적으로 업로드되면 **식별자** 값이 [기본 SAML 구성] 섹션에 자동으로 채워집니다.
 
-    ![BIC Cloud Design 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
-
     **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    ```https
-    https://<customer-specific-name/tenant>.biccloud.com
-    https://<customer-specific-name/tenant>.biccloud.de
-    ```
-
+    | 로그온 URL |
+    |-----|
+    | `https://<CUSTOMER_SPECIFIC_NAME/TENANT>.biccloud.com` |
+    | `https://<CUSTOMER_SPECIFIC_NAME/TENANT>.biccloud.de` |
+    
     > [!Note]
     > **식별자** 값이 자동으로 입력되지 않으면 요구 사항에 따라 수동으로 값을 입력합니다. 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [BIC Cloud Design 클라이언트 지원팀](mailto:bicsupport@gbtec.de)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
@@ -107,7 +104,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 BIC Cloud Design 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | Name | 원본 특성|
+    | 속성 | 원본 특성|
     | ------------ | --------- |
     | Name | user.name |
     | 이메일 주소 | user.mail |
@@ -127,7 +124,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -160,7 +157,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 * BIC Cloud Design 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
 * Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 BIC Cloud Design 타일을 클릭하면 BIC Cloud Design 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
-
 
 ## <a name="next-steps"></a>다음 단계
 

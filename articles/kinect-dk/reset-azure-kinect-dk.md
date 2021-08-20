@@ -15,10 +15,10 @@ audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high
 ms.openlocfilehash: f851579712a9549c88f1ca652aea4f31457da132
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77201901"
 ---
 # <a name="reset-azure-kinect-dk"></a>Azure Kinect DK 다시 설정
@@ -37,7 +37,7 @@ ms.locfileid: "77201901"
    다시 설정 단추를 해제하면 디바이스가 다시 설정되는 동안 전원 표시등이 흰색과 황색으로 깜박입니다. 
 1. 전원 표시등이 흰색으로 고정될 때까지 기다립니다.
 1. 삼각대 잠금 장치의 나사를 다시 설정 단추 위에 놓습니다.
-1. Azure Kinect 뷰어를 사용하여 펌웨어가 다시 설정되었는지 확인합니다. 이렇게 하려면 [Azure Kinect 뷰어](azure-kinect-viewer.md)를 시작한 다음, **디바이스 펌웨어 버전 정보**를 선택하여 Azure Kinect DK에 설치된 펌웨어 버전을 확인합니다.
+1. Azure Kinect 뷰어를 사용하여 펌웨어가 다시 설정되었는지 확인합니다. 이렇게 하려면 [Azure Kinect 뷰어](azure-kinect-viewer.md)를 시작한 다음, **디바이스 펌웨어 버전 정보** 를 선택하여 Azure Kinect DK에 설치된 펌웨어 버전을 확인합니다.
 
 항상 최신 펌웨어가 디바이스에 설치되어 있는지 확인합니다. 최신 펌웨어 버전을 가져오려면 Azure Kinect 펌웨어 도구를 사용합니다. 펌웨어 상태를 확인하는 방법에 대한 자세한 내용은 [디바이스 펌웨어 버전 확인](azure-kinect-firmware-tool.md#check-device-firmware-version)을 참조하세요.
 
@@ -45,7 +45,7 @@ ms.locfileid: "77201901"
 
 - [Azure Kinect DK 정보](about-azure-kinect-dk.md)
 - [Azure Kinect DK 설정](set-up-azure-kinect-dk.md)
-- [Azure Kinect DK 하드웨어 사양: 작동 환경](hardware-specification.md#operating-environment)
+- [Azure Kinect DK 하드웨어 사양: 운영 환경](hardware-specification.md#operating-environment)
 - [Azure Kinect 펌웨어 도구](azure-kinect-firmware-tool.md)
 - [Azure Kinect 뷰어](azure-kinect-viewer.md)
 - [여러 Azure Kinect DK 디바이스 간의 동기화](multi-camera-sync.md)

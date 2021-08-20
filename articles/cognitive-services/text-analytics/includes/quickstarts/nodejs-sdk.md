@@ -6,22 +6,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 06/11/2021
+ms.date: 07/15/2021
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: 98e8d7862f1270977ed3eb3ab71605e440d53520
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: e58a42809933092499bbd7132c76c0a6e10f9971
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112084056"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114594435"
 ---
 <a name="HOLTop"></a>
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
-[v3 참조 설명서](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-preview) | [v3 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 패키지(NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0-beta.6) | [v3 샘플](https://github.com/Azure/azure-sdk-for-js/tree/%40azure/ai-text-analytics_5.1.0-beta.6/sdk/textanalytics/ai-text-analytics/samples)
+[v3 참조 설명서](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-preview) | [v3 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 패키지(NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0) | [v3 샘플](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples)
 
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
@@ -59,12 +59,12 @@ npm init
 ```
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 `@azure/ai-text-analytics` NPM 패키지 설치:
 
 ```console
-npm install --save @azure/ai-text-analytics@5.1.0-beta.6
+npm install --save @azure/ai-text-analytics@5.1.0
 ```
 
 > [!TIP]
@@ -87,7 +87,7 @@ npm install --save @azure/ai-text-analytics@5.0.0
 종속성이 있는 앱의 `package.json` 파일이 업데이트됩니다.
 `index.js`라는 파일을 만들고 다음을 추가합니다.
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 ```javascript
 "use strict";
@@ -135,7 +135,7 @@ Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 `Tex
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 키와 엔드포인트를 매개 변수로 사용하여 새 `TextAnalyticsClient` 개체를 만듭니다.
 
@@ -155,7 +155,7 @@ const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCrede
 
 ## <a name="sentiment-analysis"></a>정서 분석
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 분석할 문서가 포함된 문자열 배열을 만듭니다. 클라이언트의 `analyzeSentiment()` 메서드를 호출하고 반환된 `SentimentBatchResult` 개체를 가져옵니다. 결과 목록을 반복하고 각 문서의 ID, 문서 수준 감정을 신뢰도 점수로 인쇄합니다. 각 문서에 대해 결과에는 오프셋, 길이 및 신뢰도 점수와 함께 문장 수준 감정이 포함됩니다.
 
@@ -251,7 +251,7 @@ ID: 0
 
 ## <a name="opinion-mining"></a>의견 마이닝
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 오피리언 마이닝을 사용하여 감정 분석을 수행하려면 분석하려는 문서가 포함된 문자열의 배열을 만듭니다. 옵션 플래그 `includeOpinionMining: true`를 추가하여 클라이언트의 `analyzeSentiment()` 메서드를 호출하고 반환된 `SentimentBatchResult` 개체를 가져옵니다. 결과 목록을 반복하고 각 문서의 ID, 문서 수준 감정을 신뢰도 점수로 인쇄합니다. 각 문서에 대해 결과는 위와 같은 문장 수준 감정뿐만 아니라 측면 및 의견 수준 감정도 포함합니다.
 
@@ -339,7 +339,7 @@ sentimentAnalysisWithOpinionMining(textAnalyticsClient)
 
 ## <a name="language-detection"></a>언어 검색
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 분석할 문서가 포함된 문자열 배열을 만듭니다. 클라이언트의 `detectLanguage()` 메서드를 호출하고 반환된 `DetectLanguageResultCollection`를 가져옵니다. 그런 다음, 결과를 반복하고 각 문서의 ID를 해당 기본 언어로 인쇄합니다.
 
@@ -401,7 +401,7 @@ ID: 0
 
 ## <a name="named-entity-recognition-ner"></a>NER(명명된 엔터티 인식)
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 분석할 문서가 포함된 문자열 배열을 만듭니다. 클라이언트의 `recognizeEntities()` 메서드를 호출하고 `RecognizeEntitiesResult` 개체를 가져옵니다. 결과 목록을 반복하고 엔터티 이름, 형식, 하위 유형, 오프셋, 길이 및 점수를 인쇄합니다.
 
@@ -448,7 +448,7 @@ Document ID: 1
         Score: 0.25
 ```
 
-### <a name="personally-identifying-information-pii-recognition"></a>PII(개인 식별 정보) 인식
+## <a name="personally-identifying-information-pii-recognition"></a>PII(개인 식별 정보) 인식
 
 분석할 문서가 포함된 문자열 배열을 만듭니다. 클라이언트의 `recognizePiiEntities()` 메서드를 호출하고 `RecognizePIIEntitiesResult` 개체를 가져옵니다. 결과 목록을 반복하고 엔터티 이름, 형식 및 점수를 인쇄합니다.
 
@@ -538,7 +538,7 @@ Document ID: 1
 
 ## <a name="entity-linking"></a>엔터티 연결
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 분석할 문서가 포함된 문자열 배열을 만듭니다. 클라이언트의 `recognizeLinkedEntities()` 메서드를 호출하고 `RecognizeLinkedEntitiesResult` 개체를 가져옵니다. 결과 목록을 반복하고 엔터티 이름, ID, 데이터 원본, url 및 일치 항목을 인쇄합니다. `matches` 배열의 모든 개체에는 해당 일치 항목에 대한 오프셋, 길이 및 점수가 포함됩니다.
 
@@ -650,7 +650,7 @@ Document ID: 0
 
 ## <a name="key-phrase-extraction"></a>핵심 문구 추출
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 분석할 문서가 포함된 문자열 배열을 만듭니다. 클라이언트의 `extractKeyPhrases()` 메서드를 호출하고 반환된 `ExtractKeyPhrasesResult` 개체를 가져옵니다. 결과를 반복하고 각 문서의 ID 및 검색된 주요 문구를 인쇄합니다.
 
@@ -711,9 +711,97 @@ ID: 0
 
 ---
 
+## <a name="extract-health-entities"></a>건강 엔터티 추출
+
+[!INCLUDE [health operation pricing](../health-operation-pricing-caution.md)]
+
+Text Analytics를 사용해 비동기 요청을 수행하여 텍스트에서 의료 엔터티를 추출할 수 있습니다. 아래 샘플은 기본적인 예를 보여 줍니다. [GitHub](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/beginAnalyzeHealthcareEntities.js)에서 더 많은 고급 샘플을 찾을 수 있습니다.
+
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
+
+```javascript
+async function healthExample(client) {
+    console.log("== Recognize Healthcare Entities Sample ==");
+
+    const documents = [
+        "Prescribed 100mg ibuprofen, taken twice daily."
+      ];
+    const poller = await client.beginAnalyzeHealthcareEntities(documents, "en", {
+      includeStatistics: true
+    });
+  
+    poller.onProgress(() => {
+      console.log(
+        `Last time the operation was updated was on: ${poller.getOperationState().lastModifiedOn}`
+      );
+    });
+    console.log(
+      `The analyze healthcare entities operation was created on ${
+        poller.getOperationState().createdOn
+      }`
+    );
+    console.log(
+      `The analyze healthcare entities operation results will expire on ${
+        poller.getOperationState().expiresOn
+      }`
+    );
+  
+    const results = await poller.pollUntilDone();
+  
+    for await (const result of results) {
+      console.log(`- Document ${result.id}`);
+      if (!result.error) {
+        console.log("\tRecognized Entities:");
+        for (const entity of result.entities) {
+          console.log(`\t- Entity "${entity.text}" of type ${entity.category}`);
+        }
+        if (result.entityRelations && (result.entityRelations.length > 0)) {
+          console.log(`\tRecognized relations between entities:`);
+          for (const relation of result.entityRelations) {
+            console.log(
+              `\t\t- Relation of type ${relation.relationType} found between the following entities:`
+            );
+            for (const role of relation.roles) {
+              console.log(`\t\t\t- "${role.entity.text}" with the role ${role.name}`);
+            }
+          }
+        }
+      } else console.error("\tError:", result.error);
+    }
+  }
+  
+  healthExample(textAnalyticsClient).catch((err) => {
+    console.error("The sample encountered an error:", err);
+  });
+```
+
+### <a name="output"></a>출력
+
+```console
+- Document 0
+    Recognized Entities:
+    - Entity "100mg" of type Dosage
+    - Entity "ibuprofen" of type MedicationName
+    - Entity "twice daily" of type Frequency
+    Recognized relations between entities:
+        - Relation of type DosageOfMedication found between the following entities:   
+                - "100mg" with the role Dosage
+                - "ibuprofen" with the role Medication
+        - Relation of type FrequencyOfMedication found between the following entities:
+                - "ibuprofen" with the role Medication
+                - "twice daily" with the role Frequency
+```
+
+# <a name="version-30"></a>[버전 3.0](#tab/version-3)
+
+이 기능은 버전 3.0에서 사용할 수 없습니다.
+
+---
+
+
 ## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Analyze(분석) 작업을 통해 비동기적으로 API 사용
 
-# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
 분석 작업을 사용하여 NER, 핵심 구 추출, 감정 분석 및 PII 검색에 대한 비동기 일괄 처리 요청을 수행할 수 있습니다. 아래 샘플에서는 하나의 작업에 대한 기본 예제를 보여줍니다. GitHub에서 [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/beginAnalyzeActions.js) 및 [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/v5/typescript/src/beginAnalyzeActions.ts)에 대한 고급 샘플을 찾을 수 있습니다.
 
@@ -723,55 +811,75 @@ ID: 0
 
 ```javascript
 async function analyze_example(client) {
-  const documents = [
-    "Microsoft was founded by Bill Gates and Paul Allen.",
-  ];
+    const documents = [
+        "Microsoft was founded by Bill Gates and Paul Allen.",
+    ];
 
-  const actions = {
-    recognizeEntitiesActions: [{ modelVersion: "latest" }],
-  };
-  const poller = await client.beginAnalyzeActions(documents, actions, "en");
+    const actions = {
+        recognizeEntitiesActions: [{ modelVersion: "latest" }],
+        extractKeyPhrasesActions: [{ modelVersion: "latest" }]
+    };
+    const poller = await client.beginAnalyzeActions(documents, actions, "en");
 
-  console.log(
-    `The analyze batch actions operation was created on ${poller.getOperationState().createdOn}`
-  );
-  console.log(
-    `The analyze batch actions operation results will expire on ${
-      poller.getOperationState().expiresOn
-    }`
-  );
-  const resultPages = await poller.pollUntilDone();
-  for await (const page of resultPages) {
-    const entitiesAction = page.recognizeEntitiesResults[0];
-    if (!entitiesAction.error) {
-      for (const doc of entitiesAction.results) {
-        console.log(`- Document ${doc.id}`);
-        if (!doc.error) {
-          console.log("\tEntities:");
-          for (const entity of doc.entities) {
-            console.log(`\t- Entity ${entity.text} of type ${entity.category}`);
-          }
-        } else {
-          console.error("\tError:", doc.error);
+    console.log(
+        `The analyze batch actions operation was created on ${poller.getOperationState().createdOn}`
+    );
+    console.log(
+        `The analyze batch actions operation results will expire on ${poller.getOperationState().expiresOn
+        }`
+    );
+    const resultPages = await poller.pollUntilDone();
+    for await (const page of resultPages) {
+        const entitiesAction = page.recognizeEntitiesResults[0];
+        if (!entitiesAction.error) {
+            for (const doc of entitiesAction.results) {
+                console.log(`- Document ${doc.id}`);
+                if (!doc.error) {
+                    console.log("\tEntities:");
+                    for (const entity of doc.entities) {
+                        console.log(`\t- Entity ${entity.text} of type ${entity.category}`);
+                    }
+                } else {
+                    console.error("\tError:", doc.error);
+                }
+            }
         }
-      }
     }
-  }
+    for await (const page of resultPages) {
+        const keyPhrasesAction = page.extractKeyPhrasesResults[0];
+        if (!keyPhrasesAction.error) {
+            for (const doc of keyPhrasesAction.results) {
+                console.log(`- Document ${doc.id}`);
+                if (!doc.error) {
+                    console.log("\tKey phrases:");
+                    for (const phrase of doc.keyPhrases) {
+                        console.log(`\t- ${phrase}`);
+                    }
+                } else {
+                    console.error("\tError:", doc.error);
+                }
+            }
+        }
+    }
 }
-
-analyze_example(textAnalyticsClient);
+analyze_example(textAnalyticsClient)
 ```
 
 ### <a name="output"></a>출력
 
 ```console
-The analyze batch actions operation was created on Fri Mar 12 2021 09:53:49 GMT-0800 (Pacific Standard Time)
-The analyze batch actions operation results will expire on Sat Mar 13 2021 09:53:49 GMT-0800 (Pacific Standard Time)
+The analyze batch actions operation was created on Fri Jun 18 2021 12:34:52 GMT-0700 (Pacific Daylight Time)
+The analyze batch actions operation results will expire on Sat Jun 19 2021 12:34:52 GMT-0700 (Pacific Daylight Time)
 - Document 0
         Entities:
         - Entity Microsoft of type Organization
         - Entity Bill Gates of type Person
         - Entity Paul Allen of type Person
+- Document 0
+        Key phrases:
+        - Bill Gates
+        - Paul Allen
+        - Microsoft
 ```
 
 분석 작업을 사용하여 NER, 핵심 구 추출, 감정 분석 및 PII 검색을 수행할 수도 있습니다. GitHub의 [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/beginAnalyzeActions.js) 및 [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/typescript/src) Analyze(분석) 샘플을 참조하세요.

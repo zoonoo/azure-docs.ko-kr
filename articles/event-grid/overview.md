@@ -2,13 +2,13 @@
 title: Azure Event Grid란?
 description: Azure Event Grid를 사용하여 원본에서 처리기로 이벤트 데이터를 보냅니다. 이벤트 기반 애플리케이션을 빌드하고 Azure 서비스와 통합합니다.
 ms.topic: overview
-ms.date: 01/28/2021
-ms.openlocfilehash: a410f56da9e28403fb98d92332e6d67c064bac4d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 07/27/2021
+ms.openlocfilehash: d9f6c6aa61851bc003b53941f7c1f1eea5261e5f
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934871"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730299"
 ---
 # <a name="what-is-azure-event-grid"></a>Azure Event Grid란?
 
@@ -45,6 +45,7 @@ Azure Event Grid는 각 지역의 여러 장애 도메인과 가용성 영역(�
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Azure 구독](event-schema-subscriptions.md)
 - [Azure Cache for Redis](event-schema-azure-cache.md)
+- [Azure Kubernetes Service(미리 보기)](event-schema-aks.md)
 
 ## <a name="event-handlers"></a>이벤트 처리기
 

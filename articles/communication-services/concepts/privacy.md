@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: bb40c4bdcdc61cfa3d82ea5313a1c6b084bb1514
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 870000e49e77475e8f8c7dcac84d470a853c8a76
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113110677"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762861"
 ---
 # <a name="region-availability-and-data-residency"></a>지역 가용성 및 데이터 상주
 
@@ -22,6 +22,10 @@ Azure Communication Services는 개인 정보 및 개인 데이터 요구 사항
 ## <a name="data-residency"></a>데이터 상주
 
 Communication Services 리소스를 만들 때 **지역**(Azure 데이터 센터가 아님)을 지정합니다. Communication Services에서 저장한 휴지 상태의 모든 채팅 메시지 및 리소스 데이터는 Communication Services에서 내부적으로 선택한 데이터 센터의 해당 지역에 보존됩니다. 데이터는 다른 지역에서 전송되거나 처리될 수 있습니다. 이러한 글로벌 엔드포인트는 위치에 관계없이 최종 사용자에게 대기 시간이 짧은 고성능 환경을 제공하는 데 필요합니다.
+
+## <a name="data-collection"></a>데이터 수집
+
+Azure Communication Services는 서비스를 전달하는 데 필요한 진단 데이터만 수집합니다. 
 
 ## <a name="data-residency-and-events"></a>데이터 보존 및 이벤트
 
@@ -76,6 +80,10 @@ Azure Communication Services는 Communication Services 리소스와 연결된 �
 ### <a name="internet-voice-and-video-calling"></a>인터넷 음성 및 비디오 통화
 
 오디오 및 비디오 통신은 서비스에서 임시로 처리되며 Azure Monitor 로그 이외의 리소스에는 데이터가 보존되지 않습니다.
+
+### <a name="call-recording"></a>통화 기록
+
+통화 기록은 리소스를 만드는 48시간 동안 ```Data Location```에 대해 선택한 것과 동일한 지역에 일시적으로 저장됩니다. 그 후에는 녹음이 삭제되므로 녹음을 안전한 규정 위치에 저장할 책임은 사용자에게 있습니다.
 
 ## <a name="azure-monitor-and-log-analytics"></a>Azure Monitor 및 Log Analytics
 

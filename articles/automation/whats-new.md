@@ -4,14 +4,14 @@ description: 매월 업데이트되는 Azure Automation에 대한 중요 업데�
 services: automation
 ms.subservice: ''
 ms.topic: overview
-ms.date: 06/09/2021
+ms.date: 07/27/2021
 ms.custom: references_regions
-ms.openlocfilehash: bd2bd39839645aa0511a00cc7a6c87c711e33e2b
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 6b91b9bb4e1bc871ecd8cb7909718329f5c5c014
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112294754"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729571"
 ---
 # <a name="whats-new-in-azure-automation"></a>Azure Automation의 새로운 기능
 
@@ -22,6 +22,22 @@ Azure Automation은 지속적으로 향상되고 있습니다. 최신 개발 정
 - 버그 수정
 
 이 페이지는 매월 업데이트되므로 정기적으로 다시 방문해 주세요.
+
+## <a name="july-2021"></a>2021년 7월
+
+### <a name="preview-support-for-user-assigned-managed-identities"></a>사용자가 할당한 관리 ID에 대한 미리 보기 지원
+
+**유형:** 새로운 기능
+
+이제 Azure Automation은 Azure 퍼블릭, Gov 및 중국 지역의 클라우드 작업에 대해 [사용자가 할당한 관리 ID](automation-secure-asset-encryption.md)를 지원합니다. 자세한 내용은 [공지](https://azure.microsoft.com/updates/azure-automation-user-assigned-identities/)를 참조하세요.
+
+### <a name="general-availability-of-customer-managed-keys-for-azure-automation"></a>Azure Automation용 고객 관리형 키의 일반 공급
+
+**유형:** 새로운 기능
+
+고객은 자신의 관리형 키를 사용하여 Azure Automation 자산의 암호화를 관리하고 보호할 수 있습니다. 고객 관리형 키를 도입하여 Azure Key Vault에서 만들고 관리하는 키를 사용하여 추가 암호화 계층을 통해 기본 암호화를 보완할 수 있습니다. 이 추가 암호화는 조직의 규정 또는 규정 준수 요구 사항을 충족하는 데 도움이 됩니다.
+
+자세한 내용은 [고객 관리형 키 사용](automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)을 참조하세요.
 
 ## <a name="june-2021"></a>2021년 6월
 
@@ -111,7 +127,7 @@ Windows 또는 Linux 컴퓨터에서 Hybrid Runbook Worker를 설정하는 Azure
 
 **유형:** 새로운 기능
 
-자세한 내용은 [ARM 템플릿에서 웹후크 사용](./automation-webhooks.md#use-a-webhook-from-an-arm-template)을 참조하세요.
+자세한 내용은 [ARM 템플릿에서 웹후크 사용](./automation-webhooks.md#create-runbook-and-webhook-with-arm-template)을 참조하세요.
 
 ### <a name="azure-update-management-now-supports-centos-8x-red-hat-enterprise-linux-server-8x-and-suse-linux-enterprise-server-15"></a>이제 Azure 업데이트 관리에서 Centos 8.x, Red Hat Enterprise Linux Server 8.x, SUSE Linux Enterprise Server 15를 지원합니다.
 

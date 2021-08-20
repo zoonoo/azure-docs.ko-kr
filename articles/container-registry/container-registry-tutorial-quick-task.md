@@ -2,14 +2,14 @@
 title: 자습서 - 빠른 컨테이너 이미지 빌드
 description: 이 자습서에서는 ACR 작업(Azure Container Registry 작업)을 사용하여 Azure에서 Docker 컨테이너 이미지를 빌드한 다음, Azure Container Instances에 배포하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 11/24/2020
+ms.date: 07/20/2021
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 282e6ea56835fba679510a29af936c1fbcb3ead2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: be722812c5d3991da6bbc2458770798ded2039d4
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775352"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448918"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>자습서: Azure Container Registry 작업을 사용하여 클라우드에 컨테이너 이미지 빌드 및 배포
 
@@ -74,7 +74,7 @@ cd acr-build-helloworld-node
 ACR_NAME=<registry-name>
 ```
 
-컨테이너 레지스트리 환경 변수가 채워지면 이제 값을 편집하지 않고도 자습서의 나머지 명령을 복사하여 붙여넣을 수 있습니다. 다음 명령을 실행하여 리소스 그룹 및 컨테이너 레지스트리를 만듭니다.
+컨테이너 레지스트리 환경 변수가 채워지면 이제 값을 편집하지 않고도 자습서의 나머지 명령을 복사하여 붙여넣을 수 있습니다. 다음 명령을 실행하여 리소스 그룹과 컨테이너 레지스트리를 만듭니다.
 
 ```azurecli
 RES_GROUP=$ACR_NAME # Resource Group name
@@ -83,7 +83,9 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-이제 레지스트리가 있으므로 ACR 작업을 사용하여 코드 샘플에서 컨테이너 이미지를 빌드합니다. [az acr build][az-acr-build] 명령을 실행하여 *빠른 작업* 을 수행합니다.
+이제 레지스트리가 있으므로 ACR 작업을 사용하여 코드 샘플에서 컨테이너 이미지를 빌드합니다. [az acr build][az-acr-build] 명령을 실행하여 ‘빠른 작업’을 수행합니다.
+
+[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
 
 ```azurecli
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
@@ -184,7 +186,7 @@ az keyvault create --resource-group $RES_GROUP --name $AKV_NAME
 
 이제 서비스 주체를 만들고 해당 자격 증명을 주요 자격 증명 모음에 저장해야 합니다.
 
-[az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령을 사용하여 서비스 주체를 만들고, [az keyvault secret set][az-keyvault-secret-set]를 사용하여 서비스 주체의 **암호** 를 자격 증명 모음에 저장합니다.
+[az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령을 사용하여 서비스 주체를 만들고, [az keyvault secret set][az-keyvault-secret-set]를 사용하여 서비스 주체의 **암호** 를 자격 증명 모음에 저장합니다. 다음 명령의 경우 Azure CLI 버전 **2.25.0** 이상을 사용합니다.
 
 ```azurecli
 # Create service principal, store its password in AKV (the registry *password*)
@@ -208,7 +210,7 @@ az keyvault secret set \
 az keyvault secret set \
     --vault-name $AKV_NAME \
     --name $ACR_NAME-pull-usr \
-    --value $(az ad sp show --id http://$ACR_NAME-pull --query appId --output tsv)
+    --value $(az ad sp list --display-name $ACR_NAME-pull --query [].appId --output tsv)
 ```
 
 Azure Key Vault을 만들고 다음 두 암호를 저장했습니다.

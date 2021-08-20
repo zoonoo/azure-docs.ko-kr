@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 959289de2fa10e9ce31ce71c8ea3fcb9e33d0951
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: df5752760dcb9968b44243fb4c2d2412698267df
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789300"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588996"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>자습서: Azure IoT Central을 사용하여 용수 사용량 모니터링 애플리케이션 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "109789300"
 
 > [!div class="checklist"]
 > * Azure IoT Central 용수 사용량 모니터링 템플릿을 사용하여 용수 사용량 모니터링 애플리케이션을 만듭니다.
-> * 운영자 대시보드를 살펴보기 및 사용자 지정합니다.
+> * 대시보드를 탐색하고 사용자 지정합니다.
 > * 디바이스 템플릿을 살펴봅니다.
 > * 시뮬레이션된 디바이스를 살펴봅니다.
 > * 규칙을 살펴보고 구성합니다.
@@ -49,7 +49,7 @@ ms.locfileid: "109789300"
   
 
 1. **용수 사용량 모니터링** 애플리케이션 템플릿을 선택합니다.
-이 템플릿에는 용수 사용량 디바이스 템플릿 샘플, 시뮬레이션된 디바이스, 운영자 대시보드 및 미리 구성된 모니터링 규칙이 포함되어 있습니다.
+이 템플릿에는 용수 사용량 디바이스 템플릿 샘플, 시뮬레이션된 디바이스, 대시보드 및 미리 구성된 모니터링 규칙이 포함되어 있습니다.
 
 1. **앱 만들기** 를 선택하여 다음 필드가 있는 **새 애플리케이션** 만들기 양식을 엽니다.
     * **애플리케이션 이름**: 이 애플리케이션에서는 기본적으로 *용수 사용량 모니터링* 뒤에 Azure IoT Central에서 생성하는 고유한 ID 문자열을 사용합니다. 필요에 따라 친숙한 애플리케이션 이름을 선택해도 됩니다. 애플리케이션 이름은 나중에 변경할 수도 있습니다.
@@ -66,7 +66,7 @@ ms.locfileid: "109789300"
 
 용수 사용량 모니터링 애플리케이션은 다음과 같이 미리 구성된 상태로 제공됩니다.
 
-* 작업자 대시보드 샘플
+* 샘플 대시보드.
 * 미리 정의된 용수 흐름 및 밸브 디바이스 템플릿 샘플
 * 시뮬레이션된 용수 흐름 및 스마트 밸브 디바이스
 * 규칙 및 작업
@@ -74,7 +74,7 @@ ms.locfileid: "109789300"
 
 빌드 중인 애플리케이션이므로 언제든지 수정할 수 있습니다. 다음으로, 애플리케이션을 살펴보고 몇 가지 사용자 지정을 수행합니다.
 
-## <a name="explore-and-customize-the-operator-dashboard"></a>운영자 대시보드 살펴보기 및 사용자 지정
+## <a name="explore-and-customize-the-dashboard"></a>대시보드 탐색 및 사용자 지정
 
 애플리케이션이 만들어지면 **Wide World 용수 사용량 대시보드** 샘플이 열립니다.
   
@@ -92,7 +92,7 @@ ms.locfileid: "109789300"
 * **평균 용수 흐름 KPI 타일**: KPI 타일은 *지난 30분 동안의 평균* 예를 표시하도록 구성되어 있습니다. KPI 타일을 사용자 지정하고, 다른 유형과 시간 범위로 설정할 수 있습니다.
 * **디바이스 명령 타일**: 이러한 타일로 **밸브 닫기**, **밸브 열기** 및 **밸브 위치 설정** 타일이 있습니다. 명령을 선택하면 시뮬레이션된 디바이스 명령 페이지로 이동합니다. Azure IoT Central에서 *명령* 은 *디바이스 기능* 유형입니다. 이 개념은 나중에 이 자습서의 [디바이스 템플릿](../government/tutorial-water-consumption-monitoring.md#explore-the-device-template) 섹션에서 살펴보겠습니다.
 
-* **용수 분포 영역 맵**: 이 맵은 Azure IoT Central에서 직접 구성할 수 있는 Azure Maps를 사용합니다. 맵 타일에는 디바이스 위치가 표시됩니다. 마우스로 맵 위를 가리키면서 *확대*, *축소* 또는 *확장* 과 같은 컨트롤을 사용해 보세요.
+* **용수 분포 영역 맵**: 이 맵은 Azure IoT Central에서 직접 구성할 수 있는 Azure Maps를 사용합니다. 지도 타일에는 디바이스 [위치](../core/howto-use-location-data.md)가 표시됩니다. 마우스로 맵 위를 가리키면서 *확대*, *축소* 또는 *확장* 과 같은 컨트롤을 사용해 보세요.
 
     :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-dashboard-map.png" alt-text="용수 사용량 모니터링 대시보드 맵":::
 
@@ -109,7 +109,7 @@ ms.locfileid: "109789300"
 
     :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-edit-dashboard.png" alt-text="대시보드 편집":::
 
-자세히 알아보려면 [대시보드 만들기 및 사용자 지정](../core/howto-create-personal-dashboards.md)을 참조하세요.
+자세히 알아보려면 [대시보드 만들기 및 사용자 지정](../core/howto-manage-dashboards.md)을 참조하세요.
 
 ## <a name="explore-the-device-template"></a>디바이스 템플릿 살펴보기
 
@@ -146,7 +146,7 @@ ms.locfileid: "109789300"
     Azure IoT Central에서 디바이스와 관련된 속성을 추가할 수 있습니다. 예를 들어 클라우드 속성은 설치 영역, 자산 정보 또는 기타 유지 관리 정보와 관련된 경고 임계값일 수 있습니다.
 1. **저장** 을 선택하여 변경 내용을 저장합니다.
 
-자세히 알아보려면 [클라우드 속성](../core/quick-create-simulated-device.md#add-cloud-properties)을 참조하세요.
+자세히 알아보려면 [클라우드 속성](../core/concepts-device-templates.md#cloud-properties)을 참조하세요.
 
 
 ### <a name="views"></a>보기
@@ -155,20 +155,20 @@ ms.locfileid: "109789300"
 
   ![디바이스 템플릿 보기](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-device-template-views.png)
 
-자세히 알아보려면 [보기](../core/quick-create-simulated-device.md#views)를 참조하세요.
+자세히 알아보려면 [보기](../core/concepts-device-templates.md#views)를 참조하세요.
 
 ### <a name="publish-the-device-template"></a>디바이스 템플릿 게시
 
 디바이스 템플릿 페이지로 이동하고 **게시** 를 선택하여 디바이스 템플릿에 대한 변경 내용을 저장합니다.
 
-자세히 알아보려면 [템플릿을 게시하는 방법](../core/quick-create-simulated-device.md#publish-device-template)을 참조하세요.
+자세히 알아보려면 [템플릿을 게시하는 방법](../core/howto-set-up-template.md#publish-a-device-template)을 참조하세요.
 
 ### <a name="create-a-new-device-template"></a>새 디바이스 템플릿 만들기
 
 **+ 새로 만들기** 를 선택하여 새 디바이스 템플릿을 만들고 만들기 프로세스를 수행합니다.
 사용자 지정 디바이스 템플릿을 처음부터 만들거나 Azure 디바이스 카탈로그에서 디바이스 템플릿을 선택할 수 있습니다.
 
-자세히 알아보려면 [디바이스 템플릿을 추가하는 방법](../core/quick-create-simulated-device.md#add-a-device-template)을 참조하세요.
+자세히 알아보려면 [디바이스 템플릿을 추가하는 방법](../core/howto-set-up-template.md)을 참조하세요.
 
 ## <a name="explore-simulated-devices"></a>시뮬레이션된 디바이스 살펴보기
 
@@ -195,7 +195,7 @@ Azure IoT Central에서는 시뮬레이션된 디바이스를 만들어 디바�
 
 **디바이스** 탭에서 **+ 새로 만들기** 를 선택하여 새 디바이스를 추가합니다.
 
-자세히 알아보려면 [새 디바이스를 추가하는 방법](../core/quick-create-simulated-device.md#add-a-simulated-device)을 참조하세요.
+자세한 내용은 [디바이스 관리](../core/howto-manage-devices-individually.md)를 참조하세요.
 
 ## <a name="explore-rules"></a>규칙 살펴보기
 
@@ -243,7 +243,7 @@ Azure IoT Central에서 작업을 사용하면 여러 디바이스에서 디바�
 1. 왼쪽 창에서 **작업** 을 선택합니다.
 1. **+ 새로 만들기** 를 선택하고 하나 이상의 작업을 구성합니다.
 
-자세히 알아보려면 [작업을 실행하는 방법](../core/howto-run-a-job.md)을 참조하세요.
+자세히 알아보려면 [작업을 실행하는 방법](../core/howto-manage-devices-in-bulk.md)을 참조하세요.
 
 ## <a name="customize-your-application"></a>애플리케이션 사용자 지정
 

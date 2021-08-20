@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/17/2020
+ms.date: 06/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 5fe539521213a6c25804c5c0db1e6b18646cceea
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fe77b2e667ba5bfe5ab40a44efe177648a184f51
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563840"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112456199"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clever"></a>자습서: Clever와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -37,12 +37,12 @@ ms.locfileid: "105563840"
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-* Clever에서 **SP** 시작 SSO를 지원합니다.
+* Clever는 **SP** 시작 SSO를 지원합니다.
 
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
-## <a name="adding-clever-from-the-gallery"></a>갤러리에서 Clever 추가
+## <a name="add-clever-from-the-gallery"></a>갤러리에서 Clever 추가
 
 Clever의 Azure AD 통합을 구성하려면 갤러리의 Clever를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
@@ -53,12 +53,11 @@ Clever의 Azure AD 통합을 구성하려면 갤러리의 Clever를 관리되는
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Clever** 를 입력합니다.
 1. 결과 패널에서 **Clever** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-clever"></a>Clever에 대한 Azure AD SSO 구성 및 테스트
 
 **B.Simon** 이라는 테스트 사용자를 사용하여 Clever에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Clever의 관련 사용자 간에 연결이 형성되어야 합니다.
 
-Clever에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
+Clever에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
     1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
@@ -73,20 +72,20 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **Clever** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
+1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 `https://clever.com/in/<companyname>` 패턴을 사용하는 URL을 입력합니다.
+    a. **식별자(엔터티 ID)** 텍스트 상자에 `https://clever.com/oauth/saml/metadata.xml` URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에 `https://clever.com/oauth/saml/metadata.xml` URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://clever.com/<COMPANY_NAME>` 패턴을 사용하여 URL을 입력합니다.
 
-    다. **회신 URL** 텍스트 상자에서 `https://clever.com/<companyname>` 패턴을 사용하여 URL을 입력합니다.
-    
+    다. **로그온 URL** 텍스트 상자에서 `https://clever.com/in/<COMPANY_NAME>` 패턴을 사용하는 URL을 입력합니다.
+
     > [!NOTE]
-    >  이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL을 사용하여 이러한 값을 업데이트합니다. 이 값을 얻으려면 [Clever 클라이언트 지원 팀](https://clever.com/about/contact/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    >  이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL로 해당 값을 업데이트합니다. 이 값을 얻으려면 [Clever 클라이언트 지원 팀](https://clever.com/about/contact/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL** 을 복사한 후 컴퓨터에 저장합니다.
 
@@ -100,7 +99,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -118,7 +117,23 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-clever-sso"></a>Clever SSO 구성
 
-[링크](https://support.clever.com/hc/s/articles/205889768)에 제공된 지침에 따라 Clever 쪽에서 Single Sign-On을 구성합니다.
+1. 다른 웹 브라우저 창에서 Clever 구역 대시보드에 관리자 권한으로 로그인합니다.
+
+2. 왼쪽 탐색에서 **메뉴** > **포털** > **SSO 설정** 을 클릭합니다.
+
+3. **SSO 설정** 페이지에서 다음 단계를 수행합니다.
+    
+    a. **로그인 방법 추가** 를 선택합니다.
+
+    b. **Active Directory 인증** 을 선택합니다. 
+
+    ![설정](./media/clever-tutorial/account.png "설정") 
+    
+    c. Azure Portal에서 다운로드한 **앱 페더레이션 메타데이터 URL** 을 메모장에서 열고 **메타데이터 URL** 텍스트 상자에 콘텐츠를 붙여넣습니다.
+
+    ![인증서 업로드](./media/clever-tutorial/metadata.png "인증서 업로드") 
+
+    d. **저장** 을 클릭합니다.
 
 ### <a name="create-clever-test-user"></a>Clever 테스트 사용자 만들기
 

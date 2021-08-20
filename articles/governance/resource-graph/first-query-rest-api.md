@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 첫 번째 REST API 쿼리'
 description: 이 빠른 시작에서는 REST API용 Resource Graph 엔드포인트를 호출하고 첫 번째 쿼리를 실행하는 단계를 수행합니다.
-ms.date: 05/01/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
-ms.openlocfilehash: ef157eebbdd562262bb33f32e726d0d567c421d5
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 258bda8df671dac3440edef37d8ea5a1c7f362b5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324944"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460068"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>빠른 시작: REST API를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -54,7 +54,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 ## <a name="run-your-first-resource-graph-query"></a>첫 번째 Resource Graph 실행
 
-원하는 환경에 REST API 도구가 추가되었으므로, 이제 간단한 Resource Graph 쿼리를 시도해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식** 과 함께 처음 5개 Azure 리소스를 반환합니다.
+원하는 환경에 REST API 도구가 추가되었으므로, 이제 간단한 구독 기반 Resource Graph 쿼리를 시도해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식** 과 함께 처음 5개 Azure 리소스를 반환합니다. [관리 그룹](../management-groups/overview.md)별로 쿼리하려면 `subscriptions` 대신 `managementgroups`를 사용하세요. 전체 테넌트를 쿼리하려면 요청 본문에서 `managementgroups` 및 `subscriptions` 속성을 모두 생략합니다.
 
 각 REST API 호출의 요청 본문에는 사용자 고유의 값으로 바꿔야 하는 다음과 같은 변수가 있습니다.
 
@@ -65,7 +65,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
    - REST API URI
 
      ```http
-     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2019-04-01
+     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
      ```
 
    - 요청 본문
@@ -87,7 +87,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
    - REST API URI
 
      ```http
-     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2019-04-01
+     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
      ```
 
    - 요청 본문
@@ -109,7 +109,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
    - REST API URI
 
      ```http
-     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2019-04-01
+     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
      ```
 
    - 요청 본문
@@ -125,7 +125,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 최종 쿼리가 여러 번 실행될 때 환경이 전혀 변경되지 않는다고 가정하면 반환되는 결과는 **Name** 속성을 기준으로 일관되고 정렬되지만 여전히 상위 5개 결과로 제한됩니다.
 
-Azure Resource Graph에 대한 REST API 호출 추가 예제는 [Azure Resource Graph REST 예제](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources#examples)를 참조하세요.
+Azure Resource Graph에 대한 REST API 호출 추가 예제는 [Azure Resource Graph REST 예제](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources#examples)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -6,18 +6,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/24/2021
+ms.date: 07/20/2021
 ms.custom: references_regions
-ms.openlocfilehash: 945a11fb8d8aef3eef2d3c43a68b8c092741436e
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 3c44db5c17d1179df03985515acc9133feca198e
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113003785"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114711057"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 서비스를 최신 상태로 유지하려면 이 페이지에 대한 책갈피를 지정하세요. 아직 일반 공급되지 않은 포괄적인 기능 목록은 [미리 보기 기능 목록](search-api-preview.md)을 확인하여 볼 수 있습니다.
+
+## <a name="july-2021"></a>2021년 7월
+
+|기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | 가용성  |
+|------------------------------------|--------------|---------------|
+| [검색 REST API 2021-04-30-Preview](/rest/api/searchservice/index-preview) | [관리형 ID](search-howto-managed-identities-data-sources.md) 및 Azure AD(Azure Active Directory) 인증을 사용하여 만든 인덱서 연결에 대한 REST API 지원을 추가합니다. | 퍼블릭 미리 보기 |
+| [역할 기반 권한 부여(미리 보기)](search-security-rbac.md) | 인덱스 및 인덱싱에 대한 데이터 평면 액세스를 위해 Azure Active Directory 및 새로운 기본 제공 역할을 사용하여 인증하고 API 키에 대한 종속성을 제거하거나 줄입니다. | 공개 미리 보기([요청별](https://aka.ms/azure-cognitive-search/rbac-preview)). 구독이 등록된 후 Azure Portal 또는 관리 REST API 버전 2021-04-01-Preview를 사용하여 데이터 평면 인증에 대한 검색 서비스를 구성합니다.|
+| [관리 REST API 2021-04-01-Preview](/rest/api/searchmanagement/) | 새 [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions)를 지원하도록 [서비스 만들기 또는 업데이트](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update)를 수정합니다. | 퍼블릭 미리 보기 |
 
 ## <a name="may-2021"></a>2021년 5월
 

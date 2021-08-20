@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio(클래식) 자습서: 신용 위험 예측 - Azure'
-description: Azure Machine Learning Studio(클래식)의 신용 위험 평가에 대한 예측 분석 솔루션을 만드는 방법을 보여 주는 구체적인 자습서입니다. 이 자습서는 3부로 구성된 자습서 시리즈 중 제1부입니다.  작업 영역을 만들고, 데이터를 업로드하고, 실험을 만드는 방법을 보여 줍니다.
+description: Machine Learning Studio(클래식)의 신용 위험 평가에 대한 예측 분석 솔루션을 만드는 방법을 보여 주는 구체적인 자습서입니다.
 keywords: 신용 위험, 예측 분석 솔루션, 위험 평가
 author: sdgilley
 ms.author: sgilley
@@ -9,24 +9,24 @@ ms.service: machine-learning
 ms.subservice: studio-classic
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 571925586bf3b70c38260392bae49c5352f10194
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: f6d336ae1f31ad0e62d56fa4dd24bf38eb9eab7f
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100517521"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112579741"
 ---
-# <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>자습서 1: 신용 위험 예측 - Azure Machine Learning Studio(클래식)
+# <a name="tutorial-1-predict-credit-risk---machine-learning-studio-classic"></a>자습서 1: 신용 위험 예측 - Machine Learning Studio(클래식)
 
-**적용 대상:**  ![이는 이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio(클래식)  ![이는 이 문서가 Azure Machine Learning에 적용됨을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:**  ![이는 이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio(클래식)  ![이는 이 문서가 Azure Machine Learning에 적용되지 않음을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-이 자습서에서는 예측 분석 솔루션을 개발하는 프로세스를 자세히 살펴봅니다. Machine Learning Studio(클래식)에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제1부** 입니다.
+이 자습서에서는 예측 분석 솔루션을 개발하는 프로세스를 자세히 살펴봅니다. Machine Learning Studio(클래식)에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Machine Learning 웹 서비스로 배포합니다.  이 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제1부** 입니다.
 
 신용대출 지원 시 애플리케이션에서 제공한 정보를 기반으로 개인의 신용 위험을 예측해야 한다고 가정합니다.  
 
-신용 위험 평가는 복잡한 문제이지만, 이 자습서에서는 약간 간소화하여 살펴보겠습니다. 이 신용 위험 평가는 Microsoft Azure Machine Learning Studio(클래식)를 사용하는 예측 분석 솔루션을 만드는 방법의 예로 사용합니다. 이 솔루션에는 Azure Machine Learning Studio(클래식) 및 Machine Learning 웹 서비스가 사용됩니다.  
+신용 위험 평가는 복잡한 문제이지만, 이 자습서에서는 약간 간소화하여 살펴보겠습니다. 이 신용 위험 평가는 Machine Learning Studio(클래식)를 사용하는 예측 분석 솔루션을 만드는 방법의 예로 사용합니다. 이 솔루션에는 Machine Learning Studio(클래식) 및 Machine Learning 웹 서비스가 사용됩니다.  
 
 이 3부로 구성된 자습서에서는 공개적으로 사용 가능한 신용 위험 데이터부터 시작합니다.  그런 다음, 예측 모델을 개발하고 학습합니다.  마지막으로 모델을 웹 서비스로 배포합니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "100517521"
 
 이 자습서에서는 이전에 Machine Learning Studio(클래식)를 한 번 이상 사용한 경험이 있으며, 기계 학습 개념에 대해 어느 정도 이해하고 있다고 가정합니다. 그러나 어느 쪽이든 전문가는 아니라고 가정합니다.
 
-**Azure Machine Learning Studio(클래식)** 를 사용한 경험이 없는 경우 [Azure Machine Learning Studio(클래식)에서 첫 번째 데이터 과학 실험 만들기](create-experiment.md) 빠른 시작을 시작하는 것이 좋습니다. 빠른 시작을 사용하면 Machine Learning Studio(클래식)를 처음으로 익힐 수 있습니다. 이 자습서는 실험에 모듈을 끌어 놓고 서로 연결하고 실험을 실행하고 결과를 확인하는 방법의 기본 사항을 보여 줍니다.
+**Machine Learning Studio(클래식)** 를 사용한 경험이 없는 경우 [Machine Learning Studio(클래식)에서 첫 번째 데이터 과학 실험 만들기](create-experiment.md) 빠른 시작을 시작하는 것이 좋습니다. 빠른 시작을 사용하면 Machine Learning Studio(클래식)를 처음으로 익힐 수 있습니다. 이 자습서는 실험에 모듈을 끌어 놓고 서로 연결하고 실험을 실행하고 결과를 확인하는 방법의 기본 사항을 보여 줍니다.
 
 
 > [!TIP] 
@@ -53,9 +53,9 @@ ms.locfileid: "100517521"
 
 ## <a name="create-a-machine-learning-studio-classic-workspace"></a>Machine Learning Studio(클래식) 작업 영역 만들기
 
-Machine Learning Studio(클래식)를 사용하려면 Microsoft Azure Machine Learning Studio(클래식) 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.  
+Machine Learning 스튜디오(클래식)를 사용하려면 Machine Learning 스튜디오(클래식) 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.  
 
-작업 영역을 만들려면 [Azure Machine Learning Studio(클래식) 작업 영역 만들기 및 공유](create-workspace.md)를 참조하세요.
+작업 영역을 만들려면 [Machine Learning Studio(클래식) 작업 영역 만들기 및 공유](create-workspace.md)를 참조하세요.
 
 작업 영역을 만든 후 Machine Learning Studio(클래식)([https://studio.azureml.net/Home](https://studio.azureml.net/Home))를 엽니다. 둘 이상의 작업 영역이 있는 경우 창의 오른쪽 위 모서리에 있는 도구 모음에서 작업 영역을 선택할 수 있습니다.
 
@@ -146,7 +146,7 @@ Studio(클래식) 창 왼쪽의 **데이터 세트** 탭을 클릭하여 Studio(
 
 ![데이터 세트 관리](./media/tutorial-part1-credit-risk/dataset-list.png)
 
-다른 데이터 형식을 실험으로 가져오는 방법에 대한 자세한 내용은 [Azure Machine Learning Studio(클래식)로 학습 데이터 가져오기](import-data.md)를 참조하세요.
+다른 데이터 형식을 실험으로 가져오는 방법에 대한 자세한 내용은 [Machine Learning Studio(클래식)로 학습 데이터 가져오기](import-data.md)를 참조하세요.
 
 ## <a name="create-an-experiment"></a>실험 만들기
 

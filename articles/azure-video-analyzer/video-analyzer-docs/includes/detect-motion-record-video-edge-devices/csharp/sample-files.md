@@ -4,12 +4,12 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 04/07/2021
 ms.author: juliako
-ms.openlocfilehash: c21a052dd25fae2d74762726a520fd109da11c9e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d86ad88e122909225b5b64861623ce9b5b2df8af
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387346"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114444563"
 ---
 필수 구성 요소의 일부로 샘플 코드를 폴더에 다운로드했습니다. 다음 단계에 따라 샘플 파일을 검사하고 편집합니다.
 
@@ -23,11 +23,10 @@ ms.locfileid: "110387346"
     * **Program.cs** - 샘플 프로그램 코드입니다. 이 코드에서는 다음을 수행합니다.
 
         * 앱 설정을 로드합니다.
-        * [직접 메서드](../../../direct-methods.md) 호출<!--add a link--> Video Analyzer 에지 모듈이 노출됩니다.
+        * Video Analyzer Edge 모듈에서 공개하는 [직접 메서드](../../../direct-methods.md)를 호출합니다.
         * **터미널** 창에서 프로그램의 출력을 검사하고, **출력** 창에서 모듈에서 생성된 이벤트를 검사할 수 있도록 일시 중지합니다.
         * 리소스를 정리하는 직접 메서드를 호출합니다.
 1. **operations.json** 파일을 편집합니다.
-    
-    * 파이프라인에 대한 링크를 변경합니다. <br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-motion-files/topology.json" `
+    * 파이프라인에 대한 링크를 변경합니다. <br/>`"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-motion-file-sink/topology.json" `
     * livePipelineSet에서 이전 링크의 값과 일치하도록 파이프라인 토폴로지의 이름을 편집합니다. <br/>`"topologyName" : "EVRToFilesOnMotionDetection" `
     * PipelineTopologyDelete에서 이름을 편집합니다. <br/>`"name": "EVRToFilesOnMotionDetection" `

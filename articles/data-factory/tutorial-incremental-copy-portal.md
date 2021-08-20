@@ -6,13 +6,13 @@ ms.author: yexu
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 02/18/2021
-ms.openlocfilehash: 310182a3b46f0682efe420387bba0da311707e8a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 07/05/2021
+ms.openlocfilehash: a7730a12f6e017c23e5007b030cb4b6b05be4761
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606602"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436277"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Database에서 Azure Blob 스토리지로 데이터 증분 로드
 
@@ -170,15 +170,16 @@ END
 8. **만들기** 를 클릭합니다.      
 9. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
 
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="작성자 및 모니터링 타일이 있는 Azure Data Factory의 홈페이지.":::
-10. **작성 및 모니터링** 타일을 클릭하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스)를 시작합니다.
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Azure Data Factory Studio 열기 타일이 있는 Azure Data Factory 홈페이지":::
+
+10. **Azure Data Factory Studio 열기** 타일에서 **열기** 를 선택하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스)를 시작합니다.
 
 ## <a name="create-a-pipeline"></a>파이프라인 만들기
 이 자습서에서는 하나의 파이프라인에 두 개의 조회 작업, 하나의 복사 작업 및 하나의 StoredProcedure 작업이 연결되어 있는 파이프라인을 만듭니다.
 
-1. Data Factory UI의 **시작** 페이지에서 **파이프라인 만들기** 타일을 클릭합니다.
+1. Data Factory UI 홈페이지에서 **오케스트레이션** 타일을 클릭합니다.
 
-   ![Data Factory UI의 시작 페이지 가져오기](./media/doc-common-process/get-started-page.png)    
+   ![Data Factory UI 홈페이지 스크린샷](./media/doc-common-process/get-started-page.png)    
 3. **속성** 아래의 일반 패널에서 **이름** 에 **IncrementalCopyPipeline** 을 지정합니다. 그런 다음, 오른쪽 위 모서리에 있는 속성 아이콘을 클릭하여 패널을 축소합니다.
 
 4. 이전 워터마크 값을 가져오는 첫 번째 조회 활동을 추가하겠습니다. **활동** 도구 상자에서 **일반** 을 펼치고, **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **LookupOldWaterMarkActivity** 로 변경합니다.
@@ -269,7 +270,7 @@ END
     1. **저장 프로시저 이름** 에 대해 **usp_write_watermark** 를 선택합니다.
     2. 저장 프로시저 매개 변수에 대한 값을 지정하려면, **가져오기 매개 변수** 를 클릭하고 매개 변수에 대해 다음 값을 입력합니다.
 
-        | Name | Type | 값 |
+        | Name | 유형 | 값 |
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.subservice: spark
 ms.date: 03/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: e9c1299c0847aa30e1e3e198d2165e2674164458
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 3ed74340c4e234ae1ea4781d8b91451be6e366c4
+ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111960845"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113515608"
 ---
 # <a name="tutorial-use-azure-log-analytics-to-collect-and-visualize-metrics-and-logs-preview"></a>자습서: Azure Log Analytics를 사용하여 메트릭과 로그 수집 및 시각화(미리 보기)
 
@@ -117,11 +117,11 @@ spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 | spark.synapse.logAnalytics.keyVault.name            | -                            | Azure Log Analytics ID 및 키의 Azure Key Vault 이름입니다.                                                                                                                                                |
 | spark.synapse.logAnalytics.keyVault.key.workspaceId | SparkLogAnalyticsWorkspaceId | Azure Log Analytics 작업 영역 ID의 Azure Key Vault 비밀 이름입니다.                                                                                                                                       |
 | spark.synapse.logAnalytics.keyVault.key.secret      | SparkLogAnalyticsSecret      | Azure Log Analytics 작업 영역 키의 Azure Key Vault 비밀 이름입니다.                                                                                                                                      |
-| spark.synapse.logAnalytics.keyVault.uriSuffix       | ods.opinsights.azure.com     | 대상 Azure Log Analytics 작업 영역 [URI 접미사][uri_suffix]입니다. Azure Log Analytics 작업 영역이 Azure 글로벌에 없는 경우 해당 클라우드에 따라 URI 접미사를 업데이트해야 합니다. |
+| spark.synapse.logAnalytics.uriSuffix       | ods.opinsights.azure.com     | 대상 Azure Log Analytics 작업 영역 [URI 접미사][uri_suffix]입니다. Azure Log Analytics 작업 영역이 Azure 글로벌에 없는 경우 해당 클라우드에 따라 URI 접미사를 업데이트해야 합니다. |
 
 > [!NOTE]  
-> - Azure 중국 클라우드의 경우 "spark.synapse.logAnalytics.keyVault.uriSuffix" 매개 변수가 "ods.opinsights.azure.cn"이어야 합니다. 
-> - Azure Gov 클라우드의 경우 "spark.synapse.logAnalytics.keyVault.uriSuffix" 매개 변수가 "ods.opinsights.azure.us"이어야 합니다. 
+> - Azure 중국 클라우드의 경우 “spark.synapse.logAnalytics.uriSuffix” 매개 변수가 “ods.opinsights.azure.cn”이어야 합니다. 
+> - Azure Gov 클라우드의 경우 “spark.synapse.logAnalytics.uriSuffix” 매개 변수가 “ods.opinsights.azure.us”여야 합니다. 
 
 [uri_suffix]: ../../azure-monitor/logs/data-collector-api.md#request-uri
 
@@ -205,6 +205,30 @@ Synapse Studio의 Synapse Spark 풀에 구성 파일을 업로드할 수 있습�
    | summarize max(value_d) by bin(TimeGenerated, 30s), executorId_s
    | order by TimeGenerated asc
    ```
+
+## <a name="write-custom-application-logs"></a>사용자 지정 애플리케이션 로그 작성
+
+Apache Log4j 라이브러리를 사용하여 사용자 지정 로그를 작성할 수 있습니다.
+
+Scala 예제:
+
+```scala
+%%spark
+val logger = org.apache.log4j.LogManager.getLogger("com.contoso.LoggerExample")
+logger.info("info message")
+logger.warn("warn message")
+logger.error("error message")
+```
+
+PySpark 예제:
+
+```python
+%%pyspark
+logger = sc._jvm.org.apache.log4j.LogManager.getLogger("com.contoso.PythonLoggerExample")
+logger.info("info message")
+logger.warn("warn message")
+logger.error("error message")
+```
 
 ## <a name="create-and-manage-alerts-using-azure-log-analytics"></a>Azure Log Analytics를 사용하여 경고 생성 및 관리
 

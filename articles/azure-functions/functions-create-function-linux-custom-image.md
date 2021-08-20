@@ -5,12 +5,12 @@ ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions-full
-ms.openlocfilehash: 3eb0c54fda14711e45af3974638d53807994df91
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f3f4af97309326fe761ea58a7927df19522e4f60
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459621"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113486754"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 Linux에서 함수 만들기
 
@@ -407,6 +407,9 @@ Azure의 함수 앱은 호스팅 계획에서 함수 실행을 관리합니다. 
     ::: zone-end
     
     *deployment-container-image-name* 매개 변수는 함수 앱에 사용할 이미지를 지정합니다. [az functionapp config container show](/cli/azure/functionapp/config/container#az_functionapp_config_container_show) 명령을 사용하여 배포에 사용되는 이미지에 대한 정보를 볼 수 있습니다. 또한 [az functionapp config container set](/cli/azure/functionapp/config/container#az_functionapp_config_container_set) 명령을 사용하여 다른 이미지에서 배포할 수도 있습니다.
+    
+    > [!TIP]  
+    > host.json 파일의 [`DisableColor` 설정](functions-host-json.md#console)을 사용하여 ANSI 제어 문자가 컨테이너 로그에 기록되지 않도록 할 수 있습니다. 
 
 1. [az storage account show-connection-string](/cli/azure/storage/account) 명령을 사용하여 만든 스토리지 계정에 대한 연결 문자열을 표시합니다. `<storage-name>`을 위에서 만든 스토리지 계정의 이름으로 바꿉니다.
 

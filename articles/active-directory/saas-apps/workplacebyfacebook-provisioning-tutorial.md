@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/28/2020
+ms.date: 07/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 4ad66b5a5116e650983dd72ffe4875d89c390ced
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 5e4091138f51fdd5af4052895cdb75c2390f7ce5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110540526"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459734"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>자습서: 사용자 프로비전을 위한 Workplace by Facebook 구성
 
@@ -167,10 +167,13 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 ## <a name="troubleshooting-tips"></a>문제 해결 팁
 *  사용자가 성공적으로 생성되지 않은 것을 확인하고 코드가 "1789003"인 감사 로그 이벤트가 있는 경우 사용자가 확인되지 않은 도메인에서 온 것임을 의미합니다.
+*  사용자에게 '오류: 메일 필드 없음' 오류가 발생하는 경우가 있습니다. Facebook에서 반환된 메일 오류인 'HTTP 요청을 처리하는 동안 예외가 발생했습니다.'를 제공해야 합니다. 자세한 내용은 이 예외의 'Response' 속성에서 반환된 HTTP 응답을 참조하세요. 이 작업을 0번 다시 시도했습니다. 이 날짜 이후에 다시 시도됩니다. 이 오류는 userPrincipalName이 아닌 고객이 메일을 Facebook 메일로 매핑하지만 일부 사용자에게 메일 특성이 없기 때문에 발생합니다. 오류를 방지하고 Facebook에서 Workplace로 실패한 사용자를 프로비저닝하려면 Facebook 메일 특성에서 Workplace로의 특성 매핑을 Coalesce([mail],[userPrincipalName])로 수정하거나 Facebook에서 Workplace의 사용자를 할당 취소하거나 해당 사용자에 대한 메일 주소를 프로비저닝합니다.  
+
 
 ## <a name="change-log"></a>로그 변경
 
 * 2020/09/10 - 엔터프라이즈 특성 "division", "organization", "costCenter" 및 "employeeNumber"에 대한 지원이 추가되었습니다. 사용자 지정 특성 "startDate", "auth_method" 및 "frontline"에 대한 지원이 추가되었습니다.
+* 07/22/2021 - 메일을 Facebook 메일에 매핑하지만 일부 사용자에게 메일 특성이 없는 고객을 위한 문제 해결 팁을 업데이트했습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

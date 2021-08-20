@@ -4,12 +4,12 @@ description: 라이브 웹 애플리케이션의 애플리케이션 성능을 �
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 1da89ea574c34e457b18c39cdad32061c85f1a14
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: a22bbad35fad5c5c4b231636fa2ac434b186a660
+ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112289408"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113616490"
 ---
 # <a name="what-is-application-insights"></a>Application Insights란?
 [Azure Monitor](../overview.md)의 기능인 Application Insights는 개발자 및 DevOps 전문가를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. 라이브 애플리케이션을 모니터링하는 데 사용합니다. 성능 이상을 자동으로 감지하고, 문제를 진단하고 사용자가 실제로 앱을 사용하여 수행하는 작업을 파악할 수 있는 강력한 분석 도구를 포함하고 있습니다.  성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. 온-프레미스, 하이브리드 또는 퍼블릭 클라우드에서 호스팅되는 .NET, Node.js, Java 및 Python을 포함하여 다양한 플랫폼의 앱에서 작동합니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점을 갖고 있습니다. Visual Studio App Center를 통합하여 모바일 앱에서 원격 분석을 모니터링하고 분석할 수 있습니다.
@@ -95,7 +95,7 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 * **런타임: 서버에서 웹앱을 계측합니다.** 이미 배포된 애플리케이션에 적합합니다. 코드에 대한 업데이트를 방지합니다.
   * [**Azure Web Apps에서 호스팅되는 ASP.NET 또는 ASP.NET Core 애플리케이션**](./azure-web-apps.md)
   * [**Azure VM 또는 Azure Virtual Machine Scale Set의 IIS에 호스트된 ASP.NET 애플리케이션**](./azure-vm-vmss-apps.md)
-  * [**IIS 온-프레미스 VM에 호스트된 ASP.NET 애플리케이션**](./monitor-performance-live-website-now.md)
+  * [**IIS 온-프레미스 서버에 호스트된 ASP.NET 애플리케이션**](./status-monitor-v2-overview.md)
 * **개발 타임: 코드에 Application Insights를 추가합니다.** 원격 분석 데이터 컬렉션을 사용자 지정하고 원격 분석 데이터를 추가로 전송할 수 있습니다.
   * [ASP.NET 애플리케이션](./asp-net.md)
   * [ASP.NET Core 애플리케이션](./asp-net-core.md)
@@ -112,7 +112,7 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 다음을 사용하여 런타임에 시작하세요.
 
 * [Azure VM 및 Azure Virtual Machine Scale Set IIS 호스트 앱](./azure-vm-vmss-apps.md)
-* [IIS 서버](./monitor-performance-live-website-now.md)
+* [IIS 서버](./status-monitor-v2-overview.md)
 * [Azure Web Apps](./azure-web-apps.md)
 
 다음을 사용하여 개발 시에 시작하세요.
@@ -148,5 +148,5 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 [platforms]: ./platforms.md
 [portal]: https://portal.azure.com/
 [qna]: ../faq.yml
-[redfield]: ./monitor-performance-live-website-now.md
+[redfield]: ./status-monitor-v2-overview.md
 

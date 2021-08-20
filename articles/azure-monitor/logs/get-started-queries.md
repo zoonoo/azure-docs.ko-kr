@@ -5,12 +5,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 6e389cf58b5761d4069cf8a8b1e336d58db7a787
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ff65a473391f8a2435b20b88cacb6a0e18b90ba3
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459299"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113360742"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 시작
 
@@ -53,7 +53,7 @@ SecurityEvent
 위에 표시된 쿼리는 특정 순서 없이 *SecurityEvent* 테이블에서 10개의 결과를 반환합니다. 이는 테이블을 살펴보고 해당 구조 및 콘텐츠를 이해하는 매우 일반적인 방법입니다. 빌드되는 방식을 살펴보겠습니다.
 
 * 쿼리는 테이블 이름 *SecurityEvent* 로 시작합니다. 이 일부는 쿼리의 범위를 정의합니다.
-* 파이프(|) 문자는 명령을 분리하므로 다음 명령의 입력에서 첫 번째 명령의 출력입니다. 임의의 수의 파이프된 요소를 추가할 수 있습니다.
+* 파이프(|) 문자는 명령을 분리하므로 첫 번째 명령의 출력은 다음 명령의 입력입니다. 임의의 수의 파이프된 요소를 추가할 수 있습니다.
 * 다음 파이프는 테이블에서 특정 개수의 임의 레코드를 반환하는 **take** 명령입니다.
 
 `| take 10`을 추가하지 않고도 실제로 쿼리를 실행할 수 있습니다. 이는 여전히 유효할 수 있지만 최대 10,000개의 결과를 반환할 수 있습니다.
@@ -180,7 +180,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**extend** 는 결과 집합에서 모든 원본 열을 유지하고 추가 항목을 정의합니다. 다음 쿼리에서는 **확장** 을 사용하여 *EventCode* 열을 추가합니다. 이 열은 테이블의 끝에 표시되지 않을 수 있으며, 이 경우 레코드의 세부 정보를 확장해야 합니다.
+**extend** 는 결과 집합에서 모든 원본 열을 유지하고 추가 항목을 정의합니다. 다음 쿼리에서는 **확장** 을 사용하여 *EventCode* 열을 추가합니다. 이 열은 테이블의 끝에 표시되지 않을 수 있으며, 이 경우 열을 보려면 레코드의 세부 정보를 확장해야 합니다.
 
 ```Kusto
 SecurityEvent

@@ -7,12 +7,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 04/24/2020
-ms.openlocfilehash: 9367113e04db7f41037c8d2f137b72f0d2382f85
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: e53c8caed2cf3c72bf416b1416183eb0c654582e
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887687"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112541125"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>자습서: Azure Red Hat OpenShift 4 클러스터 삭제
 
@@ -53,7 +53,7 @@ RESOURCEGROUP=yourresourcegroup
 az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
 ```
 
-그런 다음, 클러스터를 삭제할지 여부를 묻는 메시지가 표시됩니다. `y`로 확인한 후에 클러스터를 삭제하는 데 몇 분 정도 걸립니다. 명령이 완료되면 전체 리소스 그룹 및 내부의 모든 리소스(클러스터 포함)가 삭제됩니다.
+그런 다음, 클러스터를 삭제할지 여부를 묻는 메시지가 표시됩니다. `y`로 확인한 후에 클러스터를 삭제하는 데 몇 분 정도 걸립니다. 명령이 완료되면 전체 리소스 그룹 및 클러스터를 포함하여 내부의 모든 리소스가 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/17/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 013a59c703d5275278e905314357f32acc211f93
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a8eb9ec2b71495011dfa7ebe9dbf1dcf8cd5d19e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067765"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114449420"
 ---
 # <a name="tutorial-review-your-individual-azure-subscription-bill"></a>자습서: 개별 Azure 구독 청구서 검토
 
@@ -103,6 +103,8 @@ Azure Portal에서 검색 상자에 *구독* 을 입력한 다음, **구독** �
 ![청구서 사용 요금](./media/review-individual-bill/invoice-usage-charges.png)
 
 CSV 사용 현황 파일에서 청구서에 표시된 해당 리소스에 대한 *MeterName* 을 필터링합니다. 그런 다음, 열의 항목에 대한 *Cost* 값의 합계를 계산합니다. 다음은 송장의 동일한 품목에 해당하는 미터 이름(P10 디스크)에 중점을 둔 예제입니다.
+
+예약 구매 요금을 조정하려면 CSV 사용 파일에서 구매로서 *ChargeType* 별로 필터링합니다. 그러면 해당 월의 모든 예약 구매 요금이 표시됩니다. 사용 현황 파일에서 *MeterName* 및 *MeterSubCategory* 를 확인하여 이 요금을 각각 송장의 리소스와 형식과 비교할 수 있습니다.
 
 ![MeterName에 대한 사용 현황 파일 합계 값](./media/review-individual-bill/usage-file-usage-charge-resource.png)
 

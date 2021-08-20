@@ -4,14 +4,14 @@ description: Azure Blob Storage의 한 위치에서 다른 위치로 데이터�
 author: jianleishen
 ms.service: data-factory
 ms.topic: quickstart
-ms.date: 12/14/2020
+ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: 888350dacd2437f585c6571b991ae06eed2d32ab
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 9d8bf0d62518c94458a5b989c040f8eaefea11cd
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482168"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437003"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>빠른 시작: Azure Data Factory UI를 사용하여 데이터 팩터리 만들기 
 
@@ -65,9 +65,9 @@ ms.locfileid: "109482168"
 
 1. **검토 + 만들기** 를 선택하고 유효성 검사를 통과한 후 **만들기** 를 선택합니다. 만들기가 완료되면 **리소스로 이동** 을 선택하여 **Data Factory** 페이지로 이동합니다. 
 
-1. **작성 및 모니터링** 타일을 선택하여 별도의 브라우저 탭에서 Azure Data Factory UI(사용자 인터페이스) 애플리케이션을 시작합니다.
+1. **Azure Data Factory Studio 열기** 타일에서 **열기** 를 선택하여 별도의 브라우저 탭에서 Azure Data Factory UI(사용자 인터페이스) 애플리케이션을 시작합니다.
    
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="작성자 및 모니터링 타일이 있는 Azure Data Factory의 홈페이지.":::
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Azure Data Factory Studio 열기 타일이 있는 Azure Data Factory 홈페이지":::
    
    > [!NOTE]
    > 웹 브라우저가 "권한 부여"에서 중단되는 것이 확인되면 **타사 쿠키 및 사이트 데이터 차단** 확인란의 선택을 취소합니다. 또는 이를 선택된 상태로 두고 **login.microsoftonline.com** 에 대한 예외를 만든 다음, 앱을 다시 엽니다.

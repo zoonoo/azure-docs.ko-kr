@@ -3,17 +3,18 @@ title: Azure PowerShell을 사용하여 SAP 솔루션을 위한 Azure Monitor �
 description: Azure PowerShell을 사용하여 SAP 솔루션을 위한 Azure Monitor 배포
 author: sameeksha91
 ms.author: sakhare
-ms.date: 09/08/2020
 ms.topic: quickstart
 ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
+ms.date: 07/08/2021
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell - devx-track-azurepowershell - mode-api
-ms.openlocfilehash: 24a8d3a893b5c3c988be25ae55be06f7fc934c8d
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 62f1cdcc51779351d743c5e3be5b8405a0bee2d1
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110667564"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113567653"
 ---
 # <a name="quickstart-deploy-azure-monitor-for-sap-solutions-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 SAP 솔루션을 위한 Azure Monitor 배포
 
@@ -26,7 +27,7 @@ ms.locfileid: "110667564"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-PowerShell을 로컬로 사용하도록 선택하는 경우 이 문서에서는 Az PowerShell 모듈을 설치하고 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용하여 Azure 계정에 연결해야 합니다. Az PowerShell 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요. Cloud Shell을 사용하도록 선택하는 경우 자세한 내용은 [Azure Cloud Shell 개요](../../../cloud-shell/overview.md)를 참조하세요.
+PowerShell을 로컬로 사용하도록 선택하는 경우 이 문서에는 Azure PowerShell 모듈을 설치해야 합니다. 또한 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용하여 Azure 계정에 연결해야 합니다. Az PowerShell 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요. 또는 Cloud Shell을 사용하도록 선택할 수 있습니다. Cloud Shell에 관한 자세한 내용은 [Azure Cloud Shell 개요](../../../cloud-shell/overview.md)를 참조하세요.
 
 > [!IMPORTANT]
 > **Az.HanaOnAzure** PowerShell 모듈은 미리 보기 상태이지만 `Install-Module` cmdlet을 사용하여 별도로 설치해야 합니다. 이 PowerShell 모듈이 일반 공급되면 이후 Az PowerShell 모듈 릴리스의 기능으로 포함되어 Azure Cloud Shell 내에서 기본적으로 사용할 수 있습니다.
@@ -53,7 +54,7 @@ New-AzResourceGroup -Name myResourceGroup -Location westus2
 
 ## <a name="sap-monitor"></a>SAP 모니터
 
-SAP 모니터를 만들려면 [New-AzSapMonitor](/powershell/module/az.hanaonazure/new-azsapmonitor) cmdlet을 사용합니다. 다음 예에서는 지정된 구독, 리소스 그룹 및 리소스 이름에 대한 SAP 모니터를 만듭니다.
+SAP 모니터를 만들려면 [New-AzSapMonitor](/powershell/module/az.hanaonazure/new-azsapmonitor) cmdlet을 사용합니다. 다음 예제에서는 지정된 구독, 리소스 그룹, 리소스 이름에 대한 SAP 모니터를 만듭니다.
 
 ```azurepowershell-interactive
 $Workspace = New-AzOperationalInsightsWorkspace -ResourceGroupName myResourceGroup -Name sapmonitor-test -Location westus2 -Sku Standard
@@ -73,7 +74,7 @@ $SapMonitorParams = @{
 New-AzSapMonitor @SapMonitorParams
 ```
 
-SAP 모니터의 속성을 검색하려면 [Get-AzSapMonitor](/powershell/module/az.hanaonazure/get-azsapmonitor) cmdlet을 사용합니다. 다음 예에서는 지정된 구독, 리소스 그룹 및 리소스 이름에 대한 SAP 모니터의 속성을 가져옵니다.
+SAP 모니터의 속성을 검색하려면 [Get-AzSapMonitor](/powershell/module/az.hanaonazure/get-azsapmonitor) cmdlet을 사용합니다. 다음 예제에서는 지정된 구독, 리소스 그룹, 리소스 이름에 대한 SAP 모니터의 속성을 가져옵니다.
 
 ```azurepowershell-interactive
 Get-AzSapMonitor -ResourceGroupName myResourceGroup -Name ps-spamonitor-t01
@@ -98,7 +99,11 @@ $SapProviderParams = @{
 New-AzSapMonitorProviderInstance @SapProviderParams
 ```
 
-공급자 인스턴스의 속성을 검색 하려면 [Get-AzSapMonitorProviderInstance](/powershell/module/az.hanaonazure/get-azsapmonitorproviderinstance) cmdlet을 사용합니다. 다음 예제는 지정된 구독, 리소스 그룹, SapMonitor 이름 및 리소스 이름에 대한 공급자 인스턴스의 속성을 가져옵니다.
+공급자 인스턴스의 속성을 검색하려면 [Get-AzSapMonitorProviderInstance](/powershell/module/az.hanaonazure/get-azsapmonitorproviderinstance) cmdlet을 사용합니다. 다음 예제에서는 다음의 속성을 가져옵니다. 
+- 지정된 구독의 공급자 인스턴스
+- 리소스 그룹
+- SapMonitor 이름
+- 리소스 이름
 
 ```azurepowershell-interactive
 Get-AzSapMonitorProviderInstance -ResourceGroupName myResourceGroup -SapMonitorName ps-spamonitor-t01
@@ -118,7 +123,7 @@ Remove-AzSapMonitorProviderInstance -ResourceGroupName myResourceGroup -SapMonit
 
 ### <a name="delete-the-sap-monitor"></a>SAP 모니터 삭제
 
-SAP 모니터를 제거하려면 [Remove-AzSapMonitor](/powershell/module/az.hanaonazure/remove-azsapmonitor) cmdlet을 사용합니다. 다음 예에서는 지정된 구독, 리소스 그룹 및 모니터 이름에 대한 SAP 모니터를 삭제합니다.
+SAP 모니터를 제거하려면 [Remove-AzSapMonitor](/powershell/module/az.hanaonazure/remove-azsapmonitor) cmdlet을 사용합니다. 다음 예제에서는 지정된 구독, 리소스 그룹, 모니터 이름에 대한 SAP 모니터를 삭제합니다.
 
 ```azurepowershell
 Remove-AzSapMonitor -ResourceGroupName myResourceGroup -Name ps-sapmonitor-t02
@@ -136,4 +141,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-[SAP 솔루션을 위한 Azure Monitor](azure-monitor-overview.md)에 대해 자세히 알아보세요.
+SAP 솔루션을 위한 Azure Monitor에 관해 자세히 알아봅니다.
+
+> [!div class="nextstepaction"]
+> [SAP 솔루션을 위한 Azure Monitor](azure-monitor-overview.md)

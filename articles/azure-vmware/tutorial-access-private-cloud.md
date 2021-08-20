@@ -3,12 +3,12 @@ title: 자습서 - 프라이빗 클라우드에 액세스
 description: Azure VMware Solution 프라이빗 클라우드에 액세스하는 방법 알아보기
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: d2046acaf483022f977559fe74254ca58b8c42ea
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 81927e9ad0362ba340bb704d2d7e8b9c0927efbe
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107945650"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114605401"
 ---
 # <a name="tutorial-access-an-azure-vmware-solution-private-cloud"></a>자습서: Azure VMware Solution 프라이빗 클라우드에 액세스
 
@@ -26,7 +26,7 @@ Azure VMware Solution을 사용하면 온-프레미스 vCenter에서 프라이�
 
 1. 리소스 그룹에서 **+ 추가** 를 선택하고, **Microsoft Windows 10** 을 검색하여 선택한 다음, **만들기** 를 선택합니다.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="점프 상자에 새 Windows 10 VM을 추가하는 방법의 스크린샷" border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="점프 상자에 새 Windows 10 VM을 추가하는 방법의 스크린샷":::
 
 1. 필드에서 필요한 정보를 입력한 다음, **검토 + 만들기** 를 선택합니다. 
 
@@ -58,7 +58,7 @@ Azure VMware Solution을 사용하면 온-프레미스 vCenter에서 프라이�
 
    프라이빗 클라우드 vCenter 및 NSX-T Manager에 대한 URL 및 사용자 자격 증명이 표시됩니다.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="프라이빗 클라우드 vCenter와 NSX 관리자의 URL 및 자격 증명을 표시합니다." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="프라이빗 클라우드 vCenter와 NSX Manager URL 및 자격 증명을 보여 주는 스크린샷" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 
 1. 이전 단계에서 만든 VM으로 이동하여 가상 머신에 연결합니다. 
 
@@ -68,13 +68,13 @@ Azure VMware Solution을 사용하면 온-프레미스 vCenter에서 프라이�
 
 1. vCenter 탭에서 이전 단계의 `cloudadmin@vmcp.local` 사용자 자격 증명을 입력합니다.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="프라이빗 클라우드 vCenter에 로그인합니다." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="VMware vSphere 로그인 페이지를 보여 주는 스크린샷" border="true":::
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="vCenter 포털입니다." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="vSphere Client의 클러스터-1의 요약을 보여 주는 스크린샷" border="true":::
 
 1. 브라우저의 두 번째 탭에서 NSX-T 관리자에 로그인합니다.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="브라우저의 두 번째 탭에서 NSX-T 관리자에 로그인합니다." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="NSX-T Manager 개요 스크린샷" border="true":::
 
 
 
@@ -90,5 +90,4 @@ Azure VMware Solution을 사용하면 온-프레미스 vCenter에서 프라이�
 
 > [!div class="nextstepaction"]
 > [Virtual Network 만들기](tutorial-configure-networking.md)
-
 

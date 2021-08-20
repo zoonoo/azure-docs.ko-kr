@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 509e31919dd974da253cd0478a70f889cc060fae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 369195e8dfce2440c2e34151e7de6b2d23edbad1
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99831793"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112963260"
 ---
 # <a name="tutorial-create-and-explore-the-solar-panel-monitoring-app-template"></a>자습서: 태양광 패널 모니터링 앱 템플릿 만들기 및 살펴보기 
 
@@ -64,7 +64,7 @@ ms.locfileid: "99831793"
 앱 템플릿을 성공적으로 배포한 후에는 좀 더 자세히 살펴볼 수 있습니다. 샘플 스마트 미터 디바이스, 디바이스 모델 및 대시보드와 함께 제공됩니다.
 
 Adatum은 태양광 패널을 모니터링 및 관리하는 가상의 에너지 회사입니다. 태양광 패널 모니터링 대시보드에는 태양광 패널 속성, 데이터 및 샘플 명령이 표시됩니다. 이 대시보드를 사용하면 문제가 발생하여 추가 지원이 필요하기 전에 사용자와 사용자의 지원 팀이 다음 활동을 사전에 수행할 수 있습니다.
-* 지도에서 최신 패널 정보 및 설치된 위치를 검토합니다.
+* 지도에서 최신 패널 정보와 설치된 [위치](../core/howto-use-location-data.md)를 검토합니다.
 * 패널 상태 및 연결 상태를 확인합니다.
 * 에너지 생성 및 온도 추세를 검토하여 비정상적인 패턴을 파악합니다.
 * 계획 및 청구를 위해 총 에너지 생성을 추적합니다.

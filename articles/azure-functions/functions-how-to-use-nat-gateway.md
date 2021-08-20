@@ -4,16 +4,16 @@ description: Azure 가상 네트워크에 연결된 함수에 대해 NAT를 구�
 ms.topic: tutorial
 ms.author: kyburns
 ms.date: 2/26/2021
-ms.openlocfilehash: 5bb491e367ed813f09197a193745c231261c88c7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9b91ccd725fbd6ae1e3a974ecb70b4c01201adb4
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104658160"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432269"
 ---
 # <a name="tutorial-control-azure-functions-outbound-ip-with-an-azure-virtual-network-nat-gateway"></a>자습서: Azure 가상 네트워크 NAT 게이트웨이를 사용하여 Azure Functions 아웃바운드 IP 제어
 
-가상 NAT(Network Address Translation)는 가상 네트워크에 대한 아웃바운드 전용 인터넷 연결을 간소화합니다. 서브넷에 구성되는 경우 모든 아웃바운드 연결에서 지정된 고정 공용 IP 주소를 사용합니다. NAT는 IP 주소 허용 목록을 보안 조치로 사용하는 타사 서비스를 사용해야 하는 Azure Functions 또는 Web Apps에 유용할 수 있습니다. 자세한 내용은 [Virtual Network NAT란?](../virtual-network/nat-overview.md)을 참조하세요.
+가상 NAT(Network Address Translation)는 가상 네트워크에 대한 아웃바운드 전용 인터넷 연결을 간소화합니다. 서브넷에 구성되는 경우 모든 아웃바운드 연결에서 지정된 고정 공용 IP 주소를 사용합니다. NAT는 IP 주소 허용 목록을 보안 조치로 사용하는 타사 서비스를 사용해야 하는 Azure Functions 또는 Web Apps에 유용할 수 있습니다. 자세한 내용은 [Virtual Network NAT란?](../virtual-network/nat-gateway/nat-overview.md)을 참조하세요.
 
 이 자습서에서는 가상 네트워크 NAT를 사용하여 HTTP 트리거 함수에서 아웃바운드 트래픽을 라우팅하는 방법을 보여 줍니다. 이 함수를 사용하면 자체의 아웃바운드 IP 주소를 확인할 수 있습니다. 이 자습서에서 다음을 수행합니다.
 
@@ -66,6 +66,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 다음으로, [프리미엄 플랜](functions-premium-plan.md)에서 함수 앱을 만듭니다. 이 플랜은 가상 네트워크 통합을 지원하는 동시에 서버리스 크기 조정을 제공합니다.
 
 ## <a name="create-a-function-app-in-a-premium-plan"></a>프리미엄 플랜에서 함수 앱 만들기
+
+이 자습서에서는 [프리미엄 플랜](functions-premium-plan.md)에서 함수 앱을 만드는 방법을 보여 줍니다. [전용(App Service) 플랜](dedicated-plan.md)을 사용할 때도 동일한 기능을 사용할 수 있습니다.
 
 > [!NOTE]  
 > 이 자습서에 가장 적합한 환경을 위해 런타임 스택으로 .NET을 선택하고, 운영 체제로 Windows를 선택합니다. 또한 함수 앱을 가상 네트워크와 동일한 지역에 만듭니다.

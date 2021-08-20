@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/08/2021
-ms.openlocfilehash: ee3c74e9b1bf1edcfa039703de92e899562ab927
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 9611f80c6895387e71cd6387736cb1445e6b1542
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903225"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112575313"
 ---
 # <a name="quickstart-connect-a-microchip-atsame54-xpro-evaluation-kit-to-iot-central"></a>빠른 시작: Microchip ATSAME54-XPro 평가 키트를 IoT Central에 연결
 
@@ -106,7 +106,9 @@ Microchip E54를 Azure에 연결하려면 Azure IoT 설정의 구성 파일을 �
 
 ### <a name="connect-the-device"></a>디바이스 연결
 
-1. Microchip E54에서 **다시 설정** 단추, **이더넷** 포트 및 마이크로 USB 포트(**디버그 USB** 레이블이 지정됨)를 찾습니다.
+1. Microchip E54에서 **다시 설정** 단추, **이더넷** 포트 및 마이크로 USB 포트(**디버그 USB** 레이블이 지정됨)를 찾습니다. 다음 그림에서는 각 구성 요소가 강조 표시되어 있습니다.
+
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/microchip-xpro-board.png" alt-text="Microchip E54 평가 키트 보드에서 주요 구성 요소 찾기":::
 
 1. 마이크로 USB 케이블을 Microchip E54의 **디버그 USB** 포트에 연결한 다음, 컴퓨터에 연결합니다.
     > [!NOTE]
@@ -118,7 +120,10 @@ Microchip E54를 Azure에 연결하려면 Azure IoT 설정의 구성 파일을 �
 
 Weather Click 센서 및 mikroBUS Xplained Pro 어댑터가 있는 경우 이 섹션의 단계를 따릅니다. 그렇지 않으면 [이미지 빌드](#build-the-image)로 건너뜁니다. 센서가 없는 경우에도 빠른 시작을 완료할 수 있습니다. 디바이스의 샘플 코드는 실제 센서가 없는 경우 시뮬레이션된 데이터를 반환합니다.
 
-1. Weather Click 센서 및 mikroBUS Xplained Pro 어댑터가 있는 경우 Microchip E54에 설치합니다.
+1. Weather Click 센서 및 mikroBUS Xplained Pro 어댑터가 있는 경우 다음 사진에서 보는 바와 같이 Microchip E54에 설치합니다.
+
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/sam-e54-sensor.png" alt-text="Microchip ES4에 Weather Click 센서 및 mikroBUS Xplained Pro 어댑터 설치":::
+
 1. 이전에 편집한 구성 파일을 다시 엽니다.
 
     *getting-started\Microchip\ATSAME54-XPRO\app\azure_config.h*
@@ -167,7 +172,7 @@ Weather Click 센서 및 mikroBUS Xplained Pro 어댑터가 있는 경우 이 �
 
 1. **Termite** 를 시작합니다.    
     > [!TIP]
-    > 플래시한 후 디바이스를 초기화하거나 연결하는 데 문제가 있는 경우 추가 단계는 [문제 해결](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md)을 참조하세요.
+    > 플래시한 후 디바이스를 초기화하거나 연결하는 데 문제가 있는 경우 추가 단계는 [문제 해결](troubleshoot-embedded-device-quickstarts.md)을 참조하세요.
 1. **설정** 을 선택합니다.
 1. **직렬 포트 설정** 대화 상자에서 다음 설정을 확인하고, 필요한 경우 업데이트합니다.
     * **전송 속도**: 115,200
@@ -262,7 +267,7 @@ IoT Central에서 디바이스 정보를 볼 수 있습니다.
 
 ## <a name="troubleshoot-and-debug"></a>문제 해결 및 디버그
 
-디바이스 코드 빌드, 디바이스 플래시 또는 연결에 문제가 발생하는 경우 [문제 해결](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md)을 참조하세요.
+디바이스 코드 빌드, 디바이스 플래시 또는 연결에 문제가 발생하는 경우 [문제 해결](troubleshoot-embedded-device-quickstarts.md)을 참조하세요.
 
 애플리케이션 디버깅에 대한 자세한 내용은 [Visual Studio Code를 사용하여 디버깅](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md)을 참조하세요.
 
@@ -281,7 +286,7 @@ IoT Central에서 디바이스 정보를 볼 수 있습니다.
 다음 단계로, 다음 문서에서 IoT 디바이스 SDK를 사용하여 디바이스를 Azure IoT에 연결하는 방법을 자세히 살펴봅니다. 
 
 > [!div class="nextstepaction"]
-> [IoT Central에 시뮬레이션된 디바이스 연결](quickstart-send-telemetry-central.md)
+> [IoT Hub에 시뮬레이션된 디바이스 연결](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
 > [IoT Hub에 시뮬레이션된 디바이스 연결](quickstart-send-telemetry-iot-hub.md)
 
