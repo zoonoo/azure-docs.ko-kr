@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 06/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 8b1203693b67bb1a8b9699b84dd3a437027e4c3d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 2b63b496fb06c2987161661ddbbfcfe74580e3bf
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055317"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356620"
 ---
 # <a name="tutorial-configure-certificates-for-your-azure-stack-edge-pro-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge Pro를 위한 인증서 구성
 
@@ -32,12 +32,12 @@ ms.locfileid: "106055317"
 
 Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 전에 다음 사항을 확인합니다.
 
-* [Azure Stack Edge Pro 설치](azure-stack-edge-gpu-deploy-install.md)에서 설명한 대로 물리적 디바이스를 설치했습니다.
+* [Azure Stack Edge Pro GPU 설치](azure-stack-edge-gpu-deploy-install.md)에서 설명한 대로 물리적 디바이스를 설치했습니다.
 * 사용자 고유의 인증서를 가져오려는 경우:
     - 서명 체인 인증서를 포함하는 적절한 형식으로 인증서를 준비해야 합니다. 인증서에 대한 자세한 내용은 [인증서 관리](azure-stack-edge-gpu-manage-certificates.md)를 참조하세요.
 
-<!--    - If your device is deployed in Azure Government or Azure Government Secret or Azure Government top secret cloud and not deployed in Azure public cloud, a signing chain certificate is required before you can activate your device. 
-    For details on certificate, go to [Manage certificates](azure-stack-edge-gpu-manage-certificates.md).-->
+    - 디바이스가 Azure Government에 배포되고 Azure 퍼블릭 클라우드에 배포되지 않은 경우 디바이스를 활성화하려면 서명 체인 인증서가 필요합니다. 
+    인증서에 대한 자세한 내용은 [인증서 관리](azure-stack-edge-gpu-manage-certificates.md)를 참조하세요.
 
 
 ## <a name="configure-certificates-for-device"></a>디바이스에 대한 인증서 구성
@@ -58,9 +58,9 @@ Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 �
 
         인증서가 업데이트된 디바이스 이름 및 DNS 도메인(주체 이름 및 주체 대체 이름에 사용됨)을 반영하지 않기 때문입니다. 디바이스를 성공적으로 활성화하려면 다음 옵션 중 하나를 선택합니다. 
     
-        - **모든 디바이스 인증서를 생성합니다**. 이러한 디바이스 인증서는 테스트 용도로만 사용해야 하고 프로덕션 워크로드에 사용하면 안 됩니다. 자세한 내용은 [Azure Stack Edge Pro에서 디바이스 인증서 생성](#generate-device-certificates)을 참조하세요.
+        - **모든 디바이스 인증서를 생성합니다**. 이러한 디바이스 인증서는 테스트 용도로만 사용해야 하고 프로덕션 워크로드에 사용하면 안 됩니다. 자세한 내용은 [Azure Stack Edge Pro GPU에서 디바이스 인증서 생성](#generate-device-certificates)을 참조하세요.
 
-        - **사용자 고유의 인증서를 가져옵니다**. 사용자 고유의 서명된 엔드포인트 인증서와 해당 서명 체인을 가져올 수 있습니다. 먼저 서명 체인을 추가한 다음, 엔드포인트 인증서를 업로드합니다. **프로덕션 워크로드에 대한 자체 인증서를 항상 가져오는 것이 좋습니다.** 자세한 내용은 [Azure Stack Edge Pro 디바이스에서 사용자 고유의 인증서 가져오기](#bring-your-own-certificates)를 참조하세요.
+        - **사용자 고유의 인증서를 가져옵니다**. 사용자 고유의 서명된 엔드포인트 인증서와 해당 서명 체인을 가져올 수 있습니다. 먼저 서명 체인을 추가한 다음, 엔드포인트 인증서를 업로드합니다. **프로덕션 워크로드에 대한 자체 인증서를 항상 가져오는 것이 좋습니다.** 자세한 내용은 [Azure Stack Edge Pro GPU 디바이스에서 사용자 고유의 인증서 가져오기](#bring-your-own-certificates)를 참조하세요.
     
         - 사용자 고유의 인증서를 가져와 일부 디바이스 인증서를 생성할 수 있습니다. **인증서 생성** 옵션은 디바이스 인증서만 다시 생성합니다.
 
@@ -71,7 +71,7 @@ Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 �
 
 디바이스 인증서를 생성하려면 다음 단계를 수행합니다.
 
-다음 단계를 사용하여 Azure Stack Edge Pro 디바이스 인증서를 다시 생성하고 다운로드합니다.
+다음 단계를 사용하여 Azure Stack Edge Pro GPU 디바이스 인증서를 다시 생성하고 다운로드합니다.
 
 1. 디바이스의 로컬 UI에서 **구성 > 인증서** 로 이동합니다. **인증서 생성** 을 선택합니다.
 
@@ -117,9 +117,9 @@ Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 �
 
     `<Device name>_<Endpoint name>.cer`. 이러한 인증서에는 디바이스에 설치된 해당 인증서에 대한 공개 키가 포함되어 있습니다. 
 
-ASE 디바이스의 엔드포인트에 액세스하는 데 사용하는 클라이언트 시스템에 이러한 인증서를 설치해야 합니다. 이러한 인증서는 클라이언트와 디바이스 간에 트러스트를 설정합니다.
+Azure Stack Edge 디바이스의 엔드포인트에 액세스하는 데 사용하는 클라이언트 시스템에 이러한 인증서를 설치해야 합니다. 이러한 인증서는 클라이언트와 디바이스 간에 트러스트를 설정합니다.
 
-디바이스에 액세스하는 데 사용하는 클라이언트에서 이러한 인증서를 가져오고 설치하려면 [Azure Stack Edge Pro 디바이스에 액세스하는 클라이언트에서 인증서 가져오기](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)의 단계를 수행합니다. 
+디바이스에 액세스하는 데 사용하는 클라이언트에서 이러한 인증서를 가져오고 설치하려면 [Azure Stack Edge Pro GPU 디바이스에 액세스하는 클라이언트에서 인증서 가져오기](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)의 단계를 수행합니다. 
 
 Azure Storage Explorer를 사용하는 경우 클라이언트에 PEM 형식으로 인증서를 설치하고 디바이스에서 생성된 인증서를 PEM 형식으로 변환해야 합니다. 
 
@@ -130,7 +130,14 @@ Azure Storage Explorer를 사용하는 경우 클라이언트에 PEM 형식으�
 
 ### <a name="bring-your-own-certificates"></a>사용자 고유의 인증서 가져오기
 
-서명 체인을 포함한 사용자 고유의 인증서를 추가하려면 다음 단계를 수행합니다.
+사용자 고유의 인증서를 가져올 수 있습니다. 
+
+- 먼저 [Azure Stack Edge 디바이스에서 사용할 수 있는 인증서 유형](azure-stack-edge-gpu-certificates-overview.md)을 이해합니다.
+- 다음으로 [각 인증서 유형에 대한 인증서 요구 사항](azure-stack-edge-gpu-certificate-requirements.md)을 검토합니다.
+- 그런 다음, [Azure PowerShell 통해 인증서를 만들](azure-stack-edge-gpu-create-certificates-powershell.md)거나 [준비 검사기 도구를 통해 인증서를 만들](azure-stack-edge-gpu-create-certificates-tool.md) 수 있습니다.
+- 마지막으로 [인증서를 적절한 형식으로 변환](azure-stack-edge-gpu-prepare-certificates-device-upload.md)하여 디바이스에 업로드할 수 있도록 합니다.
+
+서명 체인을 포함한 사용자 고유의 인증서를 업로드하려면 다음 단계를 수행합니다.
 
 1. 인증서를 업로드하려면 **인증서** 페이지에서 **+ 인증서 추가** 를 선택합니다.
 
@@ -176,7 +183,7 @@ Azure Storage Explorer를 사용하는 경우 클라이언트에 PEM 형식으�
 > * 사전 요구 사항
 > * 물리적 디바이스에 대한 인증서 구성
 
-Azure Stack Edge Pro 디바이스를 관리하는 방법을 알아보려면 다음을 참조하세요.
+Azure Stack Edge Pro GPU 디바이스를 활성화하는 방법을 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Stack Edge Pro 디바이스 활성화](./azure-stack-edge-gpu-deploy-activate.md)
+> [Azure Stack Edge Pro GPU 디바이스 활성화](./azure-stack-edge-gpu-deploy-activate.md)

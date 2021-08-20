@@ -5,18 +5,18 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 06/16/2021
 ms.author: cshoe
-ms.openlocfilehash: fb874c25ab688cc5e6723d1023157b8acd9478b9
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 3ec36a06dafb8622f97ded317f8ab2617e96662a
+ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483850"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112428833"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>빠른 시작: Azure Static Web Apps를 사용하여 첫 번째 정적 사이트 빌드
 
-Azure Static Web Apps는 코드 리포지토리에서 앱을 빌드하여 웹 사이트를 게시합니다. 이 빠른 시작에서는 Visual Studio Code 확장을 사용하여 애플리케이션을 Azure Static 웹앱에 배포합니다.
+Azure Static Web Apps는 코드 리포지토리에서 앱을 빌드하여 웹 사이트를 게시합니다. 이 빠른 시작에서는 Visual Studio Code 확장을 사용하여 애플리케이션을 Azure Static Web Apps에 배포합니다.
 
 Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.com/free)을 만듭니다.
 
@@ -32,7 +32,7 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 
 [!INCLUDE [clone the repository](../../includes/static-web-apps-get-started-clone-repo.md)]
 
-다음으로, Visual Studio Code를 열고 **파일 > 폴더 열기** 로 이동하여 머신에 복제한 리포지토리를 편집기에서 엽니다.
+다음으로, Visual Studio Code를 열고 **파일 > 폴더 열기** 로 이동하여 복제한 리포지토리를 편집기에서 엽니다.
 
 ## <a name="create-a-static-web-app"></a>정적 웹앱 만들기
 
@@ -41,34 +41,35 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
     :::image type="content" source="media/getting-started/extension-azure-logo.png" alt-text="Azure 로고":::
 
     > [!NOTE]
-    > Azure 및 GitHub 로그인이 필요합니다. Visual Studio Code에서 Azure 및 GitHub에 아직 로그인하지 않은 경우 확장은 만들기 프로세스 중에 둘 다에 로그인하라는 메시지를 표시합니다.
+    > 계속하려면 Visual Studio Code에서 Azure 및 GitHub에 로그인합니다. 아직 인증되지 않은 경우 확장이 만들기 프로세스 중에 두 서비스 모두에 로그인하라는 메시지를 표시합니다.
 
 1. _Static Web Apps_ 레이블 아래에서 **더하기 기호** 를 선택합니다.
 
     :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="애플리케이션 이름":::
 
-1. 명령 팔레트가 편집기 위쪽에서 열리고 애플리케이션의 이름을 지정하라는 메시지가 표시됩니다.
+1. 편집기 맨 위에 명령 팔레트가 열리고 구독 이름을 선택하라는 메시지가 표시됩니다.
 
-    **my-first-static-web-app** 을 입력하고 **Enter** 를 누릅니다.
+    구독을 선택하고 <kbd>Enter</kbd> 키를 누릅니다.
+
+    :::image type="content" source="media/getting-started/extension-subscription.png" alt-text="Azure 구독 선택":::
+
+1. 다음으로 애플리케이션의 이름을 지정합니다.
+
+    **my-first-static-web-app** 을 입력하고 <kbd>Enter</kbd>를 누릅니다.
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Static Web App 만들기":::
 
 1. 애플리케이션 유형과 일치하는 사전 설정을 선택합니다.
 
     # <a name="no-framework"></a>[프레임워크 없음](#tab/vanilla-javascript)
+
     :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="애플리케이션 사전 설정: 프레임워크 없음":::
 
-    애플리케이션 파일의 위치로 **./** 를 입력합니다.
-
-    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="애플리케이션 파일 위치":::
-
-    현재 Azure Functions API의 위치로 **지금은 건너뛰기** 를 선택합니다.
-
-    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API 위치":::
-
-    빌드 출력 위치로 **./** 를 입력합니다.
+    애플리케이션 파일의 위치로 를 입력하고 <kbd>Enter</kbd> 키를 누릅니다.
 
     :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="애플리케이션 빌드 출력 위치":::
+
+    빌드 출력 위치로 **./** 를 입력하고 <kbd>Enter</kbd> 키를 누릅니다.
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
@@ -79,10 +80,6 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
     애플리케이션 파일의 위치로 **./** 를 입력합니다.
 
     :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="애플리케이션 파일 위치: Angular":::
-
-    현재 Azure Functions API의 위치로 **지금은 건너뛰기** 를 선택합니다.
-
-    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API 위치: Angular":::
 
     빌드 출력 위치로 **dist/angular-basic** 을 입력합니다.
 
@@ -98,17 +95,15 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 
     ---
 
-1. 가장 가까운 위치를 선택하고 **Enter** 를 누릅니다.
-
-    :::image type="content" source="media/getting-started/extension-location.png" alt-text="리소스 위치":::
-
 1. 앱이 만들어지면 Visual Studio Code에 확인 알림이 표시됩니다.
 
     :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="생성 확인":::
 
-    다음으로 **GitHub에서 작업 열기** 단추를 클릭합니다. 이 페이지는 애플리케이션의 빌드 상태를 표시합니다.
+    배포가 진행 중이면 Visual Studio Code 확장이 빌드 상태를 보고합니다.
 
-    GitHub 작업이 완료되면 게시된 웹 사이트로 이동할 수 있습니다.
+    :::image type="content" source="media/getting-started/extension-waiting-for-deployment.png" alt-text="배포 대기 중":::
+
+    배포가 완료되면 웹 사이트로 바로 이동할 수 있습니다.
 
 1. 브라우저에서 웹 사이트를 보려면 Static Web Apps 확장에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **사이트 찾아보기** 를 선택합니다.
 

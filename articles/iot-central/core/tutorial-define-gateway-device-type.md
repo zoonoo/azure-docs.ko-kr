@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 55cd7c86ae4f0110618745459cea48abe5e144d0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 75b818382102642ecc8380b257c9c31382b8283d
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084577"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588420"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>자습서 - Azure IoT Central 애플리케이션에서 새 IoT 게이트웨이 디바이스 유형 정의
 
@@ -30,8 +30,14 @@ ms.locfileid: "110084577"
 * 운영자가 수행한 쓰기 가능한 속성 업데이트에 응답합니다. 예를 들어 운영자가 원격 분석 데이터 송신 간격을 변경할 수 있습니다.
 * 디바이스 재부팅 같은 명령에 응답합니다.
 
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+
 > [!div class="checklist"]
-> 다운스트림 디바이스 템플릿 생성 게이트웨이 디바이스 템플릿 생성 디바이스 템플릿 게시 시뮬레이션된 디바이스 생성
+>
+> * 다운스트림 디바이스 템플릿
+> * 게이트웨이 디바이스 템플릿 만들기
+> * 디바이스 템플릿 게시
+> * 시뮬레이션된 디바이스 만들기
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -92,7 +98,6 @@ ms.locfileid: "110084577"
 
 1. **저장** 을 선택합니다.
 
-
 ### <a name="add-relationships"></a>관계 추가
 
 다음으로 다운스트림 디바이스에 대한 템플릿에 관계를 추가합니다.
@@ -129,7 +134,7 @@ ms.locfileid: "110084577"
 작성기처럼 환경 센서 디바이스와 관련된 정보를 운영자에게 표시하도록 애플리케이션을 사용자 지정할 수 있습니다. 사용자 지정을 사용하면 운영자가 애플리케이션에 연결된 환경 센서 디바이스를 관리할 수 있습니다. 운영자가 디바이스와 상호 작용하는 데 사용할 다음 두 가지 유형의 보기를 만들 수 있습니다.
 
 * 디바이스 및 클라우드 속성을 보고 편집하는 양식
-* 디바이스를 시각화하는 대시보드
+* 디바이스를 시각화하는 보기입니다.
 
 **스마트 빌딩 게이트웨이 디바이스** 템플릿에 대한 기본 보기 만드는 방법은 다음과 같습니다.
 
@@ -207,6 +212,33 @@ ms.locfileid: "110084577"
 
 ![다운스트림 디바이스 보기](./media/tutorial-define-gateway-device-type/downstream-device-view.png)
 
+## <a name="connect-real-downstream-devices"></a>실제 다운스트림 디바이스 연결
+
+[Azure IoT Central 애플리케이션에 클라이언트 애플리케이션 만들기 및 연결](tutorial-connect-device.md) 자습서에서 샘플 코드는 디바이스가 보내는 프로비저닝 페이로드에 디바이스 템플릿의 모델 ID를 포함하는 방법을 보여줍니다. 모델 ID를 사용하면 IoT Central에서 디바이스를 올바른 디바이스 템플릿에 연결할 수 있습니다. 예를 들면 다음과 같습니다.
+
+```python
+async def provision_device(provisioning_host, id_scope, registration_id, symmetric_key, model_id):
+  provisioning_device_client = ProvisioningDeviceClient.create_from_symmetric_key(
+    provisioning_host=provisioning_host,
+    registration_id=registration_id,
+    id_scope=id_scope,
+    symmetric_key=symmetric_key,
+  )
+
+  provisioning_device_client.provisioning_payload = {"modelId": model_id}
+  return await provisioning_device_client.register()
+```
+
+다운스트림 디바이스를 연결할 때 게이트웨이 디바이스의 ID를 포함하도록 프로비저닝 페이로드를 수정할 수 있습니다. 모델 ID를 통해 IoT Central에서 디바이스를 올바른 다운스트림 디바이스 템플릿과 연결할 수 있습니다. 게이트웨이 ID를 통해 IoT Central에서 다운스트림 디바이스와 해당 게이트웨이 간의 관계를 설정할 수 있습니다. 이 경우 디바이스에서 보내는 프로비저닝 페이로드는 다음 JSON과 같습니다.
+
+```json
+{
+  "modelId": "dtmi:rigado:S1Sensor;2",
+  "iotcGateway":{
+    "iotcGatewayId": "gateway-device-001"
+  }
+}
+```
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

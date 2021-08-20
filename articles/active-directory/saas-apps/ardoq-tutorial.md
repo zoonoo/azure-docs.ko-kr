@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/07/2021
 ms.author: jeedes
-ms.openlocfilehash: 525a15e90b77a06a3a64a244b46010664767ff18
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b515fb22a81952794ac0914076fec67724759863
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964668"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112457357"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ardoq"></a>자습서: Ardoq와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -83,9 +83,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     |------------|
     | `https://<CustomerName>.us.ardoq.com/saml/v2` |
     | `https://<CustomerName>.ardoq.com/saml/v2` |
-    |
-
-
+    
     b. **회신 URL** 텍스트 상자에서 `https://<CustomerName>.ardoq.com/saml/v2` 패턴을 사용하여 URL을 입력합니다.
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
@@ -96,7 +94,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     |-------------|
     | `https://<CustomerName>.ardoq.com/saml/v2` |
     | `https://<CustomerName>.us.ardoq.com/saml/v2` |
-    |
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Ardoq 클라이언트 지원 팀](mailto:support@ardoq.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -113,10 +110,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | assignedRoles | user.assignedroles |
     | mail | user.mail |
 
-    > [!NOTE]
-    > Ardoq은 애플리케이션에 할당된 사용자의 역할이 필요합니다. 사용자가 적절한 역할을 할당 받을 수 있도록 Azure AD에서 이러한 역할을 설정하세요. Azure AD에서 역할을 구성하는 방법을 이해하려면 [여기](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui)를 참조하세요.
-
-
+  > [!NOTE]
+  > Ardoq는 애플리케이션에 할당된 사용자의 역할이 필요합니다. 사용자가 적절한 역할을 할당 받을 수 있도록 Azure AD에서 이러한 역할을 설정해야 합니다. 역할은 "admin", "writer", "reader" 및/또는 "contributor" 값으로 설정해야 합니다.
+  >
+  > [Azure AD에서 역할을 구성](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui)하는 방법을 알아봅니다.    
+ 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
@@ -133,7 +131,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

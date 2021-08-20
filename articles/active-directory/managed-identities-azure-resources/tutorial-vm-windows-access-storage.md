@@ -6,21 +6,22 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: daveba
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2020
+ms.date: 06/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de1cc69b3cfdac307edf6dfe999a5d538c2cb811
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 202cbca5795ef877794c42f1fcc57c51835e5118
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89263181"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112966395"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Storage에 액세스
 
@@ -85,14 +86,18 @@ ms.locfileid: "89263181"
 이 섹션에서는 VM에 Azure Storage 컨테이너에 대한 액세스 권한을 부여하는 방법을 보여줍니다. VM의 시스템 할당 관리 ID를 사용하여 Azure Storage Blob에서 데이터를 검색할 수 있습니다.
 
 1. 새로 만든 스토리지 계정으로 다시 이동합니다.
-2. 왼쪽 패널의 **액세스 제어(IAM)** 링크를 클릭합니다.
-3. 페이지의 위쪽에서 **+ 역할 할당 추가** 를 클릭하여 VM에 대한 새 역할 할당을 추가합니다.
-4. **역할** 의 드롭다운에서 **Storage Blob 데이터 판독기** 를 선택합니다.
-5. 다음 드롭다운의 **다음에 대한 액세스 할당** 아래에서 **가상 머신** 을 선택합니다.
-6. 다음으로 적절한 구독이 **구독** 드롭다운에 나열되는지 확인한 다음, **리소스 그룹** 을 **모든 리소스 그룹** 으로 설정합니다.
-7. **선택** 아래에서 VM을 선택한 다음, **저장** 을 클릭합니다.
+1. **액세스 제어(IAM)** 를 클릭합니다.
+1. **추가** > **역할 할당 추가** 를 클릭하여 역할 할당 추가 페이지를 엽니다.
+1. 다음 역할을 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+    
+    | 설정 | 값 |
+    | --- | --- |
+    | 역할 | Storage Blob 데이터 읽기 권한자 |
+    | 다음에 대한 액세스 할당 | 관리 ID |
+    | 시스템 할당 | Virtual Machine |
+    | 선택 | &lt;가상 머신&gt; |
 
-    ![권한 할당](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
+    ![Azure Portal에서 역할 할당 페이지를 추가합니다.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## <a name="access-data"></a>데이터 액세스 
 

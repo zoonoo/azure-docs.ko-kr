@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: overview
 ms.date: 03/11/2021
-ms.openlocfilehash: 573e0dc028391c2eea9d412bfe68c07a2e95aec3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 43d702f3294d728b196de69790f543dc67491400
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963138"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433949"
 ---
 # <a name="quickstart-create-a-serverless-simple-chat-application-with-azure-functions-and-azure-web-pubsub-service"></a>빠른 시작: Azure Functions 및 Azure Web PubSub 서비스를 사용하여 간단한 서버리스 채팅 애플리케이션 만들기 
 
@@ -27,6 +27,12 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
    > 지원되는 Node.js 버전에 대한 자세한 내용은 [Azure Functions 런타임 버전 설명서](../azure-functions/functions-versions.md#languages)를 참조하세요.
 
 Azure Function 앱을 로컬로 실행하려면 [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)(버전 2.7.1505 이상)를 설치하세요.
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+[Visual Studio Code](https://code.visualstudio.com/)와 같은 코드 편집기를 설치합니다.
+
+Azure Function 앱을 로컬로 실행하려면 [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)(버전 3 이상)를 설치하세요.
 
 ---
 
@@ -51,6 +57,8 @@ Azure Function 앱을 로컬로 실행하려면 [Azure Functions Core Tools](htt
 - 브라우저에서 **Azure Portal** 을 열고 이전에 배포한 Web PubSub 서비스 인스턴스가 성공적으로 만들어졌는지 확인합니다. 인스턴스로 이동합니다.
 - **키** 를 선택하고 연결 문자열을 복사합니다.
 
+:::image type="content" source="media/quickstart-serverless/copy-connection-string.png" alt-text="Web PubSub 연결 문자열을 복사하는 스크린샷.":::
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 - 함수 구성을 업데이트합니다.
@@ -59,7 +67,7 @@ Azure Function 앱을 로컬로 실행하려면 [Azure Functions Core Tools](htt
   *local.settings.json* 에서 이러한 변경을 수행한 후 파일을 저장해야 합니다.
     - 자리 표시자 *<connection-string>* 을 **Azure Portal** 에서 복사한 **`WebPubSubConnectionString`** 설정의 실제 값으로 바꿉니다. 
     - **`AzureWebJobsStorage`** 설정의 경우 [Azure Functions를 사용하려면 Azure Storage 계정이 필요](../azure-functions/storage-considerations.md)하기 때문에 이 작업이 필요합니다.
-        - Azure Storage 에뮬레이터가 로컬에서 실행되는 경우 원래 설정 “UseDevelopmentStorage=true”를 유지합니다.
+        - [Azure Storage Emulator](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409)가 로컬에서 실행되는 경우 원래 설정 “UseDevelopmentStorage=true”를 유지합니다.
         - Azure Storage 연결 문자열이 있으면 값을 해당 문자열로 바꿉니다.
  
 - JavaScript 함수는 폴더로 구성됩니다. 각 폴더에는 두 개의 파일이 있습니다. `function.json`은 함수에서 사용되는 바인딩을 정의하고 `index.js`는 함수의 본문입니다. 이 함수 앱에는 여러 트리거 함수가 있습니다.
@@ -76,11 +84,39 @@ Azure Function 앱을 로컬로 실행하려면 [Azure Functions Core Tools](htt
     func start
     ```
 
+# <a name="c"></a>[C#](#tab/csharp)
+
+- 함수 구성을 업데이트합니다.
+
+  복제된 리포지토리에서 */samples/functions/csharp/simplechat* 폴더를 엽니다. *local.settings.json* 을 편집하여 서비스 연결 문자열을 추가합니다.
+  *local.settings.json* 에서 이러한 변경을 수행한 후 파일을 저장해야 합니다.
+    - 자리 표시자 *<connection-string>* 을 **Azure Portal** 에서 복사한 **`WebPubSubConnectionString`** 설정의 실제 값으로 바꿉니다. 
+    - **`AzureWebJobsStorage`** 설정의 경우 [Azure Functions를 사용하려면 Azure Storage 계정이 필요](../azure-functions/storage-considerations.md)하기 때문에 이 작업이 필요합니다.
+        - [Azure Storage Emulator](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409)가 로컬에서 실행되는 경우 원래 설정 “UseDevelopmentStorage=true”를 유지합니다.
+        - Azure Storage 연결 문자열이 있으면 값을 해당 문자열로 바꿉니다.
+
+- C# 함수는 Functions.cs 파일로 구성됩니다. 이 함수 앱에는 여러 트리거 함수가 있습니다.
+
+    - **login** - HTTP 트리거 함수입니다. *webPubSubConnection* 입력 바인딩을 사용하여 유효한 서비스 연결 정보를 생성하고 반환합니다.
+    - **connected** - `WebPubSubTrigger` 트리거 함수입니다. 요청 본문에서 대화 메시지를 수신하고 여러 작업으로 연결된 클라이언트 애플리케이션으로 메시지를 브로드캐스트합니다.
+    - **broadcast** - `WebPubSubTrigger` 트리거 함수입니다. 요청 본문에서 대화 메시지를 수신하고 단일 작업으로 연결된 클라이언트 애플리케이션으로 메시지를 브로드캐스트합니다.
+    - **connect** 및 **disconnect** - `WebPubSubTrigger` 트리거 함수입니다. connect 및 disconnect 이벤트를 처리합니다.
+
+- 터미널에서 */samples/functions/csharp/simplechat* 폴더에 있는지 확인합니다. 확장을 설치하고 함수 앱을 실행합니다.
+
+    ```bash
+    func extensions install
+
+    func start
+    ```
+
+---
+
 - 로컬 함수는 `local.settings.json` 파일에 정의된 포트를 사용합니다. 이를 공용 네트워크에서 사용할 수 있도록 하려면 [ngrok](https://ngrok.com)를 사용하여 이 엔드포인트를 노출해야 합니다. 아래 명령을 실행하면 전달 엔드포인트(예: http://{ngrok-id}.ngrok.io -> http://localhost:7071 )를 가져올 수 있습니다.
 
     ```bash
     ngrok http 7071
-    ```    
+    ``` 
 
 - Azure Web PubSub 서비스에 `Event Handler`를 설정합니다. **Azure Portal** -> Web PubSub 리소스 찾기 -> **설정** 으로 이동합니다. 아래와 같이 사용 중인 하나의 함수에 새 허브 설정 매핑을 추가합니다. {ngrok-id}를 실제 ID로 바꿉니다.
 
@@ -89,7 +125,7 @@ Azure Function 앱을 로컬로 실행하려면 [Azure Functions Core Tools](htt
    - 사용자 이벤트 패턴: *
    - 시스템 이벤트: connect, connected, disconnected.
 
----
+:::image type="content" source="media/quickstart-serverless/set-event-hanlder.png" alt-text="이벤트 처리기를 설정하는 스크린샷.":::
 
 ## <a name="run-the-web-application"></a>웹 애플리케이션 실행
 
@@ -114,3 +150,16 @@ Azure Function 앱을 로컬로 실행하려면 [Azure Functions Core Tools](htt
 1. 열린 창에서 리소스 그룹을 선택한 다음, **리소스 그룹 삭제** 를 선택합니다.
 
 1. 새 창에서 삭제할 리소스 그룹의 이름을 입력한 다음, **삭제** 를 선택합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+이 빠른 시작에서는 서버리스 단순 채팅 애플리케이션을 실행하는 방법을 알아보았습니다. 이제 자체 애플리케이션을 빌드할 수 있습니다. 
+
+> [!div class="nextstepaction"]
+> [빠른 시작: Azure Web PubSub를 사용하여 간단한 채팅방 만들기](https://azure.github.io/azure-webpubsub/getting-started/create-a-chat-app/js-handle-events)
+
+> [!div class="nextstepaction"]
+> [Azure Functions에 대한 Azure Web PubSub 바인딩](https://azure.github.io/azure-webpubsub/references/functions-bindings)
+
+> [!div class="nextstepaction"]
+> [Azure Web PubSub 샘플 자세히 살펴보기](https://github.com/Azure/azure-webpubsub/tree/main/samples)
