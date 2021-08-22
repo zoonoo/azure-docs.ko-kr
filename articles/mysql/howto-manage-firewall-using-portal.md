@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 032db324f9dd2f0d6a5dce5c4fd5c64342fed59f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0de76d7b056d05e2178ff0d2f9a7a0c72d9d4217
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94540487"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642177"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Azure Portal을 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 서버 수준 방화벽 규칙을 사용하여 특정 IP 주소 또는 IP 주소 범위에서 Azure Database for MySQL 서버에 대한 액세스를 관리할 수 있습니다. 
 
 VNet(가상 네트워크) 규칙을 사용하여 서버에 대한 액세스를 보호할 수도 있습니다. [Azure Portal을 사용하여 가상 네트워크 서비스 엔드포인트 및 규칙 만들기 및 관리](howto-manage-vnet-using-portal.md)에 대해 자세히 알아보세요.

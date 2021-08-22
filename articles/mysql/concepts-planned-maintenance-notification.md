@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: c6d1bfbf1592da3a5e632eb875221225630aed3f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5e40d255ed250b11542c0a2065ee46915798ac1b
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108675"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642204"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Azure Database for MySQL의 계획된 유지 관리 알림 - 단일 서버
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL에서 계획된 유지 관리 이벤트를 준비하는 방법을 알아봅니다.
 

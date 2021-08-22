@@ -7,14 +7,16 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e00bfd3e5597683c99df69a3fb8140d00847e4f6
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 85708face2696ebacb199c37725ce8fd9a166dc4
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572421"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642181"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>관리 ID를 사용하여 Azure Database for MySQL에 연결
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 이 문서에서는 Azure VM(Virtual Machine)에 대한 사용자가 할당한 ID를 사용하여 Azure Database for MySQL 서버에 액세스하는 방법을 보여 줍니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 
 
@@ -48,9 +50,12 @@ az identity create --resource-group myResourceGroup --name myManagedIdentity
 
 ```azurecli
 # Get resource ID of the user-assigned identity
+
 resourceID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query id --output tsv)
 
 # Get client ID of the user-assigned identity
+
+
 clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
 ```
 
@@ -83,9 +88,9 @@ CREATE AADUSER 'myuser' IDENTIFIED BY 'CLIENT_ID';
 
 이 토큰 검색은 `http://169.254.169.254/metadata/identity/oauth2/token`에 대한 HTTP 요청을 수행하고 다음 매개 변수를 전달하여 수행됩니다.
 
-* `api-version` = `2018-02-01`
-* `resource` = `https://ossrdbms-aad.database.windows.net`
-* `client_id` = `CLIENT_ID`(이전에 검색한 항목)
+- `api-version` = `2018-02-01`
+- `resource` = `https://ossrdbms-aad.database.windows.net`
+- `client_id` = `CLIENT_ID`(이전에 검색한 항목)
 
 `access_token` 필드가 포함된 JSON 결과가 반환됩니다. 이 긴 텍스트 값은 데이터베이스에 연결할 때 암호로 사용해야 하는 관리 ID 액세스 토큰입니다.
 
@@ -93,9 +98,13 @@ CREATE AADUSER 'myuser' IDENTIFIED BY 'CLIENT_ID';
 
 ```bash
 # Retrieve the access token
+
+
 accessToken=$(curl -s 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fossrdbms-aad.database.windows.net&client_id=CLIENT_ID' -H Metadata:true | jq -r .access_token)
 
 # Connect to the database
+
+
 mysql -h SERVER --user USER@SERVER --enable-cleartext-plugin --password=$accessToken
 ```
 
@@ -207,4 +216,4 @@ MySQL version: 5.7.27
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Database for MySQL을 사용한 Azure Active Directory 인증](concepts-azure-ad-authentication.md)에 대한 전체 개념을 검토합니다.
+- [Azure Database for MySQL을 사용한 Azure Active Directory 인증](concepts-azure-ad-authentication.md)에 대한 전체 개념을 검토합니다.

@@ -6,16 +6,18 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: be52bbe58f6c2ff6ee21703860e8d8e00ec30072
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c257941079c3a43639337dd1b010002ddac4672e
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105110154"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642193"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql---flexible-server"></a>Azure Portal을 사용하여 Azure Database for MySQL - 유연한 서버의 메트릭 경고 설정 
 
-> [!IMPORTANT] 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 이 문서에서는 Azure Portal을 사용하여 Azure Database for MySQL을 설정하는 방법을 보여 줍니다. Azure 서비스의 모니터링 메트릭을 기반으로 경고를 받을 수 있습니다.
@@ -23,16 +25,19 @@ ms.locfileid: "105110154"
 이 경고는 특정 메트릭의 값이 사용자가 할당한 임계값을 초과했을 때 트리거됩니다. 조건에 처음 부합했을 때와, 조건에 더 이상 부합하지 않게 되었을 때 모두 경고가 트리거됩니다. 메트릭 경고는 상태를 저장합니다. 즉 상태가 변경될 때만 알림을 보냅니다.
 
 트리거되면 다음 작업을 수행하도록 경고를 구성할 수 있습니다.
+
 * 서비스 관리자 및 공동 관리자에게 메일 알림을 보냅니다.
 * 사용자가 지정한 추가 메일 주소로 메일을 보냅니다.
 * 웹후크 호출
 
 다음을 통해 경고에 대한 정보를 구성하고 가져올 수 있습니다.
+
 * [Azure Portal](../../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [Azure Monitor REST API](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Azure Portal에서 메트릭에 대한 경고 규칙 만들기
+
 1. [Azure Portal](https://portal.azure.com/)에서 모니터링할 Azure Database for MySQL 유연한 서버를 선택합니다.
 2. 사이드바의 **모니터링** 섹션에서 **경고** 를 선택합니다.
 3. **+ 새 경고 규칙** 을 선택합니다.

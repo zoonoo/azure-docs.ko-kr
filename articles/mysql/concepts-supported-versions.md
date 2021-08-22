@@ -5,19 +5,20 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
+ms.custom: ''
 ms.date: 6/3/2020
-ms.openlocfilehash: 1804cef5baf70fad303c2813286e2bad500e63d7
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2c212922ebf550b75ee140637717a48beec9de02
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073381"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642198"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>지원되는 MySQL용 Azure 데이터베이스 서버 버전
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Azure Database for MySQL은 [MySQL 커뮤니티 버전](https://www.mysql.com/products/community/)에서 InnoDB 스토리지 엔진을 사용하여 개발되었습니다. 이 서비스는 커뮤니티에서 지원되는 현재 주 버전(즉, MySQL 5.6, 5.7 및 8.0)을 모두 지원합니다. MySQL은 X.Y.Z 이름 지정 스키마를 사용합니다. 여기서 X는 주 버전이고 Y는 부 버전이며 Z는 버그 수정 릴리스입니다. 스키마에 대한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/which-version.html)를 참조하세요.
-
-
 
 ## <a name="connect-to-a-gateway-node-that-is-running-a-specific-mysql-version"></a>특정 MySQL 버전을 실행하는 게이트웨이 노드에 연결
 
@@ -34,7 +35,6 @@ Azure Database for MySQL 서비스에서 게이트웨이 노드는 v5.7 클라�
 
 ## <a name="azure-database-for-mysql-currently-supports-the-following-major-and-minor-versions-of-mysql"></a>현재 Azure Database for MySQL은 다음과 같은 주 버전 및 부 버전의 MySQL을 지원합니다.
 
-
 | 버전 | [단일 서버](overview.md) <br/> 현재 부 버전 |[유연한 서버(미리 보기)](./flexible-server/overview.md) <br/> 현재 부 버전  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
 |MySQL 버전 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html)(사용 중지됨) | 지원되지 않음|
@@ -44,6 +44,7 @@ Azure Database for MySQL 서비스에서 게이트웨이 노드는 v5.7 클라�
 [버전 지원 정책 설명서](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql)에서 사용 중지된 버전에 대한 지원 정책을 참조하세요.
 
 ## <a name="managing-updates-and-upgrades"></a>업데이트 및 업그레이드 관리
+
 서비스는 버그 수정 버전 업데이트에 대한 패치를 자동으로 관리합니다. 예: 5.7.20~5.7.21  
 
 주 버전 업그레이드는 현재 서비스에서 MySQL v5.6에서 v5.7로의 업그레이드를 지원합니다. 자세한 내용은 [주 버전 업그레이드를 수행하는 방법](how-to-major-version-upgrade.md)을 참조하세요. 5\.7에서 8.0로 업그레이드하려는 경우 새 엔진 버전으로 만든 서버에 [덤프 및 복원](./concepts-migrate-dump-restore.md)을 수행하는 것이 좋습니다.

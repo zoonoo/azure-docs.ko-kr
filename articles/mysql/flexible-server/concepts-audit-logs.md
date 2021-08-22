@@ -6,16 +6,18 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 1232a0753c988f5a28ebba28f9819aa67ce28603
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af4356a4f432572920bd07fd8d7ea8c7e5f6663e
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101718746"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642196"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유연한 서버에서 감사 로그를 사용하여 데이터베이스 작업 추적
 
-> [!IMPORTANT] 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Azure Database for MySQL 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 Azure Database for MySQL 유연한 서버는 사용자에게 감사 로그를 구성할 수 있는 기능을 제공합니다. 감사 로그는 연결, 관리, DDL 및 DML 이벤트를 비롯한 데이터베이스 수준 활동을 추적하는 데 사용할 수 있습니다. 이러한 유형의 로그는 일반적으로 규정 준수를 위해 사용됩니다.
@@ -34,7 +36,7 @@ Azure Database for MySQL 유연한 서버는 사용자에게 감사 로그를 �
 - `audit_log_exclude_users`: 로깅에서 제외할 MySQL 사용자입니다. 매개 변수의 최대 길이는 512자입니다.
 
 > [!NOTE]
-> `audit_log_include_users`는 `audit_log_exclude_users`보다 우선 순위가 높습니다. 예를 들어 `audit_log_include_users` = `demouser` 및 `audit_log_exclude_users` = `demouser`인 경우 `audit_log_include_users`의 우선 순위가 높으므로 사용자가 감사 로그에 포함됩니다.
+> `audit_log_include_users`는 `audit_log_exclude_users`보다 우선 순위가 높습니다. 예를 들어 `audit_log_include_users` = `demouser` 및 `audit_log_exclude_users` = `demouser`인 경우 `audit_log_include_users` 의 우선 순위가 높으므로 사용자가 감사 로그에 포함됩니다.
 
 | **이벤트** | **설명** |
 |---|---|
@@ -105,7 +107,7 @@ Azure Database for MySQL 유연한 서버는 사용자에게 감사 로그를 �
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR`, `RESULT`(MySQL 5.6에서만 사용 가능) |
 | `event_time` | 쿼리 시작 시간(UTC 타임스탬프 기준) |
-| `error_code_d` | 쿼리가 실패한 경우의 오류 코드. `0`은 오류가 없음을 의미합니다. |
+| `error_code_d` | 쿼리가 실패한 경우의 오류 코드. `0` 은 오류가 없음을 의미합니다. |
 | `thread_id_d` | 쿼리를 실행한 스레드의 ID |
 | `host_s` | 비어 있음 |
 | `ip_s` | MySQL에 연결하는 클라이언트의 IP 주소 |

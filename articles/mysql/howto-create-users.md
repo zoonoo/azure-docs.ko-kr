@@ -6,22 +6,21 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
-ms.openlocfilehash: 9a6346a2b62c81dd74cf0ebe9a85df12d3488679
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7319e0bf5a1c382d6a6f0b2984d5428be6131c5e
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251253"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113088605"
 ---
 # <a name="create-databases-and-users-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 데이터베이스 및 사용자 생성하기
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
 이 문서에서는 Azure Database for MySQL에서 사용자를 생성하는 방법을 설명합니다.
 
 > [!NOTE]
 > 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 _slave_ 에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
->
 
 Azure Database for MySQL 서버를 처음으로 생성하면 서버 관리 사용자 로그인 사용자 이름과 암호가 제공됩니다. 자세한 내용은 [빠른 시작](quickstart-create-mysql-server-database-using-azure-portal.md)을 참조하세요. Azure Portal에서 서버 관리 사용자 이름을 결정할 수 있습니다.
 
@@ -69,18 +68,17 @@ Azure Database for MySQL 서버가 생성되면 첫 번째 서버 관리자 계�
 
 5. 서버에 로그인하고, 지정된 데이터베이스를 지정하고, 새로운 사용자 이름 및 암호를 사용합니다. 이 예에서는 mysql 명령줄을 보여 줍니다. 이 명령을 사용하면 사용자의 암호를 입력하라는 메시지가 표시됩니다. 사용자 고유의 서버 이름, 데이터베이스 이름, 사용자 이름으로 변경합니다.
 
-   ### <a name="single-server"></a>[단일 서버](#tab/single-server)
+### <a name="single-server"></a>[단일 서버](#tab/single-server)
 
    ```azurecli-interactive
    mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
 
-   ### <a name="flexible-server"></a>[유연한 서버](#tab/flexible-server)
+### <a name="flexible-server"></a>[유연한 서버](#tab/flexible-server)
 
    ```azurecli-interactive
    mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user -p
    ```
- ---
 
 ## <a name="to-create-more-admin-users-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 관리 사용자를 생성하는 방법
 

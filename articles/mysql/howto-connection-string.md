@@ -7,14 +7,16 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: 40af2660f0052a876ef9310bc2426295ba67558b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a1c642ba4c1274e245dbcc407e1c09dc7e61742
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94541490"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642179"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>MySQL용 Azure Database에 애플리케이션을 연결하는 방법
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 이 항목에는 템플릿 및 예제와 함께 MySQL용 Azure Database에서 지원되는 연결 문자열 형식이 나열되어 있습니다. 연결 문자열에 다른 매개 변수 및 설정을 사용할 수도 있습니다.
 
 - 인증서를 가져오려면 [SSL 구성 방법](./howto-configure-ssl.md)을 참조하세요.

@@ -7,14 +7,16 @@ ms.service: mysql
 ms.custom: mvc, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 8/5/2020
-ms.openlocfilehash: 9f960d32dcf1f359327dccc01eeb06825cc3a062
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83a33f1f2f22af6aafbe207c56cdc022a4b9510a
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94541473"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642180"
 ---
 # <a name="how-to-generate-an-azure-database-for-mysql-connection-string-with-powershell"></a>PowerShell을 사용하여 Azure Database for MySQL 연결 문자열을 생성하는 방법
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 이 문서에서는 Azure Database for MySQL 서버에 대한 연결 문자열을 생성하는 방법을 보여줍니다. 연결 문자열을 사용하여 여러 애플리케이션에서 Azure Database for MySQL에 연결할 수 있습니다.
 

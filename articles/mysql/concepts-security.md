@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: ede3650aa185e178f6df21ff285115e4230b521f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f2e089532ce0091c633bab86ee5bed0fcf948e98
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110471958"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642202"
 ---
 # <a name="security-in-azure-database-for-mysql"></a>Azure Database for MySQL의 보안
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL 서버의 데이터를 보호하는 데 사용할 수 있는 여러 보안 계층이 있습니다. 이 문서에서는 이러한 보안 옵션을 설명합니다.
 
@@ -32,13 +34,13 @@ Azure Database for MySQL 서비스는 미사용 데이터의 스토리지 암호
 새로 만든 Azure Database for MySQL 서버에는 모든 외부 연결을 차단하는 방화벽이 있습니다. 이는 게이트웨이에 연결 되지만 서버에 연결할 수는 없습니다. 
 
 ### <a name="ip-firewall-rules"></a>IP 방화벽 규칙
-IP 방화벽 규칙은 각 요청의 기존 IP 주소를 기준으로 하여 서버 액세스 허용 권한을 부여합니다. 자세한 정보는 [방화벽 규칙 개요](concepts-firewall-rules.md)를 참조하세요.
+IP 방화벽 규칙은 각 요청의 기존 IP 주소를 기준으로 하여 데이터베이스 액세스 권한을 부여합니다. 자세한 내용은 [방화벽 규칙 개요](concepts-firewall-rules.md)를 참조하세요.
 
 ### <a name="virtual-network-firewall-rules"></a>Virtual Network 방화벽 규칙
 가상 네트워크 서비스 엔드포인트는 Azure 백본을 통해 가상 네트워크 연결을 확장합니다. 가상 네트워크 규칙을 사용하여 Azure Database for MySQL 서버가 선택한 가상 네트워크의 서브넷에서 연결을 허용하도록 설정할 수 있습니다. 자세한 정보는 [가상 네트워크 서비스 엔드포인트 개요](concepts-data-access-and-security-vnet.md)를 참조하세요.
 
 ### <a name="private-ip"></a>프라이빗 IP
-Private Link를 사용하면 프라이빗 엔드포인트를 통해 Azure에서 Azure Database for MySQL로 연결할 수 있습니다. Azure Private Link는 기본적으로 개인 VNet(Virtual Network) 내에 Azure 서비스를 제공합니다. PaaS 리소스는 VNet의 다른 리소스와 마찬가지로 개인 IP 주소를 사용하여 액세스할 수 있습니다. 자세한 정보는 [프라이빗 링크 개요](concepts-data-access-security-private-link.md)를 참조하세요.
+Private Link를 사용하면 프라이빗 엔드포인트를 통해 Azure에서 Azure Database for MySQL로 연결할 수 있습니다. Azure Private Link는 기본적으로 개인 VNet(Virtual Network) 내에 Azure 서비스를 제공합니다. PaaS 리소스는 VNet의 다른 리소스와 마찬가지로 개인 IP 주소를 사용하여 액세스할 수 있습니다. 자세한 내용은 [프라이빗 링크 개요](concepts-data-access-security-private-link.md)를 참조하세요.
 
 ## <a name="access-management"></a>액세스 관리
 
@@ -53,4 +55,4 @@ Azure Database for MySQL 서버를 만드는 동안 관리자 계정 사용자�
 
 
 ## <a name="next-steps"></a>다음 단계
-- 방화벽 규칙을 [IP](concepts-firewall-rules.md) 또는 [가상 네트워크](concepts-data-access-and-security-vnet.md) 에 사용합니다
+- [IP](concepts-firewall-rules.md) 또는 [가상 네트워크](concepts-data-access-and-security-vnet.md)에 대한 방화벽 규칙 사용

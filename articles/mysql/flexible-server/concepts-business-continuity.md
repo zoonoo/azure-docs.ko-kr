@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 4f9cc8321d5d1d19dbcb8294ad6205b01337ee72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84a0a6c12558e11e3eaf97e6b54bc5ca16f8d528
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715057"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642195"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버에서 비즈니스 연속성 개요(미리 보기)
+
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
@@ -65,5 +67,5 @@ Azure Database for MySQL 유연한 서버는 계획된 및 계획되지 않은 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [영역 중복 고가용성](./concepts-high-availability.md) 알아보기
-- [백업 및 복구](./concepts-backup-restore.md) 알아보기
+- [영역 중복 고가용성](./concepts-high-availability.md)에 대한 자세한 정보
+- [백업 및 복구](./concepts-backup-restore.md)에 대한 자세한 정보

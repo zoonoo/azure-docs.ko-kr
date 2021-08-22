@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2021
-ms.openlocfilehash: 9a633e9201c78bda0ff2c88abd6a5dd2e67acdf3
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ac24c933cefda60f8ed0bb305c2d49800bd2d610
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108738866"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642192"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL 유연한 서버의 감사 로그 구성 및 액세스
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
@@ -21,6 +23,7 @@ ms.locfileid: "108738866"
 이 문서에서는 Azure CLI를 사용하여 MySQL 유연한 서버의 [감사 로그](concepts-audit-logs.md)를 구성하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
+
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 - 최신 버전으로 Azure CLI를 설치하거나 업그레이드합니다. [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 -  [az login](/cli/azure/reference-index#az_login) 명령을 사용하여 Azure 계정에 로그인합니다. Azure 계정에 대한 **구독 ID** 를 참조하는 **id** 속성을 기록해 둡니다.
@@ -50,6 +53,7 @@ ms.locfileid: "108738866"
 
 ```azurecli
 # Enable audit logs
+
 az mysql flexible-server parameter set \
 --name audit_log_enabled \
 --resource-group myresourcegroup \

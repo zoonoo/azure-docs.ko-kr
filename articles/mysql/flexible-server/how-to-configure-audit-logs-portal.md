@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: ebb980aa257fc09c3d6a407febbf60f2d1a26a4e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68ee7528eb7b8d91d4346b5cf7fa2f92841255b7
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94536475"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642191"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL 유연한 서버의 감사 로그 구성 및 액세스
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
@@ -21,6 +23,7 @@ ms.locfileid: "94536475"
 Azure Portal에서 Azure Database for MySQL 유연한 서버 [감사 로그](concepts-audit-logs.md) 및 진단 설정을 구성할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
+
 이 문서의 단계를 수행하려면 [유연한 서버](quickstart-create-server-portal.md)가 필요합니다.
 
 ## <a name="configure-audit-logging"></a>감사 로깅 구성
@@ -40,7 +43,7 @@ Azure Portal에서 Azure Database for MySQL 유연한 서버 [감사 로그](con
 1. **Audit_log_enabled** 매개 변수를 ON으로 업데이트합니다.
     :::image type="content" source="./media/how-to-configure-audit-logs-portal/audit-log-enabled.png" alt-text="감사 로그 사용":::
 
-1. **Audit_log_events** 매개 변수를 업데이트하여 로깅할 [이벤트 유형](concepts-audit-logs.md#configure-audit-logging)을 선택합니다.
+1. **audit_log_events** 매개 변수를 업데이트하여 [이벤트 유형](concepts-audit-logs.md#configure-audit-logging)을 로그되도록 선택합니다.
     :::image type="content" source="./media/how-to-configure-audit-logs-portal/audit-log-events.png" alt-text="감사 로그 이벤트":::
 
 1. **Audit_log_exclude_users** 및 **audit_log_include_users** 매개 변수를 업데이트하여 로깅에 포함하거나 제외할 MySQL 사용자를 추가합니다. MySQL 사용자 이름을 제공하여 사용자를 지정합니다.

@@ -6,15 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 7a01863b3a0c29e94550be67ca957655cff32660
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5500a197b7cb2566b3ea78b6c2acba9403a7a8ae
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90937328"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642189"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL - 유연한 서버(미리 보기) 관리
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
@@ -22,6 +23,7 @@ ms.locfileid: "90937328"
 이 문서에서는 Azure Database for MySQL 유연한 서버(미리 보기)를 관리하는 방법을 보여 줍니다. 관리 작업에는 컴퓨팅 및 스토리지 스케일링, 서버 관리자 암호 재설정, 서버 삭제가 포함됩니다.
 
 ## <a name="sign-in"></a>로그인
+
 [Azure Portal](https://portal.azure.com)에 로그인합니다. Azure Portal에서 유연한 서버 리소스로 이동합니다.
 
 ## <a name="scale-compute-and-storage"></a>컴퓨팅 및 스토리지 스케일링
@@ -35,7 +37,8 @@ ms.locfileid: "90937328"
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/howto-manage-server-portal/scale-server.png" alt-text="스토리지 유연한 서버 스케일링":::
 
-   > [!Important]
+   
+> [!IMPORTANT]
    > - 스토리지를 스케일 다운할 수는 없습니다.
    > - vCore를 스케일링하면 서버가 다시 시작됩니다.
 

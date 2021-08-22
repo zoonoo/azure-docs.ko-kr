@@ -7,14 +7,16 @@ ms.service: mysql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
-ms.openlocfilehash: 87c44e5d56e59b0bf003e8e7d25f3351f58a8984
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4f7bb09b193da84b4d3f613fdd9c96790976f128
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065483"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642176"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL 서버를 다른 지역으로 이동합니다.
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 기존 Azure Database for MySQL 서버를 한 지역에서 다른 지역으로 이동하는 다양한 시나리오가 있습니다. 예를 들어 재해 복구 플랜의 일부로 프로덕션 서버를 다른 지역으로 이동할 수 있습니다.
 

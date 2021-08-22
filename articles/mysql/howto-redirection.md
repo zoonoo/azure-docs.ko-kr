@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: 199810f835924ccbb51948169244622a19c5e8ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44275c7e6469c63f037a7b24d5435aa5ce3941d6
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98201436"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642174"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>리디렉션을 사용하여 Azure Database for MySQL에 연결
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 이 항목에서는 리디렉션 모드를 사용하여 애플리케이션을 Azure Database for MySQL 서버에 연결하는 방법을 설명합니다. 리디렉션은 애플리케이션이 백 엔드 서버 노드에 직접 연결할 수 있도록 하여 클라이언트 애플리케이션과 MySQL 서버 간의 네트워크 대기 시간을 줄이는 것을 목표로 합니다.
 

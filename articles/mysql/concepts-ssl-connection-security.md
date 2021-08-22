@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 1b272755652d018a0d5364e4d67c783774c68da8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: be2023f47906aeef41884f21f67f1adb926b0b72
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104655243"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642199"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Azure Database for MySQL의 SSL 연결
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 MySQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용하여 데이터베이스 서버를 클라이언트 애플리케이션에 연결하도록 지원합니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
 
@@ -24,7 +26,7 @@ MySQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용하여 �
 > 고객의 피드백에 따라 2021년 2월 15일까지 기존 볼티모어 루트 CA에 대한 루트 인증서 사용 중단 기간을 연장했었습니다.
 
 > [!IMPORTANT] 
-> SSL 루트 인증서가 2021년 2월 15일에 만료되도록 설정되어 있습니다. [새 인증서](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)를 사용하도록 애플리케이션을 업데이트해 주십시오. 자세히 알아보려면 [계획된 인증서 업데이트](concepts-certificate-rotation.md)를 참조하세요.
+> SSL 루트 인증서가 2021년 2월 15일에 만료되도록 설정되어 있습니다. [새 인증서](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)를 사용하도록 애플리케이션을 업데이트해 주세요. 자세히 알아보려면 [계획된 인증서 업데이트](concepts-certificate-rotation.md)를 참조하세요.
 
 ## <a name="ssl-default-settings"></a>SSL 기본 설정
 

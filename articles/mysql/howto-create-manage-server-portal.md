@@ -6,14 +6,16 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
 ms.date: 1/26/2021
-ms.openlocfilehash: 83876f77e0d7ffc0ae20bc5a545c1f18f53f4a8f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1673b533e70ee4c15210cc9e8be042af162b7a42
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98897988"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642178"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL 서버 관리
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 이 문서에서는 Azure Database for MySQL 서버를 관리하는 방법을 보여 줍니다. 관리 작업에는 컴퓨팅 및 스토리지 스케일링, 관리자 암호 재설정, 서버 세부 정보 보기 등이 포함됩니다.
 
