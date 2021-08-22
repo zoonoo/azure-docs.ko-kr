@@ -1,19 +1,20 @@
 ---
 title: Azure Video Analyzer for Media를 사용하여 애니메이션 캐릭터 검색(이전의 Video Indexer)
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer
 description: 이 항목에서는 Azure Video Analyzer for Media(이전의 Video Indexer)를 사용하여 애니메이션 캐릭터 검색을 사용하는 방법을 보여 줍니다.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 1ebdd2cfa3e380b6c111c8c8c7edbad252a43c50
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 4246bbd679efe9c56d47868beac9b46ab64fda53
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388053"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112121543"
 ---
 # <a name="animated-character-detection-preview"></a>애니메이션 캐릭터 검색(미리 보기)
 
@@ -41,7 +42,7 @@ Video Analyzer for Media 계정 유형에 따라 다양한 기능 집합을 사�
 |기능|평가판|유료|
 |---|---|---|
 |Custom Vision 계정|Video Analyzer for Media를 통해 백그라운드에서 관리됩니다. |Custom Vision 계정이 Video Analyzer for Media에 연결됩니다.|
-|애니메이션 모델 수|하나|계정당 최대 100개의 모델(Custom Vision 제한).|
+|애니메이션 모델 수|하나|계정당 최대 100개의 모델(Custom Vision 제한 사항).|
 |모델 학습|Video Analyzer for Media는 기존 캐릭터에 추가된 예로 새 캐릭터에 대한 모델을 학습시킵니다.|계정 소유자는 변경을 수행할 준비가 되면 모델을 학습시킵니다.|
 |Custom Vision의 고급 옵션|Custom Vision 포털에 대한 액세스 권한이 없습니다.|모델은 Custom Vision 포털에서 직접 조정할 수 있습니다.|
 
@@ -52,8 +53,8 @@ Video Analyzer for Media 계정 유형에 따라 다양한 기능 집합을 사�
 ## <a name="limitations"></a>제한 사항
 
 * 현재 “애니메이션 식별” 기능은 동아시아 지역에서 지원되지 않습니다.
-* 비디오에서 작거나 멀게 나타나는 캐릭터는 비디오 품질이 나쁜 경우 제대로 식별되지 않을 수 있습니다.
-* 애니메이션 캐릭터 세트당(예: 애니메이션 시리즈당) 하나의 모델을 사용하는 것이 좋습니다.
+* 비디오에서 작거나 멀리 보이는 캐릭터는 비디오 품질이 나쁜 경우 제대로 식별되지 않을 수 있습니다.
+* 애니메이션 캐릭터 집합당(예: 애니메이션 시리즈당) 하나의 모델을 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

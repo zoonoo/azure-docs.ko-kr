@@ -3,20 +3,21 @@ title: Gen1 환경 계획 - Azure Time Series Insights | Microsoft Docs
 description: Azure Time Series Insights Gen1 환경 준비, 구성 및 배포에 대한 모범 사례입니다.
 services: time-series-insights
 ms.service: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5e0f1ea42aa2ba888b89dd652d3397a3a2163a3e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e93c415e464b344a24593428c267fb09e6566e08
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95016210"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136835"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Azure Time Series Insights Gen1 환경을 계획해 보세요
 
@@ -33,7 +34,7 @@ ms.locfileid: "95016210"
 
 ## <a name="best-practices"></a>모범 사례
 
-Azure Time Series Insights를 시작하려면 분당 푸시할 데이터의 양과 데이터를 저장해야 하는 기간을 아는 것이 가장 중요합니다.  
+Azure Time Series Insights를 시작하려면 분당 푸시할 데이터의 양과 데이터를 저장해야 하는 기간을 아는 것이 가장 중요합니다.
 
 두 Azure Time Series Insights SKU의 용량 및 보존에 대한 자세한 내용은 [Azure Time Series Insights 가격 책정](https://azure.microsoft.com/pricing/details/time-series-insights/)을 참조하세요.
 
@@ -118,7 +119,7 @@ Azure Time Series Insights에 이벤트를 전송하는 방법이 프로비전�
 *참조 데이터 집합* 은 이벤트 원본의 이벤트로 확장된 항목의 컬렉션입니다. Azure Time Series Insights 수신 엔진은 이벤트 원본의 각 이벤트와 참조 데이터 집합의 해당 데이터 행을 조인합니다. 그런 다음 쿼리에 확대 이벤트를 사용할 수 있습니다. 이 조인은 참조 데이터 집합에 정의된 **기본 키** 열을 기반으로 합니다.
 
 > [!NOTE]
-> 참조 데이터는 소급되어 조인되지 않습니다. 현재 및 이후의 수신 데이터만 일치하고 구성 및 업로드 후에 참조 데이터 집합에 조인됩니다. 많은 양의 기록 데이터를 Azure Time Series Insights로 보내려고 하고 Azure Time Series Insights 참조 데이터를 먼저 업로드하거나 만들지 않는 경우 작업을 다시 수행해야 할 수 있습니다(힌트: 재미있지 않습니다).  
+> 참조 데이터는 소급되어 조인되지 않습니다. 현재 및 이후의 수신 데이터만 일치하고 구성 및 업로드 후에 참조 데이터 집합에 조인됩니다. 많은 양의 기록 데이터를 Azure Time Series Insights로 보내려고 하고 Azure Time Series Insights 참조 데이터를 먼저 업로드하거나 만들지 않는 경우 작업을 다시 수행해야 할 수 있습니다(힌트: 재미있지 않습니다).
 
 Azure Time Series Insights 참조 데이터를 만들고 업로드하고 관리하는 방법에 대한 자세한 내용은 [데이터 집합 설명서 참조 사항](time-series-insights-add-reference-data-set.md)을 읽어보세요.
 

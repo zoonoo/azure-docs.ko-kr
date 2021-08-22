@@ -4,15 +4,15 @@ description: 비정형 데이터의 마이그레이션에 사용되는 도구 �
 author: dukicn
 ms.author: nikoduki
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 08/04/2021
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: a1772179313a2465200fc1d6a2cccef836067dde
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 63796f3e569849227dd4fa9c2396f3b052540586
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146602"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122529675"
 ---
 # <a name="comparison-matrix"></a>비교 행렬
 
@@ -86,7 +86,7 @@ ms.locfileid: "108146602"
 | **액세스 시간**                     | 아니요      | 예 | 예 | 예            |
 | **수정된 시간**                   | 아니요      | 예 | 예 | 예            |
 | **만든 시간**                   | 아니요      | 예 | 예 | 예            |
-| **파일/개체 보고서 상태별** | 부분 | 예 | 예 | 예            |
+| **파일/개체 보고서 상태별** | Partial | 예 | 예 | 예            |
 
 ## <a name="licensing"></a>라이선싱
 
@@ -149,4 +149,4 @@ ms.locfileid: "108146602"
 - [Azure 파일 공유로 마이그레이션](../../../files/storage-files-migration-overview.md)
 - [Azure용 WANdisco LiveData 플랫폼을 사용하여 Data Lake Storage로 마이그레이션](../../../blobs/migrate-gen2-wandisco-live-data-platform.md)
 - [AzCopy를 사용하여 Azure Storage로 데이터 복사 또는 이동](../../../common/storage-use-azcopy-v10.md)
-- [AzReplicate를 사용하여 Azure Blob Storage로 대량 데이터 세트 마이그레이션(샘플 애플리케이션)](https://github.com/Azure/AzReplicate/tree/master/)
+- [AzReplicate를 사용하여 Azure Blob Storage로 대량 데이터 세트 마이그레이션(샘플 애플리케이션)](/samples/azure/azreplicate/azreplicate/)

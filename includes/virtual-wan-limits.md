@@ -8,16 +8,15 @@ ms.topic: include
 ms.date: 09/26/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8671c9d8551d148df84e05e2d7d8ebc4cbdf9aca
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: c0af087c68056b1719355956c30b5e2c7f971531
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110630578"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113094497"
 ---
 | 리소스 |  제한 |
 | --- | --- |
-| 가상 WAN별 가상 WAN 허브 |Azure 지역 |
 | 허브당 VPN(분기) 연결 | 1,000 |
 | Virtual WAN 사이트 간 VPN 게이트웨이별 총 처리량 | 20Gbps |
 | Virtual WAN VPN 연결당 처리량(터널 2개) | 2Gbps(IPsec 터널당 1Gbps) |

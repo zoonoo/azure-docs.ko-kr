@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: 1c4a32e79f54bd2626f2eb4f3a3cc97266d3bab0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 95ff033ab83fee6e9dacbf15b12db33f8b36c3c0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958493"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528178"
 ---
 # <a name="manage-access-to-azure-sentinel-data-by-resource"></a>리소스별로 Azure Sentinel 데이터에 대한 액세스 관리
 
@@ -149,6 +149,7 @@ Azure Sentinel [Logstash 출력 플러그 인](connect-logstash.md)을 사용하
 [Log Analytics 데이터 수집기 API](../azure-monitor/logs/data-collector-api.md)를 사용하여 수집하는 경우 HTTP [*AzureResourceId*](../azure-monitor/logs/data-collector-api.md#request-headers) 요청 헤더를 사용하여 리소스 ID가 있는 이벤트에 할당할 수 있습니다.
 
 리소스 컨텍스트 RBAC를 사용하고 API를 통해 수집되는 이벤트를 특정 사용자가 사용할 수 있도록 하려면 [사용자에 대해 만든](#explicitly-configure-resource-context-rbac) 리소스 그룹의 리소스 ID를 사용합니다.
+
 
 
 ## <a name="next-steps"></a>다음 단계

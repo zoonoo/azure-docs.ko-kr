@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: 7a5b9efce1c24aecb54d3f473b7227357c8fb99f
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 1527888458a494e0b2d7177246c991228440d255
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111890189"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529477"
 ---
 # <a name="plan-and-manage-costs-for-azure-synapse-analytics"></a>Azure Synapse Analytics 계획 및 비용 관리
 
@@ -126,7 +126,7 @@ Azure Synapse에 대한 비용을 보여 주는 예제는 다음과 같습니다
 
 ### <a name="dedicated-sql-pool"></a>전용 SQL 풀
 
-사용 중이 아닐 때 리소스를 일시 중지하여 전용 SQL 풀의 비용을 관리할 수 있습니다. 예를 들어, 밤 시간과 주말에 데이터베이스를 사용하지 않으려면 해당 시간에 일시 중지했다가 주간에 다시 시작할 수 있습니다. 자세한 내용은 [Azure Portal을 통해 전용 SQL 풀에서 컴퓨팅 일시 중지 및 다시 시작](./sql-data-warehouse/pause-and-resume-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.
+사용 중이 아닐 때 리소스를 일시 중지하여 전용 SQL 풀의 비용을 관리할 수 있습니다. 예를 들어, 밤 시간과 주말에 데이터베이스를 사용하지 않으려면 해당 시간에 일시 중지했다가 주간에 다시 시작할 수 있습니다. 자세한 내용은 [Azure Portal을 통해 전용 SQL 풀에서 컴퓨팅 일시 중지 및 다시 시작](./sql-data-warehouse/pause-and-resume-compute-portal.md?context=/azure/synapse-analytics/context/context)을 참조하세요.
 
 ### <a name="serverless-apache-spark-pool"></a>서버리스 Apache Spark 풀
 

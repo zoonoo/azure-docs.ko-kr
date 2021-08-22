@@ -3,22 +3,22 @@ title: Single Sign-On(MSAL.js) | Microsoft
 titleSuffix: Microsoft identity platform
 description: JavaScript용 Microsoft Authentication Library(MSAL.js)를 사용하여 Single Sign-On 환경을 빌드하는 방법에 대해 알아봅니다.
 services: active-directory
-author: mtillman
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: mtillman
+ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 86df7b35987fcc0081aca4e7e33f4da72f08e452
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.custom: aaddev, has-adal-ref
+ms.openlocfilehash: 6ff627b09c6bc1d1b88a106c18fa4bdf9d241120
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077143"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122530859"
 ---
 # <a name="single-sign-on-with-msaljs"></a>MSAL.js를 사용한 Single Sign-On
 
@@ -47,7 +47,7 @@ const myMSALObj = new UserAgentApplication(config);
 
 ## <a name="sso-between-apps"></a>앱 간 SSO
 
-사용자가 인증하면 세션 쿠키가 브라우저의 Azure AD 도메인에 설정됩니다. MSAL.js는 이 세션 쿠키를 사용하여 서로 다른 애플리케이션 간에 사용자에 대한 SSO를 제공합니다. 또한 MSAL.js는 애플리케이션 도메인당 브라우저 스토리지에서 사용자의 ID 토큰 및 액세스 토큰을 캐시합니다. 따라서 SSO 동작은 사례마다 다릅니다.  
+사용자가 인증하면 세션 쿠키가 브라우저의 Azure AD 도메인에 설정됩니다. MSAL.js는 이 세션 쿠키를 사용하여 서로 다른 애플리케이션 간에 사용자에 대한 SSO를 제공합니다. 또한 MSAL.js는 애플리케이션 도메인당 브라우저 스토리지에서 사용자의 ID 토큰 및 액세스 토큰을 캐시합니다. 따라서 SSO 동작은 사례마다 다릅니다.
 
 ### <a name="applications-on-the-same-domain"></a>동일한 도메인의 애플리케이션
 
@@ -76,7 +76,7 @@ var request = {
 userAgentApplication.acquireTokenSilent(request).then(function(response) {
         const token = response.accessToken
     }
-).catch(function (error) {  
+).catch(function (error) {
         //handle error
 });
 ```
@@ -132,14 +132,14 @@ var request = {
 userAgentApplication.acquireTokenSilent(request).then(function(response) {
         const token = response.accessToken
     }
-).catch(function (error) {  
+).catch(function (error) {
         //handle error
 });
 ```
 
 ## <a name="sso-in-adaljs-to-msaljs-update"></a>ADAL.js에서 MSAL.js로 SSO 업데이트
 
-MSAL.js는 Azure AD 인증 시나리오에 대한 ADAL.js의 기능 패리티를 제공합니다. ADAL.js에서 MSAL.js로 쉽게 마이그레이션하고 사용자가 다시 로그인하지 않도록 라이브러리는 ADAL.js 캐시에서 사용자 세션을 나타내는 ID 토큰을 읽고 MSAL.js의 사용자를 원활하게 로그인합니다.  
+MSAL.js는 Azure AD 인증 시나리오에 대한 ADAL.js의 기능 패리티를 제공합니다. ADAL.js에서 MSAL.js로 쉽게 마이그레이션하고 사용자가 다시 로그인하지 않도록 라이브러리는 ADAL.js 캐시에서 사용자 세션을 나타내는 ID 토큰을 읽고 MSAL.js의 사용자를 원활하게 로그인합니다.
 
 ADAL.js에서 업데이트할 때 SSO(Single Sign-On) 동작을 활용하려면 라이브러리에서 토큰을 캐시하는 데 `localStorage`를 사용하고 있는지 확인해야 합니다. 다음과 같이 초기화할 때 MSAL.js 및 ADAL.js 구성 모두에서 `cacheLocation`을 `localStorage`로 설정합니다.
 

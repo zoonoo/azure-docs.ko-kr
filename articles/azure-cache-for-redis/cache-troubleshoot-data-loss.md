@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 6db036752bab7b84b72a37b148eaec7aa5765ef3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ae2d392e7349124012d782112ac873808512dbd
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92538598"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136511"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Azure Cache for Redis 데이터 손실 문제 해결
 
@@ -121,4 +121,4 @@ Redis는 메모리 내 데이터 저장소입니다. 데이터는 Redis 캐시�
 - [Azure Cache for Redis 서버 쪽 문제 해결](cache-troubleshoot-server.md)
 - [올바른 계층 선택](cache-overview.md#choosing-the-right-tier)
 - [Azure Cache for Redis를 모니터링하는 방법](cache-how-to-monitor.md)
-- [어떻게 Redis 명령을 실행할 수 있나요?](cache-development-faq.md#how-can-i-run-redis-commands)
+- [어떻게 Redis 명령을 실행할 수 있나요?](cache-development-faq.yml#how-can-i-run-redis-commands-)

@@ -6,19 +6,19 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 5f981e40d82a1f5b4d775832752d4b169ab73db0
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 6dcd14f12b557ef63337890b10e69d6cdf92498a
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750032"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113031178"
 ---
 # <a name="connect-to-azure-virtual-desktop-classic-with-the-ios-client"></a>iOS 클라이언트를 사용하여 Azure Virtual Desktop(클래식)에 연결
 
 > 적용 대상: iOS 13.0 이상. iPhone, iPad 및 iPod touch와 호환됩니다.
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Azure Virtual Desktop 개체를 관리하려는 경우 [이 문서](../connect-ios.md)를 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Azure Virtual Desktop 개체를 관리하려는 경우 [이 문서](../user-documentation/connect-ios.md)를 참조하세요.
 
 다운로드 가능한 클라이언트를 사용하여 iOS 디바이스에서 Azure Virtual Desktop 리소스에 액세스할 수 있습니다. 이 가이드에서는 iOS 클라이언트를 설정하는 방법을 알려줍니다.
 

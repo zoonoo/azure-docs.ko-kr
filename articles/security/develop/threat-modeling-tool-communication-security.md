@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d9a4eabf37101622ac69ae05f3bec232fb8d2fe6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 265ae82f3a8d5a10e333057ebb55473c18fd36c3
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94517532"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113109470"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>보안 프레임: 통신 보안 | 완화 
 | 제품/서비스 | 아티클 |
@@ -383,7 +383,7 @@ public class ValuesController : ApiController
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [Azure Redis TLS 지원](../../azure-cache-for-redis/cache-faq.md) |
+| **참조**              | [Azure Redis TLS 지원](../../azure-cache-for-redis/cache-faq.yml) |
 | **단계** | Redis 서버는 기본적으로 TLS를 지원하지 않지만 Azure Cache for Redis는 지원합니다. Azure Cache for Redis에 연결하고 클라이언트에서 StackExchange.Redis와 같은 TLS를 지원하는 경우 TLS를 사용해야 합니다. 기본적으로 비 TLS 포트는 새 Azure Cache for Redis 인스턴스에 대해 사용하지 않도록 설정됩니다. Redis 클라이언트에 대한 TLS 지원에 대한 종속성이 없으면 보안 기본값이 변경되지 않도록 합니다. |
 
 Redis는 신뢰할 수 있는 환경 내에서 신뢰할 수 있는 클라이언트가 액세스할 수 있도록 설계되었습니다. 즉 일반적으로 Redis 인스턴스를 인터넷에 직접 노출하거나 일반적으로 신뢰할 수 없는 클라이언트를 Redis TCP 포트 또는 UNIX 소켓에 직접 액세스할 수 있는 환경에 직접 노출하지 않는 것이 좋습니다. 

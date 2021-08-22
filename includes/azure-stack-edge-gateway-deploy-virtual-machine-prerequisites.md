@@ -2,20 +2,29 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 01/15/2021
+ms.date: 06/30/2021
 ms.author: alkohli
-ms.openlocfilehash: f166413507afb9aff814eaddaade099d2e34ae68
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: f96012c3ffa587a80d601447d99efc804956096e
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554392"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113120972"
 ---
 Azure Stack Edge 디바이스에서 VM을 배포하려면 먼저 Azure PowerShell에 대한 Azure Resource Manager를 통해 디바이스에 연결하도록 클라이언트를 구성해야 합니다. 자세한 지침은 [Azure Stack Edge 디바이스에서 Azure Resource Manager에 연결](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md)을 참조하세요.
 
 다음 단계를 사용하여 클라이언트에서 디바이스에 액세스할 수 있는지 확인합니다. Azure Resource Manager에 연결할 때 이 구성을 이미 수행했으며, 이제 구성이 성공했는지 확인하는 중입니다. 
 
+
+
 1. 다음 명령을 실행하여 Azure Resource Manager 통신이 작동하는지 확인합니다.     
+
+    ### <a name="az"></a>[Az](#tab/Az)
+
+    ```powershell
+    Add-AzEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>"
+    ```
+    ### <a name="azurerm"></a>[AzureRM](#tab/AzureRM)
 
     ```powershell
     Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>"
@@ -23,7 +32,19 @@ Azure Stack Edge 디바이스에서 VM을 배포하려면 먼저 Azure PowerShel
 
 1. 인증할 로컬 디바이스 API를 호출하려면 다음을 입력합니다. 
 
-    `login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d`
+    ### <a name="az"></a>[Az](#tab/Az)
+
+    ```powershell
+    login-AzAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d
+    ```
+
+    Azure Resource Manager를 통해 연결하려면 사용자 이름 *EdgeArmUser* 와 암호를 제공합니다.
+
+    ### <a name="azurerm"></a>[AzureRM](#tab/AzureRM)
+
+    ```powershell
+    login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d
+    ```
 
     Azure Resource Manager를 통해 연결하려면 사용자 이름 *EdgeArmUser* 와 암호를 제공합니다.
 

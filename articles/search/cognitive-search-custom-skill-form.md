@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 1f0085695d810a2e6c30da410ca4d11fe4d5f490
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 170d6078863feb76582974e4b1581ea60edca7c2
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556013"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530627"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>예: Form Recognizer 사용자 지정 기술 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "111556013"
 
 ## <a name="create-a-form-recognizer-resource"></a>Form Recognizer 리소스 만들기
 
-[!INCLUDE [create resource](../cognitive-services/form-recognizer/includes/create-resource.md)]
+[!INCLUDE [create resource](../applied-ai-services/form-recognizer/includes/create-resource.md)]
 
 ## <a name="train-your-model"></a>모델 학습
 
@@ -34,7 +34,7 @@ ms.locfileid: "111556013"
 
 ## <a name="set-up-the-custom-skill"></a>사용자 지정 기술 설정
 
-이 자습서에서는 [Azure Search 파워 기술](https://github.com/Azure-Samples/azure-search-power-skills) GitHub 리포지토리에 있는 [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Vision/AnalyzeForm) 프로젝트를 사용합니다. 이 리포지토리를 로컬 컴퓨터에 복제하고 **Vision/AnalyzeForm/** 으로 이동하여 프로젝트에 액세스합니다. 그런 다음 Visual Studio에서 _AnalyzeForm.csproj_ 를 엽니다. 이 프로젝트는 [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md)를 충족하고 Azure Cognitive Search 보강에 사용할 수 있는 Azure 함수 리소스를 만듭니다. 양식 문서를 입력으로 사용하고 지정한 키/값 쌍을 텍스트로 출력합니다.
+이 자습서에서는 [Azure Search 파워 기술](https://github.com/Azure-Samples/azure-search-power-skills) GitHub 리포지토리에 있는 [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/main/Vision/AnalyzeForm) 프로젝트를 사용합니다. 이 리포지토리를 로컬 컴퓨터에 복제하고 **Vision/AnalyzeForm/** 으로 이동하여 프로젝트에 액세스합니다. 그런 다음 Visual Studio에서 _AnalyzeForm.csproj_ 를 엽니다. 이 프로젝트는 [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md)를 충족하고 Azure Cognitive Search 보강에 사용할 수 있는 Azure 함수 리소스를 만듭니다. 양식 문서를 입력으로 사용하고 지정한 키/값 쌍을 텍스트로 출력합니다.
 
 먼저 프로젝트 수준 환경 변수를 추가합니다. 왼쪽 창에서 **AnalyzeForm** 프로젝트를 찾은 다음 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. **속성** 창에서 **디버그** 탭을 클릭한 다음 **환경 변수** 필드를 찾습니다. **추가** 를 클릭하여 다음 변수를 추가합니다.
 * `FORMS_RECOGNIZER_ENDPOINT_URL` - 이 값을 엔드포인트 URL로 설정합니다.

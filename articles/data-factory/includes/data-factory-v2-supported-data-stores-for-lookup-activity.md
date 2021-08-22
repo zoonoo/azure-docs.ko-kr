@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 12/18/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: c49406780c6e9f35aadfdfc5fad11d69949aeaf0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: eeed8efc6c3c18955223ffb073be5714f616a0b4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110163641"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642281"
 ---
 | 범주 | 데이터 저장소 |
 |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB(SQL API)](../connector-azure-cosmos-db.md) |
-| &nbsp; |[Azure Data Explorer](../connector-azure-data-explorer.md) |
+| &nbsp; |[Azure Data Explorer(Kusto)](../connector-azure-data-explorer.md) |
 | &nbsp; |[Azure Data Lake Storage Gen1](../connector-azure-data-lake-store.md) |
 | &nbsp; |[Azure Data Lake Storage Gen2](../connector-azure-data-lake-storage.md) |
 | &nbsp; |[Azure Database for MariaDB](../connector-azure-database-for-mariadb.md) |
@@ -28,17 +28,19 @@ ms.locfileid: "110163641"
 | &nbsp; |[Azure Databricks Delta Lake](../connector-azure-databricks-delta-lake.md) |
 | &nbsp; |[Azure 파일](../connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL Database](../connector-azure-sql-database.md) |
-| &nbsp; |[Azure SQL Managed Instance](../../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |
+| &nbsp; |[Azure SQL Database Managed Instance](../../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |
 | &nbsp; |[Azure Synapse Analytics](../connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Azure Table Storage](../connector-azure-table-storage.md) |
 | **Database** |[Amazon Redshift](../connector-amazon-redshift.md) |
+| &nbsp; |[Apache Impala](../connector-impala.md) |
+| &nbsp; |[Azure SQL Database Managed Instance](../connector-azure-sql-managed-instance.md) |
 | &nbsp; |[DB2](../connector-db2.md) |
 | &nbsp; |[Drill](../connector-drill.md) |
+| &nbsp; |[Google AdWords](../connector-google-adwords.md) |
 | &nbsp; |[Google BigQuery](../connector-google-bigquery.md) |
 | &nbsp; |[Greenplum](../connector-greenplum.md) |
 | &nbsp; |[HBase](../connector-hbase.md) |
 | &nbsp; |[Hive](../connector-hive.md) |
-| &nbsp; |[Apache Impala](../connector-impala.md) |
 | &nbsp; |[Informix](../connector-informix.md) 
 | &nbsp; |[MariaDB](../connector-mariadb.md) |
 | &nbsp; |[Microsoft Access](../connector-microsoft-access.md) |
@@ -52,9 +54,8 @@ ms.locfileid: "110163641"
 | &nbsp; |[MDX를 통한 SAP Business Warehouse](../connector-sap-business-warehouse.md) |
 | &nbsp; |[SAP HANA](../connector-sap-hana.md) |
 | &nbsp; |[SAP 테이블](../connector-sap-table.md) |
-| &nbsp; |[Snowflake](../connector-snowflake.md) |
-| &nbsp; |[Spark](../connector-spark.md) |
 | &nbsp; |[SQL Server](../connector-sql-server.md) |
+| &nbsp; |[Spark](../connector-spark.md) |
 | &nbsp; |[Sybase](../connector-sybase.md) |
 | &nbsp; |[Teradata](../connector-teradata.md) |
 | &nbsp; |[Vertica](../connector-vertica.md) |
@@ -66,35 +67,39 @@ ms.locfileid: "110163641"
 | &nbsp; |[FTP](../connector-ftp.md) |
 | &nbsp; |[Google Cloud Storage](../connector-google-cloud-storage.md) |
 | &nbsp; |[HDFS](../connector-hdfs.md) |
+| &nbsp; |[일반 HTTP](../connector-http.md)|
 | &nbsp; |[Oracle Cloud Storage](../connector-oracle-cloud-storage.md) |
 | &nbsp; |[SFTP](../connector-sftp.md) |
-| **일반 프로토콜** |[일반 HTTP](../connector-http.md) |
-| &nbsp; |[일반 OData](../connector-odata.md) |
+| **일반 프로토콜** |[일반 OData](../connector-odata.md) |
 | &nbsp; |[일반 ODBC](../connector-odbc.md) |
+| &nbsp; |[REST (영문)](../connector-rest.md) |
+| &nbsp; |[SharePoint Online 목록](../connector-sharepoint-online-list.md) |
 | **서비스 및 앱** |[Amazon Marketplace 웹 서비스](../connector-amazon-marketplace-web-service.md) |
 | &nbsp; |[Concur(미리 보기)](../connector-concur.md) |
 | &nbsp; |[Dataverse](../connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Dynamics 365](../connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Azure IoT Hub](../connector-dynamics-ax.md) |
 | &nbsp; |[Dynamics CRM](../connector-dynamics-crm-office-365.md) |
-| &nbsp; |[Google AdWords](../connector-google-adwords.md) |
 | &nbsp; |[HubSpot](../connector-hubspot.md) |
 | &nbsp; |[Jira](../connector-jira.md) |
+| &nbsp; |[Azure Data Explorer(Kusto)](../connector-azure-data-explorer.md) |
 | &nbsp; |[Magento(미리 보기)](../connector-magento.md) |
 | &nbsp; |[Marketo(미리 보기)](../connector-marketo.md) |
+| &nbsp; |[Office 365](../connector-office-365.md) |
 | &nbsp; |[Oracle Eloqua(미리 보기)](../connector-oracle-eloqua.md) |
 | &nbsp; |[Oracle Responsys(미리 보기)](../connector-oracle-responsys.md) |
 | &nbsp; |[Oracle Service Cloud(미리 보기)](../connector-oracle-service-cloud.md) |
 | &nbsp; |[PayPal(미리 보기)](../connector-paypal.md) |
 | &nbsp; |[QuickBooks(미리 보기)](../connector-quickbooks.md) |
-| &nbsp; |[Salesforce](../connector-salesforce.md) |
-| &nbsp; |[Salesforce 서비스 클라우드](../connector-salesforce-service-cloud.md) |
-| &nbsp; |[Salesforce 마케팅 클라우드](../connector-salesforce-marketing-cloud.md) |
+| &nbsp; |[REST (영문)](../connector-rest.md) |
 | &nbsp; |[SAP Cloud for Customer(C4C)](../connector-sap-cloud-for-customer.md) |
 | &nbsp; |[SAP ECC](../connector-sap-ecc.md) |
+| &nbsp; |[Salesforce](../connector-salesforce.md) |
+| &nbsp; |[Salesforce 마케팅 클라우드](../connector-salesforce-marketing-cloud.md) |
+| &nbsp; |[Salesforce 서비스 클라우드](../connector-salesforce-service-cloud.md) |
 | &nbsp; |[ServiceNow](../connector-servicenow.md) |
 | &nbsp; |[Shopify(미리 보기)](../connector-shopify.md) |
-| &nbsp; |[SharePoint Online 목록](../connector-sharepoint-online-list.md) |
+| &nbsp; |[Snowflake](../connector-snowflake.md) |
 | &nbsp; |[Square(미리 보기)](../connector-square.md) |
 | &nbsp; |[웹 테이블(HTML 테이블)](../connector-web-table.md) 
 | &nbsp; |[Xero](../connector-xero.md) |

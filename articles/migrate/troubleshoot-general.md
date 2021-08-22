@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 00802f53f973ad9b5a80b265006943121a0fa763
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fcd031a76e911f6368206d75736e934f79135b77
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96753402"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113225681"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -24,7 +24,7 @@ ms.locfileid: "96753402"
 
 ## <a name="i-cant-get-the-appliance-working"></a>어플라이언스를 작동할 수 없음
 
-어플라이언스 배포와 관련된 [일반적인 질문과 답변](troubleshoot-appliance-discovery.md)을 검토합니다.
+어플라이언스 배포와 관련된 [일반적인 질문과 답변](troubleshoot-appliance.md)을 검토합니다.
 
 ## <a name="machines-arent-discovered"></a>머신이 검색되지 않음
 
@@ -32,7 +32,7 @@ ms.locfileid: "96753402"
 
 ## <a name="app-discovery-isnt-working"></a>앱 검색이 작동하지 않음
 
-온-프레미스 머신에서 실행되는 앱, 역할 및 기능의 검색은 현재 VMware VM에 대해서만 지원됩니다. 앱 검색에 대한 [일반적인 오류를 검토](troubleshoot-appliance-discovery.md#common-app-discovery-errors)합니다.
+온-프레미스 머신에서 실행되는 앱, 역할 및 기능의 검색은 현재 VMware VM에 대해서만 지원됩니다. 앱 검색에 대한 [일반적인 오류를 검토](troubleshoot-discovery.md#common-software-inventory-errors)합니다.
 
 ## <a name="assessment-isnt-working"></a>평가가 작동하지 않음
 

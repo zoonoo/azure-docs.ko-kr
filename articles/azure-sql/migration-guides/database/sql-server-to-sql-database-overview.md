@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
 ms.date: 11/06/2020
-ms.openlocfilehash: 06da7175456125cfb65c6007f283da2eb6b93622
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 5ad3560cccb0cd87191f103d435776ce401beb90
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110786808"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529177"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-database"></a>마이그레이션 개요: SQL Server를 Azure SQL Database로
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ Azure SQL Database의 올바른 배포 모델 및 서비스 계층을 선택하�
 
 다음 마이그레이션 도구를 권장합니다. 
 
-|기술 | Description|
+|기술 | 설명|
 |---------|---------|
 | [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | 이 Azure 서비스는 VMware에서 대규모 SQL 데이터 자산을 검색하고 평가하는 데 도움이 됩니다. Azure SQL 배포 권장 사항, 대상 크기 조정 및 월간 예상 비용을 제공합니다. | 
 |[데이터 Migration Assistant](/sql/dma/dma-migrateonpremsqltosqldb)|Microsoft의 이 데스크톱 도구는 SQL Server 및 Azure SQL Database로의 단일 데이터베이스 마이그레이션(스키마 및 데이터 모두)에 대한 원활한 평가를 제공합니다. </br></br>이 도구는 온-프레미스 서버 또는 원본 데이터베이스에 연결된 로컬 컴퓨터에 설치할 수 있습니다. 마이그레이션 프로세스는 원본 및 대상 데이터베이스의 개체 간의 논리적 데이터 이동입니다.|
@@ -107,7 +107,7 @@ Azure SQL Database의 올바른 배포 모델 및 서비스 계층을 선택하�
 
 다음 표에는 대체 마이그레이션 도구가 나와 있습니다. 
 
-|기술 |Description  |
+|기술 |설명  |
 |---------|---------|
 |[트랜잭션 복제](../../database/replication-to-sql-database.md)|트랜잭션 일관성을 유지하면서 게시자-구독자 유형 마이그레이션 옵션을 제공하여 원본 SQL Server 데이터베이스 테이블에서 Azure SQL Database로 데이터를 복제합니다. 증분 데이터 변경 사항은 게시자에서 발생하면 구독자에게 전파됩니다.|
 |[가져오기 내보내기 서비스/BACPAC](../../database/database-import.md)|[BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac)는 데이터베이스의 스키마와 데이터를 캡슐화하는 확장명이 .bacpac인 Windows 파일입니다. BACPAC를 사용하여 SQL Server 원본에서 데이터를 내보내고 Azure SQL Database로 데이터를 가져올 수 있습니다. BACPAC 파일은 Azure Portal을 통해 새 SQL 데이터베이스로 가져올 수 있습니다. </br></br> 데이터베이스 크기가 크거나 데이터베이스 수가 많은 경우 규모와 성능을 얻으려면 [SqlPackage](../../database/database-import.md#using-sqlpackage) 명령줄 도구를 사용하여 데이터베이스를 내보내고 가져오는 것이 좋습니다.|
@@ -182,18 +182,15 @@ SQL Database는 고급 관리 및 보안 기능 외에도 [워크로드를 모�
 
 |자산  |Description  |
 |---------|---------|
-|[데이터 워크로드 평가 모델 및 도구](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| 이 도구는 워크로드에 권장되는 "최적의" 대상 플랫폼, 클라우드 준비 상태 및 애플리케이션/데이터베이스 수정 수준을 제공합니다. 대상 플랫폼에 대해 자동화되고 균일한 의사 결정 프로세스를 제공하여 대규모 자산 평가를 가속화할 수 있는 간단한 원클릭 계산 및 보고서 생성을 제공합니다.|
-|[DBLoader 유틸리티](https://github.com/microsoft/DataMigrationTeam/tree/master/DBLoader%20Utility)|DBLoader를 사용하여 구분된 텍스트 파일에서 SQL Server로 데이터를 로드할 수 있습니다. 이 Windows 콘솔 유틸리티는 SQL Server Native Client 대량 로드 인터페이스를 사용합니다. 인터페이스는 Azure SQL Database와 함께 모든 버전의 SQL Server에서 작동합니다.|
-|[PowerShell을 사용하여 대량 데이터베이스 만들기](https://github.com/Microsoft/DataMigrationTeam/tree/master/Bulk%20Database%20Creation%20with%20PowerShell)|리소스 그룹(create_rg.ps1), [Azure의 논리 서버](../../database/logical-servers.md)(create_sqlserver.ps1) 및 SQL Database(create_sqldb.ps1)를 만드는 세 가지 PowerShell 스크립트 집합을 사용할 수 있습니다. 스크립트에는 반복 기능이 포함되어 있어 필요한 만큼 서버와 데이터베이스를 반복하고 만들 수 있습니다.|
-|[MSSQL-Scripter 및 PowerShell을 사용하여 대량 스키마 배포](https://github.com/Microsoft/DataMigrationTeam/tree/master/Bulk%20Schema%20Deployment%20with%20MSSQL-Scripter%20&%20PowerShell)|이 자산은 리소스 그룹을 만들고, Azure SQL Database를 호스팅하기 위해 하나 이상의 [논리 서버](../../database/logical-servers.md)를 만들고, 온-프레미스 SQL Server 인스턴스(또는 여러 SQL Server 2005+ 인스턴스)에서 모든 스키마를 내보내고, Azure SQL Database에 스키마를 가져옵니다.|
-|[SQL Server 에이전트 작업을 탄력적 데이터베이스 작업으로 변환](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Convert%20SQL%20Server%20Agent%20Jobs%20into%20Elastic%20Database%20Jobs)|이 스크립트는 원본 SQL Server 에이전트 작업을 탄력적 데이터베이스 작업으로 마이그레이션합니다.|
+|[데이터 워크로드 평가 모델 및 도구](https://www.microsoft.com/download/details.aspx?id=103130)| 이 도구는 워크로드에 권장되는 "최적의" 대상 플랫폼, 클라우드 준비 상태 및 애플리케이션/데이터베이스 수정 수준을 제공합니다. 대상 플랫폼에 대해 자동화되고 균일한 의사 결정 프로세스를 제공하여 대규모 자산 평가를 가속화할 수 있는 간단한 원클릭 계산 및 보고서 생성을 제공합니다.|
+|[PowerShell을 사용하여 대량 데이터베이스 만들기](https://www.microsoft.com/download/details.aspx?id=103107)|리소스 그룹(create_rg.ps1), [Azure의 논리 서버](../../database/logical-servers.md)(create_sqlserver.ps1) 및 SQL Database(create_sqldb.ps1)를 만드는 세 가지 PowerShell 스크립트 집합을 사용할 수 있습니다. 스크립트에는 반복 기능이 포함되어 있어 필요한 만큼 서버와 데이터베이스를 반복하고 만들 수 있습니다.|
+|[MSSQL-Scripter 및 PowerShell을 사용하여 대량 스키마 배포](https://www.microsoft.com/download/details.aspx?id=103032)|이 자산은 리소스 그룹을 만들고, Azure SQL Database를 호스팅하기 위해 하나 이상의 [논리 서버](../../database/logical-servers.md)를 만들고, 온-프레미스 SQL Server 인스턴스(또는 여러 SQL Server 2005+ 인스턴스)에서 모든 스키마를 내보내고, Azure SQL Database에 스키마를 가져옵니다.|
+|[SQL Server 에이전트 작업을 탄력적 데이터베이스 작업으로 변환](https://www.microsoft.com/download/details.aspx?id=103123)|이 스크립트는 원본 SQL Server 에이전트 작업을 탄력적 데이터베이스 작업으로 마이그레이션합니다.|
 |[Azure SQL Database에서 이메일 보내기](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/AF%20SendMail)|이 솔루션은 SendMail 기능의 대안이며 온-프레미스 SQL Server에서 사용할 수 있습니다. Azure Functions 및 SendGrid 서비스를 사용하여 Azure SQL Database에서 이메일을 보냅니다.|
-|[온-프레미스 SQL Server 로그인을 Azure SQL Database로 이동하는 유틸리티](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins)|PowerShell 스크립트는 T-SQL 명령 스크립트를 만들어 로그인을 다시 만들고 온-프레미스 SQL Server에서 Azure SQL Database로 데이터베이스 사용자를 선택할 수 있습니다. 이 도구를 사용하면 Windows Server Active Directory 계정을 Azure AD 계정으로 자동 매핑하고 선택적으로 SQL Server 네이티브 로그인을 마이그레이션할 수 있습니다.|
-|[Logman을 사용하는 Perfmon 데이터 수집 자동화](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|Logman 도구를 사용하여 Perfmon 데이터를 수집해 기준 성능을 쉽게 이해할 수 있으며 마이그레이션 대상 권장 사항을 확인할 수 있습니다. 이 도구는 logman.exe를 사용하여 원격 SQL Server 인스턴스에 설정된 성능 카운터를 생성, 시작, 중지 및 삭제하는 명령을 만듭니다.|
-|[BACPAC를 사용하여 Azure SQL Database로 데이터베이스 마이그레이션](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Database%20migrations%20-%20Benchmarks%20and%20Steps%20to%20Import%20to%20Azure%20SQL%20DB%20Single%20Database%20from%20BACPAC.pdf)|이 백서에서는 BACPAC 파일을 사용하여 SQL Server에서 Azure SQL Database로의 마이그레이션을 속도를 향상할 수 있는 지침과 단계를 제공합니다.|
+|[온-프레미스 SQL Server 로그인을 Azure SQL Database로 이동하는 유틸리티](https://www.microsoft.com/download/details.aspx?id=103111)|PowerShell 스크립트는 T-SQL 명령 스크립트를 만들어 로그인을 다시 만들고 온-프레미스 SQL Server에서 Azure SQL Database로 데이터베이스 사용자를 선택할 수 있습니다. 이 도구를 사용하면 Windows Server Active Directory 계정을 Azure AD 계정으로 자동 매핑하고 선택적으로 SQL Server 네이티브 로그인을 마이그레이션할 수 있습니다.|
+|[Logman을 사용하는 Perfmon 데이터 수집 자동화](https://www.microsoft.com/download/details.aspx?id=103114)|Logman 도구를 사용하여 Perfmon 데이터를 수집해 기준 성능을 쉽게 이해할 수 있으며 마이그레이션 대상 권장 사항을 확인할 수 있습니다. 이 도구는 logman.exe를 사용하여 원격 SQL Server 인스턴스에 설정된 성능 카운터를 생성, 시작, 중지 및 삭제하는 명령을 만듭니다.|
 
 데이터 SQL 엔지니어링 팀이 이러한 리소스를 개발했습니다. 이 팀의 핵심 선언은 Microsoft의 Azure 데이터 플랫폼으로의 데이터 플랫폼 마이그레이션 프로젝트에 대한 복잡한 현대화의 장애물을 제거하고 속도를 높이는 것입니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

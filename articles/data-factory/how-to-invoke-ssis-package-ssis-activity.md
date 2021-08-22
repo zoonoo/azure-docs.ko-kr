@@ -2,18 +2,19 @@
 title: SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 실행
 description: 이 문서에서는 Azure Data Factory 파이프라인에서 SSIS 패키지 실행 작업을 사용하여 SSIS(SQL Server Integration Services) 패키지를 실행하는 방법에 대해 설명합니다.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
 ms.author: sawinark
 author: swinarko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 07/20/2020
-ms.openlocfilehash: 40e7d5c11a2ebc62e59c3d5d20dfefe18a33f9a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/04/2021
+ms.openlocfilehash: 3b8c15a764f3a196232e43ffd8d7fd7fe373355c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100391612"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528839"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Azure Data Factory에서 SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 실행
 
@@ -37,9 +38,9 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure-SSIS IR �
 
    ![Data Factory 홈페이지](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 
-   **시작** 페이지에서 **파이프라인 만들기** 를 선택합니다. 
+   홈페이지에서 **오케스트레이션** 을 선택합니다. 
 
-   ![시작 페이지](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
+   ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
 
 1. **작업** 도구 상자에서 **일반** 을 확장합니다. **SSIS 패키지 실행** 작업을 파이프라인 디자이너 화면으로 끕니다. 
 

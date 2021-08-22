@@ -3,12 +3,12 @@ title: 템플릿을 사용한 빠른 작업 실행
 description: Azure Resource Manager 템플릿을 사용하여 이미지를 빌드하기 위한 ACR 작업 실행 큐
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: af7bebc311f81bb489fcc8be419f167ff6f9460a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c79eec16798b1e1c9933ab50fb443b4427075149
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781238"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112981085"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용한 ACR 작업 실행
 
@@ -49,6 +49,8 @@ ms.locfileid: "107781238"
 ### <a name="deploy-the-template"></a>템플릿 배포
 
 [az deployment group create][az-deployment-group-create] 명령을 사용하여 템플릿을 배포합니다. 이 예제에서는 *helloworld-node:testrun* 이미지를 빌드하여 *mycontainerregistry* 라는 레지스트리로 푸시합니다.
+
+[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
 
 ```azurecli
 az deployment group create \

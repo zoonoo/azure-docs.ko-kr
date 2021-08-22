@@ -8,16 +8,18 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 11/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 21f9b3dcb94be105c8b7279e6ac447540da65447
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bd1be8c63e295aedead72fdd5c6ce407179dc660
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105110103"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642135"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL 유연한 서버에서 서버 매개 변수 구성
 
-> [!IMPORTANT] 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MySQL 유연한 서버의 매개 변수를 나열, 표시하고 업데이트할 수 있습니다. 서버 매개 변수는 서버를 만들 때 기본/권장 값으로 구성됩니다.  
@@ -28,11 +30,14 @@ Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MyS
 > 서버 매개 변수는 서버 수준에서 전역적으로 업데이트될 수 있으며, [Azure CLI](./how-to-configure-server-parameters-cli.md) 또는 [Azure Portal](./how-to-configure-server-parameters-portal.md)을 사용합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
+
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
+
 - [Azure Database for MySQL 유연한 서버](quickstart-create-server-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) 명령줄 유틸리티 또는 브라우저의 Azure Cloud Shell
 
 ## <a name="list-server-parameters-for-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유연한 서버에 대한 서버 매개 변수 나열
+
 서버에 있는 모든 매개 변수와 해당 값을 나열하려면 [az mysql flexible-server parameter list](/cli/azure/mysql/flexible-server/parameter) 명령을 실행합니다.
 
 **myresourcegroup** 리소스 그룹에 있는 서버 **mydemoserver.mysql.database.azure.com** 의 서버 구성 매개 변수를 나열할 수 있습니다.
@@ -42,6 +47,7 @@ az mysql flexible-server parameter list --resource-group myresourcegroup --serve
 나열된 각 매개 변수의 정의를 보려면 [서버 시스템 변수](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)에서 MySQL 참조 섹션을 참조하세요.
 
 ## <a name="show-server-parameter-details"></a>서버 매개 변수 세부 정보 표시
+
 서버의 특정 매개 변수에 대한 세부 정보를 표시하려면 [az mysql flexible-server parameter show](/cli/azure/mysql/flexible-server/parameter) 명령을 실행합니다.
 
 이 예제에서는 **myresourcegroup** 리소스 그룹에 있는 서버 **mydemoserver.mysql.database.azure.com** 의 **slow\_query\_log** 서버 매개 변수의 세부 정보를 보여 줍니다.
@@ -49,6 +55,7 @@ az mysql flexible-server parameter list --resource-group myresourcegroup --serve
 az mysql flexible-server parameter show --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver
 ```
 ## <a name="modify-a-server-parameter-value"></a>서버 매개 변수 값 수정
+
 특정 서버 구성 매개 변수의 값을 수정할 수도 있습니다. 그러면 MySQL 서버 엔진의 기본 구성 값이 업데이트됩니다. 서버 매개 변수를 업데이트하려면 [az mysql flexible-server parameter set](/cli/azure/mysql/flexible-server/parameter) 명령을 사용합니다. 
 
 **myresourcegroup** 리소스 그룹에 있는 서버 **mydemoserver.mysql.database.azure.com** 의 **slow\_query\_log** 서버 매개 변수를 업데이트하려면 다음을 사용합니다.
@@ -63,7 +70,7 @@ az mysql flexible-server parameter set --name slow_query_log --resource-group my
 
 ## <a name="setting-non-modifiable-server-parameters"></a>수정 불가능한 서버 매개 변수 설정
 
-업데이트하려는 서버 매개 변수가 수정 불가능한 경우 필요에 따라 `init_connect`을(를) 사용하여 연결 수준에서 매개 변수를 설정할 수 있습니다. 이는 서버에 연결하는 각 클라이언트에 대한 서버 매개 변수를 설정합니다. 
+업데이트하려는 서버 매개 변수가 수정 불가능한 경우 필요에 따라 `init_connect`을(를) 사용하여 연결 수준에서 매개 변수를 설정할 수 있습니다. 이는 서버에 연결하는 각 클라이언트에 대한 서버 매개 변수를 설정합니다.
 
 리소스 그룹 **myresourcegroup** 에 있는 서버 **mydemoserver.mysql.database.azure.com** 의 **init\_connect** 서버 매개 변수를 업데이트하여 문자 집합 등의 값을 설정합니다.
 ```azurecli-interactive
@@ -86,7 +93,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> 표준 시간대 테이블이 제대로 채워지도록 하려면 서버를 다시 시작해야 합니다.<!-- fIX me To restart the server, use the [Azure portal](howto-restart-server-portal.md) or [CLI](howto-restart-server-cli.md). -->
+>표준 시간대 테이블이 제대로 채워지도록 하려면 서버를 다시 시작해야 합니다.<!-- fIX me To restart the server, use the [Azure portal](howto-restart-server-portal.md) or [CLI](howto-restart-server-cli.md). -->
 
 사용 가능한 표준 시간대 값을 보려면 다음 명령을 실행합니다.
 

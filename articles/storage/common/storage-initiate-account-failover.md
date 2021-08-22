@@ -10,12 +10,12 @@ ms.date: 05/07/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 28f46ec6354f98c11ce68beeb2e3de375c7a0249
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: bd1bbf0d1c5a49bde35d303e6780737fb43ca997
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632334"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528299"
 ---
 # <a name="initiate-a-storage-account-failover"></a>스토리지 계정 장애 조치(failover) 시작
 
@@ -42,7 +42,7 @@ Azure Storage 중복에 대한 자세한 내용은 [Azure Storage 중복](storag
 - Azure 파일 동기화는 스토리지 계정 장애 조치(Failover)를 지원하지 않습니다. Azure 파일 동기화에서 클라우드 엔드포인트로 사용되는 Azure 파일 공유를 포함하는 스토리지 계정은 장애 조치(failover)하지 않아야 합니다. 이러한 계정을 장애 조치(failover)하면 동기화가 더 이상 진행되지 않고, 새로 계층화된 파일의 경우 예기치 않은 데이터 손실이 발생할 수도 있습니다.
 - 계층 구조 네임스페이스를 사용하는 스토리지 계정(예: Data Lake Storage Gen2)은 현재 지원되지 않습니다.
 - 프리미엄 블록 blob을 포함하는 스토리지 계정은 장애 조치(failover)할 수 없습니다. 프리미엄 블록 blob를 지원하는 스토리지 계정은 현재 지리적 중복을 지원하지 않습니다.
-- [WORM 불변성 정책](../blobs/storage-blob-immutable-storage.md)이 활성화된 컨테이너의 스토리지 계정은 장애 조치(failover)할 수 없습니다. 잠금 해제/잠금 시간 기반 보존 또는 법적 보류 정책은 규정 준수를 유지하기 위해 장애 조치(failover)를 방지합니다.
+- [WORM 불변성 정책](../blobs/immutable-storage-overview.md)이 활성화된 컨테이너의 스토리지 계정은 장애 조치(failover)할 수 없습니다. 잠금 해제/잠금 시간 기반 보존 또는 법적 보류 정책은 규정 준수를 유지하기 위해 장애 조치(failover)를 방지합니다.
 
 ## <a name="initiate-the-failover"></a>장애 조치(failover) 시작
 

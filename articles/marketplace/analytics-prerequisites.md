@@ -4,15 +4,16 @@ description: 상용 Marketplace 분석 데이터에 프로그래밍 방식으로
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: b61608c0cb53ab808c5d3d789ec5ddc318c6923d
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: a3c27a8e91ef1f202fbc757eb1a21eeddfc1d3d8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106805"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529277"
 ---
 # <a name="prerequisites-to-programmatically-access-analytics-data"></a>분석 데이터에 프로그래밍 방식으로 액세스하기 위한 사전 요구 사항
 
@@ -30,7 +31,7 @@ ms.locfileid: "107106805"
 
 Azure Portal에서 만든 Azure AD 애플리케이션을 파트너 센터 계정에 연결해야 합니다. 단계는 다음과 같습니다.
 
-1. [파트너 센터](https://partner.microsoft.com/dashboard)에 로그인합니다.
+1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165507)에 로그인합니다.
 1. 페이지 오른쪽 위에서 기어 아이콘을 선택한 후 **계정 설정** 을 선택합니다.
 1. **계정 설정** 메뉴에서 **사용자 관리** 를 선택합니다.
 1. **Azure AD 애플리케이션** 을 선택하고 **+ Azure AD 애플리케이션 만들기** 를 선택합니다.

@@ -3,13 +3,14 @@ title: Azure 지원 요청을 만드는 방법
 description: 지원이 필요한 고객은 Azure Portal을 사용하여 셀프 서비스 솔루션을 찾고, 지원 요청을 만들고 관리할 수 있습니다.
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
-ms.date: 03/16/2021
-ms.openlocfilehash: 395fc0d5905389ffb8f68d8bbc4c6f8b3a871d36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: support-help-page
+ms.date: 05/25/2021
+ms.openlocfilehash: 4e3f54712830406f04f6c0eec5097d693723db1c
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104774877"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112458776"
 ---
 # <a name="create-an-azure-support-request"></a>Azure 지원 요청 만들기
 
@@ -84,7 +85,7 @@ Azure Portal의 어디에서나 지원 요청을 시작하려면 다음을 수�
 
 1. 문제에 대한 모든 정보를 제공한 후 지원을 받는 방법을 선택합니다. **세부 정보** 의 **지원 방법** 섹션에서 영향의 심각도를 선택합니다. 최대 심각도 수준은 [지원 플랜](https://azure.microsoft.com/support/plans)에 따라 다릅니다.
 
-    기본적으로 **진단 정보 공유** 옵션이 선택되어 있습니다. 이 옵션은 Azure 지원 팀이 사용자의 Azure 리소스에서 [진단 정보](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/)를 수집할 수 있게 해 줍니다. 경우에 따라 가상 머신의 메모리에 대한 액세스 요청과 같이 기본적으로 선택되어 있지 않은 두 번째 질문이 있을 수 있습니다.
+    기본적으로 **진단 정보 공유** 옵션이 선택되어 있습니다. 이 옵션은 Azure 지원 팀이 사용자의 Azure 리소스에서 [진단 정보](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/)를 수집할 수 있게 해 줍니다. 진단 정보를 공유하지 않으려는 경우 이 옵션을 선택 취소할 수 있습니다. 경우에 따라 가상 머신의 메모리에 대한 액세스 요청과 같이 기본적으로 선택되어 있지 않은 두 번째 질문이 있을 수 있습니다.
 
 1. 원하는 연락 방법, 적당한 연락 시간, 지원 언어를 입력합니다.
 

@@ -4,12 +4,12 @@ description: 'HDInsight ESP 클러스터의 일부 사용자에 대한 Apache Sq
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/01/2021
-ms.openlocfilehash: 79aae099e30bae7d5201fae3384f7b89b6c30bcf
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 2eba44d735b1b8ea9a88164ede0ca4860efcce8a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106387237"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112283936"
 ---
 # <a name="scenario-sqoop-importexport-command-fails-for-usernames-greater-than-20-characters-in-azure-hdinsight-esp-clusters"></a>시나리오: Azure HDInsight ESP 클러스터에서 20자를 초과하는 사용자 이름에 대해 Sqoop import/export(가져오기/내보내기) 명령이 실패함
 
@@ -40,4 +40,4 @@ The directory must be owned by the submitter yourlongdomainuserna or yourlongdom
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](includes/hdinsight-troubleshooting-next-steps.md)]

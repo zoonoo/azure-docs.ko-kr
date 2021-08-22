@@ -2,17 +2,18 @@
 title: 파이프라인에 트리거 정보 전달
 description: 파이프라인에서 트리거 메타데이터를 참조하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: orchestration
 author: chez-charlie
 ms.author: chez
 ms.reviewer: ''
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 50a9f9cd59ebeecae89580c878442eb20788f462
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4d51377daeeb16d7e3e74a77a4379b6fc13cb94b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593648"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642699"
 ---
 # <a name="reference-trigger-metadata-in-pipeline-runs"></a>파이프라인 실행의 참조 트리거 메타데이터
 

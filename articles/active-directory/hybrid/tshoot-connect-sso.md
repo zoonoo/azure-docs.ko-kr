@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28dcf6a34621b0cc72d600d33af1cf63be875126
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: ba5db5208d53996d074dca15bdc8b7b3088e4dec
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289753"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113111198"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On 문제 해결
 
@@ -37,7 +37,7 @@ ms.locfileid: "108289753"
 - 사용자가 Active Directory에 있는 여러 그룹의 일부인 경우 사용자의 Kerberos 티켓은 처리하기에 너무 크기 때문에 원활한 SSO에 실패하게 됩니다. Azure AD HTTPS 요청에는 최대 50KB 크기인 헤더가 포함될 수 있습니다. Kerberos 티켓은 쿠키 등 다른 Azure AD 아티팩트(일반적으로 2~5KB)를 수용하는 제한보다 작아야 합니다. 사용자의 그룹 멤버 자격 수를 줄이고 다시 시도하는 것이 좋습니다.
 - 30개 이상의 Active Directory 포리스트를 동기화하는 경우 Azure AD Connect를 통해 Seamless SSO를 활성화할 수 없습니다. 이 경우 테넌트에서 이 기능을 [수동으로 활성화](#manual-reset-of-the-feature)하여 해결할 수 있습니다.
 - 로컬 인트라넷 영역 대신 신뢰할 수 있는 사이트 영역에 Azure AD 서비스 URL(`https://autologon.microsoftazuread-sso.com`)을 추가하면 *사용자가 로그인하지 못하도록 차단* 됩니다.
-- Seamless SSO는 Kerberos에 대한 AES256_HMAC_SHA1, AES128_HMAC_SHA1 및 RC4_HMAC_MD5 암호화 유형을 지원합니다. AzureADSSOAcc$ 계정의 암호화 유형은 AES256_HMAC_SHA1 또는 추가 보안을 위해 AES 및 RC4 유형 중 하나로 설정하는 것이 좋습니다. 암호화 유형은 Active Directory에 있는 계정의 msDS-SupportedEncryptionTypes 특성에 저장됩니다.  AzureADSSOAcc $ account encryption 유형을 RC4_HMAC_MD5로 설정 하고 AES 암호화 유형 중 하나로 변경하려는 경우 [FAQ 문서](how-to-connect-sso-faq.md)에 설명된 대로 먼저 AzureADSSOAcc $ 계정의 Kerberos 암호 해독 키를 롤오버하는지 확인하세요. 관련 질문에서, 그렇지 않으면 원활한 SSO가 발생하지 않습니다.
+- Seamless SSO는 Kerberos에 대한 AES256_HMAC_SHA1, AES128_HMAC_SHA1 및 RC4_HMAC_MD5 암호화 유형을 지원합니다. AzureADSSOAcc$ 계정의 암호화 유형은 AES256_HMAC_SHA1 또는 추가 보안을 위해 AES 및 RC4 유형 중 하나로 설정하는 것이 좋습니다. 암호화 유형은 Active Directory에 있는 계정의 msDS-SupportedEncryptionTypes 특성에 저장됩니다.  AzureADSSOAcc $ account encryption 유형을 RC4_HMAC_MD5로 설정 하고 AES 암호화 유형 중 하나로 변경하려는 경우 [FAQ 문서](how-to-connect-sso-faq.yml)에 설명된 대로 먼저 AzureADSSOAcc $ 계정의 Kerberos 암호 해독 키를 롤오버하는지 확인하세요. 관련 질문에서, 그렇지 않으면 원활한 SSO가 발생하지 않습니다.
 -  포리스트 트러스트가 있는 포리스트가 둘 이상인 경우 포리스트 중 하나에서 SSO를 사용하도록 설정하면 트러스트된 모든 포리스트에서 SSO를 사용할 수 있습니다. 이미 SSO를 사용하도록 설정된 포리스트에서 SSO를 사용하도록 설정하면 포리스트에서 SSO가 이미 사용하도록 설정되었다는 오류가 표시됩니다.
 
 ## <a name="check-status-of-feature"></a>기능의 상태 확인

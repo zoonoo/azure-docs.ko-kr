@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: c003b172322892e18fdc7a0e618f00eb526a10a8
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: ab706018e7c38e43ae75d5af49c3bd6c0a78d783
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111892979"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114403488"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -111,7 +111,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 해당 샘플은 Eclipse Mosquitto 라이브러리를 사용하여 IoT 허브에서 구현된 MQTT Broker로 메시지를 보냅니다.
 
-[Azure IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md) 규칙을 사용하도록 샘플을 조정하는 방법을 알아보려면 [자습서 - MQTT를 사용하여 IoT 플러그 앤 플레이 디바이스 클라이언트 개발](../iot-pnp/tutorial-use-mqtt.md)을 참조하세요.
+[Azure IoT 플러그 앤 플레이](../iot-develop/overview-iot-plug-and-play.md) 규칙을 사용하도록 샘플을 조정하는 방법을 알아보려면 [자습서 - MQTT를 사용하여 IoT 플러그 앤 플레이 디바이스 클라이언트 개발](../iot-develop/tutorial-use-mqtt.md)을 참조하세요.
 
 이 리포지토리에는 다음이 포함됩니다.
 
@@ -123,7 +123,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 * DeviceTwinMQTTWin32: Windows 컴퓨터에서 Azure IoT Hub의 디바이스에 관련된 디바이스 쌍 이벤트를 쿼리 및 구독하는 코드를 포함합니다.
 
-* PnPMQTTWin32: Windows 컴퓨터에서 빌드되고 실행되며 Azure IoT Hub에 IoT 플러그 앤 플레이 디바이스 기능을 사용하여 원격 분석 메시지를 전송하는 코드를 포함합니다. [IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md)에서 자세히 알아볼 수 있습니다.
+* PnPMQTTWin32: Windows 컴퓨터에서 빌드되고 실행되며 Azure IoT Hub에 IoT 플러그 앤 플레이 디바이스 기능을 사용하여 원격 분석 메시지를 전송하는 코드를 포함합니다. [IoT 플러그 앤 플레이](../iot-develop/overview-iot-plug-and-play.md)에서 자세히 알아볼 수 있습니다.
 
 **Linux의 경우:**
 
@@ -357,7 +357,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** 이 `devices/{dev
 
 가능한 상태 코드:
 
-|상태 | Description |
+|상태 | 설명 |
 | ----- | ----------- |
 | 200 | Success |
 | 429 | 너무 많은 요청(제한됨), [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md) 참조 |
@@ -388,7 +388,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 가능한 상태 코드:
 
-|상태 | Description |
+|상태 | 설명 |
 | ----- | ----------- |
 | 204 | 성공(반환되는 콘텐츠 없음) |
 | 400 | 잘못된 요청. 형식이 잘못된 JSON |

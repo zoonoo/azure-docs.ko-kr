@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a41a788a84770201996fd369d9b47031674afee3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ea54329328725f5ae74525b63daae060289773e
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799550"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115980"
 ---
 # <a name="yaml-configuration-options-to-customize-the-build-tasks"></a>빌드 작업을 사용자 지정하는 YAML 구성 옵션
 
@@ -167,4 +167,4 @@ ms.locfileid: "104799550"
 
 ## <a name="next-steps"></a>다음 단계
 
-보안 코드 분석 확장 및 제공된 도구에 대한 추가 질문이 있는 경우 [FAQ 페이지](security-code-analysis-faq.md)를 확인하세요.
+보안 코드 분석 확장 및 제공된 도구에 대한 추가 질문이 있는 경우 [FAQ 페이지](security-code-analysis-faq.yml)를 확인하세요.

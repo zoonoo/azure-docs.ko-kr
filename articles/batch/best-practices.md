@@ -3,12 +3,12 @@ title: 모범 사례
 description: Azure Batch 솔루션을 개발하기 위한 모범 사례와 유용한 팁에 대해 알아봅니다.
 ms.date: 04/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 181f8f8ced4113521c8791fd9e1b5d651776783e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: db67f91257db1ddb44f7dfb103ac02e49febe562
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773344"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126467"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
@@ -197,7 +197,7 @@ Batch 서비스 클라이언트에는 서비스 유지 관리 기간 동안만�
 
 ### <a name="testing-connectivity-with-cloud-services-configuration"></a>Cloud Services 구성을 사용하여 연결 테스트
 
-Azure Load Balancer를 통해 ICMP 프로토콜을 사용할 수 없기 때문에 클라우드 서비스에서 일반적인 "ping"/ICMP 프로토콜을 사용할 수 없습니다. 자세한 내용은 [Azure Cloud Services에 대한 연결 및 네트워킹](../cloud-services/cloud-services-connectivity-and-networking-faq.md#can-i-ping-a-cloud-service)을 참조하세요.
+Azure Load Balancer를 통해 ICMP 프로토콜을 사용할 수 없기 때문에 클라우드 서비스에서 일반적인 "ping"/ICMP 프로토콜을 사용할 수 없습니다. 자세한 내용은 [Azure Cloud Services에 대한 연결 및 네트워킹](../cloud-services/cloud-services-connectivity-and-networking-faq.yml#can-i-ping-a-cloud-service-)을 참조하세요.
 
 ## <a name="batch-node-underlying-dependencies"></a>Batch 노드 기본 종속성
 

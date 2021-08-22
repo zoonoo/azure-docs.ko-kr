@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: b402dab4c6e94a7634e11f0330b5379315e43abf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c66f4bd7e311bdaedefe68327fc34d373fc6fec
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91762477"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113301657"
 ---
 # <a name="call-logic-apps-from-power-automate-and-power-apps"></a>Power Automate 및 Power Apps에서 논리 앱 호출
 
@@ -24,7 +24,7 @@ Power Automate 또는 Power Apps에서 Logic Apps로 흐름을 마이그레이�
 >
 > * Logic Apps에 동등한 커넥터가 없는 Power Automate 커넥터를 확인하려면 [Power Automate 커넥터](/connectors/connector-reference/connector-reference-powerautomate-connectors)를 참조하세요.
 >
-> * Power Automate에 동등한 커넥터가 없는 Logic Apps 커넥터를 확인하려면 [Logic Apps 커넥터](/connectors/connector-reference/connector-reference-powerautomate-connectors)를 참조하세요.
+> * Power Automate에 동등한 커넥터가 없는 Logic Apps 커넥터를 확인하려면 [Logic Apps 커넥터](/connectors/connector-reference/connector-reference-logicapps-connectors)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -150,5 +150,5 @@ Power Apps 흐름을 사용하여 내보낸 논리 앱에 연결하려면 다음
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Logic Apps용 커넥터](../connectors/apis-list.md)에 대해 자세히 알아봅니다.
+* [Azure Logic Apps용 커넥터](../connectors/apis-list.md)의 자세한 내용을 알아봅니다.
 * [Azure Logic Apps](../logic-apps/logic-apps-overview.md)에 대해 자세히 알아봅니다.

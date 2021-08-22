@@ -3,13 +3,13 @@ title: 비디오 녹화 재생 - Azure Video Analyzer
 description: 연속 비디오 녹화를 위해 Azure Video Analyzer를 사용하여 몇 주 또는 몇 달 동안 클라우드에 비디오를 녹화할 수 있습니다. 이벤트 기반 녹화를 통해 관심 있는 클립으로 녹화를 제한할 수도 있습니다. 이 문서에서는 이러한 녹화를 재생하는 방법을 설명합니다.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 05/13/2021
-ms.openlocfilehash: c2b8ceea0778634f3396ac324da093c030f5acc9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 415edea10eaf635b88786d33bbd439bc386a57fc
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387877"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602183"
 ---
 # <a name="playback-of-video-recordings"></a>비디오 녹화 재생 
 

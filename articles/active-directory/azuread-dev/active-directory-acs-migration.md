@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: d513c19eed36d4a1cc5c620bff9dd2e8deb533e0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 24bdbb37a2ec88d930752f728acecd23eb2896b7
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949554"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113106932"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -131,7 +131,7 @@ Access Control에서 발행하는 토큰을 이용하는 각 Microsoft 클라우
 | ------- | -------- |
 | Azure Service Bus | [공유 액세스 서명으로 마이그레이션](../../service-bus-messaging/service-bus-sas.md) |
 | Azure Service Bus Relay | [공유 액세스 서명으로 마이그레이션](../../azure-relay/relay-migrate-acs-sas.md) |
-| Azure Managed Cache | [Azure Cache for Redis로 마이그레이션](../../azure-cache-for-redis/cache-faq.md) |
+| Azure Managed Cache | [Azure Cache for Redis로 마이그레이션](../../azure-cache-for-redis/cache-faq.yml) |
 | Azure DataMarket | [Cognitive Services API로 마이그레이션](https://azure.microsoft.com/services/cognitive-services/) |
 | BizTalk Services | [Azure App Service의 Logic Apps 기능으로 마이그레이션](https://azure.microsoft.com/services/cognitive-services/) |
 | Azure Media Services | [Azure AD 인증으로 마이그레이션](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |

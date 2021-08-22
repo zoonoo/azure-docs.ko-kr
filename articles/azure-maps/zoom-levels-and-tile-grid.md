@@ -7,13 +7,12 @@ ms.date: 07/14/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: 21c2329ec58e414ebfedaa4c49d5f690f47cac72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b607037d56ab0c9d9bd119b12f4dc3a7200ff981
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92913894"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529094"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>확대/축소 수준 및 타일 그리드
 
@@ -74,7 +73,7 @@ var mapWidth = tileSize * Math.pow(2, zoom);
 var mapHeight = mapWidth;
 ```
 
-지도 너비와 높이가 각 확대/축소 수준에서 서로 다르므로 픽셀 좌표도 다릅니다. 지도의 왼쪽 위 모퉁이에 있는 픽셀에는 항상 픽셀 좌표(0, 0)가 있습니다. 지도의 오른쪽 아래 모퉁이에 있는 픽셀에는 픽셀 좌표 *(width-1, height-1)* 가 있거나 이전 섹션의 수식 *(tileSize \* 2<sup>zoom</sup>–1, tileSize \* 2<sup>zoom</sup>–1)* 에 대한 참조가 있습니다. 예를 들어, 수준 2에서 512개 정사각형 타일을 사용하는 경우 픽셀 좌표 범위는 다음과 같이 (0, 0)에서 (2047, 2047)까지입니다.
+지도 너비와 높이가 각 확대/축소 수준에서 서로 다르므로 픽셀 좌표도 다릅니다. 지도의 왼쪽 위 모퉁이에 있는 픽셀에는 항상 픽셀 좌표(0, 0)가 있습니다. 지도의 오른쪽 아래 모퉁이에 있는 픽셀에는 픽셀 좌표 *(width-1, height-1)* 가 있거나 이전 섹션의 수식 *(tileSize \* 2 <sup>zoom</sup>–1, tileSize \* 2 <sup>zoom</sup>–1)* 에 대한 참조가 있습니다. 예를 들어, 수준 2에서 512개 정사각형 타일을 사용하는 경우 픽셀 좌표 범위는 다음과 같이 (0, 0)에서 (2047, 2047)까지입니다.
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="픽셀 차원을 보여 주는 지도":::
 
@@ -100,7 +99,7 @@ var numberOfTilesWide = Math.pow(2, zoom);
 var numberOfTilesHigh = numberOfTilesWide;
 ```
 
-각 타일에는 왼쪽 위 (0, 0)부터 오른쪽 아래 *(2<sup>zoom</sup>–1, 2<sup>zoom</sup>–1)* 까지 범위의 XY 좌표가 제공됩니다. 예를 들어, 확대/축소 수준 3에서 타일 좌표 범위는 다음과 같이 (0, 0)에서 (7, 7)까지입니다.
+각 타일에는 왼쪽 위 (0, 0)부터 오른쪽 아래 *(2 <sup>zoom</sup>–1, 2 <sup>zoom</sup>–1)* 까지 범위의 XY 좌표가 제공됩니다. 예를 들어, 확대/축소 수준 3에서 타일 좌표 범위는 다음과 같이 (0, 0)에서 (7, 7)까지입니다.
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="타일 좌표 지도":::
 

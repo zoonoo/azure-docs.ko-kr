@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: b9b27a432776635290c7e8e796e84d8c1e0e8675
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57befe2d0a2ff985dc1da90119e3eedd5da85040
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92168344"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135071"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Microsoft.Common.DropDown UI 요소
 
@@ -50,12 +50,12 @@ DropDown 요소는 포털에서 요소 모양을 결정하는 다양한 옵션�
     "placeholder": "",
     "defaultValue": "Value two",
     "toolTip": "",
-    "multiselect": true,  
-    "selectAll": true,  
-    "filter": true,  
-    "filterPlaceholder": "Filter items ...",  
-    "multiLine": true,  
-    "defaultDescription": "A value for selection",  
+    "multiselect": true,
+    "selectAll": true,
+    "filter": true,
+    "filterPlaceholder": "Filter items ...",
+    "multiLine": true,
+    "defaultDescription": "A value for selection",
     "constraints": {
         "allowedValues": [
             {

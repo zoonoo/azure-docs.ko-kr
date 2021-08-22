@@ -2,21 +2,21 @@
 title: 전용 SQL 풀(이전의 SQL DW)에 대한 시스템 뷰
 description: Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)에 대한 시스템 뷰 설명서 링크입니다.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 01/06/2020
-ms.author: xiaoyul
+ms.author: wiassaf
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 088cf9f33093c7a4623c044a220f4e89fe07872b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7e0c91cad3eab64c95854484aaf0c033903bf853
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98681206"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529189"
 ---
 # <a name="system-views-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)에 대한 시스템 뷰
 

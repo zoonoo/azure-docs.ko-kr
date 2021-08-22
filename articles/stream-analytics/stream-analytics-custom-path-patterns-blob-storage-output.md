@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2021
 ms.custom: seodec18
-ms.openlocfilehash: 91ba1280262a7d13afa71d5dc0e2b7eb0e545ecc
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 59226a105df2a05e693c7d83f2488a43143914b6
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110787717"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122529678"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics 사용자 지정 Blob 출력 분할
 
@@ -70,7 +70,7 @@ Blob의 각 레코드에는 폴더 이름과 일치하는 **client_id** 열이 �
 
 4. 파티션 키 카디널리티 8000 미만의 레코드로 입력 스트림이 구성되면 레코드가 기존 Blob에 추가되고 필요할 때만 새 Blob을 만듭니다. 카디널리티가 8000을 넘으면 기존 Blob이 작성되고 파티션 키가 동일한 임의의 수의 레코드에 대한 새 Blob이 생성된다는 보장이 없습니다.
 
-5. Blob 출력을 [변경 불가능으로 구성](../storage/blobs/storage-blob-immutable-storage.md)하면 데이터를 보낼 때마다 Stream Analytics에서 새 Blob을 만듭니다.
+5. Blob 출력을 [변경 불가능으로 구성](../storage/blobs/immutable-storage-overview.md)하면 데이터를 보낼 때마다 Stream Analytics에서 새 Blob을 만듭니다.
 
 ## <a name="custom-datetime-path-patterns"></a>사용자 지정 날짜/시간 경로 패턴
 

@@ -2,19 +2,18 @@
 title: Bing Entity Search API를 사용하는 사용자 지정 기술 예제
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search의 AI 보강 인덱싱 파이프라인에 매핑된 사용자 지정 기술에서 Bing Entity Search 서비스를 사용하는 방법을 보여 줍니다.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b962282ee4e488d026b6475c63fc32e6a77cee74
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 88ea321087cc8745184249d323895a356cd9dbbc
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591533"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729434"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>예제: Bing Entity Search API를 사용하여 사용자 지정 기술 만들기
 
@@ -312,7 +311,7 @@ namespace SampleSkills
 
 Bing Entity Search API에 등록할 때 받은 키를 기준으로 `key` 상수에 고유한 ‘키’ 값을 입력해야 합니다.
 
-이 샘플에서는 편의상 필요한 모든 코드가 단일 파일에 포함되어 있습니다. [파워 기술 리포지토리](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch)에서 이와 동일한 기술의 좀 더 구조적인 버전을 확인할 수 있습니다.
+이 샘플에서는 편의상 필요한 모든 코드가 단일 파일에 포함되어 있습니다. [파워 기술 리포지토리](https://github.com/Azure-Samples/azure-search-power-skills/tree/main/Text/BingEntitySearch)에서 이와 동일한 기술의 좀 더 구조적인 버전을 확인할 수 있습니다.
 
 물론, 파일 이름을 `Function1.cs`에서 `BingEntitySearch.cs`로 바꿀 수도 있습니다.
 

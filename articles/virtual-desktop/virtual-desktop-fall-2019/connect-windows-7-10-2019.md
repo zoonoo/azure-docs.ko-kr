@@ -6,19 +6,19 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 6fcb8b3688ea5d2a8866093fd46efb8236db3558
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 004fff41e30ca9c60d51847035e30262e359270e
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982055"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113031124"
 ---
 # <a name="connect-with-the-windows-desktop-classic-client"></a>Windows Desktop(클래식) 클라이언트를 사용하여 연결
 
 > 적용 대상: Windows 7, Windows 10 및 Windows 10 IoT Enterprise
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Azure Virtual Desktop 개체를 관리하려는 경우 [이 문서](../connect-windows-7-10.md)를 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Azure Virtual Desktop 개체를 관리하려는 경우 [이 문서](../user-documentation/connect-windows-7-10.md)를 참조하세요.
 
 Windows Desktop 클라이언트를 사용하여 Windows 7, Windows 10 및 Windows 10 IoT Enterprise가 설치된 디바이스에서 Azure Virtual Desktop 리소스에 액세스할 수 있습니다. 클라이언트는 Windows 8 또는 Windows 8.1을 지원하지 않습니다.
 
@@ -61,7 +61,7 @@ Windows 버전과 일치하는 클라이언트를 선택합니다.
 1. 클라이언트의 기본 페이지에서 **URL로 구독** 을 선택합니다.
 2. 작업 영역 URL 또는 이메일 주소를 입력합니다.
    - **작업 영역 URL** 을 사용하는 경우 관리자가 제공한 URL을 사용합니다. Azure Virtual Desktop에서 리소스에 액세스하는 경우 다음 URL 중 하나를 사용할 수 있습니다.
-     - Windows Virtual Desktop(클래식): `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Azure Virtual Desktop(클래식): `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
      - Azure Virtual Desktop: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
    - **이메일** 필드를 대신 사용하는 경우 이메일 주소를 입력합니다. 관리자가 [이메일 검색](/windows-server/remote/remote-desktop-services/rds-email-discovery)을 설정한 경우 클라이언트가 이메일 주소와 연결된 URL을 검색하도록 지시합니다.
 3. **다음** 을 선택합니다.

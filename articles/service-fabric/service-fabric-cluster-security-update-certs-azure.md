@@ -4,12 +4,12 @@ description: Service Fabric 클러스터에서 새 인증서를 추가, 교체 �
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71096ad79f044edc003f80c838a989f694e69dd6
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: be243f3c1860e2a696add5e67a86f030819eb88a
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677479"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113092746"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure에서 서비스 패브릭 클러스터에 대한 인증서 추가 또는 제거
 Service Fabric이 X.509 인증서를 사용하는 방법을 숙지하고 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 읽어보는 것이 좋습니다. 다음 과정으로 진행하기 전에 클러스터 인증서가 무엇이며 어떤 용도로 사용되는지를 이해해야 합니다.
@@ -282,6 +282,8 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="next-steps"></a>다음 단계
 클러스터 관리에 대한 자세한 내용은 다음 문서를 읽어보세요.
+
+* [Service Fabric 클러스터에서 인증서 관리](cluster-security-certificate-management.md)
 
 * [서비스 패브릭 클러스터 업그레이드 프로세스 및 사용자 기대 수준](service-fabric-cluster-upgrade.md)
 * [클라이언트에 대한 역할 기반 액세스 설정](service-fabric-cluster-security-roles.md)

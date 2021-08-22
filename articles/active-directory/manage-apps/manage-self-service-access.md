@@ -2,41 +2,42 @@
 title: 셀프 서비스 애플리케이션 할당을 구성하는 방법 | Microsoft Docs
 description: 셀프 서비스 애플리케이션 액세스를 활성화하여 사용자가 자신의 애플리케이션을 찾을 수 있도록 함
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.author: mtillman
+ms.author: davidmu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 506e29abe9c9a5c1c68fc3c0e53650ec51baf1b9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.reviewer: phsignor
+ms.openlocfilehash: 98848b4ee117a0c2e34e21b30a920fe22c8e02be
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081158"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529305"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>셀프 서비스 애플리케이션 할당을 구성하는 방법
 
-사용자가 내 앱에서 애플리케이션을 셀프 검색할 수 있도록 하려면 먼저 사용자가 셀프 검색을 수행하고 액세스 권한을 요청할 수 있게 하려는 모든 애플리케이션에 대해 **셀프 서비스 애플리케이션 액세스** 를 사용하도록 설정해야 합니다. 이 기능은 [Azure AD 갤러리](./add-application-portal.md), [Azure AD 애플리케이션 프록시](../app-proxy/application-proxy.md)에서 추가되었거나 [사용자 또는 관리자 동의](../develop/application-consent-experience.md)를 통해 추가된 애플리케이션에 사용할 수 있습니다. 
+사용자가 내 앱에서 애플리케이션을 셀프 검색할 수 있도록 하려면 먼저 사용자가 셀프 검색을 수행하고 액세스 권한을 요청할 수 있게 하려는 모든 애플리케이션에 대해 **셀프 서비스 애플리케이션 액세스** 를 사용하도록 설정해야 합니다. 이 기능은 [Azure AD 갤러리](./add-application-portal.md), [Azure AD 애플리케이션 프록시](../app-proxy/application-proxy.md)에서 추가되었거나 [사용자 또는 관리자 동의](../develop/application-consent-experience.md)를 통해 추가된 애플리케이션에 사용할 수 있습니다.
 
 이 기능은 IT 그룹이 시간과 비용을 절감하는 유용한 방법이며, Azure Active Directory를 사용하는 최신 애플리케이션 배포의 일부로 사용하는 것이 좋습니다.
 
 이 기능을 사용하면 다음을 수행할 수 있습니다.
 
--   사용자가 IT 그룹의 도움 없이 [내 앱](https://myapps.microsoft.com/)에서 애플리케이션을 직접 검색할 수 있습니다.
+- 사용자가 IT 그룹의 도움 없이 [내 앱](https://myapps.microsoft.com/)에서 애플리케이션을 직접 검색할 수 있습니다.
 
--   액세스를 요청한 사용자가 누군지 알고, 액세스를 제거하고, 할당된 역할을 관리할 수 있도록 미리 구성된 그룹에 해당 사용자를 추가합니다.
+- 액세스를 요청한 사용자가 누군지 알고, 액세스를 제거하고, 할당된 역할을 관리할 수 있도록 미리 구성된 그룹에 해당 사용자를 추가합니다.
 
--   필요에 따라 비즈니스 승인자가 애플리케이션 액세스 요청을 승인할 수 있도록 합니다. 그러면 IT 그룹에서 이러한 작업을 수행할 필요가 없습니다.
+- 필요에 따라 비즈니스 승인자가 애플리케이션 액세스 요청을 승인할 수 있도록 합니다. 그러면 IT 그룹에서 이러한 작업을 수행할 필요가 없습니다.
 
--   필요에 따라 이 애플리케이션에 대한 액세스를 승인할 수 있는 최대 10명의 개별 사용자를 구성합니다.
+- 필요에 따라 이 애플리케이션에 대한 액세스를 승인할 수 있는 최대 10명의 개별 사용자를 구성합니다.
 
--   필요에 따라 해당 사용자가 애플리케이션에 로그인하는 데 사용할 수 있는 암호를 비즈니스 승인자가 해당 [내 앱](https://myapps.microsoft.com/)에서 바로 설정할 수 있도록 합니다.
+- 필요에 따라 해당 사용자가 애플리케이션에 로그인하는 데 사용할 수 있는 암호를 비즈니스 승인자가 해당 [내 앱](https://myapps.microsoft.com/)에서 바로 설정할 수 있도록 합니다.
 
--   필요에 따라 자동으로 셀프 서비스 할당 사용자를 애플리케이션 역할에 직접 할당합니다.
+- 필요에 따라 자동으로 셀프 서비스 할당 사용자를 애플리케이션 역할에 직접 할당합니다.
 
 > [!NOTE]
 > 사용자가 셀프 서비스 앱 가입을 요청하고 소유자가 요청을 승인하거나 거부하려면 Azure Active Directory Premium(P1 또는 P2) 라이선스가 필요합니다. Azure Active Directory Premium 라이선스가 없는 사용자는 셀프 서비스 앱을 추가할 수 없습니다.
@@ -78,4 +79,5 @@ ms.locfileid: "112081158"
 셀프 서비스 애플리케이션 구성을 완료한 후 사용자는 [내 앱](https://myapps.microsoft.com/)으로 이동하고 **셀프 서비스 앱 추가** 단추를 클릭하여 셀프 서비스 액세스를 활성화한 앱을 찾을 수 있습니다. 비즈니스 승인자는 [내 앱](https://myapps.microsoft.com/)에서 알림을 볼 수도 있습니다. 사용자가 승인이 필요한 애플리케이션에 대한 액세스를 요청한 경우 비즈니스 승인자에게 알리는 이메일을 활성화할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 [셀프 서비스 그룹 관리를 위한 Azure Active Directory 설정](../enterprise-users/groups-self-service-management.md)

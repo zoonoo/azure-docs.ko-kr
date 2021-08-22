@@ -2,21 +2,21 @@
 title: 데이터 로드 모범 사례
 description: 전용 SQL 풀 Azure Synapse Analytics로 데이터를 로드하기 위한 권장 사항 및 성능 최적화.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 33212d44fcb6be3f01cf968d00751d55e3bd7b8f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a04bf8a1805fa55afac3d51a2d4f3ba353edf03c
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585454"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529468"
 ---
 # <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>전용 SQL 풀 Azure Synapse Analytics로 데이터를 로드하는 모범 사례
 
@@ -106,7 +106,7 @@ columnstore 인덱스는 고품질 행 그룹으로 데이터를 압축하기 �
 
 ## <a name="create-statistics-after-the-load"></a>로드 후 통계 만들기
 
-쿼리 성능을 개선하려면 데이터를 처음 로드하거나 데이터 내에 큰 변화가 생긴 후에, 모든 테이블의 모든 열에서 통계를 만드는 것이 중요합니다. 통계를 수동으로 만들거나 [통계 자동 생성](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 사용할 수 있습니다.
+쿼리 성능을 개선하려면 데이터를 처음 로드하거나 데이터 내에 큰 변화가 생긴 후에, 모든 테이블의 모든 열에서 통계를 만드는 것이 중요합니다. 통계를 수동으로 만들거나 [통계 자동 생성](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?context=/azure/synapse-analytics/context/context)을 사용할 수 있습니다.
 
 통계에 대한 자세한 설명은 [통계](develop-tables-statistics.md)를 참조하세요. 다음 예는 Customer_Speed 테이블의 5개 열에 대한 통계를 수동으로 만드는 방법을 보여 줍니다.
 
@@ -144,6 +144,6 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 
 ## <a name="next-steps"></a>다음 단계
 
-- PolyBase 및 ELT(추출, 로드, 변환) 프로세스를 디자인하는 방법을 자세히 알아보려면 [Azure Synapse Analytics에 대한 ELT 디자인](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.
+- PolyBase 및 ELT(추출, 로드, 변환) 프로세스를 디자인하는 방법을 자세히 알아보려면 [Azure Synapse Analytics에 대한 ELT 디자인](../sql-data-warehouse/design-elt-data-loading.md?context=/azure/synapse-analytics/context/context)을 참조하세요.
 - 로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 Azure Synapse Analytics로 데이터 로드](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)를 참조하세요.
-- 데이터 로드를 모니터링하려면 [DMV를 사용하여 워크로드 모니터링](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.
+- 데이터 로드를 모니터링하려면 [DMV를 사용하여 워크로드 모니터링](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context)을 참조하세요.

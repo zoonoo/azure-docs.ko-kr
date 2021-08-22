@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 7a1aa061bb8c8be3a676e0e5bb690b2a9749b6c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 589c0a4ab358bb1b25fa58c2083dd82b13315d64
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94536135"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642120"
 ---
 # <a name="azure-database-for-mysql-management-stored-procedures"></a>Azure Database for MySQL 관리 저장 프로시저
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 저장 프로시저는 MySQL 서버를 관리하는 데 도움이 되는 Azure Database for MySQL 서버에서 사용할 수 있습니다. 여기에는 서버의 연결, 쿼리의 관리 및 입력 데이터 복제 설정이 포함됩니다.  
 
@@ -44,5 +46,5 @@ Azure Database for MySQL에서 원본과 복제본 간 입력 데이터 복제�
 |*mysql.az_load_timezone*|해당 없음|해당 없음|표준 시간대 표를 로드하여 `time_zone` 매개 변수를 명명된 값으로 설정할 수 있습니다(예: “미국/태평양”).|
 
 ## <a name="next-steps"></a>다음 단계
-- [입력 데이터 복제](howto-data-in-replication.md)를 설정하는 방법 알아보기
-- [표준 시간대 표](howto-server-parameters.md#working-with-the-time-zone-parameter)를 사용하는 방법 알아보기
+- [입력 데이터 복제](howto-data-in-replication.md) 설정 방법 알아보기
+- [표준 시간대 표](howto-server-parameters.md#working-with-the-time-zone-parameter) 사용 방법 알아보기

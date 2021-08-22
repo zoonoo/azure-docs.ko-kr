@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: 122c96c95aea794fbba9cab8a9a5b867f9f34b48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da61064fb65db85ebb41b441c228e9c77a1db6fc
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88008970"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136529"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Azure Cache for Redis 클라이언트 쪽 문제 해결
 
@@ -53,7 +53,7 @@ ms.locfileid: "88008970"
 - `IOCP` 섹션과 `WORKER` 섹션에 `Min` 값보다 큰 `Busy` 값이 있습니다. 이러한 차이는 `ThreadPool` 설정을 조정해야 한다는 것을 나타냅니다.
 - 또한 `in: 64221`도 볼 수 있습니다: 이 값은 64,211바이트를 클라이언트의 커널 소켓 계층에서 받았지만 애플리케이션에서 아직 읽지 않았음을 나타냅니다. 이 차이는 일반적으로 애플리케이션(예: StackExchange.Redis)이 데이터를 서버에서 보내는 만큼 빠르게 네트워크로부터 읽지 못하고 있음을 의미합니다.
 
-[`ThreadPool` 설정을 구성](cache-management-faq.md#important-details-about-threadpool-growth)하여 버스트 시나리오에서 스레드 풀이 신속하게 스케일 업할 수 있도록 합니다.
+[`ThreadPool` 설정을 구성](cache-management-faq.yml#important-details-about-threadpool-growth)하여 버스트 시나리오에서 스레드 풀이 신속하게 스케일 업할 수 있도록 합니다.
 
 ## <a name="high-client-cpu-usage"></a>클라이언트의 높은 CPU 사용량
 
@@ -109,4 +109,4 @@ Azure Portal에서 제공하는 메트릭을 사용하거나 머신의 성능 �
 ## <a name="additional-information"></a>추가 정보
 
 - [Azure Cache for Redis 서버 쪽 문제 해결](cache-troubleshoot-server.md)
-- [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](cache-management-faq.yml#how-can-i-benchmark-and-test-the-performance-of-my-cache-)

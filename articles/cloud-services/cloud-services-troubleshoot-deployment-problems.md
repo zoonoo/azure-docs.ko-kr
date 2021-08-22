@@ -4,16 +4,16 @@ description: Azure에 클라우드 서비스를 배포할 때 발생할 수 있�
 ms.topic: troubleshooting
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 39c69d69012345cd636964ca813ac93186946cb9
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 9b88ed48468d3169470b0a1e37e1f8d8c0c9b2db
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108771598"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090100"
 ---
 # <a name="troubleshoot-azure-cloud-services-classic-deployment-problems"></a>Azure Cloud Services(클래식) 배포 문제 해결
 

@@ -16,12 +16,12 @@ ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b8f613cb7c75d9dd6af1fcf62f9d484398072c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 519ed24e313f718efd92ba63f3d03f6dc9e4a13d
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89279468"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110586"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증으로 사용자 로그인
 
@@ -75,7 +75,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 - [스마트 잠금](../authentication/howto-password-smart-lockout.md) - 테넌트에서 사용자 계정을 보호하도록 스마트 잠금 기능을 구성합니다.
 - [현재 제한 사항](how-to-connect-pta-current-limitations.md) - 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
 - [기술 심층 분석](how-to-connect-pta-how-it-works.md) - 이 기능의 작동 방식을 이해합니다.
-- [FAQ(질문과 대답)](how-to-connect-pta-faq.md)  - 질문과 대답을 다루고 있습니다.
+- [FAQ(질문과 대답)](how-to-connect-pta-faq.yml)  - 질문과 대답을 다루고 있습니다.
 - [문제 해결](tshoot-connect-pass-through-authentication.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
 - [보안 심층 분석](how-to-connect-pta-security-deep-dive.md) - 해당 기능에 대한 자세한 추가 기술 정보입니다.
 - [Azure AD 원활한 SSO](how-to-connect-sso.md) - 이 보완 기능에 대해 자세히 알아봅니다.

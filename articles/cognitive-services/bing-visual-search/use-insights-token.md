@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 161266a69308175637f5967b2ded48621d4d9c53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 685bdc3f67594c51f6ab749c33ab30e940faee34
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102424073"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288287"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>인사이트 토큰을 사용하여 이미지에 대한 사이트 가져오기
 
@@ -262,7 +262,7 @@ namespace VisualSearchInsightsToken
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * Azure 구독을 만든 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Bing Search 리소스 만들기"  target="_blank">Bing Search 리소스 만들기</a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
-* 이 코드를 컴파일하고 실행하기 위한 [JDK 7 또는 8](/azure/developer/java/fundamentals/java-jdk-long-term-support). 즐겨찾기가 있는 경우 Java IDE를 사용할 수 있지만 텍스트 편집기로 충분합니다.
+* 이 코드를 컴파일하고 실행하기 위한 [JDK 7 또는 8](/azure/developer/java/fundamentals/java-support-on-azure). 즐겨찾기가 있는 경우 Java IDE를 사용할 수 있지만 텍스트 편집기로 충분합니다.
 
 
 ## <a name="run-the-java-application"></a>Java 애플리케이션 실행

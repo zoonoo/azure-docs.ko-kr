@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae575aa6544a174a70eb8ea4749566e8660280e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5bf80f24aca889a57896bcb0768d4727cae9440a
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94873270"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110226"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect 및 Azure AD Connect Health 설치 로드맵
 
@@ -155,7 +155,7 @@ Azure AD Connect Health를 시작하려면 다음 단계를 수행하세요.
 Azure AD Connect Health 포털에서 경고 보기, 성능 모니터링 및 사용량 현황 분석을 볼 수 있습니다. https://aka.ms/aadconnecthealth URL에서 Azure AD Connect Health의 주 블레이드로 이동합니다. 블레이드를 창으로 생각할 수 있습니다. 기본 블레이드에는 **빠른 시작**, Azure AD Connect Health 내 서비스 및 추가 구성 옵션이 표시됩니다. 다음 스크린샷과 스크린샷 뒤에 이어지는 간략한 설명을 참조하세요. 에이전트를 배포하면 상태 서비스는 Azure AD Connect Health가 모니터링하는 서비스를 자동으로 식별합니다.
 
 > [!NOTE]
-> 라이선스 정보는 [Azure AD Connect Health FAQ](reference-connect-health-faq.md) 또는 [Azure AD 가격 책정 페이지](https://aka.ms/aadpricing)를 참조하세요.
+> 라이선스 정보는 [Azure AD Connect Health FAQ](reference-connect-health-faq.yml) 또는 [Azure AD 가격 책정 페이지](https://aka.ms/aadpricing)를 참조하세요.
     
 ![Azure AD Connect Health 포털](./media/whatis-hybrid-identity-health/portalsidebar.png)
 

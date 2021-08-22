@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Edge Managed Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 7d3cd36dd0f03db7cc701c618b40f58dc9873659
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: b7ca60a674a044e5fa37604eadad7ca5cbbfddf3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982019"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528904"
 ---
 # <a name="edge-managed-certification-requirements"></a>Edge Managed 인증 요구 사항
 
@@ -51,7 +51,7 @@ Edge Managed 인증을 사용하려면 [ 기준 프로그램](.\program-requirem
 | **OS**                  | [계층 1 및 계층 2 OS](../iot-edge/support.md)                 |
 | **유효성 검사 유형**     | 자동                                                    |
 | **유효성 검사**          | AICS는 설치된 IoT Edge RT의 배포 기능에 대한 유효성을 검사합니다. **1.** 사용자는 특정 OS를 지정해야 합니다(계층 1 또는 계층 2 목록에 없는 OS는 허용되지 않음). **2.** AICS가 config.yaml을 생성하고 표준 [시뮬레이션 임시 센서 에지 모듈](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-iot.simulated-temperature-sensor?tab=Overview)을 배포합니다. **3.** AICS가 디바이스에 Docker 호환 컨테이너 하위 시스템(Moby)이 설치되어 있는지에 대해 유효성을 검사합니다. **4.** 테스트 결과는 시뮬레이션 임시 센서 에지 모듈의 성공적인 배포와 Docker 호환 컨테이너 하위 시스템의 기능을 기반으로 결정됩니다.                                                    |
-| **리소스**           | **a)** [AICS 블로그](https://azure.microsoft.com/en-in/blog/expanding-azure-iot-certification-service-to-support-azure-iot-edge-device-certification/), **b)** [인증 단계](./overview.md)(모든 추가 리소스 포함), **c)** [요구 사항](./program-requirements-azure-certified-device.md) |
+| **리소스**           | **a)** [AICS 블로그](https://azure.microsoft.com/blog/expanding-azure-iot-certification-service-to-support-azure-iot-edge-device-certification/), **b)** [인증 단계](./overview.md)(모든 추가 리소스 포함), **c)** [요구 사항](./program-requirements-azure-certified-device.md) |
 | **Azure 권장:**     | 해당 없음                                                    |
 
 ### <a name="capability-template"></a>기능 템플릿:
@@ -65,5 +65,5 @@ Edge Managed 인증을 사용하려면 [ 기준 프로그램](.\program-requirem
 | **OS**                  | [계층 1 및 계층 2 OS](../iot-edge/support.md)                                                     |
 | **유효성 검사 유형**     | 수동/랩 확인                                                    |
 | **유효성 검사**          | OEM은 물리적 디바이스를 HCL(IoT 관리)에 보내야 합니다. HCL은 확인할 물리적 디바이스에 대해 수동 유효성 검사를 수행합니다. **1.** EdgeRT는 Moby 하위 시스템(허용되는 재배포 버전)을 사용하고 있습니다. Docker가 아닙니다. **2.** Edge 배포 기능의 유효성을 검사하기 위해 최신 Edge 모듈을 선택합니다.                                                     |
-| **리소스**           | **a)** [AICS 블로그](https://azure.microsoft.com/en-in/blog/expanding-azure-iot-certification-service-to-support-azure-iot-edge-device-certification/), **b)** [인증 단계](./overview.md) , **c)** [요구 사항](./program-requirements-azure-certified-device.md) |
-| **Azure 권장:**     | N/A                                                    |
+| **리소스**           | **a)** [AICS 블로그](https://azure.microsoft.com/blog/expanding-azure-iot-certification-service-to-support-azure-iot-edge-device-certification/), **b)** [인증 단계](./overview.md) , **c)** [요구 사항](./program-requirements-azure-certified-device.md) |
+| **Azure 권장:**     | 해당 없음                                                    |

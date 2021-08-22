@@ -3,20 +3,20 @@ title: 임시 테이블에서 과거 데이터 관리
 description: 임시 재방문 주기 정책을 사용하여 과거 데이터를 제어하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: development
+ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: how-to
-author: bonova
-ms.author: bonova
-ms.reviewer: sstein
+author: MladjoA
+ms.author: mlandzic
+ms.reviewer: mathoma
 ms.date: 09/25/2018
-ms.openlocfilehash: 1d68163a9fba3ba3bcd4c0c0f3fb5f442296e781
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd1884785f5c6e84abd4aae5af29805ec4c004cb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91619392"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528907"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>보존 정책을 사용하여 임시 테이블에서 과거 데이터 관리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -45,7 +45,7 @@ FROM sys.databases
 데이터베이스 플래그 **is_temporal_history_retention_enabled** 는 기본적으로 ON으로 설정되어 있지만 사용자가 ALTER DATABASE 문을 사용하여 변경할 수 있습니다. 또한 이 플래그는 [특정 시점 복원](recovery-using-backups.md) 작업 후에 자동적으로 OFF로 설정됩니다. 데이터베이스에 대한 temporal 기록 보존 정리를 사용하도록 설정하려면 다음 문을 실행합니다.
 
 ```sql
-ALTER DATABASE <myDB>
+ALTER DATABASE [<myDB>]
 SET TEMPORAL_HISTORY_RETENTION  ON
 ```
 
@@ -175,7 +175,7 @@ SELECT * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME ALL;
 임시 재방문 주기 정리를 활성화하고자 한다면 특정 시점 복원을 한 후 다음 TRANSACT-SQL 문을 실행합니다.
 
 ```sql
-ALTER DATABASE <myDB>
+ALTER DATABASE [<myDB>]
 SET TEMPORAL_HISTORY_RETENTION  ON
 ```
 

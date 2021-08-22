@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 11/23/2019
 ms.author: abpati
 ms.reviewer: nacanuma
-ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: d847e38a6114b0e5f8d56f6e994aa47dfbe929e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: aaddev, devx-track-python, has-adal-ref
+ms.openlocfilehash: a7c8c2a00f3238c5d4963c37a89b6c7e24441076
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99583708"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122530974"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-python"></a>Python용 MSAL에서 Active Directory Federation Services 지원
 

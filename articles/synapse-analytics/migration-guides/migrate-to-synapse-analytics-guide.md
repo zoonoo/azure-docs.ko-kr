@@ -10,12 +10,12 @@ author: julieMSFT
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
-ms.openlocfilehash: 3564eaf27339c39975a23160c6d269a925317fea
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5d2dc316d5f58374792e04460f1abd8e63002243
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143200"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528297"
 ---
 # <a name="migrate-a-data-warehouse-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀로 데이터 웨어하우스 마이그레이션
 
@@ -51,14 +51,14 @@ Azure Synapse Analytics 대신 다음과 같은 작업(OLTP) 워크로드에 대
 SQL Server 데이터 웨어하우스를 Azure Synapse Analytics로 마이그레이션하려면 다음 필수 구성 요소를 충족하는지 확인합니다.
 
 - 데이터 웨어하우스 또는 분석 워크로드가 있습니다.
-- 최신 버전의 [Azure Synapse Pathway](https://www.microsoft.com/en-us/download/details.aspx?id=102787)를 다운로드하여 SQL Server 개체를 Azure Synapse 개체로 마이그레이션합니다.
+- 최신 버전의 [Azure Synapse Pathway](https://www.microsoft.com/en-us/download/details.aspx?id=103061)를 다운로드하여 SQL Server 개체를 Azure Synapse 개체로 마이그레이션합니다.
 - Azure Synapse 작업 영역에 [전용 SQL 풀](../get-started-create-workspace.md)이 있습니다.
 
 # <a name="migrate-from-netezza"></a>[Netezza에서 마이그레이션](#tab/migratefromNetezza)
 
 Netezza 데이터 웨어하우스를 Azure Synapse Analytics로 마이그레이션하려면 다음 필수 구성 요소를 충족하는지 확인합니다.
 
-- 최신 버전의 [Azure Synapse Pathway](https://www.microsoft.com/en-us/download/details.aspx?id=102787)를 다운로드하여 SQL Server 개체를 Azure Synapse 개체로 마이그레이션합니다.
+- 최신 버전의 [Azure Synapse Pathway](https://www.microsoft.com/en-us/download/details.aspx?id=103061)를 다운로드하여 SQL Server 개체를 Azure Synapse 개체로 마이그레이션합니다.
 - Azure Synapse 작업 영역에 [전용 SQL 풀](../get-started-create-workspace.md)이 있습니다.
 
 자세한 내용은 [Azure Synapse Analytics 솔루션 및 Netezza에 대한 마이그레이션](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-netezza)을 참조하세요.
@@ -67,7 +67,7 @@ Netezza 데이터 웨어하우스를 Azure Synapse Analytics로 마이그레이�
 
 Snowflake 데이터 웨어하우스를 Azure Synapse Analytics로 마이그레이션하려면 다음 필수 구성 요소를 충족하는지 확인합니다.
 
-- 최신 버전의 [Azure Synapse Pathway](https://www.microsoft.com/en-us/download/details.aspx?id=102787)를 다운로드하여 Snowflake 개체를 Azure Synapse 개체로 마이그레이션합니다.
+- 최신 버전의 [Azure Synapse Pathway](https://www.microsoft.com/en-us/download/details.aspx?id=103061)를 다운로드하여 Snowflake 개체를 Azure Synapse 개체로 마이그레이션합니다.
 - Azure Synapse 작업 영역에 [전용 SQL 풀](../get-started-create-workspace.md)이 있습니다.
 
 # <a name="migrate-from-oracle"></a>[Oracle에서 마이그레이션](#tab/migratefromOracle)
@@ -76,7 +76,7 @@ Oracle 데이터 웨어하우스를 Azure Synapse Analytics로 마이그레이�
 
 - 데이터 웨어하우스 또는 분석 워크로드가 있습니다.
 - Oracle에 대한 SQL Server Migration Assistant를 다운로드하여 Oracle 개체를 SQL Server로 변환합니다. 자세한 내용은 [Oracle 데이터베이스를 SQL Server로 마이그레이션(OracleToSQL)](/sql/ssma/oracle/migrating-oracle-databases-to-sql-server-oracletosql)을 참조하세요.
-- 최신 버전의 [Azure Synapse Pathway](https://www.microsoft.com/download/details.aspx?id=102787)를 다운로드하여 SQL Server 개체를 Azure Synapse 개체로 마이그레이션합니다.
+- 최신 버전의 [Azure Synapse Pathway](https://www.microsoft.com/download/details.aspx?id=103061)를 다운로드하여 SQL Server 개체를 Azure Synapse 개체로 마이그레이션합니다.
 - Azure Synapse 작업 영역에 [전용 SQL 풀](../get-started-create-workspace.md)이 있습니다.
 
 자세한 내용은 [Azure Synapse Analytics 솔루션 및 Oracle 데이터 웨어하우스에 대한 마이그레이션](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-exadata)을 참조하세요.
@@ -109,7 +109,7 @@ Oracle 데이터 웨어하우스를 Azure Synapse Analytics로 마이그레이�
 | 제목/링크                              | Description                                                                                                                       |
 | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | [Data Workload Assessment Model and Tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)(데이터 워크로드 평가 모델 및 도구) | 이 도구는 지정된 워크로드에 권장되는 “최적의” 대상 플랫폼, 클라우드 준비 상태, 애플리케이션 또는 데이터베이스 수정 수준을 제공합니다. 또한 자동화되고 균일한 대상 플랫폼 결정 프로세스를 제공하여 대규모 자산 평가를 가속화하는 데 도움이 되는 간단한 원클릭 계산 및 보고서 생성 기능을 제공합니다. |
-| [Azure Synapse Analytics로 데이터를 로드하는 동안 데이터 인코딩 문제 처리](https://azure.microsoft.com/en-us/blog/handling-data-encoding-issues-while-loading-data-to-sql-data-warehouse/) | 이 블로그 게시물에서는 PolyBase를 사용하여 SQL Data Warehouse로 데이터를 로드하는 동안 발생할 수 있는 몇 가지 데이터 인코딩 문제에 대한 인사이트를 제공합니다. 또한 이 문서에서는 이러한 문제를 극복하고 데이터를 성공적으로 로드하는 데 사용할 수 있는 몇 가지 옵션을 제공합니다. |
+| [Azure Synapse Analytics로 데이터를 로드하는 동안 데이터 인코딩 문제 처리](https://azure.microsoft.com/blog/handling-data-encoding-issues-while-loading-data-to-sql-data-warehouse/) | 이 블로그 게시물에서는 PolyBase를 사용하여 SQL Data Warehouse로 데이터를 로드하는 동안 발생할 수 있는 몇 가지 데이터 인코딩 문제에 대한 인사이트를 제공합니다. 또한 이 문서에서는 이러한 문제를 극복하고 데이터를 성공적으로 로드하는 데 사용할 수 있는 몇 가지 옵션을 제공합니다. |
 | [Azure Synapse Analytics 전용 SQL 풀에서 테이블 크기 가져오기](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Getting%20table%20sizes%20in%20SQL%20DW.pdf) | 설계자가 수행해야 하는 주요 작업 중 하나는 마이그레이션 후 새 환경에 대한 메트릭을 가져오는 것입니다. 예를 들어 온-프레미스에서 클라우드로 로드 시간을 수집하고 PolyBase 로드 시간을 수집합니다. 가장 중요한 작업 중 하나는 고객의 현재 플랫폼과 비교하여 SQL Data Warehouse에서 스토리지 크기를 확인하는 것입니다. |
 | [온-프레미스 SQL Server 로그인을 Azure Synapse Analytics로 이동하는 유틸리티](https://github.com/Microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) | PowerShell 스크립트는 T-SQL 명령 스크립트를 만들어 로그인을 다시 만들고 SQL Server의 온-프레미스 인스턴스에서 Azure SQL PaaS(Platform as a Service) 서비스로 데이터베이스 사용자를 선택합니다. 이 도구를 사용하면 Windows Server Active Directory 계정을 Azure Active Directory 계정에 자동으로 매핑하거나 온-프레미스 Windows Server Active Directory에 대한 각 로그인에 대해 UPN 조회를 수행할 수 있습니다. 이 도구는 선택적으로 SQL Server 기본 로그인도 이동합니다. 사용자 지정 서버 및 데이터베이스 역할은 역할 멤버 자격, 데이터베이스 역할 및 사용자 권한과 함께 스크립팅됩니다. 포함된 데이터베이스는 지원되지 않으며 가능한 SQL Server 권한의 하위 집합만 스크립팅됩니다. 추가 정보는 지원 문서에서 확인할 수 있으며 스크립트는 이해하기 쉽도록 주석을 포함합니다. |
 

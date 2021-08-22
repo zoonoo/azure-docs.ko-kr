@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/17/2017
 ms.custom: devx-track-java
 ms.author: cynthn
-ms.openlocfilehash: ea9d5d92d45db50470276929b6e7b4200bb427d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f1523c58a8ca26bbab516383d59e7e8dd009466
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557525"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288306"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Java를 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -33,7 +33,7 @@ ms.locfileid: "102557525"
 
 ## <a name="create-a-maven-project"></a>Maven 프로젝트 만들기
 
-1. 아직 수행하지 않았다면 [Java](/azure/developer/java/fundamentals/java-jdk-long-term-support)를 설치합니다.
+1. 아직 수행하지 않았다면 [Java](/azure/developer/java/fundamentals/java-support-on-azure)를 설치합니다.
 2. [Maven](https://maven.apache.org/download.cgi)을 설치합니다.
 3. 새 폴더와 프로젝트를 만듭니다.
     

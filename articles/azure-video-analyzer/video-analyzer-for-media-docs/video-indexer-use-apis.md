@@ -1,20 +1,21 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer) API 사용
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: 이 문서에서는 Azure Video Analyzer for Media(이전의 Video Indexer) API를 시작하는 방법을 설명합니다.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 01/07/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d5fbb5d5ec094930f73bf8f2a081475ada794e1
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a5f7b2bcc861ae92016c1eece0db19026bc233c9
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387018"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112118820"
 ---
 # <a name="tutorial-use-the-video-analyzer-for-media-api"></a>자습서: Video Analyzer for Media API 사용
 

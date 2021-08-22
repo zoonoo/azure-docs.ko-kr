@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
-ms.openlocfilehash: 5a0de772598877029649f8a985c79e28f5264535
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9fc6095cc2961cf494238749b240bd90de1d0eb
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98186178"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113032672"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Traffic Manager 성능 고려 사
 
@@ -41,10 +41,6 @@ Traffic Manager 프로필의 성능 및 동작을 이해하는 데 사용할 수
 이러한 사이트에 있는 도구는 DNS 대기 시간를 측정하고 전 세계의 클라이언트 위치에 대한 확인된 IP 주소를 표시합니다. 이러한 도구 대부분은 DNS 결과를 캐시하지 않습니다. 따라서 도구는 테스트가 실행될 때마다 전체 DNS 조회를 보여줍니다. 사용자 고유의 클라이언트에서 테스트할 경우 전체 DNS 조회 성능을 TTL 기간 동안에만 한 번 경험합니다.
 
 ## <a name="sample-tools-to-measure-dns-performance"></a>DNS 성능을 측정하는 샘플 도구
-
-* [SolveDNS](https://www.solvedns.com/dns-comparison/)
-
-    SolveDNS는 많은 성능 도구를 제공합니다. DNS 비교 도구를 사용하면 DNS 이름을 확인하는 데 걸리는 시간 및 다른 DNS 서비스 공급자들과 비교할 때 어떤지 확인할 수 있습니다.
 
 * [WebSitePulse](https://www.websitepulse.com/help/tools.php)
 

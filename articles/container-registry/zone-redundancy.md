@@ -4,12 +4,12 @@ description: Azure Container Registry에서 영역 중복을 사용하도록 설
 ms.topic: article
 ms.date: 02/23/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 731962437c4890c665513241e756dbbc2acfc5de
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 69714f25263b0b26fe4854b0303c3c9106b18f9a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891593"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528901"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>복원력 및 고가용성을 위해 Azure Container Registry에서 영역 중복 사용
 
@@ -244,4 +244,4 @@ az deployment group create \
 ## <a name="next-steps"></a>다음 단계
 
 * [가용성 영역을 지원하는 지역](../availability-zones/az-region.md)에 대해 자세히 알아봅니다.
-* Azure에서 [안정성](/azure/architecture/framework/resiliency/overview)을 보장하도록 빌드하는 방법을 자세히 알아봅니다.
+* Azure에서 [안정성](/azure/architecture/framework/resiliency/app-design)을 보장하도록 빌드하는 방법을 자세히 알아봅니다.

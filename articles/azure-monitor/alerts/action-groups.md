@@ -5,12 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 05/28/2021
 ms.author: dukek
-ms.openlocfilehash: 2f5244fd8ef414a1bed6781c702014e805f47a76
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 26f6b62ece1fcde8ca69ffbb804d9ab24b3c1ac3
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060321"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112455737"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 
@@ -160,7 +160,7 @@ Azure 모바일 앱을 구성할 때 계정 ID로 사용하는 메일 주소를 
 ### <a name="function"></a>함수
 [Azure Functions](../../azure-functions/functions-get-started.md)에서 기존 HTTP 트리거 엔드포인트를 호출합니다. 요청을 처리하려면 엔드포인트가 HTTP POST 동사를 처리해야 합니다.
 
-함수 작업을 정의하는 경우 함수의 httptrigger 엔드포인트 및 액세스 키가 작업 정의에 저장됩니다. 예: https://azfunctionurl.azurewebsites.net/api/httptrigger?code=this_is_access_key. 함수에 대한 액세스 키를 변경하는 경우 작업 그룹에서 함수 동작을 제거하고 다시 만들어야 합니다.
+함수 작업을 정의하는 경우 함수의 httptrigger 엔드포인트 및 액세스 키가 작업 정의에 저장됩니다. 예: `https://azfunctionurl.azurewebsites.net/api/httptrigger?code=this_is_access_key`. 함수에 대한 액세스 키를 변경하는 경우 작업 그룹에서 함수 동작을 제거하고 다시 만들어야 합니다.
 
 작업 그룹에서 함수 작업의 수가 제한될 수 있습니다.
 

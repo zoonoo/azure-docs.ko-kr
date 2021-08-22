@@ -4,16 +4,16 @@ description: Azure에서 클라우드 서비스를 업데이트하는 방법에 
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 5d85003ca7b4307c308914484502ae03269f66ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 520f3ba65a7e4bddfd52e303179ed925417537e3
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98741114"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090136"
 ---
 # <a name="how-to-update-an-azure-cloud-service-classic"></a>Azure 클라우드 서비스(클래식)를 업데이트하는 방법
 

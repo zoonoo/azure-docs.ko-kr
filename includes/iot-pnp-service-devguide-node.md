@@ -1,15 +1,15 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 10/20/2020
-ms.openlocfilehash: dfeeb451912dd32770a6ae92d73de83851d9d8f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 974dc0488e358581bc6c0ee1798c079026d75cca
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102244716"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114405048"
 ---
 다음 리소스를 사용할 수도 있습니다.
 
@@ -19,7 +19,7 @@ ms.locfileid: "102244716"
 
 ## <a name="iot-hub-service-client-examples"></a>IoT Hub 서비스 클라이언트 예제
 
-이 섹션에서는 IoT Hub 서비스 클라이언트와 **레지스트리** 및 **클라이언트** 클래스를 사용하는 JavaScript 예제를 보여줍니다. **레지스트리** 클래스를 통해 디바이스 쌍을 사용하여 디바이스 상태와 상호 작용할 수 있습니다. **레지스트리** 클래스를 사용하여 IoT Hub에서 [디바이스 등록을 쿼리](../articles/iot-hub/iot-hub-devguide-query-language.md)할 수도 있습니다. **클라이언트** 클래스를 사용하여 디바이스에서 명령을 호출합니다. 디바이스의 [DTDL](../articles/iot-pnp/concepts-digital-twin.md) 모델은 디바이스에서 구현하는 속성과 명령을 정의합니다. 코드 조각에서 `deviceId` 변수는 IoT 허브에 등록된 IoT 플러그 앤 플레이 디바이스의 디바이스 ID를 보유합니다.
+이 섹션에서는 IoT Hub 서비스 클라이언트와 **레지스트리** 및 **클라이언트** 클래스를 사용하는 JavaScript 예제를 보여줍니다. **레지스트리** 클래스를 통해 디바이스 쌍을 사용하여 디바이스 상태와 상호 작용할 수 있습니다. **레지스트리** 클래스를 사용하여 IoT Hub에서 [디바이스 등록을 쿼리](../articles/iot-hub/iot-hub-devguide-query-language.md)할 수도 있습니다. **클라이언트** 클래스를 사용하여 디바이스에서 명령을 호출합니다. 디바이스의 [DTDL](../articles/iot-develop/concepts-digital-twin.md) 모델은 디바이스에서 구현하는 속성과 명령을 정의합니다. 코드 조각에서 `deviceId` 변수는 IoT 허브에 등록된 IoT 플러그 앤 플레이 디바이스의 디바이스 ID를 보유합니다.
 
 ### <a name="get-the-device-twin-and-model-id"></a>디바이스 쌍 및 모델 ID 가져오기
 
@@ -167,9 +167,9 @@ client.invokeDeviceMethod(deviceId, methodParams, function (err, result) {
 });
 ```
 
-## <a name="iot-hub-digital-twin-examples"></a>IoT Hub 디지털 트윈 예
+## <a name="iot-hub-digital-twin-examples"></a>IoT Hub 디지털 트윈 예제
 
-**DigitalTwinClient** 클래스를 사용하여 디지털 트윈을 통해 디바이스와 상호 작용합니다. 디바이스의 [DTDL](../articles/iot-pnp/concepts-digital-twin.md) 모델은 디바이스에서 구현하는 속성과 명령을 정의합니다.
+**DigitalTwinClient** 클래스를 사용하여 디지털 트윈을 통해 디바이스와 상호 작용합니다. 디바이스의 [DTDL](../articles/iot-develop/concepts-digital-twin.md) 모델은 디바이스에서 구현하는 속성과 명령을 정의합니다.
 
 이 섹션에서는 Digital Twins API를 사용하는 JavaScript 예제를 보여줍니다.
 
@@ -287,7 +287,7 @@ console.log(inspect(commandResponse));
 
 IoT 플러그 앤 플레이 디바이스는 DTDL 모델에 정의된 원격 분석을 IoT Hub로 보냅니다. 기본적으로 IoT Hub는 원격 분석을 사용할 수 있는 Event Hubs 엔드포인트로 라우팅합니다. 자세한 내용은 [IoT Hub 메시지 라우팅을 사용하여 디바이스-클라우드 메시지를 다른 엔드포인트에 보내기](../articles/iot-hub/iot-hub-devguide-messages-d2c.md)를 참조하세요.
 
-다음 코드 조각에서는 기본 Event Hubs 엔드포인트에서 원격 분석을 읽는 방법을 보여줍니다. 이 코드 조각의 코드는 IoT Hub 빠른 시작 [디바이스에서 IoT 허브로 원격 분석을 보내고 백 엔드 애플리케이션으로 읽기](../articles/iot-hub/quickstart-send-telemetry-node.md)에서 가져왔습니다.
+다음 코드 조각에서는 기본 Event Hubs 엔드포인트에서 원격 분석을 읽는 방법을 보여줍니다. 이 코드 조각의 코드는 IoT Hub 빠른 시작 [디바이스에서 IoT 허브로 원격 분석을 보내고 백 엔드 애플리케이션으로 읽기](../articles/iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)에서 가져왔습니다.
 
 ```javascript
 const { EventHubConsumerClient } = require("@azure/event-hubs");

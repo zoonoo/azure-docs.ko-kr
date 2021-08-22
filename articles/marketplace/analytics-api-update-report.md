@@ -4,15 +4,16 @@ description: 이 API를 사용하여 상업용 Marketplace 분석 보고서에 �
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 38680eb291417ded4c2f93539e8d1ae091b1d560
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35c01bf83d4c5ecf98a49a17fce62bfd757be122
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102583925"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529278"
 ---
 # <a name="update-report-api"></a>보고서 API 업데이트
 
@@ -29,13 +30,13 @@ ms.locfileid: "102583925"
 
 | 헤더 | 형식 | Description |
 | ------------ | ------------- | ------------- |
-| 권한 부여 | 문자열 | 필수 요소. `Bearer <token>` 형식의 Azure AD(Azure Active Directory) 액세스 토큰 |
+| 권한 부여 | 문자열 | 필수 요소. `Bearer <token>` 양식의 Azure AD(Azure Active Directory) 액세스 토큰 |
 | 콘텐츠 형식 | 문자열 | `Application/JSON` |
 ||||
 
 **경로 매개 변수**
 
-없음
+None
 
 **쿼리 매개 변수**
 
@@ -121,12 +122,12 @@ ms.locfileid: "102583925"
 | `QueryId` | 보고서를 만들 때 전달된 쿼리 ID |
 | `Query` | 이 보고서에 대해 실행되는 쿼리 텍스트 |
 | `User` | 보고서를 만드는 데 사용되는 사용자 ID |
-| `CreatedTime` | 보고서가 생성된 시간입니다. 시간 형식은 yyyy-MM-ddTHH:mm:ssZ입니다. |
+| `CreatedTime` | 보고서가 생성된 시간입니다. 시간 형식은 yyyy-MM-ddTHH:mm:ssZ입니다 |
 | `ModifiedTime` | 보고서를 마지막으로 수정한 시간입니다. 시간 형식은 yyyy-MM-ddTHH:mm:ssZ입니다. |
 | `StartTime` | 보고서 실행이 시작되는 시간입니다. 시간 형식은 yyyy-MM-ddTHH:mm:ssZ입니다. |
-| `ReportStatus` | 보고서 실행 상태입니다. 가능한 값은 일시 중지, 활성 및 비활성입니다. |
+| `ReportStatus` | 보고서 실행 상태입니다. 가능한 값은 일시 중지, 활성, 비활성입니다. |
 | `RecurrenceInterval` | 보고서를 만드는 동안 제공된 되풀이 간격 |
-| `RecurrenceCount` | 보고서를 만드는 동안 제공된 되풀이 수 |
+| `RecurrenceCount` | 보고서를 만드는 동안 제공된 되풀이 횟수 |
 | `CallbackUrl` | 요청에 제공된 콜백 URL |
 | `Format` | 보고서 파일 형식 |
 |||

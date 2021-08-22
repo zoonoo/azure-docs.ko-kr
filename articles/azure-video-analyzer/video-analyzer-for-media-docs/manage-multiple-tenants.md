@@ -1,22 +1,23 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer)를 통해 여러 테넌트 관리 - Azure
 description: 이 문서에서는 Azure Video Analyzer for Media(이전의 Video Indexer)를 통해 여러 테넌트 관리를 위한 다양한 통합 옵션을 제안합니다.
-services: media-services
+services: azure-video-analyzer
 documentationcenter: ''
 author: ika-microsoft
 manager: femila
 editor: ''
 ms.workload: ''
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
-ms.openlocfilehash: 706dee5ad4b675085b481e84dd53aca4f1ba3481
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 9211bb420b25a94f44263785505f58446b5ca94c
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387194"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112119361"
 ---
 # <a name="manage-multiple-tenants"></a>여러 테넌트 관리
 

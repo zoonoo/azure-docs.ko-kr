@@ -4,12 +4,12 @@ description: 이 문서에서는 가상 네트워크에 Microsoft.ServiceBus 서
 ms.topic: article
 ms.date: 03/29/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9b5aba6c5ad4e1e6d0c90b99ebcdf441bb35cc39
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 63a2f556739f7f3eaec3874e6d02cc996e2aaec4
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105960455"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416725"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>특정 가상 네트워크에서 Azure Service Bus 네임스페이스에 대한 액세스 허용
 [VNet(Virtual Network) 서비스 엔드포인트][vnet-sep]와 Service Bus를 통합하면 양쪽 끝에서 네트워크 트래픽 경로를 보호하여 가상 네트워크에 바인딩된 가상 머신과 같은 워크로드의 메시징 기능에 대한 액세스를 보호할 수 있습니다.
@@ -85,7 +85,7 @@ Virtual Networks에 Service Bus를 바인딩하는 작업은 2단계 프로세�
     > [!NOTE]
     > 특정 IP 주소나 범위에서 액세스를 허용하는 방법에 관한 지침은 [특정 IP 주소 또는 범위에서 액세스 허용](service-bus-ip-filtering.md)을 참조하세요.
 
-[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
+[!INCLUDE [service-bus-trusted-services](./includes/service-bus-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용
 다음과 같은 샘플 Resource Manager 템플릿을 사용하면 기존 Service Bus 네임스페이스에 가상 네트워크 규칙을 추가할 수 있습니다. 네트워크 규칙의 경우 가상 네트워크에 있는 서브넷의 ID를 지정합니다. 

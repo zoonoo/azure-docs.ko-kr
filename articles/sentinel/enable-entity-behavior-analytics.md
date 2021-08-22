@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 3f3e945a00ec7bba75deebb56118d45aa7ff571d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 985f1d4edacd81b7567124845836c3d93f976bb2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100530725"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529327"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure Sentinel의 UEBA(사용자 및 엔터티 동작 분석) 사용 설정 
 
 > [!IMPORTANT]
 >
-> - UEBA 및 엔터티 페이지 기능은 이제 **모든** Azure Sentinel 지역에서 **일반 공급** 됩니다.
+> UEBA 및 엔터티 페이지 기능은 이제 **모든** Azure Sentinel 지역에서 **일반 공급** 됩니다. 
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -64,5 +66,5 @@ ms.locfileid: "100530725"
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Sentinel에서 UEBA(사용자 및 엔터티 동작 분석)를 사용하도록 설정하고 구성하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.

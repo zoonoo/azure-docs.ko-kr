@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
-ms.openlocfilehash: 98e0137c8e48696737cd5d8d1fd4d3de925b9f7f
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: dbc82b67206f6453101b0d6f419718b928506f79
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579781"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003857"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Azure 포털에서 Azure Cognitive Search에 대한 서비스 관리
 
@@ -37,7 +37,7 @@ Azure Cognitive Search는 사용자 지정 앱에 풍부한 검색 환경을 구
 
 :::image type="content" source="media/search-manage/search-portal-overview-page.png" alt-text="검색 서비스에 대한 포털 페이지" border="true":::
 
-| 영역 | Description |
+| 영역 | 설명 |
 |------|-------------|
 | 1  | **기본 정보** 섹션에는 연결을 설정할 때 사용되는 엔드포인트를 포함한 서비스 속성이 표시됩니다. 계층, 복제본 및 파티션 수도 한눈에 보여 줍니다. |
 | 2 | 페이지 위쪽에는 대화형 도구를 호출하거나 서비스를 관리하기 위한 일련의 명령이 있습니다. [데이터 가져오기](search-get-started-portal.md) 및 [검색 탐색기](search-explorer.md)는 모두 프로토타입 및 검색에 일반적으로 사용됩니다. |
@@ -73,7 +73,7 @@ Cognitive Search는 더 심층적인 모니터링 및 관리를 위해 다른 Az
 
 검색 서비스 개요 페이지를 열면 계정에 할당된 권한에 따라 사용 가능한 페이지가 결정됩니다. 문서의 시작 부분에 나와 있는 개요 페이지에서는 관리자 또는 기여자에게 표시될 포털 페이지를 보여 줍니다.
 
-Azure 리소스에서 관리 권한은 역할 할당을 통해 부여됩니다. Azure Cognitive Search의 컨텍스트에서 [역할 할당](search-security-rbac.md)은 포털, [PowerShell](search-manage-powershell.md), [Azure CLI](search-manage-azure-cli.md) 또는 [관리 REST API](/rest/api/searchmanagement/search-howto-management-rest-api)를 사용하는지에 관계없이 복제본과 파티션을 할당하거나 API 키를 관리할 수 있는 사용자를 결정합니다.
+Azure 리소스에서 관리 권한은 역할 할당을 통해 부여됩니다. Azure Cognitive Search의 컨텍스트에서 [역할 할당](search-security-rbac.md)은 포털, [PowerShell](search-manage-powershell.md), [Azure CLI](search-manage-azure-cli.md) 또는 [관리 REST API](/rest/api/searchmanagement)를 사용하는지에 관계없이 복제본과 파티션을 할당하거나 API 키를 관리할 수 있는 사용자를 결정합니다.
 
 > [!TIP]
 > Azure 구독 관리자 또는 공동 관리자는 서비스 자체를 프로비전 또는 프로비전 해제할 수 있습니다. Azure 전체 메커니즘을 사용하여 구독 또는 리소스를 잠가서 관리자 권한이 있는 사용자가 검색 서비스를 실수로 삭제하거나 무단으로 삭제하는 것을 방지할 수 있습니다. 자세한 내용은 [예기치 않은 삭제를 방지하기 위해 리소스 잠그기](../azure-resource-manager/management/lock-resources.md)를 참조하세요.

@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00518eb91e57efaacb7abc63b6ad4531619be2ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4bd83071e725d68a424642f68680748247a26706
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98012872"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110082"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>상태 서비스 데이터가 최신 경고가 아닙니다
 
@@ -71,4 +71,4 @@ Azure AD Connect Health에서 모니터링하는 온-프레미스 머신의 에�
 위의 단계에서 문제를 식별한 경우, 문제를 해결하고 경고가 해결될 때까지 기다립니다. 경고 백그라운드 프로세스는 2시간마다 실행되므로 경고를 해결하는 데 최대 2시간이 소요됩니다. 
 
 * [Azure AD Connect Health 데이터 보존 정책](reference-connect-health-user-privacy.md#data-retention-policy)
-* [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
+* [Azure AD Connect Health FAQ](reference-connect-health-faq.yml)

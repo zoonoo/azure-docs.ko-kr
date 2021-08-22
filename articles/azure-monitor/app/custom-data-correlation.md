@@ -6,12 +6,12 @@ author: eternovsky
 ms.author: evternov
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 933280b5d3b81098f18f22a72bd2c7f942869e6a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e45a9cfe8a372247c7ac3550c65a5a30e3fd7cb6
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100578324"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122529703"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>사용자 지정 데이터 원본을 사용하여 Application Insights 데이터 상호 연결
 
@@ -31,7 +31,7 @@ Application Insights가 강력한 Azure Monitor 로그 플랫폼에서 지원되
 
 이 섹션에서는 Azure Monitor 로그로 데이터를 가져오는 방법을 검토합니다.
 
-아직 없는 경우 [해당 지침](../vm/quick-collect-azurevm.md)에 따라 “작업 영역 만들기” 단계를 포함하여 새 Log Analytics 작업 영역을 프로비저닝합니다.
+아직 없는 경우 [해당 지침](../vm/monitor-virtual-machine.md)에 따라 “작업 영역 만들기” 단계를 포함하여 새 Log Analytics 작업 영역을 프로비저닝합니다.
 
 Azure Monitor로 로그 데이터 보내기를 시작하려면 다음과 같은 여러 옵션이 있습니다.
 

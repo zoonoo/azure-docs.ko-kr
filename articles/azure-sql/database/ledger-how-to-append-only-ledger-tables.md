@@ -1,27 +1,27 @@
 ---
 title: 추가 전용 원장 테이블 만들기 및 사용
 description: Azure SQL Database에서 추가 전용 원장 테이블을 만들고 사용하는 방법을 알아봅니다.
-ms.custom: ''
-ms.date: 05/25/2021
+ms.custom: references_regions
+ms.date: 07/23/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: how-to
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: f433e56140a199cdb872bc733343a8cf88c818cb
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: fede72baa7df89e821e496066090658bda2df80e
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076405"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114665848"
 ---
 # <a name="create-and-use-append-only-ledger-tables"></a>추가 전용 원장 테이블 만들기 및 사용
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database 원장은 현재 공개 미리 보기로 제공되며 미국 중서부에서 사용할 수 있습니다.
+> Azure SQL Database 원장은 현재 퍼블릭 미리 보기로 제공되며 서유럽, 브라질 남부 및 미국 중서부에서 사용할 수 있습니다.
 
 이 문서에서는 Azure SQL Database에서 [추가 전용 원장 테이블](ledger-append-only-ledger-tables.md)을 만드는 방법을 보여줍니다. 다음으로, 추가 전용 원장 테이블에 값을 삽입한 다음, 데이터를 업데이트하려고 합니다. 마지막으로 원장 보기를 사용하여 결과를 확인합니다. 추가 전용 시스템 패턴인 시설에 대한 카드 키 액세스 시스템의 예를 사용합니다. 이 예에서는 추가 전용 원장 테이블과 해당 원장 뷰 간의 관계를 실용적인 방법으로 보여 줍니다.
 

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: a6b3577fe820c9dadcb3c8415aa7a951a3283284
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 29b266732b8e303f39d16587f61beedc1710ea3c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641810"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528933"
 ---
 # <a name="restore-the-adventureworks-sample-database-into-sql-managed-instance---azure-arc"></a>AdventureWorks 샘플 데이터베이스를 SQL Managed Instance로 복원 - Azure Arc
 
@@ -22,7 +22,6 @@ ms.locfileid: "105641810"
 
 이 문서에서는 SQL Managed Instance - Azure Arc로 복원된 AdventureWorks 샘플 데이터베이스를 가져오는 간단한 프로세스에 대해 설명합니다.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="download-the-adventureworks-backup-file"></a>AdventureWorks 백업 파일 다운로드
 

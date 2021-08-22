@@ -8,14 +8,16 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8c8b0f37729ea20a62838d736dbed59f05c584c6
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f49ca9b65bca0459be2b262892fb272abc6d7227
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780428"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642124"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL에서 서버를 백업 및 복원하는 방법
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL 서버는 정기적으로 백업되어 복원 기능을 사용하도록 설정할 수 있습니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
 
@@ -82,7 +84,7 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 복원 프로세스가 완료된 후 새 서버를 찾아 데이터가 예상대로 복원되었는지 확인합니다. 새 서버에는 복원이 시작된 당시의 기존 서버에 유효한 동일한 서버 관리자 로그인 이름 및 암호가 있습니다. 암호는 새 서버의 **개요** 페이지에서 변경할 수 있습니다.
 
 또한 복원 작업이 완료된 후 복원 작업 후에 기본값으로 재설정되고 기본 서버에서 복사되지 않는 두 개의 서버 매개 변수가 있습니다.
-*   time_zone - 이 값은 기본값 **SYSTEM** 으로 설정됩니다.
+*   time_zone - 이 값은 기본값 **SYSTEM** 으로 설정됩니다
 *   event_scheduler - event_scheduler는 복원된 서버에서 **OFF** 로 설정됩니다.
 
 주 서버에서 값을 복사하고 [서버 매개 변수](howto-server-parameters.md)를 다시 구성하여 복원된 서버에 해당 값을 설정해야 합니다.

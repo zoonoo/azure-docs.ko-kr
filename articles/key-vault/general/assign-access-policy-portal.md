@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 09e7d954261b5bfb680486e06ed298e11974847d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6258de3e6f81ef25c4f515c956662be13eb5f1e2
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749732"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136493"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Azure Portal을 사용하여 Key Vault 액세스 정책 할당
 
@@ -53,5 +53,5 @@ Azure Portal을 통해 Azure Active Directory 그룹을 만드는 방법에 대�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Key Vault 보안: ID 및 액세스 관리](security-features.md#identity-management)
+- [Azure Key Vault 보안](security-features.md)
 - [Azure Key Vault 개발자 가이드](developers-guide.md)

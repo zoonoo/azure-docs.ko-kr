@@ -9,17 +9,19 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: yelevin
-ms.openlocfilehash: c554f3582e67622a5a1739c9e410328c902d491b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cd1ec5d11083c21511b39ba08fa2bfcf159bfc54
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94655904"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529361"
 ---
 # <a name="connect-data-from-azure-web-application-firewall-waf"></a>Azure WAF(Web Application Firewall)에서 데이터 연결
 
 일반적으로 알려진 취약성을 악용하여 웹 애플리케이션을 공격하는 악의적인 사례가 점점 늘어나고 있습니다. Azure WAF(Web Application Firewall)는 코드 삽입 및 교차 사이트 스크립팅과 같은 일반적인 악용 및 위협으로부터 웹 애플리케이션에 대한 중앙화된 보호를 제공합니다. Azure WAF는 [Azure Application Gateway](../web-application-firewall/ag/ag-overview.md) 서비스, [Azure Front Door](../web-application-firewall/afds/afds-overview.md) 서비스 및 [Azure CDN(Content Delivery Network)](../web-application-firewall/cdn/cdn-overview.md) WAF 정책(현재 공개 미리 보기로 제공)을 통해 배포할 수 있습니다.
 Azure WAF 로그를 Azure Sentinel에 연결하여 통합 문서에서 로그 데이터를 확인하고 이를 사용하여 사용자 지정 경고를 만든 다음 이를 통합하여 조사를 개선할 수 있습니다.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -66,5 +68,5 @@ Azure WAF 로그를 Azure Sentinel에 연결하여 통합 문서에서 로그 �
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure WAF 로그를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.

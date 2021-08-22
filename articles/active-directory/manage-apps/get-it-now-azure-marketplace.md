@@ -2,25 +2,26 @@
 title: Azure Marketplace에서 앱 추가
 description: 이 문서는 Azure Marketplace에서 지금 가져오기 단추를 클릭하면 나오는 방문 페이지 역할을 합니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/16/2020
-ms.author: mtillman
+ms.author: davidmu
+ms.reviewer: ergreenl
 ROBOTS: NOINDEX
-ms.openlocfilehash: 55ffeb65daffc8c562f25a40696cba5b72dd9361
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 5f6fd0da489e555dd850d312717b0e7d4e2ae428
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078045"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529308"
 ---
 # <a name="get-it-now---add-an-app-from-the-azure-marketplace"></a>지금 가져오기 - Azure Marketplace에서 앱 추가
 
-거의 완료되었습니다! 
+거의 완료되었습니다!
 
 앱에 대한 ID 공급자로 Azure AD를 사용하려는 경우 올바른 위치입니다. Azure AD 테넌트에 추가하기만 하면 됩니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 여기에 있는 빠른 시작 시리즈를 참조하세요. [Azure AD 테넌트에서 앱 보기](view-applications-portal.md)
 

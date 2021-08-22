@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9869a90c0159a7f60929c1ff9b0cf3319d60d5b
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: a65ce79252c25d187ed61de3b637182deaf225db
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111439029"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136349"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
 
@@ -55,6 +55,7 @@ ms.locfileid: "111439029"
 > | 등록 사용자 흐름 만들기, 읽기, 업데이트 및 삭제 |외부 ID 사용자 흐름 관리자 |  |
 > | 사용자 특정 만들기, 읽기, 업데이트 및 삭제 | 외부 ID 사용자 흐름 특성 관리자 |  |
 > | 사용자 만들기, 읽기, 업데이트 및 삭제 | 사용자 관리자 |  |
+> | B2B 외부 협업 설정 구성 | 전역 관리자 |  |
 > | 모든 구성 읽기 | 전역 Reader |  |
 > | B2C 감사 로그 읽기 | 전역 읽기 권한자([설명서 참조](../../active-directory-b2c/faq.yml)) |  |
 
@@ -165,8 +166,8 @@ ms.locfileid: "111439029"
 > [!div class="mx-tableFixed"]
 > | 작업 | 최소 권한 역할 | 추가 역할 |
 > | ---- | --------------------- | ---------------- |
-> | 카탈로그에 리소스를 추가합니다. | 사용자 관리자 | 권한 관리를 사용하여 이 작업을 카탈로그 소유자에게 위임할 수 있습니다([설명서 참조](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)). |
-> | 카탈로그에 SharePoint Online 사이트 추가 | 전역 관리자 |  |
+> | 카탈로그에 리소스를 추가합니다. | Identity Governance 관리자 | 권한 관리를 사용하여 이 작업을 카탈로그 소유자에게 위임할 수 있습니다([설명서 참조](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)). |
+> | 카탈로그에 SharePoint Online 사이트 추가 | SharePoint 관리자 |  |
 
 ## <a name="groups"></a>그룹
 
@@ -225,7 +226,7 @@ ms.locfileid: "111439029"
 > [!div class="mx-tableFixed"]
 > | 작업 | 최소 권한 역할 | 추가 역할 |
 > | ---- | --------------------- | ---------------- |
-> | 로그인 로그 읽기 | 보고서 구독자 | 보안 Reader<br/>보안 관리자 |
+> | 로그인 로그 읽기 | 보고서 구독자 | 보안 Reader<br/>보안 관리자<br/> 전역 Reader |
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 

@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 10/18/2019
-ms.openlocfilehash: d00ec82b5b66b2c413337f0c4efe803fc1013ab9
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: b4549978925f2e7016b54ce3004eabadaa8e985f
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109847874"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113134351"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Azure Cache for Redis 시간 제한 문제 해결
 
@@ -50,7 +50,7 @@ StackExchange.Redis는 기본값이 5000ms인 동기 작업에 `synctimeout`이�
 | wr |활성 기록기(보내지 않은 요청 6건이 무시되지 않았음을 의미함) 바이트/activewriters가 있습니다. |
 | in |활성 판독기가 없으며 NIC 바이트/activereaders에서 판독하는 데 사용 가능한 바이트는 0입니다. |
 
-앞의 예외 예에서 `IOCP` 및 `WORKER` 섹션은 각각 `Min` 값보다 큰 `Busy` 값을 포함합니다. 차이점은 `ThreadPool` 설정을 조정해야한다는 것을 의미합니다. 버스트 시나리오 하에서 스레드 풀이 신속하게 규모 확장을 하도록 [스레드 풀 설정을 구성](cache-management-faq.md#important-details-about-threadpool-growth)할 수 있습니다.
+앞의 예외 예에서 `IOCP` 및 `WORKER` 섹션은 각각 `Min` 값보다 큰 `Busy` 값을 포함합니다. 차이점은 `ThreadPool` 설정을 조정해야한다는 것을 의미합니다. 버스트 시나리오 하에서 스레드 풀이 신속하게 규모 확장을 하도록 [스레드 풀 설정을 구성](cache-management-faq.yml#important-details-about-threadpool-growth)할 수 있습니다.
 
 다음 단계를 사용하여 가능한 근본 원인을 조사할 수 있습니다.
 
@@ -123,5 +123,5 @@ StackExchange.Redis는 기본값이 5000ms인 동기 작업에 `synctimeout`이�
 
 - [Azure Cache for Redis 클라이언트 쪽 문제 해결](cache-troubleshoot-client.md)
 - [Azure Cache for Redis 서버 쪽 문제 해결](cache-troubleshoot-server.md)
-- [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](cache-management-faq.yml#how-can-i-benchmark-and-test-the-performance-of-my-cache-)
 - [Azure Cache for Redis를 모니터링하는 방법](cache-how-to-monitor.md)

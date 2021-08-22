@@ -1,16 +1,16 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-js
-ms.openlocfilehash: 252f2e6275b01522b83e846201d190b39d2bbf21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a1fc21f5ff88326ba0a8e63cd80d42eafb0eb7a
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102434512"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529621"
 ---
 :::row:::
     :::column span="3":::
@@ -37,7 +37,7 @@ npm install microsoft-cognitiveservices-speech-sdk
 
 ### <a name="html-script-tag"></a>HTML 스크립트 태그
 
-또는 <a href="https://www.jsdelivr.com/package/npm/microsoft-cognitiveservices-speech-sdk" target="_blank">**JSDelivr** NPM 게시 </a>를 사용하여 HTML `<head>` 요소에 `<script>` 태그를 직접 포함할 수 있습니다.
+또는 <a href="https://www.jsdelivr.com/package/npm/microsoft-cognitiveservices-speech-sdk" target="_blank">**JSDelivr** NPM 게시</a>를 사용하여 HTML `<head>` 요소에 `<script>` 태그를 직접 포함할 수 있습니다.
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js">

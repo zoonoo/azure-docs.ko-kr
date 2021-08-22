@@ -7,12 +7,12 @@ ms.date: 04/27/2021
 ms.author: helohr
 ms.reviewer: denisgun
 manager: femila
-ms.openlocfilehash: c8df5cbcc241877e5637abd89804071b4dcbf938
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 41ee917602ed67af40f3244ad7215cae4d3a93c8
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753092"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113032459"
 ---
 # <a name="proxy-server-guidelines-for-azure-virtual-desktop"></a>Azure Virtual Desktop용 프록시 서버 지침
 
@@ -115,7 +115,7 @@ Windows 7에서 실행되는 클라이언트는 역방향 연결 RDP 데이터�
 | macOS | 예 |
 | Windows 스토어 | Yes |
 
-Linux 기반 씬 클라이언트의 프록시 지원에 대한 자세한 정보는 [씬 클라이언트 지원](linux-overview.md)을 참조하세요.
+Linux 기반 씬 클라이언트의 프록시 지원에 대한 자세한 정보는 [씬 클라이언트 지원](./user-documentation/linux-overview.md)을 참조하세요.
 
 ## <a name="support-limitations"></a>지원 제한 사항
 

@@ -1,18 +1,18 @@
 ---
 title: Terraform을 사용하여 Azure Spring Cloud 인스턴스를 프로비저닝
 description: Terraform을 사용하여 Azure Spring Cloud 인스턴스를 프로비저닝합니다.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 060ef2d08b849706b47b24748142c608292971b5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 71dc3de45d2ff7ab1eb6e890b2e57556ce9ef01d
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878459"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529549"
 ---
 # <a name="provision-an-azure-spring-cloud-instance-with-terraform"></a>Terraform을 사용하여 Azure Spring Cloud 인스턴스 프로비저닝
 

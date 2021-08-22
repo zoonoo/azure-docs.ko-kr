@@ -3,20 +3,20 @@ title: Custom Speech 개요 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Custom Speech는 애플리케이션, 도구 및 제품에 대한 Microsoft의 음성 텍스트 변환 정확도를 평가하고 향상시킬 수 있는 온라인 도구 세트입니다.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: trbye
-ms.custom: contperf-fy21q2; references_regions
-ms.openlocfilehash: 2eaf5a6a01b8ed0cb2a82f13c2d4d33ce88d5938
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.author: lajanuar
+ms.custom: contperf-fy21q2, references_regions
+ms.openlocfilehash: 588afaaa95ef871de11583e65d2a9ab831d28fa6
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110100418"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529640"
 ---
 # <a name="what-is-custom-speech"></a>Custom Speech란?
 
@@ -26,7 +26,7 @@ Custom Speech를 사용하여 애플리케이션 및 제품에 대한 Microsoft�
 
 Custom Speech를 사용하여 작업을 수행하려면 Azure 계정 및 Speech Service 구독이 필요합니다. 계정이 있으면 데이터를 준비하고, 모델을 학습 및 테스트하고, 인식 품질을 검사하고, 정확성을 평가하고, 궁극적으로 사용자 지정 음성 텍스트 변환 모델을 배포하고 사용할 수 있습니다.
 
-이 다이어그램은 [Speech Studio의 Custom Speech 영역](https://aka.ms/customspeech)을 구성하는 부분을 강조 표시합니다. 각 단계에 대해 자세히 알아보려면 아래 링크를 사용합니다.
+이 다이어그램은 [Speech Studio의 Custom Speech 영역](https://aka.ms/speechstudio/customspeech)을 구성하는 부분을 강조 표시합니다. 각 단계에 대해 자세히 알아보려면 아래 링크를 사용합니다.
 
 ![Speech Studio의 Custom Speech 영역을 구성하는 구성 요소를 강조 표시하는 다이어그램입니다.](./media/custom-speech/custom-speech-overview.png)
 
@@ -43,9 +43,6 @@ Custom Speech를 사용하여 작업을 수행하려면 Azure 계정 및 Speech 
 ## <a name="set-up-your-azure-account"></a>Azure 계정 설정
 
 [Speech Studio](https://speech.microsoft.com/customspeech)를 사용하여 사용자 지정 모델을 만들려면 Azure 계정 및 Speech Service 구독이 있어야 합니다. 계정 및 구독이 없는 경우 [음성 서비스 평가판을 사용해 보세요](overview.md#try-the-speech-service-for-free).
-
-> [!NOTE]
-> 표준(S0) 구독을 만들어야 합니다. 체험(F0) 구독은 지원되지 않습니다.
 
 **오디오 데이터** 를 사용하여 사용자 지정 모델을 학습하려는 경우 학습에 사용할 수 있는 전용 하드웨어가 있는 다음 지역 중 하나를 선택합니다. 이렇게 하면 모델을 학습하는 데 걸리는 시간이 줄어들고 학습에 더 많은 오디오를 사용할 수 있습니다. 이러한 지역에서 Speech Service는 학습에 최대 20시간의 오디오를 사용합니다. 다른 지역에서는 최대 8시간만 사용합니다.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 21c5fd8832805c5e733f19d5fbf71a4e5512478e
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 9034d493e0ab10d8c548170cac99238d5edc4e22
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111540515"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003875"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Azure Cognitive Search의 서비스 제한
 
@@ -103,7 +103,7 @@ ms.locfileid: "111540515"
 
 ## <a name="shared-private-link-resource-limits"></a>공유 프라이빗 링크 리소스 제한
 
-인덱서는 [공유 프라이빗 링크 리소스 API](/rest/api/searchmanagement/sharedprivatelinkresources)를 통해 관리되는 [프라이빗 엔드포인트를 통해](search-indexer-howto-access-private.md) 다른 Azure 리소스에 액세스할 수 있습니다. 이 섹션에서는 이 기능과 관련된 제한 사항을 설명합니다.
+인덱서는 [공유 프라이빗 링크 리소스 API](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources)를 통해 관리되는 [프라이빗 엔드포인트를 통해](search-indexer-howto-access-private.md) 다른 Azure 리소스에 액세스할 수 있습니다. 이 섹션에서는 이 기능과 관련된 제한 사항을 설명합니다.
 
 | 리소스 | 무료 | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |

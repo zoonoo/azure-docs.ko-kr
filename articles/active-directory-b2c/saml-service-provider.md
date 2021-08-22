@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/30/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 652bc9a236a4e4b9d3f99dab640919f2be985984
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 96a7cbbc1e872a9b84644cf64405e7b6d2bb7bf2
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257724"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "122642094"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에 SAML 애플리케이션 등록
 
@@ -63,6 +63,8 @@ SAML 애플리케이션과 연결된 메타데이터 엔드포인트가 아직 �
 
 [SAML 테스트 애플리케이션][samltest]
 
+[!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
+
 ## <a name="set-up-certificates"></a>인증서 설정
 
 애플리케이션과 Azure AD B2C 간에 신뢰 관계를 구축하려면 두 서비스 모두 서로의 서명을 만들고 유효성을 검사할 수 있어야 합니다. Azure AD B2C와 애플리케이션에서 X509 인증서를 구성합니다.
@@ -104,7 +106,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 1. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
 1. **정책 키**, **추가** 를 차례로 선택합니다.
 1. **옵션** 으로는 `Upload`을 선택합니다.
-1. 정책 키의 **이름** 을 입력합니다. 예들 들어 `SamlIdpCert`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+1. 정책 키의 **이름** 을 입력합니다. `SamlIdpCert`)을 입력합니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
 1. 프라이빗 키가 있는 인증서 .pfx 파일을 찾아 선택합니다.
 1. **만들기** 를 클릭합니다.
 

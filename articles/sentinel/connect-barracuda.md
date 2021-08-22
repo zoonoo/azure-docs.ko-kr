@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: e1462246b95da67591cbdfd1f9ed819220de5764
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 187df87b841fdab877181ed6c381bd0d018660b4
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98633064"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530382"
 ---
 # <a name="connect-your-barracuda-waf-appliance"></a>Barracuda WAF 어플라이언스 연결 
 
 Barracuda WAF(웹 애플리케이션 방화벽) 커넥터를 사용하여 Azure Sentinel에 Barracuda 로그를 쉽게 연결하고, 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선할 수 있습니다. 이를 통해 조직의 네트워크에 대한 인사이트를 얻어, 보안 작업 기능이 향상됩니다. Azure Sentinel은 **Barracuda** 와 Log Analytics 에이전트 간의 네이티브 통합을 활용하여 원활한 통합을 제공합니다. 
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 > [!NOTE]
 > 데이터는 Azure Sentinel을 실행하는 작업 영역의 지리적 위치에 저장됩니다.
@@ -43,14 +45,12 @@ Barracuda 웹 애플리케이션 방화벽은 Log Analytics 에이전트를 통�
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
 
-로그가 Log Analytics에 표시되는 데는 최대 20분이 걸립니다. 
+로그가 Log Analytics에 표시될 때까지 최대 20분가량 소요될 수 있습니다. 
 
 
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Barracuda 어플라이언스를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
-- [통합 문서를 사용](tutorial-monitor-your-data.md)하여 데이터를 모니터링합니다.
-
-
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.
+- [통합 문서를 사용](monitor-your-data.md)하여 데이터를 모니터링합니다.

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 12/17/2020
-ms.openlocfilehash: bdd7fd8e19bf2de6d0b3c6b2edd4515771fae237
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f47833ab0fa36e4f58063640d60e188d850ea73f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98119022"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528980"
 ---
 # <a name="execute-r-script-module"></a>R 스크립트 모듈 실행
 
@@ -50,7 +50,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 > [!NOTE]
 > 스크립트 번들에서 R 패키지를 설치하는 것은 권장하지 **않습니다**. 스크립트 편집기에서 직접 패키지를 설치하는 것이 좋습니다.
-> 패키지를 설치할 때 CRAN 리포지토리를 지정 합니다(예: `install.packages("zoo",repos = "http://cran.us.r-project.org")`).
+> 패키지를 설치할 때 CRAN 리포지토리를 지정 합니다(예: `install.packages("zoo",repos = "https://cloud.r-project.org")`).
 
 > [!WARNING]
 > R 스크립트 실행 모듈은 JAVA를 필요로 하는 `qdap` 패키지와 C++를 필요로 하는 `drc` 패키지와 같이 네이티브 컴파일이 필요한 패키지 설치를 지원하지 않습니다. 이 모듈은 비관리자 권한으로 사전 설치된 환경에서 실행되기 때문입니다.
@@ -74,7 +74,7 @@ azureml_main <- function(dataframe1, dataframe2){
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
   
-  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")
+  if(!require(zoo)) install.packages("zoo",repos = "https://cloud.r-project.org")
   library(zoo)
   # Return datasets as a Named List
   return(list(dataset1=dataframe1, dataset2=dataframe2))
@@ -99,32 +99,6 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-## <a name="uploading-files"></a>파일 업로드
-R 스크립트 실행 모듈은 Azure Machine Learning R SDK를 사용하여 파일 업로드를 지원합니다.
-
-다음 샘플에서는 R 스크립트 실행에서 이미지 파일을 업로드하는 방법을 보여 줍니다.
-```R
-azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
-
-  # Generate a jpeg graph
-  img_file_name <- "rect.jpg"
-  jpeg(file=img_file_name)
-  example(rect)
-  dev.off()
-
-  upload_files_to_run(names = list(file.path("graphic", img_file_name)), paths=list(img_file_name))
-
-
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
-
-파이프라인 실행이 완료되면 모듈의 오른쪽 패널에서 이미지를 미리 볼 수 있습니다.
-
-> [!div class="mx-imgBorder"]
-> ![업로드된 이미지 미리 보기](media/module/upload-image-in-r-script.png)
 
 ## <a name="how-to-configure-execute-r-script"></a>R 스크립트 실행을 구성하는 방법
 
@@ -147,7 +121,7 @@ R 스크립트 실행 모듈에는 시작하는 데 도움이 되는 샘플 코�
 1. **R 스크립트** 텍스트 상자에 유효한 R 스크립트를 입력하거나 붙여넣습니다.
 
     > [!NOTE]
-    > 스크립트를 작성할 때 주의해야 합니다. 선언되지 않은 변수 또는 가져오지 않은 모듈이나 함수를 사용하는 것과 같은 구문 오류가 없는지 확인합니다. 이 문서의 끝에 있는 사전 설치된 패키지 목록에 특히 주의해야 합니다. 목록에 없는 패키지를 사용하려면 스크립트에 설치합니다. 예제는 `install.packages("zoo&quot;,repos = &quot;http://cran.us.r-project.org")`입니다.
+    > 스크립트를 작성할 때 주의해야 합니다. 선언되지 않은 변수 또는 가져오지 않은 모듈이나 함수를 사용하는 것과 같은 구문 오류가 없는지 확인합니다. 이 문서의 끝에 있는 사전 설치된 패키지 목록에 특히 주의해야 합니다. 목록에 없는 패키지를 사용하려면 스크립트에 설치합니다. 예제는 `install.packages("zoo",repos = "https://cloud.r-project.org")`입니다.
     
     시작하는 데 도움이 되도록 **R 스크립트** 텍스트 상자는 편집하거나 바꿀 수 있는 샘플 코드로 미리 채워져 있습니다.
     
@@ -188,7 +162,7 @@ R 스크립트 실행 모듈에는 시작하는 데 도움이 되는 샘플 코�
 1. 스크립트가 16KB보다 큰 경우 **스크립트 번들** 포트를 사용하여 *명령줄에서 16597자 제한 초과* 같은 오류를 방지합니다. 
     
     1. 스크립트 및 기타 사용자 지정 리소스를 Zip 파일로 묶습니다.
-    1. 이 Zip 파일을 **파일 데이터 세트** 로 스튜디오에 업로드합니다. 
+    1. 이 Zip 파일을 **File Dataset** 로 스튜디오에 업로드합니다. 
     1. 디자이너 제작 페이지의 왼쪽 모듈 창에 있는 *데이터 세트* 목록에서 데이터 세트 모듈을 끌어옵니다. 
     1. 데이터 세트 모듈을 **R 스크립트 실행** 모듈의 **스크립트 번들** 포트에 연결합니다.
     

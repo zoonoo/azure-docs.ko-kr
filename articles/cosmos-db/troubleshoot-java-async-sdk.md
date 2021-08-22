@@ -10,12 +10,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: b39a74bd06f942cf21d201c8cef48bc6dfc57d46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 113f75f548dc3cc71ac8fe430f649422b4cd89f6
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96548089"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112456763"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>SQL API 계정으로 Azure Cosmos DB Async Java SDK v2를 사용하는 경우 발생하는 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -199,7 +199,7 @@ RxJava-1.2.2에서 제공되는 라이브러리를 식별하려면 프로젝트 
 ```bash
 mvn dependency:tree
 ```
-자세한 내용은 [maven 종속성 트리 가이드](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html)를 참조하세요.
+자세한 내용은 [maven 종속성 트리 가이드](https://maven.apache.org/plugins-archives/maven-dependency-plugin-2.10/examples/resolving-conflicts-using-the-dependency-tree.html)를 참조하세요.
 
 RxJava-1.2.2가 프로젝트의 다른 종속성에 대한 전이 종속성임을 확인하면 pom 파일에서 해당 lib에 대한 종속성을 수정하고 RxJava 전이 종속성을 제외할 수 있습니다.
 

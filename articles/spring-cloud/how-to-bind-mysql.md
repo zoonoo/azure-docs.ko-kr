@@ -1,20 +1,20 @@
 ---
 title: Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩하는 방법
 description: Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩하는 방법을 알아봅니다.
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/04/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 71408513e18dc506f2c596d4e05db4fcc98ccea2
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 45ded9214f310f3505cc5d032754333c5cf702d8
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004154"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529538"
 ---
-# <a name="bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩 
+# <a name="bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩
 
 **이 문서는 다음에 적용됩니다.** ✔️ Java
 
@@ -38,6 +38,7 @@ Azure Spring Cloud 인스턴스를 아직 배포하지 않은 경우 [빠른 시
         <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
     ```
+
 1. *application.properties* 파일에서 `spring.datasource.*` 속성을 제거합니다.
 
 1. `az spring-cloud app deploy`를 실행하여 현재 앱을 업데이트하거나, `az spring-cloud app deployment create`를 실행하여 이 변경 사항에 대한 새 배포를 만듭니다.
@@ -45,20 +46,21 @@ Azure Spring Cloud 인스턴스를 아직 배포하지 않은 경우 [빠른 시
 ## <a name="bind-your-app-to-the-azure-database-for-mysql-instance"></a>Azure Database for MySQL 인스턴스에 앱 바인딩
 
 #### <a name="service-binding"></a>[서비스 바인딩](#tab/Service-Binding)
-1. Azure Database for MySQL 계정의 관리 사용자 이름 및 암호를 기록해 둡니다. 
+1. Azure Database for MySQL 계정의 관리 사용자 이름 및 암호를 기록해 둡니다.
 
 1. 서버에 연결하고, MySQL 클라이언트에서 **testdb** 라는 데이터베이스를 만든 다음, 관리자가 아닌 새 계정을 만듭니다.
 
-1. Azure Portal의 **Azure Spring Cloud** 서비스 페이지에서 **애플리케이션 대시보드** 를 찾은 다음, Azure Database for MySQL 인스턴스에 바인딩할 애플리케이션을 선택합니다.  이 애플리케이션은 이전 단계에서 업데이트하거나 배포한 것과 동일한 애플리케이션입니다. 
+1. Azure Portal의 **Azure Spring Cloud** 서비스 페이지에서 **애플리케이션 대시보드** 를 찾은 다음, Azure Database for MySQL 인스턴스에 바인딩할 애플리케이션을 선택합니다.  이 애플리케이션은 이전 단계에서 업데이트하거나 배포한 것과 동일한 애플리케이션입니다.
 
-1. **서비스 바인딩** 을 선택한 다음, **서비스 바인딩 만들기** 단추를 선택합니다. 
+1. **서비스 바인딩** 을 선택한 다음, **서비스 바인딩 만들기** 단추를 선택합니다.
 
 1. 양식을 작성하고, **바인딩 유형** 으로 **Azure MySQL** 을 선택하고, 이전에 사용한 것과 동일한 데이터베이스 이름과 첫 번째 단계에서 적어둔 사용자 이름 및 암호를 사용합니다.
 
 1. 앱을 다시 시작하면 이 바인딩이 작동합니다.
 
 1. 서비스 바인딩이 올바른지 확인하려면 바인딩 이름을 선택하고 해당 세부 정보를 확인합니다. `property` 필드는 다음과 같이 표시되어야 합니다.
-    ```
+
+    ```properties
     spring.datasource.url=jdbc:mysql://some-server.mysql.database.azure.com:3306/testdb?useSSL=true&requireSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
     spring.datasource.username=admin@some-server
     spring.datasource.password=abc******
@@ -170,6 +172,7 @@ resource "azurerm_spring_cloud_active_deployment" "example" {
   deployment_name     = azurerm_spring_cloud_java_deployment.example.name
 }
 ```
+
 ---
 
 ## <a name="next-steps"></a>다음 단계

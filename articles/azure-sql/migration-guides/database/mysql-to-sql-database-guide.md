@@ -9,17 +9,17 @@ ms.topic: how-to
 author: cawrites
 ms.author: chadam
 ms.date: 03/19/2021
-ms.openlocfilehash: ec117b8f341546deb48510d9b27a43b731d03742
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 3b9f286796a832d075977cda2eda54f990bbb3c1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111970712"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529048"
 ---
 # <a name="migration-guide-mysql-to-azure-sql-database"></a>마이그레이션 가이드: Azure SQL Database로 MySQL 마이그레이션
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-이 가이드에서는 MySQL용 SSMA(MySQL용 [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant)를 사용하여 Azure SQL 데이터베이스로 MySQL 데이터베이스를 [마이그레이션하는 방법](https://azure.microsoft.com/migration/migration-journey)을 알아봅니다. 
+이 가이드에서는 MySQL용 SSMA(MySQL용 [SQL Server Migration](https://azure.microsoft.com/migration/sql-server/) Assistant)를 사용하여 Azure SQL 데이터베이스로 MySQL 데이터베이스를 [마이그레이션하는 방법](https://azure.microsoft.com/migration/migration-journey)을 알아봅니다. 
 
 다른 마이그레이션 가이드는 [Azure 데이터베이스 마이그레이션 가이드](/data-migration)를 참조하세요. 
 
@@ -33,7 +33,7 @@ MySQL 데이터베이스를 SQL 데이터베이스로 마이그레이션하기 �
 
 ## <a name="pre-migration"></a>사전 마이그레이션 
 
-필수 조건을 충족하면 사용자 환경의 토폴로지를 검색하고 [Azure 클라우드 마이그레이션](https://azure.microsoft.com/migration)의 적합성을 평가할 준비가 된 것입니다.
+필수 구성 요소를 충족하면 사용자 환경의 토폴로지를 검색하고 [Azure 클라우드 마이그레이션](https://azure.microsoft.com/migration)의 적합성을 평가할 준비가 된 것입니다.
 
 ### <a name="assess"></a>평가 
 
@@ -165,8 +165,8 @@ MySQL용 SSMA(SQL Server Migration Assistant)를 사용하여 데이터베이스
 
 | 제목 | Description |
 | --- | --- |
-| [데이터 워크로드 평가 모델 및 도구](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | 특정 워크로드에 권장되는 ‘최적의’ 대상 플랫폼, 클라우드 준비 상태 및 애플리케이션/데이터베이스 수정 수준을 제공합니다. 또한 자동화되고 균일한 대상 플랫폼 결정 프로세스를 제공하여 대규모 자산 평가를 가속화하는 데 도움이 되는 간단한 원클릭 계산 및 보고서 생성 기능을 제공합니다. |
-|[MySQL-SQL DB - 데이터베이스 비교 유틸리티](https://www.microsoft.com/download/details.aspx?id=103016)|데이터베이스 비교 유틸리티는 원본 플랫폼과 대상 플랫폼에서 데이터가 동일한지 확인하는 데 사용할 수 있는 Windows 콘솔 애플리케이션입니다. 이 도구를 사용하여 모든 또는 선택한 테이블, 행, 열의 행 또는 열 수준까지 데이터를 효율적으로 비교할 수 있습니다.|
+| [데이터 워크로드 평가 모델 및 도구](https://www.microsoft.com/download/details.aspx?id=103130) | 특정 워크로드에 권장되는 ‘최적의’ 대상 플랫폼, 클라우드 준비 상태 및 애플리케이션/데이터베이스 수정 수준을 제공합니다. 또한 자동화되고 균일한 대상 플랫폼 결정 프로세스를 제공하여 대규모 자산 평가를 가속화하는 데 도움이 되는 간단한 원클릭 계산 및 보고서 생성 기능을 제공합니다. |
+|[MySQL-SQL DB - 데이터베이스 비교 유틸리티](https://www.microsoft.com/download/details.aspx?id=103016)|데이터베이스 비교 유틸리티는 원본 플랫폼과 대상 플랫폼에서 데이터가 동일한지 확인하는 데 사용할 수 있는 Windows 콘솔 애플리케이션입니다. 이 도구를 사용하여 모든 테이블 또는 선택한 테이블, 행, 열의 행 또는 열 수준까지 데이터를 효율적으로 비교할 수 있습니다.|
 
 데이터 SQL 엔지니어링 팀이 이러한 리소스를 개발했습니다. 이 팀의 핵심 선언은 Microsoft의 Azure 데이터 플랫폼으로의 데이터 플랫폼 마이그레이션 프로젝트에 대한 복잡한 현대화의 장애물을 제거하고 속도를 높이는 것입니다.
 

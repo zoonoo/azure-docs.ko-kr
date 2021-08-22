@@ -3,12 +3,12 @@ title: REST API를 사용하여 Azure 파일 공유 백업
 description: REST API를 사용하여 Recovery Services 자격 증명 모음에서 Azure 파일 공유를 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 8d2d8ed88da133986540a293185c8e37000ab87b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a305200feac635c03caa2477a08267c150219b9
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88824868"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471408"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure 파일 공유 백업
 
@@ -32,7 +32,7 @@ ms.locfileid: "88824868"
 
 ### <a name="discover-storage-accounts-with-unprotected-azure-file-shares"></a>보호되지 않는 Azure 파일 공유를 사용하여 스토리지 계정 검색
 
-자격 증명 모음은 Recovery Services 자격 증명 모음에 백업할 수 있는 파일 공유를 사용하여 구독의 모든 Azure storage 계정을 검색해야 합니다. [새로 고침 작업](/rest/api/backup/protectioncontainers/refresh)을 사용하여 이 자격 증명 모음을 트리거합니다. 이 작업은 비동기 *POST* 작업으로서 자격 증명 모음이 현재 구독의 모든 보호되지 않는 Azure 파일 공유의 최신 목록을 가져오고 해당 공유 파일을 ‘캐시’해야 합니다. 파일 공유가 '캐시'되면 Recovery Services에서 파일 공유에 액세스하여 보호할 수 있습니다.
+자격 증명 모음은 Recovery Services 자격 증명 모음에 백업할 수 있는 파일 공유를 사용하여 구독의 모든 Azure storage 계정을 검색해야 합니다. [새로 고침 작업](/rest/api/backup/protection-containers/refresh)을 사용하여 이 자격 증명 모음을 트리거합니다. 이 작업은 비동기 *POST* 작업으로서 자격 증명 모음이 현재 구독의 모든 보호되지 않는 Azure 파일 공유의 최신 목록을 가져오고 해당 공유 파일을 ‘캐시’해야 합니다. 파일 공유가 '캐시'되면 Recovery Services에서 파일 공유에 액세스하여 보호할 수 있습니다.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
@@ -108,7 +108,7 @@ Date   : Mon, 27 Jan 2020 10:53:04 GMT
 
 ### <a name="get-list-of-storage-accounts-with-file-shares-that-can-be-backed-up-with-recovery-services-vault"></a>Recovery Services 자격 증명 모음으로 백업할 수 있는 파일 공유를 사용하여 스토리지 계정 목록을 가져옵니다.
 
-"캐싱"이 완료되었는지 확인하려면 Recovery Services 자격 증명 모음으로 백업할 수 있는 파일 공유를 사용하여 구독의 모든 스토리지 계정을 나열합니다. 그런 다음, 응답에서 원하는 스토리지 계정을 찾습니다. 이 작업은 [GET ProtectableContainers](/rest/api/backup/protectablecontainers/list) 작업을 사용하여 수행합니다.
+"캐싱"이 완료되었는지 확인하려면 Recovery Services 자격 증명 모음으로 백업할 수 있는 파일 공유를 사용하여 구독의 모든 스토리지 계정을 나열합니다. 그런 다음, 응답에서 원하는 스토리지 계정을 찾습니다. 이 작업은 [GET ProtectableContainers](/rest/api/backup/protectable-containers/list) 작업을 사용하여 수행합니다.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
@@ -160,7 +160,7 @@ protectableContainers/StorageContainer;Storage;AzureFiles;testvault2",
 
 ### <a name="register-storage-account-with-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 스토리지 계정 등록
 
-이 단계는 스토리지 계정을 자격 증명 모음에 등록해 놓지 않은 경우에만 필요합니다. [ProtectionContainers-Register 작업](/rest/api/backup/protectioncontainers/register)을 통해 자격 증명 모음을 등록할 수 있습니다.
+이 단계는 스토리지 계정을 자격 증명 모음에 등록해 놓지 않은 경우에만 필요합니다. [ProtectionContainers-Register 작업](/rest/api/backup/protection-containers/register)을 통해 자격 증명 모음을 등록할 수 있습니다.
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}?api-version=2016-12-01
@@ -205,11 +205,11 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
   "backupManagementType": "AzureStorage"
 
-
  }
+}
 ```
 
-요청 본문 및 기타 세부 정보에 대한 전체 정의 목록은 [ProtectionContainers-Register](/rest/api/backup/protectioncontainers/register#azurestoragecontainer)를 참조하세요.
+요청 본문 및 기타 세부 정보에 대한 전체 정의 목록은 [ProtectionContainers-Register](/rest/api/backup/protection-containers/register#azurestoragecontainer)를 참조하세요.
 
 이것은 비동기 작업으로서 두 개의 응답, 즉 작업이 허용될 때 “202 수락됨”을, 작업이 완료될 때 “200 정상”을 반환합니다.  작업 상태를 추적하려면 location 헤더를 사용하여 작업의 최신 상태를 가져옵니다.
 
@@ -241,7 +241,7 @@ protectionContainers/StorageContainer;Storage;AzureFiles;testvault2",
 
 ### <a name="inquire-all-unprotected-files-shares-under-a-storage-account"></a>스토리지 계정에서 보호되지 않는 모든 파일 공유를 조회합니다.
 
-[Protection Containers-Inquire](/rest/api/backup/protectioncontainers/inquire) 작업을 사용하여 스토리지 계정의 보호 가능한 항목을 조회할 수 있습니다. 이는 비동기 작업이며 location 헤더를 사용하여 결과를 추적해야 합니다.
+[Protection Containers-Inquire](/rest/api/backup/protection-containers/inquire) 작업을 사용하여 스토리지 계정의 보호 가능한 항목을 조회할 수 있습니다. 이는 비동기 작업이며 location 헤더를 사용하여 결과를 추적해야 합니다.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/inquire?api-version=2016-12-01
@@ -276,7 +276,7 @@ Date  : Mon, 27 Jan 2020 10:53:05 GMT
 
 ### <a name="select-the-file-share-you-want-to-back-up"></a>백업할 파일 공유 선택
 
-구독 아래에 있는 모든 보호 가능한 항목을 나열하고 [GET backupprotectableItems](/rest/api/backup/backupprotectableitems/list) 작업을 사용하여 백업할 원하는 파일 공유를 찾을 수 있습니다.
+구독 아래에 있는 모든 보호 가능한 항목을 나열하고 [GET backupprotectableItems](/rest/api/backup/backup-protectable-items/list) 작업을 사용하여 백업할 원하는 파일 공유를 찾을 수 있습니다.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectableItems?api-version=2016-12-01&$filter={$filter}
@@ -351,7 +351,7 @@ Status Code:200
 
 ### <a name="enable-backup-for-the-file-share"></a>파일 공유에 대한 백업 사용
 
-관련 파일 공유를 친숙한 이름으로 "식별"한 후 보호할 정책을 선택합니다. 자격 증명 모음의 기존 정책에 대한 자세한 내용은 [정책 API 나열](/rest/api/backup/backuppolicies/list)을 참조하세요. 그런 다음, 정책 이름을 참조하여 [관련 정책](/rest/api/backup/protectionpolicies/get)을 선택합니다. 정책을 만들려면 [정책 자습서 만들기](./backup-azure-arm-userestapi-createorupdatepolicy.md)를 참조하세요.
+관련 파일 공유를 친숙한 이름으로 "식별"한 후 보호할 정책을 선택합니다. 자격 증명 모음의 기존 정책에 대한 자세한 내용은 [정책 API 나열](/rest/api/backup/backup-policies/list)을 참조하세요. 그런 다음, 정책 이름을 참조하여 [관련 정책](/rest/api/backup/protection-policies/get)을 선택합니다. 정책을 만들려면 [정책 자습서 만들기](./backup-azure-arm-userestapi-createorupdatepolicy.md)를 참조하세요.
 
 보호 사용은 '보호된 항목'을 만드는 비동기 *PUT* 작업입니다.
 

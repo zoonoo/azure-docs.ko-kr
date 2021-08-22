@@ -4,12 +4,12 @@ description: OpenID Connect 공급자를 App Service 또는 Azure Functions 앱�
 ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
-ms.openlocfilehash: e8112f2dc20175e81cfa8388440b2d9aef6a419c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: befedca9fa872575d990ceea786a09d60a5773ca
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90983871"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113092948"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>OpenID Connect 공급자를 사용하여 로그인하도록 App Service 또는 Azure Functions 앱 구성(미리 보기)
 
@@ -48,7 +48,7 @@ ms.locfileid: "90983871"
 ## <a name="add-provider-information-to-your-application"></a><a name="configure"> </a>애플리케이션에 공급자 정보 추가
 
 > [!NOTE]
-> 필요한 구성은 새 API 형식으로, 현재 [파일 기반 구성(미리 보기)](.\app-service-authentication-how-to.md#config-file)에서만 지원됩니다. 해당 파일을 사용하여 아래 단계를 수행해야 합니다.
+> 필요한 구성은 새 API 형식으로, 현재 [파일 기반 구성(미리 보기)](configure-authentication-file-based.md)에서만 지원됩니다. 이러한 파일을 사용하여 아래 단계를 수행해야 합니다.
 
 이 섹션에서는 새 IDP를 포함하도록 구성을 업데이트하는 과정을 안내합니다. 예제 구성은 다음과 같습니다.
 

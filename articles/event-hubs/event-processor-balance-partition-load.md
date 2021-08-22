@@ -3,12 +3,12 @@ title: 여러 인스턴스의 파티션 부하 분산 - Azure Event Hubs | Micro
 description: 이벤트 프로세서와 Azure Event Hubs SDK를 사용하여 애플리케이션의 여러 인스턴스의 파티션 부하를 분산하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: af307058d0eda6b96c0811bccc245c09e2bdd27d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d27736667ca6d5e7e073b24f3cfcad96b2381c0d
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95025047"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003179"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>애플리케이션의 여러 인스턴스의 파티션 부하 분산
 이벤트 처리 애플리케이션의 크기를 조정하기 위해 애플리케이션의 여러 인스턴스를 실행하고 부하를 분산하도록 할 수 있습니다. 이전 버전에서는 [EventProcessorHost](event-hubs-event-processor-host.md)를 사용하여 프로그램의 여러 인스턴스와 수신되는 검사점 이벤트 간의 부하를 분산할 수 있었습니다. 최신 버전(5.0 이상)에서는 **EventProcessorClient**(.NET 및 Java) 또는 **EventHubConsumerClient**(Python 및 JavaScript)를 사용하여 동일한 작업을 수행할 수 있습니다. 이벤트를 사용하여 개발 모델을 더 간단하게 할 수 있습니다. 이벤트 처리기를 등록하여 관심 있는 이벤트를 구독합니다. 이전 버전의 클라이언트 라이브러리를 사용하는 경우 [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md), [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md), [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/migration_guide.md) 및 [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md) 마이그레이션 가이드를 참조하세요.
@@ -78,7 +78,7 @@ ms.locfileid: "95025047"
 > Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원하는 환경에서 검사점 저장소로 Azure Blob Storage를 사용하는 경우 코드를 사용하여 Storage 서비스 API 버전을 해당 환경에서 지원하는 특정 버전으로 변경해야 합니다. 예를 들어 [Azure Stack Hub 버전 2002의 Event Hubs](/azure-stack/user/event-hubs-overview)에서 실행 중인 경우 스토리지 서비스에 사용할 수 있는 가장 높은 버전은 2017-11-09입니다. 이 경우 코드를 사용하여 Storage 서비스 API 버전의 대상을 2017-11-09로 해야 합니다. 특정 Storage API 버전을 대상으로 지정하는 방법에 대한 예제는 GitHub에 대한 다음 샘플을 참조하세요. 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
-> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) 또는 [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
+> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/javascript) 또는 [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/typescript)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)
 
 ## <a name="thread-safety-and-processor-instances"></a>스레드 안전성 및 프로세서 인스턴스

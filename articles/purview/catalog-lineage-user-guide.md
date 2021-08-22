@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/29/2020
-ms.openlocfilehash: 8b08a60d484aa3d52600b8aef2f53d6ca8a04f9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/10/2021
+ms.openlocfilehash: 4708cdc0a7937749e0df9a65267067f5dc31198d
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952170"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122530279"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Azure Purview Data Catalog 계보 사용자 가이드
 
@@ -28,10 +28,10 @@ Azure Purview의 플랫폼 기능 중 하나는 데이터 프로세스에서 만
 ### <a name="data-processing-system"></a>데이터 처리 시스템
 데이터 통합 및 ETL 도구는 실행 시 Azure Purview에 계보를 푸시할 수 있습니다. Data Factory, Data Share, Synapse, Azure Databricks 등의 도구는 이 데이터 시스템 범주에 속합니다. 데이터 처리 시스템은 다른 데이터베이스 및 스토리지 솔루션의 원본으로 데이터 세트를 참조하여 대상 데이터 세트를 만듭니다. 현재 계보에 대해 Purview와 통합된 데이터 처리 시스템의 목록은 아래 표에 나와 있습니다.
 
-
 | 데이터 처리 시스템 | 지원되는 범위 |
 | ---------------------- | ------------|
-| Azure Data Factory | [복사 작업](how-to-link-azure-data-factory.md#data-factory-copy-activity-support) <br> [데이터 흐름 작업](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [SSIS 패키지 작업 실행](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
+| Azure Data Factory | [복사 작업](how-to-link-azure-data-factory.md#copy-activity-support) <br> [데이터 흐름 작업](how-to-link-azure-data-factory.md#data-flow-support) <br> [SSIS 패키지 작업 실행](how-to-link-azure-data-factory.md#execute-ssis-package-support) |
+| Azure Synapse Analytics | [복사 작업](how-to-lineage-azure-synapse-analytics.md#copy-activity-support) |
 | Azure Data Share | [스냅샷 공유](how-to-link-azure-data-share.md) |
  
 ### <a name="data-storage-systems"></a>데이터 스토리지 시스템

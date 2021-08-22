@@ -6,16 +6,18 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: 03227f121f58e52d2e9d34613917fda864666ce1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 51e0913404fd0cf853eaeae39a91f648ece17341
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769970"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642161"
 ---
 # <a name="manage-an-azure-database-for-mysql-single-server-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL 단일 서버 관리
 
-이 문서에서는 Azure에 배포된 단일 서버를 관리하는 방법을 보여줍니다. 관리 작업에는 컴퓨팅 및 스토리지 스케일링, 관리자 암호 재설정, 서버 정보 보기 등이 포함됩니다.
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
+이 문서에서는 Azure에 배포된 단일 서버를 관리하는 방법을 보여줍니다. 관리 작업에는 컴퓨팅 및 스토리지 스케일링, 관리자 암호 재설정, 서버 세부 정보 보기 등이 포함됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. 이 문서에서는 Azure CLI 버전 2.0 이상을 로컬로 실행해야 합니다. 설치된 버전을 확인하려면 `az --version` 명령을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
@@ -48,10 +50,10 @@ az mysql server update --resource-group myresourcegroup --name mydemoserver --sk
 name | mydemoserver | 고유한 Azure Database for MySQL 서버 이름을 입력합니다. 서버 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-63자여야 합니다.
 resource-group | myresourcegroup | Azure 리소스 그룹의 이름을 입력합니다.
 sku-name|GP_Gen5_2|가격 책정 계층 및 컴퓨팅 구성의 이름을 입력합니다. {가격 책정 계층} _{계산 세대}_ {vCores} 규칙을 축약형으로 따릅니다. 자세한 내용은 [가격 책정 계층](./concepts-pricing-tiers.md)을 참조하세요.
-storage-size | 6144 | 서버의 스토리지 용량입니다(단위는 메가바이트). 최소값은 5120이고 1024씩 증분하여 늘어납니다.
+storage-size | 6144 | 서버의 스토리지 용량입니다(단위는 메가바이트). 최솟값은 5120이고 1024씩 증분하여 늘어납니다.
 
 > [!Important]
-> - 스토리지를 스케일 업할 수 있습니다(스토리지 크기 스케일 다운은 불가능).
+> - 스토리지는 스케일 업할 수 있지만 스케일 다운할 수는 없습니다.
 > - 기본에서 범용 또는 메모리 최적화 가격 책정 계층으로 스케일 업하는 것은 지원되지 않습니다. [Bash 스크립트를 사용](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/upgrade-from-basic-to-general-purpose-or-memory-optimized-tiers/ba-p/830404)하거나 [MySQL Workbench를 사용](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-scale-up-azure-database-for-mysql-from-basic-tier-to/ba-p/369134)하여 수동으로 스케일 업할 수 있습니다.
 
 
@@ -73,7 +75,7 @@ az mysql server update --resource-group myresourcegroup --name mydemoserver --ad
 
 > [!Important]
 >  암호는 최소 8자, 최대 128자여야 합니다.
-> 암호에는 영어 대문자, 영어 소문자, 숫자 및 영숫자가 아닌 문자의 세 범주에 해당하는 문자가 포함되어야 합니다.
+> 암호에는 영어 대문자, 영어 소문자, 숫자, 영숫자가 아닌 문자 중 세 가지에 해당하는 문자가 포함되어야 합니다.
 
 ## <a name="delete-a-server"></a>서버 삭제
 새로 만든 MySQL 단일 서버를 삭제하려면 [az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete) 명령을 실행할 수 있습니다.

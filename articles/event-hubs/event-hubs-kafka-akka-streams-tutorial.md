@@ -3,12 +3,12 @@ title: Apache Kafka용 Akka Streams 사용 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hub에 Akka Streams를 연결하는 방법에 대한 정보를 제공합니다.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 92ab927189329493696c70b61ffc7f11cad22a66
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 500a287fcf481a8ef81ce1bb22df503e8757201d
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92369576"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113286451"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Apache Kafka용 Event Hubs에서 Akka Streams 사용
 
@@ -30,7 +30,7 @@ ms.locfileid: "92369576"
 
 * [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md) 문서를 참조하세요. 
 * Azure 구독 구독이 없으면 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
-* [JDK(Java Development Kit) 1.8 이상](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [JDK(Java Development Kit) 1.8 이상](/azure/developer/java/fundamentals/java-support-on-azure)
     * Ubuntu에서 `apt-get install default-jdk`를 실행하여 JDK를 설치합니다.
     * JAVA_HOME 환경 변수가 반드시 JDK가 설치된 폴더를 지정하도록 설정합니다.
 * Maven 이진 보관 파일을 [다운로드](https://maven.apache.org/download.cgi)하여 [설치](https://maven.apache.org/install.html)합니다.
@@ -139,7 +139,7 @@ mvn exec:java -Dexec.mainClass="AkkaTestConsumer"
 Akka Streams에 대한 자세한 내용은 [Akka Streams Kafka 가이드](https://doc.akka.io/docs/akka-stream-kafka/current/home.html)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Kafka용 Event Hubs에 대해 자세한 내용은 다음 문서를 참조하세요.  
+Kafka용 Event Hubs에 대한 자세한 내용은 다음 문서를 참조하세요.  
 
 - [이벤트 허브에서 Kafka broker 미러링](event-hubs-kafka-mirror-maker-tutorial.md)
 - [이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)

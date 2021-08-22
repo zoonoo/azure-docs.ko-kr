@@ -3,12 +3,12 @@ title: 사이드카 컨테이너로 TLS 사용
 description: 사이드카 컨테이너에서 Nginx를 실행하여 Azure Container Instances에서 실행되는 컨테이너 그룹에 대한 SSL 또는 TLS 엔드포인트를 만듭니다.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 17467cab93f3a930c8290f73c5f4c971b53f12b5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d2bd750849f99229d6bc4b487e21b42702980ceb
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090553"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122530123"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>사이드카 컨테이너에서 TLS 엔드포인트 사용
 
@@ -154,7 +154,7 @@ properties:
   containers:
   - name: nginx-with-ssl
     properties:
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       ports:
       - port: 443
         protocol: TCP

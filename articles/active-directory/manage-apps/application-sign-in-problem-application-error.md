@@ -2,22 +2,22 @@
 title: 로그인한 후 앱 페이지에 오류 메시지가 표시됩니다. | Microsoft Docs
 description: 앱에서 오류를 내보내는 경우 Azure AD 로그인에서 발생한 문제를 해결하는 방법
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mtillman
-ms.reviewer: asteen
+ms.author: davidmu
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ca0589da8cfa03553916755c4eb56ab74324501
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 1c1910eb106e7a3e405f58ba672c38fa108544d2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081752"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528820"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>사용자가 로그인하면 앱 페이지에 오류 메시지가 표시됨
 
@@ -25,11 +25,11 @@ ms.locfileid: "112081752"
 
 앱이 Azure AD의 응답을 수락하지 않은 데에는 몇 가지 가능한 이유가 있습니다. 오류 메시지가 응답에서 누락된 항목을 명확하게 식별하지 못하는 경우 다음을 시도합니다.
 
--   앱이 Azure AD 갤러리라면 [Azure AD의 애플리케이션에 대한 SAML 기반 Single Sign-On을 디버그하는 방법](./debug-saml-sso-issues.md)의 단계를 수행했는지 확인합니다.
+- 앱이 Azure AD 갤러리라면 [Azure AD의 애플리케이션에 대한 SAML 기반 Single Sign-On을 디버그하는 방법](./debug-saml-sso-issues.md)의 단계를 수행했는지 확인합니다.
 
--   [Fiddler](https://www.telerik.com/fiddler)와 같은 도구를 사용하여 SAML 요청, 응답 및 토큰을 캡처합니다.
+- [Fiddler](https://www.telerik.com/fiddler)와 같은 도구를 사용하여 SAML 요청, 응답 및 토큰을 캡처합니다.
 
--   앱 공급 업체에 SAML 응답을 보내고 누락된 항목을 요청합니다.
+- 앱 공급 업체에 SAML 응답을 보내고 누락된 항목을 요청합니다.
 
 ## <a name="attributes-are-missing-from-the-saml-response"></a>SAML 응답에 특성이 없습니다.
 
@@ -58,7 +58,7 @@ Azure AD 응답으로 보낼 Azure AD 구성의 특성을 추가하려면 아래
 
    1. **특성 추가** 를 선택합니다. **이름을** 입력하고 드롭다운 목록에서 **값** 을 선택합니다.
 
-   1.  **저장** 을 선택합니다. 테이블에 새 특성이 표시됩니다.
+   1. **저장** 을 선택합니다. 테이블에 새 특성이 표시됩니다.
 
 9. 구성을 저장합니다.
 
@@ -124,9 +124,9 @@ Azure AD에서 디지털 서명하는 SAML 토큰의 일부를 변경하려면 �
 
 9. 다음 옵션 중에서 앱에 필요한 **서명 옵션** 을 선택합니다.
 
-   * **SAML 응답 서명**
-   * **SAML 응답 및 어설션 서명**
-   * **SAML 어설션 서명**
+   - **SAML 응답 서명**
+   - **SAML 응답 및 어설션 서명**
+   - **SAML 어설션 서명**
 
    다음 번에 사용자가 앱에 로그인하면 Azure AD는 선택한 SAML 응답의 일부를 서명합니다.
 
@@ -160,4 +160,5 @@ Azure AD에서 디지털 서명하는 SAML 토큰의 일부를 변경하려면 �
    다음에 사용자가 앱에 로그인 할 때 Azure AD는 SHA-1 알고리즘을 사용하여 SAML 토큰에 서명합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 [Azure AD에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그하는 방법](./debug-saml-sso-issues.md)

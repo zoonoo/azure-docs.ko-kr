@@ -1,18 +1,20 @@
 ---
 title: MongoDB용 Azure Cosmos DB API에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Data Factory를 사용하여 지원되는 원본 데이터 저장소에서 MongoDB용 Azure Cosmos DB API로, 또는 이러한 데이터 저장소나 API에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 11/20/2019
-ms.openlocfilehash: 4a40ed7f9b5fd2b39e617ef40becf5f979a22eea
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: e87b714aae9e9429f4987f740643e4d21a51315b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110072175"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642831"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB용 Azure Cosmos DB API에서/API로 데이터 복사
 

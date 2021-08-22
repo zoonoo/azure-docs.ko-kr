@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f346995e47c0156f546722031ebaa8734239549c
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: e5cc7974038ed69c745a958c682967d26545d5bc
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536711"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113109578"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Azure Functions의 Azure Event Grid 바인딩
 
@@ -34,13 +34,13 @@ Event Grid는 *게시자* 에서 발생하는 이벤트를 알리기 위해 HTTP
 
 ### <a name="functions-2x-and-higher"></a>Functions 2.x 이상
 
-트리거 및 바인딩을 사용하려면 적절한 패키지를 참조해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용되는 반면 확장 번들은 다른 모든 애플리케이션 형식에 사용됩니다.
+트리거 및 바인딩을 사용하려면 적절한 패키지를 참조해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용되는 반면, 확장 번들은 다른 모든 애플리케이션 형식에 사용됩니다.
 
-| 언어                                        | 추가 방법...                                   | 설명 
-|-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | [NuGet 패키지] 버전 2.x 설치 | |
-| C# 스크립트, Java, JavaScript, Python, PowerShell | [확장 번들] 등록          | [Azure Tools 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)은 Visual Studio Code와 함께 사용하는 것이 좋습니다. |
-| C# 스크립트(Azure Portal에서 온라인으로만 사용)         | 바인딩 추가                            | 함수 앱을 다시 게시하지 않고 기존 바인딩 확장을 업데이트하려면 [확장 업데이트]를 참조하세요. |
+| 언어 | 추가 방법... | 설명 |
+|---|---|---|
+| C# | [NuGet 패키지] 버전 2.x 설치 | |
+| C# 스크립트, Java, JavaScript, Python, PowerShell | [확장 번들] 등록 | [Azure Tools 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)은 Visual Studio Code와 함께 사용하는 것이 좋습니다. |
+| C# 스크립트(Azure Portal에서 온라인으로만) | 바인딩 추가 | 함수 앱을 다시 게시하지 않고 기존 바인딩 확장을 업데이트하려면 [확장 업데이트]를 참조하세요. |
 
 [core tools]: ./functions-run-local.md
 [확장 번들]: ./functions-bindings-register.md#extension-bundles

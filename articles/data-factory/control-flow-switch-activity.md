@@ -5,21 +5,23 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 06/23/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cf2a5bcc511b0401ff1be3630e0388b43eaeb78d
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 19dd17afc7114d739e1faa043a40962ce601d253
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110674981"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642555"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Azure Data Factory의 Switch 작업
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Switch 작업은 switch 문이 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 조건 평가와 일치하는 사례에 해당하는 작업 세트를 평가합니다.
+
 
 ## <a name="syntax"></a>구문
 
@@ -70,8 +72,8 @@ Switch 작업은 switch 문이 프로그래밍 언어로 제공하는 것과 동
 -------- | ----------- | -------------- | --------
 name | 전환 작업의 이름입니다. | String | 예
 type | ‘Switch’로 설정해야 함* | String | 예
-식 | 문자열 값으로 평가되어야 하는 식 | 결과 형식 문자열이 포함된 식 | 예
-cases | 값이 식 평가에 일치할 때 실행할 작업 집합 및 값을 포함하는 사례 집합입니다. 하나 이상의 사례를 제공해야 합니다. 최대 사례 수 제한은 25개입니다. | 사례 개체의 배열 | 예
+식 | 문자열 값으로 평가되어야 하는 식 | 결과 형식 문자열이 포함된 식 | Yes
+cases | 값이 식 평가에 일치할 때 실행할 작업 집합 및 값을 포함하는 사례 집합입니다. 하나 이상의 사례를 제공해야 합니다. 최대 사례 수 제한은 25개입니다. | 사례 개체의 배열 | Yes
 defaultActivities | 식 평가가 만족되지 않을 때 실행되는 작업 집합입니다. | 작업의 배열 | 예
 
 ## <a name="example"></a>예제

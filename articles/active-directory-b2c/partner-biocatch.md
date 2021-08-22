@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 2462b585bb37db769aafafbb0d224557c53ee81d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c6b3802add796184714f389b813765945a8d20a4
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127086"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122530171"
 ---
 # <a name="tutorial-configure-biocatch-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 BioCatch 구성하기
 
@@ -74,7 +74,7 @@ BioCatch 통합에는 다음 구성 요소가 포함됩니다.
 
 클라이언트 세션 ID 필드를 숨기는 것이 좋습니다. CSS, JavaScript 또는 기타 메서드를 사용하여 필드를 숨깁니다. 테스트를 위해 필드를 표시하지 않을 수 있습니다. 예를 들어 JavaScript는 다음과 같이 입력 필드를 숨기는 데 사용됩니다.
 
-```
+```JavaScript
 document.getElementById("clientSessionId").style.display = 'none';
 ```
 
@@ -84,7 +84,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 2. 확장 파일에서 상속되는 새 파일을 만듭니다.
 
-    ```
+    ```XML
     <BasePolicy> 
 
         <TenantId>tenant.onmicrosoft.com</TenantId> 
@@ -96,7 +96,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 3. BuildingBlocks 리소스 아래에서 입력 상자를 숨기도록 사용자 지정 UI에 대한 참조를 만듭니다.
 
-    ```
+    ```XML
     <ContentDefinitions> 
 
         <ContentDefinition Id="api.selfasserted"> 
@@ -112,7 +112,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 4. BuildingBlocks 리소스 아래에 다음 클레임을 추가합니다.
 
-    ```
+    ```XML
     <ClaimsSchema> 
 
           <ClaimType Id="riskLevel"> 
@@ -141,12 +141,12 @@ document.getElementById("clientSessionId").style.display = 'none';
 
           </ClaimType> 
 
-    <ClaimsSchema> 
+    </ClaimsSchema> 
     ```
 
 5. 클라이언트 세션 ID 필드에 대해 자체 어설션된 클레임 공급자를 구성합니다.
 
-    ```
+    ```XML
     <ClaimsProvider> 
 
           <DisplayName>Client Session ID Claims Provider</DisplayName> 
@@ -175,7 +175,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
               <OutputClaims> 
 
-                <OutputClaim ClaimTypeReferenceId="clientSessionId" Required="false" DefaultValue="100"/> 
+                <OutputClaim ClaimTypeReferenceId="clientSessionId" Required="false" DefaultValue="100"/> 
 
               </OutputClaims> 
 
@@ -190,16 +190,16 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 6. BioCatch에 대한 REST API 클레임 공급자를 구성합니다. 
 
-    ```
+    ```XML
     <TechnicalProfile Id="BioCatch-API-GETSCORE"> 
 
           <DisplayName>Technical profile for BioCatch API to return session information</DisplayName> 
 
-          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" /> 
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
 
           <Metadata> 
 
-            <Item Key="ServiceUrl">https://biocatch-url.com/api/v6/score?customerID=<customerid>&amp;action=getScore&amp;uuid=<uuid>&amp;customerSessionID={clientSessionId}&amp;solution=ATO&amp;activtyType=<activity_type>&amp;brand=<brand></Item> 
+            <Item Key="ServiceUrl">https://biocatch-url.com/api/v6/score?customerID=<customerid>&amp;action=getScore&amp;uuid=<uuid>&amp;customerSessionID={clientSessionId}&amp;solution=ATO&amp;activtyType=<activity_type>&amp;brand=<brand></Item>
 
             <Item Key="SendClaimsIn">Url</Item> 
 
@@ -247,106 +247,104 @@ document.getElementById("clientSessionId").style.display = 'none';
 
    1. 반환된 클레임 ‘위험’이 ‘낮은’ 경우 MFA를 위한 단계를 건너뛰고, 그렇지 않으면 사용자 MFA를 강제합니다. 
 
-    ```
-    <OrchestrationStep Order="8" Type="ClaimsExchange"> 
+    ```XML
+    <OrchestrationStep Order="8" Type="ClaimsExchange"> 
 
-              <ClaimsExchanges> 
+          <ClaimsExchanges> 
 
-                <ClaimsExchange Id="clientSessionIdInput" TechnicalProfileReferenceId="login-NonInteractive-clientSessionId" /> 
+            <ClaimsExchange Id="clientSessionIdInput" TechnicalProfileReferenceId="login-NonInteractive-clientSessionId" /> 
 
-              </ClaimsExchanges> 
+          </ClaimsExchanges> 
 
-            </OrchestrationStep> 
+        </OrchestrationStep> 
 
-            <OrchestrationStep Order="9" Type="ClaimsExchange"> 
+        <OrchestrationStep Order="9" Type="ClaimsExchange"> 
 
-              <ClaimsExchanges> 
+          <ClaimsExchanges> 
 
-                <ClaimsExchange Id="BcGetScore" TechnicalProfileReferenceId=" BioCatch-API-GETSCORE" /> 
+            <ClaimsExchange Id="BcGetScore" TechnicalProfileReferenceId=" BioCatch-API-GETSCORE" /> 
 
-              </ClaimsExchanges> 
+          </ClaimsExchanges> 
 
-            </OrchestrationStep> 
+        </OrchestrationStep> 
 
-            <OrchestrationStep Order="10" Type="ClaimsExchange"> 
+        <OrchestrationStep Order="10" Type="ClaimsExchange"> 
 
-              <Preconditions> 
+          <Preconditions> 
 
-                <Precondition Type="ClaimEquals" ExecuteActionsIf="true"> 
+            <Precondition Type="ClaimEquals" ExecuteActionsIf="true"> 
 
-                  <Value>riskLevel</Value> 
+              <Value>riskLevel</Value> 
 
-                  <Value>LOW</Value> 
+              <Value>LOW</Value> 
 
-                  <Action>SkipThisOrchestrationStep</Action> 
+              <Action>SkipThisOrchestrationStep</Action> 
 
-                </Precondition> 
+            </Precondition> 
 
-              </Preconditions> 
+          </Preconditions> 
 
-              <ClaimsExchanges> 
+          <ClaimsExchanges> 
 
-                <ClaimsExchange Id="PhoneFactor-Verify" TechnicalProfileReferenceId="PhoneFactor-InputOrVerify" /> 
+            <ClaimsExchange Id="PhoneFactor-Verify" TechnicalProfileReferenceId="PhoneFactor-InputOrVerify" /> 
 
-              </ClaimsExchanges>  
-
+          </ClaimsExchanges>
     ```
 
 8. 신뢰 당사자 구성에 대한 구성(선택 사항)
 
     반환된 BioCatch 정보를 토큰의 클레임(특히 *risklevel* 및 ‘점수’)으로 애플리케이션에 전달하는 것이 유용합니다.
 
-    ```
+    ```XML
     <RelyingParty> 
 
-        <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 
+    <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 
 
-        <UserJourneyBehaviors> 
+    <UserJourneyBehaviors> 
 
-          <SingleSignOn Scope="Tenant" KeepAliveInDays="30" /> 
+      <SingleSignOn Scope="Tenant" KeepAliveInDays="30" /> 
 
-          <SessionExpiryType>Absolute</SessionExpiryType> 
+      <SessionExpiryType>Absolute</SessionExpiryType> 
 
-          <SessionExpiryInSeconds>1200</SessionExpiryInSeconds> 
+      <SessionExpiryInSeconds>1200</SessionExpiryInSeconds> 
 
-          <ScriptExecution>Allow</ScriptExecution> 
+      <ScriptExecution>Allow</ScriptExecution> 
 
-        </UserJourneyBehaviors> 
+    </UserJourneyBehaviors> 
 
-        <TechnicalProfile Id="PolicyProfile"> 
+    <TechnicalProfile Id="PolicyProfile"> 
 
-          <DisplayName>PolicyProfile</DisplayName> 
+      <DisplayName>PolicyProfile</DisplayName> 
 
-          <Protocol Name="OpenIdConnect" /> 
+      <Protocol Name="OpenIdConnect" /> 
 
-          <OutputClaims> 
+      <OutputClaims> 
 
-            <OutputClaim ClaimTypeReferenceId="displayName" /> 
+        <OutputClaim ClaimTypeReferenceId="displayName" /> 
 
-            <OutputClaim ClaimTypeReferenceId="givenName" /> 
+        <OutputClaim ClaimTypeReferenceId="givenName" /> 
 
-            <OutputClaim ClaimTypeReferenceId="surname" /> 
+        <OutputClaim ClaimTypeReferenceId="surname" /> 
 
-            <OutputClaim ClaimTypeReferenceId="email" /> 
+        <OutputClaim ClaimTypeReferenceId="email" /> 
 
-            <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" /> 
+        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" /> 
 
-            <OutputClaim ClaimTypeReferenceId="identityProvider" />                 
+        <OutputClaim ClaimTypeReferenceId="identityProvider" />                 
 
-            <OutputClaim ClaimTypeReferenceId="riskLevel" /> 
+        <OutputClaim ClaimTypeReferenceId="riskLevel" /> 
 
-            <OutputClaim ClaimTypeReferenceId="score" /> 
+        <OutputClaim ClaimTypeReferenceId="score" /> 
 
-            <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" /> 
+        <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" /> 
 
-          </OutputClaims> 
+      </OutputClaims> 
 
-          <SubjectNamingInfo ClaimType="sub" /> 
+      <SubjectNamingInfo ClaimType="sub" /> 
 
-        </TechnicalProfile> 
+    </TechnicalProfile> 
 
-      </RelyingParty> 
-
+  </RelyingParty>
     ```
 
 ## <a name="integrate-with-azure-ad-b2c"></a>Azure AD B2C와 통합
@@ -373,7 +371,7 @@ Azure AD B2C에 정책 파일을 추가하려면 다음 단계를 수행합니�
 
 4. 등록 흐름을 따라 계정 만들기 JWT.MS로 반환된 토큰에는 riskLevel 및 점수에 대한 2배의 클레임이 있어야 합니다. 예제를 따릅니다.  
 
-    ```
+    ```JavaScript
     { 
 
       "typ": "JWT", 
@@ -422,7 +420,7 @@ Azure AD B2C에 정책 파일을 추가하려면 다음 단계를 수행합니�
 
     ```
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 

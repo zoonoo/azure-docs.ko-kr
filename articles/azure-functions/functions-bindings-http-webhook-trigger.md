@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4550be7ae8c543eea1bdfa085db6f23fe668a121
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b423e763492a0c244982422122705039cd9de80
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025699"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302323"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions HTTP 트리거
 
@@ -375,7 +375,7 @@ module.exports = function(context, req) {
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-다음 예제는 *function.json* 의 트리거 바인딩 및 [PowerShell 함수](functions-reference-node.md)를 보여 줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
+다음 예제는 *function.json* 의 트리거 바인딩 및 [PowerShell 함수](functions-reference-powershell.md)를 보여 줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
 
 ```json
 {
@@ -755,7 +755,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ## <a name="working-with-client-identities"></a>클라이언트 ID 사용
 
-함수 앱이 [App Service 인증 / 권한 부여](../app-service/overview-authentication-authorization.md)를 사용하는 경우 코드에서 인증된 클라이언트에 대한 정보를 볼 수 있습니다. 이 정보는 [플랫폼에 의해 삽입된 요청 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)로서 사용할 수 있습니다.
+함수 앱이 [App Service 인증 / 권한 부여](../app-service/overview-authentication-authorization.md)를 사용하는 경우 코드에서 인증된 클라이언트에 대한 정보를 볼 수 있습니다. 이 정보는 [플랫폼에 의해 삽입된 요청 헤더](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code)로서 사용할 수 있습니다.
 
 데이터 바인딩에서 이 정보를 읽을 수도 있습니다. 이 기능은 2.x 이상의 Functions 런타임에서만 사용할 수 있습니다. 또한 이 기능은 현재 .NET 언어에 대해서만 사용할 수 있습니다.
 
@@ -827,19 +827,19 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 # <a name="java"></a>[Java](#tab/java)
 
-인증된 사용자는 [HTTP 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)를 통해 사용할 수 있습니다.
+인증된 사용자는 [HTTP 헤더](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code)를 통해 사용할 수 있습니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-인증된 사용자는 [HTTP 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)를 통해 사용할 수 있습니다.
+인증된 사용자는 [HTTP 헤더](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code)를 통해 사용할 수 있습니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-인증된 사용자는 [HTTP 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)를 통해 사용할 수 있습니다.
+인증된 사용자는 [HTTP 헤더](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code)를 통해 사용할 수 있습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-인증된 사용자는 [HTTP 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)를 통해 사용할 수 있습니다.
+인증된 사용자는 [HTTP 헤더](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code)를 통해 사용할 수 있습니다.
 
 
 ---
@@ -924,7 +924,7 @@ C# 함수가 아닌 함수에서 content-type `image/jpeg`을 사용하여 전�
 
 HTTP 요청 길이는 100MB(104,857,600바이트)로 제한되고 URL 길이는 4KB(4,096바이트)로 제한됩니다. 이러한 제한은 런타임의 [Web.config 파일](https://github.com/Azure/azure-functions-host/blob/v3.x/src/WebJobs.Script.WebHost/web.config)의 `httpRuntime` 요소에 의해 지정됩니다.
 
-HTTP 트리거를 사용하는 함수가 약 230초 안에 완료되지 않으면 [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds)가 시간 제한을 적용하고 HTTP 502 오류를 반환합니다. 함수는 계속 실행되지만 HTTP 응답은 반환할 수 없습니다. 장기 실행 함수의 경우 비동기 패턴을 따르고 요청 상태를 ping할 수 있는 위치를 반환하는 것이 좋습니다. 함수 실행 시간에 대한 정보는 [크기 조정 및 호스팅 - 소비 계획](functions-scale.md#timeout)을 참조하세요.
+HTTP 트리거를 사용하는 함수가 약 230초 안에 완료되지 않으면 [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.yml#why-does-my-request-time-out-after-230-seconds-)가 시간 제한을 적용하고 HTTP 502 오류를 반환합니다. 함수는 계속 실행되지만 HTTP 응답은 반환할 수 없습니다. 장기 실행 함수의 경우 비동기 패턴을 따르고 요청 상태를 ping할 수 있는 위치를 반환하는 것이 좋습니다. 함수 실행 시간에 대한 정보는 [크기 조정 및 호스팅 - 소비 계획](functions-scale.md#timeout)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

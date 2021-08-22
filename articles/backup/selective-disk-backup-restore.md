@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 백업 솔루션을 사용�
 ms.topic: conceptual
 ms.date: 05/13/2021
 ms.custom: references_regions , devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: cee95941aa091f77fe128457434a66398188a0a4
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: bc309311db421a22a845b273d3816e7c51e3ce76
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110678205"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113112827"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Azure 가상 머신의 선택적 디스크 백업 및 복원
 
@@ -209,6 +209,7 @@ Azure PowerShell 버전 3.7.0 이상을 사용해야 합니다.
 ```azurepowershell
 $disks = ("0","1")
 $targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "rg-p-recovery_vaults" -Name "rsv-p-servers"
+Set-AzRecoveryServicesVaultContext -Vault $targetVault
 Get-AzRecoveryServicesBackupProtectionPolicy
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "P-Servers"
 ```

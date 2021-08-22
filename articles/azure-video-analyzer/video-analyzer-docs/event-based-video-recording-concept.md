@@ -2,13 +2,13 @@
 title: Azure Video Analyzer 이벤트 기반 비디오 녹화 - Azure
 description: 'Azure Video Analyzer EVR(이벤트 기반 비디오 녹화)은 이벤트에 의해 트리거될 때 비디오 녹화 프로세스를 말합니다. 문제의 이벤트는 비디오 신호 자체의 처리(예: 동작이 감지된 경우) 또는 독립 원본(예: 도어 센서가 도어가 열렸다는 신호를 보냄)으로 인해 발생할 수 있습니다. 이 문서에서는 EVR과 관련된 몇 가지 사용 사례에 대해 설명합니다.'
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.openlocfilehash: de6581b60d0cee4c1ac34ffbd60ee22509807e8b
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 2386e45c3d2cde881436e86eb267365355d652ba
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387306"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601397"
 ---
 # <a name="event-based-video-recording"></a>이벤트 기반 비디오 녹화  
 
@@ -43,7 +43,7 @@ EVR(이벤트 기반 비디오 녹화)은 이벤트에 의해 트리거되는 �
 
 ### <a name="video-recording-based-on-events-from-other-sources"></a>다른 원본의 이벤트를 기반으로 하는 비디오 녹화  
 
-이 사용 사례에서는 다른 IoT 센서의 신호를 사용하여 비디오 녹화를 트리거할 수 있습니다. 아래 다이어그램은 이 사용 사례를 처리하는 파이프라인의 그래픽 표현을 보여 줍니다. 이러한 파이프라인의 파이프라인 토폴로지의 JSON 표현은 [여기](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-files/topology.json)에서 확인할 수 있습니다.
+이 사용 사례에서는 다른 IoT 센서의 신호를 사용하여 비디오 녹화를 트리거할 수 있습니다. 아래 다이어그램은 이 사용 사례를 처리하는 파이프라인의 그래픽 표현을 보여 줍니다. 이러한 파이프라인의 파이프라인 토폴로지의 JSON 표현은 [여기](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-file-sink/topology.json)에서 확인할 수 있습니다.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/event-based-video-recording/other-sources.png" alt-text="외부 소스에서 신호를 받는 경우 라이브 비디오에 대한 이벤트 기반 녹화":::

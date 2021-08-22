@@ -3,21 +3,21 @@ title: Speaker Recognition 개요 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speaker Recognition은 고유한 음성 특성에 따라 화자를 확인 및 식별하는 알고리즘을 제공합니다. 화자 인식은 "누가 말하고 있나요?"라는 질문에 대답하는 데 사용됩니다. 이 문서에서는 Speaker Recognition 서비스의 이점과 기능을 개략적으로 설명합니다.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: 스피커 인식, 음성 생체 측정
-ms.openlocfilehash: d07a9960c8a586fa137b4b717afbf91740c265d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7a47ec86ec7e59cdc78e997f30bd7d0749e4a86
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95015327"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529650"
 ---
 # <a name="what-is-speaker-recognition-preview"></a>Speaker Recognition(미리 보기)이란?
 

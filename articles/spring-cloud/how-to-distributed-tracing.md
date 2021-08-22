@@ -1,19 +1,19 @@
 ---
 title: Azure Spring Cloud에서 분산 추적 사용
 description: Azure Application Insights를 통해 Spring Cloud의 분산 추적을 사용하는 방법을 알아봅니다.
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/06/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 48f80d82c003677f2cacfdef2a57ae1aaa68d59d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 8eaac1c68c9cff329fcc7b2c408063f01762169b
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135116"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529548"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Azure Spring Cloud에서 분산 추적
 
@@ -22,7 +22,7 @@ Azure Spring Cloud의 분산 추적 도구를 사용하면 복잡한 문제를 �
 ::: zone pivot="programming-language-csharp"
 이 문서에서는 .NET Core Steeltoe 앱에서 분산 추적을 사용하도록 설정하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 절차를 따르려면 사전에 [Azure Spring Cloud에 배포하기 위해 준비한](how-to-prepare-app-deployment.md) Steeltoe 앱이 필요합니다.
 
@@ -92,7 +92,7 @@ Steeltoe 3.0.0의 경우 다음 NuGet 패키지를 추가합니다.
   }
 ```
 
-.NET Core Steeltoe 앱의 분산 추적에 대한 자세한 내용은 Steeltoe 설명서의 [분산 추적](https://steeltoe.io/docs/3/tracing/distributed-tracing)을 참조하세요.
+.NET Core Steeltoe 앱의 분산 추적에 대한 자세한 내용은 Steeltoe 설명서의 [분산 추적](https://docs.steeltoe.io/api/v3/tracing/)을 참조하세요.
 ::: zone-end
 ::: zone pivot="programming-language-java"
 이 문서에서는 다음 방법을 설명합니다.
@@ -170,7 +170,6 @@ Steeltoe 3.0.0의 경우 다음 NuGet 패키지를 추가합니다.
            </dependency>
       </dependencies>
       ```
-
 
 1. Azure Spring Cloud 서비스에서 이러한 변경 내용을 반영하도록 다시 빌드하고 배포합니다.
 

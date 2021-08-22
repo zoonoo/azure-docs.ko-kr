@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: b4b38112e32a55739ea14d5ff06e327819171557
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 90d2a146665fc34fe4bd287b2753e99a770d13b1
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98014555"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113285893"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Network Watcher 및 오픈 소스 도구를 사용하여 네트워크 침입 검색 수행
 
@@ -80,7 +80,7 @@ Suricata에서 생성하는 로그에는 네트워크에서 발생하는 작업�
 
 #### <a name="install-elasticsearch"></a>Elasticsearch 설치
 
-1. 이번 5.0 이상의 탄력적 스택에는 Java 8이 필요합니다. `java -version` 명령을 실행하여 버전을 확인합니다. java가 설치되지 않은 경우 [Azure 지원 JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)에 대한 설명서를 참조하세요.
+1. 이번 5.0 이상의 탄력적 스택에는 Java 8이 필요합니다. `java -version` 명령을 실행하여 버전을 확인합니다. java가 설치되지 않은 경우 [Azure 지원 JDK](/azure/developer/java/fundamentals/java-support-on-azure)에 대한 설명서를 참조하세요.
 
 1. 시스템에 맞는 이진 패키지를 다운로드합니다.
 

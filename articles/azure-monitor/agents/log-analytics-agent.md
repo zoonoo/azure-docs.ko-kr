@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: 8b3b1d39766d556b820f21c1775210611b995d92
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 442400754d4c103a4f26724ff2ca731c8ae5250f
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199895"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122529739"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
 
@@ -79,7 +79,7 @@ Operations Manager 관리 그룹에 에이전트를 연결하는 방법에 대�
 - [VM 인사이트](../vm/vminsights-enable-overview.md)는 에이전트를 대규모로 사용할 수 있는 다양한 방법을 제공합니다. 여기에는 Log Analytics 에이전트와 Dependency 에이전트의 설치가 포함됩니다. 
 - 보안 취약점과 위협을 모니터링하도록 설정된 경우 Azure Security Center는 지원되는 모든 Azure VM과 새로 생성되는 VM에서 [Log Analytics 에이전트를 프로비저닝할 수 있습니다](../../security-center/security-center-enable-data-collection.md).
 - [Windows](../../virtual-machines/extensions/oms-windows.md) 또는 [Linux](../../virtual-machines/extensions/oms-linux.md) 용 Log Analytics VM 확장은 Azure Portal, Azure CLI, Azure PowerShell 또는 Azure Resource Manager 템플릿과 함께 설치할 수 있습니다.
-- [Azure Portal에서 수동으로](../vm/quick-collect-azurevm.md?toc=%2fazure%2fazure-monitor%2ftoc.json) 개별 Azure 가상 머신을 설치합니다.
+- [Azure Portal에서 수동으로](../vm/monitor-virtual-machine.md?toc=%2fazure%2fazure-monitor%2ftoc.json) 개별 Azure 가상 머신을 설치합니다.
 
 ### <a name="windows-virtual-machine-on-premises-or-in-another-cloud"></a>온-프레미스 또는 다른 클라우드의 Windows 가상 머신
 
@@ -91,7 +91,7 @@ Operations Manager 관리 그룹에 에이전트를 연결하는 방법에 대�
 ### <a name="linux-virtual-machine-on-premises-or-in-another-cloud"></a>온-프레미스 또는 다른 클라우드의 Linux 가상 머신
 
 - [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)를 사용하여 Log Analytics VM 확장을 배포하고 관리합니다.
-- GitHub에 호스트된 래퍼 스크립트를 호출하는 에이전트를 [수동으로 설치](../vm/quick-collect-linux-computer.md)합니다.
+- GitHub에 호스트된 래퍼 스크립트를 호출하는 에이전트를 [수동으로 설치](../vm/monitor-virtual-machine.md)합니다.
 - Windows 컴퓨터 보고에서 수집된 데이터를 관리 그룹에 전달하도록 [System Center Operations Manager](./om-agents.md)와 Azure Monitor를 통합합니다.
 
 ## <a name="workspace-id-and-key"></a>작업 영역 ID 및 키

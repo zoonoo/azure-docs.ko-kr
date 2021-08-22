@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2021
 ms.author: yelevin
-ms.openlocfilehash: 4ada570502d913283ba9ee4cc4c65b7bdd853935
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2ed49208a79436d3dd1bb2679129b0eafab39cca
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101745262"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530454"
 ---
 # <a name="connect-your-google-workspace-to-azure-sentinel"></a>Google Workspace를 Azure Sentinel에 연결
 
 > [!IMPORTANT]
 > Google Workspace 커넥터는 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 [Google Workspace (이전의 G Suite)](https://workspace.google.com/) 데이터 커넥터는 REST API 통해 Google Workspace 활동 이벤트를 Azure Sentinel에 수집하는 기능을 제공합니다. 커넥터는 SOC에서 이러한 [이벤트](https://developers.google.com/admin-sdk/reports/reference/rest/v1/activities) 가시성을 제공하여 잠재적인 보안 위험을 검사하고, 팀의 공동 작업 내용을 분석하며, 구성 문제를 분석하고, 로그인 주체 및 시기를 추적하며, 관리자 작업을 분석하고, 사용자가 콘텐츠를 만들고 공유하는 방법을 이해하며, 조직에서 더 많은 이벤트를 검토하는 데 도움을 줍니다.
 
@@ -77,6 +79,6 @@ Azure Sentinel에서 수집 데이터를 볼 수 있을 때까지 최대 20분�
 
 이 문서에서는 Google Workspace를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [데이터에 대한 가시성을 얻고 잠재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
-- [통합 문서를 사용](tutorial-monitor-your-data.md)하여 데이터를 모니터링합니다.
+- [데이터 및 잠재적 위협에 대한 가시성을 확보](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.
+- [통합 문서를 사용](monitor-your-data.md)하여 데이터를 모니터링합니다.

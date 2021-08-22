@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: how-to
 ms.custom: devx-track-python, deploy
-ms.openlocfilehash: 4d461bf0558f59c903b0327cf26d4cdf854cd172
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 58518d921ac728901258e5335d045dfd4262dd0e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889649"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446600"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>GPU를 사용하여 유추를 위한 딥 러닝 모델 배포
 
@@ -24,6 +24,8 @@ ms.locfileid: "107889649"
 이 문서에서는 Azure Machine Learning을 사용하여 GPU 사용 모델을 웹 서비스로 배포하는 방법을 설명합니다. 이 문서에 수록된 정보는 AKS(Azure Kubernetes Service)에 모델 배포를 기반으로 합니다. AKS 클러스터는 유추를 위한 모델에서 사용하는 GPU 리소스를 제공합니다.
 
 유추 또는 모델 채점은 배포된 모델을 사용하여 예측하는 단계입니다. CPU 대신 GPU를 사용하면 병렬 처리 가능한 계산에서 성능상의 이점이 있습니다.
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 > [!IMPORTANT]
 > 웹 서비스 배포의 경우, GPU 유추는 Azure Kubernetes Service에서만 지원됩니다. __기계 학습 파이프라인__ 을 사용하는 유추의 경우 GPU는 Azure Machine Learning 컴퓨팅에서만 지원됩니다. ML 파이프라인 사용에 대한 자세한 내용은 [자습서: 일괄 처리 채점용 Azure Machine Learning 파이프라인 빌드](tutorial-pipeline-batch-scoring-classification.md)를 참조하세요. 
@@ -38,7 +40,7 @@ ms.locfileid: "107889649"
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
 
-* Azure Machine Learning SDK가 설치된 Python 개발 환경. 자세한 내용은 [Azure Machine Learning SDK](/python/api/overview/azure/ml/install)를 참조하세요.  
+* Azure Machine Learning SDK가 설치된 Python 개발 환경입니다. 자세한 내용은 [Azure Machine Learning SDK](/python/api/overview/azure/ml/install)를 참조하세요.  
 
 * GPU를 사용하는 등록된 모델.
 

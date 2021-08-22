@@ -4,16 +4,16 @@ description: Azure Diagnostics 및 Application Insights를 사용하여 Cloud Se
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: fa5dd61c0764be45cdba68b73a4f55745ee5e55a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f18fa4986b9a4a855af6e2b9f14c4e2367213f6e
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100585508"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113089992"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service-classic"></a>Azure Cloud Service에 대한 성능 카운터 수집(클래식)
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/17/2021
-ms.openlocfilehash: b6ea3e762ad098e373baa8487d8926105820f226
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 057d097eb66eddffc15bb65bfb9e6fb64209e5f8
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666523"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122530807"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Azure Purview의 데이터에 대한 분류 인사이트
 
@@ -35,7 +35,7 @@ Purview 인사이트를 시작하기 전에 다음 단계를 완료했는지 확
 
 - 데이터 원본별로 테스트 데이터에 대한 스캔 설정 및 완료 자세한 내용은 [Azure Purview에서 데이터 원본 관리(미리 보기)](manage-data-sources.md) 및 [스캔 규칙 집합 만들기](create-a-scan-rule-set.md)를 참조하세요.
 
-- [데이터 판독기 또는 데이터 큐레이터 역할](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles)이 있는 계정으로 Purview에 로그인했습니다.
+- [데이터 판독기 또는 데이터 큐레이터 역할](catalog-permissions.md#roles)이 있는 계정으로 Purview에 로그인했습니다.
 
 자세한 내용은 [Azure Purview에서 데이터 원본 관리(미리 보기)](manage-data-sources.md)를 참조하세요.
 

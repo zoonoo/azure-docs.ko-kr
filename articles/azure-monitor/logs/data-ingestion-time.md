@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 49122421f04ee6eef8828ca305cfb235aceee3fb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a6e63a1c5bbcf8c44f46cd87463fecb5d8b82f62
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105035696"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122531274"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure Monitor의 로그 데이터 수집 시간
 Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 대규모 데이터 서비스입니다. 로그 데이터가 수집된 후 사용할 수 있기까지 걸리는 시간에 대해 질문하는 경우가 많습니다. 이 문서에서는 이 대기 시간에 영향을 주는 여러 요인에 대해 설명합니다.
@@ -80,7 +80,7 @@ Azure Monitor의 최우선 과제는 고객 데이터가 손실되지 않도록 
 
 | 단계 | 속성 또는 함수 | 주석 |
 |:---|:---|:---|
-| 데이터 원본에 생성되는 레코드 | [TimeGenerated](./log-standard-columns.md#timegenerated-and-timestamp) <br>데이터 원본에서 이 값을 설정하지 않으면 _TimeReceived와 같은 시간으로 설정됩니다. |
+| 데이터 원본에 생성되는 레코드 | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>데이터 원본에서 이 값을 설정하지 않으면 _TimeReceived와 같은 시간으로 설정됩니다. |
 | Azure Monitor 수집 엔드포인트에서 수신된 레코드 | [_TimeReceived](./log-standard-columns.md#_timereceived) | 이 필드는 대량 처리를 위해 최적화되지 않았으므로 대규모 데이터 세트를 필터링하는 데 사용하면 안 됩니다. |
 | 작업 영역에 저장되어 쿼리에 사용할 수 있는 레코드 | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | 특정 기간에 수집된 레코드만 필터링해야 하는 경우에는 ingestion_time()을 사용하는 것이 좋습니다. 이 경우 더 큰 범위로 TimeGenerated 필터를 추가하는 것도 좋습니다. |
 
@@ -145,4 +145,4 @@ Heartbeat
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* Azure Monitor에 대한 [SLA(서비스 수준 계약)](https://azure.microsoft.com/en-us/support/legal/sla/monitor/v1_3/)를 읽어 보세요.
+* Azure Monitor에 대한 [SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/monitor/v1_3/)를 읽어 보세요.

@@ -1,18 +1,18 @@
 ---
 title: Azure Spring Cloud의 앱 및 배포
 description: 이 토픽에서는 Azure Spring Cloud에서의 애플리케이션과 배포의 차이점에 대해 설명합니다.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 8a543d3f6a875c41b3657ccc947c6f697bbcfd09
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b5a48a562781e68d7b653d55eb63d8a9edc71228
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129120"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529487"
 ---
 # <a name="app-and-deployment-in-azure-spring-cloud"></a>Azure Spring Cloud의 앱 및 배포
 
@@ -27,6 +27,7 @@ ms.locfileid: "108129120"
 Azure Spring Cloud 표준 계층을 사용하면 하나의 앱이 하나의 프로덕션 배포와 하나의 스테이징 배포를 포함할 수 있으므로, 파란색/녹색 배포를 쉽게 수행할 수 있습니다.
 
 ## <a name="app"></a>앱
+
 다음 기능/속성은 앱 수준에서 정의됩니다.
 
 | 기능 | Description |
@@ -58,4 +59,5 @@ Azure Spring Cloud 표준 계층을 사용하면 하나의 앱이 하나의 프�
 * **배포 관리는 기본 계층에서 사용할 수 없습니다**: 파란색-녹색 배포 기능에는 표준 계층을 사용합니다.
 
 ## <a name="see-also"></a>추가 정보
+
 * [Azure Spring Cloud에서 스테이징 환경 설정](./how-to-staging-environment.md)

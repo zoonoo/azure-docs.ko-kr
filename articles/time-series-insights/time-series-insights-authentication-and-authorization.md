@@ -10,13 +10,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
-ms.custom: seodec18, has-adal-ref, devx-track-azurecli
-ms.openlocfilehash: 68b7300219953b0f80bd40522c3f4ec961ec5262
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: bc479521d99111dd8cdfd36de981b83717068ed0
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613547"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122530934"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
@@ -36,7 +36,7 @@ ms.locfileid: "110613547"
 
 - Azure VM
 - Azure App Services
-- Azure Functions
+- Azure 기능
 - Azure Container Instances
 - 기타 등등...
 
@@ -48,7 +48,7 @@ ms.locfileid: "110613547"
 
 앱 등록을 완료하면 홈 테넌트 또는 디렉터리 내에 상주하는 앱의 전역적으로 고유한 인스턴스(애플리케이션 개체)가 확보됩니다. 앱의 전역적으로 고유한 ID(앱 또는 클라이언트 ID)도 있습니다. 그런 다음, 포털에서 비밀 또는 인증서 및 범위를 추가하여 앱이 작동하도록 하고, 로그인 대화 상자에서 앱의 브랜딩을 사용자 지정하는 등의 작업을 수행할 수 있습니다.
 
-포털에 애플리케이션을 등록하는 경우 애플리케이션 개체 및 서비스 주체 개체가 홈 테넌트에 자동으로 만들어집니다. Microsoft Graph API를 사용하여 애플리케이션을 등록/생성할 경우 별도의 단계를 통해 서비스 주체 개체를 만들 수 있습니다. 토큰을 요청하려면 서비스 사용자 개체가 필요합니다.
+포털에 애플리케이션을 등록하는 경우 애플리케이션 개체 및 서비스 사용자 개체가 홈 테넌트에 자동으로 만들어집니다. Microsoft Graph API를 사용하여 애플리케이션을 등록/생성할 경우 별도의 단계를 통해 서비스 주체 개체를 만들 수 있습니다. 토큰을 요청하려면 서비스 사용자 개체가 필요합니다.
 
 애플리케이션의 [보안](../active-directory/develop/identity-platform-integration-checklist.md#security) 검사 목록을 검토해야 합니다. 모범 사례로, 암호 자격 증명(클라이언트 암호)이 아닌 [인증서 자격 증명](../active-directory/develop/active-directory-certificate-credentials.md)을 사용해야 합니다.
 
@@ -150,7 +150,7 @@ Gen2 환경에서 앱 등록 및 쿼리 데이터로 토큰을 획득하는 방�
 
 | 필수 요청 헤더 | Description |
 | --- | --- |
-| 권한 부여 | Azure Time Series Insights로 인증하려면 유효한 OAuth 2.0 전달자 토큰을 [권한 부여](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) 헤더에 전달해야 합니다. |
+| 권한 부여 | Azure Time Series Insights로 인증하려면 유효한 OAuth 2.0 전달자 토큰을 [권한 부여](/rest/api/apimanagement/2020-12-01/authorization-server/create-or-update) 헤더에 전달해야 합니다. |
 
 > [!TIP]
 > 호스트된 Azure Time Series Insights [클라이언트 SDK 샘플 시각화](https://tsiclientsample.azurewebsites.net/)를 읽고 차트 및 그래프와 함께 [JavaScript 클라이언트 SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)를 사용하여 프로그래밍 방식으로 Azure Time Series Insights API로 인증하는 방법을 알아봅니다.

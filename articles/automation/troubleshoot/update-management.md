@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.date: 06/10/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0f773bdedcbcb014e15436732e489f9b15900f58
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: cc65a1c0cd72d9da9208e7377eaef7a887119f43
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951754"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528462"
 ---
 # <a name="troubleshoot-update-management-issues"></a>업데이트 관리 문제 해결
 
@@ -193,7 +193,7 @@ Error details: Failed to enable the Update solution
    | summarize by Computer, Solutions
    ```
 
-    쿼리 결과에 머신이 표시되지 않으면 최근에 체크인되지 않은 것입니다. 로컬 구성 문제가 있는 것이므로 [에이전트를 다시 설치](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows)해야 합니다.
+    쿼리 결과에 머신이 표시되지 않으면 최근에 체크인되지 않은 것입니다. 로컬 구성 문제가 있는 것이므로 [에이전트를 다시 설치](../../azure-monitor/agents/agent-windows.md)해야 합니다.
 
     머신이 쿼리 결과에 나열되는 경우 **솔루션** 속성에 **업데이트** 가 나열되어 있는지 확인합니다. 이렇게 하여 업데이트 관리에 등록되었는지 확인합니다. 등록되지 않았으면 범위 구성 문제를 확인합니다. [범위 구성](../update-management/scope-configuration.md)은 업데이트 관리에 대해 구성되는 머신을 결정합니다. 머신을 대상으로 하는 범위 구성을 구성하려면 [작업 영역에서 머신 사용](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace)을 참조하세요.
 

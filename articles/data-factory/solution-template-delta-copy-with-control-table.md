@@ -4,15 +4,16 @@ description: 솔루션 템플릿을 사용하여 증분 방식으로 Azure Data 
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: b3b5679b254a07b275cc7fd1295ba4ca5b405fbc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2478c50b9753f3518a0a09533842a4d7abde762c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100362015"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528509"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>컨트롤 테이블을 사용하여 데이터베이스에서 델타 복사
 

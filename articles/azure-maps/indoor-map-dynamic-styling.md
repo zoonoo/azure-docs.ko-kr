@@ -7,13 +7,12 @@ ms.date: 05/20/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: 85b64f52fc1832ec1d25767c1cdfef8977d96fe8
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 05e169667067033428d5fc995af4d866dc46d20b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030326"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529414"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Creator 실내 지도를 위한 동적 스타일 구현
 
@@ -68,33 +67,27 @@ map.events.add("click", function(e){
 
 1. Postman 앱에서 **새로 만들기** 를 선택합니다.
 
-2. **새로 만들기** 창에서 **컬렉션** 을 선택합니다.
+2. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다.
 
-3. 다시 **새로 만들기** 를 선택합니다.
+3. 요청에 대한 **요청 이름**(예: *POST 데이터 업로드*)을 입력합니다.
 
-4. **새로 만들기** 창에서 **요청** 을 선택합니다.
-
-5. 요청에 대한 **요청 이름**(예: *POST 데이터 업로드*)을 입력합니다.
-
-6. 이전에 만든 컬렉션을 선택한 다음, **저장** 을 선택합니다.
-
-7. 기능 업데이트 상태 [API](/rest/api/maps/v2/feature-state/update-states)에 다음 URL을 입력합니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로, `statesetId`를 `statesetId`로 대체).
+4. 기능 업데이트 상태 [API](/rest/api/maps/v2/feature-state/update-states)에 다음 URL을 입력합니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로, `statesetId`를 `statesetId`로 대체).
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-8. **Headers** 탭을 선택합니다.
+5. **Headers** 탭을 선택합니다.
 
-9. **KEY** 필드에서 `Content-Type`을 선택합니다. **VALUE** 필드에서 `application/json`을 선택합니다.
+6. **KEY** 필드에서 `Content-Type`을 선택합니다. **VALUE** 필드에서 `application/json`을 선택합니다.
 
      :::image type="content" source="./media/indoor-map-dynamic-styling/stateset-header.png"alt-text="상태 집합 만들기에 대한 머리글 탭 정보.":::
 
-10. **본문** 탭을 선택합니다.
+7. **본문** 탭을 선택합니다.
 
-11. 드롭다운 목록에서 **원시** 및 **JSON** 을 선택합니다.
+8. 드롭다운 목록에서 **원시** 및 **JSON** 을 선택합니다.
 
-12. 다음 JSON 스타일을 복사한 다음, **본문** 창에 붙여넣습니다.
+9. 다음 JSON 스타일을 복사한 다음, **본문** 창에 붙여넣습니다.
 
     ```json
     {
@@ -111,13 +104,13 @@ map.events.add("click", function(e){
     >[!IMPORTANT]
     >게시된 타임스탬프가 동일한 기능 `ID`에 대한 이전 기능 상태 업데이트 요청에 사용된 타임스탬프보다 이후일 경우에만 업데이트가 저장됩니다.
 
-13. `UNIT26`을 `UNIT27`로 바꿔 7단계에서 사용한 URL을 변경합니다.
+10. `UNIT26`을 `UNIT27`로 바꿔 7단계에서 사용한 URL을 변경합니다.
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT27?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-14. 다음 JSON 스타일을 복사한 다음, **본문** 창에 붙여넣습니다.
+11. 다음 JSON 스타일을 복사한 다음, **본문** 창에 붙여넣습니다.
 
     ``` json
     {

@@ -3,12 +3,12 @@ title: Apache Kafka MirrorMaker 사용 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Kafka MirrorMaker를 사용하여 Azure Event Hubs에서 Kafka 클러스터를 미러링하는 방법에 대한 정보를 제공합니다.
 ms.topic: how-to
 ms.date: 01/04/2021
-ms.openlocfilehash: 654e9e19dfde0d0c58d00e41cf8ab0ba8e1484d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: beb48fc613ace6dd953c3fe773f09d5fb4c4c822
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97861007"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113286415"
 ---
 # <a name="use-apache-kafka-mirrormaker-with-event-hubs"></a>Event Hubs를 사용하는 Apache Kafka MirrorMaker 사용
 
@@ -43,7 +43,7 @@ Apache Kafka에서 Event Hubs로의 단방향으로 Apache Kafka의 MirrorMaker 
 
 * [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md) 문서를 참조하세요. 
 * Azure 구독 구독이 없으면 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
-* [JDK(Java Development Kit) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [JDK(Java Development Kit) 1.7+](/azure/developer/java/fundamentals/java-support-on-azure)
     * Ubuntu에서 `apt-get install default-jdk`를 실행하여 JDK를 설치합니다.
     * JAVA_HOME 환경 변수가 반드시 JDK가 설치된 폴더를 지정하도록 설정합니다.
 * Maven 이진 보관 파일을 [다운로드](https://maven.apache.org/download.cgi)하여 [설치](https://maven.apache.org/install.html)합니다.

@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 02/05/2021
 ms.topic: how-to
 ms.custom: designer
-ms.openlocfilehash: 642b874f5e0cf501acb1627e4388a7e4c456ef29
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 9a766e3ff67a1ea76c396c304ead55ce0578739f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888731"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458782"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너를 사용하여 일괄 처리 예측 실행
 
@@ -30,6 +30,8 @@ ms.locfileid: "107888731"
 > * 엔드포인트 버전 관리
 
 SDK를 사용하여 일괄 처리 채점 서비스를 설정하는 방법에 대해 알아보려면 함께 제공되는 [방법](./tutorial-pipeline-batch-scoring-classification.md)을 참조하세요.
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: dc0cf718ee51e23fb749bdf57d5344977de009d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b79ed39464d7f10c1c2ad50f22941d50d42b802b
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96021863"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113085239"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>클라우드 솔루션 공급자 프로그램용 StorSimple 가상 배열 배포
 
@@ -103,5 +103,5 @@ ms.locfileid: "96021863"
 
 ## <a name="next-steps"></a>다음 단계
 
-- CSP의 StorSimple에 대한 추가 질문이 있으면 [CSP의 StorSimple: 질문과 대답](storsimple-partner-csp-faq.md)으로 이동합니다.
+- CSP의 StorSimple에 대한 추가 질문이 있으면 [CSP의 StorSimple: 질문과 대답](storsimple-partner-csp-faq.yml)으로 이동합니다.
 - StorSimple을 배포할 준비가 되면 [CSP에서 StorSimple 배포](storsimple-partner-csp-deploy.md)로 이동합니다.

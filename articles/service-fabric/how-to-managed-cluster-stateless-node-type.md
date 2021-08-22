@@ -3,12 +3,12 @@ title: 상태 비저장 노드 유형을 사용하여 Service Fabric 관리형 �
 description: Service Fabric 관리형 클러스터에서 상태 비저장 노드 유형을 만들고 배포하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: a1ea4a9d37ce26ac90c2cbae0420e4dbf8797ee2
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 2e7ebd2ec3098cc90c8fb044472c348c68aed689
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109689402"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113033716"
 ---
 # <a name="deploy-a-service-fabric-managed-cluster-with-stateless-node-types"></a>상태 비저장 노드 유형을 사용하여 Service Fabric 관리형 클러스터 배포
 
@@ -63,4 +63,4 @@ Service Fabric 노드 유형은 특정 시점에 상태 저장 서비스가 노�
 Service Fabric 관리형 클러스터에 대해 자세히 알아보려면 다음을 참고하세요.
 
 > [!div class="nextstepaction"]
-> [Service Fabric 관리형 클러스터 질문과 대답](./faq-managed-cluster.md)
+> [Service Fabric 관리형 클러스터 질문과 대답](./faq-managed-cluster.yml)

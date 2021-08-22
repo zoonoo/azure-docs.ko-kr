@@ -5,18 +5,16 @@ ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 621773a84db99dbacfaa163f77189974ba102163
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f36f02b426c41eb193a8eecfcefc07f1ed23786
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98034818"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126971"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Azure Cosmos DB에 의해 트리거되는 함수 만들기
 
 데이터가 Azure Cosmos DB에 추가될 때 또는 변경될 때 트리거되는 함수를 만드는 방법에 대해 알아봅니다. Azure Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB: Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅](../cosmos-db/serverless-computing-database.md)을 참조하세요.
-
-:::image type="content" source="./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png" alt-text="Azure Cosmos DB 코드":::
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -35,7 +33,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
 
 트리거를 만들기 전에 SQL API를 사용하는 Azure Cosmos DB 계정이 있어야 합니다.
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="create-a-function-app-in-azure"></a>Azure에서 함수 앱 만들기
 
@@ -97,7 +95,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
 
     ![작업 컨테이너 정의](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container2.png)
 
-    | 설정|제안 값|Description |
+    | 설정|제안 값|설명 |
     | ---|---|--- |
     | **데이터베이스 ID** | 작업 |새 데이터베이스에 대한 이름입니다. 함수 바인딩에 정의된 이름과 일치해야 합니다. |
     | **컨테이너 ID** | Items | 새 컨테이너의 이름입니다. 함수 바인딩에 정의된 이름과 일치해야 합니다.  |

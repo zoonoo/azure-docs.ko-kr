@@ -10,12 +10,12 @@ author: v-miegge
 ms.author: ramakoni
 ms.reviewer: cawrites
 ms.date: 09/27/2019
-ms.openlocfilehash: a36fd722f38ec2253ada7e2f759597ea0df080a3
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 27431b24b0f6507ac7031deae6573a8b111e0f76
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110787374"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913689"
 ---
 # <a name="azure-sql-database-and-managed-instance-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Azure SQL Database와 Managed Instance 가져오기/내보내기 서비스는 데이터베이스를 가져오거나 내보내는 데 시간이 오래 걸립니다.
 
@@ -33,8 +33,6 @@ Azure SQL Database 가져오기/내보내기 서비스는 모든 Azure 데이터
 
 Azure SQL Database 가져오기/내보내기 서비스는 가져오기 및 내보내기 작업을 처리하기 위해 지역당 제한된 수의 컴퓨팅 VM(가상 머신)을 제공합니다. 컴퓨팅 VM은 가져오기 또는 내보내기에서 지역 간 대역폭 지연 및 요금을 피하기 위해 지역별로 호스트됩니다. 동일한 지역에서 동시에 너무 많은 요청이 수행되는 경우 작업을 처리하는 동안 상당한 지연이 발생할 수 있습니다. 요청을 완료하는 데 필요한 시간은 몇 초에서 몇 시간까지 다양할 수 있습니다.
 
-> [!NOTE]
-> 요청이 4일 이내에 처리되지 않으면 서비스에서 자동으로 요청을 취소합니다.
 
 ## <a name="recommended-solutions"></a>권장 솔루션
 

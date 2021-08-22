@@ -4,15 +4,16 @@ description: Azure Data Factory의 메타데이터 중복도 메커니즘에 대
 author: nabhishek
 ms.reviewer: abnarain
 ms.service: data-factory
+ms.subservice: concepts
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: abnarain
-ms.openlocfilehash: 9d1c22b9ac6912f99838733a4326cb4082f49a6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3c2824a788ab9df84f02299cc30ab285b7de437a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100369699"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528999"
 ---
 # <a name="azure-data-factory-data-redundancy"></a>**Azure Data Factory 데이터 중복도**
 

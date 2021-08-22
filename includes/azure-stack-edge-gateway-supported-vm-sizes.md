@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 05/12/2021
+ms.date: 07/01/2021
 ms.author: alkohli
-ms.openlocfilehash: f1e6ff675c7754b1eaa8705f335818053b80ef40
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: c772d2722c90cefb99c9f2fdd111e2d654d11659
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846598"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113280036"
 ---
 VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅 리소스의 양이 결정됩니다. 워크로드에 적합한 VM 크기를 사용하여 가상 머신을 만들어야 합니다. 모든 가상 머신이 동일한 하드웨어에서 실행되는 경우에도 디스크에 액세스할 때는 컴퓨터 크기에 다른 제한이 적용됩니다. 이렇게 하면 VM 전체에서 디스크 액세스를 관리할 수 있습니다. 워크로드가 증가할 경우 기존 가상 머신의 크기를 조정할 수도 있습니다.
 
@@ -26,7 +26,8 @@ VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅
 | **Standard_D11_v2**  | 2     | 14            | 100                 | 1000                           | 6000                                | 500                              | 8               | 2         |
 | **Standard_D12_v2**  | 4     | 28            | 200                 | 1000                           | 12000                               | 500                              | 16              | 4         |
 | **Standard_D13_v2**  | 8     | 56            | 400                 | 1000                           | 24000                               | 500                              | 32              | 8         |
-| **Standard_D14_v2**  | 16    | 114           | 800                 | 1000                           | 48000                               | 500                              | 64              | 8         |
+
+<!--| **Standard_D14_v2**  | 16    | 114           | 800                 | 1000                           | 48000                               | 500                              | 64              | 8         |-->
 
 
 ### <a name="dsv2-series"></a>DSv2 시리즈
@@ -40,7 +41,8 @@ VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅
 | **Standard_DS11_v2**  | 2     | 14            | 28                  | 2000                           | 8000                                | 2300                             | 8               | 2         |
 | **Standard_DS12_v2**  | 4     | 28            | 56                  | 2000                           | 16000                               | 2300                             | 16              | 4         |
 | **Standard_DS13_v2**  | 8     | 56            | 112                 | 2000                           | 32000                               | 2300                             | 32              | 8         |
-| **Standard_DS14_v2**  | 16    | 114           | 224                 | 2000                           | 64000                               | 2300                             | 64              | 8         |
+
+<!--| **Standard_DS14_v2**  | 16    | 114           | 224                 | 2000                           | 64000                               | 2300                             | 64              | 8         |-->
 
 자세한 내용은 [Dv2 및 DSv2 시리즈](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series)를 참조하세요.
 

@@ -1,21 +1,20 @@
 ---
 title: Azure CLI용 IoT 확장을 사용하여 Azure IoT 디바이스 관리 | Microsoft Docs
 description: Direct 메서드와 Twin의 desired 속성 관리 옵션을 제공하는 Azure CLI용 IoT 확장 도구를 사용하여 Azure IoT Hub 디바이스를 관리합니다.
-author: chrissie926
+author: robinsh
 manager: ''
 keywords: Azure IoT 디바이스 관리, Azure IoT Hub 디바이스 관리, 디바이스 관리 IoT, IoT Hub 디바이스 관리
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
-ms.author: menchi
-ms.openlocfilehash: a6bf14691e583190c4485ae854de78b187d95211
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.author: robinsh
+ms.openlocfilehash: c67e9fc7cb6a2530c752efee760b2fb7fcb7f277
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773902"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727103"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Azure CLI용 IoT 확장을 사용하여 Azure IoT Hub 디바이스 관리
 
@@ -43,7 +42,7 @@ ms.locfileid: "108773902"
 
 ## <a name="prerequisites"></a>필수 요건
 
-* [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 디바이스 자습서 중 하나를 완료합니다. 예를 들어 [node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)로 이동하거나 [원격 분석 전송](quickstart-send-telemetry-dotnet.md) 빠른 시작 중 하나로 이동할 수 있습니다. 이러한 문서는 다음 요구 사항을 다룹니다.
+* [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 디바이스 자습서 중 하나를 완료합니다. 예를 들어 [node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)로 이동하거나 [원격 분석 전송](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) 빠른 시작 중 하나로 이동할 수 있습니다. 이러한 문서는 다음 요구 사항을 다룹니다.
 
   * 활성화된 Azure 구독.
   * 구독 중인 Azure IoT Hub

@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: azure-redhat-openshift
 ms.topic: troubleshooting
 ms.date: 05/08/2019
-ms.openlocfilehash: af66abff3507279dd1954fd83627900578229866
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b68a84b599f8dab071b54f566721ecd7118294e
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100632954"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090604"
 ---
 # <a name="troubleshooting-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift의 문제 해결
 
@@ -36,4 +36,4 @@ ms.locfileid: "100632954"
 
 - OpenShift 문제 해결에 대한 자세한 내용은 [Red Hat OpenShift 도움말 센터](https://help.openshift.com/)에 문의하세요.
 
-- [Azure Red Hat OpenShift에 대한 질문과 대답](openshift-faq.md)을 참조하세요.
+- [Azure Red Hat OpenShift에 대한 질문과 대답](openshift-faq.yml)을 참조하세요.

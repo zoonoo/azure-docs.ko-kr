@@ -2,19 +2,18 @@
 title: Azure CLI 명령줄에서 모듈 배포 - Azure IoT Edge
 description: Azure IoT 확장에서 Azure CLI를 사용하여 배포 매니페스트에 구성된 대로 IoT Hub의 IoT Edge 모듈을 IoT Edge 디바이스로 푸시합니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: cc4308cf69ecb99fccb09a6668825397675983cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d43286be11de930e7a0d6d2887cada97dffaa274
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201141"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529369"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Azure CLI를 사용하여 Azure IoT Edge 모듈 배포
 

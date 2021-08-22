@@ -10,12 +10,12 @@ author: rajeshsetlem
 ms.author: rsetlem
 ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
-ms.openlocfilehash: 489ba57063244d399c9dd0255641568f2db5c6de
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: abe88555bc7d545e62faa4c22a5e3f02e5eef630
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112034574"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529045"
 ---
 # <a name="assessment-rules-for-sql-server-to--azure-sql-managed-instance-migration"></a>SQL Server에서 Azure SQL Managed Instance로의 마이그레이션에 대한 평가 규칙
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -84,7 +84,7 @@ Azure SQL Managed Instance로 마이그레이션하는 경우 대신 Azure Blob 
 ## <a name="clr-security"></a>CLR 보안<a id="ClrStrictSecurity"></a>
 
 **제목: SAFE 또는 EXTERNAL_ACCESS로 표시된 CLR 어셈블리는 UNSAFE로 간주됩니다.**    
-**범주**: 이슈   
+**범주**: 경고   
 
 **설명**   
 CLR Strict Security 모드는 Azure SQL Managed Instance에서 적용됩니다. 이 모드는 기본적으로 사용하도록 설정되며 SAFE 또는 EXTERNAL_ACCESS로 표시된 사용자 정의 CLR 어셈블리가 포함된 데이터베이스에 대해 호환성이 손상되는 변경 내용을 적용합니다.
@@ -202,7 +202,7 @@ NTFS 파일 시스템에 텍스트 문서, 이미지 및 비디오와 같은 구
 **권장 사항**   
 구조화되지 않은 파일을 Azure Blob Storage에 업로드하고 이러한 파일과 관련된 메타데이터(이름, 형식, URL 위치, 스토리지 키 등)를 Azure SQL Managed Instance에 저장합니다. Azure SQL Managed Instance에서 스트리밍 Blob을 사용할 수 있도록 애플리케이션을 다시 엔지니어링해야 할 수도 있습니다. 또는 Azure 가상 머신의 SQL Server로 마이그레이션합니다.
 
-추가 정보: [SQL Azure 간 Blob 스트리밍 블로그](https://azure.microsoft.com/en-in/blog/streaming-blobs-to-and-from-sql-azure/)
+추가 정보: [SQL Azure 간 Blob 스트리밍 블로그](https://azure.microsoft.com/blog/streaming-blobs-to-and-from-sql-azure/)
 
 ## <a name="heterogeneous-ms-dtc"></a>다른 유형 MS DTC<a id="MIHeterogeneousMSDTCTransactSQL"></a>
 
@@ -451,19 +451,6 @@ Azure Migrate의 영향을 받은 개체 섹션을 검토하여 큐 판독기 �
 
 추가 정보:[SQL Server에서 중단된 데이터베이스 엔진 기능](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## <a name="service-broker"></a>Service Broker<a id="ServiceBrokerWithNonLocalAddress"></a>
-
-**제목: Service Broker 기능은 Azure SQL Managed Instance에서 부분적으로 지원됩니다.**    
-**범주**: 이슈   
-
-**설명**   
-SQL Server Service Broker는 SQL Server 데이터베이스 엔진에서 메시징 및 큐 애플리케이션에 대한 기본 지원을 제공합니다. 이 데이터베이스에는 Azure SQL Managed Instance에서 지원되지 않는 인스턴스 간 Service Broker가 사용하도록 설정되어 있습니다. 
-
-
-**권장 사항**   
-Azure SQL Managed Instance는 인스턴스 간 Service Broker를 지원하지 않습니다. 즉, 주소가 로컬이 아닙니다. 이 데이터베이스를 Azure로 마이그레이션하기 전에 `ALTER DATABASE [database_name] SET DISABLE_BROKER` 명령을 사용하여 Service Broker를 사용하지 않도록 설정해야 합니다. 또한 메시지가 SQL 인스턴스에 도착하지 않도록 하기 위해 Service Broker 엔드포인트를 제거하거나 중지해야 할 수도 있습니다. 데이터베이스가 Azure로 마이그레이션된 후 Azure Service Bus 기능을 확인하여 Service Broker 대신 일반적인 클라우드 기반 메시징 시스템을 구현할 수 있습니다. 또는 Azure 가상 머신의 SQL Server로 마이그레이션합니다. 
-
-추가 정보: [Azure SQL Managed Instance의 Service Broker 차이 ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#service-broker)
 
 ## <a name="sql-mail"></a>SQL 메일<a id="SqlMail"></a>
 

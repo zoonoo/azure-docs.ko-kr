@@ -4,12 +4,12 @@ description: 장기 보존(미리 보기)을 사용한 Azure Database for Postgr
 ms.topic: conceptual
 ms.date: 04/12/2021
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 4f8e44bbaba87581b3c988602a436ed18b1a1a20
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8c3540ee686eb69304f95e31126a1a29a48aeea8
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061771"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113213906"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>장기 보존(미리 보기)을 사용한 Azure Database for PostgreSQL 백업
 
@@ -42,6 +42,12 @@ Azure Backup 및 Azure Database Services는 최대 10년 동안 백업을 유지
 - 지역 간 백업을 지원하지 않습니다. 즉, Azure PostgreSQL 서버를 다른 지역의 자격 증명 모음에 백업할 수 없습니다. 마찬가지로 자격 증명 모음과 동일한 지역 내에 있는 서버로만 백업을 복원할 수 있습니다.
 - 복원 시 데이터만 복구됩니다. "역할"이 복원되지 않습니다.
 - 미리 보기에서는 테스트 환경에서만 솔루션을 실행하는 것이 좋습니다.
+
+## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>백업 및 복원을 구성하기 위한 필수 조건 권한
+
+Azure Backup은 엄격한 보안 지침을 따릅니다. 네이티브 Azure 서비스인 경우에도 리소스에 대한 사용 권한은 가정하지 않으며 사용자가 명시적으로 지정해야 합니다.  마찬가지로 데이터베이스에 연결하기 위한 자격 증명은 저장되지 않습니다. 이는 데이터를 보호하는 데 중요합니다. 대신 Azure Active Directory 인증을 사용합니다.
+
+[이 문서를 다운로드](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx)하여 자동화된 스크립트 및 관련 지침을 확인하세요. 백업 및 복원을 위해 Azure PostgreSQL 서버에 적절한 사용 권한 집합을 부여합니다.
 
 ## <a name="backup-process"></a>백업 프로세스
 
@@ -212,11 +218,7 @@ Azure Backup 및 Azure Database Services는 최대 10년 동안 백업을 유지
 >[!NOTE]
 >Azure Database for PostgreSQL에 대한 보관 지원은 제한된 공개 미리 보기로 제공됩니다.
 
-## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>백업 및 복원을 구성하기 위한 필수 조건 권한
 
-Azure Backup은 엄격한 보안 지침을 따릅니다. 네이티브 Azure 서비스인 경우에도 리소스에 대한 사용 권한은 가정하지 않으며 사용자가 명시적으로 지정해야 합니다.  마찬가지로 데이터베이스에 연결하기 위한 자격 증명은 저장되지 않습니다. 이는 데이터를 보호하는 데 중요합니다. 대신 Azure Active Directory 인증을 사용합니다.
-
-[이 문서를 다운로드](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx)하여 자동화된 스크립트 및 관련 지침을 확인하세요. 백업 및 복원을 위해 Azure PostgreSQL 서버에 적절한 사용 권한 집합을 부여합니다.
 
 ## <a name="manage-the-backed-up-azure-postgresql-databases"></a>백업된 Azure PostgreSQL 데이터베이스 관리
 

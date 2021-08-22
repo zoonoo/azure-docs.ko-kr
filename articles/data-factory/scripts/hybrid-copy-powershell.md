@@ -2,17 +2,18 @@
 title: PowerShell을 사용하여 온-프레미스에서 Azure로 데이터 복사
 description: 이 PowerShell 스크립트는 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사합니다.
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: article
 ms.author: jianleishen
 author: jianleishen
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 10/31/2017
-ms.openlocfilehash: 1c1c3169b42d1a496867f24eecf277cfe07056c6
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 7eea1c000dca2b46af2214bc49d1e88b935ad2dc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665506"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529385"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>PowerShell에서 SQL Server의 데이터를 Azure로 복사하는 Data Factory 파이프라인 만들기
 

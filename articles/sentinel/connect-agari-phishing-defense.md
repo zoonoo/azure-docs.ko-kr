@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: a60a0291d6669b2a9115dffa8e0d4d63fae4a440
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f356bce141ece3f92e6f482cfa4aff1a914fbb61
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101724441"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530403"
 ---
 # <a name="connect-your-agari-phishing-defense-and-brand-protection-solutions-to-azure-sentinel"></a>Azure Sentinel에 Agari 피싱 방어 및 브랜드 보호 솔루션 연결
 
 > [!IMPORTANT]
 > Agari 피싱 방어 및 브랜드 보호 커넥터는 현재 **PREVIEW** 상태입니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Agari 피싱 방어 및 브랜드 보호 커넥터를 사용하면 사용자가 통합 문서에서 데이터를 보고, 데이터를 쿼리하여 사용자 지정 경고를 만들고, 조사를 개선하기 위해 데이터를 통합할 수 있도록 브랜드 보호 및 피싱 방어 솔루션의 로그를 Azure Sentinel에 쉽게 연결할 수 있습니다. Agari의 솔루션은 Azure Functions 및 REST API를 사용하여 Azure Sentinel과 통합됩니다.
 
@@ -58,7 +60,7 @@ Agari 솔루션은 Azure 함수 앱을 사용하여 Azure Sentinel에 직접 로
 
 1. **(선택사항) Security Graph API를 사용하도록 설정합니다.** 
 
-    Agari 함수 앱을 사용하여 Security Graph API를 통해 Azure Sentinel과 위협 인텔리전스를 공유할 수 있습니다. 이 기능을 사용하려면 [Sentinel 위협 인텔리전스 플랫폼 커넥터](connect-threat-intelligence.md)를 사용하도록 설정하고 Azure Active Directory에 [애플리케이션을 등록](/graph/auth-register-app-v2)해야 합니다.
+    Agari 함수 앱을 사용하여 Security Graph API를 통해 Azure Sentinel과 위협 인텔리전스를 공유할 수 있습니다. 이 기능을 사용하려면 [Sentinel 위협 인텔리전스 플랫폼 커넥터](./connect-threat-intelligence-tip.md)를 사용하도록 설정하고 Azure Active Directory에 [애플리케이션을 등록](/graph/auth-register-app-v2)해야 합니다.
 
     이 프로세스는 아래의 함수 앱을 배포할 때 사용할 세 가지 정보(**Graph 테넌트 ID**, **Graph 클라이언트 ID** 및 **Graph 클라이언트 비밀**)를 제공합니다.
 
@@ -112,12 +114,12 @@ Agari 솔루션 데이터를 쿼리하려면 쿼리 창에 위의 테이블 이�
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
 
-로그가 Log Analytics에 표시될 때까지 최대 20분 가량 소요될 수 있습니다. 
+로그가 Log Analytics에 표시될 때까지 최대 20분가량 소요될 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Azure Sentinel에 Agari 피싱 방어 및 브랜드 보호 솔루션을 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [데이터 및 잠재적 위협에 대한 가시성을 확보](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
-- [통합 문서를 사용](tutorial-monitor-your-data.md)하여 데이터를 모니터링합니다.
+- [데이터 및 잠재적 위협에 대한 가시성을 확보](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.
+- [통합 문서를 사용](monitor-your-data.md)하여 데이터를 모니터링합니다.

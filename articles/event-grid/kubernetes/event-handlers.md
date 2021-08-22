@@ -6,12 +6,12 @@ ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 838084204ed2c1979f618bb2bfe644d1f88cd51e
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: b0306002ea8a77e82e0247353489761a24654e0e
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536502"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112417364"
 ---
 # <a name="event-handlers-destinations-in-event-grid-on-kubernetes"></a>Kubernetes의 Event Grid의 이벤트 처리기 대상
 이벤트 처리기는 엔드포인트를 노출하는 시스템으로, Event Grid에서 이벤트를 보내는 대상입니다. 이벤트를 수신하는 이벤트 처리기는 이에 따라 작동하고 이벤트 페이로드를 사용하여 일부 논리를 실행하므로 새 이벤트가 발생할 수 있습니다.
@@ -20,7 +20,7 @@ ms.locfileid: "110536502"
 
 일반적으로 Kubernetes의 Event Grid는 **웹후크** 를 통해 모든 대상에 이벤트를 보낼 수 있습니다. 웹후크는 Event Grid가 액세스할 수 있는 서비스 또는 워크로드에서 노출하는 HTTP(s) 엔드포인트입니다. 웹후크는 클라우드, 온-프레미스 또는 Event Grid가 도달할 수 있는 모든 위치의 동일한 클러스터, 동일한 네트워크 공간에서 호스트되는 워크로드일 수 있습니다. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 Event Grid는 웹후크를 통해 **Kubernetes 클러스터에서 호스트되는** 다음 대상을 지원합니다.
 

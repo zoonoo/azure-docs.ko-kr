@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: 0d85cf6ae501a7d50f20e48543e361149f4b57d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7481e22b9d03d7f49f4ee383bb52c4772631c16
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100580558"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122529798"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Azure 보안 로깅 및 감사
 
@@ -51,7 +51,7 @@ Azure 로그는 다음과 같은 유형으로 분류됩니다.
 |[활동 로그](../../azure-monitor/essentials/platform-logs-overview.md)|Azure Resource Manager 리소스에 대한 제어 평면 이벤트|    구독의 리소스에서 수행된 작업에 대한 인사이트를 제공합니다.|    Rest API, [Azure Monitor](../../azure-monitor/essentials/platform-logs-overview.md)|
 |[Azure 리소스 로그](../../azure-monitor/essentials/platform-logs-overview.md)|구독에서 Azure Resource Manager 리소스 작업에 대한 빈번한 데이터| 리소스 자체에서 수행한 작업에 대한 인사이트를 제공합니다.| Azure Monitor|
 |[Azure Active Directory 보고](../../active-directory/reports-monitoring/overview-reports.md)|로그 및 보고서 | 사용자 및 그룹 관리에 대한 사용자 로그인 활동 및 시스템 활동 정보를 보고합니다.|[그래프 API](../../active-directory/develop/microsoft-graph-intro.md)|
-|[가상 머신 및 클라우드 서비스](../../azure-monitor/vm/quick-collect-azurevm.md)|Windows 이벤트 로그 서비스 및 Linux Syslog| 가상 머신에서 시스템 데이터와 로깅 데이터를 캡처하고 사용자가 선택한 스토리지 계정으로 해당 데이터를 전송합니다.|   Azure Monitor의 Windows([WAD](../../azure-monitor/agents/diagnostics-extension-overview.md)[Microsoft Azure Diagnostics 스토리지] 사용) 및 Linux|
+|[가상 머신 및 클라우드 서비스](../../azure-monitor/vm/monitor-virtual-machine.md)|Windows 이벤트 로그 서비스 및 Linux Syslog|   가상 머신에서 시스템 데이터와 로깅 데이터를 캡처하고 사용자가 선택한 스토리지 계정으로 해당 데이터를 전송합니다.|   Azure Monitor의 Windows([WAD](../../azure-monitor/agents/diagnostics-extension-overview.md)[Microsoft Azure Diagnostics 스토리지] 사용) 및 Linux|
 |[Azure Storage 분석](/rest/api/storageservices/fileservices/storage-analytics)|스토리지 로깅(스토리지 계정에 대한 메트릭 데이터 제공)|추적 요청에 대한 인사이트를 제공하고, 사용 추세를 분석하며, 스토리지 계정과 관련된 문제를 진단합니다.| REST API 또는 [클라이언트 라이브러리](/dotnet/api/overview/azure/storage)|
 |[NSG(네트워크 보안 그룹) 흐름 로그](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)|JSON 형식(규칙에 따라 아웃바운드 및 인바운드 흐름 표시)|네트워크 보안 그룹을 통해 수신 및 송신 IP 트래픽에 대한 정보를 표시합니다.|[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)|
 |[Application Insight](../../azure-monitor/app/app-insights-overview.md)|로그, 예외 및 사용자 지정 진단|  여러 플랫폼에서 웹 개발자를 위한 APM(애플리케이션 성능 모니터링) 서비스를 제공합니다.| REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|

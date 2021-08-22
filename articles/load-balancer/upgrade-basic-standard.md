@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: ef018e58f8336220b96eba568c94efc40a0fb0c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98a74903f5472807ff7eb562ea9db9e12ceeb4be
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102612833"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108696"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Azure 공용 Load Balancer 업그레이드
 [Azure 표준 Load Balancer](load-balancer-overview.md)는 영역 중복을 통해 다양한 기능 및 고가용성 집합을 제공합니다. Load Balancer SKU에 대한 자세한 내용은 [비교 표](./skus.md#skus)를 참조하세요.
@@ -50,7 +50,7 @@ ms.locfileid: "102612833"
     1. **할당** 에서 **고정** 을 선택합니다.
     1. **저장** 을 선택합니다.
     >[!NOTE]
-    >공용 IP가 있는 VM의 경우에는 동일한 IP 주소가 보장되지 않는 표준 IP 주소를 먼저 만들어야 합니다. 기본 IP에서 VM의 연결을 끊고 새로 만든 표준 IP 주소에 연결합니다. 그러면 지침에 따라 표준 Load Balancer의 백 엔드 풀에 VM을 추가할 수 있습니다. 
+    >공용 IP가 있는 VM의 경우는 동일한 IP 주소가 보장되지 않는 표준 IP 주소를 먼저 만들어야 합니다. 기본 IP에서 VM의 연결을 끊고 새로 만든 표준 IP 주소에 연결합니다. 그러면 지침에 따라 표준 Load Balancer의 백 엔드 풀에 VM을 추가할 수 있습니다. 
 
 * **새로 만든 표준 공용 Load Balancer의 백 엔드 풀에 추가할 새 VM을 만듭니다**.
     * VM을 만들어 표준 Load Balancer와 연결하는 방법에 대한 자세한 지침은 [여기](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines)에서 찾을 수 있습니다.
@@ -58,7 +58,7 @@ ms.locfileid: "102612833"
 
 ## <a name="download-the-script"></a>스크립트 다운로드
 
-[PowerShell 갤러리](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/4.0)에서 마이그레이션 스크립트 다운로드
+[PowerShell 갤러리](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/5.0)에서 마이그레이션 스크립트를 다운로드합니다.
 ## <a name="use-the-script"></a>스크립트 사용
 
 로컬 PowerShell 환경 설정 및 기본 설정에 따라 다음과 같은 두 가지 옵션을 사용할 수 있습니다.
@@ -66,7 +66,7 @@ ms.locfileid: "102612833"
 * Azure Az 모듈이 설치되어 있지 않거나 Azure Az 모듈을 제거해도 상관없는 경우 `Install-Script` 옵션을 사용하여 스크립트를 실행하는 것이 가장 좋습니다.
 * Azure Az 모듈을 유지해야 하는 경우에는 스크립트를 다운로드하여 직접 실행하는 것이 가장 좋습니다.
 
-Azure Az 모듈이 설치되어 있는지 확인하려면 `Get-InstalledModule -Name az`을(를) 실행합니다. 설치된 Az modules가 표시되지 않으면 `Install-Script` 메서드를 사용할 수 있습니다.
+Azure Az 모듈이 설치되어 있는지 확인하려면 `Get-InstalledModule -Name az`를 실행합니다. 설치된 Az modules가 표시되지 않으면 `Install-Script` 메서드를 사용할 수 있습니다.
 
 ### <a name="install-using-the-install-script-method"></a>Install-Script 메서드를 사용한 설치
 
@@ -84,11 +84,11 @@ Azure Az 모듈이 설치되어 있는지 확인하려면 `Get-InstalledModule -
 
 스크립트를 실행하려면
 
-1. `Connect-AzAccount`을(를) 사용하여 Azure에 연결합니다.
+1. `Connect-AzAccount`를 사용하여 Azure에 연결합니다.
 
 1. `Import-Module Az`을(를) 사용하여 Az 모듈을 가져옵니다.
 
-1. 필수 매개 변수를 검토합니다
+1. 필수 매개 변수를 검토합니다.
 
    * **oldRgName: [문자열]: 필수** – 업그레이드하려는 기존 기본 Load Balancer의 리소스 그룹입니다. 이 문자열 값을 찾으려면 Azure Portal로 이동하고, 기본 Load Balancer 원본을 선택하여 부하 분산 장치에 대한 **개요** 를 클릭합니다. 리소스 그룹은 해당 페이지에 있습니다.
    * **oldLBName: [문자열]: 필수** – 업그레이드하려는 기존 기본 Balancer의 이름입니다. 
@@ -103,7 +103,7 @@ Azure Az 모듈이 설치되어 있는지 확인하려면 `Get-InstalledModule -
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>아웃바운드 연결에 대한 아웃바운드 규칙 만들기
 
-[지침](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration) 에 따라 아웃 바운드 규칙을 만들 수 있습니다.
+[지침](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration)에 따라 아웃 바운드 규칙을 만들 수 있습니다.
 * 아웃바운드 NAT를 처음부터 정의합니다.
 * 기존 아웃바운드 NAT의 동작을 확장하고 조정합니다.
 
