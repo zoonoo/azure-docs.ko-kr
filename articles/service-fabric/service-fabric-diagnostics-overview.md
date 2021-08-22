@@ -3,12 +3,12 @@ title: Azure Service Fabric 모니터링 및 진단 개요
 description: Azure Service Fabric 클러스터, 애플리케이션 및 서비스에 대한 모니터링 및 진단에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.openlocfilehash: 71ec86f26de1e94b4e17e0990d2eafd1fff954e2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d3a7060b7a12cb9a57a78c1bbb3fc0b58656ef6d
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627747"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112455161"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric 모니터링 및 진단
 
@@ -52,7 +52,7 @@ Service Fabric 플랫폼에는 클러스터의 엔터티 상태에 대한 확장
 
 
 ### <a name="watchdogs"></a>Watchdog
-일반적으로 Watchdog는 전체 서비스의 상태와 부하를 감시하고, 엔드포인트에 Ping을 수행하고, 클러스터에 있는 모든 항목의 상태를 보고할 수 있는 별도의 서비스입니다. 이렇게 하면 단일 서비스의 보기를 기반으로 하여 검색되지 않는 오류를 방지할 수 있습니다. Watchdog은 사용자 상호 작용 없이 교정 작업을 수행하는 코드(예: 특정 시간 간격으로 스토리지의 로그 파일 정리)를 호스트하는 데 적합합니다. [여기](https://github.com/Azure-Samples/service-fabric-watchdog-service)에서 샘플 watchdog 서비스 구현을 찾을 수 있습니다.
+일반적으로 Watchdog는 전체 서비스의 상태와 부하를 감시하고, 엔드포인트에 Ping을 수행하고, 클러스터에 있는 예기치 않은 상태 이벤트를 보고하는 별도의 서비스입니다. 이렇게 하면 단일 서비스의 성능만을 기준으로 감지되지 않는 오류를 방지할 수 있습니다. 또한 Watchdog은 특정 시간 간격으로 스토리지에서 로그 파일을 정리하는 것처럼 사용자 상호 작용이 필요하지 않은 수정 작업을 수행하는 코드를 호스트하기 좋은 위치입니다. 사용하기 쉬운 Watchdog 확장성 모델을 포함하고 Windows 및 Linux 클러스터 모두에서 실행되는 완전히 구현된 오픈 소스 SF Watchdog 서비스를 사용하려면 [FabricObserver](https://github.com/Azure-Samples/service-fabric-watchdog-service) 프로젝트를 참조하세요. FabricObserver는 프로덕션에 최적화된 소프트웨어입니다. 테스트 및 프로덕션 클러스터에 FabricObserver를 배포하고 플러그 인 모델을 통해 요구 사항에 맞게 확장하거나, 이를 분기하고 사용자 고유의 기본 제공 관찰자를 작성하면 좋습니다. 전자(플러그 인)가 권장되는 방법입니다.
 
 ## <a name="infrastructure-performance-monitoring"></a>인프라(성능) 모니터링
 지금까지 애플리케이션 및 플랫폼의 진단에 대해 알아보았습니다. 하드웨어가 예상대로 작동하는지를 어떻게 알 수 있을까요? 기본 인프라 모니터링은 클러스터 상태 및 리소스 사용률을 이해하는 데 중요한 부분입니다. 시스템 성능 측정은 작업에 따라 주관적일 수 있는 다양한 요인에 따라 달라집니다. 이러한 요소는 일반적으로 성능 카운터를 통해 측정됩니다. 이러한 성능 카운터는 운영 체제, .NET Framework 또는 Service Fabric 플랫폼 자체를 포함하는 다양한 원본에서 가져올 수 있습니다. 성능 카운터를 유용하게 사용할 수 있는 몇 가지 시나리오는 다음과 같습니다.

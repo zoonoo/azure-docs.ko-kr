@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: d6f3368619395934dd358536e39f227bc66dfbfd
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: b652087db880cf9bd85d5d3eb00b989bc7be18e4
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110497402"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112893531"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Azure Red Hat OpenShift 지원 정책
 
@@ -30,7 +30,6 @@ Azure Red Hat OpenShift 4 클러스터에 대한 특정 구성은 클러스터�
 * Azure Red Hat OpenShift 서비스 로깅(mdsd pod)을 제거하거나 수정하지 마세요.
 * 'arosvc.azurecr.io' 클러스터 풀 비밀을 제거하거나 수정하지 마세요.
 * 모든 클러스터 가상 머신에는 최소한 ARM(Azure Resource Manager) 및 서비스 로깅(Geneva) 엔드포인트에 대한 직접적인 아웃바운드 인터넷 액세스 권한이 있어야 합니다.  HTTPS 프록시 형식은 지원되지 않습니다.
-* 클러스터의 가상 네트워크에 대한 DNS 구성을 수정하지 마세요. 기본 Azure DNS 확인자를 사용해야 합니다.
 * 어떤 방식으로든 클러스터의 MachineConfig 개체(예: kubelet 구성)를 재정의하지 마세요.
 * unsupportedConfigOverrides 옵션을 설정하지 마세요. 이러한 옵션을 설정하면 부 버전 업그레이드를 수행할 수 없습니다.
 * Azure Red Hat OpenShift 서비스는 Private Link Service를 통해 클러스터에 액세스합니다.  서비스 액세스를 제거하거나 수정하지 마세요.

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.author: laobri
 author: lobrien
 ms.date: 01/29/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3ecf4458b052f4fdc0eb2e6e697b0468c71ce9c2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+ms.custom: devx-track-python
+ms.openlocfilehash: 473c6bde1e75070e0103137d9e24849f38c6d684
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519659"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112466702"
 ---
 # <a name="trigger-machine-learning-pipelines"></a>기계 학습 파이프라인 트리거
 
@@ -23,7 +23,7 @@ ms.locfileid: "102519659"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 Azure 구독이 아직 없는 경우 [무료 계정](https://aka.ms/AMLFree)을 만듭니다.
+* Azure 구독 Azure 구독이 아직 없는 경우 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 * Python용 Azure Machine Learning SDK가 설치된 Python 환경. 자세한 내용은 [Azure Machine Learning을 사용하여 학습 및 배포를 위한 재사용 가능 환경 생성 및 관리](how-to-use-environments.md)를 참조하세요.
 

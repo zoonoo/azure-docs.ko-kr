@@ -1,18 +1,20 @@
 ---
 title: Azure Data Factory(미리 보기)를 사용하여 QuickBooks Online에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 QuickBooks Online에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 01/15/2021
-ms.openlocfilehash: a8d0f05927b507111519a66cef2ea6add6c7af3e
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 6a2f55fbaeae6a4db34409ab37b28eb5f1fa3a6f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109485660"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642594"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 QuickBooks Online에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -43,11 +45,11 @@ QuickBooks Online에서 지원되는 모든 싱크 데이터 저장소로 데이
 
 다음은 QuickBooks 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **QuickBooks** 로 설정해야 합니다. | 예 |
 | connectionProperties | QuickBooks에 연결하는 방법을 정의하는 속성 그룹입니다. | 예 |
-| ***`connectionProperties`:*** | | |
+| ***`connectionProperties` 아래에서:*** | | |
 | 엔드포인트(endpoint) | QuickBooks Online 서버의 엔드포인트입니다. 즉, quickbooks.api.intuit.com입니다.  | 예 |
 | companyId | 권한 부여할 QuickBooks 회사의 회사 ID입니다. 회사 ID를 찾는 방법에 대한 자세한 내용은 [회사 ID를 찾으려면 어떻게 하나요?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551)를 참조하세요. | 예 |
 | consumerKey | OAuth 2.0 인증용 QuickBooks Online 애플리케이션의 클라이언트 ID입니다. [여기](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app)에서 자세히 알아보세요. | 예 |
@@ -88,7 +90,7 @@ QuickBooks Online에서 지원되는 모든 싱크 데이터 저장소로 데이
 
 QuickBooks Online에서 데이터를 복사하려면 데이터 세트의 type 속성을 **QuickBooksObject** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **QuickBooksObject** 로 설정해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -118,7 +120,7 @@ QuickBooks Online에서 데이터를 복사하려면 데이터 세트의 type �
 
 QuickBooks Online에서 데이터를 복사하려면 복사 작업의 원본 형식을 **QuickBooksSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **QuickBooksSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM "Bill" WHERE Id = '123'"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |

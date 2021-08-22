@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: e1d84483a701bf7fb4e6c50b9dc4f4f89993c64d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85048e9a5fccc520cab5bb319ee0b6f81b06f4fd
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96355120"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642148"
 ---
 # <a name="best-practices-for-server-operations-on-azure-database-for-mysql--single-server"></a>Azure Database for MySQL 서버 작업에 대한 모범 사례 - 단일 서버
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL 작업에 대한 모범 사례에 대해 알아봅니다. 플랫폼에 새로운 기능을 추가하는 경우 이 섹션에서 자세히 설명된 모범 사례를 계속해서 구체화하는 데 집중할 것입니다.
 

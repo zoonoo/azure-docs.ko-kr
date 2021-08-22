@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: yegu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8232582231a359ea6a9cf49b20685a3c9e4ef0d0
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 26eedd9ecbd88b20d80752f379b8a6d1874217a4
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006314"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112379711"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>템플릿을 사용하여 Azure Cache for Redis가 포함된 웹앱 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "112006314"
 
 템플릿을 만드는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/templates/syntax.md)를 참조하십시오. 캐시 리소스 종류의 JSON 구문 및 속성에 대해 알아보려면 [Microsoft.Cache 리소스 종류](/azure/templates/microsoft.cache/allversions)를 참조하세요.
 
-전체 템플릿은 [Azure Cache for Redis 템플릿이 포함된 웹앱](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json)을 참조하세요.
+전체 템플릿은 [Azure Cache for Redis 템플릿이 포함된 웹앱](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/web-app-with-redis-cache/azuredeploy.json)을 참조하세요.
 
 ## <a name="what-you-will-deploy"></a>배포할 내용
 이 템플릿에서 다음을 배포합니다.

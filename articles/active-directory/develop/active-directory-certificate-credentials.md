@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/3/2020
+ms.date: 06/23/2021
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: cfbcc8523ff1d5858317a3654b58ec7b2d23607a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: contperf-fy21q4, aaddev
+ms.openlocfilehash: ed3495bb7267c54f9b95f7fc3465d76ddde2faaa
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99582029"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581892"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Microsoft ID 플랫폼 애플리케이션 인증 인증서 자격 증명
 
@@ -28,7 +28,7 @@ Microsoft ID 플랫폼을 사용하면 애플리케이션이 클라이언트 암
 
 ## <a name="assertion-format"></a>어설션 형식
 
-어설션을 계산하려면 선택한 언어로 많은 JWT 라이브러리 중 하나를 사용할 수 있으며, [MSAL에서 `.WithCertificate()`](msal-net-client-assertions.md)를 사용하여 이를 지원할 수 있습니다. 이 정보는 [헤더](#header), [클레임](#claims-payload), [서명](#signature)으로 구성된 토큰으로 전달됩니다.
+어설션을 계산하려면 선택한 언어로 많은 JWT 라이브러리 중 하나를 사용할 수 있으며, [MSAL에서 `.WithCertificate()`](msal-net-client-assertions.md)를 사용하여 이를 지원할 수 있습니다. 이 정보는 헤더, 클레임, 서명으로 구성된 토큰으로 전달됩니다.
 
 ### <a name="header"></a>헤더
 

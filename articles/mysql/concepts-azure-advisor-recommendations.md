@@ -6,14 +6,17 @@ ms.author: alau
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: 4b3d750c930defbfcb7db6d4d67210e001e3ce8b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 97f4e55b1d1888de00502d70c911f0bf24d31782
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107315328"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642214"
 ---
 # <a name="azure-advisor-for-mysql"></a>Azure Advisor for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Azure Database for MySQL에 Azure Advisor가 적용되는 방법에 대해 알아보고 일반적인 질문에 대한 답변을 받으세요.
 ## <a name="what-is-azure-advisor-for-mysql"></a>Azure Advisor for MySQL이란 무엇인가요?
 Azure Advisor 시스템은 원격 분석을 사용하여 MySQL 데이터베이스에 대한 성능 및 안정성 권장 사항을 발급합니다. Advisor 권장 사항은 MySQL 데이터베이스 제품 간에 분할됩니다.

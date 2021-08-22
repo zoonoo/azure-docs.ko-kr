@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: c98ee8f747975d4237c2906be2060eddbc7b9990
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ddc2ab665577d49d41556e8b3b7d96f6e2c85af
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96000949"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616553"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버에서 TLS 연결 구성
 
@@ -102,7 +102,7 @@ Azure Database for PostgreSQL 단일 서버의 TLS 설정을 지정하는 방법
 
 ## <a name="cipher-support-by-azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 단일 서버에서 암호화 지원
 
-SSL/TLS 통신의 일부로 암호 그룹의 유효성을 검사하고 암호 그룹만 데이터베이스 서비스와 통신할 수 있습니다. 암호 그룹 유효성 검사는 [게이트웨이 계층](concepts-connectivity-architecture.md#connectivity-architecture)에서 제어되며 노드 자체에서 명시적으로 제어되지 않습니다. 암호 그룹이 아래 나열된 도구 모음 중 하나와 일치하지 않으면 들어오는 클라이언트 연결이 거부됩니다.
+SSL/TLS 통신의 일부로 암호화 그룹의 유효성이 검사되며 지원 암호화 그룹만 데이터베이스 서버와 통신할 수 있습니다. 암호 그룹 유효성 검사는 [게이트웨이 계층](concepts-connectivity-architecture.md#connectivity-architecture)에서 제어되며 노드 자체에서 명시적으로 제어되지 않습니다. 암호 그룹이 아래 나열된 도구 모음 중 하나와 일치하지 않으면 들어오는 클라이언트 연결이 거부됩니다.
 
 ### <a name="cipher-suite-supported"></a>지원되는 암호 그룹
 

@@ -6,20 +6,22 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: b1f51cd9e9f310c68834c16f83c182250a1a4eaf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e64acd29e8b1e2e60b3ae1b855f8552e277e824
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98598018"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642147"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>예약된 용량의 Azure Database for MySQL 컴퓨팅 리소스 선불
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 종량제 가격에 비해 컴퓨팅 리소스 비용을 선 결제하면 Azure Database for MySQL에서의 비용을 절감할 수 있습니다. Azure Database for MySQL 예약된 용량을 사용하면 MySQL 서버에 대해 1년 또는 3년 동안 선불 약정을 하여 컴퓨팅 비용을 크게 할인 받을 수 있습니다. Azure Database for MySQL 예약된 용량을 구매하려면 Azure 지역, 배포 유형, 성능 계층 및 용어를 지정해야 합니다. </br>
 
 특정 Azure Database for MySQL 서버에 예약을 할당할 필요가 없습니다. 이미 실행 중이거나 새로 배포된 Azure Database for MySQL이 예약된 가격 책정의 혜택을 자동으로 받게 됩니다. 예약을 구입하면 1년 또는 3년 동안의 컴퓨팅 비용을 선결제하게 됩니다. 예약을 구매하는 즉시, 예약 특성과 일치하는 Azure Database for MySQL 컴퓨팅은 더 이상 종량제 요금으로 부과되지 않습니다. 예약에는 MySQL Database 서버와 연결된 소프트웨어, 네트워킹 또는 스토리지 요금이 포함되지 않습니다. 예약 기간이 끝나면 청구 혜택이 만료되고 Azure Databases for MySQL은 종량제 요금으로 청구됩니다. 예약은 자동 갱신되지 않습니다. 가격 책정 정보는 [Azure Databases for MySQL 예약된 용량 제품](https://azure.microsoft.com/pricing/details/mysql/)을 참조하세요. </br>
 
-[Azure Portal](https://portal.azure.com/)에서 Azure Database for MySQL 예약된 용량을 구매할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](../cost-management-billing/reservations/prepare-buy-reservation.md)로 처리할 수 있습니다. 예약된 용량을 구매하려면 다음과 같이 수행합니다:
+[Azure Portal](https://portal.azure.com/)에서 Azure Database for MySQL 예약된 용량을 구매할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](../cost-management-billing/reservations/prepare-buy-reservation.md)로 처리할 수 있습니다. 예약된 용량을 구매하려면 다음과 같이 수행합니다.
 
 * 종량제 요금이 적용되는 하나 이상의 엔터프라이즈 구독 또는 개별 구독에 대해 소유자 역할을 해야 합니다.
 * Enterprise 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가** 를 활성화해야 합니다. 이 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.

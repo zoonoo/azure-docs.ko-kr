@@ -1,18 +1,20 @@
 ---
 title: Square에서 데이터 복사(미리 보기)
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Square에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 08/03/2020
-ms.openlocfilehash: 481407b54c6a99bca1dbc0f8ea7f8446c8c785c2
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 8f9aaa6c2d09067d29abe6488026b523d18677f9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484256"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642887"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 Square에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -43,7 +45,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 다음은 Square 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Square** 로 설정해야 합니다. | 예 |
 | connectionProperties | Square에 연결하는 방법을 정의하는 속성 그룹입니다. | 예 |
@@ -102,7 +104,7 @@ Data Factory에서 OAuth를 통한 인증에는 `accessToken`와 `refreshToken`�
 
 Square에서 데이터를 복사하려면 데이터 세트의 type 속성을 **SquareObject** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 형식 속성은 **SquareObject** 로 설정해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -132,7 +134,7 @@ Square에서 데이터를 복사하려면 데이터 세트의 type 속성을 **S
 
 Square에서 데이터를 복사하려면 복사 작업의 원본 형식을 **SquareSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **SquareSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Business"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |

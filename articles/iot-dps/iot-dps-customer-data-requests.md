@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 75a2762a0937efbceaa168f8a2d6409e2e3a7ae4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aed9a608dd8a958a298b3a7f502dac6d587b2a2e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94967230"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114466751"
 ---
 # <a name="summary-of-customer-data-request-features"></a>고객 데이터 요청 기능 요약
 
@@ -39,9 +39,9 @@ Device Provisioning Service는 등록 및 등록 레코드를 저장합니다. �
 
 REST API를 사용하여 등록 및 등록 레코드에 대한 삭제 작업을 수행할 수도 있습니다.
 
-* 단일 디바이스에 대한 등록 정보를 삭제하려면 [디바이스 등록 - 삭제](/rest/api/iot-dps/deleteindividualenrollment/deleteindividualenrollment)를 사용하면 됩니다.
-* 디바이스 그룹에 대한 등록 정보를 삭제하려면 [디바이스 등록 그룹 - 삭제](/rest/api/iot-dps/deleteenrollmentgroup/deleteenrollmentgroup)를 사용하면 됩니다.
-* 프로비전된 디바이스에 대한 정보를 삭제하려면 [등록 상태 - 등록 상태 삭제](/rest/api/iot-dps/deletedeviceregistrationstate/deletedeviceregistrationstate)를 사용하면 됩니다.
+* 단일 디바이스에 대한 등록 정보를 삭제하려면 [디바이스 등록 - 삭제](/rest/api/iot-dps/service/individual-enrollment/delete)를 사용하면 됩니다.
+* 디바이스 그룹에 대한 등록 정보를 삭제하려면 [디바이스 등록 그룹 - 삭제](/rest/api/iot-dps/service/enrollment-group/delete)를 사용하면 됩니다.
+* 프로비전된 디바이스에 대한 정보를 삭제하려면 [등록 상태 - 등록 상태 삭제](/rest/api/iot-dps/service/device-registration-state/delete)를 사용하면 됩니다.
 
 ## <a name="exporting-customer-data"></a>고객 데이터 내보내기
 
@@ -53,9 +53,9 @@ Device Provisioning Service는 등록 및 등록 레코드를 저장합니다. �
 
 REST API를 사용하여 등록 및 등록 레코드에 대한 내보내기 작업을 수행할 수도 있습니다.
 
-* 단일 디바이스에 대한 등록 정보를 내보내려면 [디바이스 등록 - 가져오기](/rest/api/iot-dps/getindividualenrollment/getindividualenrollment)를 사용하면 됩니다.
-* 디바이스 그룹에 대한 등록 정보를 내보내려면 [디바이스 등록 그룹 - 가져오기](/rest/api/iot-dps/getenrollmentgroup/getenrollmentgroup)를 사용하면 됩니다.
-* 이미 프로비전된 디바이스에 대한 정보를 내보내려면 [등록 상태 - 등록 상태 가져오기](/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate)를 사용하면 됩니다.
+* 단일 디바이스에 대한 등록 정보를 내보내려면 [디바이스 등록 - 가져오기](/rest/api/iot-dps/service/individual-enrollment/get)를 사용하면 됩니다.
+* 디바이스 그룹에 대한 등록 정보를 내보내려면 [디바이스 등록 그룹 - 가져오기](/rest/api/iot-dps/service/enrollment-group/get)를 사용하면 됩니다.
+* 이미 프로비전된 디바이스에 대한 정보를 내보내려면 [등록 상태 - 등록 상태 가져오기](/rest/api/iot-dps/service/device-registration-state/get)를 사용하면 됩니다.
 
 > [!NOTE]
 > Microsoft 엔터프라이즈 서비스를 사용하는 경우 Microsoft는 시스템 생성 로그라는 일부 정보를 생성합니다. 일부 Device Provisioning Service 시스템 생성 로그는 테넌트 관리자가 액세스하거나 내보낼 수 없습니다. 이러한 로그는 서비스 내에서 수행된 실제 작업 및 개별 디바이스와 관련된 진단 데이터로 구성됩니다.

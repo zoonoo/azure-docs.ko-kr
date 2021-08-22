@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
-ms.openlocfilehash: 56af49b6fa862c93822293056752182b534ac442
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: beef6768f9b2fb05efb77c16c32b0acbe46d1e85
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98942270"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528540"
 ---
 # <a name="analyze-data-with-apache-spark"></a>Apache Spark를 사용하여 데이터 분석
 
 이 자습서에서는 Azure Open Datasets 및 Apache Spark를 사용하여 예비 데이터 분석을 수행하는 방법을 알아봅니다. 그런 다음 Azure Synapse Analytics에서 Synapse Studio Notebook의 결과를 시각화할 수 있습니다.
 
-특히 [뉴욕시(NYC) 택시 데이터 세트](https://azure.microsoft.com/en-us/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)를 분석합니다. 데이터는 Azure 공개 데이터 세트를 통해 사용할 수 있습니다. 이 데이터 세트의 하위 집합에는 각 이동에 대한 정보, 시작 및 종료 시간과 위치, 비용 및 기타 흥미로운 특성 등 노란색 택시 이동에 대한 정보가 포함되어 있습니다.
+특히 [뉴욕시(NYC) 택시 데이터 세트](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)를 분석합니다. 데이터는 Azure 공개 데이터 세트를 통해 사용할 수 있습니다. 이 데이터 세트의 하위 집합에는 각 이동에 대한 정보, 시작 및 종료 시간과 위치, 비용 및 기타 흥미로운 특성 등 노란색 택시 이동에 대한 정보가 포함되어 있습니다.
   
 ## <a name="before-you-begin"></a>시작하기 전 주의 사항
 [Apache Spark 풀 만들기 자습서](../articles/../quickstart-create-apache-spark-pool-studio.md)에 따라 Apache Spark 풀을 만듭니다. 

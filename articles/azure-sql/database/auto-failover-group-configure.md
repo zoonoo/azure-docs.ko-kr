@@ -12,12 +12,12 @@ author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
 ms.date: 08/14/2019
-ms.openlocfilehash: d117bd686152e9bb158d0376f52238f9492d1bb7
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: a5c1475a4a517fc3c7767fec2d7ee9461476b083
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110708968"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112539721"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Azure SQL Database에 대한 장애 조치(failover) 그룹 구성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "110708968"
 
 Azure Portal 또는 PowerShell을 사용하여 장애 조치 그룹을 만들고 단일 데이터베이스를 추가합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 다음 필수 구성 요소를 고려합니다.
 
@@ -84,11 +84,11 @@ PowerShell을 사용하여 장애 조치(failover) 그룹을 만들고 데이터
    # Create a failover group between the servers
    $failovergroup = Write-host "Creating a failover group between the primary and secondary server..."
    New-AzSqlDatabaseFailoverGroup `
-      â€“ResourceGroupName $resourceGroupName `
+      ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -PartnerServerName $drServerName  `
-      â€“FailoverGroupName $failoverGroupName `
-      â€“FailoverPolicy Automatic `
+      FailoverGroupName $failoverGroupName `
+      FailoverPolicy Automatic `
       -GracePeriodWithDataLossHours 2
    $failovergroup
 
@@ -196,7 +196,7 @@ PowerShell을 사용하여 장애 조치(failover) 그룹의 장애 조치를 �
 
 Azure Portal 또는 PowerShell을 사용하여 장애 조치 그룹을 만들고 탄력적 풀을 추가합니다.  
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 다음 필수 구성 요소를 고려합니다.
 
@@ -248,11 +248,11 @@ PowerShell을 사용하여 장애 조치 그룹을 만들고 탄력적 풀을 �
    # Create a failover group between the servers
    Write-host "Creating failover group..."
    New-AzSqlDatabaseFailoverGroup `
-       â€“ResourceGroupName $resourceGroupName `
+       ResourceGroupName $resourceGroupName `
        -ServerName $serverName `
        -PartnerServerName $drServerName  `
-       â€“FailoverGroupName $failoverGroupName `
-       â€“FailoverPolicy Automatic `
+       FailoverGroupName $failoverGroupName `
+       FailoverPolicy Automatic `
        -GracePeriodWithDataLossHours 2
    Write-host "Failover group created successfully."
 
@@ -350,7 +350,7 @@ Azure Portal 또는 PowerShell을 사용하여 Azure SQL Managed Instance의 두
 
 성능 상의 이유로 두 관리형 인스턴스를 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)에 배포합니다. 지리적으로 쌍을 이루는 지역에 상주하는 관리되는 인스턴스는 쌍을 이루지 않는 지역에 비해 훨씬 더 나은 성능을 제공합니다. 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 다음 필수 구성 요소를 고려합니다.
 

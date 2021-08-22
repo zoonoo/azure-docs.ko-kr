@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 05/21/2021
-ms.openlocfilehash: 18697f2150cdb8a6ab4eeb12334553d32b2f984d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: c744517dfab088fa4edb104b2c5aebda2818ab8f
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110471975"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642160"
 ---
 # <a name="migrate-amazon-rds-for-mysql-to-azure-database-for-mysql-using-mysql-workbench"></a>MySQL Workbench를 사용하여 Amazon RDS for MySQL를 Azure Database for MySQL로 마이그레이션
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 MySQL Workbench 내보내기/가져오기, DMS(Azure Database Migration Service), MySQL 덤프 및 복원과 같은 다양한 유틸리티를 사용하여 Amazon RDS for MySQL을 Azure Database for MySQL 마이그레이션할 수 있습니다. 그러나 MySQL Workbench 마이그레이션 마법사를 사용하면 Amazon RDS for MySQL 데이터베이스를 Azure Database for MySQL 쉽고 편리하게 이동할 수 있습니다.
 

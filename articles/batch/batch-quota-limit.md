@@ -2,14 +2,14 @@
 title: 서비스 할당량 및 제한
 description: 기본 Azure Batch 할당량, 한도 및 제약 조건에 대해 알아보고 할당량 증가를 요청하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 07/20/2021
 ms.custom: seodec18
-ms.openlocfilehash: 6e17a90cc573205bcb964a0428e0b7320323b8a6
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: ad5701c65f9f2068a1a68084b755f8d0a013b8c8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553552"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465577"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
 
@@ -63,7 +63,7 @@ Batch에서 지원하는 각 VM 시리즈에 대한 코어 할당량이 있습�
 | **리소스** | **최대 제한** |
 | --- | --- |
 | 컴퓨팅 노드당 [동시 작업](batch-parallel-node-tasks.md) | 4 x 노드 코어 수 |
-| [애플리케이션](batch-application-packages.md) | 20 |
+| [애플리케이션](batch-application-packages.md) | 200 |
 | 애플리케이션당 애플리케이션 패키지 | 40 |
 | 풀당 애플리케이션 패키지 | 10 |
 | 최대 작업 수명 | 180일<sup>1</sup> |

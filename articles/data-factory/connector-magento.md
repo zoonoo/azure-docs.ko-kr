@@ -1,17 +1,20 @@
 ---
 title: Azure Data Factory(미리 보기)를 사용하여 Magento에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Magento에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jianleishen
-ms.openlocfilehash: 1272509b6d5da156ce6c5fcd5d0eb6411e083b4c
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 67f9290cc4b54ec1024d4b3e626c92ebf1e1c44a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109485174"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642738"
 ---
 # <a name="copy-data-from-magento-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 Magento에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -42,7 +45,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 다음은 Magento 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Magento** 로 설정해야 합니다. | 예 |
 | host | Magento 인스턴스의 URL입니다. 즉, 192.168.222.110/magento3입니다.  | 예 |
@@ -78,7 +81,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 Magento에서 데이터를 복사하려면 데이터 세트의 type 속성을 **MagentoObject** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 형식 속성을 **MagentoObject** 로 설정해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -108,7 +111,7 @@ Magento에서 데이터를 복사하려면 데이터 세트의 type 속성을 **
 
 Magento에서 데이터를 복사하려면 복사 작업의 원본 형식을 **MagentoSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **MagentoSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Customers"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |

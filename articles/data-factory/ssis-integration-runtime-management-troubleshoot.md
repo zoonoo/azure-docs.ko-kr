@@ -2,18 +2,19 @@
 title: SSIS Integration Runtime 관리 문제 해결
 description: 이 문서에서는 SSIS IR(SSIS Integration Runtime)의 관리 이슈 해결에 대한 참고 자료를 제공합니다.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 917bcce641cfd5178f868e4338354edb78062ab8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3419483442a208bd2ed15071ffcbd447dfe1bd26
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361846"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528726"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Azure Data Factory에서 SSIS Integration Runtime 문제 해결
 

@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/08/2021
-ms.openlocfilehash: 5f418867a2f22a16304d16c8889fff9a27a37ab3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 95db93d0233b22117984bd705dd6ec8d54c4581a
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312164"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642168"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure Database for MySQL 데이터 내부 복제를 구성하는 방법
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 이 문서에서는 원본 및 복제본 서버를 구성하여 Azure Database for MySQL에서 [입력 데이터 복제](concepts-data-in-replication.md)를 설정하는 방법에 대해 설명합니다. 이 문서에서는 이전에 MySQL 서버 및 데이터베이스를 사용한 경험이 있다고 가정합니다.
 

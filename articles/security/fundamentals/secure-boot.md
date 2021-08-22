@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/10/2020
-ms.openlocfilehash: feb28b1d448d0146046ed789d1389a3a42f344de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/24/2021
+ms.openlocfilehash: e14bd525f2f81cfdf0a61f29df919f5579f0be17
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94557846"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112893945"
 ---
 # <a name="secure-boot"></a>보안 부팅
 
@@ -56,6 +56,7 @@ db 및 .dbx 다이제스트의 유효성을 확인하는 것은 다음을 보장
 플랫폼 무결성 및 보안을 추진하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 - [펌웨어 보안](firmware.md)
+- [플랫폼 코드 무결성](code-integrity.md)
 - [계획 부팅 및 호스트 증명](measured-boot-host-attestation.md)
 - [프로젝트 Cerberus](project-cerberus.md)
 - [미사용 암호화](encryption-atrest.md)

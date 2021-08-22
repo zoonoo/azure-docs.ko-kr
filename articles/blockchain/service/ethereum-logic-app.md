@@ -4,16 +4,20 @@ description: Azure Logic Apps에서 Ethereum 블록체인 커넥터를 사용하
 ms.date: 08/31/2020
 ms.topic: how-to
 ms.reviewer: caleteet
-ms.openlocfilehash: 411337908553e58c252a0ed1a42d17f76195c720
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0eb4056567692ddb221f3207ac92b3373f6bdff2
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96763794"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122642098"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Azure Logic Apps에서 Ethereum 블록체인 커넥터 사용
 
-[Azure Logic Apps](../../logic-apps/index.yml)에서 [Ethereum 블록체인 커넥터](/connectors/blockchainethereum/)를 사용하여 스마트 계약 작업을 수행하고 스마트 계약 이벤트에 응답합니다. 이 글은 이더리움 블록체인 커넥터를 이용해 블록체인 정보를 다른 서비스로 보내거나 블록체인 기능을 호출하는 방법을 설명한다.이 문서에서는 Ethereum Blockchain 커넥터를 사용하여 블록체인 정보를 다른 서비스로 보내거나 블록체인 함수를 호출하는 방법을 설명합니다. 예를 들어 블록체인 원장의 정보를 반환하는 REST 기반 마이크로서비스를 만들려고 한다고 가정해 보겠습니다. 논리 앱을 사용하면 블록체인 원장에 저장된 정보를 쿼리하는 HTTP 요청을 받을 수 있습니다.
+[Azure Logic Apps](../../logic-apps/index.yml)에서 [Ethereum 블록체인 커넥터](/connectors/blockchainethereum/)를 사용하여 스마트 계약 작업을 수행하고 스마트 계약 이벤트에 응답합니다.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+이 글은 이더리움 블록체인 커넥터를 이용해 블록체인 정보를 다른 서비스로 보내거나 블록체인 기능을 호출하는 방법을 설명한다.이 문서에서는 Ethereum Blockchain 커넥터를 사용하여 블록체인 정보를 다른 서비스로 보내거나 블록체인 함수를 호출하는 방법을 설명합니다. 예를 들어 블록체인 원장의 정보를 반환하는 REST 기반 마이크로서비스를 만들려고 한다고 가정해 보겠습니다. 논리 앱을 사용하면 블록체인 원장에 저장된 정보를 쿼리하는 HTTP 요청을 받을 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

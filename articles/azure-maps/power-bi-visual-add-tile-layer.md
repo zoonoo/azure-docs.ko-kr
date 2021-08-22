@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 6ab99f32932f39d5ad140b7a16d16ceae30fff54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1aee3c8213221775e3fde21003055fd9cc973455
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92896211"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669354"
 ---
 # <a name="add-a-tile-layer"></a>타일 레이어 추가
 
@@ -57,7 +57,7 @@ Azure Maps 시각적 개체에 의해 지원되는 세 가지 다른 타일 서�
 -   `{quadkey}` - Bing 지도 타일 시스템 명명 규칙을 기반으로 하는 타일 `quadkey`식별자입니다.
 -   `{bbox-epsg-3857}` - EPSG 3857 공간 참조 시스템에서 `{west},{south},{east},{north}` 형식을 사용하는 경계 상자 문자열입니다.
 
-예를 들어 다음은 Azure Maps에서 [날씨 레이더 타일 서비스](/rest/api/maps/renderv2/getmaptilepreview)에 대한 서식이 지정된 타일 URL입니다. `[subscription-key]`은 Azure Maps 구독 키에 대한 자리 표시자입니다.
+예를 들어 다음은 Azure Maps에서 [날씨 레이더 타일 서비스](/rest/api/maps/render-v2/get-map-tile)에 대한 서식이 지정된 타일 URL입니다. `[subscription-key]`은 Azure Maps 구독 키에 대한 자리 표시자입니다.
 
 > `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key=[subscription-key]`
 

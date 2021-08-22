@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: sharrai
 ms.date: 05/27/2021
-ms.openlocfilehash: e260b9fa7b24a3cb91e107bac6b01537879857c0
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 56389ff2dc936fe1d9a0a922f10c8055de6de1ba
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110576899"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528429"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>VMware VM/물리적 서버를 재해 복구하기 위한 구성 서버 관리
 
@@ -213,7 +213,7 @@ Azure Site Recovery 구성 요소 지원 정책에 대한 자세한 지침은 [�
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수 이름| Type | Description| 값|
+|매개 변수 이름| 유형 | 설명| 값|
 |-|-|-|-|
 | /ServerMode|필수|구성 서버와 프로세스 서버를 모두 설치할지 또는 프로세스 서버만 설치할지 여부를 지정합니다.|CS<br>PS|
 |/InstallLocation|필수|구성 요소가 설치되는 폴더입니다.| 컴퓨터의 모든 폴더|
@@ -223,7 +223,7 @@ Azure Site Recovery 구성 요소 지원 정책에 대한 자세한 지침은 [�
 |/PSIP|필수|복제 데이터 전송에 사용할 NIC의 IP 주소입니다.| 모든 유효한 IP 주소|
 |/CSIP|필수|구성 서버가 수신 대기하는 NIC의 IP 주소입니다.| 모든 유효한 IP 주소|
 |/PassphraseFilePath|필수|암호 파일의 위치에 대한 전체 경로입니다.|유효한 파일 경로|
-|/BypassProxy|Optional|구성 서버가 프록시 없이 Azure에 연결되도록 지정합니다.|이렇게 하려면 Venu에서 이 값을 가져옵니다.|
+|/BypassProxy|Optional|구성 서버가 프록시 없이 Azure에 연결되도록 지정합니다.||
 |/ProxySettingsFilePath|Optional|프록시 설정(인증이 필요한 기본 프록시 또는 사용자 지정 프록시)입니다.|파일은 아래에 지정된 형식이어야 합니다.|
 |DataTransferSecurePort|Optional|복제 데이터에 사용할 PSIP의 포트 번호입니다.| 유효한 포트 번호(기본값: 9433)|
 |/SkipSpaceCheck|Optional|캐시 디스크의 공간 확인을 건너뜁니다.| |

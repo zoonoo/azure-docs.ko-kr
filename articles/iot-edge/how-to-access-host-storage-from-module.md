@@ -2,18 +2,17 @@
 title: 모듈에서 IoT Edge 디바이스 로컬 스토리지 사용 - Azure IoT Edge | Microsoft Docs
 description: 환경 변수를 사용하고 IoT Edge 디바이스 로컬 스토리지에 대한 모듈 액세스를 사용 설정하는 옵션을 만듭니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 78752d4da42fe07461ae0e82b10343dc7219ad91
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 6f2732f03b990d10b3ae15e472bf7600114c3a33
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482061"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528332"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>모듈에 디바이스의 로컬 스토리지에 대한 액세스 권한 부여
 

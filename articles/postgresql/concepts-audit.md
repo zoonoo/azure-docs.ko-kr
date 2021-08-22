@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 519105374a2c12807bdac92bfb2b60feaeeb89c2
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: d20f504e4c35bcb314e599b3111a3c66805568e7
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324800"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112676320"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버의 감사 로깅
 
@@ -60,7 +60,7 @@ pgAudit를 설치하려면 서버의 공유 미리 로드 라이브러리에 포
 pgAudit를 사용하면 세션 또는 개체 감사 로깅을 구성할 수 있습니다. [세션 감사 로깅](https://github.com/pgaudit/pgaudit/blob/master/README.md#session-audit-logging)은 실행된 문의 자세한 로그를 내보냅니다. [개체 감사 로깅](https://github.com/pgaudit/pgaudit/blob/master/README.md#object-audit-logging)은 특정 관계로 범위가 지정된 감사입니다. 하나 또는 두 가지 로깅 유형을 설정하도록 선택할 수 있습니다. 
 
 > [!NOTE]
-> pgAudit 설정은 전역으로 지정되며 데이터베이스 또는 역할 수준에서 지정할 수 없습니다.
+> pgAudit 설정은 전역으로 지정되며, 데이터베이스 또는 역할 수준에서 지정할 수 없습니다.
 
 [pgAudit를 설치](#installing-pgaudit)한 후 해당 매개 변수를 구성하여 로깅을 시작할 수 있습니다. [pgAudit 설명서](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings)는 각 매개 변수의 정의를 제공합니다. 먼저 매개 변수를 테스트하고 예상대로 동작하는지 확인합니다.
 

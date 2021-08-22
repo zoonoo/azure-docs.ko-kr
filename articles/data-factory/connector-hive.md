@@ -1,17 +1,20 @@
 ---
 title: Azure Data Factory를 사용하여 Hive에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Hive에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: jianleishen
-ms.openlocfilehash: 88f91ca27bad44f0b9d6235d257b141ce277b191
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: e9117ce75c17a1d45d5479520372de5bbcb47074
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109485066"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642638"
 ---
 # <a name="copy-and-transform-data-from-hive-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Hive에서 데이터 복사 및 변환 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -169,7 +172,7 @@ Hive 커넥터는 매핑 데이터 흐름에서 [인라인 데이터 세트](dat
 
 다음 표에는 하이브 원본에서 지원하는 속성이 나열되어 있습니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 저장소 | 저장소는 `hive`여야 합니다. | 예 |  `hive` | store | 
 | 형식 | 테이블 또는 쿼리에서 읽는지 여부 | 예 | `table` 또는 `query` | format |

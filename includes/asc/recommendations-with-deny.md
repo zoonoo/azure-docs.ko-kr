@@ -2,15 +2,15 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 06/14/2021
+ms.date: 07/25/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: d7433dd53346141147f8d7f0c7bdb1b3b076d152
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 8615c84a611d8f05ebb7db017bc8e7dbfa54fbcd
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112083580"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114678233"
 ---
 - [필요한 경우 사용] Azure Cosmos DB 계정은 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 합니다.
 - [필요한 경우 사용] Azure Machine Learning 작업 영역은 CMK(고객 관리형 키)를 사용하여 암호화해야 합니다.

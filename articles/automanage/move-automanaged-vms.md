@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: alsin
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 99371b8618756c196b75858288c5c4785272a7e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e9fba5ff9dc10e0691423da689024af3e2b72bc
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101650468"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468350"
 ---
 # <a name="move-an-azure-automanage-virtual-machine-to-a-different-region"></a>Azure Automanage 가상 머신을 다른 지역으로 이동
 이 문서에서는 VM(가상 머신)을 다른 지역으로 이동할 때 VM Automanage 설정을 유지하는 방법을 설명합니다. 가상 머신을 다른 지역으로 이동하는 것이 좋은 이유로는 새 Azure 지역을 활용하거나 내부 정책 및 거버넌스 요구 사항을 충족하거나 용량 계획 요구 사항에 대응하려는 경우가 있습니다. 이동하는 VM은 현재 자동 관리될 수 있으며 VM을 이동한 후에도 계속해서 자동 관리하려고 할 수 있습니다.
@@ -33,4 +33,4 @@ VM을 이동하는 방법에 대한 세부 정보는 이 [문서](../resource-mo
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Automanage에 관한 자세한 정보](./automanage-virtual-machines.md)
-* [Azure Automanage에 관해 자주 묻는 질문과 대답 보기](./faq.md)
+* [Azure Automanage에 관해 자주 묻는 질문과 대답 보기](./faq.yml)

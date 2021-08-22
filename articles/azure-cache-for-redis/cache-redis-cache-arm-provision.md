@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 04/28/2021
-ms.openlocfilehash: 66630d10c5b79927c8388138c3ab639134909d26
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: e9c804868c64d84b8cbe98093f75c4a45d568ec3
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111888539"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112458761"
 ---
 # <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Cache for Redis 만들기
 
@@ -43,10 +43,10 @@ Azure Cache for Redis를 배포하는 ARM 템플릿(Azure Resource Manager 템�
 새 [프리미엄 계층](cache-overview.md#service-tiers)을 위한 Resource Manager 템플릿을 사용할 수 있습니다.
 
 * [클러스터링이 있는 프리미엄 Azure Cache for Redis 만들기](https://azure.microsoft.com/resources/templates/redis-premium-cluster-diagnostics/)
-* [데이터 지속성이 있는 프리미엄 Azure Cache for Redis 만들기](https://azure.microsoft.com/resources/templates/redis-premium-persistence/)
+* [데이터 지속성이 있는 프리미엄 Azure Cache for Redis 만들기](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
 * [Virtual Network에 배포된 프리미엄 Redis Cache 만들기](https://azure.microsoft.com/resources/templates/redis-premium-vnet/)
 
-최신 템플릿을 확인하려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하고 _Azure Cache for Redis_ 를 검색하세요.
+최신 템플릿을 확인하려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)을 참조하고 _Azure Cache for Redis_ 를 검색하세요.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5eb0c7d72896cc9a27907743b1b9c3d5a40614dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a247c3b3f1aeae79fcf6a4369b9ae69e693b6024
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100592862"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122537951"
 ---
 # <a name="query-update-management-logs"></a>업데이트 관리 로그 쿼리
 
@@ -195,7 +195,7 @@ Windows 컴퓨터에서 다음 정보를 검토하여 에이전트가 Azure Moni
 
 1. Windows 이벤트 로그를 엽니다. **애플리케이션 및 서비스 로그\Operations Manager** 로 이동한 후, 원본 **서비스 커넥터** 에서 이벤트 ID 3000 및 이벤트 ID 5002를 검색합니다. 이러한 이벤트는 컴퓨터가 Log Analytics 작업 영역에 등록되었으며 구성을 수신하고 있음을 나타냅니다.
 
-에이전트가 Azure Monitor 로그와 통신할 수 없고 방화벽 또는 프록시 서버를 통해 인터넷과 통신하도록 구성된 경우 방화벽 또는 프록시 서버가 올바르게 구성되었는지 확인합니다. 방화벽 또는 프록시 서버가 올바르게 구성되어 있는지 확인하는 방법을 알아보려면 [Windows 에이전트에 대한 네트워크 구성](../../azure-monitor/agents/agent-windows.md) 또는 [Linux 에이전트에 대한 네트워크 구성](../../azure-monitor/vm/quick-collect-linux-computer.md)을 참조하세요.
+에이전트가 Azure Monitor 로그와 통신할 수 없고 방화벽 또는 프록시 서버를 통해 인터넷과 통신하도록 구성된 경우 방화벽 또는 프록시 서버가 올바르게 구성되었는지 확인합니다. 방화벽 또는 프록시 서버가 올바르게 구성되어 있는지 확인하는 방법을 알아보려면 [Windows 에이전트에 대한 네트워크 구성](../../azure-monitor/agents/agent-windows.md) 또는 [Linux 에이전트에 대한 네트워크 구성](../../azure-monitor/vm/monitor-virtual-machine.md)을 참조하세요.
 
 > [!NOTE]
 > Linux 시스템에서 프록시 또는 Log Analytics 게이트웨이와 통신하도록 구성되고 업데이트 관리를 사용하도록 설정하는 경우, 다음 명령을 수행하여 omiuser 그룹 읽기 권한을 파일에 부여하도록 `proxy.conf` 권한을 업데이트합니다.

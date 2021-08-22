@@ -7,14 +7,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 89673c14c38947dc5aeb91cacde1eb2755e84138
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb28d45c9656b6a1693532b041deadbb903dda94
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94542612"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642209"
 ---
 # <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>일시적인 오류를 처리하고 Azure Database for MySQL에 효율적으로 연결
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 이 문서에서는 Azure Database for MySQL에 대한 일시적 연결 오류를 처리하고 효율적으로 연결하는 방법에 대해 설명합니다.
 

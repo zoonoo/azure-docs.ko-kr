@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
-ms.openlocfilehash: af4f9dac30c1e443e9647a5b752cdabf9c094a6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77b55315256de8b2170a40c76006f05431aac267
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676085"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112454999"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Azure에서 제공되는 Red Hat Enterprise Linux의 BYOS(사용자 구독 필요) 골드 이미지
 
@@ -213,4 +213,4 @@ Azure Disk Encryption 적용 단계에 대해서는 [Linux VM에서의 Azure Dis
 - Red Hat 업데이트 인프라에 대해서는 [Azure Red Hat 업데이트 인프라](./redhat-rhui.md)에서 자세히 확인하세요.
 - Azure의 전체 Red Hat 이미지에 대해서는 [설명서 페이지](./redhat-images.md)에서 자세히 확인하세요.
 - 전체 RHEL 버전에 대한 Red Hat 지원 정책 관련 정보는 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지를 참조하세요.
-- RHEL 골드 이미지 관련 추가 설명서는 [Red Hat 설명서](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access)에서 확인하세요.
+- RHEL 골드 이미지 관련 추가 설명서는 [Red Hat 설명서](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/understanding-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access#proc_using-gold-images-azure_cloud-access)에서 확인하세요.

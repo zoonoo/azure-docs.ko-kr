@@ -6,16 +6,18 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: d311ea3158e1f9d53c51fe239103039849597d11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7550fafa0a1fdf67baca4f9c777a4a064f522728
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579186"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642138"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버에서 느린 쿼리 로그(미리 보기)
 
-> [!IMPORTANT] 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 Azure Database for MySQL 유연한 서버에서 느린 쿼리 로그는 사용자가 구성하고 액세스하는 데 사용할 수 있습니다. 느린 쿼리 로그는 기본적으로 사용하지 않도록 설정되어 있으므로 문제 해결 중 성능 병목 상태를 식별하는 데 도움이 됩니다.
@@ -33,7 +35,7 @@ MySQL 느린 쿼리 로그에 대한 자세한 내용은 MySQL 엔진 설명서�
 - **log_throttle_queries_not_using_indexes**: 느린 쿼리 로그에 쓸 수 있는 인덱싱되지 않은 쿼리의 수를 제한합니다. 이 매개 변수는 `log_queries_not_using_indexes`가 *ON* 으로 설정된 경우에 적용됩니다.
 
 > [!IMPORTANT]
-> 테이블이 인덱싱되지 않은 경우, 이러한 인덱싱되지 않은 테이블에 대해 실행되는 모든 쿼리가 느린 쿼리 로그에 기록되기 때문에 `log_queries_not_using_indexes`과 `log_throttle_queries_not_using_indexes` 매개 변수를 **ON** 으로 설정하면 MySQL 성능에 영향을 줄 수 있습니다.
+>테이블이 인덱싱되지 않은 경우, 이러한 인덱싱되지 않은 테이블에 대해 실행되는 모든 쿼리가 느린 쿼리 로그에 기록되기 때문에 `log_queries_not_using_indexes`과 `log_throttle_queries_not_using_indexes` 매개 변수를 **ON** 으로 설정하면 MySQL 성능에 영향을 줄 수 있습니다.
 
 느린 쿼리 로그 매개 변수의 전체 설명은 MySQL [느린 쿼리 로그 설명서](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)를 참조하세요.
 

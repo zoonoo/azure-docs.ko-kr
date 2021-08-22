@@ -1,19 +1,19 @@
 ---
 title: 프라이빗 링크를 사용하여 Synapse 작업 영역에 연결
 description: 이 문서에서는 프라이빗 링크를 사용하여 Azure Synapse 작업 영역에 연결하는 방법을 설명합니다.
-author: RonyMSFT
+author: ashinMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 04/15/2020
-ms.author: ronytho
+ms.author: seshin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9782cce4165487b612c0295dc893d120ed043225
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a1205647f4895407bff9301415249a055990f6e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98218266"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528755"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links"></a>Private Link를 사용하여 Azure Synapse 작업 영역에 연결
 

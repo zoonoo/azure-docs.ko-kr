@@ -1,15 +1,15 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 10/20/2020
-ms.openlocfilehash: 33752c1ebb83c5d63e8e1cb396c52f01f07046cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a12d49a8057dfe059cecf6fd7896fd0a1567647
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102245069"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114405068"
 ---
 다음 리소스를 사용할 수도 있습니다.
 
@@ -19,7 +19,7 @@ ms.locfileid: "102245069"
 
 ## <a name="iot-hub-service-client-examples"></a>IoT Hub 서비스 클라이언트 예제
 
-이 섹션에서는 IoT Hub 서비스 클라이언트와 **com.microsoft.azure.sdk.iot.service.devicetwin** 네임스페이스에서 **DeviceTwin** 및 **DeviceMethod** 클래스를 사용하는 Java 예제를 보여줍니다. **DeviceTwin** 클래스를 사용하고 디바이스 쌍을 사용하여 디바이스 상태와 상호 작용할 수 있습니다. **DeviceTwin** 클래스를 사용하여 IoT Hub에서 [디바이스 등록을 쿼리](../articles/iot-hub/iot-hub-devguide-query-language.md)할 수도 있습니다. **DeviceMethod** 클래스를 사용하여 디바이스에서 명령을 호출합니다. 디바이스의 [DTDL](../articles/iot-pnp/concepts-digital-twin.md) 모델은 디바이스에서 구현하는 속성과 명령을 정의합니다. 코드 조각에서 `deviceId` 변수는 IoT 허브에 등록된 IoT 플러그 앤 플레이 디바이스의 디바이스 ID를 보유합니다.
+이 섹션에서는 IoT Hub 서비스 클라이언트와 **com.microsoft.azure.sdk.iot.service.devicetwin** 네임스페이스에서 **DeviceTwin** 및 **DeviceMethod** 클래스를 사용하는 Java 예제를 보여줍니다. **DeviceTwin** 클래스를 사용하고 디바이스 쌍을 사용하여 디바이스 상태와 상호 작용할 수 있습니다. **DeviceTwin** 클래스를 사용하여 IoT Hub에서 [디바이스 등록을 쿼리](../articles/iot-hub/iot-hub-devguide-query-language.md)할 수도 있습니다. **DeviceMethod** 클래스를 사용하여 디바이스에서 명령을 호출합니다. 디바이스의 [DTDL](../articles/iot-develop/concepts-digital-twin.md) 모델은 디바이스에서 구현하는 속성과 명령을 정의합니다. 코드 조각에서 `deviceId` 변수는 IoT 허브에 등록된 IoT 플러그 앤 플레이 디바이스의 디바이스 ID를 보유합니다.
 
 ### <a name="get-the-device-twin-and-model-id"></a>디바이스 쌍 및 모델 ID 가져오기
 
@@ -115,7 +115,7 @@ System.out.println("Method result status is: " + result.getStatus());
 
 ## <a name="iot-hub-digital-twin-examples"></a>IoT Hub 디지털 트윈 예제
 
-**com.microsoft.azure.sdk.iot.service.digitaltwin** 네임스페이스에서 **DigitalTwinAsyncClient** 클래스를 사용하고 디지털 트윈을 사용하여 디바이스 상태와 상호 작용합니다. 다음 예제에서는 동일한 네임스페이스에서 **UpdateOperationUtility** 및 **BasicDigitalTwin** 클래스 또한 사용합니다. 디바이스의 [DTDL](../articles/iot-pnp/concepts-digital-twin.md) 모델은 디바이스에서 구현하는 속성과 명령을 정의합니다.
+**com.microsoft.azure.sdk.iot.service.digitaltwin** 네임스페이스에서 **DigitalTwinAsyncClient** 클래스를 사용하고 디지털 트윈을 사용하여 디바이스 상태와 상호 작용합니다. 다음 예제에서는 동일한 네임스페이스에서 **UpdateOperationUtility** 및 **BasicDigitalTwin** 클래스 또한 사용합니다. 디바이스의 [DTDL](../articles/iot-develop/concepts-digital-twin.md) 모델은 디바이스에서 구현하는 속성과 명령을 정의합니다.
 
 `digitalTwinid` 변수는 IoT 허브에 등록된 IoT 플러그 앤 플레이 디바이스의 디바이스 ID를 보유합니다.
 
@@ -304,7 +304,7 @@ private static String prettyString(String str)
 
 IoT 플러그 앤 플레이 디바이스는 DTDL 모델에 정의된 원격 분석을 IoT Hub로 보냅니다. 기본적으로 IoT Hub는 원격 분석을 사용할 수 있는 Event Hubs 엔드포인트로 라우팅합니다. 자세한 내용은 [IoT Hub 메시지 라우팅을 사용하여 디바이스-클라우드 메시지를 다른 엔드포인트에 보내기](../articles/iot-hub/iot-hub-devguide-messages-d2c.md)를 참조하세요.
 
-다음 코드 조각에서는 기본 Event Hubs 엔드포인트에서 원격 분석을 읽는 방법을 보여줍니다. 이 코드 조각의 코드는 IoT Hub 빠른 시작 [디바이스에서 IoT 허브로 원격 분석을 보내고 백 엔드 애플리케이션으로 읽기](../articles/iot-hub/quickstart-send-telemetry-java.md)에서 가져왔습니다.
+다음 코드 조각에서는 기본 Event Hubs 엔드포인트에서 원격 분석을 읽는 방법을 보여줍니다. 이 코드 조각의 코드는 IoT Hub 빠른 시작 [디바이스에서 IoT 허브로 원격 분석을 보내고 백 엔드 애플리케이션으로 읽기](../articles/iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java)에서 가져왔습니다.
 
 ```java
 import com.azure.messaging.eventhubs.EventHubClientBuilder;

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 2a4f86d9fae7b78a57cf8da7ab42d2d4a4cd7be5
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: cb66b9ad3106b9cad5b9b22cbe32838e13f56c28
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835401"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528705"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Azure 프라이빗 엔드포인트 연결 문제 해결
 
@@ -39,7 +39,7 @@ Azure 프라이빗 엔드포인트는 프라이빗 링크 서비스에 비공개
 
 1. 리소스를 검색하여 프라이빗 엔드포인트 구성을 검토합니다.
 
-    a. **Private Link 센터** 로 이동합니다.
+    a. [Private Link 센터](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview)로 이동합니다.
 
       ![Private Link 센터](./media/private-endpoint-tsg/private-link-center.png)
 

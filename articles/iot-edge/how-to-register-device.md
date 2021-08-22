@@ -2,19 +2,18 @@
 title: 새 디바이스 등록 - Azure IoT Edge | Microsoft Docs
 description: 대칭 키 또는 x.509 인증서를 사용하여 수동 프로비저닝을 위해 IoT Hub에 단일 IoT Edge 디바이스를 등록합니다.
 author: kgremban
-manager: philmea
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: b5d761cfa947b3fd4e5f718e603219c650e8dd72
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: c617b4c3558be2409c8bf2272e805a8b8cb9d349
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481874"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528248"
 ---
 # <a name="register-an-iot-edge-device-in-iot-hub"></a>IoT Hub에 IoT Edge 디바이스 등록
 
@@ -42,7 +41,7 @@ IoT 허브에 연결하는 모든 디바이스에는 클라우드-디바이스 �
 * [TPM을 사용하여 IoT Edge 디바이스 만들기 및 프로비저닝](how-to-auto-provision-simulated-device-linux.md)
 * [대칭 키를 사용하 여 IoT Edge 디바이스 만들기 및 프로비저닝](how-to-auto-provision-symmetric-keys.md)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

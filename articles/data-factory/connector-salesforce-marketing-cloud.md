@@ -1,18 +1,20 @@
 ---
 title: Salesforce Marketing Cloud에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Salesforce Marketing Cloud에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 07/17/2020
-ms.openlocfilehash: aa5d092634416e2157b571a8a347ad0db1667b17
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 450fe9cd797eda03f2095a15cce620b18bfa30c0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487046"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642586"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce Marketing Cloud에서 데이터 복사
 
@@ -44,7 +46,7 @@ Salesforce Marketing Cloud 커넥터는 OAuth 2 인증을 지원하며, 레거�
 
 Salesforce Marketing Cloud 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **SalesforceMarketingCloud** 로 설정되어야 합니다. | 예 |
 | connectionProperties | Salesforce Marketing Cloud에 연결하는 방법을 정의하는 속성 그룹입니다. | 예 |
@@ -137,7 +139,7 @@ Salesforce Marketing Cloud 연결된 서비스에 다음 속성이 지원됩니�
 
 Salesforce Marketing Cloud에서 데이터를 복사하려면 데이터 세트의 형식 속성을 **SalesforceMarketingCloudObject** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 형식 속성을 **SalesforceMarketingCloudObject** 로 설정해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -167,7 +169,7 @@ Salesforce Marketing Cloud에서 데이터를 복사하려면 데이터 세트�
 
 Salesforce Marketing Cloud에서 데이터를 복사하려면 복사 작업의 원본 형식을 **SalesforceMarketingCloudSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 형식 속성을 **SalesforceMarketingCloudSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |

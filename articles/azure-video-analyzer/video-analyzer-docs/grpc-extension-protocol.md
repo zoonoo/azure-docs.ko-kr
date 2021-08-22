@@ -2,13 +2,13 @@
 title: gRPC 확장 프로토콜 - Azure
 description: Azure Video Analyzer를 사용하면 파이프라인 확장 노드를 통해 처리 능력을 향상시킬 수 있습니다. gRPC 확장 프로세서는 고성능 구조적 gRPC 기반의 프로토콜을 사용하는 확장성 시나리오를 가능하게 합니다.
 ms.topic: reference
-ms.date: 05/15/2021
-ms.openlocfilehash: aaa1030f2c751514568c96142268d41c2eba4df6
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 7d6d60b0f9f6473cf226b8cecff0440ff90f008b
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388186"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114605070"
 ---
 # <a name="use-the-grpc-extension-protocol"></a>gRPC 확장 프로토콜 사용 
 
@@ -25,7 +25,7 @@ gRPC 세션은 TCP/TLS 포트를 통해 gRPC 클라이언트에서 gRPC 서버�
 [유추 메타데이터 스키마 개체 모델](inference-metadata-schema.md)별로 정의된 미리 설정된 스키마에 따라 유효한 JSON 문서를 사용하여 응답을 반환하는 것이 좋습니다. 이렇게 하면 유추 메타데이터를 사용하여 비디오 녹화 및 재생과 같은 다른 구성 요소 및 시나리오와의 상호 운용성이 향상됩니다.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/grpc-extension-protocol/ava-module.png" alt-text="Azure Video Analyzer 모듈" lightbox="./media/grpc-extension-protocol/ava-module.png":::
+> :::image type="content" source="./media/grpc-extension-protocol/grpc-external-srv.svg" alt-text="Azure Video Analyzer 모듈" lightbox="./media/grpc-extension-protocol/grpc-external-srv.svg":::
 
 ## <a name="implementing-grpc-protocol"></a>gRPC 프로토콜 구현
 

@@ -1,17 +1,20 @@
 ---
 title: Azure Data Factory를 사용하여 HubSpot에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 HubSpot에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: jianleishen
-ms.openlocfilehash: ff50962baf4337f977406739da16876ab878a2d7
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: e0c5ad1ce0f17c6dd2ce7126d0c853d4d2dfd773
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484940"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642461"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HubSpot에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

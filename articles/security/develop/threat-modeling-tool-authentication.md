@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 717142f5e97d68b844bc15a2f335390d1951ec0c
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 8bc827605147f229ea82475d98eac35dec2d6a22
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487514"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114290361"
 ---
 # <a name="security-frame-authentication--mitigations"></a>보안 프레임: 인증 | 완화
 
@@ -457,7 +457,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 | **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반, C#, Node.JS,  |
 | **특성**              | 해당 없음, 게이트웨이 선택 - Azure IoT Hub |
-| **참조**              | 해당 없음, [Azure IoT 허브 및 .NET](../../iot-hub/quickstart-send-telemetry-dotnet.md), [IoT 허브 및 Node JS 시작](../../iot-hub/quickstart-send-telemetry-node.md), [SAS 및 인증서로 IoT 보호](../../iot-hub/iot-hub-dev-guide-sas.md), [Git 리포지토리](https://github.com/Azure/azure-iot-sdks/) |
+| **참조**              | 해당 없음, [Azure IoT 허브 및 .NET](../../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp), [IoT 허브 및 Node JS 시작](../../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs), [SAS 및 인증서로 IoT 보호](../../iot-hub/iot-hub-dev-guide-sas.md), [Git 리포지토리](https://github.com/Azure/azure-iot-sdks/) |
 | **단계** | <ul><li>**일반:** TLS(전송 계층 보안) 또는 IPSec을 사용하여 디바이스를 인증합니다. 전체 비대칭 암호화를 처리할 수 없는 PSK(미리 공유한 키)를 해당 디바이스에서 사용할 수 있도록 인프라가 지원해야 합니다. Azure AD, Oauth를 활용하세요.</li><li>**C#:** DeviceClient 인스턴스를 만들 때, 기본적으로 Create 메서드는 AMQP 프로토콜을 사용하여 IoT Hub와 통신하는 DeviceClient 인스턴스를 만듭니다. HTTPS 프로토콜을 사용하려면 프로토콜을 지정할 수 있도록 해주는 Create 메서드의 재정의를 사용합니다. HTTPS 프로토콜을 사용하려면 `Microsoft.AspNet.WebApi.Client` NuGet 패키지를 프로젝트에 추가하여 `System.Net.Http.Formatting` 네임스페이스를 포함해야 합니다.</li></ul>|
 
 ### <a name="example"></a>예제

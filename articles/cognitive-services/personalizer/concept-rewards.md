@@ -5,16 +5,16 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: f3249ba2089c3d9650aa46f665353ad392d0e773
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69e5aeff345bdf66d1b171738a2fbf14c7f8b15c
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94365570"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112453487"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>보상 점수는 맞춤 설정의 성공을 나타냅니다.
 
-보상 점수는 사용자에 대한 맞춤 설정 선택 항목인 [RewardActionID](/rest/api/cognitiveservices/personalizer/rank/rank#response)가 효율적으로 수행된 정도를 나타냅니다. 보상 점수의 값은 사용자 동작 관찰 기반의 비즈니스 논리에 따라 결정됩니다.
+보상 점수는 사용자에 대한 맞춤 설정 선택 항목인 [RewardActionID](/rest/api/personalizer/1.0/rank/rank#response)가 효율적으로 수행된 정도를 나타냅니다. 보상 점수의 값은 사용자 동작 관찰 기반의 비즈니스 논리에 따라 결정됩니다.
 
 Personalizer는 보상을 평가하여 기계 학습 모델을 학습시킵니다.
 
@@ -22,7 +22,7 @@ Azure Portal에서 Personalizer 리소스에 대한 기본 보상 점수를 구�
 
 ## <a name="use-reward-api-to-send-reward-score-to-personalizer"></a>보상 API를 사용하여 Personalizer에 보상 점수 보내기
 
-보상은 [보상 API](/rest/api/cognitiveservices/personalizer/events/reward)를 통해 Personalizer에 보내집니다. 일반적으로 보상은 0에서 1 사이의 숫자입니다. 값이 -1인 음수 보상은 특정 시나리오에서 가능하며 보충 학습(RL) 경험이 있는 경우에만 사용해야 합니다. Personalizer는 시간이 지남에 따라 가능한 가장 높은 총 보상을 달성할 수 있도록 모델을 학습시킵니다.
+보상은 [보상 API](/rest/api/personalizer/1.0/events/reward)를 통해 Personalizer에 보내집니다. 일반적으로 보상은 0에서 1 사이의 숫자입니다. 값이 -1인 음수 보상은 특정 시나리오에서 가능하며 보충 학습(RL) 경험이 있는 경우에만 사용해야 합니다. Personalizer는 시간이 지남에 따라 가능한 가장 높은 총 보상을 달성할 수 있도록 모델을 학습시킵니다.
 
 나중에 며칠이 될 수 있는 사용자 동작이 수행되면 보상을 보냅니다. 이벤트에 보상이 없거나 기본 보상이 있는 것으로 간주될 때까지 Personalizer에서 기다리는 최대 시간은 Azure Portal에서 [보상 대기 시간](#reward-wait-time)으로 구성됩니다.
 

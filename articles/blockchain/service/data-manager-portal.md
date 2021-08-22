@@ -4,16 +4,18 @@ description: Azure Portal을 사용하여 Azure Blockchain Service의 Blockchain
 ms.date: 03/30/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: a151c28d31bf0bb7f21185fb161315d42f9563d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b80bbc1b302579f0145e7b5cb6c5e3e0561d2ef7
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85200684"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122642095"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Azure Portal을 사용하여 Blockchain Data Manager 구성
 
 블록체인 데이터를 캡처하여 Azure Event Grid 토픽으로 전송하도록 Azure Blockchain Service에 대한 Blockchain Data Manager를 구성합니다.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 Blockchain Data Manager 인스턴스를 구성하려면 다음을 수행합니다.
 
@@ -57,10 +59,10 @@ Blockchain Data Manager 인스턴스는 Azure Blockchain Service 트랜잭션 �
 
 ## <a name="add-blockchain-application"></a>블록체인 애플리케이션 추가
 
-블록체인 애플리케이션을 추가하는 경우 Blockchain Data Manager에서 애플리케이션에 대한 이벤트 및 속성 상태를 디코드합니다. 그러지 않으면 원시 블록 및 원시 트랜잭션 데이터만 전송됩니다. Blockchain Data Manager는 또한 계약을 배포할 때 계약 주소도 발견합니다. Blockchain Data Manager 인스턴스에 여러 블록체인 애플리케이션을 추가할 수 있습니다.
+블록체인 애플리케이션을 추가하는 경우 Blockchain Data Manager는 애플리케이션에 대한 이벤트 및 속성 상태를 디코딩합니다. 그렇지 않으면 원시 블록 및 원시 트랜잭션 데이터만 전송됩니다. Blockchain Data Manager는 계약을 배포할 때 계약 주소도 검색합니다. Blockchain Data Manager 인스턴스에 여러 블록체인 애플리케이션을 추가할 수 있습니다.
 
 > [!IMPORTANT]
-> 현재는 Solidity [배열 형식](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) 또는 [매핑 형식](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types)을 선언하는 블록체인 애플리케이션은 제한적으로 지원됩니다. 배열 또는 매핑 형식으로 선언된 속성은 *ContractPropertiesMsg* 또는 *DecodedContractEventsMsg* 메시지에서 디코드되지 않습니다.
+> 현재는 Solidity [배열 유형](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) 또는 [매핑 유형](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types)을 선언하는 블록체인 애플리케이션은 완전히 지원되지 않습니다. 배열 또는 매핑 형식으로 선언된 속성은 *ContractPropertiesMsg* 또는 *DecodedContractEventsMsg* 메시지에서 디코드되지 않습니다.
 
 Blockchain Data Manager에는 애플리케이션을 추가하는 스마트 계약 ABI 및 바이트 코드 파일이 필요합니다.
 

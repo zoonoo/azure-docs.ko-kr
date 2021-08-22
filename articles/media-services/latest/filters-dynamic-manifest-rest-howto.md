@@ -13,18 +13,20 @@ ms.devlang: ne
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: c2d081ded07b1d32ee7525855c1756e13dfd57aa
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 7ec7213caa3d35fda7c637930e1cb950443a3f55
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277507"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "122642231"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Media Services REST API를 사용하여 필터 만들기
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 고객에게 콘텐츠를 제공(라이브 이벤트 또는 주문형 비디오를 스트리밍)하는 경우 클라이언트에게 기본 자산의 매니페스트 파일에 설명된 내용보다 더 많은 유연성이 필요할 수 있습니다. Azure Media Services를 사용하면 콘텐츠에 사용할 계정 필터 및 자산 필터를 정의할 수 있습니다. 
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
 
 이 기능과 이 기능을 사용하는 시나리오에 대한 자세한 설명은 [동적 매니페스트](filters-dynamic-manifest-concept.md) 및 [필터](filters-concept.md)를 참조하세요.
 

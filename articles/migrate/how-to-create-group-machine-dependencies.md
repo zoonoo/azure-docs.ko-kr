@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 0d935cac68fc1b9e8d97a875c4b6e48078324fb8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 235dc8fa484212a8322b24d32f7516af5441978a
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143614"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652927"
 ---
 # <a name="set-up-dependency-visualization"></a>종속성 시각화 설정
 
@@ -86,7 +86,7 @@ Windows 서버에 에이전트를 설치하려면
 4. **에이전트 설치 옵션** 에서 **Azure Log Analytics** > **다음** 을 차례로 선택합니다.
 5. **추가** 를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 포털에서 복사한 작업 영역 ID와 키를 붙여넣습니다. **다음** 을 클릭합니다.
 
-명령줄에서 또는 Configuration Manager나 [Intigua](https://www.intigua.com/intigua-for-azure-migration)와 같은 자동화된 방법을 사용하여 에이전트를 설치할 수 있습니다.
+명령줄에서 또는 Configuration Manager나 Intigua와 같은 자동화된 방법을 사용하여 에이전트를 설치할 수 있습니다.
 - 이 방법을 사용하여 MMA 에이전트를 설치하는 방법을 [자세히 알아보세요](../azure-monitor/agents/log-analytics-agent.md#installation-options).
 - MMA 에이전트는 이 [스크립트](https://github.com/brianbar-MSFT/Install-MMA)를 사용하여 설치할 수도 있습니다.
 - MMA에서 지원하는 Windows 운영 체제를 [자세히 확인](../azure-monitor/agents/agents-overview.md#supported-operating-systems)해 보세요.

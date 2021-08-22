@@ -2,14 +2,14 @@
 title: 공유 액세스 서명을 사용하여 Azure Event Hubs에 대한 액세스 인증
 description: 이 문서에서는 공유 액세스 서명을 사용하여 Event Hubs 리소스에 대한 액세스를 인증하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 07/26/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 12e129686bdde9b03e1c284e0f54cb31e32469c3
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: f647dd21db2920bff01ac5929c527e66f8d7350b
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903008"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114708530"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>SAS(공유 액세스 서명)를 사용하여 Event Hubs 리소스에 대한 액세스 인증
 SAS(공유 액세스 서명)를 사용하면 공유 액세스 서명을 보유한 클라이언트에 부여하는 액세스 유형을 세부적으로 제어할 수 있습니다. SAS에서 설정할 수 있는 몇 가지 컨트롤은 다음과 같습니다. 
@@ -222,7 +222,7 @@ Event Hubs 생산자에 의해 생성된 데이터를 사용하는 백 엔드 �
 다음 문서를 참조하세요.
 
 - [SAS를 사용한 권한 부여](authenticate-shared-access-signature.md)
-- [Azure RBAC(역할 기반 액세스 제어)를 사용한 권한 부여](authenticate-shared-access-signature.md)
+- [Azure RBAC(역할 기반 액세스 제어)를 사용한 권한 부여](authorize-access-azure-active-directory.md)
 - [Event Hubs에 대해 자세히 알아보기](event-hubs-about.md)
 
 다음 관련 문서를 참조하세요.

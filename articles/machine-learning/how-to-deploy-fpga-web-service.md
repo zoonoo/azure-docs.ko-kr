@@ -9,18 +9,18 @@ ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2020
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q2, devx-track-python, deploy
-ms.openlocfilehash: e6a58a6555602af2494683037721a1f83e7ea33c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: contperf-fy21q2, devx-track-python, deploy
+ms.openlocfilehash: bfb29a00dbef95007eba6ca69f9a38d0f23d2da2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519319"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528711"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 ML 모델을 FPGA(필드 프로그래머블 게이트 어레이)에 배포 
 
-이 문서에서는 [Azure Machine Learning](overview-what-is-azure-ml.md)에서 [하드웨어 가속 모델 Python 패키지](/python/api/azureml-accel-models/azureml.accel)를 사용하여 Azure FPGA에 ML 모델을 배포하는 방법 및 FPGA에 대해 알아봅니다.
+이 문서에서는 [Azure Machine Learning](overview-what-is-azure-machine-learning.md)에서 [하드웨어 가속 모델 Python 패키지](/python/api/azureml-accel-models/azureml.accel)를 사용하여 Azure FPGA에 ML 모델을 배포하는 방법 및 FPGA에 대해 알아봅니다.
 
 ## <a name="what-are-fpgas"></a>FPGA란?
 FPGA는 프로그래밍 가능한 논리 블록 배열과 재구성 가능한 상호 연결 계층 구조를 포함하고 있습니다. 제조 후 상호 연결을 통해 이러한 블록을 다양한 방법으로 구성할 수 있습니다. 다른 칩과 비교해서, FPGA는 프로그래밍 기능 및 성능 조합을 제공합니다. 

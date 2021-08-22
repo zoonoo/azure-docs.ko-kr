@@ -2,13 +2,13 @@
 title: Azure Resource Manager 템플릿을 사용하여 Azure Event Grid에서 시스템 토픽 만들기
 description: 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Event Grid에서 시스템 토픽을 만드는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 1c8881a2d9dfca43084cc537b106e84b050a18d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/22/2021
+ms.openlocfilehash: 8420e60dd7336d17845a0a1c6b4e5e6637fe9c8a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86115165"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469464"
 ---
 # <a name="create-system-topics-in-azure-event-grid-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 Azure Event Grid에서 시스템 토픽 만들기
 이 문서에서는 Resource Manager 템플릿을 사용하여 시스템 토픽을 만들고 관리하는 방법을 보여 줍니다. 시스템 토픽에 대한 개요는 [시스템 토픽](system-topics.md)을 참조하세요.

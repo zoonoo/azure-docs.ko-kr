@@ -4,13 +4,13 @@ description: Azure Resource Manager 템플릿에서 사용할 수 있는 데이�
 ms.topic: conceptual
 ms.author: tomfitz
 author: tfitzmac
-ms.date: 05/07/2021
-ms.openlocfilehash: 4905dbe184301ea9bcf86d63d527d07276a95c9e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 06/24/2021
+ms.openlocfilehash: 4fc69126ee1f555e71e152a7c0369e4b81b8bf6a
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957938"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112894233"
 ---
 # <a name="data-types-in-arm-templates"></a>ARM 템플릿의 데이터 형식
 
@@ -43,6 +43,17 @@ ARM 템플릿 내에서 다음 데이터 형식을 사용할 수 있습니다.
     ]
   }
 },
+
+"outputs": {
+  "arrayOutput": {
+    "type": "array",
+    "value": "[variables('exampleArray')]"
+  },
+  "firstExampleArrayElement": {
+    "type": "int",
+    "value": "[parameters('exampleArray')[0]]"
+  }
+}
 ```
 
 배열의 요소는 동일한 형식이거나 다른 형식일 수 있습니다.
@@ -55,6 +66,17 @@ ARM 템플릿 내에서 다음 데이터 형식을 사용할 수 있습니다.
     true,
     "example string"
   ]
+}
+
+"outputs": {
+  "arrayOutput": {
+    "type": "array",
+    "value": "[variables('mixedArray')]"
+  },
+  "firstMixedArrayElement": {
+    "type": "string",
+    "value": "[variables('mixedArray')[0]]"
+  }
 }
 ```
 

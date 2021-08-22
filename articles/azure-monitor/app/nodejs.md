@@ -4,12 +4,12 @@ description: Application Insights를 사용하여 Node.js 서비스의 성능을
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 9709c52bde7ab866ba6b6b5c0526cef7f2ff6d87
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 703862d80a7c079739c3bb7f733ae417375675e9
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110079285"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112287140"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
@@ -430,4 +430,4 @@ client.config.PROPERTYNAME = VALUE;
 <!--references-->
 
 [portal]: https://portal.azure.com/
-[FAQ]: ../faq.md
+[FAQ]: ../faq.yml

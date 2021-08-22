@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 937048ce14b9b05b55cd8d76e7a8c1fd67c63e4d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cb68621017649c87849294be67bc2e12d96214e8
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933711"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113732246"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 사용에 대한 모범 사례
 
@@ -25,7 +25,7 @@ Azure Data Lake Storage Gen2는 Azure AD(Azure Active Directory) 사용자, 그�
 
 ### <a name="use-security-groups-versus-individual-users"></a>보안 그룹 및 개별 사용자 사용
 
-Data Lake Storage Gen2에서 빅 데이터를 사용할 때는 서비스 주체를 통해 Azure HDInsight와 같은 서비스에서 데이터를 사용하도록 허용할 가능성이 높습니다. 그러나 개별 사용자가 데이터에 액세스해야 하는 경우도 있을 수 있습니다. 모든 경우에서 개별 사용자를 폴더 및 디렉터리에 할당하는 대신 Azure Active Director [보안 그룹](../common/storage-auth-aad.md)을 사용하는 것이 좋습니다.
+Data Lake Storage Gen2에서 빅 데이터를 사용할 때는 서비스 주체를 통해 Azure HDInsight와 같은 서비스에서 데이터를 사용하도록 허용할 가능성이 높습니다. 그러나 개별 사용자가 데이터에 액세스해야 하는 경우도 있을 수 있습니다. 모든 경우에서 개별 사용자를 폴더 및 디렉터리에 할당하는 대신 Azure Active Director [보안 그룹](../common/authorize-data-access.md)을 사용하는 것이 좋습니다.
 
 보안 그룹에 권한이 할당되면 그룹에서 사용자를 추가하거나 제거할 때 Data Lake Storage Gen2를 업데이트할 필요가 없습니다. 그러면 ACL(액세스 제어 목록)당 액세스 제어 항목의 최대 수를 초과하지 않도록 하는 데도 도움이 됩니다. 현재 이 개수는 32개입니다(모든 파일 및 디렉터리와 항상 연결되는 소유 사용자, 소유 그룹, 마스크 및 기타의 4가지 POSIX 스타일 ACL 포함). 각 디렉터리에는 총 64개의 액세스 제어 항목에 대한 두 가지 ACL 유형, 즉 액세스 ACL과 기본 ACL이 있을 수 있습니다. 이러한 ACL에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](data-lake-storage-access-control.md)를 참조하세요.
 

@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 03/25/2021
-ms.openlocfilehash: 1df93a987348ed54303f2d9118337dbc710bc3bc
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: 03ae1ed134f6d25128d9846c5e5c9949a96f36fa
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001427"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112679693"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>디자이너의 예외 및 오류 코드
 
@@ -1092,9 +1092,9 @@ For general information about how the Matchbox recommendation algorithm works, a
 
 기계 학습을 위한 Hive 쿼리와 관련된 도움말은 다음 문서를 참조하세요.
 
-+ [Hive 테이블을 만들고 Azure Blob Storage에서 데이터 로드](../team-data-science-process/move-hive-tables.md)
-+ [Hive 쿼리를 사용하여 테이블의 데이터 탐색](../team-data-science-process/explore-data-hive-tables.md)
-+ [Hive 쿼리를 사용하여 Hadoop 클러스터의 데이터에 대한 기능 만들기](../team-data-science-process/create-features-hive.md)
++ [Hive 테이블을 만들고 Azure Blob Storage에서 데이터 로드](/azure/architecture/data-science-process/move-hive-tables)
++ [Hive 쿼리를 사용하여 테이블의 데이터 탐색](/azure/architecture/data-science-process/explore-data-hive-tables)
++ [Hive 쿼리를 사용하여 Hadoop 클러스터의 데이터에 대한 기능 만들기](/azure/architecture/data-science-process/create-features-hive)
 + [SQL 사용자용 Hive 참고 자료(PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf)
 
   

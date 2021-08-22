@@ -2,13 +2,13 @@
 title: 하이브리드 연결에 대한 진단 로그
 description: 이 문서에서는 Azure Relay에 사용할 수 있는 모든 활동 및 진단 로그에 대한 개요를 제공합니다.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: 7ca6dc95567a4867d3c58e0efad0fc74289e586c
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.date: 06/23/2021
+ms.openlocfilehash: cfcbdacb7b4266601f4669a20013bb6a5a5331a6
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079100"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666272"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Azure Relay 하이브리드 연결에 진단 로그 사용
 Azure Relay 하이브리드 연결을 사용하기 시작하면 수신기와 송신기가 열리고 닫히는 방법과 시기, 그리고 하이브리드 연결이 생성되고 메시지가 전송되는 방법을 모니터링하는 것이 좋습니다. 이 문서에서는 Azure Relay 서비스가 제공하는 활동 및 진단 로그에 대한 개요를 제공합니다. 

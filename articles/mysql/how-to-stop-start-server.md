@@ -6,17 +6,19 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: d297d215d4b0edfdd67b603ba4707bf02057ad78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed784f38c5c297e06c62c2bb7f801a4f0aac0799
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100516875"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642159"
 ---
 # <a name="stopstart-an-azure-database-for-mysql"></a>Azure Database for MySQL 중지/시작
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 > [!IMPORTANT]
->  서버를 **중지** 하면 스트레치에서 다음 7일 동안 해당 상태로 유지됩니다. 이 시간 동안 수동으로 **시작** 하지 않는 경우 서버는 7일이 끝날 때 자동으로 시작됩니다. 서버를 사용하지 않는 경우 다시 **중지** 하도록 선택할 수 있습니다.
+> 서버를 **중지** 하면 스트레치에서 다음 7일 동안 해당 상태로 유지됩니다. 이 시간 동안 수동으로 **시작** 하지 않는 경우 서버는 7일이 끝날 때 자동으로 시작됩니다. 서버를 사용하지 않는 경우 다시 **중지** 하도록 선택할 수 있습니다.
 
 이 문서에서는 단일 서버의 중지 및 시작을 수행하는 단계별 절차를 제공합니다.
 

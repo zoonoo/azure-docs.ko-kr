@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: e0fda77be23f6ea16d5e64b5d4796813c53f0e94
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c28eb1bdbb0069a831f397150d6479380df8b3a3
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608105"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114665161"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>맵에 타일 레이어 추가
 
 이 문서에는 지도에서 타일 계층을 오버레이하는 방법이 나와 있습니다. 타일 계층을 사용하여 Azure Maps 기본 맵 타일의 위에 이미지를 겹칠 수 있습니다. Azure Maps 바둑판식 배열 시스템에 대한 자세한 내용은 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md)를 참조하세요.
 
-타일 계층이 서버에서 타일에 로드됩니다. 이러한 이미지는 사전 렌더링되거나 동적으로 렌더링될 수 있습니다. 사전 렌더링된 이미지는 타일 계층에서 인식하는 명명 규칙을 사용하여 서버의 다른 이미지와 같이 저장됩니다. 동적으로 렌더링된 이미지는 서비스를 사용하여 실시간에 가깝게 이미지를 로드합니다. Azure Maps [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer) 클래스에서 지원되는 세 가지 다른 타일 서비스 명명 규칙이 있습니다.
+타일 계층이 서버에서 타일에 로드됩니다. 이러한 이미지는 사전 렌더링되거나 동적으로 렌더링될 수 있습니다. 미리 렌더링된 이미지는 타일 레이어에서 인식하는 명명 규칙을 사용하여 서버의 다른 이미지와 마찬가지로 저장됩니다. 동적으로 렌더링된 이미지는 서비스를 사용하여 실시간에 가깝게 이미지를 로드합니다. Azure Maps [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer) 클래스에서 지원되는 세 가지 다른 타일 서비스 명명 규칙이 있습니다.
 
 * X, Y, 확대/축소 표기법 - X는 열이고, Y는 타일 그리드 내 타일의 행 위치이며, 확대/축소 표기법은 확대/축소 수준을 기반으로 한 값입니다.
 * Quadkey 표기법 - x, y 및 확대/축소 정보를 단일 문자열 값으로 결합합니다. 이 문자열 값은 단일 타일에 대한 고유 식별자가 됩니다.
@@ -69,7 +69,7 @@ WMTS(웹 매핑 서비스)는 지도 데이터의 이미지를 제공하는 OGC(
 
 <br/>
 
-<iframe height="265" style="width: 100%;" scrolling="no" title="WMS 타일 계층" src="https://codepen.io/azuremaps/embed/BapjZqr?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="WMS 타일 계층" src="https://codepen.io/azuremaps/embed/BapjZqr?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/BapjZqr'>WMS 타일 계층</a>을 참조하세요.
 </iframe>
 

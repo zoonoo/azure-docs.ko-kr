@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a321b2eb79ea01bbf94e1a413c189ac7f4614ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d70ffb0f9436e11de866c9ea9f423fd81036056
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99096426"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463458"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Azure Portal을 통해 StorSimple 가상 배열에 대한 재해 복구 및 디바이스 장애 조치
 
@@ -156,7 +156,7 @@ DR이 성공적으로 완료된 후에는, 원본 디바이스에 있는 클라�
     1. 장애 조치 프로세스에 대한 대상 디바이스로 사용된 StorSimple 디바이스를 선택하고 클릭합니다.
     2. **설정 > 관리 > 공유**(또는 iSCSI 서버의 경우 **볼륨**)으로 이동합니다. **공유** 블레이드의 예전 디바이스에서 모든 공유(볼륨)를 볼 수 있습니다.
         ![디바이스 블레이드의 스크린샷. 대상 디바이스가 온라인 상태로 나열됩니다.](./media/storsimple-virtual-array-failover-dr/failover9.png)
-14. 연결하려는 모든 애플리케이션이 새 디바이스에 리디렉션되도록 [DNS 별칭을 만들](https://web.archive.org/web/20150307000707/http://support.microsoft.com:80/kb/168322)어야 합니다.
+14. 연결하려는 모든 애플리케이션이 새 디바이스에 리디렉션되도록 [DNS 별칭을 만들](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc772053(v=ws.11)?redirectedfrom=MSDN)어야 합니다.
 
 ## <a name="errors-during-dr"></a>DR 중 오류
 

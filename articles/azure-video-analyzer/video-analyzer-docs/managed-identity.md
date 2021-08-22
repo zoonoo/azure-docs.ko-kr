@@ -3,13 +3,13 @@ title: Azure Video Analyzer를 사용한 관리 ID
 description: 이 항목에서는 Azure Video Analyzer로 관리 ID를 사용하는 방법에 대해 설명합니다.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 05/04/2021
-ms.openlocfilehash: 8d9558319168e2a94c81f764c9b19f70dc904f79
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 073f9ee8d039435b4cf8c7dac59831a2870b2ce0
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386801"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601416"
 ---
 # <a name="managed-identity"></a>관리 ID
 

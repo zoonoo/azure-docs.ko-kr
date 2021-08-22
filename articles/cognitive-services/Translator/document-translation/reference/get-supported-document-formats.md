@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: 06fc48f8e90a0851613b2fe44410557c89862ac5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8100bca5d3628e571dc088de9d47a42e4035f109
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453514"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583611"
 ---
 # <a name="get-supported-document-formats"></a>지원되는 문서 형식 가져오기
 
@@ -47,7 +47,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 요청을 반환하는 가능한 HTTP 상태 코드는 다음과 같습니다.
 
-|상태 코드|Description|
+|상태 코드|설명|
 |-----|-----|
 |200|OK. 지원되는 문서 파일 형식 목록을 반환합니다.|
 |500|내부 서버 오류.|
@@ -59,7 +59,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 성공적인 응답에서 반환되는 정보는 다음과 같습니다.
 
-|Name|Type|Description|
+|Name|유형|Description|
 |--- |--- |--- |
 |값|FileFormat []|FileFormat[]에는 아래 나열된 세부 정보가 포함되어 있습니다.|
 |value.contentTypes|string[]|이 형식에 지원되는 콘텐츠 형식입니다.|
@@ -70,7 +70,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 ### <a name="error-response"></a>오류 응답
 
-|이름|Type|설명|
+|Name|유형|설명|
 |--- |--- |--- |
  |code|문자열|간략한 오류 코드가 포함된 열거형입니다. 가능한 값은 다음과 같습니다.<ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>권한 없음</li></ul>|
 |message|문자열|간략한 오류 메시지를 가져옵니다.|
@@ -81,7 +81,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 ## <a name="examples"></a>예제
 
-### <a name="example-successful-response"></a>성공한 응답 예제
+### <a name="example-successful-response"></a>성공적인 응답 예
 다음은 성공적인 응답의 예입니다.
 
 상태 코드: 200
@@ -264,14 +264,48 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
                 "application/vnd.oasis.opendocument.spreadsheet"
             ],
             "versions": []
+        },
+        {
+            "format": "Markdown",
+            "fileExtensions": [
+                ".markdown",
+                ".mdown",
+                ".mkdn",
+                ".md",
+                ".mkd",
+                ".mdwn",
+                ".mdtxt",
+                ".mdtext",
+                ".rmd"
+            ],
+            "contentTypes": [
+                "text/markdown",
+                "text/x-markdown",
+                "text/plain"
+            ],
+            "versions": []
+        },
+        {
+            "format": "Mhtml",
+            "fileExtensions": [
+                ".mhtml",
+                ".mht"
+            ],
+            "contentTypes": [
+                "message/rfc822",
+                "application/x-mimearchive",
+                "multipart/related"
+            ],
+            "versions": []
         }
     ]
 }
+
 ```
 
 ### <a name="example-error-response"></a>오류 응답 예
 
-다음은 오류 응답 예제입니다. 다른 오류 코드의 스키마는 동일합니다.
+다음은 오류 응답 예제입니다. 다른 오류 코드에 대한 스키마는 동일합니다.
 
 상태 코드: 500
 

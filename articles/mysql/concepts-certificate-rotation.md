@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: 4b218a9481fdd5970fd6fc8fa6a1d071161e5b58
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 468244b786d418117f12b445d86b67580db913da
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313367"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642212"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql-single-server"></a>Azure Database for MySQL 단일 서버에 대한 루트 CA 변경 내용 이해
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL 단일 서버는 표준 유지 관리 및 보안 모범 사례의 일환으로 **2021년 2월 15일(2021/02/15)** 에 루트 인증서를 성공적으로 변경했습니다. 이 문서에서는 변경 내용, 영향을 받는 리소스 및 애플리케이션에서 데이터베이스 서버에 대한 연결을 유지 관리하는 데 필요한 단계에 대한 자세한 정보를 제공합니다.
 
@@ -114,7 +116,7 @@ Azure Database for MySQL 서버에 연결하는 동안 연결 오류가 발생�
 연결 문자열을 검토하여 연결에서 루트 인증서를 확인하는지 여부를 식별할 수 있습니다.
 
 * 연결 문자열에 `sslmode=verify-ca` 또는 `sslmode=verify-identity`가 포함되는 경우 인증서를 업데이트해야 합니다.
-* 연결 문자열에 `sslmode=disable`, `sslmode=allow`, `sslmode=prefer` 또는 `sslmode=require`가 포함되는 경우 인증서를 업데이트할 필요가 없습니다.
+* 연결 문자열에 `sslmode=disable`, `sslmode=allow`, `sslmode=prefer`, `sslmode=require`가 포함되는 경우 인증서를 업데이트할 필요가 없습니다.
 * 연결 문자열에서 sslmode를 지정하지 않는 경우 인증서를 업데이트할 필요가 없습니다.
 
 연결 문자열을 추상화하는 클라이언트를 사용하는 경우 클라이언트 설명서를 검토하여 인증서를 확인하는지 여부를 파악합니다.
@@ -123,7 +125,7 @@ Azure Database for MySQL 서버에 연결하는 동안 연결 오류가 발생�
 
 Azure Database for MySQL에 연결하는 Azure App Service의 경우 애플리케이션에서 SSL을 사용하는 방법에 따라 두 가지 가능한 시나리오가 있습니다.
 
-* 이 새 인증서는 플랫폼 수준에서 App Service에 추가되었습니다. 애플리케이션의 App Service 플랫폼에 포함된 SSL 인증서를 사용하는 경우에는 아무 작업도 필요하지 않습니다. 이는 가장 일반적인 시나리오입니다.
+* 이 새 인증서는 플랫폼 수준에서 App Service에 추가되었습니다. 응용 프로그램의 App Service 플랫폼에 포함된 SSL 인증서를 사용하는 경우에는 아무 작업도 필요하지 않습니다. 이는 가장 일반적인 시나리오입니다.
 * SSL 인증서 파일의 경로를 코드에 명시적으로 포함하는 경우 위에서 설명한 대로 새 인증서를 다운로드하고, 결합된 인증서를 생성하고, 인증서 파일을 사용해야 합니다. 이 시나리오의 좋은 예는 [App Service 설명서](../app-service/tutorial-multi-container-app.md#configure-database-variables-in-wordpress)에서 공유한 대로 App Service에서 사용자 지정 컨테이너를 사용하는 경우입니다. 이는 드문 시나리오이지만 이를 사용하는 일부 사용자를 확인했습니다.
 
 #### <a name="what-is-the-impact-of-using-azure-kubernetes-services-aks-with-azure-database-for-mysql"></a>Azure Database for MySQL에서 AKS(Azure Kubernetes Services)를 사용하는 경우 어떤 영향이 있나요?

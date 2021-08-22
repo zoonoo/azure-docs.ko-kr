@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
-ms.openlocfilehash: 5eb5d73d6820260702f9b0190cf4e190b10f2c54
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: f076e942ac578a138fb75843bb9a7d3654f68c5a
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030002"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114387745"
 ---
 # <a name="network-monitoring-solutions"></a>네트워크 모니터링 솔루션 
 
@@ -124,4 +124,4 @@ DNS 관리자 용으로 구축된 이 솔루션은 DNS 로그를 수집, 분석 
 
 ## <a name="miscellaneous"></a>기타
 
-* [새로운 가격 책정](../azure-monitor/insights/network-performance-monitor-pricing-faq.md)
+* [새로운 가격 책정](../azure-monitor/insights/network-performance-monitor-pricing-faq.yml)

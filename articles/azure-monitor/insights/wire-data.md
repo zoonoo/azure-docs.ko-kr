@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2021
-ms.openlocfilehash: c135e33da60bf3ed8603b8fc0d6e59bbfab27b77
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 52bb368ccf19c23c04bc062e7db50c07ecebaceb
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142552"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296065"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor-retired"></a>Azure Monitor(사용 중지됨)의 Wire Data 2.0(미리 보기) 솔루션
 
@@ -124,7 +124,7 @@ VMConnection
 
 ### <a name="more-examples-queries"></a>더 많은 쿼리 예
 
-추가 쿼리 예는 [VM 인사이트 로그 검색 문서](../vm/vminsights-log-search.md) 및 [VM 인사이트 경고 문서](../vm/vminsights-alerts.md#sample-alert-queries)를 참조하세요.
+추가 쿼리 예는 [VM 인사이트 로그 검색 문서](../vm/vminsights-log-search.md) 및 [VM 인사이트 경고 문서](../vm/monitor-virtual-machine-alerts.md)를 참조하세요.
 
 ## <a name="uninstall-wire-data-20-solution"></a>Wire Data 2.0 솔루션 제거
 

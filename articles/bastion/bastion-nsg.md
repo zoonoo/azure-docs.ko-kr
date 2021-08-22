@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 06/21/2021
 ms.author: cherylmc
-ms.openlocfilehash: 84f32755a4838fbcb29b3d85d8308b5288d746ea
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: e3772f3583e4487c8c508136537ab213413865e7
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537908"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112464762"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>NSG 액세스 및 Azure Bastion을 통하여 작업하기
 
@@ -48,7 +48,7 @@ Azure Bastion은 특히 ***AzureBastionSubnet*** 에 배포됩니다.
    * **Azure Load Balancer로부터의 수신 트래픽:** 상태 프로브의 경우, **AzureLoadBalancer** 서비스 태그로부터의 포트 443 인바운드를 사용하도록 설정합니다. Azure Load Balancer의 연결을 검색할 수 있게 됩니다.
 
 
-   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Azure Bastion 연결 관련 인바운드 보안 규칙을 보여주는 스크린샷입니다.":::
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Azure Bastion 연결 관련 인바운드 보안 규칙을 보여주는 스크린샷입니다." lightbox="./media/bastion-nsg/inbound.png":::
 
 * **송신 트래픽:**
 
@@ -58,7 +58,7 @@ Azure Bastion은 특히 ***AzureBastionSubnet*** 에 배포됩니다.
    * **인터넷으로 가는 송신 트래픽:** Azure Bastion이 세션 및 인증서 유효성 검사를 위하여 인터넷과 통신할 수 있어야 합니다. 따라서 **인터넷** 으로 가는 포트 80 아웃바운드를 사용하도록 설정하는 것이 좋습니다.
 
 
-   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Azure Bastion 연결 관련 아웃바운드 보안 규칙을 보여주는 스크린샷입니다.":::
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Azure Bastion 연결 관련 아웃바운드 보안 규칙을 보여주는 스크린샷입니다." lightbox="./media/bastion-nsg/outbound.png":::
 
 ### <a name="target-vm-subnet"></a>대상 VM 서브넷
 RDP/SSH를 원하는 대상 가상 머신이 들어 있는 서브넷입니다.

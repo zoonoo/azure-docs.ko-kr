@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 02/13/2020
-ms.openlocfilehash: 95b5a7650e0990f13149daeed87da8e261ec37e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3697130dd0d623a71158121c572aba7a52be28c7
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93241126"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642169"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 데이터 암호화 문제 해결
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 이 문서에서는 고객 관리형 키를 사용하는 데이터 암호화로 구성할 경우 Azure Database for MySQL에서 발생할 수 있는 일반적인 문제를 식별하고 해결하는 방법을 설명합니다.
 

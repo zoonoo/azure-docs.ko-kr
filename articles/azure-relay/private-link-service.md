@@ -1,15 +1,15 @@
 ---
 title: Azure Private Link 서비스와 Azure Relay 통합
 description: Azure Private Link Service와 Azure Relay를 통합하는 방법을 알아봅니다.
-ms.date: 09/24/2020
+ms.date: 06/24/2021
 ms.topic: article
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 42f05784143031e303affa2a17cccfdaf22ce4ca
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 81e7ced6caea0f2ebbe20e1b25790e4c0baf34a3
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110688355"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668970"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link"></a>Azure Private Link와 Azure Relay 통합 
 Azure **Private Link Service** 를 사용하면 가상 네트워크의 프라이빗 엔드포인트를 통해 Azure 서비스(예: Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage 및 Azure Cosmos DB)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다. 자세한 내용은 [Azure Private Link란?](../private-link/private-link-overview.md)을 참조하세요.

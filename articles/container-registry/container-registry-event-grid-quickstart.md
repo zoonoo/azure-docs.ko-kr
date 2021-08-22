@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 컨테이너 레지스트리에 Event Gr
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: b3957ff3b0ed01d2375f33c4984cc97a64a3642c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f355bb6db09d8e97d0678644ba94831fd4ca5253
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065109"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112983827"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>빠른 시작: Event Grid로 개인 컨테이너 레지스트리의 이벤트 보내기
 
@@ -143,6 +143,8 @@ az eventgrid event-subscription create \
 
 GitHub 리포지토리의 콘텐츠에서 컨테이너 이미지를 빌드하려면 다음 Azure CLI 명령을 실행합니다. 기본적으로 ACR Tasks는 성공적으로 빌드된 이미지를 레지스트리에 자동으로 푸시하여 `ImagePushed` 이벤트를 생성합니다.
 
+[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
+
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git#main
 ```
@@ -236,6 +238,6 @@ Event Grid 설명서에서 Azure Container Registry 이벤트 메시지 스키�
 
 <!-- LINKS - Internal -->
 [az-acr-create]: /cli/azure/acr/repository
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
-[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create
-[az-group-create]: /cli/azure/group#az-group-create
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create
+[az-group-create]: /cli/azure/group#az_group_create

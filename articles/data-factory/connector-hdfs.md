@@ -1,17 +1,20 @@
 ---
 title: Azure Data Factory를 사용하여 HDFS에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 클라우드 또는 온-프레미스 HDFS 원본에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: jianleishen
-ms.openlocfilehash: 9495ffded4230dbffc62ba4f1e8aa405e448bf19
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: e1ccdb5841d6c4e126072d0132862676ef686e97
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109485084"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642409"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HDFS 서버에서 데이터 복사
 
@@ -37,14 +40,14 @@ ms.locfileid: "109485084"
 - *webhdfs* 프로토콜 또는 *기본 제공 DistCp* 지원을 사용하여 파일을 복사합니다.
 - 파일을 있는 그대로 복사하거나 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md)을 사용하여 파일을 구문 분석 또는 생성합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 > [!NOTE]
 > Integration Runtime에서 Hadoop 클러스터의 *모든* [이름 노드 서버]:[이름 노드 포트] 및 [데이터 노드 서버]:[데이터 노드 포트]에 액세스할 수 있는지 확인합니다. 기본 [이름 노드 포트]는 50070이며 기본 [데이터 노드 포트]는 50075입니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
@@ -54,7 +57,7 @@ ms.locfileid: "109485084"
 
 HDFS 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | *type* 속성은 *Hdfs* 로 설정해야 합니다. | 예 |
 | url |HDFS에 대한 URL |예 |
@@ -115,7 +118,7 @@ HDFS 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 데이터 세트의 `location` 설정에서 HDFS에 다음 속성이 지원됩니다.
 
-| 속성   | Description                                                  | 필수 |
+| 속성   | 설명                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 데이터 세트의 `location` 아래 *type* 속성은 *HdfsLocation* 으로 설정되어야 합니다. | 예      |
 | folderPath | 파일 경로입니다. 와일드카드를 사용하여 폴더를 필터링하려면 이 설정을 건너뛰고 작업 원본 설정에서 경로를 지정합니다. | 예       |
@@ -157,7 +160,7 @@ HDFS 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 복사 원본의 `storeSettings` 설정에서 HDFS에 다음 속성이 지원됩니다.
 
-| 속성                 | Description                                                  | 필수                                      |
+| 속성                 | 설명                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | `storeSettings` 아래의 *type* 속성은 **HdfsReadSettings** 로 설정되어야 합니다. | 예                                           |
 | ***복사할 파일 찾기*** |  |  |
@@ -248,7 +251,7 @@ HDFS 연결된 서비스에 다음 속성이 지원됩니다.
 
 복사 작업은 DistCp를 사용하여 Azure Blob Storage([준비된 복사](copy-activity-performance.md) 포함) 또는 Azure Data Lake Store에 있는 그대로 파일을 복사하도록 지원합니다. 이 경우 DistCp는 자체 호스팅 통합 런타임에서 실행되는 대신 클러스터의 기능을 활용할 수 있습니다. DistCp를 사용하면 클러스터가 매우 강력한 경우에 특히 더 나은 복사 처리량을 제공합니다. Data Factory 구성에 따라 복사 작업은 DistCp 명령을 자동으로 구성하고 Hadoop 클러스터에 제출한 다음, 복사 상태를 모니터링합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 DistCp를 사용하여 HDFS에서 Azure Blob Storage(준비된 복사 포함) 또는 Azure Data Lake Store로 파일을 있는 그대로 복사하려면 Hadoop 클러스터가 다음 요구 사항을 충족하는지 확인합니다.
 
@@ -480,7 +483,7 @@ Kadmin> addprinc <username>@<REALM.COM>
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 세트 모델
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 *type* 속성을 *FileShare* 로 설정해야 합니다. |예 |
 | folderPath | 파일 경로입니다. 와일드카드 필터가 지원됩니다. 허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0~1개의 문자 일치)입니다. 실제 파일 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br/><br/>예: rootfolder/subfolder/(더 많은 예제는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples) 참조) |예 |
@@ -525,7 +528,7 @@ Kadmin> addprinc <username>@<REALM.COM>
 
 ### <a name="legacy-copy-activity-source-model"></a>레거시 복사 작업 원본 모델
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 *type* 속성을 *HdfsSource* 로 설정해야 합니다. |예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 *true* 로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다.<br/>허용되는 값은 *true*(기본값) 및 *false* 입니다. | 예 |

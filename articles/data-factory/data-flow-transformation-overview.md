@@ -1,17 +1,20 @@
 ---
 title: 매핑 데이터 흐름 변환 개요
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 매핑 데이터 흐름에서 사용할 수 있는 다양한 변환 개요
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: ebcb3298419fe53fe44418ce5f8147ed619becee
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: f16c323f861c5d105cb7761c33f6457df54c355c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903642"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642951"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>매핑 데이터 흐름 변환 개요
 
@@ -19,7 +22,7 @@ ms.locfileid: "107903642"
 
 다음은 현재 매핑 데이터 흐름에서 지원되는 변환 목록입니다. 각 변환을 클릭하여 구성 세부 정보를 알아보세요.
 
-| 속성 | Category | Description |
+| 속성 | 범주 | Description |
 | ---- | -------- | ----------- |
 | [집계](data-flow-aggregate.md) | 스키마 한정자 | 기존 열 또는 계산 열로 그룹화된 SUM, MIN, MAX, COUNT와 같은 다양한 유형의 집계를 정의합니다. | 
 | [행 변경](data-flow-alter-row.md) | 행 한정자 | 행에 대한 삽입, 삭제, 업데이트 및 upsert 정책을 설정합니다. |

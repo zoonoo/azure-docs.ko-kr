@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/21/2021
+ms.date: 06/22/2021
 ms.author: v-jansk
-ms.openlocfilehash: a7615a8230b03c928d256fae62fbbe3b4e8651fb
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 5ed4c565ad784bb50ebbc464d4229bfcabb7a5d7
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453392"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112540698"
 ---
 # <a name="get-translations-status"></a>번역 상태 가져오기
 
@@ -77,7 +77,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 요청을 반환하는 가능한 HTTP 상태 코드는 다음과 같습니다.
 
-|상태 코드|Description|
+|상태 코드|설명|
 |--- |--- |
 |200|OK. 성공적으로 요청하고 모든 작업 상태를 반환합니다. HeadersRetry-After: integerETag: string|
 |400|잘못된 요청. 잘못된 요청입니다. 입력 매개 변수를 확인합니다.|
@@ -91,7 +91,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 성공한 응답에서 반환되는 정보는 다음과 같습니다.
 
-|Name|Type|Description|
+|Name|유형|Description|
 |--- |--- |--- |
 |@nextLink|문자열|다음 페이지의 URL입니다. 사용 가능한 페이지가 더 이상 없으면 Null입니다.|
 |값|TranslationStatus[]|아래에 나열된 TranslationStatus[] 배열|
@@ -110,7 +110,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 ### <a name="error-response"></a>오류 응답
 
-|이름|Type|설명|
+|Name|유형|설명|
 |--- |--- |--- |
 |code|문자열|간략한 오류 코드가 포함된 열거형입니다. 가능한 값은 다음과 같습니다.<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>권한 없음</li></ul>|
 |message|문자열|간략한 오류 메시지를 가져옵니다.|
@@ -122,35 +122,67 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 ## <a name="examples"></a>예제
 
-### <a name="example-successful-response"></a>성공한 응답 예제
+### <a name="example-successful-response"></a>성공적인 응답 예
 
 다음은 성공한 응답 예제입니다.
 
 ```JSON
 {
-  "value": [
-    {
-      "id": "273622bd-835c-4946-9798-fd8f19f6bbf2",
-      "createdDateTimeUtc": "2021-03-23T07:03:30.013631Z",
-      "lastActionDateTimeUtc": "2021-03-26T01:00:00Z",
-      "status": "Succeeded",
-      "summary": {
-        "total": 10,
-        "failed": 1,
-        "success": 9,
-        "inProgress": 0,
-        "notYetStarted": 0,
-        "cancelled": 0,
-        "totalCharacterCharged": 1000
-      }
-    }
-  ]
+    "value": [
+        {
+            "id": "36724748-f7a0-4db7-b7fd-f041ddc75033",
+            "createdDateTimeUtc": "2021-06-18T03:35:30.153374Z",
+            "lastActionDateTimeUtc": "2021-06-18T03:36:44.6155316Z",
+            "status": "Succeeded",
+            "summary": {
+                "total": 3,
+                "failed": 2,
+                "success": 1,
+                "inProgress": 0,
+                "notYetStarted": 0,
+                "cancelled": 0,
+                "totalCharacterCharged": 0
+            }
+        },
+        {
+            "id": "1c7399a7-6913-4f20-bb43-e2fe2ba1a67d",
+            "createdDateTimeUtc": "2021-05-24T17:57:43.8356624Z",
+            "lastActionDateTimeUtc": "2021-05-24T17:57:47.128391Z",
+            "status": "Failed",
+            "summary": {
+                "total": 1,
+                "failed": 1,
+                "success": 0,
+                "inProgress": 0,
+                "notYetStarted": 0,
+                "cancelled": 0,
+                "totalCharacterCharged": 0
+            }
+        },
+        {
+            "id": "daa2a646-4237-4f5f-9a48-d515c2d9af3c",
+            "createdDateTimeUtc": "2021-04-14T19:49:26.988272Z",
+            "lastActionDateTimeUtc": "2021-04-14T19:49:43.9818634Z",
+            "status": "Succeeded",
+            "summary": {
+                "total": 2,
+                "failed": 0,
+                "success": 2,
+                "inProgress": 0,
+                "notYetStarted": 0,
+                "cancelled": 0,
+                "totalCharacterCharged": 21899
+            }
+        }
+    ],
+    ""@nextLink": "https://westus.cognitiveservices.azure.com/translator/text/batch/v1.0/operations/727BF148-F327-47A0-9481-ABAE6362F11E/documents?$top=5&$skip=15"
 }
+
 ```
 
 ### <a name="example-error-response"></a>오류 응답 예제
 
-다음은 오류 응답 예제입니다. 다른 오류 코드의 스키마는 동일합니다.
+다음은 오류 응답 예제입니다. 다른 오류 코드에 대한 스키마는 동일합니다.
 
 상태 코드: 500
 

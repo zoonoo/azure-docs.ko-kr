@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 01/05/2021
+ms.date: 07/16/2021
 ms.author: alkohli
-ms.openlocfilehash: 97d8da86565db73aa9a3866f39f793aaf0905470
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 820daf5400d60df85973d45840bd7a4a1c553198
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97900164"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463944"
 ---
 # <a name="azure-data-box-limits"></a>Azure Data Box 제한
 
@@ -51,7 +51,7 @@ Microsoft Azure Data Box를 배포하고 운영할 때 이러한 제한을 고�
 - 입력 파일에 중복된 태그가 있거나 동일한 데이터를 참조하는 태그가 있는 경우 Data Box 내보내기에서 파일을 건너뛰거나 덮어쓸 수 있습니다. Azure Portal이 표시하는 데이터의 파일 수와 크기는 디바이스의 실제 데이터 크기와 다를 수 있습니다. 
 - Data Box는 SMB를 통해 Windows 기반 시스템으로 데이터를 내보내고 파일 및 폴더에 대한 SMB 제한에 따라 제한됩니다. 지원되지 않는 이름의 파일 및 폴더는 내보내지지 않습니다.
 - 접두사에서 컨테이너로의 1:1 매핑이 있습니다.
-- 최대 파일 이름 크기는 1024자입니다. 이 길이를 초과하는 파일 이름은 내보내지지 않습니다.
+- 최대 파일 이름 크기는 1024자입니다. 이 길이를 초과하는 파일 이름은 내보내지지 않습니다. 
 - *xml* 파일(주문을 만드는 동안 업로드됨)의 중복 접두사는 내보내집니다. 중복 접두사는 무시되지 않습니다.
 - 페이지 Blob 및 컨테이너 이름은 대/소문자를 구분합니다. 대/소문자가 일치하지 않으면 Blob 및/또는 컨테이너가 검색되지 않습니다.
  

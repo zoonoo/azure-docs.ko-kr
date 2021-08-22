@@ -1,18 +1,20 @@
 ---
 title: 연속 창 트리거 종속성 만들기
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory에서 연속 창 트리거에 대한 종속성을 만드는 방법을 알아봅니다.
 ms.author: chez
 author: chez-charlie
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 09/03/2020
-ms.openlocfilehash: f969c06a3419a8017cfc5ebc0de19caa67c8dc68
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26e9be55b094212cc3e4e5139bf65934b7ff0d6d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361471"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642360"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>연속 창 트리거 종속성 만들기
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

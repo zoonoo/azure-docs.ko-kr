@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 698e16370cfc654ea8a0a85ca70d0d932cbeda1a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f5f0c59fcebc4ad8b4cf8c0f51a86635a420cd8c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96477247"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121803021"
 ---
-<Token>**적용 대상:** :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Data Factory :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Synapse Analytics</Token> 
+**적용 대상:** :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Data Factory :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Synapse Analytics 
 

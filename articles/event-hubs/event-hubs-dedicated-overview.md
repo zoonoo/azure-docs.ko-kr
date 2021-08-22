@@ -3,12 +3,12 @@ title: 전용 이벤트 허브 개요 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Event Hub의 단일 테넌트 배포를 제공하는 전용 Azure Event Hubs에 대한 개요를 제공합니다.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 5468588c0dc1dc8660c2ddfbb44c554029cffa0c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: c398bd6bc17ef29f7a8fce30940ae4000b317754
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376121"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112412982"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Event Hubs Dedicated의 개요
 
@@ -46,7 +46,7 @@ Event Hubs Dedicated 제품은 고정된 월별 가격으로 청구되며, 최�
 
 ## <a name="faqs"></a>FAQ
 
-[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
+[!INCLUDE [event-hubs-dedicated-clusters-faq](./includes/event-hubs-dedicated-clusters-faq.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

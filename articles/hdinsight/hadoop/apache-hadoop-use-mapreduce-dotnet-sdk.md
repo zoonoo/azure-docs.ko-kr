@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/15/2020
-ms.openlocfilehash: 8fbcb66be11c7c77a9bfaf0e6ec790622dcbbda7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9e2c9d0c2f1cd09b96e953640a1141891b6d784e
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98932179"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282682"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 MapReduce 작업 실행
 
-[!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
+[!INCLUDE [mapreduce-selector](../includes/hdinsight-selector-use-mapreduce.md)]
 
 HDInsight .NET SDK를 사용하여 MapReduce 작업을 제출하는 방법을 알아봅니다. HDInsight 클러스터에는 여러 MapReduce 샘플이 담긴 jar 파일이 포함되어 있습니다. .jar 파일은 `/example/jars/hadoop-mapreduce-examples.jar`입니다.  샘플 중 하나는 **wordcount** 입니다. C# 콘솔 애플리케이션을 개발하여 단어 세기 작업을 제출합니다.  작업은 `/example/data/gutenberg/davinci.txt` 파일을 읽고 결과를 `/example/data/davinciwordcount`에 출력합니다.  애플리케이션을 다시 실행하려면 출력 폴더를 정리해야 합니다.
 

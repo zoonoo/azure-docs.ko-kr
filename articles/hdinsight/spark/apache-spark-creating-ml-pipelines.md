@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 07/22/2019
-ms.openlocfilehash: e9897c7ba14e6190698cf10792a94acc759699d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57f84aaa59ed5277a7dbbb6bb8fd484210808dfb
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98940178"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112678163"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Apache Spark 기계 학습 파이프라인 만들기
 
@@ -131,4 +131,4 @@ only showing top 20 rows
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure에서 Scala 및 Apache Spark를 사용한 데이터 과학](../../machine-learning/team-data-science-process/scala-walkthrough.md)
+* [Azure에서 Scala 및 Apache Spark를 사용한 데이터 과학](/azure/architecture/data-science-process/scala-walkthrough)

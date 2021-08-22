@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 5d5706738a0d85beed839d324ae3da055cafe39a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a57f13b9dc54c69e079e652be94f4b08b716a079
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108747524"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112523063"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure Database Migration Service에서 지원하는 마이그레이션 시나리오 상태
 
@@ -53,11 +53,16 @@ Azure Database Migration Service에서 지원하는 마이그레이션 시나리
 | **Azure SQL VM** | SQL Server | ✔ | GA |
 |   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **MySQL용 Azure DB** | MySQL | ✔ |   |
-|   | RDS MySQL | X |   |
+| **Azure DB for MySQL - 단일 서버** | MySQL | ✔ | GA  |
+|   | RDS MySQL | ✔ | GA  |
+|   | Azure DB for MySQL* | ✔ | GA  |
+| **Azure DB for MySQL - 유연한 서버** | MySQL | ✔ | GA  |
+|   | RDS MySQL | ✔ | GA  |
+|   | Azure DB for MySQL* | ✔ | GA  |
 | **Azure DB for PostgreSQL - 단일 서버** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
-|  | Oracle | X |   |
+| **DB for PostgreSQL - 유연한 서버** | PostgreSQL | X |
+|  | RDS PostgreSQL | X |   |
 | **Azure DB for PostgreSQL - 하이퍼스케일(Citus)** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
 
@@ -76,15 +81,19 @@ Azure Database Migration Service에서 지원하는 마이그레이션 시나리
 | **Azure SQL VM** | SQL Server | X |   |
 |   | Oracle  | X |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **MySQL용 Azure DB** | MySQL | ✔ | GA |
-|   | RDS MySQL | ✔ | GA |
+| **MySQL용 Azure DB** | MySQL | X |  |
+|   | RDS MySQL | X |  |
 | **Azure DB for PostgreSQL - 단일 서버** | PostgreSQL | ✔ | GA |
-|   | Azure DB for PostgreSQL - 단일 서버 | ✔ | GA |
+|   | Azure DB for PostgreSQL - 단일 서버* | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
-|   | Oracle | X |   |
+| **DB for PostgreSQL - 유연한 서버** | PostgreSQL | ✔ | GA |
+|   | Azure DB for PostgreSQL - 단일 서버* | ✔ | GA |
+|   | RDS PostgreSQL | ✔ | GA |
 | **Azure DB for PostgreSQL - 하이퍼스케일(Citus)** | PostgreSQL | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
 
+> [!NOTE]
+> 원본 데이터베이스가 이미 Azure PaaS에 있는 경우(예: Azure DB for MySQL 또는 Azure DB for PostgreSQL) 마이그레이션 작업을 만들 때 해당 엔진을 선택합니다. 예를 들어 Azure DB for MySQL - 단일 서버에서 Azure DB for MySQL - 유연한 서버로 마이그레이션하는 경우 시나리오를 만드는 동안 원본 엔진으로 MySQL을 선택합니다. Azure DB for PostgreSQL - 단일 서버에서 Azure DB for PostgreSQL - 유연한 서버로 마이그레이션하는 경우 시나리오를 만드는 동안 원본 엔진으로 PostgreSQL를 선택합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

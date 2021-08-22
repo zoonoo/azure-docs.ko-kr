@@ -6,14 +6,17 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 45447a26c0455fc5945af8b8e9f7442af7facfbe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73517b616ae9cf126826f034c4b90babc32518d6
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99830688"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642144"
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>MySQL용 Azure 데이터베이스에 대한 애플리케이션 개발 개요 
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 이 문서에서는 개발자가 Azure Database for MySQL에 연결하기 위한 애플리케이션 코드를 작성할 때 따라야 하는 디자인 고려 사항을 설명합니다. 
 
 > [!TIP]

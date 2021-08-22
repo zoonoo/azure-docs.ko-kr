@@ -2,13 +2,13 @@
 title: 이벤트 기반 비디오 녹화를 위한 신호 게이트 구성 - Azure
 description: 이 문서에서는 파이프라인에서 신호 게이트를 구성하는 방법에 대한 지침을 제공합니다.
 ms.topic: how-to
-ms.date: 4/12/2021
-ms.openlocfilehash: e03524e7e12a0081172918159e9f2d2ed2e4a7d6
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 06/01/2021
+ms.openlocfilehash: c0b38005010d2718235700f0ed13575e15119103
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413432"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604075"
 ---
 # <a name="configuring-a-signal-gate-for-event-based-video-recording"></a>이벤트 기반 비디오 녹화를 위한 신호 게이트 구성
 
@@ -155,7 +155,40 @@ ms.locfileid: "111413432"
 > [!IMPORTANT]
 > 위의 다이어그램에서는 모든 이벤트가 실제 시간과 미디어 시간에서 동일한 인스턴트에 도착한다고 가정합니다. 즉, 지연 도착이 없다고 가정합니다.
 
+### <a name="naming-video-or-files"></a>비디오 또는 파일 이름 지정
+
+파이프라인을 사용하면 클라우드 또는 에지 디바이스에서 MP4 파일로 비디오를 녹화할 수 있습니다. [연속 비디오 녹화](use-continuous-video-recording.md) 또는 [이벤트 기반 비디오 녹화](record-event-based-live-video.md)를 통해 생성될 수 있습니다.
+
+클라우드 녹화에 대한 권장되는 이름 구조는 "<anytext>-${System.TopologyName}-${System.PipelineName}"으로 비디오 이름을 지정하는 것입니다. 지정된 라이브 파이프라인은 하나의 RTSP 지원 IP 카메라에만 연결할 수 있으며, 해당 카메라의 입력을 하나의 비디오 리소스에 기록해야 합니다. 예를 들어 다음과 같이 비디오 싱크에서 `VideoName`을 설정할 수 있습니다.
+
+```
+"VideoName": "sampleVideo-${System.TopologyName}-${System.PipelineName}"
+```
+대체 패턴은 `$` 기호 뒤에 중괄호를 사용해서 정의합니다( **${variableName}** ).
+
+이벤트 기반 기록을 사용하여 에지 디바이스의 MP4 파일에 기록할 때 다음을 사용할 수 있습니다.
+
+```
+"fileNamePattern": "sampleFilesFromEVR-${System.TopologyName}-${System.PipelineName}-${fileSinkOutputName}-${System.Runtime.DateTime}"
+```
+
+> [!Note]
+> 위의 예에서 **fileSinkOutputName** 변수는 라이브 파이프라인을 만드는 시기를 정의한 샘플 변수 이름입니다. 시스템 변수가 **아닙니다**. **DateTime** 을 사용하면 각 이벤트에 대해 고유한 MP4 파일 이름이 어떻게 보장되는지 확인합니다.
+
+#### <a name="system-variables"></a>시스템 변수
+
+사용할 수 있는 시스템 정의 변수는 다음과 같습니다.
+
+| 시스템 변수        | Description                                                  | 예제              |
+| :--------------------- | :----------------------------------------------------------- | :------------------- |
+| System.Runtime.DateTime        | ISO8601 파일 호환 형식의 UTC 날짜 시간(기본 표현 YYYYMMDDThhmmss)입니다. | 20200222T173200Z     |
+| System.Runtime.PreciseDateTime | ISO8601 파일 호환 형식의 밀리초를 포함하는 UTC 날짜 시간(기본 표현 YYYYMMDDThhmmss.sss)입니다. | 20200222T173200.123Z |
+| System.TopologyName    | 실행 중인 파이프라인 토폴로지의 사용자 제공 이름입니다.          | IngestAndRecord      |
+| System.PipelineName    | 실행 중인 라이브 파이프라인의 사용자 제공 이름입니다.          | camera001            |
+
+> [!Tip]
+> 클라우드에서 비디오 이름을 지정할 때 System.Runtime.PreciseDateTime 및 System.Runtime.DateTime을 사용할 수 없습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 [이벤트 기반 비디오 녹화 자습서](record-event-based-live-video.md)를 진행합니다. 먼저 [topology.json](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-video-sink/topology.json) 파일을 편집합니다. signalgateProcessor 노드에 대한 매개 변수를 수정한 다음, 자습서의 나머지 부분을 진행합니다. 비디오 녹화를 검토하여 매개 변수의 효과를 분석합니다.
-

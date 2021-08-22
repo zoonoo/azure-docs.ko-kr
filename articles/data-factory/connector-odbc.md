@@ -1,17 +1,20 @@
 ---
 title: Azure Data Factory를 사용하여 ODBC 데이터 저장소 간 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 작업을 사용한 ODBC 데이터 저장소 간 데이터 복사 방법 알아보기.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 05/10/2021
 ms.author: jianleishen
-ms.openlocfilehash: ea8b7cbc32866a593e47efd4b57b80674efa7de5
-ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
+ms.openlocfilehash: 29dd59f2db5ead877d14b461571f0d53791143f6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109664799"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642400"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Azure Data Factory를 사용하여 ODBC 데이터 저장소 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -49,7 +52,7 @@ ODBC 커넥터를 사용하려면 다음을 수행해야 합니다.
 
 ODBC 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **Odbc** 로 설정해야 합니다. | 예 |
 | connectionString | 자격 증명 부분을 제외한 연결 문자열입니다. `Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;`와 같은 패턴으로 연결 문자열을 지정하거나 `DSN=<name of the DSN on IR machine>;`을 통해 Integration Runtime 컴퓨터에 설정한 시스템 DSN(데이터 원본 이름)을 사용할 수 있습니다(이에 따라 연결된 서비스에서 자격 증명 부분도 계속 지정해야 함).<br>Azure Key Vault에 암호를 넣고 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 [Azure Key Vault의 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요.| 예 |
@@ -112,7 +115,7 @@ ODBC 연결된 서비스에 다음 속성이 지원됩니다.
 
 ODBC 호환 데이터 저장소 간에 데이터를 복사하기 위해 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 형식 속성을 **OdbcTable** 으로 설정해야 합니다. | 예 |
 | tableName | ODBC 데이터 저장소에 있는 테이블의 이름입니다. | 원본: 아니요(작업 원본에서 "query"가 지정된 경우)<br/>싱크: 예 |
@@ -146,7 +149,7 @@ ODBC 호환 데이터 저장소 간에 데이터를 복사하기 위해 지원�
 
 ODBC 호환 데이터 저장소에서 데이터를 복사하기 위해 복사 작업 **원본** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 형식 속성을 **OdbcSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
@@ -189,7 +192,7 @@ ODBC 호환 데이터 저장소에서 데이터를 복사하기 위해 복사 �
 
 ODBC 호환 데이터 저장소에 데이터를 복사하려면 복사 작업의 싱크 형식을 **OdbcSink** 로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 형식 속성은 **OdbcSink** 로 설정해야 합니다. | 예 |
 | writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예제: "00:30:00"(30분). |예 |

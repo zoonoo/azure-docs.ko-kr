@@ -3,12 +3,12 @@ title: Azure Application Insights에서 SQL로 내보내기 | Microsoft Docs
 description: Stream Analytics를 사용하여 Application Insights 데이터를 SQL로 계속 내보냅니다.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 7627ae6dabb75782549ed17fc6e590b7bc7da77d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4629a99aba45df1ae834ec8236131dd8214b13b5
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110092749"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767199"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>연습: Stream Analytics를 사용하여 Application Insights에서 SQL로 내보내기
 이 문서에서는 [연속 내보내기][export] 및 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)를 사용하여 [Azure Application Insights][start]에서 Azure SQL Database로 원격 분석 데이터를 이동하는 방법을 보여 줍니다. 
@@ -20,6 +20,9 @@ ms.locfileid: "110092749"
 모니터링하려는 앱이 이미 있다고 가정하고 시작합니다.
 
 이 예제에서는 페이지 보기 데이터를 사용하지만, 동일한 패턴을 사용자 지정 이벤트 및 예외와 같은 다른 데이터 형식으로 쉽게 확장할 수 있습니다. 
+
+> [!IMPORTANT]
+> 연속 내보내기는 더 이상 사용되지 않으며 클래식 Application Insights 리소스에 대해서만 지원됩니다. [작업 영역 기반 Application Insights 리소스로 마이그레이션하여](convert-classic-resource.md) 원격 분석 내보내기에 대한 [진단 설정을](export-telemetry.md#diagnostic-settings-based-export) 사용합니다.
 
 ## <a name="add-application-insights-to-your-application"></a>애플리케이션에 Application Insights 추가
 시작하기:

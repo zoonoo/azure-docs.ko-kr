@@ -1,18 +1,21 @@
 ---
 title: Azure Data Factory를 사용하여 Azure Machine Learning 스튜디오(클래식) 모델 업데이트
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 및 Azure Machine Learning 스튜디오(클래식)를 사용하여 예측 파이프라인을 만드는 방법을 설명합니다.
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: tutorials
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 5eac6f939ffcc39961f508a993ca17757221503f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0afbd758022805735231b415e0e06643722488cd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783101"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642503"
 ---
 # <a name="update-azure-machine-learning-studio-classic-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용하여 Azure Machine Learning 스튜디오(클래식) 모델 업데이트
 
@@ -55,7 +58,7 @@ Azure Machine Learning 스튜디오(클래식)를 사용하여 만드는 모델�
 }
 ```
 
-| 속성                      | Description                              | 필수 |
+| 속성                      | 설명                              | 필수 |
 | :---------------------------- | :--------------------------------------- | :------- |
 | name                          | 파이프라인의 작업 이름입니다.     | 예      |
 | description                   | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |

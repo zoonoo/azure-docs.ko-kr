@@ -1,18 +1,20 @@
 ---
 title: 매핑 데이터 흐름에서의 창 변환
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 매핑 데이터 흐름 창 변환
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 11/16/2020
-ms.openlocfilehash: 56024fd0aac2f9fbefb7fe919eef2481550e573f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8331d3908e484f1b82a4aa73cd6d498dac2a0ad3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100367829"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642382"
 ---
 # <a name="window-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름에서의 창 변환
 

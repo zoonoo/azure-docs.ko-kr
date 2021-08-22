@@ -3,15 +3,16 @@ title: Azure Data Factory의 매핑 데이터 흐름에서 오류 행 처리
 description: 매핑 데이터 흐름을 사용하여 Azure Data Factory에서 SQL 잘림 오류를 처리하는 방법에 대해 알아봅니다.
 author: kromerm
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: makromer
-ms.openlocfilehash: a7a03ff1a58f50f16ebefce48b9e2772a16a011a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4f4c1c334bb3720118b050947da6345116ef22f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386342"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642766"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Data Factory 매핑 데이터 흐름에서 SQL 잘림 오류 행 처리
 

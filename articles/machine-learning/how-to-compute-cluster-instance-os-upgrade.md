@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 03/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 863b10f0ff41c1e28a59357f07be983715adbb55
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e6ef72031f000c0b638d47e235b75eccf3f885f8
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108131425"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112461398"
 ---
 # <a name="upgrade-compute-instance-and-compute-cluster-host-os"></a>컴퓨팅 인스턴스 및 컴퓨팅 클러스터 호스트 OS를 업그레이드합니다.
 
@@ -40,7 +40,7 @@ __2021년 3월 15일__ 이전에 생성된 기존 컴퓨팅 클러스터 또는 
     * 클러스터가 __min nodes = 0__ 으로 구성된 경우 모든 작업이 완료되면 자동으로 업그레이드되고 노드가 0개로 줄어듭니다.
     * __min nodes > 0__ 으로 구성된 경우 최소 노드 수를 0으로 일시적으로 변경하고 클러스터를 0개 노드로 줄일 수 있습니다.
 
-    최소 노드 수를 변경하는 방법에 대한 자세한 내용은 [az ml computetarget update amlcompute](/cli/azure/ml/computetarget/update#az_ml_computetarget_update_amlcompute) Azure CLI 명령 또는 [AmlCompute.update()](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#update-min-nodes-none--max-nodes-none--idle-seconds-before-scaledown-none-) SDK 참조를 참조하세요.
+    최소 노드 수를 변경하는 방법에 대한 자세한 내용은 [az ml computetarget update amlcompute](/cli/azure/ml(v1)/computetarget/update#az_ml_computetarget_update_amlcompute) Azure CLI 명령 또는 [AmlCompute.update()](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#update-min-nodes-none--max-nodes-none--idle-seconds-before-scaledown-none-) SDK 참조를 참조하세요.
 
 * __Azure Machine Learning 컴퓨팅 인스턴스__: Ubuntu 18.04를 사용할 새 컴퓨팅 인스턴스를 만들고 이전 인스턴스를 삭제합니다.
 

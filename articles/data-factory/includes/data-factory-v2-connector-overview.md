@@ -2,14 +2,14 @@
 author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 06/01/2021
+ms.date: 07/29/2021
 ms.author: jianleishen
-ms.openlocfilehash: 0082bac41a615d078854ccfc76524c41db14c595
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: cd015ad73755ceaeb89b27b85df253f76440b927
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111761211"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642610"
 ---
 | 범주              | 데이터 저장소                                                   | [복사 작업](../copy-activity-overview.md)(원본/싱크) | [매핑 데이터 흐름](../concepts-data-flow-overview.md)(원본/싱크) | [조회 작업](../control-flow-lookup-activity.md) | [메타데이터 작업 가져오기](../control-flow-get-metadata-activity.md)/[유효성 검사 작업](../control-flow-validation-activity.md) | [활동 삭제](../delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -71,7 +71,7 @@ ms.locfileid: "111761211"
 | **일반 프로토콜**  | [일반 HTTP](../connector-http.md)   | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [일반 OData](../connector-odata.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [일반 ODBC](../connector-odbc.md)   | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
-| &nbsp;                | [일반 REST](../connector-rest.md)   | ✓/✓                                                          |                                                              |                                                              |                                                              |                                                              |
+| &nbsp;                | [일반 REST](../connector-rest.md)   | ✓/✓                                                          | ✓/✓                                                          |                                                              |                                                              |                                                              |
 | **서비스 및 앱** | [Amazon Marketplace 웹 서비스](../connector-amazon-marketplace-web-service.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Concur(미리 보기)](../connector-concur.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Dataverse](../connector-dynamics-crm-office-365.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |

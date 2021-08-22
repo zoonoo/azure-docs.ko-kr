@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: e239b6b00c5a5e993834a10fca30de02b9f715ff
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 8a41832fdcc53820a9f7fe6436ec608b69f84126
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065517"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642207"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대한 Private Link
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Private Link를 사용하면 프라이빗 엔드포인트를 통해 Azure의 다양한 PaaS 서비스에 연결할 수 있습니다. Azure Private Link는 기본적으로 개인 VNet(Virtual Network) 내에 Azure 서비스를 제공합니다. PaaS 리소스는 VNet의 다른 리소스와 마찬가지로 개인 IP 주소를 사용하여 액세스할 수 있습니다.
 
@@ -39,23 +41,23 @@ Azure Database for MySQL의 데이터 반출은 데이터베이스 관리자와 
 
 이 설정이 완료되면 Azure VM에서 미국 서부 지역의 Azure Database for MySQL에만 연결할 수 있습니다. 그러나 연결은 단일 Azure Database for MySQL로 제한되지 않습니다. VM은 구독에 속하지 않은 데이터베이스를 포함하여 미국 서부 지역의 모든 Azure Database for MySQL에 계속 연결할 수 있습니다. 위의 시나리오에서 데이터 반출의 범위를 특정 지역으로 좁혔지만 완전히 제거하지는 않았습니다.</br>
 
-Private Link를 사용하면 이제 NSG와 같은 네트워크 액세스 제어를 설정하여 프라이빗 엔드포인트에 대한 액세스를 제한할 수 있습니다. 그러면 개별 Azure PaaS 리소스가 특정 프라이빗 엔드포인트에 매핑됩니다. 악의적인 참가자는 매핑된 PaaS 리소스(예: Azure Database for MySQL)에만 액세스할 수 있으며 다른 리소스에는 액세스할 수 없습니다.
+프라이빗 링크를 사용하면 이제 NSG와 같은 네트워크 액세스 제어를 설정하여 프라이빗 엔드포인트에 대한 액세스를 제한할 수 있습니다. 그러면 개별 Azure PaaS 리소스가 특정 프라이빗 엔드포인트에 매핑됩니다. 악의적인 참가자는 매핑된 PaaS 리소스(예: Azure Database for MySQL)에만 액세스할 수 있으며 다른 리소스에는 액세스할 수 없습니다.
 
 ## <a name="on-premises-connectivity-over-private-peering"></a>프라이빗 피어링을 통한 온-프레미스 연결
 
 고객이 온-프레미스 머신에서 퍼블릭 엔드포인트에 연결하는 경우 서버 수준 방화벽 규칙을 사용하여 IP 주소를 IP 기반 방화벽에 추가해야 합니다. 이 모델은 개발 또는 테스트 워크로드를 위해 개별 머신에 액세스할 수 있도록 하는 데 효과적이지만 프로덕션 환경에서는 관리하기가 어렵습니다.
 
-Private Link를 사용하면 ER([ExpressRoute](https://azure.microsoft.com/services/expressroute/)), 개인 피어링 또는 [VPN 터널](../vpn-gateway/index.yml)을 사용하여 프라이빗 엔드포인트에 대한 프레미스 간 액세스를 사용하도록 설정할 수 있습니다. 이후에는 퍼블릭 엔드포인트를 통한 모든 액세스를 사용하지 않도록 설정할 수 있고 IP 기반 방화벽은 사용할 수 없습니다.
+프라이빗 링크를 사용하면 [기본 Route](https://azure.microsoft.com/services/expressroute/)(ER), 프라이빗 피어링 또는 [VPN 터널링](../vpn-gateway/index.yml)을 사용하여 프라이빗 엔드포인트에 대한 프레미스 간 액세스를 사용하도록 설정할 수 있습니다. 이후에는 퍼블릭 엔드포인트를 통한 모든 액세스를 사용하지 않도록 설정할 수 있고 IP 기반 방화벽은 사용할 수 없습니다.
 
 > [!NOTE]
 > Azure Database for MySQL 및 VNet 서브넷이 서로 다른 구독에 있는 경우도 있습니다. 이러한 경우에는 다음과 같은 구성을 확인해야 합니다.
-> - 두 구독 모두에 **Microsoft.DBforMySQL** 리소스 공급자를 등록해야 합니다. 자세한 내용은 [resource-manager-registration][resource-manager-portal]을 참조하세요.
+> - **Microsoft.DBforMySQL** 리소스 공급자를 두 구독 모두에 등록해야 합니다. 자세한 내용은 [resource-manager-registration][resource-manager-portal]을 참조하세요.
 
 ## <a name="configure-private-link-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대한 Private Link 구성
 
 ### <a name="creation-process"></a>만들기 프로세스
 
-Private Link를 사용하도록 설정하려면 프라이빗 엔드포인트가 필요합니다. 이렇게 하려면 다음 방법 가이드를 사용합니다.
+프라이빗 링크를 사용하도록 설정하려면 프라이빗 엔드포인트가 필요합니다. 이렇게 하려면 다음 방법 가이드를 사용합니다.
 
 * [Azure Portal](./howto-configure-privatelink-portal.md)
 * [CLI](./howto-configure-privatelink-cli.md)
@@ -65,8 +67,8 @@ Private Link를 사용하도록 설정하려면 프라이빗 엔드포인트가 
 
 * Azure Portal에서 Azure Database for MySQL 서버 리소스로 이동합니다. 
     * 왼쪽 창에서 프라이빗 엔드포인트 연결 선택
-    * 모든 PEC(프라이빗 엔드포인트 연결)의 목록 표시
-    * 해당 PE(프라이빗 엔드포인트) 만들어짐
+    * 모든 프라이빗 엔드포인트 연결(PEC)의 목록 표시
+    * 해당 프라이빗 엔드포인트(PE) 만들어짐
 
 :::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-portal.png" alt-text="프라이빗 엔드포인트 포털 선택":::
 
@@ -78,7 +80,7 @@ Private Link를 사용하도록 설정하려면 프라이빗 엔드포인트가 
 
 :::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="프라이빗 엔드포인트 메시지 선택":::
 
-* 승인되거나 거부되면 목록에 응답 텍스트와 함께 적절한 상태가 반영됩니다.
+* 승인되거나 거부되면 목록에 응답 텍스트와 함께 적절한 상태가 반영됩니다
 
 :::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="프라이빗 엔드포인트 최종 상태 선택":::
 

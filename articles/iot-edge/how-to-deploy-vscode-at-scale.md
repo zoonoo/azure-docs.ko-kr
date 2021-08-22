@@ -3,18 +3,17 @@ title: Visual Studio Code를 사용하여 대규모로 모듈 배포 - Azure IoT
 description: Visual Studio Code용 IoT 확장을 사용하여 IoT Edge 디바이스 그룹에 대한 자동 배포를 만듭니다.
 keywords: ''
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 1/8/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a20992ef26b74bcc37a7403e4ee77cacc0f8f66e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5eecd68a53607b9b3fc7fc24fc9aee78063fdfe
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200287"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528096"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Visual Studio Code를 사용하여 대규모로 IoT Edge 모듈 배포
 

@@ -11,12 +11,12 @@ author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 02/22/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: 2ca7eec3bcc40d5c0f93c43cc32b9395feb1e5d0
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 3552a8191fc5482f8a58cc3365302f44f2f364a3
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790418"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284326"
 ---
 # <a name="connect-to-storage-by-using-identity-based-data-access-preview"></a>ID 기반 데이터 액세스를 사용하여 스토리지에 연결(미리 보기)
 
@@ -59,7 +59,7 @@ ID 기반 데이터 액세스를 사용하는 경우, Azure Machine Learning은 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+- Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 
 - 지원되는 스토리지 형식을 사용하는 Azure 스토리지 계정. 미리 보기에서 지원되는 스토리지 유형은 다음과 같습니다. 
     - [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md)
@@ -84,7 +84,7 @@ ID 기반 데이터 액세스는 다음 스토리지 서비스에 대한 연결�
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
-이러한 스토리지 서비스에 액세스하려면 최소한 [스토리지 Blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 액세스 권한이 있어야 합니다. 스토리지 계정 소유자만 [Azure Portal을 통해 액세스 수준을 변경](../storage/common/storage-auth-aad-rbac-portal.md)할 수 있습니다.
+이러한 스토리지 서비스에 액세스하려면 최소한 [스토리지 Blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 액세스 권한이 있어야 합니다. 스토리지 계정 소유자만 [Azure Portal을 통해 액세스 수준을 변경](../storage/blobs/assign-azure-role-data-access.md)할 수 있습니다.
 
 원격 컴퓨팅 대상에서 모델을 학습시키는 경우에는 컴퓨팅 ID에 스토리지 서비스에서 최소한 Storage Blob 데이터 판독기 역할을 부여해야 합니다. [컴퓨팅 클러스터에 관리 ID를 설정](how-to-create-attach-compute-cluster.md#managed-identity)하는 방법에 대해 알아보세요.
 

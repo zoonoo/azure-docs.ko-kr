@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: b860510610330d6c5d60f41dccc9e82bc77685f5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e24ba72960c40031dd49189f151fd3f35190e116
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969447"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463624"
 ---
 # <a name="devops-practices-for-luis"></a>LUIS에 대한 DevOps 사례
 
@@ -183,7 +183,7 @@ LUDown 형식의 LUIS 앱은 사람이 읽을 수 있으며, 이는 검토에 �
 
 ## <a name="versioning"></a>버전 관리
 
-애플리케이션은 [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction), [QnA Maker](https://www.qnamaker.ai/), [Azure Speech Service](../speech-service/overview.md) 등에서 실행되는 봇과 같은 항목을 포함할 수 있는 여러 구성 요소로 구성됩니다. 느슨하게 연결된 애플리케이션의 목표를 달성하려면 [버전 제어](/azure/devops/learn/git/what-is-version-control)를 사용하여 각 애플리케이션 구성 요소의 버전을 독립적으로 관리함으로써 개발자가 버전 번호를 확인하여 주요 변경 내용 또는 업데이트를 검색할 수 있도록 합니다. 자체 리포지토리에 유지 관리하는 경우 다른 구성 요소와 독립적으로 LUIS 앱의 버전을 지정하는 것이 더 쉽습니다.
+애플리케이션은 [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction), [QnA Maker](https://www.qnamaker.ai/), [Azure Speech Service](../speech-service/overview.md) 등에서 실행되는 봇과 같은 항목을 포함할 수 있는 여러 구성 요소로 구성됩니다. 느슨하게 연결된 애플리케이션의 목표를 달성하려면 [버전 제어](/devops/develop/git/what-is-version-control)를 사용하여 각 애플리케이션 구성 요소의 버전을 독립적으로 관리함으로써 개발자가 버전 번호를 확인하여 주요 변경 내용 또는 업데이트를 검색할 수 있도록 합니다. 자체 리포지토리에 유지 관리하는 경우 다른 구성 요소와 독립적으로 LUIS 앱의 버전을 지정하는 것이 더 쉽습니다.
 
 기본 분기에 대한 LUIS 앱에는 버전 관리 체계가 적용되어 있어야 합니다. LUIS 앱에 대한 업데이트를 `.lu`에 병합하는 경우 해당 업데이트된 소스를 기본 분기에 대한 LUIS 앱의 새 버전으로 가져옵니다.
 

@@ -2,13 +2,13 @@
 title: Azure Video Analyzer 릴리스 정보 - Azure
 description: 이 항목에서는 Azure Video Analyzer 릴리스, 개선 사항, 버그 수정 및 알려진 문제에 대한 릴리스 정보를 제공합니다.
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: ef1c395bb10000599f901e62cf77b3573146aeee
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 06/01/2021
+ms.openlocfilehash: f7189e6bda42ad77cb4bb6f426bf73209f46c363
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591227"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601930"
 ---
 # <a name="azure-video-analyzer-release-notes"></a>Azure Video Analyzer 릴리스 정보
 

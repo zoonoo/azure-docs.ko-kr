@@ -1,17 +1,20 @@
 ---
 title: Azure Data Factory에서 복사 작업을 사용하여 메타데이터 및 ACL 유지
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory에서 복사 작업을 사용하여 복사하는 동안 메타데이터 및 ACL을 유지하는 방법을 알아봅니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: jianleishen
-ms.openlocfilehash: 15221c5884ca52d5560fe46dc36ba1647bdea394
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 1883d1192a1908611e3440ea2d39e770b4599bc6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488594"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642878"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Azure Data Factory에서 복사 작업을 사용하여 메타데이터 및 ACL 유지
 

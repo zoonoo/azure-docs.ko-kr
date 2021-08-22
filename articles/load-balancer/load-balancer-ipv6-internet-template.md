@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 415c95a441ac0cc6ed2dbf2d6a37f57d7a9e7341
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f0c4f7f70dc186c29ffa5d90c6a7ea2f245f431
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90562522"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112298082"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>템플릿을 사용하여 IPv6로 인터넷 연결 부하 분산 장치 솔루션을 배포합니다.
 
@@ -50,7 +50,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 
 ## <a name="deploying-the-template-using-the-azure-portal"></a>Azure Portal을 사용하여 템플릿 배포
 
-이 문서에서는 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/) 갤러리에 게시된 템플릿을 참조합니다. 갤러리에서 템플릿을 다운로드하거나 갤러리에서 직접 Azure에 배포를 시작할 수 있습니다. 이 문서에서는 템플릿을 로컬 컴퓨터에 다운로드했다고 가정합니다.
+이 문서에서는 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/load-balancer-ipv6-create/) 갤러리에 게시된 템플릿을 참조합니다. 갤러리에서 템플릿을 다운로드하거나 갤러리에서 직접 Azure에 배포를 시작할 수 있습니다. 이 문서에서는 템플릿을 로컬 컴퓨터에 다운로드했다고 가정합니다.
 
 1. Azure Portal을 열고 Azure 구독 내에서 VM 및 네트워킹 리소스를 만들 권한이 있는 계정으로 로그인합니다. 또한 기존 리소스를 사용하고 있는 것이 아니라면 리소스 그룹 및 스토리지 계정을 만들기 위해서는 계정에 권한이 필요합니다.
 2. 메뉴에서 "+새"를 클릭한 다음 검색 상자에 "템플릿"을 입력합니다. 검색 결과에서 "템플릿 배포"를 선택합니다.

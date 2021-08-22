@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 12/17/2020
-ms.openlocfilehash: 4e62645dd5a7a8336df4fccf12daebc730a91168
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 770ee01d054aec084e9abd609af28e8125844e0f
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97678425"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895871"
 ---
 # <a name="security-overview-for-azure-data-share"></a>Azure Data Share에 대한 보안 개요
 
@@ -30,8 +30,7 @@ Azure Data Share는 관리 ID(이전에는 MSI)를 활용하여 데이터 공유
 공유를 만들거나 받으면 Data Share 리소스에 대한 적절한 권한이 있는 사용자가 공유를 변경할 수 있습니다. 공유를 만들거나 받는 사용자가 조직을 떠나도 공유가 종료되거나 데이터의 흐름이 중지되지 않습니다. Data Share 리소스에 대한 적절한 권한이 있는 다른 사용자는 계속해서 공유를 관리할 수 있습니다.
 
 ## <a name="share-data-from-or-to-data-stores-with-firewall-enabled"></a>방화벽이 사용된 데이터 저장소에서 데이터 공유
-방화벽이 사용되는 저장소 계정에서 데이터를 공유하려면 저장소 계정에서 **신뢰할 수 있는 Microsoft 서비스 허용** 을 사용해야 합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](
-https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)을 참조하세요.
+방화벽이 사용되는 저장소 계정에서 데이터를 공유하려면 저장소 계정에서 **신뢰할 수 있는 Microsoft 서비스 허용** 을 사용해야 합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../storage/common/storage-network-security.md#trusted-microsoft-services)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

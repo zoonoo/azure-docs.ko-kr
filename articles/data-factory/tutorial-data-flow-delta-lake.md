@@ -4,15 +4,16 @@ description: 이 자습서는 데이터 흐름을 사용하여 Delta Lake에서 
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2021
-ms.date: 04/16/2021
-ms.openlocfilehash: 4a88ed2df74d3eebb96c42e2cdc87b14153419cd
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.date: 06/04/2021
+ms.openlocfilehash: dff3972bfc9da83312a1fdf4fc7c6169f932c410
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565375"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642327"
 ---
 # <a name="transform-data-in-delta-lake-using-mapping-data-flows"></a>매핑 데이터 흐름을 사용한 Delta Lake의 데이터 변환
 
@@ -24,9 +25,9 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
 ## <a name="prerequisites"></a>사전 요구 사항
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Azure Storage 계정**. ADLS 스토리지를 원본 및 싱크 데이터 저장소로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
+* **Azure Storage 계정**. ADLS 스토리지를 *원본* 및 *싱크* 데이터 저장소로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
 
-이 자습서에서 변형하는 파일은 [여기](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/moviesDB2.csv)에서 찾을 수 있는 MoviesDB.csv입니다. GitHub에서 파일을 검색하려면 해당 콘텐츠를 원하는 텍스트 편집기에 복사하여 로컬에 .csv 파일로 저장합니다. 스토리지 계정에 파일을 업로드하려면 [Azure Portal을 사용하여 Blob 업로드](../storage/blobs/storage-quickstart-blobs-portal.md)를 참조하세요. 예제는 ‘sample-data’라는 컨테이너를 참조합니다.
+이 지침서에서 변형하는 파일은 [여기](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/moviesDB2.csv)에서 찾을 수 있는 MoviesDB.csv입니다. GitHub에서 파일을 검색하려면 해당 콘텐츠를 원하는 텍스트 편집기에 복사하여 로컬에 .csv 파일로 저장합니다. 스토리지 계정에 파일을 업로드하려면 [Azure Portal을 사용하여 Blob 업로드](../storage/blobs/storage-quickstart-blobs-portal.md)를 참조하세요. 예제는 ‘sample-data’라는 컨테이너를 참조합니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
@@ -53,9 +54,9 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
 이 단계에서는 데이터 흐름 작업을 포함하는 파이프라인을 만듭니다.
 
-1. **시작** 페이지에서 **파이프라인 만들기** 를 선택합니다.
+1. 홈페이지에서 **오케스트레이션** 을 선택합니다.
 
-   ![파이프라인 만들기](./media/doc-common-process/get-started-page.png)
+   ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
 
 1. 파이프라인의 **일반** 탭에서 파이프라인의 **이름** 으로 **DeltaLake** 를 입력합니다.
 1. **작업** 창에서 **이동 및 변환** 을 확장합니다. **데이터 흐름** 작업을 창에서 파이프라인 캔버스로 끌어다 놓습니다.
@@ -64,7 +65,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 1. **데이터 흐름 추가** 팝업에서 **새 데이터 흐름 만들기** 를 선택하고 데이터 흐름의 이름을 **DeltaLake** 로 설정합니다. 완료되었으면 마침을 클릭합니다.
 
     ![새 데이터 흐름을 만들 때 데이터 흐름의 이름을 붙이는 위치를 보여주는 스크린샷](media/tutorial-data-flow/activity2.png)
-1. 파이프라인 캔버스의 상단 막대에서 **데이터 흐름 디버그** 슬라이더를 밉니다. 디버그 모드에서는 라이브 Spark 클러스터에 대한 변환 논리의 대화형 테스트를 수행할 수 있습니다. 데이터 흐름 클러스터는 준비하는 데 5~7분 정도 걸리며, 데이터 흐름 개발을 수행할 계획이라면 먼저 디버그를 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조하세요.
+1. 파이프라인 캔버스의 상단 막대에서 **데이터 흐름 디버그** 슬라이더를 밉니다. 디버그 모드에서는 라이브 Spark 클러스터에 대한 변환 논리의 대화형 테스트를 수행할 수 있습니다. 데이터 흐름 클러스터는 준비하는 데 5~7분 정도 걸리며, 데이터 흐름 개발을 수행할 계획이라면 우선 디버그를 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조하세요.
 
     ![데이터 흐름 디버그 슬라이더가 있는 위치를 보여주는 스크린샷.](media/tutorial-data-flow/dataflow1.png)
 

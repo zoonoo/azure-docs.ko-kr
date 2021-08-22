@@ -1,17 +1,20 @@
 ---
 title: Azure Data Factory의 이진 형식
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 이 항목에서는 Azure Data Factory에서 이진 형식을 처리하는 방법에 대해 설명합니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jianleishen
-ms.openlocfilehash: 1fcc84f5f72bda1aa132ee054c71ad4e1cffbbd4
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 32a1f7f9cc84adc3142bd7f03b399c759b01f824
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090215"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642791"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Azure Data Factory의 이진 형식
 

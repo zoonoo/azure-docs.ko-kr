@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/09/2020
-ms.openlocfilehash: 361af28932226640db077bf4949f7bd472ceb986
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 9ddf3885931e527e4fd82037d9e82693fb6afa5f
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166580"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642125"
 ---
 # <a name="restore-a-deleted-azure-database-for-mysql-server"></a>삭제된 Azure Database for MySQL 서버 복원
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 서버가 삭제되었을 때 데이터베이스 서버 백업이 서비스에 최대 5일 동안 보존될 수 있습니다. 데이터베이스 백업은 서버가 원래 있었던 Azure 구독에서만 액세스하고 복원할 수 있습니다. 다음 권장 단계를 수행하여 서버 삭제 시점부터 5일 이내에 삭제된 MySQL 서버 리소스를 복구할 수 있습니다. 서버에 대한 백업을 계속 사용할 수 있고 시스템에서 삭제되지 않은 경우에만 권장 단계가 작동합니다. 
 
@@ -22,7 +24,7 @@ ms.locfileid: "108166580"
 - 원래 서버를 호스팅하는 Azure 구독 이름
 - 서버를 만든 위치
 
-## <a name="steps-to-restore"></a>복원 단계
+## <a name="steps-to-restore"></a>복원하는 단계
 
 1. Azure portal의 모니터링 블레이드에서 [활동 로그](https://ms.portal.azure.com/#blade/Microsoft_Azure_ActivityLog/ActivityLogBlade)로 이동합니다. 
 
@@ -62,11 +64,11 @@ ms.locfileid: "108166580"
    
 8. 응답 코드 201 또는 202가 표시되면 복원 요청이 성공적으로 제출된 것입니다. 
 
-9. 원본 서버에 프로비전된 컴퓨팅 리소스 및 데이터베이스 크기에 따라 서버를 만드는 데 시간이 걸릴 수 있습니다. 복원 상태는 다음에 대해 필터링된 활동 로그에서 모니터링할 수 있습니다. 
+9. 원본 서버에 프로비전된 컴퓨팅 리소스 및 데이터베이스 크기에 따라 서버를 만드는 데 시간이 걸릴 수 있습니다. 복원 상태는 다음과 같이 필터링하여 활동 로그에서 모니터링할 수 있습니다. 
    - **구독** = 사용자의 구독
    - **리소스 종류** = MySQL용 Azure Database 서버(Microsoft.DBforMySQL/servers) 
    - **작업** = MySQL Server 만들기 업데이트
 
 ## <a name="next-steps"></a>다음 단계
-- 5일 이내에 서버를 복원하려고 시도 중인데 앞에서 설명한 단계를 정확하게 따른 후에도 여전히 오류가 발생하는 경우 도움을 받기 위해 지원 인시던트를 엽니다. 5일 후에 삭제된 서버를 복원하려고 시도 중인 경우 백업 파일을 찾을 수 없으므로 오류가 예상됩니다. 이 시나리오에서는 지원 티켓을 열지 않습니다. 백업이 시스템에서 삭제된 경우 지원팀에서는 어떤 도움도 제공할 수 없습니다. 
-- 서버를 실수로 삭제하는 것을 방지하려면 [리소스 잠금](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/preventing-the-disaster-of-accidental-deletion-for-your-mysql/ba-p/825222)을 사용하는 것을 강력 권장합니다.
+- 5일 이내에 서버를 복원하려고 시도 중인데 앞에서 설명한 단계를 정확하게 따른 후에도 여전히 오류가 발생하는 경우 도움을 받기 위해 지원 인시던트를 엽니다. 5일 후에 삭제된 서버를 복원하려고 시도 중인 경우 백업 파일을 찾을 수 없으므로 오류가 예상됩니다. 이 시나리오에서는 지원 티켓을 열지 않습니다. 백업이 시스템에서 삭제된 경우 지원 팀에서는 어떤 도움도 제공할 수 없습니다. 
+- 서버를 실수로 삭제하는 것을 방지하려면 [리소스 잠금](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/preventing-the-disaster-of-accidental-deletion-for-your-mysql/ba-p/825222)을 사용하는 것이 좋습니다.

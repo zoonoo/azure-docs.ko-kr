@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 06/30/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 7021367e1230573343ddf57ccd399d998ad5280e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93d86e0fe4a1dac4d9d780e0e14d6736b755f932
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93339277"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528196"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Cosmos DB 변경 피드 읽기
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -69,14 +69,11 @@ Azure Functions와 마찬가지로 변경 피드 프로세서 라이브러리를
 
 풀 모델을 사용하는 “최소 한 번” 배달 보장은 제공되지 않습니다. 풀 모델은 오류를 처리하는 방법을 결정하는 낮은 수준의 제어를 제공합니다.
 
-> [!NOTE]
-> 변경 피드 끌어오기 모델은 현재 [Azure Cosmos DB .NET SDK에서만 미리 보기](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.15.0-preview)로 제공됩니다. 다른 SDK 버전에서는 아직 미리 보기를 사용할 수 없습니다.
-
 ## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Cassandra 및 MongoDB에 대한 API의 변경 피드
 
-변경 피드 기능은 MongoDB API의 변경 스트림 및 Cassandra API의 조건자가 있는 쿼리로 표시됩니다. MongoDB API의 구현 세부 정보에 대한 자세한 내용은 [Azure Cosmos DB API for MongoDB에서 스트림 변경](mongodb-change-streams.md)을 참조하세요.
+변경 피드 기능은 MongoDB API의 변경 스트림 및 Cassandra API의 조건자가 있는 쿼리로 표시됩니다. MongoDB API의 구현 세부 정보에 대한 자세한 내용은 [Azure Cosmos DB API for MongoDB에서 스트림 변경](mongodb/change-streams.md)을 참조하세요.
 
-기본 Apache Cassandra는 CDC 로그의 구성 가능한 디스크 크기에 도달하면 보관을 위해 특정 테이블에 플래그를 지정하고 해당 테이블에 대한 쓰기를 거부하는 메커니즘인 CDC(변경 데이터 캡처)를 제공합니다. Cassandra용 Azure Cosmos DB API의 변경 피드 기능은 CQL을 통해 조건자를 사용하여 변경 내용을 쿼리하는 기능을 향상시킵니다. 구현 세부 정보에 대한 자세한 내용은 [Cassandra용 Azure Cosmos DB API의 변경 피드](cassandra-change-feed.md)를 참조하세요.
+기본 Apache Cassandra는 CDC 로그의 구성 가능한 디스크 크기에 도달하면 보관을 위해 특정 테이블에 플래그를 지정하고 해당 테이블에 대한 쓰기를 거부하는 메커니즘인 CDC(변경 데이터 캡처)를 제공합니다. Cassandra용 Azure Cosmos DB API의 변경 피드 기능은 CQL을 통해 조건자를 사용하여 변경 내용을 쿼리하는 기능을 향상시킵니다. 구현 세부 정보에 대한 자세한 내용은 [Cassandra용 Azure Cosmos DB API의 변경 피드](cassandra/cassandra-change-feed.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -2,13 +2,13 @@
 title: Azure Relay 포트 설정 | Microsoft Docs
 description: 이 문서에는 Azure Relay에 대한 포트 값에 필요한 구성을 설명하는 표가 포함되어 있습니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 81551055d967babaac6f12c3a23ce6b1e78afbd5
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 06/23/2021
+ms.openlocfilehash: b293d58d2e555b7e0d01ea1a9e421f78cf23105c
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107314170"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668685"
 ---
 # <a name="azure-relay-port-settings"></a>Azure Relay 포트 설정
 

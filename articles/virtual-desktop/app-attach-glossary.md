@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 66f3cc71c27ff80991f3cded1957f90e622f447f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 9972a7bcff534f49f0c656dd1a9c3f66389c44b5
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745676"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114708799"
 ---
 # <a name="msix-app-attach-glossary"></a>MSIX 앱 연결 용어집
 
@@ -133,4 +133,4 @@ CIM 파일은 메타데이터와 함께 실제 파일이 포함된 2개 이상�
 
 ## <a name="next-steps"></a>다음 단계
 
-MSIX 앱 연결에 관해 자세히 알아보려면 [개요](what-is-app-attach.md) 및 [FAQ](app-attach-faq.md)를 확인하세요. 그러지 않으면 [앱 연결 설정](app-attach.md)을 시작합니다.
+MSIX 앱 연결에 관해 자세히 알아보려면 [개요](what-is-app-attach.md) 및 [FAQ](app-attach-faq.yml)를 확인하세요. 그러지 않으면 [앱 연결 설정](app-attach.md)을 시작합니다.

@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/24/2020
-ms.openlocfilehash: fa845e7c402073a64f51d75b1da51f56142eee2e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 54e619491a52828475143fbe5656736063e84c9d
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98630503"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642146"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL의 감사 로그
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL에서는 사용자에게 감사 로그를 제공합니다. 감사 로그는 데이터베이스 수준 작업을 추적하는 데 사용할 수 있으며, 일반적으로 규정 준수에 사용됩니다.
 
@@ -31,7 +33,7 @@ Azure Database for MySQL에서는 사용자에게 감사 로그를 제공합니�
 - `audit_log_exclude_users`: 로깅에서 제외할 MySQL 사용자입니다. 매개 변수의 최대 길이는 512자입니다.
 
 > [!NOTE]
-> `audit_log_include_users`는 `audit_log_exclude_users`보다 우선 순위가 높습니다. 예를 들어 `audit_log_include_users` = `demouser` 및 `audit_log_exclude_users` = `demouser`인 경우 `audit_log_include_users`의 우선 순위가 높으므로 사용자가 감사 로그에 포함됩니다.
+> `audit_log_include_users`는 `audit_log_exclude_users`보다 우선 순위가 높습니다. 예를 들어 `audit_log_include_users` = `demouser` 및 `audit_log_exclude_users` = `demouser`인 경우 `audit_log_include_users` 의 우선 순위가 높으므로 사용자가 감사 로그에 포함됩니다.
 
 | **이벤트** | **설명** |
 |---|---|
@@ -104,7 +106,7 @@ Azure Database for MySQL에서는 사용자에게 감사 로그를 제공합니�
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR`, `RESULT`(MySQL 5.6에서만 사용 가능) |
 | `event_time` | 쿼리 시작 시간(UTC 타임스탬프 기준) |
-| `error_code_d` | 쿼리가 실패한 경우의 오류 코드. `0`은 오류가 없음을 의미합니다. |
+| `error_code_d` | 쿼리가 실패한 경우의 오류 코드. `0` 은 오류가 없음을 의미합니다. |
 | `thread_id_d` | 쿼리를 실행한 스레드의 ID |
 | `host_s` | 비어 있음 |
 | `ip_s` | MySQL에 연결하는 클라이언트의 IP 주소 |

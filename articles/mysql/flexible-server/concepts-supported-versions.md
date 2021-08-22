@@ -6,19 +6,19 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 7ad6a576262b8e722b16c81af544a9370c2b49b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8148d995dc7b2bb1e1ec7cac3557c1e88be4ce4a
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93242265"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642137"
 ---
 # <a name="supported-versions-for-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL - 유연한 서버에 대해 지원되는 버전
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
-
 
 Azure Database for MySQL 유연한 서버는 InnoDB 엔진을 사용하는 [MySQL Community Edition](https://www.mysql.com/products/community/)으로 구동됩니다.
 

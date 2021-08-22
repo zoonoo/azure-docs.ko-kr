@@ -1,18 +1,20 @@
 ---
 title: Azure Data Factory를 사용하여 Google BigQuery에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 데이터 팩터리 파이프라인의 복사 작업을 사용하여 Google BigQuery에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 09/04/2019
-ms.openlocfilehash: 9da65a28e772acaf0740b0bd977ffb38926451cd
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 73ea8462d6838d74d1d9fcdb25f381661312eafc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109485210"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642310"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Google BigQuery에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -43,7 +45,7 @@ Google BigQuery에서 지원되는 모든 싱크 데이터 저장소로 데이�
 
 다음은 Google BigQuery 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **GoogleBigQuery** 로 설정해야 합니다. | 예 |
 | project | 쿼리할 기본 BigQuery 프로젝트의 프로젝트 ID입니다.  | 예 |
@@ -55,7 +57,7 @@ Google BigQuery에서 지원되는 모든 싱크 데이터 저장소로 데이�
 
 “authenticationType” 속성을 **UserAuthentication** 으로 설정하고, 이전 섹션에서 설명한 일반 속성과 함께 다음 속성을 지정합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | clientId | 새로 고침 토큰을 생성하는 데 사용되는 애플리케이션의 ID입니다. | 예 |
 | clientSecret | 새로 고침 토큰을 생성하는 데 사용되는 애플리케이션의 비밀입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
@@ -91,7 +93,7 @@ Google BigQuery에서 지원되는 모든 싱크 데이터 저장소로 데이�
 
 “authenticationType” 속성을 **ServiceAuthentication** 으로 설정하고, 이전 섹션에서 설명한 일반 속성과 함께 다음 속성을 지정합니다. 이 인증 유형은 자체 호스팅 Integration Runtime에서만 사용할 수 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 이메일 | ServiceAuthentication에 사용되는 서비스 계정 메일 ID입니다. 자체 호스팅 통합 런타임에서만 사용할 수 있습니다.  | 예 |
 | keyFilePath | 서비스 계정 메일 주소를 인증하는 데 사용되는 .p12 키 파일의 전체 경로입니다. | 예 |
@@ -126,7 +128,7 @@ Google BigQuery에서 지원되는 모든 싱크 데이터 저장소로 데이�
 
 Google BigQuery에서 데이터를 복사하려면 데이터 세트의 type 속성을 **GoogleBigQueryObject** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 형식 속성을 **GoogleBigQueryObject** 로 설정해야 합니다. | 예 |
 | 데이터 세트 | Google BigQuery 데이터 세트의 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
@@ -158,7 +160,7 @@ Google BigQuery에서 데이터를 복사하려면 데이터 세트의 type 속�
 
 Google BigQuery에서 데이터를 복사하려면 복사 작업의 원본 형식을 **GoogleBigQuerySource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **GoogleBigQuerySource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `"SELECT * FROM MyTable"`입니다. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |

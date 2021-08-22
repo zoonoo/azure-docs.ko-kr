@@ -1,19 +1,21 @@
 ---
 title: 매핑 데이터 흐름 그래프 관리
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 매핑 데이터 흐름 그래프를 효과적으로 관리하고 편집하는 방법
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 09/02/2020
-ms.openlocfilehash: f55364fe0eabae4bb1698bd655cde8d3e01b127a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bf274ce49a2b83fca49bc039c1ba3c7980531979
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97590463"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642417"
 ---
 # <a name="managing-the-mapping-data-flow-graph"></a>매핑 데이터 흐름 그래프 관리
 

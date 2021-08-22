@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 6de01d2c12454f43a2802b4a7a979b5f74b46f0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1ffad8a0d5741ad25c4dd92ec9917d8b845bcd7
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96340274"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913854"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Bing Web Search API에 대한 언어 및 지역 지원
 
@@ -118,4 +118,4 @@ Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Bing Image Search API 참조](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing Image Search API 참조](/rest/api/cognitiveservices/bing-images-api-v7-reference)

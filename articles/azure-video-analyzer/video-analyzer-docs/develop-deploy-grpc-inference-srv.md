@@ -3,13 +3,13 @@ title: gRPC 유추 서버 개발 및 배포 - Azure Video Analyzer
 description: 이 문서에서는 Azure Video Analyzer와 함께 사용할 gRPC 유추 서버를 개발하고 배포하는 방법에 대한 지침을 제공합니다.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 04/01/2021
-ms.openlocfilehash: 499620dd0fc2f200f0f0a5080b9ab540a07f1df3
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 5d0e09bc4d1f542de0e59a7dc6da37248d2e0674
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387322"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601442"
 ---
 # <a name="develop-and-deploy-grpc-inference-server"></a>gRPC 유추 서버 개발 및 배포
 
@@ -42,7 +42,7 @@ IoT Edge 디바이스에서 Video Analyzer 모듈을 배포하고 작동하는 �
 1. gRPC에서 지원되는 여러 언어인 C#, C++, Dart, Go, Java, Node, Objective-C, PHP, Python, Ruby 중 하나를 선택합니다.
 1. [proto3 파일](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc)을 사용하여 Video Analyzer와 통신하는 gRPC 서버를 구현합니다.
 
-    :::image type="content" source="./media/develop-deploy-grpc-inference-srv/inference-srv-container-process.png" alt-text="proto3 파일을 사용하여 Video Analyzer와 통신하는 gRPC 서버":::
+    :::image type="content" source="./media/develop-deploy-grpc-inference-srv/inference-srv-container-process.svg" alt-text="proto3 파일을 사용하여 Video Analyzer와 통신하는 gRPC 서버":::
 
     이 서비스 내에서 다음을 수행합니다.
     1. 서버와 클라이언트 간의 세션 설명 메시지 교환을 처리합니다.

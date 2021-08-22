@@ -7,20 +7,24 @@ ms.service: mysql
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
-ms.openlocfilehash: 8d6aa4de7c3b75747c6e2f103e66e39dfa288ba7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 07da25b029c7268f002e8e80e5875658d7cc05ab
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100576245"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642206"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 모니터링
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for MySQL은 서버의 동작에 대한 통찰력을 제공하는 다양한 메트릭을 제공합니다.
 
 ## <a name="metrics"></a>메트릭
+
 모든 Azure 메트릭의 빈도는 1분이고 각 메트릭은 30일의 기록을 제공합니다. 메트릭에 대한 경고를 구성할 수 있습니다. 단계별 지침은 [How to set up alerts](howto-alert-on-metric.md)(경고를 설정하는 방법)를 참조하세요. 다른 작업에는 자동화된 작업 설정, 고급 분석 수행 및 기록 보관이 포함됩니다. 자세한 내용은 [Azure 메트릭 개요](../azure-monitor/data-platform.md)를 참조하세요.
 
 ### <a name="list-of-metrics"></a>메트릭 목록
+
 Azure Database for MySQL에서는 다음 메트릭을 사용할 수 있습니다.
 
 |메트릭|메트릭 표시 이름|단위|설명|
@@ -42,15 +46,19 @@ Azure Database for MySQL에서는 다음 메트릭을 사용할 수 있습니다
 |backup_storage_used|사용된 백업 스토리지|바이트|사용된 백업 스토리지 양. 이 메트릭은 서버에 설정된 백업 보존 기간에 따라 보존된 모든 전체 데이터베이스 백업, 차등 백업, 로그 백업에 사용된 스토리지의 합계를 나타냅니다. 백업 빈도는 서비스로 관리되며 [개념 문서](concepts-backup.md)에 설명되어 있습니다. 지리적 중복 스토리지의 경우 백업 스토리지 사용량은 로컬 중복 스토리지의 두 배입니다.|
 
 ## <a name="server-logs"></a>서버 로그
+
 서버에 느린 쿼리 및 감사 로깅을 활성화할 수 있습니다. 이러한 로그는 Azure Monitor 로그, Event Hubs 및 스토리지 계정의 Azure 진단 로그를 통해 사용할 수도 있습니다. 로깅에 대해 자세히 알아보려면 [감사 로그](concepts-audit-logs.md) 및 [느린 로그 쿼리](concepts-server-logs.md) 문서를 참조하세요.
 
 ## <a name="query-store"></a>쿼리 저장소
+
 [쿼리 저장소](concepts-query-store.md)는 쿼리 런타임 통계 및 대기 이벤트를 포함하여 시간 경과에 따른 쿼리 성능을 추적하는 기능입니다. 이 기능은 **mysql** 스키마에서 쿼리 런타임 성능 정보를 유지합니다. 데이터 수집 및 스토리지은 다양한 구성 노브를 통해 제어할 수 있습니다.
 
 ## <a name="query-performance-insight"></a>쿼리
+
 [Query Performance Insight](concepts-query-performance-insight.md)는 쿼리 저장소와 함께 작동하여 Azure Portal에서 액세스할 수 있는 시각화를 제공합니다. 이러한 차트를 사용하면 성능에 영향을 주는 주요 쿼리를 식별할 수 있습니다. Query Performance Insight는 Azure Database for MySQL 서버 포털 페이지의 **인텔리전트 성능** 섹션에서 액세스할 수 있습니다.
 
 ## <a name="performance-recommendations"></a>성능 권장 사항
+
 [성능 권장 사항](concepts-performance-recommendations.md) 기능은 워크로드 성능을 향상시킬 수 있는 기회를 식별합니다. 성능 권장 사항에서는 워크로드 성능을 향상시킬 수 있는 새 인덱스를 만드는 방법에 대한 권장 사항을 제공합니다. 이 기능은 인덱스 권장 사항을 생성하기 위해 쿼리 저장소에서 보고한 스키마와 워크로드를 포함하여 다양한 데이터베이스 특성을 고려하고 있습니다. 성능 권장 사항이 구현되면 고객이 성능을 테스트하여 변경에 따른 영향을 평가해야 합니다.
 
 ## <a name="planned-maintenance-notification"></a>계획된 유지 관리 알림
@@ -60,6 +68,7 @@ Azure Database for MySQL에서는 다음 메트릭을 사용할 수 있습니다
 [계획된 유지 관리 알림](./concepts-planned-maintenance-notification.md) 문서에서 알림을 설정하는 방법에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 - 메트릭에 대한 경고 생성에 대한 지침은 [경고를 설정하는 방법](howto-alert-on-metric.md)을 참조하세요.
 - Azure Portal, REST API 또는 CLI를 사용하여 메트릭에 액세스하고 내보내는 방법에 대한 자세한 내용은 [Azure 메트릭 개요](../azure-monitor/data-platform.md)를 참조하세요.
 - [서버 모니터링에 대한 모범 사례](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/)는 블로그를 참조하세요.

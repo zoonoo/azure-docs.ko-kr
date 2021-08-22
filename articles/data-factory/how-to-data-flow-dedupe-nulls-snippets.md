@@ -4,14 +4,15 @@ description: 데이터 흐름에서 코드 조각을 사용하여 손쉽게 행 
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 1b49b2584c4cb462c7c0f520fe8d1b5bf69c8674
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 116b1e2afded3ceee0d249e326e721ca420dcf17
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100393669"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642518"
 ---
 # <a name="dedupe-rows-and-find-nulls-by-using-data-flow-snippets"></a>데이터 흐름 코드 조각을 사용하여 행 중복 제거 및 Null 검색
 

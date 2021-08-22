@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/10/2020
-ms.openlocfilehash: 766266edd663b75b893a5883e30bb48eed7bbfdf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/24/2021
+ms.openlocfilehash: e8da9ae3d8f8c13bf52c5c0a2ea61b38f316a8b2
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94696118"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895637"
 ---
 # <a name="hypervisor-security-on-the-azure-fleet"></a>Azure 선단의 하이퍼바이저 보안
 
@@ -69,6 +69,7 @@ Azure 하이퍼바이저는 다음 사이에 여러 보안 경계를 적용합�
 플랫폼 무결성 및 보안을 추진하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 - [펌웨어 보안](firmware.md)
+- [플랫폼 코드 무결성](code-integrity.md)
 - [보안 부팅](secure-boot.md)
 - [계획 부팅 및 호스트 증명](measured-boot-host-attestation.md)
 - [프로젝트 Cerberus](project-cerberus.md)

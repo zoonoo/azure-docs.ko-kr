@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: how-to
 ms.date: 06/10/2019
 ms.author: inhenkel
-ms.openlocfilehash: 094c7affb5b285db4e3311fb1eac9b36afdb6458
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 3f8712709f1160150275ee55d84522746bbe8a3a
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490894"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "122642227"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Media Services로 인코딩할 때 비디오 서브클리핑 - REST
 
@@ -26,7 +26,10 @@ ms.locfileid: "106490894"
 
 이 항목의 REST 예제에서는 인코딩 작업을 전송할 때 비디오를 트리밍하는 작업을 만듭니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
+
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 항목에 설명된 단계를 완료하려면 다음을 수행해야 합니다.
 

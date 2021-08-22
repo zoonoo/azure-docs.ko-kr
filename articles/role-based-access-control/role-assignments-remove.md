@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 02/15/2021
 ms.author: rolyon
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: df37d64e634d2764666e29300e5157ceb3f3ec39
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 48f7cc738b55ef02de1d631d9ed7a41a9bc8a0b0
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690837"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112988821"
 ---
 # <a name="remove-azure-role-assignments"></a>Azure 역할 할당 제거
 
@@ -39,7 +39,7 @@ ms.locfileid: "110690837"
 
 1. **제거** 를 클릭합니다.
 
-   ![역할 할당 제거 메시지](./media/role-assignments-remove/remove-role-assignment.png)
+   ![역할 할당 제거 메시지](./media/shared/remove-role-assignment.png)
 
 1. 표시되는 역할 할당 제거 메시지에서 **예** 를 클릭합니다.
 
@@ -120,10 +120,10 @@ REST API에서 [역할 할당 - 삭제](/rest/api/authorization/roleassignments/
 1. URI 내에서 *{scope}* 를 제거할 역할 할당에 대한 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | Type |
+    > | 범위 | 유형 |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
-    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}` | 구독 |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | 리소스 |
 

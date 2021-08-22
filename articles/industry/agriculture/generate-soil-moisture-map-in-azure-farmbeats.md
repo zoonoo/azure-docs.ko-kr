@@ -5,12 +5,12 @@ author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: riyazp
-ms.openlocfilehash: 4b796af22604a2f09482bcb9a321159ebaafea11
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d318f7aad20f4bdf8ccb8db53c20c2426216b4dd
+ms.sourcegitcommit: 5a27d9ba530aee0e563a1b0159241078e8c7c1e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756776"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112422501"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>토양 습기 열 지도 생성
 
@@ -36,7 +36,7 @@ ms.locfileid: "108756776"
 
 ## <a name="deploy-sensors"></a>센서 배포
 
-팜에 토양 습기 센서를 물리적으로 배포해야 합니다. 승인된 파트너인 [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/) 및 [Teralytic](https://teralytic.com/)에서 토양 습기 센서를 구입할 수 있습니다. 팜에서 물리적 설정을 수행하려면 센서 공급자와 조정해야 합니다.
+팜에 토양 습기 센서를 물리적으로 배포해야 합니다. 승인된 파트너인 [Davis Instruments](https://www.davisinstruments.com/products/enviromonitor-gateway-us-lte) 및 [Teralytic](https://teralytic.com/)에서 토양 습기 센서를 구입할 수 있습니다. 팜에서 물리적 설정을 수행하려면 센서 공급자와 조정해야 합니다.
 
 ## <a name="get-soil-moisture-sensor-data-from-partner"></a>파트너로부터 토양 습기 센서 데이터 가져오기
 

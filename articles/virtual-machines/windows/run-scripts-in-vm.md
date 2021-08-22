@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: 7bf62eb2ab8d2ce82ce73e3e8ae26cf303b8ba67
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 34abfb3195f8a3640b1b4797aa430b6250d15b68
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765884"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112452371"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Windows VM에서 스크립트 실행
 
@@ -35,7 +35,7 @@ ms.locfileid: "107765884"
 [명령 실행](run-command.md) 기능은 가상 머신 및 애플리케이션 관리 및 스크립트를 사용한 문제 해결을 사용하도록 설정하며, 가상 머신을 연결할 수 없는 경우에도 예를 들어 게스트 방화벽이 RDP 또는 SSH 포트를 개방하지 않는 경우에도 사용할 수 있습니다.
 
 * Azure 가상 머신에서 스크립트를 실행합니다.
-* [Azure Portal](run-command.md), [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command#az_vm_run_command_invoke) 또는 [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)을 사용하여 실행 가능
+* [Azure Portal](run-command.md), [REST API](/rest/api/compute/virtual-machines-run-commands/run-command), [Azure CLI](/cli/azure/vm/run-command#az_vm_run_command_invoke) 또는 [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)을 사용하여 실행 가능
 * 신속하게 스크립트 및 출력 보기를 실행하고 Azure Portal에서 필요에 따라 반복합니다.
 * 스크립트는 직접 입력하거나 기본 제공 스크립트 중 하나를 실행할 수 있습니다.
 * Windows 컴퓨터에서 PowerShell 스크립트 및 Linux 컴퓨터에서 Bash 스크립트를 실행합니다.

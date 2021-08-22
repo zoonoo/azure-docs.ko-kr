@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/07/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85629f53cdd2753eca5574d627a01dd06ea49510
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 5ca24bb127c3149372eaf7ed2748fb252a17b3ef
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111749510"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114474077"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-with-azure-sdks"></a>Azure SDK를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하는 방법 
 
@@ -41,7 +41,7 @@ ms.locfileid: "111749510"
 | .NET            | [Azure 리소스에 대한 관리 ID를 사용하여 Windows VM에서 Azure Resource Manager 템플릿 배포](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet) |
 | .NET Core       | [Azure 리소스에 대한 관리 ID를 사용하여 Linux VM에서 Azure 서비스 호출](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) |
 | Go              | [Go용 Azure ID 클라이언트 모듈](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#ManagedIdentityCredential)
-| Node.js         | [Azure 리소스에 대한 관리 ID를 사용하는 리소스 관리](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |
+| Node.js         | [Azure 리소스에 대한 관리 ID를 사용하는 리소스 관리](https://github.com/Azure-Samples/resources-node-manage-resources-with-msi) |
 | Python          | [Azure 리소스에 대한 관리 ID를 사용하여 VM 내부에서 간단하게 인증](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
 | Ruby            | [Azure 리소스에 대한 관리 ID를 사용하는 VM에서 리소스 관리](https://github.com/Azure-Samples/resources-ruby-manage-resources-with-msi/) |
 

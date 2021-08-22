@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: fdc299ef1945e3ee0810f1c314fc07edfb4f4873
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: a93795301eed232fad38e95c55e47ecf63496d75
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313303"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465662"
 ---
 # <a name="microsoftsolutionsarmapicontrol-ui-element"></a>Microsoft.Solutions.ArmApiControl UI 요소
 
@@ -51,7 +51,7 @@ ArmApiControl을 사용하면 Azure Resource Manager API 작업에서 결과를 
   예를 들어 `Microsoft.Network/expressRouteCircuits` 리소스 공급자에 대한 ARM 호출은 다음과 같습니다.
 
   ```json
-  "path": "<subid>/resourceGroup/<resourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<routecircuitName>/?api-version=2020-05-01"
+  "path": "subscriptions/<subid>/resourceGroup/<resourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<routecircuitName>/?api-version=2020-05-01"
   ```
 
 - `request.body` 속성은 선택 사항입니다. 요청과 함께 전송되는 JSON 본문을 지정하는 데 사용됩니다. 본문은 정적 콘텐츠일 수도 있고 다른 컨트롤의 출력 값을 참조하여 동적으로 생성될 수도 있습니다.

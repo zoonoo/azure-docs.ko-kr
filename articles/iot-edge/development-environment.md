@@ -2,18 +2,17 @@
 title: Azure IoT Edge 개발 환경 | Microsoft Docs
 description: 지원되는 시스템과 IoT Edge 모듈을 만드는 데 도움이 되는 자사 개발 도구에 대해 알아봅니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1070a5ddf298ad88100e7803635e970f9a314e52
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: d420f9b7950e1b6324b7d7dc47cef4bfeb43248e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107869584"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528333"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>IoT Edge를 위한 개발 및 테스트 환경 준비
 
@@ -51,7 +50,7 @@ Visual Studio Code용 Azure IoT Edge 확장은 C#의 Azure 함수뿐만 아니�
 
 IoT Edge 확장 외에도 개발을 위한 추가 확장을 설치하면 유용할 수 있습니다. 예를 들어 [Visual Studio Code용 Docker 지원](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)을 사용하여 이미지, 컨테이너 및 레지스트리를 관리할 수 있습니다. 또한 지원되는 모든 주요 언어 모듈에는 개발 시 도움이 될 수 있는 Visual Studio Code용 확장이 있습니다.
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>필수 구성 요소
 
 일부 언어 및 서비스용 모듈 템플릿에는 Visual Studio Code를 사용하여 개발 컴퓨터에서 프로젝트 폴더를 빌드하는 데 필요한 필수 구성 요소가 있습니다.
 
@@ -60,7 +59,7 @@ IoT Edge 확장 외에도 개발을 위한 추가 확장을 설치하면 유용�
 | Azure 기능 | [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1) |
 | C | [Git](https://git-scm.com/) |
 | C# | [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1) |
-| Java | <ul><li>[Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) <li> [JAVA_HOME 환경 변수 설정](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
+| Java | <ul><li>[Java SE Development Kit 10](/azure/developer/java/fundamentals/java-support-on-azure) <li> [JAVA_HOME 환경 변수 설정](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
 | Node.js | <ul><li>[Node.JS](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Azure IoT Edge Node.js 모듈 생성기](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
 | Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
 
@@ -82,7 +81,7 @@ IoT Edge 디바이스를 시뮬레이트하거나 모듈을 보다 효율적으�
 
 IoT Edge 런타임만 프로덕션 환경에 배포할 수 있지만, 다음 도구를 사용하면 개발 및 테스트 목적으로 IoT Edge 디바이스를 쉽게 시뮬레이트하거나 만들 수 있습니다. 이러한 도구는 상호 배타적이지 않으며 완전한 개발 환경을 위해 함께 작동할 수 있습니다.
 
-| 도구 | 다른 명칭 | 지원되는 플랫폼 | 적합한 대상 |
+| 도구 | 다른 명칭 | 지원 플랫폼 | 적합한 대상 |
 | ---- | ------------- | ------------------- | --------- |
 | IoT EdgeHub 개발자 도구  | iotedgehubdev | Windows, Linux, macOS | 모듈을 디버그하는 디바이스 시뮬레이트 |
 | IoT Edge 개발자 컨테이너 | iotedgedev | Windows, Linux, macOS | 종속성을 설치하지 않고 개발 |

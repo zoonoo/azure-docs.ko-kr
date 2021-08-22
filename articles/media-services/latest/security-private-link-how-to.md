@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: inhenkel
-ms.openlocfilehash: 0efbadf69dec6d0ea06fd743a62d69c0d25a7e33
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b618396edb60e1a2092ecd4aa6ce134227220df5
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138664"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539150"
 ---
 # <a name="create-a-media-services-and-storage-account-with-a-private-link"></a>프라이빗 링크를 사용하여 Media Services 및 Storage 계정 만들기
 
@@ -42,6 +42,8 @@ VNet에 대한 프라이빗 링크를 사용하여 Media Services 계정과 Stor
   - 링크 간 링크(프라이빗 DNS 영역을 VNet에 연결하는 용도)
   - 프라이빗 DNS 영역 그룹(프라이빗 DNS 영역에서 DNS 레코드의 자동 생성을 트리거하는 용도)
 - (공용 IP 주소와 네트워크 인터페이스가 있는) VM
+
+[!INCLUDE [Azure Policy Media Services](includes/security-azure-policy-private-links.md)]
 
 ## <a name="azure-resource-manager-arm-template-for-private-link"></a>프라이빗 링크에 대한 ARM(Azure Resource Manager) 템플릿
 

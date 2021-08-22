@@ -4,12 +4,12 @@ description: Azure HDInsight의 Apache ZooKeeper 문제로 인해 Apache Hive �
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/30/2019
-ms.openlocfilehash: 475f717413252b69e3861ca3a7210ec72b6ac581
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: cc7ad8d32e4d15b8e0671d162b1796619b4879c7
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110191403"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112290722"
 ---
 # <a name="scenario-apache-hive-fails-to-establish-a-connection-to-apache-zookeeper-in-azure-hdinsight"></a>시나리오: Apache Hive가 Azure HDInsight에서 Apache ZooKeeper에 대한 연결을 설정하지 못함
 
@@ -42,4 +42,4 @@ Hive가 Zookeeper에 대한 연결을 설정하지 못하여 Hive View가 시작
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

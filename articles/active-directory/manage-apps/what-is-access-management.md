@@ -2,20 +2,21 @@
 title: Azure AD를 사용하는 앱에 대한 액세스 관리
 description: Azure Active Directory는 조직이 앱을 각 사용자가 액세스할 수 있도록 지정하는 방법을 설명합니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
-ms.author: mtillman
-ms.openlocfilehash: b50f93dc13eb5fbd5934462b7084c521a6686ae0
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: davidmu
+ms.reviewer: alamaral
+ms.openlocfilehash: 2dc66adcce209b29579bb88184272fd2bda1353c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079394"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528805"
 ---
 # <a name="managing-access-to-apps"></a>앱에 대한 액세스 관리
 
@@ -61,6 +62,7 @@ Azure AD는 조직의 최종 사용자에게 [애플리케이션을 배포하는
 엔터프라이즈 앱에 할당된 사용자가 내 앱 및 Microsoft 365 애플리케이션 시작 관리자에서 해당 앱을 볼 수 있는지 여부를 결정할 수 있습니다.
 
 ## <a name="example-complex-application-assignment-with-azure-ad"></a>예제: Azure AD를 사용하여 복잡한 애플리케이션 할당
+
 Salesforce와 같은 애플리케이션을 고려합니다. 많은 조직에서 Salesforce는 마케팅 및 판매 팀에서 주로 사용됩니다. 종종 영업 팀의 멤버가 Salesforce에 대해 제한된 액세스만 가능한 반면 마케팅 팀의 멤버는 높은 액세스 권한이 있습니다. 대부분의 경우 정보 근로자의 광범위한 집단은 애플리케이션에 액세스가 제한되었습니다. 이러한 규칙의 예외는 문제를 복잡하게 만듭니다. 이러한 일반 규칙에 관계 없이 사용자에게 액세스 권한을 부여하거나 해당 역할을 변경하는 것은 마케팅 또는 판매 리더십 팀의 특권입니다.
 
 Azure AD를 사용하여 Single Sign-On(SSO) 및 자동화된 프로비전에 Salesforce와 같은 애플리케이션을 미리 구성할 수 있습니다. 애플리케이션이 구성되면 관리자는 일회성 작업을 만들어 적절한 그룹을 만들고 할당할 수 있습니다. 이 예제에서 관리자는 다음의 할당을 실행할 수 있습니다.
@@ -82,16 +84,18 @@ Microsoft 애플리케이션(예: Exchange, SharePoint, Yammer 등)은 타사 Sa
 
 사용자는 세 가지 방법으로 Microsoft 게시 애플리케이션에 대한 액세스 권한을 얻을 수 있습니다.
 
-- Microsoft 365 또는 기타 유료 도구 모음에 있는 애플리케이션의 경우, 사용자는 **라이선스 할당** 을 통해 해당 사용자 계정으로 직접 액세스 권한을 받거나 그룹 기반 라이선스 할당 기능을 사용하는 그룹을 통해 액세스 권한을 받습니다.
-- Microsoft 또는 타사에서 누구나 자유롭게 사용하도록 게시한 애플리케이션의 경우 사용자는 [사용자 동의](configure-user-consent.md)를 통해 액세스 권한을 부여받을 수 있습니다. 즉, 해당 Azure AD 회사 또는 학교 계정을 사용하여 애플리케이션에 로그인하고 해당 계정에 대한 일부 제한된 데이터 집합에 대한 액세스 권한을 가질 수 있습니다.
-- Microsoft 또는 타사에서 누구나 자유롭게 사용하도록 게시한 애플리케이션의 경우 사용자도 [관리자 동의](manage-consent-requests.md)를 통해 액세스 권한을 부여받을 수 있습니다. 즉, 관리자는 전역 관리자 계정 사용하여 애플리케이션에 로그인하고 조직의 모든 사용자에게 액세스 권한을 부여하도록 조직의 모든 사용자가 애플리케이션을 사용할 수 있게 결정했습니다.
+* Microsoft 365 또는 기타 유료 도구 모음에 있는 애플리케이션의 경우, 사용자는 **라이선스 할당** 을 통해 해당 사용자 계정으로 직접 액세스 권한을 받거나 그룹 기반 라이선스 할당 기능을 사용하는 그룹을 통해 액세스 권한을 받습니다.
+* Microsoft 또는 타사에서 누구나 자유롭게 사용하도록 게시한 애플리케이션의 경우 사용자는 [사용자 동의](configure-user-consent.md)를 통해 액세스 권한을 부여받을 수 있습니다. 즉, 해당 Azure AD 회사 또는 학교 계정을 사용하여 애플리케이션에 로그인하고 해당 계정에 대한 일부 제한된 데이터 집합에 대한 액세스 권한을 가질 수 있습니다.
+
+* Microsoft 또는 타사에서 누구나 자유롭게 사용하도록 게시한 애플리케이션의 경우 사용자도 [관리자 동의](manage-consent-requests.md)를 통해 액세스 권한을 부여받을 수 있습니다. 즉, 관리자는 전역 관리자 계정 사용하여 애플리케이션에 로그인하고 조직의 모든 사용자에게 액세스 권한을 부여하도록 조직의 모든 사용자가 애플리케이션을 사용할 수 있게 결정했습니다.
 
 일부 애플리케이션에서는 이러한 방법이 결합됩니다. 예를 들어 특정 Microsoft 애플리케이션은 Microsoft 365 구독의 일부지만 여전히 동의가 필요합니다.
 
-사용자는 Office 365 포털을 통해 Microsoft 365 애플리케이션에 액세스할 수 있습니다. 또한 사용자 디렉터리의 **사용자 설정** 에서 [Office 365 표시 토글](hide-application-from-user-portal.md)을 사용하여 내 앱에서 Microsoft 365 애플리케이션을 표시하거나 숨길 수 있습니다. 
+사용자는 Office 365 포털을 통해 Microsoft 365 애플리케이션에 액세스할 수 있습니다. 또한 사용자 디렉터리의 **사용자 설정** 에서 [Office 365 표시 토글](hide-application-from-user-portal.md)을 사용하여 내 앱에서 Microsoft 365 애플리케이션을 표시하거나 숨길 수 있습니다.
 
 엔터프라이즈 앱과 마찬가지로 Azure Portal을 통해(또는 포털 옵션을 사용할 수 없는 경우 PowerShell을 사용하여) 특정 Microsoft 애플리케이션에 [사용자를 할당](assign-user-or-group-access-portal.md)할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 * [조건부 액세스를 사용한 앱 보호](../conditional-access/concept-conditional-access-cloud-apps.md)
 * [셀프 서비스 그룹 관리/SSAA](../enterprise-users/groups-self-service-management.md)

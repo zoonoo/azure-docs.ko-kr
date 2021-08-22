@@ -5,18 +5,18 @@ description: SmartNoise 오픈 소스 라이브러리를 사용하여 차등 프
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, responsible-ml
+ms.topic: how-to
+ms.custom: responsible-ml
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
 ms.date: 01/21/2020
-ms.openlocfilehash: 62a002569696da4ef18e7bd967f027eb8247ef65
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58716b6a1d25c52447fc1bf277986787db08ca1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98681407"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528438"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Azure Machine Learning에서 차등 프라이버시 사용(미리 보기)
 
@@ -27,7 +27,7 @@ SmartNoise Python 오픈 소스 라이브러리를 사용하여 Azure Machine Le
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+- Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 - [Python 3](https://www.python.org/downloads/)
 
 ## <a name="install-smartnoise-python-libraries"></a>SmartNoise Python 라이브러리 설치
@@ -56,6 +56,8 @@ import opendp.smartnoise.sql
 SmartNoise 패키지를 Docker와 함께 사용할 수도 있습니다.
 
 Spark, Jupyter 및 샘플 코드를 포함하는 Docker 컨테이너 내의 라이브러리를 사용하려면 `opendp/smartnoise` 이미지를 끌어옵니다.
+
+[!INCLUDE [pull-image-include](../../includes/pull-image-include.md)]
 
 ```sh
 docker pull opendp/smartnoise:privacy

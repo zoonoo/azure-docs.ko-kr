@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mathoma
-ms.openlocfilehash: 35fff49a53f5a0a9532fd0dff841356c5deaf3ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52e9ba6dcf0a8f6f987206cac2881ada098a8bcc
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97724785"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635187"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>SQL Server 백업 및 복원에 Azure Storage 사용
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -50,7 +50,7 @@ SQL Server를 백업할 때 발생하는 몇 가지 해결 과제는 다음과 �
 
 | 구성 요소 | 설명 |
 | --- | --- |
-| **스토리지 계정** |스토리지 계정은 모든 스토리지 서비스를 사용하기 위한 출발점입니다. Azure Blob 스토리지에 액세스하려면 먼저 Azure Storage 계정을 만듭니다. Azure Blob 스토리지에 대한 자세한 내용은 [Azure Blob 스토리지를 사용하는 방법](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)을 참조하세요. |
+| **스토리지 계정** |스토리지 계정은 모든 스토리지 서비스를 사용하기 위한 출발점입니다. Azure Blob 스토리지에 액세스하려면 먼저 Azure Storage 계정을 만듭니다. SQL Server는 사용되는 스토리지 중복 유형에 독립적입니다. 페이지 Blob 및 블록 Blob에 대한 백업은 모든 스토리지 중복에 지원됩니다(LRS\ZRS\GRS\RA-GRS\RA-GZRS 등). Azure Blob 스토리지에 대한 자세한 내용은 [Azure Blob 스토리지를 사용하는 방법](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)을 참조하세요. |
 | **컨테이너** |컨테이너는 Blob 집합의 그룹화를 제공하며 Blob을 개수에 제한 없이 저장할 수 있습니다. SQL Server 백업을 Azure Blob 스토리지에 쓰려면 최소한 루트 컨테이너를 만들어야 합니다. |
 | **Blob** |모든 형식과 크기의 파일입니다. Blob은 `https://<storageaccount>.blob.core.windows.net/<container>/<blob>` URL 형식을 사용하여 주소를 지정할 수 있습니다. 페이지 Blob에 대한 자세한 내용은 [블록 및 페이지 Blob 이해](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs)를 참조하세요. |
 

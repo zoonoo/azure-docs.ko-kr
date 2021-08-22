@@ -3,14 +3,14 @@ title: HDInsight에서 Apache Hadoop 작업용 데이터 업로드
 description: HDInsight에서 Apache Hadoop 작업에 대한 데이터를 업로드 및 액세스하는 방법에 대해 알아봅니다. Azure Classic CLI, Azure Storage Explorer, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용합니다.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdiseo17may2017,seoapr2020
+ms.custom: hdiseo17may2017,seoapr2020, devx-track-azurecli
 ms.date: 04/27/2020
-ms.openlocfilehash: a8d21b88298b6092c869b89d48fe4c259c2365b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42197766873992bbce7c388be778a44d9e4c0d16
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98931348"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112538929"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Apache Hadoop 작업용 데이터 업로드
 

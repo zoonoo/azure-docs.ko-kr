@@ -1,27 +1,27 @@
 ---
 title: Azure SQL Database 업데이트 가능한 원장 테이블
 description: 이 문서에서는 Azure SQL Database의 업데이트 가능한 원장 테이블, 원장 스키마 및 원장 보기에 대한 정보를 제공합니다.
-ms.custom: ''
-ms.date: 05/25/2021
+ms.custom: references_regions
+ms.date: 07/23/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: 688bcf79acd64006f35f7d5c6909088f5448d31d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 4a84cb359a0840f593fd732339a4ef9f9f3588db
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080402"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114665514"
 ---
 # <a name="azure-sql-database-updatable-ledger-tables"></a>Azure SQL Database 업데이트 가능한 원장 테이블
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database 원장은 현재 공개 미리 보기로 제공되며 미국 중서부에서 사용할 수 있습니다.
+> Azure SQL Database 원장은 현재 퍼블릭 미리 보기로 제공되며 서유럽, 브라질 남부 및 미국 중서부에서 사용할 수 있습니다.
 
 업데이트 가능한 원장 테이블은 사용자가 변조 방지 기능을 제공하면서 업데이트 및 삭제를 수행할 수 있는 시스템 버전 테이블입니다. 업데이트 또는 삭제가 발생하면 행의 모든 이전 버전이 기록 테이블이라고 하는 보조 테이블에 유지됩니다. 기록 테이블은 업데이트 가능 원장 테이블의 스키마를 미러링합니다. 행이 업데이트되면 행의 최신 버전은 원장 테이블에 남아 있고, 이전 버전은 시스템에 의해 애플리케이션과 투명하게 기록 테이블에 삽입됩니다. 
 
@@ -33,7 +33,7 @@ ms.locfileid: "112080402"
 
 업데이트 가능한 원장 테이블이자 임시 테이블인 테이블을 만들면 두 가지 기술을 함께 사용할 수 있습니다. 업데이트 가능한 원장 테이블은 다음 두 가지 방법으로 만들 수 있습니다.
 
-- Azure Portal에서 새 데이터베이스를 만들 때 원장을 구성하는 동안 **이 데이터베이스의 모든 향후 테이블에서 원장 사용** 을 선택하거나[CREATE DATABASE(Transact-SQL)](/sql/t-sql/statements/create-database-transact-sql) 문에서 `LEDGER = ON` 인수를 지정합니다. 이렇게 하면 원장 데이터베이스가 만들어지고, 데이터베이스에 만들어지는 모든 향후 테이블은 기본적으로 업데이트 가능한 원장 테이블이 됩니다.
+- Azure Portal에서 새 데이터베이스를 만들 때 원장을 구성하는 동안 **이 데이터베이스의 모든 향후 테이블에서 원장 사용** 을 선택하거나 [CREATE DATABASE(Transact-SQL)](/sql/t-sql/statements/create-database-transact-sql) 문에서 `LEDGER = ON` 인수를 지정합니다. 이렇게 하면 원장 데이터베이스가 만들어지고, 데이터베이스에 만들어지는 모든 향후 테이블은 기본적으로 업데이트 가능한 원장 테이블이 됩니다.
 - 데이터베이스 수준에서 원장을 사용하지 않는 새 테이블을 데이터베이스에 만들 때 [CREATE TABLE(Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql) 문에서 `LEDGER = ON` 인수를 지정합니다.
 
 T-SQL 문에서 `LEDGER` 인수를 지정할 때 사용할 수 있는 옵션에 대한 내용은 [CREATE TABLE(Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql)을 참조하세요.

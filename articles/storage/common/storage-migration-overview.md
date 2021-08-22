@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/31/2021
 ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 2e54eb0ea8166b32dd4bcc794bfcf401d9196884
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1d0459e8ac0002f69ac0e4d33a921bd64fc385d5
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469248"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122537655"
 ---
 # <a name="azure-storage-migration-overview"></a>Azure Storage 마이그레이션 개요
 
@@ -125,4 +125,4 @@ ms.locfileid: "110469248"
 - [Azure 파일 공유로 마이그레이션](../files/storage-files-migration-overview.md)
 - [Azure용 WANdisco LiveData 플랫폼을 사용하여 Data Lake Storage로 마이그레이션](../blobs/migrate-gen2-wandisco-live-data-platform.md)
 - [AzCopy를 사용하여 Azure Storage로 데이터 복사 또는 이동](./storage-use-azcopy-v10.md)
-- [AzReplicate를 사용하여 Azure Blob Storage로 대량 데이터 세트 마이그레이션](https://github.com/Azure/AzReplicate/tree/master/)
+- [AzReplicate를 사용하여 Azure Blob Storage로 대량 데이터 세트 마이그레이션](/samples/azure/azreplicate/azreplicate/)

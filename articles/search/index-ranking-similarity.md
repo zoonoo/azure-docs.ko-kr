@@ -2,18 +2,17 @@
 title: 유사성 알고리즘 구성
 titleSuffix: Azure Cognitive Search
 description: 이전 검색 서비스에서 BM25를 사용하도록 설정하는 방법 및 인덱스 내용에 맞게 BM25 매개 변수를 수정하는 방법을 알아봅니다.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: puneet-hariharan-MSFT
+ms.author: puhariharan
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 52b3523d3c092f1b9375f53038cc3b20d0ddedcc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc046516b154ac1e3b7a1361e78e157902b6bff6
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103232837"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112968702"
 ---
 # <a name="configure-the-similarity-ranking-algorithm-in-azure-cognitive-search"></a>Azure Cognitive Search에서 유사성 순위 알고리즘 구성
 
@@ -78,7 +77,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 BM25 유사성은 계산된 관련성 점수를 제어하기 위해 두 개의 사용자 지정 가능 매개 변수를 추가합니다. 인덱스를 만드는 동안 BM25 매개 변수를 설정할 수 있으며, 또는 인덱스를 만드는 동안 BM25 알고리즘이 지정된 경우에는 인덱스 업데이트로 설정할 수 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 |----------|------|-------------|
 | k1 | number | 각 일치 조건의 용어 빈도와 문서 쿼리 쌍의 최종 관련성 점수 간에 크기 조정 함수를 제어합니다. 값은 일반적으로 0.0~3.0이며 기본값은 1.2입니다. </br></br>값 0.0은 "이진 모델"을 나타냅니다. 여기서 해당 용어가 텍스트에 나타나는 횟수에 관계없이 일치하는 모든 문서에 대해 일치하는 단일 용어의 기여도는 동일합니다. k1 값이 클수록 문서에서 동일한 용어의 인스턴스가 더 많이 발견됨에 따라 점수가 계속 증가합니다. </br></br>여러 용어가 검색 쿼리의 일부가 될 것으로 생각되는 경우 더 높은 k1 값을 사용하는 것이 중요할 수 있습니다. 이 경우에는 단일 검색어와 여러 번 일치하는 문서보다는 검색되는 여러 쿼리 용어와 일치하는 문서가 좋습니다. 예를 들어 "Apollo Spaceflight"라는 용어가 포함된 문서의 인덱스를 쿼리하는 경우 "Apollo"와 "Spaceflight"를 몇 번만 명시적으로 언급한 다른 문서와 비교할 때 "Spaceflight"를 언급하지 않고도 "Apollo"라는 용어가 포함된 그리스 신화에 대한 문서의 점수를 낮출 수 있습니다. |
 | b | number | 문서 길이가 관련성 점수에 미치는 영향을 제어합니다. 값은 0에서 1 사이이며 기본값은 0.75입니다. </br></br>0\.0 값은 문서 길이가 점수에 영향을 주지 않음을 의미하며, 1.0 값은 문서 길이로 관련성 점수에 대 한 용어 빈도의 영향을 정규화함을 의미합니다. </br></br>문서 길이의 용어 빈도를 정규화하는 것은 긴 문서를 penalize하는 경우에 유용합니다. 어떤 경우에는 짧은 문서보다 긴 문서(예: 완전한 소설)가 관련 없는 용어를 훨씬 많이 포함할 가능성이 높습니다. |

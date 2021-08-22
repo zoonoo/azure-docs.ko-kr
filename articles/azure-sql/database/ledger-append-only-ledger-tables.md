@@ -1,27 +1,27 @@
 ---
 title: Azure SQL Database 추가 전용 원장 테이블
 description: 이 문서에서는 Azure SQL Database의 추가 전용 원장 테이블 스키마 및 보기에 대한 정보를 제공합니다.
-ms.custom: ''
-ms.date: 05/25/2021
+ms.custom: references_regions
+ms.date: 07/23/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: bb8c1c933bda5a972209133fea301c1d87f6bd06
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: a23190552239af387fa2af362592347c0c46b900
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080204"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666735"
 ---
 # <a name="azure-sql-database-append-only-ledger-tables"></a>Azure SQL Database 추가 전용 원장 테이블
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database 원장은 현재 퍼블릭 미리 보기로 제공되며 미국 중서부에서 사용할 수 있습니다.
+> Azure SQL Database 원장은 현재 퍼블릭 미리 보기로 제공되며 서유럽, 브라질 남부 및 미국 중서부에서 사용할 수 있습니다.
 
 추가 전용 원장 테이블은 테이블 `INSERT` 작업만을 허용하여 데이터베이스 관리자와 같은 권한 있는 사용자가 기존 [데이터 조작 언어](/sql/t-sql/queries/queries)를 통해 데이터를 변조할 수 없도록 합니다. 추가 전용 원장 테이블은 보안 정보 이벤트 및 관리 시스템 또는 블록체인에서 데이터베이스로 데이터를 복제해야 하는 블록체인 시스템과 같이 레코드를 업데이트하거나 삭제하지 않는 시스템에 적합합니다. 추가 전용 테이블에 `UPDATE` 또는 `DELETE` 작업이 없기 때문에, [업데이트 가능한 원장 테이블](ledger-updatable-ledger-tables.md)이 있으므로 해당하는 기록 테이블이 필요하지 않습니다.
 

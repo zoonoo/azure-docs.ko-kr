@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 04/21/2021
+ms.date: 08/04/2021
 ms.author: phjensen
-ms.openlocfilehash: 86a670602f448f59decbc64d8a12278697c43596
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: eb41e1ebda2e5a14bc2987dded8948221ee93452
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107929852"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528403"
 ---
 # <a name="test-azure-application-consistent-snapshot-tool"></a>Azure Application Consistent Snapshot Tool 테스트
 
@@ -80,16 +80,6 @@ PASSED: Task#2/2 Storage test successful for Volume
 PASSED: Task#1/2 Storage test successful for Volume
 END   : Storage tests complete
 END   : Test process complete for 'storage'
-```
-
-> [!NOTE]
-> Azure Large Instance의 경우 `azacsnap -c test --test storage` 명령은 스토리지 생성 및 HLI SKU를 추정합니다.  그런 다음 이 정보를 기반으로 '부팅' 스냅샷 구성에 대한 참고 자료를 제공합니다(`Action:` 출력으로 시작하는 줄 참조).
-
-```output
-SID1   : Generation 4
-Storage: ams07-a700s-saphan-1-01v250-client25-nprod
-HLI SKU: S96
-Action : Configure the 'boot' snapshots on ALL the servers.
 ```
 
 ## <a name="next-steps"></a>다음 단계

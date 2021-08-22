@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/23/2021
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: ac9f81fbde33bdd10bc8374a566a4f2ba83fc253
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 63a902d57c8a3ec5d9876e0682674cdbea70a4cc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669009"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528291"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-the-azure-kubernetes-service"></a>Azure Kubernetes Service에서 Oracle WebLogic Server를 실행하는 솔루션에는 무엇이 있습니까?
 
@@ -30,7 +30,7 @@ WebLogic Server는 AKS에서 제대로 실행되도록 Oracle 및 Microsoft에 �
 WebLogic Server 클러스터는 WebLogic Kubernetes Operator(이하 단순히'Operator' 라고 칭함)를 통해 Kubernetes에서 실행되도록 완전히 활성화됩니다. 이 Operator는 표준 Kubernetes Operator 패턴을 따릅니다. 달리 수동 작업을 자동화하고 추가 운영 안정성 기능을 추가 하여 WebLogic 도메인의 관리 및 운영 그리고 Kubernetes에서의 배포를 간소화합니다. 이 Operator는 Oracle WebLogic Server 12c, Oracle Fusion 미들웨어 인프라 12c 이상을 지원합니다. 이 Operator로 WebLogic Server 12.2.1.3 및 12.2.1.4에 대한 공식 Docker 이미지를 테스트 했습니다. Operator에 대한 자세한 내용은 [Oracle의 공식 문서](https://oracle.github.io/weblogic-kubernetes-operator/)를 참조하세요.
 
 ## <a name="guidance-scripts-and-samples-for-wls-on-aks"></a>AKS의 WLS에 대한 참고 자료, 스크립트 및 샘플
-AKS의 WebLogic Server 인증 외에도 Oracle과 Microsoft는 AKS의 WebLogic Server를 실행하기 위한 자세한 지침, 스크립트 및 샘플을 공동으로 제공합니다. 이 참고 자료는 [Operator 문서](https://oracle.github.io/weblogic-kubernetes-operator/samples/simple/azure-kubernetes-service/)의 Azure Kubernetes Service 샘플 섹션에 통합되어 있습니다. 이 참고 자료는 최대한 쉽게 AKS 배포에 대한 프로덕션 WebLogic Server를 만들기 위한 것입니다. 이 참고 자료에서는 Oracle에서 제공하는 공식 WebLogic Server Docker 이미지를 사용합니다. 장애 조치(failover)는 Kubernetes Persistent Volume Claims을 통해 액세스하는 Azure Files을 통해 이루어집니다. Azure Load Balancer는 'LoadBalancer' 유형의 Kubernetes 서비스를 사용하여 프로비저닝할 때 지원됩니다. ACR (Azure Container Registry)은 사용자 지정 Docker 이미지 내에 WLS 도메인을 배포하는 데 지원됩니다. 이 참고 자료를 통해 높은 수준의 구성과 사용자 지정을 수행할 수 있습니다.
+AKS의 WebLogic Server 인증 외에도 Oracle과 Microsoft는 AKS의 WebLogic Server를 실행하기 위한 자세한 지침, 스크립트 및 샘플을 공동으로 제공합니다. 이 참고 자료는 [Operator 문서](https://oracle.github.io/weblogic-kubernetes-operator/)의 Azure Kubernetes Service 샘플 섹션에 통합되어 있습니다. 이 참고 자료는 최대한 쉽게 AKS 배포에 대한 프로덕션 WebLogic Server를 만들기 위한 것입니다. 이 참고 자료에서는 Oracle에서 제공하는 공식 WebLogic Server Docker 이미지를 사용합니다. 장애 조치(failover)는 Kubernetes Persistent Volume Claims을 통해 액세스하는 Azure Files을 통해 이루어집니다. Azure Load Balancer는 'LoadBalancer' 유형의 Kubernetes 서비스를 사용하여 프로비저닝할 때 지원됩니다. ACR (Azure Container Registry)은 사용자 지정 Docker 이미지 내에 WLS 도메인을 배포하는 데 지원됩니다. 이 참고 자료를 통해 높은 수준의 구성과 사용자 지정을 수행할 수 있습니다.
 
 :::image type="content" source="media/oracle-weblogic/wls-on-aks.gif" alt-text="샘플 스크립트를 사용하여 AKS에 WebLogic Server를 배포할 수 있습니다.":::
 
@@ -55,7 +55,7 @@ Azure Kubernetes Service에서 Oracle WebLogic Server를 실행하기 위한 솔
 Azure Kubernetes Service에서 Oracle WebLogic Server 실행을 탐색합니다.
 
 > [!div class="nextstepaction"]
-> [AKS에서 WLS 실행에 대한 참고 자료, 스크립트 및 샘플](https://oracle.github.io/weblogic-kubernetes-operator/samples/simple/azure-kubernetes-service/)
+> [AKS에서 WLS 실행에 대한 참고 자료, 스크립트 및 샘플](https://oracle.github.io/weblogic-kubernetes-operator/)
 
 > [!div class="nextstepaction"]
 > [WebLogic Kubernetes Operator](https://oracle.github.io/weblogic-kubernetes-operator/)

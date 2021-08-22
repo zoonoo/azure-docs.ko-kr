@@ -3,12 +3,12 @@ title: Azure DevTest Labs의 랩에 Git 리포지토리 추가 | Microsoft Docs
 description: Azure DevTest Labs에서 사용자 지정 아티팩트 원본용 GitHub 또는 Azure DevOps Services Git 리포지토리를 추가하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 225aae5e0a017b711f29a47829b06f8bb7a6a8ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2024c94c433559f067874fa852478a37e41eb53d
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85483145"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112539892"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>사용자 지정 아티팩트 및 Resource Manager 템플릿을 저장할 Git 리포지토리 추가
 
@@ -19,7 +19,7 @@ Microsoft는 그대로 배포하거나 랩에 맞게 사용자 지정할 수 있
 VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사용자 지정한 다음 나중에 추가 VM을 만들 수 있습니다. 사용자 지정 Resource Manager 템플릿을 저장할 프라이빗 리포지토리를 만들어야 합니다.  
 
 * GitHub 리포지토리를 만드는 방법을 알아보려면 [GitHub Bootcamp](https://help.github.com/categories/bootcamp/)를 참조하세요.
-* Git 리포지토리가 있는 Azure DevOps Services 프로젝트를 만드는 방법을 알아보려면 [Azure DevOps Services에 연결](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)을 참조하세요.
+* Git 리포지토리가 있는 Azure DevOps Services 프로젝트를 만드는 방법을 알아보려면 [Azure DevOps Services에 연결](https://azure.microsoft.com/services/devops/)을 참조하세요.
 
 다음 그림은 아티팩트가 잇는 리포지토리가 GitHub에서 어떻게 표시되는지 보여 주는 예입니다.  
 
@@ -43,7 +43,7 @@ VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사
 
 ### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Azure Repos 복제 URL 및 개인 액세스 토큰 가져오기
 
-1. 팀 컬렉션의 홈페이지(예: `https://contoso-web-team.visualstudio.com`)로 이동한 다음 프로젝트를 선택합니다.
+1. 팀 컬렉션의 홈 페이지(예: `https://contoso-web-team.visualstudio.com`)로 이동한 다음, 프로젝트를 선택합니다.
 2. 프로젝트 홈 페이지에서 선택 **코드** 합니다.
 3. 복제 URL을 보려면 프로젝트 **코드** 페이지에서 **복제** 를 선택합니다.
 4. URL을 저장합니다. URL은 나중에 사용합니다.

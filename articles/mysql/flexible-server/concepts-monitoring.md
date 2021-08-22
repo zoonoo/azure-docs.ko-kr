@@ -6,16 +6,18 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 660e87e0c09d1bf052b20f60276a30e572ab825b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 778c5e99c91cede0e67ee4250abeeb4b73e49965
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105110477"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642140"
 ---
 # <a name="monitor-azure-database-for-mysql-flexible-servers-with-built-in-metrics"></a>기본 제공 메트릭을 사용하여 Azure Database for MySQL 유연한 서버 모니터링
 
-> [!IMPORTANT] 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 Azure Database for MySQL 유연한 서버는 Azure Monitor를 통해 서버 모니터링을 제공합니다. 메트릭은 특정 시간에 서버 내 리소스의 일부 측면을 설명하는 숫자 값입니다. 서버 리소스를 모니터링하면 사용자에게 가장 중요한 것을 모니터링할 수 있도록 지원함으로써 워크로드의 문제를 해결하고 최적화하는 데 도움이 됩니다. 올바른 메트릭을 모니터링하면 서버 및 애플리케이션의 성능, 안정성 및 가용성을 유지하는 데 도움이 됩니다.

@@ -1,18 +1,20 @@
 ---
 title: SAP HANA에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 SAP HANA에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 04/22/2020
-ms.openlocfilehash: 366165b0087755532a1d0584d43d82d7c85af798
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: c06f9e375508af0ae3a8ae6bf819b6ec53a98636
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787152"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642299"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP HANA에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -61,7 +63,7 @@ SAP HANA 데이터베이스에서 지원되는 모든 싱크 데이터 저장소
 
 SAP HANA 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **SapHana** 로 설정해야 합니다. | 예 |
 | connectionString | **기본 인증** 또는 **Windows 인증** 을 사용하여 SAP HANA 연결에 필요한 정보를 지정합니다. 다음 샘플을 참조하세요.<br>연결 문자열에서 서버/포트는 필수(기본 포트는 30015)이고, 기본 인증을 사용하는 경우 사용자 이름 및 암호는 필수입니다. 추가 고급 설정은 [SAP HANA ODBC 연결 속성](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)을 참조하세요.<br/>Azure Key Vault에 암호를 넣고 연결 문자열에서 암호 구성을 끌어올 수도 있습니다. 자세한 내용은 [Azure Key Vault의 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
@@ -142,7 +144,7 @@ SAP HANA 연결된 서비스에 다음 속성이 지원됩니다.
 
 SAP HANA의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **SapHanaTable** 로 설정해야 합니다. | 예 |
 | 스키마 | SAP HANA 데이터베이스의 스키마 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -181,7 +183,7 @@ SAP HANA의 데이터를 복사하려는 경우 다음과 같은 속성이 지�
 
 SAP HANA에서 데이터를 복사하기 위해 복사 작업 **원본** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 활동 원본의 type 속성을 **SapHanaSource** 로 설정해야 합니다. | 예 |
 | Query | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | 예 |

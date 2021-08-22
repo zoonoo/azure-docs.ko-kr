@@ -6,15 +6,15 @@ author: ddematheu2
 manager: chrispalm
 services: azure-communication-services
 ms.author: dademath
-ms.date: 05/11/2021
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 4176bdf61cafdf50aef71e76b832a0e669f1535c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 86ef660c5d4b0f0132218df1df37c8934f27ec08
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110468807"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642216"
 ---
 # <a name="ui-library-overview"></a>UI 라이브러리 개요
 
@@ -53,8 +53,8 @@ npm i --save @azure/communication-react
 
 | 복합    | 사용 사례  | 
 | ------------ | ---------- |
-| [CallComposite](https://azure.github.io/communication-ui-library/?path=/docs/composites-callcomposite--basic-example) | 사용자가 통화를 시작하거나 참가할 수 있는 통화 환경입니다. 환경 내에서 사용자가 디바이스를 구성하고, 비디오를 사용하여 통화에 참여하고, 비디오를 켜는 참가자를 포함하여 다른 참가자를 볼 수 있습니다. Teams Interop의 경우 사용자가 잠깐 대기할 수 있는 기능이 포함되어 있습니다. |
-| [ChatComposite](https://azure.github.io/communication-ui-library/?path=/docs/composites-chatcomposite--basic-example)    | 사용자가 메시지를 보내고 받을 수 있는 채팅 환경입니다. 입력, 읽기, 들어오고 나가는 참가자와 같은 스레드 이벤트는 채팅 스레드의 일부로 사용자에게 표시됩니다.                                                                                                                          |
+| [CallComposite](https://azure.github.io/communication-ui-library/?path=/story/composites-call--basic-example) | 사용자가 통화를 시작하거나 참가할 수 있는 통화 환경입니다. 환경 내에서 사용자가 디바이스를 구성하고, 비디오를 사용하여 통화에 참여하고, 비디오를 켜는 참가자를 포함하여 다른 참가자를 볼 수 있습니다. Teams Interop의 경우 사용자가 잠깐 대기할 수 있는 기능이 포함되어 있습니다. |
+| [ChatComposite](https://azure.github.io/communication-ui-library/?path=/story/composites-chat--basic-example)    | 사용자가 메시지를 보내고 받을 수 있는 채팅 환경입니다. 입력, 읽기, 들어오고 나가는 참가자와 같은 스레드 이벤트는 채팅 스레드의 일부로 사용자에게 표시됩니다.                                                                                                                          |
 
 ## <a name="ui-component-overview"></a>UI 구성 요소 개요
 
@@ -63,17 +63,16 @@ UI 구성 요소는 사용자 지정을 지원하여 구성 요소에 적절한 
 
 | Area    | 구성 요소    | Description       |
 | ------- | ------------ | ----------------- |
-| 호출 | [그리드 레이아웃](https://azure.github.io/communication-ui-library/?path=/story/ui-components-gridlayout--grid-layout-component)                | 비디오 타일을 NxN 그리드로 구성하는 그리드 구성 요소                                            |
-|         | [비디오 타일](https://azure.github.io/communication-ui-library/?path=/story/ui-components-videotile--video-tile-component)                   | 사용 가능한 경우 비디오 스트리밍을 표시하는 구성 요소와 그렇지 않은 경우 기본 정적 구성 요소        |
-|         | [컨트롤 막대](https://azure.github.io/communication-ui-library/?path=/story/ui-components-controlbar--control-bar-component)                | 음소거 또는 공유 화면과 같은 특정 통화 작업에 연결하는 DefaultButtons를 구성하는 컨테이너 |
+| 호출 | [그리드 레이아웃](https://azure.github.io/communication-ui-library/?path=/story/ui-components-gridlayout--grid-layout)                | 비디오 타일을 NxN 그리드로 구성하는 그리드 구성 요소                                            |
+|         | [비디오 타일](https://azure.github.io/communication-ui-library/?path=/story/ui-components-videotile--video-tile)                   | 사용 가능한 경우 비디오 스트리밍을 표시하는 구성 요소와 그렇지 않은 경우 기본 정적 구성 요소        |
+|         | [컨트롤 막대](https://azure.github.io/communication-ui-library/?path=/story/ui-components-controlbar--control-bar)                | 음소거 또는 공유 화면과 같은 특정 통화 작업에 연결하는 DefaultButtons를 구성하는 컨테이너 |
 |         | [VideoGallery](https://azure.github.io/communication-ui-library/?path=/story/ui-components-video-gallery--video-gallery)                                           | 참가자가 추가되면 동적으로 변경되는 턴키 비디오 갤러리 구성 요소               |
-| 채팅    | [메시지 스레드](https://azure.github.io/communication-ui-library/?path=/story/ui-components-messagethread--message-thread-component)       | 채팅 메시지, 시스템 메시지 및 사용자 지정 메시지를 렌더링하는 컨테이너                          |
-|         | [보내기 상자](https://azure.github.io/communication-ui-library/?path=/story/ui-components-sendbox--send-box-component)                         | 불연속 송신 단추가 있는 텍스트 입력 구성 요소                                                   |
-|         | [메시지 상태 표시기](https://azure.github.io/communication-ui-library/?path=/story/ui-components-message-status-indicator--message-status-indicator)        | 보낸 메시지의 상태를 표시하는 다중 상태 읽기 수신 구성 요소                                   |
-|         | [입력 표시기](https://azure.github.io/communication-ui-library/?path=/story/ui-components-typingindicator--typing-indicator-component) | 스레드에 적극적으로 입력하는 참가자를 렌더링하는 텍스트 구성 요소                      |
-| 일반  | [참가자 항목](https://azure.github.io/communication-ui-library/?path=/story/ui-components-participantitem--participant-item-component) | 아바타와 표시 이름을 포함하여 통화 또는 채팅 참가자를 렌더링하기 위한 공통 구성 요소            |
-|         | [참가자 목록](https://azure.github.io/communication-ui-library/?path=/story/ui-components-participant-list--participant-list)                                 | 아바타 및 표시 이름을 포함하여 통화 또는 채팅 참가자 목록을 렌더링하는 공통 구성 요소       |
-
+| 채팅    | [메시지 스레드](https://azure.github.io/communication-ui-library/?path=/story/ui-components-messagethread--message-thread)       | 채팅 메시지, 시스템 메시지 및 사용자 지정 메시지를 렌더링하는 컨테이너                          |
+|         | [보내기 상자](https://azure.github.io/communication-ui-library/?path=/story/ui-components-sendbox--send-box)                         | 불연속 송신 단추가 있는 텍스트 입력 구성 요소                                                   |
+|         | [메시지 상태 표시기](https://azure.github.io/communication-ui-library/?path=/story/ui-components-messagestatusindicator--message-status-indicator)        | 보낸 메시지의 상태를 표시하는 다중 상태 읽기 수신 구성 요소                                   |
+|         | [입력 표시기](https://azure.github.io/communication-ui-library/?path=/story/ui-components-typingindicator--typing-indicator) | 스레드에 적극적으로 입력하는 참가자를 렌더링하는 텍스트 구성 요소                      |
+| 일반  | [참가자 항목](https://azure.github.io/communication-ui-library/?path=/story/ui-components-participantitem--participant-item) | 아바타와 표시 이름을 포함하여 통화 또는 채팅 참가자를 렌더링하기 위한 공통 구성 요소            |
+|         | [참가자 목록](https://azure.github.io/communication-ui-library/?path=/story/ui-components-participantlist--participant-list)                                 | 아바타 및 표시 이름을 포함하여 통화 또는 채팅 참가자 목록을 렌더링하는 공통 구성 요소       |
 
 ## <a name="what-ui-artifact-is-best-for-my-project"></a>내 프로젝트에 가장 적합한 UI 아티팩트
 

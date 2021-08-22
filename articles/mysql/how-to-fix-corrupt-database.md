@@ -6,15 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 21e4189e56f704129710da5b1d39613c4e1b1df5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9b79ba83613a854610eae8fee6392d6e12ef935
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91766888"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642163"
 ---
 # <a name="troubleshoot-database-corruption-in-azure-database-for-mysql"></a>Azure Database for MySQL의 데이터베이스 손상 문제 해결
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 데이터베이스가 손상되면 애플리케이션 가동 중지 시간이 발생할 수 있습니다. 데이터 손실을 방지하려면 제시간에 손상 문제를 해결하는 것도 중요합니다. 데이터베이스가 손상되면 서버 로그에 다음 오류가 표시됩니다. `InnoDB: Database page corruption on disk or a failed.`
 

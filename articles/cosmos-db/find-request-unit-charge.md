@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: f716245d93727a0447bd1c67924ce7577c70b503
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c11e6804b507fcaa838a83cf9eba102cbca381f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201290"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528339"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-sql-api"></a>Azure Cosmos DB SQL API에서 실행되는 작업에 대한 요청 단위 요금 찾기
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ Azure Cosmos DB는 SQL, MongoDB, Cassandra, Gremlin, Table 등의 많은 API를 
 
 모든 데이터베이스 작업 비용은 Azure Cosmos DB에서 정규화되고 RU(요청 단위)를 기준으로 표시됩니다. 요청 요금은 모든 데이터베이스 작업에서 사용되는 요청 단위입니다. RU는 Azure Cosmos DB에서 지원하는 데이터베이스 작업을 수행하는 데 필요한 CPU, IOPS, 메모리와 같은 시스템 리소스를 추상화하는 성능 통화로 생각할 수 있습니다. Azure Cosmos 컨테이너 조작에 사용하는 API에 상관없이 비용은 항상 RU로 측정됩니다. 데이터베이스 작업이 쓰기, 지점 읽기 또는 쿼리든 간에 비용은 항상 RU로 측정됩니다. 자세한 내용은 [요청 단위 및 고려 사항](request-units.md) 문서를 참조하세요.
 
-이 문서에서는 Azure Cosmos DB SQL API의 컨테이너에 대해 실행한 작업의 [RU(요청 단위)](request-units.md) 사용량을 알아보는 다양한 방법을 설명합니다. 다른 API를 사용하는 경우 초당 RU 요금은 [MongoDB용 API](find-request-unit-charge-mongodb.md), [Cassandra API](find-request-unit-charge-cassandra.md), [Gremlin API](find-request-unit-charge-gremlin.md), [Table API](find-request-unit-charge-table.md) 문서를 참조하세요.
+이 문서에서는 Azure Cosmos DB SQL API의 컨테이너에 대해 실행한 작업의 [RU(요청 단위)](request-units.md) 사용량을 알아보는 다양한 방법을 설명합니다. 다른 API를 사용하는 경우 초당 RU 요금은 [MongoDB용 API](mongodb/find-request-unit-charge-mongodb.md), [Cassandra API](cassandra/find-request-unit-charge-cassandra.md), [Gremlin API](find-request-unit-charge-gremlin.md), [Table API](table/find-request-unit-charge.md) 문서를 참조하세요.
 
 현재는 Azure Portal을 사용하거나 SDK 중 하나를 통해 Azure Cosmos DB로 다시 전송된 응답을 검사하는 방법으로만 이 사용량을 측정할 수 있습니다. SQL API를 사용하는 경우 Azure Cosmos 컨테이너에 대해 실행한 작업의 RU 사용량을 알아보는 여러 옵션이 있습니다.
 

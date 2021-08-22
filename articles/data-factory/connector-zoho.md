@@ -1,17 +1,20 @@
 ---
 title: Azure Data Factory를 사용하여 Zoho에서 데이터 복사(미리 보기)
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Zoho에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: jianleishen
-ms.openlocfilehash: 74409acd46c7036511b99f0508897fda1b82874b
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 8f2066c797966d8862e3397fd3091363bda2fab3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484202"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642285"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Zoho에서 데이터 복사(미리 보기)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -49,7 +52,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 |:--- |:--- |:--- |
 | type | type 속성은 **Zoho** 로 설정해야 합니다. | 예 |
 | connectionProperties | Zoho에 연결하는 방법을 정의하는 속성 그룹입니다. | 예 |
-| ***`connectionProperties`:*** | | |
+| ***`connectionProperties` 아래에서:*** | | |
 | 엔드포인트(endpoint) | Zoho 서버의 엔드포인트입니다(`crm.zoho.com/crm/private`). | 예 |
 | authenticationType | 허용되는 값은 `OAuth_2.0`와 `Access Token`입니다. | 예 |
 | clientId | Zoho 애플리케이션과 연결된 클라이언트 ID입니다. | 예(OAuth 2.0 인증의 경우) | 

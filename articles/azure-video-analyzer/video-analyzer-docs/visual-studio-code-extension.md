@@ -3,13 +3,13 @@ title: Azure Video Analyzer Visual Studio Code 확장 사용
 description: 이 참조 문서에서는 Azure Video Analyzer Visual Studio Code 확장에서 다양한 기능을 사용하는 방법을 설명합니다.
 ms.service: azure-video-analyzer
 ms.topic: reference
-ms.date: 05/01/2021
-ms.openlocfilehash: dde69a17ae5901aa3fecf1a4235d9537625d164a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: cec3b6549b854cf321390b7598d36b5a4b12378b
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388061"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604338"
 ---
 # <a name="use-azure-video-analyzer-visual-studio-code-extension"></a>Azure Video Analyzer Visual Studio Code 확장 사용
 

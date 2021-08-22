@@ -1,19 +1,21 @@
 ---
 title: Azure Blockchain Service 트랜잭션 노드 구성
 description: Azure Blockchain Service 트랜잭션 노드를 구성하는 방법
-ms.date: 11/20/2019
+ms.date: 05/11/2021
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 0b659fa9f15cd41e9e55de526747d470046cafa4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 436c7721bac29e8a18a333e385f12a70e0701ba5
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101091264"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122642102"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Azure Blockchain Service 트랜잭션 노드 구성
 
 트랜잭션 노드는 퍼블릭 엔드포인트를 통해 Azure Blockchain Service에 블록체인 트랜잭션을 보내는 데 사용됩니다. 기본 트랜잭션 노드에는 블록체인에 등록된 Ethereum 계정의 프라이빗 키가 포함되어 있으므로 삭제할 수 없습니다.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 기본 트랜잭션 노드 세부 정보를 보려면 다음을 수행합니다.
 
@@ -79,7 +81,7 @@ Azure AD 액세스 제어에 대한 자세한 내용은 [Azure Portal을 사용�
 
 Azure AD 인증을 사용하여 연결하는 방법에 대한 세부 정보는 [AAD 인증을 사용하여 노드에 연결](configure-aad.md)을 참조하세요.
 
-### <a name="basic-authentication"></a>Basic authentication
+### <a name="basic-authentication"></a>기본 인증
 
 HTTPS 기본 인증의 경우, 사용자 이름 및 암호 자격 증명은 요청의 HTTPS 헤더에서 엔드포인트로 전달됩니다.
 
@@ -99,7 +101,7 @@ URL을 사용하려면 \<password\>을 노드가 프로비저닝됐을 때 설�
 
 ### <a name="firewall-rules"></a>방화벽 규칙
 
-방화벽 규칙을 사용하면 트랜잭션 노드에 인증을 시도할 수 있는 IP 주소를 제한할 수 있습니다.  트랜잭션 노드에 대해 구성된 방화벽 규칙이 없는 경우 어떤 파티도 액세스할 수 없습니다.  
+방화벽 규칙을 사용하면 트랜잭션 노드에 인증을 시도할 수 있는 IP 주소를 제한할 수 있습니다.  트랜잭션 노드에 대해 구성된 방화벽 규칙이 없는 경우 어떤 파티도 액세스할 수 없습니다.
 
 트랜잭션 노드의 방화벽 규칙을 보려면 Azure Blockchain Service 구성원 트랜잭션 노드 중 하나로 이동하고 설정에서 **방화벽 규칙** 을 선택합니다.
 

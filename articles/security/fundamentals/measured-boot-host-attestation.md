@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/10/2020
-ms.openlocfilehash: f4906d4e0590df047bac4ee15cb0e996a59c3d5b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/24/2021
+ms.openlocfilehash: 6dac3b8230a0bad9c6492b236eac5dddc1839471
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96498866"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895781"
 ---
 # <a name="measured-boot-and-host-attestation"></a>계획 부팅 및 호스트 증명
 이 문서에서는 Microsoft가 계획 부팅과 호스트 증명을 통해 호스트의 무결성과 보안을 확인하는 방법을 설명합니다.
@@ -55,6 +55,7 @@ UEFI [보안 부팅](secure-boot.md)을 사용하면 부팅 시퀀스 중에 신
 플랫폼 무결성 및 보안을 추진하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 - [펌웨어 보안](firmware.md)
+- [플랫폼 코드 무결성](code-integrity.md)
 - [보안 부팅](secure-boot.md)
 - [프로젝트 Cerberus](project-cerberus.md)
 - [미사용 암호화](encryption-atrest.md)

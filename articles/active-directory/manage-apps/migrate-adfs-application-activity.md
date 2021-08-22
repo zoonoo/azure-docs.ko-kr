@@ -2,21 +2,22 @@
 title: 활동 보고서를 사용하여 AD FS 앱을 Azure Active Directory로 이동 | Microsoft Docs
 description: AD FS(Active Directory Federation Services) 애플리케이션 활동 보고서를 사용하면 AD FS에서 Azure AD(Azure Active Directory)로 신속하게 애플리케이션을 마이그레이션할 수 있습니다. AD FS에 대한 이 마이그레이션 도구는 Azure AD와의 호환성을 식별하고 마이그레이션 지침을 제공합니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/14/2019
-ms.author: mtillman
+ms.author: davidmu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5baf0ea07369ad8029c0f556ced16de1f2209dbc
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.reviewer: alamaral
+ms.openlocfilehash: 6b60479d1205acdd0d18311791adfc4924913c4e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079232"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528807"
 ---
 # <a name="use-the-ad-fs-application-activity-report-to-migrate-applications-to-azure-ad"></a>AD FS 애플리케이션 활동 보고서를 사용하여 애플리케이션을 Azure AD로 마이그레이션
 
@@ -36,15 +37,15 @@ Azure Portal의 AD FS 애플리케이션 활동 보고서를 사용하여 Azure 
 * 조직에서 애플리케이션에 액세스하려면 현재, AD FS를 사용해야 합니다.
 * Azure AD 테넌트에서 Azure AD Connect Health를 사용하도록 설정해야 합니다.
 * AD FS 에이전트에 대한 Azure AD Connect Health를 설치해야 합니다.
-   * [Azure AD Connect Health에 대한 자세한 정보](../hybrid/how-to-connect-health-adfs.md)
-   * [Azure AD Connect Health 설정 시작 및 AD FS 에이전트 설치](../hybrid/how-to-connect-health-agent-install.md)
+* [Azure AD Connect Health에 대한 자세한 정보](../hybrid/how-to-connect-health-adfs.md)
+* [Azure AD Connect Health 설정 시작 및 AD FS 에이전트 설치](../hybrid/how-to-connect-health-agent-install.md)
 
->[!IMPORTANT] 
+>[!IMPORTANT]
 >Azure AD Connect Health를 설치한 후에 예상되는 애플리케이션 중 일부만 표시되는 몇 가지 이유가 있습니다. AD FS 애플리케이션 활동 보고서는 지난 30일 동안 사용자 로그인이 있는 AD FS 신뢰 당사자만 보여 줍니다. 이 보고서에는 Office 365와 같은 Microsoft 관련 신뢰 당사자가 표시되지 않습니다.
 
-## <a name="discover-ad-fs-applications-that-can-be-migrated"></a>마이그레이션할 수 있는 AD FS 애플리케이션 검색 
+## <a name="discover-ad-fs-applications-that-can-be-migrated"></a>마이그레이션할 수 있는 AD FS 애플리케이션 검색
 
-AD FS 애플리케이션 작업 보고서는 Azure AD **사용량 & 인사이트** 보고의 Azure Portal에서 사용할 수 있습니다. AD FS 애플리케이션 활동 보고서는 각 AD FS 애플리케이션을 분석하여 있는 그대로 마이그레이션할 수 있는지 아니면 추가 검토가 필요한지를 결정합니다. 
+AD FS 애플리케이션 작업 보고서는 Azure AD **사용량 & 인사이트** 보고의 Azure Portal에서 사용할 수 있습니다. AD FS 애플리케이션 활동 보고서는 각 AD FS 애플리케이션을 분석하여 있는 그대로 마이그레이션할 수 있는지 아니면 추가 검토가 필요한지를 결정합니다.
 
 1. AD FS 애플리케이션 작업 데이터에 대한 액세스 권한이 있는 관리자 역할(전역 관리자, 보고서 읽기 권한자, 보안 읽기 권한자, 애플리케이션 관리자 또는 클라우드 애플리케이션 관리자)을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -62,7 +63,7 @@ AD FS 애플리케이션 작업 보고서는 Azure AD **사용량 & 인사이트
 
    * **추가 단계 필요** 는 Azure AD가 애플리케이션의 설정 중 일부를 지원하지 않으므로 현재 상태에서 애플리케이션을 마이그레이션할 수 없음을 의미합니다.
 
-## <a name="evaluate-the-readiness-of-an-application-for-migration"></a>애플리케이션의 마이그레이션 준비 상태 평가 
+## <a name="evaluate-the-readiness-of-an-application-for-migration"></a>애플리케이션의 마이그레이션 준비 상태 평가
 
 1. AD FS 애플리케이션 활동 목록에서 **마이그레이션 상태** 열의 상태를 클릭하여 마이그레이션 세부 정보를 엽니다. 잠재적인 마이그레이션 문제와 함께 전달된 구성 테스트에 대한 요약이 표시됩니다.
 
@@ -129,16 +130,12 @@ AD FS에서 애플리케이션에 대한 클레임 규칙을 구성한 경우 �
 ### <a name="cant-see-all-my-ad-fs-applications-in-the-report"></a>보고서에서 내 AD FS 애플리케이션을 일부만 볼 수 있음
 
  Azure AD Connect Health를 설치했지만 이를 설치하라는 메시지가 계속 표시되거나, 보고서에 AD FS 애플리케이션이 일부만 표시되는 경우 활성 AD FS 애플리케이션이 없거나 AD FS 애플리케이션이 Microsoft 애플리케이션일 수 있습니다.
- 
+
  AD FS 애플리케이션 활동 보고서에는 지난 30일 동안 활성 사용자 로그인이 있는 조직 내 모든 AD FS 애플리케이션이 나열됩니다. 이 보고서에는 Office 365와 같은 AD FS의 Microsoft 관련 신뢰 당사자가 표시되지 않습니다. 예를 들어, 이름이 'urn:federation:MicrosoftOnline', 'microsoftonline', 'microsoft:winhello:cert:prov:server'인 신뢰 당사자가 목록에 표시되지 않습니다.
-
-
-
-
 
 ## <a name="next-steps"></a>다음 단계
 
-- [비디오: AD FS 활동 보고서를 사용하여 애플리케이션을 마이그레이션하는 방법](https://www.youtube.com/watch?v=OThlTA239lU)
-- [Azure Active Directory로 애플리케이션 관리](what-is-application-management.md)
-- [앱에 대한 액세스 관리](what-is-access-management.md)
-- [Azure AD Connect 페더레이션](../hybrid/how-to-connect-fed-whatis.md)
+* [비디오: AD FS 활동 보고서를 사용하여 애플리케이션을 마이그레이션하는 방법](https://www.youtube.com/watch?v=OThlTA239lU)
+* [Azure Active Directory로 애플리케이션 관리](what-is-application-management.md)
+* [앱에 대한 액세스 관리](what-is-access-management.md)
+* [Azure AD Connect 페더레이션](../hybrid/how-to-connect-fed-whatis.md)

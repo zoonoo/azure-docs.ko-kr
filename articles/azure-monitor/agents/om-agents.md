@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
-ms.openlocfilehash: 99a8e331e265e686d1de06f8143d2345e51143f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f5085bbb39aef007c0bda840240fc3c064f8e6a
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102613003"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690816"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
@@ -108,7 +108,7 @@ Log Analytics 작업 영역에 Operations Manager 관리 그룹을 처음으로 
 
 1. 관리자 권한 명령 프롬프트를 엽니다.
    a. **시작** 으로 이동하여 **cmd** 를 입력합니다.
-   b. **명령 프롬프트** 를 마우스 오른쪽 단추로 클릭하고 관리자 권한으로 실행**을 선택합니다.
+   b. **명령 프롬프트** 를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행** 을 선택합니다.
 1. 다음 명령을 입력하고 **Enter** 키를 누릅니다.
 
     `netsh winhttp set proxy <proxy>:<port>`

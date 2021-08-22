@@ -9,12 +9,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/15/2021
 ms.author: apimpm
-ms.openlocfilehash: e4f9f3822b58886f7d453d52402b078d8401133f
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 6ef07743b7def1c49744185f153d13bb24719652
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107738885"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667918"
 ---
 # <a name="migrate-to-the-new-developer-portal"></a>새 개발자 포털로 마이그레이션
 
@@ -53,7 +53,7 @@ ms.locfileid: "107738885"
 - 명시적으로 정의된 사용되지 않는 포털 URL을 포함하도록 기본 메일 알림 템플릿을 변경한 경우 포털 URL 매개 변수를 사용하거나 새 포털 URL을 가리키도록 변경합니다. 템플릿에서 기본 제공 포털 URL 매개 변수를 대신 사용하는 경우에는 변경이 필요하지 않습니다.
 - 새 개발자 포털에서는 *문제* 및 *애플리케이션* 이 지원되지 않습니다.
 - 새 개발자 포털에서는 ID 공급자로 Facebook, Microsoft, Twitter 및 Google과의 직접 통합을 지원하지 않습니다. Azure AD B2C를 통해 이러한 공급자와 통합할 수 있습니다.
-- 위임을 사용하는 경우 애플리케이션에서 반환 URL을 변경하고 *SSO URL 생성* 엔드포인트 대신 [ *공유 액세스 토큰 가져오기* API 엔드포인트](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken)를 사용합니다.
+- 위임을 사용하는 경우 애플리케이션에서 반환 URL을 변경하고 *SSO URL 생성* 엔드포인트 대신 [ *공유 액세스 토큰 가져오기* API 엔드포인트](/rest/api/apimanagement/2020-12-01/user/get-shared-access-token)를 사용합니다.
 - Azure AD를 ID 공급자로 사용하는 경우:
 
     - 새 개발자 포털 도메인을 가리키도록 애플리케이션의 반환 URL을 변경합니다.

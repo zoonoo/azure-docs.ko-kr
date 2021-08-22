@@ -12,16 +12,16 @@ ms.reviewer: larryfr
 ms.date: 01/26/2021
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 2874878c8b03b6cf63c2a5214a0de68000d51569
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 401b565d69797bc4880729dd5f5c4af3e0012f6f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885635"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528712"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Azure Data Factory로 데이터 수집
 
-이 문서에서는 [Azure Data Factory](../data-factory/introduction.md)를 사용하여 데이터 수집 파이프라인을 빌드하는 데 사용할 수 있는 옵션에 대해 알아봅니다. 이 Azure Data Factory 파이프라인은 [Azure Machine Learning](overview-what-is-azure-ml.md)에 사용할 데이터를 수집하는 데 사용됩니다. Data Factory를 사용하면 (ETL) 데이터를 손쉽게 추출, 변환 및 로드할 수 있습니다. 데이터가 변환되어 스토리지에 로드되면 Azure Machine Learning에서 기계 학습 모델을 학습시키는 데 사용할 수 있습니다.
+이 문서에서는 [Azure Data Factory](../data-factory/introduction.md)를 사용하여 데이터 수집 파이프라인을 빌드하는 데 사용할 수 있는 옵션에 대해 알아봅니다. 이 Azure Data Factory 파이프라인은 [Azure Machine Learning](overview-what-is-azure-machine-learning.md)에 사용할 데이터를 수집하는 데 사용됩니다. Data Factory를 사용하면 (ETL) 데이터를 손쉽게 추출, 변환 및 로드할 수 있습니다. 데이터가 변환되어 스토리지에 로드되면 Azure Machine Learning에서 기계 학습 모델을 학습시키는 데 사용할 수 있습니다.
 
 간단한 데이터 변환은 [데이터 흐름](../data-factory/control-flow-execute-data-flow-activity.md)과 같은 기본 Data Factory 활동 및 계측으로 처리할 수 있습니다. 더욱 복잡한 시나리오에서는 일부 사용자 지정 코드로 데이터를 처리할 수 있습니다. 예를 들어 Python 또는 R 코드를 사용할 수 있습니다.
 

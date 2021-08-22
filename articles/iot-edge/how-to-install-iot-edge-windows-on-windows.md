@@ -2,7 +2,6 @@
 title: Windows용 Azure IoT Edge 설치 | Microsoft Docs
 description: Windows 디바이스에 Windows 컨테이너용 Azure IoT Edge 설치
 author: kgremban
-manager: philmea
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: kgremban
 monikerRange: iotedge-2018-06
-ms.openlocfilehash: bb87d09b67658f9a3d7c68f635bfcd9a29de675c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 676bd23dce7ca79f3640bdfa8f9b55e427390e91
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201642"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528092"
 ---
 # <a name="install-and-manage-azure-iot-edge-with-windows-containers"></a>Windows 컨테이너를 사용하여 Azure IoT Edge를 설치하고 관리합니다.
 
@@ -91,7 +90,7 @@ Azure IoT Edge는 [Moby](https://github.com/moby/moby)와 같은 OCI 호환 컨�
 
 이 시점에서 IoT Edge 런타임은 Windows 디바이스에 설치되며, 클라우드 ID 및 인증 정보를 사용하여 디바이스를 프로비저닝해야 합니다.
 
-이 섹션에서는 대칭 키 인증을 사용하여 디바이스를 프로비저닝하는 단계를 안내합니다. IoT Hub에 디바이스를 등록하고 디바이스 정보에서 연결 문자열을 검색해야 합니다. 그러지 않는 경우 [IoT Hub에서 IoT Edge 디바이스 등록](how-to-register-device.md) 단계를 따릅니다.
+이 섹션에서는 대칭 키 인증을 사용하여 디바이스를 프로비저닝하는 단계를 안내합니다. IoT Hub에 디바이스를 등록했고 디바이스 정보에서 연결 문자열 검색을 완료한 상태여야 합니다. 그러지 않는 경우 [IoT Hub에서 IoT Edge 디바이스 등록](how-to-register-device.md) 단계를 따릅니다.
 
 1. IoT Edge 디바이스에서 관리자 권한으로 PowerShell을 실행합니다.
 
@@ -124,7 +123,7 @@ Azure IoT Edge는 [Moby](https://github.com/moby/moby)와 같은 OCI 호환 컨�
 
 이 시점에서 IoT Edge 런타임은 Windows 디바이스에 설치되며, 클라우드 ID 및 인증 정보를 사용하여 디바이스를 프로비저닝해야 합니다.
 
-이 섹션에서는 X.509 인증서 인증을 사용하여 디바이스를 프로비저닝하는 단계를 안내합니다. 디바이스를 IoT Hub에 등록하여 IoT Edge 디바이스에 있는 인증서 및 프라이빗 키와 일치하는 지문을 제공했습니다. 그러지 않는 경우 [IoT Hub에서 IoT Edge 디바이스 등록](how-to-register-device.md) 단계를 따릅니다.
+이 섹션에서는 X.509 인증서 인증을 사용하여 디바이스를 프로비저닝하는 단계를 안내합니다. 디바이스를 IoT Hub에 등록했고 IoT Edge 디바이스에 있는 인증서 및 프라이빗 키와 일치하는 지문의 제공을 완료한 상태여야 합니다. 그러지 않는 경우 [IoT Hub에서 IoT Edge 디바이스 등록](how-to-register-device.md) 단계를 따릅니다.
 
 1. IoT Edge 디바이스에서 관리자 권한으로 PowerShell을 실행합니다.
 
@@ -158,7 +157,7 @@ Azure IoT Edge는 [Moby](https://github.com/moby/moby)와 같은 OCI 호환 컨�
 
 ## <a name="offline-or-specific-version-installation-optional"></a>오프라인 설치 또는 특정 버전 설치(선택 사항)
 
-이 섹션의 단계는 표준 설치 단계에서 다루지 않는 시나리오에 대한 것입니다. 다음을 포함할 수 있습니다.
+이 섹션의 단계는 표준 설치 단계에서 다루지 않는 시나리오를 위한 단계입니다. 다음을 포함할 수 있습니다.
 
 * 오프라인 상태에서 IoT Edge 설치
 * 릴리스 후보 버전 설치

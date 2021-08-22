@@ -2,14 +2,14 @@
 title: Azure Relay Node API 개요 | Microsoft Docs
 description: 이 문서에서는 Azure Relay 서비스의 Node.js API에 대한 개요를 제공합니다. 또한 hyco-ws 노드 패키지를 사용하는 방법을 보여 줍니다.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 06/23/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 558f49c09203192ff4cbb1af392eaeef8d705c94
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec3f95b8a4cfc10132d22017daa58e59072d535a
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91263490"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668753"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Relay 하이브리드 연결 Node API 개요
 

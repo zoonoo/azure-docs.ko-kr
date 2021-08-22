@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2020
 ms.author: yelevin
-ms.openlocfilehash: d5140bcd85606213f00185d4ba1f50dbe70dba63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c4482f788014aec45f7c2e2ca9c4820bd80bb33
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94655497"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528642"
 ---
 # <a name="connect-alerts-from-microsoft-defender-for-office-365"></a>Office 365용 Microsoft Defender에서 경고 연결 
 
@@ -31,6 +31,8 @@ ms.locfileid: "94655497"
 >
 > - Microsoft Defender for Office 365 경고의 수집은 현재 퍼블릭 미리 보기로 제공됩니다. 해당 기능은 별도의 서비스 수준 계약 없이 제공되며, 프로덕션 작업에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
  
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 [Microsoft Defender for Office 365](/office365/servicedescriptions/office-365-advanced-threat-protection-service-description)는 메일 메시지, 악성 URL 링크 및 협업 도구에서 알 수 없는 맬웨어로 인해 발생하는 제로 데이 및 기타 고급 위협으로부터 조직을 보호합니다. Microsoft Defender for Office 365 경고를 Azure Sentinel에 수집하여 보안 작업에서 메일, 파일 공유 및 URL 기반 위협에 대한 정보를 활용할 수 있습니다. 그런 후에 조직 전체에서 보안 이벤트를 보다 포괄적으로 분석하고, 유효하고 즉각적인 응답을 위해 플레이북을 빌드할 수 있습니다.
 
 커넥터는 다음 경고를 가져옵니다.
@@ -76,5 +78,5 @@ Microsoft Defender for Office 365가 배포되고 정책이 구성된 경우 경
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Microsoft Defender for Office 365를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](./tutorial-detect-threats-built-in.md)을 시작합니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](./detect-threats-built-in.md)을 시작합니다.

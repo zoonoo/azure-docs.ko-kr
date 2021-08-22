@@ -4,16 +4,16 @@ description: 이 문서에서는 REST API를 사용하여 백업 정책(일정 �
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: e4e6f5b5cf28c3830a91a494ea60680eee1546f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d874f9a75673d45a8f22f6c1523a4b77bdb9641
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89179609"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438070"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>REST API를 사용하여 Azure Recovery Services 백업 정책 만들기
 
-Azure Recovery Services 자격 증명 모음에 대한 백업 정책을 만드는 단계는 [백업 정책 REST API 문서](/rest/api/backup/protectionpolicies/createorupdate)에 간략하게 설명돼 있습니다. 이 문서를 참조로 사용하여 Azure VM 백업 정책을 만들어 봅시다.
+Azure Recovery Services 자격 증명 모음에 대한 백업 정책을 만드는 단계는 [백업 정책 REST API 문서](/rest/api/backup/protection-policies/create-or-update)에 간략하게 설명돼 있습니다. 이 문서를 참조로 사용하여 Azure VM 백업 정책을 만들어 봅시다.
 
 ## <a name="create-or-update-a-policy"></a>정책 만들기 또는 업데이트
 
@@ -31,10 +31,10 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 
 |이름  |필수  |Type  |설명  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 속성        |
+|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protection-policies/create-or-update#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 속성        |
 |tags     |         | Object        |  리소스 태그       |
 
-요청 본문의 전체 정의 목록은 [백업 정책 REST API 문서](/rest/api/backup/protectionpolicies/createorupdate)를 참조하세요.
+요청 본문의 전체 정의 목록은 [백업 정책 REST API 문서](/rest/api/backup/protection-policies/create-or-update)를 참조하세요.
 
 ### <a name="example-request-body"></a>요청 본문 예제
 
@@ -139,7 +139,7 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 
 |이름  |유형  |설명  |
 |---------|---------|---------|
-|200 정상     |    [보호 PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  정상       |
+|200 정상     |    [보호 PolicyResource](/rest/api/backup/protection-policies/create-or-update#protectionpolicyresource)     |  정상       |
 |202 수락됨     |         |     수락됨    |
 
 ### <a name="example-responses"></a>예제 응답

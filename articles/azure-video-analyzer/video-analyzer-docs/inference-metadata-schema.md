@@ -2,13 +2,13 @@
 title: 유추 메타데이터 스키마 - Azure
 description: Azure Video Analyzer에서 각 유추 개체는 HTTP 기반 계약 또는 gRPC 기반 계약 사용에 관계없이 이 항목에 설명된 개체 모델을 따릅니다.
 ms.topic: reference
-ms.date: 04/11/2021
-ms.openlocfilehash: 4400978fca931741a1a12531d7923b82a5ead3e5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: bacf69638b3b9f9b8feb86030b1a8498eb69260a
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388162"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601528"
 ---
 # <a name="inference-metadata-schema"></a>유추 메타데이터 스키마 
 

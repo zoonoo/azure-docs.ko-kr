@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1f3fb07eaf7f63d15232f4c94eeee45f43c81616
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: fcde9659f71dc1fb834b21feefdf02bea2739a74
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075139"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "122642090"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 Single Sign-On 세션 관리
 
@@ -55,7 +55,7 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 
 ### <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
 
-이름이 지정하는 대로 이 공급자는 아무 작업도 수행하지 않습니다. 특정 기술 프로필에 대한 SSO 동작을 무시하기 위해 이 공급자를 사용할 수 있습니다. 다음 `SM-Noop` 기술 프로필은 [사용자 지정 정책 스타터 팩](custom-policy-get-started.md#custom-policy-starter-pack)에 포함되어 있습니다.
+이름이 지정하는 대로 이 공급자는 아무 작업도 수행하지 않습니다. 특정 기술 프로필에 대한 SSO 동작을 무시하기 위해 이 공급자를 사용할 수 있습니다. 다음 `SM-Noop` 기술 프로필은 [사용자 지정 정책 스타터 팩](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack)에 포함되어 있습니다.
 
 ```xml
 <TechnicalProfile Id="SM-Noop">
@@ -66,7 +66,7 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 
 ### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
-세션에서 클레임을 저장하는 데 이 공급자를 사용할 수 있습니다. 이 공급자는 로컬 계정 및 페더레이션 계정을 관리하기 위해 사용되는 기술 프로필에서 일반적으로 참조됩니다. 다음 `SM-AAD` 기술 프로필은 [사용자 지정 정책 스타터 팩](custom-policy-get-started.md#custom-policy-starter-pack)에 포함되어 있습니다.
+세션에서 클레임을 저장하는 데 이 공급자를 사용할 수 있습니다. 이 공급자는 로컬 계정 및 페더레이션 계정을 관리하기 위해 사용되는 기술 프로필에서 일반적으로 참조됩니다. 다음 `SM-AAD` 기술 프로필은 [사용자 지정 정책 스타터 팩](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack)에 포함되어 있습니다.
 
 ```xml
 <TechnicalProfile Id="SM-AAD">
@@ -87,7 +87,7 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 ```
 
 
-다음 `SM-MFA` 기술 프로필은 [사용자 지정 정책 스타터 팩](custom-policy-get-started.md#custom-policy-starter-pack)`SocialAndLocalAccountsWithMfa`에 포함되어 있습니다. 이 기술 프로필은 다단계 인증 세션을 관리합니다.
+다음 `SM-MFA` 기술 프로필은 [사용자 지정 정책 스타터 팩](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack)`SocialAndLocalAccountsWithMfa`에 포함되어 있습니다. 이 기술 프로필은 다단계 인증 세션을 관리합니다.
 
 ```xml
 <TechnicalProfile Id="SM-MFA">
@@ -104,7 +104,7 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 
 ### <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 
-이 공급자는 "ID 공급자 선택" 화면을 표시하지 않고 페더레이션 ID 공급자에서 로그아웃하는 데 사용됩니다. 일반적으로 Facebook 또는 Azure Active Directory 등의 페더레이션 ID 공급자를 위해 구성된 기술 프로필에서 참조됩니다. 다음 `SM-SocialLogin` 기술 프로필은 [사용자 지정 정책 스타터 팩](custom-policy-get-started.md#custom-policy-starter-pack)에 포함되어 있습니다.
+이 공급자는 "ID 공급자 선택" 화면을 표시하지 않고 페더레이션 ID 공급자에서 로그아웃하는 데 사용됩니다. 일반적으로 Facebook 또는 Azure Active Directory 등의 페더레이션 ID 공급자를 위해 구성된 기술 프로필에서 참조됩니다. 다음 `SM-SocialLogin` 기술 프로필은 [사용자 지정 정책 스타터 팩](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack)에 포함되어 있습니다.
 
 ```xml
 <TechnicalProfile Id="SM-SocialLogin">

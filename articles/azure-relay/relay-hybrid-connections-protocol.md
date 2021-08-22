@@ -2,13 +2,13 @@
 title: Azure 릴레이 하이브리드 연결 프로토콜 가이드 | Microsoft Docs
 description: 이 문서에서는 수신기 또는 발신기 역할의 클라이언트와 연결하기 위해 Hybrid 연결 릴레이를 통한 클라이언트 측 상호 작용을 설명합니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 95eb6a66ac7580f115c85ddb258768b9eef62321
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 06/23/2021
+ms.openlocfilehash: fb87a2deb40455befccdd1d7ae4b0b54010b1af3
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107314221"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668736"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure 릴레이 하이브리드 연결 프로토콜
 
@@ -371,7 +371,7 @@ FEFEFEFEFEFEFEFEFEFEF...
 
 오류가 없으면 서비스는 다음과 같이 회신할 수 있습니다.
 
-| 코드 | 오류           | Description
+| 코드 | 오류           | 설명
 | ---- | --------------- | -----------------------------------
 | 400  | 잘못된 요청 | 동작을 인식할 수 없거나 URL이 유효하지 않습니다.
 | 403  | 사용할 수 없음       | URL이 만료되었습니다.
@@ -423,7 +423,7 @@ _namespace-address_ 는 하이브리드 연결을 호스팅하는 Azure 릴레�
 
 쿼리 문자열 매개 변수 옵션은 다음과 같습니다.
 
-| 매개 변수          | 필수 여부 | Description
+| 매개 변수          | 필수 여부 | 설명
 | -------------- | --------- | -------------------------- |
 | `sb-hc-action` | 예       | 발신자 역할의 경우 매개 변수는 `sb-hc-action=connect`여야 합니다.
 | `{path}`       | 예       | (다음 단락 참조)

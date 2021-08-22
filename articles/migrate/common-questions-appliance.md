@@ -1,17 +1,17 @@
 ---
 title: Azure Migrate 어플라이언스 FAQ
 description: Azure Migrate 어플라이언스에 대한 일반적인 질문에 대한 답변입니다.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: 059a1888b529487f2b0d17509370897222a20d83
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a814cce09a134f007fbd136b8c142a60fb099a1b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563024"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528552"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 어플라이언스: 일반적인 질문
 
@@ -39,8 +39,8 @@ Azure Migrate 어플라이언스에 대한 자세한 내용은 다음을 참조�
 어플라이언스는 다음과 같은 몇 가지 방법을 사용하여 배포할 수 있습니다.
 
 - VMware 또는 Hyper-V 환경([VMware용 OVA 템플릿](how-to-set-up-appliance-vmware.md) 또는 [Hyper-V용 VHD](how-to-set-up-appliance-hyper-v.md))에서 실행되는 서버용 템플릿을 사용하여 이 어플라이언스를 배포할 수 있습니다.
-- 템플릿을 사용하지 않으려면 [PowerShell 설치 관리자 스크립트](deploy-appliance-script.md)를 사용하여 VMware 또는 Hyper-V용 어플라이언스 환경을 배포할 수 있습니다.
-- Azure Government에서는 PowerShell 설치 관리자 스크립트를 사용하여 어플라이언스를 배포해야 합니다. [여기](deploy-appliance-script-government.md)에서 배포 단계를 참조하세요.
+- 템플릿을 사용하지 않으려면 [PowerShell 설치 프로그램 스크립트](deploy-appliance-script.md)를 사용하여 VMware 또는 Hyper-V용 어플라이언스 환경을 배포할 수 있습니다.
+- Microsoft Azure Government에서는 PowerShell 설치 프로그램 스크립트를 사용하여 어플라이언스를 배포해야 합니다. [여기](deploy-appliance-script-government.md)에서 배포 단계를 참조하세요.
 - 온-프레미스 또는 다른 클라우드의 물리적 또는 가상화된 서버에 대해서는 항상 PowerShell 설치 관리자 스크립트를 사용하여 어플라이언스를 배포합니다. [여기](how-to-set-up-appliance-physical.md)에서 배포 단계를 참조하세요.
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>어플라이언스는 Azure에 어떻게 연결되나요?
@@ -50,7 +50,6 @@ Azure Migrate 어플라이언스에 대한 자세한 내용은 다음을 참조�
 - 어플라이언스에서 이러한 [Azure URL](./migrate-appliance.md#url-access)에 연결할 수 있는지 확인합니다. 
 - Microsoft 피어링에서 ExpressRoute를 사용할 수 있습니다. 퍼블릭 피어링은 사용되지 않으며, 새 ExpressRoute 회로에 사용할 수 없습니다.
 - 프라이빗 피어링만 지원되지 않습니다.
-
 
 ## <a name="does-appliance-analysis-affect-performance"></a>어플라이언스 분석이 성능에 영향을 미치나요?
 
@@ -142,7 +141,7 @@ VMware 환경에서 최대 1만 대의 서버, Hyper-V 환경에서 최대 5,000
 
 ## <a name="how-do-i-update-the-appliance"></a>어플라이언스를 업데이트하려면 어떻게 하나요?
 
-기본적으로 어플라이언스와 설치된 에이전트가 자동으로 업데이트됩니다. 어플라이언스는 24시간마다 업데이트를 확인합니다. 실패한 업데이트를 다시 시도합니다. 
+기본적으로 어플라이언스와 설치된 에이전트가 자동으로 업데이트됩니다. 어플라이언스는 24시간마다 업데이트를 확인합니다. 실패한 업데이트를 다시 시도합니다.
 
 이러한 자동 업데이트는 어플라이언스 및 어플라이언스 에이전트만 업데이트합니다. 운영 체제는 Azure Migrate 자동 업데이트를 통해 업데이트되지 않습니다. Windows 업데이트를 사용하여 운영 체제를 최신 상태로 유지합니다.
 
@@ -155,14 +154,15 @@ VMware 환경에서 최대 1만 대의 서버, Hyper-V 환경에서 최대 5,000
 예, 이제 소프트웨어 인벤토리(설치된 애플리케이션 검색), 에이전트 없는 종속성 분석 및 SQL Server 인스턴스/데이터베이스의 검색을 수행하기 위해 여러 서버 자격 증명 검색을 지원합니다. 어플라이언스 구성 관리자에서 자격 증명을 제공하는 방법에 대해 [자세히 알아봅니다](tutorial-discover-vmware.md#provide-server-credentials).
 
 ## <a name="what-type-of-server-credentials-can-i-add-on-the-vmware-appliance"></a>VMware 어플라이언스에서 어떤 유형의 서버 자격 증명을 추가할 수 있나요?
+
 어플라이언스 구성 관리자에서 도메인/Windows(비도메인)/Linux(비도메인)/SQL Server 인증 자격 증명을 제공할 수 있습니다. 자격 증명을 제공하는 방법과 처리하는 방법에 대해 [자세히 알아보세요](add-server-credentials.md).
 
 ## <a name="what-type-of-sql-server-connection-properties-are-supported-by-azure-migrate-for-sql-discovery"></a>SQL 검색을 위해 Azure Migrate에서 어떤 유형의 SQL Server 연결 속성 유형이 지원되나요?
+
 Azure Migrate는 Azure Migrate 어플라이언스와 원본 SQL Server 인스턴스 간의 통신을 암호화합니다(암호화 연결 속성이 TRUE로 설정됨). 이러한 연결은 [TrustServerCertificate](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate)로 암호화됩니다(TRUE로 설정됨). 전송 계층에서는 SSL을 사용하여 채널을 암호화하고 인증서 체인을 무시하여 신뢰의 유효성을 확인합니다. 어플라이언스 서버는 [인증서의 루트 인증 기관을 신뢰](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)하도록 설정되어야 합니다.
 
 서버에 인증서가 구성되어 있지 않으면 시작할 때 SQL Server에서 로그인 패킷 암호화에 사용되는 자체 서명된 인증서를 생성합니다. [자세히 알아보기](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
-
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Migrate 개요](migrate-services-overview.md)를 읽어보세요.
+[Azure Migrate 개요](migrate-services-overview.md)를 참조하세요.

@@ -6,22 +6,26 @@ ms.author: nlarin
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: c8251eb2a89a7481ebc981f2b89668c363651b39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a4ff27243643a5c0fbb833a05a07e9e117196a6f
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91315017"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642131"
 ---
 # <a name="manage-scheduled-maintenance-settings-for-azure-database-for-mysql--flexible-server"></a>Azure Database for MySQL에 대한 예약된 유지 관리 설정 관리 – 유연한 서버
- 
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 Azure 구독에서 각 유연한 서버에 대한 유지 관리 옵션을 지정할 수 있습니다. 옵션에는 예정된 유지 관리 이벤트와 완료된 유지 관리 이벤트에 대한 유지 관리 일정 및 알림 설정이 포함됩니다.
 
 > [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버는 미리 보기로 제공됩니다.
- 
+
 ## <a name="prerequisites"></a>필수 조건
+
 이 방법 가이드를 완료하려면 다음이 필요합니다.
+
 - [Azure Database for MySQL - 유연한 서버](quickstart-create-server-portal.md)
  
 ## <a name="specify-maintenance-schedule-options"></a>유지 관리 일정 옵션 지정

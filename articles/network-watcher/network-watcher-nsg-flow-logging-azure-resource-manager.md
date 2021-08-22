@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: 6aab2d1d681cbfd55cc275b1f647562d54a08f0c
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: aebcf680fec069fdb28114ef8a1a0f6fd8547e63
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110791334"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112458581"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿에서 NSG 흐름 로그 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "110791334"
 > - [Azure 리소스 관리자](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
-[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)는 [인프라를 코드로 관리](/azure/devops/learn/what-is-infrastructure-as-code)하는 Azure의 기본적이고 강력한 방법입니다.
+[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)는 [인프라를 코드로 관리](/devops/deliver/what-is-infrastructure-as-code)하는 Azure의 기본적이고 강력한 방법입니다.
 
 이 문서에서는 Azure Resource Manager 템플릿 및 Azure PowerShell을 사용하여 [NSG 흐름 로그](./network-watcher-nsg-flow-logging-overview.md)를 프로그래밍 방식으로 사용하도록 설정하는 방법을 보여 줍니다. 먼저 NSG 흐름 로그 개체의 속성에 대한 개요를 제공하고 몇 가지 샘플 템플릿을 제공합니다. 그런 다음 로컬 PowerShell 인스턴스를 사용하여 템플릿을 배포합니다.
 

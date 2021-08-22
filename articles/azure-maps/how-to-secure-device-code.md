@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3833cbfd0802f334e482203d269984eb0e299797
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 50e3ce1ef83c33900895e6aa3e5fc925b2004d7d
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92895633"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110791351"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Azure AD 및 Azure Maps REST API를 사용하여 입력 제한 디바이스 보호
 
@@ -41,11 +41,11 @@ Azure AD에서 디바이스 기반 애플리케이션을 만들어 Azure AD 로�
     > ![이름 및 리디렉션 URI의 앱 등록 세부 정보 추가](./media/azure-maps-authentication/devicecode-app-registration.png)
 
 3. **인증** 으로 이동하고 **애플리케이션을 퍼블릭 클라이언트로 처리** 를 사용하도록 설정합니다. 그러면 Azure AD에서 디바이스 코드 인증이 사용됩니다.
-    
+
     > [!div class="mx-imgBorder"]
     > ![앱 등록을 퍼블릭 클라이언트로 사용](./media/azure-maps-authentication/devicecode-public-client.png)
 
-4.  위임된 API 권한을 Azure Maps에 할당하려면 애플리케이션으로 이동합니다. 그런 다음, **API 권한** > **권한 추가** 를 선택합니다. **내 조직에서 사용하는 API** 에서 **Azure Maps** 를 검색하고 선택합니다.
+4. 위임된 API 권한을 Azure Maps에 할당하려면 애플리케이션으로 이동합니다. 그런 다음, **API 권한** > **권한 추가** 를 선택합니다. **내 조직에서 사용하는 API** 에서 **Azure Maps** 를 검색하고 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![앱 API 권한 추가](./media/how-to-manage-authentication/app-permissions.png)
@@ -59,22 +59,25 @@ Azure AD에서 디바이스 기반 애플리케이션을 만들어 Azure AD 로�
 
 7. 애플리케이션에서 토큰 흐름을 획득하기 위한 코드를 추가합니다. 구현 세부 정보는 [디바이스 코드 흐름](../active-directory/develop/scenario-desktop-acquire-token.md#device-code-flow)을 참조하세요. 토큰을 획득할 때 이전 단계에서 선택한 범위인 `user_impersonation`을 참조합니다.
 
-> [!Tip]
-> MSAL(Microsoft 인증 라이브러리)을 사용하여 액세스 토큰을 획득합니다. [웹 API를 호출하는 데스크톱 앱: 코드 구성](../active-directory/develop/scenario-desktop-app-configuration.md)의 권장 사항을 참조하세요.
+    > [!Tip]
+    > MSAL(Microsoft 인증 라이브러리)을 사용하여 액세스 토큰을 획득합니다.
+    > [웹 API를 호출하는 데스크톱 앱: 코드 구성](../active-directory/develop/scenario-desktop-app-configuration.md)의 권장 사항을 참조하세요.
 
 8. Azure AD에서 획득한 토큰을 사용하여 HTTP 요청을 작성하고 유효한 HTTP 클라이언트를 사용하여 전송된 요청을 보냅니다.
 
 ### <a name="sample-request"></a>샘플 요청
+
 다음은 중심점과 반경을 사용하여 원 기하 도형으로 표시된 단순 지오펜스를 업로드하기 위한 샘플 요청 본문입니다.
 
 ```http
-POST /mapData/upload?api-version=1.0&dataFormat=geojson
-Host: atlas.microsoft.com
+POST /mapData?api-version=2.0&dataFormat=geojson
+Host: us.atlas.microsoft.com
 x-ms-client-id: 30d7cc….9f55
 Authorization: Bearer eyJ0e….HNIVN
 ```
 
  아래 샘플 요청 본문은 GeoJSON에 있습니다.
+
 ```json
 {
     "type": "FeatureCollection",
@@ -92,23 +95,13 @@ Authorization: Bearer eyJ0e….HNIVN
 }
 ```
 
-### <a name="sample-response"></a>샘플 응답:
+### <a name="sample-response-header"></a>응답 헤더 샘플
 
-Headers:
 ```http
-Location: https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0
-Access-Control-Expose-Headers: Location
+Operation-Location: https://us.atlas.microsoft.com/mapData/operations/{udid}?api-version=2.0
+Access-Control-Expose-Headers: Operation-Location
 ```
 
-본문:
-```json
-{
-  "operationId": "{operationId}",
-  "status": "Succeeded",
-  "created": "2020-01-02 1:02:03 AM +00:00",
-  "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{resourceId}?api-version=1.0"
-}
-```
 
 [!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 

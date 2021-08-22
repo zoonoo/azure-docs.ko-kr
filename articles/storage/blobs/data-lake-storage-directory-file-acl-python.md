@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
-ms.openlocfilehash: a143c0aa19241b532cabff95fe6bf85679e4007c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a2db4734650f4af2f0ed67040c7f94eeda5f7c69
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652295"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453105"
 ---
 # <a name="use-python-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Python을 사용하여 Azure Data Lake Storage Gen2에서 디렉터리 및 파일 관리
 
@@ -28,7 +28,7 @@ ms.locfileid: "100652295"
 
 - Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-- 계층 구조 네임스페이스가 사용하도록 설정된 스토리지 계정입니다. 만들려면 [다음 지침](create-data-lake-storage-account.md)을 수행합니다.
+- 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정입니다. 만들려면 [다음 지침](create-data-lake-storage-account.md)을 수행합니다.
 
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
@@ -94,7 +94,7 @@ from azure.storage.filedatalake._models import ContentSettings
 
 **DataLakeDirectoryClient.rename_directory** 메서드를 호출하여 디렉터리 이름을 바꾸거나 이동합니다. 원하는 디렉터리의 경로를 매개 변수로 전달합니다. 
 
-이 예제에서는 한 하위 디렉터리를 `my-subdirectory-renamed`라는 이름으로 바꿉니다.
+이 예제에서는 한 하위 디렉터리를 `my-directory-renamed`라는 이름으로 바꿉니다.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_RenameDirectory":::
 

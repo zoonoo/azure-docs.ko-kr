@@ -8,12 +8,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 04/22/2021
 ms.author: yelevin
-ms.openlocfilehash: f1ef860f1b84de84c42996a7523af8ce174d5981
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 96068491bd4be59c34d62375db30edad504823a9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890801"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528305"
 ---
 # <a name="connect-azure-kubernetes-service-diagnostics-logs"></a>Azure Kubernetes Service 진단 로그에 연결
 
@@ -21,9 +21,11 @@ AKS(Azure Kubernetes Service)는 클러스터 환경에서 Docker 컨테이너 �
 
 이 커넥터를 통해 Azure Kubernetes Service (AKS) 진단 로그를 Azure Sentinel로 스트리밍할 수 있으므로 모든 인스턴스에서 작업을 지속적으로 모니터링할 수 있습니다. 
 
-[Azure Kubernetes Service 모니터링](../azure-monitor/containers/container-insights-overview.md) 및 [AKS 진단 원격 분석](../aks/view-control-plane-logs.md)에 대해 자세히 알아보세요.
+[Azure Kubernetes Service 모니터링](../azure-monitor/containers/container-insights-overview.md) 및 [AKS 진단 원격 분석](../aks/monitor-aks-reference.md#resource-logs)에 대해 자세히 알아보세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 AKS 로그를 Azure Sentinel에 수집하기:
 
@@ -61,5 +63,5 @@ AKS 로그를 Azure Sentinel에 수집하기:
 
 이 문서에서는 Azure Policy를 사용하여 Azure Kubernetes Service를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [데이터에 대한 가시성을 얻고 잠재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
+- [데이터 및 잠재적 위협에 대한 가시성을 확보](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.

@@ -1,17 +1,20 @@
 ---
 title: Azure Data Factory를 사용하여 OData 원본에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 OData 원본에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: 91d1206bcaf80d054c6adde1ee5a23456083b97b
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: bab8c4b27103ad1cd8ca057942add558d907d73f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109485192"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642401"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 OData 원본에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -50,7 +53,7 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 
 OData 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **형식** 속성은 **OData** 로 설정해야 합니다. |예 |
 | url | OData 서비스의 루트 URL입니다. |예 |
@@ -226,7 +229,7 @@ OData 연결된 서비스에 다음 속성이 지원됩니다.
 
 OData에서 데이터를 복사하려면 데이터 세트의 **type** 속성을 **ODataResource** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **ODataResource** 로 설정해야 합니다. | 예 |
 | 경로 | OData 리소스에 대한 경로입니다. | 예 |
@@ -262,7 +265,7 @@ OData에서 데이터를 복사하려면 데이터 세트의 **type** 속성을 
 
 OData에서 데이터를 복사하기 위해 복사 작업의 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 source 섹션의 **type** 속성은 **ODataSource** 로 설정해야 합니다. | 예 |
 | Query | 데이터 필터링에 대한 OData 쿼리 옵션입니다. 예: `"$select=Name,Description&$top=5"`.<br/><br/>**참고**: OData 커넥터가 결합된 URL(`[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`)에서 데이터를 복사합니다. 자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 예 |
@@ -357,7 +360,7 @@ Project Online에서 데이터를 복사하려면 OData 커넥터와 Postman과 
     - **인증 형식**: **Anonymous** 를 선택합니다.
     - **인증 헤더**:
         - **속성 이름**: **Authorization** 을 선택합니다.
-        - **값**: 1 단계에서 복사한 **액세스 토큰** 을 입력합니다.
+        - **값**: `Bearer <access token from step 1>`를 입력합니다.
     - 연결된 서비스 테스트
 
     ![OData 연결된 서비스 만들기](./media/connector-odata/odata-project-online-linked-service.png)

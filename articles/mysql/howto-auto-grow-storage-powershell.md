@@ -7,14 +7,16 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e8c9f6f66e484fbd9ebe5c15934936d6e5c59073
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc55f6454d969ad101c91bb93eb278d106582dfa
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94542034"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642155"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-server-using-powershell"></a>PowerShell을 사용하여 Azure Database for MySQL 서버의 스토리지 자동 증가
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 이 문서에서는 워크로드에 영향을 주지 않고 확장되도록 Azure Database for MySQL 서버 스토리지를 구성할 수 있는 방법을 설명합니다.
 
@@ -23,7 +25,7 @@ ms.locfileid: "94542034"
 > [!IMPORTANT]
 > 스토리지는 스케일 다운이 아닌 스케일 업만 가능합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
@@ -44,7 +46,7 @@ PowerShell을 로컬로 사용하도록 선택한 경우 [Connect-AzAccount](/po
 Update-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -StorageAutogrow Enabled
 ```
 
-다음 명령을 사용하여 새 서버를 만드는 동안 서버 자동 증가 스토리지를 사용하도록 설정합니다.
+다음 명령을 사용하여 새 서버를 만드는 동안 서버의 스토리지 자동 증가를 사용하도록 설정합니다.
 
 ```azurepowershell-interactive
 $Password = Read-Host -Prompt 'Please enter your password' -AsSecureString

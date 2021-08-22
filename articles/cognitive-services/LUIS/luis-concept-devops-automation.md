@@ -8,12 +8,12 @@ ms.date: 06/01/2021
 ms.author: aahi
 author: aahill
 ms.manager: nitinme
-ms.openlocfilehash: 550af8bda0768738dc2162a0dc0bf767d1c54741
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 7079c1ee309db9563142c54eea88ccd4ba6f6e28
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110783033"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463642"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>LUIS DevOps에 대한 지속적인 통합 및 지속적인 전송
 
@@ -30,9 +30,9 @@ SCM(소스 코드 관리) 시스템에서 자동화된 빌드 파이프라인을
 
 **CI/CD 워크플로** 는 다음과 같은 두 가지 보완 개발 프로세스를 결합합니다.
 
-* [CI(연속 통합](/azure/devops/learn/what-is-continuous-integration))는 공유 리포지토리의 코드를 자주 커밋하고 이에 대해 자동화된 빌드를 수행하는 엔지니어링 방법입니다. 자동화된 [테스트](luis-concept-devops-testing.md) 접근 방식과 연결된 연속 통합을 사용하면 각 업데이트에 대해 LUDown 소스가 여전히 유효하고 LUIS 앱으로 가져올 수 있음을 확인할 수 있지만 학습된 앱이 솔루션에 필요한 의도 및 엔터티를 인식할 수 있는지 확인하는 테스트 그룹을 전달하는 것도 확인할 수 있습니다.
+* [CI(연속 통합](/devops/develop/what-is-continuous-integration))는 공유 리포지토리의 코드를 자주 커밋하고 이에 대해 자동화된 빌드를 수행하는 엔지니어링 방법입니다. 자동화된 [테스트](luis-concept-devops-testing.md) 접근 방식과 연결된 연속 통합을 사용하면 각 업데이트에 대해 LUDown 소스가 여전히 유효하고 LUIS 앱으로 가져올 수 있음을 확인할 수 있지만 학습된 앱이 솔루션에 필요한 의도 및 엔터티를 인식할 수 있는지 확인하는 테스트 그룹을 전달하는 것도 확인할 수 있습니다.
 
-* [CD(지속적인 업데이트](/azure/devops/learn/what-is-continuous-delivery))는 더 자세한 테스트를 수행할 수 있는 환경에 애플리케이션을 자동으로 배포하기 위해 연속 통합 개념을 추가로 사용합니다. CD를 통해 가능한 한 빨리 변경에서 발생하는 예측 불가능한 문제를 조기에 확인하고, 테스트 검사의 간격에 대해 확인할 수 있습니다.
+* [CD(지속적인 업데이트](/devops/deliver/what-is-continuous-delivery))는 더 자세한 테스트를 수행할 수 있는 환경에 애플리케이션을 자동으로 배포하기 위해 연속 통합 개념을 추가로 사용합니다. CD를 통해 가능한 한 빨리 변경에서 발생하는 예측 불가능한 문제를 조기에 확인하고, 테스트 검사의 간격에 대해 확인할 수 있습니다.
 
 연속 통합 및 지속적인 업데이트의 목표는 "기본은 언제나 제공 가능함"을 보장하는 것입니다. LUIS 앱의 경우, 이는 필요한 경우 기본 분기 LUIS 앱에서 모든 버전을 가져와 프로덕션 환경에 제공하는 것을 의미합니다.
 

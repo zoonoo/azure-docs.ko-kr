@@ -7,14 +7,16 @@ ms.topic: how-to
 author: mksuni
 ms.author: sumuth
 ms.date: 09/22/2020
-ms.openlocfilehash: 0414aaad5a1cf6edb9c2152eed70f8753946cca1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: def4794d091155cbf10a854d304d4390659626bf
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92546435"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642164"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-mysql--single-server"></a>Azure Database for MySQL - 단일 서버 연결 및 쿼리 개요
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 다음 문서에는 Azure Database for MySQL 단일 서버로 연결하고 쿼리하는 방법을 알려주는 예제 링크가 포함되어 있습니다. 이 가이드에는 아래에서 지원되는 언어의 서버에 연결하는 데 쓸 수 있는 TLS 권장 사항과 라이브러리도 포함되어 있습니다.
 

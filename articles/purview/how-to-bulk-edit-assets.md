@@ -3,16 +3,16 @@ title: 태그 분류, 용어집 용어, 연락처 수정에 대한 자산을 대
 description: Azure Purview에서 자산을 대량 편집하는 방법에 대해 알아봅니다.
 author: nayenama
 ms.author: nayenama
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 4dc1af590a1965c155a7af7b233b431f982a73d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cebef52882135d569465f299ab71efcffb931eda
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105024237"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471249"
 ---
 # <a name="how-to-bulk-edit-assets-to-annotate-classifications-glossary-terms-and-modify-contacts"></a>자산을 대량 편집하여 분류에 주석을 달고 용어집 용어를 수정하고 연락처를 수정하는 방법
 

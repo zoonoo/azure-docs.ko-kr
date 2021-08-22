@@ -8,14 +8,16 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1d5fc2b14a655251e59a9209e078b0534f08baf9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f1ab084667f073f7cd43dd986ff4cb8b3f039c75
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763238"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642150"
 ---
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Azure CLI를 사용하여 느린 쿼리 로그 구성 및 액세스
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MySQL 느린 쿼리 로그를 다운로드할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -25,8 +27,8 @@ Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MyS
 
 ## <a name="configure-logging"></a>로깅 구성
 다음 단계를 수행하여 MySQL 느린 쿼리 로그에 액세스하도록 서버를 구성할 수 있습니다.
-1. **slow\_query\_log** 매개 변수를 켜기로 설정하여 느린 쿼리 로깅을 사용합니다.
-2. **log\_output** 을 사용하여 로그를 출력할 위치를 선택합니다. 로컬 스토리지 및 Azure Monitor 진단 로그 모두에 로그를 전송하려면 **파일** 을 선택합니다. 로그를 Azure Monitor 로그에만 보내려면 **없음** 을 선택합니다.
+1. **slow\_query\_log** 매개 변수를 켜기로 설정하여 느린 쿼리 로깅을 켭니다.
+2. **log\_output** 을 사용하여 로그를 출력할 위치를 선택합니다. 로컬 스토리지 및 Azure Monitor 진단 로그 모두에 로그를 전송하려면 **파일** 을 선택합니다. 로그를 Azure Monitor 로그에만 전송하려면 **없음** 을 선택합니다.
 3. **long\_query\_time** 및 **log\_slow\_admin\_statements** 와 같은 다른 매개 변수를 조정합니다.
 
 Azure CLI를 통해 이러한 매개 변수 값을 설정하는 방법을 알아보려면 [서버 매개 변수를 구성하는 방법](howto-configure-server-parameters-using-cli.md)을 참조하세요.

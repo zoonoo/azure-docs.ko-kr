@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 API 서버에 액세스할 수 
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: c28514490b77917f16ae4687a62d3a8963d57537
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: cf65fcfe297cfbff60490b165771095e6d3b402a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111887405"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528603"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 권한 있는 IP 주소 범위를 사용하는 안전한 API 서버 액세스
 
@@ -137,7 +137,7 @@ az aks update \
 az aks show \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --query apiServerAccessProfile.authorizedIpRanges'
+    --query apiServerAccessProfile.authorizedIpRanges
 ```
 
 ## <a name="update-disable-and-find-authorized-ip-ranges-using-azure-portal"></a>Azure Portal을 사용하여 권한 있는 IP 범위 업데이트, 사용 해제, 찾기
@@ -161,7 +161,7 @@ CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 ```
 
->> [!NOTE]
+> [!NOTE]
 > 위의 예는 클러스터에 API 서버 권한이 있는 IP 범위를 추가합니다. 권한 있는 IP 범위를 사용하지 않도록 설정하려면 az aks update를 사용하고 빈 범위 “”를 지정합니다. 
 
 또 다른 옵션은 Windows 시스템에서 아래 명령을 사용하여 공용 IPv4 주소를 가져오는 것입니다. 또는 [IP 주소 찾기](https://support.microsoft.com/en-gb/help/4026518/windows-10-find-your-ip-address)의 단계를 따를 수 있습니다.
@@ -180,7 +180,7 @@ Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
 
 <!-- LINKS - external -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[dev-spaces-ranges]: ../dev-spaces/index.yml#aks-cluster-network-requirements
+[dev-spaces-ranges]: /previous-versions/azure/dev-spaces/#aks-cluster-network-requirements
 [kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - internal -->

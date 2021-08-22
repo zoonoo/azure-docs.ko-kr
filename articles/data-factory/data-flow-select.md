@@ -1,18 +1,20 @@
 ---
 title: 매핑 데이터 흐름의 선택 변환
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 매핑 데이터 흐름 선택 변환
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 06/02/2020
-ms.openlocfilehash: 2d8c4d1915e22ccabf193f1b34c5fc4797ead549
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 073299ee4c42ec43f71b16ecaa6499cd7c16f55f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93040240"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642278"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 선택 변환
 

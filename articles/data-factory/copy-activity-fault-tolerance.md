@@ -1,17 +1,20 @@
 ---
 title: Azure Data Factory의 복사 작업 내결함성
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 복사 중에 호환되지 않는 데이터를 건너뛰어 Azure Data Factory 복사 작업에 내결함성을 추가하는 방법을 알아봅니다.
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: cb3a7b66d27fcf7669d3d2f863f104a46387e90f
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 55d8c089bd73a3e85666208ed6edc13c654c24bb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902486"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642531"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업 내결함성
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]

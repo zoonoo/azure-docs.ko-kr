@@ -6,12 +6,12 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 58ddf60a842a9583eae25a875f55227cee772a8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bae05ac9f7b8287cf7e66a0c1a0e634e8d541489
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100582530"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112678789"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Azure에서 App Service 계획 관리
 
@@ -63,7 +63,7 @@ ms.locfileid: "100582530"
    > [!IMPORTANT]
    > 상위 계층 계획에서 하위 계층 계획으로 앱을 이동하는 경우(예: **D1** 에서 **F1** 로) 앱은 대상 계획의 특정 기능을 잃을 수 있습니다. 예를 들어, 앱에서 TLS/SSL 인증서를 사용하는 경우 다음 오류 메시지가 표시될 수 있습니다.
    >
-   > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
+   > `Cannot update the site with hostname '<app_name>' because its current TLS/SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed TLS/SSL configuration is 'Disabled'.`
 
 5. 작업을 마쳤으면 **확인** 을 선택합니다.
    

@@ -4,15 +4,16 @@ description: Azure Data Factory의 매핑 데이터 흐름 개요
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 05/20/2021
-ms.openlocfilehash: ef0639637736b0a8b4f41d6fd038de81a8e94a69
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8e10ede945f60ee693738ab7230a2c50b5bcb972
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110454963"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642418"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory의 매핑 데이터 흐름
 
@@ -32,11 +33,11 @@ ms.locfileid: "110454963"
 
 이 작업을 수행하면 변환 논리를 만들 수 있는 데이터 흐름 캔버스로 이동합니다. **원본 추가** 를 선택하여 원본 변환 구성을 시작합니다. 자세한 내용은 [원본 변환](data-flow-source.md)을 참조하세요.
 
-## <a name="authoring-data-flows&quot;></a>작성 데이터 흐름
+## <a name="authoring-data-flows"></a>작성 데이터 흐름
 
 매핑 데이터 흐름에는 변환 논리를 쉽게 빌드할 수 있도록 디자인된 고유한 제작 캔버스가 있습니다. 데이터 흐름 캔버스는 위쪽 막대, 그래프, 구성 패널의 세 부분으로 구분됩니다. 
 
-![위쪽 막대, 그래프, 구성 패널이 있는 데이터 흐름 캔버스를 보여 주는 스크린샷](media/data-flow/canvas-1.png &quot;캔버스")
+![위쪽 막대, 그래프, 구성 패널이 있는 데이터 흐름 캔버스를 보여 주는 스크린샷](media/data-flow/canvas-1.png "캔버스")
 
 ### <a name="graph"></a>그래프
 

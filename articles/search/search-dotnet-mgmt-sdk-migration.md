@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 8648347eb48081389cf360fa949b31bbd0b8c71e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 59e3c756fbd7d7d0a7d4bd8f7dca2ff64c8a7a0f
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88936710"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113000269"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Azure Search .NET Management SDK의 버전 업그레이드
 
@@ -27,7 +27,7 @@ Management SDK는 특정 버전의 Management REST API를 대상으로 합니다
 | SDK 버전 | 해당 REST API 버전 | 기능 추가 또는 동작 변경 |
 |-------------|--------------------------------|-------------------------------------|
 | [3.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | api-version=2020-30-20 | 엔드포인트 보안(IP 방화벽 및 [Azure Private Link](../private-link/private-endpoint-overview.md)와 통합)이 추가되었습니다. |
-| [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | api-version=2019-10-01 | 유용성이 개선되었습니다. [쿼리 키 나열](/rest/api/searchmanagement/querykeys/listbysearchservice) 에 호환성이 손상되는 변경이 적용되었습니다(GET이 중단됨). |
+| [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | api-version=2019-10-01 | 유용성이 개선되었습니다. [쿼리 키 나열](/rest/api/searchmanagement/2021-04-01-preview/query-keys/list-by-search-service) 에 호환성이 손상되는 변경이 적용되었습니다(GET이 중단됨). |
 | [1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/1.0.1) | api-version=2015-08-19  | 첫 번째 버전 |
 
 ## <a name="how-to-upgrade"></a>업그레이드하는 방법
@@ -48,15 +48,15 @@ Management SDK는 특정 버전의 Management REST API를 대상으로 합니다
 
 | API | 범주| 세부 정보 |
 |-----|--------|------------------|
-| [NetworkRuleSet](/rest/api/searchmanagement/services/createorupdate#networkruleset) | IP 방화벽 | 서비스 엔드포인트에 대한 액세스를 허용된 IP 주소 목록으로 제한합니다. 개념 및 포털 지침은 [IP 방화벽 구성](service-configure-firewall.md)을 참조하세요. |
-| [공유 Private Link 리소스](/rest/api/searchmanagement/sharedprivatelinkresources) | Private Link | Search Service에서 사용할 공유 프라이빗 링크 리소스를 만듭니다.  |
-| [프라이빗 엔드포인트 연결](/rest/api/searchmanagement/privateendpointconnections) | Private Link | 프라이빗 엔드포인트를 통해 Search Service에 대한 연결을 설정하고 관리합니다. 개념 및 포털 지침은 [프라이빗 엔드포인트 만들기](service-create-private-endpoint.md)를 참조하세요.|
-| [Private Link 리소스](/rest/api/searchmanagement/privatelinkresources/) | Private Link | 프라이빗 엔드포인트 연결이 있는 Search Service의 경우 동일한 가상 네트워크에서 사용되는 모든 서비스 목록을 가져옵니다. 검색 솔루션이 Azure 데이터 원본(Azure Storage, Cosmos DB, Azure SQL)에서 끌어온 인덱서를 포함하거나 Cognitive Services 또는 Key Vault를 사용하는 경우 모든 리소스의 엔드포인트가 가상 네트워크에 있어야 하며, 이 API에서 목록이 반환되어야 합니다. |
-| [PublicNetworkAccess](/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Private Link | 서비스 만들기 또는 업데이트 요청의 속성입니다. 사용할 수 없는 경우 프라이빗 링크가 유일한 액세스 형식입니다. |
+| [NetworkRuleSet](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#networkruleset) | IP 방화벽 | 서비스 엔드포인트에 대한 액세스를 허용된 IP 주소 목록으로 제한합니다. 개념 및 포털 지침은 [IP 방화벽 구성](service-configure-firewall.md)을 참조하세요. |
+| [공유 Private Link 리소스](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources) | Private Link | Search Service에서 사용할 공유 프라이빗 링크 리소스를 만듭니다.  |
+| [프라이빗 엔드포인트 연결](/rest/api/searchmanagement/2021-04-01-preview/private-endpoint-connections) | Private Link | 프라이빗 엔드포인트를 통해 Search Service에 대한 연결을 설정하고 관리합니다. 개념 및 포털 지침은 [프라이빗 엔드포인트 만들기](service-create-private-endpoint.md)를 참조하세요.|
+| [Private Link 리소스](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources) | Private Link | 프라이빗 엔드포인트 연결이 있는 Search Service의 경우 동일한 가상 네트워크에서 사용되는 모든 서비스 목록을 가져옵니다. 검색 솔루션이 Azure 데이터 원본(Azure Storage, Cosmos DB, Azure SQL)에서 끌어온 인덱서를 포함하거나 Cognitive Services 또는 Key Vault를 사용하는 경우 모든 리소스의 엔드포인트가 가상 네트워크에 있어야 하며, 이 API에서 목록이 반환되어야 합니다. |
+| [PublicNetworkAccess](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#publicnetworkaccess)| Private Link | 서비스 만들기 또는 업데이트 요청의 속성입니다. 사용할 수 없는 경우 프라이빗 링크가 유일한 액세스 형식입니다. |
 
 ### <a name="breaking-changes"></a>주요 변경 내용
 
-[쿼리 키 나열](/rest/api/searchmanagement/querykeys/listbysearchservice) 요청에서 더 이상 GET을 사용할 수 없습니다. 이전 릴리스에서는 GET 또는 POST를 사용할 수 있었지만 이번 릴리스와 이후의 모든 릴리스에서는 POST만 지원됩니다. 
+[쿼리 키 나열](/rest/api/searchmanagement/2021-04-01-preview/query-keys/list-by-search-service) 요청에서 더 이상 GET을 사용할 수 없습니다. 이전 릴리스에서는 GET 또는 POST를 사용할 수 있었지만 이번 릴리스와 이후의 모든 릴리스에서는 POST만 지원됩니다. 
 
 ## <a name="upgrade-to-20"></a>2\.0으로 업그레이드
 
