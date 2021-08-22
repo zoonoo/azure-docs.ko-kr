@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - 온-프레미스에서 CloudSimple VPN 게이트웨이로의 고가용성 구성
 description: 온-프레미스 환경에서 고가용성을 위해 사용하도록 설정된 CloudSimple VPN 게이트웨이로 고가용성 연결을 구성하는 방법을 설명합니다.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 80805aaa172518c40c7ad123ca24361ee0f15e69
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0dda4f6bbc5f9942522fb19031091b76105acf64
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97895702"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114390997"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>온-프레미스에서 CloudSimple VPN 게이트웨이로의 고가용성 연결 구성
 
@@ -280,7 +280,7 @@ Cisco ASA에서 NAT 구성:
 
 Cisco ASA에서 지원되는 IKEv1 및 IKEv2 특성:
 
-<a href="https://www.cisco.com/c/en/us/td/docs/security/asa/asa90/configuration/guide/asa_90_cli_config/vpn_ike.html#21661" target="_blank">Cisco ASA 시리즈 CLI 구성 가이드</a>
+<a href="https://www.cisco.com/c/en/us/td/docs/security/asa/asa72/configuration/guide/conf_gd/ike.html" target="_blank">Cisco ASA 시리즈 CLI 구성 가이드</a>
 
 버전 8.4 이상을 사용하여 Cisco ASA에서 IPsec 사이트 간 VPN 구성:
 

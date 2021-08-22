@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 89f4172b08d56a0ec139f18519a3a9bcd081e08b
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "68965281"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113688526"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>StorSimple 디바이스에 대한 기술 사양 및 규정 준수
 
@@ -83,7 +83,7 @@ StorSimple 디바이스에는 8100 및 8600에 대한 하드 디스크 드라이
 | 총 사용 가능한 용량 * |최대 15TB |최대 38TB |
 | 최대 솔루션 용량(클라우드 포함) |200TB |500TB |
 
-<sup>* </sup>- *사용 가능한 총 용량에는 데이터, 메타데이터, 버퍼에 사용할 수 있는 용량이 포함됩니다. 8100 디바이스에서 로컬로 고정된 볼륨은 최대 8.5TB, 더 큰 8600 디바이스에서는 최대 22.5TB를 프로비저닝할 수 있습니다. 자세한 내용은 [StorSimple 로컬로 고정된 볼륨](storsimple-8000-local-volume-faq.md)으로 이동합니다.*
+<sup>* </sup>- *사용 가능한 총 용량에는 데이터, 메타데이터, 버퍼에 사용할 수 있는 용량이 포함됩니다. 8100 디바이스에서 로컬로 고정된 볼륨은 최대 8.5TB, 더 큰 8600 디바이스에서는 최대 22.5TB를 프로비저닝할 수 있습니다. 자세한 내용은 [StorSimple 로컬로 고정된 볼륨](storsimple-8000-local-volume-faq.yml)으로 이동합니다.*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>엔클로저 차원과 가중치 사양
 

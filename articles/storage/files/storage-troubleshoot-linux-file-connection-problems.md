@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 4c618fad5b1e85df1ffa19fa2aa0e8621ae2bdd9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2eb87704d8cb967bb58a0fd1302b6f0f8225af72
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094459"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112117645"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Linux에서 Azure Files 문제 해결(SMB)
 
@@ -22,6 +22,13 @@ ms.locfileid: "110094459"
 
 > [!IMPORTANT]
 > 이 문서의 내용은 SMB 공유에만 적용됩니다. NFS 공유에 대한 자세한 내용은 [Azure NFS 파일 공유 문제 해결](storage-troubleshooting-files-nfs.md)을 참조하세요.
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Azure 파일 공유에 연결하거나 탑재할 수 없음
 

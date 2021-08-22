@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 06/14/2021
-ms.openlocfilehash: f8a9706fac53ad5ea44a53f44317b18956f57504
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 0fa4491f9d4fa955dfc9be7033e4eab9137b5672
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078872"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294968"
 ---
 # <a name="cognitive-services-docs-whats-new-for-may-1-2021---may-31-2021"></a>Cognitive Services 문서: 2021년 5월 1일~2021년 5월 31일까지의 새로운 기능
 
@@ -30,20 +30,20 @@ ms.locfileid: "112078872"
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [Azure Cognitive Services 컨테이너 이미지 태그 및 릴리스 정보](/azure/cognitive-services/containers/container-image-tags.md)
+- [Azure Cognitive Services 컨테이너 이미지 태그 및 릴리스 정보](./containers/container-image-tags.md)
 
 ## <a name="form-recognizer"></a>Form Recognizer
 
 ### <a name="new-articles"></a>새 문서
 
-- [참조: Azure Form Recognizer 클라이언트 라이브러리 v3.0.0 및 REST API v2.0](/azure/cognitive-services/form-recognizer/api-v2-0/reference-sdk-api-v2-0.md)
+- [참조: Azure Form Recognizer 클라이언트 라이브러리 v3.0.0 및 REST API v2.0](./form-recognizer/api-v2-0/reference-sdk-api-v2-0.md)
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [양식 인식기로 미리 작성된 명함 모델](/azure/cognitive-services/form-recognizer/concept-business-cards.md)
-- [빠른 시작: 클라이언트 라이브러리 SDK 또는 REST API 시작](/azure/cognitive-services/form-recognizer/quickstarts/client-library.md)
-- [Form Recognizer의 새로운 기능](/azure/cognitive-services/form-recognizer/whats-new.md)
-- [Form Recognizer 방문 페이지](/azure/cognitive-services/form-recognizer/form-recognizer.md)
+- [양식 인식기로 미리 작성된 명함 모델](./form-recognizer/concept-business-cards.md)
+- [빠른 시작: 클라이언트 라이브러리 SDK 또는 REST API 시작](./form-recognizer/quickstarts/client-library.md)
+- [Form Recognizer의 새로운 기능](./form-recognizer/whats-new.md)
+- [Form Recognizer 방문 페이지](./form-recognizer/index.yml)
 
 ## <a name="translator"></a>변환기
 
@@ -60,17 +60,17 @@ ms.locfileid: "112078872"
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [Personalizer의 새로운 기능](/azure/cognitive-services/personalizer/whats-new.md)
+- [Personalizer의 새로운 기능](./personalizer/whats-new.md)
 
 ## <a name="text-analytics"></a>텍스트 분석
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [자습서: Text Analytics Cognitive Service와 Power BI 통합](/azure/cognitive-services/text-analytics/tutorials/tutorial-power-bi-key-phrases.md)
-- [Text Analytics 및 Power Automate를 사용하여 Excel에서 정보 추출](/azure/cognitive-services/text-analytics/tutorials/extract-excel-information.md)
-- [텍스트 분석 REST API를 호출하는 방법](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api.md)
-- [Text Analytics에서 명명된 엔터티 인식을 사용하는 방법](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [Text Analytics API의 새로운 기능](/azure/cognitive-services/text-analytics/whats-new.md)
+- [자습서: Text Analytics Cognitive Service와 Power BI 통합](./text-analytics/tutorials/tutorial-power-bi-key-phrases.md)
+- [Text Analytics 및 Power Automate를 사용하여 Excel에서 정보 추출](./text-analytics/tutorials/extract-excel-information.md)
+- [텍스트 분석 REST API를 호출하는 방법](./text-analytics/how-tos/text-analytics-how-to-call-api.md)
+- [Text Analytics에서 명명된 엔터티 인식을 사용하는 방법](./text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
+- [Text Analytics API의 새로운 기능](./text-analytics/whats-new.md)
 
 ## <a name="community-contributors"></a>커뮤니티 기여자
 

@@ -3,14 +3,17 @@ title: 최소 초기 호스트 배포
 description: 최소 초기 배포는 세 개의 호스트입니다.
 ms.topic: include
 ms.date: 04/28/2021
-ms.openlocfilehash: 32ed19a8ac3535f407549bea87acb6b433004b02
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+author: shortpatti
+ms.author: v-patsho
+ms.service: azure-vmware
+ms.openlocfilehash: d0efae1a8f3bf30360d2649b9d638f5cc800179f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111429977"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747621"
 ---
-<!-- Used in production-ready-deployment-steps.md and concepts-private-clouds-clusters.md -->
+<!-- Used in plan-private-cloud-deployment.md and concepts-private-clouds-clusters.md -->
 
 만들어진 프라이빗 클라우드 하나마다 기본적으로 하나의 vSAN 클러스터가 있습니다. 클러스터를 추가, 삭제 및 스케일링할 수 있습니다.  클러스터당 최소 호스트 수 및 초기 배포 수는 3개입니다. 
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 07/22/2021
 ms.author: aahi
-ms.openlocfilehash: 400770a99e12bfb200b3e480d1546a26ce2aca6c
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: f86de9cbb7bf6235af6d112f9eae396b43a911f8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495249"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441395"
 ---
 # <a name="configure-speech-service-containers"></a>Speech Service 컨테이너 구성
 
@@ -50,7 +50,7 @@ ms.locfileid: "110495249"
 
 - Azure Portal: **Speech** 개요, `Endpoint` 레이블
 
-| 필수 | 이름 | 데이터 형식 | Description |
+| 필수 | Name | 데이터 형식 | Description |
 | -------- | ---- | --------- | ----------- |
 | 예 | `Billing` | String | 청구 엔드포인트 URI입니다. 청구 URI를 얻는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](speech-container-howto.md#gathering-required-parameters)을 참조하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
 
@@ -76,7 +76,7 @@ ms.locfileid: "110495249"
 
 표준 Speech 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 서비스 데이터를 저장하지 않습니다. 그러나 Custom Speech 컨테이너는 볼륨 탑재를 사용합니다.
 
-호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 [호스트 컴퓨터](speech-container-howto.md#the-host-computer)의 탑재 위치에는 Docker 서비스 계정에서 사용되는 권한과 호스트 탑재 위치 권한 간의 충돌로 인해 액세스할 수 없습니다.
+호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 [호스트 컴퓨터](speech-container-howto.md#host-computer-requirements-and-recommendations)의 탑재 위치에는 Docker 서비스 계정에서 사용되는 권한과 호스트 탑재 위치 권한 간의 충돌로 인해 액세스할 수 없습니다.
 
 | Optional | 이름 | 데이터 형식 | Description |
 | -------- | ---- | --------- | ----------- |

@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: 9d7ad92e864e3da7860d08e8e3f569dd8ca14399
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: d4f308857101cebefea0f37f2fe2c4f3ca9bfcef
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110789563"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112279778"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Azure Backup용 VM 스냅샷 Linux 확장
 
@@ -63,7 +63,7 @@ VMSnapshot 확장은 관리형이 아닌 VM의 경우에만 Azure Portal에 나�
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식 |
+| Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | 문자열 |
@@ -77,7 +77,7 @@ VMSnapshot 확장은 관리형이 아닌 VM의 경우에만 Azure Portal에 나�
 
 ## <a name="template-deployment"></a>템플릿 배포
 
-Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 그러나 가상 머신에 VM 스냅샷 확장을 추가하려면 가상 머신에서 백업을 사용하도록 설정하는 것이 좋습니다. 이는 Resource Manager 템플릿을 통해 수행할 수 있습니다.  가상 머신에서 백업을 사용하도록 설정하는 Resource Manager 템플릿 샘플은 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-recovery-services-backup-vms/)에 있습니다.
+Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 그러나 가상 머신에 VM 스냅샷 확장을 추가하려면 가상 머신에서 백업을 사용하도록 설정하는 것이 좋습니다. 이는 Resource Manager 템플릿을 통해 수행할 수 있습니다.  가상 머신에서 백업을 사용하도록 설정하는 Resource Manager 템플릿 샘플은 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/recovery-services-backup-vms/)에 있습니다.
 
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
@@ -92,7 +92,7 @@ az backup protection enable-for-vm \
     --policy-name DefaultPolicy
 ```
 
-## <a name="azure-powershell-deployment"></a>Azure Powershell 배포
+## <a name="azure-powershell-deployment"></a>Azure PowerShell 배포
 
 Azure Powershell을 사용하여 가상 머신에서 백업을 사용하도록 설정할 수 있습니다. 백업이 구성되면 첫 번째 예약된 백업 작업이 VM 스냅샷 확장을 VM에 설치합니다.
 

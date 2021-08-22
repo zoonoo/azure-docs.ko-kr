@@ -18,12 +18,12 @@ ms.workload: na
 ms.date: 07/13/2020
 ms.author: magoedte
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 217927c3445f600aff5fa3e271a6ed2c2eb1c3cd
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 1ecfc4a87908d9cde21d50d93df371950449fa25
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075514"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112379765"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 필요한 상태 구성 확장 처리기 소개
 
@@ -52,7 +52,7 @@ VM에서 로컬이 아닌 진행 중인 보고를 사용할 수 없습니다.
 - **노드**: DSC 구성에 대한 대상입니다. 이 문서에서 *노드* 는 항상 Azure VM을 나타냅니다.
 - **구성 데이터**: 구성에 대한 환경 데이터를 포함하는 .psd1 파일입니다.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>아키텍처
 
 Azure DSC 확장은 Azure VM 에이전트 프레임워크를 사용하여 Azure VM에서 실행되는 DSC 구성을 제공하고 적용하며 보고합니다. DSC 확장은 구성 문서 및 매개 변수 집합을 허용합니다. 파일을 제공하지 않으면 확장에 [기본 구성 스크립트](#default-configuration-script)가 포함됩니다. 기본 구성 스크립트는 [로컬 구성 관리자](/powershell/scripting/dsc/managing-nodes/metaConfig)에서 메타데이터를 설정하는 데만 사용됩니다.
 
@@ -66,7 +66,7 @@ WMF를 설치하려면 컴퓨터를 다시 시작해야 합니다. 다시 시작
 
 ### <a name="default-configuration-script"></a>기본 구성 스크립트
 
-Azure DSC 확장에는 Azure Automation DSC 서비스에 VM을 온보딩할 때 사용할 수 있도록 기본 구성 스크립트가 포함되어 있습니다. 스크립트 매개 변수는 [로컬 구성 관리자](/powershell/scripting/dsc/managing-nodes/metaConfig)의 구성 가능한 속성과 정렬됩니다. 스크립트 매개 변수에 대해서는 [Desired State Configuration 확장과 Azure Resource Manager 템플릿](dsc-template.md)에서 [기본 구성 스크립트](dsc-template.md#default-configuration-script)를 참조하세요. 전체 스크립트에 대해서는 [GitHub의 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/azmgmt-demo/nestedtemplates/scripts/UpdateLCMforAAPull.zip)을 참조하세요.
+Azure DSC 확장에는 Azure Automation DSC 서비스에 VM을 온보딩할 때 사용할 수 있도록 기본 구성 스크립트가 포함되어 있습니다. 스크립트 매개 변수는 [로컬 구성 관리자](/powershell/scripting/dsc/managing-nodes/metaConfig)의 구성 가능한 속성과 정렬됩니다. 스크립트 매개 변수에 대해서는 [Desired State Configuration 확장과 Azure Resource Manager 템플릿](dsc-template.md)에서 [기본 구성 스크립트](dsc-template.md#default-configuration-script)를 참조하세요. 전체 스크립트에 대해서는 [GitHub의 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/demos/azmgmt-demo/nestedtemplates/scripts/UpdateLCMforAAPull.zip)을 참조하세요.
 
 ## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Azure Automation DSC(State Configuration) 서비스에 등록하는 방법에 대한 정보
 

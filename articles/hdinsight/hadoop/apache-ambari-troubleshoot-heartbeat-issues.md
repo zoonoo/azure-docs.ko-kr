@@ -4,12 +4,12 @@ description: Azure HDInsight의 Apache Ambari 하트비트 문제에 대한 다�
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/06/2020
-ms.openlocfilehash: 5eebde42098d74f533565d274b693c4a06f2f60d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 348a4d801590ba8f0e10f3c7f72ce6ead0a16022
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98946735"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112300044"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Azure HDInsight의 Apache Ambari 하트비트 문제
 
@@ -99,4 +99,4 @@ OMS 로그로 인해 CPU 사용률이 높아집니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

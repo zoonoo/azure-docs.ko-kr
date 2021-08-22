@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 7731aa2eb1a962d4674ed382911ba0058e1ebdaf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ba06e75bdbb2af8c3a825702735460404f873ce
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101647509"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464202"
 ---
 # <a name="get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory에 대해 인증된 AppSource 가져오기
 
@@ -40,7 +40,7 @@ AppSource에서 독립 실행형 SaaS 애플리케이션을 나열하려면 애�
 
 *단일 테넌트 애플리케이션* 은 정의된 Azure AD 인스턴스의 사용자의 로그인만 허용하는 애플리케이션입니다. 외부 사용자(다른 조직의 회사 또는 학교 계정 또는 개인 계정 포함)는 각 사용자를 게스트 계정으로 애플리케이션이 등록된 Azure AD 인스턴스에 추가한 후 단일 테넌트 애플리케이션에 로그인 할 수 있습니다. 
 
-[Azure AD B2B 협업](../external-identities/what-is-b2b.md)을 통해 사용자를 게스트 계정으로 Azure AD에 추가할 수 있으며, 이 작업은 [프로그래밍 방식으로](../../active-directory-b2c/code-samples.md) 수행할 수 있습니다. B2B를 사용하는 경우 사용자는 로그인하라는 초대장이 필요하지 않은 셀프 서비스 포털을 만들 수 있습니다. 자세한 내용은 [Azure AD B2B 협업 등록을 위한 셀프 서비스 포털](../external-identities/self-service-portal.md)을 참조하세요.
+[Azure AD B2B 협업](../external-identities/what-is-b2b.md)을 통해 사용자를 게스트 계정으로 Azure AD에 추가할 수 있으며, 이 작업은 [프로그래밍 방식으로](../../active-directory-b2c/integrate-with-app-code-samples.md) 수행할 수 있습니다. B2B를 사용하는 경우 사용자는 로그인하라는 초대장이 필요하지 않은 셀프 서비스 포털을 만들 수 있습니다. 자세한 내용은 [Azure AD B2B 협업 등록을 위한 셀프 서비스 포털](../external-identities/self-service-portal.md)을 참조하세요.
 
 단일 테넌트 애플리케이션은 *연락처* 환경을 활성화할 수 있지만 AppSource가 권장하는 단일 클릭/평가판 체험을 활성화하려는 경우 애플리케이션에서 다중 테넌트를 대신 활성화합니다.
 

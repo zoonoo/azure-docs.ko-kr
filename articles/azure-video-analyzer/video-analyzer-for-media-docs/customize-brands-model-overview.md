@@ -1,19 +1,20 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer)에서 브랜드 모델 사용자 지정 - Azure
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: 이 문서에서는 Azure Video Analyzer for Media(이전의 Video Indexer) 브랜드 모델의 개념과 이를 사용자 지정하는 방법을 간략하게 설명합니다.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 12/15/2019
 ms.author: juliako
-ms.openlocfilehash: dda0777bace36699f9f02cadebc357a0d9d4fc84
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: e032610dc9c8bec924e7fd8e1b9c6c62b3a8b3f9
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387709"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112121413"
 ---
 # <a name="customize-a-brands-model-in-video-analyzer-for-media"></a>Video Analyzer for Media에서 브랜드 모델 사용자 지정
 
@@ -23,7 +24,7 @@ Azure Video Analyzer for Media(이전의 Video Indexer)는 비디오 및 오디�
 
 ## <a name="out-of-the-box-detection-example"></a>기본 제공 검색 예
 
-"Microsoft Build 2017 2일차" 프레젠테이션에서는 "Microsoft Windows" 브랜드가 여러 번 표시됩니다. 때로는 대본에서, 때로는 시각적 텍스트로 사용되며, 축자로는 사용되지 않습니다. Video Analyzer for Media는 컨텍스트를 기준으로 용어가 실제로 브랜드인지를 높은 정밀도로 검색하며, 기본적으로 90k개가 넘는 브랜드를 처리하고 지속적으로 업데이트됩니다. 02:25에 Video Analyzer for Media는 연설에서 브랜드를 검색한 다음, 02:40에 Windows 로고의 일부인 시각적 텍스트에서 다시 검색합니다.
+“Microsoft Build 2017 2일 차” 프레젠테이션에서는 “Microsoft Windows” 브랜드가 여러 번 표시됩니다. 때로는 대본에서, 때로는 시각적 텍스트로 사용되며, 축자로는 사용되지 않습니다. Video Analyzer for Media는 컨텍스트를 기준으로 용어가 실제로 브랜드인지를 높은 정밀도로 검색하며, 기본적으로 90k개가 넘는 브랜드를 처리하고 지속적으로 업데이트됩니다. 02:25에 Video Analyzer for Media는 연설에서 브랜드를 검색한 다음, 02:40에 Windows 로고의 일부인 시각적 텍스트에서 다시 검색합니다.
 
 ![브랜드 개요](./media/content-model-customization/brands-overview.png)
 

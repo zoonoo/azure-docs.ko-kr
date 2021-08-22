@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 006abf62c605c2ca34fd1adeadee8e29ae0fb8fb
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 1a5e665636e725252b18c2086471b272f40466cd
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588312"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114291837"
 ---
 # <a name="troubleshoot-library-installation-errors"></a>라이브러리 설치 오류 문제 해결 
 애플리케이션에서 타사 또는 로컬로 빌드된 코드를 사용할 수 있도록 하려면 서버리스 Apache Spark 풀 중 하나에 라이브러리를 설치하면 됩니다. requirements.txt 파일에 나열된 패키지는 풀을 시작할 때 PyPi에서 다운로드됩니다. 이 요구 사항 파일은 Spark 인스턴스를 Spark 풀에서 만들 때마다 사용됩니다. Spark 풀에 대해 라이브러리를 설치한 후에는 동일한 풀을 사용하는 모든 세션에서 사용할 수 있습니다. 
@@ -67,7 +67,7 @@ df = spark.createDataFrame(data=data2,schema=schema)
 df.write.csv("abfss://<<ENTER NAME OF FILE SYSTEM>>@<<ENTER NAME OF PRIMARY STORAGE ACCOUNT>>.dfs.core.windows.net/validate_permissions.csv")
 
 ```
-오류가 발생한다면 필요한 권한이 없는 것일 수 있습니다. 필요한 권한을 얻는 방법을 알아보려면 [Storage Blob 데이터 기여자 또는 Storage Blob 데이터 소유자 권한 할당](../../storage/common/storage-auth-aad-rbac-portal.md#assign-an-azure-built-in-role) 문서를 참조하세요.
+오류가 발생한다면 필요한 권한이 없는 것일 수 있습니다. 필요한 권한을 얻는 방법을 알아보려면 [Storage Blob 데이터 기여자 또는 Storage Blob 데이터 소유자 권한 할당](../../storage/blobs/assign-azure-role-data-access.md) 문서를 참조하세요.
 
 또한 파이프라인을 실행하는 경우 작업 영역 MSI에는 Storage Blob 데이터 소유자 또는 Storage Blob 데이터 기여자 권한도 있어야 합니다. 작업 영역 ID에 이 권한을 부여하는 방법을 알아보려면 [작업 영역 관리 ID에 권한 부여](../security/how-to-grant-workspace-managed-identity-permissions.md)를 참조하세요.
 

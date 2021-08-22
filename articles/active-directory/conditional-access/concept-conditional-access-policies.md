@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35d2bf33b4a22c14abfb61a87a3697b05188ed31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d92f00281a06357f2135fe148f923b0671e10304
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579096"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114203461"
 ---
 # <a name="building-a-conditional-access-policy"></a>조건부 액세스 정책 빌드
 
@@ -55,7 +55,7 @@ ms.locfileid: "104579096"
 
 ### <a name="cloud-apps-or-actions"></a>클라우드 앱 또는 작업
 
-[클라우드 앱 또는 작업](concept-conditional-access-cloud-apps.md)은 정책이 적용되는 클라우드 애플리케이션 또는 사용자 작업을 포함하거나 제외할 수 있습니다.
+[클라우드 앱 또는 작업](concept-conditional-access-cloud-apps.md)은 정책이 적용될 클라우드 애플리케이션, 사용자 작업 또는 인증 컨텍스트를 포함하거나 제외할 수 있습니다.
 
 ### <a name="conditions"></a>조건
 
@@ -77,13 +77,17 @@ ms.locfileid: "104579096"
 
 #### <a name="client-apps"></a>클라이언트 앱
 
-기본적으로 조건부 액세스 정책은 최신 인증을 지원하는 브라우저 앱, 모바일 앱 및 데스크톱 클라이언트에 적용됩니다. 
+기본값으로 새로 만든 모든 조건부 액세스 정책은 클라이언트 앱 조건이 구성되지 않은 경우에도 모든 클라이언트 앱 형식에 적용됩니다.
 
-이 할당 조건을 통해 조건부 액세스 정책은 최신 인증을 사용하지 않는 특정 클라이언트 애플리케이션을 대상으로 지정할 수 있습니다. 해당 애플리케이션에는 Exchange ActiveSync 클라이언트, 최신 인증을 사용하지 않는 이전 Office 애플리케이션, 그리고 IMAP, MAPI, POP, SMTP 등의 메일 프로토콜이 포함됩니다.
+클라이언트 앱 조건의 동작은 2020년 8월에 업데이트되었습니다. 기존 조건부 액세스 정책이 있는 경우 변경되지 않은 상태로 유지됩니다. 그러나 기존 정책을 클릭하면 구성 토글이 제거되고 정책이 적용되는 클라이언트 앱이 선택됩니다.
 
 #### <a name="device-state"></a>디바이스 상태
 
 이 컨트롤은 하이브리드 Azure AD 조인되었거나 Intune에서 규정을 준수하는 것으로 표시된 디바이스를 제외하는 데 사용됩니다. 비관리 디바이스를 차단하기 위해 이 제외 작업을 수행할 수 있습니다. 
+
+#### <a name="filters-for-devices-preview"></a>장치용 필터(미리 보기)
+
+이 컨트롤을 사용하여 정책의 특성에 따라 특정 디바이스를 대상으로 지정할 수 있습니다.
 
 ## <a name="access-controls"></a>액세스 제어
 

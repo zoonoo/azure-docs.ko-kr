@@ -7,12 +7,12 @@ ms.service: certification
 ms.topic: how-to
 ms.date: 04/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 591436de14916a919f0179978825b88dcc80117c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5e87051bb27e097f507435582cc919f05fd78aeb
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129732"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114403062"
 ---
 # <a name="troubleshoot-your-iot-plug-and-play-certification-project"></a>IoT 플러그 앤 플레이 인증 프로젝트 문제 해결
 
@@ -42,7 +42,7 @@ IoT 플러그 앤 플레이 인증 프로젝트의 연결 및 테스트 단계 �
 
 ## <a name="when-you-need-help-with-the-model-repository"></a>모델 리포지토리와 관련된 도움이 필요한 경우
 
-모델 리포지토리와 관련된 IoT 플러그 앤 플레이 문제는 [디바이스 모델 리포지토리에 관한 문서 지침](../iot-pnp/concepts-model-repository.md)을 참조하세요.
+모델 리포지토리와 관련된 IoT 플러그 앤 플레이 문제는 [디바이스 모델 리포지토리에 관한 문서 지침](../iot-develop/concepts-model-repository.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

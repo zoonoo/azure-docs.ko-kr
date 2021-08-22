@@ -3,19 +3,19 @@ title: Custom Speech 모델 학습 및 배포 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Custom Speech 모델을 학습하고 배포하는 방법을 알아봅니다. 음성 텍스트 변환 모델을 학습하면 Microsoft 기준선 모델이나 사용자 지정 모델에 대해 인식 정확도를 개선할 수 있습니다.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: trbye
-ms.openlocfilehash: 4ba046b5461c3b734d54ad3694f0ceea2e5127c6
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.author: lajanuar
+ms.openlocfilehash: a174848cf8a08942b9aa3777fc25bb0a0fcb8684
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106387046"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537514"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Custom Speech 모델 학습 및 배포
 

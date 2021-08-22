@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6847d803a40797802e9cb1589979bf22062fc5db
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 443650e71323d8eef4c9f4b9ac04541b76e1cc03
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285955"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113728267"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대한 보안 감사 사용
 
@@ -50,7 +50,7 @@ Azure Portal를 사용하여 Azure AD DS 보안 감사 이벤트를 사용하도
 > [!IMPORTANT]
 > Azure AD DS 보안 감사는 소급되지 않습니다. 이전의 이벤트를 검색하거나 재생할 수 없습니다. Azure AD DS는 보안 감사를 사용하도록 설정한 후에 발생하는 이벤트만 보낼 수 있습니다.
 
-1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 1. Azure Portal에서 **Azure AD Domain Services** 를 검색하여 선택합니다. 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
 1. Azure AD DS 창의 왼쪽에서 **진단 설정** 을 선택합니다.
 1. 기본적으로 구성된 진단이 없습니다. 시작하려면 **진단 설정 추가** 를 선택합니다.
@@ -187,7 +187,7 @@ AADDomainServicesAccountLogon
 AADDomainServicesAccountLogon
 | where TimeGenerated >= ago(7d)
 | where "user" == tolower(extract("Logon Account:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
-| where "0xc000006a" == tolower(extract("Error Code:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
+| where "0xc000006a" == tolower(extract("Error Code:\t(.+[0-9A-Fa-f])",1,tostring(ResultDescription)))
 ```
 
 ### <a name="sample-query-5"></a>샘플 쿼리 5
@@ -198,7 +198,7 @@ AADDomainServicesAccountLogon
 AADDomainServicesAccountLogon
 | where TimeGenerated >= ago(7d)
 | where "user" == tolower(extract("Logon Account:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
-| where "0xc0000234" == tolower(extract("Error Code:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
+| where "0xc0000234" == tolower(extract("Error Code:\t(.+[0-9A-Fa-f])",1,tostring(ResultDescription)))
 ```
 
 ### <a name="sample-query-6"></a>샘플 쿼리 6
@@ -208,7 +208,7 @@ AADDomainServicesAccountLogon
 ```Kusto
 AADDomainServicesAccountLogon
 | where TimeGenerated >= ago(7d)
-| where "0xc0000234" == tolower(extract("Error Code:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
+| where "0xc0000234" == tolower(extract("Error Code:\t(.+[0-9A-Fa-f])",1,tostring(ResultDescription)))
 | summarize count()
 ```
 
@@ -218,7 +218,7 @@ Azure AD DS 보안 감사는 기존의 AD DS 도메인 컨트롤러에 대한 �
 
 다음 감사 이벤트 범주를 사용할 수 있습니다.
 
-| 감사 범주 이름 | Description |
+| 감사 범주 이름 | 설명 |
 |:---|:---|
 | 계정 로그온|도메인 컨트롤러 또는 로컬 SAM(보안 계정 관리자)의 계정 데이터 인증 시도를 감사합니다.</p>로그온 및 로그오프 정책 설정 및 이벤트 트랙은 특정 컴퓨터에 대한 액세스를 시도합니다. 이 범주의 설정 및 이벤트는 사용되는 계정 데이터베이스에 중점을 둡니다. 이 범주에는 다음 하위 범주가 포함됩니다.<ul><li>[자격 증명 유효성 검사 감사](/windows/security/threat-protection/auditing/audit-credential-validation)</li><li>[Kerberos 인증 오류 감사](/windows/security/threat-protection/auditing/audit-kerberos-authentication-service)</li><li>[Kerberos 서비스 티켓 작업 감사](/windows/security/threat-protection/auditing/audit-kerberos-service-ticket-operations)</li><li>[기타 로그온/로그오프 이벤트 감사](/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li></ul>|
 | 계정 관리|사용자 및 컴퓨터 계정 및 그룹에 대한 변경 내용을 감사합니다. 이 범주에는 다음 하위 범주가 포함됩니다.<ul><li>[애플리케이션 그룹 관리 감사](/windows/security/threat-protection/auditing/audit-application-group-management)</li><li>[컴퓨터 계정 관리 감사](/windows/security/threat-protection/auditing/audit-computer-account-management)</li><li>[메일 그룹 관리 감사](/windows/security/threat-protection/auditing/audit-distribution-group-management)</li><li>[기타 계정 관리 감사](/windows/security/threat-protection/auditing/audit-other-account-management-events)</li><li>[보안 그룹 관리 감사](/windows/security/threat-protection/auditing/audit-security-group-management)</li><li>[사용자 계정 관리 감사](/windows/security/threat-protection/auditing/audit-user-account-management)</li></ul>|

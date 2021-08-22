@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: 422ba2ecaed8803a49c0a82b85d821d3f55c9bbd
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 63da1c8f36f9e2db9593256a071d71ac70ea18bd
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072002"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112380035"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Azure Policy를 사용하여 대규모로 Azure Monitor 배포
 한 번 또는 제한된 횟수만 구성하는 Azure Monitor 기능도 있고, 모니터링하려는 각 리소스에 대해 구성을 반복해야 하는 기능도 있습니다. 이 문서에서는 모니터링이 모든 Azure 리소스에 대해 일관되고 정확하게 구성되도록 Azure Policy를 사용하여 대규모로 Azure Monitor를 구현하는 방법을 설명합니다.
@@ -42,7 +42,7 @@ Azure Policy에는 Azure Monitor와 관련된 몇 가지 미리 작성된 정의
 
   ![모니터링 범주 및 기본 제공 형식에 대한 정책 정의 목록을 보여 주는 Azure Portal의 Azure Policy 정의 페이지 스크린샷](media/deploy-scale/builtin-policies.png)
 
-## <a name="azure-monitor-agent-preview"></a>Azure Monitor 에이전트(미리 보기)
+## <a name="azure-monitor-agent"></a>Azure Monitor 에이전트
 [Azure Monitor 에이전트](agents/azure-monitor-agent-overview.md)는 Azure 가상 머신의 게스트 운영 체제에서 모니터링 데이터를 수집하여 이를 Azure Monitor에 전달합니다. [데이터 수집 규칙](agents/data-collection-rule-overview.md)을 사용하여 각 에이전트에서 수집할 데이터를 구성합니다. 이를 통해 수집 설정을 대규모로 관리하면서도 계속해서 머신의 하위 세트에 대해 고유하고 범위가 지정된 구성을 얻을 수 있습니다.  
 가상 머신을 만들 때마다 아래 정책 및 정책 이니셔티브를 사용하여 에이전트를 자동으로 설치하고 데이터 수집 규칙에 연결합니다.
 

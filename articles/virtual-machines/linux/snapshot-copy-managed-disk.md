@@ -2,19 +2,19 @@
 title: Azure CLI를 사용하여 VHD의 스냅샷 만들기
 description: 백업 또는 문제 해결을 위해 Azure에서 VHD의 복사본을 만드는 방법을 알아봅니다.
 author: roygara
+ms.author: rogarana
 manager: twooley
-ms.service: virtual-machines
+ms.service: storage
+ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/11/2018
-ms.author: rogarana
-ms.subservice: disks
-ms.openlocfilehash: ab19bb1c6cc43334a3d0d427b6aff6ced2d6cc69
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e6a294c6a6a368ad85bda7a5fdb6df30d5575b22
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789666"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114392836"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>포털 또는 Azure CLI를 사용하여 스냅샷 만들기
 

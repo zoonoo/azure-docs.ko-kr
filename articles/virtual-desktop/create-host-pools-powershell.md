@@ -7,12 +7,12 @@ ms.date: 10/02/2020
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 58044b38b78776eca650b52d448ff1477b71e362
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 0b0822bf7653a076e579a0bec1cbfcc926d4c7b9
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756115"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113651135"
 ---
 # <a name="create-a-azure-virtual-desktop-host-pool-with-powershell"></a>PowerShell을 사용하여 Azure Virtual Desktop 호스트 풀 만들기
 
@@ -76,7 +76,6 @@ $token = Get-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostP
 
 - [Azure Gallery 이미지에서 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [관리 이미지에서 가상 머신 만들기](../virtual-machines/windows/create-vm-generalized-managed.md)
-- [관리되지 않는 이미지에서 가상 머신 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-user-image-data-disks)
 
 >[!NOTE]
 >Windows 7을 사용하여 호스트 OS로 가상 머신을 배포하는 경우에는 만들기 및 배포 프로세스가 약간 다릅니다. 자세한 내용은 [ Virtual Desktop에서 Windows 7 가상 머신 배포](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md)를 참조하세요.
@@ -85,7 +84,7 @@ $token = Get-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostP
 
 ## <a name="prepare-the-virtual-machines-for-azure-virtual-desktop-agent-installations"></a>Azure Virtual Desktop 에이전트 설치를 위한 가상 머신 준비
 
-Azure Virtual Desktop 에이전트를 설치하고 가상 머신을 Azure Virtual Desktop 호스트 풀에 등록하기에 앞서 가상 머신을 준비하려면 다음 항목이 필요합니다.
+Azure Virtual Desktop 에이전트를 설치하고 가상 머신을 Azure Virtual Desktop 호스트 풀에 등록하기에 앞서 가상 머신을 준비하려면 다음 몇 가지가 필요합니다.
 
 - 머신을 도메인에 조인해야 합니다. 이렇게 하면 들어오는 Azure Virtual Desktop 사용자를 해당 Azure Active Directory 계정에서 Active Directory 계정에 매핑하고 가상 머신에 대한 액세스를 허용할 수 있습니다.
 - 가상 머신이 Windows Server OS를 실행할 경우 RDSH(원격 데스크톱 세션 호스트) 역할을 설치해야 합니다. RDSH 역할을 사용하면 Azure Virtual Desktop 에이전트를 올바르게 설치할 수 있습니다.
@@ -106,7 +105,7 @@ Azure Virtual Desktop 에이전트를 설치하고 가상 머신을 Azure Virtua
 
 ## <a name="register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool"></a>Azure Virtual Desktop 호스트 풀에 가상 머신 등록
 
-Azure Virtual Desktop 호스트 풀에 가상 머신을 등록하는 작업은 Azure Virtual Desktop 에이전트를 설치하는 것만큼 간단합니다.
+Azure Virtual Desktop 호스트 풀에 가상 머신을 등록하는 작업은 Azure Virtual Desktop 에이전트 설치만큼 간단합니다.
 
 Azure Virtual Desktop 에이전트를 등록하려면 각 가상 머신에서 다음을 수행합니다.
 
@@ -119,7 +118,7 @@ Azure Virtual Desktop 에이전트를 등록하려면 각 가상 머신에서 �
    - 설치 관리자를 실행합니다.
 
 >[!IMPORTANT]
->Azure에서 Azure Virtual Desktop 환경의 보안을 유지하기 위해 VM에서 인바운드 포트 3389를 열지 않는 것이 좋습니다. Azure Virtual Desktop에서는 사용자가 인바운드 포트 3389를 열지 않아도 호스트 풀의 VM에 액세스할 수 있습니다. 문제 해결을 위해 포트 3389를 열어야 하는 경우 [Just-In-Time VM 액세스](../security-center/security-center-just-in-time.md)를 사용하는 것이 좋습니다. 또한 VM을 공용 IP에 할당하지 않는 것이 좋습니다.
+>Azure에서 Azure Virtual Desktop 환경의 보안을 유지하도록 돕기 위해 VM에서 인바운드 포트 3389를 열지 않는 것이 좋습니다. Azure Virtual Desktop에서는 사용자가 인바운드 포트 3389를 열지 않아도 호스트 풀의 VM에 액세스할 수 있습니다. 문제 해결을 위해 포트 3389를 열어야 하는 경우 [Just-In-Time VM 액세스](../security-center/security-center-just-in-time.md)를 사용하는 것이 좋습니다. 또한 VM을 공용 IP에 할당하지 않는 것이 좋습니다.
 
 ## <a name="update-the-agent"></a>에이전트 업데이트
 

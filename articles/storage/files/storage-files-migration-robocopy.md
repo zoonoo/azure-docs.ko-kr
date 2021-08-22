@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 53c0ad42e51e8ffc562827e9a67e01b132dafd89
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 76fb327eaf2f95bd96513f6382a00e29a54fe893
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108777046"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "114462249"
 ---
 # <a name="use-robocopy-to-migrate-to-azure-file-shares"></a>RoboCopy를 사용하여 Azure 파일 공유로 마이그레이션
 
@@ -23,6 +23,13 @@ ms.locfileid: "108777046"
 > * 마이그레이션 경로: 원본 스토리지 &rArr; RoboCopy가 있는 Windows 시스템 &rArr; Azure 파일 공유
 
 원본 및 배포 조합에 대한 다양한 마이그레이션 경로가 있습니다. [마이그레이션 가이드 표를](storage-files-migration-overview.md#migration-guides) 살펴보고 요구 사항에 가장 적합한 마이그레이션을 찾으십시오.
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 ## <a name="azcopy-vs-robocopy"></a>AzCopy 및 RoboCopy
 AzCopy와 RoboCopy는 근본적으로 다른 두 가지 파일 복사 도구입니다. RoboCopy는 모든 버전의 SMB 프로토콜을 사용합니다. AzCopy는 대상이 Azure Storage에 있는 한 데이터를 이동하는 데 사용할 수 있는 "클라우드에서 시작된" 도구입니다. AzCopy는 REST 프로토콜에 따라 달라집니다.

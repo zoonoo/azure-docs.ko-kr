@@ -7,13 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 90b7b6aebfce1c37bef76d371d829048d755e39e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5035515c843db2ce7feb06090029c7e5995769cc
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92147271"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114287975"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Azure IoT Hub의 디바이스 연결 이벤트 정렬
 
@@ -29,7 +28,7 @@ Azure Event Grid를 사용하면 이벤트 기반 애플리케이션을 빌드�
 
 * 데이터베이스의 컬렉션입니다. [컬렉션 추가](../cosmos-db/create-sql-api-java.md#add-a-container)를 연습으로 참조하세요. 컬렉션을 만들 때 파티션 키의 `/id`를 사용합니다.
 
-* Azure에 있는 IoT Hub입니다. 아직 만들지 않았다면, 연습으로 [IoT Hub 시작](./quickstart-send-telemetry-dotnet.md)을 참조하세요.
+* Azure에 있는 IoT Hub입니다. 아직 만들지 않았다면, 연습으로 [IoT Hub 시작](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)을 참조하세요.
 
 ## <a name="create-a-stored-procedure"></a>저장 프로시저 만들기
 
@@ -335,7 +334,7 @@ Cosmos DB 문서에서 실행된 저장 프로시저의 결과를 볼 수 있습
 
 ## <a name="use-the-azure-cli"></a>Azure CLI 사용
 
-[Azure Portal](https://portal.azure.com)을 사용하는 대신 Azure CLI를 사용하여 IoT Hub 단계를 설정할 수 있습니다. 자세한 내용은 [이벤트 구독 만들기](/cli/azure/eventgrid/event-subscription) 및 [IoT 디바이스 만들기](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create)에 대한 Azure 명령줄 인터페이스 페이지를 참조하세요.
+[Azure Portal](https://portal.azure.com)을 사용하는 대신 Azure CLI를 사용하여 IoT Hub 단계를 설정할 수 있습니다. 자세한 내용은 [이벤트 구독 만들기](/cli/azure/eventgrid/event-subscription) 및 [IoT 디바이스 만들기](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create)에 대한 Azure 명령줄 인터페이스 페이지를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

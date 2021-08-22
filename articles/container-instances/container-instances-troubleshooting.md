@@ -4,16 +4,16 @@ description: Azure Container Instances를 배포, 실행 또는 관리할 때 �
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ce7e3018e470df3840eb01127a7bf2ffa01b5cbc
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f00b20751b60549b9b10409539354605ea4bd355
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771068"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292256"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container Instances에서 일반적인 문제 해결
 
-이 아티클에서는 컨테이너를 관리하거나 Azure Container Instances에 배포하는 경우 일반적인 문제를 해결하는 방법을 보여줍니다. [질문과 대답](container-instances-faq.md)도 참조하세요.
+이 아티클에서는 컨테이너를 관리하거나 Azure Container Instances에 배포하는 경우 일반적인 문제를 해결하는 방법을 보여줍니다. [질문과 대답](container-instances-faq.yml)도 참조하세요.
 
 추가 지원이 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에서 사용 가능한 **도움말 + 지원** 옵션을 참조하세요.
 
@@ -45,7 +45,7 @@ Azure Container Instances에서 지원되지 않는 이미지를 지정하면 `O
 }
 ```
 
-이 오류는 지원되지 않는 반기 채널 릴리스 1709 또는 1803 기반의 Windows 이미지를 배포할 때 가장 자주 발생합니다. Azure Container Instances에서 지원되는 Windows 이미지는 [질문과 대답](container-instances-faq.md#what-windows-base-os-images-are-supported)을 참조하세요.
+이 오류는 지원되지 않는 반기 채널 릴리스 1709 또는 1803 기반의 Windows 이미지를 배포할 때 가장 자주 발생합니다. Azure Container Instances에서 지원되는 Windows 이미지는 [질문과 대답](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported)을 참조하세요.
 
 ### <a name="unable-to-pull-image"></a>이미지를 풀링할 수 없음
 
@@ -187,7 +187,7 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 
 #### <a name="cached-images"></a>캐시된 이미지
 
-Azure Container Instances는 `nanoserver:1809`, `servercore:ltsc2019`, `servercore:1809`를 포함한 일반적인 [Windows 기본 이미지](container-instances-faq.md#what-windows-base-os-images-are-supported)를 기반으로 하는 이미지에서 컨테이너 시작 시간을 신속하게 수행할 수 있는 캐싱 메커니즘을 사용합니다. `ubuntu:1604` 및 `alpine:3.6`과 같이 일반적으로 사용되는 Linux 이미지도 캐시됩니다. Windows 및 Linux 이미지의 경우 `latest` 태그를 사용하지 마세요. 지침에 대한 Container Registry의 [이미지 태그 모범 사례](../container-registry/container-registry-image-tag-version.md)를 검토합니다. 캐시된 이미지 및 태그의 최신 목록을 보려면 [List Cached Images][list-cached-images] API를 사용합니다.
+Azure Container Instances는 `nanoserver:1809`, `servercore:ltsc2019`, `servercore:1809`를 포함한 일반적인 [Windows 기본 이미지](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported)를 기반으로 하는 이미지에서 컨테이너 시작 시간을 신속하게 수행할 수 있는 캐싱 메커니즘을 사용합니다. `ubuntu:1604` 및 `alpine:3.6`과 같이 일반적으로 사용되는 Linux 이미지도 캐시됩니다. Windows 및 Linux 이미지의 경우 `latest` 태그를 사용하지 마세요. 지침에 대한 Container Registry의 [이미지 태그 모범 사례](../container-registry/container-registry-image-tag-version.md)를 검토합니다. 캐시된 이미지 및 태그의 최신 목록을 보려면 [List Cached Images][list-cached-images] API를 사용합니다.
 
 > [!NOTE]
 > Azure Container Instances에서 Windows Server 2019 기반 이미지 사용은 미리 보기에 있습니다.

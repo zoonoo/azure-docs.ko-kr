@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: c9ee7e475957ca41c9094cab3b149f53e48a3764
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 84b27bc4ae30e28a1d97fb8e9931602a1eb14504
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111900913"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114444789"
 ---
 # <a name="extensions-for-cloud-services-extended-support"></a>Cloud Services용 확장(추가 지원)
 
@@ -23,7 +23,7 @@ ms.locfileid: "111900913"
 
 Key Vault VM 확장은 Azure Key Vault에 저장된 인증서의 자동 새로 고침을 제공합니다. 특히 확장은 키 자격 증명 모음에 저장된 인증서에 대해 관찰된 목록을 모니터링하고, 변경 내용이 검색되면 해당 인증서를 검색 및 설치합니다. 또한 클라우드 서비스에 대한 인증서의 지역 간/구독 간 참조를 허용합니다(추가 지원).
 
-자세한 내용은 [클라우드 서비스용 키 자격 증명 모음 확장 구성(추가 지원)](https://docs.microsoft.com/azure/cloud-services-extended-support/enable-key-vault-virtual-machine)을 참조하세요.
+자세한 내용은 [클라우드 서비스용 키 자격 증명 모음 확장 구성(추가 지원)](./enable-key-vault-virtual-machine.md)을 참조하세요.
 
 ## <a name="remote-desktop-extension"></a>원격 데스크톱 확장
 
@@ -53,6 +53,6 @@ Azure Antimalware에 대해 자세히 알아보려면 [여기](../security/funda
 
 
 ## <a name="next-steps"></a>다음 단계 
-- Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-prerequisite.md)를 검토합니다.
-- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.md)을 검토합니다.
+- Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-prerequisite.md)를 검토하고 관련 리소스를 만듭니다.
+- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.yml)을 검토합니다.
 - [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용하여 Cloud Service(추가 지원)를 배포합니다.

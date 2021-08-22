@@ -4,12 +4,12 @@ description: Azure HDInsight 클러스터와 상호 작용할 때 문제에 대�
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/23/2020
-ms.openlocfilehash: 54096e6d1741a7be9f50d4b4f7f0fcabbe880588
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f5734197c0c00bb43584215f8eb26ad85e823c0
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943346"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284188"
 ---
 # <a name="scenario-cluster-creation-fails-with-domainnotfound-error-in-azure-hdinsight"></a>시나리오: Azure HDInsight DomainNotFound 오류로 클러스터 만들기 실패
 
@@ -45,4 +45,4 @@ Enterprise Security Package(HDI Secure) 클러스터 만들기가 `DomainNotFoun
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

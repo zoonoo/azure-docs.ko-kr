@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurepowershell
 ms.date: 04/29/2020
-ms.openlocfilehash: 249355b4d5e80625511d8448c587d079c77dd92b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 0b8b57164d97007695d28efdccbf873d6fc71674
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701540"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299636"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Apache Ambari REST API를 사용하여 HDInsight 클러스터 관리
 
-[!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
+[!INCLUDE [ambari-selector](includes/hdinsight-ambari-selector.md)]
 
 Apache Ambari REST API를 사용하여 Azure HDInsight에서 Apache Hadoop 클러스터를 관리하고 모니터링하는 방법에 대해 알아봅니다.
 
@@ -24,7 +24,7 @@ Apache Ambari는 [REST API](https://github.com/apache/ambari/blob/trunk/ambari-s
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight의 Hadoop 클러스터입니다. [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+* HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
 * Windows 10의 Ubuntu에 있는 Bash.  이 문서의 예제에서는 Windows 10의 Bash 셸을 사용합니다. [Windows 10을 위한 Linux용 Windows 하위 시스템 설치 가이드](/windows/wsl/install-win10)에서 설치 단계를 참조하세요.  다른 [Unix 셸](https://www.gnu.org/software/bash/)도 작동합니다.  약간의 수정을 거치면 예제도 Windows 명령 프롬프트에서 작업할 수 있습니다.  또는 Windows PowerShell을 사용할 수 있습니다.
 

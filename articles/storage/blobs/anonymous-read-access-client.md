@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2437c5b3272163b3931d7417c84e761c591aec85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e112d9b6cc55a898c77026c1982e2a7c19b6840c
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90088819"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113731763"
 ---
 # <a name="access-public-containers-and-blobs-anonymously-with-net"></a>.NET을 사용하여 공용 컨테이너 및 Blob에 익명으로 액세스
 
@@ -109,4 +109,4 @@ public static void DownloadBlobAnonymously()
 
 - [컨테이너 및 Blob에 대한 익명 공용 읽기 권한 구성](anonymous-read-access-configure.md)
 - [컨테이너 및 Blob에 대한 익명 공용 읽기 권한 방지](anonymous-read-access-prevent.md)
-- [Azure Storage에 대한 액세스 권한 부여](../common/storage-auth.md)
+- [Azure Storage에 대한 액세스 권한 부여](../common/authorize-data-access.md)

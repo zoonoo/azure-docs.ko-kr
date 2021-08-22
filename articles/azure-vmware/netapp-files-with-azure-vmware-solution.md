@@ -3,12 +3,12 @@ title: Azure VMware Solution과 Azure NetApp Files 통합
 description: Azure NetApp Files를 Azure VMware Solution VM과 함께 사용하여 온-프레미스 서버, Azure VMware Solution VM, 클라우드 인프라 간에 데이터를 마이그레이션하고 동기화합니다.
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: 3383ee2afe271fbf50def125bd1fd4366b8b6165
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 4c07765bd54e59109f15f8a0cdfd067f48dd14b4
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111755720"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443819"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-vmware-solution"></a>Azure VMware Solution과 Azure NetApp Files 통합
 
@@ -27,7 +27,7 @@ Azure NetApp Files가 사용되는 서비스입니다.
 
 다이어그램은 Azure ExpressRoute를 통해 Azure VMware Solution 프라이빗 클라우드로 연결하는 방법을 보여줍니다. Azure VMware Solution 환경은 Azure VMware Solution VM에 탑재된 Azure NetApp Files 공유에 액세스합니다.
 
-![Azure VMware Solution용 NetApp Files 아키텍처를 보여 주는 다이어그램](media/net-app-files/net-app-files-topology.png)
+:::image type="content" source="media/netapp-files/netapp-files-topology.png" alt-text="Azure VMware Solution용 NetApp Files 아키텍처를 보여 주는 다이어그램" border="false":::
 
 
 ## <a name="prerequisites"></a>사전 요구 사항 
@@ -60,13 +60,13 @@ Azure NetApp Files 프리미엄 서비스 수준에서 Azure에 만들어진 미
 
 1. Azure Portal의 **스토리지** 에서 **Azure NetApp Files** 를 선택합니다. 구성된 Azure NetApp Files의 목록이 표시됩니다. 
 
-   :::image type="content" source="media/net-app-files/azure-net-app-files-list.png" alt-text="미리 구성된 Azure NetApp Files의 목록을 보여 주는 스크린샷"::: 
+   :::image type="content" source="media/netapp-files/azure-netapp-files-list.png" alt-text="미리 구성된 Azure NetApp Files의 목록을 보여 주는 스크린샷"::: 
 
 2. 구성된 NetApp Files 계정을 선택하여 설정을 확인합니다. 예를 들어 **Contoso-anf2** 를 선택합니다. 
 
 3. **용량 풀** 을 선택하여 구성된 풀을 확인합니다. 
 
-   :::image type="content" source="media/net-app-files/net-app-settings.png" alt-text="구성된 NetApp Files 계정의 용량 풀 및 볼륨을 볼 수 있는 옵션을 보여 주는 스크린샷":::
+   :::image type="content" source="media/netapp-files/netapp-settings.png" alt-text="구성된 NetApp Files 계정의 용량 풀 및 볼륨을 볼 수 있는 옵션을 보여 주는 스크린샷":::
 
    용량 및 서비스 수준을 보여 주는 용량 풀 페이지가 열립니다. 이 예제에서 스토리지 풀은 프리미엄 서비스 수준을 사용하여 4TiB로 구성됩니다.
 
@@ -74,11 +74,11 @@ Azure NetApp Files 프리미엄 서비스 수준에서 Azure에 만들어진 미
 
 5. 볼륨을 선택하여 해당 구성을 확인합니다.  
 
-   :::image type="content" source="media/net-app-files/azure-net-app-volumes.png" alt-text="용량 풀에 만들어진 볼륨을 보여 주는 스크린샷":::
+   :::image type="content" source="media/netapp-files/azure-netapp-volumes.png" alt-text="용량 풀에 만들어진 볼륨을 보여 주는 스크린샷":::
 
    볼륨의 구성 세부 정보를 표시하는 창이 열립니다.
 
-   :::image type="content" source="media/net-app-files/configuration-of-volume.png" alt-text="볼륨의 구성 세부 정보를 보여 주는 스크린샷":::
+   :::image type="content" source="media/netapp-files/configuration-of-volume.png" alt-text="볼륨의 구성 세부 정보를 보여 주는 스크린샷":::
 
    200GiB 크기의 anfvolume이 용량 풀 anfpool1에 포함되어 있는 것을 볼 수 있습니다. 이 볼륨은 10.22.3.4:/ANFVOLUME을 통해 NFS 파일 공유로 내보내집니다. VM에 탑재할 Azure NetApp Files 및 NFS 경로를 위해 Azure VNet(Virtual Network)에서 개인 IP 하나가 만들어졌습니다.
 

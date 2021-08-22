@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/05/2021
 ms.author: terrylan
-ms.openlocfilehash: 988689a662839476a695646865c92870f35391ea
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 502fb45c690baa7e6d098258c12576f0f3b31c1f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175787"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956826"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure ID 관리 보안 개요
 
@@ -72,8 +72,8 @@ Azure AD 애플리케이션 프록시를 사용하면 [SharePoint](https://suppo
 
 * [Azure AD 애플리케이션 프록시 사용](../../active-directory/app-proxy/application-proxy-add-on-premises-application.md)
 * [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](../../active-directory/app-proxy/application-proxy-add-on-premises-application.md)
-* [애플리케이션 프록시를 사용하는 Single Sign-On](../../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-* [조건부 액세스로 작업](../../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
+* [애플리케이션 프록시를 사용하는 Single Sign-On](../../active-directory/app-proxy/application-proxy-configure-single-sign-on-with-kcd.md)
+* [조건부 액세스로 작업](../../active-directory/app-proxy/application-proxy-integrate-with-sharepoint-server.md)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 

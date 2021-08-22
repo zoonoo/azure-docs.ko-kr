@@ -2,17 +2,17 @@
 title: Internet Analyzer 클라이언트 포함 | Microsoft Docs
 description: 이 문서에서는 애플리케이션에 Internet Analyzer JavaScript 클라이언트를 포함하는 방법에 대해 알아봅니다.
 services: internet-analyzer
-author: mattcalder
+author: KumudD
 ms.service: internet-analyzer
 ms.topic: how-to
 ms.date: 10/16/2019
-ms.author: mebeatty
-ms.openlocfilehash: 0d4b27b85ac7bc61e14a79f29e4e26ec4973ced1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: kumud
+ms.openlocfilehash: cc05fe0f2e4305fa8c1fc5bd2fe90f365e83c6aa
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84744054"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114454819"
 ---
 # <a name="embed-the-internet-analyzer-client"></a>Internet Analyzer 클라이언트 포함
 

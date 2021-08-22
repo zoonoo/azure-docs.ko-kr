@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/21/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 051dc952381800667fc3b36cdcf32f2aa2f6844c
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 97c3013586e9671d7d9cce55c5e6253cb8a368f4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112416645"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733886"
 ---
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>방화벽에서 열어야 하는 포트는 어느 것인가요? 
 Azure Event Hubs에서 다음 프로토콜을 사용하여 이벤트를 보내고 받을 수 있습니다.
@@ -75,7 +75,7 @@ Azure를 사용하는 경우 회사 방화벽 또는 프록시의 특정 IP 주�
 ### <a name="what-client-ips-are-sending-events-to-or-receiving-events-from-my-namespace"></a>내 네임스페이스에 이벤트를 보내거나 받는 클라이언트 IP는 무엇인가요?
 먼저 네임스페이스에서 [IP 필터링](../event-hubs-ip-filtering.md)을 사용하도록 설정합니다. 
 
-그런 다음, [진단 로그 사용](../event-hubs-diagnostic-logs.md#enable-diagnostic-logs)의 지침에 따라 진단 로그를 [Event Hubs 가상 네트워크 연결 이벤트](../event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema)에 사용하도록 설정합니다. 연결이 거부된 IP 주소가 표시됩니다.
+그런 다음, [진단 로그 사용](../../azure-monitor/essentials/diagnostic-settings.md)의 지침에 따라 진단 로그를 [Event Hubs 가상 네트워크 연결 이벤트](../monitor-event-hubs-reference.md#event-hubs-virtual-network-connection-event-schema)에 사용하도록 설정합니다. 연결이 거부된 IP 주소가 표시됩니다.
 
 ```json
 {

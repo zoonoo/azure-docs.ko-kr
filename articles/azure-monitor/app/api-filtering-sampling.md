@@ -4,12 +4,12 @@ description: SDK용 원격 분석 프로세서 및 원격 분석 이니셜라이
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: cb9159b98b219c6fb04beb7bbbaade64fc72a30b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3fac7a4f02a67def7f5089e3e793e61c510ad074
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98927746"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112289372"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK에서 원격 분석 필터링 및 전처리
 
@@ -553,5 +553,5 @@ public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
 ## <a name="next-steps"></a><a name="next"></a>다음 단계
 * [검색 이벤트 및 로그](./diagnostic-search.md)
 * [샘플링](./sampling.md)
-* [문제 해결](../faq.md)
+* [문제 해결](../faq.yml)
 

@@ -3,12 +3,12 @@ title: REST API를 사용하여 Azure 파일 공유 백업 관리
 description: REST API를 사용하여 Azure Backup에서 백업된 Azure 파일 공유를 관리하고 모니터링하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 5e2823472c6a7bdd6b3f9819db3079d7efa78c4e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cdd099cac609ef84a0ece9d0d116de5534d3e530
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88892850"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114445148"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>REST API를 사용하여 Azure 파일 공유 백업 관리
 
@@ -38,7 +38,7 @@ Azure Backup 서비스는 백그라운드에서 실행되는 작업을 트리거
 }
 ```
 
-Azure 파일 공유 백업 작업은 **jobId** 필드로 식별되며 [여기](/rest/api/backup/jobdetails/)에 언급된 대로 GET 요청을 사용하여 추적할 수 있습니다.
+Azure 파일 공유 백업 작업은 **jobId** 필드로 식별되며 [여기](/rest/api/backup/job-details)에 언급된 대로 GET 요청을 사용하여 추적할 수 있습니다.
 
 ### <a name="tracking-the-job"></a>작업 추적
 
@@ -134,8 +134,8 @@ HTTP/1.1" 200
   "properties": {
     "protectedItemType": "AzureFileShareProtectedItem",
     "sourceResourceId": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/AzureFiles/providers/Microsoft.Storage/storageAccounts/testvault2",
-    "policyId": “" ,
-“protectionState”:”ProtectionStopped”
+    "policyId": "" ,
+"protectionState":"ProtectionStopped"
   }
 }
 ```
@@ -190,7 +190,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 ## <a name="stop-protection-and-delete-data"></a>보호 중지 및 데이터 삭제
 
-보호된 파일 공유의 보호를 제거하고 백업 데이터도 삭제하려면 [여기](/rest/api/backup/protecteditems/delete)에 설명된 대로 삭제 작업을 수행합니다.
+보호된 파일 공유의 보호를 제거하고 백업 데이터도 삭제하려면 [여기](/rest/api/backup/protected-items/delete)에 설명된 대로 삭제 작업을 수행합니다.
 
 ```http
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13

@@ -3,12 +3,12 @@ title: Azure Container Registry의 리포지토리에 대한 권한
 description: 프리미엄 레지스트리의 특정 리포지토리로 범위가 지정된 권한으로 토큰을 만들어 이미지를 풀하거나 푸시하거나 다른 작업을 수행합니다.
 ms.topic: article
 ms.date: 02/04/2021
-ms.openlocfilehash: 8cdcd3e09603f24c37ad7323a273ca97f76fcd0c
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 796d98173a5ec850af2f8dbec3e8bfd1db902ca0
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930500"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114220437"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>리포지토리 범위 권한이 있는 토큰 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "107930500"
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 
 * 리포지토리 범위 권한은 현재 Azure Active Directory ID(예: 서비스 주체 또는 관리 ID)에 할당할 수 없습니다.
-* [익명 풀 액세스](container-registry-faq.md#how-do-i-enable-anonymous-pull-access)에 대해 사용하도록 설정된 레지스트리에서 범위 맵을 만들 수 없습니다.
+* [익명 풀 액세스](container-registry-faq.yml#how-do-i-enable-anonymous-pull-access-)에 대해 사용하도록 설정된 레지스트리에서 범위 맵을 만들 수 없습니다.
 
 ## <a name="concepts"></a>개념
 
@@ -38,7 +38,7 @@ ms.locfileid: "107930500"
 
   토큰을 사용하여 인증되면 사용자 또는 서비스에서 하나 이상의 리포지토리로 범위가 지정된 하나 이상의 *작업* 을 수행할 수 있습니다.
 
-  |작업  |Description  | 예제 |
+  |작업  |설명  | 예제 |
   |---------|---------|--------|
   |`content/delete`    | 리포지토리에서 데이터 제거  | 리포지토리 또는 매니페스트 삭제 |
   |`content/read`     |  리포지토리에서 데이터 읽기 |  아티팩트 끌어오기 |

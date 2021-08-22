@@ -12,12 +12,12 @@ ms.date: 06/10/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0944dfd177ba82680b315913046ce8a4103f1156
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: a8fc74a298450ad2581a8a147eaff9f996dca8dc
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111960609"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112198803"
 ---
 # <a name="set-up-a-force-password-reset-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 암호 강제 재설정 흐름 설정
 
@@ -31,7 +31,7 @@ ms.locfileid: "111960609"
 
 ![암호 강제 재설정 흐름](./media/force-password-reset/force-password-reset-flow.png)
 
-암호 재설정 흐름은 로그인을 위해 암호와 함께 [이메일 주소](identity-provider-local.md#email-sign-in) 또는 [사용자 이름](identity-provider-local.md#username-sign-in)을 사용하는 Azure AD B2C의 로컬 계정에 적용됩니다.
+암호 재설정 흐름은 로그인을 위해 암호와 함께 [이메일 주소](sign-in-options.md#email-sign-in) 또는 [사용자 이름](sign-in-options.md#username-sign-in)을 사용하는 Azure AD B2C의 로컬 계정에 적용됩니다.
 
 ::: zone pivot="b2c-user-flow"
 

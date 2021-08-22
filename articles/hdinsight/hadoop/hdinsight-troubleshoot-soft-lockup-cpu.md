@@ -4,12 +4,12 @@ description: Watchdog 버그 소프트 작동 중지 CPU가 Azure HDInsight 클�
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/05/2019
-ms.openlocfilehash: 5d9d7b0fc21660dd22ff92bbe2de38c759c440ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d2deb421dce440c1c8f949c858269fed038ac3d5
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98944348"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299756"
 ---
 # <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>시나리오: Azure HDInsight 클러스터의 "watchdog: 버그: 소프트 작동 중지 - CPU" 오류
 
@@ -53,4 +53,4 @@ Linux 커널의 [버그](https://bugzilla.kernel.org/show_bug.cgi?id=199437)로 
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

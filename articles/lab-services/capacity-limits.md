@@ -3,12 +3,12 @@ title: Azure Lab Services의 용량 한도
 description: Azure Lab Services의 용량 한도(가상 머신 한도)에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 9866628cd11ec8df67e6fe16ae8806f0f30ae9a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 344ca5950e38d3c4850accdbfb5062a011059919
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94491021"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294511"
 ---
 # <a name="capacity-limits-in-azure-lab-services"></a>Azure Lab Services의 용량 한도
 Azure Lab Services에는 Azure Compute 할당량 한도를 준수하고 사기를 줄이기 위해 Azure 구독에 대한 기본 용량 한도가 있습니다. 모든 Azure 구독에는 초기 용량 한도가 있으며 이는 구독 유형, 표준 컴퓨팅 코어 수, Azure Lab Services 내에서 사용할 수 있는 GPU 코어에 따라 달라질 수 있습니다. 한도 증가를 요청하기 전에 랩 내에서 만들 수 있는 가상 머신 수를 제한합니다.  
@@ -51,4 +51,4 @@ Azure Lab Services 포털의 가상 머신 코어 한도에 대한 메시지에�
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요.
 - [관리자 가이드 - VM 크기 조정](administrator-guide.md#vm-sizing)
-- [질문과 대답](classroom-labs-faq.md)
+- [질문과 대답](classroom-labs-faq.yml)

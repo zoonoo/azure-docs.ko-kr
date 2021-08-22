@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 ms.custom: references_regions, devx-track-azurecli
 description: 사용자 지정 위치를 사용하여 Azure Arc 지원 Kubernetes 클러스터에 Azure PaaS 서비스 배포
-ms.openlocfilehash: 5f25260041fe7d5998d7f1716c9d20e288168e9d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 5fa255755dd0b78498203624194d081447d70a13
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951667"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730859"
 ---
 # <a name="create-and-manage-custom-locations-on-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes의 사용자 지정 위치 만들기 및 관리
 
@@ -105,26 +105,15 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 1. 클러스터에 최종적으로 원하는 Azure 서비스 인스턴스의 Azure 서비스 클러스터 확장을 배포합니다.
 
-    * Azure Arc 지원 데이터 서비스
+    * [Azure Arc 지원 Data Services](../data/create-data-controller-direct-cli.md#create-the-arc-data-services-extension)
 
-        ```azurecli
-        az k8s-extension create --name <extensionInstanceName> --extension-type microsoft.arcdataservices --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
-        ```
         > [!NOTE]
         > 인증이 없는 아웃바운드 프록시 및 기본 인증이 있는 아웃바운드 프록시는 Arc 지원 Data Services 클러스터 확장에서 지원됩니다. 신뢰할 수 있는 인증서가 필요한 아웃바운드 프록시는 현재 지원되지 않습니다.
 
 
-    * [Azure Arc의 Azure App Service](../../app-service/overview-arc-integration.md)
+    * [Azure Arc의 Azure App Service](../../app-service/manage-create-arc-environment.md#install-the-app-service-extension)
 
-        ```azurecli
-        az k8s-extension create --name <extensionInstanceName> --extension-type 'Microsoft.Web.Appservice' --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace appservice-ns --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" --configuration-settings "appsNamespace=appservice-ns" 
-        ```
-
-    * [Kubernetes의 Event Grid](../../event-grid/kubernetes/overview.md)
-
-        ```azurecli
-          az k8s-extension create --name <extensionInstanceName> --extension-type Microsoft.EventGrid --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace eventgrid-ext --configuration-protected-settings-file protected-settings-extension.json --configuration-settings-file settings-extension.json
-        ```
+    * [Kubernetes의 Event Grid](../../event-grid/kubernetes/install-k8s-extension.md)
 
 1. 이후 단계에서 `connectedClusterId`로 참조되는 Azure Arc 지원 Kubernetes 클러스터의 Azure Resource Manager 식별자를 가져옵니다.
 

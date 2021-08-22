@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 8be5ac75e2da3eaeae300fd36e152a24c9777e64
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95a8f3090fd1599cbf30f783df1c501fa797cdff
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99593742"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112287950"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>새 Application Gateway를 사용하여 AGIC(Application Gateway 수신 컨트롤러)를 설치하는 방법
 
@@ -250,7 +250,7 @@ AAD Pod ID를 클러스터에 설치하려면:
     ```
 
    값
-     - `verbosityLevel`: AGIC 로깅 인프라의 세부 정보 표시 수준을 설정합니다. 가능한 값은 [로깅 수준](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels)을 참조하세요.
+     - `verbosityLevel`: AGIC 로깅 인프라의 세부 정보 표시 수준을 설정합니다. 가능한 값은 [로깅 수준](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.yml#logging-levels)을 참조하세요.
      - `appgw.subscriptionId`: Application Gateway가 있는 Azure 구독 ID입니다. 예: `a123b234-a3b4-557d-b2df-a0bc12de1234`
      - `appgw.resourceGroup`: Application Gateway가 만들어진 Azure Resource Group의 이름입니다. 예: `app-gw-resource-group`
      - `appgw.name`: Application Gateway의 이름입니다. 예: `applicationgatewayd0f0`

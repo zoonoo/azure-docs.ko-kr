@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/24/2021
+ms.date: 07/13/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86a055bade77f92912134a295f7576e545fe7124
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d6e4926d9bad317027d1b290e0365c667b867df6
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467152"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729653"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Azure AD External Identities에 대한 청구 모델
 
 Azure AD(Azure Active Directory) External Identities 가격은 MAU(월간 활성 사용자)를 기반으로 하며, 이는 한 달 내에 인증 활동이 있는 고유한 사용자의 수입니다. 이 청구 모델은 Azure AD 게스트 사용자 공동 작업(B2B) 및 [Azure AD B2C 테넌트](../../active-directory-b2c/billing.md)에 모두 적용됩니다. MAU 청구는 무료 계층 및 유연하고 예측 가능한 가격을 제공하므로 비용을 절감할 수 있습니다. 이 문서에서는 MAU 청구 및 Azure AD 테넌트를 구독에 연결하는 방법을 알아봅니다.
 
 > [!IMPORTANT]
-> 이 문서에는 가격 정보가 포함되어 있지 않습니다. 사용량 청구 및 가격 책정에 대한 최신 정보는 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.
+> 이 문서에는 가격 정보가 포함되어 있지 않습니다. 사용량 청구 및 가격 책정에 대한 최신 정보는 [Azure Active Directory 가격 책정](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)을 참조하세요.
 
 ## <a name="what-do-i-need-to-do"></a>무엇을 해야 하나요?
 
@@ -39,7 +39,7 @@ MAU 청구 기능을 사용하려면 Azure AD 테넌트가 Azure 구독에 연�
 
 Azure AD 테넌트에서 게스트 사용자 공동 작업 사용량은 한 달 내에 인증 활동이 있는 고유한 사용자 수를 기준으로 청구됩니다. 이 모델은 테넌트의 각 Azure AD Premium 라이선스에 대해 최대 5명의 게스트 사용자를 허용하는 1:5 비율 청구 모델을 대체합니다. 테넌트가 구독에 연결되어 있고 외부 ID 기능을 사용하여 게스트 사용자와 협업하는 경우 MAU 기반 청구 모델을 사용하여 자동으로 청구됩니다.
 
-게스트 사용자에게 적용되는 가격 책정 계층은 Azure AD 테넌트에 할당된 가장 높은 가격 책정 계층을 기반으로 합니다. 자세한 내용은 [Azure Active Directory 외부 ID 가격 책정](https://azure.microsoft.com/en-us/pricing/details/active-directory/external-identities/)을 참조하세요.
+게스트 사용자에게 적용되는 가격 책정 계층은 Azure AD 테넌트에 할당된 가장 높은 가격 책정 계층을 기반으로 합니다. 자세한 내용은 [Azure Active Directory 외부 ID 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/external-identities/)을 참조하세요.
 
 ## <a name="link-your-azure-ad-tenant-to-a-subscription"></a>구독에 Azure AD 테넌트 연결
 
@@ -74,4 +74,4 @@ Azure AD 테넌트는 적절한 청구 및 기능 액세스를 위해 Azure 구�
 
 ## <a name="next-steps"></a>다음 단계
 
-최신 가격 책정 정보는 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.
+최신 가격 책정 정보는 [Azure Active Directory 가격 책정](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)을 참조하세요.

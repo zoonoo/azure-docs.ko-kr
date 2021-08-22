@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: d5a8fe4192c3778e259ed18239a4198398d8807b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74410025e148eb60438a020164837dac486d2ad3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94836838"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955006"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Azure Active Directory 일반 작업 가이드 참조
 
@@ -70,7 +70,7 @@ Azure Active Directory를 관리하려면 출시 프로젝트의 일부가 아�
 #### <a name="hybrid-management-recommended-reading"></a>하이브리드 관리 권장 참조 항목
 
 - [Azure AD Connect: 자동 업그레이드](../hybrid/how-to-connect-install-automatic-upgrade.md)
-- [Azure AD 애플리케이션 프록시 커넥터 이해 | 자동 업데이트](../manage-apps/application-proxy-connectors.md#automatic-updates)
+- [Azure AD 애플리케이션 프록시 커넥터 이해 | 자동 업데이트](../app-proxy/application-proxy-connectors.md#automatic-updates)
 
 ### <a name="azure-ad-connect-health-alert-baseline"></a>Azure AD Connect Health 경고 기준
 
@@ -90,9 +90,9 @@ Azure Active Directory를 관리하려면 출시 프로젝트의 일부가 아�
 
 #### <a name="on-premises-agents-logs-recommended-reading"></a>온-프레미스 에이전트 로그 권장 참조 항목
 
-- [애플리케이션 프록시 문제 해결](../manage-apps/application-proxy-troubleshoot.md)
+- [애플리케이션 프록시 문제 해결](../app-proxy/application-proxy-troubleshoot.md)
 - [셀프 서비스 암호 재설정 문제 해결 - Azure Active Directory](../authentication/troubleshoot-sspr.md)
-- [Azure AD 애플리케이션 프록시 커넥터 이해](../manage-apps/application-proxy-connectors.md)
+- [Azure AD 애플리케이션 프록시 커넥터 이해](../app-proxy/application-proxy-connectors.md)
 - [Azure AD Connect: 통과 인증 문제 해결](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
 - [Azure AD MFA NPS 확장에 대한 오류 코드 문제 해결](../authentication/howto-mfa-nps-extension-errors.md)
 
@@ -106,7 +106,7 @@ Azure Active Directory를 관리하려면 출시 프로젝트의 일부가 아�
 
 #### <a name="on-premises-agents-management-recommended-reading"></a>온-프레미스 에이전트 관리 권장 참조 항목
 
-- [Azure AD 애플리케이션 프록시 커넥터 이해](../manage-apps/application-proxy-connectors.md)
+- [Azure AD 애플리케이션 프록시 커넥터 이해](../app-proxy/application-proxy-connectors.md)
 - [Azure AD 통과 인증 - 빠른 시작](../hybrid/how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)
 
 ## <a name="management-at-scale"></a>대규모 관리

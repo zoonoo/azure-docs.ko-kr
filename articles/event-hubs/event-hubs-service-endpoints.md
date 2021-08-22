@@ -3,12 +3,12 @@ title: Virtual Network 서비스 엔드포인트 - Azure Event Hubs | Microsoft 
 description: 이 문서에서는 가상 네트워크에 Microsoft.EventHub 서비스 엔드포인트를 추가하는 방법에 대한 정보를 제공합니다.
 ms.topic: article
 ms.date: 05/10/2021
-ms.openlocfilehash: bc13878be3b596d514ad2ed8ad024064df6e6fb4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 33ae280b49b4f2afca39e8de8954f836737c9d7c
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375340"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416221"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>특정 가상 네트워크에서 Azure Event Hubs 네임스페이스에 대한 액세스 허용 
 
@@ -78,7 +78,7 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
     > [!NOTE]
     > 특정 IP 주소나 범위에 대한 액세스를 제한하려면 [특정 IP 주소 또는 범위에서 액세스 허용](event-hubs-ip-filtering.md)을 참조하세요.
 
-[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+[!INCLUDE [event-hubs-trusted-services](./includes/event-hubs-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용
 다음과 같은 샘플 Resource Manager 템플릿을 사용하면 기존 Event Hubs 네임스페이스에 가상 네트워크 규칙을 추가할 수 있습니다. 네트워크 규칙의 경우 가상 네트워크에 있는 서브넷의 ID를 지정합니다. 

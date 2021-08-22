@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozge
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f569fdac19c4f765828d24f4d6615fdd7bafef8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87c73dc2d5afaf4969a04e850811375d7d46cf07
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89010905"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113728987"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>공유 키 인증으로 REST API 작업 호출
 
@@ -268,7 +268,7 @@ Content-Length: 1511
 ## <a name="creating-the-authorization-header"></a>인증 헤더 만들기
 
 > [!TIP]
-> Azure Storage에서 이제 BLOB 및 큐에 대한 Azure AD(Azure Active Directory) 통합을 지원합니다. Azure AD는 Azure Storage에 대한 요청에 권한을 부여하는 훨씬 간단한 환경을 제공합니다. Azure AD를 사용하여 REST 작업에 권한을 부여하는 방법에 대한 자세한 내용은 [Azure Active Directory를 사용하여 권한 부여하기](/rest/api/storageservices/authorize-with-azure-active-directory)를 참조하세요. Azure Storage와 Azure AD의 통합에 대한 개요는 [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 권한 부여하기](storage-auth-aad.md)를 참조하세요.
+> Azure Storage에서 이제 BLOB 및 큐에 대한 Azure AD(Azure Active Directory) 통합을 지원합니다. Azure AD는 Azure Storage에 대한 요청에 권한을 부여하는 훨씬 간단한 환경을 제공합니다. Azure AD를 사용하여 REST 작업에 권한을 부여하는 방법에 대한 자세한 내용은 [Azure Active Directory를 사용하여 권한 부여하기](/rest/api/storageservices/authorize-with-azure-active-directory)를 참조하세요. Azure Storage와 Azure AD의 통합에 대한 개요는 [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 권한 부여하기](authorize-data-access.md)를 참조하세요.
 
 [Azure Storage에 대한 권한 부여를 요청](/rest/api/storageservices/authorize-requests-to-azure-storage)하는 방법을 개념적으로(코드 없음) 설명하는 문서가 있습니다.
 

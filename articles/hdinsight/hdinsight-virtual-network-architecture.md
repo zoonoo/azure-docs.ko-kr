@@ -4,12 +4,12 @@ description: Azure Virtual Network에서 HDInsight 클러스터를 만들 때 �
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 43640a9de91b6b44a236090ff029a49313ee0247
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 511f1b1bba227e58303a47994d7a6f7bd8b14604
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104871676"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112290992"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight 가상 네트워크 아키텍처
 
@@ -24,7 +24,6 @@ Azure HDInsight 클러스터에는 서로 다른 유형의 가상 머신 또는 
 | 헤드 노드 |  Apache Storm를 제외한 모든 클러스터 유형의 경우, 헤드 노드는 분산 앱의 실행을 관리하는 프로세스를 호스트합니다. 헤드 노드는 또한 SSH 연결을 만들고, 클러스터 리소스에서 실행 되도록 조정된 애플리케이션을 실행할 수 있는 노드입니다. 모든 클러스터 유형의 헤드 노드 수는 2개로 고정됩니다. |
 | Zookeeper 노드 | ZooKeeper가 데이터 처리를 수행하는 노드들 간의 작업을 조정합니다. 또한 이것은 헤드 노드의 선행부 선택을 수행하고, 특정 마스터 서비스를 실행 중인 헤드 노드를 추적합니다. ZooKeeper 노드 수는 3개로 고정됩니다. |
 | 작업자 노드 | 데이터 처리 기능을 지원하는 노드를 나타냅니다. 작업자 노드를 클러스터에서 추가하거나 제거하여, 컴퓨팅 기능을 확장하고 비용을 관리할 수 있습니다. |
-| R 서버 에지 노드 | R 서버 에지 노드는 SSH 연결을 만들고, 클러스터 리소스에서 실행 되도록 조정된 애플리케이션을 실행할 수 있는 노드입니다. 에지 노드는 클러스터 내에서 데이터 분석에 참가하지 않습니다. 이 노드는 또한 R Studio 서버를 호스트하여, 브라우저로 R 애플리케이션을 실행할 수 있도록 합니다. |
 | 지역 노드 | HBase 클러스터 유형의 경우, 지역 노드(데이터 노드라고도 함)는 지역 서버를 실행합니다. 지역 서버는 HBase에서 관리하는 데이터의 일부를 제공하고 관리합니다. 지역 노드를 클러스터에서 추가하거나 제거하여, 컴퓨팅 기능을 확장하고 비용을 관리할 수 있습니다.|
 | Nimbus 노드 | Storm 클러스터 유형의 경우 Nimbus 노드는 헤드 노드와 비슷한 기능을 제공합니다. Nimbus 노드는 Storm 토폴로지 실행을 조정하는 ZooKeeper를 통해 클러스터의 다른 노드에 작업을 할당합니다. |
 | 감독자 노드 | Storm 클러스터 유형의 경우, 감독자 노드는 Nimbus 노드에서 제공하는 지침을 실행하여 처리를 수행합니다. |

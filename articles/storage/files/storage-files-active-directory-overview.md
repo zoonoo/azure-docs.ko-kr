@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 8887243f953a7bb000033a2e56b4655b93cd7ca8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 84934668c36d518e65c8997f72309a5ca3eb8fbe
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519795"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112118500"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>SMB 액세스에 대한 Azure Files ID 기반 인증 옵션 개요
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -20,6 +20,13 @@ ms.locfileid: "102519795"
 Azure 파일 공유에 대해 온-프레미스 Active Directory Domain Services 인증을 사용하도록 설정하는 방법을 알아보려면 [Azure 파일 공유에 대해 SMB를 통한 온-프레미스 Active Directory Domain Services 인증 사용](storage-files-identity-auth-active-directory-enable.md)을 참조하세요.
 
 Azure 파일 공유에 대해 Azure AD DS 인증을 사용하는 방법을 알아보려면 [Azure Files에서 Azure Active Directory Domain Services 인증 사용](storage-files-identity-auth-active-directory-domain-service-enable.md)을 참조하세요.
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 ## <a name="glossary"></a>용어 
 Azure 파일 공유에 대해 SMB를 통한 Azure AD Domain Service 인증과 관련된 몇 가지 주요 용어를 알고 있는 것이 좋습니다.

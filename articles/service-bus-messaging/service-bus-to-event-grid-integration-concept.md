@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/11/2021
 ms.author: spelluru
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 658107bb74396891c8e6e05a9e8074a9416a5f6f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 999bfb9278f3c355e2b431c0fe3ca13648aa42c9
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100369665"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112413018"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus-Event Grid 통합 개요
 이제 Service Bus는 수신기가 없을 때 큐 또는 구독에 메시지가 있으면 Event Grid로 이벤트를 내보낼 수 있습니다. Service Bus 네임스페이스에 대한 Event Grid 구독을 만들고, 수신기를 시작하여 이러한 이벤트를 수신 대기하고 대응할 수 있습니다. 이 기능을 통해 사후 프로그래밍 모델에 Service Bus를 사용할 수 있습니다. 이 기능의 주요 시나리오는 메시지 볼륨이 적은 Service Bus 큐 또는 구독은 항상 메시지에 대한 수신기 폴링이 필요 없다는 것입니다. 
@@ -25,7 +25,7 @@ ms.locfileid: "100369665"
 
 ![19][]
 
-[!INCLUDE [event-grid-service-bus.md](../../includes/event-grid-service-bus.md)]
+[!INCLUDE [event-grid-service-bus.md](./includes/event-grid-service-bus.md)]
 
 ## <a name="event-grid-subscriptions-for-service-bus-namespaces"></a>Service Bus 네임스페이스에 대한 Event Grid 구독
 세 가지 방법으로 Service Bus 네임스페이스에 대한 Event Grid 구독을 만들 수 있습니다.

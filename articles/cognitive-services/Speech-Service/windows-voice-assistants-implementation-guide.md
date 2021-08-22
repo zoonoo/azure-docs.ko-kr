@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0bfdb7017a5042787e7e33e05e52bd90d67deb0e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: df35b537e3bcaa2fb7d876b55cea08e5dcf65586
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110058875"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113652453"
 ---
 # <a name="implementing-voice-assistants-on-windows"></a>Windows에서 음성 도우미 구현
 
@@ -154,4 +154,4 @@ conversationalAgentSession.SystemStateChanged += (s, e) =>
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [UWP 음성 도우미 샘플 앱을 방문하여 예 및 코드 연습 확인](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample)
+> [UWP 음성 도우미 샘플 앱을 방문하여 예 및 코드 연습 확인](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample)

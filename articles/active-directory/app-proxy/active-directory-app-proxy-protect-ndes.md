@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.openlocfilehash: 3fa8b81a1dbd13c8570783b354696c8af81e7e7f
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 3c55bdb003f16539061bcbeae0f8cf7ed5cc660d
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187378"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113728285"
 ---
 # <a name="integrate-with-azure-active-directory-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>NDES(네트워크 디바이스 등록 서비스) 서버에서 Azure Active Directory 애플리케이션 프록시와 통합
 
@@ -25,7 +25,7 @@ Azure AD 애플리케이션 프록시를 처음 사용하고 자세히 알아보
 
 Azure AD 애플리케이션 프록시는 Azure를 기반으로 합니다. DDOS(배포된 서비스 거부) 공격과 뛰어난 가용성에 대한 보호를 강화하기 위해 대량의 네트워크 대역폭과 서버 인프라를 제공합니다. 또한 온-프레미스 네트워크에 대한 외부 방화벽 포트를 열 필요가 없으며 DMZ 서버가 필요하지 않습니다. 모든 트래픽은 인바운드로 시작됩니다. 아웃바운드 포트의 전체 목록은 [자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment)를 참조하세요.
 
-> Azure AD 애플리케이션 프록시는 Premium 또는 Basic 버전의 Azure Active Directory를 사용하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요. 
+> Azure AD 애플리케이션 프록시는 Premium 또는 Basic 버전의 Azure Active Directory를 사용하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 가격 책정](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)을 참조하세요. 
 > EMS(Enterprise Mobility Suite) 라이선스가 있는 경우 이 솔루션을 사용할 수 있습니다.
 > Azure AD 애플리케이션 프록시 커넥터는 Windows Server 2012 R2 이상에만 설치됩니다. 이는 NDES 서버의 요구 사항이기도 합니다.
 

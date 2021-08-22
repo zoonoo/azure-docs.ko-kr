@@ -1,19 +1,20 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer) 인사이트 보기 및 편집
-titlesuffix: Azure Media Services
+titlesuffix: Azure Video Analyzer for Media
 description: 이 문서에서는 Azure Video Analyzer for Media(이전의 Video Indexer) 인사이트를 보고 편집하는 방법을 보여 줍니다.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 2bf819c89ae20e8a1572526b0f2733ccc420614e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7cbe14a10f18f44831ec360059ae608073ad3a99
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386533"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115231"
 ---
 # <a name="view-and-edit-video-analyzer-for-media-insights"></a>Video Analyzer for Media 인사이트 보기 및 편집
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: dech
 ms.custom: references_regions
-ms.openlocfilehash: 02e8ad5f2b5326f947ba0bca6456ce9d9d3c27d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1309ac31c8669ad678b96a4d99d32daf8f89815
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101692779"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112234269"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Azure Cosmos DB 계정에 대하여 Notebook을 사용하도록 설정하기(미리 보기)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,7 +38,7 @@ Azure Cosmos DB의 기본 제공 Jupyter Notebook을 사용하여 Azure Portal�
 
 1. **리소스로 이동** 을 선택하여 Azure Cosmos DB 계정 페이지로 이동합니다.
 
-   :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="Azure Cosmos DB 계정 페이지":::
+   :::image type="content" source="includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="Azure Cosmos DB 계정 페이지":::
 
 1. **데이터 탐색기** 창으로 이동합니다. Notebook 작업 영역이 나타나야 합니다.
 
@@ -112,7 +112,7 @@ Azure Cosmos DB용 기본 제공 Notebook은 현재 29 Azure 지역에서 사용
 
 * [Azure Cosmos DB Jupyter Notebook](cosmosdb-jupyter-notebooks.md)의 혜택 알아보기
 * [Notebook 샘플 갤러리 살펴보기](https://cosmos.azure.com/gallery.html)
-* [Azure Cosmos DB Notebook 갤러리에 Notebook 게시하기](publish-notebook-gallery.md)
+* [Azure Cosmos DB Notebook 갤러리에 Notebook 게시](publish-notebook-gallery.md)
 * [Python Notebook 기능 및 명령 사용](use-python-notebook-features-and-commands.md)
 * [C# Notebook 기능 및 명령 사용](use-csharp-notebook-features-and-commands.md)
 * [GitHub 리포지토리에서 Notebooks 가져오기](import-github-notebooks.md)

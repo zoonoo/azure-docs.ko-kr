@@ -5,12 +5,12 @@ keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 74f8bdd26e000b89bfae84102077c241f85abf7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3cbae5df6e9a4e5ff17bf1245fcaf190efbbf84
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98933315"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112371521"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Azure HDInsight 비즈니스 연속성
 
@@ -81,7 +81,7 @@ HDInsight는 99.9%의 가용성 SLA를 제공합니다. 단일 배포에서 고�
 
 ### <a name="hdinsight-metastore"></a>HDInsight 메타스토어
 
-HDInsight는 99.99%의 SLA를 제공하는 메타스토어로 [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/)를 사용합니다. 동기 복제를 사용하여 데이터 센터 내에서 세 개의 데이터 복제본이 유지됩니다. 복제본이 손실되면 대체 복제본이 원활하게 제공됩니다. [활성 지역 복제](../azure-sql/database/active-geo-replication-overview.md)는 최대 네 개의 데이터 센터에서 기본적으로 지원됩니다. 수동 또는 데이터 센터를 통해 장애 조치가 수행되면 계층 구조의 첫 번째 복제본이 자동으로 읽기/쓰기 가능 상태가 됩니다. 자세한 내용은 [Azure SQL Database 비즈니스 연속성](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md)을 참조하세요.
+HDInsight는 99.99%의 SLA를 제공하는 메타스토어로 [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_4/)를 사용합니다. 동기 복제를 사용하여 데이터 센터 내에서 세 개의 데이터 복제본이 유지됩니다. 복제본이 손실되면 대체 복제본이 원활하게 제공됩니다. [활성 지역 복제](../azure-sql/database/active-geo-replication-overview.md)는 최대 네 개의 데이터 센터에서 기본적으로 지원됩니다. 수동 또는 데이터 센터를 통해 장애 조치가 수행되면 계층 구조의 첫 번째 복제본이 자동으로 읽기/쓰기 가능 상태가 됩니다. 자세한 내용은 [Azure SQL Database 비즈니스 연속성](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md)을 참조하세요.
 
 ### <a name="hdinsight-storage"></a>HDInsight 스토리지
 

@@ -1,19 +1,20 @@
 ---
 title: Azure Video Analyzer for Media(이전 Video Indexer)에 대한 질문과 대답 - Azure
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: 이 문서에서는 Azure Video Analyzer for Media(이전의 Video Indexer)에 대한 질문과 대답을 제공합니다.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 05/25/2021
 ms.author: juliako
-ms.openlocfilehash: 1c4b96bf7874c5ade93601f7ff40238ef04cb7ee
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 00551d5587bc5bf8afad1b2bd481ebc637bc6dce
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966665"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112119624"
 ---
 # <a name="video-analyzer-for-media-frequently-asked-questions"></a>Video Analyzer for Media 질문과 대답
 

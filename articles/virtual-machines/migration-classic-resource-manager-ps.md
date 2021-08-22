@@ -10,17 +10,17 @@ ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c750e34e8081cf5a8b3d41cc8c52584a4353a336
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e2d63dd0b192d82a3c84306623e58fe7f5b0de3e
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101695161"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112320931"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션
 
 > [!IMPORTANT]
-> 현재 IaaS VM의 약 90%는 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용하고 있습니다. 2020년 2월 28일부로, 클래식 VM은 사용되지 않았으며 2023년 3월 1일부로 완전히 사용 중지될 예정입니다. 사용 중단 및 [그 영향](classic-vm-deprecation.md#how-does-this-affect-me)에 대해 [자세히 알아보세요]( https://aka.ms/classicvmretirement).
+> 현재 IaaS VM의 약 90%는 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용하고 있습니다. 2020년 2월 28일부터 클래식 VM은 더 이상 사용되지 않으며 2023년 3월 1일에 완전히 사용 중지될 예정입니다. 사용 중단 및 [그 영향](classic-vm-deprecation.md#how-does-this-affect-me)에 대해 [자세히 알아보세요]( https://aka.ms/classicvmretirement).
 
 이러한 단계에서는 Azure PowerShell 명령을 사용하여 클래식 배포 모델의 laaS(Infrastructure as a Service) 리소스를 Azure Resource Manager 배포 모델로 마이그레이션하는 방법을 보여 줍니다.
 
@@ -63,7 +63,7 @@ Azure PowerShell을 설치하는 두 가지 주요 옵션으로 [PowerShell 갤�
 공동 관리자를 추가할 수 없는 상태라면 서비스 관리자나 공동 관리자에게 자신을 해당 구독에 추가하여 달라고 요청합니다.
 
 ## <a name="step-4-set-your-subscription-and-sign-up-for-migration"></a>4단계: 구독 설정 및 마이그레이션 등록
-먼저, PowerShell 프롬프트를 시작합니다. 마이그레이션의 경우, 클래식과 리소스 관리자의 양쪽 모두에 대한 환경을 설정합니다.
+먼저, PowerShell 프롬프트를 시작합니다. 마이그레이션의 경우, 클래식과 Resource Manager 양쪽 모두에 대한 환경을 설정합니다.
 
 Resource Manager 모델에 대한 계정으로 로그인합니다.
 
@@ -110,7 +110,7 @@ Resource Manager 모델에 대한 계정으로 로그인합니다.
     Get-AzVMUsage -Location "West US"
 ```
 
-이제 클래식 배포 모델 계정으로 로그인합니다.
+이제 클래식 배포 모델 계정에 로그인합니다.
 
 ```powershell
     Add-AzureAccount
@@ -227,7 +227,7 @@ PowerShell 또는 Azure 포털을 사용하여 준비된 리소스에 대한 구
 <br>
 
 > [!NOTE]
-> 가상 네트워크 이름은 새 포털에 표시된 것과 다를 수 있습니다. 새 Azure Portal에는 이름이 `[vnet-name]`처럼 표시되지만 실제 가상 네트워크 이름은 `Group [resource-group-name] [vnet-name]` 형식입니다. 마이그레이션을 시작하기 전에 `Get-AzureVnetSite | Select -Property Name` 명령을 사용하여 실제 가상 네트워크 이름을 조회하거나 이전 Azure Portal에서 그 이름을 확인합니다. 
+> 가상 네트워크 이름은 새 포털에 표시된 것과 다를 수 있습니다. 새로운 Azure Portal에는 이름이 `[vnet-name]`처럼 표시되지만 실제 가상 네트워크 이름은 `Group [resource-group-name] [vnet-name]` 형식입니다. 마이그레이션을 시작하기 전에 `Get-AzureVnetSite | Select -Property Name` 명령을 사용하여 실제 가상 네트워크 이름을 조회하거나 이전 Azure Portal에서 그 이름을 확인합니다. 
 
 이 예제에서는 가상 네트워크 이름을 **myVnet** 으로 설정합니다. 예제 가상 네트워크 이름을 사용자 고유의 이름으로 바꿉니다.
 
@@ -345,4 +345,4 @@ Azure PowerShell 또는 Azure 포털을 사용하여 준비된 가상 머신에 
 * [CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](migration-classic-resource-manager-cli.md)
 * [클래식에서 Azure Resource Manager로의 IaaS 리소스 마이그레이션을 지원하기 위한 커뮤니티 도구](migration-classic-resource-manager-community-tools.md)
 * [가장 일반적인 마이그레이션 오류 검토](migration-classic-resource-manager-errors.md)
-* [클래식에서 Azure Resource Manager로의 IaaS 리소스 마이그레이션과 관련된 가장 자주 묻는 질문 검토](migration-classic-resource-manager-faq.md)
+* [클래식에서 Azure Resource Manager로의 IaaS 리소스 마이그레이션과 관련된 가장 자주 묻는 질문 검토](migration-classic-resource-manager-faq.yml)

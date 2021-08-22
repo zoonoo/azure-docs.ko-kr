@@ -2,13 +2,13 @@
 title: Azure Service Bus 토픽 필터 | Microsoft Docs
 description: 이 문서에서는 구독자가 필터를 지정하여 토픽에서 수신하려는 메시지를 정의하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 02/17/2021
-ms.openlocfilehash: f28b26ee112b47b9782823f6c79670dee9a3f082
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/19/2021
+ms.openlocfilehash: f813c9a635fde70e2f72ab3dab0d2e01197c6fff
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651666"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448665"
 ---
 # <a name="topic-filters-and-actions"></a>토픽 필터 및 작업
 
@@ -52,7 +52,7 @@ Service Bus는 세 가지 필터 조건을 지원합니다.
 
 ## <a name="actions"></a>동작
 
-SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체하여 메시지에 주석을 달 수 있는 작업을 정의할 수 있습니다. 이 작업은 SQL UPDATE 문에 개괄적으로 의지하는 [SQL-like 식을 사용](service-bus-messaging-sql-filter.md)합니다. 이 작업은 메시지가 일치된 이후 및 구독에 선택되기 이전에 해당 메시지에서 수행됩니다. 메시지 속성에 대한 변경 사항은 구독에 복사된 메시지에 대한 프라이빗입니다.
+SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체하여 메시지에 주석을 달 수 있는 작업을 정의할 수 있습니다. 이 작업은 SQL UPDATE 문에 개괄적으로 의지하는 [SQL-like 식을 사용](service-bus-messaging-sql-rule-action.md)합니다. 이 작업은 메시지가 일치된 이후 및 구독에 선택되기 이전에 해당 메시지에서 수행됩니다. 메시지 속성에 대한 변경 사항은 구독에 복사된 메시지에 대한 프라이빗입니다.
 
 ## <a name="usage-patterns"></a>사용 패턴
 

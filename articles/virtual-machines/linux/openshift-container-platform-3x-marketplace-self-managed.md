@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: f257ed1097f49074d70f45f59e9040265f6cedef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57916a7f142663711215fdb2a7f641e35fd9ad0f
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670447"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389981"
 ---
 # <a name="configure-prerequisites"></a>필수 조건 구성
 
@@ -25,7 +25,7 @@ Azure에서 자체 관리형 OpenShift Container Platform 3.11 클러스터를 �
  
 ## <a name="deploy-using-the-marketplace-offer"></a>Marketplace 제품을 사용한 배포
 
-자체 관리형 OpenShift Container Platform 3.11 클러스터를 Azure에 배포하는 가장 간단한 방법은 [Azure Marketplace 제품](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy)을 이용하는 것입니다.
+자체 관리형 OpenShift Container Platform 3.11 클러스터를 Azure에 배포하는 가장 간단한 방법은 Azure Marketplace 제품을 이용하는 것입니다.
 
 해당 옵션은 가장 간단하지만 사용자 지정 기능이 제한되어 있습니다. Marketplace 제품은 OpenShift Container Platform 3.11.82를 배포하며 다음 구성 옵션을 포함합니다.
 

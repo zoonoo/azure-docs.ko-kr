@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용하여 Azure VM Backup의 백
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 9ba22c51c7a6c26a232ed20aec21fc83d2c54b37
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57187a9f7ecf3e1d00fa395d25d98fd03f5d2698
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92171457"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461026"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure VM 백업
 
@@ -23,7 +23,7 @@ ms.locfileid: "92171457"
 
 ### <a name="discover-unprotected-azure-vms"></a>보호되지 않는 Azure VM 검색
 
-먼저 자격 증명 모음은 Azure VM을 식별할 수 있어야 합니다. [새로 고침 작업](/rest/api/backup/protectioncontainers/refresh)을 사용하여 이 자격 증명 모음을 트리거합니다. 자격 증명 모음이 현재 구독에서 보호되지 않는 모든 VM의 최신 목록을 가져와서 '캐시'하도록 하는 비동기식 *POST* 작업입니다. VM이 '캐시되면' Recovery Services는 해당 VM에 액세스하고 보호할 수 있습니다.
+먼저 자격 증명 모음은 Azure VM을 식별할 수 있어야 합니다. [새로 고침 작업](/rest/api/backup/protection-containers/refresh)을 사용하여 이 자격 증명 모음을 트리거합니다. 자격 증명 모음이 현재 구독에서 보호되지 않는 모든 VM의 최신 목록을 가져와서 '캐시'하도록 하는 비동기식 *POST* 작업입니다. VM이 '캐시되면' Recovery Services는 해당 VM에 액세스하고 보호할 수 있습니다.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
@@ -92,7 +92,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>관련 Azure VM 선택
 
- 구독에서 [모든 보호 가능한 항목 나열하기](/rest/api/backup/backupprotectableitems/list)에서 "캐싱"을 수행했는지 확인하고 응답에서 원하는 VM을 찾을 수 있습니다. [이 작업의 응답](#example-responses-to-get-operation)은 또한 Recovery Services가 VM을 식별하는 방법에 대한 정보를 제공합니다.  패턴에 친숙해지면 이 단계를 건너뛰고 직접 [보호 활성화](#enabling-protection-for-the-azure-vm)를 진행할 수 있습니다.
+ 구독에서 [모든 보호 가능한 항목 나열하기](/rest/api/backup/backup-protectable-items/list)에서 "캐싱"을 수행했는지 확인하고 응답에서 원하는 VM을 찾을 수 있습니다. [이 작업의 응답](#example-responses-to-get-operation)은 또한 Recovery Services가 VM을 식별하는 방법에 대한 정보를 제공합니다.  패턴에 친숙해지면 이 단계를 건너뛰고 직접 [보호 활성화](#enabling-protection-for-the-azure-vm)를 진행할 수 있습니다.
 
 이 작업은 *GET* 작업입니다.
 
@@ -104,9 +104,9 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 #### <a name="responses-to-get-operation"></a>가져오기 작업에 대한 응답
 
-|속성  |유형  |Description  |
+|속성  |유형  |설명  |
 |---------|---------|---------|
-|200 정상     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       정상 |
+|200 정상     | [WorkloadProtectableItemResourceList](/rest/api/backup/backup-protectable-items/list#workloadprotectableitemresourcelist)        |       정상 |
 
 #### <a name="example-responses-to-get-operation"></a>가져오기 작업에 대한 응답 예
 
@@ -162,7 +162,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Azure VM 보호 사용
 
-관련 VM이 "캐시"되고 "확인"된 경우 정책을 선택하여 보호합니다. 자격 증명 모음의 기존 정책에 대한 자세한 내용은 [정책 API 목록](/rest/api/backup/backuppolicies/list)을 참조하세요. 그런 다음, 정책 이름을 참조하여 [관련 정책](/rest/api/backup/protectionpolicies/get)을 선택합니다. 정책을 만들려면 [정책 자습서 만들기](backup-azure-arm-userestapi-createorupdatepolicy.md)를 참조하세요. 다음 예에서 "DefaultPolicy"를 선택합니다.
+관련 VM이 "캐시"되고 "확인"된 경우 정책을 선택하여 보호합니다. 자격 증명 모음의 기존 정책에 대한 자세한 내용은 [정책 API 목록](/rest/api/backup/backup-policies/list)을 참조하세요. 그런 다음, 정책 이름을 참조하여 [관련 정책](/rest/api/backup/protection-policies/get)을 선택합니다. 정책을 만들려면 [정책 자습서 만들기](backup-azure-arm-userestapi-createorupdatepolicy.md)를 참조하세요. 다음 예에서 "DefaultPolicy"를 선택합니다.
 
 보호 사용은 '보호된 항목'를 만드는 비동기 *PUT* 작업입니다.
 
@@ -180,11 +180,11 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 보호된 항목을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|속성  |유형  |Description  |
+|속성  |유형  |설명  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |ProtectedItem 리소스 속성         |
 
-요청 본문 및 기타 세부 정보에 대한 전체 정의 목록은 [보호된 항목 REST API 문서 만들기](/rest/api/backup/protecteditems/createorupdate#request-body)를 참조하세요.
+요청 본문 및 기타 세부 정보에 대한 전체 정의 목록은 [보호된 항목 REST API 문서 만들기](/rest/api/backup/protected-items/create-or-update#request-body)를 참조하세요.
 
 ##### <a name="example-request-body"></a>요청 본문 예제
 
@@ -208,9 +208,9 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|속성  |유형  |Description  |
+|속성  |유형  |설명  |
 |---------|---------|---------|
-|200 정상     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  정상       |
+|200 정상     |    [ProtectedItemResource](/rest/api/backup/protected-item-operation-results/get#protecteditemresource)     |  정상       |
 |202 수락됨     |         |     수락됨    |
 
 ##### <a name="example-responses-to-create-protected-item-operation"></a>보호 항목 생성 작업에 대한 응답 예
@@ -323,7 +323,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|속성  |유형  |Description  |
+|이름  |유형  |설명  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 속성         |
 
@@ -437,7 +437,7 @@ Azure VM이 이미 백업된 경우 보호 정책을 변경하여 백업하거�
 > [!IMPORTANT]
 > 위의 요청 본문은 항상 제외하거나 포함할 데이터 디스크의 최종 복사본입니다. 이는 이전 구성에 *추가* 되지 않습니다. 예: 보호를 "데이터 디스크 1 제외"로 먼저 업데이트한 다음 "데이터 디스크 2 제외"로 반복하면 후속 백업에서 *데이터 디스크 2만 제외* 되고 데이터 디스크 1이 포함됩니다. 이것은 항상 후속 백업에 포함/제외되는 최종 목록입니다.
 
-제외되거나 포함된 디스크의 현재 목록을 얻으려면 [여기](/rest/api/backup/protecteditems/get)에 언급된 보호 항목 정보를 가져옵니다. 응답은 데이터 디스크 LUN 목록을 제공하고 포함 또는 제외 여부를 나타냅니다.
+제외되거나 포함된 디스크의 현재 목록을 얻으려면 [여기](/rest/api/backup/protected-items/get)에 언급된 보호 항목 정보를 가져옵니다. 응답은 데이터 디스크 LUN 목록을 제공하고 포함 또는 제외 여부를 나타냅니다.
 
 ### <a name="stop-protection-but-retain-existing-data"></a>보호를 중지하지만 기존 데이터는 보존
 
@@ -457,7 +457,7 @@ Azure VM이 이미 백업된 경우 보호 정책을 변경하여 백업하거�
 
 ### <a name="stop-protection-and-delete-data"></a>보호 중지 및 데이터 삭제
 
-보호된 VM에 대한 보호를 제거하고 백업 데이터도 삭제하려면 [여기](/rest/api/backup/protecteditems/delete)에 설명된 대로 삭제 작업을 수행합니다.
+보호된 VM에 대한 보호를 제거하고 백업 데이터도 삭제하려면 [여기](/rest/api/backup/protected-items/delete)에 설명된 대로 삭제 작업을 수행합니다.
 
 보호 중지 및 데이터 삭제는 *DELETE* 작업입니다.
 

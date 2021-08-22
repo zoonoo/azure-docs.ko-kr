@@ -1,19 +1,20 @@
 ---
 title: Azure Blob Storage의 변경 피드 | Microsoft Docs
 description: Azure Blob Storage의 변경 피드 로그 및 이를 사용하는 방법에 대해 알아봅니다.
-author: normesta
-ms.author: normesta
+author: tamram
+ms.author: tamram
 ms.date: 05/17/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 9a1a4d9d8bc1af02fd9049ad7b59936da8780e6b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 37367cc4608c1bfbf9c621388bcbc6ecaabd8aa4
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066056"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110679325"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Azure Blob Storage의 변경 피드 지원
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.custom: subject-monitoring
 ms.service: container-registry
 ms.date: 03/19/2021
-ms.openlocfilehash: e22f349074ebd232903e8119ee5d90660fa0f13b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 99b9206e305e57898a2eb4bc6d0de7dd6fe94473
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474965"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114290421"
 ---
 # <a name="monitoring-azure-container-registry-data-reference"></a>Azure Container Registry 데이터 참조 모니터링
 
@@ -22,9 +22,9 @@ Azure Container Registry에 대한 모니터링 데이터 수집 및 분석에 �
 
 ### <a name="container-registry-metrics"></a>컨테이너 레지스트리 메트릭
 
-리소스 공급자 및 유형: [Microsoft.ContainerRegistry/registries](/azure/azure-monitor/platform/metrics-supported#microsoftcontainerregistryregistries)
+리소스 공급자 및 유형: [Microsoft.ContainerRegistry/registries](../azure-monitor/essentials/metrics-supported.md#microsoftcontainerregistryregistries)
 
-| 메트릭 | 진단 설정을 통해 내보내기 가능? | 단위 | 집계 형식 | Description | 차원  |  
+| 메트릭 | 진단 설정을 통해 내보내기 가능? | 단위 | 집계 형식 | 설명 | 차원  |  
 |:-------|:-----|:-----|:------------|:------------------|:----- |
 |     AgentPoolCPUTime   | 예 |   초   | 합계 |   전용 [에이전트 풀](tasks-agent-pools.md)에서 실행되는 [ACR 작업](container-registry-tasks-overview.md)에 사용된 CPU 시간             | 없음 | 
 |     RunDuration   | 예 |  밀리초   |  합계 |  [ACR 작업](container-registry-tasks-overview.md) 실행 기간       | 없음 | 
@@ -36,11 +36,11 @@ Azure Container Registry에 대한 모니터링 데이터 수집 및 분석에 �
 
 <sup>1</sup> 레이어 공유로 인해 사용되는 레지스트리 스토리지는 개별 리포지토리의 스토리지 합계보다 적을 수 있습니다. 리포지토리 또는 태그를 [삭제](container-registry-delete.md)하면 매니페스트 파일과 참조된 고유 레이어에서 사용하는 스토리지만 복구됩니다.
 
-보다 자세한 정보는 [Azure Monitor에서 지원되는 모든 플랫폼 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)을 참조하세요.
+보다 자세한 정보는 [Azure Monitor에서 지원되는 모든 플랫폼 메트릭](../azure-monitor/essentials/metrics-supported.md)을 참조하세요.
 
 ## <a name="metric-dimensions"></a>메트릭 차원
 
-메트릭 차원에 대한 자세한 내용은 [다차원 메트릭](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics)을 참조하세요.
+메트릭 차원에 대한 자세한 내용은 [다차원 메트릭](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics)을 참조하세요.
 
 Azure Container Registry에는 해당 메트릭과 관련된 다음과 같은 차원이 있습니다.
 
@@ -53,11 +53,11 @@ Azure Container Registry에는 해당 메트릭과 관련된 다음과 같은 �
 
 이 섹션에는 Azure Container Registry에 대해 수집할 수 있는 리소스 로그 유형이 나열되어 있습니다. 
 
-[Azure Monitor에서 지원되는 모든 리소스 로그 범주 유형](/azure/azure-monitor/platform/resource-logs-schema) 목록을 참조하세요.
+[Azure Monitor에서 지원되는 모든 리소스 로그 범주 유형](../azure-monitor/essentials/resource-logs-schema.md) 목록을 참조하세요.
 
 ### <a name="container-registries"></a>컨테이너 레지스트리
 
-리소스 공급자 및 유형: [Microsoft.ContainerRegistry/registries](/azure/azure-monitor/essentials/resource-logs-categories#microsoftcontainerregistryregistries)
+리소스 공급자 및 유형: [Microsoft.ContainerRegistry/registries](../azure-monitor/essentials/resource-logs-categories.md#microsoftcontainerregistryregistries)
 
 | 범주 | 표시 이름 | 세부 정보  |
 |:---------|:-------------|------------------|
@@ -83,7 +83,7 @@ Azure Container Registry에는 해당 메트릭과 관련된 다음과 같은 �
 
 ## <a name="activity-log"></a>활동 로그
 
-다음 표에는 [활동 로그](/azure/azure-monitor/platform/activity-log)에 만들 수 있는 Azure Container Registry와 관련된 작업이 나열되어 있습니다. 이 목록은 전체 목록이 아닙니다.
+다음 표에는 [활동 로그](../azure-monitor/essentials/activity-log.md)에 만들 수 있는 Azure Container Registry와 관련된 작업이 나열되어 있습니다. 이 목록은 전체 목록이 아닙니다.
 
 | 작업(Operation) | Description |
 |:---|:---|
@@ -105,4 +105,4 @@ Azure Container Registry 리소스 로그에서 사용 중인 스키마는 다�
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Container Registry 모니터링에 대한 설명은 [Azure Container Registry 모니터링](monitor-service.md)을 참조하세요.
-- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](/azure/azure-monitor/insights/monitor-azure-resources)을 참조하세요.
+- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../azure-monitor/overview.md)을 참조하세요.

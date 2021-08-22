@@ -4,12 +4,12 @@ description: Application Insights를 사용하여 웹 및 작업자 역할을 �
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 264d6d4b0b397a29b5dc1db4bb299297c1e30584
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b225a35d87f24d8f6c297ea52728ebc9f3d881da
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419238"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114289974"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services용 Application Insights
 [Application Insights][start]는 가용성, 성능, 실패 및 사용에 대해 [Azure 클라우드 서비스 앱](https://azure.microsoft.com/services/cloud-services/)을 모니터링할 수 있습니다. 이는 Application Insights SDK의 데이터를 클라우드 서비스의 [Azure Diagnostics](../agents/diagnostics-extension-overview.md) 데이터와 결합함으로써 가능합니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
@@ -285,6 +285,6 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 [diagnostic]: ./diagnostic-search.md
 [netlogs]: ./asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
-[qna]: ../faq.md
-[redfield]: ./monitor-performance-live-website-now.md
+[qna]: ../faq.yml
+[redfield]: ./status-monitor-v2-overview.md
 [start]: ./app-insights-overview.md

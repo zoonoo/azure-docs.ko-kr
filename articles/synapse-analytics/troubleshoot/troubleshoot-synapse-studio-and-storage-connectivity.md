@@ -3,16 +3,17 @@ title: Synapse Studio와 스토리지 간의 연결 문제 해결
 description: Synapse Studio와 스토리지 간의 연결 문제 해결
 author: saveenr
 ms.service: synapse-analytics
+ms.subservice: troubleshooting
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: d570b4a8df5d59cf8828985bee20852d6bc79b1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 011d3092160b21f45f664f2c67245bcc51da5e6b
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98117064"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297780"
 ---
 # <a name="troubleshoot-connectivity-between-azure-synapse-analytics-synapse-studio-and-storage"></a>Azure Synapse Analytics Synapse Studio와 스토리지 간 연결 문제 해결
 
@@ -30,7 +31,7 @@ Synapse Studio에서, 연결된 스토리지에 있는 데이터 리소스를 �
 스토리지 컨테이너 노드의 경우,  
 ![스토리지 연결 이슈 1a](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-1a.png)
 
-**솔루션**: 계정을 적절한 역할에 할당하려면, [Azure Portal을 사용하여 Blob 및 큐 데이터에 액세스하기 위한 Azure 역할 할당 사용](../../storage/common/storage-auth-aad-rbac-portal.md)을 참조하세요.
+**솔루션**: 계정을 적절한 역할에 할당하려면, [Azure Portal을 사용하여 Blob 및 큐 데이터에 액세스하기 위한 Azure 역할 할당 사용](../../storage/blobs/assign-azure-role-data-access.md)을 참조하세요.
 
 
 ## <a name="case-2-failed-to-send-the-request-to-storage-server"></a>사례 #2: 스토리지 서버에 요청을 보내지 못했습니다.

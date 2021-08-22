@@ -11,12 +11,12 @@ ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 04/22/2021
-ms.openlocfilehash: f9c52307e4d743e32f8771998e2dfaacc6643a35
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c047d89b554bed61f0015235a52927ffda7d1ec7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739010"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446583"
 ---
 # <a name="deploy-a-model-locally"></a>모델을 로컬로 배포
 
@@ -27,6 +27,8 @@ Azure Machine Learning을 사용하여 모델을 Azure Machine Learning 컴퓨�
 
 > [!TIP]
 > 컴퓨팅 인스턴스의 Jupyter Notebook에서 동일한 VM의 웹 서비스로 모델을 배포하는 것은 _로컬 배포_ 입니다. 이 경우 '로컬' 컴퓨터는 컴퓨팅 인스턴스입니다. 배포에 대한 자세한 내용은 [Azure Machine Learning을 사용한 모델 배포](how-to-deploy-and-where.md)를 참조하세요.
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -94,7 +96,7 @@ print("prediction:", resp.text)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [사용자 지정 Docker 이미지를 사용하여 모델을 배포하는 방법](how-to-deploy-custom-docker-image.md)
+* [사용자 지정 Docker 이미지를 사용하여 모델을 배포하는 방법](./how-to-deploy-custom-container.md)
 * [배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호](how-to-secure-web-service.md)
 * [웹 서비스로 배포된 ML 모델 사용](how-to-consume-web-service.md)

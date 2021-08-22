@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 04/09/2021
-ms.openlocfilehash: c15e7261587952c93d059cfcfadd06c7d204d80d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 53efeff1024d104f4dae2d70fc6f00c73d3d8fed
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135676"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114291821"
 ---
 # <a name="control-egress-traffic-for-your-azure-red-hat-openshift-aro-cluster-preview"></a>ARO(Azure Red Hat OpenShift) 클러스터에 대한 송신 트래픽 제어(미리 보기)
 
@@ -32,7 +32,7 @@ ms.locfileid: "108135676"
 
 | 대상 FQDN | 포트 | 사용 |
 | ----------- | ----------- | ------------- |
-| **`quay.io`** | **HTTPS:443** | 클러스터가 사용하며 설치에 필수입니다. 클러스터가 플랫폼 컨테이너 이미지를 다운로드하는 데 사용합니다. |
+| **`*.quay.io`** | **HTTPS:443** | 클러스터가 사용하며 설치에 필수입니다. 클러스터가 플랫폼 컨테이너 이미지를 다운로드하는 데 사용합니다. |
 | **`registry.redhat.io`** | **HTTPS:443** | 핵심 추가 기능에 필수입니다. 클러스터가 개발 도구, 운영자 기반 추가 기능, Red Hat 제공 컨테이너 이미지와 같은 핵심 구성 요소를 다운로드하는 데 사용합니다.
 | **`mirror.openshift.com`** | **HTTPS:443** | 미러된 설치 콘텐츠 및 이미지에 액세스하려면 VDI 환경 또는 노트북에 필요합니다. 이는 클러스터에서 quay.io에서 끌어올 이미지를 파악하기 위해 플랫폼 릴리스 서명을 다운로드하는 데 필요합니다. |
 | **`api.openshift.com`** | **HTTPS:443** | 클러스터가 이미지 서명을 다운로드하기 전에 사용 가능한 업데이트가 있는지 확인하는 데 필요합니다. |
@@ -107,7 +107,7 @@ OpenShift 컨테이너 플랫폼에서 고객은 상태 및 사용 현황 정보
 
 | 대상 엔드포인트                                                             | 프로토콜 | 포트    | 사용  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureMonitor:443`**  | TCP           | 443      | 이 엔드포인트는 Azure Monitor 및 Log Analytics에 메트릭 데이터와 로그를 전송하는 데 사용됩니다. |
+| [서비스 태그](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureMonitor:443`**  | TCP           | 443      | 이 엔드포인트는 Azure Monitor 및 Log Analytics에 메트릭 데이터와 로그를 전송하는 데 사용됩니다. |
 
 #### <a name="required-fqdn--application-rules"></a>필수 FQDN / 애플리케이션 규칙
 

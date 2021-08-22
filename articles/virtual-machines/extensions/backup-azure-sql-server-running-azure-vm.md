@@ -9,12 +9,12 @@ ms.author: v-amallick
 ms.collection: windows
 ms.date: 07/05/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 183ed69efaba2da1e1b7f9a4a3feb2115dd6b7d1
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: b63e5c7de8a7198d5631075e9748d13f72ddb354
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110663211"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294052"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Azure VM에서 실행 중인 SQL Server용 Azure Backup
 
@@ -99,7 +99,7 @@ statusBlobUri | <https://seapod01coord1exsapk732.blob.core.windows.net/bcdrexten
 
 ## <a name="template-deployment"></a>템플릿 배포
 
-가상 머신에서 SQL Server 백업을 사용하도록 설정하려면 AzureBackupWindowsWorkload 확장을 추가하는 것이 좋습니다. 이는 SQL Server VM 백업을 자동화하도록 설계된 [Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup)을 통해 수행할 수 있습니다.
+가상 머신에서 SQL Server 백업을 사용하도록 설정하려면 AzureBackupWindowsWorkload 확장을 추가하는 것이 좋습니다. 이는 SQL Server VM 백업을 자동화하도록 설계된 [Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-vm-workload-backup)을 통해 수행할 수 있습니다.
 
 ## <a name="powershell-deployment"></a>PowerShell 배포
 

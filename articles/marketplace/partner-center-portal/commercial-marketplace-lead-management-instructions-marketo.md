@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: cbd12481312d310add15bf3d41e21e9c416f1c39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0a9aecec9e11a41b22b3f1639f653c14a6e7fce
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94491078"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112285088"
 ---
 # <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Marketo를 사용하여 상업용 Marketplace 잠재 고객 관리
 
@@ -67,7 +67,7 @@ ms.locfileid: "94491078"
 
 게시 포털에서 제품에 대한 잠재 고객 관리 정보를 구성할 준비가 되면 다음 단계를 수행합니다. 
 
-1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165290)에 로그인합니다.
 
 1. 제품을 선택하고 **제품 설정** 탭으로 이동합니다.
 

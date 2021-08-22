@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/07/2021
+ms.date: 07/13/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: fb2f36e1b51ed5fbb7c3f2c002760d07f3723645
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 12b909b467b7f53d568e80f60c8b30f701820216
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590471"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113728519"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Azure Active Directory 사용자 프로비저닝을 위한 클라우드 HR 애플리케이션 계획
 
@@ -75,7 +75,7 @@ HR 기반 IT 프로비저닝의 이 기능은 다음과 같은 중요한 비즈�
 
 ### <a name="licensing"></a>라이선싱
 
-클라우드 HR 앱을 Azure AD 사용자 프로비저닝 통합에 구성하려면 유효한 [Azure AD Premium 라이선스](https://azure.microsoft.com/pricing/details/active-directory/) 및 Workday 또는 SuccessFactors와 같은 클라우드 HR 앱에 대한 라이선스가 필요합니다.
+클라우드 HR 앱을 Azure AD 사용자 프로비저닝 통합에 구성하려면 유효한 [Azure AD Premium 라이선스](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) 및 Workday 또는 SuccessFactors와 같은 클라우드 HR 앱에 대한 라이선스가 필요합니다.
 
 또한 클라우드 HR 앱에서 소싱되고 온-프레미스 Active Directory 또는 Azure AD에 프로비저닝되는 모든 사용자에 대해서도 유효한 Azure AD Premium P1 이상의 구독 라이선스가 필요합니다. 클라우드 HR 앱에서 보유한 라이선스 수가 잘못된 경우 사용자 프로비저닝 중에 오류가 발생할 수 있습니다.
 

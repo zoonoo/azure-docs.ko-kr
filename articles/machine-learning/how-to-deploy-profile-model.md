@@ -8,16 +8,16 @@ ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
-ms.topic: conceptual
+ms.topic: how-to
 zone_pivot_groups: aml-control-methods
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: b9ae40b3d2673961f9b84ed702f18b25b79b6d0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c222eebc1c2705cc2a5a65b5e11eb12b9a014d6e
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "93320398"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296363"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>모델을 프로파일링하여 리소스 사용률 확인
 
@@ -137,9 +137,8 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 * [Azure Kubernetes Service로 배포](how-to-deploy-azure-kubernetes-service.md)
 * [웹 서비스를 사용하는 클라이언트 애플리케이션 만들기](how-to-consume-web-service.md)
 * [웹 서비스 업데이트](how-to-deploy-update-web-service.md)
-* [사용자 지정 Docker 이미지를 사용하여 모델을 배포하는 방법](how-to-deploy-custom-docker-image.md)
+* [사용자 지정 Docker 이미지를 사용하여 모델을 배포하는 방법](./how-to-deploy-custom-container.md)
 * [TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호](how-to-secure-web-service.md)
 * [Application Insights를 사용하여 Azure Machine Learning 모델 모니터링](how-to-enable-app-insights.md)
 * [프로덕션 환경에서 모델용 데이터 수집](how-to-enable-data-collection.md)
 * [모델 배포에 대한 이벤트 경고 및 트리거 만들기](how-to-use-event-grid.md)
-

@@ -9,12 +9,12 @@ ms.date: 03/12/2021
 ms.author: msangapu
 ms.custom: seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 6519f3fe7335ed41f4d5ef67771aaa738a33e4a8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5c8ccbb385a72a34107f0ad3f10066c641d7fb46
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782606"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112296266"
 ---
 # <a name="continuous-deployment-with-custom-containers-in-azure-app-service"></a>Azure App Service에서 사용자 지정 컨테이너를 사용한 지속적인 배포
 
@@ -67,7 +67,11 @@ GitHub로 Azure 계정에 권한 부여한 후 배포할 **조직**, **리포지
 **레지스트리** 드롭다운에는 앱과 동일한 구독의 레지스트리가 표시됩니다. 원하는 레지스트리를 **선택** 합니다.
 
 > [!NOTE]
-> 다른 구독에 있는 레지스트리에서 배포하려면 대신 **레지스트리 원본** 에서 **프라이빗 레지스트리** 를 **선택** 합니다.
+>  - 관리 ID를 사용하여 ACR 액세스를 잠그려면 다음 가이드를 따르세요.
+>    - [App Service 및 Azure Container Registry에서 시스템 할당 관리 ID를 사용하는 방법](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_system-assigned_managed_identities.md)
+>    - [App Service 및 Azure Container Registry에서 사용자 할당 관리 ID를 사용하는 방법](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_user-assigned_managed_identities.md)
+>  - 다른 구독에 있는 레지스트리에서 배포하려면 대신 **레지스트리 원본** 에서 **프라이빗 레지스트리** 를 **선택** 합니다.
+>   
 
 ::: zone pivot="container-windows"
 배포할 **이미지** 및 **태그** 를 **선택** 합니다. 원하는 경우 **시작 파일** 에 시작 명령을 **입력** 합니다. 
@@ -260,6 +264,6 @@ az acr webhook create --name <webhook-name> --registry <registry-name> --resourc
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 * [Linux의 App Service에서 .NET Core 웹앱 만들기](quickstart-dotnetcore.md)
 * [빠른 시작: App Service에서 사용자 지정 컨테이너 실행](quickstart-custom-container.md)
-* [Linux의 App Service FAQ](faq-app-service-linux.md)
+* [Linux의 App Service FAQ](faq-app-service-linux.yml)
 * [사용자 지정 컨테이너 구성](configure-custom-container.md)
 * [Azure에 배포할 작업 워크플로](https://github.com/Azure/actions-workflow-samples)

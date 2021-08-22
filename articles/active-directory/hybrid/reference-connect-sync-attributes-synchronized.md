@@ -16,12 +16,12 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ec05c4160c6502904644bf7035bda0bed66cc33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14aa69df2d2cceea7f0b1a33b8399e37b26e9700
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94413193"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854183"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성
 이 항목에서는 Azure AD Connect 동기화에 의해 동기화되는 특성을 보여 줍니다.  
@@ -55,7 +55,6 @@ ms.locfileid: "94413193"
 | 특성 이름 | 사용자 | 연락처 | 그룹 | 의견 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
-| 도우미 |X |X | | |
 | altRecipient |X | | |Azure AD Connect 빌드 1.1.552.0 이상이 필요합니다. |
 | authOrig |X |X |X | |
 | c |X |X | | |

@@ -8,12 +8,12 @@ ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: 5a35cfb293ca7cda0a9a1d24f4faf88ef0ed733d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d1732e6f997af622bd7435b6b2f1a3033bc05a79
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378321"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112412734"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>자습서: Event Grid 클라우드로 이벤트 전달
 
@@ -30,7 +30,7 @@ ms.locfileid: "110378321"
 * **Azure 구독** - 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만듭니다. 
 * **Azure IoT Hub 및 IoT Edge 디바이스** - 아직 없는 경우 [Linux](../../iot-edge/quickstart-linux.md) 또는 [Windows 디바이스](../../iot-edge/quickstart.md)의 빠른 시작 단계를 수행합니다.
 
-[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)] 
+[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-deploy-iot-edge.md)] 
 ## <a name="create-event-grid-topic-and-subscription-in-cloud"></a>클라우드에서 Event Grid 토픽 및 구독 만들기
 
 [이 자습서](../custom-event-quickstart-portal.md)에 따라 클라우드에서 Event Grid 토픽 및 구독을 만듭니다. 자습서의 뒷부분에서 사용할 새로 만든 토픽의 `topicURL`, `sasKey`, `topicName`을 적어둡니다.
@@ -82,7 +82,7 @@ ms.locfileid: "110378321"
   
 ## <a name="create-event-grid-subscription-at-the-edge"></a>에지에서 Event Grid 구독 만들기
 
-[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
+[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. 다음 콘텐츠를 사용하여 subscription3.json을 만듭니다. 페이로드에 대한 자세한 내용은 [API 설명서](api.md)를 참조하세요.
 

@@ -1,15 +1,15 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 10/20/2020
-ms.openlocfilehash: a92e37326cf9db0eba186b2bdca44c452c02ea91
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98afd90c44eee488faad8271c12e8d157d1d3d7f
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92521420"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114405061"
 ---
 다음 리소스를 사용할 수도 있습니다.
 
@@ -19,7 +19,7 @@ ms.locfileid: "92521420"
 
 ## <a name="iot-hub-service-client-examples"></a>IoT Hub 서비스 클라이언트 예제
 
-이 섹션에서는 IoT Hub 서비스 클라이언트와 **RegistryManager** 및 **ServiceClient** 클래스를 사용하는 C# 예제를 보여줍니다. **RegistryManager** 클래스를 사용하여 디바이스 쌍을 통해 디바이스 상태와 상호 작용합니다. **RegistryManager** 클래스를 사용하여 IoT Hub에서 [디바이스 등록을 쿼리](../articles/iot-hub/iot-hub-devguide-query-language.md)할 수도 있습니다. **ServiceClient** 클래스를 사용하여 디바이스에서 명령을 호출합니다. 디바이스의 [DTDL](../articles/iot-pnp/concepts-digital-twin.md) 모델은 디바이스에서 구현하는 속성과 명령을 정의합니다. 코드 조각에서 `deviceTwinId` 변수는 IoT 허브에 등록된 IoT 플러그 앤 플레이 디바이스의 디바이스 ID를 보유합니다.
+이 섹션에서는 IoT Hub 서비스 클라이언트와 **RegistryManager** 및 **ServiceClient** 클래스를 사용하는 C# 예제를 보여줍니다. **RegistryManager** 클래스를 사용하여 디바이스 쌍을 통해 디바이스 상태와 상호 작용합니다. **RegistryManager** 클래스를 사용하여 IoT Hub에서 [디바이스 등록을 쿼리](../articles/iot-hub/iot-hub-devguide-query-language.md)할 수도 있습니다. **ServiceClient** 클래스를 사용하여 디바이스에서 명령을 호출합니다. 디바이스의 [DTDL](../articles/iot-develop/concepts-digital-twin.md) 모델은 디바이스에서 구현하는 속성과 명령을 정의합니다. 코드 조각에서 `deviceTwinId` 변수는 IoT 허브에 등록된 IoT 플러그 앤 플레이 디바이스의 디바이스 ID를 보유합니다.
 
 ### <a name="get-the-device-twin-and-model-id"></a>디바이스 쌍 및 모델 ID 가져오기
 
@@ -141,7 +141,7 @@ catch (DeviceNotFoundException)
 
 ## <a name="iot-hub-digital-twin-examples"></a>IoT Hub 디지털 트윈 예제
 
-**DigitalTwinClient** 클래스를 사용하여 디지털 트윈을 통해 디바이스 상태와 상호 작용합니다. 디바이스의 [DTDL](../articles/iot-pnp/concepts-digital-twin.md) 모델은 디바이스에서 구현하는 속성과 명령을 정의합니다.
+**DigitalTwinClient** 클래스를 사용하여 디지털 트윈을 통해 디바이스와 상호 작용합니다. 디바이스의 [DTDL](../articles/iot-develop/concepts-digital-twin.md) 모델은 디바이스에서 구현하는 속성과 명령을 정의합니다.
 
 이 섹션에서는 Digital Twins API를 사용하는 C# 예제를 보여줍니다. 다음 코드 조각은 자동 온도 조절기 및 온도 컨트롤러 디바이스의 디지털 트윈을 나타내는 다음 클래스를 사용합니다.
 
@@ -351,9 +351,9 @@ catch (HttpOperationException e)
 
 ## <a name="read-device-telemetry"></a>디바이스 원격 분석 읽기
 
-IoT 플러그 앤 플레이 디바이스는 DTDL 모델에 정의된 원격 분석 데이터를 IoT Hub로 보냅니다. 기본적으로 IoT Hub는 원격 분석이 가능한 Event Hubs 엔드포인트로 원격 분석 데이터를 라우팅합니다. 자세한 내용은 [IoT Hub 메시지 라우팅을 사용하여 디바이스-클라우드 메시지를 다른 엔드포인트에 보내기](../articles/iot-hub/iot-hub-devguide-messages-d2c.md)를 참조하세요.
+IoT 플러그 앤 플레이 디바이스는 DTDL 모델에 정의된 원격 분석을 IoT Hub로 보냅니다. 기본적으로 IoT Hub는 원격 분석을 사용할 수 있는 Event Hubs 엔드포인트로 라우팅합니다. 자세한 내용은 [IoT Hub 메시지 라우팅을 사용하여 디바이스-클라우드 메시지를 다른 엔드포인트에 보내기](../articles/iot-hub/iot-hub-devguide-messages-d2c.md)를 참조하세요.
 
-다음 코드 조각에서는 기본 Event Hubs 엔드포인트에서 원격 분석을 읽는 방법을 보여줍니다. 이 코드 조각의 코드는 IoT 허브 빠른 시작 [디바이스에서 IoT 허브로 원격 분석을 보내고 백 엔드 애플리케이션으로 읽기](../articles/iot-hub/quickstart-send-telemetry-dotnet.md)에서 가져왔습니다.
+다음 코드 조각에서는 기본 Event Hubs 엔드포인트에서 원격 분석을 읽는 방법을 보여줍니다. 이 코드 조각의 코드는 IoT Hub 빠른 시작 [디바이스에서 IoT 허브로 원격 분석을 보내고 백 엔드 애플리케이션으로 읽기](../articles/iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)에서 가져왔습니다.
 
 ```csharp
 await using EventHubConsumerClient consumer = new EventHubConsumerClient(EventHubConsumerClient.DefaultConsumerGroupName, connectionString, EventHubName);
@@ -389,7 +389,7 @@ catch (TaskCanceledException)
 }
 ```
 
-이전 코드의 다음 출력에서는 기본 구성 요소 외에는 구성 요소가 없는 **자동 온도 조절기** IoT 플러그 앤 플레이 디바이스에서 보낸 온도 원격 분석을 보여줍니다. `dt-dataschema` 시스템 속성은 모델 ID를 표시합니다.
+이전 코드의 다음 출력에서는 기본 구성 요소만 있는 구성 요소가 없는 **자동 온도 조절기** IoT 플러그 앤 플레이 디바이스에서 보낸 온도 원격 분석을 보여줍니다. `dt-dataschema` 시스템 속성은 모델 ID를 표시합니다.
 
 ```cmd/sh
 Message received on partition 1:

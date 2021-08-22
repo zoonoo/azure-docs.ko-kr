@@ -4,12 +4,12 @@ description: Application Insights SDK에 대한 최신 업데이트입니다.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 07/27/2020
-ms.openlocfilehash: 6e8ce1f3a15351f295dc8a8f08418239e8aafc97
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 7bab9d7d0f7f071b7efe0c85ccf0ed73b7f60fc6
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110072319"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114293918"
 ---
 # <a name="release-notes---application-insights"></a>릴리스 정보 - Application Insights
 
@@ -35,7 +35,7 @@ ms.locfileid: "110072319"
 코드리스 모니터링 시작:
 
 * [Azure VM 및 Azure Virtual Machine Scale Set IIS 호스트 앱](./azure-vm-vmss-apps.md)
-* [IIS 서버](./monitor-performance-live-website-now.md)
+* [IIS 서버](./status-monitor-v2-overview.md)
 * [Azure Web Apps](./azure-web-apps.md)
 
 코드 기반 모니터링 시작:
@@ -45,4 +45,3 @@ ms.locfileid: "110072319"
 * [Java](./java-in-process-agent.md)
 * [Node.JS](./nodejs.md)
 * [Python](./opencensus-python.md)
-

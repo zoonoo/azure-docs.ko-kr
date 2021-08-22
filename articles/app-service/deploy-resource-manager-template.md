@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 921a2c6425010dbf98c170d8435267e440883aa5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: eeaccd4fa186d4a415e1d573ffa933c7a5f44375
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075145"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112298334"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 웹앱을 배포하는 방법에 대한 지침
 
@@ -129,7 +129,7 @@ Key Vault에서 **인증서** 및 **생성/가져오기** 를 선택하여 인�
 
 템플릿에서 `keyVaultSecretName`에 대한 인증서의 이름을 입력합니다.
 
-예제 템플릿을 보려면 [Deploy a Web App certificate from Key Vault secret and use it for creating SSL binding](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)(Key Vault 비밀에서 웹앱 인증서 배포 및 SSL 바인딩 생성에 사용)을 참조하세요.
+예제 템플릿을 보려면 [Deploy a Web App certificate from Key Vault secret and use it for creating SSL binding](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-certificate-from-key-vault)(Key Vault 비밀에서 웹앱 인증서 배포 및 SSL 바인딩 생성에 사용)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

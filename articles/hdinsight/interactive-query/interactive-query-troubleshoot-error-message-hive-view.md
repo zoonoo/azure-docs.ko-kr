@@ -4,12 +4,12 @@ description: Azure HDInsight 클러스터에 대한 세부 정보 없이 Apache 
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/30/2019
-ms.openlocfilehash: c60e06e8f37e7aed0d0a0df661690a2b1f32dbd5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f80a966b3d326d367d376354bc83f7d1d935812
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98931010"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112290853"
 ---
 # <a name="scenario-query-error-message-not-displayed-in-apache-hive-view-in-azure-hdinsight"></a>시나리오: Azure HDInsight의 Apache Hive View에 쿼리 오류 메시지가 표시되지 않음
 
@@ -33,4 +33,4 @@ Hive_view의 오른쪽 위 모퉁이에 있는 알림 탭을 선택하여 전체
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

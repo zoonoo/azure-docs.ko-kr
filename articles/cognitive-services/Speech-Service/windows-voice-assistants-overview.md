@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: 989e4e48b03f976a647a542771ade053d9229ec7
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1d961831094bf377acef910572be459ed18db4cb
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110058909"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113652432"
 ---
 # <a name="voice-assistants-on-windows"></a>Windows의 음성 도우미
 
@@ -57,4 +57,4 @@ AAR에서 요청을 받으면 백그라운드 서비스가 애플리케이션을
 
 - **디자인 지침 검토:** 당사의 [디자인 지침](windows-voice-assistants-best-practices.md)에서는 Windows 10에서 음성 활성화를 위한 최상의 환경을 제공하는 데 필요한 주요 작업에 대해 설명합니다.
 - **시작 페이지 방문**: 개발 환경 설정부터 구현 가이드 소개까지 Windows에서 음성 도우미 구현을 시작하는 단계는 [여기](how-to-windows-voice-assistants-get-started.md)에서 시작합니다.
-- **샘플 앱 사용**: 이러한 기능을 직접 경험하려면 [UWP 음성 도우미 샘플](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) 페이지를 방문하여 단계에 따라 샘플 클라이언트를 실행합니다.
+- **샘플 앱 사용**: 이러한 기능을 직접 경험하려면 [UWP 음성 도우미 샘플](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample) 페이지를 방문하여 단계에 따라 샘플 클라이언트를 실행합니다.

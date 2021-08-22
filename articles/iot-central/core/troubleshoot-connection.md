@@ -8,12 +8,12 @@ ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
-ms.openlocfilehash: fb9b2a13f277c326cdda722398a915941b8c52b3
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: faeaf58537da4a40716f0c2e76b205980b727bf9
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108740972"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459109"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>디바이스의 데이터가 Azure IoT Central에 표시되지 않는 문제 해결 
 
@@ -52,7 +52,7 @@ az extension add --name azure-iot
 
 ```azurecli
 az login
-az set account --subscription <your-subscription-id>
+az account set --subscription <your-subscription-id>
 ```
 
 디바이스가 보내는 원격 분석을 모니터링하려면 다음 명령을 사용합니다.
@@ -130,7 +130,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 }
 ```
 
-| 디바이스 프로비저닝 상태 | Description | 가능한 완화 방법 |
+| 디바이스 프로비저닝 상태 | 설명 | 가능한 완화 방법 |
 | - | - | - |
 | 프로비전됨 | 즉시 인식할 수 있는 문제가 없습니다. | 해당 없음 |
 | 등록됨 | 디바이스가 아직 IoT Central에 연결되지 않았습니다. | 디바이스 로그에 연결 문제가 있는지 확인합니다. |
@@ -216,7 +216,7 @@ GUI를 사용하려면 IoT Central **원시 데이터** 보기를 사용하여 �
 
 문제가 감지되면 디바이스 펌웨어를 업데이트하거나 이전에 모델링되지 않은 데이터를 모델링하는 새 디바이스 템플릿을 만들어야 할 수 있습니다.
 
-데이터를 올바르게 모델링하는 새 템플릿을 만들도록 선택한 경우 이전 템플릿에서 새 템플릿으로 디바이스를 마이그레이션합니다. 자세히 알아보려면 [Azure IoT Central 애플리케이션에서 디바이스 관리](howto-manage-devices.md)를 참조하세요.
+데이터를 올바르게 모델링하는 새 템플릿을 만들도록 선택한 경우 이전 템플릿에서 새 템플릿으로 디바이스를 마이그레이션합니다. 자세히 알아보려면 [Azure IoT Central 애플리케이션에서 디바이스 관리](howto-manage-devices-individually.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

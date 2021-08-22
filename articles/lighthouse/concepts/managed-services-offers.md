@@ -3,12 +3,12 @@ title: Azure Marketplace의 관리되는 서비스 제안
 description: Azure Marketplace에서 관리 서비스 제품을 통해 고객에게 Azure Lighthouse 관리 서비스를 제공합니다.
 ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: df3cd76d840e37e711bdd92d93c2499d701afef9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 10b32445fcf6d014219dd8559c9c1ac9b2905044
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112074776"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114391679"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Azure Marketplace의 관리되는 서비스 제안
 
@@ -37,7 +37,7 @@ ms.locfileid: "112074776"
 적절한 경우 퍼블릭 및 프라이빗 플랜을 모두 동일한 제품에 포함할 수 있습니다.
 
 > [!IMPORTANT]
-> 플랜이 공개로 게시된 후에는 다시 비공개로 변경할 수 없습니다. 제품을 수락하고 리소스를 위임할 수 있는 고객을 제어하려면 비공개 플랜을 사용합니다. 공개 플랜에서는 특정 고객이나 특정 수의 고객으로 가용성을 제한할 수 없습니다(원하면 플랜 판매를 완전히 중단할 수는 있음). 제품을 게시할 때 **역할 정의** 가 [관리형 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)로 설정된 **권한 부여** 를 포함한 경우에만 고객이 제품을 수락한 후 [위임에 대한 액세스 권한을 제거](../how-to/remove-delegation.md)할 수 있습니다. 고객에게 연락하여 [액세스 권한을 제거](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers)하도록 요청할 수도 있습니다.
+> 플랜이 공개로 게시된 후에는 다시 비공개로 변경할 수 없습니다. 제품을 수락하고 리소스를 위임할 수 있는 고객을 제어하려면 비공개 플랜을 사용합니다. 공개 플랜에서는 특정 고객이나 특정 수의 고객으로 가용성을 제한할 수 없습니다(원하면 플랜 판매를 완전히 중단할 수는 있음). 제품을 게시할 때 **역할 정의** 가 [관리형 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)로 설정된 **권한 부여** 를 포함한 경우에만 고객이 제품을 수락한 후 [위임에 대한 액세스 권한을 제거](../how-to/remove-delegation.md)할 수 있습니다. 고객에게 연락하여 [액세스 권한을 제거](../how-to/view-manage-service-providers.md#remove-service-provider-offers)하도록 요청할 수도 있습니다.
 
 ## <a name="publish-managed-service-offers"></a>관리형 서비스 제품 게시
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/28/2021
 ms.author: v-demjoh
-ms.openlocfilehash: 268f248c879d1a6872713159bfb1aa44879d21ad
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 364ceacaea122e7ffda58ef0c7d4db072c8fee13
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730344"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122264837"
 ---
 ## <a name="download-and-install"></a>다운로드 및 설치
 
@@ -68,8 +68,11 @@ x64 CPU에서 Linux에 Speech CLI를 설치하려면 다음 단계를 수행합�
 
 #### <a name="docker-install-windows-linux-macos"></a>[Docker 설치(Windows, Linux, macOS)](#tab/dockerinstall)
 
-> [!WARNING]
+> [!IMPORTANT]
 > Docker 컨테이너 내에서 Speech CLI를 실행하는 경우에는 컴퓨터의 마이크를 사용할 수 없습니다. 그러나 로컬에 탑재된 디렉터리에서는 오디오 파일을 읽고 저장할 수 있습니다. 
+
+> [!NOTE]
+> 다음 예제에서는 Docker 허브에서 공용 컨테이너 이미지를 가져옵니다. 익명 끌어오기 요청을 수행하는 대신 먼저 Docker 허브 계정(`docker login`)을 사용하여 인증하는 것이 좋습니다. 공용 콘텐츠를 사용할 때 신뢰성을 향상시키려면 개인 Azure 컨테이너 레지스트리에서 이미지를 가져오고 관리하세요. [공용 이미지 사용에 대해 자세히 알아봅니다](../../../container-registry/buffer-gate-public-content.md).
 
 Docker 컨테이너에서 Speech CLI를 설치하려면 다음 단계를 수행합니다.
 

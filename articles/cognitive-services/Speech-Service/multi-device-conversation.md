@@ -3,19 +3,19 @@ title: 다중 디바이스 대화(미리 보기) - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 다중 디바이스 대화를 사용하면 여러 클라이언트 간에 음성 또는 텍스트 대화를 쉽게 만들고 클라이언트 간에 전송되는 메시지를 조정할 수 있습니다.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: trbye
-ms.openlocfilehash: 7b38bc390b28788003c2de757f45e8ecdfd5c89a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: lajanuar
+ms.openlocfilehash: 02c5ea7f64ecbeeb4682f327671c53f2a8def2c5
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98932415"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537594"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>다중 디바이스 대화(미리 보기)란?
 

@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: e2f044ab267365885260b031638572846184bc83
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8979943b271041087e3541760d983b94977a07c1
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063188"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893969"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Azure Defender for Storage 구성
 
@@ -75,7 +76,7 @@ Azure Defender는 Azure Security Center에 기본 제공됩니다. 구독에서 
 
 ### <a name="template"></a>[템플릿](#tab/template)
 
-Azure Resource Manager 템플릿을 사용하여 Azure Defender가 사용하도록 설정된 Azure Storage 계정을 배포합니다. 자세한 내용은 [Advanced Threat Protection이 있는 스토리지 계정](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/)을 참조하세요.
+Azure Resource Manager 템플릿을 사용하여 Azure Defender가 사용하도록 설정된 Azure Storage 계정을 배포합니다. 자세한 내용은 [Advanced Threat Protection이 있는 스토리지 계정](https://azure.microsoft.com/resources/templates/storage-advanced-threat-protection-create/)을 참조하세요.
 
 ### <a name="azure-policy"></a>[Azure Policy](#tab/azure-policy)
 

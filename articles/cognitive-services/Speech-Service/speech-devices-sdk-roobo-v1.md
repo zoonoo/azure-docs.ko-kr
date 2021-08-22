@@ -3,19 +3,19 @@ title: Speech Devices SDK Roobo Smart Audio Dev Kit v1 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech Devices SDK Roobo Smart Audio Dev Kit v1을 시작하기 위한 필수 구성 요소 및 지침입니다.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: erhopf
-ms.openlocfilehash: 73eb1225ffc5fd01f9a27ca99ad2b059d45a36cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: lajanuar
+ms.openlocfilehash: 314dffad0528b968b84c2d2c280eaba13a6edfbd
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95015293"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537550"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>디바이스: Roobo Smart Audio Dev Kit
 

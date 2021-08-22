@@ -96,7 +96,7 @@ Event Grid로 이벤트를 모니터링하여 작업의 진행 상황 및 상태
 ## <a name="see-also"></a>참고 항목
 
 * [오류 코드](/rest/api/media/jobs/get#joberrorcode)
-* [Media Services 엔터티 필터링, 순서 지정, 페이징](filter-order-page-entitites-how-to.md)
+* [Media Services 엔터티 필터링, 순서 지정, 페이징](filter-order-page-entities-how-to.md)
 
 ## <a name="next-steps"></a>다음 단계
 

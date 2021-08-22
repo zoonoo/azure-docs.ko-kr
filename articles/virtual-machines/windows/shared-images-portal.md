@@ -4,16 +4,17 @@ description: Azure Portal을 사용하여 가상 머신 이미지를 만들고 �
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 11/06/2019
+ms.date: 06/21/2021
 ms.author: cynthn
-ms.openlocfilehash: 7ef48e6eaef441026457e584a302eb3fe515c0a6
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 537b6f70534386269bb2ea57815b3dbb21337e48
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079412"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204195"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>포털을 사용하여 Azure Shared Image Gallery 만들기
 
@@ -67,6 +68,5 @@ ms.locfileid: "112079412"
 - [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/sig-create/)
 - [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
 - [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-- [이미지 버전에서 VM 만들기](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 공유 이미지 갤러리에 대한 자세한 내용은 [개요](../shared-image-galleries.md)를 참조하세요. 문제 발생 시에는 [공유 이미지 갤러리 문제 해결](../troubleshooting-shared-images.md)을 참조하세요.

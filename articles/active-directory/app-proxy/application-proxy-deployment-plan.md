@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.openlocfilehash: d68a6714d336615f25a5fb937b845ca151472ca9
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 3642a48b1b8a5df9a3bc98079873415842b5c1a4
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227275"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727961"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Azure AD 애플리케이션 프록시 배포 계획
 
@@ -80,7 +80,7 @@ Azure AD 애플리케이션 프록시를 구성하고 구현하려면 다음 핵
 
    * **애플리케이션 게시 및 관리** 에는 *애플리케이션 관리자* 역할이 필요합니다. 애플리케이션 관리자는 등록, SSO 설정, 사용자/그룹 할당 및 라이선스, 애플리케이션 프록시 설정 및 동의를 포함하여 디렉터리의 모든 애플리케이션을 관리할 수 있습니다. 조건부 액세스를 관리하는 기능은 부여하지 않습니다. *클라우드 애플리케이션 관리자* 역할에는 애플리케이션 프록시 설정 관리를 허용하지 않는다는 점을 제외하고 애플리케이션 관리자의 모든 기능이 있습니다.
 
-* **라이선스**: 애플리케이션 프록시는 Azure AD Premium 구독을 통해 사용할 수 있습니다. 라이선스 옵션 및 기능의 전체 목록은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
+* **라이선스**: 애플리케이션 프록시는 Azure AD Premium 구독을 통해 사용할 수 있습니다. 라이선스 옵션 및 기능의 전체 목록은 [Azure Active Directory 가격 책정 페이지](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)를 참조하세요.
 
 ### <a name="application-discovery"></a>애플리케이션 검색
 

@@ -2,23 +2,17 @@
 title: Batch 풀에서 자동 인증서 순환 사용
 description: 관리 ID와 자동으로 갱신되는 인증서를 사용하여 Batch 풀을 만들 수 있습니다.
 ms.topic: conceptual
-ms.date: 03/23/2021
-ms.custom: references_regions
-ms.openlocfilehash: e8bea49b2980deb8f20258ab7ea5619ece8cd2bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/16/2021
+ms.openlocfilehash: 9a8f4d785c9a411df6c867724f057b1dc9b29722
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104962572"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362421"
 ---
 # <a name="enable-automatic-certificate-rotation-in-a-batch-pool"></a>Batch 풀에서 자동 인증서 순환 사용
 
  자동으로 갱신되는 인증서를 사용하여 Batch 풀을 만들 수 있습니다. 그러려면 [Azure Key Vault](../key-vault/general/overview.md)에서 인증서에 액세스할 수 있는 [사용자가 할당한 관리 ID](managed-identity-pools.md)를 사용하여 풀을 만들어야 합니다.
-
-> [!IMPORTANT]
-> 사용자가 할당한 관리 ID를 가진 Azure Batch 풀에 대한 지원은 현재 미국 서부 2, 미국 중남부, 미국 동부, US Gov 애리조나, US Gov 버지니아 지역에 대해 퍼블릭 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="create-a-user-assigned-identity"></a>사용자 할당 ID 만들기
 

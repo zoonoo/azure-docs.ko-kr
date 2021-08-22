@@ -3,13 +3,13 @@ title: Azure Functions를 사용하여 C# 클래스 라이브러리 함수 개�
 description: C#을 사용하여 Azure Functions 런타임과 함께 In Process를 실행하는 클래스 라이브러리로 코드를 개발하고 게시하는 방법을 이해합니다.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 07/24/2020
-ms.openlocfilehash: 60afc79c332385958d9f73ad1e224cab90293e1c
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.date: 07/24/2021
+ms.openlocfilehash: 5681a985769f49429e5b92946311c3d10ea8ecf6
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903134"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537398"
 ---
 # <a name="develop-c-class-library-functions-using-azure-functions"></a>Azure Functions를 사용하여 C# 클래스 라이브러리 함수 개발
 
@@ -48,7 +48,7 @@ Azure Functions는 C# 및 C# 스크립트 프로그래밍 언어를 지원합니
 Visual Studio에서 **Azure Functions** 프로젝트 템플릿은 다음 파일이 포함된 C# 클래스 라이브러리 프로젝트를 만듭니다.
 
 * [host.json](functions-host-json.md) -로컬로 또는 Azure에서 실행될 경우 프로젝트의 모든 함수에 영향을 주는 구성 설정을 저장합니다.
-* [local.settings.json](functions-run-local.md#local-settings-file) - 로컬로 실행될 때 사용되는 앱 설정 및 연결 문자열을 저장합니다. 이 파일은 암호를 포함하며 Azure의 함수 앱에 게시되지 않습니다. 대신 [앱 설정을 함수 앱에 추가](functions-develop-vs.md#function-app-settings)합니다.
+* [local.settings.json](functions-develop-local.md#local-settings-file) - 로컬로 실행될 때 사용되는 앱 설정 및 연결 문자열을 저장합니다. 이 파일은 암호를 포함하며 Azure의 함수 앱에 게시되지 않습니다. 대신 [앱 설정을 함수 앱에 추가](functions-develop-vs.md#function-app-settings)합니다.
 
 프로젝트를 빌드할 때 빌드 출력 디렉터리에 다음 예제와 같은 폴더 구조가 생성됩니다.
 
@@ -465,7 +465,7 @@ namespace functionapp0915
 
 이 예제에서 사용자 지정 메트릭 데이터는 customMetrics 테이블로 전송되기 전에 호스트에 의해 집계됩니다. 자세히 알아보려면 Application Insights의 [GetMetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) 문서를 참조하세요. 
 
-로컬로 실행하는 경우 Application Insights 키를 사용하여 [local.settings.json](functions-run-local.md#local-settings-file) 파일에 `APPINSIGHTS_INSTRUMENTATIONKEY` 설정을 추가해야 합니다.
+로컬로 실행하는 경우 Application Insights 키를 사용하여 [local.settings.json](functions-develop-local.md#local-settings-file) 파일에 `APPINSIGHTS_INSTRUMENTATIONKEY` 설정을 추가해야 합니다.
 
 
 # <a name="v1x"></a>[v1.x](#tab/v1)

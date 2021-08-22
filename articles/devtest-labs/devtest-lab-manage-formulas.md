@@ -3,12 +3,12 @@ title: VM을 만드는 Azure DevTest Labs 수식 관리 | Microsoft 문서
 description: 이 문서에서는 기본(사용자 지정 이미지, Marketplace 이미지 또는 다른 수식) 또는 기존 VM에서 수식을 만드는 방법을 보여 줍니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: f012a8c59a8e938334c3e1abc4c7b3ccd0e48d3e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 770bab28d6c000db8860d2de7dfeb8ad912e7c3a
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91308897"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114293532"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs 수식 관리
 
@@ -58,7 +58,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
     - **서브넷** - 서브넷을 변경하려면 **서브넷 변경** 을 선택합니다. 
     - **IP 주소 구성** - 공용, 프라이빗 또는 공유 IP 주소를 원하는 경우 지정합니다. 공유 IP 주소에 대한 자세한 내용은 [Azure DevTest Labs에서 공유 IP 주소 이해](./devtest-lab-shared-ip.md)를 참조하세요.
     - **만료 날짜 및 시간** -이 필드는 편집할 수 없습니다. 
-    - **Make this machine claimable**(이 컴퓨터를 클레임 가능하도록 지정) - 컴퓨터를 "클레임 가능&quot;하도록 지정하는 것은 생성 시 소유권을 할당하지 않는다는 것을 의미합니다. 대신 랩 사용자는 랩의 페이지에서 머신에 대한 소유권(&quot;클레임")을 가져올 수 있습니다.  
+    - **Make this machine claimable**(이 컴퓨터를 클레임 가능하도록 지정) - 컴퓨터를 "클레임 가능"하도록 지정하는 것은 생성 시 소유권을 할당하지 않는다는 것을 의미합니다. 대신 랩 사용자는 랩의 페이지에서 머신에 대한 소유권("클레임")을 가져올 수 있습니다.  
 
         ![‘수식 만들기(재사용 가능 기본)’ 페이지에 대한 고급 설정을 보여 주는 스크린샷입니다.](./media/devtest-lab-create-formulas/advanced-settings.png)
     - Shared Image Gallery 이미지를 기본으로 선택한 경우 갤러리에서 기본으로 사용할 이미지의 버전을 선택할 수 있는 **이미지 버전** 필드도 표시됩니다. 
@@ -122,8 +122,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-blog-posts"></a>관련 블로그 게시물
-* [사용자 지정 이미지 또는 수식?](devtest-lab-faq.md#what-is-the-difference-between-a-custom-image-and-a-formula)
+* [사용자 지정 이미지 또는 수식?](/azure/devtest-labs/devtest-lab-faq#what-is-the-difference-between-a-custom-image-and-a-formula)
 
 ## <a name="next-steps"></a>다음 단계
 VM을 만들 때 사용할 수식을 만들었으면 다음 단계는 [VM을 랩에 추가](devtest-lab-add-vm.md)하는 것입니다.
-

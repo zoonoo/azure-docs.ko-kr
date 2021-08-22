@@ -1,19 +1,20 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer) API를 사용하여 사람 모델 사용자 지정
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Azure Video Analyzer for Media(이전의 Video Indexer) API를 사용하여 사람 모델을 사용자 지정하는 방법에 대해 알아봅니다.
-services: media-services
+services: azure-video-analyzer
 author: anikaz
 manager: johndeu
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 01/14/2020
 ms.author: kumud
-ms.openlocfilehash: 758b2b62b0ea7b321e20c2e724609b212abb6ef6
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 01205b70b3f4195be290075727bece30d57c515e
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387210"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112121394"
 ---
 # <a name="customize-a-person-model-with-the-video-analyzer-for-media-api"></a>Video Analyzer for Media API를 사용하여 사람 모델 사용자 지정
 

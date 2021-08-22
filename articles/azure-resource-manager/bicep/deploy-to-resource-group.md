@@ -3,12 +3,12 @@ title: Bicep을 사용하여 리소스 그룹에 리소스 배포
 description: Bicep 파일에 리소스를 배포하는 방법을 설명합니다. 둘 이상의 리소스 그룹을 대상으로 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: f32ee9ce08b447a776ae74d19c0edabba233f345
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 4d68d0d28763c21574a3fd4f2f4c57561759e51e
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026818"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634479"
 ---
 # <a name="resource-group-deployments-with-bicep-files"></a>Bicep 파일을 사용하여 리소스 그룹 배포
 
@@ -87,16 +87,16 @@ ARM 템플릿 배포를 위한 배포 명령 및 옵션에 대한 자세한 내�
 // resource deployed to target resource group
 resource exampleResource 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   ...
-} 
+}
 ```
 
 예제 템플릿은 [대상 리소스 그룹에 배포](#deploy-to-target-resource-group)를 참조하십시오.
 
 ### <a name="scope-to-different-resource-group"></a>다른 리소스 그룹으로 범위 지정
 
-대상 리소스 그룹이 아닌 리소스 그룹에 리소스를 배포하려면 [모듈](modules.md)을 추가합니다. [resourceGroup 함수](bicep-functions-scope.md#resourcegroup)를 사용하여 해당 모듈에 대한 `scope` 속성을 설정합니다. 
+대상 리소스 그룹이 아닌 리소스 그룹에 리소스를 배포하려면 [모듈](modules.md)을 추가합니다. [resourceGroup 함수](bicep-functions-scope.md#resourcegroup)를 사용하여 해당 모듈에 대한 `scope` 속성을 설정합니다.
 
-리소스 그룹이 다른 구독에 있는 경우 구독 ID 및 리소스 그룹의 이름을 제공합니다. 리소스 그룹이 현재 배포와 동일한 구독에 있는 경우 리소스 그룹의 이름만 제공합니다. [resourceGroup 함수](bicep-functions-scope.md#resourcegroup)에서 구독을 지정하지 않으면 현재 구독이 사용됩니다. 
+리소스 그룹이 다른 구독에 있는 경우 구독 ID 및 리소스 그룹의 이름을 제공합니다. 리소스 그룹이 현재 배포와 동일한 구독에 있는 경우 리소스 그룹의 이름만 제공합니다. [resourceGroup 함수](bicep-functions-scope.md#resourcegroup)에서 구독을 지정하지 않으면 현재 구독이 사용됩니다.
 
 다음 예제에서는 다른 구독에 있는 리소스 그룹을 대상으로 하는 모듈을 보여 줍니다.
 
@@ -127,9 +127,9 @@ module exampleModule 'module.bicep' = {
 
 ### <a name="scope-to-subscription"></a>구독으로 범위 지정
 
-구독에 리소스 그룹을 배포하려면 모듈을 추가합니다. [subscription 함수](bicep-functions-scope.md#subscription)를 사용하여 해당 `scope` 속성을 설정합니다. 
+구독에 리소스 그룹을 배포하려면 모듈을 추가합니다. [subscription 함수](bicep-functions-scope.md#subscription)를 사용하여 해당 `scope` 속성을 설정합니다.
 
-현재 구독에 배포하려면 매개 변수 없이 subscription 함수를 사용합니다. 
+현재 구독에 배포하려면 매개 변수 없이 subscription 함수를 사용합니다.
 
 ```bicep
 
@@ -191,7 +191,7 @@ output output string = mgName
 
 대상 리소스 그룹에 리소스를 배포하려면 템플릿의 `resources` 섹션에서 해당 리소스를 정의합니다. 다음 템플릿은 배포 작업에 지정된 리소스 그룹에 스토리지 계정을 만듭니다.
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.bicep":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/get-started-with-bicep-files/add-output/azuredeploy.bicep":::
 
 ## <a name="deploy-to-multiple-resource-groups"></a>여러 리소스 그룹으로 배포
 

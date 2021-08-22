@@ -7,12 +7,12 @@ ms.topic: how-to
 author: aarathin
 ms.author: aarathin
 ms.date: 05/21/2021
-ms.openlocfilehash: 4804d1b315ce70a3ee145616f9fecbc1edc5e293
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 8ab847eee55eb9f2fc4d0d4ee7de1fa9eef3bcf0
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111540572"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294304"
 ---
 # <a name="prepare-iot-edge-module-technical-assets"></a>IoT Edge 모듈 기술 자산 준비
 
@@ -66,11 +66,11 @@ IoT Edge 모듈은 다음 플랫폼 옵션 중 하나를 지원해야 합니다.
 
 ### <a name="configuration"></a>구성
 
-모듈에는 IoT Edge 디바이스에 최대한 간단하게 배포하는 기본 구성 설정이 포함되어야 합니다. 이 정보는 [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace)의 계획에 대한 **기술 구성** 페이지에서 제공할 수 있습니다. 컨테이너에는 Edge 허브 및 IoT Hub와 통신할 수 있도록 IoT Edge Module SDK가 포함될 수도 있습니다.
+모듈에는 IoT Edge 디바이스에 최대한 간단하게 배포하는 기본 구성 설정이 포함되어야 합니다. 이 정보는 [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165290)의 계획에 대한 **기술 구성** 페이지에서 제공할 수 있습니다. 컨테이너에는 Edge 허브 및 IoT Hub와 통신할 수 있도록 IoT Edge Module SDK가 포함될 수도 있습니다.
 
 #### <a name="default-configuration"></a>기본 구성
 
-IoT Edge 모듈은 [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace)의 계획에 대한 **기술 구성** 페이지에 제공된 기본 설정으로 시작할 수 있어야 합니다. 다음 기본 설정을 사용할 수 있습니다.
+IoT Edge 모듈은 [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165290)의 계획에 대한 **기술 구성** 페이지에 제공된 기본 설정으로 시작할 수 있어야 합니다. 다음 기본 설정을 사용할 수 있습니다.
 
 - 기본 **경로**
 - 기본 **모듈 쌍 desired 속성**
@@ -85,7 +85,7 @@ ServerIPAddress = <MY_SERVER_IP_ADDRESS>
 
 #### <a name="configuration-documentation"></a>구성 문서
 
-IoT Edge 모듈의 모든 구성 설정은 명확하게 문서화되어야 합니다. 예를 들어 경로, 원하는 쌍 속성, 환경 변수, createOptions 등을 사용하는 방법을 문서화해야 합니다. 설명서에 대한 링크를 제공하거나 제품 또는 계획 설명의 일부로 만들어야 합니다. [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace)의 **제품 목록** 및 **계획 목록** 페이지에 이 정보를 제공할 수 있습니다.
+IoT Edge 모듈의 모든 구성 설정은 명확하게 문서화되어야 합니다. 예를 들어 경로, 원하는 쌍 속성, 환경 변수, createOptions 등을 사용하는 방법을 문서화해야 합니다. 설명서에 대한 링크를 제공하거나 제품 또는 계획 설명의 일부로 만들어야 합니다. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165290)의 **제품 목록** 및 **계획 목록** 페이지에 이 정보를 제공할 수 있습니다.
 
 #### <a name="tags-and-versioning"></a>태그 및 버전 관리
 
@@ -133,7 +133,7 @@ IoT 모듈 SDK는 실행되는 모듈 인스턴스의 번호에 대한 원격 �
 - IoT Edge 런타임
 - IoT Edge 모듈 인증 지침
 
-파트너는 제품을 [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace)에 다시 게시하여 업데이트하고 재인증해야 합니다.
+파트너는 제품을 [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165290)에 다시 게시하여 업데이트하고 재인증해야 합니다.
 
 새 이미지 태그 추가와 같이 업데이트하는 경우에도 제품이 재인증됩니다.
 

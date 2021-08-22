@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 7d1c31c9f8507154056e6e6de0073eeb9ae636b7
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: fa41d81192a84b0b5b3c15f2c965c914a1ba42eb
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111422015"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294322"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Azure Machine Learning에서 관리 ID 사용(미리 보기)
 
@@ -218,7 +218,7 @@ from azureml.core.container_registry import RegistryIdentity
 
 identity = RegistryIdentity()
 identity.resource_id= "<UAI resource ID>"
-identity.client_id="<UAI client ID>”
+identity.client_id="<UAI client ID>"
 env.docker.base_image_registry.registry_identity=identity
 env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
 ```
@@ -258,7 +258,7 @@ ws = Workspace.create(name="workspace name",
 [ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced)을 사용하여 사용자가 할당한 관리 ID가 있는 작업 영역을 만들 수도 있습니다.
 
 > [!IMPORTANT]
-> 사용자 고유의 연결된 리소스를 가져오는 경우 Azure Machine Learning Service에서 만드는 대신 해당 리소스에 대한 관리 ID 역할을 부여해야 합니다. [역할 할당 ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment)을 사용하여 할당을 만듭니다.
+> 사용자 고유의 연결된 리소스를 가져오는 경우 Azure Machine Learning Service에서 만드는 대신 해당 리소스에 대한 관리 ID 역할을 부여해야 합니다. [역할 할당 ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment)을 사용하여 할당을 만듭니다.
 
 [암호화를 위한 사용자 관리 키](concept-data-encryption.md)를 사용하는 작업 영역의 경우 사용자가 할당한 관리 ID를 전달하여 저장소에서 Key Vault로 인증할 수 있습니다. __user-assigned-identity-for-cmk-encryption__(CLI) 또는 __user_assigned_identity_for_cmk_encryption__(SDK) 인수를 사용하여 관리 ID를 전달합니다. 이 관리 ID는 작업 영역 기본 사용자가 할당한 관리 ID와 동일하거나 다를 수 있습니다.
 

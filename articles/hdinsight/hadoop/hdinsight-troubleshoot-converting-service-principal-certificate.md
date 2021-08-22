@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/31/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1ccd47b0a2f10c67dc808fb13aafca55fa5a5e67
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1af6136e5d09c512ad515871cd7cbfceaf1877a2
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110088753"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299916"
 ---
 # <a name="converting-service-principal-certificate-contents-to-base-64-encoded-string-format-in-hdinsight"></a>HDInsight에서 서비스 주체 인증서 콘텐츠를 Base-64로 인코딩된 문자열 형식으로 변환
 
@@ -52,4 +52,4 @@ namespace ConsoleApplication
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

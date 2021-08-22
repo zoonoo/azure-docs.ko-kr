@@ -2,13 +2,13 @@
 title: Azure Storage 큐와 Service Bus 큐 비교
 description: Azure에서 제공하는 두 가지 유형의 큐 사이의 차이점과 유사점을 분석합니다.
 ms.topic: article
-ms.date: 04/12/2021
-ms.openlocfilehash: a63ed276981a692b96b7e7369093af221b3d3a5f
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.date: 06/15/2021
+ms.openlocfilehash: a93123ded873a5020e440c606fcd4f8278baa4aa
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110190134"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112120165"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Azure 큐 및 Service Bus 큐 - 비교 및 대조
 이 문서는 현재 Microsoft Azure에서 제공하는 두 가지 유형의 큐인 Storage 큐와 Service Bus 큐 사이의 차이점과 유사점을 분석합니다. 이 정보를 활용하면 요구 사항에 가장 적합한 솔루션에 대한 더 자세한 결정을 내릴 수 있습니다.
@@ -203,9 +203,6 @@ Service Bus 큐는 다음과 같은 다양한 고급 기능을 제공합니다. 
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Queue Storage 서비스를 사용하는 방법](../storage/queues/storage-dotnet-how-to-use-queues.md)
 * [Service Bus 조정된 메시징을 사용한 성능 향상의 모범 사례](service-bus-performance-improvements.md)
-* [Azure Service Bus의 큐 및 토픽 소개(블로그 게시물)](https://www.serverless360.com/blog/azure-service-bus-queues-vs-topics)
-* [Service Bus에 대한 개발자 가이드](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
-* [Azure에서 Queuing Service 사용하기](https://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 
 [Azure portal]: https://portal.azure.com
 

@@ -7,12 +7,12 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 57d3d1c6bb14db3eb2ca499069934a628d2f7fea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5813b08a14a95a8b7bbb51b3d6593fe374a83ba6
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92425773"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282046"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>Cloud 파트너 포털 API 참조
 
@@ -36,7 +36,7 @@ Cloud 파트너 포털 REST API를 사용하면 프로그래밍 방식으로 워
 | **API** | **변경 내용 설명** | **영향** |
 | ------- | ---------------------- | ---------- |
 | POST 게시, GoLive, 취소 | 마이그레이션된 제품의 경우 응답 헤더의 형식은 서로 다르지만 작업 상태를 검색하기 위한 상대 경로를 나타내는 것과 동일한 방식으로 계속 작동합니다. | 제품에 대한 해당 POST 요청을 전송하는 경우 위치 헤더는 제품의 마이그레이션 상태에 따라 다음 두 가지 형식 중 하나가 됩니다.<ul><li>마이그레이션되지 않은 제품<br>`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>마이그레이션된 제품<br>`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li> |
-| GET 작업 | 응답의 ‘알림-이메일’ 필드가 이전에 지원되었던 제품 유형의 경우 이 필드는 더 이상 사용되지 않으며 마이그레이션된 제품에 대해 더 이상 반환되지 않습니다. | 마이그레이션된 제품의 경우 요청에 지정된 이메일 목록에 더 이상 알림을 보내지 않습니다. 대신, API 서비스는 이메일을 보내기 위해 파트너 센터의 알림 이메일 프로세스와 정렬됩니다. 특히 알림은 파트너 센터에서 계정 설정의 판매자 연락처 정보 섹션에 설정된 이메일 주소에 전송되어 작업 진행률을 알립니다.<br><br>파트너 센터의 [계정 설정](https://partner.microsoft.com/dashboard/account/management)에서 판매자 연락처 정보 섹션에 있는 이메일 주소 세트를 검토하여 알림을 보낼 올바른 이메일이 제공되는지 확인하세요.  |
+| GET 작업 | 응답의 ‘알림-이메일’ 필드가 이전에 지원되었던 제품 유형의 경우 이 필드는 더 이상 사용되지 않으며 마이그레이션된 제품에 대해 더 이상 반환되지 않습니다. | 마이그레이션된 제품의 경우 요청에 지정된 이메일 목록에 더 이상 알림을 보내지 않습니다. 대신, API 서비스는 이메일을 보내기 위해 파트너 센터의 알림 이메일 프로세스와 정렬됩니다. 특히 알림은 파트너 센터에서 계정 설정의 판매자 연락처 정보 섹션에 설정된 이메일 주소에 전송되어 작업 진행률을 알립니다.<br><br>파트너 센터의 [계정 설정](https://go.microsoft.com/fwlink/?linkid=2165291)에서 판매자 연락처 정보 섹션에 있는 이메일 주소 세트를 검토하여 알림을 보낼 올바른 이메일이 제공되는지 확인하세요. |
 
 ## <a name="common-tasks"></a>일반 작업
 

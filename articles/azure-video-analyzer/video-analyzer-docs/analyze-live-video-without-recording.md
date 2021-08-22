@@ -2,13 +2,13 @@
 title: 기록 없이 라이브 비디오 분석 - Azure
 description: 파이프라인 토폴로지를 사용하여 에지 또는 클라우드에 기록하지 않고도 라이브 비디오 스트림에서 분석을 추출할 수 있습니다. 이 문서에서는 이러한 개념에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 03/27/2021
-ms.openlocfilehash: af3c1438814a77a4687c2fdd58e3a6e6f9589b32
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 8444759d231153419873679624645a96e07058ce
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386466"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122539622"
 ---
 # <a name="analyzing-live-videos-without-recording"></a>녹화하지 않고 라이브 비디오 분석
 
@@ -27,7 +27,7 @@ ms.locfileid: "110386466"
 아래 표시된 파이프라인 토폴로지는 [RTSP 원본](pipeline.md#rtsp-source) 노드, [동작 감지 프로세서](pipeline.md#motion-detection-processor) 노드 및 [IoT Hub 메시지 싱크](pipeline.md#iot-hub-message-sink) 노드로 구성됩니다. [JSON 표현](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/motion-detection/topology.json)에서 사용된 설정을 볼 수 있습니다. 이 토폴로지에서는 들어오는 라이브 비디오 스트림에서 동작을 감지하고 IoT Hub 메시지 싱크 노드를 통해 동작 이벤트를 다른 앱 및 서비스로 릴레이할 수 있습니다. 외부 앱 또는 서비스는 경고를 트리거하거나 적절한 사람에게 알림을 보낼 수 있습니다.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video-without-recording/motion-detection.svg" alt-text="라이브 비디오에서 동작 감지":::
+> :::image type="content" source="./media/get-started-detect-motion-emit-events/motion-detection.svg" alt-text="라이브 비디오에서 동작 감지":::
 
 ### <a name="analyzing-video-using-a-custom-vision-model"></a>사용자 지정 비전 모델을 사용하여 비디오 분석 
 

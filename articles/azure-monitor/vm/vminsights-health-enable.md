@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 04/05/2021
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 472700f50175c115305bad332efa6b0e77fb74ce
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 3855cc3dff2d29c659c6613e1321529745239c7c
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315294"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634116"
 ---
 # <a name="enable-vm-insights-guest-health-preview"></a>VM 인사이트 게스트 상태 사용(미리 보기)
 VM 인사이트 게스트 상태를 사용하면 일정한 간격으로 샘플링되는 성능 측정 집합에 정의된 대로 가상 머신의 상태를 볼 수 있습니다. 이 문서에서는 구독에서 이 기능을 사용하도록 설정하는 방법과 각 가상 머신에 대해 게스트 모니터링을 사용하도록 설정하는 방법을 설명합니다.
@@ -38,6 +38,7 @@ VM 인사이트 게스트 상태는 공개 미리 보기에서 다음과 같은 
 - 오스트레일리아 중부
 - 오스트레일리아 동부
 - 오스트레일리아 남동부
+- 브라질 남부
 - 캐나다 중부
 - 인도 중부
 - 미국 중부
@@ -48,13 +49,16 @@ VM 인사이트 게스트 상태는 공개 미리 보기에서 다음과 같은 
 - 프랑스 중부
 - 독일 중서부
 - 일본 동부
+- 일본 서부
 - 한국 중부
 - 미국 중북부
 - 북유럽
+- 노르웨이 동부
 - 미국 중남부
 - 남아프리카 북부
 - 동남아시아
 - 스위스 북부
+- 아랍에미리트 북부
 - 영국 남부
 - 영국 서부
 - 미국 중서부
@@ -68,6 +72,8 @@ Log Analytics 작업 영역은 다음 지역 중 하나에 있어야 합니다.
 - 오스트레일리아 중부
 - 오스트레일리아 동부
 - 오스트레일리아 남동부
+- 브라질 남부
+- 브라질 남동부
 - 캐나다 중부
 - 캐나다 인도
 - 미국 중부
@@ -77,11 +83,15 @@ Log Analytics 작업 영역은 다음 지역 중 하나에 있어야 합니다.
 - 미국 동부 2 EUAP
 - 프랑스 중부
 - 일본 동부
+- 일본 서부
 - 미국 중북부
 - 북유럽
+- 노르웨이 동부
 - 미국 중남부
 - 동남아시아
 - 스위스 북부
+- 스위스 서부
+- 아랍에미리트 북부
 - 영국 남부
 - 서유럽 지역
 - 미국 서부
@@ -355,13 +365,13 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
         "publisher": "Microsoft.Azure.Monitor", 
         "type": "AzureMonitorWindowsAgent", 
         "typeHandlerVersion": "1.0", 
-        "autoUpgradeMinorVersion": false 
+        "autoUpgradeMinorVersion": true 
       },
       "linux": {
         "publisher": "Microsoft.Azure.Monitor", 
         "type": "AzureMonitorLinuxAgent", 
-        "typeHandlerVersion": "1.5", 
-        "autoUpgradeMinorVersion": false 
+        "typeHandlerVersion": "1.0", 
+        "autoUpgradeMinorVersion": true 
       }
     }
   },

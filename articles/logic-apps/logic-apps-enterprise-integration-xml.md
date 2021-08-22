@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: 3cb3472572abbd891f8d36ea036b371c1224f38c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4e8f8c080d73ca77a69820ffe6af9d46d6f44af
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "74792142"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112293998"
 ---
 # <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps을 사용하는 XML 메시지 및 플랫 파일
 
@@ -33,8 +33,8 @@ ms.locfileid: "74792142"
 
 ## <a name="sample"></a>샘플
 
-Azure Logic Apps의 XML 기능을 사용하여 [완벽하게 작동하는 논리 앱(GitHub 샘플)을 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline)합니다.
+Azure Logic Apps의 XML 기능을 사용하여 [완벽하게 작동하는 논리 앱(GitHub 샘플)을 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logic-app-veter-pipeline)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md)
+[엔터프라이즈 통합 팩](logic-apps-enterprise-integration-overview.md)에 대해 자세히 알아보기

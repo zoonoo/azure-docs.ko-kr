@@ -12,21 +12,21 @@ manager: daveba
 ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a80a357b58ec7b17cc0da3e8247a668faf7ee413
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b95226ba8eb0d780ee20d761e3132a9c6bfd9e19
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286477"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112200765"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화
 
 Azure AD Premium 또는 EMS(Enterprise Mobility + Security) 라이선스를 사용하는 모든 조직에서 Enterprise State Roaming을 사용할 수 있습니다. Azure AD 구독 방법에 대한 자세한 내용은 [Azure AD 제품 페이지](https://azure.microsoft.com/services/active-directory)를 참조하세요.
 
-Enterprise State Roaming을 사용하도록 설정하면 Azure Information Protection에서 Azure Rights Management 보호에 대해 제한된 체험용 라이선스가 조직에 자동으로 부여됩니다. 이 체험용 구독은 엔터프라이즈 설정 암호화 및 Enterprise State Roaming에서 동기화한 애플리케이션 데이터를 암호화하고 암호를 해독하도록 제한됩니다. [유료 구독](https://azure.microsoft.com/pricing/details/information-protection/)이 있어야 Azure Rights Management 서비스의 전체 기능을 사용할 수 있습니다.
+Enterprise State Roaming을 사용하도록 설정하면 Azure Information Protection에서 Azure Rights Management 보호에 대해 제한된 체험용 라이선스가 조직에 자동으로 부여됩니다. 이 체험용 구독은 엔터프라이즈 설정 암호화 및 Enterprise State Roaming에서 동기화한 애플리케이션 데이터를 암호화하고 암호를 해독하도록 제한됩니다. [유료 구독](https://azure.microsoft.com/services/information-protection/)이 있어야 Azure Rights Management 서비스의 전체 기능을 사용할 수 있습니다.
 
 > [!NOTE]
-> 이 문서는 2015년 7월에 Windows 10과 함께 시작된 Microsoft Edge 레거시 HTML 기반 브라우저에 적용됩니다. 2020년 1월 15일에 릴리스된 새 Microsoft Edge Chromium 기반 브라우저에는 적용되지 않습니다. 새 Microsoft Edge의 동기화 동작에 대한 자세한 내용은 [Microsoft Edge 동기화](/deployedge/microsoft-edge-enterprise-sync) 문서를 참조하세요.
+> 이 문서는 2015년 7월에 Windows 10과 함께 시작된 Microsoft Edge 레거시 HTML 기반 브라우저에 적용됩니다. 이 문서는 2020년 1월 15일에 릴리스된 새 Microsoft Edge Chromium 기반 브라우저에는 적용되지 않습니다. 새 Microsoft Edge의 동기화 동작에 대한 자세한 내용은 [Microsoft Edge 동기화](/deployedge/microsoft-edge-enterprise-sync) 문서를 참조하세요.
 
 ## <a name="to-enable-enterprise-state-roaming"></a>Enterprise State Roaming을 사용하려면
 

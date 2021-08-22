@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: inhenkel
-ms.openlocfilehash: aa2682dacffc5bbb9b90f1627449858d5078627d
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: c6cd9c5c56f261bce4c04f6e441023c1b1457bbc
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106281544"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634223"
 ---
 # <a name="streaming-policies"></a>스트리밍 정책
 
@@ -34,7 +34,7 @@ Azure Media Services v3에서 [스트리밍 정책](/rest/api/media/streamingpol
 
 > [!IMPORTANT]
 > * 날짜/시간 형식의 **스트리밍 정책** 속성은 언제나 UTC 형식입니다.
-> * Media Services 계정에 대한 제한된 정책 세트를 설계하고 동일한 옵션이 필요할 때마다 스트리밍 로케이터에 해당 세트를 다시 사용하는 것이 좋습니다. 자세한 내용은 [할당량 및 제한](limits-quotas-constraints-reference.md)을 참조하세요.
+> * Media Services 계정에 대한 제한된 정책 세트를 설계하고 동일한 옵션이 필요할 때마다 스트리밍 로케이터에 해당 세트를 다시 사용하는 것이 좋습니다. 자세한 내용은 [할당량 및 한도](limits-quotas-constraints-reference.md)를 참조하세요.
 
 ## <a name="decision-tree"></a>의사 결정 트리
 
@@ -48,7 +48,7 @@ Azure Media Services v3에서 [스트리밍 정책](/rest/api/media/streamingpol
 
 ## <a name="get-a-streaming-policy-definition"></a>스트리밍 정책 정의 가져오기  
 
-스트리밍 정책의 정의를 확인하려면 [Get](/rest/api/media/streamingpolicies/get)을 사용하여 정책 이름을 지정합니다. 예:
+스트리밍 정책의 정의를 확인하려면 [Get](/rest/api/media/streamingpolicies/get)을 사용하여 정책 이름을 지정합니다. 예를 들면 다음과 같습니다.
 
 ### <a name="rest"></a>REST
 
@@ -81,7 +81,7 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 
 ## <a name="filtering-ordering-paging"></a>필터링, 정렬, 페이징
 
-[Media Services 엔터티 필터링, 순서 지정, 페이징](filter-order-page-entitites-how-to.md)을 참조하세요.
+[Media Services 엔터티 필터링, 순서 지정, 페이징](filter-order-page-entities-how-to.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

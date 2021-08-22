@@ -3,15 +3,15 @@ title: 온-프레미스 데이터 원본에 연결
 description: Azure에서 데이터 게이트웨이 리소스를 만들어 Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, logicappspm
+ms.reviewer: arthii, azla
 ms.topic: conceptual
-ms.date: 03/24/2021
-ms.openlocfilehash: 490750fecf1634f8d0bbcd92bd71cdf3cb531c71
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.date: 07/14/2021
+ms.openlocfilehash: 4f49e0fbbfa4c2a98b86c96dc3b0e650d6ff6bc9
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111888593"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204829"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
@@ -35,18 +35,20 @@ ms.locfileid: "111888593"
 
 Azure Logic Apps에서 온-프레미스 데이터 게이트웨이는 다음 데이터 원본에 대한 [온-프레미스 커넥터](../connectors/managed.md#on-premises-connectors)를 지원합니다.
 
-* BizTalk Server 2016
-* 파일 시스템
-* IBM DB2  
-* IBM Informix
-* IBM MQ
-* MySQL
-* Oracle 데이터베이스
-* PostgreSQL
-* SAP
-* SharePoint Server
-* SQL Server
-* Teradata
+* [Apache Impala](/connectors/impala)
+* [BizTalk Server](/connectors/biztalk)
+* [파일 시스템](/connectors/filesystem)
+* [Azure AD를 사용하는 HTTP](/connectors/webcontents)
+* [IBM DB2](/connectors/db2)
+* [IBM Informix](/connectors/informix)
+* [IBM MQ](/connectors/mq)
+* [MySQL](/connectors/mysql)
+* [Oracle 데이터베이스](/connectors/oracle)
+* [PostgreSQL](/connectors/postgresql)
+* [SAP](/connectors/sap)
+* [SharePoint Server](/connectors/sharepointonline)
+* [SQL Server](/connectors/sql)
+* [Teradata](/connectors/teradata)
 
 REST 또는 SOAP를 사용하여 HTTP 또는 HTTPS를 통해 데이터 원본에 연결하는 [사용자 지정 커넥터](../logic-apps/custom-connector-overview.md)를 만들 수도 있습니다. 게이트웨이 자체에는 추가 비용이 발생하지 않지만 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md)이 Azure Logic Apps의 이러한 커넥터 및 기타 작업에 적용됩니다.
 

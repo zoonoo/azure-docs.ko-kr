@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: cdc7668b06308bd5532f4885d0e1365fc34ae989
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 288f82d55749e50c9e9520784497ade2c9387f78
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97511249"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112199361"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Azure API Management의 구독
 
@@ -64,4 +64,4 @@ API Management에 대한 자세한 내용 확인:
 
 + API Management의 기타 [개념](api-management-terminology.md)에 대해 알아보기
 + [자습서](import-and-publish.md)에 따라 API Management에 대해 자세히 알아보기
-+ 일반적인 질문은 [FAQ 페이지](api-management-faq.md) 확인
++ 일반적인 질문은 [FAQ 페이지](api-management-faq.yml) 확인

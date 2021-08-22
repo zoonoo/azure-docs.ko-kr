@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/30/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 944eff6e76f4e5759f70105fe9d09aa61093917f
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 046911fef537f91e1b1d6c5f6c1ca351d2cc171f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028301"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "121802342"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-saml-identity-provider-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 SAML ID 공급자를 통한 가입 및 로그인 설정
 
@@ -36,7 +36,7 @@ Azure AD B2C(Azure Active Directory B2C)는 SAML 2.0 ID 공급자와의 페더�
 
 ## <a name="scenario-overview"></a>시나리오 개요
 
-사용자가 외부 소셜 또는 엔터프라이즈 SAML IdP(ID 공급자)의 자격 증명을 사용하여 애플리케이션에 로그인할 수 있도록 Azure AD B2C를 구성할 수 있습니다. Azure AD B2C는 SAML ID 공급자와 페더레이션될 때 SAML **ID 공급자** 에 대한 SAML 요청을 시작하며 SAML 응답을 기다리는 **서비스 공급자** 역할을 합니다. 다음 다이어그램에서:
+사용자가 외부 소셜 또는 엔터프라이즈 SAML IdP(ID 공급자)의 자격 증명을 사용하여 애플리케이션에 로그인할 수 있도록 Azure AD B2C를 구성할 수 있습니다. Azure AD B2C는 SAML ID 공급자와 페더레이션될 때 SAML **ID 공급자** 에 대한 SAML 요청을 시작하며 SAML 응답을 기다리는 **서비스 공급자** 역할을 합니다. 다음 다이어그램대로 작업이 수행됩니다.
 
 1. 애플리케이션이 Azure AD B2C에 대한 권한 부여 요청을 시작합니다. 애플리케이션은 [OAuth 2.0](protocols-overview.md) 또는 [OpenId Connect](openid-connect.md) 애플리케이션 또는 [SAML 서비스 공급자](saml-service-provider.md)일 수 있습니다. 
 1. Azure AD B2C 로그인 페이지에서 사용자는 SAML ID 공급자 계정(예: *Contoso*)을 통한 로그인을 선택합니다. Azure AD B2C는 SAML 권한 부여 요청을 시작하고 사용자를 SAML ID 공급자로 이동하여 로그인을 완료합니다.
@@ -56,7 +56,8 @@ Azure AD B2C(Azure Active Directory B2C)는 SAML 2.0 ID 공급자와의 페더�
 * Azure AD B2C에서 SAML 요청을 수신, 디코드, 응답하는 기능이 있는 SAML **ID 공급자**.
 * ID 공급자에 공개적으로 사용할 수 있는 SAML **메타데이터 엔드포인트**.
 * [Azure AD B2C 테넌트](tutorial-create-tenant.md).
- 
+
+[!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
 
 ## <a name="create-a-policy-key"></a>정책 키 만들기
 
@@ -78,7 +79,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 1. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
 1. **정책 키**, **추가** 를 차례로 선택합니다.
 1. **옵션** 으로는 `Upload`을 선택합니다.
-1. 정책 키의 **이름** 을 입력합니다. 예들 들어 `SAMLSigningCert`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+1. 정책 키의 **이름** 을 입력합니다. `SAMLSigningCert`)을 입력합니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
 1. 프라이빗 키가 있는 인증서 .pfx 파일을 찾아 선택합니다.
 1. **만들기** 를 클릭합니다.
 

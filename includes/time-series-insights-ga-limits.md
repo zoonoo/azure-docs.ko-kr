@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 9af31fb52a888148f33268a30c37609a5e8f2cd3
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f2f5ef1ff77ccbae4170b84c325f97f2cb7dc390
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110487444"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122261159"
 ---
 다음은 Azure Time Series Insights Gen1의 주요 제한을 요약한 것입니다.
 
@@ -60,4 +60,4 @@ Gen1 속성 제한은 선택한 SKU 환경에 따라 달라집니다. 제공된 
 
 ### <a name="api-limits"></a>API 제한
 
-Azure Time Series Insights Gen1에 대한 REST API 제한은 [REST API 참조 설명서](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability)에 지정되어 있습니다.
+Azure Time Series Insights Gen1에 대한 REST API 제한은 [REST API 참조 설명서](/rest/api/time-series-insights/gen1-reference-data-api#current-limits)에 지정되어 있습니다.

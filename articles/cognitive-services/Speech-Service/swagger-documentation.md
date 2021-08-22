@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 02/16/2021
 ms.author: alexeyo
-ms.openlocfilehash: d4369b66bacbe8cff4fc9712ffcd0cb5a370c439
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b27bd16168f4949081f3f399f7f8f8293d2aa0b
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100636271"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292577"
 ---
 # <a name="swagger-documentation"></a>Swagger 설명서
 
-Speech Service는 데이터를 가져오고, 모델을 만들고, 모델 정확도를 테스트하고, 사용자 지정 엔드포인트를 만들고, 일괄 처리 음성 텍스트를 큐에 추가하고, 구독을 관리하는 데 사용되는 몇 가지 REST API와 상호 작용하는 Swagger 사양을 제공합니다. [Speech Studio의 Custom Speech 영역](https://aka.ms/customspeech)을 통해 사용할 수 있는 대부분의 작업은 이러한 API를 사용하여 프로그래밍 방식으로 완료할 수 있습니다.
+Speech Service는 데이터를 가져오고, 모델을 만들고, 모델 정확도를 테스트하고, 사용자 지정 엔드포인트를 만들고, 일괄 처리 음성 텍스트를 큐에 추가하고, 구독을 관리하는 데 사용되는 몇 가지 REST API와 상호 작용하는 Swagger 사양을 제공합니다. [Speech Studio의 Custom Speech 영역](./custom-speech-overview.md)을 통해 사용할 수 있는 대부분의 작업은 이러한 API를 사용하여 프로그래밍 방식으로 완료할 수 있습니다.
 
 > [!NOTE]
 > Speech Service에는 [음성 텍스트 변환](rest-speech-to-text.md) 및 [텍스트 음성 변환](rest-text-to-speech.md)을 위한 몇 가지 REST API가 있습니다.  

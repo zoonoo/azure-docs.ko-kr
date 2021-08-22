@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: c92b55d3ac7f4476b7b74d25b40150a74c6ea1cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 020ef7750d0ee93931d44b8781fd170f5f34984f
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98930160"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112370242"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에 대한 알려진 문제
 
@@ -70,7 +70,7 @@ HDInsight Spark 클러스터는 Spark-Phoenix 커넥터를 지원하지 않습�
 
 **해결 방법:**
 
-대신 Spark-HBase 커넥터를 사용해야 합니다. 자세한 내용은 [Spark-HBase 커넥터 사용 방법](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/)을 참조하세요.
+대신 Spark-HBase 커넥터를 사용해야 합니다. 자세한 내용은 [Spark-HBase 커넥터 사용 방법](/archive/blogs/azuredatalake/hdinsight-how-to-use-spark-hbase-connector)을 참조하세요.
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Jupyter Notebook 관련 문제
 

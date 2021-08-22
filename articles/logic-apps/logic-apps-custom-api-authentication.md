@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: ab3b051a47a8ef2150848c73e612d366575560ce
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 47eb354a7840677ec13ff0342d7269f2a7b5b380
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109753636"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537317"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Azure Logic Apps에서 사용자 지정 API에 대한 호출의 보안 강화
 
@@ -194,7 +194,7 @@ PowerShell에서 다음 명령을 실행합니다.
 ]
 ```
 
-Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로 배포하려면 [여기에서 전체 템플릿을 보거나](https://azure.microsoft.com/resources/templates/quickstarts/microsoft.logic/logic-app-custom-api/) 아래의 **Azure에 배포** 를 클릭합니다.
+Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로 배포하려면 [여기에서 전체 템플릿을 보거나](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logic-app-custom-api) 아래의 **Azure에 배포** 를 클릭합니다.
 
 [![Azure에 배포](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.logic%2Flogic-app-custom-api%2Fazuredeploy.json)
 

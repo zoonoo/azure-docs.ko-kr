@@ -1,21 +1,21 @@
 ---
 title: Time Series Insights 모니터링 | Microsoft Docs
 description: 가용성, 성능 및 운영에 대해 Time Series Insights를 모니터링합니다.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
-ms.custom: lyrana
-ms.openlocfilehash: 15054cd508ce7a6de51fea86ca02302fba258757
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: caf47ca56114ce559288ea1d115b2c09b9959324
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504926"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112369368"
 ---
 # <a name="monitoring-time-series-insights"></a>Time Series Insights 모니터링
 
@@ -57,7 +57,7 @@ Azure Portal, CLI 또는 PowerShell을 사용한 진단 설정 만들기의 자�
 
 Azure Time Series Insights에 대해 다음 범주에서 로그를 수집할 수 있습니다.
 
-   | 범주 | Description |
+   | 범주 | 설명 |
    |---|---|
    | 수신  | 수신 범주는 수신 파이프라인에서 발생하는 오류를 추적합니다. 이 범주에는 이벤트를 받을 때 발생하는 오류(예: 이벤트 원본에 연결하지 못함) 및 이벤트를 처리할 때 발생하는 오류(예: 이벤트 페이로드를 구문 분석할 때 발생하는 오류)가 포함됩니다. |
 

@@ -2,17 +2,19 @@
 title: Visual Studio용 R 도구에서 작업 제출 - Azure HDInsight
 description: 로컬 Visual Studio 컴퓨터에서 HDInsight 클러스터로 R 작업을 제출합니다.
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: ee984de22052076618728fbacfc31b73c18c073a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8cc2cdfc123d0a02008859d2c6ecf8d20b763495
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104864689"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112295980"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio용 R 도구에서 작업 제출
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 RTVS([Visual Studio용 R 도구](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019))는 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 및 [Visual Studio 2015 업데이트 3](https://go.microsoft.com/fwlink/?LinkId=691129) 이상의 Community(무료), Professional 및 Enterprise 버전에 대한 무료, 오픈 소스 확장입니다. RTVS는 [Visual Studio 2019](/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?preserve-view=true&view=vs-2019)에서 사용할 수 없습니다.
 

@@ -12,12 +12,12 @@ metadata:
   manager: daveba
   ms.reviewer: na
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 2c43149c2a15c7ea35c87aca8188a01e6350df77
-  ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+  ms.openlocfilehash: 8fa75d1baae917e7e60ca99f4d5c3cc33ff85f0a
+  ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/30/2021
-  ms.locfileid: "111907504"
+  ms.lasthandoff: 06/16/2021
+  ms.locfileid: "112200751"
 title: 설정 및 데이터 로밍 FAQ
 summary: 이 문서에서는 설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문에 답변합니다.
 sections:
@@ -149,7 +149,7 @@ sections:
   - question: >
       조직이 로밍 사용 후 Azure Rights Management를 포함하는 구독을 구매하는 경우 어떻게 되나요?
     answer: >
-      조직에서 Azure Rights Management 사용 제한된 무료 구독을 통해 Windows 10에서 이미 로밍을 사용 중인 경우에는 Azure Rights Management 보호 서비스를 포함하는 [유료 구독](https://azure.microsoft.com/pricing/details/information-protection/)을 구입해도 로밍 기능에 영향을 주지 않으며, IT 관리자가 구성을 변경할 필요가 없습니다.
+      조직에서 Azure Rights Management 사용 제한된 무료 구독을 통해 Windows 10에서 이미 로밍을 사용 중인 경우에는 Azure Rights Management 보호 서비스를 포함하는 [유료 구독](https://azure.microsoft.com/services/information-protection/)을 구입해도 로밍 기능에 영향을 주지 않으며, IT 관리자가 구성을 변경할 필요가 없습니다.
   - question: >
       알려진 문제
     answer: "알려진 문제 목록은 [문제 해결](enterprise-state-roaming-troubleshooting.md) 섹션의 문서를 참조하세요. \n"

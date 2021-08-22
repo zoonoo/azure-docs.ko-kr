@@ -7,12 +7,12 @@ ms.author: danil
 ms.date: 09/19/2020
 ms.reviewer: carlrab
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d182d88d62183e7848ad6fed00b1f3eb93d3239e
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 5a8227b862328f1d1f7f282b7d89febaa0a66040
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317670"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122537671"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL 분석을 사용하여 Azure SQL Database 모니터링(미리 보기)
 
@@ -36,7 +36,7 @@ Azure SQL 분석은 모든 Azure SQL 데이터베이스에 대한 진단 원격 
 | [진단 설정](../essentials/diagnostic-settings.md) | **예** | Azure 메트릭 및 로그 데이터는 Azure에 의해 Azure Monitor Logs에 직접 전송됩니다. |
 | [Azure Storage 계정](../essentials/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | Azure Monitor는 스토리지 계정에서 데이터를 읽지 않습니다. |
 | [Windows 에이전트](../agents/agent-windows.md) | 아니요 | 직접 Windows 에이전트는 Azure SQL 분석에 사용되지 않습니다. |
-| [Linux 에이전트](../vm/quick-collect-linux-computer.md) | 아니요 | 직접 Linux 에이전트는 Azure SQL 분석에 사용되지 않습니다. |
+| [Linux 에이전트](../vm/monitor-virtual-machine.md) | 아니요 | 직접 Linux 에이전트는 Azure SQL 분석에 사용되지 않습니다. |
 | [System Center Operations Manager 관리 그룹](../agents/om-agents.md) | 아니요 | Azure SQL 분석은 Operations Manager 에이전트에서 Azure Monitor로 직접 연결을 사용하지 않습니다. |
 
 ## <a name="azure-sql-analytics-options"></a>Azure SQL 분석 옵션
@@ -300,4 +300,3 @@ Azure SQL 분석은 평가판을 사용할 수 있습니다. 하지만 매월 �
 - Azure Monitor의 [로그 쿼리](../logs/log-query-overview.md)를 사용하여 Azure SQL 데이터 세부 사항을 확인합니다.
 - Azure SQL 데이터를 보여 주는 [사용자 고유의 대시보드 만들기](../visualize/tutorial-logs-dashboards.md).
 - 특정 Azure SQL 이벤트가 발생하는 경우의 [경고 만들기](../alerts/alerts-overview.md).
-

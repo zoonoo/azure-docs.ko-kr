@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 576a791ee8c252a8bc1fa73cd98174e6958cf606
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 8e893a95337801db4ee35cfdc00e2d97f8d12db6
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751436"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285849"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
 
@@ -188,7 +188,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-s
 
 이 섹션은 마스터 이미지가 로컬로 생성된 경우에만 적용됩니다.
 
-다음 지침은 마스터 이미지를 Azure 스토리지 계정에 업로드하는 방법을 설명합니다. Azure 스토리지 계정이 없으면 [이 문서](/azure/developer/javascript/tutorial-vscode-static-website-node-03)의 지침에 따라 만듭니다.
+다음 지침은 마스터 이미지를 Azure 스토리지 계정에 업로드하는 방법을 설명합니다. Azure 스토리지 계정이 없으면 [이 문서](../storage/common/storage-account-create.md)의 지침에 따라 만듭니다.
 
 1. 아직 수행하지 않았으면 VM 이미지(VHD)를 수정됨으로 변환합니다. 이미지를 수정됨으로 변환하지 않으면 이미지를 성공적으로 만들 수 없습니다.
 

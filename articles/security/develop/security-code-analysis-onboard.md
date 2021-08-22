@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c827dc81c1ef1ab03dd6c9178a609b512e59ef15
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e5d9f30f2c5fad33f597ea3b977996ee75d4d1a1
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104801217"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115947"
 ---
 # <a name="onboarding-and-installing"></a>온보딩 및 설치
 
@@ -99,4 +99,4 @@ Microsoft 보안 코드 분석 팀은 파트너 규약에 대한 프리미어 �
 
 빌드 작업을 구성하는 방법에 대한 자세한 내용은 [구성 가이드](security-code-analysis-customize.md) 또는 [YAML 구성 가이드](yaml-configuration.md)를 참조하세요.
 
-확장 및 제공된 도구에 대한 추가 질문이 있는 경우 [FAQ 페이지](security-code-analysis-faq.md)를 확인하세요.
+확장 및 제공된 도구에 대한 추가 질문이 있는 경우 [FAQ 페이지](security-code-analysis-faq.yml)를 확인하세요.

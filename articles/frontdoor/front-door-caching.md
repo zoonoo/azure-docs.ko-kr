@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: d001a7a24d44c46a19bde08051e21d3ae3c5acb8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 977a0d3eb0081818c0afe4f544dd33169cea0e95
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99538054"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112370476"
 ---
 # <a name="caching-with-azure-front-door"></a>Azure Front Door를 사용한 캐싱
 다음 문서는 캐싱을 사용한 회람 규칙을 사용하는 Front Door의 동작을 설명합니다. Front Door는 동적 사이트 가속 및 부하 분산을 지원하는 최신 CDN(Content Delivery Network)이며 다른 CDN과 마찬가지로 캐싱 동작도 지원합니다.
@@ -26,7 +26,7 @@ Azure Front Door는 파일 크기의 제한 없이 대용량 파일을 전달합
 
 청크가 Front Door 환경에 도착하면 캐시되고 사용자에게 즉시 제공됩니다. 그런 다음 Front Door가 다음 청크를 동시에 프리페치합니다. 프리페치 과정 덕분에 콘텐츠가 사용자보다 한 청크 앞서 진행되므로 대기 시간이 줄어듭니다. 이 프로세스는 전체 파일을 다운로드(요청된 경우)하거나, 클라이언트에서 연결을 닫을 때까지 계속됩니다.
 
-바이트 범위 요청에 대한 자세한 내용은 [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html)을 읽어보세요.
+바이트 범위 요청에 대한 자세한 내용은 [RFC 7233](https://www.rfc-editor.org/info/rfc7233)을 읽어보세요.
 Front Door는 수신되는 모든 청크를 캐시하므로 전체 파일을 Front Door 캐시에 캐시할 필요가 없습니다. 파일 또는 바이트 범위에 대한 요청은 캐시에서 처리됩니다. 청크가 모두 캐시되지 않은 경우 프리페치를 사용하여 백 엔드에서 청크를 요청합니다. 이 최적화는 바이트 범위 요청을 지원하는 백 엔드의 기능을 사용합니다. 백 엔드에서 바이트 범위 요청을 지원하지 않으면 이 최적화가 적용되지 않습니다.
 
 ## <a name="file-compression"></a>파일 압축

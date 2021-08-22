@@ -2,18 +2,18 @@
 title: Linux VM을 비관리 디스크에서 관리 디스크로 변환
 description: Azure CLI를 사용하여 비관리 디스크에서 관리 디스크로 Linux VM을 변환하는 방법입니다.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.collection: linux
 ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 136aa45783fb225901f5ea0221162890b8ba6309
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 1a0bca9446cd6a04b8568ccebd8df006641e6dca
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026690"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297710"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Linux 가상 머신을 비관리 디스크에서 Managed Disks로 변환
 

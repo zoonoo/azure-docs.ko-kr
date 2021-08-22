@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c01fa1aed8265f759e520d47c0d0cfe6ad182861
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: d2def3572c99b7c852b04cbf628ee20f5bc7f829
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112032630"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204246"
 ---
 # <a name="create-a-vm-using-a-generalized-image"></a>일반화된 이미지를 사용하여 VM 만들기 
 
@@ -154,6 +154,5 @@ New-AzVM `
 - [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/sig-create/)
 - [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
 - [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-- [이미지 버전에서 VM 만들기](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 공유 이미지 갤러리에 대한 자세한 내용은 [개요](./shared-image-galleries.md)를 참조하세요. 문제 발생 시에는 [공유 이미지 갤러리 문제 해결](troubleshooting-shared-images.md)을 참조하세요.

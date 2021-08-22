@@ -7,23 +7,23 @@ ms.service: cloud-services-extended-support
 ms.topic: troubleshooting
 ms.date: 4/28/2021
 ms.custom: support-help-page
-ms.openlocfilehash: 7e918b02304058e043dcd0507a33fa8ba172b9bc
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 836811e721a586ca9dcc25d16f27d7393ff8f82b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969473"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463073"
 ---
 # <a name="support-and-troubleshooting-for-azure-cloud-services-extended-support"></a>Azure Cloud Services 지원 및 문제 해결(추가 지원)
 
 Azure Cloud Services(추가 지원) 솔루션을 개발할 때 도움을 받을 수 있는 위치에 대한 제안 사항은 다음과 같습니다.
 
-## <a name="self-help-troubleshooting"></a>자가 진단 문제 해결
+## <a name="self-help-troubleshooting"></a>자체 도움말 문제 해결
 <div class='icon is-large'>
     <img alt='Self help content' src='./media/logos/doc-logo.png'>
 </div>
 
-일반적인 문제 및 해결 방법은 [Azure Cloud Services(추가 지원) 역할 시작 실패 문제 해결](role-startup-failure.md) 및 [질문과 대답](faq.md)을 참조하세요.
+일반적인 문제 및 해결 방법은 [Azure Cloud Services(추가 지원) 역할 시작 실패 문제 해결](role-startup-failure.md) 및 [질문과 대답](faq.yml)을 참조하세요.
 
 
 
@@ -37,7 +37,7 @@ Microsoft 엔지니어, Azure MVP(Most Valuable Professional) 및 전문가 커�
 
 [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html)는 Azure에서 권장하는 커뮤니티 지원 제공 장소입니다.
 
-Microsoft Q&A에서 검색하여 문제에 대한 답변을 찾을 수 없는 경우 새 질문을 제출합니다. [**azure-cloud-services-extended-support**](/answers/topics/azure-cloud-services-extended-support.html) 태그를 사용하여 질문을 게시해야 합니다. 다음은 [고품질 질문](/answers/articles/24951/how-to-write-a-quality-question.html)을 작성하기 위한 Microsoft Q&A 팁입니다.
+Microsoft Q&A에서 검색하여 문제에 대한 답변을 찾을 수 없는 경우 새 질문을 제출합니다. [**azure-cloud-services-extended-support**](/answers/topics/azure-cloud-services-extended-support.html) 태그를 사용하여 질문을 게시해야 합니다. 다음은 [높은 수준의 질문](/answers/articles/24951/how-to-write-a-quality-question.html)을 작성하기 위한 Microsoft Q&A 팁입니다.
 
 ## <a name="create-an-azure-support-request"></a>Azure 지원 요청 만들기
 

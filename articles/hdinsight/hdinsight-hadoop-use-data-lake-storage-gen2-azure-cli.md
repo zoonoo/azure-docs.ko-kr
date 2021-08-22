@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 09/17/2020
-ms.openlocfilehash: bbc1cd27d5c16eddd3aaad748c34445e5017e209
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4adc7fffb04ac917c680993c43ef334a5df80582
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98945498"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112280480"
 ---
 # <a name="create-a-cluster-with-data-lake-storage-gen2-using-azure-cli"></a>Azure CLI를 사용하여 Data Lake Storage Gen2 클러스터 생성
 
@@ -29,7 +29,7 @@ ms.locfileid: "98945498"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
 [샘플 템플릿 파일을 다운로드하고](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) [샘플 매개 변수 파일을 다운로드](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json)할 수 있습니다. 아래 템플릿 및 Azure CLI 코드 조각을 사용하기 전에 다음 자리 표시자를 올바른 값으로 바꿉니다.
 

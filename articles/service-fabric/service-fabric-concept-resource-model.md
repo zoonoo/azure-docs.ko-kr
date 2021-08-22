@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Resource Manager를 사용하여 Azure Se
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b98a1dccb20849ef299b0fff2fce2a70eb1e6314
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 69f05fab624fd4ad1eb2257adb200bd39bb04bd1
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677391"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114295238"
 ---
 # <a name="service-fabric-application-resource-model"></a>Service Fabric 애플리케이션 리소스 모델
 
@@ -55,7 +55,7 @@ Resource Manager 템플릿에서 애플리케이션을 배포하려면 스토리
 공용 액세스 수준을 **개인** 으로 설정하여 클러스터의 리소스를 보호할 수 있습니다. 액세스 권한은 여러 가지 방법으로 부여할 수 있습니다.
 
 * [Azure Active Directory](../storage/common/storage-auth-aad-app.md)를 사용하여 Blob 및 큐에 대한 액세스 권한을 부여합니다.
-* [Azure Portal에서 Azure RBAC](../storage/common/storage-auth-aad-rbac-portal.md)를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한을 부여합니다.
+* [Azure Portal에서 Azure RBAC](../storage/blobs/assign-azure-role-data-access.md)를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한을 부여합니다.
 * [공유 액세스 서명](/rest/api/storageservices/delegate-access-with-shared-access-signature)을 사용하여 액세스를 위임합니다.
 
 다음 스크린샷 예제에서는 Blob에 대한 익명 읽기 액세스를 사용합니다.
@@ -92,7 +92,7 @@ Resource Manager 템플릿에서 애플리케이션을 배포하려면 스토리
 >
 
 
-| 매개 변수              | Description                                 | 예제                                                      | 주석                                                     |
+| 매개 변수              | 설명                                 | 예제                                                      | 주석                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | 배포하는 클러스터의 이름 | sf-cluster123                                                |                                                              |
 | 애플리케이션            | 애플리케이션의 이름                 | Voting                                                       |

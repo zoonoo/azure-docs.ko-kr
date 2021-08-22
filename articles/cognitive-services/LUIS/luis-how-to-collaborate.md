@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2021
-ms.openlocfilehash: 044c690688bfc83ce1b4ebc13008ad9a2f37034a
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 5a320d6368d4fdecaf4001fc9255c4c0ff3b276c
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026888"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285593"
 ---
 # <a name="add-contributors-to-your-app"></a>앱에 기여자 추가
 
@@ -26,7 +26,7 @@ ms.locfileid: "112026888"
 
 LUIS 제작 환경이 LUIS 포털의 **관리 -> Azure 리소스** 페이지에서 제작 리소스와 연결된 경우 마이그레이션한 것입니다.
 
-Azure Portal에서 LUIS(Language Understanding) 작성 리소스를 찾습니다. 형식은 `LUIS.Authoring`입니다. 리소스의 **Access Control(IAM)** 페이지에서 기여할 사용자에 대한 **기여자** 역할을 추가합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](/azure/role-based-access-control/role-assignments-portal)을 참조하세요.
+Azure Portal에서 LUIS(Language Understanding) 작성 리소스를 찾습니다. 형식은 `LUIS.Authoring`입니다. 리소스의 **Access Control(IAM)** 페이지에서 기여할 사용자에 대한 **기여자** 역할을 추가합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 ## <a name="view-the-app-as-a-contributor"></a>기여자로 앱 보기
 

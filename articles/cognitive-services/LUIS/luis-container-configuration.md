@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: a4f2b07edc6c290fa030621a4dc400ab50890bba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d431364f0e539f7944a759c3e4669570ce25646
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96001186"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112285682"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Language Understanding Docker 컨테이너 구성 
 
@@ -26,7 +26,7 @@ LUIS **Language Understanding** 컨테이너 런타임 환경은 `docker run` �
 
 이 컨테이너에는 다음 구성 설정을 사용합니다.
 
-|필수|설정|목적|
+|필수|설정|용도|
 |--|--|--|
 |예|[ApiKey](#apikey-setting)|청구 정보를 추적하는 데 사용됩니다.|
 |예|[ApplicationInsights](#applicationinsights-setting)|[Azure Application Insights](/azure/application-insights) 원격 분석 지원을 컨테이너에 추가할 수 있습니다.|
@@ -64,7 +64,7 @@ LUIS **Language Understanding** 컨테이너 런타임 환경은 `docker run` �
 * Azure Portal: `Endpoint` 레이블이 지정된 **Cognitive Services** 개요
 * LUIS 포털: 엔드포인트 URI의 일부인 **키 및 엔드포인트 설정** 페이지
 
-| 필수 | 이름 | 데이터 형식 | Description |
+| 필수 | Name | 데이터 형식 | Description |
 |----------|------|-----------|-------------|
 | 예      | `Billing` | 문자열 | 청구 엔드포인트 URI입니다. 청구 URI를 얻는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](luis-container-howto.md#gathering-required-parameters)을 참조하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
 
@@ -94,7 +94,7 @@ LUIS 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 �
 
 다음 테이블은 지원되는 설정을 설명합니다.
 
-|필수| 이름 | 데이터 형식 | Description |
+|필수| Name | 데이터 형식 | Description |
 |-------|------|-----------|-------------|
 |예| `Input` | String | 입력 탑재의 대상입니다. 기본값은 `/input`입니다. LUIS 패키지 파일의 위치입니다. <br><br>예:<br>`--mount type=bind,src=c:\input,target=/input`|
 |예| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. LUIS 쿼리 로그 및 컨테이너 로그를 포함합니다. <br><br>예:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -112,7 +112,7 @@ LUIS 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 �
 | 자리 표시자 | 값 | 형식 또는 예 |
 |-------------|-------|---|
 | **{API_KEY}** | Azure `LUIS` 키 페이지에 있는 `LUIS` 리소스의 엔드포인트 키입니다. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | 청구 엔드포인트 값은 Azure `LUIS` 개요 페이지에 있습니다.| [필수 매개 변수 수집](luis-container-howto.md#gathering-required-parameters)에서 명시적 예를 참조하세요. |
+| **{ENDPOINT_URI}** | 청구 엔드포인트 값은 Azure `LUIS` 개요 페이지에서 사용할 수 있습니다.| 명시적 예제에 대해서는 [필수 매개 변수 수집](luis-container-howto.md#gathering-required-parameters)을 참조하세요. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -167,5 +167,5 @@ Logging:Console:LogLevel:Default=Information
 ## <a name="next-steps"></a>다음 단계
 
 * [컨테이너 설치 및 실행 방법](luis-container-howto.md)을 리뷰합니다.
-* LUIS 기능과 관련된 문제를 해결하려면 [문제 해결](troubleshooting.md)을 참조하세요.
+* LUIS 기능과 관련된 문제를 해결하려면 [문제 해결](troubleshooting.yml)을 참조하세요.
 * 추가적인 [Cognitive Services 컨테이너](../cognitive-services-container-support.md) 사용

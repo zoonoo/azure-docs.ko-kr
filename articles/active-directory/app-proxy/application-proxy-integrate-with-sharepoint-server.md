@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 45433268a61772f499b5d2672a8b81044c1e3414
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 669b03d0d1d6f5f328cc4af368a756d0bbdab787
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764462"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727835"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 사용하여 SharePoint에 대한 원격 액세스 활성화
 
@@ -26,7 +26,7 @@ ms.locfileid: "108764462"
 
 구성을 수행하려면 다음 리소스가 필요합니다.
 - SharePoint 2013 팜 이상
-- 애플리케이션 프록시를 포함하는 계획이 있는 Azure AD 테넌트. [Azure AD 요금제 및 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)에 대해 자세히 알아보세요.
+- 애플리케이션 프록시를 포함하는 계획이 있는 Azure AD 테넌트. [Azure AD 요금제 및 가격 책정](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)에 대해 자세히 알아보세요.
 - Azure AD 테넌트에서 [확인된 사용자 지정 도메인](../fundamentals/add-custom-domain.md)입니다.
 - Azure AD Connect와 동기화된 온-프레미스 Active Directory. 이를 통해 사용자는 [Azure에 로그인](../hybrid/plan-connect-user-signin.md)할 수 있습니다.
 - 회사 도메인 내의 컴퓨터에 설치되어 실행되는 애플리케이션 프록시 커넥터입니다.

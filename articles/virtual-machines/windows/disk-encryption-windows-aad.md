@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 72c210ae08ad794267433891aa5bf498d70bf464
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c40dd2b6b5abd4173f1f1e042768725ed11bb651
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669208"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112283306"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Windows VM용 Azure AD을 사용한 Azure Disk Encryption(이전 릴리스)
 
@@ -32,7 +32,7 @@ ms.locfileid: "110669208"
 ## <a name="enable-encryption-on-new-iaas-vms-created-from-the-marketplace"></a>Marketplace에서 만든 새 IaaS VM에 대해 암호화를 사용하도록 설정합니다.
 Resource Manager 템플릿을 사용하여 Azure에서 Marketplace의 새 IaaS Windows VM에 디스크 암호화를 사용하도록 설정할 수 있습니다. 템플릿은 Windows Server 2012 갤러리 이미지를 사용하여 암호화된 새 Windows VM을 만듭니다.
 
-1. [Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)에서 **Azure에 배포** 를 클릭합니다.
+1. [Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-create-new-vm-gallery-image)에서 **Azure에 배포** 를 클릭합니다.
 
 2. 구독, 리소스 그룹, 리소스 그룹 위치, 매개 변수, 약관 및 규약을 선택합니다. **구매** 를 클릭하여 암호화가 활성화된 새로운 IaaS VM을 배포합니다.
 
@@ -54,7 +54,7 @@ Resource Manager 템플릿을 사용하여 Azure에서 Marketplace의 새 IaaS W
 
 다음 표에 Azure AD 클라이언트 ID를 사용하는 Marketplace 시나리오에서 새 VM에 대한 Resource Manager 템플릿 매개 변수 목록이 나와 있습니다.
 
-| 매개 변수 | Description | 
+| 매개 변수 | 설명 | 
 | --- | --- |
 | adminUserName | 가상 머신의 관리 사용자 이름 |
 | adminPassword | 가상 머신의 관리 사용자 암호 |
@@ -64,7 +64,7 @@ Resource Manager 템플릿을 사용하여 Azure에서 Marketplace의 새 IaaS W
 | subnetName | VM NIC가 속해야 하는 VNet의 서브넷 이름 |
 | AADClientID | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
 | AADClientSecret | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
-| keyVaultURL | BitLocker 키가 업로드될 Key Vault의 URL. cmdlet `(Get-AzKeyVault -VaultName "MyKeyVault&quot; -ResourceGroupName &quot;MyKeyVaultResourceGroupName").VaultURI` 또는 Azure CLI `az keyvault show --name "MySecureVault" --query properties.vaultUri`를 사용하여 가져올 수 있습니다. |
+| keyVaultURL | BitLocker 키가 업로드될 Key Vault의 URL. cmdlet `(Get-AzKeyVault -VaultName "MyKeyVault" -ResourceGroupName "MyKeyVaultResourceGroupName").VaultURI` 또는 Azure CLI `az keyvault show --name "MySecureVault" --query properties.vaultUri`를 사용하여 가져올 수 있습니다. |
 | keyEncryptionKeyURL | 생성된 BitLocker 키를 암호화하는 데 사용되는 주요 암호화 키의 URL(선택 사항) </br> </br>KeyEncryptionKeyURL은 선택적 매개 변수입니다. Key Vault에서 데이터 암호화 키(암호 비밀)에 대한 보안을 강화하기 위해 고유한 KEK를 만들 수 있습니다. |
 | keyVaultResourceGroup | Key Vault의 리소스 그룹 |
 | vmName | 암호화 작업을 수행할 VM의 이름. |
@@ -96,7 +96,7 @@ Resource Manager 템플릿을 사용하여 Azure에서 Marketplace의 새 IaaS W
      ```azurepowershell
      $KVRGname = 'MyKeyVaultResourceGroup';
      $VMRGName = 'MyVirtualMachineResourceGroup';
-     $vmName = ‘MyExtraSecureVM’;
+     $vmName = 'MyExtraSecureVM';
      $aadClientID = 'My-AAD-client-ID';
      $aadClientSecret = 'My-AAD-client-secret';
      $KeyVaultName = 'MySecureVault';
@@ -154,7 +154,7 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_
 
 
 ### <a name="using-the-resource-manager-template"></a><a name="bkmk_RunningWinVMwRM"> </a>Resource Manager 템플릿 사용
-[실행 중인 Windows VM을 암호화하기 위해 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)을 사용하여 Azure에서 기존 또는 실행 중인 IaaS Windows VM에 디스크 암호화를 사용하도록 설정할 수 있습니다.
+[실행 중인 Windows VM을 암호화하기 위해 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm)을 사용하여 Azure에서 기존 또는 실행 중인 IaaS Windows VM에 디스크 암호화를 사용하도록 설정할 수 있습니다.
 
 
 1. Azure 빠른 시작 템플릿에서 **Azure에 배포** 를 클릭합니다.
@@ -163,7 +163,7 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_
 
 다음 표에 Azure AD 클라이언트 ID를 사용하는 기존 또는 실행 중인 VM에 대한 Resource Manager 템플릿 매개 변수 목록이 나와 있습니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | AADClientID | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
 | AADClientSecret | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 비밀 |
@@ -260,7 +260,7 @@ KEK의 유무에 관계없이 클라이언트 인증서 인증을 사용할 수 
 ### <a name="enable-encryption-using-certificate-based-authentication-with-azure-powershell"></a>Azure PowerShell을 통해 인증서 기반 인증을 사용하여 암호화를 사용하도록 설정
 
 ```powershell
-## Fill in 'MyVirtualMachineResourceGroup', 'MyKeyVaultResourceGroup', 'My-AAD-client-ID', 'MySecureVault, and ‘MySecureVM’.
+## Fill in 'MyVirtualMachineResourceGroup', 'MyKeyVaultResourceGroup', 'My-AAD-client-ID', 'MySecureVault, and 'MySecureVM'.
 
 $VMRGName = 'MyVirtualMachineResourceGroup'
 $KVRGname = 'MyKeyVaultResourceGroup';
@@ -286,7 +286,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $VMName -Aa
 ### <a name="enable-encryption-using-certificate-based-authentication-and-a-kek-with-azure-powershell"></a>Azure PowerShell을 통해 인증서 기반 인증과 KEK를 사용하여 암호화를 사용하도록 설정
 
 ```powershell
-# Fill in 'MyVirtualMachineResourceGroup', 'MyKeyVaultResourceGroup', 'My-AAD-client-ID', 'MySecureVault,, 'MySecureVM’, and "KEKName.
+# Fill in 'MyVirtualMachineResourceGroup', 'MyKeyVaultResourceGroup', 'My-AAD-client-ID', 'MySecureVault,, 'MySecureVM', and "KEKName.
 
 $VMRGName = 'MyVirtualMachineResourceGroup';
 $KVRGname = 'MyKeyVaultResourceGroup';
@@ -325,7 +325,7 @@ Azure PowerShell, Azure CLI 또는 Resource Manager 템플릿을 사용하여 �
      ```
 - **Resource Manager 템플릿으로 암호화를 사용하지 않도록 설정:** 
 
-    1. [실행중인 Windows VM에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) 템플릿에서 **Azure에 배포** 를 클릭합니다.
+    1. [실행중인 Windows VM에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/decrypt-running-windows-vm) 템플릿에서 **Azure에 배포** 를 클릭합니다.
     2. 구독, 리소스 그룹, 위치, VM, 약관 및 규약을 선택합니다.
     3.  **구매** 를 클릭하여 실행 중인 Windows VM에서 디스크 암호화를 사용하지 않도록 설정합니다. 
 

@@ -3,20 +3,20 @@ title: '자습서: Speech SDK를 사용하여 봇 음성 지원 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 Microsoft Bot Framework를 사용하여 Echo Bot을 만들고, Azure에 배포하고, Bot Framework Direct Line Speech 채널에 등록합니다. 그런 다음, 봇에게 말을 하고 그에 대한 봇의 대답을 들을 수 있는 Windows용 샘플 클라이언트 앱을 구성합니다.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fa449ad3d9a0e26bd0754a67581c8d63fa025e55
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: de0653ecae4c46345d961fc9c6b17930ed5b2627
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552311"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537627"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>자습서: Speech SDK를 사용하여 봇 음성 지원
 
@@ -330,7 +330,7 @@ Windows 음성 도우미 클라이언트는 봇에 대한 연결을 구성하고
 |오류(ConnectionFailure): 원격 호스트가 연결을 종료했습니다. 오류 코드: 1002. 오류 세부 정보: 상태 코드 ‘101’을 예상했지만 서버에서 상태 코드 ‘503’을 반환했습니다. | ["스트리밍 엔드포인트 사용"](#register-the-direct-line-speech-channel) 확인란을 선택했으며 [**웹 소켓** 을 [켜기]로 전환](#enable-web-sockets)했는지 확인합니다.<br>Azure App Service가 실행 중인지 확인합니다. 실행 중이면 App Service를 다시 시작합니다.|
 |오류(ConnectionFailure): 원격 호스트가 연결을 종료했습니다. 오류 코드: 1011. 오류 세부 정보: 응답 상태 코드가 성공: 500(InternalServerError)을 나타내지 않습니다.| 봇이 출력 활동 [말하기](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) 필드에서 인공신경망 음성을 지정했지만, Speech 구독 키와 연결된 Azure 지역에서 인공신경망 음성을 지원하지 않습니다. [인공신경망 및 표준 음성](./regions.md#neural-and-standard-voices)을 참조하세요.|
 
-아래 표의 문제가 해결되지 않으면 [음성 도우미: 질문과 대답](faq-voice-assistants.md)을 참조하세요. 이 자습서의 모든 단계를 수행한 후에도 문제가 해결되지 않으면 [음성 도우미 GitHub 페이지](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues)에 새 문제를 입력하세요.
+아래 표의 문제가 해결되지 않으면 [음성 도우미: 질문과 대답](faq-voice-assistants.yml)을 참조하세요. 이 자습서의 모든 단계를 수행한 후에도 문제가 해결되지 않으면 [음성 도우미 GitHub 페이지](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues)에 새 문제를 입력하세요.
 
 #### <a name="a-note-on-connection-time-out"></a>연결 제한 시간에 대한 참고 사항
 

@@ -3,13 +3,13 @@ title: Visual Studio를 사용하여 Azure Functions 개발
 description: Visual Studio 2019용 Azure Functions 도구를 사용하여 Azure Functions를 개발하고 테스트하는 방법을 알아봅니다.
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: 877c82e375b0ea469071402b83fadbd634177f3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 12/10/2020
+ms.openlocfilehash: 2cd702286b2f35fcbc725af5ee231e1ab4b78284
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97655818"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537399"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio를 사용하여 Azure Functions 개발  
 
@@ -73,7 +73,7 @@ Azure Functions 프로젝트를 만든 후 프로젝트 템플릿은 C# 프로�
 
 * **host.json**: 함수 호스트를 구성할 수 있습니다. 이러한 설정은 로컬 및 Azure에서 실행할 때 모두 적용됩니다. 자세한 내용은 [host.json 참조](functions-host-json.md)를 참조하세요.
 
-* **local.settings.json**: 함수를 로컬로 실행할 때 사용되는 설정을 유지합니다. 이러한 설정은 Azure에서 실행하는 경우에는 사용되지 않습니다. 자세한 내용은 [로컬 설정 파일](#local-settings-file)을 참조하세요.
+* **local.settings.json**: 함수를 로컬로 실행할 때 사용되는 설정을 유지합니다. 이러한 설정은 Azure에서 실행하는 경우에는 사용되지 않습니다. 자세한 내용은 [로컬 설정 파일](#local-settings)을 참조하세요.
 
     >[!IMPORTANT]
     >local.settings.json 파일에 암호가 있을 수 있으므로 프로젝트 원본 제어에서 해당 파일을 제외해야 합니다. 이 파일에 대한 **출력 디렉터리로 복사** 설정은 **새 내용이면 복사** 로 설정해야 합니다. 
@@ -124,7 +124,7 @@ C# 클래스 라이브러리 함수에서, 함수에 사용된 바인딩은 코�
 
     ![Queue Storage 트리거 함수 만들기](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
-    이 트리거 예제에서는 키 이름이 `QueueStorage`인 연결 문자열을 사용합니다. 이 연결 문자열 설정은 [local.settings.json 파일](functions-run-local.md#local-settings-file)에서 정의합니다.
+    이 트리거 예제에서는 키 이름이 `QueueStorage`인 연결 문자열을 사용합니다. 이 연결 문자열 설정은 [local.settings.json 파일](functions-develop-local.md#local-settings-file)에서 정의합니다.
 
 4. 새로 추가된 클래스를 검사합니다. `FunctionName` 특성을 사용하는 정적 `Run()` 메소드가 표시됩니다. 이 특성은 메서드가 함수에 대한 진입점임을 나타냅니다.
 
@@ -164,7 +164,7 @@ C# 클래스 라이브러리 함수에서, 함수에 사용된 바인딩은 코�
 
    자세한 내용은 [Visual Studio를 사용하는 C# 클래스 라이브러리](./functions-bindings-register.md#local-csharp)를 참조하세요. 바인딩에 대한 참조 문서에서 바인딩 관련 NuGet 패키지 요구 사항을 찾습니다. 예를 들어 [Event Hubs 바인딩 참조 문서](functions-bindings-event-hubs.md)에서 Event Hubs 트리거에 대한 패키지 요구 사항을 찾습니다.
 
-3. 바인딩에 필요한 앱 설정이 있는 경우 [로컬 설정 파일](functions-run-local.md#local-settings-file)의 `Values` 컬렉션에 추가합니다. 
+3. 바인딩에 필요한 앱 설정이 있는 경우 [로컬 설정 파일](functions-develop-local.md#local-settings-file)의 `Values` 컬렉션에 추가합니다. 
 
    함수는 로컬로 실행될 때 이러한 값을 사용합니다. 함수가 Azure의 함수 앱에서 실행될 때 [함수 앱 설정](#function-app-settings)이 사용됩니다.
 
@@ -237,7 +237,7 @@ Azure의 함수 앱에 필요한 설정을 업로드하는 가장 쉬운 방법�
 
 * [Azure 포털을 사용합니다](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Azure Functions Core 도구에서 `--publish-local-settings` 게시 옵션을 사용합니다](functions-run-local.md#publish).
-* [Azure CLI를 사용합니다](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
+* [Azure CLI를 사용합니다](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
 
 ## <a name="monitoring-functions"></a>함수 모니터링
 

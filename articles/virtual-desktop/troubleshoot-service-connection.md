@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 10/15/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: cce3d219158111d147849e45fb0990f41e2423ab
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 8f87adc97039eda25b29116108069d685fd0a8bd
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756746"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767123"
 ---
 # <a name="azure-virtual-desktop-service-connections"></a>Azure Virtual Desktop 서비스 연결
 
@@ -22,7 +22,7 @@ ms.locfileid: "111756746"
 
 ## <a name="provide-feedback"></a>피드백 제공
 
-[Azure Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)에서 제품 팀 및 기타 활성 커뮤니티 멤버와 함께 Azure Virtual Desktop Service에 대해 피드백을 제공하고 논의할 수 있습니다.
+[Azure Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum)에서 제품 팀 및 기타 활성 커뮤니티 멤버와 Azure Virtual Desktop Service에 대해 피드백을 제공하고 논의할 수 있습니다.
 
 ## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>사용자가 연결했지만 아무것도 표시되지 않음(피드 없음)
 

@@ -4,12 +4,12 @@ description: 공유 액세스 서명을 사용한 Azure Service Bus 액세스 �
 ms.topic: article
 ms.date: 04/27/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 622a1dd877be98053fdb9b21bfbb40a81c749f02
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5659e159604c80ffe19cbc4b57dea5d99c1acb98
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760628"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112379819"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
 
@@ -68,7 +68,7 @@ Service Bus 네임스페이스를 만들 때 **RootManageSharedAccessKey** 라�
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>공유 액세스 서명 인증을 위한 구성
 
-Service Bus 네임스페이스, 큐 또는 토픽에 대한 공유 액세스 권한 부여 정책을 구성할 수 있습니다. 현재는 Service Bus 구독에서 구성하도록 지원되지는 않지만 네임스페이스 또는 토픽에 구성된 규칙을 사용하여 구독에 대한 액세스를 보호할 수 있습니다. 이 절차를 설명하는 작업 샘플은 [Service Bus 구독으로 공유 액세스 서명(SAS) 인증 사용](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) 샘플을 참조하세요.
+Service Bus 네임스페이스, 큐 또는 토픽에 대한 공유 액세스 권한 부여 정책을 구성할 수 있습니다. 현재는 Service Bus 구독에서 구성하도록 지원되지는 않지만 네임스페이스 또는 토픽에 구성된 규칙을 사용하여 구독에 대한 액세스를 보호할 수 있습니다. 
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 

@@ -3,20 +3,20 @@ title: Text-to-Speech API 참조(REST) - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Text-to-Speech REST API를 사용하는 방법에 대해 알아봅니다. 이 문서에서는 권한 부여 옵션, 쿼리 옵션, 요청을 구성하고 응답을 받는 방법을 알아봅니다.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/08/2021
-ms.author: trbye
+ms.date: 07/01/2021
+ms.author: lajanuar
 ms.custom: references_regions
-ms.openlocfilehash: c5772f6632629a75bc1ea54cf2434dac34d9586a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 7acde9107787715ffd2e88bf55833dd759083cd9
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110478319"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122539019"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
@@ -109,11 +109,11 @@ Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 [
 
     {
-    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)",
-    "DisplayName": "Aria",
-    "LocalName": "Aria",
-    "ShortName": "en-US-AriaNeural",
-    "Gender": "Female",
+    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)",
+    "DisplayName": "Christopher",
+    "LocalName": "Christopher",
+    "ShortName": "en-US-ChristopherNeural",
+    "Gender": "Male",
     "Locale": "en-US",
     "StyleList": [
       "chat",
@@ -293,8 +293,8 @@ Host: westus.tts.speech.microsoft.com
 Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='en-US-AriaNeural'>
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Male'
+    name='en-US-ChristopherNeural'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
 ```

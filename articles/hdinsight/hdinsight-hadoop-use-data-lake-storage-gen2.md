@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: ea9dc2627d5a6498f69ca8c61a9cac8089816886
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 4bf2024a54535e5091857ccedf01a812b2f6a49c
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378587"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112280180"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
 
@@ -18,7 +18,7 @@ ms.locfileid: "107378587"
 
 Data Lake Storage Gen2를 사용하여 클러스터 만들기 옵션을 전체적으로 비교하려면 [Azure HDInsight 클러스터와 함께 사용하기 위한 스토리지 옵션 비교](hdinsight-hadoop-compare-storage-options.md)를 참조하세요.
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="data-lake-storage-gen2-availability"></a>Data Lake Storage Gen2 가용성
 

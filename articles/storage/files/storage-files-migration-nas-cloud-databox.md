@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: eb3327ad84310e5dae55103171f7677d5b2c06d1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 75387c4309283fc1e3df543bd1dced5f4fa792bf
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756164"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "114462329"
 ---
 # <a name="use-databox-to-migrate-from-network-attached-storage-nas-to-azure-file-shares"></a>DataBox를 사용하여 NAS(네트워크 연결 스토리지)에서 Azure 파일 공유로 마이그레이션
 
@@ -26,6 +26,13 @@ ms.locfileid: "108756164"
 다른 시나리오의 경우 [마이그레이션 가이드 표](storage-files-migration-overview.md#migration-guides)를 참조하세요.
 
 이 문서에서는 NAS 어플라이언스에서 작동하는 Azure 파일 공유로 마이그레이션하는 데 필요한 계획, 배포 및 네트워킹 구성을 통해 엔드투엔드 방식으로 안내합니다. 이 가이드에서는 Azure DataBox를 대량 데이터 전송(오프라인 데이터 전송)에 사용합니다.
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 ## <a name="migration-goals"></a>마이그레이션 목표
 

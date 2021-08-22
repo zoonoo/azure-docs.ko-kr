@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: ad34ed14682d729157f45e67eb3e0d3bb3eb39b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a76479a358366591d1c4edef0755dd26ce23cd81
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100391731"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112289876"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>데이터 관리 게이트웨이 - 고가용성 및 확장성(미리 보기)
 > [!NOTE]
@@ -99,7 +99,7 @@ Azure Portal을 사용하면 이러한 노드의 상태를 모니터링할 수 �
         ![데이터 관리 게이트웨이 - 성공적인 설치](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 
         > [!NOTE]
-        > Azure VM에서 게이트웨이를 프로비전하는 경우 [이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-mutiple-vms-with-data-management-gateway)을 사용할 수 있습니다. 이 스크립트에서는 논리 게이트웨이를 만들고, 설치된 데이터 관리 게이트웨이 소프트웨어로 VM을 설정하고, 논리 게이트웨이에 해당 VM을 등록합니다. 
+        > Azure VM에서 게이트웨이를 프로비전하는 경우 [이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/mutiple-vms-with-data-management-gateway)을 사용할 수 있습니다. 이 스크립트에서는 논리 게이트웨이를 만들고, 설치된 데이터 관리 게이트웨이 소프트웨어로 VM을 설정하고, 논리 게이트웨이에 해당 VM을 등록합니다. 
 6. Azure Portal에서 **게이트웨이** 페이지를 시작합니다. 
     1. 포털의 데이터 팩터리 홈페이지에서 **연결된 서비스** 를 클릭합니다.
     
@@ -178,7 +178,7 @@ Azure Portal에서 게이트웨이 노드의 상태와 함께 각 노드의 리�
 
 **게이트웨이** 페이지에서 **고급 설정** 을 활성화하여 **네트워크**(수신/송신), 게이트웨이 문제를 디버깅하는 데 유용한 **역할 및 자격 증명 상태** 및 성능 튜닝 중의 결과에 따라 수정/변경할 수 있는 **동시 작업**(실행/제한)과 같은 고급 메트릭을 확인할 수 있습니다. 다음 표에서는 **게이트웨이 노드** 목록의 열에 대해 설명합니다.  
 
-모니터링 속성 | Description
+모니터링 속성 | 설명
 :------------------ | :---------- 
 이름 | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다.  
 상태 | 논리 게이트웨이 및 게이트웨이 노드의 상태입니다. 예: 온라인/오프라인/제한됨/기타. 해당 상태에 대한 자세한 내용은 [게이트웨이 상태](#gateway-status) 섹션을 참조하세요. 

@@ -6,21 +6,16 @@ author: Heidilohr
 manager: lizross
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 06/30/2021
 ms.author: helohr
-ms.openlocfilehash: c85186d8338918dbcf2af56abd959f5cbff6ad56
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 3c6e61754d9332cbdfbea6b971363c1b0d6cb4fe
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967287"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114289430"
 ---
 # <a name="configure-ad-fs-single-sign-on-for-azure-virtual-desktop"></a>Azure Virtual Desktop에 대한 AD FS Single Sign-On 구성
-
-> [!IMPORTANT]
-> AD FS Single Sign-On은 현재 퍼블릭 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 문서에서는 Azure Virtual Desktop용 AD DS(Active Directory Federation Services) SSO(Single Sign-On)를 구성하는 과정을 안내합니다.
 
@@ -29,15 +24,12 @@ ms.locfileid: "111967287"
 
 ## <a name="requirements"></a>요구 사항
 
-> [!IMPORTANT]
-> 퍼블릭 미리 보기 중에는 호스트 풀이 [유효성 검사 환경](create-validation-host-pool.md)에 있도록 구성해야 합니다.
-
 AD FS Single Sign-On를 구성하기 전에 사용자 환경에서 다음 설정을 실행해야 합니다.
 
 * **Active Directory CA(인증서 서비스)** 역할을 배포해야 합니다. 이 역할을 실행하는 모든 서버는 도메인에 가입되어 있고, 최신 Windows 업데이트가 설치되어 있고, [엔터프라이즈 인증 기관](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731183%28v%3dws.10%29)으로 구성되어야 합니다.
 * **AD FS(Active Directory Federation Services)** 역할을 배포해야 합니다. 이 역할을 실행하는 모든 서버는 도메인에 가입되어 있고, 최신 Windows 업데이트가 설치되어 있고, Windows Server 2016 이상에서 실행되고 있어야 합니다. 이 역할 설정을 시작하려면 [페더레이션 자습서](../active-directory/hybrid/tutorial-federation.md)를 참조하세요.
 * AD FS 서버에 대한 작업 환경의 연결을 보호하려면 **웹 애플리케이션 프록시** 역할을 설정하는 것이 좋습니다. 이 역할을 실행하는 모든 서버는 최신 Windows 업데이트가 설치되어 있고, Windows Server 2016 이상에서 실행되고 있어야 합니다. 이 역할 설정을 시작하려면 이 [웹 애플리케이션 프록시 가이드](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11))를 참조하세요.
-* 사용자를 Azure AD와 동기화하려면 **Azure AD Connect** 를 배포해야 합니다. Azure AD Connect는 [페더레이션 모드](../active-directory/connect/active-directory-aadconnect-get-started-custom.md)로 구성해야 합니다.
+* 사용자를 Azure AD와 동기화하려면 **Azure AD Connect** 를 배포해야 합니다. Azure AD Connect는 [페더레이션 모드](../active-directory/hybrid/how-to-connect-install-custom.md)로 구성해야 합니다.
 * AD FS 서버에서 Azure Virtual Desktop에 대한 [PowerShell 환경을 설정](powershell-module.md)합니다.
 * Windows 10 20H1 또는 20H2를 사용하여 Azure Virtual Desktop에 연결하는 경우 Single Sign-On이 제대로 작동하기 위해 **2021-04 Windows 10용 누적 업데이트(KB5001330)** 이상을 설치해야 합니다.
 
@@ -48,8 +40,8 @@ AD FS Single Sign-On를 구성하기 전에 사용자 환경에서 다음 설정
 
 다음 Azure Virtual Desktop 클라이언트가 이 기능을 지원합니다.
 
-* [Windows 데스크톱 클라이언트](connect-windows-7-10.md)
-* [웹 클라이언트](connect-web.md)
+* [Windows 데스크톱 클라이언트](./user-documentation/connect-windows-7-10.md)
+* [웹 클라이언트](./user-documentation/connect-web.md)
 
 ## <a name="configure-the-certificate-authority-to-issue-certificates"></a>인증서를 발급하도록 인증 기관 구성
 
@@ -232,9 +224,6 @@ Windows에 로그인하기 위한 토큰을 생성하는 데 사용되는 공유
 
 ## <a name="configure-your-azure-virtual-desktop-host-pool"></a>Azure Virtual Desktop 호스트 풀 구성
 
-> [!IMPORTANT]
-> 퍼블릭 미리 보기 중에는 호스트 풀이 [유효성 검사 환경](create-validation-host-pool.md)에 있도록 구성해야 합니다.
-
 이제 Azure Virtual Desktop 호스트 풀에서 AD FS SSO 매개 변수를 구성해야 합니다. 이렇게 하려면 Azure Virtual Desktop에 대한 [PowerShell 환경을 설정하지 않았으면 설정하고](powershell-module.md) 계정에 연결합니다.
 
 그런 다음, AD FS VM의 동일한 PowerShell 창에서 다음 두 cmdlet 중 하나를 실행하여 호스트 풀에 대한 SSO 정보를 업데이트합니다.
@@ -291,5 +280,5 @@ UnConfigureWVDSSO.ps1 -WvdWebAppAppIDUri "<WVD Web App URI>" -WvdClientAppApplic
 
 Single Sign-On을 구성했으므로 이제 지원되는 Azure Virtual Desktop 클라이언트에 로그인하여 사용자 세션의 일부로 테스트할 수 있습니다. 새 자격 증명을 사용하여 세션에 연결하는 방법을 알아보려면 다음 문서를 확인하세요.
 
-* [Windows Desktop 클라이언트를 사용하여 연결](connect-windows-7-10.md)
-* [웹 클라이언트를 사용하여 연결](connect-web.md)
+* [Windows Desktop 클라이언트를 사용하여 연결](./user-documentation/connect-windows-7-10.md)
+* [웹 클라이언트를 사용하여 연결](./user-documentation/connect-web.md)

@@ -4,12 +4,12 @@ description: HDInsight의 Apache Ambari 디렉터리 경고가 가능한 원인 
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: 47d1f9797a44d7dc918677c21ffc7a124808525d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e5e74c49b7654c2ade20e78f7098192649f9385
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943284"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112300132"
 ---
 # <a name="scenario-apache-ambari-directory-alerts-in-azure-hdinsight"></a>시나리오: Azure HDInsight의 Apache Ambari 디렉터리 경고
 
@@ -51,4 +51,4 @@ Apache Ambari에서 다음과 유사한 오류가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

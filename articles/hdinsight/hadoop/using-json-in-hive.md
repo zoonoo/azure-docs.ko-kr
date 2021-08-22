@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: d3c5077450dd4ec59f5ea7bc8f37879f9aa775bf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0c1067b2e2002992d75311497b1ba8f984c421b8
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104868939"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112370404"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive를 사용하여 JSON 문서 처리 및 분석
 
@@ -147,7 +147,7 @@ Hive 콘솔에 표시되는 이 스크립트의 출력은 다음과 같습니다
 
 ### <a name="use-a-custom-serde"></a>사용자 지정 SerDe 사용
 
-SerDe는 중첩된 JSON 문서를 구문 분석하기 위한 최상의 선택입니다. 이를 통해 JSON 스키마를 정의한 다음 이 스키마를 사용하여 문서를 구문 분석할 수 있습니다. 자세한 내용은 [Microsoft Azure HDInsight에서 사용자 지정 JSON SerDe를 사용하는 방법](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/)을 참조하세요.
+SerDe는 중첩된 JSON 문서를 구문 분석하기 위한 최상의 선택입니다. 이를 통해 JSON 스키마를 정의한 다음 이 스키마를 사용하여 문서를 구문 분석할 수 있습니다. 자세한 내용은 [Microsoft Azure HDInsight에서 사용자 지정 JSON SerDe를 사용하는 방법](/archive/blogs/bigdatasupport/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight)을 참조하세요.
 
 ## <a name="summary"></a>요약
 

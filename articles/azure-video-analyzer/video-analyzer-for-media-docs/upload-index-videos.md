@@ -1,19 +1,20 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer)를 사용하여 비디오 업로드 및 인덱싱
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: 이 항목에서는 API를 사용하여 Azure Video Analyzer for Media(이전의 Video Indexer)를 통해 비디오를 업로드하고 인덱싱하는 방법을 보여줍니다.
 author: Juliako
 manager: femila
 ms.service: azure-video-analyzer
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 05/12/2021
 ms.author: juliako
-ms.openlocfilehash: aef9cb4c99385e82f86818cc106c8dc62f0fd6cf
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: ce8804d1f057bc8f67331211c7ed4b734750aa19
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110538173"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112119070"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -322,7 +323,7 @@ public class AccountContractSlim
 
 다음 표에 나열된 상태 코드는 업로드 작업에서 반환될 수 있습니다.
 
-|상태 코드|ErrorType(응답 본문 내)|Description|
+|상태 코드|ErrorType(응답 본문 내)|설명|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|지정된 계정에서 동일한 비디오가 이미 처리되고 있습니다.|
 |400|VIDEO_ALREADY_FAILED|지정된 계정에서 2시간 이내에 동일한 비디오를 처리하지 못했습니다. API 클라이언트에서 2시간 이상 기다린 후에 비디오를 다시 업로드해야 합니다.|

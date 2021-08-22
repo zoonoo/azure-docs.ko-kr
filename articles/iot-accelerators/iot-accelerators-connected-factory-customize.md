@@ -9,19 +9,19 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: a092859517ee6ac41e62e55fe95f72b8bfdf87d5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a95807bc3b209a2b410b205b6d473560b454b2b0
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105646248"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113758226"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>연결된 팩터리 솔루션이 OPC UA 서버의 데이터를 표시하는 방식 사용자 지정
 
 > [!IMPORTANT]
 > 이 문서를 업데이트하는 동안 최신 콘텐츠는 [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/)를 참조하세요.
 
-연결된 팩터리 솔루션은 솔루션에 연결된 OPC UA 서버의 데이터를 집계하고 표시합니다. 솔루션에서 OPC UA 서버를 찾아 명령을 보낼 수 있습니다. OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-accelerators-faq-cf.md)를 참조하세요.
+연결된 팩터리 솔루션은 솔루션에 연결된 OPC UA 서버의 데이터를 집계하고 표시합니다. 솔루션에서 OPC UA 서버를 찾아 명령을 보낼 수 있습니다. OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-accelerators-faq-cf.yml)를 참조하세요.
 
 솔루션에서 집계된 데이터의 예로 팩터리, 라인 및 스테이션 수준의 대시보드에서 볼 수 있는 OEE(Overall Equipment Efficiency) 및 KPI(핵심 성과 지표)를 들 수 있습니다. 다음 스크린샷은 **Munich** 공장, **Production line 1** 의 **Assembly** 스테이션에 대한 OEE 및 KPI 값을 보여 줍니다.
 
@@ -83,7 +83,7 @@ ms.locfileid: "105646248"
 다음 문서를 참조하여 연결된 팩터리 솔루션 가속기에 대해 자세히 알아봅니다.
 
 * [azureiotsolutions.com 사이트에 대한 사용 권한][lnk-permissions]
-* [연결된 팩터리 FAQ](iot-accelerators-faq-cf.md)
+* [연결된 팩터리 FAQ](iot-accelerators-faq-cf.yml)
 * [FAQ][lnk-faq]
 
 
@@ -95,4 +95,4 @@ ms.locfileid: "105646248"
 
 
 [lnk-permissions]: iot-accelerators-permissions.md
-[lnk-faq]: iot-accelerators-faq.md
+[lnk-faq]: iot-accelerators-faq.yml

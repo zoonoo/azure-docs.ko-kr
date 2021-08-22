@@ -9,12 +9,12 @@ author: timoklimmer
 ms.author: tklimmer
 ms.topic: conceptual
 ms.date: 05/12/2021
-ms.openlocfilehash: 5ce6b2d80341a9c6ebb8afcbbe8f7072b54ca93c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d907be8262fdc403f1e7b550d57c1aeaf77491fa
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110087907"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112369059"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Azure Data Science Virtual Machines 샘플
 
@@ -29,7 +29,6 @@ Azure DSVM(Data Science Virtual Machines)에는 포괄적인 샘플 코드 집�
 ## <a name="available-samples"></a>사용 가능한 샘플
 | 샘플 범주 | Description | 위치 |
 | ------------- | ------------- | ------------- |
-| R 언어  | 샘플은 Azure 기반 클라우드 데이터 저장소에 연결하는 방법, 오픈 소스 R과 Microsoft Machine Learning Server 비교와 같은 시나리오를 보여 줍니다. 또한 Microsoft Machine Learning Server 및 SQL Server에서 모델을 운영하는 방법도 설명합니다. <br/> [R 언어](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Python 언어  | 샘플은 Azure 기반 클라우드 데이터 저장소에 연결하는 방법, Azure Machine Learning에서 작업하는 방법과 같은 시나리오를 설명합니다.  <br/> [Python 언어](#python-language) | <br/>`~notebooks` <br/><br/>|
 | Julia 언어  | Julia로 그리기 및 딥 러닝에 대한 자세한 설명을 제공합니다. 또한 Julia에서 C 및 Python을 호출하는 방법도 설명합니다. <br/> [Julia 언어](#julia-language) |<br/> Windows:<br/> `~notebooks/Julia_notebooks`<br/><br/> Linux:<br/> `~notebooks/julia`<br/><br/> |
 | Azure Machine Learning  | Machine Learning을 사용하여 기계 학습 및 딥 러닝 모델을 빌드하는 방법을 보여 줍니다. 어디서든지 모델을 배포합니다. 자동화된 기계 학습 및 지능형 하이퍼 매개 변수 조정을 사용합니다. 또한 모델 관리 및 분산 학습을 사용합니다. <br/> [Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|

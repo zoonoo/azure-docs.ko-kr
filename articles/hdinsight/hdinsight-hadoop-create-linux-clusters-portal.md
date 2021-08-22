@@ -5,20 +5,20 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
-ms.openlocfilehash: 98d18044693bc6f4d23e04e9403e71686df39451
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fdba94738f31d80667a4f804dbed2586aca9db1d
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104872203"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282370"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
-[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
 Azure 포털은 Microsoft Azure 클라우드에 호스트된 서비스와 리소스에 대한 웹 기반 관리 도구입니다. 이 문서에서는 포털을 사용하여 Linux 기반 Azure HDInsight 클러스터를 만드는 방법에 대해 알아봅니다. [HDInsight 클러스터 만들기](./hdinsight-hadoop-provision-linux-clusters.md)에서 추가 세부 정보를 확인할 수 있습니다.
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
 Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resource Manager 템플릿을 사용하여 많은 세부 정보를 숨길 수 있습니다. 자세한 내용은 [Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
@@ -26,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-clusters"></a>클러스터 만들기
 
-[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+[!INCLUDE [secure-transfer-enabled-storage-account](includes/hdinsight-secure-transfer.md)]
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **기본** 탭에서 다음 정보를 제공합니다.
 
-|속성 |Description |
+|속성 |설명 |
 |---|---|
 |Subscription|드롭다운 목록에서 클러스터에 사용할 Azure 구독을 선택합니다.|
 |Resource group|드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택합니다.|
@@ -100,7 +100,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |TLS|선택 사항: 드롭다운 목록에서 TLS 버전을 선택합니다. 자세한 내용은 [전송 계층 보안](./transport-layer-security.md)을 참조하세요.|
 |가상 네트워크|선택 사항: 드롭다운 목록에서 기존 가상 네트워크 및 서브넷을 선택합니다. 자세한 내용은 [Azure HDInsight 클러스터에 대한 가상 네트워크 배포 계획](hdinsight-plan-virtual-network-deployment.md)을 참조하세요. 이 문서에는 가상 네트워크에 대한 특정 구성 요구 사항이 포함되어 있습니다.|
 |디스크 암호화 설정|선택 사항: 암호화를 사용하려면 이 확인란을 선택합니다. 자세한 내용은 [고객 관리형 키 디스크 암호화](./disk-encryption.md)를 참조하세요.|
-|Kafka REST 프록시|이 설정은 클러스터 유형 Kafka에 대해서만 사용할 수 있습니다. 자세한 내용은 [REST 프록시 사용](./kafka/rest-proxy.md)을 참조하세요.|
+|Kafka REST 프록시|이 설정은 클러스터 유형 Kafka에만 사용할 수 있습니다. 자세한 내용은 [REST 프록시 사용](./kafka/rest-proxy.md)을 참조하세요.|
 |ID|선택 사항: 드롭다운 목록에서 기존 사용자 할당 서비스 ID를 선택합니다. 자세한 내용은 [Azure HDInsight의 관리 ID](./hdinsight-managed-identities.md)를 참조하세요.|
 
 **다음: 구성+가격 책정 >>** 을 선택하여 다음 탭으로 이동합니다.
@@ -146,7 +146,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 
-[브라우저, PowerShell 또는 Azure CLI를 사용하여 HDInsight 클러스터 삭제](./hdinsight-delete-cluster.md)를 참조하세요.
+[브라우저, PowerShell 또는 Azure CLI를 사용하는 HDInsight 클러스터 삭제](./hdinsight-delete-cluster.md)를 참조하세요.
 
 ## <a name="troubleshoot"></a>문제 해결
 

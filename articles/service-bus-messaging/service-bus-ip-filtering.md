@@ -3,12 +3,12 @@ title: Azure Service Bus에 대한 IP 방화벽 규칙 구성
 description: 특정 IP 주소에서 Azure Service Bus로 연결을 허용하도록 방화벽 규칙을 사용하는 방법입니다.
 ms.topic: article
 ms.date: 03/29/2021
-ms.openlocfilehash: 747e15e912033c5bc6a1f64ab389f1ab03f40c0b
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 84ba9f71d3d1da590d8ec43bfe1cfefb91b7c8ae
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105962325"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112415723"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>특정 IP 주소 또는 범위에서 Azure Service Bus 네임스페이스에 대한 액세스 허용
 기본적으로 요청에 유효한 인증 및 권한 부여가 제공되는 한 Service Bus 네임스페이스는 인터넷에서 액세스할 수 있습니다. IP 방화벽을 사용하면 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법으로 IPv4 주소 또는 IPv4 주소 범위 세트로만 제한할 수 있습니다.
@@ -55,7 +55,7 @@ IP 방화벽 규칙은 Service Bus 네임스페이스 수준에 적용됩니다.
     > [!NOTE]
     > 특정 가상 네트워크에 대한 액세스를 제한하려면 [특정 네트워크에서 액세스 허용](service-bus-service-endpoints.md)을 참조하세요.
 
-[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
+[!INCLUDE [service-bus-trusted-services](./includes/service-bus-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용
 이 섹션에는 가상 네트워크 및 방화벽 규칙을 기존 Service Bus 네임스페이스에 추가하는 샘플 Azure Resource Manager 템플릿이 있습니다.

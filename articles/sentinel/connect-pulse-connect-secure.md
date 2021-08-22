@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 71e1c7787243713b29be9455fee966eff54f6d90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8eeea8f8f0410cb0c0d559cf1816e45e6c60c12e
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100097656"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538331"
 ---
 # <a name="connect-your-pulse-connect-secure-to-azure-sentinel"></a>Azure Sentinel에 Pulse Connect Secure 연결
 
@@ -44,16 +44,16 @@ Syslog 에이전트를 통해 Syslog 메시지를 Azure 작업 영역에 전달�
 
 ## <a name="find-your-data"></a>데이터 찾기
 
-연결이 성공적으로 설정된 후에는 Syslog 아래 Log Analytics에 데이터가 표시됩니다.
+연결이 성공적으로 설정되면 데이터는 Syslog에 있는 Log Analytics에 표시됩니다.
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
 
-로그가 Log Analytics에 표시되는 데는 최대 20분이 걸립니다. 
+로그가 Log Analytics에 표시될 때까지 최대 20분가량 소요될 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Pulse Connect Secure를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
-- [통합 문서를 사용](tutorial-monitor-your-data.md)하여 데이터를 모니터링합니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.
+- [통합 문서를 사용](monitor-your-data.md)하여 데이터를 모니터링합니다.

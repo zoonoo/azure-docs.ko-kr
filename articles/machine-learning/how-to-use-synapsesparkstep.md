@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: how-to
 ms.custom: synapse-azureml
-ms.openlocfilehash: 046a38da67db86592e91f103f3139b425e59f6a0
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 01ac58f4c462861ba422a869f38b9fbf53690886
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110578901"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112377281"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>기계 학습 파이프라인에서 Apache Spark(Azure Synapse Analytics에서 제공)를 사용하는 방법(미리 보기)
 
@@ -38,7 +38,7 @@ Azure Synapse Analytics 작업 영역에서 Apache Spark 풀을 만들고 관리
 Azure Machine Learning 작업 영역과 Azure Synapse Analytics 작업 영역이 연결되면 다음을 통해 Apache Spark 풀을 연결할 수 있습니다. 
 * [Azure Machine Learning Studio](how-to-link-synapse-ml-workspaces.md#attach-a-pool-via-the-studio)
 * Python SDK([아래에 자세히 설명](#attach-your-apache-spark-pool-as-a-compute-target-for-azure-machine-learning))
-* ARM(Azure Resource Manager) 템플릿(이 [ARM 템플릿 예제](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json) 참조) 
+* ARM(Azure Resource Manager) 템플릿(이 [ARM 템플릿 예제](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-linkedservice-create/azuredeploy.json) 참조) 
     * 명령줄을 사용하여 ARM 템플릿을 따르고, 연결된 서비스를 추가하고, 다음 코드를 사용하여 Apache Spark 풀을 연결할 수 있습니다.
     ```azurecli
     az deployment group create --name --resource-group <rg_name> --template-file "azuredeploy.json" --parameters @"azuredeploy.parameters.json"

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 07/13/2021
 ms.author: baselden
 author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3e7792546531d7f443a44b127620d508816edcb
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 272eaf3a21992cb5fecf1c02e5ab1000af149bcc
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285775"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687842"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Azure Active Directory 셀프 서비스 암호 재설정 배포 계획
 
@@ -62,7 +62,7 @@ Azure Active Directory는 사용자별로 사용이 허가 됩니다. 즉, 각 �
 
 버전과 기능을 비교하고 그룹 또는 사용자 기반 라이선싱을 사용하려면 [Azure AD 셀프 서비스 암호 재설정에 대한 라이선싱 요구 사항](./concept-sspr-licensing.md)을 참조하세요.
 
-가격 책정에 대한 자세한 내용은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.
+가격 책정에 대한 자세한 내용은 [Azure Active Directory 가격 책정](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)을 참조하세요.
 
 ### <a name="prerequisites"></a>사전 요구 사항
 

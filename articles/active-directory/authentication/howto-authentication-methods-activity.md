@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 07/13/2021
 ms.author: justinha
 author: sopand
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 699ff88e4181dada5eacaa3f13469722cdf7ceaa
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: a46b368954102dff2a09635114b5ef9a6a23b710
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530450"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687931"
 ---
 # <a name="authentication-methods-activity"></a>인증 방법 작업 
 
@@ -40,7 +40,7 @@ ms.locfileid: "107530450"
 - 보안 관리자
 - 전역 관리자
 
- 사용량 및 인사이트에 액세스하려면 Azure AD Premium P1 또는 P2 라이선스가 필요합니다. Azure AD Multi-Factor Authentication 및 SSPR(셀프 서비스 암호 재설정) 라이선스 정보는 [Azure Active Directory 가격 책정 사이트](https://azure.microsoft.com/pricing/details/active-directory/)에서 찾을 수 있습니다.
+ 사용량 및 인사이트에 액세스하려면 Azure AD Premium P1 또는 P2 라이선스가 필요합니다. Azure AD Multi-Factor Authentication 및 SSPR(셀프 서비스 암호 재설정) 라이선스 정보는 [Azure Active Directory 가격 책정 사이트](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)에서 찾을 수 있습니다.
 
 ## <a name="how-it-works"></a>작동 방식
 
@@ -107,7 +107,7 @@ ms.locfileid: "107530450"
 등록 세부 정보 보고서에는 각 사용자에 대해 다음 정보가 표시됩니다.
 
 - 사용자 계정 이름
-- 속성
+- 이름
 - MFA 사용 가능(사용 가능, 사용 불가능)
 - Passwordless 가능(사용 가능, 사용 불가능)
 - SSPR 등록됨(등록됨, 등록되지 않음)

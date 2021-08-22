@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure DevTest Labs를 사용하기 위한 기�
 ms.topic: article
 ms.date: 06/20/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 1adb9b009a250942bab7e9b0e3b4b3e52840341c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d6508bc4fdcb5f6dfae877fcdb8d407350f1047f
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85481598"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114293566"
 ---
 # <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Azure DevTest Labs를 사용하기 위한 일반 시나리오
 엔터프라이즈의 요구에 따라 다양한 요구 사항을 충족하도록 DevTest Labs를 구성할 수 있습니다.  이 문서에서는 일반 시나리오에 대해 설명합니다. 각 시나리오에서는 DevTest Labs를 사용하여 얻은 이점과 이러한 시나리오를 구현하는 데 사용할 리소스를 다룹니다.  
@@ -59,9 +59,9 @@ Azure DevTest Labs의 랩은 워크샵, 실습 랩, 교육 또는 해커톤과 �
 
 - [정책](devtest-lab-set-lab-policy.md)을 통해 실습생은 필요한 리소스(예: 가상 머신)의 수만 얻을 수 있습니다.
 - 미리 구성된 컴퓨터와 만든 컴퓨터는 실습생의 단일 작업으로 [요청](devtest-lab-add-claimable-vm.md)됩니다.
-- 랩은 [랩의 URL](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab)에 액세스하여 실습생과 공유됩니다.
+- 랩은 [랩의 URL](/azure/devtest-labs/devtest-lab-faq#how-do-i-share-a-direct-link-to-my-lab)에 액세스하여 실습생과 공유됩니다.
 - 가상 머신의 [만료 날짜](devtest-lab-add-vm.md#steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs)는 더 이상 필요하지 않은 컴퓨터를 삭제하도록 합니다.
-- 교육이 끝나면 랩 및 모든 [관련 리소스](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab)를 쉽게 [삭제](devtest-lab-delete-lab-vm.md#delete-a-lab)할 수 있습니다.
+- 교육이 끝나면 랩 및 모든 [관련 리소스](/azure/devtest-labs/devtest-lab-faq#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab)를 쉽게 [삭제](devtest-lab-delete-lab-vm.md#delete-a-lab)할 수 있습니다.
 
 자세한 내용은 [교육에 DevTest Labs 사용](devtest-lab-training-lab.md)을 참조하세요.  
 
@@ -76,5 +76,4 @@ DevTest Labs 탐색하기로 한 경우, 대개 개념 증명 또는 크기가 �
 다음 문서를 읽어보세요.
 
 - [DevTest Lab 개념](devtest-lab-concepts.md)
-- [DevTest Labs FAQ](devtest-lab-faq.md)
-
+- [DevTest Labs FAQ](devtest-lab-faq.yml)

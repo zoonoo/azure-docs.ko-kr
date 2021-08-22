@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bcee8d0554b9c3349c7efc88c10e9eee8b185acb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e4374e564ea2fb8a5cc3f8bada6eb3ff27663912
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773282"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634279"
 ---
 # <a name="streaming-locators"></a>스트리밍 로케이터
 
@@ -85,7 +85,7 @@ CBCS(FairPlay)를 사용하여 HLS 스트림도 암호화하려면 'Predefined_M
 
 ## <a name="filter-order-page-streaming-locator-entities"></a>필터, 순서, 페이지 스트리밍 로케이터 엔터티
 
-[Media Services 엔터티 필터링, 순서 지정, 페이징](filter-order-page-entitites-how-to.md)을 참조하세요.
+[Media Services 엔터티 필터링, 순서 지정, 페이징](filter-order-page-entities-how-to.md)을 참조하세요.
 
 ## <a name="list-streaming-locators-by-asset-name"></a>자산 이름별 스트리밍 로케이터 나열
 
@@ -99,7 +99,7 @@ CBCS(FairPlay)를 사용하여 HLS 스트림도 암호화하려면 'Predefined_M
 |Java|[AssetStreamingLocator](/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Assets](assets-concept.md)
 * [스트리밍 정책](stream-streaming-policy-concept.md)

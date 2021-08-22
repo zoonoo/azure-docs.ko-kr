@@ -4,12 +4,12 @@ description: Linux용 Azure Policy 게스트 구성 정책을 만드는 방법�
 ms.date: 03/31/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b28d7f0ccd2f4b8cca7bdb5015dce6e8ee8f2f17
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 89f4e64f6448f93a4b746ae4301450707f832cde
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762986"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112287014"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Linux용 게스트 구성 정책을 만드는 방법
 
@@ -17,7 +17,7 @@ ms.locfileid: "108762986"
 
 Windows용 게스트 구성 정책을 만드는 방법에 대한 자세한 내용은 [Windows용 게스트 구성 정책을 만드는 방법](./guest-configuration-create.md) 페이지를 참조하세요.
 
-Linux를 감사할 때 게스트 구성은 [Chef InSpec](https://www.inspec.io/)를 사용합니다. InSpec 프로필은 컴퓨터가 충족해야 하는 조건을 정의합니다. 구성을 평가하지 못한 경우 **auditIfNotExists** 정책 효과가 트리거되고 컴퓨터를 **미준수** 로 간주합니다.
+Linux를 감사할 때 게스트 구성은 [Chef InSpec](https://community.chef.io/tools/chef-inspec)를 사용합니다. InSpec 프로필은 컴퓨터가 충족해야 하는 조건을 정의합니다. 구성을 평가하지 못한 경우 **auditIfNotExists** 정책 효과가 트리거되고 컴퓨터를 **미준수** 로 간주합니다.
 
 [Azure Policy 게스트 구성](../concepts/guest-configuration.md)은 컴퓨터 내의 설정을 감사하는 데에만 사용할 수 있습니다. 컴퓨터 내 설정 수정은 아직 사용할 수 없습니다.
 
@@ -94,7 +94,7 @@ PowerShell cmdlet은 패키지를 만드는 데 도움이 됩니다. 루트 수�
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Linux에서 사용자 지정 게스트 구성
 
-Linux에서 게스트 구성 시 `ChefInSpecResource` 리소스를 사용하여 엔진에 [InSpec 프로필](https://www.inspec.io/docs/reference/profiles/)의 이름을 제공합니다. **이름** 은 유일하게 필요한 리소스 속성입니다. 아래에 설명된 바와 같이 YAML 파일과 Ruby 스크립트 파일을 만듭니다.
+Linux에서 게스트 구성 시 `ChefInSpecResource` 리소스를 사용하여 엔진에 [InSpec 프로필](https://docs.chef.io/inspec/profiles/)의 이름을 제공합니다. **이름** 은 유일하게 필요한 리소스 속성입니다. 아래에 설명된 바와 같이 YAML 파일과 Ruby 스크립트 파일을 만듭니다.
 
 먼저, InSpec에서 사용하는 YAML 파일을 만듭니다. 이 파일은 환경에 대한 기본 정보를 제공합니다. 예를 들면 다음과 같습니다.
 
@@ -161,7 +161,7 @@ AuditFilePathExists -out ./Config
             linux-path.rb
 ```
 
-지원 파일은 한 패키지에 포함되어야 합니다. 완료된 패키지는 게스트 구성에서 Azure Policy 정의를 만드는 데 사용됩니다.
+지원 파일은 한 패키지에 포함되어야 합니다. 완성된 패키지는 게스트 구성에서 Azure Policy 정의를 만드는 데 사용됩니다.
 
 `New-GuestConfigurationPackage` cmdlet은 패키지를 만듭니다. Linux 콘텐츠를 만들 때 `New-GuestConfigurationPackage` cmdlet의 매개 변수는 다음과 같습니다.
 
@@ -401,7 +401,7 @@ New-GuestConfigurationPolicy -ContentUri $uri `
 
 Linux 컴퓨터에서 사용할 GPG 키를 만드는 방법에 대한 좋은 참고 자료는 GitHub의 문서, [ 새 GPG 키 만들기](https://help.github.com/en/articles/generating-a-new-gpg-key)에 나와 있습니다.
 
-GuestConfiguration 에이전트는 Linux 컴퓨터의 `/usr/local/share/ca-certificates/extra` 경로에 인증서 공개 키가 있어야 합니다. 노드에서 서명된 콘텐츠를 확인하려면 사용자 지정 정책을 적용하기 전 컴퓨터에 인증서 공개 키를 설치합니다. 이 프로세스는 VM 내에서 또는 Azure Policy를 사용하여 수행할 수 있습니다. 예제 템플릿이 [여기에 나와](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows) 있습니다.
+GuestConfiguration 에이전트는 Linux 컴퓨터의 `/usr/local/share/ca-certificates/extra` 경로에 인증서 공개 키가 있어야 합니다. 노드에서 서명된 콘텐츠를 확인하려면 사용자 지정 정책을 적용하기 전 컴퓨터에 인증서 공개 키를 설치합니다. 이 프로세스는 VM 내에서 또는 Azure Policy를 사용하여 수행할 수 있습니다. 예제 템플릿이 [여기에 나와](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-push-certificate-windows) 있습니다.
 Key Vault 액세스 정책은 배포하는 동안 Compute 리소스 공급자가 인증서에 액세스할 수 있도록 허용해야 합니다. 자세한 단계는 [Azure Resource Manager에서 가상 머신에 대한 Key Vault 설정](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault)을 참조하세요.
 
 콘텐츠를 게시한 후에는 이름이 `GuestConfigPolicyCertificateValidation`이고 값이 `enabled`인 태그를 코드 서명이 필요한 모든 가상 머신에 추가합니다. Azure Policy를 사용하여 태그를 대규모로 제공할 수 있는 방법은 [태그 샘플](../samples/built-in-policies.md#tags)을 참조하세요. 이 태그가 준비되면 `New-GuestConfigurationPolicy` cmdlet을 이용하여 생성된 정책 정의에서 게스트 구성 확장을 통해 요구 사항을 사용합니다.

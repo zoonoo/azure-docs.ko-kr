@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 1dd2768c7541312b68e2a44a35fc4260d67c5655
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d71526fea23e3a440428266addfc497b1a89c63c
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104587001"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112117142"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>4부: 도메인 조인 VM에서 파일 공유 탑재
 
@@ -23,6 +23,13 @@ ms.locfileid: "104587001"
 다음 이미지와 같이 권한을 부여한 자격 증명을 사용하여 클라이언트에 로그인합니다.
 
 ![사용자 인증용 Azure AD 로그인 화면이 표시된 스크린샷](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 ## <a name="mounting-prerequisites"></a>필수 구성 요소 탑재
 

@@ -1,19 +1,20 @@
 ---
 title: v2 API에서 생성된 Azure Video Analyzer for Media(이전의 Video Indexer) 출력 검사 - Azure
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: 이 항목에서는 v2 API에서 생성된 Azure Video Analyzer for Media(이전의 Video Indexer) 출력을 살펴봅니다.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 7e805aee76bf60733d3d010cf330b90debdfb2be
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 11fcc36ec8ad6d5feb030d00be4fbf470237634f
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386493"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115252"
 ---
 # <a name="examine-the-video-analyzer-for-media-output"></a>Video Analyzer for Media 출력 검사
 
@@ -51,7 +52,7 @@ ms.locfileid: "110386493"
 
 ## <a name="root-elements-of-the-insights"></a>인사이트의 루트 요소
 
-|이름|Description|
+|Name|Description|
 |---|---|
 |accountId|재생 목록의 VI 계정 ID입니다.|
 |id|재생 목록의 ID입니다.|
@@ -217,7 +218,7 @@ id|블록의 ID입니다.|
 
 #### <a name="transcript"></a>대본
 
-|이름|Description|
+|Name|Description|
 |---|---|
 |id|줄 ID입니다.|
 |text|자체 대본입니다.|
@@ -299,7 +300,7 @@ id|블록의 ID입니다.|
 
 #### <a name="keywords"></a>키워드
 
-|이름|Description|
+|Name|Description|
 |---|---|
 |id|키워드 ID입니다.|
 |text|키워드 텍스트입니다.|
@@ -379,7 +380,7 @@ id|블록의 ID입니다.|
 
 #### <a name="labels"></a>레이블
 
-|이름|Description|
+|Name|Description|
 |---|---|
 |id|레이블 ID입니다.|
 |name|레이블 이름(예: '컴퓨터', 'TV')입니다.|
@@ -471,7 +472,7 @@ id|블록의 ID입니다.|
 
 #### <a name="shots"></a>샷
 
-|이름|Description|
+|Name|Description|
 |---|---|
 |id|샷 ID입니다.|
 |keyFrames|샷 내의 keyFrames 목록(각각 ID와 인스턴스 시간 범위 목록이 있음)입니다. 각 keyFrame 인스턴스에는 keyFrame의 썸네일 ID가 있는 썸네일 필드가 있습니다.|
@@ -580,7 +581,7 @@ id|블록의 ID입니다.|
 
 #### <a name="statistics"></a>통계
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |CorrespondenceCount|동영상의 해당 항목 수입니다.|
 |SpeakerWordCount|화자별 단어 수입니다.|
@@ -633,7 +634,7 @@ audioEffects: [{
 
 감정은 sentimentType 필드(긍정적/중립/부정적)로 집계됩니다. 예: 0-0.1, 0.1-0.2.
 
-|이름|Description|
+|Name|Description|
 |---|---|
 |id|감정 ID입니다.|
 |averageScore |해당 감정 유형의 모든 인스턴스의 모든 점수 평균 – 긍정적/중립/부정적|
@@ -708,7 +709,7 @@ visualContentModeration 블록에는 Video Analyzer for Media에서 잠재적으
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|이름|Description|
+|Name|Description|
 |---|---|
 |id|텍스트 콘텐츠 조정 ID입니다.|
 |bannedWordsCount |금지된 단어의 수입니다.|
@@ -808,7 +809,7 @@ Video Analyzer for Media는 음성 및 오디오 신호에 따라 감정을 식�
 
 Video Analyzer for Media는 대본에서 주요 주제를 유추합니다. 가능한 경우 [IPTC](https://iptc.org/standards/media-topics/) 수준 2 분류가 포함됩니다. 
 
-|이름|Description|
+|Name|Description|
 |---|---|
 |id|주제 ID입니다.|
 |name|주제 이름입니다(예: "제약").|

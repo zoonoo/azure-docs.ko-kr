@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1e8ea30ddfcaeff1a177a14a0b1d911d14b76b4
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 3ba2e88a20106b9344a6d7942d4bc7149a346b7c
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111526091"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733145"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털에서 라이선스 할당 또는 제거
 
@@ -35,7 +35,7 @@ ms.locfileid: "111526091"
 
 - Azure AD Premium P2
 
-각 라이선스 계획 및 관련 라이선스 세부 정보에 대한 자세한 내용은 [어떤 라이선스가 필요한가요?](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요. Azure AD Premium 라이선스 계획에 등록하려면 [여기](./active-directory-get-started-premium.md)를 참조하세요.
+각 라이선스 계획 및 관련 라이선스 세부 정보에 대한 자세한 내용은 [어떤 라이선스가 필요한가요?](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)를 참조하세요. Azure AD Premium 라이선스 계획에 등록하려면 [여기](./active-directory-get-started-premium.md)를 참조하세요.
 
 일부 Microsoft 서비스는 모든 위치에서 사용할 수 없습니다. 그룹에 라이선스를 할당하려면 먼저 모든 멤버에 대한 **사용 위치** 를 지정해야 합니다. 이 값은 Azure AD의 **Azure Active Directory &gt; 사용자 &gt; 프로필 &gt; 설정** 영역에서 설정할 수 있습니다. 사용 위치가 지정되지 않은 모든 사용자는 Azure AD 조직의 위치를 상속합니다.
 

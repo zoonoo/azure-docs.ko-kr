@@ -4,12 +4,12 @@ description: Azure 명령줄 인터페이스를 사용하여 새 또는 기존 A
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 44be66957aa745179ffe4cd00db75f1d47237dfc
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f107b5b04726047bea4d7c05a6c031d921f26547
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771050"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112300168"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
@@ -115,7 +115,7 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 
 ### <a name="example---yaml"></a>예 - YAML
 
-YAML 파일, [Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+YAML 파일, [Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
 ) 또는 Python SDK를 사용하는 등의 다른 프로그래밍 메서드를 사용하여 기존 가상 네트워크에 컨테이너 그룹을 배포할 수도 있습니다. 
 
 예를 들어 YAML 파일을 사용하는 경우 Azure Container Instances에 위임된 서브넷을 사용하여 가상 네트워크에 배포할 수 있습니다. 다음 속성을 지정합니다.
@@ -224,7 +224,7 @@ az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 
 ## <a name="next-steps"></a>다음 단계
 
-Resource Manager 템플릿을 사용하여 새 가상 네트워크, 서브넷, 네트워크 프로필 및 컨테이너 그룹을 배포하려면 [VNet을 사용하여 Azure 컨테이너 그룹 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+Resource Manager 템플릿을 사용하여 새 가상 네트워크, 서브넷, 네트워크 프로필 및 컨테이너 그룹을 배포하려면 [VNet을 사용하여 Azure 컨테이너 그룹 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
 )를 참조하세요.
 
 <!-- IMAGES -->

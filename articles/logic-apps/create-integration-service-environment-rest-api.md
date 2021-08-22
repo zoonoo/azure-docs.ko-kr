@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: fa0b37c46fd39a1764c356aa910347cafaa7d448
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: f50fecfb2675e870025d9e188d5303aacf77f7a2
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787260"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112295726"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Logic Apps REST API를 사용하여 ISE(통합 서비스 환경) 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "109787260"
 ISE를 만드는 다른 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure Portal을 사용하여 ISE 만들기](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
-* [샘플 Azure Resource Manager 빠른 시작 템플릿을 사용하여 ISE 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment)
+* [샘플 Azure Resource Manager 빠른 시작 템플릿을 사용하여 ISE 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/integration-service-environment)
 * [미사용 데이터 암호화를 위해 고객 관리형 키 사용을 지원하는 ISE 만들기](customer-managed-keys-integration-service-environment.md)
 
 ## <a name="prerequisites"></a>필수 구성 요소

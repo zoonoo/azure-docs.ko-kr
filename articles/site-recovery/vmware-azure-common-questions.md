@@ -3,12 +3,12 @@ title: Azure Site Recovery를 사용한 VMware 재해 복구에 대한 일반적
 description: Azure Site Recovery를 사용하여 Azure로 온-프레미스 VMware VM 재해 복구 시 발생하는 일반적인 질문에 관한 답변을 확인하세요.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: a272486eea111ab8c8e489556986f12f382e3f65
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 006f0a51da933336a354b275bb882e5538832741
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97587795"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539219"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>VMware에서 Azure로 복제에 대한 일반적인 질문
 
@@ -83,7 +83,7 @@ Site Recovery를 사용하는 동안 [가격 책정 계산기](https://aka.ms/as
 
 ### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>범용 v2 스토리지 계정으로 복제할 때 비용 차이가 있나요?
 
-Azure Site Recovery는 트랜잭션이 많기 때문에 일반적으로 GPv2 스토리지 계정에서 발생하는 트랜잭션 비용도 증가합니다. 변경되는 비용을 예측하려면 [자세히 알아보세요](../storage/common/storage-account-upgrade.md#pricing-and-billing).
+Azure Site Recovery는 트랜잭션이 많기 때문에 일반적으로 GPv2 스토리지 계정에서 발생하는 트랜잭션 비용이 증가하는 것을 볼 수 있습니다. 변경되는 비용을 예측하려면 [자세히 알아보세요](../storage/common/storage-account-upgrade.md#pricing-and-billing).
 
 ## <a name="mobility-service"></a>모바일 서비스
 
@@ -96,7 +96,7 @@ Azure Site Recovery는 트랜잭션이 많기 때문에 일반적으로 GPv2 스
 복제하려는 각 VM에서 다음 몇 가지 방법 중 하나로 서비스를 설치합니다.
 
 - [강제 설치](vmware-physical-mobility-service-overview.md#push-installation)
-- UI 또는 PowerShell에서 [수동 설치](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui)
+- UI 또는 PowerShell에서 [수동 설치](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-classic)
 - [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)와 같은 배포 도구를 사용하여 배포
 
 ## <a name="managed-disks"></a>관리 디스크

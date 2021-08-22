@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: fe5b2a1f083e246ea61854c9cbe03932e6655fdb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4425fcc415e13e990ee8d3db4351c28a8e452669
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104866593"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282556"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용
 
-[!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
+[!INCLUDE [heapdump-selector](includes/hdinsight-selector-heap-dump.md)]
 
 힙 덤프는 덤프가 만들어질 당시의 변수 값을 비롯해 애플리케이션의 메모리에 대한 스냅샷을 포함합니다. 따라서 런타임에 발생하는 문제를 진단하는 데 유용합니다.
 

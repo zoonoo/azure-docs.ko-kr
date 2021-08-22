@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 12/10/2019
-ms.openlocfilehash: 0571a1a36def0ca3fa60c7a98695681609ebdf1f
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 7cc4d5e8cb094a25e21a0573a215d0c1c797fced
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278491"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282334"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Azure REST API를 사용하여 Apache Hadoop 클러스터 만들기
 
-[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
 Azure Resource Manager 템플릿 및 Azure REST API를 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
 
@@ -23,7 +23,7 @@ Azure REST API를 사용하면 HDInsight 클러스터 등과 같은 새 리소�
 > [!NOTE]  
 > 이 문서의 단계는 [curl(https://curl.haxx.se/)](https://curl.haxx.se/) 유틸리티를 사용하여 Azure REST API와 통신합니다.
 
-## <a name="create-a-template"></a>템플릿 만들기
+## <a name="create-a-template"></a>템플릿 생성
 
 Azure Resource Manager 템플릿은 **리소스 그룹** 및 모든 리소스(예: HDInsight)를 설명하는 JSON 문서입니다. 이 템플릿 기반 접근 방식을 사용하면 HDInsight에 필요한 리소스를 하나의 템플릿에서 정의할 수 있습니다.
 

@@ -1,19 +1,20 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer) 웹 사이트에서 브랜드 모델 사용자 지정
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Azure Video Analyzer for Media(이전의 Video Indexer) 웹 사이트에서 브랜드 모델을 사용자 지정하는 방법을 알아봅니다.
-services: media-services
+services: azure-video-analyzer
 author: anikaz
 manager: johndeu
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 12/15/2019
 ms.author: kumud
-ms.openlocfilehash: 7efb7d434771f7c4f1e8c40c37fdc3fa9b7a45e6
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 5bb1a6317ad946da4e7fc00068a7fac40c45d772
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387141"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112121440"
 ---
 # <a name="customize-a-brands-model-with-the-video-analyzer-for-media-website"></a>Video Analyzer for Media 웹 사이트에서 브랜드 모델 사용자 지정
 
@@ -98,7 +99,7 @@ Bing 브랜드 데이터베이스의 브랜드를 검색할지를 여부를 설�
 ### <a name="delete-a-brand-on-the-exclude-list"></a>제외 목록에서 브랜드 삭제
 
 1. 삭제하려는 브랜드 옆에 있는 휴지통 아이콘을 선택합니다.
-2. **삭제** 를 선택하면 브랜드가 더 이상 *브랜드 제외* 목록에 표시되지 않습니다.
+2. **삭제** 를 선택하면 브랜드가 더 이상 ‘브랜드 제외’ 목록에 표시되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

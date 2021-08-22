@@ -11,13 +11,13 @@ ms.workload: identity
 ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: a6a7bf24571660d8e728c1acba29af2504539a18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, has-adal-ref
+ms.openlocfilehash: 34af764b9a58d4fe981b4c6946cd2299fdff75ae
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99219963"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122539027"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Microsoft ID 플랫폼 모범 사례 및 권장 사항
 
@@ -74,7 +74,7 @@ ms.locfileid: "99219963"
 
 ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) 모바일 앱의 경우 애플리케이션 등록 환경을 사용하여 각 플랫폼을 구성합니다. 애플리케이션에서 Single Sign-On을 위해 Microsoft Authenticator 또는 Microsoft 회사 포털을 활용하려면 앱에 "broker 리디렉션 URI"가 구성되어 있어야 합니다. 그래야 Microsoft에서 인증 후 애플리케이션에 대한 제어권을 반환할 수 있습니다. 각 플랫폼을 구성할 때 앱 등록 환경에서 이 프로세스를 안내합니다. 빠른 시작을 사용하여 작업 예제를 다운로드합니다. iOS에서 가능할 때마다 broker 및 시스템 웹 보기를 사용합니다.
 
-![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) 웹앱 또는 웹 API에서 계정당 하나의 토큰 캐시를 유지합니다.  웹앱의 경우 계정 ID로 토큰 캐시 키를 지정해야 합니다.  웹 API의 경우, API를 호출하는 데 사용되는 토큰 해시로 계정 키를 지정해야 합니다. MSAL.NET은 .NET Framework 및 .NET Core 하위 플랫폼에서 사용자 지정 토큰 캐시 직렬화를 제공합니다. 보안 및 성능상의 이유로 사용자당 캐시 하나를 직렬화하는 것이 좋습니다. 자세한 내용은 [토큰 캐시 직렬화](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application)를 참조하세요.
+![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) 웹앱 또는 웹 API에서 계정당 하나의 토큰 캐시를 유지합니다.  웹앱의 경우 계정 ID로 토큰 캐시 키를 지정해야 합니다.  웹 API의 경우, API를 호출하는 데 사용되는 토큰 해시로 계정 키를 지정해야 합니다. MSAL.NET은 .NET Framework 및 .NET Core 하위 플랫폼에서 사용자 지정 토큰 캐시 직렬화를 제공합니다. 보안 및 성능상의 이유로 사용자당 캐시 하나를 직렬화하는 것이 좋습니다. 자세한 내용은 [토큰 캐시 직렬화](msal-net-token-cache-serialization.md)를 참조하세요.
 
 ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) 앱에서 필요한 데이터를 Microsoft Graph 엔드포인트를 통해 사용할 수 있는 경우 개별 API 대신 [Microsoft Graph](https://developer.microsoft.com/graph)를 사용하여 해당 데이터에 대한 권한을 요청하세요.
 

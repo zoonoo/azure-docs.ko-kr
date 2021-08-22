@@ -3,20 +3,20 @@ title: 문제 진단 및 해결 - Azure Time Series Insights
 description: 이 문서에서는 Azure Time Series Insights 환경의 일반적인 문제를 진단하고 해결하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
-ms.reviewer: v-mamcge
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 15f2ff5aaa1d731c13125d0a3ab4ac32acb9276c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 48d42430f26bcbf8f4afa58d7285c5e8b636fdb9
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95023278"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112370440"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Azure Time Series Insights Gen1 환경에서 문제 진단 및 해결
 

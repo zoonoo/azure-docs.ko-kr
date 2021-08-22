@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: fc1927ddf867ab9bfd5b288d57f2c5c9e59b0295
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 3bc3a7c4cd6f02fcfae8c92875c09f6c31416c89
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957247"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112232108"
 ---
 # <a name="azure-cosmos-db-apache-spark-2-oltp-connector-for-core-sql-api-release-notes-and-resources"></a>Core(SQL) API용 Azure Cosmos DB Apache Spark 2 OLTP 커넥터: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -121,7 +121,7 @@ Azure에서 관리형 Spark 클러스터를 제공하는 [Azure Databricks](http
 * 연결 관리 및 연결 풀링을 개선하여 메타데이터 호출 수를 줄입니다.
 
 ## <a name="faq"></a>FAQ
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,17 +3,16 @@ title: 성능 벤치마크
 titleSuffix: Azure Cognitive Search
 description: 다양한 성능 벤치마크를 통해 Azure Cognitive Search의 성능에 대해 알아보기
 author: dereklegenzoff
-manager: luisca
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: 2da5a39710e7bbce2e610ef7850b9284bc5c4309
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 03276e72224c8ddefa80358c4214893fd3363c96
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111441472"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122537658"
 ---
 # <a name="azure-cognitive-search-performance-benchmarks"></a>Azure Cognitive Search 성능 벤치마크
 

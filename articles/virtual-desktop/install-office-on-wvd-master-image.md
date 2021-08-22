@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 09dda24d7bd177764f9d715256762e25cb4729a3
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: ca466110a3ac876df444aa380a4a2dde0384f1fa
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757574"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294123"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>마스터 VHD 이미지에 Office 설치
 
@@ -159,7 +159,7 @@ OneDrive는 일반적으로 사용자별로 설치됩니다. 이 환경에서 �
 
 Azure Virtual Desktop은 비즈니스용 Skype를 지원하지 않습니다.
 
-Microsoft Teams 설치에 대한 도움말은 [Azure Virtual Desktop에서 Microsoft Teams 사용](teams-on-wvd.md)을 참조하세요. Azure Virtual Desktop의 Microsoft Teams에 대한 미디어 최적화는 미리 보기에서 사용할 수 있습니다.
+Microsoft Teams 설치에 대한 도움말은 [Azure Virtual Desktop에서 Microsoft Teams 사용](./teams-on-avd.md)을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

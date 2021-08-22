@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: 2aefa7ed7ce63b1ecbe735f21d372133ba4c7825
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: ff7c2b6ced87c8254283923a9163e51f06ae6ef6
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592415"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114298177"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>관리 ID를 사용하여 App Configuration 액세스
 
@@ -164,9 +164,9 @@ Azure App Configuration과 해당 .NET Core, .NET Framework, Java Spring 클라�
 
 ## <a name="deploy-your-application"></a>애플리케이션 배포
 
-관리 ID를 사용하려면 Azure 서비스에 앱을 배포해야 합니다. 관리 ID는 로컬로 실행되는 앱의 인증에 사용할 수 없습니다. [앱 구성으로 ASP.NET Core 앱 만들기](./quickstart-aspnet-core-app.md) 빠른 시작에서 만들고 관리 ID를 사용하도록 수정한 .NET Core 앱을 배포하려면 [웹 앱 게시](/azure/app-service/quickstart-dotnetcore?tabs=netcore31&pivots=development-environment-vs#publish-your-web-app)의 지침을 따르세요.
+관리 ID를 사용하려면 Azure 서비스에 앱을 배포해야 합니다. 관리 ID는 로컬로 실행되는 앱의 인증에 사용할 수 없습니다. [앱 구성으로 ASP.NET Core 앱 만들기](./quickstart-aspnet-core-app.md) 빠른 시작에서 만들고 관리 ID를 사용하도록 수정한 .NET Core 앱을 배포하려면 [웹 앱 게시](../app-service/quickstart-dotnetcore.md?pivots=development-environment-vs&tabs=netcore31#publish-your-web-app)의 지침을 따르세요.
 
-App Service 외에도 다른 많은 Azure 서비스는 관리 ID를 지원합니다. 자세한 내용은 [Azure 리소스에 대한 관리 ID를 지원하는 서비스](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)를 참조하세요.
+App Service 외에도 다른 많은 Azure 서비스는 관리 ID를 지원합니다. 자세한 내용은 [Azure 리소스에 대한 관리 ID를 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

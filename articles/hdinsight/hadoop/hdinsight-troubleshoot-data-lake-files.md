@@ -4,12 +4,12 @@ description: Azure HDInsight의 Data Lake Storage 파일에 액세스할 수 없
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/13/2019
-ms.openlocfilehash: f4c5a23b604334952730fcc4cf1fcb3fcbed6237
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47130e97c46a799c8f344df37baaa3c43b140587
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98944387"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299846"
 ---
 # <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Azure HDInsight의 Data Lake Storage 파일에 액세스할 수 없음
 
@@ -164,4 +164,4 @@ Invoke-AzureRmResourceAction `
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

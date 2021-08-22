@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 04/23/2021
-ms.openlocfilehash: 443dd0a1172c98b67282b50659ffeb3611470413
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 14b3487a158062e3186b485a8bcbd4584a0f09d2
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108163772"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113665352"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Visual Studio로 논리 앱 관리
 
@@ -158,7 +158,7 @@ Visual Studio에서 논리 앱이 배포를 자동화하는 데 사용하는 [Az
 논리 앱의 위치 유형 또는 위치를 변경하려면 Logic Apps 디자이너를 사용하여 솔루션 탐색기에서 논리 앱의 워크플로 정의(json) 파일을 열어야 합니다. 클라우드 탐색기를 사용하여 이러한 속성을 변경할 수 없습니다.
 
 > [!IMPORTANT]
-> 위치 유형을 **지역** 에서 [**통합 서비스 환경**](connect-virtual-network-vnet-isolated-environment-overview.md)으로 변경하면 청구, [제한](logic-apps-limits-and-config.md#integration-account-limits), [통합 계정 지원](connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus) 등에 사용되는 논리 앱의 [가격 책정 모델](logic-apps-pricing.md#fixed-pricing)에 영향을 줍니다. 다른 위치 유형을 선택하기 전에 논리 앱에 미치는 영향을 이해해야 합니다.
+> 위치 유형을 **지역** 에서 [**통합 서비스 환경**](connect-virtual-network-vnet-isolated-environment-overview.md)으로 변경하면 청구, [제한](logic-apps-limits-and-config.md#integration-account-limits), [통합 계정 지원](connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus) 등에 사용되는 논리 앱의 [가격 책정 모델](logic-apps-pricing.md#ise-pricing)에 영향을 줍니다. 다른 위치 유형을 선택하기 전에 논리 앱에 미치는 영향을 이해해야 합니다.
 
 1. Visual Studio에서 솔루션 또는 논리 앱이 포함된 Azure Resource Group 프로젝트를 엽니다.
 

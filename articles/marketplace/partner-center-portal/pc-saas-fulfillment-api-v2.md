@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: b2c1840acae64940561133a90cb1450c4af80a19
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 0a5ad3a5fb542476eb4cdeb1ffe67907a7209d0c
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952752"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112232560"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>상업용 Marketplace의 SaaS 처리 API 버전 2
 
@@ -249,7 +249,7 @@ SaaS 구독은 수명 주기 동안 언제든지 취소할 수 있습니다. 구
 
 이 오류는 종종 [SaaS 등록](pc-saas-registration.md)을 제대로 수행하지 않았을 때 발생하는 증상입니다.
 
-코드: 500 내부 서버 오류.  API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://partner.microsoft.com/support/v2/?stage=1)에 문의하세요.
+코드: 500 내부 서버 오류.  API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://go.microsoft.com/fwlink/?linkid=2165533)에 문의하세요.
 
 #### <a name="activate-a-subscription"></a>구독 활성화
 
@@ -302,7 +302,7 @@ SaaS 계정이 최종 사용자에 대해 구성된 후, 게시자는 Microsoft 
 
 코드: 404를 찾을 수 없음. SaaS 구독이 *구독 취소됨* 상태입니다.
 
-코드: 500 내부 서버 오류.  API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://partner.microsoft.com/support/v2/?stage=1)에 문의하세요.
+코드: 500 내부 서버 오류.  API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://go.microsoft.com/fwlink/?linkid=2165533)에 문의하세요.
 
 #### <a name="get-list-of-all-subscriptions"></a>모든 구독 목록 가져오기
 
@@ -411,7 +411,7 @@ Code: 200 게시자의 권한 부여 토큰에 따라 이 게시자가 만든 �
 
 이 오류는 종종 [SaaS 등록](pc-saas-registration.md)을 제대로 수행하지 않았을 때 발생하는 증상입니다. 
 
-코드: 500 내부 서버 오류. API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://partner.microsoft.com/support/v2/?stage=1)에 문의하세요.
+코드: 500 내부 서버 오류. API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://go.microsoft.com/fwlink/?linkid=2165533)에 문의하세요.
 
 #### <a name="get-subscription"></a>구독 가져오기
 
@@ -481,7 +481,7 @@ Code: 200 제공된 `subscriptionId`를 기반으로 SaaS 구독에 대한 세�
 
 코드: 404를 찾을 수 없음.  지정된 `subscriptionId`를 사용하는 SaaS 구독을 찾을 수 없습니다.
 
-코드: 500 내부 서버 오류.  API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://partner.microsoft.com/support/v2/?stage=1)에 문의하세요.
+코드: 500 내부 서버 오류.  API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://go.microsoft.com/fwlink/?linkid=2165533)에 문의하세요.
 
 #### <a name="list-available-plans"></a>사용 가능한 플랜 나열
 
@@ -536,7 +536,7 @@ Code: 200 이미 구매한 플랜을 포함하여 기존 SaaS 구독에 대해 �
 
 이 오류는 종종 [SaaS 등록](pc-saas-registration.md)을 제대로 수행하지 않았을 때 발생하는 증상입니다. 
 
-코드: 500 내부 서버 오류.  API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://partner.microsoft.com/support/v2/?stage=1)에 문의하세요.
+코드: 500 내부 서버 오류.  API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://go.microsoft.com/fwlink/?linkid=2165533)에 문의하세요.
 
 #### <a name="change-the-plan-on-the-subscription"></a>구독의 플랜 변경
 
@@ -595,7 +595,7 @@ Code: 200 이미 구매한 플랜을 포함하여 기존 SaaS 구독에 대해 �
 
 코드: 404를 찾을 수 없음.  `subscriptionId`인 SaaS 구독을 찾을 수 없습니다.
 
-코드: 500 내부 서버 오류.  API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://partner.microsoft.com/support/v2/?stage=1)에 문의하세요.
+코드: 500 내부 서버 오류.  API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://go.microsoft.com/fwlink/?linkid=2165533)에 문의하세요.
 
 >[!NOTE]
 >플랜 또는 사용자 수량을 한 번에 하나씩 변경할 수 있고, 동시에 변경할 수는 없습니다.
@@ -661,7 +661,7 @@ Code: 200 이미 구매한 플랜을 포함하여 기존 SaaS 구독에 대해 �
 
 코드: 404를 찾을 수 없음.  `subscriptionId`인 SaaS 구독을 찾을 수 없습니다.
 
-코드: 500 내부 서버 오류.  API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://partner.microsoft.com/support/v2/?stage=1)에 문의하세요.
+코드: 500 내부 서버 오류.  API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://go.microsoft.com/fwlink/?linkid=2165533)에 문의하세요.
 
 >[!Note]
 >플랜 또는 수량을 한 번에 하나씩 변경할 수 있고, 동시에 변경할 수는 없습니다.
@@ -720,7 +720,7 @@ Code: 200 이미 구매한 플랜을 포함하여 기존 SaaS 구독에 대해 �
 
 코드: 404를 찾을 수 없음.  `subscriptionId`인 SaaS 구독을 찾을 수 없습니다.
 
-코드: 500 내부 서버 오류. API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://partner.microsoft.com/support/v2/?stage=1)에 문의하세요.
+코드: 500 내부 서버 오류. API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://go.microsoft.com/fwlink/?linkid=2165533)에 문의하세요.
 
 ### <a name="operations-apis"></a>작업 API
 
@@ -783,7 +783,7 @@ Code: 200 이미 구매한 플랜을 포함하여 기존 SaaS 구독에 대해 �
 
 코드: 404를 찾을 수 없음.  `subscriptionId`인 SaaS 구독을 찾을 수 없습니다.
 
-코드: 500 내부 서버 오류. API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://partner.microsoft.com/support/v2/?stage=1)에 문의하세요.
+코드: 500 내부 서버 오류. API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://go.microsoft.com/fwlink/?linkid=2165533)에 문의하세요.
 
 #### <a name="get-operation-status"></a>작업 상태 가져오기
 
@@ -843,7 +843,7 @@ Response body:
 * `subscriptionId`인 구독을 찾을 수 없습니다.
 * `operationId`인 작업을 찾을 수 없습니다.
 
-코드: 500 내부 서버 오류.  API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://partner.microsoft.com/support/v2/?stage=1)에 문의하세요.
+코드: 500 내부 서버 오류.  API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://go.microsoft.com/fwlink/?linkid=2165533)에 문의하세요.
 
 #### <a name="update-the-status-of-an-operation"></a>작업 상태 업데이트
 
@@ -895,7 +895,7 @@ Response body:
 
 Code: 409 충돌.  예를 들어 새 업데이트가 이미 수행되었습니다.
 
-코드: 500 내부 서버 오류.  API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://partner.microsoft.com/support/v2/?stage=1)에 문의하세요.
+코드: 500 내부 서버 오류.  API 호출을 다시 시도하세요.  오류가 지속되면 [Microsoft 지원](https://go.microsoft.com/fwlink/?linkid=2165533)에 문의하세요.
 
 ## <a name="implementing-a-webhook-on-the-saas-service"></a>SaaS 서비스에서 webhook 구현
 

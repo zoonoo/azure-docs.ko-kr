@@ -3,20 +3,20 @@ title: SQL Managed Instance 삭제 후 서브넷 삭제
 description: Azure SQL Managed Instance 삭제한 후 Azure 가상 네트워크를 삭제하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: deployment-configuration
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
-author: danimir
-ms.author: danil
-ms.reviewer: douglas, sstein
+author: urosmil
+ms.author: urmilano
+ms.reviewer: mathoma
 ms.date: 06/26/2019
-ms.openlocfilehash: 496ff6c7ec39706a99bb40447b6443ca71f19e5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fa75e4fa081c40ebfd49119bca11a5cf9e5b88a
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99093687"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591695"
 ---
 # <a name="delete-a-subnet-after-deleting-an-azure-sql-managed-instance"></a>Azure SQL Managed Instance 삭제 후 서브넷 삭제
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

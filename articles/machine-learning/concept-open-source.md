@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 01/14/2020
-ms.openlocfilehash: 983e037376be48f497118b06cce8b23c430b1501
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ec9aaf2222924718ad21cf0654d138be22c2d19
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98223077"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114293376"
 ---
 # <a name="open-source-integration-with-azure-machine-learning-projects"></a>Azure Machine Learning 프로젝트와의 오픈 소스 통합
 
@@ -89,7 +89,7 @@ ONNX 및 ONNX 모델 사용 방법에 대한 자세한 내용은 다음 문서�
 
 ### <a name="package-and-deploy-models-as-containers"></a>모델을 컨테이너로 패키지 및 배포
 
-Docker와 같은 컨테이너 기술은 모델을 웹 서비스로 배포하는 한 가지 방법입니다. 컨테이너는 플랫폼과 리소스에 구애받지 않고 재현 가능한 소프트웨어 환경을 빌드하고 오케스트레이션할 수 있는 방법을 제공합니다. 핵심 기술을 통해 [미리 구성된 환경](./how-to-use-environments.md), [미리 구성된 컨테이너 이미지](./how-to-deploy-custom-docker-image.md) 또는 사용자 지정 환경과 컨테이너 이미지를 사용하여 [Kubernetes 클러스터](./how-to-deploy-azure-kubernetes-service.md?tabs=python)에 기계 학습 모델을 배포할 수 있습니다. GPU 집약적 워크플로의 경우 NVIDIA Triton Inference 서버와 같은 도구를 사용하여 [GPU를 통해 예측할 수 있습니다](how-to-deploy-with-triton.md?tabs=python).
+Docker와 같은 컨테이너 기술은 모델을 웹 서비스로 배포하는 한 가지 방법입니다. 컨테이너는 플랫폼과 리소스에 구애받지 않고 재현 가능한 소프트웨어 환경을 빌드하고 오케스트레이션할 수 있는 방법을 제공합니다. 핵심 기술을 통해 [미리 구성된 환경](./how-to-use-environments.md), [미리 구성된 컨테이너 이미지](./how-to-deploy-custom-container.md) 또는 사용자 지정 환경과 컨테이너 이미지를 사용하여 [Kubernetes 클러스터](./how-to-deploy-azure-kubernetes-service.md?tabs=python)에 기계 학습 모델을 배포할 수 있습니다. GPU 집약적 워크플로의 경우 NVIDIA Triton Inference 서버와 같은 도구를 사용하여 [GPU를 통해 예측할 수 있습니다](how-to-deploy-with-triton.md?tabs=python).
 
 ### <a name="secure-deployments-with-homomorphic-encryption"></a>동형 암호를 통한 보안 배포
 
@@ -101,4 +101,4 @@ Docker와 같은 컨테이너 기술은 모델을 웹 서비스로 배포하는 
 
 CI(연속 통합), CD(지속적인 배포)와 같은 DevOps 방식을 사용하여 엔드투엔드 기계 학습 수명 주기를 자동화하고 이를 중심으로 거버넌스 데이터를 캡처할 수 있습니다. [GitHub 작업에서 기계 학습 CI/CD 파이프라인](./how-to-github-actions-machine-learning.md)을 정의하여 Azure Machine Learning 학습 및 배포 작업을 실행할 수 있습니다. 
 
-소프트웨어 종속성, 메트릭, 메타데이터, 데이터, 모델 버전 관리를 캡처하는 것은 투명하고 재현 가능하며 감사 가능한 파이프라인을 빌드하기 위한 MLOps 프로세스의 중요한 부분입니다. 이 작업의 경우 [Azure Databricks에서 기계 학습 모델을 학습](./how-to-use-mlflow-azure-databricks.md)할 때뿐만 아니라 [Azure Machine Learning에서도 MLFlow를 사용](how-to-use-mlflow.md)할 수 있습니다. [MLflow 모델을 Azure 웹 서비스로 배포](how-to-deploy-mlflow-models.md)할 수도 있습니다. 
+소프트웨어 종속성, 메트릭, 메타데이터, 데이터, 모델 버전 관리를 캡처하는 것은 투명하고 재현 가능하며 감사 가능한 파이프라인을 빌드하기 위한 MLOps 프로세스의 중요한 부분입니다. 이 작업의 경우 [Azure Databricks에서 기계 학습 모델을 학습](./how-to-use-mlflow-azure-databricks.md)할 때뿐만 아니라 [Azure Machine Learning에서도 MLFlow를 사용](how-to-use-mlflow.md)할 수 있습니다. [MLflow 모델을 Azure 웹 서비스로 배포](how-to-deploy-mlflow-models.md)할 수도 있습니다.

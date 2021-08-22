@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: cedc0ff1b3c2aa64f32445eabc800748a753981d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4cbce0bce0b495bee9a2f9c717f21de665f29f7
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98945433"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112280347"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Azure Storage 사용
 
@@ -154,7 +154,7 @@ Blob을 사용하려면 먼저 [Azure Storage 계정](../storage/common/storage-
 
 기본 Blob 컨테이너는 작업 기록 및 로그와 같은 클러스터 특정 정보를 저장합니다. 여러 HDInsight 클러스터의 기본 Blob 컨테이너를 공유하지 마세요. 이 작업을 수행하면 작업 기록이 손상될 수 있습니다. 각 클러스터에 다른 컨테이너를 사용하는 것이 좋습니다. 기본 스토리지 계정이 아닌 모든 관련 클러스터용으로 지정된, 연결된 스토리지 계정에 공유 데이터를 저장합니다. 연결된 스토리지 계정에 대한 자세한 내용은 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 그러나 원래 HDInsight 클러스터를 삭제한 후에 기본 스토리지 컨테이너를 다시 사용할 수 있습니다. HBase 클러스터의 경우 삭제된 HBase 클러스터에서 사용되는 기본 Blob 컨테이너를 사용하여 새 HBase 클러스터를 만들면 HBase 테이블 스키마 및 데이터를 실제로 유지할 수 있습니다.
 
-[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+[!INCLUDE [secure-transfer-enabled-storage-account](includes/hdinsight-secure-transfer.md)]
 
 ## <a name="use-additional-storage-accounts"></a>추가 스토리지 계정 사용
 

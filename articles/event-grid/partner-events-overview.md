@@ -2,13 +2,13 @@
 title: Azure Event Grid - 파트너 이벤트
 description: Azure Event Grid를 사용하여 타사 Event Grid SaaS 및 PaaS 파트너의 이벤트를 Azure 서비스로 직접 보냅니다.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 31a5fe611871eb4734b6a68e3818592028ebc75c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/15/2021
+ms.openlocfilehash: 5a215d8d007f411066d25d8751299ae6a73038dc
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94506149"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122538134"
 ---
 # <a name="partner-events-in-azure-event-grid-preview"></a>Azure Event Grid의 파트너 이벤트(미리 보기)
 **파트너 이벤트** 기능을 이용하면 타사 SaaS 공급자가 해당 서비스에서 이벤트를 게시하여 소비자가 해당 이벤트를 구독할 수 있습니다. 이 기능은 [항목](concepts.md#topics) 유형인 **파트너 토픽** 을 노출하여 타사 이벤트 원본에 자사 환경을 제공 합니다. 구독자는 이 항목에 대한 구독을 만들어 이벤트를 이용합니다. 또한 이벤트 게시자와 구독자가 사용하는 리소스의 소유권 및 관심 영역을 구분하여 정리된 게시-구독 모델을 제공합니다.
@@ -48,12 +48,10 @@ ms.locfileid: "94506149"
 ## <a name="available-third-party-event-publishers"></a>사용 가능한 타사 이벤트 게시자
 구독자가 이벤트 소비를 시작하려면 먼저 타사 이벤트 게시자가 [온보딩 프로세스](partner-onboarding-overview.md)를 거쳐야 합니다. 
 
-구독자이며 타사 서비스가 Event Grid를 통해 해당 이벤트를 공개하도록 하려는 경우, 
 
 ### <a name="auth0"></a>Auth0
 **Auth0** 는 사용 가능한 첫 번째 파트너 게시자입니다. [Auth0 파트너 토픽](auth0-overview.md)을 만들어 Auth0와 Azure 계정을 연결할 수 있습니다. 이 통합으로 Auth0 이벤트를 실시간으로 반응, 기록 및 모니터링할 수 있습니다. 사용해 보려면 [Auto0과 Azure Event Grid 통합](auth0-how-to.md)을 참조하세요
 
-타사 서비스가 Event Grid를 통해 이벤트를 공개하도록 하려면 [사용자 음성 포털](https://feedback.azure.com/forums/909934-azure-event-grid)에서 아이디어를 제출합니다.
  
 ## <a name="resources-managed-by-event-publishers"></a>이벤트 게시자가 관리하는 리소스
 이벤트 게시자는 다음 리소스를 만들고 관리합니다.

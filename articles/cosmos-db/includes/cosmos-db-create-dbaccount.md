@@ -5,12 +5,12 @@ ms.service: cosmos-db
 ms.topic: include
 ms.date: 07/02/2021
 ms.custom: include file
-ms.openlocfilehash: a295c5bda4c6d5822d762f23372d3b2b5d206a3a
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
+ms.openlocfilehash: f03bf23140131b34b3d97c0dda6c707984b5d5c1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113279870"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121802552"
 ---
 1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "113279870"
 1. 필요에 따라 다음 탭에서 추가 세부 정보를 구성할 수 있습니다.
 
    * **네트워킹** - [가상 네트워크에서 액세스](../how-to-configure-vnet-service-endpoint.md)를 구성합니다.
-   * **백업 정책** - [주기적](../configure-periodic-backup-restore.md) 또는 [지속적인](../continuous-backup-restore-portal.md) 백업 정책을 구성합니다.
+   * **백업 정책** - [주기적](../configure-periodic-backup-restore.md) 또는 [지속적인](../provision-account-continuous-backup.md) 백업 정책을 구성합니다.
    * **암호화** - 서비스 관리형 키 또는 [고객 관리형 키](../how-to-setup-cmk.md#create-a-new-azure-cosmos-account)를 사용합니다.
    * **태그** - 태그는 동일한 태그를 여러 개의 리소스 및 리소스 그룹에 적용하여 리소스를 범주화하고 통합된 청구를 볼 수 있는 이름/값 쌍입니다.
 

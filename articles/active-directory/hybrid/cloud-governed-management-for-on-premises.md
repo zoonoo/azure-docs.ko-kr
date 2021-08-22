@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b4d1041b9d330227fadf31f6afc1804174ea2ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea87a6729e6f8339ad92bc9d57e7152199349ac5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96340852"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965928"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Azure AD가 온-프레미스 워크로드용 클라우드 제어 관리를 제공하는 방법
 
@@ -59,7 +59,7 @@ Azure AD는 보안 원격 액세스 및 해당 애플리케이션에 대한 조�
 
 * **온-프레미스 애플리케이션에 대한 보안 원격 액세스 및 조건부 액세스**
 
-많은 조직의 경우 온-프레미스 AD 통합 웹 및 원격 데스크톱 기반 애플리케이션을 위해 클라우드에서 액세스를 관리하는 첫 번째 단계는 안전한 원격 액세스를 제공하기 위해 해당 애플리케이션 앞에 [애플리케이션 프록시](../manage-apps/application-proxy.md)를 배포하는 것입니다.
+많은 조직의 경우 온-프레미스 AD 통합 웹 및 원격 데스크톱 기반 애플리케이션을 위해 클라우드에서 액세스를 관리하는 첫 번째 단계는 안전한 원격 액세스를 제공하기 위해 해당 애플리케이션 앞에 [애플리케이션 프록시](../app-proxy/application-proxy.md)를 배포하는 것입니다.
 
 Azure AD에 Single Sign-On 되면 사용자는 외부 URL 또는 내부 애플리케이션 포털을 통해 클라우드와 온-프레미스 애플리케이션에 모두 액세스할 수 있습니다. 예를 들어 애플리케이션 프록시는 원격 데스크톱, SharePoint, Tableau 및 Qlik 같은 앱, LOB(사업 부문) 애플리케이션에 대한 원격 액세스 및 Single Sign-On을 제공합니다. 뿐만 아니라 조건부 액세스 정책에는 애플리케이션에 액세스하기 전에 [사용 약관](../conditional-access/terms-of-use.md)을 표시하고 [사용자가 해당 약관에 동의했는지 확인](../conditional-access/require-tou.md)하는 작업이 포함될 수 있습니다.
 

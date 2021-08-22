@@ -3,19 +3,19 @@ title: Direct Line Speech - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech SDK(소프트웨어 개발 키트)와 함께 Direct Line Speech를 사용하는 음성 도우미의 기능, 성능 및 제한 사항에 대한 개요입니다.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: trbye
-ms.openlocfilehash: 6eb689c2e93b5a9cac932e428245410ba35e77d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: lajanuar
+ms.openlocfilehash: 484282f07598a44e9e17cd30b1b8ad9559584c18
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102611796"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537522"
 ---
 # <a name="what-is-direct-line-speech"></a>Direct Line Speech란?
 

@@ -11,12 +11,13 @@ ms.workload: identity
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: eecefae1c1bc2317038a519044a1b3bc10e8012f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.custom: has-adal-ref
+ms.openlocfilehash: 16761e71cdb3b87454bc8409fa8896d13779f66d
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952078"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122539059"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 사용자용 온-프레미스 앱 게시
 
@@ -109,7 +110,7 @@ Azure AD는 애플리케이션 프록시를 사용하여 온-프레미스 및 �
 * **조건부 액세스**. 네트워크 연결이 설정되기 전에 보다 풍부한 정책 제어를 적용할 수 있습니다. 조건부 액세스를 사용하면 백 엔드 애플리케이션에 액세스할 수 있는 트래픽에 대한 제한을 정의할 수 있습니다. 위치, 인증 강도 및 사용자 위험 프로필을 기반으로 로그인을 제한하는 정책을 만듭니다. 조건부 액세스가 발전하면서 MCAS(Microsoft Cloud App Security)와 통합과 같은 추가적인 보안 기능을 제공하기 위해 컨트롤이 더 추가되고 있습니다. MCAS 통합을 사용하면, 조건부 액세스를 활용하여 [실시간 모니터링](./application-proxy-integrate-with-microsoft-cloud-application-security.md)을 위한 온-프레미스 애플리케이션을 구성하고 조건부 액세스 정책을 기반으로 실시간으로 세션을 모니터링하고 제어할 수 있습니다.
 * **트래픽 종료**. 백 엔드 애플리케이션에 대한 모든 트래픽은 클라우드의 애플리케이션 프록시 서비스에서 종료되고, 백 엔드 서버와의 세션이 다시 설정됩니다. 이러한 연결 전략은 백 엔드 서버가 HTTP 트래픽에 직접 노출되지 않는다는 것을 의미합니다. 방화벽이 공격을 받지 않기 때문에 DoS(서비스 거부) 표적 공격에 대해 더 잘 보호됩니다.
 * **모든 액세스가 아웃바운드임**. 애플리케이션 프록시 커넥터는 포트 80 및 443을 통해 클라우드의 애플리케이션 프록시 서비스에 대한 아웃바운드 연결만 사용합니다. 인바운드 연결이 없으면 DMZ의 구성 요소나 들어오는 연결에 대해 방화벽 포트를 열 필요가 없습니다. 모든 연결은 아웃바운드이며 보안 채널을 통해 이루어집니다.
-* **보안 분석 및 ML(기계 학습) 기반 인텔리전스**. 애플리케이션 프록시는 Azure Active Directory의 일부이기 때문에 [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md)([Premium P2 라이선싱](https://azure.microsoft.com/pricing/details/active-directory/) 필요)을 활용할 수 있습니다. Azure AD Identity Protection은 [Microsoft 보안 대응 센터](https://www.microsoft.com/msrc) 및 Microsoft의 [Digital Crimes Unit](https://news.microsoft.com/stories/cybercrime/index.html)의 데이터 피드와 기계 학습 보안 인텔리전스를 결합하여 손상된 계정을 사전에 식별합니다. Identity Protection은 고위험 로그인으로부터 실시간 보호를 제공합니다. 감염된 디바이스의 액세스, 익명의 네트워크를 통한 액세스, 변칙적이고 가능성이 적은 위치에서 액세스 등을 고려하여 세션의 위험 프로필을 늘립니다. 이러한 위험 프로필은 실시간 보호에 사용됩니다. 이러한 많은 보고서 및 이벤트는 SIEM 시스템과 통합을 위해 API를 통해 이미 제공됩니다.
+* **보안 분석 및 ML(기계 학습) 기반 인텔리전스**. 애플리케이션 프록시는 Azure Active Directory의 일부이기 때문에 [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md)([Premium P2 라이선싱](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) 필요)을 활용할 수 있습니다. Azure AD Identity Protection은 [Microsoft 보안 대응 센터](https://www.microsoft.com/msrc) 및 Microsoft의 [Digital Crimes Unit](https://news.microsoft.com/stories/cybercrime/index.html)의 데이터 피드와 기계 학습 보안 인텔리전스를 결합하여 손상된 계정을 사전에 식별합니다. Identity Protection은 고위험 로그인으로부터 실시간 보호를 제공합니다. 감염된 디바이스의 액세스, 익명의 네트워크를 통한 액세스, 변칙적이고 가능성이 적은 위치에서 액세스 등을 고려하여 세션의 위험 프로필을 늘립니다. 이러한 위험 프로필은 실시간 보호에 사용됩니다. 이러한 많은 보고서 및 이벤트는 SIEM 시스템과 통합을 위해 API를 통해 이미 제공됩니다.
 
 * **서비스로 제공되는 원격 액세스**. 원격 액세스가 가능하도록 온-프레미스 서버를 유지 관리하고 패치를 적용하는 데 신경을 쓸 필요가 없습니다. 애플리케이션 프록시는 Microsoft가 소유하는 인터넷 규모 서비스이므로 항상 최신 보안 패치 및 업그레이드를 받을 수 있습니다. 패치가 적용되지 않은 소프트웨어는 여전히 다수의 공격 대상입니다. 미국 국토안보부에 따르면 [표적 공격의 85%를 예방할 수 있습니다](https://www.us-cert.gov/ncas/alerts/TA15-119A). 이 서비스 모델을 사용하면 더 이상 에지 서버를 관리할 필요가 없고 급하게 패치를 적용할 필요가 없기 때문에 부담을 덜 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: af7b46d0942b5d1bec1cbe77ec02eec7080597ba
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 5cf40434740b1cc531ecf7959058e5c7260364ca
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110676963"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458988"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Azure Web Application Firewall에 대한 리소스 로그
 
@@ -301,7 +301,7 @@ Application Gateway 및 WAF v2의 경우 로그에 약간의 추가 정보가 �
 
 #### <a name="analyzing-access-logs-through-goaccess"></a>GoAccess를 통해 액세스 로그 분석
 
-Application Gateway 액세스 로그에 대해 널리 사용되는 [GoAccess](https://goaccess.io/) 로그 분석기를 설치하고 실행하는 Resource Manager 템플릿을 게시했습니다. GoAccess는 고유 방문자, 요청한 파일, 호스트, 운영 체제, 브라우저, HTTP 상태 코드 및 기타 유용한 HTTP 트래픽 통계를 제공 합니다. 자세한 내용은 [GitHub의 Resource Manager 템플릿 폴더에 대한 추가 정보 파일](https://aka.ms/appgwgoaccessreadme)을 참조하세요.
+Application Gateway 액세스 로그에 대해 널리 사용되는 [GoAccess](https://goaccess.io/) 로그 분석기를 설치하고 실행하는 Resource Manager 템플릿을 게시했습니다. GoAccess는 고유 방문자, 요청한 파일, 호스트, 운영 체제, 브라우저, HTTP 상태 코드 및 기타 유용한 HTTP 트래픽 통계를 제공 합니다. 자세한 내용은 [GitHub의 Resource Manager 템플릿 폴더에 대한 추가 정보 파일](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/application-gateway-logviewer-goaccess)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

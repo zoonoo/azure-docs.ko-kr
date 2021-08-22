@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.custom: devx-track-azurepowershell
 manager: carmonm
-ms.openlocfilehash: c310003bb7c9120211e3cf74e240e51d4a10b20c
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 8d35eee9d0c205e2d55093d1a6bcec1d762c78a8
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111891773"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113651642"
 ---
 # <a name="enable-azure-automation-state-configuration"></a>Azure Automation State Configuration 사용
 
@@ -47,7 +47,7 @@ Azure Automation State Configuration을 사용하면 Azure Portal, Azure Resourc
 
 ### <a name="enable-a-vm-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 통해 VM을 사용하도록 설정
 
-Azure Resource Manager 템플릿을 사용하여 State Configuration을 위한 VM을 설치하고 사용하도록 설정할 수 있습니다. State Configuration에 기존 VM을 사용하도록 설정하는 예제 템플릿은 [Desired State Configuration 서비스를 통해 관리되는 서버](https://azure.microsoft.com/resources/templates/automation-configuration/)를 참조하세요. 가상 머신 확장 집합을 관리하는 경우 [Azure Automation을 통해 관리되는 가상 머신 확장 집합 구성](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/)의 예제 템플릿을 참조하세요.
+Azure Resource Manager 템플릿을 사용하여 State Configuration을 위한 VM을 설치하고 사용하도록 설정할 수 있습니다. State Configuration에 기존 VM을 사용하도록 설정하는 예제 템플릿은 [Desired State Configuration 서비스를 통해 관리되는 서버](https://azure.microsoft.com/resources/templates/automation-configuration/)를 참조하세요. 가상 머신 확장 집합을 관리하는 경우 [Azure Automation을 통해 관리되는 가상 머신 확장 집합 구성](https://azure.microsoft.com/resources/templates/vmss-automation-dsc/)의 예제 템플릿을 참조하세요.
 
 ### <a name="enable-machines-using-powershell"></a>PowerShell을 통해 머신을 사용하도록 설정
 

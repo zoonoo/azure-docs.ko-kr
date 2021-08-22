@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/02/2021
 ms.author: nitinme
-ms.openlocfilehash: 51001cbe4b4fc7cf3fb7b4fca93906e09fc4f594
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: f4730a963a669af970362542ecf7868b20438f02
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446750"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112296158"
 ---
 # <a name="responsible-use-of-ai-with-cognitive-services"></a>Cognitive Services를 통한 AI의 책임 있는 사용
 
@@ -64,3 +64,10 @@ Azure Cognitive Services는 애플리케이션에서 AI를 책임감 있게 사�
 * [디자인 패턴 공개](./speech-service/concepts-disclosure-patterns.md)
 * [준수 사항](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context)
 * [데이터, 개인 정보 및 보안](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)
+
+## <a name="anomaly-detector"></a>Anomaly Detector
+
+* [투명도 참고 및 사용 사례](/legal/cognitive-services/anomaly-detector/transparency-note?context=/azure/cognitive-services/anomaly-detector/context/context)
+* [특성 및 제한 사항](/legal/cognitive-services/anomaly-detector/characteristics-and-limitations?context=/azure/cognitive-services/anomaly-detector/context/context)
+* [윤리 및 책임 있는 사용](/legal/cognitive-services/anomaly-detector/guidance-integration-responsible-use?context=/azure/cognitive-services/anomaly-detector/context/context)
+* [데이터, 개인 정보 및 보안](/legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/cognitive-services/anomaly-detector/context/context)

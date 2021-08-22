@@ -4,12 +4,12 @@ description: 여러 다른 Azure 지역의 Azure Container Instances 서비스�
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 26d1bf74656c63f4957df1129746a3f8fd33c554
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 69dc12c0a74855535e173868951c15a3acfcfd75
+ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959112"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114371524"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Azure 지역의 Azure Container Instances에 대한 리소스 가용성
 
@@ -32,6 +32,7 @@ ms.locfileid: "111959112"
 | 지역 | 최대 CPU | 최대 메모리(GB) | VNET 최대 CPU | VNET 최대 메모리(GB) | 스토리지(GB) | GPU SKU(미리 보기) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
 | 오스트레일리아 동부 | 4 | 16 | 4 | 16 | 50 | 해당 없음 |
+| 오스트레일리아 남동부 | 4 | 14 | 해당 없음 | 해당 없음 | 50 | 해당 없음 |
 | 브라질 남부 | 4 | 16 | 2 | 8 | 50 | 해당 없음 |
 | 캐나다 중부 | 4 | 16 | 4 | 16 | 50 | 해당 없음 |
 | 캐나다 동부 | 4 | 16 | 4 | 16 | 50 | 해당 없음 |
@@ -47,12 +48,13 @@ ms.locfileid: "111959112"
 | 한국 중부 | 4 | 16 | 해당 없음 | 해당 없음 | 50 | 해당 없음 |
 | 미국 중북부 | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 |
 | 북유럽 | 4 | 16 | 4 | 16 | 50 | K80 |
+| 노르웨이 동부 | 4 | 16 | 해당 없음 | 해당 없음 | 50 | 해당 없음 |
 | 미국 중남부 | 4 | 16 | 4 | 16 | 50 | V100 |
 | 동남아시아 | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | 인도 남부 | 4 | 16 | 해당 없음 | 해당 없음 | 50 | K80 |
 | 스위스 북부 | 4 | 16 | 해당 없음 | 해당 없음 | 50 | 해당 없음 |
 | 영국 남부 | 4 | 16 | 4 | 16 | 50 | 해당 없음 |
-| 영국 서부 | 4 | 16 | 4 | 16 | 50 | 해당 없음 |
+| 영국 서부 | 4 | 16 | 해당 없음 | 해당 없음 | 50 | 해당 없음 |
 | 아랍에미리트 북부 | 4 | 16 | 해당 없음 | 해당 없음 | 50 | 해당 없음 |
 | 미국 중서부| 4 | 16 | 4 | 16 | 50 | 해당 없음 |
 | 서유럽 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
@@ -75,7 +77,7 @@ ms.locfileid: "111959112"
 
 ## <a name="windows-container-groups"></a>Windows 컨테이너 그룹
 
-다음 지역 및 최대 리소스는 [지원 및 미리 보기](container-instances-faq.md#what-windows-base-os-images-are-supported) Windows Server 컨테이너를 사용하는 컨테이너 그룹에 사용할 수 있습니다.
+다음 지역 및 최대 리소스는 [지원 및 미리 보기](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported) Windows Server 컨테이너를 사용하는 컨테이너 그룹에 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > 현재는 Windows 컨테이너 그룹을 사용한 배포가 Azure 가상 네트워크 배포에서 지원되지 않습니다.

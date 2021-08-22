@@ -8,12 +8,12 @@ manager: bsiva
 ms.topic: how-to
 ms.date: 4/25/2021
 ms.author: rahugup
-ms.openlocfilehash: 2819a5a927562d92153e5ef08a73a976c91a9363
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 26c068450b93272986a1a3c82af0530adfa30ebb
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954618"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766464"
 ---
 # <a name="migrate-availability-group-to-sql-server-on-azure-vm"></a>Azure VM의 SQL Server로 가용성 그룹 마이그레이션
 
@@ -351,7 +351,7 @@ Always On 가용성 그룹이 준비되었습니다.
     - [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md)을 배포하여 디스크를 보호하고 데이터를 도난 및 무단 액세스로부터 안전하게 유지합니다.
     - [IaaS 리소스 보호](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)에 대해 자세히 알아보고 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 방문하세요.
 - 모니터링 및 관리 앱:
-    - 리소스 사용량과 비용을 모니터링하려면 [Azure Cost Management](../../../cost-management-billing/cloudyn/overview.md)를 배포하는 것이 좋습니다.
+    - 리소스 사용량과 비용을 모니터링하려면 [Azure Cost Management](../../../cost-management-billing/cost-management-billing-overview.md)를 배포하는 것이 좋습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

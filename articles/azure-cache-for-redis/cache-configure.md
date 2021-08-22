@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 82123180ca49510441f3e00228351a16c16bc10f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1d49d222ff26198be0b9b07df900fa4dfac6c07d
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110087295"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294112"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
 
@@ -153,8 +153,6 @@ Azure Cache for Redis 설정은 **리소스 메뉴** 를 사용하여 왼쪽의 
 > [!IMPORTANT]
 > **maxmemory-reserved** 및 **maxfragmentationmemory-reserved** 설정은 Standard 및 Premium 캐시에만 사용할 수 있습니다.
 >
-> `noeviction` 제거 정책은 엔터프라이즈 계층 캐시에 사용할 수 있는 유일한 메모리 정책입니다.
->
 
 #### <a name="keyspace-notifications-advanced-settings"></a>Keyspace 알림(고급 설정)
 
@@ -191,10 +189,10 @@ Redis keyspace 알림은 왼쪽의 **고급 설정** 에서 구성됩니다. Key
 
 | Azure Cache for Redis 메트릭 | 자세한 정보 |
 | --- | --- |
-| 네트워크 대역폭 사용량 |[캐시 성능 - 사용 가능한 대역폭](cache-planning-faq.md#azure-cache-for-redis-performance) |
+| 네트워크 대역폭 사용량 |[캐시 성능 - 사용 가능한 대역폭](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
 | 연결된 클라이언트 |[기본 Redis 서버 구성 - 최대 클라이언트 수](#maxclients) |
 | 서버 부하 |[사용 현황 차트 - Redis 서버 부하](cache-how-to-monitor.md#usage-charts) |
-| 메모리 사용량 |[캐시 성능 - 크기](cache-planning-faq.md#azure-cache-for-redis-performance) |
+| 메모리 사용량 |[캐시 성능 - 크기](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
 
 캐시를 업그레이드하려면 **지금 업그레이드** 를 선택하여 [가격 책정 계층](#scale)을 변경하고 캐시 크기를 조정하세요. 가격 책정 계층을 선택하는 방법에 대한 자세한 내용은 [올바른 계층 선택](cache-overview.md#choosing-the-right-tier)을 참조하세요.
 
@@ -319,7 +317,7 @@ Redis keyspace 알림은 왼쪽의 **고급 설정** 에서 구성됩니다. Key
 
 왼쪽의 **다시 부팅** 에서는 캐시 노드를 다시 부팅할 수 있습니다. 이 다시 부팅 기능을 사용하면 캐시 노드에 오류가 발생하는 경우 애플리케이션의 복원력을 테스트할 수 있습니다.
 
-![다시 부팅](./media/cache-configure/redis-cache-reboot.png)
+![Reboot](./media/cache-configure/redis-cache-reboot.png)
 
 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 재부팅할 캐시 분할을 선택할 수 있습니다.
 
@@ -424,7 +422,7 @@ Azure Cache for Redis를 모니터링하고 진단하는 방법에 대한 자세
   * P4(53GB-530GB)-최대 64개의 데이터베이스
   * Redis 클러스터를 사용할 수 있는 모든 프리미엄 캐시 - Redis 클러스터는 0 데이터베이스의 사용만을 지원하므로 Redis 클러스터를 사용할 수 있는 모든 프리미엄 캐시에 대한 `databases` 제한은 사실상 1이며 [Select](https://redis.io/commands/select) 명령은 허용되지 않습니다. 자세한 내용은 [클러스터링을 사용하려면 클라이언트 애플리케이션을 변경해야 합니까?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
-데이터베이스에 대한 자세한 내용은 [Redis 데이터베이스란?](cache-development-faq.md#what-are-redis-databases)을 참조하세요.
+데이터베이스에 대한 자세한 내용은 [Redis 데이터베이스란?](cache-development-faq.yml#what-are-redis-databases-)을 참조하세요.
 
 > [!NOTE]
 > `databases` 설정은 캐시를 만드는 동안에만 PowerShell, CLI, 또는 다른 관리 클라이언트를 사용하여 구성할 수 있습니다. PowerShell을 사용하여 캐시를 만드는 동안 `databases`를 구성하는 예제는 [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases)를 참조하세요.
@@ -517,4 +515,4 @@ shard1>get myKey
 
 ## <a name="next-steps"></a>다음 단계
 
-* Redis 명령을 사용하는 방법은 [어떻게 Redis 명령을 실행할 수 있나요?](cache-development-faq.md#how-can-i-run-redis-commands)를 참조하세요.
+* Redis 명령을 사용하는 방법은 [어떻게 Redis 명령을 실행할 수 있나요?](cache-development-faq.yml#how-can-i-run-redis-commands-)를 참조하세요.

@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/30/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 38a1c975df578b32ec2d6cac9ff5c6ad4acb3687
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 56ee5afdb907f660079fd1ac853ccbd80258b30b
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108759194"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416599"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Azure Service Bus 큐를 사용하는 .NET 다중 계층 애플리케이션
 
@@ -62,7 +62,7 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
 
 첫 번째 단계에서는 *네임스페이스* 를 만들고 해당 네임스페이스에 대한 [SAS(공유 액세스 서명)](service-bus-sas.md) 키를 얻습니다. 네임스페이스는 Service Bus를 통해 노출되는 각 애플리케이션에 대한 애플리케이션 경계를 제공합니다. SAS 키는 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 네임스페이스 이름 및 SAS 키 조합은 Service Bus에 자격 증명을 제공하여 애플리케이션에 대한 액세스를 인증합니다.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+[!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-web-role"></a>웹 역할 만들기
 
@@ -399,12 +399,6 @@ Service Bus에 대한 자세한 내용은 다음 리소스를 참조하십시오
 * [Service Bus 큐 사용 시작][sbacomqhowto]
 * [Service Bus 서비스 페이지][sbacom]  
 
-다중 계층 시나리오에 대한 자세한 내용은 다음을 참조하세요.  
-
-* [스토리지 테이블, 큐 및 Blob을 사용하는 .NET 다중 계층 애플리케이션][mutitierstorage]  
-
-
 
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
-[mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

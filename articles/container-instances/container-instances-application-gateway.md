@@ -3,12 +3,12 @@ title: 컨테이너 그룹의 정적 IP 주소
 description: 가상 네트워크에서 컨테이너 그룹을 만들고 Azure 애플리케이션 게이트웨이를 사용하여 컨테이너화된 웹앱에 정적 프런트 엔드 IP 주소를 노출합니다.
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: c0401c0b6ec4aae124ee1954762d22c16cacb994
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 46b04534a6beae5a2e102aa0167815da44ae21ed
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084226"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219266"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>컨테이너 그룹에 대한 정적 IP 주소 노출
 
@@ -31,7 +31,7 @@ ms.locfileid: "110084226"
 
 필요한 경우 Azure 리소스 그룹을 만듭니다. 예를 들면 다음과 같습니다.
 
-```azureci
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 

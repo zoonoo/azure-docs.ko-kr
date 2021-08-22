@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 4b72de537f573d03f37a9b1de4341a14830479e7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 70c019858908ae3684470a5fb4e5aaf98a976777
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748442"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114298211"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>App Configuration 저장소 자동 백업
 
@@ -199,7 +199,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-다음 명령 또는 [Azure Portal](../storage/common/storage-auth-aad-rbac-portal.md#assign-azure-roles-using-the-azure-portal)을 사용하여 함수 앱의 관리 ID에 큐 액세스 권한을 부여합니다. 큐에서 `Storage Queue Data Contributor` 역할을 할당합니다.
+다음 명령 또는 [Azure Portal](../storage/blobs/assign-azure-role-data-access.md#assign-an-azure-role)을 사용하여 함수 앱의 관리 ID에 큐 액세스 권한을 부여합니다. 큐에서 `Storage Queue Data Contributor` 역할을 할당합니다.
 
 ```azurecli-interactive
 az role assignment create \

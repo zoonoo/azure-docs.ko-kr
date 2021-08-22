@@ -1,19 +1,19 @@
 ---
 title: Azure Site Recovery를 사용하여 Linux VM 장애 복구(failback)를 위한 마스터 대상 서버 설치
 description: Azure Site Recovery를 사용한 VMware VM과 Azure 간 재해 복구 중에 온-프레미스 사이트로 장애 복구(failback)를 위한 Linux 마스터 대상 서버를 설치하는 방법을 알아봅니다.
-author: mayurigupta13
 services: site-recovery
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.author: mayg
-ms.openlocfilehash: 9e1008f7acbfe0685b7a171176c7dc54592d1491
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: b8264221db1fcfee8d47ac0d8f159d6b7a6140fe
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96019245"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110577090"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -21,7 +21,6 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 보호된 가상 머신이 Windows 가상 머신인 경우 Windows 마스터 대상이 필요합니다. Linux 가상 머신인 경우 Linux 마스터 대상이 필요합니다. 다음 단계를 읽고 Linux 마스터 대상을 만들고 설치하는 방법에 대해 알아보세요.
 
 > [!IMPORTANT]
-> 9\.10.0 마스터 대상 서버 릴리스부터 최신 마스터 대상 서버는 Ubuntu 16.04 서버에만 설치할 수 있습니다. 새로운 설치는 CentOS6.6 서버에서 허용되지 않습니다. 그러나 9.10.0 버전을 사용하여 이전 마스터 대상 서버를 계속 업그레이드할 수 있습니다.
 > LVM의 마스터 대상 서버는 지원되지 않습니다.
 
 ## <a name="overview"></a>개요
@@ -48,7 +47,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 - **OS 디스크 크기**: 100GB 이상(OS 설치에 필요)
 - **보존 드라이브에 대한 추가 디스크 크기**: 1TB
 - **CPU 코어**: 4 코어 이상
-- **커널**: 4.16. *
+- **커널**: 4.16.*
 
 ## <a name="deploy-the-master-target-server"></a>마스터 대상 서버 배포
 
@@ -58,6 +57,9 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 
 1.   [다운로드 링크](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso)로 이동하고 가장 가까운 미러를 선택한 다음, Ubuntu 16.04.2 최소 64비트 ISO를 다운로드합니다.
 DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스템을 시작합니다.
+
+>[!NOTE]
+> [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) 버전부터 Linux 마스터 대상 서버에 Ubuntu 20.04 운영 체제가 지원됩니다. 최신 OS를 사용하려면 Ubuntu 20.04 iso 이미지로 시스템 설치를 진행하세요.
 
 1.  기본 설정 언어로 **영어** 를 선택하고 **Enter** 키를 선택합니다.
     
@@ -111,7 +113,7 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
 
 1.  구성 프록시 선택 영역에서 기본 옵션을 선택하고 **계속** 을 선택한 다음, **Enter** 키를 선택합니다.
      
-     ![계속을 선택 하 고 Enter 키를 선택할 수 있는 위치를 보여 주는 스크린샷](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
+     ![계속을 선택하고 입력 키를 선택할 수 있는 위치를 보여 주는 스크린샷](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  시스템 업그레이드를 관리하기 위한 선택 영역에서 **자동 업데이트 없음** 옵션을 선택하고 **Enter** 키를 선택합니다.
 
@@ -183,6 +185,10 @@ Azure Site Recovery 마스터 대상 서버에 Ubuntu의 매우 구체적인 버
 
  `apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx`
 
+>[!NOTE]
+> 버전 [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)부터 Linux 마스터 대상 서버에 Ubuntu 20.04 운영 체제가 지원됩니다.
+> 최신 OS를 사용하려는 경우 계속하기 전에 운영 체제를 Ubuntu 20.04로 업그레이드합니다. 나중에 운영 체제를 업그레이드하려면 [여기](#upgrade-os-of-master-target-server-from-ubuntu-1604-to-ubuntu-2004)에 나열된 지침을 따르세요.
+
 ### <a name="get-the-installer-for-setup"></a>설치를 위한 설치 프로그램 가져오기
 
 마스터 대상이 인터넷에 연결된 경우 다음 단계에 따라 설치 프로그램을 다운로드할 수 있습니다. 인터넷에 연결되지 않은 경우 프로세스 서버에서 설치 프로그램을 복사하여 설치할 수 있습니다.
@@ -238,7 +244,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
     ![다중 경로 ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. 드라이브를 포맷 하 고 새 드라이브에 파일 시스템을 만듭니다. **mkfs. ext4/dev/mapper/ \<Retention disk's multipath id>**.
+3. 드라이브를 포맷하고 새 드라이브에 파일 시스템을 만듭니다(**mkfs.ext4 /dev/mapper/\<Retention disk's multipath id>** ).
     
     ![파일 시스템](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -283,7 +289,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
     `echo itUx70I47uxDuUVY >passphrase.txt`
     
 
-3. 구성 서버의 IP 주소를 적어둡니다. 다음 명령을 실행 하 여 서버를 구성 서버에 등록 합니다.
+3. 구성 서버의 IP 주소를 적어둡니다. 다음 명령을 실행하여 서버를 구성 서버에 등록합니다.
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
@@ -314,7 +320,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
 1. 구성 서버의 IP 주소를 적어둡니다. 다음 단계에서 필요합니다.
 
-2. 다음 명령을 실행 하 여 서버를 구성 서버에 등록 합니다.
+2. 다음 명령을 실행하여 서버를 구성 서버에 등록합니다.
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh
@@ -329,12 +335,32 @@ VMware 도구 또는 open-vm-tools가 데이터 저장소를 찾을 수 있도�
 
 ### <a name="upgrade-the-master-target-server"></a>마스터 대상 서버 업그레이드
 
-설치 관리자를 실행합니다. 마스터 대상에 에이전트가 설치되어 있는지를 자동으로 검색합니다. 업그레이드하려면 **Y** 를 선택합니다.  설치가 완료된 후에 다음 명령을 사용하여 설치된 마스터 대상의 버전을 확인할 수 있습니다.
+설치 프로그램을 실행하면 에이전트가 마스터 대상에 설치되어 있음을 자동으로 감지합니다. 업그레이드를 완료하려면 다음 단계를 완료합니다.
+1. 구성 서버에서 linux 마스터 대상으로 tar.gz를 복사합니다.
+2. 다음 명령을 실행하여 실행 중인 버전의 유효성을 검사합니다. cat /usr/local/.vx_version
+3. tar을 추출합니다. tar -xvf latestlinuxmobsvc.tar.gz
+4. 변경 내용을 실행할 수 있는 권한을 부여합니다. chmod 755 ./install
+5. 업그레이드 스크립트를 실행합니다. sudo ./install
+6. 설치 프로그램이 마스터 대상에 에이전트가 설치되어 있는지 검색합니다. 업그레이드하려면 **Y** 를 선택합니다.
+7. 에이전트가 새 버전을 실행하고 있는지 확인합니다. cat /usr/local/.vx_version
+
+설치가 완료된 후에 다음 명령을 사용하여 설치된 마스터 대상의 버전을 확인할 수 있습니다.
 
 `cat /usr/local/.vx_version`
 
 
 **버전** 필드에서 제공된 마스터 대상의 버전 번호를 볼 수 있습니다.
+
+## <a name="upgrade-os-of-master-target-server-from-ubuntu-1604-to-ubuntu-2004"></a>마스터 대상 서버의 OS를 Ubuntu 16.04에서 Ubuntu 20.04로 업그레이드
+
+9\.42 버전부터 ASR은 Ubuntu 20.04의 Linux 마스터 대상 서버를 지원합니다. 기존 마스터 대상 서버의 OS를 업그레이드하려면
+
+1. 보호된 VM의 다시 보호 작업에 Linux 스케일 아웃 마스터 대상 서버가 사용되지 않는지 확인합니다.
+2. 컴퓨터에서 마스터 대상 서버 설치 프로그램 제거
+3. 이제 운영 체제를 Ubuntu 16.04에서 20.04로 업그레이드합니다.
+4. OS를 성공적으로 업그레이드한 후 컴퓨터를 다시 부팅합니다.
+5. 이제 [최신 설치 프로그램을 다운로드](#download-the-master-target-installation-packages)하고 [위](#install-the-master-target)에 제공된 지침에 따라 마스터 대상 서버 설치를 완료합니다.
+
 
 ## <a name="common-issues"></a>일반적인 문제
 
@@ -342,11 +368,11 @@ VMware 도구 또는 open-vm-tools가 데이터 저장소를 찾을 수 있도�
 
 * 마스터 대상에는 가상 머신에 대한 스냅샷이 없어야 합니다. 스냅샷이 있으면 장애 복구에 실패합니다.
 
-* 일부 사용자 지정 NIC 구성 때문에 시작하는 동안 네트워크 인터페이스를 사용할 수 없으며 마스터 대상 에이전트를 초기화할 수 없습니다. 다음 속성이 올바르게 설정되어 있는지 확인합니다. 이더넷 카드 파일의/etc/network/interfaces.에서 다음 속성을 확인 합니다.
+* 일부 사용자 지정 NIC 구성 때문에 시작하는 동안 네트워크 인터페이스를 사용할 수 없으며 마스터 대상 에이전트를 초기화할 수 없습니다. 다음 속성이 올바르게 설정되어 있는지 확인합니다. 이더넷 카드 파일의 /etc/network/interfaces에서 이러한 속성을 확인합니다.
     * auto eth0
     * iface eth0 inet dhcp <br>
 
-    다음 명령을 사용 하 여 네트워킹 서비스를 다시 시작 합니다. <br>
+    다음 명령을 사용하여 네트워킹 서비스를 다시 시작합니다. <br>
 
 `sudo systemctl restart networking`
 

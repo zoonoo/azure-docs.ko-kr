@@ -6,17 +6,17 @@ ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 78576362ff3258344b6a340762799dfa1a52f623
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 4ec482a0cf8c0b418d2cd6ec11d1afd56273b681
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388234"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112415627"
 ---
 # <a name="event-schemas-in-event-grid-on-kubernetes"></a>Kubernetes의 Event Grid에 있는 이벤트 스키마
 Kubernetes의 Event Grid 모듈에서는 JSON 형식의 이벤트를 허용하고 전송합니다. [클라우드 이벤트 1.0 스키마 사양](https://github.com/cloudevents/spec/blob/v1.0/spec.md)을 지원하며 Event Grid에 이벤트를 게시할 때 사용해야 하는 스키마입니다. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 
 

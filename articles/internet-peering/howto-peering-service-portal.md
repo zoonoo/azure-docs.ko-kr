@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.author: derekol
-ms.openlocfilehash: a52e6038b622c004dc0d133394cd4f53600b2935
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29bf044648c2df44863b308105a762b086bbf6dd
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84700045"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113688238"
 ---
 # <a name="enable-azure-peering-service-on-a-direct-peering-by-using-the-azure-portal"></a>Azure Portal을 통해 직접 피어링에 Azure Peering Service를 사용하도록 설정
 
@@ -48,4 +48,4 @@ ms.locfileid: "84700045"
 
 ## <a name="additional-resources"></a>추가 리소스
 
-질문과 대답은 [Peering Service FAQ](service-faqs.md)를 참조하세요.
+질문과 대답은 [Peering Service FAQ](service-faqs.yml)를 참조하세요.

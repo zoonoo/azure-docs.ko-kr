@@ -5,15 +5,15 @@ services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 07/16/2021
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 386a39d76bf47da45f07054124886e174104849e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e505158c80c0b9a831af17ca2f2d6062dc56f6a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100545416"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114449857"
 ---
 볼륨 컨테이너를 삭제하려면
  - 볼륨 컨테이너에서 볼륨을 삭제해야 합니다. 볼륨 컨테이너가 볼륨에 연결된 경우 해당 볼륨을 먼저 오프라인으로 전환합니다. [볼륨을 오프라인으로 전환](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline)단계를 따릅니다. 볼륨이 오프라인이 되면 삭제할 수 있습니다. 
@@ -33,7 +33,7 @@ ms.locfileid: "100545416"
 
 3. 볼륨 컨테이너에 연결된 볼륨, 백업 정책 및 클라우드 스냅샷이 있는 경우 삭제할 수 있습니다. 확인 대화 상자가 나타나면 볼륨 컨테이너를 삭제한 결과를 설명하는 확인란을 검토 및 선택합니다. **삭제** 를 클릭하면 볼륨 컨테이너가 삭제됩니다.
 
-    ![삭제 확인](./media/storsimple-8000-delete-volume-container/delete-volume-container-02.png)
+    ![삭제 확인](./media/storsimple-8000-delete-volume-container/delete-volume-container-02.png)<!--Added missing border.-->
 
 삭제된 볼륨 컨테이너를 반영하도록 볼륨 컨테이너 목록이 업데이트됩니다.
 

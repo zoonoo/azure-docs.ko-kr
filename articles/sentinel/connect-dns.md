@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 4b6ad04afce5fb4ead5575d47333525c0f5f8a13
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: f4e6ddf4e3db0213587a9154a424813c3cc5ca83
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075201"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122538067"
 ---
 # <a name="connect-your-domain-name-server"></a>도메인 이름 서버 연결
 
@@ -47,7 +47,7 @@ DNS 로그 연결을 사용하도록 설정하면 다음을 수행할 수 있습
 | **연결된 원본** | **지원** | **설명** |
 | --- | --- | --- |
 | [Windows 에이전트](../azure-monitor/agents/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
-| [Linux 에이전트](../azure-monitor/vm/quick-collect-linux-computer.md) | 예 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
+| [Linux 에이전트](../azure-monitor/vm/monitor-virtual-machine.md) | 예 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
 | [System Center Operations Manager 관리 그룹](../azure-monitor/agents/om-agents.md) | 예 | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
 | [Azure Storage 계정](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) | 예 | Azure Storage가 솔루션에서 사용되지 않습니다. |
 
@@ -88,5 +88,5 @@ Log Analytics에서 스키마 **DnsEvents** 를 검색하고 이벤트가 있는
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 DNS 온-프레미스 어플라이언스를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.

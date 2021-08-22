@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/12/2021
+ms.date: 06/17/2021
 ms.author: radeltch
-ms.openlocfilehash: 435528f7338657bc7e7d486a481cdf0ce48f4d38
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: aca16d11bd9ee7e035f7306426a5566c67622a42
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142894"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112369185"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux의 Azure VM에 있는 SAP HANA의 고가용성
 
@@ -41,7 +41,7 @@ ms.locfileid: "108142894"
 [2009879]:https://launchpad.support.sap.com/#/notes/2009879
 
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
-[template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
+[template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 
 온-프레미스 개발에서 HANA 시스템 복제를 사용하거나 공유 스토리지를 사용하여 SAP HANA의 고가용성을 설정할 수 있습니다.
 Azure VM(Virtual Machines)에서 Azure의 HANA 시스템 복제는 현재 지원되는 유일한 고가용성 기능입니다.
@@ -125,7 +125,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 1. 데이터 디스크를 추가합니다.
 
 > [!IMPORTANT]
-> 부하 분산 시나리오의 NIC 보조 IP 구성에서는 부동 IP가 지원되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한 사항](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조하세요. VM에 추가 IP 주소가 필요한 경우 보조 NIC를 배포합니다.    
+> 부하 분산 시나리오의 NIC 보조 IP 구성에서는 부동 IP가 지원되지 않습니다. 자세한 내용은 [Azure Load Balancer 제한 사항](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조하세요. VM에 대한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포합니다.    
 
 > [!Note]
 > 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.  
@@ -595,7 +595,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
     ha_dr_saphanasr = info
     ```
 
-2. **[A]** 클러스터에서 <sid\>adm용 각 클러스터 노드에 sudoers 구성을 요구합니다. 이 예에서는 새 파일을 만들어 수행합니다. 명령을 `root`로 실행합니다.    
+2. **[A]** 클러스터에서 <sid\>adm용 각 클러스터 노드에 sudoers 구성을 요구합니다. 이 예제에서는 새 파일을 만들어 수행합니다. 명령을 `root`로 실행합니다.    
     ```bash
     cat << EOF > /etc/sudoers.d/20-saphana
     # Needed for SAPHanaSR python hook
@@ -679,7 +679,7 @@ op start timeout=3600 op stop timeout=3600 \
 op monitor interval=61 role="Slave" timeout=700 \
 op monitor interval=59 role="Master" timeout=700 \
 op promote timeout=3600 op demote timeout=3600 \
-promotable meta notify=true clone-max=2 clone-node-max=1 interleave=true
+promotable notify=true clone-max=2 clone-node-max=1 interleave=true
 
 sudo pcs resource create vip_<b>HN1</b>_<b>03</b> IPaddr2 ip="<b>10.0.0.13</b>"
 sudo pcs resource create nc_<b>HN1</b>_<b>03</b> azure-lb port=625<b>03</b>
@@ -724,7 +724,7 @@ SAP HANA 2.0 SPS 01부터 SAP는 SAP HANA 시스템 복제를 위한 활성/읽�
 
 ![읽기 지원 보조를 통한 SAP HANA 고가용성](./media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png)
 
-### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>활성/읽기 사용 설정의 Azure Load Balancer의 추가 설정
+### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>활성/읽기 사용 설정을 위한 Azure Load Balancer 추가 설정
 
 두 번째 가상 IP를 프로비저닝하는 추가 단계를 진행하려면 [수동 배포](#manual-deployment) 섹션에 설명된 대로 Azure Load Balancer를 구성했는지 확인합니다.
 
@@ -764,9 +764,9 @@ sapcontrol -nr 03 -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2 --operationMode=logreplay_readaccess 
 ```
 
-### <a name="adding-a-secondary-virtual-ip-address-resource-for-an-activeread-enabled-setup"></a>활성/읽기 사용 설정에 대한 두 번째 가상 IP 주소 리소스 추가
+### <a name="adding-a-secondary-virtual-ip-address-resource-for-an-activeread-enabled-setup"></a>활성/읽기 사용 설정을 위한 보조 가상 IP 주소 리소스 추가
 
-두 번째 가상 IP 및 적절한 공동 배치 제약 조건은 다음 명령으로 구성할 수 있습니다.
+다음 명령을 사용하여 두 번째 가상 IP와 적절한 공동 배치 제약 조건을 구성할 수 있습니다.
 
 ```
 pcs property set maintenance-mode=true
@@ -806,17 +806,17 @@ sudo pcs status
 #     secvip_HN1_03     (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 ```
 
-다음 섹션에서는 실행할 일반적인 장애 조치(failover) 테스트 세트를 찾을 수 있습니다.
+다음 섹션에서는 실행할 일반적인 장애 조치(failover) 테스트 집합을 확인할 수 있습니다.
 
-읽기 사용 보조로 구성된 HANA 클러스터를 테스트하는 동안 두 번째 가상 IP 동작에 유의하세요.
+읽기 사용 보조로 구성된 HANA 클러스터를 테스트하는 동안 두 번째 가상 IP 동작에 유의해야 합니다.
 
 1. **SAPHana_HN1_HDB03** 클러스터 리소스를 **hn1-db-1** 로 마이그레이션하면 두 번째 가상 IP가 다른 서버 **hn1-db-0** 으로 이동합니다. AUTOMATED_REGISTER=“false”를 구성하고 HANA 시스템 복제를 자동으로 등록하지 않은 경우 서버를 사용할 수 있고 클러스터 서비스가 온라인 상태가 될 때 두 번째 가상 IP가 **hn1-db-0** 에서 실행됩니다.  
 
 2. 서버 충돌을 테스트할 때 두 번째 가상 IP 리소스(**rsc_secip_HN1_HDB03**)와 Azure Load Balancer 포트 리소스(**rsc_secnc_HN1_HDB03**)는 주 가상 IP 리소스와 함께 주 서버에서 실행됩니다.  보조 서버가 다운 상태인 동안 읽기 사용 HANA 데이터베이스에 연결된 애플리케이션은 주 HANA 데이터베이스에 연결됩니다. 보조 서버를 사용할 수 없는 동안 읽기 사용 HANA 데이터베이스에 연결된 애플리케이션에 액세스할 수 없도록 하려는 동작을 예상할 수 있습니다.
 
-3. 보조 서버를 사용할 수 있고 클러스터 서비스가 온라인 상태이면 HANA 시스템 복제가 보조 서버로 등록되지 않은 경우에도 두 번째 가상 IP 및 포트 리소스가 보조 서버로 자동 이동합니다. 해당 서버에서 클러스터 서비스를 시작하기 전에 보조 HANA 데이터베이스를 읽기 가능으로 등록했는지 확인해야 합니다. 매개 변수를 AUTOMATED_REGISTER = true로 설정하여 보조 복제본을 자동으로 등록하도록 HANA 인스턴스 클러스터 리소스를 구성할 수 있습니다.
+3. 보조 서버를 사용할 수 있고 클러스터 서비스가 온라인 상태이면 HANA 시스템 복제가 보조 서버로 등록되지 않은 경우에도 두 번째 가상 IP 및 포트 리소스가 보조 서버로 자동 이동합니다. 해당 서버에서 클러스터 서비스를 시작하기 전에 보조 HANA 데이터베이스를 읽기 사용으로 등록했는지 확인해야 합니다. AUTOMATED_REGISTER=true 매개 변수를 설정하여 보조 데이터베이스를 자동으로 등록하도록 HANA 인스턴스 클러스터 리소스를 구성할 수 있습니다.
    
-4. 장애 조치(failover) 및 대체 중에 두 번째 가상 IP를 사용하여 HANA 데이터베이스에 연결하는 애플리케이션의 기존 연결이 중단될 수 있습니다.  
+4. 장애 조치(failover) 및 대체 중에 두 번째 가상 IP를 사용하여 HANA 데이터베이스에 연결하는 애플리케이션에 대한 기존 연결이 중단될 수 있습니다.  
 
 ## <a name="test-the-cluster-setup"></a>클러스터 설정 테스트
 

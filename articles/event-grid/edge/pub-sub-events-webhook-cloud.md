@@ -9,12 +9,12 @@ ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b5eca5eb8ed59553e1b5eebdb859bc3f23d8b0e5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6263a58aebcb7e6eb9d50d18e63257a3deb2cff5
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379855"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416545"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>자습서: 클라우드에서 이벤트 게시, 구독
 
@@ -28,7 +28,7 @@ ms.locfileid: "110379855"
 * **Azure 구독** - 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만듭니다. 
 * **Azure IoT Hub 및 IoT Edge 디바이스** - 아직 없는 경우 [Linux](../../iot-edge/quickstart-linux.md) 또는 [Windows 디바이스](../../iot-edge/quickstart.md)의 빠른 시작 단계를 수행합니다.
 
-[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)]
+[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-deploy-iot-edge.md)]
 
 ## <a name="create-an-azure-function-in-the-azure-portal"></a>Azure Portal에서 Azure 함수 만들기
 
@@ -108,7 +108,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 
 구독자는 토픽에 게시된 이벤트를 등록할 수 있습니다. 이벤트를 수신하려면 구독자가 관심 있는 토픽에 Event Grid 구독을 만들어야 합니다.
 
-[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
+[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. 다음 콘텐츠를 사용하여 subscription2.json을 만듭니다. 페이로드에 대한 자세한 내용은 [API 설명서](api.md)를 참조하세요.
 

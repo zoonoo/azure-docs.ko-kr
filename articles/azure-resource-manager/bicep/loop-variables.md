@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: be97b88156600121deb1b870940a1a40af84fbfc
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 429a15c222e47bab29b314b0d11f7e077281b635
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026743"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635005"
 ---
 # <a name="variable-iteration-in-bicep"></a>Bicep의 변수 반복
 
@@ -31,7 +31,7 @@ ms.locfileid: "111026743"
 
   ```
 
-- 배열의 요소 반복
+- 배열의 요소 반복.
 
   ```bicep
   var <variable-name> = [for <item>, <index> in <collection>: {
@@ -127,8 +127,8 @@ output arrayResult array = objectArray
 
 |템플릿  |Description  |
 |---------|---------|
-|[루프 변수](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopvariables.bicep) | 변수를 반복하는 방법을 보여 줍니다. |
-|[다중 보안 규칙](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.bicep) |네트워크 보안 그룹에 여러 보안 규칙을 배포합니다. 매개 변수에서 보안 규칙을 구성합니다. 매개 변수는 [여러 NSG 매개 변수 파일](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json)을 참조합니다. |
+|[루프 변수](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/loopvariables.bicep) | 변수를 반복하는 방법을 보여 줍니다. |
+|[다중 보안 규칙](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/multiplesecurityrules.bicep) |네트워크 보안 그룹에 여러 보안 규칙을 배포합니다. 매개 변수에서 보안 규칙을 구성합니다. 매개 변수는 [여러 NSG 매개 변수 파일](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/multiplesecurityrules.parameters.json)을 참조합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
