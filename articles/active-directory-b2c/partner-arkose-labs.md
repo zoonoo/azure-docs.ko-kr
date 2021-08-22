@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/22/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5abe1755e22ac20e210aece956056ea647393dc1
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: d3fa9b89cb1fa7b0f7fa33025f908ae8ba5af7a8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107896246"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536053"
 ---
 # <a name="tutorial-configure-arkose-labs-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 Arkose Labs 구성
 
@@ -46,7 +46,7 @@ Arkose Labs 통합에는 다음 구성 요소가 포함됩니다.
 
 ![Arkose Labs 아키텍처 다이어그램을 보여 주는 이미지](media/partner-arkose-labs/arkose-labs-architecture-diagram.png)
 
-| 단계  | Description |
+| 단계  | 설명 |
 |---|---|
 |1     | 사용자가 등록하고 계정을 만듭니다. 사용자가 제출을 선택하면 Arkose Labs 적용 챌린지가 표시됩니다.         |
 |2     |  사용자가 챌린지를 완료한 후 Azure AD B2C는 상태를 Arkose Labs로 보내 토큰을 생성합니다. |
@@ -157,7 +157,7 @@ Visual Studio Code용 [Azure Functions 확장](https://marketplace.visualstudio.
 
 이 샘플은 [HTTP 기본 인증](https://tools.ietf.org/html/rfc7617)을 사용하여 웹 API 엔드포인트를 보호합니다.
 
-사용자 이름 및 암호는 리포지토리의 일부가 아니라 환경 변수로 저장됩니다. 자세한 내용은 [local.settings.js](../azure-functions/functions-run-local.md?tabs=macos%2ccsharp%2cbash#local-settings-file) 파일을 참조하세요.
+사용자 이름 및 암호는 리포지토리의 일부가 아니라 환경 변수로 저장됩니다. 자세한 내용은 [local.settings.js](../azure-functions/functions-develop-local.md#local-settings-file) 파일을 참조하세요.
 
 1. 루트 폴더의 파일에 local.settings.js를 만듭니다.
 

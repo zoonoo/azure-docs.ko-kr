@@ -4,14 +4,14 @@ description: StorSimple 볼륨을 추가, 수정, 모니터링 및 삭제하는 
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 12/09/2017
+ms.date: 08/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 3d649b54b544c120198963f8094764e9590e20b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5653fdcaa37b1adb728a23454317c6088b9efbc7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100547643"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529359"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>StorSimple 디바이스 관리자 서비스를 사용하여 볼륨 관리(업데이트 3 이후)
 
@@ -38,7 +38,7 @@ StorSimple 볼륨은 다음과 같을 수 있습니다.
 
 로컬로 고정된 볼륨은 완전히 프로비전되므로 만들 때 디바이스에 충분한 공간이 있어야 합니다. StorSimple 8100 디바이스에서는 최대 8TB의 크기를, 8600 디바이스에서는 20TB까지 로컬 고정 볼륨을 프로비저닝할 수 있습니다. StorSimple은 스냅샷, 메타데이터 및 데이터 처리에 대해 디바이스에서 나머지 로컬 공간을 예약합니다. 로컬로 고정된 볼륨의 크기를 사용 가능한 최대 공간으로 늘릴 수 있지만 만든 볼륨의 크기를 줄일 수는 없습니다.
 
-로컬로 고정된 볼륨을 만드는 경우 계층화된 볼륨을 만드는 데 사용할 수 있는 공간이 줄어듭니다. 반대로도 마찬가지입니다. 기존 계층화된 볼륨이 있는 경우 로컬로 고정된 볼륨을 만드는 데 사용할 수 있는 공간은 위에서 언급한 최대 한도보다 작게 됩니다. 로컬 볼륨에 대한 자세한 내용은 [로컬로 고정된 볼륨에 대한 질문과 대답](storsimple-8000-local-volume-faq.md)을 참조하세요.
+로컬로 고정된 볼륨을 만드는 경우 계층화된 볼륨을 만드는 데 사용할 수 있는 공간이 줄어듭니다. 반대로도 마찬가지입니다. 기존 계층화된 볼륨이 있는 경우 로컬로 고정된 볼륨을 만드는 데 사용할 수 있는 공간은 위에서 언급한 최대 한도보다 작게 됩니다. 로컬 볼륨에 대한 자세한 내용은 [로컬로 고정된 볼륨에 대한 질문과 대답](storsimple-8000-local-volume-faq.yml)을 참조하세요.
 
 ### <a name="tiered-volumes"></a>계층화된 볼륨
 
@@ -315,7 +315,7 @@ StorSimple 8000 시리즈 디바이스를 배포하는 동안 [볼륨을 만들�
 2. 볼륨의 테이블 형식 목록에서 볼륨을 선택하고 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴 호출합니다. **수정** 을 선택합니다.
 3. **볼륨 수정** 블레이드의 **모니터링** 에서 **사용** 또는 **사용 안 함** 을 선택하여 모니터링을 사용하거나 사용하지 않습니다.
 
-    ![Disable monitoring](./media/storsimple-8000-manage-volumes-u2/monitor-volume-0 1.png) 
+    ![모니터링 사용 안 함](./media/storsimple-8000-manage-volumes-u2/monitor-volume-01.png) 
 
 4. **저장** 을 클릭하고 확인하라는 메시지가 표시되면 **예** 를 클릭합니다. Azure Portal에서는 볼륨을 업데이트하기 위한 알림을 표시한 다음 볼륨이 성공적으로 업데이트된 후에 성공 메시지를 표시합니다.
 

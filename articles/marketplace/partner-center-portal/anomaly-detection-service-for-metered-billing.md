@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: 77159a099dcc28739457a10afef374502d117b5a
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 8c0cba39c2fe299a2cc822309b0063d2d4fe2f71
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971158"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113431522"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>요금제 청구를 위한 변칙 검색 서비스
 
-[마켓플레이스 계량 서비스](../marketplace-metering-service-apis-faq.md)를 사용하면 비표준 단위에 따라 요금이 청구되는 상업용 Marketplace 프로그램에서 제품을 만들 수 있습니다. 요금제를 사용하여 고객 사용에 대한 사용 이벤트를 Microsoft에 전송하고 해당 사용량을 기준으로 청구를 준비합니다.
+[마켓플레이스 계량 서비스](../marketplace-metering-service-apis-faq.yml)를 사용하면 비표준 단위에 따라 요금이 청구되는 상업용 Marketplace 프로그램에서 제품을 만들 수 있습니다. 요금제를 사용하여 고객 사용에 대한 사용 이벤트를 Microsoft에 전송하고 해당 사용량을 기준으로 청구를 준비합니다.
 
 사용 데이터가 잘못되는 원인은 버그, 잘못된 사용 추적 구성, 부정 행위와 같은 다양한 원인이 있을 수 있습니다. 사용 데이터가 잘못됨으로 인해 고객에게 요금이 잘못 청구되거나 및 청구 분쟁이 일어날 수 있습니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "111971158"
 
 요금 청구 변칙에 관련된 지원 티켓을 제출하려면:
 
-1. 회사 계정을 사용하여 [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)에 로그인합니다.
+1. 회사 계정을 사용하여 [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165290)에 로그인합니다.
 1. 페이지의 오른쪽 위에 있는 메뉴에서 **지원** 아이콘을 선택합니다. **도움말 및 지원** 창이 페이지의 오른쪽에 나타납니다.
 1. 상업용 Marketplace에 대한 도움이 필요하면 **상업용 Marketplace** 를 선택합니다.
    ![지원 창을 보여 줍니다.](../media/support/commercial-marketplace-support-pane.png)

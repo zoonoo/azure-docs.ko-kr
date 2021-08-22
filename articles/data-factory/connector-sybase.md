@@ -1,17 +1,20 @@
 ---
 title: Azure Data Factory를 사용하여 Sybase에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Sybase에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: jianleishen
-ms.openlocfilehash: eb183b4d5c88f7808cde2b7677e93ba6d553708f
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 2f3c672e136152fbd5abec20a81bd04dc5fb2e2a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109485156"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642886"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Sybase에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]

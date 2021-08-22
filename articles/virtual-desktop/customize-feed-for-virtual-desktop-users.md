@@ -7,12 +7,12 @@ ms.date: 09/14/2019
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 24174d7ac9fa33cb1fb3ca6e325537dde346b3c3
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d2a1e8df23bca2e57f2d26bd83fc06ad93847903
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752012"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113032942"
 ---
 # <a name="customize-the-feed-for-azure-virtual-desktop-users"></a>Azure Virtual Desktop 사용자용 피드 사용자 지정
 
@@ -120,8 +120,8 @@ Azure Portal에서 이름을 설정하여 게시된 원격 데스크톱의 표�
 
 이제 사용자에 대한 피드를 사용자 지정했으므로 Azure Virtual Desktop 클라이언트에 로그인하여 테스트할 수 있습니다. 이렇게 하려면 Azure Virtual Desktop에 연결 방법을 계속 진행합니다.
 
- * [Windows 10 또는 Windows 7을 사용하여 연결](connect-windows-7-10.md)
- * [웹 클라이언트를 사용하여 연결](connect-web.md)
- * [Android 클라이언트와 연결](connect-android.md)
- * [iOS 클라이언트와 연결](connect-ios.md)
- * [macOS 클라이언트와 연결](connect-macos.md)
+ * [Windows 10 또는 Windows 7을 사용하여 연결](./user-documentation/connect-windows-7-10.md)
+ * [웹 클라이언트를 사용하여 연결](./user-documentation/connect-web.md)
+ * [Android 클라이언트와 연결](./user-documentation/connect-android.md)
+ * [iOS 클라이언트와 연결](./user-documentation/connect-ios.md)
+ * [macOS 클라이언트와 연결](./user-documentation/connect-macos.md)

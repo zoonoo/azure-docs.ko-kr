@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a6955b7fc4948faaea6db426545f8cc3d1eece35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 76363f171ba08c28e7460a988ff72afbf546716b
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359900"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113434866"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-resource-manager"></a>Azure VM에서 SQL Server에 대한 Azure Key Vault 통합 구성(Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -49,9 +49,7 @@ Resource Manager와 함께 새 SQL 가상 머신을 프로비저닝하는 경우
 
 ### <a name="existing-vms"></a>기존 VM
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
-
-기존 SQL 가상 머신의 경우 [SQL 가상 머신 리소스](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource)를 열고 **설정** 에서 **보안** 을 선택합니다. **사용** 을 선택하여 Azure Key Vault 통합을 사용하도록 설정합니다. 
+기존 SQL 가상 머신의 경우 [SQL 가상 머신 리소스](manage-sql-vm-portal.md#access-the-resource)를 열고 **설정** 에서 **보안** 을 선택합니다. **사용** 을 선택하여 Azure Key Vault 통합을 사용하도록 설정합니다. 
 
 ![기존 VM에 대한 SQL Key Vault 통합](./media/azure-key-vault-integration-configure/azure-sql-rm-akv-existing-vms.png)
 
@@ -62,7 +60,7 @@ Resource Manager와 함께 새 SQL 가상 머신을 프로비저닝하는 경우
 
 
 > [!NOTE]
-> 또한 템플릿을 사용하여 Key Vault를 구성할 수 있습니다. 자세한 내용은 [Azure Key Vault 통합을 위한 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update)을 참조하세요.
+> 또한 템플릿을 사용하여 Key Vault를 구성할 수 있습니다. 자세한 내용은 [Azure Key Vault 통합을 위한 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-sql-existing-keyvault-update)을 참조하세요.
 
 
 [!INCLUDE [Key Vault integration next steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]

@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: eaa064a8a266bb68bacff8e42fd5dd6794c0f682
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 93ab5cf44286a4fcba638f14e1c7b29698a02e55
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110105010"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113358024"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>collectd: Application Insights의 Linux 성능 메트릭[사용 중단]
 
@@ -35,7 +35,7 @@ Linux 시스템 성능 메트릭을[Application Insights](./app-insights-overvie
 Linux 서버 컴퓨터에서:
 
 1. [collectd](https://collectd.org/) 5.4.0 버전 또는 그 이상을 설치합니다.
-2. [Application Insights collectd 기록기 플러그 인](https://github.com/microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal)을 다운로드합니다. 버전 번호를 메모합니다.
+2. [Application Insights collectd 기록기 플러그 인](https://github.com/microsoft/ApplicationInsights-Java/tree/main/agent/agent-tooling/src/main/java/com/microsoft/applicationinsights/agent/internal)을 다운로드합니다. 버전 번호를 메모합니다.
 3. 플러그인JAR를 `/usr/share/collectd/java`에 복사합니다.
 4. 편집 `/etc/collectd/collectd.conf`:
    * [Java 플러그인](https://collectd.org/wiki/index.php/Plugin:Java) 사용하도록 설정 합니다.

@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 5/17/2021
 ms.author: edoyle
 ms.custom: support-help-page
-ms.openlocfilehash: a4f83d6ddf09ca449da74f163a82baf2b12adc91
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 3b84f85a01ebaff9c3901672d31a135586280e13
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950071"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633544"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 지원 옵션
 
@@ -81,20 +81,6 @@ Microsoft Q&A에서 검색하여 문제에 대한 답변을 찾을 수 없는 �
 </div>
 
 [StackOverflow][stackoverflow]의 `azure-service-fabric` 태그는 플랫폼 작동 방식과 특정 작업을 수행하기 위해 플랫폼을 사용할 수 있는 방법에 대한 일반적인 질문을 하는 데 사용됩니다.
-
-## <a name="submit-feedback-on-azure-feedback"></a>Azure 피드백에 대한 사용자 의견 제출
-<div class='icon is-large'>
-    <img alt='UserVoice' src='./media/logos/azure-feedback-logo.png'>
-</div>
-
-[Service Fabric에 대한 Azure 피드백 포럼][uservoice-forum]은 중요한 제품 기능 아이디어를 제출하기에 가장 적합한 곳입니다. 가장 인기 있는 요청을 검토하며 이를 중장기 계획에 반영합니다. 커뮤니티 내에서 제안하신 요구가 충분히 지원될 수 있게 최선을 다하고 있습니다.
-
-
-> [!Note]
-> **Service Fabric 미리 보기 버전은 프로덕션 용도로 지원되지 않습니다.** 경우에 따라 초기 피드백을 조사할 중요한 기능 변경 사항이 포함된 특별 미리 보기 릴리스가 제공됩니다. 프로덕션 워크로드를 제공하지 않는 격리된 테스트 환경에서만 미리 보기 버전을 사용해야 합니다. 프로덕션 클러스터는 항상 지원되는 안정적인 Service Fabric 버전으로 실행해야 합니다. 이러한 미리 보기 릴리스에는 유료 지원 옵션을 제공하지 않습니다.
->
-> 미리 보기 버전은 항상 주 버전과 부 버전 번호가 255로 시작합니다. 예를 들어 Service Fabric 버전 255.255.5703.949가 표시되는 경우 이 버전은 미리 보기로 제공되며 테스트 클러스터에서만 사용하기 위한 것입니다. 이러한 미리 보기 릴리스는 포함된 기능에 관한 자세한 내용과 함께 [Service Fabric 팀 블로그](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)에서 발표됩니다. 위에 나열된 옵션 중 하나를 사용하여 피드백을 제공하세요.
-
 
 ## <a name="stay-informed-of-updates-and-new-releases"></a>업데이트 및 새 릴리스의 최신 정보 수신
 

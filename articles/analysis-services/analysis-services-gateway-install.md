@@ -8,12 +8,12 @@ ms.date: 04/27/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3128b9f7ae628a0a1974bb30cf87014e269ea466
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 7cf788c4b11591121254e1712253827462deac35
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130334"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113009545"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
 
@@ -152,11 +152,11 @@ Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -Gatew
 ```
 ---
 
-이제 끝났습니다! 포트를 열거나 문제 해결을 수행해야 하는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 확인하세요.
+정말 간단하죠. 포트를 열거나 문제 해결을 수행해야 하는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)   
 * [Azure Analysis Services에서 지원되는 데이터 원본](analysis-services-datasource.md)   
 * [Azure Virtual Network에서 데이터 원본에 게이트웨이 사용](analysis-services-vnet-gateway.md)   
-* [Analysis Services 네트워크 연결과 관련된 질문과 대답](analysis-services-network-faq.md) 
+* [Analysis Services 네트워크 연결과 관련된 질문과 대답](analysis-services-network-faq.yml) 

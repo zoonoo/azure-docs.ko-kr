@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: e60d8490632a29e96dccf9cc8ff0365baf671bb6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea9d59629ac843020ef8aa29e9140552b26b13be
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104802627"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535640"
 ---
 # <a name="application-security-groups"></a>애플리케이션 보안 그룹
 
@@ -57,7 +57,6 @@ ms.locfileid: "104802627"
 애플리케이션 보안 그룹에는 다음과 같은 제약 사항이 있습니다.
 
 -    한 구독에 허용되는 애플리케이션 보안 그룹의 개수 제한 및 애플리케이션 보안 그룹과 관련된 기타 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
-- Azure Portal에서 하나의 애플리케이션 보안 그룹만을 보안 규칙의 원본 및 대상으로 지정할 수 있습니다. REST API(PowerShell/Azure CLI 포함)에서 원본 또는 대상에 여러 애플리케이션 보안 그룹을 지정할 수 있습니다.
 - 애플리케이션 보안 그룹에 할당된 모든 네트워크 인터페이스는 애플리케이션 보안 그룹에 할당된 첫 번째 네트워크 인터페이스가 있는 가상 네트워크와 동일한 가상 네트워크에 있어야 합니다. 예를 들어 *AsgWeb* 라는 애플리케이션 보안 그룹에 할당된 첫 번째 네트워크 인터페이스가 *VNet1* 이라는 가상 네트워크에 있는 경우 *ASGWeb* 에 할당되는 모든 후속 네트워크 인터페이스는 *VNet1* 에 있어야 합니다. 서로 다른 가상 네트워크의 네트워크 인터페이스를 동일한 애플리케이션 보안 그룹에 추가할 수 없습니다.
 - 애플리케이션 보안 그룹을 보안 규칙의 원본 및 대상으로 지정하는 경우, 두 애플리케이션 보안 그룹의 네트워크 인터페이스는 동일한 가상 네트워크에 있어야 합니다. 예를 들어 *AsgLogic* 에 *VNet1* 의 네트워크 인터페이스, *AsgDb* 에 *VNet2* 의 네트워크 인터페이스가 포함되어 있는 경우 규칙에서 *AsgLogic* 을 원본으로, *AsgDb* 를 대상으로 할당할 수 없습니다. 원본 및 대상 애플리케이션 보안 그룹에 대한 모든 네트워크 인터페이스는 동일한 가상 네트워크에 있어야 합니다.
 

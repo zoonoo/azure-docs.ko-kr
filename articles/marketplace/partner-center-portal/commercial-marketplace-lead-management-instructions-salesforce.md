@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: 73caf848ab5c6f8e973469066ce4612a075a52f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f059e39c97f66d07caa529ec4f6592fd8efe689e
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94489321"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284926"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Salesforce의 잠재 고객 관리 구성
 
@@ -66,7 +66,7 @@ ms.locfileid: "94489321"
 
 게시 포털에서 제품에 대한 잠재 고객 관리 정보를 구성할 준비가 되면 다음 단계를 수행합니다.
 
-1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165290)에 로그인합니다.
 
 1. 제품을 선택하고 **제품 설정** 탭으로 이동합니다.
 
@@ -85,4 +85,4 @@ ms.locfileid: "94489321"
 잠재 고객 대상에 성공적으로 연결되었는지 확인하려면 **유효성 검사** 를 선택합니다. 성공하면 잠재 고객 대상에서 테스트 잠재 고객이 생깁니다.
 
 >[!NOTE]
->제품에 대한 잠재 고객을 받으려면 먼저 제품의 나머지 부분에 대해 구성을 끝낸 후에 게시해야 합니다.
+>제품에 대한 잠재 고객을 받으려면 먼저 나머지 제품 구성을 끝내고 게시해야 합니다.

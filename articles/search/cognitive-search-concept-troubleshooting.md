@@ -2,18 +2,17 @@
 title: AI 보강 디자인을 위한 팁
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search에서 AI 보강 파이프라인을 설정하기 위한 팁 및 문제 해결.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: d372c4bff4977ed310d2e84aa255679a9c5ed928
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 254c56d2557692afb4ef9f384612006324268edf
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756458"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731791"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강을 위한 팁
 

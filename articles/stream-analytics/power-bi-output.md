@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 4/7/2021
-ms.openlocfilehash: 07b7715935756293467f2a3004109df9bf679661
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.date: 7/7/2021
+ms.openlocfilehash: d3f8bab950af095a457347b825966a0845ef36f6
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107030007"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113506784"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Azure Stream Analytics의 Power BI 출력
 
@@ -80,5 +80,5 @@ DateTime | String | String |  DateTime | String
 
 ## <a name="next-steps"></a>다음 단계
 
-* [관리 ID를 사용하여 Power BI에 Azure Stream Analytics 작업 인증(미리 보기)](powerbi-output-managed-identity.md)
+* [관리 ID를 사용하여 Power BI에 Azure Stream Analytics 작업 인증](powerbi-output-managed-identity.md)
 * [빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)

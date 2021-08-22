@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3f92bfe98a45117264c957481a75493de652abc9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 62a1894fe63bcf24e19671a146cd16bb6fe59b0b
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97508104"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "122642091"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 Azure Active Directory 기술 프로필 정의
 
@@ -28,7 +28,7 @@ Azure AD B2C(Azure Active Directory B2C)는 Azure Active Directory 사용자 관
 
 **Protocol** 요소의 **Name** 특성은 `Proprietary`로 설정해야 합니다. **handler** 특성은 프로토콜 처리기 어셈블리의 정규화된 이름 `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`을 포함해야 합니다.
 
-[사용자 지정 정책 시작 팩](custom-policy-get-started.md#custom-policy-starter-pack) Azure AD 기술 프로필에는 **AAD-Common** 기술 프로필이 포함됩니다. 프로토콜이 **AAD-Common** 기술 프로필에 구성되어 있으므로 Azure AD 기술 프로필은 프로토콜을 지정하지 않습니다.
+[사용자 지정 정책 시작 팩](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) Azure AD 기술 프로필에는 **AAD-Common** 기술 프로필이 포함됩니다. 프로토콜이 **AAD-Common** 기술 프로필에 구성되어 있으므로 Azure AD 기술 프로필은 프로토콜을 지정하지 않습니다.
  
 - **AAD-UserReadUsingAlternativeSecurityId** 및 **AAD-UserReadUsingAlternativeSecurityId-NoError** - 디렉터리에서 소셜 계정을 조회합니다.
 - **AAD-UserWriteUsingAlternativeSecurityId** - 새 소셜 계정을 만듭니다.
@@ -253,7 +253,7 @@ Azure AD 특성 이름을 포함하는 **PartnerClaimType** 특성이 지정되�
 | RaiseErrorIfClaimsPrincipalAlreadyExists | 예 | 사용자 개체가 이미 있는 경우 오류가 발생합니다. 가능한 값은 `true` 또는 `false`입니다.|
 | ApplicationObjectId | 예 | 확장 특성에 대한 애플리케이션 개체 ID입니다. 값은 애플리케이션의 ObjectId입니다. 자세한 내용은 [사용자 지정 특성 사용](user-flow-custom-attributes.md?pivots=b2c-custom-policy)을 참조하세요. |
 | clientid | 예 | 테넌트에 제3자로 액세스하기 위한 클라이언트 식별자입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](user-flow-custom-attributes.md?pivots=b2c-custom-policy)을 참조하세요. |
-| IncludeClaimResolvingInClaimsHandling  | 예 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md)이 기술 프로필에 포함되는지 여부를 지정합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 기술 프로필에서 클레임 확인 프로그램을 사용하려는 경우 이 값을 `true`로 설정합니다. |
+| IncludeClaimResolvingInClaimsHandling  | 예 | 입력 및 출력 클레임의 경우 기술 프로필에 [클레임 해결](claim-resolver-overview.md)이 포함되는지 여부를 지정합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 기술 프로필에서 클레임 확인 프로그램을 사용하려는 경우 이 값을 `true`로 설정합니다. |
 
 ### <a name="ui-elements"></a>UI 요소
  

@@ -10,12 +10,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
-ms.openlocfilehash: ae3899a61e942695fed1e3da5fc543b298a42e24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da7d31d018853b340be4506af48a602e7cb2765b
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94695557"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437939"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Azure Load Balancer를 사용하여 일반적인 Azure 배포 오류 해결
 
@@ -35,7 +35,7 @@ ms.locfileid: "94695557"
 |CannotUseInactiveHealthProbe| 가상 머신 확장 집합 상태에 대해 구성된 규칙에서 사용하지 않는 프로브는 사용할 수 없습니다. 설정된 프로브를 적극적으로 사용 중인지 확인하세요. |
 |VMScaleSetCannotUseMultipleLoadBalancersOfSameType| 동일한 유형(내부, 공용)의 Load Balancer를 여러 개 사용할 수 없습니다. 내부 및 공용 Load Balancer는 최대 1개만 사용할 수 있습니다. |
 |VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | 다중 배치 그룹 가상 머신 확장 집합 또는 교차 가용성 영역 가상 머신 확장 집합에 대한 기본 Load Balancer는 지원되지 않습니다. 표준 Load Balancer를 대신 사용하세요. |
-|MarketplacePurchaseEligibilityFailed | 구독이 EA 구독으로 전환됨에 따라 구매가 가능하도록 올바른 관리 계정으로 전환하세요. 자세한 내용은 [여기](../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase)를 참조하세요. |
+|MarketplacePurchaseEligibilityFailed | 구독이 EA 구독으로 전환됨에 따라 구매가 가능하도록 올바른 관리 계정으로 전환하세요. 자세한 내용은 [여기](../marketplace/marketplace-faq-publisher-guide.yml#what-could-block-a-customer-from-completing-a-purchase-)를 참조하세요. |
 |ResourceDeploymentFailure| 부하 분산 장치에 장애가 발생한 경우 다음 단계에 따라 복구하세요.<ol><li>https://resources.azure.com 으로 이동하고 Azure Portal 자격 증명으로 로그인합니다.</li><li>**읽기/쓰기** 를 선택합니다.</li><li>왼쪽에서 **구독** 을 확장한 다음, 업데이트할 Load Balancer로 구독을 확장합니다.</li><li>**ResourceGroups** 를 확장한 다음, 업데이트할 Load Balancer로 리소스 그룹을 확장합니다.</li><li>**Microsoft.Network** > **LoadBalancers** 를 선택한 다음, 업데이트할 Load Balancer로 **LoadBalancer_1** 을 선택합니다.</li><li>**LoadBalancer_1** 에 대한 표시 페이지에서 **가져오기** > **편집** 을 선택합니다.</li><li>**ProvisioningState** 값을 **실패** 에서 **성공** 으로 업데이트합니다.</li><li>**PUT** 을 선택합니다.</li></ol>|
 |  |  |
 

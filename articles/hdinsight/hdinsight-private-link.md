@@ -4,12 +4,12 @@ description: Azure Private Link를 사용하여 가상 네트워크에서 Azure 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: fe3b9617db20f445d4139c006c283bbfe537d544
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 4c5e30bfd7afd8a7cd8974544324f6e610736846
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110616482"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113438479"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Private Link를 사용하여 Azure HDInsight 클러스터 보호 및 격리(미리 보기)
 
@@ -53,7 +53,7 @@ ARM(Azure Resource Manager) 템플릿에서 특정 네트워크 속성을 구성
 
 `privateLink`를 ‘사용하도록 설정’하면 내부 [SLB](../load-balancer/load-balancer-overview.md)(표준 부하 분산 장치)가 생성되고 SLB마다 Azure Private Link 서비스가 프로비저닝됩니다. Private Link 서비스를 사용하면 프라이빗 엔드포인트에서 HDInsight 클러스터에 액세스할 수 있습니다.
 
-표준 부하 분산 장치는 기본 부하 분산 장치와 마찬가지로 [퍼블릭 아웃바운드 NAT](../load-balancer/load-balancer-outbound-connections.md)를 자동으로 제공하지 않습니다. 아웃바운드 종속성을 위해 [Virtual Network NAT](../virtual-network/nat-overview.md) 또는 [방화벽](./hdinsight-restrict-outbound-traffic.md)과 같은 자체 NAT 솔루션을 제공해야 합니다. HDInsight 클러스터는 여전히 아웃바운드 종속성에 액세스해야 합니다. 이러한 아웃바운드 종속성이 허용되지 않으면 클러스터 만들기가 실패할 수 있습니다.
+표준 부하 분산 장치는 기본 부하 분산 장치와 마찬가지로 [퍼블릭 아웃바운드 NAT](../load-balancer/load-balancer-outbound-connections.md)를 자동으로 제공하지 않습니다. 아웃바운드 종속성을 위해 [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) 또는 [방화벽](./hdinsight-restrict-outbound-traffic.md)과 같은 자체 NAT 솔루션을 제공해야 합니다. HDInsight 클러스터는 여전히 아웃바운드 종속성에 액세스해야 합니다. 이러한 아웃바운드 종속성이 허용되지 않으면 클러스터 만들기가 실패할 수 있습니다.
 
 ### <a name="prepare-your-environment"></a>환경 준비
 

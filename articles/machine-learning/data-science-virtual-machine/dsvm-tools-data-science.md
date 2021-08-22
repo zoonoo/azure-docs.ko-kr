@@ -9,12 +9,12 @@ author: timoklimmer
 ms.author: tklimmer
 ms.topic: conceptual
 ms.date: 05/12/2021
-ms.openlocfilehash: 03ab10c4ee4ab4db1054650630ba347abbc7f25e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 86cbac686c2f994dff4042ea2a227156d9e45472
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110068845"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528968"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Azure Data Science Virtual Machine의 Machine Learning 및 Data Science 도구
 Azure DSVM(Data Science Virtual Machines)에는 Python, R, Julia와 같이 인기 있는 언어에서 사용할 수 있는 기계 학습을 위한 다양한 도구 및 라이브러리 집합이 있습니다.
@@ -23,7 +23,7 @@ Azure DSVM(Data Science Virtual Machines)에는 Python, R, Julia와 같이 인�
 
 ## <a name="azure-machine-learning-sdk-for-python"></a>Python용 Azure Machine Learning SDK
 
-[Python용 Azure Machine Learning SDK](../overview-what-is-azure-ml.md)용 전체 참조를 참조하세요.
+[Python용 Azure Machine Learning SDK](../overview-what-is-azure-machine-learning.md)용 전체 참조를 참조하세요.
 
 | 범주 | 값 |
 | ------------- | ------------- |

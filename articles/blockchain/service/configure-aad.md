@@ -1,19 +1,21 @@
 ---
 title: Azure Active Directory 액세스 - Azure Blockchain Service 구성
 description: Azure Active Directory 액세스를 사용하여 Azure Blockchain Service를 구성하는 방법
-ms.date: 11/22/2019
+ms.date: 05/11/2021
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 337d01abc51d310d06aeea3427b770132be4824c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea08a6cb59bdf5f8a18b05b897b8e6161c86f337
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85208776"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122642099"
 ---
 # <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Azure Blockchain Service에 대한 Azure Active Directory 액세스를 구성하는 방법
 
 이 문서에서는 Azure AD(Azure Active Directory) 사용자, 그룹 또는 애플리케이션 ID를 사용하여 액세스 권한을 부여하고 Azure Blockchain Service 노드에 연결하는 방법에 대해 알아봅니다.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 Azure AD는 클라우드 기반 ID를 관리하며 전체 엔터프라이즈에서 단일 ID를 사용하고 Azure의 애플리케이션에 액세스할 수 있도록 합니다. Azure Blockchain Service는 Azure AD와 통합하여 ID 페더레이션, Single Sign-On 및 다단계 인증과 같은 이점을 제공합니다.
 
@@ -66,7 +68,7 @@ git clone https://github.com/Microsoft/azure-blockchain-connector.git
 1. 다음 명령을 실행하여 Azure AD 사용자 계정을 사용하여 인증합니다. \<myAADDirectory\>을 Azure AD 도메인으로 바꿉니다. 예들 들어 `yourdomain.onmicrosoft.com`입니다.
 
     ```
-    connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory> 
+    connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory>
     ```
 
 1. Azure AD에 자격 증명을 묻는 메시지가 표시됩니다.

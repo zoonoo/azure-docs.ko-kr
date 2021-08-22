@@ -1,19 +1,19 @@
 ---
 title: Azure Site Recovery를 사용하여 Windows VM을 Azure Premium Storage로 마이그레이션
 description: Azure Site Recovery를 사용하여 Standard Storage 계정의 VM 디스크를 Premium Storage 계정으로 마이그레이션하는 방법을 알아봅니다.
-author: luywang
-ms.service: virtual-machines
+author: roygara
+ms.service: storage
 ms.collection: windows
 ms.topic: how-to
 ms.date: 08/15/2017
-ms.author: luywang
+ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: a8b58c72ee4e6d9d38dccb369a3d38c46f0c4afe
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 749ad687f77b497c66a96de883c6f5566054112e
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046847"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113360436"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
 

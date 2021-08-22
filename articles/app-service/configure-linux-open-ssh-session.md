@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/23/2021
 ms.author: msangapu
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 0220c16d7ea3673f55d57ec4c4e0d29b30672683
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: f97f12f25a6ac9a42e597bcb59496511372d92aa
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017664"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112296284"
 ---
 # <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Azure App Service의 Linux 컨테이너에 대한 SSH 세션 열기
 
@@ -127,4 +127,4 @@ Load average: 0.07 0.04 0.08 4/765 45738
 * [VS Code의 Azure App Service에서 Node.js 앱의 원격 디버깅 소개](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)
 * [빠른 시작: App Service에서 사용자 지정 컨테이너 실행](quickstart-custom-container.md?pivots=container-linux)
 * [Linux의 Azure App Service에서 Ruby 사용](quickstart-ruby.md)
-* [Containers용 Azure App Service Web App 관련 FAQ](faq-app-service-linux.md)
+* [Containers용 Azure App Service Web App 관련 FAQ](faq-app-service-linux.yml)

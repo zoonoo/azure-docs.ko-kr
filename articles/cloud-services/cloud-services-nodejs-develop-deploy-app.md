@@ -4,16 +4,16 @@ description: 간단한 Node.js 웹 애플리케이션을 만들고 Azure 클라�
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 9889e0e95db84b4dbc5856ba6425f0f303161068
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 084c876dce9e82997473d63a02702ef5bbd727c0
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98741624"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093700"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service-classic"></a>Azure Cloud Service에 Node.js 애플리케이션 빌드 및 배포(클래식)
 

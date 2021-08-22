@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: d0f1824a1e4754dddea26484c836df79e95246d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b8f07ed32931533383475f936a3d1f08b7e3960
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580983"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531051"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>내보내기 및 가져오기를 사용하여 PostgreSQL 데이터베이스 마이그레이션
 [!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "104580983"
 온-프레미스 또는 VM의 기존 PostgreSQL 데이터베이스를 sql 스크립트 파일로 내보내려면 기존 환경에서 다음 명령을 실행합니다.
 
 ```bash
-pg_dump –-host=<host> --username=<name> --dbname=<database name> --file=<database>.sql
+pg_dump --host=<host> --username=<name> --dbname=<database name> --file=<database>.sql
 ```
 예를 들어, 로컬 서버와 **testdb** 라는 데이터베이스가 있는 경우:
 ```bash
@@ -59,4 +59,4 @@ psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --us
 
 ## <a name="next-steps"></a>다음 단계
 - 덤프 및 복원을 사용하여 PostgreSQL 데이터베이스를 마이그레이션하려면 [덤프 및 복원을 사용하여 PostgreSQL 데이터베이스 마이그레이션](howto-migrate-using-dump-and-restore.md)을 참조하세요.
-- Azure Database for PostgreSQL로 데이터베이스 마이그레이션에 대한 자세한 내용은 [데이터베이스 마이그레이션 가이드](https://aka.ms/datamigration)를 참조하세요.
+- Azure Database for PostgreSQL로 데이터베이스 마이그레이션에 대한 자세한 내용은 [데이터베이스 마이그레이션 가이드](/data-migration/)를 참조하세요.

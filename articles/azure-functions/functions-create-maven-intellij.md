@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: yucwan
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: 45fb62b446e6b589dc0cb9287a8aebe7f4e699b1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 595d7ff3f70a244f59f98d9b9603bf3b60d60c52
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543648"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287369"
 ---
 # <a name="create-your-first-java-function-in-azure-using-intellij"></a>IntelliJ를 사용하여 Azure에서 첫 번째 Java 함수 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "105543648"
 IntelliJ를 사용하여 Java 함수를 만들고 Azure에 게시하려면 다음 소프트웨어를 설치합니다.
 
 + 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-+ Java 8용 [Azure 지원 JDK(Java Development Kit)](/azure/developer/java/fundamentals/java-jdk-long-term-support)
++ Java 8용 [Azure 지원 JDK(Java Development Kit)](/azure/developer/java/fundamentals/java-support-on-azure)
 + [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition 또는 Community Edition 설치
 + [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 + 최신 [Function Core Tools](https://github.com/Azure/azure-functions-core-tools)

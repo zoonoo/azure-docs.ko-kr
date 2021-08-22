@@ -3,12 +3,12 @@ title: 위임 업데이트
 description: 이전에 Azure Lighthouse에 등록한 고객에 대한 위임을 업데이트하는 방법에 대해 알아봅니다.
 ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: bc52790c5652f9571e3a63023314ff8e97fb7e99
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e8044732cd1cb544515bcfe5b2c0ac3b40bf0cfe
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965068"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389258"
 ---
 # <a name="update-a-delegation"></a>위임 업데이트
 
@@ -45,14 +45,14 @@ ms.locfileid: "111965068"
 
 :::image type="content" source="../media/update-delegation.jpg" alt-text="mspOfferName을 변경하고 이전 위임을 제거하는 경우를 보여 주는 다이어그램":::
 
-위임에 대한 액세스를 제거하는 작업은 원래 위임에서 [관리 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)이 부여된 관리 테넌트의 모든 사용자가 수행할 수 있습니다. 관리 테넌트에 이 역할이 있는 사용자가 없는 경우 고객에게 [Azure Portal의 제안에 대한 액세스 권한을 제거](view-manage-service-providers.md#add-or-remove-service-provider-offers)하도록 요청할 수 있습니다.
+위임에 대한 액세스를 제거하는 작업은 원래 위임에서 [관리 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)이 부여된 관리 테넌트의 모든 사용자가 수행할 수 있습니다. 관리 테넌트에 이 역할이 있는 사용자가 없는 경우 고객에게 [Azure Portal의 제안에 대한 액세스 권한을 제거](view-manage-service-providers.md#remove-service-provider-offers)하도록 요청할 수 있습니다.
 
 > [!TIP]
 > 위의 단계를 수행하여 이전 위임을 제거하고 여전히 새 ARM 템플릿을 배포할 수 없는 경우 [등록 정의를 완전히 제거](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition)해야 할 수 있습니다. 이 작업은 고객 테넌트에서 [Owner](../../role-based-access-control/built-in-roles.md#owner)와 같이, `Microsoft.Authorization/roleAssignments/write` 권한이 있는 역할을 가진 모든 사용자가 수행할 수 있습니다.  
 
 ## <a name="deploy-the-arm-template"></a>ARM 템플릿 배포
 
-고객은 이전에 수행한 것과 동일한 방식으로 [업데이트된 템플릿을 배포](onboard-customer.md#deploy-the-azure-resource-manager-templates)할 수 있습니다. 즉, Azure Portal에서 PowerShell을 사용하거나 Azure CLI를 사용하여 배포할 수 있습니다.
+고객은 이전에 수행한 것과 동일한 방식으로 [업데이트된 템플릿을 배포](onboard-customer.md#deploy-the-azure-resource-manager-template)할 수 있습니다. 즉, Azure Portal에서 PowerShell을 사용하거나 Azure CLI를 사용하여 배포할 수 있습니다.
 
 배포가 완료된 후에 [성공했는지 확인](onboard-customer.md#confirm-successful-onboarding)합니다. 그런 다음, 업데이트된 권한 부여가 고객이 위임한 구독 또는 리소스 그룹에 적용됩니다.
 

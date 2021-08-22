@@ -4,12 +4,12 @@ description: 클러스터 자동 크기 조정기를 사용하여 AKS(Azure Kube
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: f02b91f73320786716e356639d8134280325dc19
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bddaf611e6ef9a37f6624995ce81f392c5dfcff1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776000"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535574"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞게 자동으로 클러스터 크기 조정
 
@@ -121,7 +121,7 @@ az aks update \
 
 클러스터 전체 자동 크기 조정기 프로필의 기본값을 변경하여 클러스터 자동 크기 조정기의 세부 정보를 구성할 수도 있습니다. 예를 들어 10분 후 노드 사용량이 저조하면 스케일 다운 이벤트가 발생합니다. 15분마다 실행된 워크로드가 있는 경우 15분 또는 20분 후에 사용량이 저조한 노드를 스케일 다운하도록 자동 크기 조정기 프로필을 변경할 수 있습니다. 클러스터 자동 크기 조정기를 사용하도록 설정하면 다른 설정을 지정하지 않는 한 기본 프로필이 사용됩니다. 클러스터 자동 크기 조정기 프로필에서 다음과 같은 설정을 업데이트할 수 있습니다.
 
-| 설정                          | Description                                                                              | 기본값 |
+| 설정                          | 설명                                                                              | 기본값 |
 |----------------------------------|------------------------------------------------------------------------------------------|---------------|
 | scan-interval                    | 스케일 업 또는 다운을 위해 클러스터를 다시 평가하는 빈도                                    | 10초    |
 | scale-down-delay-after-add       | 스케일 업 후 스케일 다운 평가가 다시 시작되기 전까지 경과 시간                               | 10분    |
@@ -288,7 +288,7 @@ az aks nodepool update \
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [aks-support-policies]: support-policies.md
 [aks-upgrade]: upgrade-cluster.md
-[aks-view-master-logs]: ./view-control-plane-logs.md#enable-resource-logs
+[aks-view-master-logs]: monitor-aks.md#configure-monitoring
 [autoscaler-profile-properties]: #using-the-autoscaler-profile
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az_aks_show

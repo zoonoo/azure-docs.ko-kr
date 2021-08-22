@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: 0ec82b3ad031cff98768b0cf9f1ee3bc5e650b69
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 27bb9d7af0cf7adc9e4ec66cba3635e8e6f34d92
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737984"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112458041"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Azure용 Oracle Linux 가상 머신 준비
 
@@ -237,8 +237,8 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
     cat > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg <<EOF
     datasource_list: [ Azure ]
     datasource:
-    Azure:
-        apply_network_config: False
+        Azure:
+            apply_network_config: False
     EOF
 
     if [[ -f /mnt/resource/swapfile ]]; then

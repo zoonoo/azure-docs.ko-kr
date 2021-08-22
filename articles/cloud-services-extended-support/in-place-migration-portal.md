@@ -4,24 +4,21 @@ description: Azure Portal을 사용하여 Cloud Services(확장 지원)로 마�
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
-author: tanmaygore
-ms.author: tagore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: ''
-ms.openlocfilehash: b1a3d6f1c30cf6c52dde3f70f222d9cbb0fce556
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b900b691ee02f438b4e222cdd69ac64e46f15d38
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293173"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113431540"
 ---
 # <a name="migrate-to-cloud-services-extended-support-using-the-azure-portal"></a>Azure Portal을 사용하여 Cloud Services(확장 지원)로 마이그레이션
 
 이 문서에서는 Azure Portal을 사용하여 [Cloud Services(클래식)](../cloud-services/cloud-services-choose-me.md)에서 [Cloud Services(확장 지원)](overview.md)로 마이그레이션하는 방법을 보여줍니다.
-
-> [!IMPORTANT]
-> 마이그레이션 도구를 사용하여 Cloud Services(클래식)에서 Cloud Services(확장 지원)로 마이그레이션하는 것은 현재 공개 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -66,7 +63,7 @@ ms.locfileid: "108293173"
 
     준비에 성공하면 마이그레이션을 커밋할 준비가 된 것입니다.
     
-    :::image type="content" source="media/in-place-migration-portal-4.png" alt-text="Azure Portal에서 통과하는 유효성 검사를 보여주는 이미지.":::
+    :::image type="content" source="media/in-place-migration-portal-4.png" alt-text="Azure Portal에서 통과하는 유효성 검사를 보여주는 이미지."::: 
 
     준비에 실패하면 오류를 검토하고 문제를 해결한 다음, 준비를 다시 시도합니다. 
 
@@ -94,4 +91,5 @@ ms.locfileid: "108293173"
     "예"를 입력하여 마이그레이션을 확인하고 커밋합니다. 이제 마이그레이션이 완료되었습니다. 마이그레이션된 Cloud Services(확장 지원) 배포는 모든 작업에 대해 잠금 해제됩니다." 
 
 ## <a name="next-steps"></a>다음 단계
-[마이그레이션 후 변경 내용](in-place-migration-overview.md#post-migration-changes) 섹션을 검토하여 배포 파일의 변경 내용, 자동화 및 새 Cloud Services(확장 지원) 배포의 기타 특성을 확인합니다.
+
+[마이그레이션 후 변경 내용](post-migration-changes.md) 섹션을 검토하여 배포 파일의 변경 내용, 자동화 및 새 Cloud Services(확장 지원) 배포의 기타 특성을 확인합니다.

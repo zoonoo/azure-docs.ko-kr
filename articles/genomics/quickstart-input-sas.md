@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: 82f5e8b4a0c06517381857f0d914bcb65ba41d35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b85fae82a6faf08fa45a659a216818d77fc747e9
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "93394614"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551923"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>스토리지 계정 키 대신 SAS를 사용하여 Microsoft Genomics에 워크플로 제출 
 
@@ -86,4 +86,4 @@ msgen submit -f [full path to your config file]
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 계정 키 대신 SAS 토큰을 사용하여 `msgen` Python 클라이언트를 통해 Microsoft Genomics 서비스에 워크플로를 제출했습니다. Microsoft Genomics 서비스에서 사용할 수 있는 워크플로 제출 및 기타 명령에 대한 추가 정보는 [FAQ](frequently-asked-questions-genomics.md)를 참조하세요.
+이 문서에서는 계정 키 대신 SAS 토큰을 사용하여 `msgen` Python 클라이언트를 통해 Microsoft Genomics 서비스에 워크플로를 제출했습니다. Microsoft Genomics 서비스에서 사용할 수 있는 워크플로 제출 및 기타 명령에 대한 추가 정보는 [FAQ](frequently-asked-questions-genomics.yml)를 참조하세요.

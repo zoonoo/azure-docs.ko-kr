@@ -3,20 +3,20 @@ title: Azure Load Balancer Resource Health, 프런트 엔드 및 백 엔드 가�
 description: 사용 가능한 메트릭을 사용하여 성능이 저하되거나 사용할 수 없는 Azure 표준 Load Balancer를 진단합니다.
 services: load-balancer
 documentationcenter: na
-author: erichrt
+author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
-ms.author: errobin
-ms.openlocfilehash: 3acaaba86c9a546a0bd45b5386287908168d50d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: kumud
+ms.openlocfilehash: 8c43a0125dac9931e68ae9567f47d63b3409f878
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97955623"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113357232"
 ---
 # <a name="troubleshoot-resource-health-and-inbound-availability-issues"></a>리소스 상태 및 인바운드 가용성 문제 해결 
 
@@ -28,10 +28,10 @@ Load Balancer의 Resource Health 검사(RHC)는 부하 분산 장치의 상태�
 
 | Resource Health 상태 | Description |
 | --- | --- |
-| 사용 가능 | 표준 부하 분산 장치 리소스는 정상 상태이며 사용 가능합니다. |
-| 성능 저하됨 | 표준 부하 분산 장치에는 성능에 영향을 미치는 플랫폼 또는 사용자 시작 이벤트가 있습니다. 데이터 경로 가용성 메트릭은 최소 2분 동안 상태가 90% 미만이지만 25% 이상이라고 보고했습니다. 중간 정도에서 심각한 정도의 성능 영향을 경험하게 됩니다. 
+| 사용 가능 | 표준 부하 분산기 리소스는 정상 상태이며 사용 가능합니다. |
+| 성능 저하됨 | 표준 부하 분산기에는 성능에 영향을 미치는 플랫폼 또는 사용자 시작 이벤트가 있습니다. 데이터 경로 가용성 메트릭은 최소 2분 동안 상태가 90% 미만이지만 25% 이상이라고 보고했습니다. 중간 정도에서 심각한 정도의 성능 영향을 경험하게 됩니다. 
 | Unavailable | 표준 부하 분산 장치 리소스는 정상 상태가 아닙니다. 데이터 경로 가용성 메트릭이 최소 2분 동안 25% 미만 상태를 보고했습니다. 인바운드 연결에 대한 상당한 성능 영향 또는 가용성 부족을 경험하게 됩니다. 사용 불가를 유발하는 사용자 또는 플랫폼 이벤트가 있을 수 있습니다. |
-| 알 수 없음 | 표준 부하 분산 장치 리소스에 대한 Resource Health 상태가 아직 업데이트되지 않았거나 지난 10분 동안 데이터 경로 가용성 정보를 받지 못했습니다. 이 상태는 일시적이어야 하며 데이터가 수신되는 즉시 올바른 상태를 반영합니다. |
+| 알 수 없음 | 표준 Load Balancer 리소스에 대한 Resource Health 상태가 아직 업데이트되지 않았거나 지난 10분 동안 데이터 경로 가용성 정보를 받지 못했습니다. 이 상태는 일시적이어야 하며 데이터가 수신되는 즉시 올바른 상태를 반영합니다. |
 
 
 ## <a name="about-the-metrics-well-use"></a>사용할 메트릭 정보

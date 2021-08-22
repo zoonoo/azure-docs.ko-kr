@@ -4,12 +4,12 @@ description: Azure Lighthouse의 서비스 공급자에게 위임된 리소스�
 ms.date: 05/11/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e9456d7b910c71305f321d0a4874aab0f4f368cd
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: bae8407e09ab07a13c12abe3ee6371c04155cced
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110700129"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389845"
 ---
 # <a name="remove-access-to-a-delegation"></a>위임에 대한 액세스 권한 제거
 
@@ -22,7 +22,7 @@ ms.locfileid: "110700129"
 
 ## <a name="customers"></a>고객
 
-[소유자](../../role-based-access-control/built-in-roles.md#owner)와 같이 `Microsoft.Authorization/roleAssignments/write` 권한이 포함된 역할이 있는 고객 테넌트의 사용자는 해당 구독(또는 해당 구독의 리소스 그룹)에 대한 서비스 공급자 액세스 권한을 제거할 수 있습니다. 이렇게 하기 위해 사용자는 Azure Portal의 [서비스 공급자 페이지](view-manage-service-providers.md#add-or-remove-service-provider-offers)로 이동하여 **서비스 공급자 제품** 화면에서 제품을 찾고 해당 제품의 행에서 휴지통 아이콘을 선택할 수 있습니다.
+[소유자](../../role-based-access-control/built-in-roles.md#owner)와 같이 `Microsoft.Authorization/roleAssignments/write` 권한이 포함된 역할이 있는 고객 테넌트의 사용자는 해당 구독(또는 해당 구독의 리소스 그룹)에 대한 서비스 공급자 액세스 권한을 제거할 수 있습니다. 이렇게 하기 위해 사용자는 Azure Portal의 [서비스 공급자 페이지](view-manage-service-providers.md#remove-service-provider-offers)로 이동하여 **서비스 공급자 제품** 화면에서 제품을 찾고 해당 제품의 행에서 휴지통 아이콘을 선택할 수 있습니다.
 
 삭제를 확인한 후에는 서비스 공급자 테넌트에 있는 사용자가 이전에 위임된 리소스에 액세스할 수 없게 됩니다.
 

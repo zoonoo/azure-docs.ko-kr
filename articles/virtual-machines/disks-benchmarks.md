@@ -3,16 +3,16 @@ title: Azure Disk Storage에서 애플리케이션 벤치마크
 description: Azure에서 애플리케이션을 벤치마킹하는 프로세스를 알아봅니다.
 author: roygara
 ms.author: rogarana
-ms.date: 01/29/2021
+ms.date: 06/29/2021
 ms.topic: how-to
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: bfda14acc2e50005e25faafa3037805af871c1df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a6e156350be0de13b6c6bfea3f8d220830c3480e
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99094599"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113360778"
 ---
 # <a name="benchmark-a-disk"></a>디스크 벤치마크
 

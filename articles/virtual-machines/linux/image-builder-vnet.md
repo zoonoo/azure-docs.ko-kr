@@ -1,20 +1,19 @@
 ---
 title: Linux VM 용 Azure Image Builder를 사용하여 기존 Azure VNET에 대한 액세스 허용
 description: Azure Image Builder를 사용하여 기존 Azure VNET에 액세스할 수 있는 Linux VM 이미지 만들기
-author: danielsollondon
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.reviewer: danis
-ms.openlocfilehash: acc351eb7557ecade4ee746a4564c90c0078755b
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 0234d011b424f3a910c67947d524401a415cd313
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027284"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113593800"
 ---
 # <a name="use-azure-image-builder-for-linux-vms-allowing-access-to-an-existing-azure-vnet"></a>Linux VM 용 Azure Image Builder를 사용하여 기존 Azure VNET에 대한 액세스 허용
 

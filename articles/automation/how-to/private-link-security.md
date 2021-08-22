@@ -6,12 +6,13 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.subservice: ''
-ms.openlocfilehash: f3c9197faaae89e0ffb238f987ee66dafea8abdd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 547889b63bcaa7e8a43d62c639ac40715949e89d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579803"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528463"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Azure Private Link를 사용하여 네트워크를 Azure Automation에 안전하게 연결
 
@@ -49,7 +50,7 @@ Private Link를 사용하면 다음을 수행할 수 있습니다.
 - Windows 또는 Linux용 [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)의 최신 버전을 사용해야 합니다.
 - [Log Analytics 게이트웨이](../../azure-monitor/agents/gateway.md)에서 Private Link를 지원하지 않습니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 Azure Automation Private Link는 하나 이상의 프라이빗 엔드포인트(및 따라서 이들이 포함된 가상 네트워크)를 Automation 계정 리소스에 연결합니다. 해당 엔드포인트는 웹후크를 사용하여 Runbook을 시작하는 머신, Hybrid Runbook Worker 역할을 호스트하는 머신 및 DSC(Desired State Configuration) 노드를 사용합니다.
 
@@ -63,7 +64,7 @@ Automation를 위한 프라이빗 엔드포인트를 만든 후에는 각 퍼블
 
 Azure Automation의 사용자 Hybrid Runbook Worker 기능을 사용하면 Azure Arc 사용 서버에 등록된 서버를 포함하여 Azure 또는 비 Azure 머신에서 직접 Runbook을 실행할 수 있습니다. 역할을 호스트하는 머신 또는 서버에서 직접 Runbook을 실행하고 환경의 리소스에 대해 해당 로컬 리소스를 관리할 수 있습니다.
 
-JRDS 엔드포인트는 Hybrid Worker가 Runbook을 시작/중지하고, Runbook을 작업자에 다운로드하고, 작업 로그 스트림을 Automation 서비스로 다시 보내는 데 사용됩니다.JRDS 엔드포인트를 사용하도록 설정한 후 URL은 `https://<automationaccountID>.jobruntimedata.<region>.azure-automation.net`과 같습니다. 이렇게 하면 Azure Virtual Network에 연결된 Hybrid Worker에서 Runbook을 실행하여 인터넷에 대한 아웃바운드 연결을 열지 않고도 작업을 실행할 수 있습니다.  
+JRDS 엔드포인트는 Hybrid Worker가 Runbook을 시작/중지하고, Runbook을 작업자에 다운로드하고, 작업 로그 스트림을 Automation 서비스로 다시 보내는 데 사용됩니다.JRDS 엔드포인트를 사용하도록 설정한 후 URL은 `https://<automationaccountID>.jrds.<region>.privatelink.azure-automation.net`과 같습니다. 이렇게 하면 Azure Virtual Network에 연결된 Hybrid Worker에서 Runbook을 실행하여 인터넷에 대한 아웃바운드 연결을 열지 않고도 작업을 실행할 수 있습니다.  
 
 > [!NOTE]
 >Azure Automation에 대한 Private Link의 현재 구현을 사용하여 Azure 가상 네트워크에 연결된 Hybrid Runbook Worker에 대한 실행 작업만 지원하고 클라우드 작업은 지원하지 않습니다.
@@ -76,7 +77,7 @@ JRDS 엔드포인트는 Hybrid Worker가 Runbook을 시작/중지하고, Runbook
 
 업데이트 관리를 위해 구성된 머신이 Private Link 채널을 통해 안전한 방식으로 Automation & Log Analytics 작업 영역에 연결되도록 하려면, Private Link로 구성된 Automation 계정에 연결된 Log Analytics 작업 영역에 대한 Private Link를 사용하도록 설정해야 합니다.
 
-[Log Analytics 구성](../../azure-monitor/logs/private-link-security.md#configure-log-analytics)에 설명된 단계를 수행하여 Private Link 범위 외부에서 Log Analytics 작업 영역에 연결할 수 있는 방법을 제어할 수 있습니다. **수집을 위해 공용 네트워크 액세스 허용** 을 **아니요** 로 설정하면 연결된 범위 외부의 머신에서 데이터를 이 작업 영역에 업로드할 수 없습니다. **쿼리를 위해 공용 네트워크 액세스 허용** 을 **아니요** 로 설정하면 범위 외부의 머신에서 이 작업 영역의 데이터에 액세스할 수 없습니다.
+[Log Analytics 구성](../../azure-monitor/logs/private-link-configure.md#configure-access-to-your-resources)에 설명된 단계를 수행하여 Private Link 범위 외부에서 Log Analytics 작업 영역에 연결할 수 있는 방법을 제어할 수 있습니다. **수집을 위해 공용 네트워크 액세스 허용** 을 **아니요** 로 설정하면 연결된 범위 외부의 머신에서 데이터를 이 작업 영역에 업로드할 수 없습니다. **쿼리를 위해 공용 네트워크 액세스 허용** 을 **아니요** 로 설정하면 범위 외부의 머신에서 이 작업 영역의 데이터에 액세스할 수 없습니다.
 
 **DSCAndHybridWorker** 대상 하위 리소스를 사용하여 사용자 & 시스템 Hybrid Worker에 대한 Private Link를 사용하도록 설정합니다.
 

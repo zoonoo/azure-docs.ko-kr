@@ -2,18 +2,17 @@
 title: Azure Portal에서 문제 해결 - Azure IoT Edge | Microsoft Docs
 description: Azure Portal의 문제 해결 페이지를 사용하여 IoT Edge 디바이스 및 모듈 모니터링
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 05/26/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ba7cbd0d6af9a548c66f186ecd0aac289c52041b
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: e0761262463d69fe80f7dc15ed1a5944dcc235bb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111543089"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535656"
 ---
 # <a name="troubleshoot-iot-edge-devices-from-the-azure-portal"></a>Azure Portal에서 IoT Edge 디바이스 문제 해결
 

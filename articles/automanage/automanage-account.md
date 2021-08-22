@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.author: alsin
-ms.openlocfilehash: 02c122486ad9ca702e518445761fef05675c9067
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: d3a88c81f60eaf08f64326f2c53f4d5dfa886fa1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209700"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529185"
 ---
 # <a name="automanage-accounts"></a>Automanage 계정
 
@@ -87,8 +87,9 @@ Automanage 계정에 충분한 사용 권한을 부여하려면 다음을 수행
 1. 메시지가 표시되면 사용자가 만들고 저장한 Automanage 계정의 개체 ID를 입력합니다.
 
 ```azurecli-interactive
-az deployment group create --resource-group <resource group name> --template-file azuredeploy.json
+az deployment sub create --location <location> --template-file azuredeploy2.json
 ```
+
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -99,6 +100,10 @@ az deployment group create --resource-group <resource group name> --template-fil
             "metadata": {
                 "description": "The principal to assign the role to"
             }
+        },
+        "dateTime": {
+            "type": "string",
+            "defaultValue": "[utcNow()]"
         }
     },
     "variables": {
@@ -109,7 +114,7 @@ az deployment group create --resource-group <resource group name> --template-fil
         {
             "type": "Microsoft.Authorization/roleAssignments",
             "apiVersion": "2020-04-01-preview",
-            "name": "[guid(variables('contributorRoleDefinitionID'))]",
+            "name": "[guid(concat(parameters('dateTime'), variables('contributorRoleDefinitionID')))]",
             "properties": {
                 "roleDefinitionId": "[variables('contributorRoleDefinitionID')]",
                 "principalId": "[parameters('principalId')]"
@@ -118,7 +123,7 @@ az deployment group create --resource-group <resource group name> --template-fil
         {
             "type": "Microsoft.Authorization/roleAssignments",
             "apiVersion": "2020-04-01-preview",
-            "name": "[guid(variables('resourcePolicyContributorRoleDefinitionID'))]",
+            "name": "[guid(concat(parameters('dateTime'), variables('resourcePolicyContributorRoleDefinitionID')))]",
             "properties": {
                 "roleDefinitionId": "[variables('resourcePolicyContributorRoleDefinitionID')]",
                 "principalId": "[parameters('principalId')]"

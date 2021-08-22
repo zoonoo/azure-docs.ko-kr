@@ -12,12 +12,12 @@ ms.date: 04/21/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a56f8339535c64c6eeac1b06c04aa7c89cd38356
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: daee0bc89804b8fe72845c411224b689452fe7d2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107886391"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535517"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>SendGrid를 사용한 사용자 지정 이메일 확인
 
@@ -37,9 +37,9 @@ Azure Active Directory B2C(Azure AD B2C)에서 사용자 지정 메일을 사용
 
 ## <a name="create-a-sendgrid-account"></a>SendGrid 계정 만들기
 
-아직 없는 경우 먼저 SendGrid 계정을 설정합니다(Azure 고객은 매달 25,000통의 무료 메일을 잠금 해제할 수 있음). 설정 지침은 [Azure에서 SendGrid를 사용하여 이메일을 보내는 방법](../sendgrid-dotnet-how-to-send-email.md)의 [SendGrid 계정 만들기](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account) 섹션을 참조하세요.
+아직 없는 경우 먼저 SendGrid 계정을 설정합니다(Azure 고객은 매달 25,000통의 무료 메일을 잠금 해제할 수 있음). 설정 지침은 [Azure에서 SendGrid를 사용하여 이메일을 보내는 방법](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account)의 [SendGrid 계정 만들기](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-sendgrid-account) 섹션을 참조하세요.
 
-[SendGrid API 키 만들기](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key) 섹션을 완료해야 합니다. 이후 단계에서 사용할 API 키를 기록합니다.
+[SendGrid API 키 만들기](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#to-find-your-sendgrid-api-key) 섹션을 완료해야 합니다. 이후 단계에서 사용할 API 키를 기록합니다.
 
 > [!IMPORTANT]
 > SendGrid는 고객에게 공유 IP 및 [전용 IP 주소](https://sendgrid.com/docs/ui/account-and-settings/dedicated-ip-addresses/)에서 이메일을 보낼 수 있는 기능을 제공합니다. 전용 IP 주소를 사용하는 경우 IP 주소 워밍업으로 자신의 평판을 제대로 구축해야 합니다. 자세한 내용은 [IP 주소 워밍업](https://sendgrid.com/docs/ui/sending-email/warming-up-an-ip-address/)을 참조하세요.
@@ -54,7 +54,7 @@ Azure Active Directory B2C(Azure AD B2C)에서 사용자 지정 메일을 사용
 1. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
 1. **정책 키**, **추가** 를 차례로 선택합니다.
 1. **옵션** 에서 **수동** 을 선택합니다.
-1. 정책 키의 **이름** 을 입력합니다. 예들 들어 `SendGridSecret`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+1. 정책 키의 **이름** 을 입력합니다. `SendGridSecret`)을 입력합니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
 1. **비밀** 에 이전에 기록한 SendGrid API 키를 입력합니다.
 1. **키 사용** 으로는 **서명** 을 선택합니다.
 1. **만들기** 를 선택합니다.

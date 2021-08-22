@@ -5,15 +5,15 @@ author: martinekuan
 manager: martinekuan
 ms.service: multiple
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 06/21/2021
 ms.author: martinek
 ms.custom: references_regions
-ms.openlocfilehash: 9fda6f913fcb5325c811671cd6476dcbf2413766
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4fe0b913c003ccf4247833ba1dc12c4ec1e7248a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058020"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535842"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR(무중단 업무 방식 및 재해 복구): Azure 쌍을 이루는 지역
 
@@ -43,7 +43,7 @@ Azure 지리는 하나 이상의 Azure 지역을 포함하는 전 세계 영역�
 
 ## <a name="must-i-use-azure-regional-pairs"></a>Azure 지역 쌍을 사용해야 하나요?
 
-아니요. 고객은 Azure 서비스를 활용하여 Azure의 지역 쌍을 사용하지 않고도 복원력 있는 서비스를 설계할 수 있습니다.  그러나 지역 쌍 간에 BCDR(비즈니스 연속성 재해 복구)을 구성하여 [격리](./security/fundamentals/isolation-choices.md)의 이점을 활용하고 [가용성](./availability-zones/az-overview.md)을 향상하는 것이 좋습니다. 여러 활성 지역을 지원하는 애플리케이션의 경우 가능하면 한 지역 쌍의 두 지역을 모두 사용하는 것이 좋습니다. 이를 통해 애플리케이션에 대한 최적 가용성을 보장하고 재해 발생 시 복구 시간을 최소화할 수 있습니다. 가능하면 언제든지 애플리케이션을 설계하여 [최대 복원력](/azure/architecture/framework/resiliency/overview)과 [재해 복구](/azure/architecture/framework/resiliency/backup-and-recovery)의 편이성을 경험하세요.
+아니요. 고객은 Azure 서비스를 활용하여 Azure의 지역 쌍을 사용하지 않고도 복원력 있는 서비스를 설계할 수 있습니다.  그러나 지역 쌍 간에 BCDR(비즈니스 연속성 재해 복구)을 구성하여 [격리](./security/fundamentals/isolation-choices.md)의 이점을 활용하고 [가용성](./availability-zones/az-overview.md)을 향상하는 것이 좋습니다. 여러 활성 지역을 지원하는 애플리케이션의 경우 가능하면 한 지역 쌍의 두 지역을 모두 사용하는 것이 좋습니다. 이를 통해 애플리케이션에 대한 최적 가용성을 보장하고 재해 발생 시 복구 시간을 최소화할 수 있습니다. 가능하면 언제든지 애플리케이션을 설계하여 [최대 복원력](/azure/architecture/framework/resiliency/app-design)과 [재해 복구](/azure/architecture/framework/resiliency/backup-and-recovery)의 편이성을 경험하세요.
 
 ## <a name="azure-regional-pairs"></a>Azure 지역 쌍
 
@@ -68,6 +68,7 @@ Azure 지리는 하나 이상의 Azure 지역을 포함하는 전 세계 영역�
 | 북아메리카 |미국 동부 2 |미국 중부 |
 | 북아메리카 |미국 중북부 |미국 중남부 |
 | 북아메리카 |미국 서부 2 |미국 중서부 |
+| 북아메리카 |미국 서부 3 |미국 동부 |
 | 노르웨이 | 노르웨이 동부 | 노르웨이 서부* |
 | 남아프리카 | 남아프리카 북부 |남아프리카 공화국 서부* |
 | 스위스 | 스위스 북부 |스위스 서부* |

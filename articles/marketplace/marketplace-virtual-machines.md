@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 25cfca98857d33a90b2c1f11692d83ae30911bb7
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4278a3b0e022015a1e12542cac7699590150b5e4
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480876"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602573"
 ---
 # <a name="plan-a-virtual-machine-offer"></a>가상 머신 제품 계획
 
@@ -23,7 +23,7 @@ ms.locfileid: "110480876"
 
 ### <a name="technical-fundamentals"></a>기술 기본 사항
 
-제품 설계, 작성, 테스트 프로세스에는 시간이 걸리고, 제품을 빌드하는 데 사용되는 Azure 플랫폼과 기술 모두에 대한 전문 지식이 필요합니다. 엔지니어링 팀은 [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), [Azure 네트워킹](https://azure.microsoft.com/services/?filter=networking#networking)에 대한 실무 지식과 함께 [Azure 애플리케이션의 디자인 및 아키텍처](https://azure.microsoft.com/solutions/architecture/)에 대한 숙련도를 갖추어야 합니다. 다음 추가 기술 리소스를 참조하세요. 
+제품 설계, 작성, 테스트 프로세스에는 시간이 걸리고, 제품을 빌드하는 데 사용되는 Azure 플랫폼과 기술 모두에 대한 전문 지식이 필요합니다. 엔지니어링 팀은 [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), [Azure 네트워킹](https://azure.microsoft.com/services/?filter=networking#networking)에 대한 실무 지식과 함께 [Azure 애플리케이션의 디자인 및 아키텍처](https://azure.microsoft.com/solutions/architecture/)에 대한 숙련도를 갖추어야 합니다. 다음 추가 기술 리소스를 참조하세요.
 
 - 자습서
   - [Linux VM](../virtual-machines/linux/tutorial-manage-vm.md)

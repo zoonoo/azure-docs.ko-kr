@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB의 Always Encrypted에서 클라이언트 쪽 암호화 사용
 description: Azure Cosmos DB의 Always Encrypted에서 클라이언트 쪽 암호화를 사용하는 방법 알아보기
-author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: thweiss
-ms.openlocfilehash: d8aaa34fe2e81515866c047c6a171b1bdb58ff3f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+author: ThomasWeiss
+ms.openlocfilehash: 9135e35e74eda1387dc6dee5ba0875c4152439b0
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387066"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356405"
 ---
 # <a name="use-client-side-encryption-with-always-encrypted-for-azure-cosmos-db-preview"></a>Azure Cosmos DB의 Always Encrypted에서 클라이언트 쪽 암호화 사용(미리 보기)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -80,6 +80,8 @@ Azure Cosmos DB 서비스에서는 Always Encrypted로 암호화된 속성의 �
 - **결정적 암호화:** 주어진 일반 텍스트 값 및 암호화 구성에 대해 항상 동일한 암호화된 값을 생성합니다. 결정적 암호화를 사용하면 쿼리가 암호화된 속성에 대해 동일한 필터를 수행할 수 있습니다. 그러나 공격자는 암호화된 속성의 패턴을 검사하여 암호화된 값에 대한 정보를 추측할 수 있습니다. True/False 또는 North/South/East/West 지역과 같이 있을 수 있는 암호화된 값의 작은 집합이 있는 경우 특히 그렇습니다.
 
 - **임의 암호화:** 예측하기 어려운 방식으로 데이터를 암호화하는 방법을 사용합니다. 임의 암호화는 더 안전하지만 암호화된 속성에 대한 쿼리가 필터링되지 못하도록 방지합니다.
+
+Always Encrypted의 결정적 및 임의 암호화에 관해 자세히 알아보려면 [IV(초기화 벡터) 생성](/sql/relational-databases/security/encryption/always-encrypted-cryptography#step-1-generating-the-initialization-vector-iv)을 참조하세요.
 
 ## <a name="setup-azure-key-vault"></a>Azure Key Vault 설정
 

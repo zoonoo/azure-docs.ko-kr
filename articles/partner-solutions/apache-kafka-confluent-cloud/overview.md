@@ -4,14 +4,14 @@ description: Azure Marketplace에서의 Confluent Cloud의 Apache Kafka 사용�
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 01/15/2021
+ms.date: 06/07/2021
 ms.author: tomfitz
-ms.openlocfilehash: 6fbd6b72c17b8483f9fdb5bc227625fd92009594
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 07164ece2897ab364d568d247e3d2ee8d2566291
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952632"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112523045"
 ---
 # <a name="what-is-apache-kafka-for-confluent-cloud"></a>Confluent Cloud의 Apache Kafka는 무엇인가요?
 
@@ -21,7 +21,7 @@ Confluent Cloud의 Apache Kafka는 Apache Kafka를 서비스로 제공하는 Azu
 
 이전에는 Marketplace에서 Confluent Cloud 제품을 구매하고, 별도로 Confluent Cloud에서 계정을 설정해야 했습니다. 구성 및 리소스를 관리하려면 Azure와 Confluent Cloud의 포털 간에 이동해야 했습니다.
 
-이제 **Microsoft Confluent** 라는 리소스 공급자를 통해 Confluent Cloud 리소스를 프로비저닝합니다. [Azure Portal](https://portal.azure.com/), [Azure CLI](/cli/azure/)또는 [Azure SDK](/azure/index.yml#languages-and-tools)를 통해 Confluent Cloud 조직 리소스를 만들고 관리합니다. Confluent Cloud는 환경, 클러스터, 토픽, API 키, 관리형 커넥터를 포함하여 SaaS(Software as a Service) 애플리케이션을 소유하고 실행합니다.
+이제 **Microsoft Confluent** 라는 리소스 공급자를 통해 Confluent Cloud 리소스를 프로비저닝합니다. [Azure Portal](https://portal.azure.com/), [Azure CLI](/cli/azure/)또는 [Azure SDK](/azure#languages-and-tools)를 통해 Confluent Cloud 조직 리소스를 만들고 관리합니다. Confluent Cloud는 환경, 클러스터, 토픽, API 키, 관리형 커넥터를 포함하여 SaaS(Software as a Service) 애플리케이션을 소유하고 실행합니다.
 
 ## <a name="capabilities"></a>기능
 
@@ -56,12 +56,6 @@ Azure Portal에 로그인할 때 자격 증명은 Confluent Cloud SaaS 포털에
 - **약정 계획** 을 사용하면 최소 지출 금액에 가입하고 Confluent Cloud의 커밋된 사용을 할인받습니다.
 
 서비스를 만들 때 사용할 청구 옵션을 결정합니다.
-
-## <a name="connector-to-azure-cosmos-db"></a>Azure Cosmos DB 커넥터
-
-[Confluent 허브 목록](https://www.confluent.io/hub/microsoftcorporation/kafka-connect-cosmos)이 권장하는 대로 Confluent Hub 클라이언트 내에 Cosmos DB 커넥터를 설치합니다. 
-
-커넥터를 수동으로 설치하려면 먼저 [Cosmos DB 릴리스 페이지](https://github.com/microsoft/kafka-connect-cosmosdb/releases)에서 uber JAR를 다운로드합니다. 또는 [소스 코드에서 직접 uber JAR를 빌드할](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/README_Sink.md#install-sink-connector)수 있습니다. [커넥터를 수동으로 설치](https://docs.confluent.io/home/connect/install.html#install-connector-manually)하는 방법에 관한 Confluent 설명서 참고 자료에 따라 설치를 완료합니다.  
 
 ## <a name="confluent-links"></a>Confluent 링크
 

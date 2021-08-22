@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 3fa167233c5afe7b50b2794f6c0fff5458e9acf7
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b04cacb1d2767e152e62bc3fd5902798204f3f60
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110089059"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536038"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
 이 문서에서는 Azure Monitor에서 모니터링하는 다양한 애플리케이션 및 서비스에 대해 설명합니다. 
@@ -29,7 +29,7 @@ ms.locfileid: "110089059"
 | [Cosmos DB 인사이트](insights/cosmosdb-insights-overview.md) | 통합 대화형 환경에서 모든 Azure Cosmos DB 리소스의 전체 성능, 실패, 용량 및 운영 상태를 보여 줍니다. |
 | [네트워크 인사이트(미리 보기)](insights/network-insights-overview.md) | 모든 네트워크 리소스에 대한 상태 및 메트릭의 포괄적인 보기를 제공합니다. 고급 검색 기능은 리소스 종속성을 식별하는 데 유용하여 웹 사이트 이름을 검색하기만 하면 웹 사이트를 호스트하는 리소스를 식별하는 등의 시나리오를 사용할 수 있습니다. |
 [리소스 그룹 인사이트(미리 보기)](insights/resource-group-insights.md) |  리소스 그룹의 상태 및 성능과 관련된 컨텍스트를 전체적으로 제공하면서 개별 리소스에 발생하는 문제를 심사하고 진단할 수 있습니다. |
-| [Storage 인사이트](insights/storage-insights-overview.md) | Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. |
+| [Storage 인사이트](../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) | Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. |
 | [VM 인사이트](vm/vminsights-overview.md) | Azure VM(Virtual Machines) 및 가상 머신 확장 집합을 대규모로 모니터링합니다. 또한 Windows 및 Linux VM의 성능과 상태를 분석하고, 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. |
 | [Key Vault 인사이트(미리 보기)](./insights/key-vault-insights-overview.md) | Key Vault 요청, 성능, 실패 및 대기 시간 통합 보기를 제공하여 키 자격 증명 모음에 대한 종합적인 모니터링을 제공합니다. |
 | [Azure Cache for Redis insights(미리 보기)](insights/redis-cache-insights-overview.md) |  전반적인 성능, 실패, 용량 및 운영 상태에 대한 통합된 대화형 보기를 제공합니다. |
@@ -154,7 +154,7 @@ ms.locfileid: "110089059"
 |SQL Database | 예 | 예 | 예 |  |
 |SQL Server Stretch Database | 예 | 예 | 예 |  |
 |스택 | 예 | 아니요 | 예 |  |
-|스토리지 | 예 | 아니요 | [예](insights/storage-insights-overview.md) |  |
+|스토리지 | 예 | 아니요 | [예](../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) |  |
 |스토리지 캐시 | 예 | 아니요 | 예 |  |
 |스토리지 동기화 서비스 | 예 | 아니요 | 예 |  |
 |Stream Analytics | 예 | 예 | 예 |  |
@@ -243,4 +243,3 @@ Azure Monitor는 다음 표에 나열된 방법을 사용하여 Azure 외부의 
 - [Azure 리소스 모니터링에 대한 자습서](essentials/tutorial-resource-logs.md)를 완료합니다.
 - [Azure Monitor 로그의 데이터를 분석하기 위한 로그 쿼리 작성에 대한 자습서](essentials/tutorial-resource-logs.md)를 완료합니다.
 - [Azure Monitor 메트릭에서 데이터를 분석하기 위한 메트릭 차트 만들기 자습서](essentials/tutorial-metrics-explorer.md)를 완료합니다.
-

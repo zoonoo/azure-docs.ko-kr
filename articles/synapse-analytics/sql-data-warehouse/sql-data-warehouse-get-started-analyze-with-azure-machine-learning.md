@@ -12,12 +12,12 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 76a154d3a137017f374247308a3980d598698246
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb4f39f14dad9426f48cc86597f74333c830bba5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98678662"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528696"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 데이터 분석
 
@@ -159,6 +159,6 @@ Azure Data Lake Storage에서 데이터를 사용할 수 있게 되면 Azure Mac
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning에 대한 자세한 내용은 [Azure의 Machine Learning 소개](../../machine-learning/overview-what-is-azure-ml.md)를 참조하세요.
+Azure Machine Learning에 대한 자세한 내용은 [Azure의 Machine Learning 소개](../../machine-learning/overview-what-is-azure-machine-learning.md)를 참조하세요.
 
 데이터 웨어하우스의 기본 제공 채점에 대한 자세한 내용은 [여기](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)를 참조하세요.

@@ -2,18 +2,18 @@
 title: 미사용 데이터 이중 암호화 사용 - Azure Portal - 관리 디스크
 description: Azure Portal을 사용하여 관리 디스크 데이터에 대해 미사용 데이터 이중 암호화를 사용하도록 설정합니다.
 author: roygara
-ms.date: 08/24/2020
+ms.date: 06/29/2021
 ms.topic: how-to
 ms.author: rogarana
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: b5f58b549fc9d879f6c2e5515c679d82c3ff44e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b8ca72b5446c9adf4320b8dfb670238e973c3ea
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560364"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113361318"
 ---
 # <a name="use-the-azure-portal-to-enable-double-encryption-at-rest-for-managed-disks"></a>Azure Portal을 사용하여 관리 디스크에 대해 미사용 데이터 이중 암호화를 사용하도록 설정합니다.
 

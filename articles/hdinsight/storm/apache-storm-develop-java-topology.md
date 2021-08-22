@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
 ms.date: 04/27/2020
-ms.openlocfilehash: 8e51f99496514e40d6c3f85000384a14baf84946
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 399841ad84d954ba03188877de6e2bd674e45beb
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104865369"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113286145"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Java에서 Apache Storm 토폴로지 만들기
 
@@ -23,7 +23,7 @@ Apache Storm에 대한 Java 기반 토폴로지를 만드는 방법을 알아봅
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [JDK(Java Developer Kit) 버전 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [JDK(Java Developer Kit) 버전 8](/azure/developer/java/fundamentals/java-support-on-azure)
 
 * Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html)[Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 
@@ -250,7 +250,7 @@ Java 기반 Apache Storm 토폴로지는 사용자가 작성자이거나 종속�
 notepad src\main\java\com\microsoft\example\RandomSentenceSpout.java
 ```
 
-그런 다음 아래 java 코드를 복사하여 새 파일에 붙여넣습니다.  그 다음 파일을 닫습니다.
+그런 다음, 아래 java 코드를 복사하여 새 파일에 붙여넣습니다.  그 다음 파일을 닫습니다.
 
 ```java
 package com.microsoft.example;
@@ -336,7 +336,7 @@ Bolt는 데이터 처리를 다룹니다. Bolt는 계산, 지속성, 외부 구�
 notepad src\main\java\com\microsoft\example\SplitSentence.java
 ```
 
-그런 다음 아래 java 코드를 복사하여 새 파일에 붙여넣습니다.  그 다음 파일을 닫습니다.
+그런 다음, 아래 java 코드를 복사하여 새 파일에 붙여넣습니다.  그 다음 파일을 닫습니다.
 
 ```java
 package com.microsoft.example;
@@ -393,7 +393,7 @@ public class SplitSentence extends BaseBasicBolt {
 notepad src\main\java\com\microsoft\example\WordCount.java
 ```
 
-그런 다음 아래 java 코드를 복사하여 새 파일에 붙여넣습니다.  그 다음 파일을 닫습니다.
+그런 다음, 아래 java 코드를 복사하여 새 파일에 붙여넣습니다.  그 다음 파일을 닫습니다.
 
 ```java
 package com.microsoft.example;

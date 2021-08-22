@@ -3,12 +3,12 @@ title: Azure Functions 1.x에 대한 host.json 참조
 description: v1 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 48dba50b384731befdc7fba7c418e542994cedd9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8466827402a5a5f785b65ea70887cc868f8667af
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102608957"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529007"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure Functions 1.x에 대한 host.json 참조
 
@@ -23,7 +23,7 @@ ms.locfileid: "102608957"
 
 기타 함수 앱 구성 옵션은 [앱 설정](functions-app-settings.md)에서 관리합니다.
 
-일부 host.json 설정은 [local.settings.json](functions-run-local.md#local-settings-file) 파일에서 로컬로 실행할 때만 사용됩니다.
+일부 host.json 설정은 [local.settings.json](functions-develop-local.md#local-settings-file) 파일에서 로컬로 실행할 때만 사용됩니다.
 
 ## <a name="sample-hostjson-file"></a>샘플 host.json 파일
 
@@ -187,7 +187,7 @@ ms.locfileid: "102608957"
 }
 ```
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |사용|true|기능의 사용 여부를 지정합니다. | 
 |healthCheckInterval|10초|정기적인 백그라운드 상태 검사 사이의 간격 | 
@@ -290,7 +290,7 @@ ms.locfileid: "102608957"
 }    
 ```
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |원본|해당 없음|모든 함수에서 보낸 사람의 이메일 주소입니다.| 
 
@@ -332,7 +332,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|함수 수준 잠금이 적용되는 기간입니다. 잠금은 자동 갱신됩니다.| 
 |listenerLockPeriod|00:01:00|수신기 잠금이 적용되는 기간입니다.| 

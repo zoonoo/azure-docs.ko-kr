@@ -2,19 +2,18 @@
 title: Azure IoT Hub 디바이스 ID 가져오기/내보내기 | Microsoft Docs
 description: Azure IoT 서비스 SDK를 사용하여 ID 레지스트리에 대한 대량 작업을 실행하고 디바이스 ID를 가져오기 및 내보내기를 수행하는 방법입니다. 가져오기 작업을 사용하여 대량으로 디바이스 ID를 생성, 업데이트 및 삭제할 수 있습니다.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8e7a725b78fa828ce1286e212ee7de0205968156
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c7c85b88e2648f41c815d9cd864362f60845116b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92536082"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528660"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 디바이스 ID 가져오기 및 내보내기
 
@@ -87,7 +86,7 @@ while(true)
 ```
 
 > [!NOTE]
-> 스토리지 계정에 IoT Hub의 연결을 제한하는 방화벽 구성이 있는 경우 [Microsoft 신뢰할 수 있는 자사 예외](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing)를 사용하는 것이 좋습니다(관리되는 서비스 ID로 IoT Hub의 선택 지역에서 사용 가능).
+> 스토리지 계정에 IoT Hub의 연결을 제한하는 방화벽 구성이 있는 경우 [Microsoft 신뢰할 수 있는 자사 예외](./virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources)를 사용하는 것이 좋습니다(관리되는 서비스 ID로 IoT Hub의 선택 지역에서 사용 가능).
 
 
 ## <a name="device-importexport-job-limits"></a>디바이스 가져오기/내보내기 작업 제한

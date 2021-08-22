@@ -8,12 +8,12 @@ ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions , devx-track-azurepowershell
-ms.openlocfilehash: 2b698ffaddb4bc818eaabda34022ab58ff05fe5f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 9fb994968835d6fb609c079f008f87d4b37ef85b
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107786354"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113004883"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>다른 지역으로 Analysis Services 이동 | Microsoft Docs
 
@@ -40,7 +40,7 @@ ms.locfileid: "107786354"
 > 클라이언트 애플리케이션 및 연결 문자열은 서버가 있는 지역을 포함하는 URI인 전체 서버 이름을 사용하여 Analysis Services에 연결합니다. 예: `asazure://westcentralus.asazure.windows.net/advworks01`. 서버를 다른 지역으로 이동할 때 다른 지역에 새 서버 리소스를 효과적으로 만들며, 이는 서버 이름 URI에 다른 지역이 있습니다. 스크립트에서 사용되는 클라이언트 애플리케이션 및 연결 문자열은 새 서버 이름 URI를 사용하여 새 서버에 연결해야 합니다. [서버 이름 별칭](analysis-services-server-alias.md)을 사용하면 서버 이름 URI를 변경해야 하는 횟수를 줄일 수 있지만 지역 이동 전에 구현해야 합니다.
 
 > [!IMPORTANT]
-> Azure 지역은 서로 다른 IP 주소 범위를 사용합니다. 서버 및/또는 스토리지 계정이 있는 지역에 대해 방화벽 예외가 구성된 경우 다른 IP 주소 범위를 구성해야 할 수 있습니다. 자세히 알아보려면 [Analysis Services 네트워크 연결에 대한 FAQ(질문과 대답)](analysis-services-network-faq.md)를 참조하세요.
+> Azure 지역은 서로 다른 IP 주소 범위를 사용합니다. 서버 및/또는 스토리지 계정이 있는 지역에 대해 방화벽 예외가 구성된 경우 다른 IP 주소 범위를 구성해야 할 수 있습니다. 자세히 알아보려면 [Analysis Services 네트워크 연결에 대한 FAQ(질문과 대답)](analysis-services-network-faq.yml)를 참조하세요.
 
 > [!NOTE]
 > 이 문서에서는 원본 서버 지역의 스토리지 컨테이너에서 대상 서버로 데이터베이스 백업을 복원하는 방법을 설명합니다. 경우에 따라, 다른 지역에서 백업을 복원하면 성능이 저하될 수 있습니다(특히, 데이터베이스 규모가 큰 경우). 데이터베이스 복원 중 최상의 성능을 위해 대상 서버 지역에 마이그레이션하거나 새 스토리지 컨테이너를 만듭니다. 대상 서버에 데이터베이스를 복원하기 전에 원본 지역 스토리지 컨테이너에서 대상 지역 스토리지 컨테이너로 .abf 백업 파일을 복사합니다. 이 문서의 범위를 벗어나지만, 원본 서버에서 데이터베이스를 스크립팅하고, 다시 만들고, 대상 서버에서 데이터베이스에서 처리하여 데이터베이스 데이터를 로드하는 것이 백업/복원을 사용하는 것보다 비용 효율적인 경우도 있습니다(특히, 매우 큰 데이터베이스를 사용하는 경우).
@@ -86,7 +86,7 @@ Azure Portal을 사용하여 템플릿을 내보내려면:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-PowerShell을 사용하여 템플릿을 내보냅니다.
+PowerShell을 사용하여 템플릿을 내보내려면:
 
 1. [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 

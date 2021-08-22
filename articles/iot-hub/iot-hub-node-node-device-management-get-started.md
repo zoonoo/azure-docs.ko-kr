@@ -2,19 +2,18 @@
 title: Azure IoT Hub 디바이스 관리 시작(노드) | Microsoft Docs
 description: IoT Hub 디바이스 관리를 사용하여 원격 디바이스 재부팅을 시작하는 방법입니다. Node.js용 Azure IoT 디바이스 SDK를 사용하여 직접 메서드를 포함한 시뮬레이션된 디바이스 앱 및 직접 메서드를 호출하는 서비스 앱을 구현합니다.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: mqtt, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 8d551de4e467d602c40fc40889bfc36e5cf69a1d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: da842509c7adbf1cc576c42d229e3934bb74251d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075604"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536007"
 ---
 # <a name="get-started-with-device-management-nodejs"></a>디바이스 관리 시작(Node.js)
 

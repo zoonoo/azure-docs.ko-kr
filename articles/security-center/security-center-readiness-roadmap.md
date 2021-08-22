@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 4f48ccaab8ba084a3944ba2d5fdd7188efa56555
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 42ca1bf538ff7a8a7479f8db041d35d4ea68692e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556841"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535866"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center 준비 로드맵
 이 문서에서는 Azure Security Center를 시작하는 데 도움이 되는 준비 로드맵을 제공합니다.
@@ -109,8 +109,3 @@ Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 �
 * [PaaS 권장 사항](../security/fundamentals/paas-deployments.md)
 * [호환성](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
 * [이제 Log Analytics 고객은 Azure Security Center를 사용하여 하이브리드 클라우드 워크로드를 보호할 수 있습니다.](/archive/blogs/msoms/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads)
-
-## <a name="community-resources"></a>커뮤니티 리소스
-
-* [Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
-* [보안 센터에 대한 Q&A 페이지](/answers/topics/azure-security-center.html)

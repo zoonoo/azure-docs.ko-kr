@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: e58c1177fb3c4d241a3efe1759b3900abbd04ca1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa5f2e51549baeaea6373a2d24e54f780d508bce
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92778387"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113596266"
 ---
 # <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Standard Verizon에서 Premium Verizon으로 Azure CDN 프로필 마이그레이션
 
@@ -36,7 +36,7 @@ Azure CDN(Content Delivery Network) 프로필을 만들어서 엔드포인트를
 
 ## <a name="profile-comparison"></a>프로필 비교
 **Verizon의 Azure CDN Premium** 프로필은 **Verizon의 Azure CDN Standard** 프로필에 비해 다음과 같은 주요 차이점이 있습니다.
-- [압축](cdn-improve-performance.md), [캐시 규칙](cdn-caching-rules.md) 및 [지역 필터링](cdn-restrict-access-by-country.md)과 같은 특정 Azure CDN 기능의 경우 Azure CDN 인터페이스를 사용할 수 없습니다. **관리** 단추를 통해 Verizon 포털을 사용해야 합니다.
+- [압축](cdn-improve-performance.md), [캐시 규칙](cdn-caching-rules.md) 및 [지역 필터링](cdn-restrict-access-by-country-region.md)과 같은 특정 Azure CDN 기능의 경우 Azure CDN 인터페이스를 사용할 수 없습니다. **관리** 단추를 통해 Verizon 포털을 사용해야 합니다.
 - API: Standard Verizon과 달리 Premium Verizon 포털에서 액세스하는 이러한 기능을 제어하기 위해 API를 사용할 수 없습니다. 단, 엔드포인트 만들기/삭제, 캐시된 자산 제거/로드 및 사용자 지정 도메인 설정/해제와 같은 다른 일반적인 기능을 제어할 때는 API를 사용할 수 있습니다.
 - 가격 책정: Premium Verizon은 데이터 전송에 대해 Standard Verizon과는 다른 가격 책정 구조를 제공합니다. 자세한 정보는 [Content Delivery Network 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
 

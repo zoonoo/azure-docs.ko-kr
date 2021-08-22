@@ -2,17 +2,17 @@
 title: Azure에 클라우드 서비스(클래식)를 배포할 때 ConstrainedAllocationFailed 문제 해결 | Microsoft Docs
 description: 이 문서에서는 Azure에 클라우드 서비스(클래식)를 배포할 때 ConstrainedAllocationFailed 예외를 해결하는 방법을 보여 줍니다.
 services: cloud-services
-author: mamccrea
-ms.author: mamccrea
+author: hirenshah1
+ms.author: hirshah
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: 4a92246f81ddd10840bb0dcf7edf2b01853fd148
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 2b491560af61bc0afc8696d45c32ed91b846a9e4
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107876601"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090028"
 ---
 # <a name="troubleshoot-constrainedallocationfailed-when-deploying-a-cloud-service-classic-to-azure"></a>Azure에 클라우드 서비스(클래식)를 배포할 때 ConstrainedAllocationFailed 문제 해결
 

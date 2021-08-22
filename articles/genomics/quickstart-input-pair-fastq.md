@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
-ms.openlocfilehash: 3806b165e5abb661e53c6a315650d025fd42e17f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19c22f835f14fff880817c0452e6c0245b24be41
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "72248554"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551887"
 ---
 # <a name="submit-a-workflow-using-fastq-file-inputs-in-microsoft-genomics"></a>Microsoft Genomics에서 FASTQ 파일 입력을 사용하여 워크플로 제출
 
@@ -82,4 +82,4 @@ output_storage_account_container: outputs
 이 호출로 `config.txt` 파일 제출: `msgen submit -f config.txt`
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Storage에 한 쌍의 FASTQ 파일을 업로드했고 `msgen` python 클라이언트를 통해 워크플로를 Microsoft Genomics 서비스에 제출했습니다. Microsoft Genomics 서비스에서 사용할 수 있는 워크플로 제출 및 기타 명령에 대한 자세한 내용은 [FAQ](frequently-asked-questions-genomics.md)를 참조하세요. 
+이 문서에서는 Azure Storage에 한 쌍의 FASTQ 파일을 업로드했고 `msgen` python 클라이언트를 통해 워크플로를 Microsoft Genomics 서비스에 제출했습니다. Microsoft Genomics 서비스에서 사용할 수 있는 워크플로 제출 및 기타 명령에 대한 자세한 내용은 [FAQ](frequently-asked-questions-genomics.yml)를 참조하세요. 

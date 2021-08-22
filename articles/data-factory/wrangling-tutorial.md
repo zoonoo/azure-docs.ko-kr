@@ -4,14 +4,15 @@ description: 랭글링 데이터 흐름을 사용하여 Azure Data Factory에서
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 06/08/2021
-ms.openlocfilehash: 523a87c3adb77c55440392381ebe43ea24627c14
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 95ee9fe7071a1e426e21043b5522f9293c213b1b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756655"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535886"
 ---
 # <a name="prepare-data-with-data-wrangling"></a>데이터 랭글링으로 데이터 준비
 

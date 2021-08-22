@@ -10,16 +10,16 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
 ms.date: 03/19/2021
-ms.openlocfilehash: 37266c7a7692c59efdded9ba3fabe71458a5f674
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 8363fb2dbd80f55cdae4c064177bed63ed988559
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110788625"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535614"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>마이그레이션 가이드: Access에서 Azure SQL Database로 마이그레이션
 
-이 가이드에서는 Access용 SSMA(Access용 [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant)를 사용하여 Microsoft Access 데이터베이스를 Azure SQL 데이터베이스로 [마이그레이션하는 방법](https://azure.microsoft.com/migration/migration-journey)을 알아봅니다.
+이 가이드에서는 Access용 SSMA(Access용 [SQL Server Migration](https://azure.microsoft.com/migration/sql-server/) Assistant)를 사용하여 Microsoft Access 데이터베이스를 Azure SQL 데이터베이스로 [마이그레이션하는 방법](https://azure.microsoft.com/migration/migration-journey)을 알아봅니다.
 
 다른 마이그레이션 가이드는 [Azure 데이터베이스 마이그레이션 가이드](/data-migration)를 참조하세요. 
 
@@ -170,7 +170,7 @@ Access용 SSMA를 사용하여 스키마를 게시하고 데이터를 마이그�
 
 | 제목 | Description |
 | --- | --- |
-| [데이터 워크로드 평가 모델 및 도구](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | 특정 워크로드에 권장되는 ‘최적의’ 대상 플랫폼, 클라우드 준비 상태 및 애플리케이션/데이터베이스 수정 수준을 제공합니다. 또한 자동화되고 균일한 대상 플랫폼 결정 프로세스를 제공하여 대규모 자산 평가를 가속화하는 데 도움이 되는 간단한 원클릭 계산 및 보고서 생성 기능을 제공합니다. |
+| [데이터 워크로드 평가 모델 및 도구](https://www.microsoft.com/download/details.aspx?id=103130) | 특정 워크로드에 권장되는 ‘최적의’ 대상 플랫폼, 클라우드 준비 상태 및 애플리케이션/데이터베이스 수정 수준을 제공합니다. 또한 자동화되고 균일한 대상 플랫폼 결정 프로세스를 제공하여 대규모 자산 평가를 가속화하는 데 도움이 되는 간단한 원클릭 계산 및 보고서 생성 기능을 제공합니다. |
 
 데이터 SQL 엔지니어링 팀이 해당 리소스를 개발했습니다. 이 팀의 핵심 선언은 Microsoft의 Azure 데이터 플랫폼으로의 데이터 플랫폼 마이그레이션 프로젝트에 대한 복잡한 현대화의 장애물을 제거하고 속도를 높이는 것입니다.
 

@@ -3,15 +3,15 @@ title: Azure Cosmos DB의 작업 처리량 사용량을 모니터링
 description: Azure Cosmos DB에서 작업의 처리량 또는 요청 단위 사용량을 모니터링하는 방법에 대해 알아봅니다. 어떤 작업이 더 많은 요청 단위를 소비하는지를 Azure Cosmos DB 계정 소유자가 파악할 수 있습니다.
 ms.service: cosmos-db
 ms.topic: how-to
-author: kanshiG
-ms.author: govindk
+ms.author: esarroyo
+author: StefArroyo
 ms.date: 04/09/2020
-ms.openlocfilehash: d6f0f30d7437b6f8ecc1d915eb3d3195f2504fec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35968a21f0d3143b089cb8418f614e2c776da8cb
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93098249"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113359644"
 ---
 # <a name="how-to-monitor-throughput-or-request-unit-usage-of-an-operation-in-azure-cosmos-db"></a>Azure Cosmos DB에서 작업의 처리량 또는 요청 단위 사용량을 모니터링하는 방법입니다
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

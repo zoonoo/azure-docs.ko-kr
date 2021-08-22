@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
 ms.date: 03/19/2021
-ms.openlocfilehash: 437b7bd6e919cd6b462cb8653354631fbeb438ed
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 8e044cee9e91c0de16105bc4c954af9e61acea5a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110785574"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529046"
 ---
 # <a name="migration-guide-sql-server-to-azure-sql-database"></a>마이그레이션 가이드: SQL Server를 Azure SQL Database로
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ ms.locfileid: "110785574"
 
 ## <a name="prerequisites"></a>사전 요구 사항 
 
-Azure SQL Database로 [SQL Server 마이그레이션](https://azure.microsoft.com/en-us/migration/sql-server/)을 수행하려면 다음을 확인합니다. 
+Azure SQL Database로 [SQL Server 마이그레이션](https://azure.microsoft.com/migration/sql-server/)을 수행하려면 다음을 확인합니다. 
 
 - [마이그레이션 방법](sql-server-to-sql-database-overview.md#compare-migration-options) 및 해당 도구를 선택했는지 확인합니다.
 - 원본 SQL Server에 연결할 수 있는 머신에 [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)가 설치되어 있는지 확인합니다.

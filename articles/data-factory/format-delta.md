@@ -3,15 +3,16 @@ title: Azure Data Factory의 델타 형식
 description: 델타 형식을 사용하여 델타 레이크에서 데이터를 변환하고 이동합니다.
 author: kromerm
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: makromer
-ms.openlocfilehash: 38138be8ddd6babd9740a81ffcbedb9088a412f4
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: b5f344d97813e5f8bc7099631b56760ca2115f1a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906173"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642275"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Azure Data Factory의 델타 형식
 
@@ -29,7 +30,7 @@ ms.locfileid: "107906173"
 
 아래 표에는 델타 원본에서 지원하는 속성이 나와 있습니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 서식 | 형식은 `delta`여야 합니다. | 예 | `delta` | format |
 | 파일 시스템 | 델타 레이크의 컨테이너/파일 시스템 | 예 | String | fileSystem |
@@ -66,7 +67,7 @@ source(output(movieId as integer,
 
 다음 표에는 델타 싱크에서 지원하는 속성이 나와 있습니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다.
 
-| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 서식 | 형식은 `delta`여야 합니다. | 예 | `delta` | format |
 | 파일 시스템 | 델타 레이크의 컨테이너/파일 시스템 | 예 | String | fileSystem |

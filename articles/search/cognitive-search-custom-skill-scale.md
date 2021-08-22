@@ -2,18 +2,17 @@
 title: 사용자 지정 기술 스케일링 및 관리
 titleSuffix: Azure Cognitive Search
 description: 최대 처리량을 위해 사용자 지정 기술을 효율적으로 스케일 아웃하기 위한 도구와 기술을 알아봅니다. 사용자 지정 기술은 Azure Cognitive Search에서 AI - 보강 인덱싱 파이프라인에 추가할 수 있는 사용자 지정 AI 모델 또는 논리를 호출합니다.
-manager: luisca
-author: vkurpad
-ms.author: vikurpad
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: f80e78da5c7d226c704c8b13fc496e416f5d0f0d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 6b44cc3bde1a2e36cdd902a7366df8841795891a
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125592"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114728436"
 ---
 # <a name="efficiently-scale-out-a-custom-skill"></a>사용자 지정 기술을 효율적으로 스케일 아웃
 
@@ -22,9 +21,9 @@ ms.locfileid: "108125592"
 * 컨테이너화된 간단한 AI 기술을 위한 Azure Webapps
 * 더 복잡하거나 더 대규모인 기술을 위한 Azure Kubernetes Service.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-+ 사용자 지정 기술이 구현해야 하는 입출력 인터페이스에 대한 소개는 [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md)를 검토합니다.
++ [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md)를 검토하여 사용자 지정 기술이 구현해야 하는 입출력 인터페이스의 기본 사항을 알아봅니다.
 
 + 환경을 설정합니다. Visual Studio Code 및 Python 확장을 사용하여 서버리스 Azure 함수를 설정하려면 [관련 자습서 전체](../azure-functions/create-first-function-vs-code-python.md)를 참조할 수 있습니다.
 

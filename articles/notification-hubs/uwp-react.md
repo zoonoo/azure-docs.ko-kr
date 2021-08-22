@@ -7,12 +7,12 @@ ms.service: notification-hubs
 ms.topic: conceptual
 ms.date: 06/14/2021
 ms.custom: template-concept
-ms.openlocfilehash: 7158fa486483f1ff26599e47e43ee3219a23045a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 229de776e7e2dace0253d7cc4495663969cb3e62
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082876"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285236"
 ---
 # <a name="send-notifications-to-android-and-ios-applications"></a>Android 및 iOS 애플리케이션에 알림 보내기
 
@@ -53,7 +53,7 @@ GitHub의 샘플 애플리케이션에는 다음 폴더가 포함되어 있습�
 
 - **NotificationHub.Sample.API**: 백 엔드 역할을 하는 Visual Studio 2019 ASP.NET Web API 솔루션입니다.
 - **앱**: 관리자 로그인으로 알림을 발송하고 설문 조사 사용자 로그인으로 알림을 받을 수 있도록 하는 플랫폼 간 React Native 애플리케이션입니다.
-- **azure-template**: Azure 구독에서 이 배포를 구성하는 데 필요한 모든 리소스를 배포하는 데 사용할 수 있는 Azure Resource Manager 템플릿(`parameters.json` 및 `template.json`)입니다. Resource Manager 템플릿 배포에 대한 자세한 내용은 [Azure Portal을 사용하여 ARM 템플릿 만들기 및 배포](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal)를 참조하세요.
+- **azure-template**: Azure 구독에서 이 배포를 구성하는 데 필요한 모든 리소스를 배포하는 데 사용할 수 있는 Azure Resource Manager 템플릿(`parameters.json` 및 `template.json`)입니다. Resource Manager 템플릿 배포에 대한 자세한 내용은 [Azure Portal을 사용하여 ARM 템플릿 만들기 및 배포](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)를 참조하세요.
 
 ## <a name="sample-overview"></a>샘플 개요
 
@@ -355,9 +355,9 @@ public interface INotificationService
 
 - **[Azure Notification Hub 인스턴스](#create-resource-notification-hub):** Azure에 구성된 알림 허브입니다.
 - **[SQL Server 데이터베이스 인스턴스](#create-resource-sql-database):** Azure에서 호스트되는 SQL Server 데이터베이스입니다.
-- **ASP.NET 앱 백 엔드:** .NET 5.0을 통해 빌드된 Web API 백 엔드는 Azure App Service로 호스팅되는 Azure Notification Hub와 연결됩니다. 자세한 내용은 [빠른 시작: ASP.NET 웹앱 배포](/azure/app-service/quickstart-dotnetcore?tabs=net50&pivots=development-environment-vs)를 참조하세요.
+- **ASP.NET 앱 백 엔드:** .NET 5.0을 통해 빌드된 Web API 백 엔드는 Azure App Service로 호스팅되는 Azure Notification Hub와 연결됩니다. 자세한 내용은 [빠른 시작: ASP.NET 웹앱 배포](../app-service/quickstart-dotnetcore.md?pivots=development-environment-vs&tabs=net50)를 참조하세요.
 
-모든 리소스를 수동으로 배포하지 않으려면 GitHub 리포지토리에 제공된 Azure Resource Manager template.json 파일을 사용하여 한 단계에서 필요한 모든 인스턴스를 배포할 수 있습니다. 템플릿 파일은 /azure-template의 리포지터리에서 사용할 수 있습니다. Resource Manager 템플릿을 사용하는 방법에 대한 자세한 내용은 [자습서: Azure 빠른 시작 템플릿 사용](/azure/azure-resource-manager/templates/template-tutorial-quickstart-template?tabs=azure-powershell)을 참조하세요.
+모든 리소스를 수동으로 배포하지 않으려면 GitHub 리포지토리에 제공된 Azure Resource Manager template.json 파일을 사용하여 한 단계에서 필요한 모든 인스턴스를 배포할 수 있습니다. 템플릿 파일은 /azure-template의 리포지터리에서 사용할 수 있습니다. Resource Manager 템플릿을 사용하는 방법에 대한 자세한 내용은 [자습서: Azure 빠른 시작 템플릿 사용](../azure-resource-manager/templates/template-tutorial-quickstart-template.md?tabs=azure-powershell)을 참조하세요.
 
 ### <a name="set-up-notifications-for-android-and-ios"></a>Android 및 iOS에 대한 알림 설정
 
@@ -370,7 +370,7 @@ public interface INotificationService
 
 ### <a name="create-resource-sql-database"></a>리소스 만들기: SQL 데이터베이스
 
-Azure Portal에서 [SQL Server 데이터베이스 인스턴스를 만듭니다](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal). 예를 들면 다음과 같습니다.
+Azure Portal에서 [SQL Server 데이터베이스 인스턴스를 만듭니다](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal). 예를 들면 다음과 같습니다.
 
 :::image type="content" source="media/uwp-react/resources-sql.png" alt-text="SQL 인스턴스 리소스":::
 

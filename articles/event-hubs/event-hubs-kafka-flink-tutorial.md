@@ -3,12 +3,12 @@ title: Apache Kafka용 Apache Flink 사용 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hub에 Apache Flink를 연결하는 방법에 대한 정보를 제공합니다.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 1d382270248e95b1b973f57f67ebf81160f03a16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84dd1f735ae041449bba474fd1147c7084bd5f0e
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92369508"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113286433"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Apache Kafka용 Azure Event Hubs에서 Apache Flink 사용
 이 자습서에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Apache Flink를 이벤트 허브에 연결하는 방법을 보여 줍니다. Apache Kafka 소비자 프로토콜에 대한 Event Hubs 지원과 관련한 자세한 내용은 [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)를 참조하세요.
@@ -30,7 +30,7 @@ ms.locfileid: "92369508"
 
 * [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md) 문서를 참조하세요. 
 * Azure 구독 구독이 없으면 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
-* [JDK(Java Development Kit) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [JDK(Java Development Kit) 1.7+](/azure/developer/java/fundamentals/java-support-on-azure)
     * Ubuntu에서 `apt-get install default-jdk`를 실행하여 JDK를 설치합니다.
     * JAVA_HOME 환경 변수가 반드시 JDK가 설치된 폴더를 지정하도록 설정합니다.
 * Maven 이진 보관 파일을 [다운로드](https://maven.apache.org/download.cgi)하여 [설치](https://maven.apache.org/install.html)합니다.

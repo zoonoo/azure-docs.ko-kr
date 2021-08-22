@@ -16,12 +16,12 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1a3b0dda56f0039d61f8ef4ff1dd27dd09ec8b71
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: cd1d81362534f4de7357ebbbc6877aa7c3f72f2e
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666124"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113434753"
 ---
 # <a name="automated-patching-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Azure 가상 머신에서 SQL Server의 자동화된 패치(Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -89,9 +89,7 @@ Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server
 
 ### <a name="existing-vms"></a>기존 VM
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
-
-기존 SQL Server 가상 머신의 경우 [SQL 가상 머신 리소스](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource)를 열고 **설정** 에서 **패치** 를 선택합니다. 
+기존 SQL Server 가상 머신의 경우 [SQL 가상 머신 리소스](manage-sql-vm-portal.md#access-the-resource)를 열고 **설정** 에서 **패치** 를 선택합니다. 
 
 ![기존 VM에 대한 SQL 자동 패치](./media/automated-patching/azure-sql-rm-patching-existing-vms.png)
 

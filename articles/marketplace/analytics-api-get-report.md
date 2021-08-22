@@ -4,15 +4,16 @@ description: 이 API를 사용하여 파트너 센터에서 예약된 분석 보
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 3383af447f40ea984bce9cbc956f22ee6c5af200
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d9248559f785ffb3b63e1f3d275e33a205cb682f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102584050"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529282"
 ---
 # <a name="get-report-api"></a>보고서 API 가져오기
 

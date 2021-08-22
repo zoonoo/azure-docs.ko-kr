@@ -2,7 +2,6 @@
 title: Azure IoT Hub 메시징 이해 | Microsoft 문서
 description: 개발자 가이드 - IoT Hub를 사용한 디바이스-클라우드 및 클라우드-디바이스 메시징 메시지 형식 및 지원되는 통신 프로토콜에 대한 정보가 포함됩니다.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: e25b9d6cbe8446fb2f10150f17f7e2b0ccf85d3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec241eadb43b083905a2fea0fc7a03cf46dd31d1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92147624"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535710"
 ---
 # <a name="send-device-to-cloud-and-cloud-to-device-messages-with-iot-hub"></a>IoT Hub를 사용한 디바이스-클라우드 및 클라우드-디바이스 메시지 보내기
 

@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/28/2020
+ms.date: 07/13/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2386392f34f25c30c7c68065dd69a606d16bae8e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6638e06a8bd7020db993db024d76a566b878ca23
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955069"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730409"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>동적 그룹 및 Azure Active Directory B2B 협업
 
 ## <a name="what-are-dynamic-groups"></a>동적 그룹이란?
 Azure AD(Azure Active Directory)에 대한 보안 그룹 구성원의 동적 구성은 [Azure Portal](https://portal.azure.com)에서 사용할 수 있습니다. 관리자는 사용자 특성(예: userType, 부서 또는 국가/지역)에 따라 Azure AD에서 생성된 그룹을 채우도록 규칙을 설정할 수 있습니다. 특성에 따라 구성원을 보안 그룹에 자동으로 추가하거나 보안 그룹에서 제거할 수 있습니다. 이러한 그룹은 SharePoint 사이트, 문서 등의 애플리케이션 또는 클라우드 리소스에 대한 액세스 권한을 제공하고 구성원에게 라이선스를 할당할 수 있습니다. [Azure Active Directory의 전용 그룹](../fundamentals/active-directory-groups-create-azure-portal.md)에서 동적 그룹에 대해 자세히 알아보세요.
 
-동적 그룹을 만들고 사용하려면 적절한 [Azure AD Premium P1 또는 P2 라이선스](https://azure.microsoft.com/pricing/details/active-directory/)가 필요합니다. 자세한 내용은 [Azure Active Directory에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기](../enterprise-users/groups-dynamic-membership.md) 문서를 참조하세요.
+동적 그룹을 만들고 사용하려면 적절한 [Azure AD Premium P1 또는 P2 라이선스](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)가 필요합니다. 자세한 내용은 [Azure Active Directory에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기](../enterprise-users/groups-dynamic-membership.md) 문서를 참조하세요.
 
 ## <a name="creating-an-all-users-dynamic-group"></a>"모든 사용자" 동적 그룹 만들기
 멤버 자격 규칙을 사용하여 테넌트 내의 모든 사용자가 포함된 그룹을 만들 수 있습니다. 나중에 테넌트에서 사용자를 추가하거나 제거하면 그룹의 멤버 자격이 자동으로 조정됩니다.

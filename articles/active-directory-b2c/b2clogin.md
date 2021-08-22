@@ -11,24 +11,16 @@ ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 20df5fc3a4d7c392be62df2b7778854d1e2e1cba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95fe619ecb33e3b7e79c37b4cddb5950836b4cd5
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97109065"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113223719"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Azure Active Directory B2C의 리디렉션 URL을 b2clogin.com으로 설정
 
 Azure AD B2C(Azure Active Directory B2C) 애플리케이션의 가입 및 로그인을 위한 ID 공급자를 설정하는 경우 리디렉션 URL을 지정해야 합니다. Azure AD B2C를 통해 사용자를 인증하기 위해 애플리케이션의 애플리케이션 및 API에서 *login.microsoftonline.com* 을 참조하지 않아야 합니다. 대신 모든 새 애플리케이션에 *b2clogin.com* 을 사용하고 기존 애플리케이션을 *login.microsoftonline.com* 에서 *b2clogin.com* 으로 마이그레이션합니다.
-
-## <a name="deprecation-of-loginmicrosoftonlinecom"></a>login.microsoftonline.com 사용 중단
-
-**2020년 10월 업데이트:** 처음 발표되었던 대로 2020년 12월 4일에 사용 중단을 실행할 수 없는 테넌트를 위해 유예 기간을 연장하고 있습니다. 따라서 login.microsoftonline.com의 사용이 **2021년 1월 14일** 이후에 중지될 예정입니다.
-
-**배경**: 원래는 2020년 12월 4일에 Azure AD B2C에서 login.microsoftonline.com 지원을 중단할 예정이라고 2019년 12월 4일에 [발표](https://azure.microsoft.com/updates/b2c-deprecate-msol/)했습니다. 이를 통해 기존 테넌트에게 b2clogin.com으로 마이그레이션할 수 있는 1년의 시간이 주어졌습니다. 2019년 12월 4일 이후에 생성된 새 테넌트는 login.microsoftonline.com의 요청을 수락하지 않습니다. 모든 기능은 b2clogin.com 엔드포인트에서 동일하게 유지됩니다.
-
-login.microsoftonline.com 사용이 중단되어도 Azure Active Directory 테넌트에는 영향을 주지 않습니다. 이러한 변경은 Azure Active Directory B2C 테넌트에만 영향을 줍니다.
 
 ## <a name="what-endpoints-does-this-apply-to"></a>해당하는 엔드포인트
 b2clogin.com으로의 전환은 사용자 인증에 Azure AD B2C 정책(사용자 흐름 또는 사용자 지정 정책)을 사용하는 인증 엔드포인트에만 적용됩니다. 이러한 엔드포인트에는 Azure AD B2C가 사용해야 하는 정책을 지정하는 `<policy-name>` 매개 변수가 있습니다. [Azure AD B2C 정책에 대해 자세히 알아보세요](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 

@@ -2,21 +2,21 @@
 title: PREDICT를 사용하여 기계 학습 모델 채점
 description: 전용 SQL 풀에서 T-SQL PREDICT 함수를 사용하여 기계 학습 모델을 채점하는 방법에 대해 알아봅니다.
 services: synapse-analytics
-author: anumjs
+author: rothja
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 07/21/2020
-ms.author: anjangsh
+ms.author: jroth
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9e7d45a588e60cd082f1eef43d1d1b6681b9e912
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11e5f2e3ea46794367247ef9a1b4a0a43f7d6c1e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98117744"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438313"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>PREDICT를 사용하여 기계 학습 모델 채점
 

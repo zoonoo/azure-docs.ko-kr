@@ -2,7 +2,6 @@
 title: Azure IoT 보안 권장 사항 | Microsoft Docs
 description: 이 문서에서는 Azure IoT Hub 솔루션의 보안을 유지하기 위한 추가 단계를 간략히 설명합니다.
 author: dsk-2015
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: article
@@ -12,12 +11,12 @@ ms.custom:
 - security-recommendations
 - amqp
 - mqtt
-ms.openlocfilehash: eeb8a8132b905254c02c86460c376d69948b9264
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: c3592770769492bdf90351c59a1077a56e47baa1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481412"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528988"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Azure IoT(사물 인터넷) 배포에 대한 보안 권장 사항
 

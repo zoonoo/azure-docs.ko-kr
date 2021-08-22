@@ -4,12 +4,12 @@ description: 정적 연결 클라이언트를 사용하여 Azure Functions에서
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 02/25/2018
-ms.openlocfilehash: 6b27639ef8cccefbdec9538d0536db9b297e4039
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: b9a1659fa5d0929c6dfbe0a3c4fd5497666ba2b5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107946370"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535780"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Azure Functions에서 연결 관리
 
@@ -146,7 +146,7 @@ module.exports = async function (context) {
 함수 코드에서 .NET Framework Data Provider for SQL Server([SqlClient](/dotnet/api/system.data.sqlclient))를 사용하여 SQL 관계형 데이터베이스에 연결할 수 있습니다. SqlClient는 [Entity Framework](/ef/ef6/) 등 ADO.NET을 사용하는 데이터 프레임워크의 기본 공급자이기도 합니다. [HttpClient](/dotnet/api/system.net.http.httpclient) 및 [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient)와 달리, ADO.NET은 기본적으로 연결 풀링을 구현합니다. 그러나 연결이 부족해질 수 있으므로 데이터베이스에 대한 연결을 최적화해야 합니다. 자세한 내용은 [SQL Server 연결 풀링(ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling)을 참조하세요.
 
 > [!TIP]
-> Entity Framework 등의 일부 데이터 프레임워크는 일반적으로 구성 파일의 **ConnectionStrings** 섹션에서 연결 문자열을 가져옵니다. 이 경우, 함수 앱 설정의 **연결 문자열** 컬렉션과 로컬 프로젝트의 [local.settings.json 파일](functions-run-local.md#local-settings-file)에 SQL 데이터베이스 연결 문자열을 명시적으로 추가해야 합니다. 함수 코드에서 [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection)의 인스턴스를 만드는 경우 **애플리케이션 설정** 에 다른 연결과 함께 연결 문자열 값을 저장해야 합니다.
+> Entity Framework 등의 일부 데이터 프레임워크는 일반적으로 구성 파일의 **ConnectionStrings** 섹션에서 연결 문자열을 가져옵니다. 이 경우, 함수 앱 설정의 **연결 문자열** 컬렉션과 로컬 프로젝트의 [local.settings.json 파일](functions-develop-local.md#local-settings-file)에 SQL 데이터베이스 연결 문자열을 명시적으로 추가해야 합니다. 함수 코드에서 [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection)의 인스턴스를 만드는 경우 **애플리케이션 설정** 에 다른 연결과 함께 연결 문자열 값을 저장해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

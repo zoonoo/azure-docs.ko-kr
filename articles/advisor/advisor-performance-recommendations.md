@@ -3,12 +3,12 @@ title: Advisor로 Azure 앱의 성능 향상
 description: Azure Advisor의 성능 권장 사항을 사용하여 중요 비즈니스용 애플리케이션의 속도 및 응답성을 향상시키는 데 도움이 됩니다.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 69fd86226375073c71903af5704ef3a635eeaffb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a2813699e082afbc263775821839ed6946e26c1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579916"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535581"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Azure Advisor를 사용하여 Azure 애플리케이션의 성능 향상
 
@@ -173,7 +173,7 @@ VM이 WVD(Windows Virtual Desktop)를 사용하여 사용자가 연결하는 위
 
 ## <a name="upgrade-to-the-latest-version-of-the-immersive-reader-sdk"></a>최신 버전의 몰입형 리더 SDK로 업그레이드
 이 구독에서 오래된 버전의 몰입형 리더 SDK를 사용하는 리소스를 확인했습니다. 최신 버전의 몰입형 리더 SDK를 사용하면 통합 환경을 사용자 지정하고 향상시킬 수 있는 확장된 기능 집합, 업데이트된 보안, 성능이 제공됩니다.
-[몰입형 판독기 SDK](../cognitive-services/immersive-reader/index.yml)에 대한 자세한 정보를 알아보세요.
+[몰입형 판독기 SDK](../applied-ai-services/immersive-reader/index.yml)에 대한 자세한 정보를 알아보세요.
 
 ## <a name="improve-vm-performance-by-changing-the-maximum-session-limit"></a>최대 세션 제한을 변경하여 VM 성능 개선
 

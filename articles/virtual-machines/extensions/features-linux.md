@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 03/30/2018
-ms.openlocfilehash: bdbbc4c421b83fd041c7d900fb0edd01c4d636e0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: ba1f3e9ca68f44927c1d163a8d02c63c7b2f3b0c
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785094"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113598480"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Linux용 가상 머신 확장 및 기능
 
@@ -27,7 +27,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 자동화
 
 - Linux용 DSC 확장을 사용하여 VM에 PowerShell의 필요한 상태 구성을 적용합니다. 자세한 내용은 [Azure 필요한 상태 구성 확장](https://github.com/Azure/azure-linux-extensions/tree/master/DSC)을 참조하세요.
 - Microsoft Monitoring Agent VM 확장을 사용하여 VM의 모니터링을 구성합니다. 자세한 내용은 [Linux VM을 모니터링하는 방법](/previous-versions/azure/virtual-machines/linux/tutorial-monitor)을 참조하세요.
-- Chef 또는 Datadog 확장으로 Azure 인프라의 모니터링을 구성합니다. 자세한 내용은 [Chef 문서](https://docs.chef.io/azure_portal.html) 또는 [Datadog 블로그](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)를 참조하세요.
+- Chef 또는 Datadog 확장으로 Azure 인프라의 모니터링을 구성합니다. 자세한 내용은 [Chef 문서](https://docs.chef.io/) 또는 [Datadog 블로그](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)를 참조하세요.
 
 프로세스 관련 확장 외에도 Windows 및 Linux 가상 머신에 대해 사용자 지정 스크립트 확장을 사용할 수 있습니다. Linux용 사용자 지정 스크립트 확장을 사용하면 Bash 스크립트를 VM에서 실행할 수 있습니다. 사용자 지정 스크립트는 네이티브 Azure 도구로 제공할 수 있는 것 이상의 구성이 필요한 Azure 배포를 디자인할 때 유용합니다. 자세한 내용은 [Linux VM 사용자 지정 스크립트 확장](custom-script-linux.md)을 참조하세요.
 

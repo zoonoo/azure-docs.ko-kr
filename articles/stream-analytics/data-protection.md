@@ -5,13 +5,13 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/03/2020
-ms.openlocfilehash: 102b03ad4fe247ae0abc4e2312d7027c6170333f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/07/2021
+ms.openlocfilehash: b236c433e55bb2b702497b42a1b4fc73ce520f00
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019468"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113491140"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Azure Stream Analytics의 데이터 보호 
 
@@ -94,9 +94,6 @@ Stream Analytics 작업에서 사용되는 리소스의 연결 세부 정보도 
 
 ## <a name="enables-data-residency"></a>데이터 보존 사용 
 이 기능을 사용하여 스토리지 계정을 적절하게 제공함으로써 발생할 수 있는 데이터 보존 요구 사항을 적용할 수 있습니다.
-
-## <a name="known-issues"></a>알려진 문제
-관리 ID를 사용하여 입력 또는 출력을 인증할 때 고객 관리 키를 사용하는 작업이 실패하게 되는 알려진 문제가 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

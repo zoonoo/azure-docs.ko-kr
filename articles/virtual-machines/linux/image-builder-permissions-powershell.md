@@ -1,20 +1,20 @@
 ---
 title: PowerShell을 사용하여 Azure Image Builder 서비스 권한 구성
 description: PowerShell을 사용하여 권한을 포함하는 Azure VM Image Builder 서비스에 대한 요구 사항 구성
-author: danielsollondon
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/05/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6eb802d560e168d64a1f9abe0301f8038203ee54
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: a7d32bdb2ea1897a0458708425cd7af025818fd8
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028490"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113596338"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-powershell"></a>PowerShell을 사용하여 Azure Image Builder 서비스 권한 구성
 

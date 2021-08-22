@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/05/2020
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c7901dd4a238b27a31f95f1e22ddf9dc1ae5327a
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 8148cbd1fa4e34610c4b27609910821323a2acea
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813069"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528523"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -135,7 +135,7 @@ namespace GetTokenResourceManagerRequests
 
 ## <a name="calling-the-backup-and-restore-operations"></a>백업 및 복원 작업 호출
 
-REST API는 [API Management 서비스 - 백업](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup) 및 [API Management 서비스 - 복원](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)입니다.
+REST API는 [API Management 서비스 - 백업](/rest/api/apimanagement/2020-12-01/api-management-service/backup) 및 [API Management 서비스 - 복원](/rest/api/apimanagement/2020-12-01/api-management-service/restore)입니다.
 
 다음 섹션에서 설명한 "백업 및 복원 작업"을 호출하기 전에 REST 호출에 대한 권한 부여 요청 헤더를 설정합니다.
 
@@ -156,7 +156,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   `subscriptionId` - 백업하려는 API Management 서비스를 포함하는 구독의 ID입니다.
 -   `resourceGroupName` - Azure API Management 서비스의 리소스 그룹 이름입니다.
 -   `serviceName` - 백업을 만드는 API Management 서비스를 만들 때 지정하는 이름입니다.
--   `api-version` - `2019-12-01`로 바꿉니다.
+-   `api-version` - `2020-12-01`로 바꿉니다.
 
 요청 본문에서 대상 Azure Storage 계정 이름, 액세스 키, Blob 컨테이너 이름 및 백업 이름을 지정합니다.
 
@@ -186,7 +186,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   `subscriptionId` - 백업을 복원할 API Management 서비스를 포함하는 구독의 ID입니다.
 -   `resourceGroupName` - 백업을 복원할 Azure API Management 서비스를 포함하는 리소스 그룹의 이름입니다.
 -   `serviceName` - 백업을 복원할 API Management 서비스를 만들 때 지정한 이름입니다.
--   `api-version` - `api-version=2019-12-01`로 바꿉니다.
+-   `api-version` - `api-version=2020-12-01`로 바꿉니다.
 
 요청 본문에서 백업 파일 위치를 지정합니다. 즉, Azure Storage 계정 이름, 액세스 키, Blob 컨테이너 이름 및 백업 이름을 추가합니다.
 

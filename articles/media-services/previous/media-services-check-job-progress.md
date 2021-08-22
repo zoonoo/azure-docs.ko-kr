@@ -15,19 +15,18 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a32744f7a2385bf9da92a0f9cae5f664b1a18fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: def232775847ac96621abf957e7fb1afabea716d
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103016970"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114706596"
 ---
 # <a name="monitor-job-progress-using-net"></a>.NET을 사용하여 작업 진행 상태 모니터링
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-> [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. StateChanged 이벤트 처리기를 정의하거나(이 항목에서 설명된 대로) Azure Queue Storage를 사용해 Media Services 작업 알림을 모니터링하여( [이](media-services-dotnet-check-job-progress-with-queues.md) 항목에서 설명된 대로) 진행률을 확인할 수 있습니다.
 

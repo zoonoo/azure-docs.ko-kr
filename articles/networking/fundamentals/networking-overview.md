@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/07/2021
 ms.author: kumud
-ms.openlocfilehash: 34e31bacbb276feb5b11d1b955096877376e989b
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 072c26444c3a3fe84cfc9a0690571a524f7db6dc
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107706"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436049"
 ---
 # <a name="azure-networking-services-overview"></a>Azure 네트워킹 서비스 개요
 
@@ -23,7 +23,7 @@ Azure의 네트워킹 서비스에서는 함께 또는 별도로 사용할 수 �
 - [**연결 서비스**](#connect): Azure의 VNet(Virtual Network), Virtual WAN, ExpressRoute, VPN Gateway, Virtual Network NAT Gateway, Azure DNS, Peering Service 및 Azure Bastion에서 이러한 네트워킹 서비스 중 일부 또는 조합을 사용하여 Azure 리소스 및 온-프레미스 리소스를 연결합니다.
 - [**애플리케이션 보호 서비스**](#protect): Azure의 Load Balancer, 프라이빗 링크, DDoS 보호, 방화벽, 네트워크 보안 그룹, 웹 애플리케이션 방화벽 및 Virtual Network 엔드포인트에서 이러한 네트워킹 서비스의 조합을 사용하여 애플리케이션을 보호합니다.
 - [ **전달 서비스**](#deliver): Azure의 CDN(Content Delivery Network), Azure Front Door Service, Traffic Manager, Application Gateway, Internet Analyzer 및 Load Balancer에서 이러한 네트워킹 서비스의 조합을 사용하여 Azure 네트워크에서 애플리케이션을 전달합니다.
-- [**네트워크 모니터링**](#monitor): Azure Network Watcher, ExpressRoute Monitor, Azure Monitor 또는 VNet TAP(터미널 액세스 지점)에서 이러한 네트워킹 서비스 중 일부 또는 조합을 사용하여 네트워크 리소스를 모니터링합니다.
+- [**네트워크 모니터링**](#monitor): Azure Network Watcher, ExpressRoute Monitor, Azure Monitor 또는 VNet TAP(터미널 액세스 지점)에서 네트워킹 서비스 중 일부 또는 조합을 사용하여 네트워크 리소스를 모니터링합니다.
 
 ## <a name="connectivity-services"></a><a name="connect"></a>연결 서비스
  
@@ -67,7 +67,7 @@ Azure Bastion 서비스는 가상 네트워크 내에서 프로비저닝하는 �
 :::image type="content" source="./media/networking-overview/architecture.png" alt-text="Azure Bastion 아키텍처":::
 
 ### <a name="virtual-network-nat-gateway"></a><a name="nat"></a>Virtual Network NAT Gateway
-Virtual Network NAT(Network Address Translation)는 가상 네트워크에 대한 아웃바운드 전용 인터넷 연결을 간소화합니다. 서브넷에 구성되는 경우 모든 아웃바운드 연결에서 지정된 고정 공용 IP 주소를 사용합니다. 가상 머신에 직접 연결되는 부하 분산 장치 또는 공용 IP 주소가 없으면 아웃바운드 연결이 가능합니다. 자세한 내용은 [Virtual Network NAT Gateway란?](../../virtual-network/nat-overview.md)을 참조하세요.
+Virtual Network NAT(Network Address Translation)는 가상 네트워크에 대한 아웃바운드 전용 인터넷 연결을 간소화합니다. 서브넷에 구성되는 경우 모든 아웃바운드 연결에서 지정된 고정 공용 IP 주소를 사용합니다. 가상 머신에 직접 연결되는 부하 분산 장치 또는 공용 IP 주소가 없으면 아웃바운드 연결이 가능합니다. 자세한 내용은 [Virtual Network NAT Gateway란?](../../virtual-network/nat-gateway/nat-overview.md)을 참조하세요.
 
 :::image type="content" source="./media/networking-overview/flow-map.png" alt-text="Virtual Network NAT Gateway":::
 
@@ -84,15 +84,15 @@ Azure Orbital은 우주선 또는 위성 관측, 다운링크 및 업링크 데�
 
 ## <a name="application-protection-services"></a><a name="protect"></a> 애플리케이션 보호 서비스
 
-이 섹션에서는 네트워크 리소스를 보호하는 데 도움이 되는 Azure의 네트워킹 서비스에 대해 설명합니다. Azure의 DDoS 보호, 개인 링크, 방화벽, Web Application Firewall, 네트워크 보안 그룹 및 가상 네트워크 서비스 엔드포인트와 같은 이러한 네트워킹 서비스 중 일부 또는 조합을 사용하여 애플리케이션을 보호합니다.
+이 섹션에서는 네트워크 리소스를 보호하는 데 도움이 되는 Azure의 네트워킹 서비스에 대해 설명합니다. Azure의 DDoS Protection, Private Link, 방화벽, Web Application Firewall, 네트워크 보안 그룹 및 가상 네트워크 서비스 엔드포인트와 같은 네트워킹 서비스 중 일부 또는 조합을 사용하여 애플리케이션을 보호합니다.
 
-### <a name="ddos-protection"></a><a name="ddosprotection"></a>DDoS 보호 
+### <a name="ddos-protection"></a><a name="ddosprotection">DDoS Protection</a> 
 [Azure DDoS Protection](../../ddos-protection/manage-ddos-protection.md)은 매우 정교한 DDoS 위협에 대한 대책을 제공합니다. 이 서비스는 가상 네트워크에 배포된 애플리케이션 및 리소스에 대해 향상된 DDoS 완화 기능을 제공합니다. 또한 Azure DDoS Protection을 사용하는 고객은 활성 공격 중에 DDoS 전문가를 참여시키도록 DDoS Rapid Response 지원에 액세스할 수 있습니다.
 
 :::image type="content" source="./media/networking-overview/ddos-protection.png" alt-text="DDoS Protection":::
 
 ### <a name="azure-private-link"></a><a name="privatelink"></a>Azure Private Link
-[Azure Private Link](../../private-link/private-link-overview.md)를 사용하면 가상 네트워크의 프라이빗 엔드포인트를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다.
+[Azure Private Link](../../private-link/private-link-overview.md)를 사용하면 가상 네트워크의 프라이빗 엔드포인트를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스트 고객 소유/파트너 서비스에 액세스할 수 있습니다.
 가상 네트워크와 서비스 사이의 트래픽은 Microsoft 백본 네트워크를 통해 이동합니다. 서비스를 공용 인터넷에 더 이상 노출할 필요가 없습니다. 가상 네트워크에 자체 프라이빗 링크 서비스를 만들어서 고객에게 제공할 수도 있습니다.
 
 :::image type="content" source="./media/networking-overview/private-endpoint.png" alt-text="프라이빗 엔드포인트 개요":::
@@ -104,7 +104,7 @@ Azure Firewall에 대한 자세한 내용은 [Azure Firewall 설명서](../../fi
 
 :::image type="content" source="./media/networking-overview/firewall-threat.png" alt-text="방화벽 개요":::
 
-### <a name="web-application-firewall"></a><a name="waf"></a>웹 애플리케이션 방화벽
+### <a name="web-application-firewall"></a><a name="waf"></a>Web Application Firewall
 [WAF(Azure Web Application Firewall)](../../web-application-firewall/overview.md)는 SQL 삽입, 사이트 간 스크립팅 등의 일반적인 웹 익스플로잇 및 취약성으로부터 웹 애플리케이션을 보호합니다. Azure WAF는 관리형 규칙을 통해 OWASP 상위 10개 취약점으로부터 보호하는 기본 기능을 제공합니다. 또한 고객은 원본 IP 범위를 기반으로 추가 보호 기능을 제공하며 헤더, 쿠키, 양식 데이터 필드 또는 쿼리 문자열 매개 변수와 같은 요청 속성을 제공하는 고객 관리형 규칙인 사용자 지정 규칙을 구성할 수도 있습니다.
 
 고객은 공용 및 개인 주소 공간의 엔터티에 지역 보호를 제공하는 [Application Gateway를 사용하여 Azure WAF](../../web-application-firewall/ag/ag-overview.md)를 배포하도록 선택할 수 있습니다. 또한 고객은 네트워크 에지에서 공용 엔드포인트에 대한 보호를 제공하는 [Front Door를 사용하여 Azure WAF](../../web-application-firewall/afds/afds-overview.md)를 배포하도록 선택할 수 있습니다.

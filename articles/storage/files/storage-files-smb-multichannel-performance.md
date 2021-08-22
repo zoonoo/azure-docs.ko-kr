@@ -7,16 +7,23 @@ ms.topic: conceptual
 ms.date: 05/17/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e8b2f64b0249cfe3b8a0a2e1bebcf7daabfe94dc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 995ece7fb5d199a4c403d4512c29eae46fe9fdcb
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094621"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112116659"
 ---
 # <a name="smb-multichannel-performance"></a>SMB 다중 채널 성능
 
 Azure Files SMB 다중 채널(미리 보기)은 SMB 3.x 클라이언트에서 FileStorage 계정의 프리미엄 파일 공유에 대한 여러 네트워크 연결을 할 수 있습니다. SMB 3.x 프로토콜은 Windows Server 2012 및 Windows 8 클라이언트에서 SMB 다중 채널 기능을 도입했습니다. 이로 인해 SMB 다중 채널을 지원하는 모든 Azure Files SMB 3.x 클라이언트는 Azure 프리미엄 파일 공유 기능을 활용할 수 있습니다. 스토리지 계정에서 SMB 다중 채널을 사용하도록 설정하는 데에는 별도의 추가 비용이 없습니다.
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 ## <a name="benefits"></a>이점
 

@@ -6,17 +6,17 @@ ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: a246ee493b89051ad35436cd9213462a09a5d1b0
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 46ae19af49b827af857f5f224ee5f0013d620a43
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386997"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414596"
 ---
 # <a name="event-grid-on-kubernetes---batch-event-delivery"></a>Kubernetes의 Event Grid - Batch 이벤트 전달 
 Azure Arc를 사용하는 Kubernetes의 Event Grid에서는 하나의 전송 요청으로 둘 이상의 이벤트를 전달하도록 지원합니다. 이 기능을 사용하면 요청당 HTTP 오버헤드를 사용하지 않고도 전체 전송 처리량을 늘릴 수 있습니다. Batch 이벤트 전달은 기본적으로 해제되어 있으며 이벤트 구독 구성을 사용하여 설정할 수 있습니다. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 > [!WARNING]
 > 이벤트 처리기 코드가 잠재적으로 일괄 처리된 요청당 더 많은 작업을 수행해야 하는 경우에도 각 전송 요청 처리에 허용되는 최대 기간은 변경되지 않습니다. 전송 시간 제한은 기본적으로 60초로 지정됩니다.

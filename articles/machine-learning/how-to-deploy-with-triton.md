@@ -11,12 +11,12 @@ ms.date: 05/17/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: b8ccc8eb55031f583eba24368fca66e0943124b1
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 894b95b1fb00402f9cfed2614639b29ac5412f4b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064849"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446450"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Triton Inference Server를 사용한 고성능 서비스 제공(미리 보기) 
 
@@ -37,7 +37,7 @@ Triton은 추론에 최적화된 프레임워크입니다. 더 뛰어난 GPU 사
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* **Azure 구독**. 구독이 없는 경우[Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* **Azure 구독**. 구독이 없는 경우[Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 * Azure Machine Learning을 사용하여 [모델을 배포하는 방법 및 위치](how-to-deploy-and-where.md)에 대한 지식
 * [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/) **또는** [Azure CLI](/cli/azure/) 및 [기계 학습 확장](reference-azure-machine-learning-cli.md)
 * 로컬 테스트를 위한 유효한 Docker 설치. Docker를 설치하고 유효성을 검사하는 방법에 대한 자세한 내용은 Docker 설명서의 [소개 및 설정](https://docs.docker.com/get-started/)을 참조하세요.
@@ -135,6 +135,8 @@ az ml model deploy -n triton-webservice -m triton_model:1 --dc deploymentconfig.
 ---
 
 모델 배포에 대한 자세한 내용은 [이 설명서](how-to-deploy-and-where.md)를 참조하세요.
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ### <a name="call-into-your-deployed-model"></a>배포된 모델 호출
 

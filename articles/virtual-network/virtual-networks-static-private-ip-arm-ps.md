@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71d8c9b30923f6b3fd79a42542cac43cbfa09964
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6b6361aa197076db3e36a36d5b770ccc2d6e0e4f
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110678633"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113431945"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>PowerShell을 사용하여 고정 개인 IP 주소를 사용하는 가상 머신 만들기
 
-고정 개인 IP 주소로 VM(가상 머신)을 만들 수 있습니다. 서브넷에서 VM에 할당되는 주소를 선택하려는 경우 동적 주소 대신 고정 개인 IP 주소를 할당합니다. [고정 개인 IP 주소](./public-ip-addresses.md#allocation-method)에 대해 자세히 알아봅니다. 기존 VM에 할당된 개인 IP 주소를 동적에서 고정으로 변경하거나 공용 IP 주소로 작업하려면 [IP 주소 추가, 변경 또는 제거](virtual-network-network-interface-addresses.md)를 참조하세요.
+고정 개인 IP 주소로 VM(가상 머신)을 만들 수 있습니다. 서브넷에서 VM에 할당되는 주소를 선택하려는 경우 동적 주소 대신 고정 개인 IP 주소를 할당합니다. [고정 개인 IP 주소](./public-ip-addresses.md#ip-address-assignment)에 대해 자세히 알아봅니다. 기존 VM에 할당된 개인 IP 주소를 동적에서 고정으로 변경하거나 공용 IP 주소로 작업하려면 [IP 주소 추가, 변경 또는 제거](virtual-network-network-interface-addresses.md)를 참조하세요.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

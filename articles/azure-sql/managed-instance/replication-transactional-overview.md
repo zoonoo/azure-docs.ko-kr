@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Managed Instance
 description: Azure SQL Database Managed Instance(미리 보기)에서 SQL Server 트랜잭션 복제를 사용하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: replication
+ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: ferno-ms
-ms.author: ferno
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: mathoma
 ms.date: 05/10/2020
-ms.openlocfilehash: bad663dd0101a4e42f761256bf5fb9d32ac09320
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 98aa190e85b0c613b4bf2224c0a3cf6637011de4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693943"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535992"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Azure SQL Managed Instance(미리 보기)를 사용하여 트랜잭션 복제
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

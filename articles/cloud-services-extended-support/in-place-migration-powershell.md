@@ -1,27 +1,24 @@
 ---
 title: PowerShell을 사용하여 Cloud Services(확장 지원)로 마이그레이션
 description: PowerShell을 사용하여 Azure Cloud Services(클래식)에서 Azure Cloud Services(확장 지원)로 마이그레이션하는 방법을 알아봅니다.
-author: tanmaygore
 ms.service: cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
 ms.reviwer: mimckitt
 ms.topic: how-to
 ms.date: 02/06/2020
-ms.author: tagore
+author: hirenshah1
+ms.author: hirshah
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d813cc32d3b635e6da767e3f04386c0e35ea503c
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f7626b2af5f5d8c12a29602e62b38ebef2abfd48
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949369"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113434285"
 ---
 # <a name="migrate-to-azure-cloud-services-extended-support-using-powershell"></a>PowerShell을 사용하여 Cloud Services(확장 지원)로 마이그레이션
 
 다음 단계에서는 Azure PowerShell 명령을 사용하여 [Cloud Services(클래식)](../cloud-services/cloud-services-choose-me.md)에서 [Cloud Services(확장 지원)](overview.md)로 마이그레이션하는 방법을 보여줍니다.
-
-> [!IMPORTANT]
-> 마이그레이션 도구를 사용하여 Cloud Services(클래식)에서 Cloud Services(확장 지원)로 마이그레이션하는 것은 현재 공개 미리 보기에 있습니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="1-plan-for-migration"></a>1) 마이그레이션 계획
 성공적인 마이그레이션 환경을 위한 가장 중요한 단계는 계획입니다. 마이그레이션 단계를 시작하기 전에 [Cloud Services(확장 지원) 개요](overview.md) 및 [클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션 계획](../virtual-machines/migration-classic-resource-manager-plan.md)을 검토합니다. 
@@ -206,4 +203,5 @@ Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 
 
 ## <a name="next-steps"></a>다음 단계
-[마이그레이션 후 변경 내용](in-place-migration-overview.md#post-migration-changes) 섹션을 검토하여 배포 파일의 변경 내용, 자동화 및 새 Cloud Services(확장 지원) 배포의 기타 특성을 확인합니다.
+
+[마이그레이션 후 변경 내용](post-migration-changes.md) 섹션을 검토하여 배포 파일의 변경 내용, 자동화 및 새 Cloud Services(확장 지원) 배포의 기타 특성을 확인합니다.

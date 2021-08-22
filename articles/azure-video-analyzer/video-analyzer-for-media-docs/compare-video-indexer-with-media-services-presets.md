@@ -1,7 +1,7 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer) 및 Azure Media Services v3 사전 설정 비교
 description: 이 문서에서는 Azure Video Analyzer for Media(이전의 Video Indexer) 기능과 Azure Media Services v3 사전 설정을 비교합니다.
-services: media-services
+services: azure-video-analyzer
 documentationcenter: ''
 author: juliako
 manager: femila
@@ -10,14 +10,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 02/24/2020
 ms.author: juliako
-ms.openlocfilehash: 320950303d2a578c00aa044a7d29ab0b59e4a10c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: cdd354adc7a34cdcb7e0811ffd2a5d0b50018fee
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388034"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112121505"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-analyzer-for-media"></a>Azure Media Services v3 미리 설정 및 Video Analyzer for Media 비교 
 

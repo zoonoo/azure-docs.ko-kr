@@ -15,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8eca44fa7e5a23b38c8cfa7368aace1ea0a942eb
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 6d840893de2c516137e54d015123fa9249b93d54
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080060"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113434627"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Azure에서 SQL 가상 머신의 라이선스 모델 변경
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -61,11 +61,9 @@ SQL Server VM 라이선스 모델을 변경하려면 다음 요구 사항이 충
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
-
 포털에서 직접 라이선스 모델을 수정할 수 있습니다. 
 
-1. [Azure Portal](https://portal.azure.com)을 열고 SQL Server VM에 대한 [SQL 가상 머신 리소스](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource)를 엽니다. 
+1. [Azure Portal](https://portal.azure.com)을 열고 SQL Server VM에 대한 [SQL 가상 머신 리소스](manage-sql-vm-portal.md#access-the-resource)를 엽니다. 
 1. **설정** 에서 **구성** 을 선택합니다. 
 1. **Azure 하이브리드 혜택** 옵션을 선택하고 확인란을 선택하여 Software Assurance가 포함된 SQL Server 라이선스가 있음을 확인합니다. 
 1. **구성** 페이지의 맨 아래에서 **적용** 을 선택합니다. 

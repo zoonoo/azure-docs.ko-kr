@@ -3,15 +3,15 @@ title: Azure Cosmos 컨테이너 또는 계정에 대해 정규화된 RU/s 모�
 description: Azure Cosmos DB에서 작업의 정규화된 요청 단위 사용량을 모니터링하는 방법을 알아봅니다. 어떤 작업이 더 많은 요청 단위를 소비하는지를 Azure Cosmos DB 계정의 소유자가 이해할 수 있습니다.
 ms.service: cosmos-db
 ms.topic: how-to
-author: kanshiG
-ms.author: govindk
+ms.author: esarroyo
+author: StefArroyo
 ms.date: 01/07/2021
-ms.openlocfilehash: ec82532b54e7834b62fcc03d3ee7de1345a0f546
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d3fe29f94cf874d7ede2b5d7f85199c2d9df65f2
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98027800"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113359662"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Azure Cosmos 컨테이너 또는 계정에 대해 정규화된 RU/s를 모니터링하는 방법
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

@@ -2,21 +2,21 @@
 title: 사용자 정의 복원 지점
 description: 전용 SQL 풀(이전의 SQL DW)의 복원 지점을 만드는 방법.
 services: synapse-analytics
-author: anumjs
+author: rothja
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 07/03/2019
-ms.author: anjangsh
+ms.author: jroth
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: bb536143c518b785a692858c09f0d89f0c1cc4f2
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 39f8c336fdddf58d6cfa9cd8162e974d3dbc7c2d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110663279"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114450950"
 ---
 # <a name="user-defined-restore-points-for-a-dedicated-sql-pool-formerly-sql-dw"></a>전용 SQL 풀(이전의 SQL DW)의 사용자 정의 복원 지점
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: f42cb2f3f00c75dea262b7151bef5efad4e9aa92
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: a5fe3157d419b199f1e83f44485e507812c0b80c
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111569601"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113434828"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server를 위한 비즈니스 연속성 및 HADR
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -100,7 +100,7 @@ Always On 가용성 그룹을 사용하여 데이터베이스 수준에서 SQL S
 
 자세한 내용은 [제품 라이선스 약관](https://www.microsoft.com/licensing/product-licensing/products)을 참조하세요. 
 
-이 혜택을 사용하려면 [SQL Server 가상 머신 리소스](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource)로 이동하세요. **설정** 아래에서 **구성** 을 선택하고 **SQL Server 라이선스** 에서 **재해 복구** 옵션을 선택합니다. 확인란을 선택하여 이 SQL Server VM이 수동 복제본으로 사용되는지 확인한 다음, **적용** 을 선택하여 설정을 저장합니다. 
+이 혜택을 사용하려면 [SQL Server 가상 머신 리소스](manage-sql-vm-portal.md#access-the-resource)로 이동하세요. **설정** 아래에서 **구성** 을 선택하고 **SQL Server 라이선스** 에서 **재해 복구** 옵션을 선택합니다. 확인란을 선택하여 이 SQL Server VM이 수동 복제본으로 사용되는지 확인한 다음, **적용** 을 선택하여 설정을 저장합니다. 
 
 ![Azure에서 재해 복구 복제본 구성](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/dr-replica-in-portal.png)
 

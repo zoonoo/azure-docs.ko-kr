@@ -6,12 +6,12 @@ ms.custom: devx-track-java
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: d7f8aa990f5a5e64d2d5c59b52457149187acddd
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: be1d54007017ce9b5abb774e75ddfd799f83c612
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773984"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287297"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Java 및 Gradle을 사용하여 함수를 만들고 Azure에 게시
 
@@ -24,7 +24,7 @@ ms.locfileid: "107773984"
 
 Java를 사용하여 함수를 개발하려면 다음을 설치해야 합니다.
 
-- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), 버전 8
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), 버전 8
 - [Azure CLI]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.6.666 이상
 - [Gradle](https://gradle.org/), 버전 4.10 이상

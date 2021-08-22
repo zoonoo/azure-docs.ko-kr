@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/27/2021
 ms.author: apimpm
-ms.openlocfilehash: 22d2960801cac2222f868c384a55b4bf436bc75b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47c687a85249b21e25dc282b47fb76fed0158a91
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99492606"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551311"
 ---
 # <a name="api-management-authentication-policies"></a>API Management 인증 정책
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](./api-management-policies.md)을 참조하세요.
@@ -54,7 +54,7 @@ ms.locfileid: "99492606"
 
 ### <a name="attributes"></a>특성
 
-|이름|설명|필수|기본값|
+|Name|설명|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |사용자 이름|기본 자격 증명의 사용자 이름을 지정합니다.|예|해당 없음|
 |password|기본 자격 증명의 비밀번호를 지정합니다.|예|해당 없음|
@@ -105,7 +105,7 @@ ms.locfileid: "99492606"
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|클라이언트 인증서에 대한 지문입니다.|`thumbprint`와 `certificate-id` 중 하나가 있어야 합니다.|해당 없음|
 |certificate-id|인증서 리소스 이름입니다.|`thumbprint`와 `certificate-id` 중 하나가 있어야 합니다.|해당 없음|
@@ -152,13 +152,13 @@ ms.locfileid: "99492606"
 ```
 
 ```xml
-<authentication-managed-identity resource="api://Client_id_of_Backend"/> <!--Your own Azure AD Application-->
+<authentication-managed-identity resource="Client_id_of_Backend"/> <!--Your own Azure AD Application-->
 ```
 
 #### <a name="use-managed-identity-and-set-header-manually"></a>관리 ID 사용 및 수동으로 헤더 설정
 
 ```xml
-<authentication-managed-identity resource="api://Client_id_of_Backend"
+<authentication-managed-identity resource="Client_id_of_Backend"
    output-token-variable-name="msi-access-token" ignore-error="false" /> <!--Your own Azure AD Application-->
 <set-header name="Authorization" exists-action="override">
    <value>@("Bearer " + (string)context.Variables["msi-access-token"])</value>
@@ -182,7 +182,7 @@ ms.locfileid: "99492606"
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |resource|문자열입니다. Azure Active Directory의 대상 웹 API(보안 리소스)의 앱 ID입니다.|예|해당 없음|
 |client-id|문자열입니다. Azure Active Directory 사용자 할당 ID의 앱 ID입니다.|예|시스템 할당 ID|

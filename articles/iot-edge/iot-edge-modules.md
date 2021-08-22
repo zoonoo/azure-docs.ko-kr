@@ -2,19 +2,18 @@
 title: 모듈이 디바이스에서 로직을 실행하는 방법 알아보기 - Azure IoT Edge | Microsoft Docs
 description: Azure IoT Edge 모듈은 IoT Edge 디바이스에서 비즈니스 논리를 실행할 수 있도록 원격으로 배포 및 관리할 수 있는 컨테이너화된 논리 단위입니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9b1ffb2dbcbd6e81856277f4b672cf876cc75f1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3076d73fe63536b7f3ceb8d4cda6e20bc33b5699
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103492373"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535876"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Azure IoT Edge 모듈 이해
 

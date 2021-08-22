@@ -8,12 +8,12 @@ ms.author: amjads
 author: amjads1
 ms.collection: linux
 ms.date: 09/21/2018
-ms.openlocfilehash: e316bf9763dd7c2cbbab21992086eac52d108912
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4823ea421153b5e95f80b4ebc7cde1f9bcbf64c5
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554788"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113487564"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Linux 및 Windows에 대한 Chef VM 확장
 
@@ -99,7 +99,7 @@ Chef VM 확장에 대한 스키마를 보여주는 JSON은 다음과 같습니�
 
 Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 템플릿은 [실행 목록](https://docs.chef.io/run_lists.html)에서 정의된 대로 하나 이상의 가상 머신을 배포하고, Chef 클라이언트를 설치하고, Chef 서버에 연결하고, 서버에서 초기 구성을 수행하는 데 사용할 수 있습니다.
 
-Chef VM 확장을 포함하는 샘플 Resource Manager 템플릿은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm)에서 찾을 수 있습니다.
+Chef VM 확장을 포함하는 샘플 Resource Manager 템플릿은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/chef/chef-json-parameters-linux-vm)에서 찾을 수 있습니다.
 
 가상 머신 확장에 대한 JSON 구성은 가상 머신 리소스 내에 중첩되거나 루트 또는 최상위 수준의 Resource Manager JSON 템플릿에 배치될 수 있습니다. JSON 구성의 배치는 리소스 이름 및 형식 값에 영향을 줍니다. 자세한 내용은 [자식 리소스의 이름 및 형식 설정](../../azure-resource-manager/templates/child-resource-name-type.md)을 참조하세요.
 

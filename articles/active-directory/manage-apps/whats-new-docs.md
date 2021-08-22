@@ -1,31 +1,61 @@
 ---
 title: Azure Active Directory 애플리케이션 관리의 새로운 기능
 description: Azure Active Directory 애플리케이션 관리에 대한 새로운 설명서 및 업데이트된 설명서입니다.
-ms.date: 06/02/2021
+ms.date: 08/03/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
-ms.author: mtillman
-author: mtillman
+ms.author: davidmu
+author: davidmu1
 manager: CelesteDG
-ms.openlocfilehash: 361fb5cc46d356fbab53defc5c3add4d7a5b768b
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+reviewer: napuri
+ms.openlocfilehash: d95c81256dcb58b64273d6062563daf38dfdb4fa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079196"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535695"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 애플리케이션 관리: 새로운 기능
 
 Azure Active Directory 애플리케이션 관리 설명서의 새로운 기능을 시작합니다. 이 문서에서는 지난 3달 동안 추가된 새 문서와 중요한 업데이트가 있는 문서를 나열합니다. 애플리케이션 관리 서비스의 새로운 기능에 대해 알아보려면 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조하세요.
+
+## <a name="july-2021"></a>2021년 7월
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [내 앱 포털에서 컬렉션 만들기](access-panel-collections.md)
+- [빠른 시작: 애플리케이션에 사용자 할당](add-application-portal-assign-users.md)
+- [빠른 시작: 애플리케이션 속성 구성](add-application-portal-configure.md)
+- [빠른 시작: 애플리케이션에 대한 OIDC 기반 Single Sign-On 설정](add-application-portal-setup-oidc-sso.md)
+- [빠른 시작: 애플리케이션에 대한 SAML 기반 Single Sign-On 설정](add-application-portal-setup-sso.md)
+- [빠른 시작: 테넌트에 애플리케이션 추가](add-application-portal.md)
+- [빠른 시작: 테넌트에서 애플리케이션 삭제](delete-application-portal.md)
+- [Azure Active Directory 애플리케이션 관리: 새로운 기능](whats-new-docs.md)
+- [빠른 시작: ID 관리를 위해 Azure AD(Azure Active Directory) 테넌트를 사용하는 애플리케이션 목록 보기](view-applications-portal.md)
+- [관리자 동의 워크플로 구성](configure-admin-consent-workflow.md)
+
+
+## <a name="june-2021"></a>2021년 6월
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [빠른 시작: 애플리케이션을 Azure AD(Azure Active Directory) 테넌트에 추가](add-application-portal.md)
+- [그룹 데이터에 액세스하는 앱에 대한 그룹 소유자 동의 구성](configure-user-consent-groups.md)
+- [빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션 속성 구성](add-application-portal-configure.md)
+- [Azure Active Directory에서 앱에 대한 사용자 할당 관리](assign-user-or-group-access-portal.md)
+- [애플리케이션에 로그인할 때 예기치 않은 동의 확인 프롬프트](application-sign-in-unexpected-user-consent-prompt.md)
+- [애플리케이션에 대한 테넌트 전체 관리자 동의 부여](grant-admin-consent.md)
+- [테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리](tenant-restrictions.md)
+- [Azure Active Directory 애플리케이션 관리: 새로운 기능](whats-new-docs.md)
+
 
 ## <a name="may-2021"></a>2021년 5월
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
 - [Azure Active Directory 애플리케이션 관리: 새로운 기능](whats-new-docs.md)
-
 
 ## <a name="april-2021"></a>2021년 4월
 
@@ -47,7 +77,6 @@ Azure Active Directory 애플리케이션 관리 설명서의 새로운 기능�
 - [관리자 동의 워크플로 구성](configure-admin-consent-workflow.md)
 - [테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리](tenant-restrictions.md)
 - [애플리케이션과 Azure Active Directory 통합 시작 가이드](plan-an-application-integration.md)
-
 
 ## <a name="march-2021"></a>2021년 3월
 
@@ -76,7 +105,6 @@ Azure Active Directory 애플리케이션 관리 설명서의 새로운 기능�
 - [Azure AD 애플리케이션 프록시: 버전 릴리스 기록](../app-proxy/application-proxy-release-version-history.md)
 - [홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성](configure-authentication-for-federated-users-portal.md)
 - [Active Directory Federation Services에서 Azure Active Directory로 애플리케이션 인증 이동](migrate-adfs-apps-to-azure.md)
-
 
 ## <a name="february-2021"></a>2021년 2월
 

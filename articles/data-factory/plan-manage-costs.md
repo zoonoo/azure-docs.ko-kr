@@ -4,14 +4,16 @@ description: Azure Portal에서 비용 분석을 사용하여 Azure Data Factory
 author: shirleywangmsft
 ms.author: shwang
 ms.service: data-factory
+ms.subservice: pricing
 ms.topic: how-to
+ms.custom: subject-cost-optimization
 ms.date: 04/28/2021
-ms.openlocfilehash: 72c212470fcfe884000665892fd092eb830c6b56
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: aba57e9ba46faef60f97819fa3de3e89fa94f00e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958945"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642332"
 ---
 # <a name="plan-to-manage-costs-for-azure-data-factory"></a>Azure Data Factory의 비용 관리 계획
 
@@ -145,7 +147,7 @@ Azure Data Factory 사용자 환경에서 개별 파이프라인 실행에 대�
 
 ## <a name="export-cost-data"></a>비용 데이터 내보내기
 
-스토리지 계정으로 [비용 데이터를 내보낼](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 수도 있습니다. 이는 비용에 대한 추가 데이터 분석을 본인 외에 다른 사용자가 수행해야 하는 경우에 유용합니다. 예를 들어 재무 팀이 Excel 또는 Power BI를 사용하여 데이터를 분석할 수 있습니다. 매일, 매주 또는 매월 일정으로 비용을 내보내고 사용자 지정 날짜 범위를 설정할 수 있습니다. 비용 데이터를 내보내는 것은 비용 데이터 세트를 검색하는 데 권장되는 방법입니다.
+스토리지 계정으로 [비용 데이터를 내보낼](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 수도 있습니다. 이는 비용에 대한 추가 데이터 분석을 직접 수행해야 하거나 다른 사용자가 수행하는 경우에 유용합니다. 예를 들어 재무 팀이 Excel 또는 Power BI를 사용하여 데이터를 분석할 수 있습니다. 매일, 매주 또는 매월 일정으로 비용을 내보내고 사용자 지정 날짜 범위를 설정할 수 있습니다. 비용 데이터 세트를 검색하려면 비용 데이터를 내보내는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

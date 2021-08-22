@@ -2,18 +2,18 @@
 title: Azure Disk Storage 개요
 description: VM을 사용할 때 스토리지 계정을 처리해주는 Azure 관리 디스크에 대한 개요
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: eea5c800d7aa9c8d1e6c0c507136b86ab8bf21f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 924f7a0d678937e1d50a4ff29fb01b8b0b0580d4
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104604035"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113358249"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Azure Managed Disks 소개
 
@@ -100,7 +100,7 @@ Azure에는 데이터 디스크, OS 디스크 및 임시 디스크라는 3가지
 
 ### <a name="temporary-disk"></a>임시 디스크
 
-모든 VM은 관리 디스크가 아닌 임시 디스크를 포함합니다. 이러한 임시 디스크는 애플리케이션 및 프로세스에 대한 단기 스토리지를 제공하며, 페이지 또는 스왑 파일과 같은 데이터 저장에만 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](./understand-vm-reboots.md) 또는 [VM을 다시 배포](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 때 손실될 수 있습니다. VM을 정상적으로 재부팅하는 동안 임시 디스크의 데이터는 유지됩니다. 임시 디스크가 없는 VM에 대한 자세한 내용은 [로컬 임시 디스크가 없는 Azure VM 크기](azure-vms-no-temp-disk.md)를 참조하세요.
+모든 VM은 관리 디스크가 아닌 임시 디스크를 포함합니다. 이러한 임시 디스크는 애플리케이션 및 프로세스에 대한 단기 스토리지를 제공하며, 페이지 또는 스왑 파일과 같은 데이터 저장에만 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](./understand-vm-reboots.md) 또는 [VM을 다시 배포](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 때 손실될 수 있습니다. VM을 정상적으로 재부팅하는 동안 임시 디스크의 데이터는 유지됩니다. 임시 디스크가 없는 VM에 대한 자세한 내용은 [로컬 임시 디스크가 없는 Azure VM 크기](azure-vms-no-temp-disk.yml)를 참조하세요.
 
 Azure Linux VM의 임시 디스크는 일반적으로 /dev/sdb이고, Windows VM의 임시 디스크는 기본적으로 D:입니다. 호스트에서 암호화를 사용하도록 설정하지 않으면 임시 디스크가 서버 쪽 암호화를 통해 암호화되지 않습니다.
 

@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 05/16/2021
 ms.author: enewman
-ms.openlocfilehash: 0fe26d50a7afcb08325396d7c9a22279b01bfd9b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 089ec3d3d4836b4dadb5a0a60023b85ebf9950e0
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483502"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112456547"
 ---
 # <a name="set-up-lab-for-react-on-windows"></a>Windows에서 React에 대한 랩 설정
 
@@ -20,7 +20,7 @@ ms.locfileid: "110483502"
 
 ## <a name="lab-configuration"></a>랩 구성
 
-이 랩을 설정하려면 Azure 구독과 랩 계정으로 시작해야 합니다. Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독이 있으면 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정 만들기에 대한 자세한 내용은 [랩 계정 설정 방법](./tutorial-setup-lab-account.md) 자습서를 참조하세요. 기존 랩 계정을 사용할 수도 있습니다.
+이 랩을 설정하려면 Azure 구독과 랩 계정으로 시작해야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독이 있으면 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정 만들기에 대한 자세한 내용은 [랩 계정 설정 방법](./tutorial-setup-lab-account.md)의 자습서를 참조하세요. 기존 랩 계정을 사용할 수도 있습니다.
 
 ### <a name="lab-account-settings"></a>랩 계정 설정
 
@@ -67,7 +67,7 @@ React 기반 웹 사이트에 필요한 다른 구성 요소는 NPM을 사용하
 .npm install react-jsx
 ```
 
-Visual Studio에서 React 앱으로 첫 번째 Node.js를 만들려면, [자습서: Visual Studio에서 Node.js 및 React 앱 만들기](/visualstudio/javascript/tutorial-nodejs-with-react-and-jsx.md?view=vs-2019&preserve-view=true)를 참조하세요.
+Visual Studio에서 React 앱으로 첫 번째 Node.js를 만들려면, [자습서: Visual Studio에서 Node.js 및 React 앱 만들기](/visualstudio/javascript/tutorial-nodejs-with-react-and-jsx?view=vs-2019&preserve-view=true)를 참조하세요.
 
 ### <a name="install-debugger-extensions"></a>디버거 확장 설치
 

@@ -1,18 +1,20 @@
 ---
 title: SAP BW에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 SAP Business Warehouse에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 09/04/2019
-ms.openlocfilehash: ed7dbb778343bbef2ecf7c92866b8d63a123edc5
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 29f73bc445e7cf84e5ff160779c56ce599e85daf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788304"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642574"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -62,7 +64,7 @@ SAP Business Warehouse에서 지원되는 모든 싱크 데이터 저장소로 �
 
 SAP BW(Business Warehouse) 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **SapBw** 로 설정해야 합니다. | 예 |
 | 서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | 예 |
@@ -130,7 +132,7 @@ SAP BW에서 데이터를 복사하려면 데이터 세트의 형식 속성을 *
 
 SAP BW에서 데이터를 복사하기 위해 복사 작업 **원본** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 활동 원본의 형식 속성을 **SapBwSource** 로 설정해야 합니다. | 예 |
 | Query | SAP BW 인스턴스에서 데이터를 읽을 MDX 쿼리를 지정합니다. | 예 |

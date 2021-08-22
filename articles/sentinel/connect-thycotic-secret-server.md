@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2020
 ms.author: yelevin
-ms.openlocfilehash: a0056391dddec25511deb7033d37f59db3d835c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b023745d8882d639cf9a39fd483dd7b82d1a782d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98567936"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535930"
 ---
 # <a name="connect-your-thycotic-secret-server-to-azure-sentinel"></a>Thycotic Secret Server를 Azure Sentinel에 연결
 
 > [!IMPORTANT]
 > Thycotic Secret Server 커넥터는 현재 **미리 보기** 에 있습니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 이 문서에서는 Thycotic Secret Server 어플라이언스를 Azure Sentinel에 연결하는 방법을 설명합니다. Thycotic Secret Server 데이터 커넥터를 사용하면 Thycotic Secret Server 로그를 Azure Sentinel에 쉽게 연결할 수 있으므로, 통합 문서에서 데이터를 보고, 해당 데이터를 사용하여 사용자 지정 경고를 만들어, 조사 기능 개선을 위한 데이터 통합이 가능합니다. Thycotic과 Azure Sentinel의 통합은 CEF 데이터 커넥터가 Secret Server Syslog 메시지를 올바르게 구문 분석하고 표시할 수 있도록 합니다.
 
@@ -49,9 +51,9 @@ Azure Sentinel로 로그를 가져오려면 Thycotic Secret Server가 CEF 형식
 
 1. 다음과 같이 **구성** 에 있는 **지침** 탭에서 지침에 따라 수행합니다.
 
-    1. **1. Linux Syslog 에이전트 구성** - 실행 중인 로그 전달자가 없는 경우 또는 다른 로그 전달자가 필요한 경우 이 단계를 수행합니다. 자세한 지침 및 설명은 Azure Sentinel 설명서에서 [1단계: 로그 전달자 배포](connect-cef-agent.md)를 참조하세요.
+    1. **1. Linux Syslog 에이전트 구성** - 실행 중인 로그 전달자가 아직 없는 경우 또는 다른 로그 전달자가 필요한 경우 이 단계를 수행합니다. 자세한 지침 및 설명은 Azure Sentinel 설명서에서 [1단계: 로그 전달자 배포](connect-cef-agent.md)를 참조하세요.
 
-    1. **2. Common Event Format(CEF) 로그를 Syslog 에이전트로 전달** - Thycotic 지침에 따라 [Secret Server를 구성](https://thy.center/ss/link/syslog)합니다. 이 구성은 다음 요소를 포함해야 합니다.
+    1. **2. Common Event Format(CEF) 로그를 Syslog 에이전트로 전달** - Thycotic 지침에 따라 [Secret Server를 구성](https://docs.thycotic.com/ssi/1.0.0/splunk/splunk-on-prem/config/syslog-events.md)합니다. 이 구성은 다음 요소를 포함해야 합니다.
         - 로그 대상 – 로그 전달 서버의 호스트 이름 및/또는 IP 주소
         - 프로토콜 및 포트 – **TCP 514**(다른 프로토콜 및 포트가 권장되는 경우 로그 전달 서버의 syslog 디먼에서 병렬 변경을 수행해야 함)
         - 로그 형식 – CEF
@@ -59,7 +61,7 @@ Azure Sentinel로 로그를 가져오려면 Thycotic Secret Server가 CEF 형식
 
     1. **3. 연결 유효성 검사** - 커넥터 페이지에서 명령을 복사하고 로그 전달자에서 실행하여 데이터 수집을 확인합니다. 자세한 지침 및 설명은 Azure Sentinel 설명서에서 [3단계: 연결 유효성 검사](connect-cef-verify.md)를 참조하세요.
 
-        로그가 Log Analytics에 표시될 때까지 최대 20분 가량 소요될 수 있습니다.
+        로그가 Log Analytics에 표시될 때까지 최대 20분 정도 소요될 수 있습니다.
 
 ## <a name="find-your-data"></a>데이터 찾기
 
@@ -78,6 +80,6 @@ CommonSecurityLog
 
 이 문서에서는 Thycotic Secret Server를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
-- [통합 문서를 사용](tutorial-monitor-your-data.md)하여 데이터를 모니터링합니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.
+- [통합 문서를 사용](monitor-your-data.md)하여 데이터를 모니터링합니다.

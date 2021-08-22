@@ -6,17 +6,17 @@ ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: e9d7fff98a6d6c062f529528f9f1d3071a038049
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 911a67644ac50906ee7e4b3009658043cfa022d6
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387221"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414578"
 ---
 # <a name="event-grid-on-kubernetes---concepts"></a>Kubernetes의 Event Grid - 개념
 이 문서에서는 Azure Arc(미리 보기)를 사용하는 Kubernetes의 Azure Event Grid에 대한 주요 개념을 설명합니다.
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="events"></a>이벤트
 이벤트는 소프트웨어 시스템의 작업에 대한 팩트를 알리는 데이터 레코드입니다. 일반적으로 이벤트는 시스템에서 발생한 신호 또는 시스템에서 관찰한 신호로 인한 상태 변경을 알립니다. 이벤트에는 다음과 같은 두 가지 유형의 정보가 포함됩니다. 

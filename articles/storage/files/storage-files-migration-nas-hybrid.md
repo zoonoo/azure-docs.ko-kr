@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 01289345ee6bebc0ab1a4608eb83cb8a2827e924
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: abefaa06cb8d2c0c815d86c6e1386f82e39c52fe
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "108745364"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "114462270"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Azure 파일 동기화를 사용하여 NAS(Network Attached Storage)에서 하이브리드 클라우드 배포로 마이그레이션
 
@@ -27,6 +27,13 @@ ms.locfileid: "108745364"
 
 Azure 파일 동기화는 DAS(Direct Attached Storage) 위치에서 작동하며 NAS(Network Attached Storage) 위치로의 동기화를 지원하지 않습니다.
 이를 통해 필요한 파일의 마이그레이션을 수행하고, 이 문서를 통해 마이그레이션의 계획 및 실행을 살펴봅니다.
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 ## <a name="migration-goals"></a>마이그레이션 목표
 

@@ -7,30 +7,32 @@ ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
 ms.date: 10/30/2020
-ms.openlocfilehash: 641dfa2439513138b5dd8f56843e81c31eb38609
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 954e764cfa454cdfa3175a614093eda6ea8d6173
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389777"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113598381"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>가져오기 및 내보내기를 사용하여 MySQL 데이터베이스 마이그레이션
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 이 문서에서는 MySQL Workbench를 사용하여 Azure Database for MySQL 서버로 데이터를 가져오고 내보내는 두 가지 일반적인 방법을 설명합니다.
 
 자세하고 포괄적인 마이그레이션 지침은 [마이그레이션 가이드 리소스](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide)를 참조하세요. 
 
-다른 마이그레이션 시나리오는 [데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조하세요. 
+다른 마이그레이션 시나리오는 [데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 MySQL 데이터베이스 마이그레이션을 시작하려면 먼저 다음을 수행해야 합니다.
+
 - [Azure Portal을 사용하여 Azure Database for MySQL 서버](quickstart-create-mysql-server-database-using-azure-portal.md)를 만듭니다.
 - 가져오기 및 내보내기용 [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) 또는 다른 타사 MySQL 도구를 다운로드하여 설치합니다.
 
 ## <a name="create-a-database-on-the-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버에서 데이터베이스 만들기
+
 MySQL Workbench, Toad 또는 Navicat을 사용하여 Azure Database for MySQL 서버에 빈 데이터베이스를 만듭니다. 이 데이터베이스는 덤프된 데이터를 포함하는 데이터베이스와 이름이 같을 수 있고 다른 이름의 데이터베이스를 만들 수도 있습니다.
 
 연결하려면 다음을 수행합니다.
@@ -48,7 +50,7 @@ MySQL Workbench, Toad 또는 Navicat을 사용하여 Azure Database for MySQL �
 > [!TIP]
 > 전체 데이터베이스를 덤프하고 복원하려는 시나리오에서는 [덤프 및 복원](concepts-migrate-dump-restore.md) 방법을 대신 사용합니다.
 
-다음 시나리오에서는 MySQL 도구를 사용하여 MySQL 데이터베이스로 데이터베이스를 가져오고 내보냅니다. 다른 도구의 경우 [MySQL to Azure Database migration guide](https://github.com/Azure/azure-mysql/blob/master/MigrationGuide/MySQL%20Migration%20Guide_v1.1.pdf)(MySQL과 Azure Database 간 마이그레이션 가이드)의 “마이그레이션 방법” 섹션(22페이지)으로 이동합니다. 
+다음 시나리오에서는 MySQL 도구를 사용하여 MySQL 데이터베이스로 데이터베이스를 가져오고 내보냅니다. 다른 도구의 경우 [MySQL to Azure Database migration guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide)(MySQL과 Azure Database 간 마이그레이션 가이드)의 “마이그레이션 방법” 섹션(22페이지)으로 이동합니다. 
 
 - 기존 MySQL 데이터베이스에서 Azure MySQL 데이터베이스로 몇 개의 테이블을 선택적으로 가져와야 하는 경우 가져오기 및 내보내기 기술을 사용하는 것이 가장 좋습니다. 이렇게 하면 시간과 리소스를 절약하도록 마이그레이션에서 불필요한 테이블을 생략할 수 있습니다. 예를 들어 `--include-tables` 또는 `--exclude-tables` 스위치를 [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables)에서 사용하고, `--tables` 스위치를 [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables)에서 사용합니다.
 - 테이블 이외의 다른 데이터베이스 개체를 이동할 때는 해당 개체를 명시적으로 만듭니다. 마이그레이션하려는 제약 조건(기본 키, 외래 키, 인덱스), 뷰, 함수, 프로시저, 트리거 및 다른 모든 데이터베이스 개체를 포함합니다.
@@ -66,17 +68,20 @@ MySQL Workbench, Toad 또는 Navicat을 사용하여 Azure Database for MySQL �
 ## <a name="performance-recommendations-for-import-and-export"></a>가져오기 및 내보내기를 위한 성능 권장 사항
 
 최적의 데이터 가져오기 및 내보내기 성능을 위해서는 다음을 수행하는 것이 좋습니다.
--   데이터를 로드하기 전에 클러스터형 인덱스 및 기본 키를 만듭니다. 기본 키 순서로 데이터를 로드합니다.
--   데이터가 로드될 때까지 보조 인덱스 만들기를 지연합니다.
--   데이터를 로드하기 전에 외래 키 제약 조건을 사용하지 않도록 설정합니다. 외래 키 검사 비활성화는 상당한 성능 향상을 제공합니다. 제약 조건을 활성화하고 참조 무결성을 확인하도록 로드 후 데이터를 확인합니다.
--   병렬로 데이터를 로드합니다. 리소스 제한에 도달하도록 하는 너무 많은 병렬 처리를 피하고 Azure Portal에서 사용할 수 있는 메트릭을 사용하여 리소스를 모니터링합니다.
--   적절한 경우 분할된 테이블을 사용합니다.
+
+- 데이터를 로드하기 전에 클러스터형 인덱스 및 기본 키를 만듭니다. 기본 키 순서로 데이터를 로드합니다.
+- 데이터가 로드될 때까지 보조 인덱스 만들기를 지연합니다.
+- 데이터를 로드하기 전에 외래 키 제약 조건을 사용하지 않도록 설정합니다. 외래 키 검사 비활성화는 상당한 성능 향상을 제공합니다. 제약 조건을 활성화하고 참조 무결성을 확인하도록 로드 후 데이터를 확인합니다.
+- 병렬로 데이터를 로드합니다. 리소스 제한에 도달하도록 하는 너무 많은 병렬 처리를 피하고 Azure Portal에서 사용할 수 있는 메트릭을 사용하여 리소스를 모니터링합니다.
+- 적절한 경우 분할된 테이블을 사용합니다.
 
 ## <a name="import-and-export-data-by-using-mysql-workbench"></a>MySQL Workbench를 사용하여 데이터 가져오기 및 내보내기
+
 MySQL Workbench에서는 개체 브라우저 상황에 맞는 메뉴 또는 탐색기 창이라는 두 가지 방법을 통해 데이터를 내보내고 가져올 수 있습니다. 각 방법은 서로 다른 용도로 사용됩니다.
 
 > [!NOTE]
 > MySQL Workbench에서 MySQL 단일 서버 또는 유연한 서버(미리 보기)에 연결을 추가하려면 다음을 수행합니다.
+>
 > - MySQL 단일 서버에서는 사용자 이름이 *\<username@servername>* 형식인지 확인합니다.
 > - MySQL 유연한 서버에서는 *\<username>* 만 사용합니다. *\<username@servername>* 을 사용하여 연결하면 연결이 실패합니다.
 
@@ -109,6 +114,7 @@ CSV 파일에서 테이블을 가져오려면 다음을 수행합니다.
 1. **데이터 가져오기** 창에서 **다음** 을 선택합니다. 마법사에서 데이터를 가져옵니다.
 
 ### <a name="run-the-sql-data-export-and-import-wizards-from-the-navigator-pane"></a>탐색기 창에서 SQL 데이터 내보내기 및 가져오기 마법사 실행
+
 마법사를 사용하여 MySQL Workbench 또는 mysqldump 명령에서 생성된 SQL 데이터를 내보내거나 가져옵니다. **탐색기** 창에서 마법사에 액세스하거나 주 메뉴에서 **서버** 를 선택할 수 있습니다.
 
 #### <a name="export-data"></a>데이터 내보내기
@@ -142,5 +148,6 @@ CSV 파일에서 테이블을 가져오려면 다음을 수행합니다.
 1. **가져오기 시작** 을 선택하여 가져오기 프로세스를 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 - 다른 마이그레이션 방법은 [덤프 및 복원을 사용하여 MySQL 데이터베이스를 Azure Database for MySQL로 마이그레이션](concepts-migrate-dump-restore.md)을 참조하세요.
 - Azure Database for MySQL로 데이터베이스 마이그레이션에 대한 자세한 내용은 [데이터베이스 마이그레이션 가이드](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide)을 참조하세요.

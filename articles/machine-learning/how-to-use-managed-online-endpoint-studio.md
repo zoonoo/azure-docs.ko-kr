@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: how-to, managed online endpoints
+ms.custom: how-to, managed online endpoints, devplatv2
 ms.author: ssambare
 author: shivanissambare
 ms.reviewer: peterlu
 ms.date: 05/25/2021
-ms.openlocfilehash: 96ec383d5110b3acf4ca3b83bd40526443df887a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 4f2b69a4a4009784e7943d57b0ec5653528a418e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382812"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448181"
 ---
 # <a name="create-and-use-managed-online-endpoints-preview-in-the-studio"></a>스튜디오에서 관리형 온라인 엔드포인트(미리 보기) 만들기 및 사용
 
@@ -56,9 +56,9 @@ ms.locfileid: "110382812"
 1. 모델 이름 옆에 있는 원을 선택하여 모델을 선택합니다.
 1. **배포** > **엔드포인트에 배포(미리 보기)** 를 선택합니다.
 
-:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/models-create-managed-online-endpoint.png" alt-text="[모델] 탭에서 관리형 온라인 엔드포인트 만들기":::
-
 설치 마법사에 따라 관리형 온라인 엔드포인트를 구성합니다.
+
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/models-page-deployment-latest.png" alt-text="[모델] 탭에서 관리형 온라인 엔드포인트 만들기":::
 
 ## <a name="view-managed-online-endpoints-preview"></a>관리형 온라인 엔드포인트(미리 보기) 보기
 
@@ -167,4 +167,8 @@ ms.locfileid: "110382812"
 
 - [엔드포인트란?](concept-endpoints.md)
 - [Azure CLI를 사용하여 관리형 온라인 엔드포인트를 배포하는 방법](how-to-deploy-managed-online-endpoints.md)
+- [REST를 사용하여 모델 배포(미리 보기)](how-to-deploy-with-rest.md)
 - [관리형 온라인 엔드포인트를 모니터링하는 방법](how-to-monitor-online-endpoints.md)
+- [관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결](how-to-troubleshoot-managed-online-endpoints.md)
+- [Azure Machine Learning 관리형 온라인 엔드포인트(미리 보기)에 대한 비용 보기](how-to-view-online-endpoints-costs.md)
+- [Azure Machine Learning을 사용하여 리소스 할당량 관리 및 증가](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)

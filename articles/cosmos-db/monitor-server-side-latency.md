@@ -3,15 +3,15 @@ title: Azure Cosmos DB 작업에 대한 서버 쪽 대기 시간을 모니터링
 description: Azure Cosmos DB 계정 또는 컨테이너 작업에 대한 서버 대기 시간을 모니터링하는 방법을 알아봅니다. Azure Cosmos DB 계정의 소유자는 Azure Cosmos 계정의 서버 쪽 대기 시간 문제를 알아볼 수 있습니다.
 ms.service: cosmos-db
 ms.topic: how-to
-author: kanshiG
-ms.author: govindk
+ms.author: esarroyo
+author: StefArroyo
 ms.date: 04/07/2020
-ms.openlocfilehash: af58b0810ef45a9fff766b73188f66555ba6bc6c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 883552a556ce0cde191cb3dfeccca0ac09c96a10
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470991"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113359626"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Azure Cosmos DB 컨테이너 또는 계정의 작업에 대한 서버 쪽 대기 시간을 모니터링하는 방법
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -30,7 +30,7 @@ Azure Cosmos DB용 Azure Monitor는 계정을 모니터링하고 대시보드를
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
    
-2. 왼쪽 탐색 모음에서 **모니터링** 을 선택하고 **메트릭** 을 선택합니다.
+2. 왼쪽 탐색 모음에서 **모니터를** 선택한 다음 **메트릭** 을 선택합니다.
 
    :::image type="content" source="./media/monitor-server-side-latency/monitor-metrics-blade.png" alt-text="Azure Monitor의 메트릭 창":::
 

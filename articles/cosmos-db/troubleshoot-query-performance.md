@@ -8,17 +8,17 @@ ms.date: 02/16/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 6701a580cbe7790dcce2cbbcc46889f9dff00107
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bbd915a912f69c2e3fbaf4cb493ba8bfe90f1552
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100559978"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535839"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB 사용 시 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-이 문서에서는 Azure Cosmos DB의 쿼리 문제를 해결하기 위한 일반적인 권장 방법을 안내합니다. 이 문서에 설명된 단계가 잠재적 쿼리 문제에 대한 완전한 방어로 간주할 수는 없지만 여기에는 가장 일반적인 성능 팁이 포함되어 있습니다. 이 문서를 사용하여 Azure Cosmos DB Core(SQL) API에서 속도가 느리거나 비용이 많이 드는 쿼리 문제를 해결할 수 있습니다. 또한 [진단 로그](cosmosdb-monitor-resource-logs.md)를 사용하여 속도가 느리거나 상당한 처리량을 사용하는 쿼리를 식별할 수도 있습니다. Azure Cosmos DB의 API for MongoDB를 사용하는 경우 [Azure Cosmos DB의 API for MongoDB 쿼리 문제 해결 가이드](mongodb-troubleshoot-query.md)를 사용해야 합니다.
+이 문서에서는 Azure Cosmos DB의 쿼리 문제를 해결하기 위한 일반적인 권장 방법을 안내합니다. 이 문서에 설명된 단계가 잠재적 쿼리 문제에 대한 완전한 방어로 간주할 수는 없지만 여기에는 가장 일반적인 성능 팁이 포함되어 있습니다. 이 문서를 사용하여 Azure Cosmos DB Core(SQL) API에서 속도가 느리거나 비용이 많이 드는 쿼리 문제를 해결할 수 있습니다. 또한 [진단 로그](cosmosdb-monitor-resource-logs.md)를 사용하여 속도가 느리거나 상당한 처리량을 사용하는 쿼리를 식별할 수도 있습니다. Azure Cosmos DB의 API for MongoDB를 사용하는 경우 [Azure Cosmos DB의 API for MongoDB 쿼리 문제 해결 가이드](mongodb/troubleshoot-query-performance.md)를 사용해야 합니다.
 
 Azure Cosmos DB의 쿼리 최적화는 다음과 같이 광범위하게 분류됩니다.
 

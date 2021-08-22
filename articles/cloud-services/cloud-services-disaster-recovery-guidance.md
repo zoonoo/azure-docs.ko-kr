@@ -4,16 +4,16 @@ description: Azure Cloud Services에 영향을 주는 Azure 서비스 중단 발
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: cdd6c9da5a1895d4aadd73133734cd4c8204ecf1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b76dc82cac030f725882613d4168abd2ebafff9
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98742168"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113086183"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services-classic"></a>Azure Cloud Services(클래식)에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업
 

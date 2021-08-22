@@ -4,12 +4,12 @@ description: App Service 리소스를 한 지역에서 다른 지역으로 이�
 ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 87a2da31802a8b6858e875c23ef1dbd2d6d006bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea789504476473bec2615180e76e671b06b85758
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86524857"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895178"
 ---
 # <a name="move-an-app-service-resource-to-another-region"></a>App Service 리소스를 다른 지역으로 이동
 
@@ -33,7 +33,7 @@ App Service 리소스는 지역에 따라 달라지므로 지역 간에 이동�
 - [App Service 계획](overview-hosting-plans.md)
 - [배포 슬롯](deploy-staging-slots.md)
 - [Azure에서 구매한 사용자 지정 도메인](manage-custom-dns-buy-domain.md)
-- [SSL 인증서](configure-ssl-certificate.md)
+- [TLS/SSL 인증서](configure-ssl-certificate.md)
 - [Azure Virtual Network 통합](web-sites-integrate-with-vnet.md)
 - [하이브리드 연결](app-service-hybrid-connections.md)
 - [관리 ID](overview-managed-identity.md)

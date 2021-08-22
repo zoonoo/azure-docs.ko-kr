@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 26fd0076b63078c6f105edb5bddfd8403c22581f
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.custom: has-adal-ref
+ms.openlocfilehash: e96a9d50698c1b9e0f9e0c8306d97124d2159985
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229922"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122530914"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 사용하여 Power BI Mobile에 대한 원격 액세스 설정
 

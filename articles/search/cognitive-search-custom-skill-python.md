@@ -2,19 +2,18 @@
 title: 사용자 지정 기술 예제(Python)
 titleSuffix: Azure Cognitive Search
 description: Python 개발자의 경우 Azure Functions 및 Visual Studio를 사용하여 사용자 지정 기술을 빌드하기 위한 도구 및 기법에 대해 알아보세요. 사용자 지정 기술에는 Azure Cognitive Search의 AI 보강 인덱싱 파이프라인에 추가할 수 있는 사용자 정의 모델 또는 논리가 포함됩니다.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 40e20ad4bab0275b44cd868521c7dc70dec52567
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: effa3aede0c0020a32935ae58b702d234488411e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88936132"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528763"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>예제: Python을 사용하여 사용자 지정 기술 만들기
 
@@ -56,7 +55,7 @@ Visual Studio Code의 Azure Functions 프로젝트 템플릿은 Azure에서 함�
 1. 권한 부여 수준으로 **함수** 를 선택합니다. 즉, 함수의 HTTP 엔드포인트를 호출하는 [기능 키](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys)를 제공합니다. 
 1. 프로젝트를 여는 방법을 선택합니다. 이 단계에서는 **작업 영역에 추가** 를 선택하여 현재 작업 영역에서 함수 앱을 만듭니다.
 
-Visual Studio Code는 새 작업 영역에서 함수 앱 프로젝트를 만듭니다. 이 프로젝트에는 [host.json](../azure-functions/functions-host-json.md) 및 [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file) 구성 파일과 언어별 프로젝트 파일이 포함됩니다. 
+Visual Studio Code는 새 작업 영역에서 함수 앱 프로젝트를 만듭니다. 이 프로젝트에는 [host.json](../azure-functions/functions-host-json.md) 및 [local.settings.json](../azure-functions/functions-develop-local.md#local-settings-file) 구성 파일과 언어별 프로젝트 파일이 포함됩니다. 
 
 새 HTTP 트리거 함수도 함수 앱 프로젝트의 **Concatenator** 폴더에 생성됩니다. 폴더 안에는 다음 내용이 포함된 “\_\_init__.py”라는 파일이 있습니다.
 

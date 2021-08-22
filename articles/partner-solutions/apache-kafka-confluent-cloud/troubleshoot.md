@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: b1e4b06fcbecf11d7d5f58a583fe3bd6643d99ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 784fed6efb83e02940c6b73fb4c3aab792c4cf99
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101709398"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112518235"
 ---
 # <a name="troubleshooting-apache-kafka-for-confluent-cloud-solutions"></a>Apache Kafka for Confluent Cloud 솔루션
 
 이 문서에는 Apache Kafka for Confluent Cloud를 사용하는 솔루션의 문제 해결에 대한 정보가 포함되어 있습니다.
 
-답변을 찾을 수 없거나 문제를 해결할 수 없는 경우, [Azure Portal를 통해 요청을 만들거나](manage.md#get-support) [Confluent 고객 지원팀](https://support.confluent.io)에 문의하세요.
+답변을 찾을 수 없거나 문제를 해결할 수 없는 경우, [Azure Portal를 통해 요청을 만들거나](get-support.md) [Confluent 고객 지원팀](https://support.confluent.io)에 문의하세요.
 
 ## <a name="cant-find-offer-in-the-marketplace"></a>마켓플레이스에서 제품을 찾을 수 없습니다.
 

@@ -2,22 +2,22 @@
 title: Azure AD에서 앱 동의 정책 관리
 description: 기본 제공 및 사용자 지정 앱 동의 정책을 관리하여 동의를 제공할 수 있는 시점을 제어하는 방법을 알아봅니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/01/2020
-ms.author: mtillman
+ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 7678697225ebea0622c4557d7d56a06ec043f7a9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 2112afeafa10ae9226a3d183489b9e13a094cab7
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112074758"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113568535"
 ---
 # <a name="manage-app-consent-policies"></a>앱 동의 정책 관리
 
@@ -152,4 +152,5 @@ ID가 ‘microsoft-’로 시작하는 앱 동의 정책은 기본 제공 정책
 * [Microsoft ID 플랫폼의 권한 및 동의](../develop/v2-permissions-and-consent.md)
 
 도움말을 얻거나 질문에 대한 답변을 찾으려면 다음을 수행합니다.
+
 * [Microsoft Azure AD Q&A](/answers/products/)

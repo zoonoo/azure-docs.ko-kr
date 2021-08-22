@@ -2,18 +2,17 @@
 title: 테스트 인증서 만들기 - Azure IoT Edge | Microsoft Docs
 description: 테스트 인증서를 만들고 프로덕션 배포를 위해 Azure IoT Edge 디바이스에 설치하는 방법을 알아봅니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 724c02f56b49957934deefe9f4733cda57620987
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 500c7627f36dd1eddfbb12ac26729fd6dbc027aa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112019992"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535475"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>데모 인증서를 만들어 IoT Edge 디바이스 기능 테스트
 

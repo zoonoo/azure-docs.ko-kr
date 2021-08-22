@@ -4,17 +4,17 @@ description: Cloud Services(클래식)에서 클라우드 서비스(추가 지�
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
-author: tanmaygore
-ms.author: tagore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: ''
-ms.openlocfilehash: 58203730793202649c401d96182469fa1eac6ef1
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: cdfb7dd5d09d6925de23be70df18037165776a18
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286817"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529390"
 ---
 # <a name="common-errors-and-known-issues-when-migration-to-azure-cloud-services-extended-support"></a>Azure Cloud Services로 마이그레이션할 때 발생하는 일반적인 오류 및 알려진 문제(추가 지원)
 
@@ -42,13 +42,13 @@ ms.locfileid: "106286817"
 | 오류 메시지 | 세부 정보 | 
 |---|---|
 | API 버전 '2020-10-01-preview'의 `Microsoft.Compute` 네임스페이스에서 리소스 종류를 찾을 수 없습니다. | CloudServices 기능 플래그에 대한 [구독을 등록](in-place-migration-overview.md#setup-access-for-migration)하여 공개 미리 보기에 액세스합니다. | 
-| 서버에 내부 오류가 발생했습니다. 요청을 다시 시도하십시오. | 작업을 다시 시도하고, [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
-| 서버에서 클라우드 서비스에 대한 네트워크 리소스를 할당하는 동안 예기치 않은 오류가 발생했습니다. 요청을 다시 시도하십시오. | 작업을 다시 시도하고, [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
+| 서버에 내부 오류가 발생했습니다. 요청을 다시 시도하십시오. | 작업을 다시 시도하고, [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
+| 서버에서 클라우드 서비스에 대한 네트워크 리소스를 할당하는 동안 예기치 않은 오류가 발생했습니다. 요청을 다시 시도하십시오. | 작업을 다시 시도하고, [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
 | 클라우드 서비스(클라우드-서비스-이름)의 배포(배포-이름)는 마이그레이션할 가상 네트워크 내에 있어야 합니다. | 가상 네트워크에서 배포를 찾을 수 없습니다. 자세한 내용은 [이](in-place-migration-technical-details.md#migration-of-deployments-not-in-a-virtual-network) 문서를 참조하세요. | 
 | 클라우드 서비스(클라우드-서비스-이름)의 배포(배포-이름)가 지역(지역-이름)에 있기 때문에 마이그레이션이 지원되지 않습니다. 허용되는 영역: [사용 가능한 지역 목록] | 지역은 아직 마이그레이션을 지원하지 않습니다. | 
 | 역할(역할-이름)과 연결된 서브넷이 없으므로 클라우드 서비스(클라우드-서비스-이름)의 배포(배포-이름)를 마이그레이션할 수 없습니다. 모든 역할을 서브넷과 연결한 다음, 클라우드 서비스의 마이그레이션을 다시 시도합니다. | 마이그레이션 전에 서브넷에 배치하여 클라우드 서비스(클래식) 배포를 업데이트합니다. |  
 | 배포에 Azure Resource Manager 구독에 등록되지 않은 기능이 하나 이상 필요하므로 클라우드 서비스(클라우드-서비스-이름)의 배포(배포-이름)는 마이그레이션할 수 없습니다. 이 배포를 마이그레이션하는 데 필요한 모든 기능을 등록합니다. 누락된 기능: [누락된 기능 목록] | 등록된 기능 플래그를 얻으려면 지원에 문의하세요. | 
-| 배포의 클라우드 서비스에 두 개의 점유된 슬롯이 있으므로 배포를 마이그레이션할 수 없습니다. 클라우드 서비스의 마이그레이션은 클라우드 서비스에서 유일하게 배포되는 배포에 대해서만 지원됩니다. 클라우드 서비스의 다른 배포를 삭제하여 이 배포의 마이그레이션을 계속합니다. | 자세한 내용은 [지원되지 않는 시나리오](in-place-migration-overview.md#unsupported-configurations--migration-scenarios) 목록을 참조하세요. | 
+| 배포의 클라우드 서비스에 두 개의 점유된 슬롯이 있으므로 배포를 마이그레이션할 수 없습니다. 클라우드 서비스의 마이그레이션은 클라우드 서비스에서 유일하게 배포되는 배포에 대해서만 지원됩니다. 클라우드 서비스의 다른 배포를 삭제하여 이 배포의 마이그레이션을 계속합니다. | 자세한 내용은 [지원되지 않는 시나리오](in-place-migration-technical-details.md#unsupported-configurations--migration-scenarios) 목록을 참조하세요. | 
 | HostedService(클라우드-서비스-이름)의 배포(배포-이름)가 중간 상태(상태)에 있습니다. 마이그레이션이 허용되지 않습니다. | 배포를 만들거나, 삭제하거나, 업데이트하는 중입니다. 작업이 완료될 때까지 기다리고 다시 시도합니다. | 
 | 호스트된 서비스(클라우드-서비스 이름)의 배포(배포-이름)에 예약된 IP가 있지만 예약된 IP 이름이 없습니다. 이 문제를 해결하려면 예약된 IP 이름을 업데이트하거나 Microsoft Azure 서비스 데스크에 문의하십시오. | 클라우드 서비스 배포를 업데이트합니다. | 
 | 호스트된 서비스(클라우드-서비스 이름)의 배포(배포-이름)에 예약된 IP(예약된-IP-이름)가 있지만 예약된 IP에 엔드포인트가 없습니다. 이 문제를 해결하려면 예약된 IP에 하나 이상의 엔드포인트를 추가합니다. | 예약된 IP에 엔드포인트를 추가합니다. | 
@@ -62,11 +62,11 @@ ms.locfileid: "106286817"
 | 기본 VNet 대상 옵션이 구현되어 있지 않습니다. | REST 요청 본문의 DestinationVirtualNetwork 속성에는 "기본" 값이 지원되지 않습니다. | 
 | CSPKG를 사용할 수 없으므로 배포 {0}을(를) 마이그레이션할 수 없습니다. | 배포를 업그레이드하고 다시 시도하세요. | 
 | ID가 '{0}'인 서브넷이 호스트된 서비스 '{2}'의 배포 '{1}'와(과) 다른 위치에 있습니다. 서브넷의 위치는 '{3}'이고 호스트된 서비스의 위치는 '{4}'입니다.  배포와 동일한 위치에 서브넷을 지정합니다. | 마이그레이션 전 동일한 위치에 서브넷 및 클라우드 서비스를 모두 포함하도록 클라우드 서비스를 업데이트합니다. | 
-| HostedService {1}에 배포 {0}의 마이그레이션이 중단되고 있는 중이며 작업이 완료될 때까지 변경할 수 없습니다. | 중단이 완료될 때까지 기다리거나 중단을 다시 시도합니다. [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 그렇지 않으면 지원에 문의하세요. | 
+| HostedService {1}에 배포 {0}의 마이그레이션이 중단되고 있는 중이며 작업이 완료될 때까지 변경할 수 없습니다. | 중단이 완료될 때까지 기다리거나 중단을 다시 시도합니다. [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 그렇지 않으면 지원에 문의하세요. | 
 | HostedService {1}의 배포 {0}(은)는 마이그레이션할 준비가 되지 않았습니다. | 커밋 작업을 실행하기 전에 클라우드 서비스에서 준비를 실행합니다. | 
-| UnknownExceptionInEndExecute: Contract.Assert failed: rgName이 Null이거나 비어 있습니다. EndExecute에서 RdfeException이 아닌 예외가 수신되었습니다. |   [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
-| UnknownExceptionInEndExecute: 작업이 취소되었습니다. EndExecute에서 RdfeException이 아닌 예외가 수신되었습니다. | [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
-| XrpVirtualNetworkMigrationError: 가상 네트워크 마이그레이션 오류가 발생했습니다. | [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
+| UnknownExceptionInEndExecute: Contract.Assert failed: rgName이 Null이거나 비어 있습니다. EndExecute에서 RdfeException이 아닌 예외가 수신되었습니다. |   [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
+| UnknownExceptionInEndExecute: 작업이 취소되었습니다. EndExecute에서 RdfeException이 아닌 예외가 수신되었습니다. | [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
+| XrpVirtualNetworkMigrationError: 가상 네트워크 마이그레이션 오류가 발생했습니다. | [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
 | HostedService {1}의 배포 {0}은(는) Virtual Network {2}에 속합니다. 이 HostedService {1}을(를) 마이그레이션하려면 Virtual Network {2}을(를) 마이그레이션합니다. | [Virtual Network 마이그레이션](in-place-migration-technical-details.md#virtual-network-migration)을 참조하세요. | 
 | Azure Resource Manager의 리소스 이름에 대한 현재 할당량이 부족하여 마이그레이션을 완료할 수 없습니다. 현재 할당량은 {0}이고 추가 필요는 {1}입니다. 할당량을 올린 후 할당량을 올리고 마이그레이션을 다시 시도하는 지원 요청을 제출합니다.    | 적절한 채널을 따라 할당량 증가를 요청합니다. <br>[네트워킹 리소스에 대한 할당량 증가](../azure-portal/supportability/networking-quota-requests.md) <br>[컴퓨팅 리소스에 대한 할당량 증가](../azure-portal/supportability/per-vm-quota-requests.md) | 
 

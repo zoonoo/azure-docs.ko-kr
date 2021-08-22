@@ -1,19 +1,19 @@
 ---
 title: 가상 머신 이미지를 만들고 사용자 할당 관리형 ID를 사용하여 Azure Storage의 파일에 액세스하기
 description: 사용자 할당 관리형 ID를 사용하여 Azure Storage에 저장한 파일에 액세스할 수 있는 Azure Image Builder를 사용하여 가상 머신 이미지를 만듭니다.
-author: cynthn
-ms.author: cynthn
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.openlocfilehash: 94bde3351f74c3388e137cc738f2b970654416bd
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: c122907ffc43f8e7e108773330b64da8c6acd96e
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111439605"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113593673"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>이미지를 만들고 사용자 할당 관리형 ID를 사용하여 Azure Storage의 파일에 액세스하기 
 

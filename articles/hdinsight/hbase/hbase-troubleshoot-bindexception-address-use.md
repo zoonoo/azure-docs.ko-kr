@@ -4,12 +4,12 @@ description: BindException - Azure HDInsight에서 이미 사용 중인 주소
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/16/2019
-ms.openlocfilehash: c0a7bc7629b5c2a2e458ba94d62e341f578fdd25
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 720cdf4ddcb14351076d209011a087c3b30123e6
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98946395"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112369468"
 ---
 # <a name="scenario-bindexception---address-already-in-use-in-azure-hdinsight"></a>시나리오: BindException - Azure HDInsight에서 이미 사용 중인 주소
 
@@ -43,7 +43,7 @@ Caused by: java.net.BindException: Address already in use
 
 ## <a name="resolution"></a>해결 방법
 
-HBase 지역 서버의 부하를 줄인 후 다시 시작합니다. 또한 먼저 모든 테이블을 플러시하는 것이 좋습니다. 테이블을 플러시하는 방법에 대한 참조는 [HDInsight HBase: 테이블을 플러시하여 Apache HBase 클러스터 다시 시작 시간을 개선하는 방법](https://web.archive.org/web/20190112153155/https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)을 참조하세요.
+HBase 지역 서버의 부하를 줄인 후 다시 시작합니다. 또한 먼저 모든 테이블을 플러시하는 것이 좋습니다. 테이블을 플러시하는 방법에 대한 참조는 [HDInsight HBase: 테이블을 플러시하여 Apache HBase 클러스터 다시 시작 시간을 개선하는 방법](/archive/blogs/azuredatalake/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables)을 참조하세요.
 
 또는 다음 명령을 사용하여 작업자 노드의 지역 서버를 수동으로 다시 시작합니다.
 

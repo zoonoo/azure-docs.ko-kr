@@ -4,15 +4,16 @@ description: 프로그래밍 분석을 위한 API 호출 패턴의 대략적인 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 907b3020091de1be9a037d149de737c14de125ad
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 6ed2be363a9e50184d79c4f9870942030fd485eb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207342"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529275"
 ---
 # <a name="programmatic-access-paradigm"></a>프로그래밍 방식 액세스 페러다임
 
@@ -52,9 +53,9 @@ ms.locfileid: "108207342"
 
 *요청 헤더*
 
-| 헤더 | 유형 | Description |
+| 헤더 | 형식 | Description |
 | ------------- | ------------- | ------------- |
-| 권한 부여 | 문자열 | 필수 사항입니다. Azure AD(Azure Active Directory) 액세스 토큰입니다. 형식은 `Bearer <token>`입니다. |
+| 권한 부여 | 문자열 | 필수 요소. Azure AD(Azure Active Directory) 액세스 토큰입니다. 형식은 `Bearer <token>`입니다. |
 | 콘텐츠 형식 | `string` | `application/JSON` |
 ||||
 
@@ -121,7 +122,7 @@ None
 
 이 표에는 응답에 있는 요소의 주요 정의가 나와 있습니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | ------------ | ------------- |
 | `QueryId` | 만든 쿼리의 UUID(범용 고유 식별자) |
 | `Name` | 요청 페이로드의 쿼리에 지정된 식별 이름 |
@@ -148,9 +149,9 @@ None
 
 *요청 헤더*
 
-| 헤더 | 유형 | Description |
+| 헤더 | 형식 | Description |
 | ------ | ---- | ----------- |
-| 권한 부여 | 문자열 | 필수 사항입니다. Azure AD(Azure Active Directory) 액세스 토큰입니다. 형식은 `Bearer <token>`입니다. |
+| 권한 부여 | 문자열 | 필수 요소. Azure AD(Azure Active Directory) 액세스 토큰입니다. 형식은 `Bearer <token>`입니다. |
 | 콘텐츠 유형 | 문자열 | `application/JSON` |
 ||||
 
@@ -234,7 +235,7 @@ None
 
 이 표에는 응답에 있는 요소의 주요 정의가 나와 있습니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | ------------ | ------------- |
 | `ReportId` | 만든 보고서의 UUID(범용 고유 식별자) |
 | `ReportName` | 요청 페이로드의 보고서에 지정된 이름 |
@@ -247,7 +248,7 @@ None
 | `StartTime` | 보고서 실행이 시작되는 UTC 시간(yyyy-MM-ddTHH:mm:ssZ 형식) |
 | `ReportStatus` | 보고서 실행 상태입니다. 가능한 값은 **일시 중지**, **활성** 및 **비활성** 입니다. |
 | `RecurrenceInterval` | 보고서를 만드는 동안 제공된 되풀이 간격 |
-| `RecurrenceCount` | 보고서를 만드는 동안 제공된 되풀이 수 |
+| `RecurrenceCount` | 보고서를 만드는 동안 제공된 되풀이 횟수 |
 | `CallbackUrl` | 요청에 제공된 콜백 URL |
 | `Format` | 보고서 파일의 형식입니다. 가능한 값은 CSV 또는 TSV입니다. |
 | `TotalCount` | 값 배열의 데이터 세트 수 |
@@ -271,9 +272,9 @@ None
 
 *요청 헤더*
 
-| 헤더 | 유형 | Description |
+| 헤더 | 형식 | Description |
 | ------ | ------ | ------ |
-| 권한 부여 | 문자열 | 필수 사항입니다. Azure AD(Azure Active Directory) 액세스 토큰입니다. 형식은 `Bearer <token>`입니다. |
+| 권한 부여 | 문자열 | 필수 요소. Azure AD(Azure Active Directory) 액세스 토큰입니다. 형식은 `Bearer <token>`입니다. |
 | 내용 유형 | 문자열 | `application/json` |
 ||||
 
@@ -283,7 +284,7 @@ None
 
 *쿼리 매개 변수*
 
-| 매개 변수 이름 | 필수 | Type | Description |
+| 매개 변수 이름 | 필수 | Type | 설명 |
 | ------------ | ------------- | ------------- | ------------- |
 | `reportId` | 예 | 문자열 | 이 인수에 `reportId`가 지정된 보고서의 실행 세부 정보만 가져오도록 필터링합니다. 여러 개의 `reportIds`는 세미콜론 ";"으로 구분하여 지정할 수 있습니다. |
 | `executionId` | 예 | 문자열 | 이 인수에 `executionId`가 지정된 보고서의 세부 정보만 가져오도록 필터링합니다. 여러 개의 `executionIds`는 세미콜론 ";"으로 구분하여 지정할 수 있습니다. |
@@ -331,7 +332,7 @@ None
 
 응답에 있는 요소의 주요 정의입니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | ------------ | ------------- |
 | `ExecutionId` | 실행 인스턴스의 UUID(범용 고유 식별자) |
 | `ReportId` | 실행 인스턴스와 연결된 보고서 ID |

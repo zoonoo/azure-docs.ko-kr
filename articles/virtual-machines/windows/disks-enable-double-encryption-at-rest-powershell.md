@@ -2,18 +2,18 @@
 title: Azure PowerShell - 미사용 이중 암호화 사용 설정 - 관리 디스크
 description: Azure PowerShell을 사용하여 관리 디스크 데이터에 대해 미사용 데이터 이중 암호화를 사용하도록 설정합니다.
 author: roygara
-ms.date: 08/24/2020
+ms.date: 06/29/2021
 ms.topic: how-to
 ms.author: rogarana
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: cfef3925152c0b94a59c662443cf202724dadc0a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe713ac38e2dc5ac9163a4cb86a69105ae5aa52a
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549552"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113358978"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-double-encryption-at-rest-for-managed-disks"></a>Azure PowerShell 모듈을 사용하여 관리 디스크에 대해 미사용 데이터 이중 암호화를 사용하도록 설정합니다.
 

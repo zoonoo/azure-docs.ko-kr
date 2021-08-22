@@ -9,12 +9,12 @@ manager: cgronlund
 ms.author: grhuynh
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: b426015906a8e17674123c0c3ad2fccb9c43798f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c7a65a2ff58d3191e7b21ecd40a8aa1bc1f4086
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "72248562"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551851"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>동일한 샘플의 여러 입력을 사용하여 워크플로 제출
 
@@ -156,4 +156,4 @@ output_storage_account_container: outputs
 이 호출로 `config.txt` 파일 제출: `msgen submit -f config.txt`
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 여러 개의 BAM 파일 또는 쌍으로 연결된 FASTQ 파일을 Azure Storage에 업로드했고 `msgen` python 클라이언트를 통해 워크플로를 Microsoft Genomics 서비스에 제출했습니다. Microsoft Genomics 서비스에서 사용할 수 있는 워크플로 제출 및 기타 명령에 대한 자세한 내용은 [FAQ](frequently-asked-questions-genomics.md)를 참조하세요. 
+이 문서에서는 여러 개의 BAM 파일 또는 쌍으로 연결된 FASTQ 파일을 Azure Storage에 업로드했고 `msgen` python 클라이언트를 통해 워크플로를 Microsoft Genomics 서비스에 제출했습니다. Microsoft Genomics 서비스에서 사용할 수 있는 워크플로 제출 및 기타 명령에 대한 자세한 내용은 [FAQ](frequently-asked-questions-genomics.yml)를 참조하세요. 

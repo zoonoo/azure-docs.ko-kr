@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/14/2019
 ms.author: kumud
-ms.openlocfilehash: 3df89b84e748f041f13866c1eb3c0b8a3341209c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d86f2d78480a83bfc5fb241d2405309b0b38cacf
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98220833"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110675821"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-standard-internal-load-balancer-in-azure---powershell-preview"></a>Azure에서 표준 내부 Load Balancer를 사용하여 IPv6 이중 스택 애플리케이션 배포 - PowerShell(미리 보기)
 
@@ -148,9 +149,9 @@ $backendPoolv6 = New-AzLoadBalancerBackendAddressPoolConfig -Name "dsLbBackEndPo
 
 ### <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
-부하 분산 장치 규칙은 VM으로 트래픽이 분산되는 방법을 정의하는 데 사용됩니다. 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 수신할 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. 정상 VM만 트래픽을 수신하도록 하려면 필요에 따라 상태 프로브를 정의할 수 있습니다. 기본 부하 분산 장치는 IPv4 프로브를 사용하여 VM의 IPv4 및 IPv6 엔드포인트의 상태를 둘 다 평가합니다. 표준 부하 분산 장치는 명시적으로 IPv6 상태 프로브를 지원합니다.
+부하 분산 장치 규칙은 VM으로 트래픽이 분산되는 방법을 정의하는 데 사용됩니다. 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 수신할 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. 정상 VM만 트래픽을 수신하도록 하려면 필요에 따라 상태 프로브도 정의할 수 있습니다. 기본 부하 분산 장치는 IPv4 프로브를 사용하여 VM의 IPv4 및 IPv6 엔드포인트 둘 다의 상태를 평가합니다. 표준 부하 분산 장치는 명시적으로 IPv6 상태 프로브를 지원합니다.
 
-[Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예제에서는 *dsLBrule_v4* 및 *dsLBrule_v6* 이라는 부하 분산 장치 규칙을 만들고 IPv4 및 IPv6 프런트 엔드 IP 구성에 대한 *TCP* 포트 *80* 의 트래픽을 분산합니다.
+[Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예에서는 *dsLBrule_v4* 및 *dsLBrule_v6* 이라는 부하 분산 장치 규칙을 만들고 IPv4 및 IPv6 프런트 엔드 IP 구성에 대한 *TCP* 포트 *80* 의 트래픽을 분산합니다.
 
 ```azurepowershell
 $lbrule_v4 = New-AzLoadBalancerRuleConfig `
@@ -227,7 +228,7 @@ $rule1 = New-AzNetworkSecurityRuleConfig `
 ```
 #### <a name="create-a-network-security-group-rule-for-port-80"></a>포트 80에 대한 네트워크 보안 그룹 규칙 만들기
 
-[New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)를 사용하여 포트 80을 통해 인터넷 연결을 허용하도록 네트워크 보안 그룹 규칙을 만듭니다.
+포트 80을 통해 인터넷 연결을 허용하도록 [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다.
 
 ```azurepowershell
 $rule2 = New-AzNetworkSecurityRuleConfig `
@@ -255,7 +256,7 @@ $nsg = New-AzNetworkSecurityGroup `
 ```
 ### <a name="create-nics"></a>NIC 만들기
 
-[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)를 사용하여 가상 NIC를 만듭니다. 다음 예제에서는 IPv4 및 IPv6 구성을 둘 다 사용하여 두 개의 가상 NIC를 만듭니다. (다음 단계에서 앱에 대해 만드는 각 VM에 대해 가상 NIC 하나씩)
+[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)를 사용하여 가상 NIC를 만듭니다. 다음 예제에서는 IPv4 및 IPv6 구성을 사용하여 두 개의 가상 NIC를 만듭니다. (다음 단계에서 앱에 대해 만드는 각 VM에 대해 가상 NIC 하나씩)
 
 ```azurepowershell
 
@@ -346,4 +347,4 @@ Remove-AzResourceGroup -Name dsStd_ILB_RG
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 이중 프런트 엔드 IP 구성(IPv4 및 IPv6)으로 표준 Load Balancer를 만들었습니다. 또한 부하 분산 장치의 백 엔드 풀에 추가된 이중 IP 구성(IPV4 + IPv6)을 사용하여 NIC가 포함된 두 개의 가상 머신을 만들었습니다. Azure 가상 네트워크의 IPv6 지원에 관해 자세히 알아보려면 [Azure 가상 네트워크용 IPv6란?](ipv6-overview.md)을 참조하세요.
+이 문서에서는 이중 프런트 엔드 IP 구성(IPv4 및 IPv6)으로 표준 Load Balancer를 만들었습니다. 또한 부하 분산 장치의 백 엔드 풀에 추가된 이중 IP(IPV4 + IPv6)가 구성된 NIC가 포함된 두 개의 가상 머신을 만들었습니다. Azure 가상 네트워크의 IPv6 지원에 관해 자세히 알아보려면 [Azure 가상 네트워크용 IPv6란?](ipv6-overview.md)을 참조하세요.
