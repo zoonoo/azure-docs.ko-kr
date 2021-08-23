@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/30/2021
-ms.openlocfilehash: 70bb18984f5ed3ca6887fd01ec0e98e6f3d41595
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 28017bb8649e748ddf2299748f3d718ae4896a68
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110547753"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416203"
 ---
 # <a name="plan-an-iot-edge-modules-offer"></a>IoT Edge 모듈 제품 계획
 
@@ -114,5 +114,4 @@ Azure Container 제품에 사용할 수 있는 라이선싱 옵션은 다음과 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 제품을 만들거나 완성할 수 있도록 [파트너 센터에 로그인](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)합니다.
 - 파트너 센터에서 [IoT Edge 모듈 제품을 만듭니다](./iot-edge-offer-setup.md).

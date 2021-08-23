@@ -8,19 +8,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/30/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 21f31a21921953148ae0438cee04d846706161cc
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 51639df9115032beefd04e6eb114c0d62e61ed88
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106382932"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "122642093"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 OpenID Connect를 통한 등록 및 로그인 설정
 
-[OpenID Connect](openid-connect.md)는 보안 사용자 로그인에 사용할 수 있는 OAuth 2.0을 기반으로 빌드된 인증 프로토콜입니다. 이 프로토콜을 사용하는 대부분의 ID 공급자는 Azure AD B2C에서 지원됩니다. 이 문서에서는 사용자 지정 OpenID Connect ID 공급 기업을 사용자 흐름에 추가하는 방법을 설명합니다.
+[OpenID Connect](openid-connect.md)는 보안 사용자 로그인에 사용할 수 있는 OAuth 2.0을 기반으로 빌드된 인증 프로토콜입니다. 이 프로토콜을 사용하는 대부분의 ID 공급자는 Azure AD B2C에서 지원됩니다. 
+
+이 문서에서는 사용자 지정 OpenID Connect ID 공급 기업을 사용자 흐름에 추가하는 방법을 설명합니다.
+
+[!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
 
 ## <a name="add-the-identity-provider"></a>ID 공급자 추가
 

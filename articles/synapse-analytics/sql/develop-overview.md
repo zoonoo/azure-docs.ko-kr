@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4d842414d3046692c982ca3203957a96f8a01b37
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 17df008ccc5fcada0ad58313622fc997ccfa3f77
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377333"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537263"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL 기능을 위한 디자인 결정 및 코딩 기술
 이 문서에서는 전용 SQL 풀의 리소스 목록과 Synapse SQL의 서버리스 SQL 풀 함수를 확인합니다. 권장 문서는 주요 디자인 결정과 개발 및 코딩 기술의 두 섹션으로 나뉘어 있습니다.
@@ -28,14 +28,14 @@ ms.locfileid: "107377333"
 | 아티클 | 전용 SQL 풀 | 서버리스 SQL 풀 |
 | ------- | -------- | ------------- |
 | [연결](connect-overview.md)                    | 예 | 예 |
-| [리소스 클래스 및 동시성](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | 예    | 예 |
+| [리소스 클래스 및 동시성](../sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context) | 예    | 예 |
 | [트랜잭션](develop-transactions.md)              | 예 | 예 |
 | [사용자 정의 스키마](develop-user-defined-schemas.md) | 예 | 예 |
-| [테이블 분산](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                 | 예 | 예 |
-| [테이블 인덱스](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                           | 예 | 예 |
-| [테이블 파티션](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                     | 예 | 예 |
+| [테이블 분산](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?context=/azure/synapse-analytics/context/context)                 | 예 | 예 |
+| [테이블 인덱스](../sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context)                           | 예 | 예 |
+| [테이블 파티션](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context)                     | 예 | 예 |
 | [통계](develop-tables-statistics.md)            | 예 | 예 |
-| [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                                             | 예 | 예 |
+| [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context)                                             | 예 | 예 |
 | [외부 테이블](develop-tables-external-tables.md) | 예 | 예 |
 | [CETAS](develop-tables-cetas.md)                     | 예 | 예 |
 
@@ -56,5 +56,5 @@ ms.locfileid: "107377333"
 | [변수 할당](develop-variable-assignment.md) | 예                | 예                     |
 
 ## <a name="next-steps"></a>다음 단계
-자세한 참조 정보는 [SQL 풀 T-SQL 문](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.
+자세한 참조 정보는 [SQL 풀 T-SQL 문](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?context=/azure/synapse-analytics/context/context)을 참조하세요.
 

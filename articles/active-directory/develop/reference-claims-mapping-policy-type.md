@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/03/2021
+ms.date: 07/01/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 66af0fa248f3ead5755ed3fb27cd3bfd6bb19452
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 567c9172317a15ef2b3bd18e46909fb444d34c65
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060897"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113214634"
 ---
 # <a name="claims-mapping-policy-type"></a>클레임 매핑 정책 유형
 
@@ -404,11 +404,6 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 | ----- | ----- |
 | ExtractMailPrefix | None |
 | Join | 조인되는 접미사는 리소스 테넌트의 확인된 도메인이어야 합니다. |
-
-### <a name="cross-tenant-scenarios"></a>교차 테넌트 시나리오
-
-클레임 매핑 정책이 게스트 사용자에게 적용되지 않습니다. 게스트 사용자가 해당 서비스 주체에 클레임 매핑 정책이 할당된 애플리케이션에 액세스하려고 하면 기본 토큰이 발급됩니다(정책이 적용되지 않음).
-
 
 ## <a name="next-steps"></a>다음 단계
 

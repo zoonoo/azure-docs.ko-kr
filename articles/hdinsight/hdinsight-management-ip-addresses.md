@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 002e224fc64943ab29876ca47d7f5d337bc1230d
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 617624fe3ae3ea5c0dc7bb3f34145f0aadf4ac4b
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112020226"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113219216"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>HDInsight 관리 IP 주소
 
@@ -84,7 +84,7 @@ Azure에서 제공하는 DNS 서비스를 사용하는 경우 TCP와 UDP 둘 다
 | &nbsp; | 미국 중서부 | 52.161.23.15<br>52.161.10.167 | \*:443 | 인바운드 |
 | &nbsp; | 미국 서부 | 13.64.254.98<br>23.101.196.19 | \*:443 | 인바운드 |
 | &nbsp; | 미국 서부 2 | 52.175.211.210<br>52.175.222.222 | \*:443 | 인바운드 |
-| &nbsp; | 아랍에미리트 북부 | 65.52.252.96<br>65.52.252.97 | \*:443 | 인바운드 |
+| 아랍에미리트연합국 | 아랍에미리트 북부 | 65.52.252.96<br>65.52.252.97 | \*:443 | 인바운드 |
 | &nbsp; | 아랍에미리트 중부 | 20.37.76.96<br>20.37.76.99 | \*:443 | 인바운드 |
 
 Azure Government에 사용할 IP 주소에 대한 자세한 내용은 [Azure Government 인텔리전스 + 분석](../azure-government/compare-azure-government-global-azure.md) 문서를 참조하세요.

@@ -1,24 +1,24 @@
 ---
 title: MSIXMGR 도구 사용 - Azure
-description: Windows Virtual Desktop용 MSIXMGR 도구를 사용하는 방법입니다.
+description: Azure Virtual Desktop용 MSIXMGR 도구를 사용하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: b2cab56fb99bda7da361cc2068396e53e794501d
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: f7c0af3ef2992fdd2c337ff6d1172f6da6db5f56
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448341"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114708782"
 ---
 # <a name="using-the-msixmgr-tool"></a>MSIXMGR 도구 사용
 
-MSIXMGR 도구는 MSIX 패키지 애플리케이션을 MSIX 이미지로 확장하는 데 사용됩니다. 이 도구는 MSIX 패키지 애플리케이션(.MSIX)을 사용하여 VHD, VHDx 또는 CIM 파일로 확장합니다. 결과 MSIX 이미지는 Windows Virtual Desktop 배포에서 사용하는 Azure Storage 계정에 저장됩니다. 이 문서에서는 MSIXMGR 도구를 사용하는 방법을 보여줍니다.
+MSIXMGR 도구는 MSIX 패키지 애플리케이션을 MSIX 이미지로 확장하는 데 사용됩니다. 이 도구는 MSIX 패키지 애플리케이션(.MSIX)을 사용하여 VHD, VHDx 또는 CIM 파일로 확장합니다. 결과 MSIX 이미지는 Azure Virtual Desktop 배포에서 사용하는 Azure Storage 계정에 저장됩니다. 이 문서에서는 MSIXMGR 도구를 사용하는 방법을 보여줍니다.
 
 >[!NOTE]
->호환성을 보장하려면 MSIX 이미지를 저장하는 CIM이 Windows Virtual Desktop 호스트 풀에서 실행 중인 OS 버전에 생성되었는지 확인합니다. MSIXMGR은 CIM 파일을 만들 수 있지만 Windows 10 20H2를 실행하는 호스트 풀에서만 해당 파일을 사용할 수 있습니다.
+>호환성을 보장하려면 MSIX 이미지를 저장하는 CIM이 Azure Virtual Desktop 호스트 풀에서 실행 중인 OS 버전에 생성되었는지 확인합니다. MSIXMGR은 CIM 파일을 만들 수 있지만 Windows 10 20H2를 실행하는 호스트 풀에서만 해당 파일을 사용할 수 있습니다.
 
 ## <a name="requirements"></a>요구 사항
 
@@ -81,7 +81,7 @@ msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\packageName_3.51.1.0_x64_
 - [Azure Portal을 사용하여 MSIX 앱 연결 설정](app-attach-azure-portal.md)
 - [PowerShell을 사용하여 MSIX 앱 연결 설정](app-attach-powershell.md)
 - [MSIX 앱 연결용 PowerShell 스크립트 만들기](app-attach.md)
-- [Windows Virtual Desktop용 MSIX 이미지 준비](app-attach-image-prep.md)
+- [Azure Virtual Desktop용 MSIX 이미지 준비](app-attach-image-prep.md)
 - [MSIX 앱 연결에 대한 파일 공유 설정](app-attach-file-share.md)
 
-MSIX 앱 연결에 대한 질문이 있으면 [앱 연결 FAQ](app-attach-faq.md) 및 [앱 연결 용어집](app-attach-glossary.md)을 참조하세요.
+MSIX 앱 연결에 대한 질문이 있으면 [앱 연결 FAQ](app-attach-faq.yml) 및 [앱 연결 용어집](app-attach-glossary.md)을 참조하세요.

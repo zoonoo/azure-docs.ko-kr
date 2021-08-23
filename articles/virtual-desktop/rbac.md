@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f19035ea08e95d5535903467ddbc11fc53c0deb7
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 25628d4982e2675a6ea818284f4c629b16f22064
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753110"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567245"
 ---
 # <a name="built-in-roles-for-azure-virtual-desktop"></a>Azure Virtual Desktop의 기본 제공 역할
 
@@ -46,7 +46,7 @@ Azure Virtual Desktop에는 특정 소유자 역할이 없습니다. 그러나 �
 - Microsoft.Insights/alertRules/\*
 - Microsoft.Support/\*
 
-## <a name="host-pool-contributor"></a>호스트 풀 기여자
+## <a name="desktop-virtualization-host-pool-contributor"></a>데스크톱 가상화 호스트 풀 기여자
 
 호스트 풀 기여자 역할을 사용하면 리소스에 대한 액세스를 포함하여 호스트 풀의 모든 측면을 관리할 수 있습니다. 가상 머신을 만들려면 추가 기여자 역할인 Virtual Machine Contributor가 필요합니다. 포털을 사용하여 호스트 풀을 만들려면 AppGroup 및 작업 영역 기여자 역할이 필요하거나 데스크톱 가상화 기여자 역할을 사용할 수도 있습니다.
 
@@ -59,7 +59,7 @@ Azure Virtual Desktop에는 특정 소유자 역할이 없습니다. 그러나 �
 - Microsoft.Insights/alertRules/\*
 - Microsoft.Support/\*
 
-## <a name="host-pool-reader"></a>호스트 풀 리더
+## <a name="desktop-virtualization-host-pool-reader"></a>데스크톱 가상화 호스트 풀 읽기 권한자
 
 호스트 풀 리더 역할을 사용하면 호스트 풀의 모든 항목을 볼 수 있지만 변경할 수는 없습니다.
 
@@ -70,7 +70,7 @@ Azure Virtual Desktop에는 특정 소유자 역할이 없습니다. 그러나 �
 - Microsoft.Insights/alertRules/\*
 - Microsoft.Support/\*
 
-## <a name="application-group-contributor"></a>애플리케이션 그룹 기여자
+## <a name="desktop-virtualization-application-group-contributor"></a>데스크톱 가상화 애플리케이션 그룹 기여자
 
 애플리케이션 그룹 기여자 역할을 사용하면 앱 그룹의 모든 측면을 관리할 수 있습니다. 앱 그룹을 사용자 또는 사용자 그룹에 게시하려면 사용자 액세스 관리자 역할이 필요합니다.
 
@@ -85,7 +85,7 @@ Azure Virtual Desktop에는 특정 소유자 역할이 없습니다. 그러나 �
 - Microsoft.Insights/alertRules/\*
 - Microsoft.Support/\*
 
-## <a name="application-group-reader"></a>애플리케이션 그룹 리더
+## <a name="desktop-virtualization-application-group-reader"></a>데스크톱 가상화 애플리케이션 그룹 읽기 권한자
 
 애플리케이션 그룹 리더 역할을 사용하면 앱 그룹의 모든 항목을 볼 수 있지만 변경할 수는 없습니다.
 
@@ -101,7 +101,7 @@ Azure Virtual Desktop에는 특정 소유자 역할이 없습니다. 그러나 �
 - Microsoft.Insights/alertRules/\*
 - Microsoft.Support/\*
 
-## <a name="workspace-contributor"></a>작업 영역 기여자
+## <a name="desktop-virtualization-workspace-contributor"></a>데스크톱 가상화 작업 영역 기여자
 
 작업 영역 기여자 역할을 사용하면 작업 영역의 모든 측면을 관리할 수 있습니다. 앱 그룹에 추가된 애플리케이션에 대한 정보를 가져오려면 애플리케이션 그룹 리더 역할도 할당받아야 합니다.
 
@@ -115,7 +115,7 @@ Azure Virtual Desktop에는 특정 소유자 역할이 없습니다. 그러나 �
 - Microsoft.Insights/alertRules/\*
 - Microsoft.Support/\*
 
-## <a name="workspace-reader"></a>작업 영역 리더
+## <a name="desktop-virtualization-workspace-reader"></a>데스크톱 가상화 작업 영역 읽기 권한자
 
 작업 영역 리더 역할을 사용하면 작업 영역의 모든 항목을 볼 수 있지만 변경할 수는 없습니다.
 
@@ -129,7 +129,7 @@ Azure Virtual Desktop에는 특정 소유자 역할이 없습니다. 그러나 �
 - Microsoft.Insights/alertRules/\*
 - Microsoft.Support/\*
 
-## <a name="user-session-operator"></a>사용자 세션 운영자
+## <a name="desktop-virtualization-user-session-operator"></a>데스크톱 가상화 사용자 세션 운영자
 
 사용자 세션 운영자 역할을 사용하면 메시지를 보내고, 세션의 연결을 해제하고, "로그오프" 함수를 사용하여 세션 호스트에서 세션을 로그아웃할 수 있습니다. 그러나 이 역할을 통해 세션 호스트 제거, 드레인 모드 변경 등의 세션 호스트 관리를 수행할 수 없습니다. 이 역할은 할당을 볼 수 있지만 관리자를 수정할 수는 없습니다. 특정 호스트 풀에 이 역할을 할당하는 것이 좋습니다. 리소스 그룹 수준에서 이 권한을 부여하면 관리자는 리소스 그룹 아래의 모든 호스트 풀에 대한 읽기 권한을 갖게 됩니다.
 
@@ -144,7 +144,7 @@ Azure Virtual Desktop에는 특정 소유자 역할이 없습니다. 그러나 �
 - Microsoft.Insights/alertRules/\*
 - Microsoft.Support/\*
 
-## <a name="session-host-operator"></a>세션 호스트 운영자
+## <a name="desktop-virtualization-session-host-operator"></a>데스크톱 가상화 세션 호스트 운영자
 
 세션 호스트 운영자 역할을 사용하면 세션 호스트를 보고 제거할 뿐만 아니라 드레인 모드도 변경할 수 있습니다. 호스트 풀 개체에 대한 쓰기 권한이 없으므로 Azure Portal을 사용하여 세션 호스트를 추가할 수 없습니다. 등록 토큰이 유효하고(생성되고 만료되지 않음) 관리자에게 Virtual Machine Contributor 역할을 통해 컴퓨팅 권한이 있는 경우 이 역할을 사용하여 Azure Portal 외부의 호스트 풀에 세션 호스트를 추가할 수 있습니다.
 

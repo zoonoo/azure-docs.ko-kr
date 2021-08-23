@@ -7,12 +7,12 @@ ms.date: 04/13/2021
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 6a5dd53bee4e6ae99559d63441f1240d5905644e
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d77dfb8883aac4e960274ce86de243f25df2f196
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745424"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707036"
 ---
 # <a name="set-up-msix-app-attach-using-powershell"></a>PowerShell을 사용하여 MSIX 앱 연결 설정
 
@@ -242,4 +242,4 @@ $grName = "<AppGroupName>"
 다음은 도움이 될 수 있는 다른 문서입니다.
 
 - [MSIX 앱 연결 용어](app-attach-glossary.md)
-- [MSIX 앱 연결 FAQ](app-attach-faq.md)
+- [MSIX 앱 연결 FAQ](app-attach-faq.yml)

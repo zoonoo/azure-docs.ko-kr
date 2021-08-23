@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
-ms.openlocfilehash: 558610a23098a64f0f36ccb5c04ee71e8a7343cb
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 7652f1562050b3253b0df7ee16c4eff5dd6f8e85
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408464"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112376867"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-and-attach-apache-spark-poolspreview"></a>Azure Synapse Analytics 및 Azure Machine Learning 작업 영역을 연결하고 Apache Spark 풀 연결(미리 보기)
 
@@ -26,7 +26,7 @@ Azure Synapse 작업 영역과 연결된 Azure Machine Learning 작업 영역을
 
 [Python SDK](#link-sdk) 또는 [Azure Machine Learning 스튜디오](#link-studio)를 통해 ML 작업 영역 및 Synapse 작업 영역을 연결할 수 있습니다.
 
-작업 영역을 연결하고 단일 [Azure Resource Manager(ARM) 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)을 사용하여 Synapse Spark 풀을 연결할 수도 있습니다.
+작업 영역을 연결하고 단일 [Azure Resource Manager(ARM) 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-linkedservice-create/azuredeploy.json)을 사용하여 Synapse Spark 풀을 연결할 수도 있습니다.
 
 >[!IMPORTANT]
 > Azure Machine Learning 및 Azure Synapse Analytics 통합은 공개 미리 보기 상태입니다. `azureml-synapse` 패키지에서 제공되는 기능은 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능이며 언제든지 변경할 수 있습니다.
@@ -104,7 +104,7 @@ linked_service.unregister()
 1. **통합 추가** 를 선택합니다.
 1. **작업 영역 연결** 양식에서 필드를 작성합니다.
 
-    |필드| Description    
+    |필드| 설명    
     |---|---
     |이름| 연결된 서비스의 이름을 제공합니다. 이 이름은 이 특정 연결된 서비스를 참조하는 데 사용됩니다.
     |구독 이름 | 기계 학습 작업 영역과 연결된 구독의 이름을 선택합니다. 
@@ -134,7 +134,7 @@ linked_service = LinkedService.get(ws, 'synapselink1')
 
 다음을 통해 Apache Spark 풀을 연결할 수 있습니다.
 * Azure Machine Learning Studio
-* [ARM(Azure Resource Manager) 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)
+* [ARM(Azure Resource Manager) 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-linkedservice-create/azuredeploy.json)
 * Azure Machine Learning Python SDK 
 
 ### <a name="attach-a-pool-via-the-studio"></a>스튜디오를 통해 풀 연결
@@ -155,7 +155,7 @@ linked_service = LinkedService.get(ws, 'synapselink1')
 **Python SDK** 를 사용하여 Apache Spark 풀을 연결할 수도 있습니다. 
 
 다음 코드 
-1. [`SynapseCompute`](/python/api/azureml-core/azureml.core.compute.synapsecompute)을 다음과 같이 구성합니다.
+1. [`SynapseCompute`](/python/api/azureml-core/azureml.core.compute.synapsecompute)를 다음과 같이 구성합니다.
 
    1. 이전 단계에서 만들었거나 검색한 [`LinkedService`](/python/api/azureml-core/azureml.core.linkedservice), `linked_service`입니다. 
    1. 연결하려는 컴퓨팅 대상의 유형 `SynapseSpark`

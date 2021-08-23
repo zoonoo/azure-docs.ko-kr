@@ -2,7 +2,6 @@
 title: Azure IoT Hub 모듈 ID 및 모듈 쌍(포털 및 .NET)
 description: 포털 및 .NET을 사용하여 모듈 ID를 만들고 모듈 쌍을 업데이트하는 방법을 알아봅니다.
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -10,19 +9,19 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 0d16d7a6dbf903ae790015c12e3d34e4a2a553d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea0c6b0c045e74b24db62a088deb0c524d9c5b13
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92139341"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528442"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>포털 및 .NET 디바이스를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
-> [모듈 ID 및 모듈 쌍](iot-hub-devguide-module-twins.md)은 Azure IoT Hub 디바이스 ID 및 디바이스 쌍과 비슷하지만 더 자세한 세분성을 제공합니다. Azure IoT Hub 디바이스 ID와 디바이스 쌍은 백 엔드 애플리케이션에서 디바이스를 구성할 수 있도록 하고 디바이스 상태를 표시하는 반면, 모듈 ID와 모듈 쌍은 디바이스의 개별 구성 요소에 대해 해당 기능을 제공합니다. 운영 체제 기반 디바이스 또는 펌웨어 디바이스와 같이 여러 구성 요소가 있는 가능한 디바이스에서 모듈 ID와 모듈 쌍은 각 구성 요소에 대해 격리된 구성과 상태를 허용합니다.
+> [모듈 ID 및 모듈 쌍](iot-hub-devguide-module-twins.md)은 Azure IoT Hub 디바이스 ID 및 디바이스 쌍과 비슷하지만 더 자세한 세분성을 제공합니다. Azure IoT Hub 장치 ID와 장치 쌍은 백 엔드 응용 프로그램에서 장치를 구성할 수 있도록 하고 장치 상태를 표시하는 반면, 모듈 ID와 모듈 쌍은 장치의 개별 구성 요소에 대해 해당 기능을 제공합니다. 운영 체제 기반 디바이스 또는 펌웨어 디바이스와 같이 여러 구성 요소가 있는 가능한 디바이스에서 모듈 ID와 모듈 쌍은 각 구성 요소에 대해 격리된 구성과 상태를 허용합니다.
 >
 
 이 자습서에서는 다음에 대해 알아봅니다.

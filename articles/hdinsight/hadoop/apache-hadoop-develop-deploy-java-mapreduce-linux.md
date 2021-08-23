@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 01/16/2020
-ms.openlocfilehash: 7c1a6623883cbee46ba98982808f3c392dc50ffa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d31270d47637542c7b37b7273ad1fd25d6137560
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98946642"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113285875"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hadoop용 Java MapReduce 프로그램 개발
 
@@ -18,7 +18,7 @@ Apache Maven을 사용하여 Java 기반 MapReduce 애플리케이션을 만든 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [JDK(Java Developer Kit) 버전 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+* [JDK(Java Developer Kit) 버전 8](/azure/developer/java/fundamentals/java-support-on-azure).
 
 * Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html)[Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 

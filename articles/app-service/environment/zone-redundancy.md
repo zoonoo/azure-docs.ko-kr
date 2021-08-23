@@ -4,17 +4,21 @@ description: 앱이 영역 중복되도록 App Service Environment를 배포하�
 author: ccompy
 ms.assetid: 24e3e7eb-c160-49ff-8d46-e947818ef186
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 07/05/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 383b5bb5c7295fe54efda883e47b9b2338286de5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 117fe7d8c624c0776c6ec6f61296101a2f844f1b
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98624728"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432809"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Azure App Service Environment에 대한 가용성 영역 지원
+
+> [!NOTE]
+> 이 문서에서는 격리된 App Service 요금제와 함께 사용되는 App Service Environment v2에 관해 설명합니다.
+> 
 
 ASE(App Service Environment)는 AZ(가용성 영역)에 배포할 수 있습니다.  고객은 ILB(내부 부하 분산 장치) ASE를 Azure 지역 내 특정 AZ에 배포할 수 있습니다. ILB ASE를 특정 AZ에 고정하는 경우 ILB ASE에서 사용하는 리소스는 지정된 AZ에 고정되거나 영역 중복 방식으로 배포됩니다.  
 

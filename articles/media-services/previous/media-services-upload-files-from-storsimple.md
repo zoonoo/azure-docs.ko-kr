@@ -14,19 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 0521904f0ed46b4c5309e5f9df980b1cd7d7d858
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9fb1dd99a86dcdda515d77d7a051ca88df26f089
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103009031"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114712132"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Azure StorSimple의 Azure Media Services 계정에 파일 업로드 
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
-> [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 >
 > 
 > 현재 Azure StorSimple 데이터 관리자는 프라이빗 미리 보기 상태입니다. 

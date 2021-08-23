@@ -1,14 +1,14 @@
 ---
 title: PowerShell을 사용하여 할당을 관리하는 방법
 description: 공식 Azure Blueprints PowerShell 모듈인 Az.Blueprint를 사용하여 청사진 할당을 관리하는 방법을 알아봅니다.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 81c3c3a5fa7a472a9fddebff1ac83a3814d68656
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 943f2bcceef76a2b867b7459f88f6d5041f38ef5
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325412"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538642"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>PowerShell을 사용하여 할당을 관리하는 방법
 

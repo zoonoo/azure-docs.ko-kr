@@ -1,18 +1,21 @@
 ---
 title: Azure Data Factory 매핑 데이터 흐름의 열 패턴
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 매핑 데이터 흐름의 열 패턴을 사용하여 일반화된 데이터 변환 패턴 만들기
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 05/21/2021
-ms.openlocfilehash: aca49982cf6e25e95002c1fab40b46ef05c842e2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0b99e1cc31464aabe2519da172f250dc7a6f7c8d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110454946"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642651"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>매핑 데이터 흐름의 열 패턴 사용
 
@@ -74,7 +77,7 @@ ms.locfileid: "110454946"
 
 ### <a name="rule-based-hierarchies"></a>규칙 기반 계층
 
-정의된 프로젝션에 계층이 있는 경우, 규칙 기반 매핑을 사용하여 계층 하위 열을 매핑할 수 있습니다. 일치 조건 및 하위 열을 매핑하려는 복합 열을 지정합니다. 오른쪽에 지정된 규칙으로서 '이름'을 사용하여 일치하는 모든 하위 열이 출력됩니다.
+정의된 프로젝션에 계층이 있는 경우, 규칙 기반 매핑을 사용하여 계층 하위 열을 매핑할 수 있습니다. 일치 조건 및 하위 열을 매핑하려는 복합 열을 지정합니다. 오른쪽에 지정된 규칙으로서 ‘이름’을 사용하여 일치하는 모든 하위 열이 출력됩니다.
 
 ![스크린샷은 계층 구조에 대해를 사용하는 규칙 기반 매핑을 보여 줍니다.](media/data-flow/rule-based-hierarchy.png "규칙 기반 매핑")
 

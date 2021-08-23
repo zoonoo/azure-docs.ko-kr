@@ -4,13 +4,14 @@ description: 템플릿 사양을 만들고 이를 조직 내 다른 사용자와
 ms.topic: conceptual
 ms.date: 05/04/2021
 ms.author: tomfitz
+ms.custom: devx-track-azurepowershell
 author: tfitzmac
-ms.openlocfilehash: fa93342fa1f0a2358ca05da5c5510b8510034210
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: bfbf876f8621beec4d8eddb80c3db285cd6d4c49
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108736799"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110688298"
 ---
 # <a name="azure-resource-manager-template-specs"></a>Azure Resource Manager 템플릿 사양
 

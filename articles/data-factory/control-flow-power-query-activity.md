@@ -4,14 +4,15 @@ description: Data Factory 파이프라인의 데이터 랭글링 기능에 파�
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: fc4f20db55f8e7e0b2f92cb8309c1c128b235089
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab19b62ff4aaca1b3357d586e3bba4252e8a5d9e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100385458"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528782"
 ---
 # <a name="power-query-activity-in-data-factory"></a>데이터 팩터리의 파워 쿼리 작업
 

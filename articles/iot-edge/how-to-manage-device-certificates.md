@@ -2,18 +2,17 @@
 title: 디바이스 인증서 만들기 - Azure IoT Edge | Microsoft Docs
 description: 프로덕션 배포를 준비하려면 Azure IoT Edge 디바이스에서 테스트 인증서를 만들어 설치하고 관리합니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f3b6bd19d47658e5ad079f0b731cbafc866bb333
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fa643753aa7f916fbd79850af352c37746357693
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045776"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566208"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>IoT Edge 디바이스에서 인증서 관리
 

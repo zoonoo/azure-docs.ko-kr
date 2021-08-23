@@ -3,18 +3,17 @@ title: Azure Portal에서 대규모 모듈 배포 - Azure IoT Edge
 description: Azure Portal을 사용하여 IoT Edge 디바이스 그룹에 대한 자동 배포 만들기
 keywords: ''
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: db27a466ca5f1370e8b43ceb472f5deeaba509f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c8b5bfe8f3b46cfc5b21a3578c4842e55a551dd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200325"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567360"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Azure Portal을 사용하여 대규모 IoT Edge 모듈 배포
 

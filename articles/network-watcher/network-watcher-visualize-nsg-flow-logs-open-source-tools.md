@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: aca8c75f262e472cbc770c052b86d6e760ee449a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4bf819a415f20b6f2b1c5ec4d29b50860e0e4fbf
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95026474"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288521"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>오픈 소스 도구를 사용하여 Azure Network Watcher NSG 흐름 로그 시각화
 
@@ -41,7 +41,7 @@ NSG 흐름 로그를 탄력적 스택과 연결하여 로그에서 정보를 검
 
 #### <a name="install-elasticsearch"></a>Elasticsearch 설치
 
-1. 이번 5.0 이상의 탄력적 스택에는 Java 8이 필요합니다. `java -version` 명령을 실행하여 버전을 확인합니다. java가 설치되지 않은 경우 [Azure 지원 JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)에 대한 설명서를 참조하세요.
+1. 이번 5.0 이상의 탄력적 스택에는 Java 8이 필요합니다. `java -version` 명령을 실행하여 버전을 확인합니다. java가 설치되지 않은 경우 [Azure 지원 JDK](/azure/developer/java/fundamentals/java-support-on-azure)에 대한 설명서를 참조하세요.
 2. 시스템에 맞는 이진 패키지를 다운로드합니다.
 
    ```bash

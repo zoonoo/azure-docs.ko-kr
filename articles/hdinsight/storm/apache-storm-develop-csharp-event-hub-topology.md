@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ee483872535c58bde521cf0a751058fdc2fecd40
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 114ff5b5b0d23ed9f9ec519dd6874a14066c6fb7
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104871455"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113286289"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(C#)
 
@@ -104,7 +104,7 @@ topologyBuilder.SetJavaBolt(
 
 * [HDInsight Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 
-* 개발 환경에서 Java JDK 1.8 이상. JDK 다운로드는 [Oracle](/azure/developer/java/fundamentals/java-jdk-long-term-support)에서 사용할 수 있습니다.
+* 개발 환경에서 Java JDK 1.8 이상. JDK 다운로드는 [Oracle](/azure/developer/java/fundamentals/java-support-on-azure)에서 사용할 수 있습니다.
 
   * **JAVA_HOME** 환경 변수가 Java를 포함하고 있는 디렉터리를 가리켜야 합니다.
   * **%JAVA_HOME%/bin** 디렉터리가 경로에 있어야 합니다.
@@ -204,7 +204,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 ## <a name="delete-your-cluster"></a>클러스터 삭제
 
-[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

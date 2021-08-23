@@ -1,18 +1,20 @@
 ---
 title: SAP ECC에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 활동을 사용하여 데이터를 SAP ECC에서 지원되는 싱크 데이터 저장소로 복사하는 방법을 알아봅니다.
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 10/28/2020
-ms.openlocfilehash: cd51dee9451b828bcefe1fdb4c4cf2a1f724bc68
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: dec6a18d09841f8ffe1a1b84b33d42297d793dbd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788106"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642300"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP ECC에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -73,7 +75,7 @@ SAP ECC에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
 SAP ECC 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | `type` | 이 옵션을 사용하는 경우 `type` 속성은 `SapEcc`로 설정해야 합니다. | 예 |
 | `url` | SAP ECC OData 서비스의 URL입니다. | 예 |
@@ -112,7 +114,7 @@ SAP ECC에서 데이터를 복사하려면 데이터 세트의 `type` 속성을 
 
 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | `path` | SAP ECC OData 엔터티의 경로입니다. | 예 |
 
@@ -145,7 +147,7 @@ SAP ECC에서 데이터를 복사하려면 복사 작업의 `source` 섹션에�
 
 복사 작업의 `source` 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | `type` | 복사 작업 `source` 섹션의 `type` 속성을 `SapEccSource`로 설정해야 합니다. | 예 |
 | `query` | 데이터를 필터링하는 OData 쿼리 옵션입니다. 예를 들면 다음과 같습니다.<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>SAP ECC 커넥터가 결합된 URL에서 데이터를 복사합니다.<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 예 |

@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6aa233e82ca272b9b5b9e4a9bee4ef2b57f2de77
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: e9fc377acf528d564411a5c65c5fce9d6282118a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070020"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567325"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-sql-api"></a>Azure Cosmos DB SQL API에서 컨테이너 만들기
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 Azure Cosmos DB SQL API에서 컨테이너를 만드는 다양한 방법을 설명합니다. Azure Portal, Azure CLI, PowerShell 또는 지원되는 SDK를 사용하여 컨테이너를 만드는 방법을 보여줍니다. 이 문서에서는 컨테이너를 만들고 파티션 키를 지정하고 처리량을 프로비저닝하는 방법을 보여줍니다.
 
-이 문서에서는 Azure Cosmos DB SQL API에서 컨테이너를 만드는 다양한 방법을 설명합니다. 다른 API를 사용하는 경우 [MongoDB용 API](how-to-create-container-mongodb.md), [Cassandra API](how-to-create-container-cassandra.md), [Gremlin API](how-to-create-container-gremlin.md) 및 [Table API](how-to-create-container-table.md) 문서를 참조하여 컨테이너를 만듭니다.
+이 문서에서는 Azure Cosmos DB SQL API에서 컨테이너를 만드는 다양한 방법을 설명합니다. 다른 API를 사용하는 경우 [MongoDB용 API](how-to-create-container-mongodb.md), [Cassandra API](cassandra/how-to-create-container-cassandra.md), [Gremlin API](how-to-create-container-gremlin.md) 및 [Table API](table/how-to-create-container.md) 문서를 참조하여 컨테이너를 만듭니다.
 
 > [!NOTE]
 > 컨테이너를 만들 때 이름은 같지만 대/소문자가 다른 두 개의 컨테이너를 만들지 않도록 해야 합니다. Azure 플랫폼의 일부 부분에서는 대/소문자를 구분하지 않으므로 이로 인해 이러한 이름을 가진 컨테이너에 대한 원격 분석 및 작업의 혼동/충돌이 발생할 수 있습니다.

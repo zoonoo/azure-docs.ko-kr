@@ -2,18 +2,17 @@
 title: Azure IoT Hub 메시지 보강 개요
 description: 이 문서에서는 메시지를 지정된 엔드포인트로 보내기 전에 추가 정보를 사용하여 메시지를 스탬프하는 기능을 IoT Hub에 제공하는 메시지 보강을 보여 줍니다.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 10e999a7f0662c421d73872448506a9c9ca05975
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 4edbdca9089cc04d7ba1f9a62216fb3370b787d5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079032"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529446"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>디바이스-클라우드 IoT Hub 메시지의 메시지 보강
 

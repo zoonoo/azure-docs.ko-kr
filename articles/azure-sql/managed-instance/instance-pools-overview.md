@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Managed Instance
 description: 편리하고 비용 효율적인 방식으로 더 작은 SQL Server 데이터베이스를 대규모로 클라우드로 마이그레이션하고 여러 관리형 인스턴스를 관리할 수 있는 Azure SQL Managed Instance 풀(미리 보기)에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: bonova
-ms.author: bonova
-ms.reviewer: sstein
+author: urosmil
+ms.author: urmilano
+ms.reviewer: mathoma
 ms.date: 09/05/2019
-ms.openlocfilehash: bc345509db1c2a14afb0ae781eccad8f77395c18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b84ff58517d413be884b81b6498f5b626ba02016
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97347067"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110697239"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Azure SQL Managed Instance 풀(미리 보기)이란?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

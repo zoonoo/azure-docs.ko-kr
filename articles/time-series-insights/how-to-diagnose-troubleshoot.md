@@ -1,21 +1,22 @@
 ---
 title: Gen2 환경 진단 및 문제 해결 - Azure Time Series Insights | Microsoft Docs
 description: Azure Time Series Insights Gen2 환경을 진단하고 문제를 해결하는 방법을 알아봅니다.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: d9dd07e3a35d83ff6bd9c7c493768d1197667c39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 610c579929462f641371896085355987c4d67dae
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98108792"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796258"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Azure Time Series Insights Gen2 환경 진단 및 문제 해결
 
@@ -50,7 +51,7 @@ ms.locfileid: "98108792"
     - **iothubowner** 및 **서비스** 정책은 모두 **서비스 연결** 권한이 있으므로 작동합니다.
 
   - 이벤트 허브의 경우 **수신** 사용 권한이 있는 키를 제공해야 합니다.
-  
+
     [![이벤트 허브 권한을 검토합니다.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
     - **읽기** 및 **관리** 정책은 모두 **수신** 권한이 있기 때문에 작동합니다.

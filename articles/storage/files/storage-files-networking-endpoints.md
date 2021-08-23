@@ -4,16 +4,16 @@ description: Azure File 네트워크 엔드포인트를 구성하는 방법을 �
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2020
+ms.date: 07/02/2021
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 42e83facec7817b6588bf69977fea5ab74b6b10d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 6d92350a46319400cb0c5ec8dce4b87ef1da5487
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107759882"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113224979"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Azure Files 네트워크 엔드포인트 구성
 
@@ -27,7 +27,14 @@ Azure Files는 Azure 파일 공유에 액세스하기 위한 다음과 같은 �
 
 이 방법 가이드를 읽기 전에 [Azure Files 네트워킹 고려 사항](storage-files-networking-overview.md)을 읽어보는 것이 좋습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 이 문서에서는 독자들이 이미 Azure 구독을 만들었다고 가정합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - 이 문서에서는 사용자가 온-프레미스에서 연결하려는 스토리지 계정에 Azure 파일 공유를 이미 만들었다고 가정합니다. Azure 파일 공유를 만드는 방법을 알아보려면 [Azure 파일 공유 만들기](storage-how-to-create-file-share.md)를 참조하세요.

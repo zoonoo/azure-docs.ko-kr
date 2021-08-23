@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 1c1faf14eb101da41679f9f0596e1e750a3c6a51
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: e49cb32c198cf3279dbad5491075138115efd951
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166281"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529037"
 ---
 # <a name="available-sizes-for-azure-cloud-services-extended-support"></a>Azure Cloud Services(추가 지원)에서 사용 가능한 크기
 
@@ -55,12 +55,20 @@ ms.locfileid: "106166281"
 
 사용 가능한 크기 목록을 검색하려면 [리소스 SKU - 목록](/rest/api/compute/resourceskus/list)을 참조하고 다음 필터를 적용합니다.
 
-
-`ResourceType = virtualMachines ` <br>
-`VMDeploymentTypes = PaaS `
-
+```powershell
+    # Update the location
+    $location = 'WestUS2'
+    # Get all Compute Resource Skus
+    $allSkus = Get-AzComputeResourceSku
+    # Filter virtualMachine skus for given location
+    $vmSkus = $allSkus.Where{$_.resourceType -eq 'virtualMachines' -and $_.LocationInfo.Location -like $location}
+    # From filtered virtualMachine skus, select PaaS Skus
+    $passVMSkus = $vmSkus.Where{$_.Capabilities.Where{$_.name -eq 'VMDeploymentTypes'}.Value.Contains("PaaS")}
+    # Optional step to format and sort the output by Family
+    $passVMSkus | Sort-Object Family, Name | Format-Table -Property Family, Name, Size
+```
 
 ## <a name="next-steps"></a>다음 단계 
 - Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-prerequisite.md)를 검토하고 관련 리소스를 만듭니다.
-- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.md)을 검토합니다.
+- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.yml)을 검토합니다.
 - [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용하여 Cloud Service(추가 지원)를 배포합니다.

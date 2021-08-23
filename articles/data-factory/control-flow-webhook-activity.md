@@ -1,18 +1,21 @@
 ---
 title: Azure Data Factory의 웹후크 작업
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 웹후크 작업은 사용자가 지정한 특정 조건에 따라 연결된 데이터 세트의 유효성이 검사될 때까지 파이프라인을 계속 실행하지 않습니다.
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 0c35a8b25e09029d2f561b107613b13cc40b19de
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 3c2194aff9296230333c433b65f3be303768f9fb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903905"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642538"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Azure Data Factory의 웹후크 작업
 

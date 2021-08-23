@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: 2483a207344894489992f38d08b37126d7eded22
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 0bdc063c5820ed9ab52cf9962638cbcb56146c0d
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110652241"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113508296"
 ---
 # <a name="trusted-launch-for-azure-virtual-machines-preview"></a>Azure 가상 머신에 대한 신뢰할 수 있는 시작(미리 보기)
 
@@ -63,10 +63,16 @@ Azure는 [2세대](generation-2.md) VM의 보안을 향상시키기 위한 원�
 
 **지역**: 
 - 미국 중부
+- 미국 동부
 - 미국 동부 2
+- 미국 중북부
 - 미국 중남부
+- 미국 서부
+- 미국 서부 2
 - 북유럽
 - 서유럽
+- 일본 동부
+- 동남아시아
 
 **가격 책정**: 기존 VM 가격 책정에 대한 추가 비용은 없습니다.
 

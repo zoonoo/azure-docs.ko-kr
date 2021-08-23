@@ -7,18 +7,25 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 67ddcf5fd7d3ef3c1def12a325eb19980176a8ba
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 96cc983cba992452882a8f3307974e83683c39a9
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756218"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "114462195"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Azure 파일 동기화로 StorSimple 1200 마이그레이션
 
 StorSimple 1200 시리즈는 온-프레미스 데이터 센터에서 실행되는 가상 어플라이언스입니다. 이 어플라이언스에서 Azure 파일 동기화 환경으로 데이터를 마이그레이션할 수 있습니다. Azure 파일 동기화는 StorSimple 어플라이언스를 마이그레이션할 수 있는 기본 및 전략적 장기 Azure 서비스입니다.
 
 StorSimple 1200 시리즈는 2022년 12월에 [지원 종료](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%201200%20Series)될 예정입니다.  가능한 한 빨리 마이그레이션 계획을 시작하는 것이 중요합니다. 이 문서에서는 Azure 파일 동기화로 성공적으로 마이그레이션하는 데 필요한 배경 지식과 마이그레이션 단계를 제공합니다. 
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 ## <a name="azure-file-sync"></a>Azure 파일 동기화
 

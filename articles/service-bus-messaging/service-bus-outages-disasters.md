@@ -3,12 +3,12 @@ title: 가동 중단 및 재해로부터 Azure Service Bus 애플리케이션 �
 description: 이 문서에서는 잠재적인 Azure Service Bus 가동 중단으로부터 애플리케이션을 보호하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: b9090a54cd58788dbd13f528af4dda4aa96005b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 376885e68111082eb8a7cd0dc8f30ef955543899
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100374595"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529018"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Service Bus 가동 중단 및 재해로부터 애플리케이션을 보호하기 위한 모범 사례
 
@@ -92,6 +92,6 @@ Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영
 [BrokeredMessage.Label]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Geo-replication with Service Bus Standard Tier]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]:../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md
-[Azure resiliency technical guidance]: /azure/architecture/resiliency
+[Azure resiliency technical guidance]: /azure/architecture/framework/resiliency/app-design
 
 [1]: ./media/service-bus-outages-disasters/az.png

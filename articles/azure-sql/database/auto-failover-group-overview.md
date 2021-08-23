@@ -12,12 +12,12 @@ author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
 ms.date: 05/10/2021
-ms.openlocfilehash: ea50d8f4fd614d450685c7efa3004c8853eb8643
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 1bbbf7266fdcac552972f563e0d958bf035de984
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966882"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567378"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -170,9 +170,6 @@ ms.locfileid: "111966882"
 
 다른 하위 지역의 두 서버(기본 및 보조 서버) 간에 하나 이상의 장애 조치 그룹을 만들 수 있습니다. 주 지역의 가동 중단으로 인해 주 데이터베이스 전체 또는 일부를 사용할 수 없게 되는 경우를 대비하여 각 그룹에 한 단위로 복구되는 하나 또는 여러 개의 데이터베이스가 포함될 수 있습니다. 장애 조치(failover) 그룹을 사용하는 경우 주 데이터베이스와 서비스 목표가 동일한 지역 보조 데이터베이스가 작성됩니다. 장애 조치(failover) 그룹에 기존의 지역 복제 관계를 추가하는 경우 보조 데이터베이스가 주 데이터베이스와 동일한 서비스 계층 및 컴퓨팅 크기로 구성되었는지 확인합니다.
   
-> [!IMPORTANT]
-> 다른 구독에 있는 두 서버 간에 장애 조치 그룹을 만드는 기능은 현재 Azure SQL Database에 지원되지 않습니다. 장애 조치 그룹을 만든 다음, 주 서버나 보조 서버를 다른 구독으로 이동하면 장애 조치 요청과 기타 작업이 실패할 수 있습니다.
-
 ### <a name="using-read-write-listener-for-oltp-workload"></a>OLTP 워크로드에 읽기-쓰기 수신기 사용
 
 OLTP 작업을 수행할 때 `<fog-name>.database.windows.net`을 서버 URL로 사용하면 자동으로 주 데이터베이스에 연결됩니다. 이 URL은 장애 조치(failover) 후에 변경되지 않습니다. 장애 조치(failover) 시에는 DNS 레코드가 업데이트되므로 클라이언트 DNS 캐시를 새로 고친 후에만 클라이언트 연결이 새 주 데이터베이스로 리디렉션됩니다.
@@ -374,7 +371,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 - SQL Managed Instance에서 사용되는 가상 네트워크는 [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)를 통해 연결해야 합니다. 두 가상 네트워크가 온-프레미스 네트워크를 통해 연결되는 경우 포트 5022 및 11000-11999를 차단하는 방화벽 규칙이 없어야 합니다. 글로벌 VNet 피어링은 아래 참고에 설명된 제한 사항으로 지원됩니다.
 
    > [!IMPORTANT]
-   > [2020년 9월 22일에 새로 만든 가상 클러스터의 글로벌 가상 네트워크 피어링에 대한 지원을 발표했습니다](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). 즉, 발표일 이후부터는 빈 서브넷에서 생성된 SQL 관리형 인스턴스와 해당 서브넷에서 생성된 모든 후속 관리형 인스턴스에 대해 글로벌 가상 네트워크 피어링이 지원됩니다. 다른 모든 SQL 관리형 인스턴스의 경우 피어링 지원은 [글로벌 가상 네트워크 피어링의 제약 조건](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 같은 지역의 네트워크로 제한됩니다. 자세한 내용은 [Azure 가상 네트워크에 대해 자주 묻는 질문](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 문서의 관련 섹션을 참조하세요. 발표 날짜 이전에 생성된 가상 클러스터에서 SQL 관리형 인스턴스에 대해 글로벌 가상 네트워크 피어링을 사용하려면 해당 인스턴스에서 [유지 관리 기간](./maintenance-window.md)을 구성하는 것이 좋습니다. 그러면 인스턴스가 글로벌 가상 네트워크 피어링을 지원하는 새 가상 클러스터로 이동합니다.
+   > [2020년 9월 22일에 새로 만든 가상 클러스터의 글로벌 가상 네트워크 피어링에 대한 지원을 발표했습니다](https://azure.microsoft.com/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). 즉, 발표일 이후부터는 빈 서브넷에서 생성된 SQL 관리형 인스턴스와 해당 서브넷에서 생성된 모든 후속 관리형 인스턴스에 대해 글로벌 가상 네트워크 피어링이 지원됩니다. 다른 모든 SQL 관리형 인스턴스의 경우 피어링 지원은 [글로벌 가상 네트워크 피어링의 제약 조건](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 같은 지역의 네트워크로 제한됩니다. 자세한 내용은 [Azure 가상 네트워크에 대해 자주 묻는 질문](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 문서의 관련 섹션을 참조하세요. 발표 날짜 이전에 생성된 가상 클러스터에서 SQL 관리형 인스턴스에 대해 글로벌 가상 네트워크 피어링을 사용하려면 해당 인스턴스에서 [유지 관리 기간](./maintenance-window.md)을 구성하는 것이 좋습니다. 그러면 인스턴스가 글로벌 가상 네트워크 피어링을 지원하는 새 가상 클러스터로 이동합니다.
 
 - 두 개의 SQL Managed Instance VNet에 겹치는 IP 주소가 있으면 안 됩니다.
 - 포트 5022, 범위 11000~12000이 다른 Managed Instance 서브넷의 연결에 대해 인바운드 및 아웃바운드로 열려 있도록 NSG(네트워크 보안 그룹)를 설정해야 합니다. 이는 인스턴스 간의 복제 트래픽을 허용하기 위한 것입니다.

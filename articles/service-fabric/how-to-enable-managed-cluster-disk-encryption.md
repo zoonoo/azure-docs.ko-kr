@@ -4,12 +4,12 @@ description: ARM 템플릿을 사용하여 Windows에서 Azure Service Fabric �
 ms.topic: how-to
 ms.date: 5/10/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 800ebb11c1d191ca68222b1fa473cebbca0e8912
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 2b10c5fbade903ec9eb5786fc33eaaddff212956
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671326"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284125"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-managed-cluster-nodes"></a>Service Fabric 관리형 클러스터 노드에 디스크 암호화 사용
 
@@ -37,7 +37,7 @@ Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화
 
 ### <a name="create-key-vault-with-disk-encryption-enabled"></a>디스크 암호화가 설정된 키 자격 증명 모음 만들기
 
-다음 명령을 실행하여 디스크 암호화를 위한 새 키 자격 증명 모음을 만듭니다. 키 자격 증명 모음의 지역이 [Service Fabric 관리 클러스터에 대해 지원](faq-managed-cluster.md#what-regions-are-supported)되는지, 클러스터와 동일한 지역인지 확인합니다.
+다음 명령을 실행하여 디스크 암호화를 위한 새 키 자격 증명 모음을 만듭니다. 키 자격 증명 모음의 지역이 [Service Fabric 관리 클러스터에 대해 지원](./faq-managed-cluster.yml#what-regions-are-supported-)되는지, 클러스터와 동일한 지역인지 확인합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

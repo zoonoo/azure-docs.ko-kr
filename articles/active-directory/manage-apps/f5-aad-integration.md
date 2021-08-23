@@ -2,21 +2,22 @@
 title: F5를 통한 Azure AD 보안 하이브리드 액세스 | Microsoft Docs
 description: 보안 하이브리드 액세스를 위한 F5 BIG-IP Access Policy Manager 및 Azure Active Directory 통합
 services: active-directory
-author: gargi-sinha
+author: davidmu1
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 11/12/2020
-ms.author: gasinh
+ms.author: davidmu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38b484bd67f3354132675f343dcc06bd7f9d48a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: miccohen
+ms.openlocfilehash: cc55eff7c5ed3a4773a016bcd73bbd33708d9595
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499817"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566888"
 ---
 # <a name="f5-big-ip-access-policy-manager-and-azure-active-directory-integration-for-secure-hybrid-access"></a>보안 하이브리드 액세스를 위한 F5 BIG-IP Access Policy Manager 및 Azure Active Directory 통합
 
@@ -34,7 +35,6 @@ BIG-IP 게시 서비스에 대한 Azure AD 사전 인증 액세스에는 다음�
 - 선점형 [조건부 액세스](../conditional-access/overview.md) 및 [MFA(다단계 인증)](../authentication/concept-mfa-howitworks.md)
 
 - [ID 보호](../identity-protection/overview-identity-protection.md) - 사용자 및 세션 위험 프로파일링을 통한 적응형 제어
-
 
 - [누출 자격 증명 검색](../identity-protection/concept-identity-protection-risks.md)
 
@@ -117,19 +117,19 @@ SHA를 위해 F5 BIG-IP를 Azure AD에 통합하기 위한 사전 요구 사항�
 
 - 다음 옵션 중 하나를 통해 활성화된 F5 BIG-IP APM 라이선스:
 
-   - F5 BIG-IP® Best 번들 (또는)
+  - F5 BIG-IP® Best 번들 (또는)
 
-   - F5 BIG-IP APM(Access Policy Manager™) 독립 실행형 라이선스
+    - F5 BIG-IP APM(Access Policy Manager™) 독립 실행형 라이선스
 
-   - 기본 BIG-IP F5 BIG-IP® LTM(Local Traffic Manager)™에 대한 F5 BIG-IP APM(Access Policy Manager™) 추가 기능 라이선스
+    - 기본 BIG-IP F5 BIG-IP® LTM(Local Traffic Manager)™에 대한 F5 BIG-IP APM(Access Policy Manager™) 추가 기능 라이선스
 
-   - 90일 BIG-IP APM(Access Policy Manager™) [평가판 라이선스](https://www.f5.com/trial/big-ip-trial.php)
+    - 90일 BIG-IP APM(Access Policy Manager™) [평가판 라이선스](https://www.f5.com/trial/big-ip-trial.php)
 
 - 다음 옵션 중 하나를 통해 Azure AD 라이선스 부여:
 
-   - Azure AD [무료 구독](/windows/client-management/mdm/register-your-free-azure-active-directory-subscription#:~:text=%20Register%20your%20free%20Azure%20Active%20Directory%20subscription,will%20take%20you%20to%20the%20Azure...%20More%20)은 암호 없는 인증으로 SHA를 구현하기 위한 최소한의 핵심 요구 사항을 제공합니다.
+  - Azure AD [무료 구독](/windows/client-management/mdm/register-your-free-azure-active-directory-subscription#:~:text=%20Register%20your%20free%20Azure%20Active%20Directory%20subscription,will%20take%20you%20to%20the%20Azure...%20More%20)은 암호 없는 인증으로 SHA를 구현하기 위한 최소한의 핵심 요구 사항을 제공합니다.
 
-   - [프리미엄 구독](https://azure.microsoft.com/pricing/details/active-directory/)은 [조건부 액세스](../conditional-access/overview.md), [MFA](../authentication/concept-mfa-howitworks.md) 및 [ID 보호](../identity-protection/overview-identity-protection.md)를 포함하여 앞에서 설명한 모든 추가적인 값을 더 제공합니다.
+  - [프리미엄 구독](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)은 [조건부 액세스](../conditional-access/overview.md), [MFA](../authentication/concept-mfa-howitworks.md) 및 [ID 보호](../identity-protection/overview-identity-protection.md)를 포함하여 앞에서 설명한 모든 추가적인 값을 더 제공합니다.
 
 SHA 구현에 이전의 경험이나 F5 BIG-IP 지식이 필요한 것은 아니지만 F5 BIG-IP 용어에는 익숙해지는 것이 좋습니다. F5의 [기술 자료](https://www.f5.com/services/resources/glossary)도 BIG-IP 지식을 쌓기 위한 좋은 출발점이 됩니다.
 

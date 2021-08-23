@@ -1,14 +1,14 @@
 ---
 title: Visual Studio Code용 Azure Policy 확장
 description: Visual Studio Code용 Azure Policy 확장을 사용하여 Azure Resource Manager 별칭을 조회하는 방법에 대해 알아봅니다.
-ms.date: 04/25/2021
+ms.date: 08/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 8fe0d22aeb307f82034d697e8564f8fccab61a81
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 870559a2f3d36257cb1246e340163f25ef016eb2
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133838"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567953"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Visual Studio Code용 Azure Policy 확장 사용
 

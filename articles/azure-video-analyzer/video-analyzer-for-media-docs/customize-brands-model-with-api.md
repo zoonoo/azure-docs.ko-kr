@@ -1,19 +1,20 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer) API를 통해 브랜드 모델 사용자 지정
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Azure Video Analyzer for Media(이전의 Video Indexer) API를 통해 브랜드 모델을 사용자 지정하는 방법을 알아봅니다.
-services: media-services
+services: azure-video-analyzer
 author: anikaz
 manager: johndeu
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 01/14/2020
 ms.author: kumud
-ms.openlocfilehash: 3f3e2356a9c9101763f9b944993b9a96b22b8a0e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: cf693036fb31613c171bf7618e45e3b1e57970e4
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386691"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112123300"
 ---
 # <a name="customize-a-brands-model-with-the-video-analyzer-for-media-api"></a>Video Analyzer for Media API로 브랜드 모델 사용자 지정
 

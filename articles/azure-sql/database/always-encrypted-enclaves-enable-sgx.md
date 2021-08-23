@@ -9,20 +9,18 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 01/15/2021
-ms.openlocfilehash: 1bfab8547f3c6cc010036170c082eecdb4e335ae
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 07/14/2021
+ms.openlocfilehash: b967ad27b3f20b75e9b7571a865228508bca9112
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411570"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727259"
 ---
 # <a name="enable-intel-sgx-for-always-encrypted-for-your-azure-sql-database"></a>Azure SQL Database에서 Always Encrypted를 위해 Intel SGX 사용 
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-> [!NOTE]
-> Azure SQL Database용 보안 enclave를 사용한 Always Encrypted는 현재 **공개 미리 보기** 상태입니다.
 
 Azure SQL Database에서 [보안 enclave를 사용한 Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-enclaves)는 [Intel SGX(Intel Software Guard Extensions)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) enclave를 사용합니다. Intel SGX를 사용할 수 있으려면 데이터베이스가 [vCore 모델](service-tiers-vcore.md) 및 [DC 시리즈](service-tiers-sql-database-vcore.md#dc-series) 하드웨어 세대를 사용해야 합니다.
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3ba84bb3ee38981217e72f8372a836b03647083d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 809604439caa6a1a0c20ca7d22fac21dd6c1ab2b
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96861343"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913566"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory에서 인증서 기반 인증 시작
 
@@ -98,9 +98,9 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 1. 관리자 권한으로 Windows PowerShell을 시작합니다.
 2. Azure AD 모듈 버전 [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) 이상을 설치합니다.
 
-```powershell
-    Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
-```
+   ```powershell
+       Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
+   ```
 
 첫 번째 구성 단계로 테넌트와 연결을 설정해야 합니다. 테넌트에 대한 연결이 있으면 디렉터리에 정의된 신뢰할 수 있는 인증 기관을 검토, 추가, 삭제 및 수정할 수 있습니다.
 
@@ -162,27 +162,25 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 다음 단계에서는 **StsRefreshTokenValidFrom** 필드를 설정하여 권한 부여 토큰을 업데이트 및 무효화하기 위한 프로세스를 설명합니다.
 
-**해지를 구성하려면**
-
 1. 관리 자격 증명을 MSOL 서비스에 연결합니다.
 
-```powershell
-        $msolcred = get-credential
-        connect-msolservice -credential $msolcred
-```
+   ```powershell
+           $msolcred = get-credential
+            connect-msolservice -credential $msolcred
+   ```
 
 2. 사용자에 대한 현재 StsRefreshTokensValidFrom 값을 검색합니다.
 
-```powershell
-        $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`
-        $user.StsRefreshTokensValidFrom
-```
+   ```powershell
+           $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`
+           $user.StsRefreshTokensValidFrom
+   ```
 
 3. 사용자에 대한 새 StsRefreshTokensValidFrom 값을 현재 타임스탬프와 같게 구성합니다.
 
-```powershell
-        Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
-```
+   ```powershell
+           Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+   ```
 
 설정하는 날짜는 이후 날짜여야 합니다. 날짜가 이후 날짜가 아닌 경우 **StsRefreshTokensValidFrom** 속성이 설정되지 않은 것입니다. 날짜가 이후 날짜인 경우 **StsRefreshTokensValidFrom** 이 현재 시간(Set-MsolUser 명령으로 지정된 날짜 아님)으로 설정됩니다.
 
@@ -199,11 +197,9 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 ### <a name="testing-office-mobile-applications"></a>Office 모바일 애플리케이션 테스트
 
-**모바일 Office 애플리케이션에서 인증서 인증을 테스트하려면**
-
 1. 테스트 디바이스에서 Office 모바일 애플리케이션(예: OneDrive)을 설치합니다.
-3. 애플리케이션을 시작합니다.
-4. 사용자 이름을 입력하고 사용하려는 사용자 인증서를 선택합니다.
+1. 애플리케이션을 시작합니다.
+1. 사용자 이름을 입력하고 사용하려는 사용자 인증서를 선택합니다.
 
 정상적으로 로그인되어야 합니다.
 
@@ -220,8 +216,6 @@ EAS 프로필은 다음 정보를 포함해야 합니다.
 Intune과 같은 MDM(모바일 디바이스 관리)을 활용하거나 디바이스의 EAS 프로필에 인증서를 수동으로 배치하여 디바이스에서 EAS 프로필을 구성하고 배치할 수 있습니다.
 
 ### <a name="testing-eas-client-applications-on-android"></a>Android에서 EAS 클라이언트 애플리케이션 테스트
-
-**인증서 인증을 테스트하려면**
 
 1. 이전 섹션의 요구 사항을 충족하는 EAS 프로필을 애플리케이션에서 구성합니다.
 2. 애플리케이션을 열고 메일이 동기화되는지 확인합니다.

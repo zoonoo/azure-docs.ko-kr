@@ -16,17 +16,14 @@ ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e9c4489f59f72e4d0b5c7a0b911da188eb0828c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7db9a12a65cf127cb4c65e24128181ab6c0cb485
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89280199"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135035"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 통과 인증: 현재 제한 사항
-
->[!IMPORTANT]
->Azure AD(Azure Active Directory) 통과 인증은 무료 기능이며, 이 기능을 사용하기 위해 Azure AD 유료 버전이 필요하지 않습니다. 통과 인증은 Azure AD의 전 세계 인스턴스에서만 사용할 수 있고, [Microsoft Azure 독일 클라우드](https://www.microsoft.de/cloud-deutschland) 또는 [Microsoft Azure Government 클라우드](https://azure.microsoft.com/features/gov/)에서는 사용할 수 없습니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
@@ -58,7 +55,7 @@ ms.locfileid: "89280199"
 - [AD FS에서 통과 인증으로 마이그레이션](https://aka.ms/ADFSTOPTADPDownload) - AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 가이드입니다.
 - [스마트 잠금](../authentication/howto-password-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호하는 방법을 알아봅니다.
 - [기술 심층 분석](how-to-connect-pta-how-it-works.md): 통과 인증 기능이 작동하는 원리를 이해합니다.
-- [질문과 대답](how-to-connect-pta-faq.md): 통과 인증 기능에 대해 자주 하는 질문과 대답을 살펴봅니다.
+- [질문과 대답](how-to-connect-pta-faq.yml): 통과 인증 기능에 대해 자주 하는 질문과 대답을 살펴봅니다.
 - [문제 해결](tshoot-connect-pass-through-authentication.md): 통과 인증 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.
 - [보안 심층 분석](how-to-connect-pta-security-deep-dive.md) - 통과 인증 기능에 대한 자세한 기술 정보를 가져옵니다.
 - [Azure AD Seamless SSO](how-to-connect-sso.md): 보완적인 Azure AD Seamless SSO 기능을 알아봅니다.

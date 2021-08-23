@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42c73e2fa0439b247267f8d1021c0a779b6ca2ba
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.openlocfilehash: cdbb34c147b3629384d7173c3c20d75aac3c7da1
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109627909"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108804"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On
 
@@ -91,6 +91,6 @@ PRT를 통한 SSO는 디바이스가 회사 계정을 추가하거나 학교 계
 - [**빠른 시작**](how-to-connect-sso-quick-start.md) - Azure AD Seamless SSO를 준비하고 실행합니다.
 - [**배포 계획**](../manage-apps/plan-sso-deployment.md) - 단계별 배포 계획입니다.
 - [**기술 심층 분석**](how-to-connect-sso-how-it-works.md) - 이 기능의 작동 방식을 이해합니다.
-- [**FAQ(질문과 대답)**](how-to-connect-sso-faq.md) - 질문과 대답을 다루고 있습니다.
+- [**FAQ(질문과 대답)**](how-to-connect-sso-faq.yml) - 질문과 대답을 다루고 있습니다.
 - [**문제 해결**](tshoot-connect-sso.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다.

@@ -2,21 +2,20 @@
 title: Azure IoT Hub 메시징 형식 이해 | Microsoft Docs
 description: 개발자 가이드 - IoT Hub 메시지의 형식 및 예상된 콘텐츠를 설명합니다.
 author: ash2017
-manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 07/01/2021
 ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 547152e5c74d8953ae206d9ff3b6076013b0ade1
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 40cbc1c5046c944a8915f1db38805cacb95b2889
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110091633"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294769"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub 메시지 만들기 및 읽기
 
@@ -151,4 +150,4 @@ IoT Hub는 실제 페이로드만을 고려하여 프로토콜 진단 방식으�
 
 * IoT Hub의 메시지 크기 제한에 대한 자세한 내용은 [IoT Hub 할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요.
 
-* 다양한 프로그래밍 언어로 IoT Hub 메시지를 만들고 읽는 방법을 알아보려면 [빠른 시작](quickstart-send-telemetry-node.md)을 참조하세요.
+* 다양한 프로그래밍 언어로 IoT Hub 메시지를 만들고 읽는 방법을 알아보려면 [빠른 시작](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)을 참조하세요.

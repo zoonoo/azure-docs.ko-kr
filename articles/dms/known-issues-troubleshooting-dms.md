@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: ce53e8a77186f96801879e5c9d8f8c65809470d0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e5c10b4830a1bba5ff4db07b81ee447e5d33b731
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639806"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537046"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>일반적인 Azure Database Migration Service 문제 및 오류 해결
 
@@ -45,16 +45,6 @@ Azure SQL Database 또는 Azure SQL Managed Instance로 이동하기 위해 데�
 | 원인         | 해결 방법 |
 | ------------- | ------------- |
 | 이 오류는 단일 마이그레이션 작업에 데이터베이스를 4개 이상 선택한 경우에 표시됩니다. 현재 각 마이그레이션 작업은 4개의 데이터베이스로 제한됩니다. | 각 마이그레이션 작업마다 4개 이하의 데이터베이스를 선택합니다. 4개 이상의 데이터베이스를 병렬로 마이그레이션해야 하는 경우 Azure Database Migration Service의 다른 인스턴스를 프로비저닝해야 합니다. 현재 각 구독은 최대 2개의 Azure Database Migration Service 인스턴스를 지원합니다.<br><br> |
-
-## <a name="errors-for-mysql-migration-to-azure-mysql-with-recovery-failures"></a>복구 실패와 함께 Azure MySQL로 MySQL 마이그레이션 오류
-
-Azure Database Migration Service를 사용하여 MySQL에서 Azure Database for MySQL로 마이그레이션하면 마이그레이션 작업이 실패하고 다음 오류가 발생합니다.
-
-* **오류**: 데이터베이스 마이그레이션 오류 - [n]번의 연속 복구 오류로 인해 ‘TaskID’ 작업이 일시 중단되었습니다.
-
-| 원인         | 해결 방법 |
-| ------------- | ------------- |
-| 이 오류는 마이그레이션을 수행하는 사용자에게 ReplicationAdmin 역할 및/또는 REPLICATION CLIENT, REPLICATION REPLICA 및 SUPER(MySQL 5.6.6 이전 버전) 권한이 없는 경우에 발생할 수 있습니다.<br><br><br><br><br><br><br><br><br><br><br><br><br> | 사용자 계정에 대한 [사전 필수 권한](./tutorial-mysql-azure-mysql-online.md#prerequisites)이 Azure Database for MySQL 인스턴스에서 정확하게 구성되었는지 확인합니다. 예를 들어 다음 단계를 수행하여 필요한 권한이 있는 ‘migrateuser’라는 사용자를 만들 수 있습니다.<br>1. ‘secret’;으로 식별된 USER migrateuser@‘%’을 만듭니다 <br>2. ‘secret’;으로 식별된 ‘migrateuser’@’%’에 db_name.*의 모든 권한을 부여합니다 // 이 단계를 반복하여 더 많은 데이터베이스에 대한 액세스 권한을 부여합니다 <br>3. *에 복제 슬레이브를 부여합니다.* ‘secret’;으로 식별된 ‘migrateuser’@‘%’에<br>4. *에 복제 클라이언트를 부여합니다.* ‘secret’;으로 식별된 ‘migrateuser’@‘%’에<br>5. Flush 권한; |
 
 ## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>Azure Database Migration Service를 중지하려 할 때 오류 발생
 
@@ -127,7 +117,6 @@ Azure Database Migration Service를 통해 MySQL 데이터베이스를 Azure Dat
 ## <a name="additional-known-issues"></a>추가적으로 알려진 문제
 
 * [Azure SQL Database로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항](./index.yml)
-* [Azure Database for MySQL로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항](./known-issues-azure-mysql-online.md)
 * [Azure Database for PostgreSQL로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항](./known-issues-azure-postgresql-online.md)
 
 ## <a name="next-steps"></a>다음 단계
@@ -135,4 +124,4 @@ Azure Database Migration Service를 통해 MySQL 데이터베이스를 Azure Dat
 * [Azure Database Migration Service PowerShell](/powershell/module/azurerm.datamigration#data_migration)문서를 참조하세요.
 * [Azure Portal을 사용하여 Azure Database for MySQL에서 서버 매개 변수 구성 방법](../mysql/howto-server-parameters.md) 문서를 참조하세요.
 * [Azure Database Migration Service 사용을 위한 필수 구성 요소 개요](./pre-reqs.md) 문서를 참조하세요.
-* [Azure Database Migration Service 사용에 대한 FAQ](./faq.md)를 참조하세요.
+* [Azure Database Migration Service 사용에 대한 FAQ](./faq.yml)를 참조하세요.

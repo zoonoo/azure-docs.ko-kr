@@ -3,12 +3,12 @@ title: Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 Service
 description: Service Bus 큐 및 토픽을 Azure Event Grid 이벤트에 대한 이벤트 처리기로 사용하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 12b72420e3475b46a4cd61ce5032b478af740dde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3a13662f39410ee6a24644963dbfb3fc1f20d747
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97399862"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416563"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 Service Bus 큐 및 토픽
 이벤트 처리기는 이벤트가 전송된 위치입니다. 처리기는 이벤트를 처리하기 위한 추가 작업을 수행합니다. 이벤트를 처리하도록 여러 Azure 서비스가 자동으로 구성되며, **Azure Service Bus** 는 그 중 하나입니다. 
@@ -16,6 +16,10 @@ ms.locfileid: "97399862"
 서비스 큐 또는 토픽을 Event Grid의 이벤트 처리기로 사용할 수 있습니다. 
 
 ## <a name="service-bus-queues"></a>Service Bus 큐
+
+> [!NOTE]
+> 세션 지원 큐는 Azure Event Grid 이벤트에 대한 이벤트 처리기로 지원되지 않습니다.
+ 
 엔터프라이즈 애플리케이션의 버퍼링 또는 명령 및 제어 시나리오에서 사용하기 위해 Event Grid의 이벤트를 Service Bus 큐에 직접 라우팅할 수 있습니다.
 
 Azure Portal에서 이벤트 구독을 만드는 동안 **Service Bus 큐** 를 엔드포인트 유형으로 선택한 다음, **엔드포인트 선택** 을 클릭하여 Service Bus 큐를 선택합니다.
@@ -50,7 +54,7 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
-[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
+[!INCLUDE [event-grid-message-headers](./includes/event-grid-message-headers.md)]
 
 조정된 메시지로 Service Bus 큐 또는 토픽으로 이벤트를 보낼 때 조정된 메시지의 `messageid`는 내부 시스템 ID입니다.
 

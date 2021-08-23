@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: chadam
 ms.date: 11/06/2020
-ms.openlocfilehash: f330fb4886a04a1bc861b63e5dd70e3ba1286351
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: bf7cf597d97f1316d43546382cbac140c3ba6fff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110794894"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536699"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>마이그레이션 개요: SQL Server에서 Azure VM의 SQL Server로
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -136,12 +136,10 @@ Azure VM에서 SQL Server 데이터베이스를 SQL Server로 마이그레이션
 
 |자산  |Description  |
 |---------|---------|
-|[데이터 워크로드 평가 모델 및 도구](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Data%20Workload%20Assessment%20Model%20and%20Tool)| 이 도구는 권장되는 “최적의” 대상 플랫폼, 클라우드 준비 상태 및 애플리케이션/데이터베이스 수정 수준을 지정된 워크로드에 제공합니다. 또한 자동화되고 균일한 대상 플랫폼 결정 프로세스를 제공하여 대규모 자산 평가를 가속화하는 데 도움이 되는 간단한 원클릭 계산 및 보고서 생성 기능을 제공합니다.|
-|[Logman을 사용하는 Perfmon 데이터 수집 자동화](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|마이그레이션 대상 권장 사항에 도움이 되는 기준 성능을 이해하기 위해 Perform 데이터를 수집하는 도구입니다. 이 도구는 logman.exe를 사용하여 원격 SQL Server에 설정된 성능 카운터를 생성, 시작, 중지 및 삭제하는 명령을 만듭니다.|
-|[Azure에 SQL Server 배포](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/SQL%20Server%20Deployment%20in%20Azure%20.pdf)|이 참고 자료 백서는 기능 비교, 고가용성 및 백업/스토리지 고려 사항을 포함하여 SQL Server 워크로드를 Azure로 이동하는 다양한 옵션을 검토하는 데 도움이 됩니다. |
-|[Azure 가상 머신의 온-프레미스 SQL Server](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/OnPremise%20SQL%20Server%20to%20Azure%20VM.pdf)|이 백서에서는 Azure 가상 머신에서 샘플 스크립트를 사용하여 온-프레미스 SQL Server에서 SQL Server로 데이터베이스를 백업 및 복원하는 단계를 간략하게 설명합니다.|
-|[Multiple-SQL-VM-VNet-ILB](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/ARM%20Templates/Multiple-SQL-VM-VNet-ILB)|이 백서에서는 SQL Server Always On 가용성 그룹 구성에서 여러 Azure 가상 머신을 설정하는 단계를 간략하게 설명합니다.|
-|[지역별 울트라 SSD를 지원하는 Azure VM(가상 머신)](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Find%20Azure%20VMs%20supporting%20Ultra%20SSD)|이 PowerShell 스크립트에서는 울트라 SSD를 지원하는 Azure 가상 머신을 지원하는 지역 목록을 검색하는 프로그래매틱 옵션을 제공합니다.|
+|[데이터 워크로드 평가 모델 및 도구](https://www.microsoft.com/download/details.aspx?id=103130)| 이 도구는 권장되는 “최적의” 대상 플랫폼, 클라우드 준비 상태 및 애플리케이션/데이터베이스 수정 수준을 지정된 워크로드에 제공합니다. 또한 자동화되고 균일한 대상 플랫폼 결정 프로세스를 제공하여 대규모 자산 평가를 가속화하는 데 도움이 되는 간단한 원클릭 계산 및 보고서 생성 기능을 제공합니다.|
+|[Logman을 사용하는 Perfmon 데이터 수집 자동화](https://www.microsoft.com/download/details.aspx?id=103114)|마이그레이션 대상 권장 사항에 도움이 되는 기준 성능을 이해하기 위해 Perform 데이터를 수집하는 도구입니다. 이 도구는 logman.exe를 사용하여 원격 SQL Server에 설정된 성능 카운터를 생성, 시작, 중지 및 삭제하는 명령을 만듭니다.|
+|[Multiple-SQL-VM-VNet-ILB](https://www.microsoft.com/download/details.aspx?id=103104)|이 백서에서는 SQL Server Always On 가용성 그룹 구성에서 여러 Azure 가상 머신을 설정하는 단계를 간략하게 설명합니다.|
+|[지역별 울트라 SSD를 지원하는 Azure VM(가상 머신)](https://www.microsoft.com/download/details.aspx?id=103105)|이 PowerShell 스크립트에서는 울트라 SSD를 지원하는 Azure 가상 머신을 지원하는 지역 목록을 검색하는 프로그래매틱 옵션을 제공합니다.|
 
 데이터 SQL 엔지니어링 팀이 이러한 리소스를 개발했습니다. 이 팀의 핵심 선언은 Microsoft의 Azure 데이터 플랫폼으로의 데이터 플랫폼 마이그레이션 프로젝트에 대한 복잡한 현대화의 장애물을 제거하고 속도를 높이는 것입니다.
 

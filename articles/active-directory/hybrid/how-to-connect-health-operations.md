@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 836c7bf9aefd4b2cb7d52c66bbd37e7ba38a467c
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: d784384d915fb926768f3c2b6607ea3963dc9cd7
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377313"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110028"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health 작업
 이 항목에서는 Azure AD(Azure Active Directory) Connect Health를 사용하여 수행할 수 있는 다양한 작업에 대해 설명합니다.
@@ -171,5 +171,5 @@ Azure AD Connect Health 및 Azure RBAC에 추가된 사용자나 그룹을 제�
 * [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)
 * [동기화에 대한 Azure AD Connect Health 사용](how-to-connect-health-sync.md)
 * [AD DS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adds.md)
-* [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
+* [Azure AD Connect Health FAQ](reference-connect-health-faq.yml)
 * [Azure AD Connect Health 버전 내역](reference-connect-health-version-history.md)

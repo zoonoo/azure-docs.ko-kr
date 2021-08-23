@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: dd9f35a0b7c3bb5c2c5888765e4ebac436b4cde1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fab7a613a040a57b65ecb8cb2372fff37f35c84a
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101711130"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114392564"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -291,7 +291,7 @@ Azure Portal을 통해 경고를 생성하는 NPM 사용자인 경우:
 
 ## <a name="pricing"></a>가격 책정
 
-가격 책정에 대한 정보는 [온라인](network-performance-monitor-pricing-faq.md)으로 지원됩니다.
+가격 책정에 대한 정보는 [온라인](network-performance-monitor-pricing-faq.yml)으로 지원됩니다.
 
 ## <a name="provide-feedback"></a>피드백 제공 
 

@@ -2,14 +2,13 @@
 title: 연결 문자열 가져오기 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 클라이언트가 Azure Event Hubs에 연결하는 데 사용할 수 있는 연결 문자열을 가져오기 위한 지침을 제공합니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4975fd3f0b33306f2a2d2b9b6ff2144dd7529321
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 07/23/2021
+ms.openlocfilehash: 67a20adb89ffe67546e9704896542f308a243dc3
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110692130"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114665411"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Event Hubs 연결 문자열 가져오기
 
@@ -36,14 +35,12 @@ Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 3. **Analytics** 섹션에서 **Event Hubs** 를 선택합니다. 
 4. 이벤트 허브 목록에서 해당 이벤트 허브를 선택합니다.
 6. **Event Hubs 네임스페이스** 페이지의 왼쪽 메뉴에서 **공유 액세스 정책** 을 선택합니다.
-
-    ![공유 액세스 정책 메뉴 항목](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
 7. 정책 목록에서 **공유 액세스 정책** 을 선택합니다. 기본 정책의 이름은 **RootManageSharedAccessPolicy** 입니다. 적절한 권한(읽기, 쓰기)으로 정책을 추가하고 해당 정책을 사용할 수 있습니다. 
 
-    ![Event Hubs 공유 액세스 정책](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
+    :::image type="content" source="./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png" alt-text="Event Hubs 공유 액세스 정책":::
 8. **연결 문자열 기본 키** 필드 옆에 있는 **복사** 단추를 선택합니다. 
 
-    ![Event Hubs - 연결 문자열 가져오기](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
+    :::image type="content" source="./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png" alt-text="Event Hubs - 연결 문자열 가져오기":::
 
 ## <a name="getting-the-connection-string-with-azure-powershell"></a>Azure PowerShell을 사용하여 연결 문자열 가져오기
 
@@ -52,20 +49,20 @@ Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 [Get-AzEventHubKey](/powershell/module/az.eventhub/get-azeventhubkey)를 사용하여 아래와 같은 특정 정책/규칙 이름에 대한 연결 문자열을 가져올 수 있습니다.
 
 ```azurepowershell-interactive
-Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
+Get-AzEventHubKey -ResourceGroupName MYRESOURCEGROUP -NamespaceName MYEHUBNAMESPACE -AuthorizationRuleName RootManageSharedAccessKey
 ```
 
 ## <a name="getting-the-connection-string-with-azure-cli"></a>Azure CLI를 사용하여 연결 문자열 가져오기
 다음을 사용하여 네임스페이스에 대한 연결 문자열을 가져올 수 있습니다.
 
 ```azurecli-interactive
-az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
+az eventhubs namespace authorization-rule keys list --resource-group MYRESOURCEGROUP --namespace-name MYEHUBNAMESPACE --name RootManageSharedAccessKey
 ```
 
 또는 다음을 사용하여 EventHub 엔터티에 대한 연결 문자열을 가져올 수 있습니다.
 
 ```azurecli-interactive
-az eventhubs eventhub authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --eventhub-name dummyeventhub --name RootManageSharedAccessKey
+az eventhubs eventhub authorization-rule keys list --resource-group MYRESOURCEGROUP --namespace-name MYEHUBNAMESPACE --eventhub-name MYEHUB --name RootManageSharedAccessKey
 ```
 
 Event Hubs에 대한 Azure CLI 명령과 관련된 자세한 내용은 [Event Hubs용 Azure CLI](/cli/azure/eventhubs)를 참조하세요.

@@ -2,7 +2,6 @@
 title: Azure IoT Hub 파일 업로드 이해 | Microsoft Docs
 description: 개발자 가이드 - IoT Hub의 파일 업로드 기능을 사용하여 디바이스에서 Azure Storage blob 컨테이너로 파일 업로드를 관리합니다.
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -12,12 +11,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: bb0d39ea9e37f87a465ea5803e004a142c3a3fc6
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: dd7adc3a1fdb45255bd13ee279d66e64bdf4c1d1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715163"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566437"
 ---
 # <a name="upload-files-with-iot-hub"></a>IoT Hub를 사용하여 파일 업로드
 
@@ -133,7 +132,7 @@ IoT Hub는 파일 업로드를 지원하는 두 개의 REST 엔드포인트를 �
 
 [엔드포인트](iot-hub-devguide-endpoints.md)에 설명된 대로 IoT Hub는 서비스 연결 엔드포인트(**/messages/servicebound/fileuploadnotifications**)를 통해 파일 업로드 알림을 메시지로 전달합니다. 파일 업로드 알림에 대한 수신 의미 체계는 클라우드-디바이스 메시지의 경우와 동일하며 동일한 [메시지 수명 주기](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle)를 갖습니다. 파일 업로드 알림 엔드포인트에서 검색된 각 메시지는 다음 속성을 가진 JSON 레코드입니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | --- | --- |
 | EnqueuedTimeUtc |알림을 만든 시간을 나타내는 타임스탬프입니다. |
 | DeviceId |**DeviceId** 입니다. |
@@ -159,7 +158,7 @@ IoT Hub는 파일 업로드를 지원하는 두 개의 REST 엔드포인트를 �
 
 각 IoT 허브에는 파일 업로드 알림에 대한 다음과 같은 구성 옵션이 있습니다.
 
-| 속성 | Description | 범위 및 기본값 |
+| 속성 | 설명 | 범위 및 기본값 |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |파일 업로드 알림이 파일 알림 엔드포인트에 작성되는지를 제어합니다. |Bool. 기본값은 True입니다. |
 | **fileNotifications.ttlAsIso8601** |파일 업로드 알림에 대한 기본 TTL입니다. |최대 48H(최소 1 분)까지 ISO_8601 간격입니다. 기본값은 1시간입니다. |

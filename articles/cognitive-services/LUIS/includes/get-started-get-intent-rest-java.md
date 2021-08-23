@@ -7,18 +7,18 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/03/2020
-ms.openlocfilehash: 785d0afa666534c0b6dc0a8d93efbef4a6d1d9f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c799db32ee1557fa78a18c795fe1f04fc2540cd6
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95098405"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113289637"
 ---
 [참조 설명서](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08) | [샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/LUIS/java-predict-with-rest/Predict.java)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [JDK SE](/azure/developer/java/fundamentals/java-jdk-long-term-support)(Java Development Kit, Standard Edition)
+* [JDK SE](/azure/developer/java/fundamentals/java-support-on-azure)(Java Development Kit, Standard Edition)
 * [Visual Studio Code](https://code.visualstudio.com/) 또는 선호하는 IDE
 
 ## <a name="create-pizza-app"></a>Pizza 앱 만들기

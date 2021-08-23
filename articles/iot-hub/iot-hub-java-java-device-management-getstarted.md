@@ -2,7 +2,6 @@
 title: Azure IoT Hub 디바이스 관리 시작(Java) | Microsoft Docs
 description: Azure IoT Hub 디바이스 관리를 사용하여 원격 디바이스 재부팅을 시작하는 방법입니다. Java용 Azure IoT 디바이스 SDK를 사용하여 직접 메서드를 포함한 시뮬레이션된 디바이스 앱을 구현하며 Java용 Azure IoT service SDK를 사용하여 직접 메서드를 호출하는 서비스 앱을 구현합니다.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -10,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: mqtt, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 0706fd53bf6a9c23a3a38280845220ab68b8c569
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 7b64236c27063ad7aab2e22cd2d6fbf9bc534714
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887483"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529033"
 ---
 # <a name="get-started-with-device-management-java"></a>디바이스 관리 시작(Java)
 

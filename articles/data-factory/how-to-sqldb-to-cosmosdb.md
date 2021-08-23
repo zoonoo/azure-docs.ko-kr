@@ -4,14 +4,15 @@ description: Azure SQL Database에서 기존의 정규화된 데이터베이스 
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 3d67ac9474704fac39dbe7eb91aead5c4babc4ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d37496d8f29585c8a9ad956e3f5790ac11fb748e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100383945"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566594"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>정규화된 데이터베이스 스키마를 Azure SQL Database에서 Azure CosmosDB 비정규화 컨테이너로 마이그레이션
 

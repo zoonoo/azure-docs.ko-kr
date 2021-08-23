@@ -8,16 +8,16 @@ ms.service: ddos-protection
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/11/2021
+ms.date: 08/20/2021
 ms.author: yitoh
 ms.custom: subject-policy-reference
 ms.topic: include
-ms.openlocfilehash: fec71a7f5b1568761eb99239097622d0db4813e2
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 7c709849dfd2c9d3950d5f347a8a4cef7f3de101
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112020496"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607414"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-ddos-protection-standard"></a>Azure DDoS Protection 표준에 대한 Azure Policy 기본 제공 정의
 
@@ -27,7 +27,7 @@ Azure Portal의 정책 정의에 대한 각 기본 제공 정책 정의 링크�
 
 ## <a name="azure-ddos-protection-standard"></a>Azure DDoS Protection 표준
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[가상 네트워크는 Azure DDoS Protection 표준으로 보호되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d)|Azure DDoS Protection Standard를 사용하여 볼륨 및 프로토콜 공격으로부터 가상 네트워크를 보호합니다. 자세한 내용은 [https://aka.ms/ddosprotectiondocs](./ddos-protection-overview.md)를 방문하세요.|수정, 감사, 사용 안 함|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkDdosStandard_Audit.json)|
 |[공용 IP 주소는 Azure DDoS Protection 표준에 대해 리소스 로그를 사용하도록 설정되어 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F752154a7-1e0f-45c6-a880-ac75a7e4f648)|Log Analytics 작업 영역으로 스트리밍하려면 진단 설정에서 공용 IP 주소의 리소스 로그를 사용하도록 설정합니다. 알림, 보고서 및 흐름 로그를 통해 DDoS 공격을 완화하기 위해 수행된 공격 트래픽 및 작업에 대한 자세한 정보를 얻습니다.|AuditIfNotExists, DeployIfNotExists, Disabled|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/PublicIpDdosLogging_Audit.json)|

@@ -4,15 +4,16 @@ description: 이러한 API를 사용하여 파트너 센터의 분석 데이터�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: ed6d658155267ab21fd4cdd28dd50fcbb258ee90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 07dae73901fca44200d6b4fb8c8149b69728d065
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102584151"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567264"
 ---
 # <a name="apis-for-accessing-commercial-marketplace-analytics-data"></a>상업용 Marketplace 분석 데이터에 액세스하기 위한 API
 

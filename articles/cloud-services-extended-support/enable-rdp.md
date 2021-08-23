@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 94827916f28c9028d46bf7b5461a4fbd941b2a96
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb441ebac4208afa4d9024787dd14256f36777ed
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773405"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114445061"
 ---
 # <a name="apply-the-remote-desktop-extension-to-azure-cloud-services-extended-support"></a>Azure Cloud Services(추가 지원)에 원격 데스크톱 확장 적용
 
@@ -49,6 +49,6 @@ Azure Portal은 원격 데스크톱 확장을 사용하여 애플리케이션이
 
 
 ## <a name="next-steps"></a>다음 단계 
-- Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-prerequisite.md)를 검토합니다.
-- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.md)을 검토합니다.
+- Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-prerequisite.md)를 검토하고 관련 리소스를 만듭니다.
+- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.yml)을 검토합니다.
 - [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용하여 Cloud Service(추가 지원)를 배포합니다.

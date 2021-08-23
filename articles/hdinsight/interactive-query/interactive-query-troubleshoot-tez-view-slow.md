@@ -4,12 +4,12 @@ description: Azure HDInsight에서 Apache Ambari Tez 보기가 느리게 로드�
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/30/2019
-ms.openlocfilehash: 4fe66b3104be0351a9b0e1df6b6545f71ff276ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0078a01e691844e6ad2e3b4133fa4d0913b240db
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98930762"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112290578"
 ---
 # <a name="scenario-apache-ambari-tez-view-loads-slowly-in-azure-hdinsight"></a>시나리오: Azure HDInsight Apache Ambari Tez 보기가 느리게 로드됩니다
 
@@ -29,4 +29,4 @@ Apache Ambari Tez 보기가 느리게 로드되거나 로드되지 않을 수 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

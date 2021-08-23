@@ -8,25 +8,25 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 1ed37ebd798f7ebef59ea48ce7e2084b331d2bba
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: ed43f73de5296a465d1878647a80135aa95c065a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065415"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528185"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Azure Open Datasets에서 Azure Machine Learning 데이터 세트 만들기
 
-이 문서에서는 [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) 데이터 세트 및 [Azure Open Datasets](./index.yml)를 사용하여 큐레이팅된 보강 데이터를 로컬 또는 원격 기계 학습 실험으로 가져오는 방법에 관해 알아봅니다. 
+이 문서에서는 [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) 데이터 세트 및 [Azure Open Datasets](./index.yml)를 사용하여 큐레이팅된 보강 데이터를 로컬 또는 원격 기계 학습 실험으로 가져오는 방법에 관해 알아봅니다. 
 
 [Azure Machine Learning 데이터 세트](../machine-learning/how-to-create-register-datasets.md)를 만들면 데이터 원본 위치에 대한 참조와 해당 메타데이터의 복사본을 만들 수 있습니다. 데이터 세트는 지연 평가되고 데이터는 기존 위치에 남아 있기 때문에
 * 추가 스토리지 비용이 들지 않습니다.
-* 실수로 원래 데이터 원본을 변경할 위험이 없습니다. 
+* 실수로 데이터 원본을 변경할 위험이 없습니다. 
 * ML 워크플로 성능 속도를 향상시킵니다.
 
 Azure Machine Learning의 데이터 액세스 워크플로 전체에서 데이터 세트가 적합한 위치를 이해하려면 [안전하게 데이터 액세스](../machine-learning/concept-data.md#data-workflow) 문서를 참조하세요.
 
-Azure Open Datasets는 예측 솔루션을 보강하고 정확성을 향상시키기 위해 시나리오 관련 기능을 추가하는 데 사용할 수 있는 큐레이팅된 퍼블릭 데이터 세트입니다. 다음과 같은 기계 학습 모델을 학습하는 데 도움이 되는 퍼블릭 도메인 데이터에 관한 내용은 [Open Datasets 카탈로그](https://azure.microsoft.com/en-in/services/open-datasets/catalog/)를 참조하세요.
+Azure Open Datasets는 예측 솔루션을 보강하고 정확성을 향상시키기 위해 시나리오 관련 기능을 추가하는 데 사용할 수 있는 큐레이팅된 퍼블릭 데이터 세트입니다. 다음과 같은 기계 학습 모델을 학습하는 데 도움이 되는 퍼블릭 도메인 데이터에 관한 내용은 [Open Datasets 카탈로그](https://azure.microsoft.com/services/open-datasets/catalog/)를 참조하세요.
 
 * [날씨](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
 * [인구 조사](https://azure.microsoft.com/services/open-datasets/catalog/us-decennial-census-zip/)

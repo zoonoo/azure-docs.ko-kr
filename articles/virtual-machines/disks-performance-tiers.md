@@ -2,18 +2,18 @@
 title: Azure Managed Disks의 성능 변경 - CLI/PowerShell
 description: Azure PowerShell 모듈 또는 Azure CLI를 사용하여 기존 관리 디스크의 성능 계층을 변경하는 방법을 알아봅니다.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 32f589be39740d62ef77967867522688d29a3618
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6d13f5927e31fc7f8cf412f6bba6088360af610d
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673502"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356224"
 ---
 # <a name="change-your-performance-tier-using-the-azure-powershell-module-or-the-azure-cli"></a>Azure PowerShell 모듈 또는 Azure CLI를 사용하여 성능 계층 변경
 
@@ -119,7 +119,7 @@ $disk.Tier
 
 가동 중지 시간 없이 성능 계층을 변경할 수도 있으므로 VM 할당을 취소하거나 디스크를 분리하여 계층을 변경할 필요가 없습니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 디스크는 [가동 중지 시간 없이 성능 등급 변경(미리 보기)](#change-performance-tier-without-downtime-preview) 섹션에 나온 요구 사항을 충족해야 합니다. 충족하지 않는 경우 성능 등급을 변경하면 가동 중지 시간이 발생합니다.
 

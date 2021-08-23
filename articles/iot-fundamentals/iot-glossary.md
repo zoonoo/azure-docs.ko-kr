@@ -3,16 +3,16 @@ title: Azure IoT 용어집 | Microsoft Docs
 description: 개발자 가이드 - Azure IoT 문서에 사용된 일반 용어 몇 가지를 설명하는 용어집입니다.
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-hub
-services: iot-hub
+ms.service: iot-fundamentals
+services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: 3034f117f8efa383a9f7a5e768e8d5627ea32099
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 91604758ad2e53b3715a5b5c746959b3fe124ba6
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668408"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114403400"
 ---
 # <a name="glossary-of-iot-terms"></a>IoT 용어집
 
@@ -182,7 +182,7 @@ IoT 플러그 앤 플레이 디바이스 인증 프로그램은 디바이스가 
 
 ### <a name="device-model"></a>디바이스 모델
 
-디바이스 모델은 [Ditigal Twins Definition Language](#digital-twins-definition-language-dtdl)를 사용하여 IoT 플러그 앤 플레이 디바이스의 기능을 설명하는 [모델](#model) 형식입니다. 간단한 디바이스 모델은 단일 인터페이스를 사용하여 디바이스 기능을 설명합니다. 더 복잡한 디바이스 모델에는 여러 구성 요소가 포함되며, 각 구성 요소는 기능 집합을 설명합니다. 자세한 내용은 [모델의 IoT 플러그 앤 플레이 구성 요소](../iot-pnp/concepts-modeling-guide.md)를 참조하십시오.
+디바이스 모델은 [Ditigal Twins Definition Language](#digital-twins-definition-language-dtdl)를 사용하여 IoT 플러그 앤 플레이 디바이스의 기능을 설명하는 [모델](#model) 형식입니다. 간단한 디바이스 모델은 단일 인터페이스를 사용하여 디바이스 기능을 설명합니다. 더 복잡한 디바이스 모델에는 여러 구성 요소가 포함되며, 각 구성 요소는 기능 집합을 설명합니다. 자세한 내용은 [모델의 IoT 플러그 앤 플레이 구성 요소](../iot-develop/concepts-modeling-guide.md)를 참조하십시오.
 
 ### <a name="device-modeling"></a>디바이스 모델링
 
@@ -214,7 +214,7 @@ IoT Central에서 [디바이스 템플릿](../iot-central/core/concepts-device-t
 
 ### <a name="digital-twin"></a>디지털 쌍
 
-디지털 쌍은 물리적 개체를 나타내는 디지털 데이터의 컬렉션입니다. 물리적 개체의 변경 내용은 디지털 쌍에 반영됩니다. 일부 시나리오에서는 디지털 쌍을 사용하여 물리적 개체를 조작할 수 있습니다. [Azure Ditigal Twins 서비스](../digital-twins/index.yml)는 [DTDL(디지털 쌍 정의 언어)](#digital-twins-definition-language-dtdl)로 표현된 [모델](#model)을 사용하여 물리적 디바이스의 디지털 쌍 또는 상위 수준의 추상적 비즈니스 개념을 나타냅니다. 이를 통해 다양한 클라우드 기반 디지털 쌍 솔루션을 사용할 수 있습니다. [IoT 플러그 앤 플레이](../iot-pnp/index.yml) 디바이스에는 DTDL [디바이스 모델](#device-model)에서 설명한 디지털 쌍이 있습니다.
+디지털 쌍은 물리적 개체를 나타내는 디지털 데이터의 컬렉션입니다. 물리적 개체의 변경 내용은 디지털 쌍에 반영됩니다. 일부 시나리오에서는 디지털 쌍을 사용하여 물리적 개체를 조작할 수 있습니다. [Azure Ditigal Twins 서비스](../digital-twins/index.yml)는 [DTDL(디지털 쌍 정의 언어)](#digital-twins-definition-language-dtdl)로 표현된 [모델](#model)을 사용하여 물리적 디바이스의 디지털 쌍 또는 상위 수준의 추상적 비즈니스 개념을 나타냅니다. 이를 통해 다양한 클라우드 기반 디지털 쌍 솔루션을 사용할 수 있습니다. [IoT 플러그 앤 플레이](../iot-develop/index.yml) 디바이스에는 DTDL [디바이스 모델](#device-model)에서 설명한 디지털 쌍이 있습니다.
 
 ### <a name="digital-twin-change-events"></a>디지털 쌍 변경 이벤트
 
@@ -378,7 +378,7 @@ Azure IoT 솔루션 가속기는 여러 Azure 서비스를 솔루션으로 함�
 
 [IoT Hub](#iot-hub)에서는 [작업](../iot-hub/iot-hub-devguide-jobs.md)을 통해 IoT Hub에 등록된 디바이스 세트에 대한 활동을 예약하고 추적할 수 있습니다. 활동에는 디바이스 쌍 [desired 속성](#desired-properties) 업데이트, 디바이스 쌍 [태그](#tags) 업데이트 및 [직접 메서드](#direct-method) 호출이 포함됩니다. IoT Hub는 [ID 레지스트리](#identity-registry)에서 [가져오고 내보내는](../iot-hub/iot-hub-devguide-identity-registry.md#import-and-export-device-identities) 작업도 사용합니다.
 
-IoT Central에서는 [작업](../iot-central/core/howto-run-a-job.md)을 통해 속성을 설정하고 명령을 호출하여 연결된 디바이스를 대량으로 관리할 수 있습니다. 또한 IoT Central 작업을 통해 [클라우드 속성](#cloud-property)을 대량으로 업데이트할 수 있습니다.
+IoT Central에서는 [작업](../iot-central/core/howto-manage-devices-in-bulk.md)을 통해 속성을 설정하고 명령을 호출하여 연결된 디바이스를 대량으로 관리할 수 있습니다. 또한 IoT Central 작업을 통해 [클라우드 속성](#cloud-property)을 대량으로 업데이트할 수 있습니다.
 
 ## <a name="l"></a>L
 
@@ -400,7 +400,7 @@ Azure Digital Twins에서 이러한 형식의 이벤트는 디지털 쌍, 관계
 
 모델은 속성, 원격 분석, 구성 요소, 기타 정보 등 물리적 환경의 엔터티 형식을 정의합니다. 모델은 이러한 형식의 특정 물리적 개체를 나타내는 [디지털 쌍](#digital-twin)을 만드는 데 사용됩니다. 모델은 [디지털 쌍 정의 언어](#digital-twins-definition-language-dtdl)로 작성됩니다.
 
-[Azure Digital Twins 서비스](../digital-twins/index.yml)에서 모델은 디바이스 또는 상위 수준의 추상적인 비즈니스 개념을 정의할 수 있습니다. [IoT 플러그 앤 플레이](../iot-pnp/index.yml)에서 [디바이스 모델](#device-model)은 디바이스를 구체적으로 설명하는 데 사용됩니다.
+[Azure Digital Twins 서비스](../digital-twins/index.yml)에서 모델은 디바이스 또는 상위 수준의 추상적인 비즈니스 개념을 정의할 수 있습니다. [IoT 플러그 앤 플레이](../iot-develop/index.yml)에서 [디바이스 모델](#device-model)은 디바이스를 구체적으로 설명하는 데 사용됩니다.
 
 ### <a name="model-id"></a>모델 ID
 

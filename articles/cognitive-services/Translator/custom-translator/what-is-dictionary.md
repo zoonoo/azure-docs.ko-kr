@@ -9,18 +9,18 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 160aa372cec2d018d5a3558f99e079624d965098
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b0708f83ff7ef54da19fdf8219fe594a540e678
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98895563"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362191"
 ---
 # <a name="what-is-a-dictionary"></a>사전이란?
 
 사전은 구 또는 문장의 목록과 해당 번역을 지정하는 문서의 정렬된 쌍입니다. 사용자가 항상 Microsoft Translator에서 사용자가 사전에 제공한 번역을 사용하여 원본 구 또는 문장의 인스턴스를 번역하길 원하는 경우 학습의 사전을 사용합니다. 사전은 종종 용어집 또는 용어 기반이라고도 합니다. 사전을 사용자가 나열한 모든 용어에 대해 무차별적인 “복사 및 바꾸기”로 생각할 수 있습니다. 또한 Microsoft Custom Translator 서비스는 자체 범용 사전을 빌드하고 이를 사용하여 번역 품질을 향상시킵니다. 단, 고객이 제공한 사전이 우선적으로 적용되며 단어나 문장을 조회하기 위해 먼저 검색됩니다.
 
-사전은 Microsoft 일반 인공신경망 모델이 완벽하게 지원되는 언어 쌍의 프로젝트에서만 작동합니다. [언어의 전체 목록을 확인합니다.](../language-support.md#customization)
+사전은 Microsoft 일반 인공신경망 모델이 완벽하게 지원되는 언어 쌍의 프로젝트에서만 작동합니다. [언어의 전체 목록을 확인합니다.](../language-support.md)
 
 ## <a name="phrase-dictionary"></a>구 사전
 구(Phrase) 사전은 대/소문자를 구분합니다. 정확한 찾기 및 바꾸기 작업입니다. 모델을 학습할 때 구 사전을 포함하면 나열된 단어 또는 구는 사용자가 지정한 방식으로 번역됩니다. 문장의 나머지는 일반적인 방법으로 번역됩니다. 구 사전을 사용하여 번역하면 안 되는 구를 지정할 수 있습니다. 사전의 원본 및 대상 파일에 번역되지 않은 동일한 구를 제공하면 됩니다.

@@ -2,13 +2,13 @@
 title: 프로덕션 준비 및 모범 사례
 description: 이 문서에서는 프로덕션 환경의 Azure Video Analyzer 모듈을 구성하고 배포하는 방법에 대한 지침을 제공합니다.
 ms.topic: reference
-ms.date: 04/26/2021
-ms.openlocfilehash: af353c6845259f09edf4f1cb6ee4282f0fae6ba9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 1f7477be52d99bdfca91fd0d122d2db63ef27827
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387850"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602131"
 ---
 # <a name="production-readiness-and-best-practices"></a>프로덕션 준비 및 모범 사례
 
@@ -123,40 +123,6 @@ sudo chown -R localedgeuser:localedgegroup /var/lib/videoanalyzer
 빠른 시작의 샘플 파이프라인과 [연속 동영상 녹화](use-continuous-video-recording.md)와 같은 자습서를 보면 미디어 캐시 디렉터리(`localMediaCachePath`)가 `applicationDataDirectory` 아래의 하위 디렉터리를 사용한다는 것을 알 수 있습니다. 캐시에 임시 데이터가 포함되어 있기 때문에 권장되는 방법입니다.
 
 또한 TLS 암호화를 사용하여 트래픽을 보호하는 프로덕션 환경에 권장되는 대로 `allowedUnsecuredEndpoints`는 `true`로 설정됩니다.
-
-### <a name="naming-video-or-files"></a>비디오 또는 파일 이름 지정
-
-파이프라인을 사용하면 클라우드 또는 에지 디바이스에서 MP4 파일로 비디오를 녹화할 수 있습니다. [연속 비디오 녹화](use-continuous-video-recording.md) 또는 [이벤트 기반 비디오 녹화](record-event-based-live-video.md)를 통해 생성될 수 있습니다.
-
-클라우드 녹화에 대한 권장되는 이름 구조는 "<anytext>-${System.TopologyName}-${System.PipelineName}"으로 비디오 이름을 지정하는 것입니다. 지정된 라이브 파이프라인은 하나의 RTSP 지원 IP 카메라에만 연결할 수 있으며, 해당 카메라의 입력을 하나의 비디오 리소스에 기록해야 합니다. 예를 들어 다음과 같이 비디오 싱크에서 `VideoName`을 설정할 수 있습니다.
-
-```
-"VideoName": "sampleVideo-${System.TopologyName}-${System.PipelineName}"
-```
-대체 패턴은 `$` 기호 뒤에 중괄호를 사용해서 정의합니다( **${variableName}** ).
-
-이벤트 기반 기록을 사용하여 에지 디바이스의 MP4 파일에 기록할 때 다음을 사용할 수 있습니다.
-
-```
-"fileNamePattern": "sampleFilesFromEVR-${System.TopologyName}-${System.PipelineName}-${fileSinkOutputName}-${System.Runtime.DateTime}"
-```
-
-> [!Note]
-> 위의 예에서 **fileSinkOutputName** 변수는 라이브 파이프라인을 만드는 시기를 정의한 샘플 변수 이름입니다. 시스템 변수가 **아닙니다**. **DateTime** 을 사용하면 각 이벤트에 대해 고유한 MP4 파일 이름이 어떻게 보장되는지 확인합니다.
-
-#### <a name="system-variables"></a>시스템 변수
-
-사용할 수 있는 시스템 정의 변수는 다음과 같습니다.
-
-| 시스템 변수        | Description                                                  | 예제              |
-| :--------------------- | :----------------------------------------------------------- | :------------------- |
-| System.Runtime.DateTime        | ISO8601 파일 호환 형식의 UTC 날짜 시간(기본 표현 YYYYMMDDThhmmss)입니다. | 20200222T173200Z     |
-| System.Runtime.PreciseDateTime | ISO8601 파일 호환 형식의 밀리초를 포함하는 UTC 날짜 시간(기본 표현 YYYYMMDDThhmmss.sss)입니다. | 20200222T173200.123Z |
-| System.TopologyName    | 실행 중인 파이프라인 토폴로지의 사용자 제공 이름입니다.          | IngestAndRecord      |
-| System.PipelineName    | 실행 중인 라이브 파이프라인의 사용자 제공 이름입니다.          | camera001            |
-
-> [!Tip]
-> 클라우드에서 비디오 이름을 지정할 때 System.Runtime.PreciseDateTime 및 System.Runtime.DateTime을 사용할 수 없습니다.
 
 ### <a name="tips-about-maintaining-your-edge-device"></a>에지 디바이스 유지 관리에 대한 팁
 

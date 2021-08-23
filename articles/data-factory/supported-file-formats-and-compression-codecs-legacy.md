@@ -1,17 +1,20 @@
 ---
 title: Azure Data Factory에서 지원되는 파일 형식(레거시)
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 이 항목에서는 Azure Data Factory에서 파일 기반 커넥터가 지원하는 파일 형식 및 압축 코드를 설명합니다.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 960c2a995a6e68b2f15e553121bc860f9ac29890
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 12b3b1dddfa7ff37d8d8fa80562699cf9242148e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488522"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642363"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Azure Data Factory에서 지원되는 파일 형식 및 압축 코덱(레거시)
 
@@ -576,7 +579,7 @@ Azure Data Factory에서는 복사하는 동안 압축/압축 풀기 데이터�
 * **수준:****최적** 또는 **가장 빠름** 이 될 수 있는 압축 비율입니다.
 
   * **가장 빠름:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업을 최대한 빨리 완료해야 합니다.
-  * **최적**: 작업이 완료되는 데 시간이 오래 걸리더라도 최적으로 압축해야 합니다.
+  * **최적**: 작업이 완료되는데 시간이 오래 걸리더라도 압축 작업이 최적으로 압축되어야 합니다.
 
     자세한 내용은 [압축 수준](/dotnet/api/system.io.compression.compressionlevel) 항목을 참조하세요.
 

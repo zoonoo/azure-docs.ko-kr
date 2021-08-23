@@ -13,24 +13,24 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: ad395e1b782edb28845bb7db0607d2bab5b5697c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 763369fbbd52ed14b547e2a23dfa0bb977a1b9a4
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104802015"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112116143"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>빌드 작업 구성 및 사용자 지정
 
 > [!Note]
-> 2022년 3월 1일부로 MSCA(Microsoft 보안 코드 분석) 확장의 사용이 중지됩니다. 기존 MSCA 고객에게는 2022년 3월 1일까지 MSCA에 대한 액세스가 유지됩니다. Azure DevOps의 대체 옵션은 [OWASP 소스 코드 분석 도구](https://owasp.org/www-community/Source_Code_Analysis_Tools)를 참조하세요. GitHub로의 마이그레이션을 계획하는 고객의 경우 [Github 고급 보안](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security)을 확인할 수 있습니다.
+> 2022년 3월 1일부로 MSCA(Microsoft 보안 코드 분석) 확장의 사용이 중지됩니다. 기존 MSCA 고객은 2022년 3월 1일까지 MSCA에 대한 액세스가 유지됩니다. Azure DevOps의 대체 옵션은 [OWASP 소스 코드 분석 도구](https://owasp.org/www-community/Source_Code_Analysis_Tools)를 참조하세요. GitHub로의 마이그레이션을 계획하는 고객의 경우 [Github 고급 보안](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security)을 확인할 수 있습니다.
 
 이 문서에서는 각 빌드 작업에서 사용할 수 있는 구성 옵션에 대해 자세히 설명합니다. 이 문서는 보안 코드 분석 도구에 대한 작업으로 시작하여 후처리 작업으로 끝납니다.
 
 ## <a name="anti-malware-scanner-task"></a>맬웨어 방지 스캐너 작업
 
 >[!NOTE]
-> 맬웨어 방지 스캐너 빌드 작업에는 Windows Defender를 사용하도록 설정된 빌드 에이전트가 필요합니다. 호스트된 Visual Studio 2017 이상에서 해당 에이전트를 제공합니다. 빌드 작업은 Visual Studio 2015 호스트된 에이전트에서 실행되지 않습니다.
+> 맬웨어 방지 스캐너 빌드 작업에는 Windows Defender를 사용하도록 설정된 빌드 에이전트가 필요합니다. 호스트된 Visual Studio 2017 이상에서는 이러한 에이전트를 제공합니다. 빌드 작업은 Visual Studio 2015 호스트된 에이전트에서 실행되지 않습니다.
 >
 > 해당 에이전트에서는 서명을 업데이트할 수 없지만 서명 후 경과된 시간이 항상 3시간 미만이어야 합니다.
 
@@ -202,4 +202,4 @@ TSLint에 대한 자세한 내용은 [TSLint GitHub 리포지토리](https://git
 
 YAML 기반 구성에 대한 자세한 내용은 [YAML 구성 가이드](yaml-configuration.md)를 참조하세요.
 
-보안 코드 분석 확장 및 제공된 도구에 대한 추가 질문이 있는 경우 [FAQ 페이지](security-code-analysis-faq.md)를 확인하세요.
+보안 코드 분석 확장 및 제공된 도구에 대한 추가 질문이 있는 경우 [FAQ 페이지](security-code-analysis-faq.yml)를 확인하세요.

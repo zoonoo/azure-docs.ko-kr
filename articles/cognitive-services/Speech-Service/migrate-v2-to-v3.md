@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: rbeckers
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9c8016b566db8be1b7f5c5ddb8d92123d6673db5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8e55202163a447ca2d7d08999c953e619bc027b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98569847"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529175"
 ---
 # <a name="migrate-code-from-v20-to-v30-of-the-rest-api"></a>REST API v2.0에서 v3.0으로 코드 마이그레이션
 
@@ -143,7 +143,7 @@ v2의 모든 항목은 동일한 ID의 v3 API에서도 찾을 수 있습니다. 
 Batch Transcription을 만드는 방법에 대한 자세한 설명은 [Batch Transcription 방법](./batch-transcription.md)을 참조하세요.
 
 v3 전사 API를 사용하면 특정 전사 옵션을 명시적으로 설정할 수 있습니다. 이제 모든(선택 사항) 구성 속성을 `properties` 속성에서 설정할 수 있습니다.
-버전 v3도 여러 입력 파일을 지원하므로 v2와 마찬가지로 단일 URL이 아닌 URL 목록이 필요합니다. v2 속성 이름 `recordingsUrl`가 v3에서 `contentUrls`로 변경되었습니다. v3에서는 전사의 감정 분석 기능이 제거되었습니다. 감정 분석 옵션에 대해서는 Microsoft Cognitive Service [텍스트 분석](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/)을 참조하세요.
+버전 v3도 여러 입력 파일을 지원하므로 v2와 마찬가지로 단일 URL이 아닌 URL 목록이 필요합니다. v2 속성 이름 `recordingsUrl`가 v3에서 `contentUrls`로 변경되었습니다. v3에서는 전사의 감정 분석 기능이 제거되었습니다. 감정 분석 옵션에 대해서는 Microsoft Cognitive Service [텍스트 분석](https://azure.microsoft.com/services/cognitive-services/text-analytics/)을 참조하세요.
 
 `properties`의 새 속성 `timeToLive`는 완료된 기존 엔터티를 정리하는 데 도움이 될 수 있습니다. `timeToLive`는 완료된 엔터티가 자동으로 삭제되는 기간을 지정합니다. 엔터티가 지속적으로 추적, 사용 및 삭제되어 일반적으로 12시간이 지나기 훨씬 전에 처리되는 경우에는 높은 값(예: `PT12H`)으로 설정합니다.
 

@@ -2,14 +2,14 @@
 title: CloudEvents 스키마에서 이벤트에 Azure Event Grid 사용
 description: Azure Event Grid에서 이벤트에 CloudEvents 스키마를 사용하는 방법을 설명합니다. 이 서비스는 CloudEvents의 JSON 구현에서 이벤트를 지원합니다.
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 07/22/2021
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c4358239a87a55d677b5ae7cfe5882caa95827f3
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 0fcf4a5cd629401c44a208d6d697a04855b4a902
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110700698"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469488"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Event Grid에서 CloudEvents v1.0 스키마 사용
 [기본 이벤트 스키마](event-schema.md) 외에, Azure Event Grid는 기본적으로 [CloudEvents v1.0의 JSON 구현](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) 및 [HTTP 프로토콜 바인딩](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md)의 이벤트를 지원합니다. [CloudEvents](https://cloudevents.io/)는 이벤트 데이터를 설명하는 [공개 사양](https://github.com/cloudevents/spec/blob/v1.0/spec.md)입니다.

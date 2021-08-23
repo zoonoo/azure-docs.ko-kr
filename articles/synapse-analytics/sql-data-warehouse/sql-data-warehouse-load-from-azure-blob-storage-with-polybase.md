@@ -2,21 +2,21 @@
 title: 전용 SQL 풀로 Contoso 소매 데이터 로드
 description: Contoso 소매 데이터에서 전용 SQL 풀로 두 개의 테이블을 로드하기 위해 PolyBase와 T-SQL 명령을 사용합니다.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/20/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 13e78c707ca3bda338f9255c015c0e926fca90d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6abbecfa7bc2946dc68b5acb530c5d2bbd2e700
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104606143"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112540477"
 ---
 # <a name="load-contoso-retail-data-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀로 Contoso 소매 데이터 로드
 
@@ -221,7 +221,7 @@ GO
 
 ### <a name="load-the-data-into-new-tables"></a>데이터를 새 테이블에 로드합니다.
 
-Azure Blob Storage에서 데이터 웨어하우스 테이블로 데이터를 로드하려면 [CREATE TABLE AS SELECT(Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문을 사용합니다. [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 사용하여 로드하면 직접 만든 강력한 형식의 외부 테이블을 활용합니다. 새 테이블로 데이터를 로드하려면 테이블당 하나의 CTAS 문을 사용합니다.
+Azure Blob Storage에서 데이터 웨어하우스 테이블로 데이터를 로드하려면 [CREATE TABLE AS SELECT(Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문을 사용합니다. [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md)를 사용하여 로드하면 직접 만든 강력한 형식의 외부 테이블을 활용합니다. 새 테이블로 데이터를 로드하려면 테이블당 하나의 CTAS 문을 사용합니다.
 
 CTAS는 새 테이블을 만들고 select 문의 결과와 함께 새 테이블을 정보표시합니다. CTAS는 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
 

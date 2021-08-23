@@ -8,12 +8,12 @@ author: timoklimmer
 ms.author: tklimmer
 ms.topic: conceptual
 ms.date: 05/10/2021
-ms.openlocfilehash: 453b7558ac4f26395186a6aabc54ce831b5ef9b5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 10695c20bc177abd084d6a3724ae3d379d4ca74a
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110071887"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284572"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Azure에서 Ubuntu Data Science Virtual Machine을 사용하는 데이터 과학
 
@@ -326,7 +326,7 @@ rattle()
 > [!NOTE]
 > DSVM에 Rattle를 설치할 필요가 없습니다. 그러나 Rattle이 열릴 때 추가 패키지를 설치하라는 메시지가 표시될 수 있습니다.
 
-Rattle은 탭 기반 인터페이스를 사용합니다. 대부분의 탭은 데이터를 로드하거나 데이터를 탐색하는 등 [팀 데이터 과학 프로세스](../team-data-science-process/index.yml)의 단계에 해당합니다. 데이터 과학 프로세스는 탭을 통해 왼쪽에서 오른쪽으로 진행됩니다. 하지만 마지막 탭에는 Rattle에서 실행한 R 명령의 로그가 있습니다.
+Rattle은 탭 기반 인터페이스를 사용합니다. 대부분의 탭은 데이터를 로드하거나 데이터를 탐색하는 등 [팀 데이터 과학 프로세스](/azure/architecture/data-science-process/overview)의 단계에 해당합니다. 데이터 과학 프로세스는 탭을 통해 왼쪽에서 오른쪽으로 진행됩니다. 하지만 마지막 탭에는 Rattle에서 실행한 R 명령의 로그가 있습니다.
 
 데이터 세트를 로드하고 구성하려면
 

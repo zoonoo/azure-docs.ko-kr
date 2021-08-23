@@ -2,13 +2,13 @@
 title: Azure Video Analyzer 액세스 정책
 description: 이 문서에서는 Azure Video Analyzer가 액세스 정책에서 JWT 토큰을 사용하여 비디오를 보호하는 방법을 설명합니다.
 ms.topic: reference
-ms.date: 05/10/2021
-ms.openlocfilehash: 4c0a4cf4ed02f6c1ddbcecd2351e8ffa0f4ad887
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 3cf450249567d07bf6855d115a0e39640074eeb0
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387250"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604197"
 ---
 # <a name="access-policies"></a>액세스 정책
 

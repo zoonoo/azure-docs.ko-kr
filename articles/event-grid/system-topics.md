@@ -2,13 +2,13 @@
 title: Azure Event Grid의 시스템 토픽
 description: Azure Event Grid의 시스템 토픽을 설명합니다.
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: ca59dd6bb99b9b7d06f0622e8c0cb4e4234e21ff
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 07/19/2021
+ms.openlocfilehash: cb054b8085c422f56a6cf8c6cc492470aaa4be95
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105733046"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114437041"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Azure Event Grid의 시스템 토픽
 Event Grid의 시스템 토픽은 Azure Storage 및 Azure Event Hubs와 같은 Azure 서비스에서 게시한 하나 이상의 이벤트를 나타냅니다. 예를 들어 시스템 토픽은 **모든 Blob 이벤트** 또는 **특정 스토리지 계정** 에 대해 게시된 **Blob 만들기** 및 **Blob 삭제** 이벤트만 나타낼 수 있습니다. 이 예에서 Blob이 스토리지 계정에 업로드되면 Azure Storage 서비스는 Event Grid의 시스템 토픽에 **blob 만들기** 이벤트를 게시한 다음, 이벤트를 받고 처리하는 토픽의 [구독자](event-handlers.md)에 전달합니다. 
@@ -19,12 +19,14 @@ Event Grid의 시스템 토픽은 Azure Storage 및 Azure Event Hubs와 같은 A
 ## <a name="azure-services-that-support-system-topics"></a>시스템 토픽을 지원하는 Azure 서비스
 다음은 시스템 토픽 만들기를 지원하는 Azure 서비스의 현재 목록입니다.
 
+- [Azure API Management](event-schema-api-management.md)
 - [Azure App Configuration](event-schema-app-configuration.md)
 - [Azure App Service](event-schema-app-service.md)
 - [Azure Blob Storage](event-schema-blob-storage.md)
 - [Azure Communication Services](event-schema-communication-services.md) 
 - [Azure Container Registry](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
+- [Azure FarmBeats](event-schema-farmbeats.md)
 - [Azure IoT Hub](event-schema-iot-hub.md)
 - [Azure Key Vault](event-schema-key-vault.md)
 - [Azure Machine Learning](event-schema-machine-learning.md)

@@ -4,18 +4,18 @@ description: 메모리 내 OLTP를 채택하여 Azure SQL Database 및 Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.custom: sqldbrb=2
-ms.subservice: development
+ms.subservice: performance
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: MightyPen
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: mathoma
 ms.date: 11/07/2018
-ms.openlocfilehash: e17e98e784b7453c87814c5cce5c03568f66b1cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d1e00059948b6b3347c41910f8c1f75d9635da5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91619749"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537218"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>메모리 내 OLTP를 사용하여 Azure SQL Database 및 Azure SQL Managed Instance에서 애플리케이션의 성능 향상
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -103,8 +103,8 @@ SSMS에서 보고서를 생성합니다.
 7. 삽입을 사용하여 메모리 최적화 테이블에 데이터를 복사합니다... *를 다음에 선택합니다.
 
 ```sql
-INSERT INTO <new_memory_optimized_table>
-        SELECT * FROM <old_disk_based_table>;
+INSERT INTO [<new_memory_optimized_table>]
+        SELECT * FROM [<old_disk_based_table>];
 ```
 
 ## <a name="step-5-optional-migrate-stored-procedures"></a>5단계(선택 사항): 저장 프로시저 마이그레이션

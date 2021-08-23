@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 92e032eb104835788f515cc7800fe5dacfa8adaa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da9333efb3078564347e6498e84e46c5ebcf10f7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88566134"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536847"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Azure API Management에서 사용자 계정을 관리하는 방법
 
-API Management에서 개발자는 API Management 사용을 공개하는 API의 사용자입니다. 이 가이드에서는 개발자를 만들고 API Management 인스턴스와 함께 사용할 수 있게 설정한 API 및 제품을 해당 개발자가 사용하도록 초대하는 방법을 보여 줍니다. 프로그래밍 방식으로 사용자 계정 관리에 대한 내용은 [API Management REST](/rest/api/apimanagement/) 참조에서 [사용자 엔터티](/rest/api/apimanagement/2019-12-01/user) 설명서를 참조하세요.
+API Management에서 개발자는 API Management 사용을 공개하는 API의 사용자입니다. 이 가이드에서는 개발자를 만들고 API Management 인스턴스와 함께 사용할 수 있게 설정한 API 및 제품을 해당 개발자가 사용하도록 초대하는 방법을 보여 줍니다. 프로그래밍 방식으로 사용자 계정 관리에 대한 내용은 [API Management REST](/rest/api/apimanagement/) 참조에서 [사용자 엔터티](/rest/api/apimanagement/2020-12-01/user) 설명서를 참조하세요.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 

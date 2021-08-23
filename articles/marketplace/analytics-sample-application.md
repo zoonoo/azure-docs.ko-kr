@@ -4,15 +4,16 @@ description: 샘플 애플리케이션을 사용하여 사용자 고유의 상�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 8fe2301c4d4ed2a582774c65d5dbe68bab416aa3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed1fb34663a2e424b9d48e7adea422bb26726c77
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102584080"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529273"
 ---
 # <a name="sample-application-for-accessing-commercial-marketplace-analytics-data"></a>상업용 Marketplace 분석 데이터에 액세스하기 위한 샘플 애플리케이션
 

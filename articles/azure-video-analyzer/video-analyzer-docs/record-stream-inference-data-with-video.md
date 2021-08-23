@@ -3,13 +3,13 @@ title: 비디오를 사용하여 추론 메타데이터 녹화 및 스트리밍 
 description: 이 자습서에서는 Azure Video Analyzer를 사용하여 비디오 및 추론 메타데이터를 클라우드에 녹화하고 시각적 유추 메타데이터를 사용하여 녹화를 재생하는 방법을 알아봅니다.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 05/12/2021
-ms.openlocfilehash: 89aef5db89110ee7e12a313820f8f62d0b010faf
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 06/01/2021
+ms.openlocfilehash: 3122ea07fdab20c93ed4720d0c43f180cce5306d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111755173"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566612"
 ---
 # <a name="tutorial-record-and-stream-inference-metadata-with-video"></a>자습서: 비디오를 사용하여 추론 메타데이터 녹화 및 스트리밍
   
@@ -132,7 +132,7 @@ src/edge/deployment.yolov3.template.json 파일을 엽니다. **모듈** 섹션 
 1. 다음으로, **livePipelineSet** 및 **pipelineTopologyDelete** 노드에서 **topologyName** 값이 이전 파이프라인 토폴로지의 **name** 속성 값과 일치하는지 확인합니다.
 
     `"pipelineTopologyName" : "CVRHttpExtensionObjectTracking"`
-1. 브라우저에서 [파이프라인 토폴로지](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-objTracking/topology.json)를 열고 videoName을 살펴봅니다. `sample-cvr-with-inference-metadata`로 하드 코딩되었습니다. 자습서에서 이를 허용할 수 있습니다. 프로덕션 환경에서는 고유한 각 RTSP 카메라를 고유한 이름을 가진 비디오 리소스에 녹화하도록 주의해야 합니다.  
+1. 브라우저에서 [파이프라인 토폴로지](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-and-objectTracking/topology.json)를 열고 videoName을 살펴봅니다. `sample-cvr-with-inference-metadata`로 하드 코딩되었습니다. 자습서에서 이를 허용할 수 있습니다. 프로덕션 환경에서는 고유한 각 RTSP 카메라를 고유한 이름을 가진 비디오 리소스에 녹화하도록 주의해야 합니다.  
 
 1. HTTP 확장 노드의 설정을 검사합니다.
 
@@ -143,7 +143,8 @@ src/edge/deployment.yolov3.template.json 파일을 엽니다. **모듈** 섹션 
     }
   ```
 
-여기서는 확장 노드가 추론 결과의 포함 여부에 관계 없이 모든 프레임을 다운스트림 개체 추적기 노드에 전달해야 하므로 `skipSamplesWithoutAnnotation`이 `false`로 설정되었습니다. 개체 추적기는 약 15프레임 넘게 개체를 추적할 수 있습니다. 라이브 비디오의 프레임 속도가 초당 30프레임이면 매 초마다 추론을 위해 두 개 이상의 프레임을 HTTP 서버로 보내야 하므로 `maximumSamplesPerSecond`는 2로 설정됩니다.
+여기서는 확장 노드가 추론 결과의 포함 여부에 관계 없이 모든 프레임을 다운스트림 개체 추적기 노드에 전달해야 하므로 `skipSamplesWithoutAnnotation`이 `false`로 설정되었습니다. 개체 추적기는 약 15프레임 넘게 개체를 추적할 수 있습니다. AI 모델에는 처리를 위한 최대 FPS가 있으며, 이는 `maximumSamplesPerSecond`에 설정해야 하는 가장 높은 값입니다.
+
 
 ## <a name="run-the-sample-program"></a>샘플 프로그램 실행
 
@@ -384,12 +385,11 @@ Azure Portal에 로그인하여 비디오를 살펴보면 라이브 파이프라
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/record-stream-inference-data-with-video/video-playback.png" alt-text="비디오 재생 스크린샷":::
 
-> [!NOTE]
-> 비디오 원본은 카메라 피드를 시뮬레이션하는 컨테이너이므로 비디오의 타임스탬프는 라이브 파이프라인을 활성화한 시간 및 비활성화한 시간과 관련이 있습니다.
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 자습서를 진행하려면 여기서 만든 리소스를 그대로 둡니다. 다른 자습서를 진행할 생각이 없으면 Azure Portal로 이동하여 해당하는 리소스 그룹을 찾고, 이 자습서를 실행한 리소스 그룹을 선택하고, 리소스 그룹을 삭제합니다.
+[!INCLUDE [prerequisites](./includes/common-includes/clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

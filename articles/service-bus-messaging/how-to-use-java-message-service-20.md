@@ -4,12 +4,12 @@ description: Azure Service Bus로 JMS(Java 메시지 서비스) 사용
 ms.topic: article
 ms.date: 07/17/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 894821444f74248b73578595df943cb3a0025360
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b27784e4f70a72ae5b114d2796c2aaeace8068ab
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101698402"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414696"
 ---
 # <a name="use-java-message-service-20-api-with-azure-service-bus-premium"></a>Azure Service Bus 프리미엄에서 Java 메시지 서비스 2.0 API 사용
 
@@ -38,7 +38,7 @@ Azure에서 Java용 개발자 환경을 준비하는 방법에 대한 자세한 
 
 ## <a name="what-jms-features-are-supported"></a>JMS 기능 중에는 어떤 것들을 지원하나요?
 
-[!INCLUDE [service-bus-jms-features-list](../../includes/service-bus-jms-feature-list.md)]
+[!INCLUDE [service-bus-jms-features-list](./includes/service-bus-jms-feature-list.md)]
 
 ## <a name="downloading-the-java-message-service-jms-client-library"></a>JMS(Java 메시지 서비스) 클라이언트 라이브러리 다운로드하기
 
@@ -151,11 +151,11 @@ Message msg = (Message) sharedDurableConsumer.receive();
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Service Bus에 대한 자세한 내용과 JMS(Java 메시지 서비스) 엔터티 관련 세부 정보는 다음 링크를 확인하세요. 
-* [Service Bus - 큐, 토픽, 구독](service-bus-queues-topics-subscriptions.md)
-* [Service Bus - Java 메시지 서비스 엔터티](service-bus-queues-topics-subscriptions.md#java-message-service-jms-20-entities)
+Azure Service Bus에 대한 자세한 내용과 JMS(Java Message Service) 엔터티 관련 세부 정보는 다음 링크를 확인하세요. 
+* [Service Bus - 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
+* [Service Bus - Java Message Service 엔터티](service-bus-queues-topics-subscriptions.md#java-message-service-jms-20-entities)
 * [Azure Service Bus의 AMQP 1.0 지원](service-bus-amqp-overview.md)
 * [Service Bus AMQP 1.0 개발자 가이드](service-bus-amqp-dotnet.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
-* [Java 메시지 서비스 API(외부 Oracle 문서)](https://docs.oracle.com/javaee/7/api/javax/jms/package-summary.html)
+* [Java Message Service API(외부 Oracle 문서)](https://docs.oracle.com/javaee/7/api/javax/jms/package-summary.html)
 * [ActiveMQ에서 Service Bus로의 마이그레이션 방법 알아보기](migrate-jms-activemq-to-servicebus.md)

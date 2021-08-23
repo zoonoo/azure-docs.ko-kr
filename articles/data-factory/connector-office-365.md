@@ -1,17 +1,20 @@
 ---
 title: Azure Data Factory를 사용하여 Office 365에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Office 365에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jianleishen
-ms.openlocfilehash: 4779d8830e0b4e78aea0cd4e9de0401806a85af7
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 537fc48141712c4113076e253ed3c93c7c89d066
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111749222"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642630"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Office 365에서 Azure로 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -72,7 +75,7 @@ ADF가 관리되는 앱의 일부로 생성되고 Azure 정책 할당이 관리 
 
 Office 365 연결된 서비스에 대해 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **Office365** 로 설정해야 합니다. | 예 |
 | office365TenantId | Office 365 계정이 속하는 Azure 테넌트 ID입니다. | 예 |
@@ -112,7 +115,7 @@ Office 365 연결된 서비스에 대해 다음 속성이 지원됩니다.
 
 Office 365의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성은 **Office365Table** 로 설정해야 합니다. | 예 |
 | tableName | Office 365에서 추출할 데이터 세트의 이름입니다. 추출할 수 있는 Office 365 데이터 세트 목록은 [여기](/graph/data-connect-datasets#datasets)를 참조하세요. | 예 |
@@ -146,7 +149,7 @@ Office 365의 데이터를 복사하려는 경우 다음과 같은 속성이 지
 
 Office 365에서 데이터를 복사하기 위해 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 형식 속성을 **Office365Source** 로 설정해야 합니다. | 예 |
 | allowedGroups | 그룹 선택 조건자입니다.  이 속성을 사용하여 데이터를 검색할 사용자 그룹을 최대 10개까지 선택할 수 있습니다.  그룹을 지정되지 않는 경우 전체 조직에 대한 데이터가 반환됩니다. | 예 |

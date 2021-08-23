@@ -2,7 +2,6 @@
 title: Azure IoT Hub 디바이스 쌍 이해 | Microsoft Docs
 description: 개발자 가이드 - 디바이스 쌍을 사용하여 IoT Hub와 디바이스 간의 상태 및 구성 데이터 동기화
 author: nehsin
-manager: philmea
 ms.author: nehsin
 ms.service: iot-hub
 services: iot-hub
@@ -11,12 +10,12 @@ ms.date: 09/29/2020
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: cc1f9aaa0409300f99535b0b64f5719f8e8c97ad
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 1bea2bab5a930d16ebc7675a14bfa4486dc35951
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484616"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528383"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>IoT Hub의 디바이스 쌍 이해 및 사용
 
@@ -43,7 +42,7 @@ reported 속성, 디바이스-클라우드 메시지 또는 파일 업로드 사
 
 desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 사용하는 방법에 대한 지침은 [클라우드-디바이스 통신 지침](iot-hub-devguide-c2d-guidance.md)을 참조하세요.
 
-디바이스 쌍이 Azure IoT 플러그 앤 플레이 디바이스에서 사용하는 디바이스 모델과 어떻게 관련되는지 알아보려면 [IoT 플러그 앤 플레이 디지털 트윈 이해](../iot-pnp/concepts-digital-twin.md)를 참조하세요.
+디바이스 쌍이 Azure IoT 플러그 앤 플레이 디바이스에서 사용하는 디바이스 모델과 어떻게 관련되는지 알아보려면 [IoT 플러그 앤 플레이 디지털 트윈 이해](../iot-develop/concepts-digital-twin.md)를 참조하세요.
 
 ## <a name="device-twins"></a>디바이스 쌍
 
@@ -250,13 +249,13 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 태그, desired 속성 및 reported 속성은 JSON 개체이며 다음과 같은 제한 사항이 있습니다.
 
-* **키**: JSON 개체의 모든 키는 UTF-8로 인코딩되고 대/소문자를 구분하며 길이가 최대 1KB입니다. 허용되는 문자에서 유니코드 제어 문자(세그먼트 C0 및 C1) 및 `.`, `$` 및 SP는 제외됩니다.
+* **키**: JSON 개체의 모든 키는 UTF-8로 인코드되고 대/소문자를 구분하며 길이가 최대 1KB입니다. 허용되는 문자에서 유니코드 제어 문자(세그먼트 C0 및 C1) 및 `.`, `$` 및 SP는 제외됩니다.
 
 * **값**: JSON 개체의 모든 값은 부울, 숫자, 문자열, 개체와 같은 JSON 형식이 될 수 있습니다. 배열도 지원됩니다.
 
     * 정수는 최솟값이 -4503599627370496이고, 최댓값이 4503599627370495입니다.
 
-    * 문자열 값은 UTF-8로 인코딩되고 최대 4KB의 길이를 가질 수 있습니다.
+    * 문자열 값은 UTF-8로 인코드되고 최대 4KB의 길이를 가질 수 있습니다.
 
 * **깊이**: 태그, desired 속성 및 reported 속성에서 JSON 개체의 최대 깊이는 10입니다. 예를 들어 다음 개체는 유효합니다.
 
@@ -292,17 +291,17 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 ## <a name="device-twin-size"></a>디바이스 쌍 크기
 
-IoT Hub는 `tags` 값에 8KB 크기 제한을 적용하고 `properties/desired` 및 `properties/reported` 값에 32KB 크기 제한을 적용합니다. 이러한 합계는 `$etag`, `$version`, `$metadata/$lastUpdated` 등의 읽기 전용 요소를 제외합니다.
+IoT Hub는 `tags` 값에 8KB 크기 제한을 적용하고 `properties/desired` 및 `properties/reported` 값에 32KB 크기 제한을 적용합니다. 합계는 `$etag`, `$version`, `$metadata/$lastUpdated` 등의 읽기 전용 요소를 제외합니다.
 
 쌍 크기는 다음과 같이 계산됩니다.
 
 * JSON 문서의 각 속성에 대해 IoT Hub는 누적 계산을 통해 속성의 키와 값의 길이를 추가합니다.
 
-* 속성 키는 UTF8로 인코딩된 문자열로 간주됩니다.
+* 속성 키는 UTF8로 인코드된 문자열로 간주됩니다.
 
-* 단순 속성 값은 UTF8로 인코딩된 문자열, 숫자 값(8바이트) 또는 부울 값(4바이트)으로 간주됩니다.
+* 단순 속성 값은 UTF8로 인코드된 문자열, 숫자 값(8바이트) 또는 부울 값(4바이트)으로 간주됩니다.
 
-* UTF8로 인코딩된 문자열의 크기는 유니코드 제어 문자(세그먼트 C0 및 C1)를 제외한 모든 문자를 계수하여 계산됩니다.
+* UTF8로 인코드된 문자열의 크기는 유니코드 제어 문자(세그먼트 C0 및 C1)를 제외한 모든 문자를 계수하여 계산됩니다.
 
 * 복합 속성 값(중첩된 개체)은 속성 키 및 속성 키에 포함된 속성 값의 집계 크기를 기준으로 계산됩니다.
 

@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 01/12/2021
-ms.openlocfilehash: 1b4570b09994f292de2b175396e4b6d1882658d9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4247cce1ad43c2ba25085e3db41b838337e56486
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104866491"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528250"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리
 
-[!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
+[!INCLUDE [ambari-selector](includes/hdinsight-ambari-selector.md)]
 
 Apache Ambari를 사용하면 Apache Hadoop 클러스터의 관리와 모니터링이 간소화됩니다. 이러한 간소화는 사용하기 쉬운 웹 UI와 REST API를 통해 구현됩니다. Ambari는 HDInsight 클러스터에 포함되어 있으며 클러스터를 모니터링하고 구성을 변경하는데 사용됩니다.
 
@@ -85,7 +85,7 @@ __경고 관리__ 를 선택하여 **작업** 메뉴에서 경고 방법을 관�
 
 마지막으로, __작업__ 메뉴에서 __경고 설정 관리__ 를 선택하면 알림을 보내기 전에 경고가 발생해야 하는 횟수를 지정할 수 있습니다. 일시적인 오류에 대한 알림을 방지하는 데 이 설정을 사용할 수 있습니다.
 
-무료 [SendGrid 계정](../sendgrid-dotnet-how-to-send-email.md)을 사용하는 경고 알림에 대한 자습서는 [Azure HDInsight에서 Apache Ambari 이메일 알림 구성](./apache-ambari-email.md)을 참조하십시오.
+무료 [SendGrid 계정](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account)을 사용하는 경고 알림에 대한 자습서는 [Azure HDInsight에서 Apache Ambari 이메일 알림 구성](./apache-ambari-email.md)을 참조하십시오.
 
 ### <a name="cluster"></a>클러스터
 

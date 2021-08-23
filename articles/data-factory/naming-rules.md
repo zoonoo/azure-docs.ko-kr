@@ -5,14 +5,15 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 349a768af9b1e7693840880df5e870991336a8ba
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 0e469df360fed09924dbf6759bdd84c15671c7f9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903650"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536289"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - 이름 지정 규칙
 
@@ -20,7 +21,7 @@ ms.locfileid: "107903650"
 
 다음 테이블에서 데이터 팩터리 아티팩트에 대한 이름 지정 규칙을 제공합니다.
 
-| Name | 이름 고유성 | 유효성 검사 |
+| 이름 | 이름 고유성 | 유효성 검사 |
 |:--- |:--- |:--- |
 | Data Factory | Microsoft Azure에서 고유합니다. 이름은 대/소문자를 구분하지 않습니다. 즉, `MyDF` 및 `mydf`는 같은 데이터 팩터리를 의미합니다. |<ul><li>각 데이터 팩터리는 정확히 하나의 Azure 구독에 연결됩니다.</li><li>개체 이름은 문자 또는 숫자로 시작해야 하며 문자, 숫자 및 대시(-) 문자를 포함할 수 있습니다.</li><li>모든 대시(-) 문자는 앞뒤에 문자 또는 숫자가 와야 합니다. 컨테이너 이름에서 연속 대시는 허용되지 않습니다.</li><li>이름은 3-63자까지 가능합니다.</li></ul> |
 | 연결된 서비스/데이터 세트/파이프라인 흐름 | 데이터 팩터리 내에서 고유합니다. 이름은 대/소문자를 구분하지 않습니다. |<ul><li>경고 이름은 문자로 시작해야 합니다.</li><li>허용되지 않는 문자: “.”, “+”, “?”, “/”, “<”, ”>”,”*”,”%”,”&”,”:”,”\\”</li><li>대시("-")는 연결된 서비스, 데이터 흐름 및 데이터 세트의 이름에서만 허용되지 않습니다.</li></ul>  |

@@ -6,17 +6,19 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: afa62d6e3ec93c18596ee5870361bf3b657619d1
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 1bca7aadcdd1fb85bca6c794f4a5840f1a85db95
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365028"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642156"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal을 사용하는 Azure Database for MySQL의 자동 증가 스토리지
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 이 문서에서는 워크로드에 영향을 주지 않고 확장되도록 Azure Database for MySQL 서버 스토리지를 구성할 수 있는 방법을 설명합니다.
 
-서버가 할당된 스토리지 제한에 도달하면 서버가 읽기 전용으로 표시됩니다. 그러나 스토리지 자동 증가를 사용하도록 설정하면 증가하는 데이터에 맞게 서버 스토리지가 늘어납니다. 프로비저닝된 스토리지가 100GB 미만인 서버의 경우 프로비저닝된 스토리지 크기는 사용 가능한 스토리지가 1GB보다 크거나 프로비저닝된 스토리지의 10%보다 적으면 즉시 5GB씩 증가합니다. 프로비전된 스토리지가 100GB를 초과하는 서버의 경우, 사용 가능한 스토리지 공간이 10GB의 프로비전된 스토리지 크기 미만이면 프로비전된 스토리지 크기가 5%씩 증가합니다. [여기](./concepts-pricing-tiers.md#storage)에 지정된 대로 최대 스토리지 제한이 적용됩니다.
+서버가 할당된 스토리지 제한에 도달하면 서버가 읽기 전용으로 표시됩니다. 그러나 스토리지 자동 증가를 사용하도록 설정하면 증가하는 데이터에 맞게 서버 스토리지가 늘어납니다. 프로비전된 스토리지가 100GB 미만인 서버의 경우 프로비전된 스토리지 크기는 사용 가능한 스토리지가 1GB보다 크거나 프로비전된 스토리지의 10%보다 적으면 즉시 5GB씩 증가합니다. 프로비전된 스토리지가 100GB를 초과하는 서버의 경우, 사용 가능한 스토리지 공간이 10GB의 프로비전된 스토리지 크기 미만이면 프로비전된 스토리지 크기가 5%씩 증가합니다. [여기](./concepts-pricing-tiers.md#storage)에 지정된 대로 최대 스토리지 제한이 적용됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 이 방법 가이드를 완료하려면 다음이 필요합니다.
@@ -42,4 +44,4 @@ ms.locfileid: "107365028"
 
 ## <a name="next-steps"></a>다음 단계
 
-[메트릭 경고를 만드는 방법](howto-alert-on-metric.md)에 대해 알아봅니다.
+[메트릭에 대한 경고를 만드는 방법](howto-alert-on-metric.md)에 대해 알아봅니다.

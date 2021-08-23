@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: 16cf1b89c2660d2505685fa931cc8b97ccb42a9b
-ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
+ms.openlocfilehash: 536a9b0fe4cacdc48f4429e1b85b5a47c4dbd449
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107992293"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528643"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Microsoft 365 Defender의 데이터를 Azure Sentinel에 연결
 
@@ -27,9 +27,11 @@ ms.locfileid: "107992293"
 >
 > **Microsoft 365 Defender** 는 이전에 **Microsoft Threat Protection** 또는 **MTP** 로 알려져 있었습니다.
 >
-> **엔드포인트용 Microsoft Defender** 의 이전 이름은 **Microsoft Defender Advanced Threat Protection** 또는 **MDATP** 였습니다.
+> **엔드포인트용 Microsoft Defender** 의 이전 이름은 **MDATP**(**Microsoft Defender Advanced Threat Protection**)였습니다.
 >
 > 이전 이름이 일정 시간 동안 계속 사용되는 것을 볼 수 있습니다.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="background"></a>배경
 
@@ -43,7 +45,7 @@ ms.locfileid: "107992293"
 >
 > Microsoft 365 Defender connector는 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Microsoft 365 defender 사전 요구 사항](/microsoft-365/security/mtp/prerequisites)에 설명된 대로 Microsoft 365 defender에 대한 유효한 라이선스가 있어야 합니다. 
 
@@ -131,5 +133,5 @@ let Now = now();
 
 이 문서에서는 Microsoft 365 Defender 커넥터를 사용하여 Microsoft 365 Defender 인시던트와 Microsoft Defender for Endpoint의 고급 헌팅 이벤트 데이터를 Azure Sentinel에 통합하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](./tutorial-detect-threats-built-in.md)을 시작합니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](./detect-threats-built-in.md)을 시작합니다.

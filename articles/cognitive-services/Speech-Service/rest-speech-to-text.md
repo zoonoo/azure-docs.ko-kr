@@ -3,20 +3,20 @@ title: Speech-to-Text API 참조(REST) - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech-to-Text REST API를 사용하는 방법에 대해 알아봅니다. 이 문서에서는 권한 부여 옵션, 쿼리 옵션, 요청을 구성하고 응답을 받는 방법을 알아봅니다.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/08/2021
-ms.author: trbye
+ms.date: 07/01/2021
+ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1f48a3db0cae86f82f22e2c55a6e581c5d18a454
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 2c97213b9163d6371bcee875d34dfc95cab3badc
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108758270"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537534"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-Text REST API
 
@@ -85,7 +85,7 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 이 매개 변수는 REST 요청의 쿼리 문자열에 포함할 수 있습니다.
 
-| 매개 변수 | Description | 필수/선택 |
+| 매개 변수 | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `language` | 인식되는 음성 언어를 식별합니다. [지원되는 언어](language-support.md#speech-to-text)를 참조하세요. | 필수 |
 | `format` | 결과 형식을 지정합니다. 허용되는 값은 `simple` 및 `detailed`입니다. simple 결과에는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration`이 포함됩니다. 자세한 응답에는 표시 텍스트의 네 가지 표현이 포함되어 있습니다. 기본 설정은 `simple`입니다. | 선택 사항 |
@@ -122,7 +122,7 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 다음 표에서는 발음 평가를 위한 필수 및 선택적 매개 변수를 보여 줍니다.
 
-| 매개 변수 | Description | 필수 여부 |
+| 매개 변수 | 설명 | 필수 여부 |
 |-----------|-------------|---------------------|
 | ReferenceText | 발음이 평가되는 기준 텍스트입니다. | 필수 |
 | GradingSystem | 점수 보정을 위한 지점 시스템입니다. `FivePoint` 시스템은 0~5 부동 소수점 점수를 제공하고 `HundredMark`는 0~100 부동 소수점 점수를 제공합니다. 기본값: `FivePoint`. | 선택 사항 |

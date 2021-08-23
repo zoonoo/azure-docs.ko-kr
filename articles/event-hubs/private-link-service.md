@@ -4,12 +4,12 @@ description: Azure Private Link Service와 Azure Event Hubs를 통합하는 방�
 ms.date: 05/10/2021
 ms.topic: article
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 76f205d97c7c77ff75f0143181631319c6a23b97
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 48688c9f16330830111aff5dd26292825370fcb9
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110706043"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112415579"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>프라이빗 엔드포인트를 통한 Azure Event Hubs 네임스페이스 액세스 허용 
 Azure Private Link Service를 사용하면 가상 네트워크의 **프라이빗 엔드포인트** 를 통해 Azure 서비스(예: Azure Event Hubs, Azure Storage 및 Azure Cosmos DB)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다.
@@ -92,7 +92,7 @@ Event Hubs 네임스페이스가 이미 있는 경우 다음 단계에 따라 Pr
 
     ![만든 프라이빗 엔드포인트](./media/private-link-service/private-endpoint-created.png)
 
-[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+[!INCLUDE [event-hubs-trusted-services](./includes/event-hubs-trusted-services.md)]
 
 신뢰할 수 있는 서비스가 네임스페이스에 액세스할 수 있도록 하려면 **네트워킹** 페이지에서 **방화벽 및 가상 네트워크** 탭으로 전환하고 **신뢰할 수 있는 Microsoft 서비스가 이 방화벽을 우회하도록 허용하시겠습니까?** 에 대해 **예** 를 선택합니다. 
 

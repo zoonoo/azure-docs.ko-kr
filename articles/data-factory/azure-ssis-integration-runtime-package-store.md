@@ -2,17 +2,18 @@
 title: Azure-SSIS Integration Runtime 패키지 저장소를 사용하여 패키지 관리
 description: Azure-SSIS Integration Runtime 패키지 저장소를 사용하여 패키지를 관리하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
 ms.date: 09/29/2020
-ms.openlocfilehash: 66fdd20e66360be7cdaa6d918e18ca09c413da07
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac2939e8c57b9b630de2fca1800c47cee29652bc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100393839"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528256"
 ---
 # <a name="manage-packages-with-azure-ssis-integration-runtime-package-store"></a>Azure-SSIS Integration Runtime 패키지 저장소를 사용하여 패키지 관리
 

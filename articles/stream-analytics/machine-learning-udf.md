@@ -7,16 +7,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: c35d5d2f63f4a7abe80a0ff19e5994013355c386
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9856b3b6c44c293c77582ba9c6fba9891d897a5d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98020522"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536487"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Azure Machine Learning과 Azure Stream Analytics 통합(미리 보기)
 
-Azure Stream Analytics 작업에서 UDF(사용자 정의 함수)로 기계 학습 모델을 구현하여 스트리밍 입력 데이터에 대한 실시간 채점 및 예측을 수행할 수 있습니다. [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md)을 사용하면 Tensorflow, scikit, PyTorch 등의 인기 있는 오픈 소스 도구를 사용하여 모델을 준비, 학습 및 배포할 수 있습니다.
+Azure Stream Analytics 작업에서 UDF(사용자 정의 함수)로 기계 학습 모델을 구현하여 스트리밍 입력 데이터에 대한 실시간 채점 및 예측을 수행할 수 있습니다. [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md)을 사용하면 Tensorflow, scikit, PyTorch 등의 인기 있는 오픈 소스 도구를 사용하여 모델을 준비, 학습 및 배포할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

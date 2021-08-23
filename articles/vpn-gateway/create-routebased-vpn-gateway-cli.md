@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 239cc90b49cc4b13762a02fe136a5b77a15544ee
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 63c8187e8ca5e7d7c17016159e4751299359dddf
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325682"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720362"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>CLI를 사용하여 경로 기반 VPN 게이트웨이 만들기
 
 이 문서는 Azure CLI를 사용하여 경로 기반 Azure VPN Gateway를 빠르게 만드는 데 도움이 됩니다. VPN 게이트웨이는 온-프레미스 네트워크에 대한 VPN 연결을 만들 때 사용됩니다. VPN 게이트웨이를 사용하여 VNet을 연결할 수도 있습니다.
 
-이 문서의 단계에서는 VNet, 서브넷, 게이트웨이 서브넷 및 경로 기반 VPN 게이트웨이(가상 네트워크 게이트웨이)를 만듭니다. 가상 네트워크 게이트웨이를 만드는 데에는 45분 이상이 걸릴 수 있습니다. 게이트웨이 생성이 완료되면 연결을 만들 수 있습니다. 이러한 단계에는 Azure 구독이 필요합니다.
+이 문서의 단계에서는 VNet, 서브넷, 게이트웨이 서브넷 및 경로 기반 VPN 게이트웨이(가상 네트워크 게이트웨이)를 만듭니다. 종종 선택한 게이트웨이 SKU에 따라 게이트웨이를 만드는 데 45분 이상 걸릴 수 있습니다. 게이트웨이 생성이 완료되면 연결을 만들 수 있습니다. 이러한 단계에는 Azure 구독이 필요합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

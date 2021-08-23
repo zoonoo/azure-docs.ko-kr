@@ -1,14 +1,14 @@
 ---
 title: 리소스 잠금 이해
 description: 청사진을 할당할 때 리소스를 보호하기 위한 Azure Blueprints의 잠금 옵션에 대해 알아봅니다.
-ms.date: 04/22/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3ad6bbc80818a1ba749607c44403e3efbdb064c9
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 1f209cb1e350739bfecdf86e125b28dcd4866501
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897760"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567994"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Azure Blueprints의 리소스 잠금 이해
 

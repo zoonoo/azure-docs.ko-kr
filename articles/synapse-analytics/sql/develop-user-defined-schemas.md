@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6920d6cd190927747a69fc4dc0f0791278665abe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5bbe3e3471101df5d147c5079d6cd4a7e5ce00cb
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96451699"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114287557"
 ---
 # <a name="user-defined-schemas-within-synapse-sql"></a>Synapse SQL 내의 사용자 정의 스키마
 
@@ -118,7 +118,7 @@ FROM    [edw].customer
 > [!NOTE]
 > 스키마 전략을 변경하려면 데이터베이스에 대한 보안 모델을 검토해야 합니다. 대부분의 경우 스키마 수준에서 사용 권한을 할당하여 보안 모델을 단순화할 수 있습니다.
 
-더 세부적인 권한이 필요한 경우 데이터베이스 역할을 사용할 수 있습니다. 데이터베이스 역할에 대한 자세한 내용은 [데이터베이스 역할 및 사용자 관리](../../analysis-services/analysis-services-database-users.md) 문서를 참조하세요.
+더 세부적인 권한이 필요한 경우 데이터베이스 역할을 사용할 수 있습니다. 데이터베이스 역할에 대한 자세한 내용은 [데이터베이스 역할 및 사용자 관리](/sql/relational-databases/security/authentication-access/database-level-roles) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

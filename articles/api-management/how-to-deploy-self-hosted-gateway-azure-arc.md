@@ -6,12 +6,12 @@ ms.author: v-hhunter
 ms.service: api-management
 ms.topic: article
 ms.date: 05/25/2021
-ms.openlocfilehash: 25a647df5d1afcb5212b4e717e1a70f9a68f4ac5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 71abc9acdcf8796591e7241a7fcfeded1cd3139a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387117"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112283126"
 ---
 # <a name="deploy-an-azure-api-management-gateway-on-azure-arc-preview"></a>Azure Arc에 Azure API Management 게이트웨이 배포(미리 보기)
 
@@ -48,14 +48,15 @@ Arc 지원 Kubernetes 클러스터에 API Management 게이트웨이를 배포�
 1. 프로비전된 게이트웨이 리소스의 측면 탐색 메뉴에서 **배포** 를 클릭합니다.
 1. 다음 단계에 대한 **토큰** 및 **구성 URL** 값을 기록해 둡니다.
 1. Azure CLI에서 `az k8s-extension create` 명령을 사용하여 게이트웨이 확장을 배포합니다. `token` 및 `configuration URL` 값을 입력합니다.
-    * 다음 예제에서는 `service.Type='NodePort'` 확장 구성을 사용합니다. [사용 가능한 확장 구성](#available-extension-configurations)을 참조하세요.
+    * 다음 예제에서는 `service.type='LoadBalancer'` 확장 구성을 사용합니다. [사용 가능한 확장 구성](#available-extension-configurations)을 참조하세요.
 
     ```azurecli
     az k8s-extension create --cluster-type connectedClusters --cluster-name <cluster-name> \
       --resource-group <rg-name> --name <extension-name> --extension-type Microsoft.ApiManagement.Gateway \
       --scope namespace --target-namespace <namespace> \
       --configuration-settings gateway.endpoint='<Configuration URL>' \
-      --configuration-protected-settings gateway.authKey='<token>' --release-train preview
+      --configuration-protected-settings gateway.authKey='<token>' \
+      --configuration-settings service.type='LoadBalancer' --release-train preview
     ```
 
     > [!TIP]
@@ -92,7 +93,7 @@ Arc 지원 Kubernetes 클러스터에 API Management 게이트웨이를 배포�
 | ------- | ----------- | 
 | `gateway.endpoint` | 게이트웨이 엔드포인트의 구성 URL입니다. |
 | `gateway.authKey` | 게이트웨이에 액세스하기 위한 토큰입니다. | 
-| `service.Type` | 게이트웨이에 대한 Kubernetes 서비스 구성: `LoadBalancer`, `NodePort` 또는 `ClusterIP` |
+| `service.type` | 게이트웨이에 대한 Kubernetes 서비스 구성: `LoadBalancer`, `NodePort` 또는 `ClusterIP` |
 
 ### <a name="log-analytics-settings"></a>Log Analytics 설정
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 50f08ffc304962cc66f6eed07adcb5b7e4aa6692
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c386714fbc24c5e5f2f7e71234e2838aa2e5f216
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98011155"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112542241"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Power BI를 사용하여 네트워크 보안 그룹 흐름 로그 시각화
 
@@ -52,7 +52,7 @@ ms.locfileid: "98011155"
 
 ### <a name="steps"></a>단계
 
-1. Power BI Desktop 애플리케이션 [Network Watcher PowerBI 흐름 로그 템플릿](https://aka.ms/networkwatcherpowerbiflowlogstemplate)에서 다음 Power BI 템플릿을 다운로드하여 열기
+1. Power BI Desktop 애플리케이션 [Network Watcher PowerBI 흐름 로그 템플릿](https://aka.ms/networkwatcherflowlogspowerbitemplate)에서 다음 Power BI 템플릿을 다운로드하여 열기
 1. 필요한 쿼리 매개 변수 입력
    1. **StorageAccountName** - 로드하고 시각화하려는 NSG 흐름 로그가 포함된 스토리지 계정의 이름을 지정합니다.
    1. **NumberOfLogFiles** – Power BI에서 다운로드하여 시각화하려는 로그 파일의 수를 지정합니다. 예를 들어 50을 지정하면 가장 최근의 로그 파일 50개가 지정됩니다. NSG 2개가 활성화되어 이 계정에 NSG 흐름 로그를 보내도록 구성되어 있는 경우 지난 25시간 동안의 로그를 볼 수 있습니다.

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 3b816ddc0eccf8c406cfed37d6bfc594e27d3629
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2764624d4f29432c10e0e7aa3ab49bb5a678d5e3
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85850365"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122537699"
 ---
 # <a name="expose-an-aks-service-over-http-or-https-using-application-gateway"></a>Application Gateway를 사용하여 HTTP 또는 HTTPS를 통해 AKS 서비스 공개 
 
@@ -164,20 +164,20 @@ TLS 구성 및 서비스를 멀티플렉싱하기 위해 수신에 호스트 이
 
 ```yaml
 apiVersion: extensions/v1beta1
-  kind: Ingress
-  metadata:
-    name: guestbook
-    annotations:
-      kubernetes.io/ingress.class: azure/application-gateway
-  spec:
-    rules:
-    - http:
-        paths:
-        - path: </other/*>
-          backend:
-            serviceName: <other-service>
-            servicePort: 80
-        - backend:
-            serviceName: frontend
-            servicePort: 80
+kind: Ingress
+metadata:
+  name: guestbook
+  annotations:
+    kubernetes.io/ingress.class: azure/application-gateway
+spec:
+  rules:
+  - http:
+      paths:
+      - path: </other/*>
+        backend:
+          serviceName: <other-service>
+          servicePort: 80
+       - backend:
+          serviceName: frontend
+          servicePort: 80
 ```

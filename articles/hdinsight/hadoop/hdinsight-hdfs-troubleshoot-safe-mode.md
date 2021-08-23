@@ -4,12 +4,12 @@ description: Azure HDInsight의 Apache 클러스터에서 로컬 Apache HDFS가 
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
-ms.openlocfilehash: d34bf8d82aee14f5ba835f68a061555d24ee2621
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6764b2c1b8b2a06f2bd9264a7461f43986f557ad
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98944447"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299972"
 ---
 # <a name="scenario-local-hdfs-stuck-in-safe-mode-on-azure-hdinsight-cluster"></a>시나리오: Azure HDInsight 클러스터에서 안전 모드를 사용하면 로컬 HDFS가 중단됨
 
@@ -55,4 +55,4 @@ HDInsight 클러스터가 매우 적은 수의 노드로 스케일 다운되었�
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

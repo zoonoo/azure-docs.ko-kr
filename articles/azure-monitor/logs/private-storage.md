@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: a6d4c5811c08aa8c4de2eeea5f5f53967c3006b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8fa3c329afe26979e6f557d075aff478e79d10e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025359"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566369"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics에서 고객 관리형 스토리지 계정 사용
 
@@ -22,7 +22,7 @@ Log Analytics는 다양한 시나리오에서 Azure Storage를 사용합니다. 
 ## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>Azure Diagnostics 확장 로그(WAD/LAD) 수집
 Azure Diagnostics 확장 에이전트(Windows용 WAD, Linux 에이전트용 LAD라고도 함)는 다양한 운영 체제 로그를 수집하고 고객 관리형 스토리지 계정에 저장합니다. 그런 다음 이러한 로그를 Log Analytics에 수집하고 검토 및 분석할 수 있습니다.
 ### <a name="how-to-collect-azure-diagnostics-extension-logs-from-your-storage-account"></a>스토리지 계정에서 Azure Diagnostics 확장 로그를 수집하는 방법
-[Azure Portal](../agents/diagnostics-extension-logs.md#collect-logs-from-azure-storage)을 사용하거나 [Storage Insights API](/rest/api/loganalytics/storage%20insights/createorupdate)를 호출하여 스토리지 계정을 스토리지 데이터 원본으로서 Log Analytics 작업 영역에 연결합니다.
+[Azure Portal](../agents/diagnostics-extension-logs.md#collect-logs-from-azure-storage)을 사용하거나 [Storage Insights API](/rest/api/loganalytics/storage-insights/create-or-update)를 호출하여 스토리지 계정을 스토리지 데이터 원본으로서 Log Analytics 작업 영역에 연결합니다.
 
 지원되는 데이터 형식은
 * Syslog
@@ -100,7 +100,7 @@ Azure Portal에서 작업 영역 메뉴를 열고 *연결된 스토리지 계정
 사용자 고유의 스토리지 계정을 사용하는 경우에는 사용자가 보존 여부를 결정합니다. Log Analytics는 프라이빗 스토리지에 저장된 로그를 삭제하지 않습니다. 대신, 기본 설정에 따라 부하를 처리하는 정책을 설정해야 합니다.
 
 #### <a name="consider-load"></a>부하 고려
-스토리지 계정은 제한 요청을 시작하기 전에 특정 읽기 및 쓰기 요청 부하를 처리할 수 있습니다. 자세한 내용은 [Blob 스토리지의 스케일링 기능 및 성능 목표](../../storage/common/scalability-targets-standard-account.md)를 참조하세요. 제한은 로그를 수집하는 데 걸리는 시간에 영향을 줍니다. 스토리지 계정이 오버로드된 경우 추가 스토리지 계정을 등록하여 부하를 분산합니다. 스토리지 계정의 용량 및 성능을 모니터링하려면 [Azure Portal의 인사이트]( https://docs.microsoft.com/azure/azure-monitor/insights/storage-insights-overview)를 검토하세요.
+스토리지 계정은 제한 요청을 시작하기 전에 특정 읽기 및 쓰기 요청 부하를 처리할 수 있습니다. 자세한 내용은 [Blob 스토리지의 스케일링 기능 및 성능 목표](../../storage/common/scalability-targets-standard-account.md)를 참조하세요. 제한은 로그를 수집하는 데 걸리는 시간에 영향을 줍니다. 스토리지 계정이 오버로드된 경우 추가 스토리지 계정을 등록하여 부하를 분산합니다. 스토리지 계정의 용량 및 성능을 모니터링하려면 [Azure Portal의 인사이트](../../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)를 검토하세요.
 
 ### <a name="related-charges"></a>관련 요금
 스토리지 계정은 저장된 데이터의 볼륨, 스토리지 유형 및 중복 유형에 따라 요금이 청구됩니다. 자세한 내용은 [블록 Blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs) 및 [Table Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/tables)을 참조하세요.

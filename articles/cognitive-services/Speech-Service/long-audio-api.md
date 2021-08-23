@@ -3,19 +3,19 @@ title: 긴 오디오 API - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 긴 오디오 API가 긴 형식의 텍스트를 음성으로 통합하기 위해 어떻게 설계되었는지 알아봅니다.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.author: trbye
-ms.openlocfilehash: 92a41c3b18b96dc7d12fe7a0cfdae022fcb4d363
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.author: lajanuar
+ms.openlocfilehash: 62546d4f7a1cd93d787faee22132d967bb0def8d
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110079159"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537538"
 ---
 # <a name="long-audio-api"></a>긴 오디오 API
 
@@ -425,7 +425,7 @@ response.status_code: 204
 
 다음 표에 HTTP 응답 코드 및 REST API의 메시지가 자세히 설명되어 있습니다.
 
-| API | HTTP 상태 코드 | Description | 솔루션 |
+| API | HTTP 상태 코드 | 설명 | 솔루션 |
 |-----|------------------|-------------|----------|
 | 생성 | 400 | 이 지역에서는 음성 합성을 사용할 수 없습니다. | 지원되는 지역으로 음성 구독 키를 변경합니다. |
 |        | 400 | 이 영역에 대한 **표준** 음성 구독만 유효합니다. | 음성 구독 키를 “표준” 가격 책정 계층으로 변경합니다. |

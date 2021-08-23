@@ -2,14 +2,14 @@
 title: BareMetal Infrastructure의 Oracle용 SnapCenter 통합
 description: Oracle 및 NetApp의 스냅샷 기술을 사용하여 BareMetal Infrastructure의 Oracle 데이터베이스에 대한 운영 복구 백업을 만드는 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 05/05/2021
-ms.openlocfilehash: 4182a5fe97e356152b6d589fc6788b922e5c8493
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: d9cf6933287167da82b1a5ad4ab8848d5c34d404
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109520672"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579892"
 ---
 # <a name="snapcenter-integration-for-oracle-on-baremetal-infrastructure"></a>BareMetal Infrastructure의 Oracle용 SnapCenter 통합
 

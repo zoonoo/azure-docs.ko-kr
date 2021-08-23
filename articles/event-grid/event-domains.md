@@ -3,12 +3,12 @@ title: Azure Event Grid의 이벤트 도메인
 description: 이 문서에서는 이벤트 도메인을 사용하여 다양한 비즈니스 조직, 고객 또는 애플리케이션에 대한 사용자 지정 이벤트의 흐름을 관리하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 04/13/2021
-ms.openlocfilehash: 78a785d3f1ee0431b11e8c14c3e48f4a156b5fd4
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: a8f9b21b84b2c764d25943af8988e40672dccd31
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537788"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112413547"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Event Grid 토픽을 관리하는 이벤트 도메인 이해
 
@@ -26,7 +26,7 @@ ms.locfileid: "110537788"
 이벤트 도메인은 Storage 및 IoT Hub와 같은 Azure 서비스에서 사용하는 것과 동일한 아키텍처를 제공하여 이벤트를 게시합니다. 이벤트 도메인을 사용하면 수천 개의 토픽에 이벤트를 게시할 수 있습니다. 도메인 역시 각 토픽에 대한 권한 부여 및 인증 제어를 제공하므로 테넌트를 분할할 수 있습니다.
 
 ## <a name="example-use-case"></a>사용 사례 예
-[!INCLUDE [event-grid-domain-example-use-case.md](../../includes/event-grid-domain-example-use-case.md)]
+[!INCLUDE [event-grid-domain-example-use-case.md](./includes/event-grid-domain-example-use-case.md)]
 
 ## <a name="access-management"></a>액세스 관리
 

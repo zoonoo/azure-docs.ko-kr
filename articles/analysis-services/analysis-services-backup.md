@@ -8,12 +8,12 @@ ms.date: 03/29/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 6c2ea063e37660767d266c15dcfc471ee5d73a02
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d7f12ca1530b40885dea456763bd231d487ba5cb
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732111"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113004631"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>Analysis Services 데이터베이스 백업 및 복원
 
@@ -25,7 +25,7 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 > 
 
 > [!NOTE]
-> 스토리지 계정이 다른 지역에 있으면 **선택한 네트워크** 에서 액세스할 수 있도록 스토리지 계정 방화벽 설정을 구성합니다. 방화벽 **주소 범위** 에서 Analysis Services 서버가 있는 지역의 IP 주소 범위를 지정합니다. 모든 네트워크에서 액세스할 수 있도록 스토리지 계정 방화벽 설정을 구성하는 것이 지원되지만, 선택한 네트워크를 선택하고 IP 주소 범위를 지정하는 것이 좋습니다. 자세히 알아보려면 [네트워크 연결 FAQ](analysis-services-network-faq.md#backup-and-restore)를 참조하세요.
+> 스토리지 계정이 다른 지역에 있으면 **선택한 네트워크** 에서 액세스할 수 있도록 스토리지 계정 방화벽 설정을 구성합니다. 방화벽 **주소 범위** 에서 Analysis Services 서버가 있는 지역의 IP 주소 범위를 지정합니다. 모든 네트워크에서 액세스할 수 있도록 스토리지 계정 방화벽 설정을 구성하는 것이 지원되지만, 선택한 네트워크를 선택하고 IP 주소 범위를 지정하는 것이 좋습니다. 자세히 알아보려면 [네트워크 연결 FAQ](/azure/analysis-services/analysis-services-network-faq#backup-and-restore)를 참조하세요.
 
 백업은 abf 확장명으로 저장됩니다. 메모리 내 테이블 형식 모델의 경우 모델 데이터와 메타데이터가 모두 저장됩니다. DirectQuery 테이블 형식 모델의 경우 모델 메타데이터만 저장됩니다. Backup은 선택한 옵션에 따라 압축하고 암호화할 수 있습니다.
 
@@ -109,4 +109,4 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
 [Azure Storage 계정](../storage/common/storage-account-create.md)  
 [고가용성](analysis-services-bcdr.md)      
-[Analysis Services 네트워크 연결 FAQ](analysis-services-network-faq.md)
+[Analysis Services 네트워크 연결 FAQ](analysis-services-network-faq.yml)

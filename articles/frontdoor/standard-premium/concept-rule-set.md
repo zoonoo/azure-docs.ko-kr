@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: yuajia
-ms.openlocfilehash: e3e5333b339101676582cec03dbb960148d59b56
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 47f69c72fdd7b3890d22d56de3a530135cf6fcc3
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067557"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437633"
 ---
 # <a name="what-is-a-rule-set-for-azure-front-door-standardpremium-preview"></a>Azure Front Door 표준/프리미엄(미리 보기)에 대한 규칙 집합은 무엇인가요?
 
@@ -70,7 +70,7 @@ Azure Front Door 규칙 집합을 사용하여 각 규칙 집합으로 구성된
 
 ## <a name="arm-template-support"></a>ARM 템플릿 지원
 
-Azure Resource Manager 템플릿을 사용하여 규칙 집합을 구성할 수 있습니다. [예시 템플릿을 참조하세요](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set). [일치 조건](concept-rule-set-match-conditions.md) 및 [작업](concept-rule-set-actions.md)에 대한 설명서 예시에 포함된 JSON 또는 Bicep 코드 조각을 사용하여 동작을 사용자 지정할 수 있습니다.
+Azure Resource Manager 템플릿을 사용하여 규칙 집합을 구성할 수 있습니다. [예시 템플릿을 참조하세요](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-standard-premium-rule-set). [일치 조건](concept-rule-set-match-conditions.md) 및 [작업](concept-rule-set-actions.md)에 대한 설명서 예시에 포함된 JSON 또는 Bicep 코드 조각을 사용하여 동작을 사용자 지정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 7466a2e620a9489fe7b3b69967388d3ad4b7ab85
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c790ff5d5c9a56326e8e7180c9944d04f5f4cafc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110065339"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529388"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Azure Cosmos DB - SQL API의 데이터베이스에 대한 표준(수동) 처리량 프로비전
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 Azure Cosmos DB SQL API의 데이터베이스에 대한 표준(수동) 처리량을 프로비전하는 방법을 설명합니다. 단일 [컨테이너](how-to-provision-container-throughput.md) 또는 데이터베이스의 처리량을 프로비전하고 그 안에 있는 컨테이너 간에 처리량을 공유할 수 있습니다. 컨테이너 수준 및 데이터베이스 수준 처리량을 언제 사용하는지 알아보려면 [컨테이너 및 데이터베이스의 처리량 프로비저닝 사용 사례](set-throughput.md) 문서를 참조하세요. Azure Portal 또는 Azure Cosmos DB SDK를 사용하여 데이터베이스 수준 처리량을 프로비저닝할 수 있습니다.
 
-다른 API를 사용하는 경우 [MongoDB용 API](how-to-provision-throughput-mongodb.md), [Cassandra API](how-to-provision-throughput-cassandra.md), [Gremlin API](how-to-provision-throughput-gremlin.md) 문서를 참조하여 처리량을 프로비전합니다.
+다른 API를 사용하는 경우 [MongoDB용 API](mongodb/how-to-provision-throughput-mongodb.md), [Cassandra API](cassandra/how-to-provision-throughput-cassandra.md), [Gremlin API](how-to-provision-throughput-gremlin.md) 문서를 참조하여 처리량을 프로비전합니다.
 
 ## <a name="provision-throughput-using-azure-portal"></a>Azure Portal을 사용하여 처리량 프로비전
 

@@ -8,12 +8,13 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 05/26/2021
 ms.author: midesa
-ms.openlocfilehash: 1a129b7db413f7b4104f2d3f21e11f638ef6ee23
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.custom: has-adal-ref
+ms.openlocfilehash: 3fa8942ac11549d5c9e7c6e068d7003297e016b2
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110579415"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539098"
 ---
 # <a name="azure-synapse-runtime-for-apache-spark-30-preview"></a>Apache Spark 3.0용 Azure Synapse 런타임(미리 보기)
 
@@ -938,7 +939,7 @@ gast=0.3.3
 
 gensim=3.8.3
 
-geographiclib=1.50
+geographiclib==1.50
 
 geopy=2.0.0
 
@@ -1277,5 +1278,5 @@ zipp=0.6.0
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Apache Spark 설명서](https://spark.apache.org/docs/2.4.4/)
+- [Apache Spark 설명서](https://spark.apache.org/docs/3.0.2/)
 - [Apache Spark 개념](apache-spark-concepts.md)

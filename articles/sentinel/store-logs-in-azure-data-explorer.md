@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2021
 ms.author: bagol
-ms.openlocfilehash: 584f108ea534b8703b941d91b7d03b6275ea6134
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 1f9d0a146c557f50c0cea776c6e3ae6853377df5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958352"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529241"
 ---
 # <a name="integrate-azure-data-explorer-for-long-term-log-retention"></a>장기 로그 보존 시 Azure Data Explorer 통합
 
@@ -31,7 +31,7 @@ Azure Data Explorer에 로그를 저장하면 데이터를 쿼리할 수 있는 
 
 Azure Data Explorer는 로그 및 데이터 분석에 매우 최적화된 빅 데이터 분석 플랫폼입니다. Azure Data Explorer는 쿼리 언어로 KQL(Kusto Query Language)을 사용하기 때문에 Azure Sentinel 데이터 스토리지의 좋은 대안입니다. 데이터 스토리지에서 Azure Data Explorer를 사용하면 플랫폼 간 쿼리를 실행하고 Azure Data Explorer와 Azure Sentinel에서 모두 데이터를 시각화할 수 있습니다.
 
-자세한 내용은 Azure Data Explorer [설명서](/azure/data-explorer/) 및 [블로그](https://azure.microsoft.com/en-us/blog/tag/azure-data-explorer/)를 참조하세요.
+자세한 내용은 Azure Data Explorer [설명서](/azure/data-explorer/) 및 [블로그](https://azure.microsoft.com/blog/tag/azure-data-explorer/)를 참조하세요.
 
 ### <a name="when-to-integrate-with-azure-data-explorer"></a>Azure Data Explorer와 통합하는 경우
 
@@ -239,5 +239,5 @@ Azure Data Explorer에 Azure Sentinel 데이터를 저장하는 경우 다음 �
 
 자세한 내용은 다음을 참조하세요.
 
-- [자습서: Azure Sentinel을 사용하여 인시던트 조사](tutorial-investigate-cases.md)
+- [자습서: Azure Sentinel을 사용하여 인시던트 조사](investigate-cases.md)
 - [Azure Sentinel을 사용하여 위협 헌팅](hunting.md)

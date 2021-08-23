@@ -3,12 +3,12 @@ title: 컨테이너 인스턴스 모니터링
 description: Azure Container Instances에서 컨테이너의 CPU 및 메모리와 같은 컴퓨팅 리소스의 소비를 모니터링하는 방법입니다.
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: ae9725ffe66bebbed26745c311b2ada07d5d2c00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7f485efc5bdc29760f0b4278b746940c947777e3
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100589292"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219232"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 리소스 모니터링
 
@@ -51,7 +51,7 @@ Azure Monitor는 다음과 같은 [Azure Container Instances를 위한 메트릭
 Azure CLI를 사용하여 컨테이너 인스턴스에 대한 메트릭을 수집할 수도 있습니다. 먼저 다음 명령을 사용하여 컨테이너 그룹의 ID를 가져옵니다. `<resource-group>`을 리소스 그룹 이름으로 바꾸고, `<container-group>`을 컨테이너 그룹의 이름으로 바꿉니다.
 
 
-```console
+```azurecli
 CONTAINER_GROUP=$(az container show --resource-group <resource-group> --name <container-group> --query id --output tsv)
 ```
 

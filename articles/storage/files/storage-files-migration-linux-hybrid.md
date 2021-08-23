@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 30a0269b5729516d8e8e378c700c493262e77f10
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 18438400054a8f7aa4d718efdff4ef2e116b3bf3
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "108756182"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "114462427"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Azure 파일 동기화를 사용하여 Linux에서 하이브리드 클라우드 배포로 마이그레이션
 
@@ -28,6 +28,13 @@ ms.locfileid: "108756182"
 Azure 파일 동기화는 DAS(직접 연결된 스토리지)를 사용하는 Windows Server 인스턴스에서 작동합니다. Linux 클라이언트, 원격 SMB(원격 서버 메시지 블록) 공유 또는 NFS(네트워크 파일 시스템) 공유와의 동기화는 지원되지 않습니다.
 
 따라서 파일 서비스를 하이브리드 배포로 변환하면 Windows Server로의 마이그레이션이 필요합니다. 이 문서에서는 이러한 마이그레이션의 계획 및 실행 과정을 안내합니다.
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 ## <a name="migration-goals"></a>마이그레이션 목표
 

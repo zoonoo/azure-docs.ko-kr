@@ -2,13 +2,13 @@
 title: Azure Video Analyzer 파이프라인
 description: Azure Video Analyzer 파이프라인을 사용하여 입력 데이터를 캡처할 위치, 처리 방법 및 결과를 전달해야 하는 위치를 정의할 수 있습니다. 파이프라인은 원하는 데이터 흐름을 얻기 위해 연결된 노드로 구성됩니다.
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.openlocfilehash: deed7eec980272dd3dd001219016eee139f22ad6
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 06/01/2021
+ms.openlocfilehash: 5e874cc71752fa6690a4ca3fc9f3cd33665dc381
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591245"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602251"
 ---
 # <a name="pipeline"></a>파이프라인
 

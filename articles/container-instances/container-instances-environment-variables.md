@@ -4,12 +4,12 @@ description: Azure Container Instances에서 실행하는 컨테이너에서 환
 ms.topic: article
 ms.date: 04/17/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 55a653baa6304ad830df52d0e303366edc8ae4e0
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: eb41aeac02250a77aa8f106580b60cd6971791aa
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110698748"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122538099"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>컨테이너 인스턴스에서 환경 변수 설정
 
@@ -179,7 +179,7 @@ properties:
           value: 'my-exposed-value'
         - name: 'SECRET'
           secureValue: 'my-secret-value'
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       ports: []
       resources:
         requests:
@@ -227,7 +227,7 @@ JSON 응답은 안전하지 않은 환경 변수의 키와 값을 모두 표시�
 실행 중인 컨테이너 내에서 명령을 실행할 수 있도록 하는 [az container exec][az-container-exec] 명령을 사용하면 보안 환경 변수가 설정되었는지 확인할 수 있습니다. 다음 명령을 실행하여 컨테이너에서 대화형 Bash 세션을 시작합니다.
 
 ```azurecli-interactive
-az container exec --resource-group myResourceGroup --name securetest --exec-command "/bin/bash"
+az container exec --resource-group myResourceGroup --name securetest --exec-command "/bin/sh"
 ```
 
 컨테이너 내에서 대화형 셸을 연 후에는 `SECRET` 변수의 값에 액세스할 수 있습니다.

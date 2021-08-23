@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/08/2021
 ms.author: pafarley
-ms.openlocfilehash: 15ef67fb452b4302cc848b88b3dab89d46fb8793
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: ebe95bbd0b00ace152587604fb9f7543b24188e2
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746468"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539203"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>공간 분석 컨테이너 설치 및 실행(미리 보기)
 
@@ -24,6 +24,7 @@ ms.locfileid: "111746468"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
+* [!INCLUDE [contributor-requirement](../includes/quickstarts/contributor-requirement.md)]
 * Azure 구독을 만든 후에는 Azure Portal에서 표준 S1 계층에 대한 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스</a>를 만들어서 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 공간 분석 컨테이너를 실행하려면 직접 만든 리소스의 키와 엔드포인트가 필요합니다. 키와 엔드포인트는 나중에 사용합니다.
 
@@ -316,7 +317,10 @@ GPU가 있는 Azure Virtual Machine을 사용하여 공간 분석을 실행할 �
 
 Azure Portal에서 [가상 머신 만들기](https://ms.portal.azure.com/#create/Microsoft.VirtualMachine) 마법사를 엽니다.
 
-VM에 이름을 지정하고 지역을 (미국) 미국 서부 2로 선택합니다. `Availability Options`을 “인프라 중복이 필요하지 않습니다”로 설정해야 합니다. 전체 구성은 아래 그림을 참조하고 올바른 VM 크기를 찾는 데 도움이 필요하면 다음 단계를 참조하세요. 
+VM에 이름을 지정하고 지역을 (미국) 미국 서부 2로 선택합니다. 
+
+> [!IMPORTANT]
+> `Availability Options`을 “인프라 중복이 필요하지 않습니다”로 설정해야 합니다. 전체 구성은 아래 그림을 참조하고 올바른 VM 크기를 찾는 데 도움이 필요하면 다음 단계를 참조하세요. 
 
 :::image type="content" source="media/spatial-analysis/virtual-machine-instance-details.jpg" alt-text="가상 머신 구성 세부 정보" lightbox="media/spatial-analysis/virtual-machine-instance-details.jpg":::
 
@@ -588,7 +592,7 @@ Azure Cognitive Services 컨테이너는 측정/청구 엔드포인트에 연결
 
 ## <a name="next-steps"></a>다음 단계
 
-* [인원수를 세는 웹 애플리케이션 배포](spatial-analysis-web-app.md)
+* [인원 수를 세는 웹 애플리케이션 배포](spatial-analysis-web-app.md)
 * [공간 분석 작업 구성](spatial-analysis-operations.md)
 * [로깅 및 문제 해결](spatial-analysis-logging.md)
 * [카메라 배치 가이드](spatial-analysis-camera-placement.md)

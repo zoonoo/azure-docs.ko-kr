@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.custom: subject-monitoring
 ms.service: container-registry
 ms.date: 03/19/2021
-ms.openlocfilehash: 21cc4aeb5b8a643fcee85cfd60e2958ed0c72c72
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 1b7f8a13a7d372fe67e5ca7c235febfa52294432
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060969"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294946"
 ---
 # <a name="monitor-azure-container-registry"></a>Azure Container Registry 모니터링
 
@@ -91,7 +91,7 @@ Azure Monitor REST API를 사용하여 Azure Container Registry 메트릭에 대
 
 Azure Monitor Logs의 데이터는 테이블마다 고유한 자체 속성 집합이 있는 테이블에 저장됩니다.  
 
-Azure Monitor의 모든 리소스 로그에는 동일한 필드와 그 뒤에 오는 서비스별 필드가 있습니다. 공용 스키마는 [Azure Monitor 리소스 로그 스키마](/azure/azure-monitor/essentials/resource-logs-schema#top-level-resource-logs-schema)에서 설명합니다. Azure Container Registry 리소스 로그에 대한 스키마는 [Azure Container Registry 데이터 참조](monitor-service-reference.md#schemas)에 제공됩니다. 
+Azure Monitor의 모든 리소스 로그에는 동일한 필드와 그 뒤에 오는 서비스별 필드가 있습니다. 공용 스키마는 [Azure Monitor 리소스 로그 스키마](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema)에서 설명합니다. Azure Container Registry 리소스 로그에 대한 스키마는 [Azure Container Registry 데이터 참조](monitor-service-reference.md#schemas)에 제공됩니다. 
 
 [활동 로그](../azure-monitor/essentials/activity-log.md)는 구독 수준의 이벤트에 대한 인사이트를 제공하는 Azure의 플랫폼 로그입니다. 활동 로그는 독립적으로 보거나 Azure Monitor Logs로 라우팅할 수 있습니다. 여기서 Log Analytics를 사용하여 훨씬 더 복잡한 쿼리를 수행할 수 있습니다.  
 

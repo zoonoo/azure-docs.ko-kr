@@ -9,16 +9,19 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: 8089b1e74e88db81c1c15ad2cbf2072abcfff241
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 999555624ad4e88058a575dce3fb9cd606228b18
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98621348"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566697"
 ---
 # <a name="connect-data-from-azure-ddos-protection"></a>Azure DDoS Protection에서 데이터 연결
 
-DDoS(분산 서비스 거부) 공격은 애플리케이션의 리소스를 소진 시켜서 정상적인 사용자가 애플리케이션을 사용할 수 없게 합니다. 인터넷을 통해 공개적으로 도달 가능한 모든 엔드포인트는 DDoS 공격의 대상이 될 수 있습니다. 애플리케이션 설계 모범 사례와 결합된 [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md)은 DDoS 공격에 대한 강력한 방어 기능을 제공합니다. Azure DDoS Protection 로그를 Azure Sentinel에 연결하여 통합 문서에서 로그 데이터를 볼 수 있도록 설정하고, 이 데이터를 사용하여 사용자 지정 경고를 만들고, 이 경고를 통합하여 조사를 개선할 수 있습니다. 
+DDoS(분산 서비스 거부) 공격은 애플리케이션의 리소스를 소진 시켜서 정상적인 사용자가 애플리케이션을 사용할 수 없게 합니다. 인터넷을 통해 공개적으로 도달 가능한 모든 엔드포인트는 DDoS 공격의 대상이 될 수 있습니다. 애플리케이션 설계 모범 사례와 결합된 [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md)은 DDoS 공격에 대한 강력한 방어 기능을 제공합니다. Azure DDoS Protection 로그를 Azure Sentinel에 연결하여 통합 문서에서 로그 데이터를 볼 수 있도록 설정하고, 이 데이터를 사용하여 사용자 지정 경고를 만들고, 이 경고를 통합하여 조사를 개선할 수 있습니다.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -53,10 +56,10 @@ DDoS(분산 서비스 거부) 공격은 애플리케이션의 리소스를 소�
 
 > [!NOTE]
 >
-> 이 특정 데이터 커넥터를 사용하면 연결 상태 표시기(데이터 커넥터 갤러리의 색상 줄무늬 및 데이터 유형 이름 옆의 연결 아이콘)가 지난 2주 동안 어느 지점에서 데이터를 수집한 경우에만 *연결됨*(녹색)으로 표시됩니다. 2주 동안 데이터 수집이 없는 경우 커넥터는 연결 끊김으로 표시됩니다. 더 많은 데이터가 수신되는 순간 *연결됨* 상태가 반환됩니다.
+> 이 특정 데이터 커넥터를 사용하면 연결 상태 표시기(데이터 커넥터 갤러리의 색상 줄무늬 및 데이터 유형 이름 옆의 연결 아이콘)가 지난 2주 동안 어느 지점에서 데이터를 수집한 경우에만 *연결됨*(녹색)으로 표시됩니다. 2주 동안 데이터 수집이 없으면 커넥터는 연결 끊김으로 표시됩니다. 더 많은 데이터가 수신되는 순간 *연결됨* 상태가 반환됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Azure DDoS Protection 로그를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.

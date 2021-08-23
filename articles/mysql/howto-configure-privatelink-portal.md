@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 8c1f9d565cd6e3bafd5caa36d8da9266a3f1edb6
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 26b2bc1d2ba1d31aaa7269b3fdb861b69ce70eac
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076333"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642152"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Portal을 사용하여 Azure Database for MySQL에 대한 Private Link 만들기 및 관리
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 프라이빗 엔드포인트는 Azure에서 프라이빗 링크를 만드는 데 사용되는 기본 구성 요소입니다. 프라이빗 엔드포인트는 VM(Virtual Machines) 같은 Azure 리소스가 프라이빗 링크 리소스와 비공개로 통신할 수 있게 해줍니다. 이 문서에서는 Azure Portal을 사용하여 Azure 프라이빗 엔드포인트가 있는 Azure Virtual Network 및 Azure Database for MySQL 서버에서 VM을 만드는 방법에 대해 알아봅니다.
 
@@ -37,7 +39,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | *MyVirtualNetwork* 를 입력합니다. |
+    | Name | *MyVirtualNetwork* 를 입력합니다. |
     | 주소 공간 | *10.1.0.0/16* 을 입력합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기** 를 선택하고 *myResourceGroup* 을 입력한 다음, **확인** 을 선택합니다. |

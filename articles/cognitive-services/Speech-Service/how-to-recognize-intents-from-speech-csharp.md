@@ -3,20 +3,20 @@ title: C#용 Speech SDK를 사용하여 음성에서 의도를 인식하는 방�
 titleSuffix: Azure Cognitive Services
 description: 이 가이드에서는 C#용 Speech SDK를 사용하여 음성에서 의도를 인식하는 방법을 알아봅니다.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 93a3adf00203e317be912e3e72de7a3f7ca666c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d1a171ee9a95d13e567534340e642e9023fb1e05
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96001105"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567551"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>C#용 Speech SDK를 사용하여 음성에서 의도를 인식하는 방법
 

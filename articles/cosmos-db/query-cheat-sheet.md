@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 2ef8aed7243e8956ad9ca62b630cda0efbd2deb9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60e62bd96fc21f5cb2cfbf1aca6d3a2187e9b417
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93339651"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529080"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB 쿼리 참고 자료
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,6 +35,6 @@ Letter 크기 용지(8.5" x 11")에 인쇄하려면 [Azure Cosmos DB Letter 크�
 ## <a name="next-steps"></a>다음 단계
 쿼리 작성에 대한 추가 도움말은 다음 문서를 참조하세요.
 * SQL API 쿼리에 대한 내용은 [SQL API를 사용한 쿼리](tutorial-query-sql-api.md), [Azure Cosmos DB에 대한 SQL 쿼리](./sql-query-getting-started.md) 및 [SQL 구문 참조](./sql-query-getting-started.md)를 참조하세요.
-* MongoDB 쿼리의 경우 [Azure Cosmos DB의 MongoDB API를 사용하여 쿼리](tutorial-query-mongodb.md) 및 [Azure Cosmos DB의 MongoDB API 기능 지원 및 구문](mongodb-feature-support.md)을 참조하세요.
+* MongoDB 쿼리의 경우 [Azure Cosmos DB의 MongoDB API를 사용하여 쿼리](mongodb/tutorial-query-mongodb.md) 및 [Azure Cosmos DB의 MongoDB API 기능 지원 및 구문](mongodb/feature-support-32.md)을 참조하세요.
 * Gremlin API 쿼리에 대한 내용은 [Gremlin API를 사용한 쿼리](tutorial-query-graph.md) 및 [Azure Cosmos DB Gremlin 그래프 지원](gremlin-support.md)을 참조하세요.
-* Table API 쿼리에 대한 내용은 [Table API를 사용한 쿼리](tutorial-query-table.md)를 참조하세요.
+* Table API 쿼리에 대한 내용은 [Table API를 사용한 쿼리](table/tutorial-query-table.md)를 참조하세요.

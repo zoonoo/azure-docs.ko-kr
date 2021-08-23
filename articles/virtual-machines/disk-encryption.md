@@ -2,18 +2,18 @@
 title: Azure Managed Disks의 서버 쪽 암호화
 description: Azure Storage는 미사용 데이터를 암호화한 후 저장소 클러스터에 보관하여 데이터를 보호합니다. 고객 관리형 키를 사용하여 사용자 고유의 키로 암호화를 관리하거나 Microsoft 관리형 키를 사용하여 관리 디스크를 암호화할 수 있습니다.
 author: roygara
-ms.date: 04/15/2021
+ms.date: 06/29/2021
 ms.topic: conceptual
 ms.author: rogarana
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 09ec15eb45029c42fd5bc02288a0c45e167e7092
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 48b7fb11f3f0127358ee92ddea9262b805264500
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146296"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528825"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Azure Disk Storage의 서버 쪽 암호화
 
@@ -51,17 +51,6 @@ Azure Storage 암호화는 관리 디스크의 성능에 영향을 주지 않으
 #### <a name="supported-regions"></a>지원되는 지역
 
 관리 디스크를 사용할 수 있는 모든 지역에서 고객 관리형 키를 사용할 수 있습니다.
-
-자동 키 교체는 미리 보기로 제공되며 다음 지역에서만 사용할 수 있습니다.
-
-- 미국 동부
-- 미국 동부 2
-- 미국 중남부
-- 미국 서부
-- 미국 서부 2
-- 북유럽
-- 서유럽
-- 프랑스 중부
 
 > [!IMPORTANT]
 > 고객 관리형 키는 Azure AD(Azure Active Directory)의 기능 중 하나인 Azure 리소스에 대한 관리 ID를 사용합니다. 고객 관리형 키를 구성하는 경우 관리 ID가 내부적으로 리소스에 자동으로 할당됩니다. 이후에 구독, 리소스 그룹 또는 관리 디스크를 Azure AD 디렉터리 간에 이동하는 경우, 관리 디스크와 연결된 관리 ID는 새로운 테넌트로 전송되지 않으므로 고객 관리형 키가 더 이상 작동하지 않을 수 있습니다. 자세한 정보는 [Azure AD 디렉터리 간에 구독 전송](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)을 참조하세요.

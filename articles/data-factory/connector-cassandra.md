@@ -1,17 +1,20 @@
 ---
 title: Azure Data Factory를 사용하여 Cassandra에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인에서 복사 작업을 사용하여 Cassandra에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jianleishen
-ms.openlocfilehash: 50aa5053cf7eff3a56b9afe37dcded033b6988b9
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 7046389f9375e76b745cfc714ccba1001ae7e9f7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487406"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642747"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Cassandra에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -55,7 +58,7 @@ Cassandra 데이터베이스에서 지원되는 모든 싱크 데이터 저장�
 
 Cassandra 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type |형식 속성은 **Cassandra** 로 설정해야 합니다. |예 |
 | host |Cassandra 서버에 대한 하나 이상의 IP 주소 또는 호스트 이름.<br/>모든 서버에 동시에 연결하려면 쉼표로 구분된 IP 주소 또는 호스트 이름 목록을 지정합니다. |예 |
@@ -98,7 +101,7 @@ Cassandra 연결된 서비스에 다음 속성이 지원됩니다.
 
 Cassandra에서 데이터를 복사하려면 데이터 세트의 type 속성을 **CassandraTable** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **CassandraTable** 로 설정해야 합니다. | 예 |
 | keyspace |Cassandra 데이터베이스의 키스페이스 또는 스키마의 이름입니다. |아니요("CassandraSource"에 대해 "query"가 지정되지 않은 경우) |
@@ -133,7 +136,7 @@ Cassandra에서 데이터를 복사하려면 데이터 세트의 type 속성을 
 
 Cassandra에서 데이터를 복사하려면 복사 작업의 원본 형식을 **CassandraSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 **CassandraSource** 로 설정해야 합니다. | 예 |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. SQL-92 쿼리 또는 CQL 쿼리입니다. [CQL 참조](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)를 참조하세요. <br/><br/>SQL 쿼리를 사용할 경우 **keyspace name.table name** 을 지정하여 쿼리하려는 테이블을 나타냅니다. |아니요(데이터 세트의 "tableName" 및 "keyspace"가 정의된 경우). |

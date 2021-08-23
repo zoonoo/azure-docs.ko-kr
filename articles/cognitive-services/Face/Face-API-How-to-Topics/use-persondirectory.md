@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8d7238aea62b3532461cd40404b683e18227386f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 70bbf20570c39fa59da9af7f7883aeef2e107df4
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950991"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633789"
 ---
 # <a name="use-the-persondirectory-structure"></a>PersonDirectory 구조 사용
 
@@ -82,7 +82,7 @@ CreatePerson 호출은 **Person** 및 작업 위치에 대해 생성된 ID를 �
 public class AsyncStatus
 {
     [DataMember(Name = "status")]
-    public string AsyncStatus { get; set; }
+    public string Status { get; set; }
 
     [DataMember(Name = "createdTime")]
     public DateTime CreatedTime { get; set; }
@@ -353,7 +353,7 @@ HttpResponseMessage response;
 // Request body
 var body = new Dictionary<string, object>();
 body.Add("faceIds", new List<string>{"{guid1}", "{guid2}", …});
-body.Add("personIds", new List<string>{"{guid1}", "{guid2}", …});
+body.Add("personIds", new List<string>{"*"});
 byte[] byteData = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(body));
 
 using (var content = new ByteArrayContent(byteData))

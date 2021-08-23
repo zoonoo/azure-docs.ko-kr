@@ -2,16 +2,17 @@
 title: Azure SQL Managed Instance Agent를 통한 SSIS 패키지 실행
 description: Azure SQL Managed Instance Agent를 사용하여 SSIS 패키지를 실행하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223
 ms.date: 04/14/2020
-ms.openlocfilehash: 904d742792c4fd43b5f69e8ec01317527196dad3
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 4bcce019e5b659f7af4056e861631a7a6ed31efb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903221"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528564"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>Azure SQL Managed Instance Agent를 사용하여 SSIS 패키지 실행하기
 

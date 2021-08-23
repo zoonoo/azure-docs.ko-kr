@@ -3,19 +3,19 @@ title: 공간 분석 영역 및 선 배치
 titleSuffix: Azure Cognitive Services
 description: 공간 분석을 사용하여 영역 및 선을 설정하는 방법을 알아봅니다.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.author: aahi
-ms.openlocfilehash: cfd3bc406407298c6daf7723cb684911d7c9a9cf
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.date: 06/08/2021
+ms.author: pafarley
+ms.openlocfilehash: 203a75b6f06b858fb398fb55ecdea6ea63f85efe
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284671"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751148"
 ---
 # <a name="zone-and-line-placement-guide"></a>영역 및 선 배치 가이드
 

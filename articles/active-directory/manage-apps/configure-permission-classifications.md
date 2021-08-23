@@ -2,22 +2,22 @@
 title: Azure AD를 사용하여 권한 분류 구성
 description: 위임된 권한 분류를 관리하는 방법을 알아봅니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/01/2020
-ms.author: mtillman
+ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 6bab71412dea05f9217af93ea806fc6d9cd65981
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 6d0432c93a0ab3f47b68e071026301c49e8c670c
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076171"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113567976"
 ---
 # <a name="configure-permission-classifications"></a>권한 분류 구성
 
@@ -126,4 +126,5 @@ Azure Portal을 사용하여 권한을 분류하려면 다음 단계를 따르�
 * [Microsoft ID 플랫폼의 권한 및 동의](../develop/v2-permissions-and-consent.md)
 
 도움말을 얻거나 질문에 대한 답변을 찾으려면 다음을 수행합니다.
+
 * [Microsoft Azure AD Q&A](/answers/topics/azure-active-directory.html)

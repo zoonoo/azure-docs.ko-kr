@@ -1,19 +1,20 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer) 편집기를 사용하여 프로젝트를 만들고 비디오 클립을 추가합니다.
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: 이 항목에서는 Azure Video Analyzer for Media(이전의 Video Indexer) 편집기를 사용하여 프로젝트를 만들고 비디오 클립을 추가하는 방법을 보여 줍니다.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 11/28/2020
 ms.author: juliako
-ms.openlocfilehash: a8e996465a35583db8584d41f6aeccd847ead0ff
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: b2a8ca1b446343ad040244f31a304ec2078d1ce2
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386866"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115318"
 ---
 # <a name="add-video-clips-to-your-projects"></a>프로젝트에 비디오 클립 추가
 

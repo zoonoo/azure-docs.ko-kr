@@ -3,12 +3,12 @@ title: Azure Event Hubs 네임스페이스를 다른 지역으로 이동 | Micro
 description: 이 문서에서는 Azure Event Hubs 네임스페이스를 현재 지역에서 다른 지역으로 이동하는 방법을 보여줍니다.
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: 9e10cd220a18849336fdc520b269c8af2cb257bd
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 92267ee0486823a9d6f241bb10934ca2e9aceacc
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111811610"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112288976"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Azure Event Hubs 네임스페이스를 다른 지역으로 이동
 이 문서에서는 기존 Event Hubs 네임스페이스용 Azure Resource Manager 템플릿을 내보낸 다음, 템플릿을 사용하여 다른 지역에서 동일한 구성 설정으로 네임스페이스를 만드는 방법을 보여줍니다. 그러나 이 프로세스에서는 아직 처리되지 않은 이벤트는 이동하지 않습니다. 원래 네임스페이스를 삭제하기 전에 해당 이벤트를 처리해야 합니다.
@@ -19,7 +19,7 @@ Event Hubs 네임스페이스를 포함하는 Azure 리소스 그룹에 다른 �
 
 - 계정에서 사용하는 서비스 및 기능이 대상 지역에서 지원되는지 확인합니다.
 - 네임스페이스의 Event Hubs에 대해 **캡처 기능** 을 사용하도록 설정한 경우 Event Hubs 네임스페이스를 이동하기 전에 [Azure Storage 또는 Azure Data Lake Store gen 2](../storage/common/storage-account-move.md)나 [Azure Data Lake Store gen 1](../data-lake-store/data-lake-store-migration-cross-region.md) 계정을 이동합니다. 이 문서에서 설명하는 단계와 유사한 단계를 수행하여 Storage 및 Event Hubs 네임스페이스를 모두 포함하는 리소스 그룹을 다른 지역으로 이동할 수도 있습니다. 
-- Event Hubs 네임스페이스가 **Event Hubs 클러스터** 에 있는 경우 이 문서의 단계를 진행하기 전에 [전용 클러스터](move-cluster-across-regions.md)를 **대상 지역** 으로 이동합니다. [GitHub에서 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-cluster-namespace-eventhub/)을 사용하여 Event Hubs 클러스터를 만들 수도 있습니다. 템플릿에서 JSON의 네임스페이스 부분을 제거하여 클러스터만 만듭니다. 
+- Event Hubs 네임스페이스가 **Event Hubs 클러스터** 에 있는 경우 이 문서의 단계를 진행하기 전에 [전용 클러스터](move-cluster-across-regions.md)를 **대상 지역** 으로 이동합니다. [GitHub에서 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-cluster-namespace-eventhub/)을 사용하여 Event Hubs 클러스터를 만들 수도 있습니다. 템플릿에서 JSON의 네임스페이스 부분을 제거하여 클러스터만 만듭니다. 
 
 ## <a name="prepare"></a>준비
 시작하려면 Resource Manager 템플릿을 내보냅니다. 이 템플릿에는 Event Hubs 네임스페이스를 설명하는 설정이 포함되어 있습니다.

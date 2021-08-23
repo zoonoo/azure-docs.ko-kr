@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e23d8871b50827e76bb383c4a49475627a9ca4a9
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 9ef88340c7bac7f09a532c12ba5a2ab69248046e
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764444"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727871"
 ---
 # <a name="integrate-azure-active-directory-application-proxy-with-sharepoint-saml"></a>Azure Active Directory 애플리케이션 프록시를 SharePoint(SAML)와 통합
 
@@ -37,7 +37,7 @@ ms.locfileid: "108764444"
 
 이 문서를 완료하려면 다음 리소스가 필요합니다.
  - SharePoint 2013 팜 이상 SharePoint 팜은 [Azure AD와 통합](../saas-apps/sharepoint-on-premises-tutorial.md)되어야 합니다.
- - 애플리케이션 프록시를 포함하는 계획이 있는 Azure AD 테넌트. [Azure AD 요금제 및 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)에 대해 자세히 알아보세요.
+ - 애플리케이션 프록시를 포함하는 계획이 있는 Azure AD 테넌트. [Azure AD 요금제 및 가격 책정](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)에 대해 자세히 알아보세요.
  - Azure AD 테넌트에서 [확인된 사용자 지정 도메인](../fundamentals/add-custom-domain.md)입니다. 확인된 도메인은 SharePoint URL 접미사와 일치해야 합니다.
  - SSL 인증서가 필요합니다. [사용자 지정 도메인 게시](./application-proxy-configure-custom-domain.md)의 세부 정보를 참조하세요.
  - 온-프레미스 Active Directory 사용자는 Azure AD Connect와 동기화해야 하며 [Azure에 로그인](../hybrid/plan-connect-user-signin.md)하도록 구성해야 합니다. 

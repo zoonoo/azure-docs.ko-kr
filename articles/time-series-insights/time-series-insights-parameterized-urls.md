@@ -3,19 +3,20 @@ title: 매개 변수가 있는 URL을 사용하여 사용자 지정 보기 공�
 description: Azure Time Series Insights에서 매개 변수가 있는 URL을 사용하여 사용자 지정 탐색기 보기를 쉽게 공유하는 방법을 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: narmeens
+ms.author: narsam
+manager: cnovak
+ms.reviewer: orspodek
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9bf857a66643b1e95ea2559601761a7217babad4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 395420c61e2cc3f4167590f81e625bf7e67cbfac
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91665330"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112371232"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>매개 변수가 있는 URL을 사용하여 사용자 지정 보기 공유
 
@@ -78,12 +79,12 @@ Azure Time Series Insights 탐색기는 URL에서 바로 환경의 보기를 지
 | **useSum** | `true` | 측정값에 합계를 사용하도록 지정하는 선택적 매개 변수입니다. |
 
 > [!NOTE]
-> `Events`가 선택한 **useSum** 측정값이면 기본적으로 count가 선택됩니다.  
+> `Events`가 선택한 **useSum** 측정값이면 기본적으로 count가 선택됩니다.
 > `Events`를 선택하지 않은 경우 기본적으로 average가 선택됩니다. |
 
 * `multiChartStack=<true/false>` 키-값 쌍은 차트에서 누적을 사용하도록 설정합니다.
-* `multiChartSameScale=<true/false>` 키-값 쌍은 선택적 매개 변수 내의 조건에서 동일한 Y축 눈금을 사용하도록 설정합니다.  
-* `timeBucketUnit=<Unit>&timeBucketSize=<integer>`를 사용하면 간격 슬라이더를 조정하여 보다 세부적이거나 부드럽고 더 집계된 차트 보기를 제공할 수 있습니다.  
+* `multiChartSameScale=<true/false>` 키-값 쌍은 선택적 매개 변수 내의 조건에서 동일한 Y축 눈금을 사용하도록 설정합니다.
+* `timeBucketUnit=<Unit>&timeBucketSize=<integer>`를 사용하면 간격 슬라이더를 조정하여 보다 세부적이거나 부드럽고 더 집계된 차트 보기를 제공할 수 있습니다.
 * `timezoneOffset=<integer>` 매개 변수를 사용하면 차트가 표시될 표준 시간대를 UTC에 대한 오프셋으로 설정할 수 있습니다.
 
 | 쌍 | Description |

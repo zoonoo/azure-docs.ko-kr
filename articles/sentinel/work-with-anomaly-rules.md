@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: yelevin
-ms.openlocfilehash: 84846aacb435cfef861acf046b7f623697445da2
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 43af18f508a0e9b4239dedb793a3de9565ee5f03
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112059655"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529193"
 ---
 # <a name="work-with-anomaly-detection-analytics-rules-in-azure-sentinel"></a>Azure Sentinel에서 변칙 검색 분석 규칙 사용
 
@@ -30,7 +30,7 @@ ms.locfileid: "112059655"
 
 ## <a name="view-soc-ml-anomaly-rule-templates"></a>SOC-ML 변칙 규칙 템플릿 보기
 
-Azure Sentinel의 [SOC-ML 변칙 기능](soc-ml-anomalies.md)에서는 즉시 사용 가능한 [기본 제공 변칙 템플릿](tutorial-detect-threats-built-in.md#anomaly)을 제공합니다. 이러한 변칙 템플릿은 수천 개의 데이터 원본과 수백만 개의 이벤트를 사용해 강력하게 개발되었지만, 이 기능을 이용하면 사용자 인터페이스 내에서 변칙 임계값과 매개 변수를 쉽게 변경할 수 있습니다. 변칙 규칙은 변칙을 생성하기 전에 활성화해야 합니다. 이러한 규칙은 **로그** 섹션의 **변칙** 테이블에서 찾을 수 있습니다.
+Azure Sentinel의 [SOC-ML 변칙 기능](soc-ml-anomalies.md)에서는 즉시 사용 가능한 [기본 제공 변칙 템플릿](detect-threats-built-in.md#anomaly)을 제공합니다. 이러한 변칙 템플릿은 수천 개의 데이터 원본과 수백만 개의 이벤트를 사용해 강력하게 개발되었지만, 이 기능을 이용하면 사용자 인터페이스 내에서 변칙 임계값과 매개 변수를 쉽게 변경할 수 있습니다. 변칙 규칙은 변칙을 생성하기 전에 활성화해야 합니다. 이러한 규칙은 **로그** 섹션의 **변칙** 테이블에서 찾을 수 있습니다.
 
 1. Azure Sentinel 탐색 메뉴에서 **Analytics** 를 선택합니다.
 
@@ -150,4 +150,4 @@ Azure Sentinel의 [SOC-ML 변칙 기능](soc-ml-anomalies.md)에서는 즉시 �
 이 문서에서는 Azure Sentinel에서 SOC-ML 변칙 검색 분석 규칙을 사용하는 방법을 알아보았습니다.
 
 - [SOC-ML](soc-ml-anomalies.md)에 대한 몇 가지 배경 정보를 가져옵니다.
-- 다른 [분석 규칙 유형](tutorial-detect-threats-built-in.md)을 탐색합니다.
+- 다른 [분석 규칙 유형](detect-threats-built-in.md)을 탐색합니다.

@@ -9,18 +9,18 @@ ms.topic: how-to
 author: cawrites
 ms.author: chadam
 ms.date: 03/19/2021
-ms.openlocfilehash: 3126877833774f0f2e874e2a2dfd6cf5cb6181d8
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: bcd9758fe77f2b5623c7aba1e145de07e6396e60
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796051"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536626"
 ---
 # <a name="migration-guide-sap-ase-to-azure-sql-database"></a>마이그레이션 가이드: SAP ASE에서 Azure SQL Database로
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-이 가이드에서는 SAP Adapter Server Enterprise용 [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant를 사용하여 Azure SQL 데이터베이스로 SAP Adapter Server Enterprise(ASE) 데이터베이스를 [마이그레이션하는 방법](https://azure.microsoft.com/migration/migration-journey)을 알아봅니다.
+이 가이드에서는 SAP Adapter Server Enterprise용 [SQL Server Migration](https://azure.microsoft.com/migration/sql-server/) Assistant를 사용하여 Azure SQL 데이터베이스로 SAP Adapter Server Enterprise(ASE) 데이터베이스를 [마이그레이션하는 방법](https://azure.microsoft.com/migration/migration-journey)을 알아봅니다.
 
 다른 마이그레이션 가이드는 [Azure 데이터베이스 마이그레이션 가이드](/data-migration)를 참조하세요. 
 
@@ -29,16 +29,16 @@ ms.locfileid: "110796051"
 SAP SE 데이터베이스를 SQL 데이터베이스로 마이그레이션하기 전에 다음을 수행합니다.
 
 - 원본 환경이 지원되는지 확인합니다. 
-- [SAP Adaptive Server Enterprise(이전의 SAP Sybase ASE)용 SQL Server Migration Assistant](https://www.microsoft.com/en-us/download/details.aspx?id=54256)를 다운로드하여 설치합니다.
+- [SAP Adaptive Server Enterprise(이전의 SAP Sybase ASE)용 SQL Server Migration Assistant](https://www.microsoft.com/download/details.aspx?id=54256)를 다운로드하여 설치합니다.
 - 연결되어 있으며 원본과 대상에 모두 액세스할 수 있는 권한이 충분한지 확인하십시오.
 
 ## <a name="pre-migration"></a>사전 마이그레이션
 
-필수 조건을 충족하면 사용자 환경의 토폴로지를 검색하고 [Azure 클라우드 마이그레이션](https://azure.microsoft.com/migration)의 적합성을 평가할 준비가 된 것입니다.
+필수 구성 요소를 충족하면 사용자 환경의 토폴로지를 검색하고 [Azure 클라우드 마이그레이션](https://azure.microsoft.com/migration)의 적합성을 평가할 준비가 된 것입니다.
 
 ### <a name="assess"></a>평가
 
-[SAP Adaptive Server Enterprise(공식적으로 SAP Sybase ASE)용 SSMA(SQL Server Migration Assistant)](https://www.microsoft.com/en-us/download/details.aspx?id=54256)를 사용하여 데이터베이스 개체 및 데이터를 검토하고, 마이그레이션할 데이터베이스를 평가하며, Sybase 데이터베이스 개체를 SQL 데이터베이스로 마이그레이션한 다음 데이터를 SQL 데이터베이스로 마이그레이션합니다. 자세히 알아보려면 [Sybase용 SQL Server Migration Assistant(SybaseToSQL)](/sql/ssma/sybase/sql-server-migration-assistant-for-sybase-sybasetosql)를 참조하세요.
+[SAP Adaptive Server Enterprise(공식적으로 SAP Sybase ASE)용 SSMA(SQL Server Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=54256)를 사용하여 데이터베이스 개체 및 데이터를 검토하고, 마이그레이션할 데이터베이스를 평가하며, Sybase 데이터베이스 개체를 SQL 데이터베이스로 마이그레이션한 다음 데이터를 SQL 데이터베이스로 마이그레이션합니다. 자세히 알아보려면 [Sybase용 SQL Server Migration Assistant(SybaseToSQL)](/sql/ssma/sybase/sql-server-migration-assistant-for-sybase-sybasetosql)를 참조하세요.
 
 평가를 만들려면 다음을 수행합니다. 
 

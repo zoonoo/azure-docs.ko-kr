@@ -2,13 +2,13 @@
 title: Azure Service Bus - 공유 액세스 서명 권한 부여로 마이그레이션
 description: Azure Active Directory Access Control Service 사용에서 공유 액세스 서명 권한 부여로 Azure Relay 애플리케이션을 마이그레이션하는 방법을 설명합니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 3b793173270b0ddf25f0e971dbb2fed97cb10a55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: 30e656b3e4960cb7e2a8bdb23a2d8ce1aa91edbf
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87532869"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668719"
 ---
 # <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Relay - Azure Active Directory Access Control Service에서 공유 액세스 서명 권한 부여로 마이그레이션
 

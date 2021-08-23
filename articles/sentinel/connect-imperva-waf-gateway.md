@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: a37abf369d1f34dc8f4a27802dfad88dab79be44
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e6f68b249b9bedd638594bf6956e909ee8d792e5
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101698436"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567839"
 ---
 # <a name="connect-your-imperva-waf-gateway-appliance-to-azure-sentinel"></a>Azure Sentinel에 Imperva WAF 게이트웨이 어플라이언스 연결
 
 > [!IMPORTANT]
 > Imperva WAF 게이트웨이 커넥터는 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 이 문서에서는 Imperva WAF 게이트웨이 어플라이언스를 Azure Sentinel에 연결하는 방법을 설명합니다. Imperva WAF 게이트웨이 데이터 커넥터를 사용하면 Imperva WAF 게이트웨이 로그를 Azure Sentinel과 쉽게 연결할 수 있어 통합 문서에서 데이터를 보고, 이를 이용해 사용자 지정 경고를 만들며, 이를 통합해 조사를 개선할 수 있습니다. Imperva WAF 게이트웨이와 Azure Sentinel 간을 통합함으로써 CEF 형식의 Syslog, Linux 기반의 로그 전달자, Log Analytics 에이전트를 사용합니다.
 
@@ -33,7 +35,7 @@ ms.locfileid: "101698436"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure Sentinel 작업 영역에 대한 읽기/쓰기 권한이 있어야 합니다.
+- Azure Sentinel 작업 영역에 대한 읽기 및 쓰기 권한이 있어야 합니다.
 
 - 작업 영역 공유 키에 대한 읽기 권한이 있어야 합니다. [작업 영역 키에 대해 자세히 알아보세요](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
@@ -77,6 +79,6 @@ CommonSecurityLog
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Imperva WAF 게이트웨이를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [데이터 및 잠재적 위협에 대한 가시성을 확보](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
-- [통합 문서를 사용](tutorial-monitor-your-data.md)하여 데이터를 모니터링합니다.
+- [데이터 및 잠재적 위협에 대한 가시성을 확보](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.
+- [통합 문서를 사용](monitor-your-data.md)하여 데이터를 모니터링합니다.

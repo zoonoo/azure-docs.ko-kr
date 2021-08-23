@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 36a4eb2856beb3ae2b0227e92f0db26e01a1b616
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a185d605e7899a6e33054251501b6a48ca4e98f9
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103012754"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114712706"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Media Services를 통해 라이브 스트리밍을 수행하여 Azure Portal로 다중 비트 전송률 스트림 만들기
 
@@ -31,8 +31,7 @@ ms.locfileid: "103012754"
 > * [REST API](/rest/api/media/operations/channel)
 > 
 
-> [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 이 자습서에서는 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 **채널** 을 만드는 단계를 안내합니다.
 

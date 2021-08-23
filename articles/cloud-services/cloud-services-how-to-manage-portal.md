@@ -4,16 +4,16 @@ description: Azure Portal에서 Cloud Services를 관리하는 방법에 대해 
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: a1b37ed1d15282224cc7de61ec6f8a98a4bbf732
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5ccdd2fb8e4f3f644ed94214d80ac115e5b5321d
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102610504"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093808"
 ---
 # <a name="manage-cloud-services-classic-in-the-azure-portal"></a>Azure Portal에서 Cloud Services(클래식) 관리
 

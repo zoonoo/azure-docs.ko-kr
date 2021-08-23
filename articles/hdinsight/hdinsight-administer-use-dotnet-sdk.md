@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: e5f328d6be52732c30478eb49360efb13919a23e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7eba84c7a2ef18bd237d94b7b700e840118bf46
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104872220"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "122642109"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK를 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 
-[!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-portal-management-selector.md)]
 
 [HDInsight .NET SDK](/dotnet/api/overview/azure/hdinsight)를 사용하여 HDInsight 클러스터를 관리하는 방법을 알아봅니다.
 

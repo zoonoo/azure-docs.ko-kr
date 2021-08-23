@@ -5,12 +5,12 @@ ms.date: 05/03/2021
 ms.topic: how-to
 recommendations: false
 zone_pivot_groups: development-environment-functions
-ms.openlocfilehash: 6521c02686da55142d9a9d9f1faf569d584ef593
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 1de1aaf8f293621d69534897add89c8a29a7916e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111590007"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537226"
 ---
 # <a name="develop-and-publish-net-5-functions-using-azure-functions"></a>Azure Functions를 사용하여 .NET 5 함수 개발 및 게시 
 
@@ -89,7 +89,7 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
     cd LocalFunctionProj
     ```
 
-    이 폴더에는 [ocal.settings.json](functions-run-local.md#local-settings-file) 및 [host.json](functions-host-json.md) 구성 파일을 비롯하여 프로젝트의 다양한 파일이 있습니다. *local.settings.json* 은 Azure에서 다운로드한 비밀을 포함할 수 있으므로 이 파일은 기본적으로 *.gitignore* 파일의 원본 제어에서 제외됩니다.
+    이 폴더에는 [ocal.settings.json](functions-develop-local.md#local-settings-file) 및 [host.json](functions-host-json.md) 구성 파일을 비롯하여 프로젝트의 다양한 파일이 있습니다. *local.settings.json* 은 Azure에서 다운로드한 비밀을 포함할 수 있으므로 이 파일은 기본적으로 *.gitignore* 파일의 원본 제어에서 제외됩니다.
 
 1. 다음 명령을 사용하여 함수를 프로젝트에 추가합니다. 여기서 `--name` 인수는 함수(HttpExample)의 고유 이름이고, `--template` 인수는 함수의 트리거(HTTP)를 지정합니다.
 

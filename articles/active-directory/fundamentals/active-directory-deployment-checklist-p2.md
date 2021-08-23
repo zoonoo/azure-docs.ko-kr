@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a43388c2750c7f82d407d59b6923258046fa00c7
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: b746b1f7d35668759108580d4d695787ac8fa3bc
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175877"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733109"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory 기능 배포 가이드
 
@@ -32,7 +32,7 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 
 라이선스에 대한 자세한 내용은 다음 페이지에서 확인할 수 있습니다.
 
-* [Azure AD 라이선스](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Azure AD 라이선스](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 * [Azure AD External Identities 가격 책정](../external-identities/external-identities-pricing.md)
@@ -99,7 +99,7 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure AD 라이선스 및 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/active-directory/)
+[Azure AD 라이선스 및 가격 책정 세부 정보](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
 
 [ID 및 디바이스 액세스 구성](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 

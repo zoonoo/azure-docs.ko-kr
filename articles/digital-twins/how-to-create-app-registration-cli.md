@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/13/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 80d34833397e8ca1cb5cb14acd869597decd2d48
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: a42a09af845bce160689718fb74eb393409740d3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110989508"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114437933"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins-cli"></a>Azure Digital Twins에서 사용할 앱 등록 만들기(CLI)
 
@@ -151,4 +151,4 @@ az ad app credential reset --id <client-ID> --append
 이 문서에서는 Azure Digital Twins API를 사용하여 클라이언트 애플리케이션을 인증하는 데 사용할 수 있는 Azure AD 앱 등록을 설정했습니다.
 
 다음으로 앱 등록을 사용하는 인증 메커니즘과 이를 사용하지 않는 인증 메커니즘에 대해 읽어보세요.
-* [방법: 앱 인증 코드 작성](how-to-authenticate-client.md)
+* [앱 인증 코드 쓰기](how-to-authenticate-client.md)

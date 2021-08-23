@@ -1,19 +1,19 @@
 ---
 title: Azure SQL Database에 대한 기본 제공 정책 정의
 description: Azure SQL Database 및 SQL Managed Instance에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 06/11/2021
+ms.date: 08/20/2021
 ms.topic: reference
 author: MashaMSFT
 ms.author: mathoma
 ms.service: sql-database
 ms.subservice: service-overview
 ms.custom: subject-policy-reference
-ms.openlocfilehash: b8b47c9a8885faff570d9e0d0071d6010d531073
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 4d76391e7c60ab6ddff39dea5e6c567411b4e8a0
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112017796"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609561"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-sql-database--sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대한 Azure Policy 기본 제공 정의
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]

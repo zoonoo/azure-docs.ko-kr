@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/9/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 806e85fca0a509d56e248fc7779fba0f0a59a61d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22c9163b0b8e809fba3c870393c03dd7c0d3c194
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97007673"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433763"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>공용 IP 주소가 없는 Azure Batch 풀 만들기
 
@@ -35,7 +35,7 @@ Azure Batch 풀을 만들 때 공용 IP 주소를 사용하지 않고 가상 머
 - **Azure VNet**. [가상 네트워크](batch-virtual-network.md)에서 풀을 만드는 경우 다음 요구 사항 및 구성을 따릅니다. 하나 이상의 서브넷으로 VNet을 미리 준비하기 위해 Azure Portal, Azure PowerShell, Azure CLI(명령줄 인터페이스) 또는 기타 방법을 사용할 수 있습니다.
   - VNet은 풀을 만들 때 사용한 Batch 계정과 동일한 구독 및 지역에 있어야 합니다.
   - 풀에 대해 지정한 서브넷에는 풀에 대상이 되는 VM 수를 수용할 만큼 충분한 할당되지 않은 IP 주소가 있어야 합니다. 즉 풀의 `targetDedicatedNodes` 및 `targetLowPriorityNodes` 속성 합계입니다. 서브넷에 할당되지 않은 IP 주소가 충분하지 않으면 풀은 컴퓨팅 노드를 부분적으로 할당하고 크기 조정 오류를 반환합니다.
-  - 프라이빗 링크 서비스 및 엔드포인트 네트워크 정책을 사용하지 않도록 설정해야 합니다. 이 작업은 Azure CLI를 사용하여 수행할 수 있습니다. ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resouce-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
+  - 프라이빗 링크 서비스 및 엔드포인트 네트워크 정책을 사용하지 않도록 설정해야 합니다. 이 작업은 Azure CLI를 사용하여 수행할 수 있습니다. ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resource-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
 
 > [!IMPORTANT]
 > Batch는 100개 전용 노드 또는 우선 순위가 낮은 노드 각각에 대해 프라이빗 링크 서비스 및 부하 분산 장치 하나를 할당합니다. 이러한 리소스는 구독의 [리소스 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)으로 제한됩니다. 대형 풀의 경우 이러한 리소스 중 하나 이상에 대한 [할당량을 늘리도록 요청](batch-quota-limit.md#increase-a-quota)해야 할 수 있습니다. 또한 Batch에서 만든 리소스에는 리소스 잠금을 적용하지 않아야 합니다. 적용하는 경우 풀 삭제 또는 제로로 크기 조정과 같이 사용자가 시작한 작업으로 인해 리소스가 정리되지 않습니다.
@@ -110,7 +110,7 @@ client-request-id: 00000000-0000-0000-0000-000000000000
 
 ## <a name="outbound-access-to-the-internet"></a>인터넷에 대한 아웃바운드 액세스
 
-공용 IP 주소가 없는 풀에서는 [가상 네트워크 NAT](../virtual-network/nat-overview.md)를 사용하는 등의 방법으로 네트워크 설정을 적절하게 구성하지 않는 한, 가상 머신에서 퍼블릭 인터넷에 액세스할 수 없습니다. NAT는 가상 네트워크의 가상 머신에서 인터넷에 대한 아웃바운드 액세스만 허용합니다. Batch로 만들어진 컴퓨팅 노드는 연결된 공용 IP 주소가 없기 때문에 퍼블릭으로 액세스할 수 없습니다.
+공용 IP 주소가 없는 풀에서는 [가상 네트워크 NAT](../virtual-network/nat-gateway/nat-overview.md)를 사용하는 등의 방법으로 네트워크 설정을 적절하게 구성하지 않는 한, 가상 머신에서 퍼블릭 인터넷에 액세스할 수 없습니다. NAT는 가상 네트워크의 가상 머신에서 인터넷에 대한 아웃바운드 액세스만 허용합니다. Batch로 만들어진 컴퓨팅 노드는 연결된 공용 IP 주소가 없기 때문에 퍼블릭으로 액세스할 수 없습니다.
 
 아웃바운드 연결을 제공하는 또 다른 방법은 UDR(사용자 정의 경로)를 사용하는 것입니다. 이렇게 하면 퍼블릭 인터넷에 액세스할 수 있는 프록시 머신으로 트래픽의 경로를 지정할 수 있습니다.
 

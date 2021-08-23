@@ -3,12 +3,12 @@ title: Container Insights 개요 | Microsoft Docs
 description: 이 문서에서는 AKS Container Insights 솔루션을 모니터링하는 Container Insights 및 Container Insights가 Azure의 AKS 클러스터 및 Container Instances 상태를 모니터링하여 제공하는 가치에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 3310be54476a9449188c2b7fbfa5bbb6e21cb005
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 56222eb90534537df237ec2c5d29a5969f150e60
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108177713"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566872"
 ---
 # <a name="container-insights-overview"></a>컨테이너 인사이트 개요
 
@@ -39,7 +39,7 @@ Container Insights는 다양한 Azure Monitor 기능을 사용하여 포괄적�
 * Pod를 지원하는 표준 프로세스와 관련이 없는 호스트에서 실행되는 워크로드의 리소스 사용률을 검토합니다.
 * 평균 부하 및 최고 부하 상태에서.클러스터의 동작을 이해합니다. 이 정보를 통해 용량 요구 사항을 파악하고 클러스터를 유지할 수 있는 최대 부하를 확인할 수 있습니다.
 * 노드 또는 컨테이너의 CPU 및 메모리 사용률이 임계값을 초과하거나, 인프라 또는 노드 상태 롤업의 클러스터에서 상태 변경이 발생하는 경우 사전에 알리거나 기록하도록 경고를 구성합니다.
-* [Prometheus](https://prometheus.io/docs/introduction/overview/)와 통합하여 [쿼리](container-insights-log-search.md)를 사용해 노드 및 Kubernetes에서 수집하는 애플리케이션 및 워크로드 메트릭을 확인함으로써 사용자 지정 경고, 대시보드를 만들고 세부 분석을 수행할 수 있습니다.
+* [Prometheus](https://prometheus.io/docs/introduction/overview/)와 통합하여 [쿼리](container-insights-log-query.md)를 사용해 노드 및 Kubernetes에서 수집하는 애플리케이션 및 워크로드 메트릭을 확인함으로써 사용자 지정 경고, 대시보드를 만들고 세부 분석을 수행할 수 있습니다.
 * 온-프레미스의 [AKS 엔진](https://github.com/Azure/aks-engine) 및 [Azure Stack의 AKS 엔진에 배포된](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) 컨테이너 워크로드를 모니터링합니다.
 * [Azure Red Hat OpenShift에 배포된](../../openshift/intro-openshift.md) 컨테이너 워크로드를 모니터링합니다.
 

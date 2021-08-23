@@ -1,19 +1,20 @@
 ---
 title: Azure에 연결된 Azure Video Analyzer for Media(이전의 Video Indexer) 계정 만들기
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Azure에 연결된 Azure Video Analyzer for Media(이전의 Video Indexer) 계정을 만드는 방법을 알아봅니다.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 28f8bb6a610e13aa0e7cf76adf52f13972215365
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7bc5188c5987d393d63049a0a87a84605e4fa372
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387754"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112121588"
 ---
 # <a name="create-a-video-analyzer-for-media-account"></a>Video Analyzer for Media 계정 만들기
 
@@ -241,6 +242,10 @@ Video Analyzer for Media 계정을 삭제하려면 Video Analyzer for Media 웹 
 계정->**설정** -> **이 계정 삭제** 를 선택합니다. 
 
 계정은 90일 내에 영구적으로 삭제됩니다.
+
+## <a name="firewall"></a>방화벽
+
+[방화벽 뒤에 있는 스토리지 계정](faq.md#can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

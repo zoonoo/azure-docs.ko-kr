@@ -1,0 +1,74 @@
+### YamlMime:FAQ
+metadata:
+  title: 질문과 대답 - Azure Key Vault 인증서 가져오기
+  description: Azure Key Vault 인증서 가져오기에 대한 질문과 대답을 확인하세요.
+  services: key-vault
+  author: msmbaldwin
+  tags: azure-resource-manager
+  ms.service: key-vault
+  ms.subservice: certificates
+  ms.topic: how-to
+  ms.date: 07/20/2020
+  ms.author: sebansal
+  ms.openlocfilehash: 7341cad11d049217d282eb1e2c5c80aea0271ff2
+  ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/15/2021
+  ms.locfileid: "112124807"
+title: Azure Key Vault 인증서 가져오기 FAQ
+summary: 이 문서에서 Azure Key Vault 인증서 가져오기에 대한 질문과 대답을 확인하세요.
+sections:
+- name: 질문과 대답
+  questions:
+  - question: >
+      어떻게 Azure Key Vault에서 인증서를 가져올 수 있나요?
+    answer: >
+      인증서 가져오기 작업의 경우 Azure Key Vault는 PEM 및 PFX의 두 가지 인증서 파일 형식을 허용합니다. 공개 부분만 있는 PEM 파일이 있지만 Key Vault는 프라이빗 키가 있는 PEM 또는 PFX 파일만을 요구하고 허용합니다. 자세한 내용은 [Key Vault에 인증서 가져오기](./tutorial-import-certificate.md#import-a-certificate-to-key-vault)를 참조하세요.
+  - question: >
+      암호로 보호된 인증서를 Key Vault로 가져와 다운로드한 후 연결된 암호가 표시되지 않는 이유는 무엇인가요?
+    answer: >
+      인증서를 가져와 Key Vault에서 암호로 보호한 후에는 연결된 암호가 저장되지 않습니다. 암호는 가져오기 작업 중에 한 번만 필요합니다. 이것은 계획적인 것이지만 항상 비밀로 인증서를 가져온 다음 [Azure PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx)을 통해 암호를 추가하여 Base64에서 PFX로 변환할 수 있습니다.
+  - question: >
+      ‘잘못된 매개 변수’ 오류를 해결하려면 어떻게 해야 하나요? Key Vault로 가져오기에 대해 지원되는 인증서 형식은 무엇인가요?
+    answer: "인증서를 가져올 때 키가 파일에 포함 되어 있는지 확인해야 합니다. 프라이빗 키를 다른 형식으로 별도 저장한 경우에는 인증서와 키를 결합해야 합니다. CA(일부 인증 기관)는 다른 형식의 인증서를 제공합니다. 따라서 인증서를 가져오기 전에 해당 인증서가 PEM 또는 PFX 파일 형식으로 되어 있고 키가 RSA(Rivest–Shamir–Adleman) 또는 ECC(Elliptic-Curve Cryptography) 암호화를 사용하는지 확인해야 합니다. \n\n자세한 내용은 [인증서 요구 사항](./certificate-scenarios.md#formats-of-import-we-support) 및 [인증서 키 요구 사항](../keys/about-keys.md)을 참조하세요.\n"
+  - question: >
+      ARM 템플릿을 사용하여 인증서를 가져올 수 있나요?
+    answer: >
+      아니요, ARM(Azure Resource Manager) 템플릿을 사용하여 인증서 작업을 수행할 수 없습니다. 권장되는 해결 방법은 Azure API, Azure CLI 또는 PowerShell에서 인증서 가져오기 방법을 사용하는 것입니다. 기존 인증서가 있는 경우 비밀로 가져올 수 있습니다.
+  - question: >
+      Azure Portal를 통해 인증서를 가져올 때 "문제가 발생했습니다" 오류가 표시됩니다. 자세히 조사하는 방법
+    answer: >
+      자세한 오류 설명을 확인하려면 [Azure CLI](/cli/azure/keyvault/certificate#az_keyvault_certificate_import) 또는 [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate)을 사용하여 인증서 파일을 가져옵니다.
+  - question: >
+      “오류 유형: 액세스 거부됨 또는 사용자에게 인증서를 가져올 수 있는 권한이 없음” 해결 방법
+    answer: "가져오기 작업을 수행하려면 액세스 정책에서 인증서를 가져올 수 있는 권한을 사용자에게 부여해야 합니다. 이렇게 하려면 키 자격 증명 모음으로 이동하여 **액세스 정책** > **추가 액세스 정책** > **인증서 권한 선택** > **보안 주체** 를 선택하고 사용자를 검색한 다음 사용자의 이메일 주소를 추가합니다. \n\n인증서 관련 액세스 정책에 대한 자세한 내용은 [Azure Key Vault 인증서 정보](./about-certificates.md#certificate-access-control)를 참조하세요.\n"
+  - question: >
+      “오류 유형: 인증서를 만들 때 충돌 발생” 해결 방법
+    answer: "각 인증서 이름은 고유해야 합니다. 이름이 같은 인증서가 일시 삭제된 상태일 수 있습니다. 또한 [인증서 작성](./about-certificates.md#composition-of-a-certificate)에 따라, 새 인증서가 생성될 때 동일한 이름의 주소 지정 가능 비밀이 만들어집니다. 따라서 인증서에 지정하려는 이름과 동일한 이름을 가진 키 자격 증명 모음에 다른 키 또는 비밀이 있으면 인증서 생성에 실패하므로 해당 키 또는 비밀을 제거하거나 인증서에 다른 이름을 사용해야 합니다. \n\n자세한 내용은 [삭제된 인증서 가져오기 작업](/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate)을 참조하세요.\n"
+  - question: "\"오류 유형: 문자 길이가 너무 깁니다\" 메시지가 표시되는 이유는 무엇인가요?\n"
+    answer: "이 오류는 다음 두 가지 이유로 인해 발생할 수 있습니다.    \n* 인증서 주체 이름은 200자로 제한됩니다.\n* 인증서 암호는 200자로 제한됩니다.\n"
+  - question: >
+      오류 "지정된 PEM X.509 인증서 콘텐츠가 잘못된 형식입니다. 인증서가 유효한 PEM 형식인지 확인하세요."
+    answer: >
+      PEM 파일의 내용이 UNIX 스타일의 줄 구분 기호 `(\n)`을(를) 사용하는지 확인하세요.
+  - question: >
+      만료된 인증서를 Azure Key Vault로 가져올 수 있나요?
+    answer: >
+      아니요, 만료된 PFX 인증서를 Key Vault로 가져올 수 없습니다.
+  - question: >
+      인증서를 적절한 형식으로 변환하려면 어떻게 해야 하나요?
+    answer: >
+      인증서를 필요한 형식으로 제공하도록 CA에 요청할 수 있습니다. 또한 인증서를 적절한 형식으로 변환하는 데 도움이 되는 타사 도구도 있습니다.
+  - question: >
+      파트너가 아닌 CA에서 인증서를 가져올 수 있나요?
+    answer: >
+      예, 모든 CA에서 인증서를 가져올 수 있지만 키 자격 증명 모음에서 인증서를 자동으로 갱신할 수 없습니다. 인증서 만료에 대한 알림을 받을 미리 알림을 설정할 수 있습니다.
+  - question: >
+      파트너 CA에서 인증서를 가져오는 경우 자동 갱신 기능이 계속 작동하나요?
+    answer: >
+      예. 인증서를 업로드한 후에는 인증서의 발급 정책에서 자동 회전을 지정해야 합니다. 설정은 다음 주기 또는 인증서 버전이 릴리스될 때까지 적용됩니다.
+  - question: "Key Vault으로 가져온 App Service 인증서가 표시되지 않는 이유는 무엇인가요? \n"
+    answer: >
+      인증서를 성공적으로 가져온 경우 **비밀** 창으로 이동하여 확인할 수 있습니다.
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n- [Azure Key Vault 인증서](./about-certificates.md)"

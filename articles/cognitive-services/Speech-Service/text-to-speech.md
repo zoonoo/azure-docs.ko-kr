@@ -3,21 +3,21 @@ title: 텍스트 음성 변환 개요 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech Service의 텍스트 음성 변환 기능을 통해 애플리케이션, 도구 또는 디바이스에서 텍스트를 자연스러운 사람과 같은 합성된 음성으로 변환할 수 있습니다. 이 문서에서는 텍스트 음성 변환 서비스의 이점과 기능을 개략적으로 설명합니다.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: 텍스트 음성 변환
-ms.openlocfilehash: 53b4d7a3e8b0831856f2b43fac40962fe81065d1
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 540a57df6b3f427121c24ff683cb85e092be577d
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110478091"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537602"
 ---
 # <a name="what-is-text-to-speech"></a>텍스트 음성 변환이란?
 

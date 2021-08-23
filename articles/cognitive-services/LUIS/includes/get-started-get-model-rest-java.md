@@ -8,18 +8,18 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/03/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5ece29b7189f31654056ec357f522b59ccb16587
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 040178a3a38aca6051ce266709f66965d47fb413
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95096572"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113289619"
 ---
 [참조 설명서](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45) | [샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/LUIS/java-model-with-rest/Model.java)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [JDK SE](/azure/developer/java/fundamentals/java-jdk-long-term-support)(Java Development Kit, Standard Edition)
+* [JDK SE](/azure/developer/java/fundamentals/java-support-on-azure)(Java Development Kit, Standard Edition)
 * [Visual Studio Code](https://code.visualstudio.com/) 또는 선호하는 IDE
 
 ## <a name="example-utterances-json-file"></a>예제 발언 JSON 파일
@@ -46,7 +46,7 @@ ms.locfileid: "95096572"
     |--|--|
     |`YOUR-APP-ID`| LUIS 앱 ID입니다. |
     |`YOUR-AUTHORING-KEY`|32자 작성 키입니다.|
-    |`YOUR-AUTHORING-ENDPOINT`| 작성 URL 엔드포인트입니다. 예들 들어 `https://replace-with-your-resource-name.api.cognitive.microsoft.com/`입니다. 리소스를 만들 때 리소스 이름을 설정합니다.|
+    |`YOUR-AUTHORING-ENDPOINT`| 작성 URL 엔드포인트입니다. `https://replace-with-your-resource-name.api.cognitive.microsoft.com/`)을 입력합니다. 리소스를 만들 때 리소스 이름을 설정합니다.|
 
     할당된 키와 리소스는 **Azure Resources** 페이지의 관리 섹션에 있는 LUIS 포털에 표시됩니다. 앱 ID는 **애플리케이션 설정** 페이지의 동일한 관리 섹션에서 사용할 수 있습니다.
 

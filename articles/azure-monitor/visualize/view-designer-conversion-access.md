@@ -5,12 +5,12 @@ author: shijatsu
 ms.author: shijain
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 89b812fff9856fda2bd1da896261481eddfdc566
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d79e36c77505635cb37573712a028b98b66af1ff
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316680"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472335"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>뷰 디자이너에서 통합 문서로 전환 요약 및 액세스
 [뷰 디자이너](view-designer.md)는 차트, 목록 및 타임라인을 사용하여 Log Analytics 작업 영역의 데이터를 시각화하는 데 도움이 되는 사용자 지정 뷰를 만들 수 있게 하는 Azure Monitor 기능입니다. 이러한 기능은 단계적으로 제거되고 있으며, 추가 기능을 제공하는 통합 문서로 대체되고 있습니다. 이 문서에서는 통합 문서에 액세스하는 데 필요한 개요 요약 및 사용 권한을 만드는 방법을 자세히 설명합니다.
@@ -33,10 +33,7 @@ ms.locfileid: "108316680"
 
 ![모두 고정](media/view-designer-conversion-access/pin-all.png)
 
-
-
 ## <a name="sharing-and-viewing-permissions"></a>권한 공유 및 보기 
-통합 문서는 프라이빗 또는 공유 문서라는 이점이 있습니다. 기본적으로 저장된 통합 문서가 **내 보고서** 아래에 저장됩니다. 즉, 작성자만 이 통합 문서를 볼 수 있습니다.
 
 **편집 모드** 에 있는 동안 상단 도구 모음에서 **공유** 아이콘을 선택하여 통합 문서를 공유할 수 있습니다. 통합 문서를 **공유 보고서** 로 이동하라는 메시지가 표시되며 통합 문서에 직접 액세스할 수 있는 링크가 생성됩니다.
 

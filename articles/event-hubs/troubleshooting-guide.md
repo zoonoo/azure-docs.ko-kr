@@ -3,12 +3,12 @@ title: 연결 문제 해결 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs의 연결 문제 해결에 대한 정보를 제공합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8eddc0e8c598e4553b30759d179fecb6ae880829
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 48c96cf2e0a142c96e1413bb62730ef2e31aa7ca
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96012683"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416659"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>연결 문제 해결 - Azure Event Hubs
 클라이언트 애플리케이션에서 이벤트 허브에 연결할 수 없는 다양한 이유가 있습니다. 발생하는 연결 문제는 영구적이거나 일시적일 수 있습니다. 문제가 항상(영구) 발생하는 경우 연결 문자열, 조직의 방화벽 설정, IP 방화벽 설정, 네트워크 보안 설정(예: 서비스 엔드포인트, 프라이빗 엔드포인트) 등을 확인할 수 있습니다. 일시적인 문제의 경우 최신 버전의 SDK로 업그레이드하고, 삭제된 패킷을 확인하는 명령을 실행하고, 네트워크 추적을 가져오면 문제 해결에 도움이 될 수 있습니다. 
@@ -26,7 +26,7 @@ ms.locfileid: "96012683"
 
 Kafka 클라이언트의 경우 producer.config 또는 consumer.config 파일이 제대로 구성되어 있는지 확인합니다. 자세한 내용은 [Event Hubs에서 Kafka를 사용하여 메시지 보내기 및 받기](event-hubs-quickstart-kafka-enabled-event-hubs.md#send-and-receive-messages-with-kafka-in-event-hubs)를 참조하세요.
 
-[!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
+[!INCLUDE [event-hubs-connectivity](./includes/event-hubs-connectivity.md)]
 
 ### <a name="verify-that-azureeventgrid-service-tag-is-allowed-in-your-network-security-groups"></a>네트워크 보안 그룹에서 AzureEventGrid 서비스 태그가 허용되는지 확인합니다.
 애플리케이션이 서브넷 내에서 실행 중이고 연결된 네트워크 보안 그룹이 있는 경우 인터넷 아웃바운드가 허용되는지 또는 AzureEventGrid 서비스 태그가 허용되는지 확인합니다. [가상 네트워크 서비스 태그](../virtual-network/service-tags-overview.md)를 참조하고 `EventHub`를 검색합니다.
@@ -48,7 +48,7 @@ IP 방화벽 규칙은 Event Hubs 네임스페이스 수준에 적용됩니다. 
 ### <a name="check-if-the-namespace-can-be-accessed-using-only-a-private-endpoint"></a>프라이빗 엔드포인트만 사용하여 네임스페이스에 액세스할 수 있는지 확인합니다.
 Event Hubs 네임스페이스가 프라이빗 엔드포인트를 통해서만 액세스할 수 있도록 구성된 경우 클라이언트 애플리케이션이 프라이빗 엔드포인트를 통해 네임스페이스에 액세스하고 있는지 확인합니다. 
 
-[Azure Private Link 서비스](../private-link/private-link-overview.md)를 사용하면 가상 네트워크의 **프라이빗 엔드포인트** 를 통해 Azure Event Hubs에 액세스할 수 있습니다. 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비스에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 가상 네트워크의 프라이빗 IP 주소를 사용하여 효과적으로 가상 네트워크에 서비스를 제공합니다. 서비스에 대한 모든 트래픽은 프라이빗 엔드포인트를 통해 라우팅할 수 있으므로 게이트웨이, NAT 디바이스, ExpressRoute 또는 VPN 연결 또는 공용 IP 주소가 필요하지 않습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. Azure 리소스의 인스턴스에 연결하여 액세스 제어에서 가장 높은 수준의 세분성을 제공할 수 있습니다.
+[Azure Private Link 서비스](../private-link/private-link-overview.md)를 사용하면 가상 네트워크의 **프라이빗 엔드포인트** 를 통해 Azure Event Hubs에 액세스할 수 있습니다. 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비스에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 가상 네트워크의 개인 IP 주소를 사용하여 효과적으로 가상 네트워크에 서비스를 제공합니다. 서비스에 대한 모든 트래픽은 프라이빗 엔드포인트를 통해 라우팅할 수 있으므로 게이트웨이, NAT 디바이스, ExpressRoute 또는 VPN 연결 또는 공용 IP 주소가 필요하지 않습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. Azure 리소스의 인스턴스에 연결하여 액세스 제어에서 가장 높은 수준의 세분성을 제공할 수 있습니다.
 
 자세한 내용은 [프라이빗 엔드포인트 구성](private-link-service.md)을 참조하세요. 프라이빗 엔드포인트가 사용되는지 확인하려면 **프라이빗 엔드포인트 연결이 작동하는지 확인** 섹션을 참조하세요. 
 
@@ -83,7 +83,7 @@ Event Hubs의 네트워크 관련 문제를 해결하려면 다음 단계를 수
 클라이언트 SDK에 대한 자세한 내용은 [Azure Event Hubs-클라이언트 SDK](sdks.md) 문서를 참조하세요. 
 
 ### <a name="run-the-command-to-check-dropped-packets"></a>명령을 실행하여 삭제된 패킷을 확인합니다.
-간헐적 연결 문제가 있는 경우 다음 명령을 실행하여 삭제된 패킷이 있는지 확인합니다. 이 명령은 서비스와 1초마다 25개의 TCP 연결을 설정하려고 시도합니다. 그런 다음 성공/실패 횟수를 확인하고 TCP 연결 대기 시간을 확인할 수도 있습니다. [여기](/sysinternals/downloads/psping)서 `psping` 도구를 다운로드할 수 있습니다.
+일시적인 연결 문제가 있는 경우 다음 명령을 실행하여 드롭된 패킷이 있는지 확인합니다. 이 명령은 1초마다 서비스와 25개의 서로 다른 TCP 연결을 구축하려고 시도합니다. 그 후 성공/실패 횟수를 확인하고 TCP 연결 대기 시간을 확인할 수도 있습니다. [여기](/sysinternals/downloads/psping)서 `psping` 도구를 다운로드할 수 있습니다.
 
 ```shell
 .\psping.exe -n 25 -i 1 -q <yournamespacename>.servicebus.windows.net:5671 -nobanner     
@@ -93,10 +93,10 @@ Event Hubs의 네트워크 관련 문제를 해결하려면 다음 단계를 수
 이전 단계가 도움이 되지 않는 경우 네트워크 추적을 가져와서 [Wireshark](https://www.wireshark.org/)와 같은 도구를 사용하여 분석합니다. 필요한 경우 [Microsoft 지원](https://support.microsoft.com/)에 문의하세요. 
 
 ### <a name="service-upgradesrestarts"></a>서비스 업그레이드/다시 시작
-백 엔드 서비스 업그레이드 및 다시 시작으로 인해 일시적인 연결 문제가 발생할 수 있습니다. 문제가 발생하면 다음과 같은 증상이 나타날 수 있습니다. 
+백엔드 서비스 업그레이드 및 다시 시작으로 인해 일시적인 연결 문제가 발생할 수 있습니다. 문제가 발생하면 다음과 같은 증상이 나타날 수 있습니다. 
 
-- 들어오는 메시지/요청이 삭제될 수 있습니다.
-- 로그 파일에는 오류 메시지가 포함될 수 있습니다.
+- 들어오는 메시지/요청이 끊길 수 있습니다.
+- 로그 파일에 오류 메시지가 포함될 수 있습니다.
 - 몇 초 동안 서비스에서 애플리케이션의 연결이 끊어질 수 있습니다.
 - 요청이 일시적으로 제한될 수 있습니다.
 

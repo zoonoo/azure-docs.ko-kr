@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: f7014f8a403614740bdbc05abab4e7024f83c196
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: cfa3004b0587bbfe74157bf2922dd98cd8741597
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111570523"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566962"
 ---
 # <a name="create-an-azure-vmware-solution-assessment"></a>Azure VMware Solution 평가 만들기
 
@@ -150,7 +150,7 @@ AVS(Azure VMware Solution) 평가는 다음을 설명합니다.
     - **준비 상태 알 수 없음**: 온-프레미스 환경에서 수집된 메타데이터가 부족하여 Azure Migrate에서 서버 준비 상태를 확인할 수 없습니다.
 
 3. 다음과 같이 제안된 도구를 검토합니다.
-    - **VMware HCX 또는 Enterprise**: VMware 서버의 경우 VMware HCX(하이브리드 클라우드 확장) 솔루션은 온-프레미스 워크로드를 AVS(Azure VMware Solution) 프라이빗 클라우드로 마이그레이션하는 데 제안되는 마이그레이션 도구입니다. [자세한 정보](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+    - **VMware HCX 또는 Enterprise**: VMware 서버의 경우 VMware HCX(하이브리드 클라우드 확장) 솔루션은 온-프레미스 워크로드를 AVS(Azure VMware Solution) 프라이빗 클라우드로 마이그레이션하는 데 제안되는 마이그레이션 도구입니다. [자세한 정보](../azure-vmware/configure-vmware-hcx.md).
     - **알 수 없음**: CSV 파일을 통해 가져온 서버의 경우 기본 마이그레이션 도구를 알 수 없습니다. VMware 서버의 경우 VMware HCX(하이브리드 클라우드 확장) 솔루션을 사용하는 것이 좋습니다. 
 
 4. **VS 준비** 상태를 클릭합니다. VM 준비 상태 세부 정보를 살펴보고, 드릴다운하여 컴퓨팅, 스토리지 및 네트워크 설정을 포함한 VM 세부 정보를 확인할 수 있습니다.

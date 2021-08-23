@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 135ca977f19ed44742b1086c7a02a9b89dab1445
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: c451becdd6b0ae53b459d15b69f7241f84d3730d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111422033"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528489"
 ---
 # <a name="connect-office-365-logs-to-azure-sentinel"></a>Azure Sentinel에 Office 365 로그 연결
 
@@ -66,5 +66,5 @@ ms.locfileid: "111422033"
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Office 365를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [기본 제공](tutorial-detect-threats-built-in.md) 또는 [사용자 지정](tutorial-detect-threats-custom.md) 규칙을 사용하여 Azure Sentinel에서 위협 검색을 시작합니다.
+- [데이터 및 잠재적 위협에 대한 가시성을 확보](get-visibility.md)하는 방법을 알아봅니다.
+- [기본 제공](detect-threats-built-in.md) 또는 [사용자 지정](detect-threats-custom.md) 규칙을 사용하여 Azure Sentinel에서 위협 검색을 시작합니다.

@@ -3,27 +3,27 @@ title: 단일 페이지 앱 구성 | Azure
 titleSuffix: Microsoft identity platform
 description: 단일 페이지 애플리케이션을 빌드하는 방법 알아보기(앱의 코드 구성)
 services: active-directory
-author: mtillman
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/11/2020
-ms.author: mtillman
+ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: f8bce3057bec88791890d476ac85d4e6610dc89e
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: f049f49893b2ce1a895b9d175cbc308ee2868043
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075208"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113357574"
 ---
 # <a name="single-page-application-code-configuration"></a>단일 페이지 애플리케이션: 코드 구성
 
 SPA(단일 페이지 애플리케이션)용 코드를 구성하는 방법을 알아봅니다.
 
-## <a name="microsoft-libraries-supporting-single-page-apps"></a>단일 페이지 앱을 지원하는 Microsoft 라이브러리 
+## <a name="microsoft-libraries-supporting-single-page-apps"></a>단일 페이지 앱을 지원하는 Microsoft 라이브러리
 
 다음 Microsoft 라이브러리는 단일 페이지 앱을 지원합니다.
 

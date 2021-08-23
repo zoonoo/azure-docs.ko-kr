@@ -1,19 +1,19 @@
 ---
 title: Azure PowerShell을 사용하여 Azure Spring Cloud 배포하는 방법
 description: Azure PowerShell을 사용하여 Azure Spring Cloud 배포하는 방법
-author: bmitchell287
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.topic: conceptual
 ms.service: spring-cloud
 ms.devlang: azurepowershell
 ms.date: 11/16/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 40c5d720aa3ddf6d38b830c84e326e9cbbf06ed0
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f0badb1954cfbd78bc347bf949a6f7ad29bc0177
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135188"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529559"
 ---
 # <a name="deploy-azure-spring-cloud-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Spring Cloud 배포
 
@@ -25,18 +25,18 @@ ms.locfileid: "108135188"
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
-  > [!IMPORTANT]
-  > **Az.SpringCloud** PowerShell 모듈은 미리 보기 상태지만 `Install-Module` cmdlet을 사용하여 별도로 설치해야 합니다. 이 PowerShell 모듈이 일반 공급되면 이후 Az PowerShell 모듈 릴리스의 일부가 되며 기본적으로 Azure Cloud Shell 내에서 사용할 수 있습니다.
+   > [!IMPORTANT]
+   > **Az.SpringCloud** PowerShell 모듈은 미리 보기 상태지만 `Install-Module` cmdlet을 사용하여 별도로 설치해야 합니다. 이 PowerShell 모듈이 일반 공급되면 이후 Az PowerShell 모듈 릴리스의 일부가 되며 기본적으로 Azure Cloud Shell 내에서 사용할 수 있습니다.
 
-  ```azurepowershell-interactive
-  Install-Module -Name Az.SpringCloud
-  ```
+   ```azurepowershell-interactive
+   Install-Module -Name Az.SpringCloud
+   ```
 
 * 여러 Azure 구독이 있는 경우 리소스에 대한 요금이 청구되는 적절한 구독을 선택합니다. [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet을 사용하여 특정 구독을 선택합니다.
 
-  ```azurepowershell-interactive
-  Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
-  ```
+   ```azurepowershell-interactive
+   Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+   ```
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 

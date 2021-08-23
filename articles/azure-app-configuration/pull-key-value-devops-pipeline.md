@@ -1,5 +1,5 @@
 ---
-title: Azure Pipelines로 settingsfromo App Configuration 끌어오기
+title: Azure Pipelines를 사용하여 설정을 App Configuration으로 끌어오기
 description: Azure Pipelines를 사용하여 키-값을 App Configuration 저장소로 끌어오는 방법을 알아봅니다.
 services: azure-app-configuration
 author: drewbatgit
@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 623ed91f9fc9ed469403c6dea5f1247141e44a98
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 55a17a70db3f23b169da90c746cd41f24273262e
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764084"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666564"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Azure Pipelines를 사용하여 설정을 App Configuration으로 끌어오기
 

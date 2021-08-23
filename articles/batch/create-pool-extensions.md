@@ -2,13 +2,13 @@
 title: Batch 풀에서 확장 사용
 description: 확장은 Batch 컴퓨팅 노드에서 프로비저닝 후 구성 및 설치를 용이하게 하는 소규모 애플리케이션입니다.
 ms.topic: how-to
-ms.date: 02/10/2021
-ms.openlocfilehash: 406de8ea1c781ac742e7ca3fff8f84f03727a031
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 08/06/2021
+ms.openlocfilehash: b9c34dd5d191253352181158ece29218657f8d75
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476109"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528116"
 ---
 # <a name="use-extensions-with-batch-pools"></a>Batch 풀에서 확장 사용
 

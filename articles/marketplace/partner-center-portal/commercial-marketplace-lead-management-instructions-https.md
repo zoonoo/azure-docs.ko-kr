@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 05/21/2021
-ms.openlocfilehash: f4ef8d7d29b65af4876912e6dbbd3827693737c6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 5b0073f0f6ab3ecfc06d581ab7cf70c6bf27896e
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110450425"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112285169"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>HTTPS 엔드포인트를 사용하여 상업용 Marketplace 잠재 고객 관리
 
@@ -233,7 +233,7 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
 
 게시 포털에서 제품에 대한 잠재 고객 관리 정보를 구성할 준비가 되면 다음 단계를 수행합니다.
 
-1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165290)에 로그인합니다.
 
 1. 제품을 선택하고 **제품 설정** 탭으로 이동합니다.
 

@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4443bdbc134f222256c6af8bb1f52c684cdb4624
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a661f2f79da1ecc519516c1f7dd34291c057d650
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104801199"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112116002"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Microsoft 보안 코드 분석 정보
 
@@ -113,4 +113,4 @@ Microsoft 보안 코드 분석을 온보딩하고 설치하는 방법에 대한 
 
 빌드 작업을 구성하는 방법에 대한 자세한 내용은 [구성 가이드](security-code-analysis-customize.md) 또는 [YAML 구성 가이드](yaml-configuration.md)를 참조하세요.
 
-제공된 확장 및 도구에 대한 추가 질문이 있는 경우 [FAQ 페이지](security-code-analysis-faq.md)를 확인하세요.
+제공된 확장 및 도구에 대한 추가 질문이 있는 경우 [FAQ 페이지](security-code-analysis-faq.yml)를 확인하세요.

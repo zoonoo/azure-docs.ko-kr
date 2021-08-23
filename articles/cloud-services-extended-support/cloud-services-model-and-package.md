@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 3baea92d78cf15c35d2fb36692dab1edfd950699
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 17a927798b58c0a9f917e8906d9f808c4e4e81fd
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98744520"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460922"
 ---
 # <a name="what-is-the-azure-cloud-service-model-and-how-do-i-package-it"></a>Azure 클라우드 서비스 모델 이란 무엇이며 어떻게 패키징하나요?
 
@@ -218,7 +218,7 @@ Azure 런타임 라이브러리는 Microsoft.WindowsAzure.ServiceRuntime 네임�
 
 ## <a name="servicepackagecspkg"></a>ServicePackage.cspkg
 > [!NOTE]
-> 배포할 수 있는 최대 패키지 크기는 600MB입니다
+> 배포할 수 있는 최대 패키지 크기는 600MB입니다.
 
 애플리케이션을 Azure에서 클라우드 서비스로 배포하려면 먼저 적절한 형식으로 애플리케이션을 패키지해야 합니다. **CSPack** 명령줄 도구( [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치됨)를 사용하여 Visual Studio 대신 패키지 파일을 만들 수 있습니다.
 
@@ -277,5 +277,5 @@ cspack [DirectoryName]\[ServiceDefinition]
 ## <a name="next-steps"></a>다음 단계 
 - Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-prerequisite.md)를 검토합니다.
 - [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용하여 Cloud Service(추가 지원)를 배포합니다.
-- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.md)을 검토합니다.
+- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.yml)을 검토합니다.
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: edc420cb1e79ed6d99a55524764cb164bd2edaf5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e3dcc8f6bba6830eec9f20732da9e42f03d5b28e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641353"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528190"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>원본 데이터베이스에 연결할 때 DMS 오류 문제 해결
 
@@ -86,12 +86,11 @@ ms.locfileid: "105641353"
 ## <a name="known-issues"></a>알려진 문제
 
 * [Azure SQL Database로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항](./index.yml)
-* [Azure Database for MySQL로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항](./known-issues-azure-mysql-online.md)
 * [Azure Database for PostgreSQL로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항](./known-issues-azure-postgresql-online.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Database Migration Service PowerShell](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0&preserve-view=true#data_migration) 문서를 확인합니다.
-* [Azure Portal을 사용하여 Azure Database for MySQL에서 서버 매개 변수를 구성하는 방법](../mysql/howto-server-parameters.md) 문서를 확인합니다.
-* [Azure Database Migration Service 사용을 위한 필수 구성 요소 개요](./pre-reqs.md) 문서를 확인합니다.
-* [Azure Database Migration Service 사용에 대한 FAQ](./faq.md)를 참조하세요.
+* [Azure Database Migration Service PowerShell](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0&preserve-view=true#data_migration)문서를 참조하세요.
+* [Azure Portal을 사용하여 Azure Database for MySQL에서 서버 매개 변수 구성 방법](../mysql/howto-server-parameters.md) 문서를 참조하세요.
+* [Azure Database Migration Service 사용을 위한 필수 구성 요소 개요](./pre-reqs.md) 문서를 참조하세요.
+* [Azure Database Migration Service 사용에 대한 FAQ](./faq.yml)를 참조하세요.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 6aa21dda1f19335a542edf729135d55a9f3b9176
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c6dbfd0020598c280e006e863467a4dfa9b29a0c
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083479"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284523"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 상태 프로브
 
@@ -37,7 +37,7 @@ Azure Load Balancer에서 부하 분산 규칙을 사용하는 경우 Load Balan
 >신뢰할 수 있는 서비스를 만들기 위해 아래의 중요한 [설계 지침](#design)을 포함하여 이 문서 전체를 검토합니다.
 
 >[!IMPORTANT]
->Load Balancer 상태 프로브는 168.63.129.16 IP 주소에서 시작되며, 프로브에서 인스턴스를 표시하기 위해 차단되지 않아야 합니다.  자세한 내용은 [원본 IP 주소 프로브](#probesource)를 검토하세요. 백 엔드 인스턴스 내에서 이 프로브 트래픽을 보려면 [이 FAQ](load-balancer-faqs.md#probes)를 검토하세요.
+>Load Balancer 상태 프로브는 168.63.129.16 IP 주소에서 시작되며, 프로브에서 인스턴스를 표시하기 위해 차단되지 않아야 합니다.  자세한 내용은 [원본 IP 주소 프로브](#probesource)를 검토하세요. 백 엔드 인스턴스 내에서 이 프로브 트래픽을 보려면 [이 FAQ](/azure/load-balancer/load-balancer-faqs#probes)를 검토하세요.
 
 >[!IMPORTANT]
 >구성된 시간 제한 임계값에 관계없이 HTTP(S) Load Balancer 상태 프로브는 서버가 HTTP 200 OK가 아닌 상태 코드를 반환하거나 TCP 재설정을 통해 연결을 종료하는 경우 인스턴스를 자동으로 프로브 다운합니다.
@@ -253,7 +253,7 @@ VM에 여러 인터페이스가 있는 경우 받은 인터페이스의 프로�
 
 공용 및 내부 [표준 Load Balancer](./load-balancer-overview.md)는 Azure Monitor를 통해 엔드포인트 및 백 엔드 엔드포인트별 상태 프로브 상태를 다차원 메트릭으로 공개합니다. 이러한 메트릭은 다른 Azure 서비스나 파트너 애플리케이션에서 사용할 수 있습니다. 
 
-기본 공용 Load Balancer는 Azure Monitor 로그를 통해 백 엔드 풀별로 요약된 상태 프로브 상태를 공개합니다.  내부 기본 Load Balancer에는 Azure Monitor 로그를 사용할 수 없습니다.  [Azure Monitor 로그](load-balancer-monitor-log.md)를 사용하여 공용 부하 분산 장치의 프로브 상태 및 프로브 수를 확인할 수 있습니다. Power BI 또는 Azure Operational Insights에서 로깅을 사용하여 부하 분산 장치 상태에 대한 통계를 제공할 수 있습니다.
+기본 공용 Load Balancer는 Azure Monitor 로그를 통해 백 엔드 풀별로 요약된 상태 프로브 상태를 공개합니다.  내부 기본 Load Balancer에는 Azure Monitor 로그를 사용할 수 없습니다.  [Azure Monitor 로그](./monitor-load-balancer.md)를 사용하여 공용 부하 분산 장치의 프로브 상태 및 프로브 수를 확인할 수 있습니다. Power BI 또는 Azure Operational Insights에서 로깅을 사용하여 부하 분산 장치 상태에 대한 통계를 제공할 수 있습니다.
 
 ## <a name="limitations"></a>제한 사항
 

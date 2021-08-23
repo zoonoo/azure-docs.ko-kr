@@ -7,18 +7,25 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: rogarana
-ms.openlocfilehash: 26932d05cd3d2ef7704b48463c895e05524d87f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 585199f1898d3e2857f69c5c62fdfe4d07448bd5
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103472147"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112118077"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>개요 - Azure 파일 공유에 대해 SMB를 통한 온-프레미스 Active Directory Domain Services 인증
 
 [Azure Files는](storage-files-introduction.md) 온-프레미스 AD DS(Active Directory Domain Services) 및 Azure AD DS(Azure Active Directory Domain Services)의 두 가지 유형의 도메인 서비스를 통해 SMB(서버 메시지 블록)를 통한 ID 기반 인증을 지원합니다. [작동 방법 섹션](./storage-files-active-directory-overview.md#how-it-works)을 검토하여 인증에 적합한 도메인 서비스를 선택하는 것이 좋습니다. 설정은 선택한 도메인 서비스에 따라 달라집니다. 이 문서는 Azure 파일 공유를 사용하여 인증을 위해 온-프레미스 AD DS를 사용하도록 설정하고 구성하는 방법에 중점을 둡니다.
 
 Azure 파일 공유를 처음 사용하는 경우 다음 일련의 문서를 읽기 전에 [계획 가이드](storage-files-planning.md)를 읽어 보는 것이 좋습니다.
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 ## <a name="supported-scenarios-and-restrictions"></a>지원되는 시나리오 및 제한 사항
 

@@ -2,18 +2,17 @@
 title: Azure IoT Hub 사용자 지정 엔드포인트 이해 | Microsoft Docs
 description: 개발자 가이드 - 라우팅 쿼리를 사용하여 디바이스-클라우드 메시지를 사용자 지정 엔드포인트로 라우팅합니다.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 4ad57473e0950f031fbeadee2302f85557ed526f
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: ebc9240e75e5b30b9159f15f4ec1825c1d2b03ab
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388264"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536348"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>디바이스-클라우드 메시지에 대해 메시지 라우팅 및 사용자 지정 엔드포인트 사용
 

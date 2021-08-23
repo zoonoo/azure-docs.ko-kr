@@ -3,12 +3,12 @@ title: 배포 모드
 description: Azure Resource Manager를 사용하여 전체 또는 증분 배포 모드를 사용할지 여부를 지정하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 7566a24297a31c3138228528be050be6c7cf11c8
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 98e92cfc58acd85d1ed49cec0e29d1d73b5b8efb
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963294"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112320877"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 배포 모드
 
@@ -101,11 +101,10 @@ Azure CLI를 사용하여 배포하는 경우 배포 모드를 설정하려면 `
 
 ```azurecli-interactive
 az deployment group create \
-  --name ExampleDeployment \
   --mode Complete \
-  --resource-group ExampleGroup \
-  --template-file storage.json \
-  --parameters storageAccountType=Standard_GRS
+  --name ExampleDeployment \
+  --resource-group ExampleResourceGroup \
+  --template-file storage.json
 ```
 
 다음 예제에서는 증분 배포 모드로 연결된 템플릿 세트를 보여줍니다.

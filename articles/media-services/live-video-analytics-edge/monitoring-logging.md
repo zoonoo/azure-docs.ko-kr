@@ -3,12 +3,12 @@ title: Live Video Analytics에서 모니터링 및 로깅 - Azure
 description: 이 문서에서는 IoT Edge의 Azure Live Video Analytics에서 모니터링 및 로깅에 대한 개요를 제공합니다.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 4bc69192d0d36d01755d625ee46cd77cd9eec1b9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 0eb6f63b139a9a0ca9fc65c80dd6284d1a476f6d
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372144"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297093"
 ---
 # <a name="monitoring-and-logging-in-live-video-analytics-on-iot-edge"></a>IoT Edge의 Live Video Analytics에서 모니터링 및 로깅
 
@@ -417,7 +417,7 @@ IoT Edge 모듈의 Live Video Analytics에서 메트릭 수집을 사용하도�
 
 ## <a name="faq"></a>FAQ
 
-질문이 있는 경우 [모니터링 및 메트릭 FAQ](faq.md#monitoring-and-metrics)를 참조하세요.
+질문이 있는 경우 [모니터링 및 메트릭 FAQ](/azure/media-services/live-video-analytics-edge/faq#monitoring-and-metrics)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -2,7 +2,6 @@
 title: Azure IoT SDK 없이 개발 | Microsoft Docs
 description: 개발자 가이드 - Azure IoT SDK를 사용하지 않고 디바이스 앱 및 백 엔드 앱을 빌드하는 데 사용할 수 있는 항목에 대한 정보 및 링크입니다.
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -13,18 +12,18 @@ ms.custom:
 - amqp
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: ae8b01522a248b8b1dbdd255a9fcd55f16cf2369
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34476ee99dcf455886a72d3fcef2356ab4e6229f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96461700"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528090"
 ---
 # <a name="develop-without-using-an-azure-iot-hub-sdk"></a>Azure IoT Hub SDK를 사용하지 않고 개발
 
 이 항목에서는 Azure IoT SDK를 사용하지 않고 디바이스 또는 백 엔드 앱을 개발하려는 개발자에게 유용한 정보와 링크를 제공합니다.
 
-Microsoft는 Azure IoT SDK 사용을 적극 권합니다. Azure IoT 디바이스 및 서비스 SDK는 여러 유명 플랫폼에 게시됩니다. SDK는 디바이스 연결 및 다시 연결, 재시도 정책을 포함하여 기본 통신 프로토콜의 복잡성을 대부분 처리하는 편리한 계층을 제공합니다. SDK는 정기적으로 업데이트되어 IoT Hub에 최신 기능과 보안 업데이트를 제공합니다. SDK를 사용하면 개발 시간과 코드 유지 관리로 인한 시간을 축소할 수 있습니다. Azure IoT SDK에 대한 자세한 내용은 [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md)를 참조하세요. Azure IoT SDK를 사용하는 이점에 대한 세부 정보는 블로그 게시물 [Azure IoT SDK 사용으로 인한 이점과 사용하지 않을 때 피해야 할 위험 요소](https://azure.microsoft.com/en-us/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/)를 참조하세요.
+Microsoft는 Azure IoT SDK 사용을 적극 권합니다. Azure IoT 디바이스 및 서비스 SDK는 여러 유명 플랫폼에 게시됩니다. SDK는 디바이스 연결 및 다시 연결, 재시도 정책을 포함하여 기본 통신 프로토콜의 복잡성을 대부분 처리하는 편리한 계층을 제공합니다. SDK는 정기적으로 업데이트되어 IoT Hub에 최신 기능과 보안 업데이트를 제공합니다. SDK를 사용하면 개발 시간과 코드 유지 관리로 인한 시간을 축소할 수 있습니다. Azure IoT SDK에 대한 자세한 내용은 [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md)를 참조하세요. Azure IoT SDK를 사용하는 이점에 대한 세부 정보는 블로그 게시물 [Azure IoT SDK 사용으로 인한 이점과 사용하지 않을 때 피해야 할 위험 요소](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/)를 참조하세요.
 
 IoT Hub는 디바이스와의 통신을 위해 AMQP, WebSockets를 통한 AMQP, HTTPS, MQTT, WebSockets를 통한 MQTT를 지원하지만 디바이스에서 지원하는 경우 MQTT를 사용하는 것이 좋습니다.
 

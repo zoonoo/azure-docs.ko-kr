@@ -2,19 +2,18 @@
 title: IoT Edge 배포 모니터링 - Azure IoT Edge
 description: edgeHub 및 edgeAgent 보고된 속성과 자동 배포 메트릭을 비롯한 대략적인 모니터링입니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 04/21/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1b06ea5e541634a3b6738272c7b6540ff17006df
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 834208d1499e83b1de5cd276a5de65c00f25e4f7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073632"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535471"
 ---
 # <a name="monitor-iot-edge-deployments"></a>IoT Edge 배포 모니터링
 
@@ -44,7 +43,7 @@ IoT Hub 서비스를 사용하면 이 데이터를 Azure Portal 및 Azure CLI에
 1. **IoT Edge 배포** 탭을 선택합니다.
 1. 배포 목록을 검사합니다.  각 배포에 대해 다음 세부 정보를 볼 수 있습니다.
 
-    | 열 | Description |
+    | 열 | 설명 |
     | --- | --- |
     | ID | 배포의 이름입니다. |
     | Type | 배포 유형(**배포** 또는 **계층화된 배포**)입니다. |

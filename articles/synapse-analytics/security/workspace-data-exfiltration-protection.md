@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5fed7649353c0ef6cb222c0b0c91a5203665e9fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 792197b3558a16706fee52204fa90a8ef8d0735a
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104598051"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113232055"
 ---
 # <a name="data-exfiltration-protection-for-azure-synapse-analytics-workspaces"></a>Azure Synapse Analytics 작업 영역에 대한 데이터 반출 보호
 이 문서에서는 Azure Synapse Analytics의 데이터 반출 보호에 대해 설명합니다
@@ -34,9 +34,7 @@ Azure Synapse Analytics 작업 영역에서는 작업 영역에 대한 데이터
 
 >[!IMPORTANT]
 >
-> - 작업 영역 테넌트 이외의 테넌트에 있는 리소스에 SQL 풀을 연결하려면 리소스를 차단하는 방화벽 규칙이 없어야 합니다. 작업 영역의 관리형 가상 네트워크(예: Spark 클러스터) 내의 리소스는 관리형 프라이빗 링크를 통해 방화벽으로 보호되는 리소스에 연결할 수 있습니다.
->
-> - 메타스토어는 데이터 반출 보호를 사용하도록 설정된 Managed Virtual Network가 있는 Synapse 작업 영역에서 사용할 수 없습니다. 이러한 작업 영역에서는 Spark SQL을 사용할 수 없습니다.
+> 작업 영역 테넌트 이외의 테넌트에 있는 리소스에 SQL 풀을 연결하려면 리소스를 차단하는 방화벽 규칙이 없어야 합니다. 작업 영역의 관리형 가상 네트워크(예: Spark 클러스터) 내의 리소스는 관리형 프라이빗 링크를 통해 방화벽으로 보호되는 리소스에 연결할 수 있습니다.
 > >
 
 ## <a name="next-steps"></a>다음 단계

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: cafd42653ca220670081cff102ba8be2de58f4a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9166131ce288b63de7e73b7a793c187a366908e
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104779956"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113213942"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>사용자가 로그인하는 웹앱: 코드 구성
 
@@ -216,7 +216,7 @@ Azure Portal에서 애플리케이션의 인증 페이지에 등록하는 응답
 
 ```Python
 CLIENT_SECRET = "Enter_the_Client_Secret_Here"
-AUTHORITY = "https://login.microsoftonline.com/common""
+AUTHORITY = "https://login.microsoftonline.com/common"
 CLIENT_ID = "Enter_the_Application_Id_here"
 ENDPOINT = 'https://graph.microsoft.com/v1.0/users'
 SCOPE = ["User.ReadBasic.All"]

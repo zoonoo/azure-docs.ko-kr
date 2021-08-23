@@ -3,12 +3,12 @@ title: Cloud Shell을 사용하여 템플릿 배포
 description: Azure Resource Manager와 Azure Cloud Shell을 사용하여 Azure에 리소스를 배포합니다. 리소스는 ARM 템플릿(Azure Resource Manager 템플릿)에 정의됩니다.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 7697eb0a6786a07546bb0de679df69d64da30b1b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: bd597c2cb29120e680493a99aac33f146940bc19
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742349"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957875"
 ---
 # <a name="deploy-arm-templates-from-azure-cloud-shell"></a>Azure Cloud Shell에서 ARM 템플릿 배포
 
@@ -118,4 +118,4 @@ ms.locfileid: "108742349"
 ## <a name="next-steps"></a>다음 단계
 
 - 배포 명령에 대한 자세한 내용은 [ARM 템플릿 및 Azure CLI를 사용하여 리소스 배포](deploy-cli.md) 및 [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포](deploy-powershell.md)를 참조하세요.
-- 템플릿을 배포하기 전에 변경 내용을 미리 보려면 [ARM 템플릿 배포 가상 작업](template-deploy-what-if.md)을 참조하세요.
+- 템플릿을 배포하기 전에 변경 내용을 미리 보려면 [ARM 템플릿 배포 가상 작업](./deploy-what-if.md)을 참조하세요.

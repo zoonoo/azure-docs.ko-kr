@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.custom: devx-track-js
-ms.openlocfilehash: 7d54b4b048632324a58708f893a4778a56137916
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: cfcfe5eb29923de02c07a34a5bd6d70d0b002116
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107876082"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113286073"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Visual Studio Code용 Service Fabric
 
@@ -22,7 +22,7 @@ ms.locfileid: "107876082"
 > [!IMPORTANT]
 > Service Fabric Java 애플리케이션은 Windows 컴퓨터에서 개발할 수 있지만 Azure Linux 클러스터에만 배포할 수 있습니다. Windows에서는 Java 애플리케이션을 디버그할 수 없습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 다음 필수 구성 요소를 모든 환경에 설치해야 합니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "107876082"
 
 Java 개발을 위해서는 다음 필수 구성 요소를 설치해야 합니다.
 
-* [Java SDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)(버전 1.8)
+* [Java SDK](/azure/developer/java/fundamentals/java-support-on-azure)(버전 1.8)
 * [Gradle](https://gradle.org/install/)
 * [Java VS Code 확장용 디버거](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) Java 서비스를 디버그하는 데 필요합니다. Java 서비스 디버깅은 Linux에서만 지원됩니다. VS Code의 **작업 막대** 에서 확장 아이콘을 클릭하고 해당 확장을 검색하거나 VS Code Marketplace에서 설치할 수 있습니다.
 

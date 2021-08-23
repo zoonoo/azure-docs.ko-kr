@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 3b3c313df5704e49481c66ad682faccd48d180ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a489b8fd416c750071fa5e292bf916f23c83dab5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102505905"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529239"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Azure의 SAP BusinessObjects BI 플랫폼 계획 및 구현 가이드
 
@@ -80,13 +80,13 @@ SAP BI 플랫폼은 하나 이상의 호스트에서 실행되는 서버 컬렉�
   Azure에서는 파일 리포지토리 서버에 [Azure Premium Files](../../../storage/files/storage-files-introduction.md) 또는 [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md)를 사용할 수 있습니다. 이 두 Azure 서비스에는 기본 제공 중복성이 있습니다.
 
   > [!Important]
-  > Azure Files용 SMB 프로토콜은 일반 공급되지만 Azure Files용 NFS 프로토콜 지원은 현재 미리 보기로 제공됩니다. 자세한 내용은 [현재 미리 보기로 제공되는 Azure Files에 대한 NFS 4.1 지원](https://azure.microsoft.com/en-us/blog/nfs-41-support-for-azure-files-is-now-in-preview/)을 참조하세요.
+  > Azure Files용 SMB 프로토콜은 일반 공급되지만 Azure Files용 NFS 프로토콜 지원은 현재 미리 보기로 제공됩니다. 자세한 내용은 [현재 미리 보기로 제공되는 Azure Files에 대한 NFS 4.1 지원](https://azure.microsoft.com/blog/nfs-41-support-for-azure-files-is-now-in-preview/)을 참조하세요.
 
 - CMS 및 감사 데이터베이스
   
   SAP BOBI 플랫폼에는 시스템 데이터를 저장할 데이터베이스가 필요하며, 이것을 CMS 데이터베이스라고 합니다. 사용자, 서버, 폴더, 문서, 구성 및 인증 세부 정보와 같은 BI 플랫폼 정보를 저장하는 데 사용됩니다.
 
-  Azure는 CMS 데이터베이스 및 감사 데이터베이스에 사용할 수 있는 [MySQL 데이터베이스](https://azure.microsoft.com/en-us/services/mysql/) 및 [Azure SQL 데이터베이스](https://azure.microsoft.com/en-us/services/sql-database/) DBaaS(Database-As-A-Service) 제품을 제공합니다. PaaS 제품이기 때문에 고객이 데이터베이스의 운영, 가용성 및 유지 관리에 대해 걱정할 필요가 없습니다. 고객은 비즈니스 요구에 따라 CMS 및 감사 리포지토리용 자체 데이터베이스를 선택할 수도 있습니다.
+  Azure는 CMS 데이터베이스 및 감사 데이터베이스에 사용할 수 있는 [MySQL 데이터베이스](https://azure.microsoft.com/services/mysql/) 및 [Azure SQL 데이터베이스](https://azure.microsoft.com/services/sql-database/) DBaaS(Database-As-A-Service) 제품을 제공합니다. PaaS 제품이기 때문에 고객이 데이터베이스의 운영, 가용성 및 유지 관리에 대해 걱정할 필요가 없습니다. 고객은 비즈니스 요구에 따라 CMS 및 감사 리포지토리용 자체 데이터베이스를 선택할 수도 있습니다.
 
 ## <a name="support-matrix"></a>지원 매트릭스
 
@@ -119,11 +119,11 @@ BI 플랫폼에는 CMS 및 감사 데이터 저장소용 데이터베이스가 �
 
 - Microsoft SQL Server
 
-- [Azure SQL Database](https://azure.microsoft.com/en-us/services/sql-database/) (Windows의 SAP BOBI 플랫폼에서만 지원되는 데이터베이스)
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) (Windows의 SAP BOBI 플랫폼에서만 지원되는 데이터베이스)
 
   안정적인 최신 SQL Server Enterprise Edition을 기반으로 하는 완전 관리형 SQL Server 데이터베이스 엔진입니다. Azure SQL 데이터베이스는 사용자 개입 없이 업그레이드, 패치 적용, 모니터링과 같은 대부분의 데이터베이스 관리 기능을 처리합니다. Azure SQL Database를 사용하면 Azure의 애플리케이션 및 솔루션을 위한 고가용성 고성능 데이터 스토리지 레이어를 만들 수 있습니다. 자세한 내용은 [Azure SQL Database](../../../azure-sql/azure-sql-iaas-vs-paas-what-is-overview.md) 설명서를 참조하세요.
 
-- [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql/) (SAP PAM의 MySQL AB에 대해 설명한 것과 동일한 호환성 지침 준수)
+- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) (SAP PAM의 MySQL AB에 대해 설명한 것과 동일한 호환성 지침 준수)
 
   MySQL 커뮤니티 에디션으로 구동되는 관계형 데이터베이스 서비스입니다. 완전 관리형 DBaaS(Database-as-a-Service) 제품이며, 예측 가능한 성능과 동적인 확장성을 통해 중요 업무용 워크로드를 처리할 수 있습니다. 고가용성, 자동 백업, 소프트웨어 패치 적용, 자동 오류 검색, 최대 35일에 대한 특정 시점 복원 기능이 기본 제공되기 때문에 운영 작업이 크게 줄어듭니다. 자세한 내용은 [Azure Database for MySQL](../../../mysql/overview.md) 설명서를 참조하세요.
 
@@ -145,7 +145,7 @@ BI 플랫폼에는 CMS 및 감사 데이터 저장소용 데이터베이스가 �
 
 SAP BOBI 플랫폼에 필요한 스토리지를 위해, Azure는 다양한 유형의 [Managed Disks](../../managed-disks-overview.md)를 제공합니다. SAP BOBI 설치 디렉터리의 경우 프리미엄 관리 디스크를 사용하고, 가상 머신에서 실행되는 데이터베이스의 경우 [SAP 워크로드용 DBMS 배포](dbms_guide_general.md)에 제공된 지침을 따르는 것이 좋습니다.
 
-Azure는 SAP BOBI 플랫폼 데이터 계층에 대해 두 가지 DBaaS 제품 즉, [Azure SQL Database](https://azure.microsoft.com/en-us/services/sql-database)(Windows에서 실행되는 BI 애플리케이션) 및 [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql)(Linux 및 Windows에서 실행되는 BI 애플리케이션)을 지원합니다. 따라서 크기 조정 결과에 따라 필요에 가장 적합한 구매 모델을 선택할 수 있습니다.
+Azure는 SAP BOBI 플랫폼 데이터 계층에 대해 두 가지 DBaaS 제품 즉, [Azure SQL Database](https://azure.microsoft.com/services/sql-database)(Windows에서 실행되는 BI 애플리케이션) 및 [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)(Linux 및 Windows에서 실행되는 BI 애플리케이션)을 지원합니다. 따라서 크기 조정 결과에 따라 필요에 가장 적합한 구매 모델을 선택할 수 있습니다.
 
 > [!Tip]
 > 빠른 크기 조정 참조를 위해, SAP BOBI 플랫폼 데이터베이스 계층의 SAPS 결과를 Azure Database-as-a-Service(Azure SQL Database 또는 Azure Database for MySQL)에 매핑하는 경우 800 SAPS = 1 vCPU를 고려합니다.
@@ -204,7 +204,7 @@ Azure Database for MySQL에는 세 가지 가격 책정 계층이 제공됩니�
 
 Azure 지역은 여러 Azure 서비스를 실행하고 호스팅하는 인프라가 포함된 하나의 데이터 센터 또는 여러 데이터 센터의 컬렉션입니다. 이 인프라에는 컴퓨팅 노드 또는 스토리지 노드로 작동하거나 네트워크 기능을 실행하는 다수의 노드가 포함됩니다. 모든 지역이 동일한 서비스를 제공하는 것은 아닙니다.
 
-SAP BI 플랫폼에는 특정 지역에서 사용할 수 없는 특정 VM 유형, 데이터 계층에 대한 Azure Files 또는 Azure NetApp Files 또는 DBaaS (Database as a Service)와 같은 스토리지가 필요할 수 있는 다양한 구성 요소가 포함되어 있습니다. VM 유형, Azure Storage 유형 또는 기타 Azure 서비스에 대한 정확한 정보는 [지역별 사용 가능한 제품](https://azure.microsoft.com/en-us/global-infrastructure/services/) 사이트에서 찾을 수 있습니다. Azure에서 SAP 시스템을 이미 실행 중인 경우에는 지역이 확인되었을 수 있습니다. 이런 경우, 먼저 필요한 서비스를 해당 지역에서 사용할 수 있는지 조사하여 SAP BI 플랫폼의 아키텍처를 결정해야 합니다.
+SAP BI 플랫폼에는 특정 지역에서 사용할 수 없는 특정 VM 유형, 데이터 계층에 대한 Azure Files 또는 Azure NetApp Files 또는 DBaaS (Database as a Service)와 같은 스토리지가 필요할 수 있는 다양한 구성 요소가 포함되어 있습니다. VM 유형, Azure Storage 유형 또는 기타 Azure 서비스에 대한 정확한 정보는 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/) 사이트에서 찾을 수 있습니다. Azure에서 SAP 시스템을 이미 실행 중인 경우에는 지역이 확인되었을 수 있습니다. 이런 경우, 먼저 필요한 서비스를 해당 지역에서 사용할 수 있는지 조사하여 SAP BI 플랫폼의 아키텍처를 결정해야 합니다.
 
 ### <a name="availability-zones"></a>가용성 영역
 
@@ -249,7 +249,7 @@ Azure Storage에는 고객이 사용할 수 있는 다양한 Storage 유형이 �
 
 - Azure Premium Files 또는 Azure NetApp Files
 
-  SAP BOBI 플랫폼에서 FRS(파일 리포지토리 서버)는 시스템의 모든 애플리케이션 서버에서 사용하는 보고서, Universe 및 연결과 같은 콘텐츠가 저장되는 디스크 디렉터리를 나타냅니다. [Azure Premium Files](../../../storage/files/storage-files-introduction.md) 또는 [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) 스토리지는 SAP BOBI 애플리케이션 FRS의 공유 파일 시스템으로 사용할 수 있습니다. 이 스토리지 제품은 일부 지역에서는 사용할 수 없으므로 [지역별 사용 가능한 제품](https://azure.microsoft.com/en-us/global-infrastructure/services/) 사이트에서 최신 정보를 참조하세요.
+  SAP BOBI 플랫폼에서 FRS(파일 리포지토리 서버)는 시스템의 모든 애플리케이션 서버에서 사용하는 보고서, Universe 및 연결과 같은 콘텐츠가 저장되는 디스크 디렉터리를 나타냅니다. [Azure Premium Files](../../../storage/files/storage-files-introduction.md) 또는 [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) 스토리지는 SAP BOBI 애플리케이션 FRS의 공유 파일 시스템으로 사용할 수 있습니다. 이 스토리지 제품은 일부 지역에서는 사용할 수 없으므로 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/) 사이트에서 최신 정보를 참조하세요.
 
   사용 지역에서 이 서비스를 사용할 수 없는 경우 파일 시스템을 SAP BOBI 애플리케이션과 공유할 수 있는 NFS 서버를 만들면 됩니다. 하지만 고가용성도 고려해야 합니다.
 

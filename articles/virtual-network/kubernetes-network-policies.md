@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: a68e1a3f60930e290e97084ff2ec9350b18e2873
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 96e055205c5c016504cd6246b9c1b6d1533ad6ac
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594976"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528694"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Azure Kubernetes 네트워크 정책 개요
 
@@ -154,7 +154,7 @@ Azure Portal을 엽니다. 클러스터의 인사이트에서 '통합 문서'로
 통합 문서(아래 그림)를 보는 것 외에도 인사이트 섹션 아래의 '로그'에서 Prometheus 메트릭을 직접 쿼리할 수 있습니다. 예를 들어 다음 쿼리는 수집되는 모든 메트릭을 반환합니다.
 | where TimeGenerated > ago(5h) | where Name contains "npm_"
 
-Log Analytics에서 직접 메트릭을 쿼리할 수도 있습니다. [Log Analytics 쿼리 시작하기](../azure-monitor/containers/container-insights-log-search.md)에 대해 자세히 알아보세요. 
+Log Analytics에서 직접 메트릭을 쿼리할 수도 있습니다. [Log Analytics 쿼리 시작하기](../azure-monitor/containers/container-insights-log-query.md)에 대해 자세히 알아보세요. 
 
 #### <a name="viewing-in-grafana-dashboard"></a>Grafana 대시보드에서 보기
 [여기](https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource)에 설명된 대로 Grafana 서버를 설정하고 Log Analytics 데이터 원본을 구성합니다. 그런 다음 [Log Analytics 백 엔드가 포함된 Grafana 대시보드](https://grafana.com/grafana/dashboards/10956)를 Grafana Labs로 가져옵니다.

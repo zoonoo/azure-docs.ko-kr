@@ -1,20 +1,21 @@
 ---
 title: 스트리밍 수집 이벤트 원본 - Azure Time Series Insights Gen2 | Microsoft Docs
 description: Azure Time Series Insights Gen2로 데이터 스트리밍에 대해 알아봅니다.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 4021a705668db82e47a23808ef0f6546f86866be
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: fa920138753d02da03284907b6ecd415046c0963
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138268"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617642"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights Gen2 이벤트 원본
 

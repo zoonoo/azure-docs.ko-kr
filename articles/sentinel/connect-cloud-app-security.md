@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 3312eed71865508e5e83d37c7ced8cf220f13ca9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18dcd909ef55894e7548129a9b5836b68a30efe0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97835111"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566346"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Microsoft Cloud App Security에서 데이터 연결 
 
 MCAS([Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)) 커넥터를 사용하여 MCAS에서 Azure Sentinel로 경고와 [Cloud Discovery 로그](/cloud-app-security/tutorial-shadow-it)를 스트림할 수 있습니다. 이를 통해 클라우드 앱을 표시하고, 사이버 위협을 식별하고 대응하기 위한 정교한 분석을 가져오고, 데이터가 이동하는 방식을 제어할 수 있습니다.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -59,5 +61,5 @@ Cloud App Security가 배포되고 데이터를 수집하는 경우 경고 데�
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Microsoft Cloud App Security를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [기본 제공](./tutorial-detect-threats-built-in.md) 또는 [사용자 지정](tutorial-detect-threats-custom.md) 규칙을 사용하여 Azure Sentinel에서 위협 검색 시작하기.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
+- [기본 제공](./detect-threats-built-in.md) 또는 [사용자 지정](detect-threats-custom.md) 규칙을 사용하여 Azure Sentinel에서 위협 검색 시작하기.

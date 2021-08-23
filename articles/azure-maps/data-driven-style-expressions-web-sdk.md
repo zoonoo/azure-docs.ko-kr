@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 41a117c9ea8b47afcedaa1714abc2031d3be6c21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 851f7865553d45d8d4c4d1f86171d79a89dd8996
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97680060"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113091828"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>데이터 기반 스타일 식(웹 SDK)
 
@@ -28,7 +28,7 @@ ms.locfileid: "97680060"
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny]
 
-식은 JSON 배열로 표시됩니다. 배열에서 식의 첫 번째 요소는 식 연산자의 이름을 지정하는 문자열입니다. 예를 들면 "+" 또는 "case"입니다. 다음 요소(있는 경우)는 식에 대한 인수입니다. 각 인수는 리터럴 값(문자열, 숫자, 부울 또는 `null`)이거나 다른 식 배열입니다. 다음 의사 코드에서는 식의 기본 구조를 정의합니다. 
+식은 JSON 배열로 표시됩니다. 배열에서 식의 첫 번째 요소는 식 연산자의 이름을 지정하는 문자열입니다. 예를 들면 "+" 또는 "case"입니다. 다음 요소(있는 경우)는 식에 대한 인수입니다. 각 인수는 리터럴 값(문자열, 숫자, 부울 또는 `null`)이거나 다른 식 배열입니다. 다음 의사 코드에서는 식의 기본 구조를 정의합니다.
 
 ```javascript
 [ 
@@ -56,7 +56,7 @@ Azure Maps 웹 SDK는 다양한 형식의 식을 지원합니다. 식은 자체�
 | [변수 바인딩 식](#variable-binding-expressions) | 변수 바인딩 식은 계산 결과를 변수에 저장하고 저장된 값을 다시 계산할 필요 없이 식의 다른 위치에서 여러 번 참조합니다. |
 | [확대/축소 식](#zoom-expression) | 렌더링 시 지도의 현재 확대/축소 수준을 검색합니다. |
 
-이 문서의 모든 예에서는 다음 기능을 사용하여 다양한 형식의 식을 사용할 수 있는 여러 가지 방법을 보여 줍니다. 
+이 문서의 모든 예에서는 다음 기능을 사용하여 다양한 형식의 식을 사용할 수 있는 여러 가지 방법을 보여 줍니다.
 
 ```json
 {
@@ -65,7 +65,7 @@ Azure Maps 웹 SDK는 다양한 형식의 식을 지원합니다. 식은 자체�
         "type": "Point",
         "coordinates": [-122.13284, 47.63699]
     },
-    "properties": { 
+    "properties": {
         "id": 123,
         "entityType": "restaurant",
         "revenue": 12345,
@@ -84,7 +84,7 @@ Azure Maps 웹 SDK는 다양한 형식의 식을 지원합니다. 식은 자체�
 
 ## <a name="data-expressions"></a>데이터 식
 
-데이터 식은 기능의 속성 데이터에 대한 액세스를 제공합니다. 
+데이터 식은 기능의 속성 데이터에 대한 액세스를 제공합니다.
 
 | 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
@@ -103,7 +103,7 @@ Azure Maps 웹 SDK는 다양한 형식의 식을 지원합니다. 식은 자체�
 
 **예제**
 
-`get` 식을 사용하여 식에서 직접 기능의 속성에 액세스할 수 있습니다. 이 예에서는 기능의 `zoneColor` 값을 사용하여 거품형 계층의 색 속성을 지정합니다. 
+`get` 식을 사용하여 식에서 직접 기능의 속성에 액세스할 수 있습니다. 이 예에서는 기능의 `zoneColor` 값을 사용하여 거품형 계층의 색 속성을 지정합니다.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -134,7 +134,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-다음 예에서는 `Point` 및 `MultiPoint` 기능을 모두 렌더링할 수 있습니다. 
+다음 예에서는 `Point` 및 `MultiPoint` 기능을 모두 렌더링할 수 있습니다.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -210,7 +210,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 ## <a name="aggregate-expression"></a>집계 식
 
-집계 식은 데이터 세트에 대해 처리되고 `DataSource`의 옵션 `clusterProperties`와 함께 사용할 수 있는 계산을 정의합니다. 이러한 식의 출력은 숫자 또는 부울이어야 합니다. 
+집계 식은 데이터 세트에 대해 처리되고 `DataSource`의 옵션 `clusterProperties`와 함께 사용할 수 있는 계산을 정의합니다. 이러한 식의 출력은 숫자 또는 부울이어야 합니다.
 
 집계 식은 데이터의 각 기능에서 속성을 검색하여 집계 연산을 적용할 수 있는 세 가지 값(연산자 값, 초기 값 및 식)을 사용합니다. 이 식은 다음 형식을 갖습니다.
 
@@ -218,9 +218,9 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 [operator: string, initialValue: boolean | number, mapExpression: Expression]
 ```
 
-- 연산자: 클러스터의 각 지점에 대해 `mapExpression`이 계산하는 모든 값에 대해 적용되는 식 함수입니다. 지원되는 연산자: 
-    - 숫자: `+`, `*`, `max`, `min`
-    - 부울: `all`, `any`
+- 연산자: 클러스터의 각 지점에 대해 `mapExpression`이 계산하는 모든 값에 대해 적용되는 식 함수입니다. 지원되는 연산자:
+  - 숫자: `+`, `*`, `max`, `min`
+  - 부울: `all`, `any`
 - initialValue: 첫 번째 계산된 값이 집계되는 초기 값입니다.
 - mapExpression: 데이터 세트의 각 지점에 대해 적용되는 식입니다.
 
@@ -242,7 +242,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 부울 식은 부울 비교를 평가하기 위한 부울 연산자 식 집합을 제공합니다.
 
-값을 비교할 때 비교는 엄격하게 형식화됩니다. 다른 형식의 값은 항상 동일하지 않은 것으로 간주됩니다. 구문 분석 시 형식이 다른 것으로 알려진 사례는 잘못된 것으로 간주되며 구문 분석 오류를 생성합니다. 
+값을 비교할 때 비교는 엄격하게 형식화됩니다. 다른 형식의 값은 항상 동일하지 않은 것으로 간주됩니다. 구문 분석 시 형식이 다른 것으로 알려진 사례는 잘못된 것으로 간주되며 구문 분석 오류를 생성합니다.
 
 | 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
@@ -261,13 +261,13 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 조건부 식은 if 문과 같은 논리 연산을 제공합니다.
 
-다음 식은 입력 데이터에 대해 조건부 논리 연산을 수행합니다. 예를 들어 `case` 식은 "if/then/else" 논리를 제공하며 `match` 식은 "switch 문"과 유사합니다. 
+다음 식은 입력 데이터에 대해 조건부 논리 연산을 수행합니다. 예를 들어 `case` 식은 "if/then/else" 논리를 제공하며 `match` 식은 "switch 문"과 유사합니다.
 
 ### <a name="case-expression"></a>Case 식
 
 `case` 식은 "if/then/else" 논리를 제공하는 조건식의 유형입니다. 이 유형의 식은 부울 조건 목록을 통해 단계를 진행합니다. True로 평가할 첫 번째 부울 조건의 출력 값을 반환합니다.
 
-다음 의사 코드에서는 `case` 식의 구조를 정의합니다. 
+다음 의사 코드에서는 `case` 식의 구조를 정의합니다.
 
 ```javascript
 [
@@ -283,7 +283,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 **예제**
 
-다음 예에서는 `true`로 평가되고 연결된 값을 반환하는 부울 조건을 찾을 때까지 다양한 부울 조건을 단계별로 실행합니다. 부울 조건이 `true`로 계산되지 않으면 대체 값이 반환됩니다. 
+다음 예에서는 `true`로 평가되고 연결된 값을 반환하는 부울 조건을 찾을 때까지 다양한 부울 조건을 단계별로 실행합니다. 부울 조건이 `true`로 계산되지 않으면 대체 값이 반환됩니다.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -308,7 +308,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 `match` 식은 논리와 같은 switch 문을 제공하는 조건식의 유형입니다. 입력은 문자열이나 숫자를 반환하는 `['get', 'entityType']` 등의 모든 식일 수 있습니다. 각 레이블은 값이 모든 문자열 또는 모든 숫자여야 하는 단일 리터럴 값 또는 리터럴 값의 배열이어야 합니다. 배열의 값이 일치하는 경우 입력이 일치합니다. 각 레이블은 고유해야 합니다. 입력 유형이 레이블의 유형과 일치하지 않는 경우 결과는 대체 값이 됩니다.
 
-다음 의사 코드에서는 `match` 식의 구조를 정의합니다. 
+다음 의사 코드에서는 `match` 식의 구조를 정의합니다.
 
 ```javascript
 [
@@ -368,9 +368,9 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 ### <a name="coalesce-expression"></a>Coalesce 식
 
-`coalesce` 식에서는 null이 아닌 첫 번째 값을 가져와 값을 반환할 때까지 식 집합을 단계별로 실행합니다. 
+`coalesce` 식에서는 null이 아닌 첫 번째 값을 가져와 값을 반환할 때까지 식 집합을 단계별로 실행합니다.
 
-다음 의사 코드에서는 `coalesce` 식의 구조를 정의합니다. 
+다음 의사 코드에서는 `coalesce` 식의 구조를 정의합니다.
 
 ```javascript
 [
@@ -383,7 +383,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 **예제**
 
-다음 예에서는 `coalesce` 식을 사용하여 기호 계층의 `textField` 옵션을 설정합니다. `title` 속성이 기능에서 누락되었거나 `null`로 설정된 경우에는 식이 `subTitle` 속성을 찾으려고 시도하고, 누락되었거나 `null`인 경우에는 빈 문자열로 대체합니다. 
+다음 예에서는 `coalesce` 식을 사용하여 기호 계층의 `textField` 옵션을 설정합니다. `title` 속성이 기능에서 누락되었거나 `null`로 설정된 경우에는 식이 `subTitle` 속성을 찾으려고 시도하고, 누락되었거나 `null`인 경우에는 빈 문자열로 대체합니다.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -523,9 +523,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 위의 식은 아래 이미지에 표시된 것처럼 "64°F"라는 텍스트 맨 위에 겹쳐서 표시된 상태로 지도에 핀을 렌더링합니다.
 
-<center>
-
-![문자열 연산자 식 예](media/how-to-expressions/string-operator-expression.png)</center>
+![문자열 연산자 식 예](media/how-to-expressions/string-operator-expression.png)
 
 ## <a name="interpolate-and-step-expressions"></a>보간 및 단계 식
 
@@ -536,18 +534,18 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 `interpolate` 식은 중지 값 사이를 보간하여 연속적이고 부드러운 값 세트를 계산하는 데 사용할 수 있습니다. 색 값을 반환하는 `interpolate` 식은 결과 값이 선택되는 색 그라데이션을 생성합니다.
 
 `interpolate` 식에 사용할 수 있는 보간 방법에는 다음 세 가지 유형이 있습니다.
- 
-* `['linear']` - stops 쌍 사이를 선형으로 보간합니다.
-* `['exponential', base]` - stops 사이를 지수로 보간합니다. `base` 값은 출력이 늘어나는 속도를 제어합니다. 값이 높을수록 출력은 범위의 높은 쪽 끝에서 증가합니다. 1에 가까운 `base` 값은 보다 선형적으로 증가하는 출력을 생성합니다.
-* `['cubic-bezier', x1, y1, x2, y2]` - 지정된 제어점에서 정의하는 [입방형 3차원 곡선](https://developer.mozilla.org/docs/Web/CSS/timing-function)을 사용하여 보간합니다.
 
-다음은 이러한 여러 유형의 보간의 예입니다. 
+- `['linear']` - stops 쌍 사이를 선형으로 보간합니다.
+- `['exponential', base]` - stops 사이를 지수로 보간합니다. `base` 값은 출력이 늘어나는 속도를 제어합니다. 값이 높을수록 출력은 범위의 높은 쪽 끝에서 증가합니다. 1에 가까운 `base` 값은 보다 선형적으로 증가하는 출력을 생성합니다.
+- `['cubic-bezier', x1, y1, x2, y2]` - 지정된 제어점에서 정의하는 [입방형 3차원 곡선](https://developer.mozilla.org/docs/Web/CSS/timing-function)을 사용하여 보간합니다.
+
+다음은 이러한 여러 유형의 보간의 예입니다.
 
 | 선형  | 지수 | 입방형 3차원 |
 |---------|-------------|--------------|
 | ![선형 보간 그래프](media/how-to-expressions/linear-interpolation.png) | ![지수 보간 그래프](media/how-to-expressions/exponential-interpolation.png) | ![입방형 3차원 보간 그래프](media/how-to-expressions/bezier-curve-interpolation.png) |
 
-다음 의사 코드에서는 `interpolate` 식의 구조를 정의합니다. 
+다음 의사 코드에서는 `interpolate` 식의 구조를 정의합니다.
 
 ```javascript
 [
@@ -582,15 +580,13 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 다음 이미지는 위의 식에서 색을 선택하는 방법을 보여 줍니다.
  
-<center>
-
-![Interpolate 식 예](media/how-to-expressions/interpolate-expression-example.png)</center>
+![Interpolate 식 예](media/how-to-expressions/interpolate-expression-example.png)
 
 ### <a name="step-expression"></a>Step 식
 
-`step` 식은 stops로 정의된 [조각별 상수 함수](http://mathworld.wolfram.com/PiecewiseConstantFunction.html)를 평가하여 불연속의 단계별 결과 값을 계산하는 데 사용할 수 있습니다. 
+`step` 식은 stops로 정의된 [조각별 상수 함수](http://mathworld.wolfram.com/PiecewiseConstantFunction.html)를 평가하여 불연속의 단계별 결과 값을 계산하는 데 사용할 수 있습니다.
 
-다음 의사 코드에서는 `step` 식의 구조를 정의합니다. 
+다음 의사 코드에서는 `step` 식의 구조를 정의합니다.
 
 ```javascript
 [
@@ -605,7 +601,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 ]
 ```
 
-Step 식은 입력 값 바로 앞에 있는 stop의 출력 값 또는 입력이 첫 번째 stop보다 작은 경우 첫 번째 입력 값을 반환합니다. 
+Step 식은 입력 값 바로 앞에 있는 stop의 출력 값 또는 입력이 첫 번째 stop보다 작은 경우 첫 번째 입력 값을 반환합니다.
 
 **예제**
 
@@ -625,11 +621,8 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 ```
 
 다음 이미지는 위의 식에서 색을 선택하는 방법을 보여 줍니다.
- 
-<center>
 
 ![Step 식 예](media/how-to-expressions/step-expression-example.png)
-</center>
 
 ## <a name="layer-specific-expressions"></a>계층별 식
 
@@ -644,9 +637,9 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 **예제**
 
-이 예에서는 선형 보간 식을 사용하여 열 지도를 렌더링하기 위한 부드러운 색 그라데이션을 만듭니다. 
+이 예에서는 선형 보간 식을 사용하여 열 지도를 렌더링하기 위한 부드러운 색 그라데이션을 만듭니다.
 
-```javascript 
+```javascript
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
     color: [
         'interpolate',
@@ -662,7 +655,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 부드러운 그라데이션을 사용하여 열 지도를 색상화하는 것 외에도 `step` 식을 사용하여 범위 집합 내에서 색을 지정할 수 있습니다. 열 지도를 색상화하는 `step` 식을 사용하여 윤곽선 또는 레이더 스타일 지도와 유사한 범위로 밀도를 시각적으로 나눕니다.  
 
-```javascript 
+```javascript
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
     color: [
         'step',
@@ -681,7 +674,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 ### <a name="line-progress-expression"></a>선 진행률 식
 
-선 진행률 식은 선 계층에서 그라데이션 선을 따라 진행률을 검색하고 `['line-progress']`로 정의됩니다. 이 값은 0에서 1 사이의 숫자입니다. `interpolation` 또는 `step` 식과 함께 사용됩니다. 이 식은 선 계층의 [strokeGradient 옵션]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions#strokegradient)에만 사용할 수 있습니다. 
+선 진행률 식은 선 계층에서 그라데이션 선을 따라 진행률을 검색하고 `['line-progress']`로 정의됩니다. 이 값은 0에서 1 사이의 숫자입니다. `interpolation` 또는 `step` 식과 함께 사용됩니다. 이 식은 선 계층의 [strokeGradient 옵션](/javascript/api/azure-maps-control/atlas.linelayeroptions#strokegradient)에만 사용할 수 있습니다.
 
 > [!NOTE]
 > 선 계층의 `strokeGradient` 옵션을 사용하려면 데이터 원본의 `lineMetrics` 옵션을 `true`로 설정해야 합니다.
@@ -712,10 +705,10 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 
 텍스트 필드 서식 식은 기호 계층 `textOptions` 속성의 `textField` 옵션과 함께 사용하여 혼합 텍스트 서식을 제공할 수 있습니다. 이 식을 사용하면 입력 문자열과 서식 옵션의 집합을 지정할 수 있습니다. 이 식의 각 입력 문자열에 대해 다음과 같은 옵션을 지정할 수 있습니다.
 
- * `'font-scale'` - 글꼴 크기의 크기 조정 인수를 지정합니다. 지정된 경우 이 값은 개별 문자열에 대해 `textOptions`의 `size` 속성을 재정의합니다.
- * `'text-font'` - 이 문자열에 사용해야 하는 글꼴 패밀리를 하나 이상 지정합니다. 지정된 경우 이 값은 개별 문자열에 대해 `textOptions`의 `font` 속성을 재정의합니다.
+- `'font-scale'` - 글꼴 크기의 크기 조정 인수를 지정합니다. 지정된 경우 이 값은 개별 문자열에 대해 `textOptions`의 `size` 속성을 재정의합니다.
+- `'text-font'` - 이 문자열에 사용해야 하는 글꼴 패밀리를 하나 이상 지정합니다. 지정된 경우 이 값은 개별 문자열에 대해 `textOptions`의 `font` 속성을 재정의합니다.
 
-다음 의사 코드에서는 텍스트 필드 서식 식의 구조를 정의합니다. 
+다음 의사 코드에서는 텍스트 필드 서식 식의 구조를 정의합니다.
 
 ```javascript
 [
@@ -764,21 +757,19 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 ```
 
 이 계층은 아래 이미지와 같이 point 기능을 렌더링합니다.
- 
-<center>
 
-![서식이 지정된 텍스트 필드가 있는 Point 기능 이미지](media/how-to-expressions/text-field-format-expression.png) </center>
+![서식이 지정된 텍스트 필드가 있는 Point 기능 이미지](media/how-to-expressions/text-field-format-expression.png)
 
 ### <a name="number-format-expression"></a>숫자 서식 식
 
 `number-format` 식은 기호 계층의 `textField` 옵션과 함께만 사용할 수 있습니다. 이 식은 제공된 숫자를 서식이 지정된 문자열로 변환합니다. 이 식은 JavaScript의 [Number.toLocalString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) 함수를 래핑하고 다음 옵션 집합을 지원합니다.
 
- * `locale` - 지정된 언어로 정렬되는 방식으로 숫자를 문자열로 변환하려면 이 옵션을 지정합니다. 이 옵션에 [BCP 47 언어 태그](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation)를 전달합니다.
- * `currency` - 숫자를 통화를 나타내는 문자열로 변환합니다. 가능한 값은 미국 달러의 경우 "USD", 유로화의 경우 "EUR", 중국어 RMB의 경우 "CNY"인 [ISO 4217 통화 코드](https://en.wikipedia.org/wiki/ISO_4217)입니다.
- * `'min-fraction-digits'` - 숫자의 문자열 버전에 포함할 최소 소수 자릿수를 지정합니다.
- * `'max-fraction-digits'` - 숫자의 문자열 버전에 포함할 최대 소수 자릿수를 지정합니다.
+- `locale` - 지정된 언어로 정렬되는 방식으로 숫자를 문자열로 변환하려면 이 옵션을 지정합니다. 이 옵션에 [BCP 47 언어 태그](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation)를 전달합니다.
+- `currency` - 숫자를 통화를 나타내는 문자열로 변환합니다. 가능한 값은 미국 달러의 경우 "USD", 유로화의 경우 "EUR", 중국어 RMB의 경우 "CNY"인 [ISO 4217 통화 코드](https://en.wikipedia.org/wiki/ISO_4217)입니다.
+- `'min-fraction-digits'` - 숫자의 문자열 버전에 포함할 최소 소수 자릿수를 지정합니다.
+- `'max-fraction-digits'` - 숫자의 문자열 버전에 포함할 최대 소수 자릿수를 지정합니다.
 
-다음 의사 코드에서는 텍스트 필드 서식 식의 구조를 정의합니다. 
+다음 의사 코드에서는 텍스트 필드 서식 식의 구조를 정의합니다.
 
 ```javascript
 [
@@ -813,9 +804,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 이 계층은 아래 이미지와 같이 point 기능을 렌더링합니다.
 
-<center>
-
-![숫자 서식 식 예](media/how-to-expressions/number-format-expression.png)</center>
+![숫자 서식 식 예](media/how-to-expressions/number-format-expression.png)
 
 ### <a name="image-expression"></a>이미지 식
 
@@ -823,7 +812,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 **예제**
 
-다음 예에서는 `image` 식을 사용하여 기호 계층에 텍스트가 있는 아이콘 인라인을 추가합니다. 
+다음 예에서는 `image` 식을 사용하여 기호 계층에 텍스트가 있는 아이콘 인라인을 추가합니다.
 
 ```javascript
  //Load the custom image icon into the map resources.
@@ -832,10 +821,10 @@ map.imageSprite.add('wifi-icon', 'wifi.png').then(function () {
     //Create a data source and add it to the map.
     datasource = new atlas.source.DataSource();
     map.sources.add(datasource);
-
+    
     //Create a point feature and add it to the data source.
     datasource.add(new atlas.data.Point(map.getCamera().center));
-
+    
     //Add a layer for rendering point data as symbols.
     map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
         iconOptions: {
@@ -851,9 +840,7 @@ map.imageSprite.add('wifi-icon', 'wifi.png').then(function () {
 
 이 계층은 아래 이미지에 표시된 것처럼 기호 계층에서 텍스트 필드를 렌더링합니다.
 
-<center>
-
-![이미지 식 예](media/how-to-expressions/image-expression.png) </center>
+![이미지 식 예](media/how-to-expressions/image-expression.png)
 
 ## <a name="zoom-expression"></a>확대/축소 식
 
@@ -922,10 +909,10 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 식을 구현하는 더 많은 코드 샘플은 다음 문서를 참조하세요.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [기호 계층 추가](map-add-pin.md)
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [거품형 계층 추가](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
@@ -934,22 +921,22 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 > [!div class="nextstepaction"]
 > [다각형 계층 추가](map-add-shape.md)
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [열 지도 계층 추가](map-add-heat-map-layer.md)
 
 식을 지원하는 계층 옵션에 대해 자세히 알아보세요.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions)
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions)

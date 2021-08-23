@@ -1,18 +1,18 @@
 ---
 title: 기본 제공 정책 정의
 description: Azure Synapse Analytics를 위한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 06/11/2021
+ms.date: 08/20/2021
 ms.topic: reference
 author: julieMSFT
 ms.author: jrasnick
 ms.service: synapse-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 9cc3222d7afaf907b3a91f64849237d0be7bd7e3
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 0b54f9268ac7fb0d81bafa1734d8a584b9fe8705
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112017069"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609054"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-synapse-analytics"></a>Azure Synapse Analytics를 위한 Azure Policy 기본 제공 정의 
 

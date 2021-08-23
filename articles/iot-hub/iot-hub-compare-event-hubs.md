@@ -2,7 +2,6 @@
 title: Azure IoT Hub와 Azure Event Hubs 비교 | Microsoft 문서
 description: IoT Hub 및 Event Hubs Azure의 비교는 강조 표시된 기능 차이 및 사용 사례를 제공합니다. 비교는 지원되는 프로토콜, 디바이스 관리, 모니터링 및 파일 업로드를 포함합니다.
 author: kgremban
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -13,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: 56bb179c50862f09f1b789c359db97976017bbb5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8cd46416690ba5482686f6f4b9caa1f4424d3c20
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92142762"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566309"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>IoT 디바이스를 Azure에 연결: IoT Hub 및 Event Hubs
 

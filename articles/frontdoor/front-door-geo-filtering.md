@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: amsriva
-ms.openlocfilehash: 0ab6dfb61800bba91b52edd5b07fa918c85ba73b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: bb7de037f63c8892aa73e357f744b1f25fb0750f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085009"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441032"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Azure Front Door에 대한 도메인의 지역 필터링
 
@@ -65,6 +65,7 @@ WAF 정책에는 사용자 지정 규칙 집합이 포함됩니다. 규칙은 �
 | BZ | 벨리즈|
 | CA | Canada|
 | CD | 콩고 민주 공화국|
+| CG | 콩고 공화국 |
 | CF | 중앙 아프리카 공화국|
 | CH | 스위스|
 | CI | 코트디부아르|

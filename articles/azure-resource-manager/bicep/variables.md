@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: 99c7d945f251319bf1b655ecd02730b62e3ed2e4
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: b2f696adbad88cd424f2292b333069a7b80a13b2
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026938"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634958"
 ---
 # <a name="variables-in-bicep"></a>Bicep의 변수
 
@@ -73,13 +73,13 @@ output stgOutput string = storageName
 
 다음 템플릿은 리소스를 배포하지 않습니다. 다양한 형식의 변수를 선언하는 몇 가지 방법을 보여 줍니다.
 
-:::code language="bicep" source="~/resourcemanager-templates/azure-resource-manager/variables.bicep":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/variables.bicep":::
 
 ## <a name="configuration-variables"></a>구성 변수
 
 환경을 구성하기 위한 관련된 값을 포함하는 변수를 정의할 수 있습니다. 값이 있는 개체로 변수를 정의합니다. 다음 예제에서는 **test** 와 **prod** 의 두 환경에 대한 값을 보유하는 개체를 보여 줍니다. 배포하는 동안 해당 값 중 하나를 전달합니다.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/variablesconfigurations.bicep":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/variablesconfigurations.bicep":::
 
 ## <a name="next-steps"></a>다음 단계
 

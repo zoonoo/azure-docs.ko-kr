@@ -4,12 +4,12 @@ description: Azure Data Factory용 Azure HDInsight의 Apache Spark 작업에 대
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/29/2019
-ms.openlocfilehash: 429659d605cdaf8aad978841e486a17da321cce4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2b892e6419045d362ac8675a6e8976600650851a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98929390"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112288922"
 ---
 # <a name="scenario-illegalargumentexception-for-apache-spark-activity-in-azure-hdinsight"></a>시나리오: Azure HDInsight의 Apache Spark 작업에 대한 IllegalArgumentException
 
@@ -38,4 +38,4 @@ Spark 클러스터의 기본/주 스토리지에 애플리케이션 jar 파일�
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

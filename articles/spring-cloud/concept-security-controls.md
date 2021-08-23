@@ -1,18 +1,18 @@
 ---
 title: Azure Spring Cloud Service의 보안 컨트롤
 description: Azure Spring Cloud Service에 기본 제공되는 보안 컨트롤을 사용합니다.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: faa278b60f3b120fc6f1aad14cd6f8b6dbfb1e21
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: dbd544a3b8a2a55b6eafa51115277f6ef142b41c
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129192"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537366"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Azure Spring Cloud Service의 보안 컨트롤
 
@@ -20,7 +20,7 @@ ms.locfileid: "108129192"
 
 보안 컨트롤은 Azure Spring Cloud Service에 기본 제공됩니다.
 
-보안 제어는 보안 취약성을 방지, 탐지 및 대응할 수 있는 서비스의 기능에 기여하는 Azure 서비스의 품질 또는 기능입니다.  각 컨트롤에 대해 *예* 또는 *아니요* 를 사용하여 현재 서비스에 적용되는지 여부를 나타냅니다.  서비스에 적용되지 않는 컨트롤에는 *N/A* 를 사용합니다. 
+보안 제어는 보안 취약성을 방지, 탐지 및 대응할 수 있는 서비스의 기능에 기여하는 Azure 서비스의 품질 또는 기능입니다.  각 컨트롤에 대해 *예* 또는 *아니요* 를 사용하여 현재 서비스에 적용되는지 여부를 나타냅니다.  서비스에 적용되지 않는 컨트롤에는 *N/A* 를 사용합니다.
 
 **데이터 보호 보안 컨트롤**
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: 6d1314b79f09f1bed2de5d6964b0a6224b5962ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 418a1289b6f584e58b88e2fb0f571f724ba5d800
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100096874"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567831"
 ---
 # <a name="connect-your-alcide-kaudit-to-azure-sentinel"></a>Alcide kAudit를 Azure Sentinel에 연결
 
@@ -27,12 +27,14 @@ ms.locfileid: "100096874"
 > Azure Sentinel의 Alcide kAudit 데이터 커넥터는 현재 공개 미리 보기로 제공됩니다.
 > 이 기능은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 [Alcide kAudit](https://www.alcide.io/kaudit-K8s-forensics/)를 사용하면 비정상적인 Kubernetes 동작을 식별하고, 검색 시간을 줄이면서 Kubernetes 위반 및 인시던트에 집중할 수 있습니다. 이 문서에서는 Alcide kAudit 솔루션을 Azure Sentinel에 연결하는 방법을 설명합니다. Alcide kAudit 데이터 커넥터를 사용하면 kAudit 로그 데이터를 Azure Sentinel로 쉽게 가져올 수 있으므로 통합 문서에서 보고, 이를 사용하여 사용자 지정 경고를 만들고 통합하여 조사를 개선할 수 있습니다. Alcide kAudit와 Azure Sentinel 간의 통합에는 REST API가 사용됩니다.
 
 > [!NOTE]
 > 데이터는 Azure Sentinel을 실행하는 작업 영역의 지리적 위치에 저장됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure Sentinel 작업 영역에 대한 읽기 및 쓰기 권한이 있어야 합니다.
 
@@ -46,7 +48,7 @@ Alcide kAudit는 로그를 Azure Sentinel로 직접 내보낼 수 있습니다.
 
 1. 갤러리에서 **Alcide kAudit** 를 선택한 다음, **커넥터 페이지 열기** 단추를 클릭합니다.
 
-1. [Alcide kAudit 설치 가이드](https://get.alcide.io/hubfs/Azure%20Sentinel%20Integration%20with%20kAudit.pdf)에 제공된 단계별 지침을 따릅니다.
+1. [Alcide kAudit 설치 가이드](https://awesomeopensource.com/project/alcideio/kaudit?categoryPage=29#before-installing-alcide-kaudit)에 제공된 단계별 지침을 따릅니다.
 
 1. 작업 영역 ID 및 기본 키를 묻는 메시지가 표시되면 Alcide kAudit 데이터 커넥터 페이지에서 복사할 수 있습니다.
 
@@ -71,6 +73,6 @@ Alcide kAudit에 대한 로그에서 관련 스키마를 사용하려면 위에�
 
 Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
-- [통합 문서를 사용](tutorial-monitor-your-data.md)하여 데이터를 모니터링합니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.
+- [통합 문서를 사용](monitor-your-data.md)하여 데이터를 모니터링합니다.
