@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/23/2020
+ms.date: 05/17/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a967777b65c06cf23239a47e8e691fb3a29231b4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f6cf40e7b384c9b0e88db679f9de8ac9bbba1607
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "88815473"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "112078776"
 ---
 디스크에 대한 고객 관리형 키를 설정하려면 처음으로 수행하는 경우 특정 순서로 리소스를 만들어야 합니다. 먼저 Azure Key Vault를 만들고 설정해야 합니다.
 
@@ -49,6 +49,13 @@ ms.locfileid: "88815473"
 
     ![생성/가져오기 단추를 선택하면 나타나는 키 만들기 블레이드의 스크린샷](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
 
+### <a name="add-an-azure-rbac-role"></a>Azure RBAC 역할 추가
+
+이제 Azure Key Vault와 키를 만들었으므로 디스크 암호화 집합에 Azure Key Vault를 사용할 수 있도록 Azure RBAC 역할을 추가해야 합니다.
+
+1. **액세스 제어(IAM)** 를 선택하고 역할을 추가합니다.
+1. **Key Vault 관리자**, **소유자** 또는 **기여자** 역할을 추가합니다.
+
 ## <a name="set-up-your-disk-encryption-set"></a>디스크 암호화 집합 설정
 
 1. **디스크 암호화 집합** 을 검색하고 선택합니다.
@@ -57,22 +64,14 @@ ms.locfileid: "88815473"
     ![디스크 암호화 포털 주 화면의 스크린샷. 추가 단추 강조 표시](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-create-disk-encryption-set.png)
 
 1. 리소스 그룹을 선택하고, 암호화 집합의 이름을 지정하고, 키 자격 증명 모음으로 동일한 지역을 선택합니다.
-1. **암호화 유형** 으로 **고객 관리형 키로 미사용 데이터 암호화** 를 선택합니다.
+1. **암호화 유형** 에서 **고객 관리형 키로 미사용 데이터 암호화** 를 선택합니다.
 
     > [!NOTE]
     > 특정 암호화 유형을 사용하여 디스크 암호화 집합을 만든 후에는 변경할 수 없습니다. 다른 암호화 유형을 사용하려면 새 디스크 암호화 집합을 만들어야 합니다.
 
 1. **키를 선택하려면 클릭** 을 선택합니다.
-1. 이전에 만든 키 자격 증명 모음 및 키와 함께 버전을 선택합니다.
+1. 이전에 만든 키 자격 증명 모음 및 키와 버전을 선택합니다.
 1. **선택** 을 누릅니다.
 1. **검토 + 만들기**, **만들기** 를 차례로 선택합니다.
 
     ![디스크 암호화 만들기 블레이드의 스크린샷. 구독, 리소스 그룹, 디스크 암호화 집합 이름, 지역 및 키 자격 증명 모음 + 키 선택기를 표시합니다.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
-
-1. 만들기가 완료되면 디스크 암호화 집합을 열고 나타나는 경고를 선택합니다.
-
-    ![경고 팝업의 스크린샷: ‘디스크, 이미지 또는 스냅샷을 디스크 암호화 집합에 연결하려면 키 자격 증명 모음에 사용 권한을 부여해야 합니다.’ 계속하려면 이 경고를 선택합니다.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-encryption-set-alert-fix.png)
-
-    2개의 알림이 나타나고 성공해야 합니다. 그러면 디스크 암호화 집합을 키 자격 증명 모음과 함께 사용할 수 있습니다.
-
-    ![키 자격 증명 모음에 대한 성공적인 권한 및 역할 할당의 스크린샷.](./media/virtual-machines-disk-encryption-portal/disk-encryption-notification-success.png)

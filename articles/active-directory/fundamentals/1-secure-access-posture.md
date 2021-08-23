@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fb5d74f0c912db098b5e309793963d5f07fbd58
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 37c27e84f15a01a2d8832baae137518685de59a8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113730355"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "98725444"
 ---
 # <a name="determine-your-security-posture-for-external-access"></a>외부 액세스를 위한 보안 상태 결정 
 
@@ -67,7 +67,7 @@ IT 관리와 위임된 액세스의 목표가 다릅니다.
 
 조직 및 시나리오에 대해 다음을 수행해야 합니다. 
 
-* **응용 프로그램, 데이터 및 콘텐츠에 대한 액세스를 제어** 합니다. [Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) 의 버전 및 [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)의 버전에 따라 다양한 방법을 통해 이를 수행할 수 있습니다. 
+* **응용 프로그램, 데이터 및 콘텐츠에 대한 액세스를 제어** 합니다. [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) 의 버전 및 [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)의 버전에 따라 다양한 방법을 통해 이를 수행할 수 있습니다. 
 
 * **공격 노출 영역 축소**. [Privileged identity management](../privileged-identity-management/pim-configure.md), [DLP(데이터 손실 방지)](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) 및 [암호화 기능은](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) 공격 노출 영역을 줄입니다.
 
@@ -83,7 +83,7 @@ IT 관리와 위임된 액세스의 목표가 다릅니다.
 
 3. [거버넌스 계획 만들기](3-secure-access-plan.md)
 
-4. [보안을 위해 그룹 사용](4-secure-access-groups.md)
+4. [보안을 위한 그룹 사용](4-secure-access-groups.md)
 
 5. [Azure AD B2B로 전환](5-secure-access-b2b.md)
 

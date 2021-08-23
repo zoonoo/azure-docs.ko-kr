@@ -6,12 +6,12 @@ ms.date: 3/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: c4b3c874b5723cc8df085f7fe05bdd243c27e094
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: c8c3e1e73a1504a5da519144ee5c3e9968fb89b9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113357963"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110105013"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Java 웹앱에서 원격 분석 필터링
 
@@ -85,7 +85,7 @@ ApplicationInsights.xml에서 다음 예제와 같이 `TelemetryProcessors` 섹�
 
 ```
 
-[전체 기본 제공 프로세서 집합을 검사](https://github.com/microsoft/ApplicationInsights-Java/tree/main/agent/agent-tooling/src/main/java/com/microsoft/applicationinsights/agent/internal)합니다.
+[전체 기본 제공 프로세서 집합을 검사](https://github.com/microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal)합니다.
 
 ## <a name="built-in-filters"></a>기본 제공 필터
 

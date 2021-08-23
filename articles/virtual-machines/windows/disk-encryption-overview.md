@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8e95f770a3335d66eae0a690e148c4d6ddc22d5c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e283ff2de003146c8228d36843f00ca8e4faced9
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555332"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111748574"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Windows VM을 위한 Azure Disk Encryption
 
@@ -64,6 +64,9 @@ Azure Disk Encryption을 사용하려면, VM이 다음 네트워크 엔드포인
 Azure Disk Encryption은 Windows VM에 BitLocker 외부 키 보호기를 사용합니다. 도메인 가입 VM의 경우 TPM 보호기를 적용하는 그룹 정책을 푸시하지 않습니다. “호환되는 TPM이 없이 BitLocker 허용”에 대한 그룹 정책 정보는 [BitLocker 그룹 정책 참조](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)를 확인하세요.
 
 사용자 지정 그룹 정책을 사용하는 도메인 가입 가상 머신의 BitLocker 정책에는 [BitLocker 복구 정보의 사용자 스토리지 구성 -> 256비트 복구 키 허용](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings) 설정이 포함되어야 합니다. BitLocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.
+
+> [!WARNING]
+> Azure Disk Encryption은 **복구 키를 저장하지 않습니다**. [대화형 로그온: 컴퓨터 계정 잠금 임계값](/windows/security/threat-protection/security-policy-settings/interactive-logon-machine-account-lockout-threshold) 보안 설정이 사용하도록 설정된 경우 직렬 콘솔을 통해 복구 키를 제공해야만 컴퓨터를 복구할 수 있습니다. 적절한 복구 정책이 사용하도록 설정되었는지 확인하기 위한 지침은 [Bitlocker 복구 가이드 계획](/windows/security/information-protection/bitlocker/bitlocker-recovery-guide-plan)에서 찾을 수 있습니다.
 
 도메인 수준 그룹 정책이 BitLocker에서 사용하는 AES-CBC 알고리즘을 차단하는 경우 Azure Disk Encryption이 실패합니다.
 

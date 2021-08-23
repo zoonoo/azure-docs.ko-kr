@@ -8,12 +8,12 @@ ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: acacf617d3f1d9ab891d08b32fc2dfb14deb64a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 448784987f3304303a1bd47c2038440db5cdd194
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91540526"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112063237"
 ---
 # <a name="pii-detection-cognitive-skill"></a>PII 검색 인식 기술
 
@@ -41,16 +41,17 @@ Microsoft.Skills.Text.PIIDetectionSkill
 
 | 매개 변수 이름     | Description |
 |--------------------|-------------|
-| `defaultLanguageCode` |    입력 텍스트의 언어 코드입니다. 현재 `en` 만 유일하게 지원됩니다. |
+| `defaultLanguageCode` | (선택 사항) 명시적으로 언어를 지정하지 않은 문서에 적용할 언어 코드입니다.  기본 언어 코드가 지정되지 않은 경우 영어(en)가 기본 언어 코드로 사용됩니다. <br/> [지원되는 언어 전체 목록](../cognitive-services/text-analytics/language-support.md)을 참조합니다. |
 | `minimumPrecision` | 0\.0과 1.0 사이의 값입니다. `piiEntities` 출력의 신뢰도 점수가 설정 `minimumPrecision` 값보다 낮으면 엔터티가 반환 또는 마스크되지 않습니다. 기본값은 0.0입니다. |
-| `maskingMode` | 입력 텍스트에서 검색된 개인 정보를 마스킹하는 다양한 방법을 제공하는 매개 변수입니다. 다음과 같은 옵션이 지원됩니다. <ul><li>`none` (기본값): 마스킹을 수행하지 않고 `maskedText` 출력이 반환되지 않습니다. </li><li> `redact`: 입력 텍스트에서 검색된 엔터티를 제거하고 삭제된 값을 대체하지 않습니다. 이 경우 `piiEntities` 출력의 오프셋은 마스킹된 텍스트가 아니라 원래 텍스트와 관련됩니다. </li><li> `replace`: 검색된 엔터티를 `maskingCharacter` 매개 변수에 지정된 문자로 바꿉니다. 이 문자는 검색된 엔터티의 길이로 반복되어 오프셋이 입력 텍스트와 출력 `maskedText` 모두에 올바르게 일치하게 됩니다.</li></ul> |
-| `maskingCharacter` | `maskingMode` 매개 변수가 `replace`로 설정된 경우 텍스트를 마스킹하는데 사용되는 문자입니다. 지원되는 옵션은 다음과 같습니다. `*`(기본값), `#`, `X`. `maskingMode`가 `replace`으로 설정되지 않은 경우에 이 매개 변수는 `null`만 될 수 있습니다. |
+| `maskingMode` | 입력 텍스트에서 검색된 개인 정보를 마스킹하는 다양한 방법을 제공하는 매개 변수입니다. 다음과 같은 옵션이 지원됩니다. <ul><li>`none` (기본값): 마스킹을 수행하지 않고 `maskedText` 출력이 반환되지 않습니다. </li><li> `replace`: 검색된 엔터티를 `maskingCharacter` 매개 변수에 지정된 문자로 바꿉니다. 이 문자는 검색된 엔터티의 길이로 반복되어 오프셋이 입력 텍스트와 출력 `maskedText` 모두에 올바르게 일치하게 됩니다.</li></ul> <br/> PIIDetectionSkill 미리 보기 중에는 `maskingMode` 옵션 `redact`도 지원되어 검색된 엔터티를 교체 없이 완전히 제거할 수 있습니다. 이후 `redact` 옵션은 더 이상 사용되지 않으며 향후 기술에서 더 이상 지원되지 않습니다. |
+| `maskingCharacter` | `maskingMode` 매개 변수가 `replace`로 설정된 경우 텍스트를 마스킹하는데 사용되는 문자입니다. 지원되는 옵션은 다음과 같습니다. `*`(기본값). `maskingMode`가 `replace`으로 설정되지 않은 경우에 이 매개 변수는 `null`만 될 수 있습니다. <br/><br/> PIIDetectionSkill 미리 보기 동안 추가 `maskingCharacter` 옵션 `X` 및 `#`에 대한 지원이 있었습니다. 이후 `X` 및 `#` 옵션은 더 이상 사용되지 않으며 향후 기술에서 더 이상 지원되지 않습니다. |
+| `modelVersion`   | (선택 사항) Text Analytics 서비스를 호출할 때 사용할 모델의 버전입니다. 지정되지 않은 경우 기본적으로 최신 버전을 지정합니다. 필요한 경우가 아니면 이 값을 지정하지 않는 것이 좋습니다. 자세한 내용은 [Text Analytics API의 모델 버전 관리](../cognitive-services/text-analytics/concepts/model-versioning.md)를 참조하세요. |
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력 이름      | 설명                   |
+| 입력 이름      | Description                   |
 |---------------|-------------------------------|
-| `languageCode`    | 선택 사항입니다. 기본값은 `en`입니다.  |
+| `languageCode`    | 레코드의 언어를 나타내는 문자열입니다. 이 매개 변수를 지정하지 않으면 레코드를 분석하는 데 기본 언어 코드가 사용됩니다. <br/>[지원되는 언어 전체 목록](../cognitive-services/text-analytics/language-support.md) 참조  |
 | `text`          | 분석할 텍스트입니다.          |
 
 ## <a name="skill-outputs"></a>기술 출력

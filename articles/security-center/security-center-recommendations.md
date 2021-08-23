@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: da0826a349131d9d5716932abfc603be8103b788
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 3453d1a0d06fd9918f3f1ae49a519d676ab26785
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903545"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468442"
 ---
 # <a name="review-your-security-recommendations"></a>보안 권장 사항 검토
 
@@ -39,6 +39,7 @@ ms.locfileid: "107903545"
     1. 지원되는 권장 사항의 경우 맨 위 도구 모음에 다음 단추 중 하나 이상이 표시됩니다.
         - **적용** 및 **거부**([적용/거부 권장 사항을 사용하여 구성 오류 방지](prevent-misconfigurations.md) 참조)
         - 기본 정책에 대한 Azure Policy 항목으로 직접 이동하는 **정책 정의 보기**
+        - **쿼리 열기** -모든 권장 사항에는 Azure Resource Graph Explorer를 사용하여 영향을 받는 리소스에 대한 자세한 정보를 볼 수 있는 옵션이 있습니다.
     1. **심각도 표시기**
     1. **새로 고침 간격**(관련된 경우)
     1. **제외된 리소스 수** 이 권장 사항에 대한 예외가 있는 경우 제외된 리소스의 수를 표시합니다.
@@ -51,6 +52,24 @@ ms.locfileid: "107903545"
 
             :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="이유가 포함된 해당 없음 리소스":::
     1. 권장 사항을 재구성하거나 논리 앱을 트리거하는 작업 단추입니다.
+
+
+## <a name="review-recommendation-data-in-azure-resource-graph-explorer-arg"></a>ARG(Azure Resource Graph Explorer)에서 권장 사항 데이터 살펴보기
+
+권장 사항 세부 정보 페이지의 도구 모음에는 여러 구독에서 Security Center의 보안 태세 데이터를 쿼리하는 기능을 제공하는 Azure 서비스인 [ARG(Azure Resource Graph)](../governance/resource-graph/index.yml)의 세부 정보를 탐색하는 **쿼리 열기** 단추가 포함되어 있습니다.
+
+ARG는 강력한 필터링, 그룹화, 정렬 기능을 통해 클라우드 환경에서 대규모로 쿼리하는 기능을 사용하여 효율적인 리소스 탐색을 제공하도록 설계되었습니다. Azure 구독 간에 프로그래밍 방식으로 또는 Azure Portal 내에서 정보를 쿼리하는 빠르고 효율적인 방법입니다.
+
+[KQL(Kusto Query Language)](/azure/data-explorer/kusto/query/)를 사용하여 다른 리소스 속성과 함께 ASC 데이터를 상호 참조할 수 있습니다.
+
+예를 들어, 이 권장 사항 세부 정보 페이지에는 영향을 받는 15개의 리소스가 표시됩니다.
+
+:::image type="content" source="./media/security-center-recommendations/open-query.png" alt-text="권장 사항 세부 정보 페이지의 **쿼리 열기** 단추.":::
+
+기본 쿼리를 열고 실행하는 경우, Azure Resource Graph Explorer는 이 권장 사항에 대해 동일한 15개의 리소스와 해당 상태를 반환합니다. 
+
+:::image type="content" source="./media/security-center-recommendations/run-query.png" alt-text="이전 스크린샷에 표시된 권장 사항에 대한 결과를 보여 주는 Azure Resource Graph Explorer.":::
+
 
 ## <a name="preview-recommendations"></a>미리 보기 권장 사항
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: robinsh
 ms.custom: amqp
-ms.openlocfilehash: f33521dd9110d7ba6ee84650345b38c8c6a4950b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa264c0254ad2b91df0493a439f4dae2456079da
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92149139"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114295541"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>C용 Azure IoT 디바이스 SDK – IoTHubClient에 대한 자세한 정보
 
@@ -273,7 +273,7 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 **C용 Azure IoT 디바이스 SDK** 에 있는 **IoTHubClient** 라이브러리의 동작에 대해 자세히 설명합니다. 이 정보를 사용하여 **IoTHubClient** 라이브러리의 기능에 대해 잘 알고 있어야 합니다. 이 시리즈의 두 번째 문서는 [C용 Azure IoT 디바이스 SDK - 직렬 변환기](iot-hub-device-sdk-c-serializer.md)로, **직렬 변환기** 라이브러리에 대한 유사한 세부 정보를 제공합니다.
+이 문서에서는 **C용 Azure IoT 디바이스 SDK** 에 있는 **IoTHubClient** 라이브러리의 동작에 대해 자세히 설명합니다. 이 정보를 사용하여 **IoTHubClient** 라이브러리의 기능에 대해 잘 알고 있어야 합니다. 
 
 IoT Hub를 개발하는 방법에 대한 자세한 내용은 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 

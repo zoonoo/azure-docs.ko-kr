@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery를 사용하여 Mobility Service 푸시 설치 문제 해결
 description: Azure Site Recovery를 사용하여 재해 복구를 위해 복제를 사용하도록 설정할 때 Mobility Services 설치 오류 문제를 해결합니다.
-author: Rajeswari-Mamilla
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: ramamill
-ms.date: 04/03/2020
-ms.openlocfilehash: 62c8240a4d2e50aa3b584f322baf7d2ee217c6d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: 021038710bb53134304c7bd307868fed46148e5c
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98127875"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576540"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Mobility Service 푸시 설치 문제 해결
 

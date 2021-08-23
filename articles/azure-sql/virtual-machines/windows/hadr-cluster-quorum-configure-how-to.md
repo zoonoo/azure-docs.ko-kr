@@ -11,14 +11,14 @@ ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/01/2021
+ms.date: 04/30/2021
 ms.author: chadam
-ms.openlocfilehash: b1db3b5d809c8dd80b0d03d5bdd15636115fdef0
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 6b974628adeb1d1562d3735fcb55704adc8e2d98
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112581946"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111573258"
 ---
 # <a name="configure-cluster-quorum-for-sql-server-on-azure-vms"></a>Azure VM에서 SQL Server를 위한 클러스터 쿼럼 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -215,4 +215,4 @@ Windows Server 장애 조치(Failover) 클러스터에 참가하는 노드의 �
 - [Azure VM에서 SQL Server를 사용하는 Always On 가용성 그룹](availability-group-overview.md)
 - [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
 - [Azure VM에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)
-- [장애 조치(Failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [장애 조치(failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

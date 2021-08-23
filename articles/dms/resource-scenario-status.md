@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: a57f13b9dc54c69e079e652be94f4b08b716a079
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: 237de7e75007de85054501ed76b253a6eedf4346
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112523063"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111528373"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure Database Migration Service에서 지원하는 마이그레이션 시나리오 상태
 
@@ -53,12 +53,12 @@ Azure Database Migration Service에서 지원하는 마이그레이션 시나리
 | **Azure SQL VM** | SQL Server | ✔ | GA |
 |   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB for MySQL - 단일 서버** | MySQL | ✔ | GA  |
-|   | RDS MySQL | ✔ | GA  |
-|   | Azure DB for MySQL* | ✔ | GA  |
-| **Azure DB for MySQL - 유연한 서버** | MySQL | ✔ | GA  |
-|   | RDS MySQL | ✔ | GA  |
-|   | Azure DB for MySQL* | ✔ | GA  |
+| **Azure DB for MySQL - 단일 서버** | MySQL | ✔ | 공개 미리 보기  |
+|   | RDS MySQL | ✔ | 공개 미리 보기  |
+|   | Azure DB for MySQL* | ✔ | 공개 미리 보기  |
+| **Azure DB for MySQL - 유연한 서버** | MySQL | ✔ | 공개 미리 보기  |
+|   | RDS MySQL | ✔ | 공개 미리 보기  |
+|   | Azure DB for MySQL* | ✔ | 공개 미리 보기  |
 | **Azure DB for PostgreSQL - 단일 서버** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
 | **DB for PostgreSQL - 유연한 서버** | PostgreSQL | X |
@@ -81,8 +81,8 @@ Azure Database Migration Service에서 지원하는 마이그레이션 시나리
 | **Azure SQL VM** | SQL Server | X |   |
 |   | Oracle  | X |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **MySQL용 Azure DB** | MySQL | X |  |
-|   | RDS MySQL | X |  |
+| **MySQL용 Azure DB** | MySQL | ✔ | GA |
+|   | RDS MySQL | ✔ | GA |
 | **Azure DB for PostgreSQL - 단일 서버** | PostgreSQL | ✔ | GA |
 |   | Azure DB for PostgreSQL - 단일 서버* | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |

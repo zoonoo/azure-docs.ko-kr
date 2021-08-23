@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 6b6883910c68f719478b9da6f141720592a4392a
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 039baa02a9504d0df9681370f31fef45f6c2ed99
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060492"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114291011"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>스토리지 계정 액세스 키 다시 생성
 
@@ -25,7 +25,7 @@ Azure Machine Learning에서 사용하는 Azure Storage 계정의 액세스 키�
 보안을 위해 Azure Storage 계정에 대한 액세스 키를 변경해야 할 수 있습니다. 액세스 키를 다시 생성하는 경우 새 키를 사용하도록 Azure Machine Learning을 업데이트해야 합니다. Azure Machine Learning은 모델 스토리지 및 데이터 스토리지에 대한 스토리지 계정을 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 데이터 저장소에 등록된 자격 증명은 작업 영역과 연결된 Azure Key Vault에 저장됩니다. Key Vault에 대해 [일시 삭제](../key-vault/general/soft-delete-overview.md)를 사용하도록 설정한 경우 이 문서에서는 자격 증명을 업데이트하는 지침을 제공합니다. 데이터 저장소의 등록을 취소하고 같은 이름으로 다시 등록하려는 경우 이 작업은 실패합니다. 이 시나리오에서 일시 삭제를 사용하도록 설정하는 방법은 [기존 키 자격 증명 모음에 대해 일시 삭제 설정](/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault)을 참조하세요.
+> 데이터 저장소에 등록된 자격 증명은 작업 영역과 연결된 Azure Key Vault에 저장됩니다. Key Vault에 대해 [일시 삭제](../key-vault/general/soft-delete-overview.md)를 사용하도록 설정한 경우 이 문서에서는 자격 증명을 업데이트하는 지침을 제공합니다. 데이터 저장소의 등록을 취소하고 같은 이름으로 다시 등록하려는 경우 이 작업은 실패합니다. 이 시나리오에서 일시 삭제를 사용하도록 설정하는 방법은 [기존 키 자격 증명 모음에 대해 일시 삭제 설정](../key-vault/general/soft-delete-change.md#turn-on-soft-delete-for-an-existing-key-vault)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

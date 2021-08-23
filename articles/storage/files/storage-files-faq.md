@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 4d7123aa22d95e3e4c3850be775ddad96f28d280
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: ff5d891b4374a61c8806666a48505a2ee4682a67
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785310"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094477"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 및 [NFS(네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System)(미리 보기)을 통해 액세스할 수 있는 클라우드에서 완전 관리형 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -31,7 +31,7 @@ ms.locfileid: "107785310"
 
 * <a id="file-access-options"></a>
   **Azure Files에서 파일에 액세스하는 다른 방법은 무엇인가요?**  
-    SMB 3.0 프로토콜을 사용하여 로컬 머신에 SMB 파일 공유를 탑재하거나 [Storage Explorer](https://storageexplorer.com/)와 같은 도구를 사용하여 파일 공유의 파일을 액세스할 수 있습니다. Azure 포털에서 제공하는 스크립트를 복사/붙여넣기하여 NFS 파일 공유를 로컬 머신에 탑재할 수 있습니다. 애플리케이션에서 스토리지 클라이언트 라이브러리, REST API, Powershell 또는 Azure CLI를 사용하여 Azure 파일 공유의 파일에 액세스할 수 있습니다.
+    SMB 3.x 프로토콜을 사용하여 로컬 머신에 SMB 파일 공유를 탑재하거나 [Storage Explorer](https://storageexplorer.com/)와 같은 도구를 사용하여 파일 공유의 파일을 액세스할 수 있습니다. Azure 포털에서 제공하는 스크립트를 복사/붙여넣기하여 NFS 파일 공유를 로컬 머신에 탑재할 수 있습니다. 애플리케이션에서 스토리지 클라이언트 라이브러리, REST API, Powershell 또는 Azure CLI를 사용하여 Azure 파일 공유의 파일에 액세스할 수 있습니다.
 
 * <a id="what-is-afs"></a>
   **Azure 파일 동기화란?**  
@@ -335,7 +335,7 @@ ms.locfileid: "107785310"
 * <a id="backup-nfs-data"></a>
 **NFS 공유에 저장된 데이터는 어떻게 백업하나요?**
 
-    NFS 공유에서 데이터 백업은 rsync와 같은 익숙한 도구나 타사 백업 파트너 제품 중 하나를 사용하여 오케스트레이션할 수 있습니다. [Commvault](https://documentation.commvault.com/commvault/v11/article?p=92634.htm), [Veeam](https://www.veeam.com/blog/?p=123438), [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001) 등 여러 백업 파트너가 초기 미리 보기의 일부였으며 Azure Files용 SMB 3.0 및 NFS 4.1과 함께 작동하도록 솔루션을 확장했습니다.
+    NFS 공유에서 데이터 백업은 rsync와 같은 익숙한 도구나 타사 백업 파트너 제품 중 하나를 사용하여 오케스트레이션할 수 있습니다. [Commvault](https://documentation.commvault.com/commvault/v11/article?p=92634.htm), [Veeam](https://www.veeam.com/blog/?p=123438), [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001) 등 여러 백업 파트너가 초기 미리 보기의 일부였으며 Azure Files용 SMB 3.x 및 NFS 4.1과 함께 작동하도록 솔루션을 확장했습니다.
 
 * <a id="migrate-nfs-data"></a>
 **기존 데이터를 NFS 공유로 마이그레이션할 수 있나요?**
@@ -347,7 +347,7 @@ ms.locfileid: "107785310"
 * <a id="port-445-blocked"></a>
 **ISP 또는 IT가 포트 445를 차단하여 Azure Files 탑재가 실패합니다. 어떻게 해야 하나요?**
 
-    [차단된 포트 445를 해결하는 다양한 방법에 대해 여기](./storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked)에서 알아볼 수 있습니다. Azure Files는 지역 또는 데이터 센터 외부에서 SMB 3.0(암호화 지원)을 사용하는 연결만 허용합니다. SMB 3.0 프로토콜에는 인터넷을 통해 사용하기에 매우 안전한 채널 암호화를 비롯한 많은 보안 기능이 도입되었습니다. 그러나 과거 낮은 SMB 버전에서 발견된 취약점으로 인해 포트 445가 차단되었을 수 있습니다. 이상적으로는 포트는 SMB 1.0 트래픽에 대해서만 차단되어야 하며 SMB 1.0은 모든 클라이언트에서 해제되어야 합니다.
+    [차단된 포트 445를 해결하는 다양한 방법에 대해 여기](./storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked)에서 알아볼 수 있습니다. Azure Files는 지역 또는 데이터 센터 외부에서 SMB 3.x(암호화 지원)를 사용하는 연결만 허용합니다. SMB 3.x 프로토콜은 인터넷에서 사용하기에 매우 안전한 채널 암호화를 포함하여 많은 보안 기능을 도입했습니다. 그러나 과거 낮은 SMB 버전에서 발견된 취약점으로 인해 포트 445가 차단되었을 수 있습니다. 이상적으로는 포트는 SMB 1.0 트래픽에 대해서만 차단되어야 하며 SMB 1.0은 모든 클라이언트에서 해제되어야 합니다.
 
 * <a id="expressroute-not-required"></a>
 **Azure Files에 연결하거나 온-프레미스에서 Azure 파일 동기화를 사용하려면 Azure ExpressRoute를 사용해야 하나요?**  
@@ -357,7 +357,7 @@ ms.locfileid: "107785310"
 * <a id="mount-locally"></a>
 **내 로컬 컴퓨터에서 Azure 파일 공유를 탑재하려면 어떻게 해야 하나요?**  
 
-    445 포트(TCP 아웃바운드)가 열려 있고 클라이언트(예: Windows 10 또는 Windows Server 2016을 사용하는 경우)에서 SMB 3.0 프로토콜을 지원하는 경우 SMB 프로토콜을 사용하여 파일 공유를 탑재할 수 있습니다. 포트 445가 조직의 정책이나 ISP에 의해 차단되어 있으면 Azure 파일 동기화를 사용하여 Azure 파일 공유에 액세스할 수 있습니다.
+    포트 445(TCP 아웃바운드)가 열려 있고 클라이언트가 SMB 3.x 프로토콜을 지원하는 경우(예: Windows 10 또는 Windows Server 2016을 사용하는 경우) SMB 프로토콜을 사용하여 파일 공유를 탑재할 수 있습니다. 포트 445가 조직의 정책이나 ISP에 의해 차단되어 있으면 Azure 파일 동기화를 사용하여 Azure 파일 공유에 액세스할 수 있습니다.
 
 ## <a name="backup"></a>Backup
 * <a id="backup-share"></a>

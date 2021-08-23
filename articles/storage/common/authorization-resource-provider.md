@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 09853e6dd96f41f966ff4344f886f1e6323b6c2c
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: fcf3e9228c8e651efb8f97067f7ba9eead5959db
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733649"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "92789678"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Azure Storage 리소스 공급자를 사용하여 관리 리소스 액세스
 
@@ -28,7 +28,7 @@ Microsoft는 Azure Storage 리소스로 작업하기 위한 두 가지 REST API�
 
 Blob 데이터를 읽거나 쓰는 요청에는 관리 작업을 수행하는 요청과는 다른 권한이 필요합니다. Azure RBAC를 통해 두 리소스 종류에 대한 권한을 모두 세밀하게 제어할 수 있습니다. 보안 주체에 Azure 역할을 할당하는 경우 보안 주체에 부여되는 권한을 이해해야 합니다. 각 Azure 기본 제공 역할과 연결된 작업을 설명하는 자세한 참조를 보려면 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
-Azure Storage는 Azure AD를 사용하여 Blob 및 큐 스토리지에 대한 요청에 권한을 부여할 수 있도록 지원합니다. Blob과 큐 데이터 작업을 위한 Azure 역할에 대한 자세한 내용은 [Active Directory를 사용하여 Blob 및 큐에 대한 액세스 권한 부여](authorize-data-access.md)를 참조하세요.
+Azure Storage는 Azure AD를 사용하여 Blob 및 큐 스토리지에 대한 요청에 권한을 부여할 수 있도록 지원합니다. Blob과 큐 데이터 작업을 위한 Azure 역할에 대한 자세한 내용은 [Active Directory를 사용하여 Blob 및 큐에 대한 액세스 권한 부여](storage-auth-aad.md)를 참조하세요.
 
 ## <a name="assign-management-permissions-with-azure-role-based-access-control-azure-rbac"></a>Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 관리 권한 할당
 

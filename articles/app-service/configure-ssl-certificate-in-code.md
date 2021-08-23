@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 09/22/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: b4e184f827875ebebd40ab976ef63e77ee702d49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 795353c88853d53864edb2968c757d14f106ee3f
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93126042"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110585394"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Azure App Service의 코드에서 TLS/SSL 인증서 사용
 
@@ -71,7 +71,7 @@ using (X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUs
                               certThumbprint,
                               validOnly);
   // Get the first cert with the thumbprint
-  X509Certificate2 cert = certCollection.OfType<X509Certificate>().FirstOrDefault();
+  X509Certificate2 cert = certCollection.OfType<X509Certificate2>().FirstOrDefault();
 
   if (cert is null)
       throw new Exception($"Certificate with thumbprint {certThumbprint} was not found");
@@ -159,6 +159,19 @@ using System.Security.Cryptography.X509Certificates;
 
 ...
 var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
+var cert = new X509Certificate2(bytes);
+
+// Use the loaded certificate
+```
+
+다음 C# 코드는 Linux 앱에서 개인 인증서를 로드하는 방법을 보여 줍니다.
+
+```csharp
+using System;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
+...
+var bytes = File.ReadAllBytes("/var/ssl/private/<thumbprint>.p12");
 var cert = new X509Certificate2(bytes);
 
 // Use the loaded certificate

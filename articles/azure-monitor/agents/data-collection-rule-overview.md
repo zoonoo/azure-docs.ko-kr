@@ -5,12 +5,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
-ms.openlocfilehash: a52d6dca423565e7b5e4b6ac059bcf21b637c87c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: references_region
+ms.openlocfilehash: e7da31ec80153fe2d2bd6923850a4342886fa9be
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104586338"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110495573"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Azure Monitor의 데이터 수집 규칙(미리 보기)
 DCR(데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정의하고 데이터를 보내거나 저장할 위치를 지정합니다. 이 문서에서는 콘텐츠 및 구조체를 포함한 데이터 수집 규칙의 개요와 이를 만들고 사용하는 방법을 설명합니다.
@@ -50,6 +51,10 @@ DCR(데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정�
 ## <a name="limits"></a>제한
 각 데이터 수집 규칙에 적용되는 제한에 대해서는 [Azure Monitor 서비스 제한](../service-limits.md#data-collection-rules)을 참조하세요.
 
+## <a name="data-residency"></a>데이터 상주 
+서비스의 데이터 수집 규칙은 분산되어 배포됩니다. 사용자가 지정하는 지역에 규칙이 생성되어 저장되고 동일한 지역 내에서 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md#azure-regional-pairs)에 백업됩니다.  
+
+**단일 지역 데이터 상주**: 단일 지역에 고객 데이터를 저장할 수 있는 기능은 현재 아시아 태평양 지역의 동남 아시아 지역(싱가포르) 및 브라질 지역의 브라질 남부(상파울루 주)에서만 사용할 수 있습니다. 이러한 지역에서는 단일 지역 상주가 기본적으로 사용하도록 설정되어 있습니다.
 
 ## <a name="create-a-dcr"></a>DCR 만들기
 다음 중 원하는 방법을 사용하여 DCR을 만들 수 있습니다.

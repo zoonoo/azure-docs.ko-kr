@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 29922f088a51e4876e5e2ec8fe87c3bbce4482f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f63a623029e932fca08ab01113b460e8b601d46b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521682"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112287122"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights Agent(구 상태 모니터 v2): 상세 지침
 
@@ -216,7 +216,7 @@ PowerShell 세션에서 검색할 수 있도록 수동으로 다운로드한 Pow
 PowerShell 갤러리에서 Az.ApplicationMonitor를 다운로드 및 설치하기 위한 PowerShell 명령은 `-Proxy` 매개 변수를 지원합니다.
 설치 스크립트를 작성하는 경우 위의 지침을 검토합니다.
 
-Application Insights SDK는 앱의 원격 분석 데이터를 Microsoft로 전송해야 합니다. web.config 파일에서 앱에 대한 프록시 설정을 구성하는 것이 좋습니다. 자세한 내용은 [Application Insights FAQ: 프록시 통과](../faq.md#proxy-passthrough)를 참조하세요.
+Application Insights SDK는 앱의 원격 분석 데이터를 Microsoft로 전송해야 합니다. web.config 파일에서 앱에 대한 프록시 설정을 구성하는 것이 좋습니다. 자세한 내용은 [Application Insights FAQ: 프록시 통과](../faq.yml)를 참조하세요.
 
 
 ## <a name="enable-monitoring"></a>모니터링 사용

@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 309cf3882ade99de3f2e29a037d20ca50e35f490
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 966b471efc7fcadbb4207fe94bb11e5333bfb0a0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066673"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095449"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스란?
 
 Azure Machine Learning 컴퓨팅 인스턴스는 데이터 과학자를 위한 관리형 클라우드 기반 워크스테이션입니다.
 
-컴퓨팅 인스턴스를 사용하면 Azure Machine Learning 개발을 손쉽게 시작할 수 있을 뿐만 아니라 IT 관리자에게 관리 및 엔터프라이즈 준비 기능을 제공할 수 있습니다.  
+컴퓨팅 인스턴스를 사용하면 Azure Machine Learning 개발을 손쉽게 시작할 수 있을 뿐만 아니라 IT 관리자에게 관리 및 엔터프라이즈 준비 기능을 제공할 수 있습니다.
 
-기계 학습을 위해 클라우드에서 완전히 구성되고 관리된 개발 환경으로 컴퓨팅 인스턴스를 사용합니다. 또한 개발 및 테스트 목적으로 학습 및 추론을 위한 컴퓨팅 대상으로도 사용할 수 있습니다.  
+기계 학습을 위해 클라우드에서 완전히 구성되고 관리된 개발 환경으로 컴퓨팅 인스턴스를 사용합니다. 또한 개발 및 테스트 목적으로 학습 및 추론을 위한 컴퓨팅 대상으로도 사용할 수 있습니다.
 
 프로덕션 등급 모델 학습의 경우 다중 노드 크기 조정 기능이 포함된 [Azure Machine Learning 컴퓨팅 클러스터](how-to-create-attach-compute-cluster.md)를 사용합니다. 프로덕션 등급 모델 배포의 경우 [Azure Kubernetes Service 클러스터](how-to-deploy-azure-kubernetes-service.md)를 사용합니다.
 
@@ -34,26 +34,29 @@ Azure Machine Learning 컴퓨팅 인스턴스는 데이터 과학자를 위한 �
 
 |주요 이점|설명|
 |----|----|
-|생산성|Azure Machine Learning 스튜디오에서 통합 Notebook 및 다음 도구를 사용하여 모델을 빌드 및 배포할 수 있습니다.<br/>-  Jupyter<br/>-  JupyterLab<br/>-  RStudio(미리 보기)<br/>컴퓨팅 인스턴스는 Azure Machine Learning 작업 영역 및 스튜디오와 완전히 통합됩니다. 작업 영역의 다른 데이터 과학자와 Notebook 및 데이터를 공유할 수 있습니다.<br/> 또한 컴퓨팅 인스턴스와 [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630)를 사용할 수도 있습니다.
+|생산성|Azure Machine Learning 스튜디오에서 통합 Notebook 및 다음 도구를 사용하여 모델을 빌드 및 배포할 수 있습니다.<br/>-  Jupyter<br/>-  JupyterLab<br/>- VS Code(미리 보기)<br/>-  RStudio(미리 보기)<br/>컴퓨팅 인스턴스는 Azure Machine Learning 작업 영역 및 스튜디오와 완전히 통합됩니다. 작업 영역의 다른 데이터 과학자와 Notebook 및 데이터를 공유할 수 있습니다.<br/> 또한 컴퓨팅 인스턴스와 [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630)를 사용할 수도 있습니다.
 |관리 및 보안|보안 공간을 줄이고 엔터프라이즈 보안 요구 사항에 따라 규정 준수를 추가합니다. 컴퓨팅 인스턴스는 다음과 같은 강력한 관리 정책과 보안 네트워킹 구성을 제공합니다.<br/><br/>- Resource Manager 템플릿 또는 Azure Machine Learning SDK에서 자동 프로비저닝<br/>- [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md)<br/>- [가상 네트워크 지원](./how-to-secure-training-vnet.md#compute-instance)<br/>- SSH 액세스를 사용하거나 사용하지 않도록 설정하는 SSH 정책<br/>TLS 1.2 사용 |
 |ML&nbsp;용&nbsp;으로 미리 구성|사전 구성된 최신 ML 패키지, 딥 러닝 프레임워크 및 GPU 드라이버를 통해 설치 작업에 드는 시간을 절약할 수 있습니다.|
 |완전한 사용자 지정 기능|GPU를 비롯한 Azure VM 형식에 대한 광범위한 지원과 패키지 및 드라이버 설치와 같은 지속형의 하위 수준 사용자 지정을 통해 고급 시나리오를 간편하게 만들 수 있습니다. |
 
-사용자가 직접 [컴퓨팅 인스턴스 만들기](how-to-create-manage-compute-instance.md?tabs=python#create)를 하거나 관리자가 [사용자를 위해 컴퓨팅 인스턴스 만들기](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of-preview)를 할 수도 있습니다.
+사용자가 직접 [컴퓨팅 인스턴스 만들거나](how-to-create-manage-compute-instance.md?tabs=python#create) 관리자가 **[사용자를 대신하여 컴퓨팅 인스턴스 만들 수 있습니다](how-to-create-manage-compute-instance.md?tabs=python#on-behalf)** .
+
+또한 **[설정 스크립트(미리 보기)를 사용](how-to-create-manage-compute-instance.md#setup-script)** 하여 필요에 따라 컴퓨팅 인스턴스를 사용자 지정하고 구성할 수 있습니다.
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>도구 및 환경
 
 > [!IMPORTANT]
 > 이 문서에 표시된 항목(미리 보기)은 현재 퍼블릭 미리 보기에서 확인할 수 있습니다.
-> 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure Machine Learning 컴퓨팅 인스턴스를 사용하면 작업 영역의 완전 통합형 Notebook 환경에서 모델을 작성, 학습 및 배포할 수 있습니다.
 
 SSH가 필요 없는 컴퓨팅 인스턴스를 원격 서버로 사용하여 [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630)에서 Jupyter Notebook을 실행할 수 있습니다. [원격 SSH 확장](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/)을 통해 VS Code 통합을 사용하도록 설정할 수도 있습니다.
 
-컴퓨팅 인스턴스에 [패키지 설치](how-to-access-terminal.md#install-packages) 및 [커널 추가](how-to-access-terminal.md#add-new-kernels)를 수행할 수 있습니다.  
+컴퓨팅 인스턴스에 [패키지 설치](how-to-access-terminal.md#install-packages) 및 [커널 추가](how-to-access-terminal.md#add-new-kernels)를 수행할 수 있습니다.
 
-다음과 같은 도구 및 환경이 컴퓨팅 인스턴스에 이미 설치되어 있습니다. 
+다음과 같은 도구 및 환경이 컴퓨팅 인스턴스에 이미 설치되어 있습니다.
 
 |일반적인 도구 및 환경|세부 정보|
 |----|:----:|
@@ -64,7 +67,7 @@ SSH가 필요 없는 컴퓨팅 인스턴스를 원격 서버로 사용하여 [VS
 |Docker||
 |Nginx||
 |NCCL 2.0 ||
-|Protobuf|| 
+|Protobuf||
 
 |**R** 도구 및 환경|세부 정보|
 |----|:----:|
@@ -84,7 +87,7 @@ SSH가 필요 없는 컴퓨팅 인스턴스를 원격 서버로 사용하여 [VS
 |ONNX 패키지|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
 |Azure Machine Learning Python 및 R SDK 샘플||
 
-Python 패키지는 **Python 3.6 - AzureML** 환경에 모두 설치됩니다.  
+Python 패키지는 **Python 3.8 - AzureML** 환경에 모두 설치됩니다. 컴퓨팅 인스턴스는 Ubuntu 18.04를 기본 OS로 포함합니다.
 
 ## <a name="accessing-files"></a>파일에 액세스
 
@@ -96,9 +99,9 @@ Notebook 및 R 스크립트는 Azure 파일 공유에서 작업 영역의 기본
 
 또한 작업 영역 파일 공유의 사용자 파일 디렉터리 아래에 있는 폴더에 최신 Azure Machine Learning 샘플을 복제할 수 있습니다.
 
-네트워크 드라이브에서 작은 파일을 작성하는 것이 컴퓨팅 인스턴스 로컬 디스크 자체에 작성하는 것에 비해 느릴 수 있습니다.  많은 작은 파일을 작성하는 경우 `/tmp` 디렉터리와 같이 컴퓨팅 인스턴스에서 직접 디렉터리를 사용해보세요. 이러한 파일은 다른 컴퓨팅 인스턴스에서 액세스할 수 없습니다. 
+네트워크 드라이브에서 작은 파일을 작성하는 것이 컴퓨팅 인스턴스 로컬 디스크 자체에 작성하는 것에 비해 느릴 수 있습니다.  많은 작은 파일을 작성하는 경우 `/tmp` 디렉터리와 같이 컴퓨팅 인스턴스에서 직접 디렉터리를 사용해보세요. 이러한 파일은 다른 컴퓨팅 인스턴스에서 액세스할 수 없습니다.
 
-임시 데이터에 대해 컴퓨팅 인스턴스의 `/tmp` 디렉터리를 사용할 수 있습니다.  그러나 컴퓨팅 인스턴스의 OS 디스크에 대용량 데이터 파일을 기록하지 않아야 합니다.  대신 [데이터 저장소](concept-azure-machine-learning-architecture.md#datasets-and-datastores)를 사용할 수 있습니다. JupyterLab Git 확장을 설치한 경우 컴퓨팅 인스턴스 성능 저하로 이어질 수도 있습니다.
+Notebooks 파일 공유에 학습 데이터를 저장하지 마세요. 임시 데이터에 대해 컴퓨팅 인스턴스의 `/tmp` 디렉터리를 사용할 수 있습니다.  그러나 컴퓨팅 인스턴스의 OS 디스크에 매우 큰 데이터 파일은 작성하지 마세요. 컴퓨팅 인스턴스의 OS 디스크 용량은 128GB입니다. /mnt에 탑재된 임시 디스크에 임시 학습 데이터를 저장할 수도 있습니다. 임시 디스크 크기는 선택한 VM 크기에 따라 구성할 수 있으며 더 큰 크기의 VM을 선택한 경우 더 많은 양의 데이터를 저장할 수 있습니다. [데이터 저장소 및 데이터 세트](concept-azure-machine-learning-architecture.md#datasets-and-datastores)를 탑재할 수도 있습니다.
 
 ## <a name="managing-a-compute-instance"></a>컴퓨팅 인스턴스 관리
 
@@ -106,70 +109,31 @@ Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅** 을 선택한
 
 ![컴퓨팅 인스턴스 관리](./media/concept-compute-instance/manage-compute-instance.png)
 
-다음 작업을 수행할 수 있습니다.
-
-* [컴퓨팅 인스턴스를 만듭니다](#create). 
-* 컴퓨팅 인스턴스 탭을 새로 고칩니다.
-* 컴퓨팅 인스턴스를 시작, 중지, 다시 시작합니다.  인스턴스가 실행될 때마다 비용을 지불해야 합니다. 비용을 줄이기 위해 컴퓨팅 인스턴스를 사용하지 않을 때는 이를 중지합니다. 컴퓨팅 인스턴스를 중지하면 할당을 취소합니다. 그런 다음, 필요할 때 다시 시작합니다. 컴퓨팅 인스턴스를 중지하면 컴퓨팅 시간에 대한 청구는 중지되지만 디스크, 공용 IP, 표준 부하 분산 장치에 대한 비용은 여전히 청구됩니다.
-* 컴퓨팅 인스턴스 삭제
-* 생성한 컴퓨팅 인스턴스만 표시하도록 컴퓨팅 인스턴스 목록을 필터링합니다.
-
-사용할 수 있는 작업 영역의 각 컴퓨팅 인스턴스에 대해 다음을 수행할 수 있습니다.
-
-* 컴퓨팅 인스턴스에서 Jupyter, JupyterLab, RStudio에 액세스합니다.
-* SSH를 컴퓨팅 인스턴스로 실행합니다. SSH 액세스는 기본적으로 사용하지 않도록 설정되어 있지만 컴퓨팅 인스턴스 생성 시 사용하도록 설정할 수 있습니다. SSH 액세스에는 공개/프라이빗 키 메커니즘이 사용됩니다. 탭에 IP 주소, 사용자 이름 및 포트 번호와 같은 SSH 연결에 대한 세부 정보가 제공됩니다.
-* 특정 컴퓨팅 인스턴스에 대한 세부 정보(예: IP 주소 및 지역)를 가져옵니다.
-
-[Azure RBAC](../role-based-access-control/overview.md)를 사용하면 작업 영역에서 컴퓨팅 인스턴스를 생성, 삭제, 시작, 중지, 다시 시작할 수 있는 사용자를 제어할 수 있습니다. 작업 영역 기여자 및 소유자 역할의 모든 사용자는 작업 영역에서 컴퓨팅 인스턴스를 만들고, 삭제, 시작, 중지 및 다시 시작할 수 있습니다. 그러나 특정 컴퓨팅 인스턴스의 작성자 또는 컴퓨팅 인스턴스를 대신하여 만들어진 경우 할당된 사용자만 이 컴퓨팅 인스턴스에서 Jupyter, JupyterLab, RStudio에 액세스할 수 있습니다. 컴퓨팅 인스턴스는 루트 액세스 권한이 있는 단일 사용자 전용이며 Jupyter/JupyterLab/RStudio를 통해 터미널에 들어갈 수 있습니다. 컴퓨팅 인스턴스는 단일 사용자 로그인을 사용하며 모든 작업에는 Azure RBAC에 대한 사용자의 ID 및 실험 실행의 특성이 사용됩니다. SSH 액세스는 공개/프라이빗 키 메커니즘을 통해 제어됩니다.
-
-Azure RBAC는 다음 작업을 제어할 수 있습니다.
-* *Microsoft.MachineLearningServices/workspaces/computes/read*
-* *Microsoft.MachineLearningServices/workspaces/computes/write*
-* *Microsoft.MachineLearningServices/workspaces/computes/delete*
-* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
-
-컴퓨팅 인스턴스를 만들려면 다음 작업에 대한 사용 권한이 있어야 합니다.
-* *Microsoft.MachineLearningServices/workspaces/computes/write*
-* *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
-
+컴퓨팅 인스턴스 관리에 대한 자세한 내용은 [Azure Machine Learning 컴퓨팅 인스턴스 만들기 및 관리](how-to-create-manage-compute-instance.md)를 참조하세요.
 
 ### <a name="create-a-compute-instance"></a><a name="create"></a>컴퓨팅 인스턴스 생성
 
-Azure Machine Learning 스튜디오의 작업 영역에서 Notebook 중 하나를 실행할 준비가 되면 **컴퓨팅** 섹션 또는 **Notebook** 섹션에서 [새 컴퓨팅 인스턴스 만들기](how-to-create-attach-compute-studio.md#compute-instance)를 수행합니다. 
+관리자는 **[작업 영역의 다른 사용자를 위한 컴퓨팅 인스턴스를 만들 수 있습니다(미리 보기)](how-to-create-manage-compute-instance.md#on-behalf)** .
+
+**[설정 스크립트(미리 보기)를 사용](how-to-create-manage-compute-instance.md#setup-script)** 하여 컴퓨팅 인스턴스를 자동으로 사용자 지정하고 구성할 수도 있습니다.
+
+직접 컴퓨팅 인스턴스를 만들려면 Azure Machine Learning 스튜디오의 작업 영역을 사용하고 **컴퓨팅** 섹션 또는 **Notebooks** 섹션(Notebooks 중 하나를 실행할 준비가 된 경우)에서 [새 컴퓨팅 인스턴스를 만듭니다](how-to-create-attach-compute-studio.md#compute-instance).
 
 인스턴스를 만들 수도 있습니다.
-* [통합 Notebook 환경](tutorial-1st-experiment-sdk-setup.md#azure)에서 직접 만들기
+* [통합 Notebook 환경](tutorial-train-models-with-aml.md#azure)에서 직접 만들기
 * Azure Portal에서
-* Azure Resource Manager 템플릿에서 만들기. 예제 템플릿의 경우 [Azure Machine Learning 컴퓨팅 인스턴스 만들기 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance)을 참조하세요.
+* Azure Resource Manager 템플릿에서 만들기. 예제 템플릿의 경우 [Azure Machine Learning 컴퓨팅 인스턴스 만들기 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance)을 참조하세요.
 * [Azure Machine Learning SDK](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/concept-compute-instance.md) 사용하여 만들기
 * [Azure Machine Learning용 CLI 확장](reference-azure-machine-learning-cli.md#computeinstance)에서 만들기
 
-컴퓨팅 인스턴스 만들기에 적용되는 VM 제품군 할당량 및 총 지역 할당량당 지역별 전용 코어는 Azure Machine Learning 학습 컴퓨팅 클러스터 할당량과 통합 및 공유됩니다. 컴퓨팅 인스턴스를 중지해도 컴퓨팅 인스턴스를 다시 시작할 수 있도록 할당량이 해제되지 않습니다.
+컴퓨팅 인스턴스 만들기에 적용되는 VM 제품군 할당량 및 총 지역 할당량당 지역별 전용 코어는 Azure Machine Learning 학습 컴퓨팅 클러스터 할당량과 통합 및 공유됩니다. 컴퓨팅 인스턴스를 중지해도 컴퓨팅 인스턴스를 다시 시작할 수 있도록 할당량이 해제되지 않습니다. OS 터미널을 통해 sudo 종료를 수행하여 컴퓨팅 인스턴스를 중지하지 마세요.
 
+컴퓨팅 인스턴스는 P10 OS 디스크와 함께 제공됩니다. 임시 디스크 유형은 선택한 VM 크기에 따라 달라 집니다. 현재 OS 디스크 유형은 변경할 수 없습니다.
 
-### <a name="create-on-behalf-of-preview"></a>대신 만들기(미리 보기)
-
-관리자는 데이터 과학자를 대신하여 컴퓨팅 인스턴스를 만들고 다음과 같은 방법으로 만들어진 인스턴스를 할당할 수 있습니다.
-* [Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  이 템플릿에 필요한 TenantID 및 ObjectID를 찾는 방법에 관한 자세한 내용은 [인증 구성에 대한 ID 개체 ID 찾기](../healthcare-apis/fhir/find-identity-object-ids.md)를 참조하세요.  Azure Active Directory 포털에서 이러한 값을 찾을 수도 있습니다.
-* REST API
-
-컴퓨팅 인스턴스를 만드는 데이터 과학자에게는 다음과 같은 Azure RBAC 사용 권한이 필요합니다. 
-* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action*
-
-데이터 과학자는 컴퓨팅 인스턴스를 시작, 중지, 다시 시작할 수 있습니다. 다음에 대해 컴퓨팅 인스턴스를 사용할 수 있습니다.
-* Jupyter
-* JupyterLab
-* RStudio
-* 통합 Notebook
 
 ## <a name="compute-target"></a>컴퓨팅 대상
 
-컴퓨팅 인스턴스는 Azure Machine Learning 컴퓨팅 학습 클러스터와 유사하게 [학습 컴퓨팅 대상](concept-compute-target.md#train)으로 사용할 수 있습니다. 
+컴퓨팅 인스턴스는 Azure Machine Learning 컴퓨팅 학습 클러스터와 유사하게 [학습 컴퓨팅 대상](concept-compute-target.md#train)으로 사용할 수 있습니다.
 
 컴퓨팅 인스턴스:
 * 작업 큐가 있습니다.
@@ -180,17 +144,7 @@ Azure Machine Learning 스튜디오의 작업 영역에서 Notebook 중 하나�
 컴퓨팅 인스턴스는 테스트/디버그 시나리오에 대한 로컬 추론 배포 대상으로 사용할 수 있습니다.
 
 > [!TIP]
-> 컴퓨팅 인스턴스에 120GB OS 디스크가 있습니다. 디스크 공간이 부족한 경우에는 [터미널을 사용](how-to-access-terminal.md)하여 최소 1~2GB를 지운 후 컴퓨팅 인스턴스를 [중지하거나 다시 시작](how-to-create-manage-compute-instance.md#manage)해야 합니다.
-
-
-## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>Notebook VM의 변경 내용
-
-컴퓨팅 인스턴스가 Notebook VM을 대체하고 있습니다.  
-
-작업 영역 파일 공유에 저장된 모든 Notebook 파일과 작업 영역 데이터 저장소의 데이터는 컴퓨팅 인스턴스에서 액세스할 수 있습니다. 그러나 Notebook VM에 이전에 설치된 모든 사용자 지정 패키지는 컴퓨팅 인스턴스에 다시 설치해야 합니다. 컴퓨팅 클러스터 만들기에 적용되는 할당량 제한은 컴퓨팅 인스턴스 만들기에도 적용됩니다.
-
-새 Notebook VM을 만들 수 없습니다. 그러나 전체 기능을 사용하여 만든 Notebook VM에는 계속 액세스하여 사용할 수 있습니다. 컴퓨팅 인스턴스를 기존 Notebook VM과 동일한 작업 영역에 만들 수 있습니다.
-
+> 컴퓨팅 인스턴스에 120GB OS 디스크가 있습니다. 디스크 공간이 부족하여 사용할 수 없는 상태가 되면 파일/폴더를 제거하여 컴퓨팅 인스턴스 터미널을 통해 OS 디스크(/에 탑재됨)에서 최소 5GB의 디스크 공간을 지운 다음 `sudo reboot`를 수행합니다. 터미널에 액세스하려면 컴퓨팅 목록 페이지 또는 컴퓨팅 인스턴스 세부 정보 페이지로 이동하여 **터미널** 링크를 클릭합니다. 터미널에서 `df -h`를 실행하여 사용 가능한 디스크 공간을 확인할 수 있습니다. `sudo reboot`을 수행하기 전에 5GB 이상의 공간을 지우세요. 5GB의 디스크 공간을 지울 때까지 스튜디오를 통해 컴퓨팅 인스턴스를 중지하거나 다시 시작하지 마세요.
 
 ## <a name="next-steps"></a>다음 단계
 

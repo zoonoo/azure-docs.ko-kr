@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: 9b18b24686908ac92f97ea0cae892369919ae4d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f71084e9c13bd1a30f5d5f01a04172671074db03
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101721023"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111525213"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Azure Database for MySQL의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량, 스토리지 엔진 지원, 권한 지원, 데이터 조작 명령문 지원 및 기능 제한 사항에 대해 설명합니다. 또한 MySQL 데이터베이스 엔진에 적용할 수 있는 [일반적인 제한 사항](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html)도 참조하세요.
@@ -52,7 +52,7 @@ MySQL 서비스는 기본 파일 시스템에 대한 직접 액세스를 허용�
 다음 항목은 지원되지 않습니다.
 - DBA 역할: 제한됨 또는 관리자 사용자(새 서버를 만드는 동안 만들어짐)를 사용하면 대부분의 DDL 및 DML 문을 수행할 수 있습니다. 
 - SUPER 권한: 마찬가지로 [SUPER 권한](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super)도 제한됩니다.
-- DEFINER: 생성하려면 SUPER 권한이 필요하며, 제한됩니다. 백업을 사용하여 데이터를 가져올 경우 mysqldump를 수행할 때 수동으로 또는 `--skip-definer` 명령을 사용하여 `CREATE DEFINER` 명령을 제거하세요.
+- DEFINER: 생성하려면 SUPER 권한이 필요하며, 제한됩니다. 백업을 사용하여 데이터를 가져올 경우 [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html)를 수행할 때 수동으로 또는 `--skip-definer` 명령을 사용하여 `CREATE DEFINER` 명령을 제거하세요.
 - 시스템 데이터베이스: [mysql 시스템 데이터베이스](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html)는 읽기 전용이며 다양한 PaaS 기능을 지원하는 데 사용됩니다. `mysql` 시스템 데이터베이스를 변경할 수 없습니다.
 - `SELECT ... INTO OUTFILE`: 서비스에서 지원되지 않습니다.
 - `LOAD_FILE(file_name)`: 서비스에서 지원되지 않습니다.

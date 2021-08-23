@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 04/06/2021
+ms.date: 06/18/2021
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 052dfc651ac590fd1acefa0a92dc3ef4f25daaea
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 9fb6f18d57fa375a15a4e5f7a0fc19889e5cdb1b
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365215"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112378361"
 ---
 # <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK v2 for SQL API: 다운로드 및 릴리스 정보
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -48,8 +48,6 @@ ms.locfileid: "107365215"
 |**웹앱 자습서**|[Azure Cosmos DB를 사용한 웹 애플리케이션 개발](sql-api-dotnet-application.md)|
 |**현재 지원되는 프레임워크**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
-## <a name="release-notes"></a>릴리스 정보
-
 > [!NOTE]
 > .NET Framework를 사용하는 경우 .NET Standard를 대상으로 하는 [.NET SDK](sql-api-sdk-dotnet-standard.md)의 최신 버전 3.x를 참조하세요.
 
@@ -59,7 +57,7 @@ ms.locfileid: "107365215"
 
 ## <a name="faq"></a>FAQ
 
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>참고 항목
 

@@ -5,20 +5,20 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/07/2020
-ms.openlocfilehash: 7d39163fa2890eb16a455d505baa0a6bbeddd42e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b0b75ac30ec0dfccb059222709f71bc74ae0b940
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950628"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282388"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기
 
-[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
 이 문서에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/deploy-powershell.md)으로 Azure HDInsight 클러스터를 만드는 몇 가지 방법에 대하여 알아봅니다. 다른 클러스터 만들기 도구 및 기능을 알아보려면 같은 페이지 상단의 탭 선택기를 클릭하세요. [클러스터 생성 메서드](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods)를 함께 확인하세요.
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="resource-manager-templates"></a>리소스 관리자 템플릿
 

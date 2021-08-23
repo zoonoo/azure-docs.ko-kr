@@ -1,20 +1,19 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer) API를 통해 언어 모델 사용자 지정
-titlesuffix: Azure Video Analyzer for Media
+titlesuffix: Azure Media Services
 description: Azure Video Analyzer for Media(이전의 Video Indexer) API를 사용하여 언어 모델을 사용자 지정하는 방법을 알아봅니다.
-services: azure-video-analyzer
+services: media-services
 author: anikaz
 manager: johndeu
 ms.topic: article
-ms.subservice: azure-video-analyzer-media
 ms.date: 02/04/2020
 ms.author: kumud
-ms.openlocfilehash: b3239e9af0a8ba3218d511f872dcbd117295add0
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 8b37c31fdddcd299c272e582523276311c1f5d6f
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112123221"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110386597"
 ---
 # <a name="customize-a-language-model-with-the-video-analyzer-for-media-api"></a>Video Analyzer for Media API를 사용하여 언어 모델 사용자 지정
 

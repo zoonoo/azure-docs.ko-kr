@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2020
+ms.date: 4/23/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 2d14ca2423d34926a9e297823a6515c2c5dde06a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 07376647edac05384c2efc1240c2242fd5eb664b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607119"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949817"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -91,7 +91,8 @@ ms.locfileid: "105607119"
 | **CognitiveServicesManagement** | Azure Cognitive Services에 대한 트래픽 주소 범위입니다. | 모두 | 예 | 예 |
 | **DataFactory**  | Azure 데이터 팩터리 | 모두 | 예 | 예 |
 | **DataFactoryManagement** | Azure Data Factory에 대한 관리 트래픽입니다. | 아웃바운드 | 예 | 예 |
-| **Dynamics365ForMarketingEmail** | Dynamics 365 마케팅 메일 서비스의 주소 범위입니다. | 아웃바운드 | 예 | 예 |
+| **Dynamics365ForMarketingEmail** | Dynamics 365 마케팅 메일 서비스의 주소 범위입니다. | 아웃바운드 | 예 | 아니요 |
+| **EOPExternalPublishedIPs** | 이 태그는 보안 및 준수 센터 PowerShell에 사용되는 IP 주소를 나타냅니다. [자세한 내용은 EXO V2 모듈을 사용하여 보안 및 준수 센터 PowerShell에 연결](/powershell/exchange/connect-to-scc-powershell)을 참조하세요. <br/><br/> *참고: 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 모두 | 예 | 예 |
 | **EventHub** | Azure Event Hubs입니다. | 아웃바운드 | 예 | 예 |
 | **GatewayManager** | Azure VPN Gateway 및 Application Gateway 전용 배포에 대한 관리 트래픽입니다. | 인바운드 | 예 | 예 |
 | **GuestAndHybridManagement** | Azure Automation 및 게스트 구성입니다. | 아웃바운드 | 예 | 예 |
@@ -135,11 +136,13 @@ IP 주소 범위 세부 정보와 함께 서비스 태그의 현재 목록을 �
 
 - [REST (영문)](/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
-- [Azure CLI](/cli/azure/network#az-network-list-service-tags)
+- [Azure CLI](/cli/azure/network#az_network_list_service_tags)
 
 > [!NOTE]
-> 퍼블릭 미리 보기로 제공되는 동안 검색 API는 JSON 다운로드에서 반환된 정보보다 최신이 아닌 정보를 반환할 수 있습니다. (다음 섹션을 참조하세요.)
+> 새 서비스 태그 데이터가 API 결과에 전파될 때까지 최대 4주가 소요됩니다. 이 작업이 수행되면 응답 메타데이터의 변경 번호가 증분됩니다. 다른 위치 값이 지정된 경우 결과에 일시적인 차이가 있을 수 있습니다. 결과를 사용하여 NSG 규칙을 만드는 경우 위치 매개 변수를 NSG 지역과 일치하도록 설정해야 합니다. 
 
+> [!NOTE]
+> API 데이터는 NSG 규칙에서 사용할 수 있는 태그를 나타내며 현재 다운로드 가능한 JSON 파일에 있는 태그의 하위 집합입니다. 퍼블릭 미리 보기에서는 한 업데이트에서 다음 업데이트까지 데이터가 동일하게 유지된다고 보장되지 않습니다. 
 
 ### <a name="discover-service-tags-by-using-downloadable-json-files"></a>다운로드 가능한 JSON 파일을 사용하여 서비스 태그 검색 
 현재 서비스 태그 목록이 포함된 JSON 파일을 IP 주소 범위 정보와 함께 다운로드할 수 있습니다. 이러한 목록은 매주 업데이트되고 게시됩니다. 각 클라우드의 위치는 다음과 같습니다.

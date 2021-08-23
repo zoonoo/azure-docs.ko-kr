@@ -1,19 +1,20 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer) 장면, 샷 및 키 프레임
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: 이 항목에서는 Azure Video Analyzer for Media(이전의 Video Indexer) 장면, 샷 및 키 프레임에 대한 개요를 제공합니다.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: a3408ea644e5a2ac8ccc9bde808c232a705fd57e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 80494f98d789e5d04454065ff5cbf8ba97fd62f1
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386916"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112119189"
 ---
 # <a name="scenes-shots-and-keyframes"></a>장면, 샷 및 키 프레임
 

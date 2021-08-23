@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 07/13/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 740201b84323f5a01ab01bb21ec458a19832e499
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1910a9c62b1d1ab6de130ace3d759243d9ff36d6
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652023"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687860"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Azure Active Directory 암호 보호를 사용하여 잘못된 암호 제거
 
@@ -220,7 +220,7 @@ Azure AD Password Protection은 암호 스프레이 공격에 사용될 가능�
 > [!NOTE]
 > Azure AD에 동기화되지 않은 온-프레미스 AD DS 사용자도 동기화된 사용자에 대한 기존 라이선싱에 따라 Azure AD 암호 보호의 이점을 누릴 수 있습니다.
 
-비용을 비롯한 추가 라이선스 정보는 [Azure Active Directory 가격 책정 사이트](https://azure.microsoft.com/pricing/details/active-directory/)에서 확인할 수 있습니다.
+비용을 비롯한 추가 라이선스 정보는 [Azure Active Directory 가격 책정 사이트](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)에서 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

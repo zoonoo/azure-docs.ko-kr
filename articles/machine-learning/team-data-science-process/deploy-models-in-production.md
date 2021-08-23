@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4bef5e76372959fb79686fd414c09e7d30431b52
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: 89ea1e991df46b4e4d23305b6118980b80c2f917
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112379495"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "93321179"
 ---
 # <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>비즈니스 의사 결정에 적극적인 역할을 수행할 수 있도록 프로덕션에 모델 배포
 
@@ -27,7 +27,7 @@ ms.locfileid: "112379495"
 
 - [Azure Machine Learning을 사용하여 모델을 배포하는 위치](../how-to-deploy-and-where.md)
 - [SQL-Server의 모델 배포](/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-machine-learning-mllib-notebook)
+- [Microsoft Machine Learning Server](/sql/advanced-analytics/r/r-server-standalone)
 
 >[!NOTE]
 >배포 전에 모델 스코어링의 대기 시간이 프로덕션에 사용할 만큼 충분히 낮은지 확인해야 합니다.

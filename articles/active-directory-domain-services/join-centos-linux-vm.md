@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 06/17/2021
 ms.author: justinha
-ms.openlocfilehash: 76fc11384b55337f581a74239d4a40b90b284f32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d78416308647af62bac1e44366b0ea978670889b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619660"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284440"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>CentOS Linux 가상 머신을 Azure Active Directory Domain Services 관리되는 도메인에 조인
 
@@ -79,7 +79,7 @@ sudo vi /etc/hosts
 VM을 관리되는 도메인에 조인하려면 VM에 몇 가지 추가 패키지가 필요합니다. 추가 패키지를 설치하고 구성하려면 `yum`을 사용하여 도메인 조인 도구를 업데이트하고 설치해야 합니다.
 
 ```console
-sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+sudo yum install adcli realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
 ```
 
 ## <a name="join-vm-to-the-managed-domain"></a>VM을 관리되는 도메인에 조인
@@ -109,7 +109,7 @@ sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir 
 1. 마지막으로 `realm join` 명령을 사용하여 관리되는 도메인에 VM을 조인합니다. `contosoadmin@AADDSCONTOSO.COM`와 같이 이전의 `kinit` 명령에서 지정한 관리되는 도메인의 일부인 동일한 사용자 계정을 사용합니다.
 
     ```console
-    sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'
+    sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM' --membership-software=adcli
     ```
 
 VM을 관리되는 도메인에 조인하는 데는 몇 분 정도 걸립니다. 다음의 예제 출력에서는 VM이 관리되는 도메인에 성공적으로 조인되었음을 보여 줍니다.

@@ -6,19 +6,19 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 35170dd87833f7e38d3829fca43c03f0e6725174
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+ms.openlocfilehash: 53f4ed035fc9f3a010a0677fa448a05ef189e20b
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113031214"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749996"
 ---
 # <a name="connect-to-azure-virtual-desktop-classic-with-the-android-client"></a>Android 클라이언트를 사용하여 Azure Virtual Desktop(클래식)에 연결
 
 > 적용 대상: Android 4.1 이상, ChromeOS 53 이상이 설치된 Chromebooks
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Azure Virtual Desktop 개체를 관리하려는 경우 [이 문서](../user-documentation/connect-android.md)를 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Azure Virtual Desktop 개체를 관리하려는 경우 [이 문서](../connect-android.md)를 참조하세요.
 
 다운로드 가능한 클라이언트를 사용하여 Android 디바이스에서 Azure Virtual Desktop 리소스에 액세스할 수 있습니다. Google Play Store를 지원하는 Chromebook 디바이스에서 Android 클라이언트를 사용할 수도 있습니다. 이 가이드에서는 Android 클라이언트를 설정하는 방법을 알려줍니다.
 

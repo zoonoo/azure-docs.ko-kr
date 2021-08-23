@@ -3,15 +3,15 @@ title: Key Vault 참조 사용
 description: Azure App Service 및 Azure Functions를 설정하여 Azure Key Vault 참조를 사용하는 방법을 알아봅니다. 애플리케이션 코드에 Key Vault 비밀을 사용할 수 있게 합니다.
 author: mattchenderson
 ms.topic: article
-ms.date: 02/05/2021
+ms.date: 05/25/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: e0bba85cc99e1751f39172ac320fe721d6f02e87
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 3300f5fbb5613672d7979f161ca0c92126f26a83
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076788"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578119"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions의 Key Vault 참조 사용
 
@@ -28,7 +28,7 @@ Key Vault에서 비밀을 읽으려면 자격 증명 모음을 만들고 해당 
    > [!NOTE] 
    > Key Vault 참조는 현재 시스템 할당 관리형 ID만 지원합니다. 사용자 할당 ID를 사용할 수 없습니다.
 
-1. 이전에 만든 애플리케이션 ID에 대한 [Key Vault에서 액세스 정책](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies)을 만듭니다. 이 정책에 대한 “가져오기” 비밀 권한을 사용하도록 설정합니다. "권한 있는 애플리케이션" 또는 `applicationId` 설정은 관리 ID와 호환되지 않으므로 구성하지 마세요.
+1. 이전에 만든 애플리케이션 ID에 대한 [Key Vault에서 액세스 정책](../key-vault/general/security-features.md#privileged-access)을 만듭니다. 이 정책에 대한 “가져오기” 비밀 권한을 사용하도록 설정합니다. "권한 있는 애플리케이션" 또는 `applicationId` 설정은 관리 ID와 호환되지 않으므로 구성하지 마세요.
 
 ### <a name="access-network-restricted-vaults"></a>네트워크 제한 자격 증명 모음 액세스
 
@@ -77,10 +77,21 @@ Key Vault 참조는 `@Microsoft.KeyVault({referenceString})` 형식이며, 여�
 
 Key Vault 참조를 [애플리케이션 설정](configure-common.md#configure-app-settings) 값으로 사용할 수 있으므로 사이트 구성 대신 Key Vault에서 비밀을 유지할 수 있습니다. 애플리케이션 설정은 미사용 시 안전하게 암호화되지만, 비밀 관리 기능이 필요한 경우에는 Key Vault로 이동해야 합니다.
 
-애플리케이션 설정에 Key Vault 참조를 사용하려면 참조를 설정 값으로 설정합니다. 앱은 키를 사용하여 비밀을 정상적으로 참조할 수 있습니다. 코드 변경은 필요하지 않습니다.
+[애플리케이션 설정](configure-common.md#add-or-edit)에 Key Vault 참조를 사용하려면 참조를 설정 값으로 설정합니다. 앱은 키를 사용하여 비밀을 정상적으로 참조할 수 있습니다. 코드 변경은 필요하지 않습니다.
 
 > [!TIP]
 > Key Vault 참조를 사용하는 대부분의 애플리케이션 설정은 각 환경에 대해 별도의 자격 증명 모음이 있어야 슬롯 설정으로 표시되어야 합니다.
+
+### <a name="considerations-for-azure-files-mounting"></a>Azure Files 탑재 시 고려 사항
+
+앱은 `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 애플리케이션 설정을 사용하여 Azure Files를 파일 시스템으로 탑재할 수 있습니다. 이 설정에는 앱이 제대로 시작될 수 있는지 확인하기 위한 추가 유효성 검사가 포함되어 있습니다. 플랫폼은 Azure Files 내에서 콘텐츠 공유에 따라 달라지며 `WEBSITE_CONTENTSHARE` 설정을 통해 지정되지 않는 한 기본 이름을 사용합니다. 이러한 설정을 수정하는 모든 요청에 대해 플랫폼은 이 콘텐츠 공유가 있는지 확인하고, 그렇지 않은 경우에는 이를 만들려고 시도합니다. 콘텐츠 공유를 찾거나 만들 수 없는 경우 요청이 차단됩니다.
+
+이 설정에 대한 Key Vault 참조를 사용하는 경우 들어오는 요청을 처리하는 동안 비밀 자체를 확인할 수 없기 때문에 이 유효성 검사는 기본적으로 실패합니다. 이 문제를 방지하려면 `WEBSITE_SKIP_CONTENTSHARE_VALIDATION`를 "1"로 설정하여 유효성 검사를 건너뛸 수 있습니다. 그러면 모든 검사가 무시되고 콘텐츠 공유가 생성되지 않습니다. 미리 만들어져 있는지 확인해야 합니다. 
+
+> [!CAUTION]
+> 유효성 검사를 건너뛰고 연결 문자열 또는 콘텐츠 공유가 유효하지 않으면 앱이 제대로 시작되지 않고 HTTP 500 오류만 제공됩니다.
+
+사이트를 만드는 과정에서 전파되지 않은 관리 ID 권한 또는 설정되지 않은 가상 네트워크 통합으로 인해 콘텐츠 공유의 탑재가 실패할 수도 있습니다. 배포 템플릿에서 나중에 이를 수용할 때까지 Azure Files 설정을 연기할 수 있습니다. 자세한 내용은 [Azure Resource Manager 배포](#azure-resource-manager-deployment)를 참조하세요. App Service는 Azure Files가 설정될 때까지 기본 파일 시스템을 사용하고 파일은 복사되지 않으므로 Azure Files를 탑재하기 전에 중간 기간 동안 배포 시도가 발생하지 않도록 해야 합니다.
 
 ### <a name="azure-resource-manager-deployment"></a>Azure Resource Manager 배포
 
@@ -150,8 +161,8 @@ Azure Resource Manager 템플릿을 통해 리소스 배포를 자동화할 때 
                 //...
                 "accessPolicies": [
                     {
-                        "tenantId": "[reference(concat('Microsoft.Web/sites/',  variables('functionAppName'), '/providers/Microsoft.ManagedIdentity/Identities/default'), '2015-08-31-PREVIEW').tenantId]",
-                        "objectId": "[reference(concat('Microsoft.Web/sites/',  variables('functionAppName'), '/providers/Microsoft.ManagedIdentity/Identities/default'), '2015-08-31-PREVIEW').principalId]",
+                        "tenantId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2020-12-01', 'Full').identity.tenantId]",
+                        "objectId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2020-12-01', 'Full').identity.principalId]",
                         "permissions": {
                             "secrets": [ "get" ]
                         }
@@ -168,7 +179,7 @@ Azure Resource Manager 템플릿을 통해 리소스 배포를 자동화할 때 
                         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
                     ],
                     "properties": {
-                        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountResourceId'),'2015-05-01-preview').key1)]"
+                        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountResourceId'),'2019-09-01').key1)]"
                     }
                 },
                 {
@@ -180,7 +191,7 @@ Azure Resource Manager 템플릿을 통해 리소스 배포를 자동화할 때 
                         "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
                     ],
                     "properties": {
-                        "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
+                        "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2019-09-01').InstrumentationKey]"
                     }
                 }
             ]

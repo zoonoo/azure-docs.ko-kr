@@ -2,13 +2,13 @@
 title: Azure VMware Solution 가상 머신용 백업 솔루션
 description: Azure VMware Solution 가상 머신을 위한 주요 백업 및 복원 솔루션에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 03/17/2021
-ms.openlocfilehash: 92726cae8a6f99140e4401763d14506f71884cc1
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.date: 04/21/2021
+ms.openlocfilehash: 7347ede0aeb36a5927592da4c6f31360c806446c
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166346"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954403"
 ---
 # <a name="backup-solutions-for-azure-vmware-solution-virtual-machines-vms"></a>Azure VMware Solution VM(가상 머신)용 백업 솔루션
 
@@ -18,9 +18,13 @@ Microsoft의 백업 파트너는 VMware 기반 환경에서 업계 최고의 백
 
 Azure VMware Solution VM과 Azure의 백업 리포지토리 사이의 백업 네트워크 트래픽은 높은 대역폭, 낮은 대기 시간 링크를 통해 이동합니다. 지역 간 복제 트래픽이 내부 Azure 백플레인 네트워크를 통해 이동하여 사용자의 대역폭 비용이 줄어듭니다.
 
+>[!NOTE]
+>일반적인 질문은 [타사 백업 솔루션 FAQ](/azure/azure-vmware/faq.yml#third-party-backup-and-recovery)를 참조하세요.
+
 이러한 백업 솔루션에 대한 자세한 내용은 여기에서 확인할 수 있습니다.
-- [Commvault](https://documentation.commvault.com/11.21/essential/128997_support_for_azure_vmware_solution.html)
-- [Veritas](https://vrt.as/nb4avs)
-- [Veeam](https://www.veeam.com/kb4012)
 - [Cohesity](https://www.cohesity.com/blogs/expanding-cohesitys-support-for-microsofts-ecosystem-azure-stack-and-azure-vmware-solution/)
+- [Commvault](https://documentation.commvault.com/11.21/essential/128997_support_for_azure_vmware_solution.html)
 - [Dell Technologies](https://www.delltechnologies.com/resources/en-us/asset/briefs-handouts/solutions/dell-emc-data-protection-for-avs.pdf)
+- [Rubrik](https://www.rubrik.com/en/products/cloud-data-management)
+- [Veeam](https://www.veeam.com/kb4012)
+- [Veritas](https://vrt.as/nb4avs)

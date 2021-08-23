@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: ikivanc
-ms.openlocfilehash: c4e8a11e0c46cb9a138a1a66060d9fdcc72c192e
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 7ad2fb4a808f2fef794a904287c25bd0643a085f
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111121"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112378604"
 ---
 # <a name="run-automated-tests-by-using-azurite"></a>Azurite를 사용하여 자동화된 테스트 실행
 
@@ -61,7 +61,7 @@ Azurite 스토리지 에뮬레이터를 사용하여 Azure Blob Storage용 프�
    python -m venv .venv
    ```
 
-1. 컨테이너를 만들고 환경 변수를 초기화합니다. [PyTest](https://docs.pytest.org/) [conftest.py](https://docs.pytest.org/en/2.1.0/plugins.html) 파일을 사용하여 테스트를 생성합니다. 다음은 conftest.py 파일의 예입니다.
+1. 컨테이너를 만들고 환경 변수를 초기화합니다. [PyTest](https://docs.pytest.org/) [conftest.py](https://docs.pytest.org/en/latest/how-to/writing_plugins.html#conftest-py-plugins) 파일을 사용하여 테스트를 생성합니다. 다음은 conftest.py 파일의 예입니다.
 
    ```python
    from azure.storage.blob import BlobServiceClient

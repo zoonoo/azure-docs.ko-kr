@@ -4,12 +4,12 @@ description: Azure HDInsight에서 Apache Ambari를 사용하는 방법에 대�
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/12/2021
-ms.openlocfilehash: 35338cad4364abbf233e3da81b05ba912959ed65
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 2a630d8cebf0c683a94e809269dcaef1df55c06e
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064493"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112293467"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Ambari 사용
 
@@ -77,4 +77,4 @@ Property Value: environment|env|dl_data_dt
 * [Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
 * [Apache Ambari REST API를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari-rest-api.md)
 
-[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](includes/hdinsight-troubleshooting-next-steps.md)]

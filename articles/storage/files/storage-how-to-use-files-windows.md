@@ -1,6 +1,6 @@
 ---
 title: Windows에서 Azure 파일 공유 사용 | Microsoft Docs
-description: Windows 및 Windows Server에서 Azure 파일 공유를 사용하는 방법을 알아봅니다. 온-프레미스 또는 Azure VM에서 실행되는 Windows 설치에서 SMB 3.0과 함께 Azure 파일 공유를 사용합니다.
+description: Windows 및 Windows Server에서 Azure 파일 공유를 사용하는 방법을 알아봅니다. 온-프레미스 또는 Azure VM에서 실행되는 Windows 설치에서 SMB 3.x와 함께 Azure 파일 공유를 사용합니다.
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -8,34 +8,35 @@ ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e864dcaa2a611746ae813a4f0adf8409fbc50871
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 31df90823591298a13dba725b7215031cad4bf8d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789792"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064813"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에서 매끄럽게 사용할 수 있습니다. 이 문서에서는 Windows 및 Windows Server에서 Azure 파일 공유를 사용할 때의 고려 사항을 설명합니다.
 
-온-프레미스 또는 다른 Azure 지역처럼 호스팅되는 Azure 지역 외부에서 Azure 파일 공유를 사용하려면 OS가 SMB 3.0을 지원해야 합니다. 
+온-프레미스 또는 다른 Azure 지역처럼 호스팅되는 Azure 지역 외부에서 Azure 파일 공유를 사용하려면 OS가 SMB 3.x를 지원해야 합니다. 
 
 Azure VM 또는 온-프레미스에서 실행되는 Windows에서 Azure 파일 공유를 사용할 수 있습니다. 다음 표는 각 환경에서 파일 공유를 지원하는 OS 버전을 보여줍니다.
 
 | Windows 버전        | SMB 버전 | Azure VM에 탑재 가능 | 온-프레미스에 탑재 가능 |
 |------------------------|-------------|-----------------------|-----------------------|
-| Windows Server 2019 | SMB 3.0 | 예 | 예 |
-| Windows 10<sup>1</sup> | SMB 3.0 | 예 | 예 |
-| Windows Server 반기 채널<sup>2</sup> | SMB 3.0 | 예 | 예 |
-| Windows Server 2016 | SMB 3.0 | 예 | 예 |
+| Windows Server 2019 | SMB 3.1.1 | 예 | 예 |
+| Windows 10<sup>1</sup> | SMB 3.1.1 | 예 | 예 |
+| Windows Server 반기 채널<sup>2</sup> | SMB 3.1.1 | 예 | 예 |
+| Windows Server 2016 | SMB 3.1.1 | 예 | 예 |
+| Windows 10 버전 1507 | SMB 3.0 | 예 | 예 |
 | Windows 8.1 | SMB 3.0 | 예 | 예 |
 | Windows Server 2012 R2 | SMB 3.0 | 예 | 예 |
 | Windows Server 2012 | SMB 3.0 | 예 | 예 |
 | Windows 7<sup>3</sup> | SMB 2.1 | 예 | 예 |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | 예 | 예 |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | 예 | 아니요 |
 
-<sup>1</sup>Windows 10, 버전 1507, 1607, 1803, 1809, 1903, 1909 및 2004.  
-<sup>2</sup>Windows Server, 버전 1809, 1903, 1909, 2004.  
+<sup>1</sup> Windows 10, 버전 1607, 1809, 1909, 2004 및 20H2  
+<sup>2</sup> Windows Server, 버전 2004 및 20H2.  
 <sup>3</sup>Windows 7 및 Windows Server 2008 R2에 대한 정식 Microsoft 지원이 종료되었습니다. [ESU(연장 보안 업데이트) 프로그램](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates)을 통해서만 보안 업데이트에 대한 추가 지원을 구매할 수 있습니다. 이와 같은 운영 체제에서 마이그레이션하는 것이 좋습니다.
 
 > [!Note]  

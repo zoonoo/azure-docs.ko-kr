@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f7c0af3ef2992fdd2c337ff6d1172f6da6db5f56
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 7b997f817e8e430d6f2985f73e4005da86dcda10
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114708782"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745532"
 ---
 # <a name="using-the-msixmgr-tool"></a>MSIXMGR 도구 사용
 
@@ -84,4 +84,4 @@ msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\packageName_3.51.1.0_x64_
 - [Azure Virtual Desktop용 MSIX 이미지 준비](app-attach-image-prep.md)
 - [MSIX 앱 연결에 대한 파일 공유 설정](app-attach-file-share.md)
 
-MSIX 앱 연결에 대한 질문이 있으면 [앱 연결 FAQ](app-attach-faq.yml) 및 [앱 연결 용어집](app-attach-glossary.md)을 참조하세요.
+MSIX 앱 연결에 대한 질문이 있으면 [앱 연결 FAQ](app-attach-faq.md) 및 [앱 연결 용어집](app-attach-glossary.md)을 참조하세요.

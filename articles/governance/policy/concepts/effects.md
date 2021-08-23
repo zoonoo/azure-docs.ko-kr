@@ -1,14 +1,14 @@
 ---
 title: 효과 작동 방식 이해
 description: Azure Policy 정의는 규정 준수가 관리되고 보고되는 방법을 결정하는 다양한 효과가 있습니다.
-ms.date: 02/17/2021
+ms.date: 04/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 67445b3d0d63b3827f82822de00412bdab67c5ab
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 6025451779ba04b3a20307d35ca8a939c7762d64
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101741823"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474373"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -24,26 +24,26 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 - [사용 안 함](#disabled)
 - [수정](#modify)
 
-다음 효과는 _더 이상 사용 되지_ 않습니다.
+다음 효과는 _사용되지 않습니다_.
 
 - [EnforceOPAConstraint](#enforceopaconstraint)
 - [EnforceRegoPolicy](#enforceregopolicy)
 
 > [!IMPORTANT]
-> **EnforceOPAConstraint** 또는 **EnforceRegoPolicy** 효과 대신 리소스 공급자 모드에서 _감사_ 및 _거부_ 를 사용 `Microsoft.Kubernetes.Data` 합니다. 기본 제공 정책 정의가 업데이트 되었습니다. 이러한 기본 제공 정책 정의의 기존 정책 할당을 수정 하는 경우에는 _효과_ 매개 변수를 업데이트 된 _allowedvalues_ 목록의 값으로 변경 해야 합니다.
+> 리소스 공급자 모드 `Microsoft.Kubernetes.Data`에서는 **EnforceOPAConstraint** 또는 **EnforceRegoPolicy** 효과 대신 _audit_ 및 _deny_ 를 사용합니다. 기본 제공 정책 정의가 업데이트되었습니다. 이러한 기본 제공 정책 정의의 기존 정책 할당이 수정되면 _effect_ 매개 변수를 업데이트된 _allowedValues_ 목록의 값으로 변경해야 합니다.
 
-## <a name="order-of-evaluation"></a>평가 순서
+## <a name="order-of-evaluation"></a>계산 순서
 
-리소스를 만들거나 업데이트 하는 요청은 Azure Policy에서 먼저 평가 됩니다. Azure Policy는 리소스에 적용한 다음, 각 정의에 대해 리소스를 평가하는 모든 할당 목록을 만듭니다. [리소스 관리자 모드](./definition-structure.md#resource-manager-modes)의 경우 Azure Policy는 적절 한 리소스 공급자에 게 요청을 전달 하기 전에 몇 가지 효과를 처리 합니다. 이 순서는 리소스가 Azure Policy의 디자인 된 거 버 넌 스 컨트롤을 충족 하지 않는 경우 리소스 공급자에의 한 불필요 한 처리를 방지 합니다. 리소스 [공급자 모드](./definition-structure.md#resource-provider-modes)를 사용 하 여 리소스 공급자는 평가 및 결과를 관리 하 고 결과를 다시 Azure Policy으로 보고 합니다.
+리소스를 만들거나 업데이트하는 요청은 먼저 Azure Policy에서 평가됩니다. Azure Policy는 리소스에 적용한 다음, 각 정의에 대해 리소스를 평가하는 모든 할당 목록을 만듭니다. [Resource Manager 모드](./definition-structure.md#resource-manager-modes)에서 Azure Policy는 적절한 리소스 공급자에 요청을 전달하기 전에 다양한 효과를 처리합니다. 따라서 리소스가 Azure Policy의 설계된 거버넌스 컨트롤을 충족하지 않을 때 리소스 공급자의 불필요한 처리를 방지할 수 있습니다. [리소스 공급자 모드](./definition-structure.md#resource-provider-modes)에서 리소스 공급자는 평가 및 결과를 관리하고 그 결과를 다시 Azure Policy에 보고합니다.
 
 - **사용 안 함** 을 먼저 선택하여 정책 규칙을 평가할지 여부를 확인합니다.
-- 그런 다음, **Append** 및 **Modify** 가 평가됩니다. 어느 쪽이든 요청을 변경할 수 있기 때문에 변경하면 audit 또는 deny 효과가 트리거되지 않을 수 있습니다. 이러한 효과는 리소스 관리자 모드 에서만 사용할 수 있습니다.
+- 그런 다음, **Append** 및 **Modify** 가 평가됩니다. 어느 쪽이든 요청을 변경할 수 있기 때문에 변경하면 audit 또는 deny 효과가 트리거되지 않을 수 있습니다. 이들 효과는 Resource Manager 모드에서만 사용할 수 있습니다.
 - 그런 다음, **거부** 가 평가됩니다. 감사 전에 거부를 평가하여 원치 않는 리소스의 이중 로깅이 방지됩니다.
-- **감사가** 마지막으로 평가 됩니다.
+- **audit** 이 마지막으로 평가됩니다.
 
-리소스 공급자가 리소스 관리자 모드 요청에서 성공 코드를 반환한 후에는 **AuditIfNotExists** 및 **Deployifnotexists** 를 평가 하 여 추가 준수 로깅 또는 작업이 필요한 지 여부를 확인 합니다.
+Resource Manager 모드 요청에 대해 리소스 공급자가 성공 코드를 반환하면, **AuditIfNotExists** 및 **DeployIfNotExists** 가 추가 규정 준수 로깅 또는 작업이 필요한지 여부를 확인하기 위해 평가를 수행합니다.
 
-또한 `PATCH` 관련 필드만 수정 하는 요청은 `tags` 관련 필드를 검사 하는 조건을 포함 하는 정책으로 정책 평가를 제한 `tags` 합니다.
+또한 `tags` 관련 필드만 수정하는 `PATCH` 요청은 `tags` 관련 필드를 검사하는 조건이 포함된 정책으로 정책 평가를 제한합니다.
 
 ## <a name="append"></a>추가
 
@@ -64,7 +64,8 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 
 ### <a name="append-examples"></a>추가 예제
 
-예제 1: 스토리지 계정에 IP 규칙을 설정하는 **value** 배열이 포함된 **\[\*\]** 가 아닌 [별칭](definition-structure.md#aliases)을 사용하는 단일 **field/value** 쌍입니다. **\[\*\]** 가 아닌 별칭이 배열이면 효과는 **value** 를 전체 배열로 추가합니다. 배열이 이미 있으면 충돌로 인해 거부 이벤트가 발생합니다.
+예제 1: 스토리지 계정에 IP 규칙을 설정하는 **value** 배열이 포함된 **\[\*\]** 가 아닌 
+[alias](definition-structure.md#aliases)를 사용하는 단일 **field/value** 쌍입니다. **\[\*\]** 가 아닌 별칭이 배열이면 효과는 **value** 를 전체 배열로 추가합니다. 배열이 이미 있으면 충돌로 인해 거부 이벤트가 발생합니다.
 
 ```json
 "then": {
@@ -79,7 +80,7 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 }
 ```
 
-예제 2: 스토리지 계정에 IP 규칙을 설정하는 **value** 배열이 포함된 **\[\*\]** [별칭](definition-structure.md#aliases)을 사용하는 단일 **field/value** 쌍입니다. **\[\*\]** 별칭을 사용하면 이 효과는 기존 배열(있는 경우)에 **value** 를 추가합니다. 배열이 아직 없으면 생성 됩니다.
+예제 2: 스토리지 계정에 IP 규칙을 설정하는 **value** 배열이 포함된 **\[\*\]** [별칭](definition-structure.md#aliases)을 사용하는 단일 **field/value** 쌍입니다. **\[\*\]** 별칭을 사용하면 이 효과는 기존 배열(있는 경우)에 **value** 를 추가합니다. 배열이 아직 없으면 생성됩니다.
 
 ```json
 "then": {
@@ -100,24 +101,24 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 
 ### <a name="audit-evaluation"></a>감사 평가
 
-Audit는 리소스의 만들기 또는 업데이트하는 중에 Azure Policy에서 확인된 마지막 효과입니다. 리소스 관리자 모드의 Azure Policy 경우 리소스 공급자에 리소스를 보냅니다. 감사는 리소스 요청 및 평가 주기와 동일하게 작동합니다. 새 리소스와 업데이트 된 리소스의 경우 `Microsoft.Authorization/policies/audit/action` 작업을 활동 로그에 추가 하 고 해당 리소스를 비규격으로 표시 Azure Policy.
+Audit는 리소스의 만들기 또는 업데이트하는 중에 Azure Policy에서 확인된 마지막 효과입니다. Resource Manager 모드에서 Azure Policy는 그런 다음, 리소스 공급자에 리소스를 보냅니다. 리소스에 대한 만들기 또는 업데이트 요청을 평가할 때 Azure Policy는 `Microsoft.Authorization/policies/audit/action` 작업을 활동 로그에 추가하고 해당 리소스를 비준수로 표시합니다. 표준 규정 준수 평가 주기 동안에는 리소스의 준수 상태만 업데이트됩니다.
 
 ### <a name="audit-properties"></a>감사 속성
 
-리소스 관리자 모드의 경우 감사 효과에는 정책 정의의 **then** 조건에 사용할 추가 속성이 없습니다.
+Resource Manager 모드에서는 audit 효과에 정책 정의의 **then** 조건에 사용할 수 있는 추가 속성이 없습니다.
 
-의 리소스 공급자 모드에 대해 `Microsoft.Kubernetes.Data` 감사 효과에는 다음과 같은 **세부 정보** 에 대 한 추가 하위 속성이 있습니다.
+리소스 공급자 모드 `Microsoft.Kubernetes.Data`에서는 audit 효과에 다음과 같은 **details** 하위 속성이 추가로 있습니다.
 
-- **constraintTemplate** (필수)
+- **constraintTemplate**(필수)
   - 새로운 제약 조건을 정의하는 제약 조건 템플릿 CRD(CustomResourceDefinition)입니다. 이 템플릿은 Azure 정책의 **values** 를 통해 전달되는 Rego 논리, 제약 조건 스키마 및 제약 조건 매개 변수를 정의합니다.
-- **제약 조건** (필수)
-  - 제약 조건 템플릿의 CRD 구현입니다. `{{ .Values.<valuename> }}`을 사용하여 **values** 를 통해 전달되는 매개 변수를 사용합니다. 아래 예제 2에서 이러한 값은 `{{ .Values.excludedNamespaces }}` 및 `{{ .Values.allowedContainerImagesRegex }}` 입니다.
-- **값** (옵션)
+- **constraint**(필수)
+  - 제약 조건 템플릿의 CRD 구현입니다. `{{ .Values.<valuename> }}`을 사용하여 **values** 를 통해 전달되는 매개 변수를 사용합니다. 아래 예제 2에서 이들 값은 `{{ .Values.excludedNamespaces }}` 및 `{{ .Values.allowedContainerImagesRegex }}`입니다.
+- **values**(선택 사항)
   - 제약 조건에 전달할 매개 변수 및 값을 정의합니다. 각 값은 제약 조건 템플릿 CRD에 있어야 합니다.
 
 ### <a name="audit-example"></a>감사 예제
 
-예 1: 리소스 관리자 모드에 감사 효과 사용
+예제 1: Resource Manager 모드에 audit 효과 사용.
 
 ```json
 "then": {
@@ -125,7 +126,7 @@ Audit는 리소스의 만들기 또는 업데이트하는 중에 Azure Policy에
 }
 ```
 
-예 2:의 리소스 공급자 모드에 감사 효과 사용 `Microsoft.Kubernetes.Data` **세부** 정보의 추가 정보는 Kubernetes에서 허용 되는 컨테이너 이미지를 제한 하는 데 사용할 제약 조건 템플릿 및 CRD를 정의 합니다.
+예제 2: 리소스 공급자 모드 `Microsoft.Kubernetes.Data`에 audit 효과 사용. **details** 의 추가 정보는 Kubernetes에서 허용되는 컨테이너 이미지를 제한하는 데 사용할 제약 조건 템플릿 및 CRD를 정의합니다.
 
 ```json
 "then": {
@@ -143,22 +144,22 @@ Audit는 리소스의 만들기 또는 업데이트하는 중에 Azure Policy에
 
 ## <a name="auditifnotexists"></a>AuditIfNotExists
 
-AuditIfNotExists는 **if** 조건과 일치 하지만 **then** 조건의 **세부 정보** 에 지정 된 속성이 없는 리소스 _와 관련_ 된 리소스의 감사를 사용 하도록 설정 합니다.
+AuditIfNotExists를 사용하면 **if** 조건과 일치하지만 **then** 조건의 **details** 에 지정된 속성을 포함하지 않는 리소스와 _관련된_ 리소스를 감사할 수 있습니다.
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists 평가
 
-리소스 공급 기업이 리소스 만들기 또는 업데이트 요청을 처리하고 성공 상태 코드를 반환한 후 AuditIfNotExists가 실행됩니다. 관련된 리소스가 없거나 **ExistenceCondition** 에서 정의된 리소스가 true로 평가되지 않는 경우 감사가 발생합니다. 새 리소스와 업데이트 된 리소스의 경우 `Microsoft.Authorization/policies/audit/action` 작업을 활동 로그에 추가 하 고 해당 리소스를 비규격으로 표시 Azure Policy. 트리거되는 경우 **if** 조건을 충족하는 리소스는 비호환으로 표시되는 리소스입니다.
+리소스 공급 기업이 리소스 만들기 또는 업데이트 요청을 처리하고 성공 상태 코드를 반환한 후 AuditIfNotExists가 실행됩니다. 관련된 리소스가 없거나 **ExistenceCondition** 에서 정의된 리소스가 true로 평가되지 않는 경우 감사가 발생합니다. Azure Policy는 새 리소스와 업데이트된 리소스에 대해 `Microsoft.Authorization/policies/audit/action` 작업을 활동 로그에 추가하고 리소스를 비준수로 표시합니다. 트리거되는 경우 **if** 조건을 충족하는 리소스는 비호환으로 표시되는 리소스입니다.
 
 ### <a name="auditifnotexists-properties"></a>AuditIfNotExists 속성
 
 AuditIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리소스를 정의하는 모든 하위 속성이 있습니다.
 
-- **유형** (필수)
+- **Type**(필수)
   - 일치하는 관련된 리소스의 형식을 지정합니다.
   - **details.type** 이 **if** 조건 리소스 아래에 있는 리소스 유형이면 정책은 평가된 리소스 범위 내에서 **type** 의 리소스를 쿼리합니다. 그렇지 않으면, 평가된 리소스와 동일한 리소스 그룹 내에서 정책 쿼리가 수행됩니다.
 - **Name**(옵션)
   - 일치하는 리소스의 정확한 이름을 지정하고 정책에서 지정된 형식의 모든 리소스 대신 하나의 특정 리소스를 인출하도록 합니다.
-  - **If. field. 형식** 및 **. details. 형식** 에 대 한 조건 값이 일치 하는 경우에는 **이름이** _필수_ `[field('name')]` 로, 또는 `[field('fullName')]` 자식 리소스의 경우 여야 합니다.
+  - **if.field.type** 과 **then.details.type** 의 조건 값이 일치하면 **Name** 은 _required_ 가 되고 `[field('name')]`이 되거나 하위 리소스의 경우 `[field('fullName')]`이어야 합니다.
     하지만 [audit](#audit) 효과를 대신 고려해야 합니다.
 - **ResourceGroupName**(옵션)
   - 다른 리소스 그룹에서 오는 관련된 리소스의 일치를 허용합니다.
@@ -180,7 +181,7 @@ AuditIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 
 ### <a name="auditifnotexists-example"></a>AuditIfNotExists 예제
 
-예제: 맬웨어 방지 확장이 있는지 확인하도록 Virtual Machines를 평가한 다음, 누락되는 경우 감사합니다.
+예: 가상 머신을 평가하여 맬웨어 방지 확장이 있는지 여부를 확인한 후, 누락된 경우 감사를 수행합니다.
 
 ```json
 {
@@ -214,26 +215,26 @@ AuditIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 
 ### <a name="deny-evaluation"></a>거부 평가
 
-리소스 관리자 모드에서 일치 하는 리소스를 만들거나 업데이트 하는 경우 deny는 리소스 공급자로 전송 되기 전에 요청을 방지 합니다. 요청은 `403 (Forbidden)`으로 반환됩니다. 포털에서 금지됨은 정책 할당에서 차단된 배포에 대한 상태로 확인할 수 있습니다. 리소스 공급자 모드의 경우 리소스 공급자는 리소스의 평가를 관리 합니다.
+Resource Manager 모드에서 일치된 리소스를 만들거나 업데이트할 때 deny는 리소스 공급자에게 보내기 전에 먼저 요청을 방지합니다. 요청은 `403 (Forbidden)`으로 반환됩니다. 포털에서 금지됨은 정책 할당에서 차단된 배포에 대한 상태로 확인할 수 있습니다. 리소스 공급자 모드에서는 리소스 공급자가 리소스의 평가를 관리합니다.
 
 기존 리소스의 평가 중 거부 정책 정의와 일치하는 리소스는 비준수로 표시됩니다.
 
 ### <a name="deny-properties"></a>거부 속성
 
-리소스 관리자 모드의 경우 거부 효과에는 정책 정의의 **then** 조건에 사용할 추가 속성이 없습니다.
+Resource Manager 모드에서는 deny 효과에 정책 정의의 **then** 조건에 사용할 수 있는 추가 속성이 없습니다.
 
-리소스 공급자 모드의 경우 `Microsoft.Kubernetes.Data` 거부 효과에는 다음과 같은 **세부 정보** 에 대 한 추가 하위 속성이 있습니다.
+리소스 공급자 모드 `Microsoft.Kubernetes.Data`에서는 deny 효과에 다음과 같은 **details** 하위 속성이 추가로 있습니다.
 
-- **constraintTemplate** (필수)
+- **constraintTemplate**(필수)
   - 새로운 제약 조건을 정의하는 제약 조건 템플릿 CRD(CustomResourceDefinition)입니다. 이 템플릿은 Azure 정책의 **values** 를 통해 전달되는 Rego 논리, 제약 조건 스키마 및 제약 조건 매개 변수를 정의합니다.
-- **제약 조건** (필수)
-  - 제약 조건 템플릿의 CRD 구현입니다. `{{ .Values.<valuename> }}`을 사용하여 **values** 를 통해 전달되는 매개 변수를 사용합니다. 아래 예제 2에서 이러한 값은 `{{ .Values.excludedNamespaces }}` 및 `{{ .Values.allowedContainerImagesRegex }}` 입니다.
-- **값** (옵션)
+- **constraint**(필수)
+  - 제약 조건 템플릿의 CRD 구현입니다. `{{ .Values.<valuename> }}`을 사용하여 **values** 를 통해 전달되는 매개 변수를 사용합니다. 아래 예제 2에서 이들 값은 `{{ .Values.excludedNamespaces }}` 및 `{{ .Values.allowedContainerImagesRegex }}`입니다.
+- **values**(선택 사항)
   - 제약 조건에 전달할 매개 변수 및 값을 정의합니다. 각 값은 제약 조건 템플릿 CRD에 있어야 합니다.
 
 ### <a name="deny-example"></a>거부 예제
 
-예 1: 리소스 관리자 모드에 거부 효과 사용
+예제 1: Resource Manager 모드에 deny 효과 사용.
 
 ```json
 "then": {
@@ -241,7 +242,7 @@ AuditIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 }
 ```
 
-예 2:의 리소스 공급자 모드에 거부 효과 사용 `Microsoft.Kubernetes.Data` **세부** 정보의 추가 정보는 Kubernetes에서 허용 되는 컨테이너 이미지를 제한 하는 데 사용할 제약 조건 템플릿 및 CRD를 정의 합니다.
+예제 2: 리소스 공급자 모드 `Microsoft.Kubernetes.Data`에 deny 효과 사용. **details** 의 추가 정보는 Kubernetes에서 허용되는 컨테이너 이미지를 제한하는 데 사용할 제약 조건 템플릿 및 CRD를 정의합니다.
 
 ```json
 "then": {
@@ -266,7 +267,7 @@ AuditIfNotExists와 마찬가지로 DeployIfNotExists 정책 정의는 조건이
 
 ### <a name="deployifnotexists-evaluation"></a>DeployIfNotExists 평가
 
-DeployIfNotExists는 리소스 공급자가 구독 또는 리소스 만들기 또는 업데이트 요청을 처리 하 고 성공 상태 코드를 반환 하는 데 약 15 분 후에 실행 됩니다. 관련 리소스가 없거나 **ExistenceCondition** 에서 정의된 리소스가 true로 평가되지 않는 경우 템플릿 배포가 발생합니다. 배포 기간은 템플릿에 포함된 리소스의 복잡성에 따라 달라집니다.
+리소스 공급자가 만들기 또는 업데이트 구독인 리소스 요청을 처리하고 성공 상태 코드를 반환한 후 DeployIfNotExists는 약 15분 동안 실행됩니다. 관련 리소스가 없거나 **ExistenceCondition** 에서 정의된 리소스가 true로 평가되지 않는 경우 템플릿 배포가 발생합니다. 배포 기간은 템플릿에 포함된 리소스의 복잡성에 따라 달라집니다.
 
 평가 주기 중 리소스와 일치하는 DeployIfNotExists 효과가 포함된 정책 정의는 비준수로 표시되지만 해당 리소스에서 작업이 수행되지 않습니다. 기존 비준수 리소스는 [수정 작업](../how-to/remediate-resources.md)을 통해 수정할 수 있습니다.
 
@@ -274,12 +275,12 @@ DeployIfNotExists는 리소스 공급자가 구독 또는 리소스 만들기 �
 
 DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리소스를 정의하는 모든 하위 속성 및 실행할 템플릿 배포가 있습니다.
 
-- **유형** (필수)
+- **Type**(필수)
   - 일치하는 관련된 리소스의 형식을 지정합니다.
   - **if** 조건 리소스 아래의 리소스를 인출하려는 시도로 시작한 다음, **if** 리소스 조건와 동일한 리소스 그룹 내에서 쿼리합니다.
 - **Name**(옵션)
   - 일치하는 리소스의 정확한 이름을 지정하고 정책에서 지정된 형식의 모든 리소스 대신 하나의 특정 리소스를 인출하도록 합니다.
-  - **If. field. 형식** 및 **. details. 형식** 에 대 한 조건 값이 일치 하는 경우에는 **이름이** _필수_ `[field('name')]` 로, 또는 `[field('fullName')]` 자식 리소스의 경우 여야 합니다.
+  - **if.field.type** 과 **then.details.type** 의 조건 값이 일치하면 **Name** 은 _required_ 가 되고 `[field('name')]`이 되거나 하위 리소스의 경우 `[field('fullName')]`이어야 합니다.
 - **ResourceGroupName**(옵션)
   - 다른 리소스 그룹에서 오는 관련된 리소스의 일치를 허용합니다.
   - **type** 이 **if** 조건 리소스의 아래에 있는 리소스인 경우 적용되지 않습니다.
@@ -298,14 +299,14 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
   - 일치하는 모든 관련 리소스가 true로 평가되는 경우 효과가 충족되고 배포를 트리거하지 않습니다.
   - [field()]를 사용하여 **if** 조건의 값과 같은지 확인할 수 있습니다.
   - 예를 들어 부모 리소스(**if** 조건에서)가 일치하는 관련된 리소스와 동일한 리소스 위치에 있는지 확인하는 데 사용될 수 있습니다.
-- **Roledefinitionids** (필수)
+- **roleDefinitionIds**(필수)
   - 이 속성은 구독에서 액세스할 수 있는 역할 기반 액세스 제어 역할 ID와 일치하는 문자열 배열을 포함해야 합니다. 자세한 내용은 [수정 - 정책 정의 구성](../how-to/remediate-resources.md#configure-policy-definition)을 참조하세요.
 - **DeploymentScope**(선택 사항)
   - 허용되는 값은 _Subscription_ 및 _ResourceGroup_ 입니다.
   - 트리거될 배포 유형을 설정합니다. _Subscription_ 은 [구독 수준의 배포](../../../azure-resource-manager/templates/deploy-to-subscription.md)를 나타내며, _ResourceGroup_ 은 리소스 그룹에 대한 배포를 나타냅니다.
   - 구독 수준 배포를 사용하는 경우 _location_ 속성을 _Deployment_ 에 지정해야 합니다.
   - 기본값은 _ResourceGroup_ 입니다.
-- **배포** (필수)
+- **Deployment**(필수)
   - 이 속성은 `Microsoft.Resources/deployments` PUT API로 전달되므로 전체 템플릿 배포를 포함해야 합니다. 자세한 내용은 [배포 REST API](/rest/api/resources/deployments)를 참조하세요.
 
   > [!NOTE]
@@ -313,7 +314,8 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 
 ### <a name="deployifnotexists-example"></a>DeployIfNotExists 예제
 
-예제: transparentDataEncryption이 활성화되었는지 확인하기 위해 SQL Server 데이터베이스를 평가합니다. 그렇지 않은 경우 활성화하는 배포가 실행됩니다.
+예: SQL Server 데이터베이스를 평가하여 transparentDataEncryption이 사용되는지 여부를 확인합니다.
+그렇지 않은 경우 활성화하는 배포가 실행됩니다.
 
 ```json
 "if": {
@@ -368,7 +370,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 
 이 효과는 테스트 상황 또는 정책 정의가 효과를 매개 변수화한 경우에 유용합니다. 이러한 유연성을 사용하면 해당 정책의 모든 할당을 사용하지 않도록 설정하는 대신 단일 할당을 사용하지 않도록 설정할 수 있습니다.
 
-사용할 수 없는 효과에 대 한 대안은 정책 할당에 설정 된 **enforcementMode** 입니다.
+Disabled 효과의 대안은 **enforcementMode** 이며, 정책 할당에서 설정됩니다.
 **enforcementMode** 가 _Disabled_ 이면 리소스는 계속 평가됩니다. 활동 로그와 같은 로깅 및 정책 효과는 발생하지 않습니다. 자세한 내용은 [정책 할당 - 적용 모드](./assignment-structure.md#enforcement-mode)를 참조하세요.
 
 ## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
@@ -376,7 +378,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 이 효과는 `Microsoft.Kubernetes.Data`의 정책 정의 _mode_ 와 함께 사용됩니다. OPA([Open Policy Agent](https://www.openpolicyagent.org/))에 대한 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework)로 정의된 Gatekeeper v3 허용 제어 규칙을 Azure의 Kubernetes 클러스터로 전달하는 데 사용됩니다.
 
 > [!IMPORTANT]
-> **EnforceOPAConstraint** 효과가 있는 제한 된 미리 보기 정책 정의 및 관련 **Kubernetes 서비스** 범주는 _사용 되지_ 않습니다. 대신 리소스 공급자 모드를 사용 하 여 _감사_ 및 _거부_ 효과를 사용 `Microsoft.Kubernetes.Data` 합니다.
+> **EnforceOPAConstraint** 효과 및 관련 **Kubernetes 서비스** 범주가 포함된 제한된 미리 보기 정책 정의는 _더 이상 사용되지 않습니다_. 대신 `Microsoft.Kubernetes.Data` 리소스 공급자 모드를 통해 _감사_ 및 _거부_ 효과를 사용합니다.
 
 ### <a name="enforceopaconstraint-evaluation"></a>EnforceOPAConstraint 평가
 
@@ -387,11 +389,11 @@ Open Policy Agent 승인 컨트롤러는 클러스터에 대한 새로운 요청
 
 EnforceOPAConstraint 효과의 **details** 속성에는 Gatekeeper v3 허용 제어 규칙을 설명하는 하위 속성이 있습니다.
 
-- **constraintTemplate** (필수)
+- **constraintTemplate**(필수)
   - 새로운 제약 조건을 정의하는 제약 조건 템플릿 CRD(CustomResourceDefinition)입니다. 이 템플릿은 Azure 정책의 **values** 를 통해 전달되는 Rego 논리, 제약 조건 스키마 및 제약 조건 매개 변수를 정의합니다.
-- **제약 조건** (필수)
-  - 제약 조건 템플릿의 CRD 구현입니다. `{{ .Values.<valuename> }}`을 사용하여 **values** 를 통해 전달되는 매개 변수를 사용합니다. 아래 예제에서 이러한 값은 `{{ .Values.cpuLimit }}` 및 `{{ .Values.memoryLimit }}`입니다.
-- **값** (옵션)
+- **constraint**(필수)
+  - 제약 조건 템플릿의 CRD 구현입니다. `{{ .Values.<valuename> }}`을 사용하여 **values** 를 통해 전달되는 매개 변수를 사용합니다. 다음 예에서는 이들 값이 `{{ .Values.cpuLimit }}`과 `{{ .Values.memoryLimit }}`입니다.
+- **values**(선택 사항)
   - 제약 조건에 전달할 매개 변수 및 값을 정의합니다. 각 값은 제약 조건 템플릿 CRD에 있어야 합니다.
 
 ### <a name="enforceopaconstraint-example"></a>EnforceOPAConstraint 예제
@@ -432,7 +434,7 @@ EnforceOPAConstraint 효과의 **details** 속성에는 Gatekeeper v3 허용 제
 이 효과는 `Microsoft.ContainerService.Data`의 정책 정의 _mode_ 와 함께 사용됩니다. [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 OPA([Open Policy Agent](https://www.openpolicyagent.org/))에 대한 [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)로 정의된 Gatekeeper v2 허용 제어 규칙을 전달하는 데 사용됩니다.
 
 > [!IMPORTANT]
-> **EnforceRegoPolicy** 효과 및 관련 **Kubernetes 서비스** 범주가 포함된 제한된 미리 보기 정책 정의는 ‘더 이상 사용되지 않습니다’. 대신 리소스 공급자 모드를 사용 하 여 _감사_ 및 _거부_ 효과를 사용 `Microsoft.Kubernetes.Data` 합니다.
+> **EnforceRegoPolicy** 효과 및 관련 **Kubernetes 서비스** 범주가 포함된 제한된 미리 보기 정책 정의는 ‘더 이상 사용되지 않습니다’. 대신 `Microsoft.Kubernetes.Data` 리소스 공급자 모드를 통해 _감사_ 및 _거부_ 효과를 사용합니다.
 
 ### <a name="enforceregopolicy-evaluation"></a>EnforceRegoPolicy 평가
 
@@ -443,11 +445,11 @@ Open Policy Agent 승인 컨트롤러는 클러스터에 대한 새로운 요청
 
 EnforceRegoPolicy 효과의 **details** 속성에는 Gatekeeper v2 허용 제어 규칙을 설명하는 하위 속성이 있습니다.
 
-- **Policyid** (필수)
+- **policyId**(필수)
   - Rego 허용 제어 규칙에 매개 변수로 전달되는 고유 이름입니다.
-- **정책** (필수)
+- **policy**(필수)
   - Rego 허용 제어 규칙의 URI를 지정합니다.
-- **policyParameters** (선택 사항)
+- **policyParameters**(선택 사항)
   - Rego 정책에 전달할 매개 변수 및 값을 정의합니다.
 
 ### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy 예제
@@ -481,32 +483,32 @@ EnforceRegoPolicy 효과의 **details** 속성에는 Gatekeeper v2 허용 제어
 
 ## <a name="modify"></a>수정
 
-Modify는 만들거나 업데이트 하는 동안 구독 또는 리소스에 대 한 속성 또는 태그를 추가, 업데이트 또는 제거 하는 데 사용 됩니다. 일반적인 예는 costCenter와 같은 리소스의 태그를 업데이트하는 것입니다. 기존 비준수 리소스는 [수정 작업](../how-to/remediate-resources.md)을 통해 수정할 수 있습니다. 단일 Modify 규칙은 많은 수의 operations를 포함할 수 있습니다.
+Modify는 구독이나 리소스의 만들기 또는 업데이트 중에 태그를 추가, 업데이트 또는 제거하는 데 사용됩니다. 일반적인 예는 costCenter와 같은 리소스의 태그를 업데이트하는 것입니다. 기존 비준수 리소스는 [수정 작업](../how-to/remediate-resources.md)을 통해 수정할 수 있습니다. 단일 Modify 규칙은 많은 수의 operations를 포함할 수 있습니다.
 
-Modify에서 지원 되는 작업은 다음과 같습니다.
+Modify에는 다음 작업이 지원됩니다.
 
-- 리소스 태그를 추가, 대체 또는 제거 합니다. 태그의 경우 `mode` 대상 리소스가 리소스 그룹인 경우를 제외 하 고 수정 정책이 _인덱싱된_ 로 설정 되어야 합니다.
-- `identity.type`가상 컴퓨터 및 가상 컴퓨터 크기 집합의 관리 되는 id 유형 () 값을 추가 하거나 바꿉니다.
-- 특정 별칭 (미리 보기)의 값을 추가 하거나 바꿉니다.
+- 리소스 태그를 추가, 바꾸기 또는 제거합니다. 대상 리소스가 리소스 그룹이 아닌 한, Modify 정책에서 태그의 `mode`는 항상 _Indexed_ 로 설정되어 있어야 합니다.
+- 가상 머신 및 가상 머신 확장 세트의 관리 ID 형식(`identity.type`) 값을 추가하거나 바꿉니다.
+- 특정 별칭(미리 보기)의 값을 추가하거나 바꿉니다.
   - `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }` 사용
     Azure PowerShell **4.6.0** 이상에서 Modify와 함께 사용할 수 있는 별칭 목록을 가져옵니다.
 
 > [!IMPORTANT]
-> 태그를 관리 하는 경우 추가 작업 형식 및 기존 리소스를 수정 하는 기능을 제공 하는 대신 수정을 사용 하는 것이 좋습니다. 그러나 관리 id를 만들 수 없거나 수정이 아직 리소스 속성에 대 한 별칭을 지원 하지 않는 경우에는 추가를 권장 합니다.
+> 태그를 관리할 때는 Append 대신 Modify를 사용하는 것이 좋습니다. Modify는 추가 작업 유형 및 기존 리소스를 수정하는 기능을 제공하기 때문입니다. 그러나 관리 ID를 만들 수 없거나 Modify가 아직 리소스 속성에 대한 별칭을 지원하지 않는 경우에는 Append를 사용하는 것이 좋습니다.
 
 ### <a name="modify-evaluation"></a>Modify 평가
 
-Modify는 리소스의 생성 또는 업데이트하는 도중 리소스 공급자가 요청을 처리하기 전에 평가합니다. 수정 작업은 정책 규칙의 **if** 조건이 충족 될 때 요청 콘텐츠에 적용 됩니다. 각 수정 작업은 적용 되는 시기를 결정 하는 조건을 지정할 수 있습니다. _False_ 로 평가 되는 조건이 있는 작업은 건너뜁니다.
+Modify는 리소스의 생성 또는 업데이트하는 도중 리소스 공급자가 요청을 처리하기 전에 평가합니다. Modify 작업은 정책 규칙의 **if** 조건이 충족될 때 요청 콘텐츠에 적용됩니다. 각 Modify 작업에는 적용 시기를 결정하는 조건을 지정할 수 있습니다. 조건이 _false_ 로 평가되는 작업은 건너뜁니다.
 
-별칭을 지정 하는 경우 다음과 같은 추가 검사를 수행 하 여 수정 작업에서 리소스 공급자가 거부 하도록 하는 방식으로 요청 콘텐츠를 변경 하지 않도록 합니다.
+별칭을 지정하는 경우에는 다음과 같은 추가 검사를 수행하여 Modify 작업으로 인해 리소스 공급자가 거부하게 만드는 방식으로 요청 콘텐츠를 변경하지 않도록 합니다.
 
-- 별칭이 매핑되는 속성이 요청의 API 버전에서 ' 수정 가능 '으로 표시 됩니다.
-- 수정 작업의 토큰 형식이 요청 API 버전의 속성에 대해 예상 되는 토큰 형식과 일치 합니다.
+- 별칭이 매핑되는 속성은 요청의 API 버전에서 'Modifiable'로 표시됩니다.
+- Modify 작업의 토큰 형식은 요청의 API 버전에서 속성에 필요한 토큰 형식과 일치합니다.
 
-이러한 검사 중 하나라도 실패 하면 정책 평가는 지정 된 **conflictEffect** 으로 대체 됩니다.
+이들 검사 중 하나라도 실패하면 정책 평가는 지정된 **conflictEffect** 로 대체됩니다.
 
 > [!IMPORTANT]
-> 별칭을 포함 하는 정의를 수정 하는 것은 recommeneded에서 _감사_ **충돌 효과** 를 사용 하 여 매핑된 속성이 ' 수정 가능 '이 아닌 API 버전을 사용 하 여 요청 실패를 방지 합니다. API 버전 마다 동일한 별칭이 다르게 동작 하는 경우 조건부 수정 작업을 사용 하 여 각 API 버전에 사용 되는 수정 작업을 확인할 수 있습니다.
+> 매핑된 속성이 ‘Modifiable’이 아닌 API 버전을 사용하는 요청의 실패를 방지하기 위해, 별칭이 포함된 Modify 정의에는 **충돌 효과** _감사_ 를 사용하는 것이 좋습니다. 동일한 별칭이 API 버전마다 다르게 동작하는 경우에는 조건부 Modify 작업을 사용하여 각 API 버전에 사용되는 Modify 작업을 확인할 수 있습니다.
 
 Modify 효과를 사용하는 정책 정의가 평가 주기의 일부로 실행되는 경우 이미 존재하는 리소스를 변경하지 않습니다. 대신 비호환으로 **if** 조건을 충족하는 모든 리소스를 표시합니다.
 
@@ -514,32 +516,32 @@ Modify 효과를 사용하는 정책 정의가 평가 주기의 일부로 실행
 
 Modify 효과의 **details** 속성에는 수정에 필요한 권한과 태그 값을 추가, 업데이트 또는 제거하는 데 사용되는 **operations** 를 정의하는 모든 하위 속성이 있습니다.
 
-- **Roledefinitionids** (필수)
+- **roleDefinitionIds**(필수)
   - 이 속성은 구독에서 액세스할 수 있는 역할 기반 액세스 제어 역할 ID와 일치하는 문자열 배열을 포함해야 합니다. 자세한 내용은 [수정 - 정책 정의 구성](../how-to/remediate-resources.md#configure-policy-definition)을 참조하세요.
   - 정의된 역할에는 [Contributor](../../../role-based-access-control/built-in-roles.md#contributor) 역할에 부여된 모든 operations가 포함되어야 합니다.
-- **conflictEffect** (선택 사항)
-  - 두 개 이상의 정책 정의가 동일한 속성을 수정 하는 경우 또는 수정 작업이 지정 된 별칭에 대해 작동 하지 않는 경우에 "wins" 정책 정의를 결정 합니다.
-    - 새 리소스 또는 업데이트 된 리소스의 경우 _deny_ 로 정책 정의가 우선적으로 적용 됩니다. _감사_ 를 사용 하는 정책 정의는 모든 **작업** 을 건너뜁니다. 둘 이상의 정책 정의가 _deny_ 인 경우 요청은 충돌로 거부 됩니다. 모든 정책 정의에 _감사가_ 있으면 충돌 하는 정책 정의의 **작업** 은 처리 되지 않습니다.
-    - 기존 리소스의 경우 둘 이상의 정책 정의가 _거부_ 된 경우 준수 상태는 _충돌_ 입니다. 하나 이상의 정책 정의가 _거부_ 된 경우 각 할당은 _비준수_ 의 준수 상태를 반환 합니다.
-  - 사용 가능한 값: _감사_, _거부_, _사용 안 함_
+- **conflictEffect**(선택 사항)
+  - 둘 이상의 정책 정의가 동일한 속성을 수정하거나 지정된 별칭에서 Modify 작업이 작동하지 않는 경우에 "우선하는" 정책 정의를 결정합니다.
+    - 새 리소스 또는 업데이트된 리소스에서는 _deny_ 가 포함된 정책 정의가 우선적으로 적용됩니다. _audit_ 이 포함된 정책 정의는 모든 **작업** 을 건너뜁니다. 둘 이상의 정책 정의에 _deny_ 가 포함된 경우 요청이 충돌로 거부됩니다. 모든 정책 정의에 _audit_ 이 포함된 경우 충돌하는 정책 정의의 어떠한 **작업** 도 처리되지 않습니다.
+    - 기존 리소스에서 둘 이상의 정책 정의에 _deny_ 가 포함된 경우 준수 상태는 _Conflict_ 입니다. 하나 이하의 정책 정의에 _deny_ 가 포함된 경우 각 할당 시 준수 상태를 _Non-compliant_ 로 반환합니다.
+  - 사용 가능한 값: _audit_, _deny_, _disabled_.
   - 기본값은 _deny_ 입니다.
-- **작업** (필수)
+- **operations**(필수)
   - 일치하는 리소스에서 완료될 모든 태그 operations의 배열입니다.
   - 속성
-    - **작업** (필수)
+    - **operation**(필수)
       - 일치하는 리소스에 수행할 작업을 정의합니다. 옵션에는 _addOrReplace_, _Add_, _Remove_ 가 있습니다. _Add_ 는 [Append](#append) 효과와 유사하게 작동합니다.
-    - **field** (필수)
+    - **field**(필수)
       - 추가, 대체 또는 제거할 태그입니다. 태그 이름은 다른 [fields](./definition-structure.md#fields)와 동일한 명명 규칙을 준수해야 합니다.
     - **value**(선택 사항)
       - 태그를 설정할 값입니다.
       - **operation** 이 _addOrReplace_ 또는 _Add_ 이면 이 속성이 필요합니다.
-    - **조건** (옵션)
-      - _True_ 또는 _false_ 로 평가 되는 [정책 함수](./definition-structure.md#policy-functions) 를 사용 하는 Azure Policy 언어 식이 들어 있는 문자열입니다.
-      - 는 `field()` ,, 정책 함수를 지원 하지 `resourceGroup()` 않습니다 `subscription()` .
+    - **condition**(필수)
+      - _true_ 또는 _false_ 로 평가되는 [Policy 함수](./definition-structure.md#policy-functions)가 있는 Azure Policy 언어 식이 포함된 문자열입니다.
+      - Policy 함수 `field()`, `resourceGroup()`, `subscription()`은 지원하지 않습니다.
 
 ### <a name="modify-operations"></a>operations 수정
 
-**operations** 속성 배열을 사용하면 단일 정책 정의와 다른 방식으로 여러 태그를 변경할 수 있습니다. 각 operation은 **operation**, **field**, **value** 속성으로 구성됩니다. operation은 수정 작업이 태그에 수행할 작업을 결정하고, field는 변경될 태그를 결정하며, value는 태그에 대한 새 설정을 정의합니다. 아래 예제에서는 다음과 같은 태그를 변경합니다.
+**operations** 속성 배열을 사용하면 단일 정책 정의와 다른 방식으로 여러 태그를 변경할 수 있습니다. 각 operation은 **operation**, **field**, **value** 속성으로 구성됩니다. operation은 수정 작업이 태그에 수행할 작업을 결정하고, field는 변경될 태그를 결정하며, value는 태그에 대한 새 설정을 정의합니다. 아래 예시에서는 다음과 같이 태그를 변경합니다.
 
 - `environment` 태그가 이미 다른 값으로 존재하더라도 "Test"로 설정합니다.
 - `TempResource`태그를 제거합니다.
@@ -571,9 +573,9 @@ Modify 효과의 **details** 속성에는 수정에 필요한 권한과 태그 �
 
 |작업(Operation) |Description |
 |-|-|
-|addOrReplace |속성 또는 태그가 다른 값으로 이미 존재 하는 경우에도 정의 된 속성이 나 태그 및 값을 리소스에 추가 합니다. |
-|추가 |리소스에 정의 된 속성 또는 태그 및 값을 추가 합니다. |
-|제거 |리소스에서 정의 된 속성 또는 태그를 제거 합니다. |
+|addOrReplace |속성 또는 태그가 다른 값으로 이미 존재하더라도 정의된 속성 또는 태그와 값을 리소스에 추가합니다. |
+|추가 |정의된 속성 또는 태그와 값을 리소스에 추가합니다. |
+|제거 |정의된 속성 또는 태그를 리소스에서 제거합니다. |
 
 ### <a name="modify-examples"></a>Modify 예제
 
@@ -622,7 +624,7 @@ Modify 효과의 **details** 속성에는 수정에 필요한 권한과 태그 �
 }
 ```
 
-예 3: 저장소 계정에서 blob 공용 액세스를 허용 하지 않는지 확인 합니다. API 버전이 ' 2019-04-01 ' 보다 크거나 같은 요청을 평가 하는 경우에만 수정 작업이 적용 됩니다.
+예제 3: 스토리지 계정에서 Blob 공용 액세스를 허용하지 않는지 확인합니다. Modify 작업은 API 버전이 '2019-04-01' 이상인 요청을 평가할 때에만 적용됩니다.
 
 ```json
 "then": {
@@ -656,7 +658,7 @@ Modify 효과의 **details** 속성에는 수정에 필요한 권한과 태그 �
   - 리소스 위치를 'eastus'로 제한
   - 구독 A의 리소스 그룹 B에 할당됨
   - 감사 효과
-  
+
 이 설정은 다음 결과로 나타납니다.
 
 - 'eastus'에 이미 있는 리소스 그룹 B의 모든 리소스는 정책 2를 준수하지만 정책 1을 준수하지 않음

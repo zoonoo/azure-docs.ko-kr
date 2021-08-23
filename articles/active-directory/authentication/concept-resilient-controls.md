@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/08/2020
+ms.date: 07/13/2021
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db90d49034fb61c26bf4528045d2b3f54d7a30fc
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: fe5f9987cb99aa90d1452b4f442e326d4e95bcee
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963836"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687806"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립
 
@@ -72,7 +72,7 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 5. Azure AD MFA NPS 확장을 사용하여 VPN 액세스를 보호하는 경우 VPN 솔루션을 [SAML 앱](../manage-apps/view-applications-portal.md)으로 페더레이션하고 아래에서 권장하는 대로 앱 범주를 결정하는 것이 좋습니다. 
 
 >[!NOTE]
-> 위험 기반 정책에는 [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) 라이선스가 필요합니다.
+> 위험 기반 정책에는 [Azure AD Premium P2](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) 라이선스가 필요합니다.
 
 다음 예제에서는 사용자가 자신의 애플리케이션과 리소스에 액세스할 수 있는 복원력 있는 액세스 제어를 제공하기 위해 만들어야 하는 정책을 설명합니다. 이 예제에서는 액세스 권한을 부여하려는 대상 사용자가 있는 **AppUsers** 보안 그룹, 핵심 관리자가 있는 **CoreAdmins** 그룹 및 응급 액세스 계정이 있는 **EmergencyAccess** 그룹이 필요합니다.
 이 정책 세트 예제는 **AppUsers** 에서 선택한 사용자에게 액세스 권한을 부여하거나, 신뢰할 수 있는 디바이스에서 연결하는 경우 선택한 애플리케이션에 액세스하거나, MFA와 같은 강력한 인증을 제공합니다. 응급 계정과 핵심 관리자는 여기서 제외됩니다.

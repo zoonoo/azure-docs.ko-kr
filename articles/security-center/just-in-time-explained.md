@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: c4720cbfea072561e5413afd54407b7b0a7878ba
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: f2d9d9afb1e31f959c4e219c0c95e435c966ccd1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229651"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757070"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>JIT(Just-In-Time) VM 액세스 이해
 
 이 페이지는 Azure Security Center의 JIT(Just-In-Time) VM 액세스 기능 및 권장 구성의 논리에 대한 원칙을 설명합니다.
 
-Azure Portal(Security Center 또는 Azure 가상 머신)를 사용하여 Vm에 JIT를 적용하거나 프로그래밍 방식으로 관리하는 방법을 알아보려면 [JIT로 관리 포트를 보호하는 방법](security-center-just-in-time.md)을 참조하세요.
+Azure Portal(Security Center 또는 Azure Virtual Machines)을 사용하거나 프로그래밍 방식으로 VM에 JIT를 적용하는 방법을 알아보려면 [JIT로 관리 포트를 보호하는 방법](security-center-just-in-time.md)을 참조하세요.
 
 
 ## <a name="the-risk-of-open-management-ports-on-a-virtual-machine"></a>가상 머신에서 열린 관리 포트의 위험

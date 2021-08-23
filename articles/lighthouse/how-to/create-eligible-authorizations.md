@@ -1,18 +1,18 @@
 ---
 title: 적격 권한 부여 만들기
 description: Azure Lighthouse에 고객을 온보딩하는 경우 관리 테넌트의 사용자가 Just-In-Time 방식으로 해당 역할을 승격할 수 있습니다.
-ms.date: 05/25/2021
+ms.date: 06/11/2021
 ms.topic: how-to
-ms.openlocfilehash: f220574a2fb84fcf4e7a6e4933bcfbf61d882091
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 938b0ae8f2d105d79237164287b00ec4fdf4d607
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387634"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060755"
 ---
 # <a name="create-eligible-authorizations"></a>적격 권한 부여 만들기
 
-Azure Lighthouse에 고객을 온보딩하는 경우 관리 테넌트의 사용자에게 지정된 Azure 기본 제공 역할을 부여하는 권한 부여를 만듭니다. 또한 [Azure AD(Azure Active Directory) PIM(Privileged Identity Management)](/azure/active-directory/privileged-identity-management/pim-configure)을 사용하여 관리 테넌트의 사용자가 역할을 일시적으로 승격할 수 있는 적격 권한 부여를 만들 수도 있습니다. 이렇게 하면 사용자가 설정된 기간에 대해서만 해당 권한을 가지도록 Just-In-Time 방식으로 추가 권한을 부여할 수 있습니다.
+Azure Lighthouse에 고객을 온보딩하는 경우 관리 테넌트의 사용자에게 지정된 Azure 기본 제공 역할을 부여하는 권한 부여를 만듭니다. 또한 [Azure AD(Azure Active Directory) PIM(Privileged Identity Management)](../../active-directory/privileged-identity-management/pim-configure.md)을 사용하여 관리 테넌트의 사용자가 역할을 일시적으로 승격할 수 있는 적격 권한 부여를 만들 수도 있습니다. 이렇게 하면 사용자가 해당 권한만 보유하도록 Just-In-Time 기준으로 추가 권한을 부여할 수 있습니다.
 
 적격 권한 부여를 만들면 권한 있는 역할에 대한 사용자의 영구 할당 수를 최소화하여 테넌트의 사용자로 인한 권한 있는 액세스와 관련된 보안 위험을 줄일 수 있습니다.
 
@@ -31,7 +31,7 @@ EMS E5 또는 Azure AD Premium P2 라이선스는 고객 테넌트가 아니라 
 
 적격 역할과 관련된 추가 비용은 사용자가 해당 역할에 대한 액세스 권한을 승격한 기간 동안에만 적용됩니다.
 
-사용자의 라이선스에 대한 자세한 내용은 [Privileged Identity Management를 사용하기 위한 라이선스 요구 사항](/azure/active-directory/privileged-identity-management/subscription-requirements)을 참조하세요.
+사용자의 라이선스에 대한 자세한 내용은 [Privileged Identity Management를 사용하기 위한 라이선스 요구 사항](../../active-directory/privileged-identity-management/subscription-requirements.md)을 참조하세요.
 
 ## <a name="how-eligible-authorizations-work"></a>적격 권한 부여의 작동 방식
 
@@ -45,7 +45,7 @@ EMS E5 또는 Azure AD Premium P2 라이선스는 고객 테넌트가 아니라 
 
 적격 권한 부여를 만들 때 사용자, 역할 및 액세스 정책의 세 가지 요소를 정의합니다.
 
-- **사용자** 는 관리하는 테넌트의 개별 사용자이거나 관리하는 테넌트의 Azure AD 그룹일 수 있습니다. 그룹이 정의된 경우 해당 그룹의 모든 멤버는 액세스 정책에 따라 역할에 대한 고유한 개별 액세스 권한을 승격할 수 있습니다. 서비스 주체에는 적격 권한 부여를 사용할 수 없습니다.
+- **사용자** 는 관리 테넌트의 개별 사용자이거나 Azure AD 그룹일 수 있습니다. 그룹이 정의된 경우 해당 그룹의 모든 멤버는 액세스 정책에 따라 역할에 대한 고유한 개별 액세스 권한을 승격할 수 있습니다. 서비스 주체에는 적격 권한 부여를 사용할 수 없습니다.
 - **역할** 은 사용자 액세스 관리자를 제외하고 Azure 위임 리소스 관리가 지원되는 모든 Azure 기본 제공 역할일 수 있습니다.
 - **액세스 정책** 은 MFA(다단계 인증) 요구 사항 및 만료되기 전에 사용자가 역할에서 활성화되는 기간을 정의합니다. 모든 역할에 지정할 수 있는 최대 기간은 8시간입니다.
 
@@ -59,7 +59,6 @@ Azure Lighthouse 고객을 온보딩하려면 수정하는 [해당 매개 변수
 > Azure Marketplace의 관리형 서비스 제품을 사용하여 고객을 온보딩할 수도 있지만, 현재 해당 제품에 적격 권한 부여를 포함할 수 없습니다.
 
 고객을 온보딩할 때 적격 권한 부여를 포함하려면 [샘플 리포지토리의 delegated-resource-management-eligible-authorizations 섹션](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-eligible-authorizations)에 있는 템플릿 중 하나를 사용합니다.
-
 
 |온보딩하려면(적격 권한 부여 사용)  |사용하는 Azure Resource Manager 템플릿  |수정할 매개 변수 파일 |
 |---------|---------|---------|
@@ -233,7 +232,7 @@ Azure Lighthouse 고객을 온보딩하려면 수정하는 [해당 매개 변수
 > [!IMPORTANT]
 > 읽기 권한자(또는 읽기 권한자 액세스 권한을 포함하는 다른 Azure 기본 제공 역할)와 같은 적격 권한 부여의 다른 역할이 있는 템플릿의 `authorizations` 섹션에 동일한 `principalId`를 포함해야 합니다. 그렇지 않으면 해당 사용자는 Azure Portal에서 역할을 승격할 수 없습니다.
 
-`roleDefinitionId`에는 사용자가 Just-In-Time 방식으로 사용할 수 있는 [Azure 기본 제공 역할](/azure/role-based-access-control/built-in-roles)에 대한 역할 정의 ID가 포함됩니다.
+`roleDefinitionId`에는 사용자가 Just-In-Time 방식으로 사용할 수 있는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)에 대한 역할 정의 ID가 포함됩니다.
 
 `justInTimeAccessPolicy`는 다음과 같은 두 가지 요소를 지정합니다.
 
@@ -247,12 +246,14 @@ Azure Lighthouse 고객을 온보딩하려면 수정하는 [해당 매개 변수
 
 Azure Lighthouse에 고객을 온보딩하면 포함된 적격 역할을 지정된 사용자(또는 지정된 그룹의 사용자)가 사용할 수 있게 됩니다.
 
-각 사용자는 언제든지 Azure Portal의 **내 고객** 페이지를 방문하여 위임을 선택한 다음, **적격 역할 관리** 단추를 선택하여 액세스 권한을 승격할 수 있습니다. 그런 다음, 단계에 따라 Azure AD Privileged Identity Management에서 [역할을 활성화](/azure/active-directory/privileged-identity-management/pim-how-to-activate-role)할 수 있습니다.
+각 사용자는 언제든지 Azure Portal의 **내 고객** 페이지를 방문하여 위임을 선택한 다음, **적격 역할 관리** 를 선택하여 액세스 권한을 승격할 수 있습니다. 그런 다음, 단계에 따라 Azure AD Privileged Identity Management에서 [역할을 활성화](../../active-directory/privileged-identity-management/pim-how-to-activate-role.md)할 수 있습니다.
+
+:::image type="content" source="../media/manage-eligible-roles.png" alt-text="Azure Portal의 적격 역할 관리 단추를 보여 주는 스크린샷":::
 
 적격 역할이 활성화되면 사용자는 적격 권한 부여에 지정된 전체 기간 동안 해당 역할을 갖게 됩니다. 이 기간이 지나면 권한 상승 프로세스를 반복하여 액세스 권한을 다시 승격하지 않는 한, 더 이상 해당 역할을 사용할 수 없게 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [ARM 템플릿을 사용하여 Azure Lighthouse에 고객을 온보딩](onboard-customer.md)하는 방법을 알아봅니다.
-- [Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure)에 대해 자세히 알아봅니다.
+- [Azure AD Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)에 대해 자세히 알아봅니다.
 - [Azure Lighthouse의 테넌트, 사용자 및 역할](../concepts/tenants-users-roles.md)에 대해 자세히 알아봅니다.

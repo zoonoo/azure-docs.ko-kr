@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/23/2020
+ms.date: 5/19/2021
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d2c8b4c121c14cb9bff59cf1c70367dec6702139
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: b3433031beba287d1412d0c2254941b7a3e9e118
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786450"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968407"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Azure Monitor에서 Azure AD 권한 관리에 대한 로그 및 보고 보관
 
@@ -82,6 +82,8 @@ Azure AD 감사 로그를 보관하려면 Azure 구독에 Azure Monitor가 포�
 
     각 행에는 시간, 액세스 패키지 ID, 작업 이름, 개체 ID, UPN 및 작업을 시작한 사용자의 표시 이름이 포함됩니다.  추가 세부 정보는 JSON에 포함되어 있습니다.   
 
+1. 전역 관리자가 사용자를 애플리케이션 역할에 직접 할당하는 것과 같이, 액세스 패키지 할당으로 인한 것이 아닌 애플리케이션에 대한 애플리케이션 역할 할당이 변경되었는지 확인하려면 *애플리케이션 역할 할당 작업* 이라는 통합 문서를 선택하면 됩니다.
+
 
 ## <a name="create-custom-azure-monitor-queries-using-the-azure-portal"></a>Azure Portal을 이용해 사용자 지정 Azure Monitor 쿼리 만들기
 권한 관리 이벤트를 포함하여 Azure AD 감사 이벤트에 대한 고유 쿼리를 만들 수 있습니다.  
@@ -108,7 +110,7 @@ Azure Monitor에 유지되는 최고/최신 감사 이벤트를 알아보려면 
 AuditLogs | where TimeGenerated > ago(3653d) | summarize OldestAuditEvent=min(TimeGenerated), NewestAuditEvent=max(TimeGenerated) by Type
 ```
 
-Azure Monitor의 감사 이벤트에 저장된 열에 대한 자세한 내용은 [Azure Monitor에서 Azure AD 감사 로그 스키마 해석](../reports-monitoring/reference-azure-monitor-audit-log-schema.md)을 참조하세요.
+Azure Monitor의 감사 이벤트에 저장된 열에 대한 자세한 내용은 [Azure Monitor에서 Azure AD 감사 로그 스키마 해석](../reports-monitoring/overview-reports.md)을 참조하세요.
 
 ## <a name="create-custom-azure-monitor-queries-using-azure-powershell"></a>Azure PowerShell을 이용해 사용자 지정 Azure Monitor 쿼리 만들기
 

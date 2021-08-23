@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 2fe9d7e4da8950cee2dcb2fbcfb26355ace7285d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 6c181b456dd4fe5ea49a3888dce7efbc22981167
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102044020"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114289241"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Azure Monitor를 사용하여 연속 모니터링
 
@@ -26,8 +26,8 @@ ms.locfileid: "102044020"
 
 - [Azure DevOps Projects](../devops-project/overview.md)는 기존 코드와 Git 리포지토리가 포함된 간소화된 환경을 제공하거나 샘플 애플리케이션 중 하나를 선택하여 Azure에 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 만듭니다.
 - [DevOps 릴리스 파이프라인의 연속 모니터링](./app/continuous-monitoring.md)을 사용하면 모니터링 데이터를 기반으로 배포를 제어 또는 롤백할 수 있습니다.
-- [상태 모니터](./app/monitor-performance-live-website-now.md)를 사용하면 코드를 수정하거나 다시 배포하지 않고도 Azure Application Insights를 사용하여 Windows에서 라이브 .NET 앱을 계측할 수 있습니다.
-- 응용 프로그램에 대 한 코드에 액세스할 수 있는 경우 [.net](./app/asp-net.md), [.Net Core](./app/asp-net-core.md), [Java](./app/java-get-started.md), [Node.js](./app/nodejs-quick-start.md)또는 [기타 프로그래밍 언어](./app/platforms.md)에 대 한 Azure Monitor Application Insights SDK를 설치 하 여 [Application Insights](./app/app-insights-overview.md) 으로 전체 모니터링을 사용 하도록 설정 합니다. 이렇게 하면 애플리케이션 및 비즈니스에 관련된 사용자 지정 이벤트, 메트릭 또는 페이지 보기를 지정할 수 있습니다.
+- [상태 모니터](./app/status-monitor-v2-overview.md)를 사용하면 코드를 수정하거나 다시 배포하지 않고도 Azure Application Insights를 사용하여 Windows에서 라이브 .NET 앱을 계측할 수 있습니다.
+- 애플리케이션의 코드에 액세스할 수 있는 경우 [.NET](./app/asp-net.md), [.NET Core](./app/asp-net-core.md), [Java](./app/java-in-process-agent.md), [Node.js](./app/nodejs-quick-start.md) 또는 [기타 프로그래밍 언어](./app/platforms.md)용 Azure Monitor Application Insights SDK를 설치하여 [Application Insights](./app/app-insights-overview.md)를 통해 전체 모니터링을 사용하도록 설정합니다. 이렇게 하면 애플리케이션 및 비즈니스에 관련된 사용자 지정 이벤트, 메트릭 또는 페이지 보기를 지정할 수 있습니다.
 
 
 
@@ -35,8 +35,8 @@ ms.locfileid: "102044020"
 애플리케이션은 기본 인프라 만큼만 안정적입니다. 전체 인프라에서 모니터링을 사용하도록 설정하면 전체 식별 가능성을 확보하고 문제 발생 시 잠재적인 근본 원인을 더 쉽게 발견할 수 있습니다. Azure Monitor를 사용하여 VM, 컨테이너, 스토리지 및 네트워크 등의 리소스를 비롯하여 전체 하이브리드 인프라의 상태 및 성능을 추적할 수 있습니다.
 
 - 구성 없이 대부분의 Azure 리소스에서 [플랫폼 메트릭, 활동 로그 및 진단 로그](agents/data-sources.md)를 자동으로 가져옵니다.
-- [Vm 정보](vm/vminsights-overview.md)를 사용 하 여 vm에 대 한 심층 모니터링을 사용 합니다.
--  [컨테이너용 Azure Monitor](containers/container-insights-overview.md)를 사용하여 더 세부적인 AKS 클러스터 모니터링을 사용하도록 설정합니다.
+- [VM 인사이트](vm/vminsights-overview.md)로 VM에 대한 심층 모니터링을 사용합니다.
+-  [컨테이너 인사이트](containers/container-insights-overview.md)로 AKS 클러스터에 대한 심층 모니터링을 사용합니다.
 - 환경에 있는 다양한 애플리케이션 및 서비스를 위한 [모니터링 솔루션](./monitor-reference.md)을 추가합니다.
 
 
@@ -49,7 +49,7 @@ ms.locfileid: "102044020"
 ##  <a name="combine-resources-in-azure-resource-groups"></a>Azure 리소스 그룹의 리소스 결합
 현재 Azure의 일반적인 애플리케이션에는 VM 및 App Services나 Cloud Services, AKS 클러스터 또는 Service Fabric에 호스트된 마이크로서비스와 같은 다양한 리소스가 포함됩니다. 이러한 애플리케이션은 Event Hubs, Storage, SQL 및 Service Bus와 같은 종속성을 자주 사용합니다.
 
-- Azure 리소스 그룹의 리소스를 결합하여 다양한 애플리케이션을 구성하는 모든 리소스를 명확하게 파악할 수 있습니다. [리소스 그룹용 Azure Monitor](./insights/resource-group-insights.md)는 전체 스택 애플리케이션의 상태 및 성능을 추적하고 조사 또는 디버깅을 위해 개별 구성 요소로 드릴다운할 수 있는 간단한 방법을 제공합니다.
+- Azure 리소스 그룹의 리소스를 결합하여 다양한 애플리케이션을 구성하는 모든 리소스를 명확하게 파악할 수 있습니다. [리소스 그룹 인사이트](./insights/resource-group-insights.md)는 전체 스택 애플리케이션의 상태 및 성능을 추적하고 조사 또는 디버깅을 위해 개별 구성 요소로 드릴다운할 수 있는 간단한 방법을 제공합니다.
 
 ## <a name="ensure-quality-through-continuous-deployment"></a>지속적인 배포를 통해 품질 보장
 연속 통합/지속적인 배포를 사용하면 자동화된 테스트의 결과에 따라 코드 변경 내용을 애플리케이션에 자동으로 통합하고 배포할 수 있습니다. 배포 프로세스를 간소화하고 프로덕션으로 이동하기 전에 변경 내용의 품질을 보장합니다.

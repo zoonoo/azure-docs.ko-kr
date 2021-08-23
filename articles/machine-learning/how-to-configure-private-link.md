@@ -1,43 +1,54 @@
 ---
 title: 프라이빗 엔드포인트 구성
 titleSuffix: Azure Machine Learning
-description: Azure Private Link를 사용하여 가상 네트워크에서 Azure Machine Learning 작업 영역에 안전하게 액세스합니다.
+description: 프라이빗 엔드포인트를 사용하여 가상 네트워크에서 Azure Machine Learning 작업 영역에 안전하게 액세스할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
+ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 02/09/2021
-ms.openlocfilehash: 92b5283e5779cc79ce0a745190b57884a6ca0f7e
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 06/10/2021
+ms.openlocfilehash: 9a8e4351b88c1b9c4f166dff71fe906177870d9a
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056014"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984701"
 ---
-# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역용 Azure Private Link 구성
+# <a name="configure-a-private-endpoint-for-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역용 프라이빗 엔드포인트 구성
 
-이 문서에서는 Azure Machine Learning 작업 영역에서 Azure Private Link를 사용하는 방법에 대해 알아봅니다. Azure Machine Learning용 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [가상 네트워크 격리 및 개인 정보 개요](how-to-network-security-overview.md)를 참조하세요.
+이 문서에서는 Azure Machine Learning 작업 영역용 프라이빗 엔드포인트를 구성하는 방법을 알아봅니다. Azure Machine Learning용 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [가상 네트워크 격리 및 개인 정보 개요](how-to-network-security-overview.md)를 참조하세요.
 
-Azure Private Link를 사용하면 프라이빗 엔드포인트를 사용하여 작업 영역에 연결할 수 있습니다. 프라이빗 엔드포인트는 가상 네트워크 내에 있는 일련의 개인 IP 주소입니다. 그런 다음, 작업 영역에 대한 액세스를 개인 IP 주소를 통해서만 발생하도록 제한할 수 있습니다. Private Link를 사용하면 데이터 반출의 위험을 줄일 수 있습니다. 프라이빗 엔드포인트에 대한 자세한 내용은 [Azure Private Link](../private-link/private-link-overview.md) 문서를 참조하세요.
+Azure Private Link를 사용하면 프라이빗 엔드포인트를 사용하여 작업 영역에 연결할 수 있습니다. 프라이빗 엔드포인트는 가상 네트워크 내에 있는 일련의 개인 IP 주소입니다. 그런 다음, 작업 영역에 대한 액세스를 개인 IP 주소를 통해서만 발생하도록 제한할 수 있습니다. 프라이빗 엔드포인트를 사용하면 데이터 반출 위험을 줄이는 데 도움이 됩니다. 프라이빗 엔드포인트에 대한 자세한 내용은 [Azure Private Link](../private-link/private-link-overview.md) 문서를 참조하세요.
 
-> [!IMPORTANT]
-> Azure Private Link는 작업 영역을 삭제하거나 컴퓨팅 리소스를 관리하는 것과 같은 Azure 제어 평면 관리 작업에 영향을 주지 않습니다. 예를 들어 컴퓨팅 대상 생성, 업데이트 또는 삭제가 있습니다. 이러한 작업은 항상 그렇듯 공용 인터넷을 통해 수행됩니다. Azure Machine Learning 스튜디오, API(게시된 파이프라인 포함) 또는 SDK를 사용하는 등의 데이터 평면 작업은 프라이빗 엔드포인트를 사용합니다.
+> [!WARNING]
+> 프라이빗 엔드포인트를 사용하여 작업 영역을 보호해도 완전한 보안이 보장되지는 않습니다. 솔루션의 개별 구성 요소를 모두 보호해야 합니다. 예를 들어 작업 영역에 프라이빗 엔드포인트를 사용하지만 Azure Storage 계정이 VNet 뒤에 있지 않은 경우 작업 영역과 스토리지 간 트래픽은 보안을 위해 VNet을 사용하지 않습니다.
 >
-> Mozilla Firefox를 사용하는 경우 작업 영역의 프라이빗 엔드포인트에 액세스를 시도할 때 문제가 발생할 수 있습니다. 이 문제는 Mozilla의 DNS over HTTPS와 관련된 것일 수 있습니다. 해결 방법으로 Google Chrome의 Microsoft Edge를 사용하는 것이 좋습니다.
+> Azure Machine Learning에서 사용하는 리소스를 보호하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+>
+> * [가상 네트워크 격리 및 개인 정보 개요](how-to-network-security-overview.md)
+> * [작업 영역 리소스 보호](how-to-secure-workspace-vnet.md)
+> * [학습 환경 보호](how-to-secure-training-vnet.md)
+> * [유추 환경 보호](how-to-secure-inferencing-vnet.md)
+> * [VNet에서 Azure Machine Learning 스튜디오 사용](how-to-enable-studio-virtual-network.md)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 고객 관리형 키로 프라이빗 링크가 설정된 작업 영역을 사용하려는 경우 지원 티켓을 사용하여 이 기능을 요청해야 합니다. 자세한 내용은 [할당량 관리 및 늘리기](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)를 참조하세요.
+[!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
+
+* 고객 관리형 키로 프라이빗 엔드포인트 지원 작업 영역을 사용하려는 경우 지원 티켓을 사용하여 이 기능을 요청해야 합니다. 자세한 내용은 [할당량 관리 및 늘리기](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)를 참조하세요.
 
 * 프라이빗 엔드포인트를 만들 기존 가상 네트워크가 있어야 합니다. 또한 프라이빗 엔드포인트를 추가하기 전에 [프라이빗 엔드포인트에 대한 네트워크 정책을 사용하지 않도록 설정](../private-link/disable-private-endpoint-network-policy.md)해야 합니다.
+
 ## <a name="limitations"></a>제한 사항
 
-* Azure Government 지역에서는 프라이빗 링크로 Azure Machine Learning 작업 영역을 사용할 수 없습니다.
-* 프라이빗 링크로 보호되는 작업 영역에 대한 공용 액세스를 사용하도록 설정하고 공용 인터넷을 통해 Azure Machine Learning 스튜디오를 사용하는 경우, 디자이너와 같은 일부 기능에서 데이터에 액세스하지 못할 수 있습니다. 이 문제는 VNet 뒤에서 보호되는 서비스에 데이터를 저장하는 경우에 발생합니다. 예를 들어 Azure Storage 계정이 있습니다.
+* Azure Government 지역에서는 프라이빗 엔드포인트로 Azure Machine Learning 작업 영역을 사용할 수 없습니다.
+* 프라이빗 엔드포인트로 보호된 작업 영역에 대한 퍼블릭 액세스를 사용하도록 설정하고 퍼블릭 인터넷을 통해 Azure Machine Learning 스튜디오를 사용하는 경우, 디자이너와 같은 일부 기능에서 데이터에 액세스하지 못할 수 있습니다. 이 문제는 VNet 뒤에서 보호되는 서비스에 데이터를 저장하는 경우에 발생합니다. 예를 들어 Azure Storage 계정이 있습니다.
+* Mozilla Firefox를 사용하는 경우 작업 영역의 프라이빗 엔드포인트에 액세스를 시도할 때 문제가 발생할 수 있습니다. 이 문제는 Mozilla의 DNS over HTTPS와 관련된 것일 수 있습니다. 해결 방법으로 Microsoft Edge 또는 Google Chrome을 사용하는 것이 좋습니다.
+* 프라이빗 엔드포인트를 사용해도 작업 영역을 삭제하거나 컴퓨팅 리소스를 관리하는 것과 같은 Azure 컨트롤 플레인(관리 작업)에는 영향을 주지 않습니다. 예를 들어 컴퓨팅 대상 생성, 업데이트 또는 삭제가 있습니다. 이러한 작업은 항상 그렇듯 공용 인터넷을 통해 수행됩니다. Azure Machine Learning 스튜디오, API(게시된 파이프라인 포함) 또는 SDK를 사용하는 등의 데이터 평면 작업은 프라이빗 엔드포인트를 사용합니다.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>프라이빗 엔드포인트를 사용하는 작업 영역 만들기
 
@@ -48,7 +59,7 @@ Azure Private Link를 사용하면 프라이빗 엔드포인트를 사용하여 
 
 # <a name="python"></a>[Python](#tab/python)
 
-Azure Machine Learning Python SDK는 프라이빗 엔드포인트를 사용하는 작업 영역을 만들 때 [Workspace.create()](/python/api/azureml-core/azureml.core.workspace.workspace#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-)와 함께 사용할 수 있는 [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) 클래스를 제공 합니다. 이 클래스를 사용하려면 기존 가상 네트워크가 필요합니다.
+Azure Machine Learning Python SDK는 프라이빗 엔드포인트를 사용하는 작업 영역을 만들 때 [Workspace.create()](/python/api/azureml-core/azureml.core.workspace.workspace#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-)와 함께 사용할 수 있는 [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) 클래스를 제공합니다. 이 클래스를 사용하려면 기존 가상 네트워크가 필요합니다.
 
 ```python
 from azureml.core import Workspace
@@ -66,7 +77,7 @@ ws = Workspace.create(name='myworkspace',
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[기계 학습용 Azure CLI 확장](reference-azure-machine-learning-cli.md)은 [az ml workspace create](/cli/azure/ext/azure-cli-ml/ml/workspace#ext_azure_cli_ml_az_ml_workspace_create) 명령을 제공합니다. 이 명령에 다음 매개 변수를 사용하여 프라이빗 네트워크를 사용하는 작업 영역을 만들 수 있지만 그러려면 기존 가상 네트워크가 필요합니다.
+[기계 학습용 Azure CLI 확장 1.0](reference-azure-machine-learning-cli.md)은 [az ml workspace create](/cli/azure/ml/workspace#az_ml_workspace_create) 명령을 제공합니다. 이 명령에 다음 매개 변수를 사용하여 프라이빗 네트워크를 사용하는 작업 영역을 만들 수 있지만 그러려면 기존 가상 네트워크가 필요합니다.
 
 * `--pe-name`: 만들어진 프라이빗 엔드포인트의 이름입니다.
 * `--pe-auto-approval`: 작업 영역에 대한 프라이빗 엔드포인트 연결을 자동으로 승인해야 하는지 여부입니다.
@@ -116,10 +127,10 @@ ws.add_private_endpoint(private_endpoint_config=pe, private_endpoint_auto_approv
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[기계 학습용 Azure CLI 확장](reference-azure-machine-learning-cli.md)은 [az ml workspace private-endpoint add](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint#ext_azure_cli_ml_az_ml_workspace_private_endpoint_add) 명령을 제공합니다.
+[기계 학습용 Azure CLI 확장 1.0](reference-azure-machine-learning-cli.md)은 [az ml workspace private-endpoint add](/cli/azure/ml/workspace/private-endpoint#az_ml_workspace_private_endpoint_add) 명령을 제공합니다.
 
 ```azurecli
-az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval true --pe-vnet-name myvnet
+az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval --pe-vnet-name myvnet
 ```
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
@@ -153,7 +164,7 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[기계 학습용 Azure CLI 확장](reference-azure-machine-learning-cli.md)은 [az ml workspace private-endpoint delete](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint#ext_azure_cli_ml_az_ml_workspace_private_endpoint_delete) 명령을 제공합니다.
+[기계 학습용 Azure CLI 확장 1.0](reference-azure-machine-learning-cli.md)은 [az ml workspace private-endpoint delete](/cli/azure/ml/workspace/private-endpoint#az_ml_workspace_private_endpoint_delete) 명령을 제공합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -166,7 +177,7 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 작업 영역에 대한 통신은 가상 네트워크에서 들어오는 것만 허용되므로 작업 영역을 사용하는 모든 개발 환경은 가상 네트워크의 구성원이어야 합니다. 예를 들어 가상 네트워크의 가상 머신이 있습니다.
 
 > [!IMPORTANT]
-> 일시적인 연결 중단을 방지하려면 Private Link를 사용하도록 설정한 후 작업 영역에 연결하는 컴퓨터에서 DNS 캐시를 플러시하는 것이 좋습니다. 
+> 일시적인 연결 중단을 방지하려면 프라이빗 엔드포인트를 사용하도록 설정한 후 작업 영역에 연결하는 머신에서 DNS 캐시를 플러시하는 것이 좋습니다. 
 
 Azure Virtual Machines에 대한 자세한 내용은 [Virtual Machines 설명서](../virtual-machines/index.yml)를 참조하세요.
 
@@ -177,7 +188,7 @@ Azure Virtual Machines에 대한 자세한 내용은 [Virtual Machines 설명서
 > [!WARNING]
 > 퍼블릭 엔드포인트를 통해 연결하는 경우 스튜디오의 일부 기능이 데이터에 액세스하지 못합니다. 이 문제는 VNet 뒤에서 보호되는 서비스에 데이터를 저장하는 경우에 발생합니다. 예를 들어 Azure Storage 계정이 있습니다. 또한 컴퓨팅 인스턴스 Jupyter/JupyterLab/RStudio 기능 및 실행 중인 Notebook은 작동하지 않습니다.
 
-프라이빗 링크를 사용하는 작업 영역에 대한 공용 액세스를 사용하도록 설정하려면 다음 단계를 수행합니다.
+프라이빗 엔드포인트 지원 작업 영역에 대한 퍼블릭 액세스를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -192,7 +203,7 @@ ws.update(allow_public_access_when_behind_vnet=True)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[기계 학습용 Azure CLI 확장](reference-azure-machine-learning-cli.md)은 [az ml workspace update](/cli/azure/ext/azure-cli-ml/ml/workspace#ext_azure_cli_ml_az_ml_workspace_update) 명령을 제공합니다. 작업 영역에 대한 공용 액세스를 사용하도록 설정하려면 `--allow-public-access true` 매개 변수를 추가합니다.
+[기계 학습용 Azure CLI 확장 1.0](reference-azure-machine-learning-cli.md)은 [az ml workspace update](/cli/azure/ml/workspace#az_ml_workspace_update) 명령을 제공합니다. 작업 영역에 대한 공용 액세스를 사용하도록 설정하려면 `--allow-public-access true` 매개 변수를 추가합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

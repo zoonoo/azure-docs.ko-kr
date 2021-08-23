@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 11/05/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02cd3f54823b80ae201316fee29c02616b9d8502
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9d1d5e1b9a159d8084c3bf93d00611af72f2b21
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103012040"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085872"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Privileged Identity Management를 사용하여 그룹에 역할 할당
 
@@ -27,9 +27,18 @@ ms.locfileid: "103012040"
 > [!NOTE]
 > PIM을 사용하여 Azure AD 역할에 그룹을 할당하려면 업데이트된 버전의 Privileged Identity Management를 사용해야 합니다. Azure AD 조직에서 Privileged Identity Management API를 활용하는 경우 이전 버전의 PIM을 사용하고 있을 수 있습니다. 이 경우에는 별칭 pim_preview@microsoft.com에 문의하여 조직을 이동하고 API를 업데이트하세요. [PIM에서 Azure AD 역할 및 기능](../privileged-identity-management/azure-ad-roles-features.md)에 대해 자세히 알아보세요.
 
-## <a name="using-azure-ad-admin-center"></a>Azure AD 관리 센터 사용
+## <a name="prerequisites"></a>필수 구성 요소
 
-1. [Azure AD Privileged Identity Management](https://ms.portal.azure.com/?Microsoft_AAD_IAM_GroupRoles=true&Microsoft_AAD_IAM_userRolesV2=true&Microsoft_AAD_IAM_enablePimIntegration=true#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart)에 조직의 권한 있는 역할 관리자 또는 전역 관리자로 로그인합니다.
+- Azure AD Premium P2 라이선스
+- 권한 있는 역할 관리자 또는 전역 관리자
+- PowerShell 사용 시 AzureADPreview 모듈
+- Microsoft Graph API용 Graph 탐색기 사용 시 관리자 동의
+
+자세한 내용은 [PowerShell 또는 Graph 탐색기를 사용하기 위한 필수 구성 요소](prerequisites.md)를 참조하세요.
+
+## <a name="azure-portal"></a>Azure portal
+
+1. [Azure AD Privileged Identity Management](https://ms.portal.azure.com/?Microsoft_AAD_IAM_GroupRoles=true&Microsoft_AAD_IAM_userRolesV2=true&Microsoft_AAD_IAM_enablePimIntegration=true#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart)에 로그인합니다.
 
 1. **Privileged Identity Management** > **Azure AD 역할** > **역할** > **할당 추가** 를 선택합니다.
 
@@ -41,22 +50,7 @@ ms.locfileid: "103012040"
 
     ![역할을 할당할 사용자 선택](./media/groups-pim-eligible/set-assignment-settings.png)
 
-## <a name="using-powershell"></a>PowerShell 사용
-
-### <a name="download-the-azure-ad-preview-powershell-module"></a>Azure AD 미리 보기 PowerShell 모듈 다운로드
-
-Azure AD #PowerShell 모듈을 설치하려면 다음 cmdlet을 사용합니다.
-
-```powershell
-Install-Module -Name AzureADPreview
-Import-Module -Name AzureADPreview
-```
-
-모듈을 사용할 수 있는지 확인하려면 다음 cmdlet을 사용합니다.
-
-```powershell
-Get-Module -Name AzureADPreview
-```
+## <a name="powershell"></a>PowerShell
 
 ### <a name="assign-a-group-as-an-eligible-member-of-a-role"></a>그룹을 역할의 적격 구성원으로 할당
 
@@ -68,7 +62,7 @@ $schedule.endDateTime = "2019-07-25T20:49:11.770Z"
 Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId aadRoles -Schedule $schedule -ResourceId "[YOUR TENANT ID]" -RoleDefinitionId "9f8c1837-f885-4dfd-9a75-990f9222b21d" -SubjectId "[YOUR GROUP ID]" -AssignmentState "Eligible" -Type "AdminAdd"
 ```
 
-## <a name="using-microsoft-graph-api"></a>Microsoft Graph API 사용
+## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 ```http
 POST

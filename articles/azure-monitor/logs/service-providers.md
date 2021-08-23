@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 5e84f59253c85495bfccb289b3c40229304c0f49
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: d2e0dcb7d973a4e4b2b6f4438aab5f08187ae44b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790166"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953118"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>서비스 공급자를 위한 Azure Monitor 로그
 
@@ -88,4 +88,4 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 
 * [Power BI](../visualize/powerbi.md)를 사용하여 요약 보고서 생성
 
-* [Azure 위임 리소스 관리](../../lighthouse/concepts/azure-delegated-resource-management.md)에 고객 온보딩.
+* [Azure 위임 리소스 관리](../../lighthouse/concepts/architecture.md)에 고객 온보딩.

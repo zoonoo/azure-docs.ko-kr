@@ -6,13 +6,13 @@ ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
-ms.custom: seodec18
-ms.openlocfilehash: 2a03b791f37868010e107214ddcb7cf42174e4e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: bc60c8663a3d546f785fc905da17ddefcec64575
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85833556"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112378271"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 ILB ASE를 만드는 방법
 
@@ -140,7 +140,7 @@ App Service 환경을 시작하려면 [App Service 환경 소개](app-service-ap
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
-[quickstartilbasecreate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-create/
+[quickstartilbasecreate]: https://azure.microsoft.com/resources/templates/web-app-ase-ilb-create/
 [examplebase64encoding]: https://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
-[configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/ 
+[configuringDefaultSSLCertificate]: https://azure.microsoft.com/resources/templates/201-web-app-ase-ilb-configure-default-ssl/
 

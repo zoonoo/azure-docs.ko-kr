@@ -13,12 +13,12 @@ ms.date: 03/11/2021
 ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 1a380c8a3d766c3c11d8cba1148383d924f65a1b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6e683977781b7522eb23a10fcdb997c3e65938d
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103224999"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110783324"
 ---
 # <a name="manage-your-users-with-my-staff"></a>내 직원으로 사용자 관리
 
@@ -40,7 +40,7 @@ ms.locfileid: "103224999"
 * 구독과 연결된 Azure Active Directory 테넌트.
 
   * 필요한 경우 [Azure Active Directory 테넌트를 만들거나](../fundamentals/sign-up-organization.md)[Azure 구독을 계정에 연결합니다](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
-* SMS 기반 인증을 사용하도록 설정하려면 Azure AD 테넌트에 ‘전역 관리자’ 권한이 필요합니다.
+* SMS 기반 인증을 사용하도록 설정하려면 Azure AD 테넌트에 *전역 관리자* 권한이 필요합니다.
 * 문자 메시지 인증 방법 정책에서 설정된 각 사용자는 이를 사용하지 않더라도 라이선스를 부여받아야 합니다. 설정된 각 사용자에게는 다음 Azure AD 또는 Microsoft 365 라이선스 중 하나가 있어야 합니다.
 
   * [Azure AD Premium P1 또는 P2](https://azure.microsoft.com/pricing/details/active-directory/)
@@ -84,7 +84,7 @@ Azure AD 조건부 액세스 정책을 사용하여 내 직원 포털을 보호�
 
 * [인증 관리자](permissions-reference.md#authentication-administrator)
 * [권한 있는 인증 관리자](permissions-reference.md#privileged-authentication-administrator)
-* [전역 관리자](permissions-reference.md#global-administrator)
+* 전역 관리자
 * [기술 지원팀 관리자](permissions-reference.md#helpdesk-administrator)
 * [사용자 관리자](permissions-reference.md#user-administrator)
 * [암호 관리자](permissions-reference.md#password-administrator)
@@ -112,7 +112,7 @@ Azure AD 조건부 액세스 정책을 사용하여 내 직원 포털을 보호�
 
 * [인증 관리자](permissions-reference.md#authentication-administrator)
 * [권한 있는 인증 관리자](permissions-reference.md#privileged-authentication-administrator)
-* [전역 관리자](permissions-reference.md#global-administrator)
+* 전역 관리자
 
 ## <a name="search"></a>검색
 

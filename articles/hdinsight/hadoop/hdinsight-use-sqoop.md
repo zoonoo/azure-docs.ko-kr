@@ -4,16 +4,16 @@ description: 워크스테이션에서 Azure PowerShell을 사용하여 Hadoop �
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: ac2bbac1f920bd4cb3a6042de58993f15c0ccdbd
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 165660a0141c50cf1c6dc24e3ba8df0299f885f2
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "122642116"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069007"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop과 Apache Sqoop 사용
 
-[!INCLUDE [sqoop-selector](../includes/hdinsight-selector-use-sqoop.md)]
+[!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
 HDInsight에서 Apache Sqoop을 사용하여 HDInsight 클러스터와 Azure SQL Database 사이에서 가져오기 및 내보내는 방법을 알아봅니다.
 
@@ -59,7 +59,7 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
 
 ## <a name="set-up-test-environment"></a><a name="create-cluster-and-sql-database"></a>테스트 환경 설정
 
-클러스터, SQL 데이터베이스 및 기타 개체는 Azure Resource Manager 템플릿을 사용하여 Azure Portal을 통해 생성됩니다. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/hdinsight-linux-with-sql-database/)에서 찾을 수 있습니다. Resource Manager 템플릿은 bacpac 패키지를 호출하여 SQL 데이터베이스에 테이블 스키마를 배포합니다.  백업 패키지는 공용 Blob 컨테이너, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac에 있습니다. Bacpac 파일에 대한 프라이빗 컨테이너를 사용하려는 경우 템플릿에 다음 값을 사용합니다.
+클러스터, SQL 데이터베이스 및 기타 개체는 Azure Resource Manager 템플릿을 사용하여 Azure Portal을 통해 생성됩니다. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)에서 찾을 수 있습니다. Resource Manager 템플릿은 bacpac 패키지를 호출하여 SQL 데이터베이스에 테이블 스키마를 배포합니다.  백업 패키지는 공용 Blob 컨테이너, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac에 있습니다. Bacpac 파일에 대한 프라이빗 컨테이너를 사용하려는 경우 템플릿에 다음 값을 사용합니다.
 
 ```json
 "storageKeyType": "Primary",

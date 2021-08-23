@@ -11,12 +11,12 @@ ms.author: nehsin
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: b460c906806cc9c9beb9c9e037d1096feea098a3
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: d7f6030e8d4d2807084d212713df8630f2d7a17a
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114404405"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191729"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>IoT Hub 메시지 라우팅을 사용하여 디바이스-클라우드 메시지를 다른 엔드포인트에 보내기
 
@@ -24,7 +24,7 @@ ms.locfileid: "114404405"
 
 메시지 라우팅을 사용하면 확장 가능하고 신뢰할 수 있는 자동화된 방식으로 디바이스에서 클라우드 서비스로 메시지를 보낼 수 있습니다. 메시지 라우팅은 다음 용도로 사용할 수 있습니다. 
 
-* **디바이스 원격 분석 메시지는 물론 이벤트** 즉, 디바이스 수명 주기 이벤트, 디바이스 쌍 변경 이벤트, 디지털 트윈 변경 이벤트 및 디바이스 연결 상태 이벤트를 기본 제공 엔드포인트 및 사용자 지정 엔드포인트로 보냅니다. [엔드포인트 라우팅](#routing-endpoints)에 대해 알아보세요. IoT 플러그 앤 플레이 디바이스에서 전송되는 이벤트에 대해 자세히 알아보려면 [IoT 플러그 앤 플레이 디지털 트윈 이해](../iot-develop/concepts-digital-twin.md)를 참조하세요.
+* **디바이스 원격 분석 메시지는 물론 이벤트** 즉, 디바이스 수명 주기 이벤트, 디바이스 쌍 변경 이벤트, 디지털 트윈 변경 이벤트 및 디바이스 연결 상태 이벤트를 기본 제공 엔드포인트 및 사용자 지정 엔드포인트로 보냅니다. [엔드포인트 라우팅](#routing-endpoints)에 대해 알아보세요. IoT 플러그 앤 플레이 디바이스에서 전송되는 이벤트에 대해 자세히 알아보려면 [IoT 플러그 앤 플레이 디지털 트윈 이해](../iot-pnp/concepts-digital-twin.md)를 참조하세요.
 
 * 다양한 쿼리를 적용하여 **다양한 엔드포인트로 데이터를 라우팅하기 전에 데이터를 필터링** 합니다. 메시지 라우팅을 사용하면 메시지 속성 및 메시지 본문뿐만 아니라 디바이스 쌍 태그 및 디바이스 쌍 속성에 대해서도 쿼리할 수 있습니다. [메시지 라우팅에 쿼리](iot-hub-devguide-routing-query-syntax.md)를 사용하는 방법에 대해 자세히 알아보세요.
 
@@ -107,7 +107,7 @@ IoT Hub으로 사용되는 Service Bus 큐 및 토픽에는 **세션** 또는 **
 
 다음 자습서를 사용하여 엔드포인트에서 메시지를 읽는 방법을 알아봅니다.
 
-* [기본 제공 엔드포인트](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)에서 읽기
+* [기본 제공 엔드포인트](quickstart-send-telemetry-node.md)에서 읽기
 
 * [Blob Storage](../storage/blobs/storage-blob-event-quickstart.md)에서 읽기
 
@@ -126,7 +126,7 @@ IoT Hub으로 사용되는 Service Bus 큐 및 토픽에는 **세션** 또는 **
 
 ## <a name="non-telemetry-events"></a>비-원격 분석 이벤트
 
-디바이스 원격 분석 외에, 메시지 라우팅을 통해 디바이스 쌍 변경 이벤트, 디바이스 수명 주기 이벤트, 디지털 트윈 변경 이벤트 및 디바이스 연결 상태 이벤트를 전송할 수 있습니다. 예를 들어, **디바이스 쌍 변경 이벤트** 로 설정된 데이터 원본으로 경로가 생성되면, IoT Hub는 디바이스 쌍의 변경 사항을 포함하는 엔드포인트로 메시지를 전송합니다. 마찬가지로 **디바이스 수명 주기 이벤트** 로 설정된 데이터 원본으로 경로가 만들어지면 IoT Hub는 디바이스가 삭제되었거나 생성되었는지 여부를 나타내는 메시지를 보냅니다. 개발자는 [Azure IoT 플러그 앤 플레이](../iot-develop/overview-iot-plug-and-play.md)의 일부로 **디지털 트윈 변경 이벤트** 로 설정된 데이터 원본이 있는 경로를 만들 수 있으며 IoT Hub는 디지털 트윈 속성이 설정되거나 변경되고, 디지털 트윈이 대체되거나 기본 디바이스 쌍에 대해 변경 이벤트가 발생하는 경우 메시지를 전송합니다. 마지막으로 데이터 원본이 **디바이스 연결 상태 이벤트** 로 설정된 경로가 생성되면 IoT Hub는 디바이스가 연결되었는지 여부를 나타내는 메시지를 보냅니다.
+디바이스 원격 분석 외에, 메시지 라우팅을 통해 디바이스 쌍 변경 이벤트, 디바이스 수명 주기 이벤트, 디지털 트윈 변경 이벤트 및 디바이스 연결 상태 이벤트를 전송할 수 있습니다. 예를 들어, **디바이스 쌍 변경 이벤트** 로 설정된 데이터 원본으로 경로가 생성되면, IoT Hub는 디바이스 쌍의 변경 사항을 포함하는 엔드포인트로 메시지를 전송합니다. 마찬가지로 **디바이스 수명 주기 이벤트** 로 설정된 데이터 원본으로 경로가 만들어지면 IoT Hub는 디바이스가 삭제되었거나 생성되었는지 여부를 나타내는 메시지를 보냅니다. 개발자는 [Azure IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 **디지털 트윈 변경 이벤트** 로 설정된 데이터 원본이 있는 경로를 만들 수 있으며 IoT Hub는 디지털 트윈 속성이 설정되거나 변경되고, 디지털 트윈이 대체되거나 기본 디바이스 쌍에 대해 변경 이벤트가 발생하는 경우 메시지를 전송합니다. 마지막으로 데이터 원본이 **디바이스 연결 상태 이벤트** 로 설정된 경로가 생성되면 IoT Hub는 디바이스가 연결되었는지 여부를 나타내는 메시지를 보냅니다.
 
 
 [IoT Hub는 Azure Event Grid와 통합](iot-hub-event-grid.md)되어 디바이스 이벤트를 게시하여 이러한 이벤트를 기반으로 워크플로의 실시간 통합 및 자동화를 지원합니다. [메시지 라우팅과 Event Grid 간의 주요 차이점](iot-hub-event-grid-routing-comparison.md)을 확인하고 내 시나리오에 무엇이 가장 적합한지 알아보세요.
@@ -167,6 +167,6 @@ REST API [Endpoint Health 가져오기](/rest/api/iothub/iothubresource/getendpo
 
 * 메시지 경로를 만드는 방법에 대한 자세한 내용은 [경로를 사용하여 IoT Hub 디바이스-클라우드 메시지 처리](tutorial-routing.md)를 참조하세요.
 
-* [디바이스-클라우드 메시지를 보내는 방법](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
+* [디바이스-클라우드 메시지를 보내는 방법](quickstart-send-telemetry-node.md)
 
 * 디바이스-클라우드 메시지를 보내는 데 사용할 수 있는 SDK에 대한 자세한 내용은 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.

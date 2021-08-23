@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory의 시스템 변수
 description: 이 문서에서는 Azure Data Factory에서 지원하는 시스템 변수에 대해 설명합니다. 데이터 팩터리 엔터티를 정의할 때 식에서 이러한 변수를 사용할 수 있습니다.
-author: dcstwh
-ms.author: weetok
+author: chez-charlie
+ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: b85efa7ac4481ab9eb2b2637aee7d9e5e76e8f3f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7e29bd82f9f72651ca0383c680c0b05860fe29b4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786059"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062239"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 시스템 변수
 
@@ -33,6 +33,9 @@ ms.locfileid: "104786059"
 | @pipeline().TriggerId|파이프라인을 호출한 트리거 ID |
 | @pipeline().TriggerName|파이프라인을 호출한 트리거 이름 |
 | @pipeline().TriggerTime|파이프라인을 호출한 트리거 실행 시간. 이는 트리거가 파이프라인 실행을 **실제로** 실행한 시간이며, 트리거가 예약된 시간과는 약간 다를 수 있습니다.  |
+| @pipeline().GroupId | 파이프라인 실행이 속한 그룹의 ID입니다. |
+| @pipeline() __?__ .TriggeredByPipelineName | 파이프라인 실행을 트리거하는 파이프라인의 이름입니다. ExecutePipeline 활동에 의해 파이프라인 실행이 트리거될 때 적용됩니다. 다른 상황에서 사용하는 경우 _Null_ 로 평가합니다. @pipeline() 뒤에 물음표가 있습니다. |
+| @pipeline() __?__ .TriggeredByPipelineRunId | 파이프라인 실행을 트리거하는 파이프라인의 실행 ID입니다. ExecutePipeline 활동에 의해 파이프라인 실행이 트리거될 때 적용됩니다. 다른 상황에서 사용하는 경우 _Null_ 로 평가합니다. @pipeline() 뒤에 물음표가 있습니다. |
 
 >[!NOTE]
 >트리거 관련 날짜/시간 시스템 변수(파이프라인 및 트리거 범위 모두에서)는 ISO 8601 형식으로 UTC 날짜를 반환합니다(예: `2017-06-01T22:20:00.4061448Z`).

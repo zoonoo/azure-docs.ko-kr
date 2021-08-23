@@ -2,18 +2,18 @@
 title: Azure Portal을 사용하여 Azure 관리 디스크의 성능 변경
 description: Azure Portal을 사용하여 새 관리 디스크 및 기존 관리 디스크의 성능 계층을 변경하는 방법에 대해 알아봅니다.
 author: roygara
-ms.service: storage
+ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 06/29/2021
+ms.date: 05/13/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 37069bb17e0ce6a104ae3c1b79714da160737fe8
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: a82865930a5ed770b742c3d5e8906d4e69be3f64
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113356278"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110079411"
 ---
 # <a name="change-your-performance-tier-using-the-azure-portal"></a>Azure Portal을 사용하여 성능 계층 변경
 
@@ -54,11 +54,11 @@ ms.locfileid: "113356278"
 
 ### <a name="change-the-performance-tier-of-a-disk-without-downtime-preview"></a>가동 중지 시간 없이 디스크의 성능 계층 변경(미리 보기)
 
-가동 중지 시간 없이 성능 계층을 변경할 수도 있으므로 VM 할당을 취소하거나 디스크를 분리하여 계층을 변경할 필요가 없습니다.
+가동 중지 시간 없이 성능 계층을 변경할 수도 있으므로 VM 할당을 중단하거나 디스크를 분리하여 계층을 변경할 필요가 없습니다.
 
 ### <a name="prerequisites"></a>필수 구성 요소
 
-디스크는 [가동 중지 시간 없이 성능 등급 변경(미리 보기)](#change-performance-tier-without-downtime-preview) 섹션에 나온 요구 사항을 충족해야 합니다. 충족하지 않는 경우 성능 등급을 변경하면 가동 중지 시간이 발생합니다.
+디스크는 [가동 중지 시간 없이 성능 등급 변경(미리 보기)](#change-performance-tier-without-downtime-preview) 섹션에 명시된 요구사항을 충족해야 합니다. 그렇지 않은 경우 성능 등급을 변경하면 가동 중지 시간이 발생합니다.
 
 가동 중지 시간 없이 디스크의 성능 계층을 변경하려면 먼저 구독에 대한 기능을 사용하도록 설정해야 합니다. 다음 단계를 수행하여 구독에 대한 기능을 사용하도록 설정하세요.
 

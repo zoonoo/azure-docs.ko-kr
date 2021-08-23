@@ -5,13 +5,13 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/22/2021
-ms.openlocfilehash: 5b832ca7f1b5fb8a6b0044ca299c75f01a2d0f32
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 06/04/2021
+ms.openlocfilehash: fbc9a4c3d315588c069a144cbcfd96cfc2d0b892
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987052"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559935"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>네트워킹 개요 - Azure Database for PostgreSQL - 유연한 서버
 
@@ -46,6 +46,8 @@ Azure Database for PostgreSQL - 유연한 서버에 연결하는 두 가지 네�
 * 서버에 FQDN(정규화된 도메인 이름)이 있습니다. 연결 문자열의 호스트 이름 속성에는 IP 주소 대신 FQDN을 사용하는 것이 좋습니다.
 * 두 옵션 모두 데이터베이스 수준 또는 테이블 수준이 아닌 서버 수준에서 액세스를 제어합니다. PostgreSQL의 역할 속성을 사용하여 데이터베이스, 테이블 및 기타 개체 액세스를 제어합니다.
 
+>[!NOTE]
+> Azure Database for PostgreSQL은 관리형 데이터베이스 서비스이므로 사용자에게 `pg_hba.conf`와 같은 구성 파일을 보거나 수정할 수 있는 호스트 또는 OS 액세스 권한이 제공되지 않습니다. 파일 내용은 네트워크 설정에 따라 자동으로 업데이트됩니다.
 
 ## <a name="private-access-vnet-integration"></a>프라이빗 액세스(VNet 통합)
 Vnet(가상 네트워크) 통합을 통한 프라이빗 액세스는 PostgreSQL 유연한 서버에 대한 프라이빗 보안 통신을 제공합니다.
@@ -68,36 +70,44 @@ PostgreSQL 유연한 서버에서 가상 네트워크를 사용할 때 알아야
 
    PostgreSQL 유연한 서버는 PostgreSQL 유연한 서버 전용으로 **위임된** 서브넷에 있어야 합니다. 이렇게 위임하면 Azure Database for PostgreSQL 유연한 서버에서만 해당 서브넷을 사용할 수 있습니다. 다른 Azure 리소스 유형은 위임된 서브넷에 있을 수 없습니다. 위임 속성을 Microsoft.DBforPostgreSQL/flexibleServers로 할당하여 서브넷을 위임합니다.
 
+   > [!IMPORTANT]
+   > `AzureFirewallSubnet`, `AzureFirewallManagementSubnet`, `AzureBastionSubnet` 및 `GatewaySubnet`을 포함한 이름은 Azure 내에서 예약된 이름입니다. 서브넷 이름으로 사용하지 마세요.
+
 * **NSG(네트워크 보안 그룹)** - 네트워크 보안 그룹의 보안 규칙을 사용하면 가상 네트워크 서브넷 및 네트워크 인터페이스 내외부로 이동할 수 있는 네트워크 트래픽 유형을 필터링할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹 개요](../../virtual-network/network-security-groups-overview.md)문서를 참조하세요.
 
-* **프라이빗 DNS 통합** - Azure 프라이빗 DNS 영역 통합을 통해 프라이빗 DNS 영역이 연결된 모든 지역 내 피어링된 VNET 또는 현재 VNET 내의 프라이빗 DNS를 확인할 수 있습니다. 자세한 내용은 [프라이빗 DNS 영역 설명서](https://docs.microsoft.com/azure/dns/private-dns-overview)를 참조하세요.
+* **프라이빗 DNS 영역 통합** - Azure 프라이빗 DNS 영역 통합을 통해 현재 VNET 또는 프라이빗 DNS 영역이 연결된 지역 내 피어링된 VNET 내에서 프라이빗 DNS를 확인할 수 있습니다. 자세한 내용은 [프라이빗 DNS 영역 설명서](../../dns/private-dns-overview.md)를 참조하세요.
 
 [Azure Portal](how-to-manage-virtual-network-portal.md) 또는 [Azure CLI](how-to-manage-virtual-network-cli.md)에서 프라이빗 액세스(VNet 통합)를 사용하여 유연한 서버를 만드는 방법에 대해 알아봅니다.
 
-> [!NOTE]
-> 사용자 지정 DNS 서버를 사용하는 경우에는 DNS 전달자를 사용하여 Azure Database for PostgreSQL - 유연한 서버의 FQDN을 확인해야 합니다. 자세한 내용은 [자체 DNS 서버를 사용하는 이름 확인](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)을 참조하세요.
+### <a name="integration-with-custom-dns-server"></a>사용자 지정 DNS 서버와 통합
+
+사용자 지정 DNS 서버를 사용하는 경우에는 DNS 전달자를 사용하여 Azure Database for PostgreSQL - 유연한 서버의 FQDN을 확인해야 합니다. 전달자 IP 주소는 [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)이어야 합니다. 사용자 지정 DNS 서버는 VNet 내부에 있거나 VNET의 DNS 서버 설정을 통해 연결할 수 있어야 합니다. 자세한 내용은 [자체 DNS 서버를 사용하는 이름 확인](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)을 참조하세요.
 
 ### <a name="private-dns-zone-and-vnet-peering"></a>프라이빗 DNS 영역 및 VNET 피어링
 
 프라이빗 DNS 영역 설정과 VNET 피어링은 서로 독립적입니다.
 
-* 기본적으로 새 프라이빗 DNS 영역은 제공된 서버 이름을 사용하여 서버당 자동 프로비저닝됩니다. 그러나 유연한 서버에서 사용할 사용자 고유의 프라이빗 DNS 영역을 설정하려는 경우에는 [프라이빗 DNS 개요](https://docs.microsoft.com/azure/dns/private-dns-overview) 설명서를 참조하세요.
-* 다른 VNET에 프로비저닝된 클라이언트에서 유연한 서버에 연결하려는 경우에는 VNET과 프라이빗 DNS 영역을 연결해야 합니다. [가상 네트워크 연결 방법](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network) 설명서를 참조하세요.
+* 기본적으로 새 프라이빗 DNS 영역은 제공된 서버 이름을 사용하여 서버당 자동 프로비저닝됩니다. 그러나 유연한 서버에서 사용할 사용자 고유의 프라이빗 DNS 영역을 설정하려는 경우에는 [프라이빗 DNS 개요](../../dns/private-dns-overview.md) 설명서를 참조하세요.
+* 다른 VNET에 프로비저닝된 클라이언트에서 유연한 서버에 연결하려는 경우에는 VNET과 프라이빗 DNS 영역을 연결해야 합니다. [가상 네트워크 연결 방법](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network) 설명서를 참조하세요.
 
+> [!NOTE]
+> `postgres.database.azure.com`으로 끝나는 프라이빗 DNS 영역 이름만 연결할 수 있습니다.
 
 ### <a name="unsupported-virtual-network-scenarios"></a>지원되지 않는 가상 네트워크 시나리오
-* 퍼블릭 엔드포인트(또는 퍼블릭 IP 또는 DNS) - 가상 네트워크에 배포된 유연한 서버는 퍼블릭 엔드포인트를 포함할 수 없습니다.
+
+* 퍼블릭 엔드포인트(또는 공용 IP 또는 DNS) - 가상 네트워크에 배포된 유연한 서버는 퍼블릭 엔드포인트를 포함할 수 없습니다.
 * 유연한 서버가 가상 네트워크 및 서브넷에 배포된 후에는 다른 가상 네트워크 또는 서브넷으로 이동할 수 없습니다. 가상 네트워크를 다른 리소스 그룹 또는 구독으로 이동할 수 없습니다.
 * 서브넷에 리소스가 있으면 서브넷 크기(주소 공간)를 늘릴 수 없습니다.
 * 지역 간 VNet 피어링은 지원되지 않습니다.
 
 
 ## <a name="public-access-allowed-ip-addresses"></a>퍼블릭 액세스(허용된 IP 주소)
+
 퍼블릭 액세스 메서드의 특성은 다음과 같습니다.
 * 허용하는 IP 주소만 PostgreSQL 유연한 서버에 액세스할 권한이 있습니다. 기본적으로 IP 주소는 허용되지 않습니다. 서버를 만드는 동안 또는 나중에 IP 주소를 추가할 수 있습니다.
 * PostgreSQL 서버는 공개적으로 확인할 수 있는 DNS 이름이 있습니다.
 * 유연한 서버는 Azure 가상 네트워크 중 하나에 있지 않습니다.
-* 서버에서 들어오고 나가는 네트워크 트래픽이 프라이빗 네트워크를 통해 이동하지 않습니다. 트래픽은 일반적인 인터넷 경로를 사용합니다.
+* 서버에서 들어오고 나가는 네트워크 트래픽은 개인 네트워크를 통해 이동하지 않습니다. 트래픽은 일반적인 인터넷 경로를 사용합니다.
 
 ### <a name="firewall-rules"></a>방화벽 규칙
 IP 주소에 대한 권한을 부여하는 것을 방화벽 규칙이라고 합니다. 허용되지 않는 IP 주소에서 연결을 시도하면 원래 클라이언트에 오류가 표시됩니다.

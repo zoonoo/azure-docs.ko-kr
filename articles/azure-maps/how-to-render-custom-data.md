@@ -3,18 +3,18 @@ title: 래스터 지도에 사용자 지정 데이터 렌더링 | Microsoft Azur
 description: 래스터 지도에 압정, 레이블 및 기하 도형을 추가하는 방법을 알아봅니다. 이 목적을 위해 Azure Maps에서 정적 이미지 서비스를 사용하는 방법을 참조하세요.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 05/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5c70835c11bafb3fd06645ba51099b33d1eb6149
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5c9bf695dc9eb11f1d44857783a727d7afafe03
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96906083"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112029714"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>래스터 지도에 사용자 지정 데이터 렌더링
 
@@ -23,21 +23,21 @@ ms.locfileid: "96906083"
 사용자 지정 압핀, 레이블 및 기하 도형 오버레이를 렌더링하려면 Postman 애플리케이션을 사용할 수 있습니다. Azure Maps [데이터 서비스 API](/rest/api/maps/data)를 사용하여 오버레이를 저장하고 렌더링할 수 있습니다.
 
 > [!Tip]
-> 웹 페이지에 간단한 맵을 표시하려는 경우 정적 이미지 서비스를 사용하는 것보다 Azure Maps Web SDK를 사용하는 것이 훨씬 더 비용 효율적인 경우가 종종 있습니다. Web SDK는 맵 타일을 사용하고 사용자가 맵을 이동 및 확대/축소하는 경우가 아니면 맵 부하당 트랜잭션의 일부만 생성합니다. Azure Maps Web SDK에는 확대/축소를 사용하지 않도록 설정하는 옵션이 있습니다. 또한 Azure Maps Web SDK는 정적 맵 웹 서비스보다 훨씬 더 풍부한 데이터 시각화 옵션을 제공합니다.  
+> 웹 페이지에 간단한 맵을 표시하려면 정적 이미지 서비스를 사용하는 것보다 Azure Maps 웹 SDK를 사용하는 것이 더 비용 효율적인 경우가 많습니다. Web SDK는 맵 타일을 사용하고 사용자가 맵을 이동 및 확대/축소하는 경우가 아니면 맵 부하당 트랜잭션의 일부만 생성합니다. Azure Maps 웹 SDK에는 확대/축소를 사용하지 않도록 설정하는 옵션이 있습니다. 또한 Azure Maps Web SDK는 정적 맵 웹 서비스보다 훨씬 더 풍부한 데이터 시각화 옵션을 제공합니다.  
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-### <a name="create-an-azure-maps-account"></a>Azure Maps 계정 만들기
+1. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
+2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
-이 문서의 절차를 완료하려면 먼저 Azure Maps 계정을 만든 후 맵 계정 키를 가져와야 합니다. [계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account)의 지침에 따라 Azure Maps 계정 구독을 만들고, [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)의 단계를 수행하여 계정의 기본 키를 가져옵니다. Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
-
+이 자습서에서는 [Postman](https://www.postman.com/) 애플리케이션을 사용하지만 다른 API 개발 환경을 사용할 수도 있습니다.
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>레이블 및 사용자 지정 이미지를 사용하여 압핀 렌더링
 
 > [!Note]
-> 이 섹션의 절차에는 가격 책정 계층 S0 또는 S1의 Azure Maps 계정이 필요합니다.
+> 이 섹션의 절차에는 Gen 1 또는 Gen 2 가격 책정 계층의 Azure Maps 계정이 필요합니다.
 
-Azure Maps 계정 S0 계층은 `pins` 매개 변수의 단일 인스턴스만 지원합니다. 사용자 지정 이미지를 사용하여 URL 요청에 지정된 최대 5개의 압정을 렌더링할 수 있습니다.
+Azure Maps 계정 Gen 1 표준 S0 계층은 `pins` 매개 변수의 단일 인스턴스만 지원합니다. 사용자 지정 이미지를 사용하여 URL 요청에 지정된 최대 5개의 압정을 렌더링할 수 있습니다.
 
 레이블 및 사용자 지정 이미지를 사용하여 압정을 렌더링하려면 다음 단계를 완료합니다.
 
@@ -52,6 +52,7 @@ Azure Maps 계정 S0 계층은 `pins` 매개 변수의 단일 인스턴스만 �
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttps%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FAzureMapsCodeSamples%2Fmaster%2FAzureMapsCodeSamples%2FCommon%2Fimages%2Ficons%2Fylw-pushpin.png
     ```
+
     결과 이미지는 다음과 같습니다.
 
     ![레이블이 있는 사용자 지정 압정](./media/how-to-render-custom-data/render-pins.png)
@@ -60,18 +61,18 @@ Azure Maps 계정 S0 계층은 `pins` 매개 변수의 단일 인스턴스만 �
 ## <a name="get-data-from-azure-maps-data-storage"></a>Azure Maps 데이터 스토리지에서 데이터 가져오기
 
 > [!Note]
-> 이 섹션의 절차에는 가격 책정 계층 S1의 Azure Maps 계정이 필요합니다.
+> 이 섹션의 절차에는 Azure Maps 계정 Gen 1(S1) 또는 Gen 2 가격 책정 계층이 필요합니다.
 
-[데이터 업로드 API](/rest/api/maps/data/uploadpreview)를 사용하여 경로 및 핀 위치 정보를 가져올 수도 있습니다. 경로 및 핀 데이터를 업로드하려면 아래 단계를 수행합니다.
+[데이터 업로드 API](/rest/api/maps/data-v2/upload-preview)를 사용하여 경로 및 핀 위치 정보를 가져올 수도 있습니다. 경로 및 핀 데이터를 업로드하려면 아래 단계를 수행합니다.
 
 1. Postman 앱에서 이전 섹션에서 만든 컬렉션의 새 탭을 엽니다. 작성기 탭에서 POST HTTP 메서드를 선택하고, 다음 URL을 입력하여 POST 요청을 합니다.
 
     ```HTTP
-    https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
+    https://us.atlas.microsoft.com/mapData?subscription-key={subscription-key}&api-version=2.0&dataFormat=geojson
     ```
 
 2. **매개 변수** 탭에서 POST 요청 URL에 사용되는 다음 키/값 쌍을 입력합니다. `subscription-key` 값을 Azure Maps 구독 키로 바꿉니다.
-    
+
     ![Postman의 키/값 매개 변수](./media/how-to-render-custom-data/postman-key-vals.png)
 
 3. **본문** 탭에서 원시 입력 형식을 선택한 다음, 드롭다운 목록에서 입력 형식으로 JSON을 선택합니다. 이 JSON을 업로드할 데이터로 제공합니다.
@@ -136,19 +137,19 @@ Azure Maps 계정 S0 계층은 `pins` 매개 변수의 단일 인스턴스만 �
     }
     ```
 
-4. **보내기** 를 선택하고 응답 헤더를 검토합니다. 요청이 성공하면 Location(위치) 헤더에 업로드 요청의 현재 상태를 확인하기 위한 상태 URI가 포함됩니다. 상태 URI는 다음과 같은 형식입니다.  
+4. **보내기** 를 선택하고 응답 헤더를 검토합니다. 요청이 성공하면 *Operation-Location* 헤더에 `status URL`이 포함되어 업로드 요청의 현재 상태를 확인합니다. `status URL`의 형식은 다음과 같습니다.
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
+   https://us.atlas.microsoft.com/mapData/operations/{statusUrl}?api-version=2.0
    ```
 
 5. 상태 URI를 복사하고, 해당 값으로 Azure Maps 계정 구독 키를 사용하여 subscription-key 매개 변수를 이 상태 URI에 추가합니다. 데이터를 업로드하는 데 사용한 것과 동일한 계정 구독 키를 사용합니다. 상태 URI 형식은 아래와 같아야 합니다.
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
+     https://us.atlas.microsoft.com/mapData/operations/{statusUrl}?api-version=2.0&subscription-key={Subscription-key}
    ```
 
-6. udId을 가져오려면 Postman 앱에서 새 탭을 엽니다. 작성기 탭에서 GET HTTP 메서드를 선택합니다. 상태 URI에서 GET 요청을 수행합니다. 데이터 업로드가 성공적으로 완료되면 응답 본문에 udId가 표시됩니다. udId를 복사합니다.
+6. `udid`를 얻으려면 Postman 앱에서 새 탭을 엽니다. 빌더 탭에서 GET HTTP 메서드를 선택합니다. `status URL`에서 GET 요청을 작성합니다. 데이터 업로드에 성공하면 응답 본문에 `udid`가 표시됩니다. `udid`를 복사합니다.
 
    ```JSON
    {
@@ -156,7 +157,7 @@ Azure Maps 계정 S0 계층은 `pins` 매개 변수의 단일 인스턴스만 �
    }
    ```
 
-7. 데이터 업로드 API에서 받은 `udId` 값을 사용하여 지도에 기능을 렌더링합니다. 이렇게 하려면 위에서 만든 컬렉션에서 새 탭을 엽니다. 작성기 탭에서 GET HTTP 메서드를 선택하고 {subscription-key} 및 {udId}를 원하는 값으로 바꾼 후 이 URL을 입력하여 GET 요청을 수행합니다.
+7. 데이터 업로드 API에서 받은 `udid` 값을 사용하여 지도에 기능을 렌더링합니다. 이렇게 하려면 위에서 만든 컬렉션에서 새 탭을 엽니다. 작성기 탭에서 GET HTTP 메서드를 선택하고 {subscription-key} 및 {udId}를 원하는 값으로 바꾼 후 이 URL을 입력하여 GET 요청을 수행합니다.
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
@@ -169,7 +170,7 @@ Azure Maps 계정 S0 계층은 `pins` 매개 변수의 단일 인스턴스만 �
 ## <a name="render-a-polygon-with-color-and-opacity"></a>색과 불투명도를 사용하여 다각형 렌더링
 
 > [!Note]
-> 이 섹션의 절차에는 가격 책정 계층 S1의 Azure Maps 계정이 필요합니다.
+> 이 섹션의 절차에는 Azure Maps 계정 Gen 1(S1) 또는 Gen 2 가격 책정 계층이 필요합니다.
 
 
 [경로 매개 변수](/rest/api/maps/render/getmapimage#uri-parameters)와 스타일 한정자를 사용하여 다각형의 모양을 수정할 수 있습니다.
@@ -189,7 +190,7 @@ Azure Maps 계정 S0 계층은 `pins` 매개 변수의 단일 인스턴스만 �
 ## <a name="render-a-circle-and-pushpins-with-custom-labels"></a>사용자 지정 레이블을 사용하여 원 및 압정 렌더링
 
 > [!Note]
-> 이 섹션의 절차에는 가격 책정 계층 S1의 Azure Maps 계정이 필요합니다.
+> 이 섹션의 절차에는 Azure Maps 계정 Gen 1(S1) 또는 Gen 2 가격 책정 계층이 필요합니다.
 
 
 스타일 한정자를 추가하여 핀의 모양을 수정할 수 있습니다. 예를 들어, 압정 및 해당 레이블을 더 크거나 작게 만들려면 `sc` "스케일 스타일" 한정자를 사용합니다. 이 한정자는 0보다 큰 값을 사용합니다. 값 1이 표준 배율입니다. 값이 1보다 크면 핀이 확대되고, 값이 1보다 작으면 축소됩니다. 스타일 한정자에 대한 자세한 내용은 [정적 이미지 서비스 경로 매개 변수](/rest/api/maps/render/getmapimage#uri-parameters)를 참조하세요.
@@ -221,6 +222,5 @@ Azure Maps 계정 S0 계층은 `pins` 매개 변수의 단일 인스턴스만 �
 
 ## <a name="next-steps"></a>다음 단계
 
-
 * [Azure Maps 지도 이미지 가져오기 API](/rest/api/maps/render/getmapimage) 문서를 살펴봅니다.
-* Azure Maps 데이터 서비스(미리 보기)에 대한 자세한 내용은 [서비스 설명서](/rest/api/maps/data)를 참조하세요.
+* Azure Maps Data Service에 대한 자세한 내용은 [서비스 문서](/rest/api/maps/data)를 참조하세요.

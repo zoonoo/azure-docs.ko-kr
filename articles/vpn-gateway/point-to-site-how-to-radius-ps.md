@@ -6,14 +6,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/18/2020
+ms.date: 06/04/2021
 ms.author: cherylmc
-ms.openlocfilehash: 1dbfc83a24b1c4db09625a73cf0684acedfb2355
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 97c8f1111f84b36ead123dcad9f8d9faeb157336
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228121"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558857"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>RADIUS 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell
 
@@ -35,9 +36,9 @@ P2S 연결을 작동하는 데는 VPN 디바이스 또는 공용 IP 주소가 �
 
 * SSTP는 Windows 클라이언트 플랫폼에서만 지원되는 TLS 기반 VPN 터널입니다. 이를 통해 방화벽을 통과할 수 있으므로 어디서나 Azure에 연결할 수 있는 이상적인 옵션입니다. 서버 쪽에서 SSTP 버전 1.0, 1.1 및 1.2를 지원하며, 클라이언트에서 사용할 버전을 결정합니다. Windows 8.1 이상에서는 기본적으로 SSTP 버전 1.2를 사용합니다.
 
-* OpenVPN® 프로토콜, SSL/TLS 기반 VPN 프로토콜입니다. 대부분의 방화벽에서 TLS가 사용되는 TCP 포트 443 아웃바운드를 열기 때문에 TLS VPN 솔루션이 방화벽을 통과할 수 있습니다. OpenVPN은 Android, iOS(버전 11.0 이상), Windows, Linux 및 Mac 디바이스(OSX 버전 10.13 이상)에서 연결하는 데 사용할 수 있습니다.
+* OpenVPN® 프로토콜, SSL/TLS 기반 VPN 프로토콜입니다. 대부분의 방화벽에서 TLS가 사용되는 TCP 포트 443 아웃바운드를 열기 때문에 TLS VPN 솔루션이 방화벽을 통과할 수 있습니다. OpenVPN은 Android, iOS(버전 11.0 이상), Windows, Linux, Mac 디바이스(macOS 버전 10.13 이상)에서 연결하는 데 사용할 수 있습니다.
 
-* IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 디바이스(OSX 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다.
+* IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 디바이스(macOS 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다.
 
 P2S 연결에는 다음이 필요합니다.
 

@@ -1,20 +1,21 @@
 ---
 title: 앱에 Azure Video Analyzer for Media(이전의 Video Indexer) 위젯을 포함합니다.
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: 앱에 Azure Video Analyzer for Media(이전의 Video Indexer) 위젯을 포함하는 방법에 대해 알아봅니다.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: devx-track-js
-ms.openlocfilehash: 737efbd67ab0dc89178136c0d792aaf622f886d0
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 3be899a7be2d007f52eb895bd26befcbb12e316d
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386851"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115237"
 ---
 # <a name="embed-video-analyzer-for-media-widgets-in-your-apps"></a>앱에 Video Analyzer for Media 위젯 포함
 

@@ -8,12 +8,12 @@ ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: 4080fc274f03cbc4e5ba48b3c3e2ac5699886c96
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d965d5a65fa6f5015b1e39b22238f3aa6fd1d7b7
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377212"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112413537"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>자습서: 로컬로 이벤트 게시, 구독
 
@@ -58,7 +58,7 @@ IoT Edge 디바이스에 모듈을 배포하는 방법은 여러 가지이며 �
    * **이미지 URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **컨테이너 만들기 옵션**:
 
-   [!INCLUDE [event-grid-edge-module-version-update](../../../includes/event-grid-edge-module-version-update.md)]
+   [!INCLUDE [event-grid-edge-module-version-update](../includes/event-grid-edge-module-version-update.md)]
 
     ```json
         {
@@ -160,7 +160,7 @@ IoT Edge 디바이스에 모듈을 배포하는 방법은 여러 가지이며 �
 
 구독자는 토픽에 게시된 이벤트를 등록할 수 있습니다. 이벤트를 수신하려면 관심 있는 토픽에 대한 Event Grid 구독을 만들어야 합니다.
 
-[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
+[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. 다음 콘텐츠를 사용하여 subscription.json을 만듭니다. 페이로드에 대한 자세한 내용은 [API 설명서](api.md)를 참조하세요.
 

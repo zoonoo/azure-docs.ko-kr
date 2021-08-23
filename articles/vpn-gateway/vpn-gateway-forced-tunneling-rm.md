@@ -1,6 +1,6 @@
 ---
 title: 사이트 간 연결의 강제 터널링 구성
-description: 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션(강제 적용)하는 방법입니다.
+description: 모든 인터넷 바인딩 트래픽을 온-프레미스 위치로 다시 리디렉션(강제 적용)하는 방법을 알아봅니다.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: afd1c1d5312a9fbf39b401b0cbb4b9997f27407a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c53a59279a8101f29cb9bfb64f4ccd1b4921283e
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869041"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205452"
 ---
 # <a name="configure-forced-tunneling"></a>강제 터널링 구성
 
@@ -72,7 +72,7 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 지정 사용자 �
 >
 
 
-1. 리소스 그룹을 생성합니다.
+1. 리소스 그룹을 만듭니다.
 
    ```powershell
    New-AzResourceGroup -Name 'ForcedTunneling' -Location 'North Europe'

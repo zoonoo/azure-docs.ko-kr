@@ -3,12 +3,12 @@ title: Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 Service
 description: Service Bus 큐 및 토픽을 Azure Event Grid 이벤트에 대한 이벤트 처리기로 사용하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 3a13662f39410ee6a24644963dbfb3fc1f20d747
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 6f3aa7fedc8daa15f9de239e47f8b6a0c2fc0454
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112416563"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091293"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 Service Bus 큐 및 토픽
 이벤트 처리기는 이벤트가 전송된 위치입니다. 처리기는 이벤트를 처리하기 위한 추가 작업을 수행합니다. 이벤트를 처리하도록 여러 Azure 서비스가 자동으로 구성되며, **Azure Service Bus** 는 그 중 하나입니다. 
@@ -54,7 +54,7 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
-[!INCLUDE [event-grid-message-headers](./includes/event-grid-message-headers.md)]
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
 조정된 메시지로 Service Bus 큐 또는 토픽으로 이벤트를 보낼 때 조정된 메시지의 `messageid`는 내부 시스템 ID입니다.
 

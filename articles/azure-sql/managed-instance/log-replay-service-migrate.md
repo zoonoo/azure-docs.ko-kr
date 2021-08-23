@@ -3,18 +3,19 @@ title: 로그 재생 서비스를 사용하여 SQL Managed Instance로 데이터
 description: 로그 재생 서비스를 사용하여 SQL Server에서 SQL Managed Instance로 데이터베이스를 마이그레이션하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
+ms.subservice: migration
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 03/31/2021
-ms.openlocfilehash: 730a03ce06efe96347d32409961638532823f6dc
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 535ad3bac6c4f88593fc196cf6487038f937d509
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107883583"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110697286"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>로그 재생 서비스(미리 보기)를 사용하여 SQL Server에서 SQL Managed Instance로 데이터베이스 마이그레이션
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -67,7 +68,7 @@ LRS에는 백업 파일에 대한 특정 명명 규칙이 필요하지 않습니
     
 | 작업 | 세부 정보 |
 | :----------------------------- | :------------------------- |
-| **1. SQL Server에서 Blob Storage로 데이터베이스 백업 복사**. | [Azcopy](../../storage/common/storage-use-azcopy-v10.md) 또는 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 SQL Server에서 Blob Storage 컨테이너로 전체, 차등 및 로그 백업을 복사합니다. <br /><br />임의의 파일 이름을 사용합니다. LRS에는 특정 파일 명명 규칙이 필요하지 않습니다.<br /><br />여러 데이터베이스를 마이그레이션하는 경우 각 데이터베이스에 대해 별도의 폴더가 필요합니다. |
+| **1. SQL Server에서 Blob Storage로 데이터베이스 백업 복사**. | [AzCopy](../../storage/common/storage-use-azcopy-v10.md) 또는 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 SQL Server에서 Blob Storage 컨테이너로 전체, 차등 및 로그 백업을 복사합니다. <br /><br />임의의 파일 이름을 사용합니다. LRS에는 특정 파일 명명 규칙이 필요하지 않습니다.<br /><br />여러 데이터베이스를 마이그레이션하는 경우 각 데이터베이스에 대해 별도의 폴더가 필요합니다. |
 | **2. 클라우드에서 LRS 시작**. | 다음 cmdlet 중에서 선택하여 서비스를 다시 시작할 수 있습니다. PowerShell([start-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/start-azsqlinstancedatabaselogreplay)) 또는 Azure CLI([az_sql_midb_log_replay_start cmdlets](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_start)). <br /><br /> Blob Storage의 백업 폴더를 가리키는 각 데이터베이스에 대해 개별적으로 LRS를 시작합니다. <br /><br /> 서비스를 시작한 후에는 Blob Storage 컨테이너에서 백업을 가져오고 SQL Managed Instance에서 복원을 시작합니다.<br /><br /> 연속 모드에서 LRS를 시작한 경우 처음 업로드된 모든 백업이 복원된 후 서비스는 폴더에 업로드된 새 파일이 있는지 확인합니다. 서비스는 중지될 때까지 LSN(로그 시퀀스 번호) 체인을 기반으로 로그를 지속적으로 적용합니다. |
 | **2.1. 작업 진행률 모니터링**. | 다음 cmdlet 중에서 선택하여 복원 작업 진행률을 모니터링할 수 있습니다. PowerShell([get-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/get-azsqlinstancedatabaselogreplay)) 또는 Azure CLI([az_sql_midb_log_replay_show cmdlets](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_show)). |
 | **2.2. 필요한 경우 작업 중지**. | 마이그레이션 프로세스를 중지해야 하는 경우 다음 cmdlet 중에서 선택하여 중지합니다. PowerShell([stop-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/stop-azsqlinstancedatabaselogreplay)) 또는 Azure CLI([az_sql_midb_log_replay_stop](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_stop)). <br /><br /> 작업을 중지하면 SQL Managed Instance에서 복원하는 데이터베이스가 삭제됩니다. 작업을 중지한 후에는 데이터베이스에 대해 LRS를 다시 시작할 수 없습니다. 마이그레이션 프로세스를 처음부터 다시 시작해야 합니다. |
@@ -165,7 +166,7 @@ Azure Blob Storage는 SQL Server와 SQL Managed Instance 간의 백업 파일에
 
 LRS를 사용하여 데이터베이스를 관리 인스턴스로 마이그레이션하는 경우 다음 방법을 사용하여 Blob Storage로 백업을 업로드할 수 있습니다.
 - SQL Server 기본 [BACKUP TO URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) 기능 사용
-- [Azcopy](../../storage/common/storage-use-azcopy-v10.md) 또는 [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer)를 사용하여 BLOB 컨테이너로 백업 업로드
+- [AzCopy](../../storage/common/storage-use-azcopy-v10.md) 또는 [Azure Storage 탐색기](https://azure.microsoft.com/en-us/features/storage-explorer)를 사용하여 Blob 컨테이너로 백업 업로드
 - Azure Portal의 Storage Explorer 사용
 
 ### <a name="make-backups-from-sql-server-directly-to-blob-storage"></a>SQL Server에서 Blob Storage로 직접 백업 만들기

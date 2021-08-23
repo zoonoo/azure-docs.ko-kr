@@ -2,18 +2,19 @@
 title: Azure Video Analyzer for Media(이전의 Video Indexer) 개념 - Azure
 titleSuffix: Azure Video Analyzer for Media (formerly Video Indexer)
 description: 이 문서에서는 Azure Video Analyzer for Media(이전의 Video Indexer) 용어 및 개념에 대한 간략한 개요를 제공합니다.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 01/19/2021
 ms.author: juliako
-ms.openlocfilehash: 90a896902f7dcb55f19bb9106750eb9b18a33809
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 9b7f6729e437a35001e5fa59d977c3c60321ef3a
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386696"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112123355"
 ---
 # <a name="video-analyzer-for-media-concepts"></a>Video Analyzer for Media 개념
 
@@ -25,7 +26,7 @@ Video Analyzer for Media에 비디오를 업로드하면 Video Analyzer for Medi
 
 ## <a name="confidence-scores"></a>신뢰도 점수 
 
-신뢰도 점수는 인사이트의 신뢰도를 나타냅니다. 0\.0에서 1.0 사이의 숫자입니다. 이 점수가 높을수록 응답의 신뢰도가 높습니다. 예를 들면 다음과 같습니다. 
+신뢰도 점수는 인사이트의 신뢰도를 나타냅니다. 0\.0에서 1.0 사이의 숫자입니다. 이 점수가 높을수록 응답의 신뢰도가 높습니다. 예제: 
 
 ```json
 "transcript":[

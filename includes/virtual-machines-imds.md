@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 357223751112af03bf797ae9a0e6352a10132ab9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 669304159a525248dbd4f9d1c3f7b34660274b74
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103464970"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110486776"
 ---
 IMDS(Azure Instance Metadata Service)는 현재 실행 중인 가상 머신 인스턴스에 대한 정보를 제공합니다. 이를 사용하여 가상 머신을 관리하고 구성할 수 있습니다.
 이 정보에는 SKU, 스토리지, 네트워크 구성 및 예정된 유지 관리 이벤트가 포함됩니다. 사용 가능한 데이터의 전체 목록은 [엔드포인트 범주 요약](#endpoint-categories)을 참조하세요.
@@ -40,13 +40,13 @@ IMDS에 액세스하려면 [Azure Resource Manager](/rest/api/resources/) 또는
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | ConvertTo-Json -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
 
 ```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | jq
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | jq
 ```
 
 ---
@@ -99,14 +99,14 @@ IMDS는 프록시 뒤에서 사용할 수 없으며 지원되지 **않습니다*
 IMDS 엔드포인트는 HTTP 쿼리 문자열 매개 변수를 지원합니다. 예를 들어: 
 
 ```
-http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=json
+http://169.254.169.254/metadata/instance/compute?api-version=2021-01-01&format=json
 ```
 
 매개 변수를 지정합니다.
 
 | 이름 | 값 |
 |------|-------|
-| `api-version` | `2019-06-04`
+| `api-version` | `2021-01-01`
 | `format` | `json`
 
 중복된 쿼리 매개 변수 이름이 있는 요청은 거부됩니다.
@@ -247,6 +247,8 @@ IMDS에 대한 버전이 관리되므로 반드시 API 버전을 HTTP 요청에 
 - 2020-09-01
 - 2020-10-01
 - 2020-12-01
+- 2021-01-01
+- 2021-02-01
 
 ### <a name="swagger"></a>Swagger
 
@@ -332,7 +334,7 @@ GET /metadata/instance
 | 데이터 | Description | 도입된 버전 |
 |------|-------------|--------------------|
 | `azEnvironment` | VM이 실행되는 Azure 환경 | 2018-10-01
-| `customData` | 이 기능은 현재 사용하지 않도록 설정되어 있습니다. 이 문서는 사용할 수 있게 되면 업데이트됩니다. | 2019-02-01
+| `customData` | [IMDS에서는](#frequently-asked-questions) 이 기능이 사용되지 않으며 비활성화됩니다. `userData`로 대체되었습니다. | 2019-02-01
 | `evictionPolicy` | [스폿 VM](../articles/virtual-machines/spot-vms.md)이 제거되는 방법을 설정합니다. | 2020-12-01
 | `isHostCompatibilityLayerVm` | VM이 호스트 호환성 계층에서 실행되는지 여부를 식별합니다. | 2020-06-01
 | `licenseType` | [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit)에 대한 라이선스 유형입니다. 이는 AHB 사용 VM에 대해서만 제공됩니다. | 2020-09-01
@@ -360,6 +362,7 @@ GET /metadata/instance
 | `subscriptionId` | Virtual Machine에 대한 Azure 구독 | 2017-08-01
 | `tags` | Virtual Machine에 대한 [태그](../articles/azure-resource-manager/management/tag-resources.md)  | 2017-08-01
 | `tagsList` | 원활한 프로그래매틱 구문 분석을 위해 JSON 배열로 형식이 지정된 태그  | 2019-06-04
+| `userData` | 프로비저닝 중 또는 후에 사용하기 위해 VM을 만들 때 지정된 데이터 세트(Base64 인코딩)  | 2021-01-01
 | `version` | VM 이미지의 버전 | 2017-04-02
 | `vmId` | VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
 | `vmScaleSetName` | 가상 머신 확장 집합의 [가상 머신 확장 집합 이름](../articles/virtual-machine-scale-sets/overview.md) | 2017-12-01
@@ -368,7 +371,7 @@ GET /metadata/instance
 
 **스토리지 프로필**
 
-VM의 스토리지 프로필은 이미지 참조, OS 디스크 및 데이터 디스크의 세 가지 범주로 구분됩니다.
+VM의 스토리지 프로필은 이미지 참조, OS 디스크, 데이터 디스크의 세 가지 범주와 로컬 임시 디스크에 대한 추가 개체로 구분됩니다.
 
 이미지 참조 개체에는 OS 이미지에 대한 다음 정보가 포함되어 있습니다.
 
@@ -411,6 +414,13 @@ OS 디스크 개체에는 VM에서 사용하는 OS 디스크에 대한 다음 �
 | `vhd` | 가상 하드 디스크
 | `writeAcceleratorEnabled` | writeAccelerator를 디스크에서 사용할 수 있는지 여부
 
+리소스 디스크 개체는 VM에 연결된 [로컬 임시 디스크](../articles/virtual-machines/managed-disks-overview.md#temporary-disk)의 크기(KB)를 포함합니다.
+[VM에 대한 로컬 임시 디스크가 없으면](../articles/virtual-machines/azure-vms-no-temp-disk.md) 이 값은 0입니다. 
+
+| 데이터 | Description | 도입된 버전 |
+|------|-------------|--------------------|
+| `resourceDisk.size` | VM에 대한 로컬 임시 디스크 크기(KB) | 2021-02-01
+
 **Network**
 
 | 데이터 | Description | 도입된 버전 |
@@ -421,6 +431,32 @@ OS 디스크 개체에는 VM에서 사용하는 OS 디스크에 대한 다음 �
 | `subnet.prefix` | 서브넷 접두사, 예:24 | 2017-04-02
 | `ipv6.ipAddress` | VM의 로컬 IPv6 주소 | 2017-04-02
 | `macAddress` | VM MAC 주소 | 2017-04-02
+
+### <a name="get-user-data"></a>사용자 데이터 가져오기
+
+새 VM을 만들 때는 VM 프로비저닝 중 또는 후에 사용할 데이터 세트를 지정하고 IMDS를 통해 검색할 수 있습니다. 사용자 데이터를 설정하려면 [여기](https://aka.ms/ImdsUserDataArmTemplate)에서 빠른 시작 템플릿을 활용합니다. 아래 샘플에서는 IMDS를 통해 이 데이터를 검색하는 방법을 보여줍니다.
+
+> [!NOTE]
+> 이 기능은 버전 `2021-01-01`로 출시되었으며 현재 롤아웃되고 있으며 아직은 모든 지역에서 사용할 수 없는 Azure 플랫폼에 대한 업데이트에 따라 달라집니다.
+
+> [!NOTE]
+> 보안 알림: IMDS는 VM의 모든 애플리케이션에 공개되기 때문에 중요한 데이터를 사용자 데이터에 저장해서는 안 됩니다.
+
+
+#### <a name="windows"></a>[Windows](#tab/windows/)
+
+```powershell
+$userData = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text"
+[System.Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($userData))
+```
+
+#### <a name="linux"></a>[Linux](#tab/linux/)
+
+```bash
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text" | base64 --decode
+```
+
+---
 
 
 #### <a name="sample-1-tracking-vm-running-on-azure"></a>샘플 1: Azure에서 실행 중인 VM 추적
@@ -682,6 +718,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
                 "uri": ""
             },
             "writeAcceleratorEnabled": "false"
+        },
+        "resourceDisk": {
+            "size": "4096"
         }
     },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
@@ -783,6 +822,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
                 "uri": ""
             },
             "writeAcceleratorEnabled": "false"
+        },
+        "resourceDisk": {
+            "size": "4096"
         }
     },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
@@ -1135,7 +1177,7 @@ IMDS를 사용하여 예약된 이벤트의 상태를 가져올 수 있습니다
 | `404 Not Found` | 요청된 요소가 없음
 | `405 Method Not Allowed` | HTTP 메서드(동사)는 엔드포인트에서 지원되지 않습니다.
 | `410 Gone` | 최대 70초 후 다시 시도
-| `429 Too Many Requests` | API [속도 제한](#rate-limiting)을 초과했습니다.
+| `429 Too Many Requests` | API [속도 한도](#rate-limiting)를 초과했습니다.
 | `500 Service Error` | 잠시 후 다시 시도하세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
@@ -1148,6 +1190,9 @@ IMDS를 사용하여 예약된 이벤트의 상태를 가져올 수 있습니다
 
 - 최근에 Azure Resource Manager를 통해 VM을 만들었습니다. 컴퓨팅 메타데이터 정보가 왜 표시되지 않나요?
   - 2016년 9월 이후에 VM을 만든 경우 [태그](../articles/azure-resource-manager/management/tag-resources.md)를 추가하여 컴퓨팅 메타데이터 보기를 시작합니다. 2016년 9월 이전에 VM을 만든 경우 VM 인스턴스에서 확장 또는 데이터 디스크를 추가하거나 제거하여 메타데이터를 새로 고칩니다.
+
+- 사용자 데이터는 사용자 지정 데이터와 동일한가요?
+  - 사용자 데이터는 사용자 지정 데이터와 유사한 기능을 제공하여 VM 인스턴스에 사용자의 메타데이터를 전달할 수 있도록 합니다. 차이점은, 사용자 데이터는 IMDS를 통해 검색되며 VM 인스턴스의 수명 전체에 걸쳐 유지된다는 점입니다. 기존의 사용자 지정 데이터 기능은 [이 문서](../articles/virtual-machines/custom-data.md)에 설명된 대로 계속 작동합니다. 그러나 IMDS를 통해서가 아니라 로컬 시스템 폴더를 통해서만 사용자 지정 데이터를 가져올 수 있습니다.
 
 - 새 버전의 모든 데이터가 채워지지 않는 이유는 무엇인가요?
   - 2016년 9월 이후에 VM을 만든 경우 [태그](../articles/azure-resource-manager/management/tag-resources.md)를 추가하여 컴퓨팅 메타데이터 보기를 시작합니다. 2016년 9월 이전에 VM을 만든 경우 VM 인스턴스에서 확장 또는 데이터 디스크를 추가하거나 제거하여 메타데이터를 새로 고칩니다.

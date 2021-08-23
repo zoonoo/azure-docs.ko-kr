@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6054d600ef7619cedfc0360eed1c8d78f1afbaf8
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 86b6bcccd01dd342c50a7b03a20ca844bea4c17f
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113433601"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110678825"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>PowerShell을 사용하여 고정 공용 IP 주소를 사용하는 가상 머신 만들기
 
 
-고정 공용 IP 주소를 사용하여 가상 머신을 만들 수 있습니다. 공용 IP 주소를 사용하면 인터넷에서 가상 머신과 통신할 수 있습니다. 동적 주소 대신 고정 공용 IP 주소를 할당하여 주소가 변경되지 않도록 합니다. [고정 공용 IP 주소](./public-ip-addresses.md#ip-address-assignment)에 대해 자세히 알아봅니다. 기존 가상 머신에 할당된 공용 IP 주소를 동적에서 고정으로 변경하거나 개인 IP 주소를 사용하려면 [IP 주소 추가, 변경 또는 제거](virtual-network-network-interface-addresses.md)를 참조하세요. 공용 IP 주소에는 [명목 요금](https://azure.microsoft.com/pricing/details/ip-addresses)이 부과되며, 구독당 사용할 수 있는 공용 IP 주소의 수에 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)이 있습니다.
+고정 공용 IP 주소를 사용하여 가상 머신을 만들 수 있습니다. 공용 IP 주소를 사용하면 인터넷에서 가상 머신과 통신할 수 있습니다. 동적 주소 대신 고정 공용 IP 주소를 할당하여 주소가 변경되지 않도록 합니다. [고정 공용 IP 주소](./public-ip-addresses.md#allocation-method)에 대해 자세히 알아봅니다. 기존 가상 머신에 할당된 공용 IP 주소를 동적에서 고정으로 변경하거나 개인 IP 주소를 사용하려면 [IP 주소 추가, 변경 또는 제거](virtual-network-network-interface-addresses.md)를 참조하세요. 공용 IP 주소에는 [명목 요금](https://azure.microsoft.com/pricing/details/ip-addresses)이 부과되며, 구독당 사용할 수 있는 공용 IP 주소의 수에 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)이 있습니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

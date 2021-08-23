@@ -1,18 +1,18 @@
 ---
 title: MongoDB용 Azure Cosmos DB의 API를 사용한 마이그레이션 후 최적화 단계
 description: 이 문서는 MongoDB에서 Mongo DB용 Azure Cosmos DB의 API로 마이그레이션 후 최적화 기술을 제공합니다.
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 05/19/2021
-author: gahl-levy
-ms.author: gahllevy
-ms.openlocfilehash: 2fc8b3a3c3c03eb0df7fe21840becdd0fe24346e
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.author: chrande
+ms.openlocfilehash: a0e072df074da5df238ab6047ee659c91ff3fdde
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113359986"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110471161"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB용 Azure Cosmos DB의 API 사용 시 마이그레이션 후 최적화 단계
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]

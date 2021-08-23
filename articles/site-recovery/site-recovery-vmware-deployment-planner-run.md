@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery를 사용하여 VMware 재해 복구에 대해 Deployment Planner를 실행 합니다
 description: 이 문서에서는 Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner를 실행하는 방법을 설명합니다.
-author: rajeswari-mamilla
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/15/2019
-ms.author: ramamill
-ms.openlocfilehash: 05d260de726c62c130a58938c2a2c9fa2440a96d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: cfd9dcab6fb04c877db0160b9f9e9768b2fe91f0
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96004724"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579347"
 ---
 # <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>VMware 재해 복구에 대한 Deployment Planner 실행
 이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.

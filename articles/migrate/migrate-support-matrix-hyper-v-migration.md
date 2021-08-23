@@ -6,12 +6,12 @@ ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 33e34e777a78e1c609d2eacdcb501c0bce1f5c9d
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 14660ca026dc51bc6e722559a28ef4a77361100b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714923"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094567"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Hyper-V 마이그레이션을 위한 지원 매트릭스
 
@@ -46,7 +46,7 @@ ms.locfileid: "107714923"
 | **Linux 부팅**                 | /boot가 전용 파티션에 있는 경우, OS 디스크에 상주해야 하며 여러 디스크에 분산되면 안 됩니다.<br/> /boot가 루트(/) 파티션의 일부인 경우 '/' 파티션은 OS 디스크에 있어야 하며 다른 디스크에 포함되지 않아야 합니다. |
 | **UEFI 부팅**                  | 지원됨. UEFI 기반 VM은 Azure 2세대 VM으로 마이그레이션됩니다.  |
 | **UEFI - 보안 부팅**         | 마이그레이션이 지원되지 않습니다.|
-| **디스크 크기**                  | OS 디스크의 경우 2TB(BIOS 부팅), OS 디스크의 경우 4TB(UEFI 부팅), 데이터 디스크의 경우 4TB입니다.|
+| **디스크 크기**                  | 최대 2TB OS 디스크, 데이터 디스크에 8TB입니다.|
 | **디스크 수** | VM당 최대 16개의 디스크입니다.|
 | **암호화된 디스크/볼륨**    | 마이그레이션이 지원되지 않습니다.|
 | **RDM/통과 디스크**      | 마이그레이션이 지원되지 않습니다.|
@@ -106,7 +106,7 @@ Azure로 복제된 모든 온-프레미스 VM은 이 표에 요약된 Azure VM �
 FC 디스크 | 지원 안 됨 | 지원되지 않는 경우 확인이 실패합니다.
 BitLocker | 지원 안 됨 | 컴퓨터의 복제를 사용하도록 설정하기 전에 Bitlocker를 사용하지 않도록 설정해야 합니다.
 VM 이름 | 1~63자 사이입니다.<br/> 문자, 숫자 및 하이픈으로 제한됩니다.<br/><br/> 컴퓨터 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |  Site Recovery에서 컴퓨터 속성의 값을 업데이트합니다.
-마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행하는 Azure VM에 연결하려면:<br/><br/> - 마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용하도록 설정합니다. **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱** 에서 모든 프로필에 대해 허용되는지 확인합니다.<br/><br/> - 사이트 간 VPN 액세스의 경우, RDP를 사용하도록 설정하고, **도메인 및 프라이빗** 네트워크에 대해 **Windows 방화벽** -> **허용되는 앱과 기능** 에서 RDP를 허용합니다. 운영 체제의 SAN 정책이 **OnlineAll** 로 설정되어 있는지 확인합니다. [자세한 정보를 알아보세요](prepare-for-migration.md). |
+마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행하는 Azure VM에 연결하려면:<br/><br/> - 마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용하도록 설정합니다. **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱** 에서 모든 프로필에 대해 허용되는지 확인합니다.<br/><br/> - 사이트 간 VPN 액세스의 경우, RDP를 사용하도록 설정하고, **도메인 및 프라이빗** 네트워크에 대해 **Windows 방화벽** -> **허용되는 앱과 기능** 에서 RDP를 허용합니다. 운영 체제의 SAN 정책이 **OnlineAll** 로 설정되어 있는지 확인합니다. [자세히 알아보기](prepare-for-migration.md). |
 마이그레이션 후 연결-Linux | 마이그레이션한 후 SSH를 사용하여 Azure VM에 연결하려면:<br/><br/> - 마이그레이션 전에 온-프레미스 컴퓨터에서 Secure Shell 서비스가 시작으로 설정되어 있고 방화벽 규칙에서 SSH 연결을 허용하는지 확인합니다.<br/><br/> - 마이그레이션 후 Azure VM에서 장애 조치(failover)된 VM의 네트워크 보안 그룹 규칙 및 연결된 Azure 서브넷에 대해 SSH 포트로 들어오는 연결을 허용합니다. 또한 VM에 대한 공용 IP 주소를 추가합니다. |  
 
 ## <a name="next-steps"></a>다음 단계

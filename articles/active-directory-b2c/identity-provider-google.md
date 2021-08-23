@@ -8,21 +8,24 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 04/30/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 7d5786c4188db63efc3012e565071f8fd410b92f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06f656fd45bfa0f8aedb086e95f5b991868656ff
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579963"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108314988"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Google 계정으로 등록 설정 및 로그인
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+> [!IMPORTANT]
+> **2021년 하반기부터** Google은 [웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. Azure AD B2B 초대 또는 Azure AD B2C에 Google 페더레이션을 사용하거나 Gmail에서 셀프 서비스 등록을 사용하는 경우, 앱에서 포함된 웹 보기를 사용하여 사용자를 인증하면 Google Gmail 사용자는 로그인할 수 없습니다. [자세한 정보를 알아보세요](../active-directory/external-identities/google-federation.md#deprecation-of-web-view-sign-in-support).
 
 ::: zone pivot="b2c-custom-policy"
 
@@ -30,7 +33,7 @@ ms.locfileid: "104579963"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -48,7 +51,7 @@ Azure Active Directory B2C(Azure AD B2C)에서 사용자가 Google 계정으로 
 1. 왼쪽 메뉴에서 **자격 증명** 을 선택하고 **자격 증명 만들기** > **Oauth 클라이언트 ID** 를 선택합니다.
 1. **애플리케이션 형식** 에서 **웹 애플리케이션** 을 선택합니다.
     1. 애플리케이션의 **이름** 을 입력합니다.
-    1. **권한이 부여된 JavaScript 원본** 에 `https://your-tenant-name.b2clogin.com`을 입력합니다. [사용자 지정 도메인](custom-domain.md)을 사용하는 경우 `https://your-domain-name`을 입력합니다.
+    1. **권한이 부여된 JavaScript 원본** 에 `https://your-tenant-name.b2clogin.com`을 입력합니다. [사용자 지정 도메인](custom-domain.md)을 사용하는 경우 `https://your-domain-name`를 입력합니다.
     1. **권한이 부여된 리디렉션 URL** 에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. [사용자 지정 도메인](custom-domain.md)을 사용하는 경우 `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-domain-name`을 사용자 지정 도메인으로, `your-tenant-name`를 테넌트의 이름으로 바꿉니다. Azure AD B2C에서 테넌트가 대문자로 정의되어 있더라도 테넌트 이름을 입력할 때는 소문자만 사용합니다.
 1. **만들기** 를 클릭합니다.
 1. **클라이언트 ID** 및 **클라이언트 비밀** 값을 복사합니다. 테넌트에서 Google을 ID 공급자로 구성하려면 둘 모두가 필요합니다. **클라이언트 암호** 는 중요한 보안 자격 증명입니다.
@@ -76,11 +79,11 @@ Azure Active Directory B2C(Azure AD B2C)에서 사용자가 Google 계정으로 
 1. **소셜 ID 공급자** 에서 **Google** 을 선택합니다.
 1. **저장** 을 선택합니다.
 1. 정책을 테스트하려면 **사용자 흐름 실행** 을 선택합니다.
-1. **애플리케이션** 의 경우 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 의 경우 이전에 등록한 *testapp1* 이라는 이름의 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **사용자 흐름 실행** 단추를 선택합니다.
 1. 등록 또는 로그인 페이지에서 **Google** 을 선택하여 Google 계정으로 로그인합니다.
 
-로그인 프로세스가 성공하면 브라우저가 Azure AD B2C에서 반환된 토큰의 내용을 표시하는 `https://jwt.ms`로 리디렉션됩니다.
+로그인 프로세스가 성공하면 브라우저가 `https://jwt.ms`로 리디렉션됩니다. 여기에는 Azure AD B2C에서 반환된 토큰의 내용이 표시됩니다.
 
 ::: zone-end
 
@@ -181,11 +184,11 @@ Azure Active Directory B2C(Azure AD B2C)에서 사용자가 Google 계정으로 
 ## <a name="test-your-custom-policy"></a>사용자 지정 정책 테스트
 
 1. 신뢰 당사자 정책(예: `B2C_1A_signup_signin`)을 선택합니다.
-1. **애플리케이션** 에서 [이전에 등록](troubleshoot-custom-policies.md#troubleshoot-the-runtime)한 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 에서 [이전에 등록](tutorial-register-applications.md)한 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **지금 실행** 단추를 선택합니다.
 1. 등록 또는 로그인 페이지에서 **Google** 을 선택하여 Google 계정으로 로그인합니다.
 
-로그인 프로세스가 성공하면 브라우저가 Azure AD B2C에서 반환된 토큰의 내용을 표시하는 `https://jwt.ms`로 리디렉션됩니다.
+로그인 프로세스가 성공하면 브라우저가 `https://jwt.ms`로 리디렉션됩니다. 여기에는 Azure AD B2C에서 반환된 토큰의 내용이 표시됩니다.
 
 ::: zone-end
 

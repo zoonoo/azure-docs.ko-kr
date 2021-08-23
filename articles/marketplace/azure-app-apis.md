@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
-ms.date: 07/01/2021
-ms.openlocfilehash: c6ef7acb4f28f33a8726060854914d12a8cf76eb
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.date: 06/01/2021
+ms.openlocfilehash: 1be7744ae9e0fcd803ad7ab4effa30dda5711f0d
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113232145"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111542941"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>파트너 센터에서 Azure 앱을 온보딩하기 위한 파트너 센터 제출 API
 

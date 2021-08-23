@@ -1,19 +1,19 @@
 ---
 title: 블록 Blob Storage 성능 계층 — Azure 스토리지
 description: Azure 블록 Blob Storage에 대한 프리미엄 및 표준 성능 계층 간의 차이를 설명합니다.
-author: normesta
-ms.author: normesta
+author: twooley
+ms.author: twooley
 ms.date: 05/17/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: e701ac76672712f98930d0a2d87e3da5b2afdc51
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: a04d0c94571c1e977a030162348d561eaa980d8e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122567675"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110098275"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>블록 Blob Storage에 대한 성능 계층
 
@@ -82,7 +82,7 @@ Blob Storage 수명 주기 관리는 다음과 같은 다양한 규칙 기반 �
 
 GPv2 및 Blob Storage 계정에서 핫, 쿨 및 보관을 평가합니다.
 
-- [보관 계층에서 Blob 데이터 리하이드레이션에 대해 자세히 알아보기](archive-rehydrate-overview.md)
+- [보관 계층에서 Blob 데이터 리하이드레이션에 대해 자세히 알아보기](storage-blob-rehydration.md)
 - [Azure Storage 메트릭을 활성화하여 현재 Storage 계정의 사용 현황 평가](./monitor-blob-storage.md)
 - [지역별 Blob Storage 및 GPv2 계정에서 핫, 쿨 및 보관 가격 책정 확인](https://azure.microsoft.com/pricing/details/storage/)
 - [데이터 전송 가격 확인](https://azure.microsoft.com/pricing/details/data-transfers/)

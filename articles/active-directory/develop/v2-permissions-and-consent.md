@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 05/25/2021
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: 2658c088304eba457b25bb3dc421b356ba70b57f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fed830833e9f68bcf734be65cba16f1cc84c8f89
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100102481"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110494355"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 권한 및 동의
 
@@ -43,11 +43,7 @@ Microsoft ID 플랫폼과 통합된 타사 리소스의 경우도 마찬가지�
 
 리소스 기능이 작은 권한 집합으로 분할되면 기능을 수행하는 데 필요한 권한만 요청하도록 타사 앱을 빌드할 수 있습니다. 사용자 및 관리자는 앱이 어떤 데이터에 액세스할 수 있는지 알 수 있습니다. 그리고 앱이 악의적인 의도를 가지고 작동하지 않는다고 확신할 수 있습니다. 개발자는 항상 최소 권한의 원칙을 준수하여 애플리케이션이 작동하는 데 필요한 권한만 요청해야 합니다.
 
-OAuth 2.0에서는 이러한 유형의 권한 집합을 범위라고 합니다. 권한이라고 하는 경우도 있습니다. Microsoft ID 플랫폼에서 권한은 문자열 값으로 표시됩니다. Microsoft Graph 예제에서 각 권한에 대한 문자열 값은 다음과 같습니다.
-
-* `Calendars.Read`를 사용하여 사용자의 일정 읽기
-* `Calendars.ReadWrite`를 사용하여 사용자의 일정 쓰기
-* `Mail.Send`을 사용하여 사용자로 메일 보내기
+OAuth 2.0에서는 이러한 유형의 권한 집합을 범위라고 합니다. 권한이라고 하는 경우도 있습니다. Microsoft ID 플랫폼에서 권한은 문자열 값으로 표시됩니다. 앱은 `scope` 쿼리 매개 변수에 사용 권한을 지정하여 필요한 권한을 요청합니다. ID 플랫폼은 리소스 기반 권한(각 권한은 리소스의 식별자 또는 애플리케이션 ID URI에 권한 값을 추가하여 표시됨)뿐만 아니라 잘 정의된 여러 [OpenID Connect 범위](#openid-connect-scopes)를 지원합니다. 예를 들어 권한 문자열 `https://graph.microsoft.com/Calendars.Read`는 Microsoft Graph에서 사용자 일정을 읽을 수 있는 권한을 요청하는 데 사용됩니다.
 
 앱은 대부분 Microsoft ID 플랫폼 권한 부여 엔드포인트에 대한 요청에서 범위를 지정하여 이러한 사용 권한을 요청합니다. 그러나 일부 높은 수준의 권한은 관리자의 동의를 통해서만 부여할 수 있습니다. [관리자 동의 엔드포인트](#admin-restricted-permissions)를 사용하여 요청하거나 부여할 수 있습니다. 자세히 알아보려면 계속 읽어보세요.
 
@@ -55,7 +51,7 @@ OAuth 2.0에서는 이러한 유형의 권한 집합을 범위라고 합니다. 
 
 Microsoft ID 플랫폼은 *위임된 권한* 및 *애플리케이션 권한* 이라는 두 가지 권한을 지원합니다.
 
-* **위임된 권한** 은 로그인한 사용자가 있는 앱에서 사용합니다. 이러한 앱의 경우 사용자 또는 관리자가 앱이 요청하는 권한에 동의합니다. 앱이 대상 리소스를 호출할 때 로그인한 사용자로 행동할 수 있는 권한을 위임 받습니다. 
+* **위임된 권한** 은 로그인한 사용자가 있는 앱에서 사용합니다. 이러한 앱의 경우 사용자 또는 관리자가 앱이 요청하는 권한에 동의합니다. 이 앱은 대상 리소스를 호출할 때 로그인한 사용자 역할을 할 수 있는 권한을 위임받습니다. 
 
     일부 위임된 권한은 비관리자가 동의할 수 있습니다. 하지만 일부 높은 수준의 권한은 [관리자 동의](#admin-restricted-permissions)가 필요합니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD(Azure Active Directory)의 관리자 역할 권한](../roles/permissions-reference.md)을 참조하세요.
 
@@ -109,6 +105,13 @@ Microsoft ID 플랫폼(v2.0 엔드포인트에 대한 요청)에서 앱은 새�
 액세스 토큰은 짧은 시간 동안 유효합니다. 일반적으로 1시간 후에 만료됩니다. 이 시점에 앱은 사용자를 `/authorize` 엔드포인트로 다시 리디렉션하여 새 권한 부여 코드를 가져와야 합니다. 이 리디렉션 중에 앱 형식에 따라 사용자가 자격 증명을 다시 입력하거나 권한에 다시 동의해야 할 수 있습니다.
 
 새로 고침 토큰을 가져오고 사용하는 방법에 대한 자세한 내용은 [Microsoft ID 플랫폼 프로토콜 참조](active-directory-v2-protocols.md)를 확인하세요.
+
+## <a name="incremental-and-dynamic-consent"></a>증분 및 동적 동의
+Microsoft ID 플랫폼 엔드포인트를 사용하면 Azure Portal의 앱 등록 정보에 정의된 정적 권한을 무시하고, 대신에 권한을 점진적으로 요청할 수 있습니다.  최소한의 권한 집합을 미리 요구하고 고객이 추가 앱 기능을 사용함에 따라 더 많은 시간을 요청할 수 있습니다. 이렇게 하려면 애플리케이션 등록 정보에 미리 정의할 필요 없이, [액세스 토큰을 요청](#requesting-individual-user-consent)할 때 `scope` 매개 변수에 새 범위를 포함시켜서 언제든지 앱에 필요한 범위를 지정할 수 있습니다. 사용자가 요청에 추가된 새 범위에 아직 동의하지 않은 경우에는 새 권한에만 동의하라는 메시지가 표시됩니다. 증분 또는 동적 동의는 위임된 권한에만 적용되며 애플리케이션 권한에는 적용되지 않습니다.
+
+`scope` 매개 변수를 통해 앱이 동적으로 권한을 요청할 수 있도록 허용하면 개발자가 사용자 환경을 완전히 제어할 수 있습니다. 초기 단계에 동의 환경을 배치하고 하나의 초기 권한 부여 요청으로 모든 권한을 요청할 수도 있습니다. 앱이 많은 권한을 요청하는 경우 시간의 경과에 따라 앱의 특정 기능을 사용하도록 시도하는 것처럼 점진적으로 사용자로부터 권한을 수집할 수 있습니다.
+
+조직 대신 [관리자 동의](#using-the-admin-consent-endpoint)를 수행하려면 앱에 등록된 정적 권한이 필요하므로, 전체 조직을 대신하여 관리자가 동의해야 하는 경우 앱 등록 포털에서 앱에 대한 권한을 설정해야 합니다. 이렇게 하면 조직 관리자가 애플리케이션을 설정하는 데 필요한 주기가 줄어듭니다.
 
 ## <a name="requesting-individual-user-consent"></a>개별 사용자의 동의 요청
 
@@ -217,7 +220,7 @@ https://graph.microsoft.com/mail.send
 ```
 
 
-| 매개 변수        | 조건        | 설명                                                                                |
+| 매개 변수        | 조건        | Description                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. GUID 또는 친숙한 이름 형식으로 제공할 수 있습니다. 또는 예제에서 볼 수 있듯이 일반적으로 조직에서 참조할 수 있습니다. "common"은 사용하지 마십시오. 개인 계정은 테넌트의 컨텍스트를 제외하고 관리자 동의를 제공할 수 없기 때문입니다. 테넌트를 관리하는 개인 계정과 최고의 호환성을 보장하려면 되도록 테넌트 ID를 사용합니다. |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 애플리케이션(클라이언트) ID입니다. |
@@ -270,7 +273,7 @@ Content-Type: application/json
     "grant_type": "authorization_code",
     "client_id": "6731de76-14a6-49ae-97bc-6eba6914391e",
     "scope": "https://outlook.office.com/mail.read https://outlook.office.com/mail.send",
-    "code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq..."
+    "code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
     "redirect_uri": "https://localhost/myapp",
     "client_secret": "zc53fwe80980293klaj9823"  // NOTE: Only required for web apps
 }
