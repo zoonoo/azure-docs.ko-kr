@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
-ms.openlocfilehash: 7583b4037d350b9190d6eae30c28b907b1d41d86
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9628c9d10818b2b7a8a731b14537e4b533af74e
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104722857"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537378"
 ---
 # <a name="azure-activity-log"></a>Azure 활동 로그
 활동 로그는 구독 수준의 이벤트에 대한 인사이트를 제공하는 Azure의 [플랫폼 로그](./platform-logs-overview.md)입니다. 여기에는 리소스가 수정되거나 가상 머신이 시작되는 등의 이벤트 정보가 포함됩니다. Azure Portal에서 활동 로그를 보거나 PowerShell 및 CLI를 사용하여 항목을 검색할 수 있습니다. 추가 기능을 사용하기 위해 [Azure Monitor 로그](../logs/data-platform-logs.md)에 대한 활동 로그를 Azure Event Hubs로 보내 Azure 외부로 전달하거나 Azure Storage로 보내 아카이브하도록 진단 설정을 만들어야 합니다. 이 문서에서는 활동 로그를 보고 다른 대상으로 보내는 방법에 대한 세부 정보를 제공합니다.
@@ -63,7 +63,7 @@ Azure Portal의 대부분의 메뉴에서 활동 로그에 액세스할 수 있�
 - Log Analytics 작업 영역에 저장된 활동 로그 데이터에 대한 데이터 수집 요금이 부과되지 않습니다.
 - Log Analytics 작업 영역에 저장된 활동 로그 데이터에 대한 데이터 보존 요금이 90일까지 부과되지 않습니다.
 
-활동 로그를 Log Analytics 작업 영역으로 전송하는 [진단 설정을 만듭니다](./diagnostic-settings.md). 단일 구독에서 최대 5개의 작업 영역으로 활동 로그를 보낼 수 있습니다. 테넌트 간에 로그를 수집하려면 [Azure Lighthouse](../../lighthouse/index.yml)가 필요합니다.
+활동 로그를 Log Analytics 작업 영역으로 전송하는 [진단 설정을 만듭니다](./diagnostic-settings.md). 단일 구독에서 최대 5개의 작업 영역으로 활동 로그를 보낼 수 있습니다. 
 
 Log Analytics 작업 영역의 활동 로그 데이터는 [Log Analytics](../logs/log-analytics-tutorial.md)에서 [로그 쿼리](../logs/log-query-overview.md)를 사용하여 검색할 수 있는 *AzureActivity* 라는 테이블에 저장됩니다. 이 테이블의 구조는 [로그 항목의 범주](activity-log-schema.md)에 따라 달라집니다. 테이블 속성에 대한 설명은 [Azure Monitor 데이터 참조](/azure/azure-monitor/reference/tables/azureactivity)를 참조하세요.
 
@@ -204,7 +204,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | 속성 | 필수 | Description |
+    | 속성 | 필수 | 설명 |
     | --- | --- | --- |
     | 이름 |예 |로그 프로필의 이름입니다. |
     | StorageAccountId |예 |활동 로그를 저장할 스토리지 계정의 리소스 ID입니다. |
@@ -247,7 +247,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-    | 속성 | 필수 | Description |
+    | 속성 | 필수 | 설명 |
     | --- | --- | --- |
     | name |예 |로그 프로필의 이름입니다. |
     | storage-account-id |예 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |

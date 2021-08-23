@@ -1,20 +1,19 @@
 ---
 title: Azure Image Builder를 사용하여 기존의 이미지 버전에서 새로운 VM 이미지 버전을 만들기
 description: Linux에서 Azure Image Builder를 사용하여 기존의 이미지 버전에서 새로운 VM 이미지 버전을 만듭니다.
-author: cynthn
-ms.author: cynthn
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.reviewer: danis
-ms.openlocfilehash: e9508da2002035ee413d557c0cd48474b6e10e0d
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 85f41327476ae96af8dcc28eaaa3e49ef3ce80e5
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071248"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113596536"
 ---
 # <a name="create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-linux"></a>Linux에서 Azure Image Builder를 사용하여 기존의 이미지 버전에서 새로운 VM 이미지 버전을 만듭니다.
 
@@ -24,7 +23,7 @@ ms.locfileid: "112071248"
 
 
 ## <a name="register-the-features"></a>기능 등록
-Azure Image Builder를 사용하려면 해당 기능을 등록해야 합니다.
+Azure Image Builder를 사용하려면 이 기능을 등록해야 합니다.
 
 등록을 확인합니다.
 

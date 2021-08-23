@@ -1,18 +1,20 @@
 ---
 title: 레거시를 사용하여 MongoDB로부터 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 레거시 Azure Data Factory 파이프라인의 복사 작업을 통해 Mongo DB로부터 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아보기.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019; seo-dt-2019
+ms.custom: synapse
 ms.date: 08/12/2019
-ms.openlocfilehash: 4882949abd21e782d98dff8de2ba7be1b66ecdfb
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 82a6f4dc55d94b3d2574e841051d69034d34f620
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482186"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642806"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Azure Data Factory를 사용하여 MongoDB에서 데이터 복사(레거시)
 

@@ -2,22 +2,22 @@
 title: 사용자 및 관리자 권한 관리 - Azure Active Directory | Microsoft Docs
 description: Azure AD에서 애플리케이션에 대한 사용 권한을 검토하고 관리하는 방법을 알아봅니다. 예를 들어, 애플리케이션에 부여된 모든 사용 권한을 해지할 수 있습니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 7/10/2020
-ms.author: mtillman
-ms.reviewer: luleonpla
+ms.author: davidmu
+ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa8611fb932fadcdf8cd7c8a361fb840babf16b
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 7585ad6816a8d9fd0a331ae9fcb1e1cea81ddbac
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075883"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536482"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Azure Active Directory에서 권한 초과 또는 의심스러운 애플리케이션에 대한 조치 수행
 
@@ -72,10 +72,10 @@ PowerShell 스크립트를 사용하여 이 애플리케이션에 부여된 모�
 **사용자 할당** 설정을 켜서 애플리케이션에 대한 액세스를 제한하는 것이 좋습니다. 그런 다음 사용자 및 관리자가 애플리케이션에 부여한 사용 권한을 검토합니다.
 
 1. 전역 관리자, 애플리케이션 관리자 또는 클라우드 애플리케이션 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-3. **Azure Active Directory** > **Enterprise 애플리케이션** 을 선택합니다.
-5. 액세스를 제한할 애플리케이션을 선택합니다.
-6. **속성** 을 선택하고 **필요한 사용자 요구 사항** 을 **예** 로 설정합니다.
-7. **사용 권한** 을 선택하고 관리자와 사용자가 동의한 권한을 검토합니다.
+2. **Azure Active Directory** > **Enterprise 애플리케이션** 을 선택합니다.
+3. 액세스를 제한할 애플리케이션을 선택합니다.
+4. **속성** 을 선택하고 **필요한 사용자 요구 사항** 을 **예** 로 설정합니다.
+5. **사용 권한** 을 선택하고 관리자와 사용자가 동의한 권한을 검토합니다.
 
 필요에 따라 PowerShell을 사용하여 다음을 수행할 수 있습니다.
 

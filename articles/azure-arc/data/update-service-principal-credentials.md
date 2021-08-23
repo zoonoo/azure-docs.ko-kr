@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 12/09/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: ff1e43ca78583e5ccda56b7c813ec580050e3288
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 01d8aa850c5f816026561ca64541724bd8c3b832
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495728"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528801"
 ---
 # <a name="update-service-principal-credentials"></a>서비스 주체 자격 증명 업데이트
 
@@ -22,7 +22,6 @@ ms.locfileid: "110495728"
 
 예를 들어 서비스 주체 테넌트 ID, 클라이언트 ID 및 클라이언트 비밀에 대한 특정 값 집합을 사용하여 데이터 컨트롤러를 배포한 다음 이러한 값 중 하나 이상을 변경한 경우 데이터 컨트롤러에서 비밀을 업데이트해야 합니다.  다음은 테넌트 ID, 클라이언트 ID 또는 클라이언트 비밀을 업데이트하는 지침입니다. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="background"></a>배경
 

@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 32cbdabef4d89c7fabb47a52ebf0589690b7ab33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3527e098e282d9c8f31069f7b747aa33f9d0349
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85566054"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567853"
 ---
 # <a name="connect-check-point-to-azure-sentinel"></a>Check Point를 Azure Sentinel에 연결
 
 
 
 이 문서에서는 Check Point 어플라이언스를 Azure Sentinel에 연결하는 방법을 설명합니다. Check Point 데이터 커넥터를 사용하면 Check Point 로그를 Azure Sentinel에 쉽게 연결하여 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선할 수 있습니다. Azure Sentinel에서 Check Point를 사용하면 조직의 인터넷 사용에 대한 인사이트를 제공하고 보안 작업 기능을 강화할 수 있습니다. 
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 
 ## <a name="forward-check-point-logs-to-the-syslog-agent"></a>Syslog 에이전트에 Check Point 로그 전달
 
@@ -43,7 +46,5 @@ Syslog 에이전트를 통해 CEF 형식의 Syslog 메시지를 Azure 작업 영
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Check Point 어플라이언스를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [연결 유효성을 검사](connect-cef-verify.md)합니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
-- [통합 문서를 사용](tutorial-monitor-your-data.md)하여 데이터를 모니터링합니다.
-
-
+- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.
+- [통합 문서를 사용](monitor-your-data.md)하여 데이터를 모니터링합니다.

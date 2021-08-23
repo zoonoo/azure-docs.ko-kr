@@ -3,22 +3,22 @@ title: Internet Explore의 문제(MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
 description: Internet Explorer 브라우저에서 JavaScript용 Microsoft 인증 라이브러리(MSAL.js)를 사용합니다.
 services: active-directory
-author: mtillman
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/16/2019
-ms.author: mtillman
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: eda2d61d7af1b56a2e0069e8726aa1e29800e19a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 9df985c3ae6f9852357c0bfb49802f94b32617da
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077125"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113354478"
 ---
 # <a name="known-issues-on-internet-explorer-browsers-msaljs"></a>Internet Explorer 브라우저(MSAL.js)의 알려진 문제
 

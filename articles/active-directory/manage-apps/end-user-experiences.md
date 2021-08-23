@@ -2,21 +2,21 @@
 title: 애플리케이션에 대한 최종 사용자 환경 - Azure Active Directory
 description: Azure AD(Azure Active Directory)는 조직의 최종 사용자에게 애플리케이션을 배포하는 몇 가지 사용자 지정 가능한 방법을 제공합니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: mtillman
-ms.reviewer: arvindh
-ms.openlocfilehash: 9280cf669bb766ea82f2e668a56d2b3f743315fb
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: davidmu
+ms.reviewer: lenalepa
+ms.openlocfilehash: 5cf4fe927d7079d866e90a789bb210730a6c4867
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081410"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536238"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 대한 최종 사용자 환경
 
@@ -31,9 +31,9 @@ Azure AD(Azure Active Directory)는 조직의 최종 사용자에게 애플리�
 
 ## <a name="azure-ad-my-apps"></a>Azure AD 내 앱
 
-https://myapps.microsoft.com 의 내 앱은 최종 사용자가 Azure Active Directory의 조직 계정을 사용하여 Azure AD 관리자가 액세스 권한을 부여한 애플리케이션을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/)의 최종 사용자는 내 앱을 통해 셀프 서비스 그룹 관리 기능을 활용할 수도 있습니다.
+<https://myapps.microsoft.com> 의 내 앱은 최종 사용자가 Azure Active Directory의 조직 계정을 사용하여 Azure AD 관리자가 액세스 권한을 부여한 애플리케이션을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)의 최종 사용자는 내 앱을 통해 셀프 서비스 그룹 관리 기능을 활용할 수도 있습니다.
 
-기본적으로 모든 애플리케이션이 단일 페이지에 함께 나열됩니다. 그러나 컬렉션을 사용하여 관련 애플리케이션을 그룹화하고 별도의 탭에 표시하여 더 쉽게 찾을 수 있습니다. 예를 들어 컬렉션을 사용하여 특정 작업 역할, 작업, 프로젝트 등에 대해 애플리케이션의 논리적 그룹을 만들 수 있습니다. 자세한 내용은 [내 앱 포털에서 컬렉션 만들기](access-panel-collections.md)를 참조하세요. 
+기본적으로 모든 애플리케이션이 단일 페이지에 함께 나열됩니다. 그러나 컬렉션을 사용하여 관련 애플리케이션을 그룹화하고 별도의 탭에 표시하여 더 쉽게 찾을 수 있습니다. 예를 들어 컬렉션을 사용하여 특정 작업 역할, 작업, 프로젝트 등에 대해 애플리케이션의 논리적 그룹을 만들 수 있습니다. 자세한 내용은 [내 앱 포털에서 컬렉션 만들기](access-panel-collections.md)를 참조하세요.
 
 내 앱은 Azure Portal과 별개이며, 사용자에게 Azure 구독이나 Microsoft 365 구독이 필요하지 않습니다.
 

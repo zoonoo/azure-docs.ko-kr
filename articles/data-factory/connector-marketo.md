@@ -1,17 +1,20 @@
 ---
 title: Azure Data Factory를 사용하여 Marketo에서 데이터 복사(미리 보기)
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Marketo에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.author: jianleishen
-ms.openlocfilehash: beb1f0a05e8a505e49efe517c970e49ddab6be02
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.author: chez
+author: chez-charlie
+ms.openlocfilehash: 9583a4ac0cb4150d7896a0c11696aeb2a8f4c328
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109485786"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642306"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Marketo에서 데이터 복사(미리 보기)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -45,7 +48,7 @@ Marketo에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
 다음은 Marketo 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **Marketo** 로 설정해야 합니다. | 예 |
 | 엔드포인트(endpoint) | Marketo 서버의 엔드포인트입니다. (즉, 123-ABC-321.mktorest.com)  | 예 |
@@ -80,7 +83,7 @@ Marketo에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
 Marketo에서 데이터를 복사하려면 데이터 세트의 type 속성을 **MarketoObject** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 형식 속성을 **MarketoObject** 로 설정해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -110,7 +113,7 @@ Marketo에서 데이터를 복사하려면 데이터 세트의 type 속성을 **
 
 MarketoSource에서 데이터를 복사하려면 복사 작업의 원본 형식을 **MarketoSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **MarketoSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Activitiy_Types"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |

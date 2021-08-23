@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: abe9d9cd46c7d4cbcb383ee9a37fc84cd64fcea8
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 5d6e5f608a79765a0bf6ac46cb8e36e6ba1ed1f3
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107896020"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567900"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows"></a>사용자 흐름에 대해 전화 가입 및 로그인 설정
 
@@ -70,7 +70,7 @@ ms.locfileid: "107896020"
 3. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
 4. **정책** 아래에서 **사용자 흐름** 을 선택한 다음, **새 사용자 흐름** 을 선택합니다.
 
-    ![새 사용자 흐름 단추가 강조 표시된 포털의 사용자 흐름 페이지](./media/phone-authentication-user-flows/signup-signin-user-flow.png)
+    ![새 사용자 흐름 단추가 강조 표시된 포털의 사용자 흐름 페이지](./media/phone-authentication-user-flows/sign-up-sign-in-user-flow.png)
 
 5. **사용자 흐름 만들기** 탭에서 **가입 및 로그인** 사용자 흐름을 선택합니다.
 

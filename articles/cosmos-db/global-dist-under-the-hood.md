@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 592a9b89379094c88881c3c8485c7e38a1613b34
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 34a7a987de10ec727db0ed5a4e29c679c4dc1416
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219487"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566730"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Azure Cosmos DB를 사용한 전역 데이터 배포 - 기본적인 이해
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -61,7 +61,7 @@ Cosmos 데이터베이스 지역으로 구성된 각각의 실제 파티션 그�
 
 ## <a name="conflict-resolution"></a>충돌 해결
 
-업데이트 전파, 충돌 해결 및 인과 관계 추적을 위한 설계는 [유행병 알고리즘](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) 및 [Bayou](https://people.cs.umass.edu/~mcorner/courses/691M/papers/terry.pdf) 시스템에 대한 이전 작업에서 영감을 받았습니다. 아이디어의 핵심은 살아남아 Cosmos DB의 시스템 설계를 전달하는 데 편리한 참조 프레임을 제공하는 한편, Cosmos DB 시스템에 적용되면서 상당한 변화를 겪기도 했습니다. 이것이 필요했던 이유는 이전 시스템이 리소스 거버넌스를 사용하거나, Cosmos DB가 운영해야 하는 규모이거나, 역량 (예: 제한된 부실 일관성)과 엄격하고 포괄적인 SLA를 제공하도록 설계되지 않았기 때문입니다.  
+업데이트 전파, 충돌 해결 및 인과 관계 추적을 위한 설계는 [유행병 알고리즘](https://www.kth.se/social/upload/51647982f276546170461c46/4-gossip.pdf) 및 [Bayou](https://people.cs.umass.edu/~mcorner/courses/691M/papers/terry.pdf) 시스템에 대한 이전 작업에서 영감을 받았습니다. 아이디어의 핵심은 살아남아 Cosmos DB의 시스템 설계를 전달하는 데 편리한 참조 프레임을 제공하는 한편, Cosmos DB 시스템에 적용되면서 상당한 변화를 겪기도 했습니다. 이것이 필요했던 이유는 이전 시스템이 리소스 거버넌스를 사용하거나, Cosmos DB가 운영해야 하는 규모이거나, 역량 (예: 제한된 부실 일관성)과 엄격하고 포괄적인 SLA를 제공하도록 설계되지 않았기 때문입니다.  
 
 파티션 세트는 여러 지역에 분산되어 있으며 Cosmos DB (다중 지역 작성) 복제 프로토콜에 따라 지정된 파티션 세트로 구성된 실제 파티션 간에 데이터를 복제합니다. 파티션 세트의 각 실제 파티션은 쓰기를 허용하며 일반적으로 해당 지역에 있는 클라이언트에 읽기를 제공합니다. 지역 내의 실제 파티션에서 수락된 쓰기는 지속력 있게 커밋되며 클라이언트에서 승인되기 전에 해당 실제 파티션 내에서 높은 가용성을 제공합니다. 이러한 쓰기는 임시 쓰기이며, 엔트로피 방지 채널을 사용하여 파티션 세트 내의 다른 실제 파티션으로 전파됩니다. 클라이언트는 요청 헤더를 전달하여 임시 쓰기나 커밋된 쓰기를 요청할 수 있습니다. 엔트로피 방지 전파(전파 빈도 포함)는 파티션 세트의 토폴로지, 실제 파티션의 지역적 근접성 및 구성된 일관성 수준에 따라 동적입니다. 파티션 집합 내에서 Cosmos DB는 동적으로 선택된 중재자 파티션과 함께 기본 커밋 체계를 따릅니다. 중재자 선택은 동적이며 오버레이의 토폴로지에 따라 파티션 집합을 재구성하는 데 필수적인 부분입니다. 커밋된 쓰기(다중 행/일괄 처리 업데이트 포함)는 순서가 보장됩니다. 
 

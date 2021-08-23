@@ -2,17 +2,18 @@
 title: Azure Data Factory의 통합 런타임 모니터링
 description: Azure Data Factory에서 다양한 유형의 통합 런타임을 모니터링하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 08/11/2020
 author: minhe-msft
 ms.author: hemin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9e8a624d715405a32b6ceb24912161709bf89806
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 10770e3df3f666163958344868a86ee8e7374d55
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670742"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536946"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 모니터링
 
@@ -42,7 +43,7 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 다음 테이블은 Azure 통합 런타임에 대해 cmdlet에서 반환하는 속성에 대한 설명을 제공합니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 -------- | ------------- | 
 | Name | Azure 통합 런타임의 이름. |  
 | 주 | Azure 통합 런타임의 상태. | 
@@ -71,7 +72,7 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 다음 테이블은 **각 노드** 의 속성 모니터링에 대한 설명을 제공합니다.
 
-| 속성 | Description | 
+| 속성 | 설명 | 
 | -------- | ----------- | 
 | Name | 자체 호스팅 통합 런타임의 이름 및 이와 연결된 노드. 노드는 자체 호스팅 통합 런타임이 설치된 온-프레미스 Windows 컴퓨터입니다. |  
 | 상태 | 전반적인 자체 호스팅 통합 런타임 및 각 노드의 상태. 예제: 온라인/오프라인/제한됨/기타. 해당 상태에 대한 자세한 정보는 다음 섹션을 참조하세요. | 

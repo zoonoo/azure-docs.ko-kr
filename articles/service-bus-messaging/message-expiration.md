@@ -2,13 +2,13 @@
 title: Azure Service Bus - 메시지 만료
 description: 이 문서에서는 Azure Service Bus 메시지의 만료 및 TTL(Time to live)에 대해 설명합니다. 해당 최종 기한 이후에는 메시지가 더 이상 전달되지 않습니다.
 ms.topic: conceptual
-ms.date: 02/17/2021
-ms.openlocfilehash: d41cb7a5e04753989c0e65e8afb8d74a11cd1af2
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.date: 07/09/2021
+ms.openlocfilehash: ac37096b411df0fa1a52286f82ce421dff459239
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110614884"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113585468"
 ---
 # <a name="message-expiration-time-to-live"></a>메시지 만료(TTL(Time To Live))
 메시지의 페이로드 또는 메시지가 수신기에 전달하는 명령이나 조회는 거의 항상 특정 형식의 애플리케이션 수준 만료 기한을 따릅니다. 이러한 기간 후에는 콘텐츠가 더 이상 배달되지 않거나 요청된 작업이 더 이상 실행되지 않습니다.
@@ -27,9 +27,9 @@ ms.locfileid: "110614884"
 큐 또는 토픽으로 전송되는 모든 메시지는 엔터티 수준에서 설정된 기본 만료 대상입니다. 만드는 동안 포털에서 설정하고 나중에 조정할 수 있습니다. time-to-live가 명시적으로 설정되지 않은 엔터티로 보낸 모든 메시지에는 기본 만료가 사용됩니다. 기본 만료는 time-to-live 값의 최대값으로도 사용됩니다. time-to-live 만료가 기본값보다 더 긴 메시지는 큐에 추가되기 전에 자동으로 메시지 time-to-live 기본값으로 조정됩니다.
 
 > [!NOTE]
-> 조정된 메시지에 대한 기본 time-to-live 값은 달리 지정되지 않은 경우 서명된 64비트 정수에 사용할 수 있는 최대값입니다.
->
-> 메시징 엔터티(큐 및 토픽)의 경우 기본 만료 시간도 Service Bus 표준 및 프리미엄 계층에 대해 서명된 64비트 정수에 대해 가능한 최대값입니다. **Basic 계층의** 경우 기본(최대) 만료 시간은 **14일** 입니다.
+> - 조정된 메시지에 대한 기본 time-to-live 값은 달리 지정되지 않은 경우 서명된 64비트 정수에 사용할 수 있는 최대값입니다.
+> - 메시징 엔터티(큐 및 토픽)의 경우 기본 만료 시간도 Service Bus 표준 및 프리미엄 계층에 대해 서명된 64비트 정수에 대해 가능한 최대값입니다. **Basic 계층의** 경우 기본(최대) 만료 시간은 **14일** 입니다.
+> - 항목이 구독보다 작은 TTL을 지정하면 항목 TTL이 적용됩니다.
 
 만료된 메시지는 [배달하지 못한 편지 큐](service-bus-dead-letter-queues.md)로 이동하는 옵션이 있습니다. 프로그래매틱 방식이나 Azure Portal를 사용하여 이 설정을 구성할 수 있습니다. 이 옵션을 사용하지 않도록 설정하면 만료된 메시지가 삭제됩니다. 배달 못한 메시지 큐로 이동되는 만료된 메시지는 브로커가 사용자 속성 섹션에 저장하는 [dead-letter reason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) 속성을 평가하여 다른 배달 못한 메시지와 구분할 수 있습니다. 
 

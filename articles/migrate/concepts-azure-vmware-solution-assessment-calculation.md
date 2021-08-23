@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: b55f0562ae08a6e5a6b38bd0b6fc9f781b94ab64
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: ef1f069dbcf932475a062b309324a77932a88809
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078692"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537015"
 ---
 # <a name="assessment-overview-migrate-to-azure-vmware-solution"></a>평가 개요(Azure VMware Solution으로 마이그레이션)
 
@@ -126,9 +126,9 @@ AVS 평가에서는 온-프레미스 서버의 메타데이터 및 성능 데이
 | **성능 기록** | 서버의 성능 데이터를 평가하는 데 고려할 기간을 설정합니다. 이 속성은 크기 조정 기준이 ‘성능 기반’인 경우에만 적용됩니다. |
 | **백분위 수 사용률** | 적정 크기를 산정하는 데 고려되는 성능 샘플 집합의 백분위수 값을 지정합니다. 이 속성은 크기 조정이 성능 기반인 경우에만 적용됩니다. |
 | **쾌적 인자** | Azure Migrate는 평가 중에 버퍼(쾌적 인자)를 고려합니다. 이 버퍼는 VM(CPU, 메모리, 디스크)의 서버 사용률 데이터에 추가로 적용됩니다. 쾌적 인자는 계절별 사용량, 성능 기록 부족, 향후 사용량 증가 가능성 등의 문제를 고려합니다. 예를 들어 사용률이 20%인 10코어 VM은 일반적으로 2코어 VM이라는 결과가 나옵니다. 그러나 쾌적 인자가 2.0x이면 결과는 4코어 VM이 됩니다. |
-| **제품** | 사용자가 등록한 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)이 표시됩니다. Azure Migrate는 그에 따라 비용을 예측합니다. |
-| **통화** | 계정의 청구 통화를 보여줍니다. |
-| **할인(%)** | Azure 제품에 적용되는 구독별 할인을 보여줍니다. 기본 설정은 0%입니다. |
+| **제안** | 사용자가 등록한 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)이 표시됩니다. Azure Migrate는 그에 따라 비용을 예측합니다. |
+| **통화** | 계정의 청구 통화를 보여 줍니다. |
+| **할인(%)** | Azure 제품에 적용되는 구독별 할인을 보여 줍니다. 기본 설정은 0%입니다. |
 | **Azure 하이브리드 혜택** | 소프트웨어 보증이 있고 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-use-benefit/)을 받을 수 있는지를 지정합니다. 이는 노드 기반 가격으로 인한 Azure VMware Solution 가격 책정에는 영향을 주지 않지만, 고객은 Azure 하이브리드 혜택을 사용하여 온-프레미스 OS 또는 SQL 라이선스(Microsoft 기반)를 AVS에 계속해서 적용할 수 있습니다. 다른 소프트웨어 OS 공급업체는 RHEL과 같은 고유한 라이선스 용어를 제공해야 합니다. |
 | **vCPU 초과 구독** | AVS 노드에서 하나의 물리적 코어에 연결된 가상 코어 수의 비율을 지정합니다. 계산의 기본값은 vCPU 4개: AVS의 실제 코어 1개입니다. API 사용자는 이 값을 정수로 설정할 수 있습니다. vCPU 초과 구독 > 4:1은 CPU 사용량에 따라 워크로드에 영향을 줄 수 있습니다. 크기를 조정할 때 항상 선택한 코어의 사용률이 100%이라고 가정합니다. |
 | **메모리 오버 커밋 비율** | 클러스터의 메모리 오버 커밋 비율을 지정합니다. 값 1은 100% 메모리 사용을 나타내고(예를 들어 0.5은 50%), 2는 사용 가능한 메모리의 200%를 사용합니다. 0\.5부터 10까지의 값만 최대 소수점 이하 한 자리까지 추가할 수 있습니다. |
@@ -285,7 +285,7 @@ AVS(Azure VMware Solution) 가격 책정은 노드당 기준이므로 총비용�
 
 AVS(Azure VMware 솔루션) 평가에 대한 Azure 준비 상태 보고서에서 다음과 같은 권장 도구를 확인할 수 있습니다.
 
-- **VMware HCX 또는 Enterprise**: VMware 서버의 경우 VMware HCX(하이브리드 클라우드 확장) 솔루션은 온-프레미스 워크로드를 AVS(Azure VMware Solution) 프라이빗 클라우드로 마이그레이션하는 데 제안되는 마이그레이션 도구입니다. [자세한 정보](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+- **VMware HCX 또는 Enterprise**: VMware 서버의 경우 VMware HCX(하이브리드 클라우드 확장) 솔루션은 온-프레미스 워크로드를 AVS(Azure VMware Solution) 프라이빗 클라우드로 마이그레이션하는 데 제안되는 마이그레이션 도구입니다. [자세한 정보](../azure-vmware/install-vmware-hcx.md).
 - **알 수 없음**: CSV 파일을 통해 가져온 서버의 경우 기본 마이그레이션 도구를 알 수 없습니다. VMware 서버의 경우 VMWare HCX(하이브리드 클라우드 확장) 솔루션을 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계

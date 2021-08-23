@@ -3,19 +3,19 @@ title: 휴먼 레이블 대화 기록 지침 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 단어를 삭제하거나 잘못 대체하는 경우와 같이 음성 인식 정확도를 향상시키기 위해 오디오 데이터와 함께 휴먼 레이블 대화 기록을 사용할 수 있습니다. 휴먼 레이블 대화 기록은 오디오 파일의 단어별, 약어 대화 내용 기록입니다.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: erhopf
-ms.openlocfilehash: af6ced49071b7fbae983508e68964aa064ef38e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: lajanuar
+ms.openlocfilehash: 2983f34f4dfd80ed34f3aed95870369d4c97f7a3
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101700034"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529614"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>휴먼 레이블 대화 기록을 만드는 방법
 
@@ -27,7 +27,7 @@ ms.locfileid: "101700034"
 > 모든 기본 모델이 오디오 파일의 사용자 지정을 지원하지는 않습니다. 기본 모델이 지원하지 않는 경우 학습은 관련 텍스트가 사용되는 것과 동일한 방식으로 대화 내용 기록의 텍스트를 사용합니다. [언어 지원](language-support.md#speech-to-text)을 참조하여 오디오 데이터를 통한 학습을 지원하는 기본 모델의 목록을 확인하세요.
 
 > [!NOTE]
-> 학습에 사용되는 기본 모델을 변경하고 학습 데이터 세트에 오디오가 있는 경우 선택한 새 기본 모델이 [오디오 데이터를 통한 학습을 지원](language-support.md#speech-to-text)하는지 *항상* 확인합니다. 이전에 사용된 기본 모델에서 오디오 데이터를 통한 학습을 지원하지 않고 학습 데이터 세트에 오디오가 포함된 경우 새 기본 모델의 학습 시간이 **크게** 증가하고 몇 시간에서 며칠 이상으로 쉽게 늘어날 수 있습니다. Speech Service 구독이 학습용 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account)에 있지 **않은** 경우에 특히 그렇습니다.
+> 학습에 사용되는 기본 모델을 변경하고 학습 데이터 세트에 오디오가 있는 경우 선택한 새 기본 모델이 [오디오 데이터를 통한 학습을 지원](language-support.md#speech-to-text)하는지 *항상* 확인합니다. 이전에 사용된 기본 모델에서 오디오 데이터를 통한 학습을 지원하지 않고 학습 데이터 세트에 오디오가 포함된 경우 새 기본 모델의 학습 시간이 몇 시간에서 며칠 이상으로 **크게** 증가할 수 있습니다. Speech Service 구독이 학습 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account)에 있지 **않은** 경우에 특히 그렇습니다.
 >
 > 위의 단락에 설명된 문제가 발생한 경우 데이터 세트의 오디오 양을 줄이거나 완전히 제거하여 텍스트만 남겨두면 학습 시간을 빠르게 줄일 수 있습니다. 두 번째 옵션은 Speech Service 구독이 학습용 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account)에 있지 **않은** 경우에 매우 권장됩니다.
 

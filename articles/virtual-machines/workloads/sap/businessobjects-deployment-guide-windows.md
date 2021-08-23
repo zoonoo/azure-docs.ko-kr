@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: depadia
-ms.openlocfilehash: f520bc6615d9c7ea40612e7d52fb201d04c246e9
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: bd65c77d8be0cef06a81f0f7699b04134e0e1706
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408122"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567244"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-windows-on-azure"></a>Azure의 Windows용 SAP BusinessObjects BI 플랫폼 배포 가이드
 
@@ -445,7 +445,7 @@ CMS 데이터베이스에 대한 다른 데이터베이스 관리 시스템(DBMS
 
 Windows에서 실행되는 SAP BOBI 플랫폼의 경우 [Azure Premium Files](../../../storage/files/storage-files-introduction.md) 또는 [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md)를 파일 저장소로 선택할 수 있습니다. 파일 저장소는 본래 고가용성과 고내구성을 갖추도록 설계되었습니다. Azure Premium Files는 ZRS를 지원하며, 이는 SAP BOBI 플랫폼의 영역 간 배포에 유용할 수 있습니다. 자세한 내용은 Azure Files의 [중복성](../../../storage/files/storage-files-planning.md#redundancy) 섹션을 참조하세요.
 
-모든 지역에서 파일 공유 서비스를 사용할 수는 없으므로 [지역에서 사용할 수 있는 제품](https://azure.microsoft.com/en-us/global-infrastructure/services/) 목록에서 최신 정보를 확인하세요. 현재 지역에서 이 서비스를 사용할 수 없는 경우 파일 시스템을 SAP BOBI 애플리케이션에 공유할 수 있는 NFS 서버를 만들면 됩니다. 하지만 고가용성도 고려해야 합니다.
+모든 지역에서 파일 공유 서비스를 사용할 수는 없으므로 [지역에서 사용할 수 있는 제품](https://azure.microsoft.com/global-infrastructure/services/) 목록에서 최신 정보를 확인하세요. 현재 지역에서 이 서비스를 사용할 수 없는 경우 파일 시스템을 SAP BOBI 애플리케이션에 공유할 수 있는 NFS 서버를 만들면 됩니다. 하지만 고가용성도 고려해야 합니다.
 
 ### <a name="high-availability-for-the-load-balancer"></a>부하 분산 장치의 고가용성
 
@@ -501,7 +501,7 @@ Load Balancer는 SAP BOBI 플랫폼의 웹 애플리케이션 서버 간에 트�
 - **Azure Premium Files** 는 LRS와 ZRS만 지원합니다. Azure Premium Files DR 전략의 경우 [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) 또는 [Azure PowerShell](/powershell/module/az.storage/?preserve-view=true&view=azps-5.8.0)을 사용하여 다른 지역의 다른 스토리지 계정에 파일을 복사할 수 있습니다. 자세한 내용은 [재해 복구 및 저장소 계정 장애 조치(failover)](../../../storage/common/storage-disaster-recovery-guidance.md)를 참조하세요.
 - **Azure NetApp Files** 는 NFS 및 SMB 볼륨을 제공하므로 모든 파일 기반 복사 도구를 사용하여 Azure 지역 간에 데이터를 복제할 수 있습니다. 다른 지역의 Azure NetApp Files 볼륨을 복사하는 방법에 대한 자세한 내용은 [Azure NetApp Files에 대한 FAQ](../../../azure-netapp-files/azure-netapp-files-faqs.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region)를 참조하세요.
 
-  Azure NetApp Files 지역 간 복제를 사용할 수 있습니다. NetApp SnapMirror 기술을 사용하는 이 복제 기능은 현재 [미리 보기](https://azure.microsoft.com/en-us/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/)로 제공됩니다. 이 기술을 사용하면 변경된 블록만이 압축된 효과적인 형태로 네트워크를 통해 전송됩니다. 이 독점적 기술은 지역 간에 복제하는 데 필요한 데이터 양을 최소화하여 데이터 전송 비용을 절감합니다. 복제 시간이 단축되므로 RPO를 줄일 수도 있습니다. 자세한 내용은 [지역 간 복제 사용에 대한 요구 사항 및 고려 사항](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md)을 참조하세요.
+  Azure NetApp Files 지역 간 복제를 사용할 수 있습니다. NetApp SnapMirror 기술을 사용하는 이 복제 기능은 현재 [미리 보기](https://azure.microsoft.com/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/)로 제공됩니다. 이 기술을 사용하면 변경된 블록만이 압축된 효과적인 형태로 네트워크를 통해 전송됩니다. 이 독점적 기술은 지역 간에 복제하는 데 필요한 데이터 양을 최소화하여 데이터 전송 비용을 절감합니다. 복제 시간이 단축되므로 RPO를 줄일 수도 있습니다. 자세한 내용은 [지역 간 복제 사용에 대한 요구 사항 및 고려 사항](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md)을 참조하세요.
 
 ### <a name="cms-database"></a>CMS 데이터베이스
 

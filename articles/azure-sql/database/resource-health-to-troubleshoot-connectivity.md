@@ -11,12 +11,12 @@ author: AlainDormehlMSFT
 ms.author: aldorme
 ms.reviewer: mathoma, wiassaf
 ms.date: 03/24/2021
-ms.openlocfilehash: 4be870b68c7679382d397bdd0d44a3191c3f082b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 1c52ca808b509ddb3a79d27a110a08a451b9c748
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110697455"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535496"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Resource Health를 사용하여 Azure SQL Database 및 Azure SQL Managed Instance에 대한 연결 문제 해결
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -77,4 +77,4 @@ Azure 인프라는 정기적으로 계획된 유지 관리(데이터 센터의 �
 - [문제 해결, 진단 및 SQL 연결 오류 방지](troubleshoot-common-connectivity-issues.md)
 - [Resource Health 경고 구성](../../service-health/resource-health-alert-arm-template-guide.md)에 대한 자세한 정보
 - [Resource Health](../../service-health/resource-health-overview.md)의 개요 보기
-- [Resource Health FAQ](../../service-health/resource-health-faq.md) 검토.
+- [Resource Health FAQ](../../service-health/resource-health-faq.yml) 검토.

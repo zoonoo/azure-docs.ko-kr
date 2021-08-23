@@ -2,18 +2,17 @@
 title: Azure IoT Hub 작업 모니터링을 Azure Monitor의 IoT Hub 리소스 로그로 마이그레이션 | Microsoft Docs
 description: 작업 모니터링 대신 Azure Monitor를 사용하여 IoT Hub의 작업 상태를 실시간으로 모니터링하도록 Azure IoT Hub를 업데이트하는 방법을 설명합니다.
 author: kgremban
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: 48b646881b12047b28490999a96326f6076af2c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c41b3298e265fb3dab41a6fc1af51e3ff0829489
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100591838"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566643"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-azure-monitor-resource-logs"></a>IoT Hub를 작업 모니터링에서 Azure Monitor 리소스 로그로 마이그레이션
 

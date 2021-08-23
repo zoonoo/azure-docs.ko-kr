@@ -11,12 +11,12 @@ ms.author: chadam
 ms.reviewer: ''
 ms.date: 01/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 997f52a35d66d13872142a0208e5ecc796d06560
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: b1d65049f1e1b8f26aa6e9a99891cd77ca038a8f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110787407"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536967"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>BACPAC 파일로 내보내기 - Azure SQL Database 및 Azure SQL Managed Instance
 
@@ -63,7 +63,7 @@ Azure Portal를 사용하여 [Azure SQL Managed Instance](../managed-instance/sq
 
 ## <a name="sqlpackage-utility"></a>SQLPackage 유틸리티
 
-[SqlPackage](/sql/tools/sqlpackage) 명령줄 유틸리티를 사용하여 SQL의 데이터 바이러스를 내보내려면 [매개 변수 및 속성 내보내기](/sql/tools/sqlpackage#export-parameters-and-properties)를 참조하세요. SQLPackage 유틸리티는 최신 버전의 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 및 [Visual Studio용 SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt)가 함께 제공되며, Microsoft 다운로드 센터에서 직접 최신 버전의 [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876)를 다운로드할 수 있습니다.
+[SqlPackage](/sql/tools/sqlpackage) 명령줄 유틸리티를 사용하여 SQL의 데이터 바이러스를 내보내려면 [매개 변수 및 속성 내보내기](/sql/tools/sqlpackage#export-parameters-and-properties)를 참조하세요. SQLPackage 유틸리티는 최신 버전의 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 및 [Visual Studio용 SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt)가 함께 제공되며, Microsoft 다운로드 센터에서 직접 최신 버전의 [SqlPackage](/sql/tools/sqlpackage/sqlpackage-download?view=sql-server-ver15)를 다운로드할 수 있습니다.
 
 대부분의 프로덕션 환경에서 규모 및 성능에 SQLPackage 유틸리티를 사용하는 것이 좋습니다. BACPAC 파일을 사용한 마이그레이션에 관한 SQL Server 고객 자문 팀 블로그는 [BACPAC 파일을 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files)을 참조하세요.
 

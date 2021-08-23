@@ -4,12 +4,12 @@ description: 보존 및 개인 정보 취급 방침
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 56c86387ab06bf0fe94900e654853e74d3ee2603
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3e37024e4fef3e989977ef76b0508aeb66d93b7a
+ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059413"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113616130"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 스토리지
 
@@ -39,7 +39,7 @@ Application Insights SDK는 사용자 고유의 Java EE 또는 ASP.NET 서버나
 ## <a name="what-data-does-it-collect"></a>어떤 데이터를 수집하나요?
 세 가지 데이터 원본이 있습니다.
 
-* [개발 시](./asp-net.md) 또는 [런타임 시](./monitor-performance-live-website-now.md) 앱과 통합하는 SDK가 있습니다. 다른 애플리케이션 형식에 대한 여러 SDK가 있습니다. 페이지와 더불어 최종 사용자의 브라우저에 로드하는 [웹 페이지에 대한 SDK](./javascript.md)도 있습니다.
+* [개발 시](./asp-net.md) 또는 [런타임 시](./status-monitor-v2-overview.md) 앱과 통합하는 SDK가 있습니다. 다른 애플리케이션 형식에 대한 여러 SDK가 있습니다. 페이지와 더불어 최종 사용자의 브라우저에 로드하는 [웹 페이지에 대한 SDK](./javascript.md)도 있습니다.
   
   * 각 SDK에는 다양한 [모듈](./configuration-with-applicationinsights-config.md)이 있으며 이는 서로 다른 기술을 사용하여 다른 형식의 원격 분석 데이터를 수집합니다.
   * 개발 시 SDK를 설치하면 표준 모듈 외에도 API를 사용하여 사용자 고유의 원격 분석을 보낼 수 있습니다. 이 사용자 지정 원격 분석은 전송하려는 데이터를 포함할 수 있습니다.
@@ -314,6 +314,6 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 [java]: ./java-in-process-agent.md
 [platforms]: ./platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-[redfield]: ./monitor-performance-live-website-now.md
+[redfield]: ./status-monitor-v2-overview.md
 [start]: ./app-insights-overview.md
 

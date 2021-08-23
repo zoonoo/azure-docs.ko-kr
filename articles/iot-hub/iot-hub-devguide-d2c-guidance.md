@@ -2,7 +2,6 @@
 title: Azure IoT Hub 디바이스-클라우드 옵션 | Microsoft Docs
 description: 개발자 가이드 - 디바이스-클라우드 메시지, reported 속성 또는 클라우드-디바이스 통신을 위한 파일 업로드를 사용하는 경우에 대한 지침입니다.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -13,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: dd4f4ad7f84ebc1f5e254843e7afa4aa0f3f224f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d48a6b7478de1015a97d3f91ce08398de3d6c1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87319136"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566439"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>디바이스-클라우드 통신 지침
 

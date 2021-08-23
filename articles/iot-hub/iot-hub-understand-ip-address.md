@@ -1,18 +1,18 @@
 ---
 title: IoT Hub의 IP 주소 이해 | Microsoft Docs
 description: IoT Hub IP 주소 및 해당 속성을 쿼리하는 방법을 이해합니다. IoT Hub의 IP 주소는 재해 복구 또는 지역별 장애 조치(failover)와 같은 특정 시나리오에서 변경될 수 있습니다.
-author: philmea
-ms.author: philmea
+author: robinsh
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/21/2021
-ms.openlocfilehash: 7d807a15d358bd621baedbff253f0c731e43ed26
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 053ba5b768e9a09eb50f71a8296d42f85a9e4515
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107874174"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537339"
 ---
 # <a name="iot-hub-ip-addresses"></a>IoT Hub IP 주소
 

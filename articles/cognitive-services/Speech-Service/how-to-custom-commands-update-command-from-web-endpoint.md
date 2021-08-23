@@ -3,19 +3,19 @@ title: 웹 엔드포인트에서 명령 업데이트
 titleSuffix: Azure Cognitive Services
 description: 웹 엔드포인트에 대한 호출을 사용하여 명령 상태를 업데이트하는 방법을 알아봅니다.
 services: cognitive-services
-author: nitinme
+author: laujan
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: nitinme
-ms.openlocfilehash: d0b77e6af36f0a71405f6c032bfdd121abeb0071
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: lajanuar
+ms.openlocfilehash: 9900d873de5efac89db13b80c0cc37167a0cee05
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97560273"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567540"
 ---
 # <a name="update-a-command-from-a-web-endpoint"></a>웹 엔드포인트에서 명령 업데이트
 
@@ -120,7 +120,7 @@ Azure 함수를 기존 사용자 지정 명령 앱에 연결해 보겠습니다.
 1. **테스트** 를 선택합니다.
 1. `increment`를 몇 번 보냅니다(`IncrementCounter` 명령에 대한 예 문장).
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-commands/increment-counter-example.png" alt-text="증분 카운터의 예를 보여 주는 스크린샷":::
+    > :::image type="content" source="./media/custom-commands/increment-counter-example-no-mic.png" alt-text="증분 카운터의 예를 보여 주는 스크린샷":::
 
 Azure 함수가 매 차례마다 `Counter` 매개 변수의 값을 증가시키는 방법을 확인합니다.
 

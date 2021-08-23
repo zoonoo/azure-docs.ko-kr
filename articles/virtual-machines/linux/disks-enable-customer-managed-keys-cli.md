@@ -2,17 +2,17 @@
 title: Azure CLI - SSE 관리 디스크를 사용하여 고객 관리형 키를 사용하도록 설정
 description: Azure CLI를 사용하여 관리 디스크에서 고객 관리형 키를 사용하도록 설정합니다.
 author: roygara
-ms.date: 08/24/2020
+ms.date: 06/29/2021
 ms.topic: how-to
 ms.author: rogarana
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: fe0fef8c52a913f18faeb8cdad4a68776d8a6277
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21f2aaeea730d183fa42cbde03769aeaf75297ab
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562591"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356890"
 ---
 # <a name="use-the-azure-cli-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Azure CLI를 사용하여 관리 디스크에 대해 고객 관리형 키를 이용하여 서버 쪽 암호화를 사용하도록 설정합니다.
 

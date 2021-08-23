@@ -4,14 +4,15 @@ description: Azure SQL Managed Instance를 데이터베이스 워크로드 대�
 author: chugugrace
 ms.author: chugu
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 3d2bc60f8ba7120f8d962500c06be50e905c11a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3fb4a4022920afb9f20dcfb8a43f25a192a34ff6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100373592"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567366"
 ---
 # <a name="ssis-migration-with-azure-sql-managed-instance-as-the-database-workload-destination"></a>Azure SQL Managed Instance를 데이터베이스 워크로드 대상으로 사용하여 SSIS 마이그레이션
 

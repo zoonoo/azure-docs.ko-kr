@@ -2,9 +2,8 @@
 title: '애플리케이션 관리: 모범 사례 및 권장 사항 | Microsoft Docs'
 description: Azure Active Directory에서 애플리케이션을 관리하기 위한 모범 사례와 권장 사항을 알아봅니다. 애플리케이션 프록시를 사용하여 온-프레미스 앱을 자동으로 프로비전 및 게시하는 방법을 알아봅니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
@@ -12,39 +11,42 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2019
 ms.subservice: app-mgmt
-ms.author: mtillman
+ms.author: davidmu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 526c3ead0509b6e69eab23a7f2b3771ffe40bd29
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.reviewer: napuri
+ms.openlocfilehash: f05668e8614178dcc1071d6c1a8b0ea7ca7b2d1a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077395"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536253"
 ---
 # <a name="application-management-best-practices"></a>애플리케이션 관리 모범 사례
 
 이 문서에는 Azure AD(Azure Active Directory)에서의 애플리케이션 관리, 자동 프로비전 사용, 애플리케이션 프록시를 사용한 온-프레미스 앱 게시에 대한 권장 사항과 모범 사례가 포함되어 있습니다.
 
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>클라우드 앱 및 Single Sign-On 권장 사항
+
 | 권장 | 주석 |
 | --- | --- |
-| 앱에 대한 Azure AD 애플리케이션 갤러리 확인  | Azure AD에는 Enterprise SSO(Single Sign-On)가 설정된 수천 개의 사전 통합 애플리케이션이 들어 있는 갤러리가 있습니다. 앱별 설정 지침은 [SaaS 앱 자습서 목록](../saas-apps/tutorial-list.md)을 참조하세요.  | 
-| 페더레이션된 SAML 기반 SSO 사용  | 애플리케이션에서 지원하는 경우 암호 기반 SSO 및 ADFS 대신 Azure AD에서 페더레이션된 SAML 기반 SSO를 사용합니다.  | 
-| 인증서 서명에 SHA-256 사용  | Azure AD에서는 기본적으로 SHA-256 알고리즘을 사용하여 SAML 응답에 서명합니다. 애플리케이션에 SHA(Secure Hash Algorithm) 1이 필요하지 않은 경우 SHA-256을 사용합니다([인증서 서명 옵션](certificate-signing-options.md) 및 [애플리케이션 로그인 문제](application-sign-in-problem-application-error.md) 참조).  | 
-| 사용자 할당 필요  | 기본적으로 사용자는 엔터프라이즈 애플리케이션에 할당되지 않아도 해당 애플리케이션에 액세스할 수 있습니다. 그러나 애플리케이션이 역할을 노출하거나 애플리케이션을 사용자의 내 앱에 표시하려는 경우 사용자 할당이 필요합니다.  | 
+| 앱에 대한 Azure AD 애플리케이션 갤러리 확인  | Azure AD에는 Enterprise SSO(Single Sign-On)가 설정된 수천 개의 사전 통합 애플리케이션이 들어 있는 갤러리가 있습니다. 앱별 설정 지침은 [SaaS 앱 자습서 목록](../saas-apps/tutorial-list.md)을 참조하세요.  |
+| 페더레이션된 SAML 기반 SSO 사용  | 애플리케이션에서 지원하는 경우 암호 기반 SSO 및 ADFS 대신 Azure AD에서 페더레이션된 SAML 기반 SSO를 사용합니다.  |
+| 인증서 서명에 SHA-256 사용  | Azure AD에서는 기본적으로 SHA-256 알고리즘을 사용하여 SAML 응답에 서명합니다. 애플리케이션에 SHA(Secure Hash Algorithm) 1이 필요하지 않은 경우 SHA-256을 사용합니다([인증서 서명 옵션](certificate-signing-options.md) 및 [애플리케이션 로그인 문제](application-sign-in-problem-application-error.md) 참조).  |
+| 사용자 할당 필요  | 기본적으로 사용자는 엔터프라이즈 애플리케이션에 할당되지 않아도 해당 애플리케이션에 액세스할 수 있습니다. 그러나 애플리케이션이 역할을 노출하거나 애플리케이션을 사용자의 내 앱에 표시하려는 경우 사용자 할당이 필요합니다.  |
 | 내 앱을 사용자에게 배포 | `https://myapps.microsoft.com`의 [내 앱](end-user-experiences.md)은 사용자에게 본인의 할당 클라우드 기반 애플리케이션에 대한 단일 진입점을 제공하는 웹 기반 포털입니다. 그룹 관리 및 셀프 서비스 암호 재설정과 같은 추가 기능이 추가되면 사용자는 내 앱에서 해당 기능을 찾을 수 있습니다. [내 앱 배포 계획](my-apps-deployment-plan.md)을 참조하세요.
-| 그룹 할당 사용  | 구독에 포함된 경우 그룹 소유자에게 지속적 액세스 관리를 위임할 수 있도록 애플리케이션에 그룹을 할당합니다.  | 
+| 그룹 할당 사용  | 구독에 포함된 경우 그룹 소유자에게 지속적 액세스 관리를 위임할 수 있도록 애플리케이션에 그룹을 할당합니다.  |
 | 인증서 관리 프로세스를 설정합니다. | 서명 인증서의 최대 수명은 3년입니다. 인증서 만료에 따른 중단 문제를 예방하거나 최소화하려면 역할 및 이메일 배포 목록을 사용하여 인증서 관련 변경 알림이 면밀히 모니터링되는지 확인합니다. |
 
 ## <a name="provisioning-recommendations"></a>프로비전 권장 사항
+
 | 권장 | 주석 |
 | --- | --- |
 | 자습서를 사용하여 클라우드 앱으로 프로비전 설정 | 추가할 갤러리 앱의 프로비전 구성에 대한 단계별 지침은 [SaaS 앱 자습서 목록](../saas-apps/tutorial-list.md)을 참조하세요. |
 | 프로비전 로그(미리 보기)를 사용하여 상태 모니터링 | [프로비전 로그](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)는 개별 사용자의 상태를 포함하여 프로비전 서비스에서 수행되는 모든 작업에 대한 세부 정보를 제공합니다. |
 | 프로비전 알림 이메일에 배포 목록 할당 | 프로비전 서비스에서 보내는 중요한 알림의 가시성을 높이려면 배포 목록을 알림 이메일 설정에 할당합니다. |
 
-
 ## <a name="application-proxy-recommendations"></a>애플리케이션 프록시 권장 사항
+
 | 권장 | 주석 |
 | --- | --- |
 | 내부 리소스에 대한 원격 액세스에 애플리케이션 프록시 사용 | 애플리케이션 프록시는 원격 사용자에게 내부 리소스에 대한 액세스 권한을 부여하여 VPN 또는 역방향 프록시에 대한 필요성을 대체하는 데 권장됩니다. 대기 시간이 길어질 수 있으므로 회사 네트워크 내에서 리소스에 액세스하는 용도는 아닙니다.

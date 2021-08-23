@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.service: partner-services
 ms.date: 05/19/2021
 ms.author: tomfitz
-ms.openlocfilehash: 1dd2c8af8c58a78a891ca4863200623d938383c5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 201f04b8553ce31c016074b483b23cb329e4fb7c
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483121"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567488"
 ---
 # <a name="what-is-elastic-integration-with-azure"></a>Azure와 Elastic의 통합이 무엇인가요?
 
@@ -36,7 +36,7 @@ Azure와 Elastic의 통합에서 제공하는 주요 기능은 다음과 같습�
 
 ## <a name="elastic-links"></a>Elastic 링크
 
-Elastic 서비스 사용에 대한 자세한 내용은 Azure 통합을 위한 [Elastic 설명서](https://azure-native-02.docs-preview.app.elstc.co/guide/en/cloud/master/ec-azure-marketplace-native.html)를 참조하세요.
+Elastic 서비스 사용에 대한 자세한 내용은 Azure 통합을 위한 [Elastic 설명서](https://www.elastic.co/guide/en/cloud/current/ec-azure-marketplace-native.html)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

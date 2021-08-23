@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: dc8ca48d11f31f69ca9db5dce53cce4d9d6e8f25
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5ceb6950cb5ed581d2efea9a375fee0bf4008952
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108772336"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597856"
 ---
 # <a name="iot-central-solution-builder-guide"></a>IoT Central 솔루션 빌더 가이드
 
@@ -30,17 +30,16 @@ IoT Central 애플리케이션을 사용하면 수백만 대의 디바이스를 
 IoT Central 애플리케이션에는 운영자가 애플리케이션을 보고 상호 작용하는 데 사용하는 하나 이상의 대시보드가 있을 수 있습니다. 솔루션 빌더는 기본 대시보드를 사용자 지정하고 특수한 대시보드를 만들 수 있습니다.
 
 - 사용자 지정 대시보드의 몇 가지 예를 보려면 [업계 지향적 템플릿](concepts-app-templates.md#industry-focused-templates)을 참조하세요.
-- 대시보드에 대한 자세한 정보를 알아보려면 [여러 대시보드 만들기 및 관리](howto-create-personal-dashboards.md)와 [애플리케이션 대시보드 구성](howto-add-tiles-to-your-dashboard.md)을 참조하세요.
+- 대시보드에 대한 자세한 정보를 알아보려면 [여러 대시보드 만들기 및 관리](howto-manage-dashboards.md)와 [애플리케이션 대시보드 구성](howto-manage-dashboards.md)을 참조하세요.
 
-디바이스가 IoT Central에 연결되면 해당 디바이스는 디바이스 유형에 대한 디바이스 템플릿과 연결됩니다. 디바이스 템플릿에는 운영자가 개별 디바이스를 관리하는 데 사용하는 사용자 지정 가능한 보기가 있습니다. 솔루션 개발자는 디바이스 유형에 대해 사용 가능한 보기를 만들고 사용자 지정할 수 있습니다. 자세한 정보를 알아보려면 [보기 추가](howto-set-up-template.md#add-views)를 참조하세요.
+디바이스가 IoT Central에 연결되면 해당 디바이스는 디바이스 유형에 대한 디바이스 템플릿과 연결됩니다. 디바이스 템플릿에는 운영자가 개별 디바이스를 관리하는 데 사용하는 사용자 지정 가능한 보기가 있습니다. 솔루션 개발자는 디바이스 유형에 대해 사용 가능한 보기를 만들고 사용자 지정할 수 있습니다. 자세한 정보를 알아보려면 [보기 추가](howto-set-up-template.md#views)를 참조하세요.
 
 ## <a name="use-built-in-rules-and-analytics"></a>기본 제공 규칙 및 분석 사용
 
 솔루션 개발자는 사용자 지정 가능한 작업을 실행하는 IoT Central 애플리케이션에 규칙을 추가할 수 있습니다. 규칙은 디바이스에서 들어오는 데이터를 기반으로 조건을 평가하여 작업 실행 시기를 결정합니다. 규칙에 대한 자세한 정보는 다음을 참조하세요.
 
 - [자습서: Azure IoT Central 애플리케이션에서 규칙 생성 및 알림 설정](tutorial-create-telemetry-rules.md)
-- [Azure IoT Central에서 규칙에 대해 웹후크 작업 만들기](howto-create-webhooks.md)
-- [하나 이상의 규칙에서 실행할 여러 작업 그룹화](howto-use-action-groups.md)
+- [규칙 구성](howto-configure-rules.md)
 
 IoT Central에는 운영자가 연결된 디바이스에서 데이터 흐름을 분석하는 데 사용할 수 있는 기본 제공 분석 기능이 있습니다. 자세한 정보를 알아보려면 [분석을 사용하여 디바이스 데이터를 분석하는 방법](howto-create-analytics.md)을 참조하세요.
 
@@ -53,7 +52,6 @@ IoT Central에는 운영자가 연결된 디바이스에서 데이터 흐름을 
 - [워크플로를 사용하여 Azure IoT Central 애플리케이션을 다른 클라우드 서비스와 통합](howto-configure-rules-advanced.md)
 - [Stream Analytics, Azure Functions 및 SendGrid를 사용하여 사용자 지정 규칙으로 Azure IoT Central 확장](howto-create-custom-rules.md)
 - [Azure Databricks를 사용하여 사용자 지정 분석으로 Azure IoT Central 확장](howto-create-custom-analytics.md)
-- [Power BI 대시보드에서 Azure IoT Central 데이터 시각화 및 분석](howto-connect-powerbi.md)
 
 ## <a name="apis"></a>API
 

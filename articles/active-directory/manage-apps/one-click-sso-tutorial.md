@@ -2,22 +2,22 @@
 title: Azure Marketplace 애플리케이션의 한 번 클릭 SSO(Single Sign-On) 구성 | Microsoft Docs
 description: Azure Marketplace의 애플리케이션에 대한 SSO 한 번 클릭 구성을 위한 단계입니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
-ms.assetid: e0416991-4b5d-4b18-89bb-91b6070ed3ba
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.author: mtillman
+ms.author: davidmu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 766c1446a2fad9cff1103a726043d6c61d503020
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.reviewer: ergreenl
+ms.openlocfilehash: bec4df252a98fc105f0eec1480452021fefb0031
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077017"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566635"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Single Sign-On의 한 번 클릭 앱 구성
 
@@ -80,5 +80,5 @@ ms.locfileid: "112077017"
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
-* [내 앱 보안 로그인 브라우저 확장이란?](../user-help/my-apps-portal-end-user-access.md)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
+- [내 앱 보안 로그인 브라우저 확장이란?](../user-help/my-apps-portal-end-user-access.md)

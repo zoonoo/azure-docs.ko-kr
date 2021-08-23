@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 43da1af7a3001d7f8e000a878948428a3d63aa4e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60e92f28d36f9dd4e08338ac90b703f9536cf767
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102456303"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566344"
 ---
 # <a name="classify-and-analyze-data-using-entities-in-azure-sentinel"></a>Azure Sentinel에서 엔터티를 사용하여 데이터 분류 및 분석
 
@@ -103,7 +103,7 @@ Azure Sentinel에서 다양한 유형의 데이터 원본에 있는 경고의 �
 
 타임라인에는 다음과 같은 형식의 항목이 포함되어 있습니다.
 
-- 경고 - 엔터티가 **매핑된 엔터티로** 정의된 모든 경고입니다. 조직에서 [분석 규칙을 사용하여 사용자 지정 경고](./tutorial-detect-threats-custom.md)를 생성된 경우 규칙의 엔터티 매핑이 제대로 수행되었는지 확인해야 합니다.
+- 경고 - 엔터티가 **매핑된 엔터티로** 정의된 모든 경고입니다. 조직에서 [분석 규칙을 사용하여 사용자 지정 경고](./detect-threats-custom.md)를 생성된 경우 규칙의 엔터티 매핑이 제대로 수행되었는지 확인해야 합니다.
 
 - 북마크 - 페이지에 표시된 특정 엔터티를 포함하는 책갈피입니다.
 

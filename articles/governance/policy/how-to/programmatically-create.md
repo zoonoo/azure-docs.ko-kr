@@ -1,14 +1,14 @@
 ---
 title: 프로그래밍 방식으로 정책 만들기
 description: 이 문서에서는 Azure CLI, Azure PowerShell 및 REST API를 사용하여 Azure Policy에 대해 프로그래밍 방식으로 정책을 만들고 관리하는 방법을 설명합니다.
-ms.date: 03/16/2021
+ms.date: 08/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 04b2e1a2c84320c61d1c1aba7404af47bc03150e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 27e0162c5c169ea506e48d4ced14c9eb5794f73c
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108747488"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567945"
 ---
 # <a name="programmatically-create-policies"></a>프로그래밍 방식으로 정책 만들기
 
@@ -133,10 +133,10 @@ Resource Manager PowerShell 모듈을 사용하여 리소스 정책을 관리하
 
    ```console
    # For defining a policy in a subscription
-   armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2019-09-01" @<path to policy definition JSON file>
+   armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2021-09-01" @<path to policy definition JSON file>
 
    # For defining a policy in a management group
-   armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2019-09-01" @<path to policy definition JSON file>
+   armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2021-09-01" @<path to policy definition JSON file>
    ```
 
    이전 {subscriptionId}를 구독의 ID로 또는 {managementGroupId}를 [관리 그룹](../../management-groups/overview.md)의 ID로 바꿉니다.
@@ -162,7 +162,7 @@ Resource Manager PowerShell 모듈을 사용하여 리소스 정책을 관리하
 1. 다음 호출을 사용하여 정책 할당을 만듭니다.
 
    ```console
-   armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2019-09-01" @<path to Assignment JSON file>
+   armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2021-09-01" @<path to Assignment JSON file>
    ```
 
    &lt;&gt; 기호의 예제 정보를 자신의 고유 값으로 바꿉니다.

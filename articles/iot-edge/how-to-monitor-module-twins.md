@@ -2,19 +2,18 @@
 title: 모듈 쌍 모니터 - Azure IoT Edge
 description: 연결 및 상태 확인을 위해 디바이스 쌍 및 모듈 쌍을 해석하는 방법을 설명합니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 05/29/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6a0d8bcce8e036cf7fc0efc1fe3956006f276f9e
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 1bb022737c3c6f228e741681561867414c118592
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633900"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567013"
 ---
 # <a name="monitor-module-twins"></a>모듈 쌍 모니터링
 

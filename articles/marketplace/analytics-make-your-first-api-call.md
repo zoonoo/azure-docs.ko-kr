@@ -4,15 +4,16 @@ description: 상업용 Marketplace 분석 데이터에 액세스하기 위해 AP
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 9e5fbdfca80d19f026a014a89ffbf137bacb521c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f4437782f46e3144b3917a16fec14c9e92dfd303
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639585"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567262"
 ---
 # <a name="make-your-first-api-call-to-access-commercial-marketplace-analytics-data"></a>상업용 Marketplace 분석 데이터에 액세스하기 위한 첫 번째 API 호출 수행
 
@@ -337,5 +338,5 @@ Curl
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Swagger API URL](https://swagger.io/docs/specification/api-host-and-base-path/)을 통해 API를 사용해 볼 수 있음
+- [Swagger API URL](https://api.partnercenter.microsoft.com/insights/v1/cmp/swagger/index.html)을 통해 API를 사용해 볼 수 있음
 - [프로그래밍 방식 액세스 페러다임](analytics-programmatic-access.md)

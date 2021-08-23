@@ -2,17 +2,18 @@
 title: Azure-SSIS Integration Runtime 설치 사용자 지정
 description: 이 문서에서는 Azure-SSIS Integration Runtime에 대한 사용자 지정 설치 인터페이스를 사용하여 추가 구성 요소를 설치하거나 설정을 변경하는 방법을 설명합니다.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
 ms.date: 04/30/2021
-ms.openlocfilehash: ddd837387de955e04cdf39ec73104dfda98e3cf4
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ec309debca7d3852411318ed56a914d47494fe2b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470922"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536077"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime 설치 사용자 지정
 

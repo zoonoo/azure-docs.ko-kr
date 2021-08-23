@@ -2,17 +2,18 @@
 title: Azure Data Factory를 프로그래밍 방식으로 모니터링
 description: 다른 SDK(소프트웨어 개발 키트)를 사용하여 Data Factory에서 파이프라인을 모니터링하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 01/16/2018
 author: minhe-msft
 ms.author: hemin
 ms.custom: devx-track-python
-ms.openlocfilehash: 4c6c54138f7966c505ec0cdea2a90d2a8c1655f8
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 93187bd3f46fc85375289e911a816e2cb3e3da12
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005522"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536943"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Azure Data Factory를 프로그래밍 방식으로 모니터링
 
@@ -37,7 +38,7 @@ Data Factory는 45일 동안 파이프라인 실행 데이터를 저장하기만
 * 성공
 * 실패
 * 취소 중
-* 취소됨
+* Cancelled
 
 ## <a name="net"></a>.NET
 .NET SDK를 사용하여 파이프라인을 만들고 모니터링하는 전체 연습 과정을 보려면 [.NET을 사용하여 Data Factory 및 파이프라인 만들기](quickstart-create-data-factory-dot-net.md)를 참조하세요.

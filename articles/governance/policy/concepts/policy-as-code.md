@@ -1,14 +1,14 @@
 ---
 title: 코드 워크플로로 Azure Policy 디자인
 description: Azure Policy 정의를 코드로 배포하고 리소스의 유효성을 자동으로 검사하는 워크플로를 설계하는 방법을 알아봅니다.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2f28a7798bbfd4fb79395e83b9a175f7b4ca7bfb
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: db48579d94263f3b8806c1c78b950b5a9ae19c27
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752744"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122568010"
 ---
 # <a name="design-azure-policy-as-code-workflows"></a>코드 워크플로로 Azure Policy 디자인
 

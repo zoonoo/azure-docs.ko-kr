@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/17/2021
-ms.openlocfilehash: bb8ac82b2e59ec86db89c7eba0ce607fcfc0ac2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d3b828aab13a822c307119dca64dac81c9201d5b
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676558"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122568062"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Azure Purview에서 데이터에 대한 민감도 레이블 인사이트
 
@@ -42,7 +42,7 @@ Purview 인사이트를 시작하기 전에 다음 단계를 완료했는지 확
 
 - 데이터 원본별로 테스트 데이터에 대한 스캔을 설정하고 완료했습니다. 자세한 내용은 [Azure Purview에서 데이터 원본 관리(미리 보기)](manage-data-sources.md) 및 [스캔 규칙 집합 만들기](create-a-scan-rule-set.md)를 참조하세요.
 
-- [데이터 판독기 또는 데이터 큐레이터 역할](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles)이 있는 계정으로 Purview에 로그인했습니다.
+- [데이터 판독기 또는 데이터 큐레이터 역할](catalog-permissions.md#roles)이 있는 계정으로 Purview에 로그인했습니다.
 
 자세한 내용은 [Azure Purview에서 데이터 원본 관리(미리 보기)](manage-data-sources.md) 및 [Azure Purview에서 데이터에 자동으로 레이블 지정](create-sensitivity-label.md)을 참조하세요.
 

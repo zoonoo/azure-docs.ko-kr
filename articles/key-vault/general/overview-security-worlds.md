@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 07/03/2017
-ms.openlocfilehash: 0d82a3cb4c08d47b6827072378b9827037d32412
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 0753108df52f0dcaea1d6c79eab266eeb000889a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751817"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536716"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Azure Key Vault 보안 권역 및 지리적 경계
 
-Azure 제품은 여러 [Azure 지역](https://azure.microsoft.com/en-us/global-infrastructure/geographies/)에서 사용할 수 있으며, 각 지역에는 하나 이상의 지역이 포함됩니다. 예를 들어 유럽 지리에는 북유럽과 서유럽의 두 지역이 포함되어 있지만 브라질 지리의 유일한 지역은 브라질 남부입니다.
+Azure 제품은 여러 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/)에서 사용할 수 있으며, 각 지역에는 하나 이상의 지역이 포함됩니다. 예를 들어 유럽 지리에는 북유럽과 서유럽의 두 지역이 포함되어 있지만 브라질 지리의 유일한 지역은 브라질 남부입니다.
 
 Azure Key Vault는 HSM(하드웨어 보안 모듈) 풀을 사용하는 다중 테넌트 서비스입니다. 한 지리 내의 모든 HSM은 "보안 권역"이라고 하는 동일한 암호화 경계를 공유합니다. 모든 지리는 단일 보안 권역에 해당하며 그 반대의 경우도 마찬가지입니다.
 

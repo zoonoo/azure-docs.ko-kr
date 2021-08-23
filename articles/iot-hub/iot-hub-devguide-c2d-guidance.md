@@ -2,7 +2,6 @@
 title: Azure IoT Hub 클라우드-디바이스 옵션 | Microsoft Docs
 description: 개발자 가이드 - 직접 메서드, 디바이스 쌍의 desired 속성 또는 클라우드-디바이스 통신을 위한 클라우드-디바이스 메시지를 사용하는 경우에 대한 지침입니다.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -13,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: ad4f5dcd137a9be6dfc764385802792026c0297d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 105374dc214ad77978973a5e7288ac1dd487941b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093017"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535745"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>클라우드-디바이스 통신 지침
 
@@ -30,7 +29,7 @@ IoT Hub는 백 엔드 앱에 기능을 공개하는 세 가지 옵션을 디바�
 
 * [클라우드-디바이스 메시지](iot-hub-devguide-messages-c2d.md) 디바이스 앱에 대한 단방향 알림의 경우
 
-[Azure IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md)가 이러한 옵션을 사용하여 IoT 플러그 앤 플레이 디바이스를 제어하는 방법을 알아보려면 [IoT 플러그 앤 플레이 서비스 개발자 가이드](../iot-pnp/concepts-developer-guide-service.md)를 참조하세요.
+[Azure IoT 플러그 앤 플레이](../iot-develop/overview-iot-plug-and-play.md)가 이러한 옵션을 사용하여 IoT 플러그 앤 플레이 디바이스를 제어하는 방법을 알아보려면 [IoT 플러그 앤 플레이 서비스 개발자 가이드](../iot-develop/concepts-developer-guide-service.md)를 참조하세요.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -48,6 +47,6 @@ IoT Hub는 백 엔드 앱에 기능을 공개하는 세 가지 옵션을 디바�
 
 다음 자습서에서 직접 메서드, desired 속성 및 클라우드-디바이스 메시지를 사용하는 방법에 대해 알아보세요.
 
-* [직접 메서드 사용](quickstart-control-device-node.md)
+* [직접 메서드 사용](quickstart-control-device.md)
 * [desired 속성을 사용하여 디바이스 구성](tutorial-device-twins.md) 
 * [클라우드-디바이스 메시지 보내기](iot-hub-node-node-c2d.md)

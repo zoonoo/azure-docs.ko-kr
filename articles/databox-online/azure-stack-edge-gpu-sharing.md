@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 07/01/2021
 ms.author: alkohli
-ms.openlocfilehash: ff1c7b79a49b0b659056c89af3c61f28b72ebc50
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b1fd1d77a8b2e6f7da3a88bc4d7f57336d18237c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645246"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536128"
 ---
 # <a name="gpu-sharing-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스에서 GPU 공유
 
@@ -26,7 +26,7 @@ GPU(그래픽 처리 장치)는 그래픽 렌더링을 가속화하기 위해 �
 
 ## <a name="using-gpu-with-vms"></a>VM에서 GPU 사용
 
-Azure Stack Edge Pro 디바이스에서 VM 워크로드를 배포할 때 GPU를 공유할 수 없습니다. GPU는 하나의 VM에만 매핑될 수 있습니다. 즉, GPU가 한 개인 디바이스에는 GPU VM이 하나만 있고 GPU가 두 개인 디바이스에는 VM이 ​​두 개만 있을 수 있습니다. 컨테이너화된 워크로드용으로 구성된 Kubernetes가 있는 디바이스에서 GPU VM을 사용할 때 고려해야 할 다른 요소도 있습니다. 자세한 내용은 [GPU VM 및 Kubernetes](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#gpu-vms-and-kubernetes)를 참조하세요.
+Azure Stack Edge Pro 디바이스에서 VM 워크로드를 배포할 때 GPU를 공유할 수 없습니다. GPU는 하나의 VM에만 매핑될 수 있습니다. 즉, GPU가 한 개인 디바이스에는 GPU VM이 하나만 있고 GPU가 두 개인 디바이스에는 VM이 ​​두 개만 있을 수 있습니다. 컨테이너화된 워크로드용으로 구성된 Kubernetes가 있는 디바이스에서 GPU VM을 사용할 때 고려해야 할 다른 요소도 있습니다. 자세한 내용은 [GPU VM 및 Kubernetes](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#gpu-vms-and-kubernetes)를 참조하세요.
 
 
 ## <a name="using-gpu-with-containers"></a>컨테이너에서 GPU 사용

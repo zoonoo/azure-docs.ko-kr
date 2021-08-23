@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/13/2021
 ms.author: mjbrown
-ms.openlocfilehash: e29162b2c64a855eeda6059596ca7859c52598b5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 96515eba928ff53a3ba038b7c97231185a24d0a9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059112"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536614"
 ---
 # <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos Core (SQL) API 리소스 관리
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "110059112"
 
 - 이 문서대로 하려면 Azure CLI 버전 2.22.1 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
-다른 API에 대한 Azure CLI 샘플은 [Cassandra용 CLI 샘플](cli-samples-cassandra.md), [MongoDB API용 CLI 샘플](cli-samples-mongodb.md), [Gremlin용 CLI 샘플](cli-samples-gremlin.md), [Table용 CLI 샘플](cli-samples-table.md)을 참조하세요.
+다른 API에 대한 Azure CLI 샘플은 [Cassandra용 CLI 샘플](cassandra/cli-samples.md), [MongoDB API용 CLI 샘플](mongodb/cli-samples.md), [Gremlin용 CLI 샘플](cli-samples-gremlin.md), [Table용 CLI 샘플](cli-samples-table.md)을 참조하세요.
 
 > [!IMPORTANT]
 > Azure Resource Manager가 리소스 URI와 함께 작동하는 방식을 위반하므로 Azure Cosmos DB 리소스의 이름을 바꿀 수 없습니다.

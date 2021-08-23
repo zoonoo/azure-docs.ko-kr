@@ -2,19 +2,18 @@
 title: Azure IoT Hub 작업 모니터링(사용되지 않음) | Microsoft Docs
 description: IoT Hub 작업 모니터링을 사용하여 실시간으로 IoT Hub에 대한 작업의 상태를 모니터링하는 방법입니다.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: robinsh
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 045d5693c4388c6285bc6983ac2a385ceac9f6d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e53fe91311eb5ad784c6e843bbe81727abcc547
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94408127"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537027"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IoT Hub 작업 모니터링(사용되지 않음)
 
@@ -37,7 +36,7 @@ IoT Hub는 다음 여섯 가지 범주의 이벤트를 모니터링합니다.
 
 ## <a name="how-to-enable-operations-monitoring"></a>작업 모니터링을 사용하는 방법
 
-1. IoT Hub를 만듭니다. IoT Hub를 만드는 방법에 관한 지침은 [시작](quickstart-send-telemetry-dotnet.md) 가이드에서 확인할 수 있습니다.
+1. IoT Hub를 만듭니다. IoT Hub를 만드는 방법에 관한 지침은 [시작](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) 가이드에서 확인할 수 있습니다.
 
 2. IoT Hub의 블레이드를 엽니다. 여기에서 **작업 모니터링** 을 클릭합니다.
 

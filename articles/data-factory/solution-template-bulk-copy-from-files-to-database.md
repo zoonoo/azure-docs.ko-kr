@@ -4,14 +4,15 @@ description: 솔루션 템플릿을 사용하여 Azure Data Lake Storage Gen2에
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 12/09/2020
-ms.openlocfilehash: 63ed04d64edfa5f4c057226cac7a946289a892c5
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 553dbdbed3101e6e07b24082e2bbd94f8dd171d7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481016"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536725"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>파일에서 데이터베이스로 대량 복사
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2021
 ms.author: yelevin
-ms.openlocfilehash: b5c9b2d6a586d440218cf4740155bc9fa3bdd3d7
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.openlocfilehash: 60d72bcc687659f27e309942040f46a20aab5d3f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372765"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535857"
 ---
 # <a name="export-and-import-analytics-rules-to-and-from-arm-templates"></a>ARM 템플릿에서 분석 규칙 내보내기 및 가져오기
 
@@ -66,5 +66,5 @@ ms.locfileid: "111372765"
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 ARM 템플릿에서 분석 규칙을 내보내고 가져오는 방법을 배웠습니다.
-- [사용자 지정 예약 규칙](tutorial-detect-threats-custom.md)을 포함하여 [분석 규칙](tutorial-detect-threats-built-in.md)에 대해 자세히 알아봅니다.
+- [사용자 지정 예약 규칙](detect-threats-custom.md)을 포함하여 [분석 규칙](detect-threats-built-in.md)에 대해 자세히 알아봅니다.
 - [ARM 템플릿](../azure-resource-manager/templates/overview.md)에 대해 알아봅니다.

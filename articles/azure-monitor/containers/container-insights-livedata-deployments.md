@@ -4,12 +4,12 @@ description: 이 문서에서는 컨테이너 인사이트에서 kubectl을 사�
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: c6eaac209234f7352395502c6761312cf258108f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b3ae515f2addf21f8183aed83ab26922e77f981
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101713918"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566670"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>실시간으로 배포(미리 보기)를 보는 방법
 
@@ -64,4 +64,4 @@ ms.locfileid: "101713918"
 
 - Azure Monitor를 사용하고 AKS 클러스터의 다른 측면을 모니터링하는 방법을 계속 알아보려면 [Azure Kubernetes 서비스 상태](container-insights-analyze.md)를 참조하세요.
 
-- [로그 쿼리 예](container-insights-log-search.md#search-logs-to-analyze-data)를 보면서 미리 정의된 쿼리 및 예제를 확인하고 경고, 시각화를 만들거나 클러스터에 대한 추가 분석을 수행합니다.
+- [로그 쿼리 예](container-insights-log-query.md)를 보면서 미리 정의된 쿼리 및 예제를 확인하고 경고, 시각화를 만들거나 클러스터에 대한 추가 분석을 수행합니다.

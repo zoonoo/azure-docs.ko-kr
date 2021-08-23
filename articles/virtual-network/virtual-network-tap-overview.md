@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 6160dd09edc57f2f52306d4dad0dde413fff0616
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a096f630fd32521d5890be2072eff75719fb54a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102617185"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535638"
 ---
 # <a name="virtual-network-tap"></a>가상 네트워크 TAP
 > [!IMPORTANT]
@@ -52,7 +52,7 @@ Azure 가상 네트워크 TAP(터미널 액세스 지점)을 사용하면 네트
 - [Azure용 GigaVUE Cloud Suite](https://www.gigamon.com/solutions/cloud/public-cloud/gigavue-cloud-suite-azure.html)
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
 - [Nubeva Prisms](https://www.nubeva.com/azurevtap)
-- [Big Switch Big Monitoring Fabric](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
+- [Big Switch Big Monitoring Fabric](https://www.bigswitch.com/)
 
 ### <a name="security-analytics-networkapplication-performance-management"></a>보안 분석, 네트워크/애플리케이션 성능 관리
 

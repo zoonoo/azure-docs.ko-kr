@@ -10,18 +10,18 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3175b1292a7e69506b9193d1182e184e257ebda3
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 45663b7a2229de0600e60ec2e40c5b721440b997
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530496"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536254"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Azure Active Directory의 인증 방법 - Microsoft Authenticator 앱
 
 Microsoft Authenticator 앱은 Azure AD 회사 또는 학교 계정이나 Microsoft 계정에 추가 보안 수준을 제공하며 [Android](https://go.microsoft.com/fwlink/?linkid=866594) 및 [iOS](https://go.microsoft.com/fwlink/?linkid=866594)에서 사용할 수 있습니다. Microsoft Authenticator 앱을 사용하면 사용자가 로그인 중에 암호 없는 방식으로 인증하거나 SSPR(셀프 서비스 암호 재설정) 또는 Azure AD Multi-Factor Authentication 이벤트 중에 추가 확인 옵션으로 인증할 수 있습니다.
 
-사용자는 동의 또는 거부를 위해 모바일 앱을 통해 알림을 받거나, Authenticator 앱을 사용하여 로그인 인터페이스에 입력할 수 있는 OAUTH 확인 코드를 생성할 수 있습니다. 알림 및 확인 코드를 모두 사용하는 경우 Authenticator 앱을 등록하는 사용자는 두 방법 중 하나를 사용하여 해당 ID를 확인할 수 있습니다.
+사용자는 승인 또는 거부를 위해 모바일 앱을 통해 알림을 받거나, Authenticator 앱을 사용하여 로그인 인터페이스에 입력할 수 있는 OATH 확인 코드를 생성할 수 있습니다. 알림 및 확인 코드를 모두 사용하는 경우 Authenticator 앱을 등록하는 사용자는 두 방법 중 하나를 사용하여 해당 ID를 확인할 수 있습니다.
 
 사용자 이름 및 암호 조합이 아니라 로그인 프롬프트에서 Authenticator 앱을 사용하려면 [Microsoft Authenticator 앱에서 암호 없는 로그인을 사용하도록 설정](howto-authentication-passwordless-phone.md)을 참조하세요.
 

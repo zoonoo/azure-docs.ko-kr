@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: fca5c1a0aee6e62890d734e3233177549d932672
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c24b7ee5154ec7f79bbbf19ffc6c59b8bf6221b3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643666"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536502"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>분산 추적(미리 보기)을 사용하여 Azure IoT 디바이스-클라우드 메시지 추적
 
@@ -43,7 +43,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
   - **동남아시아**
   - **미국 서부 2**
 
-- 이 문서에서는 사용자가 IoT Hub로 원격 분석 메시지를 전송하는 방법을 잘 알고 있다고 가정합니다. [원격 분석 전송 C 빠른 시작](quickstart-send-telemetry-c.md)을 완료해야 합니다.
+- 이 문서에서는 사용자가 IoT Hub로 원격 분석 메시지를 전송하는 방법을 잘 알고 있다고 가정합니다. [원격 분석 전송 C 빠른 시작](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c)을 완료해야 합니다.
 
 - IoT Hub에 디바이스를 등록하고(각 빠른 시작에서 단계 사용 가능) 연결 문자열을 기록해 둡니다.
 
@@ -144,7 +144,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=2)]
 
-    `connectionString` 상수 값을 [원격 분석 보내기 C 빠른 시작](./quickstart-send-telemetry-c.md)의 [디바이스 등록](./quickstart-send-telemetry-c.md#register-a-device) 섹션에서 기록해 둔 디바이스 연결 문자열로 바꿉니다.
+    `connectionString` 상수 값을 [원격 분석 보내기 C 빠른 시작](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c)의 [디바이스 등록](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c#register-a-device) 섹션에서 기록해 둔 디바이스 연결 문자열로 바꿉니다.
 
 1. `MESSAGE_COUNT` 정의를 `5000`으로 변경합니다.
 

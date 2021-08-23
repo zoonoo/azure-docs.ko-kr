@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 03/17/2021
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b11a76be94fc52285482e13dadbc8c7c92af1374
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d37cabb8b74fea3a72ddafdf3322d20379f8d29
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104609788"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537327"
 ---
 # <a name="best-practices-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀 모범 사례
 
@@ -27,7 +27,7 @@ ms.locfileid: "104609788"
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>일시 중지 및 규모 조정으로 비용 절감
 
-일시 중지 및 스케일링을 통해 비용을 절감하는 방법에 대한 자세한 내용은 [컴퓨팅 관리](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+일시 중지 및 스케일링을 통해 비용을 절감하는 방법에 대한 자세한 내용은 [컴퓨팅 관리](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?context=/azure/synapse-analytics/context/context)를 참조하세요.
 
 ## <a name="maintain-statistics"></a>통계 유지 관리
 
@@ -63,13 +63,13 @@ PolyBase 로드는 CTAS 또는 INSERT INTO를 사용하여 실행할 수 있습�
 
 Gzip 텍스트 파일을 사용할 때 처리량을 최대화하려면 파일을 60개 이상의 파일로 나누어 로드의 병렬 처리를 최대화합니다. 총 처리량을 더 빠르게 하기 위해 데이터를 동시에 로드하는 것이 좋습니다. 이 섹션과 관련된 토픽에 대한 추가 정보는 다음 문서에 포함되어 있습니다.
 
-- [데이터 로드](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [데이터 로드](../sql-data-warehouse/design-elt-data-loading.md?context=/azure/synapse-analytics/context/context)
 - [PolyBase 사용 지침](data-loading-best-practices.md)
 - [전용 SQL 풀 로드 패턴과 전략](/archive/blogs/sqlcat/azure-sql-data-warehouse-loading-patterns-and-strategies)
-- [Azure Data Factory를 사용하여 데이터 로드](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Azure Data Factory를 사용하여 데이터 이동](../../data-factory/transform-data-using-machine-learning.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Azure Data Factory를 사용하여 데이터 로드](../../data-factory/load-azure-sql-data-warehouse.md?context=/azure/synapse-analytics/context/context)
+- [Azure Data Factory를 사용하여 데이터 이동](../../data-factory/transform-data-using-machine-learning.md?context=/azure/synapse-analytics/context/context)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true)
-- [Create Table As Select(CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Create Table As Select(CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context)
 
 ## <a name="load-then-query-external-tables"></a>외부 테이블 로드 후 쿼리
 
@@ -91,7 +91,7 @@ Polybase는 쿼리에 가장 적합한 선택이 아닙니다. 전용 SQL 풀용
 아래에 제공된 문서 링크는 분산 열을 선택하여 성능을 개선하는 방법에 대한 추가 정보를 제공합니다. 또한 CREATE TABLE 문의 WITH 절에서 분산 테이블을 정의하는 방법도 찾을 수 있습니다.
 
 - [테이블 개요](develop-tables-overview.md)
-- [테이블 분산](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [테이블 분산](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?context=/azure/synapse-analytics/context/context)
 - [테이블 배포 선택](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service)
 - [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true)
 - [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true)
@@ -104,7 +104,7 @@ Polybase는 쿼리에 가장 적합한 선택이 아닙니다. 전용 SQL 풀용
 
 SQL Server를 사용하여 구현한 것보다 낮은 세분성을 사용하는 옵션을 고려해 볼 수 있습니다. 예를 들어 매일 분할보다는 매주 또는 매달 분할을 고려해 볼 수 있습니다.
 
-분할에 대한 자세한 내용은 [테이블 분할](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 문서에 설명되어 있습니다.
+분할에 대한 자세한 내용은 [테이블 분할](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context) 문서에 설명되어 있습니다.
 
 ## <a name="minimize-transaction-sizes"></a>트랜잭션 크기 최소화
 
@@ -119,10 +119,10 @@ INSERT, UPDATE 및 DELETE 문은 트랜잭션에서 실행됩니다. 이러한 �
 
 이 섹션과 관련된 콘텐츠에 대한 자세한 내용은 아래 문서에 포함되어 있습니다.
 
-- [Create Table As Select(CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Create Table As Select(CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context)
 - [트랜잭션 이해](develop-transactions.md)
-- [트랜잭션 최적화](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [테이블 분할](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [트랜잭션 최적화](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?context=/azure/synapse-analytics/context/context)
+- [테이블 분할](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context)
 - [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 - [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
@@ -148,7 +148,7 @@ DDL을 정의할 때, 이 과정에서 데이터를 지원하는 가장 작은 �
 
 클러스터형 columnstore 인덱스는 전용 SQL 풀에 데이터를 저장할 수 있는 가장 효율적인 방법 중 하나입니다.  기본적으로 전용 SQL 풀의 테이블은 클러스터형 ColumnStore로 만들어집니다.  columnstore 테이블에서 쿼리에 대해 최상의 성능을 얻으려면 좋은 세그먼트 품질을 갖는 것이 중요합니다.  메모리 부족 상황에서 행이 columnstore 테이블에 기록되는 경우 columnstore 세그먼트 품질이 저하될 수 있습니다.  
 
-세그먼트 품질은 압축된 행 그룹에 있는 행의 수로 측정할 수 있습니다. 클러스터형 columnstore 테이블에 대해 세그먼트 품질을 감지하고 개선하는 단계별 지침은 [테이블 인덱스](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 문서의 [Columnstore 인덱스 품질 저하 원인](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#causes-of-poor-columnstore-index-quality)을 참조하세요.  
+세그먼트 품질은 압축된 행 그룹에 있는 행의 수로 측정할 수 있습니다. 클러스터형 columnstore 테이블에 대해 세그먼트 품질을 감지하고 개선하는 단계별 지침은 [테이블 인덱스](../sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context) 문서의 [Columnstore 인덱스 품질 저하 원인](../sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context#causes-of-poor-columnstore-index-quality)을 참조하세요.  
 
 고품질 columnstore 세그먼트가 중요하므로 데이터를 로드하기 위해서는 중간 규모 또는 대규모 리소스 클래스에 속하는 사용자 ID를 사용하는 것이 좋습니다. 낮은 [데이터 웨어하우스 단위](resource-consumption-models.md)를 사용하면 로드하는 사용자에게 더 큰 리소스 클래스를 할당하려는 것입니다.
 
@@ -162,7 +162,7 @@ Columnstore 테이블은 일반적으로 테이블당 행 수가 100만 개를 �
 테이블의 행 수가 60억 개 미만일 때 선택할 수 있는 두 가지 주요 옵션이 있습니다. 하나는 파티션 수를 줄이는 것이고, 다른 하나는 힙 테이블을 사용하는 것입니다.  columnstore 테이블 대신 보조 인덱스가 있는 힙 테이블을 사용하면 성능이 향상되는지 실험해 보는 것도 좋습니다.
 
 columnstore 테이블을 쿼리할 때 필요한 열만 선택하면 쿼리가 더 빨리 실행됩니다.  테이블 및 columnstore 인덱스에 대한 자세한 내용은 다음 문서에서 찾을 수 있습니다.
-- [테이블 인덱스](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [테이블 인덱스](../sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context)
 - [Columnstore 인덱스 가이드](/sql/relational-databases/indexes/columnstore-indexes-overview?view=azure-sqldw-latest&preserve-view=true)
 - [Columnstore 인덱스 다시 빌드](../sql-data-warehouse/sql-data-warehouse-tables-index.md?view=azure-sqldw-latest&preserve-view=true#rebuilding-indexes-to-improve-segment-quality) 
 - [순서가 지정된 클러스터형 columnstore 인덱스를 사용한 성능 조정](../sql-data-warehouse/performance-tuning-ordered-cci.md)
@@ -173,7 +173,7 @@ SQL 풀은 메모리를 쿼리에 할당하는 방법으로 리소스 그룹을 
 
 큰 조인 또는 클러스터형 columnstore 테이블에 로드와 같은 특정 쿼리는 큰 메모리를 할당하는 것이 도움이 됩니다.  순수 검색과 같은 일부 쿼리는 아무런 이점이 없습니다. 더 큰 리소스 클래스를 사용하면 동시성에 영향을 줍니다. 모든 사용자를 큰 리소스 클래스로 이동하기 전에 이 점을 고려해야 합니다.
 
-리소스 클래스에 대한 추가 정보는 [워크로드 관리를 위한 리소스 클래스](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 문서를 참조하세요.
+리소스 클래스에 대한 추가 정보는 [워크로드 관리를 위한 리소스 클래스](../sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context) 문서를 참조하세요.
 
 ## <a name="use-smaller-resource-class-to-increase-concurrency"></a>더 작은 리소스 클래스를 사용하여 동시성 향상
 
@@ -185,7 +185,7 @@ SQL 풀은 메모리를 쿼리에 할당하는 방법으로 리소스 그룹을 
 
 전용 SQL 풀에는 쿼리 실행을 모니터링하는 데 사용할 수 있는 여러 DMV가 있습니다.  아래의 모니터링 문서에서는 쿼리 실행 세부 정보를 살펴보는 방법에 대한 단계별 지침을 제공합니다.  이러한 DMV에서 쿼리를 신속하게 찾으려면 쿼리에 LABEL 옵션을 사용하는 것이 도움이 될 수 있습니다. 자세한 내용은 아래 목록의 문서를 참조하세요.
 
-- [DMV를 사용하여 작업 모니터링](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [DMV를 사용하여 작업 모니터링](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context)
 
 - [LABEL](develop-label.md)
 - [OPTION](/sql/t-sql/queries/option-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true)
@@ -199,7 +199,7 @@ SQL 풀은 메모리를 쿼리에 할당하는 방법으로 리소스 그룹을 
 
 ## <a name="next-steps"></a>다음 단계
 
-[문제 해결](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 문서에서 일반적인 문제 및 해결 방법을 확인하세요.
+[문제 해결](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?context=/azure/synapse-analytics/context/context) 문서에서 일반적인 문제 및 해결 방법을 확인하세요.
 
 이 문서에서 제공하지 않는 정보가 필요한 경우 [Azure Synapse에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-synapse-analytics.html)에서 다른 사용자와 Azure Synapse Analytics 제품 그룹에 궁금한 내용을 질문할 수 있습니다.  
 

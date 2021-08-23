@@ -4,21 +4,21 @@ description: 이 엔드투엔드 연습에서 애플리케이션 게이트웨이
 author: ccompy
 ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
 ms.topic: article
-ms.date: 03/03/2018
+ms.date: 07/26/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3b73d528802a8aa33c6122eaf5edfa9d046b6753
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 839d817001bf4f939bdcacb7e439c7eb8e45b3a3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88962080"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567063"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>ILB App Service Environment와 Azure Application Gateway 통합 #
 
 [App Service Environment](./intro.md)는 고객의 Azure 가상 네트워크 서브넷에 Azure App Service를 배포한 환경입니다. 앱 액세스를 위해 공용 또는 프라이빗 엔드포인트로 배포할 수 있습니다. 프라이빗 엔드포인트(즉, 내부 부하 분산 장치)를 사용하여 App Service Environment를 배포하는 것을 ILB App Service Environment라고 합니다.  
 
-웹 애플리케이션 방화벽을 통해 SQL 삽입, 사이트 간 스크립팅, 맬웨어 업로드 및 애플리케이션 DDoS와 기타 공격을 차단하기 위해 인바운드 웹 트래픽을 검사하여 웹 애플리케이션을 보호할 수 있습니다. 데이터 손실 방지 DLP (Data Loss Prevention)에 대한 백엔드 웹 서버로부터의 응답도 검사합니다. Azure 마켓플레이스에서 WAF 디바이스를 얻을 수 있거나 [Azure Application Gateway][appgw]를 사용할 수 있습니다.
+웹 애플리케이션 방화벽을 통해 SQL 삽입, 사이트 간 스크립팅, 맬웨어 업로드 및 애플리케이션 DDoS와 기타 공격을 차단하기 위해 인바운드 웹 트래픽을 검사하여 웹 애플리케이션을 보호할 수 있습니다. Azure 마켓플레이스에서 WAF 디바이스를 얻을 수 있거나 [Azure Application Gateway][appgw]를 사용할 수 있습니다.
 
 Azure Application Gateway는 7계층 부하 분산, TLS/SSL 오프로딩, WAF(웹 애플리케이션 방화벽) 보호를 제공하는 가상 어플라이언스입니다. 공용 IP 주소에서 수신 대기하고, 트래픽을 애플리케이션 엔드포인트로 라우팅할 수 있습니다. 여기서는 WAF가 구성된 애플리케이션 게이트웨이를 ILB App Service Environment의 앱과 통합하는 방법에 대해 설명합니다.  
 

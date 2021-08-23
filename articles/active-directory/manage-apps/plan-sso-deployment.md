@@ -2,23 +2,23 @@
 title: Azure Active Directory Single Sign-On 배포 계획
 description: 조직에서 SSO를 계획, 배포 및 관리하는 데 유용한 가이드입니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/10/2020
-ms.author: mtillman
-ms.reviewer: jeedes
+ms.author: davidmu
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ef1daed862a67c5219d7ec243985340a8a20ea01
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: eacb1d03ce4d7148543948f4bf107d8a99181a0e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076963"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536524"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Single Sign-On 배포 계획
 
@@ -26,7 +26,7 @@ SSO(Single Sign-On)란 단일 사용자 계정을 사용하여 한 번만 로그
 
 ## <a name="benefits-of-sso"></a>SSO의 이점
 
-SSO(Single Sign-On)는 사용자가 Azure AD(Azure Active Directory)의 애플리케이션에 로그인할 때 보안 및 편리함을 제공합니다. 
+SSO(Single Sign-On)는 사용자가 Azure AD(Azure Active Directory)의 애플리케이션에 로그인할 때 보안 및 편리함을 제공합니다.
 
 대부분의 조직에서는 최종 사용자 생산성을 위해 Microsoft 365, Box, Salesforce와 같은 SaaS(Software as a Service) 애플리케이션에 의존합니다. 지금까지 IT 담당자는 각 SaaS 애플리케이션에서 사용자 계정을 개별적으로 만들고 업데이트해야 하며, 사용자는 각각에 대한 암호를 기억해야 했습니다.
 
@@ -34,13 +34,13 @@ Azure Marketplace에는 미리 통합된 SSO 연결을 사용하는 3000개가 �
 
 ## <a name="licensing"></a>라이선싱
 
-- **Azure AD 라이선스** - 미리 통합된 SaaS 애플리케이션용 SSO는 무료입니다. 단, 디렉터리의 개체 수 및 배포하려는 기능에는 추가 라이선스가 필요할 수 있습니다. 라이선스 요구 사항에 대한 전체 목록은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.
+- **Azure AD 라이선스** - 미리 통합된 SaaS 애플리케이션용 SSO는 무료입니다. 단, 디렉터리의 개체 수 및 배포하려는 기능에는 추가 라이선스가 필요할 수 있습니다. 라이선스 요구 사항에 대한 전체 목록은 [Azure Active Directory 가격 책정](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)을 참조하세요.
 - **애플리케이션 라이선스** - 비즈니스 요구 사항을 충족하려면 SaaS 애플리케이션에 적합한 라이선스가 필요합니다. 애플리케이션 소유자와 협력하여 애플리케이션에 할당된 사용자에게 애플리케이션 내 역할에 적합한 라이선스가 있는지 확인합니다. Azure AD가 역할을 기반으로 자동 프로비저닝을 관리하는 경우에는 Azure AD에 할당된 역할이 애플리케이션 내에서 소유하는 라이선스 수와 일치해야 합니다. 애플리케이션에서 소유한 라이선스가 타당하지 않으면 사용자 프로비저닝/업데이트 중에 오류가 발생할 수 있습니다.
 
 ## <a name="plan-your-sso-team"></a>SSO 팀 계획
 
 - **적절한 이해 관계자 참여** - 기술 프로젝트가 실패하는 경우 일반적으로 영향, 결과 및 책임에 대한 기대치가 일치하지 않기 때문입니다. 이러한 문제를 방지하려면 [올바른 관련자를 참여](../fundamentals/active-directory-deployment-plans.md)시키고 관련자가 자신의 역할을 이해하고 있는지 확인해야 합니다.
-- **커뮤니케이션 계획** - 커뮤니케이션은 신규 서비스의 성공에 대단히 중요합니다. 사용자 환경이 언제 어떻게 변할 것인지, 문제가 발생하면 어떻게 지원을 받을 수 있는지에 대해에 대해 사용자와 적극적으로 소통해야 합니다. [최종 사용자가 SSO 사용 애플리케이션에 액세스하는 방법](end-user-experiences.md)에 대한 옵션을 검토하고 선택에 맞게 소통해야 합니다. 
+- **커뮤니케이션 계획** - 커뮤니케이션은 신규 서비스의 성공에 대단히 중요합니다. 사용자 환경이 언제 어떻게 변할 것인지, 문제가 발생하면 어떻게 지원을 받을 수 있는지에 대해에 대해 사용자와 적극적으로 소통해야 합니다. [최종 사용자가 SSO 사용 애플리케이션에 액세스하는 방법](end-user-experiences.md)에 대한 옵션을 검토하고 선택에 맞게 소통해야 합니다.
 
 ## <a name="plan-your-sso-protocol"></a>SSO 프로토콜 계획
 
@@ -87,10 +87,10 @@ Microsoft는 암호 보관(사용자 이름 및 암호 필드 캡처)을 위해 
 
 1. 애플리케이션 비즈니스 사용자와 협력하여 다음을 문서화합니다.
    1. 애플리케이션을 사용할 조직의 사용자 집합
-   1. 사용자 집합과 연결된 애플리케이션의 기존 자격 증명 집합 
+   1. 사용자 집합과 연결된 애플리케이션의 기존 자격 증명 집합
 1. 사용자 집합과 자격 증명의 각 조합에 대해, 요구 사항에 따라 클라우드 또는 온-프레미스에 보안 그룹을 만듭니다.
-1. 공유 자격 증명을 재설정합니다. 앱이 Azure AD에 배포되면 개인은 공유 계정의 암호가 필요하지 않습니다. Azure AD가 암호를 저장하므로 아주 길고 복잡하게 설정하는 것이 좋습니다. 
-1. 애플리케이션에서 지원하는 경우 암호의 자동 롤오버를 구성합니다. 이렇게 하면 초기 설치를 수행한 관리자도 공유 계정의 암호를 알 수 없습니다. 
+1. 공유 자격 증명을 재설정합니다. 앱이 Azure AD에 배포되면 개인은 공유 계정의 암호가 필요하지 않습니다. Azure AD가 암호를 저장하므로 아주 길고 복잡하게 설정하는 것이 좋습니다.
+1. 애플리케이션에서 지원하는 경우 암호의 자동 롤오버를 구성합니다. 이렇게 하면 초기 설치를 수행한 관리자도 공유 계정의 암호를 알 수 없습니다.
 
 ## <a name="plan-your-authentication-method"></a>인증 방법 계획
 
@@ -98,9 +98,9 @@ Microsoft는 암호 보관(사용자 이름 및 암호 필드 캡처)을 위해 
 
 인증 방법을 선택하려면 시간, 기존 인프라, 복잡성 및 선택을 구현하는 데 드는 비용을 고려해야 합니다. 이러한 요소는 조직마다 다르며 시간이 흐름에 따라 변경될 수 있습니다. 특정 시나리오와 가장 일치하는 방법을 선택해야 합니다. 자세한 내용은 [Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택](../hybrid/choose-ad-authn.md)을 참조하세요.
 
-## <a name="plan-your-security-and-governance"></a>보안 및 거버넌스 계획 
+## <a name="plan-your-security-and-governance"></a>보안 및 거버넌스 계획
 
-BYOD 디바이스와 클라우드 애플리케이션의 폭발적 증가로 인해 네트워크 경계의 틈이 증가하고 효율성이 떨어지면서 ID는 보안 주의 및 투자의 새로운 축이 되었습니다. 
+BYOD 디바이스와 클라우드 애플리케이션의 폭발적 증가로 인해 네트워크 경계의 틈이 증가하고 효율성이 떨어지면서 ID는 보안 주의 및 투자의 새로운 축이 되었습니다.
 
 ### <a name="plan-access-reviews"></a>액세스 검토 계획
 
@@ -116,7 +116,7 @@ BYOD 디바이스와 클라우드 애플리케이션의 폭발적 증가로 인�
 
 ### <a name="plan-auditing"></a>감사 계획
 
-Azure AD는 [기술 및 비즈니스 인사이트가 포함된 보고서](../reports-monitoring/overview-reports.md)를 제공합니다. 
+Azure AD는 [기술 및 비즈니스 인사이트가 포함된 보고서](../reports-monitoring/overview-reports.md)를 제공합니다.
 
 보안 및 활동 보고서를 모두 사용할 수 있습니다. 보안 보고서에는 위험 플래그가 지정된 사용자 및 위험한 로그인이 표시됩니다. 활동 보고서에는 로그인 활동이 자세히 설명되고 모든 로그인에 대한 감사 내역이 제공되기 때문에 조직에서 사용자의 행동을 파악하는 데 유용합니다. 보고서를 사용하여 위험을 관리하고 생산성을 높이고 규정 준수를 모니터링할 수 있습니다.
 
@@ -167,9 +167,9 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
 
 ### <a name="certificate-requirements"></a>인증서 요구 사항
 
-애플리케이션의 인증서는 최신 상태여야 합니다. 그렇지 않으면 사용자가 애플리케이션에 액세스하지 못할 위험이 있습니다. 대부분의 SaaS 애플리케이션 인증서는 36개월 동안 유효합니다. 인증서 기간은 애플리케이션 블레이드에서 변경할 수 있습니다. 만료를 문서화하고 인증서 갱신을 관리하는 방법을 알고 있어야 합니다. 
+애플리케이션의 인증서는 최신 상태여야 합니다. 그렇지 않으면 사용자가 애플리케이션에 액세스하지 못할 위험이 있습니다. 대부분의 SaaS 애플리케이션 인증서는 36개월 동안 유효합니다. 인증서 기간은 애플리케이션 블레이드에서 변경할 수 있습니다. 만료를 문서화하고 인증서 갱신을 관리하는 방법을 알고 있어야 합니다.
 
-인증서를 관리하는 방법은 두 가지입니다. 
+인증서를 관리하는 방법은 두 가지입니다.
 
 - **자동 인증서 롤오버** - Microsoft는 [Azure AD에서 서명 키 롤오버](../develop/active-directory-signing-key-rollover.md)를 지원합니다. 이 방식은 당사가 선호하는 방법이지만 이 시나리오를 지원하지 않는 ISV도 있습니다.
 
@@ -184,7 +184,7 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
 - **테스트 사용자 식별**
 
    앱 소유자에게 연락하여 애플리케이션 내에서 테스트 사용자를 3개 이상 만들도록 요청합니다. 기본 식별자로 사용할 정보가 올바르게 채워지고 Azure AD에서 사용할 수 있는 특성과 일치하는지 확인합니다. 대부분의 경우 SAML 기반 애플리케이션의 "NameID"에 매핑됩니다. JWT 토큰의 경우 "preferred_username"입니다.
-   
+
    Azure AD에서 사용자를 만듭니다. 클라우드 기반 사용자로 수동으로 만들거나 Azure AD Connect 동기화 엔진을 사용하여 온-프레미스에서 사용자를 동기화합니다. 정보가 애플리케이션으로 전송되는 클레임과 일치하는지 확인합니다.
 
 - **SSL 구성**
@@ -259,7 +259,7 @@ Azure AD와 Single Sign-On으로 구성되는 애플리케이션 간의 서명 �
 
 애플리케이션 내 인증 방법의 가용성에 따라 최상의 전략이 결정됩니다. 배포에 문제가 발생하는 경우 앱 소유자를 위해 원래 로그인 구성 상태로 돌아가는 정확한 방법에 대한 문서가 있는지 항상 확인해야 합니다.
 
-- **앱이 여러 ID 공급자**(예: LDAP 및 AD FS 및 Ping)를 지원하는 경우 롤아웃 중에 기존 SSO 구성을 삭제하지 마십시오. 대신 나중에 다시 전환해야 하는 경우를 대비하여 마이그레이션 중에 사용하지 않도록 설정합니다. 
+- **앱이 여러 ID 공급자**(예: LDAP 및 AD FS 및 Ping)를 지원하는 경우 롤아웃 중에 기존 SSO 구성을 삭제하지 마십시오. 대신 나중에 다시 전환해야 하는 경우를 대비하여 마이그레이션 중에 사용하지 않도록 설정합니다.
 
 - **앱이 여러 IDP를 지원하지 않지만** 사용자가 양식 기반 인증(사용자 이름/암호)을 사용하여 로그인할 수 있는 경우 새 SSO 구성 롤아웃이 실패하면 사용자가 기존 방식으로 대체할 수 있는지 확인해야 합니다.
 
@@ -293,10 +293,9 @@ SaaS 앱 보안의 다양한 측면을 검토하고 필요한 수정 조치를 �
 
 #### <a name="sso-issues-for-applications"></a>애플리케이션의 SSO 문제
 
-- [애플리케이션의 암호 SSO 문제](./troubleshoot-password-based-sso.md) 
+- [애플리케이션의 암호 SSO 문제](./troubleshoot-password-based-sso.md)
 
-- [SAML 기반 Single Sign-On이 구성된 앱에 로그인하는 것과 관련된 문제](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps)   
-
+- [SAML 기반 Single Sign-On이 구성된 앱에 로그인하는 것과 관련된 문제](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps)
 
 ## <a name="next-steps"></a>다음 단계
 

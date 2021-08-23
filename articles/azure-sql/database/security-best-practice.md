@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: c16764d1ce985755b6a3042873cc18b09b697bcf
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: ef8c2756d6e11dc38ac488abb0ed6d8ae8e9a78b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551614"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529137"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용하여 일반적인 보안 요구 사항을 해결하는 방법에 대한 플레이북
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -682,7 +682,7 @@ Advanced Threat Protection을 사용하면 비정상적인 활동에 대한 보�
 **구현 방법**:
 
 - Azure Storage에 감사 로그를 저장하는 경우 스토리지 계정에 대한 액세스를 최소한의 보안 원칙으로 제한합니다. 스토리지 계정에 액세스할 수 있는 사용자를 제어합니다.
-- 자세한 내용은 [Azure Storage에 대한 액세스 권한 부여](../../storage/common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
+- 자세한 내용은 [Azure Storage에 대한 액세스 권한 부여](../../storage/common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
 
 **모범 사례**:
 

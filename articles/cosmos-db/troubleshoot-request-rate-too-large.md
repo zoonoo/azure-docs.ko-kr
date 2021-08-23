@@ -8,17 +8,17 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 99cad194317a2dfc7a5924635aef7484d83f8ba0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f892bd439424fdd35110dfa704e0bf319d85a0c5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969288"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536613"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-rate-too-large-429-exceptions"></a>Azure Cosmos DB 요청 빈도 너무 높음(429) 예외 진단 및 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-이 문서에는 SQL API에 대한 다양한 429 상태 코드 오류의 알려진 원인 및 해결 방법이 포함됩니다. MongoDB용 API를 사용하는 경우 상태 코드 16500을 디버그하는 방법은 [MongoDB API의 일반적인 문제 해결](mongodb-troubleshoot.md) 문서를 참조하세요.
+이 문서에는 SQL API에 대한 다양한 429 상태 코드 오류의 알려진 원인 및 해결 방법이 포함됩니다. MongoDB용 API를 사용하는 경우 상태 코드 16500을 디버그하는 방법은 [MongoDB API의 일반적인 문제 해결](mongodb/error-codes-solutions.md) 문서를 참조하세요.
 
 오류 코드 429라고도 하는 “요청 빈도 너무 높음” 예외는 Azure Cosmos DB에 대한 요청의 빈도가 제한되고 있음을 나타냅니다.
 

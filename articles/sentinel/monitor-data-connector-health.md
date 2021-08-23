@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2020
 ms.author: yelevin
-ms.openlocfilehash: 7d52b76601a617f62ae5b10fa38841ef2608bf49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b8507f29d157cd715d6423c773b01a561a5e181
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94656993"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566845"
 ---
 # <a name="monitor-the-health-of-your-data-connectors-with-this-azure-sentinel-workbook"></a>이 Azure Sentinel 통합 문서를 사용하여 데이터 커넥터의 상태 모니터링
 
@@ -66,4 +66,4 @@ ms.locfileid: "94656993"
     :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-3.png" alt-text="데이터 커넥터 상태 모니터링 통합 문서 에이전트 정보 페이지" lightbox="media/monitor-data-connector-health/data-health-workbook-3.png":::
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Sentinel에 데이터를 온보딩하는 방법](quickstart-onboard.md), [데이터 원본을 연결하는 방법](connect-data-sources.md) 및 [데이터 및 잠재적 위협을 표시하는 방법](quickstart-get-visibility.md)에 대해 알아봅니다.
+[Azure Sentinel에 데이터를 온보딩하는 방법](quickstart-onboard.md), [데이터 원본을 연결하는 방법](connect-data-sources.md) 및 [데이터 및 잠재적 위협을 표시하는 방법](get-visibility.md)에 대해 알아봅니다.

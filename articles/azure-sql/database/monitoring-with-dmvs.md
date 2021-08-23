@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 03/15/2021
-ms.openlocfilehash: 5c0de2c1589bfa495ab6ad287b998c403041674c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68daeddb958a3d009cfb2632c30780d7dfe6ce6d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592152"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536297"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>동적 관리 뷰를 사용하여 Microsoft Azure SQL Database 및 Azure SQL Managed Instance 성능 모니터링
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -636,11 +636,11 @@ ORDER BY start_time DESC;
 
    ```sql
     SELECT
-        (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent',
-        (COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent',
-        (COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
+        100*((COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name)) AS 'CPU Fit Percent',
+        100*((COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name)) AS 'Log Write Fit Percent',
+        100*((COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name)) AS 'Physical Data IO Fit Percent'
     FROM sys.resource_stats
-    WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+    WHERE database_name = 'sample' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
     데이터베이스 서비스 계층을 기준으로 워크로드가 낮은 컴퓨팅 크기에 적합한지 확인할 수 있습니다. 데이터베이스 워크로드 목표가 99.9%이고 이전 쿼리가 세 가지 리소스 크기에 대해 전부 99.9%보다 큰 값을 반환하는 경우 워크로드가 낮은 컴퓨팅 크기에 적합할 가능성이 높습니다.
@@ -654,12 +654,12 @@ ORDER BY start_time DESC;
     평균 CPU는 컴퓨팅 크기 한도의 약 1/4이며 데이터베이스 컴퓨팅 크기에 적합합니다. 하지만 최댓값은 데이터베이스가 컴퓨팅 크기 한도에 도달했다는 의미입니다. 다음 상위 컴퓨팅 크기로 이동해야 할까요? 워크로드가 100%에 도달하는 횟수를 살펴보고 데이터베이스 워크로드 목표와 비교해 보세요.
 
     ```sql
-    SELECT
-        (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
-        ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent'
-        ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data IO fit percent'
-        FROM sys.resource_stats
-        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+     SELECT
+         100*((COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name)) AS 'CPU Fit Percent',
+         100*((COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name)) AS 'Log Write Fit Percent',
+         100*((COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name)) AS 'Physical Data IO Fit Percent'
+     FROM sys.resource_stats
+     WHERE database_name = 'sample' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
     이 쿼리가 세 가지 리소스 크기에 대해 전부 99.9% 미만의 값을 반환하는 경우 다음 상위 컴퓨팅 크기로 이동하거나 애플리케이션 튜닝 기술을 사용하여 데이터베이스의 부하를 줄이는 방안을 고려해야 합니다.

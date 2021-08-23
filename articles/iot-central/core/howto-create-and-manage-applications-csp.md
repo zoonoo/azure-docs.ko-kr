@@ -7,13 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 12/11/2020
 ms.topic: how-to
-manager: philmea
-ms.openlocfilehash: f3293ada549351cc7273847cde48c0531f06f028
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc7d5e806f6f08619e0c18397aab2558e492c9cb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "104675810"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566711"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>CSP 포털에서 Azure IoT Central 애플리케이션 만들기 및 관리
 

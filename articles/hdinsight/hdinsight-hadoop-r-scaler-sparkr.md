@@ -5,14 +5,17 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
-ms.openlocfilehash: 95fcca289b0776cc19464b13eb7d243ca4f8d5ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ROBOTS: NOINDEX
+ms.openlocfilehash: dc58b73a317bdab85b63c947f07d2755b96f2fcd
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98945520"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112280437"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR 결합
+
+[!INCLUDE [retirement banner](includes/ml-services-retirement.md)]
 
 이 문서에서는 **ScaleR** 로지스틱 회귀 모델을 사용하여 항공편 도착 지연을 예측하는 방법을 보여 줍니다. 이 예제에서는 **SparkR** 을 사용하여 연결되는 항공편 지연과 날씨 데이터를 사용합니다.
 
@@ -533,8 +536,6 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 ## <a name="next-steps-and-more-information"></a>다음 단계 및 자세한 정보
 
 - Apache Spark에서 ML Server 사용에 대한 자세한 내용은 [시작 가이드](/machine-learning-server/r/how-to-revoscaler-spark)를 참조하세요.
-
-- HDInsight의 ML Services에 대한 자세한 내용은 [HDInsight의 ML Services 개요](r-server/r-server-overview.md)를 참조하세요.
 
 SparkR 사용에 대한 자세한 내용은 다음을 참조하세요.
 

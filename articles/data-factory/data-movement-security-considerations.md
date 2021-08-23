@@ -1,18 +1,19 @@
 ---
 title: 보안 고려 사항
 description: Azure Data Factory의 데이터 이동 서비스가 데이터를 보호하는 데 사용하는 기본 보안 인프라에 대해 설명합니다.
-ms.author: abnarain
-author: nabhishek
+ms.author: susabat
+author: ssabat
 ms.service: data-factory
+ms.subservice: security
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/03/2021
-ms.openlocfilehash: 54c96aced03853b8a3f78ff0f348eeb6459afccc
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ab31c1629140a1e0f3f5a6dcbe409b6803805e34
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760302"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642950"
 ---
 # <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 
@@ -21,7 +22,7 @@ ms.locfileid: "108760302"
 > * [버전 1](v1/data-factory-data-movement-security-considerations.md)
 > * [현재 버전](data-movement-security-considerations.md)
 
- [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+ [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory의 데이터 이동 서비스가 데이터를 보호하는 데 사용하는 기본 보안 인프라에 대해 설명합니다. Data Factory 관리 리소스는 Azure 보안 인프라를 기반으로 하며 Azure가 제공하는 모든 가능한 보안 수단을 사용합니다.
 

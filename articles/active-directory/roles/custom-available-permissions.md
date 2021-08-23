@@ -13,16 +13,20 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 258dcb7c66b043828e55d6c0dbfe101c0992f8c6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 996a3f5f48685630a6946a5708c26cfecaf3b0a0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110092893"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566293"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Azure Active Directory의 사용자 지정 역할에 대한 애플리케이션 등록 권한
 
 이 문서에는 Azure AD(Azure Active Directory)의 사용자 지정 역할 정의에 대해 현재 사용할 수 있는 앱 등록 권한이 포함되어 있습니다.
+
+## <a name="license-requirements"></a>라이선스 요구 사항
+
+[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="permissions-for-managing-single-tenant-applications"></a>단일 테넌트 애플리케이션 관리를 위한 권한
 
@@ -32,7 +36,7 @@ ms.locfileid: "110092893"
 
 일반 용어 하위 유형, 권한 및 속성 집합의 의미에 대한 설명은 [사용자 지정 역할 개요](custom-overview.md)를 참조하세요. 다음 정보는 애플리케이션 등록에만 적용됩니다.
 
-### <a name="create-and-delete"></a>만들기 및 삭제
+## <a name="create-and-delete"></a>만들기 및 삭제
 
 애플리케이션 등록을 만들 수 있는 기능을 부여하는 데 사용할 수 있는 두 가지 권한은 각기 다른 동작입니다.
 
@@ -65,7 +69,7 @@ ms.locfileid: "110092893"
 > [!NOTE]
 > 만들기 권한이 포함된 역할을 할당하는 경우 역할 할당은 디렉터리 범위에서 수행되어야 합니다. 리소스 범위에서 만들기 권한을 할당하면 앱 등록을 만드는 기능이 부여되지 않습니다.
 
-### <a name="read"></a>읽기
+## <a name="read"></a>읽기
 
 조직의 모든 구성원 사용자가 기본적으로 앱 등록 정보를 읽을 수 있습니다. 그러나 게스트 사용자 및 애플리케이션 서비스 사용자는 앱 등록 정보를 읽을 수 없습니다. 게스트 사용자 또는 애플리케이션에 역할을 할당하려면 적절한 읽기 권한을 포함해야 합니다.
 
@@ -91,7 +95,7 @@ ms.locfileid: "110092893"
 
 단일 테넌트 애플리케이션에 한해 microsoft.directory/applications/standard/read와 동일한 권한을 부여합니다.
 
-### <a name="update"></a>업데이트
+## <a name="update"></a>업데이트
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>microsoft.directory/applications/allProperties/update
 
@@ -162,10 +166,6 @@ ms.locfileid: "110092893"
 #### <a name="microsoftdirectoryapplicationsmyorganizationpermissionsupdate"></a>microsoft.directory/applications.myOrganization/permissions/update
 
 단일 테넌트 애플리케이션에 한해 microsoft.directory/applications/permissions/update와 동일한 권한을 부여합니다.
-
-## <a name="license-requirements"></a>라이선스 요구 사항
-
-[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -2,19 +2,18 @@
 title: 디바이스 보안에 대한 인증서 - Azure IoT Edge | Microsoft Docs
 description: Azure IoT Edge는 인증서를 사용하여 디바이스, 모듈 및 리프 디바이스의 유효성을 검사하고 이들 간의 보안 연결을 설정합니다.
 author: stevebus
-manager: philmea
 ms.author: stevebus
 ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: 6c54f935ed05451df5922ff1a3d564c775703700
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 469e7005d1def5bd2f76347fc934577eca54b435
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029355"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536601"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Azure IoT Edge에서 인증서를 사용하는 방법 이해
 

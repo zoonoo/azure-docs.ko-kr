@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 227b8d9c797a8fec81d8792a48f456bcda6a838c
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 70f318c10799c1cf30265373d8971faddfafc072
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958515"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122537926"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 
@@ -68,7 +68,7 @@ ms.locfileid: "111958515"
 
 ## <a name="centralize-identity-management"></a>ID 관리 중앙 집중화
 
-[하이브리드 ID](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?) 시나리오에서 온-프레미스와 클라우드 디렉터리를 통합하는 것이 좋습니다. 이렇게 통합하면 IT 팀이 계정을 만든 위치에 관계 없이 한 위치에서 계정을 관리할 수 있습니다. 또한 통합을 통해 클라우드 및 온-프레미스 리소스에 모두 액세스할 수 있는 공통 ID를 제공하여 사용자의 생산성을 높일 수 있습니다.
+하이브리드 ID 시나리오에서 온-프레미스와 클라우드 디렉터리를 통합하는 것이 좋습니다. 이렇게 통합하면 IT 팀이 계정을 만든 위치에 관계 없이 한 위치에서 계정을 관리할 수 있습니다. 또한 통합을 통해 클라우드 및 온-프레미스 리소스에 모두 액세스할 수 있는 공통 ID를 제공하여 사용자의 생산성을 높일 수 있습니다.
 
 **모범 사례**: 단일 Azure AD 인스턴스를 설정합니다. 일관성과 신뢰할 수 있는 단일 소스는 명확성을 높이고 사용자 오류와 복잡한 구성으로 인한 보안 위험을 줄입니다.
 **세부 정보**: 단일 Azure AD 디렉터리를 회사 및 조직 계정의 신뢰할 수 있는 원본으로 지정합니다.
@@ -339,7 +339,7 @@ Azure RBAC와 같은 기능을 사용하여 데이터 액세스 제어를 적용
 해당 ID 시스템을 적극적으로 모니터링하지 않는 조직은 사용자 자격 증명이 손상될 위험에 직면합니다. 이러한 자격 증명을 통해 의심스러운 활동이 일어나고 있다는 것을 알아야 이 형식의 위협을 완화시킬 수 있습니다.
 
 ## <a name="use-azure-ad-for-storage-authentication"></a>스토리지 인증에 Azure AD 사용
-[Azure Storage](../../storage/common/storage-auth-aad.md)는 Blob storage 및 Queue storage에 Azure AD를 사용하는 인증 및 권한 부여를 지원합니다. Azure AD 인증을 사용하면 Azure 역할 기반 액세스 제어를 사용하여 개별 BLOB 컨테이너 또는 큐의 범위까지 사용자, 그룹 및 애플리케이션에 특정 권한을 부여할 수 있습니다.
+[Azure Storage](../../storage/blobs/authorize-access-azure-active-directory.md)는 Blob storage 및 Queue storage에 Azure AD를 사용하는 인증 및 권한 부여를 지원합니다. Azure AD 인증을 사용하면 Azure 역할 기반 액세스 제어를 사용하여 개별 BLOB 컨테이너 또는 큐의 범위까지 사용자, 그룹 및 애플리케이션에 특정 권한을 부여할 수 있습니다.
 
 [스토리지에 대한 액세스 인증에는 Azure AD](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/)를 사용하는 것이 좋습니다.
 

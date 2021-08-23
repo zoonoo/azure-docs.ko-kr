@@ -2,7 +2,6 @@
 title: Azure IoT Hub(노드)를 사용한 클라우드-디바이스 메시지 | Microsoft Docs
 description: Node.js용 Azure IoT SDK를 사용하여 Azure IoT Hub에서 클라우드-디바이스 메시지를 보내는 방법입니다. 클라우드-디바이스 메시지를 수신하도록 시뮬레이션된 디바이스 앱을 수정하고 클라우드-디바이스 메시지를 보내도록 백 엔드 앱을 수정합니다.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -13,22 +12,22 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: e398138f12c38e5235a0004679d9574dbde607db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc1e7bd2f82755f94469dc9feece7351f1ba0a32
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91446888"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566496"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>IoT Hub를 사용하여 클라우드-디바이스 메시지 보내기(Node.js)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-node.md) 빠른 시작에서는 IoT Hub를 만들고 그 안에 디바이스 ID를 프로비저닝하고 디바이스-클라우드 메시지를 보내는 시뮬레이션된 디바이스 앱을 코딩하는 방법을 보여 줍니다.
+Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) 빠른 시작에서는 IoT Hub를 만들고 그 안에 디바이스 ID를 프로비저닝하고 디바이스-클라우드 메시지를 보내는 시뮬레이션된 디바이스 앱을 코딩하는 방법을 보여 줍니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-이 자습서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-node.md)를 기반으로 합니다. 이 항목에서는 다음 방법을 설명합니다.
+이 자습서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)를 기반으로 합니다. 이 항목에서는 다음 방법을 설명합니다.
 
 * 솔루션 백 엔드에서 IoT Hub를 통해 클라우드-디바이스 메시지를 단일 디바이스로 보냅니다.
 * 디바이스에서 클라우드-디바이스 메시지를 받습니다.
@@ -38,7 +37,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 이 자습서의 끝 부분에서는 다음 두 개의 Node.js 콘솔 앱을 실행합니다.
 
-* **SimulatedDevice** - [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-node.md)에서 만든 앱의 수정 버전입니다. IoT Hub에 연결하고 클라우드-디바이스 메시지를 수신합니다.
+* **SimulatedDevice** - [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)에서 만든 앱의 수정 버전입니다. IoT Hub에 연결하고 클라우드-디바이스 메시지를 수신합니다.
 
 * **SendCloudToDeviceMessage**, IoT Hub를 통해 시뮬레이션된 디바이스 앱에 클라우드-디바이스 메시지를 보낸 다음, 배달 승인을 수신합니다.
 
@@ -56,9 +55,9 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>시뮬레이션된 디바이스 앱에서 메시지 수신
 
-이 섹션에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-node.md)에서 만든 시뮬레이션된 디바이스 앱을 수정하고 IoT Hub로부터 클라우드-디바이스 메시지를 수신합니다.
+이 섹션에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)에서 만든 시뮬레이션된 디바이스 앱을 수정하고 IoT Hub로부터 클라우드-디바이스 메시지를 수신합니다.
 
-1. 텍스트 편집기를 사용하여 **SimulatedDevice.js** 파일을 엽니다. 이 파일은 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-node.md) 빠른 시작에서 다운로드한 Node.js 샘플 코드의 루트 폴더에 있는 **iot-hub\Quickstarts\simulated-device** 폴더에 있습니다.
+1. 텍스트 편집기를 사용하여 **SimulatedDevice.js** 파일을 엽니다. 이 파일은 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) 빠른 시작에서 다운로드한 Node.js 샘플 코드의 루트 폴더에 있는 **iot-hub\Quickstarts\simulated-device** 폴더에 있습니다.
 
 2. IoT Hub에서 보낸 메시지를 수신하려면 디바이스 클라이언트에 처리기를 등록합니다. 다음 코드 조각과 같이 디바이스 클라이언트를 만드는 줄 바로 뒤에 `client.on`에 대한 호출을 추가합니다.
 
@@ -84,7 +83,7 @@ AMQP 및 HTTPS를 사용하지만 MQTT를 사용하지 않는 경우에는 디�
 * 메시지 중단 - IoT Hub가 나중에 사용하기 위해 디바이스 큐에 메시지를 보관합니다.
 * 메시지 거부 - 디바이스 큐에서 메시지가 영구적으로 제거됩니다.
 
-디바이스에서 메시지를 완료, 중단 또는 거부할 수 없도록 하는 문제가 발생할 경우 IoT Hub는 정해진 시간 제한 기간이 지나면 메시지를 다시 배달하도록 큐에 넣습니다. 이런 이유로 디바이스 앱의 메시지 처리 논리는 ‘멱등성’이므로 같은 메시지를 여러 번 수신해도 동일한 결과가 생성됩니다.
+디바이스에서 메시지를 완료, 중단 또는 거부할 수 없도록 하는 문제가 발생할 경우 IoT Hub는 정해진 시간 제한 기간이 지나면 메시지를 다시 배달하도록 큐에 넣습니다. 이런 이유로 디바이스 앱의 메시지 처리 논리는 *idempotent* 이므로 같은 메시지를 여러 번 수신해도 동일한 결과가 생성됩니다.
 
 클라우드-디바이스 메시지 수명 주기의 세부 정보를 포함하여 IoT Hub에서 클라우드-디바이스 메시지를 처리하는 방법에 대한 자세한 내용은 [IoT Hub에서 클라우드-디바이스 메시지 보내기](iot-hub-devguide-messages-c2d.md)를 참조하세요.
   
@@ -94,13 +93,13 @@ AMQP 및 HTTPS를 사용하지만 MQTT를 사용하지 않는 경우에는 디�
 
 ## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
 
-이 문서에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-node.md)에서 만든 IoT Hub를 통해 클라우드-디바이스 메시지를 보내는 백 엔드 서비스를 만듭니다. 클라우드-디바이스 메시지를 보내려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service** 라는 공유 액세스 정책을 사용하여 만듭니다.
+이 문서에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)에서 만든 IoT Hub를 통해 클라우드-디바이스 메시지를 보내는 백 엔드 서비스를 만듭니다. 클라우드-디바이스 메시지를 보내려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service** 라는 공유 액세스 정책을 사용하여 만듭니다.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## <a name="send-a-cloud-to-device-message"></a>클라우드-디바이스 메시지 보내기
 
-이 섹션에서는 클라우드-디바이스 메시지를 시뮬레이트된 디바이스 앱으로 보내는 Node.js 콘솔 앱을 만듭니다. [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-node.md) 빠른 시작에서 추가한 디바이스의 디바이스 ID가 필요합니다. 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT Hub 연결 문자열도 필요합니다.
+이 섹션에서는 클라우드-디바이스 메시지를 시뮬레이트된 디바이스 앱으로 보내는 Node.js 콘솔 앱을 만듭니다. [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) 빠른 시작에서 추가한 디바이스의 디바이스 ID가 필요합니다. 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT Hub 연결 문자열도 필요합니다.
 
 1. **sendcloudtodevicemessage** 라는 빈 폴더를 만듭니다. **sendcloudtodevicemessage** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
 

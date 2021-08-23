@@ -1,19 +1,19 @@
 ---
 title: Synapse Studio에서 Synapse RBAC 역할 할당을 검토하는 방법
 description: 이 문서에서는 Synapse Studio를 사용하여 Synapse RBAC 역할 할당을 검토하는 방법을 설명합니다.
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: acc1ed8cece087628f6f8deb41696acefe124874
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 11e5ed746215df4518e9bd6af2c0c92539067e47
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110784037"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529190"
 ---
 # <a name="how-to-review-synapse-rbac-role-assignments"></a>Synapse RBAC 역할 할당을 검토하는 방법
 
@@ -28,7 +28,7 @@ Synapse RBAC 역할을 사용하여 액세스할 수 없는 개체에 대한 할
 
 ## <a name="open-synapse-studio"></a>Synapse Studio 열기  
 
-역할 할당을 검토하려면 먼저 [Synapse Studio를 열고](https://web.azuresynapse.net/) 작업 영역을 선택합니다. 
+역할 할당을 검토하려면 먼저 [Synapse Studio를 열고](https://web.azuresynapse.net/) 작업 영역을 선택합니다. 작업 영역에 로그인하기 위한 두 가지 **계정 선택 방법** 이 있습니다. 하나는 **Azure 구독** 에서 가져온 것이고 다른 하나는 **수동으로 입력** 에서 가져온 것입니다. Synapse Azure 역할 또는 더 높은 수준의 Azure 역할이 있는 경우 두 가지 방법을 모두 사용하여 작업 영역에 로그인할 수 있습니다. 관련 Azure 역할이 없고 Synapse RBAC 역할로 부여된 경우 **수동으로 입력** 이 작업 영역에 로그인하는 유일한 방법입니다.
 
 ![작업 영역에 로그인](./media/common/login-workspace.png) 
  

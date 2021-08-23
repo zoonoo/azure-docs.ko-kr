@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 8af6802f785718ca6064a34c98d9f6dafc046a2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44e4b35d7e67e566b3ccef61cf5fa22077e844c7
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594770"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537367"
 ---
 # <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀로 트랜잭션 사용
 
@@ -43,7 +43,7 @@ ms.locfileid: "104594770"
 
 ## <a name="gen2"></a>2세대
 
-| [DWU](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | 배포당 용량(GB) | 배포 수 | 최대 트랜잭션 크기(GB) | # 배포당 행 수 | 트랜잭션당 최대 행 수 |
+| [DWU](resource-consumption-models.md#data-warehouse-units) | 배포당 용량(GB) | 배포 수 | 최대 트랜잭션 크기(GB) | # 배포당 행 수 | 트랜잭션당 최대 행 수 |
 | --- | --- | --- | --- | --- | --- |
 | DW100c |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200c |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -64,7 +64,7 @@ ms.locfileid: "104594770"
 
 ## <a name="gen1"></a>1세대
 
-| [DWU](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | 배포당 용량(GB) | 배포 수 | 최대 트랜잭션 크기(GB) | # 배포당 행 수 | 트랜잭션당 최대 행 수 |
+| [DWU](resource-consumption-models.md#data-warehouse-units) | 배포당 용량(GB) | 배포 수 | 최대 트랜잭션 크기(GB) | # 배포당 행 수 | 트랜잭션당 최대 행 수 |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -81,7 +81,7 @@ ms.locfileid: "104594770"
 
 트랜잭션 또는 작업 기준으로 트랜잭션 크기 제한이 적용되며 모든 동시 트랜잭션에서 적용되지는 않습니다. 따라서 각 트랜잭션은 이 크기의 데이터를 로그에 쓰도록 허용됩니다.
 
-로그에 기록된 데이터의 양을 최적화하고 최소화하려면 [트랜잭션 모범 사례](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 문서를 참조하세요.
+로그에 기록된 데이터의 양을 최적화하고 최소화하려면 [트랜잭션 모범 사례](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?context=/azure/synapse-analytics/context/context) 문서를 참조하세요.
 
 > [!WARNING]
 > 최대 트랜잭션 크기는 데이터가 균일하게 분산되는 HASH 또는 ROUND_ROBIN 분산 테이블에 대해서만 도달할 수 있습니다. 트랜잭션이 균일하지 않은 분산 방식으로 데이터를 쓰는 경우 최대 트랜잭션 크기에 도달하기 전에 제한에 도달할 가능성이 높습니다.
@@ -204,4 +204,4 @@ THROW는 전용 SQL 풀에서 예외를 발생시키기 위한 가장 최신 구
 
 ## <a name="next-steps"></a>다음 단계
 
-트랜잭션을 최적화하는 방법에 대한 자세한 내용은 [트랜잭션 모범 사례](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요. [전용 SQL 풀](best-practices-dedicated-sql-pool.md) 및 [서버리스 SQL 풀](best-practices-serverless-sql-pool.md)에 대한 모범 사례 가이드도 추가로 제공됩니다.
+트랜잭션을 최적화하는 방법에 대한 자세한 내용은 [트랜잭션 모범 사례](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?context=/azure/synapse-analytics/context/context)를 참조하세요. [전용 SQL 풀](best-practices-dedicated-sql-pool.md) 및 [서버리스 SQL 풀](best-practices-serverless-sql-pool.md)에 대한 모범 사례 가이드도 추가로 제공됩니다.

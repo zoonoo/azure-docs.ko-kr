@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 45a7a146dd929408b50a0045fe2598726ee05505
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f44962f1dfdfe3a55272aa19d9399542cb28d736
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95544312"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566768"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Azure Private Link 연결 문제 해결
 
@@ -47,7 +47,7 @@ Private Link와 함께 사용할 수 있는 연결 시나리오는 다음과 같
 
 1. 리소스를 검색하여 프라이빗 링크 구성을 검토합니다.
 
-    a. **Private Link 센터** 로 이동합니다.
+    a. [Private Link 센터](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview)로 이동합니다.
 
       ![Private Link 센터](./media/private-link-tsg/private-link-center.png)
 

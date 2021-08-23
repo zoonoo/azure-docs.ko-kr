@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 725711ed7d49b21303769ccd6959fc8b2083e9fa
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 0b6d64167451b3c7363d6bd80c5fafcd67b6fc5c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112063688"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528869"
 ---
 # <a name="customize-alert-details-in-azure-sentinel"></a>Azure Sentinel에서 경고 세부 정보 사용자 지정 
 
@@ -63,5 +63,5 @@ ms.locfileid: "112063688"
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Sentinel 분석 규칙에서 경고 세부 정보를 사용자 지정하는 방법을 배웠습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [예약된 쿼리 분석 규칙](tutorial-detect-threats-custom.md)을 전체적으로 파악합니다.
+- [예약된 쿼리 분석 규칙](detect-threats-custom.md)을 전체적으로 파악합니다.
 - [Azure Sentinel의 엔터티](entities-in-azure-sentinel.md)에 대해 자세히 알아봅니다.

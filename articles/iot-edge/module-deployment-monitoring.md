@@ -2,18 +2,17 @@
 title: 디바이스 그룹에 대한 자동 배포 - Azure IoT Edge | Microsoft Docs
 description: Azure IoT Edge에서 자동 배포를 사용하여 공유 태그를 기준으로 디바이스 그룹 관리
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3989ec4ca2b5c9d7385841604678791b20c1d102
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0461fffa62f46491d5bbb3c2c9f66670b3bd9cba
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103489985"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566575"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>단일 디바이스 또는 대규모 IoT Edge 자동 배포 이해
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/01/2021
 ms.author: apimpm
-ms.openlocfilehash: d000b9db658c76b5d7cdb586599f04d9078dde5d
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 6faa78dc75b67afd4c310a94ce4a81129e09cb26
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111812160"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536478"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>API Management에서 클라이언트 인증서 인증을 사용하여 API를 보호하는 방법
 
@@ -49,7 +49,7 @@ API Management에서는 클라이언트 인증서를 사용하여 API에 대한 
 [`context` 변수](api-management-policy-expressions.md#ContextVariables)를 사용하여 클라이언트 인증서를 확인하는 정책 식을 만들 수도 있습니다. 다음 섹션의 예제에서는 `context.Request.Certificate` 속성 및 기타 `context` 속성을 사용하는 식을 보여줍니다.
 
 > [!IMPORTANT]
-> 2021년 5월부터 `context.Request.Certificate` 속성은 API Management 인스턴스의 [`hostnameConfiguration`](/rest/api/apimanagement/2019-12-01/apimanagementservice/createorupdate#hostnameconfiguration)이 `negotiateClientCertificate` 속성을 True로 설정한 경우에만 인증서를 요청합니다. 기본적으로 `negotiateClientCertificate`는 false로 설정됩니다.
+> 2021년 5월부터 `context.Request.Certificate` 속성은 API Management 인스턴스의 [`hostnameConfiguration`](/rest/api/apimanagement/2020-12-01/api-management-service/create-or-update#hostnameconfiguration)이 `negotiateClientCertificate` 속성을 True로 설정한 경우에만 인증서를 요청합니다. 기본적으로 `negotiateClientCertificate`는 false로 설정됩니다.
 
 ### <a name="checking-the-issuer-and-subject"></a>발급자 및 주체 확인
 

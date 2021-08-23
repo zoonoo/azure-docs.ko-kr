@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 5c1bdadf92d72ebec7ffa122b3c49c5878e2d2b8
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 0be29603225361b2f275f081c1ad52c5c6c394db
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745172"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566762"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature-in-azure-virtual-desktop-classic"></a>Azure Virtual Desktop(클래식)의 진단 기능에 Log Analytics 사용
 
@@ -32,7 +32,7 @@ Log Analytics를 사용하여 단일 사용자 문제 해결을 넘어 Azure 클
 
 ## <a name="before-you-get-started"></a>시작하기 전에
 
-진단 기능과 함께 Log Analytics를 사용하려면 먼저 [작업 영역을 만들](../../azure-monitor/vm/quick-collect-windows-computer.md#create-a-workspace)어야 합니다.
+진단 기능과 함께 Log Analytics를 사용하려면 먼저 [작업 영역을 만들](../../azure-monitor/logs/quick-create-workspace.md)어야 합니다.
 
 작업 영역을 만든 후 [Azure Monitor에 Windows 컴퓨터 연결](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key)의 지침에 따라 다음 정보를 가져옵니다.
 

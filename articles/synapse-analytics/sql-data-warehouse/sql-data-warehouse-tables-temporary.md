@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 077782099d6d61982052dc1690d545e58e928d8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9898bc94aa79b374174f80592dc250e660f7f8c3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93310679"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566689"
 ---
 # <a name="temporary-tables-in-dedicated-sql-pool"></a>전용 SQL 풀의 임시 테이블
 
@@ -30,8 +30,6 @@ ms.locfileid: "93310679"
 임시 테이블은 생성된 세션에서만 보이고, 해당 세션이 로그오프되면 자동으로 삭제됩니다.  
 
 임시 테이블은 결과가 원격 스토리지 대신 로컬로 기록되기 때문에 성능상의 이점을 제공합니다.
-
-특히 중간 결과가 일시적인 변환 중 데이터를 처리할 때 임시 테이블은 유용합니다. 전용 SQL 풀을 사용하면 임시 테이블이 세션 수준에 존재합니다.  이러한 임시 테이블은 만들어진 세션에만 표시됩니다. 따라서 해당 세션이 로그오프되면 자동으로 삭제됩니다. 
 
 ## <a name="temporary-tables-in-dedicated-sql-pool"></a>전용 SQL 풀의 임시 테이블
 

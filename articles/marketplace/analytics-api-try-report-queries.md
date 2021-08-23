@@ -4,15 +4,16 @@ description: 이 API를 사용하여 상업용 Marketplace 분석 보고서에 �
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 0db212be06182128bbd8a3bf694a2f893ce82eae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74dfed4697942ba921cda11dfba8698ad822c8c4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102583934"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567265"
 ---
 # <a name="try-report-queries-api"></a>보고서 쿼리 API 사용해 보기
 
@@ -32,7 +33,7 @@ ms.locfileid: "102583934"
 
 | **Header** | **형식** | **설명** |
 | --- | --- | --- |
-| 권한 부여 | 문자열 | 필수 요소. `Bearer <token>` 형식의 Azure AD(Azure Active Directory) 액세스 토큰 |
+| 권한 부여 | 문자열 | 필수 요소. `Bearer <token>` 양식의 Azure AD(Azure Active Directory) 액세스 토큰 |
 | 콘텐츠 형식 | 문자열 | `Application/JSON` |
 |||
 

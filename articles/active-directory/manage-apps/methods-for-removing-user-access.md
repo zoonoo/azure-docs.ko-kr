@@ -2,20 +2,21 @@
 title: Azure Active Directory에서 애플리케이션에 대한 사용자 액세스를 제거하는 방법
 description: Azure Active Directory에서 애플리케이션에 대한 사용자 액세스를 제거하는 방법을 이해합니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 11/02/2020
-ms.author: mtillman
-ms.openlocfilehash: bc6dc9120b0c1f31e3c8c92343513306b1760db1
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: davidmu
+ms.reviewer: phsignor
+ms.openlocfilehash: 7466cfda1f4a38ea1559d68f8b1fe4779efe97d7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078603"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536525"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>애플리케이션에 대한 사용자 액세스를 제거하는 방법
 
@@ -39,16 +40,15 @@ ms.locfileid: "112078603"
 
 **전체 디렉터리에서 모든 이후 사용자 동의 작업을 비활성화** 하려면 다음 지침을 따릅니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  **Azure Active Directory 확장** 을 엽니다. 
+2. **Azure Active Directory 확장** 을 엽니다.
 
-3.  탐색 메뉴에서 **엔터프라이즈 애플리케이션** 을 클릭합니다.
+3. 탐색 메뉴에서 **엔터프라이즈 애플리케이션** 을 클릭합니다.
 
-5.  **사용자 설정** 을 클릭합니다.
+4. **사용자 설정** 을 클릭합니다.
 
-6.  **사용자는 앱이 자신을 대신하여 회사 데이터에 액세스하도록 허용할 수 있습니다** 토글을 **아니요** 로 설정하고, [저장] 단추를 클릭합니다.
-
+5. **사용자는 앱이 자신을 대신하여 회사 데이터에 액세스하도록 허용할 수 있습니다** 토글을 **아니요** 로 설정하고, [저장] 단추를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

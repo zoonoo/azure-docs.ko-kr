@@ -8,26 +8,25 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: SimranArora904
 ms.author: siarora
-ms.date: 05/25/2021
+ms.date: 06/14/2021
 ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: b9890ad85bea81b918a9b625a2cd62adb11a5820
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 66fe4d7e5b145b5f32fc0a881c4a9270872d9cac
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368876"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566925"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 리소스 할당량 관리 및 증가
 
 Azure는 사기로 인한 예산 초과를 방지하고, Azure 용량 제약 조건을 준수하기 위해 한도 및 할당량을 사용합니다. 프로덕션 워크로드의 크기를 조정할 때 이러한 한도를 고려하세요. 이 문서에서는 다음에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> + [Azure Machine Learning](overview-what-is-azure-ml.md)과 관련된 Azure 리소스에 대한 기본 한도
+> + [Azure Machine Learning](overview-what-is-azure-machine-learning.md)과 관련된 Azure 리소스에 대한 기본 한도
 > + 작업 영역 수준 할당량 만들기
 > + 할당량 및 한도 보기
 > + 할당량 증가 다시 요청
-> + 프라이빗 엔드포인트 및 DNS 할당량
 
 할당량 관리와 함께 [Azure Machine Learning에 대한 비용을 계획 및 관리](concept-plan-manage-cost.md)하는 방법 또는 [Azure Machine Learning의 서비스 한도](resource-limits-quotas-capacity.md)에 대해 자세히 알아볼 수 있습니다.
 
@@ -199,35 +198,8 @@ Azure Storage는 구독당 지역별로 250개의 스토리지 계정으로 제�
 > [!NOTE]
 > [평가판 구독](https://azure.microsoft.com/offers/ms-azr-0044p)은 한도 또는 할당량 증가 자격이 없습니다. 평가판 구독을 사용 중이면 [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/) 구독으로 업그레이드할 수 있습니다. 자세한 내용은 [Azure 평가판을 종량제로 업그레이드](../cost-management-billing/manage/upgrade-azure-subscription.md) 및 [Azure 체험 계정 FAQ](https://azure.microsoft.com/free/free-account-faq)를 참조하세요.
 
-## <a name="private-endpoint-and-private-dns-quota-increases"></a>프라이빗 엔드포인트 및 프라이빗 DNS 할당량 증가
-
-구독에서 만들 수 있는 프라이빗 엔드포인트 및 프라이빗 DNS 영역 수는 한도가 있습니다.
-
-Azure Machine Learning은 고객 구독에서 리소스를 만들지만, 일부 시나리오에서는 Microsoft 소유의 구독에 리소스를 만듭니다.
-
- 다음 시나리오에서는 Microsoft 소유의 구독에서 할당 허용량을 요청해야 할 수 있습니다.
-
-* CMK(고객 관리 키)가 있는 Azure Private Link 사용 작업 영역
-* Private Link를 사용하는 Azure Kubernetes Service 클러스터를 작업 영역에 연결
-
-이러한 시나리오에 대해 허용을 요청하려면 다음 단계를 수행합니다.
-
-1. [Azure 지원 요청을 만들고](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) __기본__ 섹션에서 다음 옵션을 선택합니다.
-
-    | 필드 | 선택 영역 |
-    | ----- | ----- |
-    | 문제 유형 | **기술** |
-    | 서비스 | **내 서비스**. 그런 후 드롭다운 목록에서 __Machine Learning__ 을 선택합니다. |
-    | 문제 유형 | **작업 영역 구성 및 보안** |
-    | 문제 하위 유형 | **프라이빗 엔드포인트 및 프라이빗 DNS 영역 허용 요청** |
-
-2. __세부 정보__ 섹션에서 __설명__ 필드를 사용하여 사용하려는 Azure 지역 및 시나리오를 제공합니다. 여러 구독에 대해 할당량 증가를 요청해야 할 경우 이 필드에 구독 ID를 나열합니다.
-
-3. __만들기__ 를 선택하여 요청을 만듭니다.
-
-:::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="프라이빗 엔드포인트 및 프라이빗 DNS 할당량 증가 요청의 스크린샷입니다.":::
-
 ## <a name="next-steps"></a>다음 단계
 
 + [Azure Machine Learning 비용 계획 및 관리](concept-plan-manage-cost.md)
 + [Azure Machine Learning의 서비스 한도](resource-limits-quotas-capacity.md)
++ [관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결](how-to-troubleshoot-managed-online-endpoints.md)

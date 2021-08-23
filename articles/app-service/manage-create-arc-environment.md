@@ -2,13 +2,13 @@
 title: App Service, 함수, 논리 앱용으로 Azure Arc 설정
 description: Azure Arc 지원 Kubernetes 클러스터에서 App Service 앱, 함수 앱 및 논리 앱을 사용하도록 설정하는 방법을 알아봅니다.
 ms.topic: article
-ms.date: 05/26/2021
-ms.openlocfilehash: e5e1b1ec8dd9a7e7ddf006222d2990bb6c354cd8
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.date: 08/17/2021
+ms.openlocfilehash: f6d917a9bd18c16e283f8c61e6cb6d15fcd4882f
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111890135"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122568037"
 ---
 # <a name="set-up-an-azure-arc-enabled-kubernetes-cluster-to-run-app-service-functions-and-logic-apps-preview"></a>Azure Arc 지원 Kubernetes 클러스터를 설정하여 App Service, Functions 및 Logic Apps 실행(미리 보기)
 
@@ -64,6 +64,8 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
 
 1. 공용 IP 주소를 사용하여 Azure Kubernetes Service에서 클러스터를 만듭니다. `<group-name>`을 원하는 리소스 그룹 이름으로 바꿉니다.
 
+    # <a name="bash"></a>[bash](#tab/bash)
+
     ```azurecli-interactive
     aksClusterGroupName="<group-name>" # Name of resource group for the AKS cluster
     aksName="${aksClusterGroupName}-aks" # Name of the AKS cluster
@@ -75,6 +77,22 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
     az network public-ip create --resource-group $infra_rg --name MyPublicIP --sku STANDARD
     staticIp=$(az network public-ip show --resource-group $infra_rg --name MyPublicIP --output tsv --query ipAddress)
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    $aksClusterGroupName="<group-name>" # Name of resource group for the AKS cluster
+    $aksName="${aksClusterGroupName}-aks" # Name of the AKS cluster
+    $resourceLocation="eastus" # "eastus" or "westeurope"
+
+    az group create -g $aksClusterGroupName -l $resourceLocation
+    az aks create --resource-group $aksClusterGroupName --name $aksName --enable-aad --generate-ssh-keys
+    $infra_rg=$(az aks show --resource-group $aksClusterGroupName --name $aksName --output tsv --query nodeResourceGroup)
+    az network public-ip create --resource-group $infra_rg --name MyPublicIP --sku STANDARD
+    $staticIp=$(az network public-ip show --resource-group $infra_rg --name MyPublicIP --output tsv --query ipAddress)
+    ```
+
+    ---
     
 2. [kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) 파일을 가져온 다음 클러스터에 대한 연결을 테스트합니다. 기본적으로 kubeconfig 파일은 `~/.kube/config`에 저장됩니다.
 
@@ -86,19 +104,44 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
     
 3. Azure Arc 리소스를 포함할 리소스 그룹을 만듭니다. `<group-name>`을 원하는 리소스 그룹 이름으로 바꿉니다.
 
+    # <a name="bash"></a>[bash](#tab/bash)
+
     ```azurecli-interactive
     groupName="<group-name>" # Name of resource group for the connected cluster
 
     az group create -g $groupName -l $resourceLocation
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    $groupName="<group-name>" # Name of resource group for the connected cluster
+
+    az group create -g $groupName -l $resourceLocation
+    ```
+
+    ---
     
 4. 생성한 클러스터를 Azure Arc에 연결합니다.
+
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```azurecli-interactive
     clusterName="${groupName}-cluster" # Name of the connected cluster resource
 
     az connectedk8s connect --resource-group $groupName --name $clusterName
     ```
+    
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+
+    ```powershell
+    $clusterName="${groupName}-cluster" # Name of the connected cluster resource
+
+    az connectedk8s connect --resource-group $groupName --name $clusterName
+    ```
+
+    ---
     
 5. 다음 명령을 사용하여 연결의 유효성을 검사합니다. `provisioningState` 속성이 `Succeeded`로 표시되어야 합니다. 그렇지 않은 경우 1분 후에 명령을 다시 실행합니다.
 
@@ -112,6 +155,8 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
 
 1. 간단한 설명을 위해 지금 작업 영역을 만듭니다.
 
+    # <a name="bash"></a>[bash](#tab/bash)
+
     ```azurecli-interactive
     workspaceName="$groupName-workspace" # Name of the Log Analytics workspace
     
@@ -119,8 +164,22 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
         --resource-group $groupName \
         --workspace-name $workspaceName
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    $workspaceName="$groupName-workspace"
+
+    az monitor log-analytics workspace create `
+        --resource-group $groupName `
+        --workspace-name $workspaceName
+    ```
+
+    ---
     
 2. 다음 명령을 실행하여 기존 Log Analytics 작업 영역에 대한 인코딩된 작업 영역 ID와 공유 키를 가져옵니다. 두 항목은 다음 단계에서 필요합니다.
+
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```azurecli-interactive
     logAnalyticsWorkspaceId=$(az monitor log-analytics workspace show \
@@ -137,18 +196,51 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
     logAnalyticsKeyEncWithSpace=$(printf %s $logAnalyticsKey | base64)
     logAnalyticsKeyEnc=$(echo -n "${logAnalyticsKeyEncWithSpace//[[:space:]]/}") # Needed for the next step
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    $logAnalyticsWorkspaceId=$(az monitor log-analytics workspace show `
+        --resource-group $groupName `
+        --workspace-name $workspaceName `
+        --query customerId `
+        --output tsv)
+    $logAnalyticsWorkspaceIdEnc=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($logAnalyticsWorkspaceId))# Needed for the next step
+    $logAnalyticsKey=$(az monitor log-analytics workspace get-shared-keys `
+        --resource-group $groupName `
+        --workspace-name $workspaceName `
+        --query primarySharedKey `
+        --output tsv)
+    $logAnalyticsKeyEnc=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($logAnalyticsKey))
+    ```
     
+    ---
+
 ## <a name="install-the-app-service-extension"></a>App Service 확장 설치
 
 1. [App Service 확장](overview-arc-integration.md)의 원하는 이름, 리소스를 프로비전해야 하는 클러스터 네임스페이스 및 App Service Kubernetes 환경의 이름에 대해 다음 환경 변수를 설정합니다. `<kube-environment-name>`의 고유한 이름을 선택합니다. App Service Kubernetes 환경에서 만든 앱의 도메인 이름에 포함되기 때문입니다.
+
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```bash
     extensionName="appservice-ext" # Name of the App Service extension
     namespace="appservice-ns" # Namespace in your cluster to install the extension and provision resources
     kubeEnvironmentName="<kube-environment-name>" # Name of the App Service Kubernetes environment resource
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    $extensionName="appservice-ext" # Name of the App Service extension
+    $namespace="appservice-ns" # Namespace in your cluster to install the extension and provision resources
+    $kubeEnvironmentName="<kube-environment-name>" # Name of the App Service Kubernetes environment resource
+    ```
+
+    ---
     
 2. Log Analytics를 사용하도록 설정한 상태에서 App Service 확장을 Azure Arc 연결된 클러스터에 설치합니다. 이번에도 Log Analytics가 필요하지는 않지만 나중에는 확장에 추가할 수 없으니 지금 하는 것이 더 편합니다.
+
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```azurecli-interactive
     az k8s-extension create \
@@ -175,6 +267,35 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
         --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
     ```
 
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    az k8s-extension create `
+        --resource-group $groupName `
+        --name $extensionName `
+        --cluster-type connectedClusters `
+        --cluster-name $clusterName `
+        --extension-type 'Microsoft.Web.Appservice' `
+        --release-train stable `
+        --auto-upgrade-minor-version true `
+        --scope cluster `
+        --release-namespace $namespace `
+        --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" `
+        --configuration-settings "appsNamespace=${namespace}" `
+        --configuration-settings "clusterName=${kubeEnvironmentName}" `
+        --configuration-settings "loadBalancerIp=${staticIp}" `
+        --configuration-settings "keda.enabled=true" `
+        --configuration-settings "buildService.storageClassName=default" `
+        --configuration-settings "buildService.storageAccessMode=ReadWriteOnce" `
+        --configuration-settings "customConfigMap=${namespace}/kube-environment-config" `
+        --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${aksClusterGroupName}" `
+        --configuration-settings "logProcessor.appLogs.destination=log-analytics" `
+        --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${logAnalyticsWorkspaceIdEnc}" `
+        --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
+    ```
+
+    ---
+
     > [!NOTE]
     > Log Analytics를 통합하지 않고 확장을 설치하려면 명령에서 마지막 세 개의 `--configuration-settings` 매개 변수를 제거하세요.
     >
@@ -199,6 +320,8 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
         
 3. 나중을 위해 App Service 확장의 `id` 속성을 저장합니다.
 
+    # <a name="bash"></a>[bash](#tab/bash)
+
     ```azurecli-interactive
     extensionId=$(az k8s-extension show \
         --cluster-type connectedClusters \
@@ -208,6 +331,20 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
         --query id \
         --output tsv)
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    $extensionId=$(az k8s-extension show `
+        --cluster-type connectedClusters `
+        --cluster-name $clusterName `
+        --resource-group $groupName `
+        --name $extensionName `
+        --query id `
+        --output tsv)
+    ```
+
+    ---
 
 4. 확장이 완전히 설치될 때까지 기다렸다가 계속 진행합니다. 다음 명령을 실행하여 설치가 완료될 때까지 터미널 세션이 대기하게 할 수 있습니다.
 
@@ -231,13 +368,27 @@ Azure에서 [사용자 지정 위치](../azure-arc/kubernetes/custom-locations.m
 
 1. 사용자 지정 위치의 원하는 이름에, 그리고 Azure Arc에 연결된 클러스터의 ID에 다음 환경 변수를 설정합니다.
 
+    # <a name="bash"></a>[bash](#tab/bash)
+
     ```bash
     customLocationName="my-custom-location" # Name of the custom location
     
     connectedClusterId=$(az connectedk8s show --resource-group $groupName --name $clusterName --query id --output tsv)
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    $customLocationName="my-custom-location" # Name of the custom location
     
-3. 사용자 지정 위치 만들기:
+    $connectedClusterId=$(az connectedk8s show --resource-group $groupName --name $clusterName --query id --output tsv)
+    ```
+
+    ---
+    
+2. 사용자 지정 위치 만들기:
+
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```azurecli-interactive
     az customlocation create \
@@ -247,18 +398,31 @@ Azure에서 [사용자 지정 위치](../azure-arc/kubernetes/custom-locations.m
         --namespace $namespace \
         --cluster-extension-ids $extensionId
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```azurecli-interactive
+    az customlocation create `
+        --resource-group $groupName `
+        --name $customLocationName `
+        --host-resource-id $connectedClusterId `
+        --namespace $namespace `
+        --cluster-extension-ids $extensionId
+    ```
+
+    ---
     
     <!-- --kubeconfig ~/.kube/config # needed for non-Azure -->
 
-4. 다음 명령을 이용하면 사용자 지정 위치가 성공적으로 생성되었는지 확인할 수 있습니다. 출력에서 `provisioningState` 속성이 `Succeeded`로 표시되어야 합니다. 그렇지 않은 경우 1분 후에 다시 실행합니다.
+3. 다음 명령을 이용하면 사용자 지정 위치가 성공적으로 생성되었는지 확인할 수 있습니다. 출력에서 `provisioningState` 속성이 `Succeeded`로 표시되어야 합니다. 그렇지 않은 경우 1분 후에 다시 실행합니다.
 
     ```azurecli-interactive
-    az customlocation show \
-        --resource-group $groupName \
-        --name $customLocationName
+    az customlocation show --resource-group $groupName --name $customLocationName
     ```
     
-5. 다음 단계를 위해 사용자 지정 위치 ID를 저장합니다.
+4. 다음 단계를 위해 사용자 지정 위치 ID를 저장합니다.
+
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```azurecli-interactive
     customLocationId=$(az customlocation show \
@@ -267,12 +431,26 @@ Azure에서 [사용자 지정 위치](../azure-arc/kubernetes/custom-locations.m
         --query id \
         --output tsv)
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```azurecli-interactive
+    $customLocationId=$(az customlocation show `
+        --resource-group $groupName `
+        --name $customLocationName `
+        --query id `
+        --output tsv)
+    ```
+
+    ---
     
 ## <a name="create-the-app-service-kubernetes-environment"></a>App Service Kubernetes 환경 만들기
 
 사용자 지정 위치에서 앱 만들기를 시작하기 전에 [App Service Kubernetes 환경](overview-arc-integration.md#app-service-kubernetes-environment)을 마련해야 합니다.
 
 1. App Service Kubernetes 환경 만들기:
+    
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```azurecli-interactive
     az appservice kube create \
@@ -281,13 +459,23 @@ Azure에서 [사용자 지정 위치](../azure-arc/kubernetes/custom-locations.m
         --custom-location $customLocationId \
         --static-ip $staticIp
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```azurecli-interactive
+    az appservice kube create `
+        --resource-group $groupName `
+        --name $kubeEnvironmentName `
+        --custom-location $customLocationId `
+        --static-ip $staticIp
+    ```
+
+    ---
     
 2. 다음 명령을 사용하여 App Service Kubernetes 환경이 성공적으로 생성되었는지 확인합니다. 출력에서 `provisioningState` 속성이 `Succeeded`로 표시되어야 합니다. 그렇지 않은 경우 1분 후에 다시 실행합니다.
 
     ```azurecli-interactive
-    az appservice kube show \
-        --resource-group $groupName \
-        --name $kubeEnvironmentName
+    az appservice kube show --resource-group $groupName --name $kubeEnvironmentName
     ```
     
 

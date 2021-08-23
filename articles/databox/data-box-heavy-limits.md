@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: article
-ms.date: 08/28/2019
+ms.date: 06/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 76e543a5bec749db55eb77649d2f6e0526f2cb1d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fedd7417f6f199289bfd5c6e11a1cf1bd8c98a82
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84705562"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113038357"
 ---
 # <a name="azure-data-box-heavy-limits"></a>Azure Data Box Heavy 제한
 
@@ -27,7 +27,7 @@ Azure Data Box Heavy 디바이스를 배포하고 운영할 때 이러한 제한
 ## <a name="data-box-heavy-limits"></a>Data Box Heavy 제한
 
 - Data Box Heavy는 노드당 최대 10억 개의 파일을 저장할 수 있습니다.
-- Data Box Heavy는 클라우드의 노드당 최대 512개의 컨테이너 또는 공유를 지원합니다. 사용자 공유 내의 최상위 수준 디렉터리는 클라우드의 컨테이너 또는 Azure 파일 공유가 됩니다.
+- Data Box Heavy는 클라우드의 노드당 최대 512개의 컨테이너 또는 공유를 지원합니다. 사용자 공유 내의 최상위 수준 디렉터리는 클라우드의 컨테이너 또는 Azure 파일 공유가 됩니다. 
 
 ## <a name="azure-storage-limits"></a>Azure Storage 제한
 

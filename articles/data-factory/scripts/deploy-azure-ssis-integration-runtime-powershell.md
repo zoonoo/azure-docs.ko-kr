@@ -2,17 +2,18 @@
 title: PowerShell을 사용하여 Azure‑SSIS 통합 런타임 배포
 description: 이 PowerShell 스크립트는 클라우드에서 SSIS 패키지를 실행할 수 있는 Azure-SSIS 통합 런타임을 만듭니다.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: article
 ms.author: sawinark
 author: swinarko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 09/12/2017
-ms.openlocfilehash: f037ef0050a6a9e93e0ae98cbfa1d2b9d68d5939
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 8698a5852eb557d5ec8016f1ec8f3181c9d43275
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665523"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567365"
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell 스크립트 ‑ Azure‑SSIS 통합 런타임 배포
 

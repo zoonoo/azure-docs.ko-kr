@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: aa08b9f5db5e6371bcd20b473a0c755db3199e7c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9fd23f5b5c78cac7b045c93a57c79279ed7f703
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101704296"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122567582"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>용량 및 성능 솔루션으로 Hyper-V 가상 머신 용량 계획(사용되지 않음)
 
@@ -41,7 +41,7 @@ Monitor의 용량 및 성능 솔루션을 사용하면 Hyper-V 서버의 용량�
 | 연결된 소스 | 지원 | Description |
 |---|---|---|
 | [Windows 에이전트](../agents/agent-windows.md) | 예 | 솔루션에서 Windows 에이전트의 용량 및 성능 데이터 정보를 수집합니다. |
-| [Linux 에이전트](../vm/quick-collect-linux-computer.md) | 예    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
+| [Linux 에이전트](../vm/monitor-virtual-machine.md) | 예 | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
 | [SCOM 관리 그룹](../agents/om-agents.md) | 예 |솔루션에서 연결된 SCOM 관리 그룹에 있는 에이전트의 용량 및 성능 데이터를 수집합니다. SCOM에서 Log Analytics로 직접 연결은 필요하지 않습니다.|
 | [Azure Storage 계정](../essentials/resource-logs.md#send-to-log-analytics-workspace) | 예 | Azure Storage는 용량 및 성능 데이터를 포함하지 않습니다.|
 
@@ -129,4 +129,3 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics의 로그 검색](../logs/log-query-overview.md)을 사용하여 자세한 용량 및 성능 데이터를 확인합니다.
-

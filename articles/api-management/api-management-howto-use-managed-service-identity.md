@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 03/09/2021
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1dc0c67a173333f2d2bcabd71d92ec88fa5a467d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: fa70be7a890bdfe0bbac9ee7acf2b8ae373e60e0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110071779"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535846"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Azure API Management의 관리 ID 사용
 
@@ -87,7 +87,7 @@ API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속
     "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "0.9.0.0",
     "resources": [{
-        "apiVersion": "2019-01-01",
+        "apiVersion": "2020-01-01",
         "name": "contoso",
         "type": "Microsoft.ApiManagement/service",
         "location": "[resourceGroup().location]",
@@ -200,7 +200,7 @@ API Management 인스턴스의 시스템 할당 ID를 사용하여 Azure Key Vau
         "apimServiceIdentityResourceId": "[concat(resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName')),'/providers/Microsoft.ManagedIdentity/Identities/default')]"
     },
     "resources": [{
-        "apiVersion": "2019-01-01",
+        "apiVersion": "2020-01-01",
         "name": "[variables('apiManagementServiceName')]",
         "type": "Microsoft.ApiManagement/service",
         "location": "[resourceGroup().location]",
@@ -353,7 +353,7 @@ API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속
     "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "0.9.0.0",
     "resources": [{
-        "apiVersion": "2019-12-01",
+        "apiVersion": "2020-12-01",
         "name": "contoso",
         "type": "Microsoft.ApiManagement/service",
         "location": "[resourceGroup().location]",

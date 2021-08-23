@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova
+ms.reviewer: mathoma, bonova
 ms.date: 04/29/2021
-ms.openlocfilehash: 259bd0128a4c5ce677e4d01f44b114aaba0cb977
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: d9958d30fff09ba0d6c66b71143ea68468dd0363
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889159"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537078"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 연결 아키텍처
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -165,7 +165,7 @@ Azure는 관리 엔드포인트를 사용하여 SQL Managed Instance를 관리�
 - **Microsoft 피어링**: SQL Managed Instance가 있는 가상 네트워크와 직접 또는 타동적으로 피어링된 고속 경로 회로에서 [Microsoft 피어링](../../expressroute/expressroute-faqs.md#microsoft-peering)을 사용하면 가상 네트워크 내부의 SQL Managed Instance 구성 요소와 가용성 문제의 원인이 되는 서비스 간의 트래픽 흐름에 영향을 미칩니다. Microsoft 피어링이 이미 사용하도록 설정된 가상 네트워크에 대한 SQL Managed Instance 배포는 실패할 것으로 예상됩니다.
 - **글로벌 가상 네트워크 피어링**: Azure 지역 간 [가상 네트워크 피어링](../../virtual-network/virtual-network-peering-overview.md) 연결은 2020년 9월 22일 이전에 만든 서브넷에 배치된 SQL Managed Instance에 대해 작동하지 않습니다.
 - **AzurePlatformDNS**: AzurePlatformDNS [서비스 태그](../../virtual-network/service-tags-overview.md)를 사용하여 플랫폼 DNS 확인을 차단하면 SQL Managed Instance를 사용할 수 없게 됩니다. SQL Managed Instance는 엔진 내에서 DNS 확인을 위해 고객 정의 DNS를 지원하지만, 플랫폼 작업을 위해 플랫폼 DNS를 사용합니다.
-- **NAT 게이트웨이**: [Azure Virtual Network NAT](../../virtual-network/nat-overview.md)를 사용하여 특정 공용 IP 주소와의 아웃바운드 연결을 제어하면 SQL Managed Instance를 사용할 수 없게 됩니다. 현재 SQL Managed Instance 서비스는 가상 네트워크 NAT와 인바운드 및 아웃바운드 흐름을 동시 사용을 지원하지 않는 기본 부하 분산 장치를 사용하도록 제한되어 있습니다.
+- **NAT 게이트웨이**: [Azure Virtual Network NAT](../../virtual-network/nat-gateway/nat-overview.md)를 사용하여 특정 공용 IP 주소와의 아웃바운드 연결을 제어하면 SQL Managed Instance를 사용할 수 없게 됩니다. 현재 SQL Managed Instance 서비스는 가상 네트워크 NAT와 인바운드 및 아웃바운드 흐름을 동시 사용을 지원하지 않는 기본 부하 분산 장치를 사용하도록 제한되어 있습니다.
 - **Azure Virtual Network의 IPv6**: SQL Managed Instance를 [이중 스택 IPv4/IPv6 가상 네트워크](../../virtual-network/ipv6-overview.md)에 배포하는 작업은 실패할 것으로 예상됩니다. IPv6 주소 접두사가 포함된 NSG(네트워크 보안 그룹) 또는 UDR(라우팅 테이블)을 SQL Managed Instance 서브넷에 연결하거나 이미 Managed Instance 서브넷과 연결된 NSG 또는 UDR에 IPv6 주소 접두사를 추가하면 SQL Managed Instance를 사용할 수 없게 됩니다. 이미 IPv6 접두사가 있는 NSG와 UDR이 포함된 서브넷에 SQL Managed Instance 배포는 실패할 것으로 예상됩니다.
 - **Microsoft 서비스용으로 예약된 이름을 갖는 Azure DNS 프라이빗 영역**: 다음은 예약된 이름 목록입니다. windows.net, database.windows.net, core.windows.net, blob.core.windows.net, table.core.windows.net, management.core.windows.net, monitoring.core.windows.net, queue.core.windows.net, graph.windows.net, login.microsoftonline.com, login.windows.net, servicebus.windows.net, vault.azure.net. Microsoft 서비스용으로 예약된 이름을 갖는 연결된 [Azure DNS 프라이빗 영역](../../dns/private-dns-privatednszone.md)을 포함하는 가상 네트워크로는 SQL Managed Instance를 배포할 수 없습니다. 예약된 이름을 갖는 Azure DNS 프라이빗 영역을 관리되는 인스턴스를 포함하는 가상 네트워크에 연결하면 SQL Managed Instance를 사용할 수 없게 됩니다. 적절한 Private Link 구성을 위해서는 [Azure 프라이빗 엔드포인트 DNS 구성](../../private-link/private-endpoint-dns.md)을 따르세요.
 - **Azure Storage에 대한 서비스 엔드포인트 정책**: 연결된 [서비스 엔드포인트 정책](../../virtual-network/virtual-network-service-endpoint-policies-overview.md)이 있는 서브넷에 SQL Managed Instance를 배포할 수 없습니다. 서비스 엔드포인트 정책을 Managed Instance를 호스트하는 서브넷에 연결할 수 없습니다.

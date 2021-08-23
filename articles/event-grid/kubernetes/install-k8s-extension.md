@@ -6,19 +6,19 @@ ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/26/2021
 ms.topic: how-to
-ms.openlocfilehash: d77d2c0c378d57c26f1496dc712c736a79c0c2ae
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 149f46d96e7e723c89eb473aa5faea2301bc9d5f
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110614548"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122567613"
 ---
 # <a name="install-event-grid-extension-on-azure-arc-enabled-kubernetes-cluster"></a>Azure Arc 지원 Kubernetes 클러스터에 Event Grid 확장 설치
 이 문서에서는 [Azure Arc 지원 Kubernetes](../../azure-arc/kubernetes/overview.md) 클러스터에 Event Grid를 설치하는 단계를 안내합니다.
 
 간결함을 위해 이 문서에서는 "Kubernetes의 Event Grid 확장"을 "Kubernetes의 Event Grid" 또는 "Event Grid"로 지칭합니다.
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 
 ## <a name="supported-kubernetes-distributions"></a>지원되는 Kubernetes 배포
@@ -27,7 +27,6 @@ Event Grid를 배포하고 실행할 수 있는 지원되는 Kubernetes 배포�
 1. Azure AKS [지원되는 Kubernetes 배포](../../aks/supported-kubernetes-versions.md).
 1. RedHat [OpenShift Container Platform](https://www.openshift.com/products/container-platform).
 
-[사용자 의견](https://feedback.azure.com/forums/909934-azure-event-grid) 및 [Azure Arc 지원 Kubernetes](../../azure-arc/kubernetes/validation-program.md)의 지원에 따라 더 많은 배포가 온보딩됩니다.
 
 ## <a name="event-grid-extension"></a>Event Grid 확장
 Kubernetes 클러스터에 Event Grid 서비스 인스턴스를 설치하는 작업은 **Event Grid 브로커** 와 **Event Grid 운영자** 를 모두 배포하는 Azure Arc 클러스터 확장을 만드는 것입니다. 브로커 및 운영자의 기능에 대한 자세한 내용은 [Kubernetes의 Event Grid 구성 요소](concepts.md#event-grid-on-kubernetes-components)를 참조하세요. [Azure Arc 클러스터 확장](../../azure-arc/kubernetes/conceptual-extensions.md) 기능은 Azure Arc 지원 Kubernetes 클러스터에 배포된 Event Grid에 ARM(Azure Resource Manager) 컨트롤 플레인 작업을 사용하여 수명 주기 관리를 제공합니다.
@@ -39,7 +38,7 @@ Kubernetes 클러스터에 Event Grid 서비스 인스턴스를 설치하는 작
 Event Grid 설치를 계속하기 전에 다음 필수 구성 요소를 충족하는지 확인합니다. 
 
 1. [지원되는 Kubernetes 배포](#supported-kubernetes-distributions) 중 하나에서 실행되는 클러스터.
-1. [Azure 구독](https://azure.microsoft.com/en-us/free/).
+1. [Azure 구독](https://azure.microsoft.com/free/).
 1. Event Grid 브로커와 HTTPS 연결을 설정하는 데 사용할 [PKI 인증서](#pki-certificate-requirements).
 1. [클러스터를 Azure Arc에 연결합니다](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
 
@@ -117,7 +116,7 @@ Event Grid 브로커 및 Event Grid 운영자와 보안 HTTPS 통신을 설정�
         :::image type="content" source="./media/install-k8s-extension/monitoring-page.png" alt-text="Event Grid 확장 설치 - 모니터링 페이지":::    
     1. **다음: 태그** 를 선택하여 **태그** 페이지로 이동합니다. 
 1. **태그** 페이지에서 다음 단계를 수행 합니다.
-    1. 필요한 경우 [태그](/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)를 정의합니다.
+    1. 필요한 경우 [태그](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)를 정의합니다.
 
         :::image type="content" source="./media/install-k8s-extension/tags-page.png" alt-text="Event Grid 확장 설치 - 태그 페이지":::
     1. 페이지 아래쪽에서 **검토 + 만들기** 를 선택합니다.

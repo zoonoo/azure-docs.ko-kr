@@ -2,16 +2,17 @@
 title: Azure-SSIS Integration Runtime Enterprise 버전 프로비전
 description: 이 문서에서는 Azure-SSIS Integration Runtime Enterprise 버전의 기능 및 프로비전하는 방법을 설명합니다.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: f700729c2d059648b1c3a7e451526aefcb436818
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82b004d6bf99528d45f7420777a5999f371babeb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100387549"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536206"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime Enterprise 버전 프로비전
 

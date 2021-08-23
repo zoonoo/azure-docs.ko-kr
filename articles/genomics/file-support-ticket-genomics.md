@@ -10,15 +10,15 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: ddfe8b6010ddc241364ccf7b2d4f5f648bd3ce0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab85dbc95a8f7432afba3eaa082f6490d1ba8dba
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "72248602"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113552463"
 ---
 # <a name="how-to-contact-microsoft-genomics-for-support"></a>지원을 위해 Microsoft Genomics에 문의하는 방법
-이 개요에서는 지원 요청을 파일링하여 Microsoft Genomics에 문의하는 방법을 설명합니다. 이 기능은 [문제 해결 가이드](troubleshooting-guide-genomics.md) 또는 [FAQ](frequently-asked-questions-genomics.md)를 사용하여 문제를 해결할 수 없는 경우에 유용할 수 있습니다. 
+이 개요에서는 지원 요청을 파일링하여 Microsoft Genomics에 문의하는 방법을 설명합니다. 이 기능은 [문제 해결 가이드](troubleshooting-guide-genomics.md) 또는 [FAQ](frequently-asked-questions-genomics.yml)를 사용하여 문제를 해결할 수 없는 경우에 유용할 수 있습니다. 
 
 
 ## <a name="file-a-support-ticket-through-the-azure-portal"></a>Azure Portal을 통해 지원 티켓 파일링
@@ -46,4 +46,4 @@ ms.locfileid: "72248602"
 ![지원 요청 연락처](./media/file-support-ticket/support-request-contact.png "지원 요청 연락처")
 
 ## <a name="next-steps"></a>다음 단계
-이 아티클에서는 지원 요청을 제출하는 방법을 알아보았습니다. [FAQ](frequently-asked-questions-genomics.md) 및 [문제 해결 가이드](troubleshooting-guide-genomics.md)를 사용하여 일반적인 문제를 해결할 수도 있습니다. 
+이 아티클에서는 지원 요청을 제출하는 방법을 알아보았습니다. [FAQ](frequently-asked-questions-genomics.yml) 및 [문제 해결 가이드](troubleshooting-guide-genomics.md)를 사용하여 일반적인 문제를 해결할 수도 있습니다. 

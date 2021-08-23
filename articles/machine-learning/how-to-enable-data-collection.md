@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: how-to
 ms.custom: data4ml
-ms.openlocfilehash: 4b6ae5668715431875090be999806dc5a9d994c9
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 2319e513cf223118e043ba11702301f8a2796ff3
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885095"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113504984"
 ---
 # <a name="collect-data-from-models-in-production"></a>프로덕션 환경에서 모델용 데이터 수집
 
@@ -57,7 +57,7 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
+- Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 - Azure Machine Learning 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. 해당 항목을 설치하는 방법을 알아보려면 [개발 환경 구성 방법](how-to-configure-environment.md)을 참조하세요.
 
@@ -99,7 +99,7 @@ Azure Machine Learning 또는 기타 도구를 통해 배포하는 모델과 관
     data = np.array(data)
     result = model.predict(data)
     inputs_dc.collect(data) #this call is saving our input data into Azure Blob
-    prediction_dc.collect(result) #this call is saving our input data into Azure Blob
+    prediction_dc.collect(result) #this call is saving our prediction data into Azure Blob
     ```
 
 1. 데이터 수집은 AKS에서 서비스를 배포할 때 **true** 로 자동 설정되지 ‘않습니다’. 다음 예제와 같이 구성 파일을 업데이트합니다.

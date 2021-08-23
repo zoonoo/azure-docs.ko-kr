@@ -6,16 +6,17 @@ ms.author: mathoma
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.subservice: management
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020
-ms.openlocfilehash: 2824e2fdec8d208444ad3ee61be4ef5dbeac404a
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f40e3478a10a1a141e02510d88f4564062ff2ce5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110191743"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567426"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>SQL IaaS 에이전트 확장을 사용하여 자동 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -87,7 +88,7 @@ PowerShell을 사용하여 여러 Azure 구독에 대한 자동 등록 기능을
 
 이렇게 하려면 다음 단계를 따르십시오.
 
-1. [이 스크립트](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/AutoRegTools.psm1)를 저장합니다.
+1. [이 스크립트](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/EnableBySubscription.ps1)를 저장합니다.
 1. 관리 명령 프롬프트 또는 PowerShell 창을 사용하여 스크립트를 저장한 위치로 이동합니다. 
 1. Azure에 연결합니다(`az login`).
 1. 스크립트를 실행하고 SubscriptionIds를 다음과 같이 매개 변수로 전달합니다.   

@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 04/29/2021
-ms.openlocfilehash: 60f52a11aa1573e4d05bcdc1dd8308ec3cc96dac
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.date: 08/03/2021
+ms.openlocfilehash: f46f5a01765d03c521c7bbc21b51aef9f3a8f93a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316140"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536591"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Azure Database for PostgreSQL – 하이퍼스케일(Citus) 구성 옵션
 
@@ -73,12 +73,7 @@ ms.locfileid: "108316140"
 | 19           | 29,184              | 58,368            | 116,812           |
 | 20           | 30,720              | 61,440            | 122,960           |
 
-### <a name="basic-tier-preview"></a>기본 계층(미리 보기)
-
-> [!IMPORTANT]
-> 하이퍼스케일(Citus) 서비스 계층은 현재 미리 보기로 제공되고 있습니다.  이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
->
-> [하이퍼스케일(Citus)의 미리 보기 기능](hyperscale-preview-features.md)에서 다른 새 기능의 전체 목록을 볼 수 있습니다.
+### <a name="basic-tier"></a>기본 계층
 
 하이퍼스케일(Citus) [기본 계층](concepts-hyperscale-tiers.md)은 하나의 노드만 있는 서버 그룹입니다.  코디네이터 노드와 작업자 노드는 구별되지 않으므로 컴퓨팅 및 스토리지 리소스를 선택하는 것은 그다지 복잡하지 않습니다.
 
@@ -113,7 +108,7 @@ ms.locfileid: "108316140"
     * 브라질 남부
     * 캐나다 중부
     * 미국 중부
-    * 미국 동부 *
+    * 미국 동부
     * 미국 동부 2
     * 미국 중북부
     * 미국 서부 2
@@ -124,12 +119,11 @@ ms.locfileid: "108316140"
     * 동남 아시아
 * 유럽:
     * 프랑스 중부
+    * 독일 중서부
     * 북유럽
     * 스위스 북부
     * 영국 남부
     * 서유럽
-
-(\* = [미리 보기 기능](hyperscale-preview-features.md) 지원)
 
 해당 지역 중 일부는 처음에는 일부 Azure 구독에서 활성화되지 않을 수 있습니다. 위 목록의 지역을 사용하려 하는데 해당 지역이 구독에 표시되지 않는 경우 또는 이 목록에 없는 지역을 사용하려는 경우 [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 엽니다.
 

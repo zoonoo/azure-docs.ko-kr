@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: yelevin
-ms.openlocfilehash: 3ce83de7f876bbd67120bf511d29860b71cd2227
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98d97bd7c8ffab685475f50130d68668fe1c9f8b
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104771280"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530439"
 ---
 # <a name="step-3-validate-connectivity"></a>3단계: 연결 유효성 검사
 
-로그 전달자를 배포하고(1단계) CEF 메시지를 보내도록 보안 솔루션을 구성했으면(2단계), 지침에 따라 보안 솔루션과 Azure Sentinel 간의 연결을 확인합니다. 
+로그 전달자를 배포하고(1단계) CEF 메시지를 보내도록 보안 솔루션을 구성했으면(2단계), 지침에 따라 보안 솔루션과 Azure Sentinel 간의 연결을 확인합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -37,9 +37,9 @@ ms.locfileid: "104771280"
 ## <a name="how-to-validate-connectivity"></a>연결 유효성 검사 방법
 
 1. Azure Sentinel 탐색 메뉴에서 **로그** 를 엽니다. **CommonSecurityLog** 스키마로 쿼리를 실행하여 보안 솔루션에서 로그를 받는지 확인합니다.<br>
-**Log Analytics** 에 로그가 나타나기 시작하는 데 약 20분이 걸릴 수 있습니다. 
+**Log Analytics** 에 로그가 나타나기 시작하는 데 약 20분이 걸릴 수 있습니다.
 
-1. 쿼리에서 결과가 나타나지 않으면 보안 솔루션에서 이벤트가 생성되고 있는지 확인하거나, 이벤트를 생성해 보고 이벤트가 지정한 Syslog 전달자 머신으로 전달되는지 확인합니다. 
+1. 쿼리에서 결과가 나타나지 않으면 보안 솔루션에서 이벤트가 생성되고 있는지 확인하거나, 이벤트를 생성해 보고 이벤트가 지정한 Syslog 전달자 머신으로 전달되는지 확인합니다.
 
 1. 로그 전달자(자리 표시자 대신에 작업 영역 ID를 적용)에서 다음 스크립트를 실행하여 보안 솔루션, 로그 전달자, Azure Sentinel 간의 연결을 확인합니다. 이 스크립트는 디먼이 올바른 포트에서 수신 대기하고 있는지, 전달이 제대로 구성되었는지, 디먼과 Log Analytics 에이전트 간의 통신을 차단하는 것이 없는지 확인합니다. 또한 ‘TestCommonEventFormat’ 모의 메시지를 전송하여 엔드투엔드 연결을 확인합니다. <br>
 
@@ -81,20 +81,20 @@ ms.locfileid: "104771280"
     </filter>
     ```
 
-1. 다음 명령을 사용하여 Cisco ASA 방화벽 이벤트에 대한 구문 분석이 예상대로 구성되었는지 확인합니다. 
+1. 다음 명령을 사용하여 Cisco ASA 방화벽 이벤트에 대한 구문 분석이 예상대로 구성되었는지 확인합니다.
 
     ```bash
     grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
     - <a name="parsing-command"></a>구문 분석에 문제가 있는 경우 스크립트는 **다음 명령을 수동으로 실행** 하도록 지시하는 오류 메시지를 생성합니다(자리 표시자 대신 작업 영역 ID 적용). 해당 명령은 올바른 구문 분석을 보장하고 에이전트를 다시 시작합니다.
-    
+
         ```bash
         # Cisco ASA parsing fix
         sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
-1. 다음 명령을 사용하여 syslog 원본의 ‘컴퓨터’ 필드가 Log Analytics 에이전트에 올바르게 매핑되었는지 확인합니다. 
+1. 다음 명령을 사용하여 syslog 원본의 ‘컴퓨터’ 필드가 Log Analytics 에이전트에 올바르게 매핑되었는지 확인합니다.
 
     ```bash
     grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
@@ -114,7 +114,7 @@ ms.locfileid: "104771280"
     - 구성 파일: `/etc/rsyslog.d/security-config-omsagent.conf`
 
         ```bash
-        if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226 
+        if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226
         ```
 
 1. syslog 디먼 및 Log Analytics 에이전트 다시 시작.
@@ -174,20 +174,20 @@ ms.locfileid: "104771280"
     </filter>
     ```
 
-1. 다음 명령을 사용하여 Cisco ASA 방화벽 이벤트에 대한 구문 분석이 예상대로 구성되었는지 확인합니다. 
+1. 다음 명령을 사용하여 Cisco ASA 방화벽 이벤트에 대한 구문 분석이 예상대로 구성되었는지 확인합니다.
 
     ```bash
     grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
     - <a name="parsing-command"></a>구문 분석에 문제가 있는 경우 스크립트는 **다음 명령을 수동으로 실행** 하도록 지시하는 오류 메시지를 생성합니다(자리 표시자 대신 작업 영역 ID 적용). 해당 명령은 올바른 구문 분석을 보장하고 에이전트를 다시 시작합니다.
-    
+
         ```bash
         # Cisco ASA parsing fix
         sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
-1. 다음 명령을 사용하여 syslog 원본의 ‘컴퓨터’ 필드가 Log Analytics 에이전트에 올바르게 매핑되었는지 확인합니다. 
+1. 다음 명령을 사용하여 syslog 원본의 ‘컴퓨터’ 필드가 Log Analytics 에이전트에 올바르게 매핑되었는지 확인합니다.
 
     ```bash
     grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
@@ -243,11 +243,12 @@ ms.locfileid: "104771280"
     ```
 ---
 
+
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 CEF 어플라이언스를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [CEF 및 CommonSecurityLog 필드 매핑](cef-name-mapping.md)에 대해 알아봅니다.
-- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](./tutorial-detect-threats-built-in.md)을 시작합니다.
-- [통합 문서를 사용](tutorial-monitor-your-data.md)하여 데이터를 모니터링합니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](./detect-threats-built-in.md)을 시작합니다.
+- [통합 문서를 사용](monitor-your-data.md)하여 데이터를 모니터링합니다.

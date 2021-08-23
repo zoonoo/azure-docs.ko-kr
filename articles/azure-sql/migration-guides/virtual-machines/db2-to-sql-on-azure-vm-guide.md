@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: chadam
 ms.date: 05/14/2021
-ms.openlocfilehash: ebe8c40f6e86c96fb4af49d261ce00d2364d0180
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: d82d423051af6a0cea8ab8b8fa5646ee80accf51
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957663"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567157"
 ---
 # <a name="migration-guide-ibm-db2-to-sql-server-on-azure-vm"></a>마이그레이션 가이드: IBM Db2에서 Azure VM의 SQL Server로
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ Db2 데이터베이스를 SQL Server로 마이그레이션하려면 다음이 �
 - Azure에서 원본 환경과 SQL Server VM 간의 [연결](../../virtual-machines/windows/ways-to-connect-to-sql.md). 
 - 대상 [Azure VM의 SQL Server](../../virtual-machines/windows/create-sql-vm-portal.md). 
 
-## <a name="pre-migration"></a>사전 마이그레이션
+## <a name="pre-migration"></a>마이그레이션 전
 
 필수 조건을 충족하면 사용자 환경의 토폴로지를 검색하고 마이그레이션의 적합성을 평가할 준비가 된 것입니다. 
 
@@ -125,7 +125,7 @@ DB2용 SSMA를 사용하여 데이터베이스 개체 및 데이터를 검토하
 
    :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/compare-schema-in-ssms.png" alt-text="SQL Server Management Studio의 스키마를 비교하는 방법을 보여주는 스크린샷.":::
 
-## <a name="post-migration"></a>마이그레이션 후 작업 
+## <a name="post-migration"></a>마이그레이션 후 
 
 마이그레이션을 완료한 후 모든 작업이 최대한 원활하고 효율적으로 작동하게 하려면 일련의 마이그레이션 후 작업을 수행해야 합니다.
 
@@ -148,7 +148,7 @@ DB2용 SSMA를 사용하여 데이터베이스 개체 및 데이터를 검토하
 
 |자산  |Description  |
 |---------|---------|
-|[데이터 워크로드 평가 모델 및 도구](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| 이 도구는 권장되는 “최적의” 대상 플랫폼, 클라우드 준비 상태 및 애플리케이션/데이터베이스 수정 수준을 지정된 워크로드에 제공합니다. 또한 자동화되고 균일한 대상 플랫폼 결정 프로세스를 제공하여 대규모 자산 평가를 가속화하는 데 도움이 되는 간단한 원클릭 계산 및 보고서 생성 기능을 제공합니다.|
+|[데이터 워크로드 평가 모델 및 도구](https://www.microsoft.com/download/details.aspx?id=103130)| 이 도구는 권장되는 “최적의” 대상 플랫폼, 클라우드 준비 상태 및 애플리케이션/데이터베이스 수정 수준을 지정된 워크로드에 제공합니다. 또한 자동화되고 균일한 대상 플랫폼 결정 프로세스를 제공하여 대규모 자산 평가를 가속화하는 데 도움이 되는 간단한 원클릭 계산 및 보고서 생성 기능을 제공합니다.|
 |[Db2 zOS 데이터 자산 검색 및 평가 패키지](https://www.microsoft.com/download/details.aspx?id=103108)|데이터베이스에서 SQL 스크립트를 실행한 후에는 파일 시스템의 파일로 결과를 내보낼 수 있습니다. \*.csv를 비롯한 여러 파일 형식이 지원되므로 스프레드시트와 같은 외부 도구에서 결과를 캡처할 수 있습니다. 이 방법은 워크벤치가 설치되지 않은 팀과 결과를 쉽게 공유하려는 경우에 유용할 수 있습니다.|
 |[IBM Db2 LUW 인벤토리 스크립트 및 아티팩트](https://www.microsoft.com/download/details.aspx?id=103109)|이 자산에는 IBM Db2 LUW 버전 11.1 시스템 테이블에 적용되며, 스키마 및 개체 형식별 개체 수, 각 스키마의 대략적인 "원시 데이터" 예측 및 각 스키마의 테이블 크기 조정을 CSV 형식으로 저장된 결과와 함께 제공하는 SQL 쿼리가 포함됩니다.|
 |[IBM Db2-SQL Server - 데이터베이스 비교 유틸리티](https://www.microsoft.com/download/details.aspx?id=103016)|데이터베이스 비교 유틸리티는 원본 플랫폼과 대상 플랫폼에서 데이터가 동일한지 확인하는 데 사용할 수 있는 Windows 콘솔 애플리케이션입니다. 이 도구를 사용하여 모든 테이블 또는 선택한 테이블, 행, 열의 행 또는 열 수준까지 데이터를 효율적으로 비교할 수 있습니다.|

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: krsh
 ms.date: 04/16/2021
-ms.openlocfilehash: 23fc6f6f6a62230e2cfc710c1c738eb42d6cc115
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 46b29bb6a7294d0f6741be4cac7028fe7e42ec95
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111527546"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113430272"
 ---
 # <a name="create-a-virtual-machine-using-an-approved-base"></a>승인된 베이스를 사용하여 가상 머신 만들기
 
@@ -78,5 +78,5 @@ Azure에서 지정한 가상 머신의 프로비저닝을 시작합니다. 왼�
 ## <a name="next-steps"></a>다음 단계
 
 - 권장되는 다음 단계: [VM 이미지 테스트](azure-vm-image-test.md)를 통해 Azure Marketplace 게시 요구 사항을 충족하는지 확인합니다. 선택 사항입니다.
-- VM 이미지를 테스트하지 않으려면 [파트너 센터](https://partner.microsoft.com/)에 로그인하여 이미지를 게시합니다.
-- 새 Azure 기반 VHD를 만드는 데 어려움이 있는 경우에는 [Azure Marketplace용 VM FAQ](azure-vm-create-faq.md)를 참조하세요.
+- VM 이미지를 테스트하지 않으려면 [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165935)에 로그인하여 이미지를 게시합니다.
+- 새 Azure 기반 VHD를 만드는 데 어려움이 있는 경우에는 [Azure Marketplace용 VM FAQ](azure-vm-create-faq.yml)를 참조하세요.

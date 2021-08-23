@@ -7,20 +7,19 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: a96be6d4da3d292b2e9881652aad28f318ccee8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94e7b6b351d13a85a516b4a4bc6c54c31754bc12
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92107575"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536405"
 ---
 # <a name="azure-data-studio-dashboards"></a>Azure Data Studio 대시보드
 
 [Azure Data Studio](/sql/azure-data-studio/what-is)는 Azure Arc 리소스에 대한 정보를 볼 수 있는 Azure Portal과 유사한 환경을 제공합니다.  이러한 보기를 **대시보드** 라고 하며, Azure Portal에서 지정된 리소스에 대해 볼 수 있는 것과 유사한 레이아웃 및 옵션을 제공하지만, Azure에 사용할 수 있는 연결이 없는 경우 사용자 환경에서 로컬로 해당 정보를 볼 수 있는 유연성을 제공합니다.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="connecting-to-a-data-controller"></a>데이터 컨트롤러에 연결
 

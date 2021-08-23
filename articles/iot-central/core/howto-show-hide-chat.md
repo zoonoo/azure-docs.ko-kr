@@ -7,13 +7,12 @@ ms.date: 08/23/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: philmea
-ms.openlocfilehash: f290395f4bd7afccace5067a97e63dda553f183c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd73c1ef16b48340a77ce6a64823465a4f893b05
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91999721"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536679"
 ---
 # <a name="toggle-live-chat"></a>라이브 채팅 토글
 
@@ -49,4 +48,4 @@ ms.locfileid: "91999721"
 지금까지 Azure IoT Central에서 라이브 채팅을 토글하는 방법을 알아보았으며, 다음 단계를 계속 진행하시기 바랍니다.
 
 > [!div class="nextstepaction"]
-> [대시보드에 타일 추가](howto-add-tiles-to-your-dashboard.md)
+> [대시보드에 타일 추가](howto-manage-dashboards.md)

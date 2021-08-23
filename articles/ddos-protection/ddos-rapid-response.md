@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 8f0ebeebb47885d12529a7f09041af9bc3eb12f2
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 847cd81886a12d5a8d414181e2919b43aa607228
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656707"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566578"
 ---
 # <a name="azure-ddos-rapid-response"></a>Azure DDoS 빠른 응답
 
@@ -49,7 +49,7 @@ Azure DDoS Protection Standard 고객은 활성 액세스 상태에서 공격 �
 
 5. 추가 세부 정보를 완료하고 지원 요청을 제출합니다.
 
-DRR은 Azure Rapid Response 지원 모델을 따릅니다. Rapid Response 관련 추가 정보는 [지원 범위 및 응답성](https://azure.microsoft.com/en-us/support/plans/response/)을 참조하세요.
+DRR은 Azure Rapid Response 지원 모델을 따릅니다. Rapid Response 관련 추가 정보는 [지원 범위 및 응답성](https://azure.microsoft.com/support/plans/response/)을 참조하세요.
 
 자세히 알아보려면 [DDoS Protection Standard 설명서](./ddos-protection-overview.md)를 참조하세요.
 

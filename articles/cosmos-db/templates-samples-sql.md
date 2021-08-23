@@ -7,17 +7,17 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/24/2021
 ms.author: mjbrown
-ms.openlocfilehash: 7163658024d150a7c5d75c3b3ac0b6b6b29cd3cb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bb39414e73ec3df2d2714d794f7060815b99bce1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105037311"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536079"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Resource Manager 템플릿
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-이 문서에서는 Core(SQL) API 계정에 대한 Azure Resource Manager 템플릿 예제만 보여줍니다. [Cassandra](templates-samples-cassandra.md), [Gremlin](templates-samples-gremlin.md), [MongoDB](templates-samples-mongodb.md) 및 [Table](templates-samples-table.md) API에 대한 템플릿 예제를 찾을 수도 있습니다.
+이 문서에서는 Core(SQL) API 계정에 대한 Azure Resource Manager 템플릿 예제만 보여줍니다. [Cassandra](cassandra/templates-samples.md), [Gremlin](templates-samples-gremlin.md), [MongoDB](mongodb/resource-manager-template-samples.md) 및 [Table](table/resource-manager-templates.md) API에 대한 템플릿 예제를 찾을 수도 있습니다.
 
 ## <a name="core-sql-api"></a>Core(SQL) API
 

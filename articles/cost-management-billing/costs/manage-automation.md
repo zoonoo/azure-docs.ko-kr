@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 2a39f77e3e7409d23ab7506b525f65e01082e99e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1c3e7399eedb6c3c4b78c9838f3724d94f20f0e4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720120"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536612"
 ---
 # <a name="manage-costs-with-automation"></a>자동화로 비용 관리
 
@@ -96,7 +96,7 @@ GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDe
 Microsoft 고객 계약이 있는 최신 고객의 경우 다음 호출을 사용합니다.
 
 ```http
-GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?startDate=2020-08-01&endDate=&2020-08-05$top=1000&api-version=2019-10-01
+GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?startDate=2020-08-01&endDate=2020-08-05&$top=1000&api-version=2019-10-01
 ```
 
 ### <a name="get-amortized-cost-details"></a>분할 상환 비용 세부 정보 얻기

@@ -1,14 +1,14 @@
 ---
 title: 정책 할당 구조 세부 정보
 description: Azure Policy에서 평가를 위해 정책 정의 및 매개 변수를 리소스에 연결하는 데 사용하는 정책 할당 정의를 설명합니다.
-ms.date: 04/14/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9de210b17264330e79ab5978a449e7a494054be2
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 1b29becc3324c0d174db2102c4ae7ac15206e567
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535876"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567959"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure Policy 할당 구조
 
@@ -91,7 +91,7 @@ JSON을 사용하여 정책 할당을 만듭니다. 정책 할당에는 다음 �
 
 해당 속성 값은 다음과 같습니다.
 
-|모드 |JSON 값 |Type |수동으로 수정 |활동 로그 항목 |Description |
+|모드 |JSON 값 |유형 |수동으로 수정 |활동 로그 항목 |Description |
 |-|-|-|-|-|-|
 |사용 |기본값 |문자열 |예 |예 |리소스를 만들거나 업데이트하는 동안 정책 효과가 적용됩니다. |
 |사용 안 함 |DoNotEnforce |문자열 |예 |예 | 리소스를 만들거나 업데이트하는 동안 정책 효과가 적용되지 않습니다. |

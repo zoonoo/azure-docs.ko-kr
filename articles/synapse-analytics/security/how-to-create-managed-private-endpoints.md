@@ -1,19 +1,19 @@
 ---
 title: 관리형 프라이빗 엔드포인트를 만들어 데이터 원본 결과에 연결
 description: 이 문서에서는 Azure Synapse 작업 영역에서 데이터 원본에 대한 관리형 프라이빗 엔드포인트를 만드는 방법을 설명합니다.
-author: RonyMSFT
+author: ashinMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 04/15/2020
-ms.author: ronytho
+ms.author: seshin
 ms.reviewer: jrasnick
-ms.openlocfilehash: e0309b4c96b2ae25eb568e390717ba76cfd84fa5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ca00f185c3bfc0a10a949953dfa0e2b1e7a09a4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96461320"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566834"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source"></a>데이터 원본에 대한 관리형 프라이빗 엔드포인트 만들기
 

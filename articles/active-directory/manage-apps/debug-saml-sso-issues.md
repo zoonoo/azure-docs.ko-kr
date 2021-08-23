@@ -2,25 +2,25 @@
 title: SAML 기반 Single Sign-On 디버그 - Azure Active Directory
 description: Azure Active Directory에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그합니다.
 services: active-directory
-ms.author: mtillman
-author: mtillman
+ms.author: davidmu
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 02/18/2019
-ms.reviewer: luleon, hirsin, paulgarn
-ms.openlocfilehash: 8391d52a17f897c0526c49ec39d408792d2e3699
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.reviewer: ergreenl
+ms.openlocfilehash: 8e01b93c2371f55f56d9c9284894c3bdbbaac993
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075955"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567071"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그
 
-SAML 기반 Single Sign-On을 사용하는 Azure AD(Azure Active Directory)에서 애플리케이션의 [Single Sign-On](what-is-single-sign-on.md) 문제를 찾고 수정하는 방법을 알아봅니다. 
+SAML 기반 Single Sign-On을 사용하는 Azure AD(Azure Active Directory)에서 애플리케이션의 [Single Sign-On](what-is-single-sign-on.md) 문제를 찾고 수정하는 방법을 알아봅니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -37,7 +37,7 @@ SAML 기반 Single Sign-On을 사용하는 Azure AD(Azure Active Directory)에�
 Azure AD와 대상 애플리케이션 간에 SAML 기반 Single Sign-On을 테스트하려면:
 
 1. 전역 관리자 또는 애플리케이션을 관리할 권한이 있는 다른 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 왼쪽 블레이드에서 **Azure Active Directory** 를 선택한 후 **엔터프라이즈 애플리케이션** 을 선택합니다. 
+1. 왼쪽 블레이드에서 **Azure Active Directory** 를 선택한 후 **엔터프라이즈 애플리케이션** 을 선택합니다.
 1. Enterprise 애플리케이션 목록에서 Single Sign-On을 테스트하려는 애플리케이션을 선택한 다음, 왼쪽에 있는 옵션에서 **Single Sign-On** 을 선택합니다.
 1. SAML 기반 Single Sign-On 테스트 환경을 열려면 **Single Sign-On 테스트**(5단계)로 이동합니다. **테스트** 단추가 회색으로 표시되면 먼저 **기본 SAML 구성** 섹션에서 필요한 특성을 작성하고 저장해야 합니다.
 1. **Single Sign-On 테스트** 블레이드에서 대상 애플리케이션에 로그인하려면 회사 자격 증명을 사용합니다. 현재 사용자 또는 다른 사용자로 로그인할 수 있습니다. 다른 사용자로 로그인하는 경우 인증을 요구하는 메시지가 나타납니다.
@@ -77,7 +77,6 @@ Azure AD와 대상 애플리케이션 간에 SAML 기반 Single Sign-On을 테�
 1. SAML 요청의 발급자가 Azure AD의 애플리케이션에 대해 구성한 것과 동일한 식별자인지 확인입니다. Azure AD는 사용자 디렉터리에서 애플리케이션을 찾는 데 발급자를 사용합니다.
 1. 애플리케이션이 Azure AD에서 SAML 토큰을 수신해야 하는 위치에 AssertionConsumerServiceURL이 있는지 확인합니다. Azure AD에서 이 값을 구성할 수 있지만 SAML 요청에 포함된 경우에는 필수가 아닙니다.
 
-
 ## <a name="resolve-a-sign-in-error-on-the-application-page"></a>애플리케이션 페이지에서 로그인 오류 해결
 
 성공적으로 로그인한 다음, 애플리케이션 페이지에 오류가 표시될 수 있습니다. Azure AD가 애플리케이션에 토큰을 발급했지만 애플리케이션이 응답을 적용하지 않는 경우에 발생합니다.
@@ -95,7 +94,7 @@ Azure AD와 대상 애플리케이션 간에 SAML 기반 Single Sign-On을 테�
 
      SAML 응답에 대한 자세한 내용은 [Single Sign-On SAML 프로토콜](../develop/single-sign-on-saml-protocol.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)을 참조합니다.
 
-1. SAML 응답을 검토했으므로 이제 문제를 해결하는 방법에 관한 지침은 [로그인한 후 애플리케이션 페이지의 오류](application-sign-in-problem-application-error.md)를 참조하세요. 
+1. SAML 응답을 검토했으므로 이제 문제를 해결하는 방법에 관한 지침은 [로그인한 후 애플리케이션 페이지의 오류](application-sign-in-problem-application-error.md)를 참조하세요.
 1. 아직 성공적으로 로그인할 수 없는 경우 SAML 응답에서 누락된 항목을 애플리케이션 공급업체에 요청할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -2,17 +2,19 @@
 title: HDInsight에서 ML 서비스 운영 - Azure
 description: Azure HDInsight에서 ML 서비스를 사용하여 예측하도록 데이터 모델을 운영하는 방법을 알아봅니다.
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.openlocfilehash: 7d597c4dbb81562050e9523c61d47d0020fc9059
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ROBOTS: NOINDEX
+ms.openlocfilehash: eb8114da913347309e6e8ad263c0bb7fcf56790f
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869475"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299288"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 운영
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을 완료한 후에 모델을 운영하여 예측할 수 있습니다. 이 문서에서는 이 작업을 수행하는 방법에 대한 지침을 제공합니다.
 
@@ -164,7 +166,7 @@ ML 서비스 클러스터는 [Apache Hadoop YARN](https://hadoop.apache.org/docs
 * 작업자 노드를 선택 취소하고 헤드 노드를 선택합니다.
 * **작업** > **선택한 호스트** > **호스트** > **모든 구성 요소 다시 시작** 을 선택합니다.
 
-### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>2단계: 서비스 해제된 작업자 노드 각각에 컴퓨팅 노드 구성
+###    <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>2단계: 서비스 해제된 작업자 노드 각각에 컴퓨팅 노드 구성
 
 1. SSH를 서비스 해제된 각 작업자 노드로 실행합니다.
 

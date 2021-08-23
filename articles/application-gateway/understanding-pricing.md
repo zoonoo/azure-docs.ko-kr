@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/01/2020
 ms.author: azhussai
-ms.openlocfilehash: 89ba6b7a69c95951a083628f23be68d811c7768c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c6afc21ce2dd4ba08a29d2a1c19e680b838c9ee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96601614"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536161"
 ---
 # <a name="understanding-pricing-for-azure-application-gateway-and-web-application-firewall"></a>Azure Application Gateway 및 Web Application Firewall의 가격 책정 이해
 
@@ -392,4 +392,4 @@ WAF_V2를 프로비전했고 전체 한 달 동안 허용되는 최소 인스턴
 Azure Application Gateway에서 가격 책정을 작동하는 방법에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
 * [Azure Application Gateway 가격 책정 페이지](https://azure.microsoft.com/pricing/details/application-gateway/)
-* [Azure Application Gateway 가격 책정 계산기](https://azure.microsoft.com/en-us/pricing/calculator/?service=application-gateway)
+* [Azure Application Gateway 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/?service=application-gateway)

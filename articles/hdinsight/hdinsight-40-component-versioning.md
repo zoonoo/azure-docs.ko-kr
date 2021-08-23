@@ -3,15 +3,13 @@ title: Apache Hadoop 구성 요소 및 버전 - Azure HDInsight 4.0
 description: Azure HDInsight 4.0의 Apache Hadoop 구성 요소 및 버전에 대해 자세히 알아봅니다.
 ms.service: hdinsight
 ms.topic: conceptual
-author: deshriva
-ms.author: deshriva
 ms.date: 02/08/2021
-ms.openlocfilehash: c661304fcb9e88f01d139c0d8b6950f316391586
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 088498a5a8ab7732bc4e657e3575998c899ffd42
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203114"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567016"
 ---
 # <a name="hdinsight-40-component-versions"></a>HDInsight 4.0 구성 요소 버전
 

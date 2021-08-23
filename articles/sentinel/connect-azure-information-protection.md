@@ -10,18 +10,20 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 82ea47037902ce3a9449f71a9edf62cb80863d4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f936208e936bfe65b28816cc373d9ba1190308e9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94655989"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535645"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Azure Information Protection에서 데이터 연결
 
 > [!IMPORTANT]
 > Azure Sentinel의 Azure Information Protection 데이터 커넥터는 현재 공개 미리 보기로 제공됩니다.
 > 해당 기능은 별도의 서비스 수준 약정 없이 제공되며, 프로덕션 작업에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Azure Information Protection 데이터 커넥터를 구성하여 [Azure Information Protection](https://azure.microsoft.com/services/information-protection/)에서 Azure Sentinel로 정보를 스트림 로깅할 수 있습니다. Azure Information Protection은 클라우드 또는 온-프레미스에 저장되어 있는지 여부에 관계 없이 중요한 데이터를 컨트롤하고 보호하는 데 유용합니다.
 
@@ -74,5 +76,5 @@ Azure Information Protection에 대한 Log Analytics 작업 영역을 구성하�
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Azure Information Protection을 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.

@@ -2,33 +2,33 @@
 title: Azure Active Directory의 SAML 토큰 암호화
 description: Azure Active Directory SAML 토큰 암호화를 구성하는 방법을 알아봅니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.author: mtillman
-ms.reviewer: paulgarn
+ms.author: davidmu
+ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 303a6e63a429ed77d5c613bb85626c11055ba04a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 2dc7169055f006ca12c2f291d20683022a27d7a2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112074866"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567285"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Azure AD SAML 토큰 암호화를 구성하는 방법
 
 > [!NOTE]
-> 토큰 암호화는 Azure AD(Azure Active Directory) 프리미엄 기능입니다. Azure AD 버전, 기능 및 가격 책정에 대한 자세한 내용은 [Azure AD 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.
+> 토큰 암호화는 Azure AD(Azure Active Directory) 프리미엄 기능입니다. Azure AD 버전, 기능 및 가격 책정에 대한 자세한 내용은 [Azure AD 가격 책정](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)을 참조하세요.
 
 SAML 토큰 암호화에서는 암호화된 SAML 어셜선을 지원되는 애플리케이션에서 이 어셜선 기능을 사용할 수 있습니다. 애플리케이션용으로 구성한 Azure AD는 Azure AD에 저장된 인증서에서 가져온 공개 키를 사용하여 해당 애플리케이션용으로 내보낸 SAML 어설션을 암호화합니다. 애플리케이션이 먼저 일치하는 프라이빗 키를 사용하여 토큰 암호를 해독해야만 로그인한 사용자의 인증 증명 정보로 사용할 수 있습니다.
 
 Azure AD와 애플리케이션 간의 SAML 어설션을 암호화하면 토큰 콘텐츠를 가로챌 수 없고, 개인 또는 회사 데이터를 손상시킬 수 없도록 추가적으로 보장됩니다.
 
-토큰 암호화를 사용하지 않더라도 Azure AD SAML 토큰이 네트워크에서 암호화되지 않은 상태로 전달되는 일은 없습니다. Azure AD는 토큰 요청/응답 교환이 암호화된 HTTPS/TLS 채널을 통해 수행되도록 요구하므로 IDP, 브라우저 및 애플리케이션 간의 통신이 암호화된 연결을 통해 수행됩니다. 추가 인증서 관리에 따른 오버헤드와 비교하면서 작업 상황에서 토큰 암호화를 사용할 때의 가치를 고려하세요.   
+토큰 암호화를 사용하지 않더라도 Azure AD SAML 토큰이 네트워크에서 암호화되지 않은 상태로 전달되는 일은 없습니다. Azure AD는 토큰 요청/응답 교환이 암호화된 HTTPS/TLS 채널을 통해 수행되도록 요구하므로 IDP, 브라우저 및 애플리케이션 간의 통신이 암호화된 연결을 통해 수행됩니다. 추가 인증서 관리에 따른 오버헤드와 비교하면서 작업 상황에서 토큰 암호화를 사용할 때의 가치를 고려하세요.
 
 토큰 암호화를 구성하려면 애플리케이션을 나타내는 Azure AD 애플리케이션 개체에 공개 키를 포함하는 X.509 인증서 파일을 업로드해야 합니다. X.509 인증서를 가져오려면 애플리케이션 자체에서 다운로드하거나, 애플리케이션 공급 기업에서 암호화 키를 제공하는 경우 또는 사용자가 애플리케이션에 프라이빗 키를 제공해야 하는 경우 애플리케이션 공급 기업에서 가져옵니다. 암호화 도구, 애플리케이션의 키 저장소에 업로드된 프라이빗 키 부분 및 Azure AD에 업로드된 일치하는 공개 키 인증서를 사용하여 만들 수 있습니다.
 

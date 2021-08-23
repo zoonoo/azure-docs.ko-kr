@@ -3,12 +3,12 @@ title: Azure Lab Services - 관리자 가이드 | Microsoft Docs
 description: 이 가이드는 Azure Lab Services를 사용하여 랩 계정을 만들고 관리하는 관리자를 지원합니다.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 0dd7cb9f23d820cc8a4001d430e8ef446ecc5460
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 567a6ad5cd7eae6fb6963dbcdb781fc2d7667f79
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958842"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566854"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - 관리자 가이드
 대학 클라우드 리소스를 관리하는 IT(정보 기술) 관리자는 일반적으로 학교의 랩 계정을 설정합니다. 랩 계정을 설정하고 나면 관리자 또는 교육자가 해당 계정 내에 포함된 랩을 만듭니다. 이 문서에서는 관련 Azure 리소스에 대한 대략적인 개요 및 해당 리소스를 만들기 위한 지침을 제공합니다.
@@ -291,7 +291,7 @@ Shared Image Gallery에 템플릿 VM 이미지를 저장하는 비용의 예를 
 * 1개의 사용자 지정 이미지(32GB) &times; 2개의 버전 &times; 8개의 미국 지역 &times; $1.54 = $24.64/월
 
 > [!NOTE]
-> 위의 계산은 예시용입니다. Shared Image Gallery를 사용하는 경우와 관련된 스토리지 비용이 포함되며 송신 비용은 포함되지 *않습니다*. 스토리지의 실제 가격 책정은 [관리 디스크 가격 책정](https://azure.microsoft.com/en-us/pricing/details/managed-disks/)을 참조하세요.
+> 위의 계산은 예시용입니다. Shared Image Gallery를 사용하는 경우와 관련된 스토리지 비용이 포함되며 송신 비용은 포함되지 *않습니다*. 스토리지의 실제 가격 책정은 [관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요.
 
 #### <a name="cost-management"></a>비용 관리
 

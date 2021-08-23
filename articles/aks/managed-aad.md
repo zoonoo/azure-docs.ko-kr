@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: 6b9bf8aea031b7dce88fbaa096d8e5996e1d6f57
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: 353fdd952ed4b2baa8920f1e15fb0dc0f44264ba
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110189750"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122538226"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS 관리형 Azure Active Directory 통합
 
@@ -190,7 +190,7 @@ AKS 관리형 Azure AD 클러스터가 성공적으로 마이그레이션되면 
 
 ## <a name="disable-local-accounts-preview"></a>로컬 계정 사용 안 함(미리 보기)
 
-AKS 클러스터를 배포할 때 로컬 계정은 기본적으로 사용하도록 설정됩니다. RBAC 또는 Azure Active Directory 통합을 사용하는 경우에도 기본적으로 감사할 수 없는 백도어 옵션으로 `--admin` 액세스 권한이 있습니다. 이를 고려하여 AKS는 사용자에게 플래그 `disable-local`을 통해 로컬 계정을 사용하지 않도록 할 수 있는 기능을 제공합니다. 기능이 클러스터에서 사용하도록 설정되었는지 여부를 나타내는 필드 `properties.disableLocalAccounts`도 관리 클러스터 API에 추가되었습니다.
+AKS 클러스터를 배포할 때 로컬 계정은 기본적으로 사용하도록 설정됩니다. RBAC 또는 Azure Active Directory 통합을 사용하는 경우에도 기본적으로 감사할 수 없는 백도어 옵션으로 `--admin` 액세스 권한이 있습니다. 이를 고려하여 AKS는 사용자에게 플래그 `disable-local-accounts`을 통해 로컬 계정을 사용하지 않도록 할 수 있는 기능을 제공합니다. 기능이 클러스터에서 사용하도록 설정되었는지 여부를 나타내는 필드 `properties.disableLocalAccounts`도 관리 클러스터 API에 추가되었습니다.
 
 > [!NOTE]
 > Azure AD 통합이 사용하도록 설정된 클러스터에서 `aad-admin-group-object-ids`로 지정된 그룹에 속한 사용자는 관리자가 아닌 자격 증명을 통해 계속 액세스할 수 있습니다. Azure AD 통합을 사용하지 않고 `properties.disableLocalAccounts`를 true로 설정하지 않은 클러스터에서는 사용자 및 관리자 자격 증명을 모두 얻지 못합니다.
@@ -221,10 +221,10 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="create-a-new-cluster-without-local-accounts"></a>로컬 계정이 없는 새 클러스터 만들기
 
-로컬 계정 없이 새 AKS 클러스터를 만들려면 `disable-local` 플래그와 함께 [az aks create][az-aks-create] 명령을 사용합니다.
+로컬 계정 없이 새 AKS 클러스터를 만들려면 `disable-local-accounts` 플래그와 함께 [az aks create][az-aks-create] 명령을 사용합니다.
 
 ```azurecli-interactive
-az aks create -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local
+az aks create -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local-accounts
 ```
 
 출력에서 `properties.disableLocalAccounts` 필드가 true로 설정되어 있는지 확인하여 로컬 계정이 사용하지 않도록 설정되었는지 확인합니다.
@@ -247,10 +247,10 @@ Operation failed with status: 'Bad Request'. Details: Getting static credential 
 
 ### <a name="disable-local-accounts-on-an-existing-cluster"></a>기존 클러스터에서 로컬 계정 사용 안 함
 
-기존 AKS 클러스터에서 로컬 계정을 사용하지 않도록 설정하려면 `disable-local` 플래그와 함께 [az aks update][az-aks-update] 명령을 사용합니다.
+기존 AKS 클러스터에서 로컬 계정을 사용하지 않도록 설정하려면 `disable-local-accounts` 플래그와 함께 [az aks update][az-aks-update] 명령을 사용합니다.
 
 ```azurecli-interactive
-az aks update -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local
+az aks update -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local-accounts
 ```
 
 출력에서 `properties.disableLocalAccounts` 필드가 true로 설정되어 있는지 확인하여 로컬 계정이 사용하지 않도록 설정되었는지 확인합니다.

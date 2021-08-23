@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 82482b260233994672e603c16fe8cf919c92337f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95b9a28dd0d62df12b8a3ea4f9334f2edbdabdc7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98201028"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567252"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>쿼리 저장소를 사용하여 Azure Database for MySQL 성능 모니터링
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 **적용 대상:** Azure Database for MySQL 5.7, 8.0
 
@@ -171,7 +173,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 ## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
 
-- MySQL 서버에 `default_transaction_read_only` 매개 변수가 있으면 쿼리 저장소는 데이터를 캡처할 수 없습니다.
+- MySQL 서버에 `read_only` 매개 변수가 있으면 쿼리 저장소는 데이터를 캡처할 수 없습니다.
 - 긴 유니코드 쿼리(\>= 6000바이트)가 발견되면 쿼리 저장소 기능이 중단될 수 있습니다.
 - 대기 통계의 보존 기간은 24시간입니다.
 - 대기 통계는 샘플을 사용하여 이벤트의 비율을 캡처합니다. `query_store_wait_sampling_frequency` 매개 변수를 사용하여 빈도를 수정할 수 있습니다.

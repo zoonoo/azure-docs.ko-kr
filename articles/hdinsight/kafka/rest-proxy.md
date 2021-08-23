@@ -3,14 +3,14 @@ title: Apache Kafka REST 프록시 - Azure HDInsight
 description: Azure HDInsight에서 Kafka REST 프록시를 사용하여 Apache Kafka 작업을 실행하는 방법을 알아봅니다.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-python
+ms.custom: devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: bc3cbe5d0d7cf5e5a78112ae5df63ebb88a97f5a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 634526e8a136023368a06887af648ca3925151a0
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104864842"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122538906"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>REST 프록시를 사용하여 Azure HDInsight에서 Apache Kafka 클러스터와 상호 작용
 

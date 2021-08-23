@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 49dc71dac6d246907de3498ed0a39541a3caf522
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: e7d0515262fc06d850b61f257e7cd577797bcf39
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111888431"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536476"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하는 API Management에 대한 CI/CD
 
@@ -67,7 +67,7 @@ API 개발자는 Resource Manager 템플릿으로 작업하는 경우 문제에 
 
 * API 게시자는 끌어오기 요청의 유효성을 검사하고 변경 내용이 안전하고 규정을 준수하는지 확인할 수 있습니다. 예를 들어 HTTPS만 API와 통신할 수 있는지 확인할 수 있습니다. 대부분의 유효성 검사는 CI/CD 파이프라인의 단계로 자동화할 수 있습니다.
 
-* 변경 내용이 승인되고 병합되면 API 게시자는 일정에 따라 또는 주문형으로 이를 프로덕션 인스턴스에 배포하도록 선택할 수 있습니다. [GitHub 작업](https://github.com/Azure/apimanagement-devops-samples), [Azure Pipelines](/azure/devops/pipelines), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md) 또는 기타 도구를 사용하여 템플릿의 배포를 자동화할 수 있습니다.
+* 변경 내용이 승인되고 병합되면 API 게시자는 일정에 따라 또는 주문형으로 이를 프로덕션 인스턴스에 배포하도록 선택할 수 있습니다. [GitHub 작업](https://docs.github.com/en/actions), [Azure Pipelines](/azure/devops/pipelines), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md) 또는 기타 도구를 사용하여 템플릿의 배포를 자동화할 수 있습니다.
 
 
 이 방법을 사용하면 조직에서 API Management 인스턴스에 대한 API 변경 내용의 배포를 자동화할 수 있으며, 한 환경에서 다른 환경으로 쉽게 변경 내용을 승격시킬 수 있습니다. API 개발 팀 마다 다른 API 템플릿 및 파일 집합에 대해 작업을 수행하므로, 서로 다른 팀 간의 간섭을 방지할 수 있습니다.

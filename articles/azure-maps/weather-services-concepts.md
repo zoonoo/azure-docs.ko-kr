@@ -7,13 +7,12 @@ ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: d1dbac6df2e4cc4f872cece3f519dbd7d65e2af4
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: b123caf65c86980dfa3cacf5e7d412851332afc8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440037"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567213"
 ---
 # <a name="weather-services-in-azure-maps"></a>Azure Maps의 Weather Service
 
@@ -100,7 +99,7 @@ ms.locfileid: "111440037"
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>레이더 및 위성 이미지 색 눈금
 
-[지도 타일 가져오기 v2 API](/rest/api/maps/renderv2/getmaptilepreview)를 통해 사용자는 최신 레이더 및 적외선 위성 이미지를 요청할 수 있습니다. 레이더 및 위성 타일에 사용되는 색을 해석하려면 아래 가이드를 참조하세요.
+[지도 타일 가져오기 v2 API](/rest/api/maps/render-v2/get-map-tile)를 통해 사용자는 최신 레이더 및 적외선 위성 이미지를 요청할 수 있습니다. 레이더 및 위성 타일에 사용되는 색을 해석하려면 아래 가이드를 참조하세요.
 
 ### <a name="radar-images"></a>레이더 이미지
 

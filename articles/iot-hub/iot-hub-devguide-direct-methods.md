@@ -1,23 +1,23 @@
 ---
 title: Azure IoT Hub 직접 메서드 이해 | Microsoft Docs
 description: 개발자 가이드 - 직접 메서드를 사용하여 서비스 앱의 디바이스에서 코드 호출
-author: philmea
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.author: philmea
+ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: b75e859fc1237bc88bee464cef423b7289810fa8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b9b0a86b86ae1e2253da2349bb9e1c3523f5798
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92147795"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537382"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 
@@ -228,5 +228,5 @@ AMQP 메시지는 메서드 요청을 나타내는 수신 링크에 도착하며
 
 이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 살펴보세요.
 
-* [직접 메서드 사용](quickstart-control-device-node.md)
+* [직접 메서드 사용](quickstart-control-device.md)
 * [VS Code용 Azure IoT Tools를 사용하여 디바이스 관리](iot-hub-device-management-iot-toolkit.md)

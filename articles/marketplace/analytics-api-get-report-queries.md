@@ -4,15 +4,16 @@ description: 이 API를 사용하여 상업적 마켓플레이스 분석 보고�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: e2be43e8402e5179fb62d810fe7b9f41e704c49d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f3a6351f726a5b1bd408764280ad2487cf7ecd95
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102584091"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567189"
 ---
 # <a name="get-report-queries-api"></a>보고서 쿼리 API 가져오기
 
@@ -29,7 +30,7 @@ ms.locfileid: "102584091"
 
 | **Header** | **형식** | **설명** |
 | --- | --- | --- |
-| 권한 부여 | 문자열 | 필수 요소. `Bearer <token>` 형식의 Azure AD(Azure Active Directory) 액세스 토큰 |
+| 권한 부여 | 문자열 | 필수 요소. `Bearer <token>` 양식의 Azure AD(Azure Active Directory) 액세스 토큰 |
 | 콘텐츠 형식 | 문자열 | `Application/JSON` |
 ||||
 
@@ -39,7 +40,7 @@ ms.locfileid: "102584091"
 
 **쿼리 매개 변수**
 
-| **매개 변수 이름** | **유형** | **필수** | **설명** |
+| **매개 변수 이름** | **형식** | **필수** | **설명** |
 | --- | --- | --- | --- |
 | `queryId` | 문자열 | No | 인수에 지정된 ID를 가진 쿼리만 세부 정보를 가져오는 필터 |
 | `queryName` | 문자열 | No | 인수에 지정된 이름을 가진 쿼리만 세부 정보를 가져오는 필터 |
@@ -97,5 +98,5 @@ ms.locfileid: "102584091"
 | `User` | 쿼리를 만든 사용자 ID |
 | `CreatedTime` | 쿼리를 만든 시간 |
 | `TotalCount` | 값 배열의 데이터 세트 수 |
-| `StatusCode` | 결과 코드입니다. 가능한 값은 200, 400, 401, 403, 500입니다. |
+| `StatusCode` | 결과 코드입니다. 가능한 값은 200, 400, 401, 403, 500입니다 |
 |||

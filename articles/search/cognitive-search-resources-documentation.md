@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: f2f99ad89b1fd0c62b329d314e897ee95fc3520b
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 07055d8a8cb3d4957a3dcb934f951afc943773fc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539742"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529441"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강에 대한 설명서 리소스
 
@@ -44,7 +44,7 @@ AI 보강은 비텍스트 원본과 구분되지 않는 텍스트에서 잠재�
 + [REST 및 Postman을 사용하여 지식 저장소 만들기](knowledge-store-create-rest.md)
 + [Storage Explorer를 사용하여 지식 저장소 보기](knowledge-store-view-storage-explorer.md)
 + [Power BI를 사용하여 지식 저장소 연결](knowledge-store-connect-power-bi.md)
-+ [프로젝션 예제(강화를 만들고 내보내는 방법)](knowledge-store-projections-examples.md)
++ [지식 저장소에서 프로젝션 정의](knowledge-store-projections-examples.md)
 
 ## <a name="custom-skills-advanced"></a>사용자 지정 기술(고급)
 

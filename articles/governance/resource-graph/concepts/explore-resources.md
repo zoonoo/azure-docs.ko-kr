@@ -1,14 +1,14 @@
 ---
 title: Azure 리소스 검색
 description: Resource Graph 쿼리 언어를 사용하여 리소스를 탐색하고 리소스가 연결되는 방식을 파악하는 방법에 대해 알아봅니다.
-ms.date: 05/11/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: f76d163ca113617aa25917feb24908eb72d4f515
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 37650c3da17de5cbe3ae8c37da31d0975ea0cdf0
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750884"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567988"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Resource Graph로 Azure 리소스 탐색
 

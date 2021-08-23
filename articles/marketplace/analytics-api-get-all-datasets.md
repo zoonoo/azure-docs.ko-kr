@@ -4,15 +4,16 @@ description: 이 API를 사용하여 상업적 마켓플레이스 분석에 사�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 23aac2c94ffd909ca132cbc481998b9eda317156
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 487c1b4ad58eb17fc90bb78f0dbc4346de8a62d3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102583946"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567190"
 ---
 # <a name="get-all-datasets-api"></a>모든 데이터 세트 API 가져오기
 
@@ -28,16 +29,16 @@ ms.locfileid: "102583946"
 
 | **Header** | **형식** | **설명** |
 | --- | --- | --- |
-| 권한 부여 | 문자열 | 필수 요소. `Bearer <token>` 형식의 Azure AD(Azure Active Directory) 액세스 토큰 |
+| 권한 부여 | 문자열 | 필수 요소. `Bearer <token>` 양식의 Azure AD(Azure Active Directory) 액세스 토큰 |
 | 콘텐츠 형식 | 문자열 | `Application/JSON` |
 
 **경로 매개 변수**
 
-없음
+None
 
 **쿼리 매개 변수**
 
-| **매개 변수 이름** | **유형** | **필수** | **설명** |
+| **매개 변수 이름** | **형식** | **필수** | **설명** |
 | --- | --- | --- | --- |
 | `datasetName` | 문자열 | No | 하나의 데이터 세트에 대한 세부 정보만 가져오도록 필터링 |
 
@@ -91,4 +92,4 @@ ms.locfileid: "102583946"
 | `AvailableDateRanges` | 데이터 세트에 대한 보고서 쿼리에서 사용할 수 있는 날짜 범위 |
 | `NextLink` | 데이터에 페이지가 매겨진 경우, 다음 페이지로 연결 |
 | `TotalCount` | 값 배열의 데이터 세트 수 |
-| `StatusCode` | 결과 코드입니다. 가능한 값은 200, 400, 401, 403, 500입니다. |
+| `StatusCode` | 결과 코드입니다. 가능한 값은 200, 400, 401, 403, 500입니다 |

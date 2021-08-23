@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: b26ce91b005fc7bd4d5b89ccf5306dc03a040b0f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 426a83836a16fd3d4a403b3cda015dd5f49af22e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106754"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536069"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL - 유연한 서버 방화벽 규칙 만들기 및 관리
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL 유연한 서버는 현재 공개 미리 보기에 있습니다.
@@ -23,7 +25,7 @@ Azure Database for MySQL 유동 서버는 유동 서버에 연결하는 두 가�
 1. 퍼블릭 액세스(허용된 IP 주소)
 2. 프라이빗 액세스(VNet 통합)
 
-이 문서에서는 Azure Portal을 사용하여 **공용 액세스(허용된 IP 주소)** 를 사용하여 MySQL 서버를 만드는 방법에 중점을 두고, 유연한 서버를 만든 후 방화벽 규칙을 관리하는 방법에 대한 개요를 제공합니다. *공용 액세스(허용된 IP 주소)* 를 사용하는 MySQL 서버 연결은 허용된 IP 주소로만 제한됩니다. 방화벽 규칙에서 클라이언트 IP 주소를 허용해야 합니다. 자세한 내용을 알아보려면 [공용 액세스(허용된 IP 주소)](./concepts-networking.md#public-access-allowed-ip-addresses)를 참조하세요. 방화벽 규칙은 서버를 만들 때 정의할 수 있지만(권장), 나중에 추가할 수도 있습니다. 이 문서에서는 공용 액세스(허용된 IP 주소)를 사용하여 방화벽 규칙을 만들고 관리하는 방법에 대한 개요를 제공합니다.
+이 문서에서는 Azure Portal을 사용하여 **공용 액세스(허용된 IP 주소)** 를 사용하여 MySQL 서버를 만드는 방법에 중점을 두고, 유연한 서버를 만든 후 방화벽 규칙을 관리하는 방법에 대한 개요를 제공합니다. *공용 액세스(허용된 IP 주소)* 를 사용하는 MySQL 서버 연결은 허용된 IP 주소로만 제한됩니다. 방화벽 규칙에서 클라이언트 IP 주소를 허용해야 합니다. 자세한 내용을 알아보려면 [퍼블릭 액세스(허용된 IP 주소)](./concepts-networking-public.md#public-access-allowed-ip-addresses)를 참조하세요. 방화벽 규칙은 서버를 만들 때 정의할 수 있지만(권장), 나중에 추가할 수도 있습니다. 이 문서에서는 공용 액세스(허용된 IP 주소)를 사용하여 방화벽 규칙을 만들고 관리하는 방법에 대한 개요를 제공합니다.
 
 ## <a name="create-a-firewall-rule-when-creating-a-server"></a>서버를 만들 때 방화벽 규칙 만들기
 
@@ -37,7 +39,7 @@ Azure Database for MySQL 유동 서버는 유동 서버에 연결하는 두 가�
    > Azure Database for MySQL 유연한 서버는 서버 수준에서 방화벽을 만듭니다. 특정 IP 주소에 대한 방화벽을 열기 위한 규칙을 만들지 않는 한, 이 방화벽은 외부 애플리케이션과 도구에서 서버 및 서버의 모든 데이터베이스에 연결하는 것을 방지합니다.
 
 7. **검토 + 만들기** 를 선택하여 유연한 서버 구성을 검토합니다.
-8.  **만들기** 를 선택하여 서버를 프로비전합니다. 프로비저닝에는 몇 분 정도 걸릴 수 있습니다.
+8. **만들기** 를 선택하여 서버를 프로비전합니다. 프로비저닝에는 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="create-a-firewall-rule-after-server-is-created"></a>서버를 만든 후 방화벽 규칙 만들기
 
@@ -73,7 +75,7 @@ Azure 내에서 애플리케이션이 서버에 연결하려고 시도하면 방
 이러한 연결을 사용하도록 설정하기 위해 리소스가 방화벽 규칙의 동일한 VNet(가상 네트워크) 또는 리소스 그룹에 있을 필요는 없습니다. 연결 시도가 허용되지 않으면 요청이 Azure Database for MySQL 유연한 서버에 도달하지 않습니다.
 
 > [!IMPORTANT]
-> 이 옵션은 다른 고객 구독에서의 연결을 포함하여 Azure에서의 모든 연결을 허용하도록 방화벽을 구성합니다. 이 옵션을 선택할 때 로그인 및 사용자 권한이 부여된 사용자만으로 액세스를 제한하는지 확인합니다.
+>이 옵션은 다른 고객 구독에서의 연결을 포함하여 Azure에서의 모든 연결을 허용하도록 방화벽을 구성합니다. 이 옵션을 선택할 때 로그인 및 사용자 권한이 부여된 사용자만으로 액세스를 제한하는지 확인합니다.
 >
 > 유연한 서버에 안전하게 액세스하려면 **개인 액세스(VNet 통합)** 를 선택하는 것이 좋습니다.
 >
@@ -88,6 +90,7 @@ Azure 내에서 애플리케이션이 서버에 연결하려고 시도하면 방
 - 기존 규칙을 삭제하려면 줄임표 [...]를 클릭하고 **삭제** 를 클릭하여 규칙을 제거합니다. **저장** 을 클릭하여 변경 내용을 저장합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Database for MySQL 유연한 서버의 네트워킹](./concepts-networking.md)에 대해 알아보기
-- [Azure Database for MySQL 유연한 서버 방화벽 규칙](./concepts-networking.md#public-access-allowed-ip-addresses)에 대해 자세히 알아보기
-- [Azure CLI를 사용하여 Azure Database for MySQL 방화벽 규칙 만들기 및 관리](./how-to-manage-firewall-cli.md)
+
+- [Azure Database for MySQL 유연한 서버의 네트워킹](./concepts-networking.md)에 대해 자세히 알아보기
+- [Azure Database for MySQL 유연한 서버 방화벽 규칙](./concepts-networking-public.md#public-access-allowed-ip-addresses)에 대해 자세히 알아보기
+- [Azure CLI를 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리](./how-to-manage-firewall-cli.md)

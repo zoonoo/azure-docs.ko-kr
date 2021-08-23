@@ -3,21 +3,21 @@ title: 음성 번역 개요 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 음성 번역을 사용하면 실시간 엔드투엔드 다중 언어 번역을 애플리케이션, 도구 및 디바이스에 추가할 수 있습니다. 같은 API를 음성 대 음성 및 음성 대 텍스트 번역 모두에 사용될 수 있습니다. 이 문서는 음성 번역 서비스의 이점과 기능을 개략적으로 설명합니다.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: erhopf
+ms.author: lajanuar
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: 음성 번역
-ms.openlocfilehash: 99541d7fe9eaa867860af93bc1423d476ce8bf4a
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 75dc95239533df96c2864d0cb08b06ebfac389e5
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449939"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537635"
 ---
 # <a name="what-is-speech-translation"></a>음성 번역이란?
 

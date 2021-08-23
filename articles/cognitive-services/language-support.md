@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 3a535e1540535c52d4a21684074d81df8b41c4ca
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 1fbf548436842f16516554558b74391567a761e0
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950765"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122537950"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Azure Cognitive Services에 대한 자연어 지원
 
@@ -37,7 +37,7 @@ Azure Cognitive Services를 사용하면 사용자를 보고, 듣고, 대화하�
 
 ## <a name="language"></a>언어
 
-* [몰입형 리더](./immersive-reader/language-support.md)
+* [몰입형 리더](../applied-ai-services/immersive-reader/language-support.md)
 * [언어 이해(LUIS)](./luis/luis-language-support.md)
 * [QnA Maker](./qnamaker/overview/language-support.md)
 * [텍스트 분석](./text-analytics/language-support.md)

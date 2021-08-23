@@ -3,12 +3,12 @@ title: Container Insights 에이전트 데이터 컬렉션 설정 | Microsoft Do
 description: 이 문서에서는 stdout/stderr 및 환경 변수 로그 컬렉션을 제어하도록 Container Insights 에이전트를 구성하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 1305ddc4417dc294dad865971dcd8970acfb8a2c
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: bd818d03d74042e7f58cbc8889ce862279706bec
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109847349"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536386"
 ---
 # <a name="configure-agent-data-collection-for-container-insights"></a>Container Insights에 대한 에이전트 데이터 컬렉션 구성
 
@@ -146,4 +146,4 @@ oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
 
 - AKS 또는 하이브리드 클러스터 그리고 여기에서 실행되는 워크로드의 상태 및 리소스 사용률을 모니터링하여 수집하려면 Container Insights [사용 방법](container-insights-analyze.md)을 알아보세요.
 
-- 클러스터를 경고, 시각화 또는 분석하기 위해 평가하거나 사용자 지정하는 미리 정의된 쿼리 및 예제를 보려면 [로그 쿼리 예제](container-insights-log-search.md#search-logs-to-analyze-data)를 확인하세요.
+- 클러스터를 경고, 시각화 또는 분석하기 위해 평가하거나 사용자 지정하는 미리 정의된 쿼리 및 예제를 보려면 [로그 쿼리 예제](container-insights-log-query.md)를 확인하세요.

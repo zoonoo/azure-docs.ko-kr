@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 4/05/2021
 ms.author: azhussai
-ms.openlocfilehash: c0a99d2c2885de59ccc903b9f505b8049d922b43
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: c8bcaa692fe33229ef7d71f717879f39ffa88279
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205200"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567039"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal"></a>Azure Application Gateway로 URL 다시 쓰기 - Azure Portal
 
@@ -97,7 +97,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
 
    e. **URL 쿼리 문자열 값** 에 URL 쿼리 문자열의 새 값을 입력합니다. 이 예제에서는 **id={var_uri_path_1}&title={var_uri_path_2}** 를 사용합니다.
     
-    `{var_uri_path_1}` 및 `{var_uri_path_1}`은 이 `.*article/(.*)/(.*)` 식의 조건을 평가하는 동안 캡처된 부분 문자열을 가져오는 데 사용됩니다.
+    `{var_uri_path_1}` 및 `{var_uri_path_2}`은 이 `.*article/(.*)/(.*)` 식의 조건을 평가하는 동안 캡처된 부분 문자열을 가져오는 데 사용됩니다.
     
    f. **확인** 을 선택합니다.
 

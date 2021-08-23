@@ -4,15 +4,16 @@ description: Azure Data Factory를 사용하여 데이터 레이크 및 데이�
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/30/2019
-ms.openlocfilehash: 4e7421cb8ea4b0c14e4f4b59a688cdb1afe7d462
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 41c2a1fd7bccb6a43a9b5f3a8ad979fca90e8749
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100367710"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566865"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Azure Data Factory를 사용하여 데이터 레이크 또는 데이터 웨어하우스에서 Azure로 데이터 마이그레이션
 

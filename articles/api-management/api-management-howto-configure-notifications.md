@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddea6f64aa4c3f78116e30ba8c9731acebfbb006
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84690305"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536046"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Azure API Management에서 알림 및 전자 메일 템플릿을 구성하는 방법
 
@@ -84,9 +84,6 @@ API Management 인스턴스에 대한 이메일 템플릿을 보고 구성하려
 ![메일 템플릿 편집기][api-management-email-template]
 
 **매개 변수** 목록에는 제목 또는 본문에 삽입되는 매개 변수 목록이 포함되며, 이러한 매개 변수는 메일이 전송될 때 지정된 값으로 바뀝니다. 매개 변수를 삽입하려면 매개 변수를 넣을 위치에 커서를 놓고 매개 변수 이름 왼쪽 화살표를 클릭합니다.
-
-> [!NOTE]
-> 테스트를 미리 보거나 보낼 때에는 매개 변수가 실제 값으로 바뀌지 않습니다.
 
 이메일 템플릿의 변경 내용을 저장하려면 **저장** 을 클릭하고, 변경 내용을 취소하려면 **취소** 를 클릭합니다.
 

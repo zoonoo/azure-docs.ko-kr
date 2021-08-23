@@ -12,25 +12,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2020
+ms.date: 06/30/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2774c63d34de3de951aa8076b56d203b976158ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 936351dd9f2b19fab4ea95012b118d00d0c87299
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102548753"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536855"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대한 PowerShell
 
 이 문서에는 Azure AD(Azure Active Directory) PowerShell cmdlet을 사용하여 PIM(Privileged Identity Management)에서 Azure AD 역할을 관리하는 방법에 대한 지침이 포함되어 있습니다. 또한 Azure AD PowerShell 모듈을 사용하여 설정하는 방법을 설명합니다.
-
-> [!Note]
-> 공식 PowerShell은 새 버전의 Azure AD Privileged Identity Management를 사용하는 경우에만 지원됩니다. Privileged Identity Management로 이동하여 빠른 시작 블레이드에 다음 배너가 있는지 확인하세요.
-> [![사용하는 Privileged Identity Management 버전 확인](media/pim-how-to-add-role-to-user/pim-new-version.png "Azure AD > Privileged Identity Management 선택")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox) 이 배너가 없으면 기다려주세요. 앞으로 몇 주 동안 업데이트된 환경을 출시하기 위한 작업을 진행하고 있습니다.
-> Privileged Identity Management PowerShell cmdlet은 Azure AD Preview 모듈을 통해 지원됩니다. 다른 모듈을 사용 중이고 해당 모듈이 오류 메시지를 반환하면 이 새 모듈로 시작하세요. 다른 모듈을 기반으로 하는 프로덕션 시스템을 사용하는 경우 [pim_preview@microsoft.com](mailto:pim_preview@microsoft.com)으로 문의하세요.
 
 ## <a name="installation-and-setup"></a>설치 및 설정
 
@@ -159,7 +154,4 @@ Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD 사용자 지정 역할 할당](azure-ad-custom-roles-assign.md)
-- [Azure AD 사용자 지정 역할 할당 제거 또는 업데이트](azure-ad-custom-roles-update-remove.md)
-- [Azure AD 사용자 지정 역할 할당 구성](azure-ad-custom-roles-configure.md)
 - [Azure AD의 역할 정의](../roles/permissions-reference.md)

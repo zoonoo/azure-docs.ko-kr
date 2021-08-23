@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: sstein, jovanpop
-ms.date: 07/21/2020
-ms.openlocfilehash: c465da3d5d812ea7e811cbe59318122700c6e786
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: mathoma, jovanpop
+ms.date: 06/01/2021
+ms.openlocfilehash: f168dca243ae09ccdf39eb7630b350cd2b928628
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97824669"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566615"
 ---
 # <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>TDE 보호 데이터베이스의 인증서를 Azure SQL Managed Instance로 마이그레이션
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -149,7 +149,10 @@ Update-Module -Name Az.Sql
 2. 모든 준비 단계가 완료되면 다음 명령을 실행하여 Base-64로 인코딩된 인증서를 대상 Managed Instance에 업로드합니다.
 
    ```azurepowershell
+   # If you are using PowerShell 6.0 or higher, run this command:
    $fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -AsByteStream
+   # If you are using PowerShell 5.x, uncomment and run this command instead of the one above:
+   # $fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -Encoding Byte
    $base64EncodedCert = [System.Convert]::ToBase64String($fileContentBytes)
    $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
    $password = "<password>"

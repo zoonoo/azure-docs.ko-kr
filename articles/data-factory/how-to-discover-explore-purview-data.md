@@ -2,17 +2,18 @@
 title: Purview를 사용하여 ADF의 데이터 검색 및 살펴보기
 description: Purview를 사용하여 Azure Data Factory에서 데이터를 검색하고 살펴보는 방법 알아보기.
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 author: linda33wj
 ms.author: jingwang
 ms.custom: seo-lt-2019
-ms.date: 01/15/2021
-ms.openlocfilehash: f37d2461a0e9c2db0cb3c7aa911dfb0ff5e049af
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 08/10/2021
+ms.openlocfilehash: 145f7c50d6fdd2fef5e1f31e029c06434fa2e8e5
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486488"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122567776"
 ---
 # <a name="discover-and-explore-data-in-adf-using-purview"></a>Purview를 사용하여 ADF의 데이터 검색 및 살펴보기
 
@@ -26,6 +27,7 @@ ADF에서 다음 작업을 수행할 수 있습니다.
 - 연결된 서비스 또는 데이터 세트를 사용하여 해당 데이터를 데이터 팩터리에 연결하기 
 
 ## <a name="prerequisites"></a>사전 요구 사항 
+
 - [Azure  Purview 계정](../purview/create-catalog-portal.md) 
 - [Data Factory](./quickstart-create-data-factory-portal.md) 
 - [Azure Purview 계정을 Data Factory에 연결하기](./connect-data-factory-to-azure-purview.md) 
@@ -47,5 +49,8 @@ Azure Purview에서 검색하는 데이터에 대해 연결된 서비스, 데이
 
 ##  <a name="nextsteps"></a>다음 단계 
 
-- [Azure Purview에서 Azure Data Factory 자산 등록 및 검사](../purview/register-scan-azure-synapse-analytics.md)
-- [Azure Purview Data Catalog에서 데이터를 검색하는 방법](../purview/how-to-search-catalog.md)
+[자습서: Data Factory 계보 데이터를 Azure Purview에 푸시](turorial-push-lineage-to-purview.md)
+
+[Azure Purview 계정을 Data Factory에 연결하기](connect-data-factory-to-azure-purview.md) 
+
+[Azure Purview Data Catalog에서 데이터를 검색하는 방법](../purview/how-to-search-catalog.md)

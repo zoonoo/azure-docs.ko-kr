@@ -2,18 +2,17 @@
 title: Azure IoT 솔루션 사이트 - Azure | Microsoft Docs
 description: AzureIoTSolutions.com 웹 사이트를 사용하여 솔루션 가속기를 배포하는 방법에 대해 설명합니다.
 author: dominicbetts
-manager: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: e3c9296a909ba23ee8a3475149911af629a01b1a
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 3251adb72adfb53209878fcfc1450518b9bc9f37
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167467"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536505"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>azureiotsolutions.com 사이트를 사용하여 솔루션 가속기 배포
 

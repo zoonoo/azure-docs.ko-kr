@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.author: nitinme
-ms.openlocfilehash: d6b7b298e7e4d18e68985ec3cf536c90ef773608
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.author: lajanuar
+ms.openlocfilehash: fc08bea2700e1b9abaed6c4b8ce29b0ce10f8956
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644390"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529655"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Bing Speech에서 Speech Service로 마이그레이션
 
@@ -26,7 +26,7 @@ ms.locfileid: "105644390"
 단일 Speech Service 구독 키는 다음 기능에 대한 액세스 권한을 부여합니다. 각 기능은 별도로 측정되므로 사용하는 기능에 대해서만 요금이 청구됩니다.
 
 * [음성 텍스트 변환](speech-to-text.md)
-* [사용자 지정 음성 텍스트 변환](/azure/cognitive-services/speech-service/custom-speech-overview)
+* [사용자 지정 음성 텍스트 변환](./custom-speech-overview.md)
 * [텍스트 음성 변환](text-to-speech.md)
 * [사용자 지정 텍스트 음성 변환](./how-to-custom-voice-create-voice.md)
 * [음성 번역](speech-translation.md)([텍스트 번역](../translator/translator-info-overview.md) 제외)
@@ -51,7 +51,7 @@ Speech Service는 Bing Speech와 매우 비슷하지만, 다음과 같은 차이
 | 간단한 의도 인식 | :heavy_minus_sign: | :heavy_check_mark: |
 | 긴 오디오 파일의 일괄 처리 기록 | :heavy_minus_sign: | :heavy_check_mark: |
 | 인식 모드 | 엔드포인트 URI 통해 수동 | 자동 | 인식 모드를 Speech Service에서 사용할 수 없습니다. |
-| 엔드포인트 위치 | Global | 지역 | 지역별 엔드포인트가 대기 시간을 향상시킵니다. |
+| 엔드포인트 위치 | 전역 | 지역 | 지역별 엔드포인트가 대기 시간을 향상시킵니다. |
 | REST API | :heavy_check_mark: | :heavy_check_mark: | Speech Service REST API는 Bing Speech(다른 엔드포인트)와 호환됩니다. REST API는 텍스트 음성 변환 및 제한된 음성 텍스트 변환 기능을 지원합니다. |
 | WebSocket 프로토콜 | :heavy_check_mark: | :heavy_minus_sign: | Speech SDK는 서비스에 대한 지속적인 연결이 필요한 기능을 위해 웹 소켓 연결을 추상화하므로 더 이상 수동으로 구독할 수 없습니다. |
 | 서비스 간 API 호출 | :heavy_check_mark: | :heavy_minus_sign: | C# 서비스 라이브러리를 통해 Bing Speech에 제공됩니다. |

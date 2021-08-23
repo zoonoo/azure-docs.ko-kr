@@ -6,14 +6,17 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: 74d6981c0465a1960e920313c1f960f0d781692b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 921e4cd8885dcbad5cd477e7f2283c9b11c445fc
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092961"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642142"
 ---
 # <a name="high-availability-in-azure-database-for-mysql"></a>Azure Database for MySQL의 고가용성
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Azure Database for MySQL 서비스는 재정적으로 지원되는 [99.99%](https://azure.microsoft.com/support/legal/sla/mysql) 작동 시간 SLA(서비스 수준 계약)로 보장되는 높은 수준의 가용성을 제공합니다. Azure Database for MySQL은 사용자가 시작하는 컴퓨팅 스케일링 작업 같은 계획된 이벤트 도중은 물론 하드웨어, 소프트웨어 또는 네트워크 실패와 같이 계획되지 않은 이벤트 발생 시에도 고가용성을 제공합니다. Azure Database for MySQL은 대부분의 위험 상황으로부터 신속하게 복구할 수 있으므로 이 서비스를 사용할 때는 애플리케이션 가동 중지 시간이 거의 없습니다.
 
 Azure Database for MySQL은 높은 작동 시간이 필요한 중요 업무용 데이터베이스를 실행하는 데 적합합니다. Azure 아키텍처를 기반으로 구축된 이 서비스에는 계획되거나 계획되지 않은 중단으로 인한 데이터베이스 가동 중지 시간을 완화하는 고가용성, 중복성 및 복원력 기능이 내재되어 있으며, 사용자가 추가 구성 요소를 구성할 필요가 없습니다. 
@@ -35,10 +38,10 @@ Azure Database for MySQL은 계획된 가동 중지 시간 동안 고가용성�
 
 | **시나리오** | **설명**|
 | ------------ | ----------- |
-| <b>컴퓨팅 스케일 업/다운 | 사용자가 컴퓨팅 스케일 업/다운 작업을 수행하면 스케일링된 컴퓨팅 구성을 사용하여 새 데이터베이스 서버가 프로비전됩니다. 기존 데이터베이스 서버에서는 활성 검사점을 완료할 수 있고, 클라이언트 연결이 드레이닝되며, 커밋되지 않은 트랜잭션은 취소된 후 종료됩니다. 그런 다음 이전 데이터베이스 서버에서 스토리지가 분리되고 새 데이터베이스 서버에 연결됩니다. 클라이언트 애플리케이션에서 연결을 다시 시도하거나 새 연결을 시도하는 경우 게이트웨이는 새 데이터베이스 서버로 연결 요청을 보냅니다.|
+| <b>컴퓨팅 스케일 업/다운 | 사용자가 컴퓨팅 스케일 업/다운 작업을 수행하면 스케일링된 컴퓨팅 구성을 사용하여 새 데이터베이스 서버가 프로비전됩니다. 기존 데이터베이스 서버에서는 활성 검사점을 완료할 수 있고, 클라이언트 연결이 드레이닝되며, 커밋되지 않은 트랜잭션은 취소된 후 종료됩니다. 그런 다음 이전 데이터베이스 서버에서 스토리지가 분리되고 새 데이터베이스 서버에 연결됩니다. 클라이언트 응용 프로그램에서 연결을 다시 시도하거나 새 연결을 시도하는 경우 게이트웨이는 새 데이터베이스 서버로 연결 요청을 보냅니다.|
 | <b>스토리지 스케일 업 | 스토리지 스케일 업은 온라인 작업이며 데이터베이스 서버를 중단하지 않습니다.|
 | <b>새 소프트웨어 배포(Azure) | 새 기능 출시 또는 버그 수정은 서비스의 계획된 유지 관리의 일부로 자동으로 이루어집니다. 자세한 내용은 [문서](concepts-monitoring.md#planned-maintenance-notification) 및 해당 [포털](https://aka.ms/servicehealthpm)을 참조하세요.|
-| <b>부 버전 업그레이드 | Azure Database for MySQL은 Azure에서 확인된 부 버전으로 데이터베이스 서버를 자동으로 패치합니다. 이러한 작업은 서비스의 계획된 유지 관리 중에 수행됩니다. 계획된 유지 관리 중에는 데이터베이스 서버 다시 시작 또는 장애 조치(failover)로 인해 최종 사용자가 데이터베이스 서버를 잠깐 사용하지 못할 수 있습니다. Azure Database for MySQL 서버는 컨테이너에서 실행되므로 일반적으로 데이터베이스 서버가 빠르게 다시 시작됩니다(일반적으로 60~120초 내에 다시 시작이 완료될 것으로 예상). 각 서버 다시 시작을 포함한 계획된 유지 관리 이벤트는 엔지니어링 팀에서 신중하게 모니터링합니다. 서버 장애 조치(failover) 시간은 데이터베이스 복구 시간에 따라 달라지므로 장애 조치(failover) 시 서버에서 트랜잭션 작업이 많은 경우 데이터베이스가 온라인 상태가 되는 데 더 오래 걸릴 수 있습니다. 다시 시작 시간이 길어지지 않도록 하려면 계획된 유지 관리 이벤트 중에는 장기 실행 트랜잭션(대량 로드)을 피하는 것이 좋습니다. 자세한 내용은 [문서](concepts-monitoring.md#planned-maintenance-notification) 및 해당 [포털](https://aka.ms/servicehealthpm)을 참조하세요.|
+| <b>부 버전 업그레이드 | Azure Database for MySQL은 Azure에서 확인된 부 버전으로 데이터베이스 서버를 자동으로 패치합니다. 이러한 작업은 서비스의 계획된 유지 관리 중에 수행됩니다. 계획된 유지 관리 중에는 데이터베이스 서버 다시 시작 또는 장애 조치(failover)로 인해 최종 사용자가 데이터베이스 서버를 잠깐 사용하지 못할 수 있습니다. Azure Database for MySQL 서버는 컨테이너에서 실행되므로 일반적으로 데이터베이스 서버가 빠르게 다시 시작됩니다(일반적으로 60~120초 내에 다시 시작이 완료될 것으로 예상). 각 서버 다시 시작을 포함하여 전체 계획된 유지 관리 이벤트는 엔지니어링 팀에서 신중하게 모니터링합니다. 서버 장애 조치 시간은 데이터베이스 복구 시간에 따라 달라지므로 장애 조치 시 서버에서 트랜잭션 작업이 많은 경우 데이터베이스가 온라인 상태가 되는 데 더 오래 걸릴 수 있습니다. 다시 시작 시간이 길어지지 않도록 하려면 계획된 유지 관리 이벤트 중에는 장기 실행 트랜잭션(대량 로드)을 피하는 것이 좋습니다. 자세한 내용은 [문서](concepts-monitoring.md#planned-maintenance-notification) 및 해당 [포털](https://aka.ms/servicehealthpm)을 참조하세요.|
 
 
 ##  <a name="unplanned-downtime-mitigation"></a>계획되지 않은 가동 중지 시간 완화
@@ -60,8 +63,8 @@ Azure Database for MySQL은 계획된 가동 중지 시간 동안 고가용성�
 
 | **시나리오** | **복구 계획** |
 | ---------- | ---------- |
-| <b> 지역 오류 | 지역 오류는 드문 이벤트입니다. 그러나 지역 장애로부터 보호해야 하는 경우 재해 복구(DR)를 위해 다른 지역에 하나 이상의 읽기 복제본을 구성할 수 있습니다. (자세한 내용은 읽기 복제본 만들기 및 관리에 대한 [이 문서](howto-read-replicas-portal.md)를 참조하세요.) 지역 수준 실패가 발생할 경우 다른 지역에 구성된 읽기 복제본을 프로덕션 데이터베이스 서버로 수동으로 승격할 수 있습니다. |
-| <b> 논리적/사용자 오류 | 실수로 삭제된 테이블 또는 잘못 업데이트된 데이터와 같은 사용자 오류로부터 복구하려면 오류가 발생하기 바로 전의 시간으로 데이터를 복원 및 복구하는 [PITR(지정 시간 복구)](concepts-backup.md)이 수행됩니다.<br> <br>  데이터베이스 서버에 있는 모든 데이터베이스 대신 데이터베이스의 일부 또는 특정 테이블만 복원하려면 새 인스턴스에서 데이터베이스 서버를 복원하고 [mysqldump](concepts-migrate-dump-restore.md)를 통해 테이블을 내보낸 후 [restore](concepts-migrate-dump-restore.md#restore-your-mysql-database-using-command-line-or-mysql-workbench)를 사용하여 테이블을 데이터베이스로 복원하면 됩니다. |
+| <b> 지역 오류 | 지역 오류는 드문 이벤트입니다. 그러나 지역 장애로부터 보호해야 하는 경우 DR(재해 복구)를 위해 다른 지역에 하나 이상의 읽기 복제본을 구성할 수 있습니다. (자세한 내용은 읽기 복제본 만들기 및 관리에 대한 [이 문서를](howto-read-replicas-portal.md) 참조하세요.) 지역 수준 실패가 발생할 경우 다른 지역에 구성된 읽기 복제본을 프로덕션 데이터베이스 서버로 수동으로 승격할 수 있습니다. |
+| <b> 논리적/사용자 오류 | 실수로 삭제된 테이블 또는 잘못 업데이트된 데이터와 같은 사용자 오류로부터 복구하려면 오류가 발생하기 바로 전의 시간으로 데이터를 복원 및 복구하는 [PITR(지정 시간 복구)이](concepts-backup.md) 수행됩니다.<br> <br>  데이터베이스 서버에 있는 모든 데이터베이스 대신 데이터베이스의 일부 또는 특정 테이블만 복원하려면 새 인스턴스에서 데이터베이스 서버를 복원하고 [mysqldump](concepts-migrate-dump-restore.md)를 통해 테이블을 내보낸 후 [restore](concepts-migrate-dump-restore.md#restore-your-mysql-database-using-command-line-or-mysql-workbench) 를 사용하여 테이블을 데이터베이스로 복원하면 됩니다. |
 
 
 
@@ -70,6 +73,6 @@ Azure Database for MySQL은 계획된 가동 중지 시간 동안 고가용성�
 Azure Database for MySQL은 데이터베이스 서버 빠른 시작 기능, 중복 스토리지, 게이트웨이에서의 효율적인 라우팅을 제공합니다. 추가 데이터 보호를 위해 지역에서 복제되도록 백업을 구성하고 다른 지역에 하나 이상의 읽기 복제본을 배포할 수도 있습니다. Azure Database for MySQL은 내재된 고가용성 기능을 통해 가장 일반적인 중단으로부터 데이터베이스를 보호하고, 업계 최고 수준의 재정 지원 [99.99% 가동 시간 SLA](https://azure.microsoft.com/support/legal/sla/mysql)를 제공합니다. Azure는 이러한 모든 가용성 및 안정성 기능을 통해 중요 업무용 애플리케이션을 실행하는 데 이상적인 플랫폼이 될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Monitor](../availability-zones/az-overview.md)에 대해 자세히 알아보기
+- [Azure 지역](../availability-zones/az-overview.md)에 대해 자세히 알아보기
 - [일시적인 연결 오류 처리](concepts-connectivity.md)에 대해 알아보기
 - [읽기 복제본을 사용하여 데이터를 복제하는](howto-read-replicas-portal.md) 방법에 대해 알아보기

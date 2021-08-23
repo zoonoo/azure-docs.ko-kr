@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB에서 변경 피드 지원 사용
 description: Azure Cosmos DB 변경 피드 지원을 사용하여 문서의 변경 내용 추적, 트리거와 같은 이벤트 기반 처리, 캐시 및 분석 시스템을 최신 상태로 유지합니다.
-author: TheovanKraay
-ms.author: thvankra
+author: timsander1
+ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/07/2021
 ms.reviewer: sngun
 ms.custom: seodec18, "seo-nov-2020"
-ms.openlocfilehash: a8dd8e1da81d6c906e29caf155edc8c2b9e44ea9
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 26c5ce853776c111122eb184d042a414eb5f5acc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111755540"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536618"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드
 [!INCLUDE[appliesto-all-apis-except-table](includes/appliesto-all-apis-except-table.md)]
@@ -92,9 +92,9 @@ _etag 형식은 내부적이며 언제든지 변경될 수 있으므로 의존�
 
 ## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Cassandra 및 MongoDB에 대한 API의 변경 피드
 
-변경 피드 기능은 MongoDB API에서 변경 스트림으로 표시되고 Cassandra API의 조건자를 사용하여 쿼리됩니다. MongoDB API의 구현 세부 정보에 대한 자세한 내용은 [Azure Cosmos DB API for MongoDB에서 스트림 변경](mongodb-change-streams.md)을 참조하세요.
+변경 피드 기능은 MongoDB API에서 변경 스트림으로 표시되고 Cassandra API의 조건자를 사용하여 쿼리됩니다. MongoDB API의 구현 세부 정보에 대한 자세한 내용은 [Azure Cosmos DB API for MongoDB에서 스트림 변경](mongodb/change-streams.md)을 참조하세요.
 
-기본 Apache Cassandra는 CDC 로그의 구성 가능한 디스크 크기에 도달하면 보관을 위해 특정 테이블에 플래그를 지정하고 해당 테이블에 대한 쓰기를 거부하는 메커니즘인 CDC(변경 데이터 캡처)를 제공합니다. Cassandra용 Azure Cosmos DB API의 변경 피드 기능은 CQL을 통해 조건자를 사용하여 변경 내용을 쿼리하는 기능을 향상시킵니다. 구현 세부 정보에 대한 자세한 내용은 [Cassandra용 Azure Cosmos DB API의 변경 피드](cassandra-change-feed.md)를 참조하세요.
+기본 Apache Cassandra는 CDC 로그의 구성 가능한 디스크 크기에 도달하면 보관을 위해 특정 테이블에 플래그를 지정하고 해당 테이블에 대한 쓰기를 거부하는 메커니즘인 CDC(변경 데이터 캡처)를 제공합니다. Cassandra용 Azure Cosmos DB API의 변경 피드 기능은 CQL을 통해 조건자를 사용하여 변경 내용을 쿼리하는 기능을 향상시킵니다. 구현 세부 정보에 대한 자세한 내용은 [Cassandra용 Azure Cosmos DB API의 변경 피드](cassandra/cassandra-change-feed.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8a854e17c8a28b335f8c4e8c67bd5f27cb360789
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8dc109b5a14b680f7deb6ff39adb8af5e9c77562
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110464633"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566601"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책 관리
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,7 +21,7 @@ ms.locfileid: "110464633"
 Azure Cosmos DB에서 데이터는 각 컨테이너에 대해 정의된 [인덱싱 정책](index-policy.md)에 따라 인덱싱됩니다. 새로 만든 컨테이너에 대한 기본 인덱싱 정책은 모든 문자열 또는 숫자에 대해 범위 인덱스를 적용합니다. 이 정책은 사용자 지정 인덱싱 정책으로 재정의할 수 있습니다.
 
 > [!NOTE]
-> 이 문서에서 설명하는 인덱싱 정책 업데이트 방법은 Azure Cosmos DB의 SQL(Core) API에만 적용됩니다. [Azure Cosmos DB API for MongoDB](mongodb-indexing.md)의 인덱싱 및 [Azure Cosmos DB Cassandra API의 보조 인덱싱](cassandra-secondary-index.md)에 대해 알아봅니다.
+> 이 문서에서 설명하는 인덱싱 정책 업데이트 방법은 Azure Cosmos DB의 SQL(Core) API에만 적용됩니다. [Azure Cosmos DB API for MongoDB](mongodb/mongodb-indexing.md)의 인덱싱 및 [Azure Cosmos DB Cassandra API의 보조 인덱싱](cassandra/secondary-indexing.md)에 대해 알아봅니다.
 
 ## <a name="indexing-policy-examples"></a>인덱싱 정책 예제
 

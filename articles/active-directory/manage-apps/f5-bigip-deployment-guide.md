@@ -2,21 +2,23 @@
 title: F5 배포 가이드를 사용한 Azure AD 보안 하이브리드 액세스 | Microsoft Docs
 description: 안전한 하이브리드 액세스를 위해 Azure IaaS에서 F5 BIG-IP VE(Virtual Edition) VM을 배포하는 방법에 대한 자습서
 services: active-directory
-author: gargi-sinha
+author: davidmu1
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 10/12/2020
-ms.author: gasinh
+ms.author: davidmu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f962bf131b87f17712186145b8c8b8e6090f7002
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.reviewer: miccohen
+ms.openlocfilehash: f33e9a8207e3b8e6986999b7ea19aedbcb19b4da
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98730660"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536867"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>안전한 하이브리드 액세스를 위해 Azure IaaS에서 F5 BIG-IP Virtual Edition VM을 배포하는 방법에 대한 자습서
 
@@ -105,18 +107,18 @@ BIG-IP를 다양한 토폴로지에 배포할 수 있습니다. 이 가이드에
  |서브넷| DC 및 IIS VM에서 사용하는 것과 동일한 내부 서브넷 또는 새로 만듭니다.|
  |공용 IP |  없음|
  |NIC 네트워크 보안 그룹| 이전 단계에서 선택한 Azure 서브넷이 NSG(네트워크 보안 그룹)와 이미 연결되어 있으면 없음을 선택합니다. 그렇지 않으면 기본을 선택합니다.|
- |네트워킹 가속화| 꺼짐 |
+ |네트워킹 가속화| 끄기 |
  |**부하 분산**.|     |
- |VM 부하 분산| 예|
+ |VM 부하 분산| 아니요|
 
 10. **다음: 관리** 를 선택하고 이러한 설정을 완료합니다.
 
  |모니터링|    값 |
  |:---------|:-----|
- |상세 모니터링| 꺼짐|
+ |상세 모니터링| 끄기|
  |부트 진단|사용자 지정 스토리지 계정을 사용하도록 설정합니다. Azure Portal의 직렬 콘솔 옵션을 통해 BIG-IP SSH(Secure Shell) 인터페이스에 연결할 수 있습니다. 사용 가능한 Azure storage 계정을 선택합니다.|
  |**ID**|  |
- |시스템 할당 관리 ID|꺼짐|
+ |시스템 할당 관리 ID|끄기|
  |Azure Active Directory|이 옵션은 현재 BIG-IP에서 지원되지 않습니다.|
  |**자동 종료**|    |
  |자동 종료 사용| 테스트하는 경우 매일 BIG-IP-VM을 종료하도록 설정하는 것이 좋습니다.|
@@ -264,7 +266,7 @@ BIG-IP 시스템은 웹 구성 UI를 통해 관리되며 다음 권장 메서드
 
 - BIG-IP-VM의 내부 네트워크에 연결된 VPN 클라이언트에서
 
-- [Azure AD 애플리케이션 프록시](./application-proxy-add-on-premises-application.md)를 통해 게시
+- [Azure AD 애플리케이션 프록시](../app-proxy/application-proxy-add-on-premises-application.md)를 통해 게시
 
 나머지 구성으로 진행하기 전에 가장 적합한 메서드를 결정해야 합니다. 필요한 경우 공용 IP를 사용하여 BIG-IP의 기본 IP를 구성해 인터넷에서 웹 구성에 직접 연결할 수 있습니다. 그런 다음, 해당 기본 IP에 대한 8443 트래픽을 허용하는 NSG 규칙을 추가합니다. 원본을 신뢰할 수 있는 자체 IP로 제한해야 합니다. 그렇지 않으면 누구나 연결할 수 있습니다.
 
@@ -272,7 +274,7 @@ BIG-IP 시스템은 웹 구성 UI를 통해 관리되며 다음 권장 메서드
 
 - 내부 네트워크의 VM 또는 VPN을 통해 연결하는 경우 BIG-IP의 기본 IP 및 웹 구성 포트에 직접 연결합니다. 예들 들어 `https://<BIG-IP-VM_Primary_IP:8443`입니다. 브라우저에서 연결이 안전하지 않다는 메시지가 표시되지만 BIG-IP가 구성될 때까지 프롬프트를 무시할 수 있습니다. 브라우저에서 액세스를 차단하는 경우 캐시를 지우고 다시 시도합니다.
 
-- 애플리케이션 프록시 통해 웹 구성을 게시한 경우 정의된 URL을 사용하여 포트를 추가하지 않고 외부에서 웹 구성에 액세스합니다(예: `https://big-ip-vm.contoso.com`). 예를 들어 웹 구성 포트를 사용하여 내부 URL을 정의해야 합니다.(예: `https://big-ip-vm.contoso.com:8443`) 
+- 애플리케이션 프록시 통해 웹 구성을 게시한 경우 정의된 URL을 사용하여 포트를 추가하지 않고 외부에서 웹 구성에 액세스합니다(예: `https://big-ip-vm.contoso.com`). 예를 들어 웹 구성 포트를 사용하여 내부 URL을 정의해야 합니다.(예: `https://big-ip-vm.contoso.com:8443`)
 
 BIG-IP 시스템은 일반적으로 명령줄(CLI) 작업 및 루트 수준 액세스에 사용되는 기본 SSH 환경을 통해 관리될 수도 있습니다. 다음을 포함하여 CLI에 연결하기 위한 몇 가지 옵션이 있습니다.
 
@@ -473,14 +475,14 @@ Get-AzVmSnapshot -ResourceGroupName '<E.g.contoso-RG>' -VmName '<E.g.BIG-IP-VM>'
 
 ## <a name="additional-resources"></a>추가 리소스
 
--   [Azure에서 BIG-IP VE 암호 초기화](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html)
-    -   [포털을 사용하지 않고 암호 초기화](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html#reset-the-password-without-using-the-portal)
+- [Azure에서 BIG-IP VE 암호 초기화](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html)
+- [포털을 사용하지 않고 암호 초기화](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html#reset-the-password-without-using-the-portal)
 
--   [BIG-IP VE 관리에 사용되는 NIC 변경](https://clouddocs.f5.com/cloud/public/v1/shared/change_mgmt_nic.html)
+- [BIG-IP VE 관리에 사용되는 NIC 변경](https://clouddocs.f5.com/cloud/public/v1/shared/change_mgmt_nic.html)
 
--   [단일 NIC 구성의 경로 정보](https://clouddocs.f5.com/cloud/public/v1/shared/routes.html)
+- [단일 NIC 구성의 경로 정보](https://clouddocs.f5.com/cloud/public/v1/shared/routes.html)
 
--   [Microsoft Azure: Waagent](https://clouddocs.f5.com/cloud/public/v1/azure/Azure_waagent.html)
+- [Microsoft Azure: Waagent](https://clouddocs.f5.com/cloud/public/v1/azure/Azure_waagent.html)
 
 ## <a name="next-steps"></a>다음 단계
 

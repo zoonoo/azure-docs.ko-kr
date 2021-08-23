@@ -3,16 +3,16 @@ title: Azure Cosmos DB 에뮬레이터를 사용하는 경우 문제 해결
 description: Azure Cosmos DB 에뮬레이터를 사용하는 경우 서비스를 사용할 수 없음, 인증서, 암호화 및 버전 관리 문제를 해결하는 방법에 대해 알아봅니다.
 ms.service: cosmos-db
 ms.topic: troubleshooting
-author: markjbrown
-ms.author: mjbrown
+ms.author: esarroyo
+author: StefArroyo
 ms.date: 09/17/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: bb07adafbc68ff1e9b7d3ee49bb7631dc4395d77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e255388432c51562b254bf86c52090a50cb8e4a5
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97033462"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113358906"
 ---
 # <a name="troubleshoot-issues-when-using-the-azure-cosmos-db-emulator"></a>Azure Cosmos DB 에뮬레이터를 사용하는 경우 문제 해결
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

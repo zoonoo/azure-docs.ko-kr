@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/04/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: c7b8b400d2f927fa4b5d6f713b29dbda34eec959
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 013dea780c1f5819d9b9caefeec3b66066d1f44c
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757682"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113033554"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 프로필 컨테이너 및 Azure Files
 
@@ -101,4 +101,4 @@ Azure Virtual Desktop 환경이 모범 사례를 따르는지 확인하려면 �
 - 클라우드에서 완전 관리형 파일 공유를 설정하려면 [Azure Files 공유 설정](/azure/storage/files/storage-files-active-directory-enable/)을 참조하세요.
 - FSLogix 프로필 컨테이너를 구성하려면 [파일 공유를 사용하여 호스트 풀에 대한 프로필 컨테이너 만들기](create-host-pools-user-profile.md)를 참조하세요.
 - 호스트 풀에 사용자를 할당하려면 [ Virtual Desktop에 대한 앱 그룹 관리](manage-app-groups.md)를 참조하세요.
-- 웹 브라우저에서 Azure Virtual Desktop 리소스에 액세스하려면 [ Virtual Desktop에 연결](connect-web.md)을 참조하세요.
+- 웹 브라우저에서 Azure Virtual Desktop 리소스에 액세스하려면 [ Virtual Desktop에 연결](./user-documentation/connect-web.md)을 참조하세요.

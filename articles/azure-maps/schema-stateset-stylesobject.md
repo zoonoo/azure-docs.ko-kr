@@ -7,13 +7,12 @@ ms.date: 12/07/2020
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: f213976d0e61706b2d8a9c8465be1ff0a4065b2e
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 0a4095cd5f15bae3089b597ef6773c3a96e48f45
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112031892"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567216"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>동적 Maps에 대한 StylesObject 스키마 참조 가이드
 
@@ -82,7 +81,7 @@ ms.locfileid: "112031892"
 
  `NumericTypeStyleRule`은 [`StyleObject`](#styleobject)이며 다음 속성으로 구성됩니다.
 
-| 속성 | Type | Description | 필수 |
+| 속성 | 형식 | 설명 | 필수 |
 |-----------|----------|-------------|-------------|
 | `keyName` | 문자열 | *상태* 또는 동적 속성 이름입니다. `keyName`은 `StyleObject` 배열 내에서 고유해야 합니다.| 예 |
 | `type` | 문자열 | 값은 “숫자”입니다. | 예 |
@@ -119,7 +118,7 @@ ms.locfileid: "112031892"
 ]
 ```
 
-| 속성 | Type | Description | 필수 |
+| 속성 | 형식 | 설명 | 필수 |
 |-----------|----------|-------------|-------------|
 | `range` | [RangeObject](#rangeobject) | [RangeObject](#rangeobject)는 논리 범위 조건 집합을 정의하며 `true`일 경우 *상태* 디스플레이 색을 `color` 속성에 지정된 색으로 변경합니다. `range`가 지정되지 않은 경우 `color` 속성에서 정의된 색이 항상 사용됩니다.   | 예 |
 | `color` | 문자열 | 상태 값이 범위 내에 속하는 경우 사용할 색입니다. `color` 속성은 다음 형식 중 하나에 해당하는 JSON 문자열입니다. <ul><li> HTML 스타일의 16진수 값 </li><li> RGB("#ff0", "#ffff00", "rgb(255, 255, 0)")</li><li> RGBA("rgba(255, 255, 0, 1)")</li><li> HSL("hsl(100, 50%, 50%)")</li><li> HSLA("hsla(100, 50%, 50%, 1)")</li><li> 노랑, 파랑 등의 미리 정의된 HTML 색 이름.</li></ul> | 예 |
@@ -128,7 +127,7 @@ ms.locfileid: "112031892"
 
 `RangeObject`는 [`NumberRuleObject`](#numberruleobject)의 숫자 범위 값을 정의합니다. *상태* 값이 범위에 속하도록 하려면 정의된 모든 조건이 true여야 합니다.
 
-| 속성 | Type | Description | 필수 |
+| 속성 | 형식 | 설명 | 필수 |
 |-----------|----------|-------------|-------------|
 | `minimum` | double | x ≥ `minimum`인 모든 숫자 x.| 예 |
 | `maximum` | double | x ≥ `maximum`인 모든 숫자 x. | 예 |
@@ -166,7 +165,7 @@ ms.locfileid: "112031892"
 
 `StringTypeStyleRule`은 [`StyleObject`](#styleobject)이며 다음 속성으로 구성됩니다.
 
-| 속성 | Type | Description | 필수 |
+| 속성 | 형식 | 설명 | 필수 |
 |-----------|----------|-------------|-------------|
 | `keyName` | 문자열 |  *상태* 또는 동적 속성 이름입니다.  `keyName`은 `StyleObject` 배열 내에서 고유해야 합니다.| 예 |
 | `type` | 문자열 |값은 "문자열"입니다. | 예 |
@@ -178,7 +177,7 @@ ms.locfileid: "112031892"
 
 문자열 값 일치는 대/소문자를 구분합니다.
 
-| 속성 | Type | Description | 필수 |
+| 속성 | 형식 | 설명 | 필수 |
 |-----------|----------|-------------|-------------|
 | `stateValue1` | 문자열 | 값 문자열이 stateValue1일 때의 색입니다. | 예 |
 | `stateValue2` | 문자열 | 값 문자열이 stateValue일 때의 색입니다. | 예 |
@@ -208,7 +207,7 @@ ms.locfileid: "112031892"
 
 `BooleanTypeStyleRule`은 [`StyleObject`](#styleobject)이며 다음 속성으로 구성됩니다.
 
-| 속성 | Type | Description | 필수 |
+| 속성 | 형식 | 설명 | 필수 |
 |-----------|----------|-------------|-------------|
 | `keyName` | 문자열 |  *상태* 또는 동적 속성 이름입니다.  `keyName`은 `StyleObject` 배열 내에서 고유해야 합니다.| 예 |
 | `type` | 문자열 |값은 "부울"입니다. | 예 |
@@ -218,7 +217,7 @@ ms.locfileid: "112031892"
 
 `BooleanRuleObject`는 `true` 및 `false` 값에 대한 색을 정의합니다.
 
-| 속성 | Type | Description | 필수 |
+| 속성 | 형식 | 설명 | 필수 |
 |-----------|----------|-------------|-------------|
 | `true` | 문자열 | *상태* 값이 `true`인 경우 사용할 색입니다. `color` 속성은 다음 형식 중 하나에 해당하는 JSON 문자열입니다. <ul><li> HTML 스타일의 16진수 값 </li><li> RGB("#ff0", "#ffff00", "rgb(255, 255, 0)")</li><li> RGBA("rgba(255, 255, 0, 1)")</li><li> HSL("hsl(100, 50%, 50%)")</li><li> HSLA("hsla(100, 50%, 50%, 1)")</li><li> 노랑, 파랑 등의 미리 정의된 HTML 색 이름.</li></ul>| 예 |
 | `false` | 문자열 | *상태* 값이 `false`인 경우 사용할 색입니다. | 예 |

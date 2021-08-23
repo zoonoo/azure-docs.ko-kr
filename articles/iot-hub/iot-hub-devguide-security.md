@@ -2,7 +2,6 @@
 title: IoT Hub에 대한 액세스 제어 및 보안 | Microsoft Docs
 description: IoT Hub에 대한 액세스를 제어하는 방법에 대한 개요에서는 AAD 통합 및 SAS 옵션에 대한 깊이 있는 문서 링크를 제공합니다.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -16,12 +15,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: 617a68a36e0f4673ed89753d1e48f529725d1648
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: eb28d0384f0daa4029319597c5f3680a185c4ab6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484184"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566390"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub에 대한 액세스 제어
 

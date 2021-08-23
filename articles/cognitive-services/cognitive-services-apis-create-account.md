@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/04/2021
 ms.author: aahi
-ms.openlocfilehash: fb28a431f9f2f136d177a5d51398bc2427a7134d
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 3c03a6a712190e972347b1e40c5583b5dc74792f
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111540154"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568148"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Cognitive Services 리소스 만들기
 
@@ -28,6 +28,8 @@ Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 유효한 Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/).
+* [!INCLUDE [contributor-requirement](./includes/quickstarts/contributor-requirement.md)]
+
 
 ## <a name="create-a-new-azure-cognitive-services-resource"></a>새 Azure Cognitive Services 리소스 만들기
 

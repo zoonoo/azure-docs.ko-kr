@@ -2,18 +2,17 @@
 title: 기술 세트의 사용자 지정 Web API 기술
 titleSuffix: Azure Cognitive Search
 description: Web API를 호출하여 Azure Cognitive Search 기술 세트의 기능을 확장합니다. 사용자 지정 Web API 기술을 사용하여 사용자 지정 코드를 통합합니다.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: cb5ee7d3549e433fb184b8c55c28b9a28ed89272
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ffc9faa9bc6715417107e35729fc2e53f7e1fa83
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96011934"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731378"
 ---
 # <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Azure Cognitive Search 보강 파이프라인의 사용자 지정 Web API 기술
 
@@ -41,7 +40,7 @@ Microsoft.Skills.Custom.WebApiSkill
 | `httpHeaders` | 키-값 쌍 컬렉션입니다. 여기서 키는 헤더 이름을 나타내고, 값은 페이로드와 함께 Web API로 보낼 헤더 값을 나타냅니다. 헤더 `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via`는 이 컬렉션에서 금지됩니다. |
 | `timeout` | (선택 사항) 지정할 경우 API 호출을 수행하는 http 클라이언트에 대한 시간 제한을 나타냅니다. 형식은 XSD "dayTimeDuration" 값( [ISO 8601 기간](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 예를 들어, 60초인 경우 `PT60S`입니다. 설정하지 않으면 기본값 30초가 선택됩니다. 시간 제한은 최대 230초, 최소 1초로 설정할 수 있습니다. |
 | `batchSize` | (선택 사항) API 호출당 보낼 "데이터 레코드" 수를 나타냅니다(아래의 _JSON_ 페이로드 구조 참조). 설정하지 않으면 기본값인 1,000이 선택됩니다. 인덱싱 처리량과 API의 부하 간에 적절한 절충을 이루려면 이 매개 변수를 사용하는 것이 좋습니다. |
-| `degreeOfParallelism` | (선택 사항)지정된 경우 인덱서가 제공한 엔드포인트와 병렬로 수행할 호출 수를 나타냅니다. 엔드포인트가 요청 로드를 너무 많이 초과하여 실패하는 경우 이 값을 줄일 수 있고, 엔드포인트가 더 많은 요청을 허용 가능하고 인덱서 성능을 높이려는 경우 이 값을 올릴 수 있습니다.  설정하지 않으면 기본값으로 5초가 사용됩니다. `degreeOfParallelism`은 최대 10자, 최소 1자로 설정할 수 있습니다. |
+| `degreeOfParallelism` | (선택 사항)지정된 경우 인덱서가 제공한 엔드포인트와 병렬로 수행할 호출 수를 나타냅니다. 엔드포인트가 요청 로드를 너무 많이 초과하여 실패하는 경우 이 값을 줄일 수 있으며, 엔드포인트가 더 많은 요청을 허용할 수 있고 인덱서 성능을 높이려는 경우 이 값을 높일 수 있습니다.  설정하지 않으면 기본값으로 5초가 사용됩니다. `degreeOfParallelism`은 최대 10자, 최소 1자로 설정할 수 있습니다. |
 
 ## <a name="skill-inputs"></a>기술 입력
 

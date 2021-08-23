@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 02/19/2021
 ms.author: b-juche
-ms.openlocfilehash: 29a1251ed390ec3aefbb45a02a3c4284ca1848b8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 1ec2b7c3c9f4aaccd168031b718bbb5b50394506
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142462"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536095"
 ---
 # <a name="troubleshoot-smb-or-dual-protocol-volumes"></a>SMB 또는 이중 프로토콜 볼륨 문제 해결
 
@@ -32,7 +32,7 @@ ms.locfileid: "108142462"
 | TLS를 통한 LDAP를 사용하도록 설정했고, 오류 `This Active Directory has no Server root CA Certificate`이 발생하여 이중 프로토콜 볼륨 만들기가 실패합니다.    |     이중 프로토콜 볼륨을 만들 때 이 오류가 발생하는 경우에는 NetApp 계정에 루트 CA 인증서가 업로드되었는지 확인합니다.    |
 | 이중 프로토콜 볼륨 만들기가 오류 `Failed to validate LDAP configuration, try again after correcting LDAP configuration`로 인해 실패합니다.    |  DNS 서버에 AD 호스트 컴퓨터의 포인터(PTR) 레코드가 없을 수 있습니다. DNS 서버에 역방향 조회 영역을 만든 다음 해당 역방향 조회 영역에 AD 호스트 컴퓨터의 PTR 레코드를 추가해야 합니다. <br> 예를 들어 AD 컴퓨터의 IP 주소가 `10.x.x.x`이고, `hostname` 명령을 사용하여 발견된 AD 컴퓨터의 호스트 이름이 `AD1`이며, 도메인 이름이 `contoso.com`라고 가정합니다.  역방향 조회 영역에 추가된 PTR 레코드는 `10.x.x.x` -> `contoso.com`이어야 합니다.   |
 | 이중 프로토콜 볼륨 만들기가 오류 `Failed to create the Active Directory machine account \\\"TESTAD-C8DD\\\". Reason: Kerberos Error: Pre-authentication information was invalid Details: Error: Machine account creation procedure failed\\n [ 434] Loaded the preliminary configuration.\\n [ 537] Successfully connected to ip 10.x.x.x, port 88 using TCP\\n**[ 950] FAILURE`로 인해 실패합니다. |     이 오류는 Active Directory가 NetApp 계정에 가입할 때 AD 암호가 잘못되었음을 나타냅니다. 올바른 암호를 사용하여 AD 연결을 업데이트하고 다시 시도하십시오. |
-| 이중 프로토콜 볼륨 만들기가 오류 `Could not query DNS server. Verify that the network configuration is correct and that DNS servers are available`로 인해 실패합니다. |   이 오류는 DNS에 연결할 수 없음을 나타냅니다. 잘못된 DNS IP 또는 네트워킹 문제가 원인일 수 있습니다. AD 연결에 입력된 DNS IP를 확인하고 IP가 정확한지 확인하십시오. <br> 또한 AD와 볼륨이 동일한 지역 및 동일한 VNet에 위치해야 합니다. AD와 볼륨이 서로 다른 VNET에 위치한 경우 두 VNet 간에 VNet 피어링이 설정되어 있는지 확인합니다.|
+| 이중 프로토콜 볼륨 만들기가 오류 `Could not query DNS server. Verify that the network configuration is correct and that DNS servers are available`로 인해 실패합니다. |   이 오류는 DNS에 연결할 수 없음을 나타냅니다. 잘못된 DNS IP 또는 네트워킹 문제가 원인일 수 있습니다. AD 연결에 입력된 DNS IP를 확인하고 IP가 정확한지 확인하십시오. <br> 또한 AD와 볼륨이 동일한 지역 및 동일한 VNet에 위치해야 합니다. AD와 볼륨이 서로 다른 VNET에 위치한 경우 두 VNet 간에 VNet 피어링이 설정되어 있는지 확인합니다. <br> 자세한 내용은 [Azure NetApp Files 네트워크 계획 지침](azure-netapp-files-network-topologies.md#azure-native-environments)을 참조하세요. |
 | 이중 프로토콜 볼륨을 탑재할 때 사용 권한 거부 오류가 발생했습니다. | 이중 프로토콜 볼륨은 NFS 프로토콜과 SMB 프로토콜을 모두 지원합니다.  UNIX 시스템의 탑재된 볼륨에 액세스하려고 할 때 시스템은 사용자가 사용하는 UNIX 사용자와 Windows 사용자의 매핑을 시도합니다. 매핑이 발견되지 않으면 "사용 권한 거부됨" 오류가 발생합니다. <br> 이 상황은 액세스 시 'root' 사용자를 사용하는 경우에도 적용됩니다. <br> "사용 권한 거부됨" 문제를 방지하려면 탑재 지점에 액세스하기 전에 Windows Active Directory에 `pcuser`가 포함되어 있는지 확인하십시오. "사용 권한 거부됨" 문제 발생 후 `pcuser`를 추가하는 경우, 액세스를 다시 시도하기 전에 삭제할 캐시 항목을 24 시간 동안 기다립니다. |
 
 ## <a name="common-errors-for-smb-and-dual-protocol-volumes"></a>SMB 및 이중 프로토콜 볼륨의 일반적인 오류

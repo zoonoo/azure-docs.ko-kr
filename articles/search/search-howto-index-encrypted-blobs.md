@@ -9,16 +9,16 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
-ms.openlocfilehash: e70361b747cac10b602efcf590963b707c7d5da7
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: c78d8f3bc4a7bfc7b73d71a97e29c369926448c5
+ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559001"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113139416"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Azure Cognitive Search에서 BLOB 인덱서 및 기술 세트를 사용하여 암호화된 BLOB을 인덱싱하는 방법
 
-이 문서에서는 [Azure Cognitive Search](search-what-is-azure-search.md)를 통해 [Azure Key Vault](../key-vault/general/overview.md)를 사용하는 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) 내에서 이전에 암호화된 문서를 인덱싱하는 방법을 보여 줍니다. 일반적으로 인덱서는 암호화 키에 대한 액세스 권한이 없기 때문에 암호화된 파일에서 콘텐츠를 추출할 수 없습니다. 그러나 [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) 사용자 지정 기술에 이어 [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)을 활용하면 키에 대한 제어된 액세스를 제공하여 파일의 암호를 해독한 다음 해당 파일에서 콘텐츠를 추출할 수 있습니다. 이렇게 하면 저장된 문서의 암호화 상태를 손상시키지 않고 이러한 문서를 인덱싱하는 기능이 해제됩니다.
+이 문서에서는 [Azure Cognitive Search](search-what-is-azure-search.md)를 통해 [Azure Key Vault](../key-vault/general/overview.md)를 사용하는 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) 내에서 이전에 암호화된 문서를 인덱싱하는 방법을 보여 줍니다. 일반적으로 인덱서는 암호화 키에 대한 액세스 권한이 없기 때문에 암호화된 파일에서 콘텐츠를 추출할 수 없습니다. 그러나 [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile) 사용자 지정 기술에 이어 [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)을 활용하면 키에 대한 제어된 액세스를 제공하여 파일의 암호를 해독한 다음 해당 파일에서 콘텐츠를 추출할 수 있습니다. 이렇게 하면 저장된 문서의 암호화 상태를 손상시키지 않고 이러한 문서를 인덱싱하는 기능이 해제됩니다.
 
 Azure Blob Storage에서 PDF, HTML, DOCX 및 PPTX와 같은 이전에 암호화된 전체 문서(구조화되지 않은 텍스트)부터 이 가이드는 Postman 및 Search REST API를 사용하여 다음 작업을 수행합니다.
 
@@ -44,11 +44,11 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ### <a name="set-up-the-custom-skill"></a>사용자 지정 기술 설정
 
-이 예제에서는 [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub 리포지토리의 샘플 [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) 프로젝트를 사용합니다. 이 섹션에서는 기술 세트에 사용할 수 있도록 기술을 Azure 함수에 배포합니다. 기본 제공 배포 스크립트는 **psdbf-function-app-** 으로 시작하는 Azure 함수 리소스를 만들고 해당 기술을 로드합니다. 구독 및 리소스 그룹을 제공하라는 메시지가 표시됩니다. Azure Key Vault 인스턴스가 상주하는 것과 동일한 구독을 선택해야 합니다.
+이 예제에서는 [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub 리포지토리의 샘플 [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile) 프로젝트를 사용합니다. 이 섹션에서는 기술 세트에 사용할 수 있도록 기술을 Azure 함수에 배포합니다. 기본 제공 배포 스크립트는 **psdbf-function-app-** 으로 시작하는 Azure 함수 리소스를 만들고 해당 기술을 로드합니다. 구독 및 리소스 그룹을 제공하라는 메시지가 표시됩니다. Azure Key Vault 인스턴스가 상주하는 것과 동일한 구독을 선택해야 합니다.
 
 운영상, DecryptBlobFile 기술은 각 BLOB에 대한 URL 및 SAS 토큰을 입력으로 사용하고, Azure Cognitive Search에서 기대하는 파일 참조 계약을 사용하여 다운로드한 암호 해독된 파일을 출력합니다. 암호 해독을 수행하려면 DecryptBlobFile에 암호화 키가 필요하다는 점을 기억하십시오. 설정의 일부로 Azure Key Vault의 암호화 키에 대한 DecryptBlobFile 함수 액세스 권한을 부여하는 액세스 정책도 만듭니다.
 
-1. [DecryptBlobFile 방문 페이지](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile#deployment)에 있는 **Azure에 배포** 단추를 클릭하면 Azure Portal 내에서 제공된 Resource Manager 템플릿이 열립니다.
+1. [DecryptBlobFile 방문 페이지](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile#deployment)에 있는 **Azure에 배포** 단추를 클릭하면 Azure Portal 내에서 제공된 Resource Manager 템플릿이 열립니다.
 
 1. **Azure Key Vault 인스턴스가 존재하는 구독** 을 선택하고(다른 구독을 선택하는 경우 이 안내선은 작동하지 않음) 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다(새 리소스 그룹을 만들 경우 배포할 지역을 선택해야 함).
 

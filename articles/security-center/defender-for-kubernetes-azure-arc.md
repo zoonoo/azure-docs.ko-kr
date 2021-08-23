@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.author: memildin
-ms.openlocfilehash: f59c8b4e4f4ddc32cb0ec14e264e4dbb5b093971
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e11d455238f4a4e8c128a6cda83a145adaf149e9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762860"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536587"
 ---
 # <a name="defend-azure-arc-enabled-kubernetes-clusters-running-in-on-premises-and-multi-cloud-environments"></a>온-프레미스 및 다중 클라우드 환경에서 실행되는 Azure Arc 지원 Kubernetes 클러스터 방어
 
@@ -30,7 +30,7 @@ ms.locfileid: "108762860"
 | 릴리스 상태 | **미리 보기**<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 | 필요한 역할 및 권한 | [보안 관리자](../role-based-access-control/built-in-roles.md#security-admin)는 경고를 해제할 수 있습니다.<br>[보안 읽기 권한자](../role-based-access-control/built-in-roles.md#security-reader)는 발견 사항을 볼 수 있습니다. |
 | 가격 책정 | [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)가 필요합니다. |
-| 지원되는 Kubernetes 배포 | [Azure Stack HCI에서 Azure Kubernetes Service](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS 엔진](https://github.com/Azure/aks-engine)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/)(버전 4.6 이상)<br> [VMware Tanzu Kubernetes 그리드](https://tanzu.vmware.com/kubernetes-grid)<br> [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
+| 지원되는 Kubernetes 배포 | [Azure Stack HCI에서 Azure Kubernetes Service](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS 엔진](https://github.com/Azure/aks-engine)<br> [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/)(버전 4.6 이상)<br> [VMware Tanzu Kubernetes 그리드](https://tanzu.vmware.com/kubernetes-grid)<br> [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
 | 제한 사항 | Azure Arc 지원 Kubernetes 및 Azure Defender 확장은 Google Kubernetes Engine 및 탄력적 Kubernetes 서비스와 같은 관리되는 Kubernetes 제품을 **지원하지 않습니다**. [Azure Defender는 기본적으로 AKS(Azure Kubernetes Service)에서 사용할 수 있으며](defender-for-kubernetes-introduction.md), 클러스터를 Azure Arc에 연결할 필요가 없습니다. |
 | 환경 및 지역 | 이 확장에 대한 가용성은 [Azure Arc 지원 Kubernetes](../azure-arc/kubernetes/overview.md)와 동일합니다.|
 
@@ -105,7 +105,7 @@ Azure Security Center의 전용 권장 사항은 다음을 제공합니다.
 
     | 속성 | Description |
     |----------|-------------|
-    | logAnalyticsWorkspaceResourceID | **선택 사항입니다**. 사용자 고유의 Log Analytics 작업 영역에 대한 전체 리소스 ID입니다.<br>제공되지 않은 경우 해당 지역의 기본 작업 영역이 사용됩니다.<br><br>전체 리소스 ID를 가져오려면 다음 명령을 실행하여 구독의 작업 영역 목록을 기본 JSON 형식으로 표시합니다.<br>```az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json```<br><br>Log Analytics 작업 영역 리소스 ID의 구문은 다음과 같습니다.<br>/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.OperationalInsights/workspaces/{your-workspace-name}. <br>[Log Analytics 작업 영역에 대해 자세히 알아봅니다](../azure-monitor/logs/data-platform-logs.md#log-analytics-workspaces). |
+    | logAnalyticsWorkspaceResourceID | **선택 사항입니다**. 사용자 고유의 Log Analytics 작업 영역에 대한 전체 리소스 ID입니다.<br>제공되지 않은 경우 해당 지역의 기본 작업 영역이 사용됩니다.<br><br>전체 리소스 ID를 가져오려면 다음 명령을 실행하여 구독의 작업 영역 목록을 기본 JSON 형식으로 표시합니다.<br>```az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json```<br><br>Log Analytics 작업 영역 리소스 ID의 구문은 다음과 같습니다.<br>/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.OperationalInsights/workspaces/{your-workspace-name}. <br>[Log Analytics 작업 영역에 대해 자세히 알아봅니다](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces). |
     | auditLogPath |**선택 사항입니다**. 감사 로그 파일에 대한 전체 경로입니다.<br>제공되지 않은 경우 기본 경로 ``/var/log/kube-apiserver/audit.log``가 사용됩니다.<br>AKS 엔진의 경우 표준 경로는 ``/var/log/kubeaudit/audit.log``입니다. |
 
     아래 명령은 모든 선택적 필드를 사용하는 예제를 보여 줍니다.
@@ -118,7 +118,7 @@ Azure Security Center의 전용 권장 사항은 다음을 제공합니다.
 
 ### <a name="use-azure-resource-manager-to-deploy-the-azure-defender-extension"></a>Azure Resource Manager를 사용하여 Azure Defender 확장 배포
 
-Azure Resource Manager를 사용하여 Azure Defender 확장을 배포하려면 구독에 Log Analytics 작업 영역이 필요합니다. [Log Analytics 작업 영역](../azure-monitor/logs/data-platform-logs.md#log-analytics-workspaces)에 대해 자세히 알아봅니다.
+Azure Resource Manager를 사용하여 Azure Defender 확장을 배포하려면 구독에 Log Analytics 작업 영역이 필요합니다. [Log Analytics 작업 영역](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces)에 대해 자세히 알아봅니다.
 
 Resource Manager 템플릿에서 **azure-defender-extension-arm-template.json** 을 Security Center의 [설치 예제](https://aka.ms/kubernetes-extension-installation-examples)에서 사용할 수 있습니다.
 
@@ -129,7 +129,7 @@ Resource Manager 템플릿에서 **azure-defender-extension-arm-template.json** 
 
 ### <a name="use-rest-api-to-deploy-the-azure-defender-extension"></a>REST API를 사용하여 Azure Defender 확장 배포 
 
-REST API를 사용하여 Azure Defender 확장을 배포하려면 구독에 Log Analytics 작업 영역이 필요합니다. [Log Analytics 작업 영역](../azure-monitor/logs/data-platform-logs.md#log-analytics-workspaces)에 대해 자세히 알아봅니다.
+REST API를 사용하여 Azure Defender 확장을 배포하려면 구독에 Log Analytics 작업 영역이 필요합니다. [Log Analytics 작업 영역](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces)에 대해 자세히 알아봅니다.
 
 > [!TIP]
 > API를 사용하여 Azure Defender 확장을 배포하는 가장 간단한 방법은 Security Center의 [설치 예제](https://aka.ms/kubernetes-extension-installation-examples)에 제공된 **Postman Collection JSON** 예제를 사용하는 것입니다.
@@ -255,7 +255,7 @@ REST API를 사용하여 Azure Defender 확장을 배포하려면 구독에 Log 
 
 ## <a name="simulate-security-alerts-from-azure-defender-for-kubernetes"></a>Azure Defender for Kubernetes에서 보안 경고 시뮬레이트
 
-지원되는 경고의 전체 목록은 [Azure Security Center의 모든 보안 경고에 대한 참조 테이블](alerts-reference.md#alerts-akscluster)에서 확인할 수 있습니다.
+지원되는 경고의 전체 목록은 [Azure Security Center의 모든 보안 경고에 대한 참조 테이블](alerts-reference.md#alerts-k8scluster)에서 확인할 수 있습니다.
 
 1. Azure Defender 경고를 시뮬레이트하려면 다음 명령을 실행합니다.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/12/2020
 ms.author: allensu
-ms.openlocfilehash: d416af3d3a8eb8ab8057f13cc0d9a133adcb849a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6eeb9f5874bc5379465c8d238f97c4e8f6c50cba
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98221159"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433666"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Azure Portal을 사용하여 고정 공용 IP 주소로 가상 머신 만들기
 
@@ -39,11 +39,11 @@ ms.locfileid: "98221159"
     | 설정 | 값                                          |
     |-----------------------|----------------------------------|
     | **프로젝트 세부 정보** |  |
-    | Subscription | Azure 구독 선택 |
+    | 구독 | Azure 구독 선택 |
     | 리소스 그룹 | **새로 만들기** 를 선택합니다. </br> **이름** 에서 **myResourceGroup** 을 입력합니다. </br> **확인** 을 선택합니다. |
     | **인스턴스 세부 정보** |  |
     | 가상 머신 이름 | **myVM** 을 입력합니다. |
-    | Azure 지역 | **미국 동부** 를 선택합니다. |
+    | 지역 | **미국 동부** 를 선택합니다. |
     | 가용성 옵션 | **인프라 중복이 필요하지 않습니다** 를 선택합니다. |
     | 이미지 | **Windows Server 2019 Datacenter - Gen1** 을 선택합니다. |
     | Azure Spot 인스턴스 | **아니요** 를 선택합니다. |
@@ -74,6 +74,8 @@ ms.locfileid: "98221159"
   
 6. 설정을 검토한 다음, **만들기** 를 선택합니다.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
 더 이상 필요하지 않은 경우 리소스 그룹 및 해당 그룹에 포함된 모든 리소스를 삭제합니다.
@@ -95,7 +97,7 @@ ms.locfileid: "98221159"
 
 Azure [공용](https://www.microsoft.com/download/details.aspx?id=56519), [US 정부](https://www.microsoft.com/download/details.aspx?id=57063), [중국](https://www.microsoft.com/download/details.aspx?id=57062) 및 [독일](https://www.microsoft.com/download/details.aspx?id=57064) 클라우드의 범위(접두사) 목록을 다운로드할 수 있습니다.
 
-- [고정 공용 IP 주소](./public-ip-addresses.md#allocation-method)에 대해 자세히 알아봅니다.
+- [고정 공용 IP 주소](./public-ip-addresses.md#ip-address-assignment)에 대해 자세히 알아봅니다.
 - Azure에서 [공용 IP 주소](./public-ip-addresses.md#public-ip-addresses)에 대해 자세히 알아봅니다.
 - 모든 [공용 IP 주소 설정](virtual-network-public-ip-address.md#create-a-public-ip-address)에 대해 자세히 알아봅니다.
 - [개인 IP 주소](./private-ip-addresses.md), 및 Azure 가상 머신에 [고정 개인 IP 주소](virtual-network-network-interface-addresses.md#add-ip-addresses) 할당에 대해 알아봅니다.

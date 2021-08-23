@@ -3,6 +3,7 @@ title: BCDR(비즈니스 연속성 및 재해 복구)를 위한 Azure-SSIS 통�
 description: 이 문서에서는 BCDR(비즈니스 연속성 및 재해 복구)를 위해 Azure SQL Database/Managed Instance 장애 조치(failover) 그룹을 사용하여 Azure Data Factory에서 Azure-SSIS 통합 런타임을 구성하는 방법을 설명합니다.
 services: data-factory
 ms.service: data-factory
+ms.subservice: integration-services
 ms.workload: data-services
 ms.devlang: powershell
 author: swinarko
@@ -12,12 +13,12 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/05/2021
-ms.openlocfilehash: a426ee39ba3c0f50b9a6c1fb9c7de1ef8e7291b2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 453f1db3e0f80a63c058c7e0ea21ab9282295de6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566356"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566721"
 ---
 # <a name="configure-azure-ssis-integration-runtime-for-business-continuity-and-disaster-recovery-bcdr"></a>BCDR(비즈니스 연속성 및 재해 복구)를 위한 Azure-SSIS 통합 런타임 구성 
 

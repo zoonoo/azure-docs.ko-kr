@@ -8,21 +8,21 @@ ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: shkale-msft
-ms.author: shkale
-ms.reviewer: mathoma danil
+author: SQLSourabh
+ms.author: sourabha
+ms.reviewer: mathoma, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: c8e95200824a684334cbc1470f94e5353fe284ac
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: e1a6887efc2b0220ae92b372c2c9fd2ff91cc8fa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689985"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566228"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>자동화된 데이터베이스 백업을 사용하여 복구 - Azure SQL Database 및 SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-다음 옵션은 [자동화된 데이터베이스 백업](automated-backups-overview.md)을 사용한 데이터베이스 복구에 사용할 수 있습니다. 다음을 할 수 있습니다.
+다음 옵션은 [자동화된 데이터베이스 백업](automated-backups-overview.md)을 사용한 데이터베이스 복구에 사용할 수 있습니다. 다음과 같습니다.
 
 - 동일한 서버에 보존 기간 내의 지정된 시점으로 복구된 새 데이터베이스를 만듭니다.
 - 동일한 서버에 삭제된 데이터베이스의 삭제 시간으로 복구된 데이터베이스를 만듭니다.
@@ -214,7 +214,7 @@ Azure Portal에서 관리형 인스턴스 데이터베이스를 선택한 지역
 
 독립 실행형 또는 풀링된 데이터베이스를 복원하려면 [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase)를 참조하세요.
 
-  | Cmdlet | Description |
+  | Cmdlet | 설명 |
   | --- | --- |
   | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
   | [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | 복원할 수 있는 삭제된 데이터베이스를 가져옵니다. |
@@ -228,7 +228,7 @@ Azure Portal에서 관리형 인스턴스 데이터베이스를 선택한 지역
 
 관리형 인스턴스 데이터베이스를 복원하려면 [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase)를 참조하세요.
 
-  | Cmdlet | Description |
+  | Cmdlet | 설명 |
   | --- | --- |
   | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |하나 이상의 관리형 인스턴스를 가져옵니다. |
   | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | 인스턴스 데이터베이스를 가져옵니다. |

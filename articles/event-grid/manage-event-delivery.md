@@ -2,14 +2,14 @@
 title: 배달 못한 편지 및 다시 시도 정책 - Azure Event Grid
 description: Event Grid에 대한 이벤트 전송 옵션을 사용자 지정하는 방법을 설명합니다. 배달 못한 편지 대상을 설정하고 배달을 다시 시도하기 위한 기간을 지정합니다.
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/27/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: db5f9dbd6738b2d9e7861f463d02a87d948c6afb
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 48fa27a1fe69481dda294f32bfc88af0e1718f25
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110698437"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731962"
 ---
 # <a name="set-dead-letter-location-and-retry-policy"></a>배달 못한 편지 위치 설정 및 정책 다시 시도
 
@@ -73,7 +73,7 @@ New-AzEventGridSubscription `
 
 Event Grid 구독을 만들 때 Event Grid에서 이벤트 전송을 시도할 기간의 값을 설정할 수 있습니다. 기본적으로 Event Grid는 24시간(1440분) 동안 또는 30회 시도합니다. Event Grid 구독에 대해 이러한 값 중 하나를 설정할 수 있습니다. 이벤트 TTL(Time to Live)의 값은 1과 1440 사이의 정수여야 합니다. 최대 재시도 값은 1과 30 사이의 정수여야 합니다.
 
-[재시도 일정](delivery-and-retry.md#retry-schedule-and-duration)을 구성할 수 없습니다.
+[재시도 일정](delivery-and-retry.md#retry-schedule)을 구성할 수 없습니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 

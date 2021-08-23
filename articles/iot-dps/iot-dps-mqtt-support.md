@@ -10,12 +10,12 @@ ms.author: ravokkar
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 0a7ec2f4f8fdf631a6bc5096296275291ec41751
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d13bdc5bb98159d5a267a821f0431bed622e5e11
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94967128"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535749"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 DPS와 통신
 
@@ -70,8 +70,8 @@ MQTT 프로토콜을 직접 사용하려면 클라이언트가 *반드시* TLS 1
 
 DPS를 통해 디바이스를 등록하려면 디바이스가 `$dps/registrations/res/#`을 **토픽 필터** 로 사용하여 구독해야 합니다. 토픽 필터에 다중 레벨 와일드카드 `#`는 디바이스가 토픽 이름에 추가 속성을 수신하도록 하려는 경우에만 사용됩니다. DPS는 하위 토픽의 필터링을 위한 `#` 또는 `?` 와일드카드의 사용을 허용하지 않습니다. DPS는 범용 발행-구독 메시징 브로커가 아니므로 문서화된 토픽 이름 및 토픽 필터만 지원합니다.
 
-디바이스는 `$dps/registrations/PUT/iotdps-register/?$rid={request_id}`를 **토픽 이름** 으로 사용하여 DPS에 등록 메시지를 게시해야 합니다. 페이로드에는 JSON 형식의 [디바이스 등록](/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) 개체가 포함되어야 합니다.
-성공적인 시나리오라면 디바이스는 `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` 토픽 이름에 대한 응답을 수신합니다. 여기서 x는 초 단위의 retry-after 값입니다. 응답의 페이로드에는 JSON 형식의 [RegistrationOperationStatus](/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) 개체가 포함됩니다.
+디바이스는 `$dps/registrations/PUT/iotdps-register/?$rid={request_id}`를 **토픽 이름** 으로 사용하여 DPS에 등록 메시지를 게시해야 합니다. 페이로드에는 JSON 형식의 [디바이스 등록](/rest/api/iot-dps/device/runtime-registration/register-device) 개체가 포함되어야 합니다.
+성공적인 시나리오라면 디바이스는 `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` 토픽 이름에 대한 응답을 수신합니다. 여기서 x는 초 단위의 retry-after 값입니다. 응답의 페이로드에는 JSON 형식의 [RegistrationOperationStatus](/rest/api/iot-dps/device/runtime-registration/register-device#registrationoperationstatus) 개체가 포함됩니다.
 
 ## <a name="polling-for-registration-operation-status"></a>등록 작업 상태 폴링
 

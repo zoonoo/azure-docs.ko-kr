@@ -10,12 +10,12 @@ author: rajeshsetlem
 ms.author: rsetlem
 ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
-ms.openlocfilehash: 7046ac7852585a51174c774a0ef2f1150a72ae1f
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 011420abfbd6bf5994aa65024651f2bbd34e1bf4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591965"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536515"
 ---
 # <a name="assessment-rules-for-sql-server-to-azure-sql-database-migration"></a>Azure SQL Database로 SQL Server 마이그레이션 평가 규칙
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -65,21 +65,6 @@ GROUP BY SalesOrderID, UnitPrice, UnitPriceDiscount WITH ROLLUP;
 
 추가 정보:[SQL Server에서 중단된 데이터베이스 엔진 기능 ](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## <a name="change-data-capture-cdc"></a>CDC(변경 데이터 캡처)<a id="CDC"></a>
-
-**제목: CDC(변경 데이터 캡처)는 Azure SQL Database에서 지원되지 않습니다**   
-**범주**: 문제   
-
-
-**설명**   
-CDC(변경 데이터 캡처)는 Azure SQL Database에서 지원되지 않습니다. 변경 내용 추적을 대신 사용할 수 있는지 평가하세요.  또는 Azure SQL Managed Instance로 마이그레이션하거나 Azure Virtual Machines의 SQL Server로 마이그레이션합니다. 
-
-
-**권장 사항**   
-CDC(변경 데이터 캡처)는 Azure SQL Database에서 지원되지 않습니다. 변경 내용 추적을 대신 사용할 수 있는지 평가하거나 Azure SQL Managed Instance로 마이그레이션하는 것을 고려하세요.
-
-추가 정보: [Azure SQL 변경 내용 추적 사용](https://social.technet.microsoft.com/wiki/contents/articles/2976.azure-sql-how-to-enable-change-tracking.aspx)
-
 ## <a name="clr-assemblies"></a>CLR 어셈블리<a id="ClrAssemblies"></a>
 
 **제목: SQL CLR 어셈블리는 Azure SQL Database에서 지원되지 않습니다**   
@@ -93,7 +78,7 @@ Azure SQL Database는 SQL CLR 어셈블리를 지원하지 않습니다.
 **권장 사항**   
 현재 Azure SQL Database에서 지원할 수 있는 방법은 없습니다. 권장되는 대체 해결 방법을 사용하려면 Azure SQL Database에서 지원하는 어셈블리만 사용하도록 애플리케이션 코드와 데이터베이스를 변경해야 합니다. 또는 Azure SQL Managed Instance로 마이그레이션하거나 Azure Virtual Machines의 SQL Server로 마이그레이션합니다.
 
-추가 정보: [SQL Database에서 지원되지 않는 Transact-SQL 차이점](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
+추가 정보: [SQL Database에서 지원되지 않는 Transact-SQL 차이점](../../database/transact-sql-tsql-differences-sql-server.md#t-sql-syntax-not-supported-in-azure-sql-database)
 
 ## <a name="cryptographic-provider"></a>암호화 공급자<a id="CryptographicProvider"></a>
 
@@ -249,7 +234,7 @@ BEGIN DISTRIBUTED TRANSACTION을 사용하여 모든 개체를 보려면 Azure M
 **권장 사항**   
 Azure SQL Database는 파일 공유 및 Windows 폴더에 액세스할 수 없으므로 Azure Blob Storage에서 파일을 가져와야 합니다. 따라서 OPENROWSET 함수에서는 Blob 유형 DATASOURCE만 지원됩니다. 또는 Azure 가상 머신의 SQL Server로 마이그레이션합니다.
 
-추가 정보: [SQL Database로 마이그레이션 중 Transact-SQL 차이점 해결](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
+추가 정보: [SQL Database로 마이그레이션 중 Transact-SQL 차이점 해결](../../database/transact-sql-tsql-differences-sql-server.md#t-sql-syntax-not-supported-in-azure-sql-database)
 
 
 ## <a name="openrowset-provider"></a>OPENROWSET(공급자)<a id="OpenRowsetWithSQLAndNonSQLProvider"></a>
@@ -264,7 +249,7 @@ SQL 또는 SQL 이외의 공급자를 사용하는 OpenRowSet는 연결된 서�
 **권장 사항**   
 Azure SQL Database는 Azure Blob Storage에서 가져오는 경우에만 OPENROWSET를 지원합니다. 또는 Azure 가상 머신의 SQL Server로 마이그레이션합니다.
 
-추가 정보: [SQL Database로 마이그레이션 중 Transact-SQL 차이점 해결](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
+추가 정보: [SQL Database로 마이그레이션 중 Transact-SQL 차이점 해결](../../database/transact-sql-tsql-differences-sql-server.md#t-sql-syntax-not-supported-in-azure-sql-database)
 
 
 ## <a name="non-ansi-left-outer-join"></a>비 ANSI 왼쪽 우선 외부 조인<a id="NonANSILeftOuterJoinSyntax"></a>
@@ -374,7 +359,7 @@ Service Broker 기능은 Azure SQL Database에서 지원되지 않습니다. 동
 **권장 사항**   
 대신 데이터베이스 수준 트리거를 사용합니다. 또는 Azure SQL Managed Instance로 마이그레이션하거나 Azure Virtual Machines의 SQL Server로 마이그레이션합니다.
 
-추가 정보: [SQL Database로 마이그레이션 중 Transact-SQL 차이점 해결](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
+추가 정보: [SQL Database로 마이그레이션 중 Transact-SQL 차이점 해결](../../database/transact-sql-tsql-differences-sql-server.md#t-sql-syntax-not-supported-in-azure-sql-database)
 
 
 ## <a name="sql-agent-jobs"></a>SQL 에이전트 작업<a id="AgentJobs"></a>
@@ -444,7 +429,7 @@ Azure SQL Database에서 제거된 지원되지 않는 시스템 프로시저에
 **권장 사항**   
 Azure Migrate의 영향을 받는 개체 섹션을 검토하여 Azure SQL Database에서 지원되지 않는 추적 플래그를 모두 확인하고 제거할 수 있는지 평가합니다. 또는 제한된 수의 전역 추적 플래그를 지원하는 Azure SQL Managed Instance 또는 Azure 가상 머신의 SQL Server로 마이그레이션합니다.
 
-추가 정보: [SQL Database로 마이그레이션 중 Transact-SQL 차이점 해결](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
+추가 정보: [SQL Database로 마이그레이션 중 Transact-SQL 차이점 해결](../../database/transact-sql-tsql-differences-sql-server.md#t-sql-syntax-not-supported-in-azure-sql-database)
 
 
 ## <a name="windows-authentication"></a>Windows 인증<a id="WindowsAuthentication"></a>

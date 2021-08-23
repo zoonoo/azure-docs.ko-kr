@@ -1,14 +1,14 @@
 ---
 title: 배포 순서 이해
 description: 청사진 할당 도중 청사진 아티팩트가 배포되는 순서와 배포 순서를 사용자 지정하는 방법을 알아봅니다.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 4ac3823f06b4842a464af8b82438335708bb9599
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: aef672d4f32af0300932b8a2c953816b2f861029
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323720"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122568018"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Azure Blueprint의 배포 순서 이해
 

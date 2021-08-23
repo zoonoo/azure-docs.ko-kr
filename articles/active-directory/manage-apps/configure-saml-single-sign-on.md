@@ -2,26 +2,25 @@
 title: Azure Active Directory의 앱에서 사용되는 SAML 기반 SSO(Single Sign-On) 이해
 description: Azure Active Directory의 앱에서 사용되는 SAML 기반 SSO(Single Sign-On) 이해
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/28/2020
-ms.author: mtillman
-ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 1f08e5d75b1a364a3a79a8da01a0a6494a61fdd6
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 07/28/2021
+ms.author: davidmu
+ms.reviewer: ergreenl
+ms.openlocfilehash: ac68db14ec080372acfae3e9f1e5d3dd3f6a47c9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075991"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536239"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>SAML 기반 Single Sign-On 이해
 
-애플리케이션 관리에 대한 [빠른 시작 시리즈](view-applications-portal.md)에서는 애플리케이션용 IdP(ID 공급자)로 Azure AD를 사용하는 방법을 알아보았습니다. 이 문서에서는 Single Sign-On에 사용할 수 있는 SAML 기반 옵션에 대해 자세히 설명합니다. 
-
+애플리케이션 관리에 대한 [빠른 시작 시리즈](view-applications-portal.md)에서는 애플리케이션용 IdP(ID 공급자)로 Azure AD를 사용하는 방법을 알아보았습니다. 이 문서에서는 Single Sign-On에 사용할 수 있는 SAML 기반 옵션에 대해 자세히 설명합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -29,13 +28,12 @@ IdP(ID 공급자)로 Azure AD를 사용하고 SSO(Single Sign-On)를 구성하�
 
 [빠른 시작 시리즈](add-application-portal-setup-sso.md)에는 Single Sign-On 구성에 관한 문서가 있습니다. 이 문서에서는 앱의 SAML 구성 페이지에 액세스하는 방법을 설명합니다. SAML 구성 페이지는 다섯 개의 섹션으로 되어 있으며 이 문서에서 각 섹션에 대한 세부 정보도 확인할 수 있습니다.
 
-> [!IMPORTANT] 
-> **엔터프라이즈 애플리케이션** 에서 애플리케이션을 탐색할 때 **Single Sign-On** 옵션이 표시되지 않는 몇 가지 경우가 있습니다. 
+> [!IMPORTANT]
+> **엔터프라이즈 애플리케이션** 에서 애플리케이션을 탐색할 때 **Single Sign-On** 옵션이 표시되지 않는 몇 가지 경우가 있습니다.
 >
-> **앱 등록** 을 사용하여 애플리케이션을 등록하면 Single Sign-On 기능은 OIDC OAuth를 기본값으로 사용하도록 구성됩니다. 이 경우 **엔터프라이즈 애플리케이션** 에서 **Single Sign-On** 옵션이 탐색에 표시되지 않습니다. **앱 등록** 을 사용하여 사용자 지정 앱을 추가하면 매니페스트 파일의 옵션을 구성하게 됩니다. 매니페스트 파일에 대한 자세한 내용은 [Azure Active Directory 앱 매니페스트](../develop/reference-app-manifest.md)를 참조하세요. SSO 표준에 대한 자세한 내용은 [Microsoft ID 플랫폼을 사용한 인증 및 권한 부여](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-the-microsoft-identity-platform)를 참조하세요. 
+> **앱 등록** 을 사용하여 애플리케이션을 등록하면 Single Sign-On 기능은 OIDC OAuth를 기본값으로 사용하도록 구성됩니다. 이 경우 **엔터프라이즈 애플리케이션** 에서 **Single Sign-On** 옵션이 탐색에 표시되지 않습니다. **앱 등록** 을 사용하여 사용자 지정 앱을 추가하면 매니페스트 파일의 옵션을 구성하게 됩니다. 매니페스트 파일에 대한 자세한 내용은 [Azure Active Directory 앱 매니페스트](../develop/reference-app-manifest.md)를 참조하세요. SSO 표준에 대한 자세한 내용은 [Microsoft ID 플랫폼을 사용한 인증 및 권한 부여](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-the-microsoft-identity-platform)를 참조하세요.
 >
 > 애플리케이션이 다른 테넌트에 호스트되거나 사용자 계정에 필요한 권한(전역 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 관리자 또는 서비스 주체의 소유자)이 없는 경우에는 탐색에서 **Single Sign-On** 이 표시되지 않을 수 있습니다. 사용 권한으로 **Single Sign-On** 을 열 수는 있지만 저장할 수 없는 경우가 발생할 수도 있습니다. Azure AD 관리자 역할에 대한 자세한 내용은 https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 의 설명을 참조하세요.
-
 
 ## <a name="basic-saml-configuration"></a>기본 SAML 구성
 
@@ -52,20 +50,18 @@ IdP(ID 공급자)로 Azure AD를 사용하고 SSO(Single Sign-On)를 구성하�
 | **릴레이 상태** | 옵션 | 옵션 | 인증이 완료되면 사용자를 리디렉션할 위치를 애플리케이션에 지정합니다. 일반적으로 이 값은 애플리케이션에 대한 올바른 URL입니다. 그러나 일부 애플리케이션에서는 이 필드를 다르게 사용합니다. 자세한 내용은 애플리케이션 공급 업체에 요청하세요.
 | **로그아웃 URL** | 옵션 | 옵션 | SAML 로그아웃 응답을 애플리케이션에 다시 보내는 데 사용됩니다.
 
-## <a name="user-attributes-and-claims"></a>사용자 특성 및 클레임 
+## <a name="user-attributes-and-claims"></a>사용자 특성 및 클레임
 
-사용자가 애플리케이션에 인증할 때 Azure AD는 고유하게 식별하는 사용자에 대한 정보(또는 클레임)를 포함하는 SAML 토큰을 애플리케이션에 발급합니다. 기본적으로 이 정보는 사용자의 사용자 이름, 이메일 주소, 이름 및 성을 포함합니다. 예를 들어 애플리케이션에 사용자 이름이 아닌 특정 클레임 값 또는 **이름** 형식이 필요한 경우 이러한 클레임을 사용자 지정해야 할 수 있습니다. 
+사용자가 애플리케이션에 인증할 때 Azure AD는 고유하게 식별하는 사용자에 대한 정보(또는 클레임)를 포함하는 SAML 토큰을 애플리케이션에 발급합니다. 기본적으로 이 정보는 사용자의 사용자 이름, 이메일 주소, 이름 및 성을 포함합니다. 예를 들어 애플리케이션에 사용자 이름이 아닌 특정 클레임 값 또는 **이름** 형식이 필요한 경우 이러한 클레임을 사용자 지정해야 할 수 있습니다.
 
 > [!IMPORTANT]
 > 미리 구성된 앱이 이미 앱 갤러리에 많이 있으므로 사용자 및 그룹 클레임을 설정하는 것에 대해 걱정하지 않아도 됩니다. 앱을 추가하고 구성하는 과정은 [빠른 시작 시리즈](add-application-portal.md)를 참조하세요.
-
 
 **고유한 사용자 ID(이름 ID)** 식별자 값은 필수 클레임이며 중요합니다. 기본값은 *user.userprincipalname* 입니다. 사용자 ID는 애플리케이션 내에서 각 사용자를 고유하게 식별합니다. 예를 들어 이메일 주소가 사용자 이름 및 고유 식별자 모두인 경우 값을 *user.mail* 로 설정합니다.
 
 SAML 클레임을 사용자 지정하는 방법에 대한 자세한 내용은 [방법: 엔터프라이즈 애플리케이션의 SAML 토큰에서 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조하세요.
 
 새 클레임을 추가할 수 있습니다. 자세한 내용은 [애플리케이션별 클레임 추가](../develop/active-directory-saml-claims-customization.md#adding-application-specific-claims)를 참조하세요. 그룹 클레임을 추가하려면 [그룹 클레임 구성](../hybrid/how-to-connect-fed-group-claims.md)을 참조하세요.
-
 
 > [!NOTE]
 > Azure AD에서 애플리케이션에 대한 SAML 토큰을 사용자 지정하는 다른 방법은 다음 리소스를 참조하세요.
@@ -83,7 +79,8 @@ Azure AD는 인증서를 사용하여 애플리케이션에 보내는 SAML 토�
 
 Azure AD에서는 Base64 또는 원시 형식의 활성 인증서를 기본 **SAML로 Single Sign-On 설정** 페이지에서 직접 다운로드할 수 있습니다. 또는 애플리케이션 메타데이터 XML 파일을 다운로드하거나 앱의 페더레이션 메타데이터 URL을 사용하여 활성 인증서를 가져올 수 있습니다. 인증서(활성 또는 비활성)를 보거나 만들거나 다운로드 하려면 다음 단계를 수행합니다.
 
-인증서를 확인하기 위해 살펴봐야 할 일반적인 사항은 다음과 같습니다. 
+인증서를 확인하기 위해 살펴봐야 할 일반적인 사항은 다음과 같습니다.
+
    - *올바른 만료 날짜.* 만료 날짜는 최대 3년 이후까지 구성할 수 있습니다.
    - *올바른 인증서의 활성 상태.* 상태가 **비활성** 이면 상태를 **활성** 으로 변경합니다. 상태를 변경하려면 인증서의 행을 마우스 오른쪽 단추로 클릭하고 **인증서를 활성 상태로 만들기** 를 선택합니다.
    - *올바른 서명 옵션 및 알고리즘*
@@ -95,10 +92,11 @@ Azure AD에서는 Base64 또는 원시 형식의 활성 인증서를 기본 **SA
 > https://login.microsoftonline.com/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={app-id} 사용 시 애플리케이션은 렌더링된 XML에 나타나는 바이트 순서 표시를 처리할 수 있어야 합니다. XML 데이터를 검토할 때 바이트 순서 표시는 인쇄할 수 없는 ASCII 문자(»¿)로 표시되고 16진수에서는 EF BB BF로 표시됩니다.
 
 인증서를 변경하려면 편집 단추를 선택합니다. **SAML 서명 인증서** 페이지에서 수행할 수 있는 몇 가지 작업은 다음과 같습니다.
-   - 새 인증서 만들기: **새 인증서**, **만료 날짜**, **저장** 을 차례로 선택합니다. 인증서를 활성화하려면 상황에 맞는 메뉴( **...** ), **인증서를 활성 상태로 만들기** 를 차례로 선택합니다.
-   - 프라이빗 키 및 pfx 자격 증명을 사용하여 인증서 업로드: **인증서 가져오기** 를 선택한 다음, 해당 인증서를 찾습니다. **PFX 암호** 를 입력한 다음, **추가** 를 선택합니다.  
-   - 고급 인증서 서명을 구성합니다. 이 옵션에 대한 자세한 내용은 [고급 인증서 서명 옵션](certificate-signing-options.md)을 참조하세요.
-   - 활성 인증서의 만료 날짜가 가까워질 때 추가 사용자에게 알림: **알림 이메일 주소** 필드에 이메일 주소를 입력합니다.
+
+- 새 인증서 만들기: **새 인증서**, **만료 날짜**, **저장** 을 차례로 선택합니다. 인증서를 활성화하려면 상황에 맞는 메뉴( **...** ), **인증서를 활성 상태로 만들기** 를 차례로 선택합니다.
+- 프라이빗 키 및 pfx 자격 증명을 사용하여 인증서 업로드: **인증서 가져오기** 를 선택한 다음, 해당 인증서를 찾습니다. **PFX 암호** 를 입력한 다음, **추가** 를 선택합니다.  
+- 고급 인증서 서명을 구성합니다. 이 옵션에 대한 자세한 내용은 [고급 인증서 서명 옵션](certificate-signing-options.md)을 참조하세요.
+- 활성 인증서의 만료 날짜가 가까워질 때 추가 사용자에게 알림: **알림 이메일 주소** 필드에 이메일 주소를 입력합니다.
 
 ## <a name="set-up-the-application-to-use-azure-ad"></a>Azure AD를 사용하도록 애플리케이션 설정
 
@@ -137,3 +135,4 @@ Azure AD를 SAML 기반 ID 공급자로 사용하도록 애플리케이션을 �
 - [애플리케이션에 사용자 또는 그룹 할당](./assign-user-or-group-access-portal.md)
 - [자동 사용자 계정 프로비저닝 구성](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 - [Single Sign-On SAML 프로토콜](../develop/single-sign-on-saml-protocol.md)
+

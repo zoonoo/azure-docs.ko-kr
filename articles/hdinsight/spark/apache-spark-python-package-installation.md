@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 0c3db80edf771b0ad34aa9260da80b43ba8c355e
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: eb95c7e6cd2c76cc35556f13025505785707ed04
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110652586"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597876"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>스크립트 작업을 사용하여 Azure HDInsight에서 Python 환경을 안전하게 관리
 
@@ -155,11 +155,6 @@ HDInsight 클러스터는 Python 2.7 및 Python 3.5의 기본 제공 Python 환�
 
     :::image type="content" source="./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png" alt-text="Jupyter Notebook에서 Python 버전 확인" border="true":::
 
-## <a name="known-issue"></a>알려진 문제
-
-Anaconda 버전 `4.7.11`, `4.7.12` 및 `4.8.0`에 대한 알려진 버그가 있습니다. 스크립트 작업이 `"Collecting package metadata (repodata.json): ...working..."`에서 응답이 중지되고 `"Python script has been killed due to timeout after waiting 3600 secs"`에서 오류가 발생합니다. [관련 스크립트](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh)를 다운로드하여 모든 노드에서 스크립트 작업으로 실행함으로써 문제를 해결할 수 있습니다.
-
-Anaconda 버전을 확인하려면 클러스터 헤더 노드로 SSH를 실행하고 `/usr/bin/anaconda/bin/conda --v`를 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

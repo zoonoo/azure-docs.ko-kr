@@ -1,18 +1,20 @@
 ---
 title: Databricks Python을 사용하여 데이터 변환
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인에서 Databricks Python 작업을 실행하여 데이터를 처리 또는 변환하는 방법 알아보기.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 03/15/2018
 author: nabhishek
 ms.author: abnarain
-ms.custom: devx-track-python
-ms.openlocfilehash: 6e25c08554e50311613ac4a79ac40c7efce23ae9
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.custom: devx-track-python, synapse
+ms.openlocfilehash: 24d1ab1860f875201c255e775af151af88585731
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107902987"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122567705"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Azure Databricks에서 Python 작업을 실행하여 데이터 변환
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -34,7 +36,7 @@ Databricks Python 작업에 대한 샘플 JSON 정의는 다음과 같습니다.
         "description": "MyActivity description",
         "type": "DatabricksSparkPython",
         "linkedServiceName": {
-            "referenceName": "MyDatabricksLinkedservice",
+            "referenceName": "MyDatabricksLinkedService",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -58,7 +60,7 @@ Databricks Python 작업에 대한 샘플 JSON 정의는 다음과 같습니다.
 
 다음 표에서는 JSON 정의에 사용하는 JSON 속성을 설명합니다.
 
-|속성|Description|필수|
+|속성|설명|필수|
 |---|---|---|
 |name|파이프라인의 작업 이름입니다.|예|
 |description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|예|
@@ -112,7 +114,7 @@ Databricks Python 작업에 대한 샘플 JSON 정의는 다음과 같습니다.
 
 1. [Databricks 작업 영역 UI 사용](/azure/databricks/libraries/#create-a-library)
 
-2. [Databricks CLI](/azure/databricks/dev-tools/cli/#install-the-cli)를 사용하여 UI를 통해 추가된 라이브러리의 DBFS 경로를 얻을 수 있습니다.
+2. UI를 사용하여 추가된 라이브러리의 dbfs 경로를 얻으려면 [Databricks CLI](/azure/databricks/dev-tools/cli/#install-the-cli)를 사용하면 됩니다.
 
    일반적으로 Jar 라이브러리는 UI를 사용하는 동안 dbfs:/FileStore/jars 아래에 저장됩니다. *databricks fs ls dbfs:/FileStore/job-jars* CLI를 통해 모두 나열할 수 있습니다.
 
@@ -120,6 +122,6 @@ Databricks Python 작업에 대한 샘플 JSON 정의는 다음과 같습니다.
 
 1. [Databricks CLI를 사용하여 라이브러리 복사](/azure/databricks/dev-tools/cli/#copy-a-file-to-dbfs)를 따르세요.
 
-2. Databricks CLI[(설치 단계)](/azure/databricks/dev-tools/cli/#install-the-cli)를 사용합니다.
+2. Databricks CLI [(설치 단계)](/azure/databricks/dev-tools/cli/#install-the-cli)를 사용합니다.
 
    예를 들어, JAR를 DBFS에 복사하려면 `dbfs cp SparkPi-assembly-0.1.jar dbfs:/docs/sparkpi.jar`을 수행합니다.

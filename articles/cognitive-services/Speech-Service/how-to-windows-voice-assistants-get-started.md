@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: b50b98095cdfe0e6ec19c89b57887ebc4a0f6317
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d9b5e861b35ade3cf391e2a0ace52722821a158
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101713051"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113650634"
 ---
 # <a name="getting-started-with-voice-assistants-on-windows"></a>Windows용 음성 도우미 시작하기
 
@@ -32,7 +32,7 @@ Windows용 음성 도우미 개발을 시작하려면 적절한 개발 환경이
 
 ## <a name="obtain-resources-from-microsoft"></a>Microsoft에서 리소스 가져오기
 
-Windows에서 완전히 사용자 지정된 음성 에이전트에 필요한 일부 리소스에는 Microsoft의 리소스가 필요합니다. [UWP 음성 도우미 샘플](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample)은 초기 개발 및 테스트를 위해 이러한 리소스의 샘플 버전을 제공하므로 초기 개발 시 이 섹션은 필요하지 않습니다.
+Windows에서 완전히 사용자 지정된 음성 에이전트에 필요한 일부 리소스에는 Microsoft의 리소스가 필요합니다. [UWP 음성 도우미 샘플](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample)은 초기 개발 및 테스트를 위해 이러한 리소스의 샘플 버전을 제공하므로 초기 개발 시 이 섹션은 필요하지 않습니다.
 
 - **키워드 모델:** 음성 활성화를 사용하려면 bin 파일 형식의 Microsoft 키워드 모델이 필요합니다. UWP 음성 도우미 샘플에 제공된 bin 파일은 *Contoso* 키워드에 대해 학습됩니다.
 - **제한된 액세스 기능 토큰:** ConversationalAgent API는 마이크 오디오에 대한 액세스 권한을 제공하므로 제한된 액세스 기능 제한 사항에 따라 보호됩니다. 제한된 액세스 기능을 사용하려면 Microsoft에서 애플리케이션의 패키지 ID에 연결된 제한된 액세스 기능 토큰을 가져와야 합니다.
@@ -53,7 +53,7 @@ Windows에서 완전히 사용자 지정된 음성 에이전트에 필요한 일
 
 ## <a name="try-out-the-sample-app"></a>샘플 앱 사용해 보기
 
-Speech Services 구독 키와 에코 봇의 봇 ID를 사용하여 [UWP 음성 도우미 샘플](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) 사용을 준비합니다. 추가 정보의 지침에 따라 앱을 실행하고 자격 증명을 입력하세요.
+Speech Services 구독 키와 에코 봇의 봇 ID를 사용하여 [UWP 음성 도우미 샘플](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample) 사용을 준비합니다. 추가 정보의 지침에 따라 앱을 실행하고 자격 증명을 입력하세요.
 
 ## <a name="create-your-own-voice-assistant-for-windows"></a>나만의 Windows용 음성 도우미 만들기
 

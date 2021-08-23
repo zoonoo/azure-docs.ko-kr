@@ -11,12 +11,12 @@ author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
 ms.date: 12/18/2018
-ms.openlocfilehash: 6dde8aaa676e8045326f7078e1c3fd2a0ada6dc2
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: d6a22f1bab9b24412fe9109fff955d3eeeb0749c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110699859"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536737"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>지역 복원 또는 장애 조치(failover)를 위해 Azure SQL Database 보안 구성 및 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -90,15 +90,15 @@ WHERE [type_desc] = 'SQL_USER'
 
 ```sql
 CREATE LOGIN [<login name>]
-WITH PASSWORD = <login password>,
-SID = <desired login SID>
+WITH PASSWORD = '<login password>',
+SID = 0x1234 /*replace 0x1234 with the desired login SID*/
 ```
 
 > [!NOTE]
 > 주 데이터베이스가 아닌 보조 데이터베이스에 사용자 액세스 권한을 부여하려는 경우 주 서버의 사용자 로그인을 변경하고 다음 구문을 사용하여 수행할 수 있습니다.
 >
 > ```sql
-> ALTER LOGIN <login name> DISABLE
+> ALTER LOGIN [<login name>] DISABLE
 > ```
 >
 > DISABLE은 암호를 변경하지 않으므로 필요한 경우 항상 사용하도록 설정할 수 있습니다.

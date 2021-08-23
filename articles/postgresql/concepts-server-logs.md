@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 31b3c0a1894280e90f696f6c107b67a3af7b1880
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8b4e306a39261da6c1422ba81ccb164e3903fbcd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605351"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566306"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>로그 - Azure Database for PostgreSQL - 단일 서버
 
@@ -46,6 +46,8 @@ Azure Database for PostgreSQL은 .log 파일에 대한 단기 스토리지 위�
 로그 및 로그 분석에 대한 장기 보존을 위해 .log 파일을 다운로드하고 타사 서비스로 이동할 수 있습니다. [Azure Portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md)를 사용하여 파일을 다운로드할 수 있습니다. 그 대신에 로그 (JSON 형식)를 장기 위치로 자동으로 내보내는 Azure Monitor 진단 설정을 구성할 수 있습니다. 이 옵션에 대한 자세한 내용은 아래 섹션을 참조하세요. 
 
 매개 변수 `logging_collector`을 OFF로 설정하여 .log 파일 생성을 중단할 수 있습니다. Azure Monitor 진단 설정을 사용하는 경우 .log 파일 생성을 해제하는 것이 좋습니다. 이 구성을 통해 추가 로깅의 성능 영향을 줄일 수 있습니다.
+> [!NOTE]
+> 서버를 다시 시작하여 이 변경 내용을 적용합니다.
 
 ## <a name="resource-logs"></a>리소스 로그
 

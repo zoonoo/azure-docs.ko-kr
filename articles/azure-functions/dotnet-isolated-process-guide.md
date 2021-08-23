@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 06/01/2021
 ms.custom: template-concept
 recommendations: false
-ms.openlocfilehash: 34a4a37d351f144d00d926de0544c8ae56e9a314
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 5f8d78f7080c1505db4a82d9393801ad8418beed
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111901464"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537134"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Azure의 .NET 5.0에서 함수를 실행하는 방법에 대한 가이드
 
@@ -44,7 +44,7 @@ Out of Process를 실행하는 경우 .NET 함수는 다음과 같은 이점을 
 .NET 격리 함수 프로젝트는 기본적으로 .NET 5.0를 대상으로 하는 .NET 콘솔 앱 프로젝트입니다. 다음은 .NET 격리 프로젝트에 필요한 기본 파일입니다.
 
 + [host.json](functions-host-json.md) 파일.
-+ [local.settings.json](functions-run-local.md#local-settings-file) 파일.
++ [local.settings.json](functions-develop-local.md#local-settings-file) 파일.
 + 프로젝트 및 종속성을 정의하는 C# 프로젝트 파일(.csproj)입니다.
 + 앱의 진입점인 Program.cs 파일입니다.
 
@@ -142,7 +142,7 @@ Out of Process를 실행할 때 트리거와 바인딩을 사용하기 위한 �
 
 ### <a name="output-bindings"></a>출력 바인딩
 
-출력 바인딩에 쓰려면 바인딩된 서비스에 쓰는 방법을 정의한 함수 메서드에 출력 바인딩 특성을 적용해야 합니다. 메서드에서 반환된 값은 출력 바인딩에 기록됩니다. 예를 들어 다음 예에서는 출력 바인딩을 사용하여 이름이 `functiontesting2`인 메시지 큐에 문자열 값을 씁니다.
+출력 바인딩에 쓰려면 바인딩된 서비스에 쓰는 방법을 정의한 함수 메서드에 출력 바인딩 특성을 적용해야 합니다. 메서드에서 반환된 값은 출력 바인딩에 기록됩니다. 예를 들어 다음 예에서는 출력 바인딩을 사용하여 이름이 `myqueue-output`인 메시지 큐에 문자열 값을 씁니다.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 

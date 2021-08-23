@@ -10,16 +10,16 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
 ms.date: 02/16/2021
-ms.openlocfilehash: a0d8532d19aff41bc5e7defb3b58462e81018749
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c21d78e9731bc1711e62d26d6cca269868ac1714
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101712932"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536560"
 ---
 # <a name="create-a-translator-resource"></a>Translator 리소스 만들기
 
-이 문서에서는 Azure Portal에서 Translator 리소스를 만드는 방법을 알아봅니다. [Azure Translator](../what-are-cognitive-services.md)는 [Azure Cognitive Services](translator-info-overview.md) REST API 제품군의 일부인 클라우드 기반 기계 번역 서비스입니다. Azure 리소스는 만드는 서비스의 인스턴스입니다. Azure 서비스에 대한 모든 API 요청에는 액세스를 인증하기 위한 **엔드포인트** URL 및 읽기 전용 **구독 키** 가 필요합니다.
+이 문서에서는 Azure Portal에서 Translator 리소스를 만드는 방법을 알아봅니다. [Azure Translator](../what-are-cognitive-services.md)는 [Azure Cognitive Services](translator-overview.md) REST API 제품군의 일부인 클라우드 기반 기계 번역 서비스입니다. Azure 리소스는 만드는 서비스의 인스턴스입니다. Azure 서비스에 대한 모든 API 요청에는 액세스를 인증하기 위한 **엔드포인트** URL 및 읽기 전용 **구독 키** 가 필요합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -32,7 +32,7 @@ Translator 서비스는 다음 두 가지 리소스 종류를 통해 액세스�
 * **단일 서비스** 리소스 종류를 사용하면 단일 서비스 API 키 및 엔드포인트에 액세스할 수 있습니다.  
 
 * **다중 서비스** 리소스 종류를 사용하면 단일 API 키 및 엔드포인트를 사용하여 여러 Cognitive Services에 액세스할 수 있습니다. Cognitive Services 리소스는 현재 다음 서비스에 대해 사용할 수 있습니다.
-  * 언어([Translator](../translator/translator-info-overview.md), [Language Understanding (LUIS)](../luis/what-is-luis.md), [Text Analytics](../text-analytics/overview.md))  
+  * 언어([Translator](../translator/translator-overview.md), [Language Understanding (LUIS)](../luis/what-is-luis.md), [Text Analytics](../text-analytics/overview.md))  
   * 비전([Computer Vision](../computer-vision/overview.md)), ([Face](../face/overview.md))  
   * 결정([Content Moderator](../content-moderator/overview.md))  
 

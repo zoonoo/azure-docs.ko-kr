@@ -6,12 +6,12 @@ author: ekpgh
 ms.author: rohogue
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 66df6a2018960d83c4aaa9129dad067732a8b3cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 485374e50f86ad1c4e9fa451d046b99d3987e257
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "76152972"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113650954"
 ---
 # <a name="azure-vfxt-for-azure-whitepapers-and-other-resources"></a>Avere vFXT for Azure 백서 및 기타 리소스
 
@@ -38,4 +38,4 @@ ms.locfileid: "76152972"
 ## <a name="next-steps"></a>다음 단계
 
 * Avere vFXT for Azure 배포 계획을 계속 진행하려면 [Avere vFXT 시스템 계획](avere-vfxt-deploy-plan.md)을 읽어보세요.
-* 특정 질문에 대한 답변은 [Avere vFXT for Azure FAQ](avere-vfxt-faq.md)를 참조하세요.
+* 특정 질문에 대한 답변은 [Avere vFXT for Azure FAQ](avere-vfxt-faq.yml)를 참조하세요.

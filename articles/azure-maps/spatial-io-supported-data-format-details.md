@@ -7,13 +7,12 @@ ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: 7227813f607ca18ee50f503a30b290414f333e21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 278dae8b3569dd0ff92d3ba12197d1049070167a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91310172"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567089"
 ---
 # <a name="supported-data-format-details"></a>지원되는 데이터 형식 세부 정보
 
@@ -173,23 +172,23 @@ ms.locfileid: "91310172"
 | `position`               | 예     | 아니요    | 일부 XML 피드는 `georss:where` 태그를 사용하여 래핑하는 대신 위치 태그를 사용하여 GML을 래핑합니다. 이 태그를 읽지만 `georss:where` 태그를 사용하여 기록합니다. |
 | `rss`                    | 예     | 아니요    | ATOM 형식으로 기록되는 GeoRSS입니다.                                                                 |
 | `rss:author`             | yes     | 부분 | `atom:author`로 기록됩니다.                                                                 |
-| `rss:category`           | yes     | 부분 | `atom:category`로 기록됩니다.                                                               |
+| `rss:category`           | 예     | 부분 | `atom:category`로 기록됩니다.                                                               |
 | `rss:channel`            | 예     | 아니요    |                                                                                                |
 | `rss:cloud`              | 예     | 아니요    |                                                                                                |
 | `rss:comments`           | 예     | 아니요    |                                                                                                |
 | `rss:copyright`          | 예     | 부분 | 도형에 `rights` `properties` 속성이 아직 없는 경우 `atom:rights`로 기록됩니다.       |
-| `rss:description`        | yes     | 부분 | 도형에 `content` `properties` 속성이 아직 없는 경우 `atom:content`로 기록됩니다.      |
+| `rss:description`        | 예     | 부분 | 도형에 `content` `properties` 속성이 아직 없는 경우 `atom:content`로 기록됩니다.      |
 | `rss:docs`               | 예     | 아니요    |                                                                                                |
 | `rss:enclosure`          | 예     | 아니요    |                                                                                                |
 | `rss:generator`          | 예     | 아니요    |                                                                                                |
 | `rss:guid`               | 예     | 부분 | 도형에 `id` `properties` 속성이 아직 없는 경우 `atom:id`로 기록됩니다.         |
 | `rss:image`              | yes     | 부분 | 도형에 `logo` `properties` 속성이 아직 없는 경우 `atom:logo`로 기록됩니다.      |
-| `rss:item`               | yes     | 부분 | `atom:entry`로 기록됩니다.                                                                  |
+| `rss:item`               | 예     | 부분 | `atom:entry`로 기록됩니다.                                                                  |
 | `rss:language`           | 예     | 아니요    |                                                                                                |
 | `rss:lastBuildDate`      | 예     | 부분 | 도형에 `updated` `properties` 속성이 아직 없는 경우 `atom:updated`로 기록됩니다.     |
 | `rss:link`               | yes     | 부분 | `atom:link`로 기록됩니다.                                                                   |
-| `rss:managingEditor`     | yes     | 부분 | `atom:contributor`로 기록됩니다.                                                            |
-| `rss:pubDate`            | yes     | 부분 | 도형에 `published` `properties` 속성이 아직 없는 경우 `atom:published`로 기록됩니다.  |
+| `rss:managingEditor`     | 예     | 부분 | `atom:contributor`로 기록됩니다.                                                            |
+| `rss:pubDate`            | 예     | 부분 | 도형에 `published` `properties` 속성이 아직 없는 경우 `atom:published`로 기록됩니다.  |
 | `rss:rating`             | 예     | 아니요    |                                                                                                |
 | `rss:skipDays`           | 예     | 아니요    |                                                                                                |
 | `rss:skipHours`          | 예     | 아니요    |                                                                                                |

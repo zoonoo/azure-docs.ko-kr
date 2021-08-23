@@ -4,12 +4,12 @@ description: Java로 함수를 개발하는 방법을 이해합니다.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 82e40fbe3be88754ce7196f61c971c7a002998ca
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: fc827c8c03edecbdb10769f7830806ff01596bd1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095107"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536468"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
@@ -106,7 +106,7 @@ FunctionsProject
 [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) 패키지에 포함된 Java 주석을 사용하여 입력 및 출력을 메서드에 바인딩합니다. 자세한 내용은 [Java 참조 문서](/java/api/com.microsoft.azure.functions.annotation)를 참조하세요.
 
 > [!IMPORTANT] 
-> Azure Blob Storage, Azure Queue Storage 또는 Azure Table 스토리지 트리거를 로컬로 실행하려면 [local.settings.json](./functions-run-local.md#local-settings-file)에서 Azure Storage 계정을 구성해야 합니다.
+> Azure Blob Storage, Azure Queue Storage 또는 Azure Table 스토리지 트리거를 로컬로 실행하려면 [local.settings.json](./functions-develop-local.md#local-settings-file)에서 Azure Storage 계정을 구성해야 합니다.
 
 예제:
 
@@ -132,7 +132,7 @@ public class Function {
       "name": "req",
       "direction": "in",
       "authLevel": "anonymous",
-      "methods": [ "post" ]
+      "methods": [ "GET","POST" ]
     },
     {
       "type": "http",

@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 03/24/2021
 ms.author: JenCook
-ms.openlocfilehash: 6ad2bbb206d1765d4070e744eeab9708ea0db366
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 72c3f523ebc3cfef43709153c09c416d32e0b1b8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633324"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469603"
 ---
 # <a name="run-an-application-by-using-fortanix-confidential-computing-manager"></a>Fortanix Confidential Computing Manager를 사용하여 애플리케이션 실행
 
-[Fortanix Confidential Computing Manager](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.enclave_manager?tab=Overview) 및 [Fortanix](https://www.fortanix.com/)의 [노드 에이전트](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.rte_node_agent)를 사용하여 Azure 기밀 컴퓨팅에서 애플리케이션을 실행하는 방법을 알아봅니다.
+[Fortanix Confidential Computing Manager](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.em_managed?tab=Overview) 및 [Fortanix](https://www.fortanix.com/)의 [노드 에이전트](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.rte_node_agent)를 사용하여 Azure 기밀 컴퓨팅에서 애플리케이션을 실행하는 방법을 알아봅니다.
 
 
 Fortanix는 Azure 인프라와 함께 작동하는 제품 및 서비스를 제공하는 타사 소프트웨어 공급업체입니다. Azure에 대해 유사한 기밀 컴퓨팅 서비스를 제공하는 다른 타사 공급업체도 존재합니다.

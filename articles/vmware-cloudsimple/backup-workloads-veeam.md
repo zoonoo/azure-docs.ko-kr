@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 115cb4203966bdf4cb60373d9c08994b6eb11576
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: d5037a6d236c0071c25e0e4f148c32f67b5e8438
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108182609"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113006287"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Veeam B&R을 사용하여 CloudSimple 프라이빗 클라우드에서 워크로드 가상 머신 백업
 
@@ -136,7 +136,7 @@ Veeam에서 사용하는 포트에서 네트워크 트래픽을 허용하도록 
 
 다음 테이블에서는 포트 목록을 제공합니다.
 
-| 아이콘 | Description | 아이콘 | Description |
+| 아이콘 | 설명 | 아이콘 | Description |
 | ------------ | ------------- | ------------ | ------------- |
 | 백업 서버  | vCenter  | HTTPS / TCP  | 443 |
 | 백업 서버 <br> *Veeam 백업 & 복제 구성 요소 배포에 필요* | 백업 프록시  | TCP/UDP  | 135, 137 ~ 139 및 445 |
@@ -222,7 +222,7 @@ Veeam에서 사용하는 포트에서 네트워크 트래픽을 허용하도록 
 5. [Veeam 시스템 요구 사항](https://helpcenter.veeam.com/docs/backup/vsphere/system_requirements.html?ver=95)에 따라 VCenter에서 Veeam 백업 및 프록시 서버에 대한 VM을 만듭니다. Windows 2012 R2 또는 Linux를 사용할 수 있습니다. 자세한 내용은 [Linux 백업 리포지토리를 사용하기 위한 요구 사항](https://www.veeam.com/kb2216)을 참조하세요.
 6. 설치 가능한 Veeam ISO를 Veeam 백업 서버 VM에서 CDROM 디바이스로 탑재합니다.
 7. Windows 2012 R2 컴퓨터 (Veeam 설치 대상)에 대한 RDP 세션을 사용하여 Windows 2012 R2 VM에 [Veeam B&R 9.5u3를 설치](https://helpcenter.veeam.com/docs/backup/vsphere/install_vbr.html?ver=95) 합니다.
-8. Veeam 백업 서버 VM의 내부 IP 주소를 찾아 DHCP 서버에서 고정되도록 IP 주소를 구성합니다. 이 작업을 수행하는 데 필요한 정확한 단계는 DHCP 서버에 따라 달라집니다. 예를 들어, Netgate 문서 <a href="https://www.netgate.com/docs/pfsense/dhcp/dhcp-server.html" target="_blank">정적 DHCP 매핑은</a> pfSense 라우터를 사용하여 DHCP 서버를 구성하는 방법을 설명합니다.
+8. Veeam 백업 서버 VM의 내부 IP 주소를 찾아 DHCP 서버에서 고정되도록 IP 주소를 구성합니다. 이 작업을 수행하는 데 필요한 정확한 단계는 DHCP 서버에 따라 달라집니다. 예를 들어, Netgate 문서 <a href="https://docs.netgate.com/pfsense/en/latest/services/dhcp/index.html" target="_blank">정적 DHCP 매핑은</a> pfSense 라우터를 사용하여 DHCP 서버를 구성하는 방법을 설명합니다.
 
 ### <a name="veeam-console-install-veeam-backup-and-recovery-software"></a>Veeam 콘솔: Veeam 백업 및 복구 소프트웨어 설치
 
@@ -302,4 +302,4 @@ Veeam 백업 서버에서 TCP 포트 80에 대한 업데이트/패치를 다운�
 
 * [관리 디스크에서 XFS 볼륨 만들기 - RedHat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-xfs)
 * [CentOS 7에서 NFS 탑재를 설정하는 방법 - HowToForge](https://www.howtoforge.com/nfs-server-and-client-on-centos-7)
-* [DHCP 서버 구성-Netgate](https://www.netgate.com/docs/pfsense/dhcp/dhcp-server.html)
+* [DHCP 서버 구성-Netgate](https://docs.netgate.com/pfsense/en/latest/services/dhcp/index.html)

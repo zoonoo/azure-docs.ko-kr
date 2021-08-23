@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: risverma
 ms.custom: include file
-ms.openlocfilehash: 83a19dea56693a1caff2c982b9f772543fe1cf2e
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 6d2e50a5154a74fc2521da6032d8bfcd8d34f4d6
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107073681"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113364824"
 ---
 Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전용인 가상 머신 크기를 제공합니다. 격리된 크기는 특정 하드웨어 세대에 적용되고 작용하며 하드웨어 세대가 사용 중지되면 사용되지 않습니다.
 
@@ -26,11 +26,7 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 * Standard_E80ids_v4
 * Standard_E80is_v4
 * Standard_F72s_v2
-* Standard_E64is_v3
-* Standard_E64i_v3
 * Standard_M128ms
-* Standard_GS5
-* Standard_G5
 * Standard_DC8_v2
 
 

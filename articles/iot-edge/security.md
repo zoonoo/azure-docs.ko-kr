@@ -2,18 +2,17 @@
 title: 보안 프레임워크 - Azure IoT Edge | Microsoft Docs
 description: Azure IoT Edge를 개발하는 데 사용되었으며 솔루션을 디자인할 때 고려해야 하는 보안, 인증 및 권한 부여 표준에 대해 알아봅니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9ff154eee6c6174a8f1a3aa7bea37ef62273bb1a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2778f969351910ef60c43f01fb0540ee17445fc5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103489505"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566710"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Azure IoT Edge에 대한 보안 표준
 

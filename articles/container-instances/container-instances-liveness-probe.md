@@ -3,12 +3,12 @@ title: 컨테이너 인스턴스에서 활동성 상태 프로브 설정
 description: Azure Container Instances의 비정상 컨테이너를 다시 시작하도록 활동성 프로브를 구성하는 방법을 알아봅니다
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 0d88133692fbfad4c5e81eefa57c69a843448222
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 2cc5ee2da72aadc00bc2d82db32aaa46b53d7d5b
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108771562"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122567591"
 ---
 # <a name="configure-liveness-probes"></a>활동성 프로브 구성
 
@@ -33,7 +33,7 @@ properties:
   containers:
   - name: mycontainer
     properties:
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       command:
         - "/bin/sh"
         - "-c"

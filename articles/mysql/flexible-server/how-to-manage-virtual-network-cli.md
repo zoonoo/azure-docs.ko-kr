@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 7da8062f18d737af9d19df54863bc56c7268910c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 243aa85ed2e52fe73efcb0e81c5b3de70b43039e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776919"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536117"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-mysql---flexible-server-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL - 유연한 서버 가상 네트워크 만들기 및 관리
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
@@ -23,7 +25,7 @@ Azure Database for MySQL 유동 서버는 유동 서버에 연결하는 두 가�
 - 퍼블릭 액세스(허용된 IP 주소)
 - 프라이빗 액세스(VNet 통합)
 
-이 문서에서는 Azure CLI를 사용하여 **개인 액세스(VNet 통합)** 권한으로 MySQL 서버를 만드는 방법에 중점을 둡니다. *개인 액세스(VNet 통합)* 를 사용하여 고유한 [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md)에 유연한 서버를 배포할 수 있습니다. Azure Virtual Network는 안전한 비공개 네트워크 통신을 제공합니다. 개인 액세스에서 MySQL 서버에 대한 연결은 가상 네트워크 이내로만 제한됩니다. 이에 대해 자세히 알아보려면 [개인 액세스(VNet 통합)](./concepts-networking.md#private-access-vnet-integration)를 참조하세요.
+이 문서에서는 Azure CLI를 사용하여 **개인 액세스(VNet 통합)** 권한으로 MySQL 서버를 만드는 방법에 중점을 둡니다. *개인 액세스(VNet 통합)* 를 사용하여 고유한 [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md)에 유연한 서버를 배포할 수 있습니다. Azure Virtual Network는 안전한 비공개 네트워크 통신을 제공합니다. 개인 액세스에서 MySQL 서버에 대한 연결은 가상 네트워크 이내로만 제한됩니다. 이에 대해 자세히 알아보려면 [개인 액세스(VNet 통합)](./concepts-networking-vnet.md)를 참조하세요.
 
 Azure Database for MySQL 유연한 서버에서 서버를 만드는 동안에만 서버를 가상 네트워크 및 서브넷에 배포할 수 있습니다. 유연한 서버를 가상 네트워크 및 서브넷에 배포한 후에는 다른 가상 네트워크, 서브넷 또는 *공용 액세스(허용된 IP 주소)* 로 이동할 수 없습니다.
 
@@ -62,7 +64,7 @@ az account set --subscription <subscription id>
     ```azurecli-interactive
     az mysql flexible-server create
     ```
-- 기존 가상 네트워크 및 서브넷을 사용하여 유연한 서버를 만듭니다. 제공된 가상 네트워크 및 서브넷이 없으면 가상 네트워크와 기본 주소 접두사가 포함된 서브넷이 만들어집니다.
+- 기존 가상 네트워크와 서브넷을 사용하여 유연한 서버를 만듭니다. 제공된 가상 네트워크 및 서브넷이 없는 경우 가상 네트워크 및 기본 주소 접두사가 있는 서브넷이 생성됩니다.
     ```azurecli-interactive
     az mysql flexible-server create --vnet myVnet --subnet mySubnet
     ```
@@ -84,4 +86,4 @@ az account set --subscription <subscription id>
 ## <a name="next-steps"></a>다음 단계
 - [Azure Database for MySQL 유연한 서버의 네트워킹](./concepts-networking.md)에 대해 자세히 알아봅니다.
 - [Azure Portal을 사용하여 Azure Database for MySQL 유연한 서버 가상 네트워크 만들기 및 관리](./how-to-manage-virtual-network-portal.md).
-- [Azure Database for MySQL 유연한 서버 가상 네트워크](./concepts-networking.md#private-access-vnet-integration)에 대해 자세히 알아봅니다.
+- [Azure Database for MySQL 유연한 서버 가상 네트워크](./concepts-networking-vnet.md#private-access-vnet-integration)에 대해 자세히 알아봅니다.

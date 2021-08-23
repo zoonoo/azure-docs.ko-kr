@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 247ae926dde9b07b1d627621c456333282f00a42
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 755d6ff3e4b7e82390f6bc2c961883de976f5459
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060066"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536059"
 ---
 # <a name="map-data-fields-to-entities-in-azure-sentinel"></a>데이터 필드를 Azure Sentinel 엔터티에 매핑 
 
@@ -33,7 +33,7 @@ ms.locfileid: "112060066"
 
 ## <a name="introduction"></a>소개
 
-엔터티 매핑은 [예약된 쿼리 분석 규칙](tutorial-detect-threats-custom.md) 구성의 중요한 부분입니다. 뒤에 나오는 조사 프로세스 및 수정 작업의 구성 요소 역할을 하는 필수 정보로 규칙의 출력(경고와 인시던트)을 보강합니다.
+엔터티 매핑은 [예약된 쿼리 분석 규칙](detect-threats-custom.md) 구성의 중요한 부분입니다. 뒤에 나오는 조사 프로세스 및 수정 작업의 구성 요소 역할을 하는 필수 정보로 규칙의 출력(경고와 인시던트)을 보강합니다.
 
 아래에 자세히 설명된 절차는 분석 규칙 만들기 마법사의 일부입니다. 여기서는 기존 분석 규칙에서 엔터티 매핑을 추가하거나 변경하는 시나리오를 해결하기 위해 독립적으로 처리됩니다.
 
@@ -81,5 +81,5 @@ ms.locfileid: "112060066"
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Azure Sentinel 분석 규칙에서 데이터 필드를 엔터티에 매핑하는 방법을 배웠습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [예약된 쿼리 분석 규칙](tutorial-detect-threats-custom.md)을 전체적으로 파악합니다.
+- [예약된 쿼리 분석 규칙](detect-threats-custom.md)을 전체적으로 파악합니다.
 - [Azure Sentinel의 엔터티](entities-in-azure-sentinel.md)에 대해 자세히 알아봅니다.
