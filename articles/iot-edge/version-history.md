@@ -2,18 +2,17 @@
 title: IoT Edge 버전 탐색 및 기록 - Azure IoT Edge
 description: 최신 릴리스의 새로운 특징 및 기능에 대한 정보를 제공하는 IoT Edge의 새로운 기능을 알아봅니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 04/07/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1d3473e975e7c69a83c359b040a2de0defaac69b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 6afc61c53d2e7e48686a5d2f69862b4dc08bc1c6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310475"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535653"
 ---
 # <a name="azure-iot-edge-versions-and-release-notes"></a>Azure IoT Edge 버전 및 릴리스 정보
 

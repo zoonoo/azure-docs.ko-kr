@@ -2,7 +2,6 @@
 title: IoT Edge 로그 검색 - Azure IoT Edge
 description: IoT Edge 모듈 로그 검색을 Azure Blob Storage에 업로드합니다.
 author: v-tcassi
-manager: philmea
 ms.author: v-tcassi
 ms.date: 11/12/2020
 ms.topic: conceptual
@@ -10,12 +9,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 51a79058ec4456b173b1f50169198d3ea3ba2e93
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 53ea8657535cb353b2da0f2a5b35398aa972128a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111541880"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567115"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>IoT Edge 배포에서 로그 검색
 
@@ -35,7 +34,7 @@ IoT Edge 에이전트 모듈에 포함된 직접 메서드를 사용하여 디�
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Timestamp}`는 `yyyy-MM-dd hh:mm:ss.fff zzz`로 형식이 지정되어야 하며, `{Log Level}`은 아래 표를 따라야 합니다. 이 표는 [Syslog 표준의 심각도 코드](https://wikipedia.org/wiki/Syslog#Severity_level)에서 해당 심각도 수준을 파생시킵니다.
+`{Timestamp}`는 `yyyy-MM-dd HH:mm:ss.fff zzz`로 형식이 지정되어야 하며, `{Log Level}`은 아래 표를 따라야 합니다. 이 표는 [Syslog 표준의 심각도 코드](https://wikipedia.org/wiki/Syslog#Severity_level)에서 해당 심각도 수준을 파생시킵니다.
 
 | 값 | Severity |
 |-|-|
@@ -79,7 +78,7 @@ IoT Edge 에이전트 모듈에 포함된 직접 메서드를 사용하여 디�
     }
 ```
 
-| Name | Type | Description |
+| Name | 유형 | Description |
 |-|-|-|
 | schemaVersion | 문자열 | `1.0` |
 | items | JSON 배열 | `id` 및 `filter` 튜플이 포함된 배열입니다. |
@@ -188,7 +187,7 @@ az iot hub invoke-module-method \
     }
 ```
 
-| Name | Type | Description |
+| Name | 유형 | Description |
 |-|-|-|
 | sasURL | 문자열(URI) | [Azure Blob Storage 컨테이너에 대한 쓰기 권한이 있는 공유 액세스 서명 URL](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer)입니다. |
 
@@ -202,7 +201,7 @@ az iot hub invoke-module-method \
     }
 ```
 
-| Name | Type | Description |
+| Name | 유형 | Description |
 |-|-|-|
 | 상태 | 문자열 | `NotStarted`, `Running`, `Completed`, `Failed`, `Unknown` 중 하나입니다. |
 | message | 문자열 | 오류가 발생하면 메시지이고, 그러지 않으면 빈 문자열입니다. |
@@ -305,7 +304,7 @@ Azure Portal에서 sasURL을 사용자의 정보로 채운 후 메서드 이름�
     }
 ```
 
-| Name | Type | Description |
+| Name | 유형 | Description |
 |-|-|-|
 | schemaVersion | 문자열 | `1.0` |
 | sasURL | 문자열(URI) | [Azure Blob Storage 컨테이너에 대한 쓰기 권한이 있는 공유 액세스 서명 URL](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer)입니다. |
@@ -326,7 +325,7 @@ Azure Portal에서 sasURL을 사용자의 정보로 채운 후 메서드 이름�
     }
 ```
 
-| Name | Type | Description |
+| Name | 유형 | Description |
 |-|-|-|
 | 상태 | 문자열 | `NotStarted`, `Running`, `Completed`, `Failed`, `Unknown` 중 하나입니다. |
 | message | 문자열 | 오류가 발생하면 메시지이고, 그러지 않으면 빈 문자열입니다. |
@@ -384,7 +383,7 @@ Azure Portal에서 sasURL을 사용자의 정보로 채운 후 메서드 이름�
     }
 ```
 
-| Name | Type | Description |
+| Name | 유형 | Description |
 |-|-|-|
 | 상태 | 문자열 | `NotStarted`, `Running`, `Completed`, `Failed`, `Unknown` 중 하나입니다. |
 | message | 문자열 | 오류가 발생하면 메시지이고, 그러지 않으면 빈 문자열입니다. |

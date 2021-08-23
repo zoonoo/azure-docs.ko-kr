@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 82e34bff573b746f7d9c4185fe6c24fa92de0394
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 38d0b9db730d82642fafda4a42751c35d6cac0f8
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321054"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122537698"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Azure Monitor의 로그 데이터 및 작업 영역에 대한 액세스 관리
 
@@ -285,7 +285,7 @@ _SecurityBaseline_ 테이블에만 액세스할 수 있는 역할을 만들려�
 
 ### <a name="custom-logs"></a>사용자 지정 로그
 
- 사용자 지정 로그는 사용자 지정 로그 및 HTTP 데이터 수집기 API와 같은 데이터 원본에서 생성됩니다. 로그 유형을 식별하는 가장 쉬운 방법은 [로그 스키마의 사용자 지정 로그](./log-analytics-tutorial.md#table-schema)에 나열된 테이블을 확인하는 것입니다.
+ 사용자 지정 로그는 사용자 지정 로그 및 HTTP 데이터 수집기 API와 같은 데이터 원본에서 생성됩니다. 로그 유형을 식별하는 가장 쉬운 방법은 [로그 스키마의 사용자 지정 로그](./log-analytics-tutorial.md#view-table-information)에 나열된 테이블을 확인하는 것입니다.
 
  개별 사용자 지정 로그에는 액세스를 허용할 수 없지만 모든 사용자 지정 로그에 대한 액세스 권한을 부여할 수는 있습니다. 모든 사용자 지정 로그에 대한 액세스 권한이 있는 역할을 만들려면 다음 작업을 사용하여 사용자 지정 역할을 만듭니다.
 
@@ -312,4 +312,4 @@ _SecurityBaseline_ 테이블에만 액세스할 수 있는 역할을 만들려�
 
 * 데이터 센터 또는 다른 클라우드 환경의 컴퓨터에서 데이터를 수집하려면 [Log Analytics 에이전트 개요](../agents/log-analytics-agent.md)를 참조하세요.
 
-* Azure VM에서 데이터 수집을 구성하려면 [Azure 가상 머신에 대한 데이터 수집](../vm/quick-collect-azurevm.md)을 참조하세요.
+* Azure VM에서 데이터 수집을 구성하려면 [Azure 가상 머신에 대한 데이터 수집](../vm/monitor-virtual-machine.md)을 참조하세요.

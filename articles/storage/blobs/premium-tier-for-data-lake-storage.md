@@ -5,15 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.custom: references_regions
-ms.date: 10/30/2020
+ms.date: 06/21/2021
 ms.author: normesta
-ms.openlocfilehash: a9ed305dbd081486f0b892fcc38ada83e9666bd9
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 22ed6d6e4c9280d79027918615a51da305f2457f
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143344"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112453919"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Azure Data Lake Storage에 대한 프리미엄 계층
 
@@ -70,39 +69,6 @@ AI/ML은 시각적 개체, 음성 및 텍스트와 같은 다양한 데이터 �
 
 > [!div class="mx-imgBorder"]
 > ![계층 구조 네임스페이스 설정](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
-
-## <a name="regional-availability"></a>국가별 가용성
-
-Azure Data Lake Storage에 대한 프리미엄 계층은 다음 지역에서 제공됩니다.
-
-|지역|중복|
-|--|--|
-|미국 동부|LRS, ZRS|
-|미국 동부 2|LRS, ZRS|
-|미국 중부|LRS|
-|미국 서부|LRS|
-|미국 서부 2|LRS, ZRS|
-|미국 중서부|LRS|
-|미국 중남부|LRS|
-|캐나다 중부|LRS|
-|캐나다 동부|LRS|
-|북유럽|LRS, ZRS|
-|서유럽|LRS, ZRS|
-|영국 남부|LRS|
-|영국 서부|LRS|
-|프랑스 중부|LRS|
-|아시아 동부|LRS|
-|한국 중부|LRS|
-|한국 남부|LRS|
-|인도 중부|LRS|
-|인도 서부|LRS|
-|아랍에미리트 북부|LRS|
-|일본 동부|LRS|
-|일본 서부|LRS|
-|동남아시아|LRS, ZRS|
-|오스트레일리아 동부|LRS, ZRS|
-|오스트레일리아 동남부|LRS|
-|브라질 남부|LRS|
 
 ## <a name="next-steps"></a>다음 단계
 

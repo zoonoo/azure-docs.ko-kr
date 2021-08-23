@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 450a089c6cc1c77ac26cb0aa339277d5c49b41c8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 215b9486af06c58cd1e7a6990bfc10ad43d4407f
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594787"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567455"
 ---
 # <a name="statistics-in-synapse-sql"></a>Synapse SQL의 통계
 
@@ -205,7 +205,7 @@ CREATE STATISTICS col1_stats
 ```sql
 CREATE STATISTICS col1_stats
     ON dbo.table1 (col1)
-    WITH SAMPLE = 50 PERCENT;
+    WITH SAMPLE 50 PERCENT;
 ```
 
 #### <a name="create-single-column-statistics-on-only-some-of-the-rows"></a>일부 행에 대해서만 단일 열 통계 만들기
@@ -233,7 +233,7 @@ CREATE STATISTICS stats_col1
 CREATE STATISTICS stats_col1
     ON table1 (col1)
     WHERE col1 > '2000101' AND col1 < '20001231'
-    WITH SAMPLE = 50 PERCENT;
+    WITH SAMPLE 50 PERCENT;
 ```
 
 전체 참조의 경우 [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
@@ -251,7 +251,7 @@ CREATE STATISTICS stats_col1
 CREATE STATISTICS stats_2cols
     ON table1 (product_category, product_sub_category)
     WHERE product_category > '2000101' AND product_category < '20001231'
-    WITH SAMPLE = 50 PERCENT;
+    WITH SAMPLE 50 PERCENT;
 ```
 
 *product\_category* 와 *product<\_sub\_category* 사이에 상관 관계가 있으므로, 이러한 열을 동시에 액세스하는 경우 다중 열 통계 개체가 유용할 수 있습니다.
@@ -884,6 +884,6 @@ WHERE   st.[user_created] = 1
 
 ## <a name="next-steps"></a>다음 단계
 
-전용 SQL 풀의 쿼리 성능을 더욱 향상시키려면 [사용자 워크로드 모니터링](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 및 [전용 SQL 풀에 대한 모범 사례](best-practices-dedicated-sql-pool.md#maintain-statistics)를 참조하세요.
+전용 SQL 풀의 쿼리 성능을 더욱 향상시키려면 [사용자 워크로드 모니터링](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context) 및 [전용 SQL 풀에 대한 모범 사례](best-practices-dedicated-sql-pool.md#maintain-statistics)를 참조하세요.
 
 서버리스 SQL 풀의 쿼리 성능을 더욱 향상시키려면 [서버리스 SQL 풀의 모범 사례](best-practices-serverless-sql-pool.md)를 참조하세요.

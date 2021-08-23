@@ -2,19 +2,18 @@
 title: Azure IoT Hub 작업 이해 | Microsoft 문서
 description: 개발자 가이드 - IoT 허브에 연결된 여러 디바이스에서 실행할 작업 예약 작업은 tags와 desired 속성을 업데이트하고 여러 디바이스에서 직접 메서드를 호출할 수 있습니다.
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: mqtt
-ms.openlocfilehash: 5c14e8cfcbf8df86b0f71d6b12025594d2e648c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53c237df8592e51eed18c2976fee90e1e2fa6937
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81730099"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566391"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>여러 디바이스에서 작업 예약
 

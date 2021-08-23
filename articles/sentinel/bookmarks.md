@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
-ms.openlocfilehash: 5e3b6802bab2c5fae97be8e55c8d5c11ff570f78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0fecd1fca22b003892817f8fd33db88b1eea6127
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94651315"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535811"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Azure Sentinel을 사용하여 헌팅하는 동안 데이터 추적 유지
 
@@ -30,7 +30,7 @@ Azure Sentinel의 헌팅 책갈피를 사용하면 관련성이 있는 것으로
 
 테이블에서 책갈피를 보면 책갈피가 지정된 데이터를 필터링, 요약하고 다른 데이터 원본과 조인하여 보강 증거를 쉽게 찾을 수 있습니다.
 
-현재 미리 보기 상태에서는 로그에서 헌팅하는 동안 긴급하게 처리해야 하는 어떤 것을 찾은 경우 몇 번 클릭으로 책갈피를 만들고 인시던트로 승격하거나 기존 인시던트에 책갈피를 추가할 수 있습니다. 인시던트에 관한 자세한 내용은 [자습서: Azure Sentinel을 사용하여 인시던트 조사](tutorial-investigate-cases.md)를 참조하세요. 
+현재 미리 보기 상태에서는 로그에서 헌팅하는 동안 긴급하게 처리해야 하는 어떤 것을 찾은 경우 몇 번 클릭으로 책갈피를 만들고 인시던트로 승격하거나 기존 인시던트에 책갈피를 추가할 수 있습니다. 인시던트에 관한 자세한 내용은 [자습서: Azure Sentinel을 사용하여 인시던트 조사](investigate-cases.md)를 참조하세요. 
 
 또한 미리 보기에서는 책갈피 세부 정보에서 **조사** 를 클릭하여 책갈피가 지정된 데이터를 시각화할 수 있습니다. 그러면 대화형 엔터티-그래프 다이어그램과 타임라인을 사용하여 결과를 보고, 조사하고, 시각적으로 전달할 수 있는 조사 환경이 시작됩니다.
 
@@ -94,7 +94,7 @@ Azure Sentinel의 헌팅 책갈피를 사용하면 관련성이 있는 것으로
 
 3. **조사** 를 클릭하여 조사 그래프의 책갈피를 봅니다.
 
-조사 그래프를 사용하기 위한 지침은 [조사 그래프를 사용하여 심층 분석](tutorial-investigate-cases.md#use-the-investigation-graph-to-deep-dive)을 참조하세요.
+조사 그래프를 사용하기 위한 지침은 [조사 그래프를 사용하여 심층 분석](investigate-cases.md#use-the-investigation-graph-to-deep-dive)을 참조하세요.
 
 ## <a name="add-bookmarks-to-a-new-or-existing-incident"></a>새 인시던트 또는 기존 인시던트에 책갈피 추가
 

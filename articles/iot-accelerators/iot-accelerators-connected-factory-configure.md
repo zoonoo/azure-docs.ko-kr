@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 863734596861f3116418cb322a1e4a8ae9c8ea40
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105646212"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536680"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "105646212"
 * 테스트 스테이션
 * 포장 스테이션
 
-이러한 OPC UA 서버에는 OPC UA 노드가 있으며 [OPC 게시자](overview-opc-publisher.md)는 연결된 팩터리를 이러한 노드 값을 보냅니다. 다음 내용이 포함됩니다.
+이러한 OPC UA 서버에는 OPC UA 노드가 있으며 [OPC 게시자](/previous-versions/azure/iot-accelerators/overview-opc-publisher)는 연결된 팩터리를 이러한 노드 값을 보냅니다. 다음 내용이 포함됩니다.
 
 * 현재 전력 소비와 같은 현재 작동 상태
 * 생산된 제품의 수와 같은 프로덕션 정보
@@ -310,7 +310,7 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 
   OPC UA 서버에서 노드 값을 식별합니다. 속성의 형식은 UA OPC 사양에 지정되어야 합니다. 수집된 메시지에서 이 속성은 **NodeId** 로 전송됩니다.
 
-원격 분석 데이터가 연결된 팩터리로 수집되는 방식에 대한 자세한 내용은 [OPC 게시자란](overview-opc-publisher.md)을 참조하세요.
+원격 분석 데이터가 연결된 팩터리로 수집되는 방식에 대한 자세한 내용은 [OPC 게시자란](/previous-versions/azure/iot-accelerators/overview-opc-publisher)을 참조하세요.
 
 ## <a name="example-how-kpi1-is-calculated"></a>예제: KPI1 계산 방법
 

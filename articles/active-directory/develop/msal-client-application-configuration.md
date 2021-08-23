@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 00768f363d08bc476350e57a8eac69eafd9c3589
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: aaddev, has-adal-ref
+ms.openlocfilehash: 038646d4d6245398f5385e2a6a1595ce2909ee39
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99580941"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122530879"
 ---
 # <a name="application-configuration-options"></a>애플리케이션 구성 옵션
 
@@ -147,7 +147,7 @@ Android에 대한 추가 정보는 [Android의 조정된 인증](msal-android-si
 이 옵션은 기밀 클라이언트 앱의 클라이언트 암호를 지정합니다. 이 비밀(앱 암호)은 애플리케이션 등록 포털이 제공하거나 PowerShell AzureAD, PowerShell AzureRM 또는 Azure CLI를 사용하여 앱을 등록하는 동안 Azure AD에 제공됩니다.
 
 ## <a name="logging"></a>로깅
-디버깅 및 인증 실패 문제 해결 시나리오를 지원하기 위해 Microsoft 인증 라이브러리는 기본 제공 로깅 지원을 제공합니다. 각 라이브러리의 로깅은 다음 문서에서 설명합니다.
+디버깅 및 인증 실패 문제 해결 시나리오를 지원하기 위해 Microsoft 인증 라이브러리는 기본 제공 로깅 지원을 제공합니다. 로깅은 다음 문서에서 설명합니다.
 
 :::row:::
     :::column:::

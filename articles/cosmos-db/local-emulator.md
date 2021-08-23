@@ -7,12 +7,12 @@ author: StefArroyo
 ms.author: esarroyo
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperf-fy21q1
-ms.openlocfilehash: 777eeb615596d353770b7abcbe10191707e6fbfe
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: b2c6c4dd8d0f7c5b30401f7ef586b7d1be8267ce
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072742"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536963"
 ---
 # <a name="install-and-use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos DB 에뮬레이터 설치 및 사용
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -232,7 +232,7 @@ CosmosClient client = new CosmosClient(
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB
 
-Azure Cosmos DB 에뮬레이터를 데스크톱에서 실행한 후에는 [Azure Cosmos DB의 API for MongoDB](mongodb-introduction.md)를 사용하여 에뮬레이터와 상호 작용할 수 있습니다. "/EnableMongoDbEndpoint"를 사용하여 [명령 프롬프트](emulator-command-line-parameters.md)에서 관리자로 에뮬레이터를 시작합니다. 그리고 다음 연결 문자열을 사용하여 MongoDB API 계정에 연결합니다.
+Azure Cosmos DB 에뮬레이터를 데스크톱에서 실행한 후에는 [Azure Cosmos DB의 API for MongoDB](mongodb/mongodb-introduction.md)를 사용하여 에뮬레이터와 상호 작용할 수 있습니다. "/EnableMongoDbEndpoint"를 사용하여 [명령 프롬프트](emulator-command-line-parameters.md)에서 관리자로 에뮬레이터를 시작합니다. 그리고 다음 연결 문자열을 사용하여 MongoDB API 계정에 연결합니다.
 
 ```bash
 mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
@@ -240,7 +240,7 @@ mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mG
 
 ### <a name="table-api"></a>테이블 API
 
-Azure Cosmos DB 에뮬레이터를 데스크톱에서 실행하면, [Azure Cosmos DB Table API SDK](./tutorial-develop-table-dotnet.md)를 사용하여 에뮬레이터와 상호 작용할 수 있습니다. "/EnableTableEndpoint"를 사용하여 [명령 프롬프트](emulator-command-line-parameters.md)에서 관리자로 에뮬레이터를 시작합니다. 그런 다음, 아래 코드를 실행하여 Table API 계정에 연결합니다.
+Azure Cosmos DB 에뮬레이터를 데스크톱에서 실행하면, [Azure Cosmos DB Table API SDK](./table/tutorial-develop-table-dotnet.md)를 사용하여 에뮬레이터와 상호 작용할 수 있습니다. "/EnableTableEndpoint"를 사용하여 [명령 프롬프트](emulator-command-line-parameters.md)에서 관리자로 에뮬레이터를 시작합니다. 그런 다음, 아래 코드를 실행하여 Table API 계정에 연결합니다.
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;

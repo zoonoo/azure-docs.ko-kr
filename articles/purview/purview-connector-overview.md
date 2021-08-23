@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 05/17/2021
-ms.openlocfilehash: 09ed5297bb6432640d6cce7674c2246088823d37
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 398cf852d789b61a1f2b1e7a7e6ef4bad50e329a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750608"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528241"
 ---
 # <a name="supported-data-stores"></a>지원되는 데이터 저장소
 
@@ -31,14 +31,18 @@ Purview는 다음의 데이터 저장소를 지원합니다. 각각의 데이터
 ||[Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|예| 예| 아니요| 예| 예| 예|
 ||[Azure 전용 SQL 풀(이전 SQL DW)](register-scan-azure-synapse-analytics.md)|예| 예| 아니요| 예| 예| 예|
 ||[Azure Synapse Analytics(작업 영역)](register-scan-synapse-workspace.md)|예| 예| 아니요| 예| 예| 예|
-|데이터베이스|[Hive 메타스토어 DB](register-scan-oracle-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
+|데이터베이스|[Cassandra](register-scan-cassandra-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
+||[Google BigQuery](register-scan-google-bigquery-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
+||[Hive 메타스토어 DB](register-scan-oracle-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
 ||[Oracle DB](register-scan-oracle-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
 ||[SQL Server](register-scan-on-premises-sql-server.md)|예| 예| 아니요| 예| 예| 예|
 ||[Teradata](register-scan-teradata-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
 |Power BI|[Power BI](register-scan-power-bi-tenant.md)|예| 예| 아니요| 아니요| 아니요| 예|
-|서비스 및 앱|[SAP ECC](register-scan-sapecc-source.md)|예| 예| 아니요| 예| 예| 예|
-||[SAP S4HANA](register-scan-saps4hana-source.md)|예| 예| 아니요| 예| 예| 예|
-|다중 클라우드|[Amazon S3](register-scan-amazon-s3.md)|예| 예| 아니요| 아니요| 아니요| 예|
+|서비스 및 앱|[Erwin](register-scan-erwin-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
+||[Looker](register-scan-looker-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
+||[SAP ECC](register-scan-sapecc-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
+||[SAP S4HANA](register-scan-saps4hana-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
+|다중 클라우드|[Amazon S3](register-scan-amazon-s3.md)|예| 예| 예| 예| 예| 예|
 
 ## <a name="scan-regions"></a>지역 검사
 다음은 Purview 검사기가 실행되는 모든 Azure 데이터 원본(데이터 센터) 지역의 목록입니다. Azure 데이터 원본이 이 목록 외부의 지역에 있는 경우 검사기는 Purview 인스턴스의 지역에서 실행됩니다.

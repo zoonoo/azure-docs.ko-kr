@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 3/02/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f571fa6e04d19412db856a42232cb2d151ceb6ab
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 0676639523a0b1ebd23ff0e5082e6cccbd641f4a
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141490"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112117292"
 ---
 # <a name="how-to-use-dfs-namespaces-with-azure-files"></a>Azure Files DFS 네임스페이스를 사용하는 방법
 일반적으로 DFS 네임스페이스 또는 DFS-N이라고 하는 [분산 파일 시스템 네임스페이스](/windows-server/storage/dfs-namespaces/dfs-overview)는 프로덕션 환경에서 SMB 파일 공유의 배포 및 유지 관리를 간소화하는 데 널리 사용되는 Windows Server 서버 역할입니다. DFS 네임 스페이스는 스토리지 네임스페이스 가상화 기술입니다. 즉, 파일 공유의 UNC 경로와 실제 파일 공유 간의 간접 참조 계층을 제공할 수 있음을 의미합니다. DFS 네임 스페이스는 SMB 파일 공유를 사용하여 작동합니다. 이러한 파일 공유와 관계없이 호스트됩니다. 또한 온-프레미스 Windows 파일 서버에서 호스트되는 SMB 공유와 함께 사용할 수 있습니다. 이 파일 공유는 Azure 파일 동기화, Azure 파일 직접 공유, Azure NetApp Files 또는 기타 타사 제품에서 호스트되는 SMB 파일 공유 및 다른 클라우드에서 호스트되는 파일 공유의 경우에도 마찬가지입니다. 
@@ -32,6 +32,13 @@ ms.locfileid: "108141490"
 > DFS 네임스페이스를 설정하는 방법을 보려면 비디오에서 10:10으로 건너뛰십시오.
 
 DFS 네임 스페이스가 이미 있는 경우 Azure Files 및 파일 동기화와 함께 사용하는 데 특별한 단계가 필요하지 않습니다. 온-프레미스에서 Azure 파일 공유에 액세스하는 경우 일반적인 네트워킹 고려 사항이 적용됩니다. 자세한 정보는 [Azure Files 네트워킹 고려 사항](./storage-files-networking-overview.md)을 참조하세요.
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 ## <a name="namespace-types"></a>네임스페이스 형식
 DFS 네임스페이스는 다음과 같은 두 가지 주요 네임스페이스 형식을 제공합니다.

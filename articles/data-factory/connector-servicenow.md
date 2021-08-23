@@ -1,18 +1,20 @@
 ---
 title: ServiceNow에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 ServiceNow에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 08/01/2019
-ms.openlocfilehash: 95d4fe599aa36c6f3057492014afd53f063c4537
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: df7f1a37ac5b6779220595609a81b76b01952097
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482870"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642292"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Azure Data Factory를 사용하여 ServiceNow에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -163,7 +165,7 @@ ServiceNow에는 2개의 다른 스키마가 있습니다. 하나는 실제 데�
 
 ### <a name="index"></a>인덱스
 
-ServiceNow 테이블 인덱스는 쿼리 성능 향상에 도움이 될 수 있습니다. [테이블 인덱스 만들기](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/table_administration/task/t_CreateCustomIndex.html)를 참조하세요.
+ServiceNow 테이블 인덱스는 쿼리 성능 향상에 도움이 될 수 있습니다. [테이블 인덱스 만들기](https://docs.servicenow.com/bundle/quebec-platform-administration/page/administer/table-administration/task/t_CreateCustomIndex.html)를 참조하세요.
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 

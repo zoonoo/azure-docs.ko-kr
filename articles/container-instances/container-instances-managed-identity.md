@@ -3,12 +3,12 @@ title: 컨테이너 그룹에서 관리 ID 사용
 description: 다른 Azure 서비스를 사용하여 인증할 수 있는 Azure Container Instances에서 관리 ID를 사용하도록 설정하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: f8f3c646487d86f4e1bce13ccbf28992b8b1497a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 44f4e15e6e11fac884c2d117aae351615420ba43
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764012"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219283"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances에서 관리 ID를 사용하는 방법
 
@@ -278,13 +278,13 @@ az container exec \
 
 컨테이너의 bash 셸에서 다음 명령을 실행합니다. 먼저 관리 ID를 사용하여 Azure CLI에 로그인합니다.
 
-```bash
+```azurecli
 az login --identity
 ```
 
 실행 중인 컨테이너의 키 자격 증명 모음에서 암호를 검색합니다.
 
-```bash
+```azurecli
 az keyvault secret show \
   --name SampleSecret \
   --vault-name mykeyvault --query value
@@ -292,7 +292,7 @@ az keyvault secret show \
 
 암호의 값이 검색됩니다.
 
-```bash
+```output
 "Hello Container Instances"
 ```
 

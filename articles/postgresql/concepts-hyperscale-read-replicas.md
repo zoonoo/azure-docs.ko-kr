@@ -6,20 +6,15 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/07/2021
-ms.openlocfilehash: 08629ed8ce361f5d7ac4bb4d2e148ae5b20fff02
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.date: 08/03/2021
+ms.openlocfilehash: 150d6b02ff2c11d2489c46b4dc2dd44fd2276b75
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315564"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566777"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL의 읽기 복제본 – 하이퍼스케일(Citus)
-
-> [!IMPORTANT]
-> 하이퍼스케일(Citus)의 읽기 복제본은 현재 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
->
-> [하이퍼스케일(Citus)의 미리 보기 기능](hyperscale-preview-features.md)에서 다른 새 기능의 전체 목록을 볼 수 있습니다.
 
 읽기 복제본 기능을 사용하면 하이퍼스케일(Citus) 서버 그룹에서 읽기 전용 서버 그룹으로 데이터를 복제할 수 있습니다. 복제본은 PostgreSQL의 물리적 복제 기술을 이용하여 **비동기식으로** 업데이트됩니다. 주 서버에서 복제본을 무제한으로 복제할 수 있습니다.
 

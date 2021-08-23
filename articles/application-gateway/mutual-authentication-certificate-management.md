@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: caya
-ms.openlocfilehash: 2329dc7426b223ef2c81dd0e2e607bccf73192e6
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 15655ba313a3a3cba23289c6d829523db6735129
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106230983"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536308"
 ---
 # <a name="export-a-trusted-client-ca-certificate-chain-to-use-with-client-authentication"></a>클라이언트 인증에 사용할 신뢰할 수 있는 클라이언트 CA 인증서 체인 내보내기
 클라이언트 또는 클라이언트 인증을 사용하여 상호 인증을 구성하려면 Application Gateway에는 신뢰할 수 있는 클라이언트 CA 인증서 체인이 업로드되어 있어야 합니다. 여러 인증서 체인이 있는 경우 개별적으로 체인을 만들고 Application Gateway에 다른 파일로 업로드해야 합니다. 이 문서에서는 게이트웨이의 클라이언트 인증 구성에 사용할 수 있는 신뢰할 수 있는 클라이언트 CA 인증서 체인을 내보내는 방법에 대해 알아봅니다.  
@@ -55,7 +55,7 @@ Application Gateway에서 클라이언트 인증을 허용하려면 신뢰할 �
 6. **마침** 을 클릭하여 인증서를 내보냅니다.
 
     > [!div class="mx-imgBorder"]
-    > ![파일 내보내기를 완료한 후의 인증서 내보내기 마법사를 보여 주는 스크린샷.](./media/certificates-for-backend-authentication/finish.png),
+    > ![파일 내보내기를 완료한 후의 인증서 내보내기 마법사를 보여 주는 스크린샷.](./media/certificates-for-backend-authentication/finish-screen.png),
 
 7. 인증서가 성공적으로 내보내졌습니다.
 

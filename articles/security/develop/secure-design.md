@@ -10,12 +10,12 @@ ms.service: security
 ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.openlocfilehash: ee4e8f3abad2a4da924e42f81004c86691a1bc8a
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 6f99ce0f0229de5423a6dde4472b5b11b992f7e8
+ms.sourcegitcommit: 5a27d9ba530aee0e563a1b0159241078e8c7c1e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792514"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112422717"
 ---
 # <a name="design-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 디자인
 이 문서에서는 클라우드용 애플리케이션을 디자인할 때 고려해야 할 보안 및 제어 작업에 관해 설명합니다. Microsoft [SDL(Security Development Lifecycle)](/previous-versions/windows/desktop/cc307891(v=msdn.10))의 요구 사항 및 디자인 단계에서 고려해야 할 보안 질문 및 개념과 함께 학습 리소스를 다룹니다. 더 안전한 애플리케이션을 디자인하는 데 사용할 수 있는 작업과 Azure 서비스를 정의하는 데 도움을 주는 것이 이 강좌의 목적입니다.
@@ -86,7 +86,7 @@ OWASP 상위 10은 웹 애플리케이션에 대한 민감한 보안 위험을 �
 이 보안 위험을 인식하면 애플리케이션에서 위험을 최소화하는 요구 사항과 디자인 의사 결정을 내리는 데 유용합니다.
 
 보안 제어를 고려하여 위반을 방지하는 것이 중요합니다.
-[위반이 발생한다고 간주](/azure/devops/learn/devops-at-microsoft/security-in-devops)할 수도 있습니다. 위반을 간주하면 보안에 관한 몇 가지 중요한 질문에 미리 답변할 수 있기 때문에, 긴급 상황에서 답변을 받을 필요가 없습니다.
+[위반이 발생한다고 간주](/devops/operate/security-in-devops)할 수도 있습니다. 위반을 간주하면 보안에 관한 몇 가지 중요한 질문에 미리 답변할 수 있기 때문에, 긴급 상황에서 답변을 받을 필요가 없습니다.
 
   - 어떻게 공격을 검색하나요?
 

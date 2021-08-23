@@ -1,27 +1,27 @@
 ---
 title: 데이터베이스 원장
 description: 이 문서에서는 Azure SQL Database에서 원장 데이터베이스 테이블 및 관련 보기에 대한 정보를 제공합니다.
-ms.custom: ''
-ms.date: 05/25/2021
+ms.custom: references_regions
+ms.date: 07/23/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: 01fad48fccb956ab44cd54e67120ac5f7425cacd
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 85ae3c86c98f83499409e024431f83a54622d0f2
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080114"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114665899"
 ---
 # <a name="what-is-the-database-ledger"></a>데이터베이스 원장이란?
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database 원장은 현재 공개 미리 보기로 제공되며 미국 중서부에서 사용할 수 있습니다.
+> Azure SQL Database 원장은 현재 퍼블릭 미리 보기로 제공되며 서유럽, 브라질 남부 및 미국 중서부에서 사용할 수 있습니다.
 
 데이터베이스 원장은 Azure SQL Database 원장 기능의 일부입니다. 데이터베이스 원장이 원장 테이블에서 업데이트가 발생하는 동안 시간이 지남에 따라 데이터베이스 상태가 진화되면 데이터베이스 상태를 증분식으로 캡처합니다. 여기서는 블록체인 및 [Merkle 트리 데이터 구조](/archive/msdn-magazine/2018/march/blockchain-blockchain-fundamentals)를 논리적으로 사용합니다. 
 

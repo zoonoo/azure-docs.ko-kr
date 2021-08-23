@@ -3,13 +3,13 @@ title: Azure WCF(Windows Communication Foundation) 릴레이 하이브리드 온
 description: Azure Relay를 사용하여 클라우드의 웹 애플리케이션에 온-프레미스 WCF 서비스를 노출하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 06/23/2020
-ms.openlocfilehash: 22b582634b623b39545eca225c8df0130606c2bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: 2b332db84d3350b04a0ac4adfb94639c5f167c39
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90983894"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669810"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Azure Relay를 사용하여 클라우드의 웹 애플리케이션에 온-프레미스 WCF 서비스 노출
 
@@ -70,7 +70,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 
 첫 단계는 네임스페이스를 만들고 [SAS(공유 액세스 서명)](../service-bus-messaging/service-bus-sas.md) 키를 확보합니다. 네임스페이스는 릴레이 서비스를 통해 노출되는 각 애플리케이션에 대한 애플리케이션 경계를 제공합니다. SAS 키는 서비스 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 서비스 네임스페이스 및 SAS 키 조합은 Azure에 자격 증명을 제공하여 애플리케이션에 대한 액세스를 인증합니다.
 
-[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
+[!INCLUDE [relay-create-namespace-portal](./includes/relay-create-namespace-portal.md)]
 
 ## <a name="create-an-on-premises-server"></a>온-프레미스 서버 만들기
 
@@ -245,7 +245,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
     ![인증 지정][18]
 
 1. **새 ASP.NET 웹 애플리케이션 만들기** 로 돌아가서 **만들기** 를 선택하여 MVC 앱을 만듭니다.
-1. 새 웹앱의 Azure 리소스를 구성합니다. [웹앱 게시](../app-service/quickstart-dotnet-framework.md#launch-the-publish-wizard)의 단계를 따릅니다. 그런 다음, 이 자습서로 돌아와서 다음 단계를 진행합니다.
+1. 새 웹앱의 Azure 리소스를 구성합니다. [웹앱 게시](../app-service/quickstart-dotnetcore.md?tabs=netframework48#publish-your-web-app)의 단계를 따릅니다. 그런 다음, 이 자습서로 돌아와서 다음 단계를 진행합니다.
 1. **솔루션 탐색기** 에서 **모델** 을 마우스 오른쪽 단추로 클릭하고 **추가** > **클래스** 를 선택합니다.
 1. 클래스 이름을 *Product.cs* 로 지정하고 **추가** 를 선택합니다.
 

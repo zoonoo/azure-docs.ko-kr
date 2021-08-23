@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: 0e954b06afb9e1db09aefc77d9c9b85204f6fe28
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: a33b7fb26b06b9a89b7e4f16699441fd9a5bbd0b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110615236"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566869"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -229,7 +229,7 @@ Cosmos DB는 [SQL](./sql-query-getting-started.md)을 사용하여 항목을 쿼
 
 ## <a name="mongodb-api-specific-limits"></a>MongoDB API 관련 제한
 
-Cosmos DB는 MongoDB에 대해 작성된 애플리케이션에 MongoDB 유선 프로토콜을 지원합니다. 지원되는 명령 및 프로토콜 버전은 [지원되는 MongoDB 기능 및 구문](mongodb-feature-support.md)에서 찾을 수 있습니다.
+Cosmos DB는 MongoDB에 대해 작성된 애플리케이션에 MongoDB 유선 프로토콜을 지원합니다. 지원되는 명령 및 프로토콜 버전은 [지원되는 MongoDB 기능 및 구문](mongodb/feature-support-32.md)에서 찾을 수 있습니다.
 
 다음 표에는 MongoDB 기능 지원과 관련된 제한이 나열되어 있습니다. SQL(코어) API에 대해 언급한 다른 서비스 제한도 MongoDB API에 적용됩니다.
 
@@ -280,10 +280,10 @@ Cosmos DB의 핵심 개념인 [글로벌 배포](distribute-data-globally.md), [
 다음 요약 설명서를 통해 Azure Cosmos DB를 시작해 보세요.
 
 * [Azure Cosmos DB SQL API 시작](create-sql-api-dotnet.md)
-* [Azure Cosmos DB의 MongoDB API 시작](create-mongodb-nodejs.md)
-* [Azure Cosmos DB Cassandra API 시작](create-cassandra-dotnet.md)
+* [Azure Cosmos DB의 MongoDB API 시작](mongodb/create-mongodb-nodejs.md)
+* [Azure Cosmos DB Cassandra API 시작](cassandra/manage-data-dotnet.md)
 * [Azure Cosmos DB Gremlin API 시작](create-graph-dotnet.md)
-* [Azure Cosmos DB Table API 시작](create-table-dotnet.md)
+* [Azure Cosmos DB Table API 시작](table/create-table-dotnet.md)
 
 > [!div class="nextstepaction"]
 > [무료로 Azure Cosmos DB 사용해 보기](https://azure.microsoft.com/try/cosmosdb/)

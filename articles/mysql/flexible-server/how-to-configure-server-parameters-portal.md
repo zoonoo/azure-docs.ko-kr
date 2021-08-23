@@ -6,16 +6,18 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 618862e12bd62fbe37ef5e621c89babd7942c04b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2d02a4e0e63bd0861c0a414f3d56e9c62e19dc8a
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106958"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642134"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL - 유연한 서버에서 서버 매개 변수 구성
 
-> [!IMPORTANT] 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 서버 매개 변수를 사용하여 Azure Database for MySQL 유연한 서버 구성을 관리할 수 있습니다. 서버 매개 변수는 서버를 만들 때 기본 값/권장 값으로 구성됩니다.  
@@ -41,13 +43,13 @@ ms.locfileid: "105106958"
 
 ## <a name="setting-non-modifiable-server-parameters"></a>수정 불가능한 서버 매개 변수 설정
 
-업데이트하려는 서버 매개 변수가 수정 불가능한 경우 필요에 따라 `init_connect`을(를) 사용하여 연결 수준에서 매개 변수를 설정할 수 있습니다. 여기에서는 서버에 연결하는 각 클라이언트에 대한 서버 매개 변수를 설정합니다. 
+업데이트하려는 서버 매개 변수가 수정 불가능한 경우 필요에 따라 `init_connect`을(를) 사용하여 연결 수준에서 매개 변수를 설정할 수 있습니다. 이는 서버에 연결하는 각 클라이언트에 대한 서버 매개 변수를 설정합니다. 
 
 1. **설정** 섹션에서 **서버 매개 변수** 를 클릭하여 Azure Database for MySQL 서버에 대한 서버 매개 변수 페이지를 엽니다.
 2. `init_connect` 검색
 3. 값 열의 값에 `SET parameter_name=YOUR_DESIRED_VALUE` 형식으로 서버 매개 변수를 추가합니다.
 
-    예를 들면 `init_connect`을(를) `SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`(으)로 설정하여 서버 문자 집합을 변경할 수 있습니다.
+    예를 들면 `init_connect`을 `SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`로 설정하여 서버의 문자 집합을 변경할 수 있습니다
 4. **저장** 을 클릭하여 변경 내용을 저장합니다.
 
 >[!Note]
@@ -67,7 +69,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> 표준 시간대 테이블이 제대로 채워지도록 하려면 서버를 다시 시작해야 합니다.<!-- FIX ME To restart the server, use the [Azure portal](how-to-restart-server-portal.md) or [CLI](how-to-restart-server-cli.md).-->
+>표준 시간대 테이블이 제대로 채워지도록 하려면 서버를 다시 시작해야 합니다.<!-- FIX ME To restart the server, use the [Azure portal](how-to-restart-server-portal.md) or [CLI](how-to-restart-server-cli.md).-->
 
 사용 가능한 표준 시간대 값을 보려면 다음 명령을 실행합니다.
 

@@ -2,19 +2,18 @@
 title: Visual Studio Code에서 모듈 배포 - Azure IoT Edge
 description: Azure IoT Tools에서 Visual Studio Code를 사용하여 배포 매니페스트에 구성된 대로 IoT Hub의 IoT Edge 모듈을 IoT Edge 디바이스로 푸시합니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b4840b36d5dadc14bbd664b844e3bcce6f6fec4d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8a1ba312d404a0045e08d2fbc966141471b57eb5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201685"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537035"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Visual Studio Code에서 Azure IoT Edge 모듈 배포
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 03/24/2021
-ms.openlocfilehash: f974a99c59b19b5df7bf6ffcc66c2dc133743f0a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3f486e1f46cc4ed21dc3da89d242d50010178e7d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790542"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536281"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Azure Logic Apps의 비즈니스 연속성 및 재해 복구
 
@@ -348,7 +348,7 @@ Azure Logic Apps는 논리 앱이 다른 앱, 서비스, 시스템 및 기타 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure에 대한 복원력 개요](/azure/architecture/framework/resiliency/overview)
+* [신뢰할 수 있는 Azure 애플리케이션 디자인](/azure/architecture/framework/resiliency/app-design)
 * [특정 Azure 서비스에 대한 복원력 검사 목록](/azure/architecture/checklist/resiliency-per-service)
 * [Azure의 복원력을 위한 데이터 관리](/azure/architecture/framework/resiliency/data-management)
 * [Azure 애플리케이션의 백업 및 재해 복구](/azure/architecture/framework/resiliency/backup-and-recovery)

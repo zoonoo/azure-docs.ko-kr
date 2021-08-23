@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 5cc4678b082aa5a4a3f90518ff8fac448f414f1a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec58e921940be71b0189bcba96596c18b1b8786b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92342249"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537135"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Avere vFXT for Azure에 대한 재해 복구 지침
 
@@ -117,7 +117,7 @@ Avere vFXT for Azure 클러스터에서 백업 컨테이너에 액세스하려�
 * Avere vFXT for Azure에 대한 설정을 사용자 지정하는 방법에 대한 자세한 내용은 [클러스터 튜닝](avere-vfxt-tuning.md)을 참조하세요.
 * Azure에서 재해 복구와 복원력 있는 애플리케이션 빌드에 대해 자세히 알아보세요.
 
-  * [Azure 복구력 기술 지침](/azure/architecture/framework/resiliency/overview)
+  * [Azure 복구력 기술 지침](/azure/architecture/reliability/architect)
   * [지역 전체의 서비스 중단으로부터 복구](/azure/architecture/resiliency/recovery-loss-azure-region)
   * [Azure 애플리케이션에 대한 재해 복구 및 고가용성](/azure/architecture/framework/resiliency/backup-and-recovery)
   <!-- can't find these in the source tree to use relative links -->

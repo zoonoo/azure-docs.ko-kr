@@ -11,12 +11,12 @@ author: dzsquared
 ms.author: drskwier
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: 24bf347aa617e1a05aa8bf3284169aa669b297db
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6fe0fdf53235ce1ec42a2b46e95291c111ed2dff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110707448"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567052"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-or-sql-managed-instance-flat-files"></a>CSV에서 Azure SQL Database 또는 SQL Managed Instance(플랫 파일)로 데이터 로드
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -45,7 +45,7 @@ SQL Database에서 테이블을 대상 테이블로 정의합니다. 테이블�
 
 테이블을 만들려면, 명령 프롬프트를 열고 sqlcmd.exe를 사용하여 다음 명령을 실행합니다.
 
-```sql
+```cmd
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
     CREATE TABLE DimDate2
     (
@@ -61,7 +61,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 메모장을 열고 다음 데이터 줄을 새 텍스트 파일에 복사한 다음 이 파일을 로컬 임시 디렉터리 C:\Temp\DimDate2.txt에 저장합니다. 이 데이터는 ASCII 형식입니다.
 
-```
+```txt
 20150301,1,3
 20150501,2,4
 20151001,4,2
@@ -78,7 +78,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 (선택 사항) SQL Server 데이터베이스에서 사용자의 데이터를 내보내려면, 명령 프롬프트를 열고 다음 명령을 실행합니다. TableName, ServerName, DatabaseName, Username 및 Password를 사용자의 정보로 바꿉니다.
 
-```bcp
+```cmd
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ,
 ```
 
@@ -86,13 +86,13 @@ bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName
 
 데이터를 로드하려면, 명령 프롬프트를 열고 Server Name, Database name, Username 및 Password 값을 사용자의 정보로 바꿔서 다음 명령을 실행합니다.
 
-```bcp
+```cmd
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ,
 ```
 
 이 명령을 사용하여 데이터가 제대로 로드되었는지 확인합니다.
 
-```bcp
+```cmd
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 

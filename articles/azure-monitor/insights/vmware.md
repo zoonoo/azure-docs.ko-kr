@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: 9ade5a51e2251669daee6fbaca9aa4c50f7e9bfc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95462d60a9c77b78f9674a41d6ca44801f3e5ac0
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101704364"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122567736"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Azure Monitor의 VMware 모니터링(사용되지 않음) 솔루션
 
@@ -32,7 +32,7 @@ Azure Monitor의 VMware 모니터링 솔루션은 대규모 VMware 로그에 적
 vSphere ESXi 호스트 5.5, 6.0 및 6.5
 
 #### <a name="prepare-a-linux-server"></a>Linux 서버 준비
-ESXi 호스트로부터 모든 syslog 데이터를 수신하는 Linux 운영 체제 VM을 만듭니다. [Log Analytics Linux 에이전트](../vm/quick-collect-linux-computer.md)는 모든 ESXi 호스트 syslog 데이터를 수집하는 지점입니다. 아래 예에서 보여주듯이 여러 ESXi 호스트에서 단일 Linux 서버로 로그를 전달할 수 있습니다.
+ESXi 호스트로부터 모든 syslog 데이터를 수신하는 Linux 운영 체제 VM을 만듭니다. [Log Analytics Linux 에이전트](../vm/monitor-virtual-machine.md)는 모든 ESXi 호스트 syslog 데이터를 수집하는 지점입니다. 아래 예에서 보여주듯이 여러 ESXi 호스트에서 단일 Linux 서버로 로그를 전달할 수 있습니다.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -199,4 +199,3 @@ Syslog 타임스탬프에 대한 ESXi 호스트 버그가 있었습니다. 자�
 * Log Analytics에서 [로그 쿼리](../logs/log-query-overview.md)를 사용하여 자세한 VMware 호스트 데이터를 봅니다.
 * VMware 호스트 데이터를 보여 주는 [사용자 고유의 대시보드 만들기](../visualize/tutorial-logs-dashboards.md)
 * 특정 VMware 호스트 이벤트가 발생하는 경우의 [경고 만들기](../alerts/alerts-overview.md)
-

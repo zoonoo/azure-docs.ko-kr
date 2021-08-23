@@ -1,19 +1,20 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer)를 사용하여 음성 언어 자동 식별 - Azure
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: 이 문서에서는 Video Analyzer for Media(이전의 Video Indexer) 언어 식별 모델을 사용하여 비디오에서 음성 언어를 자동으로 식별하는 방법을 설명합니다.
-services: media-services
+services: azure-video-analyzer
 author: juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 04/12/2020
 ms.author: ellbe
-ms.openlocfilehash: f82c8c7726ad7ef77fd90ffa74ae4d8cdee9b7a8
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 8caada82b0c4b0c99e2d18b8586cc0b2c9d575f4
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386751"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112119547"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>언어 식별 모델을 사용하여 음성 언어 자동 식별
 

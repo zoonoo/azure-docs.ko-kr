@@ -4,16 +4,16 @@ description: 원격으로 Curl을 사용하여 Azure HDInsight에 Apache Sqoop �
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/06/2020
-ms.openlocfilehash: 4de42bf30824fd71228aa27cc478a54ec3741da9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2a097e18f6e1f285335a89574efd720fd251e92
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98928359"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "122642105"
 ---
 # <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>Curl을 사용하여 HDInsight에서 Apache Sqoop 작업 실행
 
-[!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
+[!INCLUDE [sqoop-selector](../includes/hdinsight-selector-use-sqoop.md)]
 
 HDInsight의 Apache Hadoop 클러스터에서 Curl을 사용하여 Apache Sqoop 작업을 실행하는 방법에 대해 알아봅니다. 이 문서에서는 Curl을 사용하여 Azure Storage에서 데이터를 내보내고 SQL Server 데이터베이스로 가져오는 방법을 보여 줍니다. 이 문서는 [HDInsight에서 Hadoop과 함께 Apache Sqoop 사용](./hdinsight-use-sqoop.md)의 연속입니다.
 
@@ -42,7 +42,7 @@ Apache Sqoop 작업을 사용하여 Azure Storage에서 SQL Server로 데이터�
 
 REST API는 [기본 인증](https://en.wikipedia.org/wiki/Basic_access_authentication)을 통해 보안됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 보안 HTTP(HTTPS)를 사용하여 요청해야 합니다.
 
-1. 사용 편의성을 위해 아래 변수를 설정합니다. 이 예제는 Windows 환경을 기반으로 하므로 환경의 필요에 따라 수정하세요.
+1. 사용 편의성을 위해 아래 변수를 설정합니다. 이 예제는 Windows 환경을 기준으로 하므로 환경의 필요에 따라 수정하세요.
 
     ```cmd
     set CLUSTERNAME=

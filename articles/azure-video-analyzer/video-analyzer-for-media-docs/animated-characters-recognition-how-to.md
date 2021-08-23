@@ -1,20 +1,21 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer)를 사용하여 애니메이션 문자 검색 방법
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer
 description: 이 방법은 Azure Video Analyzer for Media(이전의 Video Indexer)에서 애니메이션 문자 검색을 사용하는 방법을 보여 줍니다.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.custom: references_regions
 ms.topic: how-to
+ms.subservice: azure-video-analyzer-media
 ms.date: 12/07/2020
 ms.author: juliako
-ms.openlocfilehash: e880c4d758eeaf6161716475a57b9586189d58ba
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a9807ac57130034b51c3188b56de32ade4db6844
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388058"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112121581"
 ---
 # <a name="use-the-animated-character-detection-preview-with-portal-and-api"></a>포털 및 API에서 애니메이션 캐릭터 검색 사용(미리 보기) 
 
@@ -199,8 +200,8 @@ Custom Vision 계정에 대한 액세스 권한이 있는 유료 계정은 모�
 ## <a name="limitations"></a>제한 사항
 
 * 현재 “애니메이션 식별” 기능은 동아시아 지역에서 지원되지 않습니다.
-* 비디오에서 작거나 멀게 나타나는 캐릭터는 비디오 품질이 나쁜 경우 제대로 식별되지 않을 수 있습니다.
-* 애니메이션 캐릭터 세트당(예: 애니메이션 시리즈당) 하나의 모델을 사용하는 것이 좋습니다.
+* 비디오에서 작거나 멀리 보이는 캐릭터는 비디오 품질이 나쁜 경우 제대로 식별되지 않을 수 있습니다.
+* 애니메이션 캐릭터 집합당(예: 애니메이션 시리즈당) 하나의 모델을 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

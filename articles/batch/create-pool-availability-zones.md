@@ -2,13 +2,13 @@
 title: 가용성 영역 전반에 풀 만들기
 description: 영역 정책이 포함된 배치 풀을 만들어 오류로부터 보호하는 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.openlocfilehash: 56e718bedf504b8e69598c2d99ab8b889a470b89
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/06/2021
+ms.openlocfilehash: 0abec404b0ec951bb398cfb06ae41290e986a241
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101725291"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566973"
 ---
 # <a name="create-an-azure-batch-pool-across-availability-zones"></a>가용성 영역에서 Azure Batch 풀 만들기
 
@@ -81,5 +81,5 @@ client-request-id: 00000000-0000-0000-0000-000000000000
 ## <a name="next-steps"></a>다음 단계
 
 - 풀, 노드, 작업 및 태스크와 같은 [Batch 서비스 워크플로 및 기본 리소스](batch-service-workflow-features.md)에 대해 알아봅니다.
-- [Azure 가상 네트워크의 서브넷에서 풀을 만드는](batch-virtual-network.md) 방법에 대해 알아봅니다.
-- [공용 IP 주소가 없는 Azure Batch 풀을 만드는](./batch-pool-no-public-ip-address.md) 방법에 대해 알아봅니다.
+- [Azure 가상 네트워크의 서브넷에서 풀을 만드는 방법](batch-virtual-network.md)을 알아봅니다.
+- [공용 IP 주소가 없는 Azure Batch 풀을 만드는 방법](./batch-pool-no-public-ip-address.md)을 알아봅니다.

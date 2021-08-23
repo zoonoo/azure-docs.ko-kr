@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac603cef478b821d1fea72fce22004fc72860914
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 58344a385a8ad4d409748c039f8f1e7807e290b7
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744470"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114228382"
 ---
 # <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>앱 암호를 사용하여 레거시 애플리케이션에서 Azure AD Multi-Factor Authentication 사용 설정 및 사용
 
@@ -103,7 +103,7 @@ Azure AD는 온-프레미스 AD DS(Active Directory Domain Services)를 통해 �
 
 사용자는 등록 후 앱 암호를 만들 수도 있습니다. 사용자에 대한 자세한 내용 및 자세한 단계는 다음 리소스를 참조하세요.
 * [Azure AD Multi-Factor Authentication의 앱 암호는 무엇인가요?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
-* [보안 정보 페이지에서 앱 암호 만들기](https://docs.microsoft.com/azure/active-directory/user-help/security-info-app-passwords)
+* [보안 정보 페이지에서 앱 암호 만들기](../user-help/security-info-app-passwords.md)
 
 ## <a name="next-steps"></a>다음 단계
 

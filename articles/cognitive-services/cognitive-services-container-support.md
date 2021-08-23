@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 06/07/2021
+ms.date: 07/02/2021
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너, Kubernetes
-ms.openlocfilehash: 9a0dbba69b6317ab5a3df0b87e5f288d5a95872c
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: adc449be1aa1673540e02269d15823b819bc37c1
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752660"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285519"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services 컨테이너
 
@@ -78,9 +78,9 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 | 서비스 |  컨테이너 | Description | 가용성 |
 |--|--|--|--|
 | [Computer Vision][cv-containers] | **Read OCR**([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Read OCR 컨테이너를 사용하면 JPEG, PNG, BMP, PDF 및 TIFF 파일 형식에 대한 지원이 포함된 이미지와 문서로부터 인쇄된 텍스트 및 필기 텍스트를 추출할 수 있습니다. 자세한 내용은 [Read API 설명서](./computer-vision/overview-ocr.md)를 참조하세요. | 게이트를 미리 봅니다. [액세스를 요청합니다][request-access]. |
-| [공간 분석][spa-containers] | **공간 분석**([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis)) | 실시간 스트리밍 비디오를 분석하여 사람 사이의 공간적 관계, 이들의 움직임 및 물리적 환경에서 물체와의 상호 작용을 이해할 수 있습니다. | 게이트를 미리 봅니다. [액세스를 요청합니다][request-access]. |
+| [공간 분석][spa-containers] | **공간 분석**([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis)) | 실시간 스트리밍 비디오를 분석하여 사람 사이의 공간적 관계, 이들의 움직임 및 물리적 환경에서 물체와의 상호 작용을 이해할 수 있습니다. | 미리 보기 |
 | [Face][fa-containers] | **Face** | 이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별합니다. 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다. | 사용할 수 없음 |
-| [Form Recognizer][fr-containers] | **Form Recognizer** | Form Understanding은 기계 학습 기술을 적용하여 양식에서 키-값 쌍과 테이블을 식별하고 추출합니다. | 사용할 수 없음 | 
+| [Form Recognizer][fr-containers] | **Form Recognizer** | Form Understanding은 기계 학습 기술을 적용하여 양식에서 키-값 쌍과 테이블을 식별하고 추출합니다. | 게이트를 미리 봅니다. [액세스를 요청합니다][request-access]. | 
 
 
 <!--
@@ -135,7 +135,7 @@ Azure Cognitive Services의 컨테이너에서 제공하는 기능을 설치하�
 [ad-containers]: anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: computer-vision/computer-vision-how-to-install-containers.md
 [fa-containers]: face/face-how-to-install-containers.md
-[fr-containers]: form-recognizer/form-recognizer-container-howto.md
+[fr-containers]: ./form-recognizer/containers/form-recognizer-container-install-run.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
 [spa-containers]: ./computer-vision/spatial-analysis-container.md

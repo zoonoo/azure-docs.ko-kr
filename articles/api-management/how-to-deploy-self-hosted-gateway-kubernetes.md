@@ -9,12 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 05/25/2021
-ms.openlocfilehash: fa62dc3470ef4d4ab79045379a8b76b057b44628
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 645fce68e408b65299090e4661b36690f7ca140c
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379220"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690487"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Kubernetes에 자체 호스팅 게이트웨이 배포
 
@@ -68,13 +68,13 @@ ms.locfileid: "110379220"
 ### <a name="access-token"></a>액세스 토큰
 유효한 액세스 토큰이 없으면 자체 호스팅 게이트웨이가 연결된 API Management 서비스의 엔드포인트에 액세스하여 구성 데이터를 다운로드할 수 없습니다. 액세스 토큰은 최대 30일 동안 유효합니다. 만료되기 전에 수동으로 또는 자동화를 통해 액세스 토큰을 다시 생성하고 클러스터를 새 토큰으로 구성해야 합니다.
 
-토큰 새로 고침을 자동화하는 경우 [이 관리 API 작업](/rest/api/apimanagement/2019-12-01/gateway/generatetoken)을 사용하여 새 토큰을 생성합니다. Kubernetes 비밀 관리에 대한 자세한 내용은 [Kubernetes 웹 사이트](https://kubernetes.io/docs/concepts/configuration/secret)를 참조하세요.
+토큰 새로 고침을 자동화하는 경우 [이 관리 API 작업](/rest/api/apimanagement/2020-12-01/gateway/generate-token)을 사용하여 새 토큰을 생성합니다. Kubernetes 비밀 관리에 대한 자세한 내용은 [Kubernetes 웹 사이트](https://kubernetes.io/docs/concepts/configuration/secret)를 참조하세요.
 
 ### <a name="namespace"></a>네임스페이스
 Kubernetes [네임스페이스](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)는 단일 클러스터를 여러 팀, 프로젝트 또는 애플리케이션 간에 분할하는 데 도움이 됩니다. 네임스페이스는 리소스 및 이름의 범위를 제공합니다. 리소스 할당량 및 액세스 제어 정책과 연결될 수 있습니다.
 
 Azure Portal은 **기본** 네임스페이스에 자체 호스팅 게이트웨이 리소스를 만드는 명령을 제공합니다. 이 네임스페이스는 자동으로 만들어지고, 모든 클러스터에 있으며, 삭제할 수 없습니다.
-프로덕션에서 자체 호스팅 게이트웨이를 [만들고 별도의 네임스페이스에 배포](https://kubernetesbyexample.com/ns/)하는 것이 좋습니다.
+프로덕션에서 자체 호스팅 게이트웨이를 [만들고 별도의 네임스페이스에 배포](https://www.kubernetesbyexample.com/)하는 것이 좋습니다.
 
 ### <a name="number-of-replicas"></a>복제본 수
 프로덕션에 적합한 최소 복제본 수는 2개입니다.

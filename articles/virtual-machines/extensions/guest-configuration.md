@@ -8,12 +8,12 @@ author: mgreenegit
 ms.author: migreene
 ms.date: 04/15/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d189cf54edfaca13b801e786254eec9fc5aa96f6
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: e12bcc3a1c1589baf5ab8fcc0f2b3e264d1953eb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110662834"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537163"
 ---
 # <a name="overview-of-the-azure-policy-guest-configuration-extension"></a>Azure Policy 게스트 구성 확장 개요
 
@@ -54,7 +54,7 @@ ms.locfileid: "110662834"
 
 ID 요구 사항을 포함하여 최신 버전의 확장을 규모에 맞게 배포하려면 Azure Policy를 [할당](../../governance/policy/assign-policy-portal.md)합니다.
 
-[필수 구성 요소를 배포하여 가상 머신에서 게스트 구성 정책을 사용하도록 설정합니다](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_AzureBaseline.json).
+[필수 구성 요소를 배포하여 가상 머신에서 게스트 구성 정책을 사용하도록 설정합니다](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json).
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -101,7 +101,7 @@ Linux용 확장을 배포하려면 다음을 수행합니다.
   "properties": {
     "publisher": "Microsoft.GuestConfiguration",
     "type": "ConfigurationforLinux",
-    "typeHandlerVersion": "1.0"
+    "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
     "settings": {},
     "protectedSettings": {}
@@ -123,7 +123,7 @@ Windows용 확장을 배포하려면 다음을 수행합니다.
   "properties": {
     "publisher": "Microsoft.GuestConfiguration",
     "type": "ConfigurationforWindows",
-    "typeHandlerVersion": "1.0"
+    "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
     "settings": {},
     "protectedSettings": {}
@@ -137,11 +137,12 @@ Linux용 확장을 배포하려면 다음을 수행합니다.
 
 ```terraform
 resource "azurerm_virtual_machine_extension" "gc" {
-  name                  = "AzurePolicyforLinux"
-  virtual_machine_id    = "myVMID"
-  publisher             = "Microsoft.GuestConfiguration"
-  type                  = "ConfigurationforLinux"
-  type_handler_version  = "1.0"
+  name                       = "AzurePolicyforLinux"
+  virtual_machine_id         = "myVMID"
+  publisher                  = "Microsoft.GuestConfiguration"
+  type                       = "ConfigurationforLinux"
+  type_handler_version       = "1.0"
+  auto_upgrade_minor_version = "true"
 }
 ```
 
@@ -149,11 +150,12 @@ Windows용 확장을 배포하려면 다음을 수행합니다.
 
 ```terraform
 resource "azurerm_virtual_machine_extension" "gc" {
-  name                  = "AzurePolicyforWindows"
-  virtual_machine_id    = "myVMID"
-  publisher             = "Microsoft.GuestConfiguration"
-  type                  = "ConfigurationforWindows"
-  type_handler_version  = "1.0"
+  name                       = "AzurePolicyforWindows"
+  virtual_machine_id         = "myVMID"
+  publisher                  = "Microsoft.GuestConfiguration"
+  type                       = "ConfigurationforWindows"
+  type_handler_version       = "1.0"
+  auto_upgrade_minor_version = "true"
 }
 ```
 

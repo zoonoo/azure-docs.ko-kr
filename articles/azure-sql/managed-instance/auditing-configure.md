@@ -12,13 +12,13 @@ f1_keywords:
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 05/26/2020
-ms.openlocfilehash: be5face0a93dc360493e22fd3d2c6d9743c4f5ff
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 06/21/2021
+ms.openlocfilehash: 9501c49bec8d2a632387ecb9b620dcbdc5a0ac1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110072449"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567376"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Azure SQL Managed Instance 감사 시작하기
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,6 +27,9 @@ ms.locfileid: "110072449"
 
 - 규정 준수를 유지 관리하고, 데이터베이스 활동을 이해하고, 비즈니스 문제나 보안 침해로 의심되는 사안을 나타낼 수 있는 불일치 및 이상을 파악하는 데 도움이 됩니다.
 - 감사를 사용해도 규정 준수가 보장되는 것은 아니지만 규정 준수 표준을 쉽게 준수할 수 있습니다. 표준 규정 준수를 지원하는 Azure 프로그램에 대한 자세한 내용은 규정 준수 인증의 최신 목록을 찾을 수 있는 [Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)를 참조하세요.
+
+> [!IMPORTANT]
+> Azure SQL Database, Azure Synapse 및 Azure SQL Managed Instance에 대한 감사는 가용성과 성능에 맞게 최적화되어 있습니다. 활동이 많거나 네트워크 부하가 많을 때는 Azure SQL Database, Azure Synapse 및 Azure SQL Managed Instance에서 작업을 계속 진행하도록 허용하지만, 일부 감사 이벤트를 기록하지 않을 수도 있습니다.
 
 ## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Azure Storage로 서버에 대한 감사 설정
 
@@ -55,7 +58,7 @@ ms.locfileid: "110072449"
       ![Blob 컨테이너 구성 만들기](./media/auditing-configure/3_create_container_config.png)
 
     > [!IMPORTANT]
-    > 서버 또는 데이터베이스 수준 감사 이벤트에 대해 변경이 불가능한 로그 저장소를 구성하려는 고객은 [Azure Storage에서 제공하는 지침](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes)을 따라야 합니다. (변경이 불가능한 Blob 스토리지를 구성할 때 **추가 허용** 을 선택했는지 확인하세요.)
+    > 서버 또는 데이터베이스 수준 감사 이벤트에 대해 변경이 불가능한 로그 저장소를 구성하려는 고객은 [Azure Storage에서 제공하는 지침](../../storage/blobs/immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes)을 따라야 합니다. (변경이 불가능한 Blob 스토리지를 구성할 때 **추가 허용** 을 선택했는지 확인하세요.)
   
 3. 감사 로그용 컨테이너를 만든 후 이 컨테이너를 감사 로그의 대상으로 구성하려면 [T-SQL을 사용](#blobtsql)하거나 [SSMS(SQL Server Management Studio) UI를 사용](#blobssms)할 수 있습니다.
 

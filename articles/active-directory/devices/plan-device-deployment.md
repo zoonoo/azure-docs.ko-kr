@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7158a42a61ccba736e94f22714cc3b30f7f1cc5
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 8f2ae8a38305b74f2bccba55b02d98626b5afc1d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286945"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528224"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Azure Active Directory 디바이스 배포 계획
 
@@ -142,6 +142,8 @@ BYOD 및 회사 소유 모바일 디바이스는 회사 포털 앱을 설치하�
 * [Android](/mem/intune/user-help/enroll-device-android-company-portal)
 
 * [Windows 10](/mem/intune/user-help/enroll-windows-10-device)
+
+* [macOS](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp)
 
 디바이스를 등록하는 것이 조직에게 가장 적합한 경우 다음 리소스를 참조하세요.
 

@@ -4,15 +4,15 @@ description: Azure Marketplace에서 가상 머신 제품에 대한 미리 보�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: mingshen-ms
-ms.author: mingshen
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 5ca53a950aeaaf888dead6c1e134f63fe7cea04c
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 8877862ba9f22fb41c31cc1167e836fd783abde0
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111524961"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601132"
 ---
 # <a name="add-a-preview-audience-for-a-virtual-machine-offer"></a>가상 머신 제품에 대한 미리 보기 대상 그룹 추가
 

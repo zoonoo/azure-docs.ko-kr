@@ -3,19 +3,19 @@ title: Speech SDK 정보 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech SDK(소프트웨어 개발 키트)는 많은 Speech Service 기능을 제공하므로 음성 지원 애플리케이션을 보다 쉽게 개발할 수 있습니다.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.author: trbye
-ms.openlocfilehash: cc5ed68fa7a26a347f0cb85c94bb0b7b79ccb055
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.author: lajanuar
+ms.openlocfilehash: 3f97558a9efbc9a1cff11baaae6d4d8869e02915
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059176"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529627"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
 
@@ -48,12 +48,14 @@ Speech SDK는 Speech Service의 많은 기능을 노출하지만 일부는 제�
 
 **TTS(텍스트 음성 변환)** 는 다음 플랫폼에서 사용할 수 있습니다.
 
-  - C++/Windows & Linux
-  - C#/Windows & UWP & Unity
+  - C++/Windows & Linux & macOS
+  - C#(Framework & .NET Core)/Windows & UWP & Unity & Xamarin & Linux & macOS
   - Java(Jre 및 Android)
+  - JavaScript(브라우저 및 NodeJS)
   - Python
   - Swift
   - Objective-C
+  - Go
   - TTS REST API는 다른 모든 상황에서 사용할 수 있습니다.
 
 ### <a name="voice-assistants"></a>음성 도우미
@@ -135,7 +137,7 @@ Speech Service는 음성 텍스트 변환, 텍스트 음성 변환 및 음성 �
 
 ### <a name="custom-speech-to-text"></a>사용자 지정 음성 텍스트 변환
 
-고유한 환경에서 인식 및 기록을 위해 음성 텍스트 변환을 사용하는 경우 사용자 지정 음향, 언어 및 발음 모델을 만들고 학습하여 주변 소음 또는 산업용 어휘를 처리할 수 있습니다. 코드 없는 Custom Speech 모델의 생성 및 관리는 [Custom Speech 포털](https://aka.ms/customspeech)을 통해 사용할 수 있습니다. Custom Speech 모델을 게시한 후에는 Speech SDK에서 사용할 수 있습니다.
+고유한 환경에서 인식 및 기록을 위해 음성 텍스트 변환을 사용하는 경우 사용자 지정 음향, 언어 및 발음 모델을 만들고 학습하여 주변 소음 또는 산업용 어휘를 처리할 수 있습니다. 코드 없는 Custom Speech 모델의 생성 및 관리는 [Custom Speech 포털](./custom-speech-overview.md)을 통해 사용할 수 있습니다. Custom Speech 모델을 게시한 후에는 Speech SDK에서 사용할 수 있습니다.
 
 ### <a name="custom-text-to-speech"></a>사용자 지정 텍스트 음성 변환
 

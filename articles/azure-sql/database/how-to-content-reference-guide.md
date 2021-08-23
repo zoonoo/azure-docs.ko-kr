@@ -3,20 +3,19 @@ title: 콘텐츠 참조 구성 및 관리
 description: Azure SQL Database를 구성하고 관리하는 데 도움이 되는 콘텐츠 참조를 찾습니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: guide
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.date: 01/14/2020
-ms.openlocfilehash: 19cec1deeef344ea5897061db0fec88066b90b05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d870597665b2e59a660d01453ee0f5de05b0545
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92791769"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110704375"
 ---
 # <a name="configure-and-manage-content-reference---azure-sql-database"></a>콘텐츠 참조 구성 및 관리 - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

@@ -2,19 +2,19 @@
 title: Azure 관리되는 HSM 액세스 제어
 description: Azure 관리되는 HSM 및 키에 대한 액세스 권한을 관리합니다. 관리되는 HSM의 인증 및 권한 부여 모델과 HSM을 보호하는 방법을 설명합니다.
 services: key-vault
-author: amitbapat
+author: mbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.author: ambapat
-ms.openlocfilehash: bea1ccf0777c6325bc86c15e0f88304c465d89c9
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.author: mbaldwin
+ms.openlocfilehash: 453e6ba2d7bb8cd4021c1b5a47faf60ef7ac1b37
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750287"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471292"
 ---
 # <a name="managed-hsm-access-control"></a>관리형 HSM 액세스 제어
 

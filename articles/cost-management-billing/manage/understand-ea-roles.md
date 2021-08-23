@@ -6,15 +6,15 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 04/05/2021
+ms.date: 07/06/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 7331f9a894d36ee15702a8fe53804efd53049762
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 82e5b16ef4f7892a52ea0ec3d332104cbf99bb68
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107284122"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765491"
 ---
 # <a name="managing-azure-enterprise-agreement-roles"></a>Azure 기업계약 역할 관리
 
@@ -208,10 +208,10 @@ Azure Portal에서 표시되는 가격은 사용자의 관리 역할 및 엔터�
 |기업계약 관리자 역할|역할에 대한 요금 보기 정책|Azure 역할|가격 보기|
 |---|---|---|---|
 |계정 소유자 또는 부서 관리자|✔ 사용|소유자|조직의 EA 가격|
-|계정 소유자 또는 부서 관리자|✘ 사용 안 함|소유자|소매 가격|
+|계정 소유자 또는 부서 관리자|✘ 사용 안 함|소유자|가격 없음|
 |계정 소유자 또는 부서 관리자|✔ 사용 |none|가격 없음|
 |계정 소유자 또는 부서 관리자|✘ 사용 안 함 |none|가격 없음|
-|None|해당 없음 |소유자|소매 가격|
+|None|해당 없음 |소유자|가격 없음|
 
 엔터프라이즈 관리자 역할 및 요금 보기 정책은 Enterprise Portal에서 설정합니다. Azure 역할은 Azure Portal에서 업데이트할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 

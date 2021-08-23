@@ -2,7 +2,6 @@
 title: 다운스트림 디바이스의 게이트웨이 - Azure IoT Edge | Microsoft Docs
 description: Azure IoT Edge를 사용하여 데이터를 여러 다운스트림 디바이스에서 클라우드로 보내거나 로컬로 처리하는 투명, 불투명 또는 프록시 게이트웨이 디바이스를 만듭니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 03/23/2021
 ms.topic: conceptual
@@ -11,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: aa8b7372af91fc7cb194dfc3a6212cb4ce1fa0a2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 85d93c46ca9ef397b9e2ae95cfc042e50ee10bd1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027349"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528990"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>IoT Edge 디바이스를 게이트웨이로 사용하는 방법
 

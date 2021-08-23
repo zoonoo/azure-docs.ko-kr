@@ -3,12 +3,12 @@ title: 지원되는 콘텐츠 형식
 description: Docker 호환 컨테이너 이미지, Helm 차트, OCI 이미지 및 OCI 아티팩트를 비롯하여 Azure Container Registry에서 지원하는 콘텐츠 형식에 대해 알아봅니다.
 ms.topic: article
 ms.date: 03/02/2021
-ms.openlocfilehash: 218d98f3f16e8d0ca76a24692afbb2b69606564b
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 1203bc8cbebfd59ef28f03d19e939b73d707a3f3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106223067"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438885"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Azure Container Registry에서 지원되는 콘텐츠 서식
 
@@ -28,7 +28,10 @@ Azure Container Registry는 선택적 [이미지 인덱스](https://github.com/o
 
 ## <a name="oci-artifacts"></a>OCI 아티팩트
 
-Azure Container Registry는 컨테이너 이미지 및 기타 콘텐츠 형식(아티팩트)을 저장, 공유, 보호 및 배포할 수 있는 공급 업체 중립적 클라우드에 구애받지 않는 사양인 [OCI 배포 사양](https://github.com/opencontainers/distribution-spec)을 지원합니다. 사양을 통해 레지스트리는 컨테이너 이미지 외에도 광범위한 아티팩트를 저장할 수 있습니다. 아티팩트를 푸시하고 풀하는 데 적합한 도구를 사용합니다. 예제는 [Azure 컨테이너 레지스트리를 사용하여 OCI 아티팩트 푸시 및 끌어오기](container-registry-oci-artifacts.md)를 참조하세요.
+Azure Container Registry는 컨테이너 이미지 및 기타 콘텐츠 형식(아티팩트)을 저장, 공유, 보호 및 배포할 수 있는 공급 업체 중립적 클라우드에 구애받지 않는 사양인 [OCI 배포 사양](https://github.com/opencontainers/distribution-spec)을 지원합니다. 사양을 통해 레지스트리는 컨테이너 이미지 외에도 광범위한 아티팩트를 저장할 수 있습니다. 아티팩트를 푸시하고 풀하는 데 적합한 도구를 사용합니다. 예제를 보려면 다음을 참조 합니다.
+
+* [Azure 컨테이너 레지스트리를 사용하여 OCI 아티팩트 밀어넣기 및 끌어오기](container-registry-oci-artifacts.md)
+* [Azure 컨테이너 레지스트리에 Helm 차트 푸시 및 끌어오기](container-registry-helm-repos.md)
 
 OCI 아티팩트에 대해 자세히 알아보려면 [ORAS(OCI Registry as Storage)](https://github.com/deislabs/oras) 리포지토리 및 GitHub의 [OCI 아티팩트](https://github.com/opencontainers/artifacts) 리포지토리를 참조하세요.
 

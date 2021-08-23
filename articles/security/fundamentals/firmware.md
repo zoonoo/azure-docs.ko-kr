@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/10/2020
-ms.openlocfilehash: 8233cc714d977083f4d55716d35c0b7094a069ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/24/2021
+ms.openlocfilehash: 64c1a42147a55423336c9994246f08046f44adf5
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94557958"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895655"
 ---
 # <a name="firmware-security"></a>펌웨어 보안
 이 문서에서는 Microsoft가 클라우드 하드웨어 에코시스템 및 공급망을 보호하는 방법을 설명합니다.
@@ -50,6 +50,7 @@ Azure용 클라우드 하드웨어 공급업체 및 판매업체도 Microsoft에
 ## <a name="next-steps"></a>다음 단계
 플랫폼 무결성 및 보안을 추진하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
+- [플랫폼 코드 무결성](code-integrity.md)
 - [보안 부팅](secure-boot.md)
 - [계획 부팅 및 호스트 증명](measured-boot-host-attestation.md)
 - [프로젝트 Cerberus](project-cerberus.md)

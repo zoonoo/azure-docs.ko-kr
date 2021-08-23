@@ -11,12 +11,12 @@ author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
 ms.date: 02/13/2019
-ms.openlocfilehash: 30b5d1f7e5fd3a052ecce3c28b75fe020b2257c9
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: dd71998eaa3254e31d123a9ca011339d1aaeee10
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110694258"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528847"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>SQL Database 활성 지역 복제를 사용하여 클라우드 애플리케이션의 롤링 업그레이드 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -106,16 +106,16 @@ Azure SQL Database의 [활성 지역 복제](auto-failover-group-overview.md)를
 
 ```sql
 -- Set the production database to read-only mode
-ALTER DATABASE <Prod_DB>
-SET (ALLOW_CONNECTIONS = NO)
+ALTER DATABASE [<Prod_DB>]
+SET READ_ONLY
 ```
 
 2. 보조(11) 연결을 해제하여 지역에서 복제를 종료합니다. 이 작업으로 프로덕션 데이터베이스의 완전히 동기화된 독립 복사본이 생성됩니다. 이 데이터베이스가 업그레이드됩니다. 다음 예에서는 Transact-SQL을 사용하지만, [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary)도 사용할 수 있습니다. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
-ALTER DATABASE <Prod_DB>
-REMOVE SECONDARY ON SERVER <Partner-Server>
+ALTER DATABASE [<Prod_DB>]
+REMOVE SECONDARY ON SERVER [<Partner-Server>]
 ```
 
 3. `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net` 및 스테이징 주 데이터베이스에 대해 업그레이드 스크립트를 실행합니다(12). 데이터베이스 변경 내용이 스테이징 보조 데이터베이스에 자동으로 복제됩니다.

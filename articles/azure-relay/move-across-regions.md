@@ -2,14 +2,14 @@
 title: Azure Relay 네임스페이스를 다른 지역으로 이동
 description: 이 문서에서는 Azure Relay 네임스페이스를 현재 지역에서 다른 지역으로 이동하는 방법을 보여줍니다.
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 06/03/2021
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 60a182764639341fcda159356dd9fe6c65cfabd9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f612dc5318044fd539724c66b4aa37df6d3dafa
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89463831"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667777"
 ---
 # <a name="move-an-azure-relay-namespace-to-another-region"></a>Azure Relay 네임스페이스를 다른 지역으로 이동
 이 문서에서는 Azure Relay 네임스페이스를 하나의 지역에서 다른 지역으로 이동하는 방법을 보여줍니다. 대략적인 단계는 다음과 같습니다.
@@ -45,7 +45,7 @@ ms.locfileid: "89463831"
 템플릿을 배포하여 대상 지역에 릴레이 네임스페이스를 만듭니다. 
 
 1. Azure Portal에서 **리소스 생성** 를 선택합니다.
-2. **Marketplace 검색** 에서, 검색 텍스트에 대한 **템플릿 배포** 를 입력하고, **템플릿 배포(사용자 지정 템플릿을 사용하여 배포)** 를 선택한 다음, **입력** 키를 누릅니다.
+2. **마켓플레이스 검색** 에서, 검색 텍스트에 대한 **템플릿 배포** 를 입력하고, **템플릿 배포(사용자 지정 템플릿을 사용하여 배포)** 를 선택한 다음, **입력** 을 누릅니다.
 
     :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="새 템플릿 배포":::    
 1. **템플릿 배포** 페이지에서 **만들기** 를 선택합니다.

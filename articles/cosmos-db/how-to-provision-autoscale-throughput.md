@@ -8,19 +8,19 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/18/2021
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: ce17b54905861759c437c2df735dd5515991b507
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 95f201a7809184b511c3187cf3fcf5fadd233168
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110456620"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535672"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Azure Cosmos DB - SQL API에서 데이터베이스 또는 컨테이너의 자동 크기 조정 처리량 프로비전
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 Azure Cosmos DB SQL API에서 데이터베이스 또는 컨테이너(컬렉션, 그래프 또는 테이블)에 자동 크기 조정 처리량을 프로비전하는 방법을 설명합니다. 단일 컨테이너에서 자동 크기 조정을 사용하도록 설정하거나 데이터베이스에서 자동 크기 조정 처리량을 프로비전하고 데이터베이스의 모든 컨테이너 간에 공유할 수 있습니다.
 
-다른 API를 사용하는 경우 처리량을 프로비전하려면 [API for MongoDB](how-to-provision-throughput-mongodb.md), [Cassandra API](how-to-provision-throughput-cassandra.md), [Gremlin API](how-to-provision-throughput-gremlin.md) 문서를 참조하세요.
+다른 API를 사용하는 경우 처리량을 프로비전하려면 [API for MongoDB](mongodb/how-to-provision-throughput-mongodb.md), [Cassandra API](cassandra/how-to-provision-throughput-cassandra.md), [Gremlin API](how-to-provision-throughput-gremlin.md) 문서를 참조하세요.
 
 ## <a name="azure-portal"></a>Azure portal
 

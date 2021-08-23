@@ -6,12 +6,12 @@ ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 814c703a2db23088fc959501d3f0266ff19b6f49
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: e4dbdbb2f46546391b6e749a94bfa655bb9de45e
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388210"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112417346"
 ---
 # <a name="event-grid-on-kubernetes---event-filtering-for-subscriptions"></a>Kubernetes의 Event Grid - 구독에 대한 이벤트 필터링
 Kubernetes의 Event Grid를 사용하면 json 페이로드의 모든 속성에 필터를 지정할 수 있습니다. 이러한 필터는 AND 조건 세트로 모델링되며 각 외부 조건에는 선택적 내부 OR 조건이 있습니다. 각 AND 조건에 대해 다음 값을 지정합니다.
@@ -20,7 +20,7 @@ Kubernetes의 Event Grid를 사용하면 json 페이로드의 모든 속성에 �
 - 키 - 필터를 적용할 속성의 json 경로입니다.
 - 값 - 필터가 실행되는 참조 값 (또는) 값- 필터가 실행되는 참조 값 세트입니다.
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 
 

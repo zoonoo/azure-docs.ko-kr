@@ -7,12 +7,12 @@ ms.custom: references_regions
 ms.date: 02/17/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a18d78fdc6714894a9ce038f1e67e72e0acc0b87
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 6eb6dd71ae95b3af4ee913e1ac88d9988d2b23a9
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744542"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762535"
 ---
 # <a name="host-pool-creation"></a>호스트 풀 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "111744542"
 
 ## <a name="provide-feedback"></a>피드백 제공
 
-[Azure Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 방문하여 제품 팀 및 활성 커뮤니티 구성원과 함께 Azure Virtual Desktop 서비스에 대해 논의합니다.
+제품 팀 및 활발하게 활동하는 커뮤니티 멤버들과 Azure Virtual Desktop 서비스에 대해 토론하려면 [Azure Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum)를 방문하세요.
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Windows 10 Enterprise 다중 세션 이미지 획득
 
@@ -122,11 +122,11 @@ Raw 오류 예:
 > [!div class="mx-imgBorder"]
 > ![터미널 프로비저닝 상태가 실패인 배포 실패 스크린샷](media/failure-vmextensionprovisioning.png)
 
-**원인 1:** Azure Virtual Desktop 환경에 일시적인 오류가 발생했습니다.
+**원인 1:** Azure Virtual Desktop 환경에서 일시적 오류가 발생했습니다.
 
 **원인 2**: 연결 시 일시적 오류가 발생했습니다.
 
-**수정:** PowerShell을 사용하여 로그인하여 Azure Virtual Desktop 환경이 정상인지 확인합니다. [PowerShell을 사용하여 호스트 풀 만들기](create-host-pools-powershell.md)에서 수동으로 VM 등록을 완료합니다.
+**해결 방법**: PowerShell을 사용해 로그인하여 Azure Virtual Desktop 환경이 정상 상태인지 확인합니다. [PowerShell을 사용하여 호스트 풀 만들기](create-host-pools-powershell.md)에서 수동으로 VM 등록을 완료합니다.
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>오류: 지정된 관리자 사용자 이름이 허용되지 않습니다.
 
@@ -280,12 +280,12 @@ the VM.\\\"
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Virtual Desktop 및 에스컬레이션 트랙 문제 해결에 대한 개요는 [문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview.md)을 참조하세요.
+- Azure Virtual Desktop과 에스컬레이션 트랙 문제 해결에 대한 개요는 [문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview.md)을 참조하세요.
 - Azure Virtual Desktop에서 VM(가상 머신)을 구성하는 동안 문제를 해결하려면 [세션 호스트 가상 머신 구성](troubleshoot-vm-configuration.md)을 참조하세요.
 - Azure Virtual Desktop 에이전트 또는 세션 연결과 관련된 문제를 해결하려면 [일반적인 Azure Virtual Desktop 에이전트 문제 해결](troubleshoot-agent.md)을 참조하세요.
 - Azure Virtual Desktop 클라이언트 연결 문제를 해결하려면 [Azure Virtual Desktop 서비스 연결](troubleshoot-service-connection.md)을 참조하세요.
 - 원격 데스크톱 클라이언트와 관련된 문제를 해결하려면 [원격 데스크톱 클라이언트 문제 해결](troubleshoot-client.md)을 참조하세요.
-- Azure Virtual Desktop과 함께 PowerShell을 사용할 때 문제를 해결하려면 [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md)을 참조하세요.
+- Azure Virtual Desktop과 함께 PowerShell을 사용할 때 발생하는 문제를 해결하려면 [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md)을 참조하세요.
 - 서비스에 대한 자세한 내용은 [Azure Virtual Desktop 환경](environment-setup.md)을 참조하세요.
 - 문제 해결 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포 문제 해결](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조하세요.
 - 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](../azure-resource-manager/management/view-activity-logs.md)를 참조하세요.

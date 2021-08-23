@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e3c20d86bd29d60eca328a44ab5d5d600bbf4da4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 393bbebd226e02f6caf5c3d02f8da43a11154667
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89010939"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112240473"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Reliable Actors에 대한 FabricTransport 설정 구성
 
 구성할 수 있는 설정은 다음과 같습니다.
-- C#: [FabricTransportRemotingSettings](/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
+- C#: [FabricTransportRemotingSettings](/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 - Java: [FabricTransportRemotingSettings](/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 
 다음과 같은 방식으로 기본 FabricTransport 구성을 수정할 수 있습니다.

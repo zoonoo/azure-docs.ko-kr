@@ -15,20 +15,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-ms.openlocfilehash: e912cabd27bac52792ffb2d71027170f4e53f310
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 839d235412b70669dd3cb9b9942509ef9af7b3c4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784524"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536770"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>자체 ML(기계 학습)을 Azure Sentinel로 가져오기
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ML(기계 학습)은 Azure Sentinel의 주요 토대 중 하나이며 이를 차별화하는 주요 특성 중 하나입니다. Azure Sentinel은 여러 환경에서 ML을 제공합니다. [Fusion](fusion.md) 상관 관계 엔진 및 Jupyter Notebook에서 기본으로 제공되며 BYO-ML(Build-Your-Own ML) 플랫폼에서도 사용할 수 있습니다. 
 
 ML 검색 모델은 개별 환경과 사용자 동작 변경에 맞게 조정하여 [가양성](false-positives.md)을 줄이고 기존 접근 방식으로는 발견할 수 없는 위협을 식별할 수 있습니다. 많은 보안 조직에서 보안을 위한 ML의 가치를 이해하고 있지만 보안과 ML 모두에 대한 전문 지식을 갖춘 전문가는 많지 않습니다. 여기에 제시된 프레임워크는 보안 조직 및 전문가가 ML 여정에서 우리와 함께 성장할 수 있도록 설계되었습니다. ML을 처음 접하거나 필요한 전문 지식이 없는 조직은 Azure Sentinel의 기본 제공 ML 기능이 상당히 유용할 수 있습니다.
 
 :::image type="content" source="./media/bring-your-own-ml/machine-learning-framework.png" alt-text="기계 학습 프레임워크":::
+
 
 ## <a name="what-is-the-bring-your-own-machine-learning-byo-ml-platform"></a>BYO-ML(Bring Your Own Machine Learning) 플랫폼이란?
 
@@ -163,7 +166,7 @@ Log Analytics 자동 내보내기에서 지원하지 않는 사용자 지정 데
 
 ### <a name="build-custom-analytics-rule-with-ml-results"></a>ML 결과를 사용하여 사용자 지정 분석 규칙 빌드
 
-ML 결과가 사용자 지정 로그 테이블에 있는지 확인하고 점수의 충실도에 만족하는 경우 결과를 기반으로 검색을 만들 수 있습니다. Azure Sentinel 포털에서 **Analytics** 로 이동하여 [새 검색 규칙을 만듭니다](tutorial-detect-threats-custom.md). 다음은 검색을 만드는 데 사용되는 쿼리를 보여 주는 예입니다.
+ML 결과가 사용자 지정 로그 테이블에 있는지 확인하고 점수의 충실도에 만족하는 경우 결과를 기반으로 검색을 만들 수 있습니다. Azure Sentinel 포털에서 **Analytics** 로 이동하여 [새 검색 규칙을 만듭니다](detect-threats-custom.md). 다음은 검색을 만드는 데 사용되는 쿼리를 보여 주는 예입니다.
 
 :::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="BYO-ML 검색을 위한 사용자 지정 분석 규칙 만들기":::
 

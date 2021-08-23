@@ -4,12 +4,12 @@ description: Azure HDInsight에서 Azure Storage 컨테이너에 파일이 너�
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/21/2019
-ms.openlocfilehash: d256292956b42c65722ea5f9c87d6835297d1d40
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 21fd9d14b2d289a3cf652b553891cc8bdf0d616b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219096"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282226"
 ---
 # <a name="apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>Azure HDInsight에서 Azure Storage 컨테이너에 파일이 너무 많으면 Apache Spark 작업이 느리게 실행됨
 
@@ -39,4 +39,4 @@ N % 100 == 0(100은 예)인 경우 N번째 마이크로 일괄 처리에 대해 
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

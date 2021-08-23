@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 633f01d813fe4e6c56d88052cbc7440c43f350dc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7327af790eb8a3ddda646f0da208083d4431934a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104870503"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112280228"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker를 사용하여 HDInsight에서 Kafka와 함께 Apache Kafka 토픽 복제
 
@@ -296,7 +296,7 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 
-[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../includes/hdinsight-delete-cluster-warning.md)]
 
 이 문서의 단계는 다른 Azure 리소스 그룹의 클러스터를 만들었습니다. 만든 리소스를 모두 삭제하려면 **kafka-primary-rg** 및 **kafka-secondary_rg** 의 두 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 클러스터, 가상 네트워크와 스토리지 계정을 포함하여 이 문서를 따라 만든 모든 리소스가 제거됩니다.
 

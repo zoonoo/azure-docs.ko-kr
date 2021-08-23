@@ -2,13 +2,13 @@
 title: IoT Edge 디바이스에 Azure Video Analyzer 배포 - Azure
 description: 이 문서에서는 IoT Edge 디바이스에 Azure Video Analyzer를 배포하는 데 도움이 되는 단계를 나열합니다. 예를 들어, 로컬 Linux 컴퓨터에 대한 액세스 권한이 있는 경우 이 작업을 수행할 수 있습니다.
 ms.topic: how-to
-ms.date: 04/07/2021
-ms.openlocfilehash: f81d441b0070777837cc938721705335734fa3a3
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: cf73e5d44e9c4c04a7c2f018e403da18e18ff17d
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387490"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114603899"
 ---
 # <a name="deploy-azure-video-analyzer-to-an-iot-edge-device"></a>IoT Edge 디바이스에 Azure Video Analyzer 배포
 

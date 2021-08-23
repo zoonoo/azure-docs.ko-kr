@@ -3,15 +3,13 @@ title: Azure HDInsight 사용 중지된 버전
 description: Azure HDInsight의 사용 중지된 버전에 대해 알아봅니다.
 ms.service: hdinsight
 ms.topic: conceptual
-author: deshriva
-ms.author: deshriva
 ms.date: 02/08/2021
-ms.openlocfilehash: c5c5a6699759e3abda05b7a0d85f4914a15f00e6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4f6099d7d869803eb91016d6de1583abc83f40ac
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103490248"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529285"
 ---
 # <a name="retired-hdinsight-versions"></a>사용 중지된 HDInsight 버전
 
@@ -31,7 +29,7 @@ ms.locfileid: "103490248"
 | HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |2014년 6월 24일 |2015년 5월 18일 |2016년 6월 30일 |예 |예 |
 | HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |2014년 2월 11일 |2014년 9월 17일 |2015년 6월 30일 |예 |예 |
 | HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |2013년 10월 28일 |2014년 5월 12일 |2015년 5월 31일 |예 |예 |
-| HDInsight 1.6 |HDP 1.1 | |2013년 10월 28일 |2014년 4월 26일 |2015년 5월 31일 |예 |예 |
+| HDInsight 1.6 |HDP 1.1 | |2013년 10월 28일 |2014년 4월 26일 |2015년 5월 31일 |예 |아니요 |
 
 ## <a name="next-steps"></a>다음 단계
 

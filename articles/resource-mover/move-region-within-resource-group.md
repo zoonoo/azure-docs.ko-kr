@@ -7,20 +7,16 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 79224c14fc5182df7a699864af3d78c9be36259f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8eb4dc8ee58d9ced141c7c4e4404596ace727f0c
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97797282"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112459169"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>영역 간 이동(리소스 그룹에서)
 
 이 문서에서는 특정 리소스 그룹의 리소스를 다른 Azure 지역으로 이동하는 방법에 대해 알아봅니다. 리소스 그룹에서 이동하려는 리소스를 선택합니다. 그런 다음 [Azure Resource Mover](overview.md)를 사용하여 이동합니다.
-
-> [!IMPORTANT]
-> Azure Resource Mover는 현재 공개 미리 보기로 제공됩니다.
-
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -119,7 +115,7 @@ ms.locfileid: "97797282"
 
 1. **지역 간** 에서 원본 리소스 그룹 > **준비** 를 차례로 선택합니다.
 2. **리소스 준비** 에서 **준비** 를 선택합니다.
-1. 
+
     ![원본 리소스 그룹 준비 단추](./media/move-region-within-resource-group/prepare-source-resource-group.png)
 
     준비 과정에서 Resource Mover는 리소스 그룹 설정을 사용하여 ARM(Azure Resource Manager) 템플릿을 생성합니다. 리소스 그룹 내의 리소스는 영향을 받지 않습니다.
@@ -137,7 +133,7 @@ ms.locfileid: "97797282"
 2. **리소스 이동** 에서 **이동 시작** 을 선택합니다. 리소스 그룹의 상태가 *이동 시작 진행 중* 으로 변경됩니다.
 3. 이동을 시작한 후, 생성된 ARM 템플릿에 따라 대상 리소스 그룹이 만들어집니다. 원본 리소스 그룹의 상태가 *이동 커밋 보류 중* 으로 변경됩니다.
 
-![이동 커밋을 보여주는 상태](./media/move-region-availability-zone/commit-move-pending.png)
+    ![이동 커밋을 보여주는 상태](./media/move-region-availability-zone/commit-move-pending.png)
 
 이동 프로세스를 커밋하고 완료하려면 다음을 수행합니다.
 

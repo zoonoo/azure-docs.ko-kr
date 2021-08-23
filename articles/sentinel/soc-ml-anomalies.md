@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/28/2021
 ms.author: yelevin
-ms.openlocfilehash: ef38176db69ea019254ced89e3e18f035633f2d5
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 51bc9923ce01116137b4ff447b94d08262b0c758
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109811831"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566695"
 ---
 # <a name="use-soc-ml-anomalies-to-detect-threats-in-azure-sentinel"></a>SOC-ML 변칙을 사용하여 Azure Sentinel에서 위협 검색
 
@@ -45,4 +45,4 @@ ms.locfileid: "109811831"
 이 문서에서는 SOC-ML을 통해 Azure Sentinel 변칙을 검색하는 방법을 알아보았습니다.
 
 - [변칙 규칙을 보고, 만들고, 관리하고, 미세 조정](work-with-anomaly-rules.md)하는 방법에 대해 알아봅니다.
-- [다른 유형의 분석 규칙](tutorial-detect-threats-built-in.md)에 대해 알아봅니다.
+- [다른 유형의 분석 규칙](detect-threats-built-in.md)에 대해 알아봅니다.

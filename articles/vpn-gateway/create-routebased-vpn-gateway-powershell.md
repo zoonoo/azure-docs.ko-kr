@@ -1,18 +1,20 @@
 ---
-title: 'Azure VPN Gateway: 경로 기반 게이트웨이 만들기: PowerShell'
-description: PowerShell을 사용하여 온-프레미스 네트워크에 대한 VPN 연결이나 가상 네트워크 연결을 위한 경로 기반 Azure VPN 게이트웨이를 빠르게 만들 수 있습니다.
+title: '경로 기반 가상 네트워크 게이트웨이 만들기: PowerShell'
+titleSuffix: Azure VPN Gateway
+description: 온-프레미스 네트워크에 대한 VPN 연결을 위해 경로 기반 가상 네트워크 게이트웨이를 만들거나 가상 네트워크를 연결하는 방법에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8b6ab5dcbd38925afbd98381e427426d27110a53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d633fc07e63280f1774b8f4bcec19de48b37a5a3
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89393516"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114719620"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>PowerShell을 사용하여 경로 기반 VPN 게이트웨이 만들기
 
@@ -103,7 +105,7 @@ $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $s
 ```
 ## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>VPN 게이트웨이 만들기
 
-VPN 게이트웨이를 만드는 데에는 45분 이상이 걸릴 수 있습니다. 게이트웨이가 완료되면 가상 네트워크와 VNet 간에 연결을 만들 수 있습니다. 또는 가상 네트워크와 온-프레미스 위치 간에 연결을 만듭니다. [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway) cmdlet을 사용하여 VPN 게이트웨이를 만듭니다.
+종종 선택한 게이트웨이 SKU에 따라 게이트웨이를 만드는 데 45분 이상 걸릴 수 있습니다. 게이트웨이가 완료되면 가상 네트워크와 VNet 간에 연결을 만들 수 있습니다. 또는 가상 네트워크와 온-프레미스 위치 간에 연결을 만듭니다. [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway) cmdlet을 사용하여 VPN 게이트웨이를 만듭니다.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `

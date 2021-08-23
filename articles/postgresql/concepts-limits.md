@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7cee2be3c1d7a97b87560873d6cef07ec361ee99
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d9d817077b1bdfb0bd53ec18f25def1c9615d2fb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605181"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528708"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버의 제한
 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다. 리소스(컴퓨팅, 메모리, 스토리지) 계층에 대해 알아보려면 [가격 책정 계층](concepts-pricing-tiers.md) 문서를 참조하세요.
@@ -65,7 +65,7 @@ PostgreSQL 연결은 유효 상태라도 약 10MB의 메모리를 차지할 수 
 - 삭제된 서버 복원은 지원되지 않습니다.
 
 ### <a name="utf-8-characters-on-windows"></a>Windows의 UTF-8 문자
-- 일부 시나리오에서는 UTF-8 문자가 Windows의 오픈 소스 PostgreSQL에서 완전히 지원되지 않으며, Azure Database for PostgreSQL에 영향을 줍니다. 자세한 내용은 [postgresql-archive의 버그 #15476](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html)에 대한 스레드를 참조하세요.
+- 일부 시나리오에서는 UTF-8 문자가 Windows의 오픈 소스 PostgreSQL에서 완전히 지원되지 않으며, Azure Database for PostgreSQL에 영향을 줍니다. 자세한 내용은 [postgresql-archive의 버그 #15476](https://www.postgresql.org/message-id/2101.1541220270%40sss.pgh.pa.us)에 대한 스레드를 참조하세요.
 
 ### <a name="gss-error"></a>GSS 오류
 **GSS** 와 관련된 오류가 표시되면 Azure Postgres 단일 서버가 아직 완전히 지원하지 않는 최신 클라이언트/드라이버 버전을 사용하고 있을 수 있습니다. 이 오류는 [JDBC 드라이버 버전 42.2.15 및 42.2.16](https://github.com/pgjdbc/pgjdbc/issues/1868)에 영향을 주는 것으로 알려져 있습니다.

@@ -1,15 +1,15 @@
 ---
 title: Azure App Service에 대한 기본 제공 정책 정의
 description: Azure App Service에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 06/11/2021
+ms.date: 08/20/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: d62b0dc6760f0389bda2bc3e8b96df0d120d1c4c
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: ada7bce3cb532f610f5687524e1f4d13815ab152
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112021210"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607311"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-app-service"></a>Azure App Service에 대한 Azure Policy 기본 제공 정의
 

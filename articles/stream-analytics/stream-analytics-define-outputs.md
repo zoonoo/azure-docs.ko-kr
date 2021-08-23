@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 12/9/2020
-ms.openlocfilehash: 3ce4f673657561e196520466b569d0cf83d75a8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2b2de0d25c8bdba99e6559bdec1902e9cda7b35c
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019349"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583098"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력
 
@@ -25,10 +25,10 @@ Stream Analytics 작업 출력을 만들고, 편집하고, 테스트하려면 [A
 | 출력 형식 | 분할 | 보안 | 
 |-------------|--------------|----------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|예|Azure Active Directory 사용자 </br> , 관리 ID|
-|[Azure SQL Database](sql-database-output.md)|예. 선택 사항입니다.|SQL 사용자 인증, </br> 관리 ID(미리 보기)|
+|[Azure SQL Database](sql-database-output.md)|예. 선택 사항입니다.|SQL 사용자 인증, </br> 관리 ID|
 |[Azure Synapse Analytics](azure-synapse-analytics-output.md)|예|SQL 사용자 인증, </br> 관리 ID(미리 보기)|
-|[Blob Storage 및 Azure Data Lake Gen2](blob-storage-azure-data-lake-gen2-output.md)|예|액세스 키, </br> 관리 ID(미리 보기)|
-|[Azure Event Hubs](event-hubs-output.md)|예. 출력 구성에서 파티션 키 열을 설정해야 합니다.|액세스 키, </br> 관리 ID(미리 보기)|
+|[Blob Storage 및 Azure Data Lake Gen2](blob-storage-azure-data-lake-gen2-output.md)|예|액세스 키, </br> 관리 ID|
+|[Azure Event Hubs](event-hubs-output.md)|예. 출력 구성에서 파티션 키 열을 설정해야 합니다.|액세스 키, </br> 관리 ID|
 |[Power BI](power-bi-output.md)|예|Azure Active Directory 사용자, </br> 관리 ID|
 |[Azure Table Storage](table-storage-output.md)|예|계정 키|
 |[Azure Service Bus 큐](service-bus-queues-output.md)|예|액세스 키|

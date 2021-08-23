@@ -8,12 +8,12 @@ ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: b89e0f8209c0165b71eef3d143ea1a84ea8bf64e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 798d0aaa6f4423679576c37a0af7bf64de37a313
+ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107796247"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112428802"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Azure 파일 동기화 네트워크 엔드포인트 구성
 Azure Files와 Azure 파일 동기화는 Azure 파일 공유에 액세스하기 위한 다음과 같은 두 가지 기본 유형의 엔드포인트를 제공합니다. 
@@ -283,6 +283,10 @@ switch($azureEnvironment) {
 
     "AzureUSGovernment" {
         $storageSyncSuffix = "afs.azure.us"
+    }    
+
+   "AzureChinaCloud" {
+        $storageSyncSuffix = "afs.azure.cn"
     }
     
     default {

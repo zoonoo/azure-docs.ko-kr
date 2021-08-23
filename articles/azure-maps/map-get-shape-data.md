@@ -7,14 +7,13 @@ ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: ddb8009e544ede82d1c56d112950ff247a87380c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2ef479a4e1bd4a10a2a62c82de384338b1f016a7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92890703"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537119"
 ---
 # <a name="get-shape-data"></a>도형 데이터 가져오기
 

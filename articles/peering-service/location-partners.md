@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/06/2020
 ms.author: derekol
-ms.openlocfilehash: cd57825172f69811dfa63e1d1dea048bbf1d5c82
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 79d9d15ff2707dfac7e206cf5a289d7eac00ffb4
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626200"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447569"
 ---
 # <a name="peering-service-partners"></a>Peering Service 파트너
 
@@ -34,7 +34,7 @@ Microsoft는 전 세계 ISP(인터넷 서비스 공급자), IXP(인터넷 교환
 | [BBIX](https://www.bbix.net/en/service/) |일본 |
 | [CCL](https://concepts.co.nz/news/general-news/) |오세아니아 |
 | [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|유럽, 아시아|
-| [DE-CIX](https://www.de-cix.net/microsoft)|유럽, 북아메리카 |
+| [DE-CIX](https://www.de-cix.net/)|유럽, 북아메리카 |
 | [IIJ](https://www.iij.ad.jp/en/) | 일본 |
 | [Intercloud](https://intercloud.com/microsoft-saas-applications/)|유럽  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |오세아니아  |
@@ -54,7 +54,7 @@ Microsoft는 전 세계 ISP(인터넷 서비스 공급자), IXP(인터넷 교환
 ## <a name="next-steps"></a>다음 단계
 
 - Peering Service에 대해 알아보려면 [Peering Service 개요](about.md)를 참조하세요.
-- Peering Service FAQ에 대해 알아보려면 [Peering Service FAQ](faq.md)를 참조하세요.
+- Peering Service FAQ에 대해 알아보려면 [Peering Service FAQ](faq.yml)를 참조하세요.
 - 파트너 온보딩 및 Peering Service 구성에 대해 알아보려면 [Peering Service 구성](connection.md)을 참조하세요.
 - Peering Service 연결에 대해 알아보려면 [Peering Service 연결](connection.md)을 참조하세요.
 - Peering Service 연결 원격 분석에 대해 알아보려면 [Peering Service 연결 원격 분석](connection-telemetry.md)을 참조하세요.

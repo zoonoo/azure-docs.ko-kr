@@ -1,18 +1,20 @@
 ---
 title: Salesforce Service Cloud 간에 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 데이터 팩터리 파이프라인의 복사 작업을 사용하여 Salesforce Service Cloud에서 지원되는 싱크 데이터 저장소로, 또는 지원되는 원본 데이터 저장소에서 Salesforce Service Cloud로 데이터를 복사하는 방법에 대해 알아봅니다.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 03/17/2021
-ms.openlocfilehash: 6a712ad1924fd73926ff0e62a7d1b9684eb5b1d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d4b619476908ad6799b5060cfedf7f55a566afea
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104583119"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642582"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce Service Cloud 간에 데이터 복사
 
@@ -51,7 +53,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
 ## <a name="get-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Salesforce Service Cloud 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -59,7 +61,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
 Salesforce 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type |형식 속성은 **SalesforceServiceCloud** 로 설정되어야 합니다. |예 |
 | environmentUrl | Salesforce Service Cloud 인스턴스의 URL을 지정합니다. <br> - 기본값은 `"https://login.salesforce.com"`입니다. <br> - 샌드박스에서 데이터를 복사하려면 `"https://test.salesforce.com"`을 지정합니다. <br> - 사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 `"https://[domain].my.salesforce.com"`을 지정합니다. |예 |
@@ -135,7 +137,7 @@ Salesforce 연결된 서비스에 다음 속성이 지원됩니다.
 
 Salesforce Service Cloud 간에 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **SalesforceServiceCloudObject** 으로 설정되어야 합니다.  | 예 |
 | objectApiName | 데이터를 검색할 Salesforce 개체 이름입니다. | 원본에는 아니요이고 싱크에는 예입니다 |
@@ -164,7 +166,7 @@ Salesforce Service Cloud 간에 데이터를 복사하려는 경우 다음과 �
 }
 ```
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **RelationalTable** 로 설정해야 합니다. | 예 |
 | tableName | Salesforce Service Cloud에 있는 테이블의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -177,7 +179,7 @@ Salesforce Service Cloud 간에 데이터를 복사하려는 경우 다음과 �
 
 Salesforce Service Cloud 간에 데이터를 복사하기 위해 복사 작업 **원본** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 형식 속성을 **SalesforceServiceCloudSource** 로 설정해야 합니다. | 예 |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리 또는 SQL-92 쿼리를 사용할 수 있습니다. [쿼리 팁](#query-tips) 섹션에서 더 많은 팁을 참조하세요. 쿼리를 지정하지 않으면 데이터 세트의 “objectApiName”에 지정된 Salesforce Service Cloud 개체의 모든 데이터가 검색됩니다. | 아니요(데이터 세트의 “objectApiName”이 지정된 경우) |
@@ -224,14 +226,14 @@ Salesforce Service Cloud 간에 데이터를 복사하기 위해 복사 작업 *
 
 Salesforce Service Cloud에 데이터를 복사하기 위해 복사 작업 **싱크** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 형식 속성은 **SalesforceServiceCloudSink** 로 설정해야 합니다. | 예 |
 | writeBehavior | 작업의 쓰기 동작입니다.<br/>허용되는 값은 **Insert** 및 **Upsert** 입니다. | 아니요(기본값: 삽입) |
 | externalIdFieldName | Upsert 작업의 외부 ID 필드 이름입니다. 지정된 필드는 Salesforce Service Cloud 개체에서 "외부 ID 필드"로 정의되어야 합니다. 해당하는 입력 데이터에서 NULL 값을 가질 수 없습니다. | "Upsert"에서 예 |
 | writeBatchSize | 각 일괄 처리에서 Salesforce Service Cloud에 작성된 데이터의 행 수입니다. | 아니요(기본값: 5,000) |
 | ignoreNullValues | 쓰기 작업 중에 입력 데이터에서 NULL 값을 무시할지 여부를 나타냅니다.<br/>허용되는 값은 **true** 및 **false** 입니다.<br>- **True**: Upsert나 업데이트 작업을 수행할 때 대상 개체의 데이터를 변경하지 않고 유지합니다. 삽입 작업을 수행할 때 정의된 기본 값을 삽입합니다.<br/>- **False**: Upsert나 업데이트 작업을 수행할 때 대상 개체의 데이터를 NULL로 업데이트합니다. 삽입 작업을 수행할 때 NULL 값을 삽입합니다. | 아니요(기본값: false) |
-| maxConcurrentConnections |활동 실행 중에 데이터 저장소에 설정된 동시 연결 수의 상한입니다. 동시 연결 수를 제한하려는 경우에만 값을 지정합니다.| 예 |
+| maxConcurrentConnections |작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예 |
 
 **예:**
 

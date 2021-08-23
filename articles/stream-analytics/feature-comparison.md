@@ -6,12 +6,12 @@ ms.author: raan
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 037bd8bc823cd8c77241d0ca25174e29d25149b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0cb51198fec12590b497f94b23fce8b32b67bb8c
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98020539"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122530766"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Azure Stream Analytics 기능 비교
 
@@ -37,9 +37,9 @@ Azure Stream Analytics를 통해, [Azure Portal](stream-analytics-quick-create-p
 |작업 나열 및 작업 엔터티 보기     |예         |예        |예         |
 |로컬 프로젝트로 작업 내보내기     |예         |예         |예         |
 |작업 제출, 시작 및 중지     |예         |예         |예         |
-|작업 메트릭 및 다이어그램 보기     |예         |예         |포털에서 열기         |
+|작업 메트릭 및 다이어그램 보기     |예         |예         |예         |
 |작업 런타임 오류 보기     |예         |예         |예         |
-|리소스 로그     |예         |예         |예         |
+|리소스 로그     |예         |아니요         |예         |
 |사용자 지정 메시지 속성     |예         |예         |예       |
 |C# 사용자 지정 코드 함수 및 역직렬 변환기|읽기 전용 모드|예|예|
 |JavaScript UDF 및 UDA     |예         |예         |Windows만         |
@@ -65,7 +65,7 @@ Azure Stream Analytics를 통해, [Azure Portal](stream-analytics-quick-create-p
 |작업 나열 및 작업 엔터티 보기     |예         |예         |예         |
 |작업 메트릭 및 다이어그램 보기     |예         |부분         |예         |
 |작업 런타임 오류 보기     |예         |부분         |예         |
-|CI/CD 지원     |예         |예         |예         |
+|CI/CD 지원     |예         |아니요         |아니요         |
 
 
 ## <a name="next-steps"></a>다음 단계

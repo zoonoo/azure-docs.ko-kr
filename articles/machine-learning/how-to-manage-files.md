@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 02/05/2021
-ms.openlocfilehash: e1868794f7e47ccce3efa36b7954a1a2a704e8d6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 57392991be00d8e34a378309cf8a0f124e988236
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739028"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112460561"
 ---
 # <a name="how-to-create-and-manage-files-in-your-workspace"></a>작업 영역에 파일을 만들고 관리하는 방법
 
@@ -23,7 +23,7 @@ Azure Machine Learning 작업 영역에 파일을 만들고 관리하는 방법�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
+* Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * Machine Learning 작업 영역. [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
 
 ## <a name="create-files"></a><a name="create"></a> 파일 만들기

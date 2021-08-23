@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2021
-ms.openlocfilehash: db614d99a3c25e6f782c0be6bea95ec82124b8e5
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 73512b0c1729fbdbbc62e0063670de8405ddbcb5
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111554843"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113000287"
 ---
 # <a name="indexer-access-to-azure-storage-using-the-trusted-service-exception-azure-cognitive-search"></a>신뢰할 수 있는 서비스 예외를 사용한 Azure Storage에 대한 인덱서 액세스(Azure Cognitive Search)
 
@@ -27,7 +27,7 @@ Azure Storage 계정의 데이터에 액세스하는 Azure Cognitive Search 서�
 [관리 ID를 사용하여 Azure Storage 계정에 대한 연결 설정](search-howto-managed-identities-storage.md)의 지침을 따릅니다. 작업이 완료되면 검색 서비스를 Azure Active Directory에 신뢰할 수 있는 서비스로 등록하고, Azure Storage에서 데이터 또는 정보에 액세스할 수 있는 특정 권한을 검색 ID에 부여합니다.
 
 > [!NOTE]
-> 지침은 Cognitive Search를 신뢰할 수 있는 서비스로 구성하기 위한 포털 접근 방식을 안내합니다. 코드에서 이 작업을 수행하려면 [REST API](/rest/api/searchmanagement/services/createorupdate), [Azure PowerShell](search-manage-powershell.md#create-a-service-with-a-system-assigned-managed-identity) 또는 [Azure CLI](search-manage-azure-cli.md#create-a-service-with-a-system-assigned-managed-identity)를 사용할 수 있습니다.
+> 지침은 Cognitive Search를 신뢰할 수 있는 서비스로 구성하기 위한 포털 접근 방식을 안내합니다. 코드에서 이 작업을 수행하려면 [REST API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update), [Azure PowerShell](search-manage-powershell.md#create-a-service-with-a-system-assigned-managed-identity) 또는 [Azure CLI](search-manage-azure-cli.md#create-a-service-with-a-system-assigned-managed-identity)를 사용할 수 있습니다.
 
 ## <a name="step-2-allow-trusted-microsoft-services-to-access-the-storage-account"></a>2단계: 신뢰할 수 있는 Microsoft 서비스가 스토리지 계정에 액세스하도록 허용
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/31/2020
-ms.openlocfilehash: cf19911bd8126bfb73f848c086aa817a7d7adb00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0864eca7a6a93ddaa2023cae7b0a7f5dc8e2ebd0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563694"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114451507"
 ---
 # <a name="connect-servicenow-to-azure-monitor"></a>Azure Monitor에 ServiceNow 연결
 
@@ -29,6 +29,7 @@ ms.locfileid: "103563694"
 1. https://(인스턴스 이름).service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor 링크를 사용하여 보안 내보내기 정의에 대한 URI를 모니터링합니다.
 
 2. 버전에 따라 다음 지침을 따르세요.
+   * [Quebec](https://docs.servicenow.com/bundle/quebec-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [파리](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [올랜도](https://docs.servicenow.com/bundle/orlando-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [뉴욕](https://docs.servicenow.com/bundle/newyork-it-operations-management/page/product/event-management/concept/azure-integration.html)

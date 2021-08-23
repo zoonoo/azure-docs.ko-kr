@@ -2,19 +2,18 @@
 title: IoT Device Provisioning Service의 보안 엔드포인트 | Microsoft Docs
 description: 개념 - 백 엔드 앱용 IoT DPS (Device Provisioning Service)에 대한 액세스를 제어하는 방법 보안 토큰에 대한 정보가 포함됩니다.
 author: wesmc7777
-manager: philmea
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 024dbf6518748a4048873de4eb54a53f9d9a6362
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 90ba464fa58e248ebea0f6b080461851c69f0ab7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94954327"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536603"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service에 대한 액세스 제어
 

@@ -6,15 +6,18 @@ ms.assetid: a7738a24-89ef-43d3-bff1-77f43d5a3952
 ms.topic: article
 ms.date: 03/22/2021
 ms.author: ccompy
-ms.custom: seodec18, references_regions
-ms.openlocfilehash: 25bdfb7a0301af472baa89d3d9e73aacf8cff139
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seodec18, references_regions, devx-track-azurecli
+ms.openlocfilehash: 1480b23f4c213d1c251e47678b235c9f8c8d45df
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954618"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432899"
 ---
 # <a name="app-service-environment-management-addresses"></a>App Service Environment 관리 주소
+> [!NOTE]
+> 이 문서에서는 격리된 App Service 요금제와 함께 사용되는 App Service Environment v2에 관해 설명합니다.
+> 
 
 ASE(App Service Environment)는 Azure VNet(Virtual Network)에서 실행되는 Azure App Service의 단일 테넌트 배포입니다.  ASE는 VNet에서 실행되지만 Azure App Service에서 서비스를 관리하는 데 사용되는 여러 전용 IP 주소에서도 ASE에 액세스할 수 있어야 합니다.  ASE의 경우 관리 트래픽은 사용자 제어 네트워크를 통과합니다. 이 트래픽이 차단되거나 잘못 라우팅된 경우 ASE는 일시 중단 됩니다. ASE 네트워킹 종속성에 대한 자세한 내용은 [네트워킹 고려 사항과 App Service Environment][networking]를 참조하세요. 시작하는 데 도움이 되는 ASE에 대한 일반적인 정보는 [App Service Environment 소개][intro]를 참조하세요.
 

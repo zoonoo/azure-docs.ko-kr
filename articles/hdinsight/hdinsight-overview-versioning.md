@@ -3,15 +3,13 @@ title: 버전 관리 소개 - Azure HDInsight
 description: Azure HDInsight에서 버전 관리가 작동하는 방식에 대해 알아봅니다.
 ms.service: hdinsight
 ms.topic: conceptual
-author: deshriva
-ms.author: deshriva
 ms.date: 02/08/2021
-ms.openlocfilehash: 6db4c7856ebdf75d5bf94de1e3110bb25bc93e69
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b7b23a1d7e549d5e1e5b712d2290722158d49f38
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103493869"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535479"
 ---
 # <a name="how-versioning-works-in-hdinsight"></a>HDInsight에서 버전 관리가 작동하는 방식
 

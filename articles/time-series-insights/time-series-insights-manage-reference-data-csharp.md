@@ -3,20 +3,21 @@ title: C#을 사용하여 GA 환경에서 참조 데이터 관리 - Azure Time S
 description: C#에서 작성한 사용자 지정 애플리케이션을 만들어 GA 환경에 대한 참조 데이터를 관리하는 방법을 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: cshankar
+author: esung22
+ms.author: elsung
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: d6f0e5230fb3c59cab690620e837f476f3392a48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e2455a6e87e05ee8a926309ff0ca62ad2b8677da
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95020081"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136790"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>C#을 사용하여 Azure Time Series Insights Gen 1 환경에 대한 참조 데이터 관리
 

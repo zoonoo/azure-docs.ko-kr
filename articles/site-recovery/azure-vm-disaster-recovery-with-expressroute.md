@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 07/25/2021
 ms.author: mayg
-ms.openlocfilehash: 0e1f670f2ba5ad31f29d56b2de40acd6e2bf18a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c6e5bfb3e014540f4b23438cfe4869ace1f1345
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88654381"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529017"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure VM용 재해 복구와 ExpressRoute 통합
 
@@ -166,7 +166,7 @@ Site Recovery를 사용하여 대상 Azure 하위 지역에 Azure VM을 장애 �
 
 이 구성에서는 ExpressRoute 회로가 한 개만 있습니다. 회로에 중복 연결이 있더라도 한 회로가 다운된 경우 피어링 하위 지역이 다운되면 단일 경로 회로가 회복력을 제공하지 않습니다. 다음 사항에 유의합니다.
 
-- [동일한 지리적 위치](azure-to-azure-support-matrix.md#region-support)의 Azure 하위 지역에 Azure VM을 복제할 수 있습니다. 대상 Azure 하위 지역이 원본과 동일한 위치에 있지 않은 경우 단일 ExpressRoute 회로를 사용한다면 ExpressRoute Premium을 사용하도록 설정해야 합니다. [ExpressRoute 위치](../expressroute/expressroute-locations.md) 및 [ExpressRoute 가격 책정](https://azure.microsoft.com/pricing/details/expressroute/)에 대해 알아보세요.
+- 대상 Azure 하위 지역이 원본과 동일한 위치에 있지 않은 경우 단일 ExpressRoute 회로를 사용한다면 ExpressRoute Premium을 사용하도록 설정해야 합니다. [ExpressRoute 위치](../expressroute/expressroute-locations.md) 및 [ExpressRoute 가격 책정](https://azure.microsoft.com/pricing/details/expressroute/)에 대해 알아보세요.
 - 대상 하위 지역에 동일한 IP 주소 공간을 사용하는 경우 원본과 대상 vNet을 동시에 회로에 연결할 수 없습니다. 이 시나리오에서는    
     -  원본 쪽 연결을 끊은 다음, 대상 쪽 연결을 설정하세요. 이 연결 변경은 Site Recovery 복구 계획의 일부로 스크립트될 수 있습니다. 다음 사항에 유의합니다.
         - 지역 오류에서 주 지역에 액세스할 수 없으면 연결 끊기 작업에 실패할 수 있습니다. 이는 대상 하위 지역에 대한 연결 생성에 영향을 미칠 수 있습니다.

@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 06/29/2021
 ms.author: jlian
-ms.openlocfilehash: 834ccc850a3099857dc1b88e45b0c0c3ee3a186c
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 0a9a3bc11bac0dd389c346ccecab7f95d5ffd5d2
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486452"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113128033"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>IoT Hub에서 TLS(전송 계층 보안) 지원
 
@@ -23,10 +23,6 @@ TLS 1.0 및 1.1은 레거시로 간주되며 사용 중단될 예정입니다. �
 ## <a name="iot-hubs-server-tls-certificate"></a>IoT Hub의 서버 TLS 인증서
 
 TLS 핸드셰이크 도중 IoT Hub는 클라이언트 연결을 위해 RSA 키 서버 인증서를 제공합니다. 루트는 Baltimore Cybertrust Root CA입니다. 최근 새 중개 인증 기관(ICA)에서 발급하도록 TLS 서버 인증서에 대한 변경 사항이 출시되었습니다. 자세한 내용은 [IoT Hub TLS 인증서 업데이트](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/)를 참조하세요.
-
-### <a name="4kb-size-limit-on-renewal"></a>갱신 시 4KB 크기 제한
-
-IoT Hub 서버 측 인증서를 갱신하는 동안 `Server Hello`가 4KB 크기를 초과하지 않도록 IoT Hub 서비스 측에서 확인이 이루어집니다. 클라이언트는 수신 TLS 최대 콘텐츠 길이 버퍼에 대해 최소 4KB 이상의 RAM을 보유해야 합니다. 그래야 4KB 제한이 설정된 기존 디바이스가 인증서 갱신 후에도 계속 작동합니다. 제약이 있는 디바이스의 경우 IoT Hub는 [TLS 최대 조각 길이 협상(미리 보기)](#tls-maximum-fragment-length-negotiation-preview)을 지원합니다. 
 
 ### <a name="elliptic-curve-cryptography-ecc-server-tls-certificate-preview"></a>ECC(타원 곡성 암호화) 서버 TLS 인증서(미리 보기)
 

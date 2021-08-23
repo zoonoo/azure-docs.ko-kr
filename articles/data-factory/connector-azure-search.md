@@ -1,18 +1,20 @@
 ---
 title: Search 인덱스에 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인에서 복사 작업을 사용하여 Azure Search 인덱스에 데이터를 푸시하거나 복사하는 방법에 대해 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 03/17/2021
-ms.openlocfilehash: 7820232bc5f91d85ce24c9df8ebaa0a0bbc52342
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 9ff0cdf1e54bb1ae943408eacfd92ed9f49f2be2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109480218"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642642"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cognitive Search 인덱스에 데이터 복사
 
@@ -38,7 +40,7 @@ ms.locfileid: "109480218"
 
 Azure Cognitive Search 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureSearch** 로 설정되어야 합니다. | 예 |
 | url | 검색 서비스에 대한 URL입니다. | 예 |
@@ -76,10 +78,10 @@ Azure Cognitive Search 연결된 서비스에 다음 속성이 지원됩니다.
 
 Azure Cognitive Search에 데이터를 복사할 수 있도록 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **AzureSearchIndex** 로 설정해야 합니다. | 예 |
-| indexName | 검색 인덱스 이름입니다. Data Factory는 인덱스를 만들지 않습니다. Azure Cognitive Search에는 인덱스가 있어야 합니다. | 예 |
+| indexName | 검색 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. 인덱스는 Azure Cognitive Search에 있어야 합니다. | 예 |
 
 **예:**
 
@@ -108,7 +110,7 @@ Azure Cognitive Search에 데이터를 복사할 수 있도록 다음과 같은 
 
 Azure Cognitive Search에 데이터를 복사하려면 복사 작업의 원본 형식을 **AzureSearchIndexSink** 로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 **AzureSearchIndexSink** 로 설정해야 합니다. | 예 |
 | writeBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.<br/><br/>허용되는 값은 **Merge**(기본값) 및 **Upload** 입니다. | 예 |

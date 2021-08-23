@@ -4,16 +4,16 @@ description: 포털을 사용하여 새 또는 기존 데이터 디스크를 Lin
 author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 08/13/2021
 ms.author: cynthn
 ms.subservice: disks
 ms.collection: linux
-ms.openlocfilehash: 0fe584ea8559c285ee7e25caca958ff56aa9454d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b502467403ebf5dd85374317e609ed6694e39149
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104601848"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122538195"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>포털을 사용하여 데이터 디스크를 Linux VM에 연결 
 이 문서에서는 Azure 포털을 통해 신규 및 기존 디스크를 Linux 가상 머신에 연결하는 방법을 보여줍니다. 또한 [Azure Portal에서 Windows VM에 데이터 디스크를 연결](../windows/attach-managed-disk-portal.md)할 수도 있습니다. 

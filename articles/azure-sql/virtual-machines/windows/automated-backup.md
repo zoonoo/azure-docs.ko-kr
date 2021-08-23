@@ -15,12 +15,12 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 557d43829d8e235611d1e75cddd8f941e43433ee
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: a93214a8577dc298551e4e819282a58f10a72f38
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666202"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536698"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines의 자동화된 백업 v2(Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -128,9 +128,7 @@ Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server
 
 ## <a name="configure-existing-vms"></a>기존 VM 구성
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
-
-기존 SQL Server 가상 머신의 경우 [SQL 가상 머신 리소스](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource)로 이동하고 **백업** 을 선택하여 자동화된 백업을 구성합니다.
+기존 SQL Server 가상 머신의 경우 [SQL 가상 머신 리소스](manage-sql-vm-portal.md#access-the-resource)로 이동하고 **백업** 을 선택하여 자동화된 백업을 구성합니다.
 
 ![기존 VM에 대한 SQL 자동화된 Backup](./media/automated-backup/sql-server-configuration.png)
 
@@ -317,7 +315,7 @@ SQL Server 2016/2017에서 자동화된 백업을 모니터링하려면 두 가�
 다른 옵션은 기본 제공 데이터베이스 메일 기능을 알림에 활용하는 것입니다.
 
 1. [msdb.managed_backup.sp_set_parameter](/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) 저장 프로시저를 호출하여 **SSMBackup2WANotificationEmailIds** 매개 변수에 이메일 주소를 할당합니다. 
-1. [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md)가 Azure VM에서 이메일을 보낼 수 있도록 설정합니다.
+1. [SendGrid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account)가 Azure VM에서 이메일을 보낼 수 있도록 설정합니다.
 1. SMTP 서버 및 사용자 이름을 사용하여 데이터베이스 메일을 구성합니다. SQL Server Management Studio 또는 Transact-SQL 명령을 통해 데이터베이스 메일을 구성할 수 있습니다. 자세한 내용은 [데이터베이스 메일](/sql/relational-databases/database-mail/database-mail)을 참조하세요.
 1. [데이터베이스 메일을 사용하도록 SQL Server 에이전트를 구성](/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail)합니다.
 1. 로컬 VM 방화벽과 VM에 대한 네트워크 보안 그룹 둘 다에서 SMTP 포트가 허용되는지 확인합니다.

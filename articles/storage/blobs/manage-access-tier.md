@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 457e598493ada3dbcbc9dbaaf9f40ea7469bd5b8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c9d16093b19fbcf1b8f0f60799c268d206fe956d
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664865"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122529826"
 ---
 # <a name="manage-the-access-tier-of-a-blob-in-an-azure-storage-account"></a>Azure Storage 계정에서 Blob의 액세스 계층 관리
 
@@ -69,5 +69,5 @@ $blob.ICloudBlob.SetStandardBlobTier("Archive")
 ## <a name="next-steps"></a>다음 단계
 
 - [Blob Storage 계정의 기본 계정 액세스 계층을 관리하는 방법](../common/manage-account-default-access-tier.md)
-- [보관 계층에서 Blob 데이터 리하이드레이션에 대해 자세히 알아보기](storage-blob-rehydration.md)
+- [보관 계층에서 Blob 데이터 리하이드레이션에 대해 자세히 알아보기](archive-rehydrate-overview.md)
 - [지역별 Blob Storage 및 GPv2 계정에서 핫, 쿨 및 보관 가격 책정 확인](https://azure.microsoft.com/pricing/details/storage/)

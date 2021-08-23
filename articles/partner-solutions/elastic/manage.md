@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/20/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: aade011c5ad9db505673ea2d03588498dba08b20
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 9feb4c5eb143ced9079bfe9e63b451aecd437212
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483270"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952589"
 ---
 # <a name="manage-the-elastic-integration-with-azure"></a>Azure를 사용한 Elastic 통합 관리
 
@@ -36,7 +36,7 @@ Elastic에 로그를 보내는 리소스의 목록을 보려면 왼쪽 창에서
 **Elastic으로의 로그** 열은 리소스가 Elastic으로 로그를 보내고 있는지 여부를 나타냅니다. 리소스가 로그를 전송하지 않는 경우 이 필드는 로그가 전송되지 않는 이유를 나타냅니다. 다음과 같은 이유가 있을 수 있습니다.
 
 * 리소스에서 로그 전송을 지원하지 않습니다. 여기에 정의된 모든 리소스 유형 및 로그 범주에 대한 Azure 리소스 로그만 Elastic으로 로그를 보내도록 구성할 수 있습니다
-* 5개의 진단 설정 수 제한에 도달했습니다. 각 Azure 리소스에는 최대 5개의 [진단 설정](../../azure-monitor/platform/diagnostic-settings.md)이 있을 수 있습니다.
+* 5개의 진단 설정 수 제한에 도달했습니다. 각 Azure 리소스에는 최대 5개의 [진단 설정](../../azure-monitor/essentials/diagnostic-settings.md)이 있을 수 있습니다.
 * 오류로 인해 로그가 Elastic으로 전송되지 않도록 차단됩니다.
 * 리소스에 대해 로그가 구성되지 않았습니다. 적절한 리소스 태그가 있는 Azure 리소스만 Elastic으로 보내집니다. 로그 구성에서 태그 규칙을 지정했습니다. 
 * 지원되지 않는 지역입니다. Azure 리소스가 현재 Elastic으로 로그를 전송하지 않는 지역에 있습니다. 

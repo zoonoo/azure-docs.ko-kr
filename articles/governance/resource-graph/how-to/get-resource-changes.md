@@ -1,14 +1,14 @@
 ---
 title: 리소스 변경 내용 가져오기
 description: 리소스가 변경된 시기를 찾고 변경된 속성의 목록을 가져오고 차이를 평가하는 방법을 이해합니다.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 103ebf0303ee2b8613ccafd13d9c8916ed7e1fbc
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ff82a5c3d2f58ade8637d2f44308f9eeda11d09a
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751610"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530738"
 ---
 # <a name="get-resource-changes"></a>리소스 변경 내용 가져오기
 

@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 6073000f2f14f835e2bfbd91b41619101c36b10f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3e363d04fbfd0222cb49ffa9fa02b88d7fba2468
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104866848"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112300600"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>HDInsight에서 JDBC 드라이버를 통해 Apache Hive 쿼리
 
-[!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
+[!INCLUDE [ODBC-JDBC-selector](../includes/hdinsight-selector-odbc-jdbc.md)]
 
 Java 애플리케이션에서 JDBC 드라이버를 사용하는 방법을 알아봅니다. Azure HDInsight에서 Apache Hadoop에 Apache Hive 쿼리 제출하기. 이 문서의 정보는 프로그래밍 방식으로 SQuirreL SQL 클라이언트에서 연결하는 방법을 보여 줍니다.
 

@@ -1,20 +1,19 @@
 ---
 title: 사용자 지정 규칙 및 알림을 사용하여 Azure IoT Central 확장 | Microsoft Docs
 description: 솔루션 개발자로서 디바이스에서 원격 분석 전송을 중지할 때 이메일로 알림을 보내도록 IoT Central 애플리케이션을 구성합니다. 이 솔루션은 Azure Stream Analytics, Azure Functions 및 SendGrid를 사용합니다.
-author: philmea
-ms.author: philmea
+author: dominicbetts
+ms.author: dobett
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
-manager: philmea
-ms.openlocfilehash: 2eb776add1e4a53edc6f4f57983074af31d8f52d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3d528ba1bf1e7ba0c13d5bcf8abb140365cbe7d6
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108750044"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537355"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Stream Analytics, Azure Functions 및 SendGrid를 사용하여 사용자 지정 규칙으로 Azure IoT Central 확장
 
@@ -32,7 +31,7 @@ ms.locfileid: "108750044"
 
 이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ### <a name="iot-central-application"></a>IoT Central 애플리케이션
 
@@ -41,7 +40,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 | 설정 | 값 |
 | ------- | ----- |
 | 요금제 | Standard |
-| 애플리케이션 템플릿 | 스토어 내 분석 - 조건 모니터링 |
+| 애플리케이션 템플릿 | 매장 내 분석 - 조건 모니터링 |
 | 애플리케이션 이름 | 기본값을 그대로 적용하거나 고유한 이름 선택 |
 | URL | 기본값을 그대로 적용하거나 고유한 URL 접두사 선택 |
 | 디렉터리 | Azure Active Directory 테넌트 |
@@ -58,7 +57,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ### <a name="event-hubs-namespace"></a>Event Hubs 네임스페이스
 
-[Azure Portal를 사용하여 Event Hubs 네임스페이스를 만들](https://portal.azure.com/#create/Microsoft.EventHub) 때 다음 설정을 따릅니다.
+[Azure Portal을 사용하여 Event Hubs 네임스페이스를 만들](https://portal.azure.com/#create/Microsoft.EventHub) 때 다음 설정을 따릅니다.
 
 | 설정 | 값 |
 | ------- | ----- |

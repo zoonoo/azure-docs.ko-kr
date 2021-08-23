@@ -2,19 +2,19 @@
 title: 방화벽 뒤에 있는 Key Vault에 액세스 - Azure Key Vault | Microsoft Docs
 description: 방화벽으로 보호된 키 자격 증명 모음 클라이언트 애플리케이션이 키 자격 증명 모음에 액세스할 수 있게 하려면 어떤 포트, 호스트 또는 IP 주소를 열어야 하는지 알아봅니다.
 services: key-vault
-author: amitbapat
+author: mbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 04/15/2021
-ms.author: ambapat
-ms.openlocfilehash: 57a89128ab5223264db43e5d59428dc7e6d23ec9
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.author: mbaldwin
+ms.openlocfilehash: 058e231b5aaa4963b8cdcec02acc41b6404a7fd0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751637"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440056"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>방화벽 뒤에 있는 Azure Key Vault 액세스
 

@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2021
-ms.openlocfilehash: cf4f053167c477fd68c8c56f6f03ee15b7877638
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 93a9abc0b1da58592f45fb2ba4a317128629a370
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108738739"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642129"
 ---
 # <a name="restartstopstart-an-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버(미리 보기) 다시 시작/중지/시작
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
@@ -21,6 +23,7 @@ ms.locfileid: "108738739"
 이 문서에서는 Azure CLI를 사용하여 유연한 서버를 다시 시작, 시작 및 중지하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
+
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 - 최신 버전으로 Azure CLI를 설치하거나 업그레이드합니다. [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 -  [az login](/cli/azure/reference-index#az_login) 명령을 사용하여 Azure 계정에 로그인합니다. Azure 계정에 대한 **구독 ID** 를 참조하는 **id** 속성을 기록해 둡니다.
@@ -82,7 +85,7 @@ az mysql flexible-server start
 ```
 
 > [!IMPORTANT]
-> 서버가 성공적으로 다시 시작되면 이제 유연한 서버에서 모든 관리 작업을 사용할 수 있습니다.
+>서버가 성공적으로 다시 시작되면 이제 유연한 서버에서 모든 관리 작업을 사용할 수 있습니다.
 
 ## <a name="restart-a-server"></a>서버 다시 시작
 서버를 다시 시작하려면 ```az mysql flexible-server restart``` 명령을 실행합니다. [로컬 컨텍스트](/cli/azure/config/param-persist)를 사용하는 경우 인수를 제공할 필요가 없습니다.
@@ -106,7 +109,7 @@ az mysql flexible-server restart
 
 
 > [!IMPORTANT]
-> 서버가 성공적으로 다시 시작되면 이제 유연한 서버에서 모든 관리 작업을 사용할 수 있습니다.
+>서버가 성공적으로 다시 시작되면 이제 유연한 서버에서 모든 관리 작업을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Database for MySQL 유연한 서버의 네트워킹](./concepts-networking.md)에 대해 자세히 알아보기

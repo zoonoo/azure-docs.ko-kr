@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신의 백업 및 복원에서 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 06/02/2021
-ms.openlocfilehash: b604b98410d61d61bdb8a24e81872cb2c1caf1b4
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 6170c6e00d232e65125963680c522610cb5239ec
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410309"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535490"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -34,7 +34,7 @@ ms.locfileid: "111410309"
   * 다음은 Azure Backup이 정상적으로 작동하지만 "Windows Server Backup"이 실패한 이벤트 뷰어 오류 517의 예제입니다. ![Windows Server Backup failing](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * Azure Backup에 실패하면 이 문서의 일반적인 VM 백업 오류 섹션에서 해당 오류 코드를 찾습니다.
   * Azure VM에서 Azure Backup 옵션이 회색으로 표시되면 비활성화된 메뉴 위로 마우스를 가져가 이유를 찾습니다. 이유는 "EphemeralDisk에서 사용할 수 없음" 또는 "Ultra Disk에서 사용할 수 없음"일 수 있습니다.
-   ![Azure Backup 옵션을 사용하지 않도록 설정하는 이유](media/backup-azure-vms-troubleshoot/azure-backup-disable-reasons.png)
+    ![Azure Backup 옵션을 사용하지 않도록 설정하는 이유](media/backup-azure-vms-troubleshoot/azure-backup-disable-reasons.png)
 
 ## <a name="common-issues"></a>일반적인 문제
 

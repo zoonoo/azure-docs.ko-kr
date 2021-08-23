@@ -12,17 +12,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 7596df66dbcbe1b7cdefab4811da7174bc83ac65
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 137e4cf1392db8b1ee10d4441769f602802d6ac6
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104801182"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115959"
 ---
 # <a name="microsoft-security-code-analysis-releases-and-roadmap"></a>Microsoft Security Code Analysis 릴리스 및 로드맵
 
 > [!Note]
-> 2022년 3월 1일부터 MSCA(Microsoft Security Code Analysis) 확장이 사용 중지됩니다. 기존 MSCA 고객은 2022년 3월 1일까지 MSCA에 대한 액세스가 유지됩니다. Azure DevOps의 대체 옵션은 [OWASP Source Code Analysis 도구](https://owasp.org/www-community/Source_Code_Analysis_Tools)를 참조하세요. GitHub로 마이그레이션을 계획하는 고객의 경우 [Github 고급 보안](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security)을 확인해보세요.
+> 2022년 3월 1일부터 MSCA(Microsoft Security Code Analysis) 확장이 사용 중지됩니다. 기존 MSCA 고객은 2022년 3월 1일까지 MSCA에 대한 액세스가 유지됩니다. Azure DevOps의 대체 옵션은 [OWASP 소스 코드 분석 도구](https://owasp.org/www-community/Source_Code_Analysis_Tools)를 참조하세요. GitHub로 마이그레이션을 계획하는 고객의 경우 [Github 고급 보안](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security)을 확인해보세요.
 
 개발자 지원과 파트너 관계인 Microsoft Security Code Analysis 팀은 MSCA 확장에 대한 최근 및 향후 개선 사항을 발표하게 되어 자랑스럽게 생각합니다.
 
@@ -80,4 +80,4 @@ ms.locfileid: "104801182"
 
 Microsoft Security Code Analysis를 온보딩하고 설치하는 방법에 대한 지침은 [온보딩 및 설치 가이드](security-code-analysis-onboard.md)를 참조하세요.
 
-확장 및 제공된 도구에 대한 추가 질문이 있는 경우 [FAQ 페이지](security-code-analysis-faq.md)를 확인하세요.
+확장 및 제공된 도구에 대한 추가 질문이 있는 경우 [FAQ 페이지](security-code-analysis-faq.yml)를 확인하세요.

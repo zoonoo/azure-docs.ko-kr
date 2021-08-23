@@ -3,16 +3,17 @@ title: Azure Data Factory에서 자격 증명 암호화
 description: 자체 호스팅 통합 런타임을 사용하는 컴퓨터에서 온-프레미스 데이터 저장소의 자격 증명을 암호화하고 저장하는 방법을 알아봅니다.
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lle
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 64d7133432eacbdf9077a6089e927caa679d1c7f
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: f0cd1fed706ae22c02c6a96e9588d6cd65177e36
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670365"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566971"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Azure Data Factory에서 온-프레미스 데이터 저장소에 대한 자격 증명 암호화
 

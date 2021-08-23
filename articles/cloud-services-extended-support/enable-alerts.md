@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 4591253e1a305632b7f41afe692f297d71366382
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32f140ae27501b9f4f3b66e5f5815b8f3f20b3ff
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98744601"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114445114"
 ---
 # <a name="enable-monitoring-for-cloud-services-extended-support-using-the-azure-portal"></a>Azure Portal을 사용하여 Cloud Services(추가 지원)에 대해 모니터링 사용
 
@@ -40,5 +40,5 @@ ms.locfileid: "98744601"
 6. 경고 설정을 완료하고 변경 사항을 저장하면 구성한 메트릭을 기반으로 시간이 지남에 따라 **경고** 블레이드가 채워지는 것을 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계 
-- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.md)을 검토합니다.
+- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.yml)을 검토합니다.
 - [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용하여 Cloud Service(추가 지원)를 배포합니다.

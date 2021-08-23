@@ -1,18 +1,18 @@
 ---
 title: Azure Spring Cloud 지리적 재해 복구 | Microsoft Docs
 description: 지역 중단으로부터 Spring Cloud 애플리케이션을 보호하는 방법을 알아봅니다.
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 8e3471d778e0589083caaf2dfedbccc4568de471
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 69dbe496745ebbe3fbc9547a1ffc381ec0cae905
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144658"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529502"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Azure Spring Cloud 재해 복구
 
@@ -26,9 +26,9 @@ Azure Spring Cloud 애플리케이션은 특정 지역에서 실행됩니다.  A
 
 고가용성 및 재해 방지를 보장하려면 Spring Cloud 애플리케이션을 여러 지역에 배포해야 합니다.  Azure는 지역 쌍에 Spring Cloud 배포를 계획할 수 있도록 [쌍을 이루는 지역](../best-practices-availability-paired-regions.md) 목록을 제공합니다.  마이크로 서비스 아키텍처를 디자인할 때 지역 가용성, Azure 쌍을 이루는 지역 및 서비스 가용성의 세 가지 주요 요소를 고려하는 것이 좋습니다.
 
-*  지역 가용성:  네트워크 지연 및 전송 시간을 최소화하기 위해 사용자에게 가까운 지리적 영역을 선택합니다.
-*  Azure 쌍을 이루는 지역:  선택한 지리적 영역 내에서 쌍을 이루는 지역을 선택하여 필요한 경우 조정된 플랫폼 업데이트 및 우선 순위가 지정된 복구 작업을 보장합니다.
-*  서비스 가용성:   쌍을 이루는 지역이 핫/핫, 핫/웜 또는 핫/콜드를 실행해야 하는지 여부를 결정합니다.
+* 지역 가용성:  네트워크 지연 및 전송 시간을 최소화하기 위해 사용자에게 가까운 지리적 영역을 선택합니다.
+* Azure 쌍을 이루는 지역:  선택한 지리적 영역 내에서 쌍을 이루는 지역을 선택하여 필요한 경우 조정된 플랫폼 업데이트 및 우선 순위가 지정된 복구 작업을 보장합니다.
+* 서비스 가용성:   쌍을 이루는 지역이 핫/핫, 핫/웜 또는 핫/콜드를 실행해야 하는지 여부를 결정합니다.
 
 ## <a name="use-azure-traffic-manager-to-route-traffic"></a>Azure Traffic Manager를 사용하여 트래픽 라우팅
 
@@ -39,7 +39,7 @@ Azure Spring Cloud 애플리케이션이 여러 지역에 있는 경우 Azure Tr
 ## <a name="create-azure-traffic-manager-for-azure-spring-cloud"></a>Azure Spring Cloud용 Azure Traffic Manager 만들기
 
 1. 두 지역에 Azure Spring Cloud를 만듭니다.
-두 지역(미국 동부 및 서유럽)에 배포된 두 개의 Azure Spring Cloud 서비스 인스턴스가 필요합니다. Azure Portal을 통해 기존 Azure Spring Cloud 애플리케이션을 시작하여 두 개의 서비스 인스턴스를 만듭니다. 각 인스턴스는 트래픽의 기본 및 장애 조치(failover) 엔드포인트로 사용됩니다. 
+두 지역(미국 동부 및 서유럽)에 배포된 두 개의 Azure Spring Cloud 서비스 인스턴스가 필요합니다. Azure Portal을 통해 기존 Azure Spring Cloud 애플리케이션을 시작하여 두 개의 서비스 인스턴스를 만듭니다. 각 인스턴스는 트래픽의 기본 및 장애 조치(failover) 엔드포인트로 사용됩니다.
 
 **두 개의 서비스 인스턴스 정보:**
 
@@ -54,14 +54,14 @@ Azure Spring Cloud 애플리케이션이 여러 지역에 있는 경우 Azure Tr
 
 Traffic Manager 프로필은 다음과 같습니다.
 * Traffic Manager DNS 이름: `http://asc-bcdr.trafficmanager.net`
-* 엔드포인트 프로필: 
+* 엔드포인트 프로필:
 
 | 프로필 | Type | 대상 | 우선 순위 | 사용자 지정 헤더 설정 |
 |--|--|--|--|--|
 | 엔드포인트 A 프로필 | 외부 엔드포인트 | service-sample-a.asc-test.net | 1 | host: bcdr-test.contoso.com |
 | 엔드포인트 B 프로필 | 외부 엔드포인트 | service-sample-b.asc-test.net | 2 | host: bcdr-test.contoso.com |
 
-4. DNS 영역에 CNAME 레코드를 만듭니다. bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
+4. DNS 영역에 CNAME 레코드를 만듭니다. bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net.
 
 5. 이제 환경이 완전하게 설정되었습니다. 고객은 bcdr-test.contoso.com을 통해 앱에 액세스할 수 있습니다.
 

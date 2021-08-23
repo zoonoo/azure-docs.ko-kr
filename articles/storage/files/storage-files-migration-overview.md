@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 0c91f81c1909819f3a5b8d8475ccdd676132dd13
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: a18421163e39fbcf5c1081c79cf06d982613fafb
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110477485"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113769121"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Azure 파일 공유로 마이그레이션
 
@@ -81,7 +81,7 @@ Azure 파일 공유를 위한 [온-프레미스 Active Directory 인증](storage
 | 원본 | 대상: </br>하이브리드 배포 | 대상: </br>클라우드 전용 배포 |
 |:---|:--|:--|
 | | 도구 조합:| 도구 조합: |
-| Windows Server 2012 R2 이상 | <ul><li>[Azure 파일 동기화](../file-sync/file-sync-deployment-guide.md)</li><li>[Azure 파일 동기화 및 Azure DataBox](../file-sync/file-sync-offline-data-transfer.md)</li></ul> | <ul><li>[RoboCopy를 통해 탑재된 Azure 파일 공유](storage-files-migration-robocopy.md)</li><li>Azure 파일 동기화로</li></ul> |
+| Windows Server 2012 R2 이상 | <ul><li>[Azure 파일 동기화](../file-sync/file-sync-deployment-guide.md)</li><li>[Azure 파일 동기화 및 Azure DataBox](storage-files-migration-server-hybrid-databox.md)</li></ul> | <ul><li>[RoboCopy를 통해 탑재된 Azure 파일 공유](storage-files-migration-robocopy.md)</li><li>Azure 파일 동기화로</li></ul> |
 | Windows Server 2012 및 이전 버전 | <ul><li>DataBox와 최근 서버 OS에 대한 Azure 파일 동기화로</li><li>Azure 파일 동기화를 사용한 최근 서버에 스토리지 마이그레이션 서비스를 사용한 다음 업로드</li></ul> | <ul><li>Azure 파일 동기화를 사용한 최근 서버에 대한 스토리지 마이그레이션 서비스로</li><li>[RoboCopy를 통해 탑재된 Azure 파일 공유](storage-files-migration-robocopy.md)</li></ul> |
 | NAS(네트워크 연결 스토리지) | <ul><li>[Azure 파일 동기화 업로드로](storage-files-migration-nas-hybrid.md)</li><li>[DataBox + Azure 파일 동기화로](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>[DataBox로](storage-files-migration-nas-cloud-databox.md)</li><li>[RoboCopy를 통해 탑재된 Azure 파일 공유](storage-files-migration-robocopy.md)</li></ul> |
 | Linux/Samba | <ul><li>[Azure 파일 동기화 및 RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>[RoboCopy를 통해 탑재된 Azure 파일 공유](storage-files-migration-robocopy.md)</li></ul> |

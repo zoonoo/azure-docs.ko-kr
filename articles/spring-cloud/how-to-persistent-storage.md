@@ -1,18 +1,18 @@
 ---
 title: Azure Spring Cloud에서 영구 스토리지를 사용하는 방법 | Microsoft Docs
 description: Azure Spring Cloud에서 영구 스토리지를 사용하는 방법
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 77ccfa08d5e2076a83c5a11df3ce6caf597c2d2f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 925f1d8113f08f1bc8b063623dcc85ac79964047
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134864"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529582"
 ---
 # <a name="use-persistent-storage-in-azure-spring-cloud"></a>Azure Spring Cloud에서 영구 스토리지 사용
 
@@ -61,6 +61,7 @@ Azure Spring Cloud는 애플리케이션에 영구 스토리지와 임시 스토
 ```azurecli
 az extension add --name spring-cloud
 ```
+
 기타 작업:
 
 * 영구 스토리지를 사용하는 앱을 만들려면 다음과 같이 합니다.

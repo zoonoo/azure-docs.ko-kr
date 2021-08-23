@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/08/2021
 ms.author: pafarley
-ms.openlocfilehash: bd071fc930420a48a764eff3818580885312fde6
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: ecccbb4e2741cc7f413e9b2076bd3199b00dd9a8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746072"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567422"
 ---
 # <a name="how-to-deploy-a-spatial-analysis-web-application"></a>방법: 공간 분석 웹 애플리케이션 배포
 
@@ -42,8 +42,6 @@ ms.locfileid: "111746072"
 * 구성된 [호스트 컴퓨터](spatial-analysis-container.md).
 
 ## <a name="deploy-the-spatial-analysis-container"></a>공간 분석 컨테이너 배포
-
-컨테이너를 실행하는 데 필요한 액세스 권한을 얻기 위해 [애플리케이션 요청](https://aka.ms/csgate)을 작성합니다. 
 
 [호스트 컴퓨터 설정](./spatial-analysis-container.md)에 따라 호스트 컴퓨터를 구성하고 IoT Edge 디바이스를 Azure IoT Hub에 연결합니다. 
 
@@ -80,7 +78,7 @@ IoT Edge 모듈에 대한 대부분의 **환경 변수** 는 위에 연결된 �
 "EULA": { 
     "value": "accept"
 },
-"ENDPOINT":{ 
+"BILLING":{ 
     "value": "<Use a key from your Computer Vision resource>"
 },
 "APIKEY":{

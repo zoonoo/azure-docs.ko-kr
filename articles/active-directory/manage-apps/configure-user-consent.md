@@ -2,22 +2,22 @@
 title: Azure AD를 사용하여 최종 사용자가 애플리케이션에 동의하는 방법 구성
 description: 사용자가 조직의 데이터에 액세스할 수 있는 애플리케이션에 동의하는 방법 및 시기를 관리하는 방법을 알아봅니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.author: mtillman
+ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 59a7799ce7c0c1fd8261324351f425e76e3b4d44
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: ecf463ed332299f20ef1d34f0c3158db31f52e8d
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075973"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113568049"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>최종 사용자가 애플리케이션에 동의하는 방법 구성
 
@@ -81,7 +81,7 @@ Azure Portal을 통해 사용자 동의 설정을 구성하려면 다음을 수�
 
 `{consent-policy-id}`를 적용할 정책의 ID로 바꿉니다. 만든 [사용자 지정 앱 동의 정책](manage-app-consent-policies.md#create-a-custom-app-consent-policy)을 선택하거나 다음 기본 제공 정책 중에서 선택할 수 있습니다.
 
-| ID | Description |
+| ID | 설명 |
 |:---|:------------|
 | microsoft-user-default-low | **선택한 권한에 대해 확인된 게시자의 앱에 대한 사용자 동의를 허용**<br /> 확인된 게시자의 앱 및 테넌트에 등록된 앱에 대한 제한적 사용자 동의를 '낮은 영향'으로 분류한 권한에 한해 허용합니다. (사용자가 동의할 수 있는 권한을 선택하려면 [권한을 분류](configure-permission-classifications.md)해야 합니다.) |
 | microsoft-user-default-legacy | **앱에 대한 사용자 동의 허용**<br /> 이 옵션을 사용하면 모든 사용자가 모든 애플리케이션에 대해 관리자 동의가 필요하지 않은 모든 권한에 동의할 수 있습니다. |
@@ -145,7 +145,7 @@ Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](/powershell/module/azu
 
 1. 다음 설정 값을 이해합니다.
 
-    | 설정       | Type         | Description  |
+    | 설정       | 유형         | Description  |
     | ------------- | ------------ | ------------ |
     | _BlockUserConsentForRiskyApps_   | 부울 |  위험한 요청이 감지될 때 사용자 동의가 차단되는지 나타내는 플래그입니다. |
 
@@ -185,4 +185,5 @@ Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](/powershell/module/azu
 * [Microsoft ID 플랫폼의 권한 및 동의](../develop/v2-permissions-and-consent.md)
 
 도움말을 얻거나 질문에 대한 답변을 찾으려면 다음을 수행합니다.
+
 * [Microsoft Azure AD Q&A](/answers/topics/azure-active-directory.html)

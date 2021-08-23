@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2021
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: e58ce2b4fa016a79050425dad4e4dd0b784f0c9c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f51ca01988a090c4c61b821c16ec67f20d2c679f
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110472378"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112417004"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>지하철별 Azure CDN 검사 
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ ms.locfileid: "110472378"
 | 아프리카 | 남아프리카공화국 요하네스버그 <br/> 나이로비, 케냐 | 남아프리카 |
 | 중동 | 무스카트, 오만<br />푸지라, 아랍에미리트 | 카타르<br />아랍에미리트 |
 | 인도 | 방갈로르, 인도<br />첸나이, 인도<br />뭄바이, 인도<br />뉴델리, 인도<br /> | 인도 |
-| 아시아 | 홍콩<br />자카르타, 인도네시아<br />오사카, 일본<br />도쿄, 일본<br />싱가포르<br />서울, 대한민국<br />가오슝, 대만<br />타이베이, 대만 <br />마닐라, 필리핀 | 홍콩<br />인도네시아<br />이스라엘<br />일본<br />마카오<br />말레이시아<br />필리핀<br />싱가포르<br />대한민국<br />대만<br />태국<br />터키<br />베트남 |
+| 아시아 | 홍콩<br />자카르타, 인도네시아<br />오사카, 일본<br />도쿄, 일본<br />싱가포르<br />가오슝, 대만<br />타이베이, 대만 <br />마닐라, 필리핀 | 홍콩<br />인도네시아<br />이스라엘<br />일본<br />마카오<br />말레이시아<br />필리핀<br />싱가포르<br />대한민국<br />대만<br />태국<br />터키<br />베트남 |
 | 오스트레일리아 및 뉴질랜드 | 멜버른, 오스트레일리아<br />시드니, 오스트레일리아<br />오클랜드, 뉴질랜드 | 오스트레일리아<br />뉴질랜드 |
 
 ## <a name="next-steps"></a>다음 단계

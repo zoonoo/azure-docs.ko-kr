@@ -9,12 +9,12 @@ ms.subservice: pipeline
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 12/16/2020
-ms.openlocfilehash: 4769cc8abe121625f3bf77785cd681c0f649d166
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 525fed571576f6d5fc49d68abbbe26e46cf3291e
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567692"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537391"
 ---
 # <a name="data-flows-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 데이터 흐름
 
@@ -30,7 +30,7 @@ ms.locfileid: "107567692"
 
 ![새 데이터 흐름](media/data-flow/new-data-flow.png)
 
-이 작업을 수행하면 변환 논리를 만들 수 있는 데이터 흐름 캔버스로 이동합니다. **원본 추가** 를 선택하여 원본 변환 구성을 시작합니다. 자세한 내용은 [원본 변환](../data-factory/data-flow-source.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.
+이 작업을 수행하면 변환 논리를 만들 수 있는 데이터 흐름 캔버스로 이동합니다. **원본 추가** 를 선택하여 원본 변환 구성을 시작합니다. 자세한 내용은 [원본 변환](../data-factory/data-flow-source.md?context=/azure/synapse-analytics/context/context)을 참조하세요.
 
 ## <a name="authoring-data-flows"></a>작성 데이터 흐름
 
@@ -40,13 +40,13 @@ ms.locfileid: "107567692"
 
 ### <a name="graph"></a>그래프
 
-그래프는 변환 스트림을 표시합니다. 원본 데이터가 하나 이상의 싱크로 이동함에 따라 원본 데이터의 계보를 보여줍니다. 새 원본을 추가하려면 **원본 추가** 를 선택합니다. 새 변환을 추가하려면 기존 변환의 오른쪽 아래에 있는 더하기 기호를 선택합니다. [데이터 흐름 그래프를 관리](../data-factory/concepts-data-flow-manage-graph.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)하는 방법에 관해 자세히 알아봅니다.
+그래프는 변환 스트림을 표시합니다. 원본 데이터가 하나 이상의 싱크로 이동함에 따라 원본 데이터의 계보를 보여줍니다. 새 원본을 추가하려면 **원본 추가** 를 선택합니다. 새 변환을 추가하려면 기존 변환의 오른쪽 아래에 있는 더하기 기호를 선택합니다. [데이터 흐름 그래프를 관리](../data-factory/concepts-data-flow-manage-graph.md?context=/azure/synapse-analytics/context/context)하는 방법에 관해 자세히 알아봅니다.
 
 ![검색 텍스트 상자가 있는 캔버스의 그래프 부분을 보여주는 스크린샷입니다.](media/data-flow/canvas-2.png)
 
 ### <a name="configuration-panel"></a>구성 패널
 
-구성 패널에는 현재 선택된 변환과 관련된 설정이 표시됩니다. 선택된 변환이 없는 경우 데이터 흐름이 표시됩니다. 전체 데이터 흐름 구성에서는 **매개 변수** 탭을 통해 매개 변수를 추가할 수 있습니다. 자세한 내용은 [데이터 흐름 매개 변수](../data-factory/parameters-data-flow.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+구성 패널에는 현재 선택된 변환과 관련된 설정이 표시됩니다. 선택된 변환이 없는 경우 데이터 흐름이 표시됩니다. 전체 데이터 흐름 구성에서는 **매개 변수** 탭을 통해 매개 변수를 추가할 수 있습니다. 자세한 내용은 [데이터 흐름 매개 변수](../data-factory/parameters-data-flow.md?context=/azure/synapse-analytics/context/context)를 참조하세요.
 
 각 변환에는 네 개 이상의 구성 탭이 포함됩니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "107567692"
 
 #### <a name="optimize"></a>최적화
 
-**최적화** 탭에는 파티션 구성표를 구성하기 위한 설정이 포함됩니다. 데이터 흐름을 최적화하는 방법에 관해 자세히 알아보려면 [매핑 데이터 흐름 성능 가이드](../data-factory/concepts-data-flow-performance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+**최적화** 탭에는 파티션 구성표를 구성하기 위한 설정이 포함됩니다. 데이터 흐름을 최적화하는 방법에 관해 자세히 알아보려면 [매핑 데이터 흐름 성능 가이드](../data-factory/concepts-data-flow-performance.md?context=/azure/synapse-analytics/context/context)를 참조하세요.
 
 ![최적화 탭을 표시하는 스크린샷](media/data-flow/optimize.png)
 
@@ -72,7 +72,7 @@ ms.locfileid: "107567692"
 
 #### <a name="data-preview"></a>데이터 미리 보기
 
-디버그 모드가 켜지면 **데이터 미리 보기** 탭에서는 각 변환 시 데이터의 대화형 스냅샷을 제공합니다. 자세한 내용은 [디버그 모드의 데이터 미리 보기](../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#data-preview)를 참조하세요.
+디버그 모드가 켜지면 **데이터 미리 보기** 탭에서는 각 변환 시 데이터의 대화형 스냅샷을 제공합니다. 자세한 내용은 [디버그 모드의 데이터 미리 보기](../data-factory/concepts-data-flow-debug-mode.md?context=/azure/synapse-analytics/context/context#data-preview)를 참조하세요.
 
 ### <a name="top-bar"></a>위쪽 막대
 
@@ -80,23 +80,23 @@ ms.locfileid: "107567692"
 
 ## <a name="available-transformations"></a>사용 가능한 변환
 
-[매핑 데이터 흐름 변환 개요](../data-factory/data-flow-transformation-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 확인하여 사용 가능한 변환 목록을 가져옵니다.
+[매핑 데이터 흐름 변환 개요](../data-factory/data-flow-transformation-overview.md?context=/azure/synapse-analytics/context/context)를 확인하여 사용 가능한 변환 목록을 가져옵니다.
 
 ## <a name="data-flow-activity"></a>데이터 흐름 작업
 
-데이터 흐름은 [데이터 흐름 작업](../data-factory/control-flow-execute-data-flow-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 사용하여 Azure Synapse Analytics 파이프라인 내에서 조작 가능합니다. 사용자는 매개 변수 값을 사용하고 전달할 통합 런타임만 지정하면 됩니다. 자세한 내용은 [Azure 통합 런타임](../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#azure-integration-runtime)을 참조하세요.
+데이터 흐름은 [데이터 흐름 작업](../data-factory/control-flow-execute-data-flow-activity.md?context=/azure/synapse-analytics/context/context)을 사용하여 Azure Synapse Analytics 파이프라인 내에서 조작 가능합니다. 사용자는 매개 변수 값을 사용하고 전달할 통합 런타임만 지정하면 됩니다. 자세한 내용은 [Azure 통합 런타임](../data-factory/concepts-integration-runtime.md?context=/azure/synapse-analytics/context/context#azure-integration-runtime)을 참조하세요.
 
 ## <a name="debug-mode"></a>디버그 모드
 
-디버그 모드에서는 데이터 흐름을 빌드하고 디버그하는 동안 각 변환 단계의 결과를 대화형으로 볼 수 있습니다. 디버그 세션은 데이터 흐름 논리를 빌드할 경우와 데이터 흐름 작업을 사용하여 파이프라인 디버그 실행을 실행하는 경우에 둘 다 사용할 수 있습니다. 자세히 알아보려면 [디버그 모드 설명서](../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+디버그 모드에서는 데이터 흐름을 빌드하고 디버그하는 동안 각 변환 단계의 결과를 대화형으로 볼 수 있습니다. 디버그 세션은 데이터 흐름 논리를 빌드할 경우와 데이터 흐름 작업을 사용하여 파이프라인 디버그 실행을 실행하는 경우에 둘 다 사용할 수 있습니다. 자세히 알아보려면 [디버그 모드 설명서](../data-factory/concepts-data-flow-debug-mode.md?context=/azure/synapse-analytics/context/context)를 참조하세요.
 
 ## <a name="monitoring-data-flows"></a>데이터 흐름 모니터링
 
-데이터 흐름은 기존 Azure Synapse Analytics 모니터링 기능과 통합됩니다. 데이터 흐름 모니터링 출력을 이해하는 방법을 알아보려면 [매핑 데이터 흐름 모니터링](../data-factory/concepts-data-flow-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.
+데이터 흐름은 기존 Azure Synapse Analytics 모니터링 기능과 통합됩니다. 데이터 흐름 모니터링 출력을 이해하는 방법을 알아보려면 [매핑 데이터 흐름 모니터링](../data-factory/concepts-data-flow-monitoring.md?context=/azure/synapse-analytics/context/context)을 참조하세요.
 
-Azure Synapse Analytics 팀은 비즈니스 논리를 빌드한 후 데이터 흐름의 실행 시간을 최적화하는 데 도움이 되는 [성능 조정 가이드](../data-factory/concepts-data-flow-performance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 만들었습니다.
+Azure Synapse Analytics 팀은 비즈니스 논리를 빌드한 후 데이터 흐름의 실행 시간을 최적화하는 데 도움이 되는 [성능 조정 가이드](../data-factory/concepts-data-flow-performance.md?context=/azure/synapse-analytics/context/context)를 만들었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [원본 변환](../data-factory/data-flow-source.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 만드는 방법을 알아봅니다.
-* [디버그 모드](../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)에서 데이터 흐름을 빌드하는 방법을 알아봅니다.
+* [원본 변환](../data-factory/data-flow-source.md?context=/azure/synapse-analytics/context/context)을 만드는 방법을 알아봅니다.
+* [디버그 모드](../data-factory/concepts-data-flow-debug-mode.md?context=/azure/synapse-analytics/context/context)에서 데이터 흐름을 빌드하는 방법을 알아봅니다.

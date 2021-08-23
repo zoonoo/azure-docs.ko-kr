@@ -1,18 +1,21 @@
 ---
 title: Azure Data Factory의 필터 작업
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 필터 작업은 입력을 필터링합니다.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.openlocfilehash: 6a488fff5e5c5f75697e787cdcede4de080a04ba
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 2ec871aeb6fb7146e66c3d3124ed8bba3400d4c8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906277"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642398"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Azure Data Factory의 필터 작업
 입력 배열에 필터 식을 적용하려면 파이프라인에서 필터 작업을 사용할 수 있습니다. 

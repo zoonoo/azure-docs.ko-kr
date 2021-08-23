@@ -2,8 +2,8 @@
 title: 전용 SQL 풀(이전의 SQL DW)을 Gen2로 마이그레이션
 description: 기존 전용 SQL 풀(이전의 SQL DW)을 Gen2로 마이그레이션하는 방법 및 지역별 마이그레이션 일정에 대한 지침입니다.
 services: synapse-analytics
-author: mlee3gsd
-ms.author: anjangsh
+author: rothja
+ms.author: jroth
 ms.reviewer: jrasnick
 manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
@@ -12,19 +12,19 @@ ms.topic: article
 ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0ce07ff3ca5fbcc9776792129d3bfb4ef54efe7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 59ebd89701f23979a8a359fecfd68a4796bf6d9c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98120124"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472114"
 ---
 # <a name="upgrade-your-dedicated-sql-pool-formerly-sql-dw-to-gen2"></a>전용 SQL 풀(이전의 SQL DW)을 Gen2로 업그레이드
 
 Microsoft는 전용 SQL 풀(이전의 SQL DW)을 실행하는 데 드는 진입 수준 비용을 줄이는 데 도움이 됩니다.  이제 까다로운 쿼리를 처리할 수 있는 낮은 컴퓨팅 계층을 전용 SQL 풀(이전의 SQL DW)에서 사용할 수 있습니다. [Gen2에 대한 낮은 컴퓨팅 계층](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/) 전체 공지를 참조하세요. 새 제품은 아래 표에 나와 있는 지역에서 사용할 수 있습니다. 지원되는 지역의 경우 기존 Gen1 전용 SQL 풀(이전의 SQL DW)을 Gen2로 업그레이드할 수 있습니다.
 
 - **자동 업그레이드 프로세스:** 자동 업그레이드는 지역에서 서비스를 사용할 수 있게 되는 즉시 시작되지 않습니다.  특정 지역에서 자동 업그레이드가 시작되면 선택한 유지 관리 일정 동안 개별 데이터 웨어하우스 업그레이드가 수행됩니다.
-- [**Gen2로 자체 업그레이드:** ](#self-upgrade-to-gen2) Gen2에 대한 자체 업그레이드를 수행하여 업그레이드 시기를 컨트롤할 수 있습니다. 지역이 아직 지원되지 않는 경우 복원 지점에서 지원되는 지역의 Gen2 인스턴스로 직접 복원할 수 있습니다.
+- [**Gen2로 자체 업그레이드:**](#self-upgrade-to-gen2) Gen2에 대한 자체 업그레이드를 수행하여 업그레이드 시기를 컨트롤할 수 있습니다. 지역이 아직 지원되지 않는 경우 복원 지점에서 지원되는 지역의 Gen2 인스턴스로 직접 복원할 수 있습니다.
 
 ## <a name="automated-schedule-and-region-availability-table"></a>자동화 일정 및 지역 가용성 표
 
@@ -34,12 +34,8 @@ Microsoft는 전용 SQL 풀(이전의 SQL DW)을 실행하는 데 드는 진입 
 
 | **지역** | **하위 Gen2 사용 가능** | **자동 업그레이드 시작** |
 |:--- |:--- |:--- |
-| 캐나다 동부 |2020년 6월 1일 |2020년 7월 1일 |
 | 중국 동부 |\* |\* |
 | 중국 북부 |\* |\* |
-| 독일 중부 |\* |\* |
-| 독일 중서부 |사용 가능 |2020년 5월 1일 |
-| 인도 서부 |사용 가능 |2020년 5월 1일  |
 
 ## <a name="automatic-upgrade-process"></a>자동 업그레이드 프로세스
 

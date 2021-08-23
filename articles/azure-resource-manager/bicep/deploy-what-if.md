@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/01/2021
 ms.author: tomfitz
-ms.openlocfilehash: 157db0aa85fe086e656cfc98c7b94527416350d0
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 42e4198f2597ca3708e58bbc7a25545eab96b8c6
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027752"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634589"
 ---
 # <a name="bicep-deployment-what-if-operation"></a>Bicep 배포 가상 작업
 
@@ -196,7 +196,7 @@ Azure CLI의 경우 `--result-format` 매개 변수를 사용합니다.
 
 ### <a name="set-up-environment"></a>환경 설정
 
-가상이 작동하는 방식을 확인하기 위해 일부 테스트를 실행해 보겠습니다. 먼저 [가상 네트워크를 만드는 Bicep 파일](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.bicep)을 배포합니다. 이 가상 네트워크를 사용하여 변경 내용이 어떻게 가상으로 보고되는지 테스트할 수 있습니다. Bicep 파일의 복사본을 다운로드합니다.
+가상이 작동하는 방식을 확인하기 위해 일부 테스트를 실행해 보겠습니다. 먼저 [가상 네트워크를 만드는 Bicep 파일](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/what-if/what-if-before.bicep)을 배포합니다. 이 가상 네트워크를 사용하여 변경 내용이 어떻게 가상으로 보고되는지 테스트할 수 있습니다. Bicep 파일의 복사본을 다운로드합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -224,7 +224,7 @@ az deployment group create \
 
 ### <a name="test-modification"></a>테스트 수정
 
-배포가 완료되면 가상 작업을 테스트할 준비가 된 것입니다. 이번에는 [가상 네트워크를 변경하는 Bicep 파일](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.bicep)을 배포합니다. 원래 태그 중 하나가 누락되고, 서브넷이 제거되고, 주소 접두사가 변경되었습니다. Bicep 파일의 복사본을 다운로드합니다.
+배포가 완료되면 가상 작업을 테스트할 준비가 된 것입니다. 이번에는 [가상 네트워크를 변경하는 Bicep 파일](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/what-if/what-if-after.bicep)을 배포합니다. 원래 태그 중 하나가 누락되고, 서브넷이 제거되고, 주소 접두사가 변경되었습니다. Bicep 파일의 복사본을 다운로드합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

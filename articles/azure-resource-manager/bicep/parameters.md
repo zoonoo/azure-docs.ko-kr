@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: 353dd6a3e41a9bd9b628c3ad48c6a606ffecd7ad
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 8701d437a34d364ff6f6e2d58cbf84dc28a79798
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026810"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634214"
 ---
 # <a name="parameters-in-bicep"></a>Bicep의 매개 변수
 
@@ -102,9 +102,9 @@ param hostingPlanName string = '${siteName}-plan'
 
 ## <a name="length-constraints"></a>길이 제약 조건
 
-문자열 및 배열 매개 변수의 최소 길이와 최대 길이를 지정할 수 있습니다. 하나 또는 두 개의 제약 조건을 설정할 수 있습니다. 문자열의 경우 길이는 문자 수를 나타냅니다. 배열의 경우 길이는 배열의 항목 수를 나타냅니다.
+문자열 및 배열 매개 변수의 최소 및 최대 길이를 지정할 수 있습니다. 제약 조건 중 하나 또는 둘 모두를 설정할 수 있습니다. 문자열의 경우 길이는 문자 수를 나타냅니다. 배열의 경우 길이는 배열의 항목 수를 나타냅니다.
 
-다음 예제에서는 두 개의 매개 변수를 선언합니다. 한 매개 변수는 스토리지 계정 이름에 대한 것이며, 3~24자여야 합니다. 다른 매개 변수는 배열이며, 1~5개 항목이 있어야 합니다.
+다음 예제에서는 두 개의 매개 변수를 선언합니다. 한 가지 매개 변수는 3~24자여야 하는 스토리지 계정 이름에 대한 것입니다. 다른 매개 변수는 1~5개 항목이 있어야 하는 배열입니다.
 
 ```bicep
 @minLength(3)
@@ -118,7 +118,7 @@ param appNames array
 
 ## <a name="integer-constraints"></a>정수 제약 조건
 
-정수 매개 변수의 최솟값과 최댓값을 설정할 수 있습니다. 하나 또는 두 개의 제약 조건을 설정할 수 있습니다.
+정수 매개 변수의 최솟값과 최댓값을 설정할 수 있습니다. 제약 조건 중 하나 또는 둘 모두를 설정할 수 있습니다.
 
 ```bicep
 @minValue(1)
@@ -152,7 +152,7 @@ resource keyvault 'Microsoft.KeyVault/vaults@2019-09-01' = {
 
 관련 값을 개체로 전달하면 더 쉽게 구성할 수 있습니다. 이렇게 하면 템플릿의 매개 변수 수도 줄어듭니다.
 
-다음 예제에서는 개체인 매개 변수를 보여 줍니다. 기본값은 개체의 예상 속성을 표시합니다. 이러한 속성은 배포할 리소스를 정의할 때 사용됩니다.
+다음 예제에서는 개체인 매개 변수를 보여줍니다. 기본값은 개체의 예상 속성을 표시합니다. 이러한 속성은 배포할 리소스를 정의할 때 사용됩니다.
 
 ```bicep
 param vNetSettings object = {
@@ -204,12 +204,12 @@ resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' = {
 
 ## <a name="example-templates"></a>예제 템플릿
 
-다음 예제는 매개 변수를 사용하는 시나리오를 보여 줍니다.
+다음 예제에서는 매개 변수를 사용하는 시나리오를 보여줍니다.
 
 |템플릿  |Description  |
 |---------|---------|
-|[parameters with functions for default values](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.bicep)(기본값에 대한 함수가 있는 매개 변수) | 매개 변수의 기본값을 정의할 때 Bicep 함수를 사용하는 방법을 보여 줍니다. Bicep 파일은 리소스를 배포하지 않으며, 매개 변수 값을 구성하고 해당 값을 반환합니다. |
-|[parameter object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.bicep)(매개 변수 개체) | 매개 변수에 대한 개체 사용을 보여 줍니다. Bicep 파일은 리소스를 배포하지 않으며, 매개 변수 값을 구성하고 해당 값을 반환합니다. |
+|[parameters with functions for default values](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/parameterswithfunctions.bicep)(기본값에 대한 함수가 있는 매개 변수) | 매개 변수의 기본값을 정의할 때 Bicep 함수를 사용하는 방법을 보여 줍니다. Bicep 파일은 리소스를 배포하지 않으며, 매개 변수 값을 구성하고 해당 값을 반환합니다. |
+|[parameter object](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/parameterobject.bicep)(매개 변수 개체) | 매개 변수에 대한 개체 사용을 보여 줍니다. Bicep 파일은 리소스를 배포하지 않으며, 매개 변수 값을 구성하고 해당 값을 반환합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

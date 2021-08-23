@@ -3,12 +3,12 @@ title: Azure Service Bus에서 구독 필터 설정 | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus 토픽 구독에서 필터 및 작업을 정의하는 예제를 제공합니다.
 ms.topic: how-to
 ms.date: 02/17/2021
-ms.openlocfilehash: bcbb72901ed8e2dfe0932163ee18683e0011ce70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8146e1be1af354b820ea0d3fed7ba9434a4d4e1d
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100654392"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302611"
 ---
 # <a name="set-subscription-filters-azure-service-bus"></a>구독 필터 설정(Azure Service Bus)
 이 문서에서는 Azure Service Bus 토픽 구독에서 필터를 설정하는 몇 가지 예제를 제공합니다. 필터에 대한 개념적 설명은 [필터](topic-filters.md)를 참조하세요.
@@ -62,7 +62,7 @@ DateTimeMp2-DateTimeMp1 <= @timespan
 ## <a name="using-in-and-not-in"></a>IN 및 NOT IN 사용
 
 ```csharp
-StoreId IN('Store1', 'Store2', 'Store3')"
+StoreId IN('Store1', 'Store2', 'Store3')
 
 sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
 

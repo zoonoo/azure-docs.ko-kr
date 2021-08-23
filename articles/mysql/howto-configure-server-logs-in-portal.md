@@ -6,14 +6,16 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/15/2021
-ms.openlocfilehash: 91569780aa71861e07c7e96bec5eac879642760d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ac29b34600f03b7270bd717ad9f5147cc41c7cb
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103496221"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642172"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Azure Portal에서 느린 쿼리 로그 구성 및 액세스
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Portal에서 [Azure Database for MySQL 느린 쿼리 로그](concepts-server-logs.md)를 구성, 나열 및 다운로드할 수 있습니다.
 
@@ -28,7 +30,7 @@ MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다.
 2. Azure Database for MySQL 서버를 선택합니다.
 
 3. 사이드바의 **모니터링** 섹션에서 **서버 로그** 를 선택합니다. 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="서버 로그 옵션의 스크린샷":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="서버 로그 옵션 스크린샷":::
 
 4. 서버 매개 변수를 보려면 **여기를 클릭하여 로그를 사용하도록 설정하고 로그 매개 변수 구성** 을 선택합니다.
 
@@ -47,7 +49,7 @@ MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다.
 **서버 매개 변수** 페이지에서 페이지를 닫아 로그 목록으로 돌아갈 수 있습니다.
 
 ## <a name="view-list-and-download-logs"></a>목록 보기 및 로그 다운로드
-로깅이 시작된 후 사용 가능한 느린 쿼리 로그의 목록을 보고 개별 로그 파일을 다운로드할 수 있습니다.
+로깅이 시작된 후, 사용 가능한 느린 쿼리 로그의 목록을 보고 개별 로그 파일을 다운로드할 수 있습니다.
 
 1. Azure Portal을 엽니다.
 
@@ -74,12 +76,12 @@ MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다.
 
 2. 진단 설정의 이름을 제공합니다.
 
-3. 느린 쿼리 로그를 보낼 데이터 싱크(스토리지 계정, 이벤트 허브 또는 Log Analytics 작업 영역)를 지정합니다.
+3. 느린 쿼리 로그(스토리지 계정, 이벤트 허브 또는 Log Analytics 작업 영역)를 보낼 데이터 싱크를 지정합니다.
 
 4. 로그 형식으로 **MySqlSlowLogs** 를 선택합니다.
 :::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="진단 설정 구성 옵션의 스크린샷":::
 
-5. 느린 쿼리 로그를 파이프하도록 데이터 싱크를 구성한 후 **저장** 을 선택합니다.
+5. 느린 쿼리 로그를 전송하도록 데이터 싱크를 구성한 후 **저장** 을 선택합니다.
 :::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="저장이 강조 표시된 진단 설정 구성 옵션의 스크린샷":::
 
 6. 구성된 데이터 싱크에서 탐색하여 느린 쿼리 로그에 액세스합니다. 로그가 표시되는 데에는 최대 10분이 걸릴 수 있습니다.

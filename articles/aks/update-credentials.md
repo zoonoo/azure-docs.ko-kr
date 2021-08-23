@@ -5,12 +5,12 @@ description: Azure Kubernetes Service(AKS)에 대한 서비스 주체 또는 ADD
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 08a52f68ffdaa3305fbbeefffeeac78a59f3903b
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 128e2d38b002369381c860dbd94dbd93b278682d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107949149"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567065"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)에 대한 자격 증명 업데이트 및 순환
 
@@ -41,7 +41,7 @@ AKS 클러스터의 자격 증명을 업데이트하려는 경우 다음을 선�
 ```azurecli
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
     --query servicePrincipalProfile.clientId -o tsv)
-az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
+az ad sp credential list --id "$SP_ID" --query "[].endDate" -o tsv
 ```
 
 ### <a name="reset-the-existing-service-principal-credential"></a>기존 서비스 주체 자격 증명 재설정
@@ -59,7 +59,7 @@ SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
 서비스 주체 ID가 포함된 변수 세트와 함께, 이제 [az ad sp credential reset][az-ad-sp-credential-reset]을 사용하여 자격 증명을 다시 설정합니다. 다음 예제에서는 Azure 플랫폼에서 서비스 주체의 새 보안 비밀을 생성해보겠습니다. 이 새 보안 비밀도 변수로 저장됩니다.
 
 ```azurecli-interactive
-SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
+SP_SECRET=$(az ad sp credential reset --name "$SP_ID" --query password -o tsv)
 ```
 
 이제 계속해서 [새 서비스 주체 자격 증명으로 AKS 클러스터를 업데이트](#update-aks-cluster-with-new-service-principal-credentials)합니다. 이 단계는 AKS 클러스터에 서비스 주체 변경 내용을 반영하기 위해 필요합니다.
@@ -106,8 +106,8 @@ az aks update-credentials \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --reset-service-principal \
-    --service-principal $SP_ID \
-    --client-secret $SP_SECRET
+    --service-principal "$SP_ID" \
+    --client-secret "$SP_SECRET"
 ```
 
 중소 규모의 클러스터의 경우 서비스 주체 자격 증명이 AKS에서 업데이트되는데 몇 분 정도 걸립니다.

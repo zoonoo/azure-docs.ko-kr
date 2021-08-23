@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 7957041c9d445f4239b8f0100128a531d982b451
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6a7d58a1646e77e99ad7282af5be0dc1f8d2976d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104871557"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529372"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Zeppelin과 Hive Warehouse Connector 통합
 
@@ -93,24 +93,17 @@ Livy 인터프리터를 사용하여 Zeppelin에서 Hive 테이블에 액세스�
 
     | 구성| 값|
     |---|---|
-    | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/<llap-headnode>@<AAD-Domain>` |
+    | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/_HOST@<AAD-Domain>` |
 
-    * 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`로 이동합니다. 여기서 CLUSTERNAME은 대화형 쿼리 클러스터의 이름입니다. **HiveServer2 대화형** 을 클릭합니다. 스크린샷과 같이 LLAP가 실행 중인 헤드 노드의 FQDN(정규화된 도메인 이름)이 보입니다. `<llap-headnode>`를 이 값으로 바꿉니다.
-
-        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="Hive Warehouse Connector 헤드 노드" border="true":::
-
-    * [ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용하여 대화형 쿼리 클러스터에 연결합니다. `/etc/krb5.conf` 파일에서 `default_realm` 매개 변수를 찾습니다. `<AAD-DOMAIN>`을 대문자 문자열로 하여 이 값으로 바꿉니다. 그렇지 않으면 자격 증명을 찾을 수 없습니다.
+    * [ssh 명령](../hdinsight-hadoop-linux-use-ssh-unix.md)을 사용하여 Interactive Query 클러스터에 연결합니다. `/etc/krb5.conf` 파일에서 `default_realm` 매개 변수를 찾습니다. `<AAD-DOMAIN>`을 대문자 문자열로 하여 이 값으로 바꿉니다. 그렇지 않으면 자격 증명을 찾을 수 없습니다.
 
         :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="Hive Warehouse Connector AAD 도메인" border="true":::
-
-    * 예: `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`.
 
 1. 변경 내용을 저장하고 Livy 인터프리터를 다시 시작합니다.
 
 Livy 인터프리터에 액세스할 수 없는 경우, Ambari의 Zeppelin 구성 요소 내에 있는 `shiro.ini` 파일을 수정합니다. 자세한 내용은 [Apache Zeppelin Security](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.0.1/configuring-zeppelin-security/content/enabling_access_control_for_interpreter__configuration__and_credential_settings.html)구성을 참조하세요.  
 
-
-## <a name="running-queries-in-zeppelin"></a>Zeppelin에서 쿼리 실행 
+## <a name="running-queries-in-zeppelin"></a>Zeppelin에서 쿼리 실행
 
 Livy 인터프리터를 사용하여 Zeppelin 노트북을 시작하고 다음을 실행합니다.
 

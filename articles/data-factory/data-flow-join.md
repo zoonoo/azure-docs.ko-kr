@@ -1,19 +1,21 @@
 ---
 title: 데이터 흐름 매핑의 조인 변환
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 매핑 데이터 흐름에서 조인 변환을 사용하여 두 데이터 원본의 데이터 결합
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 05/15/2020
-ms.openlocfilehash: ac84ce17f53145ffd85ffa31b6633d8b4b184962
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77df05774f695235b1ccc1a11713ea68cacafefb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93042649"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642436"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 조인 변환
 

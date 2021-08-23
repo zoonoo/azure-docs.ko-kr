@@ -4,12 +4,12 @@ description: 도메인 가입 Apache Hadoop 클러스터에 대한 인증을 간
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: c5bc5bc702dbd54bbad43aa4e1c6c8650c18e088
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8201935f9aff99c9fa2709fe0b1418b0dab56e87
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104863193"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528770"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Azure HDInsight ID Broker(HIB)
 
@@ -126,7 +126,7 @@ HDInsight ID Broker 설정에서 게이트웨이에 연결하는 사용자 지�
 *   AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
 *    권한: (이름: Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
-OAuth 토큰을 획득한 후에는 클러스터 게이트웨이에 대한 HTTP 요청의 인증 헤더(예: https://<clustername>-int.azurehdinsight.net)에 이 토큰을 사용합니다. Apache Livy API에 대한 샘플 curl 명령은 다음 예와 같이 표시될 수 있습니다.
+OAuth 토큰을 획득한 후에는 클러스터 게이트웨이에 대한 HTTP 요청의 인증 헤더(예: https://\<clustername\>-int.azurehdinsight.net)에 이 토큰을 사용합니다. Apache Livy API에 대한 샘플 curl 명령은 다음 예와 같이 표시될 수 있습니다.
     
 ```bash
 curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By:<username@domain.com>"

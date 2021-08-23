@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50ba13a49d8e08b70ebf8a8bb12dfe92d8a35bb7
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: e02755f748cffcf7c523ce3b9c6fc651d2b1b02f
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206587"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438921"
 ---
 # <a name="govern-on-premises-service-accounts"></a>온-프레미스 서비스 계정 관리
 
@@ -59,7 +59,7 @@ Active Directory는 다음과 같은 네 가지 유형의 온-프레미스 서�
 
 *  **LogonWorkstations**: 서비스 계정이 로그인할 수 있는 권한을 제한합니다. 한 컴퓨터에서 로컬로 실행되고 해당 컴퓨터의 리소스에만 액세스하는 경우에는 다른 곳에서 로그인하지 못하도록 제한합니다.
 
-* [**암호 변경 불가**](/powershell/module/addsadministration/set-aduser): 매개변수를 false로 설정하여 서비스 계정이 자체 암호를 변경하지 못하도록 방지합니다.
+* [**암호 변경 불가**](/powershell/module/activedirectory/set-aduser): 매개변수를 false로 설정하여 서비스 계정이 자체 암호를 변경하지 못하도록 방지합니다.
  
 ## <a name="build-a-lifecycle-management-process"></a>수명 주기 관리 프로세스 빌드
 

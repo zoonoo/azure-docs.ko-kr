@@ -4,15 +4,16 @@ description: 이 API를 사용하여 상업용 마켓플레이스 분석에 대�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 4fc3479f1e35970a97684396a7a2e0c0c2582128
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 927534b11bc00b3ec21db2ab5efef2eb09104976
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102584161"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567270"
 ---
 # <a name="delete-report-queries-api"></a>보고서 쿼리 API 삭제
 

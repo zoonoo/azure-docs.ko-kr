@@ -3,13 +3,13 @@ title: 에지에서 연속 비디오 녹화 - Azure Video Analyzer
 description: CVR(연속 비디오 녹화)은 라이브 비디오 원본에서 지속적으로 녹화하는 프로세스를 다룹니다. 이 항목에서는 CVR의 내용과 Azure Video Analyzer에서 CVR을 사용하는 방법에 대해 설명합니다.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 05/10/2021
-ms.openlocfilehash: 19bf86d03178ad1242430bc9faf2c141ab7d4189
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: a7909fab420302fe8246e8f1ce2cd050d1f854f8
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387565"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114603977"
 ---
 # <a name="continuous-video-recording"></a>연속 비디오 녹화    
 

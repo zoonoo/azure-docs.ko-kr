@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: duau
-ms.openlocfilehash: 57c439cf8ac52d93d231d6ff33f72a5a942dec6a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c0ee2c0783d6d1a013db2b79367af5779f63aba1
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96351608"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112321471"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>ExpressRoute에 연결된 가상 네트워크를 클래식에서 Resource Manager로 마이그레이션
 
@@ -31,7 +31,7 @@ ms.locfileid: "96351608"
 
     * [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/migration-classic-resource-manager-overview.md)
     * [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](../virtual-machines/migration-classic-resource-manager-deep-dive.md)
-    * [FAQ: 클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/migration-classic-resource-manager-faq.md)
+    * [FAQ: 클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/migration-classic-resource-manager-faq.yml)
     * [가장 일반적인 마이그레이션 오류 및 완화 방법 검토](../virtual-machines/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="supported-and-unsupported-scenarios"></a>지원되는 및 지원되지 않는 시나리오
@@ -84,5 +84,5 @@ ExpressRoute 회로에 연결된 리소스를 마이그레이션하기 전에 Ex
 ## <a name="next-steps"></a>다음 단계
 * [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/migration-classic-resource-manager-overview.md)
 * [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](../virtual-machines/migration-classic-resource-manager-deep-dive.md)
-* [FAQ: 클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/migration-classic-resource-manager-faq.md)
+* [FAQ: 클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/migration-classic-resource-manager-faq.yml)
 * [가장 일반적인 마이그레이션 오류 및 완화 방법 검토](../virtual-machines/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

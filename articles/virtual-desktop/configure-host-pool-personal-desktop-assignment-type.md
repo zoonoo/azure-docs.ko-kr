@@ -7,12 +7,12 @@ ms.date: 07/09/2020
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 39e4b23b4f007c790dcfe495661628a53a9293d8
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: e53bcbca2e40ef9a9587e0b571f2798132c2a829
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111743894"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113033590"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>개인 데스크톱 호스트 풀 할당 유형 구성
 
@@ -87,8 +87,8 @@ Azure Portal에서 세션 호스트에 사용자를 직접 할당하려면 다�
 
 개인 데스크톱 할당 유형을 구성했으므로 이제 Azure Virtual Desktop 클라이언트에 로그인하여 사용자 세션의 일부로 테스트할 수 있습니다. 다음 두 방법 문서는 선택한 클라이언트를 사용하여 세션에 연결하는 방법을 보여 줍니다.
 
-- [Windows Desktop 클라이언트를 사용하여 연결](connect-windows-7-10.md)
-- [웹 클라이언트를 사용하여 연결](connect-web.md)
-- [Android 클라이언트와 연결](connect-android.md)
-- [iOS 클라이언트와 연결](connect-ios.md)
-- [macOS 클라이언트와 연결](connect-macos.md)
+- [Windows Desktop 클라이언트를 사용하여 연결](./user-documentation/connect-windows-7-10.md)
+- [웹 클라이언트를 사용하여 연결](./user-documentation/connect-web.md)
+- [Android 클라이언트와 연결](./user-documentation/connect-android.md)
+- [iOS 클라이언트와 연결](./user-documentation/connect-ios.md)
+- [macOS 클라이언트와 연결](./user-documentation/connect-macos.md)

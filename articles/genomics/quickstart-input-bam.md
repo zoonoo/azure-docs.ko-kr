@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
-ms.openlocfilehash: 5145aa0ffdc4095f178a214f63433e5bcece83b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9d8a10d4adcad2072282f59641b157364fecad2
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "72249159"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551905"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>BAM 파일 입력을 사용하여 워크플로 제출
 
@@ -82,4 +82,4 @@ output_storage_account_container: outputs
 이 호출로 `config.txt` 파일 제출: `msgen submit -f config.txt`
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Storage에 BAM 파일을 업로드했고 `msgen` python 클라이언트를 통해 Microsoft Genomics 서비스에 워크플로를 제출했습니다. Microsoft Genomics 서비스에서 사용할 수 있는 워크플로 제출 및 기타 명령에 대한 추가 정보는 [FAQ](frequently-asked-questions-genomics.md)를 참조하세요. 
+이 문서에서는 Azure Storage에 BAM 파일을 업로드했고 `msgen` python 클라이언트를 통해 Microsoft Genomics 서비스에 워크플로를 제출했습니다. Microsoft Genomics 서비스에서 사용할 수 있는 워크플로 제출 및 기타 명령에 대한 추가 정보는 [FAQ](frequently-asked-questions-genomics.yml)를 참조하세요. 

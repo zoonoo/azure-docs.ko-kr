@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.custom: devx-track-python,devx-track-csharp
-ms.openlocfilehash: 71d4b02b1498d983e7de8bed684f8838f3d2e44d
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 1d037931125dd60fc285588f31228a748008d25c
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885779"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112114898"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
@@ -77,7 +77,7 @@ Azure Container 인스턴스, Azure Kubernetes Service 또는 필드 프로그�
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-배포된 서비스의 이름을 알고 있는 경우 [az ml service show](/cli/azure/ml/service#az_ml_service_show) 명령을 사용합니다.
+배포된 서비스의 이름을 알고 있는 경우 [az ml service show](/cli/azure/ml(v1)/service#az_ml_service_show) 명령을 사용합니다.
 
 ```azurecli
 az ml service show -n <service-name>

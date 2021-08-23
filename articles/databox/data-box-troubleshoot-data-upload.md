@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: troubleshooting
 ms.date: 05/10/2021
 ms.author: alkohli
-ms.openlocfilehash: bd54b662e48ef6f66ea2bfef10863e2d7627289f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: c1d1fd5a15d889ead669a5c7c880ed59f5a66ba8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966434"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529380"
 ---
 # <a name="review-copy-errors-in-uploads-from-azure-data-box-and-azure-data-box-heavy-devices"></a>Azure Data Box 및 Azure Data Box Heavy 디바이스의 업로드에서 복사 오류 검토
 
@@ -110,7 +110,7 @@ Azure Portal에서 다음과 같은 알림이 표시됩니다. **DATA COPY PATH*
 
 **오류 설명:** Blob Storage 컨테이너가 WORM(Write Once, Read Many)으로 구성된 경우 컨테이너에 이미 저장되어 있는 Blob의 업로드가 실패합니다.
 
-**후속 작업:** 현재 업로드에서는 이 오류를 해결할 수 없습니다. 업로드가 오류와 함께 완료되었습니다. 네트워크 전송을 수행하거나 새 가져오기 주문을 시작하기 전에 나열된 Blob이 변경할 수 없는 스토리지 컨테이너의 일부가 아닌지 확인합니다. 자세한 내용은 [변경이 불가능한 스토리지로 업무상 중요한 Blob 데이터 저장](../storage/blobs/storage-blob-immutable-storage.md)을 참조하세요.
+**후속 작업:** 현재 업로드에서는 이 오류를 해결할 수 없습니다. 업로드가 오류와 함께 완료되었습니다. 네트워크 전송을 수행하거나 새 가져오기 주문을 시작하기 전에 나열된 Blob이 변경할 수 없는 스토리지 컨테이너의 일부가 아닌지 확인합니다. 자세한 내용은 [변경이 불가능한 스토리지로 업무상 중요한 Blob 데이터 저장](../storage/blobs/immutable-storage-overview.md)을 참조하세요.
 
 
 ### <a name="the-total-provisioned-capacity-of-the-shares-cannot-exceed-the-account-maximum-size-limit"></a>공유의 프로비저닝된 총 용량은 계정 최대 크기 한도를 초과할 수 없음

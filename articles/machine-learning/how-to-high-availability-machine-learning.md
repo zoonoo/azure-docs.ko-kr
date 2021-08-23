@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 05/05/2021
-ms.openlocfilehash: 1cdc286376d53bcf6491cd6d29f74a62df8b68fb
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: ba8904713f9623cf80f259ad096a4dbfaddad393
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967678"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112552913"
 ---
 # <a name="failover-for-business-continuity-and-disaster-recovery"></a>비즈니스 연속성 및 재해 복구를 위한 장애 조치(failover)
 
@@ -150,7 +150,8 @@ Azure Machine Learning의 실행은 실행 사양에서 정의됩니다. 이 사
       > 스튜디오 디자이너에서 만든 파이프라인은 현재 코드로 내보낼 수 없습니다.
 
 * 구성을 코드로 관리합니다.
-    * 작업 영역에 대한 하드 코드된 참조를 방지합니다. 대신, [구성 파일](how-to-configure-environment.md#workspace)을 사용하여 작업 영역 인스턴스에 대한 참조를 구성하고 [Workspace.from_config()](/python/api/azureml-core/azureml.core.workspace.workspace#remarks)를 사용하여 작업 영역을 초기화합니다. 프로세스를 자동화하려면 [기계 학습용 Azure CLI 확장](reference-azure-machine-learning-cli.md) 명령 [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder#ext_azure_cli_ml_az_ml_folder_attach)를 사용합니다.
+
+    * 작업 영역에 대한 하드 코드된 참조를 방지합니다. 대신, [구성 파일](how-to-configure-environment.md#workspace)을 사용하여 작업 영역 인스턴스에 대한 참조를 구성하고 [Workspace.from_config()](/python/api/azureml-core/azureml.core.workspace.workspace#remarks)를 사용하여 작업 영역을 초기화합니다. 프로세스를 자동화하려면 [기계 학습용 Azure CLI 확장](reference-azure-machine-learning-cli.md) 명령 [az ml folder attach](/cli/azure/ml(v1)/folder#ext_azure_cli_ml_az_ml_folder_attach)를 사용합니다.
     * [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) 및 [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class))과 같은 실행 제출 도우미를 사용합니다.
     * [Environments.save_to_directory()](/python/api/azureml-core/azureml.core.environment(class)#save-to-directory-path--overwrite-false-)를 사용하여 환경 정의를 저장합니다.
     * 사용자 지정 Docker 이미지를 사용하는 경우 Dockerfile을 사용합니다.
@@ -180,11 +181,10 @@ Azure Machine Learning은 작업 영역 인스턴스 간에 아티팩트 또는 
 | ----- | ----- | ----- |
 | 모델 | [az ml model download --model-id {ID} --target-dir {PATH}](/cli/azure/ext/azure-cli-ml/ml/model#ext_azure_cli_ml_az_ml_model_download) | [az ml model register –name {NAME} --path {PATH}](/cli/azure/ext/azure-cli-ml/ml/model) |
 | 환경 | [az ml environment download -n {NAME} -d {PATH}](/cli/azure/ext/azure-cli-ml/ml/environment#ext_azure_cli_ml_az_ml_environment_download) | [az ml environment register -d {PATH}](/cli/azure/ext/azure-cli-ml/ml/environment#ext_azure_cli_ml_az_ml_environment_register) |
-| Azure ML 파이프라인(코드에서 생성됨) | [az ml pipeline get --path {PATH}](/cli/azure/ext/azure-cli-ml/ml/pipeline#ext_azure_cli_ml_az_ml_pipeline_get) | [az ml pipeline create --name {NAME} -y {PATH}](/cli/azure/ext/azure-cli-ml/ml/pipeline#ext_azure_cli_ml_az_ml_pipeline_create)
+| Azure ML 파이프라인(코드에서 생성됨) | [az ml pipeline get --path {PATH}](/cli/azure/ml(v1)/pipeline#ext_azure_cli_ml_az_ml_pipeline_get) | [az ml pipeline create --name {NAME} -y {PATH}](/cli/azure/ml(v1)/pipeline#ext_azure_cli_ml_az_ml_pipeline_create)
 
 > [!TIP]
-> * __등록된 데이터 세트__ 는 다운로드하거나 이동할 수 없습니다. 여기에는 중간 파이프라인 데이터 세트와 같이 Azure ML에서 생성된 데이터 세트가 포함됩니다. 그러나 두 작업 영역이 모두 액세스할 수 있거나 기본 데이터 스토리지가 복제된 공유 파일 위치를 참조하는 데이터 세트는 두 작업 영역에 모두 등록할 수 있습니다. [az ml dataset register](/cli/azure/ext/azure-cli-ml/ml/dataset#ext_azure_cli_ml_az_ml_dataset_register)를 사용하여 데이터 세트를 등록합니다.
->
+> * __등록된 데이터 세트__ 는 다운로드하거나 이동할 수 없습니다. 여기에는 중간 파이프라인 데이터 세트와 같이 Azure ML에서 생성된 데이터 세트가 포함됩니다. 그러나 두 작업 영역이 모두 액세스할 수 있거나 기본 데이터 스토리지가 복제된 공유 파일 위치를 참조하는 데이터 세트는 두 작업 영역에 모두 등록할 수 있습니다. [az ml dataset register](/cli/azure/ml(v1)/dataset#ext_azure_cli_ml_az_ml_dataset_register)를 사용하여 데이터 세트를 등록합니다.
 > * __실행 출력__ 은 작업 영역과 연결된 기본 스토리지 계정에 저장됩니다. 서비스 중단 시 스튜디오 UI에서는 실행 출력에 액세스할 수 없지만 스토리지 계정을 통해 데이터에 직접 액세스할 수 있습니다. Blob에 저장된 데이터를 사용하는 방법에 관한 자세한 내용은 [Azure CLI를 사용하여 Blob 생성, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-cli.md)을 참조하세요.
 ## <a name="next-steps"></a>다음 단계
 

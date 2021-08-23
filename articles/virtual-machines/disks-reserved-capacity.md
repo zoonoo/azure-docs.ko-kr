@@ -3,16 +3,16 @@ title: 예약을 사용하여 Azure Disk Storage에 대한 비용 최적화
 description: 프리미엄 SSD 관리 디스크에 대한 비용을 절감하기 위해 Azure Disk Storage 예약 구매에 대해 알아봅니다.
 author: roygara
 ms.author: rogarana
-ms.date: 01/30/2020
+ms.date: 06/29/2021
 ms.topic: how-to
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: db6575894904e6ced2d4be48fec5961f5b8b8a54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60ccfe222b06e9c250eab3b8fa568cc4e5a925b2
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98602633"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356184"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Azure 디스크 예약을 사용하여 비용 절감
 
@@ -69,7 +69,7 @@ ms.locfileid: "98602633"
 
    |요소  |설명  |
    |---------|---------|
-   |**범위**   |  예약과 관련된 청구 혜택을 사용할 수 있는 구독 수입니다. 이 값은 특정 구독에 예약이 적용되는 방법을 지정하기도 합니다. <br/><br/> **공유** 를 선택하면 청구 컨텍스트 내의 모든 구독에서 Azure Storage 용량에 예약 할인이 적용됩니다. 청구 컨텍스트는 Azure에 등록한 방법에 따라 결정됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 경우 공유 범위에는 계정 관리자가 만든 종량제 요금이 포함된 모든 개별 구독이 포함됩니다.  <br/><br/>  **단일 구독** 을 선택하면 선택한 구독의 Azure Storage 용량에 예약 할인이 적용됩니다. <br/><br/> **단일 리소스 그룹** 을 선택하는 경우 선택한 구독의 Azure Storage 용량과 해당 구독의 선택된 리소스 그룹에 예약 할인이 적용됩니다. <br/><br/> 예약 용량을 구입한 후 예약 범위를 변경할 수 있습니다.  |
+   |**범위**   |  예약과 관련된 청구 혜택을 사용할 수 있는 구독 수입니다. 이 값은 특정 구독에 예약이 적용되는 방법을 지정하기도 합니다. <br/><br/> **공유** 를 선택하면 청구 컨텍스트 내의 모든 구독에서 Azure Storage 용량에 예약 할인이 적용됩니다. 청구 컨텍스트는 Azure에 등록한 방법에 따라 결정됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 경우 공유 범위에는 계정 관리자가 만든 종량제 요금을 사용하는 모든 개별 구독이 포함됩니다.  <br/><br/>  **단일 구독** 을 선택하면 선택한 구독의 Azure Storage 용량에 예약 할인이 적용됩니다. <br/><br/> **단일 리소스 그룹** 을 선택하는 경우 선택한 구독의 Azure Storage 용량과 해당 구독의 선택된 리소스 그룹에 예약 할인이 적용됩니다. <br/><br/> 예약 용량을 구입한 후 예약 범위를 변경할 수 있습니다.  |
    |**구독**  | Azure Storage 예약 요금을 지불하는 데 사용하는 구독입니다. 선택한 구독의 결제 방법을 사용하여 비용을 청구합니다. 구독은 다음 유형 중 하나여야 합니다.<br/><ul><li> 기업계약(제품 번호 MS-AZR-0017P 및 MS-AZR-0148P) 기업 구독의 경우 요금은 등록계약의 Azure 선불(이전에는 현금 약정 금액이라고 함) 잔액에서 차감되거나 초과분에 대해 청구됩니다.</li><br/><li>종량제 요금을 사용한 개별 구독(제품 번호: MS-AZR-0003P 및 MS-AZR-0023P) 종량제 요율이 적용되는 구독의 경우 요금은 구독의 신용 카드 또는 청구서 결제 방법으로 청구됩니다.</li></ul>    |
    | **디스크** | 만들려는 SKU입니다. |
    | **지역** | 예약이 적용되는 지역입니다. |

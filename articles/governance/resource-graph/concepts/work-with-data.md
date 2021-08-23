@@ -1,15 +1,15 @@
 ---
 title: 대규모 데이터 세트로 작업
 description: Azure Resource Graph를 사용하는 동안 큰 데이터 세트의 레코드를 가져오고, 서식을 지정하고, 페이징하고, 건너뛰는 방법을 파악합니다.
-ms.date: 05/17/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d860ea4af08c8982e2205bb98c82b5475734d35c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b306b52c02a251abf1d781ccce586e4b94c8264b
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099175"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567971"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>큰 Azure 리소스 데이터 세트 작업
 
@@ -34,7 +34,7 @@ az graph query -q "Resources | project name | order by name asc" --first 200 --o
 Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-[REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)에서 제어는 **$top** 이며 **QueryRequestOptions** 의 일부입니다.
+[REST API](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources)에서 제어는 **$top** 이며 **QueryRequestOptions** 의 일부입니다.
 
 ‘가장 제한적’인 제어가 적용됩니다. 예를 들어 쿼리에서 **top** 또는 **limit** 연산자를 사용하며 **First** 보다 많은 레코드를 생성하는 경우 반환되는 최대 레코드 수는 **First** 와 같습니다. 마찬가지로, **top** 또는 **limit** 가 **First** 보다 작은 경우 반환되는 레코드 집합은 **top** 또는 **limit** 로 구성된 더 작은 값이 됩니다.
 
@@ -60,11 +60,11 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-[REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)에서 제어는 **$skip** 이며 **QueryRequestOptions** 의 일부입니다.
+[REST API](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources)에서 제어는 **$skip** 이며 **QueryRequestOptions** 의 일부입니다.
 
 ## <a name="paging-results"></a>페이징 결과
 
-처리를 위해 결과 집합을 작은 레코드 집합으로 나누어야 하는 경우 또는 결과 집합이 허용된 최댓값인 _1000_ 을 초과하기 때문에 페이징을 사용합니다. [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)
+처리를 위해 결과 집합을 작은 레코드 집합으로 나누어야 하는 경우 또는 결과 집합이 허용된 최댓값인 _1000_ 을 초과하기 때문에 페이징을 사용합니다. [REST API](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources)
 **QueryResponse** 는 결과 집합이 분할되었음을 나타내는 값(**resultTruncated** 및 **$skipToken**)을 제공합니다. **resultTruncated** 는 응답에 반환되지 않은 추가 레코드가 있는지 여부를 소비자에게 알리는 부울 값입니다. **count** 속성이 **totalRecords** 속성보다 작은 경우에도 이 조건을 식별할 수 있습니다. **totalRecords** 는 쿼리와 일치하는 레코드 수를 정의합니다.
 
 쿼리가 요청하는 것보다 사용 가능한 리소스가 적을 경우 `id` 열이 없어서 페이징이 비활성화되거나 사용 불가능해지면 **resultTruncated** 가 **true** 입니다. **resultTruncated** 가 **true** 이면 **$skipToken** 속성이 설정되지 않습니다.
@@ -82,7 +82,7 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 > [!IMPORTANT]
 > 페이지 매김이 작동하려면 쿼리가 **ID** 필드를 **project** 해야 합니다. 쿼리에서 누락되면 응답에 **$skipToken** 이 포함되지 않습니다.
 
-예제는 REST API 문서에서 [다음 페이지 쿼리](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources#next-page-query)를 참조하세요.
+예제는 REST API 문서에서 [다음 페이지 쿼리](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources#next-page-query)를 참조하세요.
 
 ## <a name="formatting-results"></a>결과에 서식 지정
 

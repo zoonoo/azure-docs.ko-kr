@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 4d771e77fcca05b090e5d47d70ae93ece8f79e3e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 83c455d6a8c952e8f4258dbb90d1d6726e8fcd65
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104865706"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447916"
 ---
 # <a name="use-certificates-with-azure-cloud-services-extended-support"></a>Azure Cloud Services(추가 지원)에서 인증서 사용
 
@@ -54,6 +54,6 @@ Key Vault는 Cloud Services(추가 지원)에 연결된 인증서를 저장하�
     :::image type="content" source="media/certs-and-key-vault-6.png" alt-text="이미지는 키 자격 증명 모음에 비밀 식별자 필드를 표시합니다.":::
 
 ## <a name="next-steps"></a>다음 단계 
-- Cloud Services(추가 지원)에 대한 [사전 요구 사항](deploy-prerequisite.md)을 검토합니다.
-- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.md)을 검토합니다.
+- Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-prerequisite.md)를 검토하고 관련 리소스를 만듭니다.
+- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.yml)을 검토합니다.
 - [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용하여 Cloud Service(추가 지원)를 배포합니다.

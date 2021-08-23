@@ -3,12 +3,12 @@ title: 템플릿 개요
 description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 리소스 배포를 수행하는 경우의 이점에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 62d25d2bd87f9335ac6442a7038f9326b04b36b0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6c576b7e18d60a858f5f29bde0e674160610223b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111960356"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535682"
 ---
 # <a name="what-are-arm-templates"></a>ARM 템플릿이란?
 
@@ -153,4 +153,4 @@ REQUEST BODY
 * Microsoft Learn의 단계별 모듈 세트를 통한 ARM 템플릿에 대한 자세한 내용은 [ARM 템플릿을 사용하여 Azure에서 리소스 배포 및 관리](/learn/paths/deploy-manage-resource-manager-templates/)를 참조하세요.
 * 템플릿 파일의 속성에 대한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](./syntax.md)를 참조하세요.
 * 템플릿 내보내기에 대한 자세한 내용은 [빠른 시작: Azure Portal을 사용하여 ARM 템플릿 만들기 및 배포](quickstart-create-templates-use-the-portal.md)를 참조하세요.
-* 일반적인 문의 사항에 대한 답변은 [ARM 템플릿에 대해 자주 묻는 질문](frequently-asked-questions.md)을 참조하세요.
+* 일반적인 문의 사항에 대한 답변은 [ARM 템플릿에 대해 자주 묻는 질문](./frequently-asked-questions.yml)을 참조하세요.

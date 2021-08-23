@@ -7,16 +7,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 01/13/2021
-ms.openlocfilehash: 92513a8c24b5106e3a59c8cfa4d743e900b957bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44752024c8bd2ddbceed1495067260bce3ce0037
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98249774"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113088389"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Azure Database for MySQL의 복제 지연 문제 해결
 
-[!INCLUDE[applies-to-single-flexible-server](./includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
 [읽기 복제본](concepts-read-replicas.md) 기능을 통해 Azure Database for MySQL 서버에서 읽기 전용 복제본 서버로 데이터를 복제할 수 있습니다. 애플리케이션에서 복제본 서버로 읽기 및 보고 쿼리를 라우팅하여 워크로드를 확장할 수 있습니다. 이 설정은 원본 서버의 압력을 줄입니다. 또한 확장 시 애플리케이션의 전반적인 성능 및 지연 문제가 개선됩니다.
 

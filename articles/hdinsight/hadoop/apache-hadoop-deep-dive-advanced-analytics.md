@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 0780f66c981f0cebebc1ab327d783954753db965
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c0475ee0a97e3d9e3dd376d84028cedca3cfa70b
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104866729"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112676422"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
 
@@ -52,7 +52,6 @@ HDInsight는 대량의 구조화된 데이터, 구조화되지 않은 데이터 
 HDInsight에는 고급 분석 워크플로에 대한 몇 가지 기계 학습 옵션이 있습니다.
 
 * Machine Learning 및 Apache Spark
-* R 및 ML 서비스
 * Azure Machine Learning 및 Apache Hive
 * Apache Spark 및 딥 러닝
 
@@ -65,10 +64,6 @@ HDInsight에는 고급 분석 워크플로에 대한 몇 가지 기계 학습 �
 * [**MLlib**](https://spark.apache.org/docs/latest/ml-guide.html) - MLlib에는 Spark RDD에 기반하여 빌드된 원래 API가 포함되어 있습니다.
 * [**SparkML**](https://spark.apache.org/docs/1.2.2/ml-guide.html) - SparkML은 ML 파이프라인을 생성하기 위해 Spark DataFrames에 기반하여 빌드된 높은 수준의 고급 API를 제공하는 새로운 패키지입니다.
 * [**MMLSpark**](https://github.com/Azure/mmlspark) - MMLSpark(Apache Spark용 Microsoft Machine Learning 라이브러리)는 Spark에서 데이터 과학자의 생산성을 높이고, 실험 속도를 높이고, 매우 큰 데이터 세트에서 최첨단 기계 학습 기술(딥 러닝 포함)을 활용하도록 설계되었습니다. MMLSpark 라이브러리는 PySpark에서 모델을 작성하기 위한 일반적인 모델링 작업을 간소화합니다.
-
-### <a name="r-and-ml-services"></a>R 및 ML 서비스
-
-HDInsight의 일부로서, 대량 데이터 세트 및 모델과 함께 사용할 준비가 된 [ML 서비스](../r-server/r-server-overview.md)를 사용하여 HDInsight 클러스터를 만들 수 있습니다. 새로운 이 기능은 클러스터 설치 및 유지 관리에 대한 오버헤드 없이 HDInsight를 통해 주문형으로 크기를 조정할 수 있는 친숙한 R 인터페이스를 데이터 과학자 및 통계 전문가에게 제공합니다.
 
 ### <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning 및 Apache Hive
 
@@ -115,12 +110,12 @@ HDInsight를 사용하는 고급 분석 기계 학습 파이프라인의 예를 
 
 Apache Hive 및 Azure Machine Learning
 
-* [Apache Hive 및 Azure Machine Learning 엔드투엔드](../../machine-learning/team-data-science-process/hive-walkthrough.md)
-* [1 TB 데이터 세트에서 Azure HDInsight Hadoop 클러스터 사용](../../machine-learning/team-data-science-process/hive-criteo-walkthrough.md)
+* [Apache Hive 및 Azure Machine Learning 엔드투엔드](/azure/architecture/data-science-process/hive-walkthrough)
+* [1 TB 데이터 세트에서 Azure HDInsight Hadoop 클러스터 사용](/azure/architecture/data-science-process/hive-criteo-walkthrough)
 
 Apache Spark 및 MLLib
 
-* [HDInsight에서 Apache Spark를 사용하는 Machine Learning](../../machine-learning/team-data-science-process/spark-overview.md)
+* [HDInsight에서 Apache Spark를 사용하는 Machine Learning](/azure/architecture/data-science-process/spark-overview)
 * [Machine Learning을 사용하는 Apache Spark: HDInsight의 Apache Spark를 사용하여 HVAC 데이터를 사용한 건물 온도 분석](../spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Machine Learning을 사용하는 Apache Spark: HDInsight의 Apache Spark를 사용하여 식품 검사 결과 예측](../spark/apache-spark-machine-learning-mllib-ipython.md)
 

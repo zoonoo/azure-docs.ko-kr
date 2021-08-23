@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 02a3a7ad73bf0434a215c5ab7a6e89c299e9518b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28d66477c31db9ee274fb1e8aaa1690365a4fa72
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019859"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112912792"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics 출력 문제 해결
 
@@ -74,7 +74,7 @@ Azure SQL 데이터베이스를 Stream Analytics 작업에 대한 출력으로 �
 
 SQL 테이블에 고유한 키 제약 조건을 설정하면 Azure Stream Analytics에서 중복 레코드를 제거합니다. 데이터를 일괄 처리로 분할하고 단일 중복 레코드가 발견될 때까지 일괄 처리를 반복해서 삽입합니다. 분할 및 삽입 프로세스는 한 번에 하나씩 중복 항목을 무시합니다. 중복 행이 많은 스트리밍 작업의 경우 프로세스는 비효율적이며 시간이 많이 소요됩니다. 이전 시간에 대해 활동 로그에서 여러 키 위반 경고 메시지가 표시된 경우 SQL 출력이 전체 작업 성능을 저하시킬 가능성이 있습니다.
 
-이 문제를 해결하려면 IGNORE_DUP_KEY 옵션을 사용하여 키 위반이 발생하는 [인덱스를 구성]( https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql)합니다. 이 옵션을 사용하면 대량 삽입 중에 SQL에서 중복 값을 무시할 수 있습니다. Azure SQL Database는 단순히 오류 대신 경고 메시지를 생성합니다. 따라서 Azure Stream Analytics는 더 이상 기본 키 위반 오류를 생성하지 않습니다.
+이 문제를 해결하려면 IGNORE_DUP_KEY 옵션을 사용하여 키 위반이 발생하는 [인덱스를 구성](/sql/t-sql/statements/create-index-transact-sql)합니다. 이 옵션을 사용하면 대량 삽입 중에 SQL에서 중복 값을 무시할 수 있습니다. Azure SQL Database는 단순히 오류 대신 경고 메시지를 생성합니다. 따라서 Azure Stream Analytics는 더 이상 기본 키 위반 오류를 생성하지 않습니다.
 
 몇 가지 유형의 인덱스에서 IGNORE_DUP_KEY를 구성할 때 다음 조사 내용을 적어둡니다.
 

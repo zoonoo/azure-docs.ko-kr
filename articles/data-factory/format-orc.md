@@ -1,17 +1,20 @@
 ---
 title: Azure Data Factory의 ORC 형식
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 이 항목에서는 Azure Data Factory에서 ORC 형식을 처리하는 방법에 대해 설명합니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jianleishen
-ms.openlocfilehash: 5e6ae001e626df52896f1e3289c7217e83cabb6f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2f4cf0464dd63510208bc29b87b1f131b1e3cc56
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090121"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642379"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Azure Data Factory의 ORC 형식
 
@@ -25,7 +28,7 @@ ORC 형식은 다음 커넥터를 지원합니다. [Amazon S3](connector-amazon-
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에는 ORC 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-| 속성         | Description                                                  | 필수 |
+| 속성         | 설명                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 세트의 type 속성을 **Orc** 로 설정해야 합니다. | 예      |
 | 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`의 고유한 위치 형식 및 지원되는 속성이 있습니다. **자세한 내용은 커넥터 문서 -> 데이터 세트 속성 섹션을 참조하세요**. | 예      |
@@ -67,7 +70,7 @@ ORC 형식은 다음 커넥터를 지원합니다. [Amazon S3](connector-amazon-
 
 복사 작업 ***\*source\* 섹션*** 에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성을 **OrcSource** 로 설정해야 합니다. | 예      |
 | storeSettings | 데이터 저장소에서 데이터를 읽는 방법에 대한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings` 아래에 고유의 지원되는 읽기 설정이 있습니다. **자세한 내용은 커넥터 문서 -> 복사 작업 속성 섹션을 참조하세요**. | 예       |
@@ -76,7 +79,7 @@ ORC 형식은 다음 커넥터를 지원합니다. [Amazon S3](connector-amazon-
 
 복사 작업 ***\*sink\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 싱크의 type 속성은 **OrcSink** 로 설정해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **ORC 쓰기 설정** 표를 참조하세요. |    예      |
@@ -84,7 +87,7 @@ ORC 형식은 다음 커넥터를 지원합니다. [Amazon S3](connector-amazon-
 
 `formatSettings`에서 지원되는 **ORC 쓰기 설정**:
 
-| 속성      | Description                                                  | 필수                                              |
+| 속성      | 설명                                                  | 필수                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | formatSettings의 type을 **OrcWriteSettings** 로 설정해야 합니다. | 예                                                   |
 | maxRowsPerFile | 폴더에 데이터를 쓸 때 여러 파일에 쓰도록 선택하고 파일당 최대 행 수를 지정할 수 있습니다.  | 예 |
@@ -102,9 +105,9 @@ ORC 데이터 세트나 [인라인 데이터 세트](data-flow-source.md#inline-
 
 인라인 데이터 세트를 사용하는 경우 [데이터 세트 속성](#dataset-properties) 섹션에 설명된 속성과 동일한 추가 파일 설정이 표시됩니다.
 
-| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 형식 | 형식은 `orc`여야 합니다. | 예 | `orc` | format |
+| 서식 | 형식은 `orc`여야 합니다. | 예 | `orc` | format |
 | 와일드 카드 경로 | 와일드 카드 경로와 일치하는 모든 파일이 처리됩니다. 데이터 세트에 설정된 폴더 및 파일 경로를 재정의합니다. | 아니요 | String[] | wildcardPaths |
 | 파티션 루트 경로 | 분할된 파일 데이터의 경우 분할된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | 아니요 | String | partitionRootPath |
 | 파일 목록 | 원본이 처리할 파일을 나열하는 텍스트 파일을 가리키는지 여부입니다. | 아니요 | `true` 또는 `false` | fileList |
@@ -130,9 +133,9 @@ source(allowSchemaDrift: true,
 
 인라인 데이터 세트를 사용하는 경우 [데이터 세트 속성](#dataset-properties) 섹션에 설명된 속성과 동일한 추가 파일 설정이 표시됩니다.
 
-| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 형식 | 형식은 `orc`여야 합니다. | 예 | `orc` | format |
+| 서식 | 형식은 `orc`여야 합니다. | 예 | `orc` | format |
 | 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | 아니요 | `true` 또는 `false` | truncate |
 | 파일 이름 옵션 | 작성된 데이터의 명명 형식입니다. 기본적으로 파티션당 파일 하나이고 형식은 `part-#####-tid-<guid>`입니다. | 아니요 | 패턴: String <br> 파티션당: String[] <br> 열의 데이터로: String <br> 단일 파일로 출력: `['<fileName>']` | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
 

@@ -5,12 +5,12 @@ services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 34033589a297b1a3a2abb97d346f1da478f950e6
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 3150b20e8ddd5fa49f1cc9486d29dd633e443239
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830289"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112454873"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Azure AD를 사용하여 Azure에 인증
 
@@ -51,7 +51,7 @@ ms.locfileid: "107830289"
 
 1. 컴퓨터에서 Microsoft .NET Framework 3.5.x 기능을 사용하도록 설정되었는지 확인합니다. 컴퓨터에 최신 버전이 설치되었을 확률이 높지만, .NET Framework 이전 버전과의 호환성을 사용하도록 또는 사용하지 않도록 설정할 수 있습니다. 
 
-2. 64비트 버전의 [Microsoft Online Services 로그인 도우미](https://www.microsoft.com/Download/details.aspx?id=28177)를 설치합니다.
+2. 64비트 버전의 [Microsoft Online Services 로그인 도우미](/microsoft-365/enterprise/connect-to-microsoft-365-powershell?view=o365-worldwide#step-1-install-the-required-software-1)를 설치합니다.
 
 3. 관리자 권한으로 Windows PowerShell을 실행하여 높은 권한 Windows PowerShell 명령 프롬프트를 만듭니다.
 

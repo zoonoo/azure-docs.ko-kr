@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eabb6e657db7ea39bf0fb746bb596f496bc5efaf
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e24ea1fa02a70e63c8eaab21acff1d1c7b625e9a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958304"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566386"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Azure Active Directory를 사용하여 강력한 ID 기반을 구축하는 4단계
 
@@ -117,7 +117,7 @@ Azure AD에서 온-프레미스 디렉터리 개체에 대해 클라우드 인�
 
 PHS 또는 PTA 중 어떤 기능을 선택하든, 회사 네트워크에서 Windows 7 및 8 디바이스를 사용할 때 사용자가 앱에 사용자 이름과 암호를 지속적으로 입력하지 않고도 클라우드 앱에 액세스할 수 있도록 [Seamless Single Sign-on](./how-to-connect-sso.md)을 사용하도록 설정해야 합니다. Single Sign-On을 사용하지 않으면 사용자는 애플리케이션별 암호를 기억하고 각 애플리케이션마다 로그인해야 합니다. 마찬가지로, IT 직원은 Microsoft 365, Box 및 Salesforce와 같은 각 애플리케이션에 대한 사용자 계정을 만들고 업데이트해야 합니다. 사용자가 암호를 기억해야 하는 것과 동시에 각 애플리케이션에 로그인하는 시간도 소비됩니다. 최상의 사용자 환경, 위험 완화, 보고 기능 및 거버넌스를 위해 전체 엔터프라이즈에 표준화된 Single Sign-On 메커니즘을 제공하는 것이 중요합니다.
 
-이미 AD FS 또는 다른 온-프레미스 인증 공급자를 사용하는 조직의 경우 Azure AD로 전환하면 ID 공급자가 복잡성을 줄이고 가용성을 향상시킬 수 있습니다. 페더레이션 사용에 대한 특정 사용 사례가 없는 경우 페더레이션 인증에서 PHS 및 Seamless SSO 또는 PTA 및 Seamless SSO로 마이그레이션하여 온-프레미스 공간을 줄이고 클라우드가 향상된 사용자 환경을 통해 제공하는 유연성을 활용하는 것이 좋습니다. 자세한 내용은 [Azure Active Directory를 페더레이션에서 암호 해시 동기화로 마이그레이션](./plan-migrate-adfs-password-hash-sync.md)을 참조하세요.
+이미 AD FS 또는 다른 온-프레미스 인증 공급자를 사용하는 조직의 경우 Azure AD로 전환하면 ID 공급자가 복잡성을 줄이고 가용성을 향상시킬 수 있습니다. 페더레이션 사용에 대한 특정 사용 사례가 없는 경우 페더레이션 인증에서 PHS 및 Seamless SSO 또는 PTA 및 Seamless SSO로 마이그레이션하여 온-프레미스 공간을 줄이고 클라우드가 향상된 사용자 환경을 통해 제공하는 유연성을 활용하는 것이 좋습니다. 자세한 내용은 [Azure Active Directory를 페더레이션에서 암호 해시 동기화로 마이그레이션](./migrate-from-federation-to-cloud-authentication.md)을 참조하세요.
 
 ### <a name="enable-automatic-deprovisioning-of-accounts"></a>계정의 자동 프로비저닝 해제 사용
 

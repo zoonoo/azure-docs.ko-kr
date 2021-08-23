@@ -2,19 +2,18 @@
 title: 파워 쿼리 커넥터를 사용한 데이터 인덱싱(미리 보기)
 titleSuffix: Azure Cognitive Search
 description: 파워 쿼리 커넥터를 사용하여 다양한 데이터 원본에서 데이터를 가져옵니다.
-manager: luisca
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: 0b886d195942f5f6334c983e464e812129466640
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e943452a285f943c05982a558c92315428e9829c
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949261"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729536"
 ---
 # <a name="index-data-using-power-query-connectors-preview"></a>파워 쿼리 커넥터를 사용한 데이터 인덱싱(미리 보기)
 

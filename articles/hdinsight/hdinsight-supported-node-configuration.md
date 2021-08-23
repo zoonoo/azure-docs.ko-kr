@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/14/2020
-ms.openlocfilehash: d41ee2554d30a56bc2e025bbe2c93aee143d75e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d65f68802f332092fbf2fa3676880d6263b2cab1
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98931644"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112291082"
 ---
 # <a name="what-are-the-default-and-recommended-node-configurations-for-azure-hdinsight"></a>Azure HDInsight의 기본 및 권장 노드 구성은 무엇인가요?
 
@@ -50,31 +50,28 @@ ms.locfileid: "98931644"
 > [!Note]
 > Powershell 및 기타 스크립트에서 사용할 SKU 식별자를 가져오려면 아래 표에 있는 모든 VM SKU의 시작 부분에 `Standard_`를 추가합니다. 예를 들어 `D12_v2`는 `Standard_D12_v2`가 됩니다.
 
-| 클러스터 유형 | Hadoop은 | HBase | 대화형 쿼리 | Storm | Spark | ML Server | Kafka |
-|---|---|---|---|---|---|---|---|
-| 헤드: 기본 VM 크기 | D12_v2 | D12_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2* | D12_v2 | D3_v2 |
-| 헤드: 권장되는 최소 VM 크기 | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2* | D12_v2 | D3_v2 |
-| 작업자: 기본 VM 크기 | D4_v2 | D4_v2 | D14_v2 | D3_v2 | D13_v2 | D4_v2 | 4개 D12_v2(브로커당 2개 S30 디스크 포함) |
-| 작업자: 권장되는 최소 VM 크기 | D5_v2 | D3_v2 | D13_v2 | D3_v2 | D12_v2 | D4_v2 | D3_v2 |
-| Zookeeper: 기본 VM 크기 |  | A4_v2 | A4_v2 | A4_v2 |  | A2_v2 | A4_v2 |
-| Zookeeper: 권장되는 최소 VM 크기 |  | A4_v2 | A4_v2 | A2_v2 |  | A2_v2 | A4_v2 |
-| ML 서비스: 기본 VM 크기 |  |  |  |  |  | D4_v2 |  |
-| ML 서비스: 권장되는 최소 VM 크기 |  |  |  |  |  | D4_v2 |  |
+| 클러스터 유형                            | Hadoop은 | HBase  | 대화형 쿼리 | Storm | Spark                | Kafka                                |
+|-----------------------------------------|--------|--------|-------------------|-------|----------------------|--------------------------------------|
+| 헤드: 기본 VM 크기                   | D12_v2 | D12_v2 | D13_v2            | A4_v2 | D12_v2, <br/>D13_v2* | D3_v2                                |
+| 헤드: 권장되는 최소 VM 크기      | D5_v2  | D3_v2  | D13_v2            | A4_v2 | D12_v2, <br/>D13_v2* | D3_v2                                |
+| 작업자: 기본 VM 크기                 | D4_v2  | D4_v2  | D14_v2            | D3_v2 | D13_v2               | 4개 D12_v2(브로커당 2개 S30 디스크 포함) |
+| 작업자: 권장되는 최소 VM 크기    | D5_v2  | D3_v2  | D13_v2            | D3_v2 | D12_v2               | D3_v2                                |
+| Zookeeper: 기본 VM 크기              |        | A4_v2  | A4_v2             | A4_v2 |                      | A4_v2                                |
+| Zookeeper: 권장되는 최소 VM 크기 |        | A4_v2  | A4_v2             | A2_v2 |                      | A4_v2                                |
 
 \* = Spark ESP(Enterprise Security Package) 클러스터에 대한 VM 크기
 
 ### <a name="brazil-south-and-japan-west-only"></a>브라질 남부 및 일본 서부만 해당
 
-| 클러스터 유형 | Hadoop은 | HBase | 대화형 쿼리 | Storm | Spark | ML 서비스 |
-|---|---|---|---|---|---|---|
-| 헤드: 기본 VM 크기 | D12 | D12 | D13 | A4_v2 | D12 | D12 |
-| 헤드: 권장되는 최소 VM 크기 | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2 | D12_v2 |
-| 작업자: 기본 VM 크기 | D4 | D4 | D14 | D3 | D13 | D4 |
-| 작업자: 권장되는 최소 VM 크기 | D5_v2 | D3_v2 | D13_v2 | D3_v2 | D12_v2 | D4_v2 |
-| Zookeeper: 기본 VM 크기 |  | A4_v2 | A4_v2 | A4_v2 |  | A2_v2 |
-| Zookeeper: 권장되는 최소 VM 크기 |  | A4_v2 | A4_v2 | A4_v2 |  | A2_v2 |
-| ML 서비스: 기본 VM 크기 |  |  |  |  |  | D4 |
-| ML 서비스: 권장되는 최소 VM 크기 |  |  |  |  |  | D4_v2 |
+| 클러스터 유형                            | Hadoop은 | HBase | 대화형 쿼리 | Storm | Spark  |
+|-----------------------------------------|--------|-------|-------------------|-------|--------|
+| 헤드: 기본 VM 크기                   | D12    | D12   | D13               | A4_v2 | D12    |
+| 헤드: 권장되는 최소 VM 크기      | D5_v2  | D3_v2 | D13_v2            | A4_v2 | D12_v2 |
+| 작업자: 기본 VM 크기                 | D4     | D4    | D14               | D3    | D13    |
+| 작업자: 권장되는 최소 VM 크기    | D5_v2  | D3_v2 | D13_v2            | D3_v2 | D12_v2 |
+| Zookeeper: 기본 VM 크기              |        | A4_v2 | A4_v2             | A4_v2 |        |
+| Zookeeper: 권장되는 최소 VM 크기 |        | A4_v2 | A4_v2             | A4_v2 |        |
+
 
 > [!NOTE]
 > - 헤드는 Storm 클러스터 유형에 대한 *Nimbus* 로 알려져 있습니다.

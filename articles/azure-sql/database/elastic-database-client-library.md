@@ -11,12 +11,12 @@ author: scoriani
 ms.author: scoriani
 ms.reviewer: mathoma
 ms.date: 09/25/2018
-ms.openlocfilehash: 408434145d3bea15fe13eebd26ce13695bef3d7e
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 05ad9620046f19984d26dc78bcc3de06d054b5eb
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110706299"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113004127"
 ---
 # <a name="building-scalable-cloud-databases"></a>확장성 있는 클라우드 데이터베이스 빌드
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,7 +45,7 @@ Azure SQL Database의 확장성 있는 도구 및 기능을 사용하여 데이�
 13. [Dapper가 있는 탄력적 데이터베이스 클라이언트 라이브러리](elastic-scale-working-with-dapper.md)
 14. [분할-병합 도구](elastic-scale-overview-split-and-merge.md)
 15. [분할된 맵 관리자에 대한 성능 카운터](elastic-database-client-library.md) 
-16. [탄력적 데이터베이스 도구 FAQ](elastic-scale-faq.md)
+16. [탄력적 데이터베이스 도구 FAQ](elastic-scale-faq.yml)
 
 ## <a name="client-capabilities"></a>클라이언트 기능
 
