@@ -3,12 +3,12 @@ title: Azure Site Recovery의 새로운 기능
 description: Azure Site Recovery 서비스의 새로운 기능 및 최신 업데이트에 대해 간략하게 설명합니다.
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: 423fbc563878d0cc2a63a5366d2226281a204e87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23cc7c98b4d45adf9507ef857bda1c605eb6d558
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102454602"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112026780"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -22,6 +22,7 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원합니다. 여기서 N
 
 **업데이트** |  **통합 설치** | **구성 서버 OVA** | **Mobility Service 에이전트** | **Site Recovery Provider** | **Recovery Services 에이전트**
 --- | --- | --- | --- | --- | ---
+[롤업 55](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)  | 9.42.5941.1 | 5.1.6692.0 | 9.42.5941.1 | 5.1.6692.0  | 2.0.9208.0
 [롤업 54](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)  | 9.41.5888.1 | 5.1.6620.0 | 9.41.5888.1 | 5.1.6620.0  | 2.0.9202.0
 [롤업 53](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | 9.40.5850.1 | 5.1.6537.0 | 9.40.5850.1 | 5.1.6537.0  | 2.0.9202.0
 [롤업 52](https://support.microsoft.com/help/4597409/)  | 9.39.5796.1 | 5.1.6458.0 | 9.39.5796.1 | 5.1.6458.0  | 2.0.9196.0
@@ -31,6 +32,20 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원합니다. 여기서 N
 
 
 업데이트 설치 및 지원에 대해 [자세히 알아보세요](service-updates-how-to.md).
+
+## <a name="updates-april-2021"></a>업데이트(2021년 4월)
+
+### <a name="update-rollup-55"></a>업데이트 롤업 55
+
+[업데이트 롤업 55](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)에서 제공하는 업데이트는 다음과 같습니다.
+
+**업데이트** | **세부 정보**
+--- | ---
+**공급자 및 에이전트** | 롤업에서 자세히 설명하는 Site Recovery 에이전트 및 공급자에 대한 업데이트입니다.
+**문제 수정/향상된 기능** | 롤업에서 자세히 설명하는 여러 수정 및 향상된 기능입니다. 
+**Azure VM 재해 복구** | Azure VM의 대륙 간 재해 복구에 대한 지원이 추가되었습니다.<br/><br/> VMSS Flex를 보호하기 위한 Rest API 지원입니다.<br/><br/> 이제 Oracle Linux 8.2 및 8.3을 실행하는 VM에서 지원됩니다.
+**Azure로 VMware VM/물리적 재해 복구** | 마스터 대상 서버를 설정하는 동안 Ubuntu-20.04 사용에 대한 지원이 추가되었습니다.<br/><br/> 이제 Oracle Linux 8.2 및 8.3을 실행하는 VM에서 지원됩니다.
+
 
 ## <a name="updates-february-2021"></a>업데이트(2021년 2월)
 
@@ -72,7 +87,7 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원합니다. 여기서 N
 **공급자 및 에이전트** | 롤업에서 자세히 설명하는 Site Recovery 에이전트 및 공급자에 대한 업데이트입니다.
 **문제 수정/향상된 기능** | Mobility Service에 대한 새 Linux 지원을 포함하여 롤업에서 자세히 설명하는 여러 수정 및 향상된 기능입니다.
 **Azure VM 재해 복구** | 이제 RHEL 8.3 및 Oracle Linux 7.9를 실행하는 VM을 지원합니다.
-**Azure로 VMware VM/물리적 재해 복구** | 이제 RHEL 8.3 및 Oracle Linux 7.9/8.3을 실행하는 VM을 지원합니다.
+**Azure로 VMware VM/물리적 재해 복구** | 이제 RHEL 8.3, Oracle Linux 7.9를 실행하는 VM을 지원합니다.
 
 ## <a name="updates-october-2020"></a>업데이트(2020년 10월)
 
@@ -603,7 +618,7 @@ Azure VM의 재해 복구에는 VM 라이선스 비용 및 네트워크/스토�
 
 **기능** | **세부 정보**
 --- | ---
-**Linux 지원** | RedHat Enterprise Linux 6.10, CentOS 6.10에 대한 지원이 추가되었습니다.<br/><br/> 이제 레거시 BIOS 호환성 모드에서 GPT(GUID 파티션 테이블) 파티션 스타일을 사용하는 Linux 기반 VM을 지원합니다. 자세한 내용은 [Azure VM FAQ](../virtual-machines/faq-for-disks.md)를 검토하세요.
+**Linux 지원** | RedHat Enterprise Linux 6.10, CentOS 6.10에 대한 지원이 추가되었습니다.<br/><br/> 이제 레거시 BIOS 호환성 모드에서 GPT(GUID 파티션 테이블) 파티션 스타일을 사용하는 Linux 기반 VM을 지원합니다. 자세한 내용은 [Azure VM FAQ](../virtual-machines/faq-for-disks.yml)를 검토하세요.
 **마이그레이션 후 VM 재해 복구** | 복제를 사용하도록 설정하기 전에 VM에서 Mobility Service를 제거할 필요 없이 Azure로 마이그레이션 된 온-프레미스 VMware VM의 보조 지역에 대한 재해 복구를 지원합니다.
 **Windows Server 2008** | Windows Server 2008 R2/2008 64비트 및 32비트를 실행하는 컴퓨터를 마이그레이션할 수 있도록 지원합니다.<br/><br/> 마이그레이션(복제 및 장애 조치(failover))만 지원합니다. 장애 복구(failback)는 지원하지 않습니다.
 

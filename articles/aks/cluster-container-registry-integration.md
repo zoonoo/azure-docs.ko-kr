@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 01/08/2021
-ms.openlocfilehash: ab8065a14aac9e798bfe7d632aa5b33c44706190
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 850586db4edf721981315c67317790429dd67d64
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775831"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465993"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
 
@@ -25,10 +25,10 @@ Azure CLI를 사용하면 몇 가지 간단한 명령으로 AKS와 ACR의 통합
 
 이러한 예제에는 다음이 필요합니다.
 
-* **Azure 구독** 의 **소유자** 또는 **Azure 계정 관리자** 역할
+* **소유자**, **Azure 계정 관리자**, 또는 **Azure 공동 관리자** 역할을 **Azure 구독에서 수행하는 경우**
 * Azure CLI 버전 2.7.0 이상
 
-**소유자** 또는 **Azure 계정 관리자** 역할이 필요하지 않도록 관리 ID를 수동으로 구성하거나 기존 관리 ID를 사용하여 AKS에서 ACR을 인증할 수 있습니다. 자세한 내용은 [Azure Container Registry에 인증하기 위해 Azure 관리 ID 사용](../container-registry/container-registry-authentication-managed-identity.md)을 참조하세요.
+**소유자**, **Azure 계정 관리자**, 또는 **Azure 공동 관리자** 역할이 필요하지 않도록 하려면 기존 관리 ID를 사용하여 AKS에서 ACR을 인증할 수 있습니다. 자세한 내용은 [Azure Container Registry에 인증하기 위해 Azure 관리 ID 사용](../container-registry/container-registry-authentication-managed-identity.md)을 참조하세요.
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>ACR 통합을 사용하여 새 AKS 클러스터 만들기
 
@@ -71,6 +71,9 @@ az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 ```
+
+> [!NOTE]
+> `az aks update --attach-acr`을 실행하면 명령을 실행하는 사용자의 권한을 사용하여 역할 ACR 할당을 생성합니다. 이 역할은 kubelet 관리 ID에 할당됩니다. AKS 관리 ID에 대한 자세한 내용은 [관리 ID 요약][summary-msi]을 참조하세요.
 
 다음을 사용하여 ACR과 AKS 클러스터 간의 통합을 제거할 수도 있습니다.
 
@@ -151,9 +154,11 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 
 ### <a name="troubleshooting"></a>문제 해결
 * [az aks check-acr](/cli/azure/aks#az_aks_check_acr) 명령을 실행하여 AKS 클러스터에서 레지스트리에 액세스할 수 있는지 확인합니다.
-* [ACR 진단](../container-registry/container-registry-diagnostics-audit-logs.md)에 대한 자세한 정보
+* [ACR 모니터링](../container-registry/monitor-service.md)에 대해 알아봅니다.
 * [ACR 상태](../container-registry/container-registry-check-health.md)에 대한 자세한 정보
 
 <!-- LINKS - external -->
 [AKS AKS CLI]: /cli/azure/aks#az_aks_create
 [Image Pull secret]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+
+[summary-msi]: use-managed-identity.md#summary-of-managed-identities

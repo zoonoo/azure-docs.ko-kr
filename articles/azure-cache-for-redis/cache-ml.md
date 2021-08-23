@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 023bef17efd0d61031f51d37ab48b633b297ef23
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 0541b626168fb680daa2fc5c0c14df5bc8a4ea7c
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112234504"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111904178"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Azure Cache for Redis를 사용하여 Azure Functions에 기계 학습 모델 배포
 
@@ -51,7 +51,7 @@ Azure Cache for Redis는 성능이 뛰어나고 확장 가능합니다. Azure Ma
 
 1. **새 Redis Cache** 페이지에서 새 캐시의 설정을 구성합니다.
 
-   | 설정      | 제안 값  | 설명 |
+   | 설정      | 제안 값  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **DNS 이름** | 전역적으로 고유한 이름을 입력합니다. | 이 캐시 이름은 1~63자 사이의 문자열이어야 합니다. 문자열에는 숫자, 문자 또는 하이픈만 사용할 수 있습니다. 이름은 숫자 또는 문자로 시작하고 끝나야 하며 연속 하이픈을 포함할 수 없습니다. 캐시 인스턴스의 *호스트 이름* 은 *\<DNS name>.redis.cache.windows.net* 입니다. |
    | **구독** | 드롭다운하여 구독을 선택합니다. | 이 구독 아래에 새 Azure Cache for Redis 인스턴스가 만들어집니다. |
@@ -69,7 +69,7 @@ Azure Cache for Redis는 성능이 뛰어나고 확장 가능합니다. Azure Ma
 
 1. 프리미엄 캐시 인스턴스의 **고급** 탭에서 TLS가 아닌 다른 포트, 클러스터링 및 데이터 지속성에 대한 설정을 구성합니다.
 
-1. **다음: 태그** 탭을 선택하거나 페이지 하단에서 **다음: 태그** 단추를 선택합니다.
+1. **다음: 태그** 탭을 선택하거나 페이지 맨 아래에서 **다음: 태그** 단추를 선택합니다.
 
 1. 필요에 따라 리소스를 분류하려는 경우 **태그** 탭에서 이름 및 값을 입력합니다.
 
@@ -304,7 +304,7 @@ print(model_package.location)
 또는 빠른 시작을 완료한 경우 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다.
 
 > [!IMPORTANT]
-> 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹을 삭제하는 경우 그 안의 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내서에 이 샘플을 호스팅하는 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 완쪽에서 각 리소스를 개별적으로 삭제할 수 있습니다.
+> 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹을 삭제하는 경우 그 안의 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스트하기 위한 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.
 
 ### <a name="to-delete-a-resource-group"></a>리소스 그룹을 삭제하려면
 

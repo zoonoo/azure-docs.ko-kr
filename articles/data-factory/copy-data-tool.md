@@ -4,14 +4,14 @@ description: Azure Data Factory UI의 데이터 복사 도구에 대한 정보�
 author: dearandyxu
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 06/01/2021
 ms.author: yexu
-ms.openlocfilehash: 18d61c7f51547a524e64fc44c98e70e0f5bc2752
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68bfa62817d971ce8c8127f44f43576431a499fc
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100372997"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372013"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Azure Data Factory의 데이터 복사 도구
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -54,7 +54,7 @@ Azure Data Factory 데이터 복사 도구는 일반적으로 엔드투엔드 �
 
 ![파일 설정](./media/copy-data-tool/file-format-settings.png)
 
-검색 후:
+검색 후 **데이터 미리 보기** 를 선택합니다.
 
 ![검색된 파일 설정 및 미리 보기](./media/copy-data-tool/after-detection.png)
 
@@ -88,7 +88,7 @@ Azure Data Factory 데이터 복사 도구는 일반적으로 엔드투엔드 �
 
 **파일 또는 폴더** 의 **찾아보기** 단추를 클릭하여 이러한 폴더(예: 2016->03->01->02)중 하나를 찾아서 **선택** 을 클릭합니다. 텍스트 상자에 2016/03/01/02가 표시됩니다. 
 
-그런 후 **2016** 을 **{year}** 로, **03** 을 **{month}** 로, **01** 을 **{day}** 로, **02** 를 **{hour}** 로 바꾼 다음, **탭** 키를 누릅니다. 이러한 네 가지 변수의 형식을 선택하는 드롭다운 목록이 표시됩니다.
+그런 후 **2016** 을 **{year}** 로, **03** 을 **{month}** 로, **01** 을 **{day}** 로, **02** 를 **{hour}** 로 바꾼 다음, **탭** 키를 누릅니다. **파일 로드 동작** 섹션에서 **증분 로드: 시간으로 분할된 폴더/파일 이름** 을 선택하고 **속성** 페이지에서 **일정** 또는 **연속 창** 을 선택하는 경우 다음과 같은 네 가지 변수의 형식을 선택할 수 있는 드롭다운 목록이 표시됩니다.
 
 ![파일 또는 폴더 필터링](./media/copy-data-tool/filter-file-or-folder.png)
 

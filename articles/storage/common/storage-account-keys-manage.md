@@ -8,13 +8,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e5ea94fea00771b64634d6c28a7879fabb195f09
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6435fbffc6a78d82129443f15a9ebcc41ab52ce8
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89069662"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109635196"
 ---
 # <a name="manage-storage-account-access-keys"></a>스토리지 계정 액세스 키 관리
 
@@ -33,7 +33,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 계정 액세스 키�
 Azure Portal에서 스토리지 계정 액세스 키 또는 연결 문자열을 보고 복사하는 방법은 다음과 같습니다:
 
 1. [Azure Portal](https://portal.azure.com)의 스토리지 계정으로 이동합니다.
-1. **설정** 에서 **액세스 키** 를 선택합니다. 계정 액세스 키는 물론 각 키의 전체 연결 문자열이 나타납니다.
+1. **보안 + 네트워킹** 에서 **액세스 키** 를 선택합니다. 계정 액세스 키는 물론 각 키의 전체 연결 문자열이 나타납니다.
 1. **key1** 아래에서 **키** 값을 찾고, **복사** 단추를 클릭하여 계정 키를 복사합니다.
 1. 또는 전체 연결 문자열을 복사할 수 있습니다. **key1** 아래에서 **연결 문자열** 값을 찾고, **복사** 단추를 클릭하여 연결 문자열을 복사합니다.
 
@@ -54,7 +54,7 @@ $storageAccountKey = `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI를 사용하여 계정 액세스 키를 나열하려면 다음 예제와 같이 [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) 명령을 호출합니다. 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다. 
+Azure CLI를 사용하여 계정 액세스 키를 나열하려면 다음 예제와 같이 [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) 명령을 호출합니다. 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다. 
 
 ```azurecli-interactive
 az storage account keys list \
@@ -90,7 +90,7 @@ Azure Portal에서 스토리지 계정 액세스 키를 회전하는 방법은 �
 
 1. 스토리지 계정의 보조 액세스 키를 참조하도록 애플리케이션 코드의 연결 문자열을 업데이트합니다.
 1. [Azure Portal](https://portal.azure.com)의 스토리지 계정으로 이동합니다.
-1. **설정** 에서 **액세스 키** 를 선택합니다.
+1. **보안 + 네트워킹** 에서 **액세스 키** 를 선택합니다.
 1. 스토리지 계정에 대한 기본 키를 다시 생성하려면 기본 액세스 키 옆에 있는 **다시 생성** 단추를 선택합니다.
 1. 새 기본 액세스 키를 참조하도록 코드의 연결 문자열을 업데이트합니다.
 1. 같은 방식으로 보조 액세스 키를 다시 생성합니다.
@@ -116,7 +116,7 @@ PowerShell을 사용하여 스토리지 계정 액세스 키를 회전하는 방
 Azure CLI를 사용하여 스토리지 계정 액세스 키를 회전하는 방법은 다음과 같습니다.
 
 1. 스토리지 계정의 보조 액세스 키를 참조하도록 애플리케이션 코드의 연결 문자열을 업데이트합니다.
-1. 다음 예제와 같이 [az storage account keys renew](/cli/azure/storage/account/keys#az-storage-account-keys-renew) 명령을 호출하여 기본 액세스 키를 다시 생성합니다.
+1. 다음 예제와 같이 [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) 명령을 호출하여 기본 액세스 키를 다시 생성합니다.
 
     ```azurecli-interactive
     az storage account keys renew \

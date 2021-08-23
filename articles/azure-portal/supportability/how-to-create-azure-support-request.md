@@ -3,14 +3,13 @@ title: Azure 지원 요청을 만드는 방법
 description: 지원이 필요한 고객은 Azure Portal을 사용하여 셀프 서비스 솔루션을 찾고, 지원 요청을 만들고 관리할 수 있습니다.
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
-ms.custom: support-help-page
 ms.date: 05/25/2021
-ms.openlocfilehash: 4e3f54712830406f04f6c0eec5097d693723db1c
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 3b38a010fa23605019f1969a80e9f9a3cda467c8
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112458776"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110496581"
 ---
 # <a name="create-an-azure-support-request"></a>Azure 지원 요청 만들기
 

@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: d5320f44aa5d922cea852ab09e5141fad277e2b0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7b9de22a3209a75cec680ae3ea04d2e1f54c956c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566029"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110453270"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Azure Firewall을 사용하여 Windows 가상 데스크톱 배포 보호
 
@@ -35,18 +35,18 @@ Windows Virtual Desktop 환경에 대해 자세히 알아보려면 [Windows Virt
 
 Windows Virtual Desktop에 대해 만든 Azure 가상 머신이 제대로 작동하려면 여러 FQDN(정규화된 도메인 이름)에 액세스할 수 있어야 합니다. Azure Firewall은 이 구성을 간소화하기 위해 Windows Virtual Desktop FQDN 태그를 제공합니다. 다음 단계를 사용하여 아웃바운드 Windows Virtual Desktop 플랫폼 트래픽을 허용합니다.
 
-- Azure Firewall을 배포하고 Azure Firewall을 통해 모든 트래픽을 라우팅하도록 Windows Virtual Desktop 호스트 풀 UDR(사용자 정의 경로)을 구성합니다. 이제 기본 경로가 방화벽을 가리킵니다.
+- Azure Firewall을 배포하고 Azure Firewall을 통해 기본 트래픽(0.0.0.0/0)을 라우팅하도록 Windows Virtual Desktop 호스트 풀 서브넷 UDR(사용자 정의 경로)을 구성합니다. 이제 기본 경로가 방화벽을 가리킵니다.
 - 애플리케이션 규칙 컬렉션을 만들고 *WindowsVirtualDesktop* FQDN 태그를 사용하도록 설정하는 규칙을 추가합니다. 원본 IP 주소 범위는 호스트 풀 가상 네트워크이고, 프로토콜은 **https** 이고, 대상은 **WindowsVirtualDesktop** 입니다.
 
 - Windows Virtual Desktop 호스트 풀에 필요한 스토리지 및 서비스 버스 계정 집합은 배포에 따라 다르지만, 아직 WindowsVirtualDesktop FQDN 태그에 캡처되지 않습니다. 다음 방법 중 하나를 사용하여 이 문제를 해결할 수 있습니다.
 
-   - 호스트 풀 서브넷에서 *xt.blob.core.windows.net, *eh.servicebus.windows.net 및 *xt.table.core.windows.net에 대한 https 액세스를 허용합니다. 이러한 와일드카드 FQDN은 필요한 액세스를 지원하지만 덜 제한적입니다.
-   - 다음 로그 분석 쿼리를 사용하여 정확한 필수 FQDN을 나열하고 방화벽 애플리케이션 규칙에서 명시적으로 허용합니다.
+   - 호스트 풀 서브넷에서 *xt.blob.core.windows.net, *eh.servicebus.windows.net에 대한 https 액세스를 허용합니다. 이러한 와일드카드 FQDN은 필요한 액세스를 지원하지만 덜 제한적입니다.
+   - 다음 로그 분석 쿼리를 사용하여 호스트 풀의 WVD를 배포한 후 정확하게 일치하는 필수 FQDN을 나열하고, 방화벽 애플리케이션 규칙에서 명시적으로 허용합니다.
    ```
    AzureDiagnostics
    | where Category == "AzureFirewallApplicationRule"
    | search "Deny"
-   | search "gsm*eh.servicebus.windows.net" or "gsm*xt.blob.core.windows.net" or "gsm*xt.table.core.windows.net"
+   | search "gsm*eh.servicebus.windows.net" or "gsm*xt.blob.core.windows.net"
    | parse msg_s with Protocol " request from " SourceIP ":" SourcePort:int " to " FQDN ":" *
    | project TimeGenerated,Protocol,FQDN
    ```

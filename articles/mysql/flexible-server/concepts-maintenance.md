@@ -6,16 +6,14 @@ ms.author: nlarin
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 0da77cb5291022357384fdf2e14e90fe76850f4f
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 424402db1933c0a20ddd25a6e5af11d84d0775a8
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122642194"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481160"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-mysql--flexible-server"></a>Azure Database for MySQL에서 예약된 유지 관리 – 유동 서버
-
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 Azure Database for MySQL - 유연한 서버는 관리형 데이터베이스를 안전하고 안정적으로, 또 최신 상태로 유지하기 위해 정기적으로 유지 관리를 수행합니다. 유지 관리 중에 서버는 새로운 기능, 업데이트, 패치를 가져옵니다.
 

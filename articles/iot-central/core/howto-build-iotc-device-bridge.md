@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 04/19/2021
 ms.topic: how-to
-ms.openlocfilehash: 3fd74e0fddedba5f69176c83aea5a5522bc54c2a
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: f32f36399eec2b54b872ae9750ea2ddf2fb5a218
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113758013"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683788"
 ---
 # <a name="use-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>IoT Central 디바이스 브리지를 사용하여 다른 IoT 클라우드를 IoT Central에 연결
 
@@ -91,13 +91,13 @@ IoT Central 디바이스 브리지는 GitHub의 오픈 소스 솔루션입니다
 
 본문에 `timestamp` 필드를 포함하여 메시지의 UTC 날짜와 시간을 지정할 수 있습니다. 이 필드는 ISO 8601 형식이어야 합니다. 예들 들어 `2020-06-08T20:16:54.602Z`입니다. 타임스탬프를 포함하지 않으면 현재 날짜와 시간이 사용됩니다.
 
-본문에 `modelId` 필드를 포함할 수 있습니다. 프로비저닝하는 동안 디바이스를 디바이스 템플릿과 연결하려면 이 필드를 사용합니다. 이 기능은 [V3 애플리케이션](howto-faq.yml#how-do-i-get-information-about-my-application-)에서만 지원됩니다.
+본문에 `modelId` 필드를 포함할 수 있습니다. 프로비저닝하는 동안 디바이스를 디바이스 템플릿과 연결하려면 이 필드를 사용합니다. 이 기능은 [V3 애플리케이션](howto-get-app-info.md)에서만 지원됩니다.
 
 `deviceId`는 영숫자, 소문자여야 하고 하이픈을 포함할 수 있습니다.
 
-`modelId` 필드를 포함하지 않거나 IoT Central이 모델 ID를 인식하지 못하는 경우 인식할 수 없는 `deviceId`가 있는 메시지는 IoT Central에서 새로운 _연결되지 않은 디바이스_ 를 만듭니다. 운영자는 수동으로 디바이스를 올바른 디바이스 템플릿으로 마이그레이션할 수 있습니다. 자세히 알아보려면 [Azure IoT Central 애플리케이션에서 디바이스 관리 > 템플릿으로 디바이스 마이그레이션](howto-manage-devices-individually.md)을 참조하세요.
+`modelId` 필드를 포함하지 않거나 IoT Central이 모델 ID를 인식하지 못하는 경우 인식할 수 없는 `deviceId`가 있는 메시지는 IoT Central에서 새로운 _연결되지 않은 디바이스_ 를 만듭니다. 운영자는 수동으로 디바이스를 올바른 디바이스 템플릿으로 마이그레이션할 수 있습니다. 자세히 알아보려면 [Azure IoT Central 애플리케이션에서 디바이스 관리 > 템플릿으로 디바이스 마이그레이션](howto-manage-devices.md)을 참조하세요.
 
-[V2 애플리케이션](howto-faq.yml#how-do-i-get-information-about-my-application-)의 **Device Explorer > 연결되지 않은 디바이스** 페이지에 새 디바이스가 표시됩니다. 디바이스에서 들어오는 원격 분석 데이터를 받기 시작하려면 **연결** 을 선택하고 디바이스 템플릿을 선택합니다.
+[V2 애플리케이션](howto-get-app-info.md)의 **Device Explorer > 연결되지 않은 디바이스** 페이지에 새 디바이스가 표시됩니다. 디바이스에서 들어오는 원격 분석 데이터를 받기 시작하려면 **연결** 을 선택하고 디바이스 템플릿을 선택합니다.
 
 > [!NOTE]
 > 디바이스가 템플릿에 연결될 때까지 이 함수에 대한 모든 HTTP 호출은 403 오류 상태를 반환합니다.
@@ -283,4 +283,4 @@ measurements: req.body.payload_fields
 IoT Central 디바이스 브리지를 배포하는 방법을 알아보았으므로, 다음과 같은 권장 후속 단계를 진행하시기 바랍니다.
 
 > [!div class="nextstepaction"]
-> [디바이스 관리](howto-manage-devices-individually.md)
+> [디바이스 관리](howto-manage-devices.md)

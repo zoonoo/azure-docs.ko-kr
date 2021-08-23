@@ -2,14 +2,14 @@
 title: AKS(Azure Kubernetes Service)에 대한 질문과 대답
 description: AKS(Azure Kubernetes Service)에 대한 일반적인 질문에 대한 답변을 찾아보세요.
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 05/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: f13d7a33ce1dc04700932072fe0af80a901c681f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8feda70f346347a3559e2696d2912d2a976b0a63
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783200"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890308"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -49,6 +49,12 @@ Azure는 자동으로 야간 일정에 따라 클러스터의 Linux 노드에 �
 ### <a name="windows-server-nodes"></a>Windows Server 노드
 
 Windows Server 노드의 경우 Windows 업데이트가 자동으로 실행되고 최신 업데이트를 적용하지 않습니다. Windows 업데이트 릴리스 주기와 사용자 고유의 유효성 검사 프로세스에 대한 정기적인 일정에 따라, 클러스터에서 업그레이드를 수행하고 AKS 클러스터에서 Windows Server 노드 풀을 업그레이드해야 합니다. 이 업그레이드 프로세스는 최신 Windows Server 이미지 및 패치를 실행하는 노드를 만든 다음, 이전 노드를 제거합니다. 이 프로세스에 대한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조하세요.
+
+### <a name="are-there-additional-security-threats-relevant-to-aks-that-customers-should-be-aware-of"></a>고객이 알고 있어야 하는 AKS와 관련된 추가 보안 위협이 있나요?
+
+Microsoft는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 같은 서비스를 통해 워크로드를 보호하기 위해 수행할 수 있는 추가 작업에 대한 지침을 제공합니다. 다음은 고객이 알고 있어야 하는 AKS 및 Kubernetes와 관련된 추가 보안 위협 목록입니다.
+
+* [새 대규모 캠페인 대상 Kubeflow](https://techcommunity.microsoft.com/t5/azure-security-center/new-large-scale-campaign-targets-kubeflow/ba-p/2425750) - 2021년 6월 8일
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>AKS를 통해 2개의 리소스 그룹이 생성되는 이유는 무엇인가요?
 
@@ -199,7 +205,7 @@ AKS에는 이러한 구성을 견디고 복구할 수 있는 복원 메커니즘
 
 ## <a name="can-i-use-custom-vm-extensions"></a>사용자 지정 VM 확장을 사용할 수 있나요?
 
-Log Analytics 에이전트는 Microsoft에서 관리하는 확장이므로 지원됩니다. Log Analytics 에이전트가 아닌 경우 지원되지 않습니다. AKS는 관리되는 서비스이며 IaaS 리소스 조작은 지원되지 않습니다. 사용자 지정 구성 요소를 설치하려면 Kubernetes API 및 메커니즘을 사용하세요. 예를 들어 DaemonSets를 활용하여 필수 구성 요소를 설치할 수 있습니다.
+AKS는 관리형 서비스이며 IaaS 리소스 조작은 지원되지 않습니다. 사용자 지정 구성 요소를 설치하려면 Kubernetes API 및 메커니즘을 사용하세요. 예를 들어 DaemonSets를 활용하여 필수 구성 요소를 설치할 수 있습니다.
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>AKS는 고객 데이터를 클러스터 지역 외부에 저장하나요?
 
@@ -277,6 +283,9 @@ spec:
 
 해당 문제는 Kubernetes v1.20에서 해결되었습니다. 자세한 내용은 [Kubernetes 1.20: 볼륨 권한 변경의 세부적인 제어](https://kubernetes.io/blog/2020/12/14/kubernetes-release-1.20-fsgroupchangepolicy-fsgrouppolicy/)를 참조하세요.
 
+## <a name="can-i-use-fips-cryptographic-libraries-with-deployments-on-aks"></a>AKS에서 배포에 FIPS 암호화 라이브러리를 사용할 수 있나요?
+
+FIPS 사용 노드는 현재 Linux 기반 노드 풀에서 미리 보기로 제공됩니다. 자세한 내용은 [FIPS 사용 노드 풀 추가(미리 보기)](use-multiple-node-pools.md#add-a-fips-enabled-node-pool-preview)를 참조하세요.
 
 <!-- LINKS - internal -->
 
@@ -285,7 +294,7 @@ spec:
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration-cli.md
 [node-updates-kured]: node-updates-kured.md
-[aks-preview-cli]: /cli/azure/ext/aks-preview/aks
+[aks-preview-cli]: /cli/azure/aks
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [aks-rm-template]: /azure/templates/microsoft.containerservice/2019-06-01/managedclusters
 [aks-cluster-autoscaler]: cluster-autoscaler.md

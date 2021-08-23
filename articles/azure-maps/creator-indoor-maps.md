@@ -7,12 +7,13 @@ ms.date: 05/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: 646045df9a6586d80969ec3e80081d45d4dcd249
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+manager: philmea
+ms.openlocfilehash: c3e6632f607ca9168f63538e4c2a6d96d6197d8a
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535620"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032144"
 ---
 # <a name="creator-for-indoor-maps"></a>실내 맵용 Creator
 
@@ -116,7 +117,7 @@ Azure Maps Creator는 맵 만들기를 지원하는 다음 서비스를 제공�
 
 ### <a name="render-v2-get-map-tile-api"></a>Render V2–맵 타일 가져오기 API
 
-Azure Maps [Render V2 - 맵 타일 가져오기 API](/rest/api/maps/render-v2/get-map-tile)가 Creator 타일 세트를 지원하도록 확장되었습니다.
+Azure Maps [Render V2 - 맵 타일 가져오기 API](/rest/api/maps/renderv2/getmaptilepreview)가 Creator 타일 세트를 지원하도록 확장되었습니다.
 
 애플리케이션은 Render V2-맵 타일 가져오기 API를 사용하여 타일 세트를 요청할 수 있습니다. 그런 다음, 타일 세트를 맵 컨트롤 또는 SDK에 통합할 수 있습니다. Render V2 서비스를 사용하는 맵 컨트롤의 예제는 [실내 맵 모듈](#indoor-maps-module)을 참조하세요.
 
@@ -145,7 +146,7 @@ Azure Maps [Render V2 - 맵 타일 가져오기 API](/rest/api/maps/render-v2/ge
  Azure Maps Creator 나열, 업데이트 및 삭제 API를 사용하여 데이터 세트, 타일 세트 및 기능 상태 세트를 나열, 업데이트 및 삭제할 수 있습니다.
 
 >[!NOTE]
->항목 목록을 검토하여 항목을 삭제할지 결정할 때 해당 삭제로 인해 모든 종속 API 또는 애플리케이션에 미치는 영향을 고려합니다. 예를 들어, [Render V2-맵 타일 가져오기 API](/rest/api/maps/render-v2/get-map-tile)를 통해 애플리케이션에서 사용하는 타일 세트를 삭제하면 애플리케이션이 해당 타일 세트를 렌더링하지 못합니다.
+>항목 목록을 검토하여 항목을 삭제할지 결정할 때 해당 삭제로 인해 모든 종속 API 또는 애플리케이션에 미치는 영향을 고려합니다. 예를 들어, [Render V2-맵 타일 가져오기 API](/rest/api/maps/renderv2/getmaptilepreview)를 통해 애플리케이션에서 사용하는 타일 세트를 삭제하면 애플리케이션이 해당 타일 세트를 렌더링하지 못합니다.
 
 ### <a name="example-updating-a-dataset"></a>예제: 데이터 세트 업데이트
 

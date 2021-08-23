@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 02/12/2021
+ms.date: 05/27/2021
 tags: active-directory
 ms.author: mimart
 author: msmimart
@@ -14,20 +14,20 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60cd944ecb144a30e872259f6e959a11c3ea6319
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c971c93d873bb8326b986cfd771ef96b615f2131
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100365432"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110612769"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B 협업 문제 해결
 
 Azure AD(Azure Active Directory) B2B 협업과 관련된 일반적인 문제에 대한 몇 가지 해결책은 다음과 같습니다.
 
    > [!IMPORTANT]
-   > - **2021년 1월 4일부터** Google은 [WebView 로그인 지원을 중단](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail에서 Google 페더레이션 또는 셀프 서비스 등록을 사용하는 경우 [기간 업무 네이티브 애플리케이션의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
-   > - **2021년 10월부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비가 되면 고객이 [이메일 일회성 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다. 이 공개 미리 보기 기능에 대한 사용자 의견을 환영하며 협업을 위해 훨씬 더 많은 방법을 만들어 냈습니다.
+   > - **2021년 하반기부터** Google은 [웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. B2B 초대 또는 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md)에 Google 페더레이션을 사용하거나 Gmail에서 셀프 서비스 등록을 사용하는 경우, 앱에서 포함된 웹 보기를 사용하여 사용자를 인증하면 Google Gmail 사용자는 로그인할 수 없습니다. [자세한 정보를 알아보세요](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **2021년 10월부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비 단계로, 고객은 현재 일반 공급 중인 [메일 일회용 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>외부 사용자를 추가했지만 [전체 주소 목록]이나 사용자 선택에서 볼 수 없습니다.
 
@@ -39,6 +39,9 @@ SPO(SharePoint Online) 사용자 선택에서 기존 게스트 사용자를 검�
 
 이 기능은 테넌트 및 사이트 모음 수준에서 설정 'ShowPeoplePickerSuggestionsForGuestUsers'를 통해 이 기능을 사용하도록 설정할 수 있습니다. 또한 멤버가 디렉터리에서 모든 기존 게스트 사용자를 검색할 수 있도록 허용하는 Set-SPOTenant 및 Set-SPOSite cmdlet을 사용하여 이 기능을 설정할 수 있습니다. 테넌트 범위에 대한 변경 내용은 이미 프로비전된 SPO 사이트에 영향을 주지 않습니다.
 
+## <a name="my-guest-invite-settings-and-domain-restrictions-arent-being-respected-by-sharepoint-onlineonedrive"></a>내 게스트 초대 설정 및 도메인 제한이 SharePoint Online/OneDrive에서 적용되지 않습니다.
+
+기본적으로 SharePoint Online 및 OneDrive에는 고유한 외부 사용자 옵션 집합이 있으며 Azure AD의 설정을 사용하지 않습니다.  이러한 애플리케이션 간에 옵션이 일관되도록 하려면 [Azure AD B2B와 SharePoint 및 OneDrive 통합](/sharepoint/sharepoint-azureb2b-integration-preview)을 사용하도록 설정해야 합니다.
 ## <a name="invitations-have-been-disabled-for-directory"></a>디렉터리에 대한 초대가 사용하도록 설정되지 않았습니다.
 
 사용자를 초대할 수 있는 권한이 없다는 알림이 표시되면 Azure Active Directory > 사용자 설정 > 외부 사용자 > 외부 협업 관리 설정에서 사용자 계정이 외부 사용자를 초대할 권한이 있는지 확인합니다.
@@ -63,6 +66,14 @@ Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나
 
 이 문제를 해결하려면 외부 사용자의 관리자가 사용자 계정을 Azure Active Directory와 동기화해야 합니다.
 
+## <a name="i-cant-invite-an-email-address-because-of-a-conflict-in-proxyaddresses"></a>ProxyAddresses의 충돌 때문에 메일 주소를 초대할 수 없습니다.
+
+이 충돌은 디렉터리의 다른 개체가 해당 proxyAddresses 중 하나와 동일한 초대 메일 주소를 가질 때 발생합니다. 이 충돌을 해결하려면 이 메일을 다시 초대하기 전에 [user](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true) 개체에서 이메일을 제거하고 연결된 [연락처](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) 개체도 삭제합니다.
+
+## <a name="the-guest-user-object-doesnt-have-a-proxyaddress"></a>게스트 사용자 개체에 proxyAddress가 없습니다.
+
+외부 게스트 사용자를 초대할 때 기존 [연락처 개체](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true)와 충돌하는 경우가 있습니다. 이 충돌이 발생하면 proxyAddress 없이 게스트 사용자가 만들어집니다. 즉, 사용자가 [Just-In-Time 사용](redemption-experience.md#redemption-through-a-direct-link) 또는 [메일 일회용 암호 인증](one-time-passcode.md#user-experience-for-one-time-passcode-guest-users)을 사용하여 이 계정을 사용할 수 없습니다.
+
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>일반적으로 잘못된 문자인 ‘\#’은 Azure AD와 어떻게 동기화됩니까?
 
 초대된 계정 user@contoso.com becomes user_contoso.com#EXT#@fabrikam.onmicrosoft.com이므로 “\#”은 Azure AD B2B 협업 또는 외부 사용자에 대해 예약된 UPN 문자입니다. 따라서 온-프레미스에서 가져온 UPN의 \#은 Azure Portal에 로그인할 때 허용되지 않습니다. 
@@ -74,6 +85,9 @@ Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나
 ## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>외부 사용자가 상환할 전자 메일을 받지 못했습니다.
 
 초대 대상자는 ISP 또는 스팸 필터를 확인하여 Invites@microsoft.com 주소가 허용되는지 확인해야 합니다.
+
+> [!NOTE]
+> 중국의 21Vianet에서 운영하는 Azure 서비스의 경우 발신자 주소는 Invites@oe.21vianet.com입니다.
 
 ## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>사용자 지정 메시지가 초대 메시지에 포함되지 않는다는 것을 확인했습니다.
 

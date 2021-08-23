@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 05/16/2021
-ms.openlocfilehash: 8e377ae50d19df3b9c86b05cbe207479c2b0597d
-ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
+ms.openlocfilehash: ce3526f824d34e69cf33d41ba591a8ae6a634ea5
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113664182"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985307"
 ---
 # <a name="access-to-azure-virtual-networks-from-azure-logic-apps-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 액세스
 
@@ -112,13 +112,13 @@ ISE를 만들 때 개발자 SKU 또는 프리미엄 SKU를 선택할 수 있습�
   > [!IMPORTANT]
   > 이 SKU에는 SLA(서비스 수준 계약), 스케일 업 기능 또는 재생 중 중복도가 없습니다. 즉, 지연 또는 가동 중지 시간이 발생할 수 있습니다. 백 엔드 업데이트로 서비스가 일시적으로 중단될 수 있습니다.
 
-  용량 및 한도 정보는 [Azure Logic Apps의 ISE 한도](logic-apps-limits-and-config.md#integration-service-environment-ise)를 참조하세요. ISE의 요금 청구 방식은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#ise-pricing)을 참조하세요.
+  용량 및 한도 정보는 [Azure Logic Apps의 ISE 한도](logic-apps-limits-and-config.md#integration-service-environment-ise)를 참조하세요. ISE의 요금 청구 방식은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조하세요.
 
 * **Premium**
 
   프로덕션 및 성능 테스트에 사용할 수 있는 ISE를 제공합니다. 프리미엄 SKU에는 SLA 지원, 기본 제공 트리거 및 작업, 표준 커넥터, 엔터프라이즈 커넥터, 단일 [표준 계층](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) 통합 계정, 스케일 업 기능 및 재생 중 중복도가 [고정된 월별 가격](https://azure.microsoft.com/pricing/details/logic-apps)으로 포함됩니다.
 
-  용량 및 한도 정보는 [Azure Logic Apps의 ISE 한도](logic-apps-limits-and-config.md#integration-service-environment-ise)를 참조하세요. ISE의 요금 청구 방식은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#ise-pricing)을 참조하세요.
+  용량 및 한도 정보는 [Azure Logic Apps의 ISE 한도](logic-apps-limits-and-config.md#integration-service-environment-ise)를 참조하세요. ISE의 요금 청구 방식은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조하세요.
 
 <a name="endpoint-access"></a>
 
@@ -156,13 +156,13 @@ ISE가 내부 액세스 엔드포인트를 사용하는지 외부 액세스 엔�
 
 ## <a name="pricing-model"></a>가격 책정 모델
 
-ISE에서 실행되는 논리 앱, 기본 제공 트리거, 기본 제공 작업 및 커넥터는 사용량 기반 요금제와는 다른 고정 요금제를 사용합니다. 자세한 내용은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#ise-pricing)을 참조하세요. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요.
+ISE에서 실행되는 논리 앱, 기본 제공 트리거, 기본 제공 작업 및 커넥터는 사용량 기반 요금제와는 다른 고정 요금제를 사용합니다. 자세한 내용은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조하세요. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요.
 
 <a name="create-integration-account-environment"></a>
 
 ## <a name="integration-accounts-with-ise"></a>ISE와의 통합 계정
 
-ISE(통합 서비스 환경) 내에서 논리 앱을 통해 통합 계정을 사용할 수 있습니다. 그러나 해당 통합 계정은 연결된 논리 앱과 *동일한 ISE* 를 사용해야 합니다. ISE의 논리 앱은 같은 ISE에 있는 통합 계정만 참조할 수 있습니다. 통합 계정을 만들 때는 통합 계정의 위치로 ISE를 선택할 수 있습니다. ISE가 포함된 통합 계정의 가격 책정 및 요금 청구 방식은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#ise-pricing)을 참조하세요. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요. 한도 정보는 [통합 계정 한도](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)를 참조하세요.
+ISE(통합 서비스 환경) 내에서 논리 앱을 통해 통합 계정을 사용할 수 있습니다. 그러나 해당 통합 계정은 연결된 논리 앱과 *동일한 ISE* 를 사용해야 합니다. ISE의 논리 앱은 같은 ISE에 있는 통합 계정만 참조할 수 있습니다. 통합 계정을 만들 때는 통합 계정의 위치로 ISE를 선택할 수 있습니다. ISE가 포함된 통합 계정의 가격 책정 및 요금 청구 방식은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조하세요. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요. 한도 정보는 [통합 계정 한도](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

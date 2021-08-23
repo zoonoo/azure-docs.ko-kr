@@ -1,5 +1,5 @@
 ---
-title: Azure Table Storage 콘텐츠 검색
+title: Azure Table Storage 검색
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search 인덱서를 사용하여 Azure Table Storage에 저장된 데이터를 인덱싱하는 방법을 알아봅니다.
 manager: nitinme
@@ -9,16 +9,16 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 2c67cd4d071660da2ca5714623695ca434329263
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3994ee7e87670adb6ffbe2aa6f7279d11afa146
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91275186"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111557057"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Azure Cognitive Search를 사용하여 Azure Table Storage에서 테이블을 인덱싱하는 방법
 
-이 문서에서는 Azure Cognitive Search를 사용하여 Azure Table Storage에 저장된 데이터를 인덱싱하는 방법을 보여줍니다.
+이 문서에서는 Azure Cognitive Search를 사용하여 Azure Table Storage에 저장된 데이터를 인덱싱하는 방법을 보여 줍니다.
 
 ## <a name="set-up-azure-table-storage-indexing"></a>Azure Table Storage 인덱싱 설정
 

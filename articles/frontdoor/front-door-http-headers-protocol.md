@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2020
 ms.author: duau
-ms.openlocfilehash: 5989f91233448c04d50ba1c69a06851b91426a03
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 2ad97656b822bc5ffc957469842436ec84d9e812
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167807"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785760"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Azure Front Door의 HTTP 헤더에 대한 프로토콜 지원
 이 문서에서는 Front Door가 호출 경로의 일부와 함께 지원하는 프로토콜에 대해 간략하게 설명합니다(이미지 참조). 다음 섹션에서는 Front Door가 지원하는 HTTP 헤더에 대해 자세히 설명합니다.
@@ -37,7 +37,7 @@ Front Door에는 제한으로 인해 제거되지 않는 한 들어오는 요청
 | ------------- | ------------- |
 | Via |  *Via: 1.1 Azure* </br> Front Door는 Via 헤더의 값으로 클라이언트의 HTTP 버전과 그 뒤의 *Azure* 를 추가합니다. 이 헤더는 클라이언트의 HTTP 버전을 나타내며 Front Door가 클라이언트와 백 엔드 간 요청에 대한 중간 수신자였습니다.  |
 | X-Azure-ClientIP | *X-Azure-ClientIP: 127.0.0.1* </br> 처리 중인 요청과 관련된 클라이언트 IP 주소를 나타냅니다. 예를 들어 프록시에서 들어오는 요청은 원본 호출자의 IP 주소를 나타내기 위해 X-Forwarded-For 헤더를 추가할 수 있습니다. |
-| X-Azure-SocketIP |  *X-Azure-SocketIP: 127.0.0.1* </br> 현재 요청이 시작된 TCP 연결과 관련된 소켓 IP 주소를 나타냅니다. 요청의 클라이언트 IP 주소는 사용자가 임의로 재정의할 수 있으므로 해당 소켓 IP 주소와 다를 수 있습니다.|
+| X-Azure-SocketIP |  *X-Azure-SocketIP: 127.0.0.1* </br> 현재 요청이 시작된 TCP 연결과 관련된 소켓 IP 주소를 나타냅니다. 사용자가 클라이언트 IP를 임의로 덮어쓸 수 있으므로 요청의 클라이언트 IP 주소는 해당 소켓 IP 주소와 다를 수 있습니다.|
 | X-Azure-Ref | *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Front Door에서 제공하는 요청을 식별하는 고유한 참조 문자열입니다. 액세스 로그를 검색하는 데 사용되며 문제 해결을 위해 중요합니다.|
 | X-Azure-RequestChain | *X-Azure-RequestChain: hops=1* </br> Front Door에서 요청 루프를 검색하는 헤더이며 사용자는 이에 대한 종속성을 사용하지 않아야 합니다. |
 | X-Azure-FDID | *X-Azure-FDID: 55ce4ed1-4b06-4bf1-b40e-4638452104da* <br/> 특정 Front Door 리소스에서 가져온 요청을 식별하는 참조 문자열입니다. 값은 Azure Portal에서 보거나 관리 API를 사용하여 검색할 수 있습니다. 해당 헤더를 IP ACL과 함께 사용하여 특정 Front Door 리소스의 요청만 수락하도록 엔드포인트를 잠글 수 있습니다. [자세한 내용](front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-)은 FAQ를 참조하세요. |

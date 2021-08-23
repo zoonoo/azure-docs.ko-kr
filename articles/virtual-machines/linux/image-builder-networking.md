@@ -1,19 +1,19 @@
 ---
 title: Azure Image Builder 서비스 네트워킹 옵션
 description: Azure VM Image Builder 서비스를 배포하는 경우 네트워킹 옵션 이해
-author: kof-f
-ms.author: kofiforson
-ms.reviewer: cynthn
+author: danielsollondon
+ms.author: danis
 ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.openlocfilehash: 19e77b8a2baa168b1ca6ed335711b2f41a2c1aea
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.collection: linux
+ms.openlocfilehash: cd5027ca6e0ce3dc02da14b7dd6afd6e00e3f92d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113596284"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101669433"
 ---
 # <a name="azure-image-builder-service-networking-options"></a>Azure Image Builder 서비스 네트워킹 옵션
 

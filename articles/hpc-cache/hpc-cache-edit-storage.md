@@ -4,14 +4,14 @@ description: Azure HPC Cache 스토리지 대상을 편집하는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 03/29/2021
 ms.author: v-erkel
-ms.openlocfilehash: 0c505937d4adbe2596e91ed7269676e60ada8253
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ebf68c1eb06984e2de8114c53e1bb55d52aed70a
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772592"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862636"
 ---
 # <a name="edit-storage-targets"></a>스토리지 대상 편집
 
@@ -45,7 +45,7 @@ Azure Portal 또는 Azure CLI를 사용하여 스토리지 대상을 제거하�
 
 [Azure HPC Cache용 Azure CLI 설치](./az-cli-prerequisites.md).
 
-[az hpc-cache storage-target remove](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-remove)를 사용하여 캐시에서 스토리지 대상을 삭제합니다.
+[az hpc-cache storage-target remove](/cli/azure/hpc-cache/storage-target#az_hpc_cache_storage_target_remove)를 사용하여 캐시에서 스토리지 대상을 삭제합니다.
 
 ```azurecli
 $ az hpc-cache storage-target remove --resource-group cache-rg --cache-name doc-cache0629 --name blob1
@@ -84,7 +84,7 @@ Azure HPC Cache의 **네임스페이스** 페이지를 사용합니다. 네임�
 
 [Azure HPC Cache용 Azure CLI 설치](./az-cli-prerequisites.md).
 
-Azure CLI를 사용하여 Blob 스토리지 대상의 네임스페이스를 변경하려면 [az hpc-cache blob-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update) 명령을 사용합니다. `--virtual-namespace-path` 값만 변경할 수 있습니다.
+Azure CLI를 사용하여 Blob 스토리지 대상의 네임스페이스를 변경하려면 [az hpc-cache blob-storage-target update](/cli/azure/hpc-cache/blob-storage-target#az_hpc_cache_blob_storage_target_update) 명령을 사용합니다. `--virtual-namespace-path` 값만 변경할 수 있습니다.
 
   ```azurecli
   az hpc-cache blob-storage-target update --cache-name cache-name --name target-name \
@@ -125,7 +125,7 @@ Azure HPC Cache의 **네임스페이스** 페이지를 사용하여 네임스페
 
 [Azure HPC Cache용 Azure CLI 설치](./az-cli-prerequisites.md).
 
-[az hpc-cache nfs-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target) 명령의 ``--junction`` 옵션을 사용하여 네임스페이스 경로, NFS 내보내기 또는 내보내기 하위 디렉터리를 변경할 수 있습니다.
+[az hpc-cache nfs-storage-target update](/cli/azure/hpc-cache/nfs-storage-target) 명령의 ``--junction`` 옵션을 사용하여 네임스페이스 경로, NFS 내보내기 또는 내보내기 하위 디렉터리를 변경할 수 있습니다.
 
 ``--junction`` 매개 변수는 다음 값을 사용합니다.
 
@@ -151,7 +151,10 @@ az hpc-cache nfs-storage-target update --cache-name mycache \
 
 ### <a name="change-the-usage-model"></a>사용 모델 변경
 
-사용 모델은 캐시가 데이터를 보존하는 방법에 영향을 줍니다. 자세히 알아보려면 [사용 모델 선택](hpc-cache-add-storage.md#choose-a-usage-model)을 참조하세요.
+사용 모델은 캐시가 데이터를 보존하는 방법에 영향을 줍니다. 자세한 내용은 [캐시 사용 모델 이해](cache-usage-models.md)를 읽어보세요.
+
+> [!NOTE]
+> 사용 모델을 변경하는 경우 NLM 오류를 방지하기 위해 클라이언트를 다시 탑재해야 할 수 있습니다. 자세한 내용은 [클라이언트를 다시 탑재해야 할 시점 파악](cache-usage-models.md#know-when-to-remount-clients-for-nlm)을 읽어보세요.
 
 NFS 스토리지 대상에 대한 사용 모델을 변경하려면 다음 방법 중 하나를 사용합니다.
 
@@ -167,7 +170,7 @@ Azure Portal의 **스토리지 대상** 페이지에서 사용 모델을 변경�
 
 [Azure HPC Cache용 Azure CLI 설치](./az-cli-prerequisites.md).
 
-[az hpc-cache-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update) 명령을 사용합니다.
+[az hpc-cache-storage-target update](/cli/azure/hpc-cache/nfs-storage-target#az_hpc_cache_nfs_storage_target_update) 명령을 사용합니다.
 
 update 명령은 NFS 스토리지 대상을 추가하는 데 사용하는 명령과 거의 동일합니다. 자세한 내용과 예제는 [NFS 스토리지 대상 만들기](hpc-cache-add-storage.md#create-an-nfs-storage-target)를 참조하세요.
 
@@ -175,7 +178,7 @@ update 명령은 NFS 스토리지 대상을 추가하는 데 사용하는 명령
 
 캐시 이름, 스토리지 대상 이름 및 리소스 그룹 값도 필요합니다.
 
-사용 모델의 이름을 확인하려는 경우에는 [az hpc-cache usage-model list](/cli/azure/ext/hpc-cache/hpc-cache/usage-model#ext-hpc-cache-az-hpc-cache-usage-model-list) 명령을 사용합니다.
+사용 모델의 이름을 확인하려는 경우에는 [az hpc-cache usage-model list](/cli/azure/hpc-cache/usage-model#az_hpc_cache_usage-model-list) 명령을 사용합니다.
 
 캐시가 중지되었거나 정상 상태가 아니면 캐시가 정상 상태가 된 후 업데이트가 적용됩니다.
 

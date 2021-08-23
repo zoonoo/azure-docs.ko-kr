@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperf-fy20q4, tracking-python
-ms.openlocfilehash: 13becdf8c49d9affe8c2946d6147707fbe954437
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: bf4a019c9f40475750fd508a56f7f8903e0a2876
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889325"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538859"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning 스튜디오 사용
 
@@ -39,7 +39,7 @@ ms.locfileid: "107889325"
 > [!IMPORTANT]
 > 작업 영역이 Azure Government 또는 Azure 중국 21Vianet과 같은 __소버린 클라우드__ 에 있는 경우 통합 Notebook은 가상 네트워크에 있는 스토리지 사용을 지원하지 ‘않습니다’. 대신 컴퓨팅 인스턴스에서 Jupyter Notebook을 사용할 수 있습니다. 자세한 내용은 [컴퓨팅 인스턴스 Notebook의 데이터 액세스](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) 섹션을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 + 일반적인 가상 네트워크 시나리오 및 아키텍처를 이해하려면 [네트워크 보안 개요](how-to-network-security-overview.md)를 참조하세요.
 
@@ -68,6 +68,13 @@ ms.locfileid: "107889325"
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
+### <a name="firewall-settings"></a>방화벽 설정
+
+Azure Storage 계정과 같은 일부 저장소 서비스에는 해당 특정 서비스 인스턴스의 퍼블릭 엔드포인트에 적용되는 방화벽 설정이 있습니다. 일반적으로 이 설정을 사용하면 공용 인터넷에서 특정 IP 주소의 액세스를 허용하거나 허용하지 않을 수 있습니다. Azure Machine Learning 스튜디오를 사용하는 경우에는 __지원되지 않습니다__. Azure Machine Learning SDK 또는 CLI를 사용할 때 지원됩니다.
+
+> [!TIP]
+> Azure Firewall 서비스를 사용하는 경우 Azure Machine Learning 스튜디오가 지원됩니다. 자세한 내용은 [방화벽 뒤에 작업 영역 사용](how-to-access-azureml-behind-firewall.md)을 참조하세요.
+
 ### <a name="configure-datastores-to-use-workspace-managed-identity"></a>작업 영역 관리 ID를 사용하도록 데이터 저장소 구성
 
 [서비스 엔드포인트](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)나 [프라이빗 엔드포인트](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)를 사용하여 가상 네트워크에 Azure 스토리지 계정을 추가한 후 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md) 인증을 사용하도록 데이터 저장소를 구성해야 합니다. 그러면 스튜디오에서 스토리지 계정의 데이터에 액세스할 수 있습니다.
@@ -84,7 +91,7 @@ Azure Machine Learning은 [데이터 저장소](concept-data.md#datastores)를 �
 
     ![작업 영역 관리 ID를 사용하도록 설정하는 방법을 보여주는 스크린샷](./media/how-to-enable-studio-virtual-network/enable-managed-identity.png)
 
-해당 단계는 Azure RBAC를 사용하여 스토리지 서비스에 작업 영역 관리 ID를 __판독기__ 로 추가합니다. __판독기__ 액세스를 통해 작업 영역은 방화벽 설정을 검색하여 데이터가 가상 네트워크를 벗어나지 않도록 할 수 있습니다. 변경 내용을 적용하는 데 최대 10분이 걸릴 수 있습니다.
+해당 단계는 Azure RBAC를 사용하여 스토리지 서비스에 작업 영역 관리 ID를 __판독기__ 로 추가합니다. __읽기 권한자__ 액세스를 사용하면 작업 영역에서 리소스를 볼 수 있지만 변경할 수는 없습니다.
 
 ### <a name="enable-managed-identity-authentication-for-default-storage-accounts"></a>기본 스토리지 계정에 관리 ID 인증 사용
 

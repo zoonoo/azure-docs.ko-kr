@@ -45,9 +45,8 @@ Media Services에서는 128비트 암호화 키를 사용하여 AES로 암호화
 * Visual Studio Code 또는 Visual Studio 설치
 * [Media Services 계정 만들기](./account-create-how-to.md)
 * [액세스 API](./access-api-howto.md)를 수행하여 Media Services API를 사용하는 데 필요한 자격 증명을 가져옵니다.
-* 앱 구성 파일(appsettings.json 또는 .env 파일)에서 적절한 값을 설정합니다.
 
-## <a name="download-and-configure-the-sample"></a>샘플 다운로드 및 구성
+## <a name="download-code"></a>코드 다운로드
 
 다음 명령을 사용하여 이 항목에서 설명한 전체 .NET 샘플이 포함된 GitHub 리포지토리를 머신에 복제합니다.
 
@@ -56,8 +55,6 @@ Media Services에서는 128비트 암호화 키를 사용하여 AES로 암호화
  ```
 
 "AES-128로 암호화" 샘플은 [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithAES) 폴더에 있습니다.
-
-[!INCLUDE [appsettings or .env file](./includes/note-appsettings-or-env-file.md)]
 
 > [!NOTE]
 > 이 샘플은 앱을 실행할 때마다 고유한 리소스를 만듭니다. 일반적으로 변환 및 정책 등 기존 리소스를 다시 사용합니다(기존 리소스에 필요한 구성이 있는 경우).

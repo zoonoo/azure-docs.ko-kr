@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 8701f7bcb2e7ff705e4f1d1b401f4eb3e680f28b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 534efc4723c0a526bd8d607299bbf3ec4effaa86
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501042"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111895013"
 ---
 # <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>프리미엄 Azure Cache for Redis 인스턴스에 대한 지역에서 복제 구성
 
@@ -33,6 +33,9 @@ ms.locfileid: "102501042"
 - 보조 연결 캐시는 동일한 캐시 크기이거나 기본 연결 캐시보다 큰 캐시 크기입니다.
 - 두 캐시가 생성되고 실행 중인 상태입니다.
 
+> [!NOTE]
+> Azure 지역 간 데이터 전송은 표준 [대역폭 요금](https://azure.microsoft.com/pricing/details/bandwidth/)으로 청구됩니다.
+
 일부 기능은 지역에서 복제에서 지원되지 않습니다.
 
 - 지속성은 지역에서 복제에서 지원되지 않습니다.
@@ -42,7 +45,7 @@ ms.locfileid: "102501042"
 
 지역에서 복제를 구성한 후에는 연결된 캐시 쌍에 다음과 같은 제한이 적용됩니다.
 
-- 보조 연결된 캐시는 읽기 전용입니다. 이 캐시에서 읽을 수는 있지만 데이터를 쓸 수 없습니다. 
+- 보조 연결된 캐시는 읽기 전용입니다. 이 캐시에서 읽을 수는 있지만 데이터를 쓸 수 없습니다. Geo-Secondary 인스턴스에서 읽기를 선택하는 경우 Geo-Primary와 Geo-Secondary 간에 전체 데이터 동기화가 발생할 때마다(Geo-Primary 또는 Geo-Secondary가 업데이트되고 일부 재부팅 시나리오에서도 발생함), Geo-Secondary 인스턴스는 Geo-Primary와 Geo-Secondary 간의 전체 데이터 동기화가 완료될 때까지 모든 Redis 작업에 대해 오류(전체 데이터 동기화가 진행 중임을 나타냄)를 throw합니다. Geo-Secondary에서 읽는 애플리케이션은 Geo-Secondary에서 해당 오류가 throw할 때마다 Geo-Primary로 폴백하도록 빌드해야 합니다. 
 - 링크를 추가하기 전에 보조 연결된 캐시에 있던 모든 데이터가 제거됩니다. 그러나 나중에 지역에서 복제를 제거하면 복제된 데이터는 보조 연결된 캐시에 유지됩니다.
 - 캐시를 연결하는 동안에는 캐시를 [스케일링](cache-how-to-scale.md)할 수 없습니다.
 - 캐시에 클러스터링이 사용 설정된 경우에는 [분할 수를 변경](cache-how-to-premium-clustering.md)할 수 없습니다.
@@ -152,7 +155,7 @@ ms.locfileid: "102501042"
   - VNET이 동일한 지역에 있는 경우 [VNET 피어링](../virtual-network/virtual-network-peering-overview.md) 또는 [VPN Gateway VNET 간 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)을 사용하여 연결할 수 있습니다.
   - VNET이 서로 다른 지역에 있는 경우 VNET 피어링을 사용하는 지역에서 복제는 지원되지만 VNET 1(지역 1)의 클라이언트 VM은 기본 내부 부하 분산 장치 관련 제약 조건으로 인해 DNS 이름을 통해 VNET 2(지역 2)의 해당 캐시에는 액세스할 수 없습니다. VNET 피어링 제약 조건에 대한 자세한 내용은 [가상 네트워크 - 피어링 - 요구 사항 및 제약 조건](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)을 참조하세요. VPN Gateway VNET 간 연결을 사용하는 것이 좋습니다.
   
-[이 Azure 템플릿](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/)을 사용하여 두 개의 지역에서 복제된 캐시를 VPN Gateway VNET 간 연결을 통해 연결된 VNET에 신속하게 배포할 수 있습니다.
+[이 Azure 템플릿](https://azure.microsoft.com/resources/templates/redis-vnet-geo-replication/)을 사용하여 두 개의 지역에서 복제된 캐시를 VPN Gateway VNET 간 연결을 통해 연결된 VNET에 신속하게 배포할 수 있습니다.
 
 ### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>Redis 지역에서 복제의 복제 일정이란?
 

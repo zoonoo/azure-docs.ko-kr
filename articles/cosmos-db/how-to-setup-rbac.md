@@ -4,14 +4,14 @@ description: Azure Cosmos DB 계정에 대해 Azure Active Directory를 사용�
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 06/08/2021
 ms.author: thweiss
-ms.openlocfilehash: 35e3d4668fc3a5eb260bc187ec1cb6177f91911b
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 246f21bb0cd4718b08c8d8a872b1707a1fea5994
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378477"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958923"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account"></a>Azure Cosmos DB 계정에 대해 Azure Active Directory를 사용하여 역할 기반 액세스 제어 구성
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -114,8 +114,8 @@ Azure Cosmos DB에는 다음 두 개의 기본 제공 역할 정의가 표시됩
 
 > [!NOTE]
 > 아래 설명된 작업은 현재 다음 위치에서 제공됩니다.
-> - Azure PowerShell: [Az.CosmosDB 버전 2.0.1-미리 보기](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
-> - Azure CLI: ['cosmosdb-preview' 확장 버전 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
+> - Azure PowerShell: [Az.CosmosDB 버전 1.2.0](https://www.powershellgallery.com/packages/Az.CosmosDB/1.2.0) 이상
+> - [Azure CLI](/cli/azure/install-azure-cli): 버전 2.24.0 이상
 
 ### <a name="using-azure-powershell"></a>Azure PowerShell 사용
 
@@ -278,7 +278,7 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 
 ### <a name="using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용
 
-[이 페이지](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/sqlresources2/createupdatesqlroledefinition)를 참조해 Azure Resource Manager를 사용해 역할 정의를 만드는 예제를 확인하세요.
+[이 페이지](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/createupdatesqlroledefinition)를 참조해 Azure Resource Manager를 사용해 역할 정의를 만드는 예제를 확인하세요.
 
 ## <a name="create-role-assignments"></a><a id="role-assignments"></a> 역할 할당 만들기
 
@@ -300,8 +300,8 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 
 > [!NOTE]
 > 아래 설명된 작업은 현재 다음 위치에서 제공됩니다.
-> - Azure PowerShell: [Az.CosmosDB 버전 2.0.1-미리 보기](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
-> - Azure CLI: ['cosmosdb-preview' 확장 버전 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
+> - Azure PowerShell: [Az.CosmosDB 버전 1.2.0](https://www.powershellgallery.com/packages/Az.CosmosDB/1.2.0) 이상
+> - [Azure CLI](/cli/azure/install-azure-cli): 버전 2.24.0 이상
 
 ### <a name="using-azure-powershell"></a>Azure PowerShell 사용
 
@@ -310,12 +310,12 @@ ID에 역할 할당:
 ```powershell
 $resourceGroupName = "<myResourceGroup>"
 $accountName = "<myCosmosAccount>"
-$readOnlyRoleDefinitionId = "<roleDefinitionId>" // as fetched above
+$readOnlyRoleDefinitionId = "<roleDefinitionId>" # as fetched above
 $principalId = "<aadPrincipalId>"
 New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
     -ResourceGroupName $resourceGroupName `
     -RoleDefinitionId $readOnlyRoleDefinitionId `
-    -Scope $accountName `
+    -Scope "/" `
     -PrincipalId $principalId
 ```
 
@@ -326,14 +326,14 @@ ID에 역할 할당:
 ```azurecli
 resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
-readOnlyRoleDefinitionId = '<roleDefinitionId>' // as fetched above
+readOnlyRoleDefinitionId = '<roleDefinitionId>' # as fetched above
 principalId = '<aadPrincipalId>'
 az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```
 
 ### <a name="using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용
 
-[이 페이지](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/sqlresources2/createupdatesqlroleassignment)를 참조해 Azure Resource Manager 템플릿을 사용하여 역할 할당을 만드는 예제를 확인하세요.
+[이 페이지](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/createupdatesqlroleassignment)를 참조해 Azure Resource Manager 템플릿을 사용하여 역할 할당을 만드는 예제를 확인하세요.
 
 ## <a name="initialize-the-sdk-with-azure-ad"></a>Azure AD로 SDK 초기화
 
@@ -400,9 +400,12 @@ Azure Cosmos DB RBAC는 현재 REST API의 `2021-03-15` 버전에서 지원됩�
 ## <a name="use-data-explorer"></a>데이터 탐색기 사용
 
 > [!NOTE]
-> Azure Portal에서 표시되는 데이터 탐색기는 아직 Azure Cosmos DB RBAC를 지원하지 않습니다. 데이터를 탐색할 때 Azure AD ID를 사용하려면 [Azure Cosmos DB Explorer](https://cosmos.azure.com/)를 사용해야 합니다.
+> Azure Portal에서 표시되는 데이터 탐색기는 아직 Azure Cosmos DB RBAC를 지원하지 않습니다. 데이터를 탐색할 때 Azure AD ID를 사용하려면 [Azure Cosmos DB Explorer](https://cosmos.azure.com/?feature.enableAadDataPlane=true)를 사용해야 합니다.
 
-계정에 저장된 데이터를 검색하면 [Azure Cosmos DB Explorer](https://cosmos.azure.com/)가 먼저 로그인한 사용자를 대신하여 계정의 기본 키를 가져오려고 시도하고, 이 키를 사용하여 데이터에 액세스합니다. 해당 사용자가 기본 키를 가져올 수 없는 경우에는 데이터에 액세스하는 대신 해당 사용자의 Azure AD ID가 사용됩니다.
+특정 `?feature.enableAadDataPlane=true` 쿼리 매개 변수를 사용하여 [Azure Cosmos DB 탐색기](https://cosmos.azure.com/?feature.enableAadDataPlane=true)에 액세스하고 로그인하는 경우 데이터에 액세스하는 데 다음 논리가 사용됩니다.
+
+1. 계정 기본 키를 가져오는 요청은 로그인한 ID 대신 시도됩니다. 이 요청이 성공하면 기본 키가 계정 데이터에 액세스하는 데 사용됩니다.
+1. 로그인한 ID가 계정의 기본 키를 가져올 수 없는 경우 이 ID는 데이터 액세스를 인증하는 데 직접 사용됩니다. 이 모드에서 데이터 액세스를 보장하려면 ID에 [적절한 역할 정의를 할당](#role-assignments)해야 합니다.
 
 ## <a name="audit-data-requests"></a>데이터 요청 감사
 
