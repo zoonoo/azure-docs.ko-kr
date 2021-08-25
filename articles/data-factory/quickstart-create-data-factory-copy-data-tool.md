@@ -4,14 +4,15 @@ description: Azure Data Factory를 만든 다음, 데이터 복사 도구를 사
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: quickstart
 ms.date: 07/05/2021
-ms.openlocfilehash: 75b33003a62bd9a686ab8e0f2a8934333a4430ff
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: c4b7d5f0e60d526976734a5878cf7dd0800ad322
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113436985"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749870"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>빠른 시작: 데이터 복사 도구를 사용하여 데이터 복사
 

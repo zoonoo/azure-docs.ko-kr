@@ -4,16 +4,18 @@ description: MetaMask를 사용하여 Azure Blockchain Service 네트워크에 �
 ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: 4a45e02a861ff20a4dc774668a4e008f9b42aeea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01eeb187d1d1dd314d008c92559453e1edb67b27
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90530440"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122643534"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>MetaMask를 사용하여 스마트 계약 연결 및 배포
 
 이 빠른 시작에서는 MetaMask를 사용하여 Azure Blockchain Service 네트워크에 연결하고, Remix를 사용하여 스마트 계약을 배포합니다. Metamask는 Ether 지갑을 관리하고 스마트 계약 작업을 수행하는 브라우저 확장입니다.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -68,18 +70,18 @@ Remix는 브라우저 기반 Solidity 개발 환경입니다. MetaMask와 Remix�
 
     ```solidity
     pragma solidity ^0.5.0;
-             
+
     contract simple {
         uint balance;
-                 
+
         constructor() public{
             balance = 0;
         }
-                 
+
         function add(uint _num) public {
             balance += _num;
         }
-                 
+
         function get() public view returns (uint){
             return balance;
         }

@@ -3,18 +3,17 @@ title: Linux용 Node.js 모듈 개발 자습서 - Azure IoT Edge| Microsoft Docs
 description: 이 자습서에서는 Node.js 코드를 사용하여 IoT Edge 모듈을 만들고, 에지 디바이스에 배포하는 방법을 보여줍니다.
 services: iot-edge
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 640e80cb3b97a0aefdec2039747307c471138612
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: a2bd76a30a7737e18eb82cd81bb2b20cf126a514
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113438073"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740515"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-using-linux-containers"></a>자습서: Linux 컨테이너를 사용하여 Node.js IoT Edge 모듈 개발 및 배포
 
@@ -103,7 +102,7 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
 3. 이 파일을 저장합니다.
 
 >[!NOTE]
->이 자습서에서는 개발 및 테스트 시나리오에 편리하게 사용할 수 있는 관리자 로그인 자격 증명을 Azure Container Registry에 사용합니다. 프로덕션 시나리오에 사용할 준비가 되면 서비스 주체 같은 최소 권한 인증 옵션을 사용하는 것이 좋습니다. 자세한 내용은 [컨테이너 레지스트리에 대한 액세스 관리](production-checklist.md#manage-access-to-your-container-registry)를 참조하세요.
+>이 자습서에서는 개발 및 테스트 시나리오에 편리하게 사용할 수 있는 Azure Container Registry에 대해 관리자 로그인 자격 증명을 사용합니다. 프로덕션 시나리오에 사용할 준비가 되면 서비스 주체 같은 최소 권한 인증 옵션을 사용하는 것이 좋습니다. 자세한 내용은 [컨테이너 레지스트리에 대한 액세스 관리](production-checklist.md#manage-access-to-your-container-registry)를 참조하세요.
 
 ### <a name="select-your-target-architecture"></a>대상 아키텍처 선택
 

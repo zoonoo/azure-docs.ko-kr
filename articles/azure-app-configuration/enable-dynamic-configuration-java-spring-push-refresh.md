@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 04/05/2021
 ms.author: mametcal
-ms.openlocfilehash: 9f9f5bff0cc0c1e70178cab1e1b0e29ffbd8fc90
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 1b4dbe38c1b70bb44eb1c280e56954c150a5a23a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114479706"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739901"
 ---
 # <a name="tutorial-use-dynamic-configuration-using-push-refresh-in-a-java-spring-app"></a>자습서: Java Spring 앱에서 푸시 새로 고침을 사용하여 동적 구성 사용
 
@@ -27,7 +27,7 @@ App Configuration Java Spring 클라이언트 라이브러리는 요청 시 애�
 
 - 폴링 모델: 폴링을 사용하여 구성 변경 내용을 검색하는 기본 동작입니다. 설정의 캐시된 값이 만료되면 `AppConfigurationRefresh`의 `refreshConfigurations`에 대한 다음 호출이 서버에 요청을 보내서 구성이 변경되었는지 확인하고, 필요한 경우 업데이트된 구성을 끌어옵니다.
 
-- 푸시 모델: [App Configuration 이벤트](./concept-app-configuration-event.md)를 사용하여 구성 변경 내용을 검색합니다. [웹후크](/azure/event-grid/handler-event-hubs)를 사용하여 Event Grid와 함께 키 값 변경 이벤트를 보내도록 App Configuration이 설정되면 애플리케이션은 이러한 이벤트를 사용하여 구성을 업데이트된 상태로 유지하는 데 필요한 총 요청 수를 최적화할 수 있습니다.
+- 푸시 모델: [App Configuration 이벤트](./concept-app-configuration-event.md)를 사용하여 구성 변경 내용을 검색합니다. [웹후크](../event-grid/handler-event-hubs.md)를 사용하여 Event Grid와 함께 키 값 변경 이벤트를 보내도록 App Configuration이 설정되면 애플리케이션은 이러한 이벤트를 사용하여 구성을 업데이트된 상태로 유지하는 데 필요한 총 요청 수를 최적화할 수 있습니다.
 
 이 자습서에서는 푸시 새로 고침을 사용하여 코드에서 동적 구성 업데이트를 구현하는 방법을 보여줍니다. 빠른 시작에 소개된 앱을 기반으로 합니다. 계속 진행하기 전에 먼저 [App Configuration을 사용하여 Java Spring 앱 만들기](./quickstart-java-spring-app.md)를 완료하세요.
 
@@ -68,7 +68,7 @@ App Configuration Java Spring 클라이언트 라이브러리는 요청 시 애�
            </dependency>
    ```
 
-1. Maven을 통해 Azure App Service에 애플리케이션을 배포할 수 있도록 [Maven App Service 배포](/azure/app-service/quickstart-java?tabs=javase)를 설정합니다.
+1. Maven을 통해 Azure App Service에 애플리케이션을 배포할 수 있도록 [Maven App Service 배포](../app-service/quickstart-java.md?tabs=javase)를 설정합니다.
 
    ```console
    mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
@@ -95,7 +95,7 @@ App Configuration Java Spring 클라이언트 라이브러리는 요청 시 애�
 
 ## <a name="build-and-run-the-app-locally"></a>로컬로 앱 빌드 및 실행
 
-Event Grid 웹후크를 만들려면 유효성 검사가 필요합니다. 이 [가이드](/azure/event-grid/webhook-event-delivery)를 따르거나 이미 구성된 Azure App Configuration Spring 웹 라이브러리로 애플리케이션을 시작하여 유효성을 검사할 수 있습니다. 그러면 애플리케이션이 등록됩니다. 이벤트 구독을 사용하려면 다음 두 섹션의 단계를 수행합니다.
+Event Grid 웹후크를 만들려면 유효성 검사가 필요합니다. 이 [가이드](../event-grid/webhook-event-delivery.md)를 따르거나 이미 구성된 Azure App Configuration Spring 웹 라이브러리로 애플리케이션을 시작하여 유효성을 검사할 수 있습니다. 그러면 애플리케이션이 등록됩니다. 이벤트 구독을 사용하려면 다음 두 섹션의 단계를 수행합니다.
 
 1. 환경 변수를 App Configuration 인스턴스의 연결 문자열로 설정합니다.
 
@@ -152,7 +152,7 @@ Event Grid 웹후크를 만들려면 유효성 검사가 필요합니다. 이 [�
     :::image type="content" source="./media/event-subscription-view-webhook.png" alt-text="웹후크는 페이지 아래쪽의 테이블에 표시됩니다." :::
 
 > [!NOTE]
-> 구성 변경을 구독할 때는 하나 이상의 필터를 사용하여 애플리케이션으로 전송되는 이벤트 수를 줄일 수 있습니다. 이러한 필터는 [Event Grid 구독 필터](/azure/event-grid/event-filtering.md) 또는 [Service Bus 구독 필터](/azure/service-bus-messaging/topic-filters.md)로 구성할 수 있습니다. 예를 들어 구독 필터는 특정 문자열로 시작하는 키에 대한 변경의 이벤트만 구독하는 데 사용할 수 있습니다.
+> 구성 변경을 구독할 때는 하나 이상의 필터를 사용하여 애플리케이션으로 전송되는 이벤트 수를 줄일 수 있습니다. 이러한 필터는 [Event Grid 구독 필터](../event-grid/event-filtering.md) 또는 [Service Bus 구독 필터](../service-bus-messaging/topic-filters.md)로 구성할 수 있습니다. 예를 들어 구독 필터는 특정 문자열로 시작하는 키에 대한 변경의 이벤트만 구독하는 데 사용할 수 있습니다.
 
 ## <a name="verify-and-test-application"></a>애플리케이션 확인 및 테스트
 

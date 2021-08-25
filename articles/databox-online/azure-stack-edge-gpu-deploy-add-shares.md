@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 5f4a40e5b4e0dbced10f9d4a19609d9a0a49a1db
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f6818d0f937cc58a6884a36195c0d77db7366d2b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058768"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747370"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>자습서: Azure Stack Edge Pro GPU와 공유를 통해 데이터 전송
 
@@ -65,7 +65,7 @@ Azure Stack Edge Pro에 공유를 추가하기 전에 다음 사항을 확인합
     선택하는 서비스 유형은 Azure에서 사용하려는 데이터 형식에 따라 달라집니다. 이 예제에서는 데이터를 블록 Blo 으로 Azure에 저장하므로 **블록 Blob** 을 선택합니다. **페이지 Blob** 을 선택하는 경우 데이터가 512바이트로 정렬되어 있는지 확인합니다. 예를 들어 VHDX는 항상 512바이트로 정렬됩니다.
 
    > [!IMPORTANT]
-   > Azure Stack Edge Pro 또는 Data Box Gateway 디바이스에서 사용하는 경우 사용하는 Azure Storage 계정에 불변성 정책을 설정하지 않았는지 확인합니다. 자세한 내용은 [Blob 스토리지에 대한 불변성 정책 설정 및 관리](../storage/blobs/storage-blob-immutability-policies-manage.md)를 참조하세요.
+   > Azure Stack Edge Pro 또는 Data Box Gateway 디바이스에서 사용하는 경우 사용하는 Azure Storage 계정에 불변성 정책을 설정하지 않았는지 확인합니다. 자세한 내용은 [Blob 스토리지에 대한 불변성 정책 설정 및 관리](../storage/blobs/immutable-policy-configure-version-scope.md)를 참조하세요.
 
     e. 새 Blob 컨테이너를 만들거나 드롭다운 목록의 기존 항목을 사용합니다. Blob 컨테이너를 만드는 경우 컨테이너 이름을 제공합니다. 컨테이너가 아직 없으면 스토리지 계정에 새로 만든 공유 이름으로 만들어집니다.
    

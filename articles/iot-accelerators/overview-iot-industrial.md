@@ -7,13 +7,12 @@ ms.date: 11/26/2018
 ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
-manager: philmea
-ms.openlocfilehash: 3df10c9d7630e9db76994e8e508f30adb986e0d5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d99d9d07ae13f38d05d297111401f4760b2a9d82
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105646609"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748374"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>산업용 IoT(IIoT)란?
 
@@ -52,4 +51,4 @@ OPC 자격 증명 모음은 클라우드에서 OPC UA 서버 및 클라이언트
 
 산업용 IoT와 해당 구성 요소에 대한 소개를 알아보았으므로 권장되는 다음 단계는 다음과 같습니다.
 
-[OPC 쌍이란?](overview-opc-twin.md)
+[OPC 쌍이란?](/previous-versions/azure/iot-accelerators/overview-opc-twin)

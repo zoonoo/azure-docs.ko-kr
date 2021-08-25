@@ -7,14 +7,16 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 5e27cfec0a3f0a58c1e94a822e0c831f4efa1b32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23de5ae774d00c3fc87a78886abf19f6f17f06ee
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94535540"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643621"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: MySQL Workbench를 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 이 빠른 시작에서는 MySQL Workbench 애플리케이션을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다.
 

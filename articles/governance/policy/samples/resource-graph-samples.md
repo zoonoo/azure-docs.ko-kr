@@ -1,15 +1,15 @@
 ---
 title: Azure Policy에 대한 Azure Resource Graph 샘플 쿼리
 description: 리소스 종류와 테이블을 사용하여 Azure Policy 관련 리소스와 속성에 액세스하는 방법을 보여 주는 Azure Policy에 대한 샘플 Azure Resource Graph 쿼리입니다.
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.topic: sample
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: 30908c9e4fef6ee5bdd33c8f5a59eb0c22e30634
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: c1757d475fde691bf3938298d70535cce491be52
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114460731"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860645"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-policy"></a>Azure Policy에 대한 Azure Resource Graph 샘플 쿼리
 

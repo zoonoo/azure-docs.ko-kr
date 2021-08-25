@@ -7,16 +7,18 @@ ms.topic: quickstart
 ms.custom:
 - references_regions
 - mode-portal
-ms.openlocfilehash: 9fe8b7856a99930c16b4173e432fa0b30642582c
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 27193b1e18b13c405ad34478da1ed57dd0a243b2
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536194"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122643528"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Blockchain Service 블록체인 멤버 만들기
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Blockchain Service에 새 블록체인 멤버 및 컨소시엄을 배포합니다.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -26,7 +28,9 @@ ms.locfileid: "107536194"
 
 ## <a name="create-a-blockchain-member"></a>블록체인 멤버 만들기
 
-Azure Blockchain Service 멤버는 프라이빗 컨소시엄 블록체인 네트워크의 블록체인 노드입니다. 멤버를 프로비저닝할 때 컨소시엄 네트워크를 만들거나 조인할 수 있습니다. 컨소시엄 네트워크에 멤버가 하나 이상이 필요합니다. 참가자가 필요로 하는 블록체인 멤버 수는 시나리오에 따라 달라집니다. 컨소시엄 참가자는 하나 이상의 블록체인 멤버를 보유하거나 다른 참가자와 멤버를 공유할 수 있습니다. 컨소시엄에 대한 자세한 내용은 [Azure Blockchain Service 컨소시엄](consortium.md)을 참조하세요.
+Azure Blockchain Service 멤버는 프라이빗 컨소시엄 블록체인 네트워크의 블록체인 노드입니다.
+
+멤버를 프로비저닝할 때 컨소시엄 네트워크를 만들거나 조인할 수 있습니다. 컨소시엄 네트워크에 멤버가 하나 이상이 필요합니다. 참가자가 필요로 하는 블록체인 멤버 수는 시나리오에 따라 달라집니다. 컨소시엄 참가자는 하나 이상의 블록체인 멤버를 보유하거나 다른 참가자와 멤버를 공유할 수 있습니다. 컨소시엄에 대한 자세한 내용은 [Azure Blockchain Service 컨소시엄](consortium.md)을 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 를 선택합니다.
@@ -34,7 +38,7 @@ Azure Blockchain Service 멤버는 프라이빗 컨소시엄 블록체인 네트
 
     ![서비스 만들기](./media/create-member/create-member.png)
 
-    설정 | 설명
+    설정 | Description
     --------|------------
     Subscription | 서비스에 사용할 Azure 구독을 선택합니다. 구독이 여러 개인 경우, 리소스에 대해 요금이 청구되는 구독을 선택합니다.
     Resource group | 새 리소스 그룹 이름을 만들거나, 구독에서 기존 이름을 선택합니다.

@@ -3,17 +3,18 @@ title: .NET SDK를 사용하여 Azure Data Factory 만들기
 description: .NET SDK를 사용하여 Azure Data Factory 및 파이프라인을 만들어 Azure Blob 스토리지의 한 위치에서 다른 위치로 데이터를 복사합니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: data-movement
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/27/2021
 ms.author: jingwang
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2741347a9f2c5a50e46cbc1d9a144d66d51f9563
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 4cce29b6c3603dd8c44f1c415a56640510fb9be3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670655"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750982"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>빠른 시작: .NET SDK를 사용하여 데이터 팩터리 및 파이프라인 만들기
 

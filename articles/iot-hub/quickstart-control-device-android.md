@@ -2,7 +2,6 @@
 title: Azure IoT Hub(Android)에서 디바이스 제어 | Microsoft Docs
 description: 이 빠른 시작에서는 두 개의 Java 애플리케이션 샘플을 실행합니다. 그 중 한 애플리케이션은 허브에 연결된 디바이스를 원격으로 제어할 수 있는 서비스 애플리케이션입니다. 또 다른 애플리케이션은 원격으로 제어할 수 있는 허브에 연결된 물리적 디바이스 또는 시뮬레이션된 디바이스에서 실행됩니다.
 author: wesmc7777
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
@@ -14,12 +13,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 9225c53d4271622b0276dadb1d0a526199602d62
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 929f402a2beb9de7e9537647542199ff68f0d32f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114727942"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747281"
 ---
 # <a name="control-a-device-connected-to-an-iot-hub-android"></a>IoT 허브(Android)에 연결된 디바이스 제어
 

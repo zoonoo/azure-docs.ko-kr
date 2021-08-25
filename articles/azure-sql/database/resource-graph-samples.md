@@ -1,19 +1,19 @@
 ---
 title: Azure SQL Database에 대한 Azure Resource Graph 샘플 쿼리
 description: Azure SQL Database 관련 리소스 및 속성에 액세스하기 위한 리소스 유형 및 테이블의 사용을 보여 주는 Azure SQL Database에 대한 샘플 Azure Resource Graph 쿼리입니다.
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma
 ms.service: sql-database
 ms.subservice: service-overview
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: 568698c2e102d969c33d5ee897adba79dd380057
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: e98a7b8c6b50a45b8b715c88035ffa09384a3b11
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669954"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862722"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-sql-database"></a>Azure SQL Database에 대한 Azure Resource Graph 샘플 쿼리
 

@@ -8,19 +8,19 @@ ms.author: bobazile
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 15e6c2383539a1b7c119346ea0624a01964f2364
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 27b1b08196ef76bba92bf1f2ff518585c896178a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762751"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743529"
 ---
 # <a name="session-border-controllers-and-voice-routing"></a>Session Border Controller 및 음성 라우팅
 Azure Communication Services 직접 라우팅을 사용하면 기존 전화 통신 인프라를 Azure에 연결할 수 있습니다. 이 문서에는 지원되는 SBC(Session Border Controller)를 직접 라우팅에 연결하는 데 필요한 상위 수준 단계와 사용하도록 설정된 통신 리소스에 음성 라우팅을 사용하는 방법이 나와 있습니다. 
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
  
-Azure Communication Services 직접 라우팅이 조직에 적합한 솔루션인지 여부에 관한 내용은 [Azure 전화 통신 개념](./telephony-concept.md)을 참조하세요. 필수 조건과 배포 계획에 관한 내용은 [Communication Services 직접 라우팅 인프라 요구 사항](./sip-interface-infrastructure.md)을 참조하세요.
+Azure Communication Services 직접 라우팅이 조직에 적합한 솔루션인지 여부에 관한 내용은 [Azure 전화 통신 개념](./telephony-concept.md)을 참조하세요. 필수 조건과 배포 계획에 관한 내용은 [Communication Services 직접 라우팅 인프라 요구 사항](./direct-routing-infrastructure.md)을 참조하세요.
 
 ## <a name="connect-the-sbc-with-azure-communication-services"></a>SBC를 Azure Communication Services와 연결
 
@@ -32,7 +32,7 @@ Office 365를 사용하는 경우 SBC FQDN의 도메인 부분이 도메인에 �
 - 예를 들어, `contoso.com`이 O365에 등록된 도메인인 경우에는 Communication Services에 `sbc.contoso.com`을 사용할 수 없습니다. 그러나 O365에 도메인이 없는 경우 상위 수준 도메인을 사용할 수 있습니다. `acs.contoso.com` 도메인을 만들고 FQDN `sbc.acs.contoso.com`을 SBC 이름으로 사용할 수 있습니다.
 - SBC 인증서는 이름과 일치해야 합니다. 와일드카드 인증서가 지원됩니다.
 - *.onmicrosoft.com 도메인은 SBC의 FQDN에 사용할 수 없습니다.
-요구 사항의 전체 목록은 [Azure 직접 라우팅 인프라 요구 사항](./sip-interface-infrastructure.md)을 참조하세요.
+요구 사항의 전체 목록은 [Azure 직접 라우팅 인프라 요구 사항](./direct-routing-infrastructure.md)을 참조하세요.
 
    :::image type="content" source="../media/direct-routing-provisioning/add-session-border-controller.png" alt-text="Session Border Controller 추가":::
 - 작업이 완료되면 다음을 클릭합니다.
