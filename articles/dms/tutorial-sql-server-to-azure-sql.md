@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 0383b76a08c5c56c27bfbc7f83bf786b4b452849
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 990dfd3a2cf86f77310e51cb29fa65e181b37a9f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796709"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638477"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 Azure SQL Database로 마이그레이션
 
@@ -217,19 +217,7 @@ SQL Server 인스턴스에서 Azure SQL Database의 단일 데이터베이스 �
 
     ![스키마 배포](media/tutorial-sql-server-to-azure-sql/dma-schema-deploy.png)
 
-## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
-
-1. Azure Portal에 로그인합니다. **구독** 을 검색하여 선택합니다.
-
-   ![포털 구독 표시](media/tutorial-sql-server-to-azure-sql/portal-select-subscription-1.png)
-
-2. Azure Database Migration Service의 인스턴스를 만들 구독을 선택한 다음, **리소스 공급자** 를 선택합니다.
-
-    ![리소스 공급자 보기](media/tutorial-sql-server-to-azure-sql/portal-select-resource-provider.png)
-
-3. 마이그레이션을 검색한 다음, **Microsoft.DataMigration** 에 대해 **등록** 을 선택합니다.
-
-    ![리소스 공급자 등록](media/tutorial-sql-server-to-azure-sql/portal-register-resource-provider.png)    
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]   
 
 ## <a name="create-an-instance"></a>인스턴스 만들기
 

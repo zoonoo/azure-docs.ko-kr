@@ -5,15 +5,16 @@ metadata:
   title: Azure Advisor 설명서
   description: Azure 관리자는 Azure 배포를 최적화하기 위한 모범 사례를 따르는 데 도움이 되는 개인 설정된 클라우드 컨설턴트입니다. 리소스 구성 및 사용 원격 분석을 분석 합니다. 그런 다음 전체 Azure 사용을 줄일 수 있는 기회를 찾는 동안 성능, 보안 및 고가용성을 향상시키는 데 도움이 되는 솔루션을 권장합니다.
   ms.topic: landing-page
+  ms.service: advisor
   author: rboucher
   ms.author: robb
   ms.date: 10/16/2019
-  ms.openlocfilehash: 41198ef3e8026bd8de9e55a0e75b23f0cd357e4e
-  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+  ms.openlocfilehash: 5bf8d8651e10ba003529d8182a3434fed9558e18
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/09/2021
-  ms.locfileid: "102508795"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122253469"
 landingContent:
 - title: Azure Adviser 정보
   linkLists:

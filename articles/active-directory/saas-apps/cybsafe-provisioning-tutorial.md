@@ -2,25 +2,22 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 CybSafe 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 CybSafe로 자동으로 프로비전 및 프로비전 해제하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 7255fe44-1662-4ae4-9ff3-9492911b7ce0
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/12/2020
-ms.author: Zhchia
-ms.openlocfilehash: b79a63d16229c761b29776667c771e940d8f69d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: f66e5d73cc93da30b0d7f421e5fe0d717ee99265
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100527125"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122207745"
 ---
 # <a name="tutorial-configure-cybsafe-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 CybSafe 구성
 

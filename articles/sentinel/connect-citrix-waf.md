@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2020
 ms.author: yelevin
-ms.openlocfilehash: eaee16d865a0d208dbf0c41665d590e7ecb14e89
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 309d2cfb47c61d516be19d110cb7ade1f3c63e18
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530463"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695175"
 ---
 # <a name="connect-your-citrix-waf-to-azure-sentinel"></a>Citrix WAF을 Azure Sentinel에 연결
 
@@ -42,7 +42,7 @@ Citrix WAF는 로그를 Azure Sentinel 작업 영역으로 전달하는 Log Anal
 
 1. Citrix 제공 지침에 따라 [WAF 구성하기](https://support.citrix.com/article/CTX234174), [CEF 로깅 구성하기](https://support.citrix.com/article/CTX136146) 및 [로그 전달자로 로그 전송 구성하기](https://docs.citrix.com/en-us/citrix-adc/13/system/audit-logging/configuring-audit-logging.html)를 수행합니다. 로그 전달자 컴퓨터의 IP 주소에서 TCP 포트 514로 로그를 보내야합니다.
 
-1. [본 지침](connect-cef-verify.md)을 사용하여 연결의 유효성을 검사하고 데이터 수집을 확인합니다. 로그가 Log Analytics에 표시되는 데는 최대 20분이 걸립니다.
+1. [본 지침](troubleshooting-cef-syslog.md#validate-cef-connectivity)을 사용하여 연결의 유효성을 검사하고 데이터 수집을 확인합니다. 로그가 Log Analytics에 표시되는 데는 최대 20분이 걸립니다.
 
 ## <a name="find-your-data"></a>데이터 찾기
 

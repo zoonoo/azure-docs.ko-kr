@@ -2,20 +2,20 @@
 title: Azure Communication Services Call Automation API 빠른 시작
 titleSuffix: An Azure Communication Services quickstart document
 description: Call Automation API에 대한 빠른 시작 샘플을 제공합니다.
-author: joseys
+author: GrantMeStrength
 manager: anvalent
 services: azure-communication-services
-ms.author: joseys
+ms.author: jken
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-csharp-java
-ms.openlocfilehash: 94adf38e2fac5a57f26d6a3a88c5c4b2f71cc995
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 4acc1ba17dd10b70a7873aa06626d410a3426c87
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114473196"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252522"
 ---
 # <a name="quickstart-use-the-call-automation-apis"></a>빠른 시작: 호출 자동화 API 사용
 

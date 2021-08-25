@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 65f4bb6f50b6c09bc570b2832aa6d3aee3ac703f
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 67f317594b257776a3a8ac8c257281352516bfee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111981749"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749471"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>빠른 시작: Azure Portal에서 Apache Cassandra 클러스터용 Azure Managed Instance 생성(미리 보기)
  
@@ -100,7 +100,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="connecting-to-your-cluster"></a>클러스터에 연결
 
-Apache Cassandra용 Azure Managed Instance는 공용 IP 주소가 포함된 노드를 만들지 않으므로 새로 만든 Cassandra 클러스터에 연결하려면 VNet 내에 다른 리소스를 만들어야 합니다. 애플리케이션이나 Apache의 오픈 소스 쿼리 도구인 [CQLSH](https://cassandra.apache.org/doc/latest/tools/cqlsh.html)가 포함된 가상 머신이 설치될 수 있습니다. [템플릿](https://azure.microsoft.com/resources/templates/vm-simple-linux/)을 사용하여 Ubuntu 가상 머신을 배포할 수 있습니다. 배포된 경우 SSH를 사용하여 가상 머신에 연결하고 아래 명령을 사용하여 CQLSH를 설치합니다.
+Apache Cassandra용 Azure Managed Instance는 공용 IP 주소가 포함된 노드를 만들지 않으므로 새로 만든 Cassandra 클러스터에 연결하려면 VNet 내에 다른 리소스를 만들어야 합니다. 애플리케이션이나 Apache의 오픈 소스 쿼리 도구인 [CQLSH](https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html)가 포함된 가상 머신이 설치될 수 있습니다. [템플릿](https://azure.microsoft.com/resources/templates/vm-simple-linux/)을 사용하여 Ubuntu 가상 머신을 배포할 수 있습니다. 배포된 경우 SSH를 사용하여 가상 머신에 연결하고 아래 명령을 사용하여 CQLSH를 설치합니다.
 
 ```bash
 # Install default-jre and default-jdk

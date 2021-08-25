@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 01/07/2021
+ms.date: 08/24/2021
 ms.author: alexeyo
-ms.openlocfilehash: f30b1f0f14bba54b8b4fcd7c5190f3c533f199a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c7c140b1ff2d3d2151ad8ce01e3ad8f64660543d
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98061755"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777894"
 ---
 # <a name="speech-services-in-sovereign-clouds"></a>소버린 클라우드의 Speech Service
 
@@ -99,6 +99,7 @@ spx recognize --host "usGovHost" --file myaudio.wav
   - [https://portal.azure.cn/](https://portal.azure.cn/)
 - **지역:**
   - 중국 동부 2
+  - 중국 북부 2
 - **사용 가능한 가격 책정 계층:**
   - 무료(F0) 및 표준(S0). 자세한 내용은 [여기](https://www.azure.cn/pricing/details/cognitive-services/index.html)를 참조하세요.
 - **지원되는 기능:**
@@ -134,6 +135,7 @@ Azure 중국의 Speech Services REST API 엔드포인트 형식은 다음과 같
 |                     | 지역 식별자 |
 |--|--|
 | **중국 동부 2**  | `chinaeast2` |
+| **중국 북부 2**  | `chinanorth2` |
 
 #### <a name="speech-sdk"></a>Speech SDK
 
@@ -154,3 +156,6 @@ spx recognize --host "azCnHost" --file myaudio.wav
 | **중국 동부 2** | |
 | 음성 텍스트 변환 | `wss://chinaeast2.stt.speech.azure.cn` |
 | Text to Speech | `https://chinaeast2.tts.speech.azure.cn` |
+| **중국 북부 2** | |
+| 음성 텍스트 변환 | `wss://chinanorth2.stt.speech.azure.cn` |
+| Text to Speech | `https://chinanorth2.tts.speech.azure.cn` |

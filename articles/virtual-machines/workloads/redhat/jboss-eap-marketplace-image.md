@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: redhat
 ms.assetid: 9b37b2c4-5927-4271-85c7-19adf33d838b
 ms.date: 05/25/2021
-ms.openlocfilehash: 5ed86f84f8b2fbe78ee53f776cb9f420e5077113
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 3c819367f35cb4a8174abaac1380eb439ace206a
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114290622"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769708"
 ---
 # <a name="deploy-red-hat-jboss-enterprise-platform-eap-on-azure-vms-and-virtual-machine-scale-sets-using-the-azure-marketplace-offer"></a>Azure Marketplace 제품을 사용하여 Azure VM 및 가상 머신 확장 집합 기반 Red Hat JBoss EAP(Enterprise Platform) 배포
 
@@ -29,7 +29,7 @@ Azure Marketplace 제품의 JBoss EAP는 Red Hat과 Microsoft의 공동 솔루�
 
 * JBoss EAP 설치- JBoss EAP에 대한 RHSM(Red Hat Subscription Management) 자격이 있는 Red Hat 계정이 있어야 합니다. 이 자격을 통해 Red Hat에서 테스트되고 인증된 JBoss EAP 버전을 다운로드할 수 있습니다.  EAP 자격이 없으면 [Red Hat 개인 개발자 구독](https://developers.redhat.com/register)을 통해 무료 개발자 구독에 등록합니다. 등록되면 [Red Hat 고객 포털](https://access.redhat.com/management/)에서 필요한 자격 증명(풀 ID)을 찾을 수 있습니다.
 
-* RHEL 옵션 - PAYG(종량제) 또는 BYOS(Bring-Your-Own-Subscription) 중에서 선택합니다. BYOS를 사용하는 경우 솔루션 템플릿을 사용하여 Marketplace 제품을 배포하기 전에 [Red Hat Cloud Access](https://access.redhat.com/) [RHEL Gold Image](https://azure.microsoft.com/updates/red-hat-enterprise-linux-gold-images-now-available-on-azure/)를 활성화해야 합니다. [다음 지침](https://access.redhat.com/documentation/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access)에 따라 RHEL Gold Image를 Microsoft Azure에서 사용할 수 있도록 설정합니다.
+* RHEL 옵션 - PAYG(종량제) 또는 BYOS(Bring-Your-Own-Subscription) 중에서 선택합니다. BYOS를 사용하는 경우 솔루션 템플릿을 사용하여 Marketplace 제품을 배포하기 전에 [Red Hat Cloud Access](https://access.redhat.com/) [RHEL Gold Image](https://azure.microsoft.com/updates/red-hat-enterprise-linux-gold-images-now-available-on-azure/)를 활성화해야 합니다. [다음 지침](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index)에 따라 RHEL Gold Image를 Microsoft Azure에서 사용할 수 있도록 설정합니다.
 
 * Azure CLI(명령줄 인터페이스).
 
@@ -59,11 +59,11 @@ PAYG 모델에 대한 자세한 내용은 [Red Hat Enterprise Linux 가격 책�
 RHEL을 BYOS VM/가상 머신 확장 집합으로 사용하려면 Azure에서 RHEL을 사용할 수 있는 자격이 있는 유효한 Red Hat 구독이 있어야 합니다. 이러한 RHEL BYOS 플랜 기반 JBoss EAP를 [Azure 프라이빗 제품](../../../marketplace/private-offers.md)으로 사용할 수 있습니다. Azure Marketplace에서 RHEL BYOS 제품 플랜을 배포하려면 다음 필수 구성을 완료해야 합니다. 
 
 1. RHEL OS 및 JBoss EAP 자격이 Red Hat 구독에 연결되어 있는지 확인합니다.
-2. RHEL BYOS 이미지를 사용할 수 있는 권한을 Azure 구독 ID에 부여합니다. [RHSM(Red Hat Subscription Management) 설명서](https://access.redhat.com/documentation/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access)에 따라 다음 단계가 포함된 프로세스를 완료합니다.
+2. RHEL BYOS 이미지를 사용할 수 있는 권한을 Azure 구독 ID에 부여합니다. [RHSM(Red Hat Subscription Management) 설명서](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index)에 따라 다음 단계가 포함된 프로세스를 완료합니다.
     1. Red Hat Cloud Access 대시보드에서 Microsoft Azure를 공급자로 사용하도록 설정합니다.
     2. Azure 구독 ID를 추가합니다.
     3. Microsoft Azure에서 Cloud Access에 대한 새 제품을 사용하도록 설정합니다.
-    4. Azure 구독에 대한 Red Hat Gold Images를 활성화합니다. 자세한 내용은 [Cloud Access에 대한 구독 사용 및 유지 관리](https://access.redhat.com/documentation/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#using-gold-images-on-azure_cloud-access) 챕터를 참조하세요. 
+    4. Azure 구독에 대한 Red Hat Gold Images를 활성화합니다. 자세한 내용은 [Cloud Access에 대한 구독 사용 및 유지 관리](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/understanding-gold-images_cloud-access#using-gold-images-on-azure_cloud-access#using-gold-images-on-azure_cloud-access) 챕터를 참조하세요. 
     5. Azure 구독에서 Red Hat Gold Images를 사용할 수 있을 때까지 기다립니다. 이러한 골드 이미지는 일반적으로 제출 후 3시간 이내에 Azure 프라이빗 제품으로 제공됩니다.
 
 3. RHEL BYOS 이미지의 Azure Marketplace 사용 약관에 동의합니다. 동의하려면 다음과 같이 [Azure CLI(명령줄 인터페이스)](/cli/azure/install-azure-cli) 명령을 실행합니다. 자세한 내용은 [Azure의 RHEL BYOS Gold Images](./byos.md) 설명서를 참조하세요. 최신 Azure CLI 버전을 실행해야 합니다.
@@ -215,7 +215,7 @@ VM 사용자 지정 스크립트 확장 문제 해결에 대한 자세한 내용
 
 지원, 문제 또는 사용자 지정 요구 사항과 관련된 지원은 [Red Hat 지원](https://access.redhat.com/support) 또는 [Microsoft Azure 지원](https://ms.portal.azure.com/?quickstart=true#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)에 문의하세요.
 
-* [JBoss EAP](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform)에 대해 자세히 알아보기
+* [JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/)에 대해 자세히 알아보기
 * [Azure Red Hat OpenShift 기반 JBoss EAP](https://azure.microsoft.com/services/openshift/)
 * [Azure App Service의 JBoss EAP](/azure/developer/java/ee/jboss-on-azure) 
 * [Azure 하이브리드 혜택](../../windows/hybrid-use-benefit-licensing.md)

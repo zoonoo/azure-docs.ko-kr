@@ -58,3 +58,7 @@
       items:
         - name: 구독 액세스
           href: troubleshoot-subscription-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: 리소스
+      items:
+        - name: FAQ
+          href: microsoft-customer-agreement-faq.yml?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json

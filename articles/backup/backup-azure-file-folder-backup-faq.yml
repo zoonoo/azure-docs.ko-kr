@@ -2,14 +2,15 @@
 metadata:
   title: MARS(Microsoft Azure Recovery Services) 에이전트 – FAQ
   description: Azure Backup을 사용하여 파일 및 폴더 백업에 대한 일반적인 질문을 해결합니다.
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: backup
   ms.date: 04/05/2021
-  ms.openlocfilehash: a26ed95843e93323a31c25e6b894b070cf3837aa
-  ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+  ms.openlocfilehash: ff157a3d8e744dffd314525a053b8c3ca1ab8999
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/07/2021
-  ms.locfileid: "111907817"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122252500"
 title: 질문과 대답 - MARS(Microsoft Azure Recovery Services) 에이전트
 summary: >
   이 문서에서는 [Azure Backup](backup-overview.md) 서비스에서 MARS(Microsoft Azure Recovery Services) 에이전트를 사용하여 데이터를 백업하는 것과 관련된 일반적인 질문에 대한 답변입니다.
@@ -95,7 +96,7 @@ sections:
 
       * 자격 증명 모음에 새 이름을 등록하면 첫 번째 작업은 *전체* 백업입니다.
 
-      * 이전 서버 이름으로 자격 증명 모음에 백업된 데이터를 복원해야 하는 경우 옵션을 사용하여 데이터 복구 마법사의 대체 위치로 복원합니다. [자세히 알아보기](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+      * 이전 서버 이름으로 자격 증명 모음에 백업된 데이터를 복원해야 하는 경우 옵션을 사용하여 데이터 복구 마법사의 대체 위치로 복원합니다. [자세한 정보](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
   - question: >
       백업의 최대 파일 경로 길이는 얼마인가요?
     answer: "MARS 에이전트는 NTFS를 사용하며 [Windows API](/windows/win32/FileIO/naming-a-file#fully-qualified-vs-relative-paths)에 의해 제한되는 파일 경로 길이 사양을 사용합니다. 보호할 파일이 허용된 값보다 길면 상위 폴더 또는 디스크 드라이브를 백업합니다.  \n"
@@ -202,7 +203,7 @@ sections:
   - question: >
       백업에 사용되는 대역폭의 양을 조정하는 방법이 있나요?
     answer: >
-      예, MARS 에이전트의 **속성 변경** 옵션을 사용하여 대역폭과 타이밍을 조정할 수 있습니다. [자세히 알아보기](backup-windows-with-mars-agent.md#enable-network-throttling).
+      예, MARS 에이전트의 **속성 변경** 옵션을 사용하여 대역폭과 타이밍을 조정할 수 있습니다. [자세한 정보](backup-windows-with-mars-agent.md#enable-network-throttling).
 - name: 복원
   questions:
   - question: >
