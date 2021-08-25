@@ -7,12 +7,12 @@ ms.custom:
 - devx-track-java
 - devx-track-azurepowershell
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4923ba6ead6b13f6b919c72304d4f389bac41386
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: 1605bcc3a596276e8de99c45f290368691703c4f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113287819"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752336"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Java 함수 만들기
 
@@ -112,7 +112,7 @@ Azure Functions에서 함수 프로젝트는 각각 특정 항목에 응답하�
 <details>
 <summary><strong>LocalFunctionProj 폴더에 생성되는 항목은 무엇인가요?</strong></summary>
 
-이 폴더에는 *Function.java*, *FunctionTest.java* 및 *pom.xml* 같은 프로젝트에 대한 다양한 파일이 포함되어 있습니다. [local.settings.json](functions-run-local.md#local-settings-file) 및 [host.json](functions-host-json.md)이라는 구성 파일도 있습니다. *local.settings.json* 은 Azure에서 다운로드한 비밀을 포함할 수 있으므로 이 파일은 기본적으로 *.gitignore* 파일의 원본 제어에서 제외됩니다.
+이 폴더에는 *Function.java*, *FunctionTest.java* 및 *pom.xml* 같은 프로젝트에 대한 다양한 파일이 포함되어 있습니다. [local.settings.json](functions-develop-local.md#local-settings-file) 및 [host.json](functions-host-json.md)이라는 구성 파일도 있습니다. *local.settings.json* 은 Azure에서 다운로드한 비밀을 포함할 수 있으므로 이 파일은 기본적으로 *.gitignore* 파일의 원본 제어에서 제외됩니다.
 </details>
 
 <br/>

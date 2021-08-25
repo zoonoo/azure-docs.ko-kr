@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 05/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d554e5cc535975ad7c9f2ccb4c228e33e489645e
-ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
+ms.openlocfilehash: 94c7cdbdfabbe525c9176ea7fe6f88f55c9b1baa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113038034"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738716"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 액세스 키를 통해 Azure Storage에 액세스
 
@@ -68,7 +68,7 @@ Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  
 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 >[!NOTE]
-> 스토리지에 대한 권한을 부여하는 데 사용할 수 있는 다양한 역할에 대한 자세한 내용은 [Azure Active Directory를 사용하여 Blob 및 큐에 대한 액세스 권한 부여](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)를 검토하세요.
+> 스토리지에 대한 권한을 부여하는 데 사용할 수 있는 다양한 역할에 대한 자세한 내용은 [Azure Active Directory를 사용하여 Blob 및 큐에 대한 액세스 권한 부여](../../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights)를 검토하세요.
 
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>VM의 ID를 사용하여 액세스 토큰을 가져온 다음 Azure Resource Manager를 호출하는 데 사용

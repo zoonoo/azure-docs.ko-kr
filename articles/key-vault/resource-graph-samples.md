@@ -1,18 +1,18 @@
 ---
 title: Azure Key Vault에 대한 Azure Resource Graph 샘플 쿼리
 description: Azure Key Vault 관련 리소스 및 속성에 액세스하기 위한 리소스 유형 및 테이블의 사용을 보여 주는 Azure Key Vault에 대한 샘플 Azure Resource Graph 쿼리입니다.
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.topic: sample
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: 937ab0f6b09c7d3f3a7237ff785d4c5586826728
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 1dacb151b21b605cce2b33604bd43ddd917620c0
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669960"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860473"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-key-vault"></a>Azure Key Vault에 대한 Azure Resource Graph 샘플 쿼리
 

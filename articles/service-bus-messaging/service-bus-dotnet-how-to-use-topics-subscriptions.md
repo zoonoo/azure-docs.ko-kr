@@ -5,17 +5,17 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 06/29/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: b101603577324200c348a7522596b44db8049a05
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 8a53a8099df37ec3f24489cccaf91af2d53c97ce
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114457846"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747121"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-its-subscriptions-net"></a>Azure Service Bus 토픽에 메시지 보내기 및 구독에서 메시지 받기(.NET)
 이 빠른 시작에서는 [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) .NET 라이브러리를 사용하여 Service Bus 토픽에 메시지를 보내고 해당 토픽에 대한 구독에서 메시지를 받는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 서비스를 처음 사용하는 경우 이 빠른 시작 전에 [Service Bus 개요](service-bus-messaging-overview.md)를 참조하세요. 
 
 - **Azure 구독**. Azure Service Bus를 비롯한 Azure 서비스를 사용하려면 구독이 필요합니다.  기존 Azure 계정이 없는 경우 [평가판](https://azure.microsoft.com/free/)에 가입하거나 [계정을 만들 때](https://azure.microsoft.com) MSDN 구독자 혜택을 사용할 수 있습니다.
@@ -98,7 +98,7 @@ ms.locfileid: "114457846"
                     // create a batch 
                     using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
         
-                    for (int i = 1; i <= 3; i++)
+                    for (int i = 1; i <= numOfMessages; i++)
                     {
                         // try adding a message to the batch
                         if (!messageBatch.TryAddMessage(new ServiceBusMessage($"Message {i}")))

@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e31fd58887dfa179bc01f89ec7e56dc93fa3b6b8
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.openlocfilehash: c135b0e1e1e5c1b8c57b4b8ba7af06d165f00ac8
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112540279"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862341"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse SQL 리소스 사용
 
@@ -54,7 +54,7 @@ SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 �
 SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 수준을 결정하는 확장성 설정입니다. Gen2 전용 SQL 풀의 서비스 수준은 DWU(데이터 웨어하우스 단위)로 측정됩니다(예: DW2000c).
 
 > [!NOTE]
-> Azure Synapse Analytics Gen2는 최근에 100cDWU만큼 낮은 컴퓨팅 계층을 지원하기 위해 크기 조정 기능을 추가했습니다. 현재 Gen1에 있는 기존 데이터 웨어하우스는 하위 컴퓨팅 계층이 필요한 경우 이제 추가 비용 없이 현재 사용 가능한 지역에서 Gen2로 업그레이드할 수 있습니다.  해당 지역이 아직 지원되지 않는 경우에도 지원되는 지역으로 업그레이드할 수 있습니다. 자세한 내용은 [Gen2로 업그레이드](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+> Azure Synapse Analytics Gen2는 최근에 100cDWU만큼 낮은 컴퓨팅 계층을 지원하기 위해 크기 조정 기능을 추가했습니다. 현재 Gen1에 있는 기존 데이터 웨어하우스는 하위 컴퓨팅 계층이 필요한 경우 이제 추가 비용 없이 현재 사용 가능한 지역에서 Gen2로 업그레이드할 수 있습니다.  해당 지역이 아직 지원되지 않는 경우에도 지원되는 지역으로 업그레이드할 수 있습니다. 자세한 내용은 [Gen2로 업그레이드](../sql-data-warehouse/upgrade-to-latest-generation.md?context=/azure/synapse-analytics/context/context)를 참조하세요.
 
 T-SQL에서 SERVICE_OBJECTIVE 설정은 전용 SQL 풀의 서비스 수준 및 성능 계층을 결정합니다.
 
@@ -79,7 +79,7 @@ DWU 및 cDWU 모두 컴퓨팅을 확장 또는 축소할 수 있고 데이터 �
 
 #### <a name="capacity-limits"></a>용량 제한
 
-각 SQL Server(예: myserver.database.windows.net)에는 특정 데이터 웨어하우스 단위 수를 허용하는 [DTU(데이터베이스 트랜잭션 단위)](../../azure-sql/database/service-tiers-dtu.md) 할당량이 지정되어 있습니다. 자세한 내용은 [워크로드 관리 용량 제한](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management)을 참조하세요.
+각 SQL Server(예: myserver.database.windows.net)에는 특정 데이터 웨어하우스 단위 수를 허용하는 [DTU(데이터베이스 트랜잭션 단위)](../../azure-sql/database/service-tiers-dtu.md) 할당량이 지정되어 있습니다. 자세한 내용은 [워크로드 관리 용량 제한](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?context=/azure/synapse-analytics/context/context#workload-management)을 참조하세요.
 
 ### <a name="assess-the-number-of-data-warehouse-units-you-need"></a>필요한 데이터 웨어하우스 단위 수 평가
 
@@ -216,4 +216,4 @@ AND       major_resource_id = 'MySQLDW'
 
 ## <a name="next-steps"></a>다음 단계
 
-성능 관리에 대한 자세한 내용은 [워크로드 관리에 대한 리소스 클래스](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 및 [메모리와 동시성 제한](../sql-data-warehouse/memory-concurrency-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.
+성능 관리에 대한 자세한 내용은 [워크로드 관리에 대한 리소스 클래스](../sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context) 및 [메모리와 동시성 제한](../sql-data-warehouse/memory-concurrency-limits.md?context=/azure/synapse-analytics/context/context)을 참조하세요.

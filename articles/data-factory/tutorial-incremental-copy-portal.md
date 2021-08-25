@@ -4,15 +4,15 @@ description: 이 자습서에서는 Azure SQL Database의 테이블에서 Azure 
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-dt-2019
 ms.date: 07/05/2021
-ms.openlocfilehash: a7730a12f6e017c23e5007b030cb4b6b05be4761
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: e884869b77398ab32987363bb85367d46a958380
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113436277"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638390"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Database에서 Azure Blob 스토리지로 데이터 증분 로드
 

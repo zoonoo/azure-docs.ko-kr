@@ -3,12 +3,12 @@ title: '빠른 시작: 사용자 지정 컨테이너에서 Azure Arc 함수 앱 
 description: 사용자 지정 Linux 컨테이너에서 첫 번째 함수 앱을 배포하여 Azure Arc에서 Azure Functions를 시작합니다.
 ms.topic: quickstart
 ms.date: 05/11/2021
-ms.openlocfilehash: 28079b9a7821350736647d49815c541f6a79d119
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 48940e70e1678e4426efb34e40b3b16b742e4f5c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111525645"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746742"
 ---
 # <a name="create-your-first-function-on-azure-arc-using-a-custom-container-preview"></a>사용자 지정 컨테이너를 사용하여 Azure Arc 첫 번째 함수 만들기(미리 보기)
 
@@ -101,7 +101,7 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
     cd LocalFunctionProj
     ```
 
-    이 폴더에는 [local.settings.json](functions-run-local.md#local-settings-file) 및 [host.json](functions-host-json.md)이라는 구성 파일을 포함하여 프로젝트의 Dockerfile 기타 파일이 있습니다. 기본적으로 *local.settings.json* 파일은 *.gitignore* 파일의 소스 제어에서 제외됩니다. 이는 파일에 Azure에서 다운로드한 비밀이 포함될 수 있기 때문입니다.
+    이 폴더에는 [local.settings.json](functions-develop-local.md#local-settings-file) 및 [host.json](functions-host-json.md)이라는 구성 파일을 포함하여 프로젝트의 Dockerfile 기타 파일이 있습니다. 기본적으로 *local.settings.json* 파일은 *.gitignore* 파일의 소스 제어에서 제외됩니다. 이는 파일에 Azure에서 다운로드한 비밀이 포함될 수 있기 때문입니다.
 
 1. 생성된 `Dockerfile`을 열고 기본 이미지의 `3.0` 태그를 찾습니다. `3.0` 태그가 있는 경우 `3.0.15885` 태그로 바꿉니다. 예를 들어, JavaScript 애플리케이션에서 Docker 파일은 `FROM mcr.microsoft.com/azure-functions/node:3.0.15885`를 포함하도록 수정해야 합니다. 이 버전의 기본 이미지는 Azure Arc 지원 Kubernetes 클러스터에 대한 배포를 지원합니다. 
 

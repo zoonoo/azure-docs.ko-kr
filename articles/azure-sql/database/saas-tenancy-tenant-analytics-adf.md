@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: e6d06cb63b3fa52e83605abf565afdb7eb9e167b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: dc5240d3b0d4e2fa7b209d5f1a3b8b3f9acd01c7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110691735"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738466"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Azure SQL Database, Azure Synapse Analytics, Data Factory 또는 Power BI를 사용한 SaaS 분석 살펴보기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -164,7 +164,7 @@ Azure Data Factory는 데이터의 추출, 로드 및 변환을 오케스트레�
 ![adf_linkedservices](./media/saas-tenancy-tenant-analytics-adf/linkedservices.JPG)
 
 세 연결된 서비스에 상응하면서, 파이프라인 활동에서 입력 또는 출력으로 사용하는 데이터를 참조하는 세 데이터 세트가 있습니다. 사용된 연결 및 매개 변수를 확인하려면 각 데이터 세트를 탐색합니다. _AzureBlob_ 은 각 원본의 추적기 열 뿐만 아니라 원본 및 대상 테이블과 열을 포함하는 구성 파일을 가리킵니다.
-  
+
 ### <a name="data-warehouse-pattern-overview"></a>데이터 웨어하우스 패턴 개요
 
 Azure Synapse는 테넌트 데이터에 대해 집계를 수행하기 위한 분석 저장소로 사용됩니다. 이 샘플에서 PolyBase는 데이터 웨어하우스에 데이터를 로드하는 데 사용됩니다. 원시 데이터는 스타 스키마 테이블로 변환된 행을 추적하는 ID 열이 있는 준비 테이블에 로드됩니다. 다음 이미지는 부하 패턴을 보여줍니다. ![데이터베이스 테이블의 부하 패턴을 보여 주는 다이어그램](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
@@ -208,7 +208,7 @@ SCD(Slowly Changing Dimension) 유형 1 차원 테이블을 이 예제에서 사
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics-adf/powerBISignIn.PNG)
 
-5. 왼쪽 창에서 **데이터베이스** 를 선택한 후 사용자 이름 = *developer*, 암호 = *P\@ssword1* 을 입력합니다. **연결** 을 클릭합니다.  
+5. 왼쪽 창에서 **데이터베이스** 를 선택한 후 사용자 이름 = *developer*, 암호 = *P\@ssword1* 을 입력합니다. **연결** 을 클릭합니다.
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics-adf/databaseSignIn.PNG)
 
@@ -244,7 +244,7 @@ SCD(Slowly Changing Dimension) 유형 1 차원 테이블을 이 예제에서 사
 
 한편, Wingtip Tickets의 고객들은 자신들이 지불하는 서비스 요금보다 티켓 판매량이 현저히 떨어진다고 불만을 토로하고 있습니다. 데이터를 분석하여 성적이 좋지 않은 행사장의 티켓 판매량을 높일 방안이 있는지 확인해 볼 수 있습니다. 판매량이 높아지면 서비스의 체감 가치가 높아지게 됩니다. fact_Tickets를 마우스 오른쪽 단추로 클릭하고 **새 측정값** 을 선택합니다. **AverageTicketsSold** 라는 새 측정값에 다음과 같은 식을 입력합니다.
 
-```sql
+```DAX
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
 ```
 
