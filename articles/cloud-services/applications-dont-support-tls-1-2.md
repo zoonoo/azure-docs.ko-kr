@@ -2,27 +2,23 @@
 title: TLS 1.2를 지원하지 않는 애플리케이션에서 발생하는 문제 해결 | Microsoft Docs
 description: TLS 1.2를 지원하지 않는 애플리케이션에서 발생하는 문제 해결
 services: cloud-services
-documentationcenter: ''
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 tags: top-support-issue
-ms.assetid: ''
 ms.service: cloud-services
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/16/2020
-ms.author: tagore
-ms.openlocfilehash: 79a8942fefc497701a05b6d20ab693d932daeb7d
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 8c7a79d791e62fe1173b945d0d2d360c595e31a6
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166471"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822520"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>TLS 1.2를 지원하지 않는 애플리케이션 문제 해결
 
-> [!IMPORTANT]
-> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다. 이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 이 문서에서는 이전 TLS 프로토콜(TLS 1.0 및 1.1)을 사용하도록 설정하고 Windows Server 2019 클라우드 서비스 웹 및 작업자 역할에서 추가 프로토콜을 지원하기 위한 레거시 암호 그룹을 적용하는 방법을 설명합니다.
 

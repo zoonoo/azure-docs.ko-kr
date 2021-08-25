@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: 샘플 명령줄 애플리케이션을 사용하여 Azure Digital Twins 시나리오를 작성하는 자습서
 author: baanders
 ms.author: baanders
-ms.date: 5/8/2020
+ms.date: 6/1/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 1d4faa9ad8bce084fdd011fb9a79fd867f02aa27
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: e795b8d34b46fc3df0e31e12a1de0bccdab74e6a
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446910"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252710"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-a-sample-client-app"></a>자습서: 샘플 클라이언트 앱을 사용하여 Azure Digital Twins 그래프 만들기
 

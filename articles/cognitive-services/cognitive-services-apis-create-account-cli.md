@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 keywords: 인지 서비스, 인지 인텔리전스, 인지 솔루션, AI 서비스
 ms.topic: quickstart
-ms.date: 3/22/2021
+ms.date: 06/04/2021
 ms.author: aahi
-ms.openlocfilehash: 26e3b264b7268f7a9ffdb592beef7d76844646f5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1c838a9b805eed20fec9f9feabf4aa24c58b1cd5
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789144"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122429943"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>빠른 시작: Azure CLI(명령줄 인터페이스)를 사용하여 Cognitive Services 리소스 만들기
 
@@ -33,6 +33,8 @@ Cognitive Services는 Azure 구독에서 만든 Azure [리소스](../azure-resou
 
 * 유효한 Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [Azure CLI(명령줄 인터페이스)](/cli/azure/install-azure-cli)
+* [!INCLUDE [contributor-requirement](./includes/quickstarts/contributor-requirement.md)]
+* [!INCLUDE [terms-azure-portal](./includes/quickstarts/terms-azure-portal.md)]
 
 ## <a name="install-the-azure-cli-and-sign-in"></a>Azure CLI 설치 및 로그인
 
@@ -78,51 +80,10 @@ az group create \
 
 새 리소스를 만들 때 원하는 [가격 책정 계층](https://azure.microsoft.com/pricing/details/cognitive-services/)(또는 SKU)과 함께 사용할 서비스의 "종류"를 알아야 합니다. 리소스를 만들 때 이 정보와 기타 정보를 매개 변수로 사용합니다.
 
-### <a name="multi-service"></a>다중 서비스
-
-| 서비스                    | 종류                      |
-|----------------------------|---------------------------|
-| 여러 서비스. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/) 페이지를 참조하세요.            | `CognitiveServices`     |
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 
-> [!NOTE]
-> 아래의 Cognitive Services 중 상당수는 서비스 체험용으로 체험 계층을 제공합니다. 체험 계층을 사용하려면 리소스의 SKU로 `F0`을 사용합니다.
-
-### <a name="vision"></a>Vision
-
-| 서비스                    | 종류                      |
-|----------------------------|---------------------------|
-| Computer Vision            | `ComputerVision`          |
-| Custom Vision - 예측 | `CustomVision.Prediction` |
-| Custom Vision - 학습   | `CustomVision.Training`   |
-| Face                       | `Face`                    |
-| Form Recognizer            | `FormRecognizer`          |
-| Ink Recognizer             | `InkRecognizer`           |
-
-### <a name="speech"></a>음성
-
-| 서비스            | 종류                 |
-|--------------------|----------------------|
-| Speech Services    | `SpeechServices`     |
-| 음성 인식 | `SpeakerRecognition` |
-
-### <a name="language"></a>언어
-
-| 서비스            | 종류                |
-|--------------------|---------------------|
-| 양식 이해 | `FormUnderstanding` |
-| LUIS               | `LUIS`              |
-| QnA Maker          | `QnAMaker`          |
-| 텍스트 분석     | `TextAnalytics`     |
-| 텍스트 번역   | `TextTranslation`   |
-
-### <a name="decision"></a>의사 결정
-
-| 서비스           | 종류               |
-|-------------------|--------------------|
-| Anomaly Detector  | `AnomalyDetector`  |
-| Content Moderator | `ContentModerator` |
-| Personalizer      | `Personalizer`     |
+[!INCLUDE [SKUs and pricing](./includes/quickstarts/sku-pricing.md)]
 
 [az cognitiveservices account list-kinds](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_list_kinds) 명령으로 사용 가능한 Cognitive Service "종류" 목록을 찾을 수 있습니다.
 
@@ -193,6 +154,8 @@ Cognitive Services 리소스를 정리하고 제거하려면 해당 리소스 �
 ```azurecli-interactive
 az group delete --name cognitive-services-resource-group
 ```
+
+삭제된 리소스를 복구해야 하는 경우 [삭제된 Cognitive Services 리소스 복구](manage-resources.md)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 

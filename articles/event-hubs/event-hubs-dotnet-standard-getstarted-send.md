@@ -4,12 +4,12 @@ description: 이 문서에서는 최신 Azure.Messaging.EventHubs 패키지를 �
 ms.topic: quickstart
 ms.date: 06/10/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 948bacd1506bc65c97c84ea5fa9d3f5b4ad95503
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 3f8a0c2d9021f0a084025dbca661e37af421c9d1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730264"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749707"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Azure Event Hubs에서 이벤트 보내기 및 받기 - .NET(Azure.Messaging.EventHubs) 
 이 빠른 시작에서는 **Azure.Messaging.EventHubs** .NET 라이브러리를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다. 
@@ -109,7 +109,7 @@ Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기
             {
                 // Use the producer client to send the batch of events to the event hub
                 await producerClient.SendAsync(eventBatch);
-                Console.WriteLine($"A batch of {numEvents} events has been published.");
+                Console.WriteLine($"A batch of {numOfEvents} events has been published.");
             }
             finally
             {

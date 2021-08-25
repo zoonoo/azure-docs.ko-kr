@@ -2,19 +2,19 @@
 title: Azure Synapse 작업 영역 액세스 제어 개요
 description: 이 문서에서는 Synapse 작업 영역에 대한 액세스를 제어하는 데 사용되는 메커니즘과 그 안에 포함된 리소스 및 코드 아티팩트에 대해 설명합니다.
 services: synapse-analytics
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
 ms.date: 12/03/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 574211bc426d97c5bd734dcf348b66ecce1b3ff8
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: b92603e5aa9f7c42a2e4789353077058b1fc6ea9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113217812"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730927"
 ---
 # <a name="azure-synapse-access-control"></a>Azure Synapse 액세스 제어 
 

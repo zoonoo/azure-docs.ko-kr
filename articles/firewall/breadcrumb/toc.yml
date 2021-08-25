@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: 네트워킹
+      tocHref: /azure/developer/terraform
+      topicHref: /azure/networking/index
+      items:
+        - name: 방화벽
+          tocHref: /azure/developer/terraform
+          topicHref: /azure/firewall/index

@@ -4,12 +4,12 @@ description: .NET용 HDInsight SDK를 사용하는 일반적인 작업을 위해
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 12/06/2019
-ms.openlocfilehash: 6182deb657631135742351583d51171739c8ee68
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d32bdb5653d0744448acc50ca2f79d680ad14dc
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821700"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "122643555"
 ---
 # <a name="azure-hdinsight-net-samples"></a>Azure HDInsight: .NET 샘플
 
@@ -28,7 +28,7 @@ ms.locfileid: "99821700"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisite"></a>필수 조건
 
 [.NET용 Azure HDInsight SDK](/dotnet/api/overview/azure/hdinsight#sdk-installation)
 
@@ -41,6 +41,6 @@ ms.locfileid: "99821700"
 
 [hdinsight-dotnet-sdk-samples](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples) GitHub 리포지토리를 복제하여 이러한 .NET용 샘플을 가져올 수 있습니다.
 
-[!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
+[!INCLUDE [hdinsight-sdk-additional-functionality](includes/hdinsight-sdk-additional-functionality.md)]
 
 이 추가 SDK 기능에 대한 코드 조각은 [.NET용 HDInsight SDK 참조 설명서](/dotnet/api/overview/azure/hdinsight)에서 찾을 수 있습니다.

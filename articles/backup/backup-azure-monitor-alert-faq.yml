@@ -3,14 +3,15 @@ metadata:
   title: 모니터링 경고 및 보고서 FAQ
   description: 이 문서에서는 Azure Backup 모니터링 경고 및 Azure Backup 보고서에 대한 일반적인 질문에 대한 답변을 검색합니다.
   ms.reviewer: srinathv
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: backup
   ms.date: 07/08/2019
-  ms.openlocfilehash: 3117220c9202a458e2fdf377abf11cf068e53201
-  ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+  ms.openlocfilehash: ee64b5e2499af2e65a869535d56465c95df06c96
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/15/2021
-  ms.locfileid: "111907432"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122253426"
 title: Azure Backup 모니터링 경고 - FAQ
 summary: 이 문서에서는 Azure Backup 모니터링 및 보고에 대한 일반적인 질문에 답변합니다.
 sections:
