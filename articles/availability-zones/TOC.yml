@@ -3,11 +3,9 @@
     - name: Azure 복원력 기능 페이지
       href: 'https://azure.microsoft.com/features/resiliency'
     - name: Azure용 복원 애플리케이션 디자인
-      href: /azure/architecture/resiliency/
+      href: /azure/architecture/framework/resiliency/app-design
 - name: 고가용성
   items:
-    - name: Azure 애플리케이션의 고가용성
-      href: /azure/architecture/resiliency/high-availability-azure-applications
     - name: 영역 및 가용성 영역
       href: az-overview.md
     - name: 가용성 영역 설명서

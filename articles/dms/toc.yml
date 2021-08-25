@@ -98,7 +98,7 @@
 - name: 리소스
   items:
     - name: 질문과 대답
-      href: faq.md
+      href: faq.yml
     - name: 사용자 의견
       href: 'https://feedback.azure.com/forums/906100-azure-database-migration-service'
     - name: 가격 책정

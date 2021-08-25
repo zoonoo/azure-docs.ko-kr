@@ -2,25 +2,22 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Parsable 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 Parsable로 자동 프로비저닝 및 프로비저닝 해제하는 방법을 알아보기.
 services: active-directory
-documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 1ec33ea6-bff4-4665-bf2b-f4037ff28c09
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/18/2020
-ms.author: Zhchia
-ms.openlocfilehash: 817b6b373f521543234cf02818cde8c4b4ba40c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 34f27efea0b97526a7dc05d086ee3854b2bf7490
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100526428"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122207660"
 ---
 # <a name="tutorial-configure-parsable-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Parsable 구성
 

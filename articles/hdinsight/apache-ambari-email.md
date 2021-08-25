@@ -4,12 +4,12 @@ description: 이 문서에서는 이메일 알림을 위해 SendGrid를 Apache A
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: 5b344c0c4b1db9159d0223c861e5d371cb225f5a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e9c7e9e44cd09460ede9046cadb1800871b5052d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104867205"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726723"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Ambari 이메일 알림 구성
 
@@ -23,7 +23,7 @@ ms.locfileid: "104867205"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* SendGrid 이메일 계정. 지침은 [Azure에서 SendGrid를 사용하여 이메일을 보내는 방법](../sendgrid-dotnet-how-to-send-email.md)을 참조하세요.
+* SendGrid 이메일 계정. 지침은 [Azure에서 SendGrid를 사용하여 이메일을 보내는 방법](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account)을 참조하세요.
 
 * HDInsight 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](./hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 

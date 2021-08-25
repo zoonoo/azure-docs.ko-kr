@@ -8,12 +8,12 @@ ms.author: bobazile
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ef77648a87a22eda950704a6d86b2e699dc61ebe
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: c2d6f3ebe3d11c304efe57141db3d8935611bf72
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762737"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743542"
 ---
 # <a name="telephony-concepts"></a>전화 통신 개념
 
@@ -77,7 +77,7 @@ Azure Communication Services Calling SDK를 사용하여 전화 통신 및 공�
 ### <a name="conceptual-documentation"></a>개념 설명서
 
 - [Azure Communication Services의 전화 번호 유형](./plan-solution.md)
-- [Azure 직접 라우팅 계획](./sip-interface-infrastructure.md)
+- [Azure 직접 라우팅 계획](./direct-routing-infrastructure.md)
 - [Azure Communication Services 직접 라우팅에 대해 인증된 Session Border Controller](./certified-session-border-controllers.md)
 - [가격](../pricing.md)
 

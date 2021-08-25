@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: 257055110bffac10c92d87820bcfadff2b208b3b
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 1e66e8a3358bdcbca3d5dea247e1e6af2000393f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538039"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735058"
 ---
 # <a name="quickstart-deploy-a-managed-apache-spark-cluster-preview-with-azure-databricks"></a>빠른 시작: Azure Databricks를 사용하여 관리형 Apache Spark 클러스터(미리 보기) 배포
 
@@ -82,7 +82,7 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
    * **클러스터 이름** - 클러스터 이름을 입력합니다.
    * **Databricks Runtime 버전** - Spark 3.x 지원을 위해 Databricks 런타임 버전 7.5 이상을 선택하는 것이 좋습니다. 
 
-    :::image type="content" source="../cosmos-db/media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Databricks 런타임 버전 및 Spark 클러스터를 선택합니다." border="true":::
+    :::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-runtime.png" alt-text="Databricks 런타임 버전 및 Spark 클러스터를 선택합니다." border="true":::
 
 1. **고급 옵션** 을 확장하고 다음 구성을 추가합니다. 다음과 같이 노드 IP 및 자격 증명을 바꿉니다.
 
@@ -96,7 +96,7 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
 
 1. Apache Spark Cassandra 커넥터 라이브러리를 클러스터에 추가하여 네이티브 및 Azure Cosmos DB Cassandra 엔드포인트 모두에 연결합니다. 클러스터에서 **라이브러리** > **새로 설치** > **Maven** 을 선택한 다음 Maven 좌표에 `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0`을 추가합니다.
 
-:::image type="content" source="../cosmos-db/media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages.png" alt-text="Databricks에서 Maven 패키지 검색을 보여 주는 스크린샷":::
+:::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-search-packages.png" alt-text="Databricks에서 Maven 패키지 검색을 보여 주는 스크린샷":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

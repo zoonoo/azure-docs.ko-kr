@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory를 사용하여 자동 사용자 프�
 description: Azure Active Directory에서 사용자 계정을 자동으로 프로비저닝 및 프로비저닝을 해제하여 getAbstract하는 방법에 대해 알아보세요.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: bd8898f9-7a01-4e85-9dd4-61ae4b01ab5b
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/25/2021
-ms.author: Zhchia
-ms.openlocfilehash: 1d1b2417750b917f5b09bb53ee980887218a785c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 1c7278b0d8a0e9ed3d94e69d1ad5da34ab0bc854
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102616131"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122327201"
 ---
 # <a name="tutorial-configure-getabstract-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 getAbstract 구성
 
@@ -84,11 +84,11 @@ Azure AD 애플리케이션 갤러리에서 getAbstract를 추가하여 getAbstr
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>4단계. 프로비저닝 범위에 있는 사용자 정의
 
-Azure AD 프로비저닝 서비스를 사용하여 애플리케이션 할당에 따라 또는 사용자/그룹의 특성에 따라 프로비저닝할 사용자의 범위를 지정할 수 있습니다. 할당을 기준으로 앱에 프로비저닝할 사용자의 범위를 선택하려면 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md)를 사용하여 애플리케이션에 사용자 및 그룹을 할당할 수 있습니다. 사용자 또는 그룹의 특성만을 기준으로 프로비저닝할 사용자의 범위를 지정하려면 [범위 지정 필터가 있는 프로비저닝 애플리케이션](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에 설명된 대로 범위 지정 필터를 사용할 수 있습니다.
+Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 할당이나 사용자 또는 그룹의 특성을 기준으로 프로비저닝되는 사용자의 범위를 지정할 수 있습니다. 할당을 기준으로 앱에 프로비저닝할 사용자의 범위를 선택하려면 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md)를 사용하여 애플리케이션에 사용자 및 그룹을 할당할 수 있습니다. 사용자 또는 그룹의 특성만을 기준으로 프로비저닝할 사용자의 범위를 지정하려면 [범위 지정 필터가 있는 프로비저닝 애플리케이션](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에 설명된 대로 범위 지정 필터를 사용할 수 있습니다.
 
 * 사용자 및 그룹을 getAbstract에 할당할 때 **기본 액세스** 이외의 역할을 선택해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고, 프로비저닝 로그에서 실질적으로 권한이 없는 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우 [애플리케이션 매니페스트를 업데이트](../develop/howto-add-app-roles-in-azure-ad-apps.md)하여 더 많은 역할을 추가할 수 있습니다.
 
-* 소규모로 시작합니다. 모든 사용자에게 롤아웃하려면 먼저 소수의 사용자 및 그룹 세트를 사용하여 테스트합니다. 할당된 사용자 및 그룹으로 프로비저닝 범위가 설정된 경우 애플리케이션에 하나 또는 둘의 사용자나 그룹을 할당하여 해당 옵션을 제어할 수 있습니다. 범위가 모든 사용자 및 그룹으로 설정되면 [특성 기반 범위 지정 필터](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)를 지정할 수 있습니다.
+* 소규모로 시작합니다. 모든 사용자에게 롤아웃하려면 먼저 소수의 사용자 및 그룹 세트를 사용하여 테스트합니다. 프로비저닝 범위가 할당된 사용자 및 그룹으로 설정된 경우 앱에 하나 또는 두 개의 사용자 또는 그룹을 할당하여 이 옵션을 제어할 수 있습니다. 범위가 모든 사용자 및 그룹으로 설정되면 [특성 기반 범위 지정 필터](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)를 지정할 수 있습니다.
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-getabstract"></a>5단계. getAbstract에 대한 자동 사용자 프로비저닝 구성
 
@@ -160,7 +160,7 @@ Azure AD 프로비저닝 서비스를 사용하여 애플리케이션 할당에 
 
     ![저장 단추를 보여 주는 스크린샷.](common/provisioning-configuration-save.png)
 
-이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화 주기를 시작합니다. 초기 주기는 Azure AD 프로비저닝 서비스가 실행되는 동안 약 40분마다 발생하는 후속 주기에 비해 수행하는 데 시간이 더 오래 걸립니다.
+이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화 주기를 시작합니다. 초기 주기는 Azure AD 프로비저닝 서비스가 실행되는 동안 약 40분마다 발생하는 후속 주기보다 더 많은 시간이 걸립니다.
 
 ## <a name="step-6-monitor-your-deployment"></a>6단계. 배포 모니터링
 
