@@ -9,16 +9,16 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5a73b98f31fb7c2f8979f977138ca7f836fe5a34
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: c06754e82b26672a173744b9f1c0d6bd1a92d506
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114221807"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732768"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Key Vault 및 Azure CLI를 사용하여 스토리지 계정 키 관리
 > [!IMPORTANT]
-> Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스인 Azure AD(Azure Active Directory)와 Azure Storage를 통합하여 사용하는 것이 좋습니다. Azure AD 통합은 [Azure BLOB 및 큐](../../storage/common/storage-auth-aad.md)에 사용할 수 있으며, Azure Key Vault와 마찬가지로 Azure Storage에 대한 OAuth2 토큰 기반 액세스를 제공합니다. Azure AD를 사용하면 스토리지 계정 자격 증명 대신 애플리케이션 또는 사용자 ID를 사용하여 클라이언트 애플리케이션을 인증할 수 있습니다. Azure에서 실행할 때 [Azure AD 관리 ID](../../active-directory/managed-identities-azure-resources/index.yml)를 사용할 수 있습니다. 관리 ID를 사용하면 클라이언트 인증이 필요 없는 것은 물론이고, 애플리케이션에 또는 애플리케이션을 통해 자격 증명을 저장할 필요가 없습니다. Azure AD 인증을 사용할 수 없는 경우에만 아래 솔루션을 사용하세요.
+> Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스인 Azure AD(Azure Active Directory)와 Azure Storage를 통합하여 사용하는 것이 좋습니다. Azure AD 통합은 [Azure BLOB 및 큐](../../storage/blobs/authorize-access-azure-active-directory.md)에 사용할 수 있으며, Azure Key Vault와 마찬가지로 Azure Storage에 대한 OAuth2 토큰 기반 액세스를 제공합니다. Azure AD를 사용하면 스토리지 계정 자격 증명 대신 애플리케이션 또는 사용자 ID를 사용하여 클라이언트 애플리케이션을 인증할 수 있습니다. Azure에서 실행할 때 [Azure AD 관리 ID](../../active-directory/managed-identities-azure-resources/index.yml)를 사용할 수 있습니다. 관리 ID를 사용하면 클라이언트 인증이 필요 없는 것은 물론이고, 애플리케이션에 또는 애플리케이션을 통해 자격 증명을 저장할 필요가 없습니다. Azure AD 인증을 사용할 수 없는 경우에만 아래 솔루션을 사용하세요.
 
 Azure 스토리지 계정은 계정 이름과 키로 구성된 자격 증명을 사용합니다. 키는 자동 생성되며 암호화 키가 아닌 암호 역할을 합니다. Key Vault는 스토리지 계정에서 스토리지 계정 키를 주기적으로 다시 생성하여 스토리지 계정 키를 관리하며, 스토리지 계정의 리소스에 대한 위임된 액세스가 가능하도록 공유 액세스 서명 토큰을 제공합니다.
 

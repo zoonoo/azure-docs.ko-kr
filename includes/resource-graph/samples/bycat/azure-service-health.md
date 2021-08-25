@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 577032452a3dfe18874a85d74f7e798a1f9175aa
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 11ff9db1d9ef4a31989a2fc4bbe7734fa14721e4
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114457255"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861892"
 ---
 ### <a name="active-service-health-event-subscription-impact"></a>활성 Service Health 이벤트 구독의 영향
 
-서비스 문제, 계획된 유지 관리, 상태 자문, 보안 공지를 포함하여 모든 활성 Service Health 이벤트를 이벤트 유형별로 그룹화하고 영향을 받는 구독 수를 포함하여 반환합니다.
+서비스 이슈, 계획된 유지 관리, 상태 자문, 보안 공지를 포함하여 모든 활성 Service Health 이벤트를 이벤트 유형별로 그룹화하고 영향을 받는 구독 수를 포함하여 반환합니다.
 
 ```kusto
 ServiceHealthResources
@@ -114,7 +114,7 @@ Search-AzGraph -Query "ServiceHealthResources | where type =~ 'Microsoft.Resourc
 
 ### <a name="all-active-service-health-events"></a>모든 활성 Service Health 이벤트
 
-서비스 문제, 계획된 유지 관리, 상태 자문, 보안 공지를 포함하여 사용자에게 액세스 권한이 있는 모든 구독에서 모든 활성 Service Health 이벤트를 반환합니다.
+서비스 이슈, 계획된 유지 관리, 상태 자문, 보안 공지를 포함하여 사용자에게 액세스 권한이 있는 모든 구독에서 모든 활성 Service Health 이벤트를 반환합니다.
 
 ```kusto
 ServiceHealthResources
@@ -145,9 +145,9 @@ Search-AzGraph -Query "ServiceHealthResources | where type =~ 'Microsoft.Resourc
 
 ---
 
-### <a name="all-active-service-issue-events"></a>모든 활성 서비스 문제 이벤트
+### <a name="all-active-service-issue-events"></a>모든 활성 서비스 이슈 이벤트
 
-사용자에게 액세스 권한이 있는 모든 구독에서 모든 활성 서비스 문제(중단) Service Health 이벤트를 반환합니다.
+사용자에게 액세스 권한이 있는 모든 구독에서 모든 활성 서비스 이슈(중단) Service Health 이벤트를 반환합니다.
 
 ```kusto
 ServiceHealthResources

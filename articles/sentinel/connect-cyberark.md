@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2020
 ms.author: yelevin
-ms.openlocfilehash: 3f18481821361feff525e3357543036784b21495
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 0b8db5dfa399aaef087adb0ec5c2d67b91fceab9
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538466"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694046"
 ---
 # <a name="connect-cyberark-enterprise-password-vault-epv-to-azure-sentinel"></a>CyberArk EPV를 Azure Sentinel에 연결합니다.
 
@@ -42,7 +42,7 @@ CyberArk Syslog 커넥터를 사용하면 모든 CyberArk 보안 솔루션 로�
 
 1. [CyberArk EPV 지침](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/DV-Integrating-with-SIEM-Applications.htm)에 따라 로그 전달 서버에 syslog 데이터 보내기를 구성합니다.
 
-1. [본 지침](connect-cef-verify.md)을 사용하여 연결의 유효성을 검사하고 데이터 수집을 확인합니다. 로그가 Log Analytics에 표시되는 데는 최대 20분이 걸립니다.
+1. [본 지침](troubleshooting-cef-syslog.md#validate-cef-connectivity)을 사용하여 연결의 유효성을 검사하고 데이터 수집을 확인합니다. 로그가 Log Analytics에 표시되는 데는 최대 20분이 걸립니다.
 
 ## <a name="find-your-data"></a>데이터 찾기
 
