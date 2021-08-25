@@ -179,7 +179,7 @@
               items:
                 - name: Windows
                   href: openvpn-azure-ad-client.md
-                - name: macOS - 미리 보기
+                - name: macOS
                   href: openvpn-azure-ad-client-mac.md
             - name: VPN 클라이언트 프로필 파일 작업
               href: about-vpn-profile-download.md

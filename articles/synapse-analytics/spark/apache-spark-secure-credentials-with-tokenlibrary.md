@@ -10,12 +10,12 @@ ms.date: 11/19/2020
 ms.author: martinle
 ms.reviewer: nirav
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: a5355a449cb55f671c59da55ba4d038e9b4b2ec5
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 1290fdb907272d4a47e4b11430fc47955a259951
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803425"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860864"
 ---
 # <a name="secure-credentials-with-linked-services-using-the-tokenlibrary"></a>TokenLibrary를 사용하여 연결된 서비스를 통해 자격 증명 보호
 
@@ -25,7 +25,7 @@ Synapse는 기본적으로 리소스 간의 인증을 위해 AAD(Azure Active Di
 
 Azure Key Vault에서 비밀을 검색하는 경우 Azure Key Vault 연결된 서비스를 만드는 것이 좋습니다.  Synapse 작업 영역 MSI(관리되는 서비스 ID)에 Azure Key Vault에 대한 비밀 가져오기 권한이 있는지 확인합니다.  Synapse는 Synapse 작업 영역 관리형 서비스 ID를 사용하여 Azure Key Vault에 인증합니다. 연결된 서비스 없이 Azure Key Vault에 직접 연결하는 경우 사용자 Azure Active Directory 자격 증명을 사용하여 인증합니다.
 
-자세한 내용은 [연결된 서비스](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+자세한 내용은 [연결된 서비스](../../data-factory/concepts-linked-services.md?context=/azure/synapse-analytics/context/context)를 참조하세요.
 
 ## <a name="usage"></a>사용
 

@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: cccb42041ece65ad4f245c28dd7c5cf356d5e63c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d84bc4977593a379fda817db67aaccd71793a787
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775156"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752310"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Python에서 첫 번째 지속성 함수 만들기
 
@@ -56,7 +56,7 @@ ms.locfileid: "104775156"
     | 프로젝트의 첫 번째 함수에 대한 템플릿 선택 | 지금은 건너뛰기 | |
     | 프로젝트를 여는 방법을 선택합니다. | 현재 창에서 열기 | 선택한 폴더에서 VS Code를 다시 엽니다. |
 
-필요한 경우 Visual Studio Code가 Azure Functions Core Tools를 설치합니다. 또한 폴더에서 함수 앱 프로젝트를 만듭니다. 이 프로젝트에는 [host.json](../functions-host-json.md) 및 [local.settings.json](../functions-run-local.md#local-settings-file) 구성 파일이 포함되어 있습니다.
+필요한 경우 Visual Studio Code가 Azure Functions Core Tools를 설치합니다. 또한 폴더에서 함수 앱 프로젝트를 만듭니다. 이 프로젝트에는 [host.json](../functions-host-json.md) 및 [local.settings.json](../functions-develop-local.md#local-settings-file) 구성 파일이 포함되어 있습니다.
 
 *requirements.txt* 파일도 루트 폴더에 생성됩니다. 함수 앱을 실행하는 데 필요한 Python 패키지를 지정합니다.
 

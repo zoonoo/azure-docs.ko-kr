@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/04/2021
 ms.author: alkohli
-ms.openlocfilehash: bd013bc6e0c41865f0c2f47559f024a42c3f7462
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f1b3e1b0b2734e54bdf8f63981a80848662cda64
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110461259"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747387"
 ---
 # <a name="tutorial-transfer-data-with-azure-stack-edge-pro-fpga"></a>자습서: Azure Stack Edge Pro FPGA를 사용하여 데이터 전송
 
@@ -61,7 +61,7 @@ Azure Stack Edge Pro FPGA에 공유를 추가하기 전에 다음 사항을 확�
     다. 공유가 상주할 스토리지 계정을 입력합니다. 
 
     > [!IMPORTANT]
-    > Azure Stack Edge Pro FPGA 또는 Data Box Gateway 디바이스에서 사용하는 경우 사용하는 Azure Storage 계정에 불변성 정책을 설정하지 않았는지 확인합니다. 자세한 내용은 [Blob 스토리지에 대한 불변성 정책 설정 및 관리](../storage/blobs/storage-blob-immutability-policies-manage.md)를 참조하세요.
+    > Azure Stack Edge Pro FPGA 또는 Data Box Gateway 디바이스에서 사용하는 경우 사용하는 Azure Storage 계정에 불변성 정책을 설정하지 않았는지 확인합니다. 자세한 내용은 [Blob 스토리지에 대한 불변성 정책 설정 및 관리](../storage/blobs/immutable-policy-configure-version-scope.md)를 참조하세요.
     
     d. **스토리지 서비스** 드롭다운 목록에서 **블록 Blob**, **페이지 Blob** 또는 **파일** 을 선택합니다.  
     선택하는 서비스 유형은 Azure에서 사용하려는 데이터 형식에 따라 달라집니다. 이 예제에서는 데이터를 블록 Blo 으로 Azure에 저장하므로 **블록 Blob** 을 선택합니다. **페이지 Blob** 을 선택하는 경우 데이터가 512바이트로 정렬되어 있는지 확인합니다. 예를 들어 VHDX는 항상 512바이트로 정렬됩니다.

@@ -4,16 +4,18 @@ description: Azure Blockchain Service 트랜잭션 노드의 Geth 인스턴스�
 ms.date: 05/26/2020
 ms.topic: quickstart
 ms.reviewer: maheshna
-ms.openlocfilehash: 2c5b6a56d96ac132949052e9879c8f61d41ffb06
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01cd813a9efd814837783343cef6a7fefd906e7f
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83994786"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122643271"
 ---
 # <a name="quickstart-use-geth-to-attach-to-an-azure-blockchain-service-transaction-node"></a>빠른 시작: Geth를 사용하여 Azure Blockchain Service 트랜잭션 노드에 연결
 
 이 빠른 시작에서는 Geth 클라이언트를 사용하여 Azure Blockchain Service 트랜잭션 노드의 Geth 인스턴스에 연결했습니다. 연결되면 Geth 콘솔을 사용하여 Ethereum JavaScript API를 호출합니다.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

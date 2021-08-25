@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 58cd69ebe97d9d0965d7e648b0ded012ac71cd0d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc1518b169f3da8b34e97c999cd23e201aea59ce
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646132"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015677"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 BlueJeans 구성
 
-이 자습서에서는 자동 사용자 프로비저닝을 구성하기 위해 BlueJeans 및 Azure AD(Azure Active Directory)에서 수행해야 하는 단계를 설명합니다. 구성된 경우 Azure AD는 Azure AD 프로비저닝 서비스를 사용하여 사용자를 [BlueJeans](https://www.bluejeans.com/pricing)에 자동으로 프로비저닝 및 프로비저닝을 해제합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요. 
+이 자습서에서는 자동 사용자 프로비저닝을 구성하기 위해 BlueJeans 및 Azure AD(Azure Active Directory)에서 수행해야 하는 단계를 설명합니다. 구성된 경우 Azure AD는 Azure AD 프로비저닝 서비스를 사용하여 사용자를 [BlueJeans](https://www.bluejeans.com)에 자동으로 프로비저닝 및 프로비저닝을 해제합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요. 
 
 ## <a name="capabilities-supported"></a>지원되는 기능
 > [!div class="checklist"]
@@ -35,7 +35,7 @@ ms.locfileid: "101646132"
 
 * [Azure AD 테넌트](../develop/quickstart-create-new-tenant.md)
 * 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
-* [My Company](https://www.bluejeans.com/pricing)(내 회사) 플랜 또는 그 이상이 사용되도록 설정된 BlueJeans 테넌트.
+* [My Company](https://www.bluejeans.com)(내 회사) 플랜 또는 그 이상이 사용되도록 설정된 BlueJeans 테넌트.
 * 관리자 권한이 있는 BlueJeans의 사용자 계정.
 * BlueJeans Enterprise에서 SCIM 프로비저닝을 사용하도록 설정합니다.
 

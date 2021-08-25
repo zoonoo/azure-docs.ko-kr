@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 92f89bafe1b96b575d12e8a09289a05c2379d837
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 126a7222b88c7925ec0e6ef1386e5b087d598f46
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280023"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "122643645"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - REST
 
@@ -25,7 +25,10 @@ ms.locfileid: "106280023"
 
 Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에서 재생할 수 있는 형식으로 미디어 파일을 인코딩할 수 있습니다. 예를 들어 콘텐츠를 Apple의 HLS 또는 MPEG DASH 형식으로 스트림할 수 있습니다. 스트림하기 전에 고품질 디지털 미디어 파일을 인코딩해야 합니다. 인코딩 지침은 [인코딩 개념](encode-concept.md)을 참조하세요.
 
-이 자습서에서는 REST를 사용하여 Azure Media Services에서 URL에 따라 파일을 인코딩하고 비디오를 스트림하는 방법을 보여줍니다. 
+이 자습서에서는 REST를 사용하여 Azure Media Services에서 URL에 따라 파일을 인코딩하고 비디오를 스트림하는 방법을 보여줍니다.
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
+
 
 ![비디오 재생](./media/stream-files-tutorial-with-api/final-video.png)
 
