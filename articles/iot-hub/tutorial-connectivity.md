@@ -3,7 +3,6 @@ title: 자습서 - Azure IoT Hub에 대한 디바이스 연결 확인
 description: 자습서 - IoT Hub 도구를 사용하여 개발 중인 IoT 허브에 대한 디바이스 연결 문제를 해결합니다.
 services: iot-hub
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.custom:
 - mvc
@@ -16,12 +15,12 @@ ms.custom:
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 70ad8f9a910fc66a5e22231d5130cfa8a22db0c6
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 43ec1680d0855ba70b084771e7e98f4285c0af58
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067041"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724423"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>자습서: 시뮬레이션된 디바이스를 사용하여 IoT Hub와 연결 테스트
 

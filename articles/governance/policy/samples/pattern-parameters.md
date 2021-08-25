@@ -1,14 +1,14 @@
 ---
 title: 패턴 정책 정의의 매개 변수
 description: 이 Azure Policy 패턴에서는 정책 정의에서 문자열 및 배열 매개 변수를 사용하는 방법과 효과를 매개 변수화하는 방법에 대한 예제를 제공합니다.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: sample
-ms.openlocfilehash: 07e5f05a556c30e6a9e464509006140a02a1dcc7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d2cddd0d86a5ecc44ef39bec989db2a7700c878a
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752294"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324130"
 ---
 # <a name="azure-policy-pattern-parameters"></a>Azure Policy 패턴: 매개 변수
 

@@ -1,16 +1,16 @@
 ---
 title: 포털을 사용하여 관리 그룹 만들기
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 리소스를 리소스 계층 구조로 구성하는 관리 그룹을 만듭니다.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom:
 - mode-portal
-ms.openlocfilehash: fe4de668723a645b566eca7b72f3c1fb9b19bc92
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 8cbdc65fde148e60ce886e39050a8c4dadb8d779
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326366"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324915"
 ---
 # <a name="quickstart-create-a-management-group"></a>빠른 시작: 관리 그룹 만들기
 

@@ -2,7 +2,6 @@
 title: 자습서 - OpenSSL을 사용하여 Azure IoT Hub에 대한 X.509 테스트 인증서 만들기 | Microsoft Docs
 description: 자습서 - OpenSSL을 사용하여 Azure IoT 허브에 대한 CA 및 디바이스 인증서 만들기
 author: v-gpettibone
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
@@ -12,12 +11,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: e4f2aa51b3cee5d63c543ce94eddf7d132f72ded
-ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
+ms.openlocfilehash: 7985879b54fe840ec47d72595d95547aa062938b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114371770"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724310"
 ---
 # <a name="tutorial-using-openssl-to-create-test-certificates"></a>자습서: OpenSSL을 사용하여 테스트 인증서 만들기
 

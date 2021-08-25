@@ -1,14 +1,14 @@
 ---
 title: '자습서: 태그 거버넌스 관리'
 description: 이 자습서에서는 Azure Policy의 Modify 효과를 사용하여 신규 및 기존 리소스에 대한 태그 거버넌스 모델을 만들고 적용합니다.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: tutorial
-ms.openlocfilehash: 0552a37566a8c057c06664cf8dedcb8084fef498
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d8f106a63ec65952a5f6a8d68d49bc07279b5be3
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752114"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324996"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>자습서: Azure Policy를 사용하여 태그 거버넌스 관리
 

@@ -1,14 +1,14 @@
 ---
 title: 패턴 정책 정의를 사용하여 리소스 배포
 description: 이 Azure Policy 패턴은 deployIfNotExists 정책 정의를 사용하여 리소스를 배포하는 방법에 대한 예제를 제공합니다.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: sample
-ms.openlocfilehash: 2220a0c66cecac3dc9dfd342fe6b802df41c1f10
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 9ca279769bae63b858ace947d5c77c2fd639be7c
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752457"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324198"
 ---
 # <a name="azure-policy-pattern-deploy-resources"></a>Azure Policy 패턴: 리소스 배포
 

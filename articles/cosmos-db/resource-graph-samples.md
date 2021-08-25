@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB에 대한 Azure Resource Graph 샘플 쿼리
 description: Azure Cosmos DB 관련 리소스 및 속성에 액세스하기 위한 리소스 유형 및 테이블의 사용을 보여주는 Azure Cosmos DB에 대한 샘플 Azure Resource Graph 쿼리입니다.
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.topic: sample
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: 1a1da83e070538b5e4f64a889d3a43bf36f4da18
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: d455f9f6ad7ee63710a110471d6e65e4f5d3200a
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669942"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861801"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 Azure Resource Graph 샘플 쿼리
 

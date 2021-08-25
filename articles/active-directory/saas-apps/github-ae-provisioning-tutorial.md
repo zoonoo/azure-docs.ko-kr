@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 �
 description: Azure AD에서 GitHub AE로 사용자 계정을 자동으로 프로비전 및 프로비전 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: d9818c05-e279-45b4-8aad-0fa156abd74e
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/29/2020
-ms.author: Zhchia
-ms.openlocfilehash: 6971b2e04455a6424d70db2512363911f7cd7d86
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.author: thwimmer
+ms.openlocfilehash: a39b7d63fa80be8ca80e8fba349d602e9df3c9f1
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110473943"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122327194"
 ---
 # <a name="tutorial-configure-github-ae-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GitHub AE 구성
 
