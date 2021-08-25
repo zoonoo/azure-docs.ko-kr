@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을
 description: 사용자 계정을 Azure AD에서 AWS Single Sign-On으로 자동 프로비저닝 및 프로비저닝 해제 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 54a9f704-7877-4ade-81af-b8d3f7fb9255
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/23/2021
-ms.author: Zhchia
-ms.openlocfilehash: 25a2a370e4a88348c2acac931e5f3e1a6f247d1d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 0fa690836fb53db84263155c0a8661f7295f1c50
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599683"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122327863"
 ---
 # <a name="tutorial-configure-aws-single-sign-on-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 AWS Single Sign-On 구성
 
@@ -108,7 +108,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 9. **특성 매핑** 섹션에서 Azure AD에서 AWS Single Sign-On으로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 AWS Single Sign-On의 사용자 계정을 일치시키는 데 사용됩니다. [일치하는 대상 특성](../app-provisioning/customize-application-attributes.md)을 변경하는 경우 AWS Single Sign-On API에서 해당 특성에 따라 사용자 필터링을 지원하는지 확인해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-   |attribute|Type|필터링에 지원됨|
+   |attribute|Type|필터링 지원됨|
    |---|---|---|
    |userName|String|&check;|
    |활성|부울|
@@ -140,7 +140,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 11. **특성 매핑** 섹션에서 Azure AD에서 AWS Single Sign-On으로 동기화되는 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 AWS Single Sign-On의 그룹을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-      |attribute|Type|필터링에 지원됨|
+      |attribute|Type|필터링 지원됨|
       |---|---|---|
       |displayName|String|&check;|
       |externalId|String|

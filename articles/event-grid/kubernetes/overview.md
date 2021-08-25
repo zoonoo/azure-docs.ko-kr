@@ -6,12 +6,12 @@ ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/25/2021
 ms.topic: overview
-ms.openlocfilehash: fdc8c60f2c2cae7368a2e35317de2cfb8274a060
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 807d337988993c8be0fee76b9c12e1fc6dc75c7d
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112414956"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770571"
 ---
 # <a name="event-grid-on-kubernetes-with-azure-arc-preview---overview"></a>Azure Arc를 사용하는 Kubernetes의 Event Grid(미리 보기) - 개요
 이 문서에서는 Kubernetes의 Event Grid, 사용 사례, 제공하는 기능 및 Azure Event Grid와의 차이점에 대한 개요를 제공합니다.
@@ -36,7 +36,7 @@ Kubernetes의 Event Grid는 다양한 이벤트 중심 통합 시나리오를 �
 
 "Kubernetes 클러스터에 배포된 시스템의 소유자로서 이벤트를 게시하고 해당 이벤트의 라우팅을 구성하여 시스템의 상태 변경 사항을 전달하려고 합니다. 이를 통해 내 제어와 상관 없이 이벤트 처리기가 적절하다고 생각되는 방식으로 내 시스템의 이벤트를 처리할 수 있습니다."
 
-위의 요구 사항을 실현하는 데 도움이 되는 **기능**: [Event Grid 토픽](/rest/api/eventgrid/version2020-10-15-preview/topics).
+위의 요구 사항을 실현하는 데 도움이 되는 **기능**: [Event Grid 토픽](/rest/api/eventgrid/version2021-06-01-preview/topics).
 
 ### <a name="event-grid-on-kubernetes-at-a-glance"></a>Kubernetes의 Event Grid 살펴보기
 사용자 관점에서 Kubernetes의 Event Grid는 파란색의 다음 리소스로 구성됩니다.
@@ -69,7 +69,7 @@ Kubernetes의 Event Grid를 사용하면 추가 처리, 스토리지 또는 시�
 이벤트 처리기 대상은 Event Grid가 네트워크(퍼블릭 또는 프라이빗)를 통해 도달할 수 있는 HTTPS 또는 HTTP 엔드포인트일 수 있으며, 여기에는 액세스 권한(일부 인증 메커니즘으로 보호되지 않음)이 있습니다. 이벤트 구독을 만들 때 이벤트 전달 대상을 정의합니다. 자세한 내용은 [이벤트 처리기](event-handlers.md)를 참조하세요. 
 
 ## <a name="features"></a>기능
-Kubernetes의 Event Grid는 [Azure Event Grid](../custom-topics.md)에서도 제공하는 기능인 [Event Grid 토픽](/rest/api/eventgrid/version2020-10-15-preview/topics)을 지원합니다. Event Grid 토픽은 사용자가 소유하거나 시스템에 액세스할 수 있는 다른 워크로드와 시스템을 통합해야 하는 요구 사항이 있는 [기본 통합 사용 사례](#use-case)를 이해하는 데 도움이 됩니다.
+Kubernetes의 Event Grid는 [Azure Event Grid](../custom-topics.md)에서도 제공하는 기능인 [Event Grid 토픽](/rest/api/eventgrid/version2021-06-01-preview/topics)을 지원합니다. Event Grid 토픽은 사용자가 소유하거나 시스템에 액세스할 수 있는 다른 워크로드와 시스템을 통합해야 하는 요구 사항이 있는 [기본 통합 사용 사례](#use-case)를 이해하는 데 도움이 됩니다.
 
 Kubernetes의 Azure Event Grid를 통해 얻을 수 있는 몇 가지 기능은 다음과 같습니다.
 

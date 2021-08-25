@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory에서 사용자를 자동으로 프로
 description: 사용자 계정을 Azure AD에서 디지털 프로세스 자동화를 위한 Bizagi Studio로 자동으로 프로비저닝 및 프로비전 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 2fbff65a-5345-4c08-a6c7-60b80d867a3e
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/20/2020
-ms.author: Zhchia
-ms.openlocfilehash: 72e021f47bb8db4dedf0e434d0d94bb2118a4c00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: ac1a38662172e12cebfcab952ca076062f03f0ec
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98728165"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122327870"
 ---
 # <a name="tutorial-configure-bizagi-studio-for-digital-process-automation-for-automatic-user-provisioning"></a>자습서: 사용자를 자동으로 프로비저닝하도록 디지털 프로세스 자동화를 위한 Bizagi Studio 구성
 

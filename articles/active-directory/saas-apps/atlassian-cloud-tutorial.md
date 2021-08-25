@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/20/2021
+ms.date: 07/29/2021
 ms.author: jeedes
-ms.openlocfilehash: 06df04167cd39b8909528b600319be810e549730
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a6f647e7aed23766e62546497a6065efd7bd3985
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114449196"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730767"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>자습서: Azure Active Directory와 Atlassian Cloud 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "114449196"
 * 사용자가 자신의 Azure AD 계정으로 Atlassian Cloud에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -96,10 +96,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **ATLASSIAN 관리** 포털에서 **보안** 탭으로 이동하여 **SAML Single Sign-On** 을 선택하고 **SAML 구성 추가** 를 클릭합니다.
 
    ![보안](./media/atlassian-cloud-tutorial/admin.png)
-
-1. **SAML 구성 추가** 섹션에서, Azure Portal에서 복사한 필수 필드를 채우고 **구성 저장** 을 클릭합니다.
-
-   ![SAML 구성 추가](./media/atlassian-cloud-tutorial/configuration.png)
 
 1. Azure Portal의 **Atlassian Cloud** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On 설정** 을 선택합니다.
 

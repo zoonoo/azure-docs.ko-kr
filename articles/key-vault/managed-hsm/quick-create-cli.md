@@ -2,19 +2,19 @@
 title: 빠른 시작 - Azure 관리형 HSM 프로비저닝 및 활성화
 description: Azure CLI를 사용하여 관리형 HSM을 프로비저닝 및 활성화하는 방법을 보여 주는 빠른 시작
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
 ms.date: 06/21/2021
 ms.author: mbaldwin
-ms.openlocfilehash: be8c28f736e58ebcbe95d4b8a4042b79fa1cf9f7
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f47ce2ea3d805bfc5e5cdd4fd328195c12fe516d
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114443594"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821589"
 ---
 # <a name="quickstart-provision-and-activate-a-managed-hsm-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 관리형 HSM 프로비저닝 및 활성화
 
@@ -28,7 +28,6 @@ Azure Key Vault 관리형 HSM은 **FIPS 140-2 수준 3** 유효성이 검사된 
 
 * Microsoft Azure에 대한 구독. 아직 구독하지 않은 경우 [평가판](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
 * Azure CLI 버전 2.25.0 이상 `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
-* 구독의 관리형 HSM. [빠른 시작: Azure CLI를 사용하여 관리형 HSM 프로비저닝 및 활성화](quick-create-cli.md)를 참조하여 관리형 HSM을 프로비저닝하고 활성화합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

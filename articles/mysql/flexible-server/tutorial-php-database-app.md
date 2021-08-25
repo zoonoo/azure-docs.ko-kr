@@ -8,14 +8,16 @@ ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: bb38b72af6e7c649c0904c41d3052b15a4c36955
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3a2f51d0d15ebd00335f7685d3983e527a3e8b7d
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770060"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643600"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>자습서: Azure App Service에서 PHP(Laravel) 및 MySQL 유연한 서버(미리 보기) 앱 빌드
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 
 :::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="유연한 서버를 사용하는 Azure의 PHP 웹앱":::
@@ -146,7 +148,7 @@ az mysql flexible-server create  --resource-group myResourceGroup --public-acces
 ```
 
 > [!IMPORTANT]
-> - 다음 단계에서 laravel 데이터 마이그레이션을 연결하고 실행하는 데 사용할 **servername** 및 **연결 문자열** 을 적어 둡니다.
+>- 다음 단계에서 laravel 데이터 마이그레이션을 연결하고 실행하는 데 사용할 **servername** 및 **연결 문자열** 을 적어 둡니다.
 > - **IP-Address** 인수에는 클라이언트 머신의 IP를 입력합니다. 생성된 서버는 잠겨 있으므로 서버를 로컬로 관리할 수 있도록 클라이언트 머신에 대한 액세스를 허용해야 합니다.
 
 ### <a name="configure-server-firewall-to-allow-web-app-to-connect-to-the-server"></a>웹앱이 서버에 연결할 수 있도록 서버 방화벽 구성

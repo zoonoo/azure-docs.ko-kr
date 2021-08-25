@@ -9,17 +9,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: f90ce603f745937d4d7f6253f54228fb2a20dbff
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 7b0a0a91d3251e41c9964cf43ca9a29dde77b609
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113086157"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823510"
 ---
 # <a name="azure-cloud-services-classic-definition-webrole-schema"></a>Azure Cloud Services(클래식) 정의 WebRole 스키마
 
-> [!IMPORTANT]
-> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 Azure 웹 역할은 ASP.NET, PHP, Windows Communication Foundation 및 FastCGI와 같이 IIS 7에서 지원되는 것처럼 웹 애플리케이션 프로그래밍에 대해 사용자 지정된 역할입니다.
 
@@ -163,7 +162,7 @@ Azure 웹 역할은 ASP.NET, PHP, Windows Communication Foundation 및 FastCGI�
 
 다음 표에서는 `WebRole` 요소의 특성을 설명합니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |name|문자열|필수 요소. 웹 역할에 대한 이름입니다. 역할의 이름은 고유해야 합니다.|  
 |enableNativeCodeExecution|boolean|선택 사항입니다. 기본값은 `true`이며, 네이티브 코드 실행 및 완전 신뢰는 기본적으로 활성화됩니다. 이 특성을 `false`에 설정하여 웹 역할에 네이티브 코드 실행을 사용하지 않도록 설정하고, 대신 Azure 부분 신뢰를 사용합니다.|  
@@ -177,7 +176,7 @@ Azure 웹 역할은 ASP.NET, PHP, Windows Communication Foundation 및 FastCGI�
 
 다음 표에서는 `Setting` 요소의 특성을 설명합니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |name|문자열|필수 요소. 구성 설정에 대한 고유한 이름입니다.|  
 
@@ -194,7 +193,7 @@ Azure 웹 역할은 ASP.NET, PHP, Windows Communication Foundation 및 FastCGI�
 
 다음 표에서는 `LocalStorage` 요소의 특성을 설명합니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |name|문자열|필수 요소. 로컬 저장소의 고유한 이름입니다.|  
 |cleanOnRoleRecycle|boolean|선택 사항입니다. 역할이 다시 시작될 때 로컬 저장소를 정리해야 하는지 여부를 나타냅니다. 기본값은 `true`여야 합니다.|  
@@ -217,7 +216,7 @@ HTTP, HTTPS, UDP 및 TCP 엔드포인트의 조합인 여러 엔드포인트를 
 
 다음 표에서는 `InputEndpoint` 요소의 특성을 설명합니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |name|문자열|필수 요소. 외부 엔드포인트에 대한 고유한 이름입니다.|  
 |protocol|문자열|필수 요소. 외부 엔드포인트에 대한 전송 프로토콜입니다. 웹 역할의 경우 가능한 값은 `HTTP`, `HTTPS`, `UDP` 또는 `TCP`입니다.|  
@@ -232,7 +231,7 @@ ph x="1" /&gt; 요소는 웹 역할에 대한 내부 엔드포인트를 설명�
 
 다음 표에서는 `InternalEndpoint` 요소의 특성을 설명합니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |name|문자열|필수 요소. 내부 엔드포인트에 대한 고유한 이름입니다.|  
 |protocol|문자열|필수 요소. 내부 엔드포인트에 대한 전송 프로토콜입니다. 가능한 값은 `HTTP`, `TCP`, `UDP` 및 `ANY`입니다.<br /><br /> `ANY`의 값은 모든 프로토콜, 모든 포트가 허용되도록 지정합니다.|  
@@ -245,7 +244,7 @@ ph x="1" /&gt; 요소는 웹 역할에 대한 인스턴스 입력 엔드포인�
 
 다음 표에서는 `InstanceInputEndpoint` 요소의 특성을 설명합니다.
   
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |name|문자열|필수 요소. 엔드포인트의 고유한 이름입니다.|  
 |localPort|int|필수 요소. 부하 분산 장치에서 전달되어 들어오는 트래픽을 수신하기 위해 모든 역할 인스턴스가 수신 대기하는 내부 포트를 지정합니다. 가능한 값은 1에서 65535(포함) 사이입니다.|  
@@ -263,7 +262,7 @@ ph x="1" /&gt; 요소는 엔드포인트에서 부하 분산된 연결 사용을
 
 다음 표에서는 `FixedPort` 요소의 특성을 설명합니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |포트|int|필수 요소. 내부 엔드포인트에 대한 포트입니다. 이는 동일한 포트에 `FixedPortRange` 최소값 및 최대값을 설정한 것과 같은 결과를 얻을 수 있습니다.<br /><br /> 사용 가능한 값은 1에서 65535(포함) 사이입니다(Azure SDK 버전 1.7 이상).|  
 
@@ -277,7 +276,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 다음 표에서는 `FixedPortRange` 요소의 특성을 설명합니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |분|int|필수 요소. 범위 내의 최소 포트입니다. 사용 가능한 값은 1에서 65535(포함) 사이입니다(Azure SDK 버전 1.7 이상).|  
 |max|문자열|필수 요소. 범위 내의 최대 포트입니다. 사용 가능한 값은 1에서 65535(포함) 사이입니다(Azure SDK 버전 1.7 이상).|  
@@ -290,7 +289,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 다음 표에서는 `Certificate` 요소의 특성을 설명합니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |name|문자열|필수 요소. 이 인증서의 이름으로, HTTPS `InputEndpoint` 요소와 연결된 경우 참조하는 데 사용됩니다.|  
 |storeLocation|문자열|필수 요소. 이 인증서를 로컬 컴퓨터에서 찾을 수 있는 인증서 저장소의 위치입니다. 가능한 값은 `CurrentUser` 및 `LocalMachine`입니다.|  
@@ -309,7 +308,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 다음 표에서는 `Import` 요소의 특성을 설명합니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |moduleName|문자열|필수 요소. 가져올 모듈의 이름입니다. 유효한 가져오기 모듈은 다음과 같습니다.<br /><br /> -   RemoteAccess<br />-   RemoteForwarder<br />-   Diagnostics<br /><br /> RemoteAccess 및 RemoteForwarder 모듈을 사용하면 원격 데스크톱 연결에 대한 역할 인스턴스를 구성할 수 있습니다. 자세한 내용은 [원격 데스크톱 연결 활성화](cloud-services-role-enable-remote-desktop-new-portal.md)를 참조하세요.<br /><br /> 진단 모듈을 사용하면 역할 인스턴스에 대한 진단 데이터를 수집할 수 있습니다.|  
 
@@ -320,7 +319,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 다음 표에서는 `Runtime` 요소의 특성을 설명합니다.  
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |executionContext|문자열|(선택 사항) 역할 프로세스가 시작되는 컨텍스트를 지정합니다. 기본 컨텍스트는 `limited`입니다.<br /><br /> -   `limited` - 프로세스가 관리자 권한 없이 시작됩니다.<br />-   `elevated` - 프로세스가 관리자 권한으로 시작됩니다.|  
 
@@ -334,7 +333,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 다음 표에서는 `Variable` 요소의 특성을 설명합니다.  
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |name|문자열|필수 요소. 설정할 환경 변수의 이름입니다.|  
 |값|문자열|(선택 사항) 환경 변수에 대해 설정하는 값입니다. 값 특성 또는 `RoleInstanceValue` 요소를 포함해야 합니다.|  
@@ -344,7 +343,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 다음 표에서는 `RoleInstanceValue` 요소의 특성을 설명합니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |xpath|문자열|(선택 사항) 인스턴스에 대한 배포 설정의 위치 경로입니다. 자세한 내용은 [XPath를 사용한 구성 변수](cloud-services-role-config-xpath.md)를 참조하세요.<br /><br /> 값 특성 또는 `RoleInstanceValue` 요소를 포함해야 합니다.|  
 
@@ -361,7 +360,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 다음 표에서는 `NetFxEntryPoint` 요소의 특성을 설명합니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |assemblyName|문자열|필수 요소. 진입점을 포함하는 어셈블리의 경로 및 파일 이름입니다. 경로는 **\\%ROLEROOT%\Approot** 폴더에 상대적입니다(`commandLine`에 **\\%ROLEROOT%\Approot** 를 지정하지 않음, 가정됨). **%ROLEROOT%** 는 Azure에서 유지 관리되는 환경 변수이며, 사용자 역할에 대한 루트 폴더 위치를 나타냅니다. **\\%ROLEROOT%\Approot** 폴더는 사용자의 역할에 대한 애플리케이션 폴더를 나타냅니다.<br /><br /> HWC 역할의 경우 경로는 항상 **\\%ROLEROOT%\Approot\bin** 폴더에 상대적입니다.<br /><br /> 전체 IIS 및 IIS Express 웹 역할의 경우 **\\%ROLEROOT%\Approot** 폴더에 상대적인 어셈블리를 찾을 수 없으면 **\\%ROLEROOT%\Approot\bin** 이 검색됩니다.<br /><br /> 전체 IIS에 대한 이 대체 동작은 권장 모범 사례는 아니며, 향후 버전에서 제거될 수도 있습니다.|  
 |targetFrameworkVersion|문자열|필수 요소. 어셈블리가 작성되는 .NET Framework의 버전입니다. 예들 들어 `targetFrameworkVersion="v4.0"`입니다.|  
@@ -378,7 +377,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 다음 표에서는 `Site` 요소의 특성을 설명합니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |name|문자열|필수 요소. 웹 사이트 또는 애플리케이션의 이름입니다.|  
 |physicalDirectory|문자열|사이트 루트에 대한 콘텐츠 디렉터리의 위치입니다. 위치는 절대 경로로 지정하거나 .csdef 위치에 대해 상대적일 수 있습니다.|  
@@ -390,7 +389,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 다음 표에서는 `VirtualApplication` 요소의 특성을 설명합니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |name|문자열|필수 요소. 가상 애플리케이션을 식별하는 이름을 지정합니다.|  
 |physicalDirectory|문자열|필수 요소. 가상 애플리케이션을 포함하는 개발 컴퓨터의 경로를 지정합니다. 컴퓨팅 에뮬레이터에서 IIS는 이 위치에서 콘텐츠를 검색하도록 구성됩니다. Azure로 배포하는 경우 실제 디렉터리의 콘텐츠는 서비스의 나머지 부분과 함께 패키지됩니다. 서비스 패키지를 Azure에 배포하는 경우 IIS는 패키지되지 않은 콘텐츠의 위치로 구성됩니다.|  
@@ -402,7 +401,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 다음 표에서는 `VirtualDirectory` 요소의 특성을 설명합니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |name|문자열|필수 요소. 가상 디렉터리를 식별하는 이름을 지정합니다.|  
 |값|physicalDirectory|필수 요소. 웹 사이트 또는 가상 디렉터리 콘텐츠를 포함하는 개발 컴퓨터의 경로를 지정합니다. 컴퓨팅 에뮬레이터에서 IIS는 이 위치에서 콘텐츠를 검색하도록 구성됩니다. Azure로 배포하는 경우 실제 디렉터리의 콘텐츠는 서비스의 나머지 부분과 함께 패키지됩니다. 서비스 패키지를 Azure에 배포하는 경우 IIS는 패키지되지 않은 콘텐츠의 위치로 구성됩니다.|  
@@ -417,7 +416,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 `Binding` 요소는 Azure SDK 버전 1.3 이상이어야 사용할 수 있습니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |name|문자열|필수 요소. 바인딩을 식별하는 이름을 지정합니다.|  
 |endpointName|문자열|필수 요소. 바인딩할 엔드포인트 이름을 지정합니다.|  
@@ -428,7 +427,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 다음 표에서는 `Startup` 요소의 특성을 설명합니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |priority|int|내부 전용입니다.|  
 
@@ -439,7 +438,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 다음 표에서는 `Task` 요소의 특성을 설명합니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |commandLine|문자열|필수 요소. 실행하는 명령이 포함된 CMD 파일과 같은 스크립트입니다. 시작 명령 및 일괄 처리 파일은 ANSI 형식으로 저장해야 합니다. 파일의 시작 부분에 바이트 순서 표시자를 설정한 파일 형식은 올바르게 처리되지 않습니다.|  
 |executionContext|문자열|스크립트가 실행되는 컨텍스트를 지정합니다.<br /><br /> -   `limited` [기본값] – 프로세스를 호스팅하는 역할과 동일한 권한으로 실행합니다.<br />-   `elevated` – 관리자 권한으로 실행합니다.|  
@@ -457,7 +456,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 다음 표에서는 `Content` 요소의 특성을 설명합니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |destination|문자열|필수 요소. Azure 가상 컴퓨터에서 콘텐츠가 배치되는 위치입니다. 이 위치는 **%ROLEROOT%\Approot** 폴더에 대한 상대 경로입니다.|  
 
@@ -470,7 +469,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 다음 표에서는 `SourceDirectory` 요소의 특성을 설명합니다.
 
-| attribute | Type | 설명 |  
+| attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |path|문자열|필수 요소. 콘텐츠가 Azure 가상 컴퓨터에 복사되는 로컬 디렉터리의 상대 또는 절대 경로입니다. 디렉터리 경로의 환경 변수 확장이 지원됩니다.|  
   

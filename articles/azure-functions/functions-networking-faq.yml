@@ -2,15 +2,16 @@
 metadata:
   title: Azure Functions의 네트워킹에 대한 질문과 대답
   description: Azure Functions의 네트워킹에 대한 가장 일반적인 일부 질문과 시나리오에 대한 답변입니다.
-  ms.topic: troubleshooting
+  ms.topic: article
+  ms.service: azure-functions
   ms.date: 4/11/2019
   ms.reviewer: glenga
-  ms.openlocfilehash: f08e9865fdfd315a27083fec0bb01fe478d10d63
-  ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+  ms.openlocfilehash: 2fd3a00ef0ee01c5d7f535fcdb5021f831ff20d3
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/16/2021
-  ms.locfileid: "112204799"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122253829"
 title: Azure Functions의 네트워킹에 대한 질문과 대답
 summary: >
   이 문서에서는 Azure Functions의 네트워킹에 대한 질문과 대답을 나열합니다. 보다 포괄적인 개요는 [Functions 네트워킹 옵션](functions-networking-options.md)을 참조하세요.

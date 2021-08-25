@@ -2,19 +2,18 @@
 title: 자습서 - Azure PowerShell을 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
 description: 자습서 - Azure PowerShell을 사용하여 Azure IoT Hub에 대한 메시지 라우팅을 구성합니다. 메시지의 속성에 따라 스토리지 계정 또는 Service Bus 큐로 라우팅합니다.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: be1560bcc03ec7a26f4bc374392c746243cd731a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 10a7a3435dcc31c6694b7b88316bb59c1c2e45cc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821669"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727771"
 ---
 # <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>자습서: Azure PowerShell을 사용하여 IoT Hub 메시지 라우팅 구성
 

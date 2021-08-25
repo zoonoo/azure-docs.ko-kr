@@ -3,7 +3,6 @@ title: 자습서 - Azure IoT Edge를 사용하는 사용자 지정 Java 모듈 �
 description: 이 자습서에서는 Java 코드를 사용하여 IoT Edge 모듈을 만들고, 에지 디바이스에 배포하는 방법을 보여 줍니다.
 services: iot-edge
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 07/30/2020
 ms.topic: tutorial
@@ -12,12 +11,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 3c3dae7cb64dd6c2e13c77c061c770bd787e2f06
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 437cb7c751b5cbc4c7f85dc3c20da3de28f29d1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113438137"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726438"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-using-linux-containers"></a>자습서: Linux 컨테이너를 사용하여 Java IoT Edge 모듈 개발
 

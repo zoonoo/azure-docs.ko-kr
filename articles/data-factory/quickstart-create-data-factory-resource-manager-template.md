@@ -2,6 +2,7 @@
 title: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Data Factory 만들기
 description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다.
 ms.service: data-factory
+ms.subservice: tutorials
 tags: azure-resource-manager
 author: ssabat
 ms.author: susabat
@@ -9,12 +10,12 @@ ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 07/05/2021
-ms.openlocfilehash: 1979e5c832225483aa5309c84d3c2ce491e77f3c
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: b6489f692dc8fabf63daab0cf13f1036e944e77e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113436924"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731530"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Data Factory 만들기
 
