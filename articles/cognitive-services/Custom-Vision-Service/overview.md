@@ -12,18 +12,24 @@ ms.date: 05/24/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 이미지 인식, 이미지 식별자, 이미지 인식 앱, custom vision
-ms.openlocfilehash: e245c4882a06d5053e8781a48469d104bcaced23
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ff90aedd43622c3f6fb696c15b3034b2a133322d
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110454789"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322287"
 ---
 # <a name="what-is-custom-vision"></a>Custom Vision이란?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Azure Custom Vision은 이미지 인식 서비스입니다. 이를 통해 자체 이미지 식별자를 빌드, 배포 및 개선할 수 있습니다. 이미지 식별자는 시각적 특성에 따라 이미지에 레이블(클래스 또는 개체를 나타냄)을 적용합니다. [Computer Vision](../computer-vision/overview.md) 서비스와 달리 Custom Vision을 사용하면 레이블을 지정하고 이를 감지하도록 사용자 지정 모델을 학습시킬 수 있습니다.
+
+이 설명서에는 다음과 같은 유형의 문서가 포함되어 있습니다.
+* [빠른 시작](./getting-started-build-a-classifier.md)은 서비스를 호출하고 짧은 시간 내에 결과를 얻을 수 있는 단계별 지침입니다.
+* [방법 가이드](./test-your-model.md)에는 보다 구체적이거나 사용자 지정된 방식으로 서비스를 사용하기 위한 지침이 포함되어 있습니다.
+* [자습서](./iot-visual-alerts-tutorial.md)는 보다 광범위한 비즈니스 솔루션에서 이 서비스를 구성 요소로 사용하는 방법을 보여주는 긴 가이드입니다.
+<!--* The [conceptual articles](Vision-API-How-to-Topics/call-read-api.md) provide in-depth explanations of the service's functionality and features.-->
 
 ## <a name="what-it-does"></a>수행하는 작업
 

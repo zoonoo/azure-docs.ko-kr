@@ -9,14 +9,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 06/06/2020
-ms.openlocfilehash: 869f2c8ca5f0cbfb422c1aaa65907a2ad941e86a
-ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
+ms.openlocfilehash: 9523a28ca191402ca4f1ec4bfb174edce359bf67
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112678145"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722867"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Azure SQL Database의 확장 이벤트에 대한 이벤트 파일 대상 코드
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,12 +43,12 @@ Microsoft SQL Server의 [이벤트 파일 대상](/previous-versions/sql/sql-ser
 
 - Azure 계정 및 구독 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 - 테이블을 만들 수 있는 데이터베이스.
-  
+
   - 또는 몇 분 이내에 [**AdventureWorksLT** 데모 데이터베이스를 만들](single-database-create-quickstart.md) 수 있습니다.
 
 - SQL Server Management Studio(ssms.exe)(이상적으로 최신 월별 업데이트 버전).
   다음 위치에서 최신 ssms.exe를 다운로드할 수 있습니다.
-  
+
   - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)항목
   - [직접 다운로드 링크](https://go.microsoft.com/fwlink/?linkid=616025)
 
@@ -442,9 +442,11 @@ GO
 실행 시 대상이 연결되지 않으면 이벤트 세션을 중지했다 다시 시작해야 합니다.
 
 ```sql
-ALTER EVENT SESSION ... STATE = STOP;
+ALTER EVENT SESSION gmeventsessionname240b
+    ON DATABASE STATE = STOP;
 GO
-ALTER EVENT SESSION ... STATE = START;
+ALTER EVENT SESSION gmeventsessionname240b
+    ON DATABASE STATE = START;
 GO
 ```
 
@@ -508,7 +510,7 @@ Microsoft SQL Server에서 위의 Transact-SQL 샘플을 실행하는 경우를 
 - 간단히 Azure Storage 컨테이너를 *C:\myeventdata.xel* 과 같은 간단한 파일로 바꾼다고 가정합니다. 이 파일은 SQL Server를 호스팅하는 컴퓨터의 로컬 하드 드라이브에 기록됩니다.
 - **CREATE MASTER KEY** 및 **CREATE CREDENTIAL** 에는 Transact-SQL 종류의 문이 필요하지 않습니다.
 - **CREATE EVENT SESSION** 문의 **ADD TARGET** 절에서 **filename=** 에 지정된 Http 값을 *C:\myfile.xel* 와 같은 전체 경로 문자열로 바꾸겠습니다.
-  
+
   - Azure Storage 계정은 사용하지 않습니다.
 
 ## <a name="more-information"></a>자세한 정보

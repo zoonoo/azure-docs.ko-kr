@@ -2,25 +2,22 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 LinkedIn Learning 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 LinkedIn Learning으로 자동으로 프로비저닝 및 프로비저닝 해제하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 21e2f470-4eb1-472c-adb9-4203c00300be
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/30/2020
-ms.author: Zhchia
-ms.openlocfilehash: 7419f5f8b519b8c3e978e358afb9f15a61132769
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.author: thwimmer
+ms.openlocfilehash: 515a3e2cdc5073ce902a22597ae6e5efac32b97a
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114479746"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322926"
 ---
 # <a name="tutorial-configure-linkedin-learning-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 LinkedIn Learning 구성
 

@@ -32,7 +32,7 @@ productDirectory:
     - title: Azure Form Recognizer
       imageSrc: ./media/form-recognizer.svg
       summary: 적은 시간과 비용으로 문서를 사용 가능한 데이터로 전환
-      url: ../cognitive-services/form-recognizer/index.yml
+      url: ./form-recognizer/index.yml
     - title: Azure Cognitive Search
       imageSrc: ./media/cognitive-search.svg
       summary: 모바일 및 웹앱에 AI 기반 클라우드 검색 가져오기
@@ -48,7 +48,7 @@ productDirectory:
     - title: Azure 몰입형 리더
       imageSrc: ./media/immersive-reader.svg
       summary: 사용자가 텍스트를 읽고 이해할 수 있도록 지원
-      url: ../cognitive-services/immersive-reader/index.yml
+      url: ./immersive-reader/index.yml
 additionalContent:
   sections:
     - title: 추가 리소스
@@ -64,11 +64,11 @@ additionalContent:
         - title: 빠른 시작으로 코딩하기
           links:
             - text: Azure Form Recognizer
-              url: ../cognitive-services/form-recognizer/quickstarts/get-started-with-form-recognizer.md
+              url: ./form-recognizer/quickstarts/get-started-with-form-recognizer.md
             - text: Azure Metrics Advisor
               url: ./metrics-advisor/quickstarts/web-portal.md
             - text: Azure 몰입형 리더
-              url: ../cognitive-services/immersive-reader/quickstarts/client-libraries.md
+              url: ./immersive-reader/quickstarts/client-libraries.md
             - text: Azure Cognitive Search
               url: ../search/search-get-started-portal.md
             - text: Azure Video Analyzer

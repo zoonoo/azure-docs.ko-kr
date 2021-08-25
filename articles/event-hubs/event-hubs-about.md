@@ -3,12 +3,12 @@ title: Azure Event Hubs 정의 - 빅 데이터 수집 서비스 | Microsoft Docs
 description: 초당 수백만 개의 이벤트를 수집하는 빅 데이터 스트리밍 서비스 Azure Event Hubs에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 05/25/2021
-ms.openlocfilehash: 54a37a61a8bb845d60da999e091fdf6657b961a2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: fa32e26439cfd7f2e4319fdb7dc631bfadb023d4
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373548"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322151"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스
 Azure Event Hubs는 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스입니다. 초당 수백만 개의 이벤트를 수신하고 처리할 수 있습니다. 이벤트 허브로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다.
@@ -23,8 +23,6 @@ Azure Event Hubs는 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 �
 - 트랜잭션 처리
 - 사용자 원격 분석 처리
 - 디바이스 원격 분석 스트리밍
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/45wgY-VSk9I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## <a name="why-use-event-hubs"></a>Event Hubs를 사용하는 이유
 데이터는 쉽게 처리할 수 있고 데이터 원본에서 인사이트를 적시에 얻을 수 있는 경우에만 유용합니다. Event Hubs는 대기 시간이 짧고 매끄럽게 통합되는 분산 스트림 프로세싱 플랫폼을 제공하며, Azure 내부 및 외부에는 완전한 빅 데이터 파이프라인을 만들기 위한 데이터 및 분석 서비스가 있습니다.

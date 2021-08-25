@@ -3,12 +3,12 @@ title: '빠른 시작: IoT 마이크로 에이전트용 Defender 설치(미리 �
 description: 이 빠른 시작에서는 Defender 마이크로 에이전트를 설치하고 인증하는 방법을 알아봅니다.
 ms.date: 06/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 040fb547baf201d9d699cfac21c1407c707fb8f9
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: e77ebaf3ab99fc88d3d0138edf3c815b63507e6c
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011280"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195553"
 ---
 # <a name="quickstart-install-defender-for-iot-micro-agent-preview"></a>빠른 시작: IoT 마이크로 에이전트용 Defender 설치(미리 보기)
 
@@ -84,7 +84,7 @@ IoT Hub에서 모듈 ID 연결 문자열을 가져오려면 다음을 수행합�
 
 1. 장치 ID 목록에서 디바이스를 선택하여 **디바이스 세부 정보** 페이지를 표시합니다.
 
-1.  **모듈 ID**  탭을 선택합니다.
+1.  **모듈 ID** 탭을 선택합니다.
 
 1. 디바이스와 연결된 모듈 ID 목록에서 **DefenderIotMicroAgent**  모듈을 선택합니다.
 
@@ -173,4 +173,4 @@ sudo apt-get install defender-iot-micro-agent=<version>
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [소스 코드에서 Defender 마이크로 에이전트 빌드](quickstart-building-the-defender-micro-agent-from-source.md)
+> [빠른 시작: Defender IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)](quickstart-create-micro-agent-module-twin.md)

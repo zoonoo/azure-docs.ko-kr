@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: dd8a214e060f9f4ace9f310fec3ebca33d4619c0
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: fe009eec23e940377e737938ea1986f515546138
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113109236"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862135"
 ---
 # <a name="quickstart-connect-an-stmicroelectronics-b-l475e-iot01a-or-b-l4s5i-iot01a-discovery-kit-to-iot-central"></a>빠른 시작: STMicroelectronics B-L475E-IOT01A 또는 B-L4S5I-IOT01A 검색 키트를 IoT Central에 연결
 
@@ -145,7 +145,7 @@ STM DevKit를 Azure에 연결하려면 Wi-Fi 및 Azure IoT 설정에 대한 구�
 
 1. **Termite** 를 시작합니다.
     > [!TIP]
-    > Termite를 DevKit에 연결할 수 없는 경우 [ST-LINK 드라이버](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip)를 설치하고 다시 시도합니다. 추가 단계는 [문제 해결](troubleshoot-embedded-device-quickstarts.md)을 참조하세요.
+    > Termite를 DevKit에 연결할 수 없는 경우 [ST-LINK 드라이버](https://www.st.com/en/development-tools/stsw-link009.html)를 설치하고 다시 시도합니다. 추가 단계는 [문제 해결](troubleshoot-embedded-device-quickstarts.md)을 참조하세요.
 1. **설정** 을 선택합니다.
 1. **직렬 포트 설정** 대화 상자에서 다음 설정을 확인하고, 필요한 경우 업데이트합니다.
     * **전송 속도**: 115,200

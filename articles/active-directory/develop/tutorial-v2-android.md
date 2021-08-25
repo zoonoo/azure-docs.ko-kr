@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f54d4a704779aab1b84a92ef3b152e9319c55e89
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.custom: aaddev, identityplatformtop40, has-adal-ref
+ms.openlocfilehash: 3bb6f374ee1d9720fd3c8646ef22aad6c4f86737
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713363"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122428955"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>자습서: Android 애플리케이션에서 사용자 로그인 및 Microsoft Graph API 호출
 

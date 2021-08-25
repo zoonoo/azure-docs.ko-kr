@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/01/2019
   ms.author: sngun
   ms.custom: seodec18
-  ms.openlocfilehash: 098f113b45f54ed0f74a30731a68708b06ee5663
-  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+  ms.openlocfilehash: 8ded857f617ab61f6914635f41642b86c1848861
+  ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/19/2021
-  ms.locfileid: "111907605"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122321788"
 title: Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 summary: >
   [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -84,9 +84,6 @@ sections:
       * [Microsoft Q&A 질문 페이지](/answers/topics/azure-cosmos-db.html)
 
       * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow는 프로그래밍 질문에 가장 적합합니다. 질문이 [주제와 관련된](https://stackoverflow.com/help/on-topic) 것인지 확인하고 [질문에 대해 분명하고 답변할 수 있도록 가능한 한 자세하게 제공하세요](https://stackoverflow.com/help/how-to-ask).
-
-
-      새로운 기능을 요청하려면 [사용자 의견](https://feedback.azure.com/forums/263030-azure-cosmos-db)에서 새 요청을 만듭니다.
 
 
       계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
@@ -249,4 +246,4 @@ sections:
       [azure-portal]: https://portal.azure.com
 
       [query]: ./sql-query-getting-started.md
-additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n다른 API에서 자주 묻는 질문에 대한 자세한 내용은 다음을 참조하세요.\n\n* [Azure Cosmos DB의 MongoDB용 API](mongodb-api-faq.yml)에 대해 자주 묻는 질문\n* [Azure Cosmos DB의 Gremlin API](gremlin-api-faq.yml)에 대해 자주 묻는 질문\n* [Azure Cosmos DB의 Cassandra API](cassandra-faq.yml)에 대해 자주 묻는 질문\n* [Azure Cosmos DB의 Table API](table-api-faq.yml)에 대해 자주 묻는 질문"
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n다른 API에서 자주 묻는 질문에 대한 자세한 내용은 다음을 참조하세요.\n\n* [Azure Cosmos DB의 MongoDB용 API](mongodb/mongodb-faq.yml)에 대해 자주 묻는 질문\n* [Azure Cosmos DB의 Gremlin API](gremlin-api-faq.yml)에 대해 자주 묻는 질문\n* [Azure Cosmos DB의 Cassandra API](cassandra/cassandra-faq.yml)에 대해 자주 묻는 질문\n* [Azure Cosmos DB의 Table API](table/table-api-faq.yml)에 대해 자주 묻는 질문"

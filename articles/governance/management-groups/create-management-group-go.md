@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: Go를 사용하여 관리 그룹 만들기'
 description: 이 빠른 시작에서는 Go를 사용하여 리소스를 리소스 계층 구조로 구성하는 관리 그룹을 만듭니다.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 32665afec15d17b2bc15d61853ef6b1dc58388fa
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 4949ef10d7bb38ada2faefcee1d6b104c4a08ad7
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733700"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322965"
 ---
 # <a name="quickstart-create-a-management-group-with-go"></a>빠른 시작: Go를 사용하여 관리 그룹 만들기
 
@@ -17,7 +17,7 @@ ms.locfileid: "108733700"
 
 디렉터리에서 만드는 첫 번째 관리 그룹을 완료하려면 최대 15분이 소요될 수 있습니다. 디렉터리에 대해 Azure 내의 관리 그룹 서비스를 설정하기 위해 처음으로 실행되는 프로세스가 있습니다. 프로세스가 완료되면 알림이 수신됩니다. 자세한 내용은 [관리 그룹의 초기 설정](./overview.md#initial-setup-of-management-groups)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -49,7 +49,7 @@ Go에서 관리 그룹을 관리할 수 있도록 하려면 패키지를 추가�
 
    ```bash
    # Add the management group package for Go
-   go get -u github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups
+   go get -u github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2020-05-01/managementgroups
 
    # Add the Azure auth package for Go
    go get -u github.com/Azure/go-autorest/autorest/azure/auth
@@ -69,7 +69,7 @@ Go에서 관리 그룹을 관리할 수 있도록 하려면 패키지를 추가�
     "fmt"
     "os"
 
-    mg "github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups"
+    mg "github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2020-05-01/managementgroups"
     "github.com/Azure/go-autorest/autorest/azure/auth"
    )
 
@@ -121,7 +121,7 @@ Go 환경에서 설치된 패키지를 제거하려면 다음 명령을 사용�
 
 ```bash
 # Remove the installed packages from the Go environment
-go clean -i github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups
+go clean -i github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2020-05-01/managementgroups
 go clean -i github.com/Azure/go-autorest/autorest/azure/auth
 ```
 

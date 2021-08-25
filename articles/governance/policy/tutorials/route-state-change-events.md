@@ -1,15 +1,15 @@
 ---
 title: '자습서: Azure CLI를 사용하여 정책 상태 변경 이벤트를 Event Grid로 라우팅'
 description: 이 자습서에서는 정책 상태 변경 이벤트를 수신 대기하고 웹후크를 호출하도록 Event Grid를 구성합니다.
-ms.date: 03/29/2021
+ms.date: 08/17/2021
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d2017b4e85c4d064fc206d9b908be126559032bd
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: bbbc1468c1a50835ea79efcd11e468c70002769c
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752042"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322327"
 ---
 # <a name="tutorial-route-policy-state-change-events-to-event-grid-with-azure-cli"></a>자습서: Azure CLI를 사용하여 정책 상태 변경 이벤트를 Event Grid로 라우팅
 

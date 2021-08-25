@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/26/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 11cb3ada0449559eda080cad3e9c528d60a02660
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 0d7a139588ac2ab507e4b4d4ef2061e42de41e35
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707922"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122180589"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint-in-azure-active-directory"></a>자습서: Azure Active Directory에서 SCIM 엔드포인트에 대한 프로비저닝 개발 및 계획
 
@@ -901,7 +901,7 @@ TLS 1.2 암호 도구 모음 최소 막대:
 ### <a name="ip-ranges"></a>IP 범위
 Azure AD 프로비저닝 서비스는 현재 [여기](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all)에 나열된 AzureActiveDirectory의 IP 범위에서 작동합니다. AzureActiveDirectory 태그 아래에 나열된 IP 범위를 추가하면 Azure AD 프로비저닝 서비스에서 애플리케이션으로의 트래픽을 허용할 수 있습니다. 계산된 주소에 대해 IP 범위 목록을 신중하게 검토해야 합니다. '40.126.25.32'와 같은 주소는 IP 범위 목록에 '40.126.0.0/18'로 표시될 수 있습니다. 또한 다음 [API](/rest/api/virtualnetwork/servicetags/list)를 사용하여 IP 범위 목록을 프로그래밍 방식으로 검색할 수도 있습니다.
 
-또한 Azure AD는 프라이빗 네트워크(온-프레미스, Azure에서 호스트, AWS에서 호스트 등)의 애플리케이션에 대한 연결을 제공하는 에이전트 기반 솔루션을 지원합니다. 고객은 프라이빗 네트워크의 서버에서 인바운드 포트를 열지 않고 Azure AD에 대한 연결을 제공하는 경량 에이전트를 배포할 수 있습니다. [여기](/app-provisioning/on-premises-scim-provisioning)를 참조하세요.
+또한 Azure AD는 프라이빗 네트워크(온-프레미스, Azure에서 호스트, AWS에서 호스트 등)의 애플리케이션에 대한 연결을 제공하는 에이전트 기반 솔루션을 지원합니다. 고객은 프라이빗 네트워크의 서버에서 인바운드 포트를 열지 않고 Azure AD에 대한 연결을 제공하는 경량 에이전트를 배포할 수 있습니다. [여기](./on-premises-scim-provisioning.md)를 참조하세요.
 
 ## <a name="build-a-scim-endpoint"></a>SCIM 엔드포인트 빌드
 

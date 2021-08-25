@@ -2,18 +2,17 @@
 title: '자습서: 사용자 지정 분석기 만들기'
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search에서 검색 결과의 품질을 향상시키기 위해 사용자 지정 분석기를 빌드하는 방법을 알아봅니다.
-manager: luisca
 author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/29/2021
-ms.openlocfilehash: f4bde98cfc772f5a80bb52c2e4bc2f5a9c28c78d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e07f698b25a80701e7e0f6d4c99eff508e43127f
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822209"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182287"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>자습서: 전화 번호에 대한 사용자 지정 분석기 만들기
 

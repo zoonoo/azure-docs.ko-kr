@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: 9a1c0494d14c6bc5dad43e73fbf9a55cc8985445
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 8b62437fc8bcad406750101eb72b1ef8d48c102f
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112290020"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322208"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>자습서: Azure Arc 지원 Kubernetes 클러스터를 사용하여 GitOps로 CI/CD 구현
 
@@ -47,13 +47,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
   ```azurecli
   az extension add --name connectedk8s
-  az extension add --name k8sconfiguration
+  az extension add --name k8s-configuration
   ```
   * 확장을 최신 버전으로 업데이트하려면 다음 명령을 실행합니다.
 
     ```azurecli
     az extension update --name connectedk8s
-    az extension update --name k8sconfiguration
+    az extension update --name k8s-configuration
     ```
 
 ## <a name="import-application-and-gitops-repos-into-azure-repos"></a>애플리케이션 및 GitOps 리포지토리를 Azure Repos로 가져오기
@@ -89,13 +89,13 @@ CI/CD 워크플로는 매니페스트 디렉터리를 앱 배포를 위한 추�
 1. Azure Repos의 새로 가져온 **arc-cicd-demo-gitops** 리포지토리에 대한 [새 GitOps 연결을 만듭니다](./tutorial-use-gitops-connected-cluster.md).
 
    ```azurecli
-   az k8sconfiguration create \
+   az k8s-configuration create \
       --name cluster-config \
       --cluster-name arc-cicd-cluster \
       --resource-group myResourceGroup \
       --operator-instance-name cluster-config \
       --operator-namespace cluster-config \
-      --repository-url https://dev.azure.com/<Your organization>/arc-cicd-demo-gitops \
+      --repository-url https://dev.azure.com/<Your organization>/<Your project>/_git/arc-cicd-demo-gitops \
       --https-user <Azure Repos username> \
       --https-key <Azure Repos PAT token> \
       --scope cluster \
@@ -108,7 +108,7 @@ CI/CD 워크플로는 매니페스트 디렉터리를 앱 배포를 위한 추�
    `--git-path=arc-cicd-cluster/manifests`
 
    > [!NOTE]
-   > HTTPS 연결 문자열을 사용하는데 연결 문제가 있는 경우에는 URL에서 사용자 이름 접두사를 생략해야 합니다. 예를 들어 `https://alice@dev.azure.com/contoso/arc-cicd-demo-gitops`에서 `alice@`를 제거해야 합니다. 그 대신 `--https-user`로 사용자를 지정합니다(예: `--https-user alice`).
+   > HTTPS 연결 문자열을 사용하는데 연결 문제가 있는 경우에는 URL에서 사용자 이름 접두사를 생략해야 합니다. 예를 들어 `https://alice@dev.azure.com/contoso/project/_git/arc-cicd-demo-gitops`에서 `alice@`를 제거해야 합니다. 그 대신 `--https-user`로 사용자를 지정합니다(예: `--https-user alice`).
 
 1. Azure Portal에서 배포 상태를 확인합니다.
    * 배포가 성공하면 클러스터에서 만든 `dev` 및 `stage` 네임스페이스가 모두 표시됩니다.
@@ -181,7 +181,7 @@ Pod마다 imagePullSecret을 설정하지 않으려면 `dev` 및 `stage` 네임�
 | ENVIRONMENT_NAME | 개발 |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_FOLDER | `azure-vote-manifests` |
-| MANIFESTS_REPO | `azure-cicd-demo-gitops` |
+| MANIFESTS_REPO | `arc-cicd-demo-gitops` |
 | ORGANIZATION_NAME | Azure DevOps 조직의 이름 |
 | PROJECT_NAME | Azure DevOps의 GitOps 프로젝트 이름 |
 | REPO_URL | GitOps 리포지토리의 전체 URL |
@@ -333,7 +333,7 @@ CI 파이프라인이 성공적으로 실행되면 CD 파이프라인이 트리�
 
 1. 다음과 같이 Azure Arc GitOps 구성 연결을 삭제합니다.
    ```azurecli
-   az k8sconfiguration delete \
+   az k8s-configuration delete \
    --name cluster-config \
    --cluster-name arc-cicd-cluster \
    --resource-group myResourceGroup \

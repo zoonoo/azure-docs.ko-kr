@@ -6,19 +6,19 @@ ms.suite: integration
 ms.reviewer: estfan, ladolan, reylons, archidda, sopai, azla
 ms.topic: overview
 ms.date: 05/25/2021
-ms.openlocfilehash: dcaa0e9fe10d26bb6b1e7d014e0b6e50f09a81f2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 880e194fefdf49b05f2b531699a83d1f0e3e70cc
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387178"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122429480"
 ---
 # <a name="what-is-azure-arc-enabled-logic-apps-preview"></a>Azure Arc 지원 Logic Apps란? (미리 보기)
 
 > [!NOTE]
 > 이 기능은 미리 보기로 제공되고 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)이 적용됩니다.
 
-Azure Arc 지원 Logic Apps를 사용하면 Kubernetes 실행이 가능한 모든 위치에서 단일 테넌트 기반 논리 앱을 개발하고 실행할 수 있습니다. 예를 들어 Azure, Azure Kubernetes Service, 온-프레미스 및 다른 클라우드 공급자를 통해서도 논리 앱 워크플로를 실행할 수 있습니다. 이 제품은 다음 기능에 대해 Azure Arc와 Azure Portal을 통해 중앙 집중식 단일 창 관리 플랫폼을 제공합니다. 
+Azure Arc 지원 Logic Apps를 사용하면 Kubernetes 실행이 가능한 모든 위치에서 단일 테넌트 기반 논리 앱을 개발하고 실행할 수 있습니다. 예를 들어 Azure, Azure Kubernetes Service, 온-프레미스 및 다른 클라우드 공급자를 통해서도 논리 앱 워크플로를 실행할 수 있습니다. 이 제품은 다음 기능에 대해 Azure Arc와 Azure Portal을 통해 중앙 집중식 단일 창 관리 플랫폼을 제공합니다.
 
 - Azure Logic Apps를 통합 플랫폼으로 사용합니다.
 - 워크플로가 호스트되는 위치와 관계없이 모든 서비스에 워크플로를 연결합니다.

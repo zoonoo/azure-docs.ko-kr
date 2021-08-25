@@ -1,18 +1,18 @@
 ---
 title: Azure Arc 지원 Kubernetes에 대한 Azure Resource Graph 샘플 쿼리
 description: Azure Arc 지원 Kubernetes 관련 리소스 및 속성에 액세스하기 위한 리소스 유형 및 테이블 사용을 보여 주는 Azure Arc 지원 Kubernetes에 대한 샘플 Azure Resource Graph 쿼리입니다.
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.topic: sample
 ms.service: azure-arc
 author: mgoedtel
 ms.author: magoedte
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: 73d8b473dc499f9c280d2cf86942e42eacb9517b
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 44ea2994088d34e71547ca8c813adeccced8868e
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669999"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861429"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes에 대한 Azure Resource Graph 샘플 쿼리
 

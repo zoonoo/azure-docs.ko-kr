@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 07949c3e1c1252aef5cb112d054b76ddcd305dbd
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 10929796fa20dd9a96fc88449f3247f786c6e67e
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114457273"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861923"
 ---
 ### <a name="find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group"></a>리소스 그룹에서 대/소문자를 구분하지 않는 특정 태그가 있는 스토리지 계정 찾기
 
-‘리소스 그룹에서 대/소문자를 구분하는 특정 태그가 있는 스토리지 계정 찾기’ 쿼리와 유사하지만 대/소문자를 구분하지 않는 태그 이름과 태그 값을 찾아야 하는 경우 **bagexpansion** 매개 변수와 함께 `mv-expand`를 사용합니다. 이 쿼리는 원래 쿼리보다 많은 할당량을 사용하므로 필요한 경우에만 `mv-expand`를 사용합니다.
+'리소스 그룹에서 대/소문자를 구분하는 특정 태그가 있는 스토리지 계정 찾기' 쿼리에서와 유사하지만 대/소문자를 구분하지 않는 태그 이름 및 태그 값을 찾아야 하는 경우 **bagexpansion** 매개 변수와 함께 `mv-expand`를 사용합니다. 이 쿼리는 원래 쿼리보다 많은 할당량을 사용하므로 필요한 경우에만 `mv-expand`를 사용합니다.
 
 ```kusto
 Resources

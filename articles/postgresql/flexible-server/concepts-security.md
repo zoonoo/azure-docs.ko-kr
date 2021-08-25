@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 07/26/2021
-ms.openlocfilehash: 79e308605a0d6262e95dc6ff673d74a5a1eaaec7
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 489ae3e9593ed5fa0865fb6f3fbe2eb617113d71
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114732159"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181496"
 ---
 # <a name="security-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 보안
 
@@ -43,7 +43,7 @@ IP 방화벽 규칙은 각 요청의 기존 IP 주소를 기준으로 하여 데
 유연한 서버를 Azure Virtual Network에 배포할 수 있습니다. Azure 가상 네트워크는 프라이빗하고 안전한 네트워크 통신을 제공합니다. 자세한 내용은 [유연한 서버](concepts-networking.md)를 참조하세요.
 
 ### <a name="network-security-groups-nsg"></a>NSG(네트워크 보안 그룹)
-네트워크 보안 그룹의 보안 규칙을 사용하면 가상 네트워크 서브넷 및 네트워크 인터페이스 내외부로 이동할 수 있는 네트워크 트래픽 유형을 필터링할 수 있습니다.  자세한 내용은 [네트워크 보안 그룹 개요](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview)를 참조하세요.
+네트워크 보안 그룹의 보안 규칙을 사용하면 가상 네트워크 서브넷 및 네트워크 인터페이스 내외부로 이동할 수 있는 네트워크 트래픽 유형을 필터링할 수 있습니다.  자세한 내용은 [네트워크 보안 그룹 개요](../../virtual-network/network-security-groups-overview.md)를 참조하세요.
 
 ## <a name="access-management"></a>액세스 관리
 
@@ -54,7 +54,7 @@ Azure Database for PostgreSQL 서버를 만드는 동안 관리자 역할에 대
 
 ### <a name="azure-defender-protection"></a>Azure Defender 보호
 
- Azure Database for PostgreSQL - 유연한 서버는 현재 [Azure Defender 보호](https://docs.microsoft.com/azure/security-center/azure-defender)를 지원하지 않습니다. 
+ Azure Database for PostgreSQL - 유연한 서버는 현재 [Azure Defender 보호](../../security-center/azure-defender.md)를 지원하지 않습니다. 
 
 
 [감사 로깅](../concepts-audit.md)은 데이터베이스의 활동을 추적하는 데 사용할 수 있습니다. 
