@@ -8,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: 53c7eb899578a044ecca0900da722c594bdac8dc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7ba28c96b8359b95b1cd4797e922f2788d7b000e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691844"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745310"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>빠른 시작: Windows용 Data Science Virtual Machine 설정
 
@@ -66,5 +66,5 @@ VM에 설치되고 구성된 도구를 사용할 준비가 되었습니다. 대�
 ## <a name="next-steps"></a>다음 단계
 
 * **시작** 메뉴를 열어서 DSVM의 도구를 살펴봅니다.
-* [Azure Machine Learning이란?](../overview-what-is-azure-ml.md)을 참조하여 Azure Machine Learning에 대해 알아보고 [자습서](../index.yml)를 사용해 보세요.
+* [Azure Machine Learning이란?](../overview-what-is-azure-machine-learning.md)을 참조하여 Azure Machine Learning에 대해 알아보고 [자습서](../index.yml)를 사용해 보세요.
 * [Azure에서 Windows Data Science Virtual Machine을 사용하는 데이터 과학](./vm-do-ten-things.md) 문서 읽기

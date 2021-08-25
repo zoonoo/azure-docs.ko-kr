@@ -3,22 +3,22 @@ title: 음성 텍스트 변환 빠른 시작 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 음성 SDK를 사용하여 음성을 텍스트로 변환하는 방법을 알아봅니다. 이 빠른 시작에서는 개체 생성, 지원되는 오디오 입력 형식 및 음성 인식을 위한 구성 옵션에 대해 알아봅니다.
 services: cognitive-services
-author: nitinme
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/15/2020
-ms.author: nitinme
+ms.author: lajanuar
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-twenty-three
 keywords: 음성 텍스트 변환, 음성 텍스트 변환 소프트웨어
-ms.openlocfilehash: 70e19a375fcf20c0d50a4ce2d324391bd60a0807
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 5a283f18b494adaa60fb8b9530f9ed1a1ff41376
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114711571"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122071174"
 ---
 # <a name="get-started-with-speech-to-text"></a>음성 텍스트 변환 시작
 

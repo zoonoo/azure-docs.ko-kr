@@ -11,12 +11,12 @@ metadata:
   author: SnehaGunda
   ms.author: sngun
   ms.date: 09/10/2019
-  ms.openlocfilehash: 0dda9cb110592c9fd9325f607b455d16c32da7f3
-  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.openlocfilehash: 272b23b326aa98d57558425a8cd2c09745b4fbf3
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/02/2021
-  ms.locfileid: "101658015"
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121745465"
 landingContent:
 - title: Azure Cosmos DB 정보
   linkLists:
@@ -81,85 +81,85 @@ landingContent:
   - linkListType: overview
     links:
     - text: Azure Cosmos DB API for MongoDB란?
-      url: mongodb-introduction.md
+      url: mongodb/mongodb-introduction.md
   - linkListType: quickstart
     links:
     - text: .NET 앱을 사용하여 데이터 관리
-      url: create-mongodb-dotnet.md
+      url: mongodb/create-mongodb-dotnet.md
     - text: GoLang 앱을 사용하여 데이터 관리
-      url: create-mongodb-go.md
+      url: mongodb/create-mongodb-go.md
   - linkListType: concept
     links:
     - text: MongoDB와 유선 프로토콜 호환
-      url: mongodb-feature-support-40.md
+      url: mongodb/feature-support-40.md
     - text: MongoDB 확장 명령
-      url: mongodb-custom-commands.md
+      url: mongodb/custom-commands.md
     - text: 스트림 변경
-      url: mongodb-change-streams.md
+      url: mongodb/change-streams.md
   - linkListType: tutorial
     links:
     - text: MongoDB 셸을 사용하여 데이터 쿼리
-      url: tutorial-query-mongodb.md
+      url: mongodb/tutorial-query-mongodb.md
   - linkListType: how-to-guide
     links:
     - text: 데이터 인덱싱 관리
-      url: mongodb-indexing.md
+      url: mongodb/mongodb-indexing.md
     - text: Robo 3T와 연결
-      url: mongodb-robomongo.md
+      url: mongodb/connect-using-robomongo.md
 - title: Azure Cosmos DB Gremlin API 사용
   linkLists:
   - linkListType: overview
     links:
     - text: Azure Cosmos Gremlin API란?
-      url: graph-introduction.md
+      url: graph/graph-introduction.md
   - linkListType: quickstart
     links:
     - text: Gremlin 콘솔을 사용하여 데이터 관리
-      url: create-graph-gremlin-console.md
+      url: graph/create-graph-console.md
     - text: .NET 앱을 사용하여 데이터 관리
-      url: create-graph-dotnet.md
+      url: graph/create-graph-dotnet.md
   - linkListType: concept
     links:
     - text: Tinkerpop의 Gremlin과 유선 프로토콜 호환
-      url: gremlin-support.md
+      url: graph/gremlin-support.md
     - text: Gremlin API 서비스 제한
-      url: gremlin-limits.md
+      url: graph/gremlin-limits.md
   - linkListType: how-to-guide
     links:
     - text: 그래프 데이터 모델링
-      url: graph-modeling.md
+      url: graph/graph-modeling.md
     - text: Graph 데이터 분할 모범 사례
-      url: graph-partitioning.md
+      url: graph/graph-partitioning.md
     - text: Gremlin 쿼리 최적화
-      url: graph-execution-profile.md
+      url: graph/graph-execution-profile.md
 - title: Azure Cosmos DB Cassandra API 사용
   linkLists:
   - linkListType: overview
     links:
     - text: Azure Cosmos DB Cassandra API란?
-      url: cassandra-introduction.md
+      url: cassandra/cassandra-introduction.md
   - linkListType: quickstart
     links:
     - text: .NET Core 앱을 사용하여 데이터 관리
-      url: create-cassandra-dotnet-core.md
+      url: cassandra/manage-data-dotnet-core.md
     - text: Java 앱을 사용하여 데이터 관리
-      url: create-cassandra-java-v4.md
+      url: cassandra/manage-data-java-v4-sdk.md
   - linkListType: concept
     links:
     - text: Apache Cassandra와 유선 프로토콜 호환
-      url: cassandra-support.md
+      url: cassandra/cassandra-support.md
     - text: 탄력적 크기 조정
-      url: manage-scale-cassandra.md
+      url: cassandra/scale-account-throughput.md
     - text: 보조 인덱스
-      url: cassandra-secondary-index.md
+      url: cassandra/secondary-indexing.md
     - text: 분할
-      url: cassandra-partitioning.md
+      url: cassandra/cassandra-partitioning.md
   - linkListType: how-to-guide
     links:
     - text: Spark에서 Cassandra API에 연결
-      url: cassandra-spark-generic.md
+      url: cassandra/connect-spark-configuration.md
     - text: 쿼리 조건자를 사용하여 변경 피드 지원
-      url: cassandra-change-feed.md?tabs=java
+      url: cassandra/cassandra-change-feed.md?tabs=java
 - title: Cosmos DB로 데이터 마이그레이션
   linkLists:
   - linkListType: tutorial
@@ -167,21 +167,21 @@ landingContent:
     - text: 데이터 마이그레이션 도구 – SQL API
       url: import-data.md
     - text: CQL 셸, Spark – Cassandra API
-      url: cassandra-import-data.md
+      url: cassandra/migrate-data.md
     - text: Azure Database Migration Service – MongoDB API
       url: ../dms/tutorial-mongodb-cosmos-db.md
     - text: AzCopy, 데이터 마이그레이션 도구 - Table API
-      url: table-import.md
+      url: table/table-import.md
   - linkListType: how-to-guide
     links:
     - text: Striim을 사용하여 Oracle DB를 Cosmos DB SQL API로 마이그레이션
       url: cosmosdb-sql-api-migrate-data-striim.md
     - text: Striim을 사용하여 Oracle DB를 Cosmos DB Cassandra API로 마이그레이션
-      url: cosmosdb-cassandra-api-migrate-data-striim.md
+      url: cassandra/migrate-data-striim.md
     - text: Blitzz를 사용하여 Oracle DB를 Cosmos DB Cassandra API로 마이그레이션
-      url: oracle-migrate-cosmos-db-blitzz.md
+      url: cassandra/oracle-migrate-cosmos-db-blitzz.md
     - text: Blitzz를 사용하여 Apache Cassandra를 Cosmos DB로 마이그레이션
-      url: cassandra-migrate-cosmos-db-blitzz.md
+      url: cassandra/migrate-data-blitzz.md
     - text: 100TB 데이터 마이그레이션
       url: migrate-cosmosdb-data.md
 - title: Azure Synapse Link를 사용하는 분석
@@ -203,10 +203,10 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: .NET 앱을 사용하여 데이터 관리
-      url: create-table-dotnet.md
+      url: table/create-table-dotnet.md
     - text: Java 앱을 사용하여 데이터 관리
-      url: create-table-java.md
+      url: table/create-table-java.md
   - linkListType: concept
     links:
     - text: Table API와 Azure Table Storage의 차이점
-      url: table-support.md
+      url: table/table-support.md
