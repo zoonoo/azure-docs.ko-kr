@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: e4a76367b65556c0f6b030eba79355382e8db0c6
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: fc8c1db006ddd8b1ca455d7e47be0d8fa8381f1c
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754518"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181399"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Log Analytics 데이터의 대시보드 만들기 및 공유
 
@@ -23,7 +23,7 @@ Log Analytics 대시보드를 통해 저장된 모든 로그 쿼리를 시각화
 > * 공유 대시보드에 로그 쿼리 추가 
 > * 공유 대시보드에서 타일 사용자 지정
 
-이 자습서의 예제를 완료하려면 [Log Analytics 작업 영역에 연결된](../vm/quick-collect-azurevm.md) 기존 가상 머신이 있어야 합니다.  
+이 자습서의 예제를 완료하려면 [Log Analytics 작업 영역에 연결된](../vm/monitor-virtual-machine.md) 기존 가상 머신이 있어야 합니다.  
  
 ## <a name="sign-in-to-azure-portal"></a>Azure Portal에 로그인
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 

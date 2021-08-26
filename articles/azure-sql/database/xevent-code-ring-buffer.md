@@ -9,14 +9,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 12/19/2018
-ms.openlocfilehash: a646588616b874e40b1ed2a5a0b5e691b075075d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a74c6851c8dc3e2c2e4808f324fe711e31fd603
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96487306"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741206"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Azure SQL Database의 확장 이벤트에 대한 링 버퍼 대상 코드
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,11 +45,11 @@ ms.locfileid: "96487306"
 
 * Azure 계정 및 구독 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 * 테이블을 만들 수 있는 데이터베이스.
-  
+
   * 또는 몇 분 이내에 [**AdventureWorksLT** 데모 데이터베이스를 만들](single-database-create-quickstart.md) 수 있습니다.
 * SQL Server Management Studio(ssms.exe)(이상적으로 최신 월별 업데이트 버전).
   다음 위치에서 최신 ssms.exe를 다운로드할 수 있습니다.
-  
+
   * [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)항목
   * [직접 다운로드 링크](https://go.microsoft.com/fwlink/?linkid=616025)
 
@@ -226,7 +226,7 @@ GO
 
 &nbsp;
 
-```
+```xml
 <RingBufferTarget truncated="0" processingTime="0" totalEventsProcessed="2" eventCount="2" droppedCount="0" memoryUsed="1728">
   <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T15:29:31.317Z">
     <data name="state">

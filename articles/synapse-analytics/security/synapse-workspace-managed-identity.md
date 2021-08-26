@@ -1,19 +1,19 @@
 ---
 title: Synapse 작업 영역의 관리 ID
 description: Azure Synapse 작업 영역에서 관리 ID를 설명하는 문서
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
 ms.date: 10/16/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7790bc2895449e8ab21cbd30d7da0e5529eb0562
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f407826b19ac88f13603499764ca7ceb35de1fbe
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670673"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723372"
 ---
 # <a name="azure-synapse-workspace-managed-identity"></a>Azure Synapse 작업 영역 관리 ID
 

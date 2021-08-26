@@ -2,17 +2,17 @@
 title: Azure Portal을 통해 Azure Virtual Network에서 Hive를 사용하여 데이터 변환
 description: 이 자습서에서는 Azure Data Factory에서 Hive 작업을 사용하여 데이터를 변환하는 단계별 지침을 제공합니다.
 ms.service: data-factory
+ms.subservice: tutorials
 author: nabhishek
 ms.author: abnarain
 ms.topic: tutorial
-ms.custom: seo-dt-2019
 ms.date: 06/07/2021
-ms.openlocfilehash: 90166f1a6716d9ed6b30ca002836d03d26c1ee3b
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 565a81f06d3fe70b4fc4a27eef0afba95748e5ed
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113215904"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722427"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory-using-the-azure-portal"></a>Azure Portal을 통해 Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
 
@@ -31,7 +31,7 @@ ms.locfileid: "113215904"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

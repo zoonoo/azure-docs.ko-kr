@@ -1,16 +1,16 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-js
-ms.openlocfilehash: bbd7091eb2139801956d77ec8b3ca821c935ac64
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 44ff9049f31a220d8a459f682597b437203a5c4d
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98109321"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122071811"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>몇 가지 상용구 코드로 시작
 
@@ -31,7 +31,7 @@ ms.locfileid: "98109321"
 
 이제 입력 상자에 기본 UI를 추가하고, Speech SDK의 JavaScript를 참조하고, 사용 가능한 경우 권한 부여 토큰을 가져옵니다.
 
-```html  
+```html
 <body style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:13px;">
   <div id="content" style="display:none">
     <table width="100%">
@@ -132,7 +132,7 @@ ms.locfileid: "98109321"
     });
   </script>
 ```
- 
+
 ## <a name="create-a-speech-configuration"></a>음성 구성 만들기
 
 `SpeechRecognizer` 개체를 초기화하기 전에 구독 키와 구독 지역을 사용하는 구성을 만들어야 합니다. `startRecognizeOnceAsyncButton.addEventListener()` 메서드에 이 코드를 삽입합니다.
@@ -178,7 +178,7 @@ ms.locfileid: "98109321"
 
 `LanguageUnderstandingModel`을 의도 인식기와 연결하고 인식되길 원하는 의도를 추가해야 합니다. 홈 자동화를 위해 미리 빌드된 도메인에서 의도를 사용할 것입니다.
 
-이 코드를 `IntentRecognizer` 아래에 삽입합니다. `"YourLanguageUnderstandingAppId"`를 LUIS 앱 ID로 바꾸어야 합니다. 
+이 코드를 `IntentRecognizer` 아래에 삽입합니다. `"YourLanguageUnderstandingAppId"`를 LUIS 앱 ID로 바꾸어야 합니다.
 
 ```JavaScript
         if (appId.value !== "" && appId.value !== "YOUR_LANGUAGE_UNDERSTANDING_APP_ID") {
@@ -205,9 +205,9 @@ ms.locfileid: "98109321"
         recognizer.recognizeOnceAsync(
           function (result) {
             window.console.log(result);
-  
+
             phraseDiv.innerHTML = result.text + "\r\n";
-  
+
             statusDiv.innerHTML += "(continuation) Reason: " + SpeechSDK.ResultReason[result.reason];
             switch (result.reason) {
               case SpeechSDK.ResultReason.RecognizedSpeech:
@@ -215,7 +215,7 @@ ms.locfileid: "98109321"
                 break;
               case SpeechSDK.ResultReason.RecognizedIntent:
                 statusDiv.innerHTML += " Text: " + result.text + " IntentId: " + result.intentId;
-                
+
                 // The actual JSON returned from Language Understanding is a bit more complex to get to, but it is available for things like
                 // the entity name and type if part of the intent.
                 statusDiv.innerHTML += " Intent JSON: " + result.properties.getProperty(SpeechSDK.PropertyId.LanguageUnderstandingServiceResponse_JsonResult);
@@ -228,7 +228,7 @@ ms.locfileid: "98109321"
               case SpeechSDK.ResultReason.Canceled:
                 var cancelDetails = SpeechSDK.CancellationDetails.fromResult(result);
                 statusDiv.innerHTML += " CancellationReason: " + SpeechSDK.CancellationReason[cancelDetails.reason];
-              
+
               if (cancelDetails.reason === SpeechSDK.CancellationReason.Error) {
                 statusDiv.innerHTML += ": " + cancelDetails.errorDetails;
               }
@@ -239,7 +239,7 @@ ms.locfileid: "98109321"
           },
           function (err) {
             window.console.log(err);
-    
+
             phraseDiv.innerHTML += "ERROR: " + err;
             startIntentRecognizeAsyncButton.disabled = false;
           });
@@ -247,7 +247,7 @@ ms.locfileid: "98109321"
 
 ## <a name="check-your-code"></a>코드 확인
 
- [!code-html [SampleCode](~/samples-cognitive-services-speech-sdk/quickstart/javascript/browser/index-intent-recognition.html)]
+ [!code-html [SampleCode](~/samples-cognitive-services-speech-sdk/quickstart/javascript/browser/intent-recognition/index.html)]
 
 ## <a name="create-the-token-source-optional"></a>토큰 소스 만들기(선택 사항)
 
