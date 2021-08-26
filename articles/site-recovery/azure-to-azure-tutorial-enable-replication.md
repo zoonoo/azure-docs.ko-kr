@@ -2,14 +2,14 @@
 title: Azure Site Recovery를 사용하여 Azure VM 재해 복구를 설정하는 자습서
 description: 이 자습서에서는 Azure Site Recovery를 사용하여 다른 Azure 지역에 Azure VM에 대한 재해 복구를 설정합니다.
 ms.topic: tutorial
-ms.date: 11/03/2020
+ms.date: 07/25/2021
 ms.custom: mvc
-ms.openlocfilehash: 473a264ef497cab4bd4f88372600161b33178099
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67dcbaf555de14c445f041b200ead48c4deac5ee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97656872"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742977"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-azure-vms"></a>자습서: Azure VM에 대한 재해 복구 설정
 
@@ -32,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 자습서를 시작하기 전에 먼저 다음을 수행합니다.
 
-- [지원되는 지역을 검토합니다](azure-to-azure-support-matrix.md#region-support). 동일한 지리적 위치에 있는 두 지역 간에 Azure VM에 대한 재해 복구를 설정할 수 있습니다.
+- [지원되는 지역을 검토합니다](azure-to-azure-support-matrix.md#region-support). 
 - 하나 이상의 Azure VM이 필요합니다. [Windows](azure-to-azure-support-matrix.md#windows) 또는 [Linux](azure-to-azure-support-matrix.md#replicated-machines---linux-file-systemguest-storage) VM이 지원되는지 확인합니다.
 - VM [컴퓨팅](azure-to-azure-support-matrix.md#replicated-machines---compute-settings), [스토리지](azure-to-azure-support-matrix.md#replicated-machines---storage) 및 [네트워킹](azure-to-azure-support-matrix.md#replicated-machines---networking)요구 사항을 검토합니다.
 - 이 자습서에서는 VM이 암호화되지 않았다고 가정합니다. 암호화된 VM에 대한 재해 복구를 설정하려면 [이 문서를 참조하세요](azure-to-azure-how-to-enable-replication-ade-vms.md).
@@ -47,7 +47,7 @@ Azure 계정에는 Recovery Services 자격 증명 모음을 만들고 대상 �
 
 - 무료 Azure 구독을 방금 만든 사용자는 계정 관리자이므로 추가 작업이 필요하지 않습니다.
 - 관리자가 아닌 경우, 관리자와 협력하여 필요한 권한을 얻으십시오.
-    - **자격 증명 모음 만들기**: 구독에 대한 관리자 또는 소유자 권한 
+    - **자격 증명 모음 만들기**: 구독에 대한 관리자 또는 소유자 권한
     - **자격 증명 모음에서 Site Recovery 작업 관리**: *Site Recovery* 기여자 기본 제공 Azure 역할
     - **대상 지역에서 Azure VM 만들기**: 기본 제공되는 Virtual Machine 기여자 역할 또는 다음을 수행할 수 있는 특정 권한:
         - 선택한 가상 네트워크에 VM 만들기
@@ -56,14 +56,14 @@ Azure 계정에는 Recovery Services 자격 증명 모음을 만들고 대상 �
 
 ### <a name="verify-target-settings"></a>대상 설정 확인
 
-재해 복구 중에 원본 지역에서 장애 조치(failover)를 수행하면 대상 지역에 VM이 만들어집니다. 
+재해 복구 중에 원본 지역에서 장애 조치(failover)를 수행하면 대상 지역에 VM이 만들어집니다.
 
 구독이 대상 지역에 충분한 리소스가 있는지 확인합니다. 원본 지역의 VM과 일치하는 크기로 VM을 만들 수 있어야 합니다. 재해 복구를 설정할 때 Site Recovery는 대상 VM에 대해 동일한 크기(또는 가장 가까운 크기)를 선택합니다.
 
 
 ## <a name="prepare-vms"></a>VM 준비
 
-VM에 아웃바운드 연결이 있고 최신 루트 인증서가 있는지 확인합니다. 
+VM에 아웃바운드 연결이 있고 최신 루트 인증서가 있는지 확인합니다.
 
 
 ### <a name="set-up-vm-connectivity"></a>VM 연결 설정
@@ -88,12 +88,12 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 
 NSG(네트워크 보안 그룹)를 사용하여 연결을 제어하는 경우에는 다음 [서비스 태그](../virtual-network/service-tags-overview.md#available-service-tags)(IP 주소 그룹)에 대해 포트 443으로 HTTPS 아웃바운드를 허용하는 서비스 태그 기반 NSG 규칙을 만듭니다.
 
-**Tag** | **허용** 
+**Tag** | **허용**
 --- | ---
-스토리지 태그  |VM에서 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다.   
-Azure AD 태그 | Azure AD에 해당하는 모든 IP 주소에 대한 액세스를 허용합니다.   
-EventsHub 태그 | Site Recovery 모니터링에 대한 액세스를 허용합니다.  
-AzureSiteRecovery 태그 | 모든 지역에서 Site Recovery 서비스에 대한 액세스를 허용합니다.   
+스토리지 태그  |VM에서 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다.
+Azure AD 태그 | Azure AD에 해당하는 모든 IP 주소에 대한 액세스를 허용합니다.
+EventsHub 태그 | Site Recovery 모니터링에 대한 액세스를 허용합니다.
+AzureSiteRecovery 태그 | 모든 지역에서 Site Recovery 서비스에 대한 액세스를 허용합니다.
 GuestAndHybridManagement 태그 | 복제를 사용하도록 설정된 VM에서 실행 중인 Site Recovery Mobility 에이전트를 자동으로 업그레이드하려는 경우에 사용합니다.
 
 필요한 태그 및 태그 지정 예제에 대해 [자세히 알아보세요](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
@@ -126,8 +126,8 @@ VM을 복제할 원본 지역을 제외한 지역에서 Recovery Services 자격
 9. **검토 + 만들기** 에서 **만들기** 를 선택합니다.
 
 10. 자격 증명 모음 배포가 시작됩니다. 알림에서 진행률을 확인합니다.
-11. 자격 증명 모음이 배포된 후에는 **대시보드에 고정** 을 선택하여 빠른 참조를 위해 저장합니다. **리소스로 이동** 을 선택하여 새 자격 증명 모음을 엽니다. 
-    
+11. 자격 증명 모음이 배포된 후에는 **대시보드에 고정** 을 선택하여 빠른 참조를 위해 저장합니다. **리소스로 이동** 을 선택하여 새 자격 증명 모음을 엽니다.
+
     ![배포 후 자격 증명 모음을 열고 대시보드에 고정하는 단추](./media/azure-to-azure-tutorial-enable-replication/vault-deploy.png)
 
 ### <a name="enable-site-recovery"></a>Site Recovery 사용
@@ -138,7 +138,7 @@ VM을 복제할 원본 지역을 제외한 지역에서 Recovery Services 자격
 
 ## <a name="enable-replication"></a>복제 사용
 
-원본 설정을 선택하고 VM 복제를 사용하도록 설정합니다. 
+원본 설정을 선택하고 VM 복제를 사용하도록 설정합니다.
 
 ### <a name="select-source-settings"></a>원본 설정 선택
 

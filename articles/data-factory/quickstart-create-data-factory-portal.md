@@ -3,15 +3,16 @@ title: Azure Data Factory UI를 사용하여 Azure 데이터 팩터리 만들기
 description: Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사하는 파이프라인이 있는 데이터 팩터리를 만듭니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: quickstart
 ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: 9d8bf0d62518c94458a5b989c040f8eaefea11cd
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: ad2e2edf916b5b2c4309ed18c5a3349e67adfc33
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113437003"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749891"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>빠른 시작: Azure Data Factory UI를 사용하여 데이터 팩터리 만들기 
 

@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: overview
 ms.date: 06/02/2021
-ms.openlocfilehash: e5e202d12beb93bc6970593f327400917a4b7ef5
-ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
+ms.openlocfilehash: c2529f355e7d39c22bf5f3d703cb33c59101a5f8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113516732"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749460"
 ---
 # <a name="live-migration-to-azure-managed-instance-for-apache-cassandra-by-using-a-dual-write-proxy"></a>이중 쓰기 프록시를 사용하여 Azure Managed Instance for Apache Cassandra로 실시간 마이그레이션
 
@@ -45,13 +45,13 @@ ms.locfileid: "113516732"
 
 Spark 3.0을 지원하는 Azure Databricks 런타임 버전 7.5를 선택하는 것이 좋습니다.
 
-:::image type="content" source="../cosmos-db/media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Azure Databricks Runtime 버전을 찾는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-runtime.png" alt-text="Azure Databricks Runtime 버전을 찾는 방법을 보여 주는 스크린샷":::
 
 ## <a name="add-spark-dependencies"></a>Spark 종속성 추가
 
 네이티브 및 Azure Cosmos DB Cassandra 엔드포인트 모두에 연결하려면 Apache Spark Cassandra 커넥터 라이브러리를 클러스터에 추가해야 합니다. 클러스터에서 **라이브러리** > **새로 설치** > **Maven** 을 선택한 다음 Maven 좌표에 `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0`을 추가합니다.
 
-:::image type="content" source="../cosmos-db/media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages.png" alt-text="Azure Databricks에서 Maven 패키지를 검색하는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-search-packages.png" alt-text="Azure Databricks에서 Maven 패키지를 검색하는 방법을 보여 주는 스크린샷":::
 
 **설치** 를 선택한 다음 설치가 완료되면 클러스터를 다시 시작합니다.
 
@@ -148,7 +148,7 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar source-server destination-
 ```
 
 > [!NOTE]
-> 클러스터 노드에 프록시를 설치하면 노드를 다시 시작하지 않아도 됩니다. 그러나 애플리케이션 클라이언트가 많고 프록시를 표준 Cassandra 포트 9042에서 실행하여 애플리케이션 수준 코드가 변경되지 않도록 하려면 [Apache Cassandra 기본 포트](https://cassandra.apache.org/doc/latest/faq/#what-ports-does-cassandra-use)를 변경해야 합니다. 그런 다음 클러스터에서 노드를 다시 시작하고 원본 포트를 원본 Cassandra 클러스터에 대해 정의한 새 포트로 구성해야 합니다. 
+> 클러스터 노드에 프록시를 설치하면 노드를 다시 시작하지 않아도 됩니다. 그러나 애플리케이션 클라이언트가 많고 프록시를 표준 Cassandra 포트 9042에서 실행하여 애플리케이션 수준 코드가 변경되지 않도록 하려면 [Apache Cassandra 기본 포트](https://cassandra.apache.org/doc/latest/cassandra/faq/#what-ports-does-cassandra-use)를 변경해야 합니다. 그런 다음 클러스터에서 노드를 다시 시작하고 원본 포트를 원본 Cassandra 클러스터에 대해 정의한 새 포트로 구성해야 합니다. 
 >
 > 다음 예제에서는 포트 3074에서 실행되도록 원본 Cassandra 클러스터를 변경하고 포트 9042에서 클러스터를 시작합니다.
 >

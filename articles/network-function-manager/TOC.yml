@@ -19,8 +19,13 @@
       href: partners.md
     - name: FAQ
       href: faq.md
+- name: 참조
+  items:
+    - name: Java용 SDK
+      href: 'https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/hybridnetwork/azure-resourcemanager-hybridnetwork'
+    - name: Python용 SDK
+      href: 'https://pypi.org/project/azure-mgmt-hybridnetwork/1.0.0/'
 - name: 리소스
-  expanded: true
   items:
     - name: 네트워크 기능 관리자 제품 페이지
       href: 'https://go.microsoft.com/fwlink/?linkid=2166098'

@@ -6,26 +6,28 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 7165cdc072ffaa5b0d862e1fe17f94e35c35aeec
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9b8699598a9bac4781346ff939736b2bd6ee72f2
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105034540"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113429947"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL에서 컴퓨팅 및 스토리지 옵션 - 유연한 서버(미리 보기)
 
-> [!IMPORTANT] 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 Azure Database for MySQL 유연한 서버는 버스트 가능, 범용 및 메모리 최적화의 세 가지 컴퓨팅 계층 중 하나에서 만들 수 있습니다. 컴퓨팅 계층은 B 시리즈, D 시리즈 및 E 시리즈를 사용하는 기본 VM SKU로 구분됩니다. 컴퓨팅 계층과 크기를 선택하면 서버에서 사용할 수 있는 메모리 및 vCore가 결정됩니다. 모든 컴퓨팅 계층에서 동일한 스토리지 기술이 사용됩니다. 모든 리소스는 MySQL 서버 수준에서 프로비전됩니다. 서버는 하나 이상의 데이터베이스를 갖출 수 있습니다.
 
-| 리소스/계층 | **버스터 가능** | **범용** | **메모리 최적화** |
+| 리소스/계층 | **버스트 가능** | **범용** | **메모리 최적화** |
 |:---|:----------|:--------------------|:---------------------|
 | VM 시리즈| B 시리즈 | Ddsv4 시리즈 | Edsv4 시리즈|
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64 |
 | vCore 메모리 | 변수 | 4GiB | 8GiB * |
-| 스토리지 크기 | 5GiB~16TiB | 5GiB~16TiB | 5GiB~16TiB |
+| 스토리지 크기 | 20GiB~16TiB | 20GiB~16TiB | 20GiB~16TiB |
 | 데이터베이스 백업 보존 기간 | 1~35일 | 1~35일 | 1~35일 |
 
 \* 504GB의 메모리가 있는 E64ds_v4(메모리 최적화) SKU 제외
@@ -46,28 +48,28 @@ Azure Database for MySQL 유연한 서버는 버스트 가능, 범용 및 메모
 
 사용 가능한 서버 유형의 세부 사양은 다음과 같습니다.
 
-| 컴퓨팅 크기         | vCore 수 | 메모리 크기(GiB) | 지원되는 최대 IOPS | 지원되는 최대 I/O 대역폭(MBps)|
-|----------------------|--------|-------------------| ------------------ |-----------------------------------|
+| 컴퓨팅 크기         | vCore 수 | 메모리 크기(GiB) | 지원되는 최대 IOPS | 지원되는 최대 I/O 대역폭(MBps)| 최대 연결 수
+|----------------------|--------|-------------------| ------------------ |-----------------------------------|------------------
 | **버스터 가능**        |        |                   | 
-| Standard_B1s         | 1      | 1                 | 320                | 10                                | 
-| Standard_B1ms        | 1      | 2                 | 640                | 10                                |
-| Standard_B2s         | 2      | 4                 | 1280               | 15                                |
-| **범용**  |        |                   |                    |                                   |
-| Standard_D2ds_v4     | 2      | 8                 | 3200               | 48                                |
-| Standard_D4ds_v4     | 4      | 16                | 6400               | 96                                |
-| Standard_D8ds_v4     | 8      | 32                | 12800              | 192                               |
-| Standard_D16ds_v4    | 16     | 64                | 20000              | 384                               |
-| Standard_D32ds_v4    | 32     | 128               | 20000              | 768                               |
-| Standard_D48ds_v4    | 48     | 192               | 20000              | 1,152                              |
-| Standard_D64ds_v4    | 64     | 256               | 20000              | 1200                              |
+| Standard_B1s         | 1      | 1                 | 320                | 10                                | 171
+| Standard_B1ms        | 1      | 2                 | 640                | 10                                | 341
+| Standard_B2s         | 2      | 4                 | 1280               | 15                                | 683
+| **범용**  |        |                   |                    |                                   | 
+| Standard_D2ds_v4     | 2      | 8                 | 3200               | 48                                | 1365
+| Standard_D4ds_v4     | 4      | 16                | 6400               | 96                                | 2731
+| Standard_D8ds_v4     | 8      | 32                | 12800              | 192                               | 5461
+| Standard_D16ds_v4    | 16     | 64                | 20000              | 384                               | 10923
+| Standard_D32ds_v4    | 32     | 128               | 20000              | 768                               | 21845
+| Standard_D48ds_v4    | 48     | 192               | 20000              | 1,152                              | 32768
+| Standard_D64ds_v4    | 64     | 256               | 20000              | 1200                              | 43691
 | **메모리 최적화** |        |                   |                    |                                   |
-| Standard_E2ds_v4     | 2      | 16                | 3200               | 48                                |
-| Standard_E4ds_v4     | 4      | 32                | 6400               | 96                                |
-| Standard_E8ds_v4     | 8      | 64                | 12800              | 192                               |
-| Standard_E16ds_v4    | 16     | 128               | 20000              | 384                               |
-| Standard_E32ds_v4    | 32     | 256               | 20000              | 768                               |
-| Standard_E48ds_v4    | 48     | 384               | 20000              | 1,152                              |
-| Standard_E64ds_v4    | 64     | 504               | 20000              | 1200                              |
+| Standard_E2ds_v4     | 2      | 16                | 3200               | 48                                | 2731
+| Standard_E4ds_v4     | 4      | 32                | 6400               | 96                                | 5461
+| Standard_E8ds_v4     | 8      | 64                | 12800              | 192                               | 10923
+| Standard_E16ds_v4    | 16     | 128               | 20000              | 384                               | 21845
+| Standard_E32ds_v4    | 32     | 256               | 20000              | 768                               | 43691
+| Standard_E48ds_v4    | 48     | 384               | 20000              | 1,152                              | 65536
+| Standard_E64ds_v4    | 64     | 504               | 20000              | 1200                              | 86016
 
 사용 가능한 컴퓨팅 시리즈에 대한 자세한 내용은 [버스트 가능(B 시리즈)](../../virtual-machines/sizes-b-series-burstable.md), [범용(Ddsv4 시리즈)](../../virtual-machines/ddv4-ddsv4-series.md) 및 [메모리 최적화(Edsv4 시리즈)](../../virtual-machines/edv4-edsv4-series.md)에 대한 Azure VM 설명서를 참조하세요.
 
@@ -76,7 +78,7 @@ Azure Database for MySQL 유연한 서버는 버스트 가능, 범용 및 메모
 
 ## <a name="storage"></a>스토리지
 
-프로비전하는 스토리지는 유연한 서버에 사용할 수 있는 스토리지 용량입니다. 스토리지는 데이터베이스 파일, 임시 파일, 트랜잭션 로그 및 MySQL 서버 로그에 사용됩니다. 모든 컴퓨팅 계층에서 지원되는 최소 스토리지는 5GiB이고 최대 스토리지는 16TiB입니다. 스토리지는 1GiB 증분 단위로 크기 조정되며 서버를 만든 후에 스케일 업할 수 있습니다.
+프로비전하는 스토리지는 유연한 서버에 사용할 수 있는 스토리지 용량입니다. 스토리지는 데이터베이스 파일, 임시 파일, 트랜잭션 로그 및 MySQL 서버 로그에 사용됩니다. 모든 컴퓨팅 계층에서 지원되는 최소 스토리지는 20GiB이고 최대 스토리지는 16TiB입니다. 스토리지는 1GiB 증분 단위로 크기 조정되며 서버를 만든 후에 스케일 업할 수 있습니다.
 
 >[!NOTE]
 > 스토리지는 스케일 다운이 아닌 스케일 업만 가능합니다.
@@ -99,13 +101,17 @@ Azure Database for MySQL 유연한 서버는 버스트 가능, 범용 및 메모
 
 ### <a name="storage-auto-grow"></a>스토리지 자동 증가
 
-스토리지 자동 증가는 Azure Database for MySQL 유연한 서버에서 아직 사용할 수 없습니다.
+스토리지 자동 증가는 서버가 스토리지가 부족해지고 읽기 전용이 되지 않도록 방지합니다. 스토리지 자동 증가를 사용하도록 설정하면 워크로드에 영향을 주지 않고 스토리지가 자동으로 증가합니다. 스토리지 자동 증가는 모든 새 서버 생성에 대해 기본적으로 활성화됩니다. 프로비전된 스토리지가 100GB보다 작거나 같은 서버의 경우, 사용 가능한 스토리지 공간이 프로비전된 스토리지 크기의 10% 미만이면 프로비전된 스토리지 크기가 5GB씩 증가합니다. 프로비전된 스토리지가 100GB를 초과하는 서버의 경우, 사용 가능한 스토리지 공간이 10GB의 프로비전된 스토리지 크기 미만이면 프로비전된 스토리지 크기가 5%씩 증가합니다. 위에 지정된 대로 최대 스토리지 제한이 적용됩니다.
+
+예를 들어 1000GB의 스토리지를 프로비전하고 실제 활용이 990GB를 넘어서는 경우 서버는 1050GB로 증가합니다. 또는 10GB의 스토리지를 프로비전한 경우 사용 가능한 스토리지가1GB 미만이면 스토리지 크기가 15GB로 증가합니다.
+
+스토리지는 스케일 다운이 아닌 스케일 업만 가능합니다.
 
 ## <a name="iops"></a>IOPS
 
 Azure Database for MySQL – 유연한 서버는 추가 IOPS의 프로비전을 지원합니다. 이 기능을 사용하면 추가 IOPS 제한을 초과하는 추가 IOPS를 프로비전할 수 있습니다. 이 기능을 사용하면 언제든지 워크로드 요구 사항에 따라 프로비전된 IOPS 수를 늘리거나 줄일 수 있습니다. 
 
-최소 IOPS는 모든 컴퓨팅 크기에서 100이고, 최대 IOPS는 선택한 컴퓨팅 크기로 결정됩니다. 미리 보기에서 지원되는 최대 IOPS는 20,000IOPS입니다.
+최소 IOPS는 모든 컴퓨팅 크기에서 360이고, 최대 IOPS는 선택한 컴퓨팅 크기로 결정됩니다. 미리 보기에서 지원되는 최대 IOPS는 20,000IOPS입니다.
 
 컴퓨팅 크기별 최대 IOPS에 대한 자세한 내용은 아래에 나와 있습니다. 
 
@@ -135,8 +141,8 @@ Azure Database for MySQL – 유연한 서버는 추가 IOPS의 프로비전을 
 최대 IOPS는 컴퓨팅 크기당 사용 가능한 최대 IOPS에 따라 달라집니다. [B 시리즈](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4 시리즈](../../virtual-machines/ddv4-ddsv4-series.md) 및 [Edsv4 시리즈](../../virtual-machines/edv4-edsv4-series.md) 설명서의 *캐시되지 않은 최대 디스크 처리량: IOPS/MBps* 열을 참조하세요.
 
 > [!Important]
-> **무료 IOPS** 는 최소(컴퓨팅 크기의 "캐시되지 않은 최대 디스크 처리량: IOPS/MBps", GiB*3에 프로비전된 스토리지)와 동일합니다.<br>
-> **최소 IOPS** 는 모든 컴퓨팅 크기에서 100입니다.<br>
+> **무료 IOPS** 는 최소(컴퓨팅 크기의 "캐시되지 않은 최대 디스크 처리량: IOPS/MBps", 300 + GiB*3에 프로비저닝된 스토리지)와 동일합니다.<br>
+> **최소 IOPS** 는 모든 컴퓨팅 크기에서 360입니다.<br>
 > **최대 IOPS** 는 선택한 컴퓨팅 크기로 결정됩니다. 미리 보기에서 지원되는 최대 IOPS는 20,000IOPS입니다.
 
 [IO 백분율](./concepts-monitoring.md) 메트릭을 사용하여 Azure Portal(Azure Monitor와 함께)에서 I/O 사용량을 모니터링할 수 있습니다. 컴퓨팅을 기반으로 하는 최대 IOPS보다 더 많은 IOPS가 필요한 경우 서버 컴퓨팅의 크기를 조정해야 합니다.
