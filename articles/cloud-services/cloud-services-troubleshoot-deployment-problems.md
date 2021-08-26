@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 9b88ed48468d3169470b0a1e37e1f8d8c0c9b2db
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: b8610917a365297d1e2f17f40f2096839eb39f89
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113090100"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824896"
 ---
 # <a name="troubleshoot-azure-cloud-services-classic-deployment-problems"></a>Azure Cloud Services(클래식) 배포 문제 해결
 
-> [!IMPORTANT]
-> [Azure Cloud Services(확장 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품에 대한 새로운 Azure Resource Manager 기반 배포 모델입니다.해당 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌고 모든 새로운 배포는 [Cloud Services(확장된 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 Azure에 클라우드 서비스 애플리케이션 패키지를 배포할 때 Azure portal의 **속성** 창에서 배포에 대한 정보를 얻을 수 있습니다. 클라우드 서비스에 발생한 문제를 해결하기 위해 이 창에서 세부 정보를 사용할 수 있고 새로운 지원 요청을 할 때 Azure 지원 센터에 이 정보를 제공할 수 있습니다.
 

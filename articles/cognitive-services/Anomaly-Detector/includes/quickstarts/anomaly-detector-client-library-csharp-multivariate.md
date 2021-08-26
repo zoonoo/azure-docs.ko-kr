@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2021
 ms.author: mbullwin
-ms.openlocfilehash: 8dc56570adf78ce208411f9f2e8f4453704d4f90
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: ea010cd348973757c5f5cc0bb705bc52f0cd9e7a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114339463"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121802824"
 ---
 C#용 Anomaly Detector 다변량 클라이언트 라이브러리를 시작합니다. 다음 단계에 따라 패키지를 설치하고 서비스에서 제공하는 알고리즘을 사용합니다. 새로운 다변량 변칙 검색 API를 통해 개발자는 기계 학습 기술 또는 레이블이 지정된 데이터 없이도 메트릭 그룹에서 변칙을 검색하는 고급 AI를 쉽게 통합할 수 있습니다. 서로 다른 신호 간의 종속성 및 상호 상관 관계는 자동으로 주요 요소로 계산됩니다. 이를 통해 복잡한 시스템의 오류로부터 사전에 보호할 수 있습니다.
 
@@ -136,7 +136,7 @@ AnomalyDetectorClient client = new AnomalyDetectorClient(endpointUri, credential
 모델 학습을 처리하려면 아래와 같이 새 프라이빗 비동기 작업을 만듭니다. `TrainMultivariateModel`을 사용하여 모델을 학습시키고 `GetMultivariateModelAysnc`를 사용하여 학습 완료 시기를 확인합니다.
 
 ```csharp
-private async Task trainAsync(AnomalyDetectorClient client, string datasource, DateTimeOffset start_time, DateTimeOffset end_time, int max_tryout = 500)
+private async Task<Guid?> trainAsync(AnomalyDetectorClient client, string datasource, DateTimeOffset start_time, DateTimeOffset end_time)
 {
     try
     {
@@ -153,27 +153,23 @@ private async Task trainAsync(AnomalyDetectorClient client, string datasource, D
 
         // Wait until the model is ready. It usually takes several minutes
         Response<Model> get_response = await client.GetMultivariateModelAsync(trained_model_id).ConfigureAwait(false);
-        ModelStatus? model_status = null;
-        int tryout_count = 0;
-        TimeSpan create_limit = new TimeSpan(0, 3, 0);
-        while (tryout_count < max_tryout & model_status != ModelStatus.Ready)
+        while (get_response.Value.ModelInfo.Status != ModelStatus.Ready & get_response.Value.ModelInfo.Status != ModelStatus.Failed)
         {
             System.Threading.Thread.Sleep(10000);
             get_response = await client.GetMultivariateModelAsync(trained_model_id).ConfigureAwait(false);
-            ModelInfo model_info = get_response.Value.ModelInfo;
-            Console.WriteLine(String.Format("model_id: {0}, createdTime: {1}, lastUpdateTime: {2}, status: {3}.", get_response.Value.ModelId, get_response.Value.CreatedTime, get_response.Value.LastUpdatedTime, model_info.Status));
+            Console.WriteLine(String.Format("model_id: {0}, createdTime: {1}, lastUpdateTime: {2}, status: {3}.", get_response.Value.ModelId, get_response.Value.CreatedTime, get_response.Value.LastUpdatedTime, get_response.Value.ModelInfo.Status));
+        }
 
-            if (model_info != null)
-            {
-                model_status = model_info.Status;
-            }
-            tryout_count += 1;
-        };
-        get_response = await client.GetMultivariateModelAsync(trained_model_id).ConfigureAwait(false);
-
-        if (model_status != ModelStatus.Ready)
+        if (get_response.Value.ModelInfo.Status != ModelStatus.Ready)
         {
-            Console.WriteLine(String.Format("Request timeout after {0} tryouts", max_tryout));
+            Console.WriteLine(String.Format("Trainig failed."));
+            IReadOnlyList<ErrorResponse> errors = get_response.Value.ModelInfo.Errors;
+            foreach (ErrorResponse error in errors)
+            {
+                Console.WriteLine(String.Format("Error code: {0}.", error.Code));
+                Console.WriteLine(String.Format("Error message: {0}.", error.Message));
+            }
+            throw new Exception("Training failed.");
         }
 
         model_number = await getModelNumberAsync(client).ConfigureAwait(false);
@@ -193,7 +189,7 @@ private async Task trainAsync(AnomalyDetectorClient client, string datasource, D
 새로 학습된 모델을 사용하여 변칙을 검색하려면 `detectAsync`라는 `private async Task`를 만듭니다. 새 `DetectionRequest`를 만들고 이를 `DetectAnomalyAsync`에 매개 변수로 전달합니다.
 
 ```csharp
-private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, string datasource, Guid model_id, DateTimeOffset start_time, DateTimeOffset end_time, int max_tryout = 500)
+private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, string datasource, Guid model_id,DateTimeOffset start_time, DateTimeOffset end_time)
 {
     try
     {
@@ -206,17 +202,21 @@ private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, st
         Guid result_id = Guid.Parse(result_id_path.Split('/').LastOrDefault());
         // get detection result
         Response<DetectionResult> result = await client.GetDetectionResultAsync(result_id).ConfigureAwait(false);
-        int tryout_count = 0;
-        while (result.Value.Summary.Status != DetectionStatus.Ready & tryout_count < max_tryout)
+        while (result.Value.Summary.Status != DetectionStatus.Ready & result.Value.Summary.Status != DetectionStatus.Failed)
         {
             System.Threading.Thread.Sleep(2000);
             result = await client.GetDetectionResultAsync(result_id).ConfigureAwait(false);
-            tryout_count += 1;
         }
 
         if (result.Value.Summary.Status != DetectionStatus.Ready)
         {
-            Console.WriteLine(String.Format("Request timeout after {0} tryouts", max_tryout));
+            Console.WriteLine(String.Format("Inference failed."));
+            IReadOnlyList<ErrorResponse> errors = result.Value.Summary.Errors;
+            foreach (ErrorResponse error in errors)
+            {
+                Console.WriteLine(String.Format("Error code: {0}.", error.Code));
+                Console.WriteLine(String.Format("Error message: {0}.", error.Message));
+            }
             return null;
         }
 

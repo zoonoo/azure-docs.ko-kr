@@ -9,22 +9,24 @@ ms.service: machine-learning
 ms.subservice: studio-classic
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: c60c511840d6591009064ba6b3f27cd6cdb89856
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 3538449a9f4f25bdcfd6909e537b1c13cf35a64e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580713"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691441"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---machine-learning-studio-classic"></a>자습서 3: 신용 위험 모델 배포 - Machine Learning 스튜디오(클래식)
 
 **적용 대상:** ![이는 이 문서가 Machine Learning 스튜디오(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning 스튜디오(클래식)   ![이는 이 문서가 Azure Machine Learning에 적용되지 않음을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-이 자습서에서는 예측 분석 솔루션을 개발하는 프로세스를 자세히 살펴봅니다. Machine Learning Studio(클래식)에서 간단한 모델을 개발합니다.  그런 다음 모델을 Machine Learning 웹 서비스로 배포합니다.  이 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제3부** 입니다.
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
+이 자습서에서는 예측 분석 솔루션을 개발하는 프로세스를 자세히 살펴봅니다. Machine Learning Studio(클래식)에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Machine Learning 웹 서비스로 배포합니다.  이 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제3부** 입니다.
 
 신용대출 지원 시 애플리케이션에서 제공한 정보를 기반으로 개인의 신용 위험을 예측해야 한다고 가정합니다.  
 
-신용 위험 평가는 복잡한 문제이지만, 이 자습서에서는 약간 간소화하여 살펴보겠습니다. 이를 Machine Learning 스튜디오(클래식)를 사용하여 예측 분석 솔루션을 만드는 방법의 예로 사용합니다. 이 솔루션에는 Machine Learning 스튜디오(클래식) 및 Machine Learning 웹 서비스가 사용됩니다. 
+신용 위험 평가는 복잡한 문제이지만, 이 자습서에서는 약간 간소화하여 살펴보겠습니다. 이 신용 위험 평가는 Machine Learning Studio(클래식)를 사용하는 예측 분석 솔루션을 만드는 방법의 예로 사용합니다. 이 솔루션에는 Machine Learning Studio(클래식) 및 Machine Learning 웹 서비스가 사용됩니다. 
 
 이 3부로 구성된 자습서에서는 공개적으로 사용 가능한 신용 위험 데이터부터 시작합니다.  그런 다음, 예측 모델을 개발하고 학습합니다.  마지막으로 모델을 웹 서비스로 배포합니다.
 

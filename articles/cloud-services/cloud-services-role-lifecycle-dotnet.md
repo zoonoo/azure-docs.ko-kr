@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 03d7667317fa384ab6ab935526a2279aa617b323
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 8a1b6e7191ad0d3fadf18a55c088c81614a0c89e
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113092440"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824851"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>.NET에서 웹 또는 작업자 역할의 수명 주기 사용자 지정
 
-> [!IMPORTANT]
-> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 작업자 역할을 만들 때 수명 주기 이벤트에 응답할 수 있게 재정의하도록 메서드를 제공하는 [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) 클래스를 확장합니다. 웹 역할의 경우, 이 클래스는 선택적이므로 수명 주기 이벤트에 응답하는 데 사용합니다.
 

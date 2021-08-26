@@ -8,17 +8,17 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: d189fb165dc2a42801d432533574286bea7ba969
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: cc352a35308cbc77dc544c780ea7045cff561b02
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113092638"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824518"
 ---
 # <a name="managing-azure-cloud-services-classic-using-azure-automation"></a>Azure Automation을 사용하여 Azure Cloud Services(클래식) 관리
 
-> [!IMPORTANT]
-> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
+
 이 가이드에서는 Azure Automation 서비스 및 이 서비스를 사용하여 Azure Cloud Services 관리를 간소화하는 방법을 소개합니다.
 
 ## <a name="what-is-azure-automation"></a>Azure Automation 정의

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 05/19/2021
-ms.openlocfilehash: 31f3dc8adcd17c7795351877c856fa854582007b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 937fcc60e8be144fce10748345b71cc05703c04f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110456583"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638514"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-db-api-for-mongodb-offline"></a>자습서: 오프라인에서 MongoDB를 Azure Cosmos DB API for MongoDB로 마이그레이션
 [!INCLUDE[appliesto-mongodb-api](../cosmos-db/includes/appliesto-mongodb-api.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "110456583"
 
 이 MongoDB 마이그레이션 가이드는 MongoDB 마이그레이션에 대한 시리즈의 일부입니다. 중요한 MongoDB 마이그레이션 단계는 아래와 같이 [사전 마이그레이션](../cosmos-db/mongodb-pre-migration.md), 마이그레이션 및 [사후 마이그레이션](../cosmos-db/mongodb-post-migration.md)입니다.
 
-![마이그레이션 단계 다이어그램.](../cosmos-db/media/mongodb-pre-migration/overall-migration-steps.png)
+![마이그레이션 단계 다이어그램.](../cosmos-db/mongodb/media/pre-migration-steps/overall-migration-steps.png)
 
 ## <a name="overview-of-offline-data-migration-from-mongodb-to-azure-cosmos-db-using-dms"></a>DMS를 사용하여 MongoDB에서 Azure Cosmos DB로 오프라인 데이터 마이그레이션 개요
 
@@ -81,19 +81,7 @@ Azure Cosmos DB의 서버 쪽 다시 시도 기능을 사용하면 서비스에�
 
 ![서버 쪽 다시 시도를 사용하도록 설정하는 방법을 보여 주는 스크린샷](media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-enable.png)
 
-## <a name="register-the-resource-provider"></a>리소스 공급자 등록
-
-1. Azure Portal에 로그인하고, **모든 서비스** 를 선택한 다음, **구독** 을 선택합니다.
-
-   ![포털 구독을 보여 주는 스크린샷](media/tutorial-mongodb-to-cosmosdb/portal-select-subscription1.png)
-
-2. Azure Database Migration Service의 인스턴스를 만들 구독을 선택한 다음, **리소스 공급자** 를 선택합니다.
-
-    ![리소스 공급자를 보여 주는 스크린샷](media/tutorial-mongodb-to-cosmosdb/portal-select-resource-provider.png)
-
-3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration** 의 오른쪽에서 **등록** 을 선택합니다.
-
-    ![리소스 공급자를 등록하는 방법을 보여 주는 스크린샷](media/tutorial-mongodb-to-cosmosdb/portal-register-resource-provider.png)    
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]  
 
 ## <a name="create-an-instance"></a>인스턴스 만들기
 

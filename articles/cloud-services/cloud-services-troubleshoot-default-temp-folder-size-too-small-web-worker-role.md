@@ -8,17 +8,17 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 32bf4af753cb511739448e6e35a6399bcd2ae8ad
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 0d61e2effe690e7ba506a0f6a913934bef3c032f
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113090082"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824770"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-classic-webworker-role"></a>클라우드 서비스(클래식) 웹/작업자 역할에서 기본 TEMP 폴더 크기가 너무 작습니다.
 
-> [!IMPORTANT]
-> [Azure Cloud Services(확장 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품에 대한 새로운 Azure Resource Manager 기반 배포 모델입니다.해당 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌고 모든 새로운 배포는 [Cloud Services(확장된 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 클라우드 서비스 작업자 또는 웹 역할의 기본 임시 디렉터리에는 최대 100MB 크기의 공간이 있으며 특정 시점에 꽉 찰 수도 있습니다. 이 문서는 임시 디렉터리에 대한 공간 부족을 방지하는 방법을 설명합니다.
 

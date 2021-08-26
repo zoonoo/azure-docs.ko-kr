@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: f18fa4986b9a4a855af6e2b9f14c4e2367213f6e
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 101a89a2fabe61d85b8a9ee099c672c881c6efd3
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113089992"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821926"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service-classic"></a>Azure Cloud Service에 대한 성능 카운터 수집(클래식)
 
-> [!IMPORTANT]
-> [Azure Cloud Services(확장 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품에 대한 새로운 Azure Resource Manager 기반 배포 모델입니다.해당 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌고 모든 새로운 배포는 [Cloud Services(확장된 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 성능 카운터는 애플리케이션과 호스트의 성능을 추적할 수 있는 방법을 제공합니다. Windows Server는 하드웨어, 애플리케이션, 운영 체제 등과 관련된 다양한 성능 카운터를 제공합니다. 성능 카운터를 수집하고 Azure에 보내면 이 정보를 분석하여 더 나은 결정을 내릴 수 있습니다. 
 

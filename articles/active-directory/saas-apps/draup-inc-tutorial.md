@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 08/19/2021
 ms.author: jeedes
-ms.openlocfilehash: 56649e47333ef95955b1afb88546be356c08991e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 4fdc2c9c683376369de284035ad08ffd8bea39bf
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461472"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769911"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-draup-inc"></a>자습서: Draup, Inc와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -74,11 +74,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. 앱이 Azure와 이미 사전 통합되었으므로 사용자는 **기본 SAML 구성** 섹션에서 아무 단계도 수행할 필요가 없습니다.
+1. **기본 SAML 구성** 페이지에서 다음 필드에 대한 값을 입력합니다.
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
-
-    a. **로그온 URL** 텍스트 상자에 `https://platform.draup.com/saml2/login/` URL을 입력합니다.
+    **로그온 URL** 텍스트 상자에 `https://platform.draup.com/saml2/login/` URL을 입력합니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(원시)** 를 찾고, **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
