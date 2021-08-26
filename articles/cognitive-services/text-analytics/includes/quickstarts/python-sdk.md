@@ -5,12 +5,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 07/15/2021
 ms.author: aahi
-ms.openlocfilehash: c66a17c1591f9a0070af1f6fc6b0ec6127292f6b
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6ece1121244341acb8f81d11491acf27f4c9fec8
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114593489"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122442322"
 ---
 <a name="HOLTop"></a>
 
@@ -28,6 +28,7 @@ ms.locfileid: "114593489"
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Text Analytics 리소스를 만들어"  target="_blank">Text Analytics 리소스를 만들어</a> 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 애플리케이션을 Text Analytics API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
@@ -91,6 +92,8 @@ Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 `Tex
 응답 개체는 각 문서에 대한 분석된 정보가 포함된 목록입니다. 
 
 ---
+
+[!INCLUDE [text-analytics-character-limits](../character-limits.md)]
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -810,9 +813,9 @@ key_phrase_extraction_example(client)
 
 ---
 
-## <a name="extract-health-entities"></a>건강 엔터티 추출
+## <a name="extract-health-entities"></a>상태 엔터티 추출
 
-Text Analytics를 사용해 비동기 요청을 수행하여 텍스트에서 의료 엔터티를 추출할 수 있습니다. 아래 샘플은 기본적인 예를 보여 줍니다. [GitHub](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_healthcare_entities.py)에서 더 많은 고급 샘플을 찾을 수 있습니다.
+Text Analytics를 사용해 비동기 요청을 수행하여 텍스트에서 의료 엔터티를 추출할 수 있습니다. 아래 샘플은 기본적인 예를 보여줍니다. [GitHub](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_healthcare_entities.py)에서 더 많은 고급 샘플을 찾을 수 있습니다.
 
 [!INCLUDE [health operation pricing](../health-operation-pricing-caution.md)]
 

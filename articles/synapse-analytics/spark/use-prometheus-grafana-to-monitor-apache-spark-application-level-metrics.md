@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: 6a0b63dc7fda25e3911ae713a0bea7ae7a0969f9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b32ddb38395d95e1c262c05aef878a1beeddc38c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104602301"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734706"
 ---
 # <a name="tutorial-monitor-apache-spark-application-level-metrics-with-prometheus-and-grafana"></a>자습서: Prometheus 및 Grafana를 사용하여 Apache Spark 애플리케이션 수준 메트릭 모니터링
 
@@ -29,7 +29,7 @@ ms.locfileid: "104602301"
 1.  [Azure CLI](/cli/azure/install-azure-cli)
 2.  [Helm 클라이언트 3.30+](https://github.com/helm/helm/releases)
 3.  [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-4.  [AKS(Azure Kubernetes Service)](https://azure.microsoft.com/en-us/services/kubernetes-service/)
+4.  [AKS(Azure Kubernetes Service)](https://azure.microsoft.com/services/kubernetes-service/)
 
 또는 기본적으로 Azure CLI, Helm 클라이언트 및 kubectl이 포함되어 있는 [Azure Cloud Shell](https://shell.azure.com/)을 사용합니다.
 

@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을
 description: Azure AD에서 Proware로 사용자 계정을 자동으로 프로비저닝 및 프로비저닝을 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 8887932e-e27e-419b-aa85-a0cda428d525
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/30/2021
-ms.author: Zhchia
-ms.openlocfilehash: 559b385636dc76eecdba10901179c394a0cae906
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.author: thwimmer
+ms.openlocfilehash: 1b7f487835288f603aac83eb90f470590a6eff90
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207684"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122327727"
 ---
 # <a name="tutorial-configure-proware-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Proware 구성
 

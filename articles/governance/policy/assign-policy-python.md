@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: Python을 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 Python을 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
-ms.date: 03/02/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: f68e114571ea241f2051125862f89a7dc77dfce3
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 59f61e05afd9e3abb0aa6bb6a76f632187940412
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108747614"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323498"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>빠른 시작: Python을 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 

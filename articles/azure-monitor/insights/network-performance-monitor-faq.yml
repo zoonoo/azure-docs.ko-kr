@@ -2,18 +2,19 @@
 metadata:
   title: FAQ - Azure의 네트워크 성능 모니터 솔루션 | Microsoft Docs
   description: 이 문서에서는 Azure에서 네트워크 성능 모니터에 대한 질문과 대답을 캡처합니다. NPM(네트워크 성능 모니터)을 사용하면 네트워크 성능을 거의 실시간으로 모니터링하고 네트워크 성능 병목을 감지하고 찾을 수 있습니다.
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: azure-monitor
   author: vinynigam
   ms.author: vinigam
   ms.date: 10/12/2018
-  ms.openlocfilehash: e899e68d631dfd41ffac3fd111c3ceca86f4cb93
-  ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+  ms.openlocfilehash: dcf032b47396f8e952d38ab9e2c82c8552952da6
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/11/2021
-  ms.locfileid: "112034957"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122253840"
 title: 네트워크 성능 모니터 솔루션 FAQ
-summary: "\n![네트워크 성능 모니터 기호](media/network-performance-monitor-faq/npm-symbol.png)\n\n> [!IMPORTANT]\n> 2021년 7월 1일부터는 기존 작업 영역에 새 테스트를 추가하거나 네트워크 성능 모니터에서 새 작업 영역을 사용하도록 설정할 수 없습니다. 2021년 7월 1일 이전에 만든 테스트는 계속 사용할 수 있습니다. 현재 워크로드에 대한 서비스 중단의 영향을 최소화하려면 2024년 2월 29일 이전에 [테스트를 네트워크 성능 모니터에서 Azure Network Watcher의 새로운 연결 모니터로 마이그레이션](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md)합니다.\n\n이 문서에서는 NPM(네트워크 성능 모니터)에 대한 FAQ(질문과 대답)를 캡처합니다.\n\n[네트워크 성능 모니터](../../networking/network-monitoring-overview.md)는 네트워크 인프라의 다양한 지점 간 네트워크 성능을 모니터링하는 데 도움이 되는 클라우드 기반 [하이브리드 네트워크 모니터링](./network-performance-monitor-performance-monitor.md) 솔루션입니다. 또한 [서비스 및 애플리케이션 엔드포인트](./network-performance-monitor-service-connectivity.md)에 대한 네트워크 연결을 모니터링하고 [Azure ExpressRoute의 성능을 모니터링하는](./network-performance-monitor-expressroute.md) 데 도움이 됩니다. \n\n네트워크 성능 모니터는 트래픽 블랙홀링, 라우팅 오류와 같은 네트워크 문제와 기존 네트워크 모니터링 방법으로 감지할 수 없는 문제를 감지합니다. 이 솔루션은 네트워크 링크에 임계값이 위반되면 경고를 생성하고 사용자에게 알립니다. 또한 네트워크 성능 문제를 적시에 감지하고 문제의 원인을 특정 네트워크 세그먼트 또는 디바이스로 국한시킵니다. \n\n[네트워크 성능 모니터](../../networking/network-monitoring-overview.md)에서 지원하는 다양한 기능에 대한 자세한 내용은 온라인으로 제공됩니다.\n"
+summary: "\n![네트워크 성능 모니터 기호](media/network-performance-monitor-faq/npm-symbol.png)\n\n> [!IMPORTANT]\n> 2021년 7월 1일부터 기존 작업 영역에 새 테스트를 추가하거나 네트워크 성능 모니터에서 새 작업 영역을 사용하도록 설정할 수 없습니다. 2021년 7월 1일 이전에 만든 테스트는 계속 사용할 수 있습니다. 현재 워크로드에 대한 서비스 중단의 영향을 최소화하려면 2024년 2월 29일 이전에 [테스트를 네트워크 성능 모니터에서 Azure Network Watcher의 새로운 연결 모니터로 마이그레이션](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md)합니다.\n\n이 문서에서는 NPM(네트워크 성능 모니터)에 대한 FAQ(질문과 대답)를 캡처합니다.\n\n[네트워크 성능 모니터](../../networking/network-monitoring-overview.md)는 네트워크 인프라의 다양한 지점 간 네트워크 성능을 모니터링하는 데 도움이 되는 클라우드 기반 [하이브리드 네트워크 모니터링](./network-performance-monitor-performance-monitor.md) 솔루션입니다. 또한 [서비스 및 애플리케이션 엔드포인트](./network-performance-monitor-service-connectivity.md)에 대한 네트워크 연결을 모니터링하고 [Azure ExpressRoute의 성능을 모니터링하는](./network-performance-monitor-expressroute.md) 데 도움이 됩니다. \n\n네트워크 성능 모니터는 트래픽 블랙홀링, 라우팅 오류와 같은 네트워크 문제와 기존 네트워크 모니터링 방법으로 감지할 수 없는 문제를 감지합니다. 이 솔루션은 네트워크 링크에 임계값이 위반되면 경고를 생성하고 사용자에게 알립니다. 또한 네트워크 성능 문제를 적시에 감지하고 문제의 원인을 특정 네트워크 세그먼트 또는 디바이스로 국한시킵니다. \n\n[네트워크 성능 모니터](../../networking/network-monitoring-overview.md)에서 지원하는 다양한 기능에 대한 자세한 내용은 온라인으로 제공됩니다.\n"
 sections:
 - name: 에이전트 설정 및 구성
   questions:

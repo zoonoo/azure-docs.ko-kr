@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 �
 description: 사용자 계정을 Azure AD에서 SecureLogin으로 자동으로 프로비전 및 프로비전 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: f37882fb-80fa-446c-8f56-d13fd905fe54
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/22/2021
-ms.author: Zhchia
-ms.openlocfilehash: 8c75c0638365caf885900e2f26742e5fc5aab78b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 107211b71189b99991e517184e5cac781590b213
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104953190"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122327766"
 ---
 # <a name="tutorial-configure-securelogin-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 SecureLogin 구성
 
@@ -103,7 +103,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 9. **특성 매핑** 섹션에서 Azure AD에서 SecureLogin으로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 SecureLogin의 사용자 계정을 일치시키는 데 사용됩니다. [일치하는 대상 특성](../app-provisioning/customize-application-attributes.md)을 변경하는 경우 SecureLogin API에서 해당 특성에 따라 사용자 필터링을 지원하는지 확인해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-   |attribute|Type|필터링에 지원됨|
+   |attribute|Type|필터링 지원됨|
    |---|---|---|
    |userName|String|&check;|
    |활성|부울|
@@ -118,7 +118,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 11. **특성 매핑** 섹션에서 Azure AD에서 SecureLogin으로 동기화되는 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 SecureLogin의 그룹을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-      |attribute|Type|필터링에 지원됨|
+      |attribute|Type|필터링 지원됨|
       |---|---|---|
       |displayName|String|&check;|
       |externalId|String|

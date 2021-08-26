@@ -8,19 +8,19 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c8a7b357efc2e30d1ca93d0b45fd2563c980045
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 5520dbcc82dc45af987ec329a3be711fec04ee27
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752753"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735143"
 ---
 # <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>SAS 정의를 만들고 코드에서 공유 액세스 서명 토큰 가져오기
 
 키 자격 증명 모음에 저장된 SAS(공유 액세스 서명) 토큰을 사용하여 스토리지 계정을 관리할 수 있습니다. 자세한 내용은 [SAS를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../../storage/common/storage-sas-overview.md)를 참조하세요.
 
 > [!NOTE]
-> [Azure RBAC(Azure 역할 기반 액세스 제어)](../../storage/common/storage-auth-aad.md)를 사용하여 공유 키 권한 부여에 대한 뛰어난 보안 및 사용 편의성을 위해 스토리지 계정을 보호하는 것이 좋습니다.
+> [Azure RBAC(Azure 역할 기반 액세스 제어)](../../storage/blobs/authorize-access-azure-active-directory.md)를 사용하여 공유 키 권한 부여에 대한 뛰어난 보안 및 사용 편의성을 위해 스토리지 계정을 보호하는 것이 좋습니다.
 
 이 문서에서는 SAS 정의를 만들고 SAS 토큰을 가져오는 .NET 코드 샘플을 제공합니다. Key Vault 관리형 스토리지 계정에 대해 생성된 클라이언트를 포함한 자세한 내용은 [ShareLink](/samples/azure/azure-sdk-for-net/share-link/) 샘플을 참조하세요. SAS 토큰을 만들고 저장하는 방법에 대한 자세한 내용은 [Key Vault 및 Azure CLI를 사용하여 스토리지 계정 키 관리](overview-storage-keys.md) 또는 [Key Vault 및 Azure PowerShell을 사용하여 스토리지 계정 키 관리](overview-storage-keys-powershell.md)를 참조하세요.
 
