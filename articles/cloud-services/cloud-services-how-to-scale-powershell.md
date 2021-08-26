@@ -9,17 +9,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 7291078c04ca8eb87c50a4dc59a07dd128e1b74a
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: de198a3a2449d43461547e216eb0acfc6b02d527
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113093754"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822277"
 ---
 # <a name="how-to-scale-an-azure-cloud-service-classic-in-powershell"></a>PowerShell에서 Azure 클라우드 서비스(클래식)를 스케일링하는 방법
 
-> [!IMPORTANT]
-> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 Windows PowerShell을 사용하여 인스턴스를 추가하거나 제거함으로써 웹 역할 또는 작업자 역할을 축소하거나 확대할 수 있습니다.  
 

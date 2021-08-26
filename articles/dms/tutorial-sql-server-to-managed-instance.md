@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: b77b242d34986e423bf87d6be0eda2074cd7df36
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 5200f9548c16dc0dc0341db84601242e84e3dcc3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114689069"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638450"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 Azure SQL Managed Instance로 오프라인 마이그레이션
 
@@ -79,19 +79,7 @@ Azure Database Migration Service를 사용하여 SQL Server 인스턴스에서 [
     > [!NOTE]
     > Azure Database Migration Service는 [마이그레이션 설정 구성](#configure-migration-settings) 단계 중에 스토리지 계정 설정을 구성할 때 계정 수준 SAS 토큰을 사용하도록 지원하지 않습니다.
     
-## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
-
-1. Azure Portal에 로그인하고, **모든 서비스** 를 선택한 다음, **구독** 을 선택합니다.
-
-    ![포털 구독 표시](media/tutorial-sql-server-to-managed-instance/portal-select-subscriptions.png)
-
-2. Azure Database Migration Service의 인스턴스를 만들 구독을 선택한 다음, **리소스 공급자** 를 선택합니다.
-
-    ![리소스 공급자 보기](media/tutorial-sql-server-to-managed-instance/portal-select-resource-provider.png)
-
-3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration** 의 오른쪽에서 **등록** 을 선택합니다.
-
-    ![리소스 공급자 등록](media/tutorial-sql-server-to-managed-instance/portal-register-resource-provider.png)
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>Azure Database Migration Service 인스턴스 만들기
 

@@ -4,15 +4,15 @@ description: Azure Data Factory에서 자체 호스팅 통합 런타임을 사�
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 07/05/2021
-ms.openlocfilehash: 2b9f37d6f45591a43849c8d61787513702982e5b
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 55b0d4246616dd862cfcf9fb15069f13f130e857
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113436422"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638307"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터 복사
 

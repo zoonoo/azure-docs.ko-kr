@@ -9,17 +9,15 @@ metadata:
   ms.author: hirshah
   ms.reviewer: mimckitt
   ms.custom: 
-  ms.openlocfilehash: 44c75c50faf305b9a2eccd546007c04f1c4fa7fc
-  ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+  ms.openlocfilehash: 7f55bcdf76c6615bfd80a522271fb21711117dfd
+  ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/01/2021
-  ms.locfileid: "113129444"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122822602"
 title: 'Azure Cloud Services(클래식)에 대한 애플리케이션 및 서비스 사용 가능성 문제: FAQ(질문과 대답)'
 summary: >
-  > [!IMPORTANT]
-
-  > [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+  [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 
   이 문서는 [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 애플리케이션 및 서비스 사용 가능성 문제에 대한 질문과 대답을 포함합니다. 크기 정보는 [Cloud Services VM 크기 페이지](cloud-services-sizes-specs.md) 를 참조할 수도 있습니다.

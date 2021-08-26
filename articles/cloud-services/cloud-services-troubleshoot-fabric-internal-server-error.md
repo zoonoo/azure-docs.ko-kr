@@ -7,14 +7,16 @@ ms.author: hirshah
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: ad5feb622f97a446420c151917907785c35e2f0c
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 219adb2d8d1f0fc6f08a1a4aede465619585df6e
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113090010"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822970"
 ---
 # <a name="troubleshoot-fabricinternalservererror-or-serviceallocationfailure-when-deploying-a-cloud-service-classic-to-azure"></a>Azure에 클라우드 서비스(클래식)를 배포할 때 FabricInternalServerError 또는 ServiceAllocationFailure 문제 해결
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 이 문서에서는 Azure 클라우드 서비스(클래식)를 배포할 때 패브릭 컨트롤러에서 할당할 수 없는 할당 오류를 해결합니다.
 
