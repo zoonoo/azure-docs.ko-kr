@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 02/17/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 602c146b014d2c129deb7a6cb4539e2cf9260d0c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 74d08095b8ea1df0ffb34264c2f0ca3af64b5dd8
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114471738"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772698"
 ---
 # <a name="about-keys"></a>키 정보
 
@@ -36,8 +36,8 @@ Azure Key Vault는 암호화 키를 저장하고 관리하는 두 가지 유형�
 Key Vault의 암호화 키는 JWK[JSON 웹 키] 개체로 표현됩니다. JSON(JavaScript Object Notation) 및 JOSE(JavaScript Object Signing and Encryption) 사양은 다음과 같습니다.
 
 -   [JWK(JSON 웹 키)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
--   [JWE(JSON 웹 암호화)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
--   [JWA(JSON 웹 알고리즘)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
+-   [JWE(JSON 웹 암호화)](https://datatracker.ietf.org/doc/html/draft-jones-json-web-encryption)  
+-   [JWA(JSON 웹 알고리즘)](https://datatracker.ietf.org/doc/html/draft-ietf-jose-json-web-algorithms)  
 -   [JWS(JSON 웹 서명)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
 
 또한 기본 JWK/JWA 사양을 확장하여 Azure Key Vault 및 관리형 HSM 구현에 고유한 키 유형을 지원할 수 있습니다. 

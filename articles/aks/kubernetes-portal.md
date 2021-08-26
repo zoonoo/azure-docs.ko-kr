@@ -4,12 +4,12 @@ description: Kubernetes 리소스와 상호 작용하여 Azure Portal에서 AKS(
 services: container-service
 ms.topic: article
 ms.date: 12/16/2020
-ms.openlocfilehash: ce5dc74dc3625b2b1fed447c4e6480308267d32a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d48a11a3897a4de8f613e015ffc87c84bea08950
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100578675"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779100"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal"></a>Azure Portal에서 Kubernetes 리소스에 액세스
 
@@ -81,7 +81,7 @@ Kubernetes 리소스에 액세스하려면 AKS 클러스터, Kubernetes API 및 
 > [**API 서버 권한 있는 IP 범위**](api-server-authorized-ip-ranges.md)에 대해 AKS 기능을 추가하여 API 서버 액세스를 방화벽의 공용 엔드포인트로만 제한할 수 있습니다. 이러한 클러스터에 대한 또 다른 옵션은 `--api-server-authorized-ip-ranges`를 업데이트하여 로컬 클라이언트 컴퓨터 또는 (탐색되는 포털에서의) IP 주소 범위에 대한 액세스를 포함하는 것입니다. 이 액세스를 허용하려면 컴퓨터의 공용 IPv4 주소가 필요합니다. 아래 명령을 사용하거나 인터넷 브라우저에서 "내 IP 주소"를 검색하여 이 주소를 찾을 수 있습니다.
 ```bash
 # Retrieve your IP address
-CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+CURRENT_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
 # Add to AKS approved list
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32

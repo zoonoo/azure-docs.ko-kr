@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2021
 ms.author: mbullwin
-ms.openlocfilehash: 1d5c77ff37d2585161009f1b023634cde2876110
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 5b0dfd51ac3de7f7abea41f18f8bf43dfa14580c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114339822"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121801336"
 ---
 Python용 Anomaly Detector 다변량 클라이언트 라이브러리를 시작합니다. 서비스에서 제공하는 알고리즘을 사용하여 패키지 시작을 설치하려면 다음 단계를 따르세요. 새로운 다변량 변칙 검색 API를 통해 개발자는 기계 학습 기술 또는 레이블이 지정된 데이터 없이도 메트릭 그룹에서 변칙을 검색하는 고급 AI를 쉽게 통합할 수 있습니다. 서로 다른 신호 간의 종속성 및 상호 상관 관계는 자동으로 주요 요소로 계산됩니다. 이를 통해 복잡한 시스템의 오류를 사전에 보호할 수 있습니다.
 
@@ -121,14 +121,13 @@ def __init__(self, subscription_key, anomaly_detector_endpoint, data_source=None
 먼저 모델을 학습시키고, 학습 중에 모델의 상태를 확인하여 학습 완료 시기를 파악한 다음, 검색 단계로 이동할 때 필요한 최신 모델 ID를 검색합니다.
 
 ```python
-def train(self, start_time, end_time, max_tryout=500):
-
+def train(self, start_time, end_time):
     # Number of models available now
     model_list = list(self.ad_client.list_multivariate_model(skip=0, top=10000))
     print("{:d} available models before training.".format(len(model_list)))
     
     # Use sample data to train the model
-    print("Training new model...")
+    print("Training new model...(it may take a few minutes)")
     data_feed = ModelInfo(start_time=start_time, end_time=end_time, source=self.data_source)
     response_header = \
     self.ad_client.train_multivariate_model(data_feed, cls=lambda *args: [args[i] for i in range(len(args))])[-1]
@@ -139,20 +138,29 @@ def train(self, start_time, end_time, max_tryout=500):
     
     # Wait until the model is ready. It usually takes several minutes
     model_status = None
-    tryout_count = 0
-    while (tryout_count < max_tryout and model_status != "READY"):
-        model_status = self.ad_client.get_multivariate_model(trained_model_id).model_info.status
-        tryout_count += 1
-        time.sleep(2)
-    
-    assert model_status == "READY"
-    
-    print("Done.", "\n--------------------")
-    print("{:d} available models after training.".format(len(new_model_list)))
-    
+    while model_status != ModelStatus.READY and model_status != ModelStatus.FAILED:
+        model_info = self.ad_client.get_multivariate_model(trained_model_id).model_info
+        model_status = model_info.status
+        time.sleep(10)
+
+    if model_status == ModelStatus.FAILED:
+        print("Creating model failed.")
+        print("Errors:")
+        if model_info.errors:
+            for error in model_info.errors:
+                print("Error code: {}. Message: {}".format(error.code, error.message))
+        else:
+            print("None")
+        return None
+
+    if model_status == ModelStatus.READY:
+        # Model list after training
+        new_model_list = list(self.ad_client.list_multivariate_model(skip=0, top=10000))
+        print("Done.\n--------------------")
+        print("{:d} available models after training.".format(len(new_model_list)))
+
     # Return the latest model id
     return trained_model_id
-
 ```
 
 ## <a name="detect-anomalies"></a>변칙 검색
@@ -160,8 +168,7 @@ def train(self, start_time, end_time, max_tryout=500):
 `detect_anomaly` 및 `get_dectection_result`를 사용하여 데이터 원본 내에 변칙이 있는지 확인합니다. 앞서 학습한 모델의 모델 ID를 전달해야 합니다.
 
 ```python
-def detect(self, model_id, start_time, end_time, max_tryout=500):
-    
+def detect(self, model_id, start_time, end_time):
     # Detect anomaly in the same data source (but a different interval)
     try:
         detection_req = DetectionRequest(source=self.data_source, start_time=start_time, end_time=end_time)
@@ -171,21 +178,23 @@ def detect(self, model_id, start_time, end_time, max_tryout=500):
     
         # Get results (may need a few seconds)
         r = self.ad_client.get_detection_result(result_id)
-        tryout_count = 0
-        while r.summary.status != "READY" and tryout_count < max_tryout:
-            time.sleep(1)
+        while r.summary.status != DetectionStatus.READY and r.summary.status != DetectionStatus.FAILED:
             r = self.ad_client.get_detection_result(result_id)
-            tryout_count += 1
-    
-        if r.summary.status != "READY":
-            print("Request timeout after %d tryouts.".format(max_tryout))
+            time.sleep(2)
+
+        if r.summary.status == DetectionStatus.FAILED:
+            print("Detection failed.")
+            print("Errors:")
+            if r.summary.errors:
+                for error in r.summary.errors:
+                    print("Error code: {}. Message: {}".format(error.code, error.message))
+            else:
+                print("None")
             return None
-    
     except HttpResponseError as e:
         print('Error code: {}'.format(e.error.code), 'Error message: {}'.format(e.error.message))
     except Exception as e:
         raise e
-    
     return r
 ```
 

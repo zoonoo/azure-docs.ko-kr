@@ -9,17 +9,15 @@ metadata:
   ms.author: hirshah
   ms.reviewer: mimckitt
   ms.custom: 
-  ms.openlocfilehash: f9c453ffafddf2864eaf866b8739586b0bbe50df
-  ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+  ms.openlocfilehash: cdb0c407db3405b9ced14ca22b221b5ef120d81e
+  ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/01/2021
-  ms.locfileid: "113129438"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122823227"
 title: 'Azure Cloud Services(클래식)에 대한 연결 및 네트워킹 문제: FAQ(질문과 대답)'
 summary: >
-  > [!IMPORTANT]
-
-  > [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품에 대한 새 Azure Resource Manager 기반 배포 모델입니다. 이 변경에 따라 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services의 이름이 Cloud Services(클래식)로 바뀌었고, 모든 새 배포에서 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+  [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 
   이 문서는 [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 연결 및 네트워킹에 대한 질문과 대답을 포함합니다. 크기 정보는 [Cloud Services VM 크기 페이지](cloud-services-sizes-specs.md)를 참조하세요.

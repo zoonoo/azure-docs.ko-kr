@@ -1,18 +1,18 @@
 ---
 title: Azure Batch에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Batch에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 07/16/2021
+ms.date: 08/20/2021
 ms.topic: sample
 author: JnHs
 ms.author: jenhayes
 ms.service: batch
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: e80ddb48e443eef2e44aef3cd58e2300e9753de1
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 811d8ade1de8d4c328c87770da108c8bf38d39f0
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114405806"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607992"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-batch"></a>Azure Batch에 대한 Azure Policy 규정 준수 컨트롤
 

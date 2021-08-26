@@ -9,17 +9,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 76026a5773f10ae08c66066b81a34bf2c678384c
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: ec0588d989911bcbb0ba4fc0fc7f029a1c7ba23e
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113093682"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823006"
 ---
 # <a name="what-is-the-cloud-service-classic-model-and-how-do-i-package-it"></a>Cloud Service(클래식) 모델 정의 및 패키지 방법
 
-> [!IMPORTANT]
-> [Azure Cloud Services(확장 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품에 대한 새로운 Azure Resource Manager 기반 배포 모델입니다.해당 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌고 모든 새로운 배포는 [Cloud Services(확장된 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 클라우드 서비스는 서비스 정의 *(.csdef)*, 서비스 구성 *(.cscfg)*, 서비스 패키지 *(.cspkg)* 의 세 구성 요소에서 생성됩니다. **ServiceDefinition.csdef** 및 **ServiceConfig.cscfg** 파일은 둘 다 XML 기반으로, 클라우드 서비스의 구조 및 구성 방법(합쳐서 모델이라고 함)을 설명합니다. **ServicePackage.cspkg** 는 **ServiceDefinition.csdef** 및 다른 구성 요소에서 생성되는 zip 파일로, 필수 이진 기반 종속성을 모두 포함합니다. Azure는 **ServicePackage.cspkg** 와 **ServiceConfig.cscfg** 에서 모두 클라우드 서비스를 만듭니다.
 

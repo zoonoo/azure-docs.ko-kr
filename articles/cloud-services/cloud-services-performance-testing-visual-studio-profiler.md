@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: d392db5a2cd38ba1195764d72b30de6dc90000ef
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 0ea51a0e6817416fb145dbc885f8f900b9bebd8d
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113092692"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823627"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-classic-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Visual Studio 프로파일러를 사용하여 Azure 컴퓨팅 에뮬레이터에서 로컬로 클라우드 서비스(클래식)의 성능 테스트
 
-> [!IMPORTANT]
-> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 다양한 도구와 기법을 사용하여 클라우드 서비스의 성능을 테스트할 수 있습니다.
 클라우드 서비스를 Azure에 게시할 때 [Azure 애플리케이션 프로파일링][1]에 설명된 대로 Visual Studio에서 프로파일링 데이터를 수집하고 로컬에서 분석하게 할 수 있습니다.

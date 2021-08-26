@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: joseys
-ms.openlocfilehash: 17363ba1c41c7c5046b769c7a03b3e05b97a08e6
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: f025f33a041dd40970b3ea34ff723e1270d16ea6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114339800"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121803121"
 ---
 ## <a name="sample-code"></a>샘플 코드
 [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ServerRecording)에서 이 빠른 시작에 대한 최종 코드를 찾습니다.
@@ -26,9 +26,9 @@ ms.locfileid: "114339800"
 - [Node.js(12.18.4 이상)](https://nodejs.org/en/download/).
 - [Visual Studio(2019 이상)](https://visualstudio.microsoft.com/vs/).
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)(Visual Studio 인스턴스에 따라 32비트 또는 64비트 버전을 설치해야 함).
-- Azure Communication Services 리소스를 만듭니다. 자세한 내용은 [Azure Communication Services 리소스 만들기](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)를 참조하세요. 이 빠른 시작에 대한 **연결 문자열** 리소스를 기록해야 합니다.
-- Azure Storage 계정과 컨테이너에 관한 자세한 내용은 [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal)를 참조하세요. 이 빠른 시작을 위해 **연결 문자열** 및 **컨테이너 이름** 을 기록해야 합니다.
-- [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) 웹후크.
+- Azure Communication Services 리소스를 만듭니다. 자세한 내용은 [Azure Communication Services 리소스 만들기](../../../create-communication-resource.md)를 참조하세요. 이 빠른 시작에 대한 **연결 문자열** 리소스를 기록해야 합니다.
+- Azure Storage 계정과 컨테이너에 관한 자세한 내용은 [스토리지 계정 만들기](../../../../../storage/common/storage-account-create.md?tabs=azure-portal)를 참조하세요. 이 빠른 시작을 위해 **연결 문자열** 및 **컨테이너 이름** 을 기록해야 합니다.
+- [Azure Event Grid](../../../../../event-grid/overview.md) 웹후크.
 
 ## <a name="object-model"></a>개체 모델
 
