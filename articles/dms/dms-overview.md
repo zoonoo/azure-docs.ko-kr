@@ -10,12 +10,12 @@ ms.service: dms
 ms.workload: data-services
 ms.topic: overview
 ms.date: 02/20/2020
-ms.openlocfilehash: 328c29afee3752ecb11b83f22d67f20aa3a2c93e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d0f4bf0f0617fa2fc00a62d65b94dbf29f36688
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94963014"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725389"
 ---
 # <a name="what-is-azure-database-migration-service"></a>Azure Database Migration Service란 무엇인가요?
 
@@ -42,5 +42,5 @@ Azure Database Migration Service 가격 책정에 대한 최신 정보는 [Azure
 * [Azure Portal을 사용하여 Azure Database Migration Service 인스턴스를 만듭니다](quickstart-create-data-migration-service-portal.md).
 * [SQL Server를 Azure SQL Database로 마이그레이션](tutorial-sql-server-to-azure-sql.md).
 * [Azure Database Migration Service 사용을 위한 필수 구성 요소 개요](pre-reqs.md).
-* [Azure Database Migration Service 사용에 대한 FAQ](faq.md).
+* [Azure Database Migration Service 사용에 대한 FAQ](faq.yml).
 * [데이터 마이그레이션 시나리오에 사용할 수 있는 서비스 및 도구](dms-tools-matrix.md).

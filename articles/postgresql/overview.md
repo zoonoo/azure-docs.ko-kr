@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: c3ea7930f41fe89538a817da032e993e534db9cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3d80aba60c4e3662e0a1b3d5d8ed8f2ab6c135a2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92491328"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725258"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Azure Database for PostgreSQL이란?
 
@@ -80,4 +80,4 @@ Azure Database for PostgreSQL의 세 가지 배포 모드에 대해 자세히 �
 
 - [단일 서버](./overview-single-server.md)
 - [유연한 서버](./flexible-server/overview.md)
-- 하이퍼스케일(Citus)
+- [하이퍼스케일(Citus)](./hyperscale-overview.md)
