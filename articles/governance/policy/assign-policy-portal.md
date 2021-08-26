@@ -1,14 +1,14 @@
 ---
 title: 포털을 사용하여 새 정책 할당
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
-ms.openlocfilehash: b8b45e0cd2aea1417118f7c485fef2b54d757217
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 8407005f54f940885e47671d97425395bcc3ba70
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108772480"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323234"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>비규격 리소스를 식별하는 정책 할당 만들기를 참조하세요.
 
@@ -17,7 +17,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
 
 이 과정이 끝나면 관리 디스크를 사용하지 않는 가상 머신이 식별됩니다. 이 가상 머신은 정책 할당을 _비준수_ 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
