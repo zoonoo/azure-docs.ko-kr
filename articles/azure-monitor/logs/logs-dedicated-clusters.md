@@ -4,31 +4,34 @@ description: 모니터링 데이터를 하루에 1TB 넘게 수집하는 고객�
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
-ms.date: 09/16/2020
+ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 3b4a98e37c16feeb2ad8203caaeb5bc231761379
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: e9385787dd48e3354d3359cf7991492b8f813f0c
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004226"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539270"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor 로그 전용 클러스터
 
-Azure Monitor 로그 전용 클러스터는 Azure Monitor 로그 고객이 고급 기능을 사용할 수 있게 해주는 배포 옵션입니다. 전용 클러스터를 사용하는 고객은 이러한 클러스터에서 호스트할 작업 영역을 선택할 수 있습니다.
+Azure Monitor 로그 전용 클러스터는 Azure Monitor 로그 고객이 고급 기능을 사용할 수 있게 해주는 배포 옵션입니다. 고객은 전용 클러스터에서 호스트되어야 하는 Log Analytics 작업 영역을 선택할 수 있습니다.
+
+전용 클러스터를 사용하려면 하루에 최소 1TB의 데이터 수집 용량 사용을 약정해야 합니다. 데이터 손실이나 서비스 중단 없이 기존 작업 영역을 전용 클러스터로 마이그레이션할 수 있습니다. 
 
 전용 클러스터가 필요한 기능은 다음과 같습니다.
 
 - **[고객 관리형 키](../logs/customer-managed-keys.md)** - 고객이 제공하고 제어하는 키를 사용하여 클러스터 데이터를 암호화합니다.
-- **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)** - 고객이 Microsoft 지원 엔지니어의 데이터 액세스 요청을 제어할 수 있습니다.
-- **[이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** 는 암호화 알고리즘 또는 키 중 하나가 훼손될 수 있는 상황으로부터 보호합니다. 이 경우 추가 암호화 계층은 계속해서 데이터를 보호합니다.
+- **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)** - Microsoft 지원 엔지니어의 데이터 액세스 요청을 제어합니다.
+- **[이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** - 암호화 알고리즘 또는 키 중 하나가 손상될 수 있는 상황으로부터 보호합니다. 이 경우 추가 암호화 계층은 계속해서 데이터를 보호합니다.
+- **[가용성 영역](../../availability-zones/az-overview.md)** - 전용 클러스터의 가용성 영역과 관련된 데이터 센터 오류로부터 데이터를 보호합니다. 가용성 영역은 분리된 물리적 위치에 있는 데이터 센터이며 독립적인 전원, 냉각, 네트워킹 등을 갖추고 있습니다. 영역의 이 독립적인 인프라와 물리적 분리를 사용하면 작업 영역이 영역의 리소스를 사용할 수 있기 때문에 인시던트 발생 가능성이 훨씬 낮아집니다.
 - **[다중 작업 영역](../logs/cross-workspace-query.md)** - 고객이 프로덕션에 둘 이상의 작업 영역을 사용하는 경우 전용 클러스터를 사용하는 것이 적합할 수 있습니다. 모든 작업 영역이 동일한 클러스터에 있으면 작업 영역 간 쿼리가 더 신속하게 실행됩니다. 또한 할당된 약정 계층이 모든 클러스터 수집을 고려하고, 그중 일부가 작고 약정 계층 할인 대상이 아니더라도 모든 작업 영역에 적용되므로 전용 클러스터를 사용하는 것이 더 비용 효율적일 수 있습니다.
 
-전용 클러스터를 사용하려면 하루에 최소 1TB의 데이터 수집 용량 사용을 약정해야 합니다. 전용 클러스터로의 마이그레이션은 간단합니다. 데이터 손실이나 서비스 중단이 발생하지 않습니다. 
+
 
 ## <a name="management"></a>관리 
 
-전용 클러스터는 Azure Monitor 로그 클러스터를 나타내는 Azure 리소스를 통해 관리됩니다. 모든 작업은 PowerShell 또는 REST API를 사용하여 이 리소스에서 수행됩니다.
+전용 클러스터는 Azure Monitor 로그 클러스터를 나타내는 Azure 리소스를 사용하여 관리됩니다. 모든 작업은 PowerShell 또는 REST API를 사용하여 이 리소스에서 수행됩니다.
 
 클러스터가 생성되면 이를 구성하고 작업 영역을 연결할 수 있습니다. 작업 영역과 클러스터가 연결되면 작업 영역으로 전송된 새 데이터가 클러스터에 상주합니다. 클러스터와 동일한 지역에 있는 작업 영역만 클러스터와 연결할 수 있습니다. 작업 영역과 클러스터의 연결을 해제할 수 있지만, 여기에는 몇 가지 제한 사항이 있습니다. 이러한 제한 사항은 이 문서에서 자세히 다룹니다. 
 
@@ -39,47 +42,49 @@ Azure Monitor 로그 전용 클러스터는 Azure Monitor 로그 고객이 고�
 
 ## <a name="cluster-pricing-model"></a>클러스터 가격 책정 모델
 
-Log Analytics 전용 클러스터는 하루에 1,000GB 이상의 약정 계층 가격 책정 모델을 사용합니다. 계층 수준 이상의 사용량은 해당 약정 계층의 GB당 유효 요금으로 청구됩니다.  약정 계층 가격 책정 정보는 [Azure Monitor 가격 책정 페이지]( https://azure.microsoft.com/pricing/details/monitor/)에서 확인할 수 있습니다.  
+Log Analytics 전용 클러스터는 하루에 500GB 이상의 약정 계층 가격 책정 모델을 사용합니다. 계층 수준 이상의 사용량은 해당 약정 계층의 GB당 유효 요금으로 청구됩니다.  약정 계층 가격 책정 정보는 [Azure Monitor 가격 책정 페이지]( https://azure.microsoft.com/pricing/details/monitor/)에서 확인할 수 있습니다.  
 
-클러스터 약정 계층 수준은 `Sku` 아래의 `Capacity` 매개 변수를 사용하여 Azure Resource Manager를 통해 프로그래매틱 방식으로 구성됩니다. `Capacity`는 GB 단위로 지정되며 1,000, 2,000 또는 5,000GB/일 값을 가질 수 있습니다.
+클러스터 약정 계층 수준은 `Sku` 아래에서 `Capacity` 매개 변수를 사용하여 Azure Resource Manager를 통해 프로그래밍 방식으로 구성됩니다. `Capacity`는 GB 단위로 지정되며 500, 1,000, 2,000 또는 5,000GB/일 값을 가질 수 있습니다.
 
 클러스터 사용량에 대한 두 가지 청구 모드가 있습니다. 이러한 청구 모드는 클러스터를 구성할 때 `billingType` 매개 변수를 통해 지정할 수 있습니다. 
 
-1. **클러스터**: 이 경우(기본값) 수집된 데이터에 대한 청구는 클러스터 수준에서 수행됩니다. 클러스터에 연결된 각 작업 영역에서 수집된 데이터 양을 집계하여 클러스터에 대한 일일 청구액을 계산합니다. 
+1. **클러스터(기본값)** : 수집된 데이터에 대한 청구가 클러스터 수준에서 수행됩니다. 클러스터에 연결된 각 작업 영역에서 수집된 데이터 양을 집계하여 클러스터에 대한 일일 청구액을 계산합니다. 
 
-2. **작업 영역**: 클러스터의 약정 계층 비용은 각 작업 영역에 대한 [Azure Security Center](../../security-center/index.yml)의 노드별 할당을 고려한 후 각 작업 영역의 데이터 수집 볼륨에 따라 클러스터의 작업 영역에 비례하여 계산됩니다. 이 가격 책정 모델의 전체 세부 정보는 [여기]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters)에 설명되어 있습니다. 
+2. **작업 영역**: 클러스터의 약정 계층 비용은 각 작업 영역에 대한 [Azure Security Center](../../security-center/index.yml)의 노드별 할당을 고려한 후 각 작업 영역의 데이터 수집 볼륨에 따라 클러스터의 작업 영역을 기준으로 비례적으로 계산됩니다. 이 가격 책정 모델의 전체 세부 정보는 [여기](./manage-cost-storage.md#log-analytics-dedicated-clusters)에 설명되어 있습니다. 
 
 작업 영역에서 레거시 노드당 가격 책정 계층을 사용하는 경우, 작업 영역을 클러스터에 연결하면 더 이상 노드 기준이 아니라 클러스터의 약정 계층을 기준으로 수집된 데이터에 따라 요금이 청구됩니다. Azure Security Center의 노드별 데이터 할당은 계속 적용됩니다.
 
-Log Analytics 전용 클러스터 청구에 대한 자세한 내용은 [여기]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters)에서 확인할 수 있습니다.
+Log Analytics 전용 클러스터 청구에 대한 자세한 내용은 [여기](./manage-cost-storage.md#log-analytics-dedicated-clusters)에서 확인할 수 있습니다.
 
 ## <a name="asynchronous-operations-and-status-check"></a>비동기 작업 및 상태 검사
 
-구성 단계 중 일부는 빨리 완료할 수 없으므로 비동기적으로 실행됩니다. 응답의 상태는 오류 코드를 포함하여 'InProgress', 'Updating', 'Deleting', 'Succeeded' 또는 'Failed' 중 하나일 수 있습니다. REST를 사용할 때 응답은 처음에 HTTP 상태 코드 202(수락됨) 및 Azure-AsyncOperation 속성이 있는 헤더를 반환합니다.
+구성 단계 중 일부는 빨리 완료할 수 없으므로 비동기적으로 실행됩니다. 응답의 상태는 오류 코드를 포함하여 *InProgress*, *Updating*, *Deleting*, *Succeeded* 또는 *Failed* 중 하나일 수 있습니다. REST를 사용할 때 응답은 처음에 HTTP 상태 코드 202(수락됨) 및 Azure-AsyncOperation 속성이 있는 헤더를 반환합니다.
 
 ```JSON
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2021-06-01"
 ```
 
 GET 요청을 Azure-AsyncOperation 헤더 값으로 보내 비동기 작업의 상태를 확인할 수 있습니다.
 
-```rst
-GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
+```rest
+GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2021-06-01
 Authorization: Bearer <token>
 ```
 
-## <a name="creating-a-cluster"></a>클러스터 만들기
+## <a name="create-a-dedicated-cluster"></a>전용 클러스터 만들기
 
-먼저 클러스터 리소스를 만들어 전용 클러스터 생성을 시작합니다.
-
-다음 속성을 지정해야 합니다.
+새 전용 클러스터를 만들 때 다음 속성을 지정해야 합니다.
 
 - **ClusterName**: 관리 목적으로 사용됩니다. 사용자에게는 이 이름이 노출되지 않습니다.
-- **ResourceGroupName**: 다른 모든 Azure 리소스와 마찬가지로 클러스터가 리소스 그룹에 속합니다. 조직 내 여러 팀에서 클러스터를 공유하는 것이 일반적이므로 중앙 IT 리소스 그룹을 사용하는 것이 좋습니다. 설계 시 고려 사항에 대한 자세한 내용은 [Azure Monitor 로그 배포 설계](../logs/design-logs-deployment.md)를 참조하세요.
+- **ResourceGroupName**: 전용 클러스터의 리소스 그룹입니다. 조직 내 여러 팀에서 클러스터를 공유하는 것이 일반적이므로 중앙 IT 리소스 그룹을 사용해야 합니다. 추가적인 디자인 고려 사항은 [Azure Monitor 로그 배포 디자인](../logs/design-logs-deployment.md)을 참조하세요.
 - **Location**: 클러스터는 특정 Azure 지역에 위치합니다. 이 지역에 위치한 작업 영역만 이 클러스터에 연결할 수 있습니다.
-- **SkuCapacity**: 클러스터 리소스를 만들 때 약정 계층(sku)을 지정해야 합니다. 약정 계층은 1,000, 2,000 또는 5,000GB/일로 설정할 수 있습니다. 클러스터 비용에 대한 자세한 내용은 [Log Analytics 클러스터의 비용 관리](./manage-cost-storage.md#log-analytics-dedicated-clusters)를 참조하세요. 약정 계층을 이전에는 용량 예약이라고 했습니다. 
+- **SkuCapacity**: 클러스터 리소스를 만들 때 약정 계층(sku)을 지정해야 합니다. 약정 계층은 500, 1,000, 2,000 또는 5,000GB/일로 설정할 수 있습니다. 클러스터 비용에 대한 자세한 내용은 [Log Analytics 클러스터의 비용 관리](./manage-cost-storage.md#log-analytics-dedicated-clusters)를 참조하세요. 
+ 
 
-*cluster* 리소스를 만든 후에는 *sku*, *keyVaultProperties 또는 *billingType* 과 같은 추가 속성을 편집할 수 있습니다. 자세한 내용은 아래를 참조하세요.
+> [!NOTE]
+> 약정 계층을 이전에는 용량 예약이라고 했습니다. 
+
+cluster 리소스를 만든 후에는 *sku*, *keyVaultProperties 또는 *billingType* 과 같은 추가 속성을 편집할 수 있습니다. 자세한 내용은 아래를 참조하세요.
 
 지역별로 구독당 최대 2개의 활성 클러스터를 사용할 수 있습니다. 클러스터가 삭제되어도 14일 동안 계속 예약되어 있습니다. 지역별로 구독당 최대 4개의 예약된 클러스터를 사용할 수 있습니다(활성 또는 최근 삭제).
 
@@ -87,8 +92,6 @@ Authorization: Bearer <token>
 > 클러스터를 만들면 리소스 할당 및 프로비전이 트리거됩니다. 이 작업을 완료하는 데 몇 시간 정도 걸릴 수 있습니다. 이 작업은 비동기적으로 실행하는 것이 좋습니다.
 
 클러스터를 만드는 사용자 계정에는 표준 Azure 리소스 만들기 권한 `Microsoft.Resources/deployments/*` 및 클러스터 쓰기 권한`Microsoft.OperationalInsights/clusters/write`이 있어야 하며, 이들 권한은 역할 할당 시 이 특정 작업 또는 `Microsoft.OperationalInsights/*` 또는 `*/write`를 포함하여 부여할 수 있습니다.
-
-### <a name="create"></a>생성 
 
 **PowerShell**
 
@@ -99,11 +102,12 @@ New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Clust
 Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 ```
 
-**REST (영문)**
+**REST API**
 
 *호출* 
-```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
+
+```rest
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -113,12 +117,12 @@ Content-type: application/json
     },
   "sku": {
     "name": "capacityReservation",
-    "Capacity": 1000
+    "Capacity": 500
     },
   "properties": {
-    "billingType": "cluster",
+    "billingType": "Cluster",
     },
-  "location": "<region-name>",
+  "location": "<region>",
 }
 ```
 
@@ -126,70 +130,89 @@ Content-type: application/json
 
 202 (Accepted) 및 헤더여야 합니다.
 
+
+
 ### <a name="check-cluster-provisioning-status"></a>클러스터 프로비전 상태 확인
 
-Log Analytics 클러스터 프로비전을 완료하는 데는 시간이 걸립니다. 여러 가지 방법으로 프로비전 상태를 확인할 수 있습니다.
+Log Analytics 클러스터 프로비전을 완료하는 데는 시간이 걸립니다. 다음 방법 중 하나를 사용하여 프로비저닝 상태를 확인합니다.
 
-- 리소스 그룹 이름으로 Get-AzOperationalInsightsCluster PowerShell 명령을 실행하고 ProvisioningState 속성을 확인합니다. 값은 프로비전 중에는 *ProvisioningAccount* 이고 완료 시에는 *Succeeded* 입니다.
+**PowerShell**
+
+리소스 그룹 이름으로 *Get-AzOperationalInsightsCluster* 를 실행하고 *ProvisioningState* 속성을 확인합니다. 값은 프로비전 중에는 *ProvisioningAccount* 이고 완료 시에는 *Succeeded* 입니다. 응답에서 Azure-AsyncOperation URL 값을 복사하고 비동기 작업 상태 검사를 수행합니다.
+
+
   ```powershell
-  New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} 
+  Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} 
   ```
 
-- 응답에서 Azure-AsyncOperation URL 값을 복사하고 비동기 작업 상태 검사를 수행합니다.
+ 
+**REST API**
 
-- GET 요청을 *클러스터* 리소스에 보내고 *provisioningState* 값을 확인합니다. 값은 프로비전 중에는 *ProvisioningAccount* 이고 완료 시에는 *Succeeded* 입니다.
+GET 요청을 클러스터 리소스에 보내고 *provisioningState* 값을 확인합니다. 값은 프로비전 중에는 *ProvisioningAccount* 이고 완료 시에는 *Succeeded* 입니다.
 
-   ```rst
-   GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
-   Authorization: Bearer <token>
-   ```
+  ```rest
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+  Authorization: Bearer <token>
+  ```
 
-   **응답**
+  **응답**
 
-   ```json
-   {
-     "identity": {
-       "type": "SystemAssigned",
-       "tenantId": "tenant-id",
-       "principalId": "principal-id"
-       },
-     "sku": {
-       "name": "capacityReservation",
-       "capacity": 1000,
-       "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
-       },
-     "properties": {
-       "provisioningState": "ProvisioningAccount",
-       "billingType": "cluster",
-       "clusterId": "cluster-id"
-       },
-     "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
-     "name": "cluster-name",
-     "type": "Microsoft.OperationalInsights/clusters",
-     "location": "region-name"
-   }
-   ```
+  ```json
+  {
+    "identity": {
+      "type": "SystemAssigned",
+      "tenantId": "tenant-id",
+      "principalId": "principal-id"
+    },
+    "sku": {
+      "name": "capacityreservation",
+      "capacity": 500
+    },
+    "properties": {
+      "provisioningState": "ProvisioningAccount",
+      "clusterId": "cluster-id",
+      "billingType": "Cluster",
+      "lastModifiedDate": "last-modified-date",
+      "createdDate": "created-date",
+      "isDoubleEncryptionEnabled": false,
+      "isAvailabilityZonesEnabled": false,
+      "capacityReservationProperties": {
+        "lastSkuUpdate": "last-sku-modified-date",
+        "minCapacity": 500
+      }
+    },
+    "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
+    "name": "cluster-name",
+    "type": "Microsoft.OperationalInsights/clusters",
+    "location": "cluster-region"
+  }
+  ```
 
-관리 ID 서비스에서 *Cluster* 리소스에 대한 *principalId* GUID가 생성됩니다.
+클러스터를 만들 때 관리 ID 서비스에서 *principalId* GUID가 생성됩니다.
 
-## <a name="link-a-workspace-to-cluster"></a>클러스터에 작업 영역 연결
+---
 
-기존 데이터가 기존 클러스터에 남아 있는 반면, 작업 영역을 전용 클러스터에 연결하면 작업 영역에 수집되는 새 데이터가 새 클러스터로 라우팅됩니다. 전용 클러스터를 CMK(고객 관리형 키)로 암호화하는 경우 키로 새 데이터만 이 키로 암호화됩니다. 이러한 차이는 추상화되어 사용자에게 알려지지 않으며, 사용자는 평상 시처럼 작업 영역을 쿼리하고 시스템은 백 엔드에서 클러스터 간 쿼리를 수행하게 됩니다.
 
-하나의 클러스터에 최대 100개의 작업 영역을 연결할 수 있습니다. 연결된 작업 영역은 클러스터와 동일한 지역에 위치합니다. 시스템 백 엔드를 보호하고 데이터 조각화를 방지하기 위해 한 달에 두 번 넘게 작업 영역을 클러스터에 연결할 수 없습니다.
 
-연결 작업을 수행하려면 작업 영역과 *cluster* 리소스 모두에 대한 '쓰기' 권한이 있어야 합니다.
+## <a name="link-a-workspace-to-a-cluster"></a>클러스터에 작업 영역 연결
+
+기존 데이터가 기존 클러스터에 남아 있는 반면, Log Analytics 작업 영역을 전용 클러스터에 연결하면 작업 영역에 수집되는 새 데이터가 새 클러스터로 라우팅됩니다. 전용 클러스터를 CMK(고객 관리형 키)로 암호화하는 경우 키로 새 데이터만 이 키로 암호화됩니다. 시스템은 이 차이를 추상화하므로 시스템이 백그라운드에서 클러스터 간 쿼리를 수행하는 동안 평소처럼 작업 영역을 쿼리할 수 있습니다.
+
+하나의 클러스터에 최대 1,000개의 작업 영역을 연결할 수 있습니다. 연결된 작업 영역은 클러스터와 동일한 지역에 위치합니다. 시스템 백 엔드를 보호하고 데이터 조각화를 방지하기 위해 한 달에 두 번 넘게 작업 영역을 클러스터에 연결할 수 없습니다.
+
+연결 작업을 수행하려면 작업 영역과 cluster 리소스 모두에 대한 '쓰기' 권한이 있어야 합니다.
 
 - 작업 영역: *Microsoft.OperationalInsights/workspaces/write*
-- *cluster* 리소스: *Microsoft.OperationalInsights/clusters/write*
+- cluster 리소스: *Microsoft.OperationalInsights/clusters/write*
 
 청구 측면 외에도 연결된 작업 영역은 데이터 보존 기간과 같은 자체 설정을 유지합니다.
+
 작업 영역과 클러스터는 서로 다른 구독에 포함될 수 있습니다. Azure Lighthouse를 사용하여 둘을 단일 테넌트에 매핑한다면 작업 영역과 클러스터가 서로 다른 테넌트에 포함될 수 있습니다.
 
-다른 모든 클러스터 작업과 마찬가지로 작업 영역 연결은 Log Analytics 클러스터 프로비전이 완료된 후에만 수행 가능합니다.
+작업 영역 연결은 Log Analytics 클러스터 프로비저닝이 완료된 후에만 수행할 수 있습니다.
 
 > [!WARNING]
-> 작업 영역을 클러스터에 연결하려면 여러 백 엔드 구성 요소를 동기화하고 캐시 하이드레이션을 보장해야 합니다. 이 작업은 완료하는 데 최대 2시간이 걸릴 수 있습니다. 이 작업은 비동기 방식으로 실행하는 것이 좋습니다.
+> 작업 영역을 클러스터에 연결하려면 여러 백 엔드 구성 요소를 동기화하고 캐시 하이드레이션을 보장해야 합니다. 이 작업을 완료하는 데 최대 2시간이 걸릴 수 있기 때문에 비동기적으로 실행해야 합니다.
 
 
 **PowerShell**
@@ -207,15 +230,14 @@ Set-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} 
 Get-Job -Command "Set-AzOperationalInsightsLinkedService" | Format-List -Property *
 ```
 
-
-**REST (영문)**
+**REST API**
 
 다음 REST 호출을 사용하여 클러스터에 연결합니다.
 
 ‘보내기’
 
-```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01 
+```rest
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2021-06-01 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -230,34 +252,31 @@ Content-type: application/json
 
 202 (Accepted) 및 헤더.
 
+---
+
 ### <a name="check-workspace-link-status"></a>작업 영역 연결 상태 확인
   
-고객 관리형 키를 사용하는 경우, 수집된 데이터는 연결 작업이 끝난 후 관리형 키로 암호화되어 저장되며, 이 작업을 완료하는 데 최대 90분이 걸릴 수 있습니다. 
-
-작업 영역 연결 상태는 다음 두 가지 방법으로 확인할 수 있습니다.
+클러스터가 고객 관리형 키로 구성된 경우 연결 작업 완료 후 작업 영역에 수집된 데이터는 관리형 키로 암호화되어 저장됩니다. 작업 영역 연결 작업을 완료하는 데 최대 90분이 걸릴 수 있으며 다음 두 가지 방법으로 상태를 확인할 수 있습니다.
 
 - 응답에서 Azure-AsyncOperation URL 값을 복사하고 비동기 작업 상태 검사를 수행합니다.
-
 - 작업 영역에서 Get 작업을 수행하고 *features* 아래의 응답에 *clusterResourceId* 속성이 있는지 관찰합니다.
 
 **CLI**
-
 ```azurecli
-az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
+az monitor log-analytics workspace show --resource-group "resource-group-name" --workspace-name "workspace-name"
 ```
-
 **PowerShell**
 
 ```powershell
 Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
 
-**REST (영문)**
+**REST API**
 
 *호출*
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2020-08-01
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2021-06-01
 Authorization: Bearer <token>
 ```
 
@@ -289,19 +308,23 @@ Authorization: Bearer <token>
   "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name",
   "name": "workspace-name",
   "type": "Microsoft.OperationalInsights/workspaces",
-  "location": "region-name"
+  "location": "region"
 }
 ```
 
+---
+
+
 ## <a name="change-cluster-properties"></a>클러스터 속성 변경
 
-*cluster* 리소스를 만들고 완전히 프로비전한 후에는 PowerShell 또는 REST API를 통해 클러스터 수준에서 추가 속성을 편집할 수 있습니다. 클러스터를 만드는 중에 사용 가능한 속성 외에 다음과 같은 추가 속성은 클러스터가 프로비전된 후에만 설정할 수 있습니다.
+클러스터 리소스를 만들고 완전히 프로비저닝한 후에는 PowerShell 또는 REST API를 사용하여 추가 속성을 편집할 수 있습니다. 클러스터가 프로비저닝된 후 설정할 수 있는 추가 속성은 다음과 같습니다.
 
-- **keyVaultProperties** - Azure Key Vault에서 키를 업데이트합니다. [키 식별자 세부 정보로 클러스터 업데이트](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details)를 참조하세요. 여기에는 *KeyVaultUri*, *KeyName*, *KeyVersion* 매개 변수가 포함됩니다. 
-- **billingType** - *billingType* 속성은 *cluster* 리소스 및 해당 데이터에 대한 청구 속성을 결정합니다.
-  - **Cluster**(기본값) - 클러스터 비용이 *Cluster* 리소스에 귀속됩니다.
-  - **Workspaces** - 클러스터 비용이 클러스터의 작업 영역에 비례하여 계산되고, 해당 날짜에 수집된 총 데이터가 약정 계층 미만인 경우 *Cluster* 리소스에 일부 사용량이 청구됩니다. 클러스터 가격 책정 모델에 대한 자세한 내용은 [Log Analytics 전용 클러스터](./manage-cost-storage.md#log-analytics-dedicated-clusters)를 참조하세요.
-  - **ID** - Key Valt에 인증하는 데 사용할 ID입니다. 시스템 할당 또는 사용자 할당일 수 있습니다.
+- **keyVaultProperties** - *KeyVaultUri*, *KeyName*, *KeyVersion* 매개 변수와 함께 Azure Key Vault의 키를 포함합니다. [키 식별자 세부 정보로 클러스터 업데이트](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details)를 참조하세요.
+- **ID** - Key Vault에 인증하는 데 사용되는 ID입니다. 시스템 할당 또는 사용자 할당일 수 있습니다.
+- **billingType** - 클러스터 리소스와 해당 데이터에 대한 청구 특성입니다. 다음 값을 포함합니다.
+  - **클러스터(기본값)** - 클러스터 비용이 클러스터 리소스를 기준으로 계산됩니다.
+  - **작업 영역** - 클러스터 비용이 클러스터의 작업 영역을 기준으로 비례적으로 계산되고, 해당 날짜에 수집된 총 데이터가 약정 계층 미만인 경우 클러스터 리소스에 일부 사용량이 청구됩니다. 클러스터 가격 책정 모델에 관한 자세한 내용은 [Log Analytics 전용 클러스터](./manage-cost-storage.md#log-analytics-dedicated-clusters)를 참조하세요.
+
 
 >[!IMPORTANT]
 >클러스터 업데이트 시 동일한 작업에 ID 및 키 식별자 세부 정보를 둘 다 포함해서는 안 됩니다. 둘 다 업데이트해야 하는 경우 두 번의 연속 작업으로 업데이트를 수행해야 합니다.
@@ -309,65 +332,70 @@ Authorization: Bearer <token>
 > [!NOTE]
 > *billingType* 속성은 PowerShell에서 지원되지 않습니다.
 
-### <a name="get-all-clusters-in-resource-group"></a>리소스 그룹의 모든 클러스터 가져오기
-  
+## <a name="get-all-clusters-in-resource-group"></a>리소스 그룹의 모든 클러스터 가져오기
+
 **CLI**
 
 ```azurecli
 az monitor log-analytics cluster list --resource-group "resource-group-name"
 ```
-
 **PowerShell**
 
 ```powershell
 Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
 ```
 
-**REST (영문)**
+**REST API**
 
 *호출*
 
-  ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
-  Authorization: Bearer <token>
-  ```
+```rest
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2021-06-01
+Authorization: Bearer <token>
+```
 
 *응답*
   
-  ```json
-  {
-    "value": [
-      {
-        "identity": {
-          "type": "SystemAssigned",
-          "tenantId": "tenant-id",
-          "principalId": "principal-Id"
-        },
-        "sku": {
-          "name": "capacityReservation",
-          "capacity": 1000,
-          "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
-          },
-        "properties": {
-           "keyVaultProperties": {
-              "keyVaultUri": "https://key-vault-name.vault.azure.net",
-              "keyName": "key-name",
-              "keyVersion": "current-version"
-              },
-          "provisioningState": "Succeeded",
-          "billingType": "cluster",
-          "clusterId": "cluster-id"
-        },
-        "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name",
-        "name": "cluster-name",
-        "type": "Microsoft.OperationalInsights/clusters",
-        "location": "region-name"
-      }
-    ]
-  }
-  ```
+```json
+{
+  "value": [
+    {
+      "identity": {
+        "type": "SystemAssigned",
+        "tenantId": "tenant-id",
+        "principalId": "principal-id"
+      },
+      "sku": {
+        "name": "capacityreservation",
+        "capacity": 500
+      },
+      "properties": {
+        "provisioningState": "Succeeded",
+        "clusterId": "cluster-id",
+        "billingType": "Cluster",
+        "lastModifiedDate": "last-modified-date",
+        "createdDate": "created-date",
+        "isDoubleEncryptionEnabled": false,
+        "isAvailabilityZonesEnabled": false,
+        "capacityReservationProperties": {
+          "lastSkuUpdate": "last-sku-modified-date",
+          "minCapacity": 500
+        }
+      },
+      "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
+      "name": "cluster-name",
+      "type": "Microsoft.OperationalInsights/clusters",
+      "location": "cluster-region"
+    }
+  ]
+}
+```
 
-### <a name="get-all-clusters-in-subscription"></a>구독의 모든 클러스터 가져오기
+---
+
+
+
+## <a name="get-all-clusters-in-subscription"></a>구독의 모든 클러스터 가져오기
 
 **CLI**
 
@@ -380,13 +408,12 @@ az monitor log-analytics cluster list
 ```powershell
 Get-AzOperationalInsightsCluster
 ```
-
-**REST (영문)**
+**REST API**
 
 *호출*
 
-```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
+```rest
+GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2021-06-01
 Authorization: Bearer <token>
 ```
     
@@ -394,62 +421,68 @@ Authorization: Bearer <token>
     
 ‘리소스 그룹의 클러스터’와 동일한 응답이지만 구독 범위에 있습니다.
 
+---
 
 
-### <a name="update-commitment-tier-in-cluster"></a>클러스터의 약정 계층 업데이트
+## <a name="update-commitment-tier-in-cluster"></a>클러스터의 약정 계층 업데이트
 
-연결된 작업 영역의 데이터 볼륨이 시간이 지남에 따라 변경되어 약정 계층 수준을 적절하게 업데이트하려는 경우입니다. 계층은 GB 단위로 지정되며 1,000, 2,000 또는 5,000GB/일 값을 가질 수 있습니다. 전체 REST 요청 본문을 입력할 필요는 없지만 sku를 포함해야 합니다.
+연결된 작업 영역의 데이터 볼륨이 시간이 지남에 따라 변경되어 약정 계층 수준을 적절하게 업데이트하려는 경우입니다. 계층은 GB 단위로 지정되며 500, 1,000, 2,000 또는 5,000GB/일 값을 가질 수 있습니다. 전체 REST 요청 본문을 입력할 필요는 없지만 sku를 포함해야 합니다.
 
 **CLI**
 
+
 ```azurecli
-az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity 1000
+az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity 500
 ```
 
-**PowerShell**
+### <a name="powershell"></a>PowerShell
 
 ```powershell
-Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 1000
+Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 500
 ```
 
-**REST (영문)**
+### <a name="rest-api"></a>REST API
 
 *호출*
 
-  ```rst
-  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
-  Authorization: Bearer <token>
-  Content-type: application/json
+```rest
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+Authorization: Bearer <token>
+Content-type: application/json
 
-  {
-    "sku": {
-      "name": "capacityReservation",
-      "Capacity": 2000
-    }
+{
+  "sku": {
+    "name": "capacityReservation",
+    "Capacity": 2000
   }
-  ```
+}
+```
+
+---
+
+
 
 ### <a name="update-billingtype-in-cluster"></a>클러스터에서 billingType 업데이트
 
 *billingType* 속성은 클러스터와 해당 데이터에 대한 청구 특성을 결정합니다.
-- *cluster*(기본값) - 클러스터 리소스를 호스팅하는 구독을 기반으로 하는 청구입니다.
-- *workspaces* - 작업 영역을 비례적으로 호스팅하는 구독을 기반으로 하는 청구입니다.
+- ‘클러스터’(기본값) - 청구는 클러스터 리소스를 기준으로 계산됩니다.
+- ‘작업 영역’ - 청구는 연결된 작업 영역을 기준으로 비례적으로 계산됩니다. 모든 작업 영역의 데이터 볼륨이 약정 계층 수준 미만이면 나머지 볼륨은 클러스터를 기준으로 계산됩니다.
 
 **REST (영문)**
 
 *호출*
 
-  ```rst
-  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
-  Authorization: Bearer <token>
-  Content-type: application/json
+```rest
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+Authorization: Bearer <token>
+Content-type: application/json
 
-  {
-    "properties": {
-      "billingType": "cluster",
-      }  
-  }
-  ```
+{
+  "properties": {
+    "billingType": "Workspaces",
+    }  
+}
+```
 
 ### <a name="unlink-a-workspace-from-cluster"></a>클러스터에서 작업 영역 연결 끊기
 
@@ -461,7 +494,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 **CLI**
 
 ```azurecli
-az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --workspace-name "MyWorkspace" --name cluster
+az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --workspace-name "workspace-name" --name cluster
 ```
 
 **PowerShell**
@@ -473,13 +506,18 @@ az monitor log-analytics workspace linked-service delete --resource-group "resou
 Remove-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster
 ```
 
-### <a name="delete-cluster"></a>클러스터 삭제
+---
 
-전용 클러스터 리소스를 삭제할 수 있습니다. 클러스터를 삭제하기 전에 클러스터에서 모든 작업 영역의 연결을 해제해야 합니다. 이 작업을 수행하려면 *클러스터* 리소스에 대한 '쓰기' 권한이 필요합니다. 
+
+
+
+## <a name="delete-cluster"></a>클러스터 삭제
+
+전용 클러스터를 삭제하기 전에 전용 클러스터에서 모든 작업 영역의 연결을 해제해야 합니다. 이 작업을 수행하려면 클러스터 리소스에 대한 ‘쓰기’ 권한이 필요합니다. 
 
 클러스터 리소스가 삭제되면 물리적인 클러스터의 제거 및 삭제 프로세스가 진행됩니다. 클러스터를 삭제하면 클러스터에 저장된 모든 데이터가 삭제됩니다. 이러한 데이터는 과거에 이 클러스터와 연결된 작업 영역에서 나온 것일 수 있습니다.
 
-지난 14일 동안 삭제된 *클러스터* 리소스는 일시 삭제 상태에 있으므로 해당 데이터를 사용하여 복구할 수 있습니다. 모든 작업 영역이 *Cluster* 리소스 삭제를 통해 *Cluster* 리소스에서 연결 해제되었으므로 복구 후에 작업 영역을 다시 연결해야 합니다. 복구 작업은 사용자가 수행할 수 없으므로 Microsoft 채널 또는 고객 지원팀에 문의하여 복구 요청을 하세요.
+지난 14일 동안 삭제된 클러스터 리소스는 일시 삭제 상태에 있으므로 해당 데이터를 사용하여 복구할 수 있습니다. 모든 작업 영역이 클러스터 리소스 삭제를 통해 클러스터 리소스에서 연결 해제되었으므로 복구 후에 작업 영역을 다시 연결해야 합니다. 복구 작업은 사용자가 수행할 수 없으므로 Microsoft 채널 또는 고객 지원팀에 문의하여 복구 요청을 하세요.
 
 삭제 후 14일 이내에는 클러스터 리소스 이름이 예약되어 있으므로 다른 리소스에서 사용할 수 없습니다.
 
@@ -490,92 +528,100 @@ Remove-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-nam
 
 클러스터를 삭제하려면 다음 PowerShell 명령을 사용합니다.
 
-  ```powershell
-  Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
-  ```
+```powershell
+Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
+```
 
-**REST (영문)**
+**REST API**
 
 클러스터를 삭제하려면 다음 REST 호출을 사용합니다.
 
-  ```rst
-  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
-  Authorization: Bearer <token>
-  ```
+```rest
+DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+Authorization: Bearer <token>
+```
 
   **응답**
 
   200 정상
 
+---
+
+
+
 ## <a name="limits-and-constraints"></a>제한 및 제약 조건
 
-- 지역별로 구독당 활성 클러스터의 최대 수는 2개입니다.
+- 각 지역과 구독에 최대 두 개의 활성 클러스터를 만들 수 있습니다.
 
-- 지역별로 구독당 예약된 클러스터의 최대 수(활성 또는 최근에 삭제됨)는 4개입니다. 
+- 각 지역과 구독에서 최대 네 개의 예약된 클러스터(활성 또는 최근에 삭제됨)를 만들 수 있습니다.
 
-- 클러스터에 연결된 작업 영역의 최대 수는 1,000개입니다.
+- 최대 1,000개의 Log Analytics 작업 영역을 클러스터에 연결할 수 있습니다.
 
-- 작업 영역을 클러스터에 연결한 다음 연결을 끊을 수 있습니다. 특정 작업 영역에 대한 작업 영역 링크 작업 수는 30일 동안 2로 제한됩니다.
+- 특정 작업 영역에서 최대 두 개의 작업 영역 연결 작업이 30일 동안 허용됩니다.
 
-- 다른 리소스 그룹 또는 구독으로의 클러스터 이동은 현재 지원되지 않습니다.
+- 클러스터를 다른 리소스 그룹 또는 구독으로 이동하는 것은 현재 지원되지 않습니다.
 
 - 클러스터 업데이트 시 동일한 작업에 ID 및 키 식별자 세부 정보를 둘 다 포함해서는 안 됩니다. 둘 다 업데이트해야 하는 경우 업데이트 작업을 두 번 연속해서 수행해야 합니다.
 
 - 현재 중국에서는 Lockbox를 사용할 수 없습니다. 
 
 - [이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)는 지원되는 지역에서 2020년 10월부터 만들어진 클러스터에 자동으로 구성됩니다. 클러스터에서 GET 요청을 보내고 이중 암호화가 사용 가능한 클러스터의 `isDoubleEncryptionEnabled` 값이 `true`인지 관찰하여 클러스터가 이중 암호화로 구성되었는지 확인할 수 있습니다. 
-  - 클러스터를 만들 때 "<지역-이름>은 클러스터에 대한 이중 암호화를 지원하지 않습니다. "오류가 발생하는 경우 REST 요청 본문에 `"properties": {"isDoubleEncryptionEnabled": false}`를 추가하여 이중 암호화 없이 클러스터를 만들 수 있습니다.
+  - 클러스터를 만들 때 “region-name은 클러스터의 이중 암호화를 지원하지 않습니다.” 오류가 발생하는 경우 REST 요청 본문에 `"properties": {"isDoubleEncryptionEnabled": false}`를 추가하여 이중 암호화 없이 클러스터를 만들 수 있습니다.
   - 클러스터를 만든 후에는 이중 암호화 설정을 변경할 수 없습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
-- 클러스터를 만들 때 충돌 오류가 발생하는 경우 – 지난 14일 동안 클러스터를 삭제했고 아직 일시 삭제 기간 내에 있는 것일 수 있습니다. 클러스터 이름은 일시 삭제 기간 동안 예약된 상태로 유지되며, 해당 이름을 사용하여 새 클러스터를 만들 수 없습니다. 클러스터가 영구적으로 삭제되면 일시 삭제 기간 후에 이름이 해제됩니다.
+- 클러스터를 만들 때 충돌 오류가 발생하는 경우 지난 14일 동안 클러스터를 삭제했고 아직 일시 삭제 상태 내에 있는 것일 수 있습니다. 클러스터 이름은 일시 삭제 기간 동안 예약된 상태로 유지되며, 해당 이름을 사용하여 새 클러스터를 만들 수 없습니다. 클러스터가 영구적으로 삭제되면 일시 삭제 기간 후에 이름이 해제됩니다.
 
 - 클러스터를 프로비저닝하거나 상태를 업데이트하는 동안 클러스터를 업데이트하는 경우 업데이트는 실패합니다.
 
-- 일부 작업은 완료하는 데 시간이 오래 걸릴 수 있습니다(클러스터 만들기, 클러스터 키 업데이트 및 클러스터 삭제). 두 가지 방법으로 작동 상태를 확인할 수 있습니다.
+- 일부 작업은 길이가 길고 완료하는 데 시간이 걸릴 수 있습니다. 해당 작업은 ‘클러스터 만들기’, ‘클러스터 키 업데이트’, ‘클러스터 삭제’입니다.   두 가지 방법으로 작동 상태를 확인할 수 있습니다.
   - REST를 사용할 때 응답에서 Azure-AsyncOperation URL 값을 복사하고 [비동기 작업 상태 검사](#asynchronous-operations-and-status-check)를 수행합니다.
   - 클러스터 또는 작업 영역에 GET 요청을 보내고 응답을 관찰합니다. 예를 들어 연결되지 않은 작업 영역에는 *features* 아래에 *clusterResourceId* 가 없습니다.
 
 - 다른 클러스터에 연결된 경우에는 클러스터에 대한 작업 영역 링크가 실패합니다.
 
-- 오류 메시지
+## <a name="error-messages"></a>오류 메시지
   
-  클러스터 만들기:
-  -  400 -- 클러스터 이름이 잘못되었습니다. 클러스터 이름에는 문자 a-z, A-Z, 0-9를 3~63자 범위로 사용할 수 있습니다.
-  -  400 -- 요청 본문이 null이거나 형식이 잘못되었습니다.
-  -  400 -- SKU 이름이 잘못되었습니다. SKU 이름을 capacityReservation으로 설정합니다.
-  -  400 -- 용량이 제공되었지만 SKU가 capacityReservation이 아닙니다. SKU 이름을 capacityReservation으로 설정합니다.
-  -  400 -- SKU의 용량이 누락되었습니다. 단계에서 용량 값을 1000(100GB) 이상으로 설정합니다.
-  -  400 -- SKU의 용량이 범위에 없습니다. 최소 1000에서 사용 중인 작업 영역의 '사용량 및 예상 비용'의 최대 허용 용량까지 설정해야 입니다.
-  -  400 -- 용량이 30일 동안 잠겨 있습니다. 업데이트 30일 후에는 용량을 줄일 수 있습니다.
-  -  400 -- SKU가 설정되지 않았습니다. 단계에서 SKU 이름을 capacityReservation으로 설정하고 용량 값을 1000(100GB) 이상으로 설정합니다.
-  -  400 -- ID가 null이거나 비어 있습니다. SystemAssigned 유형으로 ID를 설정합니다.
-  -  400 -- KeyVaultProperties는 만들 때 설정됩니다. 클러스터를 만든 후 KeyVaultProperties를 업데이트합니다.
-  -  400 -- 지금은 작업을 실행할 수 없습니다. 비동기 작업이 성공함 이외의 상태에 있습니다. 업데이트 작업을 수행하기 전에 클러스터에서 해당 작업을 완료해야 합니다.
+### <a name="cluster-create"></a>클러스터 만들기
 
-  클러스터 업데이트
-  -  400 -- 클러스터가 삭제 중 상태입니다. 비동기 작업이 진행 중입니다. 업데이트 작업을 수행하기 전에 클러스터에서 해당 작업을 완료해야 합니다.
-  -  400 -- KeyVaultProperties가 비어 있지 않지만 형식이 잘못되었습니다. [키 식별자 업데이트](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details)를 참조하세요.
-  -  400 -- 키 자격 증명 모음의 키 유효성을 검사하지 못했습니다. 권한이 없거나 키가 존재하지 않기 때문일 수 있습니다. 키 자격 증명 모음에서 [키 및 액세스 정책을 설정](../logs/customer-managed-keys.md#grant-key-vault-permissions)했는지 확인합니다.
-  -  400 -- 키를 복구할 수 없습니다. Key Vault를 일시 삭제 및 제거 보호로 설정해야 합니다. [Key Vault 설명서](../../key-vault/general/soft-delete-overview.md)를 참조하세요.
-  -  400 -- 지금은 작업을 실행할 수 없습니다. 비동기 작업이 완료될 때까지 기다렸다가 다시 시도하세요.
-  -  400 -- 클러스터가 삭제 중 상태입니다. 비동기 작업이 완료될 때까지 기다렸다가 다시 시도하세요.
+-  400 -- 클러스터 이름이 잘못되었습니다. 클러스터 이름에는 문자 a-z, A-Z, 0-9를 3~63자 범위로 사용할 수 있습니다.
+-  400 -- 요청 본문이 null이거나 형식이 잘못되었습니다.
+-  400 -- SKU 이름이 잘못되었습니다. SKU 이름을 capacityReservation으로 설정합니다.
+-  400 -- 용량이 제공되었지만 SKU가 capacityReservation이 아닙니다. SKU 이름을 capacityReservation으로 설정합니다.
+-  400 -- SKU의 용량이 누락되었습니다. 용량 값을 500, 1,000, 2,000 또는 5,000GB/일로 설정합니다.
+-  400 -- 용량이 30일 동안 잠겨 있습니다. 업데이트 30일 후에는 용량을 줄일 수 있습니다.
+-  400 -- SKU가 설정되지 않았습니다. SKU 이름을 capacityReservation으로 설정하고 용량 값을 500, 1,000, 2,000 또는 5,000GB/일로 설정합니다.
+-  400 -- ID가 null이거나 비어 있습니다. SystemAssigned 유형으로 ID를 설정합니다.
+-  400 -- KeyVaultProperties는 만들 때 설정됩니다. 클러스터를 만든 후 KeyVaultProperties를 업데이트합니다.
+-  400 -- 지금은 작업을 실행할 수 없습니다. 비동기 작업이 성공함 이외의 상태에 있습니다. 업데이트 작업을 수행하기 전에 클러스터에서 해당 작업을 완료해야 합니다.
 
-  클러스터 가져오기:
-    -  404 -- 클러스터가 없습니다. 클러스터가 삭제되었을 수 있습니다. 해당 이름을 사용하여 클러스터를 만들려고 하며, 충돌하는 경우 클러스터는 14일 동안 일시 삭제 상태가 됩니다. 지원 서비스에 문의하여 복구하거나 다른 이름을 사용하여 새 클러스터를 만들 수 있습니다. 
+### <a name="cluster-update"></a>클러스터 업데이트
 
-  클러스터 삭제
-    -  409 -- 프로비저닝 상태에 있는 동안에는 클러스터를 삭제할 수 없습니다. 비동기 작업이 완료될 때까지 기다렸다가 다시 시도하세요.
+-  400 -- 클러스터가 삭제 중 상태입니다. 비동기 작업이 진행 중입니다. 업데이트 작업을 수행하기 전에 클러스터에서 해당 작업을 완료해야 합니다.
+-  400 -- KeyVaultProperties가 비어 있지 않지만 형식이 잘못되었습니다. [키 식별자 업데이트](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details)를 참조하세요.
+-  400 -- 키 자격 증명 모음의 키 유효성을 검사하지 못했습니다. 권한이 없거나 키가 존재하지 않기 때문일 수 있습니다. 키 자격 증명 모음에서 [키 및 액세스 정책을 설정](../logs/customer-managed-keys.md#grant-key-vault-permissions)했는지 확인합니다.
+-  400 -- 키를 복구할 수 없습니다. Key Vault를 일시 삭제 및 제거 보호로 설정해야 합니다. [Key Vault 설명서](../../key-vault/general/soft-delete-overview.md)를 참조하세요.
+-  400 -- 지금은 작업을 실행할 수 없습니다. 비동기 작업이 완료될 때까지 기다렸다가 다시 시도하세요.
+-  400 -- 클러스터가 삭제 중 상태입니다. 비동기 작업이 완료될 때까지 기다렸다가 다시 시도하세요.
 
-  작업 영역 연결:
-  -  404 -- 작업 영역을 찾을 수 없습니다. 지정한 작업 영역이 존재하지 않거나 삭제되었습니다.
-  -  409 -- 작업 영역 연결 또는 연결 해제 작업이 진행 중입니다.
-  -  400 -- 클러스터를 찾을 수 없습니다. 지정한 클러스터가 존재하지 않거나 삭제되었습니다. 해당 이름을 사용하여 클러스터를 만들려고 하며, 충돌하는 경우 클러스터는 14일 동안 일시 삭제 상태가 됩니다. 지원 서비스에 문의하여 복구할 수 있습니다.
+### <a name="cluster-get"></a>클러스터 가져오기
 
-  작업 영역 연결 해제:
-  -  404 -- 작업 영역을 찾을 수 없습니다. 지정한 작업 영역이 존재하지 않거나 삭제되었습니다.
-  -  409 -- 작업 영역 연결 또는 연결 해제 작업이 진행 중입니다.
+ -  404 -- 클러스터가 없습니다. 클러스터가 삭제되었을 수 있습니다. 해당 이름을 사용하여 클러스터를 만들려고 하며, 충돌하는 경우 클러스터는 14일 동안 일시 삭제 상태가 됩니다. 지원 서비스에 문의하여 복구하거나 다른 이름을 사용하여 새 클러스터를 만들 수 있습니다. 
+
+### <a name="cluster-delete"></a>클러스터 삭제
+
+ -  409 -- 프로비저닝 상태에 있는 동안에는 클러스터를 삭제할 수 없습니다. 비동기 작업이 완료될 때까지 기다렸다가 다시 시도하세요.
+
+### <a name="workspace-link"></a>작업 영역 연결
+
+-  404 -- 작업 영역을 찾을 수 없습니다. 지정한 작업 영역이 존재하지 않거나 삭제되었습니다.
+-  409 -- 작업 영역 연결 또는 연결 해제 작업이 진행 중입니다.
+-  400 -- 클러스터를 찾을 수 없습니다. 지정한 클러스터가 존재하지 않거나 삭제되었습니다. 해당 이름을 사용하여 클러스터를 만들려고 하며, 충돌하는 경우 클러스터는 14일 동안 일시 삭제 상태가 됩니다. 지원 서비스에 문의하여 복구할 수 있습니다.
+
+### <a name="workspace-unlink"></a>작업 영역 연결 해제
+-  404 -- 작업 영역을 찾을 수 없습니다. 지정한 작업 영역이 존재하지 않거나 삭제되었습니다.
+-  409 -- 작업 영역 연결 또는 연결 해제 작업이 진행 중입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

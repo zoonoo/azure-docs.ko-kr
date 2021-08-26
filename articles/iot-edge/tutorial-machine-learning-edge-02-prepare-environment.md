@@ -2,18 +2,17 @@
 title: '자습서: 환경 설정 - Azure IoT Edge의 Machine Learning'
 description: '자습서: 에지에서 기계 학습에 사용할 모듈의 개발 및 배포 환경을 준비합니다.'
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 71ef55d720ca768bfa45ea13ba7ec481b908d915
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b97634c1f7014cd0d1687e4fb523ce366bbca5f9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133802"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726404"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>자습서: IoT Edge의 기계 학습에 사용할 환경 설정
 

@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-java-uiex
-ms.openlocfilehash: 8f52ba7008b2a7b3f7734f652c92014e110e3df4
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: f9b4d079b359524faac8b594c653b7aebcac2676
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113287801"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730529"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Java 함수 만들기
 
@@ -103,7 +103,7 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
     cd fabrikam-functions
     ```
 
-    이 폴더에는 [local.settings.json](functions-run-local.md#local-settings-file) 및 [host.json](functions-host-json.md)이라는 구성 파일을 포함하여 프로젝트의 다양한 파일이 있습니다. *local.settings.json* 은 Azure에서 다운로드한 비밀을 포함할 수 있으므로 이 파일은 기본적으로 *.gitignore* 파일의 원본 제어에서 제외됩니다.
+    이 폴더에는 [local.settings.json](functions-develop-local.md#local-settings-file) 및 [host.json](functions-host-json.md)이라는 구성 파일을 포함하여 프로젝트의 다양한 파일이 있습니다. *local.settings.json* 은 Azure에서 다운로드한 비밀을 포함할 수 있으므로 이 파일은 기본적으로 *.gitignore* 파일의 원본 제어에서 제외됩니다.
 
 ### <a name="optional-examine-the-file-contents"></a>(선택 사항) 파일 내용 검사
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/26/2021
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: fad0da60ab19a8614e25a56701c5ee2d1a80548c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 4f56571fb96f6d9baf28a119a978f2658de5616c
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410516"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860534"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Synapse SQL에서 외부 테이블 사용
 
@@ -49,7 +49,7 @@ Hadoop과 네이티브 외부 테이블의 주요 차이점은 다음 표에 정
 - Azure Blob Storage 및 Azure Data Lake Storage에서 데이터를 가져와서 전용 SQL 풀(전용 풀의 Hadoop 테이블에만)에 저장합니다.
 
 > [!NOTE]
-> [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 문과 함께 사용할 경우 외부 테이블에서 선택하면 데이터를 **전용** SQL 풀 내의 테이블로 가져옵니다. 외부 테이블은 [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) 외에도 데이터를 로드하는 데 유용합니다. 
+> [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context) 문과 함께 사용할 경우 외부 테이블에서 선택하면 데이터를 **전용** SQL 풀 내의 테이블로 가져옵니다. 외부 테이블은 [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) 외에도 데이터를 로드하는 데 유용합니다. 
 > 
 > 로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 데이터 로드](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)를 참조하세요.
 

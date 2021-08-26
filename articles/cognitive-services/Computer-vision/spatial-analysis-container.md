@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/08/2021
 ms.author: pafarley
-ms.openlocfilehash: ebe95bbd0b00ace152587604fb9f7543b24188e2
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 7e168c650361bf0579b5e718a71243ee485ba9dd
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539203"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824689"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>공간 분석 컨테이너 설치 및 실행(미리 보기)
 
@@ -109,39 +109,54 @@ Edge 컴퓨팅 역할이 Edge 디바이스에 설정되면 두 가지 디바이�
 
 ###  <a name="enable-mps-on-azure-stack-edge"></a>Azure Stack Edge에서 MPS 사용 
 
-1. 관리자 권한으로 Windows PowerShell 세션을 실행합니다. 
+Windows 클라이언트에서 원격으로 연결하려면 다음 단계를 수행합니다.
 
-2. Windows 원격 관리 서비스가 클라이언트에서 실행되고 있는지 확인합니다. PowerShell 터미널에서 다음 명령을 사용합니다. 
-    
+1. 관리자 권한으로 Windows PowerShell 세션을 실행합니다.
+2. Windows 원격 관리 서비스가 클라이언트에서 실행되고 있는지 확인합니다. 명령 프롬프트에 다음을 입력합니다.
+
     ```powershell
     winrm quickconfig
     ```
-    
-    방화벽 예외에 대한 경고가 표시되면 네트워크 연결 유형을 확인하고 [Windows 원격 관리](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management) 설명서를 참조하세요.
 
-3. 디바이스 IP 주소에 변수를 할당합니다. 
-    
-    ```powershell
-    $ip = "<device-IP-address>" 
-    ```
-    
-4. 디바이스의 IP 주소를 클라이언트의 신뢰할 수 있는 호스트 목록에 추가하려면 다음 명령을 사용합니다. 
-    
-    ```powershell
-    Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Concatenate -Force 
-    ```
+    자세한 내용은 [Windows 원격 관리를 위한 설치 및 구성](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management#quick-default-configuration)을 참조하세요.
 
-5. 디바이스에서 Windows PowerShell 세션을 시작합니다. 
+3. `hosts` 파일에 사용되는 연결 문자열에 변수를 할당합니다.
 
     ```powershell
-    Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell 
+    $Name = "<Node serial number>.<DNS domain of the device>"
+    ``` 
+
+    `<Node serial number>` 및 `<DNS domain of the device>`를 디바이스의 노드 일련 번호 및 DNS 도메인으로 바꿉니다. 디바이스의 로컬 웹 UI에 있는 **디바이스** 페이지에서 **인증서** 페이지 및 DNS 도메인의 노드 일련 번호에 대한 값을 가져올 수 있습니다.
+
+4. 디바이스의 연결 문자열을 클라이언트의 신뢰할 수 있는 호스트 목록에 추가하려면 다음 명령을 입력합니다.
+
+    ```powershell
+    Set-Item WSMan:\localhost\Client\TrustedHosts $Name -Concatenate -Force
     ```
 
-6. 메시지가 표시되면 암호를 입력합니다. 로컬 웹 UI에 로그인하는 데 사용되는 것과 동일한 암호를 사용합니다. 기본 로컬 웹 UI 암호는 `Password1`입니다.
+5. 디바이스에서 Windows PowerShell 세션을 시작합니다.
 
-`Start-HcsGpuMPS`를 입력하여 디바이스에서 MPS 서비스를 시작합니다. 
+    ```powershell
+    Enter-PSSession -ComputerName $Name -Credential ~\EdgeUser -ConfigurationName Minishell -UseSSL
+    ```
 
-Azure Stack Edge 디바이스 문제 해결에 도움이 필요하면 [Azure Stack Edge 디바이스 문제 해결](spatial-analysis-logging.md#troubleshooting-the-azure-stack-edge-device)을 참조하세요. 
+    신뢰 관계와 관련된 오류가 표시되는 경우 디바이스에 업로드된 노드 인증서의 서명 체인이 디바이스에 액세스하는 클라이언트에도 설치되어 있는지 확인합니다.
+
+6. 메시지가 표시되면 암호를 입력합니다. 로컬 웹 UI에 로그인하는 데 사용되는 것과 동일한 암호를 사용합니다. 기본 로컬 웹 UI 암호는 *Password1* 입니다. 원격 PowerShell을 사용하여 디바이스에 성공적으로 연결하면 다음 샘플 출력이 표시됩니다.  
+
+    ```
+    Windows PowerShell
+    Copyright (C) Microsoft Corporation. All rights reserved.
+    
+    PS C:\WINDOWS\system32> winrm quickconfig
+    WinRM service is already running on this machine.
+    PS C:\WINDOWS\system32> $Name = "1HXQG13.wdshcsso.com"
+    PS C:\WINDOWS\system32> Set-Item WSMan:\localhost\Client\TrustedHosts $Name -Concatenate -Force
+    PS C:\WINDOWS\system32> Enter-PSSession -ComputerName $Name -Credential ~\EdgeUser -ConfigurationName Minishell -UseSSL
+
+    WARNING: The Windows PowerShell interface of your device is intended to be used only for the initial network configuration. Please engage Microsoft Support if you need to access this interface to troubleshoot any potential issues you may be experiencing. Changes made through this interface without involving Microsoft Support could result in an unsupported configuration.
+    [1HXQG13.wdshcsso.com]: PS>
+    ```
 
 #### <a name="desktop-machine"></a>[데스크톱 컴퓨터](#tab/desktop-machine)
 

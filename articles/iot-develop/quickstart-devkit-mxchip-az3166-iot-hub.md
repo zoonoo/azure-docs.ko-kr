@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/09/2021
-ms.openlocfilehash: 21e7e54e346d24758711990bfa5f71d387ba4956
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: aea20a9f8a6f0725220a60e425b48e22c6aa8794
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114403919"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862124"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-hub"></a>빠른 시작: MXCHIP AZ3166 DevKit를 IoT Hub에 연결
 
@@ -243,7 +243,7 @@ MXCHIP DevKit를 Azure에 연결하려면 Wi-Fi 및 Azure IoT 설정에 대한 �
 
 1. **Termite** 를 시작합니다.
     > [!TIP]
-    > Termite를 DevKit에 연결할 수 없는 경우 [ST-LINK 드라이버](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip)를 설치하고 다시 시도합니다. 추가 단계는 [문제 해결](troubleshoot-embedded-device-quickstarts.md)을 참조하세요.
+    > Termite를 DevKit에 연결할 수 없는 경우 [ST-LINK 드라이버](https://www.st.com/en/development-tools/stsw-link009.html)를 설치하고 다시 시도합니다. 추가 단계는 [문제 해결](troubleshoot-embedded-device-quickstarts.md)을 참조하세요.
 1. **설정** 을 선택합니다.
 1. **직렬 포트 설정** 대화 상자에서 다음 설정을 확인하고, 필요한 경우 업데이트합니다.
     * **전송 속도**: 115,200
@@ -306,7 +306,7 @@ Iot Explorer에서 디바이스에 대한 IoT 플러그 앤 플레이 구성 요
 
     IoT Explorer의 각 탭은 디바이스 모델의 IoT 플러그 앤 플레이 구성 요소 중 하나에 해당합니다.
 
-    | 탭 | Type | 속성 | Description |
+    | 탭 | Type | Name | Description |
     |---|---|---|---|
     | **인터페이스** | 인터페이스 | `MXCHIP Getting Started Guide` | MXCHIP DevKit에 대한 예제 모델 |
     | **속성(읽기 전용)** | 속성 | -- | 이 모델에는 현재 읽기 전용 속성이 없습니다. |

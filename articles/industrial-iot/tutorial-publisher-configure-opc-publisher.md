@@ -6,12 +6,12 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
-ms.openlocfilehash: a889f0b740d506bd546f1fb67f050317146c31e8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 3667a201e293a844fbcd60b4f00c43aee03ca550
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677894"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015652"
 ---
 # <a name="tutorial-configure-the-opc-publisher"></a>자습서: OPC 게시자 구성
 
@@ -44,7 +44,7 @@ OPC UA 사용 자산에 액세스하기 위해 OPC UA에서 X.509 인증서 및 
 
 ## <a name="configuration-via-configuration-file"></a>구성 파일을 통한 구성
 
-OPC 게시자를 구성하는 가장 간단한 방법은 구성 파일을 사용하는 것입니다. 예제 구성 파일 및 해당 형식과 관련된 설명서는 이 리포지토리의 [`publishednodes.json`](https://raw.githubusercontent.com/Azure/iot-edge-opc-publisher/master/opcpublisher/publishednodes.json) 파일을 통해 제공됩니다.
+OPC 게시자를 구성하는 가장 간단한 방법은 구성 파일을 사용하는 것입니다. 예제 구성 파일 및 해당 형식과 관련된 설명서는 이 리포지토리의 [`publishednodes.json`](https://raw.githubusercontent.com/Azure/Industrial-IoT/main/components/opc-ua/src/Microsoft.Azure.IIoT.OpcUa.Edge.Publisher/tests/Engine/publishednodes.json) 파일을 통해 제공됩니다.
 구성 파일 구문은 시간이 지남에 따라 변경되었으며, OPC 게시자는 여전히 이전 형식을 읽을 수 있지만 정기적으로 자동 방식으로 수행되는 구성을 유지하는 경우 이를 최신 형식으로 변환합니다.
 
 기본 구성 파일은 다음과 같습니다.

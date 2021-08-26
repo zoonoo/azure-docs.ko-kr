@@ -5,15 +5,15 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: quickstart
-ms.date: 05/04/2021
+ms.date: 08/03/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.openlocfilehash: 04d7883088a4f8f9c12e384b3dcc3b4c0dfa6edf
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 0ac38398f31c2256761c0f1b75d03f2fafeb65f8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730805"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744400"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-hub"></a>빠른 시작: 디바이스에서 Azure IoT Hub로 원격 분석 데이터 보내기
 
@@ -48,18 +48,6 @@ ms.locfileid: "114730805"
 [!INCLUDE [iot-develop-send-telemetry-iot-hub-python](../../includes/iot-develop-send-telemetry-iot-hub-python.md)]
 
 :::zone-end
-
-## <a name="view-telemetry"></a>원격 분석 보기
-시뮬레이션된 디바이스가 IoT Hub에 연결된 후 원격 분석을 보내기 시작합니다. Azure Portal에서 Iot 허브 및 디바이스에 대한 원격 분석 메트릭과 기타 세부 정보를 볼 수 있습니다.
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-
-1. IoT 허브를 클릭하여 엽니다.  IoT 허브는 **최근 리소스** 또는 왼쪽 탐색의 **모든 리소스** 에서 찾을 수 있습니다.
-
-1. **개요** 페이지에서 스크롤하여 허브의 개요 메트릭을 확인합니다.
-    :::image type="content" source="media/quickstart-send-telemetry-iot-hub/iot-hub-metrics.png" alt-text="IoT Hub 디바이스 메트릭 개요":::
-
-1. 필요에 따라 추가 메트릭을 검토하고 사용자 지정 보기를 작성하려면 왼쪽 탐색의 **모니터링** 에서 **메트릭** 을 선택합니다.
     
 ## <a name="clean-up-resources"></a>리소스 정리
 이 빠른 시작에서 만든 Azure 리소스가 더 이상 필요하지 않은 경우 Azure CLI를 사용하여 삭제할 수 있습니다.

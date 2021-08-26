@@ -8,18 +8,18 @@ ms.reviewer: jukullam
 ms.service: azure
 ms.date: 05/20/2021
 ms.custom: github-actions-azure
-ms.openlocfilehash: 984bf8f225c34f34910bc57cb019a75301778360
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: c7782349fb467ef34169f46843b3c91d182c0995
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113288953"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741084"
 ---
 # <a name="scan-container-images-using-github-actions"></a>GitHub Actions를 사용하여 컨테이너 이미지 검사
 
 컨테이너 이미지를 빌드하고 검사하는 워크플로를 만들어 [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions)를 시작합니다.
 
-GitHub Actions를 사용하면 워크플로에서 이미지를 빌드하고 검사한 후 퍼블릭 또는 프라이빗 [Container Registry](https://azure.microsoft.com/en-in/services/container-registry/)에 푸시하여 CI/CD 프로세스를 가속화할 수 있습니다.
+GitHub Actions를 사용하면 워크플로에서 이미지를 빌드하고 검사한 후 퍼블릭 또는 프라이빗 [Container Registry](https://azure.microsoft.com/services/container-registry/)에 푸시하여 CI/CD 프로세스를 가속화할 수 있습니다.
 
 이 문서에서는 [GitHub Marketplace](https://github.com/marketplace)에서 [컨테이너 이미지 검사](https://github.com/marketplace/actions/container-image-scan)를 사용합니다.
 
