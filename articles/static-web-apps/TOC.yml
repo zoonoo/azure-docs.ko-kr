@@ -20,15 +20,24 @@
           href: get-started-cli.md
 - name: 개념
   items:
-    - name: Azure Functions를 통한 API 지원
-      href: apis.md
+    - name: API
+      items:
+        - name: Azure Functions를 통한 API 지원
+          href: apis.md
+        - name: API 추가
+          href: add-api.md
+        - name: 사용자 고유 함수 가져오기
+          href: functions-bring-your-own.md
     - name: 구성
       items:
         - name: 애플리케이션 구성
           href: configuration.md
           displayName: 'routing, routes'
-        - name: 빌드 및 워크플로 구성
+        - name: 빌드 구성
           href: github-actions-workflow.md
+        - name: 앱 설정
+          href: application-settings.md
+          displayName: environment variables
     - name: 보안
       items:
         - name: 인증 및 권한 부여
@@ -43,14 +52,22 @@
       href: custom-domain.md
 - name: 방법 가이드
   items:
+    - name: API
+      items:
+        - name: API 추가
+          href: add-api.md
+        - name: 사용자 고유 함수 가져오기
+          href: functions-bring-your-own.md
+    - name: 보안
+      items:
+        - name: 프라이빗 엔드포인트 설정
+          href: private-endpoint.md
+        - name: 보안 인증 비밀
+          href: key-vault-secrets.md
     - name: 로컬 개발 설정
       href: local-development.md
-    - name: API 추가
-      href: add-api.md
     - name: 앱 설정 구성
       href: application-settings.md
-    - name: Azure DevOps로 게시
-      href: publish-devops.md
     - name: 프런트 엔드 프레임워크 및 라이브러리 구성
       href: front-end-frameworks.md
     - name: 모니터링 사용
@@ -61,10 +78,6 @@
     - name: 오류 문제 해결
       href: troubleshooting.md
       displayName: 'deployment, runtime, errors'
-    - name: 사용자 고유 함수 가져오기
-      href: functions-bring-your-own.md
-    - name: 보안 인증 비밀
-      href: key-vault-secrets.md
 - name: 자습서
   items:
     - name: 정적 사이트 생성기에서 게시

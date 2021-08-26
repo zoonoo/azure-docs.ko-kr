@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: REST API를 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 REST API를 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
-ms.openlocfilehash: 7c7657143673e773e1c4108ecb8d86ddc8d1c559
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 4650a213777e30ddffb7604ab94c11fe0fd85ee7
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763130"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323505"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>빠른 시작: REST API를 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 
@@ -36,7 +36,7 @@ REST API는 Azure 리소스를 만들고 관리하는 데 사용됩니다. 이 �
    - REST API URI
 
      ```http
-     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/audit-vm-manageddisks?api-version=2019-09-01
+     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/audit-vm-manageddisks?api-version=2021-09-01
      ```
 
    - 요청 본문
@@ -113,7 +113,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Micro
 만든 할당을 제거하려면 다음 명령을 사용합니다.
 
 ```http
-DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/audit-vm-manageddisks?api-version=2019-09-01
+DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/audit-vm-manageddisks?api-version=2021-09-01
 ```
 
 `{scope}`를 정책 할당을 처음 만들 때 사용한 범위로 바꿉니다.

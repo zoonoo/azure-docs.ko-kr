@@ -4,15 +4,15 @@ description: 이 빠른 시작에서는 Object Anchors를 사용하여 HoloLens 
 author: craigktreasure
 manager: virivera
 ms.author: crtreasu
-ms.date: 03/02/2021
+ms.date: 08/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 2c96f1392228c4fcce65e05711b70a6ce689592a
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: cb9b1d5aa489950e86bc2f1575d44fd78919359e
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006901"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122254362"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-unity"></a>빠른 시작: Unity에서 Azure Object Anchors를 사용하여 HoloLens 앱 만들기
 
@@ -27,7 +27,11 @@ ms.locfileid: "112006901"
 
 [!INCLUDE [Unity quickstart prerequisites](../../../includes/object-anchors-quickstart-unity-prerequisites.md)]
 
+[!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
+
 [!INCLUDE [Unity device setup](../../../includes/object-anchors-quickstart-unity-device-setup.md)]
+
+[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
 
 ## <a name="open-the-sample-project"></a>샘플 프로젝트 열기
 
@@ -39,19 +43,15 @@ Unity에서 `quickstarts/apps/unity/basic` 프로젝트를 엽니다.
 
 [!INCLUDE [Import Unity Package](../../../includes/object-anchors-quickstart-unity-import-package.md)]
 
+[!INCLUDE [Configure Account](../../../includes/object-anchors-get-started-configure-account.md)]
+
 [!INCLUDE [Unity build sample scene 1](../../../includes/object-anchors-quickstart-unity-build-sample-scene-1.md)]
 
 [!INCLUDE [Unity build sample scene 2](../../../includes/object-anchors-quickstart-unity-build-sample-scene-2.md)]
 
 [!INCLUDE [Unity build and deploy](../../../includes/object-anchors-quickstart-unity-build-deploy.md)]
 
-### <a name="run-the-sample-app"></a>샘플 앱 실행
-
-디바이스를 켜고 **모든 앱** 을 선택한 다음 앱을 찾아 시작합니다. Unity 시작 화면 다음에는 Object Observer가 초기화되었음을 나타내는 메시지가 표시됩니다. 그러나 앱에 모델을 추가해야 합니다.
-
-[!INCLUDE [Unity setup Windows Device Portal](../../../includes/object-anchors-quickstart-unity-setup-device-portal.md)]
-
-[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
+Unity 시작 화면 다음에는 Object Observer가 초기화되었음을 나타내는 메시지가 표시됩니다.
 
 앱은 보기의 현재 필드에서 개체를 찾은 다음 검색된 후 추적합니다. 인스턴스는 사용자의 위치에서 6미터 떨어진 경우 제거됩니다. 디버그 텍스트는 ID, 업데이트된 타임스탬프 및 표면 적용 비율과 같은 인스턴스에 대한 세부 정보를 보여 줍니다.
 

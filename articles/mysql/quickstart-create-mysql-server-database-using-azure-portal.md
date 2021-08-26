@@ -7,14 +7,16 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: b8f3a8e06bb27051417205c4dc3141948960bb00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e1e76d9afad049d79c68db93c08c935d190fbb6
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98567801"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643582"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Database for MySQL 서버 만들기
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL은 클라우드에서 고가용성 MySQL 데이터베이스를 실행, 관리 및 확장하는 데 사용하는 관리형 서비스입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Database for MySQL 단일 서버를 만드는 방법을 보여줍니다. 서버에 연결하는 방법도 보여줍니다.
 

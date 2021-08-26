@@ -1,16 +1,16 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 44a3577fede7985dcc073a73ea6ad76eba381987
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 5d8d39b0e023d2ffa7bf186d9cc106b9c2152e56
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113280080"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122071197"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 

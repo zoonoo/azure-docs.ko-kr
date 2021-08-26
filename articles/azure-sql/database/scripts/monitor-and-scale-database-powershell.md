@@ -9,14 +9,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 03/12/2019
-ms.openlocfilehash: 8c737a21848055819f8e81625f66605107152fa4
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 267a90fadb43e61ad55c39ce78bd199487d5b71c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110662921"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730442"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>PowerShell을 사용하여 Azure SQL Database의 단일 데이터베이스 모니터링 및 크기 조정
 
