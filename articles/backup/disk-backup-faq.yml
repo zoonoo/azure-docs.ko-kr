@@ -2,14 +2,15 @@
 metadata:
   title: Azure Disk Backup에 관해 자주 묻는 질문
   description: Azure Disk Backup에 관해 자주 묻는 질문과 대답입니다.
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: backup
   ms.date: 05/27/2021
-  ms.openlocfilehash: 4c676d412799838193122399f50e984fbad833b2
-  ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+  ms.openlocfilehash: d53eda8e8b0f168da69dba1334feca0d4cb39524
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/28/2021
-  ms.locfileid: "111907737"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122252511"
 title: Azure Disk Backup에 관해 자주 묻는 질문
 summary: >
   이 문서에는 Azure Disk Backup에 관해 자주 묻는 질문과 대답이 나와 있습니다. [Azure Disk Backup](disk-backup-overview.md) 지역 가용성, 지원되는 시나리오 및 제한 사항에 대한 자세한 내용은 [지원 매트릭스](disk-backup-support-matrix.md)를 참조하세요.

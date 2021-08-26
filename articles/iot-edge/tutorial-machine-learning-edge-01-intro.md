@@ -2,18 +2,17 @@
 title: '자습서: Azure IoT Edge의 Machine Learning에 대한 자세한 연습'
 description: 에지 시나리오에서 엔드투엔드 기계 학습을 만드는 데 필요한 다양한 작업을 안내하는 고급 자습서입니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 67cc470b4f7f119b7f5b86bcb82ea284ab662dfe
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e2c6b7f2fbeae4ebeacca3772c22c5eeddeceb2f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463241"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726410"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>자습서: Azure Machine Learning 및 IoT Edge를 사용하는 엔드투엔드 솔루션
 

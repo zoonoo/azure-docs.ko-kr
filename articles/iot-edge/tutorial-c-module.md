@@ -3,18 +3,17 @@ title: Linux용 C 모듈 개발 자습서 - Azure IoT Edge| Microsoft Docs
 description: 이 자습서에서는 C 코드를 사용하여 IoT Edge 모듈을 만들고, IoT Edge를 실행하는 Linux 디바이스에 배포하는 방법을 보여줍니다.
 services: iot-edge
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5149d33052f3ad8783ed35d03b4f3760790f5ee5
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 26067037eabd2878971aa71f8996c24feaf3ed1f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113438425"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728812"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-using-linux-containers"></a>자습서: Linux 컨테이너를 사용하여 C IoT Edge 모듈 개발
 

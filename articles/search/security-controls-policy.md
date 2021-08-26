@@ -1,22 +1,22 @@
 ---
 title: Azure Cognitive Search에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Cognitive Search에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 07/16/2021
+ms.date: 08/20/2021
 ms.topic: sample
 author: HeidiSteen
 ms.author: heidist
 ms.service: search
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 16b801d07466152a884f09b8db14fcac9b5fadf1
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 58b45c922d2e8035d853ee05f91136e356bc56da
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114404343"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122603937"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cognitive-search"></a>Azure Cognitive Search에 대한 Azure Policy 규정 준수 컨트롤
 
-[Azure Policy](../governance/policy/overview.md)를 사용하여 [Azure 보안 벤치마크](../security/benchmarks/introduction.md)에서 권장 사항을 적용하는 경우 비규격 서비스를 찾아서 수정하기 위한 정책을 만들 수 있습니다. 이러한 정책은 사용자 지정 정책일 수도 있고, 잘 알고 있는 모범 사례에 대한 규정 준수 기준과 적절한 솔루션을 제공하는 기본 제공 정의를 기반으로 할 수도 있습니다.
+[Azure Policy](../governance/policy/overview.md)를 사용하여 [Azure 보안 벤치마크](/azure/security/benchmarks/introduction)에서 권장 사항을 적용하는 경우 비규격 서비스를 찾아서 수정하기 위한 정책을 만들 수 있습니다. 이러한 정책은 사용자 지정 정책일 수도 있고, 잘 알고 있는 모범 사례에 대한 규정 준수 기준과 적절한 솔루션을 제공하는 기본 제공 정의를 기반으로 할 수도 있습니다.
 
 Azure Cognitive Search의 경우 현재는 아래에 나열된 기본 제공 정의 하나가 있으며, 이 기본 제공 정의를 정책 할당에 사용할 수 있습니다. 이 기본 제공 정의는 로깅 및 모니터링용입니다. [만드는 정책](../governance/policy/assign-policy-portal.md)에 이 기본 제공 정의를 사용하면 시스템에서는 [진단 로깅](search-monitor-logs.md)이 없는 검색 서비스를 찾아서 적절하게 사용하도록 설정합니다.
 

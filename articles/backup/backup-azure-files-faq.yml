@@ -3,13 +3,14 @@ metadata:
   title: Azure Files 백업 FAQ
   description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure 파일 공유를 보호하는 방법에 대한 일반적인 질문과 답변을 검색합니다.
   ms.date: 04/22/2020
-  ms.topic: conceptual
-  ms.openlocfilehash: b08af97ba2dbab60fa23e35a9865ad982b913f56
-  ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+  ms.topic: article
+  ms.service: backup
+  ms.openlocfilehash: ac3cc6f6fc6b6896e236fd28c4808c49616cf68a
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/15/2021
-  ms.locfileid: "111907440"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122252318"
 title: Azure Files 백업에 대한 질문
 summary: >
   이 문서에서는 Azure Files 백업에 대한 일반적인 질문에 대답합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [Microsoft 질문과 답변의 토론 관련 질문 페이지](/answers/topics/azure-backup.html)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.

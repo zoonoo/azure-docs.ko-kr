@@ -3,18 +3,17 @@ title: '빠른 시작: Azure CLI를 사용하여 Azure Data Factory 만들기'
 description: 이 빠른 시작에서는 연결된 서비스, 데이터 세트 및 파이프라인을 비롯한 Azure Data Factory를 만듭니다. 파이프라인을 실행하여 파일 복사 작업을 수행할 수 있습니다.
 author: linda33wj
 ms.author: jingwang
-ms.service: azure-cli
+ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: quickstart
 ms.date: 03/24/2021
-ms.custom:
-- template-quickstart
-- devx-track-azurecli
-ms.openlocfilehash: c9f4b46553a119bfb7b8b639e6a28e95a2be5999
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.custom: template-quickstart, devx-track-azurecli
+ms.openlocfilehash: f12b9f785063b8fa6fec4bc8cd4011d65110b7fe
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750842"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749880"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Data Factory 만들기
 

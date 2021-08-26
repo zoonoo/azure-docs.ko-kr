@@ -7,19 +7,19 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 01/20/2021
 ms.author: mjbrown
-ms.openlocfilehash: ab9904127d085113ba09bf6fcd3616842dade14d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 89f1b8bb3b50dad8322b5a30c37de5b2ed6cc507
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102503313"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725420"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-core-sql-api"></a>Azure Cosmos DB Core(SQL) API에 대한 Azure PowerShell 샘플
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 다음 표에는 Azure Cosmos DB에 일반적으로 사용되는 Azure PowerShell 스크립트의 링크가 포함되어 있습니다. 오른쪽의 링크를 사용하여 API 관련 샘플로 이동합니다. 일반적인 샘플은 모든 API에서 동일합니다. 모든 Azure Cosmos DB PowerShell cmdlet에 대한 참조 페이지는 [Azure PowerShell 참조](/powershell/module/az.cosmosdb)에 제공됩니다. `Az.CosmosDB` 모듈은 이제 `Az` 모듈의 일부입니다. 최신 버전의 Az 모듈을 [다운로드하고 설치](/powershell/azure/install-az-ps)하여 Azure Cosmos DB cmdlet을 가져옵니다. [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az/5.4.0)에서 최신 버전을 가져올 수도 있습니다. [GitHub의 Cosmos DB PowerShell 샘플](https://github.com/Azure/azure-docs-powershell-samples/tree/master/cosmosdb)에서 GitHub 리포지토리의 Cosmos DB에 대한 PowerShell 샘플을 포크할 수도 있습니다.
 
-다른 API에 대한 PowerShell cmdlet은 [Cassandra용 PowerShell 샘플](powershell-samples-cassandra.md), [MongoDB API용 PowerShell 샘플](powershell-samples-mongodb.md), [Gremlin용 PowerShell 샘플](powershell-samples-gremlin.md), [Table용 PowerShell 샘플](powershell-samples-table.md)을 참조하세요.
+다른 API에 대한 PowerShell cmdlet은 [Cassandra용 PowerShell 샘플](cassandra/powershell-samples.md), [MongoDB API용 PowerShell 샘플](powershell-samples-mongodb.md), [Gremlin용 PowerShell 샘플](powershell-samples-gremlin.md), [Table용 PowerShell 샘플](powershell-samples-table.md)을 참조하세요.
 
 ## <a name="common-samples"></a>일반적인 샘플
 

@@ -3,20 +3,20 @@ title: 'Azure CLI: 백업 복원'
 description: 자동 백업에서 이전 시점으로 Azure SQL Database의 데이터베이스를 복원하는 Azure CLI 예제 스크립트입니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: mashamsft
-ms.author: mathoma
+author: SQLSourabh
+ms.author: sourabha
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: f4054d19ccf4d136e30896bc066e51c92a4a4ad9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5dc1516595aa74d12cbcb55a1a19b34cf952f86d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783470"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748046"
 ---
 # <a name="use-cli-to-restore-a-single-database-in-azure-sql-database-to-an-earlier-point-in-time"></a>CLI를 사용하여 Azure SQL Database의 단일 데이터베이스를 이전 시점으로 복원
 

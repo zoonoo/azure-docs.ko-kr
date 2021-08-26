@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/06/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 441bbfcbb4f864ab8f82bb1216b9860dcfbf254c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 35e98fcbd1be87e471152d0760ca375e46770a81
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114452063"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747644"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>자습서: Computer Vision을 사용하여 Azure Storage에서 이미지 메타데이터 생성
 
@@ -197,7 +197,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     }
     ```
 
-    새로운 **Index** 메서드는 `"photos"` 컨테이너의 Blob을 열거하고 ASP.NET MVC의 **ViewBag** 속성을 통해 해당 Blob을 나타내는 **BlobInfo** 개체의 배열을 보기에 전달합니다. 나중에 이러한 개체를 열거하고 사진 썸네일 컬렉션을 표시하도록 보기를 수정합니다. 스토리지 계정에 액세스하고 Blob(&mdash; **[CloudStorageAccount](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?WT.mc_id=academiccontent-github-cxa)** , **[CloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?WT.mc_id=academiccontent-github-cxa)** 및 **[CloudBlobContainer](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?WT.mc_id=academiccontent-github-cxa)** &mdash;)을 열거하는 데 사용할 클래스는 NuGet을 통해 설치한 **WindowsAzure.Storage** 패키지에서 가져옵니다.
+    새로운 **Index** 메서드는 `"photos"` 컨테이너의 Blob을 열거하고 ASP.NET MVC의 **ViewBag** 속성을 통해 해당 Blob을 나타내는 **BlobInfo** 개체의 배열을 보기에 전달합니다. 나중에 이러한 개체를 열거하고 사진 썸네일 컬렉션을 표시하도록 보기를 수정합니다. 스토리지 계정에 액세스하고 Blob(&mdash; **[CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet)** , **[CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient?view=azure-dotnet-legacy)** 및 **[CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer?view=azure-dotnet-legacy)** &mdash;)을 열거하는 데 사용할 클래스는 NuGet을 통해 설치한 **WindowsAzure.Storage** 패키지에서 가져옵니다.
 
 1. *HomeController.cs* 의 **HomeController** 클래스에 다음 메서드를 추가합니다.
 

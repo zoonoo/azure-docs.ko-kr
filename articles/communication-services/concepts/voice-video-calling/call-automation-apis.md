@@ -2,19 +2,19 @@
 title: Azure Communication Services Call Automation API 개요
 titleSuffix: An Azure Communication Services concept document
 description: Call Automation 기능 및 API에 대한 개요를 제공합니다.
-author: joseys
+author: GrantMeStrength
 manager: anvalent
 services: azure-communication-services
-ms.author: joseys
+ms.author: jken
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 86110cf08db2843421a3bbd7400dac295f041e7d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: e45e18271ef26d1968f3d1ba28d4cf2d59fa8448
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464376"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253680"
 ---
 # <a name="call-automation-overview"></a>Call Automation 개요
 

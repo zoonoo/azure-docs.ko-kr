@@ -5,15 +5,15 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: include
-ms.date: 04/07/2021
+ms.date: 08/03/2021
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: 09eb6d9483268314febd9478a551595a059d973b
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 3f0468a55c897559a2dab3eb2f29855129fcff2b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107023875"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728701"
 ---
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -29,7 +29,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 4. 새 서버 세부 정보 양식을 다음 정보로 작성합니다.
    - 리소스 그룹: 이 필드의 텍스트 상자 아래에 있는 **새로 만들기** 링크를 클릭합니다. **myresourcegroup** 과 같은 이름을 입력합니다.
    - 서버 그룹 이름: 새 서버 그룹의 고유한 이름을 입력합니다. 이 이름은 서버 하위 도메인에도 사용됩니다.
-   - **미리 보기 기능 사용** 확인란을 활성화합니다.
    - 관리자 사용자 이름: 현재 **citus** 값이 필요하며 변경할 수 없음.
    - 암호: 8자 이상이어야 하며, 영어 대문자, 영어 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등) 중 세 가지 범주의 문자를 포함해야 합니다.
    - 위치: 데이터에 가장 빠르게 액세스할 수 있도록 사용자와 가장 가까운 위치를 사용합니다.

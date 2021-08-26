@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 06/04/2021
-ms.openlocfilehash: 3681164f1b7415679ed599a70faf6453ab0a5c87
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6c55b2e5fbaadec239c1818d1bbe47443e797ddf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968005"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725461"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -79,10 +79,10 @@ Azure 구독, 비용 및 약정 없이 [Azure Cosmos DB 무료 체험](https://a
 
 - Azure Cosmos DB에서 [API를 선택하는 방법](choose-api.md) 알아보기
 - [Azure Cosmos DB SQL API 시작](create-sql-api-dotnet.md)
-- [Azure Cosmos DB의 MongoDB API 시작](create-mongodb-nodejs.md)
-- [Azure Cosmos DB Cassandra API 시작](create-cassandra-dotnet.md)
+- [Azure Cosmos DB의 MongoDB API 시작](mongodb/create-mongodb-nodejs.md)
+- [Azure Cosmos DB Cassandra API 시작](cassandra/manage-data-dotnet.md)
 - [Azure Cosmos DB Gremlin API 시작](create-graph-dotnet.md)
-- [Azure Cosmos DB Table API 시작](create-table-dotnet.md)
+- [Azure Cosmos DB Table API 시작](table/create-table-dotnet.md)
 - [Azure Cosmos DB를 사용한 차세대 앱 개발에 대한 백서](https://azure.microsoft.com/resources/microsoft-azure-cosmos-db-flexible-reliable-cloud-nosql-at-any-scale/)
 
 > [!div class="nextstepaction"]

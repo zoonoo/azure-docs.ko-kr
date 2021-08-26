@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 306a8d78caf36291573d021ed1d814aa4f7a2164
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: af829349ba5fe4b6ad2bf9e443eb780e926da565
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642771"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751282"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>자습서: Azure SQL Database의 데이터베이스 보안
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -206,7 +206,7 @@ Azure AD 인증을 사용하여 사용자를 추가하려면,
 1. 쿼리 창에서 다음 명령을 입력하고, `<Azure_AD_principal_name>`을 Azure AD 사용자의 보안 주체 이름 또는 Azure AD 그룹의 표시 이름으로 수정합니다.
 
    ```sql
-   CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
+   CREATE USER [<Azure_AD_principal_name>] FROM EXTERNAL PROVIDER;
    ```
 
 > [!NOTE]

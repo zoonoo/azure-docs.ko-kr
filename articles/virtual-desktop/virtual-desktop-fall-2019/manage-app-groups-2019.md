@@ -3,15 +3,15 @@ title: Azure Virtual Desktop(클래식)용 앱 그룹 관리 - Azure
 description: Azure AD(Active Directory)에서 Azure Virtual Desktop(클래식) 테넌트를 설정하는 방법을 알아봅니다.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 08/16/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: b4c0f4733ec1d80db4b2181ed292f702926e0e75
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 6fe87fb7fc0cbe9e727fe1539d8424d9ee1fe1b1
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111754010"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253265"
 ---
 # <a name="tutorial-manage-app-groups-for-azure-virtual-desktop-classic"></a>자습서: Azure Virtual Desktop(클래식)용 앱 그룹 관리
 
@@ -37,44 +37,44 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 1. 다음 PowerShell cmdlet을 실행하여 빈 RemoteApp 앱 그룹을 새로 만듭니다.
 
    ```powershell
-   New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType "RemoteApp"
+   New-RdsAppGroup -TenantName <tenantname> -HostPoolName <hostpoolname> -Name <appgroupname> -ResourceType "RemoteApp"
    ```
 
 2. (선택 사항) 앱 그룹이 생성되었는지 확인하려면 다음 cmdlet을 실행하여 호스트 풀에 대한 모든 앱 그룹 목록을 살펴보면 됩니다.
 
    ```powershell
-   Get-RdsAppGroup <tenantname> <hostpoolname>
+   Get-RdsAppGroup -TenantName <tenantname> -HostPoolName <hostpoolname>
    ```
 
 3. 다음 cmdlet을 실행하여 호스트 풀의 가상 머신 이미지에 대한 **시작** 메뉴 앱 목록을 가져옵니다. **FilePath**, **IconPath**, **IconIndex** 의 값과 게시하려는 애플리케이션의 기타 중요 정보를 적어 둡니다.
 
    ```powershell
-   Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
+   Get-RdsStartMenuApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
    ```
 
 4. 다음 cmdlet을 실행하여 `AppAlias`를 기반으로 애플리케이션을 설치합니다. 3단계의 출력을 실행하면 `AppAlias`를 볼 수 있습니다.
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>
+   New-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -Name <remoteappname> -AppAlias <appalias>
    ```
 
 5. (선택 사항) 새 RemoteApp 프로그램을 1단계에서 만든 애플리케이션 그룹에 게시하려면 다음 cmdlet을 실행합니다.
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
+    New-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -Name <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
    ```
 
 6. 앱이 게시되었는지 확인하려면 다음 cmdlet을 실행합니다.
 
    ```powershell
-   Get-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname>
+    Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
    ```
 
 7. 이 앱 그룹에 대해 게시하려는 애플리케이션마다 1-5단계를 반복합니다.
 8. 다음 cmdlet을 실행하여 사용자에게 앱 그룹의 RemoteApp 프로그램에 대한 액세스 권한을 부여합니다.
 
    ```powershell
-   Add-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname> -UserPrincipalName <userupn>
+   Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -UserPrincipalName <userupn>
    ```
 
 ## <a name="next-steps"></a>다음 단계

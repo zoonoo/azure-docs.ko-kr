@@ -30,7 +30,7 @@
     - name: Azure Kubernetes Service
       items:
         - name: Azure Key Vault와 Kubernetes 통합
-          href: key-vault-integrate-kubernetes.md
+          href: ../../aks/csi-secrets-store-driver.md
     - name: Azure Databricks
       items:
         - name: Azure Databricks와 Azure Key Vault를 사용하여 Azure Blob Storage에 액세스
@@ -174,7 +174,7 @@
       href: /javascript/api/overview/azure/key-vault-index
     - name: Python
       href: /python/api/overview/azure/key-vault-index
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/keyvault
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.keyvault/allversions

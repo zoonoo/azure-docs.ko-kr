@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/08/2021
 ms.author: amgowda
 ms.custom: contentperf-fy21q3, devx-track-azurecli
-ms.openlocfilehash: 950f6fa47de273534a4636796351dd3640628dda
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: e7ff59c3c6ba75321c63db81d34ea4c7d46a841a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113551239"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748630"
 ---
 # <a name="quickstart-deploy-an-aks-cluster-with-confidential-computing-nodes-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 기밀 컴퓨팅 노드가 있는 AKS 클러스터 배포
 
@@ -61,7 +61,7 @@ az group create --name myResourceGroup --location westus2
 이제 [az aks create][az-aks-create] 명령을 사용하여 기밀 컴퓨팅 추가 항목이 사용하도록 설정된 AKS 클러스터를 만듭니다.
 
 ```azurecli-interactive
-az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom
+az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addons confcom
 ```
 
 ### <a name="add-a-user-node-pool-with-confidential-computing-capabilities-to-the-aks-cluster"></a>기밀 컴퓨팅 기능이 있는 사용자 노드 풀을 AKS 클러스터에 추가합니다. 

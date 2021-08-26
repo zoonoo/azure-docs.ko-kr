@@ -7,12 +7,12 @@ ms.service: azure-redhat-openshift
 ms.topic: overview
 ms.date: 11/13/2020
 ms.custom: mvc
-ms.openlocfilehash: ec934a8a9907f0c0c3aff047e003c6725c5ab25f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a0b0eca91cbf070e41057254d060d6dbc8ff249
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100636223"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726196"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -36,7 +36,7 @@ Azure Red Hat OpenShift 노드는 Azure 가상 머신에서 실행됩니다. 스
 
 ## <a name="service-level-agreement"></a>서비스 수준 계약
 
-Azure Red Hat OpenShift는 서비스를 99.95%의 시간 동안 사용할 수 있도록 보장하는 Service Level Agreement(서비스 수준 약정)를 제공합니다. SLA에 대한 자세한 내용은 [Azure Red Hat OpenShift SLA](https://azure.microsoft.com/en-au/support/legal/sla/openshift/v1_0/)를 참조하세요.
+Azure Red Hat OpenShift는 서비스를 99.95%의 시간 동안 사용할 수 있도록 보장하는 Service Level Agreement(서비스 수준 약정)를 제공합니다. SLA에 대한 자세한 내용은 [Azure Red Hat OpenShift SLA](https://azure.microsoft.com/support/legal/sla/openshift/v1_0/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

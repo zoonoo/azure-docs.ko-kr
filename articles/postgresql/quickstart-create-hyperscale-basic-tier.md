@@ -7,24 +7,19 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 04/07/2021
-ms.openlocfilehash: 07ace217e5299662a1c3145a225abc25f4f1f337
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.date: 08/03/2021
+ms.openlocfilehash: 88bf816ca5cad294a7ab0592c80420f20ade4ed5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107023880"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728706"
 ---
 # <a name="create-a-hyperscale-citus-basic-tier-server-group-in-the-azure-portal"></a>Azure Portal에서 하이퍼스케일(Citus) 기본 계층 서버 그룹 만들기
 
 Azure Database for PostgreSQL - 하이퍼스케일(Citus)은 클라우드에서 항상 사용 가능한 PostgreSQL 데이터베이스를 실행, 관리 및 크기 조정하는 데 사용하는 관리형 서비스입니다. [기본 계층](concepts-hyperscale-tiers.md)은 초기 개발 및 테스트를 위한 편리한 배포 옵션입니다.
 
 이 빠른 시작에서는 Azure Portal을 사용하여 하이퍼스케일(Citus) 서버 그룹을 만드는 방법을 보여줍니다. 서버 그룹을 프로비저닝하고 연결하여 쿼리를 실행할 수 있는지 확인합니다.
-
-> [!IMPORTANT]
-> 하이퍼스케일(Citus) 서비스 계층은 현재 미리 보기로 제공되고 있습니다.  이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
->
-> [하이퍼스케일(Citus)의 미리 보기 기능](hyperscale-preview-features.md)에서 다른 새 기능의 전체 목록을 볼 수 있습니다.
 
 [!INCLUDE [azure-postgresql-hyperscale-create-basic-tier](../../includes/azure-postgresql-hyperscale-create-basic-tier.md)]
 

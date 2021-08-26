@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: psignoret
 ms.custom: it-pro
-ms.openlocfilehash: 8795007a5a38d21985d8b31884c66342b3dda7ed
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 0b920df34358c83fa69274f0d7b52f889cd15010
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792411"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724829"
 ---
 # <a name="app-consent-permissions-for-custom-roles-in-azure-active-directory"></a>Azure Active Directory의 사용자 지정 역할에 대한 앱 동의 권한
 
@@ -34,7 +34,7 @@ ms.locfileid: "110792411"
 > [!NOTE]
 > Azure AD 관리 포털에서는 아직 이 문서에 나열된 권한을 사용자 지정 디렉터리 역할 정의에 추가하는 것을 지원하지 않습니다. 이 문서에 나열된 권한이 있는 [사용자 지정 디렉터리 역할을 만들려면 Azure AD PowerShell을 사용해야 합니다](custom-create.md#create-a-role-using-powershell).
 
-### <a name="granting-delegated-permissions-to-apps-on-behalf-of-self-user-consent"></a>자신을 대신하여 앱에 위임된 권한 부여(사용자 동의)
+#### <a name="granting-delegated-permissions-to-apps-on-behalf-of-self-user-consent"></a>자신을 대신하여 앱에 위임된 권한 부여(사용자 동의)
 
 앱 동의 정책에 따라 사용자가 자신을 대신하여 애플리케이션에 대한 동의(사용자 동의)를 허용합니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "110792411"
 
 예를 들어 ID가 `microsoft-user-default-low`인 기본 제공 앱 동의 정책에 따라 사용자가 자신을 대신하여 동의를 부여하도록 허용하려면 `...managePermissionGrantsForSelf.microsoft-user-default-low` 권한을 사용합니다.
 
-### <a name="granting-permissions-to-apps-on-behalf-of-all-admin-consent"></a>모두를 대신하여 앱에 권한 부여(관리자 동의)
+#### <a name="granting-permissions-to-apps-on-behalf-of-all-admin-consent"></a>모두를 대신하여 앱에 권한 부여(관리자 동의)
 
 위임된 권한 및 애플리케이션 권한(앱 역할) 모두에 대해 테넌트 전체 관리자 동의를 앱에 위임하려면 다음과 같습니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "110792411"
 
 예를 들어 ID가 `low-risk-any-app`인 사용자 지정 [앱 동의 정책](../manage-apps/manage-app-consent-policies.md)에 따라 역할 담당자가 테넌트 전체 관리자 동의를 앱에 부여하도록 허용하려면 `microsoft.directory/servicePrincipals/managePermissionGrantsForAll.low-risk-any-app` 권한을 사용합니다.
 
-### <a name="managing-app-consent-policies"></a>앱 동의 정책 관리
+#### <a name="managing-app-consent-policies"></a>앱 동의 정책 관리
 
 [앱 동의 정책](../manage-apps/manage-app-consent-policies.md)의 만들기, 업데이트 및 삭제를 위임합니다.
 

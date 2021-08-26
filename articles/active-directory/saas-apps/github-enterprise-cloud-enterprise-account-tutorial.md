@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 0ccd7886007177e32506ce0c3db489826a8a708d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4fdaad6d828ec83f40b6fb632d3d9738a7b72dc7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479950"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750400"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-enterprise-cloud---enterprise-account"></a>자습서: GitHub Enterprise Cloud - Enterprise Account와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -76,13 +76,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 
-    a. **식별자(엔터티 ID)** 텍스트 상자에서 `https://github.com/orgs/<ENTERPRISE-SLUG>` 패턴을 사용하는 URL을 입력합니다.
+    a. **식별자(엔터티 ID)** 텍스트 상자에서 `https://github.com/enterprises/<ENTERPRISE-SLUG>` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에서 `https://github.com/orgs/<ENTERPRISE-SLUG>/saml/consume` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://github.com/enterprises/<ENTERPRISE-SLUG>/saml/consume` 패턴을 사용하여 URL을 입력합니다.
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
-     **로그온 URL** 텍스트 상자에서 `https://github.com/orgs/<ENTERPRISE-SLUG>/sso` 패턴을 사용하는 URL을 입력합니다.
+     **로그온 URL** 텍스트 상자에서 `https://github.com/enterprises/<ENTERPRISE-SLUG>/sso` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > `<ENTERPRISE-SLUG>`를 GitHub Enterprise Account의 실제 이름으로 바꿉니다.
@@ -103,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -138,7 +138,7 @@ SAML SSO를 GitHub Enterprise Account에 사용하도록 설정하면 기본적�
 
 ## <a name="test-sso-with-another-enterprise-account-owner-or-organization-member-account"></a>다른 엔터프라이즈 계정 소유자 또는 조직 멤버 계정을 사용하여 SSO 테스트
 
-GitHub 엔터프라이즈 계정에 대해 SAML 통합이 설정되면(엔터프라이즈 계정의 GitHub 조직에도 적용됨) Azure AD에서 앱에 할당된 다른 엔터프라이즈 계정 소유자는 GitHub 엔터프라이즈 계정 URL(`https://github.com/orgs/<enterprise account>`)로 이동하고, SAML을 통해 인증하고, GitHub 엔터프라이즈 계정의 정책 및 설정에 액세스할 수 있어야 합니다. 
+GitHub 엔터프라이즈 계정에 대해 SAML 통합이 설정되면(엔터프라이즈 계정의 GitHub 조직에도 적용됨) Azure AD에서 앱에 할당된 다른 엔터프라이즈 계정 소유자는 GitHub 엔터프라이즈 계정 URL(`https://github.com/enterprises/<enterprise account>`)로 이동하고, SAML을 통해 인증하고, GitHub 엔터프라이즈 계정의 정책 및 설정에 액세스할 수 있어야 합니다. 
 
 엔터프라이즈 계정의 조직에 대한 조직 소유자는 [GitHub 조직에 참가하도록 사용자를 초대](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization)할 수 있어야 합니다. 조직 소유자 계정 권한으로 GitHub.com에 로그인하고, 이 문서의 단계에 따라 `B.Simon`을 조직에 초대합니다. `B.Simon`에 대한 GitHub 사용자 계정이 없는 경우 해당 계정을 만들어야 합니다. 
 

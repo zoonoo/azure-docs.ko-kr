@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
-ms.author: erhopf
+ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 95b0c127d005efe95fa2b7fdb58c69602a98b217
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c244009dffab84938c06eee10d7031bc23f10e7a
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110165748"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122070091"
 ---
 이 가이드에서는 [Unity](https://unity3d.com/)용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다.
 

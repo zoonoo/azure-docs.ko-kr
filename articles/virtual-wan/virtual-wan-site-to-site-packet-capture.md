@@ -2,18 +2,18 @@
 title: '자습서: Azure Virtual WAN 사이트 간 연결에서 패킷 캡처 수행'
 description: 이 자습서에서는 Virtual WAN 사이트 간 VPN Gateway에서 패킷 캡처를 수행하는 방법을 알아봅니다.
 services: virtual-wan
-author: wellee
+author: wtnlee
 ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 04/13/2021
 ms.author: wellee
 Customer intent: As someone with a networking background using Virtual WAN, I want to perform a packet capture on my Site-to-site VPN Gateway.
-ms.openlocfilehash: bb31d6d9c19df7a914593213e98af1d7a54825a4
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 765285a8b7c2434c64d1513e510f1cf06b513291
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109809529"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122598064"
 ---
 # <a name="perform-packet-capture-on-the-azure-virtual-wan-site-to-site-vpn-gateway"></a>Virtual WAN 사이트 간 VPN Gateway에서 패킷 캡처 수행 
 
@@ -47,15 +47,15 @@ PowerShell에서 다음 스크립트를 실행하여 올바른 구독 컨텍스�
 
 계정을 만든 후에는 다음 명령을 실행하여 SAS(공유 액세스 서명) URL을 생성하세요. 이 URL을 통해 패킷 캡처 결과가 저장됩니다.
    ```azurepowershell-interactive
-  $rgname = “<resource group name containing storage account>” 
+  $rg = “<resource group name containing storage account>” 
 $storeName = “<name of storage account> “
 $containerName = “<name of container you want to store packet capture in>
-$key = Get-AzStorageAccountKey -ResourceGroupName $rgname -Name $storeNAme
+$key = Get-AzStorageAccountKey -ResourceGroupName $rg -Name $storeName
 $context = New-AzStorageContext -StorageAccountName  $storeName -StorageAccountKey $key[0].value
 New-AzStorageContainer -Name $containerName -Context $context
 $container = Get-AzStorageContainer -Name $containerName  -Context $context
 $now = get-date
-$sasurl = New-AzureStorageContainerSASToken -Name $containerName -Context $context -Permission "rwd" -StartTime $now.AddHours(-1) -ExpiryTime $now.AddDays(1) -FullUri
+$sasurl = New-AzStorageContainerSASToken -Name $containerName -Context $context -Permission "rwd" -StartTime $now.AddHours(-1) -ExpiryTime $now.AddDays(1) -FullUri
    ```
 
 ## <a name="start-the-packet-capture"></a>패킷 캡처 시작
@@ -122,18 +122,18 @@ Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gatew
 ## <a name="stopping-the-packet-capture"></a>패킷 캡처 중지
 최소 600초 이상 패킷 캡처가 실행되도록 두는 것이 좋습니다. 경로에 있는 여러 구성 요소 간 동기화 문제로 인해 짧은 시간 동안 패킷 캡처를 수행하면 전체 데이터가 제공되지 않을 수 있습니다. 패킷 캡처를 중지할 준비가 되면 다음 명령을 실행합니다.
 
-매개 변수는 패킷 캡처 시작 섹션의 매개 변수와 비슷합니다. SAS URL은 [스토리지 계정 만들기](#createstorage) 섹션에서 생성했습니다.
+매개 변수는 패킷 캡처 시작 섹션의 매개 변수와 비슷합니다. SAS URL은 [스토리지 계정 만들기](#createstorage) 섹션에서 생성했습니다. 만약 `SASurl` 매개 변수가 올바르게 구성되지 않은 경우 스토리지 오류로 추적이 실패할 수 있습니다.
 
 ### <a name="gateway-level-packet-capture"></a>게이트웨이 수준 패킷 캡처
 
    ```azurepowershell-interactive
-Stop-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name <GatewayName> -SasUrl $sas
+Stop-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name <GatewayName> -SasUrl $sasurl
    ```
 
 ### <a name="connection-level-packet-captures"></a>연결 수준 패킷 캡처
 
    ```azurepowershell-interactive
-Stop-AzVpnConnectionPacketCapture -ResourceGroupName $rg -Name <name of the VPN connection> -ParentResourceName "<name of VPN Gateway>" -LinkConnectionName <comma separated list of links e.g. "link1,link2">-SasUrl $sas
+Stop-AzVpnConnectionPacketCapture -ResourceGroupName $rg -Name <name of the VPN connection> -ParentResourceName "<name of VPN Gateway>" -LinkConnectionName <comma separated list of links e.g. "link1,link2">-SasUrl $sasurl
    ```
 
 ## <a name="viewing-your-packet-capture"></a>패킷 캡처 보기

@@ -2,16 +2,17 @@
 title: 'Azure Data Factory에서 Spark를 사용하여 데이터 변환 '
 description: 이 자습서에서는 Azure Data Factory에서 Spark 작업을 사용하여 데이터를 변환하는 단계별 지침을 제공합니다.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 author: nabhishek
 ms.author: abnarain
 ms.date: 06/07/2021
-ms.openlocfilehash: 7e4ad47f933757c4ebce66acd7ddc5e0033b601e
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: b417b4bb45c4c5ace4985c2bcf221dcd998896de
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113215842"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726825"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 클라우드의 데이터 변환
 

@@ -3,7 +3,7 @@ title: Azure AD에서 로그 분석 마법사 구성 | Microsoft Docs
 description: 로그 분석을 구성하는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
-ms.subservice: devices
+ms.subservice: report-monitor
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: markvi
@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca84fa57cb3a26337038275d1b7491154915c90e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47df90a3f4948e69206a34dbeac187c2a67074f1
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100574384"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122514627"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>자습서: 로그 분석 마법사 구성
 
@@ -226,7 +226,7 @@ ms.locfileid: "100574384"
 
 8. **경고 규칙 만들기** 페이지에서 범위가 올바른지 확인합니다.
 
-9. **조건** 에서 다음 항목을 클릭합니다. **평균 사용자 지정 로그 검색이 <logic undefined>개보다 클 때마다**
+9. **조건** 에서 다음 항목을 클릭합니다. **평균 사용자 지정 로그 검색이 `logic undefined`개보다 클 때마다**
 
     ![기본 조건](./media/tutorial-log-analytics-wizard/default-condition.png)
 

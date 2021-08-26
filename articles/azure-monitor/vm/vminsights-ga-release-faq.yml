@@ -2,16 +2,17 @@
 metadata:
   title: VM 인사이트(GA) 자주 묻는 질문 | Microsoft Docs
   description: VM 인사이트는 Azure VM 운영 체제의 상태 및 성능 모니터링뿐만 아니라 애플리케이션 구성 요소 및 종속성의 자동 검색도 다른 리소스와 결합하고, 이러한 항목 간의 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 GA 릴리스에 대한 일반적인 질문의 답변을 제공합니다.
-  ms.topic: conceptual
+  ms.topic: article
   author: bwren
   ms.author: bwren
   ms.date: 01/31/2020
-  ms.openlocfilehash: 930a51c83767a14c1547e2ed6330fbd134afbaae
-  ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+  ms.service: azure-monitor
+  ms.openlocfilehash: 230bac590e4506593cc0cb6cce0aba89ed289ad3
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/17/2021
-  ms.locfileid: "112306254"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122253868"
 title: VM 인사이트 GA(일반 공급) 질문과 대답
 summary: 이 일반 공급 FAQ에서는 GA를 준비하면서 2019년 4분기 및 2020년 1분기에 변경된 사항을 다룹니다.
 sections:

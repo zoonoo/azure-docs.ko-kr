@@ -5,15 +5,15 @@ author: craigktreasure
 manager: virivera
 services: azure-object-anchors
 ms.author: crtreasu
-ms.date: 03/02/2021
+ms.date: 08/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 5cccfb2b750e9ea1a167f8bbbddcb2621bd19b5b
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: b047c293a14dcfde5c8de2f56fb5c2abeab61c69
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112008087"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122254366"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-unity-with-mrtk"></a>빠른 시작: MRTK를 사용하는 Unity에서 Azure Object Anchors를 사용하여 HoloLens 앱 만들기
 
@@ -28,7 +28,11 @@ ms.locfileid: "112008087"
 
 [!INCLUDE [Unity quickstart prerequisites](../../../includes/object-anchors-quickstart-unity-prerequisites.md)]
 
+[!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
+
 [!INCLUDE [Unity device setup](../../../includes/object-anchors-quickstart-unity-device-setup.md)]
+
+[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
 
 ## <a name="open-the-sample-project"></a>샘플 프로젝트 열기
 
@@ -40,6 +44,8 @@ Unity에서 `quickstarts/apps/unity/mrtk` 프로젝트를 엽니다.
 
 [!INCLUDE [Import Unity Package](../../../includes/object-anchors-quickstart-unity-import-package.md)]
 
+[!INCLUDE [Configure Account](../../../includes/object-anchors-get-started-configure-account.md)]
+
 [!INCLUDE [Unity build sample scene 1](../../../includes/object-anchors-quickstart-unity-build-sample-scene-1.md)]
 
 "TMP 가져오기" 대화 상자에서 TextMesh Pro 리소스를 가져오라는 메시지가 표시되면 "TMP Essentials 가져오기"를 선택합니다.
@@ -49,9 +55,7 @@ Unity에서 `quickstarts/apps/unity/mrtk` 프로젝트를 엽니다.
 
 [!INCLUDE [Unity build and deploy](../../../includes/object-anchors-quickstart-unity-build-deploy.md)]
 
-### <a name="run-the-sample-app"></a>샘플 앱 실행
-
-디바이스를 켜고 **모든 앱** 을 선택한 다음 앱을 찾아 시작합니다. Unity 시작 화면 후에 흰색 경계 상자가 표시됩니다. 손을 사용하여 경계 상자를 이동, 크기 조정 또는 회전할 수 있습니다. 검색하려는 개체를 포함하도록 상자를 배치합니다.
+ Unity 시작 화면 후에 흰색 경계 상자가 표시됩니다. 손을 사용하여 경계 상자를 이동, 크기 조정 또는 회전할 수 있습니다. 검색하려는 개체를 포함하도록 상자를 배치합니다.
 
 <a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">손 메뉴</a>를 열고 **검색 영역 잠금** 을 선택하여 경계 상자가 더 이상 움직이지 않도록 합니다. 개체 검색을 시작하려면 **검색 시작** 을 선택합니다. 개체가 검색되면 개체에서 메시가 렌더링됩니다. 검색된 인스턴스의 세부 정보가 화면에 표시됩니다(예: 업데이트된 타임스탬프 및 표면 적용 비율). 추적을 중지하기 위해 **검색 중지** 를 선택하면 검색된 모든 인스턴스가 제거됩니다.
 
@@ -66,7 +70,7 @@ Unity에서 `quickstarts/apps/unity/mrtk` 프로젝트를 엽니다.
 * **추적기 설정** – 추적기 설정 메뉴 활성화를 토글합니다.
 * **검색 영역 설정** – 검색 영역 설정 메뉴 활성화를 토글합니다.
 * **추적 시작** – 진단 데이터를 캡처하여 디바이스에 저장합니다. 자세한 내용은 **디버그 검색 문제 및 캡처 진단** 섹션을 참조하세요.
-* **추적 업로드** – 진단 데이터를 Object Anchors 서비스에 업로드합니다. 사용자는 `subscription.json`에 가입 계정을 제공하고 `LocalState` 폴더에 업로드해야 합니다. 샘플 `subscription.json` 파일은 아래에서 찾을 수 있습니다.
+* **추적 업로드** – 진단 데이터를 Object Anchors 서비스에 업로드합니다.    
 
     :::image type="content" source="./media/mrtk-hand-menu-primary.png" alt-text="Unity 기본 손 메뉴":::
 
@@ -87,23 +91,12 @@ Unity에서 `quickstarts/apps/unity/mrtk` 프로젝트를 엽니다.
 
     :::image type="content" source="./media/mrtk-hand-menu-search-area.png" alt-text="Unity 검색 영역 손 메뉴":::
 
-예제 `subscription.json`:
-
-```json
-{
-  "AccountId": "<your account id>",
-  "AccountKey": "<your account key>",
-  "AccountDomain": "<your account domain>"
-}
-```
-
-[!INCLUDE [Unity setup Windows Device Portal](../../../includes/object-anchors-quickstart-unity-setup-device-portal.md)]
-
-[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
-
 [!INCLUDE [Unity troubleshooting](../../../includes/object-anchors-quickstart-unity-troubleshooting.md)]
 
 ## <a name="next-steps"></a>다음 단계
+
+> [!div class="nextstepaction"]
+> [빠른 시작: 심층 MRTK 연습](in-depth-mrtk-walkthrough.md)
 
 > [!div class="nextstepaction"]
 > [개념: SDK 개요](../concepts/sdk-overview.md)
