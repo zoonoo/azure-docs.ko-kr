@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo, ravenn, spunukol, jogro, jploegert
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ccb47e7600b50223ea0247c678a73ced4c86be3
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: d5115b8ce7d28e7fe3c254a1942ea035aa9db473
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113302982"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122514890"
 ---
 # <a name="what-is-a-device-identity"></a>디바이스 ID란?
 
-[디바이스 ID](/graph/api/resources/device?view=graph-rest-1.0)는 Azure AD(Azure Active Directory)의 개체입니다. 이 디바이스 개체는 사용자, 그룹 또는 애플리케이션과 비슷합니다. 디바이스 ID는 액세스 또는 구성 결정을 내릴 때 사용할 수 있는 정보를 관리자에게 제공합니다.
+[디바이스 ID](/graph/api/resources/device?view=graph-rest-1.0&preserve-view=true)는 Azure AD(Azure Active Directory)의 개체입니다. 이 디바이스 개체는 사용자, 그룹 또는 애플리케이션과 비슷합니다. 디바이스 ID는 액세스 또는 구성 결정을 내릴 때 사용할 수 있는 정보를 관리자에게 제공합니다.
 
 ![Azure AD 디바이스 블레이드에 표시된 디바이스](./media/overview/azure-active-directory-devices-all-devices.png)
 

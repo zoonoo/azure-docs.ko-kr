@@ -89,6 +89,8 @@
           href: troubleshoot-compression.md
         - name: 원본 간 리소스 공유
           href: troubleshoot-cross-origin-resources.md
+        - name: 구독 제품 및 대역폭 제한
+          href: subscription-offers.md
         - name: 허용된 인증 기관
           href: 'https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT'
 - name: 참조
