@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d7c0c7c5a0fe5ff3100e754c99b476676cab222
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: f376a8e5d61b9bb3fda39184f4ff0873c48c8b43
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733379"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732337"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Azure Active Directory의 역할 기반 액세스 제어 개요
 
@@ -45,7 +45,7 @@ Azure AD는 두 가지 유형의 역할 정의를 지원합니다.
 1. 사용자(또는 서비스 주체)가 Microsoft Graph 또는 Azure AD Graph 엔드포인트에 대한 토큰을 획득합니다.
 1. 사용자가 발급된 토큰을 사용하여 Microsoft Graph 또는 Azure AD Graph를 통해 Azure AD(Azure Active Directory)에 대한 API 호출을 수행합니다.
 1. 환경에 따라 Azure AD에서 다음 작업 중 하나를 수행합니다.
-   - 사용자의 액세스 토큰에서 [wids 클레임](../../active-directory-b2c/access-tokens.md)을 기반으로 사용자의 역할 멤버 자격을 평가합니다.
+   - 사용자의 액세스 토큰에서 [wids 클레임](../develop/access-tokens.md)을 기반으로 사용자의 역할 멤버 자격을 평가합니다.
    - 직접 또는 그룹 멤버 자격을 통해 작업을 수행할 리소스에 적용되는 사용자의 모든 역할 할당을 검색합니다.
 1. Azure AD는 사용자가 이 리소스에 대해 갖는 역할에 API 호출의 작업이 포함되는지 여부를 결정합니다.
 1. 사용자에게 요청된 범위에서 작업에 대한 역할이 없으면 액세스 권한이 부여되지 않습니다. 그렇지 않으면 액세스 권한이 부여됩니다.

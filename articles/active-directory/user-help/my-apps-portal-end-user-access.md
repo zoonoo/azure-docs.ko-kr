@@ -12,12 +12,12 @@ ms.date: 03/26/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: d65daffab7522c1ececb3383d1cf5184f906d8f9
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 54a609cb73dcbf70afa5e20c41fa734080b89cc1
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111893015"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770692"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>내 앱 포털에서 로그인하고 앱 시작
 
@@ -85,7 +85,7 @@ ms.locfileid: "111893015"
 
 - **Google Chrome** - Chrome 웹 스토어에서 [내 앱 보안 로그인 확장](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) 기능으로 이동한 다음, **Chrome에 추가** 를 선택합니다.
 
-- **Mozilla Firefox** - **Firefox 추가 기능** 페이지에서 [내 앱 보안 로그인 확장](https://addons.mozilla.org/firefox/addon/access-panel-extension/) 기능으로 이동한 다음, **Firefox에 추가** 를 선택합니다.
+- **Mozilla Firefox** - **Firefox 추가 기능** 페이지에서 내 앱 보안 로그인 확장 기능으로 이동한 다음, **Firefox에 추가** 를 선택합니다.
 
 **주소** 표시줄의 오른쪽에 아이콘이 추가되어 로그인하고 확장을 사용자 지정할 수 있습니다.
 

@@ -2,25 +2,22 @@
 title: '자습서: Azure Active Directory를 사용하여 자동 사용자 프로비전을 수행하도록 PaperCut Cloud Print Management 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 PaperCut Cloud Print Management로 자동 프로비전 및 프로비전 해제하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 7e65d727-2951-4aec-a7a3-7bde49ed09e2
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/18/2020
-ms.author: Zhchia
-ms.openlocfilehash: c0738e7033f0aa39ca5f12a44c06d086175eb8fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: d357c6f13c4b935f104e1d6d0f3c3c5e3c5bd921
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98731469"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122207721"
 ---
 # <a name="tutorial-configure-papercut-cloud-print-management-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 PaperCut Cloud Print Management 구성
 
