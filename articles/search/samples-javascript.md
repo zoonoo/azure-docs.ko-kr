@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2021
-ms.openlocfilehash: 073095d590e61d9e7e561339c17501f0ccee844d
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 6bc5a504f1716ff10b56fd30b8991f6d9e4009c7
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112018660"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770215"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search에 대한 JavaScript 코드 샘플
 
@@ -34,21 +34,21 @@ Azure SDK 개발 팀의 코드 샘플에서 API 사용을 보여 줍니다. 이�
 
 | 샘플 | Description |
 |---------|-------------|
-| [인덱스](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexes) | [검색 인덱스](search-what-is-an-index.md)를 만들고, 업데이트하고, 가져오고, 나열하고, 삭제하는 방법을 보여 줍니다. 이 샘플 범주에는 서비스 통계 샘플도 포함됩니다. |
-| [dataSourceConnections(인덱서의 경우)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/dataSourceConnections) | [지원되는 Azure 데이터 원본](search-indexer-overview.md#supported-data-sources)의 인덱서 기반 인덱싱에 필요한 인덱서 데이터 원본을 만들고, 업데이트하고, 가져오고, 나열하고, 삭제하는 방법을 보여 줍니다. |
-| [인덱서](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexers) |  [인덱서](search-indexer-overview.md)를 만들고, 업데이트하고, 가져오고, 나열하고, 재설정하고, 삭제하는 방법을 보여 줍니다.|
-| [기술 세트](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/skillSets) |   연결된 인덱서이고 인덱싱 중에 AI 기반 보강을 수행하는 [기술 세트](cognitive-search-working-with-skillsets.md)를 만들고, 업데이트하고, 가져오고, 나열하고, 삭제하는 방법을 보여 줍니다. |
-| [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/synonymMaps) | [동의어 맵](search-synonyms.md)을 만들고, 업데이트하고, 가져오고, 나열하고, 삭제하는 방법을 보여 줍니다.  |
+| [인덱스](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/search-documents/samples/v11/javascript) | [검색 인덱스](search-what-is-an-index.md)를 만들고, 업데이트하고, 가져오고, 나열하고, 삭제하는 방법을 보여 줍니다. 이 샘플 범주에는 서비스 통계 샘플도 포함됩니다. |
+| [dataSourceConnections(인덱서의 경우)](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/search/search-documents/samples/v11/javascript/dataSourceConnectionOperations.js) | [지원되는 Azure 데이터 원본](search-indexer-overview.md#supported-data-sources)의 인덱서 기반 인덱싱에 필요한 인덱서 데이터 원본을 만들고, 업데이트하고, 가져오고, 나열하고, 삭제하는 방법을 보여 줍니다. |
+| [인덱서](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/search-documents/samples/v11/javascript) |  [인덱서](search-indexer-overview.md)를 만들고, 업데이트하고, 가져오고, 나열하고, 재설정하고, 삭제하는 방법을 보여 줍니다.|
+| [기술 세트](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/search-documents/samples/v11/javascript) |   연결된 인덱서이고 인덱싱 중에 AI 기반 보강을 수행하는 [기술 세트](cognitive-search-working-with-skillsets.md)를 만들고, 업데이트하고, 가져오고, 나열하고, 삭제하는 방법을 보여 줍니다. |
+| [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/search-documents/samples/v11/javascript) | [동의어 맵](search-synonyms.md)을 만들고, 업데이트하고, 가져오고, 나열하고, 삭제하는 방법을 보여 줍니다.  |
 
 ### <a name="typescript-samples"></a>TypeScript 샘플
 
 | 샘플 | Description |
 |---------|-------------|
-| [인덱스](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexes) | [검색 인덱스](search-what-is-an-index.md)를 만들고, 업데이트하고, 가져오고, 나열하고, 삭제하는 방법을 보여 줍니다. 이 샘플 범주에는 서비스 통계 샘플도 포함됩니다. |
-| [dataSourceConnections(인덱서의 경우)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/dataSourceConnections) | [지원되는 Azure 데이터 원본](search-indexer-overview.md#supported-data-sources)의 인덱서 기반 인덱싱에 필요한 인덱서 데이터 원본을 만들고, 업데이트하고, 가져오고, 나열하고, 삭제하는 방법을 보여 줍니다. |
-| [인덱서](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexers) |  [인덱서](search-indexer-overview.md)를 만들고, 업데이트하고, 가져오고, 나열하고, 재설정하고, 삭제하는 방법을 보여 줍니다.|
-| [기술 세트](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/skillSets) |   연결된 인덱서이고 인덱싱 중에 AI 기반 보강을 수행하는 [기술 세트](cognitive-search-working-with-skillsets.md)를 만들고, 업데이트하고, 가져오고, 나열하고, 삭제하는 방법을 보여 줍니다. |
-| [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/synonymMaps) | [동의어 맵](search-synonyms.md)을 만들고, 업데이트하고, 가져오고, 나열하고, 삭제하는 방법을 보여 줍니다.  |
+| [인덱스](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/search-documents/samples/v11/typescript/src) | [검색 인덱스](search-what-is-an-index.md)를 만들고, 업데이트하고, 가져오고, 나열하고, 삭제하는 방법을 보여 줍니다. 이 샘플 범주에는 서비스 통계 샘플도 포함됩니다. |
+| [dataSourceConnections(인덱서의 경우)](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/search/search-documents/samples/v11/typescript/src/dataSourceConnectionOperations.ts) | [지원되는 Azure 데이터 원본](search-indexer-overview.md#supported-data-sources)의 인덱서 기반 인덱싱에 필요한 인덱서 데이터 원본을 만들고, 업데이트하고, 가져오고, 나열하고, 삭제하는 방법을 보여 줍니다. |
+| [인덱서](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/search-documents/samples/v11/typescript/src) |  [인덱서](search-indexer-overview.md)를 만들고, 업데이트하고, 가져오고, 나열하고, 재설정하고, 삭제하는 방법을 보여 줍니다.|
+| [기술 세트](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/search/search-documents/samples/v11/typescript/src/skillSetOperations.ts) |   연결된 인덱서이고 인덱싱 중에 AI 기반 보강을 수행하는 [기술 세트](cognitive-search-working-with-skillsets.md)를 만들고, 업데이트하고, 가져오고, 나열하고, 삭제하는 방법을 보여 줍니다. |
+| [synonymMaps](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/search/search-documents/samples/v11/typescript/src/synonymMapOperations.ts) | [동의어 맵](search-synonyms.md)을 만들고, 업데이트하고, 가져오고, 나열하고, 삭제하는 방법을 보여 줍니다.  |
 
 ## <a name="doc-samples"></a>문서 샘플
 
