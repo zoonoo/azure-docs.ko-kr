@@ -129,22 +129,24 @@
           href: ./security-controls-policy.md
         - name: 보안 개요
           href: overview-security.md
-    - name: 네트워킹 기능
+    - name: 네트워킹
       items:
         - name: 개요
           href: networking-features.md
-        - name: 서비스 엔드포인트가 있는 애플리케이션 게이트웨이
-          href: networking/app-gateway-with-service-endpoints.md
-        - name: Private Endpoint
+        - name: 인바운드 및 아웃바운드 IP
+          href: overview-inbound-outbound-ips.md
+        - name: 프라이빗 엔드포인트
           href: networking/private-endpoint.md
-    - name: 인바운드 및 아웃바운드 IP
-      href: overview-inbound-outbound-ips.md
-    - name: 가상 네트워크 통합
-      href: web-sites-integrate-with-vnet.md
-    - name: 하이브리드 연결
-      href: app-service-hybrid-connections.md
-    - name: Traffic Manager 통합
-      href: web-sites-traffic-manager.md
+        - name: 하이브리드 연결
+          href: app-service-hybrid-connections.md
+        - name: 가상 네트워크 통합
+          href: web-sites-integrate-with-vnet.md
+        - name: 애플리케이션 게이트웨이 통합
+          href: networking/app-gateway-with-service-endpoints.md
+        - name: NAT 게이트웨이 통합
+          href: networking/nat-gateway-integration.md
+        - name: Traffic Manager 통합
+          href: web-sites-traffic-manager.md
     - name: 로컬 캐시
       href: overview-local-cache.md
     - name: 진단

@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/21/2020
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 6ffbc8d8d5813ef428ce8dbff2ebb53e9f4617e1
-  ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+  ms.openlocfilehash: 0d209c2b875b8ff1b22a4fe65098fc3fd076bde3
+  ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/19/2021
-  ms.locfileid: "112380413"
+  ms.lasthandoff: 08/24/2021
+  ms.locfileid: "122777539"
 landingContent:
 - title: 유연한 서버(미리 보기) 정보
   linkLists:
@@ -21,6 +21,8 @@ landingContent:
     links:
     - text: 유연한 서버란?
       url: overview.md
+    - text: 유연한 서버를 무료로 사용해 보기
+      url: how-to-deploy-on-azure-free-account.md
   - linkListType: quickstart
     links:
     - text: 유연한 서버 만들기
@@ -41,7 +43,9 @@ landingContent:
       url: concepts-compute-storage.md
     - text: MySQL 버전
       url: ./../concepts-supported-versions.md
-    - text: 네트워킹
+    - text: 서버 복원
+      url: how-to-restore-server-portal.md
+    - text: 네트워크 및 연결
       url: concepts-networking.md
     - text: Monitor
       url: concepts-monitoring.md
@@ -71,6 +75,22 @@ landingContent:
     links:
     - text: 서버 복원
       url: how-to-restore-server-portal.md
+- title: 네트워크 및 연결
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 네트워킹
+      url: concepts-networking.md
+    - text: 프라이빗 액세스
+      url: concepts-networking-vnet.md
+    - text: 공용 액세스
+      url: concepts-networking-public.md
+  - linkListType: how-to-guide
+    links:
+    - text: 프라이빗 액세스 구성
+      url: how-to-manage-virtual-network-portal.md
+    - text: 공용 액세스 구성
+      url: how-to-manage-firewall-portal.md
 - title: 연결
   linkLists:
   - linkListType: quickstart

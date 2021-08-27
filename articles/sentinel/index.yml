@@ -12,12 +12,12 @@ metadata:
   author: yelevin
   ms.author: yelevin
   ms.date: 06/25/2020
-  ms.openlocfilehash: 53ebfd52d2e55aa8f30f7638cd9998e83c257439
-  ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+  ms.openlocfilehash: 32935f55897e54836ce60ddae69c4f708053c9e0
+  ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/16/2021
-  ms.locfileid: "112199433"
+  ms.lasthandoff: 08/23/2021
+  ms.locfileid: "122662445"
 landingContent:
 - title: Azure Sentinel 정보
   linkLists:
@@ -31,20 +31,30 @@ landingContent:
     links:
     - text: Azure Sentinel의 새로운 기능
       url: whats-new.md
+  - linkListType: concept
+    links:
+    - text: 모범 사례
+      url: best-practices.md
 - title: 시작하기
   linkLists:
   - linkListType: quickstart
     links:
     - text: Azure Sentinel 등록
       url: quickstart-onboard.md
+  - linkListType: concept
+    links:
+    - text: 전제 조건
+      url: prerequisites.md
   - linkListType: how-to-guide
     links:
     - text: Azure Sentinel에 데이터 연결
       url: connect-data-sources.md
-  - linkListType: tutorial
-    links:
+    - text: 수집된 데이터 시각화
+      url: get-visibility.md
     - text: 인시던트 조사
-      url: tutorial-investigate-cases.md
+      url: investigate-cases.md
+    - text: Azure Sentinel과 Microsoft 365 Defender 통합
+      url: microsoft-365-defender-sentinel-integration.md
   - linkListType: learn
     links:
     - text: Azure Sentinel에 대한 KQL 쿼리 만들기
@@ -53,6 +63,8 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
+    - text: 데이터 수집 모범 사례
+      url: best-practices-data.md
     - text: 데이터 정규화 및 구문 분석
       url: normalization.md
   - linkListType: how-to-guide
@@ -61,8 +73,6 @@ landingContent:
       url: connect-microsoft-365-defender.md
     - text: 사용자 지정 커넥터 만들기
       url: create-custom-connector.md
-    - text: 위협 인텔리전스 연결
-      url: connect-threat-intelligence.md
     - text: 커넥터 상태 모니터링
       url: monitor-data-connector-health.md
     - text: Azure Data Explorer 통합
@@ -79,24 +89,18 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Azure Sentinel로 위협 인텔리전스 가져오기
-      url: import-threat-intelligence.md
+    - text: Azure Sentinel의 위협 인텔리전스 이해
+      url: understand-threat-intelligence.md
     - text: 위협 인텔리전스 통합
       url: threat-intelligence-integration.md
-  - linkListType: tutorial
-    links:
-    - text: 기본 제공 분석을 사용하여 위협 탐지
-      url: tutorial-detect-threats-built-in.md
-    - text: 사용자 지정 검색 규칙 만들기
-      url: tutorial-detect-threats-custom.md
   - linkListType: how-to-guide
     links:
-    - text: 위협 인텔리전스 연결
-      url: connect-threat-intelligence.md
-  - linkListType: reference
-    links:
-    - text: 엔터티 참조
-      url: entities-reference.md
+    - text: 위협 인텔리전스 플랫폼을 Azure Sentinel에 연결
+      url: connect-threat-intelligence-tip.md
+    - text: Azure Sentinel을 STIX/TAXII 피드에 연결
+      url: connect-threat-intelligence-taxii.md
+    - text: 위협 지표 작업
+      url: work-with-threat-indicators.md
 - title: 위협 탐지
   linkLists:
   - linkListType: concept
@@ -105,8 +109,16 @@ landingContent:
       url: identify-threats-with-entity-behavior-analytics.md
     - text: SOC-ML 변칙
       url: soc-ml-anomalies.md
+  - linkListType: how-to-guide
+    links:
+    - text: 기본 제공 분석을 사용하여 위협 탐지
+      url: detect-threats-built-in.md
+    - text: 사용자 지정 검색 규칙 만들기
+      url: detect-threats-custom.md
   - linkListType: reference
     links:
+    - text: 엔터티 참조
+      url: entities-reference.md
     - text: UEBA 보강
       url: ueba-enrichments.md
 - title: 위협 헌팅
@@ -127,12 +139,14 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: 데이터 모니터링
-      url: tutorial-monitor-your-data.md
-  - linkListType: how-to-guide
-    links:
     - text: UEBA를 사용하여 조사
       url: investigate-with-ueba.md
+  - linkListType: how-to-guide
+    links:
+    - text: 인시던트 조사
+      url: investigate-cases.md
+    - text: 데이터 모니터링
+      url: monitor-your-data.md
   - linkListType: reference
     links:
     - text: 일반적으로 사용되는 Azure Sentinel 통합 문서
@@ -151,10 +165,16 @@ landingContent:
       url: automate-incident-handling-with-automation-rules.md
     - text: 플레이북
       url: automate-responses-with-playbooks.md
-- title: 다중 테넌트 작업
+- title: Azure Sentinel 관리
   linkLists:
+  - linkListType: concept
+    links:
+    - text: 작업 영역 아키텍처 모범 사례
+      url: best-practices-workspace-architecture.md
   - linkListType: how-to-guide
     links:
+    - text: 작업 영역 아키텍처 디자인
+      url: design-your-workspace-architecture.md
     - text: 여러 테넌트 관리
       url: multiple-tenants-service-providers.md
     - text: 여러 작업 영역에서 인시던트 작업

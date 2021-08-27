@@ -24,9 +24,9 @@
   items:
     - name: 검색
       items:
-        - name: VMware VM을 검색합니다.
+        - name: VMware 환경의 서버 검색
           href: tutorial-discover-vmware.md
-        - name: Hyper-V VM을 검색합니다.
+        - name: Hyper-V 환경의 서버 검색
           href: tutorial-discover-hyper-v.md
         - name: 물리적 서버 검색
           href: tutorial-discover-physical.md
@@ -36,15 +36,17 @@
           href: tutorial-discover-gcp.md
     - name: 평가
       items:
-        - name: VMware VM 평가
+        - name: VMware 환경의 서버 평가
           items:
-            - name: Azure VM으로 마이그레이션할 VMware VM 평가
+            - name: Azure VM으로 마이그레이션할 서버 평가
               href: tutorial-assess-vmware-azure-vm.md
             - name: Azure SQL로 마이그레이션할 SQL 인스턴스 평가
               href: tutorial-assess-sql.md
-            - name: AVS로 마이그레이션할 VMware VM 평가
+            - name: App Service로 마이그레이션할 ASP.NET 웹앱 평가
+              href: tutorial-assess-webapps.md
+            - name: AVS로 마이그레이션할 서버 평가
               href: tutorial-assess-vmware-azure-vmware-solution.md
-        - name: Azure로 마이그레이션할 Hyper-V VM 평가
+        - name: Azure VM으로 마이그레이션할 Hyper-V 환경의 서버 평가
           href: tutorial-assess-hyper-v.md
         - name: Azure로 마이그레이션할 물리적 서버 평가
           href: tutorial-assess-physical.md
@@ -56,9 +58,9 @@
           href: tutorial-discover-import.md
     - name: Migrate
       items:
-        - name: VMware VM 마이그레이션
+        - name: VMware 환경의 서버 마이그레이션
           items:
-            - name: VMware VM 마이그레이션 옵션
+            - name: VMware 환경의 서버에 대한 마이그레이션 옵션
               href: server-migrate-overview.md
             - name: 에이전트 없는 마이그레이션을 사용하여 마이그레이션(포털)
               href: tutorial-migrate-vmware.md
@@ -66,7 +68,7 @@
               href: tutorial-migrate-vmware-agent.md
             - name: 에이전트 없는 마이그레이션을 사용하여 마이그레이션(PowerShell)
               href: tutorial-migrate-vmware-powershell.md
-        - name: Hyper-V VM 마이그레이션
+        - name: Hyper-V 환경의 서버 마이그레이션
           href: tutorial-migrate-hyper-v.md
         - name: 물리적 서버 마이그레이션
           href: tutorial-migrate-physical-virtual-machines.md
@@ -114,6 +116,8 @@
           href: concepts-assessment-calculation.md
         - name: 평가 개요(Azure SQL로 마이그레이션)
           href: concepts-azure-sql-assessment-calculation.md
+        - name: 평가 개요(App Service로 마이그레이션)
+          href: concepts-azure-webapps-assessment-calculation.md
         - name: 평가 개요(AVS로 마이그레이션)
           href: concepts-azure-vmware-solution-assessment-calculation.md
         - name: 평가 모범 사례
@@ -164,13 +168,13 @@
               href: how-to-set-up-appliance-physical.md
             - name: Azure Government에서 어플라이언스 배포
               href: deploy-appliance-script-government.md
-        - name: VMware VM에 대한 검색 범위 제한
+        - name: VMware 환경에서 서버에 대한 검색 범위 제한
           href: set-discovery-scope.md
         - name: 서버 자격 증명을 추가하는 방법
           href: add-server-credentials.md
         - name: 애플리케이션/역할/기능 검색
           href: how-to-discover-applications.md
-        - name: 기존 프로젝트에서 SQL 인스턴스 검색
+        - name: 기존 프로젝트에서 SQL 인스턴스 및 ASP.NET 웹앱 검색
           href: how-to-discover-sql-existing-project.md
         - name: 머신 종속성 분석(에이전트 기반)
           href: how-to-create-group-machine-dependencies.md
@@ -186,6 +190,8 @@
           href: how-to-create-assessment.md
         - name: Azure SQL 평가 만들기
           href: how-to-create-azure-sql-assessment.md
+        - name: Azure App Service 평가 만들기
+          href: how-to-create-azure-app-service-assessment.md
         - name: AVS 평가 만들기
           href: how-to-create-azure-vmware-solution-assessment.md
         - name: SQL Server 데이터베이스 평가
@@ -194,9 +200,9 @@
           href: how-to-modify-assessment.md
         - name: 스케일링 평가
           items:
-            - name: 다수의 VMware VM 평가
+            - name: VMware 환경에서 많은 수의 서버 평가
               href: scale-vmware-assessment.md
-            - name: 다수의 Hyper-V VM 평가
+            - name: Hyper-V 환경에서 많은 수의 서버 평가
               href: scale-hyper-v-assessment.md
             - name: 다수의 물리적 서버 평가
               href: scale-physical-assessment.md
@@ -244,6 +250,8 @@
       items:
         - name: Azure Migrate 어플라이언스 문제 해결
           href: troubleshoot-appliance.md
+        - name: 어플라이언스 진단으로 문제 해결
+          href: troubleshoot-appliance-diagnostic.md
         - name: 검색 문제 해결
           href: troubleshoot-discovery.md
         - name: 종속성 시각화 문제 해결

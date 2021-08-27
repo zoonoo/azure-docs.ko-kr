@@ -5,20 +5,20 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/25/2021
+ms.date: 07/28/2021
 ms.custom: mvc
-ms.openlocfilehash: d2b71b227500644a63eb116493abeba7576eb7eb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 324e30df7f63f5ca0abf7abd50ab890495e4e7cc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464953"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121721983"
 ---
-# <a name="tutorial-discover-servers-running-in-a-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>자습서: Azure Migrate 검색 및 평가를 통해 VMware 환경에서 실행 중인 서버 검색
+# <a name="tutorial-discover-servers-running-in-a-vmware-environment-with-azure-migrate"></a>자습서: Azure Migrate를 사용하여 VMware 환경에서 실행 중인 서버 검색
 
 Azure로 마이그레이션하는 과정의 일환으로 온-프레미스 인벤토리 및 워크로드를 검색합니다.
 
-이 자습서에서는 가벼운 Azure Migrate 어플라이언스인 Azure Migrate: 검색 및 평가 도구를 사용하여 VMware 환경에서 실행 중인 서버를 검색하는 방법을 보여줍니다. 어플라이언스를 vCenter Server 인스턴스에서 실행되는 서버로 배포하여 서버와 서버의 성능 메타데이터, 서버에서 실행 중인 애플리케이션, 서버 종속성, SQL Server 인스턴스 및 데이터베이스를 지속적으로 검색합니다.
+이 자습서에서는 가벼운 Azure Migrate 어플라이언스인 Azure Migrate: 검색 및 평가 도구를 사용하여 VMware 환경에서 실행 중인 서버를 검색하는 방법을 보여줍니다. 어플라이언스를 vCenter Server 인스턴스에서 실행되는 서버로 배포하여 서버와 서버의 성능 메타데이터, 서버에서 실행 중인 애플리케이션, 서버 종속성, ASP.NET 웹앱, SQL Server 인스턴스 및 데이터베이스를 지속적으로 검색합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -42,7 +42,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 --- | ---
 **vCenter Server/ESXi 호스트** | vCenter Server 버전 6.7, 6.5, 6.0 또는 5.5를 실행하는 서버가 필요합니다.<br /><br /> 서버는 버전 5.5 이상을 실행하는 ESXi 호스트에 호스트되어야 합니다.<br /><br /> 어플라이언스가 구성 및 성능 메타데이터를 수집할 수 있도록 vCenter Server에서 TCP 포트 443을 통한 인바운드 연결을 허용합니다.<br /><br /> 어플라이언스는 기본적으로 포트 443의 vCenter Server에 연결합니다. vCenter Server를 실행하는 서버가 다른 포트에서 수신 대기하는 경우, 어플라이언스 구성 관리자에서 vCenter Server 세부 정보를 제공할 때 포트를 수정할 수 있습니다.<br /><br /> 서버에 설치된 애플리케이션 검색 및 에이전트 없는 종속성 분석을 수행할 수 있도록 ESXi 호스트에서 TCP 포트 443을 통한 인바운드 액세스를 허용해야 합니다.
 **Azure Migrate 어플라이언스** | Azure Migrate 어플라이언스를 호스트하는 서버에 할당할 다음과 같은 리소스가 vCenter Server에 있어야 합니다.<br /><br /> - RAM 32GB, vCPU 8개 및 디스크 스토리지 약 80GB<br /><br /> - 외부 가상 스위치 그리고 어플라이언스 서버에서 직접 또는 프록시를 통한 인터넷 액세스
-**서버** | 모든 Windows 및 Linux OS 버전이 구성 및 성능 메타데이터 검색을 지원합니다. <br /><br /> 서버에서 애플리케이션 검색을 수행할 수 있도록 모든 Windows 및 Linux OS 버전이 지원됩니다. [에이전트 없는 종속성 분석에 지원되는 OS 버전](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless)을 확인하세요.<br /><br /> 설치된 애플리케이션 검색 및 에이전트 없는 종속성 분석을 수행하려면 VMware Tools(버전 10.2.1 이상)를 서버에 설치하고 실행해야 합니다. Windows 서버에는 PowerShell 버전 2.0 이상이 설치되어 있어야 합니다.<br /><br /> SQL Server 인스턴스 및 데이터베이스를 검색하려면 [지원되는 SQL Server 및 Windows OS 버전 및 버전](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements)과 Windows 인증 메커니즘을 확인하세요.
+**서버** | 모든 Windows 및 Linux OS 버전이 구성 및 성능 메타데이터 검색을 지원합니다. <br /><br /> 서버에서 애플리케이션 검색을 수행할 수 있도록 모든 Windows 및 Linux OS 버전이 지원됩니다. [에이전트 없는 종속성 분석에 지원되는 OS 버전](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless)을 확인하세요.<br /><br /> 설치된 애플리케이션 검색 및 에이전트 없는 종속성 분석을 수행하려면 VMware Tools(버전 10.2.1 이상)를 서버에 설치하고 실행해야 합니다. Windows 서버에는 PowerShell 버전 2.0 이상이 설치되어 있어야 합니다.<br /><br /> SQL Server 인스턴스 및 데이터베이스를 검색하려면 [지원되는 SQL Server 및 Windows OS 버전 및 버전](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements)과 Windows 인증 메커니즘을 확인하세요.<br /><br /> IIS 웹 서버에서 실행되는 ASP.NET 웹앱을 검색하려면 [지원되는 Windows OS 및 IIS 버전](migrate-support-matrix-vmware.md#aspnet-web-apps-discovery-requirements)을 확인하세요.
 
 ## <a name="prepare-an-azure-user-account"></a>Azure 사용자 계정 준비
 
@@ -105,13 +105,13 @@ VMware vSphere 웹 클라이언트에서 vCenter Server에 사용할 읽기 전�
 
 ### <a name="create-an-account-to-access-servers"></a>서버에 액세스하는 계정 만들기
 
-서버의 사용자 계정에는 설치된 애플리케이션의 검색과 에이전트 없는 종속성 분석, SQL Server 인스턴스 및 데이터베이스의 검색을 시작하는 데 필요한 권한이 있어야 합니다. 사용자 계정 정보는 어플라이언스 구성 관리자에서 제공할 수 있습니다. 어플라이언스는 에이전트를 서버에 설치하지 않습니다.
+서버의 사용자 계정에는 설치된 애플리케이션의 검색과 에이전트 없는 종속성 분석, 그리고 웹앱, SQL Server 인스턴스 및 데이터베이스의 검색을 시작하는 데 필요한 권한이 있어야 합니다. 사용자 계정 정보는 어플라이언스 구성 관리자에서 제공할 수 있습니다. 어플라이언스는 에이전트를 서버에 설치하지 않습니다.
 
-* Windows 서버의 경우 서버 관리자 권한이 있는 계정(로컬 또는 도메인)을 만듭니다. SQL Server 인스턴스 및 데이터베이스를 검색하려면 Windows 또는 SQL Server 계정이 sysadmin 서버 역할의 멤버여야 합니다. [사용자 계정에 필요한 역할을 할당](/sql/relational-databases/security/authentication-access/server-level-roles)하는 방법을 알아보세요.
+* Windows 서버 및 웹앱 검색의 경우 서버 관리자 권한이 있는 계정(로컬 또는 도메인)을 만듭니다. SQL Server 인스턴스 및 데이터베이스를 검색하려면 Windows 또는 SQL Server 계정이 sysadmin 서버 역할의 멤버여야 합니다. [사용자 계정에 필요한 역할을 할당](/sql/relational-databases/security/authentication-access/server-level-roles)하는 방법을 알아보세요.
 * Linux 서버의 경우 루트 권한이 있는 계정을 만듭니다. 또는/bin/netstat 및/bin/ls 파일에 대한 CAP_DAC_READ_SEARCH 및 CAP_SYS_PTRACE 권한이 있는 계정을 만들어도 됩니다.
 
 > [!NOTE]
-> 설치된 애플리케이션의 검색, 에이전트 없는 종속성 분석, SQL Server 인스턴스 및 데이터베이스의 검색을 시작하기 위해 Azure Migrate 구성 관리자에서 여러 서버 자격 증명을 추가할 수도 있습니다. 여러 도메인, Windows(도메인 아님), Linux(도메인 아님) 또는 SQL Server 인증 자격 증명을 추가할 수 있습니다. [서버 자격 증명을 추가](add-server-credentials.md)하는 방법을 알아봅니다.
+> 설치된 애플리케이션의 검색, 에이전트 없는 종속성 분석, 그리고 웹앱, SQL Server 인스턴스 및 데이터베이스의 검색을 시작하기 위해 Azure Migrate 구성 관리자에서 여러 서버 자격 증명을 추가할 수도 있습니다. 여러 도메인, Windows(도메인 아님), Linux(도메인 아님) 또는 SQL Server 인증 자격 증명을 추가할 수 있습니다. [서버 자격 증명을 추가](add-server-credentials.md)하는 방법을 알아봅니다.
 
 ## <a name="set-up-a-project"></a>프로젝트 설정
 
@@ -119,7 +119,7 @@ VMware vSphere 웹 클라이언트에서 vCenter Server에 사용할 읽기 전�
 
 1. Azure Portal에서 **모든 서비스** 를 선택한 다음, **Azure Migrate** 를 검색합니다.
 1. **서비스** 아래에서 **Azure Migrate** 를 선택합니다.
-1. **개요** 에서 마이그레이션 목표에 따라 **Windows, Linux 및 SQL Server** 또는 **SQL Server(전용)** 또는 **추가 시나리오 탐색** 옵션 중 하나를 선택합니다. 
+1. **개요** 에서 마이그레이션 목표에 따라 **서버, 데이터베이스 및 웹앱**, **SQL Server(전용)** 또는 **추가 시나리오 탐색** 옵션 중 하나를 선택합니다.
 1. **프로젝트 만들기** 를 선택합니다.
 1. **프로젝트 만들기** 에서 Azure 구독 및 리소스 그룹을 선택합니다. 리소스 그룹이 없는 경우 리소스 그룹을 만듭니다.
 1. **프로젝트 세부 정보** 에서 프로젝트 이름과 이 프로젝트를 만들려는 지역을 지정합니다. [퍼블릭 클라우드가 지원되는 지역](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드가 지원되는 지역](migrate-support-matrix.md#supported-geographies-azure-government)을 참조하세요.
@@ -151,7 +151,7 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 이 섹션�
 
 #### <a name="generate-the-project-key"></a>프로젝트 키 생성
 
-1. **마이그레이션 목표** 에서 **Windows, Linux 및 SQL Server** > **Azure Migrate: 검색 및 평가** > **검색** 을 선택합니다.
+1. **마이그레이션 목표** 에서 **서버, 데이터베이스 및 웹앱** > **Azure Migrate: 검색 및 평가** > **검색** 을 선택합니다.
 1. **서버 검색** 에서 **서버가 가상화되어 있나요?** > **예, VMware vSphere 하이퍼바이저 사용** 을 선택합니다.
 1. **1: 프로젝트 키 생성** 에 VMware 환경에서 서버를 검색하도록 설정할 Azure Migrate 어플라이언스의 이름을 지정합니다. 이름은 14자 이하의 영숫자여야 합니다.
 1. 필요한 Azure 리소스 만들기를 시작하려면 **키 생성** 을 선택합니다. 리소스를 만드는 동안 **검색** 창을 닫지 마세요.
@@ -269,7 +269,7 @@ OVA 파일을 배포하기 전에 파일이 안전한지 확인합니다.
 
 ### <a name="provide-server-credentials"></a>서버 자격 증명 입력
 
-**3단계: 소프트웨어 인벤토리, 에이전트 없는 종속성 분석, SQL Server 인스턴스 및 데이터베이스 검색을 수행하는 데 필요한 서버 자격 증명 제공** 에서 여러 서버 자격 증명을 제공할 수 있습니다. 이러한 어플라이언스 기능을 사용하지 않으려면 이 단계를 건너뛰고 vCenter Server 검색으로 진행하면 됩니다. 이 옵션은 언제든지 변경할 수 있습니다.
+**3단계: 소프트웨어 인벤토리, 에이전트 없는 종속성 분석, SQL Server 인스턴스 및 데이터베이스 검색, VMware 환경에서 ASP.NET 웹앱 검색을 수행하는 데 필요한 서버 자격 증명 제공** 에서 여러 서버 자격 증명을 제공할 수 있습니다. 이러한 어플라이언스 기능을 사용하지 않으려면 이 단계를 건너뛰고 vCenter Server 검색으로 진행하면 됩니다. 이 옵션은 언제든지 변경할 수 있습니다.
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="소프트웨어 인벤토리, 종속성 분석 및 SQL Server 검색을 위한 자격 증명 제공을 보여주는 스크린샷":::
 
@@ -288,7 +288,7 @@ OVA 파일을 배포하기 전에 파일이 안전한지 확인합니다.
     **저장** 을 선택합니다.
 
     도메인 자격 증명을 선택하는 경우 도메인에 대한 FQDN도 입력해야 합니다. FQDN은 해당 도메인의 Active Directory 인스턴스에서 자격 증명의 신뢰성에 대한 유효성을 검사하는 데 필요합니다.
-1. 설치된 애플리케이션의 검색, 에이전트 없는 종속성 분석, SQL Server 인스턴스 및 데이터베이스의 검색을 위해 계정에 [필요한 권한](add-server-credentials.md#required-permissions)을 검토합니다.
+1. 설치된 애플리케이션의 검색, 에이전트 없는 종속성 분석, 그리고 웹앱, SQL Server 인스턴스 및 데이터베이스의 검색을 위해 계정에 [필요한 권한](add-server-credentials.md#required-permissions)을 검토합니다.
 1. 여러 자격 증명을 한 번에 추가하려면 **더 추가** 를 선택하여 더 많은 자격 증명을 저장하고 추가합니다.
     **저장** 또는 **더 추가** 를 선택하면 어플라이언스가 인증을 위해 도메인의 Active Directory 인스턴스에서 도메인 자격 증명의 유효성을 검사합니다. 어플라이언스가 반복되어 자격 증명을 각 서버에 매핑할 때 계정 잠금을 방지하기 위해 각 추가 후에 유효성 검사가 이루어집니다.
 
@@ -311,14 +311,24 @@ vCenter Server 검색을 시작하려면 **검색 시작** 을 선택합니다. 
 * [소프트웨어 인벤토리](how-to-discover-applications.md)는 서버에서 실행되는 SQL Server 인스턴스를 식별합니다. 어플라이언스는 수집한 정보를 사용하여 어플라이언스에서 제공된 SQL Server 인증 자격 증명 또는 Windows 인증 자격 증명을 통해 SQL Server 인스턴스에 연결하려고 시도합니다. 그런 다음, SQL Server 데이터베이스 및 해당 속성에 대한 데이터를 수집합니다. SQL 검색은 24시간마다 한 번씩 수행됩니다.
 * 어플라이언스는 네트워크에 대한 가시성이 확보된 SQL Server에만 연결할 수 있지만, 소프트웨어 인벤토리 자체에는 네트워크에 대한 가시성이 필요하지 않을 수 있습니다.
 * 설치된 애플리케이션을 검색하는 데 15분 이상 걸릴 수 있습니다. 소요 시간은 검색할 서버 수에 따라 달라집니다. 서버가 500개인 경우 검색된 인벤토리가 포털의 Azure Migrate 프로젝트에 표시될 때까지 약 1시간 정도 걸립니다.
+* [소프트웨어 인벤토리](how-to-discover-applications.md)는 검색된 서버의 기존 웹 서버 역할을 식별합니다. 서버에서 웹 서버 역할을 사용한 것으로 확인되면 Azure Migrate는 서버에서 웹앱 검색을 수행합니다. 웹앱 구성 데이터는 24시간마다 한 번 업데이트됩니다.
 * 소프트웨어 인벤토리 중에 추가된 서버 자격 증명은 서버에 대해 반복되고, 에이전트 없는 종속성 분석을 위해 유효성이 검사됩니다. 서버 검색이 완료되면 포털에서 서버에 에이전트 없는 종속성 분석을 사용하도록 설정할 수 있습니다. 유효성 검사에 성공한 서버만 선택하여 [에이전트 없는 종속성 분석](how-to-create-group-machine-dependencies-agentless.md)을 사용하도록 설정할 수 있습니다.
-* SQL Server 인스턴스 및 데이터베이스 데이터는 검색을 시작한 후 24시간 이내에 포털에 표시되기 시작합니다.
+* ASP.NET 웹앱, SQL Server 인스턴스 및 데이터베이스 데이터는 검색을 시작한 후 24시간 이내에 포털에 표시되기 시작합니다.
 * 기본적으로 Azure Migrate는 SQL 인스턴스에 연결하는 가장 안전한 방법을 사용합니다. 즉, Azure Migrate는 TrustServerCertificate 속성을 `true`로 설정하여 Azure Migrate 어플라이언스와 원본 SQL Server 인스턴스 간의 통신을 암호화합니다. 또한 전송 계층은 SSL을 사용하여 채널을 암호화하고 인증서 체인을 건너뛰어 신뢰 유효성을 검사합니다. 따라서 어플라이언스 서버는 인증서의 루트 인증 기관을 신뢰하도록 설정되어야 합니다. 그러나 어플라이언스에서 **SQL Server 연결 속성 편집** 을 선택하여 연결 설정을 수정할 수 있습니다. 선택할 항목을 이해하는 방법에 대해 [자세히 알아보세요](https://go.microsoft.com/fwlink/?linkid=2158046).
 
     :::image type="content" source="./media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="SQL Server 연결 속성을 편집하는 방법을 보여 주는 스크린샷":::
+
+vCenter Server 검색을 시작하려면 **검색 시작** 을 선택합니다. 검색이 성공적으로 시작되면 원본 테이블에서 vCenter Server IP 주소/FQDN에 대한 검색 상태를 확인할 수 있습니다.
+
+### <a name="view-discovered-data"></a>검색된 데이터 보기
+
+1. Azure Migrate 포털로 이동합니다.
+1. 발견된 데이터를 보려면 아래 스크린샷에 표시된 대로 새로 고침을 클릭합니다.
+    :::image type="content" source="./media/tutorial-discover-vmware/discovery-assessment-tile.png" alt-text="검색 및 평가 타일에서 데이터를 새로 고치는 방법을 보여주는 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure VM으로 마이그레이션하기 위해 서버를 평가](./tutorial-assess-vmware-azure-vm.md)하는 방법을 알아봅니다.
 - [Azure SQL로 마이그레이션하기 위해 SQL Server를 실행하는 서버를 평가](./tutorial-assess-sql.md)하는 방법을 알아봅니다.
+- [Azure App Service로 마이그레이션할 웹앱을 평가](./tutorial-assess-webapps.md)하는 방법을 알아봅니다.
 - [검색 중에 Azure Migrate 어플라이언스에서 수집하는 데이터](migrate-appliance.md#collected-data---vmware)를 검토합니다.
