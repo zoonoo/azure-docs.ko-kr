@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 66f2091087ed3602e929b584f7a311f4ebb05f88
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: d8e3dbc012e49b69e766d0551c0a91dcbb92660b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114292513"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739582"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Azure Communication Services의 문제 해결
 
@@ -181,7 +181,7 @@ Azure Communication Services Calling SDK는 다음 오류 코드를 사용하여
 
 | 오류 코드 | Description | 수행할 작업 |
 | -------- | ---------------| ---------------|
-| 403 | 금지 / 인증 오류. | Communication Services 토큰이 유효하고 만료되지 않았는지 확인합니다. Teams 상호 운용성을 사용하는 경우 Teams 테넌트가 미리 보기 액세스 허용 목록에 추가되었는지 확인합니다. [Teams 테넌트 상호 운용성](./teams-interop.md)을 사용/사용하지 않도록 설정하려면 [이 양식](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u)을 작성합니다.|
+| 403 | 금지 / 인증 오류. | Communication Services 토큰이 유효하고 만료되지 않았는지 확인합니다. |
 | 404 | 호출을 찾을 수 없습니다. | 통화하는 번호(또는 조인하는 통화)가 있는지 확인합니다. |
 | 408 | 통화 컨트롤러 시간이 초과되었습니다. | 사용자 엔드포인트에서 프로토콜 메시지를 기다리는 동안 통화 컨트롤러 시간이 초과되었습니다. 클라이언트가 연결되어 있고 사용 가능한지 확인합니다. |
 | 410 | 로컬 미디어 스택 또는 미디어 인프라 오류입니다. | 지원되는 환경에서 최신 SDK를 사용하고 있는지 확인합니다. |

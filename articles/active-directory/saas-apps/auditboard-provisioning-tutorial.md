@@ -3,8 +3,8 @@ title: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Audi
 description: Azure AD에서 AuditBoard로 사용자 계정을 자동으로 프로비저닝 및 프로비전 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: e6ab736b-2bb7-4a5a-9f01-67c33f0ff97d
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/21/2021
-ms.author: Zhchia
-ms.openlocfilehash: a5b31646044f61029f15a2636dd918aaaf4e67ea
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.author: thwimmer
+ms.openlocfilehash: 8050b5352658412aaa156b1e48290810e45a5894
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956654"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122327800"
 ---
 # <a name="tutorial-configure-auditboard-for-automatic-user-provisioning"></a>자동 사용자 프로비저닝을 위한 AuditBoard 구성 자습서
 

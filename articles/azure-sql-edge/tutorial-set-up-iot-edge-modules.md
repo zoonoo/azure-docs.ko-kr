@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sourabha, sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 5d768fdc2540496769883d839cfbb4f009a2000c
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: dab213cf240dd955f1aea2a545b5c25efcdef349
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077638"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751332"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>IoT Edge 모듈 및 연결 설정
 
@@ -45,15 +45,15 @@ Azure SQL Edge에서 철광석 불순물 예측을 위해 세 부분으로 구�
    | _필드_   | _값_       |
    | -------   | -------       |
    | Name      | 레지스트리 이름 |
-   | 주소   | 로그인 서버  | 
-   | 사용자 이름 | 사용자 이름      | 
-   | 암호  | 암호      | 
-  
+   | 주소   | 로그인 서버  |
+   | 사용자 이름 | 사용자 이름      |
+   | 암호  | 암호      |
+
 ## <a name="build-push-and-deploy-the-data-generator-module"></a>데이터 생성기 모듈 빌드, 푸시 및 배포
 
 1. [프로젝트 파일](https://github.com/microsoft/sqlsourabh/tree/main/SQLEdgeSamples/IoTEdgeSamples/IronOreSilica)을 머신에 복제합니다.
 2. Visual Studio 2019를 사용하여 **IronOre_Silica_Predict.sln** 파일을 엽니다.
-3. **deployment.template.json** 에서 컨테이너 레지스트리 세부 정보를 업데이트합니다. 
+3. **deployment.template.json** 에서 컨테이너 레지스트리 세부 정보를 업데이트합니다.
    ```json
    "registryCredentials":{
         "RegistryName":{
@@ -70,15 +70,15 @@ Azure SQL Edge에서 철광석 불순물 예측을 위해 세 부분으로 구�
         "tag":
     }
    ```
-5. 디버그 또는 릴리스 모드에서 프로젝트를 실행하여 프로젝트가 문제 없이 실행되도록 합니다. 
+5. 디버그 또는 릴리스 모드에서 프로젝트를 실행하여 프로젝트가 문제 없이 실행되도록 합니다.
 6. 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음, **IoT Edge 모듈 빌드 및 푸시** 를 선택하여 프로젝트를 컨테이너 레지스트리에 푸시합니다.
-7. 데이터 생성기 모듈을 IoT Edge 모듈로 Edge 디바이스에 배포합니다. 
+7. 데이터 생성기 모듈을 IoT Edge 모듈로 Edge 디바이스에 배포합니다.
 
 ## <a name="deploy-the-azure-sql-edge-module"></a>Azure SQL Edge 모듈 배포
 
-1. **+ 추가** 를 클릭한 다음, **Marketplace 모듈** 을 클릭하여 Azure SQL Edge 모듈을 배포합니다. 
+1. **+ 추가** 를 클릭한 다음, **Marketplace 모듈** 을 클릭하여 Azure SQL Edge 모듈을 배포합니다.
 
-2. **IoT Edge Module Marketplace** 블레이드에서 *Azure SQL Edge* 를 검색하고 *Azure SQL Edge Developer* 를 선택합니다. 
+2. **IoT Edge Module Marketplace** 블레이드에서 *Azure SQL Edge* 를 검색하고 *Azure SQL Edge Developer* 를 선택합니다.
 
 3. **IoT Edge 모듈** 에서 새로 추가된 *Azure SQL Edge* 모듈을 클릭하여 Azure SQL Edge 모듈을 구성합니다. 구성 옵션에 대한 자세한 내용은 [Azure SQL Edge 배포](./deploy-portal.md)를 참조하세요.
 
@@ -90,14 +90,14 @@ Azure SQL Edge에서 철광석 불순물 예측을 위해 세 부분으로 구�
 
 7. **디바이스에서 모듈 설정** 페이지의 경로 창에서 아래 설명된 대로 모듈의 경로를 IoT Edge 허브 통신으로 지정합니다. 아래의 경로 정의에 있는 모듈 이름을 업데이트해야 합니다.
 
-   ```
+   ```syntax
    FROM /messages/modules/<your_data_generator_module>/outputs/IronOreMeasures INTO
    BrokeredEndpoint("/modules/<your_azure_sql_edge_module>/inputs/IronOreMeasures")
    ```
 
    다음은 그 예입니다. 
 
-   ```
+   ```syntax
    FROM /messages/modules/ASEDataGenerator/outputs/IronOreMeasures INTO BrokeredEndpoint("/modules/AzureSQLEdge/inputs/IronOreMeasures")
    ```
 
@@ -126,15 +126,15 @@ Azure SQL Edge에서 철광석 불순물 예측을 위해 세 부분으로 구�
 
 4. **파일** 메뉴 탭에서 새 Notebook을 열거나 키보드 바로 가기 키 Ctrl + N을 사용합니다.
 
-5. 새 쿼리 창에서 아래 스크립트를 실행하여 T-SQL 스트리밍 작업을 만듭니다. 스크립트를 실행하기 전에 다음 변수를 변경해야 합니다. 
-   - *SQL_SA_Password:* Azure SQL Edge 모듈을 배포하는 동안 지정된 MSSQL_SA_PASSWORD 값입니다. 
-   
+5. 새 쿼리 창에서 아래 스크립트를 실행하여 T-SQL 스트리밍 작업을 만듭니다. 스크립트를 실행하기 전에 다음 변수를 변경해야 합니다.
+   - *SQL_SA_Password:* Azure SQL Edge 모듈을 배포하는 동안 지정된 MSSQL_SA_PASSWORD 값입니다.
+
    ```sql
    Use IronOreSilicaPrediction
    Go
 
    Declare @SQL_SA_Password varchar(200) = '<SQL_SA_Password>'
-   declare @query varchar(max) 
+   declare @query varchar(max)
 
    /*
    Create Objects Required for Streaming
@@ -144,22 +144,22 @@ Azure SQL Edge에서 철광석 불순물 예측을 위해 세 부분으로 구�
 
    If NOT Exists (select name from sys.external_file_formats where name = 'JSONFormat')
    Begin
-      CREATE EXTERNAL FILE FORMAT [JSONFormat]  
+      CREATE EXTERNAL FILE FORMAT [JSONFormat]
       WITH ( FORMAT_TYPE = JSON)
-   End 
+   End
 
 
    If NOT Exists (select name from sys.external_data_sources where name = 'EdgeHub')
    Begin
-      Create EXTERNAL DATA SOURCE [EdgeHub] 
+      Create EXTERNAL DATA SOURCE [EdgeHub]
       With(
          LOCATION = N'edgehub://'
       )
-   End 
+   End
 
    If NOT Exists (select name from sys.external_streams where name = 'IronOreInput')
    Begin
-      CREATE EXTERNAL STREAM IronOreInput WITH 
+      CREATE EXTERNAL STREAM IronOreInput WITH
       (
          DATA_SOURCE = EdgeHub,
          FILE_FORMAT = JSONFormat,
@@ -173,7 +173,7 @@ Azure SQL Edge에서 철광석 불순물 예측을 위해 세 부분으로 구�
        set @query = 'CREATE DATABASE SCOPED CREDENTIAL SQLCredential
                  WITH IDENTITY = ''sa'', SECRET = ''' + @SQL_SA_Password + ''''
        Execute(@query)
-   End 
+   End
 
    If NOT Exists (select name from sys.external_data_sources where name = 'LocalSQLOutput')
    Begin
@@ -183,7 +183,7 @@ Azure SQL Edge에서 철광석 불순물 예측을 위해 세 부분으로 구�
 
    If NOT Exists (select name from sys.external_streams where name = 'IronOreOutput')
    Begin
-      CREATE EXTERNAL STREAM IronOreOutput WITH 
+      CREATE EXTERNAL STREAM IronOreOutput WITH
       (
          DATA_SOURCE = LocalSQLOutput,
          LOCATION = N'IronOreSilicaPrediction.dbo.IronOreMeasurements'
@@ -196,7 +196,7 @@ Azure SQL Edge에서 철광석 불순물 예측을 위해 세 부분으로 구�
    exec sys.sp_start_streaming_job @name=N'IronOreData'
    ```
 
-6. 다음 쿼리를 사용하여 데이터 생성 모듈의 데이터가 데이터베이스로 스트리밍되는지 확인합니다. 
+6. 다음 쿼리를 사용하여 데이터 생성 모듈의 데이터가 데이터베이스로 스트리밍되는지 확인합니다.
 
    ```sql
    Select Top 10 * from dbo.IronOreMeasurements
@@ -204,7 +204,7 @@ Azure SQL Edge에서 철광석 불순물 예측을 위해 세 부분으로 구�
    ```
 
 
-이 자습서에서는 데이터 생성기 모듈과 SQL Edge 모듈을 배포했습니다. 그런 다음, 데이터 생성 모듈에 의해 생성된 데이터를 SQL로 스트리밍하는 스트리밍 작업을 만들었습니다. 
+이 자습서에서는 데이터 생성기 모듈과 SQL Edge 모듈을 배포했습니다. 그런 다음, 데이터 생성 모듈에 의해 생성된 데이터를 SQL로 스트리밍하는 스트리밍 작업을 만들었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
