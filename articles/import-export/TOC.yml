@@ -26,7 +26,7 @@
       href: storage-import-export-encryption-key-portal.md
     - name: 모니터
       items:
-        - name: 드라이브 상태 보기
+        - name: '작업, 드라이브 상태 보기'
           href: storage-import-export-view-drive-status.md
         - name: 작업 상태 검토
           href: storage-import-export-tool-reviewing-job-status-v1.md

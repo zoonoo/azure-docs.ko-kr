@@ -1,4 +1,4 @@
-- name: Azure Arc 사용 서버 설명서
+- name: Azure Arc 지원 서버 설명서
   href: index.yml
 - name: 개요
   items:
@@ -16,6 +16,10 @@
       href: ./learn/tutorial-assign-policy-portal.md
     - name: 컴퓨터 모니터링
       href: ./learn/tutorial-enable-vm-insights.md
+- name: 샘플
+  items:
+    - name: Azure Resource Graph 쿼리
+      href: ./resource-graph-samples.md
 - name: 개념
   items:
     - name: 보안

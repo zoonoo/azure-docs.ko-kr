@@ -79,8 +79,10 @@
                   href: microsoft-resources-move-regions.md
                 - name: Azure Storage
                   href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/management/toc.json
-                - name: Azure SQL
+                - name: Azure SQL DB 및 MI
                   href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Azure VM의 SQL Server
+                  href: ../../azure-sql/virtual-machines/windows/move-sql-vm-different-region.md?toc=/azure/azure-resource-manager/management/toc.json
                 - name: Azure VM
                   href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
                 - name: 논리 앱
@@ -141,6 +143,8 @@
           href: manage-resources-powershell.md
     - name: 리소스 공급자 및 형식
       href: resource-providers-and-types.md
+    - name: 미리 보기 기능
+      href: preview-features.md
     - name: 리소스 그룹 및 리소스 삭제
       href: delete-resource-group.md
     - name: 리소스 잠금

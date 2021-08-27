@@ -817,6 +817,8 @@
               href: ./interactive-query/apache-hive-warehouse-connector-operations.md
             - name: Apache Zeppelin와 HWC 통합
               href: ./interactive-query/apache-hive-warehouse-connector-zeppelin.md
+            - name: HWC 지원 API
+              href: ./interactive-query/hive-warehouse-connector-apis.md
             - name: Hadoop과 Apache Hive 사용
               href: ./hadoop/hdinsight-use-hive.md
             - name: Apache Hive View 사용

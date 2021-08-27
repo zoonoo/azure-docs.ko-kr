@@ -74,10 +74,10 @@
               displayName: 'deployment commands,multiple resource groups'
             - name: Subscription
               href: deploy-to-subscription.md
-              displayName: 'Azure policy,policy,access control'
+              displayName: 'Azure Policy,policy,access control'
             - name: 관리 그룹
               href: deploy-to-management-group.md
-              displayName: 'policy,Azure policy'
+              displayName: 'policy,Azure Policy'
             - name: 테넌트
               href: deploy-to-tenant.md
               displayName: assign role
@@ -85,6 +85,12 @@
           href: linter.md
         - name: 모범 사례
           href: best-practices.md
+        - name: 패턴
+          items:
+            - name: 구성 집합
+              href: patterns-configuration-set.md
+            - name: 공유 변수 파일
+              href: patterns-shared-variable-file.md
     - name: 배포
       items:
         - name: 배포 전 검사
@@ -123,6 +129,8 @@
     - name: Bicep 파일 구조
       displayName: 'parameters,variables,resources,outputs,condition'
       href: file.md
+    - name: Bicep 리소스 참조
+      href: /azure/templates/
     - name: 데이터 형식
       href: data-types.md
       displayName: 'supported types,arrays,booleans,integers,objects,strings,secure,'
@@ -154,19 +162,17 @@
       items:
         - name: 모든 연산자
           href: operators.md
+        - name: 접근자 연산자
+          href: operators-access.md
         - name: 비교 연산자
           href: operators-comparison.md
         - name: 논리 연산자
           href: operators-logical.md
         - name: 숫자 연산자
           href: operators-numeric.md
-        - name: 액세스 연산자
-          href: operators-access.md
     - name: Bicep CLI
       href: bicep-cli.md
       displayName: 'build,decompile,install,list-versions,list versions,upgrade,version'
-    - name: 템플릿 참조
-      href: /azure/templates/
     - name: Azure PowerShell
       href: /powershell/module/az.resources
     - name: Azure CLI

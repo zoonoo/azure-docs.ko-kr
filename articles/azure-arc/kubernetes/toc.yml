@@ -4,7 +4,7 @@
   items:
     - name: Azure Arc 지원 Kubernetes에 대한 정보
       href: overview.md
-    - name: Azure Arc 유효성 검사 프로그램
+    - name: Azure Arc 검증 파트너
       href: validation-program.md
 - name: 빠른 시작
   items:
@@ -58,7 +58,7 @@
           href: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Azure Defender를 사용하여 위협 보호 적용
           href: ../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
-        - name: Azure Policy를 사용한 허용 제어 정책
+        - name: Azure Policy를 사용한 허용 제어 정책 정의
           href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Arc 지원 Open Service Mesh 배포
           href: tutorial-arc-enabled-open-service-mesh.md
@@ -83,6 +83,8 @@
       href: /powershell/module/Az.ConnectedKubernetes/
 - name: 리소스
   items:
+    - name: 지역 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc'
     - name: 배포 계획
       href: plan-at-scale-deployment.md
     - name: Azure Arc 빠른 시작

@@ -79,3 +79,21 @@
               href: ./elastic/manage.md
             - name: 문제 해결
               href: ./elastic/troubleshoot.md
+    - name: Logz.io
+      items:
+        - name: 개요
+          items:
+            - name: Logz.io란 무엇인가요?
+              href: ./logzio/overview.md
+        - name: 빠른 시작
+          items:
+            - name: Logz.io 리소스 만들기
+              href: ./logzio/create.md
+        - name: 방법
+          items:
+            - name: 관리
+              href: ./logzio/manage.md
+            - name: Single Sign-On 설정
+              href: ./logzio/setup-sso.md
+            - name: 문제 해결
+              href: ./logzio/troubleshoot.md

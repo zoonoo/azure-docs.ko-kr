@@ -4,6 +4,8 @@
   items:
     - name: Video Analyzer for Media란?
       href: video-indexer-overview.md
+    - name: Video Analyzer 정보
+      href: ../video-analyzer-docs/overview.md
 - name: 빠른 시작
   expanded: true
   items:

@@ -18,6 +18,8 @@
       href: quickstart-create-deploy-azure-resource-manager-template.md
     - name: 논리 앱 만들기 및 관리 - Azure CLI
       href: quickstart-logic-apps-azure-cli.md
+    - name: 논리 앱 만들기 및 관리 - Azure PowerShell
+      href: quickstart-logic-apps-azure-powershell.md
 - name: 자습서
   items:
     - name: 일정 기반 워크플로 만들기
@@ -179,57 +181,74 @@
           href: logic-apps-gateway-connection.md
     - name: B2B 시나리오에 대한 개발
       items:
-        - name: 통합 계정 만들기
-          href: logic-apps-enterprise-integration-create-integration-account.md
-          displayName: 'Azure CLI, az logic integration-account create, integration-account'
-        - name: 거래 업체
-          href: logic-apps-enterprise-integration-partners.md
-        - name: 규약
-          href: logic-apps-enterprise-integration-agreements.md
-        - name: XML 유효성 검사를 위한 스키마
-          href: logic-apps-enterprise-integration-schemas.md
-        - name: XML 변환을 위한 맵
-          href: logic-apps-enterprise-integration-maps.md
-        - name: 인증서
-          href: logic-apps-enterprise-integration-certificates.md
-        - name: 아티팩트 메타데이터
-          href: logic-apps-enterprise-integration-metadata.md
+        - name: 통합 계정 및 아티팩트
+          items:
+            - name: 통합 계정 만들기
+              href: logic-apps-enterprise-integration-create-integration-account.md
+            - name: 거래 업체
+              href: logic-apps-enterprise-integration-partners.md
+            - name: 규약
+              href: logic-apps-enterprise-integration-agreements.md
+            - name: XML 유효성 검사를 위한 스키마
+              href: logic-apps-enterprise-integration-schemas.md
+            - name: XML 변환을 위한 맵
+              href: logic-apps-enterprise-integration-maps.md
+            - name: 인증서
+              href: logic-apps-enterprise-integration-certificates.md
+            - name: 아티팩트 메타데이터
+              href: logic-apps-enterprise-integration-metadata.md
         - name: B2B 메시지 받기 및 보내기
           href: logic-apps-enterprise-integration-b2b.md
-        - name: AS2 메시지 교환
-          href: logic-apps-enterprise-integration-as2.md
-        - name: AS2 메시지 설정
-          href: logic-apps-enterprise-integration-as2-message-settings.md
-        - name: EDIFACT 메시지 교환
-          href: logic-apps-enterprise-integration-edifact.md
+        - name: AS2 메시징
           items:
+            - name: AS2 메시지 교환
+              href: logic-apps-enterprise-integration-as2.md
+            - name: AS2 메시지 설정
+              href: logic-apps-enterprise-integration-as2-message-settings.md
+            - name: AS2 MDN 승인
+              href: logic-apps-enterprise-integration-as2-mdn-acknowledgment.md
+        - name: EDIFACT 메시징
+          items:
+            - name: EDIFACT 메시지 교환
+              href: logic-apps-enterprise-integration-edifact.md
             - name: EDIFACT 인코딩
               href: logic-apps-enterprise-integration-edifact-encode.md
             - name: EDIFACT 디코딩
               href: logic-apps-enterprise-integration-edifact-decode.md
             - name: UNH2.5 세그먼트가 있는 EDIFACT 파일 처리
               href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
-        - name: Exchange RosettaNet 메시지
-          href: logic-apps-enterprise-integration-rosettanet.md
-        - name: X12 메시지 교환
-          href: logic-apps-enterprise-integration-x12.md
+            - name: EDIFACT CONTRL 승인 및 오류 코드
+              href: logic-apps-enterprise-integration-edifact-contrl-acknowledgment.md
+        - name: RosettaNet 메시징
           items:
+            - name: Exchange RosettaNet 메시지
+              href: logic-apps-enterprise-integration-rosettanet.md
+        - name: X12 메시징
+          items:
+            - name: X12 메시지 교환
+              href: logic-apps-enterprise-integration-x12.md
             - name: X12 인코딩
               href: logic-apps-enterprise-integration-x12-encode.md
             - name: X12 디코딩
               href: logic-apps-enterprise-integration-x12-decode.md
+            - name: X12 TA1 승인
+              href: logic-apps-enterprise-integration-x12-ta1-acknowledgment.md
+            - name: X12 997 승인
+              href: logic-apps-enterprise-integration-x12-997-acknowledgment.md
         - name: EDI 메시지 일괄 처리 및 보내기
           href: logic-apps-scenario-edi-send-batch-messages.md
         - name: 플랫 파일 처리
           href: logic-apps-enterprise-integration-flatfile.md
-        - name: XML 변환
-          href: logic-apps-enterprise-integration-transform.md
-        - name: XML 처리
-          href: logic-apps-enterprise-integration-xml.md
-        - name: XML 유효성 검사
-          href: logic-apps-enterprise-integration-xml-validation.md
-        - name: JSON 변환
-          href: logic-apps-enterprise-integration-liquid-transform.md
+        - name: XML 및 JSON 변환
+          items:
+            - name: XML 변환
+              href: logic-apps-enterprise-integration-transform.md
+            - name: XML 처리
+              href: logic-apps-enterprise-integration-xml.md
+            - name: XML 유효성 검사
+              href: logic-apps-enterprise-integration-xml-validation.md
+            - name: JSON 변환
+              href: logic-apps-enterprise-integration-liquid-transform.md
         - name: B2B 오류 문제 해결
           href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
         - name: 재해 복구 계획 빌드
@@ -312,7 +331,7 @@
           href: logic-apps-enterprise-integration-rosettanet.md
         - name: Salesforce
           href: ../connectors/connectors-create-api-salesforce.md
-        - name: SAP(신규)
+        - name: SAP
           href: logic-apps-using-sap-connector.md
         - name: SendGrid
           href: ../connectors/connectors-create-api-sendgrid.md
@@ -393,14 +412,16 @@
           href: logic-apps-data-operations-code-samples.md
         - name: 소셜 미디어 모니터링
           href: logic-apps-scenario-social-serverless.md
-        - name: 서버를 사용하지 않는 앱 빌드 - Visual Studio
-          href: logic-apps-serverless-get-started-vs.md
+        - name: 서버리스 앱 만들기 - Visual Studio
+          href: create-serverless-apps-visual-studio.md
         - name: 오류 및 예외 처리 추가
           href: logic-apps-scenario-error-and-exception-handling.md
         - name: B2B 처리
           href: logic-apps-enterprise-integration-b2b.md
 - name: 참조
   items:
+    - name: 청구 및 가격 책정 모델
+      href: logic-apps-pricing.md
     - name: 아키텍처 패턴
       items:
         - name: 기본 엔터프라이즈 통합
@@ -411,8 +432,6 @@
       href: /connectors/
     - name: 서비스 제한 사항 및 구성
       href: logic-apps-limits-and-config.md
-    - name: 가격 책정 모델 및 사용량 계량
-      href: logic-apps-pricing.md
     - name: Azure CLI
       href: /cli/azure/logic
     - name: Azure PowerShell
@@ -449,7 +468,7 @@
       href: 'https://aka.ms/logicappsroadmap/'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: 가격 책정
+    - name: Azure Logic Apps용 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/logic-apps/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

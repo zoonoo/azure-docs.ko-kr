@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: philmea
   ms.author: philmea
-  ms.date: 02/12/2020
-  ms.openlocfilehash: dfadcc06559a789712c4c2a59ab991e74570b3e7
-  ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+  ms.date: 08/19/2021
+  ms.openlocfilehash: 10a8c3304ca24a02d62105ab62b6cc4cd9d135ba
+  ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/17/2021
-  ms.locfileid: "112280462"
+  ms.lasthandoff: 08/24/2021
+  ms.locfileid: "122769191"
 landingContent:
 - title: Azure Digital Twins 정보
   linkLists:
@@ -25,7 +25,7 @@ landingContent:
       url: overview.md
   - linkListType: concept
     links:
-    - text: 사용자 지정 모델
+    - text: DTDL 모델
       url: concepts-models.md
     - text: Digital Twins 및 쌍 그래프
       url: concepts-twins-graph.md
@@ -49,7 +49,7 @@ landingContent:
       url: tutorial-code.md
   - linkListType: tutorial
     links:
-    - text: 샘플 클라이언트 앱으로 기본 사항 살펴보기
+    - text: Azure Digital Twins에서 그래프 만들기(클라이언트 앱)
       url: tutorial-command-line-app.md
   - linkListType: tutorial
     links:

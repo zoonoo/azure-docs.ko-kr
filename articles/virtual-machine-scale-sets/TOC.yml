@@ -165,13 +165,19 @@
       href: ../virtual-machines/linux/endorsed-distros.md
       maintainContext: true
     - name: 오케스트레이션 모드(미리 보기)
-      href: virtual-machine-scale-sets-orchestration-modes.md
+      items:
+        - name: 개요
+          href: virtual-machine-scale-sets-orchestration-modes.md
+        - name: API 비교
+          href: orchestration-modes-api-comparison.md
+        - name: Flexible 오케스트레이션
+          href: ../virtual-machines/flexible-virtual-machine-scale-sets.md
     - name: 유지 관리 및 업데이트
       items:
         - name: 개요
           href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
           maintainContext: true
-        - name: 자동 확장 업그레이드(미리 보기)
+        - name: 자동 확장 업그레이드
           href: ../virtual-machines/automatic-extension-upgrade.md
           maintainContext: true
     - name: 디스크 스토리지

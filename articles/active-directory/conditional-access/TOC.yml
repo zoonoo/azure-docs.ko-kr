@@ -96,6 +96,8 @@
       href: howto-conditional-access-session-lifetime.md
     - name: 문제 해결
       items:
+        - name: 정책 변경 문제 해결
+          href: troubleshoot-policy-changes-audit-log.md
         - name: 로그인 문제 해결
           href: troubleshoot-conditional-access.md
         - name: What If 도구를 사용하여 문제 해결

@@ -6,36 +6,36 @@
       href: introduction.md
     - name: 플랫폼 업데이트
       href: azure-vmware-solution-platform-updates.md
-- name: 빠른 시작
+- name: 시작
   items:
     - name: 1 - 배포 계획
-      href: production-ready-deployment-steps.md
+      href: plan-private-cloud-deployment.md
     - name: 2 - Azure VMware Solution 배포
       href: deploy-azure-vmware-solution.md
-    - name: 3 - 온-프레미스에 연결
+    - name: 3 - 온-프레미스 환경에 연결
       href: tutorial-expressroute-global-reach-private-cloud.md
-    - name: 4 - VMware HCX 배포 및 구성
-      href: tutorial-deploy-vmware-hcx.md
+    - name: 4 - VMware HCX 커넥터 설치
+      href: install-vmware-hcx.md
+    - name: 5 - 온-프레미스 VMware HCX 커넥터 구성
+      href: configure-vmware-hcx.md
 - name: 자습서
   items:
-    - name: 프라이빗 클라우드에 액세스
-      href: tutorial-access-private-cloud.md
-    - name: 네트워킹 구성
-      href: tutorial-configure-networking.md
-    - name: 프라이빗 클라우드 만들기
-      href: tutorial-create-private-cloud.md
-    - name: 네트워크 세그먼트 만들기
-      href: tutorial-nsx-t-network-segment.md
-    - name: 프라이빗 클라우드 삭제
-      href: tutorial-delete-private-cloud.md
-    - name: VMware HCX 배포 및 구성
-      href: tutorial-deploy-vmware-hcx.md
-    - name: 프라이빗 클라우드에서 클러스터 확장 또는 축소
-      href: tutorial-scale-private-cloud.md
-    - name: 네트워크 계획 검사 목록
+    - name: 1- 네트워크 계획 검사 목록
       href: tutorial-network-checklist.md
-    - name: 온-프레미스에서 프라이빗 클라우드로 피어링
+    - name: 2 - 프라이빗 클라우드 만들기
+      href: tutorial-create-private-cloud.md
+    - name: 3 - 프라이빗 클라우드에 액세스
+      href: tutorial-access-private-cloud.md
+    - name: 4 - 네트워킹 구성
+      href: tutorial-configure-networking.md
+    - name: 5 - NSX-T 네트워크 세그먼트 만들기
+      href: tutorial-nsx-t-network-segment.md
+    - name: 6 - 온-프레미스에서 프라이빗 클라우드로 피어링
       href: tutorial-expressroute-global-reach-private-cloud.md
+    - name: 7 - 프라이빗 클라우드 스케일 인
+      href: tutorial-scale-private-cloud.md
+    - name: 8 - 프라이빗 클라우드 삭제
+      href: tutorial-delete-private-cloud.md
 - name: 개념
   items:
     - name: 액세스 및 ID
@@ -44,8 +44,6 @@
       href: concepts-api-management.md
     - name: 허브 및 스포크
       href: concepts-hub-and-spoke.md
-    - name: 모니터 및 보호
-      href: concepts-monitor-protection.md
     - name: 네트워킹 및 상호 연결
       href: concepts-networking.md
     - name: 프라이빗 클라우드 및 클러스터
@@ -60,6 +58,8 @@
       href: request-host-quota-azure-vmware-solution.md
     - name: 예약 인스턴스로 비용 절감
       href: reserved-instance.md
+    - name: 배치 정책 만들기
+      href: create-placement-policy.md
     - name: 네트워킹 구성
       items:
         - name: DHCP 서버 또는 릴레이 구성
@@ -70,18 +70,18 @@
           href: configure-dns-azure-vmware-solution.md
         - name: 포트 미러링 구성
           href: configure-port-mirroring-azure-vmware-solution.md
-        - name: GitHub Enterprise 서버 구성
-          href: ./configure-github-enterprise-server.md
         - name: 공용 인터넷 액세스 사용
           href: enable-public-internet-access.md
         - name: vWAN에서 사이트 간 VPN 구성
           href: configure-site-to-site-vpn-gateway.md
+    - name: 동일한 지역에 여러 프라이빗 클라우드 연결
+      href: connect-multiple-private-clouds-same-region.md
+    - name: GitHub Enterprise 서버 구성
+      href: configure-github-enterprise-server.md
     - name: Windows Server 장애 조치(Failover) 클러스터 구성
       href: configure-windows-server-failover-cluster.md
     - name: cloudadmin 자격 증명 회전
       href: rotate-cloudadmin-credentials.md
-    - name: 동일한 지역에 여러 프라이빗 클라우드 연결
-      href: connect-multiple-private-clouds-same-region.md
     - name: 리소스 이동
       items:
         - name: Azure VMware solution 구독 이동
@@ -163,7 +163,7 @@
     - name: FAQ
       items:
         - name: 일반
-          href: /azure/azure-vmware/faq
+          href: ./faq.yml
         - name: 고객 커뮤니케이션
           href: /azure/azure-vmware/faq#customer-communication
         - name: 구성 및 설정

@@ -4,13 +4,27 @@
   items:
     - name: Azure Machine Learning이란?
       displayName: 'AML, services, overview, introduction'
-      href: overview-what-is-azure-ml.md
+      href: overview-what-is-azure-machine-learning.md
     - name: Azure Machine Learning Studio란?
       displayName: 'AML, studio, designer'
       href: overview-what-is-machine-learning-studio.md
     - name: 아키텍처 및 용어
       displayName: 'architecture, concepts, definitions, glossary'
       href: concept-azure-machine-learning-architecture.md
+    - name: ML Studio(클래식)에서 마이그레이션
+      items:
+        - name: 마이그레이션 개요
+          href: migrate-overview.md
+        - name: 데이터 세트 마이그레이션
+          href: migrate-register-dataset.md
+        - name: 실험 다시 빌드
+          href: migrate-rebuild-experiment.md
+        - name: 웹 서비스 다시 빌드
+          href: migrate-rebuild-web-service.md
+        - name: 클라이언트 응용 프로그램 업데이트
+          href: migrate-rebuild-integrate-with-client-app.md
+        - name: R 스크립트 실행 구성 요소 다시 빌드
+          href: migrate-execute-r-script.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -28,9 +42,9 @@
           href: tutorial-1st-experiment-sdk-train.md
         - name: 3. 사용자 고유의 데이터 사용
           href: tutorial-1st-experiment-bring-data.md
-    - name: 2.0 CLI
+    - name: CLI(v2)
       items:
-        - name: 2.0 CLI를 사용하여 모델 학습
+        - name: CLI(v2)를 사용하여 모델 학습
           href: how-to-train-cli.md
         - name: 관리형 엔드포인트를 통해 리소스에 액세스
           href: tutorial-deploy-managed-endpoints-using-system-managed-identity.md
@@ -270,11 +284,11 @@
               href: how-to-manage-workspace.md
             - name: Azure CLI 사용
               href: how-to-manage-workspace-cli.md
-            - name: REST 사용
-              href: how-to-manage-rest.md
             - name: Resource Manager 템플릿 사용
               displayName: arm
               href: how-to-create-workspace-template.md
+            - name: REST 사용
+              href: how-to-manage-rest.md
             - name: Azure Synapse Analytics 작업 영역에 연결
               href: how-to-link-synapse-ml-workspaces.md
         - name: 컴퓨팅 리소스 만들기 및 관리
@@ -302,7 +316,7 @@
               href: how-to-create-attach-compute-studio.md
     - name: 환경 설정
       items:
-        - name: 2.0 CLI 설치 및 설정
+        - name: CLI(v2) 설치 및 설정
           displayName: 'azurecli, mlops'
           href: how-to-configure-cli.md
         - name: 개발 환경 설정
@@ -404,7 +418,7 @@
               href: how-to-export-delete-data.md
     - name: 모델 학습
       items:
-        - name: 2.0 CLI로 학습
+        - name: CLI(v2)로 학습
           href: how-to-train-cli.md
         - name: REST API로 학습
           href: how-to-train-with-rest.md
@@ -418,6 +432,9 @@
             - name: hyperparameters 조정
               displayName: 'parameter, hyperparameter, hyperdrive'
               href: how-to-tune-hyperparameters.md
+            - name: 분산 GPU 가이드
+              displayName: 'MPI, Horovod, DeepSpeed, PyTorch, Hugging Face Transformers, TensorFlow, InfiniBand'
+              href: how-to-train-distributed-gpu.md
             - name: Scikit-learn
               href: how-to-train-scikit-learn.md
             - name: TensorFlow
@@ -504,7 +521,7 @@
           href: how-to-deploy-and-where.md
         - name: 엔드포인트로 배포
           items:
-            - name: 온라인
+            - name: 실시간
               items:
                 - name: 관리형 온라인 엔드포인트를 통해 ML 모델 배포
                   href: how-to-deploy-managed-online-endpoints.md
@@ -528,6 +545,8 @@
               items:
                 - name: 일괄 처리 엔드포인트를 사용한 일괄 처리 채점
                   href: how-to-use-batch-endpoint.md
+                - name: 스튜디오의 Batch 엔드포인트
+                  href: how-to-use-batch-endpoints-studio.md
                 - name: 일괄 처리 엔드포인트 문제 해결
                   href: how-to-troubleshoot-batch-endpoints.md
         - name: 배포 대상
@@ -678,16 +697,60 @@
   items:
     - name: REST API
       href: /rest/api/azureml/
+    - name: Python SDK
+      displayName: 'api, core, package, python, class'
+      href: /python/api/overview/azure/ml/intro
     - name: CLI(v2)
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: /cli/azure/ml/
     - name: CLI(v2) YAML 스키마
       items:
-        - name: 온라인 엔드포인트
-          href: reference-online-endpoint-yaml.md
-    - name: Python SDK
-      displayName: 'api, core, package, python, class'
-      href: /python/api/overview/azure/ml/intro
+        - name: 개요
+          href: reference-yaml-overview.md
+        - name: 자산
+          items:
+            - name: 작업 영역
+              href: reference-yaml-workspace.md
+            - name: Compute
+              href: reference-yaml-compute.md
+            - name: 환경
+              href: reference-yaml-environment.md
+            - name: 데이터 세트
+              href: reference-yaml-dataset.md
+            - name: 모델
+              href: reference-yaml-model.md
+        - name: 데이터 저장소
+          items:
+            - name: Azure Blob
+              href: reference-yaml-datastore-blob.md
+            - name: Azure 파일
+              href: reference-yaml-datastore-files.md
+            - name: Azure Data Lake Gen1
+              href: reference-yaml-datastore-data-lake-gen1.md
+            - name: Azure Data Lake Gen2
+              href: reference-yaml-datastore-data-lake-gen2.md
+        - name: 작업
+          items:
+            - name: 명령
+              href: reference-yaml-job-command.md
+            - name: Sweep
+              href: reference-yaml-job-sweep.md
+        - name: 엔드포인트
+          items:
+            - name: 온라인 관리(실시간)
+              href: reference-yaml-endpoint-managed-online.md
+            - name: 관리형 일괄 처리
+              href: reference-yaml-endpoint-managed-batch.md
+            - name: Kubernetes(k8s) 온라인
+              href: reference-yaml-endpoint-k8s-online.md
+        - name: 배포
+          items:
+            - name: 온라인 관리(실시간)
+              href: reference-yaml-deployment-managed-online.md
+            - name: 관리형 일괄 처리
+              href: reference-yaml-deployment-managed-batch.md
+            - name: Kubernetes(k8s) 온라인
+              href: reference-yaml-deployment-k8s-online.md
     - name: CLI(v1)
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
@@ -696,9 +759,7 @@
       href: algorithm-module-reference/module-reference.md
     - name: 데이터 참조 모니터링
       href: monitor-resource-reference.md
-    - name: 관리형 온라인 엔드포인트 YAML 참조
-      href: reference-online-endpoint-yaml.md
-    - name: Machine Learning 파이프라인 YAML 참조
+    - name: 기계 학습 CLI(v1) 파이프라인 YAML 참조
       href: reference-pipeline-yaml.md
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'

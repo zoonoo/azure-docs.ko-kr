@@ -11,20 +11,28 @@ metadata:
   ms.collection: collection
   ms.author: peterlu
   author: peterclu
-  ms.date: 03/05/2020
-  ms.openlocfilehash: 34cebaa3b352d64ba5ebeadbc1fc84c5e53bfefe
-  ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+  ms.date: 08/23/2021
+  ms.openlocfilehash: f0933fe7ba67abd07192e9619a4d38450dc75f7f
+  ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/24/2021
-  ms.locfileid: "112581253"
+  ms.lasthandoff: 08/23/2021
+  ms.locfileid: "122687699"
 landingContent:
-- title: Studio(클래식) 시작
+- title: ML Studio(클래식)에서 마이그레이션
   linkLists:
   - linkListType: get-started
     links:
-    - text: Studio(클래식)란?
-      url: studio-classic-overview.md
+    - text: Azure Machine Learning이란?
+      url: ../overview-what-is-azure-machine-learning.md
+    - text: Azure Machine Learning 및 ML Studio(클래식)
+      url: ../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio
+    - text: Azure Machine Learning으로 마이그레이션
+      url: ../migrate-overview.md
+- title: 자습서
+  linkLists:
+  - linkListType: tutorial
+    links:
     - text: 첫 번째 ML 실험 만들기
       url: create-experiment.md
     - text: 예측 솔루션 만들기

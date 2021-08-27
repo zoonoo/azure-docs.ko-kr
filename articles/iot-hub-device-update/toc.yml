@@ -45,7 +45,7 @@ items:
         href: connected-cache-configure.md
       - name: 디바이스 업데이트 가져오기
         href: import-concepts.md
-      - name: 가져오기 관련 스키마
+      - name: 가져오기 관련 스키마 및 API 세부 정보
         href: import-schema.md
       - name: 디바이스 업데이트 제한
         href: device-update-limits.md

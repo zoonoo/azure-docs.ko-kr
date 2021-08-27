@@ -8,6 +8,10 @@
   items:
     - name: 라이선스 요구 사항
       href: subscription-requirements.md
+    - name: 권한 있는 액세스 그룹
+      href: groups-features.md
+    - name: 역할 할당 및 권한 있는 액세스 그룹
+      href: concept-privileged-access-versus-role-assignable.md
     - name: PIM으로 관리할 수 없는 역할
       href: pim-roles.md
     - name: Azure AD에서 권한 있는 액세스 보안
@@ -41,6 +45,8 @@
           href: pim-how-to-activate-role.md
         - name: Azure 역할
           href: pim-resource-roles-activate-your-roles.md
+        - name: 권한 있는 액세스 그룹
+          href: groups-activate-roles.md
     - name: 승인
       items:
         - name: Azure AD 역할
@@ -57,11 +63,13 @@
           href: groups-discover-groups.md
     - name: 확장 또는 갱신
       items:
+        - name: Azure AD 역할
+          href: pim-how-to-renew-extend.md
         - name: Azure 역할
           href: pim-resource-roles-renew-extend.md
         - name: 권한 있는 액세스 그룹
           href: groups-renew-extend.md
-    - name: 설정
+    - name: 역할 기본값 설정
       items:
         - name: Azure AD 역할
           href: pim-how-to-change-default-settings.md
@@ -69,13 +77,13 @@
           href: pim-resource-roles-configure-role-settings.md
         - name: 권한 있는 액세스 그룹
           href: groups-role-settings.md
-    - name: 경고
+    - name: 경고 설정
       items:
         - name: Azure AD 역할
           href: pim-how-to-configure-security-alerts.md
         - name: Azure 역할
           href: pim-resource-roles-configure-alerts.md
-    - name: 감사 로그
+    - name: 감사
       items:
         - name: Azure AD 역할
           href: pim-how-to-use-audit-log.md

@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: Translator란?
-      href: translator-info-overview.md
+      href: translator-overview.md
     - name: 언어 지원
       href: language-support.md
     - name: 가격 책정
@@ -16,6 +16,8 @@
 - name: 텍스트 번역
   expanded: true
   items:
+    - name: 텍스트 번역이란?
+      href: text-translation-overview.md
     - name: 빠른 시작
       href: quickstart-translator.md
     - name: 샘플
@@ -68,12 +70,12 @@
           href: tutorial-build-flask-app-translation-synthesis.md
     - name: 참조
       items:
+        - name: Text Translator REST API
+          href: reference/rest-api-guide.md
         - name: v3 Translator 참조
           href: reference/v3-0-reference.md
         - name: 언어
           href: reference/v3-0-languages.md
-        - name: 요청 제한
-          href: request-limits.md
         - name: Translate
           href: reference/v3-0-translate.md
         - name: Transliterate
@@ -86,11 +88,13 @@
           href: reference/v3-0-dictionary-lookup.md
         - name: 사전 예제
           href: reference/v3-0-dictionary-examples.md
+        - name: 요청 제한
+          href: request-limits.md
 - name: 문서 번역
   items:
     - name: 문서 번역이란?
       href: document-translation/overview.md
-    - name: 클라이언트 라이브러리 및 SDK
+    - name: 클라이언트 라이브러리 SDK
       href: document-translation/client-sdks.md
     - name: 빠른 시작
       href: document-translation/get-started-with-document-translation.md
@@ -102,7 +106,7 @@
           href: document-translation/managed-identity.md
     - name: 참조
       items:
-        - name: REST API 참조 가이드
+        - name: 문서 번역 REST API
           href: document-translation/reference/rest-api-guide.md
         - name: 지원되는 문서 형식 가져오기
           href: document-translation/reference/get-supported-document-formats.md

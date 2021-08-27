@@ -42,12 +42,20 @@
           href: tutorial-prepare-azure.md
         - name: 온-프레미스 VMware 준비
           href: vmware-azure-tutorial-prepare-on-premises.md
-        - name: 복제 설정
+    - name: 복제 설정
+      items:
+        - name: Classic
           href: vmware-azure-tutorial.md
+        - name: 미리 보기
+          href: vmware-azure-set-up-replication-tutorial-preview.md
         - name: 재해 복구 훈련 실행
           href: tutorial-dr-drill-azure.md
-        - name: Azure로 장애 조치(failover)
+    - name: Azure로 VMware VM 장애 조치(failover) 실행
+      items:
+        - name: Classic
           href: vmware-azure-tutorial-failover-failback.md
+        - name: 미리 보기
+          href: vmware-azure-tutorial-failover-failback-preview.md
     - name: Azure로 Azure VMware Solution 재해 복구
       items:
         - name: Azure 준비
@@ -122,14 +130,22 @@
           href: vmware-physical-azure-config-process-server-overview.md
         - name: 구성 및 프로세스 서버의 지원 요구 사항
           href: vmware-azure-configuration-server-requirements.md
-        - name: VMware에서 Azure로 아키텍처
+        - name: Azure Site Recovery 복제 어플라이언스 배포(미리 보기)
+          href: deploy-vmware-azure-replication-appliance-preview.md
+        - name: 복제 어플라이언스 전환(미리 보기)
+          href: switch-replication-appliance-preview.md
+    - name: VMware에서 Azure로 아키텍처
+      items:
+        - name: Classic
           href: vmware-azure-architecture.md
-        - name: 복제에서 디스크를 제외하는 방법 정보
-          href: exclude-disks-replication.md
-        - name: Azure에서 VMware로 장애 복구(failback) 위치 옵션
-          href: concepts-types-of-failback.md
-        - name: VMware 재해 복구를 위한 다중 테넌트 지원
-          href: vmware-azure-multi-tenant-overview.md
+        - name: 미리 보기
+          href: vmware-azure-architecture-preview.md
+    - name: 복제에서 디스크를 제외하는 방법 정보
+      href: exclude-disks-replication.md
+    - name: Azure에서 VMware로 장애 복구(failback) 위치 옵션
+      href: concepts-types-of-failback.md
+    - name: VMware 재해 복구를 위한 다중 테넌트 지원
+      href: vmware-azure-multi-tenant-overview.md
     - name: Hyper-V VM 재해 복구 정보
       items:
         - name: 일반적인 질문
@@ -159,7 +175,11 @@
         - name: Site Recovery를 통해 공용 IP 주소 사용
           href: concepts-public-ip-address-with-site-recovery.md
     - name: 장애 조치(failover) 및 장애 복구(failback) 정보
-      href: failover-failback-overview.md
+      items:
+        - name: Classic
+          href: failover-failback-overview.md
+        - name: 미리 보기
+          href: failover-failback-overview-preview.md
     - name: 복구 계획 정보
       href: recovery-plan-overview.md
     - name: Azure로 마이그레이션 정보
@@ -200,6 +220,8 @@
           items:
             - name: Azure 간 복제 활성화
               href: azure-to-azure-how-to-enable-replication.md
+            - name: 글로벌 재해 복구 사용
+              href: azure-to-azure-enable-global-disaster-recovery.md
             - name: 정책을 사용하여 Azure 간 복제 사용
               href: azure-to-azure-how-to-enable-policy.md
             - name: 암호화된 VM에 대한 Azure간 복제 활성화
@@ -286,7 +308,7 @@
               href: vmware-azure-enable-replication.md
             - name: 복제에서 디스크 제외
               href: vmware-azure-exclude-disk.md
-            - name: 연습 - 다중 테넌트 및 CSP를 사용하여 VMWare VM에 대한 복제 설정
+            - name: 연습 - 다중 테넌트 및 CSP를 사용하여 VMware VM에 대한 복제 설정
               href: vmware-azure-multi-tenant-csp-disaster-recovery.md
         - name: 장애 조치(failover) 및 장애 복구(failback) 실행
           items:
@@ -310,6 +332,8 @@
           items:
             - name: 모바일 에이전트 관리
               href: vmware-physical-manage-mobility-service.md
+            - name: 모바일 에이전트 업그레이드(미리 보기)
+              href: upgrade-mobility-service-preview.md
             - name: VMware에 대한 구성 서버 관리
               href: vmware-azure-manage-configuration-server.md
             - name: 프로세스 서버 관리

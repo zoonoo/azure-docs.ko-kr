@@ -12,7 +12,15 @@
   href: ./servers/overview.md
 - name: Arc 지원 Kubernetes >
   href: ./kubernetes/overview.md
-- name: Arc 지원 데이터 서비스(미리 보기) >
+- name: Arc 지원 데이터 서비스  >
   href: ./data/overview.md
-- name: Azure Arc 지원 서버의 SQL Server(미리 보기) >
-  href: 'https://docs.microsoft.com/sql/sql-server/azure-arc/overview'
+- name: Azure Arc 지원 서버의 SQL Server >
+  href: /sql/sql-server/azure-arc/overview
+- name: Arc 유효성 검사 프로그램
+  items:
+    - name: 프로그램 개요
+      href: validation-program/overview.md
+    - name: 유효성이 검사된 Kubernetes 파트너
+      href: kubernetes/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json
+    - name: 유효성이 검사된 데이터 서비스 파트너
+      href: data/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json

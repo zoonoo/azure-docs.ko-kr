@@ -278,14 +278,14 @@
           href: log-analytics.md
         - name: 백 엔드 상태 이슈
           href: application-gateway-backend-health-troubleshooting.md
+        - name: Key Vault 오류
+          href: application-gateway-key-vault-common-errors.md
     - name: 사용자 지정 오류 페이지
       href: custom-error.md
     - name: v1에서 v2로 마이그레이션
       href: migrate-v1-v2.md
 - name: 참조
   items:
-    - name: 일반적인 Key Vault 오류
-      href: application-gateway-key-vault-common-errors.md
     - name: 데이터 모니터링
       href: monitor-application-gateway-reference.md
     - name: AKS 주석 수신
@@ -302,7 +302,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/applicationgateway
     - name: Azure 리소스 관리자
       displayName: ARM

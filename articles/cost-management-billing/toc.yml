@@ -98,9 +98,9 @@
               href: manage/understand-vm-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
         - name: Windows 및 SQL 비용 포함 안 됨
           href: reservations/reserved-instance-windows-software-costs.md?toc=/azure/cost-management-billing/toc.json
-        - name: 개별 구독에 대한 사용량 현황 데이터
+        - name: 개별 구독에 대한 예약 사용량 현황 데이터
           href: reservations/understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/toc.json
-        - name: 기업 및 Microsoft 고객 계약 사용 데이터
+        - name: EA 및 Microsoft 고객 계약에 대한 예약 사용량 현황 데이터
           href: reservations/understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/toc.json
     - name: 결제
       items:
@@ -114,8 +114,6 @@
           href: understand/mca-understand-your-invoice.md
         - name: Microsoft 고객 계약 가격표 약관
           href: manage/mca-understand-pricesheet.md
-        - name: Microsoft 고객 계약 FAQ
-          href: understand/mca-faq.md
         - name: Microsoft 파트너 계약 청구서 약관
           href: understand/mpa-invoice-terms.md
         - name: 업데이트된 종량제 청구 계정에 대한 변경 내용
@@ -258,7 +256,7 @@
               href: understand/download-azure-invoice.md
             - name: Azure 사용량 및 요금 보기 및 다운로드
               href: understand/download-azure-daily-usage.md
-            - name: 청구서 및 일일 사용량 데이터 다운로드
+            - name: 청구서 다운로드
               href: manage/download-azure-invoice-daily-usage-date.md
             - name: 세금 문서 보기 및 다운로드
               href: understand/mca-download-tax-document.md

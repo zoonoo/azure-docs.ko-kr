@@ -110,6 +110,8 @@
           href: cache-reserved-pricing.md
         - name: Azure Cache for Redis로 마이그레이션
           href: cache-migration-guide.md
+        - name: VNet 주입에서 Private Link로 마이그레이션
+          href: cache-vnet-migration.md
         - name: 계획 FAQ
           href: cache-planning-faq.yml
     - name: 빌드
@@ -186,7 +188,7 @@
       href: /powershell/module/az.rediscache
     - name: Azure CLI
       href: /cli/azure/redis
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/redis/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.cache/allversions

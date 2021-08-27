@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 08/24/2021
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: 40bf202e0f14f18d817e4e918f8372ba3c0a4ad8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d32a4ec02585de7a34c3d21633454accaa11d69c
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91950672"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777516"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML 프로토콜
 
@@ -32,25 +32,25 @@ ms.locfileid: "91950672"
 > [!NOTE]
 > 이 문서에서는 Single Sign-On용 SAML 사용 방법에 대해 설명합니다. Single Sign-On을 처리할 수 있는 다른 방법(예: OpenID Connect 또는 Windows 통합 인증 사용)에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
-## <a name="authnrequest&quot;></a>AuthnRequest
+## <a name="authnrequest"></a>AuthnRequest
 
 사용자 인증을 요청하기 위해 클라우드 서비스는 `AuthnRequest` 요소를 Azure AD에 보냅니다. `AuthnRequest` SAML 2.0 샘플은 다음 예제와 같습니다.
 
 ```
 <samlp:AuthnRequest
-xmlns=&quot;urn:oasis:names:tc:SAML:2.0:metadata&quot;
-ID=&quot;id6c1c178c166d486687be4aaf5e482730&quot;
-Version=&quot;2.0&quot; IssueInstant=&quot;2013-03-18T03:28:54.1839884Z&quot;
-xmlns:samlp=&quot;urn:oasis:names:tc:SAML:2.0:protocol&quot;>
-<Issuer xmlns=&quot;urn:oasis:names:tc:SAML:2.0:assertion&quot;>https://www.contoso.com</Issuer>
+xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
+ID="id6c1c178c166d486687be4aaf5e482730"
+Version="2.0" IssueInstant="2013-03-18T03:28:54.1839884Z"
+xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://www.contoso.com</Issuer>
 </samlp:AuthnRequest>
 ```
 
-| 매개 변수 | Type | Description |
+| 매개 변수 | 형식 | Description |
 | --- | --- | --- |
-| ID | 필수 | Azure AD는 이 특성을 사용하여 반환된 응답의 `InResponseTo` 특성을 채웁니다. ID는 숫자로 시작할 수 없으므로 GUID의 문자열 표현에 &quot;id&quot;와 같은 문자열을 앞에 추가합니다. 예를 들어 `id6c1c178c166d486687be4aaf5e482730` 은 유효한 ID입니다. |
+| ID | 필수 | Azure AD는 이 특성을 사용하여 반환된 응답의 `InResponseTo` 특성을 채웁니다. ID는 숫자로 시작할 수 없으므로 GUID의 문자열 표현에 "id"와 같은 문자열을 앞에 추가합니다. 예를 들어 `id6c1c178c166d486687be4aaf5e482730` 은 유효한 ID입니다. |
 | 버전 | 필수 | 이 매개 변수는 **2.0** 으로 설정해야 합니다. |
-| IssueInstant | 필수 | UTC 값과 [라운드 트립 형식(&quot;o")](/dotnet/standard/base-types/standard-date-and-time-format-strings)을 포함하는 DateTime 문자열입니다. Azure AD에는 이 형식의 DateTime 값이 필요하지만, 값을 평가하거나 사용하지 않습니다. |
+| IssueInstant | 필수 | UTC 값과 [라운드 트립 형식("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings)을 포함하는 DateTime 문자열입니다. Azure AD에는 이 형식의 DateTime 값이 필요하지만, 값을 평가하거나 사용하지 않습니다. |
 | AssertionConsumerServiceURL | 옵션 | 제공되는 경우 이 매개 변수는 Azure AD에서 클라우드 서비스의 `RedirectUri`와 일치해야 합니다. |
 | ForceAuthn | 옵션 | 부울 값입니다. true이면 Azure AD에 유효한 세션이 있어도 사용자를 다시 인증해야 합니다. |
 | IsPassive | 옵션 | 사용자 상호 작용 없이 세션 쿠키(있는 경우)를 사용하여 Azure AD가 사용자를 자동으로 인증할지를 지정하는 부울 값입니다. True이면 Azure AD는 세션 쿠키를 사용하여 사용자 인증을 시도합니다. |

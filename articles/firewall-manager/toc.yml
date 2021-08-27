@@ -13,6 +13,9 @@
     - name: 정책을 사용하여 방화벽 배포 - ARM 템플릿
       displayName: Resource Manager
       href: quick-firewall-policy.md
+    - name: 정책 만들기 및 업데이트
+      displayname: PowerShell
+      href: create-policy-powershell.md
 - name: 자습서
   items:
     - name: 가상 허브 보안 - 포털
@@ -75,7 +78,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/virtualnetwork/firewallpolicies
     - name: Azure Resource Manager
       href: ../azure-resource-manager/management/overview.md

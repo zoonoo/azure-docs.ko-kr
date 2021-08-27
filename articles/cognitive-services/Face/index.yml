@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Face 설명서
-summary: '2020년 6월 11일, Microsoft는 인권에 기반한 강력한 규정이 적용될 때까지 미국 경찰 당국에 얼굴 인식 기술을 판매하지 않겠다고 발표했습니다. 따라서 미국 경찰 당국에 의해 또는 미국 경찰 당국을 위해 이 서비스를 사용하거나 허용하는 경우 고객은 얼굴 인식 기능 또는 Face나 Video Indexer와 같은 Azure 서비스에 포함된 기능을 사용하지 않을 수도 있습니다.'
+summary: 2020년 6월 11일, Microsoft는 인권에 기반한 강력한 규정이 적용될 때까지 미국 경찰 당국에 얼굴 인식 기술을 판매하지 않겠다고 발표했습니다. 따라서 미국 경찰 당국에 의해 또는 미국 경찰 당국을 위해 이 서비스를 사용하거나 허용하는 경우 고객은 얼굴 인식 기능 또는 Face나 Video Indexer와 같은 Azure 서비스에 포함된 기능을 사용하지 않을 수도 있습니다.
 metadata:
-  title: 'Face 설명서 - 빠른 시작, 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs'
-  description: '클라우드 기반 Face 서비스를 사용하면 고급 얼굴 인식 알고리즘에 액세스할 수 있습니다. Microsoft Face 알고리즘을 사용하면 얼굴 특성 감지 및 얼굴 인식이 가능합니다. 빠른 시작, 자습서, 샘플의 여러 방법으로 콘텐츠를 분석하는 방법에 대해 알아봅니다.'
+  title: Face 설명서 - 빠른 시작, 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
+  description: 클라우드 기반 Face 서비스를 사용하면 고급 얼굴 인식 알고리즘에 액세스할 수 있습니다. Microsoft Face 알고리즘을 사용하면 얼굴 특성 감지 및 얼굴 인식이 가능합니다. 빠른 시작, 자습서, 샘플의 여러 방법으로 콘텐츠를 분석하는 방법에 대해 알아봅니다.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: face-api
@@ -11,98 +11,90 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 9/01/2020
+  ms.openlocfilehash: 579db900c31992fbb0555a8e19c9b2753f0bde2a
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121744765"
 landingContent:
-  - title: Face 서비스 정보
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Face 서비스란?
-            url: Overview.md
-      - linkListType: whats-new
-        links:
-          - text: Face 서비스의 새로운 기능이란?
-            url: releasenotes.md
-  - title: 얼굴 감지
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: 얼굴 감지
-            url: concepts/face-detection.md
-      - linkListType: quickstart
-        links:
-          - text: .NET SDK 사용
-            url: quickstarts/client-libraries.md?pivots=programming-language-csharp
-          - text: Python SDK 사용
-            url: quickstarts/client-libraries.md?pivots=programming-language-python
-          - text: Go SDK 사용
-            url: quickstarts/client-libraries.md?pivots=programming-language-go
-      - linkListType: how-to-guide
-        links:
-          - text: 얼굴 감지 모델 지정
-            url: Face-API-How-to-Topics/specify-detection-model.md
-  - title: 얼굴 인식
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: 얼굴 인식
-            url: concepts/face-recognition.md
-      - linkListType: quickstart
-        links:
-          - text: .NET SDK 사용
-            url: quickstarts/client-libraries.md?pivots=programming-language-csharp
-          - text: Python SDK 사용
-            url: quickstarts/client-libraries.md?pivots=programming-language-python
-          - text: Go SDK 사용
-            url: quickstarts/client-libraries.md?pivots=programming-language-go
-      - linkListType: how-to-guide
-        links:
-          - text: 얼굴 인식 모델 지정
-            url: Face-API-How-to-Topics/specify-recognition-model.md
-  - title: 얼굴 사각형 사용
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: 얼굴 감지 및 분석
-            url: Face-API-How-to-Topics/howtodetectfacesinimage.md
-          - text: HeadPose 특성 사용
-            url: Face-API-How-to-Topics/how-to-use-headpose.md
-  - title: 컨테이너 사용
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: 컨테이너 설치 및 실행
-            url: face-how-to-install-containers.md
-      - linkListType: how-to-guide
-        links:
-          - text: 컨테이너 구성
-            url: face-resource-container-config.md
-      - linkListType: deploy
-        links:
-          - text: 컨테이너 인스턴스 사용
-            url: ../containers/azure-container-instance-recipe.md
-  - title: 참조
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: REST API
-            url: /rest/api/face/
-          - text: .NET SDK
-            url: /dotnet/api/overview/azure/cognitiveservices/face-readme
-          - text: Python SDK
-            url: /python/api/overview/azure/cognitiveservices/face-readme
-          - text: Java SDK
-            url: /java/api/overview/azure/cognitiveservices/client/faceapi
-          - text: Node.js SDK
-            url: /javascript/api/overview/azure/cognitive-services/face-readme
-          - text: Go SDK
-            url: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face'
-          - text: Azure PowerShell
-            url: /powershell/module/az.cognitiveservices/#cognitive_services
-          - text: Azure CLI(명령줄 인터페이스)
-            url: /cli/azure/cognitiveservices
-  - title: 도움말 및 피드백
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: 지원 및 도움말 옵션
-            url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context
+- title: Face 서비스 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Face 서비스란?
+      url: Overview.md
+  - linkListType: whats-new
+    links:
+    - text: Face 서비스의 새로운 기능이란?
+      url: releasenotes.md
+- title: 얼굴 인식
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: ID 확인
+      url: concepts/face-recognition.md
+  - linkListType: quickstart
+    links:
+    - text: 클라이언트 라이브러리 SDK 또는 REST API를 사용하여 얼굴 식별
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp
+  - linkListType: how-to-guide
+    links:
+    - text: 그룹에 얼굴 추가
+      url: Face-API-How-to-Topics/how-to-add-faces.md
+    - text: 대규모 기능 사용
+      url: Face-API-How-to-Topics/how-to-use-large-scale.md
+    - text: PersonDirectory 구조 사용
+      url: Face-API-How-to-Topics/use-persondirectory.md
+    - text: 얼굴 인식 모델 버전 지정
+      url: Face-API-How-to-Topics/specify-recognition-model.md
+- title: 검색 및 분석
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 얼굴 감지 및 특성
+      url: concepts/face-detection.md
+  - linkListType: quickstart
+    links:
+    - text: 클라이언트 라이브러리 SDK 또는 REST API를 사용하여 얼굴 검색
+      url: quickstarts/client-libraries.md?pivots=programming-language-csharp
+  - linkListType: how-to-guide
+    links:
+    - text: 얼굴 감지 및 분석
+      url: Face-API-How-to-Topics/howtodetectfacesinimage.md
+    - text: 얼굴 감지 모델 버전 지정
+      url: Face-API-How-to-Topics/specify-detection-model.md
+- title: 얼굴 사각형
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 얼굴 감지 및 분석
+      url: Face-API-How-to-Topics/howtodetectfacesinimage.md
+    - text: HeadPose 특성 사용
+      url: Face-API-How-to-Topics/how-to-use-headpose.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: REST API
+      url: /rest/api/face/
+    - text: .NET SDK
+      url: /dotnet/api/overview/azure/cognitiveservices/face-readme
+    - text: Python SDK
+      url: /python/api/overview/azure/cognitiveservices/face-readme
+    - text: Java SDK
+      url: /java/api/overview/azure/cognitiveservices/client/faceapi
+    - text: Node.js SDK
+      url: /javascript/api/overview/azure/cognitive-services/face-readme
+    - text: Go SDK
+      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
+    - text: Azure PowerShell
+      url: /powershell/module/az.cognitiveservices/#cognitive_services
+    - text: Azure CLI(명령줄 인터페이스)
+      url: /cli/azure/cognitiveservices
+- title: 도움말 및 피드백
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 지원 및 도움말 옵션
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context

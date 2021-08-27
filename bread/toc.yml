@@ -91,14 +91,14 @@
       topicHref: /azure/applied-ai-services/
       items:
         - name: 몰입형 리더
-          tocHref: /azure/cognitive-services/immersive-reader/
-          topicHref: /azure/cognitive-services/immersive-reader/
+          tocHref: /azure/applied-ai-services/immersive-reader/
+          topicHref: /azure/applied-ai-services/immersive-reader/
         - name: Metrics Advisor
-          tocHref: /azure/cognitive-services/metrics-advisor/
-          topicHref: /azure/cognitive-services/metrics-advisor/
+          tocHref: /azure/applied-ai-services/metrics-advisor/
+          topicHref: /azure/applied-ai-services/metrics-advisor/
         - name: Form Recognizer
-          tocHref: /azure/cognitive-services/form-recognizer/
-          topicHref: /azure/cognitive-services/form-recognizer/
+          tocHref: /azure/applied-ai-services/form-recognizer/
+          topicHref: /azure/applied-ai-services/form-recognizer/
     - name: Avere vFXT for Azure
       tocHref: /azure/avere-vfxt/
       topicHref: /azure/avere-vfxt/
@@ -119,8 +119,8 @@
           tocHref: /azure/app-service/
           topicHref: /azure/app-service/
         - name: Mobile Apps
-          tocHref: /azure/app-service-mobile/
-          topicHref: /azure/app-service-mobile/
+          tocHref: /azure/developer/mobile-apps/azure-mobile-apps/overview
+          topicHref: /azure/developer/mobile-apps/azure-mobile-apps/overview
     - name: Azure Automanage
       tocHref: 'https://azure.microsoft.com/services/azure-automanage/'
       topicHref: 'https://azure.microsoft.com/services/azure-automanage/'
@@ -491,8 +491,20 @@
       topicHref: /azure/cosmos-db/
       items:
         - name: MongoDB API
-          tocHref: /azure/cosmos-db/mongodb-introduction
-          topicHref: /azure/cosmos-db/mongodb-introduction
+          tocHref: /azure/cosmos-db/mongodb
+          topicHref: /azure/cosmos-db/mongodb
+        - name: 테이블 API
+          tocHref: /azure/cosmos-db/table/
+          topicHref: /azure/cosmos-db/table/
+        - name: Cassandra API
+          tocHref: /azure/cosmos-db/cassandra/
+          topicHref: /azure/cosmos-db/cassandra/
+        - name: Gremlin API
+          tocHref: /azure/cosmos-db/graph/
+          topicHref: /azure/cosmos-db/graph/
+        - name: SQL API
+          tocHref: /azure/cosmos-db/sql/sql-query-getting-started
+          topicHref: /azure/cosmos-db/sql/sql-query-getting-started
     - name: Apache Cassandra에 대 한 Managed Instance
       tocHref: /azure/managed-instance-apache-cassandra/
       topicHref: /azure/managed-instance-apache-cassandra/
@@ -577,9 +589,25 @@
         - name: Storm
           tocHref: /azure/hdinsight/storm
           topicHref: /azure/hdinsight/storm/apache-storm-overview
+    - name: Healthcare API
+      tocHref: /azure/healthcare-apis/
+      topicHref: /azure/healthcare-apis/
+      items:
+        - name: FHIR 서비스
+          tocHref: /azure/healthcare-apis/fhir/
+          topicHref: /azure/healthcare-apis/fhir/index
+        - name: DICOM 서비스
+          tocHref: /azure/healthcare-apis/dicom/
+          topicHref: /azure/healthcare-apis/dicom/index
+        - name: 데이터 변환
+          tocHref: /azure/healthcare-apis/data-transformation/
+          topicHref: /azure/healthcare-apis/data-transformation/index
+        - name: IoT 커넥터
+          tocHref: /azure/healthcare-apis/iot/
+          topicHref: /azure/healthcare-apis/iot/index
     - name: FHIR용 Azure API
-      tocHref: /azure/healthcare-apis
-      topicHref: /azure/healthcare-apis
+      tocHref: /azure/healthcare-apis/azure-api-for-fhir/
+      topicHref: /azure/healthcare-apis/azure-api-for-fhir/index
     - name: 산업용 Azure
       tocHref: /azure/industry
       topicHref: /azure/industry
@@ -783,7 +811,7 @@
       topicHref: /azure/remoteapp/
     - name: 복원력
       tocHref: /azure/resiliency/
-      topicHref: /azure/architecture/framework/resiliency/overview
+      topicHref: /azure/architecture/framework/resiliency/app-design
     - name: 역할 기반 액세스 제어
       tocHref: /azure/role-based-access-control/
       topicHref: /azure/role-based-access-control/

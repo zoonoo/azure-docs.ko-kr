@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 6588ee515d46f3f300bf3c486f0d528c6f31df98
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 146c1f78ffe0b8a4061417086cf66d96d2317890
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112032090"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285373"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -271,8 +271,8 @@ Azure PowerShell에서 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az
 
 **검색**
 
-- 최대 악성 트래픽을 트래버스하고 상당한 흐름을 차단하는 대부분의 트래픽을 전송하거나 수신하는 호스트, 서브넷 및 가상 네트워크는 무엇인가요?
-    - 호스트, 서브넷 및 가상 네트워크에 대한 비교 차트를 확인합니다. 어떤 호스트, 서브넷 및 가상 네트워크가 트래픽을 가장 많이 전송 또는 수신하는지 파악하면 가장 많은 트래픽을 처리하는 호스트를 식별하고, 트래픽 배포가 적절하게 수행되는지 여부를 확인하는 데 도움이 될 수 있습니다.
+- 최대 악성 트래픽을 트래버스하고 상당한 흐름을 차단하는 대부분의 트래픽을 전송하거나 수신하는 호스트, 서브넷, 가상 네트워크 및 가상 머신 확장 집합은 무엇인가요?
+    - 호스트, 서브넷, 가상 네트워크 및 가상 머신 확장 집합의 비교 차트를 확인하세요. 어떤 호스트, 서브넷, 가상 네트워크 및 가상 머신 확장 집합이 트래픽을 가장 많이 전송 또는 수신하는지 파악하면 가장 많은 트래픽을 처리하는 호스트를 식별하고, 트래픽이 적절하게 배포되는지 여부를 확인하는 데 도움이 될 수 있습니다.
     - 트래픽 볼륨이 호스트에 적절한지 평가할 수 있습니다. 트래픽 볼륨이 정상 동작인지 아니면 추가 조사가 필요한지 여부
 - 인바운드/아웃바운드 트래픽의 양
     -   호스트가 아웃바운드 트래픽보다 인바운드 트래픽을 더 많이 받을 것으로 또는 그 반대일 것으로 예상되는지 여부
@@ -281,13 +281,16 @@ Azure PowerShell에서 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az
 - 허용된/차단된 악성 트래픽 통계
   - 호스트가 악성 트래픽을 수신하는 이유 및 악성 원본의 흐름이 허용되는 이유는 무엇인가요? 이 동작을 수행하려면 더 많은 조사와 구성의 최적화가 필요합니다.
 
-    다음 그림과 같이 **호스트** 아래에서 **모두 보기** 를 선택합니다.
+    다음 그림과 같이 **IP** 에서 **모두 보기** 를 선택합니다.
 
     ![트래픽이 가장 많은 호스트의 세부 정보를 보여주는 대시보드](media/traffic-analytics/dashboard-showcasing-host-with-most-traffic-details.png)
 
-- 다음 그림은 통신 양이 가장 많은 상위 5개 호스트와 흐름 관련 세부 정보(호스트에 대해 허용된 인바운드/아웃바운드 흐름 및 거부된 인바운드/아웃바운드 흐름)에 대한 시간 추세를 보여줍니다.
+    다음 그림은 통신 양이 가장 많은 상위 5개 호스트와 흐름 관련 세부 정보(호스트에 대해 허용된 인바운드/아웃바운드 흐름 및 거부된 인바운드/아웃바운드 흐름)에 대한 시간 추세를 보여줍니다.
+
+    모든 호스트에 대한 인사이트를 얻으려면 다음 그림과 같이 **통신 중인 상위 5개 IP에 대한 세부 정보** 에서 **자세히 보기** 를 선택합니다.
 
     ![통신 양이 가장 많은 상위 5개 호스트 추세](media/traffic-analytics/top-five-most-talking-host-trend.png)
+    
 
 **검색**
 
@@ -354,6 +357,10 @@ Azure PowerShell에서 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az
     ![국가/지역 및 대륙의 트래픽 분포를 보여주는 지역 지도 보기](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
     ![로그 검색의 트래픽 분포에 대한 흐름 세부 정보](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
+    
+- Azure 지역의 **추가 인사이트** 블레이드에서는 해당 지역 내에 남아 있는 총 트래픽(즉, 동일한 지역의 원본 및 대상)도 보여 줍니다. 또한 데이터 센터의 가용성 영역 간에 교환되는 트래픽 관련 인사이트를 제공합니다. 
+
+    ![영역 간/지역 간 트래픽](./media/traffic-analytics/inter-zone-and-intra-region-traffic.png)
 
 ### <a name="visualize-traffic-distribution-by-virtual-networks"></a>가상 네트워크별로 트래픽 분포 시각화
 
@@ -369,7 +376,7 @@ Azure PowerShell에서 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az
 
 - 가상 네트워크 토폴로지는 가상 네트워크(상호 가상 네트워크 연결/활성/비활성), 외부 연결, 활성 흐름, 가상 네트워크의 악의적 흐름 등과 같은 매개 변수를 선택할 수 있는 상단 리본을 표시합니다.
 - 구독, 작업 영역, 리소스 그룹 및 시간 간격에 따라 가상 네트워크 토폴로지를 필터링할 수 있습니다. 흐름을 이해하는 데 도움이 되는 추가 필터는 흐름 유형(InterVNet, IntraVNET 등), 흐름 방향(인바운드, 아웃바운드), 흐름 상태(허용됨, 차단됨) VNET(대상으로 지정됨 및 연결됨), 연결 형식(피어링 또는 게이트웨이 - P2S 및 S2S) 및 NSG입니다. 이러한 필터를 사용하여 자세히 살펴볼 VNet에 초점을 맞춥니다.
-- 가상 네트워크 토폴로지는 흐름(허용된/차단된/인바운드/아웃바운드/무해/악성), 애플리케이션 프로토콜, 네트워크 보안 그룹과 관련하여 가상 네트워크의 트래픽 분포를 보여주며, 다음은 그 예입니다.
+- 가상 네트워크 토폴로지는 흐름(허용됨/차단됨/인바운드/아웃바운드/양성/악성), 애플리케이션 프로토콜, 네트워크 보안 그룹과 관련하여 가상 네트워크의 트래픽 분포를 보여 줍니다. 예를 들면, 다음과 같습니다.
 
     ![트래픽 분포 및 흐름 세부 정보를 표시하는 가상 네트워크 토폴로지](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
     
@@ -383,7 +390,7 @@ Azure PowerShell에서 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az
     - 어떤 서브넷이 어떤 서브넷과 대화하는지 파악. 예기치 않은 대화가 발견되면 구성을 수정할 수 있습니다.
     - 불량 네트워크가 서브넷과 대화하는 경우 불량 네트워크를 차단하도록 NSG 규칙을 구성하여 수정할 수 있습니다.
 - 서브넷 토폴로지는 활성/비활성 서브넷, 외부 연결, 활성 흐름, 서브넷의 악의적인 흐름 등과 같은 매개 변수를 선택할 수 있는 상단 리본을 보여줍니다.
-- 서브넷 토폴로지는 흐름(허용된/차단된/인바운드/아웃바운드/무해/악성), 애플리케이션 프로토콜, NSG와 관련하여 가상 네트워크의 트래픽 분포를 보여주며, 다음은 그 예입니다.
+- 서브넷 토폴로지는 흐름(허용됨/차단됨/인바운드/아웃바운드/양성/악성), 애플리케이션 프로토콜, NSG와 관련하여 가상 네트워크의 트래픽 분포를 보여 줍니다. 예를 들면, 다음과 같습니다.
 
     ![흐름과 관련하여 가상 네트워크 서브넷의 트래픽 분포를 보여주는 서브넷 토폴로지](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)
 
@@ -413,6 +420,22 @@ Azure PowerShell에서 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az
 
 ![로그 검색의 악성 트래픽 흐름 세부 정보](./media/traffic-analytics/malicious-traffic-flows-detail-in-log-search.png)
 
+### <a name="view-information-about-public-ips-interacting-with-your-deployment"></a>배포와 상호 작용하는 공용 IP에 대한 정보 보기
+
+**검색**
+
+- 내 네트워크와 대화하는 공용 IP는 무엇인가요? 모든 공용 IP의 WHOIS 데이터와 지리적 위치는 무엇인가요?
+- 내 배포로 트래픽을 보내는 악성 IP는 무엇인가요? 악성 IP의 위협 형식과 위협 설명은 무엇인가요?
+    - 공용 IP 정보 섹션에서는 네트워크 트래픽에 있는 모든 유형의 공용 IP 요약 정보를 제공합니다. 
+      세부 정보를 보려면 관심 있는 공용 IP 형식을 선택하세요. 이 [스키마 문서](./traffic-analytics-schema.md#public-ip-details-schema)는 표시되는 데이터 필드를 정의합니다.
+      
+      :::image type="content" source="./media/traffic-analytics/public-ip-information.png" alt-text="공용 IP 정보" lightbox="./media/traffic-analytics/public-ip-information.png":::
+      
+    - 트래픽 분석 대시보드에서 IP를 클릭하여 관련 정보를 확인합니다.   
+    
+      :::image type="content" source="./media/traffic-analytics/external-public-ip-details.png" alt-text="도구 설명의 외부 IP 정보" lightbox="./media/traffic-analytics/external-public-ip-details.png":::
+      
+      :::image type="content" source="./media/traffic-analytics/malicious-ip-details.png" alt-text="도구 설명의 악성 IP 정보" lightbox="./media/traffic-analytics/malicious-ip-details.png":::
 
 ### <a name="visualize-the-trends-in-nsgnsg-rules-hits"></a>NSG/NSG 규칙 적중의 추세 시각화
 
