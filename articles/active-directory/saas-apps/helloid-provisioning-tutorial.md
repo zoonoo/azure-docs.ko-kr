@@ -2,25 +2,22 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 HelloID 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 HelloID로 자동으로 프로비저닝 및 프로비전 해제하는 방법 알아보기.
 services: active-directory
-documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: ffd450a5-03ec-4364-8921-5c468e119c4d
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/15/2021
-ms.author: Zhchia
-ms.openlocfilehash: 58de459002b449ecc50840ee7e217c6a01b9676e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 7f9342f6843259605598f0a4ec09ce7f0190e046
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643901"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122207726"
 ---
 # <a name="tutorial-configure-helloid-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 HelloID 구성
 

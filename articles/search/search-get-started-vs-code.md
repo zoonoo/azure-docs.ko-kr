@@ -3,17 +3,16 @@ title: '빠른 시작: Visual Studio Code를 사용하여 Azure Cognitive Search
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search용 Visual Studio Code 확장을 설치하고 사용하는 방법을 알아봅니다.
 author: dereklegenzoff
-manager: luisca
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 03/10/2021
-ms.openlocfilehash: 991dbb9027d247834f63f41de8d02d893ba9bb46
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 34e4527ed18afb57ca3f15203d837bb0b9f2e29d
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112583701"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178962"
 ---
 # <a name="get-started-with-azure-cognitive-search-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Cognitive Search 시작
 

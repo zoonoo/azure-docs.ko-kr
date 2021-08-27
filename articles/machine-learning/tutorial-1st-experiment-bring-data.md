@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/29/2021
 ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 4d4c7fcb824d57b46df1353f30d3136e129af293
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 80841c800172c4f0f551b6437d18d437aed0536d
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765797"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634137"
 ---
 # <a name="tutorial-upload-data-and-train-a-model-part-3-of-3"></a>자습서: 데이터 업로드 및 모델 학습(3/3부)
 
@@ -270,6 +270,8 @@ if __name__ == "__main__":
 **터미널에서 스크립트 저장 및 실행** 을 선택하여 *run-pytorch-data.py* 스크립트를 실행합니다.  이 실행은 업로드한 데이터를 사용하여 컴퓨팅 클러스터에서 모델을 학습합니다.
 
 그러면 Azure Machine Learning 스튜디오에서 실험에 대한 URL이 출력됩니다. 해당 링크로 이동하면 코드가 실행되는 것을 확인할 수 있습니다.
+
+[!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
 
 
 ### <a name="inspect-the-log-file"></a><a name="inspect-log"></a> 로그 파일 검사
