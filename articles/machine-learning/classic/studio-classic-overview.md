@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.subservice: studio-classic
 ms.topic: overview
 ms.date: 08/19/2020
-ms.openlocfilehash: 8b9c03395f77bc33fd03cf2b14b2fb1d27bfc0f0
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: ae20a9b0a62212b558d0613ac821ae8a6baa626b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112579489"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696649"
 ---
 # <a name="what-can-i-do-with-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)로 수행할 수 있는 작업은?
 
 **적용 대상:** ![이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) ![이 문서가 Azure Machine Learning에 적용되지 않음을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Machine Learning Studio(클래식)는 기계 학습 모델을 빌드, 테스트 및 배포하는 데 사용할 수 있는 끌어서 놓기 도구입니다. Studio(클래식)는 Excel과 같은 BI 도구 또는 사용자 지정 앱에서 쉽게 사용할 수 있는 웹 서비스로 모델을 게시합니다.
 
