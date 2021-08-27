@@ -215,6 +215,12 @@
               href: developer-portal-use-community-widgets.md
             - name: 자체 호스팅 포털 테스트
               href: developer-portal-testing.md
+        - name: API 수익 창출
+          items:
+            - name: Azure API Management를 통한 수익 창출
+              href: monetization-overview.md
+            - name: API Management에서 수익 창출을 지원하는 방법
+              href: monetization-support.md
         - name: 더 이상 사용되지 않는 포털
           items:
             - name: 더 이상 사용되지 않는 포털 - 포털 사용자 지정
@@ -308,7 +314,7 @@
           href: api-management-configuration-repository-git.md
         - name: 역할 기반 액세스 제어 사용
           href: api-management-role-based-access-control.md
-        - name: API Management 인스턴스 마이그레이션
+        - name: 지역 간 인스턴스 이동
           href: api-management-howto-migrate.md
         - name: Azure 리소스에 대한 관리 ID 사용
           href: api-management-howto-use-managed-service-identity.md

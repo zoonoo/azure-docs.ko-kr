@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: c02b7ec2cb2c8c16af3b34e4a58b978d96901774
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: b9295e5f211dc57f7c2205d6abb2b79ad657b5ed
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113092530"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823972"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python Tools for Visual Studio의 Python 웹 및 작업자 역할
 
-> [!IMPORTANT]
-> [Azure Cloud Services(확장 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품에 대한 새로운 Azure Resource Manager 기반 배포 모델입니다.해당 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌고 모든 새로운 배포는 [Cloud Services(확장된 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 이 문서에서는 [Visual Studio용 Python Tools][Python Tools for Visual Studio]를 사용하여 Python 웹 및 작업자 역할을 사용하는 방법을 간략하게 설명합니다. Visual Studio를 사용하여 Python을 사용하는 기본 Cloud Service를 만들고 배포하는 방법을 알아봅니다.
 

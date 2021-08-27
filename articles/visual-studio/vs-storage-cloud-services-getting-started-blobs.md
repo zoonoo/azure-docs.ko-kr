@@ -13,17 +13,21 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 89e0d6873ebfd8f8396c36185730c57a66af0dd9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9f818aecf7020d742c54f7018305c20b584763f
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96007042"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823357"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(클라우드 서비스 프로젝트)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>개요
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](../cloud-services/includes/deprecation-announcement.md)]
+
+
 이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 Visual Studio 클라우드 서비스 프로젝트에서 Azure Storage 계정을 만들거나 참조한 후 Azure Blob Storage를 시작하는 방법을 설명합니다. Blob 컨테이너에 액세스하고 만드는 방법과 Blob 업로드, 나열 및 다운로드와 같은 일반적인 작업을 수행하는 방법을 살펴보겠습니다. 샘플은 C\#으로 작성되었으며 [.NET용 Microsoft Azure Storage 클라이언트 라이브러리](/previous-versions/azure/dn261237(v=azure.100))를 사용합니다.
 
 Azure Blob Storage는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액세스할 수 있는 다량의 구조화되지 않은 데이터를 저장하기 위한 서비스입니다. 단일 Blob은 임의의 크기일 수 있습니다. Blob은 이미지, 오디오 및 비디오 파일, 원시 데이터, 문서 파일 등일 수 있습니다.

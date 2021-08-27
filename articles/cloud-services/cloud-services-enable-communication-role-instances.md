@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: d2479fb687bf899057fccc2441841eed5a116914
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 0d26adebc3576d6ba7aa639e0b20610dc15ea7f1
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091576"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823897"
 ---
 # <a name="enable-communication-for-role-instances-in-azure-cloud-services-classic"></a>Azure Cloud Services(클래식) 역할 인스턴스에 대한 통신 사용
 
-> [!IMPORTANT]
-> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이와 같은 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 새로운 모든 배포에서 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 클라우드 서비스 역할은 내부 및 외부 연결을 통해 통신합니다. 외부 연결을 **입력 엔드포인트** 라고 하고, 내부 연결을 **내부 엔드포인트** 라고 합니다. 이 항목은 [서비스 정의](cloud-services-model-and-package.md#csdef) 를 수정하는 방법을 설명하여 엔드포인트를 만듭니다.
 

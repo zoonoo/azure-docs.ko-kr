@@ -9,17 +9,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: b355131bcb0ca75fcbe8303e284294c6b4e02e8d
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: cc1792d2cab43f5c8d511bf75dc3fa256552d753
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113088299"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824248"
 ---
 # <a name="azure-cloud-services-classic-definition-loadbalancerprobe-schema"></a>Azure Cloud Services(클래식) 정의 LoadBalancerProbe 스키마
 
-> [!IMPORTANT]
-> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 부하 분산 장치 프로브는 UDP 엔드포인트와 역할 인스턴스의 엔드포인트에서 고객이 정의한 상태 프로브입니다. `LoadBalancerProbe`는 독립 실행형 요소가 아닙니다. 서비스 정의 파일의 웹 역할 또는 작업자 역할과 결합됩니다. `LoadBalancerProbe`는 하나 이상의 역할에서 사용할 수 있습니다.
 
@@ -59,7 +58,7 @@ Azure Load Balancer는 들어오는 트래픽을 역할 인스턴스로 라우�
 
 다음 표에서는 `LoadBalancerProbe` 요소의 특성을 설명합니다.
 
-|attribute|Type|설명|
+|attribute|Type|Description|
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | 필수 요소. 부하 분산 장치 프로브의 이름입니다. 이름은 고유해야 합니다.|
 | `protocol`          | `string` | 필수 요소. 끝점의 프로토콜을 지정합니다. 가능한 값은 `http` 또는 `tcp`입니다. `tcp`가 지정된 경우 프로브가 성공하려면 수신된 ACK가 필요합니다. `http`가 지정된 경우 프로브가 성공하려면 지정한 URI로부터의 200 OK 응답이 필요합니다.|
