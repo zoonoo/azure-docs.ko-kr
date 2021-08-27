@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/09/2021
+ms.date: 08/19/2021
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: has-adal-ref
-ms.openlocfilehash: a885a6ecbe9c2c371f48dbaf3869e5e853d431ff
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 931d7385b9c7afe48d7c163aad3570c8485ae8d1
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122539006"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122767890"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
@@ -72,24 +72,10 @@ MSAL(Microsoft 인증 라이브러리)에 대한 도움이 필요한 경우 GitH
 | iOS 및 macOS용 MSAL| https://github.com/AzureAD/microsoft-authentication-library-for-objc/issues |
 | MSAL Java | https://github.com/AzureAD/microsoft-authentication-library-for-java/issues |
 | MSAL.js | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-|MSAL.NET| https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
+| MSAL.NET| https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
 | MSAL 노드 | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
 | MSAL Python | https://github.com/AzureAD/microsoft-authentication-library-for-python/issues |
 | MSAL 반응  | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-
-## <a name="submit-feedback-on-azure-feedback"></a>Azure 피드백에 대한 사용자 의견 제출
-
-<div class='icon is-large'>
-    <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
-</div>
-
-새 기능을 요청하려면 Azure 피드백에 게시하세요. 개발 중인 애플리케이션에 Microsoft ID 플랫폼을 보다 효율적으로 사용할 수 있도록 아이디어를 공유하세요.
-
-| 서비스                       | Azure 피드백 URL |
-|-------------------------------|---------------|
-| Azure Active Directory | https://feedback.azure.com/forums/169401-azure-active-directory |
-| Azure Active Directory - 개발자 환경             | https://feedback.azure.com/forums/169401-azure-active-directory?category_id=164757 |
-| Azure Active Directory - 인증             | https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167256 |
 
 ## <a name="stay-informed-of-updates-and-new-releases"></a>업데이트 및 새 릴리스의 최신 정보 수신
 

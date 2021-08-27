@@ -6,40 +6,33 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/07/2021
-ms.openlocfilehash: d8a584b6ba752e8f9220defa575f519828ba07e6
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.date: 08/03/2021
+ms.openlocfilehash: 299005d8d7c961335decbce46bab8c558d2589a1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107023846"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536063"
 ---
 # <a name="supported-database-versions-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL – 하이퍼스케일(Citus)에서 지원되는 데이터베이스 버전
 
 ## <a name="postgresql-versions"></a>PostgreSQL 버전
 
-> [!IMPORTANT]
-> 하이퍼스케일(Citus)의 사용자 지정 가능한 PostgreSQL 버전은 현재 미리 보기로 제공됩니다.  이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
->
-> [하이퍼스케일(Citus)의 미리 보기 기능](hyperscale-preview-features.md)에서 다른 새 기능의 전체 목록을 볼 수 있습니다.
+하이퍼스케일(Citus) 서버 그룹에서 실행되는 PostgreSQL 버전은 만드는 동안 사용자 지정이 가능합니다. 하이퍼스케일(Citus)은 현재 다음 주요 버전을 지원합니다.
 
-하이퍼스케일(Citus) 서버 그룹에서 실행되는 PostgreSQL 버전은 만드는 동안 사용자 지정이 가능합니다. 버전 11 이외의 항목을 선택하면 현재 미리 보기 기능으로 제공됩니다.
+### <a name="postgresql-version-13"></a>PostgreSQL 버전 13
 
-하이퍼스케일(Citus)은 현재 다음 주요 버전을 지원합니다.
+현재 부 릴리스는 13.3입니다. 이 부 릴리스의 향상된 기능 및 수정사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/13/static/release-13-2.html)를 참조하세요.
 
-### <a name="postgresql-version-13-preview"></a>PostgreSQL 버전 13(미리 보기)
+### <a name="postgresql-version-12"></a>PostgreSQL 버전 12
 
-현재 부 릴리스는 13.2입니다. 이 부 릴리스의 향상된 기능 및 수정 사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/13/static/release-13-2.html)를 참조하세요.
-
-### <a name="postgresql-version-12-preview"></a>PostgreSQL 버전 12(미리 보기)
-
-현재 부 릴리스는 12.6입니다. 이 부 릴리스의 향상된 기능 및 수정 사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/12/static/release-12-6.html)를 참조하세요.
+현재 부 릴리스는 12.7입니다. 이 부 릴리스의 향상된 기능 및 수정 사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/12/static/release-12-6.html)를 참조하세요.
 
 ### <a name="postgresql-version-11"></a>PostgreSQL 버전 11
 
-현재 부 릴리스는 11.11입니다. 이 부 릴리스의 향상된 기능 및 수정 사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/11/static/release-11-11.html)를 참조하세요.
+현재 부 릴리스는 11.12입니다. 이 부 릴리스의 향상된 기능 및 수정 사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/11/static/release-11-11.html)를 참조하세요.
 
-### <a name="postgresql-version-10-and-older"></a>PostgreSQL 버전 10 및 이전 버전
+### <a name="postgresql-version-10-and-older"></a>PostgreSQL 버전 10 이상
 
 Azure Database for PostgreSQL - 하이퍼스케일(Citus)의 경우 PostgreSQL 버전 10 및 이전 버전을 지원하지 않습니다.
 

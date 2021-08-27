@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
-ms.openlocfilehash: c8fde4c233907a8ed1493d7fa8d8c7faee03941d
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: bb057f6328c0a678f1fbc7bfed57f1fa8dc13bfc
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114402357"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681638"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Apache Hadoop 애플리케이션 설치
 
@@ -29,7 +29,7 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
 |[HDInsight용 H2O SparklingWater](https://azuremarketplace.microsoft.com/marketplace/apps/h2o-ai.h2o-sparklingwater) |Spark |H2O Sparkling Water는 다음 분산 알고리즘을 지원합니다. GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, 심층 신경망, 딥 러닝, K-평균, PCA, Generalized Low Rank 모델, 변칙 검색, Autoencoder. |
 |[HDInsight에 대한 실시간 데이터 통합을 위한 Striim](https://azuremarketplace.microsoft.com/marketplace/apps/striim.striimbyol) |Hadoop, HBase, Storm, Spark, Kafka |Striim(“스트림”으로 발음)은 엔드투엔드 데이터 통합 + 인텔리전스 플랫폼으로, 서로 다른 데이터 스트림을 연속으로 수집, 처리, 분석할 수 있습니다. |
 |[Jumbune 엔터프라이즈 - 빅 데이터 분석 가속화](https://azuremarketplace.microsoft.com/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop, Spark |높은 수준에서 Jumbune은 엔터프라이즈를 지원합니다. 1. Tez, MapReduce 및 Spark 엔진 기반 Hive, Java, Scala 워크로드 성능 가속화. 2. 자동 관리 Hadoop 클러스터 모니터링. 3. 분산 파일 시스템에 데이터 품질 관리 설정. |
-|[Kyligence Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence) |Hadoop, HBase, Spark |Apache Kylin에서 제공하는 Kyligence Enterprise는 빅 데이터를 기반으로 BI를 가능하게 합니다. Hadoop의 엔터프라이즈 OLAP 엔진인 Kyligence Enterprise는 산업 표준 데이터 웨어하우스 및 BI 방법론을 사용하여 Hadoop에서 BI를 설계하는 비즈니스 분석가의 역량을 강화합니다. |
+|[Kyligence Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence-cloud-saas) |Hadoop, HBase, Spark |Apache Kylin에서 제공하는 Kyligence Enterprise는 빅 데이터를 기반으로 BI를 가능하게 합니다. Hadoop의 엔터프라이즈 OLAP 엔진인 Kyligence Enterprise는 산업 표준 데이터 웨어하우스 및 BI 방법론을 사용하여 Hadoop에서 BI를 설계하는 비즈니스 분석가의 역량을 강화합니다. |
 |[Azure HDInsight용 Starburst Presto](https://azuremarketplace.microsoft.com/marketplace/apps/starburstdatainc1582306810515.starburst-enterprise-presto?tab=Overview) |Hadoop은 |Presto는 빠르고 확장 가능한 분산 SQL 쿼리 엔진입니다. 스토리지 및 컴퓨팅을 분리하기 위해 설계된 Presto는 Azure Data Lake Storage, Azure Blob Storage, SQL 및 NoSQL 데이터베이스와 기타 데이터 원본의 데이터를 쿼리하는 데 이상적입니다. |
 |[HDInsight Cloud용 StreamSets Data Collector](https://azuremarketplace.microsoft.com/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop, HBase, Spark, Kafka |StreamSets Data Collector는 데이터를 실시간으로 스트림하는 간단하고 강력한 엔진입니다. Data Collector를 사용하여 데이터 스트림에서 데이터를 라우팅하고 처리합니다. 30일 평가판 라이선스가 함께 제공됩니다. |
 |[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.trifacta-db?tab=Overview) |Hadoop, Spark, HBase |HDInsight용 Trifacta Wrangler Enterprise는 모든 규모의 데이터에 대해 엔터프라이즈 전체 데이터 랭글링를 지원합니다. Azure에서 Trifacta를 실행하는 비용은 Trifacta 구독 비용과 가상 머신에 대한 Azure 인프라 비용의 조합입니다. |

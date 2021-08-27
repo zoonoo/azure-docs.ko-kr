@@ -11,20 +11,23 @@ ms.topic: how-to
 ms.date: 04/24/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 3eea91d1cbbb8fe34dcdc8668840503e6dc9d014
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: f2b4f2e54c046ca7abc2172b8df33f14def902fd
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517355"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122767899"
 ---
 # <a name="tutorial-configure-cloudflare-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 Cloudflare 구성
 
 이 샘플 자습서에서는 사용자 지정 도메인을 사용하는 Azure Active Directory(AD) B2C에 대한 [Cloudflare 웹 애플리케이션 방화벽(WAF)](https://www.cloudflare.com/waf/) 솔루션을 사용하도록 설정하는 방법을 알아봅니다. Cloudflare WAF를 사용하면 조직을 SQLi 및 XSS와 같은 취약점을 악용하려는 악의적인 공격으로부터 보호할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+>[!NOTE]
+>이 기능은 공개 미리 보기 상태입니다.
 
-시작을 위해 필요한 사항:
+## <a name="prerequisites"></a>필수 조건
+
+시작하려면 다음이 필요합니다.
 
 - Azure 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 

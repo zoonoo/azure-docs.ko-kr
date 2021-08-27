@@ -4,12 +4,12 @@ description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 1560e4a0a5c413ca225ffde0ab6d24e2958c8e75
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 601982058a333f23cf5895351db7bc6475617256
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985404"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536394"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -96,7 +96,7 @@ Python Functions 프로젝트에 권장하는 폴더 구조는 다음 예제와 
 ```
 기본 프로젝트 폴더(<project_root>)에는 다음 파일이 포함될 수 있습니다.
 
-* *local.settings.json*: 로컬에서 실행될 때 앱 설정과 연결 문자열을 저장하는 데 사용됩니다. 이 파일은 Azure에 게시되지 않습니다. 자세한 내용은 [local.settings.file](functions-run-local.md#local-settings-file)을 참조하세요.
+* *local.settings.json*: 로컬에서 실행될 때 앱 설정과 연결 문자열을 저장하는 데 사용됩니다. 이 파일은 Azure에 게시되지 않습니다. 자세한 내용은 [local.settings.file](functions-develop-local.md#local-settings-file)을 참조하세요.
 * *requirements.txt*: Azure에 게시할 때 시스템에서 설치하는 Python 패키지 목록이 포함됩니다.
 * *host.json*: 함수 앱의 모든 함수에 영향을 주는 글로벌 구성 옵션이 포함됩니다. 이 파일은 Azure에 게시됩니다. 로컬로 실행할 경우 일부 옵션이 지원되지 않습니다. 자세한 내용은 [host.json](functions-host-json.md)을 참조하세요.
 * *.vscode/* : (선택 사항) 저장소 VSCode 구성을 포함합니다. 자세히 알아보려면 [VSCode 설정](https://code.visualstudio.com/docs/getstarted/settings)을 참조하세요.
@@ -265,6 +265,51 @@ def main(req):
 
 로깅에 대한 자세한 내용은 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
 
+### <a name="log-custom-telemetry"></a>로그 사용자 지정 원격 분석
+
+기본적으로 Functions는 Application Insights에 출력을 추적으로 기록합니다. 보다 강력한 제어를 위해 [OpenCensus Python 확장](https://github.com/census-ecosystem/opencensus-python-extensions-azure)을 사용하여 Application Insights 인스턴스에 사용자 지정 원격 분석 데이터를 보낼 수 있습니다. 
+
+>[!NOTE]
+> OpenCensus Python 확장을 사용하려면 `local.settings.json` 및 애플리케이션 설정에서 `PYTHON_ENABLE_WORKER_EXTENSIONS`를 `1`로 설정하여 [Python 확장](#python-worker-extensions)을 사용하도록 설정해야 합니다.
+>
+
+```
+// requirements.txt
+...
+opencensus-extension-azure-functions
+opencensus-ext-requests
+```
+
+```python
+import json
+import logging
+
+import requests
+from opencensus.extension.azure.functions import OpenCensusExtension
+from opencensus.trace import config_integration
+
+config_integration.trace_integrations(['requests'])
+
+OpenCensusExtension.configure()
+
+def main(req, context):
+    logging.info('Executing HttpTrigger with OpenCensus extension')
+
+    # You must use context.tracer to create spans
+    with context.tracer.span("parent"):
+        response = requests.get(url='http://example.com')
+
+    return json.dumps({
+        'method': req.method,
+        'response': response.status_code,
+        'ctx_func_name': context.function_name,
+        'ctx_func_dir': context.function_directory,
+        'ctx_invocation_id': context.invocation_id,
+        'ctx_trace_context_Traceparent': context.trace_context.Traceparent,
+        'ctx_trace_context_Tracestate': context.trace_context.Tracestate,
+    })
+```
+
 ## <a name="http-trigger-and-bindings"></a>HTTP 트리거 및 바인딩
 
 HTTP 트리거는 function.json 파일에 정의됩니다. 바인딩의 `name`은 함수의 명명된 매개 변수와 일치해야 합니다.
@@ -361,7 +406,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info(f'My app setting value:{my_app_setting_value}')
 ```
 
-로컬에서 개발하는 경우 애플리케이션 설정은 [local.settings.json 파일에 유지됩니다](functions-run-local.md#local-settings-file).
+로컬에서 개발하는 경우 애플리케이션 설정은 [local.settings.json 파일에 유지됩니다](functions-develop-local.md#local-settings-file).
 
 ## <a name="python-version"></a>Python 버전
 
@@ -377,6 +422,62 @@ Azure Functions에서 지원하는 Python 버전은 다음과 같습니다.
 Azure에서 함수 앱을 만들 때 특정 Python 버전을 요청하려면 [`az functionapp create`](/cli/azure/functionapp#az_functionapp_create) 명령의 `--runtime-version` 옵션을 사용합니다. Functions 런타임 버전은 `--functions-version` 옵션을 통해 설정됩니다. Python 버전은 함수 앱을 만들 때 설정되며 변경할 수 없습니다.
 
 로컬로 실행하는 경우 런타임에서는 사용 가능한 Python 버전을 사용합니다.
+
+### <a name="changing-python-version"></a>Python 버전 변경
+
+Python 함수 앱을 특정 언어 버전으로 설정하려면 사이트 구성의 `LinuxFxVersion` 필드에 언어 버전뿐만 아니라 언어를 지정해야 합니다. 예를 들어 Python 3.8을 사용하도록 Python 앱을 변경하려면 `linuxFxVersion`을 `python|3.8`로 설정합니다.
+
+Azure Functions 런타임 지원 정책에 대한 자세한 내용은 이 [문서](./language-support-policy.md)를 참조하세요.
+
+지원되는 Python 버전 함수 앱의 전체 목록을 보려면 이 [문서](./supported-languages.md)를 참조하세요.
+
+
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli-linux)
+
+Azure CLI에서 `linuxFxVersion`을 확인하고 설정할 수 있습니다.  
+
+Azure CLI를 사용하여 [az functionapp config show](/cli/azure/functionapp/config) 명령을 사용하여 현재 `linuxFxVersion`을 확인합니다.
+
+```azurecli-interactive
+az functionapp config show --name <function_app> \
+--resource-group <my_resource_group>
+```
+
+이 코드에서 `<function_app>`을 함수 앱 이름으로 바꿉니다. 또한 `<my_resource_group>`을 함수 앱의 리소스 그룹 이름으로 바꿉니다. 
+
+다음 출력의 `linuxFxVersion`은 보기 편하도록 잘린 상태입니다.
+
+```output
+{
+  ...
+  "kind": null,
+  "limits": null,
+  "linuxFxVersion": <LINUX_FX_VERSION>,
+  "loadBalancing": "LeastRequests",
+  "localMySqlEnabled": false,
+  "location": "West US",
+  "logsDirectorySizeLimit": 35,
+   ...
+}
+```
+
+[az functionapp config appsettings set](/cli/azure/functionapp/config) 명령을 사용하여 함수 앱의 `linuxFxVersion` 설정을 업데이트할 수 있습니다.
+
+```azurecli-interactive
+az functionapp config set --name <FUNCTION_APP> \
+--resource-group <RESOURCE_GROUP> \
+--linux-fx-version <LINUX_FX_VERSION>
+```
+
+`<FUNCTION_APP>`은 함수 앱 이름으로 바꿉니다. 또한 `<RESOURCE_GROUP>`을 함수 앱의 리소스 그룹 이름으로 바꿉니다. 또한 `<LINUX_FX_VERSION>`을 사용하려는 python 버전으로 바꾸고 `python|`을 접두사로 사용합니다(예: `python|3.9`).
+
+앞의 코드 샘플에서 **사용해 보세요.** 를 선택하여 [Azure Cloud Shell](../cloud-shell/overview.md)에서 이 명령을 실행할 수 있습니다. 또한 [Azure CLI locally(로컬로 Azure CLI 설치)](/cli/azure/install-azure-cli)를 사용하면 [az login](/cli/azure/reference-index#az-login)을 실행하여 로그인한 후 이 명령을 실행할 수도 있습니다.
+
+사이트 구성이 변경된 후 함수 앱이 다시 시작됩니다.
+
+--- 
+
 
 ## <a name="package-management"></a>패키지 관리
 
@@ -646,7 +747,7 @@ Python 함수에서 다음과 같은 기본 단계를 수행하여 Python 작업
 1. 프로젝트의 requirements.txt 파일에 확장 패키지를 추가합니다.
 1. 앱에 라이브러리를 설치합니다.
 1. 애플리케이션 설정인 `PYTHON_ENABLE_WORKER_EXTENSIONS`를 추가합니다.
-    + 로컬: [local.settings.json 파일](functions-run-local.md?tabs=python#local-settings-file)의 `Values` 섹션에 `"PYTHON_ENABLE_WORKER_EXTENSIONS": "1"`을 추가합니다.
+    + 로컬: [local.settings.json 파일](functions-develop-local.md#local-settings-file)의 `Values` 섹션에 `"PYTHON_ENABLE_WORKER_EXTENSIONS": "1"`을 추가합니다.
     + Azure: [앱 설정](functions-how-to-use-azure-function-app-settings.md#settings)에 `PYTHON_ENABLE_WORKER_EXTENSIONS=1`을 추가합니다.
 1. 확장 모듈을 함수 트리거로 가져옵니다. 
 1. 필요한 경우 확장 인스턴스를 구성합니다. 확장 설명서에서 구성 요구 사항을 설명해야 합니다. 
