@@ -4,18 +4,19 @@ description: 이 자습서에서는 Azure Resource Manager 템플릿을 사용�
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 2219e7b31e4c6594fc5f98022151f6094853a1b1
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 81d2dc2da69f050333223dc09434b9ef82e3c9f9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984683"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121786171"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 Azure Database for MySQL 서버 프로비전
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 [Azure Database for MySQL REST API](/rest/api/mysql/)를 사용하면 DevOps 엔지니어가 Azure에서 관리형 MySQL 서버 및 데이터베이스의 프로비저닝, 구성 및 작업을 자동화하고 통합할 수 있습니다.  API를 통해 Azure Database for MySQL 서비스에서 MySQL 서버 및 데이터베이스를 생성, 열거, 관리 및 삭제할 수 있습니다.
 

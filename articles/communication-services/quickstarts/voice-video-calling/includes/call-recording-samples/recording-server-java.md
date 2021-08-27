@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: joseys
-ms.openlocfilehash: 7208519302ea9c12a9a0db7c3cee7032eab85d64
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: e29973b55d3f74942f6d85fa28209b73773ad717
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114339527"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121801038"
 ---
 ## <a name="sample-code"></a>샘플 코드
 [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/ServerRecording)에서 이 빠른 시작에 대한 최종 코드를 찾습니다.
@@ -27,9 +27,9 @@ ms.locfileid: "114339527"
 - [JDK(Java Development Kit)](/azure/developer/java/fundamentals/java-jdk-install), 버전 11 이상.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - [Spring boot framework v- 2.5.0](https://spring.io/projects/spring-boot)
-- Azure Communication Services 리소스를 만듭니다. 자세한 내용은 [Azure Communication Services 리소스 만들기](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)를 참조하세요. 이 빠른 시작에 대한 **연결 문자열** 리소스를 기록해야 합니다.
-- Azure Storage 계정 및 컨테이너에 대한 자세한 내용은 [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal)를 참조하세요. 이 빠른 시작을 위해 **연결 문자열** 및 **컨테이너 이름** 을 기록해야 합니다.
-- [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) 웹후크.
+- Azure Communication Services 리소스를 만듭니다. 자세한 내용은 [Azure Communication Services 리소스 만들기](../../../create-communication-resource.md)를 참조하세요. 이 빠른 시작에 대한 **연결 문자열** 리소스를 기록해야 합니다.
+- Azure Storage 계정 및 컨테이너에 대한 자세한 내용은 [스토리지 계정 만들기](../../../../../storage/common/storage-account-create.md?tabs=azure-portal)를 참조하세요. 이 빠른 시작을 위해 **연결 문자열** 및 **컨테이너 이름** 을 기록해야 합니다.
+- [Azure Event Grid](../../../../../event-grid/overview.md) 웹후크.
 
 ## <a name="object-model"></a>개체 모델
 
@@ -43,16 +43,16 @@ ms.locfileid: "114339527"
 ## <a name="getting-servercallid-as-a-requirement-for-call-recording-server-apis"></a>통화 녹음/녹화 서버 API에 대한 요구 사항으로 serverCallId 가져오기
 
 > [!NOTE]
-> 이 API는 개발자를 위한 미리 보기로 제공되며 수신한 피드백을 기반으로 변경될 수 있습니다. 프로덕션 환경에서 이 API를 사용하지 마세요. 이 API를 사용하려면 ACS 통화 웹 SDK의 '베타' 릴리스를 사용하세요. 녹음/녹화 흐름이 있는 클라이언트 샘플은 [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview)에서 사용할 수 있습니다.
+> 이 API는 개발자를 위한 미리 보기로 제공되며 수신한 피드백을 기반으로 변경될 수 있습니다. 프로덕션 환경에서 이 API를 사용하지 마세요. 이 API를 사용하려면 ACS 통화 웹 SDK의 ‘베타’ 릴리스를 사용하세요. 녹음/녹화 흐름이 있는 클라이언트 샘플은 [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview)에서 사용할 수 있습니다.
 
 
-통화 레코딩은 핵심 통화 API의 확장 기능입니다. 먼저 레코딩 기능 API 개체를 가져와야 합니다.
+통화 녹음/녹화는 핵심 통화 API의 확장 기능입니다. 먼저 레코딩 기능 API 개체를 가져와야 합니다.
 
 ```JavaScript
 const callRecordingApi = call.api(Features.Recording);
 ```
 
-녹음/녹화 변경 사항 구독:
+녹음/녹화 변경 내용 구독:
 
 ```JavaScript
 const isRecordingActiveChangedHandler = () => {
@@ -62,7 +62,7 @@ const isRecordingActiveChangedHandler = () => {
 callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
 ```
 
-녹음/녹화 세션을 시작/중지/일시 중지/계속하는 데 사용할 수 있는 서버 호출 ID 가져오기:
+녹음/녹화 세션을 시작/중지/일시 중지/계속하는 데 사용할 수 있는 서버 통화 ID 가져오기:
 
 통화가 연결되면 `getServerCallId` 메서드를 사용하여 서버 통화 ID를 가져옵니다.
 

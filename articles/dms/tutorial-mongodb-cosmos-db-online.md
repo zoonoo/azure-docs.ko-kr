@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-nov-2020
 ms.topic: tutorial
 ms.date: 05/19/2021
-ms.openlocfilehash: b8ffe57b2244ff3f9e7df94665d7801d3231d9aa
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d469f44277b31209c012f7d28649692cfa7e89cc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467641"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638527"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>자습서: DMS를 사용하여 온라인 방식으로 MongoDB를 Azure Cosmos DB의 MongoDB API로 마이그레이션
 [!INCLUDE[appliesto-mongodb-api](../cosmos-db/includes/appliesto-mongodb-api.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "110467641"
 
 이 MongoDB 마이그레이션 가이드는 MongoDB 마이그레이션에 대한 시리즈의 일부입니다. 중요한 MongoDB 마이그레이션 단계는 아래와 같이 [사전 마이그레이션](../cosmos-db/mongodb-pre-migration.md), 마이그레이션 및 [사후 마이그레이션](../cosmos-db/mongodb-post-migration.md)입니다.
 
-![마이그레이션 단계 다이어그램.](../cosmos-db/media/mongodb-pre-migration/overall-migration-steps.png)
+![마이그레이션 단계 다이어그램.](../cosmos-db/mongodb/media/pre-migration-steps/overall-migration-steps.png)
 
 ## <a name="overview-of-online-data-migration-from-mongodb-to-azure-cosmos-db-using-dms"></a>DMS를 사용하여 MongoDB에서 Azure Cosmos DB로 온라인 데이터 마이그레이션 개요
 
@@ -64,7 +64,7 @@ Azure Database Migration Service를 사용하여 데이터베이스를 MongoDB �
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 처리량 추정, 파티션 키 선택 및 인덱싱 정책과 같은 [사전 마이그레이션 완료](../cosmos-db/mongodb-pre-migration.md) 단계.
-* [Azure Cosmos DB의 API for MongoDB 계정을 생성](https://ms.portal.azure.com/#create/Microsoft.DocumentDB)하고 [SSR(서버 쪽 다시 시도)](../cosmos-db/prevent-rate-limiting-errors.md)이 활성화되어 있는지 확인합니다.
+* [Azure Cosmos DB의 API for MongoDB 계정을 생성](https://ms.portal.azure.com/#create/Microsoft.DocumentDB)하고 [SSR(서버 쪽 다시 시도)](../cosmos-db/mongodb/prevent-rate-limiting-errors.md)이 활성화되어 있는지 확인합니다.
 * Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 Microsoft Azure Virtual Network를 만듭니다. 그러면 [ExpressRoute](../expressroute/expressroute-introduction.md) 또는 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다.
 
     > [!NOTE]
@@ -92,19 +92,7 @@ Azure Cosmos DB 포털의 *기능* 블레이드에서 서버 쪽 다시 시도 �
 
 ![MongoDB 서버 쪽 다시 시도 사용의 스크린샷.](media/tutorial-mongodb-to-cosmosdb-online/mongo-server-side-retry-enable.png)
 
-## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
-
-1. Azure Portal에 로그인하고, **모든 서비스** 를 선택한 다음, **구독** 을 선택합니다.
-
-   ![포털 구독 표시](media/tutorial-mongodb-to-cosmosdb-online/portal-select-subscription1.png)
-
-2. Azure Database Migration Service의 인스턴스를 만들 구독을 선택한 다음, **리소스 공급자** 를 선택합니다.
-
-    ![리소스 공급자 보기](media/tutorial-mongodb-to-cosmosdb-online/portal-select-resource-provider.png)
-
-3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration** 의 오른쪽에서 **등록** 을 선택합니다.
-
-    ![리소스 공급자 등록](media/tutorial-mongodb-to-cosmosdb-online/portal-register-resource-provider.png)    
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)] 
 
 ## <a name="create-an-instance"></a>인스턴스 만들기
 

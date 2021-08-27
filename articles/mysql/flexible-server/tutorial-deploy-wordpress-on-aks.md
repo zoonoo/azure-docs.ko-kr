@@ -7,19 +7,22 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: vc, devx-track-azurecli
-ms.openlocfilehash: 0c6211f4cd647addd6f1d18a153695d16a9d9952
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5f5b3da3c42ff4a6e7e5f66c0c93cf04d9446bb9
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770168"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643603"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>자습서: Azure Database for MySQL - 유연한 서버를 사용하여 AKS에 WordPress 앱 배포
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 이 빠른 시작에서는 Azure CLI를 사용하여 Azure Database for MySQL - 유연한 서버(미리 보기)를 통해 WordPress 애플리케이션을 AKS(Azure Kubernetes Service) 클러스터에 배포합니다. 
 **[AKS](../../aks/intro-kubernetes.md)** 는 클러스터를 빠르게 배포하고 관리할 수 있는 관리형 Kubernetes 서비스입니다. **[Azure Database for MySQL - 유연한 서버(미리 보기)](overview.md)** 는 데이터베이스 관리 기능 및 구성 설정에 대해 더 세부적인 제어와 유연성을 제공하도록 설계된 완전 관리형 데이터베이스 서비스입니다. 현재 유연한 서버는 미리 보기에 있습니다.
 
 > [!NOTE]
+>
 > - Azure Database for MySQL 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 > - 이 빠른 시작에서는 Kubernetes 개념, WordPress 및 MySQL에 대한 기본 지식이 있다고 가정합니다.
 
@@ -102,6 +105,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## <a name="create-an-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL - 유연한 서버 만들기
+
 [az mysql flexible-server create](/cli/azure/mysql/flexible-server) 명령을 사용하여 유연한 서버를 만듭니다. 다음 명령은 Azure CLI의 로컬 컨텍스트에 있는 서비스 기본값 및 값을 사용하여 서버를 만듭니다.
 
 ```azurecli-interactive
@@ -109,18 +113,18 @@ az mysql flexible-server create --public-access <YOUR-IP-ADDRESS>
 ```
 
 생성된 서버에는 다음과 같은 특성이 있습니다.
+
 - 새 빈 데이터베이스(```flexibleserverdb```): 서버를 처음 프로비저닝하면 이 데이터베이스가 만들어집니다. 이 빠른 시작에서는 이 데이터베이스를 사용합니다.
 - 자동 생성된 서버 이름, 관리 사용자 이름, 관리자 암호, 리소스 그룹 이름(로컬 컨텍스트에서 아직 지정되지 않은 경우): 리소스 그룹과 동일한 위치에 있음
 - 나머지 서버 구성에 대한 서비스 기본값: 컴퓨팅 계층(버스트 가능), 컴퓨팅 크기/SKU(B1MS), 백업 보존 기간(7일) 및 MySQL 버전(5.7)
 - 퍼블릭 액세스 인수를 사용하면 방화벽 규칙으로 보호되는 퍼블릭 액세스 권한이 있는 서버를 만들 수 있습니다. 클라이언트 컴퓨터에서 액세스를 허용하는 방화벽 규칙을 추가할 IP 주소를 제공합니다.
 - 명령에서 로컬 컨텍스트를 사용하므로 ```wordpress-project``` 리소스 그룹 및 ```eastus``` 지역에 서버를 만듭니다.
 
-
 ### <a name="build-your-wordpress-docker-image"></a>WordPress Docker 이미지 빌드
 
 [최신 WordPress](https://wordpress.org/download/) 버전을 다운로드합니다. 프로젝트에 대한 새 ```my-wordpress-app``` 디렉터리를 만들고, 다음과 같은 간단한 폴더 구조를 사용합니다.
 
-```
+```wordpress
 └───my-wordpress-app
     └───public
         ├───wp-admin
@@ -137,7 +141,6 @@ az mysql flexible-server create --public-access <YOUR-IP-ADDRESS>
     └─── Dockerfile
 
 ```
-
 
 ```wp-config-sample.php```의 이름을 ```wp-config.php```로 바꾸고 21~32번 줄을 다음 코드 조각으로 바꿉니다. 아래 코드 조각은 Kubernetes 매니페스트 파일에서 데이터베이스 호스트, 사용자 이름 및 암호를 읽습니다.
 
@@ -175,6 +178,7 @@ define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
 ```
 
 ### <a name="create-a-dockerfile"></a>Dockerfile 만들기
+
 새 Dockerfile을 만들고 다음 코드 조각을 복사합니다. 이 Dockerfile은 PHP를 사용하여 Apache 웹 서버를 설정하고 mysqli 확장을 사용하도록 설정합니다.
 
 ```docker
@@ -185,6 +189,7 @@ RUN docker-php-ext-enable mysqli
 ```
 
 ### <a name="build-your-docker-image"></a>docker 이미지 빌드
+
 ```cd``` 명령을 사용하여 터미널의 ```my-wordpress-app``` 디렉터리에 있는지 확인합니다. 다음 명령을 실행하여 이미지를 빌드합니다.
 
 ``` bash
@@ -196,18 +201,18 @@ docker build --tag myblog:latest .
 이미지를 [Docker 허브](https://docs.docker.com/get-started/part3/#create-a-docker-hub-repository-and-push-your-image) 또는 [Azure Container Registry](../../container-registry/container-registry-get-started-azure-cli.md)에 배포합니다.
 
 > [!IMPORTANT]
->ACR(Azure Container Registry)을 사용하는 경우 ```az aks update``` 명령을 실행하여 ACR 계정을 AKS 클러스터에 연결합니다.
+> ACR(Azure Container Registry)을 사용하는 경우 ```az aks update``` 명령을 실행하여 ACR 계정을 AKS 클러스터에 연결합니다.
 >
->```azurecli-interactive
->az aks update -n myAKSCluster -g wordpress-project --attach-acr <your-acr-name>
+> ```azurecli-interactive
+> az aks update -n myAKSCluster -g wordpress-project --attach-acr <your-acr-name>
 > ```
->
 
 ## <a name="create-kubernetes-manifest-file"></a>Kubernetes 매니페스트 파일 만들기
 
 Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. `mywordpress.yaml`이라는 매니페스트 파일을 만들고, 다음 YAML 정의에 복사해 보겠습니다.
 
->[!IMPORTANT]
+> [!IMPORTANT]
+>
 > - ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]```를 실제 WordPress docker 이미지 이름 및 태그(예: ```docker-hub-user/myblog:latest```)로 바꿉니다.
 > - 아래 ```env``` 섹션을 MySQL 유연한 서버의 ```SERVERNAME```, ```YOUR-DATABASE-USERNAME```, ```YOUR-DATABASE-PASSWORD```로 업데이트합니다.
 
@@ -264,6 +269,7 @@ spec:
 ```
 
 ## <a name="deploy-wordpress-to-aks-cluster"></a>AKS 클러스터에 WordPress 배포
+
 [kubectl apply](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) 명령을 사용하여 애플리케이션을 배포하고 YAML 매니페스트의 이름을 지정합니다.
 
 ```console
@@ -306,7 +312,8 @@ WordPress 설치 페이지를 보려면 웹 브라우저를 서비스의 외부 
 
    :::image type="content" source="./media/tutorial-deploy-wordpress-on-aks/wordpress-aks-installed-success.png" alt-text="AKS 및 MySQL 유연한 서버에서 Wordpress 설치 성공":::
 
->[!NOTE]
+> [!NOTE]
+>
 > - WordPress 사이트는 현재 HTTPS를 사용하지 않습니다. [사용자 고유의 인증서를 사용하여 TLS를 사용하도록 설정](../../aks/ingress-own-tls.md)하는 것이 좋습니다.
 > - [HTTP 라우팅](../../aks/http-application-routing.md)을 클러스터에 사용하도록 설정할 수 있습니다.
 

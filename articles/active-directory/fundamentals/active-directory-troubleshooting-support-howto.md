@@ -2,10 +2,8 @@
 title: 도움말 찾기 및 지원 티켓 열기 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory에 대한 도움말을 얻고 지원 티켓을 여는 방법에 대한 지침입니다.
 services: active-directory
-documentationcenter: na
 author: ajburnle
 manager: daveba
-editor: ''
 ms.service: active-directory
 ms.topic: troubleshooting
 ms.subservice: fundamentals
@@ -15,15 +13,16 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e339e88bb62e81b1f873e8cf7e855f4dff8daade
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 057265ca91bdfe0e3b73eea012736e65920e62c2
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99257409"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768934"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Azure Active Directory에 대한 도움말 찾기 및 지원 티켓 열기
-Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술, 사전 판매, 대금 청구 및 구독 지원을 제공합니다. 온라인 및 전화로 Microsoft Azure 유료 및 평가판 구독에 대한 지원이 제공됩니다. 전화 지원과 온라인 대금 청구 지원은 추가 언어로 제공됩니다. 
+
+Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술, 사전 판매, 대금 청구 및 구독 지원을 제공합니다. 온라인 및 전화로 Microsoft Azure 유료 및 평가판 구독에 대한 지원이 제공됩니다. 전화 지원과 온라인 대금 청구 지원은 추가 언어로 제공됩니다.
 
 ## <a name="find-help-without-opening-a-support-ticket"></a>지원 티켓을 열지 않고 도움 받기
 
@@ -32,7 +31,6 @@ Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술,
 * IT 전문가 및 개발자를 위한 방법 정보 또는 코드 샘플 같은 콘텐츠는 [docs.microsoft.com의 기술 문서](../index.yml)를 참조하세요.
 
 * [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/)는 IT 전문가 파트너와 고객이 공동 작업을 하고, 공유하고, 배울 수 있는 곳입니다. [Microsoft 기술 커뮤니티 정보 센터](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center)는 공지, 블로그 게시물, 전문가와의 AMA(무엇이든 물어보세요) 상호 작용 등에 사용됩니다. 또한 [커뮤니티에 참여하여 아이디어를 제출](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities)할 수도 있습니다.
-
 
 ## <a name="open-a-support-ticket"></a>지원 티켓 열기
 
