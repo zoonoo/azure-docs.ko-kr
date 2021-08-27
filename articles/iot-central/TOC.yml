@@ -8,6 +8,8 @@
       href: core/overview-iot-central-tour.md
     - name: 최근 업데이트
       items:
+        - name: 2021년 7월 새로운 기능 및 업데이트된 기능
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-july-2021/'
         - name: 2021년 6월 새로운 기능 및 업데이트된 기능
           href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-june-2021/'
         - name: 2021년 5월 새로운 기능 및 업데이트된 기능
@@ -145,48 +147,6 @@
       href: core/overview-iot-central-operator.md
     - name: 애플리케이션 템플릿이란?
       href: core/concepts-app-templates.md
-    - name: 산업별 애플리케이션 템플릿
-      items:
-        - name: 소매
-          items:
-            - name: 개요
-              href: retail/overview-iot-central-retail.md
-            - name: 매장 내 분석 체크 아웃 아키텍처
-              href: retail/store-analytics-architecture.md
-            - name: 스마트 재고 관리 아키텍처
-              href: retail/architecture-smart-inventory-management.md
-            - name: 연결된 물류 아키텍처
-              href: retail/architecture-connected-logistics.md
-            - name: 디지털 배포 센터
-              href: retail/architecture-digital-distribution-center.md
-            - name: 마이크로 처리 센터 아키텍처
-              href: retail/architecture-micro-fulfillment-center.md
-            - name: 비디오 분석 - 개체 및 동작 감지
-              href: retail/architecture-video-analytics.md
-        - name: 에너지
-          items:
-            - name: 개요
-              href: energy/overview-iot-central-energy.md
-            - name: 스마트 측정기 앱 아키텍처
-              href: energy/concept-iot-central-smart-meter-app.md
-            - name: 태양 전지판 앱 아키텍처
-              href: energy/concept-iot-central-solar-panel-app.md
-        - name: 정부
-          items:
-            - name: 개요
-              href: government/overview-iot-central-government.md
-            - name: 연결된 폐기물 모니터링 아키텍처
-              href: government/concepts-connectedwastemanagement-architecture.md
-            - name: 용수 사용량 모니터링 아키텍처
-              href: government/concepts-waterconsumptionmonitoring-architecture.md
-            - name: 용수 품질 모니터링 아키텍처
-              href: government/concepts-waterqualitymonitoring-architecture.md
-        - name: 의료
-          items:
-            - name: 개요
-              href: healthcare/overview-iot-central-healthcare.md
-            - name: 환자 연속 모니터링 아키텍처
-              href: healthcare/concept-continuous-patient-monitoring-architecture.md
     - name: 디바이스 템플릿이란?
       href: core/concepts-device-templates.md
     - name: 디바이스 연결
@@ -245,8 +205,6 @@
           href: core/howto-create-custom-rules.md
         - name: Databricks를 사용하여 사용자 지정 분석 만들기
           href: core/howto-create-custom-analytics.md
-        - name: Power BI에서 데이터 시각화
-          href: core/howto-connect-powerbi.md
         - name: 다른 IoT 클라우드 연결
           href: core/howto-build-iotc-device-bridge.md
     - name: REST API 사용

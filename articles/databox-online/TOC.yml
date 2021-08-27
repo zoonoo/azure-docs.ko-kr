@@ -64,8 +64,6 @@
           href: azure-stack-edge-pro-r-system-requirements.md
         - name: 제한 이해
           href: azure-stack-edge-pro-r-limits.md
-        - name: 보안 개요
-          href: azure-stack-edge-pro-r-security.md
         - name: 사양 검토
           href: azure-stack-edge-pro-r-technical-specifications-compliance.md
     - name: 자습서
@@ -111,8 +109,6 @@
           href: azure-stack-edge-mini-r-system-requirements.md
         - name: 제한 이해
           href: azure-stack-edge-mini-r-limits.md
-        - name: 보안 개요
-          href: azure-stack-edge-pro-r-security.md
         - name: 사양 검토
           href: azure-stack-edge-mini-r-technical-specifications-compliance.md
     - name: 자습서
@@ -148,42 +144,126 @@
           href: azure-stack-edge-mini-r-manage-wifi.md
         - name: Wi-Fi 프로필 사용
           href: azure-stack-edge-mini-r-use-wifi-profiles.md
-- name: '공유 Pro GPU, Pro R, Mini R'
+- name: '공유 기능 - Pro GPU, Pro R, Mini R'
   items:
-    - name: 공유 개념
+    - name: 로컬 Azure Resource Manager(미리 보기)
       items:
-        - name: Kubernetes 이해
-          items:
-            - name: Kubernetes란?
-              href: azure-stack-edge-gpu-kubernetes-overview.md
-            - name: Kubernetes 스토리지
-              href: azure-stack-edge-gpu-kubernetes-storage.md
-            - name: Kubernetes 네트워킹
-              href: azure-stack-edge-gpu-kubernetes-networking.md
-            - name: Kubernetes RBAC
-              href: azure-stack-edge-gpu-kubernetes-rbac.md
-            - name: Kubernetes 워크로드
-              href: azure-stack-edge-gpu-kubernetes-workload-management.md
-        - name: GPU 공유란?
-          href: azure-stack-edge-gpu-sharing.md
-        - name: Key Vault 통합 보기
-          href: azure-stack-edge-gpu-activation-key-vault.md
-        - name: 자동 관리 로깅 사용
-          href: azure-stack-edge-gpu-proactive-log-collection.md
-    - name: 공유 방법
+        - name: 로컬 Azure Resource Manager란?
+          href: azure-stack-edge-gpu-local-resource-manager-overview.md
+        - name: Azure PowerShell을 통해 연결
+          href: azure-stack-edge-gpu-connect-resource-manager.md
+        - name: Azure Resource Manager 암호 설정
+          href: azure-stack-edge-gpu-set-azure-resource-manager-password.md
+        - name: 클라이언트 TLS 설정 구성
+          href: azure-stack-edge-gpu-configure-tls-settings.md
+        - name: Azure Resource Manager 문제 해결
+          href: azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md
+    - name: 인증서
       items:
-        - name: IoT Edge 샘플 배포
+        - name: 인증서란?
+          href: azure-stack-edge-gpu-certificates-overview.md
+        - name: 요구 사항 보기
+          href: azure-stack-edge-gpu-certificate-requirements.md
+        - name: 인증서 만들기
           items:
-            - name: Nvidia 갤러리의 모듈
-              href: azure-stack-edge-gpu-configure-gpu-modules.md
-            - name: Git 리포지토리의 GPU 모듈
-              href: azure-stack-edge-gpu-deploy-sample-module.md
-            - name: Marketplace를 통한 GPU 모듈
-              href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
-            - name: FPGA 디바이스의 모듈
-              href: azure-stack-edge-gpu-modify-fpga-modules-gpu.md
-            - name: Azure Portal을 통한 모듈
-              href: azure-stack-edge-gpu-deploy-compute-module-simple.md
+            - name: Azure PowerShell을 통해
+              href: azure-stack-edge-gpu-create-certificates-powershell.md
+            - name: Azure Stack 준비 상태 검사기 도구를 통해
+              href: azure-stack-edge-gpu-create-certificates-tool.md
+        - name: 디바이스에서 업로드할 인증서 준비
+          href: azure-stack-edge-gpu-prepare-certificates-device-upload.md
+        - name: '만료 업로드, 가져오기, 보기'
+          href: azure-stack-edge-gpu-manage-certificates.md
+        - name: 인증서 오류 문제 해결
+          href: azure-stack-edge-gpu-certificate-troubleshooting.md
+    - name: 가상 머신
+      items:
+        - name: VM이란?
+          href: azure-stack-edge-gpu-virtual-machine-overview.md
+        - name: 지원되는 VM 보기
+          href: azure-stack-edge-gpu-virtual-machine-sizes.md
+        - name: 지원되는 API 프로필 보기
+          href: azure-stack-edge-profiles-azure-resource-manager-versions.md
+        - name: GPU VM이란?
+          href: azure-stack-edge-gpu-overview-gpu-virtual-machines.md
+        - name: VM 이미지 만들기
+          items:
+            - name: Azure VM의 사용자 지정 이미지
+              href: azure-stack-edge-gpu-create-virtual-machine-image.md
+            - name: VHD의 Windows 범용 이미지
+              href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
+            - name: ISO의 범용 이미지
+              href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
+            - name: 특수화된 이미지 사용
+              href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md
+            - name: Azure Marketplace 이미지 사용
+              href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md
+        - name: 배포
+          items:
+            - name: VM - Azure Portal
+              href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md
+            - name: VM - 템플릿
+              href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
+            - name: VM - GPU
+              href: azure-stack-edge-gpu-deploy-gpu-virtual-machine.md
+            - name: VM - Azure PowerShell cmdlet
+              href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md
+            - name: VM - Azure PowerShell 스크립트
+              href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md
+            - name: VM - Azure CLI/Python
+              href: azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md
+        - name: 확장 설치
+          items:
+            - name: 사용자 지정 스크립트 확장
+              href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
+            - name: GPU 확장
+              href: azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md
+        - name: 관리
+          items:
+            - name: 네트워크 인터페이스
+              href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
+            - name: 디스크
+              href: azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md
+            - name: Edge 리소스 그룹
+              href: azure-stack-edge-gpu-manage-edge-resource-groups-portal.md
+            - name: VM 크기
+              href: azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md
+            - name: 가상 스위치
+              href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
+            - name: VM 태그
+              href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
+        - name: VM 디스크 백업
+          href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
+        - name: Monitor
+          items:
+            - name: VM 메트릭
+              href: azure-stack-edge-gpu-monitor-virtual-machine-metrics.md
+            - name: VM 작업
+              href: azure-stack-edge-gpu-monitor-virtual-machine-activity.md
+        - name: 문제 해결
+          items:
+            - name: VM 콘솔 연결
+              href: azure-stack-edge-gpu-connect-virtual-machine-console.md
+            - name: VM 게스트 로그 수집
+              href: azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md
+            - name: VM 이미지 업로드
+              href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md
+            - name: VM 배포
+              href: azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md
+            - name: GPU 확장 문제
+              href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
+    - name: Kubernetes
+      items:
+        - name: Kubernetes란?
+          href: azure-stack-edge-gpu-kubernetes-overview.md
+        - name: Kubernetes 스토리지
+          href: azure-stack-edge-gpu-kubernetes-storage.md
+        - name: Kubernetes 네트워킹
+          href: azure-stack-edge-gpu-kubernetes-networking.md
+        - name: Kubernetes RBAC
+          href: azure-stack-edge-gpu-kubernetes-rbac.md
+        - name: Kubernetes 워크로드
+          href: azure-stack-edge-gpu-kubernetes-workload-management.md
         - name: Kubernetes 워크로드 배포
           items:
             - name: kubectl을 통해
@@ -216,116 +296,64 @@
                   href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
                 - name: Azure Arc 데이터 컨트롤러 배포
                   href: azure-stack-edge-gpu-deploy-arc-data-controller.md
-        - name: Azure Resource Manager(미리 보기) 구성
+    - name: IoT Edge
+      items:
+        - name: IoT Edge 샘플 배포
           items:
-            - name: 로컬 Azure Resource Manager란?
-              href: azure-stack-edge-gpu-local-resource-manager-overview.md
-            - name: Azure PowerShell을 통해 연결
-              href: azure-stack-edge-gpu-connect-resource-manager.md
-            - name: Azure Resource Manager 암호 설정
-              href: azure-stack-edge-gpu-set-azure-resource-manager-password.md
-            - name: 클라이언트 TLS 설정 구성
-              href: azure-stack-edge-gpu-configure-tls-settings.md
-        - name: VM 정보(미리 보기)
-          items:
-            - name: VM이란?
-              href: azure-stack-edge-gpu-virtual-machine-overview.md
-            - name: 지원되는 VM 보기
-              href: azure-stack-edge-gpu-virtual-machine-sizes.md
-            - name: 지원되는 API 프로필 보기
-              href: azure-stack-edge-profiles-azure-resource-manager-versions.md
-            - name: VM 이미지 만들기
-              items:
-                - name: Azure VM의 사용자 지정 이미지
-                  href: azure-stack-edge-gpu-create-virtual-machine-image.md
-                - name: VHD의 Windows 범용 이미지
-                  href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
-                - name: ISO의 범용 이미지
-                  href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
-                - name: 특수화된 이미지 사용
-                  href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md
-                - name: Azure Marketplace 이미지 사용
-                  href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md
-            - name: VM 배포
-              items:
-                - name: Azure 포털을 통해
-                  href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md
-                - name: 템플릿을 통해
-                  href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
-                - name: GPU 사용
-                  href: azure-stack-edge-gpu-deploy-gpu-virtual-machine.md
-                - name: Azure PowerShell cmdlet을 통해
-                  href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md
-                - name: Azure PowerShell 스크립트를 통해
-                  href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md
-                - name: Azure CLI/Python을 통해
-                  href: azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md
-            - name: 방법
-              items:
-                - name: 네트워크 인터페이스 관리
-                  href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
-                - name: 디스크 관리
-                  href: azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md
-                - name: VM 크기 관리
-                  href: azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md
-                - name: VM 태그 관리
-                  href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
-                - name: 가상 스위치 관리
-                  href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
-                - name: Install custom script extension
-                  href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
-                - name: GPU 확장 설치
-                  href: azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md
-                - name: VM 디스크 백업
-                  href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
-                - name: 문제 해결
-                  items:
-                    - name: VM 콘솔 연결
-                      href: azure-stack-edge-gpu-connect-virtual-machine-console.md
-                    - name: VM 게스트 로그 수집
-                      href: azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md
-                    - name: VM 이미지 업로드
-                      href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md
-                    - name: VM 배포
-                      href: azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md
-                    - name: GPU 확장 문제
-                      href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
-        - name: 인증서 정보
-          items:
-            - name: 인증서란?
-              href: azure-stack-edge-gpu-certificates-overview.md
-            - name: 요구 사항 보기
-              href: azure-stack-edge-gpu-certificate-requirements.md
-            - name: 인증서 만들기
-              items:
-                - name: Azure PowerShell을 통해
-                  href: azure-stack-edge-gpu-create-certificates-powershell.md
-                - name: Azure Stack 준비 상태 검사기 도구를 통해
-                  href: azure-stack-edge-gpu-create-certificates-tool.md
-            - name: 디바이스에서 업로드할 인증서 준비
-              href: azure-stack-edge-gpu-prepare-certificates-device-upload.md
-            - name: '만료 업로드, 가져오기, 보기'
-              href: azure-stack-edge-gpu-manage-certificates.md
-            - name: 인증서 오류 문제 해결
-              href: azure-stack-edge-gpu-certificate-troubleshooting.md
+            - name: Nvidia 갤러리의 모듈
+              href: azure-stack-edge-gpu-configure-gpu-modules.md
+            - name: Git 리포지토리의 GPU 모듈
+              href: azure-stack-edge-gpu-deploy-sample-module.md
+            - name: Marketplace를 통한 GPU 모듈
+              href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
+            - name: FPGA 디바이스의 모듈
+              href: azure-stack-edge-gpu-modify-fpga-modules-gpu.md
+            - name: Azure Portal을 통한 모듈
+              href: azure-stack-edge-gpu-deploy-compute-module-simple.md
+        - name: IoT Edge 문제 해결
+          href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
+    - name: 클라우드 스토리지 게이트웨이
+      items:
+        - name: '추가, 공유에 연결'
+          href: azure-stack-edge-gpu-deploy-add-shares.md
+        - name: '추가, 스토리지 계정에 연결'
+          href: azure-stack-edge-gpu-deploy-add-storage-accounts.md
+        - name: 공유
+          href: azure-stack-edge-gpu-manage-shares.md
+        - name: 사용자
+          href: azure-stack-edge-gpu-manage-users.md
+        - name: Storage 계정
+          href: azure-stack-edge-gpu-manage-storage-accounts.md
+        - name: 대역폭 일정
+          href: azure-stack-edge-gpu-manage-bandwidth-schedules.md
+        - name: Blob 스토리지 문제 해결
+          href: azure-stack-edge-gpu-troubleshoot-blob-storage.md
+- name: '공유 디바이스 - Pro GPU, Pro R, Mini R'
+  items:
+    - name: 공유 개념
+      items:
+        - name: 영역 선택 이해
+          href: azure-stack-edge-gpu-regions.md
+        - name: GPU 공유란?
+          href: azure-stack-edge-gpu-sharing.md
+        - name: 데이터 상주 이해
+          href: azure-stack-edge-gpu-data-residency.md
+        - name: 키 자격 증명 모음 통합 보기
+          href: azure-stack-edge-gpu-activation-key-vault.md
+        - name: 자동 관리 로깅 사용
+          href: azure-stack-edge-gpu-proactive-log-collection.md
+    - name: 공유 보안
+      items:
+        - name: 보안 개요
+          href: azure-stack-edge-pro-r-security.md
+        - name: 보안 기준
+          href: /security/benchmark/azure/baselines/stack-edge-security-baseline?toc=/azure/databox-online/TOC.json
+    - name: 공유 방법
+      items:
         - name: Edge 컴퓨팅 관리
           href: azure-stack-edge-gpu-manage-compute.md
         - name: Edge 컨테이너 레지스트리 관리
           href: azure-stack-edge-gpu-edge-container-registry.md
-        - name: 스토리지 게이트웨이 관리
-          items:
-            - name: '추가, 공유에 연결'
-              href: azure-stack-edge-gpu-deploy-add-shares.md
-            - name: '추가, 스토리지 계정에 연결'
-              href: azure-stack-edge-gpu-deploy-add-storage-accounts.md
-            - name: 공유
-              href: azure-stack-edge-gpu-manage-shares.md
-            - name: 사용자
-              href: azure-stack-edge-gpu-manage-users.md
-            - name: Storage 계정
-              href: azure-stack-edge-gpu-manage-storage-accounts.md
-            - name: 대역폭 일정
-              href: azure-stack-edge-gpu-manage-bandwidth-schedules.md
         - name: 디바이스 관리
           items:
             - name: '전원, 액세스, 연결'
@@ -362,12 +390,6 @@
               href: azure-stack-edge-gpu-troubleshoot-activation.md
             - name: 디바이스 로그 및 진단
               href: azure-stack-edge-gpu-troubleshoot.md
-            - name: Azure Resource Manager 이슈
-              href: azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md
-            - name: Blob 이슈
-              href: azure-stack-edge-gpu-troubleshoot-blob-storage.md
-            - name: IoT Edge 이슈
-              href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
             - name: Microsoft 지원에 문의
               href: azure-stack-edge-contact-microsoft-support.md
     - name: 공유 릴리스 정보
@@ -392,6 +414,8 @@
           href: /rest/api/databoxedgegateway
         - name: .NET SDK
           href: /dotnet/api/overview/azure/databoxedge/databoxgateway
+        - name: Azure CLI
+          href: /cli/azure/databoxedge
         - name: Azure Policy 기본 제공 기능
           displayName: 'samples, policies, definitions'
           href: ./policy-reference.md
@@ -482,19 +506,11 @@
           href: ../databox-gateway/data-box-gateway-1905-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
         - name: GA(일반 공급)
           href: ../databox-gateway/data-box-gateway-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
-- name: 보안
-  items:
-    - name: 보안 기준
-      href: /security/benchmark/azure/baselines/stack-edge-security-baseline?toc=/azure/databox-online/TOC.json
-- name: 참조
-  items:
-    - name: Azure CLI
-      href: /cli/azure/databoxedge
 - name: 리소스
   items:
     - name: Azure Stack Edge Pro C# 모듈 샘플(.NET)
       href: 'https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/'
-    - name: Azure Stack Edge Pro/Data Box Gateway 제품
+    - name: Azure Stack Edge 제품
       href: 'https://azure.microsoft.com/services/storage/databox/edge/'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/storage/databox/edge/'

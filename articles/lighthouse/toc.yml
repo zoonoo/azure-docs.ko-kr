@@ -73,6 +73,9 @@
         - name: 위임 변경 모니터링
           displayName: activity log
           href: ./how-to/monitor-delegation-changes.md
+        - name: 관리 그룹의 구독 온보딩
+          displayName: 'mg, policy, logic app'
+          href: ./how-to/onboard-management-group.md
     - name: 고객 보기 및 관리
       displayName: my customers
       href: ./how-to/view-manage-customers.md

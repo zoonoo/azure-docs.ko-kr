@@ -4,14 +4,15 @@ description: 매핑 데이터 흐름 개념을 설명하는 비디오 자습서 
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: tutorial
 ms.date: 05/18/2021
-ms.openlocfilehash: e63e45026be6bb315a9bc520680eb40253654975
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.openlocfilehash: d70100acae25913a3cbee5bf688c954c2bb072d3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112539928"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638955"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>데이터 흐름 매핑 비디오 자습서
 

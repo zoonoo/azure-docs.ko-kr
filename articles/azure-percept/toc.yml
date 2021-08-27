@@ -10,6 +10,8 @@
       href: overview-azure-percept-dk.md
     - name: Azure Percept Audio
       href: overview-azure-percept-audio.md
+    - name: Azure Percept Vision 모듈 및 워크로드
+      href: azureeyemodule-overview.md
 - name: 빠른 시작
   items:
     - name: Azure Percept 디바이스 설정
@@ -34,8 +36,6 @@
       items:
         - name: 80/20 통합
           href: overview-8020-integration.md
-        - name: 셀룰러를 통한 연결
-          href: connect-over-cellular.md
         - name: 디바이스 업데이트
           href: overview-update-experience.md
     - name: Azure Percept Audio
@@ -74,6 +74,10 @@
           href: how-to-configure-voice-assistant.md
         - name: Azure Percept Studio에서 음성 도우미 구성
           href: how-to-manage-voice-assistant.md
+        - name: 음성 도우미 애플리케이션으로 돌아가기
+          href: return-to-voice-assistant-application-window.md
+        - name: 음성 도우미 애플리케이션 삭제
+          href: delete-voice-assistant-application.md
     - name: Azure Percept 디바이스 업데이트
       items:
         - name: 무선 업데이트 설정
@@ -90,6 +94,8 @@
           href: how-to-connect-over-ethernet.md
         - name: 고급 네트워크 설정 지정
           href: how-to-set-up-advanced-network-settings.md
+        - name: 5G 또는 LTE 네트워크를 통해 연결
+          href: connect-over-cellular.md
         - name: SSH를 통해 연결
           href: how-to-ssh-into-percept-dk.md
         - name: 직렬 방식으로 연결

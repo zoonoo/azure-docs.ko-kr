@@ -1,25 +1,52 @@
 - name: Azure Web PubSub 서비스 문서
   href: index.yml
 - name: 개요
+  expanded: true
   items:
     - name: Azure Web PubSub 서비스 정보
       href: overview.md
+    - name: 'Hubs, 그룹 및 연결 정보'
+      href: key-concepts.md
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 채팅방 라이브 데모 체험해 보기
-      href: quickstart-live-demo.md
-    - name: 간단한 채팅방 서버리스 애플리케이션으로 시작
-      href: quickstart-serverless.md
+    - name: 인스턴스 만들기
+      expanded: true
+      items:
+        - name: 포털
+          href: howto-develop-create-instance.md
+        - name: CLI
+          href: quickstart-cli-create.md
+    - name: 인스턴스에 연결
+      expanded: true
+      items:
+        - name: 브라우저에서 게시/구독
+          href: quickstart-live-demo.md
+        - name: CLI에서 게시/구독
+          href: quickstart-cli-try.md
+        - name: Service SDK를 사용하여 게시/구독
+          href: quickstart-use-sdk.md
+- name: 자습서
+  expanded: true
+  items:
+    - name: 서버리스 개발
+      expanded: true
+      items:
+        - name: Azure Function을 사용하여 서버리스 채팅 빌드
+          href: quickstart-serverless.md
+    - name: 메시지 게시 및 구독
+      href: tutorial-pub-sub-messages.md
+    - name: 채팅 앱 빌드
+      href: tutorial-build-chat.md
+    - name: 서비스 지원 하위 프로토콜을 사용한 클라이언트 스트리밍
+      href: tutorial-subprotocol.md
+    - name: 인증 및 권한
+      href: 'https://azure.github.io/azure-webpubsub/getting-started/auth-and-permissions/js-auth-and-permissions'
 - name: 방법 가이드
   expanded: true
   items:
     - name: 개발
       items:
-        - name: 인스턴스 만들기
-          href: howto-develop-create-instance.md
-        - name: 메시지 게시 및 구독
-          href: 'https://azure.github.io/azure-webpubsub/getting-started/publish-messages/js-publish-message'
         - name: 하위 프로토콜 작업
           href: 'https://azure.github.io/azure-webpubsub/getting-started/using-pubsub-subprotocol/js-work-with-subprotocols'
         - name: 인증 및 권한
@@ -41,23 +68,35 @@
         - name: 진단 로그 캡처
           href: howto-troubleshoot-diagnostic-logs.md
 - name: 개념
+  expanded: true
   items:
-    - name: Azure Web PubSub 서비스 내부
-      href: 'https://azure.github.io/azure-webpubsub/concepts/service-internals'
+    - name: 서비스 내부 기능
+      href: concept-service-internals.md
+    - name: 클라이언트 프로토콜 개요
+      href: concept-client-protocols.md
+    - name: 성능 고려 사항
+      href: concept-performance.md
     - name: 청구 모델
       href: concept-billing-model.md
 - name: 참조
   items:
-    - name: REST API
-      href: /rest/api/webpubsub
-    - name: PubSub WebSocket 하위 프로토콜
-      href: 'https://azure.github.io/azure-webpubsub/references/pubsub-websocket-subprotocol'
-    - name: Web PubSub CloudEvents
-      href: 'https://azure.github.io/azure-webpubsub/references/protocol-cloudevents'
+    - name: WebSocket 하위 프로토콜
+      expanded: true
+      items:
+        - name: JSON WebSocket 하위 프로토콜
+          href: reference-json-webpubsub-subprotocol.md
+    - name: Azure Web PubSub용 CloudEvents 확장
+      href: reference-cloud-events.md
+    - name: 함수 트리거 및 바인딩
+      href: reference-functions-bindings.md
     - name: 서버 SDK
       href: choose-server-sdks.md
+    - name: REST API
+      href: /rest/api/webpubsub
 - name: 리소스
   items:
+    - name: 샘플
+      href: 'https://aka.ms/awps/samples'
     - name: 솔루션
       href: /azure/architecture/
     - name: 지역 가용성

@@ -40,12 +40,16 @@
       items:
         - name: 역할 할당 나열
           href: view-assignments.md
+        - name: 사용자에 대한 역할 할당 목록
+          href: list-role-assignments-users.md
         - name: 그룹에 대한 역할 할당 나열
           href: groups-view-assignments.md
     - name: 역할 할당
       items:
         - name: 사용자에게 역할 할당
           href: manage-roles-portal.md
+        - name: 다른 범위의 사용자에게 역할 할당
+          href: assign-roles-different-scopes.md
         - name: 역할 할당 가능 그룹 만들기
           href: groups-create-eligible.md
         - name: 그룹에 역할 할당
@@ -80,7 +84,7 @@
           href: admin-units-assign-roles.md
     - name: 대리자
       items:
-        - name: 앱 관리자 역할 위임
+        - name: 관리 역할 위임
           href: delegate-app-roles.md
         - name: 내 직원 위임
           href: my-staff-configure.md

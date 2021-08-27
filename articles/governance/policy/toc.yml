@@ -56,7 +56,7 @@
       href: ./tutorials/policy-as-code-github.md
     - name: '학습: Azure Policy를 사용하여 리소스 제어 및 감사'
       displayName: 'governance, module'
-      href: /learn/modules/build-cloud-governance-strategy-azure/8-control-audit-resources-azure-policy
+      href: /learn/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
 - name: 샘플
   items:
     - name: 인덱스
@@ -66,6 +66,8 @@
       href: ./samples/built-in-policies.md
     - name: 기본 제공 이니셔티브
       href: ./samples/built-in-initiatives.md
+    - name: 게스트 구성을 위한 기본 제공 패키지
+      href: ./samples/built-in-packages.md
     - name: Azure Resource Graph 쿼리
       href: ./samples/resource-graph-samples.md
     - name: 사용 패턴
@@ -90,39 +92,75 @@
           href: ./samples/pattern-deploy-resources.md
     - name: 규정 준수 기본 제공
       items:
-        - name: Azure 보안 벤치마크
-          href: ./samples/azure-security-benchmark.md
-        - name: Azure Security Benchmark v1
-          href: ./samples/azure-security-benchmarkv1.md
-        - name: 캐나다 연방 PBMM
-          href: ./samples/canada-federal-pbmm.md
-        - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
-          href: ./samples/cis-azure-1-3-0.md
-        - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
-          href: ./samples/cis-azure-1-1-0.md
-        - name: CMMC Level 3
-          href: ./samples/cmmc-l3.md
-        - name: HIPAA HITRUST 9.2
-          href: ./samples/hipaa-hitrust-9-2.md
-        - name: IRS 1075 2016년 9월
-          href: ./samples/irs-1075-sept2016.md
-        - name: 'ISO 27001:2013'
-          href: ./samples/iso-27001.md
-        - name: 뉴질랜드 ISM 제한됨
-          href: ./samples/new-zealand-ism.md
-        - name: NIST SP 800-53 R5
-          href: ./samples/nist-sp-800-53-r5.md
-        - name: NIST SP 800-53 R4
-          href: ./samples/nist-sp-800-53-r4.md
-        - name: NIST SP 800-171 R2
-          href: ./samples/nist-sp-800-171-r2.md
-        - name: 영국 공식 및 영국 NHS
-          href: ./samples/ukofficial-uknhs.md
-    - name: 게스트 구성 기준
+        - name: Azure 기본 제공
+          items:
+            - name: 오스트레일리아 정부 ISM PROTECTED
+              href: ./samples/australia-ism.md
+            - name: Azure 보안 벤치마크
+              href: ./samples/azure-security-benchmark.md
+            - name: Azure Security Benchmark v1
+              href: ./samples/azure-security-benchmarkv1.md
+            - name: 캐나다 연방 PBMM
+              href: ./samples/canada-federal-pbmm.md
+            - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
+              href: ./samples/cis-azure-1-3-0.md
+            - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
+              href: ./samples/cis-azure-1-1-0.md
+            - name: CMMC Level 3
+              href: ./samples/cmmc-l3.md
+            - name: FedRAMP Moderate
+              href: ./samples/fedramp-moderate.md
+            - name: FedRAMP High
+              href: ./samples/fedramp-high.md
+            - name: HIPAA HITRUST 9.2
+              href: ./samples/hipaa-hitrust-9-2.md
+            - name: IRS 1075 2016년 9월
+              href: ./samples/irs-1075-sept2016.md
+            - name: 'ISO 27001:2013'
+              href: ./samples/iso-27001.md
+            - name: 뉴질랜드 ISM 제한됨
+              href: ./samples/new-zealand-ism.md
+            - name: NIST SP 800-53 Rev. 5
+              href: ./samples/nist-sp-800-53-r5.md
+            - name: NIST SP 800-53 Rev. 4
+              href: ./samples/nist-sp-800-53-r4.md
+            - name: NIST SP 800-171 R2
+              href: ./samples/nist-sp-800-171-r2.md
+            - name: 영국 공식 및 영국 NHS
+              href: ./samples/ukofficial-uknhs.md
+        - name: Azure Government 기본 제공
+          items:
+            - name: Azure 보안 벤치마크
+              href: ./samples/gov-azure-security-benchmark.md
+            - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
+              href: ./samples/gov-cis-azure-1-3-0.md
+            - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
+              href: ./samples/gov-cis-azure-1-1-0.md
+            - name: CMMC Level 3
+              href: ./samples/gov-cmmc-l3.md
+            - name: DoD 영향 수준 4
+              href: ./samples/gov-dod-impact-level-4.md
+            - name: DoD 영향 수준 5
+              href: ./samples/gov-dod-impact-level-5.md
+            - name: FedRAMP Moderate
+              href: ./samples/gov-fedramp-moderate.md
+            - name: FedRAMP High
+              href: ./samples/gov-fedramp-high.md
+            - name: IRS 1075 2016년 9월
+              href: ./samples/gov-irs-1075-sept2016.md
+            - name: 'ISO 27001:2013'
+              href: ./samples/gov-iso-27001.md
+            - name: NIST SP 800-53 Rev. 5
+              href: ./samples/gov-nist-sp-800-53-r5.md
+            - name: NIST SP 800-53 Rev. 4
+              href: ./samples/gov-nist-sp-800-53-r4.md
+            - name: NIST SP 800-171 R2
+              href: ./samples/gov-nist-sp-800-171-r2.md
+    - name: 컴퓨팅 보안 기준
       items:
-        - name: Azure Security Benchmark에 대한 Linux 기준
+        - name: Linux 보안 기준
           href: ./samples/guest-configuration-baseline-linux.md
-        - name: Azure Security Benchmark에 대한 Windows 기준
+        - name: Windows 보안 기준
           href: ./samples/guest-configuration-baseline-windows.md
 - name: 개념
   items:
@@ -167,9 +205,20 @@
         - name: Azure Policy로 AKS 보안
           displayName: 'aks, psp, rego, opa'
           href: ../../aks/use-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
-    - name: 게스트 구성을 사용하여 VM 감사
-      displayName: 'provider, tools, definition'
-      href: ./concepts/guest-configuration.md
+    - name: 게스트 구성
+      items:
+        - name: Azure Policy의 게스트 구성 이해
+          displayName: 'provider, tools, definition'
+          href: ./concepts/guest-configuration.md
+        - name: 게스트 구성에 대한 PowerShell Desired State Configuration의 동작 변경 사항
+          displayName: 'provider, tools, definition'
+          href: ./concepts/guest-configuration-custom.md
+        - name: Azure Policy의 게스트 구성 할당 리소스 이해
+          displayName: 'provider, tools, definition'
+          href: ./concepts/guest-configuration-assignments.md
+        - name: 게스트 구성에 대한 수정 옵션
+          displayName: 'provider, tools, definition'
+          href: ./concepts/guest-configuration-policy-effects.md
     - name: 보안
       items:
         - name: Azure Security Benchmark에 대한 보안 기준
@@ -190,15 +239,33 @@
       href: ./how-to/export-resources.md
     - name: 게스트 구성
       items:
-        - name: Windows에서 게스트 구성 정책 만들기
-          displayName: 'powershell, dsc, chef, windows'
+        - name: 게스트 구성 제작 환경 설정
+          displayName: 'powershell, dsc'
+          href: ./how-to/guest-configuration-create-setup.md
+        - name: 사용자 지정 게스트 구성 패키지 아티팩트 만들기
+          displayName: 'powershell, dsc'
           href: ./how-to/guest-configuration-create.md
-        - name: Linux에서 게스트 구성 정책 만들기
-          displayName: 'powershell, dsc, chef, linux'
-          href: ./how-to/guest-configuration-create-linux.md
-        - name: 그룹 정책에서 게스트 구성 정책 만들기
+        - name: 게스트 구성 패키지 아티팩트 테스트
+          displayName: 'powershell, dsc'
+          href: ./how-to/guest-configuration-create-test.md
+        - name: 게스트 구성 패키지 서명
+          displayName: 'powershell, dsc'
+          href: ./how-to/guest-configuration-create-signing.md
+        - name: 게스트 구성 패키지 게시
+          displayName: 'powershell, dsc'
+          href: ./how-to/guest-configuration-create-publish.md
+        - name: 게스트 구성 할당 만들기
+          displayName: 'powershell, dsc'
+          href: ./how-to/guest-configuration-create-assignment.md
+        - name: 사용자 지정 게스트 구성 정의 만들기
+          displayName: 'powershell, dsc'
+          href: ./how-to/guest-configuration-create-definition.md
+        - name: 그룹 정책에서 게스트 구성 정의 만들기
           displayName: 'powershell, dsc, grouppolicy, windows'
           href: ./how-to/guest-configuration-create-group-policy.md
+        - name: 게스트 구성 마이그레이션 계획에 대한 Azure Automation 상태 구성
+          displayName: 'powershell, dsc, automation'
+          href: ./how-to/guest-configuration-azure-automation-migration.md
     - name: 규정 준수 데이터 가져오기
       displayName: 'evaluation, scan, summarize, query, events, log analytics'
       href: ./how-to/get-compliance-data.md

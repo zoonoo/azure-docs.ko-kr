@@ -6,17 +6,17 @@ ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: b0306002ea8a77e82e0247353489761a24654e0e
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: b1052b996fd9da8452d0f23d60fc7ea53676f713
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112417364"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769825"
 ---
 # <a name="event-handlers-destinations-in-event-grid-on-kubernetes"></a>Kubernetes의 Event Grid의 이벤트 처리기 대상
 이벤트 처리기는 엔드포인트를 노출하는 시스템으로, Event Grid에서 이벤트를 보내는 대상입니다. 이벤트를 수신하는 이벤트 처리기는 이에 따라 작동하고 이벤트 페이로드를 사용하여 일부 논리를 실행하므로 새 이벤트가 발생할 수 있습니다.
 
-이벤트를 대상으로 전송하도록 Event Grid를 구성하려면 이벤트 구독을 만듭니다. [Azure CLI](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create), [관리 SDK](../sdk-overview.md#management-sdks) 또는 [2020-10-15-preview API](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate) 버전을 사용하는 직접 HTTPS 호출을 통해 이 작업을 수행할 수 있습니다.
+이벤트를 대상으로 전송하도록 Event Grid를 구성하려면 이벤트 구독을 만듭니다. [Azure CLI](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create), [관리 SDK](../sdk-overview.md#management-sdks) 또는 [2020-10-15-preview API](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions/create-or-update) 버전을 사용하는 직접 HTTPS 호출을 통해 이 작업을 수행할 수 있습니다.
 
 일반적으로 Kubernetes의 Event Grid는 **웹후크** 를 통해 모든 대상에 이벤트를 보낼 수 있습니다. 웹후크는 Event Grid가 액세스할 수 있는 서비스 또는 워크로드에서 노출하는 HTTP(s) 엔드포인트입니다. 웹후크는 클라우드, 온-프레미스 또는 Event Grid가 도달할 수 있는 모든 위치의 동일한 클러스터, 동일한 네트워크 공간에서 호스트되는 워크로드일 수 있습니다. 
 
@@ -39,15 +39,15 @@ Kubernetes의 Event Grid는 웹후크 외에 **Azure에서 호스트되는** 다
 
 
 ## <a name="feature-parity"></a>기능 패리티
-Kubernetes의 Event Grid는 이벤트 구독에 대한 Azure Event Grid 지원과 함께 훌륭한 수준의 기능 패리티를 제공합니다. 다음 목록에서는 이벤트 구독 기능의 주요 차이점을 열거합니다. 이러한 차이점 외에도 Kubernetes의 Event Grid에서 이벤트 구독을 관리할 때 Azure Event Grid의 [REST API 버전 2020-10-15-preview](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions)를 참조로 사용할 수 있습니다.
+Kubernetes의 Event Grid는 이벤트 구독에 대한 Azure Event Grid 지원과 함께 훌륭한 수준의 기능 패리티를 제공합니다. 다음 목록에서는 이벤트 구독 기능의 주요 차이점을 열거합니다. 이러한 차이점 외에도 Kubernetes의 Event Grid에서 이벤트 구독을 관리할 때 Azure Event Grid의 [REST API 버전 2020-10-15-preview](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions)를 참조로 사용할 수 있습니다.
 
-1. [REST API 버전 2020-10-15-preview](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions)를 사용합니다.
+1. [REST API 버전 2020-10-15-preview](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions)를 사용합니다.
 2. [Azure Functions용 Azure Event Grid 트리거](../../azure-functions/functions-bindings-event-grid-trigger.md?tabs=csharp%2Cconsole)는 지원되지 않습니다. WebHook 대상 유형을 사용하여 Azure Functions에 이벤트를 전달할 수 있습니다.
 3. [배달 못한 편지 위치](../manage-event-delivery.md#set-dead-letter-location) 지원은 없습니다. 즉, 이벤트 구독 페이로드에서 ``properties.deadLetterDestination``을 사용할 수 없습니다.
 4. Azure Relay의 하이브리드 연결은 아직 지원되지 않습니다.
-5. CloudEvents 스키마만 지원됩니다. 지원되는 스키마 값은 "[CloudEventSchemaV1_0](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#eventdeliveryschema)"입니다. 클라우드 이벤트 스키마는 확장 가능하며 개방형 표준을 기반으로 합니다.  
-6. 레이블([properties.labels](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#request-body))은 Kubernetes의 Event Grid에 적용할 수 없습니다. 따라서 사용할 수 없습니다.
-7. [리소스 ID를 사용한 배달](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#deliverywithresourceidentity)은 지원되지 않습니다. 따라서 [이벤트 구독 ID](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#eventsubscriptionidentity)에 대한 모든 속성이 지원되지 않습니다.
+5. CloudEvents 스키마만 지원됩니다. 지원되는 스키마 값은 "[CloudEventSchemaV1_0](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions/create-or-update#eventdeliveryschema)"입니다. 클라우드 이벤트 스키마는 확장 가능하며 개방형 표준을 기반으로 합니다.  
+6. 레이블([properties.labels](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions/create-or-update#request-body))은 Kubernetes의 Event Grid에 적용할 수 없습니다. 따라서 사용할 수 없습니다.
+7. [리소스 ID를 사용한 배달](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions/create-or-update#deliverywithresourceidentity)은 지원되지 않습니다. 따라서 [이벤트 구독 ID](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions/create-or-update#eventsubscriptionidentity)에 대한 모든 속성이 지원되지 않습니다.
 8. [대상 엔드포인트 유효성 검사](../webhook-event-delivery.md#endpoint-validation-with-event-grid-events)는 아직 지원되지 않습니다.
 
 ## <a name="event-filtering-in-event-subscriptions"></a>이벤트 구독의 이벤트 필터링

@@ -92,7 +92,9 @@
 - name: 방법 가이드
   expanded: false
   items:
-    - name: 사용자 할당 및 앱에 대한 액세스 관리
+    - name: 소유자 할당
+      href: assign-app-owners.md
+    - name: 액세스 관리
       items:
         - name: 동의 및 사용 권한
           items:
@@ -112,25 +114,25 @@
               href: grant-admin-consent.md
             - name: 앱에 부여된 사용 권한 검토
               href: manage-application-permissions.md
-        - name: 앱에 대한 사용자 할당 관리
+        - name: 사용자 할당 관리
           href: assign-user-or-group-access-portal.md
         - name: 내 앱에서 컬렉션 만들기
           href: access-panel-collections.md
         - name: 셀프 서비스 앱 액세스 사용
           href: access-panel-manage-self-service-access.md
-        - name: 앱에 대한 사용자 액세스 권한을 제거하는 메서드
+        - name: 사용자 액세스 제거
           href: methods-for-removing-user-access.md
-        - name: 사용자로부터 앱 숨기기
+        - name: 앱 숨기기
           href: hide-application-from-user-portal.md
         - name: 사용자 로그인 비활성화
           href: disable-user-sign-in-portal.md
-        - name: 셀프 서비스 앱 할당 구성
+        - name: 셀프 서비스 할당 구성
           href: manage-self-service-access.md
-        - name: Home Realm Discovery 정책을 통해 강제 자동 가속
+        - name: 자동 가속 적용
           href: configure-authentication-for-federated-users-portal.md
-        - name: Home Realm Discovery 정책을 통해 로그인 자동 가속 방지
+        - name: 로그인 자동 가속 방지
           href: prevent-domain-hints-with-home-realm-discovery.md
-    - name: ID 관리를 Azure AD로 마이그레이션
+    - name: 애플리케이션 마이그레이션
       items:
         - name: 마이그레이션 리소스
           href: migration-resources.md

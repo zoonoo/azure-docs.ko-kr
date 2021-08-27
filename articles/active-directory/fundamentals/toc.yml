@@ -273,3 +273,5 @@
   items:
     - name: Azure Active Directory에 대한 지원 받기
       href: active-directory-troubleshooting-support-howto.md
+    - name: Azure AD를 위한 지원 및 도움말 옵션
+      href: support-help-options.md

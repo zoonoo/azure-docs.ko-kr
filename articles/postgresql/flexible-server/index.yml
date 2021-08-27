@@ -9,12 +9,12 @@ metadata:
   ms.date: 09/22/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 612ef6ffa35988a69e6755a38e88a083d533827c
-  ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+  ms.openlocfilehash: 4ab2a940f0fdb18b60d626cb96813b708860f8ae
+  ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/28/2021
-  ms.locfileid: "114726653"
+  ms.lasthandoff: 08/24/2021
+  ms.locfileid: "122779690"
 landingContent:
 - title: 유연한 서버(미리 보기) 정보
   linkLists:
@@ -22,6 +22,8 @@ landingContent:
     links:
     - text: 유연한 서버란?
       url: overview.md
+    - text: 유연한 서버를 무료로 사용해 보기
+      url: how-to-deploy-on-azure-free-account.md
   - linkListType: quickstart
     links:
     - text: 유연한 서버 만들기
@@ -54,6 +56,8 @@ landingContent:
       url: concepts-monitoring.md
     - text: 논리적 복제
       url: concepts-logical.md
+    - text: 지능형 튜닝
+      url: concepts-intelligent-tuning.md
   - linkListType: how-to-guide
     links:
     - text: 서버 관리
@@ -64,6 +68,10 @@ landingContent:
       url: how-to-scale-compute-storage-portal.md
     - text: 서버 다시 시작
       url: how-to-restart-server-portal.md
+    - text: 프라이빗 네트워킹 설정
+      url: how-to-manage-virtual-network-portal.md
+    - text: TLS를 사용하여 안전하게 연결
+      url: how-to-connect-tls-ssl.md
     - text: 로그 구성 및 액세스
       url: howto-configure-and-access-logs.md
     - text: 유지 관리 예약

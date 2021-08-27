@@ -1,15 +1,15 @@
 ---
 title: Azure Advisor에 대한 Azure Resource Graph 샘플 쿼리
 description: Azure Advisor 관련 리소스 및 속성에 액세스하기 위한 리소스 유형 및 테이블의 사용을 보여 주는 Azure Advisor에 대한 샘플 Azure Resource Graph 쿼리입니다.
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.topic: sample
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: f1e6dc6ef225b7d61273959b4517e14a679094dd
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 67f7e558ff134f53a30ab9e4fdae9a73a4265b0f
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669967"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860933"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-advisor"></a>Azure Advisor에 대한 Azure Resource Graph 샘플 쿼리
 
