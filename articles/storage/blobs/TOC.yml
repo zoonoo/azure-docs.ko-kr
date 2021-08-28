@@ -188,26 +188,32 @@ items:
                 href: snapshots-overview.md
               - name: 변경 피드
                 href: storage-blob-change-feed.md
-              - name: 변경이 불가능한 Blob
-                href: storage-blob-immutable-storage.md
+              - name: Blob에 대한 불변 스토리지
+                items:
+                  - name: 개요
+                    href: immutable-storage-overview.md
+                  - name: 시간 기반 보존 정책
+                    href: immutable-time-based-retention-policy-overview.md
+                  - name: 법적 보존
+                    href: immutable-legal-hold-overview.md
           - name: 중복성 및 재해 복구
             items:
               - name: 데이터 중복
                 href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               - name: 재해 복구를 위한 고객 관리 장애 조치(failover)
                 href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: 개체 복제
-            href: object-replication-overview.md
           - name: 액세스 및 성능 계층
             items:
               - name: 액세스 계층
                 href: storage-blob-storage-tiers.md
               - name: 보관 계층에서 데이터 리하이드레이션
-                href: storage-blob-rehydration.md
+                href: archive-rehydrate-overview.md
               - name: 성능 계층
                 href: storage-blob-performance-tiers.md
-              - name: 액세스 계층 수명 주기 자동화
-                href: storage-lifecycle-management-concepts.md
+              - name: 수명 주기 관리 정책
+                href: lifecycle-management-overview.md
+          - name: 개체 복제
+            href: object-replication-overview.md
           - name: '성능, 크기 조정 및 비용 최적화'
             items:
               - name: 성능 및 확장성 검사 목록
@@ -442,8 +448,12 @@ items:
                 href: snapshots-manage-dotnet.md
               - name: 변경 피드 로그 처리
                 href: storage-blob-change-feed-how-to.md
-              - name: 불변성 정책 설정 및 관리
-                href: storage-blob-immutability-policies-manage.md
+              - name: 불변성 정책 구성
+                items:
+                  - name: 버전 수준 불변성 정책 구성
+                    href: immutable-policy-configure-version-scope.md
+                  - name: 컨테이너 수준 불변성 정책 구성
+                    href: immutable-policy-configure-container-scope.md
           - name: 중복성 및 장애 조치(failover) 관리
             items:
               - name: 중복 구성 변경
@@ -454,6 +464,16 @@ items:
                 href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               - name: 계정 장애 조치(failover) 시작
                 href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Blob 계층화 및 수명 주기 관리
+            items:
+              - name: 수명 주기 관리 정책 구성
+                href: lifecycle-management-policy-configure.md
+              - name: 보관 계층의 데이터 관리
+                items:
+                  - name: 보관된 Blob 리하이드레이션
+                    href: archive-rehydrate-to-online-tier.md
+                  - name: Blob 리하이드레이션에 대한 이벤트 처리
+                    href: archive-rehydrate-handle-event.md
           - name: 개체 복제 구성
             href: object-replication-configure.md
           - name: 동시성 관리
@@ -512,8 +532,6 @@ items:
                 href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Blob으로 개발
             items:
-              - name: C++
-                href: storage-c-plus-plus-how-to-use-blobs.md
               - name: iOS
                 href: storage-ios-how-to-use-blob-storage.md
               - name: Java
@@ -524,6 +542,8 @@ items:
             href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Monitor
             items:
+              - name: 시나리오 및 모범 사례
+                href: blob-storage-monitoring-scenarios.md
               - name: Storage 인사이트 사용
                 href: ../common/storage-insights-overview.md
               - name: 모니터링(클래식)
@@ -538,7 +558,7 @@ items:
                 href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: 참조
         items:
-          - name: Azure Blob Storage 참조
+          - name: Blob Storage API 참조
             href: ../blobs/reference.md
           - name: AzCopy v10
             items:

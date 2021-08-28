@@ -11,6 +11,8 @@
       href: single-server-whats-new.md
     - name: 유연한 서버의 새로운 기능
       href: flexible-server/whats-new.md
+    - name: 유연한 서버를 무료로 사용해 보기
+      href: flexible-server/how-to-deploy-on-azure-free-account.md
     - name: 버전 지원 정책
       href: concepts-version-policy.md
       displayName: version policy
@@ -253,10 +255,6 @@
             - name: 리디렉션으로 연결
               href: howto-redirection.md
               displayName: 'development, redirection , php'
-        - name: 데이터베이스 배포
-          items:
-            - name: GitHub 작업
-              href: quickstart-mysql-github-actions.md
         - name: 네트워킹
           items:
             - name: Azure Portal을 사용하여 VNet 서비스 엔드포인트 구성
@@ -456,6 +454,12 @@
             - name: 네트워킹 개념
               href: flexible-server/concepts-networking.md
               displayName: 'virtual network, IP address, public access'
+            - name: 프라이빗 액세스
+              href: flexible-server/concepts-networking-vnet.md
+              displayName: virtual network
+            - name: 공용 액세스
+              href: flexible-server/concepts-networking-public.md
+              displayName: 'Public access,'
         - name: 서비스 유지 관리
           items:
             - name: 예약된 유지 관리
@@ -495,6 +499,12 @@
               href: flexible-server/tutorial-php-database-app.md
             - name: 프라이빗 웹앱을 사용하여 연결
               href: flexible-server/tutorial-webapp-server-vnet.md
+            - name: 데이터베이스 배포
+              items:
+                - name: GitHub 작업
+                  href: quickstart-mysql-github-actions.md
+                - name: Azure 파이프라인
+                  href: flexible-server/azure-pipelines-deploy-database-task.md
         - name: 서버 관리
           items:
             - name: 서버 관리

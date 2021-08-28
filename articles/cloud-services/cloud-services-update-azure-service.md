@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 520f3ba65a7e4bddfd52e303179ed925417537e3
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 16942b91ea999c3da84ecbc784a96575045049d1
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113090136"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824059"
 ---
 # <a name="how-to-update-an-azure-cloud-service-classic"></a>Azure 클라우드 서비스(클래식)를 업데이트하는 방법
 
-> [!IMPORTANT]
-> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 해당 역할 및 게스트 OS를 포함한 클라우드 서비스 업데이트는 3단계 프로세스입니다. 먼저 새 클라우드 서비스 또는 OS 버전에 대한 이진 및 구성 파일을 업로드해야 합니다. 다음으로 Azure는 새 클라우드 서비스 버전의 요구 사항에 따라 클라우드 서비스에 대한 컴퓨팅 및 네트워크 리소스를 예약합니다. 마지막으로 Azure는 가용성을 유지하면서 새 버전 또는 게스트 OS로 테넌트를 증분 방식으로 업데이트하도록 롤링 업그레이드를 수행합니다. 이 문서에서는 롤링 업그레이드 마지막 단계에 대한 세부 정보를 설명합니다.
 

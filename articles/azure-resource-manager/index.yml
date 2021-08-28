@@ -55,24 +55,24 @@ conceptualContent:
         - url: bicep/overview.md
           itemType: overview
           text: 개요
-        - url: /learn/modules/deploy-azure-resources-by-using-bicep-templates
+        - url: /learn/paths/bicep-deploy
           itemType: learn
-          text: Azure 리소스 배포
+          text: 학습 경로
         - url: bicep/file.md
           itemType: reference
           text: Bicep 파일 구조
-        - url: bicep/data-types.md
-          itemType: reference
-          text: Bicep 데이터 형식
         - url: bicep/bicep-functions.md
           itemType: reference
           text: Bicep 함수
-        - url: bicep/operators.md
+        - url: /azure/templates/
           itemType: reference
-          text: Bicep 연산자
+          text: 리소스 참조
         - url: bicep/deploy-powershell.md
           itemType: how-to-guide
           text: 배포
+        - url: ./bicep/best-practices.md
+          itemType: concept
+          text: 모범 사례
       footerLink:
         url: bicep/index.yml
         text: 자세한 내용
