@@ -4,6 +4,8 @@
   items:
     - name: Event Hubs란?
       href: event-hubs-about.md
+    - name: 용어
+      href: event-hubs-features.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -73,26 +75,26 @@
       href: event-hubs-samples.md
 - name: 개념
   items:
-    - name: Event Hubs 용어
-      href: event-hubs-features.md
-    - name: Event Hubs 프리미엄
-      href: event-hubs-premium-overview.md
+    - name: 계층
+      items:
+        - name: 프리미엄 계층
+          href: event-hubs-premium-overview.md
+        - name: 전용 계층
+          href: event-hubs-dedicated-overview.md
+        - name: 계층 비교
+          href: compare-tiers.md
     - name: Apache Kafka용 Event Hubs
       href: event-hubs-for-kafka-ecosystem-overview.md
     - name: Event Hubs 캡처
       href: event-hubs-capture-overview.md
-    - name: Event Hubs Dedicated
-      href: event-hubs-dedicated-overview.md
-    - name: Event Hubs의 Azure Schema Registry(미리 보기)
+    - name: Event Hubs의 Azure Schema Registry
       href: schema-registry-overview.md
-    - name: 이벤트 프로세서 호스트(레거시 SDK)
-      href: event-hubs-event-processor-host.md
-    - name: 이벤트 프로세서(최신 SDK)
-      href: event-processor-balance-partition-load.md
-    - name: 가용성 및 일관성
-      href: event-hubs-availability-and-consistency.md
-    - name: 확장성
-      href: event-hubs-scalability.md
+    - name: SDK를 사용하여 이벤트 처리
+      items:
+        - name: 이벤트 프로세서 호스트(레거시 SDK)
+          href: event-hubs-event-processor-host.md
+        - name: 이벤트 프로세서(최신 SDK)
+          href: event-processor-balance-partition-load.md
     - name: 페더레이션
       items:
         - name: 다중 사이트 및 다중 지역 페더레이션
@@ -140,6 +142,10 @@
           href: ./security-controls-policy.md
         - name: 보안 기준
           href: /security/benchmark/azure/baselines/event-hubs-security-baseline?toc=/azure/event-hubs/TOC.json
+    - name: 가용성 및 일관성
+      href: event-hubs-availability-and-consistency.md
+    - name: 확장성
+      href: event-hubs-scalability.md
     - name: AMQP
       items:
         - name: AMQP 1.0 프로토콜 가이드
@@ -217,8 +223,6 @@
       items:
         - name: Azure Event Hubs 모니터링
           href: monitor-event-hubs.md
-        - name: 진단 로그 설정
-          href: event-hubs-diagnostic-logs.md
         - name: Event Hubs를 사용하여 Azure Diagnostics 데이터 스트리밍
           href: ../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md
         - name: 처리량 단위 규모를 자동으로 조정
@@ -233,7 +237,7 @@
           href: event-hubs-service-endpoints.md
         - name: 프라이빗 엔드포인트를 통해 액세스 허용
           href: private-link-service.md
-        - name: 고객 관리형 키 구성
+        - name: 고객 관리형 키를 사용하여 데이터 암호화
           href: configure-customer-managed-key.md
     - name: 문제 해결
       items:
@@ -307,7 +311,7 @@
           href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/eventhub/mgmt/2017-04-01/eventhub?tab=doc'
     - name: Azure CLI
       href: /cli/azure/eventhubs
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/eventhub
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.eventhub/allversions

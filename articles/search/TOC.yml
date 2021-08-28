@@ -143,7 +143,7 @@
           href: knowledge-store-concept-intro.md
         - name: 프로젝션
           href: knowledge-store-projection-overview.md
-        - name: 증분 보강
+        - name: 보강 캐시
           href: cognitive-search-incremental-indexing-conceptual.md
     - name: 보안
       items:
@@ -338,7 +338,7 @@
           href: search-howto-indexing-azure-tables.md
         - name: Azure Cosmos DB
           items:
-            - name: 'SQL, MongoDB, Cassandra API'
+            - name: SQL 및 MongoDB API
               href: search-howto-index-cosmosdb.md
             - name: Gremlin API
               href: search-howto-index-cosmosdb-gremlin.md
@@ -362,7 +362,7 @@
       items:
         - name: Cognitive Services 리소스 연결
           href: cognitive-search-attach-cognitive-services.md
-        - name: 기술 집합 정의
+        - name: 기술 집합 만들기
           href: cognitive-search-defining-skillset.md
         - name: 주석 참조
           href: cognitive-search-concept-annotations-syntax.md
@@ -372,7 +372,9 @@
           href: cognitive-search-concept-image-scenarios.md
         - name: 캐시(증분) 보강
           href: search-howto-incremental-index.md
-        - name: 사용자 지정 기술 사용
+        - name: 디자인 팁
+          href: cognitive-search-concept-troubleshooting.md
+        - name: 사용자 지정 기술
           items:
             - name: 사용자 지정 기술 통합
               href: cognitive-search-custom-skill-interface.md
@@ -388,18 +390,18 @@
               href: cognitive-search-tutorial-aml-custom-skill.md
             - name: 예 - Azure Machine Learning 디자이너
               href: cognitive-search-tutorial-aml-designer-custom-skill.md
-        - name: 디자인 팁
-          href: cognitive-search-concept-troubleshooting.md
         - name: 지식 저장소
           items:
-            - name: REST 및 Postman을 사용하여 만들기
+            - name: REST를 사용하여 만들기
               href: knowledge-store-create-rest.md
+            - name: 데이터 셰이핑
+              href: knowledge-store-projection-shape.md
+            - name: 프로젝션 정의
+              href: knowledge-store-projections-examples.md
             - name: Storage Explorer로 보기
               href: knowledge-store-view-storage-explorer.md
             - name: Power BI로 연결
               href: knowledge-store-connect-power-bi.md
-            - name: 프로젝션 예제
-              href: knowledge-store-projections-examples.md
     - name: 쿼리
       items:
         - name: 기본 쿼리 만들기

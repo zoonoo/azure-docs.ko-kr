@@ -34,14 +34,6 @@
               href: service-bus-python-how-to-use-queues.md
             - name: JavaScript(@azure/service-bus)
               href: service-bus-nodejs-how-to-use-queues.md
-        - name: 메시지 송신 및 수신(이전 버전/패키지)
-          items:
-            - name: .NET(Microsoft.Azure.ServiceBus)
-              href: service-bus-dotnet-get-started-with-queues-legacy.md
-            - name: Java(azure-servicebus)
-              href: service-bus-java-how-to-use-queues-legacy.md
-            - name: PHP
-              href: service-bus-php-how-to-use-queues.md
     - name: Service Bus 토픽 및 구독
       items:
         - name: 토픽 및 구독 만들기
@@ -62,14 +54,6 @@
               href: service-bus-python-how-to-use-topics-subscriptions.md
             - name: JavaScript(@azure/service-bus)
               href: service-bus-nodejs-how-to-use-topics-subscriptions.md
-        - name: 메시지 게시 및 구독(이전 버전/패키지)
-          items:
-            - name: .NET(Microsoft.Azure.ServiceBus)
-              href: service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md
-            - name: Java(azure-servicebus)
-              href: service-bus-java-how-to-use-topics-subscriptions-legacy.md
-            - name: PHP
-              href: service-bus-php-how-to-use-topics-subscriptions.md
 - name: 자습서
   items:
     - name: 인벤토리 업데이트
@@ -80,6 +64,8 @@
           href: service-bus-to-event-grid-integration-example.md
         - name: Azure Functions
           href: service-bus-to-event-grid-integration-function.md
+    - name: NServiceBus를 통해 메시지 기반 비즈니스 애플리케이션 빌드
+      href: build-message-driven-apps-nservicebus.md
 - name: 샘플
   items:
     - name: Service Bus 샘플
@@ -172,6 +158,22 @@
       items:
         - name: 네임스페이스 만들기
           href: service-bus-create-namespace-portal.md
+        - name: 메시지 송신 및 수신(이전 버전/패키지)
+          items:
+            - name: .NET(Microsoft.Azure.ServiceBus)
+              href: service-bus-dotnet-get-started-with-queues-legacy.md
+            - name: Java(azure-servicebus)
+              href: service-bus-java-how-to-use-queues-legacy.md
+            - name: PHP
+              href: service-bus-php-how-to-use-queues.md
+        - name: 메시지 게시 및 구독(이전 버전/패키지)
+          items:
+            - name: .NET(Microsoft.Azure.ServiceBus)
+              href: service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md
+            - name: Java(azure-servicebus)
+              href: service-bus-java-how-to-use-topics-subscriptions-legacy.md
+            - name: PHP
+              href: service-bus-php-how-to-use-topics-subscriptions.md
         - name: 구독 필터 및 작업 설정
           href: service-bus-filter-examples.md
         - name: 메시지 처리
@@ -216,8 +218,6 @@
       items:
         - name: 엔드투엔드 추적 및 진단
           href: service-bus-end-to-end-tracing.md
-        - name: 진단 로그
-          href: service-bus-diagnostic-logs.md
         - name: Azure Service Bus 모니터링
           href: monitor-service-bus.md
     - name: 통합
@@ -267,7 +267,7 @@
           href: service-bus-service-endpoints.md
         - name: 프라이빗 엔드포인트를 통해 액세스 허용
           href: private-link-service.md
-        - name: 고객 관리형 키 구성
+        - name: 고객 관리형 키를 사용하여 데이터 암호화
           href: configure-customer-managed-key.md
     - name: 문제 해결
       items:

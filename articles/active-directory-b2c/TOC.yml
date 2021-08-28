@@ -12,39 +12,20 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 로그인 설정 - ASP.NET
+    - name: ASP.NET 앱에 대한 로그인 설정
       href: quickstart-web-app-dotnet.md
-    - name: 로그인 설정 - 데스크톱
+    - name: 데스크톱 앱에 대한 로그인 설정
       href: quickstart-native-app-desktop.md
-    - name: 로그인 설정 - 단일 페이지
+    - name: 단일 페이지 앱에 대한 로그인 설정
       href: quickstart-single-page-app.md
 - name: 자습서
   items:
-    - name: 1 - B2C 테넌트 만들기
+    - name: 1 - Azure AD B2C 테넌트 만들기
       href: tutorial-create-tenant.md
-    - name: 2 - 애플리케이션 등록
+    - name: 2 - 웹 애플리케이션 등록
       href: tutorial-register-applications.md
     - name: 3 - 사용자 흐름 및 사용자 지정 정책 만들기
       href: tutorial-create-user-flows.md
-    - name: 사용자 인증
-      items:
-        - name: ASP.NET
-          href: tutorial-web-app-dotnet.md
-        - name: 데스크톱
-          href: tutorial-desktop-app.md
-        - name: 단일 페이지
-          href: tutorial-single-page-app.md
-        - name: Python
-          href: tutorial-web-app-python.md
-          displayName: flask
-    - name: API 액세스 권한 부여
-      items:
-        - name: ASP.NET
-          href: tutorial-web-api-dotnet.md
-        - name: 데스크톱
-          href: tutorial-desktop-app-webapi.md
-        - name: 단일 페이지
-          href: tutorial-single-page-app-webapi.md
     - name: 테넌트 정리 및 삭제
       href: tutorial-delete-tenant.md
 - name: 샘플
@@ -119,14 +100,20 @@
               href: enable-authentication-web-application.md
             - name: 인증 옵션
               href: enable-authentication-web-application-options.md
-        - name: API를 호출하는 ASP.NET Core 웹앱
+        - name: 웹 API를 호출하는 ASP.NET Core 웹앱
           items:
-            - name: API를 호출하는 샘플 웹앱 구성
+            - name: 웹 API를 호출하는 샘플 웹앱 구성
               href: configure-authentication-sample-web-app-with-api.md
             - name: 웹앱에서 인증 사용
               href: enable-authentication-web-app-with-api.md
             - name: 인증 옵션
               href: enable-authentication-web-app-with-api-options.md
+        - name: Python 웹앱
+          items:
+            - name: 샘플 웹앱 구성
+              href: configure-authentication-sample-python-web-app.md
+            - name: 인증 옵션
+              href: enable-authentication-python-web-app-options.md
         - name: SPA(단일 페이지 애플리케이션)
           items:
             - name: 샘플 SPA 앱 구성
@@ -135,6 +122,14 @@
               href: enable-authentication-spa-app.md
             - name: 인증 옵션
               href: enable-authentication-spa-app-options.md
+        - name: Angular 단일 페이지 애플리케이션
+          items:
+            - name: 샘플 Angular 앱 구성
+              href: configure-authentication-sample-angular-spa-app.md
+            - name: Angular 앱에서 인증 사용
+              href: enable-authentication-angular-spa-app.md
+            - name: 인증 옵션
+              href: enable-authentication-angular-spa-app-options.md
         - name: Android 모바일 앱
           items:
             - name: 샘플 Android 앱 구성
@@ -143,10 +138,30 @@
               href: enable-authentication-android-app.md
             - name: 인증 옵션
               href: enable-authentication-android-app-options.md
-        - name: 웹 API에서 인증 사용
-          href: enable-authentication-web-api.md
-        - name: SPA(단일 페이지 애플리케이션) 등록
-          href: tutorial-register-spa.md
+        - name: iOS 모바일 앱
+          items:
+            - name: 샘플 iOS 앱 구성
+              href: configure-authentication-sample-ios-app.md
+            - name: iOS 앱에서 인증 사용
+              href: enable-authentication-ios-app.md
+            - name: 인증 옵션
+              href: enable-authentication-ios-app-options.md
+        - name: WPF 데스크톱 앱
+          items:
+            - name: 샘플 데스크톱 앱 구성
+              href: configure-authentication-sample-wpf-desktop-app.md
+            - name: 인증 옵션
+              href: enable-authentication-wpf-desktop-app-options.md
+        - name: Web API
+          displayName: REST API
+          items:
+            - name: 웹 API에서 인증 사용
+              href: enable-authentication-web-api.md
+            - name: API Management API 보호
+              href: secure-api-management.md
+              displayName: 'apim, api management, migrate, b2clogin.com'
+        - name: Microsoft Power Apps
+          href: /powerapps/maker/portals/configure/configure-azure-ad-b2c-provider
         - name: SAML 애플리케이션
           items:
             - name: SAML 애플리케이션 구성
@@ -155,22 +170,18 @@
             - name: SAML 애플리케이션 옵션 구성
               href: saml-service-provider-options.md
               displayName: 'SP, service provider'
-        - name: Microsoft Graph 애플리케이션 등록
-          href: microsoft-graph-get-started.md
-          displayName: 'migrate, migration, microsoft graph'
-        - name: 웹 API 애플리케이션 추가
-          href: add-web-api-application.md
-        - name: 네이티브 클라이언트 애플리케이션 추가
-          href: add-native-application.md
-        - name: 앱 인증을 사용한 iOS ObjC
-          href: signin-appauth-ios.md
-        - name: 앱 인증을 사용한 Android
-          href: signin-appauth-android.md
-        - name: Azure AD 앱 갤러리에 앱 게시
-          href: publish-app-to-azure-ad-app-gallery.md
-        - name: API Management API 보호
-          href: secure-api-management.md
-          displayName: 'apim, api management, migrate, b2clogin.com'
+        - name: 앱 등록
+          items:
+            - name: Microsoft Graph 애플리케이션 등록
+              href: microsoft-graph-get-started.md
+            - name: 단일 페이지 애플리케이션 등록
+              href: tutorial-register-spa.md
+            - name: 네이티브 클라이언트 애플리케이션 등록
+              href: add-native-application.md
+            - name: 웹 API 애플리케이션 등록
+              href: add-web-api-application.md
+            - name: Azure AD 앱 갤러리에 앱 게시
+              href: publish-app-to-azure-ad-app-gallery.md
     - name: 흐름 만들기
       items:
         - name: 등록 또는 로그인 정책
@@ -192,7 +203,7 @@
           displayName: ROPC
         - name: 셀프 서비스 암호 재설정 정책 설정(사용되지 않음)
           href: user-flow-self-service-password-reset.md
-        - name: 휴대폰 등록 및 로그인
+        - name: 전화 등록 및 로그인
           href: phone-authentication-user-flows.md
     - name: ID 공급자
       items:
@@ -203,6 +214,9 @@
           href: add-identity-provider.md
         - name: AD FS
           href: identity-provider-adfs.md
+          displayName: 'AD-FS, ADFS'
+        - name: AD FS(SAML)
+          href: identity-provider-adfs-saml.md
           displayName: 'AD-FS, ADFS'
         - name: Amazon
           href: identity-provider-amazon.md
@@ -262,7 +276,7 @@
         - name: HTML 템플릿을 사용하여 UI 사용자 지정
           displayName: content definitions
           href: customize-ui-with-html.md
-        - name: JavaScript 및 페이지 레이아웃
+        - name: JavaScript 및 페이지 레이아웃 사용
           href: javascript-and-page-layout.md
         - name: iframe을 사용한 임베디드 로그인
           displayName: iframe
@@ -297,6 +311,8 @@
                   href: partner-keyless.md
                 - name: Nevis
                   href: partner-nevis.md
+                - name: Nok Nok
+                  href: partner-nok-nok.md
                 - name: Trusona
                   href: partner-trusona.md
                 - name: Twilio
@@ -340,11 +356,11 @@
       href: age-gating.md
     - name: API 커넥터
       items:
-        - name: 등록 사용자 흐름에 API 커넥터 추가
+        - name: 등록 환경 수정
           href: add-api-connector.md
           displayName: 'rest claims validation, validate'
-        - name: 등록 또는 로그인 사용자 흐름에 API 커넥터 추가
-          href: custom-policy-rest-api-claims-exchange.md
+        - name: 외부 클레임을 통한 토큰 보강
+          href: add-api-connector-token-enrichment.md
           displayName: rest claims exchange
         - name: API 커넥터 보호
           href: secure-rest-api.md
@@ -400,6 +416,8 @@
           items:
             - name: Akamai
               href: partner-akamai.md
+            - name: Azure WAF
+              href: partner-azure-web-application-firewall.md
             - name: Cloudflare
               href: partner-cloudflare.md
         - name: 웹 API 도메인 구성
@@ -438,6 +456,9 @@
         - name: Azure Monitor
           href: azure-monitor.md
           displayName: 'log, logs, logging, usage, events, reports, reporting, dashboard'
+        - name: Azure Sentinel
+          href: azure-sentinel.md
+          displayName: 'log, logs, logging, events, Azure Monitor, Azure Sentinel, SIEM, threat hunting, Security, Security Orchestration'
         - name: 사용량 현황 분석
           href: analytics-with-application-insights.md
           displayName: 'application insights, app insights, reports, reporting'
