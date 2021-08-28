@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: d2fa47b0a4e75a0f776eaef2c0f7b0893ea1fa47
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: fb1194a9d0dd58046391ac20138d44d161c2c788
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113086463"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824149"
 ---
 # <a name="overview-of-azure-cloud-services-classic"></a>Azure Cloud Services(클래식) 개요
 
-> [!IMPORTANT]
-> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 Azure Cloud Services는 [PaaS(Platform-as-a-Service)](https://azure.microsoft.com/overview/what-is-paas/)의 예입니다. [Azure App Service](../app-service/overview.md)와 마찬가지로 이 기술은 확장성이 있고 안정적이며 운영 비용이 저렴한 애플리케이션을 지원하도록 설계되었습니다. App Service가 VM(가상 머신)에서 호스팅되는 것과 마찬가지로 Azure Cloud Services도 동일합니다. 하지만, VM보다 자세히 제어해야 합니다. 자체 소프트웨어를 Azure Cloud Services를 사용하는 VM에 설치하고 원격으로 액세스할 수 있습니다.
 
