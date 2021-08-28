@@ -4,8 +4,6 @@
   items:
     - name: DevTest 랩 정보
       href: devtest-lab-overview.md
-    - name: Azure DevTest Labs 및 Lab Services
-      href: lab-services-overview.md
 - name: 빠른 시작
   items:
     - name: 랩 만들기 - Resource Manager 템플릿
