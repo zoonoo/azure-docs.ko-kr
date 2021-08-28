@@ -26,6 +26,8 @@
       href: concept-azure-ad-join.md
     - name: 하이브리드 Azure AD 가입 디바이스
       href: concept-azure-ad-join-hybrid.md
+    - name: 디바이스 등록 흐름
+      href: device-registration-how-it-works.md
     - name: 온-프레미스 리소스에 대한 SSO
       href: azuread-join-sso.md
     - name: 기본 새로 고침 토큰

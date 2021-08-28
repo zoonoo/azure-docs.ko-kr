@@ -36,6 +36,8 @@
           href: howto-identity-protection-investigate-risk.md
         - name: 위험 검색을 수정하고 차단 해제
           href: howto-identity-protection-remediate-unblock.md
+        - name: 위험 데이터 내보내기
+          href: howto-export-risk-data.md
         - name: Microsoft Graph API 사용
           href: howto-identity-protection-graph-api.md
     - name: 위험 검색에 대한 피드백 제공
