@@ -1,15 +1,15 @@
 ---
 title: Azure Event Grid에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Event Grid에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 07/16/2021
+ms.date: 08/20/2021
 ms.topic: sample
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: d1739f9518ffd9513db7174ef314cc7c56c6428f
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 1c458756a76bce719265c178bbf9913e278e3d35
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114405619"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609317"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-event-grid"></a>Azure Event Grid에 대한 Azure Policy 규정 준수 컨트롤
 
