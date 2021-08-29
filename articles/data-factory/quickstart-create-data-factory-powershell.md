@@ -3,17 +3,18 @@ title: Azure Data Factory를 사용하여 Blob Storage 데이터 복사
 description: PowerShell을 사용하여 Azure Data Factory를 만들어 Azure Blob 스토리지의 한 위치에서 다른 위치로 데이터를 복사합니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: data-movement
 ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9535e7e864d955747f62632ea0882689519c7f85
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 1a7ebf7be5cad441ea6a37fec108cdb01c0428aa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665282"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731543"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Data Factory 만들기
 

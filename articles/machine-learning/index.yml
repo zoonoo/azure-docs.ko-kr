@@ -1,114 +1,109 @@
-### YamlMime:Landing
+### YamlMime:Hub
 title: Azure Machine Learning 설명서
-summary: Azure Machine Learning을 통해 모델을 학습 및 배포하고 ML 수명 주기를 관리(MLOps)하는 방법을 알아봅니다. 자습서, 코드 예제, API 참조 등
+summary: 'Azure Machine Learning을 통해 모델을 학습 및 배포하고 ML 수명 주기를 관리(MLOps)하는 방법을 알아봅니다. 자습서, 코드 예제, API 참조 등'
 metadata:
   title: Azure Machine Learning 설명서
-  description: Azure Machine Learning을 통해 모델을 학습 및 배포하고 ML 수명 주기를 관리(MLOps)하는 방법을 알아봅니다. 자습서, 코드 예제, API 참조 등
+  description: 'Azure Machine Learning을 통해 모델을 학습 및 배포하고 ML 수명 주기를 관리(MLOps)하는 방법을 알아봅니다. 자습서, 코드 예제, API 참조 등'
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
-  ms.topic: landing-page
+  ms.topic: hub-page
   ms.collection: collection
   ms.author: sgilley
   author: sdgilley
-  ms.date: 07/09/21
+  ms.date: 08/23/2021
   ms.custom: jordan-changes
-  ms.openlocfilehash: a6c9062be083260dd7a492363cb0dd79b2f37cdf
-  ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/10/2021
-  ms.locfileid: "113595906"
-landingContent:
-- title: 시작
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Azure Machine Learning이란?
-      url: overview-what-is-azure-ml.md
-  - linkListType: quickstart
-    links:
-    - text: 리소스 설정
+highlightedContent:
+  items:
+    - title: Azure Machine Learning이란?
+      itemType: overview
+      url: overview-what-is-azure-machine-learning.md
+    - title: 리소스 설정
+      itemType: get-started
       url: quickstart-create-resources.md
-  - linkListType: tutorial
-    links:
-    - text: Python SDK를 사용하여 학습
+    - title: '미리 보기: v2 CLI를 사용하여 모델 학습'
+      itemType: tutorial
+      url: how-to-train-cli.md
+    - title: 아키텍처 및 용어
+      itemType: overview
+      url: concept-azure-machine-learning-architecture.md
+    - title: '1일차: Python 시작'
+      itemType: get-started
       url: tutorial-1st-experiment-hello-world.md
-    - text: v2 CLI를 사용하여 학습(미리 보기)
-      url: how-to-train-cli.md
-- title: 모델 학습
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: 모델 학습에 대한 하이퍼 매개 변수 조정
-      url: how-to-tune-hyperparameters.md
-    - text: 재사용 가능 구성 요소에서 파이프라인 빌드
-      url: how-to-create-machine-learning-pipelines.md
-  - linkListType: tutorial
-    links:
-    - text: AutoML로 학습
-      url: tutorial-first-experiment-automated-ml.md
-    - text: 클라우드에서 학습 코드 실행(v2 CLI 미리 보기)
-      url: how-to-train-cli.md
-- title: 모델 배포
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: 모델을 배포하는 방법
-      url: how-to-deploy-and-where.md
-    - text: 관리형 엔드포인트를 사용한 실시간 채점(미리 보기)
-      url: how-to-deploy-managed-online-endpoints.md
-    - text: 관리형 엔드포인트를 사용한 일괄 처리 채점(미리 보기)
-      url: how-to-use-batch-endpoint.md
-- title: ML 수명 주기 관리(MLOps)
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: 모델 관리, 계보 및 모니터링
-      url: concept-model-management-and-deployment.md
-  - linkListType: how-to-guide
-    links:
-    - text: 학습 실행 추적, 모니터링, 분석
-      url: how-to-track-monitor-analyze-runs.md
-    - text: 데이터 수집 파이프라인에 대한 DevOps
-      url: how-to-cicd-data-ingestion.md
-- title: ML 프로젝트에 대한 보안
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: 엔터프라이즈 보안 및 거버넌스
-      url: concept-enterprise-security.md
-  - linkListType: tutorial
-    links:
-    - text: 보안 작업 영역 만들기
-      url: tutorial-create-secure-workspace.md
-  - linkListType: how-to-guide
-    links:
-    - text: '데이터 원본 연결 '
-      url: how-to-access-data.md
-- title: 참조 문서
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: Python SDK
-      url: /python/api/overview/azure/ml/
-    - text: REST API
-      url: /rest/api/azureml/
-    - text: Machine Learning v2 CLI
-      url: /cli/azure/ml
-- title: 리소스
-  linkLists:
-  - linkListType: sample
-    links:
-    - text: Python SDK 코드 예제
-      url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
-    - text: v2 CLI 코드 예제(미리 보기)
-      url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
-- title: ML Studio(클래식)를 찾고 있나요?
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: ML Studio(클래식) 설명서
-      url: classic/index.yml
-    - text: Azure Machine Learning 및 Studio(클래식)
-      url: overview-what-is-machine-learning-studio.md
+    - title: ML Studio(클래식)에서 마이그레이션
+      itemType: how-to-guide
+      url: migrate-overview.md
+conceptualContent:
+  items:
+    - title: 모델 학습
+      links:
+        - url: how-to-train-cli.md
+          itemType: how-to-guide
+          text: 클라우드에서 학습 코드 실행(v2 CLI 미리 보기)
+        - url: how-to-tune-hyperparameters.md
+          itemType: how-to-guide
+          text: 모델 학습에 대한 하이퍼 매개 변수 조정
+        - url: how-to-create-machine-learning-pipelines.md
+          itemType: how-to-guide
+          text: 재사용 가능 구성 요소에서 파이프라인 빌드
+        - url: tutorial-first-experiment-automated-ml.md
+          itemType: tutorial
+          text: 'AutoML: 분류 모델 학습'
+    - title: 모델 배포
+      links:
+        - url: how-to-deploy-and-where.md
+          itemType: how-to-guide
+          text: 모델을 배포하는 방법
+        - url: how-to-deploy-managed-online-endpoints.md
+          itemType: how-to-guide
+          text: 관리형 엔드포인트를 사용한 실시간 채점(미리 보기)
+        - url: how-to-use-batch-endpoint.md
+          itemType: how-to-guide
+          text: 관리형 엔드포인트를 사용한 일괄 처리 채점(미리 보기)
+    - title: ML 수명 주기 관리(MLOps)
+      links:
+        - url: how-to-track-monitor-analyze-runs.md
+          itemType: how-to-guide
+          text: '학습 실행 추적, 모니터링, 분석'
+        - url: concept-model-management-and-deployment.md
+          itemType: concept
+          text: '모델 관리, 배포, 계보 및 모니터링'
+        - url: how-to-cicd-data-ingestion.md
+          itemType: how-to-guide
+          text: 데이터 수집 파이프라인에 대한 DevOps
+    - title: ML 프로젝트에 대한 보안
+      links:
+        - url: tutorial-create-secure-workspace.md
+          itemType: tutorial
+          text: 보안 작업 영역 만들기
+        - url: how-to-access-data.md
+          itemType: how-to-guide
+          text: '데이터 원본 연결 '
+        - url: concept-enterprise-security.md
+          itemType: concept
+          text: 엔터프라이즈 보안 및 거버넌스
+    - title: 참조
+      links:
+        - url: /python/api/overview/azure/ml/
+          itemType: reference
+          text: Python SDK
+        - url: /rest/api/azureml/
+          itemType: reference
+          text: REST API
+        - url: /cli/azure/ml/
+          itemType: reference
+          text: V2 CLI(미리 보기)
+        - url: ./algorithm-module-reference/module-reference.md
+          itemType: reference
+          text: 알고리즘 및 모듈 참조
+    - title: 리소스
+      links:
+        - url: 'https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md'
+          itemType: sample
+          text: Python SDK 코드 예제
+        - url: 'https://github.com/Azure/azureml-examples/blob/main/cli/README.md'
+          itemType: sample
+          text: v2 CLI 코드 예제(미리 보기)
+        - url: ./classic/index.yml
+          itemType: overview
+          text: ML Studio(클래식) 설명서

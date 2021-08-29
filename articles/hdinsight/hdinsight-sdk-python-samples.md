@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/08/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 1a15a8d343398dce7a049622b53ca5e2b2c217eb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1e3c19b6e3821b31bef547453813353b8c5c88a2
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99821699"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "122643546"
 ---
 # <a name="azure-hdinsight-python-samples"></a>Azure HDInsight: Python 샘플
 
@@ -43,6 +43,6 @@ ms.locfileid: "99821699"
 
 [hdinsight-python-sdk-samples](https://github.com/Azure-Samples/hdinsight-python-sdk-samples) GitHub 리포지토리를 복제를 통해 Python용 샘플을 가져올 수 있습니다.
 
-[!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
+[!INCLUDE [hdinsight-sdk-additional-functionality](includes/hdinsight-sdk-additional-functionality.md)]
 
 이 추가 SDK 기능에 대한 코드 조각은 [Python용 HDInsight SDK 참조 설명서](/python/api/overview/azure/hdinsight)에서 찾을 수 있습니다.

@@ -8,12 +8,12 @@ metadata:
   ms.topic: reference
   ms.date: 07/20/2020
   ms.author: mbaldwin
-  ms.openlocfilehash: 662408ecd8071a5d877a1c24ebba2f2d40d76eca
-  ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+  ms.openlocfilehash: 4f65d8d7bb39b3f7de914b4497c8fafde7e6cd6b
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/21/2021
-  ms.locfileid: "112417089"
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121738669"
 title: Microsoft Azure Attestation에 대한 질문과 대답
 summary: >
   이 문서에서는 [Azure Attestation](overview.md)에 대한 가장 일반적인 질문에 대한 답변을 제공합니다.
@@ -24,33 +24,37 @@ sections:
 - name: 무시됨
   questions:
   - question: >
-      THIM(신뢰할 수 있는 하드웨어 ID 관리) 정의 및 enclave 증명에서의 해당 역할
-    answer: "THIM(신뢰할 수 있는 하드웨어 ID 관리)은 Intel의 [ACC(Azure 기밀 컴퓨팅)](../confidential-computing/overview.md) 노드에 대한 Azure 보안 기준을 정의하고 데이터를 캐시합니다. 캐시된 정보는 Azure Attestation에서 TEE(신뢰 실행 환경)의 유효성을 검사하는 데 추가적으로 사용됩니다.  \n\nTHIM은 다음과 같은 이유로 권장됩니다.\n   - 고가용성 제공 \n   - 외부에서 호스팅된 서비스와 인터넷 연결에 대한 종속성을 줄입니다.\n   - Intel에서 최신 버전의 Intel 인증서, CRL, TCB(신뢰할 수 있는 컴퓨팅 기반) 정보를 가져오고, Enclave에서 ACC 노드의 ID를 인용합니다. 따라서 이 서비스는 TEE의 유효성을 검사하는 동안 Azure Attestation에서 참조할 Azure 보안 기준을 확인하고, Intel 인증서의 무효화 또는 해지로 인한 증명 오류를 크게 줄입니다.  \n"
+      What is Trusted Hardware Identity Management (THIM) and its role in enclave attestation
+    answer: "Trusted Hardware Identity Management (THIM) defines the Azure security baseline for the [Azure Confidential computing (ACC)](../confidential-computing/overview.md) nodes from Intel and caches the data. The cached information will be further used by Azure Attestation in validating Trusted Execution Environments (TEEs).  \n\nTHIM is recommended for the following reasons:\n   - Offers high availability \n   - Reduces dependencies on externally hosted services and internet connectivity.\n   - Fetches the latest versions of Intel certificates, CRLs, Trusted Computing Base (TCB) information and Quoting Enclave identity of the ACC nodes from Intel. The service hence confirms the Azure security baseline to be referred by Azure Attestation while validating the TEEs, greatly reducing attestation failures due to invalidation or revocation of Intel certificates  \n"
   - question: >
-      Azure가 아닌 환경에서 Azure Attestation을 통해 지원되는 SGX 증명
-    answer: "아니요. Azure Attestation은 TEE의 유효성을 검사하기 위해 THIM(신뢰할 수 있는 하드웨어 ID 관리)에서 지정한 보안 기준에 따라 달라집니다. THIM은 현재 Azure 기밀 컴퓨팅 노드만 지원하도록 설계되었습니다. \n"
+      Is SGX attestation supported by Azure Attestation in non-Azure environments
+    answer: "No. Azure Attestation depends on the security baseline stated by Trusted Hardware Identity Management (THIM) to validate the TEEs. THIM is currently designed to support only Azure Confidential computing nodes. \n"
   - question: >
-      SGX Enclave 증명에 대해 Azure Attestation에서 수행하는 유효성 검사는 무엇인가요?
+      What validations does Azure Attestation perform for attesting SGX enclaves
     answer: >
-      Azure Attestation은 다양한 유형의 TEE를 원격으로 증명하는 통합 프레임워크입니다. Azure Attestation:
+      Azure Attestation is a unified framework for remotely attesting different types of TEEs. Azure Attestation:
 
-         - 서명된 Enclave 견적의 신뢰할 수 있는 루트가 Intel에 속하는지 확인합니다.
-         - enclave 따옴표가 THIM(신뢰할 수 있는 하드웨어 ID 관리)에 정의된 Azure 보안 기준을 충족하는지 확인합니다.
-         - 증명 요청 개체에서 EHD(Enclave 보유 데이터)의 SHA256 해시가 Enclave 견적에 있는 reportData 필드의 처음 32바이트와 일치하는지 확인합니다.
-         - 고객은 증명 공급자를 만들고 사용자 지정 정책을 구성할 수 있습니다. 위의 유효성 검사 외에도 Azure Attestation은 정책에 대해 Enclave 견적을 평가합니다. 정책은 Enclave에 대한 권한 부여 규칙을 정의하고 증명 토큰을 생성하기 위한 발급 규칙도 지정합니다. 의도한 소프트웨어가 Enclave에서 실행 중인지 확인하기 위해 고객은 Enclave 견적의 **mrsigner** 및 **mrenclave** 필드가 고객 이진 파일의 값과 일치하는지 확인하는 권한 부여 규칙을 추가할 수 있습니다.
+         - Validates if the trusted root of a signed enclave quote belongs to Intel.
+         - Validates if the enclave quote meets the Azure security baseline as defined by Trusted Hardware Identity Management (THIM).
+         - Validates if the SHA256 hash of Enclave Held Data (EHD) in the attestation request object matches the first 32 bytes of reportData field in the enclave quote.
+         - Allows customers to create an attestation provider and configure a custom policy. In addition to the above validations, Azure Attestation evaluates the enclave quote against the policy. Policies define authorization rules for the enclave and also dictate issuance rules for generating the attestation token. To confirm if intended software is running in an enclave, customers can add authorization rules to verify if **mrsigner** and **mrenclave** fields in the enclave quote matches the values of customer binaries.
   - question: >
-      검증 도구가 Azure Attestation에서 지원하는 SGX 증명에 대한 참고 자료를 가져오는 방법
-    answer: "일반적으로 Intel을 신뢰의 루트로 사용하는 증명 모델의 경우 증명 클라이언트는 Enclave API와 통신하여 Enclave 증거를 가져옵니다. Enclave API는 내부적으로 Intel PCK 캐싱 서비스를 호출하여 증명할 노드의 Intel 인증서를 가져옵니다. 인증서는 Enclave 증거에 서명하는 데 사용되므로 원격으로 증명 가능한 참고 자료를 생성합니다.  \n\nAzure Attestation에 대해 동일한 프로세스를 구현할 수 있습니다. 그러나 THIM(신뢰할 수 있는 하드웨어 ID 관리)이 제공하는 이점을 활용하려면 ACC 가상 머신을 설치한 후 [Azure DCAP 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.DCAP)를 설치하는 것이 좋습니다. Intel과의 계약에 따라 Azure DCAP 라이브러리가 설치되면 enclave 증거 생성 요청이 Intel PCK 캐싱 서비스에서 THIM으로 리디렉션됩니다. Azure DCAP 라이브러리는 Windows 및 Linux 기반 환경에서 지원됩니다.\n"
+      How can a verifier obtain the collateral for SGX attestation supported by Azure Attestation
+    answer: "In general, for the attestation models with Intel as the root of trust, attestation client talks to enclave APIs to fetch the enclave evidence. Enclave APIs internally call Intel PCK caching service to fetch Intel certificates of the node to be attested. The certificates are used to sign the enclave evidence thereby generating a remotely attestable collateral.  \n\nThe same process can be implemented for Azure Attestation. However to leverage the benefits offered by Trusted Hardware Identity Management (THIM),  after installing ACC virtual machine, it is recommended to install [Azure DCAP library](https://www.nuget.org/packages/Microsoft.Azure.DCAP). Based on the agreement with Intel, when Azure DCAP library is installed, the requests for generating enclave evidence are redirected from Intel PCK caching service to THIM. Azure DCAP library is supported in Windows and Linux-based environments.\n"
   - question: >
-      다른 증명 모델에서 Azure Attestation으로 전환하는 방법
-    answer: "- Azure 기밀 컴퓨팅 가상 머신을 설치한 후 Azure DCAP 라이브러리([Windows/](https://www.nuget.org/packages/Microsoft.Azure.DCAP/) [Linux](https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/))를 설치하여 THIM(신뢰할 수 있는 하드웨어 ID 관리)이 제공하는 이점을 활용합니다.\n- Enclave 증거를 검색하고 Azure Attestation에 요청을 보낼 수 있는 원격 증명 클라이언트를 작성해야 합니다. [코드 샘플](/samples/browse/?expanded=azure&terms=attestation)을 참조하세요. \n- 증명 요청은 기본 공급자 또는 사용자 지정 증명 공급자의 REST API 엔드포인트로 보낼 수 있습니다. \n- Azure Attestation API는 Azure AD 인증에 의해 보호됩니다. 따라서 증명 API를 호출하는 클라이언트는 증명 요청에서 유효한 Azure AD 액세스 토큰을 가져오고 전달할 수 있어야 합니다. \n"
+      How to shift to Azure Attestation from other attestation models
+    answer: "- After installing Azure Confidential computing virtual machine, install Azure DCAP library ([Windows/](https://www.nuget.org/packages/Microsoft.Azure.DCAP/) [Linux](https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/)) to leverage the benefits offered by Trusted Hardware Identity Management (THIM).\n- Remote attestation client needs to be authored which can retrieve the enclave evidence and send requests to Azure Attestation. See [code samples](/samples/browse/?expanded=azure&terms=attestation) for reference \n- Attestation requests can be sent to the REST API endpoint of default providers or custom attestation providers \n- Azure Attestation APIs are protected by Azure AD authentication. Hence the client that invokes attest APIs must be able to obtain and pass a valid Azure AD access token in the attestation request \n"
   - question: >
-      신뢰 당사자가 증명 토큰의 무결성을 확인하는 방법
-    answer: "Azure Attestation에 의해 생성된 증명 토큰은 자체 서명된 인증서를 사용하여 서명됩니다. 인증서는 [OpenID 메타데이터 엔드포인트](/rest/api/attestation/metadataconfiguration/get)를 통해 노출됩니다. 신뢰 당사자는 이 엔드포인트에서 서명 인증서를 검색하고 증명 토큰의 서명 확인을 수행할 수 있습니다. 증명 토큰의 유효 시간은 8시간입니다. \n"
+      How can the relying party verify the integrity of attestation token and confirm that Azure Attestation is running inside an enclave
+    answer: "Attestation token generated by Azure Attestation is signed using a self-signed certificate. The signing certificates are exposed via an [OpenID metadata endpoint](/rest/api/attestation/metadataconfiguration/get). Relying party can retrieve the signing certificates from this endpoint and perform signature verification of the attestation token. The signing certificate also includes SGX quote of the TEE inside which Azure Attestation runs. If relying party also prefers to check if Azure Attestation is running inside a valid SGX enclave, the SGX quote can be retrieved from the signing certificate and locally validated.  \n"
   - question: >
-      OpenID 메타데이터 엔드포인트에서 서명 확인에 사용할 인증서를 확인하는 방법
+      How long is an attestation token valid?
     answer: >
-      OpenID 메타데이터 엔드포인트에 노출된 여러 인증서는 Azure Attestation에서 지원하는 여러 사용 사례(예: SGX 증명)에 해당합니다. [RFC 7515](https://tools.ietf.org/html/rfc7515)에 지정된 표준에 따라 증명 토큰 헤더의 *kid* 매개 변수와 일치하는 kid(키 ID)가 있는 인증서가 서명 확인에 사용됩니다. 일치하는 **kid** 가 없으면 OpenID 메타데이터 엔드포인트에서 노출된 모든 인증서를 시도해야 합니다.
+      Validity time of the attestation token is 8 hours. There is currently no provision to customize the value.
   - question: >
-      신뢰 당사자가 검증된 TEE(신뢰할 수 있는 실행 환경)과 비밀을 공유할 수 있습니다.
-    answer: Enclave 내에서 생성되는 공개 키는 클라이언트에서 Azure Attestation으로 보낸 증명 요청 개체의 EHD(Enclave 보유 데이터) 속성에 표시될 수 있습니다. Azure Attestation은 EHD의 SHA256 해시가 견적의 reportData 필드에 표시되는지 확인한 후 증명 토큰에 EHD를 포함합니다. 신뢰 당사자는 확인된 증명 응답에서 EHD를 사용하여 비밀을 암호화하고 Enclave와 공유할 수 있습니다. 자세한 내용은 [Azure Attestation 기본 개념](basic-concepts.md)을 참조하세요.
+      How to identify the certificate to be used for signature verification from the OpenID metadata endpoint
+    answer: >
+      Multiple certificates exposed in the OpenID metadata endpoint correspond to different use cases (e.g. SGX attestation) supported by Azure Attestation. As per the standards specified by [RFC 7515](https://tools.ietf.org/html/rfc7515), the certificate with key ID (kid) matching the *kid* parameter in the attestation token header is to be used for signature verification. If no matching **kid** is found, then it is expected to try all the certificates exposed by OpenID metadata endpoint.
+  - question: >
+      Is it possible for the relying party to share secrets with the validated Trusted Execution Environments (TEEs)
+    answer: Public key generated within an enclave can be expressed in the Enclave Held Data (EHD) property of the attestation request object sent by the client to Azure Attestation. After confirming if SHA256 hash of EHD is expressed in reportData field of the quote, Azure Attestation includes EHD in the attestation token. Relying party can use the EHD from the verified attestation response to encrypt the secrets and share with the enclave. See [Azure Attestation basic concepts](basic-concepts.md) for more information.
